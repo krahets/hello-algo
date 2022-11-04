@@ -1,0 +1,11 @@
+# MacOS Desktop Services Store
+.DS_Store
+
+# Editor
+.vscode/
+
+# mkdocs files
+overrides/
+site/
+codes/
+docs/

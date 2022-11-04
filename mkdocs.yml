@@ -1,0 +1,136 @@
+# Project information
+site_name: 算法入门速成
+site_url: https://krahets.github.io/dsa-021/
+site_author: Krahets
+site_description: Your first book to learn Data Structure And Algorithm.
+# Repository
+repo_name: krahets/dsa-021
+repo_url: https://github.com/krahets/dsa-021
+
+# Copyright
+copyright: Copyright &copy; 2020 - 2022 Krahets
+
+# Configuration
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - announce.dismiss
+    - content.code.annotate
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    - navigation.expand
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.prune
+    - navigation.sections
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  palette:
+    - scheme: default
+      primary: white
+      # accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - scheme: slate
+      # primary: grey
+      # accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/images/favicon.png
+  logo: assets/images/favicon.png
+  # icon:
+  #   logo: logo
+
+extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/krahets
+    - icon: fontawesome/brands/twitter 
+      link: https://twitter.com/krahets
+  generator: false
+
+# Plugins
+plugins:
+  - search
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  # - pymdownx.emoji:
+  #     emoji_generator: !!python/name:materialx.emoji.to_svg
+  #     emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.keys
+  # - pymdownx.magiclink:
+  #     repo_url_shorthand: true
+  #     user: squidfunk
+  #     repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+extra_css:
+  - stylesheets/extra.css
+
+# Page tree
+nav:
+  - 关于本书:
+    - chapter_about/index.md
+  - 前言: 
+    - chapter_introduction/index.md
+  - 计算复杂度:
+    - chapter_computational_complexity/index.md
+    - 算法效率评估: chapter_computational_complexity/performance_evaluation.md
+    - 时间复杂度: chapter_computational_complexity/time_complexity.md
+    - 空间复杂度: chapter_computational_complexity/space_complexity.md
+    - 小结: chapter_computational_complexity/summary.md
+  - 数据结构简介: 
+    - chapter_data_structure/index.md
+    - 数据与内存: chapter_data_structure/computer_memory.md
+    - 数据结构分类: chapter_data_structure/classification_of_data_strcuture.md
+    - 小结: chapter_data_structure/summary.md
+  - 数组与链表: 
+    - chapter_array_and_linkedlist/index.md
+    - 数组: chapter_array_and_linkedlist/array.md
+    - 链表: chapter_array_and_linkedlist/linked_list.md
+    - 列表: chapter_array_and_linkedlist/list.md
+    - 小结: chapter_array_and_linkedlist/summary.md
