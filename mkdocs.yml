@@ -1,11 +1,11 @@
 # Project information
-site_name: 算法入门速成
-site_url: https://krahets.github.io/dsa-021/
+site_name: Hello 算法
+site_url: https://krahets.github.io/hello-algo/
 site_author: Krahets
 site_description: Your first book to learn Data Structure And Algorithm.
 # Repository
-repo_name: krahets/dsa-021
-repo_url: https://github.com/krahets/dsa-021
+repo_name: krahets/hello-algo
+repo_url: https://github.com/krahets/hello-algo
 
 # Copyright
 copyright: Copyright &copy; 2020 - 2022 Krahets
@@ -115,17 +115,18 @@ extra_css:
 nav:
   - 关于本书:
     - chapter_about/index.md
-  - 前言: 
+  - 算法无处不在: 
     - chapter_introduction/index.md
   - 计算复杂度:
     - chapter_computational_complexity/index.md
     - 算法效率评估: chapter_computational_complexity/performance_evaluation.md
     - 时间复杂度: chapter_computational_complexity/time_complexity.md
     - 空间复杂度: chapter_computational_complexity/space_complexity.md
+    - 权衡时间与空间: chapter_computational_complexity/space_time_tradeoff.md
     - 小结: chapter_computational_complexity/summary.md
   - 数据结构简介: 
     - chapter_data_structure/index.md
-    - 数据与内存: chapter_data_structure/computer_memory.md
+    - 数据与内存: chapter_data_structure/data_and_memory.md
     - 数据结构分类: chapter_data_structure/classification_of_data_strcuture.md
     - 小结: chapter_data_structure/summary.md
   - 数组与链表: 
@@ -134,3 +135,5 @@ nav:
     - 链表: chapter_array_and_linkedlist/linked_list.md
     - 列表: chapter_array_and_linkedlist/list.md
     - 小结: chapter_array_and_linkedlist/summary.md
+  - License:
+    - chapter_license/index.md

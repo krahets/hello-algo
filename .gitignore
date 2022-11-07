@@ -7,5 +7,6 @@
 # mkdocs files
 overrides/
 site/
-codes/
+codes/python
+codes/cpp
 docs/chapter_*
