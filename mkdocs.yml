@@ -135,5 +135,10 @@ nav:
     - 链表: chapter_array_and_linkedlist/linked_list.md
     - 列表: chapter_array_and_linkedlist/list.md
     - 小结: chapter_array_and_linkedlist/summary.md
+  - 栈与队列:
+    - chapter_stack_and_queue/index.md
+    - 栈: chapter_stack_and_queue/stack.md
+    - 队列: chapter_stack_and_queue/queue.md
+    - 小结: chapter_stack_and_queue/summary.md
   - License:
     - chapter_license/index.md
