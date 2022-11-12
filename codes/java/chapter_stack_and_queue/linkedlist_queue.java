@@ -29,7 +29,7 @@ class LinkedListQueue {
 
     /* 出队 */
     public int poll() {
-        // 删除头节点
+        // 删除头结点
         return list.removeFirst();
     }
 

@@ -1,4 +1,4 @@
-package chapter_computational_complexity.time_complexity;
+package chapter_computational_complexity;
 
 import java.util.*;
 

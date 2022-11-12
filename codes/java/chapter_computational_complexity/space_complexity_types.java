@@ -1,4 +1,4 @@
-package chapter_computational_complexity.space_complexity;
+package chapter_computational_complexity;
 
 import include.*;
 import java.util.*;

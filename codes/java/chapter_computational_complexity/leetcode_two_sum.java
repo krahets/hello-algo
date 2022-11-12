@@ -1,4 +1,4 @@
-package chapter_computational_complexity.space_time_tradeoff;
+package chapter_computational_complexity;
 
 import java.util.*;
 
@@ -36,10 +36,11 @@ public class leetcode_two_sum {
         int target = 9;
         
         // ====== Driver Code ======
+        // 方法一
         solution_brute_force slt1 = new solution_brute_force();
         int[] res = slt1.twoSum(nums, target);
         System.out.println(Arrays.toString(res));
-
+        // 方法二
         solution_hash_map slt2 = new solution_hash_map();
         res = slt2.twoSum(nums, target);
         System.out.println(Arrays.toString(res));

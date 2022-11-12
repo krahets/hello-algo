@@ -20,11 +20,11 @@ theme:
     # - content.tabs.link
     - content.tooltips
     # - header.autohide
-    - navigation.expand
+    # - navigation.expand
     - navigation.indexes
     # - navigation.instant
     # - navigation.prune
-    - navigation.sections
+    # - navigation.sections
     # - navigation.tabs
     # - navigation.tabs.sticky
     # - navigation.top
@@ -139,6 +139,14 @@ nav:
     - chapter_stack_and_queue/index.md
     - 栈: chapter_stack_and_queue/stack.md
     - 队列: chapter_stack_and_queue/queue.md
+    - 双向队列: chapter_stack_and_queue/deque.md
     - 小结: chapter_stack_and_queue/summary.md
+  - 树:
+    - chapter_tree/index.md
+    - 二叉树: chapter_tree/binary_tree.md
+    - 满二叉树: chapter_tree/perfect_complete_full_binary_tree.md
+    - 二叉搜索树: chapter_tree/binary_search_tree.md
+    - 平衡二叉树: chapter_tree/balanced_binary_tree.md
+    - 小结: chapter_tree/summary.md
   - License:
     - chapter_license/index.md
