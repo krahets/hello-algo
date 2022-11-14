@@ -17,7 +17,7 @@ theme:
   features:
     - announce.dismiss
     - content.code.annotate
-    # - content.tabs.link
+    - content.tabs.link
     - content.tooltips
     # - header.autohide
     # - navigation.expand
