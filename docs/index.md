@@ -12,7 +12,7 @@ hide:
     </br>
     </br>
     </br>
-    <h1 style="text-align:center"> 《Hello，算法》 </h1>
+    <h1 style="text-align:center"> 《 Hello，算法 》 </h1>
     <h3 style="text-align:center"> 动画图解、能运行、可讨论的</br>数据结构与算法快速入门教程 </h3>
     <h3 style="text-align:center"> [![github-stars](https://img.shields.io/github/stars/krahets/hello-algo?style=social)](https://github.com/krahets/hello-algo) </h3>
     </br>
