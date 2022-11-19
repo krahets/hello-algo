@@ -35,9 +35,10 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 | 更新：二叉搜索树 | 2022-11-14 |
 | 更新：首页介绍 | 2022-11-15 |
 | 更新：关于本书</br>新增：如何使用本书</br>新增：一起参与创作 | 2022-11-16 |
+| 新增：查找算法 | 2022-11-19 |
 
 ## License
 
 ![cc_by-nc-sa](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
 
-The **texts, codes, images, photos, and videos** present on the website(book) is licensed under a [CC BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+The **texts, codes, images, photos, and videos** present on this work is licensed under [CC BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
