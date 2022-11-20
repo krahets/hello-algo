@@ -125,7 +125,7 @@ nav:
     - 算法效率评估: chapter_computational_complexity/performance_evaluation.md
     - 时间复杂度: chapter_computational_complexity/time_complexity.md
     - 空间复杂度: chapter_computational_complexity/space_complexity.md
-    - 权衡时间与空间 *: chapter_computational_complexity/space_time_tradeoff.md
+    - 权衡时间与空间: chapter_computational_complexity/space_time_tradeoff.md
     - 小结: chapter_computational_complexity/summary.md
   - 数据结构简介: 
     - 数据与内存: chapter_data_structure/data_and_memory.md
@@ -134,7 +134,7 @@ nav:
   - 数组与链表: 
     - 数组（Array）: chapter_array_and_linkedlist/array.md
     - 链表（LinkedList）: chapter_array_and_linkedlist/linked_list.md
-    - 列表（List）*: chapter_array_and_linkedlist/list.md
+    - 列表（List）: chapter_array_and_linkedlist/list.md
     - 小结: chapter_array_and_linkedlist/summary.md
   - 栈与队列:
     - 栈（Stack）: chapter_stack_and_queue/stack.md

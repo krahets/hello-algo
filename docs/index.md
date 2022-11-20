@@ -22,7 +22,7 @@ hide:
 
 <h2 style="text-align:center"> 「动画 + 图片 + HTML」 </h2>
 
-<p style="text-align:center"> 重点知识以动画和图解为主，提升知识吸收效率</br>MkDocs 文档，可在笔记本、平板、手机等移动端随时学习 </p>
+<p style="text-align:center"> 重点知识以动画和图解为主，提升知识吸收效率</br>由 MkDocs 构建文档，支持笔记本、平板、手机多种终端 </p>
 
 ![algorithm_animation](index.assets/algorithm_animation.gif)
 

@@ -1,20 +1,34 @@
-# Welcome to MkDocs
+# Hello，算法
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+<p style="text-align:center"> <img src="docs/index.assets/conceptual_rendering.jpg" width="300"/> </p>
 
-## Commands
+<h1 style="text-align:center"> 《 Hello，算法 》 </h1>
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+<h3 style="text-align:center"> 动画图解、能运行、可讨论的</br>数据结构与算法快速入门教程 </h3>
 
-## Project layout
+<h3 style="text-align:center"> [![github-stars](https://img.shields.io/github/stars/krahets/hello-algo?style=social)](https://github.com/krahets/hello-algo) </h3>
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+---
+
+<h2 style="text-align:center"> 「动画 + 图片 + HTML」 </h2>
+
+<p style="text-align:center"> 重点知识以动画和图解为主，提升知识吸收效率</br>由 MkDocs 构建文档，支持笔记本、平板、手机多种终端 </p>
+
+![algorithm_animation](docs/index.assets/algorithm_animation.gif)
+
+<h2 style="text-align:center"> 「面向代码，注重实践」 </h2>
+
+<p style="text-align:center"> 示例代码皆可一键运行，在调试中加深理解</br>提供 Java, C++, Python 源码与详细注释 </p>
+
+![running_code](docs/index.assets/running_code.gif)
+
+<h2 style="text-align:center"> 「可讨论，能提问」 </h2>
+
+<p style="text-align:center"> 在评论区和小伙伴们一起讨论进步</br>作者定期回复评论问题（一般 < 72h ） </p>
+
+![comment](docs/index.assets/comment.gif)
+
+---
 
 ## 更新日志
 
