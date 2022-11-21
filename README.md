@@ -1,20 +1,10 @@
-# Welcome to MkDocs
+# Hello 算法
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+[<img src="docs/index.assets/conceptual_rendering.png" height="200" />](krahets.github.io/hello-algo/)
 
-## Commands
+动画图解、能运行、可讨论的
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+数据结构与算法快速入门教程
 
 ## 更新日志
 
@@ -23,7 +13,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 | 新增：算法无处不在  | 2022-10-10 |
 | 新增：数组与链表   | 2022-10-15 |
 | 新增：数据结构简介 | 2022-10-20 |
-| 新增：前言         | 2022-10-23 |
+| 新增：前言        | 2022-10-23 |
 | 新增：计算复杂度   | 2022-11-03 |
 | 更新：配图 | 2022-11-04 |
 | 新增：数据与内存 | 2022-11-05 |
@@ -36,6 +26,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 | 更新：首页介绍 | 2022-11-15 |
 | 更新：关于本书</br>新增：如何使用本书</br>新增：一起参与创作 | 2022-11-16 |
 | 新增：查找算法 | 2022-11-19 |
+| 更新：Markdown Stylesheet</br>新增：冒泡排序、插入排序 | 2022-11-21 |
 
 ## License
 

@@ -6,6 +6,7 @@ site_description: Your first book to learn Data Structure And Algorithm.
 # Repository
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
+edit_uri: https://github.com/krahets/hello-algo/master/docs/
 
 # Copyright
 copyright: Copyright &copy; 2020 - 2022 Krahets
@@ -14,6 +15,7 @@ copyright: Copyright &copy; 2020 - 2022 Krahets
 theme:
   name: material
   custom_dir: overrides
+  language: zh
   features:
     - announce.dismiss
     - content.code.annotate
@@ -52,8 +54,9 @@ theme:
     code: Roboto Mono
   favicon: assets/images/favicon.png
   logo: assets/images/logo.png
-  # icon:
-  #   logo: logo
+  icon:
+    logo: logo
+    repo: fontawesome/brands/github
 
 extra:
   social:
@@ -61,7 +64,9 @@ extra:
       link: https://github.com/krahets
     - icon: fontawesome/brands/twitter 
       link: https://twitter.com/krahets
-  generator: false
+    - icon: fontawesome/solid/code 
+      link: https://leetcode.cn/u/jyd/
+  # generator: false
 
 # Plugins
 plugins:
@@ -113,12 +118,11 @@ extra_css:
 
 # Page tree
 nav:
-  - 前言:
+  - 关于本书:
     - chapter_introduction/index.md
-  - 如何使用本书: 
-    - 算法学习建议: chapter_prerequisites/suggestions.md
-    - 编程环境安装: chapter_prerequisites/installation.md
-    - 一起参与创作: chapter_prerequisites/contribution.md
+    - 如何使用本书: chapter_introduction/suggestions.md
+    - 编程环境安装: chapter_introduction/installation.md
+    - 一起参与创作: chapter_introduction/contribution.md
   - 算法是什么: 
     - chapter_dsa_introduction/index.md
   - 计算复杂度:
@@ -151,5 +155,10 @@ nav:
     - 二分查找: chapter_searching/binary_search.md
     - 哈希查找: chapter_searching/hashing_search.md
     - 小结: chapter_searching/summary.md
+  - 排序算法:
+    - 冒泡排序: chapter_sorting/bubble_sort.md
+    - 插入排序: chapter_sorting/insertion_sort.md
+    - 归并排序: chapter_sorting/merge_sort.md
+    - 快速排序: chapter_sorting/quick_sort.md
   - 参考文献:
     - chapter_reference/index.md

@@ -5,8 +5,10 @@
 .vscode/
 
 # mkdocs files
-overrides/
 site/
+.cache/
+overrides/
 codes/python
 codes/cpp
+
 docs/chapter_*
