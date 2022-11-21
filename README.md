@@ -1,6 +1,6 @@
 # Hello 算法
 
-[<img src="docs/index.assets/conceptual_rendering.png" height="200" />](krahets.github.io/hello-algo/)
+[<img src="docs/index.assets/conceptual_rendering.png" height="260" />](https://krahets.github.io/hello-algo/)
 
 动画图解、能运行、可讨论的
 
