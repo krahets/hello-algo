@@ -14,7 +14,7 @@ copyright: Copyright &copy; 2020 - 2022 Krahets
 # Configuration
 theme:
   name: material
-  custom_dir: overrides
+  custom_dir: docs/overrides
   language: zh
   features:
     - announce.dismiss
