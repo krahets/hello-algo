@@ -158,7 +158,7 @@ nav:
   - 排序算法:
     - 冒泡排序: chapter_sorting/bubble_sort.md
     - 插入排序: chapter_sorting/insertion_sort.md
-    - 归并排序: chapter_sorting/merge_sort.md
     - 快速排序: chapter_sorting/quick_sort.md
+    - 归并排序: chapter_sorting/merge_sort.md
   - 参考文献:
     - chapter_reference/index.md

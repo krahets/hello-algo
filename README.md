@@ -1,10 +1,33 @@
-# Hello 算法
+<p align="center">
+  <a href="https://krahets.github.io/hello-algo/">
+    <img src="docs/index.assets/conceptual_rendering.png" width="220">
+  </a>
+</p>
 
-[<img src="docs/index.assets/conceptual_rendering.png" height="260" />](https://krahets.github.io/hello-algo/)
+<h3 align="center">
+  《 Hello，算法 》
+</h3>
 
-动画图解、能运行、可讨论的
+<p align="center"> 
+  动画图解、能运行、可讨论的</br>数据结构与算法快速入门教程
+</p>
 
-数据结构与算法快速入门教程
+<p align="center">
+  <a href="https://krahets.github.io/hello-algo/">
+    <img src="docs/index.assets/demo.png" width="700">
+  </a>
+</p>
+
+<p align="center">
+  <em>
+    前往阅读 -
+    <a href="https://hello-algo.pages.dev/">
+    hello-algo.pages.dev
+    </a>
+  </em>
+</p>
+
+---
 
 ## 更新日志
 
@@ -27,6 +50,7 @@
 | 更新：关于本书</br>新增：如何使用本书</br>新增：一起参与创作 | 2022-11-16 |
 | 新增：查找算法 | 2022-11-19 |
 | 更新：Markdown Stylesheet</br>新增：冒泡排序、插入排序 | 2022-11-21 |
+| 新增：快速排序 | 2022-11-22 |
 
 ## License
 
