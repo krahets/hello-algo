@@ -7,13 +7,12 @@ hide:
 === " "
 
     <div class="result" markdown>
-    ![conceptual_rendering](index.assets/conceptual_rendering.png){ align=left width=300 }
-    </br></br></br>
-    <p align="center">
+    ![conceptual_rendering](index.assets/conceptual_rendering.png){ align=left width=350 }
+    </br></br></br></br>
     <h1 align="center"> 《 Hello，算法 》 </h1>
     <h3 align="center"> 动画图解、能运行、可讨论的</br>数据结构与算法快速入门教程 </h3>
+    <p align="center"> @Krahets </p>
     <h3 align="center"> [![github-stars](https://img.shields.io/github/stars/krahets/hello-algo?style=social)](https://github.com/krahets/hello-algo) </h3>
-    </p>
     </br>
     </div>
 
