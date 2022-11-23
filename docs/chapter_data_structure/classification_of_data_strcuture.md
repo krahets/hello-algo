@@ -17,7 +17,7 @@ comments: true
 
 ![classification_logic_structure](classification_of_data_strcuture.assets/classification_logic_structure.png)
 
-<p style="text-align:center"> Fig. 线性与非线性数据结构 </p>
+<p align="center"> Fig. 线性与非线性数据结构 </p>
 
 ## 物理结构：连续与离散
 
@@ -29,7 +29,7 @@ comments: true
 
 ![classification_phisical_structure](classification_of_data_strcuture.assets/classification_phisical_structure.png)
 
-<p style="text-align:center"> Fig. 连续空间存储与离散空间存储 </p>
+<p align="center"> Fig. 连续空间存储与离散空间存储 </p>
 
 **所有数据结构都是基于数组、或链表、或两者组合实现的。** 例如栈和队列，既可以使用数组实现、也可以使用链表实现，而例如哈希表，其实现同时包含了数组和链表。
 

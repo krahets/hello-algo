@@ -4,13 +4,13 @@
 
 ![deque_operations](deque.assets/deque_operations.png)
 
-<p style="text-align:center"> Fig. 双向队列的操作 </p>
+<p align="center"> Fig. 双向队列的操作 </p>
 
 ## 双向队列常用操作
 
 双向队列的常用操作见下表，方法名需根据编程语言设定来具体确定。
 
-<p style="text-align:center"> Table. 双向队列的常用操作 </p>
+<p align="center"> Table. 双向队列的常用操作 </p>
 
 <div class="center-table" markdown>
 

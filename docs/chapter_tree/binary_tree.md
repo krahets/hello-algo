@@ -22,7 +22,7 @@ comments: true
 
 ![binary_tree_definition](binary_tree.assets/binary_tree_definition.png)
 
-<p style="text-align:center"> Fig. 子结点与子树 </p>
+<p align="center"> Fig. 子结点与子树 </p>
 
 需要注意，父结点、子结点、子树是可以向下递推的。例如，如果将上图的「结点 2」看作父结点，那么其左子节点和右子结点分别为「结点 4」和「结点 5」，左子树和右子树分别为「结点 4 以下的树」和「结点 5 以下的树」。
 
@@ -42,7 +42,7 @@ comments: true
 
 ![binary_tree_terminology](binary_tree.assets/binary_tree_terminology.png)
 
-<p style="text-align:center"> Fig. 二叉树的常见术语 </p>
+<p align="center"> Fig. 二叉树的常见术语 </p>
 
 ## 二叉树最佳和最差结构
 
@@ -50,7 +50,7 @@ comments: true
 
 ![binary_tree_corner_cases](binary_tree.assets/binary_tree_corner_cases.png)
 
-<p style="text-align:center"> Fig. 二叉树的最佳和最差结构 </p>
+<p align="center"> Fig. 二叉树的最佳和最差结构 </p>
 
 在最佳和最差结构下，二叉树的结点数量和高度等性质达到最大（最小）值。
 
@@ -88,7 +88,7 @@ comments: true
 
 ![binary_tree_add_remove](binary_tree.assets/binary_tree_add_remove.png)
 
-<p style="text-align:center"> Fig. 在二叉树中插入与删除结点 </p>
+<p align="center"> Fig. 在二叉树中插入与删除结点 </p>
 
 ```java title="binary_tree.java"
 TreeNode P = new TreeNode(0);
@@ -115,7 +115,7 @@ n1.left = n2;
 
 ![binary_tree_bfs](binary_tree.assets/binary_tree_bfs.png)
 
-<p style="text-align:center"> Fig. 二叉树的层序遍历 </p>
+<p align="center"> Fig. 二叉树的层序遍历 </p>
 
 广度优先遍历一般借助「队列」来实现。队列的规则是 “先进先出” ，广度优先遍历的规则是 ”一层层平推“ ，两者背后的思想是一致的。
 
@@ -148,7 +148,7 @@ n1.left = n2;
 
 ![binary_tree_dfs](binary_tree.assets/binary_tree_dfs.png)
 
-<p style="text-align:center"> Fig. 二叉树的前 / 中 / 后序遍历 </p>
+<p align="center"> Fig. 二叉树的前 / 中 / 后序遍历 </p>
 
 <div class="center-table" markdown>
 

@@ -22,8 +22,8 @@ comments: true
 
 !!! quote ""
 
-    <p style="text-align:center"> 追风赶月莫停留，平芜尽处是春山 </p>
-    <p style="text-align:center"> 一起加油！ </p>
+    <p align="center"> 追风赶月莫停留，平芜尽处是春山 </p>
+    <p align="center"> 一起加油！ </p>
 
 ## 内容结构
 
@@ -31,7 +31,7 @@ comments: true
 
 ![mindmap](index.assets/mindmap.png)
 
-<p style="text-align:center"> Fig. 知识点思维导图 </p>
+<p align="center"> Fig. 知识点思维导图 </p>
 
 ### 复杂度分析
 

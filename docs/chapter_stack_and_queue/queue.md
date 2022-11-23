@@ -10,13 +10,13 @@ comments: true
 
 ![queue_operations](queue.assets/queue_operations.png)
 
-<p style="text-align:center"> Fig. 队列的先入先出特性 </p>
+<p align="center"> Fig. 队列的先入先出特性 </p>
 
 ## 队列常用操作
 
 队列的常用操作见下表，方法命名需根据编程语言的设定来具体确定。
 
-<p style="text-align:center"> Table. 队列的常用操作 </p>
+<p align="center"> Table. 队列的常用操作 </p>
 
 <div class="center-table" markdown>
 

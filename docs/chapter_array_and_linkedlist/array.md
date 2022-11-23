@@ -8,7 +8,7 @@ comments: true
 
 ![array_definition](array.assets/array_definition.png)
 
-<p style="text-align:center"> Fig. 数组定义与存储方式 </p>
+<p align="center"> Fig. 数组定义与存储方式 </p>
 
 !!! note
 
@@ -42,7 +42,7 @@ comments: true
 
 ![array_memory_location_calculation](array.assets/array_memory_location_calculation.png)
 
-<p style="text-align:center"> Fig. 数组元素的内存地址计算 </p>
+<p align="center"> Fig. 数组元素的内存地址计算 </p>
 
 ```java title=""
 // 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引
@@ -117,7 +117,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
 ![array_insert_remove_element](array.assets/array_insert_remove_element.png)
 
-<p style="text-align:center"> Fig. 在数组中插入与删除元素 </p>
+<p align="center"> Fig. 在数组中插入与删除元素 </p>
 
 === "Java"
 

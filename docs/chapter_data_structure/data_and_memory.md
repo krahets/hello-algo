@@ -19,7 +19,7 @@ comments: true
 
     1 字节 (byte) = 8 比特 (bit) ， 1 比特即最基本的 1 个二进制位
 
-<p style="text-align:center"> Table. Java 的基本数据类型 </p>
+<p align="center"> Table. Java 的基本数据类型 </p>
 
 <div class="center-table" markdown>
 
@@ -57,7 +57,7 @@ comments: true
 === "C++"
 
     ```cpp title=""
-
+    
     ```
 
 === "Python"
@@ -76,6 +76,6 @@ comments: true
 
 ![computer_memory_location](data_and_memory.assets/computer_memory_location.png)
 
-<p style="text-align:center"> Fig. 内存条、内存空间、内存地址 </p>
+<p align="center"> Fig. 内存条、内存空间、内存地址 </p>
 
 **内存资源是设计数据结构与算法的重要考虑因素。** 内存是所有程序的公共资源，当内存被某程序占用时，不能被其它程序同时使用。我们需要根据剩余内存资源的情况来设计算法。例如，若剩余内存空间有限，则要求算法占用的峰值内存不能超过系统剩余内存；若运行的程序很多、缺少大块连续的内存空间，则要求选取的数据结构必须能够存储在离散的内存空间内。

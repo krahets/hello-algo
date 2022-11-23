@@ -14,7 +14,7 @@ comments: true
 
 ![linkedlist_definition](linked_list.assets/linkedlist_definition.png)
 
-<p style="text-align:center"> Fig. 链表定义与存储方式 </p>
+<p align="center"> Fig. 链表定义与存储方式 </p>
 
 === "Java"
 
@@ -86,7 +86,7 @@ comments: true
 
 ![linkedlist_insert_remove_node](linked_list.assets/linkedlist_insert_remove_node.png)
 
-<p style="text-align:center"> Fig. 在链表中插入与删除结点 </p>
+<p align="center"> Fig. 在链表中插入与删除结点 </p>
 
 === "Java"
 
@@ -219,4 +219,4 @@ comments: true
 
 ![linkedlist_common_types](linked_list.assets/linkedlist_common_types.png)
 
-<p style="text-align:center"> Fig. 常见链表类型 </p>
+<p align="center"> Fig. 常见链表类型 </p>

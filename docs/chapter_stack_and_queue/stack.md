@@ -10,13 +10,13 @@ comments: true
 
 ![stack_operations](stack.assets/stack_operations.png)
 
-<p style="text-align:center"> Fig. 栈的先入后出特性 </p>
+<p align="center"> Fig. 栈的先入后出特性 </p>
 
 ## 栈常用操作
 
 栈的常用操作见下表，方法名需根据编程语言设定来具体确定。
 
-<p style="text-align:center"> Table. 栈的常用操作 </p>
+<p align="center"> Table. 栈的常用操作 </p>
 
 <div class="center-table" markdown>
 

@@ -4,7 +4,7 @@
 - 二分查找利用数据的有序性，通过循环不断缩小一半搜索区间来实现查找，其要求输入数据是有序的，并且仅适用于数组或基于数组实现的数据结构。
 - 哈希查找借助哈希表来实现常数阶时间复杂度的查找操作，体现以空间换时间的算法思想。
 
-<p style="text-align:center"> Table. 三种查找方法对比 </p>
+<p align="center"> Table. 三种查找方法对比 </p>
 
 <div class="center-table" markdown>
 

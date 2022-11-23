@@ -33,7 +33,7 @@ comments: true
 === "Step 9"
     ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png)
 
-哨兵划分实现代码如下。
+<p align="center"> Fig. 哨兵划分 </p>
 
 === "Java"
 
@@ -74,6 +74,8 @@ comments: true
 观察发现，快速排序和「二分查找」的原理类似，都是以对数阶的时间复杂度来缩小处理区间。
 
 ![quick_sort](quick_sort.assets/quick_sort.png)
+
+<p align="center"> Fig. 快速排序流程 </p>
 
 === "Java"
 

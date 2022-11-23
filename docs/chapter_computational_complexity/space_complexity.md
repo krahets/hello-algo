@@ -26,7 +26,7 @@ comments: true
 
 ![space_types](space_complexity.assets/space_types.png)
 
-<p style="text-align:center"> Fig. 算法使用的相关空间 </p>
+<p align="center"> Fig. 算法使用的相关空间 </p>
 
 === "Java"
 
@@ -144,7 +144,7 @@ $$
 
 ![space_complexity_common_types](space_complexity.assets/space_complexity_common_types.png)
 
-<p style="text-align:center"> Fig. 空间复杂度的常见类型 </p>
+<p align="center"> Fig. 空间复杂度的常见类型 </p>
 
 !!! tip
 
@@ -252,7 +252,7 @@ $$
 
 ![space_complexity_recursive_linear](space_complexity.assets/space_complexity_recursive_linear.png)
 
-<p style="text-align:center"> Fig. 递归函数产生的线性阶空间复杂度 </p>
+<p align="center"> Fig. 递归函数产生的线性阶空间复杂度 </p>
 
 ### 平方阶 $O(n^2)$
 
@@ -317,7 +317,7 @@ $$
 
 ![space_complexity_recursive_quadratic](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
-<p style="text-align:center"> Fig. 递归函数产生的平方阶空间复杂度 </p>
+<p align="center"> Fig. 递归函数产生的平方阶空间复杂度 </p>
 
 ### 指数阶 $O(2^n)$
 
@@ -350,7 +350,7 @@ $$
 
 ![space_complexity_exponential](space_complexity.assets/space_complexity_exponential.png)
 
-<p style="text-align:center"> Fig. 满二叉树下的指数阶空间复杂度 </p>
+<p align="center"> Fig. 满二叉树下的指数阶空间复杂度 </p>
 
 ### 对数阶 $O(\log n)$
 

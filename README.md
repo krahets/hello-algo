@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://krahets.github.io/hello-algo/">
+  <a href="https://www.hello-algo.com/">
     <img src="docs/index.assets/conceptual_rendering.png" width="220">
   </a>
 </p>
@@ -13,16 +13,10 @@
 </p>
 
 <p align="center">
-  <a href="https://krahets.github.io/hello-algo/">
-    <img src="docs/index.assets/demo.png" width="700">
-  </a>
-</p>
-
-<p align="center">
   <em>
-    前往阅读 -
-    <a href="https://hello-algo.pages.dev/">
-    hello-algo.pages.dev
+    前往阅读 >>
+    <a href="https://www.hello-algo.com/">
+    hello-algo.com
     </a>
   </em>
 </p>

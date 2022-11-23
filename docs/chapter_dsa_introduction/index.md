@@ -77,7 +77,7 @@ comments: true
 
 ![relationship_between_data_structure_and_algorithm](index.assets/relationship_between_data_structure_and_algorithm.png)
 
-<p style="text-align:center"> Fig. 数据结构与算法的关系 </p>
+<p align="center"> Fig. 数据结构与算法的关系 </p>
 
 !!! tip "约定俗成的习惯"
 
