@@ -9,7 +9,7 @@
     --md-accent-fg-color: #999;
 
     --md-typeset-color: #1D1D20;
-    --md-typeset-a-color: #2CA44F;
+    --md-typeset-a-color: #2AA996;
 }
 
 [data-md-color-scheme="slate"] {
@@ -19,7 +19,7 @@
     --md-accent-fg-color: #999;
 
     --md-typeset-color: #FEFEFE;
-    --md-typeset-a-color: #31BC5A;
+    --md-typeset-a-color: #21C8B8;
 }
 
 /* Center Markdown Tables (requires md_in_html extension) */

@@ -7,5 +7,5 @@
 # mkdocs files
 site/
 .cache/
-codes/python
-codes/cpp
+codes/scripts
+docs/overrides/

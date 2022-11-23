@@ -89,8 +89,8 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.details
   # - pymdownx.emoji:
-  #     emoji_generator: !!python/name:materialx.emoji.to_svg
   #     emoji_index: !!python/name:materialx.emoji.twemoji
+  #     emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -156,9 +156,11 @@ nav:
     - 哈希查找: chapter_searching/hashing_search.md
     - 小结: chapter_searching/summary.md
   - 排序算法:
+    - chapter_sorting/index.md
     - 冒泡排序: chapter_sorting/bubble_sort.md
     - 插入排序: chapter_sorting/insertion_sort.md
     - 快速排序: chapter_sorting/quick_sort.md
     - 归并排序: chapter_sorting/merge_sort.md
+    - 小结: chapter_sorting/summary.md
   - 参考文献:
     - chapter_reference/index.md
