@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="docs/index.assets/conceptual_rendering.png" width="220">
+    <img src="docs/index.assets/conceptual_rendering.png" width="200">
   </a>
 </p>
 
@@ -14,7 +14,7 @@
 
 <p align="center">
   <em>
-    前往阅读 >>
+    前往阅读 >
     <a href="https://www.hello-algo.com/">
     hello-algo.com
     </a>
@@ -45,6 +45,7 @@
 | 新增：查找算法 | 2022-11-19 |
 | 更新：Markdown Stylesheet</br>新增：冒泡排序、插入排序 | 2022-11-21 |
 | 新增：快速排序 | 2022-11-22 |
+| 新增：归并排序，更新：快速排序 | 2022-11-23 |
 
 ## License
 
