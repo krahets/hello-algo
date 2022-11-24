@@ -4,12 +4,18 @@
   </a>
 </p>
 
-<h2 align="center">
+<h3 align="center">
   《 Hello，算法 》
-</h2>
+</h3>
 
 <p align="center"> 
   动画图解、能运行、可讨论的</br>数据结构与算法快速入门教程
+</p>
+
+</br>
+
+<p align="center">
+  <img src="docs/index.assets/animation.gif" width="700">
 </p>
 
 <p align="center">
@@ -21,9 +27,7 @@
   </em>
 </p>
 
----
-
-## 关于本书
+### 关于本书
 
 本书是我利用业余时间创作，完全开源免费，不会收取任何费用。
 
@@ -34,12 +38,10 @@
 
 如果感觉本书对你有所帮助，请点个 Star 支持一下，谢谢！
 
-## 致谢
+### 致谢
 
 感谢本开源书的每一位撰稿人，是他们的无私奉献让这本书变得更好，他们的 GitHub ID（按首次提交时间排序）为：krahets, *（等待下一位创作者）*
 
 ## License
-
-![cc_by-nc-sa](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
 
 The **texts, codes, images, photos, and videos** present on this work is licensed under [CC BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
