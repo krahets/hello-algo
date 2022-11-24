@@ -34,6 +34,10 @@
 
 如果感觉本书对你有所帮助，请点个 Star 支持一下，谢谢！
 
+## 致谢
+
+感谢本开源书的每一位撰稿人，是他们的无私奉献让这本书变得更好，他们的 GitHub ID（按首次提交时间排序）为：krahets, *（等待下一位创作者）*
+
 ## License
 
 ![cc_by-nc-sa](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
