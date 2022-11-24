@@ -34,6 +34,7 @@
 
 
 /* Markdown Header */
+/* https://github.com/squidfunk/mkdocs-material/blob/dcab57dd1cced4b77875c1aa1b53467c62709d31/src/assets/stylesheets/main/_typeset.scss */
 .md-typeset h1 {
   font-weight: 400;
   color: var(--md-default-fg-color);
@@ -41,4 +42,18 @@
 
 .md-typeset h2 {
   font-weight: 400;
+}
+
+.md-typeset h3 {
+  font-weight: 500;
+}
+
+.md-typeset a {
+  text-decoration: underline;
+}
+
+/* Image align center */
+.center {
+  display: block;
+  margin: 0 auto;
 }

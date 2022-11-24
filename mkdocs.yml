@@ -123,6 +123,7 @@ nav:
     - 如何使用本书: chapter_introduction/suggestions.md
     - 编程环境安装: chapter_introduction/installation.md
     - 一起参与创作: chapter_introduction/contribution.md
+    - 关于作者: chapter_introduction/about_me.md
   - 算法是什么: 
     - chapter_dsa_introduction/index.md
   - 计算复杂度:

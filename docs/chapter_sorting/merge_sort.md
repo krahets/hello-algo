@@ -130,4 +130,4 @@ comments: true
 - 由于链表可仅通过改变指针来实现结点增删，因此 “将两个短有序链表合并为一个长有序链表” 无需使用额外空间，即回溯合并阶段不用像排序数组一样建立辅助数组 `tmp` ；
 - 通过使用「迭代」代替「递归划分」，可省去递归使用的栈帧空间；
 
-> 详情参考：[<u>148. 排序链表</u>](https://leetcode-cn.com/problems/sort-list/solution/sort-list-gui-bing-pai-xu-lian-biao-by-jyd/)
+> 详情参考：[148. 排序链表](https://leetcode-cn.com/problems/sort-list/solution/sort-list-gui-bing-pai-xu-lian-biao-by-jyd/)
