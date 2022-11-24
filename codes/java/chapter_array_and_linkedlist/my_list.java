@@ -20,12 +20,12 @@ class MyList {
         nums = new int[initialCapacity];
     }
 
-    /* 获取列表容量 */
+    /* 获取列表长度（即当前元素数量）*/
     public int size() {
         return size;
     }
 
-    /* 获取列表长度（即当前元素数量） */
+    /* 获取列表容量 */
     public int capacity() {
         return nums.length;
     }
