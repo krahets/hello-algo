@@ -27,10 +27,10 @@
 
 本书是我利用业余时间创作，完全开源免费，不会收取任何费用。
 
-本书定期更新中，希望您可以一同参与到本书的创作中来，详情见 [一起参与创作](https://www.hello-algo.com/chapter_introduction/contribution/) 。
+本书定期更新中，希望您可以一同参与到本书的创作中来，详情见 [一起参与创作](https://www.hello-algo.com/chapter_preface/contribution/) 。
 
 - 如果发现笔误、无效链接、内容缺失、文字歧义、解释不清晰、行文结构不合理等问题，烦请您帮忙修正内容，以帮助其他读者获取更优质的学习内容。
-- 非常欢迎您和我一同来创作本书，包括重写某章节、新增章节、翻译代码至其他编程语言等，如果有意请与我联系 WeChat: krahets-jyd , Email: krahets@163.com 。
+- 非常欢迎您和我一同来创作本书，包括重写某章节、新增章节等，如果有意请与我联系 WeChat: krahets-jyd , Email: krahets@163.com 。
 
 如果感觉本书对你有所帮助，请点个 Star 支持一下，谢谢！
 

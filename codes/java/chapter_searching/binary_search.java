@@ -1,3 +1,9 @@
+/*
+ * File: binary_search.java
+ * Created Time: 2022-11-25
+ * Author: Krahets (krahets@163.com)
+ */
+
 package chapter_searching;
 
 public class binary_search {

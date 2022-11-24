@@ -16,7 +16,7 @@ comments: true
 
 !!! tip "前置工作"
 
-    安装本地编程环境。若无，可以参照下节 [编程环境安装](https://www.hello-algo.com/chapter_introduction/installation/) 。
+    安装本地编程环境。若无，可以参照下节 [编程环境安装](https://www.hello-algo.com/chapter_preface/installation/) 。
 
 ### 下载代码仓
 

@@ -1,3 +1,9 @@
+/*
+ * File: time_complexity_types.java
+ * Created Time: 2022-11-25
+ * Author: Krahets (krahets@163.com)
+ */
+
 package chapter_computational_complexity;
 
 public class time_complexity_types {

@@ -1,3 +1,9 @@
+/*
+ * File: linkedlist_queue.java
+ * Created Time: 2022-11-25
+ * Author: Krahets (krahets@163.com)
+ */
+
 package chapter_stack_and_queue;
 
 import java.util.*;
