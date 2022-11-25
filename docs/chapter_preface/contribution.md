@@ -36,8 +36,8 @@ comments: true
 1. 登录 GitHub ，并 Fork [本仓库](https://github.com/krahets/hello-algo) 至个人账号；
 2. 使用 Git 克隆该 Fork 仓库至本地；
 3. 在本地修改 `.java` , `.cpp` , `.py` 文件中的代码，并运行测试；测试完成后，请同步更新 Markdown 文章中的对应代码；
-5. 将本地更新 Commit ，并 Push 至远程仓库；
-6. 刷新仓库网页，点击 “Create pull request” 按钮发起拉取请求即可；
+4. 将本地更新 Commit ，并 Push 至远程仓库；
+5. 刷新仓库网页，点击 “Create pull request” 按钮发起拉取请求即可；
 
 （TODO：教学视频）
 

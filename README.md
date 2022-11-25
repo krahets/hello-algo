@@ -40,7 +40,11 @@
 
 ### 致谢
 
-感谢本开源书的每一位撰稿人，是他们的无私奉献让这本书变得更好，他们的 GitHub ID（按首次提交时间排序）为：krahets, *（等待下一位创作者）*
+感谢本开源书的每一位撰稿人，是他们的无私奉献让这本书变得更好，他们是：
+
+<a href="https://github.com/krahets/hello-algo/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=krahets/hello-algo" />
+</a>
 
 ## License
 
