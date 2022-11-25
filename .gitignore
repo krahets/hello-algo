@@ -10,3 +10,6 @@ site/
 .cache/
 codes/scripts
 docs/overrides/
+
+# python files
+__pycache__
