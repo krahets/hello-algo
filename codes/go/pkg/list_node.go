@@ -24,8 +24,8 @@ func NewListNode(v int) *ListNode {
 	}
 }
 
-// ArrayToLinkedListLinkedList Generate a linked list with an array
-func ArrayToLinkedListLinkedList(arr []int) *ListNode {
+// ArrayToLinkedList Generate a linked list with an array
+func ArrayToLinkedList(arr []int) *ListNode {
 	// dummy header of linked list
 	dummy := NewListNode(0)
 	node := dummy

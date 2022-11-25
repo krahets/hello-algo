@@ -8,7 +8,7 @@ import "testing"
 
 func TestListNode(t *testing.T) {
 	arr := []int{2, 3, 5, 6, 7}
-	head := ArrayToLinkedListLinkedList(arr)
+	head := ArrayToLinkedList(arr)
 
 	PrintLinkedList(head)
 	node := GetListNode(head, 5)

@@ -18,7 +18,7 @@ func TestLinearSearch(t *testing.T) {
 	t.Log("目标元素 3 的索引 = ", index)
 
 	// 在链表中执行线性查找
-	head := ArrayToLinkedListLinkedList(nums)
+	head := ArrayToLinkedList(nums)
 	node := linerSearchLinkedList(head, target)
 	t.Log("目标结点值 3 的对应结点对象为 ", node)
 }
