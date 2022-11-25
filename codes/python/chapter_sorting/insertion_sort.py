@@ -4,11 +4,9 @@ Created Time: 2022-11-25
 Author: timi (xisunyy@163.com)
 '''
 
-from include import *
-import sys
-import os.path as osp
-
+import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
+from include import *
 
 """ 插入排序 """
 def insertion_sort(nums):
@@ -20,9 +18,10 @@ def insertion_sort(nums):
         while j >= 0 and nums[j] > base:
             nums[j + 1] = nums[j]  # 1. 将 nums[j] 向右移动一位
             j -= 1
-        nums[j + 1] = base  # 2. 将 base 赋值到正确位置
+        nums[j + 1] = base         # 2. 将 base 赋值到正确位置
 
 
+""" Driver Code """
 if __name__ == '__main__':
     nums = [4, 1, 3, 1, 5, 2]
     insertion_sort(nums)

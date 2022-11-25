@@ -7,7 +7,6 @@ comments: true
 「归并排序 Merge Sort」是算法中 “分治思想” 的典型体现，其有「划分」和「合并」两个阶段：
 
 1. **划分阶段：** 通过递归不断 **将数组从中点位置划分开**，将长数组的排序问题转化为短数组的排序问题；
-
 2. **合并阶段：** 划分到子数组长度为 1 时，开始向上合并，不断将 **左、右两个短排序数组** 合并为 **一个长排序数组**，直至合并至原数组时完成排序；
 
 ![merge_sort_preview](merge_sort.assets/merge_sort_preview.png)
@@ -102,6 +101,51 @@ comments: true
         // 回溯合并
         merge(nums, left, mid, right);
     }
+    ```
+
+=== "Python"
+
+    ```python title="merge_sort.py"
+    """
+    合并左子数组和右子数组
+    左子数组区间 [left, mid]
+    右子数组区间 [mid + 1, right]
+    """
+    def merge(nums, left, mid, right):
+        # 初始化辅助数组 借助 copy模块
+        tmp = nums[left:right + 1]
+        # 左子数组的起始索引和结束索引
+        left_start, left_end = left - left, mid - left
+        # 右子数组的起始索引和结束索引
+        right_start, right_end = mid + 1 - left, right - left
+        # i, j 分别指向左子数组、右子数组的首元素
+        i, j = left_start, right_start
+        # 通过覆盖原数组 nums 来合并左子数组和右子数组
+        for k in range(left, right + 1):
+            # 若 “左子数组已全部合并完”，则选取右子数组元素，并且 j++
+            if i > left_end:
+                nums[k] = tmp[j]
+                j += 1
+            # 否则，若 “右子数组已全部合并完” 或 “左子数组元素 < 右子数组元素”，则选取左子数组元素，并且 i++
+            elif j > right_end or tmp[i] <= tmp[j]:
+                nums[k] = tmp[i]
+                i += 1
+            # 否则，若 “左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+            else:
+                nums[k] = tmp[j]
+                j += 1
+
+    """ 归并排序 """
+    def merge_sort(nums, left, right):
+        # 终止条件
+        if left >= right:
+            return                        # 当子数组长度为 1 时终止递归
+        # 划分阶段
+        mid = (left + right) // 2         # 计算中点
+        merge_sort(nums, left, mid)       # 递归左子数组
+        merge_sort(nums, mid + 1, right)  # 递归右子数组
+        # 合并阶段
+        merge(nums, left, mid, right)
     ```
 
 下面重点解释一下合并方法 `merge()` 的流程：

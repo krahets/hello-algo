@@ -47,9 +47,7 @@ comments: true
 ## 算法流程
 
 1. 设数组长度为 $n$ ，完成第一轮「冒泡」后，数组最大元素已在正确位置，接下来只需排序剩余 $n - 1$ 个元素。
-
 2. 同理，对剩余 $n - 1$ 个元素执行「冒泡」，可将第二大元素交换至正确位置，因而待排序元素只剩 $n - 2$ 个。
-
 3. 以此类推…… **循环 $n - 1$ 轮「冒泡」，即可完成整个数组的排序**。
 
 ![bubble_sort](bubble_sort.assets/bubble_sort.png)
@@ -74,6 +72,21 @@ comments: true
             }
         }
     }
+    ```
+
+=== "Python"
+
+    ```python
+    """ 冒泡排序 """
+    def bubble_sort(nums):
+        n = len(nums)
+        # 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for i in range(n - 1, -1, -1):
+            # 内循环：冒泡操作
+            for j in range(i):
+                if nums[j] > nums[j + 1]:
+                    # 交换 nums[j] 与 nums[j + 1]
+                    nums[j], nums[j + 1] = nums[j + 1], nums[j]
     ```
 
 ## 算法特性
@@ -115,4 +128,23 @@ comments: true
             if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
         }
     }
+    ```
+
+=== "Python"
+
+    ```python
+    """ 冒泡排序（标志优化） """
+    def bubble_sort_with_flag(nums):
+        n = len(nums)
+        # 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for i in range(n - 1, -1, -1):
+            flag = False  # 初始化标志位
+            # 内循环：冒泡操作
+            for j in range(i):
+                if nums[j] > nums[j + 1]:
+                    # 交换 nums[j] 与 nums[j + 1]
+                    nums[j], nums[j + 1] = nums[j + 1], nums[j]
+                    flag = True  # 记录交换元素
+            if not flag:
+                break            # 此轮冒泡未交换任何元素，直接跳出
     ```

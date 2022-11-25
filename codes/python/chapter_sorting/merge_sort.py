@@ -4,11 +4,9 @@ Created Time: 2022-11-25
 Author: timi (xisunyy@163.com)
 '''
 
-from include import *
-import sys
-import os.path as osp
-
+import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
+from include import *
 
 """
 合并左子数组和右子数组
@@ -43,16 +41,17 @@ def merge(nums, left, mid, right):
 def merge_sort(nums, left, right):
     # 终止条件
     if left >= right:
-        return  # 当子数组长度为 1 时终止递归
+        return                        # 当子数组长度为 1 时终止递归
     # 划分阶段
-    mid = (left + right) // 2  # 计算中点
-    merge_sort(nums, left, mid)  # 递归左子数组
+    mid = (left + right) // 2         # 计算中点
+    merge_sort(nums, left, mid)       # 递归左子数组
     merge_sort(nums, mid + 1, right)  # 递归右子数组
     # 合并阶段
     merge(nums, left, mid, right)
 
 
+""" Driver Code """
 if __name__ == '__main__':
     nums = [4, 1, 3, 1, 5, 2]
     merge_sort(nums, 0, len(nums) - 1)
-    print("归并排序完成后 nums = ", nums)
+    print("归并排序完成后 nums =", nums)
