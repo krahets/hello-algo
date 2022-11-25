@@ -12,6 +12,7 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 
 """ 快速排序类 """
 class QuickSort(object):
+    
     """ 哨兵划分 """
     def partition(self, nums, left, right):
         # 以 nums[left] 作为基准数
