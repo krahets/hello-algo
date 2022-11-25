@@ -3,6 +3,7 @@
 
 # Editor
 .vscode/
+.idea/
 
 # mkdocs files
 site/

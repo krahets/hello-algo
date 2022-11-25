@@ -33,7 +33,7 @@
 === "C++"
 
     ```cpp title="leetcode_two_sum.cpp"
-
+    
     ```
 
 === "Python"
@@ -41,6 +41,24 @@
     ```python title="leetcode_two_sum.py"
     
     ```
+
+=== "Go"
+
+    ```go title="leetcode_two_sum.go"
+    func twoSum(nums []int, target int) []int {
+        size := len(nums)
+        for i := 0; i < size-1; i++ {
+            for j := i + 1; i < size; j++ {
+                if nums[i]+nums[j] == target {
+                    return []int{i, j}
+                }
+            }
+        }
+        return nil
+    }
+    ```
+
+
 
 ### 方法二：辅助哈希表
 
@@ -69,11 +87,26 @@
 === "C++"
 
     ```cpp title="leetcode_two_sum.cpp"
-
+    
     ```
 
 === "Python"
 
     ```python title="leetcode_two_sum.py"
     
+    ```
+
+=== "Go"
+
+    ```go title="leetcode_two_sum.go"
+    func twoSumHashTable(nums []int, target int) []int {
+        hashTable := map[int]int{}
+        for idx, val := range nums {
+            if preIdx, ok := hashTable[target-val]; ok {
+                return []int{preIdx, idx}
+            }
+            hashTable[val] = idx
+        }
+        return nil
+    }
     ```
