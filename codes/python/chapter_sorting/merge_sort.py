@@ -1,48 +1,60 @@
 '''
 File: merge_sort.py
 Created Time: 2022-11-25
-Author: Krahets (krahets@163.com)
+Author: timi (xisunyy@163.com)
 '''
 
-import sys, os.path as osp
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
+import copy
 from include import *
+import sys
+import os.path as osp
+sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 
 
 """
-另一种 思路实现归并排序
+合并左子数组和右子数组
+左子数组区间 [left, mid]
+右子数组区间 [mid + 1, right]
 """
-def merge_sort(nums,l,r):
-    if l>=r:return 
-    mid=l+r>>1                  #划分中点
-    #进行归并
-    merge_sort(nums,l,mid)
-    merge_sort(nums,mid+1,r)
-
-    k,i,j=0,l,mid+1             #借助辅助数组 完成排序
-    while i<=mid and j<=r:  
-        if nums[i]<=nums[j]:    #这一步保证了 稳定排序
-            help_ls[k]=nums[i]
-            i+=1
+def merge(nums, left, mid, right):
+    # 初始化辅助数组 借助 copy模块
+    tmp = copy.deepcopy(nums[left:right+1])
+    # 左子数组的起始索引和结束索引
+    leftStart, leftEnd = left-left, mid - left
+    # 右子数组的起始索引和结束索引
+    rightStart, rightEnd = mid + 1 - left, right - left
+    # i, j 分别指向左子数组、右子数组的首元素
+    i, j = leftStart, rightStart
+    # 通过覆盖原数组 nums 来合并左子数组和右子数组
+    for k in range(left, right+1):
+        # 若 “左子数组已全部合并完”，则选取右子数组元素，并且 j++
+        if i > leftEnd:
+            nums[k] = tmp[j]
+            j += 1
+        # 否则，若 “右子数组已全部合并完” 或 “左子数组元素 < 右子数组元素”，则选取左子数组元素，并且 i++
+        elif j > rightEnd or tmp[i] <= tmp[j]:
+            nums[k] = tmp[i]
+            i += 1
+        # 否则，若 “左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
         else:
-            help_ls[k]=nums[j]
-            j+=1
-        k+=1
-    
-    while i<=mid:               #对于左边区域
-        help_ls[k]=nums[i]
-        k,i=k+1,i+1
-    while j<=r:                 #对于右边区域
-        help_ls[k]=nums[j]
-        k,j=k+1,j+1
+            nums[k] = tmp[j]
+            j += 1
 
-    i,j=l,0
-    while i<=r:
-        nums[i]=help_ls[j]
-        i,j=i+1,j+1
-if __name__=='__main__':
-    nums=[4,1,3,1,5,2]
-    n=len(nums)
-    help_ls=[0 for _ in range(n)]
-    merge_sort(nums,0,n-1)
-    print("归并排序完成后 nums = ",nums)
+
+"""归并排序"""
+def merge_sort(nums, left, right):
+    # 终止条件
+    if left >= right:
+        return            # 当子数组长度为 1 时终止递归
+    # 划分阶段
+    mid = left + right >> 1  # 计算中点
+    merge_sort(nums, left, mid)         # 递归左子数组
+    merge_sort(nums, mid + 1, right)    # 递归右子数组
+    # 合并阶段
+    merge(nums, left, mid, right)
+
+
+if __name__ == '__main__':
+    nums = [4, 1, 3, 1, 5, 2]
+    merge_sort(nums, 0, len(nums)-1)
+    print("归并排序完成后 nums = ", nums)

@@ -1,26 +1,28 @@
 '''
 File: insertion_sort.py
 Created Time: 2022-11-25
-Author: Krahets (krahets@163.com)
+Author: timi (xisunyy@163.com)
 '''
 
-import sys, os.path as osp
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
+import sys
+import os.path as osp
+sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 
-"直接插入排序"
-def insertionSort(nums):
-    #外循环：base = nums[1], nums[2], ..., nums[n-1]
-    for i in range(1,len(nums)):
-        base=nums[i]
-        j=i-1
-        #内循环：将 base 插入到左边的正确位置
-        while j>=0 and nums[j]>base:
-            nums[j+1]=nums[j]   #1. 将 nums[j] 向右移动一位
-            j-=1
-        nums[j+1]=base          #2. 将 base 赋值到正确位置
+"""插入排序"""
+def insertion_sort(nums):
+    # 外循环：base = nums[1], nums[2], ..., nums[n-1]
+    for i in range(1, len(nums)):
+        base = nums[i]
+        j = i-1
+        # 内循环：将 base 插入到左边的正确位置
+        while j >= 0 and nums[j] > base:
+            nums[j+1] = nums[j]  # 1. 将 nums[j] 向右移动一位
+            j -= 1
+        nums[j+1] = base  # 2. 将 base 赋值到正确位置
 
-if __name__=='__main__':
-    nums=[4,1,3,1,5,2]
-    insertionSort(nums)
-    print("排序后数组 nums = " ,nums)
+
+if __name__ == '__main__':
+    nums = [4, 1, 3, 1, 5, 2]
+    insertion_sort(nums)
+    print("排序后数组 nums = ", nums)
