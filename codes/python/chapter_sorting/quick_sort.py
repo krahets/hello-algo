@@ -10,9 +10,9 @@ import os.path as osp
 
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 
-"""快速排序类"""
-class quick_sort(object):
-    """哨兵划分"""
+""" 快速排序类 """
+class QuickSort(object):
+    """ 哨兵划分 """
     def partition(self, nums, left, right):
         # 以 nums[left] 作为基准数
         i, j = left, right
@@ -27,7 +27,7 @@ class quick_sort(object):
         nums[i], nums[left] = nums[left], nums[i]
         return i  # 返回基准数的索引
 
-    """快速排序"""
+    """ 快速排序 """
     def quick_sort(self, nums, left, right):
         # 子数组长度为 1 时终止递归
         if left >= right:
@@ -39,10 +39,10 @@ class quick_sort(object):
         self.quick_sort(nums, pivot + 1, right)
 
 
-"""快速排序类（中位基准数优化）"""
-class quick_sort_median():
+""" 快速排序类（中位基准数优化）"""
+class QuickSortMedian():
 
-    """选取三个元素的中位数"""
+    """ 选取三个元素的中位数 """
     def median_three(self, nums, left, mid, right):
         # 使用了异或操作来简化代码
         # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
@@ -52,7 +52,7 @@ class quick_sort_median():
             return mid
         return right
 
-    """哨兵划分（三数取中值）"""
+    """ 哨兵划分（三数取中值） """
     def partition(self, nums, left, right):
         # 以 nums[left] 作为基准数
         med = self.median_three(nums, left, (left + right) // 2, right)
@@ -71,7 +71,7 @@ class quick_sort_median():
         nums[i], nums[left] = nums[left], nums[i]
         return i  # 返回基准数的索引
 
-    """快速排序"""
+    """ 快速排序 """
     def quick_sort(self, nums, left, right):
         # 子数组长度为 1 时终止递归
         if left >= right: return
@@ -82,9 +82,9 @@ class quick_sort_median():
         self.quick_sort(nums, pivot + 1, right)
 
 
-"""快速排序类（尾递归优化）"""
-class quick_sort_tail_call():
-    """哨兵划分"""
+""" 快速排序类（尾递归优化） """
+class QuickSortTailCall():
+    """ 哨兵划分 """
     def partition(self, nums, left, right):
         # 以 nums[left] 作为基准数
         i, j = left, right
@@ -99,7 +99,7 @@ class quick_sort_tail_call():
         nums[i], nums[left] = nums[left], nums[i]
         return i  # 返回基准数的索引
 
-    """快速排序（尾递归优化）"""
+    """ 快速排序（尾递归优化） """
     def quick_sort(self, nums, left, right):
         # 子数组长度为 1 时终止
         while left < right:
@@ -117,15 +117,15 @@ class quick_sort_tail_call():
 if __name__ == '__main__':
     # 快速排序 
     nums = [4, 1, 3, 1, 5, 2]
-    quick_sort().quick_sort(nums, 0, len(nums) - 1)
+    QuickSort().quick_sort(nums, 0, len(nums) - 1)
     print("快速排序完成后 nums = ", nums)
 
     # 快速排序（中位基准数优化）
     nums1 = [4, 1, 3, 1, 5, 2]
-    quick_sort_median().quick_sort(nums1, 0, len(nums1) - 1)
+    QuickSortMedian().quick_sort(nums1, 0, len(nums1) - 1)
     print("快速排序（中位基准数优化）完成后 nums = ", nums)
 
     # 快速排序（尾递归优化）
     nums2 = [4, 1, 3, 1, 5, 2]
-    quick_sort_tail_call().quick_sort(nums, 0, len(nums2) - 1)
+    QuickSortTailCall().quick_sort(nums, 0, len(nums2) - 1)
     print("快速排序（尾递归优化）完成后 nums = ", nums)

@@ -10,7 +10,7 @@ import os.path as osp
 
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 
-"""插入排序"""
+""" 插入排序 """
 def insertion_sort(nums):
     # 外循环：base = nums[1], nums[2], ..., nums[n-1]
     for i in range(1, len(nums)):
