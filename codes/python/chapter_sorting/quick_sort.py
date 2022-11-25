@@ -85,6 +85,7 @@ class QuickSortMedian():
 
 """ 快速排序类（尾递归优化） """
 class QuickSortTailCall():
+    
     """ 哨兵划分 """
     def partition(self, nums, left, right):
         # 以 nums[left] 作为基准数
