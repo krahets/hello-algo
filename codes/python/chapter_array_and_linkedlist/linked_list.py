@@ -41,9 +41,8 @@ def find(head, target):
         index += 1
     return -1
 
-"""
-Driver Code
-"""
+
+""" Driver Code """
 if __name__ == "__main__":
     """ 初始化链表 """
     # 初始化各个结点 

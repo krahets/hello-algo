@@ -29,7 +29,6 @@ public class time_complexity_types {
         int count = 0;
         // 循环次数与数组长度成正比
         for (int num : nums) {
-            // System.out.println(num);
             count++;
         }
         return count;
@@ -38,6 +37,7 @@ public class time_complexity_types {
     /* 平方阶 */
     static int quadratic(int n) {
         int count = 0;
+        // 循环次数与数组长度成平方关系
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -47,18 +47,22 @@ public class time_complexity_types {
     }
 
     /* 平方阶（冒泡排序） */
-    static void bubbleSort(int[] nums) {
-        int n = nums.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - 1 - i; j++) {
+    static int bubbleSort(int[] nums) {
+        int count = 0;  // 计数器
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = nums.length - 1; i > 0; i--) {
+            // 内循环：冒泡操作
+            for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 和 nums[j + 1]
+                    // 交换 nums[j] 与 nums[j + 1]
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
+                    count += 3;  // 元素交换包含 3 个单元操作
                 }
             }
         }
+        return count;
     }
 
     /* 指数阶（循环实现） */
@@ -135,6 +139,11 @@ public class time_complexity_types {
 
         count = quadratic(n);
         System.out.println("平方阶的计算操作数量 = " + count);
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++)
+            nums[i] = n - i;  // [n,n-1,...,2,1]
+        count = bubbleSort(nums);
+        System.out.println("平方阶（冒泡排序）的计算操作数量 = " + count);
 
         count = exponential(n);
         System.out.println("指数阶（循环实现）的计算操作数量 = " + count);
