@@ -62,7 +62,23 @@ comments: true
 === "Python"
 
     ```python title=""
-    
+    """ 类 """
+    class Node:
+        def __init__(self, x):
+            self.val = x      # 结点值
+            self.next = None  # 指向下一结点的指针（引用）
+
+    """ 函数（或称方法） """
+    def function():
+        # do something...
+        return 0
+
+    def algorithm(n):     # 输入数据
+        a = 0             # 暂存数据（常量）
+        b = 0             # 暂存数据（变量）
+        node = Node(0)    # 暂存数据（对象）
+        c = function()    # 栈帧空间（调用函数）
+        return a + b + c  # 输出数据
     ```
 
 ## 推算方法
@@ -94,7 +110,11 @@ comments: true
 === "Python"
 
     ```python title=""
-    
+    def algorithm(n):
+        a = 0               # O(1)
+        b = [0] * 10000     # O(1)
+        if n > 10:
+            nums = [0] * n  # O(n)
     ```
 
 **在递归函数中，需要注意统计栈帧空间。** 例如函数 `loop()`，在循环中调用了 $n$ 次 `function()` ，每轮中的 `function()` 都返回并释放了栈帧空间，因此空间复杂度仍为 $O(1)$ 。而递归函数 `recur()` 在运行中会同时存在 $n$ 个未返回的 `recur()` ，从而使用 $O(n)$ 的栈帧空间。
@@ -106,13 +126,13 @@ comments: true
         // do something
         return 0;
     }
-    /* 循环 */
+    /* 循环 O(1) */
     void loop(int n) {
         for (int i = 0; i < n; i++) {
             function();
         }
     }
-    /* 递归 */
+    /* 递归 O(n) */
     void recur(int n) {
         if (n == 1) return;
         return recur(n - 1);
@@ -128,7 +148,19 @@ comments: true
 === "Python"
 
     ```python title=""
-    
+    def function():
+        # do something
+        return 0
+
+    """ 循环 O(1) """
+    def loop(n):
+        for _ in range(n):
+            function()
+
+    """ 递归 O(n) """
+    def recur(n):
+        if n == 1: return
+        return recur(n - 1)
     ```
 
 ## 常见类型
@@ -186,7 +218,18 @@ $$
 === "Python"
 
     ```python title="space_complexity_types.py"
-    
+    """ 常数阶 """
+    def constant(n):
+        # 常量、变量、对象占用 O(1) 空间
+        a = 0
+        nums = [0] * 10000
+        node = ListNode(0)
+        # 循环中的变量占用 O(1) 空间
+        for _ in range(n):
+            c = 0
+        # 循环中的函数占用 O(1) 空间
+        for _ in range(n):
+            function()
     ```
 
 ### 线性阶 $O(n)$
@@ -222,7 +265,14 @@ $$
 === "Python"
 
     ```python title="space_complexity_types.py"
-    
+    """ 线性阶 """
+    def linear(n):
+        # 长度为 n 的列表占用 O(n) 空间
+        nums = [0] * n
+        # 长度为 n 的哈希表占用 O(n) 空间
+        mapp = {}
+        for i in range(n):
+            mapp[i] = str(i)
     ```
 
 以下递归函数会同时存在 $n$ 个未返回的 `algorithm()` 函数，使用 $O(n)$ 大小的栈帧空间。
@@ -247,7 +297,11 @@ $$
 === "Python"
 
     ```python title="space_complexity_types.py"
-    
+    """ 线性阶（递归实现） """
+    def linearRecur(n):
+        print("递归 n = ", n)
+        if n == 1: return
+        linearRecur(n - 1)
     ```
 
 ![space_complexity_recursive_linear](space_complexity.assets/space_complexity_recursive_linear.png)
@@ -286,7 +340,10 @@ $$
 === "Python"
 
     ```python title="space_complexity_types.py"
-    
+    """ 平方阶 """
+    def quadratic(n):
+        # 二维列表占用 O(n^2) 空间
+        num_matrix = [[0] * n for _ in range(n)]
     ```
 
 在以下递归函数中，同时存在 $n$ 个未返回的 `algorihtm()` ，并且每个函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $\frac{n}{2}$ ，因此总体使用 $O(n^2)$ 空间。
@@ -297,8 +354,8 @@ $$
     /* 平方阶（递归实现） */
     int quadraticRecur(int n) {
         if (n <= 0) return 0;
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
         int[] nums = new int[n];
-        System.out.println("递归 n = " + n + " 中的 nums 长度 = " + nums.length);
         return quadraticRecur(n - 1);
     }
     ```
@@ -312,7 +369,12 @@ $$
 === "Python"
 
     ```python title="space_complexity_types.py"
-    
+    """ 平方阶（递归实现） """
+    def quadratic_recur(n):
+        if n <= 0: return 0
+        # 数组 nums 长度为 n, n-1, ..., 2, 1
+        nums = [0] * n
+        return quadratic_recur(n - 1)
     ```
 
 ![space_complexity_recursive_quadratic](space_complexity.assets/space_complexity_recursive_quadratic.png)
@@ -345,7 +407,13 @@ $$
 === "Python"
 
     ```python title="space_complexity_types.py"
-
+    """ 指数阶（建立满二叉树） """
+    def build_tree(n):
+        if n == 0: return None
+        root = TreeNode(0)
+        root.left = build_tree(n - 1)
+        root.right = build_tree(n - 1)
+        return root
     ```
 
 ![space_complexity_exponential](space_complexity.assets/space_complexity_exponential.png)

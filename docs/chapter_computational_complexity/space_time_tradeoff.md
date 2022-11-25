@@ -17,16 +17,18 @@
 === "Java"
 
     ```java title="" title="leetcode_two_sum.java"
-    public int[] twoSum(int[] nums, int target) {
-        int size = nums.length;
-        // 外层 * 内层循环，时间复杂度为 O(n)
-        for (int i = 0; i < size - 1; i++) {
-            for (int j = i + 1; j < size; j++) {
-                if (nums[i] + nums[j] == target)
-                    return new int[] { i, j };
+    class SolutionBruteForce {
+        public int[] twoSum(int[] nums, int target) {
+            int size = nums.length;
+            // 两层循环，时间复杂度 O(n^2)
+            for (int i = 0; i < size - 1; i++) {
+                for (int j = i + 1; j < size; j++) {
+                    if (nums[i] + nums[j] == target)
+                        return new int[] { i, j };
+                }
             }
+            return new int[0];
         }
-        return new int[0];
     }
     ```
 
@@ -39,14 +41,22 @@
 === "Python"
 
     ```python title="leetcode_two_sum.py"
-    
+    class SolutionBruteForce:
+        def twoSum(self, nums: List[int], target: int) -> List[int]:
+            # 两层循环，时间复杂度 O(n^2)
+            for i in range(len(nums) - 1):
+                for j in range(i + 1, len(nums)):
+                    if nums[i] + nums[j] == target:
+                        return i, j
+            return []
     ```
 
 === "Go"
 
     ```go title="leetcode_two_sum.go"
-    func twoSum(nums []int, target int) []int {
+    func twoSumBruteForce(nums []int, target int) []int {
         size := len(nums)
+        // 两层循环，时间复杂度 O(n^2)
         for i := 0; i < size-1; i++ {
             for j := i + 1; i < size; j++ {
                 if nums[i]+nums[j] == target {
@@ -58,8 +68,6 @@
     }
     ```
 
-
-
 ### 方法二：辅助哈希表
 
 时间复杂度 $O(N)$ ，空间复杂度 $O(N)$ ，属于「空间换时间」。
@@ -69,18 +77,20 @@
 === "Java"
 
     ```java title="" title="leetcode_two_sum.java"
-    public int[] twoSum(int[] nums, int target) {
-        int size = nums.length;
-        // 辅助哈希表，空间复杂度 O(n)
-        Map<Integer, Integer> dic = new HashMap<>();
-        // 单层循环，时间复杂度 O(n)
-        for (int i = 0; i < size; i++) {
-            if (dic.containsKey(target - nums[i])) {
-                return new int[] { dic.get(target - nums[i]), i };
+    class SolutionHashMap {
+        public int[] twoSum(int[] nums, int target) {
+            int size = nums.length;
+            // 辅助哈希表，空间复杂度 O(n)
+            Map<Integer, Integer> dic = new HashMap<>();
+            // 单层循环，时间复杂度 O(n)
+            for (int i = 0; i < size; i++) {
+                if (dic.containsKey(target - nums[i])) {
+                    return new int[] { dic.get(target - nums[i]), i };
+                }
+                dic.put(nums[i], i);
             }
-            dic.put(nums[i], i);
+            return new int[0];
         }
-        return new int[0];
     }
     ```
 
@@ -93,14 +103,25 @@
 === "Python"
 
     ```python title="leetcode_two_sum.py"
-    
+    class SolutionHashMap:
+        def twoSum(self, nums: List[int], target: int) -> List[int]:
+            # 辅助哈希表，空间复杂度 O(n)
+            dic = {}
+            # 单层循环，时间复杂度 O(n)
+            for i in range(len(nums)):
+                if target - nums[i] in dic:
+                    return dic[target - nums[i]], i
+                dic[nums[i]] = i
+            return []
     ```
 
 === "Go"
 
     ```go title="leetcode_two_sum.go"
     func twoSumHashTable(nums []int, target int) []int {
+        // 辅助哈希表，空间复杂度 O(n)
         hashTable := map[int]int{}
+        // 单层循环，时间复杂度 O(n)
         for idx, val := range nums {
             if preIdx, ok := hashTable[target-val]; ok {
                 return []int{preIdx, idx}

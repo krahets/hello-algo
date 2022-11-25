@@ -8,7 +8,6 @@ import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
-
 """ 列表类简易实现 """
 class MyList:
     """ 构造函数 """
@@ -71,9 +70,7 @@ class MyList:
         return self._nums[:self._size]
 
 
-"""
-Driver Code
-"""
+""" Driver Code """
 if __name__ == "__main__":
     """ 初始化列表 """
     list = MyList()

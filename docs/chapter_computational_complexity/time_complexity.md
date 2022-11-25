@@ -42,7 +42,14 @@ $$
 === "Python"
 
     ```python title=""
-    
+    # 在某运行平台下
+    def algorithm(n):
+        a = 2      # 1 ns
+        a = a + 1  # 1 ns
+        a = a * 2  # 10 ns
+        # 循环 n 次
+        for _ in range(n):  # 1 ns
+            print(0)        # 5 ns
     ```
 
 但实际上， **统计算法的运行时间既不合理也不现实。** 首先，我们不希望预估时间和运行平台绑定，毕竟算法需要跑在各式各样的平台之上。其次，我们很难获知每一种操作的运行时间，这为预估过程带来了极大的难度。
@@ -87,7 +94,17 @@ $$
 === "Python"
 
     ```python title=""
-    
+    # 算法 A 时间复杂度：常数阶
+    def algorithm_A(n):
+        print(0)
+    # 算法 B 时间复杂度：线性阶
+    def algorithm_B(n):
+        for _ in range(n):
+            print(0)
+    # 算法 C 时间复杂度：常数阶
+    def algorithm_C(n):
+        for _ in range(1000000):
+            print(0)
     ```
 
 ![time_complexity_first_example](time_complexity.assets/time_complexity_first_example.png)
@@ -105,9 +122,11 @@ $$
 ## 函数渐进上界
 
 设算法「计算操作数量」为 $T(n)$  ，其是一个关于输入数据大小 $n$ 的函数。例如，以下算法的操作数量为
+
 $$
 T(n) = 3 + 2n
 $$
+
 === "Java"
 
     ```java title=""
@@ -131,14 +150,21 @@ $$
 === "Python"
 
     ```python title=""
-    
+    def algorithm(n):
+        a = 1  # +1
+        a = a + 1  # +1
+        a = a * 2  # +1
+        # 循环 n 次
+        for i in range(n):  # +1
+            print(0)        # +1
+    }
     ```
 
 $T(n)$ 是个一次函数，说明时间增长趋势是线性的，因此易得时间复杂度是线性阶。
 
 我们将线性阶的时间复杂度记为 $O(n)$ ，这个数学符号被称为「大 $O$ 记号 Big-$O$ Notation」，代表函数 $T(n)$ 的「渐进上界 asymptotic upper bound」。
 
-我们要推算时间复杂度，本质上是在计算「操作数量函数 $T(n)$ 」的渐进上界。下面我们先来看看函数渐进上界的数学定义。 
+我们要推算时间复杂度，本质上是在计算「操作数量函数 $T(n)$ 」的渐进上界。下面我们先来看看函数渐进上界的数学定义。
 
 !!! abstract "函数渐进上界"
 
@@ -174,6 +200,7 @@ $T(n)$ 是个一次函数，说明时间增长趋势是线性的，因此易得�
 3. **循环嵌套时使用乘法。** 总操作数量等于外层循环和内层循环操作数量之积，每一层循环依然可以分别套用上述 `1.` 和 `2.` 技巧。
 
 根据以下示例，使用上述技巧前、后的统计结果分别为
+
 $$
 \begin{aligned}
 T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{完整统计 (-.-|||)} \newline
@@ -181,6 +208,7 @@ T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{完整统计 (-.-|||)} \newline
 T(n) & = n^2 + n & \text{偷懒统计 (o.O)}
 \end{aligned}
 $$
+
 最终，两者都能推出相同的时间复杂度结果，即 $O(n^2)$ 。
 
 === "Java"
@@ -211,7 +239,16 @@ $$
 === "Python"
 
     ```python title=""
-    
+    def algorithm(n):
+        a = 1      # +0（技巧 1）
+        a = a + n  # +0（技巧 1）
+        # +n（技巧 2）
+        for i in range(5 * n + 1):
+            print(0)
+        # +n*n（技巧 3）
+        for i in range(2 * n):
+            for j in range(n + 1):
+                print(0)
     ```
 
 ### 2. 判断渐进上界
@@ -279,7 +316,13 @@ $$
 === "Python"
 
     ```python title="time_complexity_types.py"
-    
+    """ 常数阶 """
+    def constant(n):
+        count = 0
+        size = 100000
+        for _ in range(size):
+            count += 1
+        return count
     ```
 
 ### 线性阶 $O(n)$
@@ -307,7 +350,12 @@ $$
 === "Python"
 
     ```python title="time_complexity_types.py"
-    
+    """ 线性阶 """
+    def linear(n):
+        count = 0
+        for _ in range(n):
+            count += 1
+        return count
     ```
 
 「遍历数组」和「遍历链表」等操作，时间复杂度都为 $O(n)$ ，其中 $n$ 为数组或链表的长度。
@@ -339,7 +387,13 @@ $$
 === "Python"
 
     ```python title="time_complexity_types.py"
-    
+    """ 线性阶（遍历数组）"""
+    def array_traversal(nums):
+        count = 0
+        # 循环次数与数组长度成正比
+        for num in nums:
+            count += 1
+        return count
     ```
 
 ### 平方阶 $O(n^2)$
@@ -352,6 +406,7 @@ $$
     /* 平方阶 */
     int quadratic(int n) {
         int count = 0;
+        // 循环次数与数组长度成平方关系
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -370,7 +425,14 @@ $$
 === "Python"
 
     ```python title="time_complexity_types.py"
-    
+    """ 平方阶 """
+    def quadratic(n):
+        count = 0
+        # 循环次数与数组长度成平方关系
+        for i in range(n):
+            for j in range(n):
+                count += 1
+        return count
     ```
 
 ![time_complexity_constant_linear_quadratic](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
@@ -387,18 +449,22 @@ $$
 
     ```java title="" title="time_complexity_types.java"
     /* 平方阶（冒泡排序） */
-    void bubbleSort(int[] nums) {
-        int n = nums.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - 1 - i; j++) {
+    int bubbleSort(int[] nums) {
+        int count = 0;  // 计数器
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = nums.length - 1; i > 0; i--) {
+            // 内循环：冒泡操作
+            for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 和 nums[j + 1]
+                    // 交换 nums[j] 与 nums[j + 1]
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
+                    count += 3;  // 元素交换包含 3 个单元操作
                 }
             }
         }
+        return count;
     }
     ```
 
@@ -411,7 +477,20 @@ $$
 === "Python"
 
     ```python title="time_complexity_types.py"
-    
+    """ 平方阶（冒泡排序）"""
+    def bubble_sort(nums):
+        count = 0  # 计数器
+        # 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for i in range(len(nums) - 1, 0, -1):
+            # 内循环：冒泡操作
+            for j in range(i):
+                if nums[j] > nums[j + 1]:
+                    # 交换 nums[j] 与 nums[j + 1]
+                    tmp = nums[j]
+                    nums[j] = nums[j + 1]
+                    nums[j + 1] = tmp
+                    count += 3  # 元素交换包含 3 个单元操作
+        return count
     ```
 
 ### 指数阶 $O(2^n)$
@@ -425,7 +504,7 @@ $$
 === "Java"
 
     ```java title="" title="time_complexity_types.java"
-    /* 指数阶（遍历实现） */
+    /* 指数阶（循环实现） */
     int exponential(int n) {
         int count = 0, base = 1;
         // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
@@ -449,7 +528,16 @@ $$
 === "Python"
 
     ```python title="time_complexity_types.py"
-    
+    """ 指数阶（循环实现）"""
+    def exponential(n):
+        count, base = 0, 1
+        # cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+        for _ in range(n):
+            for _ in range(base):
+                count += 1
+            base *= 2
+        # count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
+        return count
     ```
 
 ![time_complexity_exponential](time_complexity.assets/time_complexity_exponential.png)
@@ -477,7 +565,10 @@ $$
 === "Python"
 
     ```python title="time_complexity_types.py"
-    
+    """ 指数阶（递归实现）"""
+    def exp_recur(n):
+        if n == 1: return 1
+        return exp_recur(n - 1) + exp_recur(n - 1) + 1
     ```
 
 ### 对数阶 $O(\log n)$
@@ -511,7 +602,13 @@ $$
 === "Python"
 
     ```python title="time_complexity_types.py"
-    
+    """ 对数阶（循环实现）"""
+    def logarithmic(n):
+        count = 0
+        while n > 1:
+            n = n / 2
+            count += 1
+        return count
     ```
 
 ![time_complexity_logarithmic](time_complexity.assets/time_complexity_logarithmic.png)
@@ -539,7 +636,10 @@ $$
 === "Python"
 
     ```python title="time_complexity_types.py"
-    
+    """ 对数阶（递归实现）"""
+    def log_recur(n):
+        if n <= 1: return 0
+        return log_recur(n / 2) + 1
     ```
 
 ### 线性对数阶 $O(n \log n)$
@@ -572,7 +672,14 @@ $$
 === "Python"
 
     ```python title="time_complexity_types.py"
-    
+    """ 线性对数阶 """
+    def linear_log_recur(n):
+        if n <= 1: return 1
+        count = linear_log_recur(n // 2) + \
+                linear_log_recur(n // 2)
+        for _ in range(n):
+            count += 1
+        return count
     ```
 
 ![time_complexity_logarithmic_linear](time_complexity.assets/time_complexity_logarithmic_linear.png)
@@ -613,7 +720,14 @@ $$
 === "Python"
 
     ```python title="time_complexity_types.py"
-    
+    """ 阶乘阶（递归实现）"""
+    def factorial_recur(n):
+        if n == 0: return 1
+        count = 0
+        # 从 1 个分裂出 n 个
+        for _ in range(n):
+            count += factorial_recur(n - 1)
+        return count
     ```
 
 ![time_complexity_factorial](time_complexity.assets/time_complexity_factorial.png)
@@ -681,7 +795,29 @@ $$
 === "Python"
 
     ```python title="worst_best_time_complexity.py"
-    
+    """ 生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱 """
+    def random_numbers(n):
+        # 生成数组 nums =: 1, 2, 3, ..., n 
+        nums = [i for i in range(1, n + 1)]
+        # 随机打乱数组元素
+        random.shuffle(nums)
+        return nums
+
+    """ 查找数组 nums 中数字 1 所在索引 """
+    def find_one(nums):
+        for i in range(len(nums)):
+            if nums[i] == 1:
+                return i
+        return -1
+
+    """ Driver Code """
+    if __name__ == "__main__":
+        for i in range(10):
+            n = 100
+            nums = random_numbers(n)
+            index = find_one(nums)
+            print("\n数组 [ 1, 2, ..., n ] 被打乱后 =", nums)
+            print("数字 1 的索引为", index)
     ```
 
 !!! tip

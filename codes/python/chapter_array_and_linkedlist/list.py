@@ -8,9 +8,8 @@ import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
-"""
-Driver Code
-"""
+
+""" Driver Code """
 if __name__ == "__main__":
     """ 初始化列表 """
     list = [1, 3, 2, 5, 4]

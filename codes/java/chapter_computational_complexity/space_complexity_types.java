@@ -100,7 +100,7 @@ public class space_complexity_types {
         quadratic(n);
         quadraticRecur(n);
         // 指数阶
-        TreeNode tree = buildTree(n);
-        PrintUtil.printTree(tree);
+        TreeNode root = buildTree(n);
+        PrintUtil.printTree(root);
     }
 }

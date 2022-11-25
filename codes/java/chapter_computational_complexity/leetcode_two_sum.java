@@ -8,9 +8,10 @@ package chapter_computational_complexity;
 
 import java.util.*;
 
-class solution_brute_force {
+class SolutionBruteForce {
     public int[] twoSum(int[] nums, int target) {
         int size = nums.length;
+        // 两层循环，时间复杂度 O(n^2)
         for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {
                 if (nums[i] + nums[j] == target)
@@ -21,10 +22,12 @@ class solution_brute_force {
     }
 }
 
-class solution_hash_map {
+class SolutionHashMap {
     public int[] twoSum(int[] nums, int target) {
         int size = nums.length;
+        // 辅助哈希表，空间复杂度 O(n)
         Map<Integer, Integer> dic = new HashMap<>();
+        // 单层循环，时间复杂度 O(n)
         for (int i = 0; i < size; i++) {
             if (dic.containsKey(target - nums[i])) {
                 return new int[] { dic.get(target - nums[i]), i };
@@ -43,11 +46,11 @@ public class leetcode_two_sum {
         
         // ====== Driver Code ======
         // 方法一
-        solution_brute_force slt1 = new solution_brute_force();
+        SolutionBruteForce slt1 = new SolutionBruteForce();
         int[] res = slt1.twoSum(nums, target);
         System.out.println(Arrays.toString(res));
         // 方法二
-        solution_hash_map slt2 = new solution_hash_map();
+        SolutionHashMap slt2 = new SolutionHashMap();
         res = slt2.twoSum(nums, target);
         System.out.println(Arrays.toString(res));
     }

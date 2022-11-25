@@ -48,7 +48,7 @@
 
 ## To-Dos
 
-- [ ] [代码翻译](https://github.com/krahets/hello-algo/issues/15)（JavaScript, TypeScript, C, C#, ... 请求大佬帮助）
+- [x] [代码翻译](https://github.com/krahets/hello-algo/issues/15)（JavaScript, TypeScript, C, C#, ... 请求大佬帮助）
 - [ ] 数据结构：散列表、堆（优先队列）、图
 - [ ] 算法：搜索与回溯、选择 / 堆排序、动态规划、贪心、分治
 

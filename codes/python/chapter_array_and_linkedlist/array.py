@@ -57,6 +57,7 @@ def find(nums, target):
             return i
     return -1
 
+
 """ Driver Code """
 if __name__ == "__main__":
     """ 初始化数组 """
