@@ -8,7 +8,7 @@ hide:
 
     <div class="result" markdown>
     ![conceptual_rendering](index.assets/conceptual_rendering.png){ align=left width=350 }
-    </br></br></br></br>
+    </br></br></br></br></br>
     <h1 align="center"> 《 Hello，算法 》 </h1>
     <p align="center"> 动画图解、能运行、可讨论的</br>数据结构与算法快速入门教程 </p>
     <p align="center"> [![github-stars](https://img.shields.io/github/stars/krahets/hello-algo?style=social)](https://github.com/krahets/hello-algo)</p>
@@ -19,7 +19,7 @@ hide:
 
 <h2 align="center"> 「清晰动画讲解」 </h2>
 
-<p align="center"> 借助动画介绍重点，提升知识吸收效率</br>支持笔记本、平板、手机全终端阅读 </p>
+<p align="center"> 动画诠释重点，平滑学习曲线</br>电脑、平板、手机全终端阅读 </p>
 
 ![algorithm_animation](index.assets/animation.gif)
 
@@ -32,7 +32,7 @@ hide:
 
 <h2 align="center"> 「代码实践导向」 </h2>
 
-<p align="center"> 提供经典数据结构与算法的代码实现</br>包含详细注释，皆可一键运行 </p>
+<p align="center"> 提供经典算法的清晰实现与测试代码</br>多种语言，详细注释，皆可一键运行 </p>
 
 ![running_code](index.assets/running_code.gif)
 
@@ -45,7 +45,7 @@ hide:
 
 <h2 align="center"> 「可讨论与提问」 </h2>
 
-<p align="center"> 作者定期（一般 < 72h ）回复评论问题</br>在评论区与小伙伴们一起学习进步 </p>
+<p align="center"> 作者一般 72h 内回复评论问题</br>与小伙伴们一起讨论学习进步 </p>
 
 ![comment](index.assets/comment.gif)
 
