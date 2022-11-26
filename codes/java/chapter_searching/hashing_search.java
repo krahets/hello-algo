@@ -20,7 +20,7 @@ public class hashing_search {
     /* 哈希查找（链表） */
     static ListNode hashingSearch1(Map<Integer, ListNode> map, int target) {
         // 哈希表的 key: 目标结点值，value: 结点对象
-        // 若哈希表中无此 key ，返回 -1
+        // 若哈希表中无此 key ，返回 null
         return map.getOrDefault(target, null);
     }
 

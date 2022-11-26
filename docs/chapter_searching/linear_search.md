@@ -28,6 +28,22 @@ comments: true
     }
     ```
 
+=== "C++"
+
+    ```cpp title="linear_search.cpp"
+    /* 线性查找（数组） */
+    int linearSearch(vector<int>& nums, int target) {
+        // 遍历数组
+        for (int i = 0; i < nums.size(); i++) {
+            // 找到目标元素，返回其索引
+            if (nums[i] == target)
+                return i;
+        }
+        // 未找到目标元素，返回 -1
+        return -1;
+    }
+    ```
+
 再比如，我们想要在给定一个目标结点值 `target` ，返回此结点对象，也可以在链表中进行线性查找。
 
 === "Java"
@@ -44,6 +60,23 @@ comments: true
         }
         // 未找到目标结点，返回 null
         return null;
+    }
+    ```
+
+=== "C++"
+
+    ```cpp title="linear_search.cpp"
+    /* 线性查找（链表） */
+    ListNode* linearSearch(ListNode* head, int target) {
+        // 遍历链表
+        while (head != nullptr) {
+            // 找到目标结点，返回之
+            if (head->val == target)
+                return head;
+            head = head->next;
+        }
+        // 未找到目标结点，返回 nullptr
+        return nullptr;
     }
     ```
 

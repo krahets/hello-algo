@@ -37,7 +37,7 @@ def linear(n):
 
 """ 线性阶（递归实现） """
 def linearRecur(n):
-    print("递归 n = ", n)
+    print("递归 n =", n)
     if n == 1: return
     linearRecur(n - 1)
 
@@ -50,7 +50,7 @@ def quadratic(n):
 def quadratic_recur(n):
     if n <= 0: return 0
     nums = [0] * n
-    print("递归 n = {} 中的 nums 长度 = {}".format(n, len(nums)))
+    print("递归 n =", n, "中的 nums 长度 =", len(nums))
     return quadratic_recur(n - 1)
 
 """ 指数阶（建立满二叉树） """

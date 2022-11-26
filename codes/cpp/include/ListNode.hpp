@@ -25,7 +25,7 @@ struct ListNode {
  * @param list 
  * @return ListNode* 
  */
-ListNode* vectorToLinkedList(vector<int> list) {
+ListNode* vectorToLinkedList(vector<int>& list) {
     ListNode *dum = new ListNode(0);
     ListNode *head = dum;
     for (int val : list) {

@@ -52,6 +52,6 @@ def merge_sort(nums, left, right):
 
 """ Driver Code """
 if __name__ == '__main__':
-    nums = [4, 1, 3, 1, 5, 2]
+    nums = [ 7, 3, 2, 6, 0, 1, 5, 4 ]
     merge_sort(nums, 0, len(nums) - 1)
     print("归并排序完成后 nums =", nums)

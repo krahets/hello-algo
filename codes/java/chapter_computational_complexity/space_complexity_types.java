@@ -59,7 +59,7 @@ public class space_complexity_types {
     /* 平方阶 */
     static void quadratic(int n) {
         // 矩阵占用 O(n^2) 空间
-        int numMatrix[][] = new int[n][n];
+        int[][] numMatrix = new int[n][n];
         // 二维列表占用 O(n^2) 空间
         List<List<Integer>> numList = new ArrayList<>();
         for (int i = 0; i < n; i++) {

@@ -17,9 +17,7 @@ comments: true
 ## 算法流程
 
 1. 第 1 轮先选取数组的 **第 2 个元素** 为 `base` ，执行「插入操作」后， **数组前 2 个元素已完成排序**。
-
 2. 第 2 轮选取 **第 3 个元素** 为 `base` ，执行「插入操作」后， **数组前 3 个元素已完成排序**。
-
 3. 以此类推……最后一轮选取 **数组尾元素** 为 `base` ，执行「插入操作」后 **所有元素已完成排序**。
 
 ![insertion_sort](insertion_sort.assets/insertion_sort.png)
@@ -28,7 +26,7 @@ comments: true
 
 === "Java"
 
-    ```java
+    ```java title="insertion_sort.java"
     /* 插入排序 */
     void insertionSort(int[] nums) {
         // 外循环：base = nums[1], nums[2], ..., nums[n-1]
@@ -44,9 +42,27 @@ comments: true
     }
     ```
 
+=== "C++"
+
+    ```cpp title="insertion_sort.cpp"
+    /* 插入排序 */
+    void insertionSort(vector<int>& nums) {
+        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
+        for (int i = 1; i < nums.size(); i++) {
+            int base = nums[i], j = i - 1;
+            // 内循环：将 base 插入到左边的正确位置
+            while (j >= 0 && nums[j] > base) {
+                nums[j + 1] = nums[j];  // 1. 将 nums[j] 向右移动一位
+                j--;
+            }
+            nums[j + 1] = base;         // 2. 将 base 赋值到正确位置
+        }
+    }
+    ```
+
 === "Python"
 
-    ```python
+    ```python title="insertion_sort.py"
     """ 插入排序 """
     def insertion_sort(nums):
         # 外循环：base = nums[1], nums[2], ..., nums[n-1]

@@ -36,7 +36,16 @@ $$
 === "C++"
 
     ```cpp title=""
-    
+    // 在某运行平台下
+    void algorithm(int n) {
+        int a = 2;  // 1 ns
+        a = a + 1;  // 1 ns
+        a = a * 2;  // 10 ns
+        // 循环 n 次
+        for (int i = 0; i < n; i++) {  // 1 ns ，每轮都要执行 i++
+            cout << 0 << endl;         // 5 ns
+        }
+    }
     ```
 
 === "Python"
@@ -88,7 +97,22 @@ $$
 === "C++"
 
     ```cpp title=""
-    
+    // 算法 A 时间复杂度：常数阶
+    void algorithm_A(int n) {
+        cout << 0 << endl;
+    }
+    // 算法 B 时间复杂度：线性阶
+    void algorithm_B(int n) {
+        for (int i = 0; i < n; i++) {
+            cout << 0 << endl;
+        }
+    }
+    // 算法 C 时间复杂度：常数阶
+    void algorithm_C(int n) {
+        for (int i = 0; i < 1000000; i++) {
+            cout << 0 << endl;
+        }
+    }
     ```
 
 === "Python"
@@ -144,7 +168,15 @@ $$
 === "C++"
 
     ```cpp title=""
-    
+    void algorithm(int n) {
+        int a = 1;  // +1
+        a = a + 1;  // +1
+        a = a * 2;  // +1
+        // 循环 n 次
+        for (int i = 0; i < n; i++) { // +1（每轮都执行 i ++）
+            cout << 0 << endl;    // +1
+        }
+    }
     ```
 
 === "Python"
@@ -233,7 +265,20 @@ $$
 === "C++"
 
     ```cpp title=""
-    
+    void algorithm(int n) {
+        int a = 1;  // +0（技巧 1）
+        a = a + n;  // +0（技巧 1）
+        // +n（技巧 2）
+        for (int i = 0; i < 5 * n + 1; i++) {
+            cout << 0 << endl;
+        }
+        // +n*n（技巧 3）
+        for (int i = 0; i < 2 * n; i++) {
+            for (int j = 0; j < n + 1; j++) {
+                cout << 0 << endl;
+            }
+        }
+    }
     ```
 
 === "Python"
@@ -310,7 +355,14 @@ $$
 === "C++"
 
     ```cpp title="time_complexity_types.cpp"
-    
+    /* 常数阶 */
+    int constant(int n) {
+        int count = 0;
+        int size = 100000;
+        for (int i = 0; i < size; i++)
+            count++;
+        return count;
+    }
     ```
 
 === "Python"
@@ -344,7 +396,13 @@ $$
 === "C++"
 
     ```cpp title="time_complexity_types.cpp"
-    
+    /* 线性阶 */
+    int linear(int n) {
+        int count = 0;
+        for (int i = 0; i < n; i++)
+            count++;
+        return count;
+    }
     ```
 
 === "Python"
@@ -381,7 +439,15 @@ $$
 === "C++"
 
     ```cpp title="time_complexity_types.cpp"
-    
+    /* 线性阶（遍历数组） */
+    int arrayTraversal(vector<int>& nums) {
+        int count = 0;
+        // 循环次数与数组长度成正比
+        for (int num : nums) {
+            count++;
+        }
+        return count;
+    }
     ```
 
 === "Python"
@@ -419,7 +485,17 @@ $$
 === "C++"
 
     ```cpp title="time_complexity_types.cpp"
-    
+    /* 平方阶 */
+    int quadratic(int n) {
+        int count = 0;
+        // 循环次数与数组长度成平方关系
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                count++;
+            }
+        }
+        return count;
+    }
     ```
 
 === "Python"
@@ -471,7 +547,24 @@ $$
 === "C++"
 
     ```cpp title="time_complexity_types.cpp"
-    
+    /* 平方阶（冒泡排序） */
+    int bubbleSort(vector<int>& nums) {
+        int count = 0;  // 计数器
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = nums.size() - 1; i > 0; i--) {
+            // 内循环：冒泡操作
+            for (int j = 0; j < i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    int tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    count += 3;  // 元素交换包含 3 个单元操作
+                }
+            }
+        }
+        return count;
+    }
     ```
 
 === "Python"
@@ -522,7 +615,19 @@ $$
 === "C++"
 
     ```cpp title="time_complexity_types.cpp"
-    
+    /* 指数阶（循环实现） */
+    int exponential(int n) {
+        int count = 0, base = 1;
+        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < base; j++) {
+                count++;
+            }
+            base *= 2;
+        }
+        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
+        return count;
+    }
     ```
 
 === "Python"
@@ -559,7 +664,11 @@ $$
 === "C++"
 
     ```cpp title="time_complexity_types.cpp"
-    
+    /* 指数阶（递归实现） */
+    int expRecur(int n) {
+        if (n == 1) return 1;
+        return expRecur(n - 1) + expRecur(n - 1) + 1;
+    }
     ```
 
 === "Python"
@@ -596,7 +705,15 @@ $$
 === "C++"
 
     ```cpp title="time_complexity_types.cpp"
-    
+    /* 对数阶（循环实现） */
+    int logarithmic(float n) {
+        int count = 0;
+        while (n > 1) {
+            n = n / 2;
+            count++;
+        }
+        return count;
+    }
     ```
 
 === "Python"
@@ -630,7 +747,11 @@ $$
 === "C++"
 
     ```cpp title="time_complexity_types.cpp"
-    
+    /* 对数阶（递归实现） */
+    int logRecur(float n) {
+        if (n <= 1) return 0;
+        return logRecur(n / 2) + 1;
+    }
     ```
 
 === "Python"
@@ -666,7 +787,16 @@ $$
 === "C++"
 
     ```cpp title="time_complexity_types.cpp"
-    
+    /* 线性对数阶 */
+    int linearLogRecur(float n) {
+        if (n <= 1) return 1;
+        int count = linearLogRecur(n / 2) + 
+                    linearLogRecur(n / 2);
+        for (int i = 0; i < n; i++) {
+            count++;
+        }
+        return count;
+    }
     ```
 
 === "Python"
@@ -714,7 +844,16 @@ $$
 === "C++"
 
     ```cpp title="time_complexity_types.cpp"
-    
+    /* 阶乘阶（递归实现） */
+    int factorialRecur(int n) {
+        if (n == 0) return 1;
+        int count = 0;
+        // 从 1 个分裂出 n 个
+        for (int i = 0; i < n; i++) {
+            count += factorialRecur(n - 1);
+        }
+        return count;
+    }
     ```
 
 === "Python"
@@ -789,7 +928,42 @@ $$
 === "C++"
 
     ```cpp title="worst_best_time_complexity.cpp"
-    
+    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
+    vector<int> randomNumbers(int n) {
+        vector<int> nums(n);
+        // 生成数组 nums = { 1, 2, 3, ..., n }
+        for (int i = 0; i < n; i++) {
+            nums[i] = i + 1;
+        }
+        // 使用系统时间生成随机种子
+        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+        // 随机打乱数组元素
+        shuffle(nums.begin(), nums.end(), default_random_engine(seed));
+        return nums;
+    }
+
+    /* 查找数组 nums 中数字 1 所在索引 */
+    int findOne(vector<int>& nums) {
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] == 1)
+                return i;
+        }
+        return -1;
+    }
+
+
+    /* Driver Code */
+    int main() {
+        for (int i = 0; i < 1000; i++) {
+            int n = 100;
+            vector<int> nums = randomNumbers(n);
+            int index = findOne(nums);
+            cout << "\n数组 [ 1, 2, ..., n ] 被打乱后 = ";
+            PrintUtil::printVector(nums);
+            cout << "数字 1 的索引为 " << index << endl;
+        }
+        return 0;
+    }
     ```
 
 === "Python"

@@ -9,7 +9,6 @@ package chapter_searching;
 import include.*;
 
 public class linear_search {
-
     /* 线性查找（数组） */
     static int linearSearch(int[] nums, int target) {
         // 遍历数组

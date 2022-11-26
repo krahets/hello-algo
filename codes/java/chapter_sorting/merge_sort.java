@@ -51,7 +51,7 @@ public class merge_sort {
 
     public static void main(String[] args) {
         /* 归并排序 */
-        int[] nums = { 2, 4, 1, 0, 3, 5 };
+        int[] nums = { 7, 3, 2, 6, 0, 1, 5, 4 };
         mergeSort(nums, 0, nums.length - 1);
         System.out.println("归并排序完成后 nums = " + Arrays.toString(nums));
     }

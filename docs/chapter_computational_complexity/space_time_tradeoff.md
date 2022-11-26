@@ -39,7 +39,20 @@ comments: true
 === "C++"
 
     ```cpp title="leetcode_two_sum.cpp"
-    
+    class SolutionBruteForce {
+    public:
+        vector<int> twoSum(vector<int>& nums, int target) {
+            int size = nums.size();
+            // 两层循环，时间复杂度 O(n^2)
+            for (int i = 0; i < size - 1; i++) {
+                for (int j = i + 1; j < size; j++) {
+                    if (nums[i] + nums[j] == target)
+                        return { i, j };
+                }
+            }
+            return {};
+        }
+    };
     ```
 
 === "Python"
@@ -101,7 +114,22 @@ comments: true
 === "C++"
 
     ```cpp title="leetcode_two_sum.cpp"
-    
+    class SolutionHashMap {
+    public:
+        vector<int> twoSum(vector<int>& nums, int target) {
+            int size = nums.size();
+            // 辅助哈希表，空间复杂度 O(n)
+            unordered_map<int, int> dic;
+            // 单层循环，时间复杂度 O(n)
+            for (int i = 0; i < size; i++) {
+                if (dic.find(target - nums[i]) != dic.end()) {
+                    return { dic[target - nums[i]], i };
+                }
+                dic.emplace(nums[i], i);
+            }
+            return {};
+        }
+    };
     ```
 
 === "Python"

@@ -26,6 +26,6 @@ public class insertion_sort {
     public static void main(String[] args) {
         int[] nums = { 4, 1, 3, 1, 5, 2 };
         insertionSort(nums);
-        System.out.println("排序后数组 nums = " + Arrays.toString(nums));
+        System.out.println("插入排序完成后 nums = " + Arrays.toString(nums));
     }
 }

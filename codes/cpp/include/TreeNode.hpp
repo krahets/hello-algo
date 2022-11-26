@@ -23,7 +23,7 @@ struct TreeNode {
  * @param list 
  * @return TreeNode* 
  */
-TreeNode* vectorToTree(vector<int> list) {
+TreeNode* vectorToTree(vector<int>& list) {
     TreeNode *root = new TreeNode(list[0]);
     queue<TreeNode*> que;
     que.emplace(root);

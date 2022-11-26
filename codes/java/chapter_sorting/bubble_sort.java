@@ -47,10 +47,10 @@ public class bubble_sort {
     public static void main(String[] args) {
         int[] nums = { 4, 1, 3, 1, 5, 2 };
         bubbleSort(nums);
-        System.out.println("排序后数组 nums = " + Arrays.toString(nums));
+        System.out.println("冒泡排序完成后 nums = " + Arrays.toString(nums));
 
         int[] nums1 = { 4, 1, 3, 1, 5, 2 };
         bubbleSortWithFlag(nums1);
-        System.out.println("排序后数组 nums1 = " + Arrays.toString(nums));
+        System.out.println("冒泡排序完成后 nums1 = " + Arrays.toString(nums));
     }
 }
