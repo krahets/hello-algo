@@ -7,7 +7,7 @@ package chapter_tree
 import "testing"
 
 func TestBinarySearchTree(t *testing.T) {
-	nums := []int{8, 9, 10, 11, 12, 13, 14, 15, 1, 2, 3, 4, 5, 6, 7}
+	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}
 	bst := NewBinarySearchTree(nums)
 	t.Log("初始化的二叉树为: ")
 	bst.Print()
@@ -31,9 +31,6 @@ func TestBinarySearchTree(t *testing.T) {
 	// 删除结点
 	bst.Remove(1)
 	t.Log("删除结点 1 后的二叉树为: ")
-	bst.Print()
-	bst.Remove(12)
-	t.Log("删除结点 12 后的二叉树为: ")
 	bst.Print()
 	bst.Remove(2)
 	t.Log("删除结点 2 后的二叉树为: ")

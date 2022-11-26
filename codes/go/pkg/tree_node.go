@@ -9,9 +9,6 @@ import (
 	"fmt"
 )
 
-// nodeNotExist represents node don't exist.
-const nodeNotExist int = -1
-
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -54,11 +51,11 @@ func ArrayToTree(arr []int) *TreeNode {
 }
 
 // TreeToArray Serialize a binary tree to a list
-func TreeToArray(root *TreeNode) []int {
+func TreeToArray(root *TreeNode) []any {
 	if root == nil {
-		return []int{}
+		return []any{}
 	}
-	arr := make([]int, 0)
+	arr := make([]any, 0)
 	queue := list.New()
 	queue.PushBack(root)
 	for queue.Len() > 0 {
@@ -68,7 +65,8 @@ func TreeToArray(root *TreeNode) []int {
 			queue.PushBack(node.Left)
 			queue.PushBack(node.Right)
 		} else {
-			arr = append(arr, nodeNotExist)
+			// node don't exist.
+			arr = append(arr, nil)
 		}
 	}
 	return arr
