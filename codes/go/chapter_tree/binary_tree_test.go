@@ -11,7 +11,7 @@ import (
 
 func TestBinaryTree(t *testing.T) {
 	/* 初始化二叉树 */
-	// 初始化节点
+	// 初始化结点
 	n1 := NewTreeNode(1)
 	n2 := NewTreeNode(2)
 	n3 := NewTreeNode(3)

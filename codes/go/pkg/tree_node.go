@@ -51,11 +51,11 @@ func ArrayToTree(arr []int) *TreeNode {
 }
 
 // TreeToArray Serialize a binary tree to a list
-func TreeToArray(root *TreeNode) []int {
+func TreeToArray(root *TreeNode) []any {
 	if root == nil {
-		return []int{}
+		return []any{}
 	}
-	arr := make([]int, 16)
+	arr := make([]any, 0)
 	queue := list.New()
 	queue.PushBack(root)
 	for queue.Len() > 0 {
@@ -65,7 +65,8 @@ func TreeToArray(root *TreeNode) []int {
 			queue.PushBack(node.Left)
 			queue.PushBack(node.Right)
 		} else {
-			arr = append(arr, -1)
+			// node don't exist.
+			arr = append(arr, nil)
 		}
 	}
 	return arr
@@ -73,19 +74,19 @@ func TreeToArray(root *TreeNode) []int {
 
 // PrintTree Print a binary tree
 func PrintTree(root *TreeNode) {
-	PrintTreeHelper(root, nil, false)
+	printTreeHelper(root, nil, false)
 }
 
-// PrintTreeHelper Help to print a binary tree, hide more details
+// printTreeHelper Help to print a binary tree, hide more details
 // This tree printer is borrowed from TECHIE DELIGHT
 // https://www.techiedelight.com/c-program-print-binary-tree/
-func PrintTreeHelper(root *TreeNode, prev *trunk, isLeft bool) {
+func printTreeHelper(root *TreeNode, prev *trunk, isLeft bool) {
 	if root == nil {
 		return
 	}
 	prevStr := "    "
 	trunk := newTrunk(prev, prevStr)
-	PrintTreeHelper(root.Right, trunk, true)
+	printTreeHelper(root.Right, trunk, true)
 	if prev == nil {
 		trunk.str = "———"
 	} else if isLeft {
@@ -101,7 +102,7 @@ func PrintTreeHelper(root *TreeNode, prev *trunk, isLeft bool) {
 		prev.str = prevStr
 	}
 	trunk.str = "   |"
-	PrintTreeHelper(root.Left, trunk, false)
+	printTreeHelper(root.Left, trunk, false)
 }
 
 // trunk Help to Print tree structure

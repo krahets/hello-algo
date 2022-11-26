@@ -12,4 +12,7 @@ func TestTreeNode(t *testing.T) {
 
 	// print tree
 	PrintTree(node)
+
+	// tree to arr
+	t.Log(TreeToArray(node))
 }
