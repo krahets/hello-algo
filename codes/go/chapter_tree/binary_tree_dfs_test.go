@@ -5,8 +5,9 @@
 package chapter_tree
 
 import (
-	. "github.com/krahets/hello-algo/pkg"
 	"testing"
+
+	. "github.com/krahets/hello-algo/pkg"
 )
 
 func TestPreInPostOrderTraversal(t *testing.T) {
@@ -18,13 +19,13 @@ func TestPreInPostOrderTraversal(t *testing.T) {
 
 	// 前序遍历
 	nums := preOrder(root)
-	t.Log("前序遍历的结点打印序列 = ", nums)
+	t.Log("前序遍历的结点打印序列 =", nums)
 
 	// 中序遍历
 	nums = inOrder(root)
-	t.Log("中序遍历的结点打印序列 = ", nums)
+	t.Log("中序遍历的结点打印序列 =", nums)
 
 	// 后序遍历
 	nums = postOrder(root)
-	t.Log("后序遍历的结点打印序列 = ", nums)
+	t.Log("后序遍历的结点打印序列 =", nums)
 }

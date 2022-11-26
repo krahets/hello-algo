@@ -35,7 +35,7 @@ if __name__ == '__main__':
     # ====== Driver Code ======
     # 方法一
     res = SolutionBruteForce().twoSum(nums, target);
-    print(res)
+    print("方法一 res =", res)
     # 方法二
     res = SolutionHashMap().twoSum(nums, target);
-    print(res)
+    print("方法二 res =", res)

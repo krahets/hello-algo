@@ -34,7 +34,7 @@
 本书定期更新中，希望您可以一同参与到本书的创作中来，详情见 [一起参与创作](https://www.hello-algo.com/chapter_preface/contribution/) 。
 
 - 如果发现笔误、无效链接、内容缺失、文字歧义、解释不清晰、行文结构不合理等问题，烦请您帮忙修正内容，以帮助其他读者获取更优质的学习内容。
-- 非常欢迎您和我一同来创作本书，包括重写某章节、新增章节等，如果有意请与我联系 WeChat: krahets-jyd , Email: krahets@163.com 。
+- 非常欢迎您和我一同来创作本书，包括重写章节、新增章节、翻译代码至不同语言等，如果有意请与我联系 WeChat: krahets-jyd , Email: krahets@163.com 。
 
 如果感觉本书对你有所帮助，请点个 Star 支持一下，谢谢！
 
@@ -48,7 +48,7 @@
 
 ## To-Dos
 
-- [x] [代码翻译](https://github.com/krahets/hello-algo/issues/15)（JavaScript, TypeScript, C, C#, ... 请求大佬帮助）
+- [x] [代码翻译](https://github.com/krahets/hello-algo/issues/15)（JavaScript, TypeScript, C, C++, C#, ... 寻求大佬帮助）
 - [ ] 数据结构：散列表、堆（优先队列）、图
 - [ ] 算法：搜索与回溯、选择 / 堆排序、动态规划、贪心、分治
 

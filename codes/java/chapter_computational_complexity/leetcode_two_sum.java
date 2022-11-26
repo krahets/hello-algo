@@ -48,10 +48,10 @@ public class leetcode_two_sum {
         // 方法一
         SolutionBruteForce slt1 = new SolutionBruteForce();
         int[] res = slt1.twoSum(nums, target);
-        System.out.println(Arrays.toString(res));
+        System.out.println("方法一 res = " + Arrays.toString(res));
         // 方法二
         SolutionHashMap slt2 = new SolutionHashMap();
         res = slt2.twoSum(nums, target);
-        System.out.println(Arrays.toString(res));
+        System.out.println("方法二 res = " + Arrays.toString(res));
     }
 }
