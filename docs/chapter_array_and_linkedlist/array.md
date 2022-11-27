@@ -24,7 +24,7 @@ comments: true
     int[] nums = { 1, 3, 2, 5, 4 };
     ```
 
-=== "Javascript"
+=== "JavaScript"
 
     ```javascript title="array.javascript"
     /* 初始化数组 */
@@ -77,7 +77,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "Javascript"
+=== "JavaScript"
 
     ```javascript title="array.javascript"
     /* 随机返回一个数组元素 */
@@ -135,7 +135,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "Javascript"
+=== "JavaScript"
 
     ```javascript title="array.javascript"
     /* 扩展数组长度 */
@@ -215,7 +215,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "Javascript"
+=== "JavaScript"
 
     ```javascript title="array.javascript"
     /* 在数组的索引 index 处插入元素 num */
@@ -298,7 +298,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "Javascript"
+=== "JavaScript"
 
     ```javascript title="array.javascript"
     /* 遍历数组 */
@@ -357,7 +357,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "Javascript"
+=== "JavaScript"
 
     ```javascript title="array.javascript"
     /* 在数组中查找指定元素 */
