@@ -1,8 +1,10 @@
-// File: array.js
-// Created Time: 2022-11-27
-// Author: IsChristina (christinaxia77@foxmail.com)
+/**
+ * File: array.js
+ * Created Time: 2022-11-27
+ * Author: IsChristina (christinaxia77@foxmail.com)
+ */
 
-// 随机访问元素
+/* 随机访问元素 */
 function randomAccess(nums){
     // 在区间 [0, nums.length) 中随机抽取一个数字
     const random_index  = Math.floor(Math.random() * nums.length)
@@ -11,7 +13,9 @@ function randomAccess(nums){
     return random_num
 }
 
-// 扩展数组长度 js语言中的数组长度是动态的 一般无需指定长度
+/* 扩展数组长度 */
+// 请注意，Python 的 list 是动态数组，可以直接扩展
+// 为了方便学习，本函数将 list 看作是长度不可变的数组
 function extend(nums, enlarge){
    // 初始化一个扩展长度后的数组
    let res = new Array(nums.length + enlarge).fill(0)
@@ -23,7 +27,7 @@ function extend(nums, enlarge){
     return res
 }
 
-// 在数组的索引 index 处插入元素 num
+/* 在数组的索引 index 处插入元素 num */
 function insert(nums, num, index){
     // 把索引 index 以及之后的所有元素向后移动一位
     for (let i = nums.length - 1; i >= index; i--) {
@@ -33,7 +37,7 @@ function insert(nums, num, index){
     nums[index] = num;
 }
 
-// 删除索引 index 处元素
+/* 删除索引 index 处元素 */
 function remove(nums, index){
     // 把索引 index 之后的所有元素向前移动一位
     for (let i = index; i < nums.length - 1; i++) {
@@ -41,7 +45,7 @@ function remove(nums, index){
      }
 }
     
-// 遍历数组 
+/* 遍历数组 */
 function traverse(nums){
     let count = 0
     // 通过索引遍历数组
@@ -54,7 +58,7 @@ function traverse(nums){
      }
 }
 
-// 在数组中查找指定元素
+/* 在数组中查找指定元素 */
 function find(nums, target){
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] == target)
@@ -63,31 +67,33 @@ function find(nums, target){
     return -1
 }
 
-// 初始化数组
+
+/* Driver Codes*/
+/* 初始化数组 */
 var arr = new Array(5).fill(0)
 console.log("数组 arr =", arr)
 var nums = [1, 3, 2, 5, 4]
 console.log("数组 nums =", nums)
 
-// 随机访问
+/* 随机访问 */
 random_num = randomAccess(nums)
 console.log("在 nums 中获取随机元素", random_num)
 
-// 长度扩展
+/* 长度扩展 */
 nums = extend(nums, 3)
 console.log("将数组长度扩展至 8 ，得到 nums =", nums)
 
-// 插入元素
+/* 插入元素 */
 insert(nums, 6, 3)
 console.log("在索引 3 处插入数字 6 ，得到 nums =", nums)
 
-// 删除元素
+/* 删除元素 */
 remove(nums, 2)
 console.log("删除索引 2 处的元素，得到 nums =", nums)
 
-// 遍历数组
+/* 遍历数组 */
 traverse(nums)
 
-// 查找元素 nums.indexOf(3)也可以
+/* 查找元素 */
 var index = find(nums, 3)
 console.log("在 nums 中查找元素 3 ，得到索引 =", index)
