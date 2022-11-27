@@ -68,6 +68,22 @@ class PrintUtil {
         }
 
         /**
+         * @brief Print an Array
+         * 
+         * @tparam T 
+         * @tparam n 
+         */
+        template<typename T>
+        static void printArray(T* arr, int n)
+        {
+            cout << "[";
+            for (size_t i = 0; i < n - 1; i++) {
+                cout << arr[i] << ", ";
+            }
+            cout << arr[n - 1] << "]" << '\n';
+        }
+
+        /**
          * @brief Get the Vector String object
          * 
          * @tparam T 

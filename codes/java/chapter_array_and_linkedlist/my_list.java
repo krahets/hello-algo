@@ -10,14 +10,14 @@ import java.util.*;
 
 /* 列表类简易实现 */
 class MyList {
-    int[] nums;               // 数组（存储列表元素）
-    int initialCapacity = 10; // 列表初始容量
-    int size = 0;             // 列表长度（即当前元素数量）
-    int extendRatio = 2;      // 每次列表扩容的倍数
+    private int[] nums;           // 数组（存储列表元素）
+    private int capacity = 10;    // 列表容量
+    private int size = 0;         // 列表长度（即当前元素数量）
+    private int extendRatio = 2;  // 每次列表扩容的倍数
 
     /* 构造函数 */
     public MyList() {
-        nums = new int[initialCapacity];
+        nums = new int[capacity];
     }
 
     /* 获取列表长度（即当前元素数量）*/
@@ -27,7 +27,7 @@ class MyList {
 
     /* 获取列表容量 */
     public int capacity() {
-        return nums.length;
+        return capacity;
     }
 
     /* 访问元素 */
@@ -48,7 +48,7 @@ class MyList {
     /* 尾部添加元素 */
     public void add(int num) {
         // 元素数量超出容量时，触发扩容机制
-        if (size == nums.length)
+        if (size == capacity())
             extendCapacity();
         nums[size] = num;
         // 更新元素数量
@@ -60,7 +60,7 @@ class MyList {
         if (index >= size)
             throw new IndexOutOfBoundsException("索引越界");
         // 元素数量超出容量时，触发扩容机制
-        if (size == nums.length)
+        if (size == capacity())
             extendCapacity();
         // 索引 i 以及之后的元素都向后移动一位
         for (int j = size - 1; j >= index; j--) {
@@ -86,7 +86,9 @@ class MyList {
     /* 列表扩容 */
     public void extendCapacity() {
         // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
-        nums = Arrays.copyOf(nums, nums.length * extendRatio);
+        nums = Arrays.copyOf(nums, capacity() * extendRatio);
+        // 更新列表容量
+        capacity = nums.length;
     }
 
     /* 将列表转换为数组 */

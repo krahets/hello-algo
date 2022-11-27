@@ -12,10 +12,10 @@ from include import *
 class MyList:
     """ 构造函数 """
     def __init__(self):
-        self._initial_capacity = 10               # 列表初始容量
-        self._nums = [0] * self._initial_capacity # 数组（存储列表元素）
-        self._size = 0                            # 列表长度（即当前元素数量）
-        self._extend_ratio = 2                    # 每次列表扩容的倍数
+        self._capacity = 10                 # 列表容量
+        self._nums = [0] * self._capacity   # 数组（存储列表元素）
+        self._size = 0                      # 列表长度（即当前元素数量）
+        self._extend_ratio = 2              # 每次列表扩容的倍数
 
     """ 获取列表长度（即当前元素数量） """
     def size(self):
@@ -23,7 +23,7 @@ class MyList:
     
     """ 获取列表容量 """
     def capacity(self):
-        return len(self._nums)
+        return self._capacity
     
     """ 访问元素 """
     def get(self, index):
@@ -64,6 +64,8 @@ class MyList:
     def extend_capacity(self):
         # 新建一个长度为 self._size 的数组，并将原数组拷贝到新数组
         self._nums = self._nums + [0] * self.capacity() * (self._extend_ratio - 1)
+        # 更新列表容量
+        self._capacity = len(self._nums)
     
     """ 返回有效长度的列表 """
     def to_array(self):
