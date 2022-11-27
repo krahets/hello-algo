@@ -5,7 +5,7 @@
  */
 
 #pragma once
-
+#include<climits>
 /**
  * @brief Definition for a binary tree node
  * 
