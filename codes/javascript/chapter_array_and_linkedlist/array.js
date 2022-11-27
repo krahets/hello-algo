@@ -10,6 +10,7 @@ function randomAccess(nums){
     random_num = nums[random_index]
     return random_num
 }
+
 // 扩展数组长度 js语言中的数组长度是动态的 一般无需指定长度
 function extend(nums, enlarge){
    // 初始化一个扩展长度后的数组
@@ -21,6 +22,7 @@ function extend(nums, enlarge){
     // 返回扩展后的新数组
     return res
 }
+
 // 在数组的索引 index 处插入元素 num
 function insert(nums, num, index){
     // 把索引 index 以及之后的所有元素向后移动一位
@@ -77,14 +79,10 @@ console.log("将数组长度扩展至 8 ，得到 nums =", nums)
 
 // 插入元素
 insert(nums, 6, 3)
-// 还可以直接使用ES6 splice
-// nums.splice(3,0,6)
 console.log("在索引 3 处插入数字 6 ，得到 nums =", nums)
-
 
 // 删除元素
 remove(nums, 2)
-// 可以使用 nums.splice(2,1)
 console.log("删除索引 2 处的元素，得到 nums =", nums)
 
 // 遍历数组
