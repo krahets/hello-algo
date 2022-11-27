@@ -68,22 +68,6 @@ class PrintUtil {
         }
 
         /**
-         * @brief Print an Array
-         * 
-         * @tparam T 
-         * @tparam n 
-         */
-        template<typename T>
-        static void printArray(T* arr, int n)
-        {
-            cout << "[";
-            for (size_t i = 0; i < n - 1; i++) {
-                cout << arr[i] << ", ";
-            }
-            cout << arr[n - 1] << "]" << '\n';
-        }
-
-        /**
          * @brief Get the Vector String object
          * 
          * @tparam T 
@@ -96,6 +80,25 @@ class PrintUtil {
         }
 
         /**
+         * @brief Get the Stack String object
+         * 
+         * @tparam T 
+         * @param stack 
+         * @return string 
+         */
+        template <typename T>
+        static string getStackString(stack<T> stack) {
+            ostringstream s;
+            if(!stack.empty()){
+                s<<stack.top();stack.pop();
+            }
+            while(!stack.empty()){
+                s<<","<<stack.top();stack.pop();
+            }
+            return "top>" + s.str() + "]";
+        }
+
+        /**
          * @brief Print a vector
          * 
          * @tparam T 
@@ -104,6 +107,17 @@ class PrintUtil {
         template <typename T>
         static void printVector(vector<T> &list) {
             cout << getVectorString(list) << '\n';
+        }
+
+         /**
+         * @brief Print a stack
+         * 
+         * @tparam T 
+         * @param sta 
+         */
+        template <typename T>
+        static void printStack(stack<T> &stack) {
+            cout << getStackString(stack) << '\n';
         }
 
         /**
