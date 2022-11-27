@@ -29,14 +29,22 @@
 
 ## 关于本书
 
-本书是我利用业余时间创作，完全开源免费，不会收取任何费用。
+本书致力于实现以下目标：
 
-本书定期更新中，希望您可以一同参与到本书的创作中来，详情见 [一起参与创作](https://www.hello-algo.com/chapter_preface/contribution/) 。
+- 所有人都可在网上免费获取；
+- 新手友好，适合算法初学者入门学习；
+- 重点知识采用动画式讲解，尽可能地保证平滑的学习曲线；
+- 提供可运行的代码，使读者在编程实践中加深对知识的理解；
+- 可在讨论区与小伙伴们一起学习进步，作者一般 72h 内回复问题；
 
-- 如果发现笔误、无效链接、内容缺失、文字歧义、解释不清晰、行文结构不合理等问题，烦请您帮忙修正内容，以帮助其他读者获取更优质的学习内容。
-- 非常欢迎您和我一同来创作本书，包括重写章节、新增章节、翻译代码至不同语言等，如果有意请与我联系 WeChat: krahets-jyd , Email: krahets@163.com 。
+本书加速更新中，期待您来[一起参与创作](https://www.hello-algo.com/chapter_preface/contribution/)，以帮助其他读者获取更优质的学习内容：
 
-如果感觉本书对你有所帮助，请点个 Star 支持一下，谢谢！
+- 如果发现笔误、无效链接、内容缺失、文字歧义、解释不清晰等问题，烦请您帮忙修正；
+- 欢迎您通过提交 Pull Request 来增添新内容，包括重写章节、新增章节、翻译代码至不同语言等；
+
+> 有任何问题请与我联系 WeChat: krahets-jyd
+
+如果感觉本书对你有所帮助，请点个 Star :star: 支持一下，谢谢！
 
 ## 致谢
 
@@ -54,4 +62,4 @@
 
 ## License
 
-The **texts, codes, images, photos, and videos** in this repository is licensed under [CC BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+The texts, codes, images, photos, and videos in this repository is licensed under [CC BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
