@@ -210,4 +210,34 @@ class PrintUtil {
         
             printTree(root->left, trunk, false);
         }
+        /**
+         * @brief Get the Stack String object
+         * 
+         * @tparam T 
+         * @param stack 
+         * @return string 
+         */
+        template <typename T>
+        static string getStackString(stack<T> stack) {
+            ostringstream s;
+            if(!stack.empty()){
+                s << stack.top();
+                stack.pop();
+            }
+            while(!stack.empty()){
+                s << ", " << stack.top();
+                stack.pop();
+            }
+            return "top->" + s.str() + "]";
+        }
+        /**
+         * @brief Print a stack
+         * 
+         * @tparam T 
+         * @param stack
+         */
+        template <typename T>
+        static void printStack(stack<T> &stack) {
+            cout << getStackString(stack) << '\n';
+        }
 };
