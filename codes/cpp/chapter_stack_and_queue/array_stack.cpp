@@ -8,36 +8,42 @@
 
 /* 基于数组实现的栈 */
 class ArrayStack {
-public:
+private:
     vector<int> vec;
-
+public:
     /* 获取栈的长度 */
     int size() {
         return vec.size();
     }
-    
+
     /* 判断栈是否为空 */
     bool empty() {
         return vec.empty();
     }
-    
+
     /* 入栈 */
     void push(int num) {
         vec.push_back(num);
     }
-    
+
     /* 出栈 */
     int pop() {
         int oldTop = vec.back();
         vec.pop_back();
         return oldTop;
     }
-    
+
     /* 访问栈顶元素 */
     int top() {
         return vec.back();
     }
+
+    /* 返回 Vector */
+    vector<int> toVector() {
+        return vec;
+    }
 };
+
 
 /* Driver Code */
 int main() {
@@ -51,7 +57,8 @@ int main() {
     stack->push(5);
     stack->push(4);
     cout << "栈 stack = ";
-    PrintUtil::printVector(stack->vec);
+    vector<int> vec = stack->toVector();
+    PrintUtil::printVector(vec);
 
     /* 访问栈顶元素 */
     int top = stack->top();
@@ -60,7 +67,8 @@ int main() {
     /* 元素出栈 */
     int pop = stack->pop();
     cout << "出栈元素 pop = " << pop << "，出栈后 stack = ";
-    PrintUtil::printVector(stack->vec);
+    vec = stack->toVector();
+    PrintUtil::printVector(vec);
 
     /* 获取栈的长度 */
     int size = stack->size();
@@ -69,6 +77,6 @@ int main() {
     /* 判断是否为空 */
     bool empty = stack->empty();
     cout << "栈是否为空 = " << empty << endl;
-    
+
     return 0;
 }
