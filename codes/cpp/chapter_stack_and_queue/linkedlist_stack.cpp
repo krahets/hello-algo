@@ -11,10 +11,6 @@ class LinkedListStack {
 private:
     list<int> list;
 public:
-    LinkedListStack() {
-        // 初始化空链表
-        list.clear();
-    }
     /* 获取栈的长度 */
     int size() {
         return list.size();
