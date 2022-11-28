@@ -5,8 +5,9 @@
 package chapter_tree
 
 import (
-	. "github.com/krahets/hello-algo/pkg"
 	"testing"
+
+	. "github.com/krahets/hello-algo/pkg"
 )
 
 func TestBinaryTree(t *testing.T) {

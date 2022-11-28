@@ -6,6 +6,7 @@ package chapter_tree
 
 import (
 	"container/list"
+
 	. "github.com/krahets/hello-algo/pkg"
 )
 
