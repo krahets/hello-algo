@@ -210,4 +210,32 @@ class PrintUtil {
         
             printTree(root->left, trunk, false);
         }
+    
+        /**
+         * @brief Print a stack
+         * 
+         * @tparam T 
+         * @param stk
+         */
+        template <typename T>
+        static void printStack(stack<T> &stk) {
+            // Reverse the input stack
+            stack<T> tmp;
+            while(!stk.empty()) {
+                tmp.push(stk.top());
+                stk.pop();
+            }
+            // Generate the string to print
+            ostringstream s;
+            bool flag = true;
+            while(!tmp.empty()) {
+                if (flag) {
+                    s << tmp.top();
+                    flag = false;
+                }
+                else s << ", " << tmp.top();
+                tmp.pop();
+            }
+            cout << "[" + s.str() + "]" << '\n';
+        }
 };
