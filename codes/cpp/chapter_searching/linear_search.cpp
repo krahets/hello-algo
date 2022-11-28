@@ -42,7 +42,7 @@ int main() {
     cout << "目标元素 3 的索引 = " << index << endl;
 
     /* 在链表中执行线性查找 */
-    ListNode* head = vectorToLinkedList(nums);
+    ListNode* head = vecToLinkedList(nums);
     ListNode* node = linearSearch(head, target);
     cout << "目标结点值 3 的对应结点对象为 " << node << endl;
     

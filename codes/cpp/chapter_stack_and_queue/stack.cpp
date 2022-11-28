@@ -6,7 +6,9 @@
 
 #include "../include/include.hpp"
 
-int main(){
+
+/* Driver Code */
+int main() {
     /* 初始化栈 */
     stack<int> stack;
 
@@ -25,15 +27,15 @@ int main(){
 
     /* 元素出栈 */
     stack.pop();
-    cout<< "出栈元素 pop = " << top << "，出栈后 stack = ";
+    cout << "出栈元素 pop = " << top << "，出栈后 stack = ";
     PrintUtil::printStack(stack);
 
     /* 获取栈的长度 */
     int size = stack.size();
-    cout<< "栈的长度 size = " << size << endl;
+    cout << "栈的长度 size = " << size << endl;
 
     /* 判断是否为空 */
     bool empty = stack.empty();
-    
+
     return 0;
 }

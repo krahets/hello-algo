@@ -238,4 +238,27 @@ class PrintUtil {
             }
             cout << "[" + s.str() + "]" << '\n';
         }
+
+        /**
+         * @brief 
+         * 
+         * @tparam T 
+         * @param queue 
+         */
+        template <typename T>
+        static void printQueue(queue<T> &queue)
+        {
+            // Generate the string to print
+            ostringstream s;
+            bool flag = true;
+            while(!queue.empty()) {
+                if (flag) {
+                    s << queue.front();
+                    flag = false;
+                }
+                else s << ", " << queue.front();
+                queue.pop();
+            }
+            cout << "[" + s.str() + "]" << '\n';
+        }
 };

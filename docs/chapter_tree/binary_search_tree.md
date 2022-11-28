@@ -59,12 +59,43 @@ comments: true
     }
     ```
 
+=== "C++"
+
+    ```cpp title="binary_search_tree.cpp"
+    /* 查找结点 */
+    TreeNode* search(int num) {
+        TreeNode* cur = root;
+        // 循环查找，越过叶结点后跳出
+        while (cur != nullptr) {
+            // 目标结点在 root 的右子树中
+            if (cur->val < num) cur = cur->right;
+            // 目标结点在 root 的左子树中
+            else if (cur->val > num) cur = cur->left;
+            // 找到目标结点，跳出循环
+            else break;
+        }
+        // 返回目标结点
+        return cur;
+    }
+    ```
+
+=== "Python"
+
+    ```python title="binary_search_tree.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="binary_search_tree.go"
+
+    ```
+
 ### 插入结点
 
 给定一个待插入元素 `num` ，为了保持二叉搜索树 “左子树 < 根结点 < 右子树” 的性质，插入操作分为两步：
 
 1. **查找插入位置：** 与查找操作类似，我们从根结点出发，根据当前结点值和 `num` 的大小关系循环向下搜索，直到越过叶结点（遍历到 $\text{null}$ ）时跳出循环；
-
 2. **在该位置插入结点：** 初始化结点 `num` ，将该结点放到 $\text{null}$ 的位置 ；
 
 二叉搜索树不允许存在重复结点，否则将会违背其定义。因此若待插入结点在树中已经存在，则不执行插入，直接返回即可。
@@ -95,6 +126,44 @@ comments: true
         else pre.left = node;
         return node;
     }
+    ```
+
+=== "C++"
+
+    ```cpp title="binary_search_tree.cpp"
+    /* 插入结点 */
+    TreeNode* insert(int num) {
+        // 若树为空，直接提前返回
+        if (root == nullptr) return nullptr;
+        TreeNode *cur = root, *pre = nullptr;
+        // 循环查找，越过叶结点后跳出
+        while (cur != nullptr) {
+            // 找到重复结点，直接返回
+            if (cur->val == num) return nullptr;
+            pre = cur;
+            // 插入位置在 root 的右子树中
+            if (cur->val < num) cur = cur->right;
+            // 插入位置在 root 的左子树中
+            else cur = cur->left;
+        }
+        // 插入结点 val
+        TreeNode* node = new TreeNode(num);
+        if (pre->val < num) pre->right = node;
+        else pre->left = node;
+        return node;
+    }
+    ```
+
+=== "Python"
+
+    ```python title="binary_search_tree.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="binary_search_tree.go"
+
     ```
 
 为了插入结点，需要借助 **辅助结点 `prev`** 保存上一轮循环的结点，这样在遍历到 $\text{null}$ 时，我们也可以获取到其父结点，从而完成结点插入操作。
@@ -186,6 +255,69 @@ comments: true
         }
         return root;
     }
+    ```
+
+=== "C++"
+
+    ```cpp title="binary_search_tree.cpp"
+    /* 删除结点 */
+    TreeNode* remove(int num) {
+        // 若树为空，直接提前返回
+        if (root == nullptr) return nullptr;
+        TreeNode *cur = root, *pre = nullptr;
+        // 循环查找，越过叶结点后跳出
+        while (cur != nullptr) {
+            // 找到待删除结点，跳出循环
+            if (cur->val == num) break;
+            pre = cur;
+            // 待删除结点在 root 的右子树中
+            if (cur->val < num) cur = cur->right;
+            // 待删除结点在 root 的左子树中
+            else cur = cur->left;
+        }
+        // 若无待删除结点，则直接返回
+        if (cur == nullptr) return nullptr;
+        // 子结点数量 = 0 or 1
+        if (cur->left == nullptr || cur->right == nullptr) {
+            // 当子结点数量 = 0 / 1 时， child = nullptr / 该子结点
+            TreeNode* child = cur->left != nullptr ? cur->left : cur->right;
+            // 删除结点 cur
+            if (pre->left == cur) pre->left = child;
+            else pre->right = child;
+        }
+        // 子结点数量 = 2
+        else {
+            // 获取中序遍历中 cur 的下一个结点
+            TreeNode* nex = min(cur->right);
+            int tmp = nex->val;
+            // 递归删除结点 nex
+            remove(nex->val);
+            // 将 nex 的值复制给 cur
+            cur->val = tmp;
+        }
+        return cur;
+    }
+    /* 获取最小结点 */
+    TreeNode* min(TreeNode* root) {
+        if (root == nullptr) return root;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (root->left != nullptr) {
+            root = root->left;
+        }
+        return root;
+    }
+    ```
+
+=== "Python"
+
+    ```python title="binary_search_tree.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="binary_search_tree.go"
+
     ```
 
 ## 二叉搜索树的优势

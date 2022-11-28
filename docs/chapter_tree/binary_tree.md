@@ -18,6 +18,35 @@ comments: true
     }
     ```
 
+=== "C++"
+
+    ```cpp
+    /* 链表结点结构体 */
+    struct TreeNode {
+        int val;          // 结点值
+        TreeNode *left;   // 左子结点指针
+        TreeNode *right;  // 右子结点指针
+        TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    };
+    ```
+
+=== "Python"
+
+    ```python
+    """ 链表结点类 """
+    class TreeNode:
+        def __init__(self, val=0, left=None, right=None):
+            self.val = val      # 结点值
+            self.left = left    # 左子结点指针
+            self.right = right  # 右子结点指针
+    ```
+
+=== "Go"
+
+    ```go
+
+    ```
+
 结点的两个指针分别指向「左子结点 Left Child Node」和「右子结点 Right Child Node」，并且称该结点为两个子结点的「父结点 Parent Node」。给定二叉树某结点，将左子结点以下的树称为该结点的「左子树 Left Subtree」，右子树同理。
 
 ![binary_tree_definition](binary_tree.assets/binary_tree_definition.png)
@@ -84,20 +113,75 @@ comments: true
     n2.right = n5;
     ```
 
+=== "C++"
+
+    ```cpp title="binary_tree.cpp"
+    /* 初始化二叉树 */
+    // 初始化结点
+    TreeNode* n1 = new TreeNode(1);
+    TreeNode* n2 = new TreeNode(2);
+    TreeNode* n3 = new TreeNode(3);
+    TreeNode* n4 = new TreeNode(4);
+    TreeNode* n5 = new TreeNode(5);
+    // 构建引用指向（即指针）
+    n1->left = n2;
+    n1->right = n3;
+    n2->left = n4;
+    n2->right = n5;
+    ```
+
+=== "Python"
+
+    ```python title="binary_tree.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="binary_tree.go"
+
+    ```
+
 **插入与删除结点。** 与链表类似，插入与删除结点都可以通过修改指针实现。
 
 ![binary_tree_add_remove](binary_tree.assets/binary_tree_add_remove.png)
 
 <p align="center"> Fig. 在二叉树中插入与删除结点 </p>
 
-```java title="binary_tree.java"
-TreeNode P = new TreeNode(0);
-// 在 n1 -> n2 中间插入结点 P
-n1.left = P;
-P.left = n2;
-// 删除结点 P
-n1.left = n2;
-```
+=== "Java"
+
+    ```java title="binary_tree.java"
+    TreeNode P = new TreeNode(0);
+    // 在 n1 -> n2 中间插入结点 P
+    n1.left = P;
+    P.left = n2;
+    // 删除结点 P
+    n1.left = n2;
+    ```
+
+=== "C++"
+
+    ```cpp title="binary_tree.cpp"
+    /* 插入与删除结点 */
+    TreeNode* P = new TreeNode(0);
+    // 在 n1 -> n2 中间插入结点 P
+    n1->left = P;
+    P->left = n2;
+    // 删除结点 P
+    n1->left = n2;
+    ```
+
+=== "Python"
+
+    ```python title="binary_tree.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="binary_tree.go"
+
+    ```
 
 !!! note
 
@@ -138,6 +222,41 @@ n1.left = n2;
         }
         return list;
     }
+    ```
+
+=== "C++"
+
+    ```cpp title="binary_tree_bfs.cpp"
+    /* 层序遍历 */
+    vector<int> hierOrder(TreeNode* root) {
+        // 初始化队列，加入根结点
+        queue<TreeNode*> queue;
+        queue.push(root);
+        // 初始化一个列表，用于保存遍历序列
+        vector<int> vec;
+        while (!queue.empty()) {
+            TreeNode* node = queue.front();
+            queue.pop();  // 队列出队
+            vec.push_back(node->val);            // 保存结点
+            if (node->left != NULL)
+                queue.push(node->left);    // 左子结点入队
+            if (node->right != NULL)
+                queue.push(node->right);   // 右子结点入队
+        }
+        return vec;
+    }
+    ```
+
+=== "Python"
+
+    ```python title="binary_tree_bfs.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="binary_tree_bfs.go"
+
     ```
 
 ### 前序、中序、后序遍历
@@ -189,6 +308,49 @@ n1.left = n2;
         postOrder(root.right);
         list.add(root.val);
     }
+    ```
+
+=== "C++"
+
+    ```cpp title="binary_tree_dfs.cpp"
+    /* 前序遍历 */
+    void preOrder(TreeNode* root) {
+        if (root == nullptr) return;
+        // 访问优先级：根结点 -> 左子树 -> 右子树
+        vec.push_back(root->val);
+        preOrder(root->left);
+        preOrder(root->right);
+    }
+
+    /* 中序遍历 */
+    void inOrder(TreeNode* root) {
+        if (root == nullptr) return;
+        // 访问优先级：左子树 -> 根结点 -> 右子树
+        inOrder(root->left);
+        vec.push_back(root->val);
+        inOrder(root->right);
+    }
+
+    /* 后序遍历 */
+    void postOrder(TreeNode* root) {
+        if (root == nullptr) return;
+        // 访问优先级：左子树 -> 右子树 -> 根结点
+        postOrder(root->left);
+        postOrder(root->right);
+        vec.push_back(root->val);
+    }
+    ```
+
+=== "Python"
+
+    ```python title="binary_tree_dfs.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="binary_tree_dfs.go"
+
     ```
 
 !!! note
