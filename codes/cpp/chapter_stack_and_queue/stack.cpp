@@ -34,5 +34,6 @@ int main(){
 
     /* 判断是否为空 */
     bool empty = stack.empty();
+    
     return 0;
 }
