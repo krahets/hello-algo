@@ -21,7 +21,7 @@ class ArrayStack:
         return self._size
 
     """ 判断栈是否为空 """
-    def isEmpty(self):
+    def is_empty(self):
         return self._stack == []
 
     """ 入栈 """
@@ -70,4 +70,4 @@ if __name__ == "__main__":
     print("栈的长度 size = ", size)
 
     """ 判断是否为空 """
-    isEmpty = (stack == [])
+    isEmpty = stack.is_empty()

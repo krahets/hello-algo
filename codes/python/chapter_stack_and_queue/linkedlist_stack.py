@@ -50,8 +50,9 @@ class LinkedListStack:
         stack = []
         temp = self.head
         while temp:
-            stack.insert(0, temp.val)
+            stack.append(temp.val)
             temp = temp.next
+        stack = stack[::-1]
         return stack
 
 
@@ -81,4 +82,4 @@ if __name__ == "__main__":
     print("栈的长度 size = ", size)
 
     """ 判断是否为空 """
-    isEmpty = (stack == [])
+    isEmpty = stack.is_empty()
