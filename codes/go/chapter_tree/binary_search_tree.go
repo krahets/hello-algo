@@ -5,8 +5,9 @@
 package chapter_tree
 
 import (
-	. "github.com/krahets/hello-algo/pkg"
 	"sort"
+
+	. "github.com/krahets/hello-algo/pkg"
 )
 
 type BinarySearchTree struct {
