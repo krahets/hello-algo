@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-// LinkedListQueue 基于链表实现的栈, 使用内置包 list 来实现栈
+// LinkedListQueue 基于链表实现的队列, 使用内置包 list 来实现栈
 type LinkedListQueue struct {
 	list *list.List
 }
@@ -60,11 +60,10 @@ func (s *LinkedListQueue) Print() {
 	fmt.Println(s.toString())
 }
 
-func (s *LinkedListQueue) toString() any {
+func (s *LinkedListQueue) toString() string {
 	var builder strings.Builder
 	if s.IsEmpty() {
 		fmt.Println("empty stack")
-		return nil
 	}
 	e := s.list.Front()
 	// 强转为 string, 会影响效率

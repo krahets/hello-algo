@@ -7,8 +7,9 @@ package chapter_stack_and_queue
 import "testing"
 
 func TestArrayStack(t *testing.T) {
-	// 初始化栈
-	stack := NewArrayStack()
+	// 初始化栈, 使用接口承接
+	var stack Stack
+	stack = NewArrayStack()
 
 	// 元素入栈
 	stack.Push(1)
@@ -37,8 +38,8 @@ func TestArrayStack(t *testing.T) {
 
 func TestLinkedListStack(t *testing.T) {
 	// 初始化栈
-	stack := NewLinkedListStack()
-
+	var stack Stack
+	stack = NewLinkedListStack()
 	// 元素入栈
 	stack.Push(1)
 	stack.Push(2)

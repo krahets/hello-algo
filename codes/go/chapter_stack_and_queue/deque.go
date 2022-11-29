@@ -6,22 +6,21 @@ package chapter_stack_and_queue
 
 type Deque interface {
 	// OfferFirst 元素入队
-	OfferFirst(num int)
+	OfferFirst(num any)
 	// OfferLast 元素入队
-	OfferLast(num int)
-
+	OfferLast(num any)
 	// PeekFirst 访问首元素
-	PeekFirst() int
+	PeekFirst() any
 	// PeekLast 访问尾元素
-	PeekLast() int
-
+	PeekLast() any
 	// PollFirst 元素出队
-	PollFirst() int
+	PollFirst() any
 	// PollLast 元素出队
-	PollLast() int
-
+	PollLast() any
 	// Size 获取队列长度
 	Size() int
 	// IsEmpty 队列是否为空
 	IsEmpty() bool
+	// toString 队列输出为字符串
+	toString() string
 }

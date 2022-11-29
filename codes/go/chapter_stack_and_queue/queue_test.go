@@ -7,9 +7,11 @@ package chapter_stack_and_queue
 import "testing"
 
 func TestArrayQueue(t *testing.T) {
-	// 初始化队
+
+	// 初始化队列，使用队列的通用接口
+	var queue Queue
 	capacity := 10
-	queue := NewArrayQueue(capacity)
+	queue = NewArrayQueue(capacity)
 
 	// 元素入队
 	queue.Offer(1)
@@ -38,7 +40,8 @@ func TestArrayQueue(t *testing.T) {
 
 func TestLinkedListQueue(t *testing.T) {
 	// 初始化队
-	queue := NewLinkedListQueue()
+	var queue Queue
+	queue = NewLinkedListQueue()
 
 	// 元素入队
 	queue.Offer(1)

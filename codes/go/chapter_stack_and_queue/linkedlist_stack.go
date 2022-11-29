@@ -23,7 +23,7 @@ func NewLinkedListStack() *LinkedListStack {
 }
 
 // Push 入栈
-func (s *LinkedListStack) Push(value any) {
+func (s *LinkedListStack) Push(value int) {
 	s.list.PushBack(value)
 }
 
@@ -60,11 +60,10 @@ func (s *LinkedListStack) Print() {
 	fmt.Println(s.toString())
 }
 
-func (s *LinkedListStack) toString() any {
+func (s *LinkedListStack) toString() string {
 	var builder strings.Builder
 	if s.IsEmpty() {
 		fmt.Println("empty stack")
-		return nil
 	}
 	e := s.list.Back()
 	// 强转为 string, 会影响效率
