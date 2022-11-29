@@ -7,7 +7,6 @@ package chapter_stack_and_queue
 import "testing"
 
 func TestArrayQueue(t *testing.T) {
-
 	// 初始化队列，使用队列的通用接口
 	var queue Queue
 	capacity := 10
