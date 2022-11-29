@@ -9,60 +9,68 @@
 /* 基于链表实现的队列 */
 class LinkedListQueue {
 private:
-    ListNode *front, *back;
-    int qSize;
+    ListNode *front, *rear;  // 头结点 front ，尾结点 rear 
+    int queSize;
 
 public:
     LinkedListQueue() {
         front = nullptr;
-        back = nullptr;
-        qSize = 0;
+        rear = nullptr;
+        queSize = 0;
     }
 
     /* 获取队列的长度 */
     int size() {
-        return qSize;
+        return queSize;
     }
 
     /* 判断队列是否为空 */
     bool empty() {
-        return qSize == 0;
+        return queSize == 0;
     }
 
     /* 入队 */
     void offer(int num) {
         // 尾结点后添加 num
         ListNode* node = new ListNode(num);
-        node->next = back;
-        back = node;
-        qSize++;
+        // 如果队列为空，则令头、尾结点都指向该结点
+        if (front == nullptr) {
+            front = node;
+            rear = node;
+        }
+        // 如果队列不为空，则将该结点添加到尾结点后
+        else {
+            rear->next = node;
+            rear = node;
+        }
+        queSize++;
     }
 
     /* 出队 */
     int poll() {
-        if (qSize == 0)
-            throw out_of_range("队列为空");
+        int num = peek();
         // 删除头结点
-        ListNode* node = front;
         front = front->next;
-        return node->val;
+        queSize--;
+        return num;
     }
 
     /* 访问队首元素 */
     int peek() {
+        if (size() == 0)
+            throw out_of_range("队列为空");
         return front->val;
     }
 
-    /* 将 List 转化为 Array 并返回 */
+    /* 将链表转化为 Vector 并返回 */
     vector<int> toVector() {
         ListNode* node = front;
-        vector<int> vec;
-        while (node != nullptr) {
-            vec.push_back(node->val);
+        vector<int> res(size());
+        for (int i = 0; i < res.size(); i++) {
+            res[i] = node->val;
             node = node->next;
         }
-        reverse(vec.begin(), vec.end());
-        return vec;
+        return res;
     }
 };
 

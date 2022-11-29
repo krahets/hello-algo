@@ -12,7 +12,7 @@ import include.*;
 /* 基于链表实现的栈 */
 class LinkedListStack {
     private ListNode stackPeek;  // 将头结点作为栈顶
-    private int stackSize = 0;   // 栈的长度
+    private int stkSize = 0;   // 栈的长度
     
     public LinkedListStack() {
         stackPeek = null;
@@ -20,7 +20,7 @@ class LinkedListStack {
 
     /* 获取栈的长度 */
     public int size() {
-        return stackSize;
+        return stkSize;
     }
 
     /* 判断栈是否为空 */
@@ -33,16 +33,14 @@ class LinkedListStack {
         ListNode node = new ListNode(num);
         node.next = stackPeek;
         stackPeek = node;
-        stackSize++;
+        stkSize++;
     }
 
     /* 出栈 */
     public int pop() {
-        if (size() == 0)
-            throw new IndexOutOfBoundsException();
         int num = peek();
         stackPeek = stackPeek.next;
-        stackSize--;
+        stkSize--;
         return num;
     }
 

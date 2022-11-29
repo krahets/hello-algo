@@ -31,12 +31,10 @@ class LinkedListStack:
 
     """ 出栈 """
     def pop(self):
-        # 判空处理
-        if not self.__peek: return None
-        pop = self.__peek.val
+        num = self.peek()
         self.__peek = self.__peek.next
         self.__size -= 1
-        return pop
+        return num
 
     """ 访问栈顶元素 """
     def peek(self):

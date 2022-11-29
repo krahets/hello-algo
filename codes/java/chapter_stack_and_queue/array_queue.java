@@ -67,15 +67,23 @@ class ArrayQueue {
         return nums[front];
     }
 
+    /* 访问索引 index 处元素 */
+    int get(int index) {
+        if (index >= size())
+            throw new IndexOutOfBoundsException();
+        return nums[(front + index) % capacity()];
+    }
+
+    /* 返回数组 */
     public int[] toArray() {
         int size = size();
         int capacity = capacity();
         // 仅转换有效长度范围内的列表元素
-        int[] arr = new int[size];
+        int[] res = new int[size];
         for (int i = 0, j = front; i < size; i++, j++) {
-            arr[i] = nums[j % capacity];
+            res[i] = nums[j % capacity];
         }
-        return arr;
+        return res;
     }
 }
 

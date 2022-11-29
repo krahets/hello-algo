@@ -45,23 +45,18 @@ comments: true
     stack.addLast(2);
     stack.addLast(5);
     stack.addLast(4);
-    System.out.println("栈 stack = " + stack);
 
     /* 访问栈顶元素 */
     int peek = stack.peekLast();
-    System.out.println("栈顶元素 peek = " + peek);
 
     /* 元素出栈 */
     int pop = stack.removeLast();
-    System.out.println("出栈元素 pop = " + pop + "，出栈后 stack = " + stack);
 
     /* 获取栈的长度 */
     int size = stack.size();
-    System.out.println("栈的长度 size = " + size);
 
     /* 判断是否为空 */
     boolean isEmpty = stack.isEmpty();
-    System.out.println("栈是否为空 = " + isEmpty);
     ```
 
 === "C++"
@@ -76,32 +71,25 @@ comments: true
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    cout << "栈 stack = ";
-    PrintUtil::printStack(stack);
 
     /* 访问栈顶元素 */
     int top = stack.top();
-    cout << "栈顶元素 top = " << top << endl;
 
     /* 元素出栈 */
     stack.pop();
-    cout << "出栈元素 pop = " << top << "，出栈后 stack = ";
-    PrintUtil::printStack(stack);
 
     /* 获取栈的长度 */
     int size = stack.size();
-    cout << "栈的长度 size = " << size << endl;
 
     /* 判断是否为空 */
     bool empty = stack.empty();
-    cout << "栈是否为空 = " << empty << endl;
     ```
 
 === "Python"
 
     ```python title="stack.py"
     """ 初始化栈 """
-    # Python 没有内置的栈类，可以把 list 当作栈来使用 
+    # Python 没有内置的栈类，可以把 List 当作栈来使用 
     stack = []
 
     """ 元素入栈 """
@@ -110,24 +98,18 @@ comments: true
     stack.append(2)
     stack.append(5)
     stack.append(4)
-    print("栈 stack =", stack)
 
     """ 访问栈顶元素 """
     peek = stack[-1]
-    print("栈顶元素 peek =", peek)
 
     """ 元素出栈 """
     pop = stack.pop()
-    print("出栈元素 pop =", pop)
-    print("出栈后 stack =", stack)
 
     """ 获取栈的长度 """
     size = len(stack)
-    print("栈的长度 size =", size)
 
     """ 判断是否为空 """
     is_empty = len(stack) == 0
-    print("栈是否为空 =", is_empty)
     ```
 
 ## 栈的实现
@@ -148,14 +130,14 @@ comments: true
     /* 基于链表实现的栈 */
     class LinkedListStack {
         private ListNode stackPeek;  // 将头结点作为栈顶
-        private int stackSize = 0;   // 栈的长度
+        private int stkSize = 0;   // 栈的长度
         
         public LinkedListStack() {
             stackPeek = null;
         }
         /* 获取栈的长度 */
         public int size() {
-            return stackSize;
+            return stkSize;
         }
         /* 判断栈是否为空 */
         public boolean isEmpty() {
@@ -166,15 +148,13 @@ comments: true
             ListNode node = new ListNode(num);
             node.next = stackPeek;
             stackPeek = node;
-            stackSize++;
+            stkSize++;
         }
         /* 出栈 */
         public int pop() {
-            if (size() == 0)
-                throw new IndexOutOfBoundsException();
             int num = peek();
             stackPeek = stackPeek.next;
-            stackSize--;
+            stkSize--;
             return num;
         }
         /* 访问栈顶元素 */
@@ -193,16 +173,16 @@ comments: true
     class LinkedListStack {
     private:
         ListNode* stackTop; // 将头结点作为栈顶
-        int stackSize;      // 栈的长度
+        int stkSize;        // 栈的长度
 
     public:
         LinkedListStack() {
             stackTop = nullptr;
-            stackSize = 0;
+            stkSize = 0;
         }
         /* 获取栈的长度 */
         int size() {
-            return stackSize;
+            return stkSize;
         }
         /* 判断栈是否为空 */
         bool empty() {
@@ -213,15 +193,13 @@ comments: true
             ListNode* node = new ListNode(num);
             node->next = stackTop;
             stackTop = node;
-            stackSize++;
+            stkSize++;
         }
         /* 出栈 */
         int pop() {
-            if (size() == 0)
-                throw out_of_range("栈为空");
-            int num = stackTop->val;
+            int num = top();
             stackTop = stackTop->next;
-            stackSize--;
+            stkSize--;
             return num;
         }
         /* 访问栈顶元素 */
@@ -259,12 +237,10 @@ comments: true
 
         """ 出栈 """
         def pop(self):
-            # 判空处理
-            if not self.__peek: return None
-            pop = self.__peek.val
+            num = self.peek()
             self.__peek = self.__peek.next
             self.__size -= 1
-            return pop
+            return num
 
         """ 访问栈顶元素 """
         def peek(self):

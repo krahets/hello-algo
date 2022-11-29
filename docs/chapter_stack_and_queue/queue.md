@@ -44,29 +44,44 @@ comments: true
     queue.offer(2);
     queue.offer(5);
     queue.offer(4);
-    System.out.println("队列 queue = " + queue);
 
     /* 访问队首元素 */
     int peek = queue.peek();
-    System.out.println("队首元素 peek = " + peek);
 
     /* 元素出队 */
     int poll = queue.poll();
-    System.out.println("出队元素 poll = " + poll + "，出队后 queue = " + queue);
 
     /* 获取队列的长度 */
     int size = queue.size();
-    System.out.println("队列长度 size = " + size);
 
     /* 判断队列是否为空 */
     boolean isEmpty = queue.isEmpty();
-    System.out.println("队列是否为空 = " + isEmpty);
     ```
 
 === "C++"
 
     ```cpp title="queue.cpp"
+    /* 初始化队列 */
+    queue<int> queue;
     
+    /* 元素入队 */
+    queue.push(1);
+    queue.push(3);
+    queue.push(2);
+    queue.push(5);
+    queue.push(4);
+    
+    /* 访问队首元素 */
+    int front = queue.front();
+    
+    /* 元素出队 */
+    queue.pop();
+    
+    /* 获取队列的长度 */
+    int size = queue.size();
+    
+    /* 判断队列是否为空 */
+    bool empty = queue.empty();
     ```
 
 === "Python"
@@ -88,33 +103,49 @@ comments: true
     ```java title="linkedlist_queue.java"
     /* 基于链表实现的队列 */
     class LinkedListQueue {
-        LinkedList<Integer> list;
+        private ListNode front, rear;  // 头结点 front ，尾结点 rear 
+        private int queSize = 0;
 
         public LinkedListQueue() {
-            // 初始化链表
-            list = new LinkedList<>();
+            front = null;
+            rear = null;
         }
         /* 获取队列的长度 */
         public int size() {
-            return list.size();
+            return queSize;
         }
         /* 判断队列是否为空 */
         public boolean isEmpty() {
-            return list.size() == 0;
+            return size() == 0;
         }
         /* 入队 */
         public void offer(int num) {
             // 尾结点后添加 num
-            list.addLast(num);
+            ListNode node = new ListNode(num);
+            // 如果队列为空，则令头、尾结点都指向该结点
+            if (front == null) {
+                front = node;
+                rear = node;
+            // 如果队列不为空，则将该结点添加到尾结点后
+            } else {
+                rear.next = node;
+                rear = node;
+            }
+            queSize++;
         }
         /* 出队 */
         public int poll() {
+            int num = peek();
             // 删除头结点
-            return list.removeFirst();
+            front = front.next;
+            queSize--;
+            return num;
         }
         /* 访问队首元素 */
         public int peek() {
-            return list.getFirst();
+            if (size() == 0)
+                throw new IndexOutOfBoundsException();
+            return front.val;
         }
     }
     ```
@@ -122,7 +153,57 @@ comments: true
 === "C++"
 
     ```cpp title="linkedlist_queue.cpp"
-    
+    /* 基于链表实现的队列 */
+    class LinkedListQueue {
+    private:
+        ListNode *front, *rear;  // 头结点 front ，尾结点 rear 
+        int queSize;
+
+    public:
+        LinkedListQueue() {
+            front = nullptr;
+            rear = nullptr;
+            queSize = 0;
+        }
+        /* 获取队列的长度 */
+        int size() {
+            return queSize;
+        }
+        /* 判断队列是否为空 */
+        bool empty() {
+            return queSize == 0;
+        }
+        /* 入队 */
+        void offer(int num) {
+            // 尾结点后添加 num
+            ListNode* node = new ListNode(num);
+            // 如果队列为空，则令头、尾结点都指向该结点
+            if (front == nullptr) {
+                front = node;
+                rear = node;
+            }
+            // 如果队列不为空，则将该结点添加到尾结点后
+            else {
+                rear->next = node;
+                rear = node;
+            }
+            queSize++;
+        }
+        /* 出队 */
+        int poll() {
+            int num = peek();
+            // 删除头结点
+            front = front->next;
+            queSize--;
+            return num;
+        }
+        /* 访问队首元素 */
+        int peek() {
+            if (size() == 0)
+                throw out_of_range("队列为空");
+            return front->val;
+        }
+    };
     ```
 
 === "Python"
@@ -196,13 +277,80 @@ comments: true
                 throw new EmptyStackException();
             return nums[front];
         }
+        /* 访问指定索引元素 */
+        int get(int index) {
+            if (index >= size())
+                throw new IndexOutOfBoundsException();
+            return nums[(front + index) % capacity()];
+        }
     }
     ```
 
 === "C++"
 
     ```cpp title="array_queue.cpp"
-    
+    /* 基于环形数组实现的队列 */
+    class ArrayQueue {
+    private:
+        int *nums;      // 用于存储队列元素的数组
+        int cap;        // 队列容量
+        int front = 0;  // 头指针，指向队首
+        int rear = 0;   // 尾指针，指向队尾 + 1
+
+    public:
+        ArrayQueue(int capacity) {
+            // 初始化数组
+            cap = capacity;
+            nums = new int[capacity];
+        }
+        /* 获取队列的容量 */
+        int capacity() {
+            return cap;
+        }
+        /* 获取队列的长度 */
+        int size() {
+            // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
+            return (capacity() + rear - front) % capacity();
+        }
+        /* 判断队列是否为空 */
+        bool empty() {
+            return rear - front == 0;
+        }
+        /* 入队 */
+        void offer(int num) {
+            if (size() == capacity()) {
+                cout << "队列已满" << endl;
+                return;
+            }
+            // 尾结点后添加 num
+            nums[rear] = num;
+            // 尾指针向后移动一位，越过尾部后返回到数组头部
+            rear = (rear + 1) % capacity();
+        }
+        /* 出队 */
+        int poll() {
+            // 删除头结点
+            if (empty())
+                throw out_of_range("队列为空");
+            int num = nums[front];
+            // 队头指针向后移动，越过尾部后返回到数组头部
+            front = (front + 1) % capacity();
+            return num;
+        }
+        /* 访问队首元素 */
+        int peek() {
+            // 删除头结点
+            if (empty())
+                throw out_of_range("队列为空");
+            return nums[front];
+        }
+        /* 访问指定位置元素 */
+        int get(int index) {
+            if (index >= size())
+                throw out_of_range("索引越界");
+            return nums[(front + index) % capacity()]
+        }
+    };
     ```
 
 === "Python"

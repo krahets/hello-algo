@@ -40,38 +40,53 @@ comments: true
     Deque<Integer> deque = new LinkedList<>();
 
     /* 元素入队 */
-    deque.offerLast(2);
+    deque.offerLast(2);   // 添加至队尾
     deque.offerLast(5);
     deque.offerLast(4);
-    deque.offerFirst(3);
+    deque.offerFirst(3);  // 添加至队首
     deque.offerFirst(1);
-    System.out.println("双向队列 deque = " + deque);
 
     /* 访问队首元素 */
-    int peekFirst = deque.peekFirst();
-    System.out.println("队首元素 peekFirst = " + peekFirst);
-    int peekLast = deque.peekLast();
-    System.out.println("队尾元素 peekLast = " + peekLast);
+    int peekFirst = deque.peekFirst();  // 队首元素
+    int peekLast = deque.peekLast();    // 队尾元素
 
     /* 元素出队 */
-    int pollFirst = deque.pollFirst();
-    System.out.println("队首出队元素 pollFirst = " + pollFirst + "，队首出队后 deque = " + deque);
-    int pollLast = deque.pollLast();
-    System.out.println("队尾出队元素 pollLast = " + pollLast + "，队尾出队后 deque = " + deque);
+    int pollFirst = deque.pollFirst();  // 队首元素出队
+    int pollLast = deque.pollLast();    // 队尾元素出队
 
     /* 获取双向队列的长度 */
     int size = deque.size();
-    System.out.println("双向队列长度 size = " + size);
 
     /* 判断双向队列是否为空 */
     boolean isEmpty = deque.isEmpty();
-    System.out.println("双向队列是否为空 = " + isEmpty);
     ```
 
 === "C++"
 
     ```cpp title="deque.cpp"
-    
+    /* 初始化双向队列 */
+    deque<int> deque;
+
+    /* 元素入队 */
+    deque.push_back(2);   // 添加至队尾
+    deque.push_back(5);
+    deque.push_back(4);
+    deque.push_front(3);  // 添加至队首
+    deque.push_front(1);
+
+    /* 访问队首元素 */
+    int front = deque.front(); // 队首元素
+    int back = deque.back();   // 队尾元素
+
+    /* 元素出队 */
+    deque.pop_front();  // 队首元素出队
+    deque.pop_back();   // 队尾元素出队
+
+    /* 获取双向队列的长度 */
+    int size = deque.size();
+
+    /* 判断双向队列是否为空 */
+    bool empty = deque.empty();
     ```
 
 === "Python"

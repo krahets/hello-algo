@@ -10,17 +10,17 @@
 class LinkedListStack {
 private:
     ListNode* stackTop; // 将头结点作为栈顶
-    int stackSize;      // 栈的长度
+    int stkSize;      // 栈的长度
 
 public:
     LinkedListStack() {
         stackTop = nullptr;
-        stackSize = 0;
+        stkSize = 0;
     }
 
     /* 获取栈的长度 */
     int size() {
-        return stackSize;
+        return stkSize;
     }
 
     /* 判断栈是否为空 */
@@ -33,16 +33,14 @@ public:
         ListNode* node = new ListNode(num);
         node->next = stackTop;
         stackTop = node;
-        stackSize++;
+        stkSize++;
     }
 
     /* 出栈 */
     int pop() {
-        if (size() == 0)
-            throw out_of_range("栈为空");
-        int num = stackTop->val;
+        int num = top();
         stackTop = stackTop->next;
-        stackSize--;
+        stkSize--;
         return num;
     }
 

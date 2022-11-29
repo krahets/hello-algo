@@ -59,6 +59,10 @@ if __name__ == "__main__":
     peek = stack.peek()
     print("栈顶元素 peek =", peek)
 
+    """ 访问索引 index 处元素 """
+    num = stack.get(3);
+    print("栈索引 3 处的元素为 num =", num);
+
     """ 元素出栈 """
     pop = stack.pop()
     print("出栈元素 pop =", pop)

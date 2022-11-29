@@ -7,46 +7,69 @@
 package chapter_stack_and_queue;
 
 import java.util.*;
+import include.*;
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
-    LinkedList<Integer> list;
+    private ListNode front, rear;  // 头结点 front ，尾结点 rear 
+    private int queSize = 0;
 
     public LinkedListQueue() {
-        // 初始化链表
-        list = new LinkedList<>();
+        front = null;
+        rear = null;
     }
 
     /* 获取队列的长度 */
     public int size() {
-        return list.size();
+        return queSize;
     }
 
     /* 判断队列是否为空 */
     public boolean isEmpty() {
-        return list.size() == 0;
+        return size() == 0;
     }
 
     /* 入队 */
     public void offer(int num) {
         // 尾结点后添加 num
-        list.addLast(num);
+        ListNode node = new ListNode(num);
+        // 如果队列为空，则令头、尾结点都指向该结点
+        if (front == null) {
+            front = node;
+            rear = node;
+        // 如果队列不为空，则将该结点添加到尾结点后
+        } else {
+            rear.next = node;
+            rear = node;
+        }
+        queSize++;
     }
 
     /* 出队 */
     public int poll() {
+        int num = peek();
         // 删除头结点
-        return list.removeFirst();
+        front = front.next;
+        queSize--;
+        return num;
     }
 
     /* 访问队首元素 */
     public int peek() {
-        return list.getFirst();
+        if (size() == 0)
+            throw new IndexOutOfBoundsException();
+        return front.val;
     }
 
-    /* 将 List 转化为 Array 并返回 */
-    public Object[] toArray() {
-        return list.toArray();
+    /* 将链表转化为 Array 并返回 */
+    public int[] toArray() {
+        ListNode node = front;
+        int[] res = new int[size()];
+        for (int i = 0; i < res.length; i++) {
+            res[i] = node.val;
+            node = node.next;
+        }
+        return res;
     }
 }
 
