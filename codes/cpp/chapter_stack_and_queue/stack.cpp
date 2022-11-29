@@ -36,6 +36,7 @@ int main() {
 
     /* 判断是否为空 */
     bool empty = stack.empty();
+    cout << "栈是否为空 = " << empty << endl;
 
     return 0;
 }

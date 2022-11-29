@@ -11,7 +11,7 @@ from include import *
 """ 基于链表实现的栈 """
 class LinkedListStack:
     def __init__(self):
-        self.__head = None
+        self.__peek = None
         self.__size = 0
 
     """ 获取栈的长度 """
@@ -20,34 +20,34 @@ class LinkedListStack:
 
     """ 判断栈是否为空 """
     def is_empty(self):
-        return not self.__head
+        return not self.__peek
 
     """ 入栈 """
     def push(self, val):
         node = ListNode(val)
-        node.next = self.__head
-        self.__head = node
+        node.next = self.__peek
+        self.__peek = node
         self.__size += 1
 
     """ 出栈 """
     def pop(self):
         # 判空处理
-        if not self.__head: return None
-        pop = self.__head.val
-        self.__head = self.__head.next
+        if not self.__peek: return None
+        pop = self.__peek.val
+        self.__peek = self.__peek.next
         self.__size -= 1
         return pop
 
     """ 访问栈顶元素 """
     def peek(self):
         # 判空处理
-        if not self.__head: return None
-        return self.__head.val
+        if not self.__peek: return None
+        return self.__peek.val
 
     """ 转化为列表用于打印 """
     def to_list(self):
         arr = []
-        node = self.__head
+        node = self.__peek
         while node:
             arr.append(node.val)
             node = node.next
@@ -82,4 +82,5 @@ if __name__ == "__main__":
     print("栈的长度 size =", size)
 
     """ 判断是否为空 """
-    isEmpty = stack.is_empty()
+    is_empty = stack.is_empty()
+    print("栈是否为空 =", is_empty)

@@ -77,5 +77,6 @@ public class linkedlist_queue {
 
         /* 判断队列是否为空 */
         boolean isEmpty = queue.isEmpty();
+        System.out.println("队列是否为空 = " + isEmpty);
     }
 }

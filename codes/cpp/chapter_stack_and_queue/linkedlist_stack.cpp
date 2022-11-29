@@ -9,38 +9,59 @@
 /* 基于链表实现的栈 */
 class LinkedListStack {
 private:
-    list<int> list;
+    ListNode* stackTop; // 将头结点作为栈顶
+    int stackSize;      // 栈的长度
+
 public:
+    LinkedListStack() {
+        stackTop = nullptr;
+        stackSize = 0;
+    }
+
     /* 获取栈的长度 */
     int size() {
-        return list.size();
+        return stackSize;
     }
+
     /* 判断栈是否为空 */
     bool empty() {
-        return list.empty();
+        return size() == 0;
     }
+
     /* 入栈 */
     void push(int num) {
-        list.push_back(num);
+        ListNode* node = new ListNode(num);
+        node->next = stackTop;
+        stackTop = node;
+        stackSize++;
     }
+
     /* 出栈 */
     int pop() {
-        int oldTop = list.back();
-        list.pop_back();
-        return oldTop;
+        if (size() == 0)
+            throw out_of_range("栈为空");
+        int num = stackTop->val;
+        stackTop = stackTop->next;
+        stackSize--;
+        return num;
     }
+
     /* 访问栈顶元素 */
     int top() {
-        return list.back();
+        if (size() == 0)
+            throw out_of_range("栈为空");
+        return stackTop->val;
     }
 
     /* 将 List 转化为 Array 并返回 */
     vector<int> toVector() {
-        vector<int> vec;
-        for (int num : list) {
-            vec.push_back(num);
+        ListNode* node = stackTop;
+        vector<int> res(size());
+        for (int i = res.size() - 1; i >= 0; i--) {
+            res[i] = node->val;
+            node = node->next;
         }
-        return vec;
+        return res;
     }
 };
 
@@ -57,8 +78,7 @@ int main() {
     stack->push(5);
     stack->push(4);
     cout << "栈 stack = ";
-    vector<int> vec = stack->toVector();
-    PrintUtil::printVector(vec);
+    PrintUtil::printVector(stack->toVector());
 
     /* 访问栈顶元素 */
     int top = stack->top();
@@ -67,8 +87,7 @@ int main() {
     /* 元素出栈 */
     int pop = stack->pop();
     cout << "出栈元素 pop = " << pop << "，出栈后 stack = ";
-    vec = stack->toVector();
-    PrintUtil::printVector(vec);
+    PrintUtil::printVector(stack->toVector());
 
     /* 获取栈的长度 */
     int size = stack->size();
@@ -77,4 +96,6 @@ int main() {
     /* 判断是否为空 */
     bool empty = stack->empty();
     cout << "栈是否为空 = " << empty << endl;
+
+    return 0;
 }

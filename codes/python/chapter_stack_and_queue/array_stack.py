@@ -38,7 +38,7 @@ class ArrayStack:
         return self.__stack[index]
     
     """ 返回列表用于打印 """
-    def toList(self):
+    def to_list(self):
         return self.__stack
 
 
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     stack.push(2)
     stack.push(5)
     stack.push(4)
-    print("栈 stack =", stack.toList())
+    print("栈 stack =", stack.to_list())
 
     """ 访问栈顶元素 """
     peek = stack.peek()
@@ -62,11 +62,12 @@ if __name__ == "__main__":
     """ 元素出栈 """
     pop = stack.pop()
     print("出栈元素 pop =", pop)
-    print("出栈后 stack =", stack.toList())
+    print("出栈后 stack =", stack.to_list())
 
     """ 获取栈的长度 """
     size = stack.size()
     print("栈的长度 size =", size)
 
     """ 判断是否为空 """
-    isEmpty = stack.is_empty()
+    is_empty = stack.is_empty()
+    print("栈是否为空 =", is_empty)

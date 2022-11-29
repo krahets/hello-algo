@@ -102,7 +102,7 @@ class PrintUtil {
          * @param list 
          */
         template <typename T>
-        static void printVector(vector<T> &list) {
+        static void printVector(vector<T> list) {
             cout << getVectorString(list) << '\n';
         }
 
@@ -218,7 +218,7 @@ class PrintUtil {
          * @param stk
          */
         template <typename T>
-        static void printStack(stack<T> &stk) {
+        static void printStack(stack<T> stk) {
             // Reverse the input stack
             stack<T> tmp;
             while(!stk.empty()) {
@@ -246,7 +246,7 @@ class PrintUtil {
          * @param queue 
          */
         template <typename T>
-        static void printQueue(queue<T> &queue)
+        static void printQueue(queue<T> queue)
         {
             // Generate the string to print
             ostringstream s;
@@ -258,6 +258,22 @@ class PrintUtil {
                 }
                 else s << ", " << queue.front();
                 queue.pop();
+            }
+            cout << "[" + s.str() + "]" << '\n';
+        }
+
+        template <typename T>
+        static void printDeque(deque<T> deque) {
+            // Generate the string to print
+            ostringstream s;
+            bool flag = true;
+            while(!deque.empty()) {
+                if (flag) {
+                    s << deque.front();
+                    flag = false;
+                }
+                else s << ", " << deque.front();
+                deque.pop_front();
             }
             cout << "[" + s.str() + "]" << '\n';
         }

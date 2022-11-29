@@ -10,10 +10,9 @@ import java.util.*;
 
 /* 基于环形数组实现的队列 */
 class ArrayQueue {
-    int[] nums; // 用于存储队列元素的数组
-    int size = 0; // 队列长度（即元素个数）
-    int front = 0; // 头指针，指向队首
-    int rear = 0; // 尾指针，指向队尾 + 1
+    private int[] nums;     // 用于存储队列元素的数组
+    private int front = 0;  // 头指针，指向队首
+    private int rear = 0;   // 尾指针，指向队尾 + 1
 
     public ArrayQueue(int capacity) {
         // 初始化数组
@@ -108,12 +107,13 @@ public class array_queue {
 
         /* 判断队列是否为空 */
         boolean isEmpty = queue.isEmpty();
+        System.out.println("队列是否为空 = " + isEmpty);
 
         /* 测试环形数组 */
         for (int i = 0; i < 10; i++) {
             queue.offer(i);
             queue.poll();
-            System.out.println("第 " + i + " 轮入队+出队后 queue = " + Arrays.toString(queue.toArray()));
+            System.out.println("第 " + i + " 轮入队 + 出队后 queue = " + Arrays.toString(queue.toArray()));
         }
     }
 }

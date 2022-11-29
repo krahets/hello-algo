@@ -37,4 +37,5 @@ if __name__ == "__main__":
     print("栈的长度 size =", size)
 
     """ 判断是否为空 """
-    isEmpty = len(stack) == 0
+    is_empty = len(stack) == 0
+    print("栈是否为空 =", is_empty)

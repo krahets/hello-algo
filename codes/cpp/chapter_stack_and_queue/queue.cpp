@@ -35,7 +35,8 @@ int main(){
     cout << "队列长度 size = " << size << endl;
     
     /* 判断队列是否为空 */
-    bool isEmpty = queue.empty();
+    bool empty = queue.empty();
+    cout << "队列是否为空 = " << empty << endl;
     
     return 0;
 }
