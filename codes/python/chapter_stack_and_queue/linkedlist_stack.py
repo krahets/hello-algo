@@ -1,7 +1,7 @@
 '''
 File: linkedlist_stack.py
-Created Time: 2022-11-25
-Author: Krahets (krahets@163.com)
+Created Time: 2022-11-29
+Author: Peng Chen (pengchzn@gmail.com)
 '''
 
 import os.path as osp
@@ -11,14 +11,11 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
 """ 基于链表实现的栈 """
-
-
 class LinkedListStack:
     def __init__(self):
         self.head = None
 
     """ 获取栈的长度 """
-
     def size(self):
         cnt = 0
         temp = self.head
@@ -28,28 +25,24 @@ class LinkedListStack:
         return cnt
 
     """ 判断栈是否为空 """
-
     def is_empty(self):
         if not self.head.val and not self.head.next:
             return True
         return False
 
     """ 入栈 """
-
     def push(self, val):
         temp = ListNode(val)
         temp.next = self.head
         self.head = temp
 
     """ 出栈 """
-
     def pop(self):
         pop = self.head.val
         self.head = self.head.next
         return pop
 
     """ 访问栈顶元素 """
-
     def peek(self):
         return self.head.val
 

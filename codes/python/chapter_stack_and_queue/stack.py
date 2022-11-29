@@ -1,7 +1,7 @@
 '''
 File: stack.py
-Created Time: 2022-11-25
-Author: Krahets (krahets@163.com)
+Created Time: 2022-11-29
+Author: Peng Chen (pengchzn@gmail.com)
 '''
 
 import os.path as osp
