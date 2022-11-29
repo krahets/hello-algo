@@ -57,7 +57,7 @@ comments: true
             swap(nums, i, j); // 交换这两个元素
         }
         swap(nums, i, left);  // 将基准数交换至两子数组的分界线
-        return i;             // 返回基准数的索引
+        return i;             // 返回分界线的索引
     }
     ```
 
@@ -83,7 +83,7 @@ comments: true
             swap(nums, i, j); // 交换这两个元素
         }
         swap(nums, i, left);  // 将基准数交换至两子数组的分界线
-        return i;             // 返回基准数的索引
+        return i;             // 返回分界线的索引
     }
     ```
 
@@ -103,7 +103,7 @@ comments: true
             nums[i], nums[j] = nums[j], nums[i]
         # 将基准数交换至两子数组的分界线
         nums[i], nums[left] = nums[left], nums[i]
-        return i  # 返回基准数的索引
+        return i  # 返回分界线的索引
     ```
 
 !!! note "快速排序的分治思想"
