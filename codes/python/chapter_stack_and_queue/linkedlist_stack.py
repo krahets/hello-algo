@@ -52,7 +52,7 @@ class LinkedListStack:
         while temp:
             stack.append(temp.val)
             temp = temp.next
-        stack = stack[::-1]
+        stack.reverse()
         return stack
 
 
