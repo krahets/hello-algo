@@ -1,6 +1,6 @@
 '''
 File: linkedlist_queue.py
-Created Time: 2022-11-29
+Created Time: 2022-12-01
 Author: Peng Chen (pengchzn@gmail.com)
 '''
 
@@ -50,10 +50,12 @@ class LinkedListQueue:
     """ 访问队首元素 """
     def peek(self):
         if self.size() == 0:
-            return -1
+            print("队列为空")
+            return False
         return self.__front.val
 
-    def to_array(self):
+    """ 转化为列表用于打印 """
+    def to_list(self):
         queue = []
         temp = self.__front
         while temp:
@@ -72,7 +74,7 @@ if __name__ == "__main__":
     queue.put(2)
     queue.put(5)
     queue.put(4)
-    print("队列 queue = ", queue.to_array())
+    print("队列 queue = ", queue.to_list())
 
     """ 访问队首元素 """
     peek = queue.peek()
@@ -81,7 +83,7 @@ if __name__ == "__main__":
     """ 元素出队 """
     get = queue.get()
     print("出队元素 get = ", get)
-    print("出队后 queue = ", queue.to_array())
+    print("出队后 queue = ", queue.to_list())
 
     """ 获取队列的长度 """
     size = queue.size()

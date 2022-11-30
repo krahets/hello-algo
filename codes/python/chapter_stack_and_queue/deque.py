@@ -38,10 +38,10 @@ if __name__ == "__main__":
     print("队尾出队元素  popLast= ", popLast)
     print("队尾出队后 duque = ", duque)
 
-    """ 获取队列的长度 """
+    """ 获取双向队列的长度 """
     size = len(duque)
-    print("队列长度 size = ", size)
+    print("双向队列长度 size = ", size)
 
-    """ 判断队列是否为空 """
+    """ 判断双向队列是否为空 """
     is_empty = len(duque) == 0
-    print("队列是否为空 = ", is_empty)
+    print("双向队列是否为空 = ", is_empty)
