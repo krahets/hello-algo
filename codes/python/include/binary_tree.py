@@ -24,7 +24,7 @@ def list_to_tree(arr):
         [type]: [description]
     """
     if not arr:
-        return
+        return None
     i = 1
     root = TreeNode(int(arr[0]))
     queue = collections.deque()
