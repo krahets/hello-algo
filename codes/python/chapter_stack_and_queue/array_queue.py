@@ -13,9 +13,9 @@ from include import *
 """ 基于环形数组实现的队列 """
 class ArrayQueue:
     def __init__(self, size):
-        self.__nums = [None] * size  # 用于存储队列元素的数组
-        self.__front = 0  # 头指针，指向队首
-        self.__rear = 0  # 尾指针，指向队尾 + 1
+        self.__nums = [0] * size  # 用于存储队列元素的数组
+        self.__front = 0             # 头指针，指向队首
+        self.__rear = 0              # 尾指针，指向队尾 + 1
 
     """ 获取队列的容量 """
     def capacity(self):
@@ -31,7 +31,7 @@ class ArrayQueue:
         return (self.__rear - self.__front) == 0
 
     """ 入队 """
-    def put(self, val):
+    def push(self, val):
         if self.size() == self.capacity():
             print("队列已满")
             return False
@@ -41,13 +41,10 @@ class ArrayQueue:
         self.__rear = (self.__rear + 1) % self.capacity()
 
     """ 出队 """
-    def get(self):
+    def poll(self):
         # 删除头结点
-        if self.is_empty():
-            print("队列为空")
-            return False
-        num = self.__nums[self.__front]
-        # 队头指针向后移动，越过尾部后返回到数组头部
+        num = self.peek()
+        # 队头指针向后移动一位，若越过尾部则返回到数组头部
         self.__front = (self.__front + 1) % self.capacity()
         return num
 
@@ -60,7 +57,7 @@ class ArrayQueue:
         return self.__nums[self.__front]
 
     """ 访问指定位置元素 """
-    def get_index(self, index):
+    def get(self, index):
         if index >= self.size():
             print("索引越界")
             return False
@@ -68,7 +65,7 @@ class ArrayQueue:
 
     """ 返回列表用于打印 """
     def to_list(self):
-        res = [None] * self.size()
+        res = [0] * self.size()
         j = self.__front
         for i in range(self.size()):
             res[i] = self.__nums[(j % self.capacity())]
@@ -76,35 +73,36 @@ class ArrayQueue:
         return res
 
 
+""" Driver Code """
 if __name__ == "__main__":
     """ 初始化队列 """
     queue = ArrayQueue(10)
 
     """ 元素入队 """
-    queue.put(1)
-    queue.put(3)
-    queue.put(2)
-    queue.put(5)
-    queue.put(4)
-    print("队列 queue = ", queue.to_list())
+    queue.push(1)
+    queue.push(3)
+    queue.push(2)
+    queue.push(5)
+    queue.push(4)
+    print("队列 queue =", queue.to_list())
 
     """ 访问队首元素 """
     peek = queue.peek()
-    print("队首元素 peek = ", peek)
+    print("队首元素 peek =", peek)
 
     """ 访问索引 index 处元素 """
-    num = queue.get_index(3)
+    num = queue.get(3)
     print("队列索引 3 处的元素为 num =", num)
 
     """ 元素出队 """
-    get = queue.get()
-    print("出队元素 get = ", get)
-    print("出队后 queue = ", queue.to_list())
+    poll = queue.poll()
+    print("出队元素 poll =", poll)
+    print("出队后 queue =", queue.to_list())
 
     """ 获取队列的长度 """
     size = queue.size()
-    print("队列长度 size = ", size)
+    print("队列长度 size =", size)
 
     """ 判断队列是否为空 """
     is_empty = queue.is_empty()
-    print("队列是否为空 = ", is_empty)
+    print("队列是否为空 =", is_empty)

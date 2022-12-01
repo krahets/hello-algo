@@ -20,13 +20,13 @@ comments: true
 
 <div class="center-table" markdown>
 
-| 方法      | 描述                         |
-| --------- | ---------------------------- |
-| offer()   | 元素入队，即将元素添加至队尾 |
-| poll()    | 队首元素出队                 |
-| front()   | 访问队首元素                 |
-| size()    | 获取队列的长度               |
-| isEmpty() | 判断队列是否为空             |
+| 方法      | 描述                      |
+| --------- | ------------------------ |
+| offer()   | 元素入队，即将元素添加至队尾  |
+| poll()    | 队首元素出队               |
+| front()   | 访问队首元素               |
+| size()    | 获取队列的长度             |
+| isEmpty() | 判断队列是否为空           |
 
 </div>
 
@@ -87,7 +87,29 @@ comments: true
 === "Python"
 
     ```python title="queue.py"
-    
+    """ 初始化队列 """
+    # 在 Python 中，我们一般将双向队列类 deque 看左队列使用
+    # 虽然 queue.Queue() 是纯正的队列类，但不太好用，因此不建议
+    que = collections.deque()
+
+    """ 元素入队 """
+    que.append(1)
+    que.append(3)
+    que.append(2)
+    que.append(5)
+    que.append(4)
+
+    """ 访问队首元素 """
+    front = que[0];
+
+    """ 元素出队 """
+    pop = que.popleft()
+
+    """ 获取队列的长度 """
+    size = len(que)
+
+    """ 判断队列是否为空 """
+    is_empty = len(que) == 0
     ```
 
 ## 队列实现
@@ -209,7 +231,49 @@ comments: true
 === "Python"
 
     ```python title="linkedlist_queue.py"
-    
+    """ 基于链表实现的队列 """
+    class LinkedListQueue:
+        def __init__(self):
+            self.__front = None  # 头结点 front
+            self.__rear = None   # 尾结点 rear
+            self.__size = 0
+
+        """ 获取队列的长度 """
+        def size(self):
+            return self.__size
+
+        """ 判断队列是否为空 """
+        def is_empty(self):
+            return not self.__front
+
+        """ 入队 """
+        def push(self, num):
+            # 尾结点后添加 num
+            node = ListNode(num)
+            # 如果队列为空，则令头、尾结点都指向该结点
+            if self.__front == 0:
+                self.__front = node
+                self.__rear = node
+            # 如果队列不为空，则将该结点添加到尾结点后
+            else:
+                self.__rear.next = node
+                self.__rear = node
+            self.__size += 1
+
+        """ 出队 """
+        def poll(self):
+            num = self.peek()
+            # 删除头结点
+            self.__front = self.__front.next
+            self.__size -= 1
+            return num
+
+        """ 访问队首元素 """
+        def peek(self):
+            if self.size() == 0:
+                print("队列为空")
+                return False
+            return self.__front.val
     ```
 
 ### 基于数组的实现
@@ -262,11 +326,8 @@ comments: true
         }
         /* 出队 */
         public int poll() {
-            // 删除头结点
-            if (isEmpty())
-                throw new EmptyStackException();
-            int num = nums[front];
-            // 队头指针向后移动，越过尾部后返回到数组头部
+            int num = peek();
+            // 队头指针向后移动一位，若越过尾部则返回到数组头部
             front = (front + 1) % capacity();
             return num;
         }
@@ -329,11 +390,8 @@ comments: true
         }
         /* 出队 */
         int poll() {
-            // 删除头结点
-            if (empty())
-                throw out_of_range("队列为空");
-            int num = nums[front];
-            // 队头指针向后移动，越过尾部后返回到数组头部
+            int num = peek();
+            // 队头指针向后移动一位，若越过尾部则返回到数组头部
             front = (front + 1) % capacity();
             return num;
         }
@@ -356,11 +414,70 @@ comments: true
 === "Python"
 
     ```python title="array_queue.py"
-    
+    """ 基于环形数组实现的队列 """
+    class ArrayQueue:
+        def __init__(self, size):
+            self.__nums = [0] * size  # 用于存储队列元素的数组
+            self.__front = 0             # 头指针，指向队首
+            self.__rear = 0              # 尾指针，指向队尾 + 1
+
+        """ 获取队列的容量 """
+        def capacity(self):
+            return len(self.__nums)
+
+        """ 获取队列的长度 """
+        def size(self):
+            # 由于将数组看作为环形，可能 rear < front ，因此需要取余数
+            return (self.capacity() + self.__rear - self.__front) % self.capacity()
+
+        """ 判断队列是否为空 """
+        def is_empty(self):
+            return (self.__rear - self.__front) == 0
+
+        """ 入队 """
+        def push(self, val):
+            if self.size() == self.capacity():
+                print("队列已满")
+                return False
+            # 尾结点后添加 num
+            self.__nums[self.__rear] = val
+            # 尾指针向后移动一位，越过尾部后返回到数组头部
+            self.__rear = (self.__rear + 1) % self.capacity()
+
+        """ 出队 """
+        def poll(self):
+            # 删除头结点
+            num = self.peek()
+            # 队头指针向后移动一位，若越过尾部则返回到数组头部
+            self.__front = (self.__front + 1) % self.capacity()
+            return num
+
+        """ 访问队首元素 """
+        def peek(self):
+            # 删除头结点
+            if self.is_empty():
+                print("队列为空")
+                return False
+            return self.__nums[self.__front]
+
+        """ 访问指定位置元素 """
+        def get(self, index):
+            if index >= self.size():
+                print("索引越界")
+                return False
+            return self.__nums[(self.__front + index) % self.capacity()]
+
+        """ 返回列表用于打印 """
+        def to_list(self):
+            res = [0] * self.size()
+            j = self.__front
+            for i in range(self.size()):
+                res[i] = self.__nums[(j % self.capacity())]
+                j += 1
+            return res
     ```
 
 ## 队列典型应用
 
 - **淘宝订单。** 购物者下单后，订单就被加入到队列之中，随后系统再根据顺序依次处理队列中的订单。在双十一时，在短时间内会产生海量的订单，如何处理「高并发」则是工程师们需要重点思考的问题。
-
 - **各种待办事项。** 例如打印机的任务队列、餐厅的出餐队列等等。

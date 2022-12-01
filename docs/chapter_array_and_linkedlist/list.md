@@ -288,13 +288,13 @@ comments: true
         }
 
         /* 中间插入元素 */
-        public void add(int index, int num) {
+        public void insert(int index, int num) {
             if (index >= size)
                 throw new IndexOutOfBoundsException("索引越界");
             // 元素数量超出容量时，触发扩容机制
             if (size == capacity())
                 extendCapacity();
-            // 索引 i 以及之后的元素都向后移动一位
+            // 将索引 index 以及之后的元素都向后移动一位
             for (int j = size - 1; j >= index; j--) {
                 nums[j + 1] = nums[j];
             }
@@ -304,15 +304,18 @@ comments: true
         }
 
         /* 删除元素 */
-        public void remove(int index) {
+        public int remove(int index) {
             if (index >= size)
                 throw new IndexOutOfBoundsException("索引越界");
-            // 索引 i 之后的元素都向前移动一位
+            int num = nums[index];
+            // 将索引 index 之后的元素都向前移动一位
             for (int j = index; j < size - 1; j++) {
                 nums[j] = nums[j + 1];
             }
             // 更新元素数量
             size--;
+            // 返回被删除元素
+            return num;
         }
 
         /* 列表扩容 */
@@ -394,15 +397,18 @@ comments: true
         }
 
         /* 删除元素 */
-        void remove(int index) {
+        int remove(int index) {
             if (index >= size())
                 throw out_of_range("索引越界");
+            int num = nums[index];
             // 索引 i 之后的元素都向前移动一位
             for (int j = index; j < size() - 1; j++) {
                 nums[j] = nums[j + 1];
             }
             // 更新元素数量
             numsSize--;
+            // 返回被删除元素
+            return num;
         }
 
         /* 列表扩容 */
@@ -418,16 +424,6 @@ comments: true
             nums = extend;
             delete[] temp;
             numsCapacity = newCapacity;
-        }
-
-        /* 将列表转换为 Vector 用于打印 */
-        vector<int> toVector() {
-            // 仅转换有效长度范围内的列表元素
-            vector<int> vec(size());
-            for (int i = 0; i < size(); i++) {
-                vec[i] = nums[i];
-            }
-            return vec;
         }
     };
     ```
@@ -463,9 +459,10 @@ comments: true
             assert index < self.__size, "索引越界"
             self.__nums[index] = num
 
-        """ 中间插入元素 """
+        """ 中间插入（尾部添加）元素 """
         def add(self, num, index=-1):
             assert index < self.__size, "索引越界"
+            # 若不指定索引 index ，则向数组尾部添加元素
             if index == -1:
                 index = self.__size
             # 元素数量超出容量时，触发扩容机制

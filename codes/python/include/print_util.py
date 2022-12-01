@@ -4,6 +4,8 @@ Created Time: 2021-12-11
 Author: Krahets (krahets@163.com)
 '''
 
+import copy
+import queue
 from .binary_tree import TreeNode, tree_to_list
 from .linked_list import ListNode, linked_list_to_list
 
@@ -27,7 +29,6 @@ def print_linked_list(head):
     """    
     arr = linked_list_to_list(head)
     print(' -> '.join([str(a) for a in arr]))
-
 
 class Trunk:
     def __init__(self, prev=None, str=None):

@@ -92,5 +92,27 @@ comments: true
 === "Python"
 
     ```python title="deque.py"
-    
+    """ 初始化双向队列 """
+    duque = deque()
+
+    """ 元素入队 """
+    duque.append(2)      # 添加至队尾
+    duque.append(5)
+    duque.append(4)
+    duque.appendleft(3)  # 添加至队首
+    duque.appendleft(1)
+
+    """ 访问队首元素 """
+    front = duque[0]  # 队首元素
+    rear = duque[-1]  # 队尾元素
+
+    """ 元素出队 """
+    pop_front = duque.popleft()  # 队首元素出队
+    pop_rear = duque.pop()       # 队尾元素出队
+
+    """ 获取双向队列的长度 """
+    size = len(duque)
+
+    """ 判断双向队列是否为空 """
+    is_empty = len(duque) == 0
     ```

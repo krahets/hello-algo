@@ -36,9 +36,10 @@ class MyList:
         assert index < self.__size, "索引越界"
         self.__nums[index] = num
 
-    """ 中间插入元素 """
+    """ 中间插入（尾部添加）元素 """
     def add(self, num, index=-1):
         assert index < self.__size, "索引越界"
+        # 若不指定索引 index ，则向数组尾部添加元素
         if index == -1:
             index = self.__size
         # 元素数量超出容量时，触发扩容机制

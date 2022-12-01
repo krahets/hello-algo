@@ -56,7 +56,7 @@ func (q *ArrayQueue) Poll() any {
 		return nil
 	}
 	v := q.data[q.head]
-	// 队头指针向后移动，越过尾部后返回到数组头部
+	// 队头指针向后移动一位，若越过尾部则返回到数组头部
 	q.head = (q.head + 1) % q.capacity
 	return v
 }

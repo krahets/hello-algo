@@ -13,8 +13,8 @@ from include import *
 """ 基于链表实现的队列 """
 class LinkedListQueue:
     def __init__(self):
-        self.__front = 0  # 头结点 front
-        self.__rear = 0  # 尾结点 rear
+        self.__front = None  # 头结点 front
+        self.__rear = None   # 尾结点 rear
         self.__size = 0
 
     """ 获取队列的长度 """
@@ -26,7 +26,7 @@ class LinkedListQueue:
         return not self.__front
 
     """ 入队 """
-    def put(self, num):
+    def push(self, num):
         # 尾结点后添加 num
         node = ListNode(num)
         # 如果队列为空，则令头、尾结点都指向该结点
@@ -40,7 +40,7 @@ class LinkedListQueue:
         self.__size += 1
 
     """ 出队 """
-    def get(self):
+    def poll(self):
         num = self.peek()
         # 删除头结点
         self.__front = self.__front.next
@@ -64,31 +64,32 @@ class LinkedListQueue:
         return queue
 
 
+""" Driver Code """
 if __name__ == "__main__":
     """ 初始化队列 """
     queue = LinkedListQueue()
 
     """ 元素入队 """
-    queue.put(1)
-    queue.put(3)
-    queue.put(2)
-    queue.put(5)
-    queue.put(4)
-    print("队列 queue = ", queue.to_list())
+    queue.push(1)
+    queue.push(3)
+    queue.push(2)
+    queue.push(5)
+    queue.push(4)
+    print("队列 queue =", queue.to_list())
 
     """ 访问队首元素 """
     peek = queue.peek()
-    print("队首元素 front = ", peek)
+    print("队首元素 front =", peek)
 
     """ 元素出队 """
-    get = queue.get()
-    print("出队元素 get = ", get)
-    print("出队后 queue = ", queue.to_list())
+    pop_front = queue.poll()
+    print("出队元素 poll =", pop_front)
+    print("出队后 queue =", queue.to_list())
 
     """ 获取队列的长度 """
     size = queue.size()
-    print("队列长度 size = ", size)
+    print("队列长度 size =", size)
 
     """ 判断队列是否为空 """
     is_empty = queue.is_empty()
-    print("队列是否为空 = ", is_empty)
+    print("队列是否为空 =", is_empty)

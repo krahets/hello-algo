@@ -51,11 +51,8 @@ public:
 
     /* 出队 */
     int poll() {
-        // 删除头结点
-        if (empty())
-            throw out_of_range("队列为空");
-        int num = nums[front];
-        // 队头指针向后移动，越过尾部后返回到数组头部
+        int num = peek();
+        // 队头指针向后移动一位，若越过尾部则返回到数组头部
         front = (front + 1) % capacity();
         return num;
     }
