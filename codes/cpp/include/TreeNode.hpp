@@ -23,25 +23,28 @@ struct TreeNode {
  * @param list 
  * @return TreeNode* 
  */
-TreeNode* vecToTree(vector<int> list) {
-    TreeNode *root = new TreeNode(list[0]);
-    queue<TreeNode*> que;
-    que.emplace(root);
-    int i = 1;
-    while(!que.empty()) {
-        TreeNode *node = que.front();
+TreeNode *vecToTree(vector<int> list) {
+    if (list.empty()) {
+        return nullptr;
+    }
+
+    auto *root = new TreeNode(list[0]);
+    queue<TreeNode *> que;
+    size_t n = list.size(), index = 1;
+    while (index < n) {
+        auto node = que.front();
         que.pop();
-        if(list[i] != INT_MAX) {
-            node->left = new TreeNode(list[i]);
+
+        if (index < n) {
+            node->left = new TreeNode(list[index++]);
             que.emplace(node->left);
         }
-        i++;
-        if(list[i] != INT_MAX) {
-            node->right = new TreeNode(list[i]);
+        if (index < n) {
+            node->right = new TreeNode(list[index++]);
             que.emplace(node->right);
         }
-        i++;
     }
+
     return root;
 }
 
@@ -52,7 +55,7 @@ TreeNode* vecToTree(vector<int> list) {
  * @param val 
  * @return TreeNode* 
  */
-TreeNode* getTreeNode(TreeNode *root, int val) {
+TreeNode *getTreeNode(TreeNode *root, int val) {
     if (root == nullptr)
         return nullptr;
     if (root->val == val)
