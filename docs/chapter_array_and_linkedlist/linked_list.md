@@ -48,6 +48,36 @@ comments: true
             self.next = None  # 指向下一结点的指针（引用）
     ```
 
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
+    ```
+
 **尾结点指向什么？** 我们一般将链表的最后一个结点称为「尾结点」，其指向的是「空」，在 Java / C++ / Python 中分别记为 `null` / `nullptr` / `None` 。在不引起歧义下，本书都使用 `null` 来表示空。
 
 **链表初始化方法。** 建立链表分为两步，第一步是初始化各个结点对象，第二步是构建引用指向关系。完成后，即可以从链表的首个结点（即头结点）出发，访问其余所有的结点。
@@ -105,6 +135,36 @@ comments: true
     n1.next = n2
     n2.next = n3
     n3.next = n4
+    ```
+
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
     ```
 
 ## 链表优点
@@ -176,6 +236,36 @@ comments: true
         n0.next = n1
     ```
 
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
+    ```
+
 ## 链表缺点
 
 **链表访问结点效率低。** 上节提到，数组可以在 $O(1)$ 时间下访问任意元素，但链表无法直接访问任意结点。这是因为计算机需要从头结点出发，一个一个地向后遍历到目标结点。例如，倘若想要访问链表索引为 `index` （即第 `index + 1` 个）的结点，那么需要 `index` 次访问操作。
@@ -218,6 +308,36 @@ comments: true
             if not head:
                 return None
         return head
+    ```
+
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
     ```
 
 **链表的内存占用多。** 链表以结点为单位，每个结点除了保存值外，还需额外保存指针（引用）。这意味着同样数据量下，链表比数组需要占用更多内存空间。
@@ -272,6 +392,36 @@ comments: true
         return -1
     ```
 
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
+    ```
+
 ## 常见链表类型
 
 **单向链表。** 即上述介绍的普通链表。单向链表的结点有「值」和指向下一结点的「指针（引用）」两项数据。我们将首个结点称为头结点，尾结点指向 `null` 。
@@ -313,6 +463,36 @@ comments: true
             self.val = x      # 结点值
             self.next = None  # 指向后继结点的指针（引用）
             self.prev = None  # 指向前驱结点的指针（引用）
+    ```
+
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
     ```
 
 ![linkedlist_common_types](linked_list.assets/linkedlist_common_types.png)

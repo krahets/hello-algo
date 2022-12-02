@@ -112,6 +112,36 @@ comments: true
     is_empty = len(stack) == 0
     ```
 
+=== "Go"
+
+    ```go title="stack.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="stack.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="stack.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="stack.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="stack.cs"
+
+    ```
+
 ## 栈的实现
 
 为了更加清晰地了解栈的运行机制，接下来我们来自己动手实现一个栈类。
@@ -249,6 +279,36 @@ comments: true
             return self.__peek.val
     ```
 
+=== "Go"
+
+    ```go title="linkedlist_stack.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="linkedlist_stack.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="linkedlist_stack.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="linkedlist_stack.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="linkedlist_stack.cs"
+
+    ```
+
 ### 基于数组的实现
 
 使用「数组」实现栈时，将数组的尾部当作栈顶。准确地说，我们需要使用「列表」，因为入栈的元素可能是源源不断的，因此使用动态数组可以方便扩容。
@@ -361,6 +421,36 @@ comments: true
         """ 访问索引 index 处元素 """
         def get(self, index):
             return self.__stack[index]
+    ```
+
+=== "Go"
+
+    ```go title="array_stack.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="array_stack.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array_stack.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="array_stack.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="array_stack.cs"
+
     ```
 
 !!! tip

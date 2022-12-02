@@ -8,7 +8,7 @@ comments: true
 
 === "Java"
 
-    ```java
+    ```java title=""
     /* 链表结点类 */
     class TreeNode {
         int val;         // 结点值
@@ -20,7 +20,7 @@ comments: true
 
 === "C++"
 
-    ```cpp
+    ```cpp title=""
     /* 链表结点结构体 */
     struct TreeNode {
         int val;          // 结点值
@@ -32,7 +32,7 @@ comments: true
 
 === "Python"
 
-    ```python
+    ```python title=""
     """ 链表结点类 """
     class TreeNode:
         def __init__(self, val=0, left=None, right=None):
@@ -43,7 +43,31 @@ comments: true
 
 === "Go"
 
-    ```go
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
 
     ```
 
@@ -142,6 +166,30 @@ comments: true
 
     ```
 
+=== "JavaScript"
+
+    ```js title="binary_tree.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="binary_tree.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="binary_tree.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_tree.cs"
+
+    ```
+
 **插入与删除结点。** 与链表类似，插入与删除结点都可以通过修改指针实现。
 
 ![binary_tree_add_remove](binary_tree.assets/binary_tree_add_remove.png)
@@ -180,6 +228,30 @@ comments: true
 === "Go"
 
     ```go title="binary_tree.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="binary_tree.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="binary_tree.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="binary_tree.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_tree.cs"
 
     ```
 
@@ -256,6 +328,30 @@ comments: true
 === "Go"
 
     ```go title="binary_tree_bfs.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="binary_tree_bfs.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="binary_tree_bfs.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="binary_tree_bfs.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_tree_bfs.cs"
 
     ```
 
@@ -350,6 +446,30 @@ comments: true
 === "Go"
 
     ```go title="binary_tree_dfs.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="binary_tree_dfs.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="binary_tree_dfs.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="binary_tree_dfs.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_tree_dfs.cs"
 
     ```
 

@@ -112,6 +112,36 @@ comments: true
     is_empty = len(que) == 0
     ```
 
+=== "Go"
+
+    ```go title="queue.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="queue.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="queue.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="queue.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="queue.cs"
+
+    ```
+
 ## 队列实现
 
 队列需要一种可以在一端添加，并在另一端删除的数据结构，也可以使用链表或数组来实现。
@@ -274,6 +304,36 @@ comments: true
                 print("队列为空")
                 return False
             return self.__front.val
+    ```
+
+=== "Go"
+
+    ```go title="linkedlist_queue.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="linkedlist_queue.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="linkedlist_queue.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="linkedlist_queue.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="linkedlist_queue.cs"
+
     ```
 
 ### 基于数组的实现
@@ -475,6 +535,36 @@ comments: true
                 res[i] = self.__nums[(j % self.capacity())]
                 j += 1
             return res
+    ```
+
+=== "Go"
+
+    ```go title="array_queue.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="array_queue.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array_queue.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="array_queue.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="array_queue.cs"
+
     ```
 
 ## 队列典型应用

@@ -44,6 +44,42 @@ comments: true
     }
     ```
 
+=== "Python"
+
+    ```python title="linear_search.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="linear_search.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="linear_search.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="linear_search.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="linear_search.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="linear_search.cs"
+
+    ```
+
 再比如，我们想要在给定一个目标结点值 `target` ，返回此结点对象，也可以在链表中进行线性查找。
 
 === "Java"
@@ -78,6 +114,42 @@ comments: true
         // 未找到目标结点，返回 nullptr
         return nullptr;
     }
+    ```
+
+=== "Python"
+
+    ```python title="linear_search.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="linear_search.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="linear_search.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="linear_search.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="linear_search.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="linear_search.cs"
+
     ```
 
 ## 复杂度分析

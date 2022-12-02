@@ -116,3 +116,33 @@ comments: true
     """ 判断双向队列是否为空 """
     is_empty = len(duque) == 0
     ```
+
+=== "Go"
+
+    ```go title="deque.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="deque.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="deque.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="deque.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="deque.cs"
+
+    ```

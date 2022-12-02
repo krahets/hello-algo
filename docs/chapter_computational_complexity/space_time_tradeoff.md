@@ -20,7 +20,7 @@ comments: true
 
 === "Java"
 
-    ```java title="" title="leetcode_two_sum.java"
+    ```java title="leetcode_two_sum.java"
     class SolutionBruteForce {
         public int[] twoSum(int[] nums, int target) {
             int size = nums.length;
@@ -85,6 +85,30 @@ comments: true
     }
     ```
 
+=== "JavaScript"
+
+    ```js title="leetcode_two_sum.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="leetcode_two_sum.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="leetcode_two_sum.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="leetcode_two_sum.cs"
+
+    ```
+
 ### 方法二：辅助哈希表
 
 时间复杂度 $O(N)$ ，空间复杂度 $O(N)$ ，属于「空间换时间」。
@@ -93,7 +117,7 @@ comments: true
 
 === "Java"
 
-    ```java title="" title="leetcode_two_sum.java"
+    ```java title="leetcode_two_sum.java"
     class SolutionHashMap {
         public int[] twoSum(int[] nums, int target) {
             int size = nums.length;
@@ -162,4 +186,28 @@ comments: true
         }
         return nil
     }
+    ```
+
+=== "JavaScript"
+
+    ```js title="leetcode_two_sum.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="leetcode_two_sum.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="leetcode_two_sum.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="leetcode_two_sum.cs"
+
     ```

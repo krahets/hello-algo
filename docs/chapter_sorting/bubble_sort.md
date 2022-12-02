@@ -74,26 +74,6 @@ comments: true
     }
     ```
 
-=== "JavaScript"
-
-    ```js title="bubble_sort.js"
-    /* 冒泡排序 */
-    function bubbleSort(nums) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (let i = nums.length - 1; i > 0; i--) {
-            // 内循环：冒泡操作
-            for (let j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                }
-            }
-        }
-    }
-    ```
-
 === "C++"
 
     ```cpp title="bubble_sort.cpp"
@@ -129,6 +109,50 @@ comments: true
                     nums[j], nums[j + 1] = nums[j + 1], nums[j]
     ```
 
+=== "Go"
+
+    ```go title="bubble_sort.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="bubble_sort.js"
+    /* 冒泡排序 */
+    function bubbleSort(nums) {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (let i = nums.length - 1; i > 0; i--) {
+            // 内循环：冒泡操作
+            for (let j = 0; j < i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    let tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                }
+            }
+        }
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="bubble_sort.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="bubble_sort.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="bubble_sort.cs"
+
+    ```
+
 ## 算法特性
 
 **时间复杂度 $O(n^2)$ ：** 各轮「冒泡」遍历的数组长度为 $n - 1$ , $n - 2$ , $\cdots$ , $2$ , $1$ 次，求和为 $\frac{(n - 1) n}{2}$ ，因此使用 $O(n^2)$ 时间。
@@ -160,29 +184,6 @@ comments: true
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
                     int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    flag = true;  // 记录交换元素
-                }
-            }
-            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
-        }
-    }
-    ```
-
-=== "JavaScript"
-
-    ```js title="bubble_sort.js"
-    /* 冒泡排序（标志优化）*/
-    function bubbleSortWithFlag(nums) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (let i = nums.length - 1; i > 0; i--) {
-            let flag = false; // 初始化标志位
-            // 内循环：冒泡操作
-            for (let j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
                     flag = true;  // 记录交换元素
@@ -233,4 +234,51 @@ comments: true
                     flag = True  # 记录交换元素
             if not flag:
                 break            # 此轮冒泡未交换任何元素，直接跳出
+    ```
+
+=== "Go"
+
+    ```go title="bubble_sort.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="bubble_sort.js"
+    /* 冒泡排序（标志优化）*/
+    function bubbleSortWithFlag(nums) {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (let i = nums.length - 1; i > 0; i--) {
+            let flag = false; // 初始化标志位
+            // 内循环：冒泡操作
+            for (let j = 0; j < i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    let tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    flag = true;  // 记录交换元素
+                }
+            }
+            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
+        }
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="bubble_sort.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="bubble_sort.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="bubble_sort.cs"
+
     ```

@@ -91,6 +91,30 @@ comments: true
 
     ```
 
+=== "JavaScript"
+
+    ```js title="binary_search_tree.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="binary_search_tree.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="binary_search_tree.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_tree.cs"
+
+    ```
+
 ### 插入结点
 
 给定一个待插入元素 `num` ，为了保持二叉搜索树 “左子树 < 根结点 < 右子树” 的性质，插入操作分为两步：
@@ -163,6 +187,30 @@ comments: true
 === "Go"
 
     ```go title="binary_search_tree.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="binary_search_tree.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="binary_search_tree.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="binary_search_tree.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_tree.cs"
 
     ```
 
@@ -317,6 +365,30 @@ comments: true
 === "Go"
 
     ```go title="binary_search_tree.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="binary_search_tree.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="binary_search_tree.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="binary_search_tree.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_tree.cs"
 
     ```
 

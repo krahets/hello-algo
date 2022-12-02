@@ -102,6 +102,42 @@ $$
     }
     ```
 
+=== "Python"
+
+    ```python title="binary_search.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="binary_search.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="binary_search.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="binary_search.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="binary_search.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search.cs"
+
+    ```
+
 ### “左闭右开” 实现
 
 当然，我们也可以使用 “左闭右开” 的表示方法，写出相同功能的二分查找代码。
@@ -150,6 +186,42 @@ $$
     }
     ```
 
+=== "Python"
+
+    ```python title="binary_search.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="binary_search.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="binary_search.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="binary_search.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="binary_search.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search.cs"
+
+    ```
+
 ### 两种表示对比
 
 对比下来，两种表示的代码写法有以下不同点：
@@ -171,15 +243,16 @@ $$
 
 === "Java"
 
-    ```java
+    ```java title=""
     // (i + j) 有可能超出 int 的取值范围
     int m = (i + j) / 2;
     // 更换为此写法则不会越界
     int m = i + (j - i) / 2;
     ```
+
 === "C++"
 
-    ```cpp
+    ```cpp title=""
     // (i + j) 有可能超出 int 的取值范围
     int m = (i + j) / 2;
     // 更换为此写法则不会越界
@@ -188,9 +261,39 @@ $$
 
 === "Python"
 
-    ```py
+    ```py title=""
     # Python 中的数字理论上可以无限大（取决于内存）
     # 因此无需考虑大数越界问题 
+    ```
+
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
     ```
 
 ## 复杂度分析
