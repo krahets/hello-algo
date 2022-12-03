@@ -115,7 +115,29 @@ comments: true
 === "Go"
 
     ```go title="stack.go"
+    /* 初始化栈 */
+    // 在 Go 中，推荐将 Slice 当作栈来使用
+    var stack []int
 
+    /* 元素入栈 */
+    stack = append(stack, 1)
+    stack = append(stack, 3)
+    stack = append(stack, 2)
+    stack = append(stack, 5)
+    stack = append(stack, 4)
+
+    /* 访问栈顶元素 */
+    peek := stack[len(stack)-1]
+
+    /* 元素出栈 */
+    pop := stack[len(stack)-1]
+    stack = stack[:len(stack)-1]
+
+    /* 获取栈的长度 */
+    size := len(stack)
+
+    /* 判断是否为空 */
+    isEmpty := len(stack) == 0
     ```
 
 === "JavaScript"
@@ -282,7 +304,52 @@ comments: true
 === "Go"
 
     ```go title="linkedlist_stack.go"
+    /* 基于链表实现的栈 */
+    type LinkedListStack struct {
+        // 使用内置包 list 来实现栈
+        data *list.List
+    }
 
+    // NewLinkedListStack 初始化链表
+    func NewLinkedListStack() *LinkedListStack {
+        return &LinkedListStack{
+            data: list.New(),
+        }
+    }
+
+    // Push 入栈
+    func (s *LinkedListStack) Push(value int) {
+        s.data.PushBack(value)
+    }
+
+    // Pop 出栈
+    func (s *LinkedListStack) Pop() any {
+        if s.IsEmpty() {
+            return nil
+        }
+        e := s.data.Back()
+        s.data.Remove(e)
+        return e.Value
+    }
+
+    // Peek 访问栈顶元素
+    func (s *LinkedListStack) Peek() any {
+        if s.IsEmpty() {
+            return nil
+        }
+        e := s.data.Back()
+        return e.Value
+    }
+
+    // Size 获取栈的长度
+    func (s *LinkedListStack) Size() int {
+        return s.data.Len()
+    }
+
+    // IsEmpty 判断栈是否为空
+    func (s *LinkedListStack) IsEmpty() bool {
+        return s.data.Len() == 0
+    }
     ```
 
 === "JavaScript"
@@ -426,7 +493,53 @@ comments: true
 === "Go"
 
     ```go title="array_stack.go"
+    /* 基于数组实现的栈 */
+    type ArrayStack struct {
+        data []int // 数据
+    }
 
+    func NewArrayStack() *ArrayStack {
+        return &ArrayStack{
+            // 设置栈的长度为 0，容量为 16
+            data: make([]int, 0, 16),
+        }
+    }
+
+    // Size 栈的长度
+    func (s *ArrayStack) Size() int {
+        return len(s.data)
+    }
+
+    // IsEmpty 栈是否为空
+    func (s *ArrayStack) IsEmpty() bool {
+        return s.Size() == 0
+    }
+
+    // Push 入栈
+    func (s *ArrayStack) Push(v int) {
+        // 切片会自动扩容
+        s.data = append(s.data, v)
+    }
+
+    // Pop 出栈
+    func (s *ArrayStack) Pop() any {
+        // 弹出栈前，先判断是否为空
+        if s.IsEmpty() {
+            return nil
+        }
+        val := s.Peek()
+        s.data = s.data[:len(s.data)-1]
+        return val
+    }
+
+    // Peek 获取栈顶元素
+    func (s *ArrayStack) Peek() any {
+        if s.IsEmpty() {
+            return nil
+        }
+        val := s.data[len(s.data)-1]
+        return val
+    }
     ```
 
 === "JavaScript"

@@ -25,4 +25,4 @@ def insertion_sort(nums):
 if __name__ == '__main__':
     nums = [4, 1, 3, 1, 5, 2]
     insertion_sort(nums)
-    print("排序后数组 nums = ", nums)
+    print("排序后数组 nums =", nums)

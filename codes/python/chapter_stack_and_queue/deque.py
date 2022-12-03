@@ -26,7 +26,7 @@ if __name__ == "__main__":
     duque.appendleft(1)
     print("双向队列 duque =", duque)
 
-    """ 访问队首元素 """
+    """ 访问元素 """
     front = duque[0]  # 队首元素
     print("队首元素 front =", front)
     rear = duque[-1]  # 队尾元素

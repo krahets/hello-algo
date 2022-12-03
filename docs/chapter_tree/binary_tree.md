@@ -44,7 +44,20 @@ comments: true
 === "Go"
 
     ```go title=""
-
+    """ 链表结点类 """
+    type TreeNode struct {
+        Val   int
+        Left  *TreeNode
+        Right *TreeNode
+    }
+    """ 结点初始化方法 """
+    func NewTreeNode(v int) *TreeNode {
+        return &TreeNode{
+            Left:  nil,
+            Right: nil,
+            Val:   v,
+        }
+    }
     ```
 
 === "JavaScript"
@@ -163,7 +176,18 @@ comments: true
 === "Go"
 
     ```go title="binary_tree.go"
-
+    /* 初始化二叉树 */
+    // 初始化结点
+    n1 := NewTreeNode(1)
+    n2 := NewTreeNode(2)
+    n3 := NewTreeNode(3)
+    n4 := NewTreeNode(4)
+    n5 := NewTreeNode(5)
+    // 构建引用指向（即指针）
+    n1.Left = n2
+    n1.Right = n3
+    n2.Left = n4
+    n2.Right = n5
     ```
 
 === "JavaScript"
@@ -228,7 +252,14 @@ comments: true
 === "Go"
 
     ```go title="binary_tree.go"
+    /* 插入与删除结点 */
+    // 在 n1 -> n2 中间插入结点 P
+    p := NewTreeNode(0)
+    n1.Left = p
+    p.Left = n2
 
+    // 删除结点 P
+    n1.Left = n2
     ```
 
 === "JavaScript"
@@ -328,7 +359,29 @@ comments: true
 === "Go"
 
     ```go title="binary_tree_bfs.go"
-
+    /* 层序遍历 */
+    func levelOrder(root *TreeNode) []int {
+        // 初始化队列，加入根结点
+        queue := list.New()
+        queue.PushBack(root)
+        // 初始化一个切片，用于保存遍历序列
+        nums := make([]int, 0)
+        for queue.Len() > 0 {
+            // poll
+            node := queue.Remove(queue.Front()).(*TreeNode)
+            // 保存结点
+            nums = append(nums, node.Val)
+            if node.Left != nil {
+                // 左子结点入队
+                queue.PushBack(node.Left)
+            }
+            if node.Right != nil {
+                // 右子结点入队
+                queue.PushBack(node.Right)
+            }
+        }
+        return nums
+    }
     ```
 
 === "JavaScript"
@@ -446,7 +499,38 @@ comments: true
 === "Go"
 
     ```go title="binary_tree_dfs.go"
+    /* 前序遍历 */
+    func preOrder(node *TreeNode) {
+        if node == nil {
+            return
+        }
+        // 访问优先级：根结点 -> 左子树 -> 右子树
+        nums = append(nums, node.Val)
+        preOrder(node.Left)
+        preOrder(node.Right)
+    }
 
+    /* 中序遍历 */
+    func inOrder(node *TreeNode) {
+        if node == nil {
+            return
+        }
+        // 访问优先级：左子树 -> 根结点 -> 右子树
+        inOrder(node.Left)
+        nums = append(nums, node.Val)
+        inOrder(node.Right)
+    }
+
+    /* 后序遍历 */
+    func postOrder(node *TreeNode) {
+        if node == nil {
+            return
+        }
+        // 访问优先级：左子树 -> 右子树 -> 根结点
+        postOrder(node.Left)
+        postOrder(node.Right)
+        nums = append(nums, node.Val)
+    }
     ```
 
 === "JavaScript"

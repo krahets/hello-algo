@@ -4,12 +4,6 @@
 
 package pkg
 
-import (
-	"fmt"
-	"strconv"
-	"strings"
-)
-
 // ListNode Definition for a singly-linked list node
 type ListNode struct {
 	Next *ListNode
@@ -42,18 +36,4 @@ func GetListNode(node *ListNode, val int) *ListNode {
 		node = node.Next
 	}
 	return node
-}
-
-// PrintLinkedList Print a linked list
-func PrintLinkedList(node *ListNode) {
-	if node == nil {
-		return
-	}
-	var builder strings.Builder
-	for node.Next != nil {
-		builder.WriteString(strconv.Itoa(node.Val) + " -> ")
-		node = node.Next
-	}
-	builder.WriteString(strconv.Itoa(node.Val))
-	fmt.Println(builder.String())
 }

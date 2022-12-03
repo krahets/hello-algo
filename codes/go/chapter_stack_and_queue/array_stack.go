@@ -4,13 +4,7 @@
 
 package chapter_stack_and_queue
 
-import (
-	"fmt"
-	"strconv"
-	"strings"
-)
-
-// ArrayStack 基于数组实现的栈
+/* 基于数组实现的栈 */
 type ArrayStack struct {
 	data []int // 数据
 }
@@ -38,6 +32,7 @@ func (s *ArrayStack) Push(v int) {
 	s.data = append(s.data, v)
 }
 
+// Pop 出栈
 func (s *ArrayStack) Pop() any {
 	// 弹出栈前，先判断是否为空
 	if s.IsEmpty() {
@@ -48,6 +43,7 @@ func (s *ArrayStack) Pop() any {
 	return val
 }
 
+// Peek 获取栈顶元素
 func (s *ArrayStack) Peek() any {
 	if s.IsEmpty() {
 		return nil
@@ -56,18 +52,7 @@ func (s *ArrayStack) Peek() any {
 	return val
 }
 
-func (s *ArrayStack) Print() {
-	fmt.Println(s.toString())
-}
-
-func (s *ArrayStack) toString() string {
-	var builder strings.Builder
-	if s.IsEmpty() {
-		return "empty stack"
-	}
-	for i := len(s.data) - 1; i > 0; i-- {
-		builder.WriteString(strconv.Itoa(s.data[i]) + " -> ")
-	}
-	builder.WriteString(strconv.Itoa(s.data[0]))
-	return builder.String()
+// 获取 Slice 用于打印
+func (s *ArrayStack) toSlice() []int {
+	return s.data
 }

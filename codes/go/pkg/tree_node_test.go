@@ -4,7 +4,10 @@
 
 package pkg
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestTreeNode(t *testing.T) {
 	arr := []int{2, 3, 5, 6, 7}
@@ -14,5 +17,5 @@ func TestTreeNode(t *testing.T) {
 	PrintTree(node)
 
 	// tree to arr
-	t.Log(TreeToArray(node))
+	fmt.Println(TreeToArray(node))
 }
