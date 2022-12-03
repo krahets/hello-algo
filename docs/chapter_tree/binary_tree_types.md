@@ -37,7 +37,7 @@ comments: true
 
 ## 平衡二叉树
 
-**「平衡二叉树 Balanced Binary Tree」，又称「AVL 树」** ，其任意结点的左子树和右子树的高度之差的绝对值 $\leq 1$ 。
+**「平衡二叉树 Balanced Binary Tree」** ，其任意结点的左子树和右子树的高度之差的绝对值 $\leq 1$ 。
 
 ![balanced_binary_tree](binary_tree_types.assets/balanced_binary_tree.png)
 
