@@ -7,7 +7,7 @@
 const Tree = require("../include/TreeNode");
 const { printTree } = require("../include/PrintUtil");
 
- /* 二叉搜索树 */
+/* 二叉搜索树 */
 var root;
 
 function BinarySearchTree(nums) {
