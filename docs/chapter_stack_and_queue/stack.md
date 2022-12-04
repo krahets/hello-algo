@@ -172,7 +172,7 @@ comments: true
     ```typescript title="stack.ts"
     /* 初始化栈 */
     // Typescript 没有内置的栈类，可以把 Array 当作栈来使用 
-    const stack:number[] = [];
+    const stack: number[] = [];
 
     /* 元素入栈 */
     stack.push(1);
@@ -182,16 +182,16 @@ comments: true
     stack.push(4);
 
     /* 访问栈顶元素 */
-    peek = stack[stack.length-1];
+    const peek = stack[stack.length - 1];
 
     /* 元素出栈 */
-    pop = stack.pop();
+    const pop = stack.pop();
 
     /* 获取栈的长度 */
-    size = stack.length;
+    const size = stack.length;
 
     /* 判断是否为空 */
-    is_empty = stack.length === 0;
+    const is_empty = stack.length === 0;
     ```
 
 === "C"
