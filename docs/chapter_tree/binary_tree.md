@@ -63,6 +63,12 @@ comments: true
 === "JavaScript"
 
     ```js title=""
+    /* 链表结点类 */
+    function TreeNode(val, left, right) {
+        this.val = (val === undefined ? 0 : val) // 结点值
+        this.left = (left === undefined ? null : left) // 左子结点指针
+        this.right = (right === undefined ? null : right) // 右子结点指针
+  }
 
     ```
 
@@ -193,7 +199,18 @@ comments: true
 === "JavaScript"
 
     ```js title="binary_tree.js"
-
+    /* 初始化二叉树 */
+    // 初始化结点
+    let n1 = new TreeNode(1),
+    n2 = new TreeNode(2),
+    n3 = new TreeNode(3),
+    n4 = new TreeNode(4),
+    n5 = new TreeNode(5);
+    // 构建引用指向（即指针）
+    n1.left = n2;
+    n1.right = n3;
+    n2.left = n4;
+    n2.right = n5;
     ```
 
 === "TypeScript"
@@ -265,7 +282,14 @@ comments: true
 === "JavaScript"
 
     ```js title="binary_tree.js"
+    /* 插入与删除结点 */
+    let P = new TreeNode(0);
+    // 在 n1 -> n2 中间插入结点 P
+    n1.left = P;
+    P.left = n2;
 
+    // 删除结点 P
+    n1.left = n2;
     ```
 
 === "TypeScript"
@@ -387,7 +411,23 @@ comments: true
 === "JavaScript"
 
     ```js title="binary_tree_bfs.js"
-
+    /* 层序遍历 */
+    function hierOrder(root) {
+        // 初始化队列，加入根结点
+        let queue = [root];
+        // 初始化一个列表，用于保存遍历序列
+        let list = [];
+        while (queue.length) {
+            let node = queue.shift();  // 队列出队
+            list.push(node.val);          // 保存结点
+            if (node.left)
+                queue.push(node.left);    // 左子结点入队
+            if (node.right)
+                queue.push(node.right);   // 右子结点入队
+            
+        }
+        return list;
+    }
     ```
 
 === "TypeScript"
@@ -536,7 +576,32 @@ comments: true
 === "JavaScript"
 
     ```js title="binary_tree_dfs.js"
+    /* 前序遍历 */
+    function preOrder(root){
+        if (root === null) return;
+        // 访问优先级：根结点 -> 左子树 -> 右子树
+        list.push(root.val);
+        preOrder(root.left);
+        preOrder(root.right);
+    }
 
+    /* 中序遍历 */
+    function inOrder(root) {
+        if (root === null) return;
+        // 访问优先级：左子树 -> 根结点 -> 右子树
+        inOrder(root.left);
+        list.push(root.val);
+        inOrder(root.right);
+    }
+
+    /* 后序遍历 */
+    function postOrder(root) {
+        if (root === null) return;
+        // 访问优先级：左子树 -> 右子树 -> 根结点
+        postOrder(root.left);
+        postOrder(root.right);
+        list.push(root.val);
+    }
     ```
 
 === "TypeScript"
