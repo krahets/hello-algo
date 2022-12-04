@@ -66,7 +66,7 @@ function find(nums: number[], target: number): number {
         }
     }
     return -1
-  }
+}
 
 /* Driver Codes*/
 /* 初始化数组 */
