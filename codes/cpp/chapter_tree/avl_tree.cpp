@@ -34,14 +34,14 @@ bool AvlTree::isBalance(const TreeNode *p) {
 // 获取当前结点的平衡因子
 int AvlTree::getBalanceFactor(const TreeNode *p) {
     if (p->left == nullptr && p->right == nullptr) { return 0; }
-    else if (p->left == nullptr) { return (-p->right->height); }
-    else if (p->right == nullptr) { return p->left->height; }
+    else if (p->left == nullptr) { return (-1 - p->right->height); }
+    else if (p->right == nullptr) { return p->left->height + 1; }
     else { return p->left->height - p->right->height; }
 }
 
 // 更新结点高度
 void AvlTree::updateHeight(TreeNode *p) {
-    if (p->left == nullptr && p->right == nullptr) { p->height = 1; }
+    if (p->left == nullptr && p->right == nullptr) { p->height = 0; }
     else if (p->left == nullptr) { p->height = p->right->height + 1; }
     else if (p->right == nullptr) { p->height = p->left->height + 1; }
     else { p->height = std::max(p->left->height, p->right->height) + 1; }

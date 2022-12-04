@@ -12,7 +12,7 @@
  */
 struct TreeNode {
     int val{};
-    int height = 1;
+    int height = 0;
     TreeNode *parent{};
     TreeNode *left{};
     TreeNode *right{};
