@@ -4,7 +4,10 @@
 
 package pkg
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestListNode(t *testing.T) {
 	arr := []int{2, 3, 5, 6, 7}
@@ -12,5 +15,5 @@ func TestListNode(t *testing.T) {
 
 	PrintLinkedList(head)
 	node := GetListNode(head, 5)
-	t.Log("Find node: ", node.Val)
+	fmt.Println("Find node: ", node.Val)
 }

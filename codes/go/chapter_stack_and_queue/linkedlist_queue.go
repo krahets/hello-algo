@@ -6,25 +6,24 @@ package chapter_stack_and_queue
 
 import (
 	"container/list"
-	"fmt"
-	"strings"
 )
 
-// LinkedListQueue 基于链表实现的队列, 使用内置包 list 来实现栈
+/* 基于链表实现的队列 */
 type LinkedListQueue struct {
-	list *list.List
+	// 使用内置包 list 来实现队列
+	data *list.List
 }
 
 // NewLinkedListQueue 初始化链表
 func NewLinkedListQueue() *LinkedListQueue {
 	return &LinkedListQueue{
-		list: list.New(),
+		data: list.New(),
 	}
 }
 
 // Offer 入队
 func (s *LinkedListQueue) Offer(value any) {
-	s.list.PushBack(value)
+	s.data.PushBack(value)
 }
 
 // Poll 出队
@@ -32,8 +31,8 @@ func (s *LinkedListQueue) Poll() any {
 	if s.IsEmpty() {
 		return nil
 	}
-	e := s.list.Front()
-	s.list.Remove(e)
+	e := s.data.Front()
+	s.data.Remove(e)
 	return e.Value
 }
 
@@ -42,37 +41,21 @@ func (s *LinkedListQueue) Peek() any {
 	if s.IsEmpty() {
 		return nil
 	}
-	e := s.list.Front()
+	e := s.data.Front()
 	return e.Value
 }
 
 // Size 获取队列的长度
 func (s *LinkedListQueue) Size() int {
-	return s.list.Len()
+	return s.data.Len()
 }
 
 // IsEmpty 判断队列是否为空
 func (s *LinkedListQueue) IsEmpty() bool {
-	return s.list.Len() == 0
+	return s.data.Len() == 0
 }
 
-func (s *LinkedListQueue) Print() {
-	fmt.Println(s.toString())
-}
-
-func (s *LinkedListQueue) toString() string {
-	var builder strings.Builder
-	if s.IsEmpty() {
-		fmt.Println("empty stack")
-	}
-	e := s.list.Front()
-	// 强转为 string, 会影响效率
-	str := fmt.Sprintf("%v", e.Value)
-	for e.Next() != nil {
-		builder.WriteString(str + " -> ")
-		e = e.Next()
-		str = fmt.Sprintf("%v", e.Value)
-	}
-	builder.WriteString(str)
-	return builder.String()
+// 获取 List 用于打印
+func (s *LinkedListQueue) toList() *list.List {
+	return s.data
 }

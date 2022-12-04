@@ -5,6 +5,7 @@
 package chapter_tree
 
 import (
+	"fmt"
 	"testing"
 
 	. "github.com/krahets/hello-algo/pkg"
@@ -18,24 +19,23 @@ func TestBinaryTree(t *testing.T) {
 	n3 := NewTreeNode(3)
 	n4 := NewTreeNode(4)
 	n5 := NewTreeNode(5)
-
-	tree := NewBinaryTree(n1)
+	// 构建引用指向（即指针）
 	n1.Left = n2
 	n1.Right = n3
 	n2.Left = n4
 	n2.Right = n5
-	t.Log("初始化二叉树")
-	tree.Print()
+	fmt.Println("初始化二叉树")
+	PrintTree(n1)
 
 	/* 插入与删除结点 */
+	// 插入结点
 	p := NewTreeNode(0)
 	n1.Left = p
 	p.Left = n2
-	t.Log("插入结点 P 后")
-	tree.Print()
-
+	fmt.Println("插入结点 P 后")
+	PrintTree(n1)
 	// 删除结点
 	n1.Left = n2
-	t.Log("删除结点 P 后")
-	tree.Print()
+	fmt.Println("删除结点 P 后")
+	PrintTree(n1)
 }

@@ -21,7 +21,7 @@ public class deque {
         deque.offerFirst(1);
         System.out.println("双向队列 deque = " + deque);
 
-        /* 访问队首元素 */
+        /* 访问元素 */
         int peekFirst = deque.peekFirst();
         System.out.println("队首元素 peekFirst = " + peekFirst);
         int peekLast = deque.peekLast();

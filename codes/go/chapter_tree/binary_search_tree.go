@@ -53,7 +53,7 @@ func (bst *BinarySearchTree) GetInorderNext(node *TreeNode) *TreeNode {
 	return node
 }
 
-// Search node of binary search tree
+/* 查找结点 */
 func (bst *BinarySearchTree) Search(num int) *TreeNode {
 	node := bst.root
 	// 循环查找，越过叶结点后跳出
@@ -73,7 +73,7 @@ func (bst *BinarySearchTree) Search(num int) *TreeNode {
 	return node
 }
 
-// Insert node of binary search tree
+/* 插入结点 */
 func (bst *BinarySearchTree) Insert(num int) *TreeNode {
 	cur := bst.root
 	// 若树为空，直接提前返回
@@ -104,7 +104,7 @@ func (bst *BinarySearchTree) Insert(num int) *TreeNode {
 	return cur
 }
 
-// Remove node of binary search tree
+/* 删除结点 */
 func (bst *BinarySearchTree) Remove(num int) *TreeNode {
 	cur := bst.root
 	// 若树为空，直接提前返回
@@ -119,8 +119,8 @@ func (bst *BinarySearchTree) Remove(num int) *TreeNode {
 			break
 		}
 		prev = cur
-		// 待删除结点在右子树中
 		if cur.Val < num {
+			// 待删除结点在右子树中
 			cur = cur.Right
 		} else {
 			// 待删除结点在左子树中
@@ -146,8 +146,8 @@ func (bst *BinarySearchTree) Remove(num int) *TreeNode {
 		} else {
 			prev.Right = child
 		}
-
-	} else { // 子结点数为 2
+		// 子结点数为 2
+	} else {
 		// 获取中序遍历中待删除结点 cur 的下一个结点
 		next := bst.GetInorderNext(cur)
 		temp := next.Val
@@ -156,7 +156,6 @@ func (bst *BinarySearchTree) Remove(num int) *TreeNode {
 		// 将 next 的值复制给 cur
 		cur.Val = temp
 	}
-	// TODO: add error handler, don't return node
 	return cur
 }
 

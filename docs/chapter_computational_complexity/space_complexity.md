@@ -520,7 +520,7 @@ $$
     ```python title="space_complexity_types.py"
     """ 线性阶（递归实现） """
     def linearRecur(n):
-        print("递归 n = ", n)
+        print("递归 n =", n)
         if n == 1: return
         linearRecur(n - 1)
     ```

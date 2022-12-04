@@ -21,7 +21,7 @@ int main() {
     cout << "双向队列 deque = ";
     PrintUtil::printDeque(deque);
 
-    /* 访问队首元素 */
+    /* 访问元素 */
     int front = deque.front();
     cout << "队首元素 front = " << front << endl;
     int back = deque.back();

@@ -10,11 +10,10 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-// levelOrder Breadth First Search
+/* 层序遍历 */
 func levelOrder(root *TreeNode) []int {
-	// Let container.list as queue
-	queue := list.New()
 	// 初始化队列，加入根结点
+	queue := list.New()
 	queue.PushBack(root)
 	// 初始化一个切片，用于保存遍历序列
 	nums := make([]int, 0)
