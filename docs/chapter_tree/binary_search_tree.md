@@ -112,7 +112,21 @@ comments: true
 === "JavaScript"
 
     ```js title="binary_search_tree.js"
-
+    /* 查找结点 */
+    function search(num) {
+        let cur = root;
+        // 循环查找，越过叶结点后跳出
+        while (cur !== null) {
+            // 目标结点在 root 的右子树中
+            if (cur.val < num) cur = cur.right;
+            // 目标结点在 root 的左子树中
+            else if (cur.val > num) cur = cur.left;
+            // 找到目标结点，跳出循环
+            else break;
+        }
+        // 返回目标结点
+        return cur;
+    }
     ```
 
 === "TypeScript"
@@ -240,7 +254,27 @@ comments: true
 === "JavaScript"
 
     ```js title="binary_search_tree.js"
-
+    /* 插入结点 */
+    function insert(num) {
+        // 若树为空，直接提前返回
+        if (root === null) return null;
+        let cur = root, pre = null;
+        // 循环查找，越过叶结点后跳出
+        while (cur !== null) {
+            // 找到重复结点，直接返回
+            if (cur.val === num) return null;
+            pre = cur;
+            // 插入位置在 root 的右子树中
+            if (cur.val < num) cur = cur.right;
+            // 插入位置在 root 的左子树中
+            else cur = cur.left;
+        }
+        // 插入结点 val
+        let node = new Tree.TreeNode(num);
+        if (pre.val < num) pre.right = node;
+        else pre.left = node;
+        return node;
+    }
     ```
 
 === "TypeScript"
@@ -471,7 +505,43 @@ comments: true
 === "JavaScript"
 
     ```js title="binary_search_tree.js"
-
+    /* 删除结点 */
+    function remove(num) {
+        // 若树为空，直接提前返回
+        if (root === null) return null;
+        let cur = root, pre = null;
+        // 循环查找，越过叶结点后跳出
+        while (cur !== null) {
+            // 找到待删除结点，跳出循环
+            if (cur.val === num) break;
+            pre = cur;
+            // 待删除结点在 root 的右子树中
+            if (cur.val < num) cur = cur.right;
+            // 待删除结点在 root 的左子树中
+            else cur = cur.left;
+        }
+        // 若无待删除结点，则直接返回
+        if (cur === null) return null;
+        // 子结点数量 = 0 or 1
+        if (cur.left === null || cur.right === null) {
+            // 当子结点数量 = 0 / 1 时， child = null / 该子结点
+            let child = cur.left !== null ? cur.left : cur.right;
+            // 删除结点 cur
+            if (pre.left === cur) pre.left = child;
+            else pre.right = child;
+        }
+        // 子结点数量 = 2
+        else {
+            // 获取中序遍历中 cur 的下一个结点
+            let nex = min(cur.right);
+            let tmp = nex.val;
+            // 递归删除结点 nex
+            remove(nex.val);
+            // 将 nex 的值复制给 cur
+            cur.val = tmp;
+        }
+        return cur;
+    }
     ```
 
 === "TypeScript"
@@ -496,7 +566,7 @@ comments: true
 
 假设给定 $n$ 个数字，最常用的存储方式是「数组」，那么对于这串乱序的数字，常见操作的效率为：
 
-- **查找元素：** 由于数组是乱序的，因此需要遍历数组来确定，使用 $O(n)$ 时间；
+- **查找元素：** 由于数组是无序的，因此需要遍历数组来确定，使用 $O(n)$ 时间；
 - **插入元素：** 只需将元素添加至数组尾部即可，使用 $O(1)$ 时间；
 - **删除元素：** 先查找元素，使用 $O(\log n)$ 时间，再在数组中删除该元素，使用 $O(n)$ 时间；
 - **获取最小 / 最大元素：** 需要遍历数组来确定，使用 $O(n)$ 时间；
@@ -505,14 +575,14 @@ comments: true
 
 - **查找元素：** 由于数组已排序，可以使用二分查找，使用 $O(\log n)$ 时间；
 - **插入元素：** 为了保持数组是有序的，需插入到数组某位置，平均使用 $O(n)$ 时间；
-- **删除元素：** 与乱序数组中的情况相同，使用 $O(n)$ 时间；
+- **删除元素：** 与无序数组中的情况相同，使用 $O(n)$ 时间；
 - **获取最小 / 最大元素：** 数组头部和尾部元素即是最小和最大元素，使用 $O(1)$ 时间；
 
-观察发现，乱序数组和排序数组中的各类操作的时间复杂度是 “偏科” 的，即有的快有的慢；**而二叉搜索树的各项操作的时间复杂度都是对数阶，在数据量 $n$ 很大时有巨大优势**。
+观察发现，无序数组和有序数组中的各类操作的时间复杂度是 “偏科” 的，即有的快有的慢；**而二叉搜索树的各项操作的时间复杂度都是对数阶，在数据量 $n$ 很大时有巨大优势**。
 
 <div class="center-table" markdown>
 
-|                     | 乱序数组 | 排序数组    | 二叉搜索树  |
+|                     | 无序数组 | 有序数组    | 二叉搜索树  |
 | ------------------- | -------- | ----------- | ----------- |
 | 查找指定元素        | $O(n)$   | $O(\log n)$ | $O(\log n)$ |
 | 插入元素            | $O(1)$   | $O(n)$      | $O(\log n)$ |

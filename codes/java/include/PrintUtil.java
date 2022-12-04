@@ -91,4 +91,16 @@ public class PrintUtil {
         showTrunks(p.prev);
         System.out.print(p.str);
     }
+
+    /**
+     * Print a hash map
+     * @param <K>
+     * @param <V>
+     * @param map
+     */
+    public static <K, V> void printHashMap(Map<K, V> map) {
+        for (Map.Entry <K, V> kv: map.entrySet()) {
+            System.out.println(kv.getKey() + " -> " + kv.getValue());
+        }
+    }
 }
