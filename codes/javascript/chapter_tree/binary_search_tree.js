@@ -5,6 +5,7 @@
  */
 
 const Tree = require("../include/TreeNode");
+const { printTree } = require("../include/PrintUtil");
 
  /* 二叉搜索树 */
 var root;
@@ -122,7 +123,7 @@ function min(root) {
 var nums = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ];
 BinarySearchTree(nums)
 console.log("\n初始化的二叉树为\n");
-console.log(getRoot());
+printTree(getRoot());
 
 /* 查找结点 */
 let node = search(5);
@@ -131,15 +132,15 @@ console.log("\n查找到的结点对象为 " + node + "，结点值 = " + node.v
 /* 插入结点 */
 node = insert(16);
 console.log("\n插入结点 16 后，二叉树为\n");
-console.log(getRoot());
+printTree(getRoot());
 
 /* 删除结点 */
 remove(1);
 console.log("\n删除结点 1 后，二叉树为\n");
-console.log(getRoot());
+printTree(getRoot());
 remove(2);
 console.log("\n删除结点 2 后，二叉树为\n");
-console.log(getRoot());
+printTree(getRoot());
 remove(4);
 console.log("\n删除结点 4 后，二叉树为\n");
-console.log(getRoot());
+printTree(getRoot());

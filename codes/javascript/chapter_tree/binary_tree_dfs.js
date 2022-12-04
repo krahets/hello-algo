@@ -4,7 +4,8 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-let { arrToTree } = require("../include/TreeNode");
+const { arrToTree } = require("../include/TreeNode");
+const { printTree } = require("../include/PrintUtil");
 
 // 初始化列表，用于存储遍历序列
 var list = []
@@ -41,7 +42,7 @@ function postOrder(root) {
 // 这里借助了一个从数组直接生成二叉树的函数
 var root = arrToTree([1, 2, 3, 4, 5, 6, 7, null, null, null, null, null, null, null, null]);
 console.log("\n初始化二叉树\n");
-console.log(root);
+printTree(root);
 
 /* 前序遍历 */
 list.length = 0;

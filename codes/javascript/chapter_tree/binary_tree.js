@@ -5,7 +5,8 @@
  */
 
 const Tree = require("../include/TreeNode");
- 
+const { printTree } = require("../include/PrintUtil");
+
 /* 初始化二叉树 */
 // 初始化结点
 let n1 = new Tree.TreeNode(1),
@@ -19,7 +20,7 @@ n1.right = n3;
 n2.left = n4;
 n2.right = n5;
 console.log("\n初始化二叉树\n")
-console.log(n1)
+printTree(n1)
 
 /* 插入与删除结点 */
 let P = new Tree.TreeNode(0);
@@ -27,8 +28,8 @@ let P = new Tree.TreeNode(0);
 n1.left = P;
 P.left = n2;
 console.log("\n插入结点 P 后\n");
-console.log(n1);
+printTree(n1);
 // 删除结点 P
 n1.left = n2;
 console.log("\n删除结点 P 后\n");
-console.log(n1);
+printTree(n1);
