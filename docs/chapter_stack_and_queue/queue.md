@@ -143,7 +143,7 @@ comments: true
 === "JavaScript"
 
     ```js title="queue.js"
-/* 初始化队列 */
+    /* 初始化队列 */
     // Javascript 没有内置的队列，可以把 Array 当作队列来使用 
     // 注意：虽然Javascript有shift()函数可以去除队首元素，但是时间复杂度是O(n)的。
     const queue = [];
@@ -171,12 +171,6 @@ comments: true
 === "TypeScript"
 
     ```typescript title="queue.ts"
-    /**
-     * File: queue.js
-     * Created Time: 2022-12-04
-     * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
-     */
-
     /* 初始化队列 */
     // Typescript 没有内置的队列，可以把 Array 当作队列来使用 
     // 注意：虽然Typescript有shift()函数可以去除队首元素，但是时间复杂度是O(n)的。

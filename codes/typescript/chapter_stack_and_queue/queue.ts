@@ -1,6 +1,6 @@
 /**
- * File: queue.js
- * Created Time: 2022-12-04
+ * File: queue.ts
+ * Created Time: 2022-12-05
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
