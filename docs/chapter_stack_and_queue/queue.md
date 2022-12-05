@@ -144,8 +144,8 @@ comments: true
 
     ```js title="queue.js"
     /* 初始化队列 */
-    // Javascript 没有内置的队列，可以把 Array 当作队列来使用 
-    // 注意：虽然Javascript有shift()函数可以去除队首元素，但是时间复杂度是O(n)的。
+    // JavaScript 没有内置的队列，可以把 Array 当作队列来使用 
+    // 注意：由于是数组，所以 shift() 的时间复杂度是 O(n)
     const queue = [];
 
     /* 元素入队 */
@@ -159,6 +159,7 @@ comments: true
     const peek = queue[0];
 
     /* 元素出队 */
+    // O(n)
     const poll = queue.shift();
 
     /* 获取队列的长度 */
@@ -172,8 +173,8 @@ comments: true
 
     ```typescript title="queue.ts"
     /* 初始化队列 */
-    // Typescript 没有内置的队列，可以把 Array 当作队列来使用 
-    // 注意：虽然Typescript有shift()函数可以去除队首元素，但是时间复杂度是O(n)的。
+    // TypeScript 没有内置的队列，可以把 Array 当作队列来使用 
+    // 注意：由于是数组，所以 shift() 的时间复杂度是 O(n)
     const queue: number[] = [];
 
     /* 元素入队 */
@@ -187,6 +188,7 @@ comments: true
     const peek = queue[0];
 
     /* 元素出队 */
+    // O(n)
     const poll = queue.shift();
 
     /* 获取队列的长度 */
