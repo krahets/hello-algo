@@ -5,9 +5,9 @@
 在「二叉搜索树」章节中提到，如进行多次插入与删除操作后，二叉搜索树可能会退化为链表。此时所有操作的时间复杂度都会由 $O(\log n)$ 劣化至 $O(n)$ 。例如，删除结点 4 后，该二叉搜索树就会退化为链表。
 
 === "删除前"
-![binary search tree1](avl_tree.assets/binary_search_tree1.png)
+    ![binary search tree1](avl_tree.assets/binary_search_tree1.png)
 === "删除后"
-![binary search tree2](avl_tree.assets/binary_search_tree2.png)
+    ![binary search tree2](avl_tree.assets/binary_search_tree2.png)
 
 为了解决这一问题，G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorithm for the organization of info
 rmation" 中提出了「平衡二叉搜索树」，也以两位作者命名，常被称为「AVL 树」。
@@ -38,9 +38,9 @@ rmation" 中提出了「平衡二叉搜索树」，也以两位作者命名，�
 由于平衡二叉树需要保证其任意结点的平衡因子满足限制，所以在插入结点后可能会造成 AVL 树的失衡。例如，平衡二叉树在插入结点 0 前 / 后如下图所示（括号内表示当前结点的平衡因子）：
 
 === "插入前"
-![avl tree 1](avl_tree.assets/avl_tree1.png)
+    ![avl tree 1](avl_tree.assets/avl_tree1.png)
 === "插入后"
-![avl tree 2](avl_tree.assets/avl_tree2.png)
+    ![avl tree 2](avl_tree.assets/avl_tree2.png)
 
 观察发现，插入后结点 2 和 结点 3 已经不满足平衡二叉树的性质，我们将这一现象称为 **失衡** 。为了解决该问题，首先需要分析哪些结点会出现失衡，经过观察可得两条规律：
 
@@ -71,11 +71,11 @@ rmation" 中提出了「平衡二叉搜索树」，也以两位作者命名，�
 观察得知，经过右旋后，整棵二叉树已经恢复平衡，并且中序遍历序列也保持不变。
 
 === "Step 1"
-![avl tree3](avl_tree.assets/avl_tree2.png)
+    ![avl tree3](avl_tree.assets/avl_tree2.png)
 === "Step 2"
-![rotate right1](avl_tree.assets/rotate_right1.png)
+    ![rotate right1](avl_tree.assets/rotate_right1.png)
 === "Step 3"
-![rotate right2](avl_tree.assets/rotate_right2.png)
+    ![rotate right2](avl_tree.assets/rotate_right2.png)
 
 #### 左旋
 
@@ -88,11 +88,11 @@ rmation" 中提出了「平衡二叉搜索树」，也以两位作者命名，�
 与右旋相同，左旋也可以让失衡的结点恢复平衡，同时不会改变中序遍历序列。
 
 === "Step 1"
-![rotate left1](avl_tree.assets/rotate_left1.png)
+    ![rotate left1](avl_tree.assets/rotate_left1.png)
 === "Step 2"
-![rotate left2](avl_tree.assets/rotate_left2.png)
+    ![rotate left2](avl_tree.assets/rotate_left2.png)
 === "Step 3"
-![rotate left3](avl_tree.assets/rotate_left3.png)
+    ![rotate left3](avl_tree.assets/rotate_left3.png)
 
 #### 双旋
 
@@ -101,9 +101,9 @@ rmation" 中提出了「平衡二叉搜索树」，也以两位作者命名，�
 以先左后右为例，如果直接对下图二叉树的失衡点执行右旋，会发现并不能使失衡点恢复平衡。
 
 === "Step 1"
-![rotate left right1](avl_tree.assets/rotate_left_right1.png)
+    ![rotate left right1](avl_tree.assets/rotate_left_right1.png)
 === "Step 2"
-![rotate left right2](avl_tree.assets/rotate_left_right2.png)
+    ![rotate left right2](avl_tree.assets/rotate_left_right2.png)
 
 
 为了解决该问题，需要「先左旋后右旋」，即分为两步：
@@ -112,11 +112,11 @@ rmation" 中提出了「平衡二叉搜索树」，也以两位作者命名，�
 2. 对失衡点执行右旋。
 
 === "Step 1"
-![rotate left right3](avl_tree.assets/rotate_left_right1.png)
+    ![rotate left right3](avl_tree.assets/rotate_left_right1.png)
 === "Step 2"
-![rotate left right4](avl_tree.assets/rotate_left_right3.png)
+    ![rotate left right4](avl_tree.assets/rotate_left_right3.png)
 === "Step 3"
-![rotate left right5](avl_tree.assets/rotate_left_right4.png)
+    ![rotate left right5](avl_tree.assets/rotate_left_right4.png)
 
 同理，「先左旋后右旋」是先将失衡点的左孩子执行右旋，然后对失衡点执行左旋。
 
