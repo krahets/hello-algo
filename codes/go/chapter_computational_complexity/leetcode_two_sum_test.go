@@ -5,6 +5,7 @@
 package chapter_computational_complexity
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -16,8 +17,8 @@ func TestTwoSum(t *testing.T) {
 	// ====== Driver Code ======
 	// 方法一：暴力解法
 	res := twoSumBruteForce(nums, target)
-	t.Log("方法一 res =", res)
+	fmt.Println("方法一 res =", res)
 	// 方法二：哈希表
 	res = twoSumHashTable(nums, target)
-	t.Log("方法二 res =", res)
+	fmt.Println("方法二 res =", res)
 }

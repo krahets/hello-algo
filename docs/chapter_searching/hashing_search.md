@@ -40,6 +40,46 @@ comments: true
     }
     ```
 
+=== "Python"
+
+    ```python title="hashing_search.py"
+    """ 哈希查找（数组） """
+    def hashing_search(mapp, target):
+        # 哈希表的 key: 目标元素，value: 索引
+        # 若哈希表中无此 key ，返回 -1
+        return mapp.get(target, -1)
+    ```
+
+=== "Go"
+
+    ```go title="hashing_search.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="hashing_search.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="hashing_search.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="hashing_search.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="hashing_search.cs"
+
+    ```
+
 再比如，如果我们想要给定一个目标结点值 `target` ，获取对应的链表结点对象，那么也可以使用哈希查找实现。
 
 ![hash_search_listnode](hashing_search.assets/hash_search_listnode.png)
@@ -66,6 +106,46 @@ comments: true
             return nullptr;
         return map[target];
     }
+    ```
+
+=== "Python"
+
+    ```python title="hashing_search.py"
+    """  哈希查找（链表） """
+    def hashing_search1(mapp, target):
+        # 哈希表的 key: 目标元素，value: 结点对象
+        # 若哈希表中无此 key ，返回 -1
+        return mapp.get(target, -1)
+    ```
+
+=== "Go"
+
+    ```go title="hashing_search.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="hashing_search.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="hashing_search.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="hashing_search.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="hashing_search.cs"
+
     ```
 
 ## 复杂度分析

@@ -20,13 +20,13 @@ comments: true
 
 <div class="center-table" markdown>
 
-| 方法      | 描述                         |
-| --------- | ---------------------------- |
-| offer()   | 元素入队，即将元素添加至队尾 |
-| poll()    | 队首元素出队                 |
-| front()   | 访问队首元素                 |
-| size()    | 获取队列的长度               |
-| isEmpty() | 判断队列是否为空             |
+| 方法      | 描述                      |
+| --------- | ------------------------ |
+| offer()   | 元素入队，即将元素添加至队尾  |
+| poll()    | 队首元素出队               |
+| front()   | 访问队首元素               |
+| size()    | 获取队列的长度             |
+| isEmpty() | 判断队列是否为空           |
 
 </div>
 
@@ -44,19 +44,15 @@ comments: true
     queue.offer(2);
     queue.offer(5);
     queue.offer(4);
-    System.out.println("队列 queue = " + queue);
 
     /* 访问队首元素 */
     int peek = queue.peek();
-    System.out.println("队首元素 peek = " + peek);
 
     /* 元素出队 */
     int poll = queue.poll();
-    System.out.println("出队元素 poll = " + poll + "，出队后 queue = " + queue);
 
     /* 获取队列的长度 */
     int size = queue.size();
-    System.out.println("队列长度 size = " + size);
 
     /* 判断队列是否为空 */
     boolean isEmpty = queue.isEmpty();
@@ -65,13 +61,107 @@ comments: true
 === "C++"
 
     ```cpp title="queue.cpp"
+    /* 初始化队列 */
+    queue<int> queue;
     
+    /* 元素入队 */
+    queue.push(1);
+    queue.push(3);
+    queue.push(2);
+    queue.push(5);
+    queue.push(4);
+    
+    /* 访问队首元素 */
+    int front = queue.front();
+    
+    /* 元素出队 */
+    queue.pop();
+    
+    /* 获取队列的长度 */
+    int size = queue.size();
+    
+    /* 判断队列是否为空 */
+    bool empty = queue.empty();
     ```
 
 === "Python"
 
     ```python title="queue.py"
-    
+    """ 初始化队列 """
+    # 在 Python 中，我们一般将双向队列类 deque 看左队列使用
+    # 虽然 queue.Queue() 是纯正的队列类，但不太好用，因此不建议
+    que = collections.deque()
+
+    """ 元素入队 """
+    que.append(1)
+    que.append(3)
+    que.append(2)
+    que.append(5)
+    que.append(4)
+
+    """ 访问队首元素 """
+    front = que[0];
+
+    """ 元素出队 """
+    pop = que.popleft()
+
+    """ 获取队列的长度 """
+    size = len(que)
+
+    """ 判断队列是否为空 """
+    is_empty = len(que) == 0
+    ```
+
+=== "Go"
+
+    ```go title="queue.go"
+    /* 初始化队列 */
+    // 在 Go 中，将 list 作为队列来使用
+    queue := list.New()
+
+    /* 元素入队 */
+    queue.PushBack(1)
+    queue.PushBack(3)
+    queue.PushBack(2)
+    queue.PushBack(5)
+    queue.PushBack(4)
+
+    /* 访问队首元素 */
+    peek := queue.Front()
+
+    /* 元素出队 */
+    poll := queue.Front()
+    queue.Remove(poll)
+
+    /* 获取队列的长度 */
+    size := queue.Len()
+
+    /* 判断队列是否为空 */
+    isEmpty := queue.Len() == 0
+    ```
+
+=== "JavaScript"
+
+    ```js title="queue.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="queue.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="queue.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="queue.cs"
+
     ```
 
 ## 队列实现
@@ -87,33 +177,49 @@ comments: true
     ```java title="linkedlist_queue.java"
     /* 基于链表实现的队列 */
     class LinkedListQueue {
-        LinkedList<Integer> list;
+        private ListNode front, rear;  // 头结点 front ，尾结点 rear 
+        private int queSize = 0;
 
         public LinkedListQueue() {
-            // 初始化链表
-            list = new LinkedList<>();
+            front = null;
+            rear = null;
         }
         /* 获取队列的长度 */
         public int size() {
-            return list.size();
+            return queSize;
         }
         /* 判断队列是否为空 */
         public boolean isEmpty() {
-            return list.size() == 0;
+            return size() == 0;
         }
         /* 入队 */
         public void offer(int num) {
             // 尾结点后添加 num
-            list.addLast(num);
+            ListNode node = new ListNode(num);
+            // 如果队列为空，则令头、尾结点都指向该结点
+            if (front == null) {
+                front = node;
+                rear = node;
+            // 如果队列不为空，则将该结点添加到尾结点后
+            } else {
+                rear.next = node;
+                rear = node;
+            }
+            queSize++;
         }
         /* 出队 */
         public int poll() {
+            int num = peek();
             // 删除头结点
-            return list.removeFirst();
+            front = front.next;
+            queSize--;
+            return num;
         }
         /* 访问队首元素 */
         public int peek() {
-            return list.getFirst();
+            if (size() == 0)
+                throw new IndexOutOfBoundsException();
+            return front.val;
         }
     }
     ```
@@ -121,13 +227,180 @@ comments: true
 === "C++"
 
     ```cpp title="linkedlist_queue.cpp"
-    
+    /* 基于链表实现的队列 */
+    class LinkedListQueue {
+    private:
+        ListNode *front, *rear;  // 头结点 front ，尾结点 rear 
+        int queSize;
+
+    public:
+        LinkedListQueue() {
+            front = nullptr;
+            rear = nullptr;
+            queSize = 0;
+        }
+        /* 获取队列的长度 */
+        int size() {
+            return queSize;
+        }
+        /* 判断队列是否为空 */
+        bool empty() {
+            return queSize == 0;
+        }
+        /* 入队 */
+        void offer(int num) {
+            // 尾结点后添加 num
+            ListNode* node = new ListNode(num);
+            // 如果队列为空，则令头、尾结点都指向该结点
+            if (front == nullptr) {
+                front = node;
+                rear = node;
+            }
+            // 如果队列不为空，则将该结点添加到尾结点后
+            else {
+                rear->next = node;
+                rear = node;
+            }
+            queSize++;
+        }
+        /* 出队 */
+        int poll() {
+            int num = peek();
+            // 删除头结点
+            front = front->next;
+            queSize--;
+            return num;
+        }
+        /* 访问队首元素 */
+        int peek() {
+            if (size() == 0)
+                throw out_of_range("队列为空");
+            return front->val;
+        }
+    };
     ```
 
 === "Python"
 
     ```python title="linkedlist_queue.py"
-    
+    """ 基于链表实现的队列 """
+    class LinkedListQueue:
+        def __init__(self):
+            self.__front = None  # 头结点 front
+            self.__rear = None   # 尾结点 rear
+            self.__size = 0
+
+        """ 获取队列的长度 """
+        def size(self):
+            return self.__size
+
+        """ 判断队列是否为空 """
+        def is_empty(self):
+            return not self.__front
+
+        """ 入队 """
+        def push(self, num):
+            # 尾结点后添加 num
+            node = ListNode(num)
+            # 如果队列为空，则令头、尾结点都指向该结点
+            if self.__front == 0:
+                self.__front = node
+                self.__rear = node
+            # 如果队列不为空，则将该结点添加到尾结点后
+            else:
+                self.__rear.next = node
+                self.__rear = node
+            self.__size += 1
+
+        """ 出队 """
+        def poll(self):
+            num = self.peek()
+            # 删除头结点
+            self.__front = self.__front.next
+            self.__size -= 1
+            return num
+
+        """ 访问队首元素 """
+        def peek(self):
+            if self.size() == 0:
+                print("队列为空")
+                return False
+            return self.__front.val
+    ```
+
+=== "Go"
+
+    ```go title="linkedlist_queue.go"
+    /* 基于链表实现的队列 */
+    type LinkedListQueue struct {
+        // 使用内置包 list 来实现队列
+        data *list.List
+    }
+
+    // NewLinkedListQueue 初始化链表
+    func NewLinkedListQueue() *LinkedListQueue {
+        return &LinkedListQueue{
+            data: list.New(),
+        }
+    }
+
+    // Offer 入队
+    func (s *LinkedListQueue) Offer(value any) {
+        s.data.PushBack(value)
+    }
+
+    // Poll 出队
+    func (s *LinkedListQueue) Poll() any {
+        if s.IsEmpty() {
+            return nil
+        }
+        e := s.data.Front()
+        s.data.Remove(e)
+        return e.Value
+    }
+
+    // Peek 访问队首元素
+    func (s *LinkedListQueue) Peek() any {
+        if s.IsEmpty() {
+            return nil
+        }
+        e := s.data.Front()
+        return e.Value
+    }
+
+    // Size 获取队列的长度
+    func (s *LinkedListQueue) Size() int {
+        return s.data.Len()
+    }
+
+    // IsEmpty 判断队列是否为空
+    func (s *LinkedListQueue) IsEmpty() bool {
+        return s.data.Len() == 0
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js title="linkedlist_queue.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="linkedlist_queue.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="linkedlist_queue.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="linkedlist_queue.cs"
+
     ```
 
 ### 基于数组的实现
@@ -145,10 +418,9 @@ comments: true
     ```java title="array_queue.java"
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
-        int[] nums; // 用于存储队列元素的数组
-        int size = 0; // 队列长度（即元素个数）
-        int front = 0; // 头指针，指向队首
-        int rear = 0; // 尾指针，指向队尾 + 1
+        private int[] nums;     // 用于存储队列元素的数组
+        private int front = 0;  // 头指针，指向队首
+        private int rear = 0;   // 尾指针，指向队尾 + 1
 
         public ArrayQueue(int capacity) {
             // 初始化数组
@@ -181,11 +453,8 @@ comments: true
         }
         /* 出队 */
         public int poll() {
-            // 删除头结点
-            if (isEmpty())
-                throw new EmptyStackException();
-            int num = nums[front];
-            // 队头指针向后移动，越过尾部后返回到数组头部
+            int num = peek();
+            // 队头指针向后移动一位，若越过尾部则返回到数组头部
             front = (front + 1) % capacity();
             return num;
         }
@@ -196,23 +465,235 @@ comments: true
                 throw new EmptyStackException();
             return nums[front];
         }
+        /* 访问指定索引元素 */
+        int get(int index) {
+            if (index >= size())
+                throw new IndexOutOfBoundsException();
+            return nums[(front + index) % capacity()];
+        }
     }
     ```
 
 === "C++"
 
     ```cpp title="array_queue.cpp"
-    
+    /* 基于环形数组实现的队列 */
+    class ArrayQueue {
+    private:
+        int *nums;      // 用于存储队列元素的数组
+        int cap;        // 队列容量
+        int front = 0;  // 头指针，指向队首
+        int rear = 0;   // 尾指针，指向队尾 + 1
+
+    public:
+        ArrayQueue(int capacity) {
+            // 初始化数组
+            cap = capacity;
+            nums = new int[capacity];
+        }
+        /* 获取队列的容量 */
+        int capacity() {
+            return cap;
+        }
+        /* 获取队列的长度 */
+        int size() {
+            // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
+            return (capacity() + rear - front) % capacity();
+        }
+        /* 判断队列是否为空 */
+        bool empty() {
+            return rear - front == 0;
+        }
+        /* 入队 */
+        void offer(int num) {
+            if (size() == capacity()) {
+                cout << "队列已满" << endl;
+                return;
+            }
+            // 尾结点后添加 num
+            nums[rear] = num;
+            // 尾指针向后移动一位，越过尾部后返回到数组头部
+            rear = (rear + 1) % capacity();
+        }
+        /* 出队 */
+        int poll() {
+            int num = peek();
+            // 队头指针向后移动一位，若越过尾部则返回到数组头部
+            front = (front + 1) % capacity();
+            return num;
+        }
+        /* 访问队首元素 */
+        int peek() {
+            // 删除头结点
+            if (empty())
+                throw out_of_range("队列为空");
+            return nums[front];
+        }
+        /* 访问指定位置元素 */
+        int get(int index) {
+            if (index >= size())
+                throw out_of_range("索引越界");
+            return nums[(front + index) % capacity()]
+        }
+    };
     ```
 
 === "Python"
 
     ```python title="array_queue.py"
-    
+    """ 基于环形数组实现的队列 """
+    class ArrayQueue:
+        def __init__(self, size):
+            self.__nums = [0] * size  # 用于存储队列元素的数组
+            self.__front = 0             # 头指针，指向队首
+            self.__rear = 0              # 尾指针，指向队尾 + 1
+
+        """ 获取队列的容量 """
+        def capacity(self):
+            return len(self.__nums)
+
+        """ 获取队列的长度 """
+        def size(self):
+            # 由于将数组看作为环形，可能 rear < front ，因此需要取余数
+            return (self.capacity() + self.__rear - self.__front) % self.capacity()
+
+        """ 判断队列是否为空 """
+        def is_empty(self):
+            return (self.__rear - self.__front) == 0
+
+        """ 入队 """
+        def push(self, val):
+            if self.size() == self.capacity():
+                print("队列已满")
+                return False
+            # 尾结点后添加 num
+            self.__nums[self.__rear] = val
+            # 尾指针向后移动一位，越过尾部后返回到数组头部
+            self.__rear = (self.__rear + 1) % self.capacity()
+
+        """ 出队 """
+        def poll(self):
+            # 删除头结点
+            num = self.peek()
+            # 队头指针向后移动一位，若越过尾部则返回到数组头部
+            self.__front = (self.__front + 1) % self.capacity()
+            return num
+
+        """ 访问队首元素 """
+        def peek(self):
+            # 删除头结点
+            if self.is_empty():
+                print("队列为空")
+                return False
+            return self.__nums[self.__front]
+
+        """ 访问指定位置元素 """
+        def get(self, index):
+            if index >= self.size():
+                print("索引越界")
+                return False
+            return self.__nums[(self.__front + index) % self.capacity()]
+
+        """ 返回列表用于打印 """
+        def to_list(self):
+            res = [0] * self.size()
+            j = self.__front
+            for i in range(self.size()):
+                res[i] = self.__nums[(j % self.capacity())]
+                j += 1
+            return res
+    ```
+
+=== "Go"
+
+    ```go title="array_queue.go"
+    /* 基于环形数组实现的队列 */
+    type ArrayQueue struct {
+        data     []int // 用于存储队列元素的数组
+        capacity int   // 队列容量（即最多容量的元素个数）
+        front    int   // 头指针，指向队首
+        rear     int   // 尾指针，指向队尾 + 1
+    }
+
+    // NewArrayQueue 基于环形数组实现的队列
+    func NewArrayQueue(capacity int) *ArrayQueue {
+        return &ArrayQueue{
+            data:     make([]int, capacity),
+            capacity: capacity,
+            front:    0,
+            rear:     0,
+        }
+    }
+
+    // Size 获取队列的长度
+    func (q *ArrayQueue) Size() int {
+        size := (q.capacity + q.rear - q.front) % q.capacity
+        return size
+    }
+
+    // IsEmpty 判断队列是否为空
+    func (q *ArrayQueue) IsEmpty() bool {
+        return q.rear-q.front == 0
+    }
+
+    // Offer 入队
+    func (q *ArrayQueue) Offer(v int) {
+        // 当 rear == capacity 表示队列已满
+        if q.Size() == q.capacity {
+            return
+        }
+        // 尾结点后添加
+        q.data[q.rear] = v
+        // 尾指针向后移动一位，越过尾部后返回到数组头部
+        q.rear = (q.rear + 1) % q.capacity
+    }
+
+    // Poll 出队
+    func (q *ArrayQueue) Poll() any {
+        if q.IsEmpty() {
+            return nil
+        }
+        v := q.data[q.front]
+        // 队头指针向后移动一位，若越过尾部则返回到数组头部
+        q.front = (q.front + 1) % q.capacity
+        return v
+    }
+
+    // Peek 访问队首元素
+    func (q *ArrayQueue) Peek() any {
+        if q.IsEmpty() {
+            return nil
+        }
+        v := q.data[q.front]
+        return v
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js title="array_queue.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array_queue.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="array_queue.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="array_queue.cs"
+
     ```
 
 ## 队列典型应用
 
 - **淘宝订单。** 购物者下单后，订单就被加入到队列之中，随后系统再根据顺序依次处理队列中的订单。在双十一时，在短时间内会产生海量的订单，如何处理「高并发」则是工程师们需要重点思考的问题。
-
 - **各种待办事项。** 例如打印机的任务队列、餐厅的出餐队列等等。

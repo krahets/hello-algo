@@ -106,6 +106,59 @@ comments: true
         return i  # 返回基准数的索引
     ```
 
+=== "Go"
+
+    ```go title="quick_sort.go"
+
+    ```
+
+=== "JavaScript"
+
+    ``` js title="quick_sort.js"
+    /* 元素交换 */
+    function swap(nums, i, j) {
+        let tmp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = tmp
+    }
+    
+    /* 哨兵划分 */
+    function partition(nums, left, right){
+        // 以 nums[left] 作为基准数
+        let i = left, j = right
+        while(i < j){
+            while(i < j && nums[j] >= nums[left]){
+                j -= 1  // 从右向左找首个小于基准数的元素
+            }
+            while(i < j && nums[i] <= nums[left]){
+                i += 1  // 从左向右找首个大于基准数的元素
+            }
+            // 元素交换
+            swap(nums, i, j) // 交换这两个元素
+        }
+        swap(nums, i, left)  // 将基准数交换至两子数组的分界线
+        return i  // 返回基准数的索引
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="quick_sort.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="quick_sort.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="quick_sort.cs"
+
+    ```
+
 !!! note "快速排序的分治思想"
 
     哨兵划分的实质是将 **一个长数组的排序问题** 简化为 **两个短数组的排序问题**。
@@ -167,6 +220,45 @@ comments: true
         # 递归左子数组、右子数组
         self.quick_sort(nums, left, pivot - 1)
         self.quick_sort(nums, pivot + 1, right)
+    ```
+
+=== "Go"
+
+    ```go title="quick_sort.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="quick_sort.js"
+    /* 快速排序 */
+    function quickSort(nums, left, right){
+        // 子数组长度为 1 时终止递归
+        if(left >= right) return
+        // 哨兵划分
+        const pivot = partition(nums, left, right)
+        // 递归左子数组、右子数组
+        quick_sort(nums, left, pivot - 1)
+        quick_sort(nums, pivot + 1, right)
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="quick_sort.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="quick_sort.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="quick_sort.cs"
+
     ```
 
 ## 算法特性
@@ -274,6 +366,56 @@ comments: true
         # 下同省略...
     ```
 
+=== "Go"
+
+    ```go title="quick_sort.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="quick_sort.js"
+    /* 选取三个元素的中位数 */
+    function medianThree(nums, left, mid, right) {
+        // 使用了异或操作来简化代码
+        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
+        if ((nums[left] > nums[mid]) ^ (nums[left] > nums[right]))
+            return left;
+        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
+            return mid;
+        else
+            return right;
+    }
+    
+    /* 哨兵划分（三数取中值） */
+    function partition(nums, left, right) {
+        // 选取三个候选元素的中位数
+        let med = medianThree(nums, left, Math.floor((left + right) / 2), right);
+        // 将中位数交换至数组最左端
+        swap(nums, left, med);
+        // 以 nums[left] 作为基准数
+        // 下同省略...
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="quick_sort.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="quick_sort.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="quick_sort.cs"
+
+    ```
+
 ## 尾递归优化
 
 **普通快速排序在某些输入下的空间效率变差。** 仍然以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 0 ，那么将形成一个高度为 $n - 1$ 的递归树，此时使用的栈帧空间大小劣化至 $O(n)$ 。
@@ -338,4 +480,49 @@ comments: true
             else:
                 self.quick_sort(nums, pivot + 1, right)  # 递归排序右子数组
                 right = pivot - 1    # 剩余待排序区间为 [left, pivot - 1]
+    ```
+
+=== "Go"
+
+    ```go title="quick_sort.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="quick_sort.js"
+    /* 快速排序（尾递归优化） */
+    quickSort(nums, left, right) {
+        // 子数组长度为 1 时终止
+        while (left < right) {
+            // 哨兵划分操作
+            let pivot = partition(nums, left, right);
+            // 对两个子数组中较短的那个执行快排
+            if (pivot - left < right - pivot) {
+                quickSort(nums, left, pivot - 1);  // 递归排序左子数组
+                left = pivot + 1;  // 剩余待排序区间为 [pivot + 1, right]
+            } else {
+                quickSort(nums, pivot + 1, right); // 递归排序右子数组
+                right = pivot - 1; // 剩余待排序区间为 [left, pivot - 1]
+            }
+        }
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="quick_sort.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="quick_sort.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="quick_sort.cs"
+
     ```

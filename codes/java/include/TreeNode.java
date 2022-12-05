@@ -26,6 +26,9 @@ public class TreeNode {
      * @return
      */
     public static TreeNode arrToTree(Integer[] arr) {
+        if (arr.length == 0)
+            return null;
+        
         TreeNode root = new TreeNode(arr[0]);
         Queue<TreeNode> queue = new LinkedList<>() {{ add(root); }};
         int i = 1;

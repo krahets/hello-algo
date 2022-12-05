@@ -33,7 +33,7 @@ if __name__ == "__main__":
     list.append(2)
     list.append(5)
     list.append(4)
-    print("添加元素后 list = ", list)
+    print("添加元素后 list =", list)
 
     """ 中间插入元素 """
     list.insert(3, 6)

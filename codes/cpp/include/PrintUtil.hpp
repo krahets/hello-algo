@@ -102,7 +102,7 @@ class PrintUtil {
          * @param list 
          */
         template <typename T>
-        static void printVector(vector<T> &list) {
+        static void printVector(vector<T> list) {
             cout << getVectorString(list) << '\n';
         }
 
@@ -209,5 +209,72 @@ class PrintUtil {
             trunk->str = "   |";
         
             printTree(root->left, trunk, false);
+        }
+    
+        /**
+         * @brief Print a stack
+         * 
+         * @tparam T 
+         * @param stk
+         */
+        template <typename T>
+        static void printStack(stack<T> stk) {
+            // Reverse the input stack
+            stack<T> tmp;
+            while(!stk.empty()) {
+                tmp.push(stk.top());
+                stk.pop();
+            }
+            // Generate the string to print
+            ostringstream s;
+            bool flag = true;
+            while(!tmp.empty()) {
+                if (flag) {
+                    s << tmp.top();
+                    flag = false;
+                }
+                else s << ", " << tmp.top();
+                tmp.pop();
+            }
+            cout << "[" + s.str() + "]" << '\n';
+        }
+
+        /**
+         * @brief 
+         * 
+         * @tparam T 
+         * @param queue 
+         */
+        template <typename T>
+        static void printQueue(queue<T> queue)
+        {
+            // Generate the string to print
+            ostringstream s;
+            bool flag = true;
+            while(!queue.empty()) {
+                if (flag) {
+                    s << queue.front();
+                    flag = false;
+                }
+                else s << ", " << queue.front();
+                queue.pop();
+            }
+            cout << "[" + s.str() + "]" << '\n';
+        }
+
+        template <typename T>
+        static void printDeque(deque<T> deque) {
+            // Generate the string to print
+            ostringstream s;
+            bool flag = true;
+            while(!deque.empty()) {
+                if (flag) {
+                    s << deque.front();
+                    flag = false;
+                }
+                else s << ", " << deque.front();
+                deque.pop_front();
+            }
+            cout << "[" + s.str() + "]" << '\n';
         }
 };

@@ -46,7 +46,7 @@ comments: true
 
 === "Java"
 
-    ```java
+    ```java title=""
     /* 使用多种「基本数据类型」来初始化「数组」 */
     int[] numbers = new int[5];
     float[] decimals = new float[5];
@@ -64,6 +64,36 @@ comments: true
 
     ```python title=""
     
+    ```
+
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
     ```
 
 ## 计算机内存

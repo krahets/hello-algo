@@ -40,7 +40,7 @@ int main() {
     cout << "目标元素 3 的索引 = " << index << endl;
 
     /* 哈希查找（链表） */
-    ListNode* head = vectorToLinkedList(nums);
+    ListNode* head = vecToLinkedList(nums);
     // 初始化哈希表
     unordered_map<int, ListNode*> map1;
     while (head != nullptr) {

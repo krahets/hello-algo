@@ -11,22 +11,23 @@ import java.util.*;
 public class stack {
     public static void main(String[] args) {
         /* 初始化栈 */
-        Stack<Integer> stack = new Stack<>();
+        // 在 Java 中，推荐将 LinkedList 当作栈来使用
+        LinkedList<Integer> stack = new LinkedList<>();
 
         /* 元素入栈 */
-        stack.push(1);
-        stack.push(3);
-        stack.push(2);
-        stack.push(5);
-        stack.push(4);
+        stack.addLast(1);
+        stack.addLast(3);
+        stack.addLast(2);
+        stack.addLast(5);
+        stack.addLast(4);
         System.out.println("栈 stack = " + stack);
 
         /* 访问栈顶元素 */
-        int peek = stack.peek();
+        int peek = stack.peekLast();
         System.out.println("栈顶元素 peek = " + peek);
 
         /* 元素出栈 */
-        int pop = stack.pop();
+        int pop = stack.removeLast();
         System.out.println("出栈元素 pop = " + pop + "，出栈后 stack = " + stack);
 
         /* 获取栈的长度 */
@@ -35,5 +36,6 @@ public class stack {
 
         /* 判断是否为空 */
         boolean isEmpty = stack.isEmpty();
+        System.out.println("栈是否为空 = " + isEmpty);
     }
 }

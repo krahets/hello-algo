@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="docs/index.assets/conceptual_rendering.png" width="230">
+    <img src="https://www.hello-algo.com/index.assets/conceptual_rendering.png" width="230">
   </a>
 </p>
 
@@ -15,7 +15,9 @@
 </br>
 
 <p align="center">
-  <img src="docs/index.assets/animation.gif" width="700">
+  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="400">
+  <a>&nbsp;</a>
+  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="400">
 </p>
 
 <p align="center">
@@ -29,7 +31,7 @@
 
 ## 关于本书
 
-本书致力于达成以下目标：
+本书面向数据结构与算法初学者，致力于达成以下目标：
 
 - 开源免费，所有同学都可在网上获取本书；
 - 新手友好，适合算法初学者自主学习入门；
@@ -56,10 +58,10 @@
 
 ## To-Dos
 
-- [x] [代码翻译](https://github.com/krahets/hello-algo/issues/15)（JavaScript, TypeScript, C, C++, C#, ... 寻求大佬帮助）
+- [x] [代码翻译](https://github.com/krahets/hello-algo/issues/15)：Java, C++, Python, Go, JavaScript 正在进行中，其他语言请求大佬挑大梁
 - [ ] 数据结构：散列表、堆（优先队列）、图
 - [ ] 算法：搜索与回溯、选择 / 堆排序、动态规划、贪心、分治
 
 ## License
 
-The texts, codes, images, photos, and videos in this repository is licensed under [CC BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+The texts, codes, images, photos, and videos in this repository are licensed under [CC BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).

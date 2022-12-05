@@ -56,13 +56,13 @@ class MyList {
     }
 
     /* 中间插入元素 */
-    public void add(int index, int num) {
+    public void insert(int index, int num) {
         if (index >= size)
             throw new IndexOutOfBoundsException("索引越界");
         // 元素数量超出容量时，触发扩容机制
         if (size == capacity())
             extendCapacity();
-        // 索引 i 以及之后的元素都向后移动一位
+        // 将索引 index 以及之后的元素都向后移动一位
         for (int j = size - 1; j >= index; j--) {
             nums[j + 1] = nums[j];
         }
@@ -72,15 +72,18 @@ class MyList {
     }
 
     /* 删除元素 */
-    public void remove(int index) {
+    public int remove(int index) {
         if (index >= size)
             throw new IndexOutOfBoundsException("索引越界");
-        // 索引 i 之后的元素都向前移动一位
+        int num = nums[index];
+        // 将索引 index 之后的元素都向前移动一位
         for (int j = index; j < size - 1; j++) {
             nums[j] = nums[j + 1];
         }
         // 更新元素数量
         size--;
+        // 返回被删除元素
+        return num;
     }
 
     /* 列表扩容 */
@@ -118,7 +121,7 @@ public class my_list {
                            " ，容量 = " + list.capacity() + " ，长度 = " + list.size());
 
         /* 中间插入元素 */
-        list.add(3, 6);
+        list.insert(3, 6);
         System.out.println("在索引 3 处插入数字 6 ，得到 list = " + Arrays.toString(list.toArray()));
 
         /* 删除元素 */

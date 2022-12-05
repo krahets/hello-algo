@@ -7,7 +7,7 @@
 /* 随机访问元素 */
 function randomAccess(nums){
     // 在区间 [0, nums.length) 中随机抽取一个数字
-    const random_index  = Math.floor(Math.random() * nums.length)
+    const random_index = Math.floor(Math.random() * nums.length)
     // 获取并返回随机元素
     random_num = nums[random_index]
     return random_num

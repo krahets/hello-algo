@@ -35,6 +35,36 @@ comments: true
     list = [1, 3, 2, 5, 4]
     ```
 
+=== "Go"
+
+    ```go title="list.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="list.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="list.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="list.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="list.cs"
+
+    ```
+
 **访问与更新元素。** 列表的底层数据结构是数组，因此可以在 $O(1)$ 时间内访问与更新元素，效率很高。
 
 === "Java"
@@ -65,6 +95,36 @@ comments: true
 
     """ 更新元素 """
     list[1] = 0    # 将索引 1 处的元素更新为 0
+    ```
+
+=== "Go"
+
+    ```go title="list.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="list.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="list.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="list.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="list.cs"
+
     ```
 
 **在列表中添加、插入、删除元素。** 相对于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 $O(1)$ ，但是插入与删除元素的效率仍与数组一样低，时间复杂度为 $O(N)$ 。
@@ -129,6 +189,36 @@ comments: true
     list.pop(3)        # 删除索引 3 处的元素
     ```
 
+=== "Go"
+
+    ```go title="list.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="list.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="list.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="list.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="list.cs"
+
+    ```
+
 **遍历列表。** 与数组一样，列表可以使用索引遍历，也可以使用 `for-each` 直接遍历。
 
 === "Java"
@@ -177,6 +267,36 @@ comments: true
         count += 1
     ```
 
+=== "Go"
+
+    ```go title="list.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="list.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="list.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="list.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="list.cs"
+
+    ```
+
 **拼接两个列表。** 再创建一个新列表 `list1` ，我们可以将其中一个列表拼接到另一个的尾部。
 
 === "Java"
@@ -204,6 +324,36 @@ comments: true
     list += list1  # 将列表 list1 拼接到 list 之后
     ```
 
+=== "Go"
+
+    ```go title="list.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="list.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="list.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="list.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="list.cs"
+
+    ```
+
 **排序列表。** 排序也是常用的方法之一，完成列表排序后，我们就可以使用在数组类算法题中经常考察的「二分查找」和「双指针」算法了。
 
 === "Java"
@@ -225,6 +375,36 @@ comments: true
     ```python title="list.py"
     """ 排序列表 """
     list.sort()  # 排序后，列表元素从小到大排列
+    ```
+
+=== "Go"
+
+    ```go title="list.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="list.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="list.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="list.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="list.cs"
+
     ```
 
 ## 列表简易实现 *
@@ -288,13 +468,13 @@ comments: true
         }
 
         /* 中间插入元素 */
-        public void add(int index, int num) {
+        public void insert(int index, int num) {
             if (index >= size)
                 throw new IndexOutOfBoundsException("索引越界");
             // 元素数量超出容量时，触发扩容机制
             if (size == capacity())
                 extendCapacity();
-            // 索引 i 以及之后的元素都向后移动一位
+            // 将索引 index 以及之后的元素都向后移动一位
             for (int j = size - 1; j >= index; j--) {
                 nums[j + 1] = nums[j];
             }
@@ -304,15 +484,18 @@ comments: true
         }
 
         /* 删除元素 */
-        public void remove(int index) {
+        public int remove(int index) {
             if (index >= size)
                 throw new IndexOutOfBoundsException("索引越界");
-            // 索引 i 之后的元素都向前移动一位
+            int num = nums[index];
+            // 将索引 index 之后的元素都向前移动一位
             for (int j = index; j < size - 1; j++) {
                 nums[j] = nums[j + 1];
             }
             // 更新元素数量
             size--;
+            // 返回被删除元素
+            return num;
         }
 
         /* 列表扩容 */
@@ -356,14 +539,14 @@ comments: true
         int get(int index) {
             // 索引如果越界则抛出异常，下同
             if (index >= size())
-                throw std::out_of_range ("索引越界");
+                throw out_of_range("索引越界");
             return nums[index];
         }
 
         /* 更新元素 */
         void set(int index, int num) {
             if (index >= size())
-                throw std::out_of_range ("索引越界");
+                throw out_of_range("索引越界");
             nums[index] = num;
         }
 
@@ -380,7 +563,7 @@ comments: true
         /* 中间插入元素 */
         void insert(int index, int num) {
             if (index >= size())
-                throw std::out_of_range ("索引越界");
+                throw out_of_range("索引越界");
             // 元素数量超出容量时，触发扩容机制
             if (size() == capacity())
                 extendCapacity();
@@ -394,15 +577,18 @@ comments: true
         }
 
         /* 删除元素 */
-        void remove(int index) {
+        int remove(int index) {
             if (index >= size())
-                throw std::out_of_range ("索引越界");
+                throw out_of_range("索引越界");
+            int num = nums[index];
             // 索引 i 之后的元素都向前移动一位
             for (int j = index; j < size() - 1; j++) {
                 nums[j] = nums[j + 1];
             }
             // 更新元素数量
             numsSize--;
+            // 返回被删除元素
+            return num;
         }
 
         /* 列表扩容 */
@@ -419,16 +605,6 @@ comments: true
             delete[] temp;
             numsCapacity = newCapacity;
         }
-
-        /* 将列表转换为 Vector 用于打印 */
-        vector<int> toVector() {
-            // 仅转换有效长度范围内的列表元素
-            vector<int> vec(size());
-            for (int i = 0; i < size(); i++) {
-                vec[i] = nums[i];
-            }
-            return vec;
-        }
     };
     ```
 
@@ -439,58 +615,89 @@ comments: true
     class MyList:
         """ 构造函数 """
         def __init__(self):
-            self._capacity = 10                 # 列表容量
-            self._nums = [0] * self._capacity   # 数组（存储列表元素）
-            self._size = 0                      # 列表长度（即当前元素数量）
-            self._extend_ratio = 2              # 每次列表扩容的倍数
+            self.__capacity = 10                 # 列表容量
+            self.__nums = [0] * self.__capacity  # 数组（存储列表元素）
+            self.__size = 0                      # 列表长度（即当前元素数量）
+            self.__extend_ratio = 2              # 每次列表扩容的倍数
 
         """ 获取列表长度（即当前元素数量） """
         def size(self):
-            return self._size
+            return self.__size
         
         """ 获取列表容量 """
         def capacity(self):
-            return self._capacity
+            return self.__capacity
         
         """ 访问元素 """
         def get(self, index):
             # 索引如果越界则抛出异常，下同
-            assert index < self._size, "索引越界"
-            return self._nums[index]
+            assert index < self.__size, "索引越界"
+            return self.__nums[index]
 
         """ 更新元素 """
         def set(self, num, index):
-            assert index < self._size, "索引越界"
-            self._nums[index] = num
+            assert index < self.__size, "索引越界"
+            self.__nums[index] = num
 
-        """ 中间插入元素 """
+        """ 中间插入（尾部添加）元素 """
         def add(self, num, index=-1):
-            assert index < self._size, "索引越界"
+            assert index < self.__size, "索引越界"
+            # 若不指定索引 index ，则向数组尾部添加元素
             if index == -1:
-                index = self._size
+                index = self.__size
             # 元素数量超出容量时，触发扩容机制
-            if self._size == self.capacity():
+            if self.__size == self.capacity():
                 self.extend_capacity()
             # 索引 i 以及之后的元素都向后移动一位
-            for j in range(self._size - 1, index - 1, -1):
-                self._nums[j + 1] = self._nums[j]
-            self._nums[index] = num
+            for j in range(self.__size - 1, index - 1, -1):
+                self.__nums[j + 1] = self.__nums[j]
+            self.__nums[index] = num
             # 更新元素数量
-            self._size += 1
+            self.__size += 1
 
         """ 删除元素 """
         def remove(self, index):
-            assert index < self._size, "索引越界"
+            assert index < self.__size, "索引越界"
             # 索引 i 之后的元素都向前移动一位
-            for j in range(index, self._size - 1):
-                self._nums[j] = self._nums[j + 1]
+            for j in range(index, self.__size - 1):
+                self.__nums[j] = self.__nums[j + 1]
             # 更新元素数量
-            self._size -= 1
+            self.__size -= 1
 
         """ 列表扩容 """
         def extend_capacity(self):
-            # 新建一个长度为 self._size 的数组，并将原数组拷贝到新数组
-            self._nums = self._nums + [0] * self.capacity() * (self._extend_ratio - 1)
+            # 新建一个长度为 self.__size 的数组，并将原数组拷贝到新数组
+            self.__nums = self.__nums + [0] * self.capacity() * (self.__extend_ratio - 1)
             # 更新列表容量
-            self._capacity = len(self._nums)
+            self.__capacity = len(self.__nums)
+    ```
+
+=== "Go"
+
+    ```go title="my_list.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="my_list.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="my_list.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="my_list.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="my_list.cs"
+
     ```

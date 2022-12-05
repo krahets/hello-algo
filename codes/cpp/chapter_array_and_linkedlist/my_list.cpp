@@ -34,14 +34,14 @@ public:
     int get(int index) {
         // 索引如果越界则抛出异常，下同
         if (index >= size())
-            throw std::out_of_range ("索引越界");
+            throw out_of_range("索引越界");
         return nums[index];
     }
 
     /* 更新元素 */
     void set(int index, int num) {
         if (index >= size())
-            throw std::out_of_range ("索引越界");
+            throw out_of_range("索引越界");
         nums[index] = num;
     }
 
@@ -58,7 +58,7 @@ public:
     /* 中间插入元素 */
     void insert(int index, int num) {
         if (index >= size())
-            throw std::out_of_range ("索引越界");
+            throw out_of_range("索引越界");
         // 元素数量超出容量时，触发扩容机制
         if (size() == capacity())
             extendCapacity();
@@ -72,15 +72,18 @@ public:
     }
 
     /* 删除元素 */
-    void remove(int index) {
+    int remove(int index) {
         if (index >= size())
-            throw std::out_of_range ("索引越界");
+            throw out_of_range("索引越界");
+        int num = nums[index];
         // 索引 i 之后的元素都向前移动一位
         for (int j = index; j < size() - 1; j++) {
             nums[j] = nums[j + 1];
         }
         // 更新元素数量
         numsSize--;
+        // 返回被删除元素
+        return num;
     }
 
     /* 列表扩容 */

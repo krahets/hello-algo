@@ -146,6 +146,10 @@ nav:
     - 队列（Queue）: chapter_stack_and_queue/queue.md
     - 双向队列（Deque）: chapter_stack_and_queue/deque.md
     - 小结: chapter_stack_and_queue/summary.md
+  - 散列表:
+    - 哈希表（HashMap）: chapter_hashing/hash_map.md
+    - 哈希冲突处理: chapter_hashing/hash_collision.md
+    - 小结: chapter_hashing/summary.md
   - 二叉树:
     - 二叉树（Binary Tree）: chapter_tree/binary_tree.md
     - 二叉树常见类型: chapter_tree/binary_tree_types.md

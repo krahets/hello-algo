@@ -10,15 +10,15 @@ import java.util.*;
 
 /* 基于数组实现的栈 */
 class ArrayStack {
-    ArrayList<Integer> list;
+    private ArrayList<Integer> stack;
     public ArrayStack() {
         // 初始化列表（动态数组）
-        list = new ArrayList<>();
+        stack = new ArrayList<>();
     }
 
     /* 获取栈的长度 */
     public int size() {
-        return list.size();
+        return stack.size();
     }
 
     /* 判断栈是否为空 */
@@ -28,27 +28,27 @@ class ArrayStack {
 
     /* 入栈 */
     public void push(int num) {
-        list.add(num);
+        stack.add(num);
     }
 
     /* 出栈 */
     public int pop() {
-        return list.remove(size() - 1);
+        return stack.remove(size() - 1);
     }
 
     /* 访问栈顶元素 */
     public int peek() {
-        return list.get(size() - 1);
+        return stack.get(size() - 1);
     }
 
     /* 访问索引 index 处元素 */
     public int get(int index) {
-        return list.get(index);
+        return stack.get(index);
     }
 
     /* 将 List 转化为 Array 并返回 */
     public Object[] toArray() {
-        return list.toArray();
+        return stack.toArray();
     }
 }
 
@@ -69,6 +69,10 @@ public class array_stack {
         int peek = stack.peek();
         System.out.println("栈顶元素 peek = " + peek);
 
+        /* 访问索引 index 处元素 */
+        int num = stack.get(3);
+        System.out.println("栈索引 3 处的元素为 num = " + num);
+
         /* 元素出栈 */
         int pop = stack.pop();
         System.out.println("出栈元素 pop = " + pop + "，出栈后 stack = " + Arrays.toString(stack.toArray()));
@@ -79,5 +83,6 @@ public class array_stack {
 
         /* 判断是否为空 */
         boolean isEmpty = stack.isEmpty();
+        System.out.println("栈是否为空 = " + isEmpty);
     }
 }

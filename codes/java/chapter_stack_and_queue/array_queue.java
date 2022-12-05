@@ -10,10 +10,9 @@ import java.util.*;
 
 /* 基于环形数组实现的队列 */
 class ArrayQueue {
-    int[] nums; // 用于存储队列元素的数组
-    int size = 0; // 队列长度（即元素个数）
-    int front = 0; // 头指针，指向队首
-    int rear = 0; // 尾指针，指向队尾 + 1
+    private int[] nums;     // 用于存储队列元素的数组
+    private int front = 0;  // 头指针，指向队首
+    private int rear = 0;   // 尾指针，指向队尾 + 1
 
     public ArrayQueue(int capacity) {
         // 初始化数组
@@ -51,11 +50,8 @@ class ArrayQueue {
 
     /* 出队 */
     public int poll() {
-        // 删除头结点
-        if (isEmpty())
-            throw new EmptyStackException();
-        int num = nums[front];
-        // 队头指针向后移动，越过尾部后返回到数组头部
+        int num = peek();
+        // 队头指针向后移动一位，若越过尾部则返回到数组头部
         front = (front + 1) % capacity();
         return num;
     }
@@ -68,15 +64,23 @@ class ArrayQueue {
         return nums[front];
     }
 
+    /* 访问索引 index 处元素 */
+    int get(int index) {
+        if (index >= size())
+            throw new IndexOutOfBoundsException();
+        return nums[(front + index) % capacity()];
+    }
+
+    /* 返回数组 */
     public int[] toArray() {
         int size = size();
         int capacity = capacity();
         // 仅转换有效长度范围内的列表元素
-        int[] arr = new int[size];
+        int[] res = new int[size];
         for (int i = 0, j = front; i < size; i++, j++) {
-            arr[i] = nums[j % capacity];
+            res[i] = nums[j % capacity];
         }
-        return arr;
+        return res;
     }
 }
 
@@ -108,12 +112,13 @@ public class array_queue {
 
         /* 判断队列是否为空 */
         boolean isEmpty = queue.isEmpty();
+        System.out.println("队列是否为空 = " + isEmpty);
 
         /* 测试环形数组 */
         for (int i = 0; i < 10; i++) {
             queue.offer(i);
             queue.poll();
-            System.out.println("第 " + i + " 轮入队+出队后 queue = " + Arrays.toString(queue.toArray()));
+            System.out.println("第 " + i + " 轮入队 + 出队后 queue = " + Arrays.toString(queue.toArray()));
         }
     }
 }

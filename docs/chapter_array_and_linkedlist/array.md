@@ -24,14 +24,6 @@ comments: true
     int[] nums = { 1, 3, 2, 5, 4 };
     ```
 
-=== "JavaScript"
-
-    ```javascript title="array.javascript"
-    /* 初始化数组 */
-    var arr = new Array(5).fill(0)
-    var nums = [1, 3, 2, 5, 4]
-    ```
-
 === "C++"
 
     ```cpp title="array.cpp"
@@ -46,6 +38,40 @@ comments: true
     """ 初始化数组 """
     arr = [0] * 5  # [ 0, 0, 0, 0, 0 ]
     nums = [1, 3, 2, 5, 4]  
+    ```
+
+=== "Go"
+
+    ```go title="array.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="array.js"
+    /* 初始化数组 */
+    var arr = new Array(5).fill(0)
+    var nums = [1, 3, 2, 5, 4]
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array.ts"
+    /* 初始化数组 */
+    let arr: number[] = new Array(5).fill(0)
+    let nums: number[] = [1, 3, 2, 5, 4]
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+
     ```
 
 ## 数组优点
@@ -77,19 +103,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "JavaScript"
-
-    ```javascript title="array.javascript"
-    /* 随机返回一个数组元素 */
-    function randomAccess(nums){
-        // 在区间 [0, nums.length) 中随机抽取一个数字
-        const random_index  = Math.floor(Math.random() * nums.length)
-        // 获取并返回随机元素
-        random_num = nums[random_index]
-        return random_num
-    }
-    ```
-
 === "C++"
 
     ```cpp title="array.cpp"
@@ -115,6 +128,50 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         return random_num
     ```
 
+=== "Go"
+
+    ```go title="array.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="array.js"
+    /* 随机返回一个数组元素 */
+    function randomAccess(nums){
+        // 在区间 [0, nums.length) 中随机抽取一个数字
+        const random_index = Math.floor(Math.random() * nums.length)
+        // 获取并返回随机元素
+        random_num = nums[random_index]
+        return random_num
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array.ts"
+    /* 随机返回一个数组元素 */
+    function randomAccess(nums: number[]): number {
+        // 在区间 [0, nums.length) 中随机抽取一个数字
+        const random_index = Math.floor(Math.random() * nums.length)
+        // 获取并返回随机元素
+        const random_num = nums[random_index]
+        return random_num
+    }
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+
+    ```
+
 ## 数组缺点
 
 **数组在初始化后长度不可变。** 由于系统无法保证数组之后的内存空间是可用的，因此数组长度无法扩展。而若希望扩容数组，则需新建一个数组，然后把原数组元素依次拷贝到新数组，在数组很大的情况下，这是非常耗时的。
@@ -132,22 +189,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         }
         // 返回扩展后的新数组
         return res;
-    }
-    ```
-
-=== "JavaScript"
-
-    ```javascript title="array.javascript"
-    /* 扩展数组长度 */
-    function extend(nums, enlarge){
-        // 初始化一个扩展长度后的数组
-        let res = new Array(nums.length + enlarge).fill(0)
-        // 将原数组中的所有元素复制到新数组
-        for(let i=0; i<nums.length;i++){
-                res[i] = nums[i]
-        }
-        // 返回扩展后的新数组
-        return res
     }
     ```
 
@@ -183,6 +224,56 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         return res
     ```
 
+=== "Go"
+
+    ```go title="array.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="array.js"
+    /* 扩展数组长度 */
+    function extend(nums, enlarge){
+        // 初始化一个扩展长度后的数组
+        let res = new Array(nums.length + enlarge).fill(0)
+        // 将原数组中的所有元素复制到新数组
+        for(let i=0; i<nums.length;i++){
+                res[i] = nums[i]
+        }
+        // 返回扩展后的新数组
+        return res
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array.ts"
+    /* 扩展数组长度 */
+    function extend(nums: number[], enlarge: number): number[] {
+        // 初始化一个扩展长度后的数组
+        const res = new Array(nums.length + enlarge).fill(0)
+        // 将原数组中的所有元素复制到新数组
+        for (let i = 0; i < nums.length; i++){
+            res[i] = nums[i]
+        }
+        // 返回扩展后的新数组
+        return res
+    }
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+
+    ```
+
 **数组中插入或删除元素效率低下。** 假设我们想要在数组中间某位置插入一个元素，由于数组元素在内存中是 “紧挨着的” ，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。删除元素也是类似，需要把此索引之后的元素都向前移动一位。总体看有以下缺点：
 
 - **时间复杂度高：** 数组的插入和删除的平均时间复杂度均为 $O(N)$ ，其中 $N$ 为数组长度。
@@ -211,28 +302,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 把索引 index 之后的所有元素向前移动一位
         for (int i = index; i < nums.length - 1; i++) {
             nums[i] = nums[i + 1];
-        }
-    }
-    ```
-
-=== "JavaScript"
-
-    ```javascript title="array.javascript"
-    /* 在数组的索引 index 处插入元素 num */
-    function insert(nums, num, index){
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for (let i = nums.length - 1; i >= index; i--) {
-            nums[i] = nums[i - 1];
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num;
-    }
-
-    /* 删除索引 index 处元素 */
-    function remove(nums, index){
-        // 把索引 index 之后的所有元素向前移动一位
-        for (let i = index; i < nums.length - 1; i++) {
-            nums[i] = nums[i + 1]
         }
     }
     ```
@@ -277,6 +346,68 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
             nums[i] = nums[i + 1]
     ```
 
+=== "Go"
+
+    ```go title="array.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="array.js"
+    /* 在数组的索引 index 处插入元素 num */
+    function insert(nums, num, index){
+        // 把索引 index 以及之后的所有元素向后移动一位
+        for (let i = nums.length - 1; i >= index; i--) {
+            nums[i] = nums[i - 1];
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num;
+    }
+
+    /* 删除索引 index 处元素 */
+    function remove(nums, index){
+        // 把索引 index 之后的所有元素向前移动一位
+        for (let i = index; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1]
+        }
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array.ts"
+    /* 在数组的索引 index 处插入元素 num */
+    function insert(nums: number[], num: number, index: number): void {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        for (let i = nums.length - 1; i >= index; i--) {
+            nums[i] = nums[i - 1]
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num
+    }
+
+    /* 删除索引 index 处元素 */
+    function remove(nums: number[], index: number): void {
+        // 把索引 index 之后的所有元素向前移动一位
+        for (let i = index; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1]
+        }
+    }
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+
+    ```
+
 ## 数组常用操作
 
 **数组遍历。** 以下介绍两种常用的遍历方法。
@@ -294,23 +425,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 直接遍历数组
         for (int num : nums) {
             count++;
-        }
-    }
-    ```
-
-=== "JavaScript"
-
-    ```javascript title="array.javascript"
-    /* 遍历数组 */
-    function traverse(nums){
-        let count = 0
-        // 通过索引遍历数组
-        for (let i = 0; i < nums.length; i++) {
-            count++;
-        }
-        // 直接遍历数组
-        for(let num of nums){
-            count += 1
         }
     }
     ```
@@ -342,6 +456,58 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
             count += 1
     ```
 
+=== "Go"
+
+    ```go title="array.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="array.js"
+    /* 遍历数组 */
+    function traverse(nums){
+        let count = 0
+        // 通过索引遍历数组
+        for (let i = 0; i < nums.length; i++) {
+            count++;
+        }
+        // 直接遍历数组
+        for(let num of nums){
+            count += 1
+        }
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array.ts"
+    /* 遍历数组 */
+    function traverse(nums: number[]): void {
+        let count = 0
+        // 通过索引遍历数组
+        for (let i = 0; i < nums.length; i++) {
+            count++
+        }
+        // 直接遍历数组
+        for(let num of nums){
+            count += 1
+        }
+    }
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+
+    ```
+
 **数组查找。** 通过遍历数组，查找数组内的指定元素，并输出对应索引。
 
 === "Java"
@@ -354,19 +520,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
                 return i;
         }
         return -1;
-    }
-    ```
-
-=== "JavaScript"
-
-    ```javascript title="array.javascript"
-    /* 在数组中查找指定元素 */
-    function find(nums, target){
-        for (let i = 0; i < nums.length; i++) {
-            if (nums[i] == target)
-                return i;
-        }
-        return -1
     }
     ```
 
@@ -392,6 +545,51 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
             if nums[i] == target:
                 return i
         return -1
+    ```
+
+=== "Go"
+
+    ```go title="array.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="array.js"
+    /* 在数组中查找指定元素 */
+    function find(nums, target){
+        for (let i = 0; i < nums.length; i++) {
+            if (nums[i] == target)
+                return i;
+        }
+        return -1
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array.ts"
+    /* 在数组中查找指定元素 */
+    function find(nums: number[], target: number): number {
+        for (let i = 0; i < nums.length; i++) {
+            if (nums[i] === target) {
+                return i
+            }
+        }
+        return -1
+    }
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+
     ```
 
 ## 数组典型应用

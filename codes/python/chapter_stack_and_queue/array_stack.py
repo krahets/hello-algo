@@ -1,10 +1,77 @@
 '''
 File: array_stack.py
-Created Time: 2022-11-25
-Author: Krahets (krahets@163.com)
+Created Time: 2022-11-29
+Author: Peng Chen (pengchzn@gmail.com)
 '''
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
+""" 基于数组实现的栈 """
+class ArrayStack:
+    def __init__(self):
+        self.__stack = []
+
+    """ 获取栈的长度 """
+    def size(self):
+        return len(self.__stack)
+
+    """ 判断栈是否为空 """
+    def is_empty(self):
+        return self.__stack == []
+
+    """ 入栈 """
+    def push(self, item):
+        self.__stack.append(item)
+
+    """ 出栈 """
+    def pop(self):
+        return self.__stack.pop()
+
+    """ 访问栈顶元素 """
+    def peek(self):
+        return self.__stack[-1]
+
+    """ 访问索引 index 处元素 """
+    def get(self, index):
+        return self.__stack[index]
+    
+    """ 返回列表用于打印 """
+    def to_list(self):
+        return self.__stack
+
+
+""" Driver Code """
+if __name__ == "__main__":
+    """ 初始化栈 """
+    stack = ArrayStack()
+
+    """ 元素入栈 """
+    stack.push(1)
+    stack.push(3)
+    stack.push(2)
+    stack.push(5)
+    stack.push(4)
+    print("栈 stack =", stack.to_list())
+
+    """ 访问栈顶元素 """
+    peek = stack.peek()
+    print("栈顶元素 peek =", peek)
+
+    """ 访问索引 index 处元素 """
+    num = stack.get(3)
+    print("栈索引 3 处的元素为 num =", num)
+
+    """ 元素出栈 """
+    pop = stack.pop()
+    print("出栈元素 pop =", pop)
+    print("出栈后 stack =", stack.to_list())
+
+    """ 获取栈的长度 """
+    size = stack.size()
+    print("栈的长度 size =", size)
+
+    """ 判断是否为空 """
+    is_empty = stack.is_empty()
+    print("栈是否为空 =", is_empty)

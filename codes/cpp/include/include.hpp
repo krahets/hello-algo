@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <list>
 #include <stack>
 #include <queue>
 #include <deque>

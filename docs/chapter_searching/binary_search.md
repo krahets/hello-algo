@@ -102,6 +102,54 @@ $$
     }
     ```
 
+=== "Python"
+
+    ```python title="binary_search.py"
+    """ 二分查找（双闭区间） """
+    def binary_search(nums, target):
+        # 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
+        i, j = 0, len(nums) - 1
+        while i <= j:
+            m = (i + j) // 2        # 计算中点索引 m
+            if nums[m] < target:    # 此情况说明 target 在区间 [m+1, j] 中
+                i = m + 1
+            elif nums[m] > target:  # 此情况说明 target 在区间 [i, m-1] 中
+                j = m - 1
+            else:
+                return m            # 找到目标元素，返回其索引
+        return -1                   # 未找到目标元素，返回 -1
+    ```
+
+=== "Go"
+
+    ```go title="binary_search.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="binary_search.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="binary_search.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="binary_search.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search.cs"
+
+    ```
+
 ### “左闭右开” 实现
 
 当然，我们也可以使用 “左闭右开” 的表示方法，写出相同功能的二分查找代码。
@@ -150,6 +198,55 @@ $$
     }
     ```
 
+=== "Python"
+
+    ```python title="binary_search.py"
+    """ 二分查找（左闭右开） """
+    def binary_search1(nums, target):
+        # 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        i, j = 0, len(nums)
+        # 循环，当搜索区间为空时跳出（当 i = j 时为空）
+        while i < j:
+            m = (i + j) // 2        # 计算中点索引 m
+            if nums[m] < target:    # 此情况说明 target 在区间 [m+1, j) 中
+                i = m + 1
+            elif nums[m] > target:  # 此情况说明 target 在区间 [i, m) 中
+                j = m
+            else:                   # 找到目标元素，返回其索引
+                return m
+        return -1                   # 未找到目标元素，返回 -1
+    ```
+
+=== "Go"
+
+    ```go title="binary_search.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="binary_search.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="binary_search.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="binary_search.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search.cs"
+
+    ```
+
 ### 两种表示对比
 
 对比下来，两种表示的代码写法有以下不同点：
@@ -169,12 +266,60 @@ $$
 
 当数组长度很大时，加法 $i + j$ 的结果有可能会超出 `int` 类型的取值范围。在此情况下，我们需要换一种计算中点的写法。
 
-```java
-// (i + j) 有可能超出 int 的取值范围
-int m = (i + j) / 2;
-// 更换为此写法则不会越界
-int m = i + (j - i) / 2;
-```
+=== "Java"
+
+    ```java title=""
+    // (i + j) 有可能超出 int 的取值范围
+    int m = (i + j) / 2;
+    // 更换为此写法则不会越界
+    int m = i + (j - i) / 2;
+    ```
+
+=== "C++"
+
+    ```cpp title=""
+    // (i + j) 有可能超出 int 的取值范围
+    int m = (i + j) / 2;
+    // 更换为此写法则不会越界
+    int m = i + (j - i) / 2;
+    ```
+
+=== "Python"
+
+    ```py title=""
+    # Python 中的数字理论上可以无限大（取决于内存大小）
+    # 因此无需考虑大数越界问题
+    ```
+
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
+    ```
 
 ## 复杂度分析
 
@@ -191,6 +336,6 @@ int m = i + (j - i) / 2;
 
 但并不意味着所有情况下都应使用二分查找，这是因为：
 
-- **二分查找仅适用于有序数据。** 如果输入数据是乱序的，为了使用二分查找而专门执行数据排序，那么是得不偿失的，因为排序算法的时间复杂度一般为 $O(n \log n)$ ，比线性查找和二分查找都更差。再例如，对于频繁插入元素的场景，为了保持数组的有序性，需要将元素插入到特定位置，时间复杂度为 $O(n)$ ，也是非常昂贵的。
+- **二分查找仅适用于有序数据。** 如果输入数据是无序的，为了使用二分查找而专门执行数据排序，那么是得不偿失的，因为排序算法的时间复杂度一般为 $O(n \log n)$ ，比线性查找和二分查找都更差。再例如，对于频繁插入元素的场景，为了保持数组的有序性，需要将元素插入到特定位置，时间复杂度为 $O(n)$ ，也是非常昂贵的。
 - **二分查找仅适用于数组。** 由于在二分查找中，访问索引是 ”非连续“ 的，因此链表或者基于链表实现的数据结构都无法使用。
 - **在小数据量下，线性查找的性能更好。** 在线性查找中，每轮只需要 1 次判断操作；而在二分查找中，需要 1 次加法、1 次除法、1 ~ 3 次判断操作、1 次加法（减法），共 4 ~ 6 个单元操作；因此，在数据量 $n$ 较小时，线性查找反而比二分查找更快。

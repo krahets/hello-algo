@@ -15,7 +15,7 @@ comments: true
 例如以下代码，输入数据大小为 $n$ ，根据以上方法，可以得到算法运行时间为 $6n + 12$ ns 。
 
 $$
-1 + 1 + 10 + (1 + 5) \times n  = 6n + 12
+1 + 1 + 10 + (1 + 5) \times n = 6n + 12
 $$
 
 === "Java"
@@ -59,6 +59,36 @@ $$
         # 循环 n 次
         for _ in range(n):  # 1 ns
             print(0)        # 5 ns
+    ```
+
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
     ```
 
 但实际上， **统计算法的运行时间既不合理也不现实。** 首先，我们不希望预估时间和运行平台绑定，毕竟算法需要跑在各式各样的平台之上。其次，我们很难获知每一种操作的运行时间，这为预估过程带来了极大的难度。
@@ -131,6 +161,36 @@ $$
             print(0)
     ```
 
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
+    ```
+
 ![time_complexity_first_example](time_complexity.assets/time_complexity_first_example.png)
 
 <p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
@@ -190,6 +250,36 @@ $$
         for i in range(n):  # +1
             print(0)        # +1
     }
+    ```
+
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
     ```
 
 $T(n)$ 是个一次函数，说明时间增长趋势是线性的，因此易得时间复杂度是线性阶。
@@ -296,6 +386,36 @@ $$
                 print(0)
     ```
 
+=== "Go"
+
+    ```go title=""
+
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+
+    ```
+
 ### 2. 判断渐进上界
 
 **时间复杂度由多项式 $T(n)$ 中最高阶的项来决定**。这是因为在 $n$ 趋于无穷大时，最高阶的项将处于主导作用，其它项的影响都可以被忽略。
@@ -341,7 +461,7 @@ $$
 
 === "Java"
 
-    ```java title="" title="time_complexity_types.java"
+    ```java title="time_complexity_types.java"
     /* 常数阶 */
     int constant(int n) {
         int count = 0;
@@ -377,13 +497,43 @@ $$
         return count
     ```
 
+=== "Go"
+
+    ```go title="time_complexity_types.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="time_complexity_types.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="time_complexity_types.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="time_complexity_types.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="time_complexity_types.cs"
+
+    ```
+
 ### 线性阶 $O(n)$
 
 线性阶的操作数量相对输入数据大小成线性级别增长。线性阶常出现于单层循环。
 
 === "Java"
 
-    ```java title="" title="time_complexity_types.java"
+    ```java title="time_complexity_types.java"
     /* 线性阶 */
     int linear(int n) {
         int count = 0;
@@ -416,6 +566,36 @@ $$
         return count
     ```
 
+=== "Go"
+
+    ```go title="time_complexity_types.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="time_complexity_types.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="time_complexity_types.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="time_complexity_types.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="time_complexity_types.cs"
+
+    ```
+
 「遍历数组」和「遍历链表」等操作，时间复杂度都为 $O(n)$ ，其中 $n$ 为数组或链表的长度。
 
 !!! tip
@@ -424,7 +604,7 @@ $$
 
 === "Java"
 
-    ```java title="" title="time_complexity_types.java"
+    ```java title="time_complexity_types.java"
     /* 线性阶（遍历数组） */
     int arrayTraversal(int[] nums) {
         int count = 0;
@@ -462,13 +642,43 @@ $$
         return count
     ```
 
+=== "Go"
+
+    ```go title="time_complexity_types.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="time_complexity_types.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="time_complexity_types.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="time_complexity_types.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="time_complexity_types.cs"
+
+    ```
+
 ### 平方阶 $O(n^2)$
 
 平方阶的操作数量相对输入数据大小成平方级别增长。平方阶常出现于嵌套循环，外层循环和内层循环都为 $O(n)$ ，总体为 $O(n^2)$ 。
 
 === "Java"
 
-    ```java title="" title="time_complexity_types.java"
+    ```java title="time_complexity_types.java"
     /* 平方阶 */
     int quadratic(int n) {
         int count = 0;
@@ -511,6 +721,36 @@ $$
         return count
     ```
 
+=== "Go"
+
+    ```go title="time_complexity_types.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="time_complexity_types.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="time_complexity_types.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="time_complexity_types.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="time_complexity_types.cs"
+
+    ```
+
 ![time_complexity_constant_linear_quadratic](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
 
 <p align="center"> Fig. 常数阶、线性阶、平方阶的时间复杂度 </p>
@@ -523,7 +763,7 @@ $$
 
 === "Java"
 
-    ```java title="" title="time_complexity_types.java"
+    ```java title="time_complexity_types.java"
     /* 平方阶（冒泡排序） */
     int bubbleSort(int[] nums) {
         int count = 0;  // 计数器
@@ -586,17 +826,47 @@ $$
         return count
     ```
 
+=== "Go"
+
+    ```go title="time_complexity_types.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="time_complexity_types.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="time_complexity_types.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="time_complexity_types.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="time_complexity_types.cs"
+
+    ```
+
 ### 指数阶 $O(2^n)$
 
 !!! note
 
     生物学科中的 “细胞分裂” 即是指数阶增长：初始状态为 $1$ 个细胞，分裂一轮后为 $2$ 个，分裂两轮后为 $4$ 个，……，分裂 $n$ 轮后有 $2^n$ 个细胞。
 
-指数阶增长地非常快，在实际应用中一般是不能被接受的。若一个问题使用「暴力枚举」求解的时间复杂度是 $O(2^n)$ ，那么一般都需要使用「动态规划」或「贪心算法」等算法来求解。
+指数阶增长得非常快，在实际应用中一般是不能被接受的。若一个问题使用「暴力枚举」求解的时间复杂度是 $O(2^n)$ ，那么一般都需要使用「动态规划」或「贪心算法」等算法来求解。
 
 === "Java"
 
-    ```java title="" title="time_complexity_types.java"
+    ```java title="time_complexity_types.java"
     /* 指数阶（循环实现） */
     int exponential(int n) {
         int count = 0, base = 1;
@@ -645,6 +915,36 @@ $$
         return count
     ```
 
+=== "Go"
+
+    ```go title="time_complexity_types.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="time_complexity_types.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="time_complexity_types.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="time_complexity_types.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="time_complexity_types.cs"
+
+    ```
+
 ![time_complexity_exponential](time_complexity.assets/time_complexity_exponential.png)
 
 <p align="center"> Fig. 指数阶的时间复杂度 </p>
@@ -653,7 +953,7 @@ $$
 
 === "Java"
 
-    ```java title="" title="time_complexity_types.java"
+    ```java title="time_complexity_types.java"
     /* 指数阶（递归实现） */
     int expRecur(int n) {
         if (n == 1) return 1;
@@ -680,6 +980,36 @@ $$
         return exp_recur(n - 1) + exp_recur(n - 1) + 1
     ```
 
+=== "Go"
+
+    ```go title="time_complexity_types.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="time_complexity_types.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="time_complexity_types.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="time_complexity_types.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="time_complexity_types.cs"
+
+    ```
+
 ### 对数阶 $O(\log n)$
 
 对数阶与指数阶正好相反，后者反映 “每轮增加到两倍的情况” ，而前者反映 “每轮缩减到一半的情况” 。对数阶仅次于常数阶，时间增长的很慢，是理想的时间复杂度。
@@ -690,7 +1020,7 @@ $$
 
 === "Java"
 
-    ```java title="" title="time_complexity_types.java"
+    ```java title="time_complexity_types.java"
     /* 对数阶（循环实现） */
     int logarithmic(float n) {
         int count = 0;
@@ -728,6 +1058,36 @@ $$
         return count
     ```
 
+=== "Go"
+
+    ```go title="time_complexity_types.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="time_complexity_types.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="time_complexity_types.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="time_complexity_types.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="time_complexity_types.cs"
+
+    ```
+
 ![time_complexity_logarithmic](time_complexity.assets/time_complexity_logarithmic.png)
 
 <p align="center"> Fig. 对数阶的时间复杂度 </p>
@@ -736,7 +1096,7 @@ $$
 
 === "Java"
 
-    ```java title="" title="time_complexity_types.java"
+    ```java title="time_complexity_types.java"
     /* 对数阶（递归实现） */
     int logRecur(float n) {
         if (n <= 1) return 0;
@@ -763,6 +1123,36 @@ $$
         return log_recur(n / 2) + 1
     ```
 
+=== "Go"
+
+    ```go title="time_complexity_types.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="time_complexity_types.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="time_complexity_types.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="time_complexity_types.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="time_complexity_types.cs"
+
+    ```
+
 ### 线性对数阶 $O(n \log n)$
 
 线性对数阶常出现于嵌套循环中，两层循环的时间复杂度分别为 $O(\log n)$ 和 $O(n)$ 。
@@ -771,7 +1161,7 @@ $$
 
 === "Java"
 
-    ```java title="" title="time_complexity_types.java"
+    ```java title="time_complexity_types.java"
     /* 线性对数阶 */
     int linearLogRecur(float n) {
         if (n <= 1) return 1;
@@ -812,6 +1202,36 @@ $$
         return count
     ```
 
+=== "Go"
+
+    ```go title="time_complexity_types.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="time_complexity_types.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="time_complexity_types.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="time_complexity_types.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="time_complexity_types.cs"
+
+    ```
+
 ![time_complexity_logarithmic_linear](time_complexity.assets/time_complexity_logarithmic_linear.png)
 
 <p align="center"> Fig. 线性对数阶的时间复杂度 </p>
@@ -828,7 +1248,7 @@ $$
 
 === "Java"
 
-    ```java title="" title="time_complexity_types.java"
+    ```java title="time_complexity_types.java"
     /* 阶乘阶（递归实现） */
     int factorialRecur(int n) {
         if (n == 0) return 1;
@@ -869,6 +1289,36 @@ $$
         return count
     ```
 
+=== "Go"
+
+    ```go title="time_complexity_types.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="time_complexity_types.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="time_complexity_types.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="time_complexity_types.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="time_complexity_types.cs"
+
+    ```
+
 ![time_complexity_factorial](time_complexity.assets/time_complexity_factorial.png)
 
 <p align="center"> Fig. 阶乘阶的时间复杂度 </p>
@@ -884,7 +1334,7 @@ $$
 
 === "Java"
 
-    ```java title="" title="worst_best_time_complexity.java"
+    ```java title="worst_best_time_complexity.java"
     public class worst_best_time_complexity {
         /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
         static int[] randomNumbers(int n) {
@@ -992,6 +1442,36 @@ $$
             index = find_one(nums)
             print("\n数组 [ 1, 2, ..., n ] 被打乱后 =", nums)
             print("数字 1 的索引为", index)
+    ```
+
+=== "Go"
+
+    ```go title="worst_best_time_complexity.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="worst_best_time_complexity.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="worst_best_time_complexity.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="worst_best_time_complexity.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="worst_best_time_complexity.cs"
+
     ```
 
 !!! tip
