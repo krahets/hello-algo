@@ -5,9 +5,9 @@
  */
 
 /* 初始化队列 */
-// Javascript 没有内置的队列，可以把 Array 当作队列来使用 
-// 注意：虽然Javascript有shift()函数可以去除队首元素，但是时间复杂度是O(n)的。
-const queue = [];
+// Typescript 没有内置的队列，可以把 Array 当作队列来使用 
+// 注意：虽然Typescript有shift()函数可以去除队首元素，但是时间复杂度是O(n)的。
+const queue: number[] = [];
 
 /* 元素入队 */
 queue.push(1);
@@ -27,3 +27,5 @@ const size = queue.length;
 
 /* 判断队列是否为空 */
 const empty = queue.length === 0;
+
+export { };
