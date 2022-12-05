@@ -20,13 +20,13 @@ comments: true
 
 <div class="center-table" markdown>
 
-| 方法      | 描述                      |
-| --------- | ------------------------ |
-| offer()   | 元素入队，即将元素添加至队尾  |
-| poll()    | 队首元素出队               |
-| front()   | 访问队首元素               |
-| size()    | 获取队列的长度             |
-| isEmpty() | 判断队列是否为空           |
+| 方法      | 描述                         |
+| --------- | ---------------------------- |
+| offer()   | 元素入队，即将元素添加至队尾 |
+| poll()    | 队首元素出队                 |
+| front()   | 访问队首元素                 |
+| size()    | 获取队列的长度               |
+| isEmpty() | 判断队列是否为空             |
 
 </div>
 
@@ -143,13 +143,59 @@ comments: true
 === "JavaScript"
 
     ```js title="queue.js"
+    /* 初始化队列 */
+    // JavaScript 没有内置的队列，可以把 Array 当作队列来使用 
+    // 注意：由于是数组，所以 shift() 的时间复杂度是 O(n)
+    const queue = [];
 
+    /* 元素入队 */
+    queue.push(1);
+    queue.push(3);
+    queue.push(2);
+    queue.push(5);
+    queue.push(4);
+
+    /* 访问队首元素 */
+    const peek = queue[0];
+
+    /* 元素出队 */
+    // O(n)
+    const poll = queue.shift();
+
+    /* 获取队列的长度 */
+    const size = queue.length;
+
+    /* 判断队列是否为空 */
+    const empty = queue.length === 0;
     ```
 
 === "TypeScript"
 
     ```typescript title="queue.ts"
+    /* 初始化队列 */
+    // TypeScript 没有内置的队列，可以把 Array 当作队列来使用 
+    // 注意：由于是数组，所以 shift() 的时间复杂度是 O(n)
+    const queue: number[] = [];
 
+    /* 元素入队 */
+    queue.push(1);
+    queue.push(3);
+    queue.push(2);
+    queue.push(5);
+    queue.push(4);
+
+    /* 访问队首元素 */
+    const peek = queue[0];
+
+    /* 元素出队 */
+    // O(n)
+    const poll = queue.shift();
+
+    /* 获取队列的长度 */
+    const size = queue.length;
+
+    /* 判断队列是否为空 */
+    const empty = queue.length === 0;
     ```
 
 === "C"
