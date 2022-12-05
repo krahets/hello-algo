@@ -22,15 +22,15 @@ class ArrayHashMap {
     private List<Entry> bucket;
     public ArrayHashMap() {
         // 初始化一个长度为 10 的桶（数组）
-        bucket = new ArrayList<>(10);
-        for (int i = 0; i < 10; i++) {
+        bucket = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
             bucket.add(null);
         }
     }
 
     /* 哈希函数 */
     private int hashFunc(int key) {
-        int index = key % 10000;
+        int index = key % 100;
         return index;
     }
 
@@ -102,23 +102,23 @@ public class array_hash_map {
 
         /* 添加操作 */
         // 在哈希表中添加键值对 (key, value)
-        map.put(10001, "小哈");   
-        map.put(10002, "小啰");   
-        map.put(10003, "小算");   
-        map.put(10004, "小法");
-        map.put(10005, "小哇");
+        map.put(12836, "小哈");   
+        map.put(15937, "小啰");   
+        map.put(16750, "小算");   
+        map.put(13276, "小法");
+        map.put(10583, "小鸭");
         System.out.println("\n添加完成后，哈希表为\nKey -> Value");
         map.print();
 
         /* 查询操作 */
         // 向哈希表输入键 key ，得到值 value
-        String name = map.get(10002);
-        System.out.println("\n输入学号 10002 ，查询到姓名 " + name);
+        String name = map.get(15937);
+        System.out.println("\n输入学号 15937 ，查询到姓名 " + name);
 
         /* 删除操作 */
         // 在哈希表中删除键值对 (key, value)
-        map.remove(10005);
-        System.out.println("\n删除 10005 后，哈希表为\nKey -> Value");
+        map.remove(10583);
+        System.out.println("\n删除 10583 后，哈希表为\nKey -> Value");
         map.print();
 
         /* 遍历哈希表 */
