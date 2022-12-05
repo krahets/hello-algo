@@ -5,7 +5,7 @@
  */
 
 /* 初始化队列 */
-// Javascript 没有内置的队列，可以把 Array 当作队列来使用 
+// JavaScript 没有内置的队列，可以把 Array 当作队列来使用 
 // 注意：由于是数组，所以 shift() 的时间复杂度是 O(n)
 const queue = [];
 
