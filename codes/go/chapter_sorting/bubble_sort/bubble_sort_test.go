@@ -10,31 +10,11 @@ import (
 )
 
 func TestBubbleSort(t *testing.T) {
-	var (
-		arr = []int{5, 4, 3, 2, 1}
-	)
-	fmt.Println("冒泡排序前的数组:", arr)
-	bubbleSort(arr)
-	for i := 1; i < len(arr); i++ {
-		if arr[i] < arr[i-1] {
-			t.Errorf("排序不正确")
-			break
-		}
-	}
-	fmt.Println("冒泡排序后的数组:", arr)
-}
+	nums := []int{4, 1, 3, 1, 5, 2}
+	bubbleSort(nums)
+	fmt.Println("冒泡排序完成后 nums = ", nums)
 
-func TestBubbleSortWithFlag(t *testing.T) {
-	var (
-		arr = []int{5, 4, 3, 2, 1}
-	)
-	fmt.Println("冒泡排序前的数组:", arr)
-	bubbleSortWithFlag(arr)
-	for i := 1; i < len(arr); i++ {
-		if arr[i] < arr[i-1] {
-			t.Errorf("排序不正确")
-			break
-		}
-	}
-	fmt.Println("冒泡排序后的数组:", arr)
+	nums1 := []int{4, 1, 3, 1, 5, 2}
+	bubbleSortWithFlag(nums1)
+	fmt.Println("冒泡排序完成后 nums1 = ", nums)
 }
