@@ -30,7 +30,7 @@ comments: true
 
 ### 理论估算
 
-既然实际测试具有很大的局限性，那么我们是否可以仅通过一些计算，就获知算法的效率水平呢？答案是肯定的，我们将此估算方法称为「复杂度分析 Complexity Analysis」或「渐进复杂度分析 Asymptotic Complexity Analysis」。
+既然实际测试具有很大的局限性，那么我们是否可以仅通过一些计算，就获知算法的效率水平呢？答案是肯定的，我们将此估算方法称为「复杂度分析 Complexity Analysis」或「渐近复杂度分析 Asymptotic Complexity Analysis」。
 
 **复杂度分析评估随着输入数据量的增长，算法的运行时间和占用空间的增长趋势** 。根据时间和空间两方面，复杂度可分为「时间复杂度 Time Complexity」和「空间复杂度 Space Complexity」。
 
