@@ -397,7 +397,47 @@ comments: true
 === "JavaScript"
 
     ```js title="linkedlist_stack.js"
+    /* 基于数组实现的栈 */
+    class ArrayStack {
+        stack;
+        constructor() {
+            this.stack = [];
+        }
+        /* 获取栈的长度 */
+        get size() {
+            return this.stack.length;
+        }
 
+        /* 判断栈是否为空 */
+        empty() {
+            return this.stack.length === 0;
+        }
+
+        /* 入栈 */
+        push(num) {
+            this.stack.push(num);
+        }
+
+        /* 出栈 */
+        pop() {
+            return this.stack.pop();
+        }
+
+        /* 访问栈顶元素 */
+        top() {
+            return this.stack[this.stack.length - 1];
+        }
+
+        /* 访问索引 index 处元素 */
+        get(index) {
+            return this.stack[index];
+        }
+
+        /* 返回 Array */
+        toArray() {
+            return this.stack;
+        }
+    };
     ```
 
 === "TypeScript"
