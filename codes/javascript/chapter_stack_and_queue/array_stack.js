@@ -1,5 +1,5 @@
 /**
- * File: array_stack.ts
+ * File: array_stack.js
  * Created Time: 2022-12-09
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
