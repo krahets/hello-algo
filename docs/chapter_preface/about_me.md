@@ -10,4 +10,4 @@ comments: true
 
 <p align="center"> 力扣（LeetCode）全网阅读量最高博主 </p>
 <p align="center"> 分享近百道算法题解，累积回复数千读者的评论问题 </p>
-<p align="center"> 创作 LeetBook《图解算法数据结构》，已免费售出 21 万本 </p>
+<p align="center"> 创作 LeetBook《图解算法数据结构》，已免费售出 22 万本 </p>
