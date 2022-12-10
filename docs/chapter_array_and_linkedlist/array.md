@@ -65,13 +65,13 @@ comments: true
 === "C"
 
     ```c title="array.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="array.cs"
-
+    
     ```
 
 ## 数组优点
@@ -131,7 +131,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-
+    
     ```
 
 === "JavaScript"
@@ -163,13 +163,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C"
 
     ```c title="array.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="array.cs"
-
+    
     ```
 
 ## 数组缺点
@@ -227,7 +227,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-
+    
     ```
 
 === "JavaScript"
@@ -265,19 +265,19 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C"
 
     ```c title="array.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="array.cs"
-
+    
     ```
 
 **数组中插入或删除元素效率低下。** 假设我们想要在数组中间某位置插入一个元素，由于数组元素在内存中是 “紧挨着的” ，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。删除元素也是类似，需要把此索引之后的元素都向前移动一位。总体看有以下缺点：
 
 - **时间复杂度高：** 数组的插入和删除的平均时间复杂度均为 $O(N)$ ，其中 $N$ 为数组长度。
-- **丢失元素或：** 由于数组的长度不可变，因此在插入元素后，数组原来的末尾元素会丢失。
+- **丢失元素：** 由于数组的长度不可变，因此在插入元素后，超出数组长度范围的元素会被丢失。
 - **内存浪费：** 我们一般会初始化一个比较长的数组，只用前面一部分，这样在插入数据时，丢失的末尾元素都是我们不关心的，但这样做同时也会造成内存空间的浪费。
 
 ![array_insert_remove_element](array.assets/array_insert_remove_element.png)
@@ -318,7 +318,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 将 num 赋给 index 处元素
         nums[index] = num;
     }
-
+    
     /* 删除索引 index 处元素 */
     void remove(int* nums, int size, int index) {
         // 把索引 index 之后的所有元素向前移动一位
@@ -338,7 +338,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
             nums[i] = nums[i - 1]
         # 将 num 赋给 index 处元素
         nums[index] = num
-
+    
     """ 删除索引 index 处元素 """
     def remove(nums, index):
         # 把索引 index 之后的所有元素向前移动一位
@@ -349,7 +349,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-
+    
     ```
 
 === "JavaScript"
@@ -364,7 +364,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 将 num 赋给 index 处元素
         nums[index] = num;
     }
-
+    
     /* 删除索引 index 处元素 */
     function remove(nums, index){
         // 把索引 index 之后的所有元素向前移动一位
@@ -386,7 +386,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 将 num 赋给 index 处元素
         nums[index] = num
     }
-
+    
     /* 删除索引 index 处元素 */
     function remove(nums: number[], index: number): void {
         // 把索引 index 之后的所有元素向前移动一位
@@ -399,13 +399,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C"
 
     ```c title="array.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="array.cs"
-
+    
     ```
 
 ## 数组常用操作
@@ -459,7 +459,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-
+    
     ```
 
 === "JavaScript"
@@ -499,13 +499,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C"
 
     ```c title="array.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="array.cs"
-
+    
     ```
 
 **数组查找。** 通过遍历数组，查找数组内的指定元素，并输出对应索引。
@@ -550,7 +550,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-
+    
     ```
 
 === "JavaScript"
@@ -583,13 +583,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C"
 
     ```c title="array.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="array.cs"
-
+    
     ```
 
 ## 数组典型应用

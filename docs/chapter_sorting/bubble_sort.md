@@ -6,7 +6,7 @@ comments: true
 
 「冒泡排序 Bubble Sort」是一种最基础的排序算法，非常适合作为第一个学习的排序算法。顾名思义，「冒泡」是该算法的核心操作。
 
-!!! tip "为什么叫 “冒泡”"
+!!! question "为什么叫 “冒泡”"
 
     在水中，越大的泡泡浮力越大，所以最大的泡泡会最先浮到水面。
 
@@ -112,7 +112,19 @@ comments: true
 === "Go"
 
     ```go title="bubble_sort.go"
-
+    /* 冒泡排序 */
+    func bubbleSort(nums []int) {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for i := len(nums) - 1; i > 0; i-- {
+            // 内循环：冒泡操作
+            for j := 0; j < i; j++ {
+                if nums[j] > nums[j+1] {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    nums[j], nums[j+1] = nums[j+1], nums[j]
+                }
+            }
+        }
+    }
     ```
 
 === "JavaScript"
@@ -239,7 +251,24 @@ comments: true
 === "Go"
 
     ```go title="bubble_sort.go"
-
+    /* 冒泡排序（标志优化）*/
+    func bubbleSortWithFlag(nums []int) {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for i := len(nums) - 1; i > 0; i-- {
+            flag := false // 初始化标志位
+            // 内循环：冒泡操作
+            for j := 0; j < i; j++ {
+                if nums[j] > nums[j+1] {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    nums[j], nums[j+1] = nums[j+1], nums[j]
+                    flag = true // 记录交换元素
+                }
+            }
+            if flag == false { // 此轮冒泡未交换任何元素，直接跳出
+                break
+            }
+        }
+    }
     ```
 
 === "JavaScript"
