@@ -13,6 +13,7 @@ import java.util.*;
  */
 public class TreeNode {
     public int val;
+    public int height;
     public TreeNode left;
     public TreeNode right;
 
