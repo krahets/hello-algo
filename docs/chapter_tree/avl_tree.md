@@ -1,4 +1,8 @@
-# AVL 树
+---
+comments: true
+---
+
+# AVL 树 *
 
 在「二叉搜索树」章节中提到，在进行多次插入与删除操作后，二叉搜索树可能会退化为链表。此时所有操作的时间复杂度都会由 $O(\log n)$ 劣化至 $O(n)$ 。
 
@@ -38,43 +42,43 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-
+    
     ```
 
 === "Python"
 
     ```python title="avl_tree.py"
-
+    
     ```
 
 === "Go"
 
     ```go title="avl_tree.go"
-
+    
     ```
 
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
+    
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-
+    
     ```
 
 === "C"
 
     ```c title="avl_tree.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="avl_tree.cs"
-
+    
     ```
 
 「结点高度」是最远叶结点到该结点的距离，即走过的「边」的数量。需要特别注意，**叶结点的高度为 0 ，空结点的高度为 -1** 。我们封装两个工具函数，分别用于获取与更新结点的高度。
@@ -98,43 +102,43 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-
+    
     ```
 
 === "Python"
 
     ```python title="avl_tree.py"
-
+    
     ```
 
 === "Go"
 
     ```go title="avl_tree.go"
-
+    
     ```
 
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
+    
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-
+    
     ```
 
 === "C"
 
     ```c title="avl_tree.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="avl_tree.cs"
-
+    
     ```
 
 ### 结点平衡因子
@@ -156,43 +160,43 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-
+    
     ```
 
 === "Python"
 
     ```python title="avl_tree.py"
-
+    
     ```
 
 === "Go"
 
     ```go title="avl_tree.go"
-
+    
     ```
 
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
+    
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-
+    
     ```
 
 === "C"
 
     ```c title="avl_tree.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="avl_tree.cs"
-
+    
     ```
 
 !!! note
@@ -237,7 +241,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 更新结点高度
         updateHeight(node);
         updateHeight(child);
-        // 返回旋转后的根节点
+        // 返回旋转后子树的根节点
         return child;
     }
     ```
@@ -245,43 +249,43 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-
+    
     ```
 
 === "Python"
 
     ```python title="avl_tree.py"
-
+    
     ```
 
 === "Go"
 
     ```go title="avl_tree.go"
-
+    
     ```
 
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
+    
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-
+    
     ```
 
 === "C"
 
     ```c title="avl_tree.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="avl_tree.cs"
-
+    
     ```
 
 ### Case 2 - 左旋
@@ -303,7 +307,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 更新结点高度
         updateHeight(node);
         updateHeight(child);
-        // 返回旋转后的根节点
+        // 返回旋转后子树的根节点
         return child;
     }
     ```
@@ -311,43 +315,43 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-
+    
     ```
 
 === "Python"
 
     ```python title="avl_tree.py"
-
+    
     ```
 
 === "Go"
 
     ```go title="avl_tree.go"
-
+    
     ```
 
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
+    
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-
+    
     ```
 
 === "C"
 
     ```c title="avl_tree.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="avl_tree.cs"
-
+    
     ```
 
 ### Case 3 - 先左后右
@@ -420,43 +424,43 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-
+    
     ```
 
 === "Python"
 
     ```python title="avl_tree.py"
-
+    
     ```
 
 === "Go"
 
     ```go title="avl_tree.go"
-
+    
     ```
 
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
+    
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-
+    
     ```
 
 === "C"
 
     ```c title="avl_tree.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="avl_tree.cs"
-
+    
     ```
 
 ## AVL 树常用操作
@@ -495,43 +499,43 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-
+    
     ```
 
 === "Python"
 
     ```python title="avl_tree.py"
-
+    
     ```
 
 === "Go"
 
     ```go title="avl_tree.go"
-
+    
     ```
 
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
+    
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-
+    
     ```
 
 === "C"
 
     ```c title="avl_tree.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="avl_tree.cs"
-
+    
     ```
 
 ### 删除结点
@@ -592,43 +596,43 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-
+    
     ```
 
 === "Python"
 
     ```python title="avl_tree.py"
-
+    
     ```
 
 === "Go"
 
     ```go title="avl_tree.go"
-
+    
     ```
 
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
+    
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-
+    
     ```
 
 === "C"
 
     ```c title="avl_tree.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="avl_tree.cs"
-
+    
     ```
 
 ### 查找结点
