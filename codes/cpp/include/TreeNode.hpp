@@ -11,10 +11,13 @@
  * 
  */
 struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    int val{};
+    int height = 0;
+    TreeNode *parent{};
+    TreeNode *left{};
+    TreeNode *right{};
+    TreeNode() = default;
+    explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {}
 };
 
 /**
