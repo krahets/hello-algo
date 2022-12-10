@@ -118,12 +118,11 @@ extra_css:
 
 # Page tree
 nav:
-  - 关于本书:
-    - chapter_preface/index.md
+  - 前言:
+    - 关于本书: chapter_preface/about_the_book.md
     - 如何使用本书: chapter_preface/suggestions.md
     - 编程环境安装: chapter_preface/installation.md
     - 一起参与创作: chapter_preface/contribution.md
-    - 关于作者: chapter_preface/about_me.md
   - 算法是什么: 
     - chapter_introduction/index.md
   - 计算复杂度:
