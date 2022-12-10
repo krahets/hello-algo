@@ -12,9 +12,10 @@ import java.util.*;
  * Definition for a binary tree node.
  */
 public class TreeNode {
-    public int val;
-    public TreeNode left;
-    public TreeNode right;
+    public int val;        // 结点值
+    public int height;     // 结点高度
+    public TreeNode left;  // 左子结点引用
+    public TreeNode right; // 右子结点引用
 
     public TreeNode(int x) {
         val = x;
