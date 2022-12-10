@@ -2,14 +2,14 @@
 comments: true
 ---
 
-# 排序算法
+# 排序简介
 
 「排序算法 Sorting Algorithm」使得列表中的所有元素按照从小到大的顺序排列。
 
 - 待排序的列表的 **元素类型** 可以是整数、浮点数、字符、或字符串；
 - 排序算法可以根据需要设定 **判断规则** ，例如数字大小、字符 ASCII 码顺序、自定义规则；
 
-![sorting_examples](index.assets/sorting_examples.png)
+![sorting_examples](intro_to_sort.assets/sorting_examples.png)
 
 <p align="center"> Fig. 排序中的不同元素类型和判断规则 </p>
 

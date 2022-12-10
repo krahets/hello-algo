@@ -162,7 +162,7 @@ nav:
     - 哈希查找: chapter_searching/hashing_search.md
     - 小结: chapter_searching/summary.md
   - 排序算法:
-    - chapter_sorting/index.md
+    - 排序简介: chapter_sorting/intro_to_sort.md
     - 冒泡排序: chapter_sorting/bubble_sort.md
     - 插入排序: chapter_sorting/insertion_sort.md
     - 快速排序: chapter_sorting/quick_sort.md
