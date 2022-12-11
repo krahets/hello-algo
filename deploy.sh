@@ -1,4 +1,4 @@
-mkdocs build
+mkdocs build --clean
 cd site
 git init
 git add -A
