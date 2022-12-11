@@ -26,7 +26,7 @@ theme:
     - navigation.indexes
     # - navigation.instant
     # - navigation.prune
-    # - navigation.sections
+    - navigation.sections
     # - navigation.tabs
     # - navigation.tabs.sticky
     # - navigation.top
@@ -118,13 +118,14 @@ extra_css:
 
 # Page tree
 nav:
-  - 前言:
+  - 写在前面:
     - 关于本书: chapter_preface/about_the_book.md
     - 如何使用本书: chapter_preface/suggestions.md
     - 编程环境安装: chapter_preface/installation.md
     - 一起参与创作: chapter_preface/contribution.md
-  - 算法是什么: 
-    - chapter_introduction/index.md
+  - 引言: 
+    - 算法无处不在: chapter_introduction/algorithms_are_everywhere.md
+    - 算法是什么: chapter_introduction/what_is_dsa.md
   - 计算复杂度:
     - 算法效率评估: chapter_computational_complexity/performance_evaluation.md
     - 时间复杂度: chapter_computational_complexity/time_complexity.md

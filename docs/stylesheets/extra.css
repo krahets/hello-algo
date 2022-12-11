@@ -57,3 +57,16 @@
   display: block;
   margin: 0 auto;
 }
+
+/* navigation scrollbar */
+.md-sidebar__scrollwrap {
+  overflow-y: hidden;
+}
+
+.md-sidebar__scrollwrap:hover {
+  overflow-y: auto;
+}
+
+/* .md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+  background-color: var(--md-default-fg-color--lightest);
+} */
