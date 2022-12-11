@@ -50,7 +50,8 @@ comments: true
 === "TypeScript"
 
     ```typescript title="list.ts"
-
+    /* 初始化列表 */
+    const list: number[] = [1, 3, 2, 5, 4];
     ```
 
 === "C"
@@ -112,7 +113,11 @@ comments: true
 === "TypeScript"
 
     ```typescript title="list.ts"
+    /* 访问元素 */
+    const num: number = list[1];
 
+    /* 更新元素 */
+    list[1] = 0;
     ```
 
 === "C"
@@ -204,7 +209,21 @@ comments: true
 === "TypeScript"
 
     ```typescript title="list.ts"
+    /* 清空列表 */
+    list.length = 0;
 
+    /* 尾部添加元素 */
+    list.push(1);
+    list.push(3);
+    list.push(2);
+    list.push(5);
+    list.push(4);
+
+    /* 中间插入元素 */
+    list.splice(3, 0, 6);
+
+    /* 删除元素 */
+    list.splice(3, 1);
     ```
 
 === "C"
@@ -282,7 +301,17 @@ comments: true
 === "TypeScript"
 
     ```typescript title="list.ts"
+    /* 通过索引遍历列表 */
+    let count = 0;
+    for (let i = 0; i < list.length; i++) {
+        count++;
+    }
 
+    /* 直接遍历列表元素 */
+    count = 0;
+    for (const n of list) {
+        count++;
+    }
     ```
 
 === "C"
@@ -339,7 +368,9 @@ comments: true
 === "TypeScript"
 
     ```typescript title="list.ts"
-
+    /* 拼接两个列表 */
+    const list1: number[] = [6, 8, 7, 10, 9];
+    list.push(...list1);
     ```
 
 === "C"
@@ -392,7 +423,8 @@ comments: true
 === "TypeScript"
 
     ```typescript title="list.ts"
-
+    /* 排序列表 */
+    list.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
     ```
 
 === "C"
@@ -687,7 +719,96 @@ comments: true
 === "TypeScript"
 
     ```typescript title="my_list.ts"
+    /* 列表类简易实现 */
+    class MyList {
+        private nums: Array<number>; // 数组（存储列表元素）
+        private _capacity: number = 10; // 列表容量
+        private _size: number = 0; // 列表长度（即当前元素数量）
+        private extendRatio: number = 2; // 每次列表扩容的倍数
 
+        /* 构造函数 */
+        constructor() {
+            this.nums = new Array(this._capacity);
+        }
+
+        /* 获取列表长度（即当前元素数量）*/
+        public size(): number {
+            return this._size;
+        }
+
+        /* 获取列表容量 */
+        public capacity(): number {
+            return this._capacity;
+        }
+
+        /* 访问元素 */
+        public get(index: number): number {
+            // 索引如果越界则抛出异常，下同
+            if (index >= this._size) {
+                throw new Error('索引越界');
+            }
+            return this.nums[index];
+        }
+
+        /* 更新元素 */
+        public set(index: number, num: number): void {
+            if (index >= this._size) throw new Error('索引越界');
+            this.nums[index] = num;
+        }
+
+        /* 尾部添加元素 */
+        public add(num: number): void {
+            // 如果长度等于容量，则需要扩容
+            if (this._size === this._capacity) {
+                this.extendCapacity();
+            }
+            // 将新元素添加到列表尾部
+            this.nums[this._size] = num;
+            this._size++;
+        }
+
+        /* 中间插入元素 */
+        public insert(index: number, num: number): void {
+            if (index >= this._size) {
+                throw new Error('索引越界');
+            }
+            // 元素数量超出容量时，触发扩容机制
+            if (this._size === this._capacity) {
+                this.extendCapacity();
+            }
+            // 将索引 index 以及之后的元素都向后移动一位
+            for (let j = this._size - 1; j >= index; j--) {
+                this.nums[j + 1] = this.nums[j];
+            }
+            // 更新元素数量
+            this.nums[index] = num;
+            this._size++;
+        }
+
+        /* 删除元素 */
+        public remove(index: number): number {
+            if (index >= this._size) throw new Error('索引越界');
+            let num = this.nums[index];
+            // 将索引 index 之后的元素都向前移动一位
+            for (let j = index; j < this._size - 1; j++) {
+                this.nums[j] = this.nums[j + 1];
+            }
+            // 更新元素数量
+            this._size--;
+            // 返回被删除元素
+            return num;
+        }
+
+        /* 列表扩容 */
+        public extendCapacity(): void {
+            // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
+            this.nums = this.nums.concat(
+                new Array(this.capacity() * (this.extendRatio - 1))
+            );
+            // 更新列表容量
+            this._capacity = this.nums.length;
+        }
+    }
     ```
 
 === "C"
