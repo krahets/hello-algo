@@ -68,7 +68,7 @@ function find(nums: number[], target: number): number {
     return -1;
 }
 
-/* Driver Codes*/
+/* Driver Code */
 /* 初始化数组 */
 let arr: number[] = new Array(5).fill(0);
 console.log('数组 arr =', arr);
