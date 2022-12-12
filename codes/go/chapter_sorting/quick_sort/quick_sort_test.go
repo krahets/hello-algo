@@ -1,6 +1,6 @@
-//File: quick_sort_test.go
-//Created Time: 2022-12-12
-//Author: msk397 (machangxinq@gmail.com)
+// File: quick_sort_test.go
+// Created Time: 2022-12-12
+// Author: msk397 (machangxinq@gmail.com)
 
 package quick_sort
 
