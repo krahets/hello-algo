@@ -6,7 +6,7 @@ package chapter_searching
 
 import (
 	"fmt"
-	"github.com/krahets/hello-algo/pkg"
+	. "github.com/krahets/hello-algo/pkg"
 	"testing"
 )
 
@@ -23,9 +23,9 @@ func TestHashingSearch(t *testing.T) {
 	fmt.Println("目标元素 3 的索引 = ", index)
 
 	/* 哈希查找（链表） */
-	head := pkg.ArrayToLinkedList(nums)
+	head := ArrayToLinkedList(nums)
 	// 初始化哈希表
-	m1 := make(map[int]*pkg.ListNode)
+	m1 := make(map[int]*ListNode)
 	for head != nil {
 		m1[head.Val] = head
 		head = head.Next
