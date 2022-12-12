@@ -1,8 +1,7 @@
-/*
-	File: insertion_sort.go
-	Created Time: 2022-12-12
-	Author: msk397 (machangxinq@gmail.com)
-*/
+//File: insertion_sort.go
+//Created Time: 2022-12-12
+//Author: msk397 (machangxinq@gmail.com)
+
 package insertion_sort
 
 func insertionSort(nums []int) {
