@@ -48,12 +48,6 @@ for (const n of list) {
     count++;
 }
 
-/* 直接遍历列表元素 */
-count = 0;
-for (const n of list) {
-    count++;
-}
-
 /* 拼接两个列表 */
 const list1 = [6, 8, 7, 10, 9];
 list.push(...list1);
