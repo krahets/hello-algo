@@ -44,7 +44,8 @@ comments: true
 === "JavaScript"
 
     ```js title="list.js"
-
+    /* 初始化列表 */
+    const list = [1, 3, 2, 5, 4];
     ```
 
 === "TypeScript"
@@ -107,7 +108,11 @@ comments: true
 === "JavaScript"
 
     ```js title="list.js"
+    /* 访问元素 */
+    const num = list[1];
 
+    /* 更新元素 */
+    list[1] = 0;
     ```
 
 === "TypeScript"
@@ -203,7 +208,21 @@ comments: true
 === "JavaScript"
 
     ```js title="list.js"
+    /* 清空列表 */
+    list.length = 0;
 
+    /* 尾部添加元素 */
+    list.push(1);
+    list.push(3);
+    list.push(2);
+    list.push(5);
+    list.push(4);
+
+    /* 中间插入元素 */
+    list.splice(3, 0, 6);
+
+    /* 删除元素 */
+    list.splice(3, 1);
     ```
 
 === "TypeScript"
@@ -295,7 +314,17 @@ comments: true
 === "JavaScript"
 
     ```js title="list.js"
+    /* 通过索引遍历列表 */
+    let count = 0;
+    for (let i = 0; i < list.length; i++) {
+        count++;
+    }
 
+    /* 直接遍历列表元素 */
+    count = 0;
+    for (const n of list) {
+        count++;
+    }
     ```
 
 === "TypeScript"
@@ -362,7 +391,9 @@ comments: true
 === "JavaScript"
 
     ```js title="list.js"
-
+    /* 拼接两个列表 */
+    const list1 = [6, 8, 7, 10, 9];
+    list.push(...list1);
     ```
 
 === "TypeScript"
@@ -417,7 +448,8 @@ comments: true
 === "JavaScript"
 
     ```js title="list.js"
-
+    /* 排序列表 */  
+    list.sort((a, b) => a - b);
     ```
 
 === "TypeScript"
@@ -713,7 +745,96 @@ comments: true
 === "JavaScript"
 
     ```js title="my_list.js"
+    /* 列表类简易实现 */
+    class MyList {
+        #nums = new Array(); // 数组（存储列表元素）
+        #capacity = 10; // 列表容量
+        #size = 0; // 列表长度（即当前元素数量）
+        #extendRatio = 2; // 每次列表扩容的倍数
 
+        /* 构造函数 */
+        constructor() {
+            this.#nums = new Array(this.#capacity);
+        }
+
+        /* 获取列表长度（即当前元素数量）*/
+        size() {
+            return this.#size;
+        }
+
+        /* 获取列表容量 */
+        capacity() {
+            return this.#capacity;
+        }
+
+        /* 访问元素 */
+        get(index) {
+            // 索引如果越界则抛出异常，下同
+            if (index >= this.#size) {
+                throw new Error('索引越界');
+            }
+            return this.#nums[index];
+        }
+
+        /* 更新元素 */
+        set(index, num) {
+            if (index >= this._size) throw new Error('索引越界');
+            this.#nums[index] = num;
+        }
+
+        /* 尾部添加元素 */
+        add(num) {
+            // 如果长度等于容量，则需要扩容
+            if (this.#size === this.#capacity) {
+                this.extendCapacity();
+            }
+            // 将新元素添加到列表尾部
+            this.#nums[this.#size] = num;
+            this.#size++;
+        }
+
+        /* 中间插入元素 */
+        insert(index, num) {
+            if (index >= this.#size) {
+                throw new Error('索引越界');
+            }
+            // 元素数量超出容量时，触发扩容机制
+            if (this.#size === this.#capacity) {
+                this.extendCapacity();
+            }
+            // 将索引 index 以及之后的元素都向后移动一位
+            for (let j = this.#size - 1; j >= index; j--) {
+                this.#nums[j + 1] = this.#nums[j];
+            }
+            // 更新元素数量
+            this.#nums[index] = num;
+            this.#size++;
+        }
+
+        /* 删除元素 */
+        remove(index) {
+            if (index >= this.#size) throw new Error('索引越界');
+            let num = this.#nums[index];
+            // 将索引 index 之后的元素都向前移动一位
+            for (let j = index; j < this.#size - 1; j++) {
+                this.#nums[j] = this.#nums[j + 1];
+            }
+            // 更新元素数量
+            this.#size--;
+            // 返回被删除元素
+            return num;
+        }
+
+        /* 列表扩容 */
+        extendCapacity() {
+            // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
+            this.#nums = this.#nums.concat(
+                new Array(this.capacity() * (this.#extendRatio - 1))
+            );
+            // 更新列表容量
+            this.#capacity = this.#nums.length;
+        }
+    }
     ```
 
 === "TypeScript"
