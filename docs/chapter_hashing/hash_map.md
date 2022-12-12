@@ -37,44 +37,132 @@ comments: true
 
 哈希表的基本操作包括 **初始化、查询操作、添加与删除键值对**。
 
-```java title="hash_map.java"
-/* 初始化哈希表 */
-Map<Integer, String> map = new HashMap<>();
+=== "Java"
 
-/* 添加操作 */
-// 在哈希表中添加键值对 (key, value)
-map.put(12836, "小哈");   
-map.put(15937, "小啰");   
-map.put(16750, "小算");   
-map.put(13276, "小法");
-map.put(10583, "小鸭");
+    ```java title="hash_map.java"
+    /* 初始化哈希表 */
+    Map<Integer, String> map = new HashMap<>();
 
-/* 查询操作 */
-// 向哈希表输入键 key ，得到值 value
-String name = map.get(15937);
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map.put(12836, "小哈");   
+    map.put(15937, "小啰");   
+    map.put(16750, "小算");   
+    map.put(13276, "小法");
+    map.put(10583, "小鸭");
 
-/* 删除操作 */
-// 在哈希表中删除键值对 (key, value)
-map.remove(10583);
-```
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    String name = map.get(15937);
+
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.remove(10583);
+    ```
+
+=== "C++"
+
+    ```cpp title="hash_map.cpp"
+
+    ```
+
+=== "Python"
+
+    ```python title="hash_map.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="hash_map.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="hash_map.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="hash_map.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="hash_map.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="hash_map.cs"
+
+    ```
 
 遍历哈希表有三种方式，即 **遍历键值对、遍历键、遍历值**。
 
-```java
-/* 遍历哈希表 */
-// 遍历键值对 key->value
-for (Map.Entry <Integer, String> kv: map.entrySet()) {
-    System.out.println(kv.getKey() + " -> " + kv.getValue());
-}
-// 单独遍历键 key
-for (int key: map.keySet()) {
-    System.out.println(key);
-}
-// 单独遍历值 value
-for (String val: map.values()) {
-    System.out.println(val);
-}
-```
+=== "Java"
+
+    ```java title="hash_map.java"
+    /* 遍历哈希表 */
+    // 遍历键值对 key->value
+    for (Map.Entry <Integer, String> kv: map.entrySet()) {
+        System.out.println(kv.getKey() + " -> " + kv.getValue());
+    }
+    // 单独遍历键 key
+    for (int key: map.keySet()) {
+        System.out.println(key);
+    }
+    // 单独遍历值 value
+    for (String val: map.values()) {
+        System.out.println(val);
+    }
+    ```
+
+=== "C++"
+
+    ```cpp title="hash_map.cpp"
+
+    ```
+
+=== "Python"
+
+    ```python title="hash_map.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="hash_map.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="hash_map.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="hash_map.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="hash_map.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="hash_map.cs"
+
+    ```
 
 ## 哈希函数
 
@@ -97,57 +185,101 @@ $$
 
 <p align="center"> Fig. 哈希函数 </p>
 
-```java title="array_hash_map.java"
-/* 键值对 int->String */
-class Entry {
-    public int key;     // 键
-    public String val;  // 值
-    public Entry(int key, String val) {
-        this.key = key;
-        this.val = val;
-    }
-}
+=== "Java"
 
-/* 基于数组简易实现的哈希表 */
-class ArrayHashMap {
-    private List<Entry> bucket;
-    public ArrayHashMap() {
-        // 初始化一个长度为 100 的桶（数组）
-        bucket = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            bucket.add(null);
+    ```java title="array_hash_map.java"
+    /* 键值对 int->String */
+    class Entry {
+        public int key;     // 键
+        public String val;  // 值
+        public Entry(int key, String val) {
+            this.key = key;
+            this.val = val;
         }
     }
 
-    /* 哈希函数 */
-    private int hashFunc(int key) {
-        int index = key % 100;
-        return index;
-    }
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+        private List<Entry> bucket;
+        public ArrayHashMap() {
+            // 初始化一个长度为 100 的桶（数组）
+            bucket = new ArrayList<>();
+            for (int i = 0; i < 100; i++) {
+                bucket.add(null);
+            }
+        }
 
-    /* 查询操作 */
-    public String get(int key) {
-        int index = hashFunc(key);
-        Entry pair = bucket.get(index);
-        if (pair == null) return null;
-        return pair.val;
-    }
+        /* 哈希函数 */
+        private int hashFunc(int key) {
+            int index = key % 100;
+            return index;
+        }
 
-    /* 添加操作 */
-    public void put(int key, String val) {
-        Entry pair = new Entry(key, val);
-        int index = hashFunc(key);
-        bucket.set(index, pair);
-    }
+        /* 查询操作 */
+        public String get(int key) {
+            int index = hashFunc(key);
+            Entry pair = bucket.get(index);
+            if (pair == null) return null;
+            return pair.val;
+        }
 
-    /* 删除操作 */
-    public void remove(int key) {
-        int index = hashFunc(key);
-        // 置为空字符，代表删除
-        bucket.set(index, null);
+        /* 添加操作 */
+        public void put(int key, String val) {
+            Entry pair = new Entry(key, val);
+            int index = hashFunc(key);
+            bucket.set(index, pair);
+        }
+
+        /* 删除操作 */
+        public void remove(int key) {
+            int index = hashFunc(key);
+            // 置为空字符，代表删除
+            bucket.set(index, null);
+        }
     }
-}
-```
+    ```
+
+=== "C++"
+
+    ```cpp title="array_hash_map.cpp"
+
+    ```
+
+=== "Python"
+
+    ```python title="array_hash_map.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="array_hash_map.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="array_hash_map.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array_hash_map.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="array_hash_map.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="array_hash_map.cs"
+
+    ```
 
 ## 哈希冲突
 
