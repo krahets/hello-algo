@@ -57,7 +57,13 @@ comments: true
 === "JavaScript"
 
     ```js title=""
-
+    /* 链表结点结构体 */
+    class ListNode {
+        constructor(val, next) {
+            this.val = val === undefined ? 0 : val;
+            this.next = next === undefined ? null : next;
+        }
+    }
     ```
 
 === "TypeScript"
@@ -154,7 +160,18 @@ comments: true
 === "JavaScript"
 
     ```js title=""
-
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个结点
+    const n0 = new ListNode(1);
+    const n1 = new ListNode(3);
+    const n2 = new ListNode(2);
+    const n3 = new ListNode(5);
+    const n4 = new ListNode(4);
+    // 构建引用指向
+    n0.next = n1;
+    n1.next = n2;
+    n2.next = n3;
+    n3.next = n4;
     ```
 
 === "TypeScript"
@@ -264,7 +281,23 @@ comments: true
 === "JavaScript"
 
     ```js title=""
+    /* 在链表的结点 n0 之后插入结点 P */
+    function insert(n0, P) {
+        const n1 = n0.next;
+        n0.next = P;
+        P.next = n1;
+    }
 
+    /* 删除链表的结点 n0 之后的首个结点 */
+    function remove(n0) {
+        if (!n0.next) {
+            return;
+        }
+        // n0 -> P -> n1
+        const P = n0.next;
+        const n1 = P.next;
+        n0.next = n1;
+    }
     ```
 
 === "TypeScript"
@@ -353,7 +386,16 @@ comments: true
 === "JavaScript"
 
     ```js title=""
-
+    /* 访问链表中索引为 index 的结点 */
+    function access(head, index) {
+        for (let i = 0; i < index; i++) {
+            if (!head) {
+                return null;
+            }
+            head = head.next;
+        }
+        return head;
+    }
     ```
 
 === "TypeScript"
@@ -444,7 +486,18 @@ comments: true
 === "JavaScript"
 
     ```js title=""
-
+    /* 在链表中查找值为 target 的首个结点 */
+    function find(head, target) {
+        let index = 0;
+        while (head !== null) {
+            if (head.val === target) {
+                return index;
+            }
+            head = head.next;
+            index += 1;
+        }
+        return -1;
+    }
     ```
 
 === "TypeScript"
@@ -528,7 +581,14 @@ comments: true
 === "JavaScript"
 
     ```js title=""
-
+    /* 双向链表结点类 */
+    class ListNode {
+        constructor(val, next, prev) {
+            this.val = val  ===  undefined ? 0 : val;        // 结点值
+            this.next = next  ===  undefined ? null : next;  // 指向后继结点的引用
+            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的引用
+        }
+    }
     ```
 
 === "TypeScript"
@@ -539,7 +599,7 @@ comments: true
         val: number;
         next: ListNode | null;
         prev: ListNode | null;
-        constructor(val?: number, next?: ListNode | null) {
+        constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
             this.val = val  ===  undefined ? 0 : val;        // 结点值
             this.next = next  ===  undefined ? null : next;  // 指向后继结点的引用
             this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的引用
