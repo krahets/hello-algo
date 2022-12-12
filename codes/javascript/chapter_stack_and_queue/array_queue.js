@@ -1,39 +1,39 @@
 /**
- * File: array_queue.ts
- * Created Time: 2022-12-11
+ * File: array_queue.js
+ * Created Time: 2022-12-13
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
 
 /* 基于环形数组实现的队列 */
 class ArrayQueue {
-    private queue: number[];     // 用于存储队列元素的数组
-    private front: number = 0;  // 头指针，指向队首
-    private rear: number = 0;   // 尾指针，指向队尾 + 1
-    private CAPACITY: number = 1e5;
+    queue;     // 用于存储队列元素的数组
+    front = 0;  // 头指针，指向队首
+    rear = 0;   // 尾指针，指向队尾 + 1
+    CAPACITY = 1e5;
 
-    constructor(capacity?: number) {
-        this.queue = new Array<number>(capacity ?? this.CAPACITY);
+    constructor(capacity) {
+        this.queue = new Array(capacity ?? this.CAPACITY);
     }
 
     /* 获取队列的容量 */
-    get capacity(): number {
+    get capacity() {
         return this.queue.length;
     }
 
     /* 获取队列的长度 */
-    get size(): number {
+    get size() {
         // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
         return (this.capacity + this.rear - this.front) % this.capacity;
     }
 
     /* 判断队列是否为空 */
-    empty(): boolean {
+    empty() {
         return this.rear - this.front == 0;
     }
 
     /* 入队 */
-    offer(num: number): void {
+    offer(num) {
         if (this.size == this.capacity) {
             console.log("队列已满");
             return;
@@ -45,7 +45,7 @@ class ArrayQueue {
     }
 
     /* 出队 */
-    poll(): number {
+    poll() {
         const num = this.peek();
         // 队头指针向后移动一位，若越过尾部则返回到数组头部
         this.front = (this.front + 1) % this.capacity;
@@ -53,7 +53,7 @@ class ArrayQueue {
     }
 
     /* 访问队首元素 */
-    peek(): number {
+    peek() {
         // 删除头结点
         if (this.empty())
             throw new Error("The queue is empty!");
@@ -61,14 +61,14 @@ class ArrayQueue {
     }
 
     /* 访问指定索引元素 */
-    get(index: number): number {
+    get(index) {
         if (index >= this.size)
             throw new Error("Index out of bounds!");
         return this.queue[(this.front + index) % this.capacity];
     }
 
     /* 返回 Array */
-    toArray(): number[] {
+    toArray() {
         const siz = this.size;
         const cap = this.capacity;
         // 仅转换有效长度范围内的列表元素
@@ -121,5 +121,3 @@ for (let i = 0; i < 10; i++) {
     console.log("第 " + i + " 轮入队 + 出队后 queue = ");
     console.log(queue.toArray());
 }
-
-export { };
