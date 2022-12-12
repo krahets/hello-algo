@@ -21,8 +21,8 @@ class ListNode {
      * @return
      */
     arrToLinkedList(arr) {
-        let dum = new ListNode(0);
-        let head = dum;
+        const dum = new ListNode(0);
+        const head = dum;
         for (const val of arr) {
             head.next = new ListNode(val);
             head = head.next;

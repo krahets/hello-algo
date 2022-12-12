@@ -163,7 +163,7 @@ comments: true
 
     ```js title=""
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个结点 
+    // 初始化各个结点
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
@@ -390,9 +390,9 @@ comments: true
     /* 访问链表中索引为 index 的结点 */
     function access(head, index) {
         for (let i = 0; i < index; i++) {
-            head = head.next;
             if (!head)
                 return null;
+            head = head.next;
         }
         return head;
     }
@@ -490,10 +490,11 @@ comments: true
     function find(head, target) {
         let index = 0;
         while (head !== null) {
-        if (head.val === target)
-            return index;
+            if (head.val === target) {
+                return index;
+            }
             head = head.next;
-            index++;
+            index += 1;
         }
         return -1;
     }
@@ -601,7 +602,7 @@ comments: true
         val: number;
         next: ListNode | null;
         prev: ListNode | null;
-        constructor(val?: number, next?: ListNode | null) {
+        constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
             this.val = val  ===  undefined ? 0 : val;        // 结点值
             this.next = next  ===  undefined ? null : next;  // 指向后继结点的引用
             this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的引用
