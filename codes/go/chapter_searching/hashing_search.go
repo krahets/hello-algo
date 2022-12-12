@@ -14,7 +14,6 @@ import (
 func hashingSearch(m map[int]int, target int) int {
 	// 哈希表的 key: 目标元素，value: 索引
 	// 若哈希表中无此 key ，返回 -1
-
 	if index, ok := m[target]; ok {
 		return index
 	} else {
@@ -22,11 +21,10 @@ func hashingSearch(m map[int]int, target int) int {
 	}
 }
 
-/* 哈希查找（数组） */
+/* 哈希查找（链表） */
 func hashingSearch1(m map[int]*pkg.ListNode, target int) *pkg.ListNode {
 	// 哈希表的 key: 目标结点值，value: 结点对象
 	// 若哈希表中无此 key ，返回 nil
-
 	if node, ok := m[target]; ok {
 		return node
 	} else {
