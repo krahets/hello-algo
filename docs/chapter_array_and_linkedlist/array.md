@@ -50,8 +50,8 @@ comments: true
 
     ```javascript title="array.js"
     /* 初始化数组 */
-    var arr = new Array(5).fill(0)
-    var nums = [1, 3, 2, 5, 4]
+    var arr = new Array(5).fill(0);
+    var nums = [1, 3, 2, 5, 4];
     ```
 
 === "TypeScript"
@@ -140,10 +140,10 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     /* 随机返回一个数组元素 */
     function randomAccess(nums){
         // 在区间 [0, nums.length) 中随机抽取一个数字
-        const random_index = Math.floor(Math.random() * nums.length)
+        const random_index = Math.floor(Math.random() * nums.length);
         // 获取并返回随机元素
-        random_num = nums[random_index]
-        return random_num
+        random_num = nums[random_index];
+        return random_num;
     }
     ```
 
@@ -236,13 +236,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     /* 扩展数组长度 */
     function extend(nums, enlarge){
         // 初始化一个扩展长度后的数组
-        let res = new Array(nums.length + enlarge).fill(0)
+        let res = new Array(nums.length + enlarge).fill(0);
         // 将原数组中的所有元素复制到新数组
         for(let i=0; i<nums.length;i++){
-                res[i] = nums[i]
+                res[i] = nums[i];
         }
         // 返回扩展后的新数组
-        return res
+        return res;
     }
     ```
 
@@ -369,7 +369,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     function remove(nums, index){
         // 把索引 index 之后的所有元素向前移动一位
         for (let i = index; i < nums.length - 1; i++) {
-            nums[i] = nums[i + 1]
+            nums[i] = nums[i + 1];
         }
     }
     ```
@@ -467,14 +467,14 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     ```javascript title="array.js"
     /* 遍历数组 */
     function traverse(nums){
-        let count = 0
+        let count = 0;
         // 通过索引遍历数组
         for (let i = 0; i < nums.length; i++) {
             count++;
         }
         // 直接遍历数组
         for(let num of nums){
-            count += 1
+            count += 1;
         }
     }
     ```
@@ -562,7 +562,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
             if (nums[i] == target)
                 return i;
         }
-        return -1
+        return -1;
     }
     ```
 
