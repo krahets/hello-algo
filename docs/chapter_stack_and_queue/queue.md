@@ -938,49 +938,6 @@ comments: true
             return arr;
         }
     }
-
-    /* 初始化队列 */
-    const capacity = 10;
-    const queue = new ArrayQueue(capacity);
-
-    /* 元素入队 */
-    queue.offer(1);
-    queue.offer(3);
-    queue.offer(2);
-    queue.offer(5);
-    queue.offer(4);
-    console.log("队列 queue = ");
-    console.log(queue.toArray());
-
-    /* 访问队首元素 */
-    const peek = queue.peek();
-    console.log("队首元素 peek = " + peek);
-
-    /* 访问指定索引元素 */
-    const num = queue.get(2);
-    console.log("队列第 3 个元素为 num = " + num);
-
-    /* 元素出队 */
-    const poll = queue.poll();
-    console.log("出队元素 poll = " + poll + "，出队后 queue = ");
-    console.log(queue.toArray());
-
-    /* 获取队列的长度 */
-    const size = queue.size;
-    console.log("队列长度 size = " + size);
-
-    /* 判断队列是否为空 */
-    const empty = queue.empty();
-    console.log("队列是否为空 = " + empty);
-
-    /* 测试环形数组 */
-    for (let i = 0; i < 10; i++) {
-        queue.offer(i);
-        queue.poll();
-        console.log("第 " + i + " 轮入队 + 出队后 queue = ");
-        console.log(queue.toArray());
-    }
-
     ```
 
 === "C"
