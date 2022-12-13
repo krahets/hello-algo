@@ -17,7 +17,9 @@ theme:
   custom_dir: docs/overrides
   language: zh
   features:
-    - announce.dismiss
+    # - announce.dismiss
+    - content.action.edit
+    # - content.action.view
     - content.code.annotate
     - content.code.copy
     - content.tabs.link
@@ -51,13 +53,14 @@ theme:
         icon: material/weather-night
         name: Switch to light mode
   font:
-    text: Roboto
-    code: Roboto Mono
+    text: Noto Sans SC
+    code: Fira Code
   favicon: assets/images/favicon.png
   logo: assets/images/logo.png
   icon:
     logo: logo
     repo: fontawesome/brands/github
+    edit: material/file-edit-outline
 
 extra:
   social:
