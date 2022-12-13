@@ -8,9 +8,9 @@
  * Definition for a binary tree node.
  */
 function TreeNode(val, left, right) {
-    this.val = (val === undefined ? 0 : val) // 结点值
-    this.left = (left === undefined ? null : left) // 左子结点指针
-    this.right = (right === undefined ? null : right) // 右子结点指针
+    this.val = (val === undefined ? 0 : val); // 结点值
+    this.left = (left === undefined ? null : left); // 左子结点指针
+    this.right = (right === undefined ? null : right); // 右子结点指针
 }
 
 /**

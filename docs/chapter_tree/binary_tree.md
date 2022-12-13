@@ -65,9 +65,9 @@ comments: true
     ```js title=""
     /* 链表结点类 */
     function TreeNode(val, left, right) {
-        this.val = (val === undefined ? 0 : val) // 结点值
-        this.left = (left === undefined ? null : left) // 左子结点指针
-        this.right = (right === undefined ? null : right) // 右子结点指针
+        this.val = (val === undefined ? 0 : val); // 结点值
+        this.left = (left === undefined ? null : left); // 左子结点指针
+        this.right = (right === undefined ? null : right); // 右子结点指针
     }
     ```
 
@@ -201,10 +201,10 @@ comments: true
     /* 初始化二叉树 */
     // 初始化结点
     let n1 = new TreeNode(1),
-    n2 = new TreeNode(2),
-    n3 = new TreeNode(3),
-    n4 = new TreeNode(4),
-    n5 = new TreeNode(5);
+        n2 = new TreeNode(2),
+        n3 = new TreeNode(3),
+        n4 = new TreeNode(4),
+        n5 = new TreeNode(5);
     // 构建引用指向（即指针）
     n1.left = n2;
     n1.right = n3;
