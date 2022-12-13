@@ -64,7 +64,16 @@ $$
 === "Go"
 
     ```go title=""
-
+    // 在某运行平台下
+    func algorithm(n int) {
+        var a int = 2  // 1 ns
+        a = a + 1      // 1 ns
+        a = a * 2      // 10 ns
+        // 循环 n 次
+        for i := 0; i < n; i++ {  // 1 ns ，每轮都要执行 i++
+            println(0)            // 5 ns
+        }
+    }
     ```
 
 === "JavaScript"
@@ -107,7 +116,7 @@ $$
 
     ```java title=""
     // 算法 A 时间复杂度：常数阶
-    void algorithm_A(int n) {
+    void algorithm_A(n int) {
         System.out.println(0);
     }
     // 算法 B 时间复杂度：线性阶
@@ -164,7 +173,24 @@ $$
 === "Go"
 
     ```go title=""
+    // 算法 A 时间复杂度：常数阶
+    func algorithm_A(n int) {
+        println(0)
+    }
 
+    // 算法 B 时间复杂度：线性阶
+    func algorithm_B(n int) {
+        for i := 0; i < n; i++ {
+            println(0)
+        }
+    }
+
+    // 算法 C 时间复杂度：常数阶
+    func algorithm_C(n int) {
+        for i := 0; i < 1000000; i++ {
+            println(0)
+        }
+    }
     ```
 
 === "JavaScript"
@@ -255,7 +281,15 @@ $$
 === "Go"
 
     ```go title=""
-
+    func algorithm(n int) {
+        var a int = 1  // +1
+        a = a + 1      // +1
+        a = a * 2      // +1
+        // 循环 n 次
+        for i := 0; i < n; i++ {  // +1（每轮都执行 i ++）
+            println(0)            // +1
+        }
+    }
     ```
 
 === "JavaScript"
@@ -389,7 +423,20 @@ $$
 === "Go"
 
     ```go title=""
-
+    func algorithm(n int) {
+        var a int = 1 // +0（技巧 1）
+        a = a + n     // +0（技巧 1）
+        // +n（技巧 2）
+        for i := 0; i < 5 * n + 1; i++ {
+            println(0)
+        }
+        // +n*n（技巧 3）
+        for i := 0; i < 2 * n; i++ {
+            for j := 0; j < n + 1; j++ {
+                println(0)
+            }
+        }
+    }
     ```
 
 === "JavaScript"
@@ -500,7 +547,15 @@ $$
 === "Go"
 
     ```go title="time_complexity_types.go"
-
+    // constant 常数阶
+    func constant(n int) int {
+        count := 0
+        var size = 100000
+        for i := 0; i < size; i++ {
+            count++
+        }
+        return count
+    }
     ```
 
 === "JavaScript"
@@ -569,7 +624,14 @@ $$
 === "Go"
 
     ```go title="time_complexity_types.go"
-
+    // linear 线性阶
+    func linear(n int) int {
+        count := 0
+        for i := 0; i < n; i++ {
+            count++
+        }
+        return count
+    }
     ```
 
 === "JavaScript"
@@ -645,7 +707,15 @@ $$
 === "Go"
 
     ```go title="time_complexity_types.go"
-
+    // arrayTraversal 线性阶（遍历数组）
+    func arrayTraversal(nums []int) int {
+        count := 0
+        // 循环次数与数组长度成正比
+        for range nums {
+            count++
+        }
+        return count
+    }
     ```
 
 === "JavaScript"
@@ -724,7 +794,17 @@ $$
 === "Go"
 
     ```go title="time_complexity_types.go"
-
+    // quadratic 平方阶
+    func quadratic(n int) int {
+        count := 0
+        // 循环次数与数组长度成平方关系
+        for i := 0; i < n; i++ {
+            for j := 0; j < n; j++ {
+                count++
+            }
+        }
+        return count
+    }
     ```
 
 === "JavaScript"
@@ -829,7 +909,24 @@ $$
 === "Go"
 
     ```go title="time_complexity_types.go"
-
+    // bubbleSort 平方阶（冒泡排序）
+    func bubbleSort(nums []int) int {
+        count := 0  // 计数器
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for i := len(nums) - 1; i > 0; i-- {
+            // 内循环：冒泡操作
+            for j := 0; j < i; j++ {
+                if nums[j] > nums[j + 1] {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    tmp := nums[j]
+                    nums[j] = nums[j + 1]
+                    nums[j + 1] = tmp
+                    count += 3 	// 元素交换包含 3 个单元操作
+                }
+            }
+        }
+        return count
+    }
     ```
 
 === "JavaScript"
@@ -918,7 +1015,20 @@ $$
 === "Go"
 
     ```go title="time_complexity_types.go"
-
+    // exponential 指数阶（循环实现）
+    func exponential(n int) int {
+        count := 0
+        base := 1
+        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+        for i := 0; i < n; i++ {
+            for j := 0; j < base; j++ {
+                count++
+            }
+            base *= 2
+        }
+        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
+        return count
+    }
     ```
 
 === "JavaScript"
@@ -983,7 +1093,13 @@ $$
 === "Go"
 
     ```go title="time_complexity_types.go"
-
+    // expRecur 指数阶（递归实现）
+    func expRecur(n int) int {
+        if n == 1 {
+            return 1
+        }
+        return expRecur(n - 1) + expRecur(n - 1) + 1
+    }
     ```
 
 === "JavaScript"
@@ -1061,7 +1177,15 @@ $$
 === "Go"
 
     ```go title="time_complexity_types.go"
-
+    // logarithmic 对数阶（循环实现）
+    func logarithmic(n float32) int {
+        count := 0
+        for n > 1 {
+            n = n / 2
+            count++
+        }
+        return count
+    }
     ```
 
 === "JavaScript"
@@ -1126,7 +1250,13 @@ $$
 === "Go"
 
     ```go title="time_complexity_types.go"
-
+    // logRecur 对数阶（递归实现）
+    func logRecur(n float32) int {
+        if n <= 1 {
+            return 0
+        }
+        return logRecur(n / 2) + 1
+    }
     ```
 
 === "JavaScript"
@@ -1205,7 +1335,17 @@ $$
 === "Go"
 
     ```go title="time_complexity_types.go"
-
+    // 线性对数阶
+    func linearLogRecur(n float32) int {
+        if n <= 1 {
+            return 1
+        }
+        count := linearLogRecur(n / 2) + linearLogRecur(n / 2)
+        for i := 0; float32(i) < n; i++ {
+            count++
+        }
+        return count
+    }
     ```
 
 === "JavaScript"
@@ -1292,7 +1432,18 @@ $$
 === "Go"
 
     ```go title="time_complexity_types.go"
-
+    /* 阶乘阶（递归实现） */
+    func factorialRecur(n int) int {
+        if n == 0 {
+            return 1
+        }
+        count := 0
+        // 从 1 个分裂出 n 个
+        for i := 0; i < n; i++ {
+            count += factorialRecur(n - 1)
+        }
+        return count
+    }
     ```
 
 === "JavaScript"
@@ -1447,7 +1598,40 @@ $$
 === "Go"
 
     ```go title="worst_best_time_complexity.go"
+    // randomNumbers 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
+    func randomNumbers(n int) []int {
+        nums := make([]int, n)
+        // 生成数组 nums = { 1, 2, 3, ..., n }
+        for i := 0; i < n; i++ {
+            nums[i] = i + 1
+        }
+        // 随机打乱数组元素
+        rand.Shuffle(len(nums), func(i, j int) {
+            nums[i], nums[j] = nums[j], nums[i]
+        })
+        return nums
+    }
 
+    // findOne 查找数组 nums 中数字 1 所在索引
+    func findOne(nums []int) int {
+        for i := 0; i < len(nums); i++ {
+            if nums[i] == 1 {
+                return i
+            }
+        }
+        return -1
+    }
+
+    // TestWorstBestTimeComplexity Driver Code
+    func TestWorstBestTimeComplexity(t *testing.T) {
+        for i := 0; i < 10; i++ {
+            n := 100
+            nums := randomNumbers(n)
+            index := findOne(nums)
+            fmt.Println("打乱后的数组为", nums)
+            fmt.Println("数字 1 的索引为", index)
+        }
+    }
     ```
 
 === "JavaScript"
