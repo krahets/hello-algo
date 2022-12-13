@@ -2,14 +2,14 @@
 site_name: Hello 算法
 site_url: https://www.hello-algo.com/
 site_author: Krahets
-site_description: Your first book to learn Data Structure And Algorithm.
+site_description: 一本动画图解、能运行、可提问的数据结构与算法入门书
 # Repository
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
 edit_uri: https://github.com/krahets/hello-algo/tree/master/docs/
 
 # Copyright
-copyright: Copyright &copy; 2020 - 2022 Krahets
+copyright: Copyright &copy; 2022 Krahets
 
 # Configuration
 theme:
