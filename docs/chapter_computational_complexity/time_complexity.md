@@ -116,7 +116,7 @@ $$
 
     ```java title=""
     // 算法 A 时间复杂度：常数阶
-    void algorithm_A(n int) {
+    void algorithm_A(int n) {
         System.out.println(0);
     }
     // 算法 B 时间复杂度：线性阶
@@ -1432,7 +1432,7 @@ $$
 === "Go"
 
     ```go title="time_complexity_types.go"
-    /* 阶乘阶（递归实现） */
+    // factorialRecur 阶乘阶（递归实现）
     func factorialRecur(n int) int {
         if n == 0 {
             return 1

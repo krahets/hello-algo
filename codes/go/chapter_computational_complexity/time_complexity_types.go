@@ -117,7 +117,7 @@ func linearLogRecur(n float32) int {
 	return count
 }
 
-/* 阶乘阶（递归实现） */
+// factorialRecur 阶乘阶（递归实现）
 func factorialRecur(n int) int {
 	if n == 0 {
 		return 1
