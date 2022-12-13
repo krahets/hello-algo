@@ -8,16 +8,16 @@ const { arrToTree } = require("../include/TreeNode");
 const { printTree } = require("../include/PrintUtil");
 
 // 初始化列表，用于存储遍历序列
-var list = []
+var list = [];
 
 /* 前序遍历 */
-function preOrder(root){
+function preOrder(root) {
     if (root === null) return;
     // 访问优先级：根结点 -> 左子树 -> 右子树
     list.push(root.val);
     preOrder(root.left);
     preOrder(root.right);
- }
+}
 
 /* 中序遍历 */
 function inOrder(root) {

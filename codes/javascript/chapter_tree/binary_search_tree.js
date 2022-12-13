@@ -11,7 +11,7 @@ const { printTree } = require("../include/PrintUtil");
 var root;
 
 function BinarySearchTree(nums) {
-    nums.sort((a,b) => { return a-b }); // 排序数组
+    nums.sort((a, b) => { return a - b }); // 排序数组
     root = buildTree(nums, 0, nums.length - 1);  // 构建二叉搜索树
 }
 
@@ -120,8 +120,8 @@ function min(root) {
 
 /* Driver Code */
 /* 初始化二叉搜索树 */
-var nums = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ];
-BinarySearchTree(nums)
+var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+BinarySearchTree(nums);
 console.log("\n初始化的二叉树为\n");
 printTree(getRoot());
 

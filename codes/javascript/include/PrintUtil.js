@@ -79,10 +79,10 @@ function showTrunks(p) {
     }
 
     showTrunks(p.prev);
-    console.log(p.str);
+    process.stdout.write(p.str);
 }
 
-module.exports = { 
+module.exports = {
     printTree,
     printLinkedList,
 }
