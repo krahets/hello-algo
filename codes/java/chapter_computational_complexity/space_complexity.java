@@ -1,5 +1,5 @@
 /*
- * File: space_complexity_types.java
+ * File: space_complexity.java
  * Created Time: 2022-11-25
  * Author: Krahets (krahets@163.com)
  */
@@ -9,7 +9,7 @@ package chapter_computational_complexity;
 import include.*;
 import java.util.*;
 
-public class space_complexity_types {
+public class space_complexity {
     /* 函数 */
     static int function() {
         // do something

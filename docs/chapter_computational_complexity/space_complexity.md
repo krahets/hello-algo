@@ -317,7 +317,7 @@ $$
 
 === "Java"
 
-    ```java title="space_complexity_types.java"
+    ```java title="space_complexity.java"
     /* 常数阶 */
     void constant(int n) {
         // 常量、变量、对象占用 O(1) 空间
@@ -338,7 +338,7 @@ $$
 
 === "C++"
 
-    ```cpp title="space_complexity_types.cpp"
+    ```cpp title="space_complexity.cpp"
     /* 常数阶 */
     void constant(int n) {
         // 常量、变量、对象占用 O(1) 空间
@@ -359,7 +359,7 @@ $$
 
 === "Python"
 
-    ```python title="space_complexity_types.py"
+    ```python title="space_complexity.py"
     """ 常数阶 """
     def constant(n):
         # 常量、变量、对象占用 O(1) 空间
@@ -376,31 +376,31 @@ $$
 
 === "Go"
 
-    ```go title="space_complexity_types.go"
+    ```go title="space_complexity.go"
 
     ```
 
 === "JavaScript"
 
-    ```js title="space_complexity_types.js"
+    ```js title="space_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="space_complexity_types.ts"
+    ```typescript title="space_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="space_complexity_types.c"
+    ```c title="space_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="space_complexity_types.cs"
+    ```csharp title="space_complexity.cs"
 
     ```
 
@@ -410,7 +410,7 @@ $$
 
 === "Java"
 
-    ```java title="space_complexity_types.java"
+    ```java title="space_complexity.java"
     /* 线性阶 */
     void linear(int n) {
         // 长度为 n 的数组占用 O(n) 空间
@@ -430,7 +430,7 @@ $$
 
 === "C++"
 
-    ```cpp title="space_complexity_types.cpp"
+    ```cpp title="space_complexity.cpp"
     /* 线性阶 */
     void linear(int n) {
         // 长度为 n 的数组占用 O(n) 空间
@@ -450,7 +450,7 @@ $$
 
 === "Python"
 
-    ```python title="space_complexity_types.py"
+    ```python title="space_complexity.py"
     """ 线性阶 """
     def linear(n):
         # 长度为 n 的列表占用 O(n) 空间
@@ -463,31 +463,31 @@ $$
 
 === "Go"
 
-    ```go title="space_complexity_types.go"
+    ```go title="space_complexity.go"
 
     ```
 
 === "JavaScript"
 
-    ```js title="space_complexity_types.js"
+    ```js title="space_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="space_complexity_types.ts"
+    ```typescript title="space_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="space_complexity_types.c"
+    ```c title="space_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="space_complexity_types.cs"
+    ```csharp title="space_complexity.cs"
 
     ```
 
@@ -495,7 +495,7 @@ $$
 
 === "Java"
 
-    ```java title="space_complexity_types.java"
+    ```java title="space_complexity.java"
     /* 线性阶（递归实现） */
     void linearRecur(int n) {
         System.out.println("递归 n = " + n);
@@ -506,7 +506,7 @@ $$
 
 === "C++"
 
-    ```cpp title="space_complexity_types.cpp"
+    ```cpp title="space_complexity.cpp"
     /* 线性阶（递归实现） */
     void linearRecur(int n) {
         cout << "递归 n = " << n << endl;
@@ -517,7 +517,7 @@ $$
 
 === "Python"
 
-    ```python title="space_complexity_types.py"
+    ```python title="space_complexity.py"
     """ 线性阶（递归实现） """
     def linearRecur(n):
         print("递归 n =", n)
@@ -527,31 +527,31 @@ $$
 
 === "Go"
 
-    ```go title="space_complexity_types.go"
+    ```go title="space_complexity.go"
 
     ```
 
 === "JavaScript"
 
-    ```js title="space_complexity_types.js"
+    ```js title="space_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="space_complexity_types.ts"
+    ```typescript title="space_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="space_complexity_types.c"
+    ```c title="space_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="space_complexity_types.cs"
+    ```csharp title="space_complexity.cs"
 
     ```
 
@@ -565,7 +565,7 @@ $$
 
 === "Java"
 
-    ```java title="space_complexity_types.java"
+    ```java title="space_complexity.java"
     /* 平方阶 */
     void quadratic(int n) {
         // 矩阵占用 O(n^2) 空间
@@ -584,7 +584,7 @@ $$
 
 === "C++"
 
-    ```cpp title="space_complexity_types.cpp"
+    ```cpp title="space_complexity.cpp"
     /* 平方阶 */
     void quadratic(int n) {
         // 二维列表占用 O(n^2) 空间
@@ -601,7 +601,7 @@ $$
 
 === "Python"
 
-    ```python title="space_complexity_types.py"
+    ```python title="space_complexity.py"
     """ 平方阶 """
     def quadratic(n):
         # 二维列表占用 O(n^2) 空间
@@ -610,31 +610,31 @@ $$
 
 === "Go"
 
-    ```go title="space_complexity_types.go"
+    ```go title="space_complexity.go"
 
     ```
 
 === "JavaScript"
 
-    ```js title="space_complexity_types.js"
+    ```js title="space_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="space_complexity_types.ts"
+    ```typescript title="space_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="space_complexity_types.c"
+    ```c title="space_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="space_complexity_types.cs"
+    ```csharp title="space_complexity.cs"
 
     ```
 
@@ -642,7 +642,7 @@ $$
 
 === "Java"
 
-    ```java title="space_complexity_types.java"
+    ```java title="space_complexity.java"
     /* 平方阶（递归实现） */
     int quadraticRecur(int n) {
         if (n <= 0) return 0;
@@ -654,7 +654,7 @@ $$
 
 === "C++"
 
-    ```cpp title="space_complexity_types.cpp"
+    ```cpp title="space_complexity.cpp"
     /* 平方阶（递归实现） */
     int quadraticRecur(int n) {
         if (n <= 0) return 0;
@@ -666,7 +666,7 @@ $$
 
 === "Python"
 
-    ```python title="space_complexity_types.py"
+    ```python title="space_complexity.py"
     """ 平方阶（递归实现） """
     def quadratic_recur(n):
         if n <= 0: return 0
@@ -677,31 +677,31 @@ $$
 
 === "Go"
 
-    ```go title="space_complexity_types.go"
+    ```go title="space_complexity.go"
 
     ```
 
 === "JavaScript"
 
-    ```js title="space_complexity_types.js"
+    ```js title="space_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="space_complexity_types.ts"
+    ```typescript title="space_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="space_complexity_types.c"
+    ```c title="space_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="space_complexity_types.cs"
+    ```csharp title="space_complexity.cs"
 
     ```
 
@@ -715,7 +715,7 @@ $$
 
 === "Java"
 
-    ```java title="space_complexity_types.java"
+    ```java title="space_complexity.java"
     /* 指数阶（建立满二叉树） */
     TreeNode buildTree(int n) {
         if (n == 0) return null;
@@ -728,7 +728,7 @@ $$
 
 === "C++"
 
-    ```cpp title="space_complexity_types.cpp"
+    ```cpp title="space_complexity.cpp"
     /* 指数阶（建立满二叉树） */
     TreeNode* buildTree(int n) {
         if (n == 0) return nullptr;
@@ -741,7 +741,7 @@ $$
 
 === "Python"
 
-    ```python title="space_complexity_types.py"
+    ```python title="space_complexity.py"
     """ 指数阶（建立满二叉树） """
     def build_tree(n):
         if n == 0: return None
@@ -753,31 +753,31 @@ $$
 
 === "Go"
 
-    ```go title="space_complexity_types.go"
+    ```go title="space_complexity.go"
 
     ```
 
 === "JavaScript"
 
-    ```js title="space_complexity_types.js"
+    ```js title="space_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="space_complexity_types.ts"
+    ```typescript title="space_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="space_complexity_types.c"
+    ```c title="space_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="space_complexity_types.cs"
+    ```csharp title="space_complexity.cs"
 
     ```
 

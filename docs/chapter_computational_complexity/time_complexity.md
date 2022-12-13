@@ -505,7 +505,7 @@ $$
 
 === "Java"
 
-    ```java title="time_complexity_types.java"
+    ```java title="time_complexity.java"
     /* 常数阶 */
     int constant(int n) {
         int count = 0;
@@ -518,7 +518,7 @@ $$
 
 === "C++"
 
-    ```cpp title="time_complexity_types.cpp"
+    ```cpp title="time_complexity.cpp"
     /* 常数阶 */
     int constant(int n) {
         int count = 0;
@@ -531,7 +531,7 @@ $$
 
 === "Python"
 
-    ```python title="time_complexity_types.py"
+    ```python title="time_complexity.py"
     """ 常数阶 """
     def constant(n):
         count = 0
@@ -543,7 +543,7 @@ $$
 
 === "Go"
 
-    ```go title="time_complexity_types.go"
+    ```go title="time_complexity.go"
     /* 常数阶 */
     func constant(n int) int {
         count := 0
@@ -557,25 +557,25 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity_types.js"
+    ```js title="time_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="time_complexity_types.ts"
+    ```typescript title="time_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="time_complexity_types.c"
+    ```c title="time_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="time_complexity_types.cs"
+    ```csharp title="time_complexity.cs"
 
     ```
 
@@ -585,7 +585,7 @@ $$
 
 === "Java"
 
-    ```java title="time_complexity_types.java"
+    ```java title="time_complexity.java"
     /* 线性阶 */
     int linear(int n) {
         int count = 0;
@@ -597,7 +597,7 @@ $$
 
 === "C++"
 
-    ```cpp title="time_complexity_types.cpp"
+    ```cpp title="time_complexity.cpp"
     /* 线性阶 */
     int linear(int n) {
         int count = 0;
@@ -609,7 +609,7 @@ $$
 
 === "Python"
 
-    ```python title="time_complexity_types.py"
+    ```python title="time_complexity.py"
     """ 线性阶 """
     def linear(n):
         count = 0
@@ -620,7 +620,7 @@ $$
 
 === "Go"
 
-    ```go title="time_complexity_types.go"
+    ```go title="time_complexity.go"
     /* 线性阶 */
     func linear(n int) int {
         count := 0
@@ -633,25 +633,25 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity_types.js"
+    ```js title="time_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="time_complexity_types.ts"
+    ```typescript title="time_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="time_complexity_types.c"
+    ```c title="time_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="time_complexity_types.cs"
+    ```csharp title="time_complexity.cs"
 
     ```
 
@@ -663,7 +663,7 @@ $$
 
 === "Java"
 
-    ```java title="time_complexity_types.java"
+    ```java title="time_complexity.java"
     /* 线性阶（遍历数组） */
     int arrayTraversal(int[] nums) {
         int count = 0;
@@ -677,7 +677,7 @@ $$
 
 === "C++"
 
-    ```cpp title="time_complexity_types.cpp"
+    ```cpp title="time_complexity.cpp"
     /* 线性阶（遍历数组） */
     int arrayTraversal(vector<int>& nums) {
         int count = 0;
@@ -691,7 +691,7 @@ $$
 
 === "Python"
 
-    ```python title="time_complexity_types.py"
+    ```python title="time_complexity.py"
     """ 线性阶（遍历数组）"""
     def array_traversal(nums):
         count = 0
@@ -703,7 +703,7 @@ $$
 
 === "Go"
 
-    ```go title="time_complexity_types.go"
+    ```go title="time_complexity.go"
     /* 线性阶（遍历数组） */
     func arrayTraversal(nums []int) int {
         count := 0
@@ -717,25 +717,25 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity_types.js"
+    ```js title="time_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="time_complexity_types.ts"
+    ```typescript title="time_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="time_complexity_types.c"
+    ```c title="time_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="time_complexity_types.cs"
+    ```csharp title="time_complexity.cs"
 
     ```
 
@@ -745,7 +745,7 @@ $$
 
 === "Java"
 
-    ```java title="time_complexity_types.java"
+    ```java title="time_complexity.java"
     /* 平方阶 */
     int quadratic(int n) {
         int count = 0;
@@ -761,7 +761,7 @@ $$
 
 === "C++"
 
-    ```cpp title="time_complexity_types.cpp"
+    ```cpp title="time_complexity.cpp"
     /* 平方阶 */
     int quadratic(int n) {
         int count = 0;
@@ -777,7 +777,7 @@ $$
 
 === "Python"
 
-    ```python title="time_complexity_types.py"
+    ```python title="time_complexity.py"
     """ 平方阶 """
     def quadratic(n):
         count = 0
@@ -790,7 +790,7 @@ $$
 
 === "Go"
 
-    ```go title="time_complexity_types.go"
+    ```go title="time_complexity.go"
     /* 平方阶 */
     func quadratic(n int) int {
         count := 0
@@ -806,25 +806,25 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity_types.js"
+    ```js title="time_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="time_complexity_types.ts"
+    ```typescript title="time_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="time_complexity_types.c"
+    ```c title="time_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="time_complexity_types.cs"
+    ```csharp title="time_complexity.cs"
 
     ```
 
@@ -840,7 +840,7 @@ $$
 
 === "Java"
 
-    ```java title="time_complexity_types.java"
+    ```java title="time_complexity.java"
     /* 平方阶（冒泡排序） */
     int bubbleSort(int[] nums) {
         int count = 0;  // 计数器
@@ -863,7 +863,7 @@ $$
 
 === "C++"
 
-    ```cpp title="time_complexity_types.cpp"
+    ```cpp title="time_complexity.cpp"
     /* 平方阶（冒泡排序） */
     int bubbleSort(vector<int>& nums) {
         int count = 0;  // 计数器
@@ -886,7 +886,7 @@ $$
 
 === "Python"
 
-    ```python title="time_complexity_types.py"
+    ```python title="time_complexity.py"
     """ 平方阶（冒泡排序）"""
     def bubble_sort(nums):
         count = 0  # 计数器
@@ -905,7 +905,7 @@ $$
 
 === "Go"
 
-    ```go title="time_complexity_types.go"
+    ```go title="time_complexity.go"
      /* 平方阶（冒泡排序） */
      func bubbleSort(nums []int) int {
         count := 0	// 计数器
@@ -928,25 +928,25 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity_types.js"
+    ```js title="time_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="time_complexity_types.ts"
+    ```typescript title="time_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="time_complexity_types.c"
+    ```c title="time_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="time_complexity_types.cs"
+    ```csharp title="time_complexity.cs"
 
     ```
 
@@ -960,7 +960,7 @@ $$
 
 === "Java"
 
-    ```java title="time_complexity_types.java"
+    ```java title="time_complexity.java"
     /* 指数阶（循环实现） */
     int exponential(int n) {
         int count = 0, base = 1;
@@ -978,7 +978,7 @@ $$
 
 === "C++"
 
-    ```cpp title="time_complexity_types.cpp"
+    ```cpp title="time_complexity.cpp"
     /* 指数阶（循环实现） */
     int exponential(int n) {
         int count = 0, base = 1;
@@ -996,7 +996,7 @@ $$
 
 === "Python"
 
-    ```python title="time_complexity_types.py"
+    ```python title="time_complexity.py"
     """ 指数阶（循环实现）"""
     def exponential(n):
         count, base = 0, 1
@@ -1011,7 +1011,7 @@ $$
 
 === "Go"
 
-    ```go title="time_complexity_types.go"
+    ```go title="time_complexity.go"
     /* 指数阶（循环实现）*/
     func exponential(n int) int {
         count, base := 0, 1
@@ -1029,25 +1029,25 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity_types.js"
+    ```js title="time_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="time_complexity_types.ts"
+    ```typescript title="time_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="time_complexity_types.c"
+    ```c title="time_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="time_complexity_types.cs"
+    ```csharp title="time_complexity.cs"
 
     ```
 
@@ -1059,7 +1059,7 @@ $$
 
 === "Java"
 
-    ```java title="time_complexity_types.java"
+    ```java title="time_complexity.java"
     /* 指数阶（递归实现） */
     int expRecur(int n) {
         if (n == 1) return 1;
@@ -1069,7 +1069,7 @@ $$
 
 === "C++"
 
-    ```cpp title="time_complexity_types.cpp"
+    ```cpp title="time_complexity.cpp"
     /* 指数阶（递归实现） */
     int expRecur(int n) {
         if (n == 1) return 1;
@@ -1079,7 +1079,7 @@ $$
 
 === "Python"
 
-    ```python title="time_complexity_types.py"
+    ```python title="time_complexity.py"
     """ 指数阶（递归实现）"""
     def exp_recur(n):
         if n == 1: return 1
@@ -1088,7 +1088,7 @@ $$
 
 === "Go"
 
-    ```go title="time_complexity_types.go"
+    ```go title="time_complexity.go"
     /* 指数阶（递归实现）*/
     func expRecur(n int) int {
         if n == 1 {
@@ -1100,25 +1100,25 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity_types.js"
+    ```js title="time_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="time_complexity_types.ts"
+    ```typescript title="time_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="time_complexity_types.c"
+    ```c title="time_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="time_complexity_types.cs"
+    ```csharp title="time_complexity.cs"
 
     ```
 
@@ -1132,7 +1132,7 @@ $$
 
 === "Java"
 
-    ```java title="time_complexity_types.java"
+    ```java title="time_complexity.java"
     /* 对数阶（循环实现） */
     int logarithmic(float n) {
         int count = 0;
@@ -1146,7 +1146,7 @@ $$
 
 === "C++"
 
-    ```cpp title="time_complexity_types.cpp"
+    ```cpp title="time_complexity.cpp"
     /* 对数阶（循环实现） */
     int logarithmic(float n) {
         int count = 0;
@@ -1160,7 +1160,7 @@ $$
 
 === "Python"
 
-    ```python title="time_complexity_types.py"
+    ```python title="time_complexity.py"
     """ 对数阶（循环实现）"""
     def logarithmic(n):
         count = 0
@@ -1172,7 +1172,7 @@ $$
 
 === "Go"
 
-    ```go title="time_complexity_types.go"
+    ```go title="time_complexity.go"
     /* 对数阶（循环实现）*/
     func logarithmic(n float64) int {
         count := 0
@@ -1186,25 +1186,25 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity_types.js"
+    ```js title="time_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="time_complexity_types.ts"
+    ```typescript title="time_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="time_complexity_types.c"
+    ```c title="time_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="time_complexity_types.cs"
+    ```csharp title="time_complexity.cs"
 
     ```
 
@@ -1216,7 +1216,7 @@ $$
 
 === "Java"
 
-    ```java title="time_complexity_types.java"
+    ```java title="time_complexity.java"
     /* 对数阶（递归实现） */
     int logRecur(float n) {
         if (n <= 1) return 0;
@@ -1226,7 +1226,7 @@ $$
 
 === "C++"
 
-    ```cpp title="time_complexity_types.cpp"
+    ```cpp title="time_complexity.cpp"
     /* 对数阶（递归实现） */
     int logRecur(float n) {
         if (n <= 1) return 0;
@@ -1236,7 +1236,7 @@ $$
 
 === "Python"
 
-    ```python title="time_complexity_types.py"
+    ```python title="time_complexity.py"
     """ 对数阶（递归实现）"""
     def log_recur(n):
         if n <= 1: return 0
@@ -1245,7 +1245,7 @@ $$
 
 === "Go"
 
-    ```go title="time_complexity_types.go"
+    ```go title="time_complexity.go"
     /* 对数阶（递归实现）*/
     func logRecur(n float64) int {
         if n <= 1 {
@@ -1257,25 +1257,25 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity_types.js"
+    ```js title="time_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="time_complexity_types.ts"
+    ```typescript title="time_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="time_complexity_types.c"
+    ```c title="time_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="time_complexity_types.cs"
+    ```csharp title="time_complexity.cs"
 
     ```
 
@@ -1287,7 +1287,7 @@ $$
 
 === "Java"
 
-    ```java title="time_complexity_types.java"
+    ```java title="time_complexity.java"
     /* 线性对数阶 */
     int linearLogRecur(float n) {
         if (n <= 1) return 1;
@@ -1302,7 +1302,7 @@ $$
 
 === "C++"
 
-    ```cpp title="time_complexity_types.cpp"
+    ```cpp title="time_complexity.cpp"
     /* 线性对数阶 */
     int linearLogRecur(float n) {
         if (n <= 1) return 1;
@@ -1317,7 +1317,7 @@ $$
 
 === "Python"
 
-    ```python title="time_complexity_types.py"
+    ```python title="time_complexity.py"
     """ 线性对数阶 """
     def linear_log_recur(n):
         if n <= 1: return 1
@@ -1330,7 +1330,7 @@ $$
 
 === "Go"
 
-    ```go title="time_complexity_types.go"
+    ```go title="time_complexity.go"
     /* 线性对数阶 */
     func linearLogRecur(n float64) int {
         if n <= 1 {
@@ -1347,25 +1347,25 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity_types.js"
+    ```js title="time_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="time_complexity_types.ts"
+    ```typescript title="time_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="time_complexity_types.c"
+    ```c title="time_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="time_complexity_types.cs"
+    ```csharp title="time_complexity.cs"
 
     ```
 
@@ -1385,7 +1385,7 @@ $$
 
 === "Java"
 
-    ```java title="time_complexity_types.java"
+    ```java title="time_complexity.java"
     /* 阶乘阶（递归实现） */
     int factorialRecur(int n) {
         if (n == 0) return 1;
@@ -1400,7 +1400,7 @@ $$
 
 === "C++"
 
-    ```cpp title="time_complexity_types.cpp"
+    ```cpp title="time_complexity.cpp"
     /* 阶乘阶（递归实现） */
     int factorialRecur(int n) {
         if (n == 0) return 1;
@@ -1415,7 +1415,7 @@ $$
 
 === "Python"
 
-    ```python title="time_complexity_types.py"
+    ```python title="time_complexity.py"
     """ 阶乘阶（递归实现）"""
     def factorial_recur(n):
         if n == 0: return 1
@@ -1428,7 +1428,7 @@ $$
 
 === "Go"
 
-    ```go title="time_complexity_types.go"
+    ```go title="time_complexity.go"
     /* 阶乘阶（递归实现） */
     func factorialRecur(n int) int {
         if n == 0 {
@@ -1445,25 +1445,25 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity_types.js"
+    ```js title="time_complexity.js"
 
     ```
 
 === "TypeScript"
 
-    ```typescript title="time_complexity_types.ts"
+    ```typescript title="time_complexity.ts"
 
     ```
 
 === "C"
 
-    ```c title="time_complexity_types.c"
+    ```c title="time_complexity.c"
 
     ```
 
 === "C#"
 
-    ```csharp title="time_complexity_types.cs"
+    ```csharp title="time_complexity.cs"
 
     ```
 

@@ -2,7 +2,7 @@
 // Created Time: 2022-12-13
 // Author: msk397 (machangxinq@gmail.com)
 
-package time_complexity
+package chapter_computational_complexity
 
 import (
 	"fmt"
