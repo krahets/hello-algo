@@ -641,7 +641,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-   /* 在数组中查找指定元素 */
+    /* 在数组中查找指定元素 */
     int Find(int[] nums, int target)
     {
         for (int i = 0; i < nums.Length; i++)
