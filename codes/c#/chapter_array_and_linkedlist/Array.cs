@@ -4,7 +4,7 @@
 * Author: mingXta (1195669834@qq.com)
 */
  
-namespace hello_algo.chapter_arrag_and_linkedlist
+namespace hello_algo.chapter_array_and_linkedlist
 {
     public class Array
     {
