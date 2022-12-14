@@ -71,7 +71,11 @@ comments: true
 === "C#"
 
     ```csharp title="array.cs"
+    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
+    int[] nums = { 1, 3, 2, 5, 4 };
     
+    var arr2=new int[5]; // { 0, 0, 0, 0, 0 }
+    var nums2=new int[]{1,2,3,4,5};
     ```
 
 ## 数组优点
@@ -169,7 +173,14 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    
+     /* 随机返回一个数组元素 */
+    int RandomAccess(int[] nums)
+    {
+        Random random=new();
+        int randomIndex = random.Next(nums.Length);
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
     ```
 
 ## 数组缺点
@@ -271,7 +282,18 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    
+    int[] Extend(int[] nums, int enlarge)
+    {
+        // 初始化一个扩展长度后的数组
+        int[] res = new int[nums.Length + enlarge];
+        // 将原数组中的所有元素复制到新数组
+        for (int i = 0; i < nums.Length; i++)
+        {
+            res[i] = nums[i];
+        }
+        // 返回扩展后的新数组
+        return res;
+    }
     ```
 
 **数组中插入或删除元素效率低下。** 假设我们想要在数组中间某位置插入一个元素，由于数组元素在内存中是 “紧挨着的” ，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。删除元素也是类似，需要把此索引之后的元素都向前移动一位。总体看有以下缺点：
@@ -405,7 +427,24 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    
+    void Insert(int[] nums, int num, int index)
+    {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        for (int i = nums.Length - 1; i >= index; i--)
+        {
+            nums[i] = nums[i - 1];
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num;
+    }
+    void Remove(int[] nums, int index)
+    {
+        // 把索引 index 之后的所有元素向前移动一位
+        for (int i = index; i < nums.Length - 1; i++)
+        {
+            nums[i] = nums[i + 1];
+        }
+    }
     ```
 
 ## 数组常用操作
@@ -505,7 +544,21 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    
+     /* 遍历数组 */
+    void Traverse(int[] nums)
+    {
+        int count = 0;
+        // 通过索引遍历数组
+        for (int i = 0; i < nums.Length; i++)
+        {
+            count++;
+        }
+        // 直接遍历数组
+        foreach (int num in nums)
+        {
+            count++;
+        }
+    }
     ```
 
 **数组查找。** 通过遍历数组，查找数组内的指定元素，并输出对应索引。
@@ -588,7 +641,16 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    
+   /* 在数组中查找指定元素 */
+    int Find(int[] nums, int target)
+    {
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == target)
+                return i;
+        }
+        return -1;
+    }
     ```
 
 ## 数组典型应用
