@@ -60,5 +60,6 @@
 
 /* font-family setting for Win10 */
 body {
-  --md-code-font-family: var(--md-code-font, _), SFMono-Regular, Consolas, Menlo, Noto Sans SC, monospace;
+  --md-text-font-family: -apple-system,BlinkMacSystemFont,var(--md-text-font,_),Helvetica,Arial,sans-serif;
+  --md-code-font-family: var(--md-code-font,_),SFMono-Regular,Consolas,Menlo,-apple-system,BlinkMacSystemFont,var(--md-text-font,_),monospace;
 }
