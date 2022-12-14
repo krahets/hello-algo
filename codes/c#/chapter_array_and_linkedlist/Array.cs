@@ -1,15 +1,14 @@
-﻿/*
- * File: Array.cs
- * Created Time: 2022-12-14
- * Author: mingXta (1195669834@qq.com)
- */
+/*
+* File: Array.cs
+* Created Time: 2022-12-14
+* Author: mingXta (1195669834@qq.com)
+*/
  
 namespace hello_algo.chapter_arrag_and_linkedlist
 {
     public class Array
     {
         /* 随机返回一个数组元素 */
-
         public static int RandomAccess(int[] nums)
         {
             Random random = new();
@@ -19,7 +18,6 @@ namespace hello_algo.chapter_arrag_and_linkedlist
         }
 
         /* 扩展数组长度 */
-
         public static int[] Extend(int[] nums, int enlarge)
         {
             // 初始化一个扩展长度后的数组
@@ -34,7 +32,6 @@ namespace hello_algo.chapter_arrag_and_linkedlist
         }
 
         /* 在数组的索引 index 处插入元素 num */
-
         public static void Insert(int[] nums, int num, int index)
         {
             // 把索引 index 以及之后的所有元素向后移动一位
@@ -47,7 +44,6 @@ namespace hello_algo.chapter_arrag_and_linkedlist
         }
 
         /* 删除索引 index 处元素 */
-
         public static void Remove(int[] nums, int index)
         {
             // 把索引 index 之后的所有元素向前移动一位
@@ -58,7 +54,6 @@ namespace hello_algo.chapter_arrag_and_linkedlist
         }
 
         /* 遍历数组 */
-
         public static void Traverse(int[] nums)
         {
             int count = 0;
@@ -75,7 +70,6 @@ namespace hello_algo.chapter_arrag_and_linkedlist
         }
 
         /* 在数组中查找指定元素 */
-
         public static int Find(int[] nums, int target)
         {
             for (int i = 0; i < nums.Length; i++)
@@ -86,8 +80,7 @@ namespace hello_algo.chapter_arrag_and_linkedlist
             return -1;
         }
 
-        /*辅助函数数组转字符串 */
-
+        /*辅助函数,数组转字符串 */
         public static string ToString(int[] nums)
         {
             return string.Join(",", nums);
