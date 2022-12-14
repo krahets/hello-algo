@@ -1,4 +1,10 @@
-﻿namespace hello_algo.chapter_arrag_and_linkedlist
+﻿/*
+ * File: Array.cs
+ * Created Time: 2022-12-14
+ * Author: mingXta (1195669834@qq.com)
+ */
+ 
+namespace hello_algo.chapter_arrag_and_linkedlist
 {
     public class Array
     {

@@ -71,6 +71,7 @@ comments: true
 === "C#"
 
     ```csharp title="array.cs"
+    /* 初始化数组 */
     int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
     int[] nums = { 1, 3, 2, 5, 4 };
     
@@ -173,7 +174,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-     /* 随机返回一个数组元素 */
+    /* 随机返回一个数组元素 */
     int RandomAccess(int[] nums)
     {
         Random random=new();
@@ -282,6 +283,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
+    /* 扩展数组长度 */
     int[] Extend(int[] nums, int enlarge)
     {
         // 初始化一个扩展长度后的数组
@@ -386,7 +388,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 将 num 赋给 index 处元素
         nums[index] = num;
     }
-
+    
     /* 删除索引 index 处元素 */
     function remove(nums, index) {
         // 把索引 index 之后的所有元素向前移动一位
@@ -427,6 +429,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
+    /* 在数组的索引 index 处插入元素 num */
     void Insert(int[] nums, int num, int index)
     {
         // 把索引 index 以及之后的所有元素向后移动一位
@@ -437,6 +440,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 将 num 赋给 index 处元素
         nums[index] = num;
     }
+    /* 删除索引 index 处元素 */
     void Remove(int[] nums, int index)
     {
         // 把索引 index 之后的所有元素向前移动一位
@@ -544,7 +548,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-     /* 遍历数组 */
+    /* 遍历数组 */
     void Traverse(int[] nums)
     {
         int count = 0;
