@@ -132,7 +132,22 @@ comments: true
 === "TypeScript"
 
     ```typescript title="binary_search_tree.ts"
-
+    /* 查找结点 */
+    function search(num: number): TreeNode | null {
+        let cur = root;
+        // 循环查找，越过叶结点后跳出
+        while (cur !== null) {
+            if (cur.val < num) {
+                cur = cur.right; // 目标结点在 root 的右子树中
+            } else if (cur.val > num) {
+                cur = cur.left; // 目标结点在 root 的左子树中
+            } else {
+                break; // 找到目标结点，跳出循环
+            }
+        }
+        // 返回目标结点
+        return cur;
+    }
     ```
 
 === "C"
@@ -280,7 +295,35 @@ comments: true
 === "TypeScript"
 
     ```typescript title="binary_search_tree.ts"
-
+    /* 插入结点 */
+    function insert(num: number): TreeNode | null {
+        // 若树为空，直接提前返回
+        if (root === null) {
+            return null;
+        }
+        let cur = root,
+            pre: TreeNode | null = null;
+        // 循环查找，越过叶结点后跳出
+        while (cur !== null) {
+            if (cur.val === num) {
+                return null; // 找到重复结点，直接返回
+            }
+            pre = cur;
+            if (cur.val < num) {
+                cur = cur.right as TreeNode; // 插入位置在 root 的右子树中
+            } else {
+                cur = cur.left as TreeNode; // 插入位置在 root 的左子树中
+            }
+        }
+        // 插入结点 val
+        let node = new TreeNode(num);
+        if (pre!.val < num) {
+            pre!.right = node;
+        } else {
+            pre!.left = node;
+        }
+        return node;
+    }
     ```
 
 === "C"
@@ -547,7 +590,54 @@ comments: true
 === "TypeScript"
 
     ```typescript title="binary_search_tree.ts"
-
+    /* 删除结点 */
+    function remove(num: number): TreeNode | null {
+        // 若树为空，直接提前返回
+        if (root === null) {
+            return null;
+        }
+        let cur = root,
+            pre: TreeNode | null = null;
+        // 循环查找，越过叶结点后跳出
+        while (cur !== null) {
+            // 找到待删除结点，跳出循环
+            if (cur.val === num) {
+                break;
+            }
+            pre = cur;
+            if (cur.val < num) {
+                cur = cur.right as TreeNode; // 待删除结点在 root 的右子树中
+            } else {
+                cur = cur.left as TreeNode; // 待删除结点在 root 的左子树中
+            }
+        }
+        // 若无待删除结点，则直接返回
+        if (cur === null) {
+            return null;
+        }
+        // 子结点数量 = 0 or 1
+        if (cur.left === null || cur.right === null) {
+            // 当子结点数量 = 0 / 1 时， child = null / 该子结点
+            let child = cur.left !== null ? cur.left : cur.right;
+            // 删除结点 cur
+            if (pre!.left === cur) {
+                pre!.left = child;
+            } else {
+                pre!.right = child;
+            }
+        }
+        // 子结点数量 = 2
+        else {
+            // 获取中序遍历中 cur 的下一个结点
+            let next = min(cur.right);
+            let tmp = next!.val;
+            // 递归删除结点 nex
+            remove(next!.val);
+            // 将 nex 的值复制给 cur
+            cur.val = tmp;
+        }
+        return cur;
+    }
     ```
 
 === "C"
