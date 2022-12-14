@@ -59,7 +59,18 @@ comments: true
 === "Go"
 
     ```go title="linear_search.go"
-
+    // 线性查找（数组）
+    func linearSearch(nums []int, target int) int {
+        // 遍历数组
+        for i := range nums {
+            if nums[i] == target {
+                // 找到目标元素，返回其索引
+                return i
+            }
+        }
+        // 未找到目标元素，返回 -1
+        return -1
+    }
     ```
 
 === "JavaScript"
@@ -138,7 +149,19 @@ comments: true
 === "Go"
 
     ```go title="linear_search.go"
-
+    // 线性查找（链表）
+    func linearSearch(head *ListNode, target int) *ListNode {
+        // 遍历链表
+        for head != nil {
+            if head.val == target {
+                // 找到目标结点，返回之
+                return head
+            }
+            head = head.next
+        }
+        // 未找到目标结点，返回 nil
+        return nil
+    }
     ```
 
 === "JavaScript"
