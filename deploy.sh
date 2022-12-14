@@ -1,3 +1,4 @@
+rm -rf ./site
 mkdocs build --clean
 cd site
 git init
