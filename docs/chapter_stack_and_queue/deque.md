@@ -119,7 +119,7 @@ comments: true
 
 === "Go"
 
-    ```go title="deque.go"
+    ```go title="deque_test.go"
     /* 初始化双向队列 */
     // 在 Go 中，将 list 作为双向队列使用
     deque := list.New()

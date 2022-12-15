@@ -114,7 +114,7 @@ comments: true
 
 === "Go"
 
-    ```go title="queue.go"
+    ```go title="queue_test.go"
     /* 初始化队列 */
     // 在 Go 中，将 list 作为队列来使用
     queue := list.New()

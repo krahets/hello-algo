@@ -114,7 +114,7 @@ comments: true
 
 === "Go"
 
-    ```go title="stack.go"
+    ```go title="stack_test.go"
     /* 初始化栈 */
     // 在 Go 中，推荐将 Slice 当作栈来使用
     var stack []int
