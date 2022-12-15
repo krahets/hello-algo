@@ -1,8 +1,7 @@
 /*
- * @Author: gyt95 (gytkwan@gmail.com) 
- * @Date: 2022-12-15 11:26:38 
- * @Last Modified by: gyt95 (gytkwan@gmail.com)
- * @Last Modified time: 2022-12-15 23:46:25
+ * File: leetcode_two_sum.ts
+ * Created Time: 2022-12-15
+ * Author: gyt95 (gytkwan@gmail.com) 
  */
 
 function twoSumBruteForce(nums: number[], target: number): number[] {
