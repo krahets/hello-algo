@@ -97,16 +97,16 @@ comments: true
 
     ```typescript title="leetcode_two_sum.ts"
     function twoSumBruteForce(nums: number[], target: number): number[] {
-      let n = nums.length;
-      // 两层循环，时间复杂度 O(n^2)
-      for (let i = 0; i < n; i++) {
-        for (let j = i + 1; j < n; j++) {
-          if (nums[i] + nums[j] === target) {
-            return [i, j]
-          }
+        let n = nums.length;
+        // 两层循环，时间复杂度 O(n^2)
+        for (let i = 0; i < n; i++) {
+            for (let j = i + 1; j < n; j++) {
+                if (nums[i] + nums[j] === target) {
+                    return [i, j];
+                }
+            }
         }
-      }
-      return [];
+        return [];
     };
     ```
 

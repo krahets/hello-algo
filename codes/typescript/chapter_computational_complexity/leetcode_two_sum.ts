@@ -31,3 +31,12 @@ function twoSumHashTable(nums: number[], target: number): number[] {
     }
     return [];
 };
+
+/* Driver Code */
+let nums = [2, 7, 11, 15]
+twoSumBruteForce(nums, 9)
+console.log("使用暴力枚举后得到结果：", nums)
+
+let nums1 = [2, 7, 11, 15]
+twoSumHashTable(nums1, 9)
+console.log("使用辅助哈希表后得到结果", nums1)
