@@ -196,7 +196,7 @@ comments: true
 === "Go"
 
     ```go title=""
-    func algorithm1(n int) {
+    func algorithm(n int) {
         a := 0                         // O(1)
         b := make([]int, 10000)        // O(1)
         var nums []int
@@ -856,18 +856,6 @@ $$
 === "Go"
 
     ```go title="space_complexity.go"
-    /* TreeNode 二叉树 */
-    type TreeNode struct {
-        val   int
-        left  *TreeNode
-        right *TreeNode
-    }
-
-    /* 创建 TreeNode 结构体 */
-    func newTreeNode(val int) *TreeNode {
-        return &TreeNode{val: val}
-    }
-
     /* 指数阶（建立满二叉树） */
     func buildTree(n int) *TreeNode {
         if n == 0 {
