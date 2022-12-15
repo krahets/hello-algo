@@ -211,18 +211,18 @@ comments: true
 
     ```typescript title="leetcode_two_sum.ts"
     function twoSumHashTable(nums: number[], target: number): number[] {
-      // 辅助哈希表，空间复杂度 O(n)
-      let m: Map<number, number> = new Map()
-      // 单层循环，时间复杂度 O(n)
-      for (let i = 0; i < nums.length; i++) {
-        let index = m.get(nums[i])
-        if (index !== undefined) {
-          return [index, i]
-        } else {
-          m.set(target - nums[i], i)
+        // 辅助哈希表，空间复杂度 O(n)
+        let m: Map<number, number> = new Map();
+        // 单层循环，时间复杂度 O(n)
+        for (let i = 0; i < nums.length; i++) {
+            let index = m.get(nums[i]);
+            if (index !== undefined) {
+                return [index, i];
+            } else {
+                m.set(target - nums[i], i);
+            }
         }
-      }
-      return [];
+        return [];
     };
     ```
 
