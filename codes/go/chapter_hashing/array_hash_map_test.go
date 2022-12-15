@@ -50,4 +50,3 @@ func TestArrayHashMap(t *testing.T) {
 		fmt.Println(val)
 	}
 }
-

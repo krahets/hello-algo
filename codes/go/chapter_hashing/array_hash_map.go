@@ -49,7 +49,7 @@ func (a *ArrayHashMap) put(key int, val string) {
 /* 删除操作 */
 func (a *ArrayHashMap) remove(key int) {
 	index := a.hashFunc(key)
-	// 置为空字符，代表删除
+	// 置为 nil ，代表删除
 	a.bucket[index] = nil
 }
 

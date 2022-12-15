@@ -53,7 +53,7 @@ public:
     /* 删除操作 */
     void remove(int key) {
         int index = hashFunc(key);
-        // 置为空字符，代表删除
+        // 置为 nullptr ，代表删除
         bucket[index] = nullptr;
     }
 
@@ -97,6 +97,8 @@ public:
         }
     }
 };
+
+/* Driver Code */
 int main() {
     /* 初始化哈希表 */
     ArrayHashMap map = ArrayHashMap();

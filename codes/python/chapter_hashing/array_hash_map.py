@@ -73,6 +73,7 @@ class ArrayHashMap:
                 print(pair.key, "->", pair.val)
 
 
+""" Driver Code """
 if __name__ == "__main__":
     """ 初始化哈希表 """
     mapp = ArrayHashMap()
