@@ -2,7 +2,7 @@
  * @Author: gyt95 (gytkwan@gmail.com)
  * @Date: 2022-12-15 10:51:54 
  * @Last Modified by: gyt95 (gytkwan@gmail.com)
- * @Last Modified time: 2022-12-15 23:40:09
+ * @Last Modified time: 2022-12-16 00:00:35
  */
 
 /**
@@ -34,3 +34,12 @@ function twoSumHashTable(nums, target) {
         }
     }
 }
+
+/* Driver Code */
+let nums = [2, 7, 11, 15]
+twoSumBruteForce(nums)
+console.log("使用暴力枚举后得到结果：", nums)
+
+let nums1 = [2, 7, 11, 15]
+twoSumHashTable(nums1)
+console.log("使用辅助哈希表后得到结果", nums1)
