@@ -33,10 +33,10 @@ function twoSumHashTable(nums: number[], target: number): number[] {
 };
 
 /* Driver Code */
-let nums = [2, 7, 11, 15]
-twoSumBruteForce(nums, 9)
+let nums = [2, 7, 11, 15], target = 9;
+twoSumBruteForce(nums, target)
 console.log("使用暴力枚举后得到结果：", nums)
 
-let nums1 = [2, 7, 11, 15]
-twoSumHashTable(nums1, 9)
+let nums1 = [2, 7, 11, 15], target1 = 9;
+twoSumHashTable(nums1, target1)
 console.log("使用辅助哈希表后得到结果", nums1)
