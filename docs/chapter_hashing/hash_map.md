@@ -86,47 +86,47 @@ comments: true
 === "Python"
 
     ```python title="hash_map.py"
-    # 初始化哈希表
-    Map = {}
+    """ 初始化哈希表 """
+    mapp = {}
 
-    # 添加操作
+    """ 添加操作 """
     # 在哈希表中添加键值对 (key, value)
-    Map[12836] = "小哈"
-    Map[15937] = "小啰"
-    Map[16750] = "小算"
-    Map[13276] = "小法"
-    Map[10583] = "小鸭"
+    mapp[12836] = "小哈"
+    mapp[15937] = "小啰"
+    mapp[16750] = "小算"
+    mapp[13276] = "小法"
+    mapp[10583] = "小鸭"
 
-    # 查询操作
+    """ 查询操作 """
     # 向哈希表输入键 key ，得到值 value
-    name = Map[15937]
+    name = mapp[15937]
 
-    # 删除操作
+    """ 删除操作 """
     # 在哈希表中删除键值对 (key, value)
-    Map.pop(10583)
+    mapp.pop(10583)
     ```
 
 === "Go"
 
     ```go title="hash_map_test.go"
-	// 初始化哈希表
-	Map := make(map[int]string)
+	/* 初始化哈希表 */
+	mapp := make(map[int]string)
 
-	// 添加操作
+	/* 添加操作 */
 	// 在哈希表中添加键值对 (key, value)
-	Map[12836] = "小哈"
-	Map[15937] = "小啰"
-	Map[16750] = "小算"
-	Map[13276] = "小法"
-	Map[10583] = "小鸭"
+	mapp[12836] = "小哈"
+	mapp[15937] = "小啰"
+	mapp[16750] = "小算"
+	mapp[13276] = "小法"
+	mapp[10583] = "小鸭"
 
-	// 查询操作
+	/* 查询操作 */
 	// 向哈希表输入键 key ，得到值 value
-	name := Map[15937]
+	name := mapp[15937]
 
-	// 删除操作
+	/* 删除操作 */
 	// 在哈希表中删除键值对 (key, value)
-	delete(Map, 10583)
+	delete(mapp, 10583)
     ```
 
 === "JavaScript"
@@ -196,13 +196,13 @@ comments: true
     ```python title="hash_map.py"
     """ 遍历哈希表 """
     # 遍历键值对 key->value
-    for key, value in Map.items():
+    for key, value in mapp.items():
         print(key, "->", value)
     # 单独遍历键 key
-    for key in Map.keys():
+    for key in mapp.keys():
         print(key)
     # 单独遍历值 value
-    for value in Map.values():
+    for value in mapp.values():
         print(value)
     ```
 
@@ -211,15 +211,15 @@ comments: true
     ```go title="hash_map_test.go"
     /* 遍历哈希表 */
     // 遍历键值对 key->value
-    for key, value := range Map {
+    for key, value := range mapp {
         fmt.Println(key, "->", value)
     }
     // 单独遍历键 key
-    for key := range Map {
+    for key := range mapp {
         fmt.Println(key)
     }
     // 单独遍历值 value
-    for _, value := range Map {
+    for _, value := range mapp {
         fmt.Println(value)
     }
     ```
@@ -335,20 +335,16 @@ $$
             this->key = key;
             this->val = val;
         }
-        Entry(){
-            this->key = -1;
-            this->val = "";
-        }
     };
 
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
     private:
-        vector<Entry> bucket;
+        vector<Entry*> bucket;
     public:
         ArrayHashMap() {
             // 初始化一个长度为 100 的桶（数组）
-            bucket= vector<Entry>(100);
+            bucket= vector<Entry*>(100);
         }
 
         /* 哈希函数 */
@@ -360,13 +356,13 @@ $$
         /* 查询操作 */
         string get(int key) {
             int index = hashFunc(key);
-            Entry pair = bucket[index];
-            return pair.val;
+            Entry* pair = bucket[index];
+            return pair->val;
         }
 
         /* 添加操作 */
         void put(int key, string val) {
-            Entry pair = Entry(key, val);
+            Entry* pair = new Entry(key, val);
             int index = hashFunc(key);
             bucket[index] = pair;
         }
@@ -374,8 +370,8 @@ $$
         /* 删除操作 */
         void remove(int key) {
             int index = hashFunc(key);
-            // 置为空，代表删除
-            bucket[index] = *new Entry();
+            // 置为空字符，代表删除
+            bucket[index] = nullptr;
         }
     };
     ```
@@ -383,24 +379,24 @@ $$
 === "Python"
 
     ```python title="array_hash_map.py"
-    # 键值对 int->String
+    """ 键值对 int->String """
     class Entry:
         def __init__(self, key, val):
             self.key = key
             self.val = val
     
-    # 基于数组简易实现的哈希表
+    """ 基于数组简易实现的哈希表 """
     class ArrayHashMap:
         def __init__(self):
             # 初始化一个长度为 100 的桶（数组）
             self.bucket = [None] * 100
     
-        # 哈希函数
+        """ 哈希函数 """
         def hashFunc(self, key):
             index = key % 100
             return index
     
-        # 查询操作
+        """ 查询操作 """
         def get(self, key):
             index = self.hashFunc(key)
             pair = self.bucket[index]
@@ -408,13 +404,13 @@ $$
                 return None
             return pair.val
     
-        # 添加操作
+        """ 添加操作 """
         def put(self, key, val):
             pair = Entry(key, val)
             index = self.hashFunc(key)
             self.bucket[index] = pair
     
-        # 删除操作
+        """ 删除操作 """
         def remove(self, key):
             index = self.hashFunc(key)
             # 置为空字符，代表删除
@@ -424,51 +420,51 @@ $$
 === "Go"
 
     ```go title="array_hash_map.go"
-    // 键值对 int->String
+    /* 键值对 int->String */
     type Entry struct {
         key int
         val string
     }
 
-    // 基于数组简易实现的哈希表
+    /* 基于数组简易实现的哈希表 */
     type ArrayHashMap struct {
-        bucket []Entry
+        bucket []*Entry
     }
 
     func newArrayHashMap() *ArrayHashMap {
         // 初始化一个长度为 100 的桶（数组）
-        bucket := make([]Entry, 100)
+        bucket := make([]*Entry, 100)
         return &ArrayHashMap{bucket: bucket}
     }
 
-    // 哈希函数
+    /* 哈希函数 */
     func (a *ArrayHashMap) hashFunc(key int) int {
         index := key % 100
         return index
     }
 
-    // 查询操作
+    /* 查询操作 */
     func (a *ArrayHashMap) get(key int) string {
         index := a.hashFunc(key)
         pair := a.bucket[index]
-        if pair.key == 0 {
-            return ""
+        if pair == nil {
+            return "Not Found"
         }
         return pair.val
     }
 
-    //  添加操作
+    /* 添加操作 */
     func (a *ArrayHashMap) put(key int, val string) {
-        pair := Entry{key: key, val: val}
+        pair := &Entry{key: key, val: val}
         index := a.hashFunc(key)
         a.bucket[index] = pair
     }
 
-    // 删除操作
+    /* 删除操作 */
     func (a *ArrayHashMap) remove(key int) {
         index := a.hashFunc(key)
         // 置为空字符，代表删除
-        a.bucket[index] = Entry{}
+        a.bucket[index] = nil
     }
     ```
 

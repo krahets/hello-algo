@@ -1,7 +1,7 @@
 '''
 File: print_util.py
 Created Time: 2021-12-11
-Author: Krahets (krahets@163.com)
+Author: Krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
 '''
 
 import copy
@@ -72,3 +72,12 @@ def print_tree(root, prev=None, isLeft=False):
         prev.str = prev_str
     trunk.str = '   |'
     print_tree(root.left, trunk, False)
+
+def print_dict(d):
+    """Print a dict
+
+    Args:
+        d ([type]): [description]
+    """
+    for key, value in d.items():
+        print(key, '->', value)

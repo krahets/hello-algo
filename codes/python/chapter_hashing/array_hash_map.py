@@ -4,25 +4,25 @@ Created Time: 2022-12-14
 Author: msk397 (machangxinq@gmail.com)
 """
 
-# 键值对 int->String
+""" 键值对 int->String """
 class Entry:
     def __init__(self, key, val):
         self.key = key
         self.val = val
 
 
-# 基于数组简易实现的哈希表
+""" 基于数组简易实现的哈希表 """
 class ArrayHashMap:
     def __init__(self):
         # 初始化一个长度为 100 的桶（数组）
         self.bucket = [None] * 100
 
-    # 哈希函数
+    """ 哈希函数 """
     def hashFunc(self, key):
         index = key % 100
         return index
 
-    # 查询操作
+    """ 查询操作 """
     def get(self, key):
         index = self.hashFunc(key)
         pair = self.bucket[index]
@@ -30,19 +30,19 @@ class ArrayHashMap:
             return None
         return pair.val
 
-    # 添加操作
+    """ 添加操作 """
     def put(self, key, val):
         pair = Entry(key, val)
         index = self.hashFunc(key)
         self.bucket[index] = pair
 
-    # 删除操作
+    """ 删除操作 """
     def remove(self, key):
         index = self.hashFunc(key)
         # 置为空字符，代表删除
         self.bucket[index] = None
 
-    # 获取所有键值对
+    """ 获取所有键值对 """
     def entrySet(self):
         result = []
         for pair in self.bucket:
@@ -50,7 +50,7 @@ class ArrayHashMap:
                 result.append(pair)
         return result
 
-    # 获取所有键
+    """ 获取所有键 """
     def keySet(self):
         result = []
         for pair in self.bucket:
@@ -58,7 +58,7 @@ class ArrayHashMap:
                 result.append(pair.key)
         return result
 
-    # 获取所有值
+    """ 获取所有值 """
     def valueSet(self):
         result = []
         for pair in self.bucket:
@@ -66,7 +66,7 @@ class ArrayHashMap:
                 result.append(pair.val)
         return result
 
-    # 打印哈希表
+    """ 打印哈希表 """
     def print(self):
         for pair in self.bucket:
             if pair is not None:
@@ -75,38 +75,38 @@ class ArrayHashMap:
 
 if __name__ == "__main__":
     """ 初始化哈希表 """
-    Map = ArrayHashMap()
+    mapp = ArrayHashMap()
 
     """ 添加操作 """
     # 在哈希表中添加键值对 (key, value)
-    Map.put(12836, "小哈")
-    Map.put(15937, "小啰")
-    Map.put(16750, "小算")
-    Map.put(13276, "小法")
-    Map.put(10583, "小鸭")
+    mapp.put(12836, "小哈")
+    mapp.put(15937, "小啰")
+    mapp.put(16750, "小算")
+    mapp.put(13276, "小法")
+    mapp.put(10583, "小鸭")
     print("\n添加完成后，哈希表为\nKey -> Value")
-    Map.print()
+    mapp.print()
 
     """ 查询操作 """
     # 向哈希表输入键 key ，得到值 value
-    name = Map.get(15937)
+    name = mapp.get(15937)
     print("\n输入学号 15937 ，查询到姓名 " + name)
 
     """ 删除操作 """
     # 在哈希表中删除键值对 (key, value)
-    Map.remove(10583)
+    mapp.remove(10583)
     print("\n删除 10583 后，哈希表为\nKey -> Value")
-    Map.print()
+    mapp.print()
 
     """ 遍历哈希表 """
     print("\n遍历键值对 Key->Value")
-    for pair in Map.entrySet():
+    for pair in mapp.entrySet():
         print(pair.key, "->", pair.val)
 
     print("\n单独遍历键 Key")
-    for key in Map.keySet():
+    for key in mapp.keySet():
         print(key)
 
     print("\n单独遍历值 Value")
-    for val in Map.valueSet():
+    for val in mapp.valueSet():
         print(val)
