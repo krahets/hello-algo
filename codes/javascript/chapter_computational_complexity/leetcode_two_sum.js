@@ -1,8 +1,7 @@
-/*
- * @Author: gyt95 (gytkwan@gmail.com)
- * @Date: 2022-12-15 10:51:54 
- * @Last Modified by: gyt95 (gytkwan@gmail.com)
- * @Last Modified time: 2022-12-16 00:00:35
+/**
+ * File: leetcode_two_sum.js
+ * Created Time: 2022-12-15
+ * Author: gyt95 (gytkwan@gmail.com)
  */
 
 /**
