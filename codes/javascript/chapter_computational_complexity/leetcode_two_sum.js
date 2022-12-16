@@ -4,11 +4,6 @@
  * Author: gyt95 (gytkwan@gmail.com)
  */
 
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
 function twoSumBruteForce(nums, target) {
     let n = nums.length;
     // 两层循环，时间复杂度 O(n^2)
