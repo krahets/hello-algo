@@ -6,7 +6,7 @@ using hello_algo.chapter_array_and_linkedlist;
 using hello_algo.include;
 using NUnit.Framework;
 
-namespace hello_algo.Test.chapter_array_and_linkedlist
+namespace hello_algo.test.chapter_array_and_linkedlist
 {
     [TestFixture]
     internal class LinkedListTest
@@ -36,7 +36,7 @@ namespace hello_algo.Test.chapter_array_and_linkedlist
         [Test]
         public void CheckInit()
         {
-            //检查初始化是否正确
+            // 检查初始化是否正确
             Console.WriteLine($"初始化的链表为{n0}");
             Assert.AreEqual(n0.ToString(), "1->3->2->5->4");
         }
@@ -44,7 +44,7 @@ namespace hello_algo.Test.chapter_array_and_linkedlist
         [Test]
         public void TestInsert()
         {
-            //插入结点
+            // 插入结点
             LinkedList.Insert(n0, new ListNode(0));
             Console.WriteLine($"插入结点后的链表为{n0}");
             Assert.AreEqual(n0.ToString(), "1->0->3->2->5->4");
@@ -53,7 +53,7 @@ namespace hello_algo.Test.chapter_array_and_linkedlist
         [Test]
         public void TestRemove()
         {
-            //删除结点
+            // 删除结点
             LinkedList.Remove(n0);
             Console.WriteLine($"删除节点后的链表为{n0}");
             Assert.AreEqual(n0.ToString(), "1->2->5->4");
@@ -62,7 +62,7 @@ namespace hello_algo.Test.chapter_array_and_linkedlist
         [Test]
         public void TestAccess()
         {
-            //访问结点
+            // 访问结点
             var node = LinkedList.Access(n0, 3);
             Console.WriteLine($"链表中索引 3 处的结点的值 ={node.val}");
             Assert.AreEqual(node.val, 5);
@@ -71,7 +71,7 @@ namespace hello_algo.Test.chapter_array_and_linkedlist
         [Test]
         public void TestFind()
         {
-            //查找结点
+            // 查找结点
             int index = LinkedList.Find(n0, 2);
             Console.WriteLine($"链表中值为 2 的结点的索引 = {index}");
             Assert.AreEqual(index, 2);

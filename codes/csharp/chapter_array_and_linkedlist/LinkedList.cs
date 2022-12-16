@@ -9,7 +9,7 @@ namespace hello_algo.chapter_array_and_linkedlist
     public class LinkedList
     {
         /// <summary>
-        ///在链表的结点 n0 之后插入结点 P
+        /// 在链表的结点 n0 之后插入结点 P
         /// </summary>
         public static void Insert(ListNode n0, ListNode P)
         {
@@ -32,7 +32,7 @@ namespace hello_algo.chapter_array_and_linkedlist
         }
 
         /// <summary>
-        ///访问链表中索引为 index 的结点
+        /// 访问链表中索引为 index 的结点
         /// </summary>
         public static ListNode Access(ListNode head, int index)
         {
