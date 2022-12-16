@@ -317,7 +317,7 @@ $$
         /* 删除操作 */
         public void remove(int key) {
             int index = hashFunc(key);
-            // 置为空字符，代表删除
+            // 置为 null，代表删除
             bucket.set(index, null);
         }
     }
