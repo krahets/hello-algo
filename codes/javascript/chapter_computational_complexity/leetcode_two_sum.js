@@ -5,7 +5,7 @@
  */
 
 function twoSumBruteForce(nums, target) {
-    let n = nums.length;
+    const n = nums.length;
     // 两层循环，时间复杂度 O(n^2)
     for (let i = 0; i < n; i++) {
         for (let j = i + 1; j < n; j++) {
@@ -14,6 +14,7 @@ function twoSumBruteForce(nums, target) {
             }
         }
     }
+    return [];
 }
 
 function twoSumHashTable(nums, target) {
@@ -27,13 +28,15 @@ function twoSumHashTable(nums, target) {
             m[target - nums[i]] = i;
         }
     }
+    return [];
 }
 
 /* Driver Code */
-let nums = [2, 7, 11, 15], target = 9;
-twoSumBruteForce(nums, target)
-console.log("使用暴力枚举后得到结果：", nums)
+// 方法一
+const nums = [2, 7, 11, 15], target = 9;
+let res = twoSumBruteForce(nums, target)
+console.log("方法一 res = ", res)
 
-let nums1 = [2, 7, 11, 15], target1 = 9;
-twoSumHashTable(nums1, target1)
-console.log("使用辅助哈希表后得到结果", nums1)
+// 方法二
+res = twoSumHashTable(nums, target)
+console.log("方法二 res = ", res)

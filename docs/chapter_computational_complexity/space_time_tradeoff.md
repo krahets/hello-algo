@@ -91,7 +91,7 @@ comments: true
 
     ```js title="leetcode_two_sum.js"
     function twoSumBruteForce(nums, target) {
-        let n = nums.length;
+        const n = nums.length;
         // 两层循环，时间复杂度 O(n^2)
         for (let i = 0; i < n; i++) {
             for (let j = i + 1; j < n; j++) {
@@ -100,6 +100,7 @@ comments: true
                 }
             }
         }
+        return [];
     }
     ```
 
@@ -214,6 +215,7 @@ comments: true
                 m[target - nums[i]] = i;
             }
         }
+        return [];
     }
     ```
 
