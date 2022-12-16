@@ -7,6 +7,8 @@ package chapter_hashing
 import (
 	"fmt"
 	"testing"
+
+	. "github.com/krahets/hello-algo/pkg"
 )
 
 func TestHashmap(t *testing.T) {
@@ -21,9 +23,7 @@ func TestHashmap(t *testing.T) {
 	mapp[13276] = "小法"
 	mapp[10583] = "小鸭"
 	fmt.Println("\n添加完成后，哈希表为\nKey -> Value")
-	for key, value := range mapp {
-		fmt.Printf("%d -> %s\n", key, value)
-	}
+	PrintMap(mapp)
 
 	/* 查询操作 */
 	// 向哈希表输入键 key ，得到值 value
@@ -34,9 +34,7 @@ func TestHashmap(t *testing.T) {
 	// 在哈希表中删除键值对 (key, value)
 	delete(mapp, 10583)
 	fmt.Println("\n删除 10583 后，哈希表为\nKey -> Value")
-	for key, value := range mapp {
-		fmt.Printf("%d -> %s\n", key, value)
-	}
+	PrintMap(mapp)
 
 	/* 遍历哈希表 */
 	// 遍历键值对 key->value

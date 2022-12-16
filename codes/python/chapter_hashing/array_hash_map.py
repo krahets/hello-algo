@@ -39,7 +39,7 @@ class ArrayHashMap:
     """ 删除操作 """
     def remove(self, key):
         index = self.hashFunc(key)
-        # 置为空字符，代表删除
+        # 置为None，代表删除
         self.bucket[index] = None
 
     """ 获取所有键值对 """
