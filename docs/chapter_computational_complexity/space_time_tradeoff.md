@@ -90,7 +90,18 @@ comments: true
 === "JavaScript"
 
     ```js title="leetcode_two_sum.js"
-
+    function twoSumBruteForce(nums, target) {
+        const n = nums.length;
+        // 两层循环，时间复杂度 O(n^2)
+        for (let i = 0; i < n; i++) {
+            for (let j = i + 1; j < n; j++) {
+                if (nums[i] + nums[j] === target) {
+                    return [i, j];
+                }
+            }
+        }
+        return [];
+    }
     ```
 
 === "TypeScript"
@@ -204,7 +215,19 @@ comments: true
 === "JavaScript"
 
     ```js title="leetcode_two_sum.js"
-
+    function twoSumHashTable(nums, target) {
+        // 辅助哈希表，空间复杂度 O(n)
+        let m = {};
+        // 单层循环，时间复杂度 O(n)
+        for (let i = 0; i < nums.length; i++) {
+            if (m[nums[i]] !== undefined) {
+                return [m[nums[i]], i];
+            } else {
+                m[target - nums[i]] = i;
+            }
+        }
+        return [];
+    }
     ```
 
 === "TypeScript"
