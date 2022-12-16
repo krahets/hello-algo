@@ -97,9 +97,9 @@ func showTrunk(t *trunk) {
 	fmt.Print(t.str)
 }
 
-// PrintHashMap Print a hash map
-func PrintMap(m map[int]string) {
+// PrintMap Print a hash map
+func PrintMap[K comparable, V any](m map[K]V) {
 	for key, value := range m {
-		fmt.Printf("%d -> %s\n", key, value)
+		fmt.Println(key, "->", value)
 	}
 }
