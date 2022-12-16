@@ -1,6 +1,6 @@
 // File: print_utils.go
 // Created Time: 2022-12-03
-// Author: Reanon (793584285@qq.com), Krahets (krahets@163.com)
+// Author: Reanon (793584285@qq.com), Krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
 
 package pkg
 
@@ -95,4 +95,11 @@ func showTrunk(t *trunk) {
 
 	showTrunk(t.prev)
 	fmt.Print(t.str)
+}
+
+// PrintMap Print a hash map
+func PrintMap[K comparable, V any](m map[K]V) {
+	for key, value := range m {
+		fmt.Println(key, "->", value)
+	}
 }

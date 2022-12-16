@@ -1,7 +1,7 @@
 /*
  * File: PrintUtil.hpp
  * Created Time: 2021-12-19
- * Author: Krahets (krahets@163.com)
+ * Author: Krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
  */
 
 #pragma once
@@ -276,5 +276,20 @@ class PrintUtil {
                 deque.pop_front();
             }
             cout << "[" + s.str() + "]" << '\n';
+        }
+
+        /**
+         * @brief Print a HashMap
+         *
+         * @tparam TKey
+         * @tparam TValue
+         * @param map
+         */
+        // 定义模板参数 TKey 和 TValue，用于指定键值对的类型
+        template <typename TKey, typename TValue>
+        static void printHashMap(unordered_map<TKey,TValue> map) {
+            for (auto kv : map) {
+                cout << kv.first << " -> " << kv.second << '\n';
+            }
         }
 };

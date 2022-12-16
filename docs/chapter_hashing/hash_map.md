@@ -63,19 +63,70 @@ comments: true
 === "C++"
 
     ```cpp title="hash_map.cpp"
+    /* 初始化哈希表 */
+    unordered_map<int, string> map;
 
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map[12836] = "小哈";
+    map[15937] = "小啰";
+    map[16750] = "小算";
+    map[13276] = "小法";
+    map[10583] = "小鸭";
+
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    string name = map[15937];
+
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.erase(10583);
     ```
 
 === "Python"
 
     ```python title="hash_map.py"
+    """ 初始化哈希表 """
+    mapp = {}
 
+    """ 添加操作 """
+    # 在哈希表中添加键值对 (key, value)
+    mapp[12836] = "小哈"
+    mapp[15937] = "小啰"
+    mapp[16750] = "小算"
+    mapp[13276] = "小法"
+    mapp[10583] = "小鸭"
+
+    """ 查询操作 """
+    # 向哈希表输入键 key ，得到值 value
+    name = mapp[15937]
+
+    """ 删除操作 """
+    # 在哈希表中删除键值对 (key, value)
+    mapp.pop(10583)
     ```
 
 === "Go"
 
-    ```go title="hash_map.go"
+    ```go title="hash_map_test.go"
+	/* 初始化哈希表 */
+	mapp := make(map[int]string)
 
+	/* 添加操作 */
+	// 在哈希表中添加键值对 (key, value)
+	mapp[12836] = "小哈"
+	mapp[15937] = "小啰"
+	mapp[16750] = "小算"
+	mapp[13276] = "小法"
+	mapp[10583] = "小鸭"
+
+	/* 查询操作 */
+	// 向哈希表输入键 key ，得到值 value
+	name := mapp[15937]
+
+	/* 删除操作 */
+	// 在哈希表中删除键值对 (key, value)
+	delete(mapp, 10583)
     ```
 
 === "JavaScript"
@@ -125,19 +176,52 @@ comments: true
 === "C++"
 
     ```cpp title="hash_map.cpp"
-
+    /* 遍历哈希表 */
+    // 遍历键值对 key->value
+    for (auto kv: map) {
+        cout << kv.first << " -> " << kv.second << endl;
+    }
+    // 单独遍历键 key
+    for (auto key: map) {
+        cout << key.first << endl;
+    }
+    // 单独遍历值 value
+    for (auto val: map) {
+        cout << val.second << endl;
+    }
     ```
 
 === "Python"
 
     ```python title="hash_map.py"
-
+    """ 遍历哈希表 """
+    # 遍历键值对 key->value
+    for key, value in mapp.items():
+        print(key, "->", value)
+    # 单独遍历键 key
+    for key in mapp.keys():
+        print(key)
+    # 单独遍历值 value
+    for value in mapp.values():
+        print(value)
     ```
 
 === "Go"
 
-    ```go title="hash_map.go"
-
+    ```go title="hash_map_test.go"
+    /* 遍历哈希表 */
+    // 遍历键值对 key->value
+    for key, value := range mapp {
+        fmt.Println(key, "->", value)
+    }
+    // 单独遍历键 key
+    for key := range mapp {
+        fmt.Println(key)
+    }
+    // 单独遍历值 value
+    for _, value := range mapp {
+        fmt.Println(value)
+    }
     ```
 
 === "JavaScript"
@@ -242,19 +326,146 @@ $$
 === "C++"
 
     ```cpp title="array_hash_map.cpp"
+    /* 键值对 int->String */
+    struct Entry {
+    public:
+        int key;
+        string val;
+        Entry(int key, string val) {
+            this->key = key;
+            this->val = val;
+        }
+    };
 
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+    private:
+        vector<Entry*> bucket;
+    public:
+        ArrayHashMap() {
+            // 初始化一个长度为 100 的桶（数组）
+            bucket= vector<Entry*>(100);
+        }
+
+        /* 哈希函数 */
+        int hashFunc(int key) {
+            int index = key % 100;
+            return index;
+        }
+
+        /* 查询操作 */
+        string get(int key) {
+            int index = hashFunc(key);
+            Entry* pair = bucket[index];
+            return pair->val;
+        }
+
+        /* 添加操作 */
+        void put(int key, string val) {
+            Entry* pair = new Entry(key, val);
+            int index = hashFunc(key);
+            bucket[index] = pair;
+        }
+
+        /* 删除操作 */
+        void remove(int key) {
+            int index = hashFunc(key);
+            // 置为空字符，代表删除
+            bucket[index] = nullptr;
+        }
+    };
     ```
 
 === "Python"
 
     ```python title="array_hash_map.py"
-
+    """ 键值对 int->String """
+    class Entry:
+        def __init__(self, key, val):
+            self.key = key
+            self.val = val
+    
+    """ 基于数组简易实现的哈希表 """
+    class ArrayHashMap:
+        def __init__(self):
+            # 初始化一个长度为 100 的桶（数组）
+            self.bucket = [None] * 100
+    
+        """ 哈希函数 """
+        def hashFunc(self, key):
+            index = key % 100
+            return index
+    
+        """ 查询操作 """
+        def get(self, key):
+            index = self.hashFunc(key)
+            pair = self.bucket[index]
+            if pair is None:
+                return None
+            return pair.val
+    
+        """ 添加操作 """
+        def put(self, key, val):
+            pair = Entry(key, val)
+            index = self.hashFunc(key)
+            self.bucket[index] = pair
+    
+        """ 删除操作 """
+        def remove(self, key):
+            index = self.hashFunc(key)
+            # 置为空字符，代表删除
+            self.bucket[index] = None
     ```
 
 === "Go"
 
     ```go title="array_hash_map.go"
+    /* 键值对 int->String */
+    type Entry struct {
+        key int
+        val string
+    }
 
+    /* 基于数组简易实现的哈希表 */
+    type ArrayHashMap struct {
+        bucket []*Entry
+    }
+
+    func newArrayHashMap() *ArrayHashMap {
+        // 初始化一个长度为 100 的桶（数组）
+        bucket := make([]*Entry, 100)
+        return &ArrayHashMap{bucket: bucket}
+    }
+
+    /* 哈希函数 */
+    func (a *ArrayHashMap) hashFunc(key int) int {
+        index := key % 100
+        return index
+    }
+
+    /* 查询操作 */
+    func (a *ArrayHashMap) get(key int) string {
+        index := a.hashFunc(key)
+        pair := a.bucket[index]
+        if pair == nil {
+            return "Not Found"
+        }
+        return pair.val
+    }
+
+    /* 添加操作 */
+    func (a *ArrayHashMap) put(key int, val string) {
+        pair := &Entry{key: key, val: val}
+        index := a.hashFunc(key)
+        a.bucket[index] = pair
+    }
+
+    /* 删除操作 */
+    func (a *ArrayHashMap) remove(key int) {
+        index := a.hashFunc(key)
+        // 置为空字符，代表删除
+        a.bucket[index] = nil
+    }
     ```
 
 === "JavaScript"
