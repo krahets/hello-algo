@@ -2,6 +2,8 @@
 // Created Time: 2022-12-14
 // Author: mingXta (1195669834@qq.com)
 
+using NUnit.Framework;
+
 namespace hello_algo.chapter_array_and_linkedlist
 {
     public class Array
@@ -96,6 +98,40 @@ namespace hello_algo.chapter_array_and_linkedlist
         public static string ToString(int[] nums)
         {
             return string.Join(",", nums);
+        }
+        
+        // Driver Code 
+        [Test]
+        public static void Test()
+        {
+            // 初始化数组 
+            int[] arr = new int[5];
+            Console.WriteLine("数组 arr = " + ToString(arr));
+            int[] nums = { 1, 3, 2, 5, 4 };
+            Console.WriteLine("数组 nums = " + ToString(nums));
+
+            // 随机访问
+            int randomNum = RandomAccess(nums);
+            Console.WriteLine("在 nums 中获取随机元素 " + randomNum);
+
+            // 长度扩展 
+            nums = Extend(nums, 3);
+            Console.WriteLine("将数组长度扩展至 8 ，得到 nums = " + ToString(nums));
+
+            // 插入元素 
+            Insert(nums, 6, 3);
+            Console.WriteLine("在索引 3 处插入数字 6 ，得到 nums = " + ToString(nums));
+
+            // 删除元素 
+            Remove(nums, 2);
+            Console.WriteLine("删除索引 2 处的元素，得到 nums = " + ToString(nums));
+
+            // 遍历数组 
+            Traverse(nums);
+
+            // 查找元素 
+            int index = Find(nums, 3);
+            Console.WriteLine("在 nums 中查找元素 3 ，得到索引 = " + index);
         }
     }
 }

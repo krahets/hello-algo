@@ -3,6 +3,7 @@
 // Author: mingXta (1195669834@qq.com)
 
 using hello_algo.include;
+using NUnit.Framework;
 
 namespace hello_algo.chapter_array_and_linkedlist
 {
@@ -59,6 +60,41 @@ namespace hello_algo.chapter_array_and_linkedlist
                 index++;
             }
             return -1;
+        }
+
+        // Driver Code 
+        [Test]
+        public void Test()
+        {
+            // 初始化链表 
+            // 初始化各个结点 
+            ListNode n0 = new ListNode(1);
+            ListNode n1 = new ListNode(3);
+            ListNode n2 = new ListNode(2);
+            ListNode n3 = new ListNode(5);
+            ListNode n4 = new ListNode(4);
+            // 构建引用指向
+            n0.next = n1;
+            n1.next = n2;
+            n2.next = n3;
+            n3.next = n4;
+            Console.WriteLine($"初始化的链表为{n0}");
+
+            // 插入结点 
+            Insert(n0, new ListNode(0));
+            Console.WriteLine($"插入结点后的链表为{n0}");
+
+            // 删除结点 
+            Remove(n0);
+            Console.WriteLine($"删除结点后的链表为{n0}");
+
+            // 访问结点 
+            ListNode node = Access(n0, 3);
+            Console.WriteLine($"链表中索引 3 处的结点的值 = {node.val}");
+
+            // 查找结点 
+            int index = Find(n0, 2);
+            Console.WriteLine($"链表中值为 2 的结点的索引 = {index}");    
         }
     }
 }
