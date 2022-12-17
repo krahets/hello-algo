@@ -11,7 +11,8 @@ import (
 	"strings"
 )
 
-func PrintSlice(nums []int) {
+// PrintSlice Print a slice
+func PrintSlice[T any](nums []T) {
 	fmt.Printf("%v", nums)
 	fmt.Println()
 }
