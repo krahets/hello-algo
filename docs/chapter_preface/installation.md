@@ -12,7 +12,7 @@ comments: true
 
 ## Java 环境
 
-1. 下载并安装 [OpenJDK](https://jdk.java.net/18/) ，获取 Java 运行环境。
+1. 下载并安装 [OpenJDK](https://jdk.java.net/18/) 。
 2. 在 VSCode 的插件市场中搜索 `java` ，安装 Java Extension Pack 。
 
 ## C++ 环境
@@ -22,16 +22,21 @@ comments: true
 
 ## Python 环境
 
-1. 下载并安装 [Miniconda3](https://docs.conda.io/en/latest/miniconda.html) ，获取 Python 运行环境。
+1. 下载并安装 [Miniconda3](https://docs.conda.io/en/latest/miniconda.html) 。
 2. 在 VSCode 的插件市场中搜索 `python` ，安装 Python Extension Pack 。
 
 ## Go 环境
 
-1. 下载并安装 [go](https://go.dev/dl/) ，获取 Go 运行环境。
+1. 下载并安装 [go](https://go.dev/dl/) 。
 2. 在 VSCode 的插件市场中搜索 `go` ，安装 Go 。
 3. 快捷键 `Ctrl + Shift + P` 呼出命令栏，输入 go ，选择 `Go: Install/Update Tools` ，全部勾选并安装即可。
 
 ## JavaScript 环境
 
-1. 下载并安装 [node.js](https://nodejs.org/en/) ，获取 JavaScript 运行环境。
+1. 下载并安装 [node.js](https://nodejs.org/en/) 。
 2. 在 VSCode 的插件市场中搜索 `javascript` ，安装 JavaScript (ES6) code snippets 。
+
+## C# 环境
+
+1. 下载并安装 [.Net 6.0](https://dotnet.microsoft.com/en-us/download) ；
+2. 在 VSCode 的插件市场中搜索 `c#` ，安装 c# 。
