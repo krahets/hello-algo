@@ -208,7 +208,7 @@ comments: true
 
     ```go title="list_test.go"
     /* 清空列表 */
-    list = []int{}
+    list = nil
 
     /* 尾部添加元素 */
     list = append(list, 1)

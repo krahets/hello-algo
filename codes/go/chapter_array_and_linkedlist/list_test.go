@@ -25,7 +25,7 @@ func TestList(t *testing.T) {
 	fmt.Println("将索引 1 处的元素更新为 0 ，得到 list =", list)
 
 	/* 清空列表 */
-	list = []int{}
+	list = nil
 	fmt.Println("清空列表后 list =", list)
 
 	/* 尾部添加元素 */
