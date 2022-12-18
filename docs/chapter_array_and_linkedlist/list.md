@@ -37,8 +37,9 @@ comments: true
 
 === "Go"
 
-    ```go title="list.go"
-
+    ```go title="list_test.go"
+    /* 初始化列表 */
+    list := []int{1, 3, 2, 5, 4}
     ```
 
 === "JavaScript"
@@ -101,8 +102,12 @@ comments: true
 
 === "Go"
 
-    ```go title="list.go"
+    ```go title="list_test.go"
+    /* 访问元素 */
+    num := list[1]  // 访问索引 1 处的元素
 
+    /* 更新元素 */
+    list[1] = 0     // 将索引 1 处的元素更新为 0
     ```
 
 === "JavaScript"
@@ -201,8 +206,22 @@ comments: true
 
 === "Go"
 
-    ```go title="list.go"
+    ```go title="list_test.go"
+    /* 清空列表 */
+    list = nil
 
+    /* 尾部添加元素 */
+    list = append(list, 1)
+    list = append(list, 3)
+    list = append(list, 2)
+    list = append(list, 5)
+    list = append(list, 4)
+
+    /* 中间插入元素 */
+    list = append(list[:3], append([]int{6}, list[3:]...)...) // 在索引 3 处插入数字 6
+
+    /* 删除元素 */
+    list = append(list[:3], list[4:]...) // 删除索引 3 处的元素
     ```
 
 === "JavaScript"
@@ -307,8 +326,18 @@ comments: true
 
 === "Go"
 
-    ```go title="list.go"
+    ```go title="list_test.go"
+    /* 通过索引遍历列表 */
+    count := 0
+    for i := 0; i < len(list); i++ {
+        count++
+    }
 
+    /* 直接遍历列表元素 */
+    count = 0
+	for range list {
+		count++
+	}
     ```
 
 === "JavaScript"
@@ -384,8 +413,10 @@ comments: true
 
 === "Go"
 
-    ```go title="list.go"
-
+    ```go title="list_test.go"
+    /* 拼接两个列表 */
+    list1 := []int{6, 8, 7, 10, 9}
+    list = append(list, list1...)  // 将列表 list1 拼接到 list 之后
     ```
 
 === "JavaScript"
@@ -441,8 +472,9 @@ comments: true
 
 === "Go"
 
-    ```go title="list.go"
-
+    ```go title="list_test.go"
+    /* 排序列表 */
+    sort.Ints(list)  // 排序后，列表元素从小到大排列
     ```
 
 === "JavaScript"
@@ -739,7 +771,100 @@ comments: true
 === "Go"
 
     ```go title="my_list.go"
+    /* 列表类简易实现 */
+    type MyList struct {
+        numsCapacity int
+        nums         []int
+        numsSize     int
+        extendRatio  int
+    }
 
+    /* 构造函数 */
+    func newMyList() *MyList {
+        return &MyList{
+            numsCapacity: 10,              // 列表容量
+            nums:         make([]int, 10), // 数组（存储列表元素）
+            numsSize:     0,               // 列表长度（即当前元素数量）
+            extendRatio:  2,               // 每次列表扩容的倍数
+        }
+    }
+
+    /* 获取列表长度（即当前元素数量） */
+    func (l *MyList) size() int {
+        return l.numsSize
+    }
+
+    /*  获取列表容量 */
+    func (l *MyList) capacity() int {
+        return l.numsCapacity
+    }
+
+    /* 访问元素 */
+    func (l *MyList) get(index int) int {
+        // 索引如果越界则抛出异常，下同
+        if index >= l.numsSize {
+            panic("索引越界")
+        }
+        return l.nums[index]
+    }
+
+    /* 更新元素 */
+    func (l *MyList) set(num, index int) {
+        if index >= l.numsSize {
+            panic("索引越界")
+        }
+        l.nums[index] = num
+    }
+
+    /* 尾部添加元素 */
+    func (l *MyList) add(num int) {
+        // 元素数量超出容量时，触发扩容机制
+        if l.numsSize == l.numsCapacity {
+            l.extendCapacity()
+        }
+        l.nums[l.numsSize] = num
+        // 更新元素数量
+        l.numsSize++
+    }
+
+    /* 中间插入元素 */
+    func (l *MyList) insert(num, index int) {
+        if index >= l.numsSize {
+            panic("索引越界")
+        }
+        // 元素数量超出容量时，触发扩容机制
+        if l.numsSize == l.numsCapacity {
+            l.extendCapacity()
+        }
+        // 索引 i 以及之后的元素都向后移动一位
+        for j := l.numsSize - 1; j >= index; j-- {
+            l.nums[j+1] = l.nums[j]
+        }
+        l.nums[index] = num
+        // 更新元素数量
+        l.numsSize++
+    }
+
+    /* 删除元素 */
+    func (l *MyList) Remove(index int) {
+        if index >= l.numsSize {
+            panic("索引越界")
+        }
+        // 索引 i 之后的元素都向前移动一位
+        for j := index; j < l.numsSize-1; j++ {
+            l.nums[j] = l.nums[j+1]
+        }
+        // 更新元素数量
+        l.numsSize--
+    }
+
+    /* 列表扩容 */
+    func (l *MyList) extendCapacity() {
+        // 新建一个长度为 self.__size 的数组，并将原数组拷贝到新数组
+        l.nums = append(l.nums, make([]int, l.numsCapacity*(l.extendRatio-1))...)
+        // 更新列表容量
+        l.numsCapacity = len(l.nums)
+    }
     ```
 
 === "JavaScript"
