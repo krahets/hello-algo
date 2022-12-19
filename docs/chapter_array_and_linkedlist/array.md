@@ -314,7 +314,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     /* 在数组的索引 index 处插入元素 num */
     void insert(int[] nums, int num, int index) {
         // 把索引 index 以及之后的所有元素向后移动一位
-        for (int i = nums.length - 1; i >= index; i--) {
+        for (int i = nums.length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
         // 将 num 赋给 index 处元素
@@ -336,7 +336,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     /* 在数组的索引 index 处插入元素 num */
     void insert(int* nums, int size, int num, int index) {
         // 把索引 index 以及之后的所有元素向后移动一位
-        for (int i = size - 1; i >= index; i--) {
+        for (int i = size - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
         // 将 num 赋给 index 处元素
@@ -358,7 +358,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     """ 在数组的索引 index 处插入元素 num """
     def insert(nums, num, index):
         # 把索引 index 以及之后的所有元素向后移动一位
-        for i in range(len(nums) - 1, index - 1, -1):
+        for i in range(len(nums) - 1, index , -1):
             nums[i] = nums[i - 1]
         # 将 num 赋给 index 处元素
         nums[index] = num
@@ -382,7 +382,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     /* 在数组的索引 index 处插入元素 num */
     function insert(nums, num, index) {
         // 把索引 index 以及之后的所有元素向后移动一位
-        for (let i = nums.length - 1; i >= index; i--) {
+        for (let i = nums.length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
         // 将 num 赋给 index 处元素
@@ -404,7 +404,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     /* 在数组的索引 index 处插入元素 num */
     function insert(nums: number[], num: number, index: number): void {
         // 把索引 index 以及之后的所有元素向后移动一位
-        for (let i = nums.length - 1; i >= index; i--) {
+        for (let i = nums.length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
         // 将 num 赋给 index 处元素
@@ -433,7 +433,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     void Insert(int[] nums, int num, int index)
     {
         // 把索引 index 以及之后的所有元素向后移动一位
-        for (int i = nums.Length - 1; i >= index; i--)
+        for (int i = nums.Length - 1; i > index; i--)
         {
             nums[i] = nums[i - 1];
         }
