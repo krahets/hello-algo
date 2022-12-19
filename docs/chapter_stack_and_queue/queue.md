@@ -88,7 +88,7 @@ comments: true
 
     ```python title="queue.py"
     """ 初始化队列 """
-    # 在 Python 中，我们一般将双向队列类 deque 看左队列使用
+    # 在 Python 中，我们一般将双向队列类 deque 看作队列使用
     # 虽然 queue.Queue() 是纯正的队列类，但不太好用，因此不建议
     que = collections.deque()
 
