@@ -1,4 +1,4 @@
-﻿// File: LinkedList.cs
+﻿// File: time_complexity.cs
 // Created Time: 2022-12-19
 // Author: SayoKun (373484252@qq.com)
 
