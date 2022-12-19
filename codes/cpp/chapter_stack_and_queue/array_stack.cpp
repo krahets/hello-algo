@@ -29,6 +29,9 @@ public:
 
     /* 出栈 */
     int pop() {
+        if(stack.empty()){
+            throw out_of_range("栈为空,不能执行: pop()函数");
+        }
         int oldTop = stack.back();
         stack.pop_back();
         return oldTop;
@@ -36,11 +39,17 @@ public:
 
     /* 访问栈顶元素 */
     int top() {
+        if(stack.empty()){
+            throw out_of_range("栈为空,不能执行: top()函数");
+        }
         return stack.back();
     }
 
     /* 访问索引 index 处元素 */
     int get(int index) {
+        if(stack.size() < index){
+            throw out_of_range("超出栈空间大小");
+        }
         return stack[index];
     }
 
