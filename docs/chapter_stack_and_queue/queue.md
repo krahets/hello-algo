@@ -434,7 +434,73 @@ comments: true
 === "TypeScript"
 
     ```typescript title="linkedlist_queue.ts"
+    /* 基于链表实现的队列 */
+    class LinkedListQueue {
+        private front: ListNode | null;
+        private rear: ListNode | null;  // 头结点 front ，尾结点 rear 
+        private queSize: number = 0;
 
+        constructor() {
+            this.front = null;
+            this.rear = null;
+        }
+
+        /* 获取队列的长度 */
+        get size(): number {
+            return this.queSize;
+        }
+
+        /* 判断队列是否为空 */
+        isEmpty(): boolean {
+            return this.size === 0;
+        }
+
+        /* 入队 */
+        offer(num: number): void {
+            // 尾结点后添加 num
+            const node = new ListNode(num);
+            // 如果队列为空，则令头、尾结点都指向该结点
+            if (!this.front) {
+                this.front = node;
+                this.rear = node;
+                // 如果队列不为空，则将该结点添加到尾结点后
+            } else {
+                this.rear!.next = node;
+                this.rear = node;
+            }
+            this.queSize++;
+        }
+
+        /* 出队 */
+        poll(): number {
+            const num = this.peek();
+            if (!this.front) {
+                throw new Error("No element in queue!")
+            }
+            // 删除头结点
+            this.front = this.front.next;
+            this.queSize--;
+            return num;
+        }
+
+        /* 访问队首元素 */
+        peek(): number {
+            if (this.size === 0)
+                throw new Error("No element in queue!");
+            return this.front!.val;
+        }
+
+        /* 将链表转化为 Array 并返回 */
+        toArray(): number[] {
+            let node = this.front;
+            const res = new Array<number>(this.size);
+            for (let i = 0; i < res.length; i++) {
+                res[i] = node!.val;
+                node = node!.next;
+            }
+            return res;
+        }
+    }
     ```
 
 === "C"
