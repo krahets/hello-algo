@@ -13,5 +13,3 @@ docs/overrides/
 
 # python files
 __pycache__
-/.vs
-/codes/csharp/.cr/personal/FavoritesList
