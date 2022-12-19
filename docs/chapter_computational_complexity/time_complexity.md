@@ -97,7 +97,18 @@ $$
 === "C#"
 
     ```csharp title=""
-
+    // 在某运行平台下
+	void algorithm(int n)
+	{
+		int a = 2;  // 1 ns
+		a = a + 1;  // 1 ns
+		a = a * 2;  // 10 ns
+		// 循环 n 次
+		for (int i = 0; i < n; i++)
+		{                                   // 1 ns ，每轮都要执行 i++
+			System.Console.WriteLine(0);    // 5 ns
+		}
+	}
     ```
 
 但实际上， **统计算法的运行时间既不合理也不现实。** 首先，我们不希望预估时间和运行平台绑定，毕竟算法需要跑在各式各样的平台之上。其次，我们很难获知每一种操作的运行时间，这为预估过程带来了极大的难度。
@@ -212,7 +223,27 @@ $$
 === "C#"
 
     ```csharp title=""
-
+    // 算法 A 时间复杂度：常数阶
+	void algorithm_A(int n)
+	{
+		System.Console.WriteLine(n);
+	}
+	// 算法 B 时间复杂度：线性阶
+	void algorithm_B(int n)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			System.Console.WriteLine(i);
+		}
+	}
+	// 算法 C 时间复杂度：常数阶
+	void algorithm_C(int n)
+	{
+		for (int i = 0; i < 1000000; i++)
+		{
+			System.Console.WriteLine(i);
+		}
+	}
     ```
 
 ![time_complexity_first_example](time_complexity.assets/time_complexity_first_example.png)
@@ -310,7 +341,17 @@ $$
 === "C#"
 
     ```csharp title=""
-
+    void algorithm(int n)
+	{
+		int a = 1;	// +1
+		a = a + 1;  // +1
+		a = a * 2;  // +1
+		// 循环 n 次
+		for (int i = 0; i < n; i++)
+		{									// +1（每轮都执行 i ++）
+			System.Console.WriteLine(0);	// +1
+		}
+	}
     ```
 
 $T(n)$ 是个一次函数，说明时间增长趋势是线性的，因此易得时间复杂度是线性阶。
@@ -457,7 +498,24 @@ $$
 === "C#"
 
     ```csharp title=""
-
+    void algorithm(int n)
+	{
+		int a = 1;  // +0（技巧 1）
+		a = a + n;  // +0（技巧 1）
+		// +n（技巧 2）
+		for (int i = 0; i < 5 * n + 1; i++)
+		{
+			System.Console.WriteLine(0);
+		}
+		// +n*n（技巧 3）
+		for (int i = 0; i < 2 * n; i++)
+		{
+			for (int j = 0; j < n + 1; j++)
+			{
+				System.Console.WriteLine(0);
+			}
+		}
+	}
     ```
 
 ### 2. 判断渐近上界
@@ -576,7 +634,15 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-
+    /* 常数阶 */
+	int constant(int n)
+	{
+		int count = 0;
+		int size = 100000;
+		for (int i = 0; i < size; i++)
+			count++;
+		return count;
+	}
     ```
 
 ### 线性阶 $O(n)$
@@ -652,7 +718,14 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-
+    /* 线性阶 */
+    int linear(int n) 
+    {
+        int count = 0;
+        for (int i = 0; i < n; i++)
+            count++;
+        return count;
+    }
     ```
 
 「遍历数组」和「遍历链表」等操作，时间复杂度都为 $O(n)$ ，其中 $n$ 为数组或链表的长度。
@@ -736,7 +809,17 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-
+    /* 线性阶（遍历数组） */
+	int arrayTraversal(int[] nums)
+	{
+		int count = 0;
+		// 循环次数与数组长度成正比
+		foreach (int num in nums)
+		{
+			count++;
+		}
+		return count;
+	}
     ```
 
 ### 平方阶 $O(n^2)$
@@ -825,7 +908,20 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-
+    /* 平方阶 */
+	int quadratic(int n)
+	{
+		int count = 0;
+		// 循环次数与数组长度成平方关系
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				count++;
+			}
+		}
+		return count;
+	}
     ```
 
 ![time_complexity_constant_linear_quadratic](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
@@ -947,7 +1043,28 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-
+    /* 平方阶（冒泡排序） */
+	int bubbleSort(int[] nums)
+	{
+		int count = 0;  // 计数器
+						// 外循环：待排序元素数量为 n-1, n-2, ..., 1
+		for (int i = nums.Length - 1; i > 0; i--)
+		{
+			// 内循环：冒泡操作
+			for (int j = 0; j < i; j++)
+			{
+				if (nums[j] > nums[j + 1])
+				{
+					// 交换 nums[j] 与 nums[j + 1]
+					int tmp = nums[j];
+					nums[j] = nums[j + 1];
+					nums[j + 1] = tmp;
+					count += 3;  // 元素交换包含 3 个单元操作
+				}
+			}
+		}
+		return count;
+	}
     ```
 
 ### 指数阶 $O(2^n)$
@@ -1048,7 +1165,22 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-
+    /* 指数阶（循环实现） */
+	int exponential(int n)
+	{
+		int count = 0, baseNum = 1;
+		// cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < baseNum; j++)
+			{
+				count++;
+			}
+			baseNum *= 2;
+		}
+		// count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
+		return count;
+	}
     ```
 
 ![time_complexity_exponential](time_complexity.assets/time_complexity_exponential.png)
@@ -1119,7 +1251,12 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-
+    /* 指数阶（递归实现） */
+    int expRecur(int n) 
+    {
+        if (n == 1) return 1;
+        return expRecur(n - 1) + expRecur(n - 1) + 1;
+    }
     ```
 
 ### 对数阶 $O(\log n)$
@@ -1205,7 +1342,17 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-
+    /* 对数阶（循环实现） */
+	int logarithmic(float n)
+	{
+		int count = 0;
+		while (n > 1)
+		{
+			n = n / 2;
+			count++;
+		}
+		return count;
+	}
     ```
 
 ![time_complexity_logarithmic](time_complexity.assets/time_complexity_logarithmic.png)
@@ -1276,7 +1423,12 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-
+    /* 对数阶（递归实现） */
+	int logRecur(float n)
+	{
+		if (n <= 1) return 0;
+		return logRecur(n / 2) + 1;
+	}
     ```
 
 ### 线性对数阶 $O(n \log n)$
@@ -1366,7 +1518,18 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-
+    /* 线性对数阶 */
+	int linearLogRecur(float n)
+	{
+		if (n <= 1) return 1;
+		int count = linearLogRecur(n / 2) +
+					linearLogRecur(n / 2);
+		for (int i = 0; i < n; i++)
+		{
+			count++;
+		}
+		return count;
+	}
     ```
 
 ![time_complexity_logarithmic_linear](time_complexity.assets/time_complexity_logarithmic_linear.png)
@@ -1464,7 +1627,18 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-
+    /* 阶乘阶（递归实现） */
+	int factorialRecur(int n)
+	{
+		if (n == 0) return 1;
+		int count = 0;
+		// 从 1 个分裂出 n 个
+		for (int i = 0; i < n; i++)
+		{
+			count += factorialRecur(n - 1);
+		}
+		return count;
+	}
     ```
 
 ![time_complexity_factorial](time_complexity.assets/time_complexity_factorial.png)
@@ -1652,7 +1826,38 @@ $$
 === "C#"
 
     ```csharp title="worst_best_time_complexity.cs"
+    public class worst_best_time_complexity
+	{
+		/* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
+		static int[] randomNumbers(int n)
+		{
+			int[] nums = new int[n];
+			// 生成数组 nums = { 1, 2, 3, ..., n }
+			for (int i = 0; i < n; i++)
+			{
+				nums[i] = i + 1;
+			}
+			// 随机打乱数组元素
+			nums = nums.OrderBy(num => System.Random.Shared.Next()).ToArray();
+			return nums;
+		}
 
+		/* 查找数组 nums 中数字 1 所在索引 */
+		static int findOne(in Span<int> nums) => nums.IndexOf(1);
+
+		/* Driver Code */
+		public static void main()
+		{
+			for (int i = 0; i < 10; i++)
+			{
+				int n = 100;
+				int[] nums = randomNumbers(n);
+				int index = findOne(nums);
+				System.Console.WriteLine($"打乱后的数组为 [{string.Join(",", nums)}]");
+				System.Console.WriteLine($"数字 1 的索引为 [{index}]");
+			}
+		}
+	}
     ```
 
 !!! tip
