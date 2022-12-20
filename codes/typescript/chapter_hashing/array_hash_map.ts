@@ -1,3 +1,9 @@
+/*
+ * File: array_hash_map.ts
+ * Created Time: 2022-12-29
+ * Author: Daniel (better.sunjian@gmail.com)
+ */
+
 /* 键值对 Number -> String */
 class Entry {
   public key: number;

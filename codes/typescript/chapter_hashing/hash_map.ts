@@ -1,3 +1,9 @@
+/*
+ * File: hash_map.ts
+ * Created Time: 2022-12-29
+ * Author: Daniel (better.sunjian@gmail.com)
+ */
+
 import ArrayHashMap from './array_hash_map';
 
 class HashMap {
