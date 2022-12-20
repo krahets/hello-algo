@@ -536,7 +536,6 @@ $$
         
         /* 新增和删除 */
         public set(key: number, val: string | null) {
-            this.isOutOfRange(key);
             if (val !== null) {
                 this.elements[key] = new Entry(key, val);
             }
@@ -576,12 +575,6 @@ $$
                 }
             }
             return arr;
-        }
-        
-        private isOutOfRange(key: number) {
-            if (key > this.elements.length - 1) {
-                throw new Error('Out of array range');
-            }
         }
     }
     ```
