@@ -28,16 +28,19 @@ class ArrayStack {
 
     /* 出栈 */
     pop() {
+        if (this.empty()) throw "栈为空";
         return this.stack.pop();
     }
 
     /* 访问栈顶元素 */
     top() {
+        if (this.empty()) throw "栈为空";
         return this.stack[this.stack.length - 1];
     }
 
     /* 访问索引 index 处元素 */
     get(index) {
+        if (index >= this.size) throw "索引越界";
         return this.stack[index];
     }
 

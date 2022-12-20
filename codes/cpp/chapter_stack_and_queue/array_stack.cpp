@@ -29,18 +29,22 @@ public:
 
     /* 出栈 */
     int pop() {
-        int oldTop = stack.back();
+        int oldTop = top();
         stack.pop_back();
         return oldTop;
     }
 
     /* 访问栈顶元素 */
     int top() {
+        if(empty())
+            throw out_of_range("栈为空");
         return stack.back();
     }
 
     /* 访问索引 index 处元素 */
     int get(int index) {
+        if(index >= size())
+            throw out_of_range("索引越界");
         return stack[index];
     }
 

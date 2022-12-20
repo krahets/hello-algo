@@ -225,7 +225,6 @@ comments: true
     class LinkedListStack {
         private ListNode stackPeek;  // 将头结点作为栈顶
         private int stkSize = 0;   // 栈的长度
-        
         public LinkedListStack() {
             stackPeek = null;
         }
@@ -254,7 +253,7 @@ comments: true
         /* 访问栈顶元素 */
         public int peek() {
             if (size() == 0)
-                throw new IndexOutOfBoundsException();
+                throw new EmptyStackException();
             return stackPeek.val;
         }
     }
@@ -448,14 +447,20 @@ comments: true
         }
         /* 出栈 */
         public int pop() {
+            if (isEmpty())
+                throw new EmptyStackException();
             return stack.remove(size() - 1);
         }
         /* 访问栈顶元素 */
         public int peek() {
+            if (isEmpty())
+                throw new EmptyStackException();
             return stack.get(size() - 1);
         }
         /* 访问索引 index 处元素 */
         public int get(int index) {
+            if (index >= size())
+                throw new EmptyStackException();
             return stack.get(index);
         }
     }
@@ -484,16 +489,20 @@ comments: true
         }
         /* 出栈 */
         int pop() {
-            int oldTop = stack.back();
+            int oldTop = top();
             stack.pop_back();
             return oldTop;
         }
         /* 访问栈顶元素 */
         int top() {
+            if(empty())
+                throw out_of_range("栈为空");
             return stack.back();
         }
         /* 访问索引 index 处元素 */
         int get(int index) {
+            if(index >= size())
+                throw out_of_range("索引越界");
             return stack[index];
         }
     };
@@ -521,14 +530,17 @@ comments: true
 
         """ 出栈 """
         def pop(self):
+            assert not self.is_empty(), "栈为空"
             return self.__stack.pop()
 
         """ 访问栈顶元素 """
         def peek(self):
+            assert not self.is_empty(), "栈为空"
             return self.__stack[-1]
 
         """ 访问索引 index 处元素 """
         def get(self, index):
+            assert index < self.size(), "索引越界"
             return self.__stack[index]
     ```
 
@@ -539,30 +551,25 @@ comments: true
     type ArrayStack struct {
         data []int // 数据
     }
-
     func NewArrayStack() *ArrayStack {
         return &ArrayStack{
             // 设置栈的长度为 0，容量为 16
             data: make([]int, 0, 16),
         }
     }
-
     // Size 栈的长度
     func (s *ArrayStack) Size() int {
         return len(s.data)
     }
-
     // IsEmpty 栈是否为空
     func (s *ArrayStack) IsEmpty() bool {
         return s.Size() == 0
     }
-
     // Push 入栈
     func (s *ArrayStack) Push(v int) {
         // 切片会自动扩容
         s.data = append(s.data, v)
     }
-
     // Pop 出栈
     func (s *ArrayStack) Pop() any {
         // 弹出栈前，先判断是否为空
@@ -573,7 +580,6 @@ comments: true
         s.data = s.data[:len(s.data)-1]
         return val
     }
-
     // Peek 获取栈顶元素
     func (s *ArrayStack) Peek() any {
         if s.IsEmpty() {
@@ -597,35 +603,28 @@ comments: true
         get size() {
             return this.stack.length;
         }
-
         /* 判断栈是否为空 */
         empty() {
             return this.stack.length === 0;
         }
-
         /* 入栈 */
         push(num) {
             this.stack.push(num);
         }
-
         /* 出栈 */
         pop() {
+            if (this.empty()) throw "栈为空";
             return this.stack.pop();
         }
-
         /* 访问栈顶元素 */
         top() {
+            if (this.empty()) throw "栈为空";
             return this.stack[this.stack.length - 1];
         }
-
         /* 访问索引 index 处元素 */
         get(index) {
+            if (index >= this.size) throw "索引越界";
             return this.stack[index];
-        }
-
-        /* 返回 Array */
-        toArray() {
-            return this.stack;
         }
     };
     ```
@@ -643,35 +642,28 @@ comments: true
         get size(): number {
             return this.stack.length;
         }
-
         /* 判断栈是否为空 */
         empty(): boolean {
             return this.stack.length === 0;
         }
-
         /* 入栈 */
         push(num: number): void {
             this.stack.push(num);
         }
-
         /* 出栈 */
         pop(): number | undefined {
+            if (empty()) throw new Error('栈为空');
             return this.stack.pop();
         }
-
         /* 访问栈顶元素 */
         top(): number | undefined {
+            if (empty()) throw new Error('栈为空');
             return this.stack[this.stack.length - 1];
         }
-
         /* 访问索引 index 处元素 */
         get(index: number): number | undefined {
+            if (index >= size()) throw new Error('索引越界');
             return this.stack[index];
-        }
-
-        /* 返回 Array */
-        toArray() {
-            return this.stack;
         }
     };
     ```

@@ -33,16 +33,22 @@ class ArrayStack {
 
     /* 出栈 */
     public int pop() {
+        if (isEmpty())
+            throw new EmptyStackException();
         return stack.remove(size() - 1);
     }
 
     /* 访问栈顶元素 */
     public int peek() {
+        if (isEmpty())
+            throw new EmptyStackException();
         return stack.get(size() - 1);
     }
 
     /* 访问索引 index 处元素 */
     public int get(int index) {
+        if (index >= size())
+            throw new IndexOutOfBoundsException();
         return stack.get(index);
     }
 
