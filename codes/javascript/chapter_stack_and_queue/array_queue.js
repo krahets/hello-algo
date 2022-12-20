@@ -7,10 +7,10 @@
 
 /* 基于环形数组实现的队列 */
 class ArrayQueue {
-    #queue;     // 用于存储队列元素的数组
-    #front = 0;  // 头指针，指向队首
-    #rear = 0;   // 尾指针，指向队尾 + 1
-    #CAPACITY = 1e5;
+    #queue;           // 用于存储队列元素的数组
+    #front = 0;       // 头指针，指向队首
+    #rear = 0;        // 尾指针，指向队尾 + 1
+    #CAPACITY = 1e3;  // 默认初始容量
 
     constructor(capacity) {
         this.#queue = new Array(capacity ?? this.CAPACITY);
@@ -34,10 +34,8 @@ class ArrayQueue {
 
     /* 入队 */
     offer(num) {
-        if (this.size == this.capacity) {
-            console.log("队列已满");
-            return;
-        }
+        if (this.size == this.capacity)
+            throw new Error("队列已满");
         // 尾结点后添加 num
         this.#queue[this.#rear] = num;
         // 尾指针向后移动一位，越过尾部后返回到数组头部
@@ -56,14 +54,14 @@ class ArrayQueue {
     peek() {
         // 删除头结点
         if (this.empty())
-            throw new Error("The queue is empty!");
+            throw new Error("队列为空");
         return this.#queue[this.#front];
     }
 
     /* 访问指定索引元素 */
     get(index) {
         if (index >= this.size)
-            throw new Error("Index out of bounds!");
+            throw new Error("索引越界");
         return this.#queue[(this.#front + index) % this.capacity];
     }
 
@@ -80,6 +78,8 @@ class ArrayQueue {
     }
 }
 
+
+/* Driver Code */
 /* 初始化队列 */
 const capacity = 10;
 const queue = new ArrayQueue(capacity);

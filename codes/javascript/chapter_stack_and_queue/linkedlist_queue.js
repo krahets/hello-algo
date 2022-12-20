@@ -47,7 +47,7 @@ class LinkedListQueue {
     poll() {
         const num = this.peek();
         if (!this.#front) {
-            throw new Error("No element in queue!")
+            throw new Error("队列为空")
         }
         // 删除头结点
         this.#front = this.#front.next;
@@ -58,7 +58,7 @@ class LinkedListQueue {
     /* 访问队首元素 */
     peek() {
         if (this.size === 0)
-            throw new Error("No element in queue!");
+            throw new Error("队列为空");
         return this.#front.val;
     }
 
