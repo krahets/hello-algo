@@ -613,7 +613,7 @@ comments: true
         int val;         // 结点值
         ListNode *next;  // 指向后继结点的指针（引用）
         ListNode *prev;  // 指向前驱结点的指针（引用）
-        ListNode(int x) : val(x), next(nullptr) {}  // 构造函数
+        ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // 构造函数
     };
     ```
 
@@ -644,8 +644,8 @@ comments: true
         prev;
         constructor(val, next) {
             this.val = val  ===  undefined ? 0 : val;        // 结点值
-            this.next = next  ===  undefined ? null : next;  // 指向后继结点的引用
-            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的引用
+            this.next = next  ===  undefined ? null : next;  // 指向后继结点的指针（引用）
+            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的指针（引用）
         }
     }
     ```
@@ -660,8 +660,8 @@ comments: true
         prev: ListNode | null;
         constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
             this.val = val  ===  undefined ? 0 : val;        // 结点值
-            this.next = next  ===  undefined ? null : next;  // 指向后继结点的引用
-            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的引用
+            this.next = next  ===  undefined ? null : next;  // 指向后继结点的指针（引用）
+            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的指针（引用）
         }
     }
     ```

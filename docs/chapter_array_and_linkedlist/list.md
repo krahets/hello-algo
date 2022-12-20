@@ -10,13 +10,15 @@ comments: true
 
 ## 列表常用操作
 
-**初始化列表。** 我们通常使用 `Integer[]` 包装类和 `Arrays.asList()` 作为中转，来初始化一个带有初始值的列表。
+**初始化列表。** 我们通常会使用到“无初始值”和“有初始值”的两种初始化方法。
 
 === "Java"
 
     ```java title="list.java"
     /* 初始化列表 */
-    // 注意数组的元素类型是 int[] 的包装类 Integer[]
+    // 无初始值
+    List<Integer> list1 = new ArrayList<>();
+    // 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）
     Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
     List<Integer> list = new ArrayList<>(Arrays.asList(numbers));
     ```
@@ -25,6 +27,10 @@ comments: true
 
     ```cpp title="list.cpp"
     /* 初始化列表 */
+    // 需注意，C++ 中 vector 即是本文描述的 list
+    // 无初始值
+    vector<int> list1;
+    // 有初始值
     vector<int> list = { 1, 3, 2, 5, 4 };
     ```
 
@@ -32,6 +38,9 @@ comments: true
 
     ```python title="list.py"
     """ 初始化列表 """
+    # 无初始值
+    list1 = []
+    # 有初始值
     list = [1, 3, 2, 5, 4]
     ```
 
@@ -39,6 +48,9 @@ comments: true
 
     ```go title="list_test.go"
     /* 初始化列表 */
+    // 无初始值
+    list1 := []int
+    // 有初始值
     list := []int{1, 3, 2, 5, 4}
     ```
 
@@ -46,6 +58,9 @@ comments: true
 
     ```js title="list.js"
     /* 初始化列表 */
+    // 无初始值
+    const list1 = [];
+    // 有初始值
     const list = [1, 3, 2, 5, 4];
     ```
 
@@ -53,6 +68,9 @@ comments: true
 
     ```typescript title="list.ts"
     /* 初始化列表 */
+    // 无初始值
+    const list1: number[] = [];
+    // 有初始值
     const list: number[] = [1, 3, 2, 5, 4];
     ```
 

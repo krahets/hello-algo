@@ -226,7 +226,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 ![right_rotate_with_grandchild](avl_tree.assets/right_rotate_with_grandchild.png)
 
-“向右旋转” 是一种形象化的说法，实际需要通过修改结点指针实现，代码如下所示。
+“向右旋转”是一种形象化的说法，实际需要通过修改结点指针实现，代码如下所示。
 
 === "Java"
 
@@ -290,7 +290,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 ### Case 2 - 左旋
 
-类似地，如果将取上述失衡二叉树的 “镜像” ，那么则需要「左旋」操作。观察发现，**「左旋」和「右旋」操作是镜像对称的，两者对应解决的两种失衡情况也是对称的**。
+类似地，如果将取上述失衡二叉树的“镜像”，那么则需要「左旋」操作。观察发现，**「左旋」和「右旋」操作是镜像对称的，两者对应解决的两种失衡情况也是对称的**。
 
 ![left_rotate_with_grandchild](avl_tree.assets/left_rotate_with_grandchild.png)
 
