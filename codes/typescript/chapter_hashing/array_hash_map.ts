@@ -1,4 +1,4 @@
-/* 键值对 int->String */
+/* 键值对 Number -> String */
 class Entry {
   public key: number;
   public val: string;
@@ -26,19 +26,23 @@ class ArrayList {
   public set(key: number, val: string | null) {
     if (val !== null) {
       this.elements[key] = new Entry(key, val);
+    } else {
+      this.elements[key] = null as any;
     }
-    this.elements[key] = null as any;
   }
 
   /* 获取 */
-  public get(key: number): string {
-    return this.elements[key].val;
+  public get(key: number): string | null {
+    if (this.elements[key] instanceof Entry) {
+      return this.elements[key].val;
+    }
+    return null;
   }
 
   public entrySet() {
     let arr = [];
     for (let i = 0; i < this.elements.length; i++) {
-      if (this.elements[i] !== null) {
+      if (this.elements[i]) {
         arr.push(this.elements[i]);
       }
     }
@@ -48,7 +52,7 @@ class ArrayList {
   public valueSet() {
     let arr = [];
     for (let i = 0; i < this.elements.length; i++) {
-      if (this.elements[i] !== null) {
+      if (this.elements[i]) {
         arr.push(this.elements[i].val);
       }
     }
@@ -58,7 +62,7 @@ class ArrayList {
   public keySet() {
     let arr = [];
     for (let i = 0; i < this.elements.length; i++) {
-      if (this.elements[i] !== null) {
+      if (this.elements[i]) {
         arr.push(this.elements[i].key);
       }
     }
@@ -84,9 +88,7 @@ class ArrayHashMap {
   public get(key: number): string | null {
     let index = this.hashFunc(key);
     let val = this.bucket.get(index);
-    if (val === null) {
-      return null;
-    }
+    if (val === null) return null;
     return val;
   }
 
@@ -122,6 +124,7 @@ class ArrayHashMap {
   public print() {
     let entrySet = this.entrySet();
     for (const entry of entrySet) {
+      if (!entry) continue;
       console.info(`${entry.key} -> ${entry.val}`);
     }
   }
