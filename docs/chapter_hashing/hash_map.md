@@ -138,7 +138,28 @@ comments: true
 === "TypeScript"
 
     ```typescript title="hash_map.ts"
+    /* 初始化哈希表 */
+    const map = new ArrayHashMap();
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map.put(12836, '小哈');
+    map.put(15937, '小啰');
+    map.put(16750, '小算');
+    map.put(13276, '小法');
+    map.put(10583, '小鸭');
+    console.info('\n添加完成后，哈希表为\nKey -> Value');
+    map.print();
 
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    let name = map.get(15937);
+    console.info('\n输入学号 15937 ，查询到姓名 ' + name);
+
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.remove(10583);
+    console.info('\n删除 10583 后，哈希表为\nKey -> Value');
+    map.print();
     ```
 
 === "C"
@@ -233,7 +254,19 @@ comments: true
 === "TypeScript"
 
     ```typescript title="hash_map.ts"
-
+    /* 遍历哈希表 */
+    console.info('\n遍历键值对 Key->Value');
+    for (const entry of map.entrySet()) {
+      console.info(entry.key + ' -> ' + entry.val);
+    }
+    console.info('\n单独遍历键 Key');
+    for (const key of map.keySet()) {
+      console.info(key);
+    }
+    console.info('\n单独遍历值 Value');
+    for (const val of map.valueSet()) {
+      console.info(val);
+    }
     ```
 
 === "C"
@@ -477,7 +510,80 @@ $$
 === "TypeScript"
 
     ```typescript title="array_hash_map.ts"
-
+    /* 键值对 int->String */
+    class Entry {
+        public key: number;
+        public val: string;
+        constructor(key: number, val: string) {
+            this.key = key;
+            this.val = val;
+        }
+    }
+    
+    /* 数组的初始化和基本操作 */
+    class ArrayList {
+    
+        private readonly elements: Entry[];
+        constructor(length: number) {
+            this.elements = new Array(length);
+            this.initialize();
+        }
+    
+        /* 初始化 */
+        private initialize() {
+            this.elements.fill(null as any, 0, this.elements.length - 1);
+        }
+        
+        /* 新增和删除 */
+        public set(key: number, val: string | null) {
+            this.isOutOfRange(key);
+            if (val !== null) {
+                this.elements[key] = new Entry(key, val);
+            }
+            this.elements[key] = null as any;
+        }
+        
+        /* 获取 */
+        public get(key: number): string {
+            return this.elements[key].val;
+        }
+        
+        public entrySet() {
+            let arr = [];
+            for (let i = 0; i < this.elements.length; i++) {
+                if (this.elements[i] !== null) {
+                    arr.push(this.elements[i]);
+                }
+            }
+            return arr;
+        }
+        
+        public valueSet() {
+            let arr = [];
+            for (let i = 0; i < this.elements.length; i++) {
+                if (this.elements[i] !== null) {
+                    arr.push(this.elements[i].val);
+                }
+            }
+            return arr;
+        }
+        
+        public keySet() {
+            let arr = [];
+            for (let i = 0; i < this.elements.length; i++) {
+                if (this.elements[i] !== null) {
+                    arr.push(this.elements[i].key);
+                }
+            }
+            return arr;
+        }
+        
+        private isOutOfRange(key: number) {
+            if (key > this.elements.length - 1) {
+                throw new Error('Out of array range');
+            }
+        }
+    }
     ```
 
 === "C"

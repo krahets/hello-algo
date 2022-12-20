@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "module": "esnext",
+    "strict": true,
+    "importHelpers": true,
+    "noEmit": false,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+  },
+  "include": ["./**/*"],
+}
