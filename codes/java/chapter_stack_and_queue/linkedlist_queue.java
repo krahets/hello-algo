@@ -57,7 +57,7 @@ class LinkedListQueue {
     /* 访问队首元素 */
     public int peek() {
         if (size() == 0)
-            throw new IndexOutOfBoundsException();
+            throw new EmptyStackException();
         return front.val;
     }
 
