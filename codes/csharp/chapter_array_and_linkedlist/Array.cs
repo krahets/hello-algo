@@ -41,7 +41,7 @@ namespace hello_algo.chapter_array_and_linkedlist
         public static void Insert(int[] nums, int num, int index)
         {
             // 把索引 index 以及之后的所有元素向后移动一位
-            for (int i = nums.Length - 1; i >= index; i--)
+            for (int i = nums.Length - 1; i > index; i--)
             {
                 nums[i] = nums[i - 1];
             }
