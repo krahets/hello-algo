@@ -350,19 +350,16 @@ comments: true
         // 使用内置包 list 来实现栈
         data *list.List
     }
-
     // NewLinkedListStack 初始化链表
     func NewLinkedListStack() *LinkedListStack {
         return &LinkedListStack{
             data: list.New(),
         }
     }
-
     // Push 入栈
     func (s *LinkedListStack) Push(value int) {
         s.data.PushBack(value)
     }
-
     // Pop 出栈
     func (s *LinkedListStack) Pop() any {
         if s.IsEmpty() {
@@ -372,7 +369,6 @@ comments: true
         s.data.Remove(e)
         return e.Value
     }
-
     // Peek 访问栈顶元素
     func (s *LinkedListStack) Peek() any {
         if s.IsEmpty() {
@@ -381,12 +377,10 @@ comments: true
         e := s.data.Back()
         return e.Value
     }
-
     // Size 获取栈的长度
     func (s *LinkedListStack) Size() int {
         return s.data.Len()
     }
-
     // IsEmpty 判断栈是否为空
     func (s *LinkedListStack) IsEmpty() bool {
         return s.data.Len() == 0
@@ -613,17 +607,20 @@ comments: true
         }
         /* 出栈 */
         pop() {
-            if (this.empty()) throw "栈为空";
+            if (this.empty())
+                throw new Error("栈为空");
             return this.stack.pop();
         }
         /* 访问栈顶元素 */
         top() {
-            if (this.empty()) throw "栈为空";
+            if (this.empty())
+                throw new Error("栈为空");
             return this.stack[this.stack.length - 1];
         }
         /* 访问索引 index 处元素 */
         get(index) {
-            if (index >= this.size) throw "索引越界";
+            if (index >= this.size)
+                throw new Error("索引越界");
             return this.stack[index];
         }
     };
@@ -652,17 +649,20 @@ comments: true
         }
         /* 出栈 */
         pop(): number | undefined {
-            if (empty()) throw new Error('栈为空');
+            if (this.empty())
+                throw new Error('栈为空');
             return this.stack.pop();
         }
         /* 访问栈顶元素 */
         top(): number | undefined {
-            if (empty()) throw new Error('栈为空');
+            if (this.empty())
+                throw new Error('栈为空');
             return this.stack[this.stack.length - 1];
         }
         /* 访问索引 index 处元素 */
         get(index: number): number | undefined {
-            if (index >= size()) throw new Error('索引越界');
+            if (index >= this.size)
+                throw new Error('索引越界');
             return this.stack[index];
         }
     };

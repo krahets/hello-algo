@@ -8,8 +8,8 @@ import ListNode from "../module/ListNode"
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
-    private front: ListNode | null;
-    private rear: ListNode | null;  // 头结点 front ，尾结点 rear 
+    private front: ListNode | null; // 头结点 front
+    private rear: ListNode | null;  // 尾结点 rear
     private queSize: number = 0;
 
     constructor() {
@@ -46,9 +46,8 @@ class LinkedListQueue {
     /* 出队 */
     poll(): number {
         const num = this.peek();
-        if (!this.front) {
-            throw new Error("No element in queue!")
-        }
+        if (!this.front)
+            throw new Error("队列为空")
         // 删除头结点
         this.front = this.front.next;
         this.queSize--;
@@ -58,7 +57,7 @@ class LinkedListQueue {
     /* 访问队首元素 */
     peek(): number {
         if (this.size === 0)
-            throw new Error("No element in queue!");
+            throw new Error("队列为空");
         return this.front!.val;
     }
 

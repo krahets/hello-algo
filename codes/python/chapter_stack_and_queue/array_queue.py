@@ -42,7 +42,6 @@ class ArrayQueue:
 
     """ 出队 """
     def poll(self):
-        # 删除头结点
         num = self.peek()
         # 队头指针向后移动一位，若越过尾部则返回到数组头部
         self.__front = (self.__front + 1) % self.capacity()
@@ -50,7 +49,6 @@ class ArrayQueue:
 
     """ 访问队首元素 """
     def peek(self):
-        # 删除头结点
         if self.is_empty():
             print("队列为空")
             return False

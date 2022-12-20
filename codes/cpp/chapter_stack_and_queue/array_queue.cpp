@@ -59,7 +59,6 @@ public:
 
     /* 访问队首元素 */
     int peek() {
-        // 删除头结点
         if (empty())
             throw out_of_range("队列为空");
         return nums[front];

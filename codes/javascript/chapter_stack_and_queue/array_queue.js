@@ -7,13 +7,12 @@
 
 /* 基于环形数组实现的队列 */
 class ArrayQueue {
-    #queue;           // 用于存储队列元素的数组
-    #front = 0;       // 头指针，指向队首
-    #rear = 0;        // 尾指针，指向队尾 + 1
-    #CAPACITY = 1e3;  // 默认初始容量
+    #queue;       // 用于存储队列元素的数组
+    #front = 0;   // 头指针，指向队首
+    #rear = 0;    // 尾指针，指向队尾 + 1
 
     constructor(capacity) {
-        this.#queue = new Array(capacity ?? this.CAPACITY);
+        this.#queue = new Array(capacity);
     }
 
     /* 获取队列的容量 */
@@ -52,7 +51,6 @@ class ArrayQueue {
 
     /* 访问队首元素 */
     peek() {
-        // 删除头结点
         if (this.empty())
             throw new Error("队列为空");
         return this.#queue[this.#front];

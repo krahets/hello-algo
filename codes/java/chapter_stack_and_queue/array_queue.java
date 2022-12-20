@@ -58,7 +58,6 @@ class ArrayQueue {
 
     /* 访问队首元素 */
     public int peek() {
-        // 删除头结点
         if (isEmpty())
             throw new EmptyStackException();
         return nums[front];

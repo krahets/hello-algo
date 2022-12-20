@@ -34,10 +34,8 @@ class ArrayQueue {
 
     /* 入队 */
     offer(num: number): void {
-        if (this.size == this.capacity) {
-            console.log("队列已满");
-            return;
-        }
+        if (this.size == this.capacity)
+            throw new Error("队列已满");
         // 尾结点后添加 num
         this.queue[this.rear] = num;
         // 尾指针向后移动一位，越过尾部后返回到数组头部
@@ -54,16 +52,15 @@ class ArrayQueue {
 
     /* 访问队首元素 */
     peek(): number {
-        // 删除头结点
         if (this.empty())
-            throw new Error("The queue is empty!");
+            throw new Error("队列为空");
         return this.queue[this.front];
     }
 
     /* 访问指定索引元素 */
     get(index: number): number {
         if (index >= this.size)
-            throw new Error("Index out of bounds!");
+            throw new Error("索引越界");
         return this.queue[(this.front + index) % this.capacity];
     }
 

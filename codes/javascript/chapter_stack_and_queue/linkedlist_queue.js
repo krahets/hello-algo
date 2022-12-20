@@ -8,8 +8,8 @@ const ListNode = require("../include/ListNode");
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
-    #front;
-    #rear;  // 头结点 #front ，尾结点 #rear 
+    #front;  // 头结点 #front
+    #rear;   // 尾结点 #rear
     #queSize = 0;
 
     constructor() {
@@ -46,9 +46,6 @@ class LinkedListQueue {
     /* 出队 */
     poll() {
         const num = this.peek();
-        if (!this.#front) {
-            throw new Error("队列为空")
-        }
         // 删除头结点
         this.#front = this.#front.next;
         this.#queSize--;
@@ -75,6 +72,8 @@ class LinkedListQueue {
 }
 
 
+
+/* Driver Code */
 /* 初始化队列 */
 const queue = new LinkedListQueue();
 
