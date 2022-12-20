@@ -33,9 +33,9 @@ comments: true
 === "Python"
 
     ```python title=""
-    """ 链表结点类 """
     class TreeNode:
-        def __init__(self, val=0, left=None, right=None):
+        """ 链表结点类 """
+        def __init__(self, val=None, left=None, right=None):
             self.val = val      # 结点值
             self.left = left    # 左子结点指针
             self.right = right  # 右子结点指针
@@ -190,7 +190,18 @@ comments: true
 === "Python"
 
     ```python title="binary_tree.py"
-
+    # 初始化二叉树
+    # 初始化节点
+    n1 = TreeNode(val=1)
+    n2 = TreeNode(val=2)
+    n3 = TreeNode(val=3)
+    n4 = TreeNode(val=4)
+    n5 = TreeNode(val=5)
+    # 构建引用指向（即指针）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
     ```
 
 === "Go"
@@ -288,7 +299,13 @@ comments: true
 === "Python"
 
     ```python title="binary_tree.py"
-
+    # 插入与删除结点
+    p = TreeNode(0)
+    # 在 n1 -> n2 中间插入结点 P
+    n1.left = p
+    p.left = n2
+    # 删除节点 P
+    n1.left = n2
     ```
 
 === "Go"
@@ -406,7 +423,24 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_bfs.py"
-
+    def hierOrder(root):
+        # 初始化队列，加入根结点
+        queue = collections.deque()
+        queue.append(root)
+        # 初始化一个列表，用于保存遍历序列
+        result = []
+        while queue:
+            # 队列出队
+            node = queue.popleft()
+            # 保存节点值
+            result.append(node.val)
+            if node.left is not None:
+                # 左子结点入队
+                queue.append(node.left)
+            if node.right is not None:
+                # 右子结点入队
+                queue.append(node.right)
+        return result
     ```
 
 === "Go"
@@ -578,7 +612,43 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_dfs.py"
+    def preOrder(root):
+        """
+        前序遍历二叉树
+        """
+        if root is None:
+            return
+        
+        # 访问优先级：根结点 -> 左子树 -> 右子树
+        result.append(root.val)
+        preOrder(root=root.left)
+        preOrder(root=root.right)
 
+
+    def inOrder(root):
+        """
+        中序遍历二叉树
+        """
+        if root is None:
+            return
+
+        # 访问优先级：左子树 -> 根结点 -> 右子树
+        inOrder(root=root.left)
+        result.append(root.val)
+        inOrder(root=root.right)
+
+
+    def postOrder(root):
+        """
+        后序遍历二叉树
+        """
+        if root is None:
+            return
+        
+        # 访问优先级：左子树 -> 右子树 -> 根结点
+        postOrder(root=root.left)
+        postOrder(root=root.right)
+        result.append(root.val)
     ```
 
 === "Go"

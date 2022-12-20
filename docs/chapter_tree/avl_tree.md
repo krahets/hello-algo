@@ -48,7 +48,24 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Python"
 
     ```python title="avl_tree.py"
-    
+    class AVLTreeNode:
+        def __init__(
+                self,
+                val=None,
+                height: int = 0,
+                left: typing.Optional["AVLTreeNode"] = None,
+                right: typing.Optional["AVLTreeNode"] = None
+        ):
+            self.val = val
+            self.height = height
+            self.left = left
+            self.right = right
+
+        def __str__(self):
+            val = self.val
+            left_val = self.left.val if self.left else None
+            right_val = self.right.val if self.right else None
+            return "<AVLTreeNode: {}, leftAVLTreeNode: {}, rightAVLTreeNode: {}>".format(val, left_val, right_val)
     ```
 
 === "Go"
@@ -108,7 +125,31 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Python"
 
     ```python title="avl_tree.py"
-    
+    def height(node: typing.Optional[AVLTreeNode]) -> int:
+        """
+        获取结点高度
+        Args:
+            node:起始结点 
+
+        Returns: 高度 or -1
+
+        """
+        # 空结点高度为 -1 ，叶结点高度为 0
+        if node is not None:
+            return node.height
+        return -1
+
+    def update_height(node: AVLTreeNode):
+        """
+        更新结点高度
+        Args:
+            node: 要更新高度的结点
+
+        Returns: None
+
+        """
+        # 结点高度等于最高子树高度 + 1
+        node.height = max([height(node.left), height(node.right)]) + 1
     ```
 
 === "Go"
@@ -166,7 +207,20 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Python"
 
     ```python title="avl_tree.py"
-    
+    def balance_factor(node: AVLTreeNode) -> int:
+        """
+        获取结点平衡因子
+        Args:
+            node: 要获取平衡因子的结点
+
+        Returns: 平衡因子
+
+        """
+        # 空结点平衡因子为 0
+        if node is None:
+            return 0
+        # 结点平衡因子 = 左子树高度 - 右子树高度
+        return height(node.left) - height(node.right)
     ```
 
 === "Go"
@@ -255,7 +309,17 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Python"
 
     ```python title="avl_tree.py"
-    
+    def rightRotate(node: AVLTreeNode):
+        child = node.left
+        grand_child = child.right
+        # 以 child 为原点，将 node 向右旋转
+        child.right = node
+        node.left = grand_child
+        # 更新结点高度
+        update_height(node)
+        update_height(child)
+        # 返回旋转后子树的根节点
+        return child
     ```
 
 === "Go"
@@ -323,7 +387,17 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Python"
 
     ```python title="avl_tree.py"
-    
+    def leftRotate(node: AVLTreeNode):
+        child = node.right
+        grand_child = child.left
+        # 以 child 为原点，将 node 向左旋转
+        child.left = node
+        node.right = grand_child
+        # 更新结点高度
+        update_height(node)
+        update_height(child)
+        # 返回旋转后子树的根节点
+        return child
     ```
 
 === "Go"
@@ -432,7 +506,37 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Python"
 
     ```python title="avl_tree.py"
-    
+    def rotate(node: AVLTreeNode):
+        """
+        执行旋转操作，使该子树重新恢复平衡
+        Args:
+            node: 要旋转的根结点
+
+        Returns: 旋转后的根结点
+
+        """
+        # 获取结点 node 的平衡因子
+        factor = balance_factor(node)
+        # 左偏树
+        if factor > 1:
+            if balance_factor(node.left) >= 0:
+                # 右旋
+                return right_rotate(node)
+            else:
+                # 先左旋后右旋
+                node.left = left_rotate(node.left)
+                return right_rotate(node)
+        # 右偏树
+        elif factor < -1:
+            if balance_factor(node.right) <= 0:
+                # 左旋
+                return left_rotate(node)
+            else:
+                # 先右旋后左旋
+                node.right = right_rotate(node.right)
+                return left_rotate(node)
+        # 平衡树，无需旋转，直接返回
+        return node
     ```
 
 === "Go"
@@ -507,7 +611,42 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Python"
 
     ```python title="avl_tree.py"
-    
+    def insert(val) -> AVLTreeNode:
+        """
+        插入结点
+        Args:
+            val: 结点的值 
+
+        Returns:
+            node: 插入结点后的根结点
+        """
+        root = insert_helper(root, val)
+        return root
+
+    def insert_helper(node: typing.Optional[AVLTreeNode], val: int) -> AVLTreeNode:
+        """
+        递归插入结点（辅助函数）
+        Args:
+            node: 要插入的根结点
+            val: 要插入的结点的值
+
+        Returns: 插入结点后的根结点
+
+        """
+        if node is None:
+            return AVLTreeNode(val)
+        # 1. 查找插入位置，并插入结点
+        if val < node.val:
+            node.left = insert_helper(node.left, val)
+        elif val > node.val:
+            node.right = insert_helper(node.right, val)
+        else:
+            # 重复结点不插入，直接返回
+            return node
+        # 更新结点高度
+        update_height(node)
+        # 2. 执行旋转操作，使该子树重新恢复平衡
+        return rotate(node)
     ```
 
 === "Go"
@@ -604,7 +743,62 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Python"
 
     ```python title="avl_tree.py"
-    
+    def remove(val: int):
+        """
+        删除结点
+        Args:
+            val: 要删除的结点的值
+
+        Returns:
+
+        """
+        root = remove_helper(root, val)
+        return root
+
+    def remove_helper(node: typing.Optional[AVLTreeNode], val: int) -> typing.Optional[AVLTreeNode]:
+        """
+        递归删除结点（辅助函数）
+        Args:
+            node:  删除的起始结点
+            val: 要删除的结点的值
+
+        Returns: 删除目标结点后的起始结点
+
+        """
+        if node is None:
+            return None
+        # 1. 查找结点，并删除之
+        if val < node.val:
+            node.left = remove_helper(node.left, val)
+        elif val > node.val:
+            node.right = remove_helper(node.right, val)
+        else:
+            if node.left is None or node.right is None:
+                child = node.left or node.right
+                # 子结点数量 = 0 ，直接删除 node 并返回
+                if child is None:
+                    return None
+                # 子结点数量 = 1 ，直接删除 node
+                else:
+                    node = child
+            else: # 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
+                temp = min_node(node.right)
+                node.right = remove_helper(node.right, temp.val)
+                node.val = temp.val
+        # 更新结点高度
+        update_height(node)
+        # 2. 执行旋转操作，使该子树重新恢复平衡
+        return rotate(node)
+
+
+    def min_node(node: typing.Optional[AVLTreeNode]) -> typing.Optional[AVLTreeNode]:
+        # 获取最小结点
+        if node is None:
+            return None
+        # 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while node.left is not None:
+            node = node.left
+        return node
     ```
 
 === "Go"
