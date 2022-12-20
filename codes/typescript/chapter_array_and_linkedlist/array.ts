@@ -30,7 +30,7 @@ function extend(nums: number[], enlarge: number): number[] {
 /* 在数组的索引 index 处插入元素 num */
 function insert(nums: number[], num: number, index: number): void {
     // 把索引 index 以及之后的所有元素向后移动一位
-    for (let i = nums.length - 1; i >= index; i--) {
+    for (let i = nums.length - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
     // 将 num 赋给 index 处元素
