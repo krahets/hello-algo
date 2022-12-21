@@ -51,7 +51,7 @@ hide:
 
 !!! quote ""
 
-    <p align="center"> “追风赶月莫停留，平芜尽处是春山“ </p>
+    <p align="center"> “追风赶月莫停留，平芜尽处是春山” </p>
     <p align="center"> 一起加油！ </p>
 
 ---
