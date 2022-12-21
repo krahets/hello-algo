@@ -512,83 +512,24 @@ $$
     ```typescript title="array_hash_map.ts"
     /* 键值对 Number -> String */
     class Entry {
+
         public key: number;
         public val: string;
+
         constructor(key: number, val: string) {
             this.key = key;
             this.val = val;
         }
     }
-    
-    /* 数组的初始化和基本操作 */
-    class ArrayList {
-    
-        private readonly elements: Entry[];
-        constructor(length: number) {
-            this.elements = new Array(length);
-            this.initialize();
-        }
-    
-        /* 初始化 */
-        private initialize() {
-            this.elements.fill(null as any, 0, this.elements.length - 1);
-        }
-        
-        /* 新增和删除 */
-        public set(key: number, val: string | null) {
-            if (val !== null) {
-                this.elements[key] = new Entry(key, val);
-            } else {
-                this.elements[key] = null as any;
-            }
-        }
-        
-        /* 获取 */
-        public get(key: number): string | null {
-            if (this.elements[key] instanceof Entry) {
-                return this.elements[key].val;
-            }
-            return null;
-        }
-        
-        public entrySet() {
-        let arr = [];
-            for (let i = 0; i < this.elements.length; i++) {
-                if (this.elements[i]) {
-                    arr.push(this.elements[i]);
-                }
-            }
-            return arr;
-        }
-        
-        public valueSet() {
-            let arr = [];
-            for (let i = 0; i < this.elements.length; i++) {
-                if (this.elements[i]) {
-                    arr.push(this.elements[i].val);
-                }
-            }
-            return arr;
-        }
-        
-        public keySet() {
-            let arr = [];
-            for (let i = 0; i < this.elements.length; i++) {
-                if (this.elements[i]) {
-                    arr.push(this.elements[i].key);
-                }
-            }
-            return arr;
-        }
-    }
 
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
-        // 初始化一个长度为 100 的桶（数组）
-        private bucket: ArrayList;
-    
+
+        private readonly bucket: Entry[];
+
         constructor() {
-            this.bucket = new ArrayList(100);
+            // 初始化一个长度为 100 的桶（数组）
+            this.bucket = (new Array(100)).fill(null as any);
         }
     
         /* 哈希函数 */
@@ -599,37 +540,55 @@ $$
         /* 查询操作 */
         public get(key: number): string | null {
             let index = this.hashFunc(key);
-            let val = this.bucket.get(index);
-            if (val === null) return null;
-            return val;
+            let entry = this.bucket[index];
+            if (entry === null) return null;
+            return entry.val;
         }
     
         /* 添加操作 */
         public put(key: number, val: string) {
             let index = this.hashFunc(key);
-            this.bucket.set(index, val);
+            this.bucket[index] = new Entry(index, val);
         }
     
         /* 删除操作 */
         public remove(key: number) {
             let index = this.hashFunc(key);
             // 置为 null ，代表删除
-            this.bucket.set(index, null);
+            this.bucket[index] = null as any;
         }
     
         /* 获取所有键值对 */
         public entrySet(): Entry[] {
-            return this.bucket.entrySet();
+            let arr = [];
+            for (let i = 0; i < this.bucket.length; i++) {
+                if (this.bucket[i]) {
+                    arr.push(this.bucket[i]);
+                }
+            }
+            return arr;
         }
     
         /* 获取所有键 */
         public keySet(): number[] {
-            return this.bucket.keySet();
+            let arr = [];
+            for (let i = 0; i < this.bucket.length; i++) {
+                if (this.bucket[i]) {
+                    arr.push(this.bucket[i].key);
+                }
+            }
+            return arr;
         }
     
         /* 获取所有值 */
         public valueSet(): string[] {
-            return this.bucket.valueSet();
+            let arr = [];
+            for (let i = 0; i < this.bucket.length; i++) {
+                if (this.bucket[i]) {
+                    arr.push(this.bucket[i].val);
+                }
+            }
+            return arr;
         }
     }
     ```
