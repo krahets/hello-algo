@@ -54,13 +54,6 @@ class ArrayQueue:
             return False
         return self.__nums[self.__front]
 
-    """ 访问指定位置元素 """
-    def get(self, index):
-        if index >= self.size():
-            print("索引越界")
-            return False
-        return self.__nums[(self.__front + index) % self.capacity()]
-
     """ 返回列表用于打印 """
     def to_list(self):
         res = [0] * self.size()
@@ -87,10 +80,6 @@ if __name__ == "__main__":
     """ 访问队首元素 """
     peek = queue.peek()
     print("队首元素 peek =", peek)
-
-    """ 访问索引 index 处元素 """
-    num = queue.get(3)
-    print("队列索引 3 处的元素为 num =", num)
 
     """ 元素出队 """
     poll = queue.poll()

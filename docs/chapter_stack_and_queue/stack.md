@@ -451,12 +451,6 @@ comments: true
                 throw new EmptyStackException();
             return stack.get(size() - 1);
         }
-        /* 访问索引 index 处元素 */
-        public int get(int index) {
-            if (index >= size())
-                throw new EmptyStackException();
-            return stack.get(index);
-        }
     }
     ```
 
@@ -493,12 +487,6 @@ comments: true
                 throw out_of_range("栈为空");
             return stack.back();
         }
-        /* 访问索引 index 处元素 */
-        int get(int index) {
-            if(index >= size())
-                throw out_of_range("索引越界");
-            return stack[index];
-        }
     };
     ```
 
@@ -531,11 +519,6 @@ comments: true
         def peek(self):
             assert not self.is_empty(), "栈为空"
             return self.__stack[-1]
-
-        """ 访问索引 index 处元素 """
-        def get(self, index):
-            assert index < self.size(), "索引越界"
-            return self.__stack[index]
     ```
 
 === "Go"
@@ -617,12 +600,6 @@ comments: true
                 throw new Error("栈为空");
             return this.stack[this.stack.length - 1];
         }
-        /* 访问索引 index 处元素 */
-        get(index) {
-            if (index >= this.size)
-                throw new Error("索引越界");
-            return this.stack[index];
-        }
     };
     ```
 
@@ -658,12 +635,6 @@ comments: true
             if (this.empty())
                 throw new Error('栈为空');
             return this.stack[this.stack.length - 1];
-        }
-        /* 访问索引 index 处元素 */
-        get(index: number): number | undefined {
-            if (index >= this.size)
-                throw new Error('索引越界');
-            return this.stack[index];
         }
     };
     ```

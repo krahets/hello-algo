@@ -596,12 +596,6 @@ comments: true
                 throw new EmptyStackException();
             return nums[front];
         }
-        /* 访问指定索引元素 */
-        int get(int index) {
-            if (index >= size())
-                throw new IndexOutOfBoundsException();
-            return nums[(front + index) % capacity()];
-        }
     }
     ```
 
@@ -659,12 +653,6 @@ comments: true
                 throw out_of_range("队列为空");
             return nums[front];
         }
-        /* 访问指定位置元素 */
-        int get(int index) {
-            if (index >= size())
-                throw out_of_range("索引越界");
-            return nums[(front + index) % capacity()]
-        }
     };
     ```
 
@@ -714,13 +702,6 @@ comments: true
                 print("队列为空")
                 return False
             return self.__nums[self.__front]
-
-        """ 访问指定位置元素 """
-        def get(self, index):
-            if index >= self.size():
-                print("索引越界")
-                return False
-            return self.__nums[(self.__front + index) % self.capacity()]
 
         """ 返回列表用于打印 """
         def to_list(self):
@@ -837,12 +818,6 @@ comments: true
                 throw new Error("队列为空");
             return this.#queue[this.#front];
         }
-        /* 访问指定索引元素 */
-        get(index) {
-            if (index >= this.size)
-                throw new Error("索引越界");
-            return this.#queue[(this.#front + index) % this.capacity];
-        }
     }
     ```
 
@@ -892,12 +867,6 @@ comments: true
             if (this.empty())
                 throw new Error("队列为空");
             return this.queue[this.front];
-        }
-        /* 访问指定索引元素 */
-        get(index: number): number {
-            if (index >= this.size)
-                throw new Error("索引越界");
-            return this.queue[(this.front + index) % this.capacity];
         }
     }
     ```

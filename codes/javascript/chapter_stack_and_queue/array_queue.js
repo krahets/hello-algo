@@ -56,13 +56,6 @@ class ArrayQueue {
         return this.#queue[this.#front];
     }
 
-    /* 访问指定索引元素 */
-    get(index) {
-        if (index >= this.size)
-            throw new Error("索引越界");
-        return this.#queue[(this.#front + index) % this.capacity];
-    }
-
     /* 返回 Array */
     toArray() {
         const siz = this.size;
@@ -94,10 +87,6 @@ console.log(queue.toArray());
 /* 访问队首元素 */
 const peek = queue.peek();
 console.log("队首元素 peek = " + peek);
-
-/* 访问指定索引元素 */
-const num = queue.get(2);
-console.log("队列第 3 个元素为 num = " + num);
 
 /* 元素出队 */
 const poll = queue.poll();
