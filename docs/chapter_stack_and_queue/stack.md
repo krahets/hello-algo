@@ -210,7 +210,7 @@ comments: true
 
 为了更加清晰地了解栈的运行机制，接下来我们来自己动手实现一个栈类。
 
-栈规定元素是先入后出的，因此我们只能在栈顶添加或删除元素。然而，数组或链表都可以在任意位置添加删除元素，因此 **栈可被看作是一种受约束的数组或链表**。换言之，我们可以 “屏蔽” 数组或链表的部分无关操作，使之对外的表现逻辑符合栈的规定即可。
+栈规定元素是先入后出的，因此我们只能在栈顶添加或删除元素。然而，数组或链表都可以在任意位置添加删除元素，因此 **栈可被看作是一种受约束的数组或链表**。换言之，我们可以“屏蔽”数组或链表的部分无关操作，使之对外的表现逻辑符合栈的规定即可。
 
 ### 基于链表的实现
 
@@ -350,19 +350,16 @@ comments: true
         // 使用内置包 list 来实现栈
         data *list.List
     }
-
     // NewLinkedListStack 初始化链表
     func NewLinkedListStack() *LinkedListStack {
         return &LinkedListStack{
             data: list.New(),
         }
     }
-
     // Push 入栈
     func (s *LinkedListStack) Push(value int) {
         s.data.PushBack(value)
     }
-
     // Pop 出栈
     func (s *LinkedListStack) Pop() any {
         if s.IsEmpty() {
@@ -372,7 +369,6 @@ comments: true
         s.data.Remove(e)
         return e.Value
     }
-
     // Peek 访问栈顶元素
     func (s *LinkedListStack) Peek() any {
         if s.IsEmpty() {
@@ -381,12 +377,10 @@ comments: true
         e := s.data.Back()
         return e.Value
     }
-
     // Size 获取栈的长度
     func (s *LinkedListStack) Size() int {
         return s.data.Len()
     }
-
     // IsEmpty 判断栈是否为空
     func (s *LinkedListStack) IsEmpty() bool {
         return s.data.Len() == 0
@@ -457,12 +451,6 @@ comments: true
                 throw new EmptyStackException();
             return stack.get(size() - 1);
         }
-        /* 访问索引 index 处元素 */
-        public int get(int index) {
-            if (index >= size())
-                throw new EmptyStackException();
-            return stack.get(index);
-        }
     }
     ```
 
@@ -499,12 +487,6 @@ comments: true
                 throw out_of_range("栈为空");
             return stack.back();
         }
-        /* 访问索引 index 处元素 */
-        int get(int index) {
-            if(index >= size())
-                throw out_of_range("索引越界");
-            return stack[index];
-        }
     };
     ```
 
@@ -537,11 +519,6 @@ comments: true
         def peek(self):
             assert not self.is_empty(), "栈为空"
             return self.__stack[-1]
-
-        """ 访问索引 index 处元素 """
-        def get(self, index):
-            assert index < self.size(), "索引越界"
-            return self.__stack[index]
     ```
 
 === "Go"
@@ -613,18 +590,15 @@ comments: true
         }
         /* 出栈 */
         pop() {
-            if (this.empty()) throw "栈为空";
+            if (this.empty())
+                throw new Error("栈为空");
             return this.stack.pop();
         }
         /* 访问栈顶元素 */
         top() {
-            if (this.empty()) throw "栈为空";
+            if (this.empty())
+                throw new Error("栈为空");
             return this.stack[this.stack.length - 1];
-        }
-        /* 访问索引 index 处元素 */
-        get(index) {
-            if (index >= this.size) throw "索引越界";
-            return this.stack[index];
         }
     };
     ```
@@ -652,18 +626,15 @@ comments: true
         }
         /* 出栈 */
         pop(): number | undefined {
-            if (empty()) throw new Error('栈为空');
+            if (this.empty())
+                throw new Error('栈为空');
             return this.stack.pop();
         }
         /* 访问栈顶元素 */
         top(): number | undefined {
-            if (empty()) throw new Error('栈为空');
+            if (this.empty())
+                throw new Error('栈为空');
             return this.stack[this.stack.length - 1];
-        }
-        /* 访问索引 index 处元素 */
-        get(index: number): number | undefined {
-            if (index >= size()) throw new Error('索引越界');
-            return this.stack[index];
         }
     };
     ```

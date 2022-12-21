@@ -14,10 +14,10 @@ comments: true
 
 每个页面的右上角都有一个「编辑」按钮，你可以按照以下步骤修改文章：
 
-1. 点击编辑按钮，如果遇到提示 “需要 Fork 此仓库” ，请通过；
+1. 点击编辑按钮，如果遇到提示“需要 Fork 此仓库”，请通过；
 2. 修改 Markdown 源文件内容；
-3. 在页面底部填写更改说明，然后单击 “Propose file change” 按钮；
-4. 页面跳转后，点击 “Create pull request” 按钮发起拉取请求即可，我会第一时间查看处理并及时更新内容。
+3. 在页面底部填写更改说明，然后单击“Propose file change”按钮；
+4. 页面跳转后，点击“Create pull request”按钮发起拉取请求即可，我会第一时间查看处理并及时更新内容。
 
 ![edit_markdown](contribution.assets/edit_markdown.png)
 
@@ -37,7 +37,7 @@ comments: true
 2. 进入 Fork 仓库网页，使用 `git clone` 克隆该仓库至本地；
 3. 在本地进行内容创作（建议通过运行测试来验证代码正确性）；
 4. 将本地更改 Commit ，并 Push 至远程仓库；
-5. 刷新仓库网页，点击 “Create pull request” 按钮发起拉取请求（Pull Request）即可；
+5. 刷新仓库网页，点击“Create pull request”按钮发起拉取请求（Pull Request）即可；
 
 非常欢迎您和我一同来创作本书！
 

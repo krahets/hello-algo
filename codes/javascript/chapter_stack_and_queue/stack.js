@@ -4,6 +4,8 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
+
+/* Driver Code */
 /* 初始化栈 */
 // Javascript 没有内置的栈类，可以把 Array 当作栈来使用 
 const stack = [];
