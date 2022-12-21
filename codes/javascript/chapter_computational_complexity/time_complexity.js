@@ -120,7 +120,6 @@ function factorialRecur(n) {
     return count
 }
 
-
 /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
 function randomNumbers(n) {
     // 生成数组 nums = { 1, 2, 3, ..., n }

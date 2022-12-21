@@ -22,7 +22,7 @@ function linear(n: number): number {
 }
 
 /* 线性阶（遍历数组） */
-function arrayTraversal(nums: number[]) {
+function arrayTraversal(nums: number[]): number {
     let count = 0
     // 循环次数与数组长度成正比
     for (let num of nums) {
@@ -32,7 +32,7 @@ function arrayTraversal(nums: number[]) {
 }
 
 /* 平方阶 */
-function quadratic(n: number) {
+function quadratic(n: number): number {
     let count = 0
     // 循环次数与数组长度成平方关系
     for (let i = 0; i < n; i++) {
@@ -44,7 +44,7 @@ function quadratic(n: number) {
 }
 
 /* 平方阶（冒泡排序） */
-function bubbleSort(nums: number[]) {
+function bubbleSort(nums: number[]): number {
     let count = 0 // 计数器
     // 外循环：待排序元素数量为 n-1, n-2, ..., 1
     for (let i = nums.length - 1; i > 0; i--) {
@@ -63,7 +63,7 @@ function bubbleSort(nums: number[]) {
 }
 
 /* 指数阶（循环实现） */
-function exponential(n: number) {
+function exponential(n: number): number {
     let count = 0,
         base = 1
     // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
@@ -78,13 +78,13 @@ function exponential(n: number) {
 }
 
 /* 指数阶（递归实现）*/
-function expRecur(n: number) {
+function expRecur(n: number): number {
     if (n == 1) return 1
     return expRecur(n - 1) + expRecur(n - 1) + 1
 }
 
 /* 对数阶（循环实现） */
-function logarithmic(n: number) {
+function logarithmic(n: number): number {
     let count = 0
     while (n > 1) {
         n = n / 2
@@ -94,13 +94,13 @@ function logarithmic(n: number) {
 }
 
 /* 对数阶（递归实现）*/
-function logRecur(n: number) {
+function logRecur(n: number): number {
     if (n <= 1) return 0
     return logRecur(n / 2) + 1
 }
 
 /* 线性对数阶 */
-function linearLogRecur(n: number) {
+function linearLogRecur(n: number): number {
     if (n <= 1) return 1
     let count = linearLogRecur(n / 2) + linearLogRecur(n / 2)
     for (let i = 0; i < n; i++) {
@@ -110,7 +110,7 @@ function linearLogRecur(n: number) {
 }
 
 /* 阶乘阶（递归实现） */
-function factorialRecur(n: number) {
+function factorialRecur(n: number): number {
     if (n == 0) return 1
     let count = 0
     // 从 1 个分裂出 n 个
