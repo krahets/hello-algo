@@ -759,6 +759,7 @@ $$
 === "TypeScript"
 
     ```typescript title="time_complexity.ts"
+    /* 线性阶 */
     function linear(n: number): number {
       let count = 0
       for (let i = 0; i < n; i++) {
