@@ -57,7 +57,11 @@ comments: true
 === "C++"
 
     ```cpp title=""
-    
+    /* 使用多种「基本数据类型」来初始化「数组」 */
+    int numbers[5] = {0};
+    float decimals[5] = {0};
+    char characters[5] = {'0','0','0','0','0'};
+    bool booleans[5] = {0};
     ```
 
 === "Python"
