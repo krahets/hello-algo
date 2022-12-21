@@ -18,11 +18,11 @@ class Entry {
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
 
-    private readonly bucket: Entry[];
+    private readonly bucket: Entry | null[];
 
     constructor() {
         // 初始化一个长度为 100 的桶（数组）
-        this.bucket = (new Array(100)).fill(null as any);
+        this.bucket = (new Array(100)).fill(null);
     }
 
     /* 哈希函数 */
@@ -39,20 +39,20 @@ class ArrayHashMap {
     }
 
     /* 添加操作 */
-    public put(key: number, val: string) {
+    public set(key: number, val: string) {
         let index = this.hashFunc(key);
         this.bucket[index] = new Entry(index, val);
     }
 
     /* 删除操作 */
-    public remove(key: number) {
+    public delete(key: number) {
         let index = this.hashFunc(key);
         // 置为 null ，代表删除
-        this.bucket[index] = null as any;
+        this.bucket[index] = null;
     }
 
     /* 获取所有键值对 */
-    public entrySet(): Entry[] {
+    public entries(): Entry[] {
         let arr = [];
         for (let i = 0; i < this.bucket.length; i++) {
             if (this.bucket[i]) {
@@ -63,7 +63,7 @@ class ArrayHashMap {
     }
 
     /* 获取所有键 */
-    public keySet(): number[] {
+    public keys(): number[] {
         let arr = [];
         for (let i = 0; i < this.bucket.length; i++) {
             if (this.bucket[i]) {
@@ -74,7 +74,7 @@ class ArrayHashMap {
     }
 
     /* 获取所有值 */
-    public valueSet(): string[] {
+    public values(): string[] {
         let arr = [];
         for (let i = 0; i < this.bucket.length; i++) {
             if (this.bucket[i]) {
@@ -86,7 +86,7 @@ class ArrayHashMap {
 
     /* 打印哈希表 */
     public print() {
-        let entrySet = this.entrySet();
+        let entrySet = this.entries();
         for (const entry of entrySet) {
             if (!entry) continue;
             console.info(`${entry.key} -> ${entry.val}`);
@@ -94,16 +94,16 @@ class ArrayHashMap {
     }
 }
 
-
+/* Driver Code */
 /* 初始化哈希表 */
 const map = new ArrayHashMap();
 /* 添加操作 */
 // 在哈希表中添加键值对 (key, value)
-map.put(12836, '小哈');
-map.put(15937, '小啰');
-map.put(16750, '小算');
-map.put(13276, '小法');
-map.put(10583, '小鸭');
+map.set(12836, '小哈');
+map.set(15937, '小啰');
+map.set(16750, '小算');
+map.set(13276, '小法');
+map.set(10583, '小鸭');
 console.info('\n添加完成后，哈希表为\nKey -> Value');
 map.print();
 
@@ -114,21 +114,21 @@ console.info('\n输入学号 15937 ，查询到姓名 ' + name);
 
 /* 删除操作 */
 // 在哈希表中删除键值对 (key, value)
-map.remove(10583);
+map.delete(10583);
 console.info('\n删除 10583 后，哈希表为\nKey -> Value');
 map.print();
 
 /* 遍历哈希表 */
 console.info('\n遍历键值对 Key->Value');
-for (const entry of map.entrySet()) {
+for (const entry of map.entries()) {
     console.info(entry.key + ' -> ' + entry.val);
 }
 console.info('\n单独遍历键 Key');
-for (const key of map.keySet()) {
+for (const key of map.keys()) {
     console.info(key);
 }
 console.info('\n单独遍历值 Value');
-for (const val of map.valueSet()) {
+for (const val of map.values()) {
     console.info(val);
 }
 
