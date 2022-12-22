@@ -1,8 +1,8 @@
-'''
+"""
 File: binary_tree.py
 Created Time: 2021-12-11
 Author: Krahets (krahets@163.com)
-'''
+"""
 
 import collections
 

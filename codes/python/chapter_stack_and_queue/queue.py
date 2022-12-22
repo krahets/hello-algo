@@ -1,8 +1,8 @@
-'''
+"""
 File: queue.py
 Created Time: 2022-11-29
 Author: Peng Chen (pengchzn@gmail.com)
-'''
+"""
 
 import os.path as osp
 import sys
