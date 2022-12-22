@@ -22,7 +22,7 @@ class ListNode {
      */
     arrToLinkedList(arr) {
         const dum = new ListNode(0);
-        const head = dum;
+        let head = dum;
         for (const val of arr) {
             head.next = new ListNode(val);
             head = head.next;
