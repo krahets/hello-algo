@@ -282,12 +282,12 @@ $$
     let i = 0, j = nums.length;
     // 循环，当搜索区间为空时跳出（当 i = j 时为空）
     while (i < j) {
-        let m = parseInt((i + j) / 2);    // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
-        if (nums[m] < target)             // 此情况说明 target 在区间 [m+1, j) 中
+        let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
+        if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j) 中
             i = m + 1;
-        else if (nums[m] > target)        // 此情况说明 target 在区间 [i, m) 中
+        else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m) 中
             j = m;
-        else                              // 找到目标元素，返回其索引
+        else                           // 找到目标元素，返回其索引
             return m;
         }
     // 未找到目标元素，返回 -1
@@ -369,8 +369,10 @@ $$
 === "JavaScript"
 
     ```js title=""
-    // JavaScript 中的数字足够大（最大数值为 1.7976931348623157e+308 ）
-    // 因此无需考虑大数越界问题
+    // (i + j) 有可能超出 int 的取值范围
+    let m = parseInt((i + j) / 2);
+    // 更换为此写法则不会越界
+    let m = parseInt(i + (j - i) / 2);
     ```
 
 === "TypeScript"
