@@ -31,7 +31,7 @@ function binarySearch1(nums, target) {
         let m = parseInt((i + j) / 2);    // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
         if (nums[m] < target)             // 此情况说明 target 在区间 [m+1, j) 中
             i = m + 1;
-        else if (nums[m] > target)        // 此情况说明 target 在区间 [i, m-1] 中
+        else if (nums[m] > target)        // 此情况说明 target 在区间 [i, m] 中
             j = m;
         else                              // 找到目标元素，返回其索引
             return m;
