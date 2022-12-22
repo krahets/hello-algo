@@ -369,10 +369,8 @@ $$
 === "JavaScript"
 
     ```js title=""
-    // (i + j) 有可能超出 int 的取值范围
-    let m = parseInt((i + j) / 2);
-    // 更换为此写法则不会越界
-    let m = parseInt(i + (j - i) / 2);
+    // JavaScript 中的数字足够大（最大数值为 1.7976931348623157e+308 ）
+    // 因此无需考虑大数越界问题
     ```
 
 === "TypeScript"
