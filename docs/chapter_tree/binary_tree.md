@@ -377,3 +377,82 @@ comments: true
 | 树的结点总数为 $n$ 时的高度 | $\log_2 (n+1) - 1$ | $n - 1$     |
 
 </div>
+
+## 二叉树表示方式 *
+
+我们一般使用二叉树的「链表表示」，即存储单位为结点 `TreeNode` ，结点之间通过指针（引用）相连接。本文前述示例代码展示了二叉树在链表表示下的各项基本操作。
+
+那能否可以用「数组表示」二叉树呢？答案是肯定的。先来分析一个简单案例，给定一个「完美二叉树」，将结点按照层序遍历的顺序编号（从 0 开始），那么可以推导得出父结点索引与子结点索引之间的「映射公式」：**设结点的索引为 $i$ ，则该结点的左子结点索引为 $2i + 1$ 、右子结点索引为 $2i + 2$** 。
+
+**本质上，映射公式的作用就是链表中的指针**。对于层序遍历序列中的任意结点，我们都可以使用映射公式来访问子结点。因此，可以直接使用层序遍历序列（即数组）来表示完美二叉树。
+
+![array_representation_mapping](binary_tree.assets/array_representation_mapping.png)
+
+然而，完美二叉树只是个例，二叉树中间层往往存在许多空结点（即 `null` ），而层序遍历序列并不包含这些空结点，并且我们无法单凭序列来猜测空结点的数量和分布位置，**即理论上存在许多种二叉树都符合该层序遍历序列**。显然，这种情况无法使用数组来存储二叉树。
+
+![array_representation_without_empty](binary_tree.assets/array_representation_without_empty.png)
+
+为了解决此问题，考虑按照完美二叉树的形式来表示所有二叉树，**即在序列中使用特殊符号来显式地表示“空位”**。如下图所示，这样处理后，序列（数组）就可以唯一表示二叉树了。
+
+=== "Java"
+
+    ```java title=""
+    /* 二叉树的数组表示 */
+    // 使用 int 的包装类 Integer ，就可以使用 null 来标记空位
+    Integer[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
+    ```
+
+=== "C++"
+
+    ```cpp title=""
+    /* 二叉树的数组表示 */
+    // 为了符合数据类型为 int ，使用 int 最大值标记空位
+    // 该方法的使用前提是没有结点的值 = INT_MAX
+    vector<int> tree = { 1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15 };
+    ```
+
+=== "Python"
+
+    ```python title=""
+    “”“ 二叉树的数组表示 ”“”
+    # 直接使用 None 来表示空位
+    tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
+    ```
+
+=== "Go"
+
+    ```go title=""
+    
+    ```
+
+=== "JavaScript"
+
+    ```js title=""
+    
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+    
+    ```
+
+=== "C"
+
+    ```c title=""
+    
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+    
+    ```
+
+![array_representation_with_empty](binary_tree.assets/array_representation_with_empty.png)
+
+回顾「完全二叉树」的满足条件，其只有最底层有空结点，并且最底层的结点尽量靠左，因而所有空结点都一定出现在层序遍历序列的末尾。**因为我们先验地确定了空位的位置，所以在使用数组表示完全二叉树时，可以省略存储“空位”**。“便于使用数组表示”也是完全二叉树受欢迎的原因之一。
+
+![array_representation_complete_binary_tree](binary_tree.assets/array_representation_complete_binary_tree.png)
+
+数组表示有两个优点： 一是不需要存储指针，节省空间；二是可以随机访问结点。然而，当二叉树中的“空位”很多时，数组中只包含很少结点的数据，空间利用率很低。
