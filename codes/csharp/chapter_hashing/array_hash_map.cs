@@ -1,7 +1,10 @@
+/**
+ * File: array_hash_map.cs
+ * Created Time: 2022-12-23
+ * Author: haptear (haptear@hotmail.com)
+ */
 
-using hello_algo.include;
 using NUnit.Framework;
-using System.Collections.Immutable;
 
 namespace hello_algo.chapter_hashing
 {

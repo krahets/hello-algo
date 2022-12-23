@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json.Linq;
+﻿/**
+ * File: my_list.cs
+ * Created Time: 2022-12-23
+ * Author: haptear (haptear@hotmail.com)
+ */
+
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace hello_algo.chapter_array_and_linkedlist
 {

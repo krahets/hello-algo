@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/**
+ * File: worst_best_time_complexity.cs
+ * Created Time: 2022-12-23
+ * Author: haptear (haptear@hotmail.com)
+ */
 
 namespace hello_algo.chapter_computational_complexity
 {

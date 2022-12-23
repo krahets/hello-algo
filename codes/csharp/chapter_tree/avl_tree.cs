@@ -1,6 +1,11 @@
-﻿using hello_algo.include;
+﻿/**
+ * File: avl_tree.cs
+ * Created Time: 2022-12-23
+ * Author: haptear (haptear@hotmail.com)
+ */
+
+using hello_algo.include;
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace hello_algo.chapter_tree
 {
@@ -69,7 +74,7 @@ namespace hello_algo.chapter_tree
         }
 
         /* 执行旋转操作，使该子树重新恢复平衡 */
-        private TreeNode? rotate(TreeNode? node)
+        TreeNode? rotate(TreeNode? node)
         {
             if (node == null)
                 return node;

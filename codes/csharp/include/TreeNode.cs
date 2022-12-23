@@ -1,3 +1,9 @@
+/**
+ * File: TreeNode.cs
+ * Created Time: 2022-12-23
+ * Author: haptear (haptear@hotmail.com)
+ */
+
 namespace hello_algo.include
 {
     public class TreeNode

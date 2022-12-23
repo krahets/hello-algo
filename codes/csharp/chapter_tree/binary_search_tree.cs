@@ -1,7 +1,11 @@
-﻿using hello_algo.include;
-using NUnit.Framework;
-using System.Collections.Generic;
+﻿/**
+ * File: binary_search_tree.cs
+ * Created Time: 2022-12-23
+ * Author: haptear (haptear@hotmail.com)
+ */
 
+using hello_algo.include;
+using NUnit.Framework;
 
 namespace hello_algo.chapter_tree
 {
@@ -31,11 +35,7 @@ namespace hello_algo.chapter_tree
             return cur;
         }
 
-        /// <summary>
-        /// 插入结点
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
+        /* 插入结点 */
         TreeNode? insert(int num)
         {
             // 若树为空，直接提前返回

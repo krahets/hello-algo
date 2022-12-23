@@ -1,11 +1,11 @@
-﻿using hello_algo.include;
+﻿/**
+ * File: hashing_search.cs
+ * Created Time: 2022-12-23
+ * Author: haptear (haptear@hotmail.com)
+ */
+
+using hello_algo.include;
 using NUnit.Framework;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace hello_algo.chapter_searching
 {

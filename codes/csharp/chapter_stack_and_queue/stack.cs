@@ -1,6 +1,10 @@
+/**
+ * File: stack.cs
+ * Created Time: 2022-12-23
+ * Author: haptear (haptear@hotmail.com)
+ */
 
 using NUnit.Framework;
-using System.Collections.Immutable;
 
 namespace hello_algo.chapter_stack_and_queue
 {
@@ -18,7 +22,7 @@ namespace hello_algo.chapter_stack_and_queue
             stack.Push(2);
             stack.Push(5);
             stack.Push(4);
-            Console.WriteLine("栈 stack = " + String.Join(",", stack.ToImmutableArray()));
+            Console.WriteLine("栈 stack = " + string.Join(",", stack.ToArray()));
 
             /* 访问栈顶元素 */
             int peek = stack.Peek();
@@ -26,7 +30,7 @@ namespace hello_algo.chapter_stack_and_queue
 
             /* 元素出栈 */
             int pop = stack.Pop();
-            Console.WriteLine("出栈元素 pop = " + pop + "，出栈后 stack = " + String.Join(",", stack.ToImmutableArray()));
+            Console.WriteLine("出栈元素 pop = " + pop + "，出栈后 stack = " + string.Join(",", stack.ToArray()));
 
             /* 获取栈的长度 */
             int size = stack.Count();

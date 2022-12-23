@@ -1,4 +1,10 @@
-﻿using NUnit.Framework;
+﻿/**
+ * File: time_complexity.cs
+ * Created Time: 2022-12-23
+ * Author: haptear (haptear@hotmail.com)
+ */
+
+using NUnit.Framework;
 
 namespace hello_algo.chapter_computational_complexity
 {

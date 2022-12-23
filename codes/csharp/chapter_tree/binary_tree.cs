@@ -1,7 +1,11 @@
+/**
+ * File: binary_tree.cs
+ * Created Time: 2022-12-23
+ * Author: haptear (haptear@hotmail.com)
+ */
+
 using hello_algo.include;
 using NUnit.Framework;
-using System.Collections.Generic;
-
 
 namespace hello_algo.chapter_tree
 {
