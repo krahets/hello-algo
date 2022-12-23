@@ -12,7 +12,7 @@ comments: true
 
 ## Java 环境
 
-1. `JDK 9 +`或下载并安装 [OpenJDK](https://jdk.java.net/18/) 。
+1. 下载并安装 [OpenJDK](https://jdk.java.net/18/)（版本需满足 > JDK 9）。
 2. 在 VSCode 的插件市场中搜索 `java` ，安装 Java Extension Pack 。
 
 
