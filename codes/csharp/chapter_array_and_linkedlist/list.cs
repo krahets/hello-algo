@@ -1,11 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
+﻿// File: list.cs
+// Created Time: 2022-12-16
+// Author: mingXta (1195669834@qq.com)
+
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace hello_algo.chapter_array_and_linkedlist
 {
@@ -46,7 +43,7 @@ namespace hello_algo.chapter_array_and_linkedlist
             Console.WriteLine("在索引 3 处插入数字 6 ，得到 list = " + string.Join(",", list));
 
             /* 删除元素 */
-            list.Remove(3);
+            list.RemoveAt(3);
             Console.WriteLine("删除索引 3 处的元素，得到 list = " + string.Join(",", list));
 
             /* 通过索引遍历列表 */

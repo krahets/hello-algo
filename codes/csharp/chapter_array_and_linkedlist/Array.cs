@@ -1,4 +1,4 @@
-// File: Array.cs
+// File: array.cs
 // Created Time: 2022-12-14
 // Author: mingXta (1195669834@qq.com)
 
@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_array_and_linkedlist
 {
-    public class Array
+    public class array
     {
         /// <summary>
         /// 随机返回一个数组元素

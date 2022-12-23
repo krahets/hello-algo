@@ -1,4 +1,4 @@
-﻿// File: LinkedList.cs
+﻿// File: linked_list.cs
 // Created Time: 2022-12-16
 // Author: mingXta (1195669834@qq.com)
 
@@ -7,14 +7,14 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_array_and_linkedlist
 {
-    public class LinkedList
+    public class linked_list
     {
         /// <summary>
         /// 在链表的结点 n0 之后插入结点 P
         /// </summary>
         public static void Insert(ListNode n0, ListNode P)
         {
-            ListNode n1 = n0.next;
+            ListNode? n1 = n0.next;
             n0.next = P;
             P.next = n1;
         }
@@ -28,7 +28,7 @@ namespace hello_algo.chapter_array_and_linkedlist
                 return;
             // n0 -> P -> n1
             ListNode P = n0.next;
-            ListNode n1 = P.next;
+            ListNode? n1 = P.next;
             n0.next = n1;
         }
 
@@ -78,15 +78,15 @@ namespace hello_algo.chapter_array_and_linkedlist
             n1.next = n2;
             n2.next = n3;
             n3.next = n4;
-            Console.WriteLine($"初始化的链表为{n0}");
+            Console.WriteLine($"初始化的链表为 {n0}");
 
             // 插入结点 
             Insert(n0, new ListNode(0));
-            Console.WriteLine($"插入结点后的链表为{n0}");
+            Console.WriteLine($"插入结点后的链表为 {n0}");
 
             // 删除结点 
             Remove(n0);
-            Console.WriteLine($"删除结点后的链表为{n0}");
+            Console.WriteLine($"删除结点后的链表为 {n0}");
 
             // 访问结点 
             ListNode? node = Access(n0, 3);

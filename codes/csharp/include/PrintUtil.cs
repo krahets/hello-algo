@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.SymbolStore;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// File: ListNode.cs
+// Created Time: 2022-12-16
+// Author: mingXta (1195669834@qq.com)
 
 namespace hello_algo.include
 {
@@ -21,21 +18,6 @@ namespace hello_algo.include
 
     public class PrintUtil
     {
-        /**
-         * Print a linked list
-         * @param head
-         */
-        public static void printLinkedList(ListNode head)
-        {
-            List<String> list = new();
-            while (head != null)
-            {
-                list.Add(head.val.ToString());
-                head = head.next;
-            }
-            Console.Write(String.Join(" -> ", list));
-        }
-
         /**
          * The interface of the tree printer
          * This tree printer is borrowed from TECHIE DELIGHT
@@ -81,7 +63,7 @@ namespace hello_algo.include
             }
 
             showTrunks(trunk);
-            Console.Write(" " + root.val);
+            Console.WriteLine(" " + root.val);
 
             if (prev != null)
             {

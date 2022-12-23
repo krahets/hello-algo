@@ -1,9 +1,13 @@
+// File: ListNode.cs
+// Created Time: 2022-12-16
+// Author: mingXta (1195669834@qq.com)
+
 namespace hello_algo.include
 {
     public class TreeNode
     {
         public int? val;        // 结点值
-        public int height;     // 结点高度
+        public int height;      // 结点高度
         public TreeNode? left;  // 左子结点引用
         public TreeNode? right; // 右子结点引用
 
