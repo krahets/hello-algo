@@ -396,6 +396,7 @@ comments: true
 === "TypeScript"
 
     ```typescript title="linkedlist_stack.ts"
+    /* 基于链表实现的栈 */
     class LinkedListStack {
         private stackPeek: ListNode | null;  // 将头结点作为栈顶
         private stkSize: number = 0;   // 栈的长度
@@ -441,7 +442,7 @@ comments: true
             return this.stackPeek.val;
         }
 
-        /* 将 List 转化为 Array 并返回 */
+        /* 将链表转化为 Array 并返回 */
         toArray(): number[] {
             let node = this.stackPeek;
             const res = new Array<number>(this.size);

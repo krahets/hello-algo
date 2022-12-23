@@ -1,5 +1,5 @@
 /**#stkSize
- * File: linkedlist_queue.js
+ * File: linkedlist_stack.js
  * Created Time: 2022-12-22
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
@@ -52,7 +52,7 @@ class LinkedListStack {
         return this.#stackPeek.val;
     }
 
-    /* 将 List 转化为 Array 并返回 */
+    /* 将链表转化为 Array 并返回 */
     toArray() {
         let node = this.#stackPeek;
         const res = new Array(this.size);
