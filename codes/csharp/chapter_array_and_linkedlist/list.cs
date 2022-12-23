@@ -45,7 +45,7 @@ namespace hello_algo.chapter_array_and_linkedlist
             Console.WriteLine("在索引 3 处插入数字 6 ，得到 list = " + string.Join(",", list));
 
             /* 删除元素 */
-            list.Remove(3);
+            list.RemoveAt(3);
             Console.WriteLine("删除索引 3 处的元素，得到 list = " + string.Join(",", list));
 
             /* 通过索引遍历列表 */
