@@ -59,7 +59,7 @@ bool CreateList(SqList *L) // 创建一个列表 L
     {
         if (L->length == Maxsize)
         {
-            printf("顺序表已满！");
+            printf("列表已满！");
             return false;
         }
         scanf("%d", &x);  /*输入一个数据元素,只有此处的输入会存储进线性表,其他地方输入的x都是判断是否继续进行循环的条件*/
