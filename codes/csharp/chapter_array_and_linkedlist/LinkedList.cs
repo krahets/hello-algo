@@ -35,7 +35,7 @@ namespace hello_algo.chapter_array_and_linkedlist
         /// <summary>
         /// 访问链表中索引为 index 的结点
         /// </summary>
-        public static ListNode Access(ListNode head, int index)
+        public static ListNode? Access(ListNode head, int index)
         {
             for (int i = 0; i < index; i++)
             {
@@ -89,8 +89,8 @@ namespace hello_algo.chapter_array_and_linkedlist
             Console.WriteLine($"删除结点后的链表为{n0}");
 
             // 访问结点 
-            ListNode node = Access(n0, 3);
-            Console.WriteLine($"链表中索引 3 处的结点的值 = {node.val}");
+            ListNode? node = Access(n0, 3);
+            Console.WriteLine($"链表中索引 3 处的结点的值 = {node?.val}");
 
             // 查找结点 
             int index = Find(n0, 2);

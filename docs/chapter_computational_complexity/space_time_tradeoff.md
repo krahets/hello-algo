@@ -130,7 +130,23 @@ comments: true
 === "C#"
 
     ```csharp title="leetcode_two_sum.cs"
-
+    class SolutionBruteForce
+    {
+        public int[] twoSum(int[] nums, int target)
+        {
+            int size = nums.Length;
+            // 两层循环，时间复杂度 O(n^2)
+            for (int i = 0; i < size - 1; i++)
+            {
+                for (int j = i + 1; j < size; j++)
+                {
+                    if (nums[i] + nums[j] == target)
+                        return new int[] { i, j };
+                }
+            }
+            return new int[0];
+        }
+    }
     ```
 
 ### 方法二：辅助哈希表
@@ -258,5 +274,23 @@ comments: true
 === "C#"
 
     ```csharp title="leetcode_two_sum.cs"
-
+    class SolutionHashMap
+    {
+        public int[] twoSum(int[] nums, int target)
+        {
+            int size = nums.Length;
+            // 辅助哈希表，空间复杂度 O(n)
+            Dictionary<int, int> dic = new();
+            // 单层循环，时间复杂度 O(n)
+            for (int i = 0; i < size; i++)
+            {
+                if (dic.ContainsKey(target - nums[i]))
+                {
+                    return new int[] { dic[target - nums[i]], i };
+                }
+                dic.Add(nums[i], i);
+            }
+            return new int[0];
+        }
+    }
     ```

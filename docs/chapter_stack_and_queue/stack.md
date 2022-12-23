@@ -203,7 +203,27 @@ comments: true
 === "C#"
 
     ```csharp title="stack.cs"
+    /* 初始化栈 */
+    Stack<int> stack = new ();
 
+    /* 元素入栈 */
+    stack.Push(1);
+    stack.Push(3);
+    stack.Push(2);
+    stack.Push(5);
+    stack.Push(4);
+
+    /* 访问栈顶元素 */
+    int peek = stack.Peek();
+
+    /* 元素出栈 */
+    int pop = stack.Pop();
+
+    /* 获取栈的长度 */
+    int size = stack.Count();
+
+    /* 判断是否为空 */
+    bool isEmpty = stack.Count()==0;
     ```
 
 ## 栈的实现
@@ -408,7 +428,54 @@ comments: true
 === "C#"
 
     ```csharp title="linkedlist_stack.cs"
+    /* 基于链表实现的栈 */
+    class LinkedListStack
+    {
+        private ListNode stackPeek;  // 将头结点作为栈顶
+        private int stkSize = 0;   // 栈的长度
+        public LinkedListStack()
+        {
+            stackPeek = null;
+        }
 
+        /* 获取栈的长度 */
+        public int size()
+        {
+            return stkSize;
+        }
+
+        /* 判断栈是否为空 */
+        public bool isEmpty()
+        {
+            return size() == 0;
+        }
+
+        /* 入栈 */
+        public void push(int num)
+        {
+            ListNode node = new ListNode(num);
+            node.next = stackPeek;
+            stackPeek = node;
+            stkSize++;
+        }
+
+        /* 出栈 */
+        public int pop()
+        {
+            int num = peek();
+            stackPeek = stackPeek?.next;
+            stkSize--;
+            return num;
+        }
+
+        /* 访问栈顶元素 */
+        public int peek()
+        {
+            if (size() == 0)
+                throw new Exception();
+            return stackPeek.val;
+        }
+    }
     ```
 
 ### 基于数组的实现
@@ -648,7 +715,52 @@ comments: true
 === "C#"
 
     ```csharp title="array_stack.cs"
+    /* 基于数组实现的栈 */
+    class ArrayStack
+    {
+        private List<int> stack;
+        public ArrayStack()
+        {
+            // 初始化列表（动态数组）
+            stack = new();
+        }
 
+        /* 获取栈的长度 */
+        public int size()
+        {
+            return stack.Count();
+        }
+
+        /* 判断栈是否为空 */
+        public bool isEmpty()
+        {
+            return size() == 0;
+        }
+
+        /* 入栈 */
+        public void push(int num)
+        {
+            stack.Add(num);
+        }
+
+        /* 出栈 */
+        public int pop()
+        {
+            if (isEmpty())
+                throw new Exception();
+            var val = peek();
+            stack.RemoveAt(size() - 1);
+            return val;
+        }
+
+        /* 访问栈顶元素 */
+        public int peek()
+        {
+            if (isEmpty())
+                throw new Exception();
+            return stack[size() - 1];
+        }
+    }
     ```
 
 !!! tip

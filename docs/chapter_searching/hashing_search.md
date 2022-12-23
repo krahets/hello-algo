@@ -86,7 +86,13 @@ comments: true
 === "C#"
 
     ```csharp title="hashing_search.cs"
-
+    /* 哈希查找（数组） */
+    int hashingSearch(Dictionary<int, int> map, int target)
+    {
+        // 哈希表的 key: 目标元素，value: 索引
+        // 若哈希表中无此 key ，返回 -1
+        return map.GetValueOrDefault(target, -1);
+    }
     ```
 
 再比如，如果我们想要给定一个目标结点值 `target` ，获取对应的链表结点对象，那么也可以使用哈希查找实现。
@@ -163,7 +169,14 @@ comments: true
 === "C#"
 
     ```csharp title="hashing_search.cs"
+    /* 哈希查找（链表） */
+    ListNode? hashingSearch1(Dictionary<int, ListNode> map, int target)
+    {
 
+        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 若哈希表中无此 key ，返回 null
+        return map.GetValueOrDefault(target);
+    }
     ```
 
 ## 复杂度分析

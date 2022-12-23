@@ -74,9 +74,6 @@ comments: true
     /* 初始化数组 */
     int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
     int[] nums = { 1, 3, 2, 5, 4 };
-    
-    var arr2=new int[5]; // { 0, 0, 0, 0, 0 }
-    var nums2=new int[]{1,2,3,4,5};
     ```
 
 ## 数组优点

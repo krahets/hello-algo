@@ -149,6 +149,25 @@ comments: true
 === "C#"
 
     ```csharp title="binary_tree_bfs.cs"
+    /* 层序遍历 */
+    public List<int?> hierOrder(TreeNode root)
+    {
+        // 初始化队列，加入根结点
+        Queue<TreeNode> queue = new();
+        queue.Enqueue(root);
+        // 初始化一个列表，用于保存遍历序列
+        List<int?> list = new();
+        while (queue.Count != 0)
+        {
+            TreeNode node = queue.Dequeue();  // 队列出队
+            list.Add(node.val);            // 保存结点值
+            if (node.left != null)
+                queue.Enqueue(node.left);    // 左子结点入队
+            if (node.right != null)
+                queue.Enqueue(node.right);   // 右子结点入队
+        }
+        return list;
+    }
     
     ```
 
@@ -354,6 +373,35 @@ comments: true
 === "C#"
 
     ```csharp title="binary_tree_dfs.cs"
+    /* 前序遍历 */
+    void preOrder(TreeNode? root)
+    {
+        if (root == null) return;
+        // 访问优先级：根结点 -> 左子树 -> 右子树
+        list.Add(root.val);
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+
+    /* 中序遍历 */
+    void inOrder(TreeNode? root)
+    {
+        if (root == null) return;
+        // 访问优先级：左子树 -> 根结点 -> 右子树
+        inOrder(root.left);
+        list.Add(root.val);
+        inOrder(root.right);
+    }
+
+    /* 后序遍历 */
+    void postOrder(TreeNode? root)
+    {
+        if (root == null) return;
+        // 访问优先级：左子树 -> 右子树 -> 根结点
+        postOrder(root.left);
+        postOrder(root.right);
+        list.Add(root.val);
+    }
     
     ```
 
