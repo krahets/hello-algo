@@ -102,7 +102,7 @@ int LocateElem(SqList L, ElemType e)
 bool ListInsert(SqList *L, int i, ElemType e)
 {
     int k;
-    if (L->length == Maxsize) /* 列表已经满 */
+    if (L->length == Maxsize) /* 列表已满 */
         return false;
     if (i < 1 || i > L->length + 1) /* 当i比第一位置小或者比最后一位置后一位置还要大时 */
         return false;
@@ -168,12 +168,16 @@ int main()
 
     int i = 2;
 
+    /* 新建一个列表list*/
     SqList list;
 
+    /* 无初值初始化列表list*/
     InitList(&list);
 
+    /* 返回list的长度*/
     printf("list长度为%d\n", ListLength(list));
 
+    /* 有值初始化列表*/
     CreateList(&list);
 
     // 查找第2个元素并赋值给e
@@ -183,7 +187,14 @@ int main()
 
     printf("与%d相等的元素是第%d个\n", r, LocateElem(list, r));
 
+    /* 在列表的第3个位置处插入e */
+    ListInsert(&list, 3, e);
+
+    /* 输出所有列表list中的所有元素*/
     ListTraverse(list);
+
+    /* 删除列表中的第3个元素,并将删除的元素存入e中 */
+    ListDelete(&list, 3, &e);
 
     return 0;
 }
