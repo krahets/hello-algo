@@ -8,7 +8,7 @@ const ListNode = require("../include/ListNode");
 
 /* 基于链表实现的栈 */
 class LinkedListStack {
-    #stackPeek;  // 将头结点作为栈顶
+    #stackPeek;     // 将头结点作为栈顶
     #stkSize = 0;   // 栈的长度
 
     constructor() {
@@ -36,9 +36,6 @@ class LinkedListStack {
     /* 出栈 */
     pop() {
         const num = this.peek();
-        if (!this.#stackPeek) {
-            throw new Error("栈为空！");
-        }
         this.#stackPeek = this.#stackPeek.next;
         this.#stkSize--;
         return num;
@@ -46,9 +43,8 @@ class LinkedListStack {
 
     /* 访问栈顶元素 */
     peek() {
-        if (!this.#stackPeek) {
+        if (!this.#stackPeek)
             throw new Error("栈为空！");
-        }
         return this.#stackPeek.val;
     }
 
