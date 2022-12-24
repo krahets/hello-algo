@@ -10,7 +10,7 @@ namespace hello_algo.include
     public class ListNode
     {
         public int val;
-        public ListNode next;
+        public ListNode? next;
 
         /// <summary>
         /// Generate a linked list with an array
@@ -26,7 +26,7 @@ namespace hello_algo.include
         /// </summary>
         /// <param name="arr"></param>
         /// <returns></returns>
-        public static ListNode ArrToLinkedList(int[] arr)
+        public static ListNode? ArrToLinkedList(int[] arr)
         {
             ListNode dum = new ListNode(0);
             ListNode head = dum;
@@ -44,7 +44,7 @@ namespace hello_algo.include
         /// <param name="head"></param>
         /// <param name="val"></param>
         /// <returns></returns>
-        public static ListNode GetListNode(ListNode head, int val)
+        public static ListNode? GetListNode(ListNode? head, int val)
         {
             while (head != null && head.val != val)
             {

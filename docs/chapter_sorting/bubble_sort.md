@@ -176,7 +176,25 @@ comments: true
 === "C#"
 
     ```csharp title="bubble_sort.cs"
-
+    /* 冒泡排序 */
+    void bubbleSort(int[] nums)
+    {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = nums.Length - 1; i > 0; i--)
+        {
+            // 内循环：冒泡操作
+            for (int j = 0; j < i; j++)
+            {
+                if (nums[j] > nums[j + 1])
+                {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    int tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                }
+            }
+        }
+    }
     ```
 
 ## 算法特性
@@ -340,5 +358,26 @@ comments: true
 === "C#"
 
     ```csharp title="bubble_sort.cs"
-
+    /* 冒泡排序（标志优化）*/
+    void bubbleSortWithFlag(int[] nums)
+    {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = nums.Length - 1; i > 0; i--)
+        {
+            bool flag = false; // 初始化标志位
+            // 内循环：冒泡操作
+            for (int j = 0; j < i; j++)
+            {
+                if (nums[j] > nums[j + 1])
+                {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    int tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    flag = true;  // 记录交换元素
+                }
+            }
+            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
+        }
+    }
     ```

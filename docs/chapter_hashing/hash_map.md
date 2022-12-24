@@ -150,7 +150,24 @@ comments: true
 === "C#"
 
     ```csharp title="hash_map.cs"
+    /* 初始化哈希表 */
+    Dictionary<int, String> map = new ();
 
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map.Add(12836, "小哈");
+    map.Add(15937, "小啰");
+    map.Add(16750, "小算");
+    map.Add(13276, "小法");
+    map.Add(10583, "小鸭");
+
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    String name = map[15937];
+
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.Remove(10583);
     ```
 
 遍历哈希表有三种方式，即 **遍历键值对、遍历键、遍历值**。
@@ -245,7 +262,19 @@ comments: true
 === "C#"
 
     ```csharp title="hash_map.cs"
-
+    /* 遍历哈希表 */
+    // 遍历键值对 Key->Value
+    foreach (var kv in map) {
+        Console.WriteLine(kv.Key + " -> " + kv.Value);
+    }
+    // 单独遍历键 key
+    foreach (int key in map.Keys) {
+        Console.WriteLine(key);
+    }
+    // 单独遍历值 value
+    foreach (String val in map.Values) {
+        Console.WriteLine(val);
+    }
     ```
 
 ## 哈希函数
@@ -489,6 +518,64 @@ $$
 === "C#"
 
     ```csharp title="array_hash_map.cs"
+    /* 键值对 int->String */
+    class Entry
+    {
+        public int key;
+        public String val;
+        public Entry(int key, String val)
+        {
+            this.key = key;
+            this.val = val;
+        }
+    }
+
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap
+    {
+        private List<Entry?> bucket;
+        public ArrayHashMap()
+        {
+            // 初始化一个长度为 100 的桶（数组）
+            bucket = new ();
+            for (int i = 0; i < 100; i++)
+            {
+                bucket.Add(null);
+            }
+        }
+
+        /* 哈希函数 */
+        private int hashFunc(int key)
+        {
+            int index = key % 100;
+            return index;
+        }
+
+        /* 查询操作 */
+        public String? get(int key)
+        {
+            int index = hashFunc(key);
+            Entry? pair = bucket[index];
+            if (pair == null) return null;
+            return pair.val;
+        }
+
+        /* 添加操作 */
+        public void put(int key, String val)
+        {
+            Entry pair = new Entry(key, val);
+            int index = hashFunc(key);
+            bucket[index]=pair;
+        }
+
+        /* 删除操作 */
+        public void remove(int key)
+        {
+            int index = hashFunc(key);
+            // 置为 null ，代表删除
+            bucket[index]=null;
+        }
+    }
 
     ```
 

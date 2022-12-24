@@ -78,7 +78,14 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    
+    /* AVL 树结点类 */
+    class TreeNode {
+        public int val;         // 结点值
+        public int height;      // 结点高度
+        public TreeNode left;   // 左子结点
+        public TreeNode right;  // 右子结点
+        public TreeNode(int x) { val = x; }
+    }
     ```
 
 「结点高度」是最远叶结点到该结点的距离，即走过的「边」的数量。需要特别注意，**叶结点的高度为 0 ，空结点的高度为 -1** 。我们封装两个工具函数，分别用于获取与更新结点的高度。
@@ -138,7 +145,19 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    
+    /* 获取结点高度 */
+    public int height(TreeNode? node)
+    {
+        // 空结点高度为 -1 ，叶结点高度为 0
+        return node == null ? -1 : node.height;
+    }
+
+    /* 更新结点高度 */
+    private void updateHeight(TreeNode node)
+    {
+        // 结点高度等于最高子树高度 + 1
+        node.height = Math.Max(height(node.left), height(node.right)) + 1;
+    }
     ```
 
 ### 结点平衡因子
@@ -196,7 +215,14 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    
+    /* 获取平衡因子 */
+    public int balanceFactor(TreeNode? node)
+    {
+        // 空结点平衡因子为 0
+        if (node == null) return 0;
+        // 结点平衡因子 = 左子树高度 - 右子树高度
+        return height(node.left) - height(node.right);
+    }
     ```
 
 !!! note
@@ -285,6 +311,23 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C#"
 
     ```csharp title="avl_tree.cs"
+    /* 右旋操作 */
+    TreeNode? rightRotate(TreeNode? node)
+    {
+        if (node == null)
+            return null;
+
+        TreeNode? child = node.left;
+        TreeNode? grandChild = child?.right;
+        // 以 child 为原点，将 node 向右旋转
+        child.right = node;
+        node.left = grandChild;
+        // 更新结点高度
+        updateHeight(node);
+        updateHeight(child);
+        // 返回旋转后子树的根节点
+        return child;
+    }
     
     ```
 
@@ -353,7 +396,23 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    
+    /* 左旋操作 */
+    TreeNode? leftRotate(TreeNode? node)
+    {
+        if (node == null)
+            return null;
+
+        TreeNode? child = node.right;
+        TreeNode? grandChild = child?.left;
+        // 以 child 为原点，将 node 向左旋转
+        child.left = node;
+        node.right = grandChild;
+        // 更新结点高度
+        updateHeight(node);
+        updateHeight(child);
+        // 返回旋转后子树的根节点
+        return child;
+    }
     ```
 
 ### Case 3 - 先左后右
@@ -462,7 +521,47 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    
+    /* 执行旋转操作，使该子树重新恢复平衡 */
+    TreeNode? rotate(TreeNode? node)
+    {
+        if (node == null)
+            return node;
+
+        // 获取结点 node 的平衡因子
+        int balanceFactorInt = balanceFactor(node);
+        // 左偏树
+        if (balanceFactorInt > 1)
+        {
+            if (balanceFactor(node.left) >= 0)
+            {
+                // 右旋
+                return rightRotate(node);
+            }
+            else
+            {
+                // 先左旋后右旋
+                node.left = leftRotate(node?.left);
+                return rightRotate(node);
+            }
+        }
+        // 右偏树
+        if (balanceFactorInt < -1)
+        {
+            if (balanceFactor(node.right) <= 0)
+            {
+                // 左旋
+                return leftRotate(node);
+            }
+            else
+            {
+                // 先右旋后左旋
+                node.right = rightRotate(node?.right);
+                return leftRotate(node);
+            }
+        }
+        // 平衡树，无需旋转，直接返回
+        return node;
+    }
     ```
 
 ## AVL 树常用操作
@@ -537,7 +636,30 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    
+    /* 插入结点 */
+    public TreeNode? insert(int val)
+    {
+        root = insertHelper(root, val);
+        return root;
+    }
+
+    /* 递归插入结点（辅助函数） */
+    private TreeNode? insertHelper(TreeNode? node, int val)
+    {
+        if (node == null) return new TreeNode(val);
+        /* 1. 查找插入位置，并插入结点 */
+        if (val < node.val)
+            node.left = insertHelper(node.left, val);
+        else if (val > node.val)
+            node.right = insertHelper(node.right, val);
+        else
+            return node;     // 重复结点不插入，直接返回
+        updateHeight(node);  // 更新结点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node);
+        // 返回子树的根节点
+        return node;
+    }
     ```
 
 ### 删除结点
@@ -634,7 +756,60 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    
+    /* 删除结点 */
+    public TreeNode? remove(int val)
+    {
+        root = removeHelper(root, val);
+        return root;
+    }
+
+    /* 递归删除结点（辅助函数） */
+    private TreeNode? removeHelper(TreeNode? node, int val)
+    {
+        if (node == null) return null;
+        /* 1. 查找结点，并删除之 */
+        if (val < node.val)
+            node.left = removeHelper(node.left, val);
+        else if (val > node.val)
+            node.right = removeHelper(node.right, val);
+        else
+        {
+            if (node.left == null || node.right == null)
+            {
+                TreeNode? child = node.left != null ? node.left : node.right;
+                // 子结点数量 = 0 ，直接删除 node 并返回
+                if (child == null)
+                    return null;
+                // 子结点数量 = 1 ，直接删除 node
+                else
+                    node = child;
+            }
+            else
+            {
+                // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
+                TreeNode? temp = minNode(node.right);
+                node.right = removeHelper(node.right, temp.val);
+                node.val = temp.val;
+            }
+        }
+        updateHeight(node);  // 更新结点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node);
+        // 返回子树的根节点
+        return node;
+    }
+
+    /* 获取最小结点 */
+    private TreeNode? minNode(TreeNode? node)
+    {
+        if (node == null) return node;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (node.left != null)
+        {
+            node = node.left;
+        }
+        return node;
+    }
     ```
 
 ### 查找结点
