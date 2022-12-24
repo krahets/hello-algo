@@ -45,7 +45,7 @@ namespace hello_algo.chapter_searching
             Console.WriteLine("目标元素 3 的索引 = " + index);
 
             /* 哈希查找（链表） */
-            ListNode head = ListNode.ArrToLinkedList(nums);
+            ListNode? head = ListNode.ArrToLinkedList(nums);
             // 初始化哈希表
             Dictionary<int, ListNode> map1 = new();
             while (head != null)

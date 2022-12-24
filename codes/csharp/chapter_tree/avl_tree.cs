@@ -148,7 +148,7 @@ namespace hello_algo.chapter_tree
         }
 
         /* 递归删除结点（辅助函数） */
-        private TreeNode? removeHelper(TreeNode? node, int? val)
+        private TreeNode? removeHelper(TreeNode? node, int val)
         {
             if (node == null) return null;
             /* 1. 查找结点，并删除之 */
@@ -172,8 +172,8 @@ namespace hello_algo.chapter_tree
                 {
                     // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
                     TreeNode? temp = minNode(node.right);
-                    node.right = removeHelper(node.right, temp?.val);
-                    node.val = temp?.val;
+                    node.right = removeHelper(node.right, temp.val);
+                    node.val = temp.val;
                 }
             }
             updateHeight(node);  // 更新结点高度
@@ -223,14 +223,14 @@ namespace hello_algo.chapter_tree
         {
             tree.insert(val);
             Console.WriteLine("\n插入结点 " + val + " 后，AVL 树为");
-            PrintUtil.printTree(tree.root);
+            PrintUtil.PrintTree(tree.root);
         }
 
         static void testRemove(AVLTree tree, int val)
         {
             tree.remove(val);
             Console.WriteLine("\n删除结点 " + val + " 后，AVL 树为");
-            PrintUtil.printTree(tree.root);
+            PrintUtil.PrintTree(tree.root);
         }
 
         [Test]

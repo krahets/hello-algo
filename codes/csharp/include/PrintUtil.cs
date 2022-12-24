@@ -24,7 +24,7 @@ namespace hello_algo.include
          * Print a linked list
          * @param head
          */
-        public static void printLinkedList(ListNode head)
+        public static void PrintLinkedList(ListNode head)
         {
             List<String> list = new();
             while (head != null)
@@ -41,9 +41,9 @@ namespace hello_algo.include
          * https://www.techiedelight.com/c-program-print-binary-tree/
          * @param root
          */
-        public static void printTree(TreeNode? root)
+        public static void PrintTree(TreeNode? root)
         {
-            printTree(root, null, false);
+            PrintTree(root, null, false);
         }
 
         /**
@@ -52,7 +52,7 @@ namespace hello_algo.include
          * @param prev
          * @param isLeft
          */
-        public static void printTree(TreeNode? root, Trunk? prev, bool isLeft)
+        public static void PrintTree(TreeNode? root, Trunk? prev, bool isLeft)
         {
             if (root == null)
             {
@@ -62,7 +62,7 @@ namespace hello_algo.include
             String prev_str = "    ";
             Trunk trunk = new Trunk(prev, prev_str);
 
-            printTree(root.right, trunk, true);
+            PrintTree(root.right, trunk, true);
 
             if (prev == null)
             {
@@ -80,7 +80,7 @@ namespace hello_algo.include
             }
 
             showTrunks(trunk);
-            Console.Write(" " + root.val);
+            Console.WriteLine(" " + root.val);
 
             if (prev != null)
             {
@@ -88,7 +88,7 @@ namespace hello_algo.include
             }
             trunk.str = "   |";
 
-            printTree(root.left, trunk, false);
+            PrintTree(root.left, trunk, false);
         }
 
         /**

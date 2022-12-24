@@ -116,7 +116,7 @@ namespace hello_algo.chapter_computational_complexity
             quadraticRecur(n);
             // 指数阶
             TreeNode? root = buildTree(n);
-            PrintUtil.printTree(root);
+            PrintUtil.PrintTree(root);
         }
     }
 }

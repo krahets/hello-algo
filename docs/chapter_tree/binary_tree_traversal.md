@@ -156,11 +156,11 @@ comments: true
         Queue<TreeNode> queue = new();
         queue.Enqueue(root);
         // 初始化一个列表，用于保存遍历序列
-        List<int?> list = new();
+        List<int> list = new();
         while (queue.Count != 0)
         {
-            TreeNode node = queue.Dequeue();  // 队列出队
-            list.Add(node.val);            // 保存结点值
+            TreeNode node = queue.Dequeue(); // 队列出队
+            list.Add(node.val);              // 保存结点值
             if (node.left != null)
                 queue.Enqueue(node.left);    // 左子结点入队
             if (node.right != null)

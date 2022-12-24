@@ -9,16 +9,38 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_tree
 {
-    internal class binary_search_tree
+    class BinarySearchTree
     {
         TreeNode? root;
+
+        public BinarySearchTree(int[] nums) {
+            Array.Sort(nums); // 排序数组
+            root = buildTree(nums, 0, nums.Length - 1);  // 构建二叉搜索树
+        }
+
+        /* 获取二叉树根结点 */
+        public TreeNode? getRoot() {
+            return root;
+        }
+
+        /* 构建二叉搜索树 */
+        public TreeNode? buildTree(int[] nums, int i, int j) {
+            if (i > j) return null;
+            // 将数组中间结点作为根结点
+            int mid = (i + j) / 2;
+            TreeNode root = new TreeNode(nums[mid]);
+            // 递归建立左子树和右子树
+            root.left = buildTree(nums, i, mid - 1);
+            root.right = buildTree(nums, mid + 1, j);
+            return root;
+        }
 
         /// <summary>
         /// 查找结点
         /// </summary>
         /// <param name="num"></param>
         /// <returns></returns>
-        TreeNode? search(int num)
+        public TreeNode? search(int num)
         {
             TreeNode? cur = root;
             // 循环查找，越过叶结点后跳出
@@ -36,7 +58,7 @@ namespace hello_algo.chapter_tree
         }
 
         /* 插入结点 */
-        TreeNode? insert(int num)
+        public TreeNode? insert(int num)
         {
             // 若树为空，直接提前返回
             if (root == null) return null;
@@ -65,7 +87,7 @@ namespace hello_algo.chapter_tree
 
 
         /* 删除结点 */
-        TreeNode? remove(int? num)
+        public TreeNode? remove(int num)
         {
             // 若树为空，直接提前返回
             if (root == null) return null;
@@ -106,7 +128,7 @@ namespace hello_algo.chapter_tree
                 TreeNode? nex = min(cur.right);
                 if (nex != null)
                 {
-                    int? tmp = nex.val;
+                    int tmp = nex.val;
                     // 递归删除结点 nex
                     remove(nex.val);
                     // 将 nex 的值复制给 cur
@@ -117,7 +139,7 @@ namespace hello_algo.chapter_tree
         }
 
         /* 获取最小结点 */
-        TreeNode? min(TreeNode? root)
+        private TreeNode? min(TreeNode? root)
         {
             if (root == null) return root;
             // 循环访问左子结点，直到叶结点时为最小结点，跳出
@@ -127,55 +149,38 @@ namespace hello_algo.chapter_tree
             }
             return root;
         }
+    }
 
+    public class binary_search_tree
+    {
         [Test]
         public void Test()
         {
-            // 初始化结点
-            TreeNode n1 = new TreeNode(1);
-            TreeNode n2 = new TreeNode(2);
-            TreeNode n3 = new TreeNode(3);
-            TreeNode n4 = new TreeNode(4);
-            TreeNode n5 = new TreeNode(5);
-            TreeNode n6 = new TreeNode(6);
-            TreeNode n7 = new TreeNode(7);
-            TreeNode n8 = new TreeNode(8);
-            TreeNode n9 = new TreeNode(9);
-            TreeNode n10 = new TreeNode(10);
-            TreeNode n11 = new TreeNode(11);
-            TreeNode n12 = new TreeNode(12);
-            TreeNode n13 = new TreeNode(13);
-            TreeNode n14 = new TreeNode(14);
-            TreeNode n15 = new TreeNode(15);
-            root = n8;
-            root.left = n4;
-            root.right = n12;
-            n4.left = n2;
-            n4.right = n6;
-            n12.left = n10;
-            n12.right = n14;
-            n2.left = n1;
-            n2.right = n3;
-            n6.left = n5;
-            n6.right = n7;
-            n10.left = n9;
-            n10.right = n11;
-            n14.left = n13;
-            n14.right = n15;
+            /* 初始化二叉搜索树 */
+            int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+            BinarySearchTree bst = new BinarySearchTree(nums);
+            Console.WriteLine("\n初始化的二叉树为\n");
+            PrintUtil.PrintTree(bst.getRoot());
 
-            var cur = search(7);
-            Console.WriteLine("查找结点 结果 = " + cur?.val);
+            /* 查找结点 */
+            TreeNode? node = bst.search(5);
+            Console.WriteLine("\n查找到的结点对象为 " + node + "，结点值 = " + node.val);
 
-            var node = insert(16);
-            Console.WriteLine("插入结点 结果 = " + node?.val);
+            /* 插入结点 */
+            node = bst.insert(16);
+            Console.WriteLine("\n插入结点 16 后，二叉树为\n");
+            PrintUtil.PrintTree(bst.getRoot());
 
-            node = remove(1);
-            Console.WriteLine("删除结点 结果 = " + node?.val);
-            node = remove(2);
-            Console.WriteLine("删除结点 结果 = " + node?.val);
-            node = remove(4);
-            Console.WriteLine("删除结点 结果 = " + node?.val);
-
+            /* 删除结点 */
+            bst.remove(1);
+            Console.WriteLine("\n删除结点 1 后，二叉树为\n");
+            PrintUtil.PrintTree(bst.getRoot());
+            bst.remove(2);
+            Console.WriteLine("\n删除结点 2 后，二叉树为\n");
+            PrintUtil.PrintTree(bst.getRoot());
+            bst.remove(4);
+            Console.WriteLine("\n删除结点 4 后，二叉树为\n");
+            PrintUtil.PrintTree(bst.getRoot());
         }
     }
 }

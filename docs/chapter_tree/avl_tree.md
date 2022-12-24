@@ -660,7 +660,6 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回子树的根节点
         return node;
     }
-    
     ```
 
 ### 删除结点
@@ -765,7 +764,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
     }
 
     /* 递归删除结点（辅助函数） */
-    private TreeNode? removeHelper(TreeNode? node, int? val)
+    private TreeNode? removeHelper(TreeNode? node, int val)
     {
         if (node == null) return null;
         /* 1. 查找结点，并删除之 */
@@ -789,8 +788,8 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
             {
                 // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
                 TreeNode? temp = minNode(node.right);
-                node.right = removeHelper(node.right, temp?.val);
-                node.val = temp?.val;
+                node.right = removeHelper(node.right, temp.val);
+                node.val = temp.val;
             }
         }
         updateHeight(node);  // 更新结点高度

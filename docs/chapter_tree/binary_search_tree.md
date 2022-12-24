@@ -692,7 +692,7 @@ comments: true
 
     ```csharp title="binary_search_tree.cs"
     /* 删除结点 */
-    TreeNode? remove(int? num)
+    TreeNode? remove(int num)
     {
         // 若树为空，直接提前返回
         if (root == null) return null;
@@ -724,7 +724,6 @@ comments: true
             {
                 pre.right = child;
             }
-
         }
         // 子结点数量 = 2
         else
@@ -733,7 +732,7 @@ comments: true
             TreeNode? nex = min(cur.right);
             if (nex != null)
             {
-                int? tmp = nex.val;
+                int tmp = nex.val;
                 // 递归删除结点 nex
                 remove(nex.val);
                 // 将 nex 的值复制给 cur
@@ -742,7 +741,7 @@ comments: true
         }
         return cur;
     }
-
+    
     /* 获取最小结点 */
     TreeNode? min(TreeNode? root)
     {

@@ -28,7 +28,7 @@ namespace hello_algo.chapter_tree
             n2.left = n4;
             n2.right = n5;
             Console.WriteLine("\n初始化二叉树\n");
-            PrintUtil.printTree(n1);
+            PrintUtil.PrintTree(n1);
 
             /* 插入与删除结点 */
             TreeNode P = new TreeNode(0);
@@ -36,11 +36,11 @@ namespace hello_algo.chapter_tree
             n1.left = P;
             P.left = n2;
             Console.WriteLine("\n插入结点 P 后\n");
-            PrintUtil.printTree(n1);
+            PrintUtil.PrintTree(n1);
             // 删除结点 P
             n1.left = n2;
             Console.WriteLine("\n删除结点 P 后\n");
-            PrintUtil.printTree(n1);
+            PrintUtil.PrintTree(n1);
         }
     }
 }

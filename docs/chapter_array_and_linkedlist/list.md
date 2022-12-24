@@ -314,7 +314,7 @@ comments: true
     list.Insert(3, 6);
 
     /* 删除元素 */
-    list.Remove(3);
+    list.RemoveAt(3);
     ```
 
 **遍历列表。** 与数组一样，列表可以使用索引遍历，也可以使用 `for-each` 直接遍历。
@@ -376,9 +376,9 @@ comments: true
 
     /* 直接遍历列表元素 */
     count = 0
-	for range list {
-		count++
-	}
+    for range list {
+        count++
+    }
     ```
 
 === "JavaScript"
@@ -1148,7 +1148,7 @@ comments: true
         }
 
         /* 访问元素 */
-        public int get(int index)
+        public int Get(int index)
         {
             // 索引如果越界则抛出异常，下同
             if (index >= size)
@@ -1157,7 +1157,7 @@ comments: true
         }
 
         /* 更新元素 */
-        public void set(int index, int num)
+        public void Set(int index, int num)
         {
             if (index >= size)
                 throw new IndexOutOfRangeException("索引越界");
@@ -1165,24 +1165,24 @@ comments: true
         }
 
         /* 尾部添加元素 */
-        public void add(int num)
+        public void Add(int num)
         {
             // 元素数量超出容量时，触发扩容机制
             if (size == Capacity())
-                extendCapacity();
+                ExtendCapacity();
             nums[size] = num;
             // 更新元素数量
             size++;
         }
 
         /* 中间插入元素 */
-        public void insert(int index, int num)
+        public void Insert(int index, int num)
         {
             if (index >= size)
                 throw new IndexOutOfRangeException("索引越界");
             // 元素数量超出容量时，触发扩容机制
             if (size == Capacity())
-                extendCapacity();
+                ExtendCapacity();
             // 将索引 index 以及之后的元素都向后移动一位
             for (int j = size - 1; j >= index; j--)
             {
@@ -1194,7 +1194,7 @@ comments: true
         }
 
         /* 删除元素 */
-        public int remove(int index)
+        public int Remove(int index)
         {
             if (index >= size)
                 throw new IndexOutOfRangeException("索引越界");
@@ -1211,25 +1211,12 @@ comments: true
         }
 
         /* 列表扩容 */
-        public void extendCapacity()
+        public void ExtendCapacity()
         {
             // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
             System.Array.Resize(ref nums, Capacity() * extendRatio);
             // 更新列表容量
             capacity = nums.Length;
-        }
-
-        /* 将列表转换为数组 */
-        public int[] toArray()
-        {
-            int size = Size();
-            // 仅转换有效长度范围内的列表元素
-            int[] nums = new int[size];
-            for (int i = 0; i < size; i++)
-            {
-                nums[i] = get(i);
-            }
-            return nums;
         }
     }
     ```

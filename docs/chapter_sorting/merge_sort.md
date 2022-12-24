@@ -352,7 +352,7 @@ comments: true
     void merge(int[] nums, int left, int mid, int right)
     {
         // 初始化辅助数组
-        int[] tmp = nums[left..(right + 1)];//Array.CopyOfRange(nums, left, right + 1);
+        int[] tmp = nums[left..(right + 1)];
         // 左子数组的起始索引和结束索引  
         int leftStart = left - left, leftEnd = mid - left;
         // 右子数组的起始索引和结束索引       

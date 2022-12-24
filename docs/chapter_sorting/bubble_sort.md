@@ -365,7 +365,7 @@ comments: true
         for (int i = nums.Length - 1; i > 0; i--)
         {
             bool flag = false; // 初始化标志位
-                                    // 内循环：冒泡操作
+            // 内循环：冒泡操作
             for (int j = 0; j < i; j++)
             {
                 if (nums[j] > nums[j + 1])

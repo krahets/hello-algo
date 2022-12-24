@@ -8,12 +8,12 @@ namespace hello_algo.include
 {
     public class TreeNode
     {
-        public int? val;        // 结点值
+        public int val;        // 结点值
         public int height;     // 结点高度
         public TreeNode? left;  // 左子结点引用
         public TreeNode? right; // 右子结点引用
 
-        public TreeNode(int? x)
+        public TreeNode(int x)
         {
             val = x;
         }
@@ -23,12 +23,12 @@ namespace hello_algo.include
          * @param arr
          * @return
          */
-        public static TreeNode? arrToTree(int?[] arr)
+        public static TreeNode? ArrToTree(int?[] arr)
         {
-            if (arr.Length == 0)
+            if (arr.Length == 0 || arr[0] == null)
                 return null;
 
-            TreeNode root = new TreeNode(arr[0]);
+            TreeNode root = new TreeNode((int) arr[0]);
             Queue<TreeNode> queue = new Queue<TreeNode>();
             queue.Enqueue(root);
             int i = 1;
@@ -37,13 +37,13 @@ namespace hello_algo.include
                 TreeNode node = queue.Dequeue();
                 if (arr[i] != null)
                 {
-                    node.left = new TreeNode(arr[i]);
+                    node.left = new TreeNode((int) arr[i]);
                     queue.Enqueue(node.left);
                 }
                 i++;
                 if (arr[i] != null)
                 {
-                    node.right = new TreeNode(arr[i]);
+                    node.right = new TreeNode((int) arr[i]);
                     queue.Enqueue(node.right);
                 }
                 i++;
@@ -56,7 +56,7 @@ namespace hello_algo.include
          * @param root
          * @return
          */
-        public static List<int?> treeToList(TreeNode root)
+        public static List<int?> TreeToList(TreeNode root)
         {
             List<int?> list = new();
             if (root == null) return list;
@@ -84,14 +84,14 @@ namespace hello_algo.include
          * @param val
          * @return
          */
-        public static TreeNode? getTreeNode(TreeNode? root, int val)
+        public static TreeNode? GetTreeNode(TreeNode? root, int val)
         {
             if (root == null)
                 return null;
             if (root.val == val)
                 return root;
-            TreeNode? left = getTreeNode(root.left, val);
-            TreeNode? right = getTreeNode(root.right, val);
+            TreeNode? left = GetTreeNode(root.left, val);
+            TreeNode? right = GetTreeNode(root.right, val);
             return left != null ? left : right;
         }
     }

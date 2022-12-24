@@ -20,7 +20,7 @@ namespace hello_algo.chapter_sorting
                 // 内循环：将 base 插入到左边的正确位置
                 while (j >= 0 && nums[j] > bas)
                 {
-                    nums[j + 1] = nums[j];  // 1. 将 nums[j] 向右移动一位
+                    nums[j + 1] = nums[j]; // 1. 将 nums[j] 向右移动一位
                     j--;
                 }
                 nums[j + 1] = bas;         // 2. 将 base 赋值到正确位置

@@ -4,6 +4,8 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
+using NUnit.Framework;
+
 namespace hello_algo.chapter_computational_complexity
 {
     public class worst_best_time_complexity
@@ -43,7 +45,8 @@ namespace hello_algo.chapter_computational_complexity
 
 
         /* Driver Code */
-        public static void main(String[] args)
+        [Test]
+        public void Test()
         {
             for (int i = 0; i < 10; i++)
             {
