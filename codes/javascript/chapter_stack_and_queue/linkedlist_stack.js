@@ -1,4 +1,4 @@
-/**#stkSize
+/**
  * File: linkedlist_stack.js
  * Created Time: 2022-12-22
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
