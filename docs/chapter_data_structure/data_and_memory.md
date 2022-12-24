@@ -92,6 +92,11 @@ comments: true
 === "C"
 
     ```c title=""
+    /* 使用多种「基本数据类型」来初始化「数组」 */
+    int numbers[10];
+    float decimals[10];
+    char characters[10];
+    bool booleans[10];
 
     ```
 
