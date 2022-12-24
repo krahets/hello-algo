@@ -3,10 +3,7 @@
 // Author: dlfld (2441086385@qq.com)
 package chapter_array_and_linkedlist
 
-import (
-    "fmt"
-    "testing"
-)
+import "testing"
 
 /* Driver Code */
 func TestLinkedList(t *testing.T) {
@@ -23,8 +20,5 @@ func TestLinkedList(t *testing.T) {
     n2.Next = n3
     n3.Next = n4
 
-    for n0 != nil{
-        fmt.Printf("%v ",n0.Val)
-        n0 = n0.Next
-    }
+    PrintLinkedList(n0)
 }
