@@ -40,9 +40,6 @@ namespace hello_algo.chapter_tree
         /* 右旋操作 */
         TreeNode? rightRotate(TreeNode? node)
         {
-            if (node == null)
-                return null;
-
             TreeNode? child = node.left;
             TreeNode? grandChild = child?.right;
             // 以 child 为原点，将 node 向右旋转
@@ -58,9 +55,6 @@ namespace hello_algo.chapter_tree
         /* 左旋操作 */
         TreeNode? leftRotate(TreeNode? node)
         {
-            if (node == null)
-                return null;
-
             TreeNode? child = node.right;
             TreeNode? grandChild = child?.left;
             // 以 child 为原点，将 node 向左旋转
@@ -76,9 +70,6 @@ namespace hello_algo.chapter_tree
         /* 执行旋转操作，使该子树重新恢复平衡 */
         TreeNode? rotate(TreeNode? node)
         {
-            if (node == null)
-                return node;
-
             // 获取结点 node 的平衡因子
             int balanceFactorInt = balanceFactor(node);
             // 左偏树

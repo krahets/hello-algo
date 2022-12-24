@@ -543,14 +543,12 @@ $$
                 bucket.Add(null);
             }
         }
-
         /* 哈希函数 */
         private int hashFunc(int key)
         {
             int index = key % 100;
             return index;
         }
-
         /* 查询操作 */
         public String? get(int key)
         {
@@ -559,7 +557,6 @@ $$
             if (pair == null) return null;
             return pair.val;
         }
-
         /* 添加操作 */
         public void put(int key, String val)
         {
@@ -567,7 +564,6 @@ $$
             int index = hashFunc(key);
             bucket[index]=pair;
         }
-
         /* 删除操作 */
         public void remove(int key)
         {
@@ -576,7 +572,6 @@ $$
             bucket[index]=null;
         }
     }
-
     ```
 
 ## 哈希冲突

@@ -99,9 +99,9 @@ comments: true
     ```csharp title=""
     /* 链表结点类 */
     class TreeNode {
-        int val;         // 结点值
-        TreeNode left;   // 左子结点指针
-        TreeNode right;  // 右子结点指针
+        int val;          // 结点值
+        TreeNode? left;   // 左子结点指针
+        TreeNode? right;  // 右子结点指针
         TreeNode(int x) { val = x; }
     }
     ```
@@ -451,13 +451,17 @@ comments: true
 === "JavaScript"
 
     ```js title=""
-    
+    /* 二叉树的数组表示 */
+    // 直接使用 null 来表示空位
+    let tree = [1, 2, 3, 4, 5, 6, 7, null, null, null, null, null, null, null, null]
     ```
 
 === "TypeScript"
 
     ```typescript title=""
-    
+    /* 二叉树的数组表示 */
+    // 直接使用 null 来表示空位
+    let tree = [1, 2, 3, 4, 5, 6, 7, null, null, null, null, null, null, null, null]
     ```
 
 === "C"
@@ -470,7 +474,7 @@ comments: true
 
     ```csharp title=""
     /* 二叉树的数组表示 */
-    // 使用 int?可空类型 ，就可以使用 null 来标记空位
+    // 使用 int? 可空类型 ，就可以使用 null 来标记空位
     int?[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
     ```
 

@@ -164,9 +164,9 @@ comments: true
         return 0;
     }
 
-    int algorithm(int n)
-    {        // 输入数据
-        int a = 0;          // 暂存数据（常量）
+    int algorithm(int n)          // 输入数据
+    {
+        int a = 0;                // 暂存数据（常量）
         int b = 0;                // 暂存数据（变量）
         Node node = new Node(0);  // 暂存数据（对象）
         int c = function();       // 栈帧空间（调用函数）
@@ -606,7 +606,7 @@ $$
             nodes = append(nodes, newNode(i))
         }
         // 长度为 n 的哈希表占用 O(n) 空间
-	    m := make(map[int]string, n)
+        m := make(map[int]string, n)
         for i := 0; i < n; i++ {
             m[i] = strconv.Itoa(i)
         }
@@ -883,8 +883,8 @@ $$
         if n <= 0 {
             return 0
         }
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
         nums := make([]int, n)
-        fmt.Printf("递归 n = %d 中的 nums 长度 = %d \n", n, len(nums))
         return spaceQuadraticRecur(n - 1)
     }
     ```
@@ -914,8 +914,8 @@ $$
     int quadraticRecur(int n)
     {
         if (n <= 0) return 0;
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
         int[] nums = new int[n];
-        Console.WriteLine("递归 n = " + n + " 中的 nums 长度 = " + nums.Length);
         return quadraticRecur(n - 1);
     }
 

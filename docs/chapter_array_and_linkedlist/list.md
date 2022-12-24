@@ -137,20 +137,20 @@ comments: true
 
     ```js title="list.js"
     /* 访问元素 */
-    const num = list[1];
+    const num = list[1];  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    list[1] = 0;
+    list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 === "TypeScript"
 
     ```typescript title="list.ts"
     /* 访问元素 */
-    const num: number = list[1];
+    const num: number = list[1];  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    list[1] = 0;
+    list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 === "C"
@@ -163,10 +163,10 @@ comments: true
 
     ```csharp title="list.cs"
     /* 访问元素 */
-    int num = list[1];
+    int num = list[1];  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    list[1]=0;
+    list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 **在列表中添加、插入、删除元素。** 相对于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 $O(1)$ ，但是插入与删除元素的效率仍与数组一样低，时间复杂度为 $O(N)$ 。
@@ -477,7 +477,7 @@ comments: true
     ```js title="list.js"
     /* 拼接两个列表 */
     const list1 = [6, 8, 7, 10, 9];
-    list.push(...list1);
+    list.push(...list1);  // 将列表 list1 拼接到 list 之后
     ```
 
 === "TypeScript"
@@ -485,7 +485,7 @@ comments: true
     ```typescript title="list.ts"
     /* 拼接两个列表 */
     const list1: number[] = [6, 8, 7, 10, 9];
-    list.push(...list1);
+    list.push(...list1);  // 将列表 list1 拼接到 list 之后
     ```
 
 === "C"
@@ -499,7 +499,7 @@ comments: true
     ```csharp title="list.cs"
     /* 拼接两个列表 */
     List<int> list1 = new() { 6, 8, 7, 10, 9 };
-    list.AddRange(list1);
+    list.AddRange(list1);  // 将列表 list1 拼接到 list 之后
     ```
 
 **排序列表。** 排序也是常用的方法之一，完成列表排序后，我们就可以使用在数组类算法题中经常考察的「二分查找」和「双指针」算法了。
@@ -536,7 +536,7 @@ comments: true
 
     ```js title="list.js"
     /* 排序列表 */  
-    list.sort((a, b) => a - b);
+    list.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
     ```
 
 === "TypeScript"

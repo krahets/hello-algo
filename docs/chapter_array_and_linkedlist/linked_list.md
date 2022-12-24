@@ -91,7 +91,7 @@ comments: true
 === "C#"
 
     ```csharp title=""
-    // 链表结点类
+    /* 链表结点类 */
     class ListNode
     {
         int val;         // 结点值
@@ -675,7 +675,7 @@ comments: true
 === "C#"
 
     ```csharp title=""
-    // 双向链表结点类 
+    /* 双向链表结点类 */
     class ListNode {
         int val;        // 结点值
         ListNode next;  // 指向后继结点的指针（引用）

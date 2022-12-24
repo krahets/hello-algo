@@ -557,25 +557,21 @@ comments: true
     {
         private ListNode? front, rear;  // 头结点 front ，尾结点 rear 
         private int queSize = 0;
-
         public LinkedListQueue()
         {
             front = null;
             rear = null;
         }
-
         /* 获取队列的长度 */
         public int size()
         {
             return queSize;
         }
-
         /* 判断队列是否为空 */
         public bool isEmpty()
         {
             return size() == 0;
         }
-
         /* 入队 */
         public void offer(int num)
         {
@@ -595,7 +591,6 @@ comments: true
             }
             queSize++;
         }
-
         /* 出队 */
         public int poll()
         {
@@ -605,7 +600,6 @@ comments: true
             queSize--;
             return num;
         }
-
         /* 访问队首元素 */
         public int peek()
         {
@@ -962,36 +956,38 @@ comments: true
 
     ```csharp title="array_queue.cs"
     /* 基于环形数组实现的队列 */
-    class ArrayQueue {
+    class ArrayQueue
+    {
         private int[] nums;     // 用于存储队列元素的数组
         private int front = 0;  // 头指针，指向队首
         private int rear = 0;   // 尾指针，指向队尾 + 1
-
-        public ArrayQueue(int capacity) {
+        public ArrayQueue(int capacity)
+        {
             // 初始化数组
             nums = new int[capacity];
         }
-
         /* 获取队列的容量 */
-        public int capacity() {
+        public int capacity()
+        {
             return nums.Length;
         }
-
         /* 获取队列的长度 */
-        public int size() {
+        public int size()
+        {
             int capacity = this.capacity();
             // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
             return (capacity + rear - front) % capacity;
         }
-
         /* 判断队列是否为空 */
-        public bool isEmpty() {
+        public bool isEmpty()
+        {
             return rear - front == 0;
         }
-
         /* 入队 */
-        public void offer(int num) {
-            if (size() == capacity()) {
+        public void offer(int num)
+        {
+            if (size() == capacity())
+            {
                 Console.WriteLine("队列已满");
                 return;
             }
@@ -1000,17 +996,17 @@ comments: true
             // 尾指针向后移动一位，越过尾部后返回到数组头部
             rear = (rear + 1) % capacity();
         }
-
         /* 出队 */
-        public int poll() {
+        public int poll()
+        {
             int num = peek();
             // 队头指针向后移动一位，若越过尾部则返回到数组头部
             front = (front + 1) % capacity();
             return num;
         }
-
         /* 访问队首元素 */
-        public int peek() {
+        public int peek()
+        {
             if (isEmpty())
                 throw new Exception();
             return nums[front];

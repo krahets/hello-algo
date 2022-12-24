@@ -14,7 +14,7 @@ namespace hello_algo.chapter_computational_complexity
         {
             int a = 1;  // +0（技巧 1）
             a = a + n;  // +0（技巧 1）
-                        // +n（技巧 2）
+            // +n（技巧 2）
             for (int i = 0; i < 5 * n + 1; i++)
             {
                 Console.WriteLine(0);
@@ -101,7 +101,7 @@ namespace hello_algo.chapter_computational_complexity
         static int bubbleSort(int[] nums)
         {
             int count = 0;  // 计数器
-                            // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+            // 外循环：待排序元素数量为 n-1, n-2, ..., 1
             for (int i = nums.Length - 1; i > 0; i--)
             {
                 // 内循环：冒泡操作

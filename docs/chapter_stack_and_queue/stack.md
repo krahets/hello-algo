@@ -549,19 +549,16 @@ comments: true
         {
             stackPeek = null;
         }
-
         /* 获取栈的长度 */
         public int size()
         {
             return stkSize;
         }
-
         /* 判断栈是否为空 */
         public bool isEmpty()
         {
             return size() == 0;
         }
-
         /* 入栈 */
         public void push(int num)
         {
@@ -570,7 +567,6 @@ comments: true
             stackPeek = node;
             stkSize++;
         }
-
         /* 出栈 */
         public int pop()
         {
@@ -579,7 +575,6 @@ comments: true
             stkSize--;
             return num;
         }
-
         /* 访问栈顶元素 */
         public int peek()
         {
@@ -836,25 +831,21 @@ comments: true
             // 初始化列表（动态数组）
             stack = new();
         }
-
         /* 获取栈的长度 */
         public int size()
         {
             return stack.Count();
         }
-
         /* 判断栈是否为空 */
         public bool isEmpty()
         {
             return size() == 0;
         }
-
         /* 入栈 */
         public void push(int num)
         {
             stack.Add(num);
         }
-
         /* 出栈 */
         public int pop()
         {
@@ -864,7 +855,6 @@ comments: true
             stack.RemoveAt(size() - 1);
             return val;
         }
-
         /* 访问栈顶元素 */
         public int peek()
         {

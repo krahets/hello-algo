@@ -103,7 +103,7 @@ $$
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-                    // 循环 n 次
+        // 循环 n 次
         for (int i = 0; i < n; i++)
         {  // 1 ns ，每轮都要执行 i++
             Console.WriteLine(0);     // 5 ns
@@ -347,7 +347,7 @@ $$
         a = a * 2;  // +1
         // 循环 n 次
         for (int i = 0; i < n; i++) { // +1（每轮都执行 i ++）
-            Console.WriteLine(0);    // +1
+            Console.WriteLine(0);     // +1
         }
     }
     ```
@@ -500,7 +500,7 @@ $$
     {
         int a = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
-                    // +n（技巧 2）
+        // +n（技巧 2）
         for (int i = 0; i < 5 * n + 1; i++)
         {
             Console.WriteLine(0);
@@ -1422,7 +1422,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-     /* 对数阶（递归实现） */
+    /* 对数阶（递归实现） */
     int logRecur(float n)
     {
         if (n <= 1) return 0;

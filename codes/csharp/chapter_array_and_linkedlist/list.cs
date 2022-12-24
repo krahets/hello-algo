@@ -25,7 +25,7 @@ namespace hello_algo.chapter_array_and_linkedlist
             Console.WriteLine("访问索引 1 处的元素，得到 num = " + num);
 
             /* 更新元素 */
-            list[1]=0;
+            list[1] = 0;
             Console.WriteLine("将索引 1 处的元素更新为 0 ，得到 list = " + string.Join(",", list));
 
             /* 清空列表 */

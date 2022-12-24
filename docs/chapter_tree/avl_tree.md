@@ -80,10 +80,10 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     ```csharp title="avl_tree.cs"
     /* AVL 树结点类 */
     class TreeNode {
-        public int val;         // 结点值
-        public int height;      // 结点高度
-        public TreeNode left;   // 左子结点
-        public TreeNode right;  // 右子结点
+        public int val;          // 结点值
+        public int height;       // 结点高度
+        public TreeNode? left;   // 左子结点
+        public TreeNode? right;  // 右子结点
         public TreeNode(int x) { val = x; }
     }
     ```
@@ -314,9 +314,6 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
     /* 右旋操作 */
     TreeNode? rightRotate(TreeNode? node)
     {
-        if (node == null)
-            return null;
-
         TreeNode? child = node.left;
         TreeNode? grandChild = child?.right;
         // 以 child 为原点，将 node 向右旋转
@@ -399,9 +396,6 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
     /* 左旋操作 */
     TreeNode? leftRotate(TreeNode? node)
     {
-        if (node == null)
-            return null;
-
         TreeNode? child = node.right;
         TreeNode? grandChild = child?.left;
         // 以 child 为原点，将 node 向左旋转
@@ -524,9 +518,6 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
     /* 执行旋转操作，使该子树重新恢复平衡 */
     TreeNode? rotate(TreeNode? node)
     {
-        if (node == null)
-            return node;
-
         // 获取结点 node 的平衡因子
         int balanceFactorInt = balanceFactor(node);
         // 左偏树
