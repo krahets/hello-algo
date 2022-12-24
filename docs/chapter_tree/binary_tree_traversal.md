@@ -65,7 +65,26 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_bfs.py"
-    
+       def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        // 初始化一个列表，用于保存遍历序列
+        result = []
+        if not root :
+            return result
+        from collections import deque
+        // 初始化队列，加入根结点
+        queue = deque([root])
+        while queue:
+            list = []
+            size = len(queue)
+            for _ in range(size):
+                cur = queue.popleft()
+                list.append(cur.val)
+                if cur.left:
+                    queue.append(cur.left)
+                if cur.right:
+                    queue.append(cur.right)
+            result.append(list)
+        return result
     ```
 
 === "Go"
