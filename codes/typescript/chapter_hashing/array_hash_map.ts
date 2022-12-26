@@ -18,7 +18,7 @@ class Entry {
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
 
-    private readonly bucket: Entry | null[];
+    private readonly bucket: (Entry | null)[];
 
     constructor() {
         // 初始化一个长度为 100 的桶（数组）
@@ -52,8 +52,8 @@ class ArrayHashMap {
     }
 
     /* 获取所有键值对 */
-    public entries(): Entry[] {
-        let arr = [];
+    public entries(): (Entry | null)[] {
+        let arr: (Entry | null)[] = [];
         for (let i = 0; i < this.bucket.length; i++) {
             if (this.bucket[i]) {
                 arr.push(this.bucket[i]);
@@ -63,22 +63,22 @@ class ArrayHashMap {
     }
 
     /* 获取所有键 */
-    public keys(): number[] {
-        let arr = [];
+    public keys(): (number | undefined)[] {
+        let arr: (number | undefined)[] = [];
         for (let i = 0; i < this.bucket.length; i++) {
             if (this.bucket[i]) {
-                arr.push(this.bucket[i].key);
+                arr.push(this.bucket[i]?.key);
             }
         }
         return arr;
     }
 
     /* 获取所有值 */
-    public values(): string[] {
-        let arr = [];
+    public values(): (string | undefined)[] {
+        let arr: (string | undefined)[] = [];
         for (let i = 0; i < this.bucket.length; i++) {
             if (this.bucket[i]) {
-                arr.push(this.bucket[i].val);
+                arr.push(this.bucket[i]?.val);
             }
         }
         return arr;
@@ -121,6 +121,7 @@ map.print();
 /* 遍历哈希表 */
 console.info('\n遍历键值对 Key->Value');
 for (const entry of map.entries()) {
+    if (!entry) continue;
     console.info(entry.key + ' -> ' + entry.val);
 }
 console.info('\n单独遍历键 Key');
