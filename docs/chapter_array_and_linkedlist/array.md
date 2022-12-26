@@ -44,12 +44,8 @@ comments: true
 
     ```go title="array.go"
     /* 初始化数组 */
-    // 方法一
-    nums1 := [5]int{1, 2, 3, 4, 5}
-    // 方法二
-    var nums2 [5]int
-    // 在 Go 中数组必须指定长度，如果长度不确定，可以使用 ... 代替数组长度
-    nums3 := [...]int{1, 2, 3, 4, 5}
+    var arr [5]int // {0, 0, 0, 0, 0}
+    nums := [5]int{1, 3, 2, 5, 4}
     ```
 
 === "JavaScript"
