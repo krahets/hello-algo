@@ -18,24 +18,30 @@ def list_to_tree(arr):
     """Generate a binary tree with a list
 
     Args:
-        arr ([type]): [description]
+        arr (list): a list representing a binary tree, where None represents an empty node
 
     Returns:
-        [type]: [description]
+        TreeNode: the root node of the generated binary tree
     """
     if not arr:
         return None
+    if len(arr) < 2:
+        return TreeNode(arr[0])
     i = 1
     root = TreeNode(int(arr[0]))
     queue = collections.deque()
     queue.append(root)
     while queue:
         node = queue.popleft()
-        if arr[i] != None:
+        if i >= len(arr):
+            break
+        if arr[i] is not None:
             node.left = TreeNode(int(arr[i]))
             queue.append(node.left)
         i += 1
-        if arr[i] != None:
+        if i >= len(arr):
+            break
+        if arr[i] is not None:
             node.right = TreeNode(int(arr[i]))
             queue.append(node.right)
         i += 1
