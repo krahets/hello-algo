@@ -539,7 +539,7 @@ $$
 
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
-        #bucket
+        #bucket;
         constructor() {
             // 初始化一个长度为 100 的桶（数组）
             this.#bucket = new Array(100).fill(null);
