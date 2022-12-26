@@ -705,7 +705,7 @@ comments: true
     func NewArrayStack() *ArrayStack {
         return &ArrayStack{
             // 设置栈的长度为 0，容量为 16
-            data: make([]int, 0, 16),
+            data := make([]int, 0, 16),
         }
     }
     // Size 栈的长度
