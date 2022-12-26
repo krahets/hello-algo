@@ -383,7 +383,7 @@ comments: true
                     flag = true;
                 }
             }
-            if(!falg) break;
+            if(!flag) break;
         }
     }
     ```
