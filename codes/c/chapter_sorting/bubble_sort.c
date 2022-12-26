@@ -1,9 +1,7 @@
 /**
- * @file bubble_sort.c
- * @author Listening (https://github.com/L-Super)
- * @brief
- * @date 2022-12-26
- *
+ * File: bubble_sort.c
+ * Created Time: 2022-12-26
+ * Author: Listening (https://github.com/L-Super)
  */
 
 #include "../include/include.h"
