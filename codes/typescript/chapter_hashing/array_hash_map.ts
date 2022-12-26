@@ -41,7 +41,7 @@ class ArrayHashMap {
     /* 添加操作 */
     public set(key: number, val: string) {
         let index = this.hashFunc(key);
-        this.bucket[index] = new Entry(index, val);
+        this.bucket[index] = new Entry(key, val);
     }
 
     /* 删除操作 */
