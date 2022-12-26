@@ -43,7 +43,9 @@ comments: true
 === "Go"
 
     ```go title="array.go"
-
+    /* 初始化数组 */
+    var arr [5]int // {0, 0, 0, 0, 0}
+    nums := [5]int{1, 3, 2, 5, 4}
     ```
 
 === "JavaScript"
