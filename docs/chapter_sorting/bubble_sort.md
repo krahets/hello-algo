@@ -85,9 +85,8 @@ comments: true
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
+                    // 这里使用了 std::swap() 函数
+                    swap(nums[j], nums[j + 1]);
                 }
             }
         }
@@ -170,7 +169,24 @@ comments: true
 === "C"
 
     ```c title="bubble_sort.c"
-
+    /* 冒泡排序 */
+    void bubble_sort(int nums[], int size)
+    {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = 0; i < size - 1; i++)
+        {
+            // 内循环：冒泡操作
+            for (int j = 0; j < size - 1 - i; j++)
+            {
+                if (nums[j] > nums[j + 1])
+                {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+    }
     ```
 
 === "C#"
@@ -250,9 +266,8 @@ comments: true
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
+                    // 这里使用了 std::swap() 函数
+                    swap(nums[j], nums[j + 1]);
                     flag = true;  // 记录交换元素
                 }
             }
@@ -352,7 +367,27 @@ comments: true
 === "C"
 
     ```c title="bubble_sort.c"
-
+    /* 冒泡排序 */
+    void bubble_sort(int nums[], int size)
+    {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = 0; i < size - 1; i++)
+        {
+            bool flag = false;
+            // 内循环：冒泡操作
+            for (int j = 0; j < size - 1 - i; j++)
+            {
+                if (nums[j] > nums[j + 1])
+                {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                    flag = true;
+                }
+            }
+            if(!flag) break;
+        }
+    }
     ```
 
 === "C#"
