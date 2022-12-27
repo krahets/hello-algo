@@ -85,7 +85,8 @@ comments: true
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
-                    std::swap(nums[j], nums[j+1]);
+                    // 这里使用了 std::swap() 函数
+                    swap(nums[j], nums[j + 1]);
                 }
             }
         }
@@ -265,7 +266,8 @@ comments: true
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
-                    std::swap(nums[j], nums[j+1]);
+                    // 这里使用了 std::swap() 函数
+                    swap(nums[j], nums[j + 1]);
                     flag = true;  // 记录交换元素
                 }
             }
