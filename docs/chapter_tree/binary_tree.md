@@ -453,7 +453,7 @@ comments: true
     ```js title=""
     /* 二叉树的数组表示 */
     // 直接使用 null 来表示空位
-    let tree = [1, 2, 3, 4, 5, 6, 7, null, null, null, null, null, null, null, null]
+    let tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 === "TypeScript"
