@@ -1,46 +1,68 @@
 """
 File: binary_tree_dfs.py
-Created Time: 2022-11-25
-Author: Krahets (krahets@163.com)
+Created Time: 2022-12-20
+Author: a16su (lpluls001@gmail.com)
 """
 
 import sys, os.path as osp
+import typing
+
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
-# 定义一个list数组用来存储遍历的结果
+
+res = []
+
+""" 前序遍历 """
+def pre_order(root: typing.Optional[TreeNode]):
+    if root is None:
+        return
+    # 访问优先级：根结点 -> 左子树 -> 右子树
+    res.append(root.val)
+    pre_order(root=root.left)
+    pre_order(root=root.right)
+
+""" 中序遍历 """
+def in_order(root: typing.Optional[TreeNode]):
+    if root is None:
+        return
+    # 访问优先级：左子树 -> 根结点 -> 右子树
+    in_order(root=root.left)
+    res.append(root.val)
+    in_order(root=root.right)
+
+""" 后序遍历 """
+def post_order(root: typing.Optional[TreeNode]):
+    if root is None:
+        return
+    # 访问优先级：左子树 -> 右子树 -> 根结点
+    post_order(root=root.left)
+    post_order(root=root.right)
+    res.append(root.val)
 
 
-# 前序遍历
-def preorder(root):
-    if root == None:
-        return []
-    
-    # 访问顺序：根结点 -> 左子树 -> 右子树
+""" Driver Code """
+if __name__ == "__main__":
+    # 初始化二叉树
+    # 这里借助了一个从数组直接生成二叉树的函数
+    root = list_to_tree(arr=[1, 2, 3, 4, 5, 6, 7, None, None, None, None, None, None, None, None])
+    print("\n初始化二叉树\n")
+    print_tree(root)
 
-    list.append(root.val)
-    preorder(root.left)
-    preorder(root.right)
+    # 前序遍历
+    res.clear()
+    pre_order(root)
+    print("\n前序遍历的结点打印序列 = ", res)
+    assert res == [1, 2, 4, 5, 3, 6, 7]
 
+    # 中序遍历
+    res.clear()
+    in_order(root)
+    print("\n中序遍历的结点打印序列 = ", res)
+    assert res == [4, 2, 5, 1, 6, 3, 7]
 
-# 中序遍历
-def inorder(root):
-    if root == None:
-        return []
-
-    # 访问顺序：左子树 -> 根结点 -> 右子树
-    
-    inorder(root.left)
-    list.append(root.val)
-    inorder(root.right)
-
-# 后序遍历
-def postorder(root):
-    if root == None:
-        return []
-
-    # 访问顺序：左子树 -> 右子树 -> 根结点
-
-    postorder(root.left)
-    postorder(root.right)
-    list.append(root.val)
+    # 后序遍历
+    res.clear()
+    post_order(root)
+    print("\n后序遍历的结点打印序列 = ", res)
+    assert res == [4, 5, 2, 6, 7, 3, 1]
