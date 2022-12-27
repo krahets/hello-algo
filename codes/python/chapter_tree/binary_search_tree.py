@@ -12,15 +12,12 @@ from include import *
 
 
 """ 二叉搜索树 """
-
-
 class BinarySearchTree:
     def __init__(self, nums: typing.List[int]) -> None:
         nums.sort()
         self.__root = self.build_tree(nums, 0, len(nums) - 1)
 
     """ 构建二叉搜索树 """
-
     def build_tree(self, nums: typing.List[int], start_index: int, end_index: int) -> typing.Optional[TreeNode]:
         if start_index > end_index:
             return None
@@ -38,7 +35,6 @@ class BinarySearchTree:
         return self.__root
 
     """ 查找结点 """
-
     def search(self, num: int) -> typing.Optional[TreeNode]:
         cur = self.root
         # 循环查找，越过叶结点后跳出
@@ -55,7 +51,6 @@ class BinarySearchTree:
         return cur
 
     """ 插入结点 """
-
     def insert(self, num: int) -> typing.Optional[TreeNode]:
         root = self.root
         # 若树为空，直接提前返回
@@ -86,7 +81,6 @@ class BinarySearchTree:
         return node
 
     """ 删除结点 """
-
     def remove(self, num: int) -> typing.Optional[TreeNode]:
         root = self.root
         # 若树为空，直接提前返回
@@ -132,7 +126,6 @@ class BinarySearchTree:
         return cur
 
     """ 获取最小结点 """
-
     def min(self, root: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
         if root is None:
             return root
@@ -143,6 +136,7 @@ class BinarySearchTree:
         return root
 
 
+""" Driver Code """
 if __name__ == "__main__":
     # 初始化二叉搜索树
     nums = list(range(1, 16))

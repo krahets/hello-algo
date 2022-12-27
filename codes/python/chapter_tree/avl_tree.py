@@ -16,7 +16,6 @@ class AVLTree:
         self.root = root
 
     """ 获取结点高度 """
-
     def height(self, node: typing.Optional[TreeNode]) -> int:
         # 空结点高度为 -1 ，叶结点高度为 0
         if node is not None:
@@ -24,13 +23,11 @@ class AVLTree:
         return -1
 
     """ 更新结点高度 """
-
     def __update_height(self, node: TreeNode):
         # 结点高度等于最高子树高度 + 1
         node.height = max([self.height(node.left), self.height(node.right)]) + 1
 
     """ 获取平衡因子 """
-
     def balance_factor(self, node: TreeNode) -> int:
         # 空结点平衡因子为 0
         if node is None:
@@ -39,7 +36,6 @@ class AVLTree:
         return self.height(node.left) - self.height(node.right)
 
     """ 右旋操作 """
-
     def __right_rotate(self, node: TreeNode) -> TreeNode:
         child = node.left
         grand_child = child.right
@@ -53,7 +49,6 @@ class AVLTree:
         return child
 
     """ 左旋操作 """
-
     def __left_rotate(self, node: TreeNode) -> TreeNode:
         child = node.right
         grand_child = child.left
@@ -67,7 +62,6 @@ class AVLTree:
         return child
 
     """ 执行旋转操作，使该子树重新恢复平衡 """
-
     def __rotate(self, node: TreeNode) -> TreeNode:
         # 获取结点 node 的平衡因子
         balance_factor = self.balance_factor(node)
@@ -93,13 +87,11 @@ class AVLTree:
         return node
 
     """ 插入结点 """
-
     def insert(self, val) -> TreeNode:
         self.root = self.__insert_helper(self.root, val)
         return self.root
 
     """ 递归插入结点（辅助函数）"""
-
     def __insert_helper(self, node: typing.Optional[TreeNode], val: int) -> TreeNode:
         if node is None:
             return TreeNode(val)
@@ -117,13 +109,11 @@ class AVLTree:
         return self.__rotate(node)
 
     """ 删除结点 """
-
     def remove(self, val: int):
         root = self.__remove_helper(self.root, val)
         return root
 
     """ 递归删除结点（辅助函数） """
-
     def __remove_helper(self, node: typing.Optional[TreeNode], val: int) -> typing.Optional[TreeNode]:
         if node is None:
             return None
@@ -142,7 +132,7 @@ class AVLTree:
                 else:
                     node = child
             else:  # 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
-                temp = self.min_node(node.right)
+                temp = self.__min_node(node.right)
                 node.right = self.__remove_helper(node.right, temp.val)
                 node.val = temp.val
         # 更新结点高度
@@ -151,8 +141,7 @@ class AVLTree:
         return self.__rotate(node)
 
     """ 获取最小结点 """
-
-    def min_node(self, node: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
+    def __min_node(self, node: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
         if node is None:
             return None
         # 循环访问左子结点，直到叶结点时为最小结点，跳出
@@ -161,7 +150,6 @@ class AVLTree:
         return node
 
     """ 查找结点 """
-
     def search(self, val: int):
         cur = self.root
         # 循环查找，越过叶结点后跳出
@@ -179,8 +167,8 @@ class AVLTree:
         return cur
 
 
+""" Driver Code """
 if __name__ == "__main__":
-
     def test_insert(tree: AVLTree, val: int):
         tree.insert(val)
         print("\n插入结点 {} 后，AVL 树为".format(val))

@@ -23,6 +23,7 @@ if __name__ == "__main__":
     n1.right = n3
     n2.left = n4
     n2.right = n5
+    print("\n初始化二叉树\n")
     print_tree(n1)
 
     # 插入与删除结点
@@ -31,8 +32,10 @@ if __name__ == "__main__":
     # 在 n1 -> n2 中间插入节点 P
     n1.left = P
     P.left = n2
+    print("\n插入结点 P 后\n")
     print_tree(n1)
 
     # 删除结点
     n1.left = n2
+    print("\n删除结点 P 后\n");
     print_tree(n1)

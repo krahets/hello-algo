@@ -12,8 +12,6 @@ from include import *
 
 
 """ 层序遍历 """
-
-
 def hier_order(root: TreeNode):
     # 初始化队列，加入根结点
     queue: typing.Deque[TreeNode] = collections.deque()

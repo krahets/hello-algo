@@ -15,8 +15,6 @@ result = []
 
 
 """ 前序遍历二叉树 """
-
-
 def pre_order(root: typing.Optional[TreeNode]):
     if root is None:
         return
@@ -28,8 +26,6 @@ def pre_order(root: typing.Optional[TreeNode]):
 
 
 """ 中序遍历二叉树 """
-
-
 def in_order(root: typing.Optional[TreeNode]):
     if root is None:
         return
@@ -41,8 +37,6 @@ def in_order(root: typing.Optional[TreeNode]):
 
 
 """ 后序遍历二叉树 """
-
-
 def post_order(root: typing.Optional[TreeNode]):
     if root is None:
         return
