@@ -167,12 +167,12 @@ $$
         let i = 0, j = nums.length - 1;
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
         while (i <= j) {
-            let m = Math.floor(i + (j - i) / 2);// 计算中点索引 m
-            if (nums[m] < target) {             // 此情况说明 target 在区间 [m+1, j] 中
+            const m = Math.floor(i + (j - i) / 2);  // 计算中点索引 m
+            if (nums[m] < target) {                 // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
-            } else if (nums[m] > target) {      // 此情况说明 target 在区间 [i, m-1] 中
+            } else if (nums[m] > target) {          // 此情况说明 target 在区间 [i, m-1] 中
                 j = m - 1;
-            } else {                            // 找到目标元素，返回其索引
+            } else {                                // 找到目标元素，返回其索引
                 return m;
             }
         }
@@ -224,9 +224,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
             int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
+            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
+            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m] 中
                 j = m;
             else                       // 找到目标元素，返回其索引
                 return m;
@@ -246,9 +246,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
             int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
+            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
+            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m] 中
                 j = m;
             else                       // 找到目标元素，返回其索引
                 return m;
@@ -268,9 +268,9 @@ $$
         # 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while i < j:
             m = (i + j) // 2        # 计算中点索引 m
-            if nums[m] < target:    # 此情况说明 target 在区间 [m+1, j) 中
+            if nums[m] < target:    # 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1
-            elif nums[m] > target:  # 此情况说明 target 在区间 [i, m) 中
+            elif nums[m] > target:  # 此情况说明 target 在区间 [i, m] 中
                 j = m
             else:                   # 找到目标元素，返回其索引
                 return m
@@ -287,9 +287,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         for i < j {
             m := (i + j) / 2             // 计算中点索引 m
-            if nums[m] < target {        // 此情况说明 target 在区间 [m+1, j) 中
+            if nums[m] < target {        // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1
-            } else if nums[m] > target { // 此情况说明 target 在区间 [i, m) 中
+            } else if nums[m] > target { // 此情况说明 target 在区间 [i, m] 中
                 j = m
             } else {                     // 找到目标元素，返回其索引
                 return m
@@ -310,9 +310,9 @@ $$
     // 循环，当搜索区间为空时跳出（当 i = j 时为空）
     while (i < j) {
         let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
-        if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j) 中
+        if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j] 中
             i = m + 1;
-        else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m) 中
+        else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m] 中
             j = m;
         else                           // 找到目标元素，返回其索引
             return m;
@@ -331,12 +331,12 @@ $$
         let i = 0, j = nums.length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
-            let m = Math.floor(i + (j - i) / 2);// 计算中点索引 m
-            if (nums[m] < target) {             // 此情况说明 target 在区间 [m+1, j) 中
+            const m = Math.floor(i + (j - i) / 2);  // 计算中点索引 m
+            if (nums[m] < target) {                 // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
-            } else if (nums[m] > target) {      // 此情况说明 target 在区间 [i, m) 中
+            } else if (nums[m] > target) {          // 此情况说明 target 在区间 [i, m] 中
                 j = m;
-            } else {                            // 找到目标元素，返回其索引
+            } else {                                // 找到目标元素，返回其索引
                 return m;
             }
         }
@@ -362,9 +362,9 @@ $$
         while (i < j)
         {
             int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
+            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
+            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m] 中
                 j = m;
             else                       // 找到目标元素，返回其索引
                 return m;
