@@ -14,22 +14,18 @@ from include import *
 """ 层序遍历 """
 def hier_order(root: TreeNode):
     # 初始化队列，加入根结点
-    queue: typing.Deque[TreeNode] = collections.deque()
+    queue = collections.deque()
     queue.append(root)
     # 初始化一个列表，用于保存遍历序列
-    result = []
+    res = []
     while queue:
-        # 队列出队
-        node = queue.popleft()
-        # 保存节点值
-        result.append(node.val)
+        node = queue.popleft()       # 队列出队
+        res.append(node.val)         # 保存节点值
         if node.left is not None:
-            # 左子结点入队
-            queue.append(node.left)
+            queue.append(node.left)  # 左子结点入队
         if node.right is not None:
-            # 右子结点入队
-            queue.append(node.right)
-    return result
+            queue.append(node.right) # 右子结点入队
+    return res
 
 
 """ Driver Code """
@@ -41,6 +37,6 @@ if __name__ == "__main__":
     print_tree(root)
 
     # 层序遍历
-    result = hier_order(root)
-    print("\n层序遍历的结点打印序列 = ", result)
-    assert result == [1, 2, 3, 4, 5, 6, 7]
+    res = hier_order(root)
+    print("\n层序遍历的结点打印序列 = ", res)
+    assert res == [1, 2, 3, 4, 5, 6, 7]

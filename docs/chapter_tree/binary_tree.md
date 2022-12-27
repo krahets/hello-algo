@@ -182,7 +182,7 @@ comments: true
 === "Python"
 
     ```python title="binary_tree.py"
-    # 初始化二叉树
+    """ 初始化二叉树 """
     # 初始化节点
     n1 = TreeNode(val=1)
     n2 = TreeNode(val=2)
@@ -302,7 +302,7 @@ comments: true
 === "Python"
 
     ```python title="binary_tree.py"
-    # 插入与删除结点
+    """ 插入与删除结点 """
     p = TreeNode(0)
     # 在 n1 -> n2 中间插入结点 P
     n1.left = p
@@ -461,7 +461,7 @@ comments: true
 === "Python"
 
     ```python title=""
-    “”“ 二叉树的数组表示 ”“”
+    """ 二叉树的数组表示 """
     # 直接使用 None 来表示空位
     tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     ```
