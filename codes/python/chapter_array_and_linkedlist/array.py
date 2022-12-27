@@ -1,8 +1,8 @@
-'''
+"""
 File: array.py
 Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
-'''
+"""
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
@@ -31,7 +31,7 @@ def extend(nums, enlarge):
 """ 在数组的索引 index 处插入元素 num """
 def insert(nums, num, index):
     # 把索引 index 以及之后的所有元素向后移动一位
-    for i in range(len(nums) - 1, index - 1, -1):
+    for i in range(len(nums) - 1, index, -1):
         nums[i] = nums[i - 1]
     # 将 num 赋给 index 处元素
     nums[index] = num

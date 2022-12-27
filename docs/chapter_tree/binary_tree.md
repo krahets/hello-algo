@@ -4,7 +4,7 @@ comments: true
 
 # 二叉树
 
-「二叉树 Binary Tree」是一种非线性数据结构，代表着祖先与后代之间的派生关系，体现着 “一分为二” 的分治逻辑。类似于链表，二叉树也是以结点为单位存储的，结点包含「值」和两个「指针」。
+「二叉树 Binary Tree」是一种非线性数据结构，代表着祖先与后代之间的派生关系，体现着“一分为二”的分治逻辑。类似于链表，二叉树也是以结点为单位存储的，结点包含「值」和两个「指针」。
 
 === "Java"
 
@@ -86,7 +86,7 @@ comments: true
         val: number;
         left: TreeNode | null;
         right: TreeNode | null;
-
+    
         constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val; // 结点值
             this.left = left === undefined ? null : left; // 左子结点指针
@@ -98,22 +98,28 @@ comments: true
 === "C"
 
     ```c title=""
-
+    
     ```
 
 === "C#"
 
     ```csharp title=""
-
+    /* 链表结点类 */
+    class TreeNode {
+        int val;          // 结点值
+        TreeNode? left;   // 左子结点指针
+        TreeNode? right;  // 右子结点指针
+        TreeNode(int x) { val = x; }
+    }
     ```
 
 结点的两个指针分别指向「左子结点 Left Child Node」和「右子结点 Right Child Node」，并且称该结点为两个子结点的「父结点 Parent Node」。给定二叉树某结点，将左子结点以下的树称为该结点的「左子树 Left Subtree」，右子树同理。
 
+除了叶结点外，每个结点都有子结点和子树。例如，若将上图的「结点 2」看作父结点，那么其左子结点和右子结点分别为「结点 4」和「结点 5」，左子树和右子树分别为「结点 4 以下的树」和「结点 5 以下的树」。
+
 ![binary_tree_definition](binary_tree.assets/binary_tree_definition.png)
 
 <p align="center"> Fig. 子结点与子树 </p>
-
-需要注意，父结点、子结点、子树是可以向下递推的。例如，如果将上图的「结点 2」看作父结点，那么其左子结点和右子结点分别为「结点 4」和「结点 5」，左子树和右子树分别为「结点 4 以下的树」和「结点 5 以下的树」。
 
 ## 二叉树常见术语
 
@@ -135,27 +141,6 @@ comments: true
 !!! tip "高度与深度的定义"
 
     值得注意，我们通常将「高度」和「深度」定义为“走过边的数量”，而有些题目或教材会将其定义为“走过结点的数量”，此时高度或深度都需要 + 1 。
-
-## 二叉树最佳和最差结构
-
-当二叉树的每层的结点都被填满时，达到「完美二叉树」；而当所有结点都偏向一边时，二叉树退化为「链表」。
-
-![binary_tree_corner_cases](binary_tree.assets/binary_tree_corner_cases.png)
-
-<p align="center"> Fig. 二叉树的最佳和最差结构 </p>
-
-如下表所示，在最佳和最差结构下，二叉树的叶结点数量、结点总数、高度等达到极大或极小值。
-
-<div class="center-table" markdown>
-
-|                               | 完美二叉树 | 链表         |
-| ----------------------------- | ---------- | ---------- |
-| 第 $i$ 层的结点数量    | $2^{i-1}$          | $1$     |
-| 树的高度为 $h$ 时的叶结点数量 | $2^h$          | $1$     |
-| 树的高度为 $h$ 时的结点总数 | $2^{h+1} - 1$      | $h + 1$     |
-| 树的结点总数为 $n$ 时的高度 | $\log_2 (n+1) - 1$ | $n - 1$     |
-
-</div>
 
 ## 二叉树基本操作
 
@@ -265,13 +250,24 @@ comments: true
 === "C"
 
     ```c title="binary_tree.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="binary_tree.cs"
-
+    /* 初始化二叉树 */
+    // 初始化结点
+    TreeNode n1 = new TreeNode(1);
+    TreeNode n2 = new TreeNode(2);
+    TreeNode n3 = new TreeNode(3);
+    TreeNode n4 = new TreeNode(4);
+    TreeNode n5 = new TreeNode(5);
+    // 构建引用指向（即指针）
+    n1.left = n2;
+    n1.right = n3;
+    n2.left = n4;
+    n2.right = n5;
     ```
 
 **插入与删除结点。** 与链表类似，插入与删除结点都可以通过修改指针实现。
@@ -354,422 +350,162 @@ comments: true
 === "C"
 
     ```c title="binary_tree.c"
-
+    
     ```
 
 === "C#"
 
     ```csharp title="binary_tree.cs"
-
+    /* 插入与删除结点 */
+    TreeNode P = new TreeNode(0);
+    // 在 n1 -> n2 中间插入结点 P
+    n1.left = P;
+    P.left = n2;
+    // 删除结点 P
+    n1.left = n2;
     ```
 
 !!! note
 
     插入结点会改变二叉树的原有逻辑结构，删除结点往往意味着删除了该结点的所有子树。因此，二叉树中的插入与删除一般都是由一套操作配合完成的，这样才能实现有意义的操作。
 
-## 二叉树遍历
+## 常见二叉树类型
 
-非线性数据结构的遍历操作比线性数据结构更加复杂，往往需要使用搜索算法来实现。常见的二叉树遍历方式有层序遍历、前序遍历、中序遍历、后序遍历。
+### 完美二叉树
 
-### 层序遍历
+「完美二叉树 Perfect Binary Tree」的所有层的结点都被完全填满。在完美二叉树中，所有结点的度 = 2 ；若树高度 $= h$ ，则结点总数 $= 2^{h+1} - 1$ ，呈标准的指数级关系，反映着自然界中常见的细胞分裂。
 
-「层序遍历 Hierarchical-Order Traversal」从顶至底、一层一层地遍历二叉树，并在每层中按照从左到右的顺序访问结点。
+!!! tip
 
-层序遍历本质上是「广度优先搜索 Breadth-First Traversal」，其体现着一种 “一圈一圈向外” 的层进遍历方式。
+    在中文社区中，完美二叉树常被称为「满二叉树」，请注意与完满二叉树区分。
 
-![binary_tree_bfs](binary_tree.assets/binary_tree_bfs.png)
+![perfect_binary_tree](binary_tree.assets/perfect_binary_tree.png)
 
-<p align="center"> Fig. 二叉树的层序遍历 </p>
+### 完全二叉树
 
-广度优先遍历一般借助「队列」来实现。队列的规则是 “先进先出” ，广度优先遍历的规则是 ”一层层平推“ ，两者背后的思想是一致的。
+「完全二叉树 Complete Binary Tree」只有最底层的结点未被填满，且最底层结点尽量靠左填充。
 
-=== "Java"
+**完全二叉树非常适合用数组来表示**。如果按照层序遍历序列的顺序来存储，那么空结点 `null` 一定全部出现在序列的尾部，因此我们就可以不用存储这些 null 了。
 
-    ```java title="binary_tree_bfs.java"
-    /* 层序遍历 */
-    List<Integer> hierOrder(TreeNode root) {
-        // 初始化队列，加入根结点
-        Queue<TreeNode> queue = new LinkedList<>() {{ add(root); }};
-        // 初始化一个列表，用于保存遍历序列
-        List<Integer> list = new ArrayList<>();
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();  // 队列出队
-            list.add(node.val);            // 保存结点值
-            if (node.left != null)
-                queue.offer(node.left);    // 左子结点入队
-            if (node.right != null)
-                queue.offer(node.right);   // 右子结点入队
-        }
-        return list;
-    }
-    ```
+![complete_binary_tree](binary_tree.assets/complete_binary_tree.png)
 
-=== "C++"
+### 完满二叉树
 
-    ```cpp title="binary_tree_bfs.cpp"
-    /* 层序遍历 */
-    vector<int> hierOrder(TreeNode* root) {
-        // 初始化队列，加入根结点
-        queue<TreeNode*> queue;
-        queue.push(root);
-        // 初始化一个列表，用于保存遍历序列
-        vector<int> vec;
-        while (!queue.empty()) {
-            TreeNode* node = queue.front();
-            queue.pop();  // 队列出队
-            vec.push_back(node->val);            // 保存结点
-            if (node->left != nullptr)
-                queue.push(node->left);    // 左子结点入队
-            if (node->right != nullptr)
-                queue.push(node->right);   // 右子结点入队
-        }
-        return vec;
-    }
-    ```
+「完满二叉树 Full Binary Tree」除了叶结点之外，其余所有结点都有两个子结点。
 
-=== "Python"
+![full_binary_tree](binary_tree.assets/full_binary_tree.png)
 
-    ```python title="binary_tree_bfs.py"
-    """ 层序遍历 """
-    def hier_order(root):
-        # 初始化队列，加入根结点
-        queue = collections.deque()
-        queue.append(root)
-        # 初始化一个列表，用于保存遍历序列
-        result = []
-        while queue:
-            # 队列出队
-            node = queue.popleft()
-            # 保存节点值
-            result.append(node.val)
-            if node.left is not None:
-                # 左子结点入队
-                queue.append(node.left)
-            if node.right is not None:
-                # 右子结点入队
-                queue.append(node.right)
-        return result
-    ```
+### 平衡二叉树
 
-=== "Go"
+「平衡二叉树 Balanced Binary Tree」中任意结点的左子树和右子树的高度之差的绝对值 $\leq 1$ 。
 
-    ```go title="binary_tree_bfs.go"
-    /* 层序遍历 */
-    func levelOrder(root *TreeNode) []int {
-        // 初始化队列，加入根结点
-        queue := list.New()
-        queue.PushBack(root)
-        // 初始化一个切片，用于保存遍历序列
-        nums := make([]int, 0)
-        for queue.Len() > 0 {
-            // poll
-            node := queue.Remove(queue.Front()).(*TreeNode)
-            // 保存结点
-            nums = append(nums, node.Val)
-            if node.Left != nil {
-                // 左子结点入队
-                queue.PushBack(node.Left)
-            }
-            if node.Right != nil {
-                // 右子结点入队
-                queue.PushBack(node.Right)
-            }
-        }
-        return nums
-    }
-    ```
+![balanced_binary_tree](binary_tree.assets/balanced_binary_tree.png)
 
-=== "JavaScript"
+## 二叉树的退化
 
-    ```js title="binary_tree_bfs.js"
-    /* 层序遍历 */
-    function hierOrder(root) {
-        // 初始化队列，加入根结点
-        let queue = [root];
-        // 初始化一个列表，用于保存遍历序列
-        let list = [];
-        while (queue.length) {
-            let node = queue.shift();  // 队列出队
-            list.push(node.val);          // 保存结点
-            if (node.left)
-                queue.push(node.left);    // 左子结点入队
-            if (node.right)
-                queue.push(node.right);   // 右子结点入队
-        }
-        return list;
-    }
-    ```
+当二叉树的每层的结点都被填满时，达到「完美二叉树」；而当所有结点都偏向一边时，二叉树退化为「链表」。
 
-=== "TypeScript"
+- 完美二叉树是一个二叉树的“最佳状态”，可以完全发挥出二叉树“分治”的优势；
+- 链表则是另一个极端，各项操作都变为线性操作，时间复杂度退化至 $O(n)$ ；
 
-    ```typescript title="binary_tree_bfs.ts"
-    /* 层序遍历 */
-    function hierOrder(root: TreeNode | null): number[] {
-        // 初始化队列，加入根结点
-        const queue = [root];
-        // 初始化一个列表，用于保存遍历序列
-        const list: number[] = [];
-        while (queue.length) {
-            let node = queue.shift() as TreeNode; // 队列出队
-            list.push(node.val); // 保存结点
-            if (node.left) {
-                queue.push(node.left); // 左子结点入队
-            }
-            if (node.right) {
-                queue.push(node.right); // 右子结点入队
-            }
-        }
-        return list;
-    }
-    ```
+![binary_tree_corner_cases](binary_tree.assets/binary_tree_corner_cases.png)
 
-=== "C"
+<p align="center"> Fig. 二叉树的最佳和最差结构 </p>
 
-    ```c title="binary_tree_bfs.c"
-
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_tree_bfs.cs"
-
-    ```
-
-### 前序、中序、后序遍历
-
-相对地，前、中、后序遍历皆属于「深度优先遍历 Depth-First Traversal」，其体现着一种 “先走到尽头，再回头继续” 的回溯遍历方式。
-
-如下图所示，左侧是深度优先遍历的的示意图，右上方是对应的递归实现代码。深度优先遍历就像是绕着整个二叉树的外围 “走” 一圈，走的过程中，在每个结点都会遇到三个位置，分别对应前序遍历、中序遍历、后序遍历。
-
-![binary_tree_dfs](binary_tree.assets/binary_tree_dfs.png)
-
-<p align="center"> Fig. 二叉树的前 / 中 / 后序遍历 </p>
+如下表所示，在最佳和最差结构下，二叉树的叶结点数量、结点总数、高度等达到极大或极小值。
 
 <div class="center-table" markdown>
 
-| 位置       | 含义                                 | 此处访问结点时对应            |
-| ---------- | ------------------------------------ | ----------------------------- |
-| 橙色圆圈处 | 刚进入此结点，即将访问该结点的左子树 | 前序遍历 Pre-Order Traversal  |
-| 蓝色圆圈处 | 已访问完左子树，即将访问右子树       | 中序遍历 In-Order Traversal   |
-| 紫色圆圈处 | 已访问完左子树和右子树，即将返回     | 后序遍历 Post-Order Traversal |
+|                               | 完美二叉树 | 链表         |
+| ----------------------------- | ---------- | ---------- |
+| 第 $i$ 层的结点数量    | $2^{i-1}$          | $1$     |
+| 树的高度为 $h$ 时的叶结点数量 | $2^h$          | $1$     |
+| 树的高度为 $h$ 时的结点总数 | $2^{h+1} - 1$      | $h + 1$     |
+| 树的结点总数为 $n$ 时的高度 | $\log_2 (n+1) - 1$ | $n - 1$     |
 
 </div>
 
+## 二叉树表示方式 *
+
+我们一般使用二叉树的「链表表示」，即存储单位为结点 `TreeNode` ，结点之间通过指针（引用）相连接。本文前述示例代码展示了二叉树在链表表示下的各项基本操作。
+
+那能否可以用「数组表示」二叉树呢？答案是肯定的。先来分析一个简单案例，给定一个「完美二叉树」，将结点按照层序遍历的顺序编号（从 0 开始），那么可以推导得出父结点索引与子结点索引之间的「映射公式」：**设结点的索引为 $i$ ，则该结点的左子结点索引为 $2i + 1$ 、右子结点索引为 $2i + 2$** 。
+
+**本质上，映射公式的作用就是链表中的指针**。对于层序遍历序列中的任意结点，我们都可以使用映射公式来访问子结点。因此，可以直接使用层序遍历序列（即数组）来表示完美二叉树。
+
+![array_representation_mapping](binary_tree.assets/array_representation_mapping.png)
+
+然而，完美二叉树只是个例，二叉树中间层往往存在许多空结点（即 `null` ），而层序遍历序列并不包含这些空结点，并且我们无法单凭序列来猜测空结点的数量和分布位置，**即理论上存在许多种二叉树都符合该层序遍历序列**。显然，这种情况无法使用数组来存储二叉树。
+
+![array_representation_without_empty](binary_tree.assets/array_representation_without_empty.png)
+
+为了解决此问题，考虑按照完美二叉树的形式来表示所有二叉树，**即在序列中使用特殊符号来显式地表示“空位”**。如下图所示，这样处理后，序列（数组）就可以唯一表示二叉树了。
+
 === "Java"
 
-    ```java title="binary_tree_dfs.java"
-    /* 前序遍历 */
-    void preOrder(TreeNode root) {
-        if (root == null) return;
-        // 访问优先级：根结点 -> 左子树 -> 右子树
-        list.add(root.val);
-        preOrder(root.left);
-        preOrder(root.right);
-    }
-    
-    /* 中序遍历 */
-    void inOrder(TreeNode root) {
-        if (root == null) return;
-        // 访问优先级：左子树 -> 根结点 -> 右子树
-        inOrder(root.left);
-        list.add(root.val);
-        inOrder(root.right);
-    }
-    
-    /* 后序遍历 */
-    void postOrder(TreeNode root) {
-        if (root == null) return;
-        // 访问优先级：左子树 -> 右子树 -> 根结点
-        postOrder(root.left);
-        postOrder(root.right);
-        list.add(root.val);
-    }
+    ```java title=""
+    /* 二叉树的数组表示 */
+    // 使用 int 的包装类 Integer ，就可以使用 null 来标记空位
+    Integer[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
     ```
 
 === "C++"
 
-    ```cpp title="binary_tree_dfs.cpp"
-    /* 前序遍历 */
-    void preOrder(TreeNode* root) {
-        if (root == nullptr) return;
-        // 访问优先级：根结点 -> 左子树 -> 右子树
-        vec.push_back(root->val);
-        preOrder(root->left);
-        preOrder(root->right);
-    }
-
-    /* 中序遍历 */
-    void inOrder(TreeNode* root) {
-        if (root == nullptr) return;
-        // 访问优先级：左子树 -> 根结点 -> 右子树
-        inOrder(root->left);
-        vec.push_back(root->val);
-        inOrder(root->right);
-    }
-
-    /* 后序遍历 */
-    void postOrder(TreeNode* root) {
-        if (root == nullptr) return;
-        // 访问优先级：左子树 -> 右子树 -> 根结点
-        postOrder(root->left);
-        postOrder(root->right);
-        vec.push_back(root->val);
-    }
+    ```cpp title=""
+    /* 二叉树的数组表示 */
+    // 为了符合数据类型为 int ，使用 int 最大值标记空位
+    // 该方法的使用前提是没有结点的值 = INT_MAX
+    vector<int> tree = { 1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15 };
     ```
 
 === "Python"
 
-    ```python title="binary_tree_dfs.py"
-    """ 前序遍历二叉树 """
-    def pre_order(root: typing.Optional[TreeNode]):
-        if root is None:
-            return
-
-        # 访问优先级：根结点 -> 左子树 -> 右子树
-        result.append(root.val)
-        pre_order(root=root.left)
-        pre_order(root=root.right)
-
-
-    """ 中序遍历二叉树 """
-    def in_order(root: typing.Optional[TreeNode]):
-        if root is None:
-            return
-
-        # 访问优先级：左子树 -> 根结点 -> 右子树
-        in_order(root=root.left)
-        result.append(root.val)
-        in_order(root=root.right)
-
-
-    """ 后序遍历二叉树 """
-    def post_order(root: typing.Optional[TreeNode]):
-        if root is None:
-            return
-
-        # 访问优先级：左子树 -> 右子树 -> 根结点
-        post_order(root=root.left)
-        post_order(root=root.right)
-        result.append(root.val)
+    ```python title=""
+    “”“ 二叉树的数组表示 ”“”
+    # 直接使用 None 来表示空位
+    tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     ```
 
 === "Go"
 
-    ```go title="binary_tree_dfs.go"
-    /* 前序遍历 */
-    func preOrder(node *TreeNode) {
-        if node == nil {
-            return
-        }
-        // 访问优先级：根结点 -> 左子树 -> 右子树
-        nums = append(nums, node.Val)
-        preOrder(node.Left)
-        preOrder(node.Right)
-    }
-
-    /* 中序遍历 */
-    func inOrder(node *TreeNode) {
-        if node == nil {
-            return
-        }
-        // 访问优先级：左子树 -> 根结点 -> 右子树
-        inOrder(node.Left)
-        nums = append(nums, node.Val)
-        inOrder(node.Right)
-    }
-
-    /* 后序遍历 */
-    func postOrder(node *TreeNode) {
-        if node == nil {
-            return
-        }
-        // 访问优先级：左子树 -> 右子树 -> 根结点
-        postOrder(node.Left)
-        postOrder(node.Right)
-        nums = append(nums, node.Val)
-    }
+    ```go title=""
+    
     ```
 
 === "JavaScript"
 
-    ```js title="binary_tree_dfs.js"
-    /* 前序遍历 */
-    function preOrder(root){
-        if (root === null) return;
-        // 访问优先级：根结点 -> 左子树 -> 右子树
-        list.push(root.val);
-        preOrder(root.left);
-        preOrder(root.right);
-    }
-
-    /* 中序遍历 */
-    function inOrder(root) {
-        if (root === null) return;
-        // 访问优先级：左子树 -> 根结点 -> 右子树
-        inOrder(root.left);
-        list.push(root.val);
-        inOrder(root.right);
-    }
-
-    /* 后序遍历 */
-    function postOrder(root) {
-        if (root === null) return;
-        // 访问优先级：左子树 -> 右子树 -> 根结点
-        postOrder(root.left);
-        postOrder(root.right);
-        list.push(root.val);
-    }
+    ```js title=""
+    /* 二叉树的数组表示 */
+    // 直接使用 null 来表示空位
+    let tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 === "TypeScript"
 
-    ```typescript title="binary_tree_dfs.ts"
-    /* 前序遍历 */
-    function preOrder(root: TreeNode | null): void {
-        if (root === null) {
-            return;
-        }
-        // 访问优先级：根结点 -> 左子树 -> 右子树
-        list.push(root.val);
-        preOrder(root.left);
-        preOrder(root.right);
-    }
-
-    /* 中序遍历 */
-    function inOrder(root: TreeNode | null): void {
-        if (root === null) {
-            return;
-        }
-        // 访问优先级：左子树 -> 根结点 -> 右子树
-        inOrder(root.left);
-        list.push(root.val);
-        inOrder(root.right);
-    }
-
-    /* 后序遍历 */
-    function postOrder(root: TreeNode | null): void {
-        if (root === null) {
-            return;
-        }
-        // 访问优先级：左子树 -> 右子树 -> 根结点
-        postOrder(root.left);
-        postOrder(root.right);
-        list.push(root.val);
-    }
+    ```typescript title=""
+    /* 二叉树的数组表示 */
+    // 直接使用 null 来表示空位
+    let tree: (number | null)[] = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 === "C"
 
-    ```c title="binary_tree_dfs.c"
-
+    ```c title=""
+    
     ```
 
 === "C#"
 
-    ```csharp title="binary_tree_dfs.cs"
-
+    ```csharp title=""
+    /* 二叉树的数组表示 */
+    // 使用 int? 可空类型 ，就可以使用 null 来标记空位
+    int?[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
     ```
 
-!!! note
+![array_representation_with_empty](binary_tree.assets/array_representation_with_empty.png)
 
-    使用循环一样可以实现前、中、后序遍历，但代码相对繁琐，有兴趣的同学可以自行实现。
+回顾「完全二叉树」的满足条件，其只有最底层有空结点，并且最底层的结点尽量靠左，因而所有空结点都一定出现在层序遍历序列的末尾。**因为我们先验地确定了空位的位置，所以在使用数组表示完全二叉树时，可以省略存储“空位”**。“便于使用数组表示”也是完全二叉树受欢迎的原因之一。
+
+![array_representation_complete_binary_tree](binary_tree.assets/array_representation_complete_binary_tree.png)
+
+数组表示有两个优点： 一是不需要存储指针，节省空间；二是可以随机访问结点。然而，当二叉树中的“空位”很多时，数组中只包含很少结点的数据，空间利用率很低。

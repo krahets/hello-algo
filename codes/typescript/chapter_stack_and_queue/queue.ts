@@ -6,7 +6,6 @@
 
 /* 初始化队列 */
 // TypeScript 没有内置的队列，可以把 Array 当作队列来使用 
-// 注意：由于是数组，所以 shift() 的时间复杂度是 O(n)
 const queue: number[] = [];
 
 /* 元素入队 */
@@ -20,7 +19,7 @@ queue.push(4);
 const peek = queue[0];
 
 /* 元素出队 */
-// O(n)
+// 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
 const poll = queue.shift();
 
 /* 获取队列的长度 */

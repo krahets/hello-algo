@@ -58,17 +58,9 @@ class ArrayQueue {
 
     /* 访问队首元素 */
     public int peek() {
-        // 删除头结点
         if (isEmpty())
             throw new EmptyStackException();
         return nums[front];
-    }
-
-    /* 访问索引 index 处元素 */
-    int get(int index) {
-        if (index >= size())
-            throw new IndexOutOfBoundsException();
-        return nums[(front + index) % capacity()];
     }
 
     /* 返回数组 */

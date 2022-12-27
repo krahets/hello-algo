@@ -1,8 +1,8 @@
-'''
+"""
 File: linear_search.py
 Created Time: 2022-11-26
 Author: timi (xisunyy@163.com)
-'''
+"""
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))

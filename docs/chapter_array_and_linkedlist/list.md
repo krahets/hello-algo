@@ -10,13 +10,15 @@ comments: true
 
 ## 列表常用操作
 
-**初始化列表。** 我们通常使用 `Integer[]` 包装类和 `Arrays.asList()` 作为中转，来初始化一个带有初始值的列表。
+**初始化列表。** 我们通常会使用到“无初始值”和“有初始值”的两种初始化方法。
 
 === "Java"
 
     ```java title="list.java"
     /* 初始化列表 */
-    // 注意数组的元素类型是 int[] 的包装类 Integer[]
+    // 无初始值
+    List<Integer> list1 = new ArrayList<>();
+    // 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）
     Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
     List<Integer> list = new ArrayList<>(Arrays.asList(numbers));
     ```
@@ -25,6 +27,10 @@ comments: true
 
     ```cpp title="list.cpp"
     /* 初始化列表 */
+    // 需注意，C++ 中 vector 即是本文描述的 list
+    // 无初始值
+    vector<int> list1;
+    // 有初始值
     vector<int> list = { 1, 3, 2, 5, 4 };
     ```
 
@@ -32,6 +38,9 @@ comments: true
 
     ```python title="list.py"
     """ 初始化列表 """
+    # 无初始值
+    list1 = []
+    # 有初始值
     list = [1, 3, 2, 5, 4]
     ```
 
@@ -39,6 +48,9 @@ comments: true
 
     ```go title="list_test.go"
     /* 初始化列表 */
+    // 无初始值
+    list1 := []int
+    // 有初始值
     list := []int{1, 3, 2, 5, 4}
     ```
 
@@ -46,6 +58,9 @@ comments: true
 
     ```js title="list.js"
     /* 初始化列表 */
+    // 无初始值
+    const list1 = [];
+    // 有初始值
     const list = [1, 3, 2, 5, 4];
     ```
 
@@ -53,6 +68,9 @@ comments: true
 
     ```typescript title="list.ts"
     /* 初始化列表 */
+    // 无初始值
+    const list1: number[] = [];
+    // 有初始值
     const list: number[] = [1, 3, 2, 5, 4];
     ```
 
@@ -65,7 +83,12 @@ comments: true
 === "C#"
 
     ```csharp title="list.cs"
-
+    /* 初始化列表 */
+    // 无初始值
+    List<int> list1 = new ();
+    // 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）
+    int[] numbers = new int[] { 1, 3, 2, 5, 4 };
+    List<int> list = numbers.ToList();
     ```
 
 **访问与更新元素。** 列表的底层数据结构是数组，因此可以在 $O(1)$ 时间内访问与更新元素，效率很高。
@@ -114,20 +137,20 @@ comments: true
 
     ```js title="list.js"
     /* 访问元素 */
-    const num = list[1];
+    const num = list[1];  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    list[1] = 0;
+    list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 === "TypeScript"
 
     ```typescript title="list.ts"
     /* 访问元素 */
-    const num: number = list[1];
+    const num: number = list[1];  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    list[1] = 0;
+    list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 === "C"
@@ -139,7 +162,11 @@ comments: true
 === "C#"
 
     ```csharp title="list.cs"
+    /* 访问元素 */
+    int num = list[1];  // 访问索引 1 处的元素
 
+    /* 更新元素 */
+    list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 **在列表中添加、插入、删除元素。** 相对于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 $O(1)$ ，但是插入与删除元素的效率仍与数组一样低，时间复杂度为 $O(N)$ 。
@@ -273,7 +300,21 @@ comments: true
 === "C#"
 
     ```csharp title="list.cs"
+    /* 清空列表 */
+    list.Clear();
 
+    /* 尾部添加元素 */
+    list.Add(1);
+    list.Add(3);
+    list.Add(2);
+    list.Add(5);
+    list.Add(4);
+
+    /* 中间插入元素 */
+    list.Insert(3, 6);
+
+    /* 删除元素 */
+    list.RemoveAt(3);
     ```
 
 **遍历列表。** 与数组一样，列表可以使用索引遍历，也可以使用 `for-each` 直接遍历。
@@ -335,9 +376,9 @@ comments: true
 
     /* 直接遍历列表元素 */
     count = 0
-	for range list {
-		count++
-	}
+    for range list {
+        count++
+    }
     ```
 
 === "JavaScript"
@@ -381,7 +422,19 @@ comments: true
 === "C#"
 
     ```csharp title="list.cs"
+    /* 通过索引遍历列表 */
+    int count = 0;
+    for (int i = 0; i < list.Count(); i++)
+    {
+        count++;
+    }
 
+    /* 直接遍历列表元素 */
+    count = 0;
+    foreach (int n in list)
+    {
+        count++;
+    }
     ```
 
 **拼接两个列表。** 再创建一个新列表 `list1` ，我们可以将其中一个列表拼接到另一个的尾部。
@@ -424,7 +477,7 @@ comments: true
     ```js title="list.js"
     /* 拼接两个列表 */
     const list1 = [6, 8, 7, 10, 9];
-    list.push(...list1);
+    list.push(...list1);  // 将列表 list1 拼接到 list 之后
     ```
 
 === "TypeScript"
@@ -432,7 +485,7 @@ comments: true
     ```typescript title="list.ts"
     /* 拼接两个列表 */
     const list1: number[] = [6, 8, 7, 10, 9];
-    list.push(...list1);
+    list.push(...list1);  // 将列表 list1 拼接到 list 之后
     ```
 
 === "C"
@@ -444,7 +497,9 @@ comments: true
 === "C#"
 
     ```csharp title="list.cs"
-
+    /* 拼接两个列表 */
+    List<int> list1 = new() { 6, 8, 7, 10, 9 };
+    list.AddRange(list1);  // 将列表 list1 拼接到 list 之后
     ```
 
 **排序列表。** 排序也是常用的方法之一，完成列表排序后，我们就可以使用在数组类算法题中经常考察的「二分查找」和「双指针」算法了。
@@ -481,7 +536,7 @@ comments: true
 
     ```js title="list.js"
     /* 排序列表 */  
-    list.sort((a, b) => a - b);
+    list.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
     ```
 
 === "TypeScript"
@@ -500,7 +555,8 @@ comments: true
 === "C#"
 
     ```csharp title="list.cs"
-
+    /* 排序列表 */
+    list.Sort(); // 排序后，列表元素从小到大排列
     ```
 
 ## 列表简易实现 *
@@ -1066,5 +1122,101 @@ comments: true
 === "C#"
 
     ```csharp title="my_list.cs"
+    class MyList
+    {
+        private int[] nums;           // 数组（存储列表元素）
+        private int capacity = 10;    // 列表容量
+        private int size = 0;         // 列表长度（即当前元素数量）
+        private int extendRatio = 2;  // 每次列表扩容的倍数
 
+        /* 构造函数 */
+        public MyList()
+        {
+            nums = new int[capacity];
+        }
+
+        /* 获取列表长度（即当前元素数量）*/
+        public int Size()
+        {
+            return size;
+        }
+
+        /* 获取列表容量 */
+        public int Capacity()
+        {
+            return capacity;
+        }
+
+        /* 访问元素 */
+        public int Get(int index)
+        {
+            // 索引如果越界则抛出异常，下同
+            if (index >= size)
+                throw new IndexOutOfRangeException("索引越界");
+            return nums[index];
+        }
+
+        /* 更新元素 */
+        public void Set(int index, int num)
+        {
+            if (index >= size)
+                throw new IndexOutOfRangeException("索引越界");
+            nums[index] = num;
+        }
+
+        /* 尾部添加元素 */
+        public void Add(int num)
+        {
+            // 元素数量超出容量时，触发扩容机制
+            if (size == Capacity())
+                ExtendCapacity();
+            nums[size] = num;
+            // 更新元素数量
+            size++;
+        }
+
+        /* 中间插入元素 */
+        public void Insert(int index, int num)
+        {
+            if (index >= size)
+                throw new IndexOutOfRangeException("索引越界");
+            // 元素数量超出容量时，触发扩容机制
+            if (size == Capacity())
+                ExtendCapacity();
+            // 将索引 index 以及之后的元素都向后移动一位
+            for (int j = size - 1; j >= index; j--)
+            {
+                nums[j + 1] = nums[j];
+            }
+            nums[index] = num;
+            // 更新元素数量
+            size++;
+        }
+
+        /* 删除元素 */
+        public int Remove(int index)
+        {
+            if (index >= size)
+                throw new IndexOutOfRangeException("索引越界");
+            int num = nums[index];
+            // 将索引 index 之后的元素都向前移动一位
+            for (int j = index; j < size - 1; j++)
+            {
+                nums[j] = nums[j + 1];
+            }
+            // 更新元素数量
+            size--;
+            // 返回被删除元素
+            return num;
+        }
+
+        /* 列表扩容 */
+        public void ExtendCapacity()
+        {
+            // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
+            System.Array.Resize(ref nums, Capacity() * extendRatio);
+            // 更新列表容量
+            capacity = nums.Length;
+        }
+    }
     ```

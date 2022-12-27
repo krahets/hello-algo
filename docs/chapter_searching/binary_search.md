@@ -24,39 +24,32 @@ $$
 1. **双闭区间 $[0, n-1]$** ，即两个边界都包含自身；此方法下，区间 $[0, 0]$ 仍包含一个元素；
 2. **左闭右开 $[0, n)$** ，即左边界包含自身、右边界不包含自身；此方法下，区间 $[0, 0)$ 为空；
 
-### “双闭区间” 实现
+### “双闭区间”实现
 
-首先，我们先采用 “双闭区间” 的表示，在数组 `nums` 中查找目标元素 `target` 的对应索引。
+首先，我们先采用“双闭区间”的表示，在数组 `nums` 中查找目标元素 `target` 的对应索引。
 
 === "Step 1"
-
     ![binary_search_step1](binary_search.assets/binary_search_step1.png)
 
 === "Step 2"
-
     ![binary_search_step2](binary_search.assets/binary_search_step2.png)
 
 === "Step 3"
-
     ![binary_search_step3](binary_search.assets/binary_search_step3.png)
 
 === "Step 4"
-
     ![binary_search_step4](binary_search.assets/binary_search_step4.png)
 
 === "Step 5"
-
     ![binary_search_step5](binary_search.assets/binary_search_step5.png)
 
 === "Step 6"
-
     ![binary_search_step6](binary_search.assets/binary_search_step6.png)
 
 === "Step 7"
-
     ![binary_search_step7](binary_search.assets/binary_search_step7.png)
 
-二分查找 “双闭区间” 表示下的代码如下所示。
+二分查找“双闭区间”表示下的代码如下所示。
 
 === "Java"
 
@@ -146,7 +139,23 @@ $$
 === "JavaScript"
 
     ```js title="binary_search.js"
-
+    /* 二分查找（双闭区间） */
+    function binarySearch(nums, target) {
+    // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
+    let i = 0, j = nums.length - 1;
+    // 循环，当搜索区间为空时跳出（当 i > j 时为空）
+    while (i <= j) {
+        let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
+        if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j] 中
+            i = m + 1;
+        else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m-1] 中
+            j = m - 1;
+        else
+            return m;                  // 找到目标元素，返回其索引
+        }
+    // 未找到目标元素，返回 -1
+    return -1;
+    }
     ```
 
 === "TypeScript"
@@ -164,12 +173,30 @@ $$
 === "C#"
 
     ```csharp title="binary_search.cs"
-
+    /* 二分查找（双闭区间） */
+    int binarySearch(int[] nums, int target)
+    {
+        // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
+        int i = 0, j = nums.Length - 1;
+        // 循环，当搜索区间为空时跳出（当 i > j 时为空）
+        while (i <= j)
+        {
+            int m = (i + j) / 2;       // 计算中点索引 m
+            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
+                i = m + 1;
+            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m-1] 中
+                j = m - 1;
+            else                       // 找到目标元素，返回其索引
+                return m;
+        }
+        // 未找到目标元素，返回 -1
+        return -1;
+    }
     ```
 
-### “左闭右开” 实现
+### “左闭右开”实现
 
-当然，我们也可以使用 “左闭右开” 的表示方法，写出相同功能的二分查找代码。
+当然，我们也可以使用“左闭右开”的表示方法，写出相同功能的二分查找代码。
 
 === "Java"
 
@@ -260,7 +287,23 @@ $$
 === "JavaScript"
 
     ```js title="binary_search.js"
-
+    /* 二分查找（左闭右开） */
+    function binarySearch1(nums, target) {
+    // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+    let i = 0, j = nums.length;
+    // 循环，当搜索区间为空时跳出（当 i = j 时为空）
+    while (i < j) {
+        let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
+        if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j) 中
+            i = m + 1;
+        else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m) 中
+            j = m;
+        else                           // 找到目标元素，返回其索引
+            return m;
+        }
+    // 未找到目标元素，返回 -1
+    return -1;
+    }
     ```
 
 === "TypeScript"
@@ -278,7 +321,25 @@ $$
 === "C#"
 
     ```csharp title="binary_search.cs"
-
+    /* 二分查找（左闭右开） */
+    int binarySearch1(int[] nums, int target)
+    {
+        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        int i = 0, j = nums.Length;
+        // 循环，当搜索区间为空时跳出（当 i = j 时为空）
+        while (i < j)
+        {
+            int m = (i + j) / 2;       // 计算中点索引 m
+            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
+                i = m + 1;
+            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
+                j = m;
+            else                       // 找到目标元素，返回其索引
+                return m;
+        }
+        // 未找到目标元素，返回 -1
+        return -1;
+    }
     ```
 
 ### 两种表示对比
@@ -294,7 +355,7 @@ $$
 
 </div>
 
-观察发现，在 “双闭区间” 表示中，由于对左右两边界的定义是相同的，因此缩小区间的 $i$ , $j$ 处理方法也是对称的，这样更不容易出错。综上所述，**建议你采用 “双闭区间” 的写法。**
+观察发现，在“双闭区间”表示中，由于对左右两边界的定义是相同的，因此缩小区间的 $i$ , $j$ 处理方法也是对称的，这样更不容易出错。综上所述，**建议你采用“双闭区间”的写法。**
 
 ### 大数越界处理
 
@@ -337,7 +398,10 @@ $$
 === "JavaScript"
 
     ```js title=""
-
+    // (i + j) 有可能超出 int 的取值范围
+    let m = parseInt((i + j) / 2);
+    // 更换为此写法则不会越界
+    let m = parseInt(i + (j - i) / 2);
     ```
 
 === "TypeScript"
@@ -355,7 +419,10 @@ $$
 === "C#"
 
     ```csharp title=""
-
+    // (i + j) 有可能超出 int 的取值范围
+    int m = (i + j) / 2;
+    // 更换为此写法则不会越界
+    int m = i + (j - i) / 2;
     ```
 
 ## 复杂度分析

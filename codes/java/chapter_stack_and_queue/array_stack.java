@@ -33,17 +33,16 @@ class ArrayStack {
 
     /* 出栈 */
     public int pop() {
+        if (isEmpty())
+            throw new EmptyStackException();
         return stack.remove(size() - 1);
     }
 
     /* 访问栈顶元素 */
     public int peek() {
+        if (isEmpty())
+            throw new EmptyStackException();
         return stack.get(size() - 1);
-    }
-
-    /* 访问索引 index 处元素 */
-    public int get(int index) {
-        return stack.get(index);
     }
 
     /* 将 List 转化为 Array 并返回 */
@@ -68,10 +67,6 @@ public class array_stack {
         /* 访问栈顶元素 */
         int peek = stack.peek();
         System.out.println("栈顶元素 peek = " + peek);
-
-        /* 访问索引 index 处元素 */
-        int num = stack.get(3);
-        System.out.println("栈索引 3 处的元素为 num = " + num);
 
         /* 元素出栈 */
         int pop = stack.pop();

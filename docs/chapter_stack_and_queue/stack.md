@@ -203,14 +203,34 @@ comments: true
 === "C#"
 
     ```csharp title="stack.cs"
+    /* 初始化栈 */
+    Stack<int> stack = new ();
 
+    /* 元素入栈 */
+    stack.Push(1);
+    stack.Push(3);
+    stack.Push(2);
+    stack.Push(5);
+    stack.Push(4);
+
+    /* 访问栈顶元素 */
+    int peek = stack.Peek();
+
+    /* 元素出栈 */
+    int pop = stack.Pop();
+
+    /* 获取栈的长度 */
+    int size = stack.Count();
+
+    /* 判断是否为空 */
+    bool isEmpty = stack.Count()==0;
     ```
 
 ## 栈的实现
 
 为了更加清晰地了解栈的运行机制，接下来我们来自己动手实现一个栈类。
 
-栈规定元素是先入后出的，因此我们只能在栈顶添加或删除元素。然而，数组或链表都可以在任意位置添加删除元素，因此 **栈可被看作是一种受约束的数组或链表**。换言之，我们可以 “屏蔽” 数组或链表的部分无关操作，使之对外的表现逻辑符合栈的规定即可。
+栈规定元素是先入后出的，因此我们只能在栈顶添加或删除元素。然而，数组或链表都可以在任意位置添加删除元素，因此 **栈可被看作是一种受约束的数组或链表**。换言之，我们可以“屏蔽”数组或链表的部分无关操作，使之对外的表现逻辑符合栈的规定即可。
 
 ### 基于链表的实现
 
@@ -225,7 +245,6 @@ comments: true
     class LinkedListStack {
         private ListNode stackPeek;  // 将头结点作为栈顶
         private int stkSize = 0;   // 栈的长度
-        
         public LinkedListStack() {
             stackPeek = null;
         }
@@ -254,7 +273,7 @@ comments: true
         /* 访问栈顶元素 */
         public int peek() {
             if (size() == 0)
-                throw new IndexOutOfBoundsException();
+                throw new EmptyStackException();
             return stackPeek.val;
         }
     }
@@ -351,19 +370,16 @@ comments: true
         // 使用内置包 list 来实现栈
         data *list.List
     }
-
     // NewLinkedListStack 初始化链表
     func NewLinkedListStack() *LinkedListStack {
         return &LinkedListStack{
             data: list.New(),
         }
     }
-
     // Push 入栈
     func (s *LinkedListStack) Push(value int) {
         s.data.PushBack(value)
     }
-
     // Pop 出栈
     func (s *LinkedListStack) Pop() any {
         if s.IsEmpty() {
@@ -373,7 +389,6 @@ comments: true
         s.data.Remove(e)
         return e.Value
     }
-
     // Peek 访问栈顶元素
     func (s *LinkedListStack) Peek() any {
         if s.IsEmpty() {
@@ -382,12 +397,10 @@ comments: true
         e := s.data.Back()
         return e.Value
     }
-
     // Size 获取栈的长度
     func (s *LinkedListStack) Size() int {
         return s.data.Len()
     }
-
     // IsEmpty 判断栈是否为空
     func (s *LinkedListStack) IsEmpty() bool {
         return s.data.Len() == 0
@@ -397,13 +410,125 @@ comments: true
 === "JavaScript"
 
     ```js title="linkedlist_stack.js"
-    
+    /* 基于链表实现的栈 */
+    class LinkedListStack {
+        #stackPeek;  // 将头结点作为栈顶
+        #stkSize = 0;   // 栈的长度
+
+        constructor() {
+            this.#stackPeek = null;
+        }
+
+        /* 获取栈的长度 */
+        get size() {
+            return this.#stkSize;
+        }
+
+        /* 判断栈是否为空 */
+        isEmpty() {
+            return this.size == 0;
+        }
+
+        /* 入栈 */
+        push(num) {
+            const node = new ListNode(num);
+            node.next = this.#stackPeek;
+            this.#stackPeek = node;
+            this.#stkSize++;
+        }
+
+        /* 出栈 */
+        pop() {
+            const num = this.peek();
+            if (!this.#stackPeek) {
+                throw new Error("栈为空！");
+            }
+            this.#stackPeek = this.#stackPeek.next;
+            this.#stkSize--;
+            return num;
+        }
+
+        /* 访问栈顶元素 */
+        peek() {
+            if (!this.#stackPeek) {
+                throw new Error("栈为空！");
+            }
+            return this.#stackPeek.val;
+        }
+
+        /* 将链表转化为 Array 并返回 */
+        toArray() {
+            let node = this.#stackPeek;
+            const res = new Array(this.size);
+            for (let i = res.length - 1; i >= 0; i--) {
+                res[i] = node.val;
+                node = node.next;
+            }
+            return res;
+        }
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="linkedlist_stack.ts"
-    
+    /* 基于链表实现的栈 */
+    class LinkedListStack {
+        private stackPeek: ListNode | null;  // 将头结点作为栈顶
+        private stkSize: number = 0;   // 栈的长度
+
+        constructor() {
+            this.stackPeek = null;
+        }
+
+        /* 获取栈的长度 */
+        get size(): number {
+            return this.stkSize;
+        }
+
+        /* 判断栈是否为空 */
+        isEmpty(): boolean {
+            return this.size == 0;
+        }
+
+        /* 入栈 */
+        push(num: number): void {
+            const node = new ListNode(num);
+            node.next = this.stackPeek;
+            this.stackPeek = node;
+            this.stkSize++;
+        }
+
+        /* 出栈 */
+        pop(): number {
+            const num = this.peek();
+            if (!this.stackPeek) {
+                throw new Error("栈为空！");
+            }
+            this.stackPeek = this.stackPeek.next;
+            this.stkSize--;
+            return num;
+        }
+
+        /* 访问栈顶元素 */
+        peek(): number {
+            if (!this.stackPeek) {
+                throw new Error("栈为空！");
+            }
+            return this.stackPeek.val;
+        }
+
+        /* 将链表转化为 Array 并返回 */
+        toArray(): number[] {
+            let node = this.stackPeek;
+            const res = new Array<number>(this.size);
+            for (let i = res.length - 1; i >= 0; i--) {
+                res[i] = node!.val;
+                node = node!.next;
+            }
+            return res;
+        }
+    }
     ```
 
 === "C"
@@ -415,7 +540,49 @@ comments: true
 === "C#"
 
     ```csharp title="linkedlist_stack.cs"
-
+    /* 基于链表实现的栈 */
+    class LinkedListStack
+    {
+        private ListNode stackPeek;  // 将头结点作为栈顶
+        private int stkSize = 0;   // 栈的长度
+        public LinkedListStack()
+        {
+            stackPeek = null;
+        }
+        /* 获取栈的长度 */
+        public int size()
+        {
+            return stkSize;
+        }
+        /* 判断栈是否为空 */
+        public bool isEmpty()
+        {
+            return size() == 0;
+        }
+        /* 入栈 */
+        public void push(int num)
+        {
+            ListNode node = new ListNode(num);
+            node.next = stackPeek;
+            stackPeek = node;
+            stkSize++;
+        }
+        /* 出栈 */
+        public int pop()
+        {
+            int num = peek();
+            stackPeek = stackPeek?.next;
+            stkSize--;
+            return num;
+        }
+        /* 访问栈顶元素 */
+        public int peek()
+        {
+            if (size() == 0)
+                throw new Exception();
+            return stackPeek.val;
+        }
+    }
     ```
 
 ### 基于数组的实现
@@ -448,15 +615,15 @@ comments: true
         }
         /* 出栈 */
         public int pop() {
+            if (isEmpty())
+                throw new EmptyStackException();
             return stack.remove(size() - 1);
         }
         /* 访问栈顶元素 */
         public int peek() {
+            if (isEmpty())
+                throw new EmptyStackException();
             return stack.get(size() - 1);
-        }
-        /* 访问索引 index 处元素 */
-        public int get(int index) {
-            return stack.get(index);
         }
     }
     ```
@@ -484,17 +651,15 @@ comments: true
         }
         /* 出栈 */
         int pop() {
-            int oldTop = stack.back();
+            int oldTop = top();
             stack.pop_back();
             return oldTop;
         }
         /* 访问栈顶元素 */
         int top() {
+            if(empty())
+                throw out_of_range("栈为空");
             return stack.back();
-        }
-        /* 访问索引 index 处元素 */
-        int get(int index) {
-            return stack[index];
         }
     };
     ```
@@ -521,15 +686,13 @@ comments: true
 
         """ 出栈 """
         def pop(self):
+            assert not self.is_empty(), "栈为空"
             return self.__stack.pop()
 
         """ 访问栈顶元素 """
         def peek(self):
+            assert not self.is_empty(), "栈为空"
             return self.__stack[-1]
-
-        """ 访问索引 index 处元素 """
-        def get(self, index):
-            return self.__stack[index]
     ```
 
 === "Go"
@@ -539,30 +702,25 @@ comments: true
     type ArrayStack struct {
         data []int // 数据
     }
-
     func NewArrayStack() *ArrayStack {
         return &ArrayStack{
             // 设置栈的长度为 0，容量为 16
             data: make([]int, 0, 16),
         }
     }
-
     // Size 栈的长度
     func (s *ArrayStack) Size() int {
         return len(s.data)
     }
-
     // IsEmpty 栈是否为空
     func (s *ArrayStack) IsEmpty() bool {
         return s.Size() == 0
     }
-
     // Push 入栈
     func (s *ArrayStack) Push(v int) {
         // 切片会自动扩容
         s.data = append(s.data, v)
     }
-
     // Pop 出栈
     func (s *ArrayStack) Pop() any {
         // 弹出栈前，先判断是否为空
@@ -573,7 +731,6 @@ comments: true
         s.data = s.data[:len(s.data)-1]
         return val
     }
-
     // Peek 获取栈顶元素
     func (s *ArrayStack) Peek() any {
         if s.IsEmpty() {
@@ -597,35 +754,25 @@ comments: true
         get size() {
             return this.stack.length;
         }
-
         /* 判断栈是否为空 */
         empty() {
             return this.stack.length === 0;
         }
-
         /* 入栈 */
         push(num) {
             this.stack.push(num);
         }
-
         /* 出栈 */
         pop() {
+            if (this.empty())
+                throw new Error("栈为空");
             return this.stack.pop();
         }
-
         /* 访问栈顶元素 */
         top() {
+            if (this.empty())
+                throw new Error("栈为空");
             return this.stack[this.stack.length - 1];
-        }
-
-        /* 访问索引 index 处元素 */
-        get(index) {
-            return this.stack[index];
-        }
-
-        /* 返回 Array */
-        toArray() {
-            return this.stack;
         }
     };
     ```
@@ -643,35 +790,25 @@ comments: true
         get size(): number {
             return this.stack.length;
         }
-
         /* 判断栈是否为空 */
         empty(): boolean {
             return this.stack.length === 0;
         }
-
         /* 入栈 */
         push(num: number): void {
             this.stack.push(num);
         }
-
         /* 出栈 */
         pop(): number | undefined {
+            if (this.empty())
+                throw new Error('栈为空');
             return this.stack.pop();
         }
-
         /* 访问栈顶元素 */
         top(): number | undefined {
+            if (this.empty())
+                throw new Error('栈为空');
             return this.stack[this.stack.length - 1];
-        }
-
-        /* 访问索引 index 处元素 */
-        get(index: number): number | undefined {
-            return this.stack[index];
-        }
-
-        /* 返回 Array */
-        toArray() {
-            return this.stack;
         }
     };
     ```
@@ -685,7 +822,47 @@ comments: true
 === "C#"
 
     ```csharp title="array_stack.cs"
-
+    /* 基于数组实现的栈 */
+    class ArrayStack
+    {
+        private List<int> stack;
+        public ArrayStack()
+        {
+            // 初始化列表（动态数组）
+            stack = new();
+        }
+        /* 获取栈的长度 */
+        public int size()
+        {
+            return stack.Count();
+        }
+        /* 判断栈是否为空 */
+        public bool isEmpty()
+        {
+            return size() == 0;
+        }
+        /* 入栈 */
+        public void push(int num)
+        {
+            stack.Add(num);
+        }
+        /* 出栈 */
+        public int pop()
+        {
+            if (isEmpty())
+                throw new Exception();
+            var val = peek();
+            stack.RemoveAt(size() - 1);
+            return val;
+        }
+        /* 访问栈顶元素 */
+        public int peek()
+        {
+            if (isEmpty())
+                throw new Exception();
+            return stack[size() - 1];
+        }
+    }
     ```
 
 !!! tip
