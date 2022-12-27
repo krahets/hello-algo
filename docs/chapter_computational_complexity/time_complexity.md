@@ -111,6 +111,21 @@ $$
     }
     ```
 
+=== "Swift"
+
+    ```swift title=""
+    // 在某运行平台下
+    func algorithm(_ n: Int) {
+        var a = 2 // 1 ns
+        a = a + 1 // 1 ns
+        a = a * 2 // 10 ns
+        // 循环 n 次
+        for _ in 0 ..< n { // 1 ns
+            print(0) // 5 ns
+        }
+    }
+    ```
+
 但实际上， **统计算法的运行时间既不合理也不现实。** 首先，我们不希望预估时间和运行平台绑定，毕竟算法需要跑在各式各样的平台之上。其次，我们很难获知每一种操作的运行时间，这为预估过程带来了极大的难度。
 
 ## 统计时间增长趋势
@@ -246,6 +261,29 @@ $$
     }
     ```
 
+=== "Swift"
+
+    ```swift title=""
+    // 算法 A 时间复杂度：常数阶
+    func algorithmA(_ n: Int) {
+        print(0)
+    }
+
+    // 算法 B 时间复杂度：线性阶
+    func algorithmB(_ n: Int) {
+        for _ in 0 ..< n {
+            print(0)
+        }
+    }
+
+    // 算法 C 时间复杂度：常数阶
+    func algorithmC(_ n: Int) {
+        for _ in 0 ..< 1000000 {
+            print(0)
+        }
+    }
+    ```
+
 ![time_complexity_first_example](time_complexity.assets/time_complexity_first_example.png)
 
 <p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
@@ -348,6 +386,20 @@ $$
         // 循环 n 次
         for (int i = 0; i < n; i++) { // +1（每轮都执行 i ++）
             Console.WriteLine(0);     // +1
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    func algorithm(n: Int) {
+        var a = 1 // +1
+        a = a + 1 // +1
+        a = a * 2 // +1
+        // 循环 n 次
+        for _ in 0 ..< n { // +1
+            print(0) // +1
         }
     }
     ```
@@ -516,6 +568,25 @@ $$
     }
     ```
 
+=== "Swift"
+
+    ```swift title=""
+    func algorithm(n: Int) {
+        var a = 1 // +0（技巧 1）
+        a = a + n // +0（技巧 1）
+        // +n（技巧 2）
+        for _ in 0 ..< (5 * n + 1) {
+            print(0)
+        }
+        // +n*n（技巧 3）
+        for _ in 0 ..< (2 * n) {
+            for _ in 0 ..< (n + 1) {
+                print(0)
+            }
+        }
+    }
+    ```
+
 ### 2. 判断渐近上界
 
 **时间复杂度由多项式 $T(n)$ 中最高阶的项来决定**。这是因为在 $n$ 趋于无穷大时，最高阶的项将处于主导作用，其它项的影响都可以被忽略。
@@ -643,6 +714,20 @@ $$
     }
     ```
 
+=== "Swift"
+
+    ```swift title="time_complexity.swift"
+    // 常数阶
+    func constant(n: Int) -> Int {
+        var count = 0
+        let size = 100000
+        for _ in 0 ..< size {
+            count += 1
+        }
+        return count
+    }
+    ```
+
 ### 线性阶 $O(n)$
 
 线性阶的操作数量相对输入数据大小成线性级别增长。线性阶常出现于单层循环。
@@ -723,6 +808,19 @@ $$
         for (int i = 0; i < n; i++)
             count++;
         return count;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="time_complexity.swift"
+    // 线性阶
+    func linear(n: Int) -> Int {
+        var count = 0
+        for _ in 0 ..< n {
+            count += 1
+        }
+        return count
     }
     ```
 
@@ -817,6 +915,20 @@ $$
             count++;
         }
         return count;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="time_complexity.swift"
+    // 线性阶（遍历数组）
+    func arrayTraversal(nums: [Int]) -> Int {
+        var count = 0
+        // 循环次数与数组长度成正比
+        for _ in nums {
+            count += 1
+        }
+        return count
     }
     ```
 
@@ -919,6 +1031,22 @@ $$
             }
         }
         return count;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="time_complexity.swift"
+    // 平方阶
+    func quadratic(n: Int) -> Int {
+        var count = 0
+        // 循环次数与数组长度成平方关系
+        for _ in 0 ..< n {
+            for _ in 0 ..< n {
+                count += 1
+            }
+        }
+        return count
     }
     ```
 
@@ -1066,6 +1194,29 @@ $$
 
     ```
 
+=== "Swift"
+
+    ```swift title="time_complexity.swift"
+    // 平方阶（冒泡排序）
+    func bubbleSort(nums: inout [Int]) -> Int {
+        var count = 0 // 计数器
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for i in sequence(first: nums.count - 1, next: { $0 > 0 ? $0 - 1 : nil }) {
+            // 内循环：冒泡操作
+            for j in 0 ..< i {
+                if nums[j] > nums[j + 1] {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    let tmp = nums[j]
+                    nums[j] = nums[j + 1]
+                    nums[j + 1] = tmp
+                    count += 3 // 元素交换包含 3 个单元操作
+                }
+            }
+        }
+        return count
+    }
+    ```
+
 ### 指数阶 $O(2^n)$
 
 !!! note
@@ -1182,6 +1333,25 @@ $$
     }
     ```
 
+=== "Swift"
+
+    ```swift title="time_complexity.swift"
+    // 指数阶（循环实现）
+    func exponential(n: Int) -> Int {
+        var count = 0
+        var base = 1
+        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+        for _ in 0 ..< n {
+            for _ in 0 ..< base {
+                count += 1
+            }
+            base *= 2
+        }
+        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
+        return count
+    }
+    ```
+
 ![time_complexity_exponential](time_complexity.assets/time_complexity_exponential.png)
 
 <p align="center"> Fig. 指数阶的时间复杂度 </p>
@@ -1255,6 +1425,18 @@ $$
     {
         if (n == 1) return 1;
         return expRecur(n - 1) + expRecur(n - 1) + 1;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="time_complexity.swift"
+    // 指数阶（递归实现）
+    func expRecur(n: Int) -> Int {
+        if n == 1 {
+            return 1
+        }
+        return expRecur(n: n - 1) + expRecur(n: n - 1) + 1
     }
     ```
 
@@ -1354,6 +1536,21 @@ $$
     }
     ```
 
+=== "Swift"
+
+    ```swift title="time_complexity.swift"
+    // 对数阶（循环实现）
+    func logarithmic(n: Int) -> Int {
+        var count = 0
+        var n = n
+        while n > 1 {
+            n = n / 2
+            count += 1
+        }
+        return count
+    }
+    ```
+
 ![time_complexity_logarithmic](time_complexity.assets/time_complexity_logarithmic.png)
 
 <p align="center"> Fig. 对数阶的时间复杂度 </p>
@@ -1427,6 +1624,18 @@ $$
     {
         if (n <= 1) return 0;
         return logRecur(n / 2) + 1;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="time_complexity.swift"
+    // 对数阶（递归实现）
+    func logRecur(n: Int) -> Int {
+        if n <= 1 {
+            return 0
+        }
+        return logRecur(n: n / 2) + 1
     }
     ```
 
@@ -1528,6 +1737,22 @@ $$
             count++;
         }
         return count;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="time_complexity.swift"
+    // 线性对数阶
+    func linearLogRecur(n: Double) -> Int {
+        if n <= 1 {
+            return 1
+        }
+        var count = linearLogRecur(n: n / 2) + linearLogRecur(n: n / 2)
+        for _ in 0 ..< Int(n) {
+            count += 1
+        }
+        return count
     }
     ```
 
@@ -1637,6 +1862,23 @@ $$
             count += factorialRecur(n - 1);
         }
         return count;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="time_complexity.swift"
+    // 阶乘阶（递归实现）
+    func factorialRecur(n: Int) -> Int {
+        if n == 0 {
+            return 1
+        }
+        var count = 0
+        // 从 1 个分裂出 n 个
+        for _ in 0 ..< n {
+            count += factorialRecur(n: n - 1)
+        }
+        return count
     }
     ```
 
@@ -1868,6 +2110,40 @@ $$
             int index = findOne(nums);
             Console.WriteLine("\n数组 [ 1, 2, ..., n ] 被打乱后 = " + string.Join(",", nums));
             Console.WriteLine("数字 1 的索引为 " + index);
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    // 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
+    func randomNumbers(n: Int) -> [Int] {
+        // 生成数组 nums = { 1, 2, 3, ..., n }
+        var nums = Array(1 ... n)
+        // 随机打乱数组元素
+        nums.shuffle()
+        return nums
+    }
+
+    // 查找数组 nums 中数字 1 所在索引
+    func findOne(nums: [Int]) -> Int {
+        for i in nums.indices {
+            if nums[i] == 1 {
+                return i
+            }
+        }
+        return -1
+    }
+
+    // Driver Code
+    func main() {
+        for _ in 0 ..< 10 {
+            let n = 100
+            let nums = randomNumbers(n: n)
+            let index = findOne(nums: nums)
+            print("数组 [ 1, 2, ..., n ] 被打乱后 =", nums)
+            print("数字 1 的索引为", index)
         }
     }
     ```
