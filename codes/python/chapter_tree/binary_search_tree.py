@@ -1,43 +1,46 @@
 """
 File: binary_search_tree.py
-Created Time: 2022-11-25
-Author: Krahets (krahets@163.com)
+Created Time: 2022-12-20
+Author: a16su (lpluls001@gmail.com)
 """
 
 import sys, os.path as osp
+import typing
 
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
 
+""" 二叉搜索树 """
+
+
 class BinarySearchTree:
-    """
-    二叉搜索树
-    """
-
-    def __init__(self, nums) -> None:
+    def __init__(self, nums: typing.List[int]) -> None:
         nums.sort()
-        self.__root = self.buildTree(nums, 0, len(nums) - 1)
+        self.__root = self.build_tree(nums, 0, len(nums) - 1)
 
-    def buildTree(self, nums, start_index, end_index):
+    """ 构建二叉搜索树 """
+
+    def build_tree(self, nums: typing.List[int], start_index: int, end_index: int) -> typing.Optional[TreeNode]:
         if start_index > end_index:
             return None
+
+        # 将数组中间结点作为根结点
         mid = (start_index + end_index) // 2
         root = TreeNode(nums[mid])
-        root.left = self.buildTree(
-            nums=nums, start_index=start_index, end_index=mid - 1
-        )
-        root.right = self.buildTree(nums=nums, start_index=mid + 1, end_index=end_index)
+        # 递归建立左子树和右子树
+        root.left = self.build_tree(nums=nums, start_index=start_index, end_index=mid - 1)
+        root.right = self.build_tree(nums=nums, start_index=mid + 1, end_index=end_index)
         return root
 
-    def get_root(self):
+    @property
+    def root(self) -> typing.Optional[TreeNode]:
         return self.__root
 
-    def search(self, num):
-        """
-        查找结点
-        """
-        cur = self.get_root()
+    """ 查找结点 """
+
+    def search(self, num: int) -> typing.Optional[TreeNode]:
+        cur = self.root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
             # 目标结点在 root 的右子树中
@@ -51,11 +54,10 @@ class BinarySearchTree:
                 break
         return cur
 
-    def insert(self, num):
-        """
-        插入结点
-        """
-        root = self.get_root()
+    """ 插入结点 """
+
+    def insert(self, num: int) -> typing.Optional[TreeNode]:
+        root = self.root
         # 若树为空，直接提前返回
         if root is None:
             return None
@@ -83,11 +85,10 @@ class BinarySearchTree:
             pre.left = node
         return node
 
-    def remove(self, num):
-        """
-        删除结点
-        """
-        root = self.get_root()
+    """ 删除结点 """
+
+    def remove(self, num: int) -> typing.Optional[TreeNode]:
+        root = self.root
         # 若树为空，直接提前返回
         if root is None:
             return None
@@ -130,10 +131,9 @@ class BinarySearchTree:
             cur.val = tmp
         return cur
 
-    def min(self, root):
-        """
-        获取最小结点
-        """
+    """ 获取最小结点 """
+
+    def min(self, root: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
         if root is None:
             return root
 
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     nums = list(range(1, 16))
     bst = BinarySearchTree(nums=nums)
     print("\n初始化的二叉树为\n")
-    print_tree(bst.get_root())
+    print_tree(bst.root)
 
     # 查找结点
     node = bst.search(5)
@@ -157,17 +157,17 @@ if __name__ == "__main__":
     # 插入结点
     ndoe = bst.insert(16)
     print("\n插入结点 16 后，二叉树为\n")
-    print_tree(bst.get_root())
+    print_tree(bst.root)
 
     # 删除结点
     bst.remove(1)
     print("\n删除结点 1 后，二叉树为\n")
-    print_tree(bst.get_root())
+    print_tree(bst.root)
 
     bst.remove(2)
     print("\n删除结点 2 后，二叉树为\n")
-    print_tree(bst.get_root())
+    print_tree(bst.root)
 
     bst.remove(4)
     print("\n删除结点 4 后，二叉树为\n")
-    print_tree(bst.get_root())
+    print_tree(bst.root)

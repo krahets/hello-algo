@@ -33,12 +33,19 @@ comments: true
 === "Python"
 
     ```python title=""
+    """ 链表结点类 """
     class TreeNode:
-        """ 链表结点类 """
         def __init__(self, val=None, left=None, right=None):
             self.val = val      # 结点值
             self.left = left    # 左子结点指针
             self.right = right  # 右子结点指针
+
+        def __str__(self):
+            val = self.val
+            left_node_val = self.left.val if self.left else None
+            right_node_val = self.right.val if self.right else None
+            return "<TreeNode: {}, leftTreeNode: {}, rightTreeNode: {}>".format(val, left_node_val, right_node_val)
+
     ```
 
 === "Go"
@@ -423,7 +430,8 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_bfs.py"
-    def hierOrder(root):
+    """ 层序遍历 """
+    def hier_order(root):
         # 初始化队列，加入根结点
         queue = collections.deque()
         queue.append(root)
@@ -612,42 +620,36 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_dfs.py"
-    def preOrder(root):
-        """
-        前序遍历二叉树
-        """
+    """ 前序遍历二叉树 """
+    def pre_order(root: typing.Optional[TreeNode]):
         if root is None:
             return
-        
+
         # 访问优先级：根结点 -> 左子树 -> 右子树
         result.append(root.val)
-        preOrder(root=root.left)
-        preOrder(root=root.right)
+        pre_order(root=root.left)
+        pre_order(root=root.right)
 
 
-    def inOrder(root):
-        """
-        中序遍历二叉树
-        """
+    """ 中序遍历二叉树 """
+    def in_order(root: typing.Optional[TreeNode]):
         if root is None:
             return
 
         # 访问优先级：左子树 -> 根结点 -> 右子树
-        inOrder(root=root.left)
+        in_order(root=root.left)
         result.append(root.val)
-        inOrder(root=root.right)
+        in_order(root=root.right)
 
 
-    def postOrder(root):
-        """
-        后序遍历二叉树
-        """
+    """ 后序遍历二叉树 """
+    def post_order(root: typing.Optional[TreeNode]):
         if root is None:
             return
-        
+
         # 访问优先级：左子树 -> 右子树 -> 根结点
-        postOrder(root=root.left)
-        postOrder(root=root.right)
+        post_order(root=root.left)
+        post_order(root=root.right)
         result.append(root.val)
     ```
 

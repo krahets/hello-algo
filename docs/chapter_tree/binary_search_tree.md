@@ -82,11 +82,9 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
-    def search(self, num):
-        """
-        查找结点
-        """
-        cur = self.get_root()
+    """ 查找结点 """
+    def search(self, num: int) -> typing.Optional[TreeNode]:
+        cur = self.root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
             # 目标结点在 root 的右子树中
@@ -99,7 +97,6 @@ comments: true
             else:
                 break
         return cur
-
     ```
 
 === "Go"
@@ -245,11 +242,9 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
-    def insert(self, num):
-        """
-        插入结点
-        """
-        root = self.get_root()
+    """ 插入结点 """
+    def insert(self, num: int) -> typing.Optional[TreeNode]:
+        root = self.root
         # 若树为空，直接提前返回
         if root is None:
             return None
@@ -530,15 +525,13 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
-    def remove(self, num):
-        """
-        删除结点
-        """
-        root = self.get_root()
+    """ 删除结点 """
+    def remove(self, num: int) -> typing.Optional[TreeNode]:
+        root = self.root
         # 若树为空，直接提前返回
         if root is None:
             return None
-        
+
         cur = root
         pre = None
 
@@ -574,13 +567,11 @@ comments: true
             # 递归删除结点 nex
             self.remove(nex.val)
             # 将 nex 的值复制给 cur
-            cur.val =  tmp
+            cur.val = tmp
         return cur
 
-    def min(self, root):
-        """
-        获取最小结点
-        """
+    """ 获取最小结点 """
+    def min(self, root: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
         if root is None:
             return root
 

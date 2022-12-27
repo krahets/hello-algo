@@ -1,7 +1,7 @@
 """
 File: binary_tree.py
-Created Time: 2022-11-25
-Author: Krahets (krahets@163.com)
+Created Time: 2022-12-20
+Author: a16su (lpluls001@gmail.com)
 """
 
 import sys, os.path as osp
