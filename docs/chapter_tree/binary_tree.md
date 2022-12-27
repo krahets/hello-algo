@@ -44,13 +44,13 @@ comments: true
 === "Go"
 
     ```go title=""
-    """ 链表结点类 """
+    // 链表结点类
     type TreeNode struct {
         Val   int
         Left  *TreeNode
         Right *TreeNode
     }
-    """ 结点初始化方法 """
+    // 结点初始化方法
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
             Left:  nil,

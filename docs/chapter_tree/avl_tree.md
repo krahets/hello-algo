@@ -51,18 +51,10 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     """ AVL 树结点类 """
     class TreeNode:
         def __init__(self, val=None, left=None, right=None):
-            self.val = val  # 结点值
-            self.height = 0  # 结点高度, avl 树会用到
-            self.left = left  # 左子结点引用
+            self.val = val      # 结点值
+            self.height = 0     # 结点高度
+            self.left = left    # 左子结点引用
             self.right = right  # 右子结点引用
-
-        def __str__(self):  # 直接print时会好看一点
-            val = self.val
-            left_node_val = self.left.val if self.left else None
-            right_node_val = self.right.val if self.right else None
-            return "<TreeNode: {}, leftTreeNode: {}, rightTreeNode: {}>".format(val, left_node_val, right_node_val)
-
-        __repr__ = __str__
     ```
 
 === "Go"
