@@ -39,13 +39,6 @@ comments: true
             self.val = val      # 结点值
             self.left = left    # 左子结点指针
             self.right = right  # 右子结点指针
-
-        def __str__(self):
-            val = self.val
-            left_node_val = self.left.val if self.left else None
-            right_node_val = self.right.val if self.right else None
-            return "<TreeNode: {}, leftTreeNode: {}, rightTreeNode: {}>".format(val, left_node_val, right_node_val)
-
     ```
 
 === "Go"
