@@ -74,7 +74,11 @@ comments: true
 === "Go"
 
     ```go title=""
-
+    // 使用多种「基本数据类型」来初始化「数组」
+    var numbers = [5]int{}
+    var decimals = [5]float64{}
+    var characters = [5]byte{}
+    var booleans = [5]bool{}
     ```
 
 === "JavaScript"
