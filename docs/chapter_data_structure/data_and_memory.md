@@ -74,9 +74,9 @@ comments: true
 === "Go"
 
     ```go title=""
+    // 使用多种「基本数据类型」来初始化「数组」
     var numbers = [5]int{}
     var decimals = [5]float64{}
-    // go 里没有char ,但有 rune/byte 用以代替 char
     var characters = [5]byte{}
     var booleans = [5]bool{}
     ```
