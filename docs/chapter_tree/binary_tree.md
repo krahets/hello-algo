@@ -35,7 +35,7 @@ comments: true
     ```python title=""
     """ 链表结点类 """
     class TreeNode:
-        def __init__(self, val=0, left=None, right=None):
+        def __init__(self, val=None, left=None, right=None):
             self.val = val      # 结点值
             self.left = left    # 左子结点指针
             self.right = right  # 右子结点指针
@@ -44,13 +44,13 @@ comments: true
 === "Go"
 
     ```go title=""
-    """ 链表结点类 """
+    // 链表结点类
     type TreeNode struct {
         Val   int
         Left  *TreeNode
         Right *TreeNode
     }
-    """ 结点初始化方法 """
+    // 结点初始化方法
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
             Left:  nil,
@@ -175,7 +175,18 @@ comments: true
 === "Python"
 
     ```python title="binary_tree.py"
-    
+    """ 初始化二叉树 """
+    # 初始化节点
+    n1 = TreeNode(val=1)
+    n2 = TreeNode(val=2)
+    n3 = TreeNode(val=3)
+    n4 = TreeNode(val=4)
+    n5 = TreeNode(val=5)
+    # 构建引用指向（即指针）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
     ```
 
 === "Go"
@@ -284,7 +295,13 @@ comments: true
 === "Python"
 
     ```python title="binary_tree.py"
-    
+    """ 插入与删除结点 """
+    p = TreeNode(0)
+    # 在 n1 -> n2 中间插入结点 P
+    n1.left = p
+    p.left = n2
+    # 删除节点 P
+    n1.left = n2
     ```
 
 === "Go"
@@ -437,7 +454,7 @@ comments: true
 === "Python"
 
     ```python title=""
-    “”“ 二叉树的数组表示 ”“”
+    """ 二叉树的数组表示 """
     # 直接使用 None 来表示空位
     tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     ```
