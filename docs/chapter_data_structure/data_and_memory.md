@@ -74,11 +74,11 @@ comments: true
 === "Go"
 
     ```go title=""
-    var numbers =[5]int{}
-	var decimals =[5]float64{}
-	// go 里没有char ,但有 rune/byte 代替 char
-	var characters =[5]byte{}
-	var booleans =[5]bool{}
+    var numbers = [5]int{}
+    var decimals = [5]float64{}
+    // go 里没有char ,但有 rune/byte 用以代替 char
+    var characters = [5]byte{}
+    var booleans = [5]bool{}
     ```
 
 === "JavaScript"
