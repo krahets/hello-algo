@@ -5,23 +5,24 @@ import (
 	"math/rand"
 )
 
-// ExpectSize 预期大小。 在 Go 中，声明数组长度必须是常量表达式，
-// 所以这里我们约定，扩展后的长度为 6
-const ExpectSize = 6
+/**
+我们将 Go 中的 Slice 切片看作 Array 数组，降低理解成本，
+有利于我们将关注点放在数据结构与算法上。
+*/
 
 /* 随机返回一个数组元素 */
-func randomAccess(nums [5]int) (ans int) {
+func randomAccess(nums []int) (randomNum int) {
 	// 在区间 [0, nums.length) 中随机抽取一个数字
 	randomIndex := rand.Intn(len(nums))
 	// 获取并返回随机元素
-	ans = nums[randomIndex]
+	randomNum = nums[randomIndex]
 	return
 }
 
 /* 扩展数组长度 */
-func extend(nums [5]int) [ExpectSize]int {
+func extend(nums []int, enlarge int) []int {
 	// 初始化一个扩展长度后的数组
-	var res [ExpectSize]int
+	res := make([]int, len(nums)+enlarge)
 	// 将原数组中的所有元素复制到新数组
 	for i := 0; i < len(nums); i++ {
 		res[i] = nums[i]
@@ -31,7 +32,7 @@ func extend(nums [5]int) [ExpectSize]int {
 }
 
 /* 在数组的索引 index 处插入元素 num */
-func insert(nums *[5]int, num int, index int) {
+func insert(nums []int, num int, index int) {
 	// 把索引 index 以及之后的所有元素向后移动一位
 	// 如果超出了数组长度，会被直接舍弃
 	for i := len(nums) - 1; i > index; i-- {
@@ -42,11 +43,7 @@ func insert(nums *[5]int, num int, index int) {
 }
 
 /* 删除索引 index 处元素 */
-func remove(nums *[5]int, index int) {
-	// 越界检查
-	if index >= len(nums) {
-		return
-	}
+func remove(nums []int, index int) {
 	// 把索引 index 之后的所有元素向前移动一位
 	for i := index; i < len(nums); i++ {
 		if i+1 >= len(nums) {
@@ -58,7 +55,7 @@ func remove(nums *[5]int, index int) {
 }
 
 /* 遍历数组 */
-func traverse(nums [5]int) {
+func traverse(nums []int) {
 	var count int
 	// 通过索引遍历数组
 	for i := 0; i < len(nums); i++ {
@@ -71,11 +68,11 @@ func traverse(nums [5]int) {
 }
 
 /* 在数组中查找指定元素 */
-func find(nums [5]int, target int) (ans int) {
-	ans = -1
+func find(nums []int, target int) (index int) {
+	index = -1
 	for i := 0; i < len(nums); i++ {
 		if nums[i] == target {
-			ans = i
+			index = i
 			break
 		}
 	}

@@ -1,145 +1,43 @@
 package chapter_array_and_linkedlist
 
+/**
+我们将 Go 中的 Slice 切片看作 Array 数组。因为这样可以
+降低理解成本，利于我们将关注点放在数据结构与算法上。
+*/
+
 import (
-	"reflect"
+	"fmt"
 	"testing"
 )
 
-func TestInitArray(t *testing.T) {
-	t.Parallel()
-	var arr [5]int
-	for _, v := range arr {
-		if v != 0 {
-			t.Fatalf("array init exception")
-		}
-	}
-}
+/* Driver Code */
+func TestArray(t *testing.T) {
+	/* 初始化数组 */
+	var arr []int
+	fmt.Println("数组 arr = ", arr)
+	nums := []int{1, 3, 2, 5, 4}
+	fmt.Println("数组 nums = ", nums)
 
-func TestRandomAccess(t *testing.T) {
-	t.Parallel()
-	min, max := 1, 5
-	nums := [5]int{min, 2, 3, 4, max}
-	ans := randomAccess(nums)
-	if ans < min || ans > max {
-		t.Fatalf("Expected range is greater than min: %v and less than max: %v, got ans: %v", min, max, ans)
-	}
-}
+	/* 随机访问 */
+	randomNum := randomAccess(nums)
+	fmt.Println("在 nums 中获取随机元素 ", randomNum)
 
-func TestExtend(t *testing.T) {
-	t.Parallel()
-	nums := [5]int{1, 2, 3, 4, 5}
-	newNums := extend(nums)
-	if len(newNums) != ExpectSize {
-		t.Fatalf("Expected len: %v, got: %v", ExpectSize, len(nums))
-	}
-}
+	/* 长度扩展 */
+	nums = extend(nums, 3)
+	fmt.Println("将数组长度扩展至 8 ，得到 nums = ", nums)
 
-func TestInsert(t *testing.T) {
-	t.Parallel()
-	nums := [5]int{1, 2, 3, 4, 5}
-	insert(&nums, 5, 0)
-	if nums[0] != 5 {
-		t.Fatalf("Expected index[0] val: 5, got: %v", nums[0])
-	}
-}
+	/* 插入元素 */
+	insert(nums, 6, 3)
+	fmt.Println("在索引 3 处插入数字 6 ，得到 nums = ", nums)
 
-func TestRemove(t *testing.T) {
-	t.Parallel()
-	type fields struct {
-		index  int
-		after  [5]int
-		before [5]int
-	}
+	/* 删除元素 */
+	remove(nums, 2)
+	fmt.Println("删除索引 2 处的元素，得到 nums = ", nums)
 
-	tests := []struct {
-		name   string
-		fields fields
-	}{
-		{
-			name: "remove index[0]",
-			fields: struct {
-				index  int
-				after  [5]int
-				before [5]int
-			}{
-				index:  0,
-				after:  [5]int{2, 3, 4, 5, 0},
-				before: [5]int{1, 2, 3, 4, 5},
-			},
-		},
-		{
-			name: "remove end",
-			fields: struct {
-				index  int
-				after  [5]int
-				before [5]int
-			}{
-				index:  4,
-				after:  [5]int{1, 2, 3, 4, 0},
-				before: [5]int{1, 2, 3, 4, 5},
-			},
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			v := tt.fields
-			remove(&v.before, v.index)
-			if !reflect.DeepEqual(v.before, v.after) {
-				t.Errorf("remove(&v.before, v.index) = %v, want %v", v.before, v.after)
-			}
-		})
-	}
-}
-
-func TestTraverse(t *testing.T) {
-	t.Parallel()
-	nums := [5]int{1, 2, 3, 4, 5}
+	/* 遍历数组 */
 	traverse(nums)
-}
 
-func TestFind(t *testing.T) {
-	t.Parallel()
-	type fields struct {
-		target int
-		nums   [5]int
-	}
-
-	tests := []struct {
-		name   string
-		fields fields
-		want   int
-	}{
-		{
-			name: "element exists",
-			fields: struct {
-				target int
-				nums   [5]int
-			}{
-				target: 1,
-				nums:   [5]int{1, 2, 3, 4, 5},
-			},
-			want: 0,
-		},
-		{
-			name: "element does not exist",
-			fields: struct {
-				target int
-				nums   [5]int
-			}{
-				target: 6,
-				nums:   [5]int{1, 2, 3, 4, 5},
-			},
-			want: -1,
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			v := tt.fields
-			if got := find(v.nums, v.target); got != tt.want {
-				t.Errorf("find(v.nums, v.target) = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	/* 查找元素 */
+	index := find(nums, 3)
+	fmt.Println("在 nums 中查找元素 3 ，得到索引 = ", index)
 }
