@@ -157,7 +157,7 @@ nav:
     - 小结: chapter_hashing/summary.md
   - 二叉树:
     - 二叉树（Binary Tree）: chapter_tree/binary_tree.md
-    - 二叉树常见类型: chapter_tree/binary_tree_types.md
+    - 二叉树遍历: chapter_tree/binary_tree_traversal.md
     - 二叉搜索树: chapter_tree/binary_search_tree.md
     - AVL 树 *: chapter_tree/avl_tree.md
     - 小结: chapter_tree/summary.md

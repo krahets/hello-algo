@@ -63,13 +63,6 @@ class ArrayQueue {
         return nums[front];
     }
 
-    /* 访问索引 index 处元素 */
-    int get(int index) {
-        if (index >= size())
-            throw new IndexOutOfBoundsException();
-        return nums[(front + index) % capacity()];
-    }
-
     /* 返回数组 */
     public int[] toArray() {
         int size = size();

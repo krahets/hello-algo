@@ -1,4 +1,4 @@
-// File: Array.cs
+// File: array.cs
 // Created Time: 2022-12-14
 // Author: mingXta (1195669834@qq.com)
 

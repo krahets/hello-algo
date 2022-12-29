@@ -6,7 +6,7 @@ comments: true
 
 哈希表通过建立「键 key」和「值 value」之间的映射，实现高效的元素查找。具体地，输入一个 key ，在哈希表中查询并获取 value ，时间复杂度为 $O(1)$ 。
 
-例如，给定一个包含 $n$ 个学生的数据库，每个学生有 "姓名 `name` ” 和 “学号 `id` ” 两项数据，希望实现一个查询功能：**输入一个学号，返回对应的姓名**，则可以使用哈希表实现。
+例如，给定一个包含 $n$ 个学生的数据库，每个学生有“姓名 `name` ”和“学号 `id` ”两项数据，希望实现一个查询功能：**输入一个学号，返回对应的姓名**，则可以使用哈希表实现。
 
 ![hash_map](hash_map.assets/hash_map.png)
 
@@ -132,13 +132,50 @@ comments: true
 === "JavaScript"
 
     ```js title="hash_map.js"
+    /* 初始化哈希表 */
+    const map = new ArrayHashMap();
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map.set(12836, '小哈');
+    map.set(15937, '小啰');
+    map.set(16750, '小算');
+    map.set(13276, '小法');
+    map.set(10583, '小鸭');
 
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    let name = map.get(15937);
+
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.delete(10583);
     ```
 
 === "TypeScript"
 
     ```typescript title="hash_map.ts"
+    /* 初始化哈希表 */
+    const map = new Map<number, string>();
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map.set(12836, '小哈');
+    map.set(15937, '小啰');
+    map.set(16750, '小算');
+    map.set(13276, '小法');
+    map.set(10583, '小鸭');
+    console.info('\n添加完成后，哈希表为\nKey -> Value');
+    console.info(map);
 
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    let name = map.get(15937);
+    console.info('\n输入学号 15937 ，查询到姓名 ' + name);
+
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.delete(10583);
+    console.info('\n删除 10583 后，哈希表为\nKey -> Value');
+    console.info(map);
     ```
 
 === "C"
@@ -150,7 +187,24 @@ comments: true
 === "C#"
 
     ```csharp title="hash_map.cs"
+    /* 初始化哈希表 */
+    Dictionary<int, String> map = new ();
 
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map.Add(12836, "小哈");
+    map.Add(15937, "小啰");
+    map.Add(16750, "小算");
+    map.Add(13276, "小法");
+    map.Add(10583, "小鸭");
+
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    String name = map[15937];
+
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.Remove(10583);
     ```
 
 遍历哈希表有三种方式，即 **遍历键值对、遍历键、遍历值**。
@@ -227,13 +281,38 @@ comments: true
 === "JavaScript"
 
     ```js title="hash_map.js"
-
+    /* 遍历哈希表 */
+    // 遍历键值对 key->value
+    for (const entry of map.entries()) {
+        if (!entry) continue;
+        console.info(entry.key + ' -> ' + entry.val);
+    }
+    // 单独遍历键 key
+    for (const key of map.keys()) {
+        console.info(key);
+    }
+    // 单独遍历值 value
+    for (const val of map.values()) {
+        console.info(val);
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="hash_map.ts"
-
+    /* 遍历哈希表 */
+    console.info('\n遍历键值对 Key->Value');
+    for (const [k, v] of map.entries()) {
+        console.info(k + ' -> ' + v);
+    }
+    console.info('\n单独遍历键 Key');
+    for (const k of map.keys()) {
+        console.info(k);
+    }
+    console.info('\n单独遍历值 Value');
+    for (const v of map.values()) {
+        console.info(v);
+    }
     ```
 
 === "C"
@@ -245,7 +324,19 @@ comments: true
 === "C#"
 
     ```csharp title="hash_map.cs"
-
+    /* 遍历哈希表 */
+    // 遍历键值对 Key->Value
+    foreach (var kv in map) {
+        Console.WriteLine(kv.Key + " -> " + kv.Value);
+    }
+    // 单独遍历键 key
+    foreach (int key in map.Keys) {
+        Console.WriteLine(key);
+    }
+    // 单独遍历值 value
+    foreach (String val in map.Values) {
+        Console.WriteLine(val);
+    }
     ```
 
 ## 哈希函数
@@ -471,13 +562,133 @@ $$
 === "JavaScript"
 
     ```js title="array_hash_map.js"
+    /* 键值对 Number -> String */
+    class Entry {
+        constructor(key, val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
 
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+        #bucket;
+        constructor() {
+            // 初始化一个长度为 100 的桶（数组）
+            this.#bucket = new Array(100).fill(null);
+        }
+
+        /* 哈希函数 */
+        #hashFunc(key) {
+            return key % 100;
+        }
+
+        /* 查询操作 */
+        get(key) {
+            let index = this.#hashFunc(key);
+            let entry = this.#bucket[index];
+            if (entry === null) return null;
+            return entry.val;
+        }
+
+        /* 添加操作 */
+        set(key, val) {
+            let index = this.#hashFunc(key);
+            this.#bucket[index] = new Entry(key, val);
+        }
+
+        /* 删除操作 */
+        delete(key) {
+            let index = this.#hashFunc(key);
+            // 置为 null ，代表删除
+            this.#bucket[index] = null;
+        }
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="array_hash_map.ts"
-
+    /* 键值对 Number -> String */
+    class Entry {
+    public key: number;
+    public val: string;
+    
+        constructor(key: number, val: string) {
+            this.key = key;
+            this.val = val;
+        }
+    }
+    
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+    
+        private readonly bucket: (Entry | null)[];
+    
+        constructor() {
+            // 初始化一个长度为 100 的桶（数组）
+            this.bucket = (new Array(100)).fill(null);
+        }
+    
+        /* 哈希函数 */
+        private hashFunc(key: number): number {
+            return key % 100;
+        }
+    
+        /* 查询操作 */
+        public get(key: number): string | null {
+            let index = this.hashFunc(key);
+            let entry = this.bucket[index];
+            if (entry === null) return null;
+            return entry.val;
+        }
+    
+        /* 添加操作 */
+        public set(key: number, val: string) {
+            let index = this.hashFunc(key);
+            this.bucket[index] = new Entry(key, val);
+        }
+    
+        /* 删除操作 */
+        public delete(key: number) {
+            let index = this.hashFunc(key);
+            // 置为 null ，代表删除
+            this.bucket[index] = null;
+        }
+    
+        /* 获取所有键值对 */
+        public entries(): (Entry | null)[] {
+            let arr: (Entry | null)[] = [];
+            for (let i = 0; i < this.bucket.length; i++) {
+                if (this.bucket[i]) {
+                    arr.push(this.bucket[i]);
+                }
+            }
+            return arr;
+        }
+    
+        /* 获取所有键 */
+        public keys(): (number | undefined)[] {
+            let arr: (number | undefined)[] = [];
+            for (let i = 0; i < this.bucket.length; i++) {
+                if (this.bucket[i]) {
+                    arr.push(this.bucket[i]?.key);
+                }
+            }
+            return arr;
+        }
+    
+        /* 获取所有值 */
+        public values(): (string | undefined)[] {
+            let arr: (string | undefined)[] = [];
+            for (let i = 0; i < this.bucket.length; i++) {
+                if (this.bucket[i]) {
+                    arr.push(this.bucket[i]?.val);
+                }
+            }
+            return arr;
+        }
+    }
     ```
 
 === "C"
@@ -489,7 +700,60 @@ $$
 === "C#"
 
     ```csharp title="array_hash_map.cs"
+    /* 键值对 int->String */
+    class Entry
+    {
+        public int key;
+        public String val;
+        public Entry(int key, String val)
+        {
+            this.key = key;
+            this.val = val;
+        }
+    }
 
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap
+    {
+        private List<Entry?> bucket;
+        public ArrayHashMap()
+        {
+            // 初始化一个长度为 100 的桶（数组）
+            bucket = new ();
+            for (int i = 0; i < 100; i++)
+            {
+                bucket.Add(null);
+            }
+        }
+        /* 哈希函数 */
+        private int hashFunc(int key)
+        {
+            int index = key % 100;
+            return index;
+        }
+        /* 查询操作 */
+        public String? get(int key)
+        {
+            int index = hashFunc(key);
+            Entry? pair = bucket[index];
+            if (pair == null) return null;
+            return pair.val;
+        }
+        /* 添加操作 */
+        public void put(int key, String val)
+        {
+            Entry pair = new Entry(key, val);
+            int index = hashFunc(key);
+            bucket[index]=pair;
+        }
+        /* 删除操作 */
+        public void remove(int key)
+        {
+            int index = hashFunc(key);
+            // 置为 null ，代表删除
+            bucket[index]=null;
+        }
+    }
     ```
 
 ## 哈希冲突
@@ -510,4 +774,4 @@ $$
 
 - 尽量少地发生哈希冲突；
 - 时间复杂度 $O(1)$ ，计算尽可能高效；
-- 空间使用率高，即 “键值对占用空间 / 哈希表总占用空间” 尽可能大；
+- 空间使用率高，即“键值对占用空间 / 哈希表总占用空间”尽可能大；

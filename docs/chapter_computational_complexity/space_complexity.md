@@ -38,7 +38,7 @@ comments: true
         Node(int x) { val = x; }
     }
     
-    /* 函数（或称方法） */
+    /* 函数 */
     int function() {
         // do something...
         return 0;
@@ -63,7 +63,7 @@ comments: true
         Node(int x) : val(x), next(nullptr) {}
     };
 
-    /* 函数（或称方法） */
+    /* 函数 */
     int func() {
         // do something...
         return 0;
@@ -87,7 +87,7 @@ comments: true
             self.val = x      # 结点值
             self.next = None  # 指向下一结点的指针（引用）
 
-    """ 函数（或称方法） """
+    """ 函数 """
     def function():
         # do something...
         return 0
@@ -113,7 +113,7 @@ comments: true
         return &Node{val: val}
     }
     
-    /* 函数（或称方法）*/
+    /* 函数 */
     func function() int {
         // do something...
         return 0
@@ -149,14 +149,36 @@ comments: true
 === "C#"
 
     ```csharp title=""
+    /* 类 */
+    class Node
+    {
+        int val;
+        Node next;
+        Node(int x) { val = x; }
+    }
 
+    /* 函数 */
+    int function()
+    {
+        // do something...
+        return 0;
+    }
+
+    int algorithm(int n)          // 输入数据
+    {
+        int a = 0;                // 暂存数据（常量）
+        int b = 0;                // 暂存数据（变量）
+        Node node = new Node(0);  // 暂存数据（对象）
+        int c = function();       // 栈帧空间（调用函数）
+        return a + b + c;         // 输出数据
+    }
     ```
 
 ## 推算方法
 
-空间复杂度的推算方法和时间复杂度总体类似，只是从统计 “计算操作数量” 变为统计 “使用空间大小” 。与时间复杂度不同的是，**我们一般只关注「最差空间复杂度」**。这是因为内存空间是一个硬性要求，我们必须保证在所有输入数据下都有足够的内存空间预留。
+空间复杂度的推算方法和时间复杂度总体类似，只是从统计“计算操作数量”变为统计“使用空间大小”。与时间复杂度不同的是，**我们一般只关注「最差空间复杂度」**。这是因为内存空间是一个硬性要求，我们必须保证在所有输入数据下都有足够的内存空间预留。
 
-**最差空间复杂度中的 “最差” 有两层含义**，分别为输入数据的最差分布、算法运行中的最差时间点。
+**最差空间复杂度中的“最差”有两层含义**，分别为输入数据的最差分布、算法运行中的最差时间点。
 
 - **以最差输入数据为准。** 当 $n < 10$ 时，空间复杂度为 $O(1)$ ；但是当 $n > 10$ 时，初始化的数组 `nums` 使用 $O(n)$ 空间；因此最差空间复杂度为 $O(n)$ ；
 - **以算法运行过程中的峰值内存为准。** 程序在执行最后一行之前，使用 $O(1)$ 空间；当初始化数组 `nums` 时，程序使用 $O(n)$ 空间；因此最差空间复杂度为 $O(n)$ ；
@@ -228,7 +250,15 @@ comments: true
 === "C#"
 
     ```csharp title=""
-
+    void algorithm(int n)
+    {
+        int a = 0;                   // O(1)
+        int[] b = new int[10000];    // O(1)
+        if (n > 10)
+        {
+            int[] nums = new int[n]; // O(n)
+        }
+    }
     ```
 
 **在递归函数中，需要注意统计栈帧空间。** 例如函数 `loop()`，在循环中调用了 $n$ 次 `function()` ，每轮中的 `function()` 都返回并释放了栈帧空间，因此空间复杂度仍为 $O(1)$ 。而递归函数 `recur()` 在运行中会同时存在 $n$ 个未返回的 `recur()` ，从而使用 $O(n)$ 的栈帧空间。
@@ -330,13 +360,31 @@ comments: true
 === "C"
 
     ```c title=""
-
+    
     ```
 
 === "C#"
 
     ```csharp title=""
-
+    int function()
+    {
+        // do something
+        return 0;
+    }
+    /* 循环 O(1) */
+    void loop(int n)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            function();
+        }
+    }
+    /* 递归 O(n) */
+    int recur(int n)
+    {
+        if (n == 1) return 1;
+        return recur(n - 1);
+    }
     ```
 
 ## 常见类型
@@ -467,7 +515,25 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-
+    /* 常数阶 */
+    void constant(int n)
+    {
+        // 常量、变量、对象占用 O(1) 空间
+        int a = 0;
+        int b = 0;
+        int[] nums = new int[10000];
+        ListNode node = new ListNode(0);
+        // 循环中的变量占用 O(1) 空间
+        for (int i = 0; i < n; i++)
+        {
+            int c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (int i = 0; i < n; i++)
+        {
+            function();
+        }
+    }
     ```
 
 ### 线性阶 $O(n)$
@@ -540,7 +606,7 @@ $$
             nodes = append(nodes, newNode(i))
         }
         // 长度为 n 的哈希表占用 O(n) 空间
-	    m := make(map[int]string, n)
+        m := make(map[int]string, n)
         for i := 0; i < n; i++ {
             m[i] = strconv.Itoa(i)
         }
@@ -568,7 +634,24 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-
+    /* 线性阶 */
+    void linear(int n)
+    {
+        // 长度为 n 的数组占用 O(n) 空间
+        int[] nums = new int[n];
+        // 长度为 n 的列表占用 O(n) 空间
+        List<ListNode> nodes = new();
+        for (int i = 0; i < n; i++)
+        {
+            nodes.Add(new ListNode(i));
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        Dictionary<int, String> map = new();
+        for (int i = 0; i < n; i++)
+        {
+            map.Add(i, i.ToString());
+        }
+    }
     ```
 
 以下递归函数会同时存在 $n$ 个未返回的 `algorithm()` 函数，使用 $O(n)$ 大小的栈帧空间。
@@ -639,7 +722,13 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-
+    /* 线性阶（递归实现） */
+    void linearRecur(int n)
+    {
+        Console.WriteLine("递归 n = " + n);
+        if (n == 1) return;
+        linearRecur(n - 1);
+    }
     ```
 
 ![space_complexity_recursive_linear](space_complexity.assets/space_complexity_recursive_linear.png)
@@ -729,6 +818,23 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
+    /* 平方阶 */
+    void quadratic(int n)
+    {
+        // 矩阵占用 O(n^2) 空间
+        int[,] numMatrix = new int[n, n];
+        // 二维列表占用 O(n^2) 空间
+        List<List<int>> numList = new();
+        for (int i = 0; i < n; i++)
+        {
+            List<int> tmp = new();
+            for (int j = 0; j < n; j++)
+            {
+                tmp.Add(0);
+            }
+            numList.Add(tmp);
+        }
+    }
 
     ```
 
@@ -777,8 +883,8 @@ $$
         if n <= 0 {
             return 0
         }
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
         nums := make([]int, n)
-        fmt.Printf("递归 n = %d 中的 nums 长度 = %d \n", n, len(nums))
         return spaceQuadraticRecur(n - 1)
     }
     ```
@@ -804,6 +910,14 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
+    /* 平方阶（递归实现） */
+    int quadraticRecur(int n)
+    {
+        if (n <= 0) return 0;
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
+        int[] nums = new int[n];
+        return quadraticRecur(n - 1);
+    }
 
     ```
 
@@ -889,7 +1003,15 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-
+    /* 指数阶（建立满二叉树） */
+    TreeNode? buildTree(int n)
+    {
+        if (n == 0) return null;
+        TreeNode root = new TreeNode(0);
+        root.left = buildTree(n - 1);
+        root.right = buildTree(n - 1);
+        return root;
+    }
     ```
 
 ![space_complexity_exponential](space_complexity.assets/space_complexity_exponential.png)

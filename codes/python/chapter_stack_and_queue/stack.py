@@ -1,8 +1,8 @@
-'''
+"""
 File: stack.py
 Created Time: 2022-11-29
 Author: Peng Chen (pengchzn@gmail.com)
-'''
+"""
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))

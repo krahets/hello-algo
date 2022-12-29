@@ -205,7 +205,27 @@ comments: true
 === "C#"
 
     ```csharp title="queue.cs"
+    /* 初始化队列 */
+    Queue<int> queue = new();
 
+    /* 元素入队 */
+    queue.Enqueue(1);
+    queue.Enqueue(3);
+    queue.Enqueue(2);
+    queue.Enqueue(5);
+    queue.Enqueue(4);
+
+    /* 访问队首元素 */
+    int peek = queue.Peek();
+
+    /* 元素出队 */
+    int poll = queue.Dequeue();
+
+    /* 获取队列的长度 */
+    int size = queue.Count();
+
+    /* 判断队列是否为空 */
+    bool isEmpty = queue.Count() == 0;
     ```
 
 ## 队列实现
@@ -532,14 +552,69 @@ comments: true
 === "C#"
 
     ```csharp title="linkedlist_queue.cs"
-
+    /* 基于链表实现的队列 */
+    class LinkedListQueue
+    {
+        private ListNode? front, rear;  // 头结点 front ，尾结点 rear 
+        private int queSize = 0;
+        public LinkedListQueue()
+        {
+            front = null;
+            rear = null;
+        }
+        /* 获取队列的长度 */
+        public int size()
+        {
+            return queSize;
+        }
+        /* 判断队列是否为空 */
+        public bool isEmpty()
+        {
+            return size() == 0;
+        }
+        /* 入队 */
+        public void offer(int num)
+        {
+            // 尾结点后添加 num
+            ListNode node = new ListNode(num);
+            // 如果队列为空，则令头、尾结点都指向该结点
+            if (front == null)
+            {
+                front = node;
+                rear = node;
+                // 如果队列不为空，则将该结点添加到尾结点后
+            }
+            else if (rear != null)
+            {
+                rear.next = node;
+                rear = node;
+            }
+            queSize++;
+        }
+        /* 出队 */
+        public int poll()
+        {
+            int num = peek();
+            // 删除头结点
+            front = front?.next;
+            queSize--;
+            return num;
+        }
+        /* 访问队首元素 */
+        public int peek()
+        {
+            if (size() == 0 || front == null)
+                throw new Exception();
+            return front.val;
+        }
+    }
     ```
 
 ### 基于数组的实现
 
 数组的删除首元素的时间复杂度为 $O(n)$ ，因此不适合直接用来实现队列。然而，我们可以借助两个指针 `front` , `rear` 来分别记录队首和队尾的索引位置，在入队 / 出队时分别将 `front` / `rear` 向后移动一位即可，这样每次仅需操作一个元素，时间复杂度降至 $O(1)$ 。
 
-还有一个问题，在入队与出队的过程中，两个指针都在向后移动，而到达尾部后则无法继续移动了。为了解决此问题，我们可以采取一个取巧方案，即将数组看作是 “环形” 的。具体做法是规定指针越过数组尾部后，再次回到头部接续遍历，这样相当于使数组 “首尾相连” 了。
+还有一个问题，在入队与出队的过程中，两个指针都在向后移动，而到达尾部后则无法继续移动了。为了解决此问题，我们可以采取一个取巧方案，即将数组看作是“环形”的。具体做法是规定指针越过数组尾部后，再次回到头部接续遍历，这样相当于使数组“首尾相连”了。
 
 为了适应环形数组的设定，获取长度 `size()` 、入队 `offer()` 、出队 `poll()` 方法都需要做相应的取余操作处理，使得当尾指针绕回数组头部时，仍然可以正确处理操作。
 
@@ -595,12 +670,6 @@ comments: true
             if (isEmpty())
                 throw new EmptyStackException();
             return nums[front];
-        }
-        /* 访问指定索引元素 */
-        int get(int index) {
-            if (index >= size())
-                throw new IndexOutOfBoundsException();
-            return nums[(front + index) % capacity()];
         }
     }
     ```
@@ -659,12 +728,6 @@ comments: true
                 throw out_of_range("队列为空");
             return nums[front];
         }
-        /* 访问指定位置元素 */
-        int get(int index) {
-            if (index >= size())
-                throw out_of_range("索引越界");
-            return nums[(front + index) % capacity()]
-        }
     };
     ```
 
@@ -714,13 +777,6 @@ comments: true
                 print("队列为空")
                 return False
             return self.__nums[self.__front]
-
-        """ 访问指定位置元素 """
-        def get(self, index):
-            if index >= self.size():
-                print("索引越界")
-                return False
-            return self.__nums[(self.__front + index) % self.capacity()]
 
         """ 返回列表用于打印 """
         def to_list(self):
@@ -837,12 +893,6 @@ comments: true
                 throw new Error("队列为空");
             return this.#queue[this.#front];
         }
-        /* 访问指定索引元素 */
-        get(index) {
-            if (index >= this.size)
-                throw new Error("索引越界");
-            return this.#queue[(this.#front + index) % this.capacity];
-        }
     }
     ```
 
@@ -893,12 +943,6 @@ comments: true
                 throw new Error("队列为空");
             return this.queue[this.front];
         }
-        /* 访问指定索引元素 */
-        get(index: number): number {
-            if (index >= this.size)
-                throw new Error("索引越界");
-            return this.queue[(this.front + index) % this.capacity];
-        }
     }
     ```
 
@@ -911,7 +955,63 @@ comments: true
 === "C#"
 
     ```csharp title="array_queue.cs"
-
+    /* 基于环形数组实现的队列 */
+    class ArrayQueue
+    {
+        private int[] nums;     // 用于存储队列元素的数组
+        private int front = 0;  // 头指针，指向队首
+        private int rear = 0;   // 尾指针，指向队尾 + 1
+        public ArrayQueue(int capacity)
+        {
+            // 初始化数组
+            nums = new int[capacity];
+        }
+        /* 获取队列的容量 */
+        public int capacity()
+        {
+            return nums.Length;
+        }
+        /* 获取队列的长度 */
+        public int size()
+        {
+            int capacity = this.capacity();
+            // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
+            return (capacity + rear - front) % capacity;
+        }
+        /* 判断队列是否为空 */
+        public bool isEmpty()
+        {
+            return rear - front == 0;
+        }
+        /* 入队 */
+        public void offer(int num)
+        {
+            if (size() == capacity())
+            {
+                Console.WriteLine("队列已满");
+                return;
+            }
+            // 尾结点后添加 num
+            nums[rear] = num;
+            // 尾指针向后移动一位，越过尾部后返回到数组头部
+            rear = (rear + 1) % capacity();
+        }
+        /* 出队 */
+        public int poll()
+        {
+            int num = peek();
+            // 队头指针向后移动一位，若越过尾部则返回到数组头部
+            front = (front + 1) % capacity();
+            return num;
+        }
+        /* 访问队首元素 */
+        public int peek()
+        {
+            if (isEmpty())
+                throw new Exception();
+            return nums[front];
+        }
+    }
     ```
 
 ## 队列典型应用
