@@ -1,3 +1,7 @@
+// File: array_test.go
+// Created Time: 2022-12-29
+// Author: GuoWei (gongguowei01@gmail.com)
+
 package chapter_array_and_linkedlist
 
 /**
