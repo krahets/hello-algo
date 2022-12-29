@@ -9,20 +9,35 @@ import (
 	"testing"
 )
 
+/* Driver Code */
 func TestArray(t *testing.T) {
-	nums := make([]int, 5)
-	fmt.Println("randomAccess:", randomAccess(nums))
+	/* 初始化数组 */
+	var arr = [5]int{}
+	fmt.Println("数组 arr =", arr)
 
-	fmt.Println("extend:", extend(nums, 5))
+	var nums = []int{1, 3, 2, 5, 4}
+	fmt.Println("数组 nums =", nums)
 
-	insert(nums, 5, 2, 2)
-	fmt.Println("after insert:", nums)
+	/* 随机访问 */
+	randomNum := randomAccess(nums)
+	fmt.Println("在 nums 中获取随机元素", randomNum)
 
-	remove(nums, 5, 2)
-	fmt.Println("after remove:", nums)
+	/* 长度扩展 */
+	nums = extend(nums, 3)
+	fmt.Println("将数组长度扩展至 8 ，得到 nums =", nums)
 
-	fmt.Println("traverse nums:")
+	/* 插入元素 */
+	insert(nums, 6, 3)
+	fmt.Println("在索引 3 处插入数字 6 ，得到 nums =", nums)
+
+	/* 删除元素 */
+	remove(nums, 2)
+	fmt.Println("删除索引 2 处的元素，得到 nums = ", nums)
+
+	/* 遍历数组 */
 	traverse(nums)
 
-	fmt.Println("find value 2 key:", find(nums, 2))
+	/* 查找元素 */
+	index := find(nums, 3)
+	fmt.Println("在 nums 中查找元素 3 ，得到索引 =", index)
 }

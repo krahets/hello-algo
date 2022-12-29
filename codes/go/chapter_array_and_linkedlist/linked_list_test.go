@@ -6,42 +6,42 @@ package chapter_array_and_linkedlist
 
 import (
 	"fmt"
+	"github.com/krahets/hello-algo/pkg"
 	"testing"
 )
 
 func TestLikedList(t *testing.T) {
 	/* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
 	// 初始化各个结点
-	n0 := NewListNode(1)
-	n1 := NewListNode(3)
-	n2 := NewListNode(2)
-	n3 := NewListNode(5)
-	n4 := NewListNode(4)
+	n0 := pkg.NewListNode(1)
+	n1 := pkg.NewListNode(3)
+	n2 := pkg.NewListNode(2)
+	n3 := pkg.NewListNode(5)
+	n4 := pkg.NewListNode(4)
 
 	// 构建引用指向
 	n0.Next = n1
 	n1.Next = n2
 	n2.Next = n3
 	n3.Next = n4
+	fmt.Println("初始化的链表为")
+	pkg.PrintLinkedList(n0)
 
-	fmt.Println("链表结构：")
-	PrintLinkedList(n0)
+	/* 插入结点 */
+	insertNode(n0, pkg.NewListNode(0))
+	fmt.Println("插入结点后的链表为")
+	pkg.PrintLinkedList(n0)
 
-	P := NewListNode(6)
-
-	/* 在链表的结点 n0 之后插入结点 P */
-	insertNode(n0, P)
-	fmt.Println("在链表的结点 n0 之后插入结点 P 后，链表结构：")
-	PrintLinkedList(n0)
-
-	/* 删除链表的结点 n0 之后的首个结点 */
+	/* 删除结点 */
 	removeNode(n0)
-	fmt.Println("删除链表的结点 n0 之后的首个结点后，链表结构：")
-	PrintLinkedList(n0)
+	fmt.Println("删除结点后的链表为")
+	pkg.PrintLinkedList(n0)
 
-	/* 访问链表中索引为 index 的结点 */
-	fmt.Println("访问链表中索引为 2 的结点：", access(n0, 2))
+	/* 访问结点 */
+	node := access(n0, 3)
+	fmt.Println("链表中索引 3 处的结点的值 =", node)
 
-	/* 在链表中查找值为 target 的首个结点 */
-	fmt.Println("在链表中查找 5 的首个节点索引值：", findNode(n0, 5))
+	/* 查找结点 */
+	index := findNode(n0, 2)
+	fmt.Println("链表中值为 2 的结点的索引 =", index)
 }
