@@ -12,8 +12,9 @@ comments: true
 
 ## Java 环境
 
-1. 下载并安装 [OpenJDK](https://jdk.java.net/18/) 。
+1. 下载并安装 [OpenJDK](https://jdk.java.net/18/)（版本需满足 > JDK 9）。
 2. 在 VSCode 的插件市场中搜索 `java` ，安装 Java Extension Pack 。
+
 
 ## C++ 环境
 
@@ -40,3 +41,8 @@ comments: true
 
 1. 下载并安装 [.Net 6.0](https://dotnet.microsoft.com/en-us/download) ；
 2. 在 VSCode 的插件市场中搜索 `c#` ，安装 c# 。
+
+## Swift 环境
+
+1. 下载并安装 [Swift](https://www.swift.org/download/)；
+2. 在 VSCode 的插件市场中搜索 `swift`，安装 [Swift for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang)。

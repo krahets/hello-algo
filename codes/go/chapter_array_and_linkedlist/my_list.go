@@ -79,16 +79,19 @@ func (l *MyList) insert(num, index int) {
 }
 
 /* 删除元素 */
-func (l *MyList) remove(index int) {
+func (l *MyList) remove(index int) int {
 	if index >= l.numsSize {
 		panic("索引越界")
 	}
+	num := l.nums[index]
 	// 索引 i 之后的元素都向前移动一位
 	for j := index; j < l.numsSize-1; j++ {
 		l.nums[j] = l.nums[j+1]
 	}
 	// 更新元素数量
 	l.numsSize--
+	// 返回被删除元素
+	return num
 }
 
 /* 列表扩容 */

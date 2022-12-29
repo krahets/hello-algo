@@ -1,4 +1,4 @@
-﻿// File: LinkedList.cs
+﻿// File: linked_list.cs
 // Created Time: 2022-12-16
 // Author: mingXta (1195669834@qq.com)
 
@@ -7,14 +7,14 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_array_and_linkedlist
 {
-    public class LinkedList
+    public class linked_list
     {
         /// <summary>
         /// 在链表的结点 n0 之后插入结点 P
         /// </summary>
         public static void Insert(ListNode n0, ListNode P)
         {
-            ListNode n1 = n0.next;
+            ListNode? n1 = n0.next;
             n0.next = P;
             P.next = n1;
         }
@@ -28,14 +28,14 @@ namespace hello_algo.chapter_array_and_linkedlist
                 return;
             // n0 -> P -> n1
             ListNode P = n0.next;
-            ListNode n1 = P.next;
+            ListNode? n1 = P.next;
             n0.next = n1;
         }
 
         /// <summary>
         /// 访问链表中索引为 index 的结点
         /// </summary>
-        public static ListNode Access(ListNode head, int index)
+        public static ListNode? Access(ListNode head, int index)
         {
             for (int i = 0; i < index; i++)
             {
@@ -89,8 +89,8 @@ namespace hello_algo.chapter_array_and_linkedlist
             Console.WriteLine($"删除结点后的链表为{n0}");
 
             // 访问结点 
-            ListNode node = Access(n0, 3);
-            Console.WriteLine($"链表中索引 3 处的结点的值 = {node.val}");
+            ListNode? node = Access(n0, 3);
+            Console.WriteLine($"链表中索引 3 处的结点的值 = {node?.val}");
 
             // 查找结点 
             int index = Find(n0, 2);

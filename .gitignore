@@ -13,3 +13,6 @@ docs/overrides/
 
 # python files
 __pycache__
+
+# iml
+hello-algo.iml

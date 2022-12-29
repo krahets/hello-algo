@@ -31,11 +31,22 @@ comments: true
 - 算法是发挥数据结构优势的舞台。数据结构仅存储数据信息，结合算法才可解决特定问题。
 - 算法有对应最优的数据结构。给定算法，一般可基于不同的数据结构实现，而最终执行效率往往相差很大。
 
-如果将数据结构与算法比作「LEGO 乐高」，数据结构就是乐高「积木」，而算法就是把积木拼成目标形态的一系列「操作步骤」。
-
 ![relationship_between_data_structure_and_algorithm](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png)
 
 <p align="center"> Fig. 数据结构与算法的关系 </p>
+
+如果将「LEGO 乐高」类比到「数据结构与算法」，那么可以得到下表所示的对应关系。
+
+<div class="center-table" markdown>
+
+| 数据结构与算法 | LEGO 乐高                                |
+| -------------- | ---------------------------------------- |
+| 输入数据       | 未拼装的积木                             |
+| 数据结构       | 积木组织形式，包括形状、大小、连接方式等 |
+| 算法           | 把积木拼成目标形态的一系列操作步骤       |
+| 输出数据       | 积木模型                                 |
+
+</div>
 
 !!! tip "约定俗成的简称"
 

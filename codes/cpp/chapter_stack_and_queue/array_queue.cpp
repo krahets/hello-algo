@@ -64,13 +64,6 @@ public:
         return nums[front];
     }
 
-    /* 访问指定索引元素 */
-    int get(int index) {
-        if (index >= size())
-            throw out_of_range("索引越界");
-        return nums[(front + index) % capacity()];
-    }
-
     /* 将数组转化为 Vector 并返回 */
     vector<int> toVector() {
         int siz = size();
@@ -103,11 +96,7 @@ int main() {
     /* 访问队首元素 */
     int peek = queue->peek();
     cout << "队首元素 peek = " << peek << endl;
-
-    /* 访问指定索引元素 */
-    int num = queue->get(2);
-    cout << "队列第 3 个元素为 num = " << num << endl;
-
+    
     /* 元素出队 */
     int poll = queue->poll();
     cout << "出队元素 poll = " << poll << "，出队后 queue = ";

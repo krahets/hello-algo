@@ -1,8 +1,8 @@
-'''
+"""
 File: my_list.py
 Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
-'''
+"""
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
@@ -55,11 +55,14 @@ class MyList:
     """ 删除元素 """
     def remove(self, index):
         assert index < self.__size, "索引越界"
+        num = self.nums[index]
         # 索引 i 之后的元素都向前移动一位
         for j in range(index, self.__size - 1):
             self.__nums[j] = self.__nums[j + 1]
         # 更新元素数量
         self.__size -= 1
+        # 返回被删除元素
+        return num
 
     """ 列表扩容 """
     def extend_capacity(self):

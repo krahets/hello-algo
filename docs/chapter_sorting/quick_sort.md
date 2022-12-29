@@ -4,7 +4,7 @@ comments: true
 
 # 快速排序
 
-「快速排序 Quick Sort」是一种基于 “分治思想” 的排序算法，速度很快、应用很广。
+「快速排序 Quick Sort」是一种基于“分治思想”的排序算法，速度很快、应用很广。
 
 快速排序的核心操作为「哨兵划分」，其目标为：选取数组某个元素为 **基准数** ，将所有小于基准数的元素移动至其左边，大于基准数的元素移动至其右边。「哨兵划分」的实现流程为：
 
@@ -196,6 +196,30 @@ comments: true
 === "C#"
 
     ```csharp title="quick_sort.cs"
+    /* 元素交换 */
+    void swap(int[] nums, int i, int j)
+    {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
+    /* 哨兵划分 */
+    int partition(int[] nums, int left, int right)
+    {
+        // 以 nums[left] 作为基准数
+        int i = left, j = right;
+        while (i < j)
+        {
+            while (i < j && nums[j] >= nums[left])
+                j--;          // 从右向左找首个小于基准数的元素
+            while (i < j && nums[i] <= nums[left])
+                i++;          // 从左向右找首个大于基准数的元素
+            swap(nums, i, j); // 交换这两个元素
+        }
+        swap(nums, i, left);  // 将基准数交换至两子数组的分界线
+        return i;             // 返回基准数的索引
+    }
 
     ```
 
@@ -235,7 +259,7 @@ comments: true
 
     ```cpp title="quick_sort.cpp"
     /* 快速排序 */
-    static void quickSort(vector<int>& nums, int left, int right) {
+    void quickSort(vector<int>& nums, int left, int right) {
         // 子数组长度为 1 时终止递归
         if (left >= right)
             return;
@@ -320,6 +344,18 @@ comments: true
 === "C#"
 
     ```csharp title="quick_sort.cs"
+    /* 快速排序 */
+    void quickSort(int[] nums, int left, int right)
+    {
+        // 子数组长度为 1 时终止递归
+        if (left >= right)
+            return;
+        // 哨兵划分
+        int pivot = partition(nums, left, right);
+        // 递归左子数组、右子数组
+        quickSort(nums, left, pivot - 1);
+        quickSort(nums, pivot + 1, right);
+    }
 
     ```
 
@@ -339,7 +375,7 @@ comments: true
 
 ## 快排为什么快？
 
-从命名能够看出，快速排序在效率方面一定 “有两把刷子” 。快速排序的平均时间复杂度虽然与「归并排序」和「堆排序」一致，但实际 **效率更高** ，这是因为：
+从命名能够看出，快速排序在效率方面一定“有两把刷子”。快速排序的平均时间复杂度虽然与「归并排序」和「堆排序」一致，但实际 **效率更高** ，这是因为：
 
 - **出现最差情况的概率很低：** 虽然快速排序的最差时间复杂度为 $O(n^2)$ ，不如归并排序，但绝大部分情况下，快速排序可以达到 $O(n \log n)$ 的复杂度。
 - **缓存使用效率高：** 哨兵划分操作时，将整个子数组加载入缓存中，访问元素效率很高。而诸如「堆排序」需要跳跃式访问元素，因此不具有此特性。
@@ -351,7 +387,7 @@ comments: true
 
 为了尽量避免这种情况发生，我们可以优化一下基准数的选取策略。首先，在哨兵划分中，我们可以 **随机选取一个元素作为基准数** 。但如果运气很差，每次都选择到比较差的基准数，那么效率依然不好。
 
-进一步地，我们可以在数组中选取 3 个候选元素（一般为数组的首、尾、中点元素），**并将三个候选元素的中位数作为基准数**，这样基准数 “既不大也不小” 的概率就大大提升了。当然，如果数组很长的话，我们也可以选取更多候选元素，来进一步提升算法的稳健性。采取该方法后，时间复杂度劣化至 $O(n^2)$ 的概率极低。
+进一步地，我们可以在数组中选取 3 个候选元素（一般为数组的首、尾、中点元素），**并将三个候选元素的中位数作为基准数**，这样基准数“既不大也不小”的概率就大大提升了。当然，如果数组很长的话，我们也可以选取更多候选元素，来进一步提升算法的稳健性。采取该方法后，时间复杂度劣化至 $O(n^2)$ 的概率极低。
 
 === "Java"
 
@@ -513,7 +549,29 @@ comments: true
 === "C#"
 
     ```csharp title="quick_sort.cs"
+    /* 选取三个元素的中位数 */
+    int medianThree(int[] nums, int left, int mid, int right)
+    {
+        // 使用了异或操作来简化代码
+        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
+        if ((nums[left] > nums[mid]) ^ (nums[left] > nums[right]))
+            return left;
+        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
+            return mid;
+        else
+            return right;
+    }
 
+    /* 哨兵划分（三数取中值） */
+    int partition(int[] nums, int left, int right)
+    {
+        // 选取三个候选元素的中位数
+        int med = medianThree(nums, left, (left + right) / 2, right);
+        // 将中位数交换至数组最左端
+        swap(nums, left, med);
+        // 以 nums[left] 作为基准数
+        // 下同省略...
+    }
     ```
 
 ## 尾递归优化
@@ -547,7 +605,7 @@ comments: true
 
     ```cpp title="quick_sort.cpp"
     /* 快速排序（尾递归优化） */
-    static void quickSort(vector<int>& nums, int left, int right) {
+    void quickSort(vector<int>& nums, int left, int right) {
         // 子数组长度为 1 时终止
         while (left < right) {
             // 哨兵划分操作
@@ -654,5 +712,25 @@ comments: true
 === "C#"
 
     ```csharp title="quick_sort.cs"
-
+    /* 快速排序（尾递归优化） */
+    void quickSort(int[] nums, int left, int right)
+    {
+        // 子数组长度为 1 时终止
+        while (left < right)
+        {
+            // 哨兵划分操作
+            int pivot = partition(nums, left, right);
+            // 对两个子数组中较短的那个执行快排
+            if (pivot - left < right - pivot)
+            {
+                quickSort(nums, left, pivot - 1);  // 递归排序左子数组
+                left = pivot + 1;  // 剩余待排序区间为 [pivot + 1, right]
+            }
+            else
+            {
+                quickSort(nums, pivot + 1, right); // 递归排序右子数组
+                right = pivot - 1; // 剩余待排序区间为 [left, pivot - 1]
+            }
+        }
+    }
     ```
