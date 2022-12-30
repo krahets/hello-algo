@@ -17,9 +17,9 @@ comments: true
 
 给定目标结点值 `num` ，可以根据二叉搜索树的性质来查找。我们声明一个结点 `cur` ，从二叉树的根结点 `root` 出发，循环比较结点值 `cur.val` 和 `num` 之间的大小关系
 
-- 若 `cur.val < val` ，说明目标结点在 `cur` 的右子树中，因此执行 `cur = cur.right` ；
-- 若 `cur.val > val` ，说明目标结点在 `cur` 的左子树中，因此执行 `cur = cur.left` ；
-- 若 `cur.val = val` ，说明找到目标结点，跳出循环并返回该结点即可；
+- 若 `cur.val < num` ，说明目标结点在 `cur` 的右子树中，因此执行 `cur = cur.right` ；
+- 若 `cur.val > num` ，说明目标结点在 `cur` 的左子树中，因此执行 `cur = cur.left` ；
+- 若 `cur.val = num` ，说明找到目标结点，跳出循环并返回该结点即可；
 
 === "Step 1"
 

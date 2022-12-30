@@ -219,11 +219,11 @@ comments: true
 
     ```go title=""
     func algorithm(n int) {
-        a := 0                         // O(1)
-        b := make([]int, 10000)        // O(1)
+        a := 0                      // O(1)
+        b := make([]int, 10000)     // O(1)
         var nums []int
         if n > 10 {
-            nums = make([]int, 10000)  // O(n)
+            nums := make([]int, n)  // O(n)
         }
         fmt.Println(a, b, nums)
     }

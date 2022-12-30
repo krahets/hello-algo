@@ -44,13 +44,13 @@ comments: true
 === "Go"
 
     ```go title=""
-    // 链表结点类
+    /* 链表结点类 */
     type TreeNode struct {
         Val   int
         Left  *TreeNode
         Right *TreeNode
     }
-    // 结点初始化方法
+    /* 结点初始化方法 */
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
             Left:  nil,
@@ -121,7 +121,7 @@ comments: true
 - 「根结点 Root Node」：二叉树最顶层的结点，其没有父结点；
 - 「叶结点 Leaf Node」：没有子结点的结点，其两个指针都指向 $\text{null}$ ；
 - 结点所处「层 Level」：从顶置底依次增加，根结点所处层为 1 ；
-- 结点「度 Degree」：结点的子结点数量，二叉树中度的范围是 0, 1, 2 ；
+- 结点「度 Degree」：结点的子结点数量。二叉树中，度的范围是 0, 1, 2 ；
 - 「边 Edge」：连接两个结点的边，即结点指针；
 - 二叉树「高度」：二叉树中根结点到最远叶结点走过边的数量；
 - 结点「深度 Depth」 ：根结点到该结点走过边的数量；
