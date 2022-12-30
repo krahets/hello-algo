@@ -139,7 +139,7 @@ nav:
     - 小结: chapter_computational_complexity/summary.md
   - 数据结构简介: 
     - 数据与内存: chapter_data_structure/data_and_memory.md
-    - 数据结构分类: chapter_data_structure/classification_of_data_strcuture.md
+    - 数据结构分类: chapter_data_structure/classification_of_data_structure.md
     - 小结: chapter_data_structure/summary.md
   - 数组与链表: 
     - 数组（Array）: chapter_array_and_linkedlist/array.md
