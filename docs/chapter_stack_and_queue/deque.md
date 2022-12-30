@@ -167,5 +167,28 @@ comments: true
 === "C#"
 
     ```csharp title="deque.cs"
+    /* 初始化双向队列 */
+    /* LinkedList 是 C# 中使用双向链表实现的双向队列 */
+    LinkedList<int> deque = new LinkedList<int>();
 
+    /* 元素入队 */
+    deque.AddLast(2);   // 添加至队尾
+    deque.AddLast(5);
+    deque.AddLast(4);
+    deque.AddFirst(3);  // 添加至队首
+    deque.AddFirst(1);
+
+    /* 访问元素 */
+    int peekFirst = deque.First.Value;  // 队首元素
+    int peekLast = deque.Last.Value;    // 队尾元素
+
+    /* 元素出队 */
+    deque.RemoveFirst();  // 队首元素出队
+    deque.RemoveLast();   // 队尾元素出队
+
+    /* 获取双向队列的长度 */
+    int size = deque.Count;
+
+    /* 判断双向队列是否为空 */
+    bool isEmpty = deque.Count == 0;
     ```
