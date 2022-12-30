@@ -168,7 +168,7 @@ comments: true
 
     ```csharp title="deque.cs"
     /* 初始化双向队列 */
-    /* LinkedList 是 C# 中使用双向链表实现的双向队列 */
+    // 在 C# 中，将链表 LinkedList 看作双向队列来使用
     LinkedList<int> deque = new LinkedList<int>();
 
     /* 元素入队 */
