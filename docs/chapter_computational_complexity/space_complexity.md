@@ -38,7 +38,7 @@ comments: true
         Node(int x) { val = x; }
     }
     
-    /* 函数（或称方法） */
+    /* 函数 */
     int function() {
         // do something...
         return 0;
@@ -63,7 +63,7 @@ comments: true
         Node(int x) : val(x), next(nullptr) {}
     };
 
-    /* 函数（或称方法） */
+    /* 函数 */
     int func() {
         // do something...
         return 0;
@@ -87,7 +87,7 @@ comments: true
             self.val = x      # 结点值
             self.next = None  # 指向下一结点的指针（引用）
 
-    """ 函数（或称方法） """
+    """ 函数 """
     def function():
         # do something...
         return 0
@@ -113,7 +113,7 @@ comments: true
         return &Node{val: val}
     }
     
-    /* 函数（或称方法）*/
+    /* 函数 */
     func function() int {
         // do something...
         return 0
@@ -157,7 +157,7 @@ comments: true
         Node(int x) { val = x; }
     }
 
-    /* 函数（或称方法） */
+    /* 函数 */
     int function()
     {
         // do something...

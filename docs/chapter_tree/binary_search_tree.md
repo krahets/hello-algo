@@ -17,9 +17,9 @@ comments: true
 
 给定目标结点值 `num` ，可以根据二叉搜索树的性质来查找。我们声明一个结点 `cur` ，从二叉树的根结点 `root` 出发，循环比较结点值 `cur.val` 和 `num` 之间的大小关系
 
-- 若 `cur.val < val` ，说明目标结点在 `cur` 的右子树中，因此执行 `cur = cur.right` ；
-- 若 `cur.val > val` ，说明目标结点在 `cur` 的左子树中，因此执行 `cur = cur.left` ；
-- 若 `cur.val = val` ，说明找到目标结点，跳出循环并返回该结点即可；
+- 若 `cur.val < num` ，说明目标结点在 `cur` 的右子树中，因此执行 `cur = cur.right` ；
+- 若 `cur.val > num` ，说明目标结点在 `cur` 的左子树中，因此执行 `cur = cur.left` ；
+- 若 `cur.val = num` ，说明找到目标结点，跳出循环并返回该结点即可；
 
 === "Step 1"
 
@@ -82,7 +82,21 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
-
+    """ 查找结点 """
+    def search(self, num: int) -> typing.Optional[TreeNode]:
+        cur = self.root
+        # 循环查找，越过叶结点后跳出
+        while cur is not None:
+            # 目标结点在 root 的右子树中
+            if cur.val < num:
+                cur = cur.right
+            # 目标结点在 root 的左子树中
+            elif cur.val > num:
+                cur = cur.left
+            # 找到目标结点，跳出循环
+            else:
+                break
+        return cur
     ```
 
 === "Go"
@@ -244,7 +258,35 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
+    """ 插入结点 """
+    def insert(self, num: int) -> typing.Optional[TreeNode]:
+        root = self.root
+        # 若树为空，直接提前返回
+        if root is None:
+            return None
 
+        cur = root
+        pre = None
+
+        # 循环查找，越过叶结点后跳出
+        while cur is not None:
+            # 找到重复结点，直接返回
+            if cur.val == num:
+                return None
+            pre = cur
+
+            if cur.val < num:  # 插入位置在 root 的右子树中
+                cur = cur.right
+            else:  # 插入位置在 root 的左子树中
+                cur = cur.left
+
+        # 插入结点 val
+        node = TreeNode(num)
+        if pre.val < num:
+            pre.right = node
+        else:
+            pre.left = node
+        return node
     ```
 
 === "Go"
@@ -525,7 +567,60 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
+    """ 删除结点 """
+    def remove(self, num: int) -> typing.Optional[TreeNode]:
+        root = self.root
+        # 若树为空，直接提前返回
+        if root is None:
+            return None
 
+        cur = root
+        pre = None
+
+        # 循环查找，越过叶结点后跳出
+        while cur is not None:
+            # 找到待删除结点，跳出循环
+            if cur.val == num:
+                break
+            pre = cur
+            if cur.val < num:  # 待删除结点在 root 的右子树中
+                cur = cur.right
+            else:  # 待删除结点在 root 的左子树中
+                cur = cur.left
+
+        # 若无待删除结点，则直接返回
+        if cur is None:
+            return None
+
+        # 子结点数量 = 0 or 1
+        if cur.left is None or cur.right is None:
+            # 当子结点数量 = 0 / 1 时， child = null / 该子结点
+            child = cur.left or cur.right
+            # 删除结点 cur
+            if pre.left == cur:
+                pre.left = child
+            else:
+                pre.right = child
+        # 子结点数量 = 2
+        else:
+            # 获取中序遍历中 cur 的下一个结点
+            nex = self.min(cur.right)
+            tmp = nex.val
+            # 递归删除结点 nex
+            self.remove(nex.val)
+            # 将 nex 的值复制给 cur
+            cur.val = tmp
+        return cur
+
+    """ 获取最小结点 """
+    def min(self, root: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
+        if root is None:
+            return root
+
+        # 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while root.left is not None:
+            root = root.left
+        return root
     ```
 
 === "Go"
@@ -761,14 +856,14 @@ comments: true
 
 - **查找元素：** 由于数组是无序的，因此需要遍历数组来确定，使用 $O(n)$ 时间；
 - **插入元素：** 只需将元素添加至数组尾部即可，使用 $O(1)$ 时间；
-- **删除元素：** 先查找元素，使用 $O(\log n)$ 时间，再在数组中删除该元素，使用 $O(n)$ 时间；
+- **删除元素：** 先查找元素，使用 $O(n)$ 时间，再在数组中删除该元素，使用 $O(n)$ 时间；
 - **获取最小 / 最大元素：** 需要遍历数组来确定，使用 $O(n)$ 时间；
 
 为了得到先验信息，我们也可以预先将数组元素进行排序，得到一个「排序数组」，此时操作效率为：
 
-- **查找元素：** 由于数组已排序，可以使用二分查找，使用 $O(\log n)$ 时间；
-- **插入元素：** 为了保持数组是有序的，需插入到数组某位置，平均使用 $O(n)$ 时间；
-- **删除元素：** 与无序数组中的情况相同，使用 $O(n)$ 时间；
+- **查找元素：** 由于数组已排序，可以使用二分查找，平均使用 $O(\log n)$ 时间；
+- **插入元素：** 先查找插入位置，使用 $O(\log n)$ 时间，再插入到指定位置，使用 $O(n)$ 时间；
+- **删除元素：** 先查找元素，使用 $O(\log n)$ 时间，再在数组中删除该元素，使用 $O(n)$ 时间；
 - **获取最小 / 最大元素：** 数组头部和尾部元素即是最小和最大元素，使用 $O(1)$ 时间；
 
 观察发现，无序数组和有序数组中的各项操作的时间复杂度是“偏科”的，即有的快有的慢；**而二叉搜索树的各项操作的时间复杂度都是对数阶，在数据量 $n$ 很大时有巨大优势**。
