@@ -403,11 +403,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     /* 删除索引 index 处元素 */
     func remove(nums []int, index int) {
         // 把索引 index 之后的所有元素向前移动一位
-        for i := index; i < len(nums); i++ {
-            if i+1 >= len(nums) {
-                nums[len(nums)-1] = 0
-                break
-            }
+        for i := index; i < len(nums) - 1; i++ {
             nums[i] = nums[i+1]
         }
     }
