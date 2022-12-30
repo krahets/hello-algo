@@ -1,49 +1,96 @@
-/**
- * File: deque.cs
- * Created Time: 2022-12-30
- * Author: moonache (microin1301@outlook.com)
- */
-
-using NUnit.Framework;
-
-namespace hello_algo.chapter_stack_and_queue
+public class DLinkNumbers
 {
-    public class deque
+        public int value;
+        public DLinkNumbers front;
+        public DLinkNumbers rear;
+}
+
+public class Deque
+{
+    private static DLinkNumbers head, end;
+    private static int length;
+    
+    public int Empty()
     {
-        [Test]
-        public void Test()
+        return length;
+    }
+    
+    public int EnHead(int value)
+    {
+        DLinkNumbers temp = new DLinkNumbers { value = value };
+        if (head == null)
         {
-            /* 初始化双向队列 */
-            // 在 C# 中，将链表 LinkedList 看作双向队列来使用
-            LinkedList<int> deque = new LinkedList<int>();
-
-            /* 元素入队 */
-            deque.AddLast(2);   // 添加至队尾
-            deque.AddLast(5);
-            deque.AddLast(4);
-            deque.AddFirst(3);  // 添加至队首
-            deque.AddFirst(1);
-            Console.WriteLine("双向队列 deque = " + String.Join(",", deque.ToArray()));
-
-            /* 访问元素 */
-            int peekFirst = deque.First.Value;  // 队首元素
-            Console.WriteLine("队首元素 peekFirst = " + peekFirst);
-            int peekLast = deque.Last.Value;    // 队尾元素
-            Console.WriteLine("队尾元素 peekLast = " + peekLast);
-
-            /* 元素出队 */
-            deque.RemoveFirst();  // 队首元素出队
-            Console.WriteLine("队首元素出队后 deque = " + String.Join(",", deque.ToArray()));
-            deque.RemoveLast();   // 队尾元素出队
-            Console.WriteLine("队尾元素出队后 deque = " + String.Join(",", deque.ToArray()));
-
-            /* 获取双向队列的长度 */
-            int size = deque.Count;
-            Console.WriteLine("双向队列长度 size = " + size);
-
-            /* 判断双向队列是否为空 */
-            bool isEmpty = deque.Count == 0;
-            Console.WriteLine("双向队列是否为空 = " + isEmpty);
+            end = temp;
+            head = temp;
         }
+        else
+        {
+            temp.front = head;
+            head.rear = temp;
+            head = temp;
+        }
+        length += 1;
+        return 1;
+    }
+    
+    public int OutHead()
+    {
+        if (length == 0)
+            return -1;
+        int number = head.value;
+        head = head.front;
+        length -= 1;
+        return number;
+    }
+    
+    public int EnEnd(int value)
+    {
+        DLinkNumbers temp = new DLinkNumbers { value = value };
+        if (end == null)
+        {
+            end = temp;
+            head = temp;
+        }
+        else
+        {
+            temp.front = end;
+            end.rear = temp;
+            end = temp;
+        }
+        length += 1;
+        return 1;
+    }
+    
+    public int OutEnd()
+    {
+        if (length == 0)
+            return -1;
+        int number = end.value;
+        end = end.front;
+        length -= 1;
+        return number;
+    }
+}
+
+class TestForDeque
+{
+    [Test]
+    public void Do()
+    {
+        Deque de = new Deque();
+        de.EnHead(12);
+        de.EnHead(13);
+        de.EnHead(14);
+        de.OutEnd();
+        de.OutEnd();
+        de.OutEnd();
+        de.OutEnd();
+        de.OutEnd();
+        de.EnEnd(12);
+        de.EnEnd(13);
+        de.EnEnd(14);
+        de.OutHead();
+        de.OutHead();
+        de.OutHead();
     }
 }
