@@ -14,6 +14,7 @@ namespace hello_algo.chapter_stack_and_queue
         public void Test()
         {
             /* 初始化双向队列 */
+            // 在 C# 中，将链表 LinkedList 看作双向队列来使用
             LinkedList<int> deque = new LinkedList<int>();
 
             /* 元素入队 */
