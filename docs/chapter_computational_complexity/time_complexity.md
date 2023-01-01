@@ -79,13 +79,27 @@ $$
 === "JavaScript"
 
     ```js title=""
-
+    function algorithm(n) {
+        var a = 2; // 1 ns
+        a = a + 1; // 1 ns
+        a = a * 2; // 10 ns
+        for(var i = 0; i < n; i++) { // 1 ns ，每轮都要执行 i++
+            console.log(0); // 5 ns
+        }
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title=""
-
+    function algorithm(n: number): void {
+        var a: number = 2; // 1 ns
+        a = a + 1; // 1 ns
+        a = a * 2; // 10 ns
+        for(var i = 0; i < n; i++) { // 1 ns ，每轮都要执行 i++
+            console.log(0); // 5 ns
+        }
+    }
     ```
 
 === "C"
@@ -220,13 +234,44 @@ $$
 === "JavaScript"
 
     ```js title=""
+    // 算法 A 时间复杂度：常数阶
+    function algorithm_A(n) {
+        console.log(0);
+    }
+    // 算法 B 时间复杂度：线性阶
+    function algorithm_B(n) {
+        for (var i = 0; i < n; i++) {
+            console.log(0);
+        }
+    }
+    // 算法 C 时间复杂度：常数阶
+    function algorithm_C(n) {
+        for (var i = 0; i < 1000000; i++) {
+            console.log(0);
+        }
+    }
 
     ```
 
 === "TypeScript"
 
     ```typescript title=""
-
+    // 算法 A 时间复杂度：常数阶
+    function algorithm_A(n: number): void {
+        console.log(0);
+    }
+    // 算法 B 时间复杂度：线性阶
+    function algorithm_B(n: number): void {
+        for (var i = 0; i < n; i++) {
+            console.log(0);
+        }
+    }
+    // 算法 C 时间复杂度：常数阶
+    function algorithm_C(n: number): void {
+        for (var i = 0; i < 1000000; i++) {
+            console.log(0);
+        }
+    }
     ```
 
 === "C"
