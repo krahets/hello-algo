@@ -174,6 +174,34 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title=""
+    // 类
+    class Node {
+        var val: Int
+        var next: Node?
+
+        init(x: Int) {
+            val = x
+        }
+    }
+
+    // 函数
+    func function() -> Int {
+        // do something...
+        return 0
+    }
+
+    func algorithm(n: Int) -> Int { // 输入数据
+        let a = 0 // 暂存数据（常量）
+        var b = 0 // 暂存数据（变量）
+        let node = Node(x: 0) // 暂存数据（对象）
+        let c = function() // 栈帧空间（调用函数）
+        return a + b + c // 输出数据
+    }
+    ```
+
 ## 推算方法
 
 空间复杂度的推算方法和时间复杂度总体类似，只是从统计“计算操作数量”变为统计“使用空间大小”。与时间复杂度不同的是，**我们一般只关注「最差空间复杂度」**。这是因为内存空间是一个硬性要求，我们必须保证在所有输入数据下都有足够的内存空间预留。
@@ -257,6 +285,18 @@ comments: true
         if (n > 10)
         {
             int[] nums = new int[n]; // O(n)
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    func algorithm(n: Int) {
+        let a = 0 // O(1)
+        let b = Array(repeating: 0, count: 10000) // O(1)
+        if n > 10 {
+            let nums = Array(repeating: 0, count: n) // O(n)
         }
     }
     ```
@@ -384,6 +424,31 @@ comments: true
     {
         if (n == 1) return 1;
         return recur(n - 1);
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    @discardableResult
+    func function() -> Int {
+        // do something
+        return 0
+    }
+
+    // 循环 O(1)
+    func loop(n: Int) {
+        for _ in 0 ..< n {
+            function()
+        }
+    }
+
+    // 递归 O(n)
+    func recur(n: Int) {
+        if n == 1 {
+            return
+        }
+        recur(n: n - 1)
     }
     ```
 
@@ -536,6 +601,27 @@ $$
     }
     ```
 
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    // 常数阶
+    func constant(n: Int) {
+        // 常量、变量、对象占用 O(1) 空间
+        let a = 0
+        var b = 0
+        let nums = Array(repeating: 0, count: 10000)
+        let node = ListNode(x: 0)
+        // 循环中的变量占用 O(1) 空间
+        for _ in 0 ..< n {
+            let c = 0
+        }
+        // 循环中的函数占用 O(1) 空间
+        for _ in 0 ..< n {
+            function()
+        }
+    }
+    ```
+
 ### 线性阶 $O(n)$
 
 线性阶常见于元素数量与 $n$ 成正比的数组、链表、栈、队列等。
@@ -654,6 +740,20 @@ $$
     }
     ```
 
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    // 线性阶
+    func linear(n: Int) {
+        // 长度为 n 的数组占用 O(n) 空间
+        let nums = Array(repeating: 0, count: n)
+        // 长度为 n 的列表占用 O(n) 空间
+        let nodes = (0 ..< n).map { ListNode(x: $0) }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
+    }
+    ```
+
 以下递归函数会同时存在 $n$ 个未返回的 `algorithm()` 函数，使用 $O(n)$ 大小的栈帧空间。
 
 === "Java"
@@ -728,6 +828,19 @@ $$
         Console.WriteLine("递归 n = " + n);
         if (n == 1) return;
         linearRecur(n - 1);
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    // 线性阶（递归实现）
+    func linearRecur(n: Int) {
+        print("递归 n = \(n)")
+        if n == 1 {
+            return
+        }
+        linearRecur(n: n - 1)
     }
     ```
 
@@ -838,6 +951,16 @@ $$
 
     ```
 
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    // 平方阶
+    func quadratic(n: Int) {
+        // 二维列表占用 O(n^2) 空间
+        let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
+    }
+    ```
+
 在以下递归函数中，同时存在 $n$ 个未返回的 `algorithm()` ，并且每个函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $\frac{n}{2}$ ，因此总体使用 $O(n^2)$ 空间。
 
 === "Java"
@@ -919,6 +1042,20 @@ $$
         return quadraticRecur(n - 1);
     }
 
+    ```
+
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    // 平方阶（递归实现）
+    func quadraticRecur(n: Int) -> Int {
+        if n <= 0 {
+            return 0
+        }
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
+        let nums = Array(repeating: 0, count: n)
+        return quadraticRecur(n: n - 1)
+    }
     ```
 
 ![space_complexity_recursive_quadratic](space_complexity.assets/space_complexity_recursive_quadratic.png)
@@ -1011,6 +1148,21 @@ $$
         root.left = buildTree(n - 1);
         root.right = buildTree(n - 1);
         return root;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    // 指数阶（建立满二叉树）
+    func buildTree(n: Int) -> TreeNode? {
+        if n == 0 {
+            return nil
+        }
+        let root = TreeNode(x: 0)
+        root.left = buildTree(n: n - 1)
+        root.right = buildTree(n: n - 1)
+        return root
     }
     ```
 
