@@ -1,11 +1,5 @@
 /**
- * File: time_complexity.js
- * Created Time: 2023-01-02
- * Author: RiverTwilight (contact@rene.wang)
- */
-
-/**
- * File: time_complexity.js
+ * File: time_complexity.ts
  * Created Time: 2023-01-02
  * Author: RiverTwilight (contact@rene.wang)
  */
@@ -26,7 +20,7 @@ function linear(n: number): number {
 }
 
 /* 线性阶（遍历数组） */
-function arrayTraversal(nums) {
+function arrayTraversal(nums: number[]) {
 	let count = 0;
 	// 循环次数与数组长度成正比
 	for (let i = 0; i < nums.length; i++) {
@@ -124,10 +118,10 @@ function factorialRecur(n: number): number {
 	return count;
 }
 
-var n: number = 8;
+var n = 8;
 console.log("输入数据大小 n = " + n);
 
-let count = constant(n);
+var count = constant(n);
 console.log("常数阶的计算操作数量 = " + count);
 
 count = linear(n);

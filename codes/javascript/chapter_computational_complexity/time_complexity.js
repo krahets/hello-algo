@@ -118,7 +118,7 @@ function factorialRecur(n) {
 	return count;
 }
 
-let n = 8;
+const n = 8;
 console.log("输入数据大小 n = " + n);
 
 let count = constant(n);
