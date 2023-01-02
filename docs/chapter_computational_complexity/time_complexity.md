@@ -233,7 +233,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```js title=""
     // 算法 A 时间复杂度：常数阶
     function algorithm_A(n) {
         console.log(0);
@@ -255,7 +255,7 @@ $$
 
 === "TypeScript"
 
-    ```typescript title="time_complexity.ts"
+    ```typescript title=""
     // 算法 A 时间复杂度：常数阶
     function algorithm_A(n: number): void {
         console.log(0);
@@ -406,12 +406,32 @@ $$
 === "JavaScript"
 
     ```js title=""
+    function algorithm(n){
+        var a = 1; // +1
+        a += 1; // +1
+        a *= 2; // +1
+        // 循环 n 次
+        for(var i = 0; i < n; i++){ // +1
+            console.log(0) // +1
+        }
+
+    }
 
     ```
 
 === "TypeScript"
 
     ```typescript title=""
+    function algorithm(n: number): void{
+        var a: number = 1; // +1
+        a += 1; // +1
+        a *= 2; // +1
+        // 循环 n 次
+        for(var i = 0; i < n; i++){ // +1
+            console.log(0) // +1
+        }
+
+    }
 
     ```
 
@@ -575,12 +595,40 @@ $$
 === "JavaScript"
 
     ```js title=""
+    function algorithm(n) {
+        var a = 1;  // +0（技巧 1）
+        a = a + n;  // +0（技巧 1）
+        // +n（技巧 2）
+        for (var i = 0; i < 5 * n + 1; i++) {
+            console.log(0);
+        }
+        // +n*n（技巧 3）
+        for (var i = 0; i < 2 * n; i++) {
+            for (var j = 0; j < n + 1; j++) {
+                console.log(0);
+            }
+        }
+    }
 
     ```
 
 === "TypeScript"
 
     ```typescript title=""
+    function algorithm(n: number): void {
+        var a: number = 1;  // +0（技巧 1）
+        a = a + n;  // +0（技巧 1）
+        // +n（技巧 2）
+        for (var i = 0; i < 5 * n + 1; i++) {
+            console.log(0);
+        }
+        // +n*n（技巧 3）
+        for (var i = 0; i < 2 * n; i++) {
+            for (var j = 0; j < n + 1; j++) {
+                console.log(0);
+            }
+        }
+    }
 
     ```
 
