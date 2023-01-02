@@ -127,7 +127,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
         if node is not None:
             return node.height
         return -1
-
+    
     """ 更新结点高度 """
     def __update_height(self, node: TreeNode):
         # 结点高度等于最高子树高度 + 1
@@ -167,7 +167,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
         // 空结点高度为 -1 ，叶结点高度为 0
         return node == null ? -1 : node.height;
     }
-
+    
     /* 更新结点高度 */
     private void updateHeight(TreeNode node)
     {
@@ -363,11 +363,15 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 ### Case 2 - 左旋
 
-类似地，如果将取上述失衡二叉树的“镜像”，那么则需要「左旋」操作。观察发现，**「左旋」和「右旋」操作是镜像对称的，两者对应解决的两种失衡情况也是对称的**。
+类似地，如果将取上述失衡二叉树的“镜像”，那么则需要「左旋」操作。
+
+![left_rotate](avl_tree.assets/left_rotate.png)
+
+同理，若结点 `child` 本身有左子结点（记为 `grandChild`），则需要在「左旋」中添加一步：将 `grandChild` 作为 `node` 的右子结点。
 
 ![left_rotate_with_grandchild](avl_tree.assets/left_rotate_with_grandchild.png)
 
-根据对称性，我们可以很方便地从「右旋」推导出「左旋」。具体地，把所有的 `left` 替换为 `right` 、所有的 `right` 替换为 `left` 即可。
+观察发现，**「左旋」和「右旋」操作是镜像对称的，两者对应解决的两种失衡情况也是对称的**。根据对称性，我们可以很方便地从「右旋」推导出「左旋」。具体地，只需将「右旋」代码中的把所有的 `left` 替换为 `right` 、所有的 `right` 替换为 `left` ，即可得到「左旋」代码。
 
 === "Java"
 
@@ -467,11 +471,11 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 ### 旋转的选择
 
-下图描述的四种失衡情况与上述 Cases 一一对应，分别采用右旋、左旋、先右后左、先左后右的旋转组合。
+下图描述的四种失衡情况与上述 Cases 逐个对应，分别需采用 **右旋、左旋、先右后左、先左后右** 的旋转操作。
 
 ![rotation_cases](avl_tree.assets/rotation_cases.png)
 
-具体地，需要使用 **失衡结点的平衡因子、较高一侧子结点的平衡因子** 来确定失衡结点属于上图中的哪种情况。
+具体地，在代码中使用 **失衡结点的平衡因子、较高一侧子结点的平衡因子** 来确定失衡结点属于上图中的哪种情况。
 
 <div class="center-table" markdown>
 
@@ -484,7 +488,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 </div>
 
-根据以上规则，我们将旋转操作封装成一个函数。至此，**我们可以使用此函数来旋转各种失衡情况，使失衡结点重新恢复平衡**。
+为方便使用，我们将旋转操作封装成一个函数。至此，**我们可以使用此函数来旋转各种失衡情况，使失衡结点重新恢复平衡**。
 
 === "Java"
 
@@ -668,7 +672,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
     def insert(self, val) -> TreeNode:
         self.root = self.__insert_helper(self.root, val)
         return self.root
-
+    
     """ 递归插入结点（辅助函数）"""
     def __insert_helper(self, node: typing.Optional[TreeNode], val: int) -> TreeNode:
         if node is None:
@@ -720,7 +724,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         root = insertHelper(root, val);
         return root;
     }
-
+    
     /* 递归插入结点（辅助函数） */
     private TreeNode? insertHelper(TreeNode? node, int val)
     {
@@ -798,7 +802,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
     def remove(self, val: int):
         root = self.__remove_helper(self.root, val)
         return root
-
+    
     """ 递归删除结点（辅助函数） """
     def __remove_helper(self, node: typing.Optional[TreeNode], val: int) -> typing.Optional[TreeNode]:
         if node is None:
@@ -860,7 +864,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         root = removeHelper(root, val);
         return root;
     }
-
+    
     /* 递归删除结点（辅助函数） */
     private TreeNode? removeHelper(TreeNode? node, int val)
     {
