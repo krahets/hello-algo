@@ -6,24 +6,24 @@
 
 /* 常数阶 */
 function constant(n) {
-	var count = 0;
+	let count = 0;
 	const size = 100000;
-	for (var i = 0; i < size; i++) count++;
+	for (let i = 0; i < size; i++) count++;
 	return count;
 }
 
 /* 线性阶 */
 function linear(n) {
-	var count = 0;
-	for (var i = 0; i < n; i++) count++;
+	let count = 0;
+	for (let i = 0; i < n; i++) count++;
 	return count;
 }
 
 /* 线性阶（遍历数组） */
 function arrayTraversal(nums) {
-	var count = 0;
+	let count = 0;
 	// 循环次数与数组长度成正比
-	for (var i = 0; i < nums.length; i++) {
+	for (let i = 0; i < nums.length; i++) {
 		count++;
 	}
 	return count;
@@ -31,9 +31,9 @@ function arrayTraversal(nums) {
 
 /* 平方阶 */
 function quadratic(n) {
-	var count = 0;
+	let count = 0;
 	// 循环次数与数组长度成平方关系
-	for (var i = 0; i < n; i++) {
+	for (let i = 0; i < n; i++) {
 		for (let j = 0; j < n; j++) {
 			count++;
 		}
@@ -43,9 +43,9 @@ function quadratic(n) {
 
 /* 平方阶（冒泡排序） */
 function bubbleSort(nums) {
-	var count = 0; // 计数器
+	let count = 0; // 计数器
 	// 外循环：待排序元素数量为 n-1, n-2, ..., 1
-	for (var i = nums.length - 1; i > 0; i--) {
+	for (let i = nums.length - 1; i > 0; i--) {
 		// 内循环：冒泡操作
 		for (let j = 0; j < i; j++) {
 			if (nums[j] > nums[j + 1]) {
@@ -62,10 +62,10 @@ function bubbleSort(nums) {
 
 /* 指数阶（循环实现） */
 function exponential(n) {
-	var count = 0,
+	let count = 0,
 		base = 1;
 	// cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-	for (var i = 0; i < n; i++) {
+	for (let i = 0; i < n; i++) {
 		for (let j = 0; j < base; j++) {
 			count++;
 		}
@@ -83,7 +83,7 @@ function expRecur(n) {
 
 /* 对数阶（循环实现） */
 function logarithmic(n) {
-	var count = 0;
+	let count = 0;
 	while (n > 1) {
 		n = n / 2;
 		count++;
@@ -100,8 +100,8 @@ function logRecur(n) {
 /* 线性对数阶 */
 function linearLogRecur(n) {
 	if (n <= 1) return 1;
-	var count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
-	for (var i = 0; i < n; i++) {
+	let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+	for (let i = 0; i < n; i++) {
 		count++;
 	}
 	return count;
@@ -110,18 +110,18 @@ function linearLogRecur(n) {
 /* 阶乘阶（递归实现） */
 function factorialRecur(n) {
 	if (n == 0) return 1;
-	var count = 0;
+	let count = 0;
 	// 从 1 个分裂出 n 个
-	for (var i = 0; i < n; i++) {
+	for (let i = 0; i < n; i++) {
 		count += factorialRecur(n - 1);
 	}
 	return count;
 }
 
-var n = 8;
+let n = 8;
 console.log("输入数据大小 n = " + n);
 
-var count = constant(n);
+let count = constant(n);
 console.log("常数阶的计算操作数量 = " + count);
 
 count = linear(n);
@@ -131,8 +131,8 @@ console.log("线性阶（遍历数组）的计算操作数量 = " + count);
 
 count = quadratic(n);
 console.log("平方阶的计算操作数量 = " + count);
-var nums = new Array(n);
-for (var i = 0; i < n; i++) nums[i] = n - i; // [n,n-1,...,2,1]
+let nums = new Array(n);
+for (let i = 0; i < n; i++) nums[i] = n - i; // [n,n-1,...,2,1]
 count = bubbleSort(nums);
 console.log("平方阶（冒泡排序）的计算操作数量 = " + count);
 
