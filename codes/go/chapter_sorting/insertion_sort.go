@@ -2,7 +2,7 @@
 // Created Time: 2022-12-12
 // Author: msk397 (machangxinq@gmail.com)
 
-package insertion_sort
+package chapter_sorting
 
 func insertionSort(nums []int) {
 	// 外循环：待排序元素数量为 n-1, n-2, ..., 1

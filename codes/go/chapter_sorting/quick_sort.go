@@ -2,7 +2,7 @@
 // Created Time: 2022-12-12
 // Author: msk397 (machangxinq@gmail.com)
 
-package quick_sort
+package chapter_sorting
 
 // 快速排序
 type QuickSort struct{}

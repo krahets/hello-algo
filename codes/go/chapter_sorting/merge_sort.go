@@ -2,7 +2,7 @@
 // Created Time: 2022-12-13
 // Author: msk397 (machangxinq@gmail.com)
 
-package merge_sort
+package chapter_sorting
 
 // 合并左子数组和右子数组
 // 左子数组区间 [left, mid]
