@@ -412,7 +412,7 @@ $$
         a *= 2; // +1
         // 循环 n 次
         for(var i = 0; i < n; i++){ // +1
-            console.log(0) // +1
+            console.log(0); // +1
         }
 
     }
@@ -428,7 +428,7 @@ $$
         a *= 2; // +1
         // 循环 n 次
         for(var i = 0; i < n; i++){ // +1
-            console.log(0) // +1
+            console.log(0); // +1
         }
 
     }
