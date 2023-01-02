@@ -148,9 +148,9 @@ $$
 
 “时间增长趋势”这个概念比较抽象，我们借助一个例子来理解。设输入数据大小为 $n$ ，给定三个算法 `A` , `B` , `C` 。
 
-- 算法 `A` 只有 $1$ 个打印操作，算法运行时间不随着 $n$ 增大而增长。我们称此算法的时间复杂度为「常数阶」。
-- 算法 `B` 中的打印操作需要循环 $n$ 次，算法运行时间随着 $n$ 增大成线性增长。此算法的时间复杂度被称为「线性阶」。
-- 算法 `C` 中的打印操作需要循环 $1000000$ 次，但运行时间仍与输入数据大小 $n$ 无关。因此 `C` 的时间复杂度和 `A` 相同，仍为「常数阶」。
+-   算法 `A` 只有 $1$ 个打印操作，算法运行时间不随着 $n$ 增大而增长。我们称此算法的时间复杂度为「常数阶」。
+-   算法 `B` 中的打印操作需要循环 $n$ 次，算法运行时间随着 $n$ 增大成线性增长。此算法的时间复杂度被称为「线性阶」。
+-   算法 `C` 中的打印操作需要循环 $1000000$ 次，但运行时间仍与输入数据大小 $n$ 无关。因此 `C` 的时间复杂度和 `A` 相同，仍为「常数阶」。
 
 === "Java"
 
@@ -233,7 +233,7 @@ $$
 
 === "JavaScript"
 
-    ```js title=""
+    ```js title="time_complexity.js"
     // 算法 A 时间复杂度：常数阶
     function algorithm_A(n) {
         console.log(0);
@@ -255,7 +255,7 @@ $$
 
 === "TypeScript"
 
-    ```typescript title=""
+    ```typescript title="time_complexity.ts"
     // 算法 A 时间复杂度：常数阶
     function algorithm_A(n: number): void {
         console.log(0);
@@ -343,7 +343,7 @@ $$
 
 ## 函数渐近上界
 
-设算法「计算操作数量」为 $T(n)$  ，其是一个关于输入数据大小 $n$ 的函数。例如，以下算法的操作数量为
+设算法「计算操作数量」为 $T(n)$ ，其是一个关于输入数据大小 $n$ 的函数。例如，以下算法的操作数量为
 
 $$
 T(n) = 3 + 2n
@@ -399,7 +399,7 @@ $$
         // 循环 n 次
         for i := 0; i < n; i++ {	// +1
             fmt.Println(a)	        // +1
-        }	
+        }
     }
     ```
 
@@ -640,7 +640,7 @@ $$
 
 <div class="center-table" markdown>
 
-| 操作数量 $T(n)$         | 时间复杂度 $O(f(n))$   |
+| 操作数量 $T(n)$        | 时间复杂度 $O(f(n))$ |
 | ---------------------- | -------------------- |
 | $100000$               | $O(1)$               |
 | $3n + 2$               | $O(n)$               |
@@ -1696,7 +1696,7 @@ $$
     /* 线性对数阶 */
     int linearLogRecur(float n) {
         if (n <= 1) return 1;
-        int count = linearLogRecur(n / 2) + 
+        int count = linearLogRecur(n / 2) +
                     linearLogRecur(n / 2);
         for (int i = 0; i < n; i++) {
             count++;
@@ -1711,7 +1711,7 @@ $$
     /* 线性对数阶 */
     int linearLogRecur(float n) {
         if (n <= 1) return 1;
-        int count = linearLogRecur(n / 2) + 
+        int count = linearLogRecur(n / 2) +
                     linearLogRecur(n / 2);
         for (int i = 0; i < n; i++) {
             count++;
@@ -1935,8 +1935,8 @@ $$
 
 **某些算法的时间复杂度不是恒定的，而是与输入数据的分布有关。** 举一个例子，输入一个长度为 $n$ 数组 `nums` ，其中 `nums` 由从 $1$ 至 $n$ 的数字组成，但元素顺序是随机打乱的；算法的任务是返回元素 $1$ 的索引。我们可以得出以下结论：
 
-- 当 `nums = [?, ?, ..., 1]`，即当末尾元素是 $1$ 时，则需完整遍历数组，此时达到 **最差时间复杂度 $O(n)$** ；
-- 当 `nums = [1, ?, ?, ...]` ，即当首个数字为 $1$ 时，无论数组多长都不需要继续遍历，此时达到 **最佳时间复杂度 $\Omega(1)$** ；
+-   当 `nums = [?, ?, ..., 1]`，即当末尾元素是 $1$ 时，则需完整遍历数组，此时达到 **最差时间复杂度 $O(n)$** ；
+-   当 `nums = [1, ?, ?, ...]` ，即当首个数字为 $1$ 时，无论数组多长都不需要继续遍历，此时达到 **最佳时间复杂度 $\Omega(1)$** ；
 
 「函数渐近上界」使用大 $O$ 记号表示，代表「最差时间复杂度」。与之对应，「函数渐近下界」用 $\Omega$ 记号（Omega Notation）来表示，代表「最佳时间复杂度」。
 
@@ -1960,7 +1960,7 @@ $$
             }
             return res;
         }
-    
+
         /* 查找数组 nums 中数字 1 所在索引 */
         int findOne(int[] nums) {
             for (int i = 0; i < nums.length; i++) {
@@ -1969,7 +1969,7 @@ $$
             }
             return -1;
         }
-        
+
         /* Driver Code */
         public void main(String[] args) {
             for (int i = 0; i < 10; i++) {
@@ -2029,7 +2029,7 @@ $$
     ```python title="worst_best_time_complexity.py"
     """ 生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱 """
     def random_numbers(n):
-        # 生成数组 nums =: 1, 2, 3, ..., n 
+        # 生成数组 nums =: 1, 2, 3, ..., n
         nums = [i for i in range(1, n + 1)]
         # 随机打乱数组元素
         random.shuffle(nums)
