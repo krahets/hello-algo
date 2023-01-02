@@ -24,9 +24,10 @@ class time_complexity {
 	arrayTraversal(nums) {
 		var count = 0;
 		// 循环次数与数组长度成正比
-		nums.forEach(() => {
+		for (var i = 0; i < nums.length; i++) {
 			count++;
-		});
+		}
+		return count;
 	}
 
 	/* 平方阶 */
