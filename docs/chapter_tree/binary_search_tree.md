@@ -445,19 +445,15 @@ comments: true
 3. 使用 `nex` 替换待删除结点；
 
 === "Step 1"
-
     ![bst_remove_case3_1](binary_search_tree.assets/bst_remove_case3_1.png)
 
 === "Step 2"
-
     ![bst_remove_case3_2](binary_search_tree.assets/bst_remove_case3_2.png)
 
 === "Step 3"
-
     ![bst_remove_case3_3](binary_search_tree.assets/bst_remove_case3_3.png)
 
 === "Step 4"
-
     ![bst_remove_case3_4](binary_search_tree.assets/bst_remove_case3_4.png)
 
 删除结点操作也使用 $O(\log n)$ 时间，其中查找待删除结点 $O(\log n)$ ，获取中序遍历后继结点 $O(\log n)$ 。
@@ -489,11 +485,13 @@ comments: true
             // 删除结点 cur
             if (pre.left == cur) pre.left = child;
             else pre.right = child;
+            // 释放内存
+            delete cur;
         }
         // 子结点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个结点
-            TreeNode nex = min(cur.right);
+            TreeNode nex = getInOrderNext(cur.right);
             int tmp = nex.val;
             // 递归删除结点 nex
             remove(nex.val);
@@ -501,15 +499,6 @@ comments: true
             cur.val = tmp;
         }
         return cur;
-    }
-    /* 获取最小结点 */
-    TreeNode min(TreeNode root) {
-        if (root == null) return root;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (root.left != null) {
-            root = root.left;
-        }
-        return root;
     }
     ```
 
@@ -544,7 +533,7 @@ comments: true
         // 子结点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个结点
-            TreeNode* nex = min(cur->right);
+            TreeNode* nex = getInOrderNext(cur->right);
             int tmp = nex->val;
             // 递归删除结点 nex
             remove(nex->val);
@@ -552,15 +541,6 @@ comments: true
             cur->val = tmp;
         }
         return cur;
-    }
-    /* 获取最小结点 */
-    TreeNode* min(TreeNode* root) {
-        if (root == nullptr) return root;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (root->left != nullptr) {
-            root = root->left;
-        }
-        return root;
     }
     ```
 
@@ -604,23 +584,13 @@ comments: true
         # 子结点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个结点
-            nex = self.min(cur.right)
+            nex = self.get_inorder_next(cur.right)
             tmp = nex.val
             # 递归删除结点 nex
             self.remove(nex.val)
             # 将 nex 的值复制给 cur
             cur.val = tmp
         return cur
-
-    """ 获取最小结点 """
-    def min(self, root: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
-        if root is None:
-            return root
-
-        # 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while root.left is not None:
-            root = root.left
-        return root
     ```
 
 === "Go"
@@ -671,7 +641,7 @@ comments: true
             // 子结点数为 2
         } else {
             // 获取中序遍历中待删除结点 cur 的下一个结点
-            next := bst.GetInorderNext(cur)
+            next := bst.GetInOrderNext(cur)
             temp := next.Val
             // 递归删除结点 next
             bst.Remove(next.Val)
@@ -713,7 +683,7 @@ comments: true
         // 子结点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个结点
-            let nex = min(cur.right);
+            let nex = getInOrderNext(cur.right);
             let tmp = nex.val;
             // 递归删除结点 nex
             remove(nex.val);
@@ -766,7 +736,7 @@ comments: true
         // 子结点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个结点
-            let next = min(cur.right);
+            let next = getInOrderNext(cur.right);
             let tmp = next!.val;
             // 递归删除结点 nex
             remove(next!.val);
@@ -824,7 +794,7 @@ comments: true
         else
         {
             // 获取中序遍历中 cur 的下一个结点
-            TreeNode? nex = min(cur.right);
+            TreeNode? nex = getInOrderNext(cur.right);
             if (nex != null)
             {
                 int tmp = nex.val;
@@ -835,18 +805,6 @@ comments: true
             }
         }
         return cur;
-    }
-    
-    /* 获取最小结点 */
-    TreeNode? min(TreeNode? root)
-    {
-        if (root == null) return root;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (root.left != null)
-        {
-            root = root.left;
-        }
-        return root;
     }
     ```
 

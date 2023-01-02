@@ -125,7 +125,7 @@ namespace hello_algo.chapter_tree
             else
             {
                 // 获取中序遍历中 cur 的下一个结点
-                TreeNode? nex = min(cur.right);
+                TreeNode? nex = getInOrderNext(cur.right);
                 if (nex != null)
                 {
                     int tmp = nex.val;
@@ -138,8 +138,8 @@ namespace hello_algo.chapter_tree
             return cur;
         }
 
-        /* 获取最小结点 */
-        private TreeNode? min(TreeNode? root)
+        /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+        private TreeNode? getInOrderNext(TreeNode? root)
         {
             if (root == null) return root;
             // 循环访问左子结点，直到叶结点时为最小结点，跳出

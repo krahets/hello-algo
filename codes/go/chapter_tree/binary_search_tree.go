@@ -23,29 +23,16 @@ func NewBinarySearchTree(nums []int) *BinarySearchTree {
 	}
 }
 
-// GetRoot Get the root node of binary search tree
+/* 获取根结点 */
 func (bst *BinarySearchTree) GetRoot() *TreeNode {
 	return bst.root
 }
 
-// GetMin Get node with the min value
-func (bst *BinarySearchTree) GetMin(node *TreeNode) *TreeNode {
+/* 获取中序遍历的下一个结点 */
+func (bst *BinarySearchTree) GetInOrderNext(node *TreeNode) *TreeNode {
 	if node == nil {
 		return node
 	}
-	// 循环访问左子结点，直到叶结点时为最小结点，跳出
-	for node.Left != nil {
-		node = node.Left
-	}
-	return node
-}
-
-// GetInorderNext Get node inorder next
-func (bst *BinarySearchTree) GetInorderNext(node *TreeNode) *TreeNode {
-	if node == nil || node.Right == nil {
-		return node
-	}
-	node = node.Right
 	// 循环访问左子结点，直到叶结点时为最小结点，跳出
 	for node.Left != nil {
 		node = node.Left
@@ -149,7 +136,7 @@ func (bst *BinarySearchTree) Remove(num int) *TreeNode {
 		// 子结点数为 2
 	} else {
 		// 获取中序遍历中待删除结点 cur 的下一个结点
-		next := bst.GetInorderNext(cur)
+		next := bst.GetInOrderNext(cur)
 		temp := next.Val
 		// 递归删除结点 next
 		bst.Remove(next.Val)

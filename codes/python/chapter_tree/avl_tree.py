@@ -132,7 +132,7 @@ class AVLTree:
                 else:
                     node = child
             else:  # 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
-                temp = self.__min_node(node.right)
+                temp = self.__get_inorder_next(node.right)
                 node.right = self.__remove_helper(node.right, temp.val)
                 node.val = temp.val
         # 更新结点高度
@@ -140,8 +140,8 @@ class AVLTree:
         # 2. 执行旋转操作，使该子树重新恢复平衡
         return self.__rotate(node)
 
-    """ 获取最小结点 """
-    def __min_node(self, node: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
+    """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
+    def __get_inorder_next(self, node: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
         if node is None:
             return None
         # 循环访问左子结点，直到叶结点时为最小结点，跳出

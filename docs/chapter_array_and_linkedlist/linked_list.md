@@ -293,6 +293,8 @@ comments: true
         ListNode* P = n0->next;
         ListNode* n1 = P->next;
         n0->next = n1;
+        // 释放内存
+        delete P;
     }
     ```
 

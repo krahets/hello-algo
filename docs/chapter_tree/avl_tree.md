@@ -772,7 +772,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
                     node = child;
             } else {
                 // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
-                TreeNode temp = minNode(node.right);
+                TreeNode temp = getInOrderNext(node.right);
                 node.right = removeHelper(node.right, temp.val);
                 node.val = temp.val;
             }
@@ -781,16 +781,6 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node);
         // 返回子树的根节点
-        return node;
-    }
-    
-    /* 获取最小结点 */
-    TreeNode minNode(TreeNode node) {
-        if (node == null) return node;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (node.left != null) {
-            node = node.left;
-        }
         return node;
     }
     ```
@@ -828,22 +818,13 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
                 else:
                     node = child
             else:  # 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
-                temp = self.min_node(node.right)
+                temp = self.__get_inorder_next(node.right)
                 node.right = self.__remove_helper(node.right, temp.val)
                 node.val = temp.val
         # 更新结点高度
         self.__update_height(node)
         # 2. 执行旋转操作，使该子树重新恢复平衡
         return self.__rotate(node)
-
-    """ 获取最小结点 """
-    def min_node(self, node: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
-        if node is None:
-            return None
-        # 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while node.left is not None:
-            node = node.left
-        return node
     ```
 
 === "Go"
@@ -904,7 +885,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
             else
             {
                 // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
-                TreeNode? temp = minNode(node.right);
+                TreeNode? temp = getInOrderNext(node.right);
                 node.right = removeHelper(node.right, temp.val);
                 node.val = temp.val;
             }
@@ -913,18 +894,6 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node);
         // 返回子树的根节点
-        return node;
-    }
-
-    /* 获取最小结点 */
-    private TreeNode? minNode(TreeNode? node)
-    {
-        if (node == null) return node;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (node.left != null)
-        {
-            node = node.left;
-        }
         return node;
     }
     ```

@@ -138,7 +138,7 @@ class AVLTree {
                     node = child;
             } else {
                 // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
-                TreeNode temp = minNode(node.right);
+                TreeNode temp = getInOrderNext(node.right);
                 node.right = removeHelper(node.right, temp.val);
                 node.val = temp.val;
             }
@@ -150,8 +150,8 @@ class AVLTree {
         return node;
     }
 
-    /* 获取最小结点 */
-    private TreeNode minNode(TreeNode node) {
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    private TreeNode getInOrderNext(TreeNode node) {
         if (node == null) return node;
         // 循环访问左子结点，直到叶结点时为最小结点，跳出
         while (node.left != null) {

@@ -311,7 +311,10 @@ comments: true
         /* 出栈 */
         int pop() {
             int num = top();
+            ListNode *tmp = stackTop;
             stackTop = stackTop->next;
+            // 释放内存
+            delete tmp;
             stkSize--;
             return num;
         }

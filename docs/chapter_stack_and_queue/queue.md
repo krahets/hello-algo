@@ -331,7 +331,10 @@ comments: true
         int poll() {
             int num = peek();
             // 删除头结点
+            ListNode *tmp = front;
             front = front->next;
+            // 释放内存
+            delete tmp; 
             queSize--;
             return num;
         }

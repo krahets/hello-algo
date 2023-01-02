@@ -117,7 +117,7 @@ class BinarySearchTree:
         # 子结点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个结点
-            nex = self.min(cur.right)
+            nex = self.get_inorder_next(cur.right)
             tmp = nex.val
             # 递归删除结点 nex
             self.remove(nex.val)
@@ -125,11 +125,10 @@ class BinarySearchTree:
             cur.val = tmp
         return cur
 
-    """ 获取最小结点 """
-    def min(self, root: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
+    """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
+    def get_inorder_next(self, root: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
         if root is None:
             return root
-
         # 循环访问左子结点，直到叶结点时为最小结点，跳出
         while root.left is not None:
             root = root.left
