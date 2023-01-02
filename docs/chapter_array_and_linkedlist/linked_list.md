@@ -174,19 +174,19 @@ comments: true
 === "Go"
 
     ```go title=""
-	/* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-	// 初始化各个结点
-	n0 := NewListNode(1)
-	n1 := NewListNode(3)
-	n2 := NewListNode(2)
-	n3 := NewListNode(5)
-	n4 := NewListNode(4)
-
-	// 构建引用指向
-	n0.Next = n1
-	n1.Next = n2
-	n2.Next = n3
-	n3.Next = n4
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个结点
+    n0 := NewListNode(1)
+    n1 := NewListNode(3)
+    n2 := NewListNode(2)
+    n3 := NewListNode(5)
+    n4 := NewListNode(4)
+    
+    // 构建引用指向
+    n0.Next = n1
+    n1.Next = n2
+    n2.Next = n3
+    n3.Next = n4
     ```
 
 === "JavaScript"
