@@ -4,82 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-class ListNode {
-    var val: Int
-    var next: ListNode?
-
-    init(x: Int) {
-        val = x
-    }
-}
-
-class TreeNode {
-    var val: Int // 结点值
-    var height: Int // 结点高度
-    var left: TreeNode? // 左子结点引用
-    var right: TreeNode? // 右子结点引用
-
-    init(x: Int) {
-        val = x
-        height = 0
-    }
-}
-
-enum PrintUtil {
-    private class Trunk {
-        var prev: Trunk?
-        var str: String
-
-        init(prev: Trunk?, str: String) {
-            self.prev = prev
-            self.str = str
-        }
-    }
-
-    static func printTree(root: TreeNode?) {
-        printTree(root: root, prev: nil, isLeft: false)
-    }
-
-    private static func printTree(root: TreeNode?, prev: Trunk?, isLeft: Bool) {
-        if root == nil {
-            return
-        }
-
-        var prevStr = "    "
-        let trunk = Trunk(prev: prev, str: prevStr)
-
-        printTree(root: root?.right, prev: trunk, isLeft: true)
-
-        if prev == nil {
-            trunk.str = "———"
-        } else if isLeft {
-            trunk.str = "/———"
-            prevStr = "   |"
-        } else {
-            trunk.str = "\\———"
-            prev?.str = prevStr
-        }
-
-        showTrunks(p: trunk)
-        print(" \(root!.val)")
-
-        if prev != nil {
-            prev?.str = prevStr
-        }
-        trunk.str = "   |"
-
-        printTree(root: root?.left, prev: trunk, isLeft: false)
-    }
-
-    private static func showTrunks(p: Trunk?) {
-        if p == nil {
-            return
-        }
-
-        showTrunks(p: p?.prev)
-        print(p!.str, terminator: "")
-    }
-}
+import utils
 
 // 函数
 @discardableResult
@@ -153,20 +78,21 @@ func buildTree(n: Int) -> TreeNode? {
     return root
 }
 
-// Driver Code
-func main() {
-    let n = 5
-    // 常数阶
-    constant(n: n)
-    // 线性阶
-    linear(n: n)
-    linearRecur(n: n)
-    // 平方阶
-    quadratic(n: n)
-    quadraticRecur(n: n)
-    // 指数阶
-    let root = buildTree(n: n)
-    PrintUtil.printTree(root: root)
+@main
+enum SpaceComplexity {
+    // Driver Code
+    static func main() {
+        let n = 5
+        // 常数阶
+        constant(n: n)
+        // 线性阶
+        linear(n: n)
+        linearRecur(n: n)
+        // 平方阶
+        quadratic(n: n)
+        quadraticRecur(n: n)
+        // 指数阶
+        let root = buildTree(n: n)
+        PrintUtil.printTree(root: root)
+    }
 }
-
-main()
