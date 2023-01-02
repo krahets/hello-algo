@@ -5,7 +5,7 @@
 package chapter_array_and_linkedlist
 
 import (
-	"github.com/krahets/hello-algo/pkg"
+	. "github.com/krahets/hello-algo/pkg"
 )
 
 /* 在链表的结点 n0 之后插入结点 P */
