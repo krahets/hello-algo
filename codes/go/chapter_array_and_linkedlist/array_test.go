@@ -1,8 +1,13 @@
 // File: array_test.go
 // Created Time: 2022-12-29
-// Author: cathay (cathaycchen@gmail.com)
+// Author: GuoWei (gongguowei01@gmail.com), cathay (cathaycchen@gmail.com)
 
 package chapter_array_and_linkedlist
+
+/**
+我们将 Go 中的 Slice 切片看作 Array 数组。因为这样可以
+降低理解成本，利于我们将关注点放在数据结构与算法上。
+*/
 
 import (
 	"fmt"
@@ -12,10 +17,9 @@ import (
 /* Driver Code */
 func TestArray(t *testing.T) {
 	/* 初始化数组 */
-	var arr = [5]int{}
+	var arr []int
 	fmt.Println("数组 arr =", arr)
-
-	var nums = []int{1, 3, 2, 5, 4}
+	nums := []int{1, 3, 2, 5, 4}
 	fmt.Println("数组 nums =", nums)
 
 	/* 随机访问 */
@@ -32,7 +36,7 @@ func TestArray(t *testing.T) {
 
 	/* 删除元素 */
 	remove(nums, 2)
-	fmt.Println("删除索引 2 处的元素，得到 nums = ", nums)
+	fmt.Println("删除索引 2 处的元素，得到 nums =", nums)
 
 	/* 遍历数组 */
 	traverse(nums)

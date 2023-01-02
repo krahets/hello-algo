@@ -43,8 +43,9 @@ comments: true
 === "Go"
 
     ```go title="array.go"
-    var arr = [5]int{}
-    var nums = [5]int{1, 3, 2, 5, 4}
+    /* 初始化数组 */
+    var arr []int
+    nums := []int{1, 3, 2, 5, 4}
     ```
 
 === "JavaScript"
@@ -135,10 +136,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
     ```go title="array.go"
     /* 随机返回一个数组元素 */
-    func randomAccess(nums []int) int {
+    func randomAccess(nums [5]int) (randomNum int) {
+        // 在区间 [0, nums.length) 中随机抽取一个数字
         randomIndex := rand.Intn(len(nums))
-        randomNum := nums[randomIndex]
-        return randomNum
+        // 获取并返回随机元素
+        randomNum = nums[randomIndex]
+        return
     }
     ```
 
@@ -387,9 +390,10 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
     ```go title="array.go"
     /* 在数组的索引 index 处插入元素 num */
-    func insert(nums []int, size int, num int, index int) {
+    func insert(nums []int, num int, index int) {
         // 把索引 index 以及之后的所有元素向后移动一位
-        for i := size - 1; i > index; i-- {
+        // 如果超出了数组长度，会被直接舍弃
+        for i := len(nums) - 1; i > index; i-- {
             nums[i] = nums[i-1]
         }
         // 将 num 赋给 index 处元素
@@ -397,9 +401,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
 
     /* 删除索引 index 处元素 */
-    func remove(nums []int, size int, index int) {
+    func remove(nums []int, index int) {
         // 把索引 index 之后的所有元素向前移动一位
-        for i := index; i < size-1; i++ {
+        for i := index; i < len(nums) - 1; i++ {
             nums[i] = nums[i+1]
         }
     }
@@ -647,14 +651,16 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-    /* 在数组中查找指定元素，返回第一个索引位置，未查找到则返回 -1 */
-    func find(nums []int, target int) int {
+    /* 在数组中查找指定元素 */
+    func find(nums []int, target int) (index int) {
+        index = -1
         for i := 0; i < len(nums); i++ {
             if nums[i] == target {
-                return i
+                index = i
+                break
             }
         }
-        return -1
+        return
     }
     ```
 
