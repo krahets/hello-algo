@@ -136,7 +136,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
     ```go title="array.go"
     /* 随机返回一个数组元素 */
-    func randomAccess(nums [5]int) (randomNum int) {
+    func randomAccess(nums []int) (randomNum int) {
         // 在区间 [0, nums.length) 中随机抽取一个数字
         randomIndex := rand.Intn(len(nums))
         // 获取并返回随机元素
@@ -392,7 +392,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     /* 在数组的索引 index 处插入元素 num */
     func insert(nums []int, num int, index int) {
         // 把索引 index 以及之后的所有元素向后移动一位
-        // 如果超出了数组长度，会被直接舍弃
         for i := len(nums) - 1; i > index; i-- {
             nums[i] = nums[i-1]
         }
@@ -403,7 +402,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     /* 删除索引 index 处元素 */
     func remove(nums []int, index int) {
         // 把索引 index 之后的所有元素向前移动一位
-        for i := index; i < len(nums) - 1; i++ {
+        for i := index; i < len(nums)-1; i++ {
             nums[i] = nums[i+1]
         }
     }
