@@ -5,7 +5,6 @@
 package chapter_array_and_linkedlist
 
 import (
-	"fmt"
 	"math/rand"
 )
 
@@ -60,9 +59,10 @@ func traverse(nums []int) {
 	for i := 0; i < len(nums); i++ {
 		count++
 	}
+	count = 0
 	// 直接遍历数组
-	for index, val := range nums {
-		fmt.Printf("index:%v value:%v\n", index, val)
+	for range nums {
+		count++
 	}
 }
 

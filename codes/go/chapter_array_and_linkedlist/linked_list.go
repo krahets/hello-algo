@@ -9,14 +9,14 @@ import (
 )
 
 /* 在链表的结点 n0 之后插入结点 P */
-func insertNode(n0 *pkg.ListNode, P *pkg.ListNode) {
+func insertNode(n0 *ListNode, P *ListNode) {
 	n1 := n0.Next
 	n0.Next = P
 	P.Next = n1
 }
 
 /* 删除链表的结点 n0 之后的首个结点 */
-func removeNode(n0 *pkg.ListNode) {
+func removeNode(n0 *ListNode) {
 	if n0.Next == nil {
 		return
 	}
@@ -27,7 +27,7 @@ func removeNode(n0 *pkg.ListNode) {
 }
 
 /* 访问链表中索引为 index 的结点 */
-func access(head *pkg.ListNode, index int) *pkg.ListNode {
+func access(head *ListNode, index int) *ListNode {
 	for i := 0; i < index; i++ {
 		head = head.Next
 		if head == nil {
@@ -38,7 +38,7 @@ func access(head *pkg.ListNode, index int) *pkg.ListNode {
 }
 
 /* 在链表中查找值为 target 的首个结点 */
-func findNode(head *pkg.ListNode, target int) int {
+func findNode(head *ListNode, target int) int {
 	index := 0
 	for head != nil {
 		if head.Val == target {
