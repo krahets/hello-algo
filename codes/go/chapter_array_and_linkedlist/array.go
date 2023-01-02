@@ -1,6 +1,6 @@
 // File: array.go
 // Created Time: 2022-12-29
-// Author: GuoWei (gongguowei01@gmail.com)
+// Author: GuoWei (gongguowei01@gmail.com), cathay (cathaycchen@gmail.com)
 
 package chapter_array_and_linkedlist
 
@@ -38,7 +38,6 @@ func extend(nums []int, enlarge int) []int {
 /* 在数组的索引 index 处插入元素 num */
 func insert(nums []int, num int, index int) {
 	// 把索引 index 以及之后的所有元素向后移动一位
-	// 如果超出了数组长度，会被直接舍弃
 	for i := len(nums) - 1; i > index; i-- {
 		nums[i] = nums[i-1]
 	}
@@ -49,14 +48,14 @@ func insert(nums []int, num int, index int) {
 /* 删除索引 index 处元素 */
 func remove(nums []int, index int) {
 	// 把索引 index 之后的所有元素向前移动一位
-	for i := index; i < len(nums) - 1; i++ {
+	for i := index; i < len(nums)-1; i++ {
 		nums[i] = nums[i+1]
 	}
 }
 
 /* 遍历数组 */
 func traverse(nums []int) {
-	var count int
+	count := 0
 	// 通过索引遍历数组
 	for i := 0; i < len(nums); i++ {
 		count++

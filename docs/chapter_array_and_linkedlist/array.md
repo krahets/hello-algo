@@ -250,8 +250,8 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 初始化一个扩展长度后的数组
         res := make([]int, len(nums)+enlarge)
         // 将原数组中的所有元素复制到新数组
-        for i := 0; i < len(nums); i++ {
-            res[i] = nums[i]
+        for i, num := range nums {
+            res[i] = num
         }
         // 返回扩展后的新数组
         return res
@@ -537,14 +537,14 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     ```go title="array.go"
     /* 遍历数组 */
     func traverse(nums []int) {
-        var count int
+        count := 0
         // 通过索引遍历数组
         for i := 0; i < len(nums); i++ {
             count++
         }
         // 直接遍历数组
-        for index, val := range nums {
-            fmt.Printf("index:%v value:%v\n", index, val)
+        for range nums {
+            count++
         }
     }
     ```
