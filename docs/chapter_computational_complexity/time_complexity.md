@@ -786,6 +786,7 @@ $$
 === "TypeScript"
 
     ```typescript title="time_complexity.ts"
+    /* 常数阶 */
     function constant(n: number): number {
         let count = 0;
         const size = 100000;
