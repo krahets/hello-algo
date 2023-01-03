@@ -23,15 +23,16 @@ func findOne(nums: [Int]) -> Int {
     return -1
 }
 
-// Driver Code
-func main() {
-    for _ in 0 ..< 10 {
-        let n = 100
-        let nums = randomNumbers(n: n)
-        let index = findOne(nums: nums)
-        print("数组 [ 1, 2, ..., n ] 被打乱后 =", nums)
-        print("数字 1 的索引为", index)
+@main
+enum WorstBestTimeComplexity {
+    // Driver Code
+    static func main() {
+        for _ in 0 ..< 10 {
+            let n = 100
+            let nums = randomNumbers(n: n)
+            let index = findOne(nums: nums)
+            print("数组 [ 1, 2, ..., n ] 被打乱后 =", nums)
+            print("数字 1 的索引为", index)
+        }
     }
 }
-
-main()
