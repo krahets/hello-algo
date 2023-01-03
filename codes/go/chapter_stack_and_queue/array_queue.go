@@ -5,16 +5,16 @@
 package chapter_stack_and_queue
 
 /* 基于环形数组实现的队列 */
-type ArrayQueue struct {
+type arrayQueue struct {
 	data     []int // 用于存储队列元素的数组
 	capacity int   // 队列容量（即最多容量的元素个数）
 	front    int   // 头指针，指向队首
 	rear     int   // 尾指针，指向队尾 + 1
 }
 
-// NewArrayQueue 基于环形数组实现的队列
-func NewArrayQueue(capacity int) *ArrayQueue {
-	return &ArrayQueue{
+// newArrayQueue 基于环形数组实现的队列
+func newArrayQueue(capacity int) *arrayQueue {
+	return &arrayQueue{
 		data:     make([]int, capacity),
 		capacity: capacity,
 		front:    0,
@@ -22,21 +22,21 @@ func NewArrayQueue(capacity int) *ArrayQueue {
 	}
 }
 
-// Size 获取队列的长度
-func (q *ArrayQueue) Size() int {
+// size 获取队列的长度
+func (q *arrayQueue) size() int {
 	size := (q.capacity + q.rear - q.front) % q.capacity
 	return size
 }
 
-// IsEmpty 判断队列是否为空
-func (q *ArrayQueue) IsEmpty() bool {
+// isEmpty 判断队列是否为空
+func (q *arrayQueue) isEmpty() bool {
 	return q.rear-q.front == 0
 }
 
-// Offer 入队
-func (q *ArrayQueue) Offer(v int) {
+// offer 入队
+func (q *arrayQueue) offer(v int) {
 	// 当 rear == capacity 表示队列已满
-	if q.Size() == q.capacity {
+	if q.size() == q.capacity {
 		return
 	}
 	// 尾结点后添加
@@ -45,9 +45,9 @@ func (q *ArrayQueue) Offer(v int) {
 	q.rear = (q.rear + 1) % q.capacity
 }
 
-// Poll 出队
-func (q *ArrayQueue) Poll() any {
-	if q.IsEmpty() {
+// poll 出队
+func (q *arrayQueue) poll() any {
+	if q.isEmpty() {
 		return nil
 	}
 	v := q.data[q.front]
@@ -56,9 +56,9 @@ func (q *ArrayQueue) Poll() any {
 	return v
 }
 
-// Peek 访问队首元素
-func (q *ArrayQueue) Peek() any {
-	if q.IsEmpty() {
+// peek 访问队首元素
+func (q *arrayQueue) peek() any {
+	if q.isEmpty() {
 		return nil
 	}
 	v := q.data[q.front]
@@ -66,6 +66,6 @@ func (q *ArrayQueue) Peek() any {
 }
 
 // 获取 Slice 用于打印
-func (s *ArrayQueue) toSlice() []int {
-	return s.data[s.front:s.rear]
+func (q *arrayQueue) toSlice() []int {
+	return q.data[q.front:q.rear]
 }
