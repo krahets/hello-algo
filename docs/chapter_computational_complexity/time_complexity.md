@@ -84,7 +84,8 @@ $$
         var a = 2; // 1 ns
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
-        for(var i = 0; i < n; i++) { // 1 ns ，每轮都要执行 i++
+        // 循环 n 次
+        for(let i = 0; i < n; i++) { // 1 ns ，每轮都要执行 i++
             console.log(0); // 5 ns
         }
     }
@@ -93,11 +94,13 @@ $$
 === "TypeScript"
 
     ```typescript title=""
+    // 在某运行平台下
     function algorithm(n: number): void {
         var a: number = 2; // 1 ns
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
-        for(var i = 0; i < n; i++) { // 1 ns ，每轮都要执行 i++
+        // 循环 n 次
+        for(let i = 0; i < n; i++) { // 1 ns ，每轮都要执行 i++
             console.log(0); // 5 ns
         }
     }
@@ -241,13 +244,13 @@ $$
     }
     // 算法 B 时间复杂度：线性阶
     function algorithm_B(n) {
-        for (var i = 0; i < n; i++) {
+        for (let i = 0; i < n; i++) {
             console.log(0);
         }
     }
     // 算法 C 时间复杂度：常数阶
     function algorithm_C(n) {
-        for (var i = 0; i < 1000000; i++) {
+        for (let i = 0; i < 1000000; i++) {
             console.log(0);
         }
     }
@@ -263,13 +266,13 @@ $$
     }
     // 算法 B 时间复杂度：线性阶
     function algorithm_B(n: number): void {
-        for (var i = 0; i < n; i++) {
+        for (let i = 0; i < n; i++) {
             console.log(0);
         }
     }
     // 算法 C 时间复杂度：常数阶
     function algorithm_C(n: number): void {
-        for (var i = 0; i < 1000000; i++) {
+        for (let i = 0; i < 1000000; i++) {
             console.log(0);
         }
     }
@@ -412,7 +415,7 @@ $$
         a += 1; // +1
         a *= 2; // +1
         // 循环 n 次
-        for(var i = 0; i < n; i++){ // +1
+        for(let i = 0; i < n; i++){ // +1（每轮都执行 i ++）
             console.log(0); // +1
         }
 
@@ -427,7 +430,7 @@ $$
         a += 1; // +1
         a *= 2; // +1
         // 循环 n 次
-        for(var i = 0; i < n; i++){ // +1
+        for(let i = 0; i < n; i++){ // +1（每轮都执行 i ++）
             console.log(0); // +1
         }
 
@@ -595,10 +598,10 @@ $$
 
     ```js title=""
     function algorithm(n) {
-        var a = 1;  // +0（技巧 1）
+        let a = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
         // +n（技巧 2）
-        for (var i = 0; i < 5 * n + 1; i++) {
+        for (let i = 0; i < 5 * n + 1; i++) {
             console.log(0);
         }
         // +n*n（技巧 3）
@@ -614,7 +617,7 @@ $$
 
     ```typescript title=""
     function algorithm(n: number): void {
-        var a: number = 1;  // +0（技巧 1）
+        let a = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
         // +n（技巧 2）
         for (let i = 0; i < 5 * n + 1; i++) {
