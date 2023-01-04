@@ -118,7 +118,9 @@ function factorialRecur(n: number): number {
     return count;
 }
 
-var n = 8;
+/* Driver Code */
+// 可以修改 n 运行，体会一下各种复杂度的操作数量变化趋势
+const n = 8;
 console.log("输入数据大小 n = " + n);
 
 let count = constant(n);
