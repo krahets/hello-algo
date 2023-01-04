@@ -313,14 +313,13 @@ comments: true
             stkSize++;
         }
         /* 出栈 */
-        int pop() {
+        void pop() {
             int num = top();
             ListNode *tmp = stackTop;
             stackTop = stackTop->next;
             // 释放内存
             delete tmp;
             stkSize--;
-            return num;
         }
         /* 访问栈顶元素 */
         int top() {
@@ -657,10 +656,9 @@ comments: true
             stack.push_back(num);
         }
         /* 出栈 */
-        int pop() {
+        void pop() {
             int oldTop = top();
             stack.pop_back();
-            return oldTop;
         }
         /* 访问栈顶元素 */
         int top() {

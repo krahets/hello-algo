@@ -328,7 +328,7 @@ comments: true
             queSize++;
         }
         /* 出队 */
-        int poll() {
+        void poll() {
             int num = peek();
             // 删除头结点
             ListNode *tmp = front;
@@ -336,7 +336,6 @@ comments: true
             // 释放内存
             delete tmp; 
             queSize--;
-            return num;
         }
         /* 访问队首元素 */
         int peek() {
@@ -719,11 +718,10 @@ comments: true
             rear = (rear + 1) % capacity();
         }
         /* 出队 */
-        int poll() {
+        void poll() {
             int num = peek();
             // 队头指针向后移动一位，若越过尾部则返回到数组头部
             front = (front + 1) % capacity();
-            return num;
         }
         /* 访问队首元素 */
         int peek() {
