@@ -121,7 +121,7 @@ function factorialRecur(n: number): number {
 var n = 8;
 console.log("输入数据大小 n = " + n);
 
-var count = constant(n);
+let count = constant(n);
 console.log("常数阶的计算操作数量 = " + count);
 
 count = linear(n);
