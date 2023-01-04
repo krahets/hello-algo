@@ -28,10 +28,9 @@ public:
     }
 
     /* 出栈 */
-    int pop() {
+    void pop() {
         int oldTop = top();
         stack.pop_back();
-        return oldTop;
     }
 
     /* 访问栈顶元素 */
@@ -67,8 +66,8 @@ int main() {
     cout << "栈顶元素 top = " << top << endl;
 
     /* 元素出栈 */
-    int pop = stack->pop();
-    cout << "出栈元素 pop = " << pop << "，出栈后 stack = ";
+    stack->pop();
+    cout << "出栈元素 pop = " << top << "，出栈后 stack = ";
     PrintUtil::printVector(stack->toVector());
 
     /* 获取栈的长度 */
