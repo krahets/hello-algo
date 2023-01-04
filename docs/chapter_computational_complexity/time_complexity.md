@@ -79,6 +79,7 @@ $$
 === "JavaScript"
 
     ```js title=""
+    // 在某运行平台下
     function algorithm(n) {
         var a = 2; // 1 ns
         a = a + 1; // 1 ns
