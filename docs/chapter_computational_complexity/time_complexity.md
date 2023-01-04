@@ -617,7 +617,7 @@ $$
         var a: number = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
         // +n（技巧 2）
-        for (var i = 0; i < 5 * n + 1; i++) {
+        for (let i = 0; i < 5 * n + 1; i++) {
             console.log(0);
         }
         // +n*n（技巧 3）
