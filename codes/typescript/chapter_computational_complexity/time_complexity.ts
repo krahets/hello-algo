@@ -20,7 +20,7 @@ function linear(n: number): number {
 }
 
 /* 线性阶（遍历数组） */
-function arrayTraversal(nums: number[]) {
+function arrayTraversal(nums: number[]): number {
     let count = 0;
     // 循环次数与数组长度成正比
     for (let i = 0; i < nums.length; i++) {
