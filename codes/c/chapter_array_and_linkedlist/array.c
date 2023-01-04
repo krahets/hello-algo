@@ -76,16 +76,7 @@ int main() {
     printf("数组 arr = ");
     printArray(arr, size);
 
-    int arr2[5] = { 1, 3, 2, 5, 4 };
-    printf("数组 arr2 = ");
-    printArray(arr2, size);
-
-    int* nums = (int *)malloc(sizeof(int) * size);
-    nums[0] = 1;
-    nums[1] = 3;
-    nums[2] = 2;
-    nums[3] = 5;
-    nums[4] = 4;
+    int nums[5] = { 1, 3, 2, 5, 4 };
     printf("数组 nums = ");
     printArray(nums, size);
     
@@ -96,29 +87,26 @@ int main() {
     /* 长度扩展 */
     int enlarge = 3;
     int* res = extend(nums, size, enlarge);
-    int* temp = nums;
-    nums = res;
-    free(temp);
     size += enlarge;
     printf("将数组长度扩展至 8 ，得到 nums = ");
-    printArray(nums, size);
+    printArray(res, size);
     
     /* 插入元素 */
-    insert(nums, size, 6, 3);
+    insert(res, size, 6, 3);
     printf("在索引 3 处插入数字 6 ，得到 nums = ");
-    printArray(nums, size);
+    printArray(res, size);
 
     /* 删除元素 */
-    removeItem(nums, size, 2);
+    removeItem(res, size, 2);
     printf("删除索引 2 处的元素，得到 nums = ");
-    printArray(nums, size);
+    printArray(res, size);
     
     /* 遍历数组 */
-    traverse(nums, size);
+    traverse(res, size);
     
     /* 查找元素 */
-    int index = find(nums, size, 3);
-    printf("在 nums 中查找元素 3 ，得到索引 = %d\n", index);
+    int index = find(res, size, 3);
+    printf("在 res 中查找元素 3 ，得到索引 = %d\n", index);
 
     return 0;
 }
