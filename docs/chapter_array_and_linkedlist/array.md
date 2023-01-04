@@ -69,8 +69,8 @@ comments: true
     ```c title="array.c"
     /* 初始化数组 */
      int nums[8] = {1, 2, 4, 8, 16 ,32 ,64}; /* 从ANSI C开始支持这种初始化 即完全初始化 */
-     int arr[5] = {1, 2}; /* 不完全初始化 未初始化的元素会被置0 */
-     int days[12] = {31, 28, [4] = 31, 30, 31, [1] = 29}; /* 从C99开始支持 指定初始化器 即指定数组中某一位元素的数值 */
+     int arr[5] = {1, 2}; // 不完全初始化 未初始化的元素会被置 0
+     int days[12] = {31, 28, [4] = 31, 30, 31, [1] = 29}; // 从C99开始支持 指定初始化器 即指定数组中某一位元素的数值
     ```
 
 === "C#"
@@ -179,9 +179,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     ```c title="array.c"
     /* 随机返回一个数组元素 */
     int randomAccess(int nums[], int size) {
-        //在区间[0, nums的长度)中随机抽取一个数字
+        // 在区间 [0, nums的长度) 中随机抽取一个数字
         int randomIndex = rand() % size;
-        //获取并返回随机元素
+        // 获取并返回随机元素
         int random = nums[randomIndex];
         return random;
     }
@@ -303,7 +303,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C"
 
     ```c title="array.c"
-    /*扩展数组长度 */
+    /* 扩展数组长度 */
     int* extend(int nums[], int size, int enlarge) {
         // 初始化一个扩展长度后的数组
         int res[size + enlarge];
