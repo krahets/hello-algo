@@ -1,8 +1,8 @@
-'''
+"""
 File: merge_sort.py
 Created Time: 2022-11-25
 Author: timi (xisunyy@163.com)
-'''
+"""
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
@@ -24,15 +24,15 @@ def merge(nums, left, mid, right):
     i, j = left_start, right_start
     # 通过覆盖原数组 nums 来合并左子数组和右子数组
     for k in range(left, right + 1):
-        # 若 “左子数组已全部合并完”，则选取右子数组元素，并且 j++
+        # 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
         if i > left_end:
             nums[k] = tmp[j]
             j += 1
-        # 否则，若 “右子数组已全部合并完” 或 “左子数组元素 < 右子数组元素”，则选取左子数组元素，并且 i++
+        # 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
         elif j > right_end or tmp[i] <= tmp[j]:
             nums[k] = tmp[i]
             i += 1
-        # 否则，若 “左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+        # 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
         else:
             nums[k] = tmp[j]
             j += 1

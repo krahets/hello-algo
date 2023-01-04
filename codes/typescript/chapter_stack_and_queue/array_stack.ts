@@ -29,20 +29,16 @@ class ArrayStack {
 
     /* 出栈 */
     pop(): number | undefined {
-        if (this.empty()) throw new Error('栈为空');
+        if (this.empty())
+            throw new Error('栈为空');
         return this.stack.pop();
     }
 
     /* 访问栈顶元素 */
     top(): number | undefined {
-        if (this.empty()) throw new Error('栈为空');
+        if (this.empty())
+            throw new Error('栈为空');
         return this.stack[this.stack.length - 1];
-    }
-
-    /* 访问索引 index 处元素 */
-    get(index: number): number | undefined {
-        if (index >= this.size) throw new Error('索引越界');
-        return this.stack[index];
     }
 
     /* 返回 Array */
@@ -69,10 +65,6 @@ console.log(stack.toArray());
 /* 访问栈顶元素 */
 const top = stack.top();
 console.log("栈顶元素 top = " + top);
-
-/* 访问索引 index 处元素 */
-const num = stack.get(3);
-console.log("栈索引 3 处的元素为 num = " + num);
 
 /* 元素出栈 */
 const pop = stack.pop();

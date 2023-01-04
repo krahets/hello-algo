@@ -1,8 +1,8 @@
-'''
+"""
 File: linkedlist_queue.py
 Created Time: 2022-12-01
 Author: Peng Chen (pengchzn@gmail.com)
-'''
+"""
 
 import os.path as osp
 import sys

@@ -1,8 +1,8 @@
-'''
+"""
 File: array_stack.py
 Created Time: 2022-11-29
 Author: Peng Chen (pengchzn@gmail.com)
-'''
+"""
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
@@ -34,11 +34,6 @@ class ArrayStack:
     def peek(self):
         assert not self.is_empty(), "栈为空"
         return self.__stack[-1]
-
-    """ 访问索引 index 处元素 """
-    def get(self, index):
-        assert index < self.size(), "索引越界"
-        return self.__stack[index]
     
     """ 返回列表用于打印 """
     def to_list(self):
@@ -61,10 +56,6 @@ if __name__ == "__main__":
     """ 访问栈顶元素 """
     peek = stack.peek()
     print("栈顶元素 peek =", peek)
-
-    """ 访问索引 index 处元素 """
-    num = stack.get(3)
-    print("栈索引 3 处的元素为 num =", num)
 
     """ 元素出栈 """
     pop = stack.pop()

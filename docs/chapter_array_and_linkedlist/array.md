@@ -43,7 +43,9 @@ comments: true
 === "Go"
 
     ```go title="array.go"
-
+    /* 初始化数组 */
+    var arr []int
+    nums := []int{1, 3, 2, 5, 4}
     ```
 
 === "JavaScript"
@@ -74,9 +76,6 @@ comments: true
     /* 初始化数组 */
     int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
     int[] nums = { 1, 3, 2, 5, 4 };
-    
-    var arr2=new int[5]; // { 0, 0, 0, 0, 0 }
-    var nums2=new int[]{1,2,3,4,5};
     ```
 
 ## 数组优点
@@ -136,7 +135,14 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-    
+    /* 随机返回一个数组元素 */
+    func randomAccess(nums []int) (randomNum int) {
+        // 在区间 [0, nums.length) 中随机抽取一个数字
+        randomIndex := rand.Intn(len(nums))
+        // 获取并返回随机元素
+        randomNum = nums[randomIndex]
+        return
+    }
     ```
 
 === "JavaScript"
@@ -239,7 +245,17 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-    
+    /* 扩展数组长度 */
+    func extend(nums []int, enlarge int) []int {
+        // 初始化一个扩展长度后的数组
+        res := make([]int, len(nums)+enlarge)
+        // 将原数组中的所有元素复制到新数组
+        for i, num := range nums {
+            res[i] = num
+        }
+        // 返回扩展后的新数组
+        return res
+    }
     ```
 
 === "JavaScript"
@@ -298,7 +314,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-**数组中插入或删除元素效率低下。** 假设我们想要在数组中间某位置插入一个元素，由于数组元素在内存中是 “紧挨着的” ，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。删除元素也是类似，需要把此索引之后的元素都向前移动一位。总体看有以下缺点：
+**数组中插入或删除元素效率低下。** 假设我们想要在数组中间某位置插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。删除元素也是类似，需要把此索引之后的元素都向前移动一位。总体看有以下缺点：
 
 - **时间复杂度高：** 数组的插入和删除的平均时间复杂度均为 $O(N)$ ，其中 $N$ 为数组长度。
 - **丢失元素：** 由于数组的长度不可变，因此在插入元素后，超出数组长度范围的元素会被丢失。
@@ -373,7 +389,23 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-    
+    /* 在数组的索引 index 处插入元素 num */
+    func insert(nums []int, num int, index int) {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        for i := len(nums) - 1; i > index; i-- {
+            nums[i] = nums[i-1]
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num
+    }
+
+    /* 删除索引 index 处元素 */
+    func remove(nums []int, index int) {
+        // 把索引 index 之后的所有元素向前移动一位
+        for i := index; i < len(nums)-1; i++ {
+            nums[i] = nums[i+1]
+        }
+    }
     ```
 
 === "JavaScript"
@@ -502,7 +534,18 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-    
+    /* 遍历数组 */
+    func traverse(nums []int) {
+        count := 0
+        // 通过索引遍历数组
+        for i := 0; i < len(nums); i++ {
+            count++
+        }
+        // 直接遍历数组
+        for range nums {
+            count++
+        }
+    }
     ```
 
 === "JavaScript"
@@ -607,7 +650,17 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-    
+    /* 在数组中查找指定元素 */
+    func find(nums []int, target int) (index int) {
+        index = -1
+        for i := 0; i < len(nums); i++ {
+            if nums[i] == target {
+                index = i
+                break
+            }
+        }
+        return
+    }
     ```
 
 === "JavaScript"
@@ -661,6 +714,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
 **随机访问。** 如果我们想要随机抽取一些样本，那么可以用数组存储，并生成一个随机序列，根据索引实现样本的随机抽取。
 
-**二分查找。** 例如前文查字典的例子，我们可以将字典中的所有字按照拼音顺序存储在数组中，然后使用与日常查纸质字典相同的 “翻开中间，排除一半” 的方式，来实现一个查电子字典的算法。
+**二分查找。** 例如前文查字典的例子，我们可以将字典中的所有字按照拼音顺序存储在数组中，然后使用与日常查纸质字典相同的“翻开中间，排除一半”的方式，来实现一个查电子字典的算法。
 
 **深度学习。** 神经网络中大量使用了向量、矩阵、张量之间的线性代数运算，这些数据都是以数组的形式构建的。数组是神经网络编程中最常使用的数据结构。

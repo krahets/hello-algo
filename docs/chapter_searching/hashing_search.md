@@ -8,7 +8,7 @@ comments: true
 
     在数据量很大时，「线性查找」太慢；而「二分查找」要求数据必须是有序的，并且只能在数组中应用。那么是否有方法可以同时避免上述缺点呢？答案是肯定的，此方法被称为「哈希查找」。
 
-「哈希查找 Hash Searching」借助一个哈希表来存储需要的「键值对 Key Value Pair」，我们可以在 $O(1)$ 时间下实现 “键 $\rightarrow$ 值” 映射查找，体现着 “以空间换时间” 的算法思想。
+「哈希查找 Hash Searching」借助一个哈希表来存储需要的「键值对 Key Value Pair」，我们可以在 $O(1)$ 时间下实现“键 $\rightarrow$ 值”映射查找，体现着“以空间换时间”的算法思想。
 
 ## 算法实现
 
@@ -86,7 +86,13 @@ comments: true
 === "C#"
 
     ```csharp title="hashing_search.cs"
-
+    /* 哈希查找（数组） */
+    int hashingSearch(Dictionary<int, int> map, int target)
+    {
+        // 哈希表的 key: 目标元素，value: 索引
+        // 若哈希表中无此 key ，返回 -1
+        return map.GetValueOrDefault(target, -1);
+    }
     ```
 
 再比如，如果我们想要给定一个目标结点值 `target` ，获取对应的链表结点对象，那么也可以使用哈希查找实现。
@@ -163,7 +169,14 @@ comments: true
 === "C#"
 
     ```csharp title="hashing_search.cs"
+    /* 哈希查找（链表） */
+    ListNode? hashingSearch1(Dictionary<int, ListNode> map, int target)
+    {
 
+        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 若哈希表中无此 key ，返回 null
+        return map.GetValueOrDefault(target);
+    }
     ```
 
 ## 复杂度分析

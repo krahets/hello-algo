@@ -51,7 +51,19 @@ comments: true
 === "Go"
 
     ```go title=""
-
+    /* 链表结点结构体 */
+    type ListNode struct {
+        Val  int       // 结点值
+        Next *ListNode // 指向下一结点的指针（引用）
+    }
+    
+    // NewListNode 构造函数，创建一个新的链表
+    func NewListNode(val int) *ListNode {
+        return &ListNode{
+            Val:  val,
+            Next: nil,
+        }
+    }
     ```
 
 === "JavaScript"
@@ -91,7 +103,7 @@ comments: true
 === "C#"
 
     ```csharp title=""
-    // 链表结点类
+    /* 链表结点类 */
     class ListNode
     {
         int val;         // 结点值
@@ -162,7 +174,19 @@ comments: true
 === "Go"
 
     ```go title=""
-
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个结点
+    n0 := NewListNode(1)
+    n1 := NewListNode(3)
+    n2 := NewListNode(2)
+    n3 := NewListNode(5)
+    n4 := NewListNode(4)
+    
+    // 构建引用指向
+    n0.Next = n1
+    n1.Next = n2
+    n2.Next = n3
+    n3.Next = n4
     ```
 
 === "JavaScript"
@@ -208,13 +232,13 @@ comments: true
 === "C#"
 
     ```csharp title=""
-    // 初始化链表 1 -> 3 -> 2 -> 5 -> 4 
-    // 初始化各结点
-    n0 = new ListNode(1);
-    n1 = new ListNode(3);
-    n2 = new ListNode(2);
-    n3 = new ListNode(5);
-    n4 = new ListNode(4);
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个结点 
+    ListNode n0 = new ListNode(1);
+    ListNode n1 = new ListNode(3);
+    ListNode n2 = new ListNode(2);
+    ListNode n3 = new ListNode(5);
+    ListNode n4 = new ListNode(4);
     // 构建引用指向
     n0.next = n1;
     n1.next = n2;
@@ -269,6 +293,8 @@ comments: true
         ListNode* P = n0->next;
         ListNode* n1 = P->next;
         n0->next = n1;
+        // 释放内存
+        delete P;
     }
     ```
 
@@ -294,7 +320,23 @@ comments: true
 === "Go"
 
     ```go title=""
+    /* 在链表的结点 n0 之后插入结点 P */
+    func insert(n0 *ListNode, P *ListNode) {
+        n1 := n0.Next
+        n0.Next = P
+        P.Next = n1
+    }
 
+    /* 删除链表的结点 n0 之后的首个结点 */
+    func removeNode(n0 *ListNode) {
+        if n0.Next == nil {
+            return
+        }
+        // n0 -> P -> n1
+        P := n0.Next
+        n1 := P.Next
+        n0.Next = n1
+    }
     ```
 
 === "JavaScript"
@@ -415,7 +457,16 @@ comments: true
 === "Go"
 
     ```go title=""
-
+    /* 访问链表中索引为 index 的结点 */
+    func access(head *ListNode, index int) *ListNode {
+        for i := 0; i < index; i++ {
+            head = head.Next
+            if head == nil {
+                return nil
+            }
+        }
+        return head
+    }
     ```
 
 === "JavaScript"
@@ -524,7 +575,18 @@ comments: true
 === "Go"
 
     ```go title=""
-
+    /* 在链表中查找值为 target 的首个结点 */
+    func find(head *ListNode, target int) int {
+        index := 0
+        for head != nil {
+            if head.Val == target {
+                return index
+            }
+            head = head.Next
+            index++
+        }
+        return -1
+    }
     ```
 
 === "JavaScript"
@@ -613,7 +675,7 @@ comments: true
         int val;         // 结点值
         ListNode *next;  // 指向后继结点的指针（引用）
         ListNode *prev;  // 指向前驱结点的指针（引用）
-        ListNode(int x) : val(x), next(nullptr) {}  // 构造函数
+        ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // 构造函数
     };
     ```
 
@@ -631,7 +693,21 @@ comments: true
 === "Go"
 
     ```go title=""
-
+    /* 双向链表结点结构体 */
+    type DoublyListNode struct {
+        Val  int             // 结点值
+        Next *DoublyListNode // 指向后继结点的指针（引用）
+        Prev *DoublyListNode // 指向前驱结点的指针（引用）
+    }
+    
+    // NewDoublyListNode 初始化
+    func NewDoublyListNode(val int) *DoublyListNode {
+        return &DoublyListNode{
+            Val:  val,
+            Next: nil,
+            Prev: nil,
+        }
+    }
     ```
 
 === "JavaScript"
@@ -644,8 +720,8 @@ comments: true
         prev;
         constructor(val, next) {
             this.val = val  ===  undefined ? 0 : val;        // 结点值
-            this.next = next  ===  undefined ? null : next;  // 指向后继结点的引用
-            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的引用
+            this.next = next  ===  undefined ? null : next;  // 指向后继结点的指针（引用）
+            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的指针（引用）
         }
     }
     ```
@@ -660,8 +736,8 @@ comments: true
         prev: ListNode | null;
         constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
             this.val = val  ===  undefined ? 0 : val;        // 结点值
-            this.next = next  ===  undefined ? null : next;  // 指向后继结点的引用
-            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的引用
+            this.next = next  ===  undefined ? null : next;  // 指向后继结点的指针（引用）
+            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的指针（引用）
         }
     }
     ```
@@ -675,7 +751,7 @@ comments: true
 === "C#"
 
     ```csharp title=""
-    // 双向链表结点类 
+    /* 双向链表结点类 */
     class ListNode {
         int val;        // 结点值
         ListNode next;  // 指向后继结点的指针（引用）

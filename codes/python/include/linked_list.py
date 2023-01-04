@@ -1,8 +1,8 @@
-'''
+"""
 File: linked_list.py
 Created Time: 2021-12-11
 Author: Krahets (krahets@163.com)
-'''
+"""
 
 class ListNode:
     """Definition for a singly-linked list node

@@ -21,6 +21,8 @@ void remove(ListNode* n0) {
     ListNode* P = n0->next;
     ListNode* n1 = P->next;
     n0->next = n1;
+    // 释放内存
+    delete P;
 }
 
 /* 访问链表中索引为 index 的结点 */

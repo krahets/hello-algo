@@ -120,7 +120,7 @@ function remove(num: number): TreeNode | null {
     // 子结点数量 = 2
     else {
         // 获取中序遍历中 cur 的下一个结点
-        let next = min(cur.right);
+        let next = getInOrderNext(cur.right);
         let tmp = next!.val;
         // 递归删除结点 nex
         remove(next!.val);
@@ -130,8 +130,8 @@ function remove(num: number): TreeNode | null {
     return cur;
 }
 
-/* 获取最小结点 */
-function min(root: TreeNode | null): TreeNode | null {
+/* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+function getInOrderNext(root: TreeNode | null): TreeNode | null {
     if (root === null) {
         return null;
     }

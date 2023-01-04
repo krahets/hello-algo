@@ -42,7 +42,7 @@ func printTree(root *TreeNode) {
 	printTree(root.right)
 }
 
-/* 函数（或称方法）*/
+/* 函数 */
 func function() int {
 	// do something...
 	return 0
