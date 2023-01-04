@@ -1,12 +1,12 @@
-// File: worst_best_time_complexity.c
-// Created Time: 2023-01-03
-// Author: sjinzh (sjinzh@gmail.com)
+/*
+ * File: worst_best_time_complexity.c
+ * Created Time: 2023-01-03
+ * Author: sjinzh (sjinzh@gmail.com)
+ */
 
-#include "stdio.h"
-#include "stdlib.h"
-#include "time.h"
+#include "../include/include.h"
 
-// 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
+/* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
 int *randomNumbers(int n)  
 {
     // 分配堆区内存（创建一维可变长数组：数组中元素数量为n，元素类型为int）
@@ -27,7 +27,7 @@ int *randomNumbers(int n)
     return nums;
 }
 
-// 查找数组 nums 中数字 1 所在索引
+/* 查找数组 nums 中数字 1 所在索引 */
 int findOne(int *nums, int n) 
 {
     for (int i = 0; i < n; i++)
@@ -37,7 +37,7 @@ int findOne(int *nums, int n)
     return -1;
 }
 
-// Driver Code
+/* Driver Code */
 int main(int argc, char *argv[])
 {
     // 初始化随机数种子

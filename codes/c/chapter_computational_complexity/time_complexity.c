@@ -1,11 +1,12 @@
-// File: time_complexity.c
-// Created Time: 2023-01-03
-// Author: sjinzh (sjinzh@gmail.com)
+/*
+ * File: time_complexity.c
+ * Created Time: 2023-01-03
+ * Author: sjinzh (sjinzh@gmail.com)
+ */
 
-#include "stdio.h"
-#include "stdlib.h"
+#include "../include/include.h"
 
-// 常数阶
+/* 常数阶 */
 int constant(int n) 
 {
     int count = 0;
@@ -17,7 +18,7 @@ int constant(int n)
     return count;
 }
 
-// 线性阶
+/* 线性阶 */
 int linear(int n) 
 {
     int count = 0;
@@ -27,7 +28,7 @@ int linear(int n)
     return count;
 }
 
-// 线性阶（遍历数组）
+/* 线性阶（遍历数组） */
 int arrayTraversal(int *nums, int n)
 {
     int count = 0;
@@ -38,7 +39,7 @@ int arrayTraversal(int *nums, int n)
     return count;
 }
 
-// 平方阶
+/* 平方阶 */
 int quadratic(int n) 
 {
     int count = 0;
@@ -51,7 +52,7 @@ int quadratic(int n)
     return count;
 }
 
-// 平方阶（冒泡排序）
+/* 平方阶（冒泡排序） */
 int bubbleSort(int *nums, int n)
 {
     int count = 0;  // 计数器 
@@ -71,7 +72,7 @@ int bubbleSort(int *nums, int n)
     return count;
 }
 
-// 指数阶（循环实现）
+/* 指数阶（循环实现） */
 int exponential(int n) 
 {
     int count = 0;
@@ -89,14 +90,14 @@ int exponential(int n)
     return count;
 }
 
-// 指数阶（递归实现）
+/* 指数阶（递归实现） */
 int expRecur(int n) 
 {
     if (n == 1) return 1;
     return expRecur(n - 1) + expRecur(n - 1) + 1;
 }
 
-// 对数阶（循环实现）
+/* 对数阶（循环实现） */
 int logarithmic(float n)
 {
     int count = 0;
@@ -108,14 +109,14 @@ int logarithmic(float n)
     return count;
 }
 
-// 对数阶（递归实现）
+/* 对数阶（递归实现） */
 int logRecur(float n)
 {
     if (n <= 1) return 0;
     return logRecur(n / 2) + 1;
 }
 
-// 线性对数阶
+/* 线性对数阶 */
 int linearLogRecur(float n)
 {
     if (n <= 1) return 1;
@@ -128,7 +129,7 @@ int linearLogRecur(float n)
     return count;
 }
 
-// 阶乘阶（递归实现）
+/* 阶乘阶（递归实现） */
 int factorialRecur(int n) 
 {
     if (n == 0) return 1;
@@ -140,7 +141,7 @@ int factorialRecur(int n)
     return count;
 }
 
-// Driver Code
+/* Driver Code */
 int main(int argc, char *argv[])
  {
     // 可以修改 n 运行，体会一下各种复杂度的操作数量变化趋势
