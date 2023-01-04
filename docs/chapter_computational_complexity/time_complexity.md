@@ -621,8 +621,8 @@ $$
             console.log(0);
         }
         // +n*n（技巧 3）
-        for (var i = 0; i < 2 * n; i++) {
-            for (var j = 0; j < n + 1; j++) {
+        for (let i = 0; i < 2 * n; i++) {
+            for (let j = 0; j < n + 1; j++) {
                 console.log(0);
             }
         }
