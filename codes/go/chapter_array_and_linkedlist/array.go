@@ -8,11 +8,6 @@ import (
 	"math/rand"
 )
 
-/**
-我们将 Go 中的 Slice 切片看作 Array 数组，降低理解成本，
-有利于我们将关注点放在数据结构与算法上。
-*/
-
 /* 随机返回一个数组元素 */
 func randomAccess(nums []int) (randomNum int) {
 	// 在区间 [0, nums.length) 中随机抽取一个数字
