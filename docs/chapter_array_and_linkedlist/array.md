@@ -44,8 +44,8 @@ comments: true
 
     ```go title="array.go"
     /* 初始化数组 */
-    var arr []int
-    nums := []int{1, 3, 2, 5, 4}
+    var arr [5]int
+    nums := [5]int{1, 3, 2, 5, 4}
     ```
 
 === "JavaScript"
