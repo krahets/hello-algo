@@ -136,8 +136,7 @@ comments: true
 
     ```c title="insertion_sort.c"
     /* 插入排序 */
-    void insertionSort(int nums[], int size)
-    {
+    void insertionSort(int nums[], int size) {
         // 外循环：base = nums[1], nums[2], ..., nums[n-1]
         for (int i = 1; i < size; i++)
         {

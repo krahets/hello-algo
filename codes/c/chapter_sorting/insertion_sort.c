@@ -7,8 +7,7 @@
 #include "../include/include.h"
 
 /* 插入排序 */
-void insertionSort(int nums[], int size)
-{
+void insertionSort(int nums[], int size) {
     // 外循环：base = nums[1], nums[2], ..., nums[n-1]
     for (int i = 1; i < size; i++)
     {
@@ -26,8 +25,7 @@ void insertionSort(int nums[], int size)
 }
 
 /* Driver Code */
-int main()
-{
+int main() {
     int nums[] = {4, 1, 3, 1, 5, 2};
     insertionSort(nums, 6);
     printf("插入排序完成后 nums = \n");
