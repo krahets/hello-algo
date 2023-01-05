@@ -1,11 +1,11 @@
 /*
- * File: worst_best_time_complexity.js
+ * File: worst_best_time_complexity.ts
  * Created Time: 2023-01-05
  * Author: RiverTwilight (contact@rene.wang)
  */
 
-function randomNumbers(n) {
-    let nums = Array(n);
+function randomNumbers(n: number): number[] {
+    nums = Array(n);
     for (let i = 0; i < n; i++) {
         nums[i] = i + 1;
     }
