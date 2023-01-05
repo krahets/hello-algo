@@ -13,7 +13,7 @@ function randomNumbers(n) {
     }
     // 随机打乱数组元素
     for (let i = 0; i < n; i++) {
-        let r = Math.floor(Math.random() * n);
+        let r = Math.floor(Math.random() * (i + 1));
         let temp = nums[i];
         nums[i] = nums[r];
         nums[r] = temp;
@@ -24,7 +24,7 @@ function randomNumbers(n) {
 /* 查找数组 nums 中数字 1 所在索引 */
 function findOne(nums) {
     for (let i = 0; i < nums.length; i++) {
-        if (nums[i] == 1) {
+        if (nums[i] === 1) {
             return i;
         }
     }
