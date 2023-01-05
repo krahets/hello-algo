@@ -92,8 +92,7 @@ $$
 
     ```c title=""
     // 在某运行平台下
-    void algorithm(int n) 
-    {
+    void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
@@ -243,20 +242,17 @@ $$
 
     ```c title=""
     // 算法 A 时间复杂度：常数阶
-    void algorithm_A(int n) 
-    {
+    void algorithm_A(int n) {
         printf("%d", 0);
     }
     // 算法 B 时间复杂度：线性阶
-    void algorithm_B(int n) 
-    {
+    void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             printf("%d", 0);
         }
     }
     // 算法 C 时间复杂度：常数阶
-    void algorithm_C(int n) 
-    {
+    void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             printf("%d", 0);
         }
@@ -401,8 +397,7 @@ $$
 === "C"
 
     ```c title=""
-    void algorithm(int n) 
-    {
+    void algorithm(int n) {
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
@@ -579,8 +574,7 @@ $$
 === "C"
 
     ```c title=""
-    void algorithm(int n) 
-    {
+    void algorithm(int n) {
         int a = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
         // +n（技巧 2）
@@ -749,12 +743,11 @@ $$
 
     ```c title="time_complexity.c"
     /* 常数阶 */
-    int constant(int n) 
-    {
+    int constant(int n) {
         int count = 0;
         int size = 100000;
         int i = 0;
-        for(int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             count ++;
         }
         return count;
@@ -857,10 +850,9 @@ $$
 
     ```c title="time_complexity.c"
     /* 线性阶 */
-    int linear(int n) 
-    {
+    int linear(int n) {
         int count = 0;
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             count ++;
         }
         return count;
@@ -969,11 +961,10 @@ $$
 
     ```c title="time_complexity.c"
     /* 线性阶（遍历数组） */
-    int arrayTraversal(int *nums, int n)
-    {
+    int arrayTraversal(int *nums, int n) {
         int count = 0;
         // 循环次数与数组长度成正比
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             count ++;
         }
         return count;
@@ -1091,12 +1082,11 @@ $$
 
     ```c title="time_complexity.c"
     /* 平方阶 */
-    int quadratic(int n) 
-    {
+    int quadratic(int n) {
         int count = 0;
         // 循环次数与数组长度成平方关系
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < n; j++){
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 count ++;
             }
         }
@@ -1253,14 +1243,12 @@ $$
 
     ```c title="time_complexity.c"
     /* 平方阶（冒泡排序） */
-    int bubbleSort(int *nums, int n)
-    {
+    int bubbleSort(int *nums, int n) {
         int count = 0;  // 计数器 
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for(int i = n - 1; i > 0; i--){
+        for (int i = n - 1; i > 0; i--) {
             // 内循环：冒泡操作
-            for (int j = 0; j < i; j++)
-            {
+            for (int j = 0; j < i; j++) {
                 // 交换 nums[j] 与 nums[j + 1]
                 int tmp = nums[j];
                 nums[j] = nums[j + 1];
@@ -1417,15 +1405,12 @@ $$
 
     ```c title="time_complexity.c"
     /* 指数阶（循环实现） */
-    int exponential(int n) 
-    {
+    int exponential(int n) {
         int count = 0;
         int bas = 1;
         // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < bas; j++)
-            {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < bas; j++) {
                 count++;
             }
             bas *= 2;
@@ -1538,8 +1523,7 @@ $$
 
     ```c title="time_complexity.c"
     /* 指数阶（递归实现） */
-    int expRecur(int n) 
-    {
+    int expRecur(int n) {
         if (n == 1) return 1;
         return expRecur(n - 1) + expRecur(n - 1) + 1;
     }
@@ -1646,11 +1630,9 @@ $$
 
     ```c title="time_complexity.c"
     /* 对数阶（循环实现） */
-    int logarithmic(float n)
-    {
+    int logarithmic(float n) {
         int count = 0;
-        while (n > 1)
-        {
+        while (n > 1) {
             n = n / 2;
             count++;
         }
@@ -1752,8 +1734,7 @@ $$
 
     ```c title="time_complexity.c"
     /* 对数阶（递归实现） */
-    int logRecur(float n)
-    {
+    int logRecur(float n) {
         if (n <= 1) return 0;
         return logRecur(n / 2) + 1;
     }
@@ -1864,13 +1845,11 @@ $$
 
     ```c title="time_complexity.c"
     /* 线性对数阶 */
-    int linearLogRecur(float n)
-    {
+    int linearLogRecur(float n) {
         if (n <= 1) return 1;
         int count = linearLogRecur(n / 2) +
                     linearLogRecur(n / 2);
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             count ++;
         }
         return count;
@@ -2000,12 +1979,10 @@ $$
 
     ```c title="time_complexity.c"
     /* 阶乘阶（递归实现） */
-    int factorialRecur(int n) 
-    {
+    int factorialRecur(int n) {
         if (n == 0) return 1;
         int count = 0;
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
         return count;
@@ -2226,18 +2203,15 @@ $$
 
     ```c title="worst_best_time_complexity.c"
     /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    int *randomNumbers(int n)  
-    {
+    int *randomNumbers(int n) {
         // 分配堆区内存（创建一维可变长数组：数组中元素数量为n，元素类型为int）
         int *nums = (int *)malloc(n * sizeof(int));
         // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
         // 随机打乱数组元素 
-        for (int i = n - 1; i > 0; i--)
-        {
+        for (int i = n - 1; i > 0; i--) {
             int j = rand() % (i + 1);
             int temp = nums[i];
             nums[i] = nums[j];
@@ -2247,33 +2221,26 @@ $$
     }
 
     /* 查找数组 nums 中数字 1 所在索引 */
-    int findOne(int *nums, int n) 
-    {
-        for (int i = 0; i < n; i++)
-        {
+    int findOne(int *nums, int n) {
+        for (int i = 0; i < n; i++) {
             if (nums[i] == 1) return i;
         }
         return -1;
     }
 
     /* Driver Code */
-    int main(int argc, char *argv[])
-    {
+    int main(int argc, char *argv[]) {
         // 初始化随机数种子
         srand((unsigned int)time(NULL));
-        for (int i = 0; i < 10; i++)
-        {
+        for (int i = 0; i < 10; i++) {
             int n = 100;
             int *nums = randomNumbers(n);
             int index = findOne(nums, n);
             printf("\n数组 [ 1, 2, ..., n ] 被打乱后 = ");
-            for (int j = 0; j < n; j++)
-            {
-                printf("%d%s", nums[j], (j == n-1)? "" : "," );
-            }
-            printf("\n数字 1 的索引为 %d\n", index);
+            printArray(nums, n);
+            printf("数字 1 的索引为 %d\n", index);
             // 释放堆区内存
-            if(nums != NULL){
+            if (nums != NULL) {
                 free(nums);
                 nums = NULL;
             }

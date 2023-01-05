@@ -7,33 +7,30 @@
 #include "../include/include.h"
 
 /* 常数阶 */
-int constant(int n) 
-{
+int constant(int n) {
     int count = 0;
     int size = 100000;
     int i = 0;
-    for(int i = 0; i < size; i++){
+    for (int i = 0; i < size; i++) {
         count ++;
     }
     return count;
 }
 
 /* 线性阶 */
-int linear(int n) 
-{
+int linear(int n) {
     int count = 0;
-    for(int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++) {
         count ++;
     }
     return count;
 }
 
 /* 线性阶（遍历数组） */
-int arrayTraversal(int *nums, int n)
-{
+int arrayTraversal(int *nums, int n) {
     int count = 0;
     // 循环次数与数组长度成正比
-    for(int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++) {
         count ++;
     }
     return count;
@@ -44,8 +41,8 @@ int quadratic(int n)
 {
     int count = 0;
     // 循环次数与数组长度成平方关系
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
             count ++;
         }
     }
@@ -53,35 +50,29 @@ int quadratic(int n)
 }
 
 /* 平方阶（冒泡排序） */
-int bubbleSort(int *nums, int n)
-{
+int bubbleSort(int *nums, int n) {
     int count = 0;  // 计数器 
     // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-    for(int i = n - 1; i > 0; i--){
+    for (int i = n - 1; i > 0; i--) {
         // 内循环：冒泡操作
-        for (int j = 0; j < i; j++)
-        {
+        for (int j = 0; j < i; j++) {
             // 交换 nums[j] 与 nums[j + 1]
             int tmp = nums[j];
             nums[j] = nums[j + 1];
             nums[j + 1] = tmp;
             count += 3;  // 元素交换包含 3 个单元操作
         }
-        
     }
     return count;
 }
 
 /* 指数阶（循环实现） */
-int exponential(int n) 
-{
+int exponential(int n) {
     int count = 0;
     int bas = 1;
     // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < bas; j++)
-        {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < bas; j++) {
             count++;
         }
         bas *= 2;
@@ -91,18 +82,15 @@ int exponential(int n)
 }
 
 /* 指数阶（递归实现） */
-int expRecur(int n) 
-{
+int expRecur(int n) {
     if (n == 1) return 1;
     return expRecur(n - 1) + expRecur(n - 1) + 1;
 }
 
 /* 对数阶（循环实现） */
-int logarithmic(float n)
-{
+int logarithmic(float n) {
     int count = 0;
-    while (n > 1)
-    {
+    while (n > 1) {
         n = n / 2;
         count++;
     }
@@ -110,40 +98,34 @@ int logarithmic(float n)
 }
 
 /* 对数阶（递归实现） */
-int logRecur(float n)
-{
+int logRecur(float n) {
     if (n <= 1) return 0;
     return logRecur(n / 2) + 1;
 }
 
 /* 线性对数阶 */
-int linearLogRecur(float n)
-{
+int linearLogRecur(float n) {
     if (n <= 1) return 1;
     int count = linearLogRecur(n / 2) +
                 linearLogRecur(n / 2);
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         count ++;
     }
     return count;
 }
 
 /* 阶乘阶（递归实现） */
-int factorialRecur(int n) 
-{
+int factorialRecur(int n) {
     if (n == 0) return 1;
     int count = 0;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         count += factorialRecur(n - 1);
     }
     return count;
 }
 
 /* Driver Code */
-int main(int argc, char *argv[])
- {
+int main(int argc, char *argv[]) {
     // 可以修改 n 运行，体会一下各种复杂度的操作数量变化趋势
     int n = 8;
     printf("输入数据大小 n = %d\n", n);
@@ -160,7 +142,7 @@ int main(int argc, char *argv[])
 
     count = quadratic(n);
     printf("平方阶的计算操作数量 = %d\n", count);
-    for(int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++) {
         nums[i] = n - i;    // [n,n-1,...,2,1]
     }
     count = bubbleSort(nums, n);
@@ -183,7 +165,7 @@ int main(int argc, char *argv[])
     printf("阶乘阶（递归实现）的计算操作数量 = %d\n", count);
 
     // 释放堆区内存
-    if(nums != NULL){
+    if (nums != NULL) {
         free(nums);
         nums = NULL;
     }

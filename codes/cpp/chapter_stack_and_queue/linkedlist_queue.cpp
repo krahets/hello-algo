@@ -47,7 +47,7 @@ public:
     }
 
     /* 出队 */
-    int poll() {
+    void poll() {
         int num = peek();
         // 删除头结点
         ListNode *tmp = front;
@@ -55,7 +55,6 @@ public:
         // 释放内存
         delete tmp; 
         queSize--;
-        return num;
     }
 
     /* 访问队首元素 */
@@ -97,8 +96,8 @@ int main() {
     cout << "队首元素 peek = " << peek << endl;
 
     /* 元素出队 */
-    int poll = queue->poll();
-    cout << "出队元素 poll = " << poll << "，出队后 queue = ";
+    queue->poll();
+    cout << "出队元素 poll = " << peek << "，出队后 queue = ";
     PrintUtil::printVector(queue->toVector());
 
     /* 获取队列的长度 */
