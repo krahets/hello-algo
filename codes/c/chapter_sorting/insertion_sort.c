@@ -1,4 +1,4 @@
-/*
+/**
  * File: insertion_sort.c
  * Created Time: 2022-12-29
  * Author: Listening (https://github.com/L-Super)

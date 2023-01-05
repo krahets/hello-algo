@@ -1,4 +1,4 @@
-/*
+/**
  * File: array.c
  * Created Time: 2022-12-20
  * Author: MolDuM (moldum@163.com)

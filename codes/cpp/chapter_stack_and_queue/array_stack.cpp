@@ -1,4 +1,4 @@
-/*
+/**
  * File: array_stack.cpp
  * Created Time: 2022-11-28
  * Author: qualifier1024 (2539244001@qq.com)

@@ -1,4 +1,4 @@
-/*
+/**
  * File: hash_map.ts
  * Created Time: 2022-12-20
  * Author: Daniel (better.sunjian@gmail.com)

@@ -1,4 +1,4 @@
-/*
+/**
  * File: PrintUtil.ts
  * Created Time: 2022-12-13
  * Author: Justin (xiefahit@gmail.com)

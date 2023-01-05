@@ -1,4 +1,4 @@
-/*
+/**
  * File: PrintUtil.h
  * Created Time: 2022-12-21
  * Author: MolDum (moldum@163.com)
@@ -26,5 +26,3 @@ static void printArray(int* arr, int n)
     }
     printf("%d]\n", arr[n-1]);
 }
-
-
