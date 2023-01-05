@@ -5,7 +5,7 @@
  */
 
 function randomNumbers(n: number): number[] {
-    nums = Array(n);
+    let nums = Array(n);
     for (let i = 0; i < n; i++) {
         nums[i] = i + 1;
     }
@@ -19,7 +19,7 @@ function randomNumbers(n: number): number[] {
     return nums;
 }
 
-function findOne(nums) {
+function findOne(nums: number[]): number {
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] == 1) {
             return i;
@@ -28,7 +28,7 @@ function findOne(nums) {
     return -1;
 }
 
-function main() {
+function main(): void {
     for (let i = 0; i < 10; i++) {
         let n = 100;
         let nums = randomNumbers(n);
