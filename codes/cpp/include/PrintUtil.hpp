@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <climits>
 #include "ListNode.hpp"
 #include "TreeNode.hpp"
 
