@@ -2348,7 +2348,7 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     function findOne(nums) {
         for (let i = 0; i < nums.length; i++) {
-            if (nums[i] == 1) {
+            if (nums[i] === 1) {
                 return i;
             }
         }
@@ -2392,7 +2392,7 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     function findOne(nums: number[]): number {
         for (let i = 0; i < nums.length; i++) {
-            if (nums[i] == 1) {
+            if (nums[i] === 1) {
                 return i;
             }
         }
