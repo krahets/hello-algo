@@ -97,7 +97,11 @@ comments: true
 === "C"
 
     ```c title=""
-
+    /* 链表结构体 */
+    typedef struct node {
+        int val;
+        node *next;
+    } list_node;
     ```
 
 === "C#"
