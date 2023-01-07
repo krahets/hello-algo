@@ -11,4 +11,4 @@ insert_final_newline = true
 [codes/**.{java,js,ts,go,py,cpp,c,cs,swift,zig}]
 charset = utf-8
 indent_style = space
-indent_size = 2
+indent_size = 4
