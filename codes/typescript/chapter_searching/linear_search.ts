@@ -6,7 +6,7 @@
 
 import ListNode from '../module/ListNode.ts';
 
-/* 线性查找（数组） */
+/* 线性查找（数组）*/
 function linearSearchArray(nums: number[], target: number): number {
     // 遍历数组
     for (let i = 0; i < nums.length; i++) {
