@@ -16,7 +16,7 @@ comments: true
 
 ## 栈常用操作
 
-栈的常用操作见下表，方法名需根据编程语言设定来具体确定。
+栈的常用操作见下表（方法命名以 Java 为例）。
 
 <p align="center"> Table. 栈的常用操作 </p>
 
@@ -40,23 +40,23 @@ comments: true
     /* 初始化栈 */
     // 在 Java 中，推荐将 LinkedList 当作栈来使用
     LinkedList<Integer> stack = new LinkedList<>();
-
+    
     /* 元素入栈 */
     stack.addLast(1);
     stack.addLast(3);
     stack.addLast(2);
     stack.addLast(5);
     stack.addLast(4);
-
+    
     /* 访问栈顶元素 */
     int peek = stack.peekLast();
-
+    
     /* 元素出栈 */
     int pop = stack.removeLast();
-
+    
     /* 获取栈的长度 */
     int size = stack.size();
-
+    
     /* 判断是否为空 */
     boolean isEmpty = stack.isEmpty();
     ```
@@ -66,23 +66,23 @@ comments: true
     ```cpp title="stack.cpp"
     /* 初始化栈 */
     stack<int> stack;
-
+    
     /* 元素入栈 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-
+    
     /* 访问栈顶元素 */
     int top = stack.top();
-
+    
     /* 元素出栈 */
     stack.pop();
-
+    
     /* 获取栈的长度 */
     int size = stack.size();
-
+    
     /* 判断是否为空 */
     bool empty = stack.empty();
     ```
@@ -93,23 +93,23 @@ comments: true
     """ 初始化栈 """
     # Python 没有内置的栈类，可以把 List 当作栈来使用 
     stack = []
-
+    
     """ 元素入栈 """
     stack.append(1)
     stack.append(3)
     stack.append(2)
     stack.append(5)
     stack.append(4)
-
+    
     """ 访问栈顶元素 """
     peek = stack[-1]
-
+    
     """ 元素出栈 """
     pop = stack.pop()
-
+    
     """ 获取栈的长度 """
     size = len(stack)
-
+    
     """ 判断是否为空 """
     is_empty = len(stack) == 0
     ```
@@ -120,24 +120,24 @@ comments: true
     /* 初始化栈 */
     // 在 Go 中，推荐将 Slice 当作栈来使用
     var stack []int
-
+    
     /* 元素入栈 */
     stack = append(stack, 1)
     stack = append(stack, 3)
     stack = append(stack, 2)
     stack = append(stack, 5)
     stack = append(stack, 4)
-
+    
     /* 访问栈顶元素 */
     peek := stack[len(stack)-1]
-
+    
     /* 元素出栈 */
     pop := stack[len(stack)-1]
     stack = stack[:len(stack)-1]
-
+    
     /* 获取栈的长度 */
     size := len(stack)
-
+    
     /* 判断是否为空 */
     isEmpty := len(stack) == 0
     ```
@@ -148,23 +148,23 @@ comments: true
     /* 初始化栈 */
     // Javascript 没有内置的栈类，可以把 Array 当作栈来使用 
     const stack = [];
-
+    
     /* 元素入栈 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-
+    
     /* 访问栈顶元素 */
     const peek = stack[stack.length-1];
-
+    
     /* 元素出栈 */
     const pop = stack.pop();
-
+    
     /* 获取栈的长度 */
     const size = stack.length;
-
+    
     /* 判断是否为空 */
     const is_empty = stack.length === 0;
     ```
@@ -175,23 +175,23 @@ comments: true
     /* 初始化栈 */
     // Typescript 没有内置的栈类，可以把 Array 当作栈来使用 
     const stack: number[] = [];
-
+    
     /* 元素入栈 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-
+    
     /* 访问栈顶元素 */
     const peek = stack[stack.length - 1];
-
+    
     /* 元素出栈 */
     const pop = stack.pop();
-
+    
     /* 获取栈的长度 */
     const size = stack.length;
-
+    
     /* 判断是否为空 */
     const is_empty = stack.length === 0;
     ```
@@ -199,7 +199,7 @@ comments: true
 === "C"
 
     ```c title="stack.c"
-
+    
     ```
 
 === "C#"
@@ -207,23 +207,23 @@ comments: true
     ```csharp title="stack.cs"
     /* 初始化栈 */
     Stack<int> stack = new ();
-
+    
     /* 元素入栈 */
     stack.Push(1);
     stack.Push(3);
     stack.Push(2);
     stack.Push(5);
     stack.Push(4);
-
+    
     /* 访问栈顶元素 */
     int peek = stack.Peek();
-
+    
     /* 元素出栈 */
     int pop = stack.Pop();
-
+    
     /* 获取栈的长度 */
     int size = stack.Count();
-
+    
     /* 判断是否为空 */
     bool isEmpty = stack.Count()==0;
     ```
@@ -291,7 +291,7 @@ comments: true
     private:
         ListNode* stackTop; // 将头结点作为栈顶
         int stkSize;        // 栈的长度
-
+    
     public:
         LinkedListStack() {
             stackTop = nullptr;
@@ -338,29 +338,29 @@ comments: true
         def __init__(self):
             self.__peek = None
             self.__size = 0
-
+    
         """ 获取栈的长度 """
         def size(self):
             return self.__size
-
+    
         """ 判断栈是否为空 """
         def is_empty(self):
             return not self.__peek
-
+    
         """ 入栈 """
         def push(self, val):
             node = ListNode(val)
             node.next = self.__peek
             self.__peek = node
             self.__size += 1
-
+    
         """ 出栈 """
         def pop(self):
             num = self.peek()
             self.__peek = self.__peek.next
             self.__size -= 1
             return num
-
+    
         """ 访问栈顶元素 """
         def peek(self):
             # 判空处理
@@ -420,21 +420,21 @@ comments: true
     class LinkedListStack {
         #stackPeek;  // 将头结点作为栈顶
         #stkSize = 0;   // 栈的长度
-
+    
         constructor() {
             this.#stackPeek = null;
         }
-
+    
         /* 获取栈的长度 */
         get size() {
             return this.#stkSize;
         }
-
+    
         /* 判断栈是否为空 */
         isEmpty() {
             return this.size == 0;
         }
-
+    
         /* 入栈 */
         push(num) {
             const node = new ListNode(num);
@@ -442,7 +442,7 @@ comments: true
             this.#stackPeek = node;
             this.#stkSize++;
         }
-
+    
         /* 出栈 */
         pop() {
             const num = this.peek();
@@ -453,7 +453,7 @@ comments: true
             this.#stkSize--;
             return num;
         }
-
+    
         /* 访问栈顶元素 */
         peek() {
             if (!this.#stackPeek) {
@@ -461,7 +461,7 @@ comments: true
             }
             return this.#stackPeek.val;
         }
-
+    
         /* 将链表转化为 Array 并返回 */
         toArray() {
             let node = this.#stackPeek;
@@ -482,21 +482,21 @@ comments: true
     class LinkedListStack {
         private stackPeek: ListNode | null;  // 将头结点作为栈顶
         private stkSize: number = 0;   // 栈的长度
-
+    
         constructor() {
             this.stackPeek = null;
         }
-
+    
         /* 获取栈的长度 */
         get size(): number {
             return this.stkSize;
         }
-
+    
         /* 判断栈是否为空 */
         isEmpty(): boolean {
             return this.size == 0;
         }
-
+    
         /* 入栈 */
         push(num: number): void {
             const node = new ListNode(num);
@@ -504,7 +504,7 @@ comments: true
             this.stackPeek = node;
             this.stkSize++;
         }
-
+    
         /* 出栈 */
         pop(): number {
             const num = this.peek();
@@ -515,7 +515,7 @@ comments: true
             this.stkSize--;
             return num;
         }
-
+    
         /* 访问栈顶元素 */
         peek(): number {
             if (!this.stackPeek) {
@@ -523,7 +523,7 @@ comments: true
             }
             return this.stackPeek.val;
         }
-
+    
         /* 将链表转化为 Array 并返回 */
         toArray(): number[] {
             let node = this.stackPeek;
@@ -540,7 +540,7 @@ comments: true
 === "C"
 
     ```c title="linkedlist_stack.c"
-
+    
     ```
 
 === "C#"
@@ -676,24 +676,24 @@ comments: true
     class ArrayStack:
         def __init__(self):
             self.__stack = []
-
+    
         """ 获取栈的长度 """
         def size(self):
             return len(self.__stack)
-
+    
         """ 判断栈是否为空 """
         def is_empty(self):
             return self.__stack == []
-
+    
         """ 入栈 """
         def push(self, item):
             self.__stack.append(item)
-
+    
         """ 出栈 """
         def pop(self):
             assert not self.is_empty(), "栈为空"
             return self.__stack.pop()
-
+    
         """ 访问栈顶元素 """
         def peek(self):
             assert not self.is_empty(), "栈为空"
@@ -821,7 +821,7 @@ comments: true
 === "C"
 
     ```c title="array_stack.c"
-
+    
     ```
 
 === "C#"
@@ -876,5 +876,5 @@ comments: true
 
 ## 栈典型应用
 
-- **浏览器中的后退与前进、软件中的撤销与反撤销。** 每当我们打开新的网页，浏览器就讲上一个网页执行入栈，这样我们就可以通过「后退」操作来回到上一页面，后退操作实际上是在执行出栈。如果要同时支持后退和前进，那么则需要两个栈来配合实现。
-- **程序内存管理。** 每当调用函数时，系统就会在栈顶添加一个栈帧，用来记录函数的上下文信息。在递归函数中，向下递推会不断执行入栈，向上回溯阶段时出栈。
+- **浏览器中的后退与前进、软件中的撤销与反撤销**。每当我们打开新的网页，浏览器就讲上一个网页执行入栈，这样我们就可以通过「后退」操作来回到上一页面，后退操作实际上是在执行出栈。如果要同时支持后退和前进，那么则需要两个栈来配合实现。
+- **程序内存管理**。每当调用函数时，系统就会在栈顶添加一个栈帧，用来记录函数的上下文信息。在递归函数中，向下递推会不断执行入栈，向上回溯阶段时出栈。

@@ -12,7 +12,7 @@ comments: true
 
 ## 双向队列常用操作
 
-双向队列的常用操作见下表，方法名需根据编程语言设定来具体确定。
+双向队列的常用操作见下表（方法命名以 Java 为例）。
 
 <p align="center"> Table. 双向队列的常用操作 </p>
 
@@ -38,25 +38,25 @@ comments: true
     ```java title="deque.java"
     /* 初始化双向队列 */
     Deque<Integer> deque = new LinkedList<>();
-
+    
     /* 元素入队 */
     deque.offerLast(2);   // 添加至队尾
     deque.offerLast(5);
     deque.offerLast(4);
     deque.offerFirst(3);  // 添加至队首
     deque.offerFirst(1);
-
+    
     /* 访问元素 */
     int peekFirst = deque.peekFirst();  // 队首元素
     int peekLast = deque.peekLast();    // 队尾元素
-
+    
     /* 元素出队 */
     int pollFirst = deque.pollFirst();  // 队首元素出队
     int pollLast = deque.pollLast();    // 队尾元素出队
-
+    
     /* 获取双向队列的长度 */
     int size = deque.size();
-
+    
     /* 判断双向队列是否为空 */
     boolean isEmpty = deque.isEmpty();
     ```
@@ -66,25 +66,25 @@ comments: true
     ```cpp title="deque.cpp"
     /* 初始化双向队列 */
     deque<int> deque;
-
+    
     /* 元素入队 */
     deque.push_back(2);   // 添加至队尾
     deque.push_back(5);
     deque.push_back(4);
     deque.push_front(3);  // 添加至队首
     deque.push_front(1);
-
+    
     /* 访问元素 */
     int front = deque.front(); // 队首元素
     int back = deque.back();   // 队尾元素
-
+    
     /* 元素出队 */
     deque.pop_front();  // 队首元素出队
     deque.pop_back();   // 队尾元素出队
-
+    
     /* 获取双向队列的长度 */
     int size = deque.size();
-
+    
     /* 判断双向队列是否为空 */
     bool empty = deque.empty();
     ```
@@ -94,25 +94,25 @@ comments: true
     ```python title="deque.py"
     """ 初始化双向队列 """
     duque = deque()
-
+    
     """ 元素入队 """
     duque.append(2)      # 添加至队尾
     duque.append(5)
     duque.append(4)
     duque.appendleft(3)  # 添加至队首
     duque.appendleft(1)
-
+    
     """ 访问元素 """
     front = duque[0]  # 队首元素
     rear = duque[-1]  # 队尾元素
-
+    
     """ 元素出队 """
     pop_front = duque.popleft()  # 队首元素出队
     pop_rear = duque.pop()       # 队尾元素出队
-
+    
     """ 获取双向队列的长度 """
     size = len(duque)
-
+    
     """ 判断双向队列是否为空 """
     is_empty = len(duque) == 0
     ```
@@ -123,25 +123,25 @@ comments: true
     /* 初始化双向队列 */
     // 在 Go 中，将 list 作为双向队列使用
     deque := list.New()
-
+    
     /* 元素入队 */
     deque.PushBack(2)      // 添加至队尾
     deque.PushBack(5)
     deque.PushBack(4)
     deque.PushFront(3)     // 添加至队首
     deque.PushFront(1)
-
+    
     /* 访问元素 */
     front := deque.Front() // 队首元素
     rear := deque.Back()   // 队尾元素
-
+    
     /* 元素出队 */
     deque.Remove(front)    // 队首元素出队
     deque.Remove(rear)     // 队尾元素出队
-
+    
     /* 获取双向队列的长度 */
     size := deque.Len()
-
+    
     /* 判断双向队列是否为空 */
     isEmpty := deque.Len() == 0
     ```
@@ -149,19 +149,19 @@ comments: true
 === "JavaScript"
 
     ```js title="deque.js"
-
+    
     ```
 
 === "TypeScript"
 
     ```typescript title="deque.ts"
-
+    
     ```
 
 === "C"
 
     ```c title="deque.c"
-
+    
     ```
 
 === "C#"
@@ -170,25 +170,25 @@ comments: true
     /* 初始化双向队列 */
     // 在 C# 中，将链表 LinkedList 看作双向队列来使用
     LinkedList<int> deque = new LinkedList<int>();
-
+    
     /* 元素入队 */
     deque.AddLast(2);   // 添加至队尾
     deque.AddLast(5);
     deque.AddLast(4);
     deque.AddFirst(3);  // 添加至队首
     deque.AddFirst(1);
-
+    
     /* 访问元素 */
     int peekFirst = deque.First.Value;  // 队首元素
     int peekLast = deque.Last.Value;    // 队尾元素
-
+    
     /* 元素出队 */
     deque.RemoveFirst();  // 队首元素出队
     deque.RemoveLast();   // 队尾元素出队
-
+    
     /* 获取双向队列的长度 */
     int size = deque.Count;
-
+    
     /* 判断双向队列是否为空 */
     bool isEmpty = deque.Count == 0;
     ```

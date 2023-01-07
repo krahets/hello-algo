@@ -137,7 +137,7 @@ comments: true
 
 ## 二叉树基本操作
 
-**初始化二叉树。** 与链表类似，先初始化结点，再构建引用指向（即指针）。
+**初始化二叉树**。与链表类似，先初始化结点，再构建引用指向（即指针）。
 
 === "Java"
 
@@ -263,7 +263,7 @@ comments: true
     n2.right = n5;
     ```
 
-**插入与删除结点。** 与链表类似，插入与删除结点都可以通过修改指针实现。
+**插入与删除结点**。与链表类似，插入与删除结点都可以通过修改指针实现。
 
 ![binary_tree_add_remove](binary_tree.assets/binary_tree_add_remove.png)
 
@@ -497,7 +497,7 @@ comments: true
 
 ![array_representation_with_empty](binary_tree.assets/array_representation_with_empty.png)
 
-回顾「完全二叉树」的满足条件，其只有最底层有空结点，并且最底层的结点尽量靠左，因而所有空结点都一定出现在层序遍历序列的末尾。**因为我们先验地确定了空位的位置，所以在使用数组表示完全二叉树时，可以省略存储“空位”**。“便于使用数组表示”也是完全二叉树受欢迎的原因之一。
+回顾「完全二叉树」的定义，其只有最底层有空结点，并且最底层的结点尽量靠左，因而所有空结点都一定出现在层序遍历序列的末尾。**因为我们先验地确定了空位的位置，所以在使用数组表示完全二叉树时，可以省略存储“空位”**。因此，完全二叉树非常适合使用数组来表示。
 
 ![array_representation_complete_binary_tree](binary_tree.assets/array_representation_complete_binary_tree.png)
 
