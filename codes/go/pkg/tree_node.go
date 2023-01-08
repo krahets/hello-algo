@@ -9,16 +9,18 @@ import (
 )
 
 type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
+	Val    int       // 结点值
+	Height int       // 结点高度
+	Left   *TreeNode // 左子结点引用
+	Right  *TreeNode // 右子结点引用
 }
 
 func NewTreeNode(v int) *TreeNode {
 	return &TreeNode{
-		Left:  nil,
-		Right: nil,
-		Val:   v,
+		Val:    v,
+		Height: 0,
+		Left:   nil,
+		Right:  nil,
 	}
 }
 
