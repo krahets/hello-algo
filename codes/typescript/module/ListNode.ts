@@ -20,7 +20,7 @@ export default class ListNode {
      * @param arr
      * @return
      */
-    arrToLinkedList(arr: number[]) {
+    arrToLinkedList(arr: number[]): ListNode | null {
         const dum: ListNode = new ListNode(0);
         let head = dum;
         for (const val of arr) {
