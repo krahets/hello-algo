@@ -15,6 +15,16 @@ public enum PrintUtil {
         }
     }
 
+    public static func printLinkedList(head: ListNode) {
+        var head: ListNode? = head
+        var list: [String] = []
+        while head != nil {
+            list.append("\(head!.val)")
+            head = head?.next
+        }
+        print(list.joined(separator: " -> "))
+    }
+
     public static func printTree(root: TreeNode?) {
         printTree(root: root, prev: nil, isLeft: false)
     }
