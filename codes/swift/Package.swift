@@ -9,6 +9,7 @@ let package = Package(
         .executable(name: "worst_best_time_complexity", targets: ["worst_best_time_complexity"]),
         .executable(name: "space_complexity", targets: ["space_complexity"]),
         .executable(name: "leetcode_two_sum", targets: ["leetcode_two_sum"]),
+        .executable(name: "array", targets: ["array"]),
     ],
     targets: [
         .target(name: "utils", path: "utils"),
@@ -16,5 +17,6 @@ let package = Package(
         .executableTarget(name: "worst_best_time_complexity", path: "chapter_computational_complexity", sources: ["worst_best_time_complexity.swift"]),
         .executableTarget(name: "space_complexity", dependencies: ["utils"], path: "chapter_computational_complexity", sources: ["space_complexity.swift"]),
         .executableTarget(name: "leetcode_two_sum", path: "chapter_computational_complexity", sources: ["leetcode_two_sum.swift"]),
+        .executableTarget(name: "array", path: "chapter_array_and_linkedlist", sources: ["array.swift"]),
     ]
 )
