@@ -1,0 +1,7 @@
+version: '3'
+services:
+  hello-algo:
+    build: .
+    ports:
+      - "8000:8000"
+      
