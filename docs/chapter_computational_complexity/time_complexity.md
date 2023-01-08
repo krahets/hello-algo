@@ -2683,8 +2683,8 @@ $$
             let n = 100
             let nums = randomNumbers(n: n)
             let index = findOne(nums: nums)
-            print("数组 [ 1, 2, ..., n ] 被打乱后 =", nums)
-            print("数字 1 的索引为", index)
+            print("数组 [ 1, 2, ..., n ] 被打乱后 = \(nums)")
+            print("数字 1 的索引为 \(index)")
         }
     }
     ```

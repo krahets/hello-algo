@@ -137,36 +137,36 @@ enum TimeComplexity {
     static func main() {
         // 可以修改 n 运行，体会一下各种复杂度的操作数量变化趋势
         let n = 8
-        print("输入数据大小 n =", n)
+        print("输入数据大小 n = \(n)")
 
         var count = constant(n: n)
-        print("常数阶的计算操作数量 =", count)
+        print("常数阶的计算操作数量 = \(count)")
 
         count = linear(n: n)
-        print("线性阶的计算操作数量 =", count)
+        print("线性阶的计算操作数量 = \(count)")
         count = arrayTraversal(nums: Array(repeating: 0, count: n))
-        print("线性阶（遍历数组）的计算操作数量 =", count)
+        print("线性阶（遍历数组）的计算操作数量 = \(count)")
 
         count = quadratic(n: n)
-        print("平方阶的计算操作数量 =", count)
+        print("平方阶的计算操作数量 = \(count)")
         var nums = Array(sequence(first: n, next: { $0 > 0 ? $0 - 1 : nil })) // [n,n-1,...,2,1]
         count = bubbleSort(nums: &nums)
-        print("平方阶（冒泡排序）的计算操作数量 =", count)
+        print("平方阶（冒泡排序）的计算操作数量 = \(count)")
 
         count = exponential(n: n)
-        print("指数阶（循环实现）的计算操作数量 =", count)
+        print("指数阶（循环实现）的计算操作数量 = \(count)")
         count = expRecur(n: n)
-        print("指数阶（递归实现）的计算操作数量 =", count)
+        print("指数阶（递归实现）的计算操作数量 = \(count)")
 
         count = logarithmic(n: n)
-        print("对数阶（循环实现）的计算操作数量 =", count)
+        print("对数阶（循环实现）的计算操作数量 = \(count)")
         count = logRecur(n: n)
-        print("对数阶（递归实现）的计算操作数量 =", count)
+        print("对数阶（递归实现）的计算操作数量 = \(count)")
 
         count = linearLogRecur(n: Double(n))
-        print("线性对数阶（递归实现）的计算操作数量 =", count)
+        print("线性对数阶（递归实现）的计算操作数量 = \(count)")
 
         count = factorialRecur(n: n)
-        print("阶乘阶（递归实现）的计算操作数量 =", count)
+        print("阶乘阶（递归实现）的计算操作数量 = \(count)")
     }
 }
