@@ -81,6 +81,14 @@ comments: true
     int[] nums = { 1, 3, 2, 5, 4 };
     ```
 
+=== "Swift"
+
+    ```swift title="array.swift"
+    // 初始化数组
+    let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
+    let nums = [1, 3, 2, 5, 4]
+    ```
+
 ## 数组优点
 
 **在数组中访问元素非常高效**。这是因为在数组中，计算元素的内存地址非常容易。给定数组首个元素的地址、和一个元素的索引，利用以下公式可以直接计算得到该元素的内存地址，从而直接访问此元素。
@@ -190,6 +198,19 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         int randomIndex = random.Next(nums.Length);
         int randomNum = nums[randomIndex];
         return randomNum;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    // 随机返回一个数组元素
+    func randomAccess(nums: [Int]) -> Int {
+        // 在区间 [0, nums.count) 中随机抽取一个数字
+        let randomIndex = nums.indices.randomElement()!
+        // 获取并返回随机元素
+        let randomNum = nums[randomIndex]
+        return randomNum
     }
     ```
 
@@ -314,6 +335,22 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         }
         // 返回扩展后的新数组
         return res;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    // 扩展数组长度
+    func extend(nums: [Int], enlarge: Int) -> [Int] {
+        // 初始化一个扩展长度后的数组
+        var res = Array(repeating: 0, count: nums.count + enlarge)
+        // 将原数组中的所有元素复制到新数组
+        for i in nums.indices {
+            res[i] = nums[i]
+        }
+        // 返回扩展后的新数组
+        return res
     }
     ```
 
@@ -486,6 +523,29 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
+=== "Swift"
+
+    ```swift title="array.swift"
+    // 在数组的索引 index 处插入元素 num
+    func insert(nums: inout [Int], num: Int, index: Int) {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        for i in sequence(first: nums.count - 1, next: { $0 > index + 1 ? $0 - 1 : nil }) {
+            nums[i] = nums[i - 1]
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num
+    }
+
+    // 删除索引 index 处元素
+    func remove(nums: inout [Int], index: Int) {
+        let count = nums.count
+        // 把索引 index 之后的所有元素向前移动一位
+        for i in sequence(first: index, next: { $0 < count - 1 - 1 ? $0 + 1 : nil }) {
+            nums[i] = nums[i + 1]
+        }
+    }
+    ```
+
 ## 数组常用操作
 
 **数组遍历**。以下介绍两种常用的遍历方法。
@@ -611,6 +671,23 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
+=== "Swift"
+
+    ```swift title="array.swift"
+    // 遍历数组
+    func traverse(nums: [Int]) {
+        var count = 0
+        // 通过索引遍历数组
+        for _ in nums.indices {
+            count += 1
+        }
+        // 直接遍历数组
+        for _ in nums {
+            count += 1
+        }
+    }
+    ```
+
 **数组查找**。通过遍历数组，查找数组内的指定元素，并输出对应索引。
 
 === "Java"
@@ -710,6 +787,20 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
                 return i;
         }
         return -1;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    // 在数组中查找指定元素
+    func find(nums: [Int], target: Int) -> Int {
+        for i in nums.indices {
+            if nums[i] == target {
+                return i
+            }
+        }
+        return -1
     }
     ```
 
