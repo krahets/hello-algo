@@ -95,6 +95,12 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title="hashing_search.swift"
+
+    ```
+
 再比如，如果我们想要给定一个目标结点值 `target` ，获取对应的链表结点对象，那么也可以使用哈希查找实现。
 
 ![hash_search_listnode](hashing_search.assets/hash_search_listnode.png)
@@ -177,6 +183,12 @@ comments: true
         // 若哈希表中无此 key ，返回 null
         return map.GetValueOrDefault(target);
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="hashing_search.swift"
+
     ```
 
 ## 复杂度分析

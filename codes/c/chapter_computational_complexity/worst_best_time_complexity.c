@@ -15,12 +15,12 @@ int *randomNumbers(int n) {
         nums[i] = i + 1;
     }
     // 随机打乱数组元素 
-	for (int i = n - 1; i > 0; i--) {
-		int j = rand() % (i + 1);
-		int temp = nums[i];
-		nums[i] = nums[j];
-		nums[j] = temp; 
-	}
+    for (int i = n - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
     return nums;
 }
 

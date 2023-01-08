@@ -228,6 +228,12 @@ comments: true
     bool isEmpty = queue.Count() == 0;
     ```
 
+=== "Swift"
+
+    ```swift title="queue.swift"
+
+    ```
+
 ## 队列实现
 
 队列需要一种可以在一端添加，并在另一端删除的数据结构，也可以使用链表或数组来实现。
@@ -610,6 +616,12 @@ comments: true
             return front.val;
         }
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="linkedlist_queue.swift"
+
     ```
 
 ### 基于数组的实现
@@ -1013,6 +1025,12 @@ comments: true
             return nums[front];
         }
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="array_queue.swift"
+
     ```
 
 ## 队列典型应用

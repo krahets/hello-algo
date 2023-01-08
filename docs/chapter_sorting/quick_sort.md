@@ -223,6 +223,12 @@ comments: true
 
     ```
 
+=== "Swift"
+
+    ```swift title="quick_sort.swift"
+
+    ```
+
 !!! note "快速排序的分治思想"
 
     哨兵划分的实质是将 **一个长数组的排序问题** 简化为 **两个短数组的排序问题**。
@@ -356,6 +362,12 @@ comments: true
         quickSort(nums, left, pivot - 1);
         quickSort(nums, pivot + 1, right);
     }
+
+    ```
+
+=== "Swift"
+
+    ```swift title="quick_sort.swift"
 
     ```
 
@@ -574,6 +586,12 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title="quick_sort.swift"
+
+    ```
+
 ## 尾递归优化
 
 **普通快速排序在某些输入下的空间效率变差**。仍然以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 0 ，那么将形成一个高度为 $n - 1$ 的递归树，此时使用的栈帧空间大小劣化至 $O(n)$ 。
@@ -652,10 +670,10 @@ comments: true
             // 对两个子数组中较短的那个执行快排
             if pivot-left < right-pivot {
                 quickSort(nums, left, pivot-1)   // 递归排序左子数组
-                left = pivot + 1				 // 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1                 // 剩余待排序区间为 [pivot + 1, right]
             } else {
                 quickSort(nums, pivot+1, right)  // 递归排序右子数组
-                right = pivot - 1				 // 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1                // 剩余待排序区间为 [left, pivot - 1]
             }
         }
     }
@@ -733,4 +751,10 @@ comments: true
             }
         }
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="quick_sort.swift"
+
     ```

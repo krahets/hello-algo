@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-// 随机返回一个数组元素
+/* 随机返回一个数组元素 */
 func randomAccess(nums: [Int]) -> Int {
     // 在区间 [0, nums.count) 中随机抽取一个数字
     let randomIndex = nums.indices.randomElement()!
@@ -13,7 +13,7 @@ func randomAccess(nums: [Int]) -> Int {
     return randomNum
 }
 
-// 扩展数组长度
+/* 扩展数组长度 */
 func extend(nums: [Int], enlarge: Int) -> [Int] {
     // 初始化一个扩展长度后的数组
     var res = Array(repeating: 0, count: nums.count + enlarge)
@@ -25,7 +25,7 @@ func extend(nums: [Int], enlarge: Int) -> [Int] {
     return res
 }
 
-// 在数组的索引 index 处插入元素 num
+/* 在数组的索引 index 处插入元素 num */
 func insert(nums: inout [Int], num: Int, index: Int) {
     // 把索引 index 以及之后的所有元素向后移动一位
     for i in sequence(first: nums.count - 1, next: { $0 > index + 1 ? $0 - 1 : nil }) {
@@ -35,7 +35,7 @@ func insert(nums: inout [Int], num: Int, index: Int) {
     nums[index] = num
 }
 
-// 删除索引 index 处元素
+/* 删除索引 index 处元素 */
 func remove(nums: inout [Int], index: Int) {
     let count = nums.count
     // 把索引 index 之后的所有元素向前移动一位
@@ -44,7 +44,7 @@ func remove(nums: inout [Int], index: Int) {
     }
 }
 
-// 遍历数组
+/* 遍历数组 */
 func traverse(nums: [Int]) {
     var count = 0
     // 通过索引遍历数组
@@ -57,7 +57,7 @@ func traverse(nums: [Int]) {
     }
 }
 
-// 在数组中查找指定元素
+/* 在数组中查找指定元素 */
 func find(nums: [Int], target: Int) -> Int {
     for i in nums.indices {
         if nums[i] == target {

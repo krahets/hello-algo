@@ -94,6 +94,12 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     }
     ```
 
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+
+    ```
+
 「结点高度」是最远叶结点到该结点的距离，即走过的「边」的数量。需要特别注意，**叶结点的高度为 0 ，空结点的高度为 -1** 。我们封装两个工具函数，分别用于获取与更新结点的高度。
 
 === "Java"
@@ -176,6 +182,12 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     }
     ```
 
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+
+    ```
+
 ### 结点平衡因子
 
 结点的「平衡因子 Balance Factor」是 **结点的左子树高度减去右子树高度**，并定义空结点的平衡因子为 0 。同样地，我们将获取结点平衡因子封装成函数，以便后续使用。
@@ -245,6 +257,12 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
         // 结点平衡因子 = 左子树高度 - 右子树高度
         return height(node.left) - height(node.right);
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+
     ```
 
 !!! note
@@ -361,6 +379,12 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
     
     ```
 
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+
+    ```
+
 ### Case 2 - 左旋
 
 类似地，如果将取上述失衡二叉树的“镜像”，那么则需要「左旋」操作。
@@ -455,6 +479,12 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回旋转后子树的根节点
         return child;
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+
     ```
 
 ### Case 3 - 先左后右
@@ -626,6 +656,12 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
     }
     ```
 
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+
+    ```
+
 ## AVL 树常用操作
 
 ### 插入结点
@@ -742,6 +778,12 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回子树的根节点
         return node;
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+
     ```
 
 ### 删除结点
@@ -900,6 +942,12 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回子树的根节点
         return node;
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+
     ```
 
 ### 查找结点

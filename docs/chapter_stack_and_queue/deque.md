@@ -192,3 +192,9 @@ comments: true
     /* 判断双向队列是否为空 */
     bool isEmpty = deque.Count == 0;
     ```
+
+=== "Swift"
+
+    ```swift title="deque.swift"
+
+    ```

@@ -192,6 +192,12 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title="binary_search_tree.swift"
+
+    ```
+
 ### 插入结点
 
 给定一个待插入元素 `num` ，为了保持二叉搜索树“左子树 < 根结点 < 右子树”的性质，插入操作分为两步：
@@ -420,6 +426,12 @@ comments: true
         }
         return node;
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_tree.swift"
+
     ```
 
 为了插入结点，需要借助 **辅助结点 `prev`** 保存上一轮循环的结点，这样在遍历到 $\text{null}$ 时，我们也可以获取到其父结点，从而完成结点插入操作。
@@ -806,6 +818,12 @@ comments: true
         }
         return cur;
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_tree.swift"
+
     ```
 
 ## 二叉搜索树的优势

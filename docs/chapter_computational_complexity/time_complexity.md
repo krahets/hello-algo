@@ -421,12 +421,12 @@ $$
 
     ```go title=""
     func algorithm(n int) {
-        a := 1		// +1
-        a = a + 1	// +1
-        a = a * 2	// +1
+        a := 1      // +1
+        a = a + 1   // +1
+        a = a * 2   // +1
         // 循环 n 次
-        for i := 0; i < n; i++ {	// +1
-            fmt.Println(a)	        // +1
+        for i := 0; i < n; i++ {   // +1
+            fmt.Println(a)         // +1
         }
     }
     ```
@@ -2657,7 +2657,7 @@ $$
 
 === "Swift"
 
-    ```swift title=""
+    ```swift title="worst_best_time_complexity.swift"
     // 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
     func randomNumbers(n: Int) -> [Int] {
         // 生成数组 nums = { 1, 2, 3, ..., n }

@@ -112,6 +112,12 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title=""
+
+    ```
+
 **尾结点指向什么？** 我们一般将链表的最后一个结点称为「尾结点」，其指向的是「空」，在 Java / C++ / Python 中分别记为 `null` / `nullptr` / `None` 。在不引起歧义下，本书都使用 `null` 来表示空。
 
 **链表初始化方法**。建立链表分为两步，第一步是初始化各个结点对象，第二步是构建引用指向关系。完成后，即可以从链表的首个结点（即头结点）出发，访问其余所有的结点。
@@ -122,7 +128,7 @@ comments: true
 
 === "Java"
 
-    ```java title=""
+    ```java title="linked_list.java"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
     // 初始化各个结点 
     ListNode n0 = new ListNode(1);
@@ -139,7 +145,7 @@ comments: true
 
 === "C++"
 
-    ```cpp title=""
+    ```cpp title="linked_list.cpp"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
     // 初始化各个结点 
     ListNode* n0 = new ListNode(1);
@@ -156,7 +162,7 @@ comments: true
 
 === "Python"
 
-    ```python title=""
+    ```python title="linked_list.py"
     """ 初始化链表 1 -> 3 -> 2 -> 5 -> 4 """
     # 初始化各个结点 
     n0 = ListNode(1)
@@ -173,7 +179,7 @@ comments: true
 
 === "Go"
 
-    ```go title=""
+    ```go title="linked_list.go"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
     // 初始化各个结点
     n0 := NewListNode(1)
@@ -191,7 +197,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```js title="linked_list.js"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
     // 初始化各个结点
     const n0 = new ListNode(1);
@@ -208,7 +214,7 @@ comments: true
 
 === "TypeScript"
 
-    ```typescript title=""
+    ```typescript title="linked_list.ts"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
     // 初始化各个结点
     const n0 = new ListNode(1);
@@ -225,13 +231,13 @@ comments: true
 
 === "C"
 
-    ```c title=""
+    ```c title="linked_list.c"
 
     ```
 
 === "C#"
 
-    ```csharp title=""
+    ```csharp title="linked_list.cs"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
     // 初始化各个结点 
     ListNode n0 = new ListNode(1);
@@ -246,6 +252,12 @@ comments: true
     n3.next = n4;
     ```
 
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+
+    ```
+
 ## 链表优点
 
 **在链表中，插入与删除结点的操作效率高**。例如，如果想在链表中间的两个结点 `A` , `B` 之间插入一个新结点 `P` ，我们只需要改变两个结点指针即可，时间复杂度为 $O(1)$ ，相比数组的插入操作高效很多。在链表中删除某个结点也很方便，只需要改变一个结点指针即可。
@@ -256,7 +268,7 @@ comments: true
 
 === "Java"
 
-    ```java title=""
+    ```java title="linked_list.java"
     /* 在链表的结点 n0 之后插入结点 P */
     void insert(ListNode n0, ListNode P) {
         ListNode n1 = n0.next;
@@ -277,7 +289,7 @@ comments: true
 
 === "C++"
 
-    ```cpp title=""
+    ```cpp title="linked_list.cpp"
     /* 在链表的结点 n0 之后插入结点 P */
     void insert(ListNode* n0, ListNode* P) {
         ListNode* n1 = n0->next;
@@ -300,7 +312,7 @@ comments: true
 
 === "Python"
 
-    ```python title=""
+    ```python title="linked_list.py"
     """ 在链表的结点 n0 之后插入结点 P """
     def insert(n0, P):
         n1 = n0.next
@@ -319,7 +331,7 @@ comments: true
 
 === "Go"
 
-    ```go title=""
+    ```go title="linked_list.go"
     /* 在链表的结点 n0 之后插入结点 P */
     func insert(n0 *ListNode, P *ListNode) {
         n1 := n0.Next
@@ -341,7 +353,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```js title="linked_list.js"
     /* 在链表的结点 n0 之后插入结点 P */
     function insert(n0, P) {
         let n1 = n0.next;
@@ -362,7 +374,7 @@ comments: true
 
 === "TypeScript"
 
-    ```typescript title=""
+    ```typescript title="linked_list.ts"
     /* 在链表的结点 n0 之后插入结点 P */
     function insert(n0: ListNode, P: ListNode): void {
         const n1 = n0.next;
@@ -383,13 +395,13 @@ comments: true
 
 === "C"
 
-    ```c title=""
+    ```c title="linked_list.c"
 
     ```
 
 === "C#"
 
-    ```csharp title=""
+    ```csharp title="linked_list.cs"
     // 在链表的结点 n0 之后插入结点 P
     void Insert(ListNode n0, ListNode P)
     {
@@ -410,13 +422,19 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+
+    ```
+
 ## 链表缺点
 
 **链表访问结点效率低**。上节提到，数组可以在 $O(1)$ 时间下访问任意元素，但链表无法直接访问任意结点。这是因为计算机需要从头结点出发，一个一个地向后遍历到目标结点。例如，倘若想要访问链表索引为 `index` （即第 `index + 1` 个）的结点，那么需要 `index` 次访问操作。
 
 === "Java"
 
-    ```java title=""
+    ```java title="linked_list.java"
     /* 访问链表中索引为 index 的结点 */
     ListNode access(ListNode head, int index) {
         for (int i = 0; i < index; i++) {
@@ -430,7 +448,7 @@ comments: true
 
 === "C++"
 
-    ```cpp title=""
+    ```cpp title="linked_list.cpp"
     /* 访问链表中索引为 index 的结点 */
     ListNode* access(ListNode* head, int index) {
         for (int i = 0; i < index; i++) {
@@ -444,7 +462,7 @@ comments: true
 
 === "Python"
 
-    ```python title=""
+    ```python title="linked_list.py"
     """ 访问链表中索引为 index 的结点 """
     def access(head, index):
         for _ in range(index):
@@ -456,7 +474,7 @@ comments: true
 
 === "Go"
 
-    ```go title=""
+    ```go title="linked_list.go"
     /* 访问链表中索引为 index 的结点 */
     func access(head *ListNode, index int) *ListNode {
         for i := 0; i < index; i++ {
@@ -471,7 +489,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```js title="linked_list.js"
     /* 访问链表中索引为 index 的结点 */
     function access(head, index) {
         for (let i = 0; i < index; i++) {
@@ -485,7 +503,7 @@ comments: true
 
 === "TypeScript"
 
-    ```typescript title=""
+    ```typescript title="linked_list.ts"
     /* 访问链表中索引为 index 的结点 */
     function access(head: ListNode | null, index: number): ListNode | null {
         for (let i = 0; i < index; i++) {
@@ -500,13 +518,13 @@ comments: true
 
 === "C"
 
-    ```c title=""
+    ```c title="linked_list.c"
 
     ```
 
 === "C#"
 
-    ```csharp title=""
+    ```csharp title="linked_list.cs"
     // 访问链表中索引为 index 的结点
     ListNode Access(ListNode head, int index)
     {
@@ -520,6 +538,12 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+
+    ```
+
 **链表的内存占用多**。链表以结点为单位，每个结点除了保存值外，还需额外保存指针（引用）。这意味着同样数据量下，链表比数组需要占用更多内存空间。
 
 ## 链表常用操作
@@ -528,7 +552,7 @@ comments: true
 
 === "Java"
 
-    ```java title=""
+    ```java title="linked_list.java"
     /* 在链表中查找值为 target 的首个结点 */
     int find(ListNode head, int target) {
         int index = 0;
@@ -544,7 +568,7 @@ comments: true
 
 === "C++"
 
-    ```cpp title=""
+    ```cpp title="linked_list.cpp"
     /* 在链表中查找值为 target 的首个结点 */
     int find(ListNode* head, int target) {
         int index = 0;
@@ -560,7 +584,7 @@ comments: true
 
 === "Python"
 
-    ```python title=""
+    ```python title="linked_list.py"
     """ 在链表中查找值为 target 的首个结点 """
     def find(head, target):
         index = 0
@@ -574,7 +598,7 @@ comments: true
 
 === "Go"
 
-    ```go title=""
+    ```go title="linked_list.go"
     /* 在链表中查找值为 target 的首个结点 */
     func find(head *ListNode, target int) int {
         index := 0
@@ -591,7 +615,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```js title="linked_list.js"
     /* 在链表中查找值为 target 的首个结点 */
     function find(head, target) {
         let index = 0;
@@ -608,7 +632,7 @@ comments: true
 
 === "TypeScript"
 
-    ```typescript title=""
+    ```typescript title="linked_list.ts"
     /* 在链表中查找值为 target 的首个结点 */
     function find(head: ListNode | null, target: number): number {
         let index = 0;
@@ -625,13 +649,13 @@ comments: true
 
 === "C"
 
-    ```c title=""
+    ```c title="linked_list.c"
 
     ```
 
 === "C#"
 
-    ```csharp title=""
+    ```csharp title="linked_list.cs"
     // 在链表中查找值为 target 的首个结点
     int Find(ListNode head, int target)
     {
@@ -645,6 +669,12 @@ comments: true
         }
         return -1;
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+
     ```
 
 ## 常见链表类型
@@ -758,6 +788,12 @@ comments: true
         ListNode prev;  // 指向前驱结点的指针（引用）
         ListNode(int x) => val = x;  // 构造函数
     }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+
     ```
 
 ![linkedlist_common_types](linked_list.assets/linkedlist_common_types.png)

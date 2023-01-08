@@ -228,6 +228,12 @@ comments: true
     bool isEmpty = stack.Count()==0;
     ```
 
+=== "Swift"
+
+    ```swift title="stack.swift"
+
+    ```
+
 ## 栈的实现
 
 为了更加清晰地了解栈的运行机制，接下来我们来自己动手实现一个栈类。
@@ -591,6 +597,12 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title="linkedlist_stack.swift"
+
+    ```
+
 ### 基于数组的实现
 
 使用「数组」实现栈时，将数组的尾部当作栈顶，这样可以保证入栈与出栈操作的时间复杂度都为 $O(1)$ 。准确地说，由于入栈的元素可能是源源不断的，我们需要使用可以动态扩容的「列表」。
@@ -868,6 +880,12 @@ comments: true
             return stack[size() - 1];
         }
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="array_stack.swift"
+
     ```
 
 !!! tip

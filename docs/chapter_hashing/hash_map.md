@@ -108,25 +108,25 @@ comments: true
 
 === "Go"
 
-    ```go title="hash_map_test.go"
-	/* 初始化哈希表 */
-	mapp := make(map[int]string)
+    ```go title="hash_map.go"
+    /* 初始化哈希表 */
+    mapp := make(map[int]string)
 
-	/* 添加操作 */
-	// 在哈希表中添加键值对 (key, value)
-	mapp[12836] = "小哈"
-	mapp[15937] = "小啰"
-	mapp[16750] = "小算"
-	mapp[13276] = "小法"
-	mapp[10583] = "小鸭"
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    mapp[12836] = "小哈"
+    mapp[15937] = "小啰"
+    mapp[16750] = "小算"
+    mapp[13276] = "小法"
+    mapp[10583] = "小鸭"
 
-	/* 查询操作 */
-	// 向哈希表输入键 key ，得到值 value
-	name := mapp[15937]
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    name := mapp[15937]
 
-	/* 删除操作 */
-	// 在哈希表中删除键值对 (key, value)
-	delete(mapp, 10583)
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    delete(mapp, 10583)
     ```
 
 === "JavaScript"
@@ -205,6 +205,12 @@ comments: true
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.Remove(10583);
+    ```
+
+=== "Swift"
+
+    ```swift title="hash_map.swift"
+
     ```
 
 遍历哈希表有三种方式，即 **遍历键值对、遍历键、遍历值**。
@@ -337,6 +343,12 @@ comments: true
     foreach (String val in map.Values) {
         Console.WriteLine(val);
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="hash_map.swift"
+
     ```
 
 ## 哈希函数
@@ -754,6 +766,12 @@ $$
             bucket[index]=null;
         }
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="array_hash_map.swift"
+
     ```
 
 ## 哈希冲突
