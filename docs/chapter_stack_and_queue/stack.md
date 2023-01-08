@@ -22,13 +22,13 @@ comments: true
 
 <div class="center-table" markdown>
 
-| 方法      | 描述                   |
-| --------- | ---------------------- |
-| push()    | 元素入栈（添加至栈顶） |
-| pop()     | 栈顶元素出栈           |
-| peek()    | 访问栈顶元素           |
-| size()    | 获取栈的长度           |
-| isEmpty() | 判断栈是否为空         |
+| 方法      | 描述                   | 时间复杂度 |
+| --------- | ---------------------- | ---------- |
+| push()    | 元素入栈（添加至栈顶） | $O(1)$     |
+| pop()     | 栈顶元素出栈           | $O(1)$     |
+| peek()    | 访问栈顶元素           | $O(1)$     |
+| size()    | 获取栈的长度           | $O(1)$     |
+| isEmpty() | 判断栈是否为空         | $O(1)$     |
 
 </div>
 
@@ -231,7 +231,7 @@ comments: true
 === "Swift"
 
     ```swift title="stack.swift"
-
+    
     ```
 
 ## 栈的实现
@@ -600,7 +600,7 @@ comments: true
 === "Swift"
 
     ```swift title="linkedlist_stack.swift"
-
+    
     ```
 
 ### 基于数组的实现
@@ -885,7 +885,7 @@ comments: true
 === "Swift"
 
     ```swift title="array_stack.swift"
-
+    
     ```
 
 !!! tip

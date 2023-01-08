@@ -18,13 +18,13 @@ class MaxHeap {
         maxHeap = new ArrayList<>();
     }
 
-    /* 构造函数，堆化 nums 所有元素 */
+    /* 构造函数，根据输入列表建堆 */
     public MaxHeap(List<Integer> nums) {
-        // 将元素拷贝至堆中
+        // 所有元素入堆
         maxHeap = new ArrayList<>(nums);
         // 堆化除叶结点以外的其他所有结点
         for (int i = parent(size() - 1); i >= 0; i--) {
-            heapify(i);
+            siftDown(i);
         }
     }
 
@@ -40,7 +40,7 @@ class MaxHeap {
 
     /* 获取父结点索引 */
     private int parent(int i) {
-        return (i - 1) / 2;
+        return (i - 1) / 2; // 向下整除
     }
 
     /* 交换元素 */
@@ -72,12 +72,20 @@ class MaxHeap {
         // 添加结点
         maxHeap.add(val);
         // 从底至顶堆化
-        int i = size() - 1;
+        siftUp(size() - 1);
+    }
+
+    /* 从结点 i 开始，从底至顶堆化 */
+    private void siftUp(int i) {
         while (true) {
+            // 获取结点 i 的父结点
             int p = parent(i);
+            // 当“越过根结点”或“结点无需修复”时，结束堆化
             if (p < 0 || maxHeap.get(i) <= maxHeap.get(p))
                 break;
+            // 交换两结点
             swap(i, p);
+            // 循环向上堆化
             i = p;
         }
     }
@@ -87,26 +95,28 @@ class MaxHeap {
         // 判空处理
         if (isEmpty())
             throw new EmptyStackException();
-        // 交换根结点与右下角（即最后一个）结点
+        // 交换根结点与最右叶结点（即交换首元素与尾元素）
         swap(0, size() - 1);
         // 删除结点
         int val = maxHeap.remove(size() - 1);
         // 从顶至底堆化
-        heapify(0);
+        siftDown(0);
         // 返回堆顶元素
         return val;
     }
 
     /* 从结点 i 开始，从顶至底堆化 */
-    private void heapify(int i) {
+    private void siftDown(int i) {
         while (true) {
             // 判断结点 i, l, r 中值最大的结点，记为 ma ；
             int l = left(i), r = right(i), ma = i;
-            if (l < size() && maxHeap.get(l) > maxHeap.get(ma)) ma = l;
-            if (r < size() && maxHeap.get(r) > maxHeap.get(ma)) ma = r;
-            // 若结点 i 最大，则无需继续堆化，跳出
+            if (l < size() && maxHeap.get(l) > maxHeap.get(ma))
+                ma = l;
+            if (r < size() && maxHeap.get(r) > maxHeap.get(ma))
+                ma = r;
+            // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
             if (ma == i) break;
-            // 交换结点 i 与结点 max
+            // 交换两结点
             swap(i, ma);
             // 循环向下堆化
             i = ma;
@@ -124,25 +134,23 @@ class MaxHeap {
 
 public class my_heap {
     public static void testPush(MaxHeap maxHeap, int val) {
-        // 元素入堆
-        maxHeap.push(val);
-
+        maxHeap.push(val);  // 元素入堆
         System.out.format("\n添加元素 %d 后\n", val);
         maxHeap.print();
     }
 
     public static void testPoll(MaxHeap maxHeap) {
-        // 元素出堆
-        int val = maxHeap.poll();
-
+        int val = maxHeap.poll(); // 堆顶元素出堆
         System.out.format("\n出堆元素为 %d\n", val);
         maxHeap.print();
     }
 
     public static void main(String[] args) {
         /* 初始化堆 */
-        // 初始化最大堆
+        // 初始化大顶堆
         MaxHeap maxHeap = new MaxHeap();
+
+        System.out.println("\n以下测试样例为大顶堆");
 
         /* 元素入堆 */
         testPush(maxHeap, 1);
@@ -155,7 +163,7 @@ public class my_heap {
         int peek = maxHeap.peek();
         System.out.format("\n堆顶元素为 %d\n", peek);
 
-        /* 元素出堆 */
+        /* 堆顶元素出堆 */
         testPoll(maxHeap);
         testPoll(maxHeap);
 
@@ -166,5 +174,10 @@ public class my_heap {
         /* 判断堆是否为空 */
         boolean isEmpty = maxHeap.isEmpty();
         System.out.format("\n堆是否为空 %b\n", isEmpty);
+
+        /* 将输入列表堆化 */
+        maxHeap = new MaxHeap(Arrays.asList(1, 3, 2, 5, 4));
+        System.out.println("\n输入 [1, 3, 2, 5, 4] ，建立大顶堆");
+        maxHeap.print();
     }
 }
