@@ -45,7 +45,7 @@ def post_order(root: typing.Optional[TreeNode]):
 if __name__ == "__main__":
     # 初始化二叉树
     # 这里借助了一个从数组直接生成二叉树的函数
-    root = list_to_tree(arr=[1, 2, 3, 4, 5, 6, 7, None, None, None, None, None, None, None, None])
+    root = list_to_tree(arr=[1, 2, 3, 4, 5, 6, 7])
     print("\n初始化二叉树\n")
     print_tree(root)
 

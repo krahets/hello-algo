@@ -14,22 +14,22 @@ import (
 func TestPreInPostOrderTraversal(t *testing.T) {
 	/* 初始化二叉树 */
 	// 这里借助了一个从数组直接生成二叉树的函数
-	root := ArrayToTree([]int{1, 2, 3, 4, 5, 6, 7})
-	fmt.Println("初始化二叉树: ")
+	root := ArrToTree([]int{1, 2, 3, 4, 5, 6, 7})
+	fmt.Println("\n初始化二叉树: ")
 	PrintTree(root)
 
 	// 前序遍历
 	nums = nil
 	preOrder(root)
-	fmt.Println("前序遍历的结点打印序列 =", nums)
+	fmt.Println("\n前序遍历的结点打印序列 =", nums)
 
 	// 中序遍历
 	nums = nil
 	inOrder(root)
-	fmt.Println("中序遍历的结点打印序列 =", nums)
+	fmt.Println("\n中序遍历的结点打印序列 =", nums)
 
 	// 后序遍历
 	nums = nil
 	postOrder(root)
-	fmt.Println("后序遍历的结点打印序列 =", nums)
+	fmt.Println("\n后序遍历的结点打印序列 =", nums)
 }

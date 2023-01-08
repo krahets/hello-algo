@@ -14,5 +14,5 @@ docs/overrides/
 # python files
 __pycache__
 
-# iml
-hello-algo.iml
+# in-progress articles
+docs/chapter_heap

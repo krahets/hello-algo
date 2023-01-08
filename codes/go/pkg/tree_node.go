@@ -22,8 +22,8 @@ func NewTreeNode(v int) *TreeNode {
 	}
 }
 
-// ArrayToTree Generate a binary tree with an array
-func ArrayToTree(arr []int) *TreeNode {
+// ArrToTree Generate a binary tree given an array
+func ArrToTree(arr []int) *TreeNode {
 	if len(arr) <= 0 {
 		return nil
 	}
@@ -31,19 +31,19 @@ func ArrayToTree(arr []int) *TreeNode {
 	// Let container.list as queue
 	queue := list.New()
 	queue.PushBack(root)
-	i := 1
+	i := 0
 	for queue.Len() > 0 {
 		// poll
 		node := queue.Remove(queue.Front()).(*TreeNode)
+		i++
 		if i < len(arr) {
 			node.Left = NewTreeNode(arr[i])
 			queue.PushBack(node.Left)
-			i++
 		}
+		i++
 		if i < len(arr) {
 			node.Right = NewTreeNode(arr[i])
 			queue.PushBack(node.Right)
-			i++
 		}
 	}
 	return root

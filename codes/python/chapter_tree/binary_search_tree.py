@@ -138,7 +138,7 @@ class BinarySearchTree:
 """ Driver Code """
 if __name__ == "__main__":
     # 初始化二叉搜索树
-    nums = list(range(1, 16))
+    nums = list(range(1, 16)) # [1, 2, ..., 15]
     bst = BinarySearchTree(nums=nums)
     print("\n初始化的二叉树为\n")
     print_tree(bst.root)

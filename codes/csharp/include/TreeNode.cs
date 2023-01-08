@@ -19,7 +19,7 @@ namespace hello_algo.include
         }
 
         /**
-         * Generate a binary tree with an array
+         * Generate a binary tree given an array
          * @param arr
          * @return
          */
@@ -31,22 +31,22 @@ namespace hello_algo.include
             TreeNode root = new TreeNode((int) arr[0]);
             Queue<TreeNode> queue = new Queue<TreeNode>();
             queue.Enqueue(root);
-            int i = 1;
-            while (queue.Count!=0)
+            int i = 0;
+            while (queue.Count != 0)
             {
                 TreeNode node = queue.Dequeue();
+                if (++i >= arr.Length) break;
                 if (arr[i] != null)
                 {
                     node.left = new TreeNode((int) arr[i]);
                     queue.Enqueue(node.left);
                 }
-                i++;
+                if (++i >= arr.Length) break;
                 if (arr[i] != null)
                 {
                     node.right = new TreeNode((int) arr[i]);
                     queue.Enqueue(node.right);
                 }
-                i++;
             }
             return root;
         }

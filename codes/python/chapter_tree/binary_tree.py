@@ -36,5 +36,5 @@ if __name__ == "__main__":
     print_tree(n1)
     # 删除结点
     n1.left = n2
-    print("\n删除结点 P 后\n");
+    print("\n删除结点 P 后\n")
     print_tree(n1)
