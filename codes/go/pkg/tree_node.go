@@ -23,11 +23,12 @@ func NewTreeNode(v int) *TreeNode {
 }
 
 // ArrToTree Generate a binary tree given an array
-func ArrToTree(arr []int) *TreeNode {
+func ArrToTree(arr []any) *TreeNode {
 	if len(arr) <= 0 {
 		return nil
 	}
-	root := NewTreeNode(arr[0])
+	// TreeNode only accept integer value for now.
+	root := NewTreeNode(arr[0].(int))
 	// Let container.list as queue
 	queue := list.New()
 	queue.PushBack(root)
@@ -37,13 +38,17 @@ func ArrToTree(arr []int) *TreeNode {
 		node := queue.Remove(queue.Front()).(*TreeNode)
 		i++
 		if i < len(arr) {
-			node.Left = NewTreeNode(arr[i])
-			queue.PushBack(node.Left)
+			if arr[i] != nil {
+				node.Left = NewTreeNode(arr[i].(int))
+				queue.PushBack(node.Left)
+			}
 		}
 		i++
 		if i < len(arr) {
-			node.Right = NewTreeNode(arr[i])
-			queue.PushBack(node.Right)
+			if arr[i] != nil {
+				node.Right = NewTreeNode(arr[i].(int))
+				queue.PushBack(node.Right)
+			}
 		}
 	}
 	return root
