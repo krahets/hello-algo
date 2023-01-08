@@ -1,4 +1,4 @@
-/*
+/**
  * File: hashing_search.js
  * Created Time: 2022-12-29
  * Author: zhuoqinyue (1403450829@qq.com)
