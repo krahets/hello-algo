@@ -103,14 +103,14 @@ comments: true
 
     ```go title=""
     /* 结构体 */
-    type Node struct {
+    type node struct {
         val  int
-        next *Node
+        next *node
     }
-    
-    /* 创建 Node 结构体 */
-    func newNode(val int) *Node {
-        return &Node{val: val}
+
+    /* 创建 node 结构体  */
+    func newNode(val int) *node {
+        return &node{val: val}
     }
     
     /* 函数 */
@@ -687,7 +687,7 @@ $$
         // 长度为 n 的数组占用 O(n) 空间
         _ = make([]int, n)
         // 长度为 n 的列表占用 O(n) 空间
-        var nodes []*Node
+        var nodes []*node
         for i := 0; i < n; i++ {
             nodes = append(nodes, newNode(i))
         }
@@ -1108,7 +1108,7 @@ $$
 
     ```go title="space_complexity.go"
     /* 指数阶（建立满二叉树） */
-    func buildTree(n int) *TreeNode {
+    func buildTree(n int) *treeNode {
         if n == 0 {
             return nil
         }
