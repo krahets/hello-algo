@@ -69,34 +69,34 @@ func find(nums: [Int], target: Int) -> Int {
 
 @main
 enum _Array {
-    // Driver Code
+    /* Driver Code */
     static func main() {
-        // 初始化数组
+        /* 初始化数组 */
         let arr = Array(repeating: 0, count: 5)
         print("数组 arr = \(arr)")
         var nums = [1, 3, 2, 5, 4]
         print("数组 nums = \(nums)")
 
-        // 随机访问
+        /* 随机访问 */
         let randomNum = randomAccess(nums: nums)
         print("在 nums 中获取随机元素 \(randomNum)")
 
-        // 长度扩展
+        /* 长度扩展 */
         nums = extend(nums: nums, enlarge: 3)
         print("将数组长度扩展至 8 ，得到 nums = \(nums)")
 
-        // 插入元素
+        /* 插入元素 */
         insert(nums: &nums, num: 6, index: 3)
         print("在索引 3 处插入数字 6 ，得到 nums = \(nums)")
 
-        // 删除元素
+        /* 删除元素 */
         remove(nums: &nums, index: 2)
         print("删除索引 2 处的元素，得到 nums = \(nums)")
 
-        // 遍历数组
+        /* 遍历数组 */
         traverse(nums: nums)
 
-        // 查找元素
+        /* 查找元素 */
         let index = find(nums: nums, target: 3)
         print("在 nums 中查找元素 3 ，得到索引 = \(index)")
     }
