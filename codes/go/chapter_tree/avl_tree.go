@@ -16,8 +16,7 @@ func newAVLTree() *avlTree {
 	return &avlTree{root: nil}
 }
 
-/* 获取结点高度
- */
+/* 获取结点高度 */
 func height(node *TreeNode) int {
 	// 空结点高度为 -1 ，叶结点高度为 0
 	if node != nil {
