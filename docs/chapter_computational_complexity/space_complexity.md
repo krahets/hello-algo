@@ -177,7 +177,7 @@ comments: true
 === "Swift"
 
     ```swift title=""
-    // 类
+    /* 类 */
     class Node {
         var val: Int
         var next: Node?
@@ -187,7 +187,7 @@ comments: true
         }
     }
 
-    // 函数
+    /* 函数 */
     func function() -> Int {
         // do something...
         return 0
@@ -436,14 +436,14 @@ comments: true
         return 0
     }
 
-    // 循环 O(1)
+    /* 循环 O(1) */
     func loop(n: Int) {
         for _ in 0 ..< n {
             function()
         }
     }
 
-    // 递归 O(n)
+    /* 递归 O(n) */
     func recur(n: Int) {
         if n == 1 {
             return
@@ -604,7 +604,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    // 常数阶
+    /* 常数阶 */
     func constant(n: Int) {
         // 常量、变量、对象占用 O(1) 空间
         let a = 0
@@ -743,7 +743,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    // 线性阶
+    /* 线性阶 */
     func linear(n: Int) {
         // 长度为 n 的数组占用 O(n) 空间
         let nums = Array(repeating: 0, count: n)
@@ -834,7 +834,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    // 线性阶（递归实现）
+    /* 线性阶（递归实现） */
     func linearRecur(n: Int) {
         print("递归 n = \(n)")
         if n == 1 {
@@ -954,7 +954,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    // 平方阶
+    /* 平方阶 */
     func quadratic(n: Int) {
         // 二维列表占用 O(n^2) 空间
         let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
@@ -1047,7 +1047,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    // 平方阶（递归实现）
+    /* 平方阶（递归实现） */
     func quadraticRecur(n: Int) -> Int {
         if n <= 0 {
             return 0
@@ -1154,7 +1154,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    // 指数阶（建立满二叉树）
+    /* 指数阶（建立满二叉树） */
     func buildTree(n: Int) -> TreeNode? {
         if n == 0 {
             return nil

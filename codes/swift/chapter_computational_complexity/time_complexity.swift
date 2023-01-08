@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-// 常数阶
+/* 常数阶 */
 func constant(n: Int) -> Int {
     var count = 0
     let size = 100_000
@@ -14,7 +14,7 @@ func constant(n: Int) -> Int {
     return count
 }
 
-// 线性阶
+/* 线性阶 */
 func linear(n: Int) -> Int {
     var count = 0
     for _ in 0 ..< n {
@@ -23,7 +23,7 @@ func linear(n: Int) -> Int {
     return count
 }
 
-// 线性阶（遍历数组）
+/* 线性阶（遍历数组） */
 func arrayTraversal(nums: [Int]) -> Int {
     var count = 0
     // 循环次数与数组长度成正比
@@ -33,7 +33,7 @@ func arrayTraversal(nums: [Int]) -> Int {
     return count
 }
 
-// 平方阶
+/* 平方阶 */
 func quadratic(n: Int) -> Int {
     var count = 0
     // 循环次数与数组长度成平方关系
@@ -45,7 +45,7 @@ func quadratic(n: Int) -> Int {
     return count
 }
 
-// 平方阶（冒泡排序）
+/* 平方阶（冒泡排序） */
 func bubbleSort(nums: inout [Int]) -> Int {
     var count = 0 // 计数器
     // 外循环：待排序元素数量为 n-1, n-2, ..., 1
@@ -64,7 +64,7 @@ func bubbleSort(nums: inout [Int]) -> Int {
     return count
 }
 
-// 指数阶（循环实现）
+/* 指数阶（循环实现） */
 func exponential(n: Int) -> Int {
     var count = 0
     var base = 1
@@ -79,7 +79,7 @@ func exponential(n: Int) -> Int {
     return count
 }
 
-// 指数阶（递归实现）
+/* 指数阶（递归实现） */
 func expRecur(n: Int) -> Int {
     if n == 1 {
         return 1
@@ -87,7 +87,7 @@ func expRecur(n: Int) -> Int {
     return expRecur(n: n - 1) + expRecur(n: n - 1) + 1
 }
 
-// 对数阶（循环实现）
+/* 对数阶（循环实现） */
 func logarithmic(n: Int) -> Int {
     var count = 0
     var n = n
@@ -98,7 +98,7 @@ func logarithmic(n: Int) -> Int {
     return count
 }
 
-// 对数阶（递归实现）
+/* 对数阶（递归实现） */
 func logRecur(n: Int) -> Int {
     if n <= 1 {
         return 0
@@ -106,7 +106,7 @@ func logRecur(n: Int) -> Int {
     return logRecur(n: n / 2) + 1
 }
 
-// 线性对数阶
+/* 线性对数阶 */
 func linearLogRecur(n: Double) -> Int {
     if n <= 1 {
         return 1
@@ -118,7 +118,7 @@ func linearLogRecur(n: Double) -> Int {
     return count
 }
 
-// 阶乘阶（递归实现）
+/* 阶乘阶（递归实现） */
 func factorialRecur(n: Int) -> Int {
     if n == 0 {
         return 1
@@ -133,6 +133,7 @@ func factorialRecur(n: Int) -> Int {
 
 @main
 enum TimeComplexity {
+    /* Driver Code */
     static func main() {
         // 可以修改 n 运行，体会一下各种复杂度的操作数量变化趋势
         let n = 8

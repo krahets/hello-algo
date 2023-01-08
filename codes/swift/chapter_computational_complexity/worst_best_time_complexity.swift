@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-// 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
+/* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
 func randomNumbers(n: Int) -> [Int] {
     // 生成数组 nums = { 1, 2, 3, ..., n }
     var nums = Array(1 ... n)
@@ -13,7 +13,7 @@ func randomNumbers(n: Int) -> [Int] {
     return nums
 }
 
-// 查找数组 nums 中数字 1 所在索引
+/* 查找数组 nums 中数字 1 所在索引 */
 func findOne(nums: [Int]) -> Int {
     for i in nums.indices {
         if nums[i] == 1 {
@@ -25,7 +25,7 @@ func findOne(nums: [Int]) -> Int {
 
 @main
 enum WorstBestTimeComplexity {
-    // Driver Code
+    /* Driver Code */
     static func main() {
         for _ in 0 ..< 10 {
             let n = 100

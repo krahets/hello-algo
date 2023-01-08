@@ -876,7 +876,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    // 常数阶
+    /* 常数阶 */
     func constant(n: Int) -> Int {
         var count = 0
         let size = 100000
@@ -990,7 +990,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    // 线性阶
+    /* 线性阶 */
     func linear(n: Int) -> Int {
         var count = 0
         for _ in 0 ..< n {
@@ -1121,7 +1121,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    // 线性阶（遍历数组）
+    /* 线性阶（遍历数组） */
     func arrayTraversal(nums: [Int]) -> Int {
         var count = 0
         // 循环次数与数组长度成正比
@@ -1267,7 +1267,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    // 平方阶
+    /* 平方阶 */
     func quadratic(n: Int) -> Int {
         var count = 0
         // 循环次数与数组长度成平方关系
@@ -1477,7 +1477,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    // 平方阶（冒泡排序）
+    /* 平方阶（冒泡排序） */
     func bubbleSort(nums: inout [Int]) -> Int {
         var count = 0 // 计数器
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
@@ -1656,7 +1656,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    // 指数阶（循环实现）
+    /* 指数阶（循环实现） */
     func exponential(n: Int) -> Int {
         var count = 0
         var base = 1
@@ -1764,7 +1764,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    // 指数阶（递归实现）
+    /* 指数阶（递归实现） */
     func expRecur(n: Int) -> Int {
         if n == 1 {
             return 1
@@ -1896,7 +1896,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    // 对数阶（循环实现）
+    /* 对数阶（循环实现） */
     func logarithmic(n: Int) -> Int {
         var count = 0
         var n = n
@@ -1999,7 +1999,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    // 对数阶（递归实现）
+    /* 对数阶（递归实现） */
     func logRecur(n: Int) -> Int {
         if n <= 1 {
             return 0
@@ -2137,7 +2137,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    // 线性对数阶
+    /* 线性对数阶 */
     func linearLogRecur(n: Double) -> Int {
         if n <= 1 {
             return 1
@@ -2288,7 +2288,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    // 阶乘阶（递归实现）
+    /* 阶乘阶（递归实现） */
     func factorialRecur(n: Int) -> Int {
         if n == 0 {
             return 1
@@ -2658,7 +2658,7 @@ $$
 === "Swift"
 
     ```swift title="worst_best_time_complexity.swift"
-    // 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
+    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
     func randomNumbers(n: Int) -> [Int] {
         // 生成数组 nums = { 1, 2, 3, ..., n }
         var nums = Array(1 ... n)
@@ -2667,7 +2667,7 @@ $$
         return nums
     }
 
-    // 查找数组 nums 中数字 1 所在索引
+    /* 查找数组 nums 中数字 1 所在索引 */
     func findOne(nums: [Int]) -> Int {
         for i in nums.indices {
             if nums[i] == 1 {
@@ -2677,7 +2677,7 @@ $$
         return -1
     }
 
-    // Driver Code
+    /* Driver Code */
     func main() {
         for _ in 0 ..< 10 {
             let n = 100
