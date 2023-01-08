@@ -864,7 +864,7 @@ comments: true
 
     ```go title="my_list.go"
     /* 列表类简易实现 */
-    type MyList struct {
+    type myList struct {
         numsCapacity int
         nums         []int
         numsSize     int
@@ -872,8 +872,8 @@ comments: true
     }
 
     /* 构造函数 */
-    func newMyList() *MyList {
-        return &MyList{
+    func newMyList() *myList {
+        return &myList{
             numsCapacity: 10,              // 列表容量
             nums:         make([]int, 10), // 数组（存储列表元素）
             numsSize:     0,               // 列表长度（即当前元素数量）
@@ -882,17 +882,17 @@ comments: true
     }
 
     /* 获取列表长度（即当前元素数量） */
-    func (l *MyList) size() int {
+    func (l *myList) size() int {
         return l.numsSize
     }
 
     /*  获取列表容量 */
-    func (l *MyList) capacity() int {
+    func (l *myList) capacity() int {
         return l.numsCapacity
     }
 
     /* 访问元素 */
-    func (l *MyList) get(index int) int {
+    func (l *myList) get(index int) int {
         // 索引如果越界则抛出异常，下同
         if index >= l.numsSize {
             panic("索引越界")
@@ -901,7 +901,7 @@ comments: true
     }
 
     /* 更新元素 */
-    func (l *MyList) set(num, index int) {
+    func (l *myList) set(num, index int) {
         if index >= l.numsSize {
             panic("索引越界")
         }
@@ -909,7 +909,7 @@ comments: true
     }
 
     /* 尾部添加元素 */
-    func (l *MyList) add(num int) {
+    func (l *myList) add(num int) {
         // 元素数量超出容量时，触发扩容机制
         if l.numsSize == l.numsCapacity {
             l.extendCapacity()
@@ -920,7 +920,7 @@ comments: true
     }
 
     /* 中间插入元素 */
-    func (l *MyList) insert(num, index int) {
+    func (l *myList) insert(num, index int) {
         if index >= l.numsSize {
             panic("索引越界")
         }
@@ -938,20 +938,23 @@ comments: true
     }
 
     /* 删除元素 */
-    func (l *MyList) Remove(index int) {
+    func (l *myList) remove(index int) int {
         if index >= l.numsSize {
             panic("索引越界")
         }
+        num := l.nums[index]
         // 索引 i 之后的元素都向前移动一位
         for j := index; j < l.numsSize-1; j++ {
             l.nums[j] = l.nums[j+1]
         }
         // 更新元素数量
         l.numsSize--
+        // 返回被删除元素
+        return num
     }
 
     /* 列表扩容 */
-    func (l *MyList) extendCapacity() {
+    func (l *myList) extendCapacity() {
         // 新建一个长度为 self.__size 的数组，并将原数组拷贝到新数组
         l.nums = append(l.nums, make([]int, l.numsCapacity*(l.extendRatio-1))...)
         // 更新列表容量

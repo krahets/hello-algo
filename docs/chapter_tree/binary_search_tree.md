@@ -83,7 +83,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     """ 查找结点 """
-    def search(self, num: int) -> typing.Optional[TreeNode]:
+    def search(self, num: int) -> Optional[TreeNode]:
         cur = self.root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
@@ -103,7 +103,7 @@ comments: true
 
     ```go title="binary_search_tree.go"
     /* 查找结点 */
-    func (bst *BinarySearchTree) Search(num int) *TreeNode {
+    func (bst *binarySearchTree) search(num int) *TreeNode {
         node := bst.root
         // 循环查找，越过叶结点后跳出
         for node != nil {
@@ -265,7 +265,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     """ 插入结点 """
-    def insert(self, num: int) -> typing.Optional[TreeNode]:
+    def insert(self, num: int) -> Optional[TreeNode]:
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -299,7 +299,7 @@ comments: true
 
     ```go title="binary_search_tree.go"
     /* 插入结点 */
-    func (bst *BinarySearchTree) Insert(num int) *TreeNode {
+    func (bst *binarySearchTree) insert(num int) *TreeNode {
         cur := bst.root
         // 若树为空，直接提前返回
         if cur == nil {
@@ -560,7 +560,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     """ 删除结点 """
-    def remove(self, num: int) -> typing.Optional[TreeNode]:
+    def remove(self, num: int) -> Optional[TreeNode]:
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -609,7 +609,7 @@ comments: true
 
     ```go title="binary_search_tree.go"
     /* 删除结点 */
-    func (bst *BinarySearchTree) Remove(num int) *TreeNode {
+    func (bst *binarySearchTree) remove(num int) *TreeNode {
         cur := bst.root
         // 若树为空，直接提前返回
         if cur == nil {
@@ -653,10 +653,10 @@ comments: true
             // 子结点数为 2
         } else {
             // 获取中序遍历中待删除结点 cur 的下一个结点
-            next := bst.GetInOrderNext(cur)
+            next := bst.getInOrderNext(cur)
             temp := next.Val
             // 递归删除结点 next
-            bst.Remove(next.Val)
+            bst.remove(next.Val)
             // 将 next 的值复制给 cur
             cur.Val = temp
         }

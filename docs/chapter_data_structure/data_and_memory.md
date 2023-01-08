@@ -117,7 +117,7 @@ comments: true
 === "Swift"
 
     ```swift title=""
-    // 使用多种「基本数据类型」来初始化「数组」
+    /* 使用多种「基本数据类型」来初始化「数组」 */
     let numbers = Array(repeating: Int(), count: 5)
     let decimals = Array(repeating: Double(), count: 5)
     let characters = Array(repeating: Character("a"), count: 5)

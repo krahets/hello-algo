@@ -10,26 +10,26 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-type BinarySearchTree struct {
+type binarySearchTree struct {
 	root *TreeNode
 }
 
-func NewBinarySearchTree(nums []int) *BinarySearchTree {
+func newBinarySearchTree(nums []int) *binarySearchTree {
 	// sorting array
 	sort.Ints(nums)
 	root := buildBinarySearchTree(nums, 0, len(nums)-1)
-	return &BinarySearchTree{
+	return &binarySearchTree{
 		root: root,
 	}
 }
 
 /* 获取根结点 */
-func (bst *BinarySearchTree) GetRoot() *TreeNode {
+func (bst *binarySearchTree) getRoot() *TreeNode {
 	return bst.root
 }
 
 /* 获取中序遍历的下一个结点 */
-func (bst *BinarySearchTree) GetInOrderNext(node *TreeNode) *TreeNode {
+func (bst *binarySearchTree) getInOrderNext(node *TreeNode) *TreeNode {
 	if node == nil {
 		return node
 	}
@@ -41,7 +41,7 @@ func (bst *BinarySearchTree) GetInOrderNext(node *TreeNode) *TreeNode {
 }
 
 /* 查找结点 */
-func (bst *BinarySearchTree) Search(num int) *TreeNode {
+func (bst *binarySearchTree) search(num int) *TreeNode {
 	node := bst.root
 	// 循环查找，越过叶结点后跳出
 	for node != nil {
@@ -61,7 +61,7 @@ func (bst *BinarySearchTree) Search(num int) *TreeNode {
 }
 
 /* 插入结点 */
-func (bst *BinarySearchTree) Insert(num int) *TreeNode {
+func (bst *binarySearchTree) insert(num int) *TreeNode {
 	cur := bst.root
 	// 若树为空，直接提前返回
 	if cur == nil {
@@ -92,7 +92,7 @@ func (bst *BinarySearchTree) Insert(num int) *TreeNode {
 }
 
 /* 删除结点 */
-func (bst *BinarySearchTree) Remove(num int) *TreeNode {
+func (bst *binarySearchTree) remove(num int) *TreeNode {
 	cur := bst.root
 	// 若树为空，直接提前返回
 	if cur == nil {
@@ -136,10 +136,10 @@ func (bst *BinarySearchTree) Remove(num int) *TreeNode {
 		// 子结点数为 2
 	} else {
 		// 获取中序遍历中待删除结点 cur 的下一个结点
-		next := bst.GetInOrderNext(cur)
+		next := bst.getInOrderNext(cur)
 		temp := next.Val
 		// 递归删除结点 next
-		bst.Remove(next.Val)
+		bst.remove(next.Val)
 		// 将 next 的值复制给 cur
 		cur.Val = temp
 	}
@@ -160,7 +160,7 @@ func buildBinarySearchTree(nums []int, left, right int) *TreeNode {
 	return root
 }
 
-// Print binary search tree
-func (bst *BinarySearchTree) Print() {
+// print binary search tree
+func (bst *binarySearchTree) print() {
 	PrintTree(bst.root)
 }

@@ -9,26 +9,26 @@ import (
 )
 
 /* 基于链表实现的队列 */
-type LinkedListQueue struct {
+type linkedListQueue struct {
 	// 使用内置包 list 来实现队列
 	data *list.List
 }
 
-// NewLinkedListQueue 初始化链表
-func NewLinkedListQueue() *LinkedListQueue {
-	return &LinkedListQueue{
+// newLinkedListQueue 初始化链表
+func newLinkedListQueue() *linkedListQueue {
+	return &linkedListQueue{
 		data: list.New(),
 	}
 }
 
-// Offer 入队
-func (s *LinkedListQueue) Offer(value any) {
+// offer 入队
+func (s *linkedListQueue) offer(value any) {
 	s.data.PushBack(value)
 }
 
-// Poll 出队
-func (s *LinkedListQueue) Poll() any {
-	if s.IsEmpty() {
+// poll 出队
+func (s *linkedListQueue) poll() any {
+	if s.isEmpty() {
 		return nil
 	}
 	e := s.data.Front()
@@ -36,26 +36,26 @@ func (s *LinkedListQueue) Poll() any {
 	return e.Value
 }
 
-// Peek 访问队首元素
-func (s *LinkedListQueue) Peek() any {
-	if s.IsEmpty() {
+// peek 访问队首元素
+func (s *linkedListQueue) peek() any {
+	if s.isEmpty() {
 		return nil
 	}
 	e := s.data.Front()
 	return e.Value
 }
 
-// Size 获取队列的长度
-func (s *LinkedListQueue) Size() int {
+// size 获取队列的长度
+func (s *linkedListQueue) size() int {
 	return s.data.Len()
 }
 
-// IsEmpty 判断队列是否为空
-func (s *LinkedListQueue) IsEmpty() bool {
+// isEmpty 判断队列是否为空
+func (s *linkedListQueue) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
 // 获取 List 用于打印
-func (s *LinkedListQueue) toList() *list.List {
+func (s *linkedListQueue) toList() *list.List {
 	return s.data
 }

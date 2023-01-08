@@ -115,7 +115,15 @@ comments: true
 === "Swift"
 
     ```swift title=""
+    /* 链表结点类 */
+    class ListNode {
+        var val: Int // 结点值
+        var next: ListNode? // 指向下一结点的指针（引用）
 
+        init(x: Int) { // 构造函数
+            val = x
+        }
+    }
     ```
 
 **尾结点指向什么？** 我们一般将链表的最后一个结点称为「尾结点」，其指向的是「空」，在 Java / C++ / Python 中分别记为 `null` / `nullptr` / `None` 。在不引起歧义下，本书都使用 `null` 来表示空。
@@ -255,7 +263,18 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个结点
+    let n0 = ListNode(x: 1)
+    let n1 = ListNode(x: 3)
+    let n2 = ListNode(x: 2)
+    let n3 = ListNode(x: 5)
+    let n4 = ListNode(x: 4)
+    // 构建引用指向
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
     ```
 
 ## 链表优点
@@ -425,7 +444,24 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
+    /* 在链表的结点 n0 之后插入结点 P */
+    func insert(n0: ListNode, P: ListNode) {
+        let n1 = n0.next
+        n0.next = P
+        P.next = n1
+    }
 
+    /* 删除链表的结点 n0 之后的首个结点 */
+    func remove(n0: ListNode) {
+        if n0.next == nil {
+            return
+        }
+        // n0 -> P -> n1
+        let P = n0.next
+        let n1 = P?.next
+        n0.next = n1
+        P?.next = nil
+    }
     ```
 
 ## 链表缺点
@@ -541,7 +577,17 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-
+    /* 访问链表中索引为 index 的结点 */
+    func access(head: ListNode, index: Int) -> ListNode? {
+        var head: ListNode? = head
+        for _ in 0 ..< index {
+            head = head?.next
+            if head == nil {
+                return nil
+            }
+        }
+        return head
+    }
     ```
 
 **链表的内存占用多**。链表以结点为单位，每个结点除了保存值外，还需额外保存指针（引用）。这意味着同样数据量下，链表比数组需要占用更多内存空间。
@@ -674,7 +720,19 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-
+    /* 在链表中查找值为 target 的首个结点 */
+    func find(head: ListNode, target: Int) -> Int {
+        var head: ListNode? = head
+        var index = 0
+        while head != nil {
+            if head?.val == target {
+                return index
+            }
+            head = head?.next
+            index += 1
+        }
+        return -1
+    }
     ```
 
 ## 常见链表类型
@@ -793,7 +851,16 @@ comments: true
 === "Swift"
 
     ```swift title=""
+    /* 双向链表结点类 */
+    class ListNode {
+        var val: Int // 结点值
+        var next: ListNode? // 指向后继结点的指针（引用）
+        var prev: ListNode? // 指向前驱结点的指针（引用）
 
+        init(x: Int) { // 构造函数
+            val = x
+        }
+    }
     ```
 
 ![linkedlist_common_types](linked_list.assets/linkedlist_common_types.png)

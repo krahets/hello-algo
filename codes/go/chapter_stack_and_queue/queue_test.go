@@ -48,87 +48,87 @@ func TestQueue(t *testing.T) {
 func TestArrayQueue(t *testing.T) {
 	// 初始化队列，使用队列的通用接口
 	capacity := 10
-	queue := NewArrayQueue(capacity)
+	queue := newArrayQueue(capacity)
 
 	// 元素入队
-	queue.Offer(1)
-	queue.Offer(3)
-	queue.Offer(2)
-	queue.Offer(5)
-	queue.Offer(4)
+	queue.offer(1)
+	queue.offer(3)
+	queue.offer(2)
+	queue.offer(5)
+	queue.offer(4)
 	fmt.Print("队列 queue = ")
 	PrintSlice(queue.toSlice())
 
 	// 访问队首元素
-	peek := queue.Peek()
+	peek := queue.peek()
 	fmt.Println("队首元素 peek =", peek)
 
 	// 元素出队
-	poll := queue.Poll()
+	poll := queue.poll()
 	fmt.Print("出队元素 poll = ", poll, ", 出队后 queue = ")
 	PrintSlice(queue.toSlice())
 
 	// 获取队的长度
-	size := queue.Size()
+	size := queue.size()
 	fmt.Println("队的长度 size =", size)
 
 	// 判断是否为空
-	isEmpty := queue.IsEmpty()
+	isEmpty := queue.isEmpty()
 	fmt.Println("队是否为空 =", isEmpty)
 }
 
 func TestLinkedListQueue(t *testing.T) {
 	// 初始化队
-	queue := NewLinkedListQueue()
+	queue := newLinkedListQueue()
 
 	// 元素入队
-	queue.Offer(1)
-	queue.Offer(3)
-	queue.Offer(2)
-	queue.Offer(5)
-	queue.Offer(4)
+	queue.offer(1)
+	queue.offer(3)
+	queue.offer(2)
+	queue.offer(5)
+	queue.offer(4)
 	fmt.Print("队列 queue = ")
 	PrintList(queue.toList())
 
 	// 访问队首元素
-	peek := queue.Peek()
+	peek := queue.peek()
 	fmt.Println("队首元素 peek =", peek)
 
 	// 元素出队
-	poll := queue.Poll()
+	poll := queue.poll()
 	fmt.Print("出队元素 poll = ", poll, ", 出队后 queue = ")
 	PrintList(queue.toList())
 
 	// 获取队的长度
-	size := queue.Size()
+	size := queue.size()
 	fmt.Println("队的长度 size =", size)
 
 	// 判断是否为空
-	isEmpty := queue.IsEmpty()
+	isEmpty := queue.isEmpty()
 	fmt.Println("队是否为空 =", isEmpty)
 }
 
 // BenchmarkArrayQueue 8 ns/op in Mac M1 Pro
 func BenchmarkArrayQueue(b *testing.B) {
 	capacity := 1000
-	stack := NewArrayQueue(capacity)
+	stack := newArrayQueue(capacity)
 	// use b.N for looping
 	for i := 0; i < b.N; i++ {
-		stack.Offer(777)
+		stack.offer(777)
 	}
 	for i := 0; i < b.N; i++ {
-		stack.Poll()
+		stack.poll()
 	}
 }
 
 // BenchmarkLinkedQueue 62.66 ns/op in Mac M1 Pro
 func BenchmarkLinkedQueue(b *testing.B) {
-	stack := NewLinkedListQueue()
+	stack := newLinkedListQueue()
 	// use b.N for looping
 	for i := 0; i < b.N; i++ {
-		stack.Offer(777)
+		stack.offer(777)
 	}
 	for i := 0; i < b.N; i++ {
-		stack.Poll()
+		stack.poll()
 	}
 }
