@@ -83,7 +83,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     """ 查找结点 """
-    def search(self, num: int) -> typing.Optional[TreeNode]:
+    def search(self, num: int) -> Optional[TreeNode]:
         cur = self.root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
@@ -265,7 +265,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     """ 插入结点 """
-    def insert(self, num: int) -> typing.Optional[TreeNode]:
+    def insert(self, num: int) -> Optional[TreeNode]:
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -560,7 +560,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     """ 删除结点 """
-    def remove(self, num: int) -> typing.Optional[TreeNode]:
+    def remove(self, num: int) -> Optional[TreeNode]:
         root = self.root
         # 若树为空，直接提前返回
         if root is None:

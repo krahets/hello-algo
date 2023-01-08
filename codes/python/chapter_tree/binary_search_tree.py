@@ -5,20 +5,18 @@ Author: a16su (lpluls001@gmail.com)
 """
 
 import sys, os.path as osp
-import typing
-
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
 
 """ 二叉搜索树 """
 class BinarySearchTree:
-    def __init__(self, nums: typing.List[int]) -> None:
+    def __init__(self, nums: List[int]) -> None:
         nums.sort()
         self.__root = self.build_tree(nums, 0, len(nums) - 1)
 
     """ 构建二叉搜索树 """
-    def build_tree(self, nums: typing.List[int], start_index: int, end_index: int) -> typing.Optional[TreeNode]:
+    def build_tree(self, nums: List[int], start_index: int, end_index: int) -> Optional[TreeNode]:
         if start_index > end_index:
             return None
 
@@ -31,11 +29,11 @@ class BinarySearchTree:
         return root
 
     @property
-    def root(self) -> typing.Optional[TreeNode]:
+    def root(self) -> Optional[TreeNode]:
         return self.__root
 
     """ 查找结点 """
-    def search(self, num: int) -> typing.Optional[TreeNode]:
+    def search(self, num: int) -> Optional[TreeNode]:
         cur = self.root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
@@ -51,7 +49,7 @@ class BinarySearchTree:
         return cur
 
     """ 插入结点 """
-    def insert(self, num: int) -> typing.Optional[TreeNode]:
+    def insert(self, num: int) -> Optional[TreeNode]:
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -81,7 +79,7 @@ class BinarySearchTree:
         return node
 
     """ 删除结点 """
-    def remove(self, num: int) -> typing.Optional[TreeNode]:
+    def remove(self, num: int) -> Optional[TreeNode]:
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -126,7 +124,7 @@ class BinarySearchTree:
         return cur
 
     """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
-    def get_inorder_next(self, root: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
+    def get_inorder_next(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if root is None:
             return root
         # 循环访问左子结点，直到叶结点时为最小结点，跳出
