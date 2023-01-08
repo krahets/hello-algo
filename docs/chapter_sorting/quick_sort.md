@@ -111,21 +111,21 @@ comments: true
     ```go title="quick_sort.go"
     /* 哨兵划分 */
     func partition(nums []int, left, right int) int {
-        //以 nums[left] 作为基准数
+        // 以 nums[left] 作为基准数
         i, j := left, right
         for i < j {
             for i < j && nums[j] >= nums[left] {
-                j-- //从右向左找首个小于基准数的元素
+                j-- // 从右向左找首个小于基准数的元素
             }
             for i < j && nums[i] <= nums[left] {
-                i++ //从左向右找首个大于基准数的元素
+                i++ // 从左向右找首个大于基准数的元素
             }
             //元素交换
             nums[i], nums[j] = nums[j], nums[i]
         }
-        //将基准数交换至两子数组的分界线
+        // 将基准数交换至两子数组的分界线
         nums[i], nums[left] = nums[left], nums[i]
-        return i //返回基准数的索引
+        return i // 返回基准数的索引
     }
     ```
 

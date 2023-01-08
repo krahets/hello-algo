@@ -378,43 +378,49 @@ comments: true
 
     ```go title="linkedlist_stack.go"
     /* 基于链表实现的栈 */
-    type LinkedListStack struct {
+    type linkedListStack struct {
         // 使用内置包 list 来实现栈
         data *list.List
     }
-    // NewLinkedListStack 初始化链表
-    func NewLinkedListStack() *LinkedListStack {
-        return &LinkedListStack{
+
+    // newLinkedListStack 初始化链表
+    func newLinkedListStack() *linkedListStack {
+        return &linkedListStack{
             data: list.New(),
         }
     }
-    // Push 入栈
-    func (s *LinkedListStack) Push(value int) {
+
+    // push 入栈
+    func (s *linkedListStack) push(value int) {
         s.data.PushBack(value)
     }
-    // Pop 出栈
-    func (s *LinkedListStack) Pop() any {
-        if s.IsEmpty() {
+
+    // pop 出栈
+    func (s *linkedListStack) pop() any {
+        if s.isEmpty() {
             return nil
         }
         e := s.data.Back()
         s.data.Remove(e)
         return e.Value
     }
-    // Peek 访问栈顶元素
-    func (s *LinkedListStack) Peek() any {
-        if s.IsEmpty() {
+
+    // peek 访问栈顶元素
+    func (s *linkedListStack) peek() any {
+        if s.isEmpty() {
             return nil
         }
         e := s.data.Back()
         return e.Value
     }
-    // Size 获取栈的长度
-    func (s *LinkedListStack) Size() int {
+
+    // size 获取栈的长度
+    func (s *linkedListStack) size() int {
         return s.data.Len()
     }
-    // IsEmpty 判断栈是否为空
-    func (s *LinkedListStack) IsEmpty() bool {
+
+    // isEmpty 判断栈是否为空
+    func (s *linkedListStack) isEmpty() bool {
         return s.data.Len() == 0
     }
     ```
@@ -716,41 +722,47 @@ comments: true
 
     ```go title="array_stack.go"
     /* 基于数组实现的栈 */
-    type ArrayStack struct {
+    type arrayStack struct {
         data []int // 数据
     }
-    func NewArrayStack() *ArrayStack {
-        return &ArrayStack{
+
+    func newArrayStack() *arrayStack {
+        return &arrayStack{
             // 设置栈的长度为 0，容量为 16
             data: make([]int, 0, 16),
         }
     }
-    // Size 栈的长度
-    func (s *ArrayStack) Size() int {
+
+    // size 栈的长度
+    func (s *arrayStack) size() int {
         return len(s.data)
     }
-    // IsEmpty 栈是否为空
-    func (s *ArrayStack) IsEmpty() bool {
-        return s.Size() == 0
+
+    // isEmpty 栈是否为空
+    func (s *arrayStack) isEmpty() bool {
+        return s.size() == 0
     }
-    // Push 入栈
-    func (s *ArrayStack) Push(v int) {
+
+    // push 入栈
+    func (s *arrayStack) push(v int) {
         // 切片会自动扩容
         s.data = append(s.data, v)
     }
-    // Pop 出栈
-    func (s *ArrayStack) Pop() any {
+
+    // pop 出栈
+    func (s *arrayStack) pop() any {
         // 弹出栈前，先判断是否为空
-        if s.IsEmpty() {
+        if s.isEmpty() {
             return nil
         }
-        val := s.Peek()
+        val := s.peek()
         s.data = s.data[:len(s.data)-1]
         return val
     }
-    // Peek 获取栈顶元素
-    func (s *ArrayStack) Peek() any {
-        if s.IsEmpty() {
+
+    // peek 获取栈顶元素
+    func (s *arrayStack) peek() any {
+        if s.isEmpty() {
             return nil
         }
         val := s.data[len(s.data)-1]
