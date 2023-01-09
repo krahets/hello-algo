@@ -12,7 +12,7 @@ When reading this book, if you find that a section contains an animation or illu
 
 ![algorithm_animation](suggestions.assets/algorithm_animation.gif)
 
-## Learning by Doing
+## Learning by Practicing
 
 !!! tip "Preparation"
 

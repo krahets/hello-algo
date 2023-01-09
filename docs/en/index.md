@@ -29,7 +29,7 @@ hide:
 
 ---
 
-<h2 align="center"><i> Learning by Doing </i></h2>
+<h2 align="center"><i> Learning by Practicing </i></h2>
 
 <p align="center"> Provide clear implementations and test codes of classic algorithms</br>Multiple languages, detailed comments, all runnable </p>
 
