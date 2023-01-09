@@ -35,11 +35,7 @@ namespace hello_algo.chapter_tree
             return root;
         }
 
-        /// <summary>
-        /// 查找结点
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
+        /* 查找结点 */
         public TreeNode? search(int num)
         {
             TreeNode? cur = root;

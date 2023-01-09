@@ -29,10 +29,10 @@ func removeNode(n0 *ListNode) {
 /* 访问链表中索引为 index 的结点 */
 func access(head *ListNode, index int) *ListNode {
 	for i := 0; i < index; i++ {
-		head = head.Next
 		if head == nil {
 			return nil
 		}
+		head = head.Next
 	}
 	return head
 }

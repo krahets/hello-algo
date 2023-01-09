@@ -11,6 +11,8 @@ let package = Package(
         .executable(name: "leetcode_two_sum", targets: ["leetcode_two_sum"]),
         .executable(name: "array", targets: ["array"]),
         .executable(name: "linked_list", targets: ["linked_list"]),
+        .executable(name: "list", targets: ["list"]),
+        .executable(name: "my_list", targets: ["my_list"]),
     ],
     targets: [
         .target(name: "utils", path: "utils"),
@@ -20,5 +22,7 @@ let package = Package(
         .executableTarget(name: "leetcode_two_sum", path: "chapter_computational_complexity", sources: ["leetcode_two_sum.swift"]),
         .executableTarget(name: "array", path: "chapter_array_and_linkedlist", sources: ["array.swift"]),
         .executableTarget(name: "linked_list", dependencies: ["utils"], path: "chapter_array_and_linkedlist", sources: ["linked_list.swift"]),
+        .executableTarget(name: "list", path: "chapter_array_and_linkedlist", sources: ["list.swift"]),
+        .executableTarget(name: "my_list", path: "chapter_array_and_linkedlist", sources: ["my_list.swift"]),
     ]
 )

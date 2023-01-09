@@ -94,7 +94,11 @@ comments: true
 === "Swift"
 
     ```swift title="list.swift"
-
+    /* 初始化列表 */
+    // 无初始值
+    let list1: [Int] = []
+    // 有初始值
+    var list = [1, 3, 2, 5, 4]
     ```
 
 **访问与更新元素**。列表的底层数据结构是数组，因此可以在 $O(1)$ 时间内访问与更新元素，效率很高。
@@ -178,7 +182,11 @@ comments: true
 === "Swift"
 
     ```swift title="list.swift"
+    /* 访问元素 */
+    let num = list[1] // 访问索引 1 处的元素
 
+    /* 更新元素 */
+    list[1] = 0 // 将索引 1 处的元素更新为 0
     ```
 
 **在列表中添加、插入、删除元素**。相对于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 $O(1)$ ，但是插入与删除元素的效率仍与数组一样低，时间复杂度为 $O(N)$ 。
@@ -332,7 +340,21 @@ comments: true
 === "Swift"
 
     ```swift title="list.swift"
+    /* 清空列表 */
+    list.removeAll()
 
+    /* 尾部添加元素 */
+    list.append(1)
+    list.append(3)
+    list.append(2)
+    list.append(5)
+    list.append(4)
+
+    /* 中间插入元素 */
+    list.insert(6, at: 3) // 在索引 3 处插入数字 6
+
+    /* 删除元素 */
+    list.remove(at: 3) // 删除索引 3 处的元素
     ```
 
 **遍历列表**。与数组一样，列表可以使用索引遍历，也可以使用 `for-each` 直接遍历。
@@ -458,7 +480,17 @@ comments: true
 === "Swift"
 
     ```swift title="list.swift"
+    /* 通过索引遍历列表 */
+    var count = 0
+    for _ in list.indices {
+        count += 1
+    }
 
+    /* 直接遍历列表元素 */
+    count = 0
+    for _ in list {
+        count += 1
+    }
     ```
 
 **拼接两个列表**。再创建一个新列表 `list1` ，我们可以将其中一个列表拼接到另一个的尾部。
@@ -529,7 +561,9 @@ comments: true
 === "Swift"
 
     ```swift title="list.swift"
-
+    /* 拼接两个列表 */
+    let list1 = [6, 8, 7, 10, 9]
+    list.append(contentsOf: list1) // 将列表 list1 拼接到 list 之后
     ```
 
 **排序列表**。排序也是常用的方法之一，完成列表排序后，我们就可以使用在数组类算法题中经常考察的「二分查找」和「双指针」算法了。
@@ -592,16 +626,17 @@ comments: true
 === "Swift"
 
     ```swift title="list.swift"
-
+    /* 排序列表 */
+    list.sort() // 排序后，列表元素从小到大排列
     ```
 
 ## 列表简易实现 *
 
 为了帮助加深对列表的理解，我们在此提供一个列表的简易版本的实现。需要关注三个核心点：
 
-- **初始容量：** 选取一个合理的数组的初始容量 `initialCapacity` 。在本示例中，我们选择 10 作为初始容量。
-- **数量记录：** 需要声明一个变量 `size` ，用来记录列表当前有多少个元素，并随着元素插入与删除实时更新。根据此变量，可以定位列表的尾部，以及判断是否需要扩容。
-- **扩容机制：** 插入元素有可能导致超出列表容量，此时需要扩容列表，方法是建立一个更大的数组来替换当前数组。需要给定一个扩容倍数 `extendRatio` ，在本示例中，我们规定每次将数组扩容至之前的 2 倍。
+- **初始容量**：选取一个合理的数组的初始容量 `initialCapacity` 。在本示例中，我们选择 10 作为初始容量。
+- **数量记录**：需要声明一个变量 `size` ，用来记录列表当前有多少个元素，并随着元素插入与删除实时更新。根据此变量，可以定位列表的尾部，以及判断是否需要扩容。
+- **扩容机制**：插入元素有可能导致超出列表容量，此时需要扩容列表，方法是建立一个更大的数组来替换当前数组。需要给定一个扩容倍数 `extendRatio` ，在本示例中，我们规定每次将数组扩容至之前的 2 倍。
 
 本示例是为了帮助读者对如何实现列表产生直观的认识。实际编程语言中，列表的实现远比以下代码复杂且标准，感兴趣的读者可以查阅源码学习。
 
@@ -1263,6 +1298,106 @@ comments: true
 === "Swift"
 
     ```swift title="my_list.swift"
+    /* 列表类简易实现 */
+    class MyList {
+        private var nums: [Int] // 数组（存储列表元素）
+        private var _capacity = 10 // 列表容量
+        private var _size = 0 // 列表长度（即当前元素数量）
+        private let extendRatio = 2 // 每次列表扩容的倍数
 
+        /* 构造函数 */
+        init() {
+            nums = Array(repeating: 0, count: _capacity)
+        }
+
+        /* 获取列表长度（即当前元素数量）*/
+        func size() -> Int {
+            _size
+        }
+
+        /* 获取列表容量 */
+        func capacity() -> Int {
+            _capacity
+        }
+
+        /* 访问元素 */
+        func get(index: Int) -> Int {
+            // 索引如果越界则抛出错误，下同
+            if index >= _size {
+                fatalError("索引越界")
+            }
+            return nums[index]
+        }
+
+        /* 更新元素 */
+        func set(index: Int, num: Int) {
+            if index >= _size {
+                fatalError("索引越界")
+            }
+            nums[index] = num
+        }
+
+        /* 尾部添加元素 */
+        func add(num: Int) {
+            // 元素数量超出容量时，触发扩容机制
+            if _size == _capacity {
+                extendCapacity()
+            }
+            nums[_size] = num
+            // 更新元素数量
+            _size += 1
+        }
+
+        /* 中间插入元素 */
+        func insert(index: Int, num: Int) {
+            if index >= _size {
+                fatalError("索引越界")
+            }
+            // 元素数量超出容量时，触发扩容机制
+            if _size == _capacity {
+                extendCapacity()
+            }
+            // 将索引 index 以及之后的元素都向后移动一位
+            for j in sequence(first: _size - 1, next: { $0 >= index + 1 ? $0 - 1 : nil }) {
+                nums[j + 1] = nums[j]
+            }
+            nums[index] = num
+            // 更新元素数量
+            _size += 1
+        }
+
+        /* 删除元素 */
+        @discardableResult
+        func remove(index: Int) -> Int {
+            if index >= _size {
+                fatalError("索引越界")
+            }
+            let num = nums[index]
+            // 将索引 index 之后的元素都向前移动一位
+            for j in index ..< (_size - 1) {
+                nums[j] = nums[j + 1]
+            }
+            // 更新元素数量
+            _size -= 1
+            // 返回被删除元素
+            return num
+        }
+
+        /* 列表扩容 */
+        func extendCapacity() {
+            // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
+            nums = nums + Array(repeating: 0, count: _capacity * (extendRatio - 1))
+            // 更新列表容量
+            _capacity = nums.count
+        }
+
+        /* 将列表转换为数组 */
+        func toArray() -> [Int] {
+            var nums = Array(repeating: 0, count: _size)
+            for i in 0 ..< _size {
+                nums[i] = get(index: i)
+            }
+            return nums
+        }
+    }
     ```
-
