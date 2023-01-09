@@ -161,6 +161,8 @@ nav:
     - 二叉搜索树: chapter_tree/binary_search_tree.md
     - AVL 树 *: chapter_tree/avl_tree.md
     - 小结: chapter_tree/summary.md
+  - 堆:
+    - 堆（Heap）: chapter_heap/heap.md
   - 查找算法:
     - 线性查找: chapter_searching/linear_search.md
     - 二分查找: chapter_searching/binary_search.md
