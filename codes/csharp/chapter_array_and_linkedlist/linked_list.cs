@@ -39,9 +39,9 @@ namespace hello_algo.chapter_array_and_linkedlist
         {
             for (int i = 0; i < index; i++)
             {
-                head = head.next;
                 if (head == null)
                     return null;
+                head = head.next;
             }
             return head;
         }

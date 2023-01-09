@@ -32,7 +32,7 @@ git clone https://github.com/krahets/hello-algo.git
 
 ### 运行源代码
 
-本书提供配套 Java, C++, Python 代码仓（后续可能拓展支持语言）。书中的代码栏上若标有 `*.java` , `*.cpp` , `*.py` ，则可在仓库 codes 文件夹中找到对应的 **代码源文件** 。
+本书提供配套 Java, C++, Python 代码仓（后续可能拓展支持语言）。书中的代码栏上若标有 `*.java` , `*.cpp` , `*.py` ，则可在仓库 codes 文件夹中找到对应的 **代码源文件**。
 
 ![code_md_to_repo](suggestions.assets/code_md_to_repo.png)
 

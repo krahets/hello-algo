@@ -29,9 +29,9 @@ public class linked_list {
     /* 访问链表中索引为 index 的结点 */
     static ListNode access(ListNode head, int index) {
         for (int i = 0; i < index; i++) {
-            head = head.next;
             if (head == null)
                 return null;
+            head = head.next;
         }
         return head;
     }
