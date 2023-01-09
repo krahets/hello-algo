@@ -8,6 +8,7 @@ package include;
 
 import java.util.*;
 
+
 class Trunk {
     Trunk prev;
     String str;
@@ -102,5 +103,12 @@ public class PrintUtil {
         for (Map.Entry <K, V> kv: map.entrySet()) {
             System.out.println(kv.getKey() + " -> " + kv.getValue());
         }
+    }
+
+    public static void printHeap(PriorityQueue<Integer> queue) {
+        Integer[] nums = (Integer[])queue.toArray();
+        TreeNode root = TreeNode.arrToTree(nums);
+        
+        printTree(root);
     }
 }

@@ -83,7 +83,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     """ 查找结点 """
-    def search(self, num: int) -> typing.Optional[TreeNode]:
+    def search(self, num: int) -> Optional[TreeNode]:
         cur = self.root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
@@ -103,7 +103,7 @@ comments: true
 
     ```go title="binary_search_tree.go"
     /* 查找结点 */
-    func (bst *BinarySearchTree) Search(num int) *TreeNode {
+    func (bst *binarySearchTree) search(num int) *TreeNode {
         node := bst.root
         // 循环查找，越过叶结点后跳出
         for node != nil {
@@ -192,6 +192,12 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title="binary_search_tree.swift"
+
+    ```
+
 ### 插入结点
 
 给定一个待插入元素 `num` ，为了保持二叉搜索树“左子树 < 根结点 < 右子树”的性质，插入操作分为两步：
@@ -259,7 +265,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     """ 插入结点 """
-    def insert(self, num: int) -> typing.Optional[TreeNode]:
+    def insert(self, num: int) -> Optional[TreeNode]:
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -293,7 +299,7 @@ comments: true
 
     ```go title="binary_search_tree.go"
     /* 插入结点 */
-    func (bst *BinarySearchTree) Insert(num int) *TreeNode {
+    func (bst *binarySearchTree) insert(num int) *TreeNode {
         cur := bst.root
         // 若树为空，直接提前返回
         if cur == nil {
@@ -422,6 +428,12 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title="binary_search_tree.swift"
+
+    ```
+
 为了插入结点，需要借助 **辅助结点 `prev`** 保存上一轮循环的结点，这样在遍历到 $\text{null}$ 时，我们也可以获取到其父结点，从而完成结点插入操作。
 
 与查找结点相同，插入结点使用 $O(\log n)$ 时间。
@@ -430,15 +442,15 @@ comments: true
 
 与插入结点一样，我们需要在删除操作后维持二叉搜索树的“左子树 < 根结点 < 右子树”的性质。首先，我们需要在二叉树中执行查找操作，获取待删除结点。接下来，根据待删除结点的子结点数量，删除操作需要分为三种情况：
 
-**待删除结点的子结点数量 $= 0$ 。** 表明待删除结点是叶结点，直接删除即可。
+**待删除结点的子结点数量 $= 0$ **。表明待删除结点是叶结点，直接删除即可。
 
 ![bst_remove_case1](binary_search_tree.assets/bst_remove_case1.png)
 
-**待删除结点的子结点数量 $= 1$ 。** 将待删除结点替换为其子结点。
+**待删除结点的子结点数量 $= 1$ **。将待删除结点替换为其子结点。
 
 ![bst_remove_case2](binary_search_tree.assets/bst_remove_case2.png)
 
-**待删除结点的子结点数量 $= 2$ 。** 删除操作分为三步：
+**待删除结点的子结点数量 $= 2$ **。删除操作分为三步：
 
 1. 找到待删除结点在 **中序遍历序列** 中的下一个结点，记为 `nex` ；
 2. 在树中递归删除结点 `nex` ；
@@ -548,7 +560,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     """ 删除结点 """
-    def remove(self, num: int) -> typing.Optional[TreeNode]:
+    def remove(self, num: int) -> Optional[TreeNode]:
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -597,7 +609,7 @@ comments: true
 
     ```go title="binary_search_tree.go"
     /* 删除结点 */
-    func (bst *BinarySearchTree) Remove(num int) *TreeNode {
+    func (bst *binarySearchTree) remove(num int) *TreeNode {
         cur := bst.root
         // 若树为空，直接提前返回
         if cur == nil {
@@ -641,10 +653,10 @@ comments: true
             // 子结点数为 2
         } else {
             // 获取中序遍历中待删除结点 cur 的下一个结点
-            next := bst.GetInOrderNext(cur)
+            next := bst.getInOrderNext(cur)
             temp := next.Val
             // 递归删除结点 next
-            bst.Remove(next.Val)
+            bst.remove(next.Val)
             // 将 next 的值复制给 cur
             cur.Val = temp
         }
@@ -806,6 +818,12 @@ comments: true
         }
         return cur;
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_tree.swift"
+
     ```
 
 ## 二叉搜索树的优势

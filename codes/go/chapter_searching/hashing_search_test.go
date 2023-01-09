@@ -6,8 +6,9 @@ package chapter_searching
 
 import (
 	"fmt"
-	. "github.com/krahets/hello-algo/pkg"
 	"testing"
+
+	. "github.com/krahets/hello-algo/pkg"
 )
 
 func TestHashingSearch(t *testing.T) {

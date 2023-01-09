@@ -66,7 +66,7 @@ comments: true
 
     ```python title="binary_tree_bfs.py"
     """ 层序遍历 """
-    def hier_order(root: TreeNode):
+    def hier_order(root: Optional[TreeNode]):
         # 初始化队列，加入根结点
         queue = collections.deque()
         queue.append(root)
@@ -185,6 +185,12 @@ comments: true
     
     ```
 
+=== "Swift"
+
+    ```swift title="binary_tree_bfs.swift"
+
+    ```
+
 ## 前序、中序、后序遍历
 
 相对地，前、中、后序遍历皆属于「深度优先遍历 Depth-First Traversal」，其体现着一种“先走到尽头，再回头继续”的回溯遍历方式。
@@ -271,7 +277,7 @@ comments: true
 
     ```python title="binary_tree_dfs.py"
     """ 前序遍历 """
-    def pre_order(root: typing.Optional[TreeNode]):
+    def pre_order(root: Optional[TreeNode]):
         if root is None:
             return
         # 访问优先级：根结点 -> 左子树 -> 右子树
@@ -280,7 +286,7 @@ comments: true
         pre_order(root=root.right)
 
     """ 中序遍历 """
-    def in_order(root: typing.Optional[TreeNode]):
+    def in_order(root: Optional[TreeNode]):
         if root is None:
             return
         # 访问优先级：左子树 -> 根结点 -> 右子树
@@ -289,7 +295,7 @@ comments: true
         in_order(root=root.right)
 
     """ 后序遍历 """
-    def post_order(root: typing.Optional[TreeNode]):
+    def post_order(root: Optional[TreeNode]):
         if root is None:
             return
         # 访问优先级：左子树 -> 右子树 -> 根结点
@@ -441,6 +447,12 @@ comments: true
         postOrder(root.right);
         list.Add(root.val);
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_tree_dfs.swift"
+
     ```
 
 !!! note

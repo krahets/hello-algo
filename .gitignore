@@ -4,6 +4,7 @@
 # Editor
 .vscode/
 .idea/
+hello-algo.iml
 
 # mkdocs files
 site/
@@ -13,6 +14,3 @@ docs/overrides/
 
 # python files
 __pycache__
-
-# iml
-hello-algo.iml

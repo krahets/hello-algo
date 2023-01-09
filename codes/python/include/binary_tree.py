@@ -26,39 +26,30 @@ class TreeNode:
 
 def list_to_tree(arr):
     """Generate a binary tree with a list
-
-    Args:
-        arr ([type]): [description]
-
-    Returns:
-        [type]: [description]
     """
     if not arr:
         return None
-    i = 1
-    root = TreeNode(int(arr[0]))
-    queue = collections.deque()
-    queue.append(root)
+    
+    i = 0
+    root = TreeNode(arr[0])
+    queue = collections.deque([root])
     while queue:
         node = queue.popleft()
+        i += 1
+        if i >= len(arr): break
         if arr[i] != None:
-            node.left = TreeNode(int(arr[i]))
+            node.left = TreeNode(arr[i])
             queue.append(node.left)
         i += 1
+        if i >= len(arr): break
         if arr[i] != None:
-            node.right = TreeNode(int(arr[i]))
+            node.right = TreeNode(arr[i])
             queue.append(node.right)
-        i += 1
+            
     return root
 
 def tree_to_list(root):
     """Serialize a tree into an array
-
-    Args:
-        root ([type]): [description]
-
-    Returns:
-        [type]: [description]
     """    
     if not root: return []
     queue = collections.deque()
@@ -75,13 +66,6 @@ def tree_to_list(root):
 
 def get_tree_node(root, val):
     """Get a tree node with specific value in a binary tree
-
-    Args:
-        root ([type]): [description]
-        val ([type]): [description]
-
-    Returns:
-        [type]: [description]
     """    
     if not root:
         return

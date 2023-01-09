@@ -6,14 +6,14 @@
 
 import utils
 
-// 函数
+/* 函数 */
 @discardableResult
 func function() -> Int {
     // do something
     return 0
 }
 
-// 常数阶
+/* 常数阶 */
 func constant(n: Int) {
     // 常量、变量、对象占用 O(1) 空间
     let a = 0
@@ -30,7 +30,7 @@ func constant(n: Int) {
     }
 }
 
-// 线性阶
+/* 线性阶 */
 func linear(n: Int) {
     // 长度为 n 的数组占用 O(n) 空间
     let nums = Array(repeating: 0, count: n)
@@ -40,7 +40,7 @@ func linear(n: Int) {
     let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
 }
 
-// 线性阶（递归实现）
+/* 线性阶（递归实现） */
 func linearRecur(n: Int) {
     print("递归 n = \(n)")
     if n == 1 {
@@ -49,13 +49,13 @@ func linearRecur(n: Int) {
     linearRecur(n: n - 1)
 }
 
-// 平方阶
+/* 平方阶 */
 func quadratic(n: Int) {
     // 二维列表占用 O(n^2) 空间
     let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
 }
 
-// 平方阶（递归实现）
+/* 平方阶（递归实现） */
 @discardableResult
 func quadraticRecur(n: Int) -> Int {
     if n <= 0 {
@@ -67,7 +67,7 @@ func quadraticRecur(n: Int) -> Int {
     return quadraticRecur(n: n - 1)
 }
 
-// 指数阶（建立满二叉树）
+/* 指数阶（建立满二叉树） */
 func buildTree(n: Int) -> TreeNode? {
     if n == 0 {
         return nil
@@ -80,7 +80,7 @@ func buildTree(n: Int) -> TreeNode? {
 
 @main
 enum SpaceComplexity {
-    // Driver Code
+    /* Driver Code */
     static func main() {
         let n = 5
         // 常数阶
