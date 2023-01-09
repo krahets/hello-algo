@@ -108,7 +108,7 @@ class MaxHeap {
     /* 从结点 i 开始，从顶至底堆化 */
     private void siftDown(int i) {
         while (true) {
-            // 判断结点 i, l, r 中值最大的结点，记为 ma ；
+            // 判断结点 i, l, r 中值最大的结点，记为 ma
             int l = left(i), r = right(i), ma = i;
             if (l < size() && maxHeap.get(l) > maxHeap.get(ma))
                 ma = l;
