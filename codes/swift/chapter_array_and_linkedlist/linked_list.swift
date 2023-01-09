@@ -29,10 +29,10 @@ func remove(n0: ListNode) {
 func access(head: ListNode, index: Int) -> ListNode? {
     var head: ListNode? = head
     for _ in 0 ..< index {
-        head = head?.next
         if head == nil {
             return nil
         }
+        head = head?.next
     }
     return head
 }

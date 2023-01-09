@@ -400,6 +400,7 @@ comments: true
         n0.next = P;
         P.next = n1;
     }
+    
     /* 删除链表的结点 n0 之后的首个结点 */
     function remove(n0: ListNode): void {
         if (!n0.next) {
@@ -474,9 +475,9 @@ comments: true
     /* 访问链表中索引为 index 的结点 */
     ListNode access(ListNode head, int index) {
         for (int i = 0; i < index; i++) {
-            head = head.next;
             if (head == null)
                 return null;
+            head = head.next;
         }
         return head;
     }
@@ -488,9 +489,9 @@ comments: true
     /* 访问链表中索引为 index 的结点 */
     ListNode* access(ListNode* head, int index) {
         for (int i = 0; i < index; i++) {
-            head = head->next;
             if (head == nullptr)
                 return nullptr;
+            head = head->next;
         }
         return head;
     }
@@ -502,9 +503,9 @@ comments: true
     """ 访问链表中索引为 index 的结点 """
     def access(head, index):
         for _ in range(index):
-            head = head.next
             if not head:
                 return None
+            head = head.next
         return head
     ```
 
@@ -514,10 +515,10 @@ comments: true
     /* 访问链表中索引为 index 的结点 */
     func access(head *ListNode, index int) *ListNode {
         for i := 0; i < index; i++ {
-            head = head.Next
             if head == nil {
                 return nil
             }
+            head = head.Next
         }
         return head
     }
@@ -566,9 +567,9 @@ comments: true
     {
         for (int i = 0; i < index; i++)
         {
-            head = head.next;
             if (head == null)
                 return null;
+            head = head.next;
         }
         return head;
     }
@@ -581,10 +582,10 @@ comments: true
     func access(head: ListNode, index: Int) -> ListNode? {
         var head: ListNode? = head
         for _ in 0 ..< index {
-            head = head?.next
             if head == nil {
                 return nil
             }
+            head = head?.next
         }
         return head
     }
