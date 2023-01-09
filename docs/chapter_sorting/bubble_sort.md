@@ -85,9 +85,8 @@ comments: true
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
+                    // 这里使用了 std::swap() 函数
+                    swap(nums[j], nums[j + 1]);
                 }
             }
         }
@@ -170,26 +169,66 @@ comments: true
 === "C"
 
     ```c title="bubble_sort.c"
-
+    /* 冒泡排序 */
+    void bubble_sort(int nums[], int size) {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = 0; i < size - 1; i++)
+        {
+            // 内循环：冒泡操作
+            for (int j = 0; j < size - 1 - i; j++)
+            {
+                if (nums[j] > nums[j + 1])
+                {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="bubble_sort.cs"
+    /* 冒泡排序 */
+    void bubbleSort(int[] nums)
+    {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = nums.Length - 1; i > 0; i--)
+        {
+            // 内循环：冒泡操作
+            for (int j = 0; j < i; j++)
+            {
+                if (nums[j] > nums[j + 1])
+                {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    int tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                }
+            }
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="bubble_sort.swift"
 
     ```
 
 ## 算法特性
 
-**时间复杂度 $O(n^2)$ ：** 各轮「冒泡」遍历的数组长度为 $n - 1$ , $n - 2$ , $\cdots$ , $2$ , $1$ 次，求和为 $\frac{(n - 1) n}{2}$ ，因此使用 $O(n^2)$ 时间。
+**时间复杂度 $O(n^2)$** ：各轮「冒泡」遍历的数组长度为 $n - 1$ , $n - 2$ , $\cdots$ , $2$ , $1$ 次，求和为 $\frac{(n - 1) n}{2}$ ，因此使用 $O(n^2)$ 时间。
 
-**空间复杂度 $O(1)$ ：** 指针 $i$ , $j$ 使用常数大小的额外空间。
+**空间复杂度 $O(1)$** ：指针 $i$ , $j$ 使用常数大小的额外空间。
 
-**原地排序：** 指针变量仅使用常数大小额外空间。
+**原地排序**：指针变量仅使用常数大小额外空间。
 
-**稳定排序：** 不交换相等元素。
+**稳定排序**：不交换相等元素。
 
-**自适排序：** 引入 `flag` 优化后（见下文），最佳时间复杂度为 $O(N)$ 。
+**自适排序**：引入 `flag` 优化后（见下文），最佳时间复杂度为 $O(N)$ 。
 
 ## 效率优化
 
@@ -232,9 +271,8 @@ comments: true
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
+                    // 这里使用了 std::swap() 函数
+                    swap(nums[j], nums[j + 1]);
                     flag = true;  // 记录交换元素
                 }
             }
@@ -334,11 +372,57 @@ comments: true
 === "C"
 
     ```c title="bubble_sort.c"
-
+    /* 冒泡排序 */
+    void bubble_sort(int nums[], int size) {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = 0; i < size - 1; i++)
+        {
+            bool flag = false;
+            // 内循环：冒泡操作
+            for (int j = 0; j < size - 1 - i; j++)
+            {
+                if (nums[j] > nums[j + 1])
+                {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                    flag = true;
+                }
+            }
+            if(!flag) break;
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="bubble_sort.cs"
+    /* 冒泡排序（标志优化）*/
+    void bubbleSortWithFlag(int[] nums)
+    {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = nums.Length - 1; i > 0; i--)
+        {
+            bool flag = false; // 初始化标志位
+            // 内循环：冒泡操作
+            for (int j = 0; j < i; j++)
+            {
+                if (nums[j] > nums[j + 1])
+                {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    int tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    flag = true;  // 记录交换元素
+                }
+            }
+            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="bubble_sort.swift"
 
     ```

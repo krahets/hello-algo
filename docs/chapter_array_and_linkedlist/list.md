@@ -4,13 +4,13 @@ comments: true
 
 # 列表
 
-**由于长度不可变，数组的实用性大大降低。** 在很多情况下，我们事先并不知道会输入多少数据，这就为数组长度的选择带来了很大困难。长度选小了，需要在添加数据中频繁地扩容数组；长度选大了，又造成内存空间的浪费。
+**由于长度不可变，数组的实用性大大降低**。在很多情况下，我们事先并不知道会输入多少数据，这就为数组长度的选择带来了很大困难。长度选小了，需要在添加数据中频繁地扩容数组；长度选大了，又造成内存空间的浪费。
 
 为了解决此问题，诞生了一种被称为「列表 List」的数据结构。列表可以被理解为长度可变的数组，因此也常被称为「动态数组 Dynamic Array」。列表基于数组实现，继承了数组的优点，同时还可以在程序运行中实时扩容。在列表中，我们可以自由地添加元素，而不用担心超过容量限制。
 
 ## 列表常用操作
 
-**初始化列表。** 我们通常会使用到“无初始值”和“有初始值”的两种初始化方法。
+**初始化列表**。我们通常会使用到“无初始值”和“有初始值”的两种初始化方法。
 
 === "Java"
 
@@ -83,10 +83,21 @@ comments: true
 === "C#"
 
     ```csharp title="list.cs"
+    /* 初始化列表 */
+    // 无初始值
+    List<int> list1 = new ();
+    // 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）
+    int[] numbers = new int[] { 1, 3, 2, 5, 4 };
+    List<int> list = numbers.ToList();
+    ```
+
+=== "Swift"
+
+    ```swift title="list.swift"
 
     ```
 
-**访问与更新元素。** 列表的底层数据结构是数组，因此可以在 $O(1)$ 时间内访问与更新元素，效率很高。
+**访问与更新元素**。列表的底层数据结构是数组，因此可以在 $O(1)$ 时间内访问与更新元素，效率很高。
 
 === "Java"
 
@@ -132,20 +143,20 @@ comments: true
 
     ```js title="list.js"
     /* 访问元素 */
-    const num = list[1];
+    const num = list[1];  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    list[1] = 0;
+    list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 === "TypeScript"
 
     ```typescript title="list.ts"
     /* 访问元素 */
-    const num: number = list[1];
+    const num: number = list[1];  // 访问索引 1 处的元素
 
     /* 更新元素 */
-    list[1] = 0;
+    list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 === "C"
@@ -157,10 +168,20 @@ comments: true
 === "C#"
 
     ```csharp title="list.cs"
+    /* 访问元素 */
+    int num = list[1];  // 访问索引 1 处的元素
+
+    /* 更新元素 */
+    list[1] = 0;  // 将索引 1 处的元素更新为 0
+    ```
+
+=== "Swift"
+
+    ```swift title="list.swift"
 
     ```
 
-**在列表中添加、插入、删除元素。** 相对于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 $O(1)$ ，但是插入与删除元素的效率仍与数组一样低，时间复杂度为 $O(N)$ 。
+**在列表中添加、插入、删除元素**。相对于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 $O(1)$ ，但是插入与删除元素的效率仍与数组一样低，时间复杂度为 $O(N)$ 。
 
 === "Java"
 
@@ -291,10 +312,30 @@ comments: true
 === "C#"
 
     ```csharp title="list.cs"
+    /* 清空列表 */
+    list.Clear();
+
+    /* 尾部添加元素 */
+    list.Add(1);
+    list.Add(3);
+    list.Add(2);
+    list.Add(5);
+    list.Add(4);
+
+    /* 中间插入元素 */
+    list.Insert(3, 6);
+
+    /* 删除元素 */
+    list.RemoveAt(3);
+    ```
+
+=== "Swift"
+
+    ```swift title="list.swift"
 
     ```
 
-**遍历列表。** 与数组一样，列表可以使用索引遍历，也可以使用 `for-each` 直接遍历。
+**遍历列表**。与数组一样，列表可以使用索引遍历，也可以使用 `for-each` 直接遍历。
 
 === "Java"
 
@@ -353,9 +394,9 @@ comments: true
 
     /* 直接遍历列表元素 */
     count = 0
-	for range list {
-		count++
-	}
+    for range list {
+        count++
+    }
     ```
 
 === "JavaScript"
@@ -399,10 +440,28 @@ comments: true
 === "C#"
 
     ```csharp title="list.cs"
+    /* 通过索引遍历列表 */
+    int count = 0;
+    for (int i = 0; i < list.Count(); i++)
+    {
+        count++;
+    }
+
+    /* 直接遍历列表元素 */
+    count = 0;
+    foreach (int n in list)
+    {
+        count++;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="list.swift"
 
     ```
 
-**拼接两个列表。** 再创建一个新列表 `list1` ，我们可以将其中一个列表拼接到另一个的尾部。
+**拼接两个列表**。再创建一个新列表 `list1` ，我们可以将其中一个列表拼接到另一个的尾部。
 
 === "Java"
 
@@ -442,7 +501,7 @@ comments: true
     ```js title="list.js"
     /* 拼接两个列表 */
     const list1 = [6, 8, 7, 10, 9];
-    list.push(...list1);
+    list.push(...list1);  // 将列表 list1 拼接到 list 之后
     ```
 
 === "TypeScript"
@@ -450,7 +509,7 @@ comments: true
     ```typescript title="list.ts"
     /* 拼接两个列表 */
     const list1: number[] = [6, 8, 7, 10, 9];
-    list.push(...list1);
+    list.push(...list1);  // 将列表 list1 拼接到 list 之后
     ```
 
 === "C"
@@ -462,10 +521,18 @@ comments: true
 === "C#"
 
     ```csharp title="list.cs"
+    /* 拼接两个列表 */
+    List<int> list1 = new() { 6, 8, 7, 10, 9 };
+    list.AddRange(list1);  // 将列表 list1 拼接到 list 之后
+    ```
+
+=== "Swift"
+
+    ```swift title="list.swift"
 
     ```
 
-**排序列表。** 排序也是常用的方法之一，完成列表排序后，我们就可以使用在数组类算法题中经常考察的「二分查找」和「双指针」算法了。
+**排序列表**。排序也是常用的方法之一，完成列表排序后，我们就可以使用在数组类算法题中经常考察的「二分查找」和「双指针」算法了。
 
 === "Java"
 
@@ -499,7 +566,7 @@ comments: true
 
     ```js title="list.js"
     /* 排序列表 */  
-    list.sort((a, b) => a - b);
+    list.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
     ```
 
 === "TypeScript"
@@ -518,6 +585,13 @@ comments: true
 === "C#"
 
     ```csharp title="list.cs"
+    /* 排序列表 */
+    list.Sort(); // 排序后，列表元素从小到大排列
+    ```
+
+=== "Swift"
+
+    ```swift title="list.swift"
 
     ```
 
@@ -525,9 +599,9 @@ comments: true
 
 为了帮助加深对列表的理解，我们在此提供一个列表的简易版本的实现。需要关注三个核心点：
 
-- **初始容量：** 选取一个合理的数组的初始容量 `initialCapacity` 。在本示例中，我们选择 10 作为初始容量。
-- **数量记录：** 需要声明一个变量 `size` ，用来记录列表当前有多少个元素，并随着元素插入与删除实时更新。根据此变量，可以定位列表的尾部，以及判断是否需要扩容。
-- **扩容机制：** 插入元素有可能导致超出列表容量，此时需要扩容列表，方法是建立一个更大的数组来替换当前数组。需要给定一个扩容倍数 `extendRatio` ，在本示例中，我们规定每次将数组扩容至之前的 2 倍。
+- **初始容量**：选取一个合理的数组的初始容量 `initialCapacity` 。在本示例中，我们选择 10 作为初始容量。
+- **数量记录**：需要声明一个变量 `size` ，用来记录列表当前有多少个元素，并随着元素插入与删除实时更新。根据此变量，可以定位列表的尾部，以及判断是否需要扩容。
+- **扩容机制**：插入元素有可能导致超出列表容量，此时需要扩容列表，方法是建立一个更大的数组来替换当前数组。需要给定一个扩容倍数 `extendRatio` ，在本示例中，我们规定每次将数组扩容至之前的 2 倍。
 
 本示例是为了帮助读者对如何实现列表产生直观的认识。实际编程语言中，列表的实现远比以下代码复杂且标准，感兴趣的读者可以查阅源码学习。
 
@@ -790,7 +864,7 @@ comments: true
 
     ```go title="my_list.go"
     /* 列表类简易实现 */
-    type MyList struct {
+    type myList struct {
         numsCapacity int
         nums         []int
         numsSize     int
@@ -798,8 +872,8 @@ comments: true
     }
 
     /* 构造函数 */
-    func newMyList() *MyList {
-        return &MyList{
+    func newMyList() *myList {
+        return &myList{
             numsCapacity: 10,              // 列表容量
             nums:         make([]int, 10), // 数组（存储列表元素）
             numsSize:     0,               // 列表长度（即当前元素数量）
@@ -808,17 +882,17 @@ comments: true
     }
 
     /* 获取列表长度（即当前元素数量） */
-    func (l *MyList) size() int {
+    func (l *myList) size() int {
         return l.numsSize
     }
 
     /*  获取列表容量 */
-    func (l *MyList) capacity() int {
+    func (l *myList) capacity() int {
         return l.numsCapacity
     }
 
     /* 访问元素 */
-    func (l *MyList) get(index int) int {
+    func (l *myList) get(index int) int {
         // 索引如果越界则抛出异常，下同
         if index >= l.numsSize {
             panic("索引越界")
@@ -827,7 +901,7 @@ comments: true
     }
 
     /* 更新元素 */
-    func (l *MyList) set(num, index int) {
+    func (l *myList) set(num, index int) {
         if index >= l.numsSize {
             panic("索引越界")
         }
@@ -835,7 +909,7 @@ comments: true
     }
 
     /* 尾部添加元素 */
-    func (l *MyList) add(num int) {
+    func (l *myList) add(num int) {
         // 元素数量超出容量时，触发扩容机制
         if l.numsSize == l.numsCapacity {
             l.extendCapacity()
@@ -846,7 +920,7 @@ comments: true
     }
 
     /* 中间插入元素 */
-    func (l *MyList) insert(num, index int) {
+    func (l *myList) insert(num, index int) {
         if index >= l.numsSize {
             panic("索引越界")
         }
@@ -864,20 +938,23 @@ comments: true
     }
 
     /* 删除元素 */
-    func (l *MyList) Remove(index int) {
+    func (l *myList) remove(index int) int {
         if index >= l.numsSize {
             panic("索引越界")
         }
+        num := l.nums[index]
         // 索引 i 之后的元素都向前移动一位
         for j := index; j < l.numsSize-1; j++ {
             l.nums[j] = l.nums[j+1]
         }
         // 更新元素数量
         l.numsSize--
+        // 返回被删除元素
+        return num
     }
 
     /* 列表扩容 */
-    func (l *MyList) extendCapacity() {
+    func (l *myList) extendCapacity() {
         // 新建一个长度为 self.__size 的数组，并将原数组拷贝到新数组
         l.nums = append(l.nums, make([]int, l.numsCapacity*(l.extendRatio-1))...)
         // 更新列表容量
@@ -1084,5 +1161,108 @@ comments: true
 === "C#"
 
     ```csharp title="my_list.cs"
+    class MyList
+    {
+        private int[] nums;           // 数组（存储列表元素）
+        private int capacity = 10;    // 列表容量
+        private int size = 0;         // 列表长度（即当前元素数量）
+        private int extendRatio = 2;  // 每次列表扩容的倍数
+
+        /* 构造函数 */
+        public MyList()
+        {
+            nums = new int[capacity];
+        }
+
+        /* 获取列表长度（即当前元素数量）*/
+        public int Size()
+        {
+            return size;
+        }
+
+        /* 获取列表容量 */
+        public int Capacity()
+        {
+            return capacity;
+        }
+
+        /* 访问元素 */
+        public int Get(int index)
+        {
+            // 索引如果越界则抛出异常，下同
+            if (index >= size)
+                throw new IndexOutOfRangeException("索引越界");
+            return nums[index];
+        }
+
+        /* 更新元素 */
+        public void Set(int index, int num)
+        {
+            if (index >= size)
+                throw new IndexOutOfRangeException("索引越界");
+            nums[index] = num;
+        }
+
+        /* 尾部添加元素 */
+        public void Add(int num)
+        {
+            // 元素数量超出容量时，触发扩容机制
+            if (size == Capacity())
+                ExtendCapacity();
+            nums[size] = num;
+            // 更新元素数量
+            size++;
+        }
+
+        /* 中间插入元素 */
+        public void Insert(int index, int num)
+        {
+            if (index >= size)
+                throw new IndexOutOfRangeException("索引越界");
+            // 元素数量超出容量时，触发扩容机制
+            if (size == Capacity())
+                ExtendCapacity();
+            // 将索引 index 以及之后的元素都向后移动一位
+            for (int j = size - 1; j >= index; j--)
+            {
+                nums[j + 1] = nums[j];
+            }
+            nums[index] = num;
+            // 更新元素数量
+            size++;
+        }
+
+        /* 删除元素 */
+        public int Remove(int index)
+        {
+            if (index >= size)
+                throw new IndexOutOfRangeException("索引越界");
+            int num = nums[index];
+            // 将索引 index 之后的元素都向前移动一位
+            for (int j = index; j < size - 1; j++)
+            {
+                nums[j] = nums[j + 1];
+            }
+            // 更新元素数量
+            size--;
+            // 返回被删除元素
+            return num;
+        }
+
+        /* 列表扩容 */
+        public void ExtendCapacity()
+        {
+            // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
+            System.Array.Resize(ref nums, Capacity() * extendRatio);
+            // 更新列表容量
+            capacity = nums.Length;
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="my_list.swift"
 
     ```
+

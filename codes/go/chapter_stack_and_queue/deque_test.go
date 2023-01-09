@@ -51,48 +51,48 @@ func TestDeque(t *testing.T) {
 
 func TestLinkedListDeque(t *testing.T) {
 	// 初始化队列
-	deque := NewLinkedListDeque()
+	deque := newLinkedListDeque()
 
 	// 元素入队
-	deque.OfferLast(2)
-	deque.OfferLast(5)
-	deque.OfferLast(4)
-	deque.OfferFirst(3)
-	deque.OfferFirst(1)
+	deque.offerLast(2)
+	deque.offerLast(5)
+	deque.offerLast(4)
+	deque.offerFirst(3)
+	deque.offerFirst(1)
 	fmt.Print("队列 deque = ")
 	PrintList(deque.toList())
 
 	// 访问队首元素
-	front := deque.PeekFirst()
+	front := deque.peekFirst()
 	fmt.Println("队首元素 front =", front)
-	rear := deque.PeekLast()
+	rear := deque.peekLast()
 	fmt.Println("队尾元素 rear =", rear)
 
 	// 元素出队
-	pollFirst := deque.PollFirst()
+	pollFirst := deque.pollFirst()
 	fmt.Print("队首出队元素 pollFirst = ", pollFirst, "，队首出队后 deque = ")
 	PrintList(deque.toList())
-	pollLast := deque.PollLast()
+	pollLast := deque.pollLast()
 	fmt.Print("队尾出队元素 pollLast = ", pollLast, "，队尾出队后 deque = ")
 	PrintList(deque.toList())
 
 	// 获取队的长度
-	size := deque.Size()
+	size := deque.size()
 	fmt.Println("队的长度 size =", size)
 
 	// 判断是否为空
-	isEmpty := deque.IsEmpty()
+	isEmpty := deque.isEmpty()
 	fmt.Println("队是否为空 =", isEmpty)
 }
 
 // BenchmarkArrayQueue 67.92 ns/op in Mac M1 Pro
 func BenchmarkLinkedListDeque(b *testing.B) {
-	stack := NewLinkedListDeque()
+	stack := newLinkedListDeque()
 	// use b.N for looping
 	for i := 0; i < b.N; i++ {
-		stack.OfferLast(777)
+		stack.offerLast(777)
 	}
 	for i := 0; i < b.N; i++ {
-		stack.PollFirst()
+		stack.pollFirst()
 	}
 }

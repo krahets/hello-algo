@@ -1,4 +1,4 @@
-/*
+/**
  * File: array_queue.cpp
  * Created Time: 2022-11-25
  * Author: Krahets (krahets@163.com)
@@ -50,11 +50,10 @@ public:
     }
 
     /* 出队 */
-    int poll() {
+    void poll() {
         int num = peek();
         // 队头指针向后移动一位，若越过尾部则返回到数组头部
         front = (front + 1) % capacity();
-        return num;
     }
 
     /* 访问队首元素 */
@@ -98,8 +97,8 @@ int main() {
     cout << "队首元素 peek = " << peek << endl;
     
     /* 元素出队 */
-    int poll = queue->poll();
-    cout << "出队元素 poll = " << poll << "，出队后 queue = ";
+    queue->poll();
+    cout << "出队元素 poll = " << peek << "，出队后 queue = ";
     PrintUtil::printVector(queue->toVector());
 
     /* 获取队列的长度 */

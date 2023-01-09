@@ -9,31 +9,31 @@ import (
 	"strconv"
 )
 
-/* Node 结构体 */
-type Node struct {
+/* 结构体 */
+type node struct {
 	val  int
-	next *Node
+	next *node
 }
 
-/* TreeNode 二叉树 */
-type TreeNode struct {
+/* treeNode 二叉树 */
+type treeNode struct {
 	val   int
-	left  *TreeNode
-	right *TreeNode
+	left  *treeNode
+	right *treeNode
 }
 
-/* 创建 Node 结构体  */
-func newNode(val int) *Node {
-	return &Node{val: val}
+/* 创建 node 结构体  */
+func newNode(val int) *node {
+	return &node{val: val}
 }
 
-/* 创建 TreeNode 结构体 */
-func newTreeNode(val int) *TreeNode {
-	return &TreeNode{val: val}
+/* 创建 treeNode 结构体 */
+func newTreeNode(val int) *treeNode {
+	return &treeNode{val: val}
 }
 
 /* 输出二叉树 */
-func printTree(root *TreeNode) {
+func printTree(root *treeNode) {
 	if root == nil {
 		return
 	}
@@ -42,7 +42,7 @@ func printTree(root *TreeNode) {
 	printTree(root.right)
 }
 
-/* 函数（或称方法）*/
+/* 函数 */
 func function() int {
 	// do something...
 	return 0
@@ -72,7 +72,7 @@ func spaceLinear(n int) {
 	// 长度为 n 的数组占用 O(n) 空间
 	_ = make([]int, n)
 	// 长度为 n 的列表占用 O(n) 空间
-	var nodes []*Node
+	var nodes []*node
 	for i := 0; i < n; i++ {
 		nodes = append(nodes, newNode(i))
 	}
@@ -112,7 +112,7 @@ func spaceQuadraticRecur(n int) int {
 }
 
 /* 指数阶（建立满二叉树） */
-func buildTree(n int) *TreeNode {
+func buildTree(n int) *treeNode {
 	if n == 0 {
 		return nil
 	}

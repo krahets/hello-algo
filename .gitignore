@@ -4,6 +4,7 @@
 # Editor
 .vscode/
 .idea/
+hello-algo.iml
 
 # mkdocs files
 site/

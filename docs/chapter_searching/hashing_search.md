@@ -86,6 +86,18 @@ comments: true
 === "C#"
 
     ```csharp title="hashing_search.cs"
+    /* 哈希查找（数组） */
+    int hashingSearch(Dictionary<int, int> map, int target)
+    {
+        // 哈希表的 key: 目标元素，value: 索引
+        // 若哈希表中无此 key ，返回 -1
+        return map.GetValueOrDefault(target, -1);
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="hashing_search.swift"
 
     ```
 
@@ -163,16 +175,29 @@ comments: true
 === "C#"
 
     ```csharp title="hashing_search.cs"
+    /* 哈希查找（链表） */
+    ListNode? hashingSearch1(Dictionary<int, ListNode> map, int target)
+    {
+
+        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 若哈希表中无此 key ，返回 null
+        return map.GetValueOrDefault(target);
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="hashing_search.swift"
 
     ```
 
 ## 复杂度分析
 
-**时间复杂度：** $O(1)$ ，哈希表的查找操作使用 $O(1)$ 时间。
+**时间复杂度 $O(1)$** ：哈希表的查找操作使用 $O(1)$ 时间。
 
-**空间复杂度：** $O(n)$ ，其中 $n$ 为数组或链表长度。
+**空间复杂度 $O(n)$** ：其中 $n$ 为数组或链表长度。
 
-## 优缺点
+## 优点与缺点
 
 在哈希表中，**查找、插入、删除操作的平均时间复杂度都为 $O(1)$** ，这意味着无论是高频增删还是高频查找场景，哈希查找的性能表现都非常好。当然，一切的前提是保证哈希表未退化。
 

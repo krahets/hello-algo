@@ -4,7 +4,7 @@ comments: true
 
 # 空间复杂度
 
-「空间复杂度 Space Complexity」统计 **算法使用内存空间随着数据量变大时的增长趋势** 。这个概念与时间复杂度很类似。
+「空间复杂度 Space Complexity」统计 **算法使用内存空间随着数据量变大时的增长趋势**。这个概念与时间复杂度很类似。
 
 ## 算法相关空间
 
@@ -38,7 +38,7 @@ comments: true
         Node(int x) { val = x; }
     }
     
-    /* 函数（或称方法） */
+    /* 函数 */
     int function() {
         // do something...
         return 0;
@@ -63,7 +63,7 @@ comments: true
         Node(int x) : val(x), next(nullptr) {}
     };
 
-    /* 函数（或称方法） */
+    /* 函数 */
     int func() {
         // do something...
         return 0;
@@ -87,7 +87,7 @@ comments: true
             self.val = x      # 结点值
             self.next = None  # 指向下一结点的指针（引用）
 
-    """ 函数（或称方法） """
+    """ 函数 """
     def function():
         # do something...
         return 0
@@ -103,17 +103,17 @@ comments: true
 
     ```go title=""
     /* 结构体 */
-    type Node struct {
+    type node struct {
         val  int
-        next *Node
+        next *node
+    }
+
+    /* 创建 node 结构体  */
+    func newNode(val int) *node {
+        return &node{val: val}
     }
     
-    /* 创建 Node 结构体 */
-    func newNode(val int) *Node {
-        return &Node{val: val}
-    }
-    
-    /* 函数（或称方法）*/
+    /* 函数 */
     func function() int {
         // do something...
         return 0
@@ -149,7 +149,57 @@ comments: true
 === "C#"
 
     ```csharp title=""
+    /* 类 */
+    class Node
+    {
+        int val;
+        Node next;
+        Node(int x) { val = x; }
+    }
 
+    /* 函数 */
+    int function()
+    {
+        // do something...
+        return 0;
+    }
+
+    int algorithm(int n)          // 输入数据
+    {
+        int a = 0;                // 暂存数据（常量）
+        int b = 0;                // 暂存数据（变量）
+        Node node = new Node(0);  // 暂存数据（对象）
+        int c = function();       // 栈帧空间（调用函数）
+        return a + b + c;         // 输出数据
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    /* 类 */
+    class Node {
+        var val: Int
+        var next: Node?
+
+        init(x: Int) {
+            val = x
+        }
+    }
+
+    /* 函数 */
+    func function() -> Int {
+        // do something...
+        return 0
+    }
+
+    func algorithm(n: Int) -> Int { // 输入数据
+        let a = 0 // 暂存数据（常量）
+        var b = 0 // 暂存数据（变量）
+        let node = Node(x: 0) // 暂存数据（对象）
+        let c = function() // 栈帧空间（调用函数）
+        return a + b + c // 输出数据
+    }
     ```
 
 ## 推算方法
@@ -158,8 +208,8 @@ comments: true
 
 **最差空间复杂度中的“最差”有两层含义**，分别为输入数据的最差分布、算法运行中的最差时间点。
 
-- **以最差输入数据为准。** 当 $n < 10$ 时，空间复杂度为 $O(1)$ ；但是当 $n > 10$ 时，初始化的数组 `nums` 使用 $O(n)$ 空间；因此最差空间复杂度为 $O(n)$ ；
-- **以算法运行过程中的峰值内存为准。** 程序在执行最后一行之前，使用 $O(1)$ 空间；当初始化数组 `nums` 时，程序使用 $O(n)$ 空间；因此最差空间复杂度为 $O(n)$ ；
+- **以最差输入数据为准**。当 $n < 10$ 时，空间复杂度为 $O(1)$ ；但是当 $n > 10$ 时，初始化的数组 `nums` 使用 $O(n)$ 空间；因此最差空间复杂度为 $O(n)$ ；
+- **以算法运行过程中的峰值内存为准**。程序在执行最后一行之前，使用 $O(1)$ 空间；当初始化数组 `nums` 时，程序使用 $O(n)$ 空间；因此最差空间复杂度为 $O(n)$ ；
 
 === "Java"
 
@@ -197,11 +247,11 @@ comments: true
 
     ```go title=""
     func algorithm(n int) {
-        a := 0                         // O(1)
-        b := make([]int, 10000)        // O(1)
+        a := 0                      // O(1)
+        b := make([]int, 10000)     // O(1)
         var nums []int
         if n > 10 {
-            nums = make([]int, 10000)  // O(n)
+            nums := make([]int, n)  // O(n)
         }
         fmt.Println(a, b, nums)
     }
@@ -228,10 +278,30 @@ comments: true
 === "C#"
 
     ```csharp title=""
-
+    void algorithm(int n)
+    {
+        int a = 0;                   // O(1)
+        int[] b = new int[10000];    // O(1)
+        if (n > 10)
+        {
+            int[] nums = new int[n]; // O(n)
+        }
+    }
     ```
 
-**在递归函数中，需要注意统计栈帧空间。** 例如函数 `loop()`，在循环中调用了 $n$ 次 `function()` ，每轮中的 `function()` 都返回并释放了栈帧空间，因此空间复杂度仍为 $O(1)$ 。而递归函数 `recur()` 在运行中会同时存在 $n$ 个未返回的 `recur()` ，从而使用 $O(n)$ 的栈帧空间。
+=== "Swift"
+
+    ```swift title=""
+    func algorithm(n: Int) {
+        let a = 0 // O(1)
+        let b = Array(repeating: 0, count: 10000) // O(1)
+        if n > 10 {
+            let nums = Array(repeating: 0, count: n) // O(n)
+        }
+    }
+    ```
+
+**在递归函数中，需要注意统计栈帧空间**。例如函数 `loop()`，在循环中调用了 $n$ 次 `function()` ，每轮中的 `function()` 都返回并释放了栈帧空间，因此空间复杂度仍为 $O(1)$ 。而递归函数 `recur()` 在运行中会同时存在 $n$ 个未返回的 `recur()` ，从而使用 $O(n)$ 的栈帧空间。
 
 === "Java"
 
@@ -330,13 +400,56 @@ comments: true
 === "C"
 
     ```c title=""
-
+    
     ```
 
 === "C#"
 
     ```csharp title=""
+    int function()
+    {
+        // do something
+        return 0;
+    }
+    /* 循环 O(1) */
+    void loop(int n)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            function();
+        }
+    }
+    /* 递归 O(n) */
+    int recur(int n)
+    {
+        if (n == 1) return 1;
+        return recur(n - 1);
+    }
+    ```
 
+=== "Swift"
+
+    ```swift title=""
+    @discardableResult
+    func function() -> Int {
+        // do something
+        return 0
+    }
+
+    /* 循环 O(1) */
+    func loop(n: Int) {
+        for _ in 0 ..< n {
+            function()
+        }
+    }
+
+    /* 递归 O(n) */
+    func recur(n: Int) {
+        if n == 1 {
+            return
+        }
+        recur(n: n - 1)
+    }
     ```
 
 ## 常见类型
@@ -467,7 +580,46 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
+    /* 常数阶 */
+    void constant(int n)
+    {
+        // 常量、变量、对象占用 O(1) 空间
+        int a = 0;
+        int b = 0;
+        int[] nums = new int[10000];
+        ListNode node = new ListNode(0);
+        // 循环中的变量占用 O(1) 空间
+        for (int i = 0; i < n; i++)
+        {
+            int c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (int i = 0; i < n; i++)
+        {
+            function();
+        }
+    }
+    ```
 
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    /* 常数阶 */
+    func constant(n: Int) {
+        // 常量、变量、对象占用 O(1) 空间
+        let a = 0
+        var b = 0
+        let nums = Array(repeating: 0, count: 10000)
+        let node = ListNode(x: 0)
+        // 循环中的变量占用 O(1) 空间
+        for _ in 0 ..< n {
+            let c = 0
+        }
+        // 循环中的函数占用 O(1) 空间
+        for _ in 0 ..< n {
+            function()
+        }
+    }
     ```
 
 ### 线性阶 $O(n)$
@@ -535,12 +687,12 @@ $$
         // 长度为 n 的数组占用 O(n) 空间
         _ = make([]int, n)
         // 长度为 n 的列表占用 O(n) 空间
-        var nodes []*Node
+        var nodes []*node
         for i := 0; i < n; i++ {
             nodes = append(nodes, newNode(i))
         }
         // 长度为 n 的哈希表占用 O(n) 空间
-	    m := make(map[int]string, n)
+        m := make(map[int]string, n)
         for i := 0; i < n; i++ {
             m[i] = strconv.Itoa(i)
         }
@@ -568,7 +720,38 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
+    /* 线性阶 */
+    void linear(int n)
+    {
+        // 长度为 n 的数组占用 O(n) 空间
+        int[] nums = new int[n];
+        // 长度为 n 的列表占用 O(n) 空间
+        List<ListNode> nodes = new();
+        for (int i = 0; i < n; i++)
+        {
+            nodes.Add(new ListNode(i));
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        Dictionary<int, String> map = new();
+        for (int i = 0; i < n; i++)
+        {
+            map.Add(i, i.ToString());
+        }
+    }
+    ```
 
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    /* 线性阶 */
+    func linear(n: Int) {
+        // 长度为 n 的数组占用 O(n) 空间
+        let nums = Array(repeating: 0, count: n)
+        // 长度为 n 的列表占用 O(n) 空间
+        let nodes = (0 ..< n).map { ListNode(x: $0) }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
+    }
     ```
 
 以下递归函数会同时存在 $n$ 个未返回的 `algorithm()` 函数，使用 $O(n)$ 大小的栈帧空间。
@@ -639,7 +822,26 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
+    /* 线性阶（递归实现） */
+    void linearRecur(int n)
+    {
+        Console.WriteLine("递归 n = " + n);
+        if (n == 1) return;
+        linearRecur(n - 1);
+    }
+    ```
 
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    /* 线性阶（递归实现） */
+    func linearRecur(n: Int) {
+        print("递归 n = \(n)")
+        if n == 1 {
+            return
+        }
+        linearRecur(n: n - 1)
+    }
     ```
 
 ![space_complexity_recursive_linear](space_complexity.assets/space_complexity_recursive_linear.png)
@@ -729,10 +931,37 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
+    /* 平方阶 */
+    void quadratic(int n)
+    {
+        // 矩阵占用 O(n^2) 空间
+        int[,] numMatrix = new int[n, n];
+        // 二维列表占用 O(n^2) 空间
+        List<List<int>> numList = new();
+        for (int i = 0; i < n; i++)
+        {
+            List<int> tmp = new();
+            for (int j = 0; j < n; j++)
+            {
+                tmp.Add(0);
+            }
+            numList.Add(tmp);
+        }
+    }
 
     ```
 
-在以下递归函数中，同时存在 $n$ 个未返回的 `algorihtm()` ，并且每个函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $\frac{n}{2}$ ，因此总体使用 $O(n^2)$ 空间。
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    /* 平方阶 */
+    func quadratic(n: Int) {
+        // 二维列表占用 O(n^2) 空间
+        let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
+    }
+    ```
+
+在以下递归函数中，同时存在 $n$ 个未返回的 `algorithm()` ，并且每个函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $\frac{n}{2}$ ，因此总体使用 $O(n^2)$ 空间。
 
 === "Java"
 
@@ -777,8 +1006,8 @@ $$
         if n <= 0 {
             return 0
         }
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
         nums := make([]int, n)
-        fmt.Printf("递归 n = %d 中的 nums 长度 = %d \n", n, len(nums))
         return spaceQuadraticRecur(n - 1)
     }
     ```
@@ -804,7 +1033,29 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
+    /* 平方阶（递归实现） */
+    int quadraticRecur(int n)
+    {
+        if (n <= 0) return 0;
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
+        int[] nums = new int[n];
+        return quadraticRecur(n - 1);
+    }
 
+    ```
+
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    /* 平方阶（递归实现） */
+    func quadraticRecur(n: Int) -> Int {
+        if n <= 0 {
+            return 0
+        }
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
+        let nums = Array(repeating: 0, count: n)
+        return quadraticRecur(n: n - 1)
+    }
     ```
 
 ![space_complexity_recursive_quadratic](space_complexity.assets/space_complexity_recursive_quadratic.png)
@@ -857,7 +1108,7 @@ $$
 
     ```go title="space_complexity.go"
     /* 指数阶（建立满二叉树） */
-    func buildTree(n int) *TreeNode {
+    func buildTree(n int) *treeNode {
         if n == 0 {
             return nil
         }
@@ -889,7 +1140,30 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
+    /* 指数阶（建立满二叉树） */
+    TreeNode? buildTree(int n)
+    {
+        if (n == 0) return null;
+        TreeNode root = new TreeNode(0);
+        root.left = buildTree(n - 1);
+        root.right = buildTree(n - 1);
+        return root;
+    }
+    ```
 
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    /* 指数阶（建立满二叉树） */
+    func buildTree(n: Int) -> TreeNode? {
+        if n == 0 {
+            return nil
+        }
+        let root = TreeNode(x: 0)
+        root.left = buildTree(n: n - 1)
+        root.right = buildTree(n: n - 1)
+        return root
+    }
     ```
 
 ![space_complexity_exponential](space_complexity.assets/space_complexity_exponential.png)

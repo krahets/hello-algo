@@ -46,85 +46,85 @@ func TestStack(t *testing.T) {
 
 func TestArrayStack(t *testing.T) {
 	// 初始化栈, 使用接口承接
-	stack := NewArrayStack()
+	stack := newArrayStack()
 
 	// 元素入栈
-	stack.Push(1)
-	stack.Push(3)
-	stack.Push(2)
-	stack.Push(5)
-	stack.Push(4)
+	stack.push(1)
+	stack.push(3)
+	stack.push(2)
+	stack.push(5)
+	stack.push(4)
 	fmt.Print("栈 stack = ")
 	PrintSlice(stack.toSlice())
 
 	// 访问栈顶元素
-	peek := stack.Peek()
+	peek := stack.peek()
 	fmt.Println("栈顶元素 peek =", peek)
 
 	// 元素出栈
-	pop := stack.Pop()
+	pop := stack.pop()
 	fmt.Print("出栈元素 pop = ", pop, ", 出栈后 stack = ")
 	PrintSlice(stack.toSlice())
 
 	// 获取栈的长度
-	size := stack.Size()
+	size := stack.size()
 	fmt.Println("栈的长度 size =", size)
 
 	// 判断是否为空
-	isEmpty := stack.IsEmpty()
+	isEmpty := stack.isEmpty()
 	fmt.Println("栈是否为空 =", isEmpty)
 }
 
 func TestLinkedListStack(t *testing.T) {
 	// 初始化栈
-	stack := NewLinkedListStack()
+	stack := newLinkedListStack()
 	// 元素入栈
-	stack.Push(1)
-	stack.Push(3)
-	stack.Push(2)
-	stack.Push(5)
-	stack.Push(4)
+	stack.push(1)
+	stack.push(3)
+	stack.push(2)
+	stack.push(5)
+	stack.push(4)
 	fmt.Print("栈 stack = ")
 	PrintList(stack.toList())
 
 	// 访问栈顶元素
-	peek := stack.Peek()
+	peek := stack.peek()
 	fmt.Println("栈顶元素 peek =", peek)
 
 	// 元素出栈
-	pop := stack.Pop()
+	pop := stack.pop()
 	fmt.Print("出栈元素 pop = ", pop, ", 出栈后 stack = ")
 	PrintList(stack.toList())
 
 	// 获取栈的长度
-	size := stack.Size()
+	size := stack.size()
 	fmt.Println("栈的长度 size =", size)
 
 	// 判断是否为空
-	isEmpty := stack.IsEmpty()
+	isEmpty := stack.isEmpty()
 	fmt.Println("栈是否为空 =", isEmpty)
 }
 
 // BenchmarkArrayStack 8 ns/op in Mac M1 Pro
 func BenchmarkArrayStack(b *testing.B) {
-	stack := NewArrayStack()
+	stack := newArrayStack()
 	// use b.N for looping
 	for i := 0; i < b.N; i++ {
-		stack.Push(777)
+		stack.push(777)
 	}
 	for i := 0; i < b.N; i++ {
-		stack.Pop()
+		stack.pop()
 	}
 }
 
 // BenchmarkLinkedListStack 65.02 ns/op in Mac M1 Pro
 func BenchmarkLinkedListStack(b *testing.B) {
-	stack := NewLinkedListStack()
+	stack := newLinkedListStack()
 	// use b.N for looping
 	for i := 0; i < b.N; i++ {
-		stack.Push(777)
+		stack.push(777)
 	}
 	for i := 0; i < b.N; i++ {
-		stack.Pop()
+		stack.pop()
 	}
 }

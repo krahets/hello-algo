@@ -1,4 +1,4 @@
-/*
+/**
  * File: binary_tree.cpp
  * Created Time: 2022-11-25
  * Author: Krahets (krahets@163.com)
@@ -33,6 +33,7 @@ int main() {
     PrintUtil::printTree(n1);
     // 删除结点 P
     n1->left = n2;
+    delete P;  // 释放内存
     cout << endl << "删除结点 P 后\n" << endl;
     PrintUtil::printTree(n1);
 

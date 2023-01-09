@@ -1,4 +1,4 @@
-/*
+/**
  * File: bubble_sort.cpp
  * Created Time: 2022-11-25
  * Author: Krahets (krahets@163.com)
@@ -14,9 +14,8 @@ void bubbleSort(vector<int>& nums) {
         for (int j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
                 // 交换 nums[j] 与 nums[j + 1]
-                int tmp = nums[j];
-                nums[j] = nums[j + 1];
-                nums[j + 1] = tmp;
+                // 这里使用了 std::swap() 函数
+                swap(nums[j], nums[j + 1]);
             }
         }
     }
@@ -31,9 +30,8 @@ void bubbleSortWithFlag(vector<int>& nums) {
         for (int j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
                 // 交换 nums[j] 与 nums[j + 1]
-                int tmp = nums[j];
-                nums[j] = nums[j + 1];
-                nums[j + 1] = tmp;
+                // 这里使用了 std::swap() 函数
+                swap(nums[j], nums[j + 1]);
                 flag = true;  // 记录交换元素
             }
         }
