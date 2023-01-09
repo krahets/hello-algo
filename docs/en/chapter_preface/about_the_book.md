@@ -192,9 +192,6 @@ The complete code repository is hosted on [GitHub](https://github.com/krahets/he
      */
     ```
 
-"""
-In Java, C, C++, C#, Go, JS, TS, `/* ... */` is used to comment functions, classes, test cases, etc., and `// ...` is used to explain code content; similarly, in Python, `""" ... """` is used to comment titles, and `# ...` is used to explain code.
-
 ## Key Features of This Book *
 
 ??? abstract "Default collapsed, can be skipped"
