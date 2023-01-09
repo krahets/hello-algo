@@ -4,6 +4,8 @@
 # Editor
 .vscode/
 .idea/
+cmake-build-debug/
+CMakeLists.txt
 hello-algo.iml
 
 # mkdocs files
