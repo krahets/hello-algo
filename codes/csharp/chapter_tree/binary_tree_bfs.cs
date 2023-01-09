@@ -12,11 +12,7 @@ namespace hello_algo.chapter_tree
     public class binary_tree_bfs
     {
 
-        /// <summary>
-        /// 层序遍历
-        /// </summary>
-        /// <param name="root"></param>
-        /// <returns></returns>
+        /* 层序遍历 */
         public List<int> hierOrder(TreeNode root)
         {
             // 初始化队列，加入根结点
