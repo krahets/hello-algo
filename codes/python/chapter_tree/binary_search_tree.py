@@ -142,7 +142,7 @@ if __name__ == "__main__":
     print_tree(bst.root)
 
     # 查找结点
-    node = bst.search(5)
+    node = bst.search(7)
     print("\n查找到的结点对象为: {}，结点值 = {}".format(node, node.val))
 
     # 插入结点
