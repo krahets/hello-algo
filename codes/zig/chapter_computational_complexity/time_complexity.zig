@@ -59,11 +59,13 @@ fn bubbleSort(nums: []i32) i32 {
         var j: usize = 0;
         // 内循环：冒泡操作
         while (j < i) : (j += 1) {
-            // 交换 nums[j] 与 nums[j + 1]
-            var tmp = nums[j];
-            nums[j] = nums[j + 1];
-            nums[j + 1] = tmp;
-            count += 3;  // 元素交换包含 3 个单元操作
+            if (nums[j] > nums[j + 1]) {
+                // 交换 nums[j] 与 nums[j + 1]
+                var tmp = nums[j];
+                nums[j] = nums[j + 1];
+                nums[j + 1] = tmp;
+                count += 3;  // 元素交换包含 3 个单元操作
+            }
         }
     }
     return count;

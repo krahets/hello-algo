@@ -5,7 +5,7 @@
 const std = @import("std");
 
 // Zig Version: 0.10.0
-// Zig Codes Build Command: zig build
+// Build Command: zig build
 pub fn build(b: *std.build.Builder) void {
     const target = b.standardTargetOptions(.{});
     const mode = b.standardReleaseOptions();

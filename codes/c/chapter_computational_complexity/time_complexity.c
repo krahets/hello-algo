@@ -56,11 +56,13 @@ int bubbleSort(int *nums, int n) {
     for (int i = n - 1; i > 0; i--) {
         // 内循环：冒泡操作
         for (int j = 0; j < i; j++) {
-            // 交换 nums[j] 与 nums[j + 1]
-            int tmp = nums[j];
-            nums[j] = nums[j + 1];
-            nums[j + 1] = tmp;
-            count += 3;  // 元素交换包含 3 个单元操作
+            if (nums[j] > nums[j + 1]) {
+                // 交换 nums[j] 与 nums[j + 1]
+                int tmp = nums[j];
+                nums[j] = nums[j + 1];
+                nums[j + 1] = tmp;
+                count += 3;  // 元素交换包含 3 个单元操作
+            }
         }
     }
     return count;
