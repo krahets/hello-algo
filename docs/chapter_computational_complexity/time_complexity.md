@@ -1434,7 +1434,7 @@ $$
         for (int i = n - 1; i > 0; i--) {
             // 内循环：冒泡操作
             for (int j = 0; j < i; j++) {
-                if (nums[j] > nums [j+1]) 
+                if (nums[j] > nums [j + 1]) 
                 {
                     // 交换 nums[j] 与 nums[j + 1]
                     int tmp = nums[j];
