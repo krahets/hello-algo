@@ -1,4 +1,4 @@
-/*
+/**
  * File: binary_tree_dfs.cpp
  * Created Time: 2022-11-25
  * Author: Krahets (krahets@163.com)
@@ -41,8 +41,7 @@ void postOrder(TreeNode* root) {
 int main() {
     /* 初始化二叉树 */
     // 这里借助了一个从数组直接生成二叉树的函数
-    TreeNode* root = vecToTree(vector<int> 
-        { 1, 2, 3, 4, 5, 6, 7, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX});
+    TreeNode* root = vecToTree(vector<int> { 1, 2, 3, 4, 5, 6, 7 });
     cout << endl << "初始化二叉树\n" << endl;
     PrintUtil::printTree(root);
 

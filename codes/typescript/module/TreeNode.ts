@@ -1,4 +1,4 @@
-/*
+/**
  * File: TreeNode.ts
  * Created Time: 2022-12-13
  * Author: Justin (xiefahit@gmail.com)
@@ -20,7 +20,7 @@ class TreeNode {
 }
 
 /**
- * Generate a binary tree with an array
+ * Generate a binary tree given an array
  * @param arr
  * @return
  */
@@ -31,19 +31,19 @@ function arrToTree(arr: (number | null)[]): TreeNode | null {
 
     const root = new TreeNode(arr[0] as number);
     const queue = [root];
-    let i = 1;
+    let i = 0;
     while (queue.length) {
         let node = queue.shift() as TreeNode;
+        if (++i >= arr.length) break;
         if (arr[i] !== null) {
             node.left = new TreeNode(arr[i] as number);
             queue.push(node.left);
         }
-        i++;
+        if (++i >= arr.length) break;
         if (arr[i] !== null) {
             node.right = new TreeNode(arr[i] as number);
             queue.push(node.right);
         }
-        i++;
     }
     return root;
 }

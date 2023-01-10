@@ -8,31 +8,31 @@ import (
 	"container/list"
 )
 
-// LinkedListDeque 基于链表实现的双端队列, 使用内置包 list 来实现栈
-type LinkedListDeque struct {
+// linkedListDeque 基于链表实现的双端队列, 使用内置包 list 来实现栈
+type linkedListDeque struct {
 	data *list.List
 }
 
-// NewLinkedListDeque 初始化双端队列
-func NewLinkedListDeque() *LinkedListDeque {
-	return &LinkedListDeque{
+// newLinkedListDeque 初始化双端队列
+func newLinkedListDeque() *linkedListDeque {
+	return &linkedListDeque{
 		data: list.New(),
 	}
 }
 
-// OfferFirst 队首元素入队
-func (s *LinkedListDeque) OfferFirst(value any) {
+// offerFirst 队首元素入队
+func (s *linkedListDeque) offerFirst(value any) {
 	s.data.PushFront(value)
 }
 
-// OfferLast 队尾元素入队
-func (s *LinkedListDeque) OfferLast(value any) {
+// offerLast 队尾元素入队
+func (s *linkedListDeque) offerLast(value any) {
 	s.data.PushBack(value)
 }
 
-// PollFirst 队首元素出队
-func (s *LinkedListDeque) PollFirst() any {
-	if s.IsEmpty() {
+// pollFirst 队首元素出队
+func (s *linkedListDeque) pollFirst() any {
+	if s.isEmpty() {
 		return nil
 	}
 	e := s.data.Front()
@@ -40,9 +40,9 @@ func (s *LinkedListDeque) PollFirst() any {
 	return e.Value
 }
 
-// PollLast 队尾元素出队
-func (s *LinkedListDeque) PollLast() any {
-	if s.IsEmpty() {
+// pollLast 队尾元素出队
+func (s *linkedListDeque) pollLast() any {
+	if s.isEmpty() {
 		return nil
 	}
 	e := s.data.Back()
@@ -50,35 +50,35 @@ func (s *LinkedListDeque) PollLast() any {
 	return e.Value
 }
 
-// PeekFirst 访问队首元素
-func (s *LinkedListDeque) PeekFirst() any {
-	if s.IsEmpty() {
+// peekFirst 访问队首元素
+func (s *linkedListDeque) peekFirst() any {
+	if s.isEmpty() {
 		return nil
 	}
 	e := s.data.Front()
 	return e.Value
 }
 
-// PeekLast 访问队尾元素
-func (s *LinkedListDeque) PeekLast() any {
-	if s.IsEmpty() {
+// peekLast 访问队尾元素
+func (s *linkedListDeque) peekLast() any {
+	if s.isEmpty() {
 		return nil
 	}
 	e := s.data.Back()
 	return e.Value
 }
 
-// Size 获取队列的长度
-func (s *LinkedListDeque) Size() int {
+// size 获取队列的长度
+func (s *linkedListDeque) size() int {
 	return s.data.Len()
 }
 
-// IsEmpty 判断队列是否为空
-func (s *LinkedListDeque) IsEmpty() bool {
+// isEmpty 判断队列是否为空
+func (s *linkedListDeque) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
 // 获取 List 用于打印
-func (s *LinkedListDeque) toList() *list.List {
+func (s *linkedListDeque) toList() *list.List {
 	return s.data
 }

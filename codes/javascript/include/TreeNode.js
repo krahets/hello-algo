@@ -14,7 +14,7 @@ function TreeNode(val, left, right) {
 }
 
 /**
-* Generate a binary tree with an array
+* Generate a binary tree given an array
 * @param arr
 * @return
 */
@@ -24,20 +24,21 @@ function arrToTree(arr) {
          
     let root = new TreeNode(arr[0]);
     let queue = [root] 
-    let i = 1;
-    while(queue.length) {
+    let i = 0;
+    while (queue.length) {
         let node = queue.shift();
-        if(arr[i] !== null) {
+        if (++i >= arr.length) break;
+        if (arr[i] !== null) {
             node.left = new TreeNode(arr[i]);
             queue.push(node.left);
         }
-        i++;
-        if(arr[i] !== null) {
+        if (++i >= arr.length) break;
+        if (arr[i] !== null) {
             node.right = new TreeNode(arr[i]);
             queue.push(node.right);
         }
-        i++;
     }
+
     return root;
 }
 

@@ -26,9 +26,9 @@ def remove(n0):
 """ 访问链表中索引为 index 的结点 """
 def access(head, index):
     for _ in range(index):
-        head = head.next
         if not head:
             return None
+        head = head.next
     return head
 
 """ 在链表中查找值为 target 的首个结点 """

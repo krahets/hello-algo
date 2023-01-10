@@ -2,7 +2,7 @@
 // Created Time: 2022-12-06
 // Author: Slone123c (274325721@qq.com)
 
-package bubble_sort
+package chapter_sorting
 
 /* 冒泡排序 */
 func bubbleSort(nums []int) {

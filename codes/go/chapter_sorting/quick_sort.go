@@ -2,19 +2,19 @@
 // Created Time: 2022-12-12
 // Author: msk397 (machangxinq@gmail.com)
 
-package quick_sort
+package chapter_sorting
 
 // 快速排序
-type QuickSort struct{}
+type quickSort struct{}
 
 // 快速排序（中位基准数优化）
-type QuickSortMedian struct{}
+type quickSortMedian struct{}
 
 // 快速排序（尾递归优化）
-type QuickSortTailCall struct{}
+type quickSortTailCall struct{}
 
 /* 哨兵划分 */
-func (q *QuickSort) partition(nums []int, left, right int) int {
+func (q *quickSort) partition(nums []int, left, right int) int {
 	// 以 nums[left] 作为基准数
 	i, j := left, right
 	for i < j {
@@ -33,7 +33,7 @@ func (q *QuickSort) partition(nums []int, left, right int) int {
 }
 
 /* 快速排序 */
-func (q *QuickSort) quickSort(nums []int, left, right int) {
+func (q *quickSort) quickSort(nums []int, left, right int) {
 	// 子数组长度为 1 时终止递归
 	if left >= right {
 		return
@@ -46,7 +46,7 @@ func (q *QuickSort) quickSort(nums []int, left, right int) {
 }
 
 /* 选取三个元素的中位数 */
-func (q *QuickSortMedian) medianThree(nums []int, left, mid, right int) int {
+func (q *quickSortMedian) medianThree(nums []int, left, mid, right int) int {
 	if (nums[left] > nums[mid]) != (nums[left] > nums[right]) {
 		return left
 	} else if (nums[mid] < nums[left]) != (nums[mid] > nums[right]) {
@@ -56,7 +56,7 @@ func (q *QuickSortMedian) medianThree(nums []int, left, mid, right int) int {
 }
 
 /* 哨兵划分（三数取中值）*/
-func (q *QuickSortMedian) partition(nums []int, left, right int) int {
+func (q *quickSortMedian) partition(nums []int, left, right int) int {
 	// 以 nums[left] 作为基准数
 	med := q.medianThree(nums, left, (left+right)/2, right)
 	// 将中位数交换至数组最左端
@@ -79,7 +79,7 @@ func (q *QuickSortMedian) partition(nums []int, left, right int) int {
 }
 
 /* 快速排序 */
-func (q *QuickSortMedian) quickSort(nums []int, left, right int) {
+func (q *quickSortMedian) quickSort(nums []int, left, right int) {
 	// 子数组长度为 1 时终止递归
 	if left >= right {
 		return
@@ -92,7 +92,7 @@ func (q *QuickSortMedian) quickSort(nums []int, left, right int) {
 }
 
 /* 哨兵划分 */
-func (q *QuickSortTailCall) partition(nums []int, left, right int) int {
+func (q *quickSortTailCall) partition(nums []int, left, right int) int {
 	// 以 nums[left] 作为基准数
 	i, j := left, right
 	for i < j {
@@ -111,7 +111,7 @@ func (q *QuickSortTailCall) partition(nums []int, left, right int) int {
 }
 
 /* 快速排序（尾递归优化）*/
-func (q *QuickSortTailCall) quickSort(nums []int, left, right int) {
+func (q *quickSortTailCall) quickSort(nums []int, left, right int) {
 	// 子数组长度为 1 时终止
 	for left < right {
 		// 哨兵划分操作

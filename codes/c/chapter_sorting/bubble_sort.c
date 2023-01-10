@@ -7,8 +7,7 @@
 #include "../include/include.h"
 
 /* 冒泡排序 */
-void bubble_sort(int nums[], int size)
-{
+void bubble_sort(int nums[], int size) {
     // 外循环：待排序元素数量为 n-1, n-2, ..., 1
     for (int i = 0; i < size - 1; i++)
     {
@@ -26,8 +25,7 @@ void bubble_sort(int nums[], int size)
 }
 
 /* 冒泡排序（标志优化）*/
-void bubble_sort_with_flag(int nums[], int size)
-{
+void bubble_sort_with_flag(int nums[], int size) {
     // 外循环：待排序元素数量为 n-1, n-2, ..., 1
     for (int i = 0; i < size - 1; i++)
     {
@@ -50,8 +48,7 @@ void bubble_sort_with_flag(int nums[], int size)
 
 
 /* Driver Code */
-int main()
-{
+int main() {
     int nums[6] = {4, 1, 3, 1, 5, 2};
     printf("冒泡排序后:\n");
     bubble_sort(nums, 6);

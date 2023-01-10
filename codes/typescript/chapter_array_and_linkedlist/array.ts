@@ -1,4 +1,4 @@
-/*
+/**
  * File: array.ts
  * Created Time: 2022-12-04
  * Author: Justin (xiefahit@gmail.com)

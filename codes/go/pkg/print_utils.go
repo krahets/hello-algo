@@ -76,7 +76,7 @@ func printTreeHelper(root *TreeNode, prev *trunk, isLeft bool) {
 	printTreeHelper(root.Left, trunk, false)
 }
 
-// trunk Help to Print tree structure
+// trunk Help to print tree structure
 type trunk struct {
 	prev *trunk
 	str  string

@@ -8,9 +8,7 @@ namespace hello_algo.chapter_array_and_linkedlist
 {
     public class Array
     {
-        /// <summary>
-        /// 随机返回一个数组元素
-        /// </summary>
+        /* 随机返回一个数组元素 */
         public static int RandomAccess(int[] nums)
         {
             Random random = new();
@@ -19,9 +17,7 @@ namespace hello_algo.chapter_array_and_linkedlist
             return randomNum;
         }
 
-        /// <summary>
-        /// 扩展数组长度
-        /// </summary>
+        /* 扩展数组长度 */
         public static int[] Extend(int[] nums, int enlarge)
         {
             // 初始化一个扩展长度后的数组
@@ -35,9 +31,7 @@ namespace hello_algo.chapter_array_and_linkedlist
             return res;
         }
 
-        /// <summary>
-        /// 在数组的索引 index 处插入元素 num
-        /// </summary>
+        /* 在数组的索引 index 处插入元素 num */
         public static void Insert(int[] nums, int num, int index)
         {
             // 把索引 index 以及之后的所有元素向后移动一位
@@ -49,9 +43,7 @@ namespace hello_algo.chapter_array_and_linkedlist
             nums[index] = num;
         }
 
-        /// <summary>
-        /// 删除索引 index 处元素
-        /// </summary>
+        /* 删除索引 index 处元素 */
         public static void Remove(int[] nums, int index)
         {
             // 把索引 index 之后的所有元素向前移动一位
@@ -61,9 +53,7 @@ namespace hello_algo.chapter_array_and_linkedlist
             }
         }
 
-        /// <summary>
-        /// 遍历数组
-        /// </summary>
+        /* 遍历数组 */
         public static void Traverse(int[] nums)
         {
             int count = 0;
@@ -79,9 +69,7 @@ namespace hello_algo.chapter_array_and_linkedlist
             }
         }
 
-        /// <summary>
-        /// 在数组中查找指定元素
-        /// </summary>
+        /* 在数组中查找指定元素 */
         public static int Find(int[] nums, int target)
         {
             for (int i = 0; i < nums.Length; i++)
@@ -92,15 +80,13 @@ namespace hello_algo.chapter_array_and_linkedlist
             return -1;
         }
 
-        /// <summary>
-        /// 辅助函数,数组转字符串
-        /// </summary>
+        /* 辅助函数,数组转字符串 */
         public static string ToString(int[] nums)
         {
             return string.Join(",", nums);
         }
         
-        // Driver Code 
+
         [Test]
         public static void Test()
         {

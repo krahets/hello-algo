@@ -6,7 +6,7 @@ comments: true
 
 理想情况下，我们希望算法的时间复杂度和空间复杂度都能够达到最优，而实际上，同时优化时间复杂度和空间复杂度是非常困难的。
 
-**降低时间复杂度，往往是以提升空间复杂度为代价的，反之亦然。** 我们把牺牲内存空间来提升算法运行速度的思路称为「以空间换时间」；反之，称之为「以时间换空间」。选择哪种思路取决于我们更看重哪个方面。
+**降低时间复杂度，往往是以提升空间复杂度为代价的，反之亦然**。我们把牺牲内存空间来提升算法运行速度的思路称为「以空间换时间」；反之，称之为「以时间换空间」。选择哪种思路取决于我们更看重哪个方面。
 
 大多数情况下，时间都是比空间更宝贵的，只要空间复杂度不要太离谱、能接受就行，**因此以空间换时间最为常用**。
 
@@ -146,6 +146,22 @@ comments: true
             }
             return new int[0];
         }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="leetcode_two_sum.swift"
+    func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
+        // 两层循环，时间复杂度 O(n^2)
+        for i in nums.indices.dropLast() {
+            for j in nums.indices.dropFirst(i + 1) {
+                if nums[i] + nums[j] == target {
+                    return [i, j]
+                }
+            }
+        }
+        return [0]
     }
     ```
 
@@ -292,5 +308,22 @@ comments: true
             }
             return new int[0];
         }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="leetcode_two_sum.swift"
+    func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
+        // 辅助哈希表，空间复杂度 O(n)
+        var dic: [Int: Int] = [:]
+        // 单层循环，时间复杂度 O(n)
+        for i in nums.indices {
+            if let j = dic[target - nums[i]] {
+                return [j, i]
+            }
+            dic[nums[i]] = i
+        }
+        return [0]
     }
     ```

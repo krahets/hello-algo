@@ -1,4 +1,4 @@
-/*
+/**
  * File: PrintUtil.hpp
  * Created Time: 2021-12-19
  * Author: Krahets (krahets@163.com)
@@ -27,23 +27,24 @@ struct TreeNode {
  * @return TreeNode* 
  */
 TreeNode *vecToTree(vector<int> list) {
-    if (list.empty()) {
+    if (list.empty())
         return nullptr;
-    }
 
     auto *root = new TreeNode(list[0]);
     queue<TreeNode *> que;
-    size_t n = list.size(), index = 1;
-    while (index < n) {
+    que.emplace(root);
+    size_t n = list.size(), index = 0;
+    while (!que.empty()) {
         auto node = que.front();
         que.pop();
-
+        if (++index >= n) break;
         if (index < n) {
-            node->left = new TreeNode(list[index++]);
+            node->left = new TreeNode(list[index]);
             que.emplace(node->left);
         }
+        if (++index >= n) break;
         if (index < n) {
-            node->right = new TreeNode(list[index++]);
+            node->right = new TreeNode(list[index]);
             que.emplace(node->right);
         }
     }

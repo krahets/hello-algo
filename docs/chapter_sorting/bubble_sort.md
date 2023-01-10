@@ -170,8 +170,7 @@ comments: true
 
     ```c title="bubble_sort.c"
     /* 冒泡排序 */
-    void bubble_sort(int nums[], int size)
-    {
+    void bubble_sort(int nums[], int size) {
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for (int i = 0; i < size - 1; i++)
         {
@@ -213,17 +212,23 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title="bubble_sort.swift"
+
+    ```
+
 ## 算法特性
 
-**时间复杂度 $O(n^2)$ ：** 各轮「冒泡」遍历的数组长度为 $n - 1$ , $n - 2$ , $\cdots$ , $2$ , $1$ 次，求和为 $\frac{(n - 1) n}{2}$ ，因此使用 $O(n^2)$ 时间。
+**时间复杂度 $O(n^2)$** ：各轮「冒泡」遍历的数组长度为 $n - 1$ , $n - 2$ , $\cdots$ , $2$ , $1$ 次，求和为 $\frac{(n - 1) n}{2}$ ，因此使用 $O(n^2)$ 时间。
 
-**空间复杂度 $O(1)$ ：** 指针 $i$ , $j$ 使用常数大小的额外空间。
+**空间复杂度 $O(1)$** ：指针 $i$ , $j$ 使用常数大小的额外空间。
 
-**原地排序：** 指针变量仅使用常数大小额外空间。
+**原地排序**：指针变量仅使用常数大小额外空间。
 
-**稳定排序：** 不交换相等元素。
+**稳定排序**：不交换相等元素。
 
-**自适排序：** 引入 `flag` 优化后（见下文），最佳时间复杂度为 $O(N)$ 。
+**自适排序**：引入 `flag` 优化后（见下文），最佳时间复杂度为 $O(N)$ 。
 
 ## 效率优化
 
@@ -368,8 +373,7 @@ comments: true
 
     ```c title="bubble_sort.c"
     /* 冒泡排序 */
-    void bubble_sort(int nums[], int size)
-    {
+    void bubble_sort(int nums[], int size) {
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for (int i = 0; i < size - 1; i++)
         {
@@ -415,4 +419,10 @@ comments: true
             if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
         }
     }
+    ```
+
+=== "Swift"
+
+    ```swift title="bubble_sort.swift"
+
     ```
