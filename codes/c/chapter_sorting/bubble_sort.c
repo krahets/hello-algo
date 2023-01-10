@@ -50,14 +50,14 @@ void bubble_sort_with_flag(int nums[], int size) {
 /* Driver Code */
 int main() {
     int nums[6] = {4, 1, 3, 1, 5, 2};
-    printf("冒泡排序后:\n");
+    printf("冒泡排序后: ");
     bubble_sort(nums, 6);
     for (int i = 0; i < 6; i++)
     {
         printf("%d ", nums[i]);
     }
 
-    printf("优化版冒泡排序后:\n");
+    printf("\n优化版冒泡排序后: ");
     bubble_sort_with_flag(nums, 6);
     for (int i = 0; i < 6; i++)
     {
