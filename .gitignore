@@ -5,8 +5,8 @@
 .vscode/
 .idea/
 cmake-build-debug/
-CMakeLists.txt
 hello-algo.iml
+*.dSYM/
 
 # mkdocs files
 site/
