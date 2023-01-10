@@ -150,7 +150,7 @@ console.log('\n初始化的二叉树为\n');
 printTree(getRoot());
 
 /* 查找结点 */
-let node = search(5);
+let node = search(7);
 console.log('\n查找到的结点对象为 ' + node + '，结点值 = ' + node!.val);
 
 /* 插入结点 */

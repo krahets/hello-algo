@@ -131,7 +131,7 @@ public class binary_search_tree {
         PrintUtil.printTree(bst.getRoot());
 
         /* 查找结点 */
-        TreeNode node = bst.search(5);
+        TreeNode node = bst.search(7);
         System.out.println("\n查找到的结点对象为 " + node + "，结点值 = " + node.val);
 
         /* 插入结点 */
