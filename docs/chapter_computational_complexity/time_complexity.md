@@ -1626,7 +1626,6 @@ $$
     }
     ```
 
-
 === "Rust"
 
     ```rust title="time_complexity.swift"
@@ -2376,7 +2375,6 @@ $$
         return count
     }
     ```
-
 
 ![time_complexity_logarithmic_linear](time_complexity.assets/time_complexity_logarithmic_linear.png)
 
