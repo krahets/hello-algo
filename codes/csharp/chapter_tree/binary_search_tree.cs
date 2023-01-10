@@ -159,7 +159,7 @@ namespace hello_algo.chapter_tree
             PrintUtil.PrintTree(bst.getRoot());
 
             /* 查找结点 */
-            TreeNode? node = bst.search(5);
+            TreeNode? node = bst.search(7);
             Console.WriteLine("\n查找到的结点对象为 " + node + "，结点值 = " + node.val);
 
             /* 插入结点 */

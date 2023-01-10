@@ -20,8 +20,8 @@ func TestBinarySearchTree(t *testing.T) {
 	fmt.Println("\n二叉树的根结点为:", node.Val)
 
 	// 查找结点
-	node = bst.search(5)
-	fmt.Println("\n查找到的结点对象为", node, "，结点值 =", node.Val)
+	node = bst.Search(7)
+	fmt.Println("查找到的结点对象为", node, "，结点值 =", node.Val)
 
 	// 插入结点
 	node = bst.insert(16)
