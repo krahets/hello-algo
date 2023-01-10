@@ -1,4 +1,4 @@
-FROM python:3.9.0-buster
+FROM python:3.9.0-alpine
 
 RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple mkdocs mkdocs-material
 
