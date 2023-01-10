@@ -1,9 +1,6 @@
 FROM python:3.9.0-buster
 
-RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
-RUN sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
-
-RUN pip install --upgrade pip && pip install mkdocs mkdocs-material
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple mkdocs mkdocs-material
 
 WORKDIR /app
 

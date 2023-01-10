@@ -41,6 +41,28 @@
 
 如果感觉本书对你有所帮助，请点个 Star :star: 支持一下，谢谢！
 
+### 本地部署
+
+#### Docker
+
+使用本教程前，请确保Docker已经安装并启动。
+
+根据如下命令离线部署。
+
+```bash
+git clone https://github.com/krahets/hello-algo.git
+cd hello-algo
+docker-compose up -d
+```
+
+稍等片刻，请访问`http://localhost:8000`即可访问本教程。
+
+使用如下命令删除部署。
+
+```bash
+docker-compose down
+```
+
 ## 推荐语
 
 > “一本通俗易懂的数据结构与算法入门书，引导读者手脑并用地学习，强烈推荐算法初学者阅读。”
