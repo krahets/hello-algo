@@ -7,6 +7,7 @@ const ListNode = @import("ListNode.zig").ListNode;
 const TreeNode = @import("TreeNode.zig").TreeNode;
 
 // Print an array
+// 编译期泛型
 pub fn printArray(comptime T: type, nums: []T) void {
     std.debug.print("[", .{});
     if (nums.len > 0) {

@@ -11,7 +11,7 @@ pub fn build(b: *std.build.Builder) void {
     const mode = b.standardReleaseOptions();
 
     // Section: "Time Complexity"
-        // File: "chapter_computational_complexity/time_complexity.zig"
+        // Source File: "chapter_computational_complexity/time_complexity.zig"
         // Run Command: zig build run_time_complexity
         const exe_time_complexity = b.addExecutable("time_complexity", "chapter_computational_complexity/time_complexity.zig");
         exe_time_complexity.addPackagePath("include", "include/include.zig");
@@ -24,7 +24,7 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_time_complexity = b.step("run_time_complexity", "Run time_complexity");
         run_step_time_complexity.dependOn(&run_cmd_time_complexity.step);
 
-        // File: "chapter_computational_complexity/worst_best_time_complexity.zig"
+        // Source File: "chapter_computational_complexity/worst_best_time_complexity.zig"
         // Run Command: zig build run_worst_best_time_complexity
         const exe_worst_best_time_complexity = b.addExecutable("worst_best_time_complexity", "chapter_computational_complexity/worst_best_time_complexity.zig");
         exe_worst_best_time_complexity.addPackagePath("include", "include/include.zig");
@@ -38,7 +38,7 @@ pub fn build(b: *std.build.Builder) void {
         run_step_worst_best_time_complexity.dependOn(&run_cmd_worst_best_time_complexity.step);
 
     // Section: "Space Complexity"
-        // File: "chapter_computational_complexity/space_complexity.zig"
+        // Source File: "chapter_computational_complexity/space_complexity.zig"
         // Run Command: zig build run_space_complexity
         const exe_space_complexity = b.addExecutable("space_complexity", "chapter_computational_complexity/space_complexity.zig");
         exe_space_complexity.addPackagePath("include", "include/include.zig");
@@ -52,7 +52,7 @@ pub fn build(b: *std.build.Builder) void {
         run_step_space_complexity.dependOn(&run_cmd_space_complexity.step);
 
     // Section: "Space Time Tradeoff"
-        // File: "chapter_computational_complexity/leetcode_two_sum.zig"
+        // Source File: "chapter_computational_complexity/leetcode_two_sum.zig"
         // Run Command: zig build run_leetcode_two_sum
         const exe_leetcode_two_sum = b.addExecutable("leetcode_two_sum", "chapter_computational_complexity/leetcode_two_sum.zig");
         exe_leetcode_two_sum.addPackagePath("include", "include/include.zig");

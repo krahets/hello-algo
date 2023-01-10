@@ -102,6 +102,10 @@ fn buildTree(mem_allocator: std.mem.Allocator, n: i32) !?*inc.TreeNode(i32) {
 
 // Driver Code
 pub fn main() !void {
+    // 查看本地CPU架构和操作系统信息
+    var native_target_info = try std.zig.system.NativeTargetInfo.detect(std.zig.CrossTarget{});
+    std.debug.print("Native Info: CPU Arch = {}, OS = {}\n", .{native_target_info.target.cpu.arch, native_target_info.target.os.tag});
+
     const n: i32 = 5;
     // 常数阶
     constant(n);
