@@ -7,10 +7,6 @@ const inc = @import("include");
 
 // Driver Code
 pub fn main() !void {
-    // 查看本地CPU架构和操作系统信息
-    var native_target_info = try std.zig.system.NativeTargetInfo.detect(std.zig.CrossTarget{});
-    std.debug.print("Native Info: CPU Arch = {}, OS = {}\n", .{native_target_info.target.cpu.arch, native_target_info.target.os.tag});
-
     // 初始化列表
     var list = std.ArrayList(i32).init(std.heap.page_allocator);
     // 延迟释放内存

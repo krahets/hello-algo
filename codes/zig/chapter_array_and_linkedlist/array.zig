@@ -90,10 +90,6 @@ pub fn find(nums: []i32, target: i32) i32 {
 
 // Driver Code
 pub fn main() !void {
-    // 查看本地CPU架构和操作系统信息
-    var native_target_info = try std.zig.system.NativeTargetInfo.detect(std.zig.CrossTarget{});
-    std.debug.print("Native Info: CPU Arch = {}, OS = {}\n", .{native_target_info.target.cpu.arch, native_target_info.target.os.tag});
-
     // 初始化数组
     const size: i32 = 5;
     var arr = [_]i32{0} ** size;
