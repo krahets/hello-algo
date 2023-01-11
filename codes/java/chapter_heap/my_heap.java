@@ -146,26 +146,25 @@ public class my_heap {
     }
 
     public static void main(String[] args) {
-        /* 初始化堆 */
-        // 初始化大顶堆
-        MaxHeap maxHeap = new MaxHeap();
-
-        System.out.println("\n以下测试样例为大顶堆");
-
-        /* 元素入堆 */
-        testPush(maxHeap, 1);
-        testPush(maxHeap, 3);
-        testPush(maxHeap, 2);
-        testPush(maxHeap, 5);
-        testPush(maxHeap, 4);
+        /* 初始化大顶堆 */
+        MaxHeap maxHeap = new MaxHeap(Arrays.asList(9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2));
+        System.out.println("\n输入列表并建堆后");
+        maxHeap.print();
 
         /* 获取堆顶元素 */
         int peek = maxHeap.peek();
         System.out.format("\n堆顶元素为 %d\n", peek);
 
+        /* 元素入堆 */
+        int val = 7;
+        maxHeap.push(val);
+        System.out.format("\n元素 %d 入堆后\n", val);
+        maxHeap.print();
+
         /* 堆顶元素出堆 */
-        testPoll(maxHeap);
-        testPoll(maxHeap);
+        peek = maxHeap.poll();
+        System.out.format("\n堆顶元素 %d 出堆后\n", peek);
+        maxHeap.print();
 
         /* 获取堆大小 */
         int size = maxHeap.size();
@@ -174,10 +173,5 @@ public class my_heap {
         /* 判断堆是否为空 */
         boolean isEmpty = maxHeap.isEmpty();
         System.out.format("\n堆是否为空 %b\n", isEmpty);
-
-        /* 将输入列表堆化 */
-        maxHeap = new MaxHeap(Arrays.asList(1, 3, 2, 5, 4));
-        System.out.println("\n输入 [1, 3, 2, 5, 4] ，建立大顶堆");
-        maxHeap.print();
     }
 }

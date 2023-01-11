@@ -13,13 +13,13 @@ import java.util.*;
 public class heap {
     public static void testPush(Queue<Integer> heap, int val) {
         heap.add(val); // 元素入堆
-        System.out.format("\n添加元素 %d 后\n", val);
+        System.out.format("\n元素 %d 入堆后\n", val);
         PrintUtil.printHeap(heap);
     }
 
     public static void testPoll(Queue<Integer> heap) {
         int val = heap.poll(); // 堆顶元素出堆
-        System.out.format("\n出堆元素为 %d\n", val);
+        System.out.format("\n堆顶元素 %d 出堆后\n", val);
         PrintUtil.printHeap(heap);
     }
 
@@ -46,6 +46,9 @@ public class heap {
         /* 堆顶元素出堆 */
         testPoll(maxHeap);
         testPoll(maxHeap);
+        testPoll(maxHeap);
+        testPoll(maxHeap);
+        testPoll(maxHeap);
 
         /* 获取堆大小 */
         int size = maxHeap.size();
@@ -58,7 +61,7 @@ public class heap {
         /* 输入列表并建堆 */
         // 时间复杂度为 O(n) ，而非 O(nlogn)
         minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
-        System.out.println("\n输入 [1, 3, 2, 5, 4] ，建立小顶堆");
+        System.out.println("\n输入列表并建立小顶堆后");
         PrintUtil.printHeap(minHeap);
     }
 }
