@@ -98,7 +98,7 @@ function remove(num) {
     // 子结点数量 = 2
     else {
         // 获取中序遍历中 cur 的下一个结点
-        let nex = min(cur.right);
+        let nex = getInOrderNext(cur.right);
         let tmp = nex.val;
         // 递归删除结点 nex
         remove(nex.val);
@@ -108,8 +108,8 @@ function remove(num) {
     return cur;
 }
 
-/* 获取最小结点 */
-function min(root) {
+/* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+function getInOrderNext(root) {
     if (root === null) return root;
     // 循环访问左子结点，直到叶结点时为最小结点，跳出
     while (root.left !== null) {
@@ -126,7 +126,7 @@ console.log("\n初始化的二叉树为\n");
 printTree(getRoot());
 
 /* 查找结点 */
-let node = search(5);
+let node = search(7);
 console.log("\n查找到的结点对象为 " + node + "，结点值 = " + node.val);
 
 /* 插入结点 */

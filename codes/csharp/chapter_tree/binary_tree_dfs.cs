@@ -13,10 +13,7 @@ namespace hello_algo.chapter_tree
     {
         List<int> list = new();
 
-        /// <summary>
-        /// 前序遍历
-        /// </summary>
-        /// <param name="root"></param>
+        /* 前序遍历 */
         void preOrder(TreeNode? root)
         {
             if (root == null) return;
@@ -26,10 +23,7 @@ namespace hello_algo.chapter_tree
             preOrder(root.right);
         }
 
-        /// <summary>
-        /// 中序遍历
-        /// </summary>
-        /// <param name="root"></param>
+        /* 中序遍历 */
         void inOrder(TreeNode? root)
         {
             if (root == null) return;
@@ -39,10 +33,7 @@ namespace hello_algo.chapter_tree
             inOrder(root.right);
         }
 
-        /// <summary>
-        /// 后序遍历
-        /// </summary>
-        /// <param name="root"></param>
+        /* 后序遍历 */
         void postOrder(TreeNode? root)
         {
             if (root == null) return;
@@ -57,8 +48,7 @@ namespace hello_algo.chapter_tree
         {
             /* 初始化二叉树 */
             // 这里借助了一个从数组直接生成二叉树的函数
-            TreeNode? root = TreeNode.ArrToTree(new int?[] { 
-                1, 2, 3, 4, 5, 6, 7, null, null, null, null, null, null, null, null});
+            TreeNode? root = TreeNode.ArrToTree(new int?[] { 1, 2, 3, 4, 5, 6, 7 });
             Console.WriteLine("\n初始化二叉树\n");
             PrintUtil.PrintTree(root);
 

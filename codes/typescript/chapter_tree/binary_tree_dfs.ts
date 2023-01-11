@@ -47,7 +47,7 @@ function postOrder(root: TreeNode | null): void {
 /* Driver Code */
 /* 初始化二叉树 */
 // 这里借助了一个从数组直接生成二叉树的函数
-const root = arrToTree([1, 2, 3, 4, 5, 6, 7, null, null, null, null, null, null, null, null]);
+const root = arrToTree([1, 2, 3, 4, 5, 6, 7]);
 console.log('\n初始化二叉树\n');
 printTree(root);
 

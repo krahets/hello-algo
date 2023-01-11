@@ -1,4 +1,4 @@
-/*
+/**
  * File: binary_search_tree.java
  * Created Time: 2022-11-25
  * Author: Krahets (krahets@163.com)
@@ -101,7 +101,7 @@ class BinarySearchTree {
         // 子结点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个结点
-            TreeNode nex = min(cur.right);
+            TreeNode nex = getInOrderNext(cur.right);
             int tmp = nex.val;
             // 递归删除结点 nex
             remove(nex.val);
@@ -111,8 +111,8 @@ class BinarySearchTree {
         return cur;
     }
 
-    /* 获取最小结点 */
-    public TreeNode min(TreeNode root) {
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    public TreeNode getInOrderNext(TreeNode root) {
         if (root == null) return root;
         // 循环访问左子结点，直到叶结点时为最小结点，跳出
         while (root.left != null) {
@@ -131,7 +131,7 @@ public class binary_search_tree {
         PrintUtil.printTree(bst.getRoot());
 
         /* 查找结点 */
-        TreeNode node = bst.search(5);
+        TreeNode node = bst.search(7);
         System.out.println("\n查找到的结点对象为 " + node + "，结点值 = " + node.val);
 
         /* 插入结点 */

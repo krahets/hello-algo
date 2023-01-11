@@ -94,7 +94,18 @@ comments: true
 === "TypeScript"
 
     ```typescript title="linear_search.ts"
-
+    /* 线性查找（数组）*/
+    function linearSearchArray(nums: number[], target: number): number {
+        // 遍历数组
+        for (let i = 0; i < nums.length; i++) {
+            // 找到目标元素，返回其索引
+            if (nums[i] === target) {
+                return i;
+            }
+        }
+        // 未找到目标元素，返回 -1
+        return -1;
+    }
     ```
 
 === "C"
@@ -119,6 +130,12 @@ comments: true
         // 未找到目标元素，返回 -1
         return -1;
     }
+
+    ```
+
+=== "Swift"
+
+    ```swift title="linear_search.swift"
 
     ```
 
@@ -210,7 +227,19 @@ comments: true
 === "TypeScript"
 
     ```typescript title="linear_search.ts"
-
+    /* 线性查找（链表）*/
+    function linearSearchLinkedList(head: ListNode | null, target: number): ListNode | null {
+        // 遍历链表
+        while (head) {
+            // 找到目标结点，返回之
+            if (head.val === target) {
+                return head;
+            }
+            head = head.next;
+        }
+        // 未找到目标结点，返回 null
+        return null;
+    }
     ```
 
 === "C"
@@ -238,14 +267,20 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title="linear_search.swift"
+
+    ```
+
 ## 复杂度分析
 
-**时间复杂度 $O(n)$ ：** 其中 $n$ 为数组或链表长度。
+**时间复杂度 $O(n)$** ：其中 $n$ 为数组或链表长度。
 
-**空间复杂度 $O(1)$ ：** 无需使用额外空间。
+**空间复杂度 $O(1)$** ：无需使用额外空间。
 
-## 优缺点
+## 优点与缺点
 
-**线性查找的通用性极佳。** 由于线性查找是依次访问元素的，即没有跳跃访问元素，因此数组或链表皆适用。
+**线性查找的通用性极佳**。由于线性查找是依次访问元素的，即没有跳跃访问元素，因此数组或链表皆适用。
 
-**线性查找的时间复杂度太高。** 在数据量 $n$ 很大时，查找效率很低。
+**线性查找的时间复杂度太高**。在数据量 $n$ 很大时，查找效率很低。

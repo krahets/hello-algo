@@ -1,4 +1,4 @@
-/*
+/**
  * File: PrintUtil.java
  * Created Time: 2022-11-25
  * Author: Krahets (krahets@163.com)
@@ -7,6 +7,7 @@
 package include;
 
 import java.util.*;
+
 
 class Trunk {
     Trunk prev;
@@ -102,5 +103,12 @@ public class PrintUtil {
         for (Map.Entry <K, V> kv: map.entrySet()) {
             System.out.println(kv.getKey() + " -> " + kv.getValue());
         }
+    }
+
+    public static void printHeap(PriorityQueue<Integer> queue) {
+        Integer[] nums = (Integer[])queue.toArray();
+        TreeNode root = TreeNode.arrToTree(nums);
+        
+        printTree(root);
     }
 }

@@ -10,8 +10,8 @@ import (
 )
 
 func TestTreeNode(t *testing.T) {
-	arr := []int{2, 3, 5, 6, 7}
-	node := ArrayToTree(arr)
+	arr := []any{1, 2, 3, nil, 5, 6, nil}
+	node := ArrToTree(arr)
 
 	// print tree
 	PrintTree(node)

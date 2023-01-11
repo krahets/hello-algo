@@ -1,4 +1,4 @@
-/*
+/**
  * File: array_hash_map.js
  * Created Time: 2022-12-26
  * Author: Justin (xiefahit@gmail.com)

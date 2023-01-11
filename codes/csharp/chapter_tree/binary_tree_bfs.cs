@@ -12,11 +12,7 @@ namespace hello_algo.chapter_tree
     public class binary_tree_bfs
     {
 
-        /// <summary>
-        /// 层序遍历
-        /// </summary>
-        /// <param name="root"></param>
-        /// <returns></returns>
+        /* 层序遍历 */
         public List<int> hierOrder(TreeNode root)
         {
             // 初始化队列，加入根结点
@@ -41,8 +37,7 @@ namespace hello_algo.chapter_tree
         {
             /* 初始化二叉树 */
             // 这里借助了一个从数组直接生成二叉树的函数
-            TreeNode? root = TreeNode.ArrToTree(new int?[] { 
-                1, 2, 3, 4, 5, 6, 7, null, null, null, null, null, null, null, null});
+            TreeNode? root = TreeNode.ArrToTree(new int?[] { 1, 2, 3, 4, 5, 6, 7 });
             Console.WriteLine("\n初始化二叉树\n");
             PrintUtil.PrintTree(root);
 

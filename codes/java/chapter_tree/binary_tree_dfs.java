@@ -1,4 +1,4 @@
-/*
+/**
  * File: binary_tree_dfs.java
  * Created Time: 2022-11-25
  * Author: Krahets (krahets@163.com)
@@ -43,8 +43,7 @@ public class binary_tree_dfs {
     public static void main(String[] args) {
         /* 初始化二叉树 */
         // 这里借助了一个从数组直接生成二叉树的函数
-        TreeNode root = TreeNode.arrToTree(new Integer[] { 
-            1, 2, 3, 4, 5, 6, 7, null, null, null, null, null, null, null, null});
+        TreeNode root = TreeNode.arrToTree(new Integer[] { 1, 2, 3, 4, 5, 6, 7 });
         System.out.println("\n初始化二叉树\n");
         PrintUtil.printTree(root);
 

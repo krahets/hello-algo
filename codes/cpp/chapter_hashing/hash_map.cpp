@@ -1,4 +1,4 @@
-/*
+/**
  * File: hash_map.cpp
  * Created Time: 2022-12-14
  * Author: msk397 (machangxinq@gmail.com)

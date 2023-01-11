@@ -1,4 +1,4 @@
-/*
+/**
  * File: leetcode_two_sum.ts
  * Created Time: 2022-12-15
  * Author: gyt95 (gytkwan@gmail.com) 

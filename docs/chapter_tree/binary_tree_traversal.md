@@ -51,12 +51,12 @@ comments: true
         vector<int> vec;
         while (!queue.empty()) {
             TreeNode* node = queue.front();
-            queue.pop();  // 队列出队
-            vec.push_back(node->val);            // 保存结点
+            queue.pop();                 // 队列出队
+            vec.push_back(node->val);    // 保存结点
             if (node->left != nullptr)
-                queue.push(node->left);    // 左子结点入队
+                queue.push(node->left);  // 左子结点入队
             if (node->right != nullptr)
-                queue.push(node->right);   // 右子结点入队
+                queue.push(node->right); // 右子结点入队
         }
         return vec;
     }
@@ -65,7 +65,21 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_bfs.py"
-    
+    """ 层序遍历 """
+    def hier_order(root: Optional[TreeNode]):
+        # 初始化队列，加入根结点
+        queue = collections.deque()
+        queue.append(root)
+        # 初始化一个列表，用于保存遍历序列
+        res = []
+        while queue:
+            node = queue.popleft()       # 队列出队
+            res.append(node.val)         # 保存节点值
+            if node.left is not None:
+                queue.append(node.left)  # 左子结点入队
+            if node.right is not None:
+                queue.append(node.right) # 右子结点入队
+        return res
     ```
 
 === "Go"
@@ -171,6 +185,12 @@ comments: true
     
     ```
 
+=== "Swift"
+
+    ```swift title="binary_tree_bfs.swift"
+
+    ```
+
 ## 前序、中序、后序遍历
 
 相对地，前、中、后序遍历皆属于「深度优先遍历 Depth-First Traversal」，其体现着一种“先走到尽头，再回头继续”的回溯遍历方式。
@@ -256,7 +276,32 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_dfs.py"
-    
+    """ 前序遍历 """
+    def pre_order(root: Optional[TreeNode]):
+        if root is None:
+            return
+        # 访问优先级：根结点 -> 左子树 -> 右子树
+        res.append(root.val)
+        pre_order(root=root.left)
+        pre_order(root=root.right)
+
+    """ 中序遍历 """
+    def in_order(root: Optional[TreeNode]):
+        if root is None:
+            return
+        # 访问优先级：左子树 -> 根结点 -> 右子树
+        in_order(root=root.left)
+        res.append(root.val)
+        in_order(root=root.right)
+
+    """ 后序遍历 """
+    def post_order(root: Optional[TreeNode]):
+        if root is None:
+            return
+        # 访问优先级：左子树 -> 右子树 -> 根结点
+        post_order(root=root.left)
+        post_order(root=root.right)
+        res.append(root.val)
     ```
 
 === "Go"
@@ -402,7 +447,12 @@ comments: true
         postOrder(root.right);
         list.Add(root.val);
     }
-    
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_tree_dfs.swift"
+
     ```
 
 !!! note

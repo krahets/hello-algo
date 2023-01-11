@@ -35,7 +35,7 @@ comments: true
     ```python title=""
     """ 链表结点类 """
     class TreeNode:
-        def __init__(self, val=0, left=None, right=None):
+        def __init__(self, val=None, left=None, right=None):
             self.val = val      # 结点值
             self.left = left    # 左子结点指针
             self.right = right  # 右子结点指针
@@ -44,13 +44,13 @@ comments: true
 === "Go"
 
     ```go title=""
-    """ 链表结点类 """
+    /* 链表结点类 */
     type TreeNode struct {
         Val   int
         Left  *TreeNode
         Right *TreeNode
     }
-    """ 结点初始化方法 """
+    /* 结点初始化方法 */
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
             Left:  nil,
@@ -106,9 +106,15 @@ comments: true
     }
     ```
 
+=== "Swift"
+
+    ```swift title=""
+
+    ```
+
 结点的两个指针分别指向「左子结点 Left Child Node」和「右子结点 Right Child Node」，并且称该结点为两个子结点的「父结点 Parent Node」。给定二叉树某结点，将左子结点以下的树称为该结点的「左子树 Left Subtree」，右子树同理。
 
-除了叶结点外，每个结点都有子结点和子树。例如，若将上图的「结点 2」看作父结点，那么其左子结点和右子结点分别为「结点 4」和「结点 5」，左子树和右子树分别为「结点 4 以下的树」和「结点 5 以下的树」。
+除了叶结点外，每个结点都有子结点和子树。例如，若将上图的「结点 2」看作父结点，那么其左子结点和右子结点分别为「结点 4」和「结点 5」，左子树和右子树分别为「结点 4 及其以下结点形成的树」和「结点 5 及其以下结点形成的树」。
 
 ![binary_tree_definition](binary_tree.assets/binary_tree_definition.png)
 
@@ -120,8 +126,8 @@ comments: true
 
 - 「根结点 Root Node」：二叉树最顶层的结点，其没有父结点；
 - 「叶结点 Leaf Node」：没有子结点的结点，其两个指针都指向 $\text{null}$ ；
-- 结点所处「层 Level」：从顶置底依次增加，根结点所处层为 1 ；
-- 结点「度 Degree」：结点的子结点数量，二叉树中度的范围是 0, 1, 2 ；
+- 结点所处「层 Level」：从顶至底依次增加，根结点所处层为 1 ；
+- 结点「度 Degree」：结点的子结点数量。二叉树中，度的范围是 0, 1, 2 ；
 - 「边 Edge」：连接两个结点的边，即结点指针；
 - 二叉树「高度」：二叉树中根结点到最远叶结点走过边的数量；
 - 结点「深度 Depth」 ：根结点到该结点走过边的数量；
@@ -137,7 +143,7 @@ comments: true
 
 ## 二叉树基本操作
 
-**初始化二叉树。** 与链表类似，先初始化结点，再构建引用指向（即指针）。
+**初始化二叉树**。与链表类似，先初始化结点，再构建引用指向（即指针）。
 
 === "Java"
 
@@ -175,7 +181,18 @@ comments: true
 === "Python"
 
     ```python title="binary_tree.py"
-    
+    """ 初始化二叉树 """
+    # 初始化节点
+    n1 = TreeNode(val=1)
+    n2 = TreeNode(val=2)
+    n3 = TreeNode(val=3)
+    n4 = TreeNode(val=4)
+    n5 = TreeNode(val=5)
+    # 构建引用指向（即指针）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
     ```
 
 === "Go"
@@ -252,7 +269,13 @@ comments: true
     n2.right = n5;
     ```
 
-**插入与删除结点。** 与链表类似，插入与删除结点都可以通过修改指针实现。
+=== "Swift"
+
+    ```swift title="binary_tree.swift"
+
+    ```
+
+**插入与删除结点**。与链表类似，插入与删除结点都可以通过修改指针实现。
 
 ![binary_tree_add_remove](binary_tree.assets/binary_tree_add_remove.png)
 
@@ -284,7 +307,13 @@ comments: true
 === "Python"
 
     ```python title="binary_tree.py"
-    
+    """ 插入与删除结点 """
+    p = TreeNode(0)
+    # 在 n1 -> n2 中间插入结点 P
+    n1.left = p
+    p.left = n2
+    # 删除节点 P
+    n1.left = n2
     ```
 
 === "Go"
@@ -339,6 +368,12 @@ comments: true
     P.left = n2;
     // 删除结点 P
     n1.left = n2;
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_tree.swift"
+
     ```
 
 !!! note
@@ -437,7 +472,7 @@ comments: true
 === "Python"
 
     ```python title=""
-    “”“ 二叉树的数组表示 ”“”
+    """ 二叉树的数组表示 """
     # 直接使用 None 来表示空位
     tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     ```
@@ -478,9 +513,15 @@ comments: true
     int?[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
     ```
 
+=== "Swift"
+
+    ```swift title=""
+
+    ```
+
 ![array_representation_with_empty](binary_tree.assets/array_representation_with_empty.png)
 
-回顾「完全二叉树」的满足条件，其只有最底层有空结点，并且最底层的结点尽量靠左，因而所有空结点都一定出现在层序遍历序列的末尾。**因为我们先验地确定了空位的位置，所以在使用数组表示完全二叉树时，可以省略存储“空位”**。“便于使用数组表示”也是完全二叉树受欢迎的原因之一。
+回顾「完全二叉树」的定义，其只有最底层有空结点，并且最底层的结点尽量靠左，因而所有空结点都一定出现在层序遍历序列的末尾。**因为我们先验地确定了空位的位置，所以在使用数组表示完全二叉树时，可以省略存储“空位”**。因此，完全二叉树非常适合使用数组来表示。
 
 ![array_representation_complete_binary_tree](binary_tree.assets/array_representation_complete_binary_tree.png)
 
