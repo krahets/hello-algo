@@ -68,13 +68,23 @@ comments: true
 === "JavaScript"
 
     ```js title="hashing_search.js"
-
+    /* 哈希查找（数组） */
+    function hashingSearch(map, target) {
+        // 哈希表的 key: 目标元素，value: 索引
+        // 若哈希表中无此 key ，返回 -1
+        return map.has(target) ? map.get(target) : -1;
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="hashing_search.ts"
-
+    /* 哈希查找（数组） */
+    function hashingSearch(map: Map<number, number>, target: number): number {
+        // 哈希表的 key: 目标元素，value: 索引
+        // 若哈希表中无此 key ，返回 -1
+        return map.has(target) ? map.get(target) as number : -1;
+    }
     ```
 
 === "C"
@@ -151,19 +161,29 @@ comments: true
         } else {
             return nil
         }
-    } 
+    }
     ```
 
 === "JavaScript"
 
     ```js title="hashing_search.js"
-
+    /* 哈希查找（链表） */
+    function hashingSearch1(map, target) {
+        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 若哈希表中无此 key ，返回 null
+        return map.has(target) ? map.get(target) : null;
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="hashing_search.ts"
-
+    /* 哈希查找（链表） */
+    function hashingSearch1(map: Map<number, ListNode>, target: number): ListNode | null {
+        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 若哈希表中无此 key ，返回 null
+        return map.has(target) ? map.get(target) as ListNode : null;
+    }
     ```
 
 === "C"

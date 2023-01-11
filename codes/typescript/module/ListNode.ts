@@ -16,12 +16,12 @@ export default class ListNode {
     }
 
     /**
-     * Generate a linked-list with an array
+     * Generate a linked list with an array
      * @param arr
-     * @return ListNode
+     * @return
      */
-    public static arrToLinkedList(arr: number[]): ListNode | null {
-        const dum = new ListNode(0);
+    arrToLinkedList(arr: number[]): ListNode | null {
+        const dum: ListNode = new ListNode(0);
         let head = dum;
         for (const val of arr) {
             head.next = new ListNode(val);
