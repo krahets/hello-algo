@@ -27,7 +27,7 @@ pub fn findOne(nums: []i32) i32 {
 }
 
 // Driver Code
-pub fn main() void {
+pub fn main() !void {
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
         const n: usize = 100;
