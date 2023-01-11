@@ -9,10 +9,10 @@ import ListNode from "../module/ListNode";
 
 
 /* 哈希查找（数组） */
-function hashingSearch(map: Map<number, number>, target: number) {
+function hashingSearch(map: Map<number, number>, target: number): number {
     // 哈希表的 key: 目标元素，value: 索引
     // 若哈希表中无此 key ，返回 -1
-    return map.has(target) ? map.get(target) : -1;
+    return map.has(target) ? map.get(target) as number : -1;
 }
 
 /* 哈希查找（链表） */
