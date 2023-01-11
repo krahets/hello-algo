@@ -120,7 +120,6 @@ pub fn MyList(comptime T: type) type {
             }
             return nums;
         }
-
     };
 }
 
