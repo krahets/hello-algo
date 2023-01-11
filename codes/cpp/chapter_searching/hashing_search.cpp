@@ -33,7 +33,7 @@ int main() {
     vector<int> nums = { 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 };
     // 初始化哈希表
     unordered_map<int, int> map;
-    for (int i = 0; i < nums.size(); i++) {
+    for (size_t i = 0; i < nums.size(); i++) {
         map[nums[i]] = i;  // key: 元素，value: 索引
     }
     int index = hashingSearch(map, target);
