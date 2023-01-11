@@ -153,21 +153,6 @@ $$
     }
     ```
 
-=== "Rust"
-
-    ```rust title=""
-        // 在某运行平台下
-    fn algorithm(n: i32) {
-        let mut a = 2; // 1 ns
-        a = a + 1;     // 1 ns
-        a = a * 2;     // 10 ns
-        // 循环 n 次
-        for _ in 0..n { // 1 ns
-            println!("{}", 0); // 5 ns
-        }
-    }
-    ```
-
 但实际上， **统计算法的运行时间既不合理也不现实**。首先，我们不希望预估时间和运行平台绑定，毕竟算法需要跑在各式各样的平台之上。其次，我们很难获知每一种操作的运行时间，这为预估过程带来了极大的难度。
 
 ## 统计时间增长趋势
@@ -372,29 +357,6 @@ $$
     }
 
     ```
-=== "Rust"
-
-    ```rust title=""
-    // 算法 A 时间复杂度：常数阶
-    fn algorithm_A(n: i32) {
-        println!("{}", 0);
-    }
-
-    // 算法 B 时间复杂度：线性阶
-    fn algorithm_B(n: i32) {
-        for i in 0..n {
-            println!("{}", 0);
-        }
-    }
-
-    // 算法 C 时间复杂度：常数阶
-    fn algorithm_C(n: i32) {
-        for i in 0..1000000 {
-            println!("{}", 0);
-        }
-    }
-    ```
-
 ![time_complexity_first_example](time_complexity.assets/time_complexity_first_example.png)
 
 <p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
@@ -537,20 +499,6 @@ $$
         // 循环 n 次
         for _ in 0 ..< n { // +1
             print(0) // +1
-        }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    fn algorithm(n: i32) {
-        let mut a = 2; // +1
-        a = a + 1;     // +1
-        a = a * 2;     // +1
-        // 循环 n 次
-        for _ in 0..n { // +1
-            println!("0"); // +1
         }
     }
     ```
@@ -777,25 +725,6 @@ $$
     }
     ```
 
-=== "Rust"
-
-    ```rust title=""
-    fn algorithm(n: i32) {
-        let mut a = 1; // +0（技巧 1）
-        a = a + n;     // +0（技巧 1）
-        // +n（技巧 2）
-        for _ in 0..(5 * n + 1) {
-            println!("{}", 0);
-        }
-        // +n*n（技巧 3）
-        for _ in 0..(2 * n) {
-            for _ in 0..(n + 1) {
-                println!("{}", 0);
-            }
-        }
-    }
-    ```
-
 
 ### 2. 判断渐近上界
 
@@ -959,20 +888,6 @@ $$
     }
     ```
 
-=== "Rust"
-
-    ```rust title="time_complexity.rust"
-    /* 常数阶 */
-    fn constant(n: i32) -> i32 {
-        let mut count = 0;
-        let size = 100000;
-        for _ in 0..size {
-            count += 1
-        }
-        count
-    }
-    ```
-
 ### 线性阶 $O(n)$
 
 线性阶的操作数量相对输入数据大小成线性级别增长。线性阶常出现于单层循环。
@@ -1083,19 +998,6 @@ $$
             count += 1
         }
         return count
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rust"
-    /* 线性阶 */
-    fn linear(n: i32) -> i32 {
-        let mut count = 0;
-        for _ in 0..n {
-            count += 1;
-        }
-        count
     }
     ```
 
@@ -1228,20 +1130,6 @@ $$
             count += 1
         }
         return count
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rust"
-    /* 线性阶（遍历数组） */
-    fn array_traversal(nums: &[i32]) -> i32 {
-        let mut count = 0;
-        // 循环次数与数组长度成正比
-        for _ in nums {
-            count += 1;
-        }
-        count
     }
     ```
 
@@ -1390,22 +1278,6 @@ $$
             }
         }
         return count
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rust"
-    /* 平方阶 */
-    fn quadratic(n: i32) -> i32 {
-        let mut count = 0
-        // 循环次数与数组长度成平方关系
-        for _ in 0..n {
-            for _ in 0..n {
-                count += 1;
-            }
-        }
-        count
     }
     ```
 
@@ -1626,29 +1498,6 @@ $$
     }
     ```
 
-=== "Rust"
-
-    ```rust title="time_complexity.swift"
-    /* 平方阶（冒泡排序） */
-    fn bubble_sort(nums: &mut [i32]) -> i32 {
-        let mut count = 0; // 计数器
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i in (1..nums.len()).rev() {
-            // 内循环：冒泡操作
-            for j in 0..i {
-                if nums[j] > nums[j + 1] {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3; // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        count
-    }
-    ```
-
 ### 指数阶 $O(2^n)$
 
 !!! note
@@ -1824,25 +1673,6 @@ $$
     }
     ```
 
-=== "Rust"
-
-    ```rust title="time_complexity.rust"
-    /* 指数阶（循环实现） */
-    fn exponential(n: i32) -> i32 {
-        let mut count = 0;
-        let mut base = 1;
-        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for _ in 0..n {
-            for _ in 0..base {
-                count += 1
-            }
-            base *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        count
-    }
-    ```
-
 ![time_complexity_exponential](time_complexity.assets/time_complexity_exponential.png)
 
 <p align="center"> Fig. 指数阶的时间复杂度 </p>
@@ -1941,18 +1771,6 @@ $$
             return 1
         }
         return expRecur(n: n - 1) + expRecur(n: n - 1) + 1
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rust"
-    /* 指数阶（递归实现） */
-    fn exp_recur(n: i32) -> i32 {
-        if n == 1 {
-            return 1;
-        }
-        exp_recur(n - 1) + exp_recur(n - 1) + 1
     }
     ```
 
@@ -2091,21 +1909,6 @@ $$
     }
     ```
 
-=== "Rust"
-
-    ```rust title="time_complexity.rust"
-    /* 对数阶（循环实现） */
-    fn logarithmic(mut n: i32) -> i32 {
-        let mut count = 0;
-
-        while n > 1 {
-            n = n / 2;
-            count += 1;
-        }
-        count
-    }
-    ```
-
 ![time_complexity_logarithmic](time_complexity.assets/time_complexity_logarithmic.png)
 
 <p align="center"> Fig. 对数阶的时间复杂度 </p>
@@ -2203,18 +2006,6 @@ $$
             return 0
         }
         return logRecur(n: n / 2) + 1
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rust"
-    /* 对数阶（递归实现） */
-    fn log_recur(n: i32) -> i32 {
-        if n <= 1 {
-            return 0;
-        }
-        log_recur(n / 2) + 1
     }
     ```
 
@@ -2355,22 +2146,6 @@ $$
         var count = linearLogRecur(n: n / 2) + linearLogRecur(n: n / 2)
         for _ in 0 ..< Int(n) {
             count += 1
-        }
-        return count
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rust"
-    /* 线性对数阶 */
-    fn linear_log_recur(n: f64) -> i32 {
-        if n <= 1.0 {
-            return 1;
-        }
-        let mut count = linear_log_recur(n / 2.0) + linear_log_recur(n / 2.0);
-        for _ in 0 ..n as i32 {
-            count += 1;
         }
         return count
     }
@@ -2525,23 +2300,6 @@ $$
             count += factorialRecur(n: n - 1)
         }
         return count
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rust"
-    /* 阶乘阶（递归实现） */
-    fn factorial_recur(n: i32) -> i32 {
-        if n == 0 {
-            return 1;
-        }
-        let mut count = 0;
-        // 从 1 个分裂出 n 个
-        for _ in 0..n {
-            count += factorial_recur(n - 1);
-        }
-        count
     }
     ```
 
@@ -2928,40 +2686,6 @@ $$
             let index = findOne(nums: nums)
             print("数组 [ 1, 2, ..., n ] 被打乱后 = \(nums)")
             print("数字 1 的索引为 \(index)")
-        }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title="worst_best_time_complexity.rust"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    fn random_numbers(n: i32) -> Vec<i32> {
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        let mut nums = (1..n + 1).collect::<Vec<i32>>();
-        // 随机打乱数组元素
-        nums.shuffle(&mut thread_rng());
-        nums
-    }
-
-    /* 查找数组 nums 中数字 1 所在索引 */
-    fn find_one(nums: &[i32]) -> Option<usize> {
-        for i in 0..nums.len() {
-            if nums[i] == 1 {
-                return Some(i);
-            }
-        }
-        None
-    }
-
-    /* Driver Code */
-    fn main() {
-        for _ in 0..10 {
-            let n = 100;
-            let nums = random_numbers(n);
-            let index = find_one(&nums);
-            println!("\n数组 [ 1, 2, ..., n ] 被打乱后 = {:?}", nums);
-            println!("数字 1 的索引为 {:?}", index);
         }
     }
     ```
