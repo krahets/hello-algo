@@ -342,43 +342,36 @@ comments: true
      * 左子数组区间 [left, mid]
      * 右子数组区间 [mid + 1, right]
      */
-    void merge(int arr[], int left, int mid, int right)
-    {
-        int aux[right - left + 1]; // 开辟一个新的数组，将原数组数据片段存进去
-        for (int m = left; m <= right; m++)
-        {
-            aux[m - left] = arr[m];
+    void merge(int nums[], int left, int mid, int right) {
+        // 开辟一个新的数组，将原数组数据片段存进去
+        int tmp[right - left + 1]; 
+        for (int m = left; m <= right; m++) {
+            tmp[m - left] = nums[m];
         }
-
-        int i = left, j = mid + 1; // i和j分别指向两个数组开头部分
-
-        for (int k = left; k <= right; k++)
-        {
-            if (i > mid)
-            {
-                arr[k] = aux[j - left];
+        // i和j分别指向两个数组开头部分
+        int i = left, j = mid + 1; 
+        // 通过覆盖原数组 nums 来合并左子数组和右子数组
+        for (int k = left; k <= right; k++) {
+            if (i > mid) {
+                nums[k] = tmp[j - left];
                 j++;
             }
-            else if (j > right)
-            {
-                arr[k] = aux[i - left];
+            else if (j > right) {
+                nums[k] = tmp[i - left];
                 i++;
             }
-            else if (aux[i - left] < aux[j - left])
-            {
-                arr[k] = aux[i - left];
+            else if (tmp[i - left] < tmp[j - left]) {
+                nums[k] = tmp[i - left];
                 i++;
             }
-            else
-            {
-                arr[k] = aux[j - left];
+            else {
+                nums[k] = tmp[j - left];
                 j++;
             }
         }
     }
 
-    void mergeSort(int nums[], int left, int right)
-    {
+    void mergeSort(int nums[], int left, int right) {
         // 终止条件
         if (left >= right)
             return; // 当子数组长度为 1 时终止递归

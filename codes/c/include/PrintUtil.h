@@ -14,10 +14,9 @@
 /**
  * @brief Print an Array
  * 
- * @param arr 
- * @param n 
+ * @param arr array
+ * @param n array length
  */
-
 static void printArray(int* arr, int n)
 {
     printf("[");
