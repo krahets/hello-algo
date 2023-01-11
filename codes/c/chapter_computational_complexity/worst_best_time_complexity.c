@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
         int *nums = randomNumbers(n);
         int index = findOne(nums, n);
         printf("\n数组 [ 1, 2, ..., n ] 被打乱后 = ");
-        PrintArray(nums, n);
+        printArray(nums, n);
         printf("数字 1 的索引为 %d\n", index);
         // 释放堆区内存
         if (nums != NULL) {
