@@ -94,7 +94,18 @@ comments: true
 === "TypeScript"
 
     ```typescript title="linear_search.ts"
-
+    /* 线性查找（数组）*/
+    function linearSearchArray(nums: number[], target: number): number {
+        // 遍历数组
+        for (let i = 0; i < nums.length; i++) {
+            // 找到目标元素，返回其索引
+            if (nums[i] === target) {
+                return i;
+            }
+        }
+        // 未找到目标元素，返回 -1
+        return -1;
+    }
     ```
 
 === "C"
@@ -216,7 +227,19 @@ comments: true
 === "TypeScript"
 
     ```typescript title="linear_search.ts"
-
+    /* 线性查找（链表）*/
+    function linearSearchLinkedList(head: ListNode | null, target: number): ListNode | null {
+        // 遍历链表
+        while (head) {
+            // 找到目标结点，返回之
+            if (head.val === target) {
+                return head;
+            }
+            head = head.next;
+        }
+        // 未找到目标结点，返回 null
+        return null;
+    }
     ```
 
 === "C"
