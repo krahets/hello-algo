@@ -231,7 +231,28 @@ comments: true
 === "Swift"
 
     ```swift title="stack.swift"
-    
+    /* 初始化栈 */
+    // Swift 没有内置的栈类，可以把 Array 当作栈来使用
+    var stack: [Int] = []
+
+    /* 元素入栈 */
+    stack.append(1)
+    stack.append(3)
+    stack.append(2)
+    stack.append(5)
+    stack.append(4)
+
+    /* 访问栈顶元素 */
+    let peek = stack.last!
+
+    /* 元素出栈 */
+    let pop = stack.removeLast()
+
+    /* 获取栈的长度 */
+    let size = stack.count
+
+    /* 判断是否为空 */
+    let isEmpty = stack.isEmpty
     ```
 
 ## 栈的实现
@@ -378,43 +399,49 @@ comments: true
 
     ```go title="linkedlist_stack.go"
     /* 基于链表实现的栈 */
-    type LinkedListStack struct {
+    type linkedListStack struct {
         // 使用内置包 list 来实现栈
         data *list.List
     }
-    // NewLinkedListStack 初始化链表
-    func NewLinkedListStack() *LinkedListStack {
-        return &LinkedListStack{
+
+    // newLinkedListStack 初始化链表
+    func newLinkedListStack() *linkedListStack {
+        return &linkedListStack{
             data: list.New(),
         }
     }
-    // Push 入栈
-    func (s *LinkedListStack) Push(value int) {
+
+    // push 入栈
+    func (s *linkedListStack) push(value int) {
         s.data.PushBack(value)
     }
-    // Pop 出栈
-    func (s *LinkedListStack) Pop() any {
-        if s.IsEmpty() {
+
+    // pop 出栈
+    func (s *linkedListStack) pop() any {
+        if s.isEmpty() {
             return nil
         }
         e := s.data.Back()
         s.data.Remove(e)
         return e.Value
     }
-    // Peek 访问栈顶元素
-    func (s *LinkedListStack) Peek() any {
-        if s.IsEmpty() {
+
+    // peek 访问栈顶元素
+    func (s *linkedListStack) peek() any {
+        if s.isEmpty() {
             return nil
         }
         e := s.data.Back()
         return e.Value
     }
-    // Size 获取栈的长度
-    func (s *LinkedListStack) Size() int {
+
+    // size 获取栈的长度
+    func (s *linkedListStack) size() int {
         return s.data.Len()
     }
-    // IsEmpty 判断栈是否为空
-    func (s *LinkedListStack) IsEmpty() bool {
+
+    // isEmpty 判断栈是否为空
+    func (s *linkedListStack) isEmpty() bool {
         return s.data.Len() == 0
     }
     ```
@@ -600,7 +627,58 @@ comments: true
 === "Swift"
 
     ```swift title="linkedlist_stack.swift"
-    
+    /* 基于链表实现的栈 */
+    class LinkedListStack {
+        private var _peek: ListNode? // 将头结点作为栈顶
+        private var _size = 0 // 栈的长度
+
+        init() {}
+
+        /* 获取栈的长度 */
+        func size() -> Int {
+            _size
+        }
+
+        /* 判断栈是否为空 */
+        func isEmpty() -> Bool {
+            _size == 0
+        }
+
+        /* 入栈 */
+        func push(num: Int) {
+            let node = ListNode(x: num)
+            node.next = _peek
+            _peek = node
+            _size += 1
+        }
+
+        /* 出栈 */
+        func pop() -> Int {
+            let num = peek()
+            _peek = _peek?.next
+            _size -= 1
+            return num
+        }
+
+        /* 访问栈顶元素 */
+        func peek() -> Int {
+            if _size == 0 {
+                fatalError("栈为空")
+            }
+            return _peek!.val
+        }
+
+        /* 将 List 转化为 Array 并返回 */
+        func toArray() -> [Int] {
+            var node = _peek
+            var res = Array(repeating: 0, count: _size)
+            for i in sequence(first: res.count - 1, next: { $0 >= 0 + 1 ? $0 - 1 : nil }) {
+                res[i] = node!.val
+                node = node?.next
+            }
+            return res
+        }
+    }
     ```
 
 ### 基于数组的实现
@@ -716,41 +794,47 @@ comments: true
 
     ```go title="array_stack.go"
     /* 基于数组实现的栈 */
-    type ArrayStack struct {
+    type arrayStack struct {
         data []int // 数据
     }
-    func NewArrayStack() *ArrayStack {
-        return &ArrayStack{
+
+    func newArrayStack() *arrayStack {
+        return &arrayStack{
             // 设置栈的长度为 0，容量为 16
             data: make([]int, 0, 16),
         }
     }
-    // Size 栈的长度
-    func (s *ArrayStack) Size() int {
+
+    // size 栈的长度
+    func (s *arrayStack) size() int {
         return len(s.data)
     }
-    // IsEmpty 栈是否为空
-    func (s *ArrayStack) IsEmpty() bool {
-        return s.Size() == 0
+
+    // isEmpty 栈是否为空
+    func (s *arrayStack) isEmpty() bool {
+        return s.size() == 0
     }
-    // Push 入栈
-    func (s *ArrayStack) Push(v int) {
+
+    // push 入栈
+    func (s *arrayStack) push(v int) {
         // 切片会自动扩容
         s.data = append(s.data, v)
     }
-    // Pop 出栈
-    func (s *ArrayStack) Pop() any {
+
+    // pop 出栈
+    func (s *arrayStack) pop() any {
         // 弹出栈前，先判断是否为空
-        if s.IsEmpty() {
+        if s.isEmpty() {
             return nil
         }
-        val := s.Peek()
+        val := s.peek()
         s.data = s.data[:len(s.data)-1]
         return val
     }
-    // Peek 获取栈顶元素
-    func (s *ArrayStack) Peek() any {
-        if s.IsEmpty() {
+
+    // peek 获取栈顶元素
+    func (s *arrayStack) peek() any {
+        if s.isEmpty() {
             return nil
         }
         val := s.data[len(s.data)-1]
@@ -885,7 +969,51 @@ comments: true
 === "Swift"
 
     ```swift title="array_stack.swift"
-    
+    /* 基于数组实现的栈 */
+    class ArrayStack {
+        private var stack: [Int]
+
+        init() {
+            // 初始化列表（动态数组）
+            stack = []
+        }
+
+        /* 获取栈的长度 */
+        func size() -> Int {
+            stack.count
+        }
+
+        /* 判断栈是否为空 */
+        func isEmpty() -> Bool {
+            stack.isEmpty
+        }
+
+        /* 入栈 */
+        func push(num: Int) {
+            stack.append(num)
+        }
+
+        /* 出栈 */
+        func pop() -> Int {
+            if stack.isEmpty {
+                fatalError("栈为空")
+            }
+            return stack.removeLast()
+        }
+
+        /* 访问栈顶元素 */
+        func peek() -> Int {
+            if stack.isEmpty {
+                fatalError("栈为空")
+            }
+            return stack.last!
+        }
+
+        /* 将 List 转化为 Array 并返回 */
+        func toArray() -> [Int] {
+            stack
+        }
+    }
     ```
 
 !!! tip
@@ -894,5 +1022,5 @@ comments: true
 
 ## 栈典型应用
 
-- **浏览器中的后退与前进、软件中的撤销与反撤销**。每当我们打开新的网页，浏览器就讲上一个网页执行入栈，这样我们就可以通过「后退」操作来回到上一页面，后退操作实际上是在执行出栈。如果要同时支持后退和前进，那么则需要两个栈来配合实现。
+- **浏览器中的后退与前进、软件中的撤销与反撤销**。每当我们打开新的网页，浏览器就将上一个网页执行入栈，这样我们就可以通过「后退」操作来回到上一页面，后退操作实际上是在执行出栈。如果要同时支持后退和前进，那么则需要两个栈来配合实现。
 - **程序内存管理**。每当调用函数时，系统就会在栈顶添加一个栈帧，用来记录函数的上下文信息。在递归函数中，向下递推会不断执行入栈，向上回溯阶段时出栈。

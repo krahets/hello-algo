@@ -4,7 +4,7 @@ comments: true
 
 # 空间复杂度
 
-「空间复杂度 Space Complexity」统计 **算法使用内存空间随着数据量变大时的增长趋势** 。这个概念与时间复杂度很类似。
+「空间复杂度 Space Complexity」统计 **算法使用内存空间随着数据量变大时的增长趋势**。这个概念与时间复杂度很类似。
 
 ## 算法相关空间
 
@@ -103,14 +103,14 @@ comments: true
 
     ```go title=""
     /* 结构体 */
-    type Node struct {
+    type node struct {
         val  int
-        next *Node
+        next *node
     }
-    
-    /* 创建 Node 结构体 */
-    func newNode(val int) *Node {
-        return &Node{val: val}
+
+    /* 创建 node 结构体  */
+    func newNode(val int) *node {
+        return &node{val: val}
     }
     
     /* 函数 */
@@ -177,7 +177,7 @@ comments: true
 === "Swift"
 
     ```swift title=""
-    // 类
+    /* 类 */
     class Node {
         var val: Int
         var next: Node?
@@ -187,7 +187,7 @@ comments: true
         }
     }
 
-    // 函数
+    /* 函数 */
     func function() -> Int {
         // do something...
         return 0
@@ -436,14 +436,14 @@ comments: true
         return 0
     }
 
-    // 循环 O(1)
+    /* 循环 O(1) */
     func loop(n: Int) {
         for _ in 0 ..< n {
             function()
         }
     }
 
-    // 递归 O(n)
+    /* 递归 O(n) */
     func recur(n: Int) {
         if n == 1 {
             return
@@ -604,7 +604,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    // 常数阶
+    /* 常数阶 */
     func constant(n: Int) {
         // 常量、变量、对象占用 O(1) 空间
         let a = 0
@@ -687,7 +687,7 @@ $$
         // 长度为 n 的数组占用 O(n) 空间
         _ = make([]int, n)
         // 长度为 n 的列表占用 O(n) 空间
-        var nodes []*Node
+        var nodes []*node
         for i := 0; i < n; i++ {
             nodes = append(nodes, newNode(i))
         }
@@ -743,7 +743,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    // 线性阶
+    /* 线性阶 */
     func linear(n: Int) {
         // 长度为 n 的数组占用 O(n) 空间
         let nums = Array(repeating: 0, count: n)
@@ -834,7 +834,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    // 线性阶（递归实现）
+    /* 线性阶（递归实现） */
     func linearRecur(n: Int) {
         print("递归 n = \(n)")
         if n == 1 {
@@ -954,7 +954,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    // 平方阶
+    /* 平方阶 */
     func quadratic(n: Int) {
         // 二维列表占用 O(n^2) 空间
         let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
@@ -1047,7 +1047,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    // 平方阶（递归实现）
+    /* 平方阶（递归实现） */
     func quadraticRecur(n: Int) -> Int {
         if n <= 0 {
             return 0
@@ -1108,7 +1108,7 @@ $$
 
     ```go title="space_complexity.go"
     /* 指数阶（建立满二叉树） */
-    func buildTree(n int) *TreeNode {
+    func buildTree(n int) *treeNode {
         if n == 0 {
             return nil
         }
@@ -1154,7 +1154,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    // 指数阶（建立满二叉树）
+    /* 指数阶（建立满二叉树） */
     func buildTree(n: Int) -> TreeNode? {
         if n == 0 {
             return nil

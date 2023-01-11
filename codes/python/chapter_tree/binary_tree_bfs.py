@@ -5,14 +5,12 @@ Author: a16su (lpluls001@gmail.com)
 """
 
 import sys, os.path as osp
-import typing
-
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
 
 """ 层序遍历 """
-def hier_order(root: TreeNode):
+def hier_order(root: Optional[TreeNode]):
     # 初始化队列，加入根结点
     queue = collections.deque()
     queue.append(root)

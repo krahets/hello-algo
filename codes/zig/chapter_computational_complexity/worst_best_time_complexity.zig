@@ -3,6 +3,7 @@
 // Author: sjinzh (sjinzh@gmail.com)
 
 const std = @import("std");
+const inc = @import("include");
 
 // 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
 pub fn randomNumbers(comptime n: usize) [n]i32 {
@@ -33,10 +34,8 @@ pub fn main() !void {
         var nums = randomNumbers(n);
         var index = findOne(&nums);
         std.debug.print("\n数组 [ 1, 2, ..., n ] 被打乱后 = ", .{});
-        for (nums) |num, j| {
-            std.debug.print("{}{s}", .{num, if (j == nums.len-1) "" else "," });
-        }
-        std.debug.print("\n数字 1 的索引为 {}\n", .{index});
+        inc.PrintUtil.printArray(i32, &nums);
+        std.debug.print("数字 1 的索引为 {}\n", .{index});
     }
 }
 

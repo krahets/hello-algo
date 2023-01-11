@@ -404,43 +404,49 @@ comments: true
 
     ```go title="linkedlist_queue.go"
     /* 基于链表实现的队列 */
-    type LinkedListQueue struct {
+    type linkedListQueue struct {
         // 使用内置包 list 来实现队列
         data *list.List
     }
-    // NewLinkedListQueue 初始化链表
-    func NewLinkedListQueue() *LinkedListQueue {
-        return &LinkedListQueue{
+
+    // newLinkedListQueue 初始化链表
+    func newLinkedListQueue() *linkedListQueue {
+        return &linkedListQueue{
             data: list.New(),
         }
     }
-    // Offer 入队
-    func (s *LinkedListQueue) Offer(value any) {
+
+    // offer 入队
+    func (s *linkedListQueue) offer(value any) {
         s.data.PushBack(value)
     }
-    // Poll 出队
-    func (s *LinkedListQueue) Poll() any {
-        if s.IsEmpty() {
+
+    // poll 出队
+    func (s *linkedListQueue) poll() any {
+        if s.isEmpty() {
             return nil
         }
         e := s.data.Front()
         s.data.Remove(e)
         return e.Value
     }
-    // Peek 访问队首元素
-    func (s *LinkedListQueue) Peek() any {
-        if s.IsEmpty() {
+
+    // peek 访问队首元素
+    func (s *linkedListQueue) peek() any {
+        if s.isEmpty() {
             return nil
         }
         e := s.data.Front()
         return e.Value
     }
-    // Size 获取队列的长度
-    func (s *LinkedListQueue) Size() int {
+
+    // size 获取队列的长度
+    func (s *linkedListQueue) size() int {
         return s.data.Len()
     }
-    // IsEmpty 判断队列是否为空
-    func (s *LinkedListQueue) IsEmpty() bool {
+
+    // isEmpty 判断队列是否为空
+    func (s *linkedListQueue) isEmpty() bool {
         return s.data.Len() == 0
     }
     ```
@@ -805,34 +811,38 @@ comments: true
 
     ```go title="array_queue.go"
     /* 基于环形数组实现的队列 */
-    type ArrayQueue struct {
+    type arrayQueue struct {
         data     []int // 用于存储队列元素的数组
         capacity int   // 队列容量（即最多容量的元素个数）
         front    int   // 头指针，指向队首
         rear     int   // 尾指针，指向队尾 + 1
     }
-    // NewArrayQueue 基于环形数组实现的队列
-    func NewArrayQueue(capacity int) *ArrayQueue {
-        return &ArrayQueue{
+
+    // newArrayQueue 基于环形数组实现的队列
+    func newArrayQueue(capacity int) *arrayQueue {
+        return &arrayQueue{
             data:     make([]int, capacity),
             capacity: capacity,
             front:    0,
             rear:     0,
         }
     }
-    // Size 获取队列的长度
-    func (q *ArrayQueue) Size() int {
+
+    // size 获取队列的长度
+    func (q *arrayQueue) size() int {
         size := (q.capacity + q.rear - q.front) % q.capacity
         return size
     }
-    // IsEmpty 判断队列是否为空
-    func (q *ArrayQueue) IsEmpty() bool {
+
+    // isEmpty 判断队列是否为空
+    func (q *arrayQueue) isEmpty() bool {
         return q.rear-q.front == 0
     }
-    // Offer 入队
-    func (q *ArrayQueue) Offer(v int) {
+
+    // offer 入队
+    func (q *arrayQueue) offer(v int) {
         // 当 rear == capacity 表示队列已满
-        if q.Size() == q.capacity {
+        if q.size() == q.capacity {
             return
         }
         // 尾结点后添加
@@ -840,9 +850,10 @@ comments: true
         // 尾指针向后移动一位，越过尾部后返回到数组头部
         q.rear = (q.rear + 1) % q.capacity
     }
-    // Poll 出队
-    func (q *ArrayQueue) Poll() any {
-        if q.IsEmpty() {
+
+    // poll 出队
+    func (q *arrayQueue) poll() any {
+        if q.isEmpty() {
             return nil
         }
         v := q.data[q.front]
@@ -850,9 +861,10 @@ comments: true
         q.front = (q.front + 1) % q.capacity
         return v
     }
-    // Peek 访问队首元素
-    func (q *ArrayQueue) Peek() any {
-        if q.IsEmpty() {
+
+    // peek 访问队首元素
+    func (q *arrayQueue) peek() any {
+        if q.isEmpty() {
             return nil
         }
         v := q.data[q.front]

@@ -59,11 +59,13 @@ fn bubbleSort(nums: []i32) i32 {
         var j: usize = 0;
         // 内循环：冒泡操作
         while (j < i) : (j += 1) {
-            // 交换 nums[j] 与 nums[j + 1]
-            var tmp = nums[j];
-            nums[j] = nums[j + 1];
-            nums[j + 1] = tmp;
-            count += 3;  // 元素交换包含 3 个单元操作
+            if (nums[j] > nums[j + 1]) {
+                // 交换 nums[j] 与 nums[j + 1]
+                var tmp = nums[j];
+                nums[j] = nums[j + 1];
+                nums[j + 1] = tmp;
+                count += 3;  // 元素交换包含 3 个单元操作
+            }
         }
     }
     return count;
@@ -138,7 +140,7 @@ fn factorialRecur(n: i32) i32 {
 }
 
 // Driver Code
-pub fn main() void {
+pub fn main() !void {
     // 可以修改 n 运行，体会一下各种复杂度的操作数量变化趋势
     const n: i32 = 8;
     std.debug.print("输入数据大小 n = {}\n", .{n});

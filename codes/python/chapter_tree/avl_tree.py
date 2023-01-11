@@ -5,30 +5,28 @@ Author: a16su (lpluls001@gmail.com)
 """
 
 import sys, os.path as osp
-import typing
-
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
 
 class AVLTree:
-    def __init__(self, root: typing.Optional[TreeNode] = None):
+    def __init__(self, root: Optional[TreeNode] = None):
         self.root = root
 
     """ 获取结点高度 """
-    def height(self, node: typing.Optional[TreeNode]) -> int:
+    def height(self, node: Optional[TreeNode]) -> int:
         # 空结点高度为 -1 ，叶结点高度为 0
         if node is not None:
             return node.height
         return -1
 
     """ 更新结点高度 """
-    def __update_height(self, node: TreeNode):
+    def __update_height(self, node: Optional[TreeNode]):
         # 结点高度等于最高子树高度 + 1
         node.height = max([self.height(node.left), self.height(node.right)]) + 1
 
     """ 获取平衡因子 """
-    def balance_factor(self, node: TreeNode) -> int:
+    def balance_factor(self, node: Optional[TreeNode]) -> int:
         # 空结点平衡因子为 0
         if node is None:
             return 0
@@ -36,7 +34,7 @@ class AVLTree:
         return self.height(node.left) - self.height(node.right)
 
     """ 右旋操作 """
-    def __right_rotate(self, node: TreeNode) -> TreeNode:
+    def __right_rotate(self, node: Optional[TreeNode]) -> TreeNode:
         child = node.left
         grand_child = child.right
         # 以 child 为原点，将 node 向右旋转
@@ -49,7 +47,7 @@ class AVLTree:
         return child
 
     """ 左旋操作 """
-    def __left_rotate(self, node: TreeNode) -> TreeNode:
+    def __left_rotate(self, node: Optional[TreeNode]) -> TreeNode:
         child = node.right
         grand_child = child.left
         # 以 child 为原点，将 node 向左旋转
@@ -62,7 +60,7 @@ class AVLTree:
         return child
 
     """ 执行旋转操作，使该子树重新恢复平衡 """
-    def __rotate(self, node: TreeNode) -> TreeNode:
+    def __rotate(self, node: Optional[TreeNode]) -> TreeNode:
         # 获取结点 node 的平衡因子
         balance_factor = self.balance_factor(node)
         # 左偏树
@@ -92,7 +90,7 @@ class AVLTree:
         return self.root
 
     """ 递归插入结点（辅助函数）"""
-    def __insert_helper(self, node: typing.Optional[TreeNode], val: int) -> TreeNode:
+    def __insert_helper(self, node: Optional[TreeNode], val: int) -> TreeNode:
         if node is None:
             return TreeNode(val)
         # 1. 查找插入位置，并插入结点
@@ -114,7 +112,7 @@ class AVLTree:
         return root
 
     """ 递归删除结点（辅助函数） """
-    def __remove_helper(self, node: typing.Optional[TreeNode], val: int) -> typing.Optional[TreeNode]:
+    def __remove_helper(self, node: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         if node is None:
             return None
         # 1. 查找结点，并删除之
@@ -141,7 +139,7 @@ class AVLTree:
         return self.__rotate(node)
 
     """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
-    def __get_inorder_next(self, node: typing.Optional[TreeNode]) -> typing.Optional[TreeNode]:
+    def __get_inorder_next(self, node: Optional[TreeNode]) -> Optional[TreeNode]:
         if node is None:
             return None
         # 循环访问左子结点，直到叶结点时为最小结点，跳出

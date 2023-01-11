@@ -84,7 +84,7 @@ comments: true
 === "Swift"
 
     ```swift title="array.swift"
-    // 初始化数组
+    /* 初始化数组 */
     let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
     let nums = [1, 3, 2, 5, 4]
     ```
@@ -204,7 +204,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Swift"
 
     ```swift title="array.swift"
-    // 随机返回一个数组元素
+    /* 随机返回一个数组元素 */
     func randomAccess(nums: [Int]) -> Int {
         // 在区间 [0, nums.count) 中随机抽取一个数字
         let randomIndex = nums.indices.randomElement()!
@@ -341,7 +341,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Swift"
 
     ```swift title="array.swift"
-    // 扩展数组长度
+    /* 扩展数组长度 */
     func extend(nums: [Int], enlarge: Int) -> [Int] {
         // 初始化一个扩展长度后的数组
         var res = Array(repeating: 0, count: nums.count + enlarge)
@@ -356,9 +356,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
 **数组中插入或删除元素效率低下**。假设我们想要在数组中间某位置插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。删除元素也是类似，需要把此索引之后的元素都向前移动一位。总体看有以下缺点：
 
-- **时间复杂度高：** 数组的插入和删除的平均时间复杂度均为 $O(N)$ ，其中 $N$ 为数组长度。
-- **丢失元素：** 由于数组的长度不可变，因此在插入元素后，超出数组长度范围的元素会被丢失。
-- **内存浪费：** 我们一般会初始化一个比较长的数组，只用前面一部分，这样在插入数据时，丢失的末尾元素都是我们不关心的，但这样做同时也会造成内存空间的浪费。
+- **时间复杂度高**：数组的插入和删除的平均时间复杂度均为 $O(N)$ ，其中 $N$ 为数组长度。
+- **丢失元素**：由于数组的长度不可变，因此在插入元素后，超出数组长度范围的元素会被丢失。
+- **内存浪费**：我们一般会初始化一个比较长的数组，只用前面一部分，这样在插入数据时，丢失的末尾元素都是我们不关心的，但这样做同时也会造成内存空间的浪费。
 
 ![array_insert_remove_element](array.assets/array_insert_remove_element.png)
 
@@ -526,7 +526,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Swift"
 
     ```swift title="array.swift"
-    // 在数组的索引 index 处插入元素 num
+    /* 在数组的索引 index 处插入元素 num */
     func insert(nums: inout [Int], num: Int, index: Int) {
         // 把索引 index 以及之后的所有元素向后移动一位
         for i in sequence(first: nums.count - 1, next: { $0 > index + 1 ? $0 - 1 : nil }) {
@@ -536,7 +536,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         nums[index] = num
     }
 
-    // 删除索引 index 处元素
+    /* 删除索引 index 处元素 */
     func remove(nums: inout [Int], index: Int) {
         let count = nums.count
         // 把索引 index 之后的所有元素向前移动一位
@@ -674,7 +674,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Swift"
 
     ```swift title="array.swift"
-    // 遍历数组
+    /* 遍历数组 */
     func traverse(nums: [Int]) {
         var count = 0
         // 通过索引遍历数组
@@ -793,7 +793,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Swift"
 
     ```swift title="array.swift"
-    // 在数组中查找指定元素
+    /* 在数组中查找指定元素 */
     func find(nums: [Int], target: Int) -> Int {
         for i in nums.indices {
             if nums[i] == target {

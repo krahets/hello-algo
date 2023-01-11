@@ -28,7 +28,7 @@ void insertionSort(int nums[], int size) {
 int main() {
     int nums[] = {4, 1, 3, 1, 5, 2};
     insertionSort(nums, 6);
-    printf("插入排序完成后 nums = \n");
+    printf("插入排序完成后 nums = ");
     for (int i = 0; i < 6; i++)
     {
         printf("%d ", nums[i]);

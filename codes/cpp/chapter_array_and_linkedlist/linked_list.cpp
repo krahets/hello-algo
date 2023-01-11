@@ -28,9 +28,9 @@ void remove(ListNode* n0) {
 /* 访问链表中索引为 index 的结点 */
 ListNode* access(ListNode* head, int index) {
     for (int i = 0; i < index; i++) {
-        head = head->next;
         if (head == nullptr)
             return nullptr;
+        head = head->next;
     }
     return head;
 }

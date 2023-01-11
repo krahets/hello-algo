@@ -9,9 +9,7 @@ namespace hello_algo.chapter_array_and_linkedlist
 {
     public class linked_list
     {
-        /// <summary>
-        /// 在链表的结点 n0 之后插入结点 P
-        /// </summary>
+        /* 在链表的结点 n0 之后插入结点 P */
         public static void Insert(ListNode n0, ListNode P)
         {
             ListNode? n1 = n0.next;
@@ -19,9 +17,7 @@ namespace hello_algo.chapter_array_and_linkedlist
             P.next = n1;
         }
 
-        /// <summary>
-        /// 删除链表的结点 n0 之后的首个结点
-        /// </summary>
+        /* 删除链表的结点 n0 之后的首个结点 */
         public static void Remove(ListNode n0)
         {
             if (n0.next == null)
@@ -32,23 +28,19 @@ namespace hello_algo.chapter_array_and_linkedlist
             n0.next = n1;
         }
 
-        /// <summary>
-        /// 访问链表中索引为 index 的结点
-        /// </summary>
+        /* 访问链表中索引为 index 的结点 */
         public static ListNode? Access(ListNode head, int index)
         {
             for (int i = 0; i < index; i++)
             {
-                head = head.next;
                 if (head == null)
                     return null;
+                head = head.next;
             }
             return head;
         }
 
-        /// <summary>
-        /// 在链表中查找值为 target 的首个结点
-        /// </summary>
+        /* 在链表中查找值为 target 的首个结点 */
         public static int Find(ListNode head, int target)
         {
             int index = 0;
@@ -62,7 +54,7 @@ namespace hello_algo.chapter_array_and_linkedlist
             return -1;
         }
 
-        // Driver Code 
+
         [Test]
         public void Test()
         {

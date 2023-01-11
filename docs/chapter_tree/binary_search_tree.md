@@ -83,7 +83,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     """ 查找结点 """
-    def search(self, num: int) -> typing.Optional[TreeNode]:
+    def search(self, num: int) -> Optional[TreeNode]:
         cur = self.root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
@@ -103,7 +103,7 @@ comments: true
 
     ```go title="binary_search_tree.go"
     /* 查找结点 */
-    func (bst *BinarySearchTree) Search(num int) *TreeNode {
+    func (bst *binarySearchTree) search(num int) *TreeNode {
         node := bst.root
         // 循环查找，越过叶结点后跳出
         for node != nil {
@@ -202,8 +202,8 @@ comments: true
 
 给定一个待插入元素 `num` ，为了保持二叉搜索树“左子树 < 根结点 < 右子树”的性质，插入操作分为两步：
 
-1. **查找插入位置：** 与查找操作类似，我们从根结点出发，根据当前结点值和 `num` 的大小关系循环向下搜索，直到越过叶结点（遍历到 $\text{null}$ ）时跳出循环；
-2. **在该位置插入结点：** 初始化结点 `num` ，将该结点放到 $\text{null}$ 的位置 ；
+1. **查找插入位置**：与查找操作类似，我们从根结点出发，根据当前结点值和 `num` 的大小关系循环向下搜索，直到越过叶结点（遍历到 $\text{null}$ ）时跳出循环；
+2. **在该位置插入结点**：初始化结点 `num` ，将该结点放到 $\text{null}$ 的位置 ；
 
 二叉搜索树不允许存在重复结点，否则将会违背其定义。因此若待插入结点在树中已经存在，则不执行插入，直接返回即可。
 
@@ -265,7 +265,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     """ 插入结点 """
-    def insert(self, num: int) -> typing.Optional[TreeNode]:
+    def insert(self, num: int) -> Optional[TreeNode]:
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -299,7 +299,7 @@ comments: true
 
     ```go title="binary_search_tree.go"
     /* 插入结点 */
-    func (bst *BinarySearchTree) Insert(num int) *TreeNode {
+    func (bst *binarySearchTree) insert(num int) *TreeNode {
         cur := bst.root
         // 若树为空，直接提前返回
         if cur == nil {
@@ -442,15 +442,15 @@ comments: true
 
 与插入结点一样，我们需要在删除操作后维持二叉搜索树的“左子树 < 根结点 < 右子树”的性质。首先，我们需要在二叉树中执行查找操作，获取待删除结点。接下来，根据待删除结点的子结点数量，删除操作需要分为三种情况：
 
-**待删除结点的子结点数量 $= 0$ **。表明待删除结点是叶结点，直接删除即可。
+**当待删除结点的子结点数量 $= 0$ 时**，表明待删除结点是叶结点，直接删除即可。
 
 ![bst_remove_case1](binary_search_tree.assets/bst_remove_case1.png)
 
-**待删除结点的子结点数量 $= 1$ **。将待删除结点替换为其子结点。
+**当待删除结点的子结点数量 $= 1$ 时**，将待删除结点替换为其子结点即可。
 
 ![bst_remove_case2](binary_search_tree.assets/bst_remove_case2.png)
 
-**待删除结点的子结点数量 $= 2$ **。删除操作分为三步：
+**当待删除结点的子结点数量 $= 2$ 时**，删除操作分为三步：
 
 1. 找到待删除结点在 **中序遍历序列** 中的下一个结点，记为 `nex` ；
 2. 在树中递归删除结点 `nex` ；
@@ -560,7 +560,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     """ 删除结点 """
-    def remove(self, num: int) -> typing.Optional[TreeNode]:
+    def remove(self, num: int) -> Optional[TreeNode]:
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -609,7 +609,7 @@ comments: true
 
     ```go title="binary_search_tree.go"
     /* 删除结点 */
-    func (bst *BinarySearchTree) Remove(num int) *TreeNode {
+    func (bst *binarySearchTree) remove(num int) *TreeNode {
         cur := bst.root
         // 若树为空，直接提前返回
         if cur == nil {
@@ -653,10 +653,10 @@ comments: true
             // 子结点数为 2
         } else {
             // 获取中序遍历中待删除结点 cur 的下一个结点
-            next := bst.GetInOrderNext(cur)
+            next := bst.getInOrderNext(cur)
             temp := next.Val
             // 递归删除结点 next
-            bst.Remove(next.Val)
+            bst.remove(next.Val)
             // 将 next 的值复制给 cur
             cur.Val = temp
         }
@@ -830,17 +830,17 @@ comments: true
 
 假设给定 $n$ 个数字，最常用的存储方式是「数组」，那么对于这串乱序的数字，常见操作的效率为：
 
-- **查找元素：** 由于数组是无序的，因此需要遍历数组来确定，使用 $O(n)$ 时间；
-- **插入元素：** 只需将元素添加至数组尾部即可，使用 $O(1)$ 时间；
-- **删除元素：** 先查找元素，使用 $O(n)$ 时间，再在数组中删除该元素，使用 $O(n)$ 时间；
-- **获取最小 / 最大元素：** 需要遍历数组来确定，使用 $O(n)$ 时间；
+- **查找元素**：由于数组是无序的，因此需要遍历数组来确定，使用 $O(n)$ 时间；
+- **插入元素**：只需将元素添加至数组尾部即可，使用 $O(1)$ 时间；
+- **删除元素**：先查找元素，使用 $O(n)$ 时间，再在数组中删除该元素，使用 $O(n)$ 时间；
+- **获取最小 / 最大元素**：需要遍历数组来确定，使用 $O(n)$ 时间；
 
 为了得到先验信息，我们也可以预先将数组元素进行排序，得到一个「排序数组」，此时操作效率为：
 
-- **查找元素：** 由于数组已排序，可以使用二分查找，平均使用 $O(\log n)$ 时间；
-- **插入元素：** 先查找插入位置，使用 $O(\log n)$ 时间，再插入到指定位置，使用 $O(n)$ 时间；
-- **删除元素：** 先查找元素，使用 $O(\log n)$ 时间，再在数组中删除该元素，使用 $O(n)$ 时间；
-- **获取最小 / 最大元素：** 数组头部和尾部元素即是最小和最大元素，使用 $O(1)$ 时间；
+- **查找元素**：由于数组已排序，可以使用二分查找，平均使用 $O(\log n)$ 时间；
+- **插入元素**：先查找插入位置，使用 $O(\log n)$ 时间，再插入到指定位置，使用 $O(n)$ 时间；
+- **删除元素**：先查找元素，使用 $O(\log n)$ 时间，再在数组中删除该元素，使用 $O(n)$ 时间；
+- **获取最小 / 最大元素**：数组头部和尾部元素即是最小和最大元素，使用 $O(1)$ 时间；
 
 观察发现，无序数组和有序数组中的各项操作的时间复杂度是“偏科”的，即有的快有的慢；**而二叉搜索树的各项操作的时间复杂度都是对数阶，在数据量 $n$ 很大时有巨大优势**。
 

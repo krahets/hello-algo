@@ -35,11 +35,7 @@ namespace hello_algo.chapter_tree
             return root;
         }
 
-        /// <summary>
-        /// 查找结点
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
+        /* 查找结点 */
         public TreeNode? search(int num)
         {
             TreeNode? cur = root;
@@ -163,7 +159,7 @@ namespace hello_algo.chapter_tree
             PrintUtil.PrintTree(bst.getRoot());
 
             /* 查找结点 */
-            TreeNode? node = bst.search(5);
+            TreeNode? node = bst.search(7);
             Console.WriteLine("\n查找到的结点对象为 " + node + "，结点值 = " + node.val);
 
             /* 插入结点 */

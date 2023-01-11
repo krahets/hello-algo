@@ -9,7 +9,7 @@ comments: true
 使用二分查找有两个前置条件：
 
 - **要求输入数据是有序的**，这样才能通过判断大小关系来排除一半的搜索区间；
-- **二分查找仅适用于数组** ，而在链表中使用效率很低，因为其在循环中需要跳跃式（非连续地）访问元素。
+- **二分查找仅适用于数组**，而在链表中使用效率很低，因为其在循环中需要跳跃式（非连续地）访问元素。
 
 ## 算法实现
 
@@ -141,20 +141,20 @@ $$
     ```js title="binary_search.js"
     /* 二分查找（双闭区间） */
     function binarySearch(nums, target) {
-    // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-    let i = 0, j = nums.length - 1;
-    // 循环，当搜索区间为空时跳出（当 i > j 时为空）
-    while (i <= j) {
-        let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
-        if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j] 中
-            i = m + 1;
-        else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m-1] 中
-            j = m - 1;
-        else
-            return m;                  // 找到目标元素，返回其索引
+        // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
+        let i = 0, j = nums.length - 1;
+        // 循环，当搜索区间为空时跳出（当 i > j 时为空）
+        while (i <= j) {
+            let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
+            if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j] 中
+                i = m + 1;
+            else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m-1] 中
+                j = m - 1;
+            else
+                return m;                  // 找到目标元素，返回其索引
         }
-    // 未找到目标元素，返回 -1
-    return -1;
+        // 未找到目标元素，返回 -1
+        return -1;
     }
     ```
 
@@ -311,20 +311,20 @@ $$
     ```js title="binary_search.js"
     /* 二分查找（左闭右开） */
     function binarySearch1(nums, target) {
-    // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
-    let i = 0, j = nums.length;
-    // 循环，当搜索区间为空时跳出（当 i = j 时为空）
-    while (i < j) {
-        let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
-        if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j] 中
-            i = m + 1;
-        else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m] 中
-            j = m;
-        else                           // 找到目标元素，返回其索引
-            return m;
+        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        let i = 0, j = nums.length;
+        // 循环，当搜索区间为空时跳出（当 i = j 时为空）
+        while (i < j) {
+            let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
+            if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j] 中
+                i = m + 1;
+            else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m] 中
+                j = m;
+            else                           // 找到目标元素，返回其索引
+                return m;
         }
-    // 未找到目标元素，返回 -1
-    return -1;
+        // 未找到目标元素，返回 -1
+        return -1;
     }
     ```
 
@@ -480,9 +480,9 @@ $$
 
 ## 复杂度分析
 
-**时间复杂度 $O(\log n)$ ：** 其中 $n$ 为数组或链表长度；每轮排除一半的区间，因此循环轮数为 $\log_2 n$ ，使用 $O(\log n)$ 时间。
+**时间复杂度 $O(\log n)$** ：其中 $n$ 为数组或链表长度；每轮排除一半的区间，因此循环轮数为 $\log_2 n$ ，使用 $O(\log n)$ 时间。
 
-**空间复杂度 $O(1)$ ：** 指针 `i` , `j` 使用常数大小空间。
+**空间复杂度 $O(1)$** ：指针 `i` , `j` 使用常数大小空间。
 
 ## 优点与缺点
 

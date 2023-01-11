@@ -60,7 +60,13 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Go"
 
     ```go title="avl_tree.go"
-    
+    /* AVL 树结点类 */
+    type TreeNode struct {
+        Val    int       // 结点值
+        Height int       // 结点高度
+        Left   *TreeNode // 左子结点引用
+        Right  *TreeNode // 右子结点引用
+    }
     ```
 
 === "JavaScript"
@@ -100,7 +106,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
     ```
 
-「结点高度」是最远叶结点到该结点的距离，即走过的「边」的数量。需要特别注意，**叶结点的高度为 0 ，空结点的高度为 -1** 。我们封装两个工具函数，分别用于获取与更新结点的高度。
+「结点高度」是最远叶结点到该结点的距离，即走过的「边」的数量。需要特别注意，**叶结点的高度为 0 ，空结点的高度为 -1**。我们封装两个工具函数，分别用于获取与更新结点的高度。
 
 === "Java"
 
@@ -128,14 +134,14 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
     ```python title="avl_tree.py"
     """ 获取结点高度 """
-    def height(self, node: typing.Optional[TreeNode]) -> int:
+    def height(self, node: Optional[TreeNode]) -> int:
         # 空结点高度为 -1 ，叶结点高度为 0
         if node is not None:
             return node.height
         return -1
     
     """ 更新结点高度 """
-    def __update_height(self, node: TreeNode):
+    def __update_height(self, node: Optional[TreeNode]):
         # 结点高度等于最高子树高度 + 1
         node.height = max([self.height(node.left), self.height(node.right)]) + 1
     ```
@@ -143,7 +149,26 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Go"
 
     ```go title="avl_tree.go"
-    
+    /* 获取结点高度 */
+    func height(node *TreeNode) int {
+        // 空结点高度为 -1 ，叶结点高度为 0
+        if node != nil {
+            return node.Height
+        }
+        return -1
+    }
+
+    /* 更新结点高度 */
+    func updateHeight(node *TreeNode) {
+        lh := height(node.Left)
+        rh := height(node.Right)
+        // 结点高度等于最高子树高度 + 1
+        if lh > rh {
+            node.Height = lh + 1
+        } else {
+            node.Height = rh + 1
+        }
+    }
     ```
 
 === "JavaScript"
@@ -214,7 +239,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
     ```python title="avl_tree.py"
     """ 获取平衡因子 """
-    def balance_factor(self, node: TreeNode) -> int:
+    def balance_factor(self, node: Optional[TreeNode]) -> int:
         # 空结点平衡因子为 0
         if node is None:
             return 0
@@ -225,7 +250,15 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Go"
 
     ```go title="avl_tree.go"
-    
+    /* 获取平衡因子 */
+    func balanceFactor(node *TreeNode) int {
+        // 空结点平衡因子为 0
+        if node == nil {
+            return 0
+        }
+        // 结点平衡因子 = 左子树高度 - 右子树高度
+        return height(node.Left) - height(node.Right)
+    }
     ```
 
 === "JavaScript"
@@ -277,7 +310,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 ### Case 1 - 右旋
 
-如下图所示（结点下方为「平衡因子」），从底至顶看，二叉树中首个失衡结点是 **结点 3** 。我们聚焦在以该失衡结点为根结点的子树上，将该结点记为 `node` ，将其左子节点记为 `child` ，执行「右旋」操作。完成右旋后，该子树已经恢复平衡，并且仍然为二叉搜索树。
+如下图所示（结点下方为「平衡因子」），从底至顶看，二叉树中首个失衡结点是 **结点 3**。我们聚焦在以该失衡结点为根结点的子树上，将该结点记为 `node` ，将其左子节点记为 `child` ，执行「右旋」操作。完成右旋后，该子树已经恢复平衡，并且仍然为二叉搜索树。
 
 === "Step 1"
     ![right_rotate_step1](avl_tree.assets/right_rotate_step1.png)
@@ -322,7 +355,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
     ```python title="avl_tree.py"
     """ 右旋操作 """
-    def __right_rotate(self, node: TreeNode) -> TreeNode:
+    def __right_rotate(self, node: Optional[TreeNode]) -> TreeNode:
         child = node.left
         grand_child = child.right
         # 以 child 为原点，将 node 向右旋转
@@ -338,7 +371,19 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Go"
 
     ```go title="avl_tree.go"
-    
+    /* 右旋操作 */
+    func rightRotate(node *TreeNode) *TreeNode {
+        child := node.Left
+        grandChild := child.Right
+        // 以 child 为原点，将 node 向右旋转
+        child.Right = node
+        node.Left = grandChild
+        // 更新结点高度
+        updateHeight(node)
+        updateHeight(child)
+        // 返回旋转后子树的根节点
+        return child
+    }
     ```
 
 === "JavaScript"
@@ -425,7 +470,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
     ```python title="avl_tree.py"
     """ 左旋操作 """
-    def __left_rotate(self, node: TreeNode) -> TreeNode:
+    def __left_rotate(self, node: Optional[TreeNode]) -> TreeNode:
         child = node.right
         grand_child = child.left
         # 以 child 为原点，将 node 向左旋转
@@ -441,7 +486,19 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Go"
 
     ```go title="avl_tree.go"
-    
+    /* 左旋操作 */
+    func leftRotate(node *TreeNode) *TreeNode {
+        child := node.Right
+        grandChild := child.Left
+        // 以 child 为原点，将 node 向左旋转
+        child.Left = node
+        node.Right = grandChild
+        // 更新结点高度
+        updateHeight(node)
+        updateHeight(child)
+        // 返回旋转后子树的根节点
+        return child
+    }
     ```
 
 === "JavaScript"
@@ -564,7 +621,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
     ```python title="avl_tree.py"
     """ 执行旋转操作，使该子树重新恢复平衡 """
-    def __rotate(self, node: TreeNode) -> TreeNode:
+    def __rotate(self, node: Optional[TreeNode]) -> TreeNode:
         # 获取结点 node 的平衡因子
         balance_factor = self.balance_factor(node)
         # 左偏树
@@ -592,7 +649,36 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Go"
 
     ```go title="avl_tree.go"
-    
+    /* 执行旋转操作，使该子树重新恢复平衡 */
+    func rotate(node *TreeNode) *TreeNode {
+        // 获取结点 node 的平衡因子
+        // Go 推荐短变量，这里 bf 指代 balanceFactor
+        bf := balanceFactor(node)
+        // 左偏树
+        if bf > 1 {
+            if balanceFactor(node.Left) >= 0 {
+                // 右旋
+                return rightRotate(node)
+            } else {
+                // 先左旋后右旋
+                node.Left = leftRotate(node.Left)
+                return rightRotate(node)
+            }
+        }
+        // 右偏树
+        if bf < -1 {
+            if balanceFactor(node.Right) <= 0 {
+                // 左旋
+                return leftRotate(node)
+            } else {
+                // 先右旋后左旋
+                node.Right = rightRotate(node.Right)
+                return leftRotate(node)
+            }
+        }
+        // 平衡树，无需旋转，直接返回
+        return node
+    }
     ```
 
 === "JavaScript"
@@ -710,7 +796,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return self.root
     
     """ 递归插入结点（辅助函数）"""
-    def __insert_helper(self, node: typing.Optional[TreeNode], val: int) -> TreeNode:
+    def __insert_helper(self, node: Optional[TreeNode], val: int) -> TreeNode:
         if node is None:
             return TreeNode(val)
         # 1. 查找插入位置，并插入结点
@@ -730,7 +816,32 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Go"
 
     ```go title="avl_tree.go"
-    
+    /* 插入结点 */
+    func (t *avlTree) insert(val int) *TreeNode {
+        t.root = insertHelper(t.root, val)
+        return t.root
+    }
+    /* 递归插入结点（辅助函数） */
+    func insertHelper(node *TreeNode, val int) *TreeNode {
+        if node == nil {
+            return NewTreeNode(val)
+        }
+        /* 1. 查找插入位置，并插入结点 */
+        if val < node.Val {
+            node.Left = insertHelper(node.Left, val)
+        } else if val > node.Val {
+            node.Right = insertHelper(node.Right, val)
+        } else {
+            // 重复结点不插入，直接返回
+            return node
+        }
+        // 更新结点高度
+        updateHeight(node)
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node)
+        // 返回子树的根节点
+        return node
+    }
     ```
 
 === "JavaScript"
@@ -846,7 +957,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return root
     
     """ 递归删除结点（辅助函数） """
-    def __remove_helper(self, node: typing.Optional[TreeNode], val: int) -> typing.Optional[TreeNode]:
+    def __remove_helper(self, node: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         if node is None:
             return None
         # 1. 查找结点，并删除之
@@ -876,7 +987,49 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Go"
 
     ```go title="avl_tree.go"
+    /* 删除结点 */
+    func (t *avlTree) remove(val int) *TreeNode {
+        root := removeHelper(t.root, val)
+        return root
+    }
     
+    /* 递归删除结点（辅助函数） */
+    func removeHelper(node *TreeNode, val int) *TreeNode {
+        if node == nil {
+            return nil
+        }
+        /* 1. 查找结点，并删除之 */
+        if val < node.Val {
+            node.Left = removeHelper(node.Left, val)
+        } else if val > node.Val {
+            node.Right = removeHelper(node.Right, val)
+        } else {
+            if node.Left == nil || node.Right == nil {
+                child := node.Left
+                if node.Right != nil {
+                    child = node.Right
+                }
+                // 子结点数量 = 0 ，直接删除 node 并返回
+                if child == nil {
+                    return nil
+                } else {
+                    // 子结点数量 = 1 ，直接删除 node
+                    node = child
+                }
+            } else {
+                // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
+                temp := getInOrderNext(node.Right)
+                node.Right = removeHelper(node.Right, temp.Val)
+                node.Val = temp.Val
+            }
+        }
+        // 更新结点高度
+        updateHeight(node)
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node)
+        // 返回子树的根节点
+        return node
+    }
     ```
 
 === "JavaScript"

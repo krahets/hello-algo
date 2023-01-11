@@ -16,10 +16,10 @@ comments: true
 
 除了哈希表之外，还可以使用以下数据结构来实现上述查询功能：
 
-1. **无序数组：** 每个元素为  `[学号, 姓名]` ；
-2. **有序数组：** 将 `1.` 中的数组按照学号从小到大排序；
-3. **链表：** 每个结点的值为 `[学号, 姓名]` ；
-4. **二叉搜索树：** 每个结点的值为 `[学号, 姓名]` ，根据学号大小来构建树；
+1. **无序数组**：每个元素为  `[学号, 姓名]` ；
+2. **有序数组**：将 `1.` 中的数组按照学号从小到大排序；
+3. **链表**：每个结点的值为 `[学号, 姓名]` ；
+4. **二叉搜索树**：每个结点的值为 `[学号, 姓名]` ，根据学号大小来构建树；
 
 使用上述方法，各项操作的时间复杂度如下表所示（在此不做赘述，详解可见 [二叉搜索树章节](https://www.hello-algo.com/chapter_tree/binary_search_tree/#_6)）。无论是查找元素、还是增删元素，哈希表的时间复杂度都是 $O(1)$ ，全面胜出！
 
@@ -524,30 +524,30 @@ $$
 
     ```go title="array_hash_map.go"
     /* 键值对 int->String */
-    type Entry struct {
+    type entry struct {
         key int
         val string
     }
 
     /* 基于数组简易实现的哈希表 */
-    type ArrayHashMap struct {
-        bucket []*Entry
+    type arrayHashMap struct {
+        bucket []*entry
     }
 
-    func newArrayHashMap() *ArrayHashMap {
+    func newArrayHashMap() *arrayHashMap {
         // 初始化一个长度为 100 的桶（数组）
-        bucket := make([]*Entry, 100)
-        return &ArrayHashMap{bucket: bucket}
+        bucket := make([]*entry, 100)
+        return &arrayHashMap{bucket: bucket}
     }
 
     /* 哈希函数 */
-    func (a *ArrayHashMap) hashFunc(key int) int {
+    func (a *arrayHashMap) hashFunc(key int) int {
         index := key % 100
         return index
     }
 
     /* 查询操作 */
-    func (a *ArrayHashMap) get(key int) string {
+    func (a *arrayHashMap) get(key int) string {
         index := a.hashFunc(key)
         pair := a.bucket[index]
         if pair == nil {
@@ -557,16 +557,16 @@ $$
     }
 
     /* 添加操作 */
-    func (a *ArrayHashMap) put(key int, val string) {
-        pair := &Entry{key: key, val: val}
+    func (a *arrayHashMap) put(key int, val string) {
+        pair := &entry{key: key, val: val}
         index := a.hashFunc(key)
         a.bucket[index] = pair
     }
 
     /* 删除操作 */
-    func (a *ArrayHashMap) remove(key int) {
+    func (a *arrayHashMap) remove(key int) {
         index := a.hashFunc(key)
-        // 置为空字符，代表删除
+        // 置为 nil ，代表删除
         a.bucket[index] = nil
     }
     ```
