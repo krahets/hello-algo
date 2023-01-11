@@ -74,11 +74,11 @@ int main() {
     int size = 5;
     int arr[5];
     printf("数组 arr = ");
-    printArray(arr, size);
+    PrintArray(arr, size);
 
     int nums[5] = { 1, 3, 2, 5, 4 };
     printf("数组 nums = ");
-    printArray(nums, size);
+    PrintArray(nums, size);
     
     /* 随机访问 */
     int randomNum = randomAccess(nums, size);
@@ -89,17 +89,17 @@ int main() {
     int* res = extend(nums, size, enlarge);
     size += enlarge;
     printf("将数组长度扩展至 8 ，得到 nums = ");
-    printArray(res, size);
+    PrintArray(res, size);
     
     /* 插入元素 */
     insert(res, size, 6, 3);
     printf("在索引 3 处插入数字 6 ，得到 nums = ");
-    printArray(res, size);
+    PrintArray(res, size);
 
     /* 删除元素 */
     removeItem(res, size, 2);
     printf("删除索引 2 处的元素，得到 nums = ");
-    printArray(res, size);
+    PrintArray(res, size);
     
     /* 遍历数组 */
     traverse(res, size);
