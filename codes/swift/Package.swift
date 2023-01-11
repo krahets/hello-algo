@@ -16,6 +16,9 @@ let package = Package(
         .executable(name: "stack", targets: ["stack"]),
         .executable(name: "linkedlist_stack", targets: ["linkedlist_stack"]),
         .executable(name: "array_stack", targets: ["array_stack"]),
+        .executable(name: "queue", targets: ["queue"]),
+        .executable(name: "linkedlist_queue", targets: ["linkedlist_queue"]),
+        .executable(name: "array_queue", targets: ["array_queue"]),
     ],
     targets: [
         .target(name: "utils", path: "utils"),
@@ -30,5 +33,8 @@ let package = Package(
         .executableTarget(name: "stack", path: "chapter_stack_and_queue", sources: ["stack.swift"]),
         .executableTarget(name: "linkedlist_stack", dependencies: ["utils"], path: "chapter_stack_and_queue", sources: ["linkedlist_stack.swift"]),
         .executableTarget(name: "array_stack", path: "chapter_stack_and_queue", sources: ["array_stack.swift"]),
+        .executableTarget(name: "queue", path: "chapter_stack_and_queue", sources: ["queue.swift"]),
+        .executableTarget(name: "linkedlist_queue", dependencies: ["utils"], path: "chapter_stack_and_queue", sources: ["linkedlist_queue.swift"]),
+        .executableTarget(name: "array_queue", path: "chapter_stack_and_queue", sources: ["array_queue.swift"]),
     ]
 )
