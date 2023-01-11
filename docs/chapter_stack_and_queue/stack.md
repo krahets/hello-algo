@@ -641,7 +641,7 @@ comments: true
 
         /* 判断栈是否为空 */
         func isEmpty() -> Bool {
-            _size == 0
+            size() == 0
         }
 
         /* 入栈 */
@@ -653,6 +653,7 @@ comments: true
         }
 
         /* 出栈 */
+        @discardableResult
         func pop() -> Int {
             let num = peek()
             _peek = _peek?.next
@@ -662,21 +663,10 @@ comments: true
 
         /* 访问栈顶元素 */
         func peek() -> Int {
-            if _size == 0 {
+            if isEmpty() {
                 fatalError("栈为空")
             }
             return _peek!.val
-        }
-
-        /* 将 List 转化为 Array 并返回 */
-        func toArray() -> [Int] {
-            var node = _peek
-            var res = Array(repeating: 0, count: _size)
-            for i in sequence(first: res.count - 1, next: { $0 >= 0 + 1 ? $0 - 1 : nil }) {
-                res[i] = node!.val
-                node = node?.next
-            }
-            return res
         }
     }
     ```
@@ -994,8 +984,9 @@ comments: true
         }
 
         /* 出栈 */
+        @discardableResult
         func pop() -> Int {
-            if stack.isEmpty {
+            if isEmpty() {
                 fatalError("栈为空")
             }
             return stack.removeLast()
@@ -1003,15 +994,10 @@ comments: true
 
         /* 访问栈顶元素 */
         func peek() -> Int {
-            if stack.isEmpty {
+            if isEmpty() {
                 fatalError("栈为空")
             }
             return stack.last!
-        }
-
-        /* 将 List 转化为 Array 并返回 */
-        func toArray() -> [Int] {
-            stack
         }
     }
     ```
