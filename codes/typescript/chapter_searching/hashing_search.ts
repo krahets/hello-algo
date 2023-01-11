@@ -16,10 +16,10 @@ function hashingSearch(map: Map<number, number>, target: number) {
 }
 
 /* 哈希查找（链表） */
-function hashingSearch1(map: Map<number, any>, target: number) {
+function hashingSearch1(map: Map<number, ListNode>, target: number): ListNode | null {
     // 哈希表的 key: 目标结点值，value: 结点对象
     // 若哈希表中无此 key ，返回 null
-    return map.has(target) ? map.get(target) : null;
+    return map.has(target) ? map.get(target) as ListNode : null;
 }
 
 function main() {
