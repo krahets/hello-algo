@@ -355,8 +355,8 @@ $$
             print(0)
         }
     }
-
     ```
+
 ![time_complexity_first_example](time_complexity.assets/time_complexity_first_example.png)
 
 <p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
@@ -724,7 +724,6 @@ $$
         }
     }
     ```
-
 
 ### 2. 判断渐近上界
 
