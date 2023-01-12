@@ -22,7 +22,7 @@ vector<int> randomNumbers(int n) {
 
 /* 查找数组 nums 中数字 1 所在索引 */
 int findOne(vector<int>& nums) {
-    for (int i = 0; i < nums.size(); i++) {
+    for (size_t i = 0; i < nums.size(); i++) {
         if (nums[i] == 1)
             return i;
     }

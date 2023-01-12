@@ -9,7 +9,7 @@
 /* 线性查找（数组） */
 int linearSearch(vector<int>& nums, int target) {
     // 遍历数组
-    for (int i = 0; i < nums.size(); i++) {
+    for (size_t i = 0; i < nums.size(); i++) {
         // 找到目标元素，返回其索引
         if (nums[i] == target)
             return i;
