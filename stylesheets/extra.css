@@ -1,0 +1,65 @@
+
+/* Color Settings */
+/* https://github.com/squidfunk/mkdocs-material/blob/6b5035f5580f97532d664e3d1babf5f320e88ee9/src/assets/stylesheets/main/_colors.scss */
+/* https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#custom-colors */
+:root > * {
+    --md-primary-fg-color: #FFFFFF;
+    --md-primary-bg-color: #1D1D20;
+
+    --md-accent-fg-color: #999;
+
+    --md-typeset-color: #1D1D20;
+    --md-typeset-a-color: #2AA996;
+}
+
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color: #2E303E;
+    --md-primary-bg-color: #FEFEFE;
+
+    --md-accent-fg-color: #999;
+
+    --md-typeset-color: #FEFEFE;
+    --md-typeset-a-color: #21C8B8;
+}
+
+/* Center Markdown Tables (requires md_in_html extension) */
+.center-table {
+    text-align: center;
+}
+
+.md-typeset .center-table :is(td,th):not([align]) {
+    /* Reset alignment for table cells */
+    text-align: initial;
+}
+
+
+/* Markdown Header */
+/* https://github.com/squidfunk/mkdocs-material/blob/dcab57dd1cced4b77875c1aa1b53467c62709d31/src/assets/stylesheets/main/_typeset.scss */
+.md-typeset h1 {
+  font-weight: 400;
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset h2 {
+  font-weight: 400;
+}
+
+.md-typeset h3 {
+  font-weight: 500;
+}
+
+.md-typeset a {
+  text-decoration: underline;
+}
+
+/* Image align center */
+.center {
+  display: block;
+  margin: 0 auto;
+}
+
+/* font-family setting for Win10 */
+body {
+  --md-text-font-family: -apple-system,BlinkMacSystemFont,var(--md-text-font,_),Helvetica,Arial,sans-serif;
+  --md-code-font-family: var(--md-code-font,_),SFMono-Regular,Consolas,Menlo,-apple-system,BlinkMacSystemFont,var(--md-text-font,_),monospace;
+}
