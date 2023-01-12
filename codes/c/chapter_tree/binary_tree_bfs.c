@@ -52,15 +52,15 @@ int main() {
     // 这里借助了一个从数组直接生成二叉树的函数
     int nums[] = {1, 2, 3, NIL, 5, 6, NIL};
     int size = sizeof(nums) / sizeof(int);
-    TreeNode *root = ArrayToTree(nums, size);
+    TreeNode *root = arrToTree(nums, size);
     printf("初始化二叉树\n");
-    PrintTree(root);
+    printTree(root);
 
     /* 层序遍历 */
     // 需要传入数组的长度
     int *arr = levelOrder(root, &size);
     printf("层序遍历的结点打印序列 = ");
-    PrintArray(arr, size);
+    printArray(arr, size);
 
     return 0;
 }

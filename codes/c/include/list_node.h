@@ -22,7 +22,7 @@ struct ListNode {
 // typedef 为 C 语言的关键字，作用是为一种数据类型定义一个新名字
 typedef struct ListNode ListNode;
 
-ListNode *NewListNode(int val) {
+ListNode *newListNode(int val) {
     ListNode *node, *next;
     node = (ListNode *) malloc(sizeof(ListNode));
     node->val = val;
@@ -37,15 +37,15 @@ ListNode *NewListNode(int val) {
  * @return ListNode*
  */
 
-ListNode *ArrayToLinkedList(const int *arr, size_t size) {
+ListNode *arrToLinkedList(const int *arr, size_t size) {
     if (size <= 0) {
         return NULL;
     }
 
-    ListNode *dummy = NewListNode(0);
+    ListNode *dummy = newListNode(0);
     ListNode *node = dummy;
     for (int i = 0; i < size; i++) {
-        node->next = NewListNode(arr[i]);
+        node->next = newListNode(arr[i]);
         node = node->next;
     }
     return dummy->next;
@@ -58,7 +58,7 @@ ListNode *ArrayToLinkedList(const int *arr, size_t size) {
  * @param val
  * @return ListNode*
  */
-ListNode *GetListNode(ListNode *head, int val) {
+ListNode *getListNode(ListNode *head, int val) {
     while (head != NULL && head->val != val) {
         head = head->next;
     }

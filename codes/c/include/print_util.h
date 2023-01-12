@@ -25,7 +25,7 @@ extern "C" {
  * @param arr
  * @param size
  */
-static void PrintArray(int *arr, int size) {
+static void printArray(int *arr, int size) {
     printf("[");
     for (int i = 0; i < size - 1; i++) {
         if (arr[i] != NIL) {
@@ -46,7 +46,7 @@ static void PrintArray(int *arr, int size) {
  *
  * @param head
  */
-static void PrintLinkedList(ListNode *node) {
+static void printLinkedList(ListNode *node) {
     if (node == NULL) {
         return;
     }
@@ -123,7 +123,7 @@ static void printTreeHelper(TreeNode *node, Trunk *prev, bool isLeft) {
  *
  * @param head
  */
-static void PrintTree(TreeNode *root) {
+static void printTree(TreeNode *root) {
     printTreeHelper(root, NULL, false);
 }
 

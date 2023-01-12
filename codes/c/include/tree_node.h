@@ -25,7 +25,7 @@ struct TreeNode {
 typedef struct TreeNode TreeNode;
 
 
-TreeNode *NewTreeNode(int val) {
+TreeNode *newTreeNode(int val) {
     TreeNode *node;
 
     node = (TreeNode *) malloc(sizeof(TreeNode));
@@ -43,7 +43,7 @@ TreeNode *NewTreeNode(int val) {
  * @param size
  * @return TreeNode *
  */
-TreeNode *ArrayToTree(const int *arr, size_t size) {
+TreeNode *arrToTree(const int *arr, size_t size) {
     if (size <= 0) {
         return NULL;
     }
@@ -53,7 +53,7 @@ TreeNode *ArrayToTree(const int *arr, size_t size) {
     TreeNode **queue;
 
     /* 根结点 */
-    root = NewTreeNode(arr[0]);
+    root = newTreeNode(arr[0]);
     /* 辅助队列 */
     queue = (TreeNode **) malloc(sizeof(TreeNode) * MAX_NODE_SIZE);
     // 队列指针
@@ -68,14 +68,14 @@ TreeNode *ArrayToTree(const int *arr, size_t size) {
         index++;
         if (index < size) {
             if (arr[index] != NIL) {
-                node->left = NewTreeNode(arr[index]);
+                node->left = newTreeNode(arr[index]);
                 queue[rear++] = node->left;
             }
         }
         index++;
         if (index < size) {
             if (arr[index] != NIL) {
-                node->right = NewTreeNode(arr[index]);
+                node->right = newTreeNode(arr[index]);
                 queue[rear++] = node->right;
             }
         }
@@ -91,7 +91,7 @@ TreeNode *ArrayToTree(const int *arr, size_t size) {
  * @param size
  * @return TreeNode *
  */
-int *TreeToArray(TreeNode *root) {
+int *treeToArr(TreeNode *root) {
     if (root == NULL) {
         return NULL;
     }

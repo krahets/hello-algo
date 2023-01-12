@@ -41,4 +41,26 @@ comments: true
 
 非常欢迎您和我一同来创作本书！
 
+## 离线部署
+
+### Docker
+
+使用本教程前，请确保 Docker 已经安装并启动。
+
+根据如下命令离线部署。
+
+```bash
+git clone https://github.com/krahets/hello-algo.git
+cd hello-algo
+docker-compose up -d
+```
+
+稍等片刻，即可通过浏览器打开 `http://localhost:8000` 访问本教程。
+
+使用如下命令删除部署。
+
+```bash
+docker-compose down
+```
+
 （TODO：教学视频）
