@@ -119,4 +119,72 @@ pub fn build(b: *std.build.Builder) void {
         if (b.args) |args| run_cmd_my_list.addArgs(args);
         const run_step_my_list = b.step("run_my_list", "Run my_list");
         run_step_my_list.dependOn(&run_cmd_my_list.step);
+
+    // Section: "Stack"
+        // Source File: "chapter_stack_and_queue/stack.zig"
+        // Run Command: zig build run_stack
+        const exe_stack = b.addExecutable("stack", "chapter_stack_and_queue/stack.zig");
+        exe_stack.addPackagePath("include", "include/include.zig");
+        exe_stack.setTarget(target);
+        exe_stack.setBuildMode(mode);
+        exe_stack.install();
+        const run_cmd_stack = exe_stack.run();
+        run_cmd_stack.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_stack.addArgs(args);
+        const run_step_stack = b.step("run_stack", "Run stack");
+        run_step_stack.dependOn(&run_cmd_stack.step);
+
+        // Source File: "chapter_stack_and_queue/linkedlist_stack.zig"
+        // Run Command: zig build run_linkedlist_stack
+        const exe_linkedlist_stack = b.addExecutable("linkedlist_stack", "chapter_stack_and_queue/linkedlist_stack.zig");
+        exe_linkedlist_stack.addPackagePath("include", "include/include.zig");
+        exe_linkedlist_stack.setTarget(target);
+        exe_linkedlist_stack.setBuildMode(mode);
+        exe_linkedlist_stack.install();
+        const run_cmd_linkedlist_stack = exe_linkedlist_stack.run();
+        run_cmd_linkedlist_stack.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_linkedlist_stack.addArgs(args);
+        const run_step_linkedlist_stack = b.step("run_linkedlist_stack", "Run linkedlist_stack");
+        run_step_linkedlist_stack.dependOn(&run_cmd_linkedlist_stack.step);
+
+        // Source File: "chapter_stack_and_queue/array_stack.zig"
+        // Run Command: zig build run_array_stack
+        const exe_array_stack = b.addExecutable("array_stack", "chapter_stack_and_queue/array_stack.zig");
+        exe_array_stack.addPackagePath("include", "include/include.zig");
+        exe_array_stack.setTarget(target);
+        exe_array_stack.setBuildMode(mode);
+        exe_array_stack.install();
+        const run_cmd_array_stack = exe_linkedlist_stack.run();
+        run_cmd_array_stack.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_array_stack.addArgs(args);
+        const run_step_array_stack = b.step("run_array_stack", "Run array_stack");
+        run_step_array_stack.dependOn(&run_cmd_array_stack.step);      
+
+    // Section: "Bubble Sort"
+        // Source File: "chapter_sorting/bubble_sort.zig"
+        // Run Command: zig build run_bubble_sort
+        const exe_bubble_sort = b.addExecutable("bubble_sort", "chapter_sorting/bubble_sort.zig");
+        exe_bubble_sort.addPackagePath("include", "include/include.zig");
+        exe_bubble_sort.setTarget(target);
+        exe_bubble_sort.setBuildMode(mode);
+        exe_bubble_sort.install();
+        const run_cmd_bubble_sort = exe_bubble_sort.run();
+        run_cmd_bubble_sort.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_bubble_sort.addArgs(args);
+        const run_step_bubble_sort = b.step("run_bubble_sort", "Run bubble_sort");
+        run_step_bubble_sort.dependOn(&run_cmd_bubble_sort.step);
+
+    // Section: "Insertion Sort"
+        // Source File: "chapter_sorting/insertion_sort.zig"
+        // Run Command: zig build run_insertion_sort
+        const exe_insertion_sort = b.addExecutable("insertion_sort", "chapter_sorting/insertion_sort.zig");
+        exe_insertion_sort.addPackagePath("include", "include/include.zig");
+        exe_insertion_sort.setTarget(target);
+        exe_insertion_sort.setBuildMode(mode);
+        exe_insertion_sort.install();
+        const run_cmd_insertion_sort = exe_insertion_sort.run();
+        run_cmd_insertion_sort.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_insertion_sort.addArgs(args);
+        const run_step_insertion_sort = b.step("run_insertion_sort", "Run insertion_sort");
+        run_step_insertion_sort.dependOn(&run_cmd_insertion_sort.step);
 }
