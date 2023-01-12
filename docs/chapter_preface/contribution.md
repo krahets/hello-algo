@@ -45,7 +45,7 @@ comments: true
 
 ### Docker
 
-使用本教程前，请确保Docker已经安装并启动。
+使用本教程前，请确保 Docker 已经安装并启动。
 
 根据如下命令离线部署。
 
@@ -55,7 +55,7 @@ cd hello-algo
 docker-compose up -d
 ```
 
-稍等片刻，请访问`http://localhost:8000`即可访问本教程。
+稍等片刻，即可通过浏览器打开 `http://localhost:8000` 访问本教程。
 
 使用如下命令删除部署。
 
