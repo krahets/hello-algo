@@ -8,7 +8,9 @@
 #include <assert.h>
 
 typedef int ElemType;
-#define MAX_ELEM_SIZE 10
+
+#define MAX_ELEM_SIZE   10
+#define CAPACITY_RACTOR 2
 
 // 用数组实现 list
 struct list {
@@ -29,6 +31,14 @@ void listInit(List* l) {
     }
 }
 
+void listInitWithCapacity(List* l, size_t newCapacity) {
+    if (l->isInit != true) {
+        l->numsCapacity = newCapacity;
+        l->nums = malloc(sizeof(ElemType) * l->numsCapacity);
+        l->numsSize = 0;
+        l->isInit = true;
+    }
+}
 
 size_t listSize(List* l) {
     return l->numsSize;
@@ -57,7 +67,21 @@ void listSet(List* l, int idx, ElemType elem) {
 }
 
 void listExtendCapacity(List* l) {
+    // 先分配空间
+    size_t newCapacity = listCapacity(l) * CAPACITY_RACTOR;
+    ElemType *newData = (ElemType *)malloc(sizeof(ElemType) * newCapacity);
+    ElemType *oldData = l->nums;
 
+    // 拷贝旧数据到新数据
+    for(size_t i=0; i<listSize(l); i++)
+        newData[i] = l->nums[i];
+
+    // 释放旧数据
+    free(oldData);
+
+    // 更新新数据
+    l->nums = newData;
+    l->numsCapacity = newCapacity;
 }
 
 void listAdd(List* l, ElemType elem) {
@@ -166,4 +190,15 @@ int main() {
     listRemove(&list, 3);
     printf("删除索引 3 处的元素，得到 list = ");
     printList(&list);    
+
+    /* 尾部添加元素 */
+    listAdd(&list, 1);
+    listAdd(&list, 3);
+    listAdd(&list, 2);
+    listAdd(&list, 5);
+    listAdd(&list, 4);
+    listAdd(&list, 4);
+
+    printf("添加元素后 list = ");
+    printList(&list);
 }
