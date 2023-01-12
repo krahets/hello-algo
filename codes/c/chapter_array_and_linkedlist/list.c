@@ -5,18 +5,16 @@
  */
 
 #include "../include/include.h"
-#include <assert.h>
 
-typedef int ElemType;
 
 #define MAX_ELEM_SIZE   10
 #define CAPACITY_RACTOR 2
 
 // 用数组实现 list
 struct list {
-    ElemType* nums;
-    size_t numsCapacity;
-    size_t numsSize;
+    int* nums;
+    size_t cap;
+    size_t size;
     bool isInit;
 };
 
@@ -24,42 +22,46 @@ typedef struct list List;
 
 void listInit(List* l) {
     if (l->isInit != true) {
-        l->numsCapacity = MAX_ELEM_SIZE;
-        l->nums = malloc(sizeof(ElemType) * l->numsCapacity);
-        l->numsSize = 0;
+        l->cap = MAX_ELEM_SIZE;
+        l->nums = malloc(sizeof(int) * l->cap);
+        l->size = 0;
         l->isInit = true;
     }
 }
 
 void listInitWithCapacity(List* l, size_t newCapacity) {
     if (l->isInit != true) {
-        l->numsCapacity = newCapacity;
-        l->nums = malloc(sizeof(ElemType) * l->numsCapacity);
-        l->numsSize = 0;
+        l->cap = newCapacity;
+        l->nums = malloc(sizeof(int) * l->cap);
+        l->size = 0;
         l->isInit = true;
     }
 }
 
 size_t listSize(List* l) {
-    return l->numsSize;
+    return l->size;
 }
 
 size_t listCapacity(List* l) {
-    return l->numsCapacity;
+    return l->cap;
 }
 
-ElemType listGet(List* l, int idx) {
+int listGet(List* l, int idx) {
+    assert(l->isInit);
     if (l->isInit) {
-        if (idx < l->numsSize) {
+        if (idx < l->size) {
             return l->nums[idx];
+        } else {
+            
         }
     }
-    assert("out_of_range");
+    
 }
 
-void listSet(List* l, int idx, ElemType elem) {
+void listSet(List* l, int idx, int elem) {
+    assert(l->isInit);
     if (l->isInit) {
-        if (idx < l->numsSize) {
+        if (idx < l->size) {
             l->nums[idx] = elem;
         }
     }
@@ -69,8 +71,8 @@ void listSet(List* l, int idx, ElemType elem) {
 void listExtendCapacity(List* l) {
     // 先分配空间
     size_t newCapacity = listCapacity(l) * CAPACITY_RACTOR;
-    ElemType *newData = (ElemType *)malloc(sizeof(ElemType) * newCapacity);
-    ElemType *oldData = l->nums;
+    int *newData = (int *)malloc(sizeof(int) * newCapacity);
+    int *oldData = l->nums;
 
     // 拷贝旧数据到新数据
     for(size_t i=0; i<listSize(l); i++)
@@ -81,25 +83,25 @@ void listExtendCapacity(List* l) {
 
     // 更新新数据
     l->nums = newData;
-    l->numsCapacity = newCapacity;
+    l->cap = newCapacity;
 }
 
-void listAdd(List* l, ElemType elem) {
+void listAdd(List* l, int elem) {
     if (listSize(l) == listCapacity(l)) {
         listExtendCapacity(l); // 扩容
     }
     l->nums[listSize(l)] = elem;
-    l->numsSize ++;
+    l->size ++;
 }
 
-void listInsert(List* l, size_t idx, ElemType elem) {
+void listInsert(List* l, size_t idx, int elem) {
     if (l->isInit) {
         if (idx < listSize(l)) {
             for (size_t i=listSize(l); i>idx; --i) {
                 l->nums[i] = l->nums[i-1];
             }
             l->nums[idx] = elem;
-            l->numsSize++;
+            l->size++;
         } else {
             // 越界 -- 抛出异常
         }
@@ -108,7 +110,7 @@ void listInsert(List* l, size_t idx, ElemType elem) {
     }
 }
 
-ElemType listRemove(List* l, int idx) {
+int listRemove(List* l, int idx) {
     if (l->isInit) {
         if (idx < listSize(l)) {
             size_t i = idx;
@@ -117,7 +119,7 @@ ElemType listRemove(List* l, int idx) {
                     l->nums[i] = l->nums[i+1];
                 }
             }
-            l->numsSize--;
+            l->size--;
 
         } else {
             // 数组越界
@@ -128,15 +130,15 @@ ElemType listRemove(List* l, int idx) {
 }
 
 void listClear(List* l) {
-    l->numsSize = 0;
+    l->size = 0;
 }
 
 void printList(List* l) {
     size_t i=0;
 
     printf("[");
-    if (l->numsSize) {
-        for (; i<l->numsSize-1; i++) {
+    if (l->size) {
+        for (; i<l->size-1; i++) {
             printf("%d, ", l->nums[i]);
         }
         printf("%d", l->nums[i]);
