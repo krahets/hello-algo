@@ -4,9 +4,9 @@
 
 package chapter_heap
 
-// intHeap 是一个由整数组成的最大堆
+// intHeap 是一个由整数组成的堆
 // 通过实现 heap.Interface 来构建堆
-type intHeap []any
+type intHeap []int
 
 // Len sort.Interface 的方法
 func (h *intHeap) Len() int {
@@ -16,7 +16,7 @@ func (h *intHeap) Len() int {
 // Less sort.Interface 的方法
 func (h *intHeap) Less(i, j int) bool {
 	// 如果实现小顶堆，则需要调整为小于号
-	return (*h)[i].(int) > (*h)[j].(int)
+	return (*h)[i] > (*h)[j]
 }
 
 // Swap sort.Interface 的方法
@@ -34,11 +34,11 @@ func (h *intHeap) Push(x any) {
 
 // Top 获取堆顶元素
 func (h *intHeap) Top() int {
-	return (*h)[0].(int)
+	return (*h)[0]
 }
 
 // Pop heap.Interface 的方法，实现弹出堆顶元素
-func (h *intHeap) Pop() any {
+func (h *intHeap) Pop() int {
 	// 待出堆元素存放在最后
 	last := (*h)[len(*h)-1]
 	*h = (*h)[:len(*h)-1]
