@@ -77,6 +77,22 @@ func (h *maxHeap) push(val any) {
 	h.siftUp(len(h.data) - 1)
 }
 
+/* 从结点 i 开始，从底至顶堆化 */
+func (h *maxHeap) siftUp(i int) {
+	for true {
+		// 获取结点 i 的父结点
+		p := h.parent(i)
+		// 当“越过根结点”或“结点无需修复”时，结束堆化
+		if p < 0 || h.data[i].(int) <= h.data[p].(int) {
+			break
+		}
+		// 交换两结点
+		h.swap(i, p)
+		// 循环向上堆化
+		i = p
+	}
+}
+
 /* 元素出堆 */
 func (h *maxHeap) poll() any {
 	// 判空处理
@@ -114,22 +130,6 @@ func (h *maxHeap) siftDown(i int) {
 		h.swap(i, max)
 		// 循环向下堆化
 		i = max
-	}
-}
-
-/* 从结点 i 开始，从底至顶堆化 */
-func (h *maxHeap) siftUp(i int) {
-	for true {
-		// 获取结点 i 的父结点
-		p := h.parent(i)
-		// 当“越过根结点”或“结点无需修复”时，结束堆化
-		if p < 0 || h.data[i].(int) <= h.data[p].(int) {
-			break
-		}
-		// 交换两结点
-		h.swap(i, p)
-		// 循环向上堆化
-		i = p
 	}
 }
 
