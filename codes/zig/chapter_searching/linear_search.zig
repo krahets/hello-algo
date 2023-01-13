@@ -47,7 +47,8 @@ pub fn main() !void {
     const mem_allocator = mem_arena.allocator();
     var head = try inc.ListUtil.listToLinkedList(i32, mem_allocator, nums);
     var node = linearSearchLinkedList(i32, head, target);
-    std.debug.print("目标结点值 3 的对应结点对象为 {any}", .{node});
+    std.debug.print("目标结点值 3 的对应结点对象为 ", .{});
+    try inc.PrintUtil.printLinkedList(i32, node);
 
     const getchar = try std.io.getStdIn().reader().readByte();
     _ = getchar;

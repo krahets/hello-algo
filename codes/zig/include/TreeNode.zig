@@ -17,6 +17,8 @@ pub fn TreeNode(comptime T: type) type {
         // Initialize a tree node with specific value
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
+            self.left = null;
+            self.right = null;
         }
     };   
 }

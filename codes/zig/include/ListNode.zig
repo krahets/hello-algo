@@ -16,6 +16,7 @@ pub fn ListNode(comptime T: type) type {
         // Initialize a list node with specific value
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
+            self.next = null;
         }
     };
 }
