@@ -1,0 +1,14 @@
+[package]
+name = "chapter_computational_complexity"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "time_complexity"
+path = "chapter_computational_complexity/time_complexity.rs"
+
+[[bin]]
+name = "worst_best_time_complexity"
+path = "chapter_computational_complexity/worst_best_time_complexity.rs"
+[dependencies]
+rand = "0.8.5"
