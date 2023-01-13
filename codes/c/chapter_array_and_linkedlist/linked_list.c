@@ -14,8 +14,8 @@ void insert(ListNode* n0, ListNode* P) {
 }
 
 /* 删除链表的结点 n0 之后的首个结点 */
-/* Keep Sample, 受 c 语言特性限制，removeNode 无法更改为 remove, 
-   详见 https://github.com/krahets/hello-algo/pull/244#discussion_r1067863888 */
+// 由于引入了 stdio.h ，此处无法使用 remove 关键词
+// 详见 https://github.com/krahets/hello-algo/pull/244#discussion_r1067863888
 void removeNode(ListNode* n0) {
     if (!n0->next)
         return;
