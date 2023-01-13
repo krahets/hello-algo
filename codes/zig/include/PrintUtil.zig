@@ -46,6 +46,16 @@ pub fn printLinkedList(comptime T: type, node: ?*ListNode(T)) !void {
     }
 }
 
+// Print a HashMap
+pub fn printHashMap(comptime TKey: type, comptime TValue: type, map: std.AutoHashMap(TKey, TValue)) void {
+    var it = map.iterator();
+    while (it.next()) |kv| {
+        var key = kv.key_ptr.*;
+        var value = kv.value_ptr.*;
+        std.debug.print("{} -> {s}\n", .{key, value});
+    }
+}
+
 // This tree printer is borrowed from TECHIE DELIGHT
 // https://www.techiedelight.com/c-program-print-binary-tree/
 const Trunk = struct {

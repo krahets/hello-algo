@@ -160,6 +160,20 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_array_stack = b.step("run_array_stack", "Run array_stack");
         run_step_array_stack.dependOn(&run_cmd_array_stack.step);      
 
+    // Section: "Hash Map"
+        // Source File: "chapter_hashing/hash_map.zig"
+        // Run Command: zig build run_hash_map
+        const exe_hash_map = b.addExecutable("hash_map", "chapter_hashing/hash_map.zig");
+        exe_hash_map.addPackagePath("include", "include/include.zig");
+        exe_hash_map.setTarget(target);
+        exe_hash_map.setBuildMode(mode);
+        exe_hash_map.install();
+        const run_cmd_hash_map = exe_hash_map.run();
+        run_cmd_hash_map.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_hash_map.addArgs(args);
+        const run_step_hash_map= b.step("run_hash_map", "Run hash_map");
+        run_step_hash_map.dependOn(&run_cmd_hash_map.step);
+
     // Section: "Bubble Sort"
         // Source File: "chapter_sorting/bubble_sort.zig"
         // Run Command: zig build run_bubble_sort
