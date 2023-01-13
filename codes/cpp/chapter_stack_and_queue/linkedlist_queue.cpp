@@ -68,7 +68,7 @@ public:
     vector<int> toVector() {
         ListNode* node = front;
         vector<int> res(size());
-        for (size_t i = 0; i < res.size(); i++) {
+        for (int i = 0; i < res.size(); i++) {
             res[i] = node->val;
             node = node->next;
         }
