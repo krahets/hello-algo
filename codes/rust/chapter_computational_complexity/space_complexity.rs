@@ -21,6 +21,9 @@ fn constant(n: i32) {
 fn linear(n: i32) {
     // 长度为 n 的数组占用 O(n) 空间
     let nums = vec![0; n as usize];
+    // 长度为 n 的列表占用 O(n) 空间
+    // TODO
+    // 长度为 n 的哈希表占用 O(n) 空间
     let map: HashMap<_, _> = (0..n).map(|i| (i, format!("{}", i))).collect();
 }
 
