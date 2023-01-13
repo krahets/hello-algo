@@ -174,6 +174,20 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_hash_map= b.step("run_hash_map", "Run hash_map");
         run_step_hash_map.dependOn(&run_cmd_hash_map.step);
 
+    // Section: "Linear Search"
+        // Source File: "chapter_searching/linear_search.zig"
+        // Run Command: zig build run_linear_search
+        const exe_linear_search = b.addExecutable("linear_search", "chapter_searching/linear_search.zig");
+        exe_linear_search.addPackagePath("include", "include/include.zig");
+        exe_linear_search.setTarget(target);
+        exe_linear_search.setBuildMode(mode);
+        exe_linear_search.install();
+        const run_cmd_linear_search = exe_linear_search.run();
+        run_cmd_linear_search.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_linear_search.addArgs(args);
+        const run_step_linear_search= b.step("run_linear_search", "Run linear_search");
+        run_step_linear_search.dependOn(&run_cmd_linear_search.step);
+
     // Section: "Bubble Sort"
         // Source File: "chapter_sorting/bubble_sort.zig"
         // Run Command: zig build run_bubble_sort

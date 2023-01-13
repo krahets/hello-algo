@@ -19,3 +19,17 @@ pub fn ListNode(comptime T: type) type {
         }
     };
 }
+
+// Generate a linked list with a list
+pub fn listToLinkedList(comptime T: type, mem_allocator: std.mem.Allocator, list: std.ArrayList(T)) !?*ListNode(T) {
+    var dum = try mem_allocator.create(ListNode(T));
+    dum.init(0);
+    var head = dum;
+    for (list.items) |val| {
+        var tmp = try mem_allocator.create(ListNode(T));
+        tmp.init(val);
+        head.next = tmp;
+        head = head.next.?;
+    }
+    return dum.next;
+}
