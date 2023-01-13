@@ -262,7 +262,7 @@ comments: true
 
     ```go title="my_heap.go"
     type maxHeap struct {
-	    // 使用切片而非数组，这样无需考虑扩容问题
+        // 使用切片而非数组，这样无需考虑扩容问题
         data []any
     }
 
