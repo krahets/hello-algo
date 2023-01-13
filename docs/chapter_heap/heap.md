@@ -97,7 +97,80 @@ comments: true
 === "Go"
 
     ```go title="heap.go"
+    // Go 语言中可以通过实现 heap.Interface 来构建整数大顶堆
+    // 实现 heap.Interface 需要同时实现 sort.Interface
+    type intHeap []any
 
+    // Push heap.Interface 的方法，实现推入元素到堆
+    func (h *intHeap) Push(x any) {
+        // Push 和 Pop 使用 pointer receiver 作为参数
+        // 因为它们不仅会对切片的内容进行调整，还会修改切片的长度。
+        *h = append(*h, x.(int))
+    }
+
+    // Pop heap.Interface 的方法，实现弹出堆顶元素
+    func (h *intHeap) Pop() any {
+        // 待出堆元素存放在最后
+        last := (*h)[len(*h)-1]
+        *h = (*h)[:len(*h)-1]
+        return last
+    }
+
+    // Len sort.Interface 的方法
+    func (h *intHeap) Len() int {
+        return len(*h)
+    }
+
+    // Less sort.Interface 的方法
+    func (h *intHeap) Less(i, j int) bool {
+        // 如果实现小顶堆，则需要调整为小于号
+        return (*h)[i].(int) > (*h)[j].(int)
+    }
+
+    // Swap sort.Interface 的方法
+    func (h *intHeap) Swap(i, j int) {
+        (*h)[i], (*h)[j] = (*h)[j], (*h)[i]
+    }
+
+    // Top 获取堆顶元素
+    func (h *intHeap) Top() any {
+        return (*h)[0]
+    }
+
+    /* Driver Code */
+    func TestHeap(t *testing.T) {
+        /* 初始化堆 */
+        // 初始化大顶堆
+        maxHeap := &intHeap{}
+        heap.Init(maxHeap)
+        /* 元素入堆 */
+        // 调用 heap.Interface 的方法，来添加元素
+        heap.Push(maxHeap, 1)
+        heap.Push(maxHeap, 3)
+        heap.Push(maxHeap, 2)
+        heap.Push(maxHeap, 4)
+        heap.Push(maxHeap, 5)
+
+        /* 获取堆顶元素 */
+        top := maxHeap.Top()
+        fmt.Printf("堆顶元素为 %d\n", top)
+
+        /* 堆顶元素出堆 */
+        // 调用 heap.Interface 的方法，来移除元素
+        heap.Pop(maxHeap)
+        heap.Pop(maxHeap)
+        heap.Pop(maxHeap)
+        heap.Pop(maxHeap)
+        heap.Pop(maxHeap)
+
+        /* 获取堆大小 */
+        size := len(*maxHeap)
+        fmt.Printf("堆元素数量为 %d\n", size)
+
+        /* 判断堆是否为空 */
+        isEmpty := len(*maxHeap) == 0
+        fmt.Printf("堆是否为空 %t\n", isEmpty)
+    }
     ```
 
 === "JavaScript"
@@ -188,7 +261,33 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
+    type maxHeap struct {
+        // 使用切片而非数组，这样无需考虑扩容问题
+        data []any
+    }
 
+    /* 构造函数，建立空堆 */
+    func newHeap() *maxHeap {
+        return &maxHeap{
+            data: make([]any, 0),
+        }
+    }
+
+    /* 获取左子结点索引 */
+    func (h *maxHeap) left(i int) int {
+        return 2*i + 1
+    }
+
+    /* 获取右子结点索引 */
+    func (h *maxHeap) right(i int) int {
+        return 2*i + 2
+    }
+
+    /* 获取父结点索引 */
+    func (h *maxHeap) parent(i int) int {
+        // 向下整除
+        return (i - 1) / 2
+    }
     ```
 
 === "JavaScript"
@@ -249,7 +348,10 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
-
+    /* 访问堆顶元素 */
+    func (h *maxHeap) peek() any {
+        return h.data[0]
+    }
     ```
 
 === "JavaScript"
@@ -350,7 +452,29 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
+    /* 元素入堆 */
+    func (h *maxHeap) push(val any) {
+        // 添加结点
+        h.data = append(h.data, val)
+        // 从底至顶堆化
+        h.siftUp(len(h.data) - 1)
+    }
 
+    /* 从结点 i 开始，从底至顶堆化 */
+    func (h *maxHeap) siftUp(i int) {
+        for true {
+            // 获取结点 i 的父结点
+            p := h.parent(i)
+            // 当“越过根结点”或“结点无需修复”时，结束堆化
+            if p < 0 || h.data[i].(int) <= h.data[p].(int) {
+                break
+            }
+            // 交换两结点
+            h.swap(i, p)
+            // 循环向上堆化
+            i = p
+        }
+    }
     ```
 
 === "JavaScript"
@@ -477,7 +601,45 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
+    /* 元素出堆 */
+    func (h *maxHeap) poll() any {
+        // 判空处理
+        if h.isEmpty() {
+            fmt.Println("error")
+        }
+        // 交换根结点与最右叶结点（即交换首元素与尾元素）
+        h.swap(0, h.size()-1)
+        // 删除结点
+        val := h.data[len(h.data)-1]
+        h.data = h.data[:len(h.data)-1]
+        // 从顶至底堆化
+        h.siftDown(0)
 
+        // 返回堆顶元素
+        return val
+    }
+
+    /* 从结点 i 开始，从顶至底堆化 */
+    func (h *maxHeap) siftDown(i int) {
+        for true {
+            // 判断结点 i, l, r 中值最大的结点，记为 max
+            l, r, max := h.left(i), h.right(i), i
+            if l < h.size() && h.data[l].(int) > h.data[max].(int) {
+                max = l
+            }
+            if r < h.size() && h.data[r].(int) > h.data[max].(int) {
+                max = r
+            }
+            // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            if max == i {
+                break
+            }
+            // 交换两结点
+            h.swap(i, max)
+            // 循环向下堆化
+            i = max
+        }
+    }
     ```
 
 === "JavaScript"
@@ -545,7 +707,16 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
-
+    /* 构造函数，根据切片建堆 */
+    func newMaxHeap(nums []any) *maxHeap {
+        // 所有元素入堆
+        h := &maxHeap{data: nums}
+        for i := len(h.data) - 1; i >= 0; i-- {
+            // 堆化除叶结点以外的其他所有结点
+            h.siftDown(i)
+        }
+        return h
+    }
     ```
 
 === "JavaScript"
