@@ -15,10 +15,9 @@ comments: true
 1. 下载并安装 [OpenJDK](https://jdk.java.net/18/)（版本需满足 > JDK 9）。
 2. 在 VSCode 的插件市场中搜索 `java` ，安装 Java Extension Pack 。
 
+## C/C++ 环境
 
-## C++ 环境
-
-1. Windows 系统需要安装 [MinGW](https://www.mingw-w64.org/downloads/) ，MacOS 自带 Clang 无需安装。
+1. Windows 系统需要安装 [MinGW](https://sourceforge.net/projects/mingw-w64/files/) （[完整配置教程](https://zhuanlan.zhihu.com/p/77074009)），MacOS 自带 Clang 无需安装。
 2. 在 VSCode 的插件市场中搜索 `c++` ，安装 C/C++ Extension Pack 。
 
 ## Python 环境
@@ -46,3 +45,8 @@ comments: true
 
 1. 下载并安装 [Swift](https://www.swift.org/download/)；
 2. 在 VSCode 的插件市场中搜索 `swift`，安装 [Swift for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang)。
+
+## Rust 环境
+
+1. 下载并安装 [Rust](https://www.rust-lang.org/tools/install)；
+2. 在 VSCode 的插件市场中搜索 `rust`，安装 [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)。

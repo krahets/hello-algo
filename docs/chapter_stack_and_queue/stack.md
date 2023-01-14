@@ -22,13 +22,13 @@ comments: true
 
 <div class="center-table" markdown>
 
-| 方法      | 描述                   |
-| --------- | ---------------------- |
-| push()    | 元素入栈（添加至栈顶） |
-| pop()     | 栈顶元素出栈           |
-| peek()    | 访问栈顶元素           |
-| size()    | 获取栈的长度           |
-| isEmpty() | 判断栈是否为空         |
+| 方法      | 描述                   | 时间复杂度 |
+| --------- | ---------------------- | ---------- |
+| push()    | 元素入栈（添加至栈顶） | $O(1)$     |
+| pop()     | 栈顶元素出栈           | $O(1)$     |
+| peek()    | 访问栈顶元素           | $O(1)$     |
+| size()    | 获取栈的长度           | $O(1)$     |
+| isEmpty() | 判断栈是否为空         | $O(1)$     |
 
 </div>
 
@@ -641,7 +641,7 @@ comments: true
 
         /* 判断栈是否为空 */
         func isEmpty() -> Bool {
-            _size == 0
+            size() == 0
         }
 
         /* 入栈 */
@@ -653,6 +653,7 @@ comments: true
         }
 
         /* 出栈 */
+        @discardableResult
         func pop() -> Int {
             let num = peek()
             _peek = _peek?.next
@@ -662,21 +663,10 @@ comments: true
 
         /* 访问栈顶元素 */
         func peek() -> Int {
-            if _size == 0 {
+            if isEmpty() {
                 fatalError("栈为空")
             }
             return _peek!.val
-        }
-
-        /* 将 List 转化为 Array 并返回 */
-        func toArray() -> [Int] {
-            var node = _peek
-            var res = Array(repeating: 0, count: _size)
-            for i in sequence(first: res.count - 1, next: { $0 >= 0 + 1 ? $0 - 1 : nil }) {
-                res[i] = node!.val
-                node = node?.next
-            }
-            return res
         }
     }
     ```
@@ -994,8 +984,9 @@ comments: true
         }
 
         /* 出栈 */
+        @discardableResult
         func pop() -> Int {
-            if stack.isEmpty {
+            if isEmpty() {
                 fatalError("栈为空")
             }
             return stack.removeLast()
@@ -1003,15 +994,10 @@ comments: true
 
         /* 访问栈顶元素 */
         func peek() -> Int {
-            if stack.isEmpty {
+            if isEmpty() {
                 fatalError("栈为空")
             }
             return stack.last!
-        }
-
-        /* 将 List 转化为 Array 并返回 */
-        func toArray() -> [Int] {
-            stack
         }
     }
     ```

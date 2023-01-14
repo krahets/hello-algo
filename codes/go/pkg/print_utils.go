@@ -29,6 +29,22 @@ func PrintList(list *list.List) {
 	fmt.Print(e.Value, "]\n")
 }
 
+// PrintMap Print a hash map
+func PrintMap[K comparable, V any](m map[K]V) {
+	for key, value := range m {
+		fmt.Println(key, "->", value)
+	}
+}
+
+// PrintHeap Print a heap
+func PrintHeap(h []any) {
+	fmt.Printf("堆的数组表示：")
+	fmt.Printf("%v", h)
+	fmt.Printf("\n堆的树状表示：\n")
+	root := ArrToTree(h)
+	PrintTree(root)
+}
+
 // PrintLinkedList Print a linked list
 func PrintLinkedList(node *ListNode) {
 	if node == nil {
@@ -96,11 +112,4 @@ func showTrunk(t *trunk) {
 
 	showTrunk(t.prev)
 	fmt.Print(t.str)
-}
-
-// PrintMap Print a hash map
-func PrintMap[K comparable, V any](m map[K]V) {
-	for key, value := range m {
-		fmt.Println(key, "->", value)
-	}
 }
