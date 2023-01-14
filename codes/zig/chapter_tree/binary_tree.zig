@@ -7,10 +7,6 @@ const inc = @import("include");
 
 // Driver Code
 pub fn main() !void {
-    // 查看本地CPU架构和操作系统信息
-    var native_target_info = try std.zig.system.NativeTargetInfo.detect(std.zig.CrossTarget{});
-    std.debug.print("Native Info: CPU Arch = {}, OS = {}\n", .{native_target_info.target.cpu.arch, native_target_info.target.os.tag});
-
     // 初始化二叉树
     // 初始化结点
     var n1 = inc.TreeNode(i32){ .val = 1 };
