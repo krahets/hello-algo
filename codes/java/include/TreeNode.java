@@ -32,7 +32,7 @@ public class TreeNode {
             return null;
         
         TreeNode root = new TreeNode(list.get(0));
-        Queue<TreeNode> queue = new LinkedList<TreeNode>() {{ add(root); }};
+        Queue<TreeNode> queue = new LinkedList<>() {{ add(root); }};
         int i = 0;
         while(!queue.isEmpty()) {
             TreeNode node = queue.poll();
@@ -58,7 +58,7 @@ public class TreeNode {
     public static List<Integer> treeToList(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if(root == null) return list;
-        Queue<TreeNode> queue = new LinkedList<TreeNode>() {{ add(root); }};
+        Queue<TreeNode> queue = new LinkedList<>() {{ add(root); }};
         while(!queue.isEmpty()) {
             TreeNode node = queue.poll();
             if(node != null) {
