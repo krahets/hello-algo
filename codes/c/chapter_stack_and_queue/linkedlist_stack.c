@@ -13,7 +13,7 @@ struct LinkedListStack {
 };
 
 typedef struct LinkedListStack LinkedListStack;
-
+/* 构造函数 */
 void constructor(LinkedListStack* stk) {
     stk->stackTop = NULL;
     stk->stkSize = 0;

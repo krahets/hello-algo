@@ -16,7 +16,7 @@ struct mylist {
 };
 
 typedef struct mylist MyList;
-/* 声明函数 */
+/* 前置声明 */
 void extendCapacity(MyList* l);
 
 /* 构造函数 */
