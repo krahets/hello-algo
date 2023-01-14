@@ -127,14 +127,6 @@ static void printTree(TreeNode *root) {
     printTreeHelper(root, NULL, false);
 }
 
-/**
- * @brief Print a stack
- *
- * @param head
- */
-static void printStack(void *stack) {
-    
-}
 
 #ifdef __cplusplus
 }

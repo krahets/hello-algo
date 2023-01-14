@@ -9,7 +9,7 @@
 /* 基于链表实现的栈 */
 struct LinkedListStack {
     ListNode* stackTop; // 将头结点作为栈顶
-    size_t stkSize;     // 栈的长度
+    int stkSize;        // 栈的长度
 };
 
 typedef struct LinkedListStack LinkedListStack;
@@ -19,7 +19,7 @@ void constructor(LinkedListStack* stk) {
     stk->stkSize = 0;
 }
 /* 获取栈的长度 */
-size_t size(LinkedListStack* stk) {
+int size(LinkedListStack* stk) {
     assert(stk);
     return stk->stkSize;
 }
@@ -31,18 +31,17 @@ bool empty(LinkedListStack* stk) {
 /* 访问栈顶元素 */
 int top(LinkedListStack* stk) {
     assert(stk);
-    if (size(stk) == 0 ) 
-        // 抛出异常
+    assert(size(stk) != 0); 
     return stk->stackTop->val;
 }
 /* 入栈 */
 void push(LinkedListStack* stk, int num) {
     assert(stk);
     ListNode *node = (ListNode *)malloc(sizeof(ListNode));
-    node->next = stk->stackTop;
-    node->val = num;
-    stk->stackTop = node;
-    stk->stkSize++;
+    node->next = stk->stackTop; // 更新新加结点指针域
+    node->val = num;            // 更新新加结点数据域
+    stk->stackTop = node;       // 更新栈顶
+    stk->stkSize++;             // 更新栈大小
 }
 /* 出栈 */
 void pop(LinkedListStack* stk) {
@@ -60,6 +59,7 @@ void pop(LinkedListStack* stk) {
 int main() {
     /* 初始化栈 */
     LinkedListStack stack;
+    constructor(&stack);
 
     /* 元素入栈 */
     push(&stack, 1);
@@ -69,7 +69,7 @@ int main() {
     push(&stack, 4);
 
     printf("栈 stack = ");
-    printStack(&stack);
+    printLinkedList(stack.stackTop);
 
     /* 访问栈顶元素 */
     int stackTop = top(&stack);
@@ -78,15 +78,15 @@ int main() {
     /* 元素出栈 */
     pop(&stack);
     printf("出栈元素 pop = %d, 出栈后 stack =  ", stackTop);
-    printStack(&stack);
+    printLinkedList(stack.stackTop);
 
     /* 获取栈的长度 */
-    size_t stackSize = size(&stack);
-    printf("栈的长度 size = %ld\r\n", stackSize);
+    int stackSize = size(&stack);
+    printf("栈的长度 size = %d\r\n", stackSize);
 
     /* 判断是否为空 */
     bool isEmpty = empty(&stack);
-    printf("栈是否为空 = %d", isEmpty);
+    printf("栈是否为空 = %s\r\n", isEmpty ? "yes" : "no");
 
     return 0;
 }
