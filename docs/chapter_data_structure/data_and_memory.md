@@ -85,18 +85,16 @@ comments: true
 
     ```js title=""
     // JavaScript 的数组可以自由存储各种基本数据类型和对象
-    // JavaScript 的基本数据类型中只有数字, 没有浮点数, 这里使用0.1作为示例
-    const array = [0, 0.1, 'a', false]
+    const array = [0, 0.0, 'a', false];
     ```
 
 === "TypeScript"
 
     ```typescript title=""
     // TypeScript 可以定义 JavaScript 数组的类型
-    const numbers: number = new Array(5).fill(0);
-    const decimals: number = new Array(5).fill(0.1);
-    const characters: string = new Array(5).fill('a');
-    const booleans: boolean = new Array(5).fill(true);
+    const numbers: number = []
+    const characters: string = []
+    const booleans: boolean = []
     ```
 
 === "C"
