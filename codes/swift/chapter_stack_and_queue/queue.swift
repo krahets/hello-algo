@@ -25,6 +25,7 @@ enum Queue {
         print("队首元素 peek = \(peek)")
 
         /* 元素出队 */
+        // 使用 Array 模拟时 poll 的复杂度为 O(n)
         let pool = queue.removeFirst()
         print("出队元素 poll = \(pool)，出队后 queue = \(queue)")
 
