@@ -17,6 +17,10 @@ public:
         root = buildTree(nums, 0, nums.size() - 1);  // 构建二叉搜索树
     }
 
+    ~BinarySearchTree() {
+        freeMemoryTree(root);
+    }
+
     /* 获取二叉树根结点 */
     TreeNode* getRoot() {
         return root;
@@ -151,6 +155,9 @@ int main() {
     bst->remove(4);
     cout << endl << "删除结点 4 后，二叉树为\n" << endl;
     PrintUtil::printTree(bst->getRoot());
+
+    // 释放内存
+    delete bst;
 
     return 0;
 }

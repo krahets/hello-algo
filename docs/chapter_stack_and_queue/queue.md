@@ -20,13 +20,13 @@ comments: true
 
 <div class="center-table" markdown>
 
-| 方法      | 描述                         |
-| --------- | ---------------------------- |
-| offer()   | 元素入队，即将元素添加至队尾 |
-| poll()    | 队首元素出队                 |
-| front()   | 访问队首元素                 |
-| size()    | 获取队列的长度               |
-| isEmpty() | 判断队列是否为空             |
+| 方法      | 描述                         | 时间复杂度 |
+| --------- | ---------------------------- | ---------- |
+| offer()   | 元素入队，即将元素添加至队尾 | $O(1)$     |
+| poll()    | 队首元素出队                 | $O(1)$     |
+| front()   | 访问队首元素                 | $O(1)$     |
+| size()    | 获取队列的长度               | $O(1)$     |
+| isEmpty() | 判断队列是否为空             | $O(1)$     |
 
 </div>
 
@@ -231,7 +231,29 @@ comments: true
 === "Swift"
 
     ```swift title="queue.swift"
+    /* 初始化队列 */
+    // Swift 没有内置的队列类，可以把 Array 当作队列来使用
+    var queue: [Int] = []
 
+    /* 元素入队 */
+    queue.append(1)
+    queue.append(3)
+    queue.append(2)
+    queue.append(5)
+    queue.append(4)
+
+    /* 访问队首元素 */
+    let peek = queue.first!
+
+    /* 元素出队 */
+    // 使用 Array 模拟时 poll 的复杂度为 O(n)
+    let pool = queue.removeFirst()
+
+    /* 获取队列的长度 */
+    let size = queue.count
+
+    /* 判断队列是否为空 */
+    let isEmpty = queue.isEmpty
     ```
 
 ## 队列实现
@@ -308,6 +330,10 @@ comments: true
             front = nullptr;
             rear = nullptr;
             queSize = 0;
+        }
+        ~LinkedListQueue() {
+            delete front;
+            delete rear;
         }
         /* 获取队列的长度 */
         int size() {
@@ -627,7 +653,59 @@ comments: true
 === "Swift"
 
     ```swift title="linkedlist_queue.swift"
+    /* 基于链表实现的队列 */
+    class LinkedListQueue {
+        private var front: ListNode? // 头结点
+        private var rear: ListNode? // 尾结点
+        private var _size = 0
 
+        init() {}
+
+        /* 获取队列的长度 */
+        func size() -> Int {
+            _size
+        }
+
+        /* 判断队列是否为空 */
+        func isEmpty() -> Bool {
+            size() == 0
+        }
+
+        /* 入队 */
+        func offer(num: Int) {
+            // 尾结点后添加 num
+            let node = ListNode(x: num)
+            // 如果队列为空，则令头、尾结点都指向该结点
+            if front == nil {
+                front = node
+                rear = node
+            }
+            // 如果队列不为空，则将该结点添加到尾结点后
+            else {
+                rear?.next = node
+                rear = node
+            }
+            _size += 1
+        }
+
+        /* 出队 */
+        @discardableResult
+        func poll() -> Int {
+            let num = peek()
+            // 删除头结点
+            front = front?.next
+            _size -= 1
+            return num
+        }
+
+        /* 访问队首元素 */
+        func peek() -> Int {
+            if isEmpty() {
+                fatalError("队列为空")
+            }
+            return front!.val
+        }
+    }
     ```
 
 ### 基于数组的实现
@@ -710,6 +788,9 @@ comments: true
             // 初始化数组
             cap = capacity;
             nums = new int[capacity];
+        }
+        ~ArrayQueue() {
+            delete[] nums;
         }
         /* 获取队列的容量 */
         int capacity() {
@@ -1042,7 +1123,63 @@ comments: true
 === "Swift"
 
     ```swift title="array_queue.swift"
+    /* 基于环形数组实现的队列 */
+    class ArrayQueue {
+        private var nums: [Int] // 用于存储队列元素的数组
+        private var front = 0 // 头指针，指向队首
+        private var rear = 0 // 尾指针，指向队尾 + 1
 
+        init(capacity: Int) {
+            // 初始化数组
+            nums = Array(repeating: 0, count: capacity)
+        }
+
+        /* 获取队列的容量 */
+        func capacity() -> Int {
+            nums.count
+        }
+
+        /* 获取队列的长度 */
+        func size() -> Int {
+            let capacity = capacity()
+            // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
+            return (capacity + rear - front) % capacity
+        }
+
+        /* 判断队列是否为空 */
+        func isEmpty() -> Bool {
+            rear - front == 0
+        }
+
+        /* 入队 */
+        func offer(num: Int) {
+            if size() == capacity() {
+                print("队列已满")
+                return
+            }
+            // 尾结点后添加 num
+            nums[rear] = num
+            // 尾指针向后移动一位，越过尾部后返回到数组头部
+            rear = (rear + 1) % capacity()
+        }
+
+        /* 出队 */
+        @discardableResult
+        func poll() -> Int {
+            let num = peek()
+            // 队头指针向后移动一位，若越过尾部则返回到数组头部
+            front = (front + 1) % capacity()
+            return num
+        }
+
+        /* 访问队首元素 */
+        func peek() -> Int {
+            if isEmpty() {
+                fatalError("队列为空")
+            }
+            return nums[front]
+        }
+    }
     ```
 
 ## 队列典型应用

@@ -355,8 +355,8 @@ $$
             print(0)
         }
     }
-
     ```
+
 ![time_complexity_first_example](time_complexity.assets/time_complexity_first_example.png)
 
 <p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
@@ -724,7 +724,6 @@ $$
         }
     }
     ```
-
 
 ### 2. 判断渐近上界
 
@@ -1435,11 +1434,14 @@ $$
         for (int i = n - 1; i > 0; i--) {
             // 内循环：冒泡操作
             for (int j = 0; j < i; j++) {
-                // 交换 nums[j] 与 nums[j + 1]
-                int tmp = nums[j];
-                nums[j] = nums[j + 1];
-                nums[j + 1] = tmp;
-                count += 3;  // 元素交换包含 3 个单元操作
+                if (nums[j] > nums [j + 1]) 
+                {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    int tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    count += 3;  // 元素交换包含 3 个单元操作
+                }
             }
             
         }

@@ -56,5 +56,9 @@ int main() {
     cout << "方法二 res = ";
     PrintUtil::printVector(res);
 
+    // 释放内存
+    delete slt1;
+    delete slt2;
+
     return 0;
 }

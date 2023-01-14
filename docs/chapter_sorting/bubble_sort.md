@@ -170,7 +170,7 @@ comments: true
 
     ```c title="bubble_sort.c"
     /* 冒泡排序 */
-    void bubble_sort(int nums[], int size) {
+    void bubbleSort(int nums[], int size) {
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for (int i = 0; i < size - 1; i++)
         {
@@ -373,7 +373,7 @@ comments: true
 
     ```c title="bubble_sort.c"
     /* 冒泡排序 */
-    void bubble_sort(int nums[], int size) {
+    void bubbleSortWithFlag(int nums[], int size) {
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for (int i = 0; i < size - 1; i++)
         {

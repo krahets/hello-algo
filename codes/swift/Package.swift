@@ -13,6 +13,13 @@ let package = Package(
         .executable(name: "linked_list", targets: ["linked_list"]),
         .executable(name: "list", targets: ["list"]),
         .executable(name: "my_list", targets: ["my_list"]),
+        .executable(name: "stack", targets: ["stack"]),
+        .executable(name: "linkedlist_stack", targets: ["linkedlist_stack"]),
+        .executable(name: "array_stack", targets: ["array_stack"]),
+        .executable(name: "queue", targets: ["queue"]),
+        .executable(name: "linkedlist_queue", targets: ["linkedlist_queue"]),
+        .executable(name: "array_queue", targets: ["array_queue"]),
+        .executable(name: "deque", targets: ["deque"]),
     ],
     targets: [
         .target(name: "utils", path: "utils"),
@@ -24,5 +31,12 @@ let package = Package(
         .executableTarget(name: "linked_list", dependencies: ["utils"], path: "chapter_array_and_linkedlist", sources: ["linked_list.swift"]),
         .executableTarget(name: "list", path: "chapter_array_and_linkedlist", sources: ["list.swift"]),
         .executableTarget(name: "my_list", path: "chapter_array_and_linkedlist", sources: ["my_list.swift"]),
+        .executableTarget(name: "stack", path: "chapter_stack_and_queue", sources: ["stack.swift"]),
+        .executableTarget(name: "linkedlist_stack", dependencies: ["utils"], path: "chapter_stack_and_queue", sources: ["linkedlist_stack.swift"]),
+        .executableTarget(name: "array_stack", path: "chapter_stack_and_queue", sources: ["array_stack.swift"]),
+        .executableTarget(name: "queue", path: "chapter_stack_and_queue", sources: ["queue.swift"]),
+        .executableTarget(name: "linkedlist_queue", dependencies: ["utils"], path: "chapter_stack_and_queue", sources: ["linkedlist_queue.swift"]),
+        .executableTarget(name: "array_queue", path: "chapter_stack_and_queue", sources: ["array_queue.swift"]),
+        .executableTarget(name: "deque", path: "chapter_stack_and_queue", sources: ["deque.swift"]),
     ]
 )

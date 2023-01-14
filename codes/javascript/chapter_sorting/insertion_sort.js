@@ -19,6 +19,6 @@ function insertionSort(nums) {
 }
 
 /* Driver Code */
-var nums = [4, 1, 3, 1, 5, 2]
-insertionSort(nums)
-console.log("排序后数组 nums =", nums)
+const nums = [4, 1, 3, 1, 5, 2];
+insertionSort(nums);
+console.log('排序后数组 nums =', nums);
