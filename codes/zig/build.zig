@@ -174,6 +174,20 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_hash_map= b.step("run_hash_map", "Run hash_map");
         run_step_hash_map.dependOn(&run_cmd_hash_map.step);
 
+    // Section: "Heap"
+        // Source File: "chapter_heap/heap.zig"
+        // Run Command: zig build run_heap
+        const exe_heap = b.addExecutable("heap", "chapter_heap/heap.zig");
+        exe_heap.addPackagePath("include", "include/include.zig");
+        exe_heap.setTarget(target);
+        exe_heap.setBuildMode(mode);
+        exe_heap.install();
+        const run_cmd_heap = exe_heap.run();
+        run_cmd_heap.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_heap.addArgs(args);
+        const run_step_heap = b.step("run_heap", "Run heap");
+        run_step_heap.dependOn(&run_cmd_heap.step);
+        
     // Section: "Linear Search"
         // Source File: "chapter_searching/linear_search.zig"
         // Run Command: zig build run_linear_search

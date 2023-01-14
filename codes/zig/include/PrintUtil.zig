@@ -3,8 +3,10 @@
 // Author: sjinzh (sjinzh@gmail.com)
 
 const std = @import("std");
-const ListNode = @import("ListNode.zig").ListNode;
-const TreeNode = @import("TreeNode.zig").TreeNode;
+pub const ListUtil = @import("ListNode.zig");
+pub const ListNode = ListUtil.ListNode;
+pub const TreeUtil = @import("TreeNode.zig");
+pub const TreeNode = TreeUtil.TreeNode;
 
 // Print an array
 pub fn printArray(comptime T: type, nums: []T) void {
@@ -54,6 +56,17 @@ pub fn printHashMap(comptime TKey: type, comptime TValue: type, map: std.AutoHas
         var value = kv.value_ptr.*;
         std.debug.print("{} -> {s}\n", .{key, value});
     }
+}
+
+// print a heap (PriorityQueue)
+pub fn printHeap(comptime T: type, mem_allocator: std.mem.Allocator, queue: anytype) !void {
+    var arr = queue.items;
+    var len = queue.len;
+    std.debug.print("堆的数组表示：", .{});
+    printArray(T, arr[0..len]);
+    std.debug.print("\n堆的树状表示：\n", .{});
+    var root = try TreeUtil.arrToTree(T, mem_allocator, arr[0..len]);
+    try printTree(root, null, false);
 }
 
 // This tree printer is borrowed from TECHIE DELIGHT
