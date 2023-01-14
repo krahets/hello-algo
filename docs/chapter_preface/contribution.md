@@ -41,4 +41,25 @@ comments: true
 
 非常欢迎您和我一同来创作本书！
 
+## 本地部署 hello-algo
+
+### Docker
+
+请确保 Docker 已经安装并启动，并根据如下命令离线部署。
+
+稍等片刻，即可使用浏览器打开 `http://localhost:8000` 访问本项目。
+
+```bash
+git clone https://github.com/krahets/hello-algo.git
+cd hello-algo
+
+docker-compose up -d
+```
+
+使用如下命令即可删除部署。
+
+```bash
+docker-compose down
+```
+
 （TODO：教学视频）
