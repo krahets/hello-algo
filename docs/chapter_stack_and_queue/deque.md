@@ -212,6 +212,7 @@ comments: true
     let peekLast = deque.last! // 队尾元素
 
     /* 元素出队 */
+    // 使用 Array 模拟时 pollFirst 的复杂度为 O(n)
     let pollFirst = deque.removeFirst() // 队首元素出队
     let pollLast = deque.removeLast() // 队尾元素出队
 
