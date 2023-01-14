@@ -1,4 +1,4 @@
-// File: stack.zig
+// File: array_stack.zig
 // Created Time: 2023-01-08
 // Author: sjinzh (sjinzh@gmail.com)
 
