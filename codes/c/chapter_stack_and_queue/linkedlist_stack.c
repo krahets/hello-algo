@@ -9,31 +9,36 @@
 /* 基于链表实现的栈 */
 struct LinkedListStack {
     ListNode* stackTop; // 将头结点作为栈顶
-    int stkSize;        // 栈的长度
+    int size;           // 栈的长度
 };
 
 typedef struct LinkedListStack LinkedListStack;
+
 /* 构造函数 */
-void constructor(LinkedListStack* stk) {
+void newLinkedListStack(LinkedListStack* stk) {
     stk->stackTop = NULL;
-    stk->stkSize = 0;
+    stk->size = 0;
 }
+
 /* 获取栈的长度 */
 int size(LinkedListStack* stk) {
     assert(stk);
-    return stk->stkSize;
+    return stk->size;
 }
+
 /* 判断栈是否为空 */
 bool empty(LinkedListStack* stk) {
     assert(stk);
     return size(stk) == 0;
 }
+
 /* 访问栈顶元素 */
 int top(LinkedListStack* stk) {
     assert(stk);
     assert(size(stk) != 0); 
     return stk->stackTop->val;
 }
+
 /* 入栈 */
 void push(LinkedListStack* stk, int num) {
     assert(stk);
@@ -41,8 +46,9 @@ void push(LinkedListStack* stk, int num) {
     node->next = stk->stackTop; // 更新新加结点指针域
     node->val = num;            // 更新新加结点数据域
     stk->stackTop = node;       // 更新栈顶
-    stk->stkSize++;             // 更新栈大小
+    stk->size++;             // 更新栈大小
 }
+
 /* 出栈 */
 void pop(LinkedListStack* stk) {
     assert(stk);
@@ -51,15 +57,14 @@ void pop(LinkedListStack* stk) {
     stk->stackTop = stk->stackTop->next;
     // 释放内存
     free(tmp);
-    stk->stkSize--;
+    stk->size--;
 }
-
 
 /* Driver Code */
 int main() {
     /* 初始化栈 */
     LinkedListStack stack;
-    constructor(&stack);
+    newLinkedListStack(&stack);
 
     /* 元素入栈 */
     push(&stack, 1);

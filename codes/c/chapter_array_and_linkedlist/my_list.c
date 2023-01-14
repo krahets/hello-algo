@@ -20,7 +20,7 @@ typedef struct mylist MyList;
 void extendCapacity(MyList* l);
 
 /* 构造函数 */
-void constructor(MyList* l) {
+void newMyList(MyList* l) {
     l->capacity = 10;                    
     l->nums = malloc(sizeof(int) * l->capacity);
     l->size = 0;
@@ -31,60 +31,56 @@ void constructor(MyList* l) {
 int size(MyList* l) {
     return l->size;
 }
+
 /* 获取列表容量 */
 int capacity(MyList* l) {
     return l->capacity;
 }
+
 /* 访问元素 */
-int get(MyList* l, int idx) {
-    if (idx < l->size) {
-        return l->nums[idx];
-    } else {
-        
-    } 
+int get(MyList* l, int index) {
+    assert(index < l->size);
+    return l->nums[index];
 }
+
 /* 更新元素 */
-void set(MyList* l, int idx, int elem) {
-    if (idx < l->size) {
-        l->nums[idx] = elem;
-    }
+void set(MyList* l, int index, int num) {
+    assert(index < l->size); 
+    l->nums[index] = num;
 }
+
 /* 尾部添加元素 */
-void add(MyList* l, int elem) {
+void add(MyList* l, int num) {
     if (size(l) == capacity(l)) {
         extendCapacity(l); // 扩容
     }
-    l->nums[size(l)] = elem;
-    l->size ++;
+    l->nums[size(l)] = num;
+    l->size++;
 }
+
 /* 中间插入元素 */
-void insert(MyList* l, int idx, int elem) {
-    if (idx < size(l)) {
-        for (int i=size(l); i>idx; --i) {
-            l->nums[i] = l->nums[i-1];
-        }
-        l->nums[idx] = elem;
-        l->size++;
-    } else {
-        // 越界：异常处理
+void insert(MyList* l, int index, int num) {
+    assert(index < size(l));
+    for (int i=size(l); i>index; --i) {
+        l->nums[i] = l->nums[i-1];
     }
+    l->nums[index] = num;
+    l->size++;
 }
+
 /* 删除元素 */
 // 由于引入了 stdio.h ，此处无法使用 remove 关键词
 // 详见 https://github.com/krahets/hello-algo/pull/244#discussion_r1067863888
-int removeNum(MyList* l, int idx) {
-    if (idx < size(l)) {
-        size_t i = idx;
-        if ( i != size(l)-1) {
-            for (; i<size(l)-1; i++) {
-                l->nums[i] = l->nums[i+1];
-            }
-        }
-        l->size--;
-    } else {
-        // 数组越界
+int removeNum(MyList* l, int index) {
+    assert(index < size(l));
+    int num = l->nums[index];
+    for (int i=index; i<size(l)-1; i++) {
+        l->nums[i] = l->nums[i+1];
     }
+    l->size--;
+    return num;
 }
+
 /* 列表扩容 */
 void extendCapacity(MyList* l) {
     // 先分配空间
@@ -112,7 +108,7 @@ int* toArray(MyList* l) {
 int main() {
     /* 初始化列表 */
     MyList list;
-    constructor(&list);
+    newMyList(&list);
     /* 尾部添加元素 */
     add(&list, 1);
     add(&list, 3);
