@@ -28,32 +28,26 @@ pub fn arrToTree(comptime T: type, mem_allocator: std.mem.Allocator, list: []T) 
     if (list.len == 0) return null;
     var root = try mem_allocator.create(TreeNode(T));
     root.init(list[0]);
-
-    const TailQueue = std.TailQueue(?*TreeNode(T));
-    const TailQueueNode = std.TailQueue(?*TreeNode(T)).Node;
-    var que = TailQueue{};
-    var node_root = TailQueueNode{ .data = root };
-    que.append(&node_root); 
+    var que = std.ArrayList(*TreeNode(T)).init(std.heap.page_allocator);
+    try que.append(root); 
     var index: usize = 0;
-    while (que.len > 0) {
-        var node = que.popFirst();
+    while (que.items.len > 0) {
+        var node = que.orderedRemove(0);
         index += 1;
         if (index >= list.len) break;
         if (index < list.len) {
             var tmp = try mem_allocator.create(TreeNode(T));
             tmp.init(list[index]);
-            node.?.data.?.left = tmp;
-            var a = TailQueueNode{ .data = node.?.data.?.left };
-            que.append(&a);
+            node.left = tmp;
+            try que.append(node.left.?);
         }
         index += 1;
         if (index >= list.len) break;
         if (index < list.len) {
             var tmp = try mem_allocator.create(TreeNode(T));
             tmp.init(list[index]);
-            node.?.data.?.right = tmp;
-            var a = TailQueueNode{ .data = node.?.data.?.right };
-            que.append(&a);
+            node.right = tmp;
+            try que.append(node.right.?);
         }
     }
     return root;
