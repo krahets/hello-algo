@@ -13,7 +13,7 @@ public class binary_tree_bfs {
     /* 层序遍历 */
     static List<Integer> hierOrder(TreeNode root) {
         // 初始化队列，加入根结点
-        Queue<TreeNode> queue = new LinkedList<>() {{ add(root); }};
+        Queue<TreeNode> queue = new LinkedList<TreeNode>() {{ add(root); }};
         // 初始化一个列表，用于保存遍历序列
         List<Integer> list = new ArrayList<>();
         while (!queue.isEmpty()) {
