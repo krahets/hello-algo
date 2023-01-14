@@ -43,10 +43,10 @@ int main() {
     /* 初始化二叉树 */
     // 这里借助了一个从数组直接生成二叉树的函数
     int nums[] = {1, 2, 3, 4, 5, 6, 7};
-    int size = sizeof(nums) / sizt ceof(int);
-    TreeNode *root = ArrayToTree(nums, size);
+    int size = sizeof(nums) / sizeof(int);
+    TreeNode *root = arrToTree(nums, size);
     printf("初始化二叉树\n");
-    PrintTree(root);
+    printTree(root);
 
     /* 前序遍历 */
     // 初始化辅助数组
@@ -54,19 +54,19 @@ int main() {
     size = 0;
     preOrder(root, &size);
     printf("前序遍历的结点打印序列 = ");
-    PrintArray(arr, size);
+    printArray(arr, size);
 
     /* 中序遍历 */
     size = 0;
     inOrder(root, &size);
     printf("中序遍历的结点打印序列 = ");
-    PrintArray(arr, size);
+    printArray(arr, size);
 
     /* 后序遍历 */
     size = 0;
     postOrder(root, &size);
     printf("后序遍历的结点打印序列 = ");
-    PrintArray(arr, size);
+    printArray(arr, size);
 
     return 0;
 }

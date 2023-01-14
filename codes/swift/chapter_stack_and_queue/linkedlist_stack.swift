@@ -20,7 +20,7 @@ class LinkedListStack {
 
     /* 判断栈是否为空 */
     func isEmpty() -> Bool {
-        _size == 0
+        size() == 0
     }
 
     /* 入栈 */
@@ -32,6 +32,7 @@ class LinkedListStack {
     }
 
     /* 出栈 */
+    @discardableResult
     func pop() -> Int {
         let num = peek()
         _peek = _peek?.next
@@ -41,7 +42,7 @@ class LinkedListStack {
 
     /* 访问栈顶元素 */
     func peek() -> Int {
-        if _size == 0 {
+        if isEmpty() {
             fatalError("栈为空")
         }
         return _peek!.val

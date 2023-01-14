@@ -30,7 +30,7 @@ public class binary_tree_bfs {
     public static void main(String[] args) {
         /* 初始化二叉树 */
         // 这里借助了一个从数组直接生成二叉树的函数
-        TreeNode root = TreeNode.arrToTree(new Integer[] { 1, 2, 3, 4, 5, 6, 7 });
+        TreeNode root = TreeNode.listToTree(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
         System.out.println("\n初始化二叉树\n");
         PrintUtil.printTree(root);
 

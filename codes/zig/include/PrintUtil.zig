@@ -7,16 +7,42 @@ const ListNode = @import("ListNode.zig").ListNode;
 const TreeNode = @import("TreeNode.zig").TreeNode;
 
 // Print an array
-// 编译期泛型
 pub fn printArray(comptime T: type, nums: []T) void {
     std.debug.print("[", .{});
     if (nums.len > 0) {
         for (nums) |num, j| {
-            std.debug.print("{}{s}", .{num, if (j == nums.len-1) "]\n" else ", " });
+            std.debug.print("{}{s}", .{num, if (j == nums.len-1) "]" else ", " });
         }
     } else {
         std.debug.print("]", .{});
-        std.debug.print("\n", .{});
+    }
+}
+
+// Print a list
+pub fn printList(comptime T: type, list: std.ArrayList(T)) void {
+    std.debug.print("[", .{});
+    if (list.items.len > 0) {
+        for (list.items) |value, i| {
+            std.debug.print("{}{s}", .{value, if (i == list.items.len-1) "]" else ", " });
+        }
+    } else {
+        std.debug.print("]", .{});
+    }
+    
+}
+
+// Print a linked list
+pub fn printLinkedList(comptime T: type, node: ?*ListNode(T)) !void {
+    if (node == null) return;
+    var list = std.ArrayList(i32).init(std.heap.page_allocator);
+    defer list.deinit();
+    var head = node;
+    while (head != null) {
+        try list.append(head.?.val);
+        head = head.?.next;
+    }
+    for (list.items) |value, i| {
+        std.debug.print("{}{s}", .{value, if (i == list.items.len-1) "\n" else "->" });
     }
 }
 

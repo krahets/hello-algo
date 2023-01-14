@@ -105,10 +105,16 @@ public class PrintUtil {
         }
     }
 
-    public static void printHeap(PriorityQueue<Integer> queue) {
-        Integer[] nums = (Integer[])queue.toArray();
-        TreeNode root = TreeNode.arrToTree(nums);
-        
+    /**
+     * Print a heap (PriorityQueue)
+     * @param queue
+     */
+    public static void printHeap(Queue<Integer> queue) {
+        List<Integer> list = new ArrayList<>(queue);
+        System.out.print("堆的数组表示：");
+        System.out.println(list);
+        System.out.println("堆的树状表示：");
+        TreeNode root = TreeNode.listToTree(list);
         printTree(root);
     }
 }

@@ -23,26 +23,27 @@ public class TreeNode {
 
     /**
      * Generate a binary tree given an array
-     * @param arr
+     * @param list
      * @return
      */
-    public static TreeNode arrToTree(Integer[] arr) {
-        if (arr.length == 0)
+    public static TreeNode listToTree(List<Integer> list) {
+        int size = list.size();
+        if (size == 0)
             return null;
         
-        TreeNode root = new TreeNode(arr[0]);
+        TreeNode root = new TreeNode(list.get(0));
         Queue<TreeNode> queue = new LinkedList<>() {{ add(root); }};
         int i = 0;
         while(!queue.isEmpty()) {
             TreeNode node = queue.poll();
-            if (++i >= arr.length) break;
-            if(arr[i] != null) {
-                node.left = new TreeNode(arr[i]);
+            if (++i >= size) break;
+            if (list.get(i) != null) {
+                node.left = new TreeNode(list.get(i));
                 queue.add(node.left);
             }
-            if (++i >= arr.length) break;
-            if(arr[i] != null) {
-                node.right = new TreeNode(arr[i]);
+            if (++i >= size) break;
+            if (list.get(i) != null) {
+                node.right = new TreeNode(list.get(i));
                 queue.add(node.right);
             }
         }

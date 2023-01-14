@@ -29,8 +29,9 @@ class ArrayStack {
     }
 
     /* 出栈 */
+    @discardableResult
     func pop() -> Int {
-        if stack.isEmpty {
+        if isEmpty() {
             fatalError("栈为空")
         }
         return stack.removeLast()
@@ -38,7 +39,7 @@ class ArrayStack {
 
     /* 访问栈顶元素 */
     func peek() -> Int {
-        if stack.isEmpty {
+        if isEmpty() {
             fatalError("栈为空")
         }
         return stack.last!
