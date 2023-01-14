@@ -246,6 +246,7 @@ comments: true
     let peek = queue.first!
 
     /* 元素出队 */
+    // 使用 Array 模拟时 poll 的复杂度为 O(n)
     let pool = queue.removeFirst()
 
     /* 获取队列的长度 */
