@@ -330,6 +330,10 @@ comments: true
             rear = nullptr;
             queSize = 0;
         }
+        ~LinkedListQueue() {
+            delete front;
+            delete rear;
+        }
         /* 获取队列的长度 */
         int size() {
             return queSize;
@@ -783,6 +787,9 @@ comments: true
             // 初始化数组
             cap = capacity;
             nums = new int[capacity];
+        }
+        ~ArrayQueue() {
+            delete[] nums;
         }
         /* 获取队列的容量 */
         int capacity() {

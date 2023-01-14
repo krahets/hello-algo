@@ -22,19 +22,15 @@ comments: true
 - 若 `cur.val = num` ，说明找到目标结点，跳出循环并返回该结点即可；
 
 === "Step 1"
-
     ![bst_search_1](binary_search_tree.assets/bst_search_1.png)
 
 === "Step 2"
-
     ![bst_search_2](binary_search_tree.assets/bst_search_2.png)
 
 === "Step 3"
-
     ![bst_search_3](binary_search_tree.assets/bst_search_3.png)
 
 === "Step 4"
-
     ![bst_search_4](binary_search_tree.assets/bst_search_4.png)
 
 二叉搜索树的查找操作和二分查找算法如出一辙，也是在每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 $O(\log n)$ 时间。

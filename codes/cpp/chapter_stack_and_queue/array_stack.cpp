@@ -78,5 +78,8 @@ int main() {
     bool empty = stack->empty();
     cout << "栈是否为空 = " << empty << endl;
 
+    // 释放内存
+    delete stack;
+
     return 0;
 }

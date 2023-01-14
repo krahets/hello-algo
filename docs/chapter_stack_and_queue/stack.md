@@ -324,6 +324,9 @@ comments: true
             stackTop = nullptr;
             stkSize = 0;
         }
+        ~LinkedListStack() {
+            freeMemoryLinkedList(stackTop);
+        }
         /* 获取栈的长度 */
         int size() {
             return stkSize;
