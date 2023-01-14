@@ -174,6 +174,20 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_hash_map= b.step("run_hash_map", "Run hash_map");
         run_step_hash_map.dependOn(&run_cmd_hash_map.step);
 
+    // Section: "Binary Tree"
+        // Source File: "chapter_tree/binary_tree.zig"
+        // Run Command: zig build run_binary_tree
+        const exe_binary_tree = b.addExecutable("hash_map", "chapter_tree/binary_tree.zig");
+        exe_binary_tree.addPackagePath("include", "include/include.zig");
+        exe_binary_tree.setTarget(target);
+        exe_binary_tree.setBuildMode(mode);
+        exe_binary_tree.install();
+        const run_cmd_binary_tree = exe_binary_tree.run();
+        run_cmd_binary_tree.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_binary_tree.addArgs(args);
+        const run_step_binary_tree= b.step("run_binary_tree", "Run binary_tree");
+        run_step_binary_tree.dependOn(&run_cmd_binary_tree.step);
+        
     // Section: "Heap"
         // Source File: "chapter_heap/heap.zig"
         // Run Command: zig build run_heap
