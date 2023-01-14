@@ -15,6 +15,7 @@ fn constant(n: i32) -> i32 {
     count
 }
 
+/* 线性阶 */
 fn linear(n: i32) -> i32 {
     let mut count = 0;
     for _ in 0..n {

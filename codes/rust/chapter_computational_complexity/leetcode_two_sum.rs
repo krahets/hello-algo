@@ -35,13 +35,16 @@ impl SolutionHashMap {
     }
 }
 
+// Driver Code
 fn main() {
+    // ======= Test Case =======
     let nums = vec![2,7,11,15];
     let target = 9;
 
+    // 方法一
     let res = SolutionBruteForce::two_sum(&nums, target);
     println!("方法一 res = {:?}", res);
-
+    // 方法二
     let res = SolutionHashMap::two_sum(&nums, target);
     println!("方法二 res = {:?}", res);
 }
