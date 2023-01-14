@@ -11,10 +11,10 @@ function bubbleSort(nums) {
         // 内循环：冒泡操作
         for (let j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
-            // 交换 nums[j] 与 nums[j + 1]
-            let tmp = nums[j];
-            nums[j] = nums[j + 1];
-            nums[j + 1] = tmp;
+                // 交换 nums[j] 与 nums[j + 1]
+                let tmp = nums[j];
+                nums[j] = nums[j + 1];
+                nums[j + 1] = tmp;
             }
         }
     }
@@ -40,10 +40,10 @@ function bubbleSortWithFlag(nums) {
 }
 
 /* Driver Code */
-var nums = [4, 1, 3, 1, 5, 2]
-bubbleSort(nums)
-console.log("排序后数组 nums =", nums)
+const nums = [4, 1, 3, 1, 5, 2];
+bubbleSort(nums);
+console.log("排序后数组 nums =", nums);
 
-var nums1 = [4, 1, 3, 1, 5, 2]
-bubbleSortWithFlag(nums1)
-console.log("排序后数组 nums =", nums1)
+const nums1 = [4, 1, 3, 1, 5, 2];
+bubbleSortWithFlag(nums1);
+console.log("排序后数组 nums =", nums1);
