@@ -490,7 +490,7 @@ comments: true
     func medianThree(nums []int, left, mid, right int) int {
         if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
             return left
-        } else if (nums[mid] < nums[left]) != (nums[mid] > nums[right]) {
+        } else if (nums[mid] > nums[left]) != (nums[mid] > nums[right]) {
             return mid
         }
         return right
