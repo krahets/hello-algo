@@ -18,16 +18,16 @@ comments: true
 
 <div class="center-table" markdown>
 
-| 方法         | 描述             |
-| ------------ | ---------------- |
-| offerFirst() | 将元素添加至队首 |
-| offerLast()  | 将元素添加至队尾 |
-| pollFirst()  | 删除队首元素     |
-| pollLast()   | 删除队尾元素     |
-| peekFirst()  | 访问队首元素     |
-| peekLast()   | 访问队尾元素     |
-| size()       | 获取队列的长度   |
-| isEmpty()    | 判断队列是否为空 |
+| 方法         | 描述             | 时间复杂度 |
+| ------------ | ---------------- | ---------- |
+| offerFirst() | 将元素添加至队首 | $O(1)$     |
+| offerLast()  | 将元素添加至队尾 | $O(1)$     |
+| pollFirst()  | 删除队首元素     | $O(1)$     |
+| pollLast()   | 删除队尾元素     | $O(1)$     |
+| peekFirst()  | 访问队首元素     | $O(1)$     |
+| peekLast()   | 访问队尾元素     | $O(1)$     |
+| size()       | 获取队列的长度   | $O(1)$     |
+| isEmpty()    | 判断队列是否为空 | $O(1)$     |
 
 </div>
 
@@ -196,5 +196,29 @@ comments: true
 === "Swift"
 
     ```swift title="deque.swift"
+    /* 初始化双向队列 */
+    // Swift 没有内置的双向队列类，可以把 Array 当作双向队列来使用
+    var deque: [Int] = []
 
+    /* 元素入队 */
+    deque.append(2) // 添加至队尾
+    deque.append(5)
+    deque.append(4)
+    deque.insert(3, at: 0) // 添加至队首
+    deque.insert(1, at: 0)
+
+    /* 访问元素 */
+    let peekFirst = deque.first! // 队首元素
+    let peekLast = deque.last! // 队尾元素
+
+    /* 元素出队 */
+    // 使用 Array 模拟时 pollFirst 的复杂度为 O(n)
+    let pollFirst = deque.removeFirst() // 队首元素出队
+    let pollLast = deque.removeLast() // 队尾元素出队
+
+    /* 获取双向队列的长度 */
+    let size = deque.count
+
+    /* 判断双向队列是否为空 */
+    let isEmpty = deque.isEmpty
     ```

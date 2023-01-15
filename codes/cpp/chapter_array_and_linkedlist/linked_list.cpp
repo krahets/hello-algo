@@ -83,5 +83,8 @@ int main() {
     int index = find(n0, 2);
     cout << "链表中值为 2 的结点的索引 = " << index << endl;
 
+    // 释放内存
+    freeMemoryLinkedList(n0);
+
     return 0;
 }

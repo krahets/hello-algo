@@ -245,6 +245,8 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         for (int i = 0; i < size; i++) {
             res[i] = nums[i];
         }
+        // 释放内存
+        delete[] nums;
         // 返回扩展后的新数组
         return res;
     }

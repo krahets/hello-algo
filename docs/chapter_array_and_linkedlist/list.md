@@ -748,6 +748,11 @@ comments: true
             nums = new int[numsCapacity];
         }
 
+        /* 析构函数 */
+        ~MyList() {
+            delete[] nums;
+        }
+
         /* 获取列表长度（即当前元素数量）*/
         int size() {
             return numsSize;
@@ -818,14 +823,14 @@ comments: true
         void extendCapacity() {
             // 新建一个长度为 size * extendRatio 的数组，并将原数组拷贝到新数组
             int newCapacity = capacity() * extendRatio;
-            int* extend = new int[newCapacity];
+            int* tmp = nums;
+            nums = new int[newCapacity];
             // 将原数组中的所有元素复制到新数组
             for (int i = 0; i < size(); i++) {
-                extend[i] = nums[i];
+                nums[i] = tmp[i];
             }
-            int* temp = nums;
-            nums = extend;
-            delete[] temp;
+            // 释放内存
+            delete[] tmp;
             numsCapacity = newCapacity;
         }
     };

@@ -5,10 +5,10 @@
  */
 
 /**
-* 合并左子数组和右子数组
-* 左子数组区间 [left, mid]
-* 右子数组区间 [mid + 1, right]
-*/
+ * 合并左子数组和右子数组
+ * 左子数组区间 [left, mid]
+ * 右子数组区间 [mid + 1, right]
+ */
 function merge(nums, left, mid, right) {
     // 初始化辅助数组
     let tmp = nums.slice(left, right + 1);   
@@ -46,6 +46,6 @@ function mergeSort(nums, left, right) {
 }
 
 /* Driver Code */
-var nums = [ 7, 3, 2, 6, 0, 1, 5, 4 ]
+const nums = [ 7, 3, 2, 6, 0, 1, 5, 4 ]
 mergeSort(nums, 0, nums.length - 1)
-console.log("归并排序完成后 nums =", nums)
+console.log('归并排序完成后 nums =', nums)

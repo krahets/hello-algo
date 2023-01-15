@@ -21,6 +21,10 @@ public:
         nums = new int[capacity];
     }
 
+    ~ArrayQueue() {
+        delete[] nums;
+    }
+
     /* 获取队列的容量 */
     int capacity() {
         return cap;
@@ -116,6 +120,9 @@ int main() {
         cout << "第 " << i << " 轮入队 + 出队后 queue = ";
         PrintUtil::printVector(queue->toVector());
     }
+
+    // 释放内存
+    delete queue;
 
     return 0;
 }

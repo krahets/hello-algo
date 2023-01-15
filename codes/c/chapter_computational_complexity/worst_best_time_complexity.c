@@ -49,6 +49,5 @@ int main(int argc, char *argv[]) {
             nums = NULL;
         }
     }
-    getchar();
     return 0;
 }

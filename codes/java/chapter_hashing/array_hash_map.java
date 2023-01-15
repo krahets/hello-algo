@@ -5,6 +5,7 @@
  */
 
 package chapter_hashing;
+
 import java.util.*;
 
 /* 键值对 int->String */
