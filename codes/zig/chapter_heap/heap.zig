@@ -18,13 +18,13 @@ fn testPush(comptime T: type, mem_allocator: std.mem.Allocator, heap_push: anyty
     var heap = heap_push;
     try heap.add(val);  //元素入堆
     std.debug.print("\n元素 {} 入堆后\n", .{val});
-    try inc.PrintUtil.printHeap(T, mem_allocator, heap);
+    try inc.PrintUtil.printHeap(T, mem_allocator, heap, true);
 }
 
 fn testPop(comptime T: type, mem_allocator: std.mem.Allocator, heap_pop: anytype) !void {
     var val = heap_pop.remove();    //堆顶元素出堆
     std.debug.print("\n堆顶元素 {} 出堆后\n", .{val});
-    try inc.PrintUtil.printHeap(T, mem_allocator, heap_pop);
+    try inc.PrintUtil.printHeap(T, mem_allocator, heap_pop, true);
 }
 
 // Driver Code
@@ -74,11 +74,10 @@ pub fn main() !void {
 
     // 输入列表并建堆
     // 时间复杂度为 O(n) ，而非 O(nlogn)
-    try minHeap.addSlice(&[_]i32{ 1, 3, 2, 5, 4 });
+    try minHeap.addSlice(&[_]i32{ 1, 3, 2, 5, 4, 8, 9 });
     std.debug.print("\n输入列表并建立小顶堆后\n", .{});
-    try inc.PrintUtil.printHeap(i32, mem_allocator, minHeap);
+    try inc.PrintUtil.printHeap(i32, mem_allocator, minHeap, true);
 
     const getchar = try std.io.getStdIn().reader().readByte();
     _ = getchar;
 }
-
