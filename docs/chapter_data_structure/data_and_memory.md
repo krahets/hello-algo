@@ -92,9 +92,9 @@ comments: true
 
     ```typescript title=""
     /* 使用多种「基本数据类型」来初始化「数组」 */
-    const numbers: number = []
-    const characters: string = []
-    const booleans: boolean = []
+    const numbers: number[] = []
+    const characters: string[] = []
+    const booleans: boolean[] = []
     ```
 
 === "C"
