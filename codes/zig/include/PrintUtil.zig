@@ -65,7 +65,7 @@ pub fn printHeap(comptime T: type, mem_allocator: std.mem.Allocator, queue: anyt
     std.debug.print("堆的数组表示：", .{});
     printArray(T, arr[0..len]);
     std.debug.print("\n堆的树状表示：\n", .{});
-    var root =  try TreeUtil.arrToTree(T, mem_allocator, arr[0..len]);    // through TailQueue
+    var root =  try TreeUtil.arrToTree(T, mem_allocator, arr[0..len]);
     try printTree(root, null, false);
 }
 
