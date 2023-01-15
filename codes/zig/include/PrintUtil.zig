@@ -59,16 +59,13 @@ pub fn printHashMap(comptime TKey: type, comptime TValue: type, map: std.AutoHas
 }
 
 // print a heap (PriorityQueue)
-pub fn printHeap(comptime T: type, mem_allocator: std.mem.Allocator, queue: anytype, queue_flag: bool) !void {
+pub fn printHeap(comptime T: type, mem_allocator: std.mem.Allocator, queue: anytype) !void {
     var arr = queue.items;
     var len = queue.len;
     std.debug.print("堆的数组表示：", .{});
     printArray(T, arr[0..len]);
     std.debug.print("\n堆的树状表示：\n", .{});
-    var root =  if (queue_flag) 
-                    try TreeUtil.arrQueToTree(T, mem_allocator, arr[0..len])    // through TailQueue
-                else 
-                    try TreeUtil.arrListToTree(T, mem_allocator, arr[0..len]);  // through ArrayList to work as queue
+    var root =  try TreeUtil.arrQueToTree(T, mem_allocator, arr[0..len]);    // through TailQueue
     try printTree(root, null, false);
 }
 

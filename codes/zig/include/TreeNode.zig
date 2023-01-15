@@ -23,36 +23,6 @@ pub fn TreeNode(comptime T: type) type {
     };   
 }
 
-// Generate a binary tree with an array (through ArrayList to work as queue)
-pub fn arrListToTree(comptime T: type, mem_allocator: std.mem.Allocator, arr: []T) !?*TreeNode(T) {
-    if (arr.len == 0) return null;
-    var root = try mem_allocator.create(TreeNode(T));
-    root.init(arr[0]);
-    var list = std.ArrayList(*TreeNode(T)).init(std.heap.page_allocator);
-    try list.append(root); 
-    var index: usize = 0;
-    while (list.items.len > 0) {
-        var node = list.orderedRemove(0);
-        index += 1;
-        if (index >= arr.len) break;
-        if (index < arr.len) {
-            var tmp = try mem_allocator.create(TreeNode(T));
-            tmp.init(arr[index]);
-            node.left = tmp;
-            try list.append(node.left.?);
-        }
-        index += 1;
-        if (index >= arr.len) break;
-        if (index < arr.len) {
-            var tmp = try mem_allocator.create(TreeNode(T));
-            tmp.init(arr[index]);
-            node.right = tmp;
-            try list.append(node.right.?);
-        }
-    }
-    return root;
-}
-
 // Generate a binary tree with an array (through TailQueue)
 pub fn arrQueToTree(comptime T: type, mem_allocator: std.mem.Allocator, arr: []T) !?*TreeNode(T) {
     if (arr.len == 0) return null;
