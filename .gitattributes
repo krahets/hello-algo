@@ -1,0 +1,8 @@
+*.java linguist-language=Java
+*.py linguist-language=Python
+*.cpp linguist-language=C++
+*.go linguist-language=Go
+
+*.cs linguist-language=Other
+*.zig linguist-language=Other
+*.rust linguist-language=Other
