@@ -4,11 +4,6 @@
  * Author: xBLACICEx (xBLACKICEx@outlook.com)
  */
 
-// rand = "0.8.5"
-// to compilse and run this singile file need:
-// 1. cargo install cargo-single
-// 2. cargo single run worst_best_time_complexity.rs
-
 use rand::seq::SliceRandom;
 use rand::thread_rng;
 
