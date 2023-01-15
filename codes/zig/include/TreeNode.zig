@@ -23,8 +23,8 @@ pub fn TreeNode(comptime T: type) type {
     };   
 }
 
-// Generate a binary tree with an array (through TailQueue)
-pub fn arrQueToTree(comptime T: type, mem_allocator: std.mem.Allocator, arr: []T) !?*TreeNode(T) {
+// Generate a binary tree with an array
+pub fn arrToTree(comptime T: type, mem_allocator: std.mem.Allocator, arr: []T) !?*TreeNode(T) {
     if (arr.len == 0) return null;
     var root = try mem_allocator.create(TreeNode(T));
     root.init(arr[0]);
