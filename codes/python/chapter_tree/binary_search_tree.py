@@ -94,9 +94,9 @@ class BinarySearchTree:
             if cur.val == num:
                 break
             pre = cur
-            if cur.val < num:  # 待删除结点在 root 的右子树中
+            if cur.val < num:  # 待删除结点在 cur 的右子树中
                 cur = cur.right
-            else:  # 待删除结点在 root 的左子树中
+            else:  # 待删除结点在 cur 的左子树中
                 cur = cur.left
 
         # 若无待删除结点，则直接返回

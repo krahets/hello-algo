@@ -479,9 +479,9 @@ comments: true
             // 找到待删除结点，跳出循环
             if (cur.val == num) break;
             pre = cur;
-            // 待删除结点在 root 的右子树中
+            // 待删除结点在 cur 的右子树中
             if (cur.val < num) cur = cur.right;
-            // 待删除结点在 root 的左子树中
+            // 待删除结点在 cur 的左子树中
             else cur = cur.left;
         }
         // 若无待删除结点，则直接返回
@@ -523,9 +523,9 @@ comments: true
             // 找到待删除结点，跳出循环
             if (cur->val == num) break;
             pre = cur;
-            // 待删除结点在 root 的右子树中
+            // 待删除结点在 cur 的右子树中
             if (cur->val < num) cur = cur->right;
-            // 待删除结点在 root 的左子树中
+            // 待删除结点在 cur 的左子树中
             else cur = cur->left;
         }
         // 若无待删除结点，则直接返回
@@ -571,9 +571,9 @@ comments: true
             if cur.val == num:
                 break
             pre = cur
-            if cur.val < num:  # 待删除结点在 root 的右子树中
+            if cur.val < num:  # 待删除结点在 cur 的右子树中
                 cur = cur.right
-            else:  # 待删除结点在 root 的左子树中
+            else:  # 待删除结点在 cur 的左子树中
                 cur = cur.left
 
         # 若无待删除结点，则直接返回
@@ -673,9 +673,9 @@ comments: true
             // 找到待删除结点，跳出循环
             if (cur.val === num) break;
             pre = cur;
-            // 待删除结点在 root 的右子树中
+            // 待删除结点在 cur 的右子树中
             if (cur.val < num) cur = cur.right;
-            // 待删除结点在 root 的左子树中
+            // 待删除结点在 cur 的左子树中
             else cur = cur.left;
         }
         // 若无待删除结点，则直接返回
@@ -721,9 +721,9 @@ comments: true
             }
             pre = cur;
             if (cur.val < num) {
-                cur = cur.right as TreeNode; // 待删除结点在 root 的右子树中
+                cur = cur.right as TreeNode; // 待删除结点在 cur 的右子树中
             } else {
-                cur = cur.left as TreeNode; // 待删除结点在 root 的左子树中
+                cur = cur.left as TreeNode; // 待删除结点在 cur 的左子树中
             }
         }
         // 若无待删除结点，则直接返回
@@ -776,9 +776,9 @@ comments: true
             // 找到待删除结点，跳出循环
             if (cur.val == num) break;
             pre = cur;
-            // 待删除结点在 root 的右子树中
+            // 待删除结点在 cur 的右子树中
             if (cur.val < num) cur = cur.right;
-            // 待删除结点在 root 的左子树中
+            // 待删除结点在 cur 的左子树中
             else cur = cur.left;
         }
         // 若无待删除结点，则直接返回
