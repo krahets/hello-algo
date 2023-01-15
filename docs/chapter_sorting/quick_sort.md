@@ -16,20 +16,28 @@ comments: true
 
 === "Step 1"
     ![pivot_division_step1](quick_sort.assets/pivot_division_step1.png)
+
 === "Step 2"
     ![pivot_division_step2](quick_sort.assets/pivot_division_step2.png)
+
 === "Step 3"
     ![pivot_division_step3](quick_sort.assets/pivot_division_step3.png)
+
 === "Step 4"
     ![pivot_division_step4](quick_sort.assets/pivot_division_step4.png)
+
 === "Step 5"
     ![pivot_division_step5](quick_sort.assets/pivot_division_step5.png)
+
 === "Step 6"
     ![pivot_division_step6](quick_sort.assets/pivot_division_step6.png)
+
 === "Step 7"
     ![pivot_division_step7](quick_sort.assets/pivot_division_step7.png)
+
 === "Step 8"
     ![pivot_division_step8](quick_sort.assets/pivot_division_step8.png)
+
 === "Step 9"
     ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png)
 
@@ -220,7 +228,6 @@ comments: true
         swap(nums, i, left);  // 将基准数交换至两子数组的分界线
         return i;             // 返回基准数的索引
     }
-
     ```
 
 === "Swift"
@@ -408,7 +415,7 @@ comments: true
     int medianThree(int[] nums, int left, int mid, int right) {
         // 使用了异或操作来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] > nums[mid]) ^ (nums[left] > nums[right]))
+        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
             return left;
         else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
             return mid;
@@ -434,7 +441,7 @@ comments: true
     int medianThree(vector<int>& nums, int left, int mid, int right) {
         // 使用了异或操作来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] > nums[mid]) ^ (nums[left] > nums[right]))
+        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
             return left;
         else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
             return mid;
@@ -460,7 +467,7 @@ comments: true
     def median_three(self, nums, left, mid, right):
         # 使用了异或操作来简化代码
         # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if (nums[left] > nums[mid]) ^ (nums[left] > nums[right]):
+        if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]):
             return left
         elif (nums[mid] < nums[left]) ^ (nums[mid] > nums[right]):
             return mid
@@ -481,7 +488,7 @@ comments: true
     ```go title="quick_sort.go"
     /* 选取三个元素的中位数 */
     func medianThree(nums []int, left, mid, right int) int {
-        if (nums[left] > nums[mid]) != (nums[left] > nums[right]) {
+        if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
             return left
         } else if (nums[mid] < nums[left]) != (nums[mid] > nums[right]) {
             return mid
@@ -507,7 +514,7 @@ comments: true
     function medianThree(nums, left, mid, right) {
         // 使用了异或操作来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] > nums[mid]) ^ (nums[left] > nums[right]))
+        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
             return left;
         else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
             return mid;
@@ -533,7 +540,7 @@ comments: true
     function medianThree(nums: number[], left: number, mid: number, right: number): number {
         // 使用了异或操作来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if (Number(nums[left] > nums[mid]) ^ Number(nums[left] > nums[right])) {
+        if (Number(nums[left] < nums[mid]) ^ Number(nums[left] < nums[right])) {
             return left;
         } else if (Number(nums[mid] < nums[left]) ^ Number(nums[mid] < nums[right])) {
             return mid;
@@ -566,7 +573,7 @@ comments: true
     {
         // 使用了异或操作来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] > nums[mid]) ^ (nums[left] > nums[right]))
+        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
             return left;
         else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
             return mid;

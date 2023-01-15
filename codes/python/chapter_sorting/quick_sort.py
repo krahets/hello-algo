@@ -42,7 +42,7 @@ class QuickSortMedian:
     def median_three(self, nums, left, mid, right):
         # 使用了异或操作来简化代码
         # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if (nums[left] > nums[mid]) ^ (nums[left] > nums[right]):
+        if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]):
             return left
         elif (nums[mid] < nums[left]) ^ (nums[mid] > nums[right]):
             return mid
