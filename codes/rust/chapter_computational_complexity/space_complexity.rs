@@ -1,9 +1,9 @@
-#![allow(unused_variables)]
 /**
- * File: space_complexity.cpp
+ * File: space_complexity.rs
  * Created Time: 2023-01-13
- * Author: xBLACICEx (xBLACKICEx@outlook.com )
+ * Author: xBLACICEx (xBLACKICEx@outlook.com)
 */
+#[allow(unused_variables)]
 
 use std::collections::HashMap;
 

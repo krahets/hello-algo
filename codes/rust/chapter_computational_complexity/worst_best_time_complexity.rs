@@ -1,10 +1,10 @@
-//   rand = "0.8.5"
 /**
- * File: time_complexity.cpp
+ * File: time_complexity.rs
  * Created Time: 2023-01-13
- * Author: xBLACICEx (xBLACKICEx@outlook.com )
+ * Author: xBLACICEx (xBLACKICEx@outlook.com)
  */
 
+// rand = "0.8.5"
 // to compilse and run this singile file need:
 // 1. cargo install cargo-single
 // 2. cargo single run worst_best_time_complexity.rs

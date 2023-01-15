@@ -1,7 +1,7 @@
 /**
  * File: leetcode_two_sum.rs
  * Created Time: 2023-01-14
- * Author: xBLACICEx (xBLACKICEx@outlook.com )
+ * Author: xBLACICEx (xBLACKICEx@outlook.com)
 */
 
 use std::collections::HashMap;

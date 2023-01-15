@@ -1,9 +1,9 @@
-#![allow(unused_variables)]
 /**
- * File: time_complexity.cpp
+ * File: time_complexity.rs
  * Created Time: 2023-01-10
- * Author: xBLACICEx (xBLACKICEx@outlook.com )
+ * Author: xBLACICEx (xBLACKICEx@outlook.com)
 */
+#[allow(unused_variables)]
 
 /* 常数阶 */
 fn constant(n: i32) -> i32 {
@@ -98,6 +98,7 @@ fn logarithmic(mut n: i32) -> i32 {
     count
 }
 
+/* 对数阶（递归实现） */
 fn log_recur(n: i32) -> i32 {
     if n <= 1 {
         return 0;
