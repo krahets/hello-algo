@@ -21,18 +21,22 @@ void merge(int nums[], int left, int mid, int right) {
     int i = left, j = mid + 1; 
     // 通过覆盖原数组 nums 来合并左子数组和右子数组
     for (int k = left; k <= right; k++) {
+        // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
         if (i > mid) {
             nums[k] = tmp[j - left];
             j++;
         }
+        // 若“右子数组已全部合并完”，则选取左子数组元素，并且 i++
         else if (j > right) {
             nums[k] = tmp[i - left];
             i++;
         }
+        //若“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
         else if (tmp[i - left] < tmp[j - left]) {
             nums[k] = tmp[i - left];
             i++;
         }
+        // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
         else {
             nums[k] = tmp[j - left];
             j++;
