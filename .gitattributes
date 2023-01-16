@@ -8,7 +8,7 @@
 *.ts linguist-language=JavaScript
 *.swift linguist-language=Swift
 
-*.zig linguist-language=Other
+*.zig linguist-language=Zig
 *.rs linguist-language=Other
 
 *.html linguist-detectable=false
