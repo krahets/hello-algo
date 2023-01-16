@@ -7,7 +7,7 @@ const inc = @import("include");
 
 // 堆类简易实现
 // 编译期泛型
-pub fn MyMaxHeap(comptime T: type) type {
+pub fn MaxHeap(comptime T: type) type {
     return struct {
         const Self = @This();
         
@@ -17,7 +17,7 @@ pub fn MyMaxHeap(comptime T: type) type {
         pub fn init(self: *Self, allocator: std.mem.Allocator, nums: []const T) !void {
             if (self.maxHeap != null) return;
             self.maxHeap = std.ArrayList(T).init(allocator);
-            // 所有元素入堆
+            // 将列表元素原封不动添加进堆
             try self.maxHeap.?.appendSlice(nums);
             // 堆化除叶结点以外的其他所有结点
             var i: usize = parent(self.size() - 1) + 1;
@@ -155,7 +155,7 @@ pub fn main() !void {
     const mem_allocator = mem_arena.allocator();
 
     // 初始化大顶堆
-    var maxHeap = MyMaxHeap(i32){};
+    var maxHeap = MaxHeap(i32){};
     try maxHeap.init(std.heap.page_allocator, &[_]i32{ 9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2 });
     defer maxHeap.deinit();
     std.debug.print("\n输入列表并建堆后\n", .{});
