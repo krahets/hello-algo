@@ -53,11 +53,11 @@ TreeNode *search(binarySearchTree *bst, int num) {
     TreeNode *cur = bst->root;
     // 循环查找，越过叶结点后跳出
     while (cur != NULL) {
-        // 目标结点在 root 的右子树中
         if (cur->val < num) {
+            // 目标结点在 cur 的右子树中
             cur = cur->right;
         } else if (cur->val > num) {
-            // 目标结点在 root 的左子树中
+            // 目标结点在 cur 的左子树中
             cur = cur->left;
         } else {
             // 找到目标结点，跳出循环
@@ -81,10 +81,10 @@ TreeNode *insert(binarySearchTree *bst, int num) {
         }
         pre = cur;
         if (cur->val < num) {
-            // 插入位置在 root 的右子树中
+            // 插入位置在 cur 的右子树中
             cur = cur->right;
         } else {
-            // 插入位置在 root 的左子树中
+            // 插入位置在 cur 的左子树中
             cur = cur->left;
         }
     }

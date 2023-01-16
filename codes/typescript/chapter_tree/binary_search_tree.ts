@@ -40,9 +40,9 @@ function search(num: number): TreeNode | null {
     // 循环查找，越过叶结点后跳出
     while (cur !== null) {
         if (cur.val < num) {
-            cur = cur.right; // 目标结点在 root 的右子树中
+            cur = cur.right; // 目标结点在 cur 的右子树中
         } else if (cur.val > num) {
-            cur = cur.left; // 目标结点在 root 的左子树中
+            cur = cur.left; // 目标结点在 cur 的左子树中
         } else {
             break; // 找到目标结点，跳出循环
         }
@@ -66,9 +66,9 @@ function insert(num: number): TreeNode | null {
         }
         pre = cur;
         if (cur.val < num) {
-            cur = cur.right as TreeNode; // 插入位置在 root 的右子树中
+            cur = cur.right as TreeNode; // 插入位置在 cur 的右子树中
         } else {
-            cur = cur.left as TreeNode; // 插入位置在 root 的左子树中
+            cur = cur.left as TreeNode; // 插入位置在 cur 的左子树中
         }
     }
     // 插入结点 val
