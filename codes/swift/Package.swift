@@ -19,6 +19,7 @@ let package = Package(
         .executable(name: "queue", targets: ["queue"]),
         .executable(name: "linkedlist_queue", targets: ["linkedlist_queue"]),
         .executable(name: "array_queue", targets: ["array_queue"]),
+        .executable(name: "deque", targets: ["deque"]),
     ],
     targets: [
         .target(name: "utils", path: "utils"),
@@ -36,5 +37,6 @@ let package = Package(
         .executableTarget(name: "queue", path: "chapter_stack_and_queue", sources: ["queue.swift"]),
         .executableTarget(name: "linkedlist_queue", dependencies: ["utils"], path: "chapter_stack_and_queue", sources: ["linkedlist_queue.swift"]),
         .executableTarget(name: "array_queue", path: "chapter_stack_and_queue", sources: ["array_queue.swift"]),
+        .executableTarget(name: "deque", path: "chapter_stack_and_queue", sources: ["deque.swift"]),
     ]
 )

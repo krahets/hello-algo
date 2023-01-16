@@ -97,9 +97,9 @@ function remove(num: number): TreeNode | null {
         }
         pre = cur;
         if (cur.val < num) {
-            cur = cur.right as TreeNode; // 待删除结点在 root 的右子树中
+            cur = cur.right as TreeNode; // 待删除结点在 cur 的右子树中
         } else {
-            cur = cur.left as TreeNode; // 待删除结点在 root 的左子树中
+            cur = cur.left as TreeNode; // 待删除结点在 cur 的左子树中
         }
     }
     // 若无待删除结点，则直接返回

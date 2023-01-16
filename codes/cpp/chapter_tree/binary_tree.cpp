@@ -37,5 +37,8 @@ int main() {
     cout << endl << "删除结点 P 后\n" << endl;
     PrintUtil::printTree(n1);
 
+    // 释放内存
+    freeMemoryTree(n1);
+
     return 0;
 }

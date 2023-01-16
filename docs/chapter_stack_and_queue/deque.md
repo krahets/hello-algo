@@ -196,5 +196,29 @@ comments: true
 === "Swift"
 
     ```swift title="deque.swift"
-    
+    /* 初始化双向队列 */
+    // Swift 没有内置的双向队列类，可以把 Array 当作双向队列来使用
+    var deque: [Int] = []
+
+    /* 元素入队 */
+    deque.append(2) // 添加至队尾
+    deque.append(5)
+    deque.append(4)
+    deque.insert(3, at: 0) // 添加至队首
+    deque.insert(1, at: 0)
+
+    /* 访问元素 */
+    let peekFirst = deque.first! // 队首元素
+    let peekLast = deque.last! // 队尾元素
+
+    /* 元素出队 */
+    // 使用 Array 模拟时 pollFirst 的复杂度为 O(n)
+    let pollFirst = deque.removeFirst() // 队首元素出队
+    let pollLast = deque.removeLast() // 队尾元素出队
+
+    /* 获取双向队列的长度 */
+    let size = deque.count
+
+    /* 判断双向队列是否为空 */
+    let isEmpty = deque.isEmpty
     ```

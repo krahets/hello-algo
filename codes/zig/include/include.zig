@@ -3,5 +3,7 @@
 // Author: sjinzh (sjinzh@gmail.com)
 
 pub const PrintUtil = @import("PrintUtil.zig");
-pub const ListNode = @import("ListNode.zig").ListNode;
-pub const TreeNode = @import("TreeNode.zig").TreeNode;
+pub const ListUtil = @import("ListNode.zig");
+pub const ListNode = ListUtil.ListNode;
+pub const TreeUtil = @import("TreeNode.zig");
+pub const TreeNode = TreeUtil.TreeNode;

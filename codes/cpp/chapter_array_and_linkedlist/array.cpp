@@ -23,6 +23,8 @@ int* extend(int* nums, int size, int enlarge) {
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
     }
+    // 释放内存
+    delete[] nums;
     // 返回扩展后的新数组
     return res;
 }
@@ -82,10 +84,7 @@ int main() {
     
     /* 长度扩展 */
     int enlarge = 3;
-    int* res = extend(nums, size, enlarge);
-    int* temp = nums;
-    nums = res;
-    delete[] temp;
+    nums = extend(nums, size, enlarge);
     size += enlarge;
     cout << "将数组长度扩展至 8 ，得到 nums = ";
     PrintUtil::printArray(nums, size);
@@ -106,6 +105,10 @@ int main() {
     /* 查找元素 */
     int index = find(nums, size, 3);
     cout << "在 nums 中查找元素 3 ，得到索引 = " << index << endl;
+
+    // 释放内存
+    delete[] arr;
+    delete[] nums;
 
     return 0;
 }

@@ -606,6 +606,7 @@ comments: true
         // 判空处理
         if h.isEmpty() {
             fmt.Println("error")
+			return nil
         }
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
         h.swap(0, h.size()-1)

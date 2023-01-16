@@ -19,6 +19,11 @@ public:
         queSize = 0;
     }
 
+    ~LinkedListQueue() {
+        delete front;
+        delete rear;
+    }
+
     /* 获取队列的长度 */
     int size() {
         return queSize;
@@ -107,6 +112,9 @@ int main() {
     /* 判断队列是否为空 */
     bool empty = queue->empty();
     cout << "队列是否为空 = " << empty << endl;
+
+    // 释放内存
+    delete queue;
 
     return 0;
 }
