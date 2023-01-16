@@ -17,6 +17,10 @@ public:
         root = buildTree(nums, 0, nums.size() - 1);  // 构建二叉搜索树
     }
 
+    ~BinarySearchTree() {
+        freeMemoryTree(root);
+    }
+
     /* 获取二叉树根结点 */
     TreeNode* getRoot() {
         return root;
@@ -82,9 +86,9 @@ public:
             // 找到待删除结点，跳出循环
             if (cur->val == num) break;
             pre = cur;
-            // 待删除结点在 root 的右子树中
+            // 待删除结点在 cur 的右子树中
             if (cur->val < num) cur = cur->right;
-            // 待删除结点在 root 的左子树中
+            // 待删除结点在 cur 的左子树中
             else cur = cur->left;
         }
         // 若无待删除结点，则直接返回
@@ -151,6 +155,9 @@ int main() {
     bst->remove(4);
     cout << endl << "删除结点 4 后，二叉树为\n" << endl;
     PrintUtil::printTree(bst->getRoot());
+
+    // 释放内存
+    delete bst;
 
     return 0;
 }

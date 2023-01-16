@@ -24,7 +24,7 @@ func newHeap() *maxHeap {
 
 /* 构造函数，根据切片建堆 */
 func newMaxHeap(nums []any) *maxHeap {
-	// 所有元素入堆
+	// 将列表元素原封不动添加进堆
 	h := &maxHeap{data: nums}
 	for i := len(h.data) - 1; i >= 0; i-- {
 		// 堆化除叶结点以外的其他所有结点
@@ -98,6 +98,7 @@ func (h *maxHeap) poll() any {
 	// 判空处理
 	if h.isEmpty() {
 		fmt.Println("error")
+		return nil
 	}
 	// 交换根结点与最右叶结点（即交换首元素与尾元素）
 	h.swap(0, h.size()-1)

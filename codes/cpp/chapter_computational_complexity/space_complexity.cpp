@@ -18,7 +18,7 @@ void constant(int n) {
     const int a = 0;
     int b = 0;
     vector<int> nums(10000);
-    ListNode* node = new ListNode(0);
+    ListNode node(0);
     // 循环中的变量占用 O(1) 空间
     for (int i = 0; i < n; i++) {
         int c = 0;
@@ -34,9 +34,9 @@ void linear(int n) {
     // 长度为 n 的数组占用 O(n) 空间
     vector<int> nums(n);
     // 长度为 n 的列表占用 O(n) 空间
-    vector<ListNode*> nodes;
+    vector<ListNode> nodes;
     for (int i = 0; i < n; i++) {
-        nodes.push_back(new ListNode(i));
+        nodes.push_back(ListNode(i));
     }
     // 长度为 n 的哈希表占用 O(n) 空间
     unordered_map<int, string> map;
@@ -97,6 +97,9 @@ int main() {
     // 指数阶
     TreeNode* root = buildTree(n);
     PrintUtil::printTree(root);
+
+    // 释放内存
+    freeMemoryTree(root);
 
     return 0;
 }

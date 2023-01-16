@@ -20,7 +20,7 @@ class MaxHeap {
 
     /* 构造函数，根据输入列表建堆 */
     public MaxHeap(List<Integer> nums) {
-        // 所有元素入堆
+        // 将列表元素原封不动添加进堆
         maxHeap = new ArrayList<>(nums);
         // 堆化除叶结点以外的其他所有结点
         for (int i = parent(size() - 1); i >= 0; i--) {

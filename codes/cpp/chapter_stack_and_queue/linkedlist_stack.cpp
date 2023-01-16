@@ -18,6 +18,10 @@ public:
         stkSize = 0;
     }
 
+    ~LinkedListStack() {
+        freeMemoryLinkedList(stackTop);
+    }
+
     /* 获取栈的长度 */
     int size() {
         return stkSize;
@@ -96,6 +100,9 @@ int main() {
     /* 判断是否为空 */
     bool empty = stack->empty();
     cout << "栈是否为空 = " << empty << endl;
+
+    // 释放内存
+    delete stack;
 
     return 0;
 }

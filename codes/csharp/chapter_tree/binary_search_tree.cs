@@ -94,9 +94,9 @@ namespace hello_algo.chapter_tree
                 // 找到待删除结点，跳出循环
                 if (cur.val == num) break;
                 pre = cur;
-                // 待删除结点在 root 的右子树中
+                // 待删除结点在 cur 的右子树中
                 if (cur.val < num) cur = cur.right;
-                // 待删除结点在 root 的左子树中
+                // 待删除结点在 cur 的左子树中
                 else cur = cur.left;
             }
             // 若无待删除结点，则直接返回

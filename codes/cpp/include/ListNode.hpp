@@ -48,3 +48,18 @@ ListNode* getListNode(ListNode *head, int val) {
     }
     return head;
 }
+
+/**
+ * @brief Free the memory allocated to a linked list
+ * 
+ * @param cur 
+ */
+void freeMemoryLinkedList(ListNode *cur) {
+    // 释放内存
+    ListNode *pre;
+    while (cur != nullptr) {
+        pre = cur;
+        cur = cur->next;
+        delete pre;
+    }
+}

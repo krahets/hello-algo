@@ -68,3 +68,16 @@ TreeNode *getTreeNode(TreeNode *root, int val) {
     TreeNode *right = getTreeNode(root->right, val);
     return left != nullptr ? left : right;
 }
+
+/**
+ * @brief Free the memory allocated to a tree
+ * 
+ * @param root 
+ */
+void freeMemoryTree(TreeNode *root) {
+    if (root == nullptr) return;
+    freeMemoryTree(root->left);    
+    freeMemoryTree(root->right);
+    // 释放内存
+    delete root;    
+}
