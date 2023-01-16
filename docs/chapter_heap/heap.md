@@ -710,10 +710,10 @@ comments: true
     ```go title="my_heap.go"
     /* 构造函数，根据切片建堆 */
     func newMaxHeap(nums []any) *maxHeap {
-        // 所有元素入堆
+        // 将列表元素原封不动添加进堆
         h := &maxHeap{data: nums}
+        // 堆化除叶结点以外的其他所有结点
         for i := len(h.data) - 1; i >= 0; i-- {
-            // 堆化除叶结点以外的其他所有结点
             h.siftDown(i)
         }
         return h
