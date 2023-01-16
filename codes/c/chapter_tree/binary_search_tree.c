@@ -54,11 +54,15 @@ TreeNode *search(binarySearchTree *bst, int num) {
     // 循环查找，越过叶结点后跳出
     while (cur != NULL) {
         // 目标结点在 root 的右子树中
-        if (cur->val < num) cur = cur->right;
+        if (cur->val < num) {
+            cur = cur->right;
+        } else if (cur->val > num) {
             // 目标结点在 root 的左子树中
-        else if (cur->val > num) cur = cur->left;
+            cur = cur->left;
+        } else {
             // 找到目标结点，跳出循环
-        else break;
+            break;
+        }
     }
     // 返回目标结点
     return cur;
@@ -72,17 +76,25 @@ TreeNode *insert(binarySearchTree *bst, int num) {
     // 循环查找，越过叶结点后跳出
     while (cur != NULL) {
         // 找到重复结点，直接返回
-        if (cur->val == num) return NULL;
+        if (cur->val == num) {
+            return NULL;
+        }
         pre = cur;
-        // 插入位置在 root 的右子树中
-        if (cur->val < num) cur = cur->right;
+        if (cur->val < num) {
+            // 插入位置在 root 的右子树中
+            cur = cur->right;
+        } else {
             // 插入位置在 root 的左子树中
-        else cur = cur->left;
+            cur = cur->left;
+        }
     }
     // 插入结点 val
     TreeNode *node = newTreeNode(num);
-    if (pre->val < num) pre->right = node;
-    else pre->left = node;
+    if (pre->val < num) {
+        pre->right = node;
+    } else {
+        pre->left = node;
+    }
     return node;
 }
 
@@ -97,6 +109,7 @@ TreeNode *getInOrderNext(TreeNode *root) {
 }
 
 /* 删除结点 */
+// 由于引入了 stdio.h ，此处无法使用 remove 关键词
 TreeNode *removeNode(binarySearchTree *bst, int num) {
     // 若树为空，直接提前返回
     if (bst->root == NULL) return NULL;
@@ -106,23 +119,31 @@ TreeNode *removeNode(binarySearchTree *bst, int num) {
         // 找到待删除结点，跳出循环
         if (cur->val == num) break;
         pre = cur;
-        // 待删除结点在 root 的右子树中
-        if (cur->val < num) cur = cur->right;
+        if (cur->val < num) {
+            // 待删除结点在 root 的右子树中
+            cur = cur->right;
+        } else {
             // 待删除结点在 root 的左子树中
-        else cur = cur->left;
+            cur = cur->left;
+        }
     }
     // 若无待删除结点，则直接返回
-    if (cur == NULL) return NULL;
-    // 子结点数量 = 0 or 1
+    if (cur == NULL) {
+        return NULL;
+    }
+    // 判断待删除结点是否存在子结点
     if (cur->left == NULL || cur->right == NULL) {
+        /* 子结点数量 = 0 or 1 */
         // 当子结点数量 = 0 / 1 时， child = nullptr / 该子结点
         TreeNode *child = cur->left != NULL ? cur->left : cur->right;
         // 删除结点 cur
-        if (pre->left == cur) pre->left = child;
-        else pre->right = child;
-    }
-        // 子结点数量 = 2
-    else {
+        if (pre->left == cur) {
+            pre->left = child;
+        } else {
+            pre->right = child;
+        }
+    } else {
+        /* 子结点数量 = 2 */
         // 获取中序遍历中 cur 的下一个结点
         TreeNode *nex = getInOrderNext(cur->right);
         int tmp = nex->val;
