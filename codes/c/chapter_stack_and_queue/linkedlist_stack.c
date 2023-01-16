@@ -20,6 +20,16 @@ void newLinkedListStack(LinkedListStack* stk) {
     stk->size = 0;
 }
 
+/* 析构函数 */
+void delLinkedListStack(LinkedListStack* stk) {
+    while(stk->stackTop) {
+        ListNode *n = stk->stackTop->next;
+        free(stk->stackTop);
+        stk->stackTop = n;
+    }
+    stk->size = 0;
+}
+
 /* 获取栈的长度 */
 int size(LinkedListStack* stk) {
     assert(stk);
@@ -64,6 +74,7 @@ void pop(LinkedListStack* stk) {
 int main() {
     /* 初始化栈 */
     LinkedListStack stack;
+    /* 构造函数 */
     newLinkedListStack(&stack);
 
     /* 元素入栈 */
@@ -93,5 +104,7 @@ int main() {
     bool isEmpty = empty(&stack);
     printf("栈是否为空 = %s\r\n", isEmpty ? "yes" : "no");
 
+    /* 析构函数 */
+    delLinkedListStack(&stack);
     return 0;
 }
