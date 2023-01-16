@@ -137,7 +137,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     """ 随机访问元素 """
     def randomAccess(nums):
         # 在区间 [0, len(nums)) 中随机抽取一个数字
-        random_index = random.randint(0, len(nums))
+        random_index = random.randint(0, len(nums)-1)
         # 获取并返回随机元素
         random_num = nums[random_index]
         return random_num
