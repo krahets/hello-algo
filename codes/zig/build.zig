@@ -201,7 +201,20 @@ pub fn build(b: *std.build.Builder) void {
         if (b.args) |args| run_cmd_heap.addArgs(args);
         const run_step_heap = b.step("run_heap", "Run heap");
         run_step_heap.dependOn(&run_cmd_heap.step);
-             
+
+        // Source File: "chapter_heap/my_heap.zig"
+        // Run Command: zig build run_my_heap
+        const exe_my_heap = b.addExecutable("my_heap", "chapter_heap/my_heap.zig");
+        exe_my_heap.addPackagePath("include", "include/include.zig");
+        exe_my_heap.setTarget(target);
+        exe_my_heap.setBuildMode(mode);
+        exe_my_heap.install();
+        const run_cmd_my_heap = exe_my_heap.run();
+        run_cmd_my_heap.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_my_heap.addArgs(args);
+        const run_step_my_heap = b.step("run_my_heap", "Run my_heap");
+        run_step_my_heap.dependOn(&run_cmd_my_heap.step);
+                     
     // Section: "Linear Search"
         // Source File: "chapter_searching/linear_search.zig"
         // Run Command: zig build run_linear_search
