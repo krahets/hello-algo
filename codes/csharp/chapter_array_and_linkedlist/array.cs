@@ -11,8 +11,10 @@ namespace hello_algo.chapter_array_and_linkedlist
         /* 随机返回一个数组元素 */
         public static int RandomAccess(int[] nums)
         {
-            Random random = new();
+            Random random=new();
+            // 在区间 [0, nums.Length) 中随机抽取一个数字
             int randomIndex = random.Next(nums.Length);
+            // 获取并返回随机元素
             int randomNum = nums[randomIndex];
             return randomNum;
         }
