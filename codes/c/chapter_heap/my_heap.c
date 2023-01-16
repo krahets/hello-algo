@@ -20,6 +20,14 @@ void siftDown(maxHeap *h, int i);
 
 void siftUp(maxHeap *h, int i);
 
+/* 构造空堆 */
+maxHeap *newEmptyMaxHeap() {
+    // 所有元素入堆
+    maxHeap *h = (maxHeap *) malloc(sizeof(maxHeap));
+    h->size = 0;
+    return h;
+}
+
 /* 构造函数，根据切片建堆 */
 maxHeap *newMaxHeap(int nums[], int size) {
     // 所有元素入堆
@@ -107,12 +115,11 @@ int poll(maxHeap *h) {
 
 /* 从结点 i 开始，从顶至底堆化 */
 void siftDown(maxHeap *h, int i) {
-    int l, r, max;
     while (true) {
         // 判断结点 i, l, r 中值最大的结点，记为 max
-        l = left(h, i);
-        r = right(h, i);
-        max = i;
+        int l = left(h, i);
+        int r = right(h, i);
+        int max = i;
         if (l < size(h) && h->data[l] > h->data[max]) {
             max = l;
         }
@@ -132,10 +139,9 @@ void siftDown(maxHeap *h, int i) {
 
 /* 从结点 i 开始，从底至顶堆化 */
 void siftUp(maxHeap *h, int i) {
-    int p;
     while (true) {
         // 获取结点 i 的父结点
-        p = parent(h, i);
+        int p = parent(h, i);
         // 当“越过根结点”或“结点无需修复”时，结束堆化
         if (p < 0 || h->data[i] <= h->data[p]) {
             break;
