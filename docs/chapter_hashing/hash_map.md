@@ -210,7 +210,24 @@ comments: true
 === "Swift"
 
     ```swift title="hash_map.swift"
+    /* 初始化哈希表 */
+    var map: [Int: String] = [:]
 
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map[12836] = "小哈"
+    map[15937] = "小啰"
+    map[16750] = "小算"
+    map[13276] = "小法"
+    map[10583] = "小鸭"
+
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    let name = map[15937]!
+
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.removeValue(forKey: 10583)
     ```
 
 遍历哈希表有三种方式，即 **遍历键值对、遍历键、遍历值**。
@@ -348,7 +365,19 @@ comments: true
 === "Swift"
 
     ```swift title="hash_map.swift"
-
+    /* 遍历哈希表 */
+    // 遍历键值对 Key->Value
+    for (key, value) in map {
+        print("\(key) -> \(value)")
+    }
+    // 单独遍历键 Key
+    for key in map.keys {
+        print(key)
+    }
+    // 单独遍历值 Value
+    for value in map.values {
+        print(value)
+    }
     ```
 
 ## 哈希函数
@@ -771,7 +800,55 @@ $$
 === "Swift"
 
     ```swift title="array_hash_map.swift"
+    /* 键值对 int->String */
+    class Entry {
+        var key: Int
+        var val: String
 
+        init(key: Int, val: String) {
+            self.key = key
+            self.val = val
+        }
+    }
+
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+        private var bucket: [Entry?] = []
+
+        init() {
+            // 初始化一个长度为 100 的桶（数组）
+            for _ in 0 ..< 100 {
+                bucket.append(nil)
+            }
+        }
+
+        /* 哈希函数 */
+        private func hashFunc(key: Int) -> Int {
+            let index = key % 100
+            return index
+        }
+
+        /* 查询操作 */
+        func get(key: Int) -> String? {
+            let index = hashFunc(key: key)
+            let pair = bucket[index]
+            return pair?.val
+        }
+
+        /* 添加操作 */
+        func put(key: Int, val: String) {
+            let pair = Entry(key: key, val: val)
+            let index = hashFunc(key: key)
+            bucket[index] = pair
+        }
+
+        /* 删除操作 */
+        func remove(key: Int) {
+            let index = hashFunc(key: key)
+            // 置为 nil ，代表删除
+            bucket[index] = nil
+        }
+    }
     ```
 
 ## 哈希冲突

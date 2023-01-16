@@ -1,0 +1,139 @@
+/**
+ * File: array_hash_map.swift
+ * Created Time: 2023-01-16
+ * Author: nuomi1 (nuomi1@qq.com)
+ */
+
+/* 键值对 int->String */
+class Entry {
+    var key: Int
+    var val: String
+
+    init(key: Int, val: String) {
+        self.key = key
+        self.val = val
+    }
+}
+
+/* 基于数组简易实现的哈希表 */
+class ArrayHashMap {
+    private var bucket: [Entry?] = []
+
+    init() {
+        // 初始化一个长度为 100 的桶（数组）
+        for _ in 0 ..< 100 {
+            bucket.append(nil)
+        }
+    }
+
+    /* 哈希函数 */
+    private func hashFunc(key: Int) -> Int {
+        let index = key % 100
+        return index
+    }
+
+    /* 查询操作 */
+    func get(key: Int) -> String? {
+        let index = hashFunc(key: key)
+        let pair = bucket[index]
+        return pair?.val
+    }
+
+    /* 添加操作 */
+    func put(key: Int, val: String) {
+        let pair = Entry(key: key, val: val)
+        let index = hashFunc(key: key)
+        bucket[index] = pair
+    }
+
+    /* 删除操作 */
+    func remove(key: Int) {
+        let index = hashFunc(key: key)
+        // 置为 nil ，代表删除
+        bucket[index] = nil
+    }
+
+    /* 获取所有键值对 */
+    func entrySet() -> [Entry] {
+        var entrySet: [Entry] = []
+        for pair in bucket {
+            if let pair = pair {
+                entrySet.append(pair)
+            }
+        }
+        return entrySet
+    }
+
+    /* 获取所有键 */
+    func keySet() -> [Int] {
+        var keySet: [Int] = []
+        for pair in bucket {
+            if let pair = pair {
+                keySet.append(pair.key)
+            }
+        }
+        return keySet
+    }
+
+    /* 获取所有值 */
+    func valueSet() -> [String] {
+        var valueSet: [String] = []
+        for pair in bucket {
+            if let pair = pair {
+                valueSet.append(pair.val)
+            }
+        }
+        return valueSet
+    }
+
+    /* 打印哈希表 */
+    func print() {
+        for entry in entrySet() {
+            Swift.print("\(entry.key) -> \(entry.val)")
+        }
+    }
+}
+
+@main
+enum _ArrayHashMap {
+    /* Driver Code */
+    static func main() {
+        /* 初始化哈希表 */
+        let map = ArrayHashMap()
+
+        /* 添加操作 */
+        // 在哈希表中添加键值对 (key, value)
+        map.put(key: 12836, val: "小哈")
+        map.put(key: 15937, val: "小啰")
+        map.put(key: 16750, val: "小算")
+        map.put(key: 13276, val: "小法")
+        map.put(key: 10583, val: "小鸭")
+        print("\n添加完成后，哈希表为\nKey -> Value")
+        map.print()
+
+        /* 查询操作 */
+        // 向哈希表输入键 key ，得到值 value
+        let name = map.get(key: 15937)!
+        print("\n输入学号 15937 ，查询到姓名 \(name)")
+
+        /* 删除操作 */
+        // 在哈希表中删除键值对 (key, value)
+        map.remove(key: 10583)
+        print("\n删除 10583 后，哈希表为\nKey -> Value")
+        map.print()
+
+        /* 遍历哈希表 */
+        print("\n遍历键值对 Key->Value")
+        for entry in map.entrySet() {
+            print("\(entry.key) -> \(entry.val)")
+        }
+        print("\n单独遍历键 Key")
+        for key in map.keySet() {
+            print(key)
+        }
+        print("\n单独遍历值 Value")
+        for val in map.valueSet() {
+            print(val)
+        }
+    }
+}
