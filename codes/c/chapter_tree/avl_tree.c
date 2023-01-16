@@ -191,6 +191,7 @@ TreeNode *removeHelper(TreeNode *node, int val) {
 }
 
 /* 删除结点 */
+// 由于引入了 stdio.h ，此处无法使用 remove 关键词
 TreeNode *removeNode(avlTree *tree, int val) {
     TreeNode *root = removeHelper(tree->root, val);
     return root;
