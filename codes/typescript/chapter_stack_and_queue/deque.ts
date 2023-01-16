@@ -1,6 +1,6 @@
 /**
  * File: deque.ts
- * Created Time: 2022-12-29
+ * Created Time: 2023-01-17
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
@@ -59,12 +59,8 @@ class Deque {
 
     /* 打印队列 */
     printDeque(): void {
-        let str = '';
-        for (let i = 0; i < this.array.length; i++) {
-            str += this.array[i];
-            if (i < this.array.length - 1) str += ', ';
-        }
-        console.log(str);
+        const dequeStr: string = this.array.join(', ')
+        console.log(dequeStr);
     };
 
 }
@@ -88,11 +84,11 @@ const peekLast: number = deque.peekLast();
 console.log("队尾元素 peekLast = " + peekLast);
 
 /* 元素出队 */
-const pollFirst: number | undefined = deque.popFront();
-console.log("队首出队元素 pollFirst = " + pollFirst + "，队首出队后 deque = ");
+const popFront: number | undefined = deque.popFront();
+console.log("队首出队元素 popFront = " + popFront + "，队首出队后 deque = ");
 deque.printDeque();
-const pollLast: number | undefined = deque.popBack();
-console.log("队尾出队元素 pollLast = " + pollLast + "，队尾出队后 deque = ");
+const popBack: number | undefined = deque.popBack();
+console.log("队尾出队元素 popBack = " + popBack + "，队尾出队后 deque = ");
 deque.printDeque();
 
 /* 获取双向队列的长度 */

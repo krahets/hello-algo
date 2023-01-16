@@ -1,6 +1,6 @@
 /**
  * File: deque.js
- * Created Time: 2022-12-29
+ * Created Time: 2023-01-17
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
@@ -59,12 +59,8 @@ class Deque {
 
     /* 打印队列 */
     printDeque() {
-        let str = '';
-        for (let i = 0; i < this.array.length; i++) {
-            str += this.array[i];
-            if (i < this.array.length - 1) str += ', ';
-        }
-        console.log(str);
+        const dequeStr = this.array.join(', ') 
+        console.log(dequeStr);
     };
 
 }
