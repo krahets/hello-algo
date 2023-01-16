@@ -84,13 +84,17 @@ comments: true
 === "JavaScript"
 
     ```js title=""
-
+    /* JavaScript 的数组可以自由存储各种基本数据类型和对象 */
+    const array = [0, 0.0, 'a', false];
     ```
 
 === "TypeScript"
 
     ```typescript title=""
-
+    /* 使用多种「基本数据类型」来初始化「数组」 */
+    const numbers: number[] = [];
+    const characters: string[] = [];
+    const booleans: boolean[] = [];
     ```
 
 === "C"
