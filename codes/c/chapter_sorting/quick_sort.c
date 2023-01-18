@@ -7,7 +7,7 @@
 #include "../include/include.h"
 
 /* 元素交换 */
-static void swap(int nums[], int i, int j) {
+void swap(int nums[], int i, int j) {
     int tmp = nums[i];
     nums[i] = nums[j];
     nums[j] = tmp;

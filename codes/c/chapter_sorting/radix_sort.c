@@ -42,7 +42,7 @@ void countSort(int nums[], int size, int exp) {
 }
 
 /* 基数排序 */
-static void radixSort(int nums[], int size) {
+void radixSort(int nums[], int size) {
     // 获取数组的最大元素，用于判断最大位数
     int max = INT32_MIN;
     for (size_t i = 0; i < size - 1; i++) {
