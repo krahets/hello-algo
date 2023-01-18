@@ -76,7 +76,6 @@ extra:
 # Plugins
 plugins:
   - search
-  # - offline
 
 # Extensions
 markdown_extensions:
