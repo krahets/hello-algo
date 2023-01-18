@@ -34,3 +34,17 @@ pub fn listToLinkedList(comptime T: type, mem_allocator: std.mem.Allocator, list
     }
     return dum.next;
 }
+
+// Generate a linked list with an array
+pub fn arrToLinkedList(comptime T: type, mem_allocator: std.mem.Allocator, arr: []T) !?*ListNode(T) {
+    var dum = try mem_allocator.create(ListNode(T));
+    dum.init(0);
+    var head = dum;
+    for (arr) |val| {
+        var tmp = try mem_allocator.create(ListNode(T));
+        tmp.init(val);
+        head.next = tmp;
+        head = head.next.?;
+    }
+    return dum.next;
+}

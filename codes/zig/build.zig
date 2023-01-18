@@ -242,6 +242,34 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_linear_search= b.step("run_linear_search", "Run linear_search");
         run_step_linear_search.dependOn(&run_cmd_linear_search.step);
 
+    // Section: "Binary Search"
+        // Source File: "chapter_searching/binary_search.zig"
+        // Run Command: zig build run_binary_search
+        const exe_binary_search = b.addExecutable("binary_search", "chapter_searching/binary_search.zig");
+        exe_binary_search.addPackagePath("include", "include/include.zig");
+        exe_binary_search.setTarget(target);
+        exe_binary_search.setBuildMode(mode);
+        exe_binary_search.install();
+        const run_cmd_binary_search = exe_binary_search.run();
+        run_cmd_binary_search.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_binary_search.addArgs(args);
+        const run_step_binary_search= b.step("run_binary_search", "Run binary_search");
+        run_step_binary_search.dependOn(&run_cmd_binary_search.step);
+
+    // Section: "Hash Search"
+        // Source File: "chapter_searching/hashing_search.zig"
+        // Run Command: zig build run_hashing_search
+        const exe_hashing_search = b.addExecutable("hashing_search", "chapter_searching/hashing_search.zig");
+        exe_hashing_search.addPackagePath("include", "include/include.zig");
+        exe_hashing_search.setTarget(target);
+        exe_hashing_search.setBuildMode(mode);
+        exe_hashing_search.install();
+        const run_cmd_hashing_search = exe_hashing_search.run();
+        run_cmd_hashing_search.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_hashing_search.addArgs(args);
+        const run_step_hashing_search= b.step("run_hashing_search", "Run hashing_search");
+        run_step_hashing_search.dependOn(&run_cmd_hashing_search.step);
+        
     // Section: "Bubble Sort"
         // Source File: "chapter_sorting/bubble_sort.zig"
         // Run Command: zig build run_bubble_sort
