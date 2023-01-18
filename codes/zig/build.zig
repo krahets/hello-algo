@@ -174,6 +174,19 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_hash_map= b.step("run_hash_map", "Run hash_map");
         run_step_hash_map.dependOn(&run_cmd_hash_map.step);
 
+        // Source File: "chapter_hashing/array_hash_map.zig"
+        // Run Command: zig build run_array_hash_map
+        const exe_array_hash_map = b.addExecutable("array_hash_map", "chapter_hashing/array_hash_map.zig");
+        exe_array_hash_map.addPackagePath("include", "include/include.zig");
+        exe_array_hash_map.setTarget(target);
+        exe_array_hash_map.setBuildMode(mode);
+        exe_array_hash_map.install();
+        const run_cmd_array_hash_map = exe_array_hash_map.run();
+        run_cmd_array_hash_map.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_array_hash_map.addArgs(args);
+        const run_step_array_hash_map= b.step("run_array_hash_map", "Run array_hash_map");
+        run_step_array_hash_map.dependOn(&run_cmd_array_hash_map.step);
+
     // Section: "Binary Tree"
         // Source File: "chapter_tree/binary_tree.zig"
         // Run Command: zig build run_binary_tree
