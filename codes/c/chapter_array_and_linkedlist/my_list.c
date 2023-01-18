@@ -27,6 +27,12 @@ void newMyList(MyList *list) {
     list->extendRatio = 2;
 }
 
+/* 析构函数 */
+void delMyList(MyList *list) {
+    list->size = 0;
+    free(list->nums);
+}
+
 /* 获取列表长度 */
 int size(MyList *list) {
     return list->size;
@@ -147,4 +153,7 @@ int main() {
     printf("扩容后的列表 list = ");
     printArray(toArray(&list), size(&list));
     printf("容量 = %d ，长度 = %d\r\n", capacity(&list), size(&list));
+
+    /* 析构函数，释放分配内存 */
+    delMyList(&list);
 }
