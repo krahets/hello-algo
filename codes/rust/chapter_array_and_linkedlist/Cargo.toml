@@ -1,0 +1,12 @@
+[package]
+name = "chapter_array_and_linkedlist"
+version = "0.1.0"
+edition = "2021"
+
+
+[[bin]]
+name = "array"
+path = "array.rs"
+
+[dependencies]
+rand = "0.8.5"
