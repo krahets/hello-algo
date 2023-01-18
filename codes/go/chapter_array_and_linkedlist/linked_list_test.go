@@ -11,7 +11,7 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-func TestLikedList(t *testing.T) {
+func TestLinkedList(t *testing.T) {
 	/* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
 	// 初始化各个结点
 	n0 := NewListNode(1)
