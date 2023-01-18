@@ -8,8 +8,7 @@
 *.js linguist-language=JavaScript
 *.ts linguist-language=JavaScript
 *.swift linguist-language=Swift
-
-*.rs linguist-language=Other
+*.rs linguist-language=Rust
 
 *.html linguist-detectable=false
 *.css linguist-detectable=false
