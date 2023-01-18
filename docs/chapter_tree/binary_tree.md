@@ -109,7 +109,16 @@ comments: true
 === "Swift"
 
     ```swift title=""
+    /* 链表结点类 */
+    class TreeNode {
+        var val: Int // 结点值
+        var left: TreeNode? // 左子结点指针
+        var right: TreeNode? // 右子结点指针
 
+        init(x: Int) {
+            val = x
+        }
+    }
     ```
 
 结点的两个指针分别指向「左子结点 Left Child Node」和「右子结点 Right Child Node」，并且称该结点为两个子结点的「父结点 Parent Node」。给定二叉树某结点，将左子结点以下的树称为该结点的「左子树 Left Subtree」，右子树同理。
@@ -272,7 +281,17 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
-
+    // 初始化结点
+    let n1 = TreeNode(x: 1)
+    let n2 = TreeNode(x: 2)
+    let n3 = TreeNode(x: 3)
+    let n4 = TreeNode(x: 4)
+    let n5 = TreeNode(x: 5)
+    // 构建引用指向（即指针）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
     ```
 
 **插入与删除结点**。与链表类似，插入与删除结点都可以通过修改指针实现。
@@ -373,7 +392,12 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
-
+    let P = TreeNode(x: 0)
+    // 在 n1 -> n2 中间插入结点 P
+    n1.left = P
+    P.left = n2
+    // 删除结点 P
+    n1.left = n2
     ```
 
 !!! note
@@ -516,7 +540,9 @@ comments: true
 === "Swift"
 
     ```swift title=""
-
+    /* 二叉树的数组表示 */
+    // 使用 Int? 可空类型 ，就可以使用 nil 来标记空位
+    let tree: [Int?] = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
 ![array_representation_with_empty](binary_tree.assets/array_representation_with_empty.png)
