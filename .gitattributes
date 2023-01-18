@@ -3,7 +3,7 @@
 *.py linguist-language=Python
 *.cpp linguist-language=C++
 *.c linguist-language=C++
-*.zig linguist-language=C++
+*.zig linguist-language=Zig
 *.go linguist-language=Go
 *.js linguist-language=JavaScript
 *.ts linguist-language=JavaScript
