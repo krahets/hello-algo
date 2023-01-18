@@ -8,5 +8,9 @@ edition = "2021"
 name = "array"
 path = "array.rs"
 
+[[bin]]
+name = "list"
+path = "list.rs"
+
 [dependencies]
 rand = "0.8.5"
