@@ -297,4 +297,46 @@ pub fn build(b: *std.build.Builder) void {
         if (b.args) |args| run_cmd_insertion_sort.addArgs(args);
         const run_step_insertion_sort = b.step("run_insertion_sort", "Run insertion_sort");
         run_step_insertion_sort.dependOn(&run_cmd_insertion_sort.step);
+
+    // Section: "Quick Sort"
+        // Source File: "chapter_sorting/quick_sort.zig"
+        // Run Command: zig build run_quick_sort
+        const exe_quick_sort = b.addExecutable("quick_sort", "chapter_sorting/quick_sort.zig");
+        exe_quick_sort.addPackagePath("include", "include/include.zig");
+        exe_quick_sort.setTarget(target);
+        exe_quick_sort.setBuildMode(mode);
+        exe_quick_sort.install();
+        const run_cmd_quick_sort = exe_quick_sort.run();
+        run_cmd_quick_sort.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_quick_sort.addArgs(args);
+        const run_step_quick_sort = b.step("run_quick_sort", "Run quick_sort");
+        run_step_quick_sort.dependOn(&run_cmd_quick_sort.step);
+
+    // Section: "Merge Sort"
+        // Source File: "chapter_sorting/merge_sort.zig"
+        // Run Command: zig build run_merge_sort
+        const exe_merge_sort = b.addExecutable("merge_sort", "chapter_sorting/merge_sort.zig");
+        exe_merge_sort.addPackagePath("include", "include/include.zig");
+        exe_merge_sort.setTarget(target);
+        exe_merge_sort.setBuildMode(mode);
+        exe_merge_sort.install();
+        const run_cmd_merge_sort = exe_merge_sort.run();
+        run_cmd_merge_sort.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_merge_sort.addArgs(args);
+        const run_step_merge_sort = b.step("run_merge_sort", "Run merge_sort");
+        run_step_merge_sort.dependOn(&run_cmd_merge_sort.step);
+
+    // Section: "Radix Sort"
+        // Source File: "chapter_sorting/radix_sort.zig"
+        // Run Command: zig build run_radix_sort
+        const exe_radix_sort = b.addExecutable("radix_sort", "chapter_sorting/radix_sort.zig");
+        exe_radix_sort.addPackagePath("include", "include/include.zig");
+        exe_radix_sort.setTarget(target);
+        exe_radix_sort.setBuildMode(mode);
+        exe_radix_sort.install();
+        const run_cmd_radix_sort = exe_radix_sort.run();
+        run_cmd_radix_sort.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_radix_sort.addArgs(args);
+        const run_step_radix_sort = b.step("run_radix_sort", "Run radix_sort");
+        run_step_radix_sort.dependOn(&run_cmd_radix_sort.step);
 }
