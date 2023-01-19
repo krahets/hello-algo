@@ -68,10 +68,6 @@ fn radixSort(nums: []i32) !void {
 
 // Driver Code
 pub fn main() !void {
-    // 查看本地CPU架构和操作系统信息
-    var native_target_info = try std.zig.system.NativeTargetInfo.detect(std.zig.CrossTarget{});
-    std.debug.print("Native Info: CPU Arch = {}, OS = {}\n", .{native_target_info.target.cpu.arch, native_target_info.target.os.tag});
-
     // 基数排序
     var nums = [_]i32{ 23, 12, 3, 4, 788, 192 };
     try radixSort(&nums);
