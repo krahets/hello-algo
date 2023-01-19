@@ -6,118 +6,92 @@
 
 #include "../include/include.h"
 
-/* 基于数组实现的栈 */
-struct ArrayStack {
-    int *stackTop;
+#define MAX_SIZE 5000
+
+struct arrayStack {
+    int *data;
     int size;
-    int capacity;
 };
 
-typedef struct ArrayStack ArrayStack;
+typedef struct arrayStack arrayStack;
 
-/* 内部调用 */
-/* 获取栈容量 */
-static int capacity(ArrayStack *stk) {
-    return stk->capacity;
+arrayStack *newArrayStack() {
+    arrayStack *s = malloc(sizeof(arrayStack));
+    // 初始化一个大容量，避免扩容
+    s->data = malloc(sizeof(int) * MAX_SIZE);
+    s->size = 0;
+    return s;
 }
 
-/* 栈自动扩容 */
-static void extendCapacity(ArrayStack *stk) {
-    // 先分配空间
-    int newCapacity = capacity(stk) * 2;
-    int *extend = (int *)malloc(sizeof(int) * newCapacity);
-    int *temp = stk->stackTop;
-
-    // 拷贝旧数据到新数据
-    for(int i=0; i<stk->size; i++)
-        extend[i] = temp[i];
-
-    // 释放旧数据
-    free(temp);
-
-    // 更新新数据
-    stk->stackTop = extend;
-    stk->capacity = newCapacity;
+int size(arrayStack *s) {
+    return s->size;
 }
 
-/* 构造函数 */
-void newArrayStack(ArrayStack *stk) {
-    stk->capacity = 10;
-    stk->size = 0;
-    stk->stackTop = (int *)malloc(sizeof(int) * stk->capacity);
+bool isEmpty(arrayStack *s) {
+    return s->size == 0;
 }
 
-/* 析构函数 */
-void delArrayStack(ArrayStack *stk) {
-    stk->capacity = 0;
-    stk->size = 0;
-    free(stk->stackTop);
+void push(arrayStack *s, int num) {
+    if (s->size == MAX_SIZE) {
+        printf("stack is full.\n");
+        return;
+    }
+    s->data[s->size] = num;
+    s->size++;
 }
 
-/* 获取栈的长度 */
-int size(ArrayStack *stk) {
-    return stk->size;
+int peek(arrayStack *s) {
+    if (s->size == 0) {
+        printf("stack is empty.\n");
+        return NIL;
+    }
+    return s->data[s->size - 1];
 }
 
-/* 判断栈是否为空 */
-bool empty(ArrayStack *stk) {
-    return size(stk) == 0;
-}
-
-/* 访问栈顶元素 */
-int top(ArrayStack *stk) {
-    return stk->stackTop[size(stk) - 1];
-}
-
-/* 入栈 */
-void push(ArrayStack *stk, int num) {
-    if (size(stk) == capacity(stk)) 
-        extendCapacity(stk);        // 需要扩容
-
-    stk->stackTop[size(stk)] = num;
-    stk->size++;
-}
-
-/* 出栈 */
-void pop(ArrayStack *stk) {
-    int num = stk->stackTop[size(stk) - 1];
-    stk->size--;
+int pop(arrayStack *s) {
+    if (s->size == 0) {
+        printf("stack is empty.\n");
+        return NIL;
+    }
+    int val = peek(s);
+    s->size--;
+    return val;
 }
 
 /* Driver Code */
 int main() {
     /* 初始化栈 */
-    ArrayStack stack;
-    newArrayStack(&stack);
+    arrayStack * stack = newArrayStack();
 
     /* 元素入栈 */
-    push(&stack, 1);
-    push(&stack, 3);
-    push(&stack, 2);
-    push(&stack, 5);
-    push(&stack, 4);
-
+    push(stack, 1);
+    push(stack, 3);
+    push(stack, 2);
+    push(stack, 5);
+    push(stack, 4);
     printf("栈 stack = ");
-    printArray(stack.stackTop, size(&stack));
+    printArray(stack->data, stack->size);
 
     /* 访问栈顶元素 */
-    int stackTop = top(&stack);
-    printf("栈顶元素 top = %d\r\n", stackTop);
+    int val = peek(stack);
+    printf("栈顶元素 top = %d\n", val);
 
     /* 元素出栈 */
-    pop(&stack);
-    printf("出栈元素 pop = %d, 出栈后 stack =  ", stackTop);
-    printArray(stack.stackTop, size(&stack));
+    val = pop(stack);
+    printf("出栈元素 pop = %d，出栈后 stack = ", val);
+    printArray(stack->data, stack->size);
 
     /* 获取栈的长度 */
-    int stackSize = size(&stack);
-    printf("栈的长度 size = %d\r\n", stackSize);
+    int size = stack->size;
+    printf("栈的长度 size =  %d\n", size);
 
     /* 判断是否为空 */
-    bool isEmpty = empty(&stack);
-    printf("栈是否为空 = %s\r\n", isEmpty ? "yes" : "no");
+    bool empty = isEmpty(stack);
+    printf("栈是否为空 = %s\n", empty ? "true" : "false");
 
-    /* 析构函数 */
-    delArrayStack(&stack);
+    // 释放内存
+    free(stack->data);
+    free(stack);
+
     return 0;
 }
