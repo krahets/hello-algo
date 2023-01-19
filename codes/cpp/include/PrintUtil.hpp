@@ -295,13 +295,35 @@ class PrintUtil {
         }
 
         /**
-         * @brief Print a heap (PriorityQueue)
+         * @brief Print a Max-Heap (PriorityQueue)
          *
          * @tparam T
-         * @param queue
+         * @param heap
          */
         template <typename T>
-        static void printHeap(priority_queue<T> heap)
+        static void printHeap(priority_queue<T, vector<T>, less<T>> heap)
+        {
+            vector<int> vec;
+            while (!heap.empty())
+            {
+                vec.push_back(heap.top());
+                heap.pop();
+            }
+            cout << "堆的数组表示：" << endl;
+            printVector(vec);
+            cout << "堆的树状表示：" << endl;
+            TreeNode *root = vecToTree(vec);
+            printTree(root);
+        }
+
+        /**
+         * @brief Print a Min-Heap (PriorityQueue)
+         *
+         * @tparam T
+         * @param heap
+         */
+        template <typename T>
+        static void printHeap(priority_queue<T, vector<T>, greater<T>> heap)
         {
             vector<int> vec;
             while (!heap.empty())
