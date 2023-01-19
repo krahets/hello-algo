@@ -230,7 +230,20 @@ comments: true
 ### 基于双向链表的实现
 我们将双向链表的「头结点」和「尾结点」分别看作双向队列的队首和队尾，并且队首和队尾都能添加和删除结点。
 
-配图
+=== "LinkedListDeque"
+    ![linkedlist_deque](deque.assets/linkedlist_deque.png)
+
+=== "offerFirst()"
+    ![linkedlist_deque_offer_first](deque.assets/linkedlist_deque_offer_first.png)
+
+=== "offerLast()"
+    ![linkedlist_deque_offer_last](deque.assets/linkedlist_deque_offer_last.png)
+
+=== "pollFirst()"
+    ![linkedlist_deque_poll_first](deque.assets/linkedlist_deque_poll_first.png)
+
+=== "pollLast()"
+    ![linkedlist_deque_poll_last](deque.assets/linkedlist_deque_poll_last.png)
 
 以下是使用双向链表实现双向队列的示例代码。
 
