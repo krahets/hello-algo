@@ -53,17 +53,17 @@ comments: true
     Queue<Integer> minHeap = new PriorityQueue<>();
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
     Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> { return b - a; });
-    
+
     /* 元素入堆 */
     maxHeap.add(1);
     maxHeap.add(3);
     maxHeap.add(2);
     maxHeap.add(5);
     maxHeap.add(4);
-    
+
     /* 获取堆顶元素 */
     int peek = maxHeap.peek(); // 5
-    
+
     /* 堆顶元素出堆 */
     // 出堆元素会形成一个从大到小的序列
     peek = heap.poll();  // 5
@@ -71,13 +71,13 @@ comments: true
     peek = heap.poll();  // 3
     peek = heap.poll();  // 2
     peek = heap.poll();  // 1
-    
+
     /* 获取堆大小 */
     int size = maxHeap.size();
-    
+
     /* 判断堆是否为空 */
     boolean isEmpty = maxHeap.isEmpty();
-    
+
     /* 输入列表并建堆 */
     minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
     ```
@@ -85,7 +85,39 @@ comments: true
 === "C++"
 
     ```cpp title="heap.cpp"
+    /* 初始化堆 */
+    // 初始化小顶堆
+    priority_queue<int, vector<int>, greater<int>> minHeap;
+    // 初始化大顶堆
+    priority_queue<int, vector<int>, less<int>> maxHeap;
 
+    /* 元素入堆 */
+    maxHeap.push(1);
+    maxHeap.push(3);
+    maxHeap.push(2);
+    maxHeap.push(5);
+    maxHeap.push(4);
+
+    /* 获取堆顶元素 */
+    int peek = maxHeap.top(); // 5
+
+    /* 堆顶元素出堆 */
+    // 出堆元素会形成一个从大到小的序列
+    maxHeap.pop(); // 5
+    maxHeap.pop(); // 4
+    maxHeap.pop(); // 3
+    maxHeap.pop(); // 2
+    maxHeap.pop(); // 1
+
+    /* 获取堆大小 */
+    int size = maxHeap.size();
+
+    /* 判断堆是否为空 */
+    bool isEmpty = maxHeap.empty();
+
+    /* 输入列表并建堆 */
+    vector<int> input{1, 3, 2, 5, 4};
+    priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
     ```
 
 === "Python"
@@ -224,22 +256,22 @@ comments: true
     ```java title="my_heap.java"
     // 使用列表而非数组，这样无需考虑扩容问题
     List<Integer> maxHeap;
-    
+
     /* 构造函数，建立空堆 */
     public MaxHeap() {
         maxHeap = new ArrayList<>();
     }
-    
+
     /* 获取左子结点索引 */
     int left(int i) {
         return 2 * i + 1;
     }
-    
+
     /* 获取右子结点索引 */
     int right(int i) {
         return 2 * i + 2;
     }
-    
+
     /* 获取父结点索引 */
     int parent(int i) {
         return (i - 1) / 2; // 向下整除
@@ -391,22 +423,22 @@ comments: true
 考虑从入堆结点开始，**从底至顶执行堆化**。具体地，比较插入结点与其父结点的值，若插入结点更大则将它们交换；并循环以上操作，从底至顶地修复堆中的各个结点；直至越过根结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "Step 1"
-    ![heap_push_step1](heap.assets/heap_push_step1.png)
+![heap_push_step1](heap.assets/heap_push_step1.png)
 
 === "Step 2"
-    ![heap_push_step2](heap.assets/heap_push_step2.png)
+![heap_push_step2](heap.assets/heap_push_step2.png)
 
 === "Step 3"
-    ![heap_push_step3](heap.assets/heap_push_step3.png)
+![heap_push_step3](heap.assets/heap_push_step3.png)
 
 === "Step 4"
-    ![heap_push_step4](heap.assets/heap_push_step4.png)
+![heap_push_step4](heap.assets/heap_push_step4.png)
 
 === "Step 5"
-    ![heap_push_step5](heap.assets/heap_push_step5.png)
+![heap_push_step5](heap.assets/heap_push_step5.png)
 
 === "Step 6"
-    ![heap_push_step6](heap.assets/heap_push_step6.png)
+![heap_push_step6](heap.assets/heap_push_step6.png)
 
 设结点总数为 $n$ ，则树的高度为 $O(\log n)$ ，易得堆化操作的循环轮数最多为 $O(\log n)$ ，**因而元素入堆操作的时间复杂度为 $O(\log n)$** 。
 
@@ -420,7 +452,7 @@ comments: true
         // 从底至顶堆化
         siftUp(size() - 1);
     }
-    
+
     /* 从结点 i 开始，从底至顶堆化 */
     void siftUp(int i) {
         while (true) {
@@ -518,34 +550,34 @@ comments: true
 顾名思义，**从顶至底堆化的操作方向与从底至顶堆化相反**，我们比较根结点的值与其两个子结点的值，将最大的子结点与根结点执行交换，并循环以上操作，直到越过叶结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "Step 1"
-    ![heap_poll_step1](heap.assets/heap_poll_step1.png)
+![heap_poll_step1](heap.assets/heap_poll_step1.png)
 
 === "Step 2"
-    ![heap_poll_step2](heap.assets/heap_poll_step2.png)
+![heap_poll_step2](heap.assets/heap_poll_step2.png)
 
 === "Step 3"
-    ![heap_poll_step3](heap.assets/heap_poll_step3.png)
+![heap_poll_step3](heap.assets/heap_poll_step3.png)
 
 === "Step 4"
-    ![heap_poll_step4](heap.assets/heap_poll_step4.png)
+![heap_poll_step4](heap.assets/heap_poll_step4.png)
 
 === "Step 5"
-    ![heap_poll_step5](heap.assets/heap_poll_step5.png)
+![heap_poll_step5](heap.assets/heap_poll_step5.png)
 
 === "Step 6"
-    ![heap_poll_step6](heap.assets/heap_poll_step6.png)
+![heap_poll_step6](heap.assets/heap_poll_step6.png)
 
 === "Step 7"
-    ![heap_poll_step7](heap.assets/heap_poll_step7.png)
+![heap_poll_step7](heap.assets/heap_poll_step7.png)
 
 === "Step 8"
-    ![heap_poll_step8](heap.assets/heap_poll_step8.png)
+![heap_poll_step8](heap.assets/heap_poll_step8.png)
 
 === "Step 9"
-    ![heap_poll_step9](heap.assets/heap_poll_step9.png)
+![heap_poll_step9](heap.assets/heap_poll_step9.png)
 
 === "Step 10"
-    ![heap_poll_step10](heap.assets/heap_poll_step10.png)
+![heap_poll_step10](heap.assets/heap_poll_step10.png)
 
 与元素入堆操作类似，**堆顶元素出堆操作的时间复杂度为 $O(\log n)$** 。
 
@@ -566,7 +598,7 @@ comments: true
         // 返回堆顶元素
         return val;
     }
-    
+
     /* 从结点 i 开始，从顶至底堆化 */
     void siftDown(int i) {
         while (true) {
@@ -606,7 +638,7 @@ comments: true
         // 判空处理
         if h.isEmpty() {
             fmt.Println("error")
-			return nil
+    		return nil
         }
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
         h.swap(0, h.size()-1)
@@ -673,7 +705,7 @@ comments: true
 
     ```
 
-### 输入数据并建堆 *
+### 输入数据并建堆 \*
 
 如果我们想要直接输入一个列表并将其建堆，那么该怎么做呢？最直接地，考虑使用「元素入堆」方法，将列表元素依次入堆。元素入堆的时间复杂度为 $O(n)$ ，而平均长度为 $\frac{n}{2}$ ，因此该方法的总体时间复杂度为 $O(n \log n)$ 。
 

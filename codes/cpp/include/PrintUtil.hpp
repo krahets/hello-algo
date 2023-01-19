@@ -293,4 +293,26 @@ class PrintUtil {
                 cout << kv.first << " -> " << kv.second << '\n';
             }
         }
+
+        /**
+         * @brief Print a heap (PriorityQueue)
+         *
+         * @tparam T
+         * @param queue
+         */
+        template <typename T>
+        static void printHeap(priority_queue<T> heap)
+        {
+            vector<int> vec;
+            while (!heap.empty())
+            {
+                vec.push_back(heap.top());
+                heap.pop();
+            }
+            cout << "堆的数组表示：" << endl;
+            printVector(vec);
+            cout << "堆的树状表示：" << endl;
+            TreeNode *root = vecToTree(vec);
+            printTree(root);
+        }
 };
