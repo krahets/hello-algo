@@ -43,7 +43,7 @@ class LinkedListDeque {
     private void offer(int num, boolean isFront) {
         ListNode node = new ListNode(num);
         // 若链表为空，则令 front, rear 都指向 node
-        if (size() == 0)
+        if (isEmpty())
             front = rear = node;
         // 队首入队操作
         else if (isFront) {
@@ -74,7 +74,7 @@ class LinkedListDeque {
     /* 出队操作 */
     private Integer poll(boolean isFront) {
         // 若队列为空，直接返回 null
-        if (size() == 0)
+        if (isEmpty())
             return null;
         int val;
         // 队首出队操作
@@ -114,17 +114,17 @@ class LinkedListDeque {
 
     /* 访问队首元素 */
     public Integer peekFirst() {
-        return size() != 0 ? front.val : null;
+        return isEmpty() ? null : front.val;
     }
 
     /* 访问队尾元素 */
     public Integer peekLast() {
-        return size() != 0 ? rear.val : null;
+        return isEmpty() ? null : rear.val;
     }
 
     /* 打印双向队列 */
     public void print() {
-        if (size() == 0) {
+        if (isEmpty()) {
             System.out.println("[ ]");
             return;
         }
@@ -153,9 +153,12 @@ public class linkedlist_deque {
             System.out.printf("元素 %d 队尾入队后，队列为\n", num);
             deque.print();
         }
+        /* 获取队尾元素 */
+        int last = deque.peekLast();
+        System.out.printf("队尾元素为 %d\n", last);
         /* 队尾出队 */
         while (!deque.isEmpty()) {
-            int last = deque.pollLast();
+            last = deque.pollLast();
             System.out.printf("队尾出队元素为 %d ，队列为\n", last);
             deque.print();
         }
@@ -166,9 +169,12 @@ public class linkedlist_deque {
             System.out.printf("元素 %d 队首入队后，队列为\n", num);
             deque.print();
         }
+        /* 获取队尾元素 */
+        int first = deque.peekFirst();
+        System.out.printf("队首元素为 %d\n", first);
         /* 队首出队 */
         while (!deque.isEmpty()) {
-            int first = deque.pollFirst();
+            first = deque.pollFirst();
             System.out.printf("队首出队元素为 %d ，队列为\n", first);
             deque.print();
         }
