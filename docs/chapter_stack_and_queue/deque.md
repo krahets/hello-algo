@@ -275,7 +275,7 @@ comments: true
         public void offerFirst(int num) {
             // 记录原头结点
             ListNode first = front;
-            // 创建结点作为新的头结点，将原头结点作为新头结点的下一个结点
+            // 创建结点作为新的头结点，并将原头结点作为新头结点的下一个结点
             ListNode newNode = new ListNode(null, num, first);
             // 头结点指向新头结点
             front = newNode;
@@ -284,7 +284,7 @@ comments: true
             if (first == null)
                 rear = newNode;
             else
-                // 如果队列不为空，则需将原头结点的前指针指向该结点
+                // 如果队列不为空，则需将原头结点的前指针指向该结点，以构建双向链表
                 first.prev = newNode;
     
             size++;
@@ -303,7 +303,7 @@ comments: true
             if (last == null)
                 front = newNode;
             else
-                // 如果队列不为空，则需将原尾结点的后指针指向该结点
+                // 如果队列不为空，则需将原尾结点的后指针指向该结点，以构建双向链表
                 last.next = newNode;
     
             size++;
@@ -314,12 +314,14 @@ comments: true
             if (!isEmpty()) {
                 // 记录头结点的下一个结点，它将作为新头结点
                 ListNode next = front.next;
-                // 删除头节点(1): 即头结点的后指针指向null
+                // 删除头结点(1): 即头结点的后指针指向null
                 front.next = null;
     
                 int num = peekFirst();
                 // 头结点指向新的头结点
                 front = next;
+    
+                size--;
     
                 // 如果双向队列出队后队列长度为0，需令尾结点为null
                 if (next == null)
@@ -328,8 +330,6 @@ comments: true
                     // 如果双向队列出队后队列长度不为0，则需要完成删除头结点操作
                     // 删除头结点(2): 新头结点前指针指向null
                     next.prev = null;
-    
-                size--;
     
                 return num;
             }
@@ -349,15 +349,15 @@ comments: true
                 // 尾结点指向新的尾结点
                 rear = prev;
     
+                size--;
+    
                 // 如果双向队列出队后队列长度为0，需令头结点为null
                 if (prev == null)
                     front = null;
                 else
                     // 如果双向队列出队后队列长度不为0，则需要完成删除尾结点操作
-                    // 删除头结点(2): 新尾结点后指针指向null
+                    // 删除尾结点(2): 新尾结点后指针指向null
                     prev.next = null;
-    
-                size--;
     
                 return num;
             }
