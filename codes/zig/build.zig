@@ -325,4 +325,18 @@ pub fn build(b: *std.build.Builder) void {
         if (b.args) |args| run_cmd_merge_sort.addArgs(args);
         const run_step_merge_sort = b.step("run_merge_sort", "Run merge_sort");
         run_step_merge_sort.dependOn(&run_cmd_merge_sort.step);
+
+    // Section: "Radix Sort"
+        // Source File: "chapter_sorting/radix_sort.zig"
+        // Run Command: zig build run_radix_sort
+        const exe_radix_sort = b.addExecutable("radix_sort", "chapter_sorting/radix_sort.zig");
+        exe_radix_sort.addPackagePath("include", "include/include.zig");
+        exe_radix_sort.setTarget(target);
+        exe_radix_sort.setBuildMode(mode);
+        exe_radix_sort.install();
+        const run_cmd_radix_sort = exe_radix_sort.run();
+        run_cmd_radix_sort.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_radix_sort.addArgs(args);
+        const run_step_radix_sort = b.step("run_radix_sort", "Run radix_sort");
+        run_step_radix_sort.dependOn(&run_cmd_radix_sort.step);
 }
