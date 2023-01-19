@@ -39,7 +39,7 @@ class LinkedListDeque {
         return size() == 0;
     }
 
-    /* 从头入队 */
+    /* 从队首入队 */
     public void offerFirst(int num) {
         // 记录原头结点
         ListNode first = front;
@@ -58,7 +58,7 @@ class LinkedListDeque {
         size++;
     }
 
-    /* 从尾入队 */
+    /* 从队尾入队 */
     public void offerLast(int num) {
         // 记录原尾结点
         ListNode last = rear;
@@ -77,7 +77,7 @@ class LinkedListDeque {
         size++;
     }
 
-    /* 从头出队 */
+    /* 从队首出队 */
     public Integer pollFirst() {
         if (!isEmpty()) {
             // 记录头结点的下一个结点，它将作为新头结点
@@ -105,7 +105,7 @@ class LinkedListDeque {
         return null;
     }
 
-    /* 从尾出队 */
+    /* 从队尾出队 */
     public Integer pollLast() {
         if (!isEmpty()) {
             // 记录尾结点的前一个结点，它将作为新尾结点
