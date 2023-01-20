@@ -249,25 +249,23 @@ comments: true
 
 === "Java"
 
-    ```java title="linkedlist_deque_fy.java"
+    ```java title="linkedlist_deque.java"
+    /* 双向链表结点 */
+    class ListNode {
+    int val;       // 结点值
+    ListNode next; // 后继结点引用（指针）
+    ListNode prev; // 前驱结点引用（指针）
+    
+        ListNode(int val) {
+            this.val = val;
+            prev = next = null;
+        }
+    }
+    
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
-    
-        /* 双向链表结点 */
-        private static class ListNode {
-            int val; // 结点值
-            ListNode prev; // 前驱结点引用（指针）
-            ListNode next; // 后继结点引用（指针）
-    
-            public ListNode(int val) {
-                this.val = val;
-                prev = next = null;
-    
-            }
-        }
-    
-        private ListNode front, rear; // 头结点 front ，尾结点 rear
-        private int size = 0; // 双向队列的长度
+    private ListNode front, rear; // 头结点 front ，尾结点 rear
+    private int size = 0;         // 双向队列的长度
     
         public LinkedListDeque() {
             front = rear = null;
@@ -283,108 +281,87 @@ comments: true
             return size() == 0;
         }
     
-        /* 从队首入队 */
+        /* 入队操作 */
+        private void offer(int num, boolean isFront) {
+            ListNode node = new ListNode(num);
+            // 若链表为空，则令 front, rear 都指向 node
+            if (isEmpty())
+                front = rear = node;
+            // 队首入队操作
+            else if (isFront) {
+                // 将 node 添加至链表头部
+                front.prev = node;
+                node.next = front;
+                front = node; // 更新头结点
+            // 队尾入队操作
+            } else {
+                // 将 node 添加至链表尾部
+                rear.next = node;
+                node.prev = rear;
+                rear = node;  // 更新尾结点
+            }
+            size++; // 更新队列长度
+        }
+    
+        /* 队首入队 */
         public void offerFirst(int num) {
-            // 创建结点作为新的头结点
-            ListNode newFront = new ListNode(num);
-    
-            // 如果队列长度为0，需令头、尾结点都指向该结点
-            if (size() == 0) {
-                front = rear = newFront;
-            } else {
-                // 将新头结点添加至链表头部
-                front.prev = newFront;
-                newFront.next = front;
-    
-                // 头结点指针指向新头结点
-                front = newFront;
-            }
-    
-            // 更新队列长度
-            size++;
+            offer(num, true);
         }
     
-        /* 从队尾入队 */
+        /* 队尾入队 */
         public void offerLast(int num) {
-            // 创建结点作为新的尾结点
-            ListNode newRear = new ListNode(num);
-    
-            // 如果队列长度为0，需令头、尾结点都指向该结点
-            if (size() == 0) {
-                front = rear = newRear;
-            } else {
-                // 将新尾结点添加至链表尾部
-                rear.next = newRear;
-                newRear.prev = rear;
-    
-                // 尾结点指针指向新尾结点
-                rear = newRear;
-            }
-    
-            // 更新队列长度
-            size++;
+            offer(num, false);
         }
     
-        /* 从队首出队 */
-        public Integer pollFirst() {
-            if (size() != 0) {
-                // 暂存头结点值
-                int num = peekFirst();
-    
-                // 记录头结点的后继结点，它将作为新头结点
-                ListNode next = front.next;
-                // 删除原头结点
-                if (next != null) {
+        /* 出队操作 */
+        private Integer poll(boolean isFront) {
+            // 若队列为空，直接返回 null
+            if (isEmpty())
+                return null;
+            int val;
+            // 队首出队操作
+            if (isFront) {
+                val = front.val; // 暂存头结点值
+                // 删除头结点
+                ListNode fNext = front.next;
+                if (fNext != null) {
+                    fNext.prev = null;
                     front.next = null;
-                    next.prev = null;
                 }
-    
-                // 头结点指针指向新的头结点
-                front = next;
-    
-                // 更新队列长度
-                size--;
-    
-                return num;
+                front = fNext;   // 更新头结点
+            // 队尾出队操作
+            } else {
+                val = rear.val;  // 暂存尾结点值
+                // 删除尾结点
+                ListNode rPrev = rear.prev;
+                if (rPrev != null) {
+                    rPrev.next = null;
+                    rear.prev = null;
+                }
+                rear = rPrev;    // 更新尾结点
             }
-    
-            return null;
+            size--; // 更新队列长度
+            return val;
         }
     
-        /* 从队尾出队 */
+        /* 队首出队 */
+        public Integer pollFirst() {
+            return poll(true);
+        }
+    
+        /* 队尾出队 */
         public Integer pollLast() {
-            if (size() != 0) {
-                // 暂存尾结点值
-                int num = peekLast();
-    
-                // 记录尾结点的前驱结点，它将作为新尾结点
-                ListNode prev = rear.prev;
-                // 删除原尾结点
-                if (prev != null) {
-                    rear.prev = null;
-                    prev.next = null;
-                }
-    
-                // 尾结点指针指向新的尾结点
-                rear = prev;
-    
-                // 更新队列长度
-                size--;
-    
-                return num;
-            }
-    
-            return null;
+            return poll(false);
         }
     
         /* 访问队首元素 */
         public Integer peekFirst() {
-            return front != null ? front.val : null;
+            return isEmpty() ? null : front.val;
         }
     
         /* 访问队尾元素 */
         public Integer peekLast() {
-            return rear != null ? rear.val : null;
+            return isEmpty() ? null : rear.val;
         }
     
     }
