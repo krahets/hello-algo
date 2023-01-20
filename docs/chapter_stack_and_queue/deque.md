@@ -249,15 +249,15 @@ comments: true
 
 === "Java"
 
-    ```java title="linkedlist_deque.java"
+    ```java title="linkedlist_deque_fy.java"
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
     
         /* 双向链表结点 */
         private static class ListNode {
             int val; // 结点值
-            ListNode next; // 下一个结点的指针
-            ListNode prev; // 前一个结点的指针
+            ListNode next; // 后继结点引用（指针）
+            ListNode prev; // 前驱结点引用（指针）
     
             ListNode(ListNode prev, int val, ListNode next) {
                 this.prev = prev;
@@ -288,16 +288,16 @@ comments: true
         public void offerFirst(int num) {
             // 记录原头结点
             ListNode first = front;
-            // 创建结点作为新的头结点，并将原头结点作为新头结点的下一个结点
+            // 创建结点作为新的头结点，并将原头结点作为新头结点的后继结点
             ListNode newNode = new ListNode(null, num, first);
-            // 头结点指向新头结点
+            // 头结点指针指向新头结点
             front = newNode;
     
             // 如果队列为空，需令尾结点指向该结点
             if (first == null)
                 rear = newNode;
             else
-                // 如果队列不为空，则需将原头结点的前指针指向该结点，以构建双向链表
+                // 如果队列不为空，则需将原头结点的前驱结点指向该结点，以构建双向链表
                 first.prev = newNode;
     
             size++;
@@ -307,16 +307,16 @@ comments: true
         public void offerLast(int num) {
             // 记录原尾结点
             ListNode last = rear;
-            // 创建结点作为新的尾结点，将原尾结点作为新尾结点的前一个结点
+            // 创建结点作为新的尾结点，将原尾结点作为新尾结点的前驱结点
             ListNode newNode = new ListNode(last, num, null);
-            // 尾结点指向新尾结点
+            // 尾结点指针指向新尾结点
             rear = newNode;
     
             // 如果队列为空，需令头结点指向该结点
             if (last == null)
                 front = newNode;
             else
-                // 如果队列不为空，则需将原尾结点的后指针指向该结点，以构建双向链表
+                // 如果队列不为空，则需将原尾结点的后继结点指针指向该结点，以构建双向链表
                 last.next = newNode;
     
             size++;
@@ -325,13 +325,13 @@ comments: true
         /* 从队首出队 */
         public Integer pollFirst() {
             if (!isEmpty()) {
-                // 记录头结点的下一个结点，它将作为新头结点
+                // 记录头结点的后继结点，它将作为新头结点
                 ListNode next = front.next;
-                // 删除头结点(1): 即头结点的后指针指向null
+                // 删除头结点(1): 即头结点的后继结点指针指向null
                 front.next = null;
     
                 int num = peekFirst();
-                // 头结点指向新的头结点
+                // 头结点指针指向新的头结点
                 front = next;
     
                 size--;
@@ -341,7 +341,7 @@ comments: true
                     rear = null;
                 else
                     // 如果双向队列出队后队列长度不为0，则需要完成删除头结点操作
-                    // 删除头结点(2): 新头结点前指针指向null
+                    // 删除头结点(2): 新头结点前驱指针指向null
                     next.prev = null;
     
                 return num;
@@ -353,13 +353,13 @@ comments: true
         /* 从队尾出队 */
         public Integer pollLast() {
             if (!isEmpty()) {
-                // 记录尾结点的前一个结点，它将作为新尾结点
+                // 记录尾结点的前驱结点，它将作为新尾结点
                 ListNode prev = rear.prev;
-                // 删除尾结点(1): 即尾结点的前指针指向null
+                // 删除尾结点(1): 即尾结点的前驱结点指针指向null
                 rear.prev = null;
     
                 int num = peekLast();
-                // 尾结点指向新的尾结点
+                // 尾结点指针指向新的尾结点
                 rear = prev;
     
                 size--;
@@ -369,7 +369,7 @@ comments: true
                     front = null;
                 else
                     // 如果双向队列出队后队列长度不为0，则需要完成删除尾结点操作
-                    // 删除尾结点(2): 新尾结点后指针指向null
+                    // 删除尾结点(2): 新尾结点后继结点指针指向null
                     prev.next = null;
     
                 return num;
