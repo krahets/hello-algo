@@ -17,92 +17,98 @@ struct mylist {
 
 typedef struct mylist MyList;
 /* 前置声明 */
-void extendCapacity(MyList* l);
+void extendCapacity(MyList *list);
 
 /* 构造函数 */
-void newMyList(MyList* l) {
-    l->capacity = 10;                    
-    l->nums = malloc(sizeof(int) * l->capacity);
-    l->size = 0;
-    l->extendRatio = 2;
+void newMyList(MyList *list) {
+    list->capacity = 10;
+    list->nums = malloc(sizeof(int) * list->capacity);
+    list->size = 0;
+    list->extendRatio = 2;
+}
+
+/* 析构函数 */
+void delMyList(MyList *list) {
+    list->size = 0;
+    free(list->nums);
 }
 
 /* 获取列表长度 */
-int size(MyList* l) {
-    return l->size;
+int size(MyList *list) {
+    return list->size;
 }
 
 /* 获取列表容量 */
-int capacity(MyList* l) {
-    return l->capacity;
+int capacity(MyList *list) {
+    return list->capacity;
 }
 
 /* 访问元素 */
-int get(MyList* l, int index) {
-    assert(index < l->size);
-    return l->nums[index];
+int get(MyList *list, int index) {
+    assert(index < list->size);
+    return list->nums[index];
 }
 
 /* 更新元素 */
-void set(MyList* l, int index, int num) {
-    assert(index < l->size); 
-    l->nums[index] = num;
+void set(MyList *list, int index, int num) {
+    assert(index < list->size);
+    list->nums[index] = num;
 }
 
 /* 尾部添加元素 */
-void add(MyList* l, int num) {
-    if (size(l) == capacity(l)) {
-        extendCapacity(l); // 扩容
+void add(MyList *list, int num) {
+    if (size(list) == capacity(list)) {
+        extendCapacity(list); // 扩容
     }
-    l->nums[size(l)] = num;
-    l->size++;
+    list->nums[size(list)] = num;
+    list->size++;
 }
 
 /* 中间插入元素 */
-void insert(MyList* l, int index, int num) {
-    assert(index < size(l));
-    for (int i=size(l); i>index; --i) {
-        l->nums[i] = l->nums[i-1];
+void insert(MyList *list, int index, int num) {
+    assert(index < size(list));
+    for (int i = size(list); i > index; --i) {
+      list->nums[i] = list->nums[i-1];
     }
-    l->nums[index] = num;
-    l->size++;
+    list->nums[index] = num;
+    list->size++;
 }
 
 /* 删除元素 */
 // 由于引入了 stdio.h ，此处无法使用 remove 关键词
 // 详见 https://github.com/krahets/hello-algo/pull/244#discussion_r1067863888
-int removeNum(MyList* l, int index) {
-    assert(index < size(l));
-    int num = l->nums[index];
-    for (int i=index; i<size(l)-1; i++) {
-        l->nums[i] = l->nums[i+1];
+int removeNum(MyList *list, int index) {
+    assert(index < size(list));
+    int num = list->nums[index];
+    for (int i = index; i < size(list) - 1; i++) {
+        list->nums[i] = list->nums[i+1];
     }
-    l->size--;
+    list->size--;
     return num;
 }
 
 /* 列表扩容 */
-void extendCapacity(MyList* l) {
+void extendCapacity(MyList *list) {
     // 先分配空间
-    size_t newCapacity = capacity(l) * l->extendRatio;
+    int newCapacity = capacity(list) * list->extendRatio;
     int *extend = (int *)malloc(sizeof(int) * newCapacity);
-    int *temp = l->nums;
+    int *temp = list->nums;
 
     // 拷贝旧数据到新数据
-    for(size_t i=0; i<size(l); i++)
-        extend[i] = l->nums[i];
+    for(int i = 0; i < size(list); i++)
+        extend[i] = list->nums[i];
 
     // 释放旧数据
     free(temp);
 
     // 更新新数据
-    l->nums = extend;
-    l->capacity = newCapacity;
+    list->nums = extend;
+    list->capacity = newCapacity;
 }
 
 /* 将列表转换为 Array 用于打印 */
-int* toArray(MyList* l) {
-    return l->nums;
+int* toArray(MyList *list) {
+    return list->nums;
 }
 
 int main() {
@@ -147,4 +153,7 @@ int main() {
     printf("扩容后的列表 list = ");
     printArray(toArray(&list), size(&list));
     printf("容量 = %d ，长度 = %d\r\n", capacity(&list), size(&list));
+
+    /* 析构函数，释放分配内存 */
+    delMyList(&list);
 }

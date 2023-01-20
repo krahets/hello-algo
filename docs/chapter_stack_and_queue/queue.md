@@ -234,24 +234,24 @@ comments: true
     /* 初始化队列 */
     // Swift 没有内置的队列类，可以把 Array 当作队列来使用
     var queue: [Int] = []
-
+    
     /* 元素入队 */
     queue.append(1)
     queue.append(3)
     queue.append(2)
     queue.append(5)
     queue.append(4)
-
+    
     /* 访问队首元素 */
     let peek = queue.first!
-
+    
     /* 元素出队 */
     // 使用 Array 模拟时 poll 的复杂度为 O(n)
     let pool = queue.removeFirst()
-
+    
     /* 获取队列的长度 */
     let size = queue.count
-
+    
     /* 判断队列是否为空 */
     let isEmpty = queue.isEmpty
     ```
@@ -263,6 +263,17 @@ comments: true
 ### 基于链表的实现
 
 我们将链表的「头结点」和「尾结点」分别看作是队首和队尾，并规定队尾只可添加结点，队首只可删除结点。
+
+=== "LinkedListQueue"
+    ![linkedlist_queue](queue.assets/linkedlist_queue.png)
+
+=== "push()"
+    ![linkedlist_queue_push](queue.assets/linkedlist_queue_push.png)
+
+=== "poll()"
+    ![linkedlist_queue_poll](queue.assets/linkedlist_queue_poll.png)
+
+以下是使用链表实现队列的示例代码。
 
 === "Java"
 
@@ -434,19 +445,19 @@ comments: true
         // 使用内置包 list 来实现队列
         data *list.List
     }
-
+    
     // newLinkedListQueue 初始化链表
     func newLinkedListQueue() *linkedListQueue {
         return &linkedListQueue{
             data: list.New(),
         }
     }
-
+    
     // offer 入队
     func (s *linkedListQueue) offer(value any) {
         s.data.PushBack(value)
     }
-
+    
     // poll 出队
     func (s *linkedListQueue) poll() any {
         if s.isEmpty() {
@@ -456,7 +467,7 @@ comments: true
         s.data.Remove(e)
         return e.Value
     }
-
+    
     // peek 访问队首元素
     func (s *linkedListQueue) peek() any {
         if s.isEmpty() {
@@ -465,12 +476,12 @@ comments: true
         e := s.data.Front()
         return e.Value
     }
-
+    
     // size 获取队列的长度
     func (s *linkedListQueue) size() int {
         return s.data.Len()
     }
-
+    
     // isEmpty 判断队列是否为空
     func (s *linkedListQueue) isEmpty() bool {
         return s.data.Len() == 0
@@ -658,19 +669,19 @@ comments: true
         private var front: ListNode? // 头结点
         private var rear: ListNode? // 尾结点
         private var _size = 0
-
+    
         init() {}
-
+    
         /* 获取队列的长度 */
         func size() -> Int {
             _size
         }
-
+    
         /* 判断队列是否为空 */
         func isEmpty() -> Bool {
             size() == 0
         }
-
+    
         /* 入队 */
         func offer(num: Int) {
             // 尾结点后添加 num
@@ -687,7 +698,7 @@ comments: true
             }
             _size += 1
         }
-
+    
         /* 出队 */
         @discardableResult
         func poll() -> Int {
@@ -697,7 +708,7 @@ comments: true
             _size -= 1
             return num
         }
-
+    
         /* 访问队首元素 */
         func peek() -> Int {
             if isEmpty() {
@@ -712,11 +723,18 @@ comments: true
 
 数组的删除首元素的时间复杂度为 $O(n)$ ，因此不适合直接用来实现队列。然而，我们可以借助两个指针 `front` , `rear` 来分别记录队首和队尾的索引位置，在入队 / 出队时分别将 `front` / `rear` 向后移动一位即可，这样每次仅需操作一个元素，时间复杂度降至 $O(1)$ 。
 
-还有一个问题，在入队与出队的过程中，两个指针都在向后移动，而到达尾部后则无法继续移动了。为了解决此问题，我们可以采取一个取巧方案，即将数组看作是“环形”的。具体做法是规定指针越过数组尾部后，再次回到头部接续遍历，这样相当于使数组“首尾相连”了。
+=== "ArrayQueue"
+    ![array_queue](queue.assets/array_queue.png)
 
-为了适应环形数组的设定，获取长度 `size()` 、入队 `offer()` 、出队 `poll()` 方法都需要做相应的取余操作处理，使得当尾指针绕回数组头部时，仍然可以正确处理操作。
+=== "push()"
+    ![array_queue_push](queue.assets/array_queue_push.png)
 
-基于数组实现的队列有一个缺点，即长度不可变。但这点我们可以通过动态数组来解决，有兴趣的同学可以自行实现。
+=== "poll()"
+    ![array_queue_poll](queue.assets/array_queue_poll.png)
+
+细心的同学可能会发现一个问题，即在入队与出队的过程中，两个指针都在向后移动，**在到达尾部后则无法继续移动了**。
+
+为了解决此问题，我们可以采取一个取巧方案，**即将数组看作是“环形”的**。具体做法是规定指针越过数组尾部后，再次回到头部接续遍历，这样相当于使数组“首尾相连”了。在环形数组的设定下，获取长度 `size()` 、入队 `offer()` 、出队 `poll()` 方法都需要做相应的取余操作处理，使得当尾指针绕回数组头部时，仍然可以正确处理操作。
 
 === "Java"
 
@@ -898,7 +916,7 @@ comments: true
         front    int   // 头指针，指向队首
         rear     int   // 尾指针，指向队尾 + 1
     }
-
+    
     // newArrayQueue 基于环形数组实现的队列
     func newArrayQueue(capacity int) *arrayQueue {
         return &arrayQueue{
@@ -908,18 +926,18 @@ comments: true
             rear:     0,
         }
     }
-
+    
     // size 获取队列的长度
     func (q *arrayQueue) size() int {
         size := (q.capacity + q.rear - q.front) % q.capacity
         return size
     }
-
+    
     // isEmpty 判断队列是否为空
     func (q *arrayQueue) isEmpty() bool {
         return q.rear-q.front == 0
     }
-
+    
     // offer 入队
     func (q *arrayQueue) offer(v int) {
         // 当 rear == capacity 表示队列已满
@@ -931,7 +949,7 @@ comments: true
         // 尾指针向后移动一位，越过尾部后返回到数组头部
         q.rear = (q.rear + 1) % q.capacity
     }
-
+    
     // poll 出队
     func (q *arrayQueue) poll() any {
         if q.isEmpty() {
@@ -942,7 +960,7 @@ comments: true
         q.front = (q.front + 1) % q.capacity
         return v
     }
-
+    
     // peek 访问队首元素
     func (q *arrayQueue) peek() any {
         if q.isEmpty() {
@@ -1128,29 +1146,29 @@ comments: true
         private var nums: [Int] // 用于存储队列元素的数组
         private var front = 0 // 头指针，指向队首
         private var rear = 0 // 尾指针，指向队尾 + 1
-
+    
         init(capacity: Int) {
             // 初始化数组
             nums = Array(repeating: 0, count: capacity)
         }
-
+    
         /* 获取队列的容量 */
         func capacity() -> Int {
             nums.count
         }
-
+    
         /* 获取队列的长度 */
         func size() -> Int {
             let capacity = capacity()
             // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
             return (capacity + rear - front) % capacity
         }
-
+    
         /* 判断队列是否为空 */
         func isEmpty() -> Bool {
             rear - front == 0
         }
-
+    
         /* 入队 */
         func offer(num: Int) {
             if size() == capacity() {
@@ -1162,7 +1180,7 @@ comments: true
             // 尾指针向后移动一位，越过尾部后返回到数组头部
             rear = (rear + 1) % capacity()
         }
-
+    
         /* 出队 */
         @discardableResult
         func poll() -> Int {
@@ -1171,7 +1189,7 @@ comments: true
             front = (front + 1) % capacity()
             return num
         }
-
+    
         /* 访问队首元素 */
         func peek() -> Int {
             if isEmpty() {
@@ -1181,6 +1199,12 @@ comments: true
         }
     }
     ```
+
+以上代码仍存在局限性，即长度不可变。然而，我们可以通过将数组替换为列表（即动态数组）来引入扩容机制，有兴趣的同学可以尝试实现。
+
+## 两种实现对比
+
+与栈的结论一致，在此不再赘述。
 
 ## 队列典型应用
 

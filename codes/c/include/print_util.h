@@ -25,7 +25,7 @@ extern "C" {
  * @param arr
  * @param size
  */
-static void printArray(int *arr, int size) {
+static void printArray(int arr[], int size) {
     printf("[");
     if (arr != NULL && size != 0) {
       for (int i = 0; i < size - 1; i++) {
@@ -37,7 +37,7 @@ static void printArray(int *arr, int size) {
       }
       if (arr[size - 1] != NIL) {
           printf("%d]\n", arr[size - 1]);
-      }else{
+      } else {
           printf("NULL]\n");
       }
     } else {
@@ -129,6 +129,21 @@ static void printTreeHelper(TreeNode *node, Trunk *prev, bool isLeft) {
  */
 static void printTree(TreeNode *root) {
     printTreeHelper(root, NULL, false);
+}
+
+/**
+ * @brief Print a Heap
+ *
+ * @param arr
+ * @param size
+ */
+static void printHeap(int arr[], int size) {
+    TreeNode * root;
+    printf("堆的数组表示：");
+    printArray(arr, size);
+    printf("堆的树状表示：\n");
+    root = arrToTree(arr, size);
+    printTree(root);
 }
 
 

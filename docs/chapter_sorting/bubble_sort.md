@@ -100,7 +100,7 @@ comments: true
     def bubble_sort(nums):
         n = len(nums)
         # 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i in range(n - 1, -1, -1):
+        for i in range(n - 1, 0, -1):
             # 内循环：冒泡操作
             for j in range(i):
                 if nums[j] > nums[j + 1]:
@@ -228,7 +228,7 @@ comments: true
 
 **稳定排序**：不交换相等元素。
 
-**自适排序**：引入 `flag` 优化后（见下文），最佳时间复杂度为 $O(N)$ 。
+**自适应排序**：引入 `flag` 优化后（见下文），最佳时间复杂度为 $O(N)$ 。
 
 ## 效率优化
 
@@ -288,7 +288,7 @@ comments: true
     def bubble_sort_with_flag(nums):
         n = len(nums)
         # 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i in range(n - 1, -1, -1):
+        for i in range(n - 1, 0, -1):
             flag = False  # 初始化标志位
             # 内循环：冒泡操作
             for j in range(i):

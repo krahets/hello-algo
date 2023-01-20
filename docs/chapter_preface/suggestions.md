@@ -10,7 +10,7 @@ comments: true
 
 在阅读本书的过程中，若发现某段内容提供了动画或图解，**建议你以图为主线**，将文字内容（一般在图的上方）对齐到图中内容，综合来理解。
 
-![algorithm_animation](suggestions.assets/algorithm_animation.gif)
+![animation](suggestions.assets/animation.gif)
 
 ## 代码实践学
 

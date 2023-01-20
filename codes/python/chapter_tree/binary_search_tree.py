@@ -37,10 +37,10 @@ class BinarySearchTree:
         cur = self.root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
-            # 目标结点在 root 的右子树中
+            # 目标结点在 cur 的右子树中
             if cur.val < num:
                 cur = cur.right
-            # 目标结点在 root 的左子树中
+            # 目标结点在 cur 的左子树中
             elif cur.val > num:
                 cur = cur.left
             # 找到目标结点，跳出循环
@@ -64,10 +64,11 @@ class BinarySearchTree:
             if cur.val == num:
                 return None
             pre = cur
-
-            if cur.val < num:  # 插入位置在 root 的右子树中
+            # 插入位置在 cur 的右子树中
+            if cur.val < num:
                 cur = cur.right
-            else:  # 插入位置在 root 的左子树中
+            # 插入位置在 cur 的左子树中
+            else:
                 cur = cur.left
 
         # 插入结点 val

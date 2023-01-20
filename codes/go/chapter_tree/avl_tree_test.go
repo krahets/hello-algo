@@ -49,6 +49,6 @@ func testInsert(tree *avlTree, val int) {
 
 func testRemove(tree *avlTree, val int) {
 	tree.remove(val)
-	fmt.Printf("\n删除结点  %d 后，AVL 树为 \n", val)
+	fmt.Printf("\n删除结点 %d 后，AVL 树为 \n", val)
 	PrintTree(tree.root)
 }

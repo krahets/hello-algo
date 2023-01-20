@@ -20,6 +20,11 @@ let package = Package(
         .executable(name: "linkedlist_queue", targets: ["linkedlist_queue"]),
         .executable(name: "array_queue", targets: ["array_queue"]),
         .executable(name: "deque", targets: ["deque"]),
+        .executable(name: "hash_map", targets: ["hash_map"]),
+        .executable(name: "array_hash_map", targets: ["array_hash_map"]),
+        .executable(name: "binary_tree", targets: ["binary_tree"]),
+        .executable(name: "binary_tree_bfs", targets: ["binary_tree_bfs"]),
+        .executable(name: "binary_tree_dfs", targets: ["binary_tree_dfs"]),
     ],
     targets: [
         .target(name: "utils", path: "utils"),
@@ -38,5 +43,10 @@ let package = Package(
         .executableTarget(name: "linkedlist_queue", dependencies: ["utils"], path: "chapter_stack_and_queue", sources: ["linkedlist_queue.swift"]),
         .executableTarget(name: "array_queue", path: "chapter_stack_and_queue", sources: ["array_queue.swift"]),
         .executableTarget(name: "deque", path: "chapter_stack_and_queue", sources: ["deque.swift"]),
+        .executableTarget(name: "hash_map", dependencies: ["utils"], path: "chapter_hashing", sources: ["hash_map.swift"]),
+        .executableTarget(name: "array_hash_map", path: "chapter_hashing", sources: ["array_hash_map.swift"]),
+        .executableTarget(name: "binary_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["binary_tree.swift"]),
+        .executableTarget(name: "binary_tree_bfs", dependencies: ["utils"], path: "chapter_tree", sources: ["binary_tree_bfs.swift"]),
+        .executableTarget(name: "binary_tree_dfs", dependencies: ["utils"], path: "chapter_tree", sources: ["binary_tree_dfs.swift"]),
     ]
 )

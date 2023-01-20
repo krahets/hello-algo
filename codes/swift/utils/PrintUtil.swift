@@ -68,4 +68,10 @@ public enum PrintUtil {
         showTrunks(p: p?.prev)
         print(p!.str, terminator: "")
     }
+
+    public static func printHashMap<K, V>(map: [K: V]) {
+        for (key, value) in map {
+            print("\(key) -> \(value)")
+        }
+    }
 }

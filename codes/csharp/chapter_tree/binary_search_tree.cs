@@ -42,9 +42,9 @@ namespace hello_algo.chapter_tree
             // 循环查找，越过叶结点后跳出
             while (cur != null)
             {
-                // 目标结点在 root 的右子树中
+                // 目标结点在 cur 的右子树中
                 if (cur.val < num) cur = cur.right;
-                // 目标结点在 root 的左子树中
+                // 目标结点在 cur 的左子树中
                 else if (cur.val > num) cur = cur.left;
                 // 找到目标结点，跳出循环
                 else break;
@@ -65,9 +65,9 @@ namespace hello_algo.chapter_tree
                 // 找到重复结点，直接返回
                 if (cur.val == num) return null;
                 pre = cur;
-                // 插入位置在 root 的右子树中
+                // 插入位置在 cur 的右子树中
                 if (cur.val < num) cur = cur.right;
-                // 插入位置在 root 的左子树中
+                // 插入位置在 cur 的左子树中
                 else cur = cur.left;
             }
 

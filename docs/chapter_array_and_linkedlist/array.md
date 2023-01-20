@@ -111,6 +111,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     ```java title="array.java"
     /* 随机返回一个数组元素 */
     int randomAccess(int[] nums) {
+        // 在区间 [0, nums.length) 中随机抽取一个数字
         int randomIndex = ThreadLocalRandom.current().
                           nextInt(0, nums.length);
         int randomNum = nums[randomIndex];
@@ -136,8 +137,8 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     ```python title="array.py"
     """ 随机访问元素 """
     def randomAccess(nums):
-        # 在区间 [0, len(nums)) 中随机抽取一个数字
-        random_index = random.randint(0, len(nums))
+        # 在区间 [0, len(nums)-1] 中随机抽取一个数字
+        random_index = random.randint(0, len(nums) - 1)
         # 获取并返回随机元素
         random_num = nums[random_index]
         return random_num
@@ -195,7 +196,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     int RandomAccess(int[] nums)
     {
         Random random=new();
+        // 在区间 [0, nums.Length) 中随机抽取一个数字
         int randomIndex = random.Next(nums.Length);
+        // 获取并返回随机元素
         int randomNum = nums[randomIndex];
         return randomNum;
     }
