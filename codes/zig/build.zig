@@ -174,6 +174,19 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_queue = b.step("run_queue", "Run queue");
         run_step_queue.dependOn(&run_cmd_queue.step);
 
+        // Source File: "chapter_stack_and_queue/array_queue.zig"
+        // Run Command: zig build run_array_queue
+        const exe_array_queue = b.addExecutable("array_queue", "chapter_stack_and_queue/array_queue.zig");
+        exe_array_queue.addPackagePath("include", "include/include.zig");
+        exe_array_queue.setTarget(target);
+        exe_array_queue.setBuildMode(mode);
+        exe_array_queue.install();
+        const run_cmd_array_queue = exe_array_queue.run();
+        run_cmd_array_queue.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_array_queue.addArgs(args);
+        const run_step_array_queue = b.step("run_array_queue", "Run array_queue");
+        run_step_array_queue.dependOn(&run_cmd_array_queue.step);
+        
     // Section: "Hash Map"
         // Source File: "chapter_hashing/hash_map.zig"
         // Run Command: zig build run_hash_map
