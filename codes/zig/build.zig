@@ -200,6 +200,20 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_linkedlist_queue = b.step("run_linkedlist_queue", "Run linkedlist_queue");
         run_step_linkedlist_queue.dependOn(&run_cmd_linkedlist_queue.step);
 
+    // Section: "Deque"
+        // Source File: "chapter_stack_and_queue/deque.zig"
+        // Run Command: zig build run_deque
+        const exe_deque = b.addExecutable("deque", "chapter_stack_and_queue/deque.zig");
+        exe_deque.addPackagePath("include", "include/include.zig");
+        exe_deque.setTarget(target);
+        exe_deque.setBuildMode(mode);
+        exe_deque.install();
+        const run_cmd_deque = exe_deque.run();
+        run_cmd_deque.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_deque.addArgs(args);
+        const run_step_deque = b.step("run_deque", "Run deque");
+        run_step_deque.dependOn(&run_cmd_deque.step);
+
     // Section: "Hash Map"
         // Source File: "chapter_hashing/hash_map.zig"
         // Run Command: zig build run_hash_map

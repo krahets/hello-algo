@@ -48,13 +48,15 @@ pub fn printLinkedList(comptime T: type, node: ?*ListNode(T)) !void {
     }
 }
 
-// Print a queue
+// Print a queue or deque
 pub fn printQueue(comptime T: type, queue: std.TailQueue(T)) void {
-    var deque_tmp = queue;
+    var node = queue.first;
     std.debug.print("[", .{});
-    while (deque_tmp.len > 0) {
-        var front = deque_tmp.popFirst().?.data;
-        std.debug.print("{}{s}", .{front, if (deque_tmp.len == 0) "]" else ", " });
+    var i: i32 = 0;
+    while (node != null) : (i += 1) {
+        var data = node.?.data;
+        std.debug.print("{}{s}", .{data, if (i == queue.len - 1) "]" else ", " });
+        node = node.?.next;
     }
 }
 
