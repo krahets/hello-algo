@@ -160,6 +160,73 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_array_stack = b.step("run_array_stack", "Run array_stack");
         run_step_array_stack.dependOn(&run_cmd_array_stack.step);      
 
+    // Section: "Queue"
+        // Source File: "chapter_stack_and_queue/queue.zig"
+        // Run Command: zig build run_queue
+        const exe_queue = b.addExecutable("queue", "chapter_stack_and_queue/queue.zig");
+        exe_queue.addPackagePath("include", "include/include.zig");
+        exe_queue.setTarget(target);
+        exe_queue.setBuildMode(mode);
+        exe_queue.install();
+        const run_cmd_queue = exe_queue.run();
+        run_cmd_queue.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_queue.addArgs(args);
+        const run_step_queue = b.step("run_queue", "Run queue");
+        run_step_queue.dependOn(&run_cmd_queue.step);
+
+        // Source File: "chapter_stack_and_queue/array_queue.zig"
+        // Run Command: zig build run_array_queue
+        const exe_array_queue = b.addExecutable("array_queue", "chapter_stack_and_queue/array_queue.zig");
+        exe_array_queue.addPackagePath("include", "include/include.zig");
+        exe_array_queue.setTarget(target);
+        exe_array_queue.setBuildMode(mode);
+        exe_array_queue.install();
+        const run_cmd_array_queue = exe_array_queue.run();
+        run_cmd_array_queue.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_array_queue.addArgs(args);
+        const run_step_array_queue = b.step("run_array_queue", "Run array_queue");
+        run_step_array_queue.dependOn(&run_cmd_array_queue.step);
+
+        // Source File: "chapter_stack_and_queue/linkedlist_queue.zig"
+        // Run Command: zig build run_linkedlist_queue
+        const exe_linkedlist_queue = b.addExecutable("linkedlist_queue", "chapter_stack_and_queue/linkedlist_queue.zig");
+        exe_linkedlist_queue.addPackagePath("include", "include/include.zig");
+        exe_linkedlist_queue.setTarget(target);
+        exe_linkedlist_queue.setBuildMode(mode);
+        exe_linkedlist_queue.install();
+        const run_cmd_linkedlist_queue = exe_linkedlist_queue.run();
+        run_cmd_linkedlist_queue.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_linkedlist_queue.addArgs(args);
+        const run_step_linkedlist_queue = b.step("run_linkedlist_queue", "Run linkedlist_queue");
+        run_step_linkedlist_queue.dependOn(&run_cmd_linkedlist_queue.step);
+
+    // Section: "Deque"
+        // Source File: "chapter_stack_and_queue/deque.zig"
+        // Run Command: zig build run_deque
+        const exe_deque = b.addExecutable("deque", "chapter_stack_and_queue/deque.zig");
+        exe_deque.addPackagePath("include", "include/include.zig");
+        exe_deque.setTarget(target);
+        exe_deque.setBuildMode(mode);
+        exe_deque.install();
+        const run_cmd_deque = exe_deque.run();
+        run_cmd_deque.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_deque.addArgs(args);
+        const run_step_deque = b.step("run_deque", "Run deque");
+        run_step_deque.dependOn(&run_cmd_deque.step);
+
+        // Source File: "chapter_stack_and_queue/linkedlist_deque.zig"
+        // Run Command: zig build run_linkedlist_deque
+        const exe_linkedlist_deque = b.addExecutable("linkedlist_deque", "chapter_stack_and_queue/linkedlist_deque.zig");
+        exe_linkedlist_deque.addPackagePath("include", "include/include.zig");
+        exe_linkedlist_deque.setTarget(target);
+        exe_linkedlist_deque.setBuildMode(mode);
+        exe_linkedlist_deque.install();
+        const run_cmd_linkedlist_deque = exe_linkedlist_deque.run();
+        run_cmd_linkedlist_deque.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_linkedlist_deque.addArgs(args);
+        const run_step_linkedlist_deque = b.step("run_linkedlist_deque", "Run linkedlist_deque");
+        run_step_linkedlist_deque.dependOn(&run_cmd_linkedlist_deque.step);
+     
     // Section: "Hash Map"
         // Source File: "chapter_hashing/hash_map.zig"
         // Run Command: zig build run_hash_map
