@@ -230,9 +230,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
             int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
+            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m] 中
+            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
                 j = m;
             else                       // 找到目标元素，返回其索引
                 return m;
@@ -252,9 +252,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
             int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
+            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m] 中
+            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
                 j = m;
             else                       // 找到目标元素，返回其索引
                 return m;
@@ -274,9 +274,9 @@ $$
         # 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while i < j:
             m = (i + j) // 2        # 计算中点索引 m
-            if nums[m] < target:    # 此情况说明 target 在区间 [m+1, j] 中
+            if nums[m] < target:    # 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1
-            elif nums[m] > target:  # 此情况说明 target 在区间 [i, m] 中
+            elif nums[m] > target:  # 此情况说明 target 在区间 [i, m) 中
                 j = m
             else:                   # 找到目标元素，返回其索引
                 return m
@@ -293,9 +293,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         for i < j {
             m := (i + j) / 2             // 计算中点索引 m
-            if nums[m] < target {        // 此情况说明 target 在区间 [m+1, j] 中
+            if nums[m] < target {        // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1
-            } else if nums[m] > target { // 此情况说明 target 在区间 [i, m] 中
+            } else if nums[m] > target { // 此情况说明 target 在区间 [i, m) 中
                 j = m
             } else {                     // 找到目标元素，返回其索引
                 return m
@@ -316,9 +316,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
             let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
-            if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j] 中
+            if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
-            else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m] 中
+            else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m) 中
                 j = m;
             else                           // 找到目标元素，返回其索引
                 return m;
@@ -338,9 +338,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
             const m = Math.floor(i + (j - i) / 2);  // 计算中点索引 m
-            if (nums[m] < target) {                 // 此情况说明 target 在区间 [m+1, j] 中
+            if (nums[m] < target) {                 // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
-            } else if (nums[m] > target) {          // 此情况说明 target 在区间 [i, m] 中
+            } else if (nums[m] > target) {          // 此情况说明 target 在区间 [i, m) 中
                 j = m;
             } else {                                // 找到目标元素，返回其索引
                 return m;
@@ -368,9 +368,9 @@ $$
         while (i < j)
         {
             int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
+            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m] 中
+            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
                 j = m;
             else                       // 找到目标元素，返回其索引
                 return m;
@@ -494,5 +494,5 @@ $$
 但并不意味着所有情况下都应使用二分查找，这是因为：
 
 - **二分查找仅适用于有序数据**。如果输入数据是无序的，为了使用二分查找而专门执行数据排序，那么是得不偿失的，因为排序算法的时间复杂度一般为 $O(n \log n)$ ，比线性查找和二分查找都更差。再例如，对于频繁插入元素的场景，为了保持数组的有序性，需要将元素插入到特定位置，时间复杂度为 $O(n)$ ，也是非常昂贵的。
-- **二分查找仅适用于数组**。由于在二分查找中，访问索引是 ”非连续“ 的，因此链表或者基于链表实现的数据结构都无法使用。
+- **二分查找仅适用于数组**。由于在二分查找中，访问索引是 “非连续” 的，因此链表或者基于链表实现的数据结构都无法使用。
 - **在小数据量下，线性查找的性能更好**。在线性查找中，每轮只需要 1 次判断操作；而在二分查找中，需要 1 次加法、1 次除法、1 ~ 3 次判断操作、1 次加法（减法），共 4 ~ 6 个单元操作；因此，在数据量 $n$ 较小时，线性查找反而比二分查找更快。
