@@ -48,6 +48,16 @@ pub fn printLinkedList(comptime T: type, node: ?*ListNode(T)) !void {
     }
 }
 
+// Print a queue
+pub fn printQueue(comptime T: type, queue: std.TailQueue(T)) void {
+    var deque_tmp = queue;
+    std.debug.print("[", .{});
+    while (deque_tmp.len > 0) {
+        var front = deque_tmp.popFirst().?.data;
+        std.debug.print("{}{s}", .{front, if (deque_tmp.len == 0) "]" else ", " });
+    }
+}
+
 // Print a HashMap
 pub fn printHashMap(comptime TKey: type, comptime TValue: type, map: std.AutoHashMap(TKey, TValue)) void {
     var it = map.iterator();
