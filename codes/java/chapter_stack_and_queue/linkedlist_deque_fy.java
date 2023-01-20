@@ -145,7 +145,7 @@ class LinkedListDeque {
 
 }
 
-public class linkedlist_deque {
+public class linkedlist_deque_fy {
     public static void main(String[] args) {
         /* 初始化双向队列 */
         LinkedListDeque deque = new LinkedListDeque();
