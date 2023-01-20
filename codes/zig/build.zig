@@ -214,6 +214,19 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_deque = b.step("run_deque", "Run deque");
         run_step_deque.dependOn(&run_cmd_deque.step);
 
+        // Source File: "chapter_stack_and_queue/linkedlist_deque.zig"
+        // Run Command: zig build run_linkedlist_deque
+        const exe_linkedlist_deque = b.addExecutable("linkedlist_deque", "chapter_stack_and_queue/linkedlist_deque.zig");
+        exe_linkedlist_deque.addPackagePath("include", "include/include.zig");
+        exe_linkedlist_deque.setTarget(target);
+        exe_linkedlist_deque.setBuildMode(mode);
+        exe_linkedlist_deque.install();
+        const run_cmd_linkedlist_deque = exe_linkedlist_deque.run();
+        run_cmd_linkedlist_deque.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_linkedlist_deque.addArgs(args);
+        const run_step_linkedlist_deque = b.step("run_linkedlist_deque", "Run linkedlist_deque");
+        run_step_linkedlist_deque.dependOn(&run_cmd_linkedlist_deque.step);
+     
     // Section: "Hash Map"
         // Source File: "chapter_hashing/hash_map.zig"
         // Run Command: zig build run_hash_map
