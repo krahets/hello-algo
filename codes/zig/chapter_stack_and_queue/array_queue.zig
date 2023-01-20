@@ -88,7 +88,6 @@ pub fn ArrayQueue(comptime T: type) type {
             }
             return res;
         }
-        
     };
 }
 
