@@ -56,4 +56,3 @@ pub fn main() !void {
     const getchar = try std.io.getStdIn().reader().readByte();
     _ = getchar;
 }
-
