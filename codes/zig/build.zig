@@ -280,7 +280,20 @@ pub fn build(b: *std.build.Builder) void {
         if (b.args) |args| run_cmd_binary_tree_bfs.addArgs(args);
         const run_step_binary_tree_bfs = b.step("run_binary_tree_bfs", "Run binary_tree_bfs");
         run_step_binary_tree_bfs.dependOn(&run_cmd_binary_tree_bfs.step);
-        
+
+        // Source File: "chapter_tree/binary_tree_dfs.zig"
+        // Run Command: zig build run_binary_tree_dfs
+        const exe_binary_tree_dfs = b.addExecutable("binary_tree_dfs", "chapter_tree/binary_tree_dfs.zig");
+        exe_binary_tree_dfs.addPackagePath("include", "include/include.zig");
+        exe_binary_tree_dfs.setTarget(target);
+        exe_binary_tree_dfs.setBuildMode(mode);
+        exe_binary_tree_dfs.install();
+        const run_cmd_binary_tree_dfs = exe_binary_tree_dfs.run();
+        run_cmd_binary_tree_dfs.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_binary_tree_dfs.addArgs(args);
+        const run_step_binary_tree_dfs = b.step("run_binary_tree_dfs", "Run binary_tree_dfs");
+        run_step_binary_tree_dfs.dependOn(&run_cmd_binary_tree_dfs.step);
+
     // Section: "Heap"
         // Source File: "chapter_heap/heap.zig"
         // Run Command: zig build run_heap
