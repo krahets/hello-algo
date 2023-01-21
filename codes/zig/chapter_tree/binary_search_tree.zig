@@ -20,7 +20,7 @@ pub fn BinarySearchTree(comptime T: type) type {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
                 self.mem_allocator = self.mem_arena.?.allocator();
             }
-            std.sort.sort(T, nums, {}, comptime std.sort.asc(T));        // 排序数组
+            std.sort.sort(T, nums, {}, comptime std.sort.asc(T));   // 排序数组
             self.root = try self.buildTree(nums, 0, nums.len - 1);  // 构建二叉搜索树
         }
 
