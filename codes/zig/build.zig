@@ -294,6 +294,20 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_binary_tree_dfs = b.step("run_binary_tree_dfs", "Run binary_tree_dfs");
         run_step_binary_tree_dfs.dependOn(&run_cmd_binary_tree_dfs.step);
 
+    // Section: "Binary Search Tree"
+        // Source File: "chapter_tree/binary_search_tree.zig"
+        // Run Command: zig build run_binary_search_tree
+        const exe_binary_search_tree = b.addExecutable("binary_search_tree", "chapter_tree/binary_search_tree.zig");
+        exe_binary_search_tree.addPackagePath("include", "include/include.zig");
+        exe_binary_search_tree.setTarget(target);
+        exe_binary_search_tree.setBuildMode(mode);
+        exe_binary_search_tree.install();
+        const run_cmd_binary_search_tree = exe_binary_search_tree.run();
+        run_cmd_binary_search_tree.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_binary_search_tree.addArgs(args);
+        const run_step_binary_search_tree = b.step("run_binary_search_tree", "Run binary_search_tree");
+        run_step_binary_search_tree.dependOn(&run_cmd_binary_search_tree.step);
+
     // Section: "Heap"
         // Source File: "chapter_heap/heap.zig"
         // Run Command: zig build run_heap
