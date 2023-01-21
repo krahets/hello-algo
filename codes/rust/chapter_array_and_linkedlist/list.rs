@@ -56,8 +56,8 @@ fn main() {
 
     /* 拼接两个列表 */
     let mut list1 = vec![6, 8, 7, 10, 9];
-    list.append(&mut list1); // 或者
-    // list.extend(&list1); // 借用
+    list.append(&mut list1); // append（移动） 之后 list1 为空！
+    // list.extend(&list1); // extend（借用） list1 能继续使用 
 
     println!("将列表 list1 拼接到 list 之后，得到 list = {:?}", list);
 
