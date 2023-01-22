@@ -308,6 +308,20 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_binary_search_tree = b.step("run_binary_search_tree", "Run binary_search_tree");
         run_step_binary_search_tree.dependOn(&run_cmd_binary_search_tree.step);
 
+    // Section: "AVL Tree"
+        // Source File: "chapter_tree/avl_tree.zig"
+        // Run Command: zig build run_avl_tree
+        const exe_avl_tree = b.addExecutable("avl_tree", "chapter_tree/avl_tree.zig");
+        exe_avl_tree.addPackagePath("include", "include/include.zig");
+        exe_avl_tree.setTarget(target);
+        exe_avl_tree.setBuildMode(mode);
+        exe_avl_tree.install();
+        const run_cmd_avl_tree = exe_avl_tree.run();
+        run_cmd_avl_tree.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_avl_tree.addArgs(args);
+        const run_step_avl_tree = b.step("run_avl_tree", "Run avl_tree");
+        run_step_avl_tree.dependOn(&run_cmd_avl_tree.step);
+        
     // Section: "Heap"
         // Source File: "chapter_heap/heap.zig"
         // Run Command: zig build run_heap
