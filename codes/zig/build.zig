@@ -280,6 +280,47 @@ pub fn build(b: *std.build.Builder) void {
         if (b.args) |args| run_cmd_binary_tree_bfs.addArgs(args);
         const run_step_binary_tree_bfs = b.step("run_binary_tree_bfs", "Run binary_tree_bfs");
         run_step_binary_tree_bfs.dependOn(&run_cmd_binary_tree_bfs.step);
+
+        // Source File: "chapter_tree/binary_tree_dfs.zig"
+        // Run Command: zig build run_binary_tree_dfs
+        const exe_binary_tree_dfs = b.addExecutable("binary_tree_dfs", "chapter_tree/binary_tree_dfs.zig");
+        exe_binary_tree_dfs.addPackagePath("include", "include/include.zig");
+        exe_binary_tree_dfs.setTarget(target);
+        exe_binary_tree_dfs.setBuildMode(mode);
+        exe_binary_tree_dfs.install();
+        const run_cmd_binary_tree_dfs = exe_binary_tree_dfs.run();
+        run_cmd_binary_tree_dfs.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_binary_tree_dfs.addArgs(args);
+        const run_step_binary_tree_dfs = b.step("run_binary_tree_dfs", "Run binary_tree_dfs");
+        run_step_binary_tree_dfs.dependOn(&run_cmd_binary_tree_dfs.step);
+
+    // Section: "Binary Search Tree"
+        // Source File: "chapter_tree/binary_search_tree.zig"
+        // Run Command: zig build run_binary_search_tree
+        const exe_binary_search_tree = b.addExecutable("binary_search_tree", "chapter_tree/binary_search_tree.zig");
+        exe_binary_search_tree.addPackagePath("include", "include/include.zig");
+        exe_binary_search_tree.setTarget(target);
+        exe_binary_search_tree.setBuildMode(mode);
+        exe_binary_search_tree.install();
+        const run_cmd_binary_search_tree = exe_binary_search_tree.run();
+        run_cmd_binary_search_tree.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_binary_search_tree.addArgs(args);
+        const run_step_binary_search_tree = b.step("run_binary_search_tree", "Run binary_search_tree");
+        run_step_binary_search_tree.dependOn(&run_cmd_binary_search_tree.step);
+
+    // Section: "AVL Tree"
+        // Source File: "chapter_tree/avl_tree.zig"
+        // Run Command: zig build run_avl_tree
+        const exe_avl_tree = b.addExecutable("avl_tree", "chapter_tree/avl_tree.zig");
+        exe_avl_tree.addPackagePath("include", "include/include.zig");
+        exe_avl_tree.setTarget(target);
+        exe_avl_tree.setBuildMode(mode);
+        exe_avl_tree.install();
+        const run_cmd_avl_tree = exe_avl_tree.run();
+        run_cmd_avl_tree.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_avl_tree.addArgs(args);
+        const run_step_avl_tree = b.step("run_avl_tree", "Run avl_tree");
+        run_step_avl_tree.dependOn(&run_cmd_avl_tree.step);
         
     // Section: "Heap"
         // Source File: "chapter_heap/heap.zig"
