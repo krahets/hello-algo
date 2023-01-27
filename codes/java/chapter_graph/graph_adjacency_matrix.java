@@ -10,11 +10,11 @@ import include.*;
 import java.util.*;
 
 /* 基于邻接矩阵表示的无向图类 */
-class Graph {
+class GraphAdjMat {
     List<Integer> vertices;     // 顶点列表，元素代表顶点值
     List<List<Integer>> adjMat; // 邻接矩阵
 
-    public Graph(int[] vertices, int[][] edges) {
+    public GraphAdjMat(int[] vertices, int[][] edges) {
         this.vertices = new ArrayList<>();
         this.adjMat = new ArrayList<>();
         // 添加顶点
@@ -94,9 +94,10 @@ class Graph {
 public class graph_adjacency_matrix {
     public static void main(String[] args) {
         /* 初始化无向图 */
+        // 请注意，edges 中的元素对应 vertices 中元素的索引
         int[] vertices = { 1, 3, 2, 5, 4 };
-        int[][] edges = { { 0, 1 }, { 1, 2 }, { 2, 3 }, { 0, 3 }, { 2, 4 }, { 3, 4 } };
-        Graph graph = new Graph(vertices, edges);
+        int[][] edges = { { 0, 1 }, { 0, 2 }, { 1, 2 }, { 2, 3 }, { 0, 3 }, { 2, 4 }, { 3, 4 } };
+        GraphAdjMat graph = new GraphAdjMat(vertices, edges);
         System.out.println("\n初始化后，图为");
         graph.print();
 
@@ -105,14 +106,15 @@ public class graph_adjacency_matrix {
         System.out.println("\n添加值为 6 的顶点后，图为");
         graph.print();
 
+        /* 添加边 */
+        // 方法 addEdge(i, j) 中的参数 i, j 对应 vertices 中的索引
+        graph.addEdge(2, 5);
+        System.out.println("\n添加边 (2, 5) 后，图为");
+        graph.print();
+
         /* 删除顶点 */
         graph.removeVertex(1);
         System.out.println("\n删除索引为 1 的顶点后，图为");
-        graph.print();
-
-        /* 添加边 */
-        graph.addEdge(0, 1);
-        System.out.println("\n添加边 (0, 1) 后，图为");
         graph.print();
 
         /* 删除边 */

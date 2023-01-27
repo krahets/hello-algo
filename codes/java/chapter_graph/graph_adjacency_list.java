@@ -27,11 +27,11 @@ class GraphAdjList {
     public GraphAdjList(Vertex[] vertices, Vertex[][] edges) {
         this.vertices = new ArrayList<>();
         this.adjList = new HashMap<>();
-        // 添加顶点
+        // 添加所有顶点
         for (Vertex vertex : vertices) {
             addVertex(vertex);
         }
-        // 添加边
+        // 添加所有边
         for (Vertex[] edge : edges) {
             addEdge(edge[0], edge[1]);
         }
@@ -58,7 +58,7 @@ class GraphAdjList {
         vertices.remove(vet);
         // 在邻接表中删除 vet 对应的链表（即 HashSet）
         adjList.remove(vet);
-        // 遍历其它顶点的链表（即 HashSet），删除所有与 vet 相关的边
+        // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
         for (Set<Vertex> set : adjList.values()) {
             set.remove(vet);
         }
@@ -68,6 +68,7 @@ class GraphAdjList {
     public void addEdge(Vertex vet1, Vertex vet2) {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2))
             throw new IndexOutOfBoundsException();
+        // 添加边 vet1-vet2
         adjList.get(vet1).add(vet2);
         adjList.get(vet2).add(vet1);
     }
@@ -76,6 +77,7 @@ class GraphAdjList {
     public void removeEdge(Vertex vet1, Vertex vet2) {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2))
             throw new IndexOutOfBoundsException();
+        // 删除边 vet1-vet2
         adjList.get(vet1).remove(vet2);
         adjList.get(vet2).remove(vet1);
     }
