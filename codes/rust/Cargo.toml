@@ -2,4 +2,5 @@
 [workspace]
 members = [
     "chapter_computational_complexity",
+    "chapter_array_and_linkedlist"
 ]
