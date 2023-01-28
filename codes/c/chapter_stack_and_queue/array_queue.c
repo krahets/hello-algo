@@ -17,12 +17,14 @@ struct ArrayQueue {
 typedef struct ArrayQueue ArrayQueue;
 
 /* 构造函数 */
-void newArrayQueue(ArrayQueue *queue, int capacity) {
+ArrayQueue *newArrayQueue(int capacity) {
+    ArrayQueue *queue = (ArrayQueue *) malloc(sizeof(ArrayQueue));
     // 初始化数组
     queue->cap = capacity;
-    queue->nums = (int *)malloc(sizeof(int) * queue->cap);
+    queue->nums = (int *) malloc(sizeof(int) * queue->cap);
     queue->front = 0;
     queue->rear = 0;
+    return queue;
 }
 
 /* 析构函数 */
@@ -86,44 +88,43 @@ void printArrayQueue(ArrayQueue *queue) {
 int main() {
   /* 初始化队列 */
   int capacity = 10;
-  ArrayQueue queue;
-  newArrayQueue(&queue, capacity);
+  ArrayQueue *queue = newArrayQueue(capacity);
 
   /* 元素入队 */
-  offer(&queue, 1);
-  offer(&queue, 3);
-  offer(&queue, 2);
-  offer(&queue, 5);
-  offer(&queue, 4);
+  offer(queue, 1);
+  offer(queue, 3);
+  offer(queue, 2);
+  offer(queue, 5);
+  offer(queue, 4);
   printf("队列 queue = ");
-  printArrayQueue(&queue);
+  printArrayQueue(queue);
 
   /* 访问队首元素 */
-  int peekNum = peek(&queue);
+  int peekNum = peek(queue);
   printf("队首元素 peek = %d\r\n", peekNum);
 
   /* 元素出队 */
-  poll(&queue);
+  poll(queue);
   printf("出队元素 poll = %d，出队后 queue = ", peekNum);
-  printArrayQueue(&queue);
+  printArrayQueue(queue);
 
   /* 获取队列的长度 */
-  int queueSize = size(&queue);
+  int queueSize = size(queue);
   printf("队列长度 size = %d\r\n", queueSize);
 
   /* 判断队列是否为空 */
-  bool isEmpty = empty(&queue);
+  bool isEmpty = empty(queue);
   printf("队列是否为空 = %s\r\n", isEmpty ? "true" : "false");
 
   /* 测试环形数组 */
   for (int i = 0; i < 10; i++) {
-    offer(&queue, i);
-    poll(&queue);
+    offer(queue, i);
+    poll(queue);
     printf("第 %d 轮入队 + 出队后 queue = ", i);
-    printArrayQueue(&queue);
+    printArrayQueue(queue);
   }
 
   // 释放内存
-  delArrayQueue(&queue);
+  delArrayQueue(queue);
   return 0;
 }
