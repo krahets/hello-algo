@@ -424,5 +424,30 @@ comments: true
 === "Swift"
 
     ```swift title="bubble_sort.swift"
+    func BubbleSort(items: [Int]) -> [Int] {
+    var resultItems = items
+    //是否产生了元素交换
+    var flag = false
+    var totalIndex = resultItems.count - 1
+    //i用来记录是第几次遍历数组
+    for i in 0...totalIndex {
+        //j用来记录比较数组中的第几个元素
+        for j in 0...totalIndex - i {
+            if j+1 <= resultItems.count - 1, resultItems[j] > resultItems[j+1] {
+                let temp = resultItems[j]
+                resultItems[j] = resultItems[j+1]
+                resultItems[j+1] = temp
+                flag = true
+            }
+        }
+        //没有元素交换意味着所有元素都已经在正确的序列，停止遍历
+        if !flag {
+            break
+        }
+    }
+    
+    return resultItems
+}
+
 
     ```
