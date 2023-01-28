@@ -1,6 +1,6 @@
 /**
  * File: linkedlist_stack.c
- * Created Time: 2022-01-12
+ * Created Time: 2023-01-12
  * Author: Zero (glj0@outlook.com)
  */
 
