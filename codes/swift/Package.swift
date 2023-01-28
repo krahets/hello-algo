@@ -26,6 +26,7 @@ let package = Package(
         .executable(name: "binary_tree_bfs", targets: ["binary_tree_bfs"]),
         .executable(name: "binary_tree_dfs", targets: ["binary_tree_dfs"]),
         .executable(name: "binary_search_tree", targets: ["binary_search_tree"]),
+        .executable(name: "avl_tree", targets: ["avl_tree"]),
     ],
     targets: [
         .target(name: "utils", path: "utils"),
@@ -50,5 +51,6 @@ let package = Package(
         .executableTarget(name: "binary_tree_bfs", dependencies: ["utils"], path: "chapter_tree", sources: ["binary_tree_bfs.swift"]),
         .executableTarget(name: "binary_tree_dfs", dependencies: ["utils"], path: "chapter_tree", sources: ["binary_tree_dfs.swift"]),
         .executableTarget(name: "binary_search_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["binary_search_tree.swift"]),
+        .executableTarget(name: "avl_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["avl_tree.swift"]),
     ]
 )
