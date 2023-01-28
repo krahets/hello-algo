@@ -164,7 +164,8 @@ nav:
   - 堆:
     - 堆（Heap）: chapter_heap/heap.md
   - 图:
-    - 图（Graph）: chapter_graph/graph.md  
+    - 图（Graph）: chapter_graph/graph.md
+    - 图基础操作: chapter_graph/basic_operation_of_graph.md 
   - 查找算法:
     - 线性查找: chapter_searching/linear_search.md
     - 二分查找: chapter_searching/binary_search.md
