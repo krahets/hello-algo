@@ -103,7 +103,18 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Swift"
 
     ```swift title="avl_tree.swift"
+    /* AVL 树结点类 */
+    class TreeNode {
+        var val: Int // 结点值
+        var height: Int // 结点高度
+        var left: TreeNode? // 左子结点
+        var right: TreeNode? // 右子结点
 
+        init(x: Int) {
+            val = x
+            height = 0
+        }
+    }
     ```
 
 「结点高度」是最远叶结点到该结点的距离，即走过的「边」的数量。需要特别注意，**叶结点的高度为 0 ，空结点的高度为 -1**。我们封装两个工具函数，分别用于获取与更新结点的高度。
@@ -210,7 +221,17 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Swift"
 
     ```swift title="avl_tree.swift"
+    /* 获取结点高度 */
+    func height(node: TreeNode?) -> Int {
+        // 空结点高度为 -1 ，叶结点高度为 0
+        node == nil ? -1 : node!.height
+    }
 
+    /* 更新结点高度 */
+    func updateHeight(node: TreeNode?) {
+        // 结点高度等于最高子树高度 + 1
+        node?.height = max(height(node: node?.left), height(node: node?.right)) + 1
+    }
     ```
 
 ### 结点平衡因子
@@ -295,7 +316,13 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Swift"
 
     ```swift title="avl_tree.swift"
-
+    /* 获取平衡因子 */
+    func balanceFactor(node: TreeNode?) -> Int {
+        // 空结点平衡因子为 0
+        guard let node = node else { return 0 }
+        // 结点平衡因子 = 左子树高度 - 右子树高度
+        return height(node: node.left) - height(node: node.right)
+    }
     ```
 
 !!! note
@@ -427,7 +454,19 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Swift"
 
     ```swift title="avl_tree.swift"
-
+    /* 右旋操作 */
+    func rightRotate(node: TreeNode?) -> TreeNode? {
+        let child = node?.left
+        let grandChild = child?.right
+        // 以 child 为原点，将 node 向右旋转
+        child?.right = node
+        node?.left = grandChild
+        // 更新结点高度
+        updateHeight(node: node)
+        updateHeight(node: child)
+        // 返回旋转后子树的根节点
+        return child
+    }
     ```
 
 ### Case 2 - 左旋
@@ -541,7 +580,19 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Swift"
 
     ```swift title="avl_tree.swift"
-
+    /* 左旋操作 */
+    func leftRotate(node: TreeNode?) -> TreeNode? {
+        let child = node?.right
+        let grandChild = child?.left
+        // 以 child 为原点，将 node 向左旋转
+        child?.left = node
+        node?.right = grandChild
+        // 更新结点高度
+        updateHeight(node: node)
+        updateHeight(node: child)
+        // 返回旋转后子树的根节点
+        return child
+    }
     ```
 
 ### Case 3 - 先左后右
@@ -745,7 +796,35 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Swift"
 
     ```swift title="avl_tree.swift"
-
+    /* 执行旋转操作，使该子树重新恢复平衡 */
+    func rotate(node: TreeNode?) -> TreeNode? {
+        // 获取结点 node 的平衡因子
+        let balanceFactor = balanceFactor(node: node)
+        // 左偏树
+        if balanceFactor > 1 {
+            if self.balanceFactor(node: node?.left) >= 0 {
+                // 右旋
+                return rightRotate(node: node)
+            } else {
+                // 先左旋后右旋
+                node?.left = leftRotate(node: node?.left)
+                return rightRotate(node: node)
+            }
+        }
+        // 右偏树
+        if balanceFactor < -1 {
+            if self.balanceFactor(node: node?.right) <= 0 {
+                // 左旋
+                return leftRotate(node: node)
+            } else {
+                // 先右旋后左旋
+                node?.right = rightRotate(node: node?.right)
+                return leftRotate(node: node)
+            }
+        }
+        // 平衡树，无需旋转，直接返回
+        return node
+    }
     ```
 
 ## AVL 树常用操作
@@ -894,7 +973,33 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Swift"
 
     ```swift title="avl_tree.swift"
+    /* 插入结点 */
+    @discardableResult
+    func insert(val: Int) -> TreeNode? {
+        root = insertHelper(node: root, val: val)
+        return root
+    }
 
+    /* 递归插入结点（辅助函数） */
+    func insertHelper(node: TreeNode?, val: Int) -> TreeNode? {
+        var node = node
+        if node == nil {
+            return TreeNode(x: val)
+        }
+        /* 1. 查找插入位置，并插入结点 */
+        if val < node!.val {
+            node?.left = insertHelper(node: node?.left, val: val)
+        } else if val > node!.val {
+            node?.right = insertHelper(node: node?.right, val: val)
+        } else {
+            return node // 重复结点不插入，直接返回
+        }
+        updateHeight(node: node) // 更新结点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node: node)
+        // 返回子树的根节点
+        return node
+    }
     ```
 
 ### 删除结点
@@ -1100,7 +1205,48 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Swift"
 
     ```swift title="avl_tree.swift"
+    /* 删除结点 */
+    @discardableResult
+    func remove(val: Int) -> TreeNode? {
+        root = removeHelper(node: root, val: val)
+        return root
+    }
 
+    /* 递归删除结点（辅助函数） */
+    func removeHelper(node: TreeNode?, val: Int) -> TreeNode? {
+        var node = node
+        if node == nil {
+            return nil
+        }
+        /* 1. 查找结点，并删除之 */
+        if val < node!.val {
+            node?.left = removeHelper(node: node?.left, val: val)
+        } else if val > node!.val {
+            node?.right = removeHelper(node: node?.right, val: val)
+        } else {
+            if node?.left == nil || node?.right == nil {
+                let child = node?.left != nil ? node?.left : node?.right
+                // 子结点数量 = 0 ，直接删除 node 并返回
+                if child == nil {
+                    return nil
+                }
+                // 子结点数量 = 1 ，直接删除 node
+                else {
+                    node = child
+                }
+            } else {
+                // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
+                let temp = getInOrderNext(node: node?.right)
+                node?.right = removeHelper(node: node?.right, val: temp!.val)
+                node?.val = temp!.val
+            }
+        }
+        updateHeight(node: node) // 更新结点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node: node)
+        // 返回子树的根节点
+        return node
+    }
     ```
 
 ### 查找结点
