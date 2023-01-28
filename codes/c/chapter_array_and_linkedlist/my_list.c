@@ -1,6 +1,6 @@
 /**
- * File: list.c
- * Created Time: 2022-01-12
+ * File: my_list.c
+ * Created Time: 2023-01-12
  * Author: Zero (glj0@outlook.com)
  */
 
