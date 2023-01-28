@@ -8,6 +8,7 @@
 
 #define MAX_SIZE 5000
 
+/* 基于数组实现的栈 */
 struct arrayStack {
     int *data;
     int size;
@@ -23,14 +24,17 @@ arrayStack *newArrayStack() {
     return s;
 }
 
+/* 获取栈的长度 */
 int size(arrayStack *s) {
     return s->size;
 }
 
+/* 判断栈是否为空 */
 bool isEmpty(arrayStack *s) {
     return s->size == 0;
 }
 
+/* 入栈 */
 void push(arrayStack *s, int num) {
     if (s->size == MAX_SIZE) {
         printf("stack is full.\n");
@@ -40,6 +44,7 @@ void push(arrayStack *s, int num) {
     s->size++;
 }
 
+/* 访问栈顶元素 */
 int peek(arrayStack *s) {
     if (s->size == 0) {
         printf("stack is empty.\n");
@@ -48,6 +53,7 @@ int peek(arrayStack *s) {
     return s->data[s->size - 1];
 }
 
+/* 出栈 */
 int pop(arrayStack *s) {
     if (s->size == 0) {
         printf("stack is empty.\n");
