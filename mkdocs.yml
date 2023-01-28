@@ -163,6 +163,8 @@ nav:
     - 小结: chapter_tree/summary.md
   - 堆:
     - 堆（Heap）: chapter_heap/heap.md
+  - 图:
+    - 图（Graph）: chapter_graph/graph.md  
   - 查找算法:
     - 线性查找: chapter_searching/linear_search.md
     - 二分查找: chapter_searching/binary_search.md

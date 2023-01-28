@@ -9,11 +9,12 @@ package chapter_graph;
 import include.*;
 import java.util.*;
 
-/* 基于邻接矩阵表示的无向图类 */
+/* 基于邻接矩阵实现的无向图类 */
 class GraphAdjMat {
-    List<Integer> vertices;     // 顶点列表，元素代表顶点值
-    List<List<Integer>> adjMat; // 邻接矩阵
+    List<Integer> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+    List<List<Integer>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
+    /* 构造函数 */
     public GraphAdjMat(int[] vertices, int[][] edges) {
         this.vertices = new ArrayList<>();
         this.adjMat = new ArrayList<>();
@@ -22,6 +23,7 @@ class GraphAdjMat {
             addVertex(val);
         }
         // 添加边
+        // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
         for (int[] e : edges) {
             addEdge(e[0], e[1]);
         }
@@ -49,7 +51,7 @@ class GraphAdjMat {
         }
     }
 
-    /* 删除顶点 index */
+    /* 删除顶点 */
     public void removeVertex(int index) {
         if (index >= size())
             throw new IndexOutOfBoundsException();
@@ -63,7 +65,8 @@ class GraphAdjMat {
         }
     }
 
-    /* 添加顶点 i, j 之间的边 */
+    /* 添加边 */
+    // 参数 i, j 对应 vertices 元素索引
     public void addEdge(int i, int j) {
         // 索引越界与相等处理
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
@@ -73,7 +76,8 @@ class GraphAdjMat {
         adjMat.get(j).set(i, 1);
     }
 
-    /* 删除顶点 i, j 之间的边 */
+    /* 删除边 */
+    // 参数 i, j 对应 vertices 元素索引
     public void removeEdge(int i, int j) {
         // 索引越界与相等处理
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
@@ -94,32 +98,34 @@ class GraphAdjMat {
 public class graph_adjacency_matrix {
     public static void main(String[] args) {
         /* 初始化无向图 */
-        // 请注意，edges 中的元素对应 vertices 中元素的索引
+        // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
         int[] vertices = { 1, 3, 2, 5, 4 };
         int[][] edges = { { 0, 1 }, { 0, 2 }, { 1, 2 }, { 2, 3 }, { 0, 3 }, { 2, 4 }, { 3, 4 } };
         GraphAdjMat graph = new GraphAdjMat(vertices, edges);
         System.out.println("\n初始化后，图为");
         graph.print();
 
-        /* 添加顶点 */
-        graph.addVertex(6);
-        System.out.println("\n添加值为 6 的顶点后，图为");
-        graph.print();
-
         /* 添加边 */
-        // 方法 addEdge(i, j) 中的参数 i, j 对应 vertices 中的索引
-        graph.addEdge(2, 5);
-        System.out.println("\n添加边 (2, 5) 后，图为");
-        graph.print();
-
-        /* 删除顶点 */
-        graph.removeVertex(1);
-        System.out.println("\n删除索引为 1 的顶点后，图为");
+        // 顶点 1, 2 的索引分别为 0, 2
+        graph.addEdge(0, 2);
+        System.out.println("\n添加边 1-2 后，图为");
         graph.print();
 
         /* 删除边 */
-        graph.removeEdge(0, 2);
-        System.out.println("\n删除边 (0, 2)，图为");
+        // 顶点 1, 3 的索引分别为 0, 1
+        graph.removeEdge(0, 1);
+        System.out.println("\n删除边 1-3 后，图为");
+        graph.print();
+
+        /* 添加顶点 */
+        graph.addVertex(6);
+        System.out.println("\n添加顶点 6 后，图为");
+        graph.print();
+
+        /* 删除顶点 */
+        // 顶点 3 的索引为 1
+        graph.removeVertex(1);
+        System.out.println("\n删除顶点 3 后，图为");
         graph.print();
     }
 }
