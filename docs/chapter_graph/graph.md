@@ -72,7 +72,7 @@ $$
 
 以下分别介绍图在「邻接矩阵」和「邻接表」表示下的基础操作。
 
-### 邻接矩阵
+### 基于邻接矩阵的实现
 
 设图的顶点总数为 $n$ ，则有：
 
@@ -180,7 +180,55 @@ $$
     }
     ```
 
-### 邻接表
+=== "C++"
+
+    ```cpp title="graph_adjacency_matrix.cpp"
+
+    ```
+
+=== "Python"
+
+    ```python title="graph_adjacency_matrix.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="graph_adjacency_matrix.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="graph_adjacency_matrix.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="graph_adjacency_matrix.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="graph_adjacency_matrix.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="graph_adjacency_matrix.cs"
+
+    ```
+
+=== "Swift"
+
+    ```swift title="graph_adjacency_matrix.swift"
+
+    ```
+
+### 基于邻接表的实现
 
 设图的顶点总数为 $n$ 、边总数为 $m$ ，则有：
 
@@ -277,6 +325,54 @@ $$
             }
         }
     }
+    ```
+
+=== "C++"
+
+    ```cpp title="graph_adjacency_list.cpp"
+
+    ```
+
+=== "Python"
+
+    ```python title="graph_adjacency_list.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="graph_adjacency_list.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="graph_adjacency_list.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="graph_adjacency_list.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="graph_adjacency_list.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="graph_adjacency_list.cs"
+
+    ```
+
+=== "Swift"
+
+    ```swift title="graph_adjacency_list.swift"
+
     ```
 
 ### 效率对比
