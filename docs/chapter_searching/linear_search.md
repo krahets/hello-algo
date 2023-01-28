@@ -136,7 +136,18 @@ comments: true
 === "Swift"
 
     ```swift title="linear_search.swift"
-
+    /* 线性查找（数组） */
+    func linearSearch(nums: [Int], target: Int) -> Int {
+        // 遍历数组
+        for i in nums.indices {
+            // 找到目标元素，返回其索引
+            if nums[i] == target {
+                return i
+            }
+        }
+        // 未找到目标元素，返回 -1
+        return -1
+    }
     ```
 
 再比如，我们想要在给定一个目标结点值 `target` ，返回此结点对象，也可以在链表中进行线性查找。
@@ -270,7 +281,20 @@ comments: true
 === "Swift"
 
     ```swift title="linear_search.swift"
-
+    /* 线性查找（链表） */
+    func linearSearch(head: ListNode?, target: Int) -> ListNode? {
+        var head = head
+        // 遍历链表
+        while head != nil {
+            // 找到目标结点，返回之
+            if head?.val == target {
+                return head
+            }
+            head = head?.next
+        }
+        // 未找到目标结点，返回 null
+        return nil
+    }
     ```
 
 ## 复杂度分析
