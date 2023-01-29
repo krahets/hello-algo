@@ -74,4 +74,12 @@ public enum PrintUtil {
             print("\(key) -> \(value)")
         }
     }
+
+    public static func printHeap(queue: [Int]) {
+        print("堆的数组表示：", terminator: "")
+        print(queue)
+        print("堆的树状表示：")
+        let root = TreeNode.listToTree(list: queue)
+        printTree(root: root)
+    }
 }
