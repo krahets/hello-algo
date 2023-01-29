@@ -366,3 +366,51 @@ comments: true
     
     }
     ```
+
+=== "C++"
+
+    ```cpp title="linkedlist_deque.cpp"
+
+    ```
+
+=== "Python"
+
+    ```python title="linkedlist_deque.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="linkedlist_deque.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="linkedlist_deque.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="linkedlist_deque.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="linkedlist_deque.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="linkedlist_deque.cs"
+
+    ```
+
+=== "Swift"
+
+    ```swift title="linkedlist_deque.swift"
+
+    ```
