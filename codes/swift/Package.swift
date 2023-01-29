@@ -34,6 +34,7 @@ let package = Package(
         .executable(name: "bubble_sort", targets: ["bubble_sort"]),
         .executable(name: "insertion_sort", targets: ["insertion_sort"]),
         .executable(name: "quick_sort", targets: ["quick_sort"]),
+        .executable(name: "merge_sort", targets: ["merge_sort"]),
     ],
     targets: [
         .target(name: "utils", path: "utils"),
@@ -66,5 +67,6 @@ let package = Package(
         .executableTarget(name: "bubble_sort", path: "chapter_sorting", sources: ["bubble_sort.swift"]),
         .executableTarget(name: "insertion_sort", path: "chapter_sorting", sources: ["insertion_sort.swift"]),
         .executableTarget(name: "quick_sort", path: "chapter_sorting", sources: ["quick_sort.swift"]),
+        .executableTarget(name: "merge_sort", path: "chapter_sorting", sources: ["merge_sort.swift"]),
     ]
 )
