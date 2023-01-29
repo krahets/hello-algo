@@ -32,6 +32,7 @@ let package = Package(
         .executable(name: "binary_search", targets: ["binary_search"]),
         .executable(name: "hashing_search", targets: ["hashing_search"]),
         .executable(name: "bubble_sort", targets: ["bubble_sort"]),
+        .executable(name: "insertion_sort", targets: ["insertion_sort"]),
     ],
     targets: [
         .target(name: "utils", path: "utils"),
@@ -62,5 +63,6 @@ let package = Package(
         .executableTarget(name: "binary_search", path: "chapter_searching", sources: ["binary_search.swift"]),
         .executableTarget(name: "hashing_search", dependencies: ["utils"], path: "chapter_searching", sources: ["hashing_search.swift"]),
         .executableTarget(name: "bubble_sort", path: "chapter_sorting", sources: ["bubble_sort.swift"]),
+        .executableTarget(name: "insertion_sort", path: "chapter_sorting", sources: ["insertion_sort.swift"]),
     ]
 )
