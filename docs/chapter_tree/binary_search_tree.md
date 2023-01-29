@@ -163,7 +163,7 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-
+    
     ```
 
 === "C#"
@@ -286,10 +286,10 @@ comments: true
         # 若树为空，直接提前返回
         if root is None:
             return None
-
+    
         cur = root
         pre = None
-
+    
         # 循环查找，越过叶结点后跳出
         while cur is not None:
             # 找到重复结点，直接返回
@@ -302,7 +302,7 @@ comments: true
             # 插入位置在 cur 的左子树中
             else:
                 cur = cur.left
-
+    
         # 插入结点 val
         node = TreeNode(num)
         if pre.val < num:
@@ -410,7 +410,7 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-
+    
     ```
 
 === "C#"
@@ -433,7 +433,7 @@ comments: true
             // 插入位置在 cur 的左子树中
             else cur = cur.left;
         }
-
+    
         // 插入结点 val
         TreeNode node = new TreeNode(num);
         if (pre != null)
@@ -518,6 +518,14 @@ comments: true
     ![bst_remove_case3_4](binary_search_tree.assets/bst_remove_case3_4.png)
 
 删除结点操作也使用 $O(\log n)$ 时间，其中查找待删除结点 $O(\log n)$ ，获取中序遍历后继结点 $O(\log n)$ 。
+
+### 排序
+
+我们知道，「中序遍历」遵循“左 $\rightarrow$ 根 $\rightarrow$ 右”的遍历优先级，而二叉搜索树遵循“左子结点 $<$ 根结点 $<$ 右子结点”的大小关系。因此，在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小结点，从而得出一条重要性质：**二叉搜索树的中序遍历序列是升序的**。
+
+借助中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 $O(n)$ 时间，而无需额外排序，非常高效。
+
+![bst_inorder_traversal](binary_search_tree.assets/bst_inorder_traversal.png)
 
 === "Java"
 
@@ -614,10 +622,10 @@ comments: true
         # 若树为空，直接提前返回
         if root is None:
             return None
-
+    
         cur = root
         pre = None
-
+    
         # 循环查找，越过叶结点后跳出
         while cur is not None:
             # 找到待删除结点，跳出循环
@@ -628,11 +636,11 @@ comments: true
                 cur = cur.right
             else:  # 待删除结点在 cur 的左子树中
                 cur = cur.left
-
+    
         # 若无待删除结点，则直接返回
         if cur is None:
             return None
-
+    
         # 子结点数量 = 0 or 1
         if cur.left is None or cur.right is None:
             # 当子结点数量 = 0 / 1 时， child = null / 该子结点
@@ -811,7 +819,7 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-
+    
     ```
 
 === "C#"
@@ -926,7 +934,7 @@ comments: true
     }
     ```
 
-## 二叉搜索树的优势
+## 二叉搜索树的效率
 
 假设给定 $n$ 个数字，最常用的存储方式是「数组」，那么对于这串乱序的数字，常见操作的效率为：
 

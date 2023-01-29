@@ -12,7 +12,7 @@ comments: true
 
 <p align="center"> Fig. 哈希表抽象表示 </p>
 
-## 哈希表优势
+## 哈希表效率
 
 除了哈希表之外，还可以使用以下数据结构来实现上述查询功能：
 
@@ -42,7 +42,7 @@ comments: true
     ```java title="hash_map.java"
     /* 初始化哈希表 */
     Map<Integer, String> map = new HashMap<>();
-
+    
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map.put(12836, "小哈");   
@@ -50,11 +50,11 @@ comments: true
     map.put(16750, "小算");   
     map.put(13276, "小法");
     map.put(10583, "小鸭");
-
+    
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
     String name = map.get(15937);
-
+    
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.remove(10583);
@@ -65,7 +65,7 @@ comments: true
     ```cpp title="hash_map.cpp"
     /* 初始化哈希表 */
     unordered_map<int, string> map;
-
+    
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map[12836] = "小哈";
@@ -73,11 +73,11 @@ comments: true
     map[16750] = "小算";
     map[13276] = "小法";
     map[10583] = "小鸭";
-
+    
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
     string name = map[15937];
-
+    
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.erase(10583);
@@ -88,7 +88,7 @@ comments: true
     ```python title="hash_map.py"
     """ 初始化哈希表 """
     mapp = {}
-
+    
     """ 添加操作 """
     # 在哈希表中添加键值对 (key, value)
     mapp[12836] = "小哈"
@@ -96,11 +96,11 @@ comments: true
     mapp[16750] = "小算"
     mapp[13276] = "小法"
     mapp[10583] = "小鸭"
-
+    
     """ 查询操作 """
     # 向哈希表输入键 key ，得到值 value
     name = mapp[15937]
-
+    
     """ 删除操作 """
     # 在哈希表中删除键值对 (key, value)
     mapp.pop(10583)
@@ -111,7 +111,7 @@ comments: true
     ```go title="hash_map.go"
     /* 初始化哈希表 */
     mapp := make(map[int]string)
-
+    
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     mapp[12836] = "小哈"
@@ -119,11 +119,11 @@ comments: true
     mapp[16750] = "小算"
     mapp[13276] = "小法"
     mapp[10583] = "小鸭"
-
+    
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
     name := mapp[15937]
-
+    
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     delete(mapp, 10583)
@@ -141,11 +141,11 @@ comments: true
     map.set(16750, '小算');
     map.set(13276, '小法');
     map.set(10583, '小鸭');
-
+    
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
     let name = map.get(15937);
-
+    
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.delete(10583);
@@ -165,12 +165,12 @@ comments: true
     map.set(10583, '小鸭');
     console.info('\n添加完成后，哈希表为\nKey -> Value');
     console.info(map);
-
+    
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
     let name = map.get(15937);
     console.info('\n输入学号 15937 ，查询到姓名 ' + name);
-
+    
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.delete(10583);
@@ -181,7 +181,7 @@ comments: true
 === "C"
 
     ```c title="hash_map.c"
-
+    
     ```
 
 === "C#"
@@ -189,7 +189,7 @@ comments: true
     ```csharp title="hash_map.cs"
     /* 初始化哈希表 */
     Dictionary<int, String> map = new ();
-
+    
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map.Add(12836, "小哈");
@@ -197,11 +197,11 @@ comments: true
     map.Add(16750, "小算");
     map.Add(13276, "小法");
     map.Add(10583, "小鸭");
-
+    
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
     String name = map[15937];
-
+    
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.Remove(10583);
@@ -212,7 +212,7 @@ comments: true
     ```swift title="hash_map.swift"
     /* 初始化哈希表 */
     var map: [Int: String] = [:]
-
+    
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map[12836] = "小哈"
@@ -220,11 +220,11 @@ comments: true
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鸭"
-
+    
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
     let name = map[15937]!
-
+    
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.removeValue(forKey: 10583)
@@ -341,7 +341,7 @@ comments: true
 === "C"
 
     ```c title="hash_map.c"
-
+    
     ```
 
 === "C#"
@@ -413,7 +413,7 @@ $$
             this.val = val;
         }
     }
-
+    
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
         private List<Entry> bucket;
@@ -424,13 +424,13 @@ $$
                 bucket.add(null);
             }
         }
-
+    
         /* 哈希函数 */
         private int hashFunc(int key) {
             int index = key % 100;
             return index;
         }
-
+    
         /* 查询操作 */
         public String get(int key) {
             int index = hashFunc(key);
@@ -438,14 +438,14 @@ $$
             if (pair == null) return null;
             return pair.val;
         }
-
+    
         /* 添加操作 */
         public void put(int key, String val) {
             Entry pair = new Entry(key, val);
             int index = hashFunc(key);
             bucket.set(index, pair);
         }
-
+    
         /* 删除操作 */
         public void remove(int key) {
             int index = hashFunc(key);
@@ -468,7 +468,7 @@ $$
             this->val = val;
         }
     };
-
+    
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
     private:
@@ -478,27 +478,27 @@ $$
             // 初始化一个长度为 100 的桶（数组）
             bucket= vector<Entry*>(100);
         }
-
+    
         /* 哈希函数 */
         int hashFunc(int key) {
             int index = key % 100;
             return index;
         }
-
+    
         /* 查询操作 */
         string get(int key) {
             int index = hashFunc(key);
             Entry* pair = bucket[index];
             return pair->val;
         }
-
+    
         /* 添加操作 */
         void put(int key, string val) {
             Entry* pair = new Entry(key, val);
             int index = hashFunc(key);
             bucket[index] = pair;
         }
-
+    
         /* 删除操作 */
         void remove(int key) {
             int index = hashFunc(key);
@@ -557,24 +557,24 @@ $$
         key int
         val string
     }
-
+    
     /* 基于数组简易实现的哈希表 */
     type arrayHashMap struct {
         bucket []*entry
     }
-
+    
     func newArrayHashMap() *arrayHashMap {
         // 初始化一个长度为 100 的桶（数组）
         bucket := make([]*entry, 100)
         return &arrayHashMap{bucket: bucket}
     }
-
+    
     /* 哈希函数 */
     func (a *arrayHashMap) hashFunc(key int) int {
         index := key % 100
         return index
     }
-
+    
     /* 查询操作 */
     func (a *arrayHashMap) get(key int) string {
         index := a.hashFunc(key)
@@ -584,14 +584,14 @@ $$
         }
         return pair.val
     }
-
+    
     /* 添加操作 */
     func (a *arrayHashMap) put(key int, val string) {
         pair := &entry{key: key, val: val}
         index := a.hashFunc(key)
         a.bucket[index] = pair
     }
-
+    
     /* 删除操作 */
     func (a *arrayHashMap) remove(key int) {
         index := a.hashFunc(key)
@@ -610,7 +610,7 @@ $$
             this.val = val;
         }
     }
-
+    
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
         #bucket;
@@ -618,12 +618,12 @@ $$
             // 初始化一个长度为 100 的桶（数组）
             this.#bucket = new Array(100).fill(null);
         }
-
+    
         /* 哈希函数 */
         #hashFunc(key) {
             return key % 100;
         }
-
+    
         /* 查询操作 */
         get(key) {
             let index = this.#hashFunc(key);
@@ -631,13 +631,13 @@ $$
             if (entry === null) return null;
             return entry.val;
         }
-
+    
         /* 添加操作 */
         set(key, val) {
             let index = this.#hashFunc(key);
             this.#bucket[index] = new Entry(key, val);
         }
-
+    
         /* 删除操作 */
         delete(key) {
             let index = this.#hashFunc(key);
@@ -735,7 +735,7 @@ $$
 === "C"
 
     ```c title="array_hash_map.c"
-
+    
     ```
 
 === "C#"
@@ -752,7 +752,7 @@ $$
             this.val = val;
         }
     }
-
+    
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap
     {
@@ -804,44 +804,44 @@ $$
     class Entry {
         var key: Int
         var val: String
-
+    
         init(key: Int, val: String) {
             self.key = key
             self.val = val
         }
     }
-
+    
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
         private var bucket: [Entry?] = []
-
+    
         init() {
             // 初始化一个长度为 100 的桶（数组）
             for _ in 0 ..< 100 {
                 bucket.append(nil)
             }
         }
-
+    
         /* 哈希函数 */
         private func hashFunc(key: Int) -> Int {
             let index = key % 100
             return index
         }
-
+    
         /* 查询操作 */
         func get(key: Int) -> String? {
             let index = hashFunc(key: key)
             let pair = bucket[index]
             return pair?.val
         }
-
+    
         /* 添加操作 */
         func put(key: Int, val: String) {
             let pair = Entry(key: key, val: val)
             let index = hashFunc(key: key)
             bucket[index] = pair
         }
-
+    
         /* 删除操作 */
         func remove(key: Int) {
             let index = hashFunc(key: key)
@@ -853,13 +853,13 @@ $$
 
 ## 哈希冲突
 
-细心的同学可能会发现，**哈希函数 $f(x) = x \% 100$ 会在某些情况下失效**。具体地，当输入的 key 后两位相同时，哈希函数的计算结果也相同，指向同一个 value 。例如，分别查询两个学号 12836 和 20336 ，则有
+细心的同学可能会发现，**哈希函数 $f(x) = x \% 100$ 会在某些情况下失效**。具体地，当输入的 key 后两位相同时，哈希函数的计算结果也相同，指向同一个 value 。例如，分别查询两个学号 $12836$ 和 $20336$ ，则有
 
 $$
 f(12836) = f(20336) = 36
 $$
 
-两个学号指向了同一个姓名，这明显是不对的，我们将这种现象称为「哈希冲突 Hash Collision」，其会严重影响查询的正确性。如何避免哈希冲突的问题将被留在下章讨论。
+两个学号指向了同一个姓名，这明显是不对的，我们将这种现象称为「哈希冲突 Hash Collision」。如何避免哈希冲突的问题将被留在下章讨论。
 
 ![hash_collision](hash_map.assets/hash_collision.png)
 
