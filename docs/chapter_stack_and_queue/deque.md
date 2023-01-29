@@ -225,26 +225,26 @@ comments: true
 
 ## 双向队列实现
 
-双向队列需要一种可以在两端添加、两端删除的数据结构，可以使用双向链表和数组来实现。
+双向队列需要一种可以在两端添加、两端删除的数据结构。与队列的实现方法类似，双向队列也可以使用双向链表和循环数组来实现。
 
 ### 基于双向链表的实现
 
-我们将双向链表的「头结点」和「尾结点」分别看作双向队列的队首和队尾，并且队首和队尾都能添加和删除结点。
+我们将双向链表的头结点和尾结点分别看作双向队列的队首和队尾，并且实现在两端都能添加与删除结点。
 
 === "LinkedListDeque"
     ![linkedlist_deque](deque.assets/linkedlist_deque.png)
 
-=== "offerFirst()"
-    ![linkedlist_deque_offer_first](deque.assets/linkedlist_deque_offer_first.png)
+=== "pushLast()"
+    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_push_last.png)
 
-=== "offerLast()"
-    ![linkedlist_deque_offer_last](deque.assets/linkedlist_deque_offer_last.png)
-
-=== "pollFirst()"
-    ![linkedlist_deque_poll_first](deque.assets/linkedlist_deque_poll_first.png)
+=== "pushFirst()"
+    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_push_first.png)
 
 === "pollLast()"
     ![linkedlist_deque_poll_last](deque.assets/linkedlist_deque_poll_last.png)
+
+=== "pollFirst()"
+    ![linkedlist_deque_poll_first](deque.assets/linkedlist_deque_poll_first.png)
 
 以下是使用双向链表实现双向队列的示例代码。
 
@@ -253,10 +253,9 @@ comments: true
     ```java title="linkedlist_deque.java"
     /* 双向链表结点 */
     class ListNode {
-    int val;       // 结点值
-    ListNode next; // 后继结点引用（指针）
-    ListNode prev; // 前驱结点引用（指针）
-    
+        int val;       // 结点值
+        ListNode next; // 后继结点引用（指针）
+        ListNode prev; // 前驱结点引用（指针）
         ListNode(int val) {
             this.val = val;
             prev = next = null;
@@ -367,26 +366,3 @@ comments: true
     
     }
     ```
-
-=== "C++"
-
-
-=== "Python"
-
-
-=== "Go"
-
-
-=== "JavaScript"
-
-
-=== "TypeScript"
-
-
-=== "C"
-
-
-=== "C#"
-
-
-=== "Swift"
