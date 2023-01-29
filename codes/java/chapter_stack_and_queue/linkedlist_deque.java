@@ -13,7 +13,6 @@ class ListNode {
     int val;       // 结点值
     ListNode next; // 后继结点引用（指针）
     ListNode prev; // 前驱结点引用（指针）
-
     ListNode(int val) {
         this.val = val;
         prev = next = null;
@@ -134,7 +133,7 @@ class LinkedListDeque {
             list.add(String.valueOf(head.val));
             head = head.next;
         }
-        System.out.println("[" + String.join(" <-> ", list) + "]");
+        System.out.println("[" + String.join(", ", list) + "]");
     }
 }
 
@@ -142,46 +141,37 @@ public class linkedlist_deque {
     public static void main(String[] args) {
         /* 初始化双向队列 */
         LinkedListDeque deque = new LinkedListDeque();
-        System.out.println("初始化空队列");
+        deque.offerLast(3);
+        deque.offerLast(2);
+        deque.offerLast(5);
+        System.out.print("双点队列 deque = ");
         deque.print();
 
-        int[] nums = { 1, 2, 3 }; // 测试数据
+        /* 访问元素 */
+        int peekFirst = deque.peekFirst();
+        System.out.println("队首元素 peekFirst = " + peekFirst);
+        int peekLast = deque.peekLast();
+        System.out.println("队尾元素 peekLast = " + peekLast);
 
-        /* 队尾入队 */
-        for (int num : nums) {
-            deque.offerLast(num);
-            System.out.printf("元素 %d 队尾入队后，队列为\n", num);
-            deque.print();
-        }
-        /* 获取队尾元素 */
-        int last = deque.peekLast();
-        System.out.printf("队尾元素为 %d\n", last);
-        /* 队尾出队 */
-        while (!deque.isEmpty()) {
-            last = deque.pollLast();
-            System.out.printf("队尾出队元素为 %d ，队列为\n", last);
-            deque.print();
-        }
+        /* 元素入队 */
+        deque.offerLast(4);
+        System.out.print("元素 4 队尾入队后 deque = ");
+        deque.print();
+        deque.offerFirst(1);
+        System.out.print("元素 1 队首入队后 deque = ");
+        deque.print();
 
-        /* 队首入队 */
-        for (int num : nums) {
-            deque.offerFirst(num);
-            System.out.printf("元素 %d 队首入队后，队列为\n", num);
-            deque.print();
-        }
-        /* 获取队尾元素 */
-        int first = deque.peekFirst();
-        System.out.printf("队首元素为 %d\n", first);
-        /* 队首出队 */
-        while (!deque.isEmpty()) {
-            first = deque.pollFirst();
-            System.out.printf("队首出队元素为 %d ，队列为\n", first);
-            deque.print();
-        }
+        /* 元素出队 */
+        int pollLast = deque.pollLast();
+        System.out.print("队尾出队元素 = " + pollLast + "，队尾出队后 deque = ");
+        deque.print();
+        int pollFirst = deque.pollFirst();
+        System.out.print("队首出队元素 = " + pollFirst + "，队首出队后 deque = ");
+        deque.print();
 
-        /* 获取队列的长度 */
+        /* 获取双向队列的长度 */
         int size = deque.size();
-        System.out.println("队列长度 size = " + size);
+        System.out.println("双向队列长度 size = " + size);
 
         /* 判断双向队列是否为空 */
         boolean isEmpty = deque.isEmpty();
