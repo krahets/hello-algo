@@ -4,12 +4,6 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-func ^ (lhs: Bool, rhs: Bool) -> Bool {
-    let lhs = lhs ? 1 : 0
-    let rhs = rhs ? 1 : 0
-    return (lhs ^ rhs) == 1
-}
-
 /* 元素交换 */
 func swap(nums: inout [Int], i: Int, j: Int) {
     let tmp = nums[i]
@@ -52,11 +46,9 @@ func quickSort(nums: inout [Int], left: Int, right: Int) {
 /* 快速排序类（中位基准数优化） */
 // 快速排序类（中位基准数优化）-选取三个元素的中位数
 func quickSortMedianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
-    // 使用了异或操作来简化代码
-    // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-    if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]) {
+    if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
         return left
-    } else if (nums[mid] < nums[left]) ^ (nums[mid] < nums[right]) {
+    } else if (nums[mid] < nums[left]) != (nums[mid] < nums[right]) {
         return mid
     } else {
         return right
