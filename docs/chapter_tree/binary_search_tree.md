@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 二叉搜索树
+# 7.3. 二叉搜索树
 
 「二叉搜索树 Binary Search Tree」满足以下条件：
 
@@ -11,7 +11,7 @@ comments: true
 
 ![binary_search_tree](binary_search_tree.assets/binary_search_tree.png)
 
-## 二叉搜索树的操作
+## 7.3.1. 二叉搜索树的操作
 
 ### 查找结点
 
@@ -934,7 +934,7 @@ comments: true
     }
     ```
 
-## 二叉搜索树的效率
+## 7.3.2. 二叉搜索树的效率
 
 假设给定 $n$ 个数字，最常用的存储方式是「数组」，那么对于这串乱序的数字，常见操作的效率为：
 
@@ -963,7 +963,7 @@ comments: true
 
 </div>
 
-## 二叉搜索树的退化
+## 7.3.3. 二叉搜索树的退化
 
 理想情况下，我们希望二叉搜索树的是“左右平衡”的（详见「平衡二叉树」章节），此时可以在 $\log n$ 轮循环内查找任意结点。
 
@@ -975,7 +975,7 @@ comments: true
 
 ![bst_degradation](binary_search_tree.assets/bst_degradation.png)
 
-## 二叉搜索树常见应用
+## 7.3.4. 二叉搜索树常见应用
 
 - 系统中的多级索引，高效查找、插入、删除操作。
 - 各种搜索算法的底层数据结构。
