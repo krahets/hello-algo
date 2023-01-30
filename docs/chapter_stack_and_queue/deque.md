@@ -363,7 +363,6 @@ comments: true
         public Integer peekLast() {
             return isEmpty() ? null : rear.val;
         }
-    
     }
     ```
 
