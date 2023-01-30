@@ -14,8 +14,6 @@
 #include <time.h>
 #include <assert.h>
 
-#include "uthash.h"
-
 #include "list_node.h"
 #include "tree_node.h"
 #include "print_util.h"
