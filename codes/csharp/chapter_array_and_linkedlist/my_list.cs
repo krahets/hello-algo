@@ -37,7 +37,7 @@ namespace hello_algo.chapter_array_and_linkedlist
         public int Get(int index)
         {
             // 索引如果越界则抛出异常，下同
-            if (index >= size)
+            if (index < 0 || index >= size)
                 throw new IndexOutOfRangeException("索引越界");
             return nums[index];
         }
@@ -45,7 +45,7 @@ namespace hello_algo.chapter_array_and_linkedlist
         /* 更新元素 */
         public void Set(int index, int num)
         {
-            if (index >= size)
+            if (index < 0 || index >= size)
                 throw new IndexOutOfRangeException("索引越界");
             nums[index] = num;
         }
@@ -64,7 +64,7 @@ namespace hello_algo.chapter_array_and_linkedlist
         /* 中间插入元素 */
         public void Insert(int index, int num)
         {
-            if (index >= size)
+            if (index < 0 || index >= size)
                 throw new IndexOutOfRangeException("索引越界");
             // 元素数量超出容量时，触发扩容机制
             if (size == Capacity())
@@ -82,7 +82,7 @@ namespace hello_algo.chapter_array_and_linkedlist
         /* 删除元素 */
         public int Remove(int index)
         {
-            if (index >= size)
+            if (index < 0 || index >= size)
                 throw new IndexOutOfRangeException("索引越界");
             int num = nums[index];
             // 将索引 index 之后的元素都向前移动一位

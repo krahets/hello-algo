@@ -47,13 +47,13 @@ int capacity(myList *list) {
 
 /* 访问元素 */
 int get(myList *list, int index) {
-    assert(index < list->size);
+    assert(index >= 0 && index < list->size);
     return list->nums[index];
 }
 
 /* 更新元素 */
 void set(myList *list, int index, int num) {
-    assert(index < list->size);
+    assert(index >= 0 && index < list->size);
     list->nums[index] = num;
 }
 
@@ -68,7 +68,7 @@ void add(myList *list, int num) {
 
 /* 中间插入元素 */
 void insert(myList *list, int index, int num) {
-    assert(index < size(list));
+    assert(index >= 0 && index < size(list));
     for (int i = size(list); i > index; --i) {
         list->nums[i] = list->nums[i - 1];
     }
@@ -80,7 +80,7 @@ void insert(myList *list, int index, int num) {
 // 由于引入了 stdio.h ，此处无法使用 remove 关键词
 // 详见 https://github.com/krahets/hello-algo/pull/244#discussion_r1067863888
 int removeNum(myList *list, int index) {
-    assert(index < size(list));
+    assert(index >= 0 && index < size(list));
     int num = list->nums[index];
     for (int i = index; i < size(list) - 1; i++) {
         list->nums[i] = list->nums[i + 1];
