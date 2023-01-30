@@ -28,6 +28,9 @@ let package = Package(
         .executable(name: "binary_search_tree", targets: ["binary_search_tree"]),
         .executable(name: "avl_tree", targets: ["avl_tree"]),
         .executable(name: "my_heap", targets: ["my_heap"]),
+        .executable(name: "linear_search", targets: ["linear_search"]),
+        .executable(name: "binary_search", targets: ["binary_search"]),
+        .executable(name: "hashing_search", targets: ["hashing_search"]),
     ],
     targets: [
         .target(name: "utils", path: "utils"),
@@ -54,5 +57,8 @@ let package = Package(
         .executableTarget(name: "binary_search_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["binary_search_tree.swift"]),
         .executableTarget(name: "avl_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["avl_tree.swift"]),
         .executableTarget(name: "my_heap", dependencies: ["utils"], path: "chapter_heap", sources: ["my_heap.swift"]),
+        .executableTarget(name: "linear_search", dependencies: ["utils"], path: "chapter_searching", sources: ["linear_search.swift"]),
+        .executableTarget(name: "binary_search", path: "chapter_searching", sources: ["binary_search.swift"]),
+        .executableTarget(name: "hashing_search", dependencies: ["utils"], path: "chapter_searching", sources: ["hashing_search.swift"]),
     ]
 )
