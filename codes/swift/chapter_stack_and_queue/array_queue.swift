@@ -7,8 +7,8 @@
 /* 基于环形数组实现的队列 */
 class ArrayQueue {
     private var nums: [Int] // 用于存储队列元素的数组
-    private var front = 0 // 头指针，指向队首
-    private var rear = 0 // 尾指针，指向队尾 + 1
+    private var front = 0 // 队首指针，指向队首元素
+    private var queSize = 0 // 队列长度
 
     init(capacity: Int) {
         // 初始化数组
@@ -22,14 +22,12 @@ class ArrayQueue {
 
     /* 获取队列的长度 */
     func size() -> Int {
-        let capacity = capacity()
-        // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
-        return (capacity + rear - front) % capacity
+        queSize
     }
 
     /* 判断队列是否为空 */
     func isEmpty() -> Bool {
-        rear - front == 0
+        queSize == 0
     }
 
     /* 入队 */
@@ -38,19 +36,22 @@ class ArrayQueue {
             print("队列已满")
             return
         }
+        // 计算尾指针，指向队尾索引 + 1
+        // 通过取余操作，实现 rear 越过数组尾部后回到头部
+        int rear = (front + queSize) % capacity();
         // 尾结点后添加 num
-        nums[rear] = num
-        // 尾指针向后移动一位，越过尾部后返回到数组头部
-        rear = (rear + 1) % capacity()
+        nums[rear] = num;
+        queSize++;
     }
 
     /* 出队 */
     @discardableResult
     func poll() -> Int {
         let num = peek()
-        // 队头指针向后移动一位，若越过尾部则返回到数组头部
-        front = (front + 1) % capacity()
-        return num
+        // 队首指针向后移动一位，若越过尾部则返回到数组头部
+        front = (front + 1) % capacity();
+        queSize--;
+        return num;
     }
 
     /* 访问队首元素 */
@@ -63,12 +64,10 @@ class ArrayQueue {
 
     /* 返回数组 */
     func toArray() -> [Int] {
-        let size = size()
-        let capacity = capacity()
         // 仅转换有效长度范围内的列表元素
-        var res = Array(repeating: 0, count: size)
-        for (i, j) in sequence(first: (0, front), next: { $0 < size - 1 ? ($0 + 1, $1 + 1) : nil }) {
-            res[i] = nums[j % capacity]
+        var res = Array(repeating: 0, count: queSize)
+        for (i, j) in sequence(first: (0, front), next: { $0 < queSize - 1 ? ($0 + 1, $1 + 1) : nil }) {
+            res[i] = nums[j % capacity()]
         }
         return res
     }

@@ -10,13 +10,13 @@ import java.util.*;
 
 /* 基于环形数组实现的队列 */
 class ArrayQueue {
-    private int[] nums;     // 用于存储队列元素的数组
-    private int front = 0;  // 头指针，指向队首
-    private int rear = 0;   // 尾指针，指向队尾 + 1
+    private int[] nums;  // 用于存储队列元素的数组
+    private int front;   // 队首指针，指向队首元素
+    private int queSize; // 队列长度
 
     public ArrayQueue(int capacity) {
-        // 初始化数组
         nums = new int[capacity];
+        front = queSize = 0;
     }
 
     /* 获取队列的容量 */
@@ -26,33 +26,34 @@ class ArrayQueue {
 
     /* 获取队列的长度 */
     public int size() {
-        int capacity = capacity();
-        // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
-        return (capacity + rear - front) % capacity;
+        return queSize;
     }
 
     /* 判断队列是否为空 */
     public boolean isEmpty() {
-        return rear - front == 0;
+        return queSize == 0;
     }
 
     /* 入队 */
     public void offer(int num) {
-        if (size() == capacity()) {
+        if (queSize == capacity()) {
             System.out.println("队列已满");
             return;
         }
+        // 计算尾指针，指向队尾索引 + 1
+        // 通过取余操作，实现 rear 越过数组尾部后回到头部
+        int rear = (front + queSize) % capacity();
         // 尾结点后添加 num
         nums[rear] = num;
-        // 尾指针向后移动一位，越过尾部后返回到数组头部
-        rear = (rear + 1) % capacity();
+        queSize++;
     }
 
     /* 出队 */
     public int poll() {
         int num = peek();
-        // 队头指针向后移动一位，若越过尾部则返回到数组头部
+        // 队首指针向后移动一位，若越过尾部则返回到数组头部
         front = (front + 1) % capacity();
+        queSize--;
         return num;
     }
 
@@ -65,12 +66,10 @@ class ArrayQueue {
 
     /* 返回数组 */
     public int[] toArray() {
-        int size = size();
-        int capacity = capacity();
         // 仅转换有效长度范围内的列表元素
-        int[] res = new int[size];
-        for (int i = 0, j = front; i < size; i++, j++) {
-            res[i] = nums[j % capacity];
+        int[] res = new int[queSize];
+        for (int i = 0, j = front; i < queSize; i++, j++) {
+            res[i] = nums[j % capacity()];
         }
         return res;
     }
