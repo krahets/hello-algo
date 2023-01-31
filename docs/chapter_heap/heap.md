@@ -9,9 +9,7 @@ comments: true
 - 「大顶堆 Max Heap」，任意结点的值 $\geq$ 其子结点的值；
 - 「小顶堆 Min Heap」，任意结点的值 $\leq$ 其子结点的值；
 
-<figure markdown>
-  ![min_heap_and_max_heap](heap.assets/min_heap_and_max_heap.png)
-</figure>
+![min_heap_and_max_heap](heap.assets/min_heap_and_max_heap.png)
 
 ## 8.1.1. 堆术语与性质
 
