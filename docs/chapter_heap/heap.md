@@ -10,7 +10,7 @@ comments: true
 - 「小顶堆 Min Heap」，任意结点的值 $\leq$ 其子结点的值；
 
 <figure markdown>
-  ![min_heap_and_max_heap](heap.assets/min_heap_and_max_heap.png){ width="600" }
+  ![min_heap_and_max_heap](heap.assets/min_heap_and_max_heap.png)
 </figure>
 
 ## 8.1.1. 堆术语与性质
@@ -217,9 +217,7 @@ comments: true
 
 具体地，给定索引 $i$ ，那么其左子结点索引为 $2i + 1$ 、右子结点索引为 $2i + 2$ 、父结点索引为 $(i - 1) / 2$ （向下整除）。当索引越界时，代表空结点或结点不存在。
 
-<figure markdown>
-  ![representation_of_heap](heap.assets/representation_of_heap.png){ width="600" }
-</figure>
+![representation_of_heap](heap.assets/representation_of_heap.png)
 
 我们将索引映射公式封装成函数，以便后续使用。
 
@@ -419,23 +417,23 @@ comments: true
 
 === "Step 1"
     <figure markdown>
-      ![heap_push_step1](heap.assets/heap_push_step1.png){ width="600" }
+      ![heap_push_step1](heap.assets/heap_push_step1.png)
     </figure>
 
 === "Step 2"
-    ![heap_push_step2](heap.assets/heap_push_step2.png){ width="600" }
+    ![heap_push_step2](heap.assets/heap_push_step2.png)
 
 === "Step 3"
-    ![heap_push_step3](heap.assets/heap_push_step3.png){ width="600" }
+    ![heap_push_step3](heap.assets/heap_push_step3.png)
 
 === "Step 4"
-    ![heap_push_step4](heap.assets/heap_push_step4.png){ width="600" }
+    ![heap_push_step4](heap.assets/heap_push_step4.png)
 
 === "Step 5"
-    ![heap_push_step5](heap.assets/heap_push_step5.png){ width="600" }
+    ![heap_push_step5](heap.assets/heap_push_step5.png)
 
 === "Step 6"
-    ![heap_push_step6](heap.assets/heap_push_step6.png){ width="600" }
+    ![heap_push_step6](heap.assets/heap_push_step6.png)
 
 设结点总数为 $n$ ，则树的高度为 $O(\log n)$ ，易得堆化操作的循环轮数最多为 $O(\log n)$ ，**因而元素入堆操作的时间复杂度为 $O(\log n)$** 。
 
@@ -570,34 +568,34 @@ comments: true
 顾名思义，**从顶至底堆化的操作方向与从底至顶堆化相反**，我们比较根结点的值与其两个子结点的值，将最大的子结点与根结点执行交换，并循环以上操作，直到越过叶结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "Step 1"
-    ![heap_poll_step1](heap.assets/heap_poll_step1.png){ width="600" }
+    ![heap_poll_step1](heap.assets/heap_poll_step1.png)
 
 === "Step 2"
-    ![heap_poll_step2](heap.assets/heap_poll_step2.png){ width="600" }
+    ![heap_poll_step2](heap.assets/heap_poll_step2.png)
 
 === "Step 3"
-    ![heap_poll_step3](heap.assets/heap_poll_step3.png){ width="600" }
+    ![heap_poll_step3](heap.assets/heap_poll_step3.png)
 
 === "Step 4"
-    ![heap_poll_step4](heap.assets/heap_poll_step4.png){ width="600" }
+    ![heap_poll_step4](heap.assets/heap_poll_step4.png)
 
 === "Step 5"
-    ![heap_poll_step5](heap.assets/heap_poll_step5.png){ width="600" }
+    ![heap_poll_step5](heap.assets/heap_poll_step5.png)
 
 === "Step 6"
-    ![heap_poll_step6](heap.assets/heap_poll_step6.png){ width="600" }
+    ![heap_poll_step6](heap.assets/heap_poll_step6.png)
 
 === "Step 7"
-    ![heap_poll_step7](heap.assets/heap_poll_step7.png){ width="600" }
+    ![heap_poll_step7](heap.assets/heap_poll_step7.png)
 
 === "Step 8"
-    ![heap_poll_step8](heap.assets/heap_poll_step8.png){ width="600" }
+    ![heap_poll_step8](heap.assets/heap_poll_step8.png)
 
 === "Step 9"
-    ![heap_poll_step9](heap.assets/heap_poll_step9.png){ width="600" }
+    ![heap_poll_step9](heap.assets/heap_poll_step9.png)
 
 === "Step 10"
-    ![heap_poll_step10](heap.assets/heap_poll_step10.png){ width="600" }
+    ![heap_poll_step10](heap.assets/heap_poll_step10.png)
 
 与元素入堆操作类似，**堆顶元素出堆操作的时间复杂度为 $O(\log n)$** 。
 
@@ -862,7 +860,7 @@ $$
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \cdots + 2^{(h-1)}\times1
 $$
 
-![heapify_count](heap.assets/heapify_count.png){ width="600" }
+![heapify_count](heap.assets/heapify_count.png)
 
 化简上式需要借助中学的数列知识，先对 $T(h)$ 乘以 $2$ ，易得
 
