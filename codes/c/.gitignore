@@ -1,8 +1,11 @@
 # Ignore all
 *
+# Editor:
+code/c/.idea/
+code/c/cmake-build-debug/
+
 # Unignore all with extensions
 !*.*
 # Unignore all dirs
 !*/
-
 *.dSYM/
