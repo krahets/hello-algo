@@ -414,9 +414,7 @@ comments: true
 考虑从入堆结点开始，**从底至顶执行堆化**。具体地，比较插入结点与其父结点的值，若插入结点更大则将它们交换；并循环以上操作，从底至顶地修复堆中的各个结点；直至越过根结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "Step 1"
-    <figure markdown>
-      ![heap_push_step1](heap.assets/heap_push_step1.png)
-    </figure>
+    ![heap_push_step1](heap.assets/heap_push_step1.png)
 
 === "Step 2"
     ![heap_push_step2](heap.assets/heap_push_step2.png)
