@@ -11,7 +11,6 @@ int *arr;
 
 /* 前序遍历 */
 void preOrder(TreeNode *root, int *size) {
-
     if (root == NULL) return;
     // 访问优先级：根结点 -> 左子树 -> 右子树
     arr[(*size)++] = root->val;

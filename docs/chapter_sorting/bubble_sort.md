@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 冒泡排序
+# 11.2. 冒泡排序
 
 「冒泡排序 Bubble Sort」是一种最基础的排序算法，非常适合作为第一个学习的排序算法。顾名思义，「冒泡」是该算法的核心操作。
 
@@ -44,7 +44,7 @@ comments: true
 
 <p align="center"> Fig. 冒泡操作 </p>
 
-## 算法流程
+## 11.2.1. 算法流程
 
 1. 设数组长度为 $n$ ，完成第一轮「冒泡」后，数组最大元素已在正确位置，接下来只需排序剩余 $n - 1$ 个元素。
 2. 同理，对剩余 $n - 1$ 个元素执行「冒泡」，可将第二大元素交换至正确位置，因而待排序元素只剩 $n - 2$ 个。
@@ -215,10 +215,24 @@ comments: true
 === "Swift"
 
     ```swift title="bubble_sort.swift"
-
+    /* 冒泡排序 */
+    func bubbleSort(nums: inout [Int]) {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for i in stride(from: nums.count - 1, to: 0, by: -1) {
+            // 内循环：冒泡操作
+            for j in stride(from: 0, to: i, by: 1) {
+                if nums[j] > nums[j + 1] {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    let tmp = nums[j]
+                    nums[j] = nums[j + 1]
+                    nums[j + 1] = tmp
+                }
+            }
+        }
+    }
     ```
 
-## 算法特性
+## 11.2.2. 算法特性
 
 **时间复杂度 $O(n^2)$** ：各轮「冒泡」遍历的数组长度为 $n - 1$ , $n - 2$ , $\cdots$ , $2$ , $1$ 次，求和为 $\frac{(n - 1) n}{2}$ ，因此使用 $O(n^2)$ 时间。
 
@@ -230,7 +244,7 @@ comments: true
 
 **自适应排序**：引入 `flag` 优化后（见下文），最佳时间复杂度为 $O(N)$ 。
 
-## 效率优化
+## 11.2.3. 效率优化
 
 我们发现，若在某轮「冒泡」中未执行任何交换操作，则说明数组已经完成排序，可直接返回结果。考虑可以增加一个标志位 `flag` 来监听该情况，若出现则直接返回。
 
@@ -424,5 +438,23 @@ comments: true
 === "Swift"
 
     ```swift title="bubble_sort.swift"
-
+    /* 冒泡排序（标志优化）*/
+    func bubbleSortWithFlag(nums: inout [Int]) {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for i in stride(from: nums.count - 1, to: 0, by: -1) {
+            var flag = false // 初始化标志位
+            for j in stride(from: 0, to: i, by: 1) {
+                if nums[j] > nums[j + 1] {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    let tmp = nums[j]
+                    nums[j] = nums[j + 1]
+                    nums[j + 1] = tmp
+                    flag = true // 记录交换元素
+                }
+            }
+            if !flag { // 此轮冒泡未交换任何元素，直接跳出
+                break
+            }
+        }
+    }
     ```

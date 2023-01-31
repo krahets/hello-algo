@@ -2,13 +2,13 @@
 comments: true
 ---
 
-# 列表
+# 4.3. 列表
 
 **由于长度不可变，数组的实用性大大降低**。在很多情况下，我们事先并不知道会输入多少数据，这就为数组长度的选择带来了很大困难。长度选小了，需要在添加数据中频繁地扩容数组；长度选大了，又造成内存空间的浪费。
 
 为了解决此问题，诞生了一种被称为「列表 List」的数据结构。列表可以被理解为长度可变的数组，因此也常被称为「动态数组 Dynamic Array」。列表基于数组实现，继承了数组的优点，同时还可以在程序运行中实时扩容。在列表中，我们可以自由地添加元素，而不用担心超过容量限制。
 
-## 列表常用操作
+## 4.3.1. 列表常用操作
 
 **初始化列表**。我们通常会使用到“无初始值”和“有初始值”的两种初始化方法。
 
@@ -630,7 +630,7 @@ comments: true
     list.sort() // 排序后，列表元素从小到大排列
     ```
 
-## 列表简易实现 *
+## 4.3.2. 列表简易实现 *
 
 为了帮助加深对列表的理解，我们在此提供一个列表的简易版本的实现。需要关注三个核心点：
 
@@ -668,14 +668,14 @@ comments: true
         /* 访问元素 */
         public int get(int index) {
             // 索引如果越界则抛出异常，下同
-            if (index >= size)
+            if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("索引越界");
             return nums[index];
         }
 
         /* 更新元素 */
         public void set(int index, int num) {
-            if (index >= size)
+            if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("索引越界");
             nums[index] = num;
         }
@@ -692,7 +692,7 @@ comments: true
 
         /* 中间插入元素 */
         public void insert(int index, int num) {
-            if (index >= size)
+            if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("索引越界");
             // 元素数量超出容量时，触发扩容机制
             if (size == capacity())
@@ -708,7 +708,7 @@ comments: true
 
         /* 删除元素 */
         public int remove(int index) {
-            if (index >= size)
+            if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("索引越界");
             int num = nums[index];
             // 将索引 index 之后的元素都向前移动一位
@@ -766,14 +766,14 @@ comments: true
         /* 访问元素 */
         int get(int index) {
             // 索引如果越界则抛出异常，下同
-            if (index >= size())
+            if (index < 0 || index >= size())
                 throw out_of_range("索引越界");
             return nums[index];
         }
 
         /* 更新元素 */
         void set(int index, int num) {
-            if (index >= size())
+            if (index < 0 || index >= size())
                 throw out_of_range("索引越界");
             nums[index] = num;
         }
@@ -790,7 +790,7 @@ comments: true
 
         /* 中间插入元素 */
         void insert(int index, int num) {
-            if (index >= size())
+            if (index < 0 || index >= size())
                 throw out_of_range("索引越界");
             // 元素数量超出容量时，触发扩容机制
             if (size() == capacity())
@@ -806,7 +806,7 @@ comments: true
 
         /* 删除元素 */
         int remove(int index) {
-            if (index >= size())
+            if (index < 0 || index >= size())
                 throw out_of_range("索引越界");
             int num = nums[index];
             // 索引 i 之后的元素都向前移动一位
@@ -859,17 +859,17 @@ comments: true
         """ 访问元素 """
         def get(self, index):
             # 索引如果越界则抛出异常，下同
-            assert index < self.__size, "索引越界"
+            assert index >= 0 and index < self.__size, "索引越界"
             return self.__nums[index]
 
         """ 更新元素 """
         def set(self, num, index):
-            assert index < self.__size, "索引越界"
+            assert index >= 0 and index < self.__size, "索引越界"
             self.__nums[index] = num
 
         """ 中间插入（尾部添加）元素 """
         def add(self, num, index=-1):
-            assert index < self.__size, "索引越界"
+            assert index >= 0 and index < self.__size, "索引越界"
             # 若不指定索引 index ，则向数组尾部添加元素
             if index == -1:
                 index = self.__size
@@ -885,12 +885,15 @@ comments: true
 
         """ 删除元素 """
         def remove(self, index):
-            assert index < self.__size, "索引越界"
+            assert index >= 0 and index < self.__size, "索引越界"
+            num = self.nums[index]
             # 索引 i 之后的元素都向前移动一位
             for j in range(index, self.__size - 1):
                 self.__nums[j] = self.__nums[j + 1]
             # 更新元素数量
             self.__size -= 1
+            # 返回被删除元素
+            return num
 
         """ 列表扩容 """
         def extend_capacity(self):
@@ -934,7 +937,7 @@ comments: true
     /* 访问元素 */
     func (l *myList) get(index int) int {
         // 索引如果越界则抛出异常，下同
-        if index >= l.numsSize {
+        if index < 0 || index >= l.numsSize {
             panic("索引越界")
         }
         return l.nums[index]
@@ -942,7 +945,7 @@ comments: true
 
     /* 更新元素 */
     func (l *myList) set(num, index int) {
-        if index >= l.numsSize {
+        if index < 0 || index >= l.numsSize {
             panic("索引越界")
         }
         l.nums[index] = num
@@ -961,7 +964,7 @@ comments: true
 
     /* 中间插入元素 */
     func (l *myList) insert(num, index int) {
-        if index >= l.numsSize {
+        if index < 0 || index >= l.numsSize {
             panic("索引越界")
         }
         // 元素数量超出容量时，触发扩容机制
@@ -979,7 +982,7 @@ comments: true
 
     /* 删除元素 */
     func (l *myList) remove(index int) int {
-        if index >= l.numsSize {
+        if index < 0 || index >= l.numsSize {
             panic("索引越界")
         }
         num := l.nums[index]
@@ -1030,15 +1033,15 @@ comments: true
         /* 访问元素 */
         get(index) {
             // 索引如果越界则抛出异常，下同
-            if (index >= this.#size) {
+            if (index < 0 || index >= this.#size)
                 throw new Error('索引越界');
-            }
             return this.#nums[index];
         }
 
         /* 更新元素 */
         set(index, num) {
-            if (index >= this._size) throw new Error('索引越界');
+            if (index < 0 || index >= this.#size)
+                throw new Error('索引越界');
             this.#nums[index] = num;
         }
 
@@ -1055,9 +1058,8 @@ comments: true
 
         /* 中间插入元素 */
         insert(index, num) {
-            if (index >= this.#size) {
+            if (index < 0 || index >= this.#size)
                 throw new Error('索引越界');
-            }
             // 元素数量超出容量时，触发扩容机制
             if (this.#size === this.#capacity) {
                 this.extendCapacity();
@@ -1073,7 +1075,8 @@ comments: true
 
         /* 删除元素 */
         remove(index) {
-            if (index >= this.#size) throw new Error('索引越界');
+            if (index < 0 || index >= this.#size)
+                throw new Error('索引越界');
             let num = this.#nums[index];
             // 将索引 index 之后的元素都向前移动一位
             for (let j = index; j < this.#size - 1; j++) {
@@ -1125,24 +1128,23 @@ comments: true
         /* 访问元素 */
         public get(index: number): number {
             // 索引如果越界则抛出异常，下同
-            if (index >= this._size) {
+            if (index < 0 || index >= this._size)
                 throw new Error('索引越界');
-            }
             return this.nums[index];
         }
 
         /* 更新元素 */
         public set(index: number, num: number): void {
-            if (index >= this._size) throw new Error('索引越界');
+            if (index < 0 || index >= this._size)
+                throw new Error('索引越界');
             this.nums[index] = num;
         }
 
         /* 尾部添加元素 */
         public add(num: number): void {
             // 如果长度等于容量，则需要扩容
-            if (this._size === this._capacity) {
+            if (this._size === this._capacity)
                 this.extendCapacity();
-            }
             // 将新元素添加到列表尾部
             this.nums[this._size] = num;
             this._size++;
@@ -1150,9 +1152,8 @@ comments: true
 
         /* 中间插入元素 */
         public insert(index: number, num: number): void {
-            if (index >= this._size) {
+            if (index < 0 || index >= this._size)
                 throw new Error('索引越界');
-            }
             // 元素数量超出容量时，触发扩容机制
             if (this._size === this._capacity) {
                 this.extendCapacity();
@@ -1168,7 +1169,8 @@ comments: true
 
         /* 删除元素 */
         public remove(index: number): number {
-            if (index >= this._size) throw new Error('索引越界');
+            if (index < 0 || index >= this._size)
+                throw new Error('索引越界');
             let num = this.nums[index];
             // 将索引 index 之后的元素都向前移动一位
             for (let j = index; j < this._size - 1; j++) {
@@ -1230,7 +1232,7 @@ comments: true
         public int Get(int index)
         {
             // 索引如果越界则抛出异常，下同
-            if (index >= size)
+            if (index < 0 || index >= size)
                 throw new IndexOutOfRangeException("索引越界");
             return nums[index];
         }
@@ -1238,7 +1240,7 @@ comments: true
         /* 更新元素 */
         public void Set(int index, int num)
         {
-            if (index >= size)
+            if (index < 0 || index >= size)
                 throw new IndexOutOfRangeException("索引越界");
             nums[index] = num;
         }
@@ -1257,7 +1259,7 @@ comments: true
         /* 中间插入元素 */
         public void Insert(int index, int num)
         {
-            if (index >= size)
+            if (index < 0 || index >= size)
                 throw new IndexOutOfRangeException("索引越界");
             // 元素数量超出容量时，触发扩容机制
             if (size == Capacity())
@@ -1275,7 +1277,7 @@ comments: true
         /* 删除元素 */
         public int Remove(int index)
         {
-            if (index >= size)
+            if (index < 0 || index >= size)
                 throw new IndexOutOfRangeException("索引越界");
             int num = nums[index];
             // 将索引 index 之后的元素都向前移动一位
@@ -1328,7 +1330,7 @@ comments: true
         /* 访问元素 */
         func get(index: Int) -> Int {
             // 索引如果越界则抛出错误，下同
-            if index >= _size {
+            if index < 0 || index >= _size {
                 fatalError("索引越界")
             }
             return nums[index]
@@ -1336,7 +1338,7 @@ comments: true
 
         /* 更新元素 */
         func set(index: Int, num: Int) {
-            if index >= _size {
+            if index < 0 || index >= _size {
                 fatalError("索引越界")
             }
             nums[index] = num
@@ -1355,7 +1357,7 @@ comments: true
 
         /* 中间插入元素 */
         func insert(index: Int, num: Int) {
-            if index >= _size {
+            if index < 0 || index >= _size {
                 fatalError("索引越界")
             }
             // 元素数量超出容量时，触发扩容机制
@@ -1374,7 +1376,7 @@ comments: true
         /* 删除元素 */
         @discardableResult
         func remove(index: Int) -> Int {
-            if index >= _size {
+            if index < 0 || index >= _size {
                 fatalError("索引越界")
             }
             let num = nums[index]
@@ -1394,15 +1396,6 @@ comments: true
             nums = nums + Array(repeating: 0, count: _capacity * (extendRatio - 1))
             // 更新列表容量
             _capacity = nums.count
-        }
-
-        /* 将列表转换为数组 */
-        func toArray() -> [Int] {
-            var nums = Array(repeating: 0, count: _size)
-            for i in 0 ..< _size {
-                nums[i] = get(index: i)
-            }
-            return nums
         }
     }
     ```

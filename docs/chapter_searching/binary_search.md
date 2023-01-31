@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 二分查找
+# 10.2. 二分查找
 
 「二分查找 Binary Search」利用数据的有序性，通过每轮缩小一半搜索区间来查找目标元素。
 
@@ -11,7 +11,7 @@ comments: true
 - **要求输入数据是有序的**，这样才能通过判断大小关系来排除一半的搜索区间；
 - **二分查找仅适用于数组**，而在链表中使用效率很低，因为其在循环中需要跳跃式（非连续地）访问元素。
 
-## 算法实现
+## 10.2.1. 算法实现
 
 给定一个长度为 $n$ 的排序数组 `nums` ，元素从小到大排列。数组的索引取值范围为
 
@@ -213,7 +213,25 @@ $$
 === "Swift"
 
     ```swift title="binary_search.swift"
-
+    /* 二分查找（双闭区间） */
+    func binarySearch(nums: [Int], target: Int) -> Int {
+        // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
+        var i = 0
+        var j = nums.count - 1
+        // 循环，当搜索区间为空时跳出（当 i > j 时为空）
+        while i <= j {
+            let m = (i + j) / 2 // 计算中点索引 m
+            if nums[m] < target { // 此情况说明 target 在区间 [m+1, j] 中
+                i = m + 1
+            } else if nums[m] > target { // 此情况说明 target 在区间 [i, m-1] 中
+                j = m - 1
+            } else { // 找到目标元素，返回其索引
+                return m
+            }
+        }
+        // 未找到目标元素，返回 -1
+        return -1
+    }
     ```
 
 ### “左闭右开”实现
@@ -230,9 +248,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
             int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
+            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m] 中
+            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
                 j = m;
             else                       // 找到目标元素，返回其索引
                 return m;
@@ -252,9 +270,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
             int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
+            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m] 中
+            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
                 j = m;
             else                       // 找到目标元素，返回其索引
                 return m;
@@ -274,9 +292,9 @@ $$
         # 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while i < j:
             m = (i + j) // 2        # 计算中点索引 m
-            if nums[m] < target:    # 此情况说明 target 在区间 [m+1, j] 中
+            if nums[m] < target:    # 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1
-            elif nums[m] > target:  # 此情况说明 target 在区间 [i, m] 中
+            elif nums[m] > target:  # 此情况说明 target 在区间 [i, m) 中
                 j = m
             else:                   # 找到目标元素，返回其索引
                 return m
@@ -293,9 +311,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         for i < j {
             m := (i + j) / 2             // 计算中点索引 m
-            if nums[m] < target {        // 此情况说明 target 在区间 [m+1, j] 中
+            if nums[m] < target {        // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1
-            } else if nums[m] > target { // 此情况说明 target 在区间 [i, m] 中
+            } else if nums[m] > target { // 此情况说明 target 在区间 [i, m) 中
                 j = m
             } else {                     // 找到目标元素，返回其索引
                 return m
@@ -316,9 +334,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
             let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
-            if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j] 中
+            if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
-            else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m] 中
+            else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m) 中
                 j = m;
             else                           // 找到目标元素，返回其索引
                 return m;
@@ -338,9 +356,9 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
             const m = Math.floor(i + (j - i) / 2);  // 计算中点索引 m
-            if (nums[m] < target) {                 // 此情况说明 target 在区间 [m+1, j] 中
+            if (nums[m] < target) {                 // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
-            } else if (nums[m] > target) {          // 此情况说明 target 在区间 [i, m] 中
+            } else if (nums[m] > target) {          // 此情况说明 target 在区间 [i, m) 中
                 j = m;
             } else {                                // 找到目标元素，返回其索引
                 return m;
@@ -368,9 +386,9 @@ $$
         while (i < j)
         {
             int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
+            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m] 中
+            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
                 j = m;
             else                       // 找到目标元素，返回其索引
                 return m;
@@ -383,7 +401,25 @@ $$
 === "Swift"
 
     ```swift title="binary_search.swift"
-
+    /* 二分查找（左闭右开） */
+    func binarySearch1(nums: [Int], target: Int) -> Int {
+        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        var i = 0
+        var j = nums.count
+        // 循环，当搜索区间为空时跳出（当 i = j 时为空）
+        while i < j {
+            let m = (i + j) / 2 // 计算中点索引 m
+            if nums[m] < target { // 此情况说明 target 在区间 [m+1, j) 中
+                i = m + 1
+            } else if nums[m] > target { // 此情况说明 target 在区间 [i, m) 中
+                j = m
+            } else { // 找到目标元素，返回其索引
+                return m
+            }
+        }
+        // 未找到目标元素，返回 -1
+        return -1
+    }
     ```
 
 ### 两种表示对比
@@ -475,16 +511,19 @@ $$
 === "Swift"
 
     ```swift title=""
-
+    // (i + j) 有可能超出 int 的取值范围
+    let m = (i + j) / 2
+    // 更换为此写法则不会越界
+    let m = i + (j - 1) / 2
     ```
 
-## 复杂度分析
+## 10.2.2. 复杂度分析
 
 **时间复杂度 $O(\log n)$** ：其中 $n$ 为数组或链表长度；每轮排除一半的区间，因此循环轮数为 $\log_2 n$ ，使用 $O(\log n)$ 时间。
 
 **空间复杂度 $O(1)$** ：指针 `i` , `j` 使用常数大小空间。
 
-## 优点与缺点
+## 10.2.3. 优点与缺点
 
 二分查找效率很高，体现在：
 
@@ -494,5 +533,5 @@ $$
 但并不意味着所有情况下都应使用二分查找，这是因为：
 
 - **二分查找仅适用于有序数据**。如果输入数据是无序的，为了使用二分查找而专门执行数据排序，那么是得不偿失的，因为排序算法的时间复杂度一般为 $O(n \log n)$ ，比线性查找和二分查找都更差。再例如，对于频繁插入元素的场景，为了保持数组的有序性，需要将元素插入到特定位置，时间复杂度为 $O(n)$ ，也是非常昂贵的。
-- **二分查找仅适用于数组**。由于在二分查找中，访问索引是 ”非连续“ 的，因此链表或者基于链表实现的数据结构都无法使用。
+- **二分查找仅适用于数组**。由于在二分查找中，访问索引是 “非连续” 的，因此链表或者基于链表实现的数据结构都无法使用。
 - **在小数据量下，线性查找的性能更好**。在线性查找中，每轮只需要 1 次判断操作；而在二分查找中，需要 1 次加法、1 次除法、1 ~ 3 次判断操作、1 次加法（减法），共 4 ~ 6 个单元操作；因此，在数据量 $n$ 较小时，线性查找反而比二分查找更快。

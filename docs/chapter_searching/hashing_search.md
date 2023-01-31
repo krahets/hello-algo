@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 哈希查找
+# 10.3. 哈希查找
 
 !!! question
 
@@ -10,7 +10,7 @@ comments: true
 
 「哈希查找 Hash Searching」借助一个哈希表来存储需要的「键值对 Key Value Pair」，我们可以在 $O(1)$ 时间下实现“键 $\rightarrow$ 值”映射查找，体现着“以空间换时间”的算法思想。
 
-## 算法实现
+## 10.3.1. 算法实现
 
 如果我们想要给定数组中的一个目标元素 `target` ，获取该元素的索引，那么可以借助一个哈希表实现查找。
 
@@ -108,7 +108,12 @@ comments: true
 === "Swift"
 
     ```swift title="hashing_search.swift"
-
+    /* 哈希查找（数组） */
+    func hashingSearch(map: [Int: Int], target: Int) -> Int {
+        // 哈希表的 key: 目标元素，value: 索引
+        // 若哈希表中无此 key ，返回 -1
+        return map[target, default: -1]
+    }
     ```
 
 再比如，如果我们想要给定一个目标结点值 `target` ，获取对应的链表结点对象，那么也可以使用哈希查找实现。
@@ -208,16 +213,21 @@ comments: true
 === "Swift"
 
     ```swift title="hashing_search.swift"
-
+    /* 哈希查找（链表） */
+    func hashingSearch1(map: [Int: ListNode], target: Int) -> ListNode? {
+        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 若哈希表中无此 key ，返回 null
+        return map[target]
+    }
     ```
 
-## 复杂度分析
+## 10.3.2. 复杂度分析
 
 **时间复杂度 $O(1)$** ：哈希表的查找操作使用 $O(1)$ 时间。
 
 **空间复杂度 $O(n)$** ：其中 $n$ 为数组或链表长度。
 
-## 优点与缺点
+## 10.3.3. 优点与缺点
 
 在哈希表中，**查找、插入、删除操作的平均时间复杂度都为 $O(1)$** ，这意味着无论是高频增删还是高频查找场景，哈希查找的性能表现都非常好。当然，一切的前提是保证哈希表未退化。
 

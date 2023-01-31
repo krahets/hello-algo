@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 二叉搜索树
+# 7.3. 二叉搜索树
 
 「二叉搜索树 Binary Search Tree」满足以下条件：
 
@@ -11,7 +11,7 @@ comments: true
 
 ![binary_search_tree](binary_search_tree.assets/binary_search_tree.png)
 
-## 二叉搜索树的操作
+## 7.3.1. 二叉搜索树的操作
 
 ### 查找结点
 
@@ -163,7 +163,7 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-
+    
     ```
 
 === "C#"
@@ -191,7 +191,27 @@ comments: true
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
-
+    /* 查找结点 */
+    func search(num: Int) -> TreeNode? {
+        var cur = root
+        // 循环查找，越过叶结点后跳出
+        while cur != nil {
+            // 目标结点在 cur 的右子树中
+            if cur!.val < num {
+                cur = cur?.right
+            }
+            // 目标结点在 cur 的左子树中
+            else if cur!.val > num {
+                cur = cur?.left
+            }
+            // 找到目标结点，跳出循环
+            else {
+                break
+            }
+        }
+        // 返回目标结点
+        return cur
+    }
     ```
 
 ### 插入结点
@@ -266,10 +286,10 @@ comments: true
         # 若树为空，直接提前返回
         if root is None:
             return None
-
+    
         cur = root
         pre = None
-
+    
         # 循环查找，越过叶结点后跳出
         while cur is not None:
             # 找到重复结点，直接返回
@@ -282,7 +302,7 @@ comments: true
             # 插入位置在 cur 的左子树中
             else:
                 cur = cur.left
-
+    
         # 插入结点 val
         node = TreeNode(num)
         if pre.val < num:
@@ -390,7 +410,7 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-
+    
     ```
 
 === "C#"
@@ -413,7 +433,7 @@ comments: true
             // 插入位置在 cur 的左子树中
             else cur = cur.left;
         }
-
+    
         // 插入结点 val
         TreeNode node = new TreeNode(num);
         if (pre != null)
@@ -428,7 +448,39 @@ comments: true
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
-
+    /* 插入结点 */
+    func insert(num: Int) -> TreeNode? {
+        // 若树为空，直接提前返回
+        if root == nil {
+            return nil
+        }
+        var cur = root
+        var pre: TreeNode?
+        // 循环查找，越过叶结点后跳出
+        while cur != nil {
+            // 找到重复结点，直接返回
+            if cur!.val == num {
+                return nil
+            }
+            pre = cur
+            // 插入位置在 cur 的右子树中
+            if cur!.val < num {
+                cur = cur?.right
+            }
+            // 插入位置在 cur 的左子树中
+            else {
+                cur = cur?.left
+            }
+        }
+        // 插入结点 val
+        let node = TreeNode(x: num)
+        if pre!.val < num {
+            pre?.right = node
+        } else {
+            pre?.left = node
+        }
+        return node
+    }
     ```
 
 为了插入结点，需要借助 **辅助结点 `prev`** 保存上一轮循环的结点，这样在遍历到 $\text{null}$ 时，我们也可以获取到其父结点，从而完成结点插入操作。
@@ -466,6 +518,14 @@ comments: true
     ![bst_remove_case3_4](binary_search_tree.assets/bst_remove_case3_4.png)
 
 删除结点操作也使用 $O(\log n)$ 时间，其中查找待删除结点 $O(\log n)$ ，获取中序遍历后继结点 $O(\log n)$ 。
+
+### 排序
+
+我们知道，「中序遍历」遵循“左 $\rightarrow$ 根 $\rightarrow$ 右”的遍历优先级，而二叉搜索树遵循“左子结点 $<$ 根结点 $<$ 右子结点”的大小关系。因此，在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小结点，从而得出一条重要性质：**二叉搜索树的中序遍历序列是升序的**。
+
+借助中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 $O(n)$ 时间，而无需额外排序，非常高效。
+
+![bst_inorder_traversal](binary_search_tree.assets/bst_inorder_traversal.png)
 
 === "Java"
 
@@ -562,10 +622,10 @@ comments: true
         # 若树为空，直接提前返回
         if root is None:
             return None
-
+    
         cur = root
         pre = None
-
+    
         # 循环查找，越过叶结点后跳出
         while cur is not None:
             # 找到待删除结点，跳出循环
@@ -576,11 +636,11 @@ comments: true
                 cur = cur.right
             else:  # 待删除结点在 cur 的左子树中
                 cur = cur.left
-
+    
         # 若无待删除结点，则直接返回
         if cur is None:
             return None
-
+    
         # 子结点数量 = 0 or 1
         if cur.left is None or cur.right is None:
             # 当子结点数量 = 0 / 1 时， child = null / 该子结点
@@ -759,7 +819,7 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-
+    
     ```
 
 === "C#"
@@ -820,10 +880,61 @@ comments: true
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
-
+    /* 删除结点 */
+    @discardableResult
+    func remove(num: Int) -> TreeNode? {
+        // 若树为空，直接提前返回
+        if root == nil {
+            return nil
+        }
+        var cur = root
+        var pre: TreeNode?
+        // 循环查找，越过叶结点后跳出
+        while cur != nil {
+            // 找到待删除结点，跳出循环
+            if cur!.val == num {
+                break
+            }
+            pre = cur
+            // 待删除结点在 cur 的右子树中
+            if cur!.val < num {
+                cur = cur?.right
+            }
+            // 待删除结点在 cur 的左子树中
+            else {
+                cur = cur?.left
+            }
+        }
+        // 若无待删除结点，则直接返回
+        if cur == nil {
+            return nil
+        }
+        // 子结点数量 = 0 or 1
+        if cur?.left == nil || cur?.right == nil {
+            // 当子结点数量 = 0 / 1 时， child = null / 该子结点
+            let child = cur?.left != nil ? cur?.left : cur?.right
+            // 删除结点 cur
+            if pre?.left === cur {
+                pre?.left = child
+            } else {
+                pre?.right = child
+            }
+        }
+        // 子结点数量 = 2
+        else {
+            // 获取中序遍历中 cur 的下一个结点
+            let nex = getInOrderNext(root: cur?.right)
+            let tmp = nex!.val
+            // 递归删除结点 nex
+            remove(num: nex!.val)
+            // 将 nex 的值复制给 cur
+            cur?.val = tmp
+        }
+        return cur
+    }
     ```
 
-## 二叉搜索树的优势
+## 7.3.2. 二叉搜索树的效率
 
 假设给定 $n$ 个数字，最常用的存储方式是「数组」，那么对于这串乱序的数字，常见操作的效率为：
 
@@ -852,7 +963,7 @@ comments: true
 
 </div>
 
-## 二叉搜索树的退化
+## 7.3.3. 二叉搜索树的退化
 
 理想情况下，我们希望二叉搜索树的是“左右平衡”的（详见「平衡二叉树」章节），此时可以在 $\log n$ 轮循环内查找任意结点。
 
@@ -864,7 +975,7 @@ comments: true
 
 ![bst_degradation](binary_search_tree.assets/bst_degradation.png)
 
-## 二叉搜索树常见应用
+## 7.3.4. 二叉搜索树常见应用
 
 - 系统中的多级索引，高效查找、插入、删除操作。
 - 各种搜索算法的底层数据结构。

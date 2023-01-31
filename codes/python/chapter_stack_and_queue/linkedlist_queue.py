@@ -30,7 +30,7 @@ class LinkedListQueue:
         # 尾结点后添加 num
         node = ListNode(num)
         # 如果队列为空，则令头、尾结点都指向该结点
-        if self.__front == 0:
+        if self.__front is None:
             self.__front = node
             self.__rear = node
         # 如果队列不为空，则将该结点添加到尾结点后

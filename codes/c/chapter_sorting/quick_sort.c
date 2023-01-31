@@ -63,7 +63,7 @@ int medianThree(int nums[], int left, int mid, int right) {
 }
 
 // 哨兵划分（三数取中值）
-int QuickSortMedianPartition(int nums[], int left, int right) {
+int quickSortMedianPartition(int nums[], int left, int right) {
     // 选取三个候选元素的中位数
     int med = medianThree(nums, left, (left + right) / 2, right);
     // 将中位数交换至数组最左端
@@ -87,7 +87,7 @@ void quickSortMedian(int nums[], int left, int right) {
     if (left >= right)
         return;
     // 哨兵划分
-    int pivot = QuickSortMedianPartition(nums, left, right);
+    int pivot = quickSortMedianPartition(nums, left, right);
     // 递归左子数组、右子数组
     quickSortMedian(nums, left, pivot - 1);
     quickSortMedian(nums, pivot + 1, right);

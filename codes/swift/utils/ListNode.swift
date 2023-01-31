@@ -11,4 +11,14 @@ public class ListNode {
     public init(x: Int) {
         val = x
     }
+
+    public static func arrToLinkedList(arr: [Int]) -> ListNode? {
+        let dum = ListNode(x: 0)
+        var head: ListNode? = dum
+        for val in arr {
+            head?.next = ListNode(x: val)
+            head = head?.next
+        }
+        return dum.next
+    }
 }

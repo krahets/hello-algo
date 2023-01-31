@@ -123,57 +123,60 @@ extra_css:
 
 # Page tree
 nav:
-  - 写在前面:
-    - 关于本书: chapter_preface/about_the_book.md
-    - 如何使用本书: chapter_preface/suggestions.md
-    - 编程环境安装: chapter_preface/installation.md
-    - 一起参与创作: chapter_preface/contribution.md
-  - 引言: 
-    - 算法无处不在: chapter_introduction/algorithms_are_everywhere.md
-    - 算法是什么: chapter_introduction/what_is_dsa.md
-  - 计算复杂度:
-    - 算法效率评估: chapter_computational_complexity/performance_evaluation.md
-    - 时间复杂度: chapter_computational_complexity/time_complexity.md
-    - 空间复杂度: chapter_computational_complexity/space_complexity.md
-    - 权衡时间与空间: chapter_computational_complexity/space_time_tradeoff.md
-    - 小结: chapter_computational_complexity/summary.md
-  - 数据结构简介: 
-    - 数据与内存: chapter_data_structure/data_and_memory.md
-    - 数据结构分类: chapter_data_structure/classification_of_data_structure.md
-    - 小结: chapter_data_structure/summary.md
-  - 数组与链表: 
-    - 数组（Array）: chapter_array_and_linkedlist/array.md
-    - 链表（LinkedList）: chapter_array_and_linkedlist/linked_list.md
-    - 列表（List）: chapter_array_and_linkedlist/list.md
-    - 小结: chapter_array_and_linkedlist/summary.md
-  - 栈与队列:
-    - 栈（Stack）: chapter_stack_and_queue/stack.md
-    - 队列（Queue）: chapter_stack_and_queue/queue.md
-    - 双向队列（Deque）: chapter_stack_and_queue/deque.md
-    - 小结: chapter_stack_and_queue/summary.md
-  - 散列表:
-    - 哈希表（HashMap）: chapter_hashing/hash_map.md
-    - 哈希冲突处理: chapter_hashing/hash_collision.md
-    - 小结: chapter_hashing/summary.md
-  - 二叉树:
-    - 二叉树（Binary Tree）: chapter_tree/binary_tree.md
-    - 二叉树遍历: chapter_tree/binary_tree_traversal.md
-    - 二叉搜索树: chapter_tree/binary_search_tree.md
-    - AVL 树 *: chapter_tree/avl_tree.md
-    - 小结: chapter_tree/summary.md
-  - 堆:
-    - 堆（Heap）: chapter_heap/heap.md
-  - 查找算法:
-    - 线性查找: chapter_searching/linear_search.md
-    - 二分查找: chapter_searching/binary_search.md
-    - 哈希查找: chapter_searching/hashing_search.md
-    - 小结: chapter_searching/summary.md
-  - 排序算法:
-    - 排序简介: chapter_sorting/intro_to_sort.md
-    - 冒泡排序: chapter_sorting/bubble_sort.md
-    - 插入排序: chapter_sorting/insertion_sort.md
-    - 快速排序: chapter_sorting/quick_sort.md
-    - 归并排序: chapter_sorting/merge_sort.md
-    - 小结: chapter_sorting/summary.md
+  - 0. 写在前面:
+    - 0.1. 关于本书: chapter_preface/about_the_book.md
+    - 0.2. 如何使用本书: chapter_preface/suggestions.md
+    - 0.3. 编程环境安装: chapter_preface/installation.md
+    - 0.4. 一起参与创作: chapter_preface/contribution.md
+  - 1. 引言: 
+    - 1.1. 算法无处不在: chapter_introduction/algorithms_are_everywhere.md
+    - 1.2. 算法是什么: chapter_introduction/what_is_dsa.md
+  - 2. 计算复杂度:
+    - 2.1. 算法效率评估: chapter_computational_complexity/performance_evaluation.md
+    - 2.2. 时间复杂度: chapter_computational_complexity/time_complexity.md
+    - 2.3. 空间复杂度: chapter_computational_complexity/space_complexity.md
+    - 2.4. 权衡时间与空间: chapter_computational_complexity/space_time_tradeoff.md
+    - 2.5. 小结: chapter_computational_complexity/summary.md
+  - 3. 数据结构简介: 
+    - 3.1. 数据与内存: chapter_data_structure/data_and_memory.md
+    - 3.2. 数据结构分类: chapter_data_structure/classification_of_data_structure.md
+    - 3.3. 小结: chapter_data_structure/summary.md
+  - 4. 数组与链表: 
+    - 4.1. 数组（Array）: chapter_array_and_linkedlist/array.md
+    - 4.2. 链表（LinkedList）: chapter_array_and_linkedlist/linked_list.md
+    - 4.3. 列表（List）: chapter_array_and_linkedlist/list.md
+    - 4.4. 小结: chapter_array_and_linkedlist/summary.md
+  - 5. 栈与队列:
+    - 5.1. 栈（Stack）: chapter_stack_and_queue/stack.md
+    - 5.2. 队列（Queue）: chapter_stack_and_queue/queue.md
+    - 5.3. 双向队列（Deque）: chapter_stack_and_queue/deque.md
+    - 5.4. 小结: chapter_stack_and_queue/summary.md
+  - 6. 散列表:
+    - 6.1. 哈希表（HashMap）: chapter_hashing/hash_map.md
+    - 6.2. 哈希冲突处理: chapter_hashing/hash_collision.md
+    - 6.3. 小结: chapter_hashing/summary.md
+  - 7. 二叉树:
+    - 7.1. 二叉树（Binary Tree）: chapter_tree/binary_tree.md
+    - 7.2. 二叉树遍历: chapter_tree/binary_tree_traversal.md
+    - 7.3. 二叉搜索树: chapter_tree/binary_search_tree.md
+    - 7.4. AVL 树 *: chapter_tree/avl_tree.md
+    - 7.5. 小结: chapter_tree/summary.md
+  - 8. 堆:
+    - 8.1. 堆（Heap）: chapter_heap/heap.md
+  - 9. 图:
+    - 9.1. 图（Graph）: chapter_graph/graph.md
+    - 9.2. 图基础操作: chapter_graph/basic_operation_of_graph.md 
+  - 10. 查找算法:
+    - 10.1. 线性查找: chapter_searching/linear_search.md
+    - 10.2. 二分查找: chapter_searching/binary_search.md
+    - 10.3. 哈希查找: chapter_searching/hashing_search.md
+    - 10.4. 小结: chapter_searching/summary.md
+  - 11. 排序算法:
+    - 11.1. 排序简介: chapter_sorting/intro_to_sort.md
+    - 11.2. 冒泡排序: chapter_sorting/bubble_sort.md
+    - 11.3. 插入排序: chapter_sorting/insertion_sort.md
+    - 11.4. 快速排序: chapter_sorting/quick_sort.md
+    - 11.5. 归并排序: chapter_sorting/merge_sort.md
+    - 11.6. 小结: chapter_sorting/summary.md
   - 参考文献:
     - chapter_reference/index.md

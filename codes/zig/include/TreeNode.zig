@@ -10,13 +10,15 @@ pub fn TreeNode(comptime T: type) type {
     return struct {
         const Self = @This();
 
-        val: T = undefined,
-        left: ?*Self = null,
-        right: ?*Self = null,
+        val: T = undefined,         // 结点值
+        height: i32 = undefined,    // 结点高度
+        left: ?*Self = null,        // 左子结点指针
+        right: ?*Self = null,       // 右子结点指针
 
         // Initialize a tree node with specific value
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
+            self.height = 0;
             self.left = null;
             self.right = null;
         }

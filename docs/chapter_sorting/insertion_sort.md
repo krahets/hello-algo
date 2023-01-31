@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 插入排序
+# 11.3. 插入排序
 
 「插入排序 Insertion Sort」是一种基于 **数组插入操作** 的排序算法。
 
@@ -14,7 +14,7 @@ comments: true
 
 <p align="center"> Fig. 插入操作 </p>
 
-## 算法流程
+## 11.3.1. 算法流程
 
 1. 第 1 轮先选取数组的 **第 2 个元素** 为 `base` ，执行「插入操作」后， **数组前 2 个元素已完成排序**。
 2. 第 2 轮选取 **第 3 个元素** 为 `base` ，执行「插入操作」后， **数组前 3 个元素已完成排序**。
@@ -178,10 +178,23 @@ comments: true
 === "Swift"
 
     ```swift title="insertion_sort.swift"
-
+    /* 插入排序 */
+    func insertionSort(nums: inout [Int]) {
+        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
+        for i in stride(from: 1, to: nums.count, by: 1) {
+            let base = nums[i]
+            var j = i - 1
+            // 内循环：将 base 插入到左边的正确位置
+            while j >= 0, nums[j] > base {
+                nums[j + 1] = nums[j] // 1. 将 nums[j] 向右移动一位
+                j -= 1
+            }
+            nums[j + 1] = base // 2. 将 base 赋值到正确位置
+        }
+    }
     ```
 
-## 算法特性
+## 11.3.2. 算法特性
 
 **时间复杂度 $O(n^2)$** ：最差情况下，各轮插入操作循环 $n - 1$ , $n-2$ , $\cdots$ , $2$ , $1$ 次，求和为 $\frac{(n - 1) n}{2}$ ，使用 $O(n^2)$ 时间。
 
@@ -193,7 +206,7 @@ comments: true
 
 **自适应排序**：最佳情况下，时间复杂度为 $O(n)$  。
 
-## 插入排序 vs 冒泡排序
+## 11.3.3. 插入排序 vs 冒泡排序
 
 !!! question
 
