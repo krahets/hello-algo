@@ -12,16 +12,16 @@ comments: true
 
 ## 5.3.1. 双向队列常用操作
 
-双向队列的常用操作见下表（方法命名以 Java 为例）。
+双向队列的常用操作见下表，方法名需根据特定语言来确定。
 
 <p align="center"> Table. 双向队列的常用操作 </p>
 
 <div class="center-table" markdown>
 
-| 方法         | 描述             | 时间复杂度 |
+| 方法名        | 描述             | 时间复杂度 |
 | ------------ | ---------------- | ---------- |
-| offerFirst() | 将元素添加至队首 | $O(1)$     |
-| offerLast()  | 将元素添加至队尾 | $O(1)$     |
+| pushFirst() | 将元素添加至队首 | $O(1)$     |
+| pushLast()  | 将元素添加至队尾 | $O(1)$     |
 | pollFirst()  | 删除队首元素     | $O(1)$     |
 | pollLast()   | 删除队尾元素     | $O(1)$     |
 | peekFirst()  | 访问队首元素     | $O(1)$     |
@@ -288,7 +288,7 @@ comments: true
         }
     
         /* 入队操作 */
-        private void offer(int num, boolean isFront) {
+        private void push(int num, boolean isFront) {
             ListNode node = new ListNode(num);
             // 若链表为空，则令 front, rear 都指向 node
             if (isEmpty())
@@ -310,13 +310,13 @@ comments: true
         }
     
         /* 队首入队 */
-        public void offerFirst(int num) {
-            offer(num, true);
+        public void pushFirst(int num) {
+            push(num, true);
         }
     
         /* 队尾入队 */
-        public void offerLast(int num) {
-            offer(num, false);
+        public void pushLast(int num) {
+            push(num, false);
         }
     
         /* 出队操作 */

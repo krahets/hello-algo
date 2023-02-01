@@ -35,7 +35,7 @@ public:
     }
 
     /* 入队 */
-    void offer(int num) {
+    void push(int num) {
         // 尾结点后添加 num
         ListNode* node = new ListNode(num);
         // 如果队列为空，则令头、尾结点都指向该结点
@@ -88,11 +88,11 @@ int main() {
     LinkedListQueue* queue = new LinkedListQueue();
 
     /* 元素入队 */
-    queue->offer(1);
-    queue->offer(3);
-    queue->offer(2);
-    queue->offer(5);
-    queue->offer(4);
+    queue->push(1);
+    queue->push(3);
+    queue->push(2);
+    queue->push(5);
+    queue->push(4);
     cout << "队列 queue = ";
     PrintUtil::printVector(queue->toVector());
 

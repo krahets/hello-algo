@@ -51,11 +51,11 @@ func TestArrayQueue(t *testing.T) {
 	queue := newArrayQueue(capacity)
 
 	// 元素入队
-	queue.offer(1)
-	queue.offer(3)
-	queue.offer(2)
-	queue.offer(5)
-	queue.offer(4)
+	queue.push(1)
+	queue.push(3)
+	queue.push(2)
+	queue.push(5)
+	queue.push(4)
 	fmt.Print("队列 queue = ")
 	PrintSlice(queue.toSlice())
 
@@ -78,7 +78,7 @@ func TestArrayQueue(t *testing.T) {
 
 	/* 测试环形数组 */
 	for i := 0; i < 10; i++ {
-		queue.offer(i)
+		queue.push(i)
 		queue.poll()
 		fmt.Print("第", i, "轮入队 + 出队后 queue =")
 		PrintSlice(queue.toSlice())
@@ -90,11 +90,11 @@ func TestLinkedListQueue(t *testing.T) {
 	queue := newLinkedListQueue()
 
 	// 元素入队
-	queue.offer(1)
-	queue.offer(3)
-	queue.offer(2)
-	queue.offer(5)
-	queue.offer(4)
+	queue.push(1)
+	queue.push(3)
+	queue.push(2)
+	queue.push(5)
+	queue.push(4)
 	fmt.Print("队列 queue = ")
 	PrintList(queue.toList())
 
@@ -119,24 +119,24 @@ func TestLinkedListQueue(t *testing.T) {
 // BenchmarkArrayQueue 8 ns/op in Mac M1 Pro
 func BenchmarkArrayQueue(b *testing.B) {
 	capacity := 1000
-	stack := newArrayQueue(capacity)
+	queue := newArrayQueue(capacity)
 	// use b.N for looping
 	for i := 0; i < b.N; i++ {
-		stack.offer(777)
+		queue.push(777)
 	}
 	for i := 0; i < b.N; i++ {
-		stack.poll()
+		queue.poll()
 	}
 }
 
 // BenchmarkLinkedQueue 62.66 ns/op in Mac M1 Pro
 func BenchmarkLinkedQueue(b *testing.B) {
-	stack := newLinkedListQueue()
+	queue := newLinkedListQueue()
 	// use b.N for looping
 	for i := 0; i < b.N; i++ {
-		stack.offer(777)
+		queue.push(777)
 	}
 	for i := 0; i < b.N; i++ {
-		stack.poll()
+		queue.poll()
 	}
 }

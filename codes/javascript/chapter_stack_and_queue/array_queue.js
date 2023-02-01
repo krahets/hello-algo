@@ -30,7 +30,7 @@ class ArrayQueue {
     }
 
     /* 入队 */
-    offer(num) {
+    push(num) {
         if (this.size == this.capacity)
             throw new Error("队列已满");
         // 计算尾指针，指向队尾索引 + 1
@@ -75,11 +75,11 @@ const capacity = 10;
 const queue = new ArrayQueue(capacity);
 
 /* 元素入队 */
-queue.offer(1);
-queue.offer(3);
-queue.offer(2);
-queue.offer(5);
-queue.offer(4);
+queue.push(1);
+queue.push(3);
+queue.push(2);
+queue.push(5);
+queue.push(4);
 console.log("队列 queue =", queue.toArray());
 
 /* 访问队首元素 */
@@ -100,7 +100,7 @@ console.log("队列是否为空 = " + empty);
 
 /* 测试环形数组 */
 for (let i = 0; i < 10; i++) {
-    queue.offer(i);
+    queue.push(i);
     queue.poll();
     console.log("第 " + i + " 轮入队 + 出队后 queue =", queue.toArray());
 }

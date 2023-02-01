@@ -50,7 +50,7 @@ pub fn ArrayQueue(comptime T: type) type {
         }
 
         // 入队
-        pub fn offer(self: *Self, num: T) !void {
+        pub fn push(self: *Self, num: T) !void {
             if (self.size() == self.capacity()) {
                 std.debug.print("队列已满\n", .{});
                 return;
@@ -102,11 +102,11 @@ pub fn main() !void {
     defer queue.deinit();
 
     // 元素入队
-    try queue.offer(1);
-    try queue.offer(3);
-    try queue.offer(2);
-    try queue.offer(5);
-    try queue.offer(4);
+    try queue.push(1);
+    try queue.push(3);
+    try queue.push(2);
+    try queue.push(5);
+    try queue.push(4);
     std.debug.print("队列 queue = ", .{});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 
@@ -130,7 +130,7 @@ pub fn main() !void {
     // 测试环形数组
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
-        try queue.offer(i);
+        try queue.push(i);
         _ = queue.poll();
         std.debug.print("\n第 {} 轮入队 + 出队后 queue = ", .{i});
         inc.PrintUtil.printArray(i32, try queue.toArray());
