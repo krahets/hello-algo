@@ -1227,10 +1227,10 @@ comments: true
             }
             // 计算尾指针，指向队尾索引 + 1
             // 通过取余操作，实现 rear 越过数组尾部后回到头部
-            int rear = (front + queSize) % capacity();
+            let rear = (front + queSize) % capacity()
             // 尾结点后添加 num
-            nums[rear] = num;
-            queSize++;
+            nums[rear] = num
+            queSize += 1
         }
 
         /* 出队 */
@@ -1238,9 +1238,9 @@ comments: true
         func poll() -> Int {
             let num = peek()
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
-            front = (front + 1) % capacity();
-            queSize--;
-            return num;
+            front = (front + 1) % capacity()
+            queSize -= 1
+            return num
         }
 
         /* 访问队首元素 */
