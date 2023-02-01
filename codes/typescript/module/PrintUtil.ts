@@ -7,16 +7,6 @@
 import ListNode from './ListNode';
 import { TreeNode } from './TreeNode';
 
-class Trunk {
-    prev: Trunk | null;
-    str: string;
-
-    constructor(prev: Trunk | null, str: string) {
-        this.prev = prev;
-        this.str = str;
-    }
-}
-
 /**
  * Print a linked list
  * @param head
@@ -28,6 +18,16 @@ function printLinkedList(head: ListNode | null): void {
         head = head.next;
     }
     console.log(list.join(' -> '));
+}
+
+class Trunk {
+    prev: Trunk | null;
+    str: string;
+
+    constructor(prev: Trunk | null, str: string) {
+        this.prev = prev;
+        this.str = str;
+    }
 }
 
 /**

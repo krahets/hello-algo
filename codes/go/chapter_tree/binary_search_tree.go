@@ -46,10 +46,10 @@ func (bst *binarySearchTree) search(num int) *TreeNode {
 	// 循环查找，越过叶结点后跳出
 	for node != nil {
 		if node.Val < num {
-			// 目标结点在 root 的右子树中
+			// 目标结点在 cur 的右子树中
 			node = node.Right
 		} else if node.Val > num {
-			// 目标结点在 root 的左子树中
+			// 目标结点在 cur 的左子树中
 			node = node.Left
 		} else {
 			// 找到目标结点，跳出循环

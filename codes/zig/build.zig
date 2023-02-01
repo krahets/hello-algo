@@ -160,6 +160,73 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_array_stack = b.step("run_array_stack", "Run array_stack");
         run_step_array_stack.dependOn(&run_cmd_array_stack.step);      
 
+    // Section: "Queue"
+        // Source File: "chapter_stack_and_queue/queue.zig"
+        // Run Command: zig build run_queue
+        const exe_queue = b.addExecutable("queue", "chapter_stack_and_queue/queue.zig");
+        exe_queue.addPackagePath("include", "include/include.zig");
+        exe_queue.setTarget(target);
+        exe_queue.setBuildMode(mode);
+        exe_queue.install();
+        const run_cmd_queue = exe_queue.run();
+        run_cmd_queue.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_queue.addArgs(args);
+        const run_step_queue = b.step("run_queue", "Run queue");
+        run_step_queue.dependOn(&run_cmd_queue.step);
+
+        // Source File: "chapter_stack_and_queue/array_queue.zig"
+        // Run Command: zig build run_array_queue
+        const exe_array_queue = b.addExecutable("array_queue", "chapter_stack_and_queue/array_queue.zig");
+        exe_array_queue.addPackagePath("include", "include/include.zig");
+        exe_array_queue.setTarget(target);
+        exe_array_queue.setBuildMode(mode);
+        exe_array_queue.install();
+        const run_cmd_array_queue = exe_array_queue.run();
+        run_cmd_array_queue.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_array_queue.addArgs(args);
+        const run_step_array_queue = b.step("run_array_queue", "Run array_queue");
+        run_step_array_queue.dependOn(&run_cmd_array_queue.step);
+
+        // Source File: "chapter_stack_and_queue/linkedlist_queue.zig"
+        // Run Command: zig build run_linkedlist_queue
+        const exe_linkedlist_queue = b.addExecutable("linkedlist_queue", "chapter_stack_and_queue/linkedlist_queue.zig");
+        exe_linkedlist_queue.addPackagePath("include", "include/include.zig");
+        exe_linkedlist_queue.setTarget(target);
+        exe_linkedlist_queue.setBuildMode(mode);
+        exe_linkedlist_queue.install();
+        const run_cmd_linkedlist_queue = exe_linkedlist_queue.run();
+        run_cmd_linkedlist_queue.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_linkedlist_queue.addArgs(args);
+        const run_step_linkedlist_queue = b.step("run_linkedlist_queue", "Run linkedlist_queue");
+        run_step_linkedlist_queue.dependOn(&run_cmd_linkedlist_queue.step);
+
+    // Section: "Deque"
+        // Source File: "chapter_stack_and_queue/deque.zig"
+        // Run Command: zig build run_deque
+        const exe_deque = b.addExecutable("deque", "chapter_stack_and_queue/deque.zig");
+        exe_deque.addPackagePath("include", "include/include.zig");
+        exe_deque.setTarget(target);
+        exe_deque.setBuildMode(mode);
+        exe_deque.install();
+        const run_cmd_deque = exe_deque.run();
+        run_cmd_deque.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_deque.addArgs(args);
+        const run_step_deque = b.step("run_deque", "Run deque");
+        run_step_deque.dependOn(&run_cmd_deque.step);
+
+        // Source File: "chapter_stack_and_queue/linkedlist_deque.zig"
+        // Run Command: zig build run_linkedlist_deque
+        const exe_linkedlist_deque = b.addExecutable("linkedlist_deque", "chapter_stack_and_queue/linkedlist_deque.zig");
+        exe_linkedlist_deque.addPackagePath("include", "include/include.zig");
+        exe_linkedlist_deque.setTarget(target);
+        exe_linkedlist_deque.setBuildMode(mode);
+        exe_linkedlist_deque.install();
+        const run_cmd_linkedlist_deque = exe_linkedlist_deque.run();
+        run_cmd_linkedlist_deque.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_linkedlist_deque.addArgs(args);
+        const run_step_linkedlist_deque = b.step("run_linkedlist_deque", "Run linkedlist_deque");
+        run_step_linkedlist_deque.dependOn(&run_cmd_linkedlist_deque.step);
+     
     // Section: "Hash Map"
         // Source File: "chapter_hashing/hash_map.zig"
         // Run Command: zig build run_hash_map
@@ -173,6 +240,19 @@ pub fn build(b: *std.build.Builder) void {
         if (b.args) |args| run_cmd_hash_map.addArgs(args);
         const run_step_hash_map= b.step("run_hash_map", "Run hash_map");
         run_step_hash_map.dependOn(&run_cmd_hash_map.step);
+
+        // Source File: "chapter_hashing/array_hash_map.zig"
+        // Run Command: zig build run_array_hash_map
+        const exe_array_hash_map = b.addExecutable("array_hash_map", "chapter_hashing/array_hash_map.zig");
+        exe_array_hash_map.addPackagePath("include", "include/include.zig");
+        exe_array_hash_map.setTarget(target);
+        exe_array_hash_map.setBuildMode(mode);
+        exe_array_hash_map.install();
+        const run_cmd_array_hash_map = exe_array_hash_map.run();
+        run_cmd_array_hash_map.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_array_hash_map.addArgs(args);
+        const run_step_array_hash_map= b.step("run_array_hash_map", "Run array_hash_map");
+        run_step_array_hash_map.dependOn(&run_cmd_array_hash_map.step);
 
     // Section: "Binary Tree"
         // Source File: "chapter_tree/binary_tree.zig"
@@ -188,6 +268,60 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_binary_tree= b.step("run_binary_tree", "Run binary_tree");
         run_step_binary_tree.dependOn(&run_cmd_binary_tree.step);
 
+        // Source File: "chapter_tree/binary_tree_bfs.zig"
+        // Run Command: zig build run_binary_tree_bfs
+        const exe_binary_tree_bfs = b.addExecutable("binary_tree_bfs", "chapter_tree/binary_tree_bfs.zig");
+        exe_binary_tree_bfs.addPackagePath("include", "include/include.zig");
+        exe_binary_tree_bfs.setTarget(target);
+        exe_binary_tree_bfs.setBuildMode(mode);
+        exe_binary_tree_bfs.install();
+        const run_cmd_binary_tree_bfs = exe_binary_tree_bfs.run();
+        run_cmd_binary_tree_bfs.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_binary_tree_bfs.addArgs(args);
+        const run_step_binary_tree_bfs = b.step("run_binary_tree_bfs", "Run binary_tree_bfs");
+        run_step_binary_tree_bfs.dependOn(&run_cmd_binary_tree_bfs.step);
+
+        // Source File: "chapter_tree/binary_tree_dfs.zig"
+        // Run Command: zig build run_binary_tree_dfs
+        const exe_binary_tree_dfs = b.addExecutable("binary_tree_dfs", "chapter_tree/binary_tree_dfs.zig");
+        exe_binary_tree_dfs.addPackagePath("include", "include/include.zig");
+        exe_binary_tree_dfs.setTarget(target);
+        exe_binary_tree_dfs.setBuildMode(mode);
+        exe_binary_tree_dfs.install();
+        const run_cmd_binary_tree_dfs = exe_binary_tree_dfs.run();
+        run_cmd_binary_tree_dfs.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_binary_tree_dfs.addArgs(args);
+        const run_step_binary_tree_dfs = b.step("run_binary_tree_dfs", "Run binary_tree_dfs");
+        run_step_binary_tree_dfs.dependOn(&run_cmd_binary_tree_dfs.step);
+
+    // Section: "Binary Search Tree"
+        // Source File: "chapter_tree/binary_search_tree.zig"
+        // Run Command: zig build run_binary_search_tree
+        const exe_binary_search_tree = b.addExecutable("binary_search_tree", "chapter_tree/binary_search_tree.zig");
+        exe_binary_search_tree.addPackagePath("include", "include/include.zig");
+        exe_binary_search_tree.setTarget(target);
+        exe_binary_search_tree.setBuildMode(mode);
+        exe_binary_search_tree.install();
+        const run_cmd_binary_search_tree = exe_binary_search_tree.run();
+        run_cmd_binary_search_tree.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_binary_search_tree.addArgs(args);
+        const run_step_binary_search_tree = b.step("run_binary_search_tree", "Run binary_search_tree");
+        run_step_binary_search_tree.dependOn(&run_cmd_binary_search_tree.step);
+
+    // Section: "AVL Tree"
+        // Source File: "chapter_tree/avl_tree.zig"
+        // Run Command: zig build run_avl_tree
+        const exe_avl_tree = b.addExecutable("avl_tree", "chapter_tree/avl_tree.zig");
+        exe_avl_tree.addPackagePath("include", "include/include.zig");
+        exe_avl_tree.setTarget(target);
+        exe_avl_tree.setBuildMode(mode);
+        exe_avl_tree.install();
+        const run_cmd_avl_tree = exe_avl_tree.run();
+        run_cmd_avl_tree.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_avl_tree.addArgs(args);
+        const run_step_avl_tree = b.step("run_avl_tree", "Run avl_tree");
+        run_step_avl_tree.dependOn(&run_cmd_avl_tree.step);
+        
     // Section: "Heap"
         // Source File: "chapter_heap/heap.zig"
         // Run Command: zig build run_heap
@@ -229,6 +363,34 @@ pub fn build(b: *std.build.Builder) void {
         const run_step_linear_search= b.step("run_linear_search", "Run linear_search");
         run_step_linear_search.dependOn(&run_cmd_linear_search.step);
 
+    // Section: "Binary Search"
+        // Source File: "chapter_searching/binary_search.zig"
+        // Run Command: zig build run_binary_search
+        const exe_binary_search = b.addExecutable("binary_search", "chapter_searching/binary_search.zig");
+        exe_binary_search.addPackagePath("include", "include/include.zig");
+        exe_binary_search.setTarget(target);
+        exe_binary_search.setBuildMode(mode);
+        exe_binary_search.install();
+        const run_cmd_binary_search = exe_binary_search.run();
+        run_cmd_binary_search.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_binary_search.addArgs(args);
+        const run_step_binary_search= b.step("run_binary_search", "Run binary_search");
+        run_step_binary_search.dependOn(&run_cmd_binary_search.step);
+
+    // Section: "Hash Search"
+        // Source File: "chapter_searching/hashing_search.zig"
+        // Run Command: zig build run_hashing_search
+        const exe_hashing_search = b.addExecutable("hashing_search", "chapter_searching/hashing_search.zig");
+        exe_hashing_search.addPackagePath("include", "include/include.zig");
+        exe_hashing_search.setTarget(target);
+        exe_hashing_search.setBuildMode(mode);
+        exe_hashing_search.install();
+        const run_cmd_hashing_search = exe_hashing_search.run();
+        run_cmd_hashing_search.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_hashing_search.addArgs(args);
+        const run_step_hashing_search= b.step("run_hashing_search", "Run hashing_search");
+        run_step_hashing_search.dependOn(&run_cmd_hashing_search.step);
+        
     // Section: "Bubble Sort"
         // Source File: "chapter_sorting/bubble_sort.zig"
         // Run Command: zig build run_bubble_sort
@@ -256,4 +418,46 @@ pub fn build(b: *std.build.Builder) void {
         if (b.args) |args| run_cmd_insertion_sort.addArgs(args);
         const run_step_insertion_sort = b.step("run_insertion_sort", "Run insertion_sort");
         run_step_insertion_sort.dependOn(&run_cmd_insertion_sort.step);
+
+    // Section: "Quick Sort"
+        // Source File: "chapter_sorting/quick_sort.zig"
+        // Run Command: zig build run_quick_sort
+        const exe_quick_sort = b.addExecutable("quick_sort", "chapter_sorting/quick_sort.zig");
+        exe_quick_sort.addPackagePath("include", "include/include.zig");
+        exe_quick_sort.setTarget(target);
+        exe_quick_sort.setBuildMode(mode);
+        exe_quick_sort.install();
+        const run_cmd_quick_sort = exe_quick_sort.run();
+        run_cmd_quick_sort.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_quick_sort.addArgs(args);
+        const run_step_quick_sort = b.step("run_quick_sort", "Run quick_sort");
+        run_step_quick_sort.dependOn(&run_cmd_quick_sort.step);
+
+    // Section: "Merge Sort"
+        // Source File: "chapter_sorting/merge_sort.zig"
+        // Run Command: zig build run_merge_sort
+        const exe_merge_sort = b.addExecutable("merge_sort", "chapter_sorting/merge_sort.zig");
+        exe_merge_sort.addPackagePath("include", "include/include.zig");
+        exe_merge_sort.setTarget(target);
+        exe_merge_sort.setBuildMode(mode);
+        exe_merge_sort.install();
+        const run_cmd_merge_sort = exe_merge_sort.run();
+        run_cmd_merge_sort.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_merge_sort.addArgs(args);
+        const run_step_merge_sort = b.step("run_merge_sort", "Run merge_sort");
+        run_step_merge_sort.dependOn(&run_cmd_merge_sort.step);
+
+    // Section: "Radix Sort"
+        // Source File: "chapter_sorting/radix_sort.zig"
+        // Run Command: zig build run_radix_sort
+        const exe_radix_sort = b.addExecutable("radix_sort", "chapter_sorting/radix_sort.zig");
+        exe_radix_sort.addPackagePath("include", "include/include.zig");
+        exe_radix_sort.setTarget(target);
+        exe_radix_sort.setBuildMode(mode);
+        exe_radix_sort.install();
+        const run_cmd_radix_sort = exe_radix_sort.run();
+        run_cmd_radix_sort.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_radix_sort.addArgs(args);
+        const run_step_radix_sort = b.step("run_radix_sort", "Run radix_sort");
+        run_step_radix_sort.dependOn(&run_cmd_radix_sort.step);
 }

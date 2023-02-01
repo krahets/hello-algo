@@ -4,48 +4,49 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-
 /* 基于环形数组实现的队列 */
 class ArrayQueue {
-    #queue;       // 用于存储队列元素的数组
-    #front = 0;   // 头指针，指向队首
-    #rear = 0;    // 尾指针，指向队尾 + 1
+    #nums;         // 用于存储队列元素的数组
+    #front = 0;    // 队首指针，指向队首元素
+    #queSize = 0;  // 队列长度
 
     constructor(capacity) {
-        this.#queue = new Array(capacity);
+        this.#nums = new Array(capacity);
     }
 
     /* 获取队列的容量 */
     get capacity() {
-        return this.#queue.length;
+        return this.#nums.length;
     }
 
     /* 获取队列的长度 */
     get size() {
-        // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
-        return (this.capacity + this.#rear - this.#front) % this.capacity;
+        return this.#queSize;
     }
 
     /* 判断队列是否为空 */
     empty() {
-        return this.#rear - this.#front == 0;
+        return this.#queSize == 0;
     }
 
     /* 入队 */
     offer(num) {
         if (this.size == this.capacity)
             throw new Error("队列已满");
+        // 计算尾指针，指向队尾索引 + 1
+        // 通过取余操作，实现 rear 越过数组尾部后回到头部
+        const rear = (this.#front + this.size) % this.capacity;
         // 尾结点后添加 num
-        this.#queue[this.#rear] = num;
-        // 尾指针向后移动一位，越过尾部后返回到数组头部
-        this.#rear = (this.#rear + 1) % this.capacity;
+        this.#nums[rear] = num;
+        this.#queSize++;
     }
 
     /* 出队 */
     poll() {
         const num = this.peek();
-        // 队头指针向后移动一位，若越过尾部则返回到数组头部
+        // 队首指针向后移动一位，若越过尾部则返回到数组头部
         this.#front = (this.#front + 1) % this.capacity;
+        this.#queSize--;
         return num;
     }
 
@@ -53,17 +54,15 @@ class ArrayQueue {
     peek() {
         if (this.empty())
             throw new Error("队列为空");
-        return this.#queue[this.#front];
+        return this.#nums[this.#front];
     }
 
     /* 返回 Array */
     toArray() {
-        const siz = this.size;
-        const cap = this.capacity;
         // 仅转换有效长度范围内的列表元素
-        const arr = new Array(siz);
-        for (let i = 0, j = this.#front; i < siz; i++, j++) {
-            arr[i] = this.#queue[j % cap];
+        const arr = new Array(this.size);
+        for (let i = 0, j = this.#front; i < this.size; i++, j++) {
+            arr[i] = this.#nums[j % this.capacity];
         }
         return arr;
     }
@@ -81,8 +80,7 @@ queue.offer(3);
 queue.offer(2);
 queue.offer(5);
 queue.offer(4);
-console.log("队列 queue = ");
-console.log(queue.toArray());
+console.log("队列 queue =", queue.toArray());
 
 /* 访问队首元素 */
 const peek = queue.peek();
@@ -90,8 +88,7 @@ console.log("队首元素 peek = " + peek);
 
 /* 元素出队 */
 const poll = queue.poll();
-console.log("出队元素 poll = " + poll + "，出队后 queue = ");
-console.log(queue.toArray());
+console.log("出队元素 poll = " + poll + "，出队后 queue =", queue.toArray());
 
 /* 获取队列的长度 */
 const size = queue.size;
@@ -105,6 +102,5 @@ console.log("队列是否为空 = " + empty);
 for (let i = 0; i < 10; i++) {
     queue.offer(i);
     queue.poll();
-    console.log("第 " + i + " 轮入队 + 出队后 queue = ");
-    console.log(queue.toArray());
+    console.log("第 " + i + " 轮入队 + 出队后 queue =", queue.toArray());
 }

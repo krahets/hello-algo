@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 快速排序
+# 11.4. 快速排序
 
 「快速排序 Quick Sort」是一种基于“分治思想”的排序算法，速度很快、应用很广。
 
@@ -233,14 +233,37 @@ comments: true
 === "Swift"
 
     ```swift title="quick_sort.swift"
+    /* 元素交换 */
+    func swap(nums: inout [Int], i: Int, j: Int) {
+        let tmp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = tmp
+    }
 
+    /* 哨兵划分 */
+    func partition(nums: inout [Int], left: Int, right: Int) -> Int {
+        // 以 nums[left] 作为基准数
+        var i = left
+        var j = right
+        while i < j {
+            while i < j, nums[j] >= nums[left] {
+                j -= 1 // 从右向左找首个小于基准数的元素
+            }
+            while i < j, nums[i] <= nums[left] {
+                i += 1 // 从左向右找首个大于基准数的元素
+            }
+            swap(nums: &nums, i: i, j: j) // 交换这两个元素
+        }
+        swap(nums: &nums, i: i, j: left) // 将基准数交换至两子数组的分界线
+        return i // 返回基准数的索引
+    }
     ```
 
 !!! note "快速排序的分治思想"
 
     哨兵划分的实质是将 **一个长数组的排序问题** 简化为 **两个短数组的排序问题**。
 
-## 算法流程
+## 11.4.1. 算法流程
 
 1. 首先，对数组执行一次「哨兵划分」，得到待排序的 **左子数组** 和 **右子数组**；
 2. 接下来，对 **左子数组** 和 **右子数组** 分别 **递归执行**「哨兵划分」……
@@ -375,10 +398,21 @@ comments: true
 === "Swift"
 
     ```swift title="quick_sort.swift"
-
+    /* 快速排序 */
+    func quickSort(nums: inout [Int], left: Int, right: Int) {
+        // 子数组长度为 1 时终止递归
+        if left >= right {
+            return
+        }
+        // 哨兵划分
+        let pivot = partition(nums: &nums, left: left, right: right)
+        // 递归左子数组、右子数组
+        quickSort(nums: &nums, left: left, right: pivot - 1)
+        quickSort(nums: &nums, left: pivot + 1, right: right)
+    }
     ```
 
-## 算法特性
+## 11.4.2. 算法特性
 
 **平均时间复杂度 $O(n \log n)$** ：平均情况下，哨兵划分的递归层数为 $\log n$ ，每层中的总循环数为 $n$ ，总体使用 $O(n \log n)$ 时间。
 
@@ -392,7 +426,7 @@ comments: true
 
 **自适应排序**：最差情况下，时间复杂度劣化至 $O(n^2)$ 。
 
-## 快排为什么快？
+## 11.4.3. 快排为什么快？
 
 从命名能够看出，快速排序在效率方面一定“有两把刷子”。快速排序的平均时间复杂度虽然与「归并排序」和「堆排序」一致，但实际 **效率更高**，这是因为：
 
@@ -400,7 +434,7 @@ comments: true
 - **缓存使用效率高**：哨兵划分操作时，将整个子数组加载入缓存中，访问元素效率很高。而诸如「堆排序」需要跳跃式访问元素，因此不具有此特性。
 - **复杂度的常数系数低**：在提及的三种算法中，快速排序的 **比较**、**赋值**、**交换** 三种操作的总体数量最少（类似于「插入排序」快于「冒泡排序」的原因）。
 
-## 基准数优化
+## 11.4.4. 基准数优化
 
 **普通快速排序在某些输入下的时间效率变差**。举个极端例子，假设输入数组是完全倒序的，由于我们选取最左端元素为基准数，那么在哨兵划分完成后，基准数被交换至数组最右端，从而 **左子数组长度为 $n - 1$、右子数组长度为 $0$** 。这样进一步递归下去，**每轮哨兵划分后的右子数组长度都为 $0$** ，分治策略失效，快速排序退化为「冒泡排序」了。
 
@@ -596,10 +630,29 @@ comments: true
 === "Swift"
 
     ```swift title="quick_sort.swift"
+    /* 选取三个元素的中位数 */
+    func medianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
+        if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
+            return left
+        } else if (nums[mid] < nums[left]) != (nums[mid] < nums[right]) {
+            return mid
+        } else {
+            return right
+        }
+    }
 
+    /* 哨兵划分（三数取中值） */
+    func partition(nums: inout [Int], left: Int, right: Int) -> Int {
+        // 选取三个候选元素的中位数
+        let med = medianThree(nums: nums, left: left, mid: (left + right) / 2, right: right)
+        // 将中位数交换至数组最左端
+        swap(nums: &nums, i: left, j: med)
+        // 以 nums[left] 作为基准数
+        // 下同省略...
+    }
     ```
 
-## 尾递归优化
+## 11.4.5. 尾递归优化
 
 **普通快速排序在某些输入下的空间效率变差**。仍然以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 0 ，那么将形成一个高度为 $n - 1$ 的递归树，此时使用的栈帧空间大小劣化至 $O(n)$ 。
 
@@ -763,5 +816,22 @@ comments: true
 === "Swift"
 
     ```swift title="quick_sort.swift"
-
+    /* 快速排序（尾递归优化） */
+    func quickSort(nums: inout [Int], left: Int, right: Int) {
+        var left = left
+        var right = right
+        // 子数组长度为 1 时终止
+        while left < right {
+            // 哨兵划分操作
+            let pivot = partition(nums: &nums, left: left, right: right)
+            // 对两个子数组中较短的那个执行快排
+            if (pivot - left) < (right - pivot) {
+                quickSort(nums: &nums, left: left, right: pivot - 1) // 递归排序左子数组
+                left = pivot + 1 // 剩余待排序区间为 [pivot + 1, right]
+            } else {
+                quickSort(nums: &nums, left: pivot + 1, right: right) // 递归排序右子数组
+                right = pivot - 1 // 剩余待排序区间为 [left, pivot - 1]
+            }
+        }
+    }
     ```

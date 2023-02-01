@@ -14,8 +14,8 @@ from include import *
 class ArrayQueue:
     def __init__(self, size):
         self.__nums = [0] * size  # 用于存储队列元素的数组
-        self.__front = 0             # 头指针，指向队首
-        self.__rear = 0              # 尾指针，指向队尾 + 1
+        self.__front = 0          # 队首指针，指向队首元素
+        self.__size = 0           # 队列长度
 
     """ 获取队列的容量 """
     def capacity(self):
@@ -23,35 +23,33 @@ class ArrayQueue:
 
     """ 获取队列的长度 """
     def size(self):
-        # 由于将数组看作为环形，可能 rear < front ，因此需要取余数
-        return (self.capacity() + self.__rear - self.__front) % self.capacity()
+        return self.__size
 
     """ 判断队列是否为空 """
     def is_empty(self):
-        return (self.__rear - self.__front) == 0
+        return self.__size == 0
 
     """ 入队 """
-    def push(self, val):
-        if self.size() == self.capacity():
-            print("队列已满")
-            return False
+    def push(self, num):
+        assert self.__size < self.capacity(), "队列已满"
+        # 计算尾指针，指向队尾索引 + 1
+        # 通过取余操作，实现 rear 越过数组尾部后回到头部
+        rear = (self.__front + self.__size) % self.capacity()
         # 尾结点后添加 num
-        self.__nums[self.__rear] = val
-        # 尾指针向后移动一位，越过尾部后返回到数组头部
-        self.__rear = (self.__rear + 1) % self.capacity()
+        self.__nums[rear] = num
+        self.__size += 1
 
     """ 出队 """
     def poll(self):
         num = self.peek()
-        # 队头指针向后移动一位，若越过尾部则返回到数组头部
+        # 队首指针向后移动一位，若越过尾部则返回到数组头部
         self.__front = (self.__front + 1) % self.capacity()
+        self.__size -= 1
         return num
 
     """ 访问队首元素 """
     def peek(self):
-        if self.is_empty():
-            print("队列为空")
-            return False
+        assert not self.is_empty(), "队列为空"
         return self.__nums[self.__front]
 
     """ 返回列表用于打印 """
@@ -93,3 +91,9 @@ if __name__ == "__main__":
     """ 判断队列是否为空 """
     is_empty = queue.is_empty()
     print("队列是否为空 =", is_empty)
+
+    """ 测试环形数组 """
+    for i in range(10):
+        queue.push(i);
+        queue.poll();
+        print("第", i, "轮入队 + 出队后 queue = ", queue.to_list());

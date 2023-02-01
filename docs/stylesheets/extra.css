@@ -22,6 +22,11 @@
     --md-typeset-a-color: #21C8B8;
 }
 
+/* https://github.com/squidfunk/mkdocs-material/issues/4832#issuecomment-1374891676 */
+.md-nav__link[for] {
+  color: var(--md-default-fg-color) !important
+}
+
 /* Center Markdown Tables (requires md_in_html extension) */
 .center-table {
     text-align: center;

@@ -11,23 +11,23 @@ import java.util.*;
 public class stack {
     public static void main(String[] args) {
         /* 初始化栈 */
-        // 在 Java 中，推荐将 LinkedList 当作栈来使用
-        LinkedList<Integer> stack = new LinkedList<>();
+        // 在 Java 中，推荐将 ArrayList 当作栈来使用
+        List<Integer> stack = new ArrayList<>();
 
         /* 元素入栈 */
-        stack.addLast(1);
-        stack.addLast(3);
-        stack.addLast(2);
-        stack.addLast(5);
-        stack.addLast(4);
+        stack.add(1);
+        stack.add(3);
+        stack.add(2);
+        stack.add(5);
+        stack.add(4);
         System.out.println("栈 stack = " + stack);
 
         /* 访问栈顶元素 */
-        int peek = stack.peekLast();
+        int peek = stack.get(stack.size() - 1);
         System.out.println("栈顶元素 peek = " + peek);
 
         /* 元素出栈 */
-        int pop = stack.removeLast();
+        int pop = stack.remove(stack.size() - 1);
         System.out.println("出栈元素 pop = " + pop + "，出栈后 stack = " + stack);
 
         /* 获取栈的长度 */

@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 堆
+# 8.1. 堆
 
 「堆 Heap」是一颗限定条件下的「完全二叉树」。根据成立条件，堆主要分为两种类型：
 
@@ -11,13 +11,13 @@ comments: true
 
 ![min_heap_and_max_heap](heap.assets/min_heap_and_max_heap.png)
 
-## 堆术语与性质
+## 8.1.1. 堆术语与性质
 
 - 由于堆是完全二叉树，因此最底层结点靠左填充，其它层结点皆被填满。
 - 二叉树中的根结点对应「堆顶」，底层最靠右结点对应「堆底」。
 - 对于大顶堆 / 小顶堆，其堆顶元素（即根结点）的值最大 / 最小。
 
-## 堆常用操作
+## 8.1.2. 堆常用操作
 
 值得说明的是，多数编程语言提供的是「优先队列 Priority Queue」，其是一种抽象数据结构，**定义为具有出队优先级的队列**。
 
@@ -200,10 +200,10 @@ comments: true
 === "Swift"
 
     ```swift title="heap.swift"
-
+    // Swift 未提供内置 heap 类
     ```
 
-## 堆的实现
+## 8.1.3. 堆的实现
 
 下文实现的是「大顶堆」，若想转换为「小顶堆」，将所有大小逻辑判断取逆（例如将 $\geq$ 替换为 $\leq$ ）即可，有兴趣的同学可自行实现。
 
@@ -317,7 +317,27 @@ comments: true
 === "Swift"
 
     ```swift title="my_heap.swift"
+    var maxHeap: [Int]
 
+    /* 构造函数，建立空堆 */
+    init() {
+        maxHeap = []
+    }
+
+    /* 获取左子结点索引 */
+    func left(i: Int) -> Int {
+        2 * i + 1
+    }
+
+    /* 获取右子结点索引 */
+    func right(i: Int) -> Int {
+        2 * i + 2
+    }
+
+    /* 获取父结点索引 */
+    func parent(i: Int) -> Int {
+        (i - 1) / 2 // 向下整除
+    }
     ```
 
 ### 访问堆顶元素
@@ -381,7 +401,10 @@ comments: true
 === "Swift"
 
     ```swift title="my_heap.swift"
-
+    /* 访问堆顶元素 */
+    func peek() -> Int {
+        maxHeap[0]
+    }
     ```
 
 ### 元素入堆
@@ -504,7 +527,30 @@ comments: true
 === "Swift"
 
     ```swift title="my_heap.swift"
+    /* 元素入堆 */
+    func push(val: Int) {
+        // 添加结点
+        maxHeap.append(val)
+        // 从底至顶堆化
+        siftUp(i: size() - 1)
+    }
 
+    /* 从结点 i 开始，从底至顶堆化 */
+    func siftUp(i: Int) {
+        var i = i
+        while true {
+            // 获取结点 i 的父结点
+            let p = parent(i: i)
+            // 当“越过根结点”或“结点无需修复”时，结束堆化
+            if p < 0 || maxHeap[i] <= maxHeap[p] {
+                break
+            }
+            // 交换两结点
+            swap(i: i, j: p)
+            // 循环向上堆化
+            i = p
+        }
+    }
     ```
 
 ### 堆顶元素出堆
@@ -606,7 +652,7 @@ comments: true
         // 判空处理
         if h.isEmpty() {
             fmt.Println("error")
-			return nil
+            return nil
         }
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
         h.swap(0, h.size()-1)
@@ -670,7 +716,46 @@ comments: true
 === "Swift"
 
     ```swift title="my_heap.swift"
+    /* 元素出堆 */
+    func poll() -> Int {
+        // 判空处理
+        if isEmpty() {
+            fatalError("堆为空")
+        }
+        // 交换根结点与最右叶结点（即交换首元素与尾元素）
+        swap(i: 0, j: size() - 1)
+        // 删除结点
+        let val = maxHeap.remove(at: size() - 1)
+        // 从顶至底堆化
+        siftDown(i: 0)
+        // 返回堆顶元素
+        return val
+    }
 
+    /* 从结点 i 开始，从顶至底堆化 */
+    func siftDown(i: Int) {
+        var i = i
+        while true {
+            // 判断结点 i, l, r 中值最大的结点，记为 ma
+            let l = left(i: i)
+            let r = right(i: i)
+            var ma = i
+            if l < size(), maxHeap[l] > maxHeap[ma] {
+                ma = l
+            }
+            if r < size(), maxHeap[r] > maxHeap[ma] {
+                ma = r
+            }
+            // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            if ma == i {
+                break
+            }
+            // 交换两结点
+            swap(i: i, j: ma)
+            // 循环向下堆化
+            i = ma
+        }
+    }
     ```
 
 ### 输入数据并建堆 *
@@ -747,7 +832,15 @@ comments: true
 === "Swift"
 
     ```swift title="my_heap.swift"
-
+    /* 构造函数，根据输入列表建堆 */
+    init(nums: [Int]) {
+        // 将列表元素原封不动添加进堆
+        maxHeap = nums
+        // 堆化除叶结点以外的其他所有结点
+        for i in stride(from: parent(i: size() - 1), through: 0, by: -1) {
+            siftDown(i: i)
+        }
+    }
     ```
 
 那么，第二种建堆方法的时间复杂度时多少呢？我们来做一下简单推算。
@@ -792,7 +885,7 @@ $$
 
 进一步地，高度为 $h$ 的完美二叉树的结点数量为 $n = 2^{h+1} - 1$ ，易得复杂度为 $O(2^h) = O(n)$。以上推算表明，**输入列表并建堆的时间复杂度为 $O(n)$ ，非常高效**。
 
-## 堆常见应用
+## 8.1.4. 堆常见应用
 
 - **优先队列**。堆常作为实现优先队列的首选数据结构，入队和出队操作时间复杂度为 $O(\log n)$ ，建队操作为 $O(n)$ ，皆非常高效。
 - **堆排序**。给定一组数据，我们使用其建堆，并依次全部弹出，则可以得到有序的序列。当然，堆排序一般无需弹出元素，仅需每轮将堆顶元素交换至数组尾部并减小堆的长度即可。

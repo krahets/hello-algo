@@ -1,7 +1,7 @@
 FROM python:3.9.0-alpine
 
 RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip
-RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple mkdocs-material==9.0.2
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple mkdocs-material==9.0.8
 
 WORKDIR /app
 

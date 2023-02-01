@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 数组
+# 4.1. 数组
 
 「数组 Array」是一种将 **相同类型元素** 存储在 **连续内存空间** 的数据结构，将元素在数组中的位置称为元素的「索引 Index」。
 
@@ -89,7 +89,7 @@ comments: true
     let nums = [1, 3, 2, 5, 4]
     ```
 
-## 数组优点
+## 4.1.1. 数组优点
 
 **在数组中访问元素非常高效**。这是因为在数组中，计算元素的内存地址非常容易。给定数组首个元素的地址、和一个元素的索引，利用以下公式可以直接计算得到该元素的内存地址，从而直接访问此元素。
 
@@ -111,6 +111,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     ```java title="array.java"
     /* 随机返回一个数组元素 */
     int randomAccess(int[] nums) {
+        // 在区间 [0, nums.length) 中随机抽取一个数字
         int randomIndex = ThreadLocalRandom.current().
                           nextInt(0, nums.length);
         int randomNum = nums[randomIndex];
@@ -136,8 +137,8 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     ```python title="array.py"
     """ 随机访问元素 """
     def randomAccess(nums):
-        # 在区间 [0, len(nums)) 中随机抽取一个数字
-        random_index = random.randint(0, len(nums))
+        # 在区间 [0, len(nums)-1] 中随机抽取一个数字
+        random_index = random.randint(0, len(nums) - 1)
         # 获取并返回随机元素
         random_num = nums[random_index]
         return random_num
@@ -195,7 +196,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     int RandomAccess(int[] nums)
     {
         Random random=new();
+        // 在区间 [0, nums.Length) 中随机抽取一个数字
         int randomIndex = random.Next(nums.Length);
+        // 获取并返回随机元素
         int randomNum = nums[randomIndex];
         return randomNum;
     }
@@ -214,7 +217,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-## 数组缺点
+## 4.1.2. 数组缺点
 
 **数组在初始化后长度不可变**。由于系统无法保证数组之后的内存空间是可用的，因此数组长度无法扩展。而若希望扩容数组，则需新建一个数组，然后把原数组元素依次拷贝到新数组，在数组很大的情况下，这是非常耗时的。
 
@@ -548,7 +551,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-## 数组常用操作
+## 4.1.3. 数组常用操作
 
 **数组遍历**。以下介绍两种常用的遍历方法。
 
@@ -806,7 +809,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-## 数组典型应用
+## 4.1.4. 数组典型应用
 
 **随机访问**。如果我们想要随机抽取一些样本，那么可以用数组存储，并生成一个随机序列，根据索引实现样本的随机抽取。
 

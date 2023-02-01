@@ -28,17 +28,17 @@ class MyList:
     """ 访问元素 """
     def get(self, index):
         # 索引如果越界则抛出异常，下同
-        assert index < self.__size, "索引越界"
+        assert index >= 0 and index < self.__size, "索引越界"
         return self.__nums[index]
 
     """ 更新元素 """
     def set(self, num, index):
-        assert index < self.__size, "索引越界"
+        assert index >= 0 and index < self.__size, "索引越界"
         self.__nums[index] = num
 
     """ 中间插入（尾部添加）元素 """
     def add(self, num, index=-1):
-        assert index < self.__size, "索引越界"
+        assert index >= 0 and index < self.__size, "索引越界"
         # 若不指定索引 index ，则向数组尾部添加元素
         if index == -1:
             index = self.__size
@@ -54,7 +54,7 @@ class MyList:
 
     """ 删除元素 """
     def remove(self, index):
-        assert index < self.__size, "索引越界"
+        assert index >= 0 and index < self.__size, "索引越界"
         num = self.nums[index]
         # 索引 i 之后的元素都向前移动一位
         for j in range(index, self.__size - 1):

@@ -29,15 +29,15 @@ class MyList {
     /* 访问元素 */
     get(index) {
         // 索引如果越界则抛出异常，下同
-        if (index >= this.#size) {
+        if (index < 0 || index >= this.#size)
             throw new Error('索引越界');
-        }
         return this.#nums[index];
     }
 
     /* 更新元素 */
     set(index, num) {
-        if (index >= this._size) throw new Error('索引越界');
+        if (index < 0 || index >= this.#size)
+            throw new Error('索引越界');
         this.#nums[index] = num;
     }
 
@@ -54,9 +54,8 @@ class MyList {
 
     /* 中间插入元素 */
     insert(index, num) {
-        if (index >= this.#size) {
+        if (index < 0 || index >= this.#size)
             throw new Error('索引越界');
-        }
         // 元素数量超出容量时，触发扩容机制
         if (this.#size === this.#capacity) {
             this.extendCapacity();
@@ -72,7 +71,8 @@ class MyList {
 
     /* 删除元素 */
     remove(index) {
-        if (index >= this.#size) throw new Error('索引越界');
+        if (index < 0 || index >= this.#size)
+            throw new Error('索引越界');
         let num = this.#nums[index];
         // 将索引 index 之后的元素都向前移动一位
         for (let j = index; j < this.#size - 1; j++) {

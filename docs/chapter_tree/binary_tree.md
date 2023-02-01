@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 二叉树
+# 7.1. 二叉树
 
 「二叉树 Binary Tree」是一种非线性数据结构，代表着祖先与后代之间的派生关系，体现着“一分为二”的分治逻辑。类似于链表，二叉树也是以结点为单位存储的，结点包含「值」和两个「指针」。
 
@@ -109,7 +109,16 @@ comments: true
 === "Swift"
 
     ```swift title=""
+    /* 链表结点类 */
+    class TreeNode {
+        var val: Int // 结点值
+        var left: TreeNode? // 左子结点指针
+        var right: TreeNode? // 右子结点指针
 
+        init(x: Int) {
+            val = x
+        }
+    }
     ```
 
 结点的两个指针分别指向「左子结点 Left Child Node」和「右子结点 Right Child Node」，并且称该结点为两个子结点的「父结点 Parent Node」。给定二叉树某结点，将左子结点以下的树称为该结点的「左子树 Left Subtree」，右子树同理。
@@ -120,7 +129,7 @@ comments: true
 
 <p align="center"> Fig. 子结点与子树 </p>
 
-## 二叉树常见术语
+## 7.1.1. 二叉树常见术语
 
 二叉树的术语较多，建议尽量理解并记住。后续可能遗忘，可以在需要使用时回来查看确认。
 
@@ -141,7 +150,7 @@ comments: true
 
     值得注意，我们通常将「高度」和「深度」定义为“走过边的数量”，而有些题目或教材会将其定义为“走过结点的数量”，此时高度或深度都需要 + 1 。
 
-## 二叉树基本操作
+## 7.1.2. 二叉树基本操作
 
 **初始化二叉树**。与链表类似，先初始化结点，再构建引用指向（即指针）。
 
@@ -272,7 +281,17 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
-
+    // 初始化结点
+    let n1 = TreeNode(x: 1)
+    let n2 = TreeNode(x: 2)
+    let n3 = TreeNode(x: 3)
+    let n4 = TreeNode(x: 4)
+    let n5 = TreeNode(x: 5)
+    // 构建引用指向（即指针）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
     ```
 
 **插入与删除结点**。与链表类似，插入与删除结点都可以通过修改指针实现。
@@ -373,14 +392,19 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
-
+    let P = TreeNode(x: 0)
+    // 在 n1 -> n2 中间插入结点 P
+    n1.left = P
+    P.left = n2
+    // 删除结点 P
+    n1.left = n2
     ```
 
 !!! note
 
     插入结点会改变二叉树的原有逻辑结构，删除结点往往意味着删除了该结点的所有子树。因此，二叉树中的插入与删除一般都是由一套操作配合完成的，这样才能实现有意义的操作。
 
-## 常见二叉树类型
+## 7.1.3. 常见二叉树类型
 
 ### 完美二叉树
 
@@ -412,7 +436,7 @@ comments: true
 
 ![balanced_binary_tree](binary_tree.assets/balanced_binary_tree.png)
 
-## 二叉树的退化
+## 7.1.4. 二叉树的退化
 
 当二叉树的每层的结点都被填满时，达到「完美二叉树」；而当所有结点都偏向一边时，二叉树退化为「链表」。
 
@@ -436,7 +460,7 @@ comments: true
 
 </div>
 
-## 二叉树表示方式 *
+## 7.1.5. 二叉树表示方式 *
 
 我们一般使用二叉树的「链表表示」，即存储单位为结点 `TreeNode` ，结点之间通过指针（引用）相连接。本文前述示例代码展示了二叉树在链表表示下的各项基本操作。
 
@@ -516,7 +540,9 @@ comments: true
 === "Swift"
 
     ```swift title=""
-
+    /* 二叉树的数组表示 */
+    // 使用 Int? 可空类型 ，就可以使用 nil 来标记空位
+    let tree: [Int?] = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
 ![array_representation_with_empty](binary_tree.assets/array_representation_with_empty.png)

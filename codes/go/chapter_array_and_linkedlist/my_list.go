@@ -35,7 +35,7 @@ func (l *myList) capacity() int {
 /* 访问元素 */
 func (l *myList) get(index int) int {
 	// 索引如果越界则抛出异常，下同
-	if index >= l.numsSize {
+	if index < 0 || index >= l.numsSize {
 		panic("索引越界")
 	}
 	return l.nums[index]
@@ -43,7 +43,7 @@ func (l *myList) get(index int) int {
 
 /* 更新元素 */
 func (l *myList) set(num, index int) {
-	if index >= l.numsSize {
+	if index < 0 || index >= l.numsSize {
 		panic("索引越界")
 	}
 	l.nums[index] = num
@@ -62,7 +62,7 @@ func (l *myList) add(num int) {
 
 /* 中间插入元素 */
 func (l *myList) insert(num, index int) {
-	if index >= l.numsSize {
+	if index < 0 || index >= l.numsSize {
 		panic("索引越界")
 	}
 	// 元素数量超出容量时，触发扩容机制
@@ -80,7 +80,7 @@ func (l *myList) insert(num, index int) {
 
 /* 删除元素 */
 func (l *myList) remove(index int) int {
-	if index >= l.numsSize {
+	if index < 0 || index >= l.numsSize {
 		panic("索引越界")
 	}
 	num := l.nums[index]

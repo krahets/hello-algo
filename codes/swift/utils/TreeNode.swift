@@ -14,4 +14,30 @@ public class TreeNode {
         val = x
         height = 0
     }
+
+    public static func listToTree(list: [Int]) -> TreeNode? {
+        let size = list.count
+        if size == 0 {
+            return nil
+        }
+        let root = TreeNode(x: list[0])
+        var queue: [TreeNode] = [root]
+        var i = 0
+        while !queue.isEmpty {
+            let node = queue.removeFirst()
+            i += 1
+            if i >= size {
+                break
+            }
+            node.left = TreeNode(x: list[i])
+            queue.append(node.left!)
+            i += 1
+            if i >= size {
+                break
+            }
+            node.right = TreeNode(x: list[i])
+            queue.append(node.right!)
+        }
+        return root
+    }
 }

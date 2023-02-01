@@ -75,6 +75,14 @@ func TestArrayQueue(t *testing.T) {
 	// 判断是否为空
 	isEmpty := queue.isEmpty()
 	fmt.Println("队是否为空 =", isEmpty)
+
+	/* 测试环形数组 */
+	for i := 0; i < 10; i++ {
+		queue.offer(i)
+		queue.poll()
+		fmt.Print("第", i, "轮入队 + 出队后 queue =")
+		PrintSlice(queue.toSlice())
+	}
 }
 
 func TestLinkedListQueue(t *testing.T) {

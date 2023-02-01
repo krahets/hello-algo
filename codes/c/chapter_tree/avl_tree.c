@@ -203,10 +203,10 @@ TreeNode *search(avlTree *tree, int val) {
     // 循环查找，越过叶结点后跳出
     while (cur != NULL) {
         if (cur->val < val) {
-            // 目标结点在 root 的右子树中
+            // 目标结点在 cur 的右子树中
             cur = cur->right;
         } else if (cur->val > val) {
-            // 目标结点在 root 的左子树中
+            // 目标结点在 cur 的左子树中
             cur = cur->left;
         } else {
             // 找到目标结点，跳出循环

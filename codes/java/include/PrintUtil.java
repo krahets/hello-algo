@@ -20,6 +20,33 @@ class Trunk {
 };
 
 public class PrintUtil {
+
+    /**
+     * Print a matrix (Array)
+     * @param <T>
+     * @param matrix
+     */
+    public static <T> void printMatrix(T[][] matrix) {
+        System.out.println("[");
+        for (T[] row : matrix) {
+            System.out.println("  " + row + ",");
+        }
+        System.out.println("]");
+    }
+
+    /**
+     * Print a matrix (List)
+     * @param <T>
+     * @param matrix
+     */
+    public static <T> void printMatrix(List<List<T>> matrix) {
+        System.out.println("[");
+        for (List<T> row : matrix) {
+            System.out.println("  " + row + ",");
+        }
+        System.out.println("]");
+    }
+
     /**
      * Print a linked list
      * @param head

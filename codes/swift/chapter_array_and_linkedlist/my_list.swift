@@ -29,7 +29,7 @@ class MyList {
     /* 访问元素 */
     func get(index: Int) -> Int {
         // 索引如果越界则抛出错误，下同
-        if index >= _size {
+        if index < 0 || index >= _size {
             fatalError("索引越界")
         }
         return nums[index]
@@ -37,7 +37,7 @@ class MyList {
 
     /* 更新元素 */
     func set(index: Int, num: Int) {
-        if index >= _size {
+        if index < 0 || index >= _size {
             fatalError("索引越界")
         }
         nums[index] = num
@@ -56,7 +56,7 @@ class MyList {
 
     /* 中间插入元素 */
     func insert(index: Int, num: Int) {
-        if index >= _size {
+        if index < 0 || index >= _size {
             fatalError("索引越界")
         }
         // 元素数量超出容量时，触发扩容机制
@@ -75,7 +75,7 @@ class MyList {
     /* 删除元素 */
     @discardableResult
     func remove(index: Int) -> Int {
-        if index >= _size {
+        if index < 0 || index >= _size {
             fatalError("索引越界")
         }
         let num = nums[index]
