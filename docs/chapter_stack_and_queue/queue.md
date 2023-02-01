@@ -267,7 +267,7 @@ comments: true
 === "LinkedListQueue"
     ![linkedlist_queue](queue.assets/linkedlist_queue.png)
 
-=== "push()"
+=== "offer()"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_push.png)
 
 === "poll()"
@@ -726,7 +726,7 @@ comments: true
 === "ArrayQueue"
     ![array_queue](queue.assets/array_queue.png)
 
-=== "push()"
+=== "offer()"
     ![array_queue_push](queue.assets/array_queue_push.png)
 
 === "poll()"
