@@ -19,7 +19,7 @@ class Deque {
         this.len++;
     }
 
-    /* 在队首添加元素 */
+    /* 在队首添加元素, 时间复杂度: O(n) */
     pushFront(value: number): void {
         this.array.unshift(value);
         this.len++;
@@ -31,7 +31,7 @@ class Deque {
         return this.array.pop();
     }
 
-    /* 删除队首元素 */
+    /* 删除队首元素, 时间复杂度: O(n) */
     popFront(): number | undefined {
         this.len--;
         return this.array.shift();
