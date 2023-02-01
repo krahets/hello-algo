@@ -60,7 +60,7 @@ pub fn ArrayQueue(comptime T: type) type {
             var rear = (self.front + self.queSize) % self.capacity();
             // 尾结点后添加 num
             self.nums[rear] = num;
-            self.queSize++;
+            self.queSize += 1;
         } 
 
         // 出队
@@ -68,7 +68,7 @@ pub fn ArrayQueue(comptime T: type) type {
             var num = self.peek();
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
             self.front = (self.front + 1) % self.capacity();
-            self.queSize--;
+            self.queSize -= 1;
             return num;
         } 
 
