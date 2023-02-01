@@ -6,16 +6,16 @@ comments: true
 
 「堆 Heap」是一颗限定条件下的「完全二叉树」。根据成立条件，堆主要分为两种类型：
 
-- 「大顶堆 Max Heap」，任意结点的值 $\geq$ 其子结点的值；
-- 「小顶堆 Min Heap」，任意结点的值 $\leq$ 其子结点的值；
+-   「大顶堆 Max Heap」，任意结点的值 $\geq$ 其子结点的值；
+-   「小顶堆 Min Heap」，任意结点的值 $\leq$ 其子结点的值；
 
 ![min_heap_and_max_heap](heap.assets/min_heap_and_max_heap.png)
 
 ## 8.1.1. 堆术语与性质
 
-- 由于堆是完全二叉树，因此最底层结点靠左填充，其它层结点皆被填满。
-- 二叉树中的根结点对应「堆顶」，底层最靠右结点对应「堆底」。
-- 对于大顶堆 / 小顶堆，其堆顶元素（即根结点）的值最大 / 最小。
+-   由于堆是完全二叉树，因此最底层结点靠左填充，其它层结点皆被填满。
+-   二叉树中的根结点对应「堆顶」，底层最靠右结点对应「堆底」。
+-   对于大顶堆 / 小顶堆，其堆顶元素（即根结点）的值最大 / 最小。
 
 ## 8.1.2. 堆常用操作
 
@@ -53,17 +53,17 @@ comments: true
     Queue<Integer> minHeap = new PriorityQueue<>();
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
     Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> { return b - a; });
-    
+
     /* 元素入堆 */
     maxHeap.add(1);
     maxHeap.add(3);
     maxHeap.add(2);
     maxHeap.add(5);
     maxHeap.add(4);
-    
+
     /* 获取堆顶元素 */
     int peek = maxHeap.peek(); // 5
-    
+
     /* 堆顶元素出堆 */
     // 出堆元素会形成一个从大到小的序列
     peek = heap.poll();  // 5
@@ -71,13 +71,13 @@ comments: true
     peek = heap.poll();  // 3
     peek = heap.poll();  // 2
     peek = heap.poll();  // 1
-    
+
     /* 获取堆大小 */
     int size = maxHeap.size();
-    
+
     /* 判断堆是否为空 */
     boolean isEmpty = maxHeap.isEmpty();
-    
+
     /* 输入列表并建堆 */
     minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
     ```
@@ -194,7 +194,38 @@ comments: true
 === "C#"
 
     ```csharp title="heap.cs"
+    /* 初始化堆 */
+    // 初始化小顶堆
+    PriorityQueue<int,int> minHeap = new PriorityQueue<int,int>();
+    // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
+    PriorityQueue<int,int> maxHeap = new PriorityQueue<int,int>(Comparer<int>.Create((x, y) => y - x));
 
+    /* 元素入堆 */
+    maxHeap.Enqueue(1,1);
+    maxHeap.Enqueue(3,3);
+    maxHeap.Enqueue(2,2);
+    maxHeap.Enqueue(5,5);
+    maxHeap.Enqueue(5,5);
+
+    /* 获取堆顶元素 */
+    int peek = maxHeap.Peek(); // 5
+
+    /* 堆顶元素出堆 */
+    // 出堆元素会形成一个从大到小的序列
+    peek = maxHeap.Dequeue();  // 5
+    peek = maxHeap.Dequeue();  // 4
+    peek = maxHeap.Dequeue();  // 3
+    peek = maxHeap.Dequeue();  // 2
+    peek = maxHeap.Dequeue();  // 1
+
+    /* 获取堆大小 */
+    int size = maxHeap.Count;
+
+    /* 判断堆是否为空 */
+    bool isEmpty = maxHeap.Count==0;
+
+    /* 输入列表并建堆 */
+    minHeap = new PriorityQueue<int, int>(new List<(int, int)> {(1,1),(3,3),(2,2),(5,5),(4,4),});
     ```
 
 === "Swift"
@@ -224,22 +255,22 @@ comments: true
     ```java title="my_heap.java"
     // 使用列表而非数组，这样无需考虑扩容问题
     List<Integer> maxHeap;
-    
+
     /* 构造函数，建立空堆 */
     public MaxHeap() {
         maxHeap = new ArrayList<>();
     }
-    
+
     /* 获取左子结点索引 */
     int left(int i) {
         return 2 * i + 1;
     }
-    
+
     /* 获取右子结点索引 */
     int right(int i) {
         return 2 * i + 2;
     }
-    
+
     /* 获取父结点索引 */
     int parent(int i) {
         return (i - 1) / 2; // 向下整除
@@ -311,7 +342,32 @@ comments: true
 === "C#"
 
     ```csharp title="my_heap.cs"
+    // 使用列表而非数组，这样无需考虑扩容问题
+    private readonly List<int> maxHeap;
 
+    /* 构造函数，建立空堆 */
+    public MaxHeap()
+    {
+        maxHeap = new List<int>();
+    }
+
+    /* 获取左子结点索引 */
+    int Left(int i)
+    {
+        return 2 * i + 1;
+    }
+
+    /* 获取右子结点索引 */
+    int Right(int i)
+    {
+        return 2 * i + 2;
+    }
+
+    /* 获取父结点索引 */
+    int Parent(int i)
+    {
+        return (i - 1) / 2; // 向下整除
+    }
     ```
 
 === "Swift"
@@ -395,6 +451,9 @@ comments: true
 === "C#"
 
     ```csharp title="my_heap.cs"
+    public int Peek() {
+        return maxHeap[0];
+    }
 
     ```
 
@@ -414,22 +473,22 @@ comments: true
 考虑从入堆结点开始，**从底至顶执行堆化**。具体地，比较插入结点与其父结点的值，若插入结点更大则将它们交换；并循环以上操作，从底至顶地修复堆中的各个结点；直至越过根结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "Step 1"
-    ![heap_push_step1](heap.assets/heap_push_step1.png)
+![heap_push_step1](heap.assets/heap_push_step1.png)
 
 === "Step 2"
-    ![heap_push_step2](heap.assets/heap_push_step2.png)
+![heap_push_step2](heap.assets/heap_push_step2.png)
 
 === "Step 3"
-    ![heap_push_step3](heap.assets/heap_push_step3.png)
+![heap_push_step3](heap.assets/heap_push_step3.png)
 
 === "Step 4"
-    ![heap_push_step4](heap.assets/heap_push_step4.png)
+![heap_push_step4](heap.assets/heap_push_step4.png)
 
 === "Step 5"
-    ![heap_push_step5](heap.assets/heap_push_step5.png)
+![heap_push_step5](heap.assets/heap_push_step5.png)
 
 === "Step 6"
-    ![heap_push_step6](heap.assets/heap_push_step6.png)
+![heap_push_step6](heap.assets/heap_push_step6.png)
 
 设结点总数为 $n$ ，则树的高度为 $O(\log n)$ ，易得堆化操作的循环轮数最多为 $O(\log n)$ ，**因而元素入堆操作的时间复杂度为 $O(\log n)$** 。
 
@@ -441,11 +500,11 @@ comments: true
         // 添加结点
         maxHeap.add(val);
         // 从底至顶堆化
-        siftUp(size() - 1);
+        shiftUp(size() - 1);
     }
-    
+
     /* 从结点 i 开始，从底至顶堆化 */
-    void siftUp(int i) {
+    void shiftUp(int i) {
         while (true) {
             // 获取结点 i 的父结点
             int p = parent(i);
@@ -480,11 +539,11 @@ comments: true
         // 添加结点
         h.data = append(h.data, val)
         // 从底至顶堆化
-        h.siftUp(len(h.data) - 1)
+        h.shiftUp(len(h.data) - 1)
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
-    func (h *maxHeap) siftUp(i int) {
+    func (h *maxHeap) shiftUp(i int) {
         for true {
             // 获取结点 i 的父结点
             p := h.parent(i)
@@ -521,7 +580,31 @@ comments: true
 === "C#"
 
     ```csharp title="my_heap.cs"
+    /* 元素入堆 */
+    void Push(int val)
+    {
+    	// 添加结点
+    	maxHeap.Append(val);
+    	// 从底至顶堆化
+    	ShiftUp(maxHeap.Count - 1);
+    }
 
+    /* 从结点 i 开始，从底至顶堆化 */
+    void ShiftUp(int i)
+    {
+    	while (true)
+    	{
+    		// 获取结点 i 的父结点
+    		int p = Parent(i);
+    		// 若“越过根结点”或“结点无需修复”，则结束堆化
+    		if (p < 0 || maxHeap[i] <= maxHeap[p])
+    			break;
+    		// 交换两结点
+    		Swap(i, p);
+    		// 循环向上堆化
+    		i = p;
+    	}
+    }
     ```
 
 === "Swift"
@@ -532,11 +615,11 @@ comments: true
         // 添加结点
         maxHeap.append(val)
         // 从底至顶堆化
-        siftUp(i: size() - 1)
+        shiftUp(i: size() - 1)
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
-    func siftUp(i: Int) {
+    func shiftUp(i: Int) {
         var i = i
         while true {
             // 获取结点 i 的父结点
@@ -564,34 +647,34 @@ comments: true
 顾名思义，**从顶至底堆化的操作方向与从底至顶堆化相反**，我们比较根结点的值与其两个子结点的值，将最大的子结点与根结点执行交换，并循环以上操作，直到越过叶结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "Step 1"
-    ![heap_poll_step1](heap.assets/heap_poll_step1.png)
+![heap_poll_step1](heap.assets/heap_poll_step1.png)
 
 === "Step 2"
-    ![heap_poll_step2](heap.assets/heap_poll_step2.png)
+![heap_poll_step2](heap.assets/heap_poll_step2.png)
 
 === "Step 3"
-    ![heap_poll_step3](heap.assets/heap_poll_step3.png)
+![heap_poll_step3](heap.assets/heap_poll_step3.png)
 
 === "Step 4"
-    ![heap_poll_step4](heap.assets/heap_poll_step4.png)
+![heap_poll_step4](heap.assets/heap_poll_step4.png)
 
 === "Step 5"
-    ![heap_poll_step5](heap.assets/heap_poll_step5.png)
+![heap_poll_step5](heap.assets/heap_poll_step5.png)
 
 === "Step 6"
-    ![heap_poll_step6](heap.assets/heap_poll_step6.png)
+![heap_poll_step6](heap.assets/heap_poll_step6.png)
 
 === "Step 7"
-    ![heap_poll_step7](heap.assets/heap_poll_step7.png)
+![heap_poll_step7](heap.assets/heap_poll_step7.png)
 
 === "Step 8"
-    ![heap_poll_step8](heap.assets/heap_poll_step8.png)
+![heap_poll_step8](heap.assets/heap_poll_step8.png)
 
 === "Step 9"
-    ![heap_poll_step9](heap.assets/heap_poll_step9.png)
+![heap_poll_step9](heap.assets/heap_poll_step9.png)
 
 === "Step 10"
-    ![heap_poll_step10](heap.assets/heap_poll_step10.png)
+![heap_poll_step10](heap.assets/heap_poll_step10.png)
 
 与元素入堆操作类似，**堆顶元素出堆操作的时间复杂度为 $O(\log n)$** 。
 
@@ -608,13 +691,13 @@ comments: true
         // 删除结点
         int val = maxHeap.remove(size() - 1);
         // 从顶至底堆化
-        siftDown(0);
+        shiftDown(0);
         // 返回堆顶元素
         return val;
     }
-    
+
     /* 从结点 i 开始，从顶至底堆化 */
-    void siftDown(int i) {
+    void shiftDown(int i) {
         while (true) {
             // 判断结点 i, l, r 中值最大的结点，记为 ma
             int l = left(i), r = right(i), ma = i;
@@ -660,14 +743,14 @@ comments: true
         val := h.data[len(h.data)-1]
         h.data = h.data[:len(h.data)-1]
         // 从顶至底堆化
-        h.siftDown(0)
+        h.shiftDown(0)
 
         // 返回堆顶元素
         return val
     }
 
     /* 从结点 i 开始，从顶至底堆化 */
-    func (h *maxHeap) siftDown(i int) {
+    func (h *maxHeap) shiftDown(i int) {
         for true {
             // 判断结点 i, l, r 中值最大的结点，记为 max
             l, r, max := h.left(i), h.right(i), i
@@ -710,7 +793,42 @@ comments: true
 === "C#"
 
     ```csharp title="my_heap.cs"
+    /* 元素出堆 */
+    int Poll()
+    {
+    	// 判空处理
+    	if (maxHeap.Count == 0)
+    		throw new IndexOutOfRangeException();
+    	// 交换根结点与最右叶结点（即交换首元素与尾元素）
+    	Swap(0, maxHeap.Count - 1);
+    	// 删除结点
+    	int val = maxHeap.Last();
+    	maxHeap.RemoveAt(maxHeap.Count - 1);
+    	// 从顶至底堆化
+    	ShiftDown(0);
+    	// 返回堆顶元素
+    	return val;
+    }
 
+    /* 从结点 i 开始，从顶至底堆化 */
+    void ShiftDown(int i)
+    {
+    	while (true)
+    	{
+    		// 判断结点 i, l, r 中值最大的结点，记为 ma
+    		int l = Left(i), r = Right(i), ma = i;
+    		if (l < maxHeap.Count && maxHeap.ElementAt(l) > maxHeap.ElementAt(ma))
+    			ma = l;
+    		if (r < maxHeap.Count && maxHeap.ElementAt(r) > maxHeap.ElementAt(ma))
+    			ma = r;
+    		// 若“结点 i 最大”或“越过叶结点”，则结束堆化
+    		if (ma == i) break;
+    		// 交换两结点
+    		Swap(i, ma);
+    		// 循环向下堆化
+    		i = ma;
+    	}
+    }
     ```
 
 === "Swift"
@@ -727,13 +845,13 @@ comments: true
         // 删除结点
         let val = maxHeap.remove(at: size() - 1)
         // 从顶至底堆化
-        siftDown(i: 0)
+        shiftDown(i: 0)
         // 返回堆顶元素
         return val
     }
 
     /* 从结点 i 开始，从顶至底堆化 */
-    func siftDown(i: Int) {
+    func shiftDown(i: Int) {
         var i = i
         while true {
             // 判断结点 i, l, r 中值最大的结点，记为 ma
@@ -758,7 +876,7 @@ comments: true
     }
     ```
 
-### 输入数据并建堆 *
+### 输入数据并建堆 \*
 
 如果我们想要直接输入一个列表并将其建堆，那么该怎么做呢？最直接地，考虑使用「元素入堆」方法，将列表元素依次入堆。元素入堆的时间复杂度为 $O(n)$ ，而平均长度为 $\frac{n}{2}$ ，因此该方法的总体时间复杂度为 $O(n \log n)$ 。
 
@@ -773,7 +891,7 @@ comments: true
         maxHeap = new ArrayList<>(nums);
         // 堆化除叶结点以外的其他所有结点
         for (int i = parent(size() - 1); i >= 0; i--) {
-            siftDown(i);
+            shiftDown(i);
         }
     }
     ```
@@ -799,7 +917,7 @@ comments: true
         h := &maxHeap{data: nums}
         // 堆化除叶结点以外的其他所有结点
         for i := len(h.data) - 1; i >= 0; i-- {
-            h.siftDown(i)
+            h.shiftDown(i)
         }
         return h
     }
@@ -820,13 +938,22 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
-
     ```
 
 === "C#"
 
     ```csharp title="my_heap.cs"
-
+    public MaxHeap(IEnumerable<int> nums)
+    {
+    	// 将列表元素原封不动添加进堆
+    	maxHeap = new List<int>(nums);
+    	// 堆化除叶结点以外的其他所有结点
+    	var size = Parent(maxHeap.Count- 1);
+    	for (int i = size; i >= 0; i--)
+    	{
+    		ShiftDown(i);
+    	}
+    }
     ```
 
 === "Swift"
@@ -838,15 +965,15 @@ comments: true
         maxHeap = nums
         // 堆化除叶结点以外的其他所有结点
         for i in stride(from: parent(i: size() - 1), through: 0, by: -1) {
-            siftDown(i: i)
+            shiftDown(i: i)
         }
     }
     ```
 
 那么，第二种建堆方法的时间复杂度时多少呢？我们来做一下简单推算。
 
-- 完全二叉树中，设结点总数为 $n$ ，则叶结点数量为 $(n + 1) / 2$ ，其中 $/$ 为向下整除。因此在排除叶结点后，需要堆化结点数量为 $(n - 1)/2$ ，即为 $O(n)$ ；
-- 从顶至底堆化中，每个结点最多堆化至叶结点，因此最大迭代次数为二叉树高度 $O(\log n)$ ；
+-   完全二叉树中，设结点总数为 $n$ ，则叶结点数量为 $(n + 1) / 2$ ，其中 $/$ 为向下整除。因此在排除叶结点后，需要堆化结点数量为 $(n - 1)/2$ ，即为 $O(n)$ ；
+-   从顶至底堆化中，每个结点最多堆化至叶结点，因此最大迭代次数为二叉树高度 $O(\log n)$ ；
 
 将上述两者相乘，可得时间复杂度为 $O(n \log n)$ 。然而，该估算结果仍不够准确，因为我们没有考虑到 **二叉树底层结点远多于顶层结点** 的性质。
 
@@ -887,6 +1014,6 @@ $$
 
 ## 8.1.4. 堆常见应用
 
-- **优先队列**。堆常作为实现优先队列的首选数据结构，入队和出队操作时间复杂度为 $O(\log n)$ ，建队操作为 $O(n)$ ，皆非常高效。
-- **堆排序**。给定一组数据，我们使用其建堆，并依次全部弹出，则可以得到有序的序列。当然，堆排序一般无需弹出元素，仅需每轮将堆顶元素交换至数组尾部并减小堆的长度即可。
-- **获取最大的 $k$ 个元素**。这既是一道经典算法题目，也是一种常见应用，例如选取热度前 10 的新闻作为微博热搜，选取前 10 销量的商品等。
+-   **优先队列**。堆常作为实现优先队列的首选数据结构，入队和出队操作时间复杂度为 $O(\log n)$ ，建队操作为 $O(n)$ ，皆非常高效。
+-   **堆排序**。给定一组数据，我们使用其建堆，并依次全部弹出，则可以得到有序的序列。当然，堆排序一般无需弹出元素，仅需每轮将堆顶元素交换至数组尾部并减小堆的长度即可。
+-   **获取最大的 $k$ 个元素**。这既是一道经典算法题目，也是一种常见应用，例如选取热度前 10 的新闻作为微博热搜，选取前 10 销量的商品等。
