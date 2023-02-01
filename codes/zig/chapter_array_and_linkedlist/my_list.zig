@@ -47,14 +47,14 @@ pub fn MyList(comptime T: type) type {
         // 访问元素
         pub fn get(self: *Self, index: usize) T {
             // 索引如果越界则抛出异常，下同
-            if (index < 0 || index >= self.size()) @panic("索引越界");
+            if (index < 0 or index >= self.size()) @panic("索引越界");
             return self.nums[index];
         }  
 
         // 更新元素
         pub fn set(self: *Self, index: usize, num: T) void {
             // 索引如果越界则抛出异常，下同
-            if (index < 0 || index >= self.size()) @panic("索引越界");
+            if (index < 0 or index >= self.size()) @panic("索引越界");
             self.nums[index] = num;
         }  
 
@@ -69,7 +69,7 @@ pub fn MyList(comptime T: type) type {
 
         // 中间插入元素
         pub fn insert(self: *Self, index: usize, num: T) !void {
-            if (index < 0 || index >= self.size()) @panic("索引越界");
+            if (index < 0 or index >= self.size()) @panic("索引越界");
             // 元素数量超出容量时，触发扩容机制
             if (self.size() == self.capacity()) try self.extendCapacity();
             // 索引 i 以及之后的元素都向后移动一位
@@ -84,7 +84,7 @@ pub fn MyList(comptime T: type) type {
 
         // 删除元素
         pub fn remove(self: *Self, index: usize) T {
-            if (index < 0 || index >= self.size()) @panic("索引越界");
+            if (index < 0 or index >= self.size()) @panic("索引越界");
             var num = self.nums[index];
             // 索引 i 之后的元素都向前移动一位
             var j = index;

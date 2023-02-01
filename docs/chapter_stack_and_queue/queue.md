@@ -741,46 +741,53 @@ comments: true
     ```java title="array_queue.java"
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
-        private int[] nums;     // 用于存储队列元素的数组
-        private int front = 0;  // 头指针，指向队首
-        private int rear = 0;   // 尾指针，指向队尾 + 1
-    
+        private int[] nums;  // 用于存储队列元素的数组
+        private int front;   // 队首指针，指向队首元素
+        private int queSize; // 队列长度
+
         public ArrayQueue(int capacity) {
-            // 初始化数组
             nums = new int[capacity];
+            front = queSize = 0;
         }
+
         /* 获取队列的容量 */
         public int capacity() {
             return nums.length;
         }
+
         /* 获取队列的长度 */
         public int size() {
-            int capacity = capacity();
-            // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
-            return (capacity + rear - front) % capacity;
+            return queSize;
         }
+
         /* 判断队列是否为空 */
         public boolean isEmpty() {
-            return rear - front == 0;
+            return queSize == 0;
         }
+
         /* 入队 */
         public void offer(int num) {
-            if (size() == capacity()) {
+            if (queSize == capacity()) {
                 System.out.println("队列已满");
                 return;
             }
+            // 计算尾指针，指向队尾索引 + 1
+            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            int rear = (front + queSize) % capacity();
             // 尾结点后添加 num
             nums[rear] = num;
-            // 尾指针向后移动一位，越过尾部后返回到数组头部
-            rear = (rear + 1) % capacity();
+            queSize++;
         }
+
         /* 出队 */
         public int poll() {
             int num = peek();
-            // 队头指针向后移动一位，若越过尾部则返回到数组头部
+            // 队首指针向后移动一位，若越过尾部则返回到数组头部
             front = (front + 1) % capacity();
+            queSize--;
             return num;
         }
+
         /* 访问队首元素 */
         public int peek() {
             if (isEmpty())
@@ -796,50 +803,60 @@ comments: true
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
     private:
-        int *nums;      // 用于存储队列元素的数组
-        int cap;        // 队列容量
-        int front = 0;  // 头指针，指向队首
-        int rear = 0;   // 尾指针，指向队尾 + 1
-    
+        int *nums;       // 用于存储队列元素的数组
+        int front;       // 队首指针，指向队首元素
+        int queSize;     // 队列长度
+        int queCapacity; // 队列容量
+
     public:
         ArrayQueue(int capacity) {
             // 初始化数组
-            cap = capacity;
             nums = new int[capacity];
+            queCapacity = capacity;
+            front = queSize = 0;
         }
+
         ~ArrayQueue() {
             delete[] nums;
         }
+
         /* 获取队列的容量 */
         int capacity() {
-            return cap;
+            return queCapacity;
         }
+
         /* 获取队列的长度 */
         int size() {
-            // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
-            return (capacity() + rear - front) % capacity();
+            return queSize;
         }
+
         /* 判断队列是否为空 */
         bool empty() {
-            return rear - front == 0;
+            return size() == 0;
         }
+
         /* 入队 */
         void offer(int num) {
-            if (size() == capacity()) {
+            if (queSize == queCapacity) {
                 cout << "队列已满" << endl;
                 return;
             }
+            // 计算队尾指针，指向队尾索引 + 1
+            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            int rear = (front + queSize) % queCapacity;
             // 尾结点后添加 num
             nums[rear] = num;
-            // 尾指针向后移动一位，越过尾部后返回到数组头部
-            rear = (rear + 1) % capacity();
+            queSize++;
         }
+
         /* 出队 */
         void poll() {
             int num = peek();
-            // 队头指针向后移动一位，若越过尾部则返回到数组头部
-            front = (front + 1) % capacity();
+            // 队首指针向后移动一位，若越过尾部则返回到数组头部
+            front = (front + 1) % queCapacity;
+            queSize--;
         }
+
         /* 访问队首元素 */
         int peek() {
             if (empty())
@@ -856,54 +873,43 @@ comments: true
     class ArrayQueue:
         def __init__(self, size):
             self.__nums = [0] * size  # 用于存储队列元素的数组
-            self.__front = 0             # 头指针，指向队首
-            self.__rear = 0              # 尾指针，指向队尾 + 1
-    
+            self.__front = 0          # 队首指针，指向队首元素
+            self.__size = 0           # 队列长度
+
         """ 获取队列的容量 """
         def capacity(self):
             return len(self.__nums)
-    
+
         """ 获取队列的长度 """
         def size(self):
-            # 由于将数组看作为环形，可能 rear < front ，因此需要取余数
-            return (self.capacity() + self.__rear - self.__front) % self.capacity()
-    
+            return self.__size
+
         """ 判断队列是否为空 """
         def is_empty(self):
-            return (self.__rear - self.__front) == 0
-    
+            return self.__size == 0
+
         """ 入队 """
-        def push(self, val):
-            if self.size() == self.capacity():
-                print("队列已满")
-                return False
+        def push(self, num):
+            assert self.__size < self.capacity(), "队列已满"
+            # 计算尾指针，指向队尾索引 + 1
+            # 通过取余操作，实现 rear 越过数组尾部后回到头部
+            rear = (self.__front + self.__size) % self.capacity()
             # 尾结点后添加 num
-            self.__nums[self.__rear] = val
-            # 尾指针向后移动一位，越过尾部后返回到数组头部
-            self.__rear = (self.__rear + 1) % self.capacity()
-    
+            self.__nums[rear] = num
+            self.__size += 1
+
         """ 出队 """
         def poll(self):
             num = self.peek()
-            # 队头指针向后移动一位，若越过尾部则返回到数组头部
+            # 队首指针向后移动一位，若越过尾部则返回到数组头部
             self.__front = (self.__front + 1) % self.capacity()
+            self.__size -= 1
             return num
-    
+
         """ 访问队首元素 """
         def peek(self):
-            if self.is_empty():
-                print("队列为空")
-                return False
+            assert not self.is_empty(), "队列为空"
             return self.__nums[self.__front]
-    
-        """ 返回列表用于打印 """
-        def to_list(self):
-            res = [0] * self.size()
-            j = self.__front
-            for i in range(self.size()):
-                res[i] = self.__nums[(j % self.capacity())]
-                j += 1
-            return res
     ```
 
 === "Go"
@@ -911,63 +917,71 @@ comments: true
     ```go title="array_queue.go"
     /* 基于环形数组实现的队列 */
     type arrayQueue struct {
-        data     []int // 用于存储队列元素的数组
-        capacity int   // 队列容量（即最多容量的元素个数）
-        front    int   // 头指针，指向队首
-        rear     int   // 尾指针，指向队尾 + 1
+        nums        []int // 用于存储队列元素的数组
+        front       int   // 队首指针，指向队首元素
+        queSize     int   // 队列长度
+        queCapacity int   // 队列容量（即最大容纳元素数量）
     }
-    
+
     // newArrayQueue 基于环形数组实现的队列
-    func newArrayQueue(capacity int) *arrayQueue {
+    func newArrayQueue(queCapacity int) *arrayQueue {
         return &arrayQueue{
-            data:     make([]int, capacity),
-            capacity: capacity,
-            front:    0,
-            rear:     0,
+            nums:        make([]int, queCapacity),
+            queCapacity: queCapacity,
+            front:       0,
+            queSize:     0,
         }
     }
-    
+
     // size 获取队列的长度
     func (q *arrayQueue) size() int {
-        size := (q.capacity + q.rear - q.front) % q.capacity
-        return size
+        return q.queSize
     }
-    
+
     // isEmpty 判断队列是否为空
     func (q *arrayQueue) isEmpty() bool {
-        return q.rear-q.front == 0
+        return q.queSize == 0
     }
-    
+
     // offer 入队
-    func (q *arrayQueue) offer(v int) {
-        // 当 rear == capacity 表示队列已满
-        if q.size() == q.capacity {
+    func (q *arrayQueue) offer(num int) {
+        // 当 rear == queCapacity 表示队列已满
+        if q.queSize == q.queCapacity {
             return
         }
-        // 尾结点后添加
-        q.data[q.rear] = v
-        // 尾指针向后移动一位，越过尾部后返回到数组头部
-        q.rear = (q.rear + 1) % q.capacity
+        // 计算尾指针，指向队尾索引 + 1
+        // 通过取余操作，实现 rear 越过数组尾部后回到头部
+        rear := (q.front + q.queSize) % q.queCapacity
+        // 尾结点后添加 num
+        q.nums[rear] = num
+        q.queSize++
     }
-    
+
     // poll 出队
     func (q *arrayQueue) poll() any {
-        if q.isEmpty() {
-            return nil
-        }
-        v := q.data[q.front]
-        // 队头指针向后移动一位，若越过尾部则返回到数组头部
-        q.front = (q.front + 1) % q.capacity
-        return v
+        num := q.peek()
+        // 队首指针向后移动一位，若越过尾部则返回到数组头部
+        q.front = (q.front + 1) % q.queCapacity
+        q.queSize--
+        return num
     }
-    
+
     // peek 访问队首元素
     func (q *arrayQueue) peek() any {
         if q.isEmpty() {
             return nil
         }
-        v := q.data[q.front]
-        return v
+        return q.nums[q.front]
+    }
+
+    // 获取 Slice 用于打印
+    func (q *arrayQueue) toSlice() []int {
+        rear := (q.front + q.queSize)
+        if rear >= q.queCapacity {
+            rear %= q.queCapacity
+            return append(q.nums[q.front:], q.nums[:rear]...)
+        }
+        return q.nums[q.front:rear]
     }
     ```
 
@@ -976,46 +990,55 @@ comments: true
     ```js title="array_queue.js"
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
-        #queue;       // 用于存储队列元素的数组
-        #front = 0;   // 头指针，指向队首
-        #rear = 0;    // 尾指针，指向队尾 + 1
+        #nums;         // 用于存储队列元素的数组
+        #front = 0;    // 队首指针，指向队首元素
+        #queSize = 0;  // 队列长度
+
         constructor(capacity) {
-            this.#queue = new Array(capacity);
+            this.#nums = new Array(capacity);
         }
+
         /* 获取队列的容量 */
         get capacity() {
-            return this.#queue.length;
+            return this.#nums.length;
         }
+
         /* 获取队列的长度 */
         get size() {
-            // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
-            return (this.capacity + this.#rear - this.#front) % this.capacity;
+            return this.#queSize;
         }
+
         /* 判断队列是否为空 */
         empty() {
-            return this.#rear - this.#front == 0;
+            return this.#queSize == 0;
         }
+
         /* 入队 */
         offer(num) {
             if (this.size == this.capacity)
                 throw new Error("队列已满");
+            // 计算尾指针，指向队尾索引 + 1
+            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            const rear = (this.#front + this.size) % this.capacity;
             // 尾结点后添加 num
-            this.#queue[this.#rear] = num;
-            // 尾指针向后移动一位，越过尾部后返回到数组头部
-            this.#rear = (this.#rear + 1) % this.capacity;
+            this.#nums[rear] = num;
+            this.#queSize++;
         }
+
         /* 出队 */
         poll() {
             const num = this.peek();
-            // 队头指针向后移动一位，若越过尾部则返回到数组头部
+            // 队首指针向后移动一位，若越过尾部则返回到数组头部
             this.#front = (this.#front + 1) % this.capacity;
+            this.#queSize--;
             return num;
         }
+
         /* 访问队首元素 */
         peek() {
             if (this.empty())
                 throw new Error("队列为空");
-            return this.#queue[this.#front];
+            return this.#nums[this.#front];
         }
     }
     ```
@@ -1025,47 +1048,56 @@ comments: true
     ```typescript title="array_queue.ts"
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
-        private queue: number[];     // 用于存储队列元素的数组
-        private front: number = 0;  // 头指针，指向队首
-        private rear: number = 0;   // 尾指针，指向队尾 + 1
-        private CAPACITY: number = 1e5;
-        constructor(capacity?: number) {
-            this.queue = new Array<number>(capacity ?? this.CAPACITY);
+        private nums: number[];  // 用于存储队列元素的数组
+        private front: number;   // 队首指针，指向队首元素
+        private queSize: number; // 队列长度
+
+        constructor(capacity: number) {
+            this.nums = new Array<number>(capacity);
+            this.front = this.queSize = 0;
         }
+
         /* 获取队列的容量 */
         get capacity(): number {
-            return this.queue.length;
+            return this.nums.length;
         }
+
         /* 获取队列的长度 */
         get size(): number {
-            // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
-            return (this.capacity + this.rear - this.front) % this.capacity;
+            return this.queSize;
         }
+
         /* 判断队列是否为空 */
         empty(): boolean {
-            return this.rear - this.front == 0;
+            return this.queSize == 0;
         }
+
         /* 入队 */
         offer(num: number): void {
             if (this.size == this.capacity)
                 throw new Error("队列已满");
+            // 计算尾指针，指向队尾索引 + 1
+            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            const rear = (this.front + this.queSize) % this.capacity;
             // 尾结点后添加 num
-            this.queue[this.rear] = num;
-            // 尾指针向后移动一位，越过尾部后返回到数组头部
-            this.rear = (this.rear + 1) % this.capacity;
+            this.nums[rear] = num;
+            this.queSize++;
         }
+
         /* 出队 */
         poll(): number {
             const num = this.peek();
-            // 队头指针向后移动一位，若越过尾部则返回到数组头部
+            // 队首指针向后移动一位，若越过尾部则返回到数组头部
             this.front = (this.front + 1) % this.capacity;
+            this.queSize--;
             return num;
         }
+
         /* 访问队首元素 */
         peek(): number {
             if (this.empty())
                 throw new Error("队列为空");
-            return this.queue[this.front];
+            return this.nums[this.front];
         }
     }
     ```
@@ -1082,52 +1114,60 @@ comments: true
     /* 基于环形数组实现的队列 */
     class ArrayQueue
     {
-        private int[] nums;     // 用于存储队列元素的数组
-        private int front = 0;  // 头指针，指向队首
-        private int rear = 0;   // 尾指针，指向队尾 + 1
+        private int[] nums;  // 用于存储队列元素的数组
+        private int front;   // 队首指针，指向队首元素
+        private int queSize; // 队列长度
+
         public ArrayQueue(int capacity)
         {
-            // 初始化数组
             nums = new int[capacity];
+            front = queSize = 0;
         }
+
         /* 获取队列的容量 */
         public int capacity()
         {
             return nums.Length;
         }
+
         /* 获取队列的长度 */
         public int size()
         {
-            int capacity = this.capacity();
-            // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
-            return (capacity + rear - front) % capacity;
+            return queSize;
         }
+
         /* 判断队列是否为空 */
         public bool isEmpty()
         {
-            return rear - front == 0;
+            return queSize == 0;
         }
+
         /* 入队 */
         public void offer(int num)
         {
-            if (size() == capacity())
+            if (queSize == capacity())
             {
                 Console.WriteLine("队列已满");
                 return;
             }
+            // 计算尾指针，指向队尾索引 + 1
+            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            int rear = (front + queSize) % capacity();
             // 尾结点后添加 num
             nums[rear] = num;
-            // 尾指针向后移动一位，越过尾部后返回到数组头部
-            rear = (rear + 1) % capacity();
+            queSize++;
         }
+
         /* 出队 */
         public int poll()
         {
             int num = peek();
-            // 队头指针向后移动一位，若越过尾部则返回到数组头部
+            // 队首指针向后移动一位，若越过尾部则返回到数组头部
             front = (front + 1) % capacity();
+            queSize--;
             return num;
         }
+
         /* 访问队首元素 */
         public int peek()
         {
@@ -1144,52 +1184,53 @@ comments: true
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
         private var nums: [Int] // 用于存储队列元素的数组
-        private var front = 0 // 头指针，指向队首
-        private var rear = 0 // 尾指针，指向队尾 + 1
-    
+        private var front = 0 // 队首指针，指向队首元素
+        private var queSize = 0 // 队列长度
+
         init(capacity: Int) {
             // 初始化数组
             nums = Array(repeating: 0, count: capacity)
         }
-    
+
         /* 获取队列的容量 */
         func capacity() -> Int {
             nums.count
         }
-    
+
         /* 获取队列的长度 */
         func size() -> Int {
-            let capacity = capacity()
-            // 由于将数组看作为环形，可能 rear < front ，因此需要取余数
-            return (capacity + rear - front) % capacity
+            queSize
         }
-    
+
         /* 判断队列是否为空 */
         func isEmpty() -> Bool {
-            rear - front == 0
+            queSize == 0
         }
-    
+
         /* 入队 */
         func offer(num: Int) {
             if size() == capacity() {
                 print("队列已满")
                 return
             }
+            // 计算尾指针，指向队尾索引 + 1
+            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            int rear = (front + queSize) % capacity();
             // 尾结点后添加 num
-            nums[rear] = num
-            // 尾指针向后移动一位，越过尾部后返回到数组头部
-            rear = (rear + 1) % capacity()
+            nums[rear] = num;
+            queSize++;
         }
-    
+
         /* 出队 */
         @discardableResult
         func poll() -> Int {
             let num = peek()
-            // 队头指针向后移动一位，若越过尾部则返回到数组头部
-            front = (front + 1) % capacity()
-            return num
+            // 队首指针向后移动一位，若越过尾部则返回到数组头部
+            front = (front + 1) % capacity();
+            queSize--;
+            return num;
         }
-    
+
         /* 访问队首元素 */
         func peek() -> Int {
             if isEmpty() {

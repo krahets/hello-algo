@@ -4,11 +4,6 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-function Trunk(prev, str) {
-    this.prev = prev;
-    this.str = str;
-}
-
 /**
  * Print a linked list
  * @param head
@@ -20,6 +15,11 @@ function printLinkedList(head) {
         head = head.next;
     }
     console.log(list.join(" -> "));
+}
+
+function Trunk(prev, str) {
+    this.prev = prev;
+    this.str = str;
 }
 
 /**
@@ -83,6 +83,6 @@ function showTrunks(p) {
 }
 
 module.exports = {
-    printTree,
     printLinkedList,
+    printTree
 }
