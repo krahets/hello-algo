@@ -4,7 +4,7 @@
  * Author: Daniel (better.sunjian@gmail.com)
  */
 
-import ListNode from '../module/ListNode.ts';
+import { ListNode, arrToLinkedList } from '../module/ListNode';
 
 /* 线性查找（数组）*/
 function linearSearchArray(nums: number[], target: number): number {
@@ -42,6 +42,8 @@ const index = linearSearchArray(nums, target);
 console.log('目标元素 3 的索引 =', index);
 
 /* 在链表中执行线性查找 */
-const head = ListNode.arrToLinkedList(nums);
+const head = arrToLinkedList(nums);
 const node = linearSearchLinkedList(head, target);
 console.log('目标结点值 3 的对应结点对象为', node);
+
+export {};

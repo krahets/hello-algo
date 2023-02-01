@@ -42,3 +42,5 @@ console.info('\n单独遍历值 Value');
 for (const v of map.values()) {
     console.info(v);
 }
+
+export {};

@@ -4,7 +4,7 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-import ListNode from "../module/ListNode"
+import { ListNode } from "../module/ListNode"
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
@@ -100,3 +100,5 @@ console.log("队列长度 size = " + size);
 /* 判断队列是否为空 */
 const isEmpty = queue.isEmpty();
 console.log("队列是否为空 = " + isEmpty);
+
+export {};

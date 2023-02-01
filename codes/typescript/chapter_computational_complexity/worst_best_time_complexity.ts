@@ -32,14 +32,14 @@ function findOne(nums: number[]): number {
 }
 
 /* Driver Code */
-function main(): void {
-    for (let i = 0; i < 10; i++) {
-        let n = 100;
-        let nums = randomNumbers(n);
-        let index = findOne(nums);
-        console.log(
-            "\n数组 [ 1, 2, ..., n ] 被打乱后 = [" + nums.join(", ") + "]"
-        );
-        console.log("数字 1 的索引为 " + index);
-    }
+for (let i = 0; i < 10; i++) {
+    let n = 100;
+    let nums = randomNumbers(n);
+    let index = findOne(nums);
+    console.log(
+        "\n数组 [ 1, 2, ..., n ] 被打乱后 = [" + nums.join(", ") + "]"
+    );
+    console.log("数字 1 的索引为 " + index);
 }
+
+export {};

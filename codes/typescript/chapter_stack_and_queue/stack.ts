@@ -27,4 +27,4 @@ const size = stack.length;
 /* 判断是否为空 */
 const is_empty = stack.length === 0;
 
-export { };
+export {};

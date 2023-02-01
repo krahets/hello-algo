@@ -33,3 +33,5 @@ printTree(n1);
 n1.left = n2;
 console.log('\n删除结点 P 后\n');
 printTree(n1);
+
+export {};

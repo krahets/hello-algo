@@ -42,3 +42,5 @@ console.log("方法一 res = ", res);
 // 方法二
 res = twoSumHashTable(nums, target);
 console.log("方法二 res = ", res);
+
+export {};

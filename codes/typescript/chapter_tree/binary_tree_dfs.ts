@@ -65,3 +65,5 @@ console.log('\n中序遍历的结点打印序列 = ' + list);
 list.length = 0;
 postOrder(root);
 console.log('\n后序遍历的结点打印序列 = ' + list);
+
+export {};
