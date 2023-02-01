@@ -13,6 +13,27 @@
 #include "ListNode.hpp"
 #include "TreeNode.hpp"
 
+/**
+ * @brief Expose the underlying storage of the priority_queue container
+ * 
+ * @tparam T
+ * @tparam S
+ * @tparam C   
+ * @param pq 
+ * @return S 
+ */
+template <typename T, typename S, typename C>
+S &Container(priority_queue<T, S, C> &pq) {
+    struct HackedQueue : private priority_queue<T, S, C>
+    {
+        static S &Container(priority_queue<T, S, C> &pq)
+        {
+            return pq.*&HackedQueue::c;
+        }
+    };
+    return HackedQueue::Container(pq);
+}
+
 class PrintUtil {
     public:
         /**
@@ -295,42 +316,16 @@ class PrintUtil {
         }
 
         /**
-         * @brief Print a Max-Heap (PriorityQueue)
+         * @brief Print a Heap (PriorityQueue)
          *
          * @tparam T
+         * @tparam S
+         * @tparam C
          * @param heap
          */
-        template <typename T>
-        static void printHeap(priority_queue<T, vector<T>, less<T>> heap)
-        {
-            vector<int> vec;
-            while (!heap.empty())
-            {
-                vec.push_back(heap.top());
-                heap.pop();
-            }
-            cout << "堆的数组表示：" << endl;
-            printVector(vec);
-            cout << "堆的树状表示：" << endl;
-            TreeNode *root = vecToTree(vec);
-            printTree(root);
-        }
-
-        /**
-         * @brief Print a Min-Heap (PriorityQueue)
-         *
-         * @tparam T
-         * @param heap
-         */
-        template <typename T>
-        static void printHeap(priority_queue<T, vector<T>, greater<T>> heap)
-        {
-            vector<int> vec;
-            while (!heap.empty())
-            {
-                vec.push_back(heap.top());
-                heap.pop();
-            }
+        template <typename T, typename S, typename C>
+        static void printHeap(priority_queue<T, S, C> &heap) {
+            vector<T> vec = Container(heap);
             cout << "堆的数组表示：" << endl;
             printVector(vec);
             cout << "堆的树状表示：" << endl;
