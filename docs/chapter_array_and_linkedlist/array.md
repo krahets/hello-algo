@@ -89,6 +89,12 @@ comments: true
     let nums = [1, 3, 2, 5, 4]
     ```
 
+=== "Zig"
+
+    ```zig title="array.zig"
+
+    ```
+
 ## 4.1.1. 数组优点
 
 **在数组中访问元素非常高效**。这是因为在数组中，计算元素的内存地址非常容易。给定数组首个元素的地址、和一个元素的索引，利用以下公式可以直接计算得到该元素的内存地址，从而直接访问此元素。
@@ -215,6 +221,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         let randomNum = nums[randomIndex]
         return randomNum
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+
     ```
 
 ## 4.1.2. 数组缺点
@@ -357,6 +369,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 返回扩展后的新数组
         return res
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+
     ```
 
 **数组中插入或删除元素效率低下**。假设我们想要在数组中间某位置插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。删除元素也是类似，需要把此索引之后的元素都向前移动一位。总体看有以下缺点：
@@ -551,6 +569,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
+=== "Zig"
+
+    ```zig title="array.zig"
+
+    ```
+
 ## 4.1.3. 数组常用操作
 
 **数组遍历**。以下介绍两种常用的遍历方法。
@@ -693,6 +717,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
+=== "Zig"
+
+    ```zig title="array.zig"
+
+    ```
+
 **数组查找**。通过遍历数组，查找数组内的指定元素，并输出对应索引。
 
 === "Java"
@@ -807,6 +837,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         }
         return -1
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+
     ```
 
 ## 4.1.4. 数组典型应用

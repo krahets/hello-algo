@@ -101,6 +101,12 @@ comments: true
     var list = [1, 3, 2, 5, 4]
     ```
 
+=== "Zig"
+
+    ```zig title="list.zig"
+
+    ```
+
 **访问与更新元素**。列表的底层数据结构是数组，因此可以在 $O(1)$ 时间内访问与更新元素，效率很高。
 
 === "Java"
@@ -187,6 +193,12 @@ comments: true
 
     /* 更新元素 */
     list[1] = 0 // 将索引 1 处的元素更新为 0
+    ```
+
+=== "Zig"
+
+    ```zig title="list.zig"
+
     ```
 
 **在列表中添加、插入、删除元素**。相对于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 $O(1)$ ，但是插入与删除元素的效率仍与数组一样低，时间复杂度为 $O(N)$ 。
@@ -357,6 +369,12 @@ comments: true
     list.remove(at: 3) // 删除索引 3 处的元素
     ```
 
+=== "Zig"
+
+    ```zig title="list.zig"
+
+    ```
+
 **遍历列表**。与数组一样，列表可以使用索引遍历，也可以使用 `for-each` 直接遍历。
 
 === "Java"
@@ -493,6 +511,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="list.zig"
+
+    ```
+
 **拼接两个列表**。再创建一个新列表 `list1` ，我们可以将其中一个列表拼接到另一个的尾部。
 
 === "Java"
@@ -566,6 +590,12 @@ comments: true
     list.append(contentsOf: list1) // 将列表 list1 拼接到 list 之后
     ```
 
+=== "Zig"
+
+    ```zig title="list.zig"
+
+    ```
+
 **排序列表**。排序也是常用的方法之一，完成列表排序后，我们就可以使用在数组类算法题中经常考察的「二分查找」和「双指针」算法了。
 
 === "Java"
@@ -628,6 +658,12 @@ comments: true
     ```swift title="list.swift"
     /* 排序列表 */
     list.sort() // 排序后，列表元素从小到大排列
+    ```
+
+=== "Zig"
+
+    ```zig title="list.zig"
+
     ```
 
 ## 4.3.2. 列表简易实现 *
@@ -1398,4 +1434,10 @@ comments: true
             _capacity = nums.count
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="my_list.zig"
+
     ```

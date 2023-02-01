@@ -121,6 +121,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title=""
+
+    ```
+
 结点的两个指针分别指向「左子结点 Left Child Node」和「右子结点 Right Child Node」，并且称该结点为两个子结点的「父结点 Parent Node」。给定二叉树某结点，将左子结点以下的树称为该结点的「左子树 Left Subtree」，右子树同理。
 
 除了叶结点外，每个结点都有子结点和子树。例如，若将下图的「结点 2」看作父结点，那么其左子结点和右子结点分别为「结点 4」和「结点 5」，左子树和右子树分别为「结点 4 及其以下结点形成的树」和「结点 5 及其以下结点形成的树」。
@@ -294,6 +300,12 @@ comments: true
     n2.right = n5
     ```
 
+=== "Zig"
+
+    ```zig title="binary_tree.zig"
+
+    ```
+
 **插入与删除结点**。与链表类似，插入与删除结点都可以通过修改指针实现。
 
 ![binary_tree_add_remove](binary_tree.assets/binary_tree_add_remove.png)
@@ -398,6 +410,12 @@ comments: true
     P.left = n2
     // 删除结点 P
     n1.left = n2
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_tree.zig"
+
     ```
 
 !!! note
@@ -543,6 +561,12 @@ comments: true
     /* 二叉树的数组表示 */
     // 使用 Int? 可空类型 ，就可以使用 nil 来标记空位
     let tree: [Int?] = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+
     ```
 
 ![array_representation_with_empty](binary_tree.assets/array_representation_with_empty.png)

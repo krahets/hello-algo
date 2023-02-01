@@ -153,6 +153,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title=""
+
+    ```
+
 但实际上， **统计算法的运行时间既不合理也不现实**。首先，我们不希望预估时间和运行平台绑定，毕竟算法需要跑在各式各样的平台之上。其次，我们很难获知每一种操作的运行时间，这为预估过程带来了极大的难度。
 
 ## 2.2.2. 统计时间增长趋势
@@ -357,6 +363,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title=""
+
+    ```
+
 ![time_complexity_first_example](time_complexity.assets/time_complexity_first_example.png)
 
 <p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
@@ -501,6 +513,12 @@ $$
             print(0) // +1
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+
     ```
 
 $T(n)$ 是个一次函数，说明时间增长趋势是线性的，因此易得时间复杂度是线性阶。
@@ -725,6 +743,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title=""
+
+    ```
+
 ### 2) 判断渐近上界
 
 **时间复杂度由多项式 $T(n)$ 中最高阶的项来决定**。这是因为在 $n$ 趋于无穷大时，最高阶的项将处于主导作用，其它项的影响都可以被忽略。
@@ -887,6 +911,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+
+    ```
+
 ### 线性阶 $O(n)$
 
 线性阶的操作数量相对输入数据大小成线性级别增长。线性阶常出现于单层循环。
@@ -998,6 +1028,12 @@ $$
         }
         return count
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+
     ```
 
 「遍历数组」和「遍历链表」等操作，时间复杂度都为 $O(n)$ ，其中 $n$ 为数组或链表的长度。
@@ -1130,6 +1166,12 @@ $$
         }
         return count
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+
     ```
 
 ### 平方阶 $O(n^2)$
@@ -1278,6 +1320,12 @@ $$
         }
         return count
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+
     ```
 
 ![time_complexity_constant_linear_quadratic](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
@@ -1500,6 +1548,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+
+    ```
+
 ### 指数阶 $O(2^n)$
 
 !!! note
@@ -1675,6 +1729,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+
+    ```
+
 ![time_complexity_exponential](time_complexity.assets/time_complexity_exponential.png)
 
 <p align="center"> Fig. 指数阶的时间复杂度 </p>
@@ -1774,6 +1834,12 @@ $$
         }
         return expRecur(n: n - 1) + expRecur(n: n - 1) + 1
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+
     ```
 
 ### 对数阶 $O(\log n)$
@@ -1911,6 +1977,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+
+    ```
+
 ![time_complexity_logarithmic](time_complexity.assets/time_complexity_logarithmic.png)
 
 <p align="center"> Fig. 对数阶的时间复杂度 </p>
@@ -2009,6 +2081,12 @@ $$
         }
         return logRecur(n: n / 2) + 1
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+
     ```
 
 ### 线性对数阶 $O(n \log n)$
@@ -2151,6 +2229,12 @@ $$
         }
         return count
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+
     ```
 
 ![time_complexity_logarithmic_linear](time_complexity.assets/time_complexity_logarithmic_linear.png)
@@ -2303,6 +2387,12 @@ $$
         }
         return count
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+
     ```
 
 ![time_complexity_factorial](time_complexity.assets/time_complexity_factorial.png)
@@ -2690,6 +2780,12 @@ $$
             print("数字 1 的索引为 \(index)")
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="worst_best_time_complexity.zig"
+
     ```
 
 !!! tip

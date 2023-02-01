@@ -250,6 +250,12 @@ comments: true
 
     ```
 
+=== "Zig"
+
+    ```zig title="graph_adjacency_matrix.zig"
+
+    ```
+
 ## 9.2.2. 基于邻接表的实现
 
 设图的顶点总数为 $n$ 、边总数为 $m$ ，则有：
@@ -471,6 +477,12 @@ comments: true
 === "Swift"
 
     ```swift title="graph_adjacency_list.swift"
+
+    ```
+
+=== "Zig"
+
+    ```zig title="graph_adjacency_list.zig"
 
     ```
 

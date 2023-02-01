@@ -232,6 +232,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="bubble_sort.zig"
+
+    ```
+
 ## 11.2.2. 算法特性
 
 **时间复杂度 $O(n^2)$** ：各轮「冒泡」遍历的数组长度为 $n - 1$ , $n - 2$ , $\cdots$ , $2$ , $1$ 次，求和为 $\frac{(n - 1) n}{2}$ ，因此使用 $O(n^2)$ 时间。
@@ -457,4 +463,10 @@ comments: true
             }
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="bubble_sort.zig"
+
     ```

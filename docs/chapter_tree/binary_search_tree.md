@@ -214,6 +214,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="binary_search_tree.zig"
+
+    ```
+
 ### 插入结点
 
 给定一个待插入元素 `num` ，为了保持二叉搜索树“左子树 < 根结点 < 右子树”的性质，插入操作分为两步：
@@ -481,6 +487,12 @@ comments: true
         }
         return node
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_tree.zig"
+
     ```
 
 为了插入结点，需要借助 **辅助结点 `prev`** 保存上一轮循环的结点，这样在遍历到 $\text{null}$ 时，我们也可以获取到其父结点，从而完成结点插入操作。
@@ -932,6 +944,12 @@ comments: true
         }
         return cur
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_tree.zig"
+
     ```
 
 ## 7.3.2. 二叉搜索树的效率

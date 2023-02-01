@@ -256,6 +256,12 @@ comments: true
     let isEmpty = queue.isEmpty
     ```
 
+=== "Zig"
+
+    ```zig title="queue.zig"
+
+    ```
+
 ## 5.2.2. 队列实现
 
 队列需要一种可以在一端添加，并在另一端删除的数据结构，也可以使用链表或数组来实现。
@@ -717,6 +723,12 @@ comments: true
             return front!.val
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="linkedlist_queue.zig"
+
     ```
 
 ### 基于数组的实现
@@ -1239,6 +1251,12 @@ comments: true
             return nums[front]
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="array_queue.zig"
+
     ```
 
 以上代码仍存在局限性，即长度不可变。然而，我们可以通过将数组替换为列表（即动态数组）来引入扩容机制，有兴趣的同学可以尝试实现。

@@ -202,6 +202,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title=""
+
+    ```
+
 ## 2.3.2. 推算方法
 
 空间复杂度的推算方法和时间复杂度总体类似，只是从统计“计算操作数量”变为统计“使用空间大小”。与时间复杂度不同的是，**我们一般只关注「最差空间复杂度」**。这是因为内存空间是一个硬性要求，我们必须保证在所有输入数据下都有足够的内存空间预留。
@@ -299,6 +305,12 @@ comments: true
             let nums = Array(repeating: 0, count: n) // O(n)
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+
     ```
 
 **在递归函数中，需要注意统计栈帧空间**。例如函数 `loop()`，在循环中调用了 $n$ 次 `function()` ，每轮中的 `function()` 都返回并释放了栈帧空间，因此空间复杂度仍为 $O(1)$ 。而递归函数 `recur()` 在运行中会同时存在 $n$ 个未返回的 `recur()` ，从而使用 $O(n)$ 的栈帧空间。
@@ -450,6 +462,12 @@ comments: true
         }
         recur(n: n - 1)
     }
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+
     ```
 
 ## 2.3.3. 常见类型
@@ -622,6 +640,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title="space_complexity.zig"
+
+    ```
+
 ### 线性阶 $O(n)$
 
 线性阶常见于元素数量与 $n$ 成正比的数组、链表、栈、队列等。
@@ -754,6 +778,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title="space_complexity.zig"
+
+    ```
+
 以下递归函数会同时存在 $n$ 个未返回的 `algorithm()` 函数，使用 $O(n)$ 大小的栈帧空间。
 
 === "Java"
@@ -842,6 +872,12 @@ $$
         }
         linearRecur(n: n - 1)
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="space_complexity.zig"
+
     ```
 
 ![space_complexity_recursive_linear](space_complexity.assets/space_complexity_recursive_linear.png)
@@ -961,6 +997,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title="space_complexity.zig"
+
+    ```
+
 在以下递归函数中，同时存在 $n$ 个未返回的 `algorithm()` ，并且每个函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $\frac{n}{2}$ ，因此总体使用 $O(n^2)$ 空间。
 
 === "Java"
@@ -1056,6 +1098,12 @@ $$
         let nums = Array(repeating: 0, count: n)
         return quadraticRecur(n: n - 1)
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="space_complexity.zig"
+
     ```
 
 ![space_complexity_recursive_quadratic](space_complexity.assets/space_complexity_recursive_quadratic.png)
@@ -1164,6 +1212,12 @@ $$
         root.right = buildTree(n: n - 1)
         return root
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="space_complexity.zig"
+
     ```
 
 ![space_complexity_exponential](space_complexity.assets/space_complexity_exponential.png)
