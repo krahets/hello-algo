@@ -12,6 +12,7 @@ const deque: number[] = [];
 deque.push(2);
 deque.push(5);
 deque.push(4);
+/* unshift() 方法的时间复杂度为 O(n) */
 deque.unshift(3);
 deque.unshift(1);
 console.log("双向队列 deque = ", deque);
@@ -23,6 +24,7 @@ const peekLast: number = deque[deque.length - 1];
 console.log("队尾元素 peekLast = " + peekLast);
 
 /* 元素出队 */
+/* shift() 方法的时间复杂度为 O(n) */
 const popFront: number = deque.shift() as number;
 console.log("队首出队元素 popFront = " + popFront + "，队首出队后 deque = " + deque);
 const popBack: number = deque.pop() as number;
