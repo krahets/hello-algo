@@ -230,6 +230,12 @@ comments: true
     map.removeValue(forKey: 10583)
     ```
 
+=== "Zig"
+
+    ```zig title="hash_map.zig"
+
+    ```
+
 遍历哈希表有三种方式，即 **遍历键值对、遍历键、遍历值**。
 
 === "Java"
@@ -378,6 +384,12 @@ comments: true
     for value in map.values {
         print(value)
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="hash_map.zig"
+
     ```
 
 ## 6.1.3. 哈希函数
@@ -849,6 +861,12 @@ $$
             bucket[index] = nil
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="array_hash_map.zig"
+
     ```
 
 ## 6.1.4. 哈希冲突

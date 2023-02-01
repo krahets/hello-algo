@@ -259,6 +259,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="quick_sort.zig"
+
+    ```
+
 !!! note "快速排序的分治思想"
 
     哨兵划分的实质是将 **一个长数组的排序问题** 简化为 **两个短数组的排序问题**。
@@ -410,6 +416,12 @@ comments: true
         quickSort(nums: &nums, left: left, right: pivot - 1)
         quickSort(nums: &nums, left: pivot + 1, right: right)
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="quick_sort.zig"
+
     ```
 
 ## 11.4.2. 算法特性
@@ -652,6 +664,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="quick_sort.zig"
+
+    ```
+
 ## 11.4.5. 尾递归优化
 
 **普通快速排序在某些输入下的空间效率变差**。仍然以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 0 ，那么将形成一个高度为 $n - 1$ 的递归树，此时使用的栈帧空间大小劣化至 $O(n)$ 。
@@ -834,4 +852,10 @@ comments: true
             }
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="quick_sort.zig"
+
     ```

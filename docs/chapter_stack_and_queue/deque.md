@@ -223,6 +223,12 @@ comments: true
     let isEmpty = deque.isEmpty
     ```
 
+=== "Zig"
+
+    ```zig title="deque.zig"
+
+    ```
+
 ## 5.3.2. 双向队列实现
 
 双向队列需要一种可以在两端添加、两端删除的数据结构。与队列的实现方法类似，双向队列也可以使用双向链表和循环数组来实现。
@@ -411,5 +417,11 @@ comments: true
 === "Swift"
 
     ```swift title="linkedlist_deque.swift"
+
+    ```
+
+=== "Zig"
+
+    ```zig title="linkedlist_deque.zig"
 
     ```

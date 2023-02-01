@@ -175,6 +175,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="leetcode_two_sum.zig"
+
+    ```
+
 ### 方法二：辅助哈希表
 
 时间复杂度 $O(N)$ ，空间复杂度 $O(N)$ ，属于「空间换时间」。
@@ -336,4 +342,10 @@ comments: true
         }
         return [0]
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="leetcode_two_sum.zig"
+
     ```
