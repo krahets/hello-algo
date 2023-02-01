@@ -28,4 +28,4 @@ const size = queue.length;
 /* 判断队列是否为空 */
 const empty = queue.length === 0;
 
-export { };
+export {};

@@ -4,7 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-import ListNode from './ListNode';
+import { ListNode } from './ListNode';
 import { TreeNode } from './TreeNode';
 
 /**

@@ -102,7 +102,6 @@ for (let i = 0; i < 10; i++) {
     queue.push(i);
     queue.poll();
     console.log("第 " + i + " 轮入队 + 出队后 queue =", queue.toArray());
-    console.log(queue.toArray());
 }
 
-export { };
+export {};

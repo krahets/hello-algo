@@ -153,3 +153,5 @@ console.log("线性对数阶（递归实现）的计算操作数量 = " + count)
 
 count = factorialRecur(n);
 console.log("阶乘阶（递归实现）的计算操作数量 = " + count);
+
+export {};

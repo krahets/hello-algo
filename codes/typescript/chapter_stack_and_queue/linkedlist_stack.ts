@@ -4,7 +4,7 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-import ListNode from "../module/ListNode"
+import { ListNode } from "../module/ListNode"
 
 /* 基于链表实现的栈 */
 class LinkedListStack {
@@ -89,3 +89,5 @@ console.log("栈的长度 size = " + size);
 /* 判断是否为空 */
 const isEmpty = stack.isEmpty();
 console.log("栈是否为空 = " + isEmpty);
+
+export {};
