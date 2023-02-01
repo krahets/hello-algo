@@ -62,7 +62,7 @@ pub fn LinkedListDeque(comptime T: type) type {
         }
 
         // 入队操作
-        pub fn offer(self: *Self, num: T, isFront: bool) !void {
+        pub fn push(self: *Self, num: T, isFront: bool) !void {
             var node = try self.mem_allocator.create(ListNode(T));
             node.init(num);
             // 若链表为空，则令 front, rear 都指向 node
@@ -86,13 +86,13 @@ pub fn LinkedListDeque(comptime T: type) type {
         } 
 
         // 队首入队
-        pub fn offerFirst(self: *Self, num: T) !void {
-            try self.offer(num, true);
+        pub fn pushFirst(self: *Self, num: T) !void {
+            try self.push(num, true);
         } 
 
         // 队尾入队
-        pub fn offerLast(self: *Self, num: T) !void {
-            try self.offer(num, false);
+        pub fn pushLast(self: *Self, num: T) !void {
+            try self.push(num, false);
         } 
         
         // 出队操作
@@ -187,7 +187,7 @@ pub fn main() !void {
 
     // 队尾入队
     for (nums) |num| {
-        try deque.offerLast(num);
+        try deque.pushLast(num);
         std.debug.print("\n元素 {} 队尾入队后，队列为\n", .{num});
         try deque.print();
     }
@@ -203,7 +203,7 @@ pub fn main() !void {
 
     // 队首入队
     for (nums) |num| {
-        try deque.offerFirst(num);
+        try deque.pushFirst(num);
         std.debug.print("\n元素 {} 队首入队后，队列为\n", .{num});
         try deque.print();
     }

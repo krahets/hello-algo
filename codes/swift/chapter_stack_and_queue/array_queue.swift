@@ -31,7 +31,7 @@ class ArrayQueue {
     }
 
     /* 入队 */
-    func offer(num: Int) {
+    func push(num: Int) {
         if size() == capacity() {
             print("队列已满")
             return
@@ -82,11 +82,11 @@ enum _ArrayQueue {
         let queue = ArrayQueue(capacity: capacity)
 
         /* 元素入队 */
-        queue.offer(num: 1)
-        queue.offer(num: 3)
-        queue.offer(num: 2)
-        queue.offer(num: 5)
-        queue.offer(num: 4)
+        queue.push(num: 1)
+        queue.push(num: 3)
+        queue.push(num: 2)
+        queue.push(num: 5)
+        queue.push(num: 4)
         print("队列 queue = \(queue.toArray())")
 
         /* 访问队首元素 */
@@ -107,7 +107,7 @@ enum _ArrayQueue {
 
         /* 测试环形数组 */
         for i in 0 ..< 10 {
-            queue.offer(num: i)
+            queue.push(num: i)
             queue.poll()
             print("第 \(i) 轮入队 + 出队后 queue = \(queue.toArray())")
         }

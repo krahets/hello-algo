@@ -54,7 +54,7 @@ int peek(ArrayQueue *queue) {
 }
 
 /* 入队 */
-void offer(ArrayQueue *queue, int num) {
+void push(ArrayQueue *queue, int num) {
     if (size(queue) == capacity(queue)) {
         printf("队列已满\r\n");
         return;
@@ -93,11 +93,11 @@ int main() {
     ArrayQueue *queue = newArrayQueue(capacity);
 
     /* 元素入队 */
-    offer(queue, 1);
-    offer(queue, 3);
-    offer(queue, 2);
-    offer(queue, 5);
-    offer(queue, 4);
+    push(queue, 1);
+    push(queue, 3);
+    push(queue, 2);
+    push(queue, 5);
+    push(queue, 4);
     printf("队列 queue = ");
     printArrayQueue(queue);
 
@@ -120,7 +120,7 @@ int main() {
 
     /* 测试环形数组 */
     for (int i = 0; i < 10; i++) {
-        offer(queue, i);
+        push(queue, i);
         poll(queue);
         printf("第 %d 轮入队 + 出队后 queue = ", i);
         printArrayQueue(queue);

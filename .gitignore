@@ -4,15 +4,10 @@
 # Editor
 .vscode/
 .idea/
-cmake-build-debug/
 hello-algo.iml
-*.dSYM/
 
 # mkdocs files
 site/
 .cache/
 codes/scripts
 docs/overrides/
-
-# python files
-__pycache__

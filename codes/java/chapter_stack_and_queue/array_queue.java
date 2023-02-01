@@ -35,7 +35,7 @@ class ArrayQueue {
     }
 
     /* 入队 */
-    public void offer(int num) {
+    public void push(int num) {
         if (queSize == capacity()) {
             System.out.println("队列已满");
             return;
@@ -82,11 +82,11 @@ public class array_queue {
         ArrayQueue queue = new ArrayQueue(capacity);
 
         /* 元素入队 */
-        queue.offer(1);
-        queue.offer(3);
-        queue.offer(2);
-        queue.offer(5);
-        queue.offer(4);
+        queue.push(1);
+        queue.push(3);
+        queue.push(2);
+        queue.push(5);
+        queue.push(4);
         System.out.println("队列 queue = " + Arrays.toString(queue.toArray()));
 
         /* 访问队首元素 */
@@ -107,7 +107,7 @@ public class array_queue {
 
         /* 测试环形数组 */
         for (int i = 0; i < 10; i++) {
-            queue.offer(i);
+            queue.push(i);
             queue.poll();
             System.out.println("第 " + i + " 轮入队 + 出队后 queue = " + Arrays.toString(queue.toArray()));
         }

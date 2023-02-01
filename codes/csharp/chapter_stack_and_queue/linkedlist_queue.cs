@@ -34,7 +34,7 @@ namespace hello_algo.chapter_stack_and_queue
         }
 
         /* 入队 */
-        public void offer(int num)
+        public void push(int num)
         {
             // 尾结点后添加 num
             ListNode node = new ListNode(num);
@@ -97,11 +97,11 @@ namespace hello_algo.chapter_stack_and_queue
             LinkedListQueue queue = new LinkedListQueue();
 
             /* 元素入队 */
-            queue.offer(1);
-            queue.offer(3);
-            queue.offer(2);
-            queue.offer(5);
-            queue.offer(4);
+            queue.push(1);
+            queue.push(3);
+            queue.push(2);
+            queue.push(5);
+            queue.push(4);
             Console.WriteLine("队列 queue = " + String.Join(",", queue.toArray()));
 
             /* 访问队首元素 */
