@@ -500,11 +500,11 @@ comments: true
         // 添加结点
         maxHeap.add(val);
         // 从底至顶堆化
-        shiftUp(size() - 1);
+        siftUp(size() - 1);
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
-    void shiftUp(int i) {
+    void siftUp(int i) {
         while (true) {
             // 获取结点 i 的父结点
             int p = parent(i);
@@ -539,11 +539,11 @@ comments: true
         // 添加结点
         h.data = append(h.data, val)
         // 从底至顶堆化
-        h.shiftUp(len(h.data) - 1)
+        h.siftUp(len(h.data) - 1)
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
-    func (h *maxHeap) shiftUp(i int) {
+    func (h *maxHeap) siftUp(i int) {
         for true {
             // 获取结点 i 的父结点
             p := h.parent(i)
@@ -586,11 +586,11 @@ comments: true
     	// 添加结点
     	maxHeap.Append(val);
     	// 从底至顶堆化
-    	ShiftUp(maxHeap.Count - 1);
+    	SiftUp(maxHeap.Count - 1);
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
-    void ShiftUp(int i)
+    void SiftUp(int i)
     {
     	while (true)
     	{
@@ -615,11 +615,11 @@ comments: true
         // 添加结点
         maxHeap.append(val)
         // 从底至顶堆化
-        shiftUp(i: size() - 1)
+        siftUp(i: size() - 1)
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
-    func shiftUp(i: Int) {
+    func siftUp(i: Int) {
         var i = i
         while true {
             // 获取结点 i 的父结点
@@ -691,13 +691,13 @@ comments: true
         // 删除结点
         int val = maxHeap.remove(size() - 1);
         // 从顶至底堆化
-        shiftDown(0);
+        siftDown(0);
         // 返回堆顶元素
         return val;
     }
 
     /* 从结点 i 开始，从顶至底堆化 */
-    void shiftDown(int i) {
+    void siftDown(int i) {
         while (true) {
             // 判断结点 i, l, r 中值最大的结点，记为 ma
             int l = left(i), r = right(i), ma = i;
@@ -743,14 +743,14 @@ comments: true
         val := h.data[len(h.data)-1]
         h.data = h.data[:len(h.data)-1]
         // 从顶至底堆化
-        h.shiftDown(0)
+        h.siftDown(0)
 
         // 返回堆顶元素
         return val
     }
 
     /* 从结点 i 开始，从顶至底堆化 */
-    func (h *maxHeap) shiftDown(i int) {
+    func (h *maxHeap) siftDown(i int) {
         for true {
             // 判断结点 i, l, r 中值最大的结点，记为 max
             l, r, max := h.left(i), h.right(i), i
@@ -805,13 +805,13 @@ comments: true
     	int val = maxHeap.Last();
     	maxHeap.RemoveAt(maxHeap.Count - 1);
     	// 从顶至底堆化
-    	ShiftDown(0);
+    	SiftDown(0);
     	// 返回堆顶元素
     	return val;
     }
 
     /* 从结点 i 开始，从顶至底堆化 */
-    void ShiftDown(int i)
+    void SiftDown(int i)
     {
     	while (true)
     	{
@@ -845,13 +845,13 @@ comments: true
         // 删除结点
         let val = maxHeap.remove(at: size() - 1)
         // 从顶至底堆化
-        shiftDown(i: 0)
+        siftDown(i: 0)
         // 返回堆顶元素
         return val
     }
 
     /* 从结点 i 开始，从顶至底堆化 */
-    func shiftDown(i: Int) {
+    func siftDown(i: Int) {
         var i = i
         while true {
             // 判断结点 i, l, r 中值最大的结点，记为 ma
@@ -891,7 +891,7 @@ comments: true
         maxHeap = new ArrayList<>(nums);
         // 堆化除叶结点以外的其他所有结点
         for (int i = parent(size() - 1); i >= 0; i--) {
-            shiftDown(i);
+            siftDown(i);
         }
     }
     ```
@@ -917,7 +917,7 @@ comments: true
         h := &maxHeap{data: nums}
         // 堆化除叶结点以外的其他所有结点
         for i := len(h.data) - 1; i >= 0; i-- {
-            h.shiftDown(i)
+            h.siftDown(i)
         }
         return h
     }
@@ -951,7 +951,7 @@ comments: true
     	var size = Parent(maxHeap.Count- 1);
     	for (int i = size; i >= 0; i--)
     	{
-    		ShiftDown(i);
+    		SiftDown(i);
     	}
     }
     ```
@@ -965,7 +965,7 @@ comments: true
         maxHeap = nums
         // 堆化除叶结点以外的其他所有结点
         for i in stride(from: parent(i: size() - 1), through: 0, by: -1) {
-            shiftDown(i: i)
+            siftDown(i: i)
         }
     }
     ```
