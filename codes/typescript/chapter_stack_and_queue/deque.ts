@@ -1,5 +1,5 @@
 /**
- * File: deque.js
+ * File: deque.ts
  * Created Time: 2023-01-17
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
@@ -36,4 +36,4 @@ console.log("双向队列长度 size = " + size);
 const isEmpty: boolean = size === 0;
 console.log("双向队列是否为空 = " + isEmpty);
 
-export { };
+export {};
