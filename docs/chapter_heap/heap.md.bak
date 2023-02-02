@@ -6,16 +6,16 @@ comments: true
 
 「堆 Heap」是一颗限定条件下的「完全二叉树」。根据成立条件，堆主要分为两种类型：
 
--   「大顶堆 Max Heap」，任意结点的值 $\geq$ 其子结点的值；
--   「小顶堆 Min Heap」，任意结点的值 $\leq$ 其子结点的值；
+- 「大顶堆 Max Heap」，任意结点的值 $\geq$ 其子结点的值；
+- 「小顶堆 Min Heap」，任意结点的值 $\leq$ 其子结点的值；
 
 ![min_heap_and_max_heap](heap.assets/min_heap_and_max_heap.png)
 
 ## 8.1.1. 堆术语与性质
 
--   由于堆是完全二叉树，因此最底层结点靠左填充，其它层结点皆被填满。
--   二叉树中的根结点对应「堆顶」，底层最靠右结点对应「堆底」。
--   对于大顶堆 / 小顶堆，其堆顶元素（即根结点）的值最大 / 最小。
+- 由于堆是完全二叉树，因此最底层结点靠左填充，其它层结点皆被填满。
+- 二叉树中的根结点对应「堆顶」，底层最靠右结点对应「堆底」。
+- 对于大顶堆 / 小顶堆，其堆顶元素（即根结点）的值最大 / 最小。
 
 ## 8.1.2. 堆常用操作
 
@@ -53,17 +53,17 @@ comments: true
     Queue<Integer> minHeap = new PriorityQueue<>();
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
     Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> { return b - a; });
-
+	
     /* 元素入堆 */
     maxHeap.add(1);
     maxHeap.add(3);
     maxHeap.add(2);
     maxHeap.add(5);
     maxHeap.add(4);
-
+	
     /* 获取堆顶元素 */
     int peek = maxHeap.peek(); // 5
-
+	
     /* 堆顶元素出堆 */
     // 出堆元素会形成一个从大到小的序列
     peek = heap.poll();  // 5
@@ -71,13 +71,13 @@ comments: true
     peek = heap.poll();  // 3
     peek = heap.poll();  // 2
     peek = heap.poll();  // 1
-
+	
     /* 获取堆大小 */
     int size = maxHeap.size();
-
+	
     /* 判断堆是否为空 */
     boolean isEmpty = maxHeap.isEmpty();
-
+	
     /* 输入列表并建堆 */
     minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
     ```
@@ -256,22 +256,22 @@ comments: true
     ```java title="my_heap.java"
     // 使用列表而非数组，这样无需考虑扩容问题
     List<Integer> maxHeap;
-
+	
     /* 构造函数，建立空堆 */
     public MaxHeap() {
         maxHeap = new ArrayList<>();
     }
-
+	
     /* 获取左子结点索引 */
     int left(int i) {
         return 2 * i + 1;
     }
-
+	
     /* 获取右子结点索引 */
     int right(int i) {
         return 2 * i + 2;
     }
-
+	
     /* 获取父结点索引 */
     int parent(int i) {
         return (i - 1) / 2; // 向下整除
@@ -446,6 +446,7 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
+
     ```
 
 === "C#"
@@ -474,22 +475,22 @@ comments: true
 考虑从入堆结点开始，**从底至顶执行堆化**。具体地，比较插入结点与其父结点的值，若插入结点更大则将它们交换；并循环以上操作，从底至顶地修复堆中的各个结点；直至越过根结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "Step 1"
-![heap_push_step1](heap.assets/heap_push_step1.png)
+	![heap_push_step1](heap.assets/heap_push_step1.png)
 
 === "Step 2"
-![heap_push_step2](heap.assets/heap_push_step2.png)
+	![heap_push_step2](heap.assets/heap_push_step2.png)
 
 === "Step 3"
-![heap_push_step3](heap.assets/heap_push_step3.png)
+	![heap_push_step3](heap.assets/heap_push_step3.png)
 
 === "Step 4"
-![heap_push_step4](heap.assets/heap_push_step4.png)
+	![heap_push_step4](heap.assets/heap_push_step4.png)
 
 === "Step 5"
-![heap_push_step5](heap.assets/heap_push_step5.png)
+	![heap_push_step5](heap.assets/heap_push_step5.png)
 
 === "Step 6"
-![heap_push_step6](heap.assets/heap_push_step6.png)
+	![heap_push_step6](heap.assets/heap_push_step6.png)
 
 设结点总数为 $n$ ，则树的高度为 $O(\log n)$ ，易得堆化操作的循环轮数最多为 $O(\log n)$ ，**因而元素入堆操作的时间复杂度为 $O(\log n)$** 。
 
@@ -503,7 +504,7 @@ comments: true
         // 从底至顶堆化
         siftUp(size() - 1);
     }
-
+	
     /* 从结点 i 开始，从底至顶堆化 */
     void siftUp(int i) {
         while (true) {
@@ -648,34 +649,34 @@ comments: true
 顾名思义，**从顶至底堆化的操作方向与从底至顶堆化相反**，我们比较根结点的值与其两个子结点的值，将最大的子结点与根结点执行交换，并循环以上操作，直到越过叶结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "Step 1"
-![heap_poll_step1](heap.assets/heap_poll_step1.png)
+	![heap_poll_step1](heap.assets/heap_poll_step1.png)
 
 === "Step 2"
-![heap_poll_step2](heap.assets/heap_poll_step2.png)
+	![heap_poll_step2](heap.assets/heap_poll_step2.png)
 
 === "Step 3"
-![heap_poll_step3](heap.assets/heap_poll_step3.png)
+	![heap_poll_step3](heap.assets/heap_poll_step3.png)
 
 === "Step 4"
-![heap_poll_step4](heap.assets/heap_poll_step4.png)
+	![heap_poll_step4](heap.assets/heap_poll_step4.png)
 
 === "Step 5"
-![heap_poll_step5](heap.assets/heap_poll_step5.png)
+	![heap_poll_step5](heap.assets/heap_poll_step5.png)
 
 === "Step 6"
-![heap_poll_step6](heap.assets/heap_poll_step6.png)
+	![heap_poll_step6](heap.assets/heap_poll_step6.png)
 
 === "Step 7"
-![heap_poll_step7](heap.assets/heap_poll_step7.png)
+	![heap_poll_step7](heap.assets/heap_poll_step7.png)
 
 === "Step 8"
-![heap_poll_step8](heap.assets/heap_poll_step8.png)
+	![heap_poll_step8](heap.assets/heap_poll_step8.png)
 
 === "Step 9"
-![heap_poll_step9](heap.assets/heap_poll_step9.png)
+	![heap_poll_step9](heap.assets/heap_poll_step9.png)
 
 === "Step 10"
-![heap_poll_step10](heap.assets/heap_poll_step10.png)
+	![heap_poll_step10](heap.assets/heap_poll_step10.png)
 
 与元素入堆操作类似，**堆顶元素出堆操作的时间复杂度为 $O(\log n)$** 。
 
@@ -696,7 +697,7 @@ comments: true
         // 返回堆顶元素
         return val;
     }
-
+	
     /* 从结点 i 开始，从顶至底堆化 */
     void siftDown(int i) {
         while (true) {
@@ -877,7 +878,7 @@ comments: true
     }
     ```
 
-### 输入数据并建堆 \*
+### 输入数据并建堆 *
 
 如果我们想要直接输入一个列表并将其建堆，那么该怎么做呢？最直接地，考虑使用「元素入堆」方法，将列表元素依次入堆。元素入堆的时间复杂度为 $O(n)$ ，而平均长度为 $\frac{n}{2}$ ，因此该方法的总体时间复杂度为 $O(n \log n)$ 。
 
@@ -939,6 +940,7 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
+
     ```
 
 === "C#"
@@ -974,8 +976,8 @@ comments: true
 
 那么，第二种建堆方法的时间复杂度时多少呢？我们来做一下简单推算。
 
--   完全二叉树中，设结点总数为 $n$ ，则叶结点数量为 $(n + 1) / 2$ ，其中 $/$ 为向下整除。因此在排除叶结点后，需要堆化结点数量为 $(n - 1)/2$ ，即为 $O(n)$ ；
--   从顶至底堆化中，每个结点最多堆化至叶结点，因此最大迭代次数为二叉树高度 $O(\log n)$ ；
+- 完全二叉树中，设结点总数为 $n$ ，则叶结点数量为 $(n + 1) / 2$ ，其中 $/$ 为向下整除。因此在排除叶结点后，需要堆化结点数量为 $(n - 1)/2$ ，即为 $O(n)$ ；
+- 从顶至底堆化中，每个结点最多堆化至叶结点，因此最大迭代次数为二叉树高度 $O(\log n)$ ；
 
 将上述两者相乘，可得时间复杂度为 $O(n \log n)$ 。然而，该估算结果仍不够准确，因为我们没有考虑到 **二叉树底层结点远多于顶层结点** 的性质。
 
@@ -1016,6 +1018,6 @@ $$
 
 ## 8.1.4. 堆常见应用
 
--   **优先队列**。堆常作为实现优先队列的首选数据结构，入队和出队操作时间复杂度为 $O(\log n)$ ，建队操作为 $O(n)$ ，皆非常高效。
--   **堆排序**。给定一组数据，我们使用其建堆，并依次全部弹出，则可以得到有序的序列。当然，堆排序一般无需弹出元素，仅需每轮将堆顶元素交换至数组尾部并减小堆的长度即可。
--   **获取最大的 $k$ 个元素**。这既是一道经典算法题目，也是一种常见应用，例如选取热度前 10 的新闻作为微博热搜，选取前 10 销量的商品等。
+- **优先队列**。堆常作为实现优先队列的首选数据结构，入队和出队操作时间复杂度为 $O(\log n)$ ，建队操作为 $O(n)$ ，皆非常高效。
+- **堆排序**。给定一组数据，我们使用其建堆，并依次全部弹出，则可以得到有序的序列。当然，堆排序一般无需弹出元素，仅需每轮将堆顶元素交换至数组尾部并减小堆的长度即可。
+- **获取最大的 $k$ 个元素**。这既是一道经典算法题目，也是一种常见应用，例如选取热度前 10 的新闻作为微博热搜，选取前 10 销量的商品等。
