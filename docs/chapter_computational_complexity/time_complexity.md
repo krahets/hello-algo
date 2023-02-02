@@ -1406,8 +1406,8 @@ $$
 === "Go"
 
     ```go title="time_complexity.go"
-     /* 平方阶（冒泡排序） */
-     func bubbleSort(nums []int) int {
+    /* 平方阶（冒泡排序） */
+    func bubbleSort(nums []int) int {
         count := 0 // 计数器
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for i := len(nums) - 1; i > 0; i-- {
