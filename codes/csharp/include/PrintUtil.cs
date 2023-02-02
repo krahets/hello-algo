@@ -119,6 +119,29 @@ namespace hello_algo.include
                 Console.WriteLine(kv.ToString() + " -> " + map[kv]?.ToString());
             }
         }
-    }
 
+        public static void PrintHeap(PriorityQueue<int, int> heap)
+        {
+            Console.WriteLine("堆的数组表示：");
+            List<int> list = new List<int>();
+            while (heap.TryDequeue(out int element, out int priority))
+            {
+                list.Add(element);
+            }
+            Console.WriteLine(string.Join(',', list));
+            Console.WriteLine("堆的树状表示：");
+            TreeNode tree = TreeNode.ArrToTree(list.ToArray().Cast<int?>().ToArray());
+            PrintTree(tree);
+        }
+
+        public static void PrintMatrix(List<List<int>> matrix)
+        {
+            Console.WriteLine("[");
+            foreach (List<int> row in matrix)
+            {
+                Console.WriteLine(string.Join(',', row.Select(r => $"  {r}")));
+            }
+            Console.WriteLine("]");
+        }
+    }
 }

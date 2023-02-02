@@ -1,0 +1,172 @@
+using hello_algo.include;
+using NUnit.Framework;
+
+namespace hello_algo.chapter_heap;
+
+class MaxHeap
+{
+    // 使用列表而非数组，这样无需考虑扩容问题
+    private readonly List<int> maxHeap;
+
+    /* 构造函数，建立空堆 */
+    public MaxHeap()
+    {
+        maxHeap = new List<int>();
+    }
+    /* 构造函数，根据输入列表建堆 */
+    public MaxHeap(IEnumerable<int> nums)
+    {
+        // 将列表元素原封不动添加进堆
+        maxHeap = new List<int>(nums);
+        // 堆化除叶结点以外的其他所有结点
+        var size = Parent(Size() - 1);
+        for (int i = size; i >= 0; i--)
+        {
+            SiftDown(i);
+        }
+    }
+
+    /* 获取左子结点索引 */
+    int Left(int i)
+    {
+        return 2 * i + 1;
+    }
+
+    /* 获取右子结点索引 */
+    int Right(int i)
+    {
+        return 2 * i + 2;
+    }
+
+    /* 获取父结点索引 */
+    int Parent(int i)
+    {
+        return (i - 1) / 2; // 向下整除
+    }
+    /* 访问堆顶元素 */
+    public int Peek()
+    {
+        return maxHeap[0];
+    }
+    /* 元素入堆 */
+    public void Push(int val)
+    {
+        // 添加结点
+        maxHeap.Add(val);
+        // 从底至顶堆化
+        SiftUp(Size() - 1);
+    }
+    /* 获取堆大小 */
+    public int Size()
+    {
+        return maxHeap.Count;
+    }
+    /* 判断堆是否为空 */
+    public bool IsEmpty()
+    {
+        return Size() == 0;
+    }
+
+    /* 从结点 i 开始，从底至顶堆化 */
+    void SiftUp(int i)
+    {
+        while (true)
+        {
+            // 获取结点 i 的父结点
+            int p = Parent(i);
+            // 若“越过根结点”或“结点无需修复”，则结束堆化
+            if (p < 0 || maxHeap[i] <= maxHeap[p])
+                break;
+            // 交换两结点
+            Swap(i, p);
+            // 循环向上堆化
+            i = p;
+        }
+    }
+    /* 元素出堆 */
+    public int Poll()
+    {
+        // 判空处理
+        if (IsEmpty())
+            throw new IndexOutOfRangeException();
+        // 交换根结点与最右叶结点（即交换首元素与尾元素）
+        Swap(0, Size() - 1);
+        // 删除结点
+        int val = maxHeap.Last();
+        maxHeap.RemoveAt(Size() - 1);
+        // 从顶至底堆化
+        SiftDown(0);
+        // 返回堆顶元素
+        return val;
+    }
+
+    /* 从结点 i 开始，从顶至底堆化 */
+    void SiftDown(int i)
+    {
+        while (true)
+        {
+            // 判断结点 i, l, r 中值最大的结点，记为 ma
+            int l = Left(i), r = Right(i), ma = i;
+            if (l < Size() && maxHeap[l] > maxHeap[ma])
+                ma = l;
+            if (r < Size() && maxHeap[r] > maxHeap[ma])
+                ma = r;
+            // 若“结点 i 最大”或“越过叶结点”，则结束堆化
+            if (ma == i) break;
+            // 交换两结点
+            Swap(i, ma);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
+    /* 交换元素 */
+    void Swap(int i, int p)
+    {
+        (maxHeap[i], maxHeap[p]) = (maxHeap[p], maxHeap[i]);
+    }
+    /* 打印堆（二叉树） */
+    public void Print()
+    {
+        MaxHeap newHeap = (MaxHeap)MemberwiseClone();
+        PriorityQueue<int, int> queue = new PriorityQueue<int, int>(Comparer<int>.Create((x, y) => y - x));
+        while (!newHeap.IsEmpty())
+        {
+            int element = newHeap.Poll();
+            queue.Enqueue(element, element);
+        }
+        PrintUtil.PrintHeap(queue);
+    }
+}
+public class my_heap
+{
+    [Test]
+    public void Test()
+    {
+        /* 初始化大顶堆 */
+        MaxHeap maxHeap = new MaxHeap(new int[] { 9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2 });
+        Console.WriteLine("\n输入列表并建堆后");
+
+        /* 获取堆顶元素 */
+        int peek = maxHeap.Peek();
+        Console.WriteLine($"堆顶元素为 {peek}");
+
+        /* 元素入堆 */
+        int val = 7;
+        maxHeap.Push(val);
+        Console.WriteLine($"元素 {val} 入堆后");
+        maxHeap.Print();
+
+        /* 堆顶元素出堆 */
+        peek = maxHeap.Poll();
+        Console.WriteLine($"堆顶元素 {peek} 出堆后");
+        maxHeap.Print();
+
+        /* 获取堆大小 */
+        int size = maxHeap.Size();
+        Console.WriteLine($"堆元素数量为 {size}");
+
+        /* 判断堆是否为空 */
+        bool isEmpty = maxHeap.IsEmpty();
+        Console.WriteLine($"堆是否为空 {isEmpty}");
+    }
+}

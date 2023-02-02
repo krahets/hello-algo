@@ -196,19 +196,20 @@ comments: true
     ```csharp title="heap.cs"
     /* 初始化堆 */
     // 初始化小顶堆
-    PriorityQueue<int,int> minHeap = new PriorityQueue<int,int>();
+    PriorityQueue<int, int> minHeap = new PriorityQueue<int, int>();
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
-    PriorityQueue<int,int> maxHeap = new PriorityQueue<int,int>(Comparer<int>.Create((x, y) => y - x));
+    PriorityQueue<int, int> maxHeap = new PriorityQueue<int, int>(Comparer<int>.Create((x, y) => y - x));
 
     /* 元素入堆 */
-    maxHeap.Enqueue(1,1);
-    maxHeap.Enqueue(3,3);
-    maxHeap.Enqueue(2,2);
-    maxHeap.Enqueue(5,5);
-    maxHeap.Enqueue(5,5);
+    maxHeap.Enqueue(1, 1);
+    maxHeap.Enqueue(3, 3);
+    maxHeap.Enqueue(2, 2);
+    maxHeap.Enqueue(5, 5);
+    maxHeap.Enqueue(5, 5);
 
     /* 获取堆顶元素 */
-    int peek = maxHeap.Peek(); // 5
+    int peek = maxHeap.Peek();//5
+
 
     /* 堆顶元素出堆 */
     // 出堆元素会形成一个从大到小的序列
@@ -222,10 +223,10 @@ comments: true
     int size = maxHeap.Count;
 
     /* 判断堆是否为空 */
-    bool isEmpty = maxHeap.Count==0;
+    bool isEmpty = maxHeap.Count == 0;
 
     /* 输入列表并建堆 */
-    minHeap = new PriorityQueue<int, int>(new List<(int, int)> {(1,1),(3,3),(2,2),(5,5),(4,4),});
+    minHeap = new PriorityQueue<int, int>(new List<(int, int)> { (1, 1), (3, 3), (2, 2), (5, 5), (4, 4), });
     ```
 
 === "Swift"
@@ -445,16 +446,16 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
-
     ```
 
 === "C#"
 
     ```csharp title="my_heap.cs"
-    public int Peek() {
+    /* 访问堆顶元素 */
+    public int Peek()
+    {
         return maxHeap[0];
     }
-
     ```
 
 === "Swift"
@@ -581,29 +582,29 @@ comments: true
 
     ```csharp title="my_heap.cs"
     /* 元素入堆 */
-    void Push(int val)
+    public void Push(int val)
     {
-    	// 添加结点
-    	maxHeap.Append(val);
-    	// 从底至顶堆化
-    	SiftUp(maxHeap.Count - 1);
+        // 添加结点
+        maxHeap.Add(val);
+        // 从底至顶堆化
+        SiftUp(Size() - 1);
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
     void SiftUp(int i)
     {
-    	while (true)
-    	{
-    		// 获取结点 i 的父结点
-    		int p = Parent(i);
-    		// 若“越过根结点”或“结点无需修复”，则结束堆化
-    		if (p < 0 || maxHeap[i] <= maxHeap[p])
-    			break;
-    		// 交换两结点
-    		Swap(i, p);
-    		// 循环向上堆化
-    		i = p;
-    	}
+        while (true)
+        {
+            // 获取结点 i 的父结点
+            int p = Parent(i);
+            // 若“越过根结点”或“结点无需修复”，则结束堆化
+            if (p < 0 || maxHeap[i] <= maxHeap[p])
+                break;
+            // 交换两结点
+            Swap(i, p);
+            // 循环向上堆化
+            i = p;
+        }
     }
     ```
 
@@ -794,40 +795,40 @@ comments: true
 
     ```csharp title="my_heap.cs"
     /* 元素出堆 */
-    int Poll()
+    public int Poll()
     {
-    	// 判空处理
-    	if (maxHeap.Count == 0)
-    		throw new IndexOutOfRangeException();
-    	// 交换根结点与最右叶结点（即交换首元素与尾元素）
-    	Swap(0, maxHeap.Count - 1);
-    	// 删除结点
-    	int val = maxHeap.Last();
-    	maxHeap.RemoveAt(maxHeap.Count - 1);
-    	// 从顶至底堆化
-    	SiftDown(0);
-    	// 返回堆顶元素
-    	return val;
+        // 判空处理
+        if (IsEmpty())
+            throw new IndexOutOfRangeException();
+        // 交换根结点与最右叶结点（即交换首元素与尾元素）
+        Swap(0, maxHeap.Count - 1);
+        // 删除结点
+        int val = maxHeap.Last();
+        maxHeap.RemoveAt(Size() - 1);
+        // 从顶至底堆化
+        SiftDown(0);
+        // 返回堆顶元素
+        return val;
     }
 
     /* 从结点 i 开始，从顶至底堆化 */
     void SiftDown(int i)
     {
-    	while (true)
-    	{
-    		// 判断结点 i, l, r 中值最大的结点，记为 ma
-    		int l = Left(i), r = Right(i), ma = i;
-    		if (l < maxHeap.Count && maxHeap.ElementAt(l) > maxHeap.ElementAt(ma))
-    			ma = l;
-    		if (r < maxHeap.Count && maxHeap.ElementAt(r) > maxHeap.ElementAt(ma))
-    			ma = r;
-    		// 若“结点 i 最大”或“越过叶结点”，则结束堆化
-    		if (ma == i) break;
-    		// 交换两结点
-    		Swap(i, ma);
-    		// 循环向下堆化
-    		i = ma;
-    	}
+        while (true)
+        {
+            // 判断结点 i, l, r 中值最大的结点，记为 ma
+            int l = Left(i), r = Right(i), ma = i;
+            if (l < Size() && maxHeap[l] > maxHeap[ma])
+                ma = l;
+            if (r < Size() && maxHeap[r] > maxHeap[ma])
+                ma = r;
+            // 若“结点 i 最大”或“越过叶结点”，则结束堆化
+            if (ma == i) break;
+            // 交换两结点
+            Swap(i, ma);
+            // 循环向下堆化
+            i = ma;
+        }
     }
     ```
 
@@ -943,16 +944,17 @@ comments: true
 === "C#"
 
     ```csharp title="my_heap.cs"
-    public MaxHeap(IEnumerable<int> nums)
+    /* 构造函数，根据输入列表建堆 */
+     public MaxHeap(IEnumerable<int> nums)
     {
-    	// 将列表元素原封不动添加进堆
-    	maxHeap = new List<int>(nums);
-    	// 堆化除叶结点以外的其他所有结点
-    	var size = Parent(maxHeap.Count- 1);
-    	for (int i = size; i >= 0; i--)
-    	{
-    		SiftDown(i);
-    	}
+        // 将列表元素原封不动添加进堆
+        maxHeap = new List<int>(nums);
+        // 堆化除叶结点以外的其他所有结点
+        var size = Parent(Size() - 1);
+        for (int i = size; i >= 0; i--)
+        {
+            SiftDown(i);
+        }
     }
     ```
 
