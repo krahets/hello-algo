@@ -581,6 +581,16 @@ comments: true
         }
         return cur;
     }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    public TreeNode getInOrderNext(TreeNode root) {
+        if (root == null) return root;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (root.left != null) {
+            root = root.left;
+        }
+        return root;
+    }
     ```
 
 === "C++"
@@ -622,6 +632,16 @@ comments: true
             cur->val = tmp;
         }
         return cur;
+    }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    TreeNode* getInOrderNext(TreeNode* root) {
+        if (root == nullptr) return root;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (root->left != nullptr) {
+            root = root->left;
+        }
+        return root;
     }
     ```
 
@@ -672,6 +692,15 @@ comments: true
             # 将 nex 的值复制给 cur
             cur.val = tmp
         return cur
+
+    """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
+    def get_inorder_next(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if root is None:
+            return root
+        # 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while root.left is not None:
+            root = root.left
+        return root
     ```
 
 === "Go"
@@ -731,6 +760,18 @@ comments: true
         }
         return cur
     }
+
+    /* 获取中序遍历的下一个结点（仅适用于 root 有左子结点的情况） */
+    func (bst *binarySearchTree) getInOrderNext(node *TreeNode) *TreeNode {
+        if node == nil {
+            return node
+        }
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        for node.Left != nil {
+            node = node.Left
+        }
+        return node
+    }
     ```
 
 === "JavaScript"
@@ -772,6 +813,16 @@ comments: true
             cur.val = tmp;
         }
         return cur;
+    }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    function getInOrderNext(root) {
+        if (root === null) return root;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (root.left !== null) {
+            root = root.left;
+        }
+        return root;
     }
     ```
 
@@ -825,6 +876,18 @@ comments: true
             cur.val = tmp;
         }
         return cur;
+    }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    function getInOrderNext(root: TreeNode | null): TreeNode | null {
+        if (root === null) {
+            return null;
+        }
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (root.left !== null) {
+            root = root.left;
+        }
+        return root;
     }
     ```
 
@@ -887,6 +950,18 @@ comments: true
         }
         return cur;
     }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    private TreeNode? getInOrderNext(TreeNode? root)
+    {
+        if (root == null) return root;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (root.left != null)
+        {
+            root = root.left;
+        }
+        return root;
+    }
     ```
 
 === "Swift"
@@ -943,6 +1018,19 @@ comments: true
             cur?.val = tmp
         }
         return cur
+    }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    func getInOrderNext(root: TreeNode?) -> TreeNode? {
+        var root = root
+        if root == nil {
+            return root
+        }
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while root?.left != nil {
+            root = root?.left
+        }
+        return root
     }
     ```
 
