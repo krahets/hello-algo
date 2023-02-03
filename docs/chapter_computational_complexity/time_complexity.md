@@ -2432,21 +2432,12 @@ $$
         /* 查找数组 nums 中数字 1 所在索引 */
         int findOne(int[] nums) {
             for (int i = 0; i < nums.length; i++) {
+                // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+                // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
                 if (nums[i] == 1)
                     return i;
             }
             return -1;
-        }
-
-        /* Driver Code */
-        public void main(String[] args) {
-            for (int i = 0; i < 10; i++) {
-                int n = 100;
-                int[] nums = randomNumbers(n);
-                int index = findOne(nums);
-                System.out.println("打乱后的数组为 " + Arrays.toString(nums));
-                System.out.println("数字 1 的索引为 " + index);
-            }
         }
     }
     ```
@@ -2471,24 +2462,12 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     int findOne(vector<int>& nums) {
         for (int i = 0; i < nums.size(); i++) {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if (nums[i] == 1)
                 return i;
         }
         return -1;
-    }
-
-
-    /* Driver Code */
-    int main() {
-        for (int i = 0; i < 1000; i++) {
-            int n = 100;
-            vector<int> nums = randomNumbers(n);
-            int index = findOne(nums);
-            cout << "\n数组 [ 1, 2, ..., n ] 被打乱后 = ";
-            PrintUtil::printVector(nums);
-            cout << "数字 1 的索引为 " << index << endl;
-        }
-        return 0;
     }
     ```
 
@@ -2506,18 +2485,11 @@ $$
     """ 查找数组 nums 中数字 1 所在索引 """
     def find_one(nums):
         for i in range(len(nums)):
+            # 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            # 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if nums[i] == 1:
                 return i
         return -1
-
-    """ Driver Code """
-    if __name__ == "__main__":
-        for i in range(10):
-            n = 100
-            nums = random_numbers(n)
-            index = find_one(nums)
-            print("\n数组 [ 1, 2, ..., n ] 被打乱后 =", nums)
-            print("数字 1 的索引为", index)
     ```
 
 === "Go"
@@ -2540,22 +2512,13 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     func findOne(nums []int) int {
         for i := 0; i < len(nums); i++ {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if nums[i] == 1 {
                 return i
             }
         }
         return -1
-    }
-
-    /* Driver Code */
-    func main() {
-        for i := 0; i < 10; i++ {
-            n := 100
-            nums := randomNumbers(n)
-            index := findOne(nums)
-            fmt.Println("\n数组 [ 1, 2, ..., n ] 被打乱后 =", nums)
-            fmt.Println("数字 1 的索引为", index)
-        }
     }
     ```
 
@@ -2582,24 +2545,13 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     function findOne(nums) {
         for (let i = 0; i < nums.length; i++) {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if (nums[i] === 1) {
                 return i;
             }
         }
         return -1;
-    }
-
-    /* Driver Code */
-    function main() {
-        for (let i = 0; i < 10; i++) {
-            let n = 100;
-            let nums = randomNumbers(n);
-            let index = findOne(nums);
-            console.log(
-                "\n数组 [ 1, 2, ..., n ] 被打乱后 = [" + nums.join(", ") + "]"
-            );
-            console.log("数字 1 的索引为 " + index);
-        }
     }
     ```
 
@@ -2626,24 +2578,13 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     function findOne(nums: number[]): number {
         for (let i = 0; i < nums.length; i++) {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if (nums[i] === 1) {
                 return i;
             }
         }
         return -1;
-    }
-
-    /* Driver Code */
-    function main(): void {
-        for (let i = 0; i < 10; i++) {
-            let n = 100;
-            let nums = randomNumbers(n);
-            let index = findOne(nums);
-            console.log(
-                "\n数组 [ 1, 2, ..., n ] 被打乱后 = [" + nums.join(", ") + "]"
-            );
-            console.log("数字 1 的索引为 " + index);
-        }
     }
     ```
 
@@ -2671,30 +2612,11 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     int findOne(int *nums, int n) {
         for (int i = 0; i < n; i++) {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if (nums[i] == 1) return i;
         }
         return -1;
-    }
-
-    /* Driver Code */
-    int main(int argc, char *argv[]) {
-        // 初始化随机数种子
-        srand((unsigned int)time(NULL));
-        for (int i = 0; i < 10; i++) {
-            int n = 100;
-            int *nums = randomNumbers(n);
-            int index = findOne(nums, n);
-            printf("\n数组 [ 1, 2, ..., n ] 被打乱后 = ");
-            printArray(nums, n);
-            printf("数字 1 的索引为 %d\n", index);
-            // 释放堆区内存
-            if (nums != NULL) {
-                free(nums);
-                nums = NULL;
-            }
-        }
-        getchar();
-        return 0;
     }
     ```
 
@@ -2728,23 +2650,12 @@ $$
     {
         for (int i = 0; i < nums.Length; i++)
         {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if (nums[i] == 1)
                 return i;
         }
         return -1;
-    }
-
-    /* Driver Code */
-    public void main(String[] args)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            int n = 100;
-            int[] nums = randomNumbers(n);
-            int index = findOne(nums);
-            Console.WriteLine("\n数组 [ 1, 2, ..., n ] 被打乱后 = " + string.Join(",", nums));
-            Console.WriteLine("数字 1 的索引为 " + index);
-        }
     }
     ```
 
@@ -2763,22 +2674,13 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     func findOne(nums: [Int]) -> Int {
         for i in nums.indices {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if nums[i] == 1 {
                 return i
             }
         }
         return -1
-    }
-
-    /* Driver Code */
-    func main() {
-        for _ in 0 ..< 10 {
-            let n = 100
-            let nums = randomNumbers(n: n)
-            let index = findOne(nums: nums)
-            print("数组 [ 1, 2, ..., n ] 被打乱后 = \(nums)")
-            print("数字 1 的索引为 \(index)")
-        }
     }
     ```
 

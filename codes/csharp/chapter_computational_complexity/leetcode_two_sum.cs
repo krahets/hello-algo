@@ -8,6 +8,7 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_computational_complexity
 {
+    /* 方法一：暴力枚举 */
     class SolutionBruteForce
     {
         public int[] twoSum(int[] nums, int target)
@@ -26,6 +27,7 @@ namespace hello_algo.chapter_computational_complexity
         }
     }
 
+    /* 方法二：辅助哈希表 */
     class SolutionHashMap
     {
         public int[] twoSum(int[] nums, int target)

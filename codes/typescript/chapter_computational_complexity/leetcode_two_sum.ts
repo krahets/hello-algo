@@ -4,6 +4,7 @@
  * Author: gyt95 (gytkwan@gmail.com) 
  */
 
+/* 方法一：暴力枚举 */
 function twoSumBruteForce(nums: number[], target: number): number[] {
     const n = nums.length;
     // 两层循环，时间复杂度 O(n^2)
@@ -17,6 +18,7 @@ function twoSumBruteForce(nums: number[], target: number): number[] {
     return [];
 };
 
+/* 方法二：辅助哈希表 */
 function twoSumHashTable(nums: number[], target: number): number[] {
     // 辅助哈希表，空间复杂度 O(n)
     let m: Map<number, number> = new Map();

@@ -37,6 +37,8 @@ namespace hello_algo.chapter_computational_complexity
         {
             for (int i = 0; i < nums.Length; i++)
             {
+                // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+                // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
                 if (nums[i] == 1)
                     return i;
             }

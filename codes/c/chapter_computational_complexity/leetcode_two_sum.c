@@ -6,7 +6,7 @@
 
 #include "../include/include.h"
 
-/* 暴力解法 */
+/* 方法一：暴力枚举 */
 int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
     for (int i = 0; i < numsSize; ++i) {
         for (int j = i + 1; j < numsSize; ++j) {
@@ -49,7 +49,7 @@ void insert(hashTable *h, int key, int val) {
     }
 }
 
-
+/* 方法二：辅助哈希表 */
 int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
     hashTable *hashtable = NULL;
     for (int i = 0; i < numsSize; i++) {
