@@ -9,5 +9,5 @@ hello-algo.iml
 # mkdocs files
 site/
 .cache/
-codes/scripts
+scripts/
 docs/overrides/

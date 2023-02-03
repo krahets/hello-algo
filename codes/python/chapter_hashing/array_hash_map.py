@@ -6,10 +6,9 @@ Author: msk397 (machangxinq@gmail.com)
 
 """ 键值对 int->String """
 class Entry:
-    def __init__(self, key, val):
+    def __init__(self, key: int, val: str):
         self.key = key
         self.val = val
-
 
 """ 基于数组简易实现的哈希表 """
 class ArrayHashMap:
@@ -18,13 +17,13 @@ class ArrayHashMap:
         self.bucket = [None] * 100
 
     """ 哈希函数 """
-    def hashFunc(self, key):
+    def hash_func(self, key):
         index = key % 100
         return index
 
     """ 查询操作 """
     def get(self, key):
-        index = self.hashFunc(key)
+        index = self.hash_func(key)
         pair = self.bucket[index]
         if pair is None:
             return None
@@ -33,17 +32,17 @@ class ArrayHashMap:
     """ 添加操作 """
     def put(self, key, val):
         pair = Entry(key, val)
-        index = self.hashFunc(key)
+        index = self.hash_func(key)
         self.bucket[index] = pair
 
     """ 删除操作 """
     def remove(self, key):
-        index = self.hashFunc(key)
-        # 置为None，代表删除
+        index = self.hash_func(key)
+        # 置为 None ，代表删除
         self.bucket[index] = None
 
     """ 获取所有键值对 """
-    def entrySet(self):
+    def entry_set(self):
         result = []
         for pair in self.bucket:
             if pair is not None:
@@ -51,7 +50,7 @@ class ArrayHashMap:
         return result
 
     """ 获取所有键 """
-    def keySet(self):
+    def key_set(self):
         result = []
         for pair in self.bucket:
             if pair is not None:
@@ -59,7 +58,7 @@ class ArrayHashMap:
         return result
 
     """ 获取所有值 """
-    def valueSet(self):
+    def value_set(self):
         result = []
         for pair in self.bucket:
             if pair is not None:
@@ -101,13 +100,13 @@ if __name__ == "__main__":
 
     """ 遍历哈希表 """
     print("\n遍历键值对 Key->Value")
-    for pair in mapp.entrySet():
+    for pair in mapp.entry_set():
         print(pair.key, "->", pair.val)
 
     print("\n单独遍历键 Key")
-    for key in mapp.keySet():
+    for key in mapp.key_set():
         print(key)
 
     print("\n单独遍历值 Value")
-    for val in mapp.valueSet():
+    for val in mapp.value_set():
         print(val)
