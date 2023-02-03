@@ -5,6 +5,7 @@
 const std = @import("std");
 const inc = @import("include");
 
+// 方法一：暴力枚举
 const SolutionBruteForce = struct {
     pub fn twoSum(self: *SolutionBruteForce, nums: []i32, target: i32) [2]i32 {
         _ = self;
@@ -23,6 +24,7 @@ const SolutionBruteForce = struct {
     }
 };
 
+// 方法二：辅助哈希表
 const SolutionHashMap = struct {
     pub fn twoSum(self: *SolutionHashMap, nums: []i32, target: i32) ![2]i32 {
         _ = self;

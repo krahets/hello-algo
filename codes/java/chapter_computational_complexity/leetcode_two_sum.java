@@ -8,6 +8,7 @@ package chapter_computational_complexity;
 
 import java.util.*;
 
+/* 方法一：暴力枚举 */
 class SolutionBruteForce {
     public int[] twoSum(int[] nums, int target) {
         int size = nums.length;
@@ -22,6 +23,7 @@ class SolutionBruteForce {
     }
 }
 
+/* 方法二：辅助哈希表 */
 class SolutionHashMap {
     public int[] twoSum(int[] nums, int target) {
         int size = nums.length;

@@ -21,6 +21,8 @@ pub fn randomNumbers(comptime n: usize) [n]i32 {
 // 查找数组 nums 中数字 1 所在索引
 pub fn findOne(nums: []i32) i32 {
     for (nums) |num, i| {
+        // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+        // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
         if (num == 1) return @intCast(i32, i);
     }
     return -1;
