@@ -9,7 +9,7 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
 """ 随机访问元素 """
-def randomAccess(nums):
+def random_access(nums):
     # 在区间 [0, len(nums)-1] 中随机抽取一个数字
     random_index = random.randint(0, len(nums) - 1)
     # 获取并返回随机元素
@@ -69,7 +69,7 @@ if __name__ == "__main__":
     print("数组 nums =", nums)
     
     """ 随机访问 """
-    random_num = randomAccess(nums)
+    random_num = random_access(nums)
     print("在 nums 中获取随机元素", random_num)
     
     """ 长度扩展 """

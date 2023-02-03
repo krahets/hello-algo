@@ -35,20 +35,20 @@ class Trunk:
         self.prev = prev
         self.str = str
  
-def showTrunks(p):
+def show_trunks(p):
     if p is None:
         return
-    showTrunks(p.prev)
+    show_trunks(p.prev)
     print(p.str, end='')
  
-def print_tree(root, prev=None, isLeft=False):
+def print_tree(root, prev=None, is_left=False):
     """Print a binary tree
        This tree printer is borrowed from TECHIE DELIGHT
        https://www.techiedelight.com/c-program-print-binary-tree/
     Args:
         root ([type]): [description]
         prev ([type], optional): [description]. Defaults to None.
-        isLeft (bool, optional): [description]. Defaults to False.
+        is_left (bool, optional): [description]. Defaults to False.
     """
     if root is None:
         return
@@ -59,14 +59,14 @@ def print_tree(root, prev=None, isLeft=False):
  
     if prev is None:
         trunk.str = '———'
-    elif isLeft:
+    elif is_left:
         trunk.str = '/———'
         prev_str = '   |'
     else:
         trunk.str = '\———'
         prev.str = prev_str
  
-    showTrunks(trunk)
+    show_trunks(trunk)
     print(' ' + str(root.val))
     if prev:
         prev.str = prev_str

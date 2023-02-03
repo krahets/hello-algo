@@ -855,10 +855,10 @@ $$
 
     ```python title="space_complexity.py"
     """ 线性阶（递归实现） """
-    def linearRecur(n):
+    def linear_recur(n):
         print("递归 n =", n)
         if n == 1: return
-        linearRecur(n - 1)
+        linear_recur(n - 1)
     ```
 
 === "Go"

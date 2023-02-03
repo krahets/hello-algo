@@ -144,7 +144,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
     ```python title="array.py"
     """ 随机访问元素 """
-    def randomAccess(nums):
+    def random_access(nums):
         # 在区间 [0, len(nums)-1] 中随机抽取一个数字
         random_index = random.randint(0, len(nums) - 1)
         # 获取并返回随机元素
