@@ -914,7 +914,17 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-
+    // 常数阶
+    fn constant(n: i32) i32 {
+        _ = n;
+        var count: i32 = 0;
+        const size: i32 = 100_000;
+        var i: i32 = 0;
+        while(i<size) : (i += 1) {
+            count += 1;
+        }
+        return count;
+    }
     ```
 
 ### 线性阶 $O(n)$
@@ -1033,7 +1043,15 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-
+    // 线性阶
+    fn linear(n: i32) i32 {
+        var count: i32 = 0;
+        var i: i32 = 0;
+        while (i < n) : (i += 1) {
+            count += 1;
+        }
+        return count;
+    }
     ```
 
 「遍历数组」和「遍历链表」等操作，时间复杂度都为 $O(n)$ ，其中 $n$ 为数组或链表的长度。
@@ -1171,7 +1189,15 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-
+    // 线性阶（遍历数组）
+    fn arrayTraversal(nums: []i32) i32 {
+        var count: i32 = 0;
+        // 循环次数与数组长度成正比
+        for (nums) |_| {
+            count += 1;
+        }
+        return count;
+    }
     ```
 
 ### 平方阶 $O(n^2)$
@@ -1325,7 +1351,19 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-
+    // 平方阶
+    fn quadratic(n: i32) i32 {
+        var count: i32 = 0;
+        var i: i32 = 0;
+        // 循环次数与数组长度成平方关系
+        while (i < n) : (i += 1) {
+            var j: i32 = 0;
+            while (j < n) : (j += 1) {
+                count += 1;
+            }
+        }
+        return count;
+    }   
     ```
 
 ![time_complexity_constant_linear_quadratic](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
@@ -1551,7 +1589,26 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-
+    // 平方阶（冒泡排序）
+    fn bubbleSort(nums: []i32) i32 {
+        var count: i32 = 0;  // 计数器 
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        var i: i32 = @intCast(i32, nums.len ) - 1;
+        while (i > 0) : (i -= 1) {
+            var j: usize = 0;
+            // 内循环：冒泡操作
+            while (j < i) : (j += 1) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    var tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    count += 3;  // 元素交换包含 3 个单元操作
+                }
+            }
+        }
+        return count;
+    }
     ```
 
 ### 指数阶 $O(2^n)$
@@ -1732,7 +1789,22 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-
+    // 指数阶（循环实现）
+    fn exponential(n: i32) i32{
+        var count: i32 = 0;
+        var bas: i32 = 1;
+        var i: i32 = 0;
+        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+        while (i < n) : (i += 1) {
+            var j: i32 = 0;
+            while (j < bas) : (j += 1) {
+                count += 1;
+            }
+            bas *= 2;
+        }
+        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
+        return count;
+    }       
     ```
 
 ![time_complexity_exponential](time_complexity.assets/time_complexity_exponential.png)
@@ -1839,7 +1911,11 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-
+    // 指数阶（递归实现）
+    fn expRecur(n: i32) i32{
+        if (n == 1) return 1;
+        return expRecur(n - 1) + expRecur(n - 1) + 1;
+    }
     ```
 
 ### 对数阶 $O(\log n)$
@@ -1980,7 +2056,18 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-
+    // 对数阶（循环实现）
+    fn logarithmic(n: f32) i32
+    {
+        var count: i32 = 0;
+        var n_var = n;
+        while (n_var > 1)
+        {
+            n_var = n_var / 2;
+            count +=1;
+        }
+        return count;
+    }
     ```
 
 ![time_complexity_logarithmic](time_complexity.assets/time_complexity_logarithmic.png)
@@ -2086,7 +2173,12 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-
+    // 对数阶（递归实现）
+    fn logRecur(n: f32) i32
+    {
+        if (n <= 1) return 0;
+        return logRecur(n / 2) + 1;
+    }
     ```
 
 ### 线性对数阶 $O(n \log n)$
@@ -2234,7 +2326,18 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-
+    // 线性对数阶
+    fn linearLogRecur(n: f32) i32
+    {
+        if (n <= 1) return 1;
+        var count: i32 = linearLogRecur(n / 2) +
+                    linearLogRecur(n / 2);
+        var i: f32 = 0;
+        while (i < n) : (i += 1) {
+            count += 1;
+        }
+        return count;
+    }
     ```
 
 ![time_complexity_logarithmic_linear](time_complexity.assets/time_complexity_logarithmic_linear.png)
@@ -2392,7 +2495,17 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-
+    // 阶乘阶（递归实现）
+    fn factorialRecur(n: i32) i32 {
+        if (n == 0) return 1;
+        var count: i32 = 0;
+        var i: i32 = 0;
+        // 从 1 个分裂出 n 个
+        while (i < n) : (i += 1) {
+            count += factorialRecur(n - 1);
+        }
+        return count;
+    }
     ```
 
 ![time_complexity_factorial](time_complexity.assets/time_complexity_factorial.png)
@@ -2687,7 +2800,28 @@ $$
 === "Zig"
 
     ```zig title="worst_best_time_complexity.zig"
+    // 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
+    pub fn randomNumbers(comptime n: usize) [n]i32 {
+        var nums: [n]i32 = undefined;
+        // 生成数组 nums = { 1, 2, 3, ..., n }
+        for (nums) |*num, i| {
+            num.* = @intCast(i32, i) + 1;
+        }
+        // 随机打乱数组元素
+        const rand = std.crypto.random;
+        rand.shuffle(i32, &nums);
+        return nums;
+    }
 
+    // 查找数组 nums 中数字 1 所在索引
+    pub fn findOne(nums: []i32) i32 {
+        for (nums) |num, i| {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
+            if (num == 1) return @intCast(i32, i);
+        }
+        return -1;
+    }
     ```
 
 !!! tip

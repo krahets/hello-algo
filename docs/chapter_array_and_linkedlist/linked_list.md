@@ -129,7 +129,21 @@ comments: true
 === "Zig"
 
     ```zig title=""
+    // 链表结点类
+    pub fn ListNode(comptime T: type) type {
+        return struct {
+            const Self = @This();
+            
+            val: T = 0, // 结点值
+            next: ?*Self = null, // 指向下一结点的指针（引用）
 
+            // 构造函数
+            pub fn init(self: *Self, x: i32) void {
+                self.val = x;
+                self.next = null;
+            }
+        };
+    }
     ```
 
 **尾结点指向什么？** 我们一般将链表的最后一个结点称为「尾结点」，其指向的是「空」，在 Java / C++ / Python 中分别记为 `null` / `nullptr` / `None` 。在不引起歧义下，本书都使用 `null` 来表示空。
@@ -286,7 +300,18 @@ comments: true
 === "Zig"
 
     ```zig title="linked_list.zig"
-
+    // 初始化链表
+    // 初始化各个结点 
+    var n0 = inc.ListNode(i32){.val = 1};
+    var n1 = inc.ListNode(i32){.val = 3};
+    var n2 = inc.ListNode(i32){.val = 2};
+    var n3 = inc.ListNode(i32){.val = 5};
+    var n4 = inc.ListNode(i32){.val = 4};
+    // 构建引用指向
+    n0.next = &n1;
+    n1.next = &n2;
+    n2.next = &n3;
+    n3.next = &n4;
     ```
 
 ## 4.2.1. 链表优点
@@ -480,7 +505,21 @@ comments: true
 === "Zig"
 
     ```zig title="linked_list.zig"
+    // 在链表的结点 n0 之后插入结点 P
+    pub fn insert(n0: ?*inc.ListNode(i32), P: ?*inc.ListNode(i32)) void {
+        var n1 = n0.?.next;
+        n0.?.next = P;
+        P.?.next = n1;
+    }
 
+    // 删除链表的结点 n0 之后的首个结点
+    pub fn remove(n0: ?*inc.ListNode(i32)) void {
+        if (n0.?.next == null) return;
+        // n0 -> P -> n1
+        var P = n0.?.next;
+        var n1 = P.?.next;
+        n0.?.next = n1;
+    }
     ```
 
 ## 4.2.2. 链表缺点
@@ -612,7 +651,16 @@ comments: true
 === "Zig"
 
     ```zig title="linked_list.zig"
-
+    // 访问链表中索引为 index 的结点
+    pub fn access(node: ?*inc.ListNode(i32), index: i32) ?*inc.ListNode(i32) {
+        var head = node;
+        var i: i32 = 0;
+        while (i < index) : (i += 1) {
+            head = head.?.next;
+            if (head == null) return null;
+        }
+        return head;
+    }
     ```
 
 **链表的内存占用多**。链表以结点为单位，每个结点除了保存值外，还需额外保存指针（引用）。这意味着同样数据量下，链表比数组需要占用更多内存空间。
@@ -763,7 +811,17 @@ comments: true
 === "Zig"
 
     ```zig title="linked_list.zig"
-
+    // 在链表中查找值为 target 的首个结点
+    pub fn find(node: ?*inc.ListNode(i32), target: i32) i32 {
+        var head = node;
+        var index: i32 = 0;
+        while (head != null) {
+            if (head.?.val == target) return index;
+            head = head.?.next;
+            index += 1;
+        }
+        return -1;
+    }
     ```
 
 ## 4.2.4. 常见链表类型
@@ -897,7 +955,23 @@ comments: true
 === "Zig"
 
     ```zig title=""
+    // 双向链表结点类
+    pub fn ListNode(comptime T: type) type {
+        return struct {
+            const Self = @This();
+            
+            val: T = 0, // 结点值
+            next: ?*Self = null, // 指向后继结点的指针（引用）
+            prev: ?*Self = null, // 指向前驱结点的指针（引用）
 
+            // 构造函数
+            pub fn init(self: *Self, x: i32) void {
+                self.val = x;
+                self.next = null;
+                self.prev = null;
+            }
+        };
+    }
     ```
 
 ![linkedlist_common_types](linked_list.assets/linkedlist_common_types.png)

@@ -70,26 +70,27 @@ pub fn find(nums: []i32, target: i32) i32 {
 
 // Driver Code
 pub fn main() !void {
+    // 初始化内存分配器
+    var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
+    defer mem_arena.deinit();
+    const mem_allocator = mem_arena.allocator();
+
     // 初始化数组
-    const size: i32 = 5;
-    var arr = [_]i32{0} ** size;
+    var arr = [_]i32{0} ** 5;
     std.debug.print("数组 arr = ", .{});
     inc.PrintUtil.printArray(i32, &arr);
 
     var array = [_]i32{ 1, 3, 2, 5, 4 };
+    var known_at_runtime_zero: usize = 0;
+    var nums = array[known_at_runtime_zero..];
     std.debug.print("\n数组 nums = ", .{});
-    inc.PrintUtil.printArray(i32, &array);
+    inc.PrintUtil.printArray(i32, nums);
 
     // 随机访问
-    var randomNum = randomAccess(&array);
+    var randomNum = randomAccess(nums);
     std.debug.print("\n在 nums 中获取随机元素 {}", .{randomNum});
 
     // 长度扩展
-    var known_at_runtime_zero: usize = 0;
-    var nums: []i32 = array[known_at_runtime_zero..array.len];
-    var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
-    defer mem_arena.deinit();
-    const mem_allocator = mem_arena.allocator();
     nums = try extend(mem_allocator, nums, 3);
     std.debug.print("\n将数组长度扩展至 8 ，得到 nums = ", .{});
     inc.PrintUtil.printArray(i32, nums);
