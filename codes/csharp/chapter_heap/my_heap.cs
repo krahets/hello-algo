@@ -127,13 +127,7 @@ class MaxHeap
     /* 打印堆（二叉树） */
     public void Print()
     {
-        MaxHeap newHeap = (MaxHeap)MemberwiseClone();
-        PriorityQueue<int, int> queue = new PriorityQueue<int, int>(Comparer<int>.Create((x, y) => y - x));
-        while (!newHeap.IsEmpty())
-        {
-            int element = newHeap.Poll();
-            queue.Enqueue(element, element);
-        }
+        PriorityQueue<int, int> queue = new PriorityQueue<int, int>(maxHeap.Select(x => (x, x)), Comparer<int>.Create((x, y) => y - x));
         PrintUtil.PrintHeap(queue);
     }
 }
