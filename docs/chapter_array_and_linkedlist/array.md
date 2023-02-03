@@ -92,7 +92,9 @@ comments: true
 === "Zig"
 
     ```zig title="array.zig"
-
+    // 初始化数组
+    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
+    var nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
 ## 4.1.1. 数组优点
@@ -226,7 +228,14 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Zig"
 
     ```zig title="array.zig"
-
+    // 随机返回一个数组元素
+    pub fn randomAccess(nums: []i32) i32 {
+        // 在区间 [0, nums.len) 中随机抽取一个整数
+        var randomIndex = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
+        // 获取并返回随机元素
+        var randomNum = nums[randomIndex];
+        return randomNum;
+    }
     ```
 
 ## 4.1.2. 数组缺点
@@ -374,7 +383,16 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Zig"
 
     ```zig title="array.zig"
-
+    // 扩展数组长度
+    pub fn extend(mem_allocator: std.mem.Allocator, nums: []i32, enlarge: usize) ![]i32 {
+        // 初始化一个扩展长度后的数组
+        var res = try mem_allocator.alloc(i32, nums.len + enlarge);
+        std.mem.set(i32, res, 0);
+        // 将原数组中的所有元素复制到新数组
+        std.mem.copy(i32, res, nums);
+        // 返回扩展后的新数组
+        return res;
+    }
     ```
 
 **数组中插入或删除元素效率低下**。假设我们想要在数组中间某位置插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。删除元素也是类似，需要把此索引之后的元素都向前移动一位。总体看有以下缺点：
@@ -572,7 +590,25 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Zig"
 
     ```zig title="array.zig"
+    // 在数组的索引 index 处插入元素 num
+    pub fn insert(nums: []i32, num: i32, index: usize) void {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        var i = nums.len - 1;
+        while (i > index) : (i -= 1) {
+            nums[i] = nums[i - 1];
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num;
+    }
 
+    // 删除索引 index 处元素
+    pub fn remove(nums: []i32, index: usize) void {
+        // 把索引 index 之后的所有元素向前移动一位
+        var i = index;
+        while (i < nums.len - 1) : (i += 1) {
+            nums[i] = nums[i + 1];
+        }
+    }
     ```
 
 ## 4.1.3. 数组常用操作
@@ -720,7 +756,20 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Zig"
 
     ```zig title="array.zig"
-
+    // 遍历数组
+    pub fn traverse(nums: []i32) void {
+        var count: i32 = 0;
+        // 通过索引遍历数组
+        var i: i32 = 0;
+        while (i < nums.len) : (i += 1) {
+            count += 1;
+        }
+        count = 0;
+        // 直接遍历数组
+        for (nums) |_| {
+            count += 1;
+        }
+    }
     ```
 
 **数组查找**。通过遍历数组，查找数组内的指定元素，并输出对应索引。
@@ -842,7 +891,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Zig"
 
     ```zig title="array.zig"
-
+    // 在数组中查找指定元素
+    pub fn find(nums: []i32, target: i32) i32 {
+        for (nums) |num, i| {
+            if (num == target) return @intCast(i32, i);
+        }
+        return -1;
+    }
     ```
 
 ## 4.1.4. 数组典型应用
