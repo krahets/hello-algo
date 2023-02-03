@@ -5,7 +5,7 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 平衡二叉树
+// AVL 树
 pub fn AVLTree(comptime T: type) type {
     return struct {
         const Self = @This();
