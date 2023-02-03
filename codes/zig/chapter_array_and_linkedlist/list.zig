@@ -44,8 +44,7 @@ pub fn main() !void {
     inc.PrintUtil.printList(i32, list);
 
     // 删除元素
-    var value = list.orderedRemove(3);
-    _ = value;
+    _ = list.orderedRemove(3);
     std.debug.print("\n删除索引 3 处的元素，得到 list = ", .{});
     inc.PrintUtil.printList(i32, list);
 

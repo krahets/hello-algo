@@ -643,7 +643,29 @@ $$
 === "Zig"
 
     ```zig title="space_complexity.zig"
-
+    // 常数阶
+    fn constant(n: i32) void {
+        // 常量、变量、对象占用 O(1) 空间
+        const a: i32 = 0;
+        var b: i32 = 0;
+        var nums = [_]i32{0}**10000;
+        var node = inc.ListNode(i32){.val = 0};
+        var i: i32 = 0;
+        // 循环中的变量占用 O(1) 空间
+        while (i < n) : (i += 1) {
+            var c: i32 = 0;
+            _ = c;
+        }
+        // 循环中的函数占用 O(1) 空间
+        i = 0;
+        while (i < n) : (i += 1) {
+            _ = function();
+        }
+        _ = a;
+        _ = b;
+        _ = nums;
+        _ = node;
+    }
     ```
 
 ### 线性阶 $O(n)$
@@ -781,7 +803,28 @@ $$
 === "Zig"
 
     ```zig title="space_complexity.zig"
-
+    // 线性阶
+    fn linear(comptime n: i32) !void {
+        // 长度为 n 的数组占用 O(n) 空间
+        var nums = [_]i32{0}**n;
+        // 长度为 n 的列表占用 O(n) 空间
+        var nodes = std.ArrayList(i32).init(std.heap.page_allocator);
+        defer nodes.deinit();
+        var i: i32 = 0;
+        while (i < n) : (i += 1) {
+            try nodes.append(i);
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        var map = std.AutoArrayHashMap(i32, []const u8).init(std.heap.page_allocator);
+        defer map.deinit();
+        var j: i32 = 0;
+        while (j < n) : (j += 1) {
+            const string = try std.fmt.allocPrint(std.heap.page_allocator, "{d}", .{j});
+            defer std.heap.page_allocator.free(string);
+            try map.put(i, string);
+        }
+        _ = nums;
+    }
     ```
 
 以下递归函数会同时存在 $n$ 个未返回的 `algorithm()` 函数，使用 $O(n)$ 大小的栈帧空间。
@@ -877,7 +920,12 @@ $$
 === "Zig"
 
     ```zig title="space_complexity.zig"
-
+    // 线性阶（递归实现）
+    fn linearRecur(comptime n: i32) void {
+        std.debug.print("递归 n = {}\n", .{n});
+        if (n == 1) return;
+        linearRecur(n - 1);
+    }
     ```
 
 ![space_complexity_recursive_linear](space_complexity.assets/space_complexity_recursive_linear.png)
@@ -1000,7 +1048,22 @@ $$
 === "Zig"
 
     ```zig title="space_complexity.zig"
-
+    // 平方阶
+    fn quadratic(n: i32) !void {
+        // 二维列表占用 O(n^2) 空间
+        var nodes = std.ArrayList(std.ArrayList(i32)).init(std.heap.page_allocator);
+        defer nodes.deinit();
+        var i: i32 = 0;
+        while (i < n) : (i += 1) {
+            var tmp = std.ArrayList(i32).init(std.heap.page_allocator);
+            defer tmp.deinit();
+            var j: i32 = 0;
+            while (j < n) : (j += 1) {
+                try tmp.append(0);
+            }
+            try nodes.append(tmp);
+        }
+    }
     ```
 
 在以下递归函数中，同时存在 $n$ 个未返回的 `algorithm()` ，并且每个函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $\frac{n}{2}$ ，因此总体使用 $O(n^2)$ 空间。
@@ -1103,7 +1166,13 @@ $$
 === "Zig"
 
     ```zig title="space_complexity.zig"
-
+    // 平方阶（递归实现）
+    fn quadraticRecur(comptime n: i32) i32 {
+        if (n <= 0) return 0;
+        var nums = [_]i32{0}**n;
+        std.debug.print("递归 n = {} 中的 nums 长度 = {}\n", .{n, nums.len});
+        return quadraticRecur(n - 1);
+    }
     ```
 
 ![space_complexity_recursive_quadratic](space_complexity.assets/space_complexity_recursive_quadratic.png)
@@ -1217,7 +1286,15 @@ $$
 === "Zig"
 
     ```zig title="space_complexity.zig"
-
+    // 指数阶（建立满二叉树）
+    fn buildTree(mem_allocator: std.mem.Allocator, n: i32) !?*inc.TreeNode(i32) {
+        if (n == 0) return null;
+        const root = try mem_allocator.create(inc.TreeNode(i32));
+        root.init(0);
+        root.left = try buildTree(mem_allocator, n - 1);
+        root.right = try buildTree(mem_allocator, n - 1);
+        return root;
+    }
     ```
 
 ![space_complexity_exponential](space_complexity.assets/space_complexity_exponential.png)
