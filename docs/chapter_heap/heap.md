@@ -205,7 +205,7 @@ comments: true
     maxHeap.Enqueue(3, 3);
     maxHeap.Enqueue(2, 2);
     maxHeap.Enqueue(5, 5);
-    maxHeap.Enqueue(5, 5);
+    maxHeap.Enqueue(4, 4);
 
     /* 获取堆顶元素 */
     int peek = maxHeap.Peek();//5
