@@ -6,7 +6,7 @@ package chapter_tree
 
 import . "github.com/krahets/hello-algo/pkg"
 
-/* AVL Tree*/
+/* AVL 树 */
 type avlTree struct {
 	// 根节点
 	root *TreeNode

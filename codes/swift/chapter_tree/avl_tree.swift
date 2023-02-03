@@ -6,7 +6,7 @@
 
 import utils
 
-// Tree class
+/* AVL 树 */
 class AVLTree {
     fileprivate var root: TreeNode? // 根节点
 

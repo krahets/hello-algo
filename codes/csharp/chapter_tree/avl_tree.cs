@@ -9,7 +9,7 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_tree
 {
-    // Tree class
+    /* AVL 树 */
     class AVLTree
     {
         public TreeNode? root; // 根节点
