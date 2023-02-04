@@ -29,11 +29,11 @@ comments: true
 
 <div class="center-table" markdown>
 
-| 方法      | 描述                                         | 时间复杂度  |
-| --------- | -------------------------------------------- | ----------- |
-| add()     | 元素入堆                                     | $O(\log n)$ |
-| poll()    | 堆顶元素出堆                                 | $O(\log n)$ |
-| peek()    | 访问堆顶元素（大 / 小顶堆分别为最大 / 小值） | $O(1)$      |
+| 方法      | 描述                                        | 时间复杂度  |
+| --------- | ----------------------------------------- | ----------- |
+| add()     | 元素入堆                                   | $O(\log n)$ |
+| poll()    | 堆顶元素出堆                                | $O(\log n)$ |
+| peek()    | 访问堆顶元素（大 / 小顶堆分别为最大 / 小值）     | $O(1)$      |
 | size()    | 获取堆的元素数量                             | $O(1)$      |
 | isEmpty() | 判断堆是否为空                               | $O(1)$      |
 
@@ -302,12 +302,7 @@ comments: true
 
     /* 获取父结点索引 */
     int parent(int i) {
-        return (i - 1) / 2; //向下取整
-    }
-
-    /* 交换元素 */
-    void _swap(int i, int j) {
-        swap(maxHeap[i], maxHeap[j]);
+        return (i - 1) / 2; // 向下取整
     }
     ```
 
@@ -422,7 +417,7 @@ comments: true
 
     ```cpp title="my_heap.cpp"
     /* 访问堆顶元素 */
-    int top() {
+    int peek() {
         return maxHeap[0];
     }
     ```
@@ -554,7 +549,7 @@ comments: true
             if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
             // 交换两结点
-            _swap(i, p);
+            swap(maxHeap[i], maxHeap[p]);
             // 循环向上堆化
             i = p;
         }
@@ -736,21 +731,6 @@ comments: true
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    /* 元素出堆 */
-    void pop() {
-        // 判空处理
-        if (empty()) {
-            cout << "Error:堆为空" << endl;
-            return;
-        }
-        // 交换根结点与最右叶结点（即交换首元素与尾元素）
-        _swap(0, size() - 1);
-        // 删除结点
-        maxHeap.pop_back();
-        // 从顶至底堆化
-        shifDown(0);
-    }
-
     /* 从结点 i 开始，从顶至底堆化 */
     void shifDown(int i) {
         while (true) {
@@ -764,10 +744,25 @@ comments: true
             // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
             if (ma == i) 
                 break;
-            _swap(i, ma);
+            swap(maxHeap[i], maxHeap[ma]);
             // 循环向下堆化
             i = ma;
         }
+    }
+    
+    /* 元素出堆 */
+    void poll() {
+        // 判空处理
+        if (empty()) {
+            cout << "Error:堆为空" << endl;
+            return;
+        }
+        // 交换根结点与最右叶结点（即交换首元素与尾元素）
+        swap(maxHeap[0], maxHeap[size() - 1]);
+        // 删除结点
+        maxHeap.pop_back();
+        // 从顶至底堆化
+        shifDown(0);
     }
     ```
 
@@ -923,9 +918,7 @@ comments: true
     /* 构造函数，根据输入数组建堆 */
     MaxHeap(vector<int> nums) {
         // 将数组元素原封不动添加进堆
-        for (int i = 0; i < nums.size(); i++) {
-            maxHeap.push_back(nums[i]);
-        }
+        maxHeap = nums;
         // 堆化除叶结点以外的其他所有结点
         for (int i = parent(size() - 1); i >= 0; i--) {
             shifDown(i);
