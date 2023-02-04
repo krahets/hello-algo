@@ -442,6 +442,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="merge_sort.zig"
+
+    ```
+
 下面重点解释一下合并方法 `merge()` 的流程：
 
 1. 初始化一个辅助数组 `tmp` 暂存待合并区间 `[left, right]` 内的元素，后续通过覆盖原数组 `nums` 的元素来实现合并；

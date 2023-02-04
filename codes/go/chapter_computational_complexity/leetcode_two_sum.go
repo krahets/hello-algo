@@ -4,7 +4,7 @@
 
 package chapter_computational_complexity
 
-// twoSumBruteForce
+/* 方法一：暴力枚举 */
 func twoSumBruteForce(nums []int, target int) []int {
 	size := len(nums)
 	// 两层循环，时间复杂度 O(n^2)
@@ -18,7 +18,7 @@ func twoSumBruteForce(nums []int, target int) []int {
 	return nil
 }
 
-// twoSumHashTable
+/* 方法二：辅助哈希表 */
 func twoSumHashTable(nums []int, target int) []int {
 	// 辅助哈希表，空间复杂度 O(n)
 	hashTable := map[int]int{}

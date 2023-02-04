@@ -157,7 +157,7 @@ comments: true
 === "C#"
 
     ```csharp title="insertion_sort.cs"
-     /* 插入排序 */
+    /* 插入排序 */
     void insertionSort(int[] nums)
     {
         // 外循环：base = nums[1], nums[2], ..., nums[n-1]
@@ -192,6 +192,12 @@ comments: true
             nums[j + 1] = base // 2. 将 base 赋值到正确位置
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="insertion_sort.zig"
+
     ```
 
 ## 11.3.2. 算法特性

@@ -150,6 +150,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="linear_search.zig"
+
+    ```
+
 再比如，我们想要在给定一个目标结点值 `target` ，返回此结点对象，也可以在链表中进行线性查找。
 
 === "Java"
@@ -295,6 +301,12 @@ comments: true
         // 未找到目标结点，返回 null
         return nil
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="linear_search.zig"
+
     ```
 
 ## 10.1.2. 复杂度分析

@@ -42,7 +42,7 @@ public:
     }
 
     /* 入队 */
-    void offer(int num) {
+    void push(int num) {
         if (queSize == queCapacity) {
             cout << "队列已满" << endl;
             return;
@@ -90,11 +90,11 @@ int main() {
     ArrayQueue* queue = new ArrayQueue(capacity);
 
     /* 元素入队 */
-    queue->offer(1);
-    queue->offer(3);
-    queue->offer(2);
-    queue->offer(5);
-    queue->offer(4);
+    queue->push(1);
+    queue->push(3);
+    queue->push(2);
+    queue->push(5);
+    queue->push(4);
     cout << "队列 queue = ";
     PrintUtil::printVector(queue->toVector());
 
@@ -117,7 +117,7 @@ int main() {
 
     /* 测试环形数组 */
     for (int i = 0; i < 10; i++) {
-        queue->offer(i);
+        queue->push(i);
         queue->poll();
         cout << "第 " << i << " 轮入队 + 出队后 queue = ";
         PrintUtil::printVector(queue->toVector());

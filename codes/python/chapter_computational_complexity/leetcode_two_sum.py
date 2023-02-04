@@ -8,6 +8,7 @@ import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
+""" 方法一：暴力枚举 """
 class SolutionBruteForce:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums) - 1):
@@ -16,6 +17,7 @@ class SolutionBruteForce:
                     return i, j
         return []
 
+""" 方法二：辅助哈希表 """
 class SolutionHashMap:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         dic = {}

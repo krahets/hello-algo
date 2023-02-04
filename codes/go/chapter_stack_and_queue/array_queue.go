@@ -32,8 +32,8 @@ func (q *arrayQueue) isEmpty() bool {
 	return q.queSize == 0
 }
 
-// offer 入队
-func (q *arrayQueue) offer(num int) {
+// push 入队
+func (q *arrayQueue) push(num int) {
 	// 当 rear == queCapacity 表示队列已满
 	if q.queSize == q.queCapacity {
 		return

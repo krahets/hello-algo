@@ -36,10 +36,10 @@ def linear(n):
         mapp[i] = str(i)
 
 """ 线性阶（递归实现） """
-def linearRecur(n):
+def linear_recur(n):
     print("递归 n =", n)
     if n == 1: return
-    linearRecur(n - 1)
+    linear_recur(n - 1)
 
 """ 平方阶 """
 def quadratic(n):
@@ -69,7 +69,7 @@ if __name__ == "__main__":
     constant(n)
     # 线性阶
     linear(n)
-    linearRecur(n)
+    linear_recur(n)
     # 平方阶
     quadratic(n)
     quadratic_recur(n)

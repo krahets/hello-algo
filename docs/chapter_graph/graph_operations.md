@@ -16,19 +16,19 @@ comments: true
 - **初始化**：传入 $n$ 个顶点，初始化长度为 $n$ 的顶点列表 `vertices` ，使用 $O(n)$ 时间；初始化 $n \times n$ 大小的邻接矩阵 `adjMat` ，使用 $O(n^2)$ 时间。
 
 === "初始化邻接矩阵"
-    ![adjacency_matrix_initialization](basic_operation_of_graph.assets/adjacency_matrix_initialization.png)
+    ![adjacency_matrix_initialization](graph_operations.assets/adjacency_matrix_initialization.png)
 
 === "添加边"
-    ![adjacency_matrix_add_edge](basic_operation_of_graph.assets/adjacency_matrix_add_edge.png)
+    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_add_edge.png)
 
 === "删除边"
-    ![adjacency_matrix_remove_edge](basic_operation_of_graph.assets/adjacency_matrix_remove_edge.png)
+    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_remove_edge.png)
 
 === "添加顶点"
-    ![adjacency_matrix_add_vertex](basic_operation_of_graph.assets/adjacency_matrix_add_vertex.png)
+    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_add_vertex.png)
 
 === "删除顶点"
-    ![adjacency_matrix_remove_vertex](basic_operation_of_graph.assets/adjacency_matrix_remove_vertex.png)
+    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_remove_vertex.png)
 
 以下是基于邻接矩阵表示图的实现代码。
 
@@ -250,6 +250,12 @@ comments: true
 
     ```
 
+=== "Zig"
+
+    ```zig title="graph_adjacency_matrix.zig"
+
+    ```
+
 ## 9.2.2. 基于邻接表的实现
 
 设图的顶点总数为 $n$ 、边总数为 $m$ ，则有：
@@ -261,19 +267,19 @@ comments: true
 - **初始化**：需要在邻接表中建立 $n$ 个结点和 $2m$ 条边，使用 $O(n + m)$ 时间。
 
 === "初始化邻接表"
-    ![adjacency_list_initialization](basic_operation_of_graph.assets/adjacency_list_initialization.png)
+    ![adjacency_list_initialization](graph_operations.assets/adjacency_list_initialization.png)
 
 === "添加边"
-    ![adjacency_list_add_edge](basic_operation_of_graph.assets/adjacency_list_add_edge.png)
+    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_add_edge.png)
 
 === "删除边"
-    ![adjacency_list_remove_edge](basic_operation_of_graph.assets/adjacency_list_remove_edge.png)
+    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_remove_edge.png)
 
 === "添加顶点"
-    ![adjacency_list_add_vertex](basic_operation_of_graph.assets/adjacency_list_add_vertex.png)
+    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_add_vertex.png)
 
 === "删除顶点"
-    ![adjacency_list_remove_vertex](basic_operation_of_graph.assets/adjacency_list_remove_vertex.png)
+    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_remove_vertex.png)
 
 基于邻接表实现图的代码如下所示。
 
@@ -471,6 +477,12 @@ comments: true
 === "Swift"
 
     ```swift title="graph_adjacency_list.swift"
+
+    ```
+
+=== "Zig"
+
+    ```zig title="graph_adjacency_list.zig"
 
     ```
 

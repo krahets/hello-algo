@@ -31,17 +31,17 @@ class ArrayQueue {
     }
 
     /* 入队 */
-    func offer(num: Int) {
+    func push(num: Int) {
         if size() == capacity() {
             print("队列已满")
             return
         }
         // 计算尾指针，指向队尾索引 + 1
         // 通过取余操作，实现 rear 越过数组尾部后回到头部
-        int rear = (front + queSize) % capacity();
+        let rear = (front + queSize) % capacity()
         // 尾结点后添加 num
-        nums[rear] = num;
-        queSize++;
+        nums[rear] = num
+        queSize += 1
     }
 
     /* 出队 */
@@ -49,9 +49,9 @@ class ArrayQueue {
     func poll() -> Int {
         let num = peek()
         // 队首指针向后移动一位，若越过尾部则返回到数组头部
-        front = (front + 1) % capacity();
-        queSize--;
-        return num;
+        front = (front + 1) % capacity()
+        queSize -= 1
+        return num
     }
 
     /* 访问队首元素 */
@@ -66,7 +66,7 @@ class ArrayQueue {
     func toArray() -> [Int] {
         // 仅转换有效长度范围内的列表元素
         var res = Array(repeating: 0, count: queSize)
-        for (i, j) in sequence(first: (0, front), next: { $0 < queSize - 1 ? ($0 + 1, $1 + 1) : nil }) {
+        for (i, j) in sequence(first: (0, front), next: { $0 < self.queSize - 1 ? ($0 + 1, $1 + 1) : nil }) {
             res[i] = nums[j % capacity()]
         }
         return res
@@ -82,11 +82,11 @@ enum _ArrayQueue {
         let queue = ArrayQueue(capacity: capacity)
 
         /* 元素入队 */
-        queue.offer(num: 1)
-        queue.offer(num: 3)
-        queue.offer(num: 2)
-        queue.offer(num: 5)
-        queue.offer(num: 4)
+        queue.push(num: 1)
+        queue.push(num: 3)
+        queue.push(num: 2)
+        queue.push(num: 5)
+        queue.push(num: 4)
         print("队列 queue = \(queue.toArray())")
 
         /* 访问队首元素 */
@@ -107,7 +107,7 @@ enum _ArrayQueue {
 
         /* 测试环形数组 */
         for i in 0 ..< 10 {
-            queue.offer(num: i)
+            queue.push(num: i)
             queue.poll()
             print("第 \(i) 轮入队 + 出队后 queue = \(queue.toArray())")
         }

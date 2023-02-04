@@ -14,19 +14,19 @@ comments: true
 
 ## 5.2.1. 队列常用操作
 
-队列的常用操作见下表（方法命名以 Java 为例）。
+队列的常用操作见下表，方法名需根据特定语言来确定。
 
 <p align="center"> Table. 队列的常用操作 </p>
 
 <div class="center-table" markdown>
 
-| 方法      | 描述                         | 时间复杂度 |
-| --------- | ---------------------------- | ---------- |
-| offer()   | 元素入队，即将元素添加至队尾 | $O(1)$     |
-| poll()    | 队首元素出队                 | $O(1)$     |
-| front()   | 访问队首元素                 | $O(1)$     |
-| size()    | 获取队列的长度               | $O(1)$     |
-| isEmpty() | 判断队列是否为空             | $O(1)$     |
+| 方法名     | 描述                        | 时间复杂度 |
+| --------- | -------------------------- | -------- |
+| push()    | 元素入队，即将元素添加至队尾    | $O(1)$   |
+| poll()    | 队首元素出队                 | $O(1)$   |
+| front()   | 访问队首元素                 | $O(1)$   |
+| size()    | 获取队列的长度               | $O(1)$   |
+| isEmpty() | 判断队列是否为空              | $O(1)$   |
 
 </div>
 
@@ -256,6 +256,12 @@ comments: true
     let isEmpty = queue.isEmpty
     ```
 
+=== "Zig"
+
+    ```zig title="queue.zig"
+
+    ```
+
 ## 5.2.2. 队列实现
 
 队列需要一种可以在一端添加，并在另一端删除的数据结构，也可以使用链表或数组来实现。
@@ -296,7 +302,7 @@ comments: true
             return size() == 0;
         }
         /* 入队 */
-        public void offer(int num) {
+        public void push(int num) {
             // 尾结点后添加 num
             ListNode node = new ListNode(num);
             // 如果队列为空，则令头、尾结点都指向该结点
@@ -355,7 +361,7 @@ comments: true
             return queSize == 0;
         }
         /* 入队 */
-        void offer(int num) {
+        void push(int num) {
             // 尾结点后添加 num
             ListNode* node = new ListNode(num);
             // 如果队列为空，则令头、尾结点都指向该结点
@@ -453,8 +459,8 @@ comments: true
         }
     }
     
-    // offer 入队
-    func (s *linkedListQueue) offer(value any) {
+    // push 入队
+    func (s *linkedListQueue) push(value any) {
         s.data.PushBack(value)
     }
     
@@ -509,7 +515,7 @@ comments: true
             return this.size === 0;
         }
         /* 入队 */
-        offer(num) {
+        push(num) {
             // 尾结点后添加 num
             const node = new ListNode(num);
             // 如果队列为空，则令头、尾结点都指向该结点
@@ -561,7 +567,7 @@ comments: true
             return this.size === 0;
         }
         /* 入队 */
-        offer(num: number): void {
+        push(num: number): void {
             // 尾结点后添加 num
             const node = new ListNode(num);
             // 如果队列为空，则令头、尾结点都指向该结点
@@ -624,7 +630,7 @@ comments: true
             return size() == 0;
         }
         /* 入队 */
-        public void offer(int num)
+        public void push(int num)
         {
             // 尾结点后添加 num
             ListNode node = new ListNode(num);
@@ -683,7 +689,7 @@ comments: true
         }
     
         /* 入队 */
-        func offer(num: Int) {
+        func push(num: Int) {
             // 尾结点后添加 num
             let node = ListNode(x: num)
             // 如果队列为空，则令头、尾结点都指向该结点
@@ -719,6 +725,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="linkedlist_queue.zig"
+
+    ```
+
 ### 基于数组的实现
 
 数组的删除首元素的时间复杂度为 $O(n)$ ，因此不适合直接用来实现队列。然而，我们可以借助两个指针 `front` , `rear` 来分别记录队首和队尾的索引位置，在入队 / 出队时分别将 `front` / `rear` 向后移动一位即可，这样每次仅需操作一个元素，时间复杂度降至 $O(1)$ 。
@@ -734,7 +746,7 @@ comments: true
 
 细心的同学可能会发现一个问题，即在入队与出队的过程中，两个指针都在向后移动，**在到达尾部后则无法继续移动了**。
 
-为了解决此问题，我们可以采取一个取巧方案，**即将数组看作是“环形”的**。具体做法是规定指针越过数组尾部后，再次回到头部接续遍历，这样相当于使数组“首尾相连”了。在环形数组的设定下，获取长度 `size()` 、入队 `offer()` 、出队 `poll()` 方法都需要做相应的取余操作处理，使得当尾指针绕回数组头部时，仍然可以正确处理操作。
+为了解决此问题，我们可以采取一个取巧方案，**即将数组看作是“环形”的**。具体做法是规定指针越过数组尾部后，再次回到头部接续遍历，这样相当于使数组“首尾相连”了。在环形数组的设定下，获取长度 `size()` 、入队 `push()` 、出队 `poll()` 方法都需要做相应的取余操作处理，使得当尾指针绕回数组头部时，仍然可以正确处理操作。
 
 === "Java"
 
@@ -766,7 +778,7 @@ comments: true
         }
 
         /* 入队 */
-        public void offer(int num) {
+        public void push(int num) {
             if (queSize == capacity()) {
                 System.out.println("队列已满");
                 return;
@@ -836,7 +848,7 @@ comments: true
         }
 
         /* 入队 */
-        void offer(int num) {
+        void push(int num) {
             if (queSize == queCapacity) {
                 cout << "队列已满" << endl;
                 return;
@@ -943,8 +955,8 @@ comments: true
         return q.queSize == 0
     }
 
-    // offer 入队
-    func (q *arrayQueue) offer(num int) {
+    // push 入队
+    func (q *arrayQueue) push(num int) {
         // 当 rear == queCapacity 表示队列已满
         if q.queSize == q.queCapacity {
             return
@@ -1014,7 +1026,7 @@ comments: true
         }
 
         /* 入队 */
-        offer(num) {
+        push(num) {
             if (this.size == this.capacity)
                 throw new Error("队列已满");
             // 计算尾指针，指向队尾索引 + 1
@@ -1073,7 +1085,7 @@ comments: true
         }
 
         /* 入队 */
-        offer(num: number): void {
+        push(num: number): void {
             if (this.size == this.capacity)
                 throw new Error("队列已满");
             // 计算尾指针，指向队尾索引 + 1
@@ -1143,7 +1155,7 @@ comments: true
         }
 
         /* 入队 */
-        public void offer(int num)
+        public void push(int num)
         {
             if (queSize == capacity())
             {
@@ -1208,17 +1220,17 @@ comments: true
         }
 
         /* 入队 */
-        func offer(num: Int) {
+        func push(num: Int) {
             if size() == capacity() {
                 print("队列已满")
                 return
             }
             // 计算尾指针，指向队尾索引 + 1
             // 通过取余操作，实现 rear 越过数组尾部后回到头部
-            int rear = (front + queSize) % capacity();
+            let rear = (front + queSize) % capacity()
             // 尾结点后添加 num
-            nums[rear] = num;
-            queSize++;
+            nums[rear] = num
+            queSize += 1
         }
 
         /* 出队 */
@@ -1226,9 +1238,9 @@ comments: true
         func poll() -> Int {
             let num = peek()
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
-            front = (front + 1) % capacity();
-            queSize--;
-            return num;
+            front = (front + 1) % capacity()
+            queSize -= 1
+            return num
         }
 
         /* 访问队首元素 */
@@ -1239,6 +1251,12 @@ comments: true
             return nums[front]
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="array_queue.zig"
+
     ```
 
 以上代码仍存在局限性，即长度不可变。然而，我们可以通过将数组替换为列表（即动态数组）来引入扩容机制，有兴趣的同学可以尝试实现。

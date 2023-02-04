@@ -50,7 +50,7 @@ pub fn LinkedListQueue(comptime T: type) type {
         }  
 
         // 入队
-        pub fn offer(self: *Self, num: T) !void {
+        pub fn push(self: *Self, num: T) !void {
             // 尾结点后添加 num
             var node = try self.mem_allocator.create(inc.ListNode(T));
             node.init(num);
@@ -98,11 +98,11 @@ pub fn main() !void {
     defer queue.deinit();
 
     // 元素入队
-    try queue.offer(1);
-    try queue.offer(3);
-    try queue.offer(2);
-    try queue.offer(5);
-    try queue.offer(4);
+    try queue.push(1);
+    try queue.push(3);
+    try queue.push(2);
+    try queue.push(5);
+    try queue.push(4);
     std.debug.print("队列 queue = ", .{});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 

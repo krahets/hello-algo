@@ -153,6 +153,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title=""
+
+    ```
+
 但实际上， **统计算法的运行时间既不合理也不现实**。首先，我们不希望预估时间和运行平台绑定，毕竟算法需要跑在各式各样的平台之上。其次，我们很难获知每一种操作的运行时间，这为预估过程带来了极大的难度。
 
 ## 2.2.2. 统计时间增长趋势
@@ -357,6 +363,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title=""
+
+    ```
+
 ![time_complexity_first_example](time_complexity.assets/time_complexity_first_example.png)
 
 <p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
@@ -501,6 +513,12 @@ $$
             print(0) // +1
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+
     ```
 
 $T(n)$ 是个一次函数，说明时间增长趋势是线性的，因此易得时间复杂度是线性阶。
@@ -725,6 +743,12 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title=""
+
+    ```
+
 ### 2) 判断渐近上界
 
 **时间复杂度由多项式 $T(n)$ 中最高阶的项来决定**。这是因为在 $n$ 趋于无穷大时，最高阶的项将处于主导作用，其它项的影响都可以被忽略。
@@ -887,6 +911,22 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+    // 常数阶
+    fn constant(n: i32) i32 {
+        _ = n;
+        var count: i32 = 0;
+        const size: i32 = 100_000;
+        var i: i32 = 0;
+        while(i<size) : (i += 1) {
+            count += 1;
+        }
+        return count;
+    }
+    ```
+
 ### 线性阶 $O(n)$
 
 线性阶的操作数量相对输入数据大小成线性级别增长。线性阶常出现于单层循环。
@@ -997,6 +1037,20 @@ $$
             count += 1
         }
         return count
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+    // 线性阶
+    fn linear(n: i32) i32 {
+        var count: i32 = 0;
+        var i: i32 = 0;
+        while (i < n) : (i += 1) {
+            count += 1;
+        }
+        return count;
     }
     ```
 
@@ -1129,6 +1183,20 @@ $$
             count += 1
         }
         return count
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+    // 线性阶（遍历数组）
+    fn arrayTraversal(nums: []i32) i32 {
+        var count: i32 = 0;
+        // 循环次数与数组长度成正比
+        for (nums) |_| {
+            count += 1;
+        }
+        return count;
     }
     ```
 
@@ -1280,6 +1348,24 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+    // 平方阶
+    fn quadratic(n: i32) i32 {
+        var count: i32 = 0;
+        var i: i32 = 0;
+        // 循环次数与数组长度成平方关系
+        while (i < n) : (i += 1) {
+            var j: i32 = 0;
+            while (j < n) : (j += 1) {
+                count += 1;
+            }
+        }
+        return count;
+    }   
+    ```
+
 ![time_complexity_constant_linear_quadratic](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
 
 <p align="center"> Fig. 常数阶、线性阶、平方阶的时间复杂度 </p>
@@ -1358,8 +1444,8 @@ $$
 === "Go"
 
     ```go title="time_complexity.go"
-     /* 平方阶（冒泡排序） */
-     func bubbleSort(nums []int) int {
+    /* 平方阶（冒泡排序） */
+    func bubbleSort(nums []int) int {
         count := 0 // 计数器
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for i := len(nums) - 1; i > 0; i-- {
@@ -1497,6 +1583,31 @@ $$
             }
         }
         return count
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+    // 平方阶（冒泡排序）
+    fn bubbleSort(nums: []i32) i32 {
+        var count: i32 = 0;  // 计数器 
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        var i: i32 = @intCast(i32, nums.len ) - 1;
+        while (i > 0) : (i -= 1) {
+            var j: usize = 0;
+            // 内循环：冒泡操作
+            while (j < i) : (j += 1) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    var tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    count += 3;  // 元素交换包含 3 个单元操作
+                }
+            }
+        }
+        return count;
     }
     ```
 
@@ -1675,6 +1786,27 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+    // 指数阶（循环实现）
+    fn exponential(n: i32) i32{
+        var count: i32 = 0;
+        var bas: i32 = 1;
+        var i: i32 = 0;
+        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+        while (i < n) : (i += 1) {
+            var j: i32 = 0;
+            while (j < bas) : (j += 1) {
+                count += 1;
+            }
+            bas *= 2;
+        }
+        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
+        return count;
+    }       
+    ```
+
 ![time_complexity_exponential](time_complexity.assets/time_complexity_exponential.png)
 
 <p align="center"> Fig. 指数阶的时间复杂度 </p>
@@ -1773,6 +1905,16 @@ $$
             return 1
         }
         return expRecur(n: n - 1) + expRecur(n: n - 1) + 1
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+    // 指数阶（递归实现）
+    fn expRecur(n: i32) i32{
+        if (n == 1) return 1;
+        return expRecur(n - 1) + expRecur(n - 1) + 1;
     }
     ```
 
@@ -1911,6 +2053,23 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+    // 对数阶（循环实现）
+    fn logarithmic(n: f32) i32
+    {
+        var count: i32 = 0;
+        var n_var = n;
+        while (n_var > 1)
+        {
+            n_var = n_var / 2;
+            count +=1;
+        }
+        return count;
+    }
+    ```
+
 ![time_complexity_logarithmic](time_complexity.assets/time_complexity_logarithmic.png)
 
 <p align="center"> Fig. 对数阶的时间复杂度 </p>
@@ -2008,6 +2167,17 @@ $$
             return 0
         }
         return logRecur(n: n / 2) + 1
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+    // 对数阶（递归实现）
+    fn logRecur(n: f32) i32
+    {
+        if (n <= 1) return 0;
+        return logRecur(n / 2) + 1;
     }
     ```
 
@@ -2150,6 +2320,23 @@ $$
             count += 1
         }
         return count
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+    // 线性对数阶
+    fn linearLogRecur(n: f32) i32
+    {
+        if (n <= 1) return 1;
+        var count: i32 = linearLogRecur(n / 2) +
+                    linearLogRecur(n / 2);
+        var i: f32 = 0;
+        while (i < n) : (i += 1) {
+            count += 1;
+        }
+        return count;
     }
     ```
 
@@ -2305,6 +2492,22 @@ $$
     }
     ```
 
+=== "Zig"
+
+    ```zig title="time_complexity.zig"
+    // 阶乘阶（递归实现）
+    fn factorialRecur(n: i32) i32 {
+        if (n == 0) return 1;
+        var count: i32 = 0;
+        var i: i32 = 0;
+        // 从 1 个分裂出 n 个
+        while (i < n) : (i += 1) {
+            count += factorialRecur(n - 1);
+        }
+        return count;
+    }
+    ```
+
 ![time_complexity_factorial](time_complexity.assets/time_complexity_factorial.png)
 
 <p align="center"> Fig. 阶乘阶的时间复杂度 </p>
@@ -2342,21 +2545,12 @@ $$
         /* 查找数组 nums 中数字 1 所在索引 */
         int findOne(int[] nums) {
             for (int i = 0; i < nums.length; i++) {
+                // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+                // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
                 if (nums[i] == 1)
                     return i;
             }
             return -1;
-        }
-
-        /* Driver Code */
-        public void main(String[] args) {
-            for (int i = 0; i < 10; i++) {
-                int n = 100;
-                int[] nums = randomNumbers(n);
-                int index = findOne(nums);
-                System.out.println("打乱后的数组为 " + Arrays.toString(nums));
-                System.out.println("数字 1 的索引为 " + index);
-            }
         }
     }
     ```
@@ -2381,24 +2575,12 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     int findOne(vector<int>& nums) {
         for (int i = 0; i < nums.size(); i++) {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if (nums[i] == 1)
                 return i;
         }
         return -1;
-    }
-
-
-    /* Driver Code */
-    int main() {
-        for (int i = 0; i < 1000; i++) {
-            int n = 100;
-            vector<int> nums = randomNumbers(n);
-            int index = findOne(nums);
-            cout << "\n数组 [ 1, 2, ..., n ] 被打乱后 = ";
-            PrintUtil::printVector(nums);
-            cout << "数字 1 的索引为 " << index << endl;
-        }
-        return 0;
     }
     ```
 
@@ -2416,18 +2598,11 @@ $$
     """ 查找数组 nums 中数字 1 所在索引 """
     def find_one(nums):
         for i in range(len(nums)):
+            # 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            # 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if nums[i] == 1:
                 return i
         return -1
-
-    """ Driver Code """
-    if __name__ == "__main__":
-        for i in range(10):
-            n = 100
-            nums = random_numbers(n)
-            index = find_one(nums)
-            print("\n数组 [ 1, 2, ..., n ] 被打乱后 =", nums)
-            print("数字 1 的索引为", index)
     ```
 
 === "Go"
@@ -2450,22 +2625,13 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     func findOne(nums []int) int {
         for i := 0; i < len(nums); i++ {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if nums[i] == 1 {
                 return i
             }
         }
         return -1
-    }
-
-    /* Driver Code */
-    func main() {
-        for i := 0; i < 10; i++ {
-            n := 100
-            nums := randomNumbers(n)
-            index := findOne(nums)
-            fmt.Println("\n数组 [ 1, 2, ..., n ] 被打乱后 =", nums)
-            fmt.Println("数字 1 的索引为", index)
-        }
     }
     ```
 
@@ -2492,24 +2658,13 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     function findOne(nums) {
         for (let i = 0; i < nums.length; i++) {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if (nums[i] === 1) {
                 return i;
             }
         }
         return -1;
-    }
-
-    /* Driver Code */
-    function main() {
-        for (let i = 0; i < 10; i++) {
-            let n = 100;
-            let nums = randomNumbers(n);
-            let index = findOne(nums);
-            console.log(
-                "\n数组 [ 1, 2, ..., n ] 被打乱后 = [" + nums.join(", ") + "]"
-            );
-            console.log("数字 1 的索引为 " + index);
-        }
     }
     ```
 
@@ -2536,24 +2691,13 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     function findOne(nums: number[]): number {
         for (let i = 0; i < nums.length; i++) {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if (nums[i] === 1) {
                 return i;
             }
         }
         return -1;
-    }
-
-    /* Driver Code */
-    function main(): void {
-        for (let i = 0; i < 10; i++) {
-            let n = 100;
-            let nums = randomNumbers(n);
-            let index = findOne(nums);
-            console.log(
-                "\n数组 [ 1, 2, ..., n ] 被打乱后 = [" + nums.join(", ") + "]"
-            );
-            console.log("数字 1 的索引为 " + index);
-        }
     }
     ```
 
@@ -2581,30 +2725,11 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     int findOne(int *nums, int n) {
         for (int i = 0; i < n; i++) {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if (nums[i] == 1) return i;
         }
         return -1;
-    }
-
-    /* Driver Code */
-    int main(int argc, char *argv[]) {
-        // 初始化随机数种子
-        srand((unsigned int)time(NULL));
-        for (int i = 0; i < 10; i++) {
-            int n = 100;
-            int *nums = randomNumbers(n);
-            int index = findOne(nums, n);
-            printf("\n数组 [ 1, 2, ..., n ] 被打乱后 = ");
-            printArray(nums, n);
-            printf("数字 1 的索引为 %d\n", index);
-            // 释放堆区内存
-            if (nums != NULL) {
-                free(nums);
-                nums = NULL;
-            }
-        }
-        getchar();
-        return 0;
     }
     ```
 
@@ -2638,23 +2763,12 @@ $$
     {
         for (int i = 0; i < nums.Length; i++)
         {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if (nums[i] == 1)
                 return i;
         }
         return -1;
-    }
-
-    /* Driver Code */
-    public void main(String[] args)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            int n = 100;
-            int[] nums = randomNumbers(n);
-            int index = findOne(nums);
-            Console.WriteLine("\n数组 [ 1, 2, ..., n ] 被打乱后 = " + string.Join(",", nums));
-            Console.WriteLine("数字 1 的索引为 " + index);
-        }
     }
     ```
 
@@ -2673,22 +2787,40 @@ $$
     /* 查找数组 nums 中数字 1 所在索引 */
     func findOne(nums: [Int]) -> Int {
         for i in nums.indices {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
             if nums[i] == 1 {
                 return i
             }
         }
         return -1
     }
+    ```
 
-    /* Driver Code */
-    func main() {
-        for _ in 0 ..< 10 {
-            let n = 100
-            let nums = randomNumbers(n: n)
-            let index = findOne(nums: nums)
-            print("数组 [ 1, 2, ..., n ] 被打乱后 = \(nums)")
-            print("数字 1 的索引为 \(index)")
+=== "Zig"
+
+    ```zig title="worst_best_time_complexity.zig"
+    // 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
+    pub fn randomNumbers(comptime n: usize) [n]i32 {
+        var nums: [n]i32 = undefined;
+        // 生成数组 nums = { 1, 2, 3, ..., n }
+        for (nums) |*num, i| {
+            num.* = @intCast(i32, i) + 1;
         }
+        // 随机打乱数组元素
+        const rand = std.crypto.random;
+        rand.shuffle(i32, &nums);
+        return nums;
+    }
+
+    // 查找数组 nums 中数字 1 所在索引
+    pub fn findOne(nums: []i32) i32 {
+        for (nums) |num, i| {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
+            if (num == 1) return @intCast(i32, i);
+        }
+        return -1;
     }
     ```
 

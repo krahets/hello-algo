@@ -214,6 +214,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="binary_search_tree.zig"
+
+    ```
+
 ### 插入结点
 
 给定一个待插入元素 `num` ，为了保持二叉搜索树“左子树 < 根结点 < 右子树”的性质，插入操作分为两步：
@@ -483,6 +489,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="binary_search_tree.zig"
+
+    ```
+
 为了插入结点，需要借助 **辅助结点 `prev`** 保存上一轮循环的结点，这样在遍历到 $\text{null}$ 时，我们也可以获取到其父结点，从而完成结点插入操作。
 
 与查找结点相同，插入结点使用 $O(\log n)$ 时间。
@@ -569,6 +581,16 @@ comments: true
         }
         return cur;
     }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    public TreeNode getInOrderNext(TreeNode root) {
+        if (root == null) return root;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (root.left != null) {
+            root = root.left;
+        }
+        return root;
+    }
     ```
 
 === "C++"
@@ -610,6 +632,16 @@ comments: true
             cur->val = tmp;
         }
         return cur;
+    }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    TreeNode* getInOrderNext(TreeNode* root) {
+        if (root == nullptr) return root;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (root->left != nullptr) {
+            root = root->left;
+        }
+        return root;
     }
     ```
 
@@ -660,6 +692,15 @@ comments: true
             # 将 nex 的值复制给 cur
             cur.val = tmp
         return cur
+
+    """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
+    def get_inorder_next(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if root is None:
+            return root
+        # 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while root.left is not None:
+            root = root.left
+        return root
     ```
 
 === "Go"
@@ -719,6 +760,18 @@ comments: true
         }
         return cur
     }
+
+    /* 获取中序遍历的下一个结点（仅适用于 root 有左子结点的情况） */
+    func (bst *binarySearchTree) getInOrderNext(node *TreeNode) *TreeNode {
+        if node == nil {
+            return node
+        }
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        for node.Left != nil {
+            node = node.Left
+        }
+        return node
+    }
     ```
 
 === "JavaScript"
@@ -760,6 +813,16 @@ comments: true
             cur.val = tmp;
         }
         return cur;
+    }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    function getInOrderNext(root) {
+        if (root === null) return root;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (root.left !== null) {
+            root = root.left;
+        }
+        return root;
     }
     ```
 
@@ -813,6 +876,18 @@ comments: true
             cur.val = tmp;
         }
         return cur;
+    }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    function getInOrderNext(root: TreeNode | null): TreeNode | null {
+        if (root === null) {
+            return null;
+        }
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (root.left !== null) {
+            root = root.left;
+        }
+        return root;
     }
     ```
 
@@ -875,6 +950,18 @@ comments: true
         }
         return cur;
     }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    private TreeNode? getInOrderNext(TreeNode? root)
+    {
+        if (root == null) return root;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (root.left != null)
+        {
+            root = root.left;
+        }
+        return root;
+    }
     ```
 
 === "Swift"
@@ -932,6 +1019,25 @@ comments: true
         }
         return cur
     }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    func getInOrderNext(root: TreeNode?) -> TreeNode? {
+        var root = root
+        if root == nil {
+            return root
+        }
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while root?.left != nil {
+            root = root?.left
+        }
+        return root
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_tree.zig"
+
     ```
 
 ## 7.3.2. 二叉搜索树的效率

@@ -24,6 +24,8 @@ function randomNumbers(n: number): number[] {
 /* 查找数组 nums 中数字 1 所在索引 */
 function findOne(nums: number[]): number {
     for (let i = 0; i < nums.length; i++) {
+        // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+        // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
         if (nums[i] === 1) {
             return i;
         }
@@ -32,14 +34,14 @@ function findOne(nums: number[]): number {
 }
 
 /* Driver Code */
-function main(): void {
-    for (let i = 0; i < 10; i++) {
-        let n = 100;
-        let nums = randomNumbers(n);
-        let index = findOne(nums);
-        console.log(
-            "\n数组 [ 1, 2, ..., n ] 被打乱后 = [" + nums.join(", ") + "]"
-        );
-        console.log("数字 1 的索引为 " + index);
-    }
+for (let i = 0; i < 10; i++) {
+    let n = 100;
+    let nums = randomNumbers(n);
+    let index = findOne(nums);
+    console.log(
+        "\n数组 [ 1, 2, ..., n ] 被打乱后 = [" + nums.join(", ") + "]"
+    );
+    console.log("数字 1 的索引为 " + index);
 }
+
+export {};

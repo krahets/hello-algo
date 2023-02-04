@@ -8,7 +8,7 @@ package chapter_tree;
 
 import include.*;
 
-// Tree class
+/* AVL 树 */
 class AVLTree {
     TreeNode root; // 根节点
 

@@ -54,11 +54,11 @@ func TestLinkedListDeque(t *testing.T) {
 	deque := newLinkedListDeque()
 
 	// 元素入队
-	deque.offerLast(2)
-	deque.offerLast(5)
-	deque.offerLast(4)
-	deque.offerFirst(3)
-	deque.offerFirst(1)
+	deque.pushLast(2)
+	deque.pushLast(5)
+	deque.pushLast(4)
+	deque.pushFirst(3)
+	deque.pushFirst(1)
 	fmt.Print("队列 deque = ")
 	PrintList(deque.toList())
 
@@ -87,12 +87,12 @@ func TestLinkedListDeque(t *testing.T) {
 
 // BenchmarkArrayQueue 67.92 ns/op in Mac M1 Pro
 func BenchmarkLinkedListDeque(b *testing.B) {
-	stack := newLinkedListDeque()
+	deque := newLinkedListDeque()
 	// use b.N for looping
 	for i := 0; i < b.N; i++ {
-		stack.offerLast(777)
+		deque.pushLast(777)
 	}
 	for i := 0; i < b.N; i++ {
-		stack.pollFirst()
+		deque.pollFirst()
 	}
 }

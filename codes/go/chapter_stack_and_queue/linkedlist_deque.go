@@ -20,13 +20,13 @@ func newLinkedListDeque() *linkedListDeque {
 	}
 }
 
-// offerFirst 队首元素入队
-func (s *linkedListDeque) offerFirst(value any) {
+// pushFirst 队首元素入队
+func (s *linkedListDeque) pushFirst(value any) {
 	s.data.PushFront(value)
 }
 
-// offerLast 队尾元素入队
-func (s *linkedListDeque) offerLast(value any) {
+// pushLast 队尾元素入队
+func (s *linkedListDeque) pushLast(value any) {
 	s.data.PushBack(value)
 }
 

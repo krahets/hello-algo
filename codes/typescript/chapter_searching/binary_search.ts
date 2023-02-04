@@ -52,3 +52,5 @@ console.info('目标元素 6 的索引 = %d', index);
 /* 二分查找（左闭右开） */
 index = binarySearch1(nums, target);
 console.info('目标元素 6 的索引 = %d', index);
+
+export {};
