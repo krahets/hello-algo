@@ -159,7 +159,83 @@ comments: true
 === "Swift"
 
     ```swift title="graph_adjacency_matrix.swift"
+    /* 基于邻接矩阵实现的无向图类 */
+    class GraphAdjMat {
+        private var vertices: [Int] // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        private var adjMat: [[Int]] // 邻接矩阵，行列索引对应“顶点索引”
 
+        /* 构造函数 */
+        init(vertices: [Int], edges: [[Int]]) {
+            self.vertices = []
+            adjMat = []
+            // 添加顶点
+            for val in vertices {
+                addVertex(val: val)
+            }
+            // 添加边
+            // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+            for e in edges {
+                addEdge(i: e[0], j: e[1])
+            }
+        }
+
+        /* 获取顶点数量 */
+        func size() -> Int {
+            vertices.count
+        }
+
+        /* 添加顶点 */
+        func addVertex(val: Int) {
+            let n = size()
+            // 向顶点列表中添加新顶点的值
+            vertices.append(val)
+            // 在邻接矩阵中添加一行
+            let newRow = Array(repeating: 0, count: n)
+            adjMat.append(newRow)
+            // 在邻接矩阵中添加一列
+            for i in adjMat.indices {
+                adjMat[i].append(0)
+            }
+        }
+
+        /* 删除顶点 */
+        func removeVertex(index: Int) {
+            if index >= size() {
+                fatalError("越界")
+            }
+            // 在顶点列表中移除索引 index 的顶点
+            vertices.remove(at: index)
+            // 在邻接矩阵中删除索引 index 的行
+            adjMat.remove(at: index)
+            // 在邻接矩阵中删除索引 index 的列
+            for i in adjMat.indices {
+                adjMat[i].remove(at: index)
+            }
+        }
+
+        /* 添加边 */
+        // 参数 i, j 对应 vertices 元素索引
+        func addEdge(i: Int, j: Int) {
+            // 索引越界与相等处理
+            if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
+                fatalError("越界")
+            }
+            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            adjMat[i][j] = 1
+            adjMat[j][i] = 1
+        }
+
+        /* 删除边 */
+        // 参数 i, j 对应 vertices 元素索引
+        func removeEdge(i: Int, j: Int) {
+            // 索引越界与相等处理
+            if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
+                fatalError("越界")
+            }
+            adjMat[i][j] = 0
+            adjMat[j][i] = 0
+        }
+    }
     ```
 
 === "Zig"
@@ -312,7 +388,85 @@ comments: true
 === "Swift"
 
     ```swift title="graph_adjacency_list.swift"
+    /* 顶点类 */
+    class Vertex: Hashable {
+        var val: Int
 
+        init(val: Int) {
+            self.val = val
+        }
+
+        static func == (lhs: Vertex, rhs: Vertex) -> Bool {
+            lhs.val == rhs.val
+        }
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(val)
+        }
+    }
+
+    /* 基于邻接表实现的无向图类 */
+    class GraphAdjList {
+        // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
+        private var adjList: [Vertex: Set<Vertex>] // 邻接表（使用哈希表实现）
+
+        init(edges: [[Vertex]]) {
+            adjList = [:]
+            // 添加所有顶点和边
+            for edge in edges {
+                addVertex(vet: edge[0])
+                addVertex(vet: edge[1])
+                addEdge(vet1: edge[0], vet2: edge[1])
+            }
+        }
+
+        /* 获取顶点数量 */
+        func size() -> Int {
+            adjList.count
+        }
+
+        /* 添加边 */
+        func addEdge(vet1: Vertex, vet2: Vertex) {
+            if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
+                fatalError("参数错误")
+            }
+            // 添加边 vet1 - vet2
+            adjList[vet1]?.insert(vet2)
+            adjList[vet2]?.insert(vet1)
+        }
+
+        /* 删除边 */
+        func removeEdge(vet1: Vertex, vet2: Vertex) {
+            if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
+                fatalError("参数错误")
+            }
+            // 删除边 vet1 - vet2
+            adjList[vet1]?.remove(vet2)
+            adjList[vet2]?.remove(vet1)
+        }
+
+        /* 添加顶点 */
+        func addVertex(vet: Vertex) {
+            if adjList[vet] != nil {
+                return
+            }
+            // 在邻接表中添加一个新链表（即 HashSet）
+            adjList[vet] = []
+        }
+
+        /* 删除顶点 */
+        func removeVertex(vet: Vertex) {
+            if adjList[vet] == nil {
+                fatalError("参数错误")
+            }
+            // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
+            adjList.removeValue(forKey: vet)
+            // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
+            for key in adjList.keys {
+                adjList[key]?.remove(vet)
+            }
+        }
+    }
     ```
 
 === "Zig"
