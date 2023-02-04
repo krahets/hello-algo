@@ -68,10 +68,8 @@ public:
     /* 构造函数，根据输入数组建堆 */
     MaxHeap(vector<int> nums) {
         // 将数组元素原封不动添加进堆
-        for (int i = 0; i < nums.size(); i++) {
-            maxHeap.push_back(nums[i]);
-        }
-         // 堆化除叶结点以外的其他所有结点
+        maxHeap = nums;
+        // 堆化除叶结点以外的其他所有结点
         for (int i = parent(size() - 1); i >= 0; i--) {
             shifDown(i);
         }
@@ -88,13 +86,13 @@ public:
     }
 
     /* 访问堆顶元素 */
-    int top() {
+    int peek() {
         return maxHeap[0];
     }
 
     /* 元素入堆 */
     void push(int val) {
-        // 添加节点
+        // 添加结点
         maxHeap.push_back(val);
         // 从底至顶堆化
         shifUp(size() - 1);
@@ -133,7 +131,7 @@ void testPush(MaxHeap maxHeap, int val) {
 }
 
 void testPop(MaxHeap maxHeap) {
-    int val = maxHeap.top();
+    int val = maxHeap.peek();
     maxHeap.poll();
     cout << "\n出堆元素为 " << val << endl;
     maxHeap.print();
@@ -148,7 +146,7 @@ int main() {
     maxheap.print();
 
     /* 获取堆顶元素 */
-    int peek = maxheap.top();
+    int peek = maxheap.peek();
     cout << "\n堆顶元素为 " << peek << endl;
 
     /* 元素入堆 */
@@ -158,7 +156,7 @@ int main() {
     maxheap.print();
 
     /* 堆顶元素出堆 */
-    peek = maxheap.top();
+    peek = maxheap.peek();
     maxheap.poll();
     cout << "\n堆顶元素 " << peek << " 出堆后" << endl;
     maxheap.print();
