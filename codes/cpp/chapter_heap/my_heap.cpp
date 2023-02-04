@@ -20,7 +20,7 @@ private:
     /* 获取右子结点索引 */
     int right(int i) {
         return 2 * i + 2;
-    }
+    } 
 
     /* 获取父结点索引 */
     int parent(int i) {
@@ -65,9 +65,9 @@ public:
     /* 构造函数，建立空堆 */
     MaxHeap() {}
 
-    /* 构造函数，根据输入数组建堆 */
+    /* 构造函数，根据输入列表建堆 */
     MaxHeap(vector<int> nums) {
-        // 将数组元素原封不动添加进堆
+        // 将列表元素原封不动添加进堆
         maxHeap = nums;
         // 堆化除叶结点以外的其他所有结点
         for (int i = parent(size() - 1); i >= 0; i--) {
