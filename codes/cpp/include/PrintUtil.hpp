@@ -326,7 +326,7 @@ class PrintUtil {
         template <typename T, typename S, typename C>
         static void printHeap(priority_queue<T, S, C> &heap) {
             vector<T> vec = Container(heap);
-            cout << "堆的数组表示：" << endl;
+            cout << "堆的数组表示：";
             printVector(vec);
             cout << "堆的树状表示：" << endl;
             TreeNode *root = vecToTree(vec);
