@@ -29,11 +29,11 @@ comments: true
 
 <div class="center-table" markdown>
 
-| 方法      | 描述                                         | 时间复杂度  |
-| --------- | -------------------------------------------- | ----------- |
-| add()     | 元素入堆                                     | $O(\log n)$ |
-| poll()    | 堆顶元素出堆                                 | $O(\log n)$ |
-| peek()    | 访问堆顶元素（大 / 小顶堆分别为最大 / 小值） | $O(1)$      |
+| 方法      | 描述                                        | 时间复杂度  |
+| --------- | ----------------------------------------- | ----------- |
+| add()     | 元素入堆                                   | $O(\log n)$ |
+| poll()    | 堆顶元素出堆                                | $O(\log n)$ |
+| peek()    | 访问堆顶元素（大 / 小顶堆分别为最大 / 小值）     | $O(1)$      |
 | size()    | 获取堆的元素数量                             | $O(1)$      |
 | isEmpty() | 判断堆是否为空                               | $O(1)$      |
 
@@ -287,8 +287,8 @@ comments: true
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    // 使用 vector 而非数组，这样无需考虑扩容问题
-    vector<int> maxHeap;  
+    // 使用动态数组，这样无需考虑扩容问题
+    vector<int> maxHeap;
 
     /* 获取左子结点索引 */
     int left(int i) {
@@ -298,11 +298,11 @@ comments: true
     /* 获取右子结点索引 */
     int right(int i) {
         return 2 * i + 2;
-    }
+    } 
 
     /* 获取父结点索引 */
     int parent(int i) {
-        return (i - 1) / 2;  // 向下整除
+        return (i - 1) / 2; // 向下取整
     }
     ```
 
@@ -418,7 +418,7 @@ comments: true
     ```cpp title="my_heap.cpp"
     /* 访问堆顶元素 */
     int peek() {
-        return maxHeap.front();
+        return maxHeap[0];
     }
     ```
 
@@ -537,19 +537,19 @@ comments: true
         // 添加结点
         maxHeap.push_back(val);
         // 从底至顶堆化
-        siftUp(size() - 1);
+        shifUp(size() - 1);
     }
-
+    
     /* 从结点 i 开始，从底至顶堆化 */
-    void siftUp(int i) {
+    void shifUp(int i) {
         while (true) {
             // 获取结点 i 的父结点
-            int p = parent(i);
+            int p =  parent(i);
             // 当“越过根结点”或“结点无需修复”时，结束堆化
-            if (p < 0 || maxHeap[i] <= maxHeap[i])
+            if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
             // 交换两结点
-            swap(i, p);
+            swap(maxHeap[i], maxHeap[p]);
             // 循环向上堆化
             i = p;
         }
@@ -731,38 +731,38 @@ comments: true
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    /* 元素出堆 */
-    int poll() {
-        // 判空处理
-        if (isEmpty())
-            throw out_of_range("堆已空\n");
-        // 交换根结点与最右叶结点（即交换首元素与尾元素）
-        swap(0, size() - 1);
-        // 删除结点
-        int val = maxHeap.back();
-        maxHeap.pop_back();
-        // 从顶至底堆化
-        siftDown(0);
-        // 返回堆顶元素
-        return val;
-    }
-
     /* 从结点 i 开始，从顶至底堆化 */
-    void siftDown(int i) {
+    void shifDown(int i) {
         while (true) {
             // 判断结点 i, l, r 中值最大的结点，记为 ma
             int l = left(i), r = right(i), ma = i;
-            if (l < size() && maxHeap[l] > maxHeap[ma])
+            // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            if (l < size() && maxHeap[l] > maxHeap[ma]) 
                 ma = l;
-            if (r < size() && maxHeap[r] > maxHeap[ma])
+            if (r < size() && maxHeap[r] > maxHeap[ma])  
                 ma = r;
             // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
-            if (ma == i) break;
-            // 交换两结点
-            swap(i, ma);
+            if (ma == i) 
+                break;
+            swap(maxHeap[i], maxHeap[ma]);
             // 循环向下堆化
             i = ma;
         }
+    }
+    
+    /* 元素出堆 */
+    void poll() {
+        // 判空处理
+        if (empty()) {
+            cout << "Error:堆为空" << endl;
+            return;
+        }
+        // 交换根结点与最右叶结点（即交换首元素与尾元素）
+        swap(maxHeap[0], maxHeap[size() - 1]);
+        // 删除结点
+        maxHeap.pop_back();
+        // 从顶至底堆化
+        shifDown(0);
     }
     ```
 
@@ -921,10 +921,9 @@ comments: true
         maxHeap = nums;
         // 堆化除叶结点以外的其他所有结点
         for (int i = parent(size() - 1); i >= 0; i--) {
-            siftDown(i);
+            shifDown(i);
         }
     }
-    // Tip: std::make_heap() 函数可以原地建堆。
     ```
 
 === "Python"
