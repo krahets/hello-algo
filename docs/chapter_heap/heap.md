@@ -915,9 +915,9 @@ comments: true
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    /* 构造函数，根据输入数组建堆 */
+    /* 构造函数，根据输入列表建堆 */
     MaxHeap(vector<int> nums) {
-        // 将数组元素原封不动添加进堆
+        // 将列表元素原封不动添加进堆
         maxHeap = nums;
         // 堆化除叶结点以外的其他所有结点
         for (int i = parent(size() - 1); i >= 0; i--) {
