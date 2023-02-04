@@ -9,20 +9,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
-name = "chapter_array_and_linkedlist"
-version = "0.1.0"
-dependencies = [
- "rand",
-]
-
-[[package]]
-name = "chapter_computational_complexity"
-version = "0.1.0"
-dependencies = [
- "rand",
-]
-
-[[package]]
 name = "getrandom"
 version = "0.2.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -31,6 +17,13 @@ dependencies = [
  "cfg-if",
  "libc",
  "wasi",
+]
+
+[[package]]
+name = "hello-algo-rust"
+version = "0.1.0"
+dependencies = [
+ "rand",
 ]
 
 [[package]]
