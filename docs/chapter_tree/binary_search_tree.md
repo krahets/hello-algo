@@ -329,13 +329,13 @@ comments: true
             return nil
         }
         // 待插入结点之前的结点位置
-        var prev *TreeNode = nil
+        var pre *TreeNode = nil
         // 循环查找，越过叶结点后跳出
         for cur != nil {
             if cur.Val == num {
                 return nil
             }
-            prev = cur
+            pre = cur
             if cur.Val < num {
                 cur = cur.Right
             } else {
@@ -344,10 +344,10 @@ comments: true
         }
         // 插入结点
         node := NewTreeNode(num)
-        if prev.Val < num {
-            prev.Right = node
+        if pre.Val < num {
+            pre.Right = node
         } else {
-            prev.Left = node
+            pre.Left = node
         }
         return cur
     }
@@ -495,7 +495,7 @@ comments: true
 
     ```
 
-为了插入结点，需要借助 **辅助结点 `prev`** 保存上一轮循环的结点，这样在遍历到 $\text{null}$ 时，我们也可以获取到其父结点，从而完成结点插入操作。
+为了插入结点，需要借助 **辅助结点 `pre`** 保存上一轮循环的结点，这样在遍历到 $\text{null}$ 时，我们也可以获取到其父结点，从而完成结点插入操作。
 
 与查找结点相同，插入结点使用 $O(\log n)$ 时间。
 
@@ -714,13 +714,13 @@ comments: true
             return nil
         }
         // 待删除结点之前的结点位置
-        var prev *TreeNode = nil
+        var pre *TreeNode = nil
         // 循环查找，越过叶结点后跳出
         for cur != nil {
             if cur.Val == num {
                 break
             }
-            prev = cur
+            pre = cur
             if cur.Val < num {
                 // 待删除结点在右子树中
                 cur = cur.Right
@@ -743,10 +743,10 @@ comments: true
                 child = cur.Right
             }
             // 将子结点替换为待删除结点
-            if prev.Left == cur {
-                prev.Left = child
+            if pre.Left == cur {
+                pre.Left = child
             } else {
-                prev.Right = child
+                pre.Right = child
             }
             // 子结点数为 2
         } else {
