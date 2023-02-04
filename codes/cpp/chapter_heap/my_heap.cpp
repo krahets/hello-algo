@@ -1,7 +1,7 @@
 /**
  * File: my_heap.cpp
  * Created Time: 2023-02-04
- * Author: LoneRanger (836253168@qq.com)
+ * Author: LoneRanger (836253168@qq.com), what-is-me (whatisme@outlook.jp)
  */
 
 #include "../include/include.hpp"
