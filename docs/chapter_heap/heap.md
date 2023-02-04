@@ -544,6 +544,7 @@ comments: true
         // 从底至顶堆化
         shifUp(size() - 1);
     }
+    
     /* 从结点 i 开始，从底至顶堆化 */
     void shifUp(int i) {
         while (true) {
