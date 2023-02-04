@@ -11,14 +11,14 @@ import java.util.*;
 
 public class hashing_search {
     /* 哈希查找（数组） */
-    static int hashingSearch(Map<Integer, Integer> map, int target) {
+    static int hashingSearchArray(Map<Integer, Integer> map, int target) {
         // 哈希表的 key: 目标元素，value: 索引
         // 若哈希表中无此 key ，返回 -1
         return map.getOrDefault(target, -1);
     }
 
     /* 哈希查找（链表） */
-    static ListNode hashingSearch1(Map<Integer, ListNode> map, int target) {
+    static ListNode hashingSearchLinkedList(Map<Integer, ListNode> map, int target) {
         // 哈希表的 key: 目标结点值，value: 结点对象
         // 若哈希表中无此 key ，返回 null
         return map.getOrDefault(target, null);
@@ -34,7 +34,7 @@ public class hashing_search {
         for (int i = 0; i < nums.length; i++) {
             map.put(nums[i], i);  // key: 元素，value: 索引
         }
-        int index = hashingSearch(map, target);
+        int index = hashingSearchArray(map, target);
         System.out.println("目标元素 3 的索引 = " + index);
 
         /* 哈希查找（链表） */
@@ -45,7 +45,7 @@ public class hashing_search {
             map1.put(head.val, head);  // key: 结点值，value: 结点
             head = head.next;
         }
-        ListNode node = hashingSearch1(map1, target);
+        ListNode node = hashingSearchLinkedList(map1, target);
         System.out.println("目标结点值 3 的对应结点对象为 " + node);
     }
 }

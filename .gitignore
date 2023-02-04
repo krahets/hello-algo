@@ -11,3 +11,5 @@ site/
 .cache/
 scripts/
 docs/overrides/
+
+docs/src

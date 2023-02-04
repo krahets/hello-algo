@@ -16,7 +16,7 @@ comments: true
 
     ```java title="linear_search.java"
     /* 线性查找（数组） */
-    int linearSearch(int[] nums, int target) {
+    int linearSearchArray(int[] nums, int target) {
         // 遍历数组
         for (int i = 0; i < nums.length; i++) {
             // 找到目标元素，返回其索引
@@ -32,7 +32,7 @@ comments: true
 
     ```cpp title="linear_search.cpp"
     /* 线性查找（数组） */
-    int linearSearch(vector<int>& nums, int target) {
+    int linearSearchArray(vector<int>& nums, int target) {
         // 遍历数组
         for (int i = 0; i < nums.size(); i++) {
             // 找到目标元素，返回其索引
@@ -48,7 +48,7 @@ comments: true
 
     ```python title="linear_search.py"
     """ 线性查找（数组） """
-    def linear_search(nums, target):
+    def linear_search_array(nums, target):
         # 遍历数组
         for i in range(len(nums)):
             if nums[i] == target:  # 找到目标元素，返回其索引
@@ -60,7 +60,7 @@ comments: true
 
     ```go title="linear_search.go"
     /* 线性查找（数组） */
-    func linerSearchArray(nums []int, target int) int {
+    func linearSearchArray(nums []int, target int) int {
         // 遍历数组
         for i := 0; i < len(nums); i++ {
             // 找到目标元素，返回其索引
@@ -118,7 +118,7 @@ comments: true
 
     ```csharp title="linear_search.cs"
     /* 线性查找（数组） */
-    int linearSearch(int[] nums, int target)
+    int linearSearchArray(int[] nums, int target)
     {
         // 遍历数组
         for (int i = 0; i < nums.Length; i++)
@@ -137,7 +137,7 @@ comments: true
 
     ```swift title="linear_search.swift"
     /* 线性查找（数组） */
-    func linearSearch(nums: [Int], target: Int) -> Int {
+    func linearSearchArray(nums: [Int], target: Int) -> Int {
         // 遍历数组
         for i in nums.indices {
             // 找到目标元素，返回其索引
@@ -162,7 +162,7 @@ comments: true
 
     ```java title="linear_search.java"
     /* 线性查找（链表） */
-    ListNode linearSearch(ListNode head, int target) {
+    ListNode linearSearchLinkedList(ListNode head, int target) {
         // 遍历链表
         while (head != null) {
             // 找到目标结点，返回之
@@ -179,7 +179,7 @@ comments: true
 
     ```cpp title="linear_search.cpp"
     /* 线性查找（链表） */
-    ListNode* linearSearch(ListNode* head, int target) {
+    ListNode* linearSearchLinkedList(ListNode* head, int target) {
         // 遍历链表
         while (head != nullptr) {
             // 找到目标结点，返回之
@@ -196,7 +196,7 @@ comments: true
 
     ```python title="linear_search.py"
     """ 线性查找（链表） """
-    def linear_search1(head, target):
+    def linear_search_linkedlist(head, target):
         # 遍历链表
         while head:
             if head.val == target: # 找到目标结点，返回之
@@ -269,7 +269,7 @@ comments: true
 
     ```csharp title="linear_search.cs"
     /* 线性查找（链表） */
-    ListNode? linearSearch(ListNode head, int target)
+    ListNode? linearSearchLinkedList(ListNode head, int target)
     {
         // 遍历链表
         while (head != null)
@@ -288,7 +288,7 @@ comments: true
 
     ```swift title="linear_search.swift"
     /* 线性查找（链表） */
-    func linearSearch(head: ListNode?, target: Int) -> ListNode? {
+    func linearSearchLinkedList(head: ListNode?, target: Int) -> ListNode? {
         var head = head
         // 遍历链表
         while head != nil {

@@ -16,11 +16,11 @@ func TestLinearSearch(t *testing.T) {
 	nums := []int{1, 5, 3, 2, 4, 7, 5, 9, 10, 8}
 
 	// 在数组中执行线性查找
-	index := linerSearchArray(nums, target)
+	index := linearSearchArray(nums, target)
 	fmt.Println("目标元素 3 的索引 =", index)
 
 	// 在链表中执行线性查找
 	head := ArrayToLinkedList(nums)
-	node := linerSearchLinkedList(head, target)
+	node := linearSearchLinkedList(head, target)
 	fmt.Println("目标结点值 3 的对应结点对象为", node)
 }
