@@ -235,12 +235,6 @@ comments: true
     // Swift 未提供内置 heap 类
     ```
 
-=== "Zig"
-
-    ```zig title="heap.zig"
-
-    ```
-
 ## 8.1.3. 堆的实现
 
 下文实现的是「大顶堆」，若想转换为「小顶堆」，将所有大小逻辑判断取逆（例如将 $\geq$ 替换为 $\leq$ ）即可，有兴趣的同学可自行实现。
@@ -287,7 +281,28 @@ comments: true
 === "C++"
 
     ```cpp title="my_heap.cpp"
+    // 使用动态数组，这样无需考虑扩容问题
+    vector<int> maxHeap;
 
+    /* 获取左子结点索引 */
+    int left(int i) {
+        return 2 * i + 1;
+    }
+
+    /* 获取右子结点索引 */
+    int right(int i) {
+        return 2 * i + 2;
+    } 
+
+    /* 获取父结点索引 */
+    int parent(int i) {
+        return (i - 1) / 2; //向下取整
+    }
+
+    /* 交换元素 */
+    void _swap(int i, int j) {
+        swap(maxHeap[i], maxHeap[j]);
+    }
     ```
 
 === "Python"
@@ -378,12 +393,6 @@ comments: true
     }
     ```
 
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-
-    ```
-
 ### 访问堆顶元素
 
 堆顶元素是二叉树的根结点，即列表首元素。
@@ -400,7 +409,10 @@ comments: true
 === "C++"
 
     ```cpp title="my_heap.cpp"
-
+    /* 访问堆顶元素 */
+    int top() {
+        return maxHeap[0];
+    }
     ```
 
 === "Python"
@@ -449,12 +461,6 @@ comments: true
     func peek() -> Int {
         maxHeap[0]
     }
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-
     ```
 
 ### 元素入堆
@@ -513,7 +519,27 @@ comments: true
 === "C++"
 
     ```cpp title="my_heap.cpp"
-
+    /* 元素入堆 */
+    void push(int val) {
+        // 添加节点
+        maxHeap.push_back(val);
+        // 从底至顶堆化
+        shifUp(size() - 1);
+    }
+    /* 从结点 i 开始，从底至顶堆化 */
+    void shifUp(int i) {
+        while (true) {
+            // 获取结点 i 的父结点
+            int p =  parent(i);
+            // 当“越过根结点”或“结点无需修复”时，结束堆化
+            if (p < 0 || maxHeap[i] <= maxHeap[p])
+                break;
+            // 交换两结点
+            _swap(i, p);
+            // 循环向上堆化
+            i = p;
+        }
+    }
     ```
 
 === "Python"
@@ -603,12 +629,6 @@ comments: true
     }
     ```
 
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-
-    ```
-
 ### 堆顶元素出堆
 
 堆顶元素是二叉树根结点，即列表首元素，如果我们直接将首元素从列表中删除，则二叉树中所有结点都会随之发生移位（索引发生变化），这样后续使用堆化修复就很麻烦了。为了尽量减少元素索引变动，采取以下操作步骤：
@@ -691,7 +711,39 @@ comments: true
 === "C++"
 
     ```cpp title="my_heap.cpp"
+    /* 元素出堆 */
+    void pop() {
+        // 判空处理
+        if (empty()) {
+            cout << "Error:堆为空" << endl;
+            return;
+        }
+        // 交换根结点与最右叶结点（即交换首元素与尾元素）
+        _swap(0, size() - 1);
+        // 删除结点
+        maxHeap.pop_back();
+        // 从顶至底堆化
+        shifDown(0);
+    }
 
+    /* 从结点 i 开始，从顶至底堆化 */
+    void shifDown(int i) {
+        while (true) {
+            // 判断结点 i, l, r 中值最大的结点，记为 ma
+            int l = left(i), r = right(i), ma = i;
+            // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            if (l < size() && maxHeap[l] > maxHeap[ma]) 
+                ma = l;
+            if (r < size() && maxHeap[r] > maxHeap[ma])  
+                ma = r;
+            // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            if (ma == i) 
+                break;
+            _swap(i, ma);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
     ```
 
 === "Python"
@@ -814,12 +866,6 @@ comments: true
     }
     ```
 
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-
-    ```
-
 ### 输入数据并建堆 *
 
 如果我们想要直接输入一个列表并将其建堆，那么该怎么做呢？最直接地，考虑使用「元素入堆」方法，将列表元素依次入堆。元素入堆的时间复杂度为 $O(n)$ ，而平均长度为 $\frac{n}{2}$ ，因此该方法的总体时间复杂度为 $O(n \log n)$ 。
@@ -843,7 +889,17 @@ comments: true
 === "C++"
 
     ```cpp title="my_heap.cpp"
-
+    /* 构造函数，根据输入数组建堆 */
+    MaxHeap(vector<int> nums) {
+        // 将数组元素原封不动添加进堆
+        for (int i = 0; i < nums.size(); i++) {
+            maxHeap.push_back(nums[i]);
+        }
+        // 堆化除叶结点以外的其他所有结点
+        for (int i = parent(size() - 1); i >= 0; i--) {
+            shifDown(i);
+        }
+    }
     ```
 
 === "Python"
@@ -903,12 +959,6 @@ comments: true
             siftDown(i: i)
         }
     }
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-
     ```
 
 那么，第二种建堆方法的时间复杂度时多少呢？我们来做一下简单推算。
