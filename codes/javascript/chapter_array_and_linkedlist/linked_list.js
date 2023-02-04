@@ -4,8 +4,8 @@
  * Author: IsChristina (christinaxia77@foxmail.com), Justin (xiefahit@gmail.com)
  */
 
-const PrintUtil = require("../include/PrintUtil");
-const ListNode = require("../include/ListNode");
+const { printLinkedList } = require("../include/PrintUtil");
+const { ListNode } = require("../include/ListNode");
 
 /* 在链表的结点 n0 之后插入结点 P */
 function insert(n0, P) {
@@ -62,17 +62,17 @@ n1.next = n2;
 n2.next = n3;
 n3.next = n4;
 console.log("初始化的链表为");
-PrintUtil.printLinkedList(n0);
+printLinkedList(n0);
 
 /* 插入结点 */
 insert(n0, new ListNode(0));
 console.log("插入结点后的链表为");
-PrintUtil.printLinkedList(n0);
+printLinkedList(n0);
 
 /* 删除结点 */
 remove(n0);
 console.log("删除结点后的链表为");
-PrintUtil.printLinkedList(n0);
+printLinkedList(n0);
 
 /* 访问结点 */
 const node = access(n0, 3);
