@@ -1,8 +1,9 @@
 #include "../include/include.hpp"
+
 /* 最大堆类 */
 class MaxHeap {
 private:
-    // 使用vector而非数组，这样无需考虑扩容问题
+    // 使用 vector 而非数组，这样无需考虑扩容问题
     vector<int> maxHeap;
 
     /* 获取左子结点索引 */
@@ -125,6 +126,7 @@ public:
         freeMemoryTree(tree);
     }
 };
+
 void testPush(MaxHeap &maxHeap, int val) {
     maxHeap.push(val);  // 元素入堆
     cout << "\n添加元素 " << val << " 后" << endl;

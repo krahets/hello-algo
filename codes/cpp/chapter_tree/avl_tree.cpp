@@ -5,6 +5,7 @@
  */
 
 #include "../include/include.hpp"
+
 /* AVL 树 */
 class AVLTree {
 public:
@@ -15,6 +16,7 @@ private:
         // 结点高度等于最高子树高度 + 1
         node->height = max(height(node->left), height(node->right)) + 1;
     }
+
     /* 右旋操作 */
     TreeNode* rightRotate(TreeNode* node) {
         TreeNode* child = node->left;
@@ -42,6 +44,7 @@ private:
         // 返回旋转后子树的根节点
         return child;
     }
+
     /* 执行旋转操作，使该子树重新恢复平衡 */
     TreeNode* rotate(TreeNode* node) {
         // 获取结点 node 的平衡因子
@@ -71,6 +74,7 @@ private:
         // 平衡树，无需旋转，直接返回
         return node;
     }
+
     /* 递归插入结点（辅助函数） */
     TreeNode* insertHelper(TreeNode* node, int val) {
         if (node == nullptr) return new TreeNode(val);
@@ -87,6 +91,7 @@ private:
         // 返回子树的根节点
         return node;
     }
+
     /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
     TreeNode* getInOrderNext(TreeNode* node) {
         if (node == nullptr) return node;
@@ -96,6 +101,7 @@ private:
         }
         return node;
     }
+
     /* 递归删除结点（辅助函数） */
     TreeNode* removeHelper(TreeNode* node, int val) {
         if (node == nullptr) return nullptr;
@@ -137,6 +143,7 @@ public:
         // 空结点高度为 -1 ，叶结点高度为 0
         return node == nullptr ? -1 : node->height;
     }
+
     /* 获取平衡因子 */
     int balanceFactor(TreeNode* node) {
         // 空结点平衡因子为 0
@@ -144,16 +151,19 @@ public:
         // 结点平衡因子 = 左子树高度 - 右子树高度
         return height(node->left) - height(node->right);
     }
+
     /* 插入结点 */
     TreeNode* insert(int val) {
         root = insertHelper(root, val);
         return root;
     }
+
     /* 删除结点 */
     TreeNode* remove(int val) {
         root = removeHelper(root, val);
         return root;
     }
+
     /* 查找结点 */
     TreeNode* search(int val) {
         TreeNode* cur = root;
@@ -172,13 +182,16 @@ public:
         // 返回目标结点
         return cur;
     }
+
     /*构造函数*/
     AVLTree() : root(nullptr) {}
+
     /*析构函数*/
     ~AVLTree() {
         freeMemoryTree(root);
     }
 };
+
 void testInsert(AVLTree& tree, int val) {
     tree.insert(val);
     cout << "\n插入结点 " << val << " 后，AVL 树为" << endl;
@@ -191,7 +204,9 @@ void testRemove(AVLTree& tree, int val) {
     PrintUtil::printTree(tree.root);
 }
 int main() {
+    /* 初始化空 AVL 树 */
     AVLTree avlTree;
+
     /* 插入结点 */
     // 请关注插入结点后，AVL 树是如何保持平衡的
     testInsert(avlTree, 1);

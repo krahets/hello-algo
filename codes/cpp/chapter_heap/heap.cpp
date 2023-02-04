@@ -1,4 +1,5 @@
 #include "../include/include.hpp"
+
 template <typename Tp, typename _Compare = less<Tp>>
 class Heap : public priority_queue<Tp, vector<Tp>, _Compare>
 /**
@@ -8,19 +9,23 @@ class Heap : public priority_queue<Tp, vector<Tp>, _Compare>
 {
 public:
     Heap() = default;
+
     template <typename _InputIterator>
     Heap(_InputIterator __first, _InputIterator __last) : priority_queue<Tp, vector<Tp>, _Compare>(__first, __last) {}
+
     void testPush(Tp val) {
         this->push(val);  // 元素入堆
         cout << "\n元素 " << val << " 入堆后" << endl;
         print();
     }
+
     void testPoll() {
         int val = this->top();  // 堆顶元素
         this->pop();            // 堆顶元素出堆
         cout << "\n元素 " << val << " 出堆后" << endl;
         print();
     }
+
     void print() {
         cout << "堆的数组表示：" << endl;
         PrintUtil::printVector(this->c);
@@ -30,7 +35,9 @@ public:
         freeMemoryTree(tree);
     }
 };
+
 int main() {
+    /* 初始化堆 */
     // 初始化小顶堆
     Heap<int, greater<int>> minHeap;
     // 初始化大顶堆
@@ -63,6 +70,9 @@ int main() {
     /* 判断堆是否为空 */
     bool isEmpty = maxHeap.empty();
     cout << "\n堆是否为空 " << isEmpty << endl;
+
+    /* 输入列表并建堆 */
+    // 时间复杂度为 O(n) ，而非 O(nlogn)
     vector<int> tmp({1, 3, 2, 5, 4});
     minHeap = Heap<int, greater<int>>(tmp.begin(), tmp.end());
     cout << endl
