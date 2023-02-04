@@ -534,7 +534,7 @@ comments: true
     ```cpp title="my_heap.cpp"
     /* 元素入堆 */
     void push(int val) {
-        // 添加节点
+        // 添加结点
         maxHeap.push_back(val);
         // 从底至顶堆化
         shifUp(size() - 1);
