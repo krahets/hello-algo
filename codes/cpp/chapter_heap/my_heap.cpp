@@ -20,7 +20,7 @@ private:
     /* 获取右子结点索引 */
     int right(int i) {
         return 2 * i + 2;
-    } 
+    }
 
     /* 获取父结点索引 */
     int parent(int i) {
@@ -50,7 +50,7 @@ private:
             // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
             if (l < size() && maxHeap[l] > maxHeap[ma]) 
                 ma = l;
-            if (r < size() && maxHeap[r] > maxHeap[ma])  
+            if (r < size() && maxHeap[r] > maxHeap[ma])
                 ma = r;
             // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
             if (ma == i) 
