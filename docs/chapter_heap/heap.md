@@ -296,7 +296,7 @@ comments: true
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    // 使用vector而非数组，这样无需考虑扩容问题
+    // 使用 vector 而非数组，这样无需考虑扩容问题
     vector<int> maxHeap;  
 
     /* 获取左子结点索引 */
