@@ -208,6 +208,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="binary_tree_bfs.zig"
+
+    ```
+
 ## 7.2.2. 前序、中序、后序遍历
 
 相对地，前、中、后序遍历皆属于「深度优先遍历 Depth-First Traversal」，其体现着一种“先走到尽头，再回头继续”的回溯遍历方式。
@@ -501,6 +507,12 @@ comments: true
         postOrder(root: root.right)
         list.append(root.val)
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_tree_dfs.zig"
+
     ```
 
 !!! note

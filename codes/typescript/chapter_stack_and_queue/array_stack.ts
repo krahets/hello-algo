@@ -79,4 +79,4 @@ console.log("栈的长度 size = " + size);
 const empty = stack.empty();
 console.log("栈是否为空 = " + empty);
 
-export { };
+export {};

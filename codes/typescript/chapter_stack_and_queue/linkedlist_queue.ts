@@ -4,7 +4,7 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-import ListNode from "../module/ListNode"
+import { ListNode } from "../module/ListNode"
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
@@ -28,7 +28,7 @@ class LinkedListQueue {
     }
 
     /* 入队 */
-    offer(num: number): void {
+    push(num: number): void {
         // 尾结点后添加 num
         const node = new ListNode(num);
         // 如果队列为空，则令头、尾结点都指向该结点
@@ -78,11 +78,11 @@ class LinkedListQueue {
 const queue = new LinkedListQueue();
 
 /* 元素入队 */
-queue.offer(1);
-queue.offer(3);
-queue.offer(2);
-queue.offer(5);
-queue.offer(4);
+queue.push(1);
+queue.push(3);
+queue.push(2);
+queue.push(5);
+queue.push(4);
 console.log("队列 queue = " + queue.toArray());
 
 /* 访问队首元素 */
@@ -100,3 +100,5 @@ console.log("队列长度 size = " + size);
 /* 判断队列是否为空 */
 const isEmpty = queue.isEmpty();
 console.log("队列是否为空 = " + isEmpty);
+
+export {};

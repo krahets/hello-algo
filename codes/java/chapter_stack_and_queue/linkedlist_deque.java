@@ -39,7 +39,7 @@ class LinkedListDeque {
     }
 
     /* 入队操作 */
-    private void offer(int num, boolean isFront) {
+    private void push(int num, boolean isFront) {
         ListNode node = new ListNode(num);
         // 若链表为空，则令 front, rear 都指向 node
         if (isEmpty())
@@ -61,13 +61,13 @@ class LinkedListDeque {
     }
 
     /* 队首入队 */
-    public void offerFirst(int num) {
-        offer(num, true);
+    public void pushFirst(int num) {
+        push(num, true);
     }
 
     /* 队尾入队 */
-    public void offerLast(int num) {
-        offer(num, false);
+    public void pushLast(int num) {
+        push(num, false);
     }
 
     /* 出队操作 */
@@ -141,9 +141,9 @@ public class linkedlist_deque {
     public static void main(String[] args) {
         /* 初始化双向队列 */
         LinkedListDeque deque = new LinkedListDeque();
-        deque.offerLast(3);
-        deque.offerLast(2);
-        deque.offerLast(5);
+        deque.pushLast(3);
+        deque.pushLast(2);
+        deque.pushLast(5);
         System.out.print("双点队列 deque = ");
         deque.print();
 
@@ -154,10 +154,10 @@ public class linkedlist_deque {
         System.out.println("队尾元素 peekLast = " + peekLast);
 
         /* 元素入队 */
-        deque.offerLast(4);
+        deque.pushLast(4);
         System.out.print("元素 4 队尾入队后 deque = ");
         deque.print();
-        deque.offerFirst(1);
+        deque.pushFirst(1);
         System.out.print("元素 1 队首入队后 deque = ");
         deque.print();
 

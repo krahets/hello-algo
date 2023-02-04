@@ -6,6 +6,7 @@
 
 #include "../include/include.hpp"
 
+/* 方法一：暴力枚举 */
 class SolutionBruteForce {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -21,6 +22,7 @@ public:
     }
 };
 
+/* 方法二：辅助哈希表 */
 class SolutionHashMap {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {

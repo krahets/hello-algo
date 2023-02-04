@@ -37,3 +37,5 @@ printTree(root);
 /* 层序遍历 */
 const list = hierOrder(root);
 console.log('\n层序遍历的结点打印序列 = ' + list);
+
+export {};

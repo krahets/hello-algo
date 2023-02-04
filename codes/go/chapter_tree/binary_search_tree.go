@@ -28,7 +28,7 @@ func (bst *binarySearchTree) getRoot() *TreeNode {
 	return bst.root
 }
 
-/* 获取中序遍历的下一个结点 */
+/* 获取中序遍历的下一个结点（仅适用于 root 有左子结点的情况） */
 func (bst *binarySearchTree) getInOrderNext(node *TreeNode) *TreeNode {
 	if node == nil {
 		return node

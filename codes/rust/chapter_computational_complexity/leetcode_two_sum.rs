@@ -8,6 +8,7 @@ use std::collections::HashMap;
 struct SolutionBruteForce;
 struct SolutionHashMap;
 
+/* 方法一：暴力枚举 */
 impl SolutionBruteForce {
     pub fn two_sum(nums: &Vec<i32>, target: i32) -> Vec<i32> {
         for i in 0..nums.len() - 1 {
@@ -21,6 +22,7 @@ impl SolutionBruteForce {
     }
 }
 
+/* 方法二：辅助哈希表 */
 impl SolutionHashMap {
     pub fn two_sum(nums: &Vec<i32>, target: i32) -> Vec<i32> {
         let mut hm = HashMap::new();

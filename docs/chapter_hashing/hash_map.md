@@ -230,6 +230,12 @@ comments: true
     map.removeValue(forKey: 10583)
     ```
 
+=== "Zig"
+
+    ```zig title="hash_map.zig"
+
+    ```
+
 遍历哈希表有三种方式，即 **遍历键值对、遍历键、遍历值**。
 
 === "Java"
@@ -380,6 +386,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="hash_map.zig"
+
+    ```
+
 ## 6.1.3. 哈希函数
 
 哈希表中存储元素的数据结构被称为「桶 Bucket」，底层实现可能是数组、链表、二叉树（红黑树），或是它们的组合。
@@ -502,7 +514,7 @@ $$
         /* 删除操作 */
         void remove(int key) {
             int index = hashFunc(key);
-            // 置为空字符，代表删除
+            // 置为 nullptr ，代表删除
             bucket[index] = nullptr;
         }
     };
@@ -516,36 +528,36 @@ $$
         def __init__(self, key, val):
             self.key = key
             self.val = val
-    
+
     """ 基于数组简易实现的哈希表 """
     class ArrayHashMap:
         def __init__(self):
             # 初始化一个长度为 100 的桶（数组）
             self.bucket = [None] * 100
-    
+
         """ 哈希函数 """
-        def hashFunc(self, key):
+        def hash_func(self, key):
             index = key % 100
             return index
-    
+
         """ 查询操作 """
         def get(self, key):
-            index = self.hashFunc(key)
+            index = self.hash_func(key)
             pair = self.bucket[index]
             if pair is None:
                 return None
             return pair.val
-    
+
         """ 添加操作 """
         def put(self, key, val):
             pair = Entry(key, val)
-            index = self.hashFunc(key)
+            index = self.hash_func(key)
             self.bucket[index] = pair
-    
+
         """ 删除操作 """
         def remove(self, key):
-            index = self.hashFunc(key)
-            # 置为空字符，代表删除
+            index = self.hash_func(key)
+            # 置为 None ，代表删除
             self.bucket[index] = None
     ```
 
@@ -696,39 +708,6 @@ $$
             // 置为 null ，代表删除
             this.bucket[index] = null;
         }
-    
-        /* 获取所有键值对 */
-        public entries(): (Entry | null)[] {
-            let arr: (Entry | null)[] = [];
-            for (let i = 0; i < this.bucket.length; i++) {
-                if (this.bucket[i]) {
-                    arr.push(this.bucket[i]);
-                }
-            }
-            return arr;
-        }
-    
-        /* 获取所有键 */
-        public keys(): (number | undefined)[] {
-            let arr: (number | undefined)[] = [];
-            for (let i = 0; i < this.bucket.length; i++) {
-                if (this.bucket[i]) {
-                    arr.push(this.bucket[i]?.key);
-                }
-            }
-            return arr;
-        }
-    
-        /* 获取所有值 */
-        public values(): (string | undefined)[] {
-            let arr: (string | undefined)[] = [];
-            for (let i = 0; i < this.bucket.length; i++) {
-                if (this.bucket[i]) {
-                    arr.push(this.bucket[i]?.val);
-                }
-            }
-            return arr;
-        }
     }
     ```
 
@@ -849,6 +828,12 @@ $$
             bucket[index] = nil
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="array_hash_map.zig"
+
     ```
 
 ## 6.1.4. 哈希冲突

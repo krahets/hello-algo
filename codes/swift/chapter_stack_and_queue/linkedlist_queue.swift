@@ -25,7 +25,7 @@ class LinkedListQueue {
     }
 
     /* 入队 */
-    func offer(num: Int) {
+    func push(num: Int) {
         // 尾结点后添加 num
         let node = ListNode(x: num)
         // 如果队列为空，则令头、尾结点都指向该结点
@@ -79,11 +79,11 @@ enum _LinkedListQueue {
         let queue = LinkedListQueue()
 
         /* 元素入队 */
-        queue.offer(num: 1)
-        queue.offer(num: 3)
-        queue.offer(num: 2)
-        queue.offer(num: 5)
-        queue.offer(num: 4)
+        queue.push(num: 1)
+        queue.push(num: 3)
+        queue.push(num: 2)
+        queue.push(num: 5)
+        queue.push(num: 4)
         print("队列 queue = \(queue.toArray())")
 
         /* 访问队首元素 */

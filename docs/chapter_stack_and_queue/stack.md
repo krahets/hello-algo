@@ -255,6 +255,12 @@ comments: true
     let isEmpty = stack.isEmpty
     ```
 
+=== "Zig"
+
+    ```zig title="stack.zig"
+
+    ```
+
 ## 5.1.2. 栈的实现
 
 为了更加清晰地了解栈的运行机制，接下来我们来自己动手实现一个栈类。
@@ -683,6 +689,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="linkedlist_stack.zig"
+
+    ```
+
 ### 基于数组的实现
 
 使用「数组」实现栈时，考虑将数组的尾部当作栈顶。这样设计下，「入栈」与「出栈」操作就对应在数组尾部「添加元素」与「删除元素」，时间复杂度都为 $O(1)$ 。
@@ -1021,6 +1033,12 @@ comments: true
             return stack.last!
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="array_stack.zig"
+
     ```
 
 ## 5.1.3. 两种实现对比

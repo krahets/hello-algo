@@ -7,7 +7,6 @@
 package chapter_stack_and_queue;
 
 import java.util.*;
-import include.*;
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
@@ -30,7 +29,7 @@ class LinkedListQueue {
     }
 
     /* 入队 */
-    public void offer(int num) {
+    public void push(int num) {
         // 尾结点后添加 num
         ListNode node = new ListNode(num);
         // 如果队列为空，则令头、尾结点都指向该结点
@@ -79,11 +78,11 @@ public class linkedlist_queue {
         LinkedListQueue queue = new LinkedListQueue();
 
         /* 元素入队 */
-        queue.offer(1);
-        queue.offer(3);
-        queue.offer(2);
-        queue.offer(5);
-        queue.offer(4);
+        queue.push(1);
+        queue.push(3);
+        queue.push(2);
+        queue.push(5);
+        queue.push(4);
         System.out.println("队列 queue = " + Arrays.toString(queue.toArray()));
 
         /* 访问队首元素 */

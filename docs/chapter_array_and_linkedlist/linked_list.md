@@ -126,6 +126,26 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title=""
+    // 链表结点类
+    pub fn ListNode(comptime T: type) type {
+        return struct {
+            const Self = @This();
+            
+            val: T = 0, // 结点值
+            next: ?*Self = null, // 指向下一结点的指针（引用）
+
+            // 构造函数
+            pub fn init(self: *Self, x: i32) void {
+                self.val = x;
+                self.next = null;
+            }
+        };
+    }
+    ```
+
 **尾结点指向什么？** 我们一般将链表的最后一个结点称为「尾结点」，其指向的是「空」，在 Java / C++ / Python 中分别记为 `null` / `nullptr` / `None` 。在不引起歧义下，本书都使用 `null` 来表示空。
 
 **链表初始化方法**。建立链表分为两步，第一步是初始化各个结点对象，第二步是构建引用指向关系。完成后，即可以从链表的首个结点（即头结点）出发，访问其余所有的结点。
@@ -275,6 +295,23 @@ comments: true
     n1.next = n2
     n2.next = n3
     n3.next = n4
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
+    // 初始化链表
+    // 初始化各个结点 
+    var n0 = inc.ListNode(i32){.val = 1};
+    var n1 = inc.ListNode(i32){.val = 3};
+    var n2 = inc.ListNode(i32){.val = 2};
+    var n3 = inc.ListNode(i32){.val = 5};
+    var n4 = inc.ListNode(i32){.val = 4};
+    // 构建引用指向
+    n0.next = &n1;
+    n1.next = &n2;
+    n2.next = &n3;
+    n3.next = &n4;
     ```
 
 ## 4.2.1. 链表优点
@@ -465,6 +502,26 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="linked_list.zig"
+    // 在链表的结点 n0 之后插入结点 P
+    pub fn insert(n0: ?*inc.ListNode(i32), P: ?*inc.ListNode(i32)) void {
+        var n1 = n0.?.next;
+        n0.?.next = P;
+        P.?.next = n1;
+    }
+
+    // 删除链表的结点 n0 之后的首个结点
+    pub fn remove(n0: ?*inc.ListNode(i32)) void {
+        if (n0.?.next == null) return;
+        // n0 -> P -> n1
+        var P = n0.?.next;
+        var n1 = P.?.next;
+        n0.?.next = n1;
+    }
+    ```
+
 ## 4.2.2. 链表缺点
 
 **链表访问结点效率低**。上节提到，数组可以在 $O(1)$ 时间下访问任意元素，但链表无法直接访问任意结点。这是因为计算机需要从头结点出发，一个一个地向后遍历到目标结点。例如，倘若想要访问链表索引为 `index` （即第 `index + 1` 个）的结点，那么需要 `index` 次访问操作。
@@ -588,6 +645,21 @@ comments: true
             head = head?.next
         }
         return head
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
+    // 访问链表中索引为 index 的结点
+    pub fn access(node: ?*inc.ListNode(i32), index: i32) ?*inc.ListNode(i32) {
+        var head = node;
+        var i: i32 = 0;
+        while (i < index) : (i += 1) {
+            head = head.?.next;
+            if (head == null) return null;
+        }
+        return head;
     }
     ```
 
@@ -736,6 +808,22 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="linked_list.zig"
+    // 在链表中查找值为 target 的首个结点
+    pub fn find(node: ?*inc.ListNode(i32), target: i32) i32 {
+        var head = node;
+        var index: i32 = 0;
+        while (head != null) {
+            if (head.?.val == target) return index;
+            head = head.?.next;
+            index += 1;
+        }
+        return -1;
+    }
+    ```
+
 ## 4.2.4. 常见链表类型
 
 **单向链表**。即上述介绍的普通链表。单向链表的结点有「值」和指向下一结点的「指针（引用）」两项数据。我们将首个结点称为头结点，尾结点指向 `null` 。
@@ -861,6 +949,28 @@ comments: true
         init(x: Int) { // 构造函数
             val = x
         }
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+    // 双向链表结点类
+    pub fn ListNode(comptime T: type) type {
+        return struct {
+            const Self = @This();
+            
+            val: T = 0, // 结点值
+            next: ?*Self = null, // 指向后继结点的指针（引用）
+            prev: ?*Self = null, // 指向前驱结点的指针（引用）
+
+            // 构造函数
+            pub fn init(self: *Self, x: i32) void {
+                self.val = x;
+                self.next = null;
+                self.prev = null;
+            }
+        };
     }
     ```
 

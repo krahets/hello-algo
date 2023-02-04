@@ -21,8 +21,8 @@ func newLinkedListQueue() *linkedListQueue {
 	}
 }
 
-// offer 入队
-func (s *linkedListQueue) offer(value any) {
+// push 入队
+func (s *linkedListQueue) push(value any) {
 	s.data.PushBack(value)
 }
 

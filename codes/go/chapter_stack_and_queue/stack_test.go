@@ -22,7 +22,7 @@ func TestStack(t *testing.T) {
 	stack = append(stack, 2)
 	stack = append(stack, 5)
 	stack = append(stack, 4)
-	fmt.Print("栈 = ")
+	fmt.Print("栈 stack = ")
 	PrintSlice(stack)
 
 	/* 访问栈顶元素 */
