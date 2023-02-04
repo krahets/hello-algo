@@ -235,6 +235,12 @@ comments: true
     // Swift 未提供内置 heap 类
     ```
 
+=== "Zig"
+
+    ```zig title="heap.zig"
+
+    ```
+
 ## 8.1.3. 堆的实现
 
 下文实现的是「大顶堆」，若想转换为「小顶堆」，将所有大小逻辑判断取逆（例如将 $\geq$ 替换为 $\leq$ ）即可，有兴趣的同学可自行实现。
@@ -393,6 +399,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="my_heap.zig"
+
+    ```
+
 ### 访问堆顶元素
 
 堆顶元素是二叉树的根结点，即列表首元素。
@@ -461,6 +473,12 @@ comments: true
     func peek() -> Int {
         maxHeap[0]
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="my_heap.zig"
+
     ```
 
 ### 元素入堆
@@ -627,6 +645,12 @@ comments: true
             i = p
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="my_heap.zig"
+
     ```
 
 ### 堆顶元素出堆
@@ -866,6 +890,12 @@ comments: true
     }
     ```
 
+=== "Zig"
+
+    ```zig title="my_heap.zig"
+
+    ```
+
 ### 输入数据并建堆 *
 
 如果我们想要直接输入一个列表并将其建堆，那么该怎么做呢？最直接地，考虑使用「元素入堆」方法，将列表元素依次入堆。元素入堆的时间复杂度为 $O(n)$ ，而平均长度为 $\frac{n}{2}$ ，因此该方法的总体时间复杂度为 $O(n \log n)$ 。
@@ -959,6 +989,12 @@ comments: true
             siftDown(i: i)
         }
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="my_heap.zig"
+
     ```
 
 那么，第二种建堆方法的时间复杂度时多少呢？我们来做一下简单推算。
