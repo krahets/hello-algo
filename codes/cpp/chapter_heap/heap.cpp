@@ -1,67 +1,52 @@
+/**
+ * File: heap.cpp
+ * Created Time: 2023-01-19
+ * Author: LoneRanger(836253168@qq.com)
+ */
+
 #include "../include/include.hpp"
 
-template <typename Tp, typename _Compare = less<Tp>>
-class Heap : public priority_queue<Tp, vector<Tp>, _Compare>
-/**
- * 1. c++的priority_queue，即堆，默认的是大根堆
- * 2. priority_queue没有提供迭代器,但是注意到存数据的容器是protected的,可以在继承之后使用
- */
+void testPush(priority_queue<int> &heap, int val)
 {
-public:
-    Heap() = default;
+    heap.push(val); // 元素入堆
+    cout << "\n元素 " << val << " 入堆后" << endl;
+    PrintUtil::printHeap(heap);
+}
+void testPoll(priority_queue<int> &heap)
+{
+    int val = heap.top();
+    heap.pop();
+    cout << "\n堆顶元素 " << val << " 出堆后" << endl;
+    PrintUtil::printHeap(heap);
+}
 
-    template <typename _InputIterator>
-    Heap(_InputIterator __first, _InputIterator __last) : priority_queue<Tp, vector<Tp>, _Compare>(__first, __last) {}
-
-    void testPush(Tp val) {
-        this->push(val);  // 元素入堆
-        cout << "\n元素 " << val << " 入堆后" << endl;
-        print();
-    }
-
-    void testPoll() {
-        int val = this->top();  // 堆顶元素
-        this->pop();            // 堆顶元素出堆
-        cout << "\n元素 " << val << " 出堆后" << endl;
-        print();
-    }
-
-    void print() {
-        cout << "堆的数组表示：" << endl;
-        PrintUtil::printVector(this->c);
-        cout << "堆的树状表示：" << endl;
-        TreeNode* tree = vecToTree(this->c);
-        PrintUtil::printTree(tree);
-        freeMemoryTree(tree);
-    }
-};
-
-int main() {
+int main()
+{
     /* 初始化堆 */
     // 初始化小顶堆
-    Heap<int, greater<int>> minHeap;
+    // priority_queue<int, vector<int>, greater<int>> minHeap;
     // 初始化大顶堆
-    Heap<int> maxHeap;
+    priority_queue<int, vector<int>, less<int>> maxHeap;
 
     cout << "\n以下测试样例为大顶堆" << endl;
 
     /* 元素入堆 */
-    maxHeap.testPush(1);
-    maxHeap.testPush(3);
-    maxHeap.testPush(2);
-    maxHeap.testPush(5);
-    maxHeap.testPush(4);
+    testPush(maxHeap, 1);
+    testPush(maxHeap, 3);
+    testPush(maxHeap, 2);
+    testPush(maxHeap, 5);
+    testPush(maxHeap, 4);
 
     /* 获取堆顶元素 */
     int peek = maxHeap.top();
     cout << "\n堆顶元素为 " << peek << endl;
 
     /* 堆顶元素出堆 */
-    maxHeap.testPoll();
-    maxHeap.testPoll();
-    maxHeap.testPoll();
-    maxHeap.testPoll();
-    maxHeap.testPoll();
+    testPoll(maxHeap);
+    testPoll(maxHeap);
+    testPoll(maxHeap);
+    testPoll(maxHeap);
+    testPoll(maxHeap);
 
     /* 获取堆大小 */
     int size = maxHeap.size();
@@ -73,9 +58,9 @@ int main() {
 
     /* 输入列表并建堆 */
     // 时间复杂度为 O(n) ，而非 O(nlogn)
-    vector<int> tmp({1, 3, 2, 5, 4});
-    minHeap = Heap<int, greater<int>>(tmp.begin(), tmp.end());
-    cout << endl
-         << "输入列表并建立小顶堆后" << endl;
-    minHeap.print();
+    vector<int> input{1, 3, 2, 5, 4};
+    priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
+    cout << "输入列表并建立小顶堆后" << endl;
+    PrintUtil::printHeap(minHeap);
+    return 0;
 }

@@ -86,34 +86,28 @@ comments: true
 
     ```cpp title="heap.cpp"
     /* 初始化堆 */
-    // 初始化小顶堆,必须要使用 greater，如果是自定义的类，要么自己实现比较类，要么重载大于号
-    priority_queue<int,vector<int>,greater<int>> minHeap;
+    // 初始化小顶堆
+    priority_queue<int, vector<int>, greater<int>> minHeap;
     // 初始化大顶堆
-    priority_queue<int> maxHeap;
-    
+    priority_queue<int, vector<int>, less<int>> maxHeap;
+
     /* 元素入堆 */
     maxHeap.push(1);
     maxHeap.push(3);
     maxHeap.push(2);
     maxHeap.push(5);
     maxHeap.push(4);
-    
+
     /* 获取堆顶元素 */
     int peek = maxHeap.top(); // 5
-    
+
     /* 堆顶元素出堆 */
     // 出堆元素会形成一个从大到小的序列
-    // 注意，c++ 中的出队不会返回堆顶的值
-    peek = maxHeap.top();  // 5
-    heap.pop();         //出队
-    peek = maxHeap.top();  // 4
-    heap.pop();         //出队
-    peek = maxHeap.top();  // 3
-    heap.pop();         //出队
-    peek = maxHeap.top();  // 2
-    heap.pop();         //出队
-    peek = maxHeap.top();  // 1
-    heap.pop();         //出队
+    maxHeap.pop(); // 5
+    maxHeap.pop(); // 4
+    maxHeap.pop(); // 3
+    maxHeap.pop(); // 2
+    maxHeap.pop(); // 1
 
     /* 获取堆大小 */
     int size = maxHeap.size();
@@ -122,11 +116,8 @@ comments: true
     bool isEmpty = maxHeap.empty();
 
     /* 输入列表并建堆 */
-    vector<int> tmp({1, 3, 2, 5, 4});
-    minHeap = priority_queue<int,vector<int>,greater<int>>(tmp.begin(), tmp.end());
-
-    // priority_queue 里的序列是 protected 的，所以要读取就得继承
-    // 顺带一提，装元素的容器不仅可以是 vector，还可以是 deque，一般都用 vector
+    vector<int> input{1, 3, 2, 5, 4};
+    priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
     ```
 
 === "Python"
