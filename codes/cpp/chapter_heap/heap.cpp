@@ -12,6 +12,7 @@ void testPush(priority_queue<int> &heap, int val)
     cout << "\n元素 " << val << " 入堆后" << endl;
     PrintUtil::printHeap(heap);
 }
+
 void testPoll(priority_queue<int> &heap)
 {
     int val = heap.top();

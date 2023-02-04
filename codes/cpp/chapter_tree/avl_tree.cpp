@@ -1,6 +1,6 @@
 /**
  * File: avl_tree.cpp
- * Created Time: 2023-2-3
+ * Created Time: 2023-02-03
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
