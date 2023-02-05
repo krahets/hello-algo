@@ -584,6 +584,7 @@ comments: true
 === "TypeScript"
 
     ```typescript title="linkedlist_deque.ts"
+    /* 双向链表结点 */
     class ListNode {
         prev: ListNode;     // 前驱结点引用 (指针)
         next: ListNode;     // 后继结点引用 (指针)
