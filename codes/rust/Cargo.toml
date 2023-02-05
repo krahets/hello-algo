@@ -32,5 +32,10 @@ path = "chapter_array_and_linkedlist/array.rs"
 name = "list"
 path = "chapter_array_and_linkedlist/list.rs"
 
+# Run Command: cargo run --bin bubble_sort
+[[bin]]
+name = "bubble_sort"
+path = "chapter_sorting/bubble_sort.rs"
+
 [dependencies]
 rand = "0.8.5"
