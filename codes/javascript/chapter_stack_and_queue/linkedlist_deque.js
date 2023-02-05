@@ -21,7 +21,7 @@ class ListNode {
 class LinkedListDeque {
     front;  // 头结点 front
     rear;   // 尾结点 rear
-    len;   // 双向队列的长度
+    len;    // 双向队列的长度
 
     constructor() {
         this.front = null;

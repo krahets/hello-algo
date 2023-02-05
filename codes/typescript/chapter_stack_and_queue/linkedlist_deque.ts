@@ -4,9 +4,10 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
+/* 双向链表结点 */
 class ListNode {
-    prev: ListNode;    // 前驱结点引用 (指针)
-    next: ListNode;    // 后继结点引用 (指针)
+    prev: ListNode;     // 前驱结点引用 (指针)
+    next: ListNode;     // 后继结点引用 (指针)
     val: number;        // 结点值
 
     constructor(val: number) {
