@@ -32,6 +32,11 @@ path = "chapter_array_and_linkedlist/array.rs"
 name = "list"
 path = "chapter_array_and_linkedlist/list.rs"
 
+# Run Command: cargo run --bin stack
+[[bin]]
+name = "stack"
+path = "chapter_stack_and_queue/stack.rs"
+
 # Run Command: cargo run --bin hash_map
 [[bin]]
 name = "hash_map"

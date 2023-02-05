@@ -39,7 +39,7 @@ fn bubble_sort_with_flag(nums: &mut [i32]) {
     }
 }
 
-// Driver Code
+/* Driver Code */
 pub fn main() {
     let mut nums = [ 4, 1, 3, 1, 5, 2 ];
     bubble_sort(&mut nums);

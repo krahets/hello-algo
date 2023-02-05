@@ -44,7 +44,7 @@ fn binary_search1(nums: &[i32], target: i32) -> i32 {
     return -1;
 }
 
-// Driver Code
+/* Driver Code */
 pub fn main() {
     let target = 6;
     let nums = [ 1, 3, 6, 8, 12, 15, 23, 67, 70, 92 ];

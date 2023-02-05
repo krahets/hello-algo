@@ -6,7 +6,7 @@
 
 use std::collections::HashMap;
 
-// Driver Code
+/* Driver Code */
 pub fn main() {
     // 初始化哈希表
     let mut map = HashMap::new();

@@ -40,7 +40,7 @@ impl SolutionHashMap {
     }
 }
 
-// Driver Code
+/* Driver Code */
 fn main() {
     // ======= Test Case =======
     let nums = vec![ 2, 7, 11, 15 ];
