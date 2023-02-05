@@ -108,10 +108,4 @@ func (g *graphAdjList) print() {
 		fmt.Println(builder.String())
 		builder.Reset()
 	}
-	//var builder strings.Builder
-	//for node.Next != nil {
-	//	builder.WriteString(strconv.Itoa(node.Val) + " -> ")
-	//	node = node.Next
-	//}
-	//builder.WriteString(strconv.Itoa(node.Val))
 }
