@@ -20,7 +20,7 @@ comments: true
 
     ```java title="hashing_search.java"
     /* 哈希查找（数组） */
-    int hashingSearch(Map<Integer, Integer> map, int target) {
+    int hashingSearchArray(Map<Integer, Integer> map, int target) {
         // 哈希表的 key: 目标元素，value: 索引
         // 若哈希表中无此 key ，返回 -1
         return map.getOrDefault(target, -1);
@@ -31,7 +31,7 @@ comments: true
 
     ```cpp title="hashing_search.cpp"
     /* 哈希查找（数组） */
-    int hashingSearch(unordered_map<int, int> map, int target) {
+    int hashingSearchArray(unordered_map<int, int> map, int target) {
         // 哈希表的 key: 目标元素，value: 索引
         // 若哈希表中无此 key ，返回 -1
         if (map.find(target) == map.end())
@@ -44,7 +44,7 @@ comments: true
 
     ```python title="hashing_search.py"
     """ 哈希查找（数组） """
-    def hashing_search(mapp, target):
+    def hashing_search_array(mapp, target):
         # 哈希表的 key: 目标元素，value: 索引
         # 若哈希表中无此 key ，返回 -1
         return mapp.get(target, -1)
@@ -54,7 +54,7 @@ comments: true
 
     ```go title="hashing_search.go"
     /* 哈希查找（数组） */
-    func hashingSearch(m map[int]int, target int) int {
+    func hashingSearchArray(m map[int]int, target int) int {
     // 哈希表的 key: 目标元素，value: 索引
     // 若哈希表中无此 key ，返回 -1
         if index, ok := m[target]; ok {
@@ -69,7 +69,7 @@ comments: true
 
     ```js title="hashing_search.js"
     /* 哈希查找（数组） */
-    function hashingSearch(map, target) {
+    function hashingSearchArray(map, target) {
         // 哈希表的 key: 目标元素，value: 索引
         // 若哈希表中无此 key ，返回 -1
         return map.has(target) ? map.get(target) : -1;
@@ -80,7 +80,7 @@ comments: true
 
     ```typescript title="hashing_search.ts"
     /* 哈希查找（数组） */
-    function hashingSearch(map: Map<number, number>, target: number): number {
+    function hashingSearchArray(map: Map<number, number>, target: number): number {
         // 哈希表的 key: 目标元素，value: 索引
         // 若哈希表中无此 key ，返回 -1
         return map.has(target) ? map.get(target) as number : -1;
@@ -97,7 +97,7 @@ comments: true
 
     ```csharp title="hashing_search.cs"
     /* 哈希查找（数组） */
-    int hashingSearch(Dictionary<int, int> map, int target)
+    int hashingSearchArray(Dictionary<int, int> map, int target)
     {
         // 哈希表的 key: 目标元素，value: 索引
         // 若哈希表中无此 key ，返回 -1
@@ -109,7 +109,7 @@ comments: true
 
     ```swift title="hashing_search.swift"
     /* 哈希查找（数组） */
-    func hashingSearch(map: [Int: Int], target: Int) -> Int {
+    func hashingSearchArray(map: [Int: Int], target: Int) -> Int {
         // 哈希表的 key: 目标元素，value: 索引
         // 若哈希表中无此 key ，返回 -1
         return map[target, default: -1]
@@ -130,7 +130,7 @@ comments: true
 
     ```java title="hashing_search.java"
     /* 哈希查找（链表） */
-    ListNode hashingSearch1(Map<Integer, ListNode> map, int target) {
+    ListNode hashingSearchLinkedList(Map<Integer, ListNode> map, int target) {
         // 哈希表的 key: 目标结点值，value: 结点对象
         // 若哈希表中无此 key ，返回 null
         return map.getOrDefault(target, null);
@@ -141,7 +141,7 @@ comments: true
 
     ```cpp title="hashing_search.cpp"
     /* 哈希查找（链表） */
-    ListNode* hashingSearch1(unordered_map<int, ListNode*> map, int target) {
+    ListNode* hashingSearchLinkedList(unordered_map<int, ListNode*> map, int target) {
         // 哈希表的 key: 目标结点值，value: 结点对象
         // 若哈希表中无此 key ，返回 nullptr
         if (map.find(target) == map.end())
@@ -154,7 +154,7 @@ comments: true
 
     ```python title="hashing_search.py"
     """  哈希查找（链表） """
-    def hashing_search1(mapp, target):
+    def hashing_search_linkedlist(mapp, target):
         # 哈希表的 key: 目标元素，value: 结点对象
         # 若哈希表中无此 key ，返回 -1
         return mapp.get(target, -1)
@@ -164,7 +164,7 @@ comments: true
 
     ```go title="hashing_search.go"
     /* 哈希查找（链表） */
-    func hashingSearch1(m map[int]*ListNode, target int) *ListNode {
+    func hashingSearchLinkedList(m map[int]*ListNode, target int) *ListNode {
         // 哈希表的 key: 目标结点值，value: 结点对象
         // 若哈希表中无此 key ，返回 nil
         if node, ok := m[target]; ok {
@@ -179,7 +179,7 @@ comments: true
 
     ```js title="hashing_search.js"
     /* 哈希查找（链表） */
-    function hashingSearch1(map, target) {
+    function hashingSearchLinkedList(map, target) {
         // 哈希表的 key: 目标结点值，value: 结点对象
         // 若哈希表中无此 key ，返回 null
         return map.has(target) ? map.get(target) : null;
@@ -190,7 +190,7 @@ comments: true
 
     ```typescript title="hashing_search.ts"
     /* 哈希查找（链表） */
-    function hashingSearch1(map: Map<number, ListNode>, target: number): ListNode | null {
+    function hashingSearchLinkedList(map: Map<number, ListNode>, target: number): ListNode | null {
         // 哈希表的 key: 目标结点值，value: 结点对象
         // 若哈希表中无此 key ，返回 null
         return map.has(target) ? map.get(target) as ListNode : null;
@@ -207,7 +207,7 @@ comments: true
 
     ```csharp title="hashing_search.cs"
     /* 哈希查找（链表） */
-    ListNode? hashingSearch1(Dictionary<int, ListNode> map, int target)
+    ListNode? hashingSearchLinkedList(Dictionary<int, ListNode> map, int target)
     {
 
         // 哈希表的 key: 目标结点值，value: 结点对象
@@ -220,7 +220,7 @@ comments: true
 
     ```swift title="hashing_search.swift"
     /* 哈希查找（链表） */
-    func hashingSearch1(map: [Int: ListNode], target: Int) -> ListNode? {
+    func hashingSearchLinkedList(map: [Int: ListNode], target: Int) -> ListNode? {
         // 哈希表的 key: 目标结点值，value: 结点对象
         // 若哈希表中无此 key ，返回 null
         return map[target]

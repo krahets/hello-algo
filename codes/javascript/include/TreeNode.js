@@ -7,23 +7,29 @@
 /**
  * Definition for a binary tree node.
  */
-function TreeNode(val, left, right) {
-    this.val = (val === undefined ? 0 : val); // 结点值
-    this.left = (left === undefined ? null : left); // 左子结点指针
-    this.right = (right === undefined ? null : right); // 右子结点指针
+class TreeNode {
+    val; // 结点值
+    left; // 左子结点指针
+    right; // 右子结点指针
+    height; //结点高度
+    constructor(val, left, right, height) {
+        this.val = val === undefined ? 0 : val;
+        this.left = left === undefined ? null : left;
+        this.right = right === undefined ? null : right;
+        this.height = height === undefined ? 0 : height;
+    }
 }
 
 /**
-* Generate a binary tree given an array
-* @param arr
-* @return
-*/
+ * Generate a binary tree given an array
+ * @param arr
+ * @return
+ */
 function arrToTree(arr) {
-    if (arr.length === 0)
-        return null;
-         
+    if (arr.length === 0) return null;
+
     let root = new TreeNode(arr[0]);
-    let queue = [root] 
+    let queue = [root];
     let i = 0;
     while (queue.length) {
         let node = queue.shift();
@@ -42,7 +48,7 @@ function arrToTree(arr) {
     return root;
 }
 
-module.exports = { 
+module.exports = {
     TreeNode,
     arrToTree,
-}
+};
