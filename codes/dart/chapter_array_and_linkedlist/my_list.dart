@@ -4,66 +4,91 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 class MyList {
+  /// [_nums]  数组（存储列表元素）
   late List<int> _nums;
 
+  /// [_capacity]列表容量
   int _capacity = 10;
 
+  /// [_size]列表长度（即当前元素数量）
   int _size = 0;
 
+  /// [_extendRatio]每次列表扩容的倍数
   int _extendRatio = 2;
 
+  /* 构造函数 */
   MyList() {
     _nums = List.filled(_capacity, 0);
   }
 
+  /* 获取列表长度（即当前元素数量）*/
   int size() => _size;
 
+  /* 获取列表容量 */
   int capacity() => _capacity;
 
+  /* 访问元素 */
   int get(int index) {
     if (index >= _size) throw RangeError('索引越界');
     return _nums[index];
   }
 
+  /* 更新元素 */
   void set(int index, int num) {
     if (index >= _size) throw RangeError('索引越界');
     _nums[index] = num;
   }
 
+  /* 尾部添加元素 */
   void add(int num) {
+    // 元素数量超出容量时，触发扩容机制
     if (_size == _capacity) extendCapacity();
     _nums[_size] = num;
+    // 更新元素数量
     _size++;
   }
 
+  /* 中间插入元素 */
   void insert(int index, int num) {
     if (index >= _size) throw RangeError('索引越界');
-    if (_size == _capacity) extendCapacity();
+    // 元素数量超出容量时，触发扩容机制
+    if (_size == _capacity)
+      extendCapacity();
+    // 将索引 index 以及之后的元素都向后移动一位
     for (var j = _size - 1; j >= index; j--) {
       _nums[j + 1] = _nums[j];
     }
     _nums[index] = num;
+    // 更新元素数量
     _size++;
   }
 
+  /* 删除元素 */
   int remove(int index) {
     if (index >= _size) throw RangeError('索引越界');
     int num = _nums[index];
-
+    // 将索引 index 之后的元素都向前移动一位
     for (var j = index; j < _size - 1; j++) {
       _nums[j] = _nums[j + 1];
     }
+    // 更新元素数量
     _size--;
+    // 返回被删除元素
     return num;
   }
 
   void extendCapacity() {
+    // 新建一个长度为 _capacity * _extendRatio 的数组
     final _newNums = List.filled(_capacity * _extendRatio, 0);
+    // 将原数组拷贝到新数组
     List.copyRange(_newNums, 0, _nums);
+    // 更新_nums的引用
     _nums = _newNums;
+    // 更新列表容量
     _capacity = _nums.length;
   }
-  
+
+  /* 将列表转换为数组 */
   List<int> toArray() {
     List<int> nums = [];
     for (var i = 0; i < _size; i++) {
