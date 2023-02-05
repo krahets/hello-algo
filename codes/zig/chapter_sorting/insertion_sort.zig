@@ -27,7 +27,6 @@ pub fn main() !void {
     std.debug.print("插入排序完成后 nums = ", .{});
     inc.PrintUtil.printArray(i32, &nums);
     
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }
 

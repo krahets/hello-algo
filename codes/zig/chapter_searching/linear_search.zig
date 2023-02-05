@@ -50,7 +50,6 @@ pub fn main() !void {
     std.debug.print("目标结点值 3 的对应结点对象为 ", .{});
     try inc.PrintUtil.printLinkedList(i32, node);
 
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }
 

@@ -4,10 +4,12 @@
  * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
 */
 
+use rand::Rng;
+
 /* 随机返回一个数组元素 */
 fn random_access(nums: &[i32]) -> i32 {
     // 在区间 [0, nums.len()) 中随机抽取一个数字
-    let random_index = rand::random::<usize>() % nums.len();
+    let random_index = rand::thread_rng().gen_range(0..nums.len());
     // 获取并返回随机元素
     let random_num = nums[random_index];
     random_num

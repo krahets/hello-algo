@@ -6,7 +6,6 @@ const std = @import("std");
 const inc = @import("include");
 
 // 堆类简易实现
-// 编译期泛型
 pub fn MaxHeap(comptime T: type) type {
     return struct {
         const Self = @This();
@@ -181,10 +180,9 @@ pub fn main() !void {
     std.debug.print("\n堆元素数量为 {}", .{size});
 
     // 判断堆是否为空
-    var isEmpty = maxHeap.isEmpty();
-    std.debug.print("\n堆是否为空 {}\n", .{isEmpty});
+    var is_empty = maxHeap.isEmpty();
+    std.debug.print("\n堆是否为空 {}\n", .{is_empty});
 
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }
 
