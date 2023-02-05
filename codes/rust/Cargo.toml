@@ -32,6 +32,11 @@ path = "chapter_array_and_linkedlist/array.rs"
 name = "list"
 path = "chapter_array_and_linkedlist/list.rs"
 
+# Run Command: cargo run --bin hash_map
+[[bin]]
+name = "hash_map"
+path = "chapter_hashing/hash_map.rs"
+
 # Run Command: cargo run --bin bubble_sort
 [[bin]]
 name = "bubble_sort"

@@ -4,8 +4,11 @@
  * Author: sjinzh (sjinzh@gmail.com)
 */
 
+use std::fmt::Display;
+use std::collections::HashMap;
+
 /* Print an array */
-pub fn print_array<T: std::fmt::Display>(nums: &[T]) {
+pub fn print_array<T: Display>(nums: &[T]) {
     print!("[");
     if nums.len() > 0 {
         for (i, num) in nums.iter().enumerate() {
@@ -13,5 +16,12 @@ pub fn print_array<T: std::fmt::Display>(nums: &[T]) {
         }
     } else {
         print!("]");
+    }
+}
+
+/* Print a hash map */
+pub fn print_hash_map<TKey: Display, TValue: Display>(map: &HashMap<TKey, TValue>) {
+    for (key, value) in map {
+        print!("{key} -> {value}\n");
     }
 }
