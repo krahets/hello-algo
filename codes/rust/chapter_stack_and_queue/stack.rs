@@ -33,6 +33,6 @@ pub fn main() {
     print!("\n栈的长度 size = {size}");
 
     // 判断栈是否为空
-    let empty = stack.is_empty();
-    print!("\n栈是否为空 = {empty}");
+    let is_empty = stack.is_empty();
+    print!("\n栈是否为空 = {is_empty}");
 }

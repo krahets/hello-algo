@@ -42,6 +42,11 @@ path = "chapter_stack_and_queue/stack.rs"
 name = "queue"
 path = "chapter_stack_and_queue/queue.rs"
 
+# Run Command: cargo run --bin deque
+[[bin]]
+name = "deque"
+path = "chapter_stack_and_queue/deque.rs"
+
 # Run Command: cargo run --bin hash_map
 [[bin]]
 name = "hash_map"
