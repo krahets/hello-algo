@@ -6,6 +6,7 @@
 
 use std::fmt::Display;
 use std::collections::HashMap;
+use std::collections::LinkedList;
 
 /* Print an array */
 pub fn print_array<T: Display>(nums: &[T]) {
@@ -23,5 +24,14 @@ pub fn print_array<T: Display>(nums: &[T]) {
 pub fn print_hash_map<TKey: Display, TValue: Display>(map: &HashMap<TKey, TValue>) {
     for (key, value) in map {
         println!("{key} -> {value}");
+    }
+}
+
+/* Print a queue or deque */
+pub fn print_queue<T: Display>(queue: &LinkedList<T>) {
+    print!("[");
+    let iter = queue.iter();
+    for (i, data) in iter.enumerate() {
+        print!("{}{}", data, if i == queue.len() - 1 {"]"} else {", "} );
     }
 }
