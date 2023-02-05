@@ -10,7 +10,7 @@ from include import *
 
 """ 生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱 """
 def random_numbers(n):
-    # 生成数组 nums =: 1, 2, 3, ..., n 
+    # 生成数组 nums =: 1, 2, 3, ..., n
     nums = [i for i in range(1, n + 1)]
     # 随机打乱数组元素
     random.shuffle(nums)
