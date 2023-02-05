@@ -1,3 +1,9 @@
+/**
+ * File: avl_tree.cpp
+ * Created Time: 2023-02-05
+ * Author: what-is-me (whatisme@outlook.jp)
+ */
+
 let { TreeNode } = require("../include/TreeNode");
 let { printTree } = require("../include/PrintUtil");
 
