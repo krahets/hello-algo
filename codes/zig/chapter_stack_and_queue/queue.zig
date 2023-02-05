@@ -39,8 +39,8 @@ pub fn main() !void {
     std.debug.print("\n队列长度 size = {}", .{size});
 
     // 判断队列是否为空
-    var empty = if (queue.len == 0) true else false;
-    std.debug.print("\n队列是否为空 = {}", .{empty});
+    var is_empty = if (queue.len == 0) true else false;
+    std.debug.print("\n队列是否为空 = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

@@ -80,6 +80,5 @@ pub fn main() !void {
     var index = find(&n0, 2);
     std.debug.print("链表中值为 2 的结点的索引 = {}\n", .{index});
 
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }

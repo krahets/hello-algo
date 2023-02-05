@@ -6,7 +6,6 @@ const std = @import("std");
 const inc = @import("include");
 
 // 基于链表实现的栈
-// 编译期泛型
 pub fn LinkedListStack(comptime T: type) type {
     return struct {
         const Self = @This();
@@ -111,10 +110,9 @@ pub fn main() !void {
     std.debug.print("\n栈的长度 size = {}", .{size});
 
     // 判断栈是否为空
-    var empty = stack.empty();
-    std.debug.print("\n栈是否为空 = {}", .{empty});
+    var is_empty = stack.empty();
+    std.debug.print("\n栈是否为空 = {}", .{is_empty});
 
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }
 
