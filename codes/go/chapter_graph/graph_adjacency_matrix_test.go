@@ -21,18 +21,18 @@ func TestGraphAdjMat(t *testing.T) {
 	/* 添加边 */
 	// 顶点 1, 2 的索引分别为 0, 2
 	graph.addEdge(0, 2)
-	fmt.Println("添加边 1-2 后，图为:")
+	fmt.Println("添加边 1-2 后，图为")
 	graph.print()
 
 	/* 删除边 */
 	// 顶点 1, 3 的索引分别为 0, 1
 	graph.removeEdge(0, 1)
-	fmt.Println("删除边 1-3 后，图为:")
+	fmt.Println("删除边 1-3 后，图为")
 	graph.print()
 
 	/* 添加顶点 */
 	graph.addVertex(6)
-	fmt.Println("添加顶点 6 后，图为:")
+	fmt.Println("添加顶点 6 后，图为")
 	graph.print()
 
 	/* 删除顶点 */
