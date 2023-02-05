@@ -4,7 +4,8 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-class DequeNode {
+/* 双向链表结点 */
+class ListNode {
     prev;   // 前驱结点引用 (指针)
     next;   // 后继结点引用 (指针)
     val;    // 结点值
@@ -18,90 +19,90 @@ class DequeNode {
 
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {
-    head;   // 头结点 head
-    tail;   // 尾结点 tail
-    len;    // 双向队列的长度
+    front;  // 头结点 front
+    rear;   // 尾结点 rear
+    len;   // 双向队列的长度
 
     constructor() {
-        this.head = null;
-        this.tail = null;
+        this.front = null;
+        this.rear = null;
         this.len = 0;
     }
 
     /* 队尾入队操作 */
-    pushBack(val) {
-        const node = new DequeNode(val);
-        // 若链表为空，则令 head, tail 都指向 node
+    pushLast(val) {
+        const node = new ListNode(val);
+        // 若链表为空，则令 front, rear 都指向 node
         if (this.len === 0) {
-            this.head = node;
-            this.tail = node;
+            this.front = node;
+            this.rear = node;
         } else {
             // 将 node 添加至链表尾部
-            this.tail.next = node;
-            node.prev = this.tail;
-            this.tail = node; // 更新尾结点
+            this.rear.next = node;
+            node.prev = this.rear;
+            this.rear = node; // 更新尾结点
         }
         this.len++;
     }
 
     /* 队首入队操作 */
-    pushFront(val) {
-        const node = new DequeNode(val);
-        // 若链表为空，则令 head, tail 都指向 node
+    pushFirst(val) {
+        const node = new ListNode(val);
+        // 若链表为空，则令 front, rear 都指向 node
         if (this.len === 0) {
-            this.head = node;
-            this.tail = node;
+            this.front = node;
+            this.rear = node;
         } else {
             // 将 node 添加至链表头部
-            this.head.prev = node;
-            node.next = this.head;
-            this.head = node; // 更新头结点
+            this.front.prev = node;
+            node.next = this.front;
+            this.front = node; // 更新头结点
         }
         this.len++;
     }
 
     /* 队尾出队操作 */
-    popBack() {
+    pollLast() {
         if (this.len === 0) {
             return null;
         }
-        const value = this.tail.val; // 存储尾结点值
+        const value = this.rear.val; // 存储尾结点值
         // 删除尾结点
-        let temp = this.tail.prev;
+        let temp = this.rear.prev;
         if (temp !== null) {
             temp.next = null;
-            this.tail.prev = null;
+            this.rear.prev = null;
         }
-        this.tail = temp;   // 更新尾结点
+        this.rear = temp;   // 更新尾结点
         this.len--;
         return value;
     }
 
     /* 队首出队操作 */
-    popFront() {
+    pollFirst() {
         if (this.len === 0) {
             return null;
         }
-        const value = this.head.val; // 存储尾结点值
+        const value = this.front.val; // 存储尾结点值
         // 删除头结点
-        let temp = this.head.next;
+        let temp = this.front.next;
         if (temp !== null) {
             temp.prev = null;
-            this.head.next = null;
+            this.front.next = null;
         }
-        this.head = temp;   // 更新头结点
+        this.front = temp;   // 更新头结点
         this.len--;
         return value;
     }
 
     /* 访问队尾元素 */
     peekLast() {
-        return this.len === 0 ? null : this.tail.val;
+        return this.len === 0 ? null : this.rear.val;
     }
 
     /* 访问队首元素 */
     peekFirst() {
-        return this.len === 0 ? null : this.head.val;
+        return this.len === 0 ? null : this.front.val;
     }
 
     /* 获取双向队列的长度 */
@@ -117,7 +118,7 @@ class LinkedListDeque {
     /* 打印双向队列 */
     print() {
         const arr = [];
-        let temp = this.head;
+        let temp = this.front;
         while (temp !== null) {
             arr.push(temp.val);
             temp = temp.next;
@@ -128,9 +129,9 @@ class LinkedListDeque {
 
 /* 初始化双向队列 */
 const linkedListDeque = new LinkedListDeque();
-linkedListDeque.pushBack(3);
-linkedListDeque.pushBack(2);
-linkedListDeque.pushBack(5);
+linkedListDeque.pushLast(3);
+linkedListDeque.pushLast(2);
+linkedListDeque.pushLast(5);
 console.log("双向队列 linkedListDeque = ");
 linkedListDeque.print();
 
@@ -141,19 +142,19 @@ const peekLast = linkedListDeque.peekLast();
 console.log("队尾元素 peekLast = " + peekLast);
 
 /* 元素入队 */
-linkedListDeque.pushBack(4);
+linkedListDeque.pushLast(4);
 console.log("元素 4 队尾入队后 linkedListDeque = ");
 linkedListDeque.print();
-linkedListDeque.pushFront(1);
+linkedListDeque.pushFirst(1);
 console.log("元素 1 队首入队后 linkedListDeque = ");
 linkedListDeque.print();
 
 /* 元素出队 */
-const popBack = linkedListDeque.popBack();
-console.log("队尾出队元素 = " + popBack + "，队尾出队后 linkedListDeque = ");
+const pollLast = linkedListDeque.pollLast();
+console.log("队尾出队元素 = " + pollLast + "，队尾出队后 linkedListDeque = ");
 linkedListDeque.print();
-const popFront = linkedListDeque.popFront();
-console.log("队首出队元素 = " + popFront + "，队首出队后 linkedListDeque = ");
+const pollFirst = linkedListDeque.pollFirst();
+console.log("队首出队元素 = " + pollFirst + "，队首出队后 linkedListDeque = ");
 linkedListDeque.print();
 
 /* 获取双向队列的长度 */
