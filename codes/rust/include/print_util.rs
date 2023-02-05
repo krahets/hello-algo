@@ -22,6 +22,6 @@ pub fn print_array<T: Display>(nums: &[T]) {
 /* Print a hash map */
 pub fn print_hash_map<TKey: Display, TValue: Display>(map: &HashMap<TKey, TValue>) {
     for (key, value) in map {
-        print!("{key} -> {value}\n");
+        println!("{key} -> {value}");
     }
 }
