@@ -37,8 +37,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
         public TreeNode right; // 右子结点
         public TreeNode(int x) { val = x; }
     }
-
-````
+    ```
 
 === "C++"
 
@@ -64,10 +63,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
             self.height = 0     # 结点高度
             self.left = left    # 左子结点引用
             self.right = right  # 右子结点引用
-
-
-
-````
+    ```
 
 === "Go"
 
@@ -84,8 +80,19 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
-````
+    class TreeNode {
+        val; // 结点值
+        left; // 左子结点指针
+        right; // 右子结点指针
+        height; //结点高度
+        constructor(val, left, right, height) {
+            this.val = val === undefined ? 0 : val;
+            this.left = left === undefined ? null : left;
+            this.right = right === undefined ? null : right;
+            this.height = height === undefined ? 0 : height;
+        }
+    }
+    ```
 
 === "TypeScript"
 
@@ -97,9 +104,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
     ```c title="avl_tree.c"
 
-
-
-````
+    ```
 
 === "C#"
 
@@ -129,8 +134,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
             height = 0
         }
     }
-
-````
+    ```
 
 === "Zig"
 
@@ -154,10 +158,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
         // 结点高度等于最高子树高度 + 1
         node.height = Math.max(height(node.left), height(node.right)) + 1;
     }
-
-
-
-````
+    ```
 
 === "C++"
 
@@ -189,8 +190,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     def __update_height(self, node: Optional[TreeNode]):
         # 结点高度等于最高子树高度 + 1
         node.height = max([self.height(node.left), self.height(node.right)]) + 1
-
-````
+    ```
 
 === "Go"
 
@@ -220,10 +220,18 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "JavaScript"
 
     ```js title="avl_tree.js"
+    /* 获取结点高度 */
+    height(node) {
+        // 空结点高度为 -1 ，叶结点高度为 0
+        return node === null ? -1 : node.height;
+    }
 
-
-
-````
+    /* 更新结点高度 */
+    updateHeight(node) {
+        // 结点高度等于最高子树高度 + 1
+        node.height = Math.max(this.height(node.left), this.height(node.right)) + 1;
+    }
+    ```
 
 === "TypeScript"
 
@@ -235,7 +243,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
     ```c title="avl_tree.c"
 
-````
+    ```
 
 === "C#"
 
@@ -269,10 +277,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
         // 结点高度等于最高子树高度 + 1
         node?.height = max(height(node: node?.left), height(node: node?.right)) + 1
     }
-
-
-
-````
+    ```
 
 === "Zig"
 
@@ -294,8 +299,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
         // 结点平衡因子 = 左子树高度 - 右子树高度
         return height(node.left) - height(node.right);
     }
-
-````
+    ```
 
 === "C++"
 
@@ -319,10 +323,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
             return 0
         # 结点平衡因子 = 左子树高度 - 右子树高度
         return self.height(node.left) - self.height(node.right)
-
-
-
-````
+    ```
 
 === "Go"
 
@@ -341,8 +342,14 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
-````
+    /* 获取平衡因子 */
+    balanceFactor(node) {
+        // 空结点平衡因子为 0
+        if (node === null) return 0;
+        // 结点平衡因子 = 左子树高度 - 右子树高度
+        return this.height(node.left) - this.height(node.right);
+    }
+    ```
 
 === "TypeScript"
 
@@ -356,7 +363,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
 
 
-````
+    ```
 
 === "C#"
 
@@ -381,8 +388,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
         // 结点平衡因子 = 左子树高度 - 右子树高度
         return height(node: node.left) - height(node: node.right)
     }
-
-````
+    ```
 
 === "Zig"
 
@@ -442,10 +448,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回旋转后子树的根节点
         return child;
     }
-
-
-
-````
+    ```
 
 === "C++"
 
@@ -480,8 +483,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         self.__update_height(child)
         # 返回旋转后子树的根节点
         return child
-
-````
+    ```
 
 === "Go"
 
@@ -504,10 +506,20 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
-
-
-````
+    /* 右旋操作 */
+    rightRotate(node) {
+        let child = node.left;
+        let grandChild = child.right;
+        // 以 child 为原点，将 node 向右旋转
+        child.right = node;
+        node.left = grandChild;
+        // 更新结点高度
+        this.updateHeight(node);
+        this.updateHeight(child);
+        // 返回旋转后子树的根节点
+        return child;
+    }
+    ```
 
 === "TypeScript"
 
@@ -519,7 +531,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
     ```c title="avl_tree.c"
 
-````
+    ```
 
 === "C#"
 
@@ -538,7 +550,6 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回旋转后子树的根节点
         return child;
     }
-
     ```
 
 === "Swift"
@@ -557,10 +568,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回旋转后子树的根节点
         return child
     }
-
-
-
-````
+    ```
 
 === "Zig"
 
@@ -596,8 +604,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回旋转后子树的根节点
         return child;
     }
-
-````
+    ```
 
 === "C++"
 
@@ -632,10 +639,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         self.__update_height(child)
         # 返回旋转后子树的根节点
         return child
-
-
-
-````
+    ```
 
 === "Go"
 
@@ -658,8 +662,20 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
-````
+    /* 左旋操作 */
+    leftRotate(node) {
+        let child = node.right;
+        let grandChild = child.left;
+        // 以 child 为原点，将 node 向左旋转
+        child.left = node;
+        node.right = grandChild;
+        // 更新结点高度
+        this.updateHeight(node);
+        this.updateHeight(child);
+        // 返回旋转后子树的根节点
+        return child;
+    }
+    ```
 
 === "TypeScript"
 
@@ -673,7 +689,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 
 
-````
+    ```
 
 === "C#"
 
@@ -711,7 +727,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return child
     }
 
-````
+    ```
 
 === "Zig"
 
@@ -784,10 +800,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 平衡树，无需旋转，直接返回
         return node;
     }
-
-
-
-````
+    ```
 
 === "C++"
 
@@ -850,8 +863,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
                 return self.__left_rotate(node)
         # 平衡树，无需旋转，直接返回
         return node
-
-````
+    ```
 
 === "Go"
 
@@ -891,10 +903,36 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "JavaScript"
 
     ```js title="avl_tree.js"
-
-
-
-````
+    /* 执行旋转操作，使该子树重新恢复平衡 */
+    rotate(node) {
+        // 获取结点 node 的平衡因子
+        let balanceFactor = this.balanceFactor(node);
+        // 左偏树
+        if (balanceFactor > 1) {
+            if (this.balanceFactor(node.left) >= 0) {
+                // 右旋
+                return this.rightRotate(node);
+            } else {
+                // 先左旋后右旋
+                node.left = this.leftRotate(node.left);
+                return this.rightRotate(node);
+            }
+        }
+        // 右偏树
+        if (balanceFactor < -1) {
+            if (this.balanceFactor(node.right) <= 0) {
+                // 左旋
+                return this.leftRotate(node);
+            } else {
+                // 先右旋后左旋
+                node.right = this.rightRotate(node.right);
+                return this.leftRotate(node);
+            }
+        }
+        // 平衡树，无需旋转，直接返回
+        return node;
+    }
+    ```
 
 === "TypeScript"
 
@@ -906,7 +944,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
     ```c title="avl_tree.c"
 
-````
+    ```
 
 === "C#"
 
@@ -983,10 +1021,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 平衡树，无需旋转，直接返回
         return node
     }
-
-
-
-````
+    ```
 
 === "Zig"
 
@@ -1025,8 +1060,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回子树的根节点
         return node;
     }
-
-````
+    ```
 
 === "C++"
 
@@ -1079,10 +1113,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         self.__update_height(node)
         # 2. 执行旋转操作，使该子树重新恢复平衡
         return self.__rotate(node)
-
-
-
-````
+    ```
 
 === "Go"
 
@@ -1118,8 +1149,26 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "JavaScript"
 
     ```js title="avl_tree.js"
+    /* 插入结点 */
+    insert(val) {
+        this.root = this.insertHelper(this.root, val);
+        return this.root;
+    }
 
-````
+    /* 递归插入结点（辅助函数） */
+    insertHelper(node, val) {
+        if (node === null) return new TreeNode(val);
+        /* 1. 查找插入位置，并插入结点 */
+        if (val < node.val) node.left = this.insertHelper(node.left, val);
+        else if (val > node.val) node.right = this.insertHelper(node.right, val);
+        else return node; // 重复结点不插入，直接返回
+        this.updateHeight(node); // 更新结点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = this.rotate(node);
+        // 返回子树的根节点
+        return node;
+    }
+    ```
 
 === "TypeScript"
 
@@ -1133,7 +1182,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 
 
-````
+    ```
 
 === "C#"
 
@@ -1194,8 +1243,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回子树的根节点
         return node
     }
-
-````
+    ```
 
 === "Zig"
 
@@ -1246,10 +1294,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回子树的根节点
         return node;
     }
-
-
-
-````
+    ```
 
 === "C++"
 
@@ -1330,8 +1375,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         self.__update_height(node)
         # 2. 执行旋转操作，使该子树重新恢复平衡
         return self.__rotate(node)
-
-````
+    ```
 
 === "Go"
 
@@ -1384,10 +1428,39 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "JavaScript"
 
     ```js title="avl_tree.js"
+    /* 删除结点 */
+    remove(val) {
+        this.root = this.removeHelper(this.root, val);
+        return this.root;
+    }
 
-
-
-````
+    /* 递归删除结点（辅助函数） */
+    removeHelper(node, val) {
+        if (node === null) return null;
+        /* 1. 查找结点，并删除之 */
+        if (val < node.val) node.left = this.removeHelper(node.left, val);
+        else if (val > node.val) node.right = this.removeHelper(node.right, val);
+        else {
+            if (node.left === null || node.right === null) {
+                let child = node.left !== null ? node.left : node.right;
+                // 子结点数量 = 0 ，直接删除 node 并返回
+                if (child === null) return null;
+                // 子结点数量 = 1 ，直接删除 node
+                else node = child;
+            } else {
+                // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
+                let temp = this.getInOrderNext(node.right);
+                node.right = this.removeHelper(node.right, temp.val);
+                node.val = temp.val;
+            }
+        }
+        this.updateHeight(node); // 更新结点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = this.rotate(node);
+        // 返回子树的根节点
+        return node;
+    }
+    ```
 
 === "TypeScript"
 
@@ -1399,7 +1472,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
     ```c title="avl_tree.c"
 
-````
+    ```
 
 === "C#"
 
@@ -1493,10 +1566,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回子树的根节点
         return node
     }
-
-
-
-````
+    ```
 
 === "Zig"
 
