@@ -9,7 +9,7 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
 """ 线性查找（数组） """
-def linear_search(nums, target):
+def linear_search_array(nums, target):
     # 遍历数组
     for i in range(len(nums)):
         if nums[i] == target:  # 找到目标元素，返回其索引
@@ -17,7 +17,7 @@ def linear_search(nums, target):
     return -1                  # 未找到目标元素，返回 -1
 
 """ 线性查找（链表） """
-def linear_search1(head, target):
+def linear_search_linkedlist(head, target):
     # 遍历链表
     while head:
         if head.val == target: # 找到目标结点，返回之
@@ -32,10 +32,10 @@ if __name__ == '__main__':
     
     # 在数组中执行线性查找
     nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
-    index = linear_search(nums, target)
+    index = linear_search_array(nums, target)
     print("目标元素 3 的索引 =", index)
 
     # 在链表中执行线性查找
     head = list_to_linked_list(nums)
-    node = linear_search1(head, target)
+    node = linear_search_linkedlist(head, target)
     print("目标结点值 3 的对应结点对象为", node)

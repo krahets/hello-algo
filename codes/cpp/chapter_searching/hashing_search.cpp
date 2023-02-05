@@ -7,7 +7,7 @@
 #include "../include/include.hpp"
 
 /* 哈希查找（数组） */
-int hashingSearch(unordered_map<int, int> map, int target) {
+int hashingSearchArray(unordered_map<int, int> map, int target) {
     // 哈希表的 key: 目标元素，value: 索引
     // 若哈希表中无此 key ，返回 -1
     if (map.find(target) == map.end())
@@ -16,7 +16,7 @@ int hashingSearch(unordered_map<int, int> map, int target) {
 }
 
 /* 哈希查找（链表） */
-ListNode* hashingSearch1(unordered_map<int, ListNode*> map, int target) {
+ListNode* hashingSearchLinkedList(unordered_map<int, ListNode*> map, int target) {
     // 哈希表的 key: 目标结点值，value: 结点对象
     // 若哈希表中无此 key ，返回 nullptr
     if (map.find(target) == map.end())
@@ -36,7 +36,7 @@ int main() {
     for (int i = 0; i < nums.size(); i++) {
         map[nums[i]] = i;  // key: 元素，value: 索引
     }
-    int index = hashingSearch(map, target);
+    int index = hashingSearchArray(map, target);
     cout << "目标元素 3 的索引 = " << index << endl;
 
     /* 哈希查找（链表） */
@@ -47,7 +47,7 @@ int main() {
         map1[head->val] = head;  // key: 结点值，value: 结点
         head = head->next;
     }
-    ListNode* node = hashingSearch1(map1, target);
+    ListNode* node = hashingSearchLinkedList(map1, target);
     cout << "目标结点值 3 的对应结点对象为 " << node << endl;
 
     return 0;

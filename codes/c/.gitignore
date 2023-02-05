@@ -4,5 +4,4 @@
 !*.*
 # Unignore all dirs
 !*/
-
 *.dSYM/

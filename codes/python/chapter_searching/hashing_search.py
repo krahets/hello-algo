@@ -9,13 +9,13 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
 """ 哈希查找（数组） """
-def hashing_search(mapp, target):
+def hashing_search_array(mapp, target):
     # 哈希表的 key: 目标元素，value: 索引
     # 若哈希表中无此 key ，返回 -1
     return mapp.get(target, -1)
 
 """  哈希查找（链表） """
-def hashing_search1(mapp, target):
+def hashing_search_linkedlist(mapp, target):
     # 哈希表的 key: 目标元素，value: 结点对象
     # 若哈希表中无此 key ，返回 -1
     return mapp.get(target, -1)
@@ -31,7 +31,7 @@ if __name__ == '__main__':
     mapp = {}
     for i in range(len(nums)):
         mapp[nums[i]] = i       # key: 元素，value: 索引
-    index = hashing_search(mapp, target)
+    index = hashing_search_array(mapp, target)
     print("目标元素 3 的索引 =", index)
 
     # 哈希查找（链表）
@@ -41,5 +41,5 @@ if __name__ == '__main__':
     while head:
         map1[head.val] = head  # key: 结点值，value: 结点
         head = head.next
-    node = hashing_search1(map1, target)
+    node = hashing_search_linkedlist(map1, target)
     print("目标结点值 3 的对应结点对象为", node)

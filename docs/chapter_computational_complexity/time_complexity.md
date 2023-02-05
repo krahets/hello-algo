@@ -2647,8 +2647,8 @@ $$
         }
         // 随机打乱数组元素
         for (let i = 0; i < n; i++) {
-            let r = Math.floor(Math.random() * (i + 1));
-            let temp = nums[i];
+            const r = Math.floor(Math.random() * (i + 1));
+            const temp = nums[i];
             nums[i] = nums[r];
             nums[r] = temp;
         }
