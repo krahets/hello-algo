@@ -34,13 +34,13 @@ class SolutionHashMap:
 """ Driver Code """
 if __name__ == '__main__':
     # ======= Test Case =======
-    nums = [ 2,7,11,15 ];
-    target = 9;
+    nums = [2,7,11,15]
+    target = 9
     
     # ====== Driver Code ======
     # 方法一
-    res = SolutionBruteForce().twoSum(nums, target);
+    res = SolutionBruteForce().twoSum(nums, target)
     print("方法一 res =", res)
     # 方法二
-    res = SolutionHashMap().twoSum(nums, target);
+    res = SolutionHashMap().twoSum(nums, target)
     print("方法二 res =", res)
