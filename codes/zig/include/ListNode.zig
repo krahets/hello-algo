@@ -5,7 +5,6 @@
 const std = @import("std");
 
 // Definition for a singly-linked list node
-// 编译期泛型
 pub fn ListNode(comptime T: type) type {
     return struct {
         const Self = @This();

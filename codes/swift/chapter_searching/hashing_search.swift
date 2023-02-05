@@ -7,14 +7,14 @@
 import utils
 
 /* 哈希查找（数组） */
-func hashingSearch(map: [Int: Int], target: Int) -> Int {
+func hashingSearchArray(map: [Int: Int], target: Int) -> Int {
     // 哈希表的 key: 目标元素，value: 索引
     // 若哈希表中无此 key ，返回 -1
     return map[target, default: -1]
 }
 
 /* 哈希查找（链表） */
-func hashingSearch1(map: [Int: ListNode], target: Int) -> ListNode? {
+func hashingSearchLinkedList(map: [Int: ListNode], target: Int) -> ListNode? {
     // 哈希表的 key: 目标结点值，value: 结点对象
     // 若哈希表中无此 key ，返回 null
     return map[target]
@@ -33,7 +33,7 @@ enum HashingSearch {
         for i in nums.indices {
             map[nums[i]] = i // key: 元素，value: 索引
         }
-        let index = hashingSearch(map: map, target: target)
+        let index = hashingSearchArray(map: map, target: target)
         print("目标元素 3 的索引 = \(index)")
 
         /* 哈希查找（链表） */
@@ -44,7 +44,7 @@ enum HashingSearch {
             map1[head!.val] = head! // key: 结点值，value: 结点
             head = head?.next
         }
-        let node = hashingSearch1(map: map1, target: target)
+        let node = hashingSearchLinkedList(map: map1, target: target)
         print("目标结点值 3 的对应结点对象为 \(node!)")
     }
 }

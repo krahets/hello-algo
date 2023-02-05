@@ -920,7 +920,7 @@ comments: true
             self.__nums = [0] * self.__capacity  # 数组（存储列表元素）
             self.__size = 0                      # 列表长度（即当前元素数量）
             self.__extend_ratio = 2              # 每次列表扩容的倍数
-
+    
         """ 获取列表长度（即当前元素数量） """
         def size(self):
             return self.__size
@@ -934,12 +934,12 @@ comments: true
             # 索引如果越界则抛出异常，下同
             assert index >= 0 and index < self.__size, "索引越界"
             return self.__nums[index]
-
+    
         """ 更新元素 """
         def set(self, num, index):
             assert index >= 0 and index < self.__size, "索引越界"
             self.__nums[index] = num
-
+    
         """ 中间插入（尾部添加）元素 """
         def add(self, num, index=-1):
             assert index >= 0 and index < self.__size, "索引越界"
@@ -955,7 +955,7 @@ comments: true
             self.__nums[index] = num
             # 更新元素数量
             self.__size += 1
-
+    
         """ 删除元素 """
         def remove(self, index):
             assert index >= 0 and index < self.__size, "索引越界"
@@ -967,7 +967,7 @@ comments: true
             self.__size -= 1
             # 返回被删除元素
             return num
-
+    
         """ 列表扩容 """
         def extend_capacity(self):
             # 新建一个长度为 self.__size 的数组，并将原数组拷贝到新数组
