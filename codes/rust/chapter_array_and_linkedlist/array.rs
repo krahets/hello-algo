@@ -1,7 +1,7 @@
 /**
  * File: array.rs
  * Created Time: 2023-01-15
- * Author: xBLACICEx (xBLACKICEx@outlook.com)
+ * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
 */
 
 /* 随机返回一个数组元素 */
@@ -15,7 +15,7 @@ fn random_access(nums: &[i32]) -> i32 {
 
 /* 扩展数组长度 */
 fn extend(nums: Vec<i32>, enlarge: usize) -> Vec<i32> {
-    // 创建一个长度为 nums.len() + enlarge 的新 Vec
+    // 初始化一个扩展长度后的数组
     let mut res: Vec<i32> = vec![0; nums.len() + enlarge];
     // 将原数组中的所有元素复制到新
     for i in 0..nums.len() {
@@ -70,33 +70,38 @@ fn find(nums: &[i32], target: i32) -> Option<usize> {
 /* Driver Code */
 fn main() {
     let arr = [0; 5];
-    println!("数组 arr = {:?}", arr);
+    print!("数组 arr = ");
+    inc::print_util::print_array(&arr);
     // 在 Rust 中，指定长度时（[i32; 5]）为数组
     // 由于 Rust 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
     // 为了方便实现扩容 extend() 方法，以下将(Vec) 看作数组（Array）也是rust一般情况下使用动态数组的类型
-    let nums = vec![1, 3, 2, 5, 4];
-    println!("数组 nums = {:?}", nums);
+    let nums = vec![ 1, 3, 2, 5, 4 ];
+    print!("\n数组 nums = ");
+    inc::print_util::print_array(&nums);
 
     /* 随机访问 */
     let random_num = random_access(&nums);
-    println!("在 nums 中获取随机元素 {}", random_num);
+    println!("\n在 nums 中获取随机元素 {}", random_num);
 
     /* 长度扩展 */
     let mut nums = extend(nums, 3);
-    println!("将数组长度扩展至 8 ，得到 nums = {:?}", nums);
+    print!("将数组长度扩展至 8 ，得到 nums = ");
+    inc::print_util::print_array(&arr);
 
     /* 插入元素 */
     insert(&mut nums, 6, 3);
-    println!("在索引 3 处插入数字 6 ，得到 nums = {:?}", nums);
+    print!("\n在索引 3 处插入数字 6 ，得到 nums = ");
+    inc::print_util::print_array(&nums);
 
     /* 删除元素 */
     remove(&mut nums, 2);
-    println!("删除索引 2 处的元素，得到 nums = {:?}", nums);
+    print!("\n删除索引 2 处的元素，得到 nums = ");
+    inc::print_util::print_array(&nums);
 
     /* 遍历数组 */
     traverse(&nums);
 
     /* 查找元素 */
-    let index = find(&nums, 3);
-    println!("在 nums 中查找元素 3 ，得到索引 = {:?}", index);
+    let index = find(&nums, 3).unwrap();
+    println!("\n在 nums 中查找元素 3 ，得到索引 = {}", index);
 }
