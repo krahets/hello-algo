@@ -1,6 +1,13 @@
+/**
+ * File: graph_adjacency_list.cs
+ * Created Time: 2023-02-06
+ * Author: zjkung1123 (zjkung1123@gmail.com)
+ */
+
 using NUnit.Framework;
 
 namespace hello_algo.chapter_graph;
+
 /* 顶点类 */
 class Vertex
 {
@@ -31,7 +38,7 @@ class GraphAdjList
     }
 
     /* 获取顶点数量 */
-    public int Size()
+    public int size()
     {
         return adjList.Count;
     }
@@ -78,6 +85,8 @@ class GraphAdjList
             set.Remove(vet);
         }
     }
+
+    /* 打印邻接表 */
     public void Print()
     {
         Console.WriteLine("邻接表 =");
@@ -110,25 +119,25 @@ public class graph_adjacency_list
         /* 添加边 */
         // 顶点 1, 2 即 v0, v2
         graph.AddEdge(v0, v2);
-        Console.WriteLine("添加边 1-2 后，图为");
+        Console.WriteLine("\n添加边 1-2 后，图为");
         graph.Print();
 
         /* 删除边 */
         // 顶点 1, 3 即 v0, v1
         graph.RemoveEdge(v0, v1);
-        Console.WriteLine("删除边 1-3 后，图为");
+        Console.WriteLine("\n删除边 1-3 后，图为");
         graph.Print();
 
         /* 添加顶点 */
         Vertex v5 = new Vertex(6);
         graph.AddVertex(v5);
-        Console.WriteLine("添加顶点 6 后，图为");
+        Console.WriteLine("\n添加顶点 6 后，图为");
         graph.Print();
 
         /* 删除顶点 */
         // 顶点 3 即 v1
         graph.RemoveVertex(v1);
-        Console.WriteLine("删除顶点 3 后，图为");
+        Console.WriteLine("\n删除顶点 3 后，图为");
         graph.Print();
     }
 }

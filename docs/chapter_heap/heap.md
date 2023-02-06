@@ -977,7 +977,7 @@ comments: true
 
     ```csharp title="my_heap.cs"
     /* 构造函数，根据输入列表建堆 */
-     public MaxHeap(IEnumerable<int> nums)
+    public MaxHeap(IEnumerable<int> nums)
     {
         // 将列表元素原封不动添加进堆
         maxHeap = new List<int>(nums);

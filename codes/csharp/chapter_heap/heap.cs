@@ -1,9 +1,28 @@
+/**
+ * File: heap.cs
+ * Created Time: 2023-02-06
+ * Author: zjkung1123 (zjkung1123@gmail.com)
+ */
+
 using hello_algo.include;
 using NUnit.Framework;
 namespace hello_algo.chapter_heap;
 
 public class heap
 {
+    public static void testPush(PriorityQueue<int, int> heap, int val)
+    {
+        heap.Enqueue(val, val); // 元素入堆
+        Console.WriteLine($"\n元素 {val} 入堆后\n");
+        PrintUtil.printHeap(heap);
+    }
+
+    public static void testPoll(PriorityQueue<int, int> heap)
+    {
+        int val = heap.Dequeue(); // 堆顶元素出堆
+        Console.WriteLine($"\n堆顶元素 {val} 出堆后\n");
+        PrintUtil.printHeap(heap);
+    }
     [Test]
     public void Test()
     {
@@ -16,11 +35,11 @@ public class heap
         Console.WriteLine("以下测试样例为大顶堆");
 
         /* 元素入堆 */
-        maxHeap.Enqueue(1, 1);
-        maxHeap.Enqueue(3, 3);
-        maxHeap.Enqueue(2, 2);
-        maxHeap.Enqueue(5, 5);
-        maxHeap.Enqueue(4, 4);
+        testPush(maxHeap, 1);
+        testPush(maxHeap, 3);
+        testPush(maxHeap, 2);
+        testPush(maxHeap, 5);
+        testPush(maxHeap, 4);
 
         /* 获取堆顶元素 */
         int peek = maxHeap.Peek();
@@ -28,11 +47,12 @@ public class heap
 
         /* 堆顶元素出堆 */
         // 出堆元素会形成一个从大到小的序列
-        peek = maxHeap.Dequeue();  // 5
-        peek = maxHeap.Dequeue();  // 4
-        peek = maxHeap.Dequeue();  // 3
-        peek = maxHeap.Dequeue();  // 2
-        peek = maxHeap.Dequeue();  // 1
+        testPoll(maxHeap);
+        testPoll(maxHeap);
+        testPoll(maxHeap);
+        testPoll(maxHeap);
+        testPoll(maxHeap);
+        testPoll(maxHeap);
 
         /* 获取堆大小 */
         int size = maxHeap.Count;
@@ -47,6 +67,6 @@ public class heap
         /* 输入列表并建堆 */
         minHeap = new PriorityQueue<int, int>(new List<(int, int)> { (1, 1), (3, 3), (2, 2), (5, 5), (4, 4), });
         Console.WriteLine("输入列表并建立小顶堆后");
-        PrintUtil.PrintHeap(minHeap);
+        PrintUtil.printHeap(minHeap);
     }
 }

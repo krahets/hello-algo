@@ -241,7 +241,6 @@ comments: true
             adjMat[j][i] = 0;
         }
     }
-
     ```
 
 === "Swift"
@@ -471,7 +470,6 @@ comments: true
             }
         }
     }
-
     ```
 
 === "Swift"

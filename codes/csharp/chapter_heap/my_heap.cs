@@ -1,3 +1,9 @@
+/**
+ * File: my_heap.cs
+ * Created Time: 2023-02-06
+ * Author: zjkung1123 (zjkung1123@gmail.com)
+ */
+
 using hello_algo.include;
 using NUnit.Framework;
 
@@ -19,7 +25,7 @@ class MaxHeap
         // 将列表元素原封不动添加进堆
         maxHeap = new List<int>(nums);
         // 堆化除叶结点以外的其他所有结点
-        var size = Parent(Size() - 1);
+        var size = Parent(this.size() - 1);
         for (int i = size; i >= 0; i--)
         {
             SiftDown(i);
@@ -54,17 +60,17 @@ class MaxHeap
         // 添加结点
         maxHeap.Add(val);
         // 从底至顶堆化
-        SiftUp(Size() - 1);
+        SiftUp(size() - 1);
     }
     /* 获取堆大小 */
-    public int Size()
+    public int size()
     {
         return maxHeap.Count;
     }
     /* 判断堆是否为空 */
     public bool IsEmpty()
     {
-        return Size() == 0;
+        return size() == 0;
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
@@ -90,10 +96,10 @@ class MaxHeap
         if (IsEmpty())
             throw new IndexOutOfRangeException();
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
-        Swap(0, Size() - 1);
+        Swap(0, size() - 1);
         // 删除结点
         int val = maxHeap.Last();
-        maxHeap.RemoveAt(Size() - 1);
+        maxHeap.RemoveAt(size() - 1);
         // 从顶至底堆化
         SiftDown(0);
         // 返回堆顶元素
@@ -107,9 +113,9 @@ class MaxHeap
         {
             // 判断结点 i, l, r 中值最大的结点，记为 ma
             int l = Left(i), r = Right(i), ma = i;
-            if (l < Size() && maxHeap[l] > maxHeap[ma])
+            if (l < size() && maxHeap[l] > maxHeap[ma])
                 ma = l;
-            if (r < Size() && maxHeap[r] > maxHeap[ma])
+            if (r < size() && maxHeap[r] > maxHeap[ma])
                 ma = r;
             // 若“结点 i 最大”或“越过叶结点”，则结束堆化
             if (ma == i) break;
@@ -127,10 +133,12 @@ class MaxHeap
     /* 打印堆（二叉树） */
     public void Print()
     {
-        PriorityQueue<int, int> queue = new PriorityQueue<int, int>(maxHeap.Select(x => (x, x)), Comparer<int>.Create((x, y) => y - x));
-        PrintUtil.PrintHeap(queue);
+        // PriorityQueue<int, int> queue = new PriorityQueue<int, int>(maxHeap.Select(x => (x, x)), Comparer<int>.Create((x, y) => y - x));
+        var queue = new Queue<int>(maxHeap);
+        PrintUtil.printHeap(queue);
     }
 }
+
 public class my_heap
 {
     [Test]
@@ -139,6 +147,7 @@ public class my_heap
         /* 初始化大顶堆 */
         MaxHeap maxHeap = new MaxHeap(new int[] { 9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2 });
         Console.WriteLine("\n输入列表并建堆后");
+        maxHeap.Print();
 
         /* 获取堆顶元素 */
         int peek = maxHeap.Peek();
@@ -156,7 +165,7 @@ public class my_heap
         maxHeap.Print();
 
         /* 获取堆大小 */
-        int size = maxHeap.Size();
+        int size = maxHeap.size();
         Console.WriteLine($"堆元素数量为 {size}");
 
         /* 判断堆是否为空 */
