@@ -12,7 +12,7 @@ class AVLTree {
     root: TreeNode;
     /*构造函数*/
     constructor() {
-        this.root = null; //根节点
+        this.root = null; //根结点
     }
 
     /* 获取结点高度 */
@@ -45,7 +45,7 @@ class AVLTree {
         // 更新结点高度
         this.updateHeight(node);
         this.updateHeight(child);
-        // 返回旋转后子树的根节点
+        // 返回旋转后子树的根结点
         return child;
     }
 
@@ -59,7 +59,7 @@ class AVLTree {
         // 更新结点高度
         this.updateHeight(node);
         this.updateHeight(child);
-        // 返回旋转后子树的根节点
+        // 返回旋转后子树的根结点
         return child;
     }
 
@@ -113,7 +113,7 @@ class AVLTree {
         this.updateHeight(node); // 更新结点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = this.rotate(node);
-        // 返回子树的根节点
+        // 返回子树的根结点
         return node;
     }
 
@@ -151,7 +151,7 @@ class AVLTree {
         this.updateHeight(node); // 更新结点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = this.rotate(node);
-        // 返回子树的根节点
+        // 返回子树的根结点
         return node;
     }
 

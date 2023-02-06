@@ -8,30 +8,39 @@ import re
 import os
 import os.path as osp
 
-class ExtractCodeBlocksPython:
-    def __init__(self) -> None:
-        self.langs = ["python"]
+class ExtractCodeBlocksJava:
+    def __init__(self) -> None:        
+        self.langs = ["java"]
         # Pattern to match function names and class names
-        self.func_pattern = r'(\s*)def\s+(\w+)\s*\('
-        self.class_pattern = r'class\s+(\w+)'
+        self.func_pattern = r'(\s+)(public|private|)\s*(static|)\s*(\S+)\s+(\w+)(\(.*\))\s+\{'
+        self.class_pattern = r'(public|)\s*class\s+(\w+)\s*\{'
         # Pattern to match the start and end of a block
-        self.block_end_pattern = '^\s{0,ind}\S+.*\n'
-        self.block_start_pattern = '^\s{ind}""".+'
-    
+        self.block_end_pattern = '^\s{ind}\}'
+        self.block_start_pattern = '^\s{ind}\/\*.+\*\/'
+        
     def extract(self, file_path):
         self.file_path = file_path
         with open(file_path) as f:
             self.lines = f.readlines()
             self.content = "".join(self.lines)
-        
-        # Detect and extract all the classes and fucntions
+        # Detect and extract all the classes along with its fucntions
         classes = self.extract_class_blocks()
-        funcs = self.extract_function_blocks()
+        # Remove 'static'
+        self.post_process(classes)
         
         return {
-            "classes": classes,
-            "funcs": funcs,
+            "classes": classes
         }
+        
+    def post_process(self, classes):
+        for clas in classes.values():
+            funcs = clas["funcs"]
+            for func in funcs.values():
+                for i, line in enumerate(func["block"]):
+                    if "static " in line:
+                        func["block"][i] = line.replace("static ", "")
+                        break
+                    
 
     def search_block(self, header_line, indentation):
         """
@@ -52,17 +61,17 @@ class ExtractCodeBlocksPython:
             if re.search(block_start_pattern, self.lines[i]) is not None:
                 start_line = i
                 break
-        func_block = self.lines[start_line:end_line] 
+        code_block = self.lines[start_line:end_line + 1] 
         # Remove empty lines at bottom
-        for i in range(len(func_block) - 1, -1, -1):
-            if re.search("^\s*\n", func_block[i]) is None:
+        for i in range(len(code_block) - 1, -1, -1):
+            if re.search("^\s*\n", code_block[i]) is None:
                 break
             end_line -= 1
         
-        return start_line, end_line, self.lines[start_line:end_line]
+        return start_line, end_line, self.lines[start_line:end_line + 1]
         
 
-    def extract_function_blocks(self, indentation=0, start_line=-1, end_line=-1):
+    def extract_function_blocks(self, indentation=4, start_line=-1, end_line=-1):
         """
         Extract all the functions with given indentation
         """
@@ -86,7 +95,7 @@ class ExtractCodeBlocksPython:
             # Search the block from the header line
             start_line, end_line, func_block = self.search_block(header_line, indentation)
             # Construct the funcs dict
-            func_label = func_match.group(2)
+            func_label = func_match.group(5)
             funcs[func_label] = {
                 "indentation": indentation,
                 "line_number": {
@@ -116,7 +125,7 @@ class ExtractCodeBlocksPython:
             # Search the block from the header line
             start_line, end_line, class_block = self.search_block(header_line, 0)
             # Construct the classes dict
-            class_label = class_match.group(1)
+            class_label = class_match.group(2)
             classes[class_label] = {
                 "indentation": 0,
                 "line_number": {
@@ -130,3 +139,7 @@ class ExtractCodeBlocksPython:
             }
         
         return classes
+
+# ext = ExtractCodeBlocksJava()
+# ext.extract("codes/java/chapter_array_and_linkedlist/array.java")
+# ext.extract("codes/java/chapter_array_and_linkedlist/my_list.java")

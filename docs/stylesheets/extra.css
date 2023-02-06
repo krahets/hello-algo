@@ -68,3 +68,9 @@ body {
   --md-text-font-family: -apple-system,BlinkMacSystemFont,var(--md-text-font,_),Helvetica,Arial,sans-serif;
   --md-code-font-family: var(--md-code-font,_),SFMono-Regular,Consolas,Menlo,-apple-system,BlinkMacSystemFont,var(--md-text-font,_),monospace;
 }
+
+/* max height of code block */
+/* https://github.com/squidfunk/mkdocs-material/issues/3444 */
+.md-typeset pre > code {
+  max-height: 30rem;
+}

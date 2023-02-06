@@ -21,22 +21,7 @@ comments: true
 === "Java"
 
     ```java title="binary_tree_bfs.java"
-    /* 层序遍历 */
-    List<Integer> hierOrder(TreeNode root) {
-        // 初始化队列，加入根结点
-        Queue<TreeNode> queue = new LinkedList<>() {{ add(root); }};
-        // 初始化一个列表，用于保存遍历序列
-        List<Integer> list = new ArrayList<>();
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();  // 队列出队
-            list.add(node.val);            // 保存结点值
-            if (node.left != null)
-                queue.offer(node.left);    // 左子结点入队
-            if (node.right != null)
-                queue.offer(node.right);   // 右子结点入队
-        }
-        return list;
-    }
+    [class]{binary_tree_bfs}-[func]{hierOrder}
     ```
 
 === "C++"
@@ -52,7 +37,7 @@ comments: true
         while (!queue.empty()) {
             TreeNode* node = queue.front();
             queue.pop();                 // 队列出队
-            vec.push_back(node->val);    // 保存结点
+            vec.push_back(node->val);    // 保存结点值
             if (node->left != nullptr)
                 queue.push(node->left);  // 左子结点入队
             if (node->right != nullptr)
@@ -81,7 +66,7 @@ comments: true
         for queue.Len() > 0 {
             // poll
             node := queue.Remove(queue.Front()).(*TreeNode)
-            // 保存结点
+            // 保存结点值
             nums = append(nums, node.Val)
             if node.Left != nil {
                 // 左子结点入队
@@ -107,7 +92,7 @@ comments: true
         let list = [];
         while (queue.length) {
             let node = queue.shift();  // 队列出队
-            list.push(node.val);          // 保存结点
+            list.push(node.val);          // 保存结点值
             if (node.left)
                 queue.push(node.left);    // 左子结点入队
             if (node.right)
@@ -128,7 +113,7 @@ comments: true
         const list: number[] = [];
         while (queue.length) {
             let node = queue.shift() as TreeNode; // 队列出队
-            list.push(node.val); // 保存结点
+            list.push(node.val); // 保存结点值
             if (node.left) {
                 queue.push(node.left); // 左子结点入队
             }
@@ -182,7 +167,7 @@ comments: true
         var list: [Int] = []
         while !queue.isEmpty {
             let node = queue.removeFirst() // 队列出队
-            list.append(node.val) // 保存结点
+            list.append(node.val) // 保存结点值
             if let left = node.left {
                 queue.append(left) // 左子结点入队
             }
@@ -223,32 +208,11 @@ comments: true
 === "Java"
 
     ```java title="binary_tree_dfs.java"
-    /* 前序遍历 */
-    void preOrder(TreeNode root) {
-        if (root == null) return;
-        // 访问优先级：根结点 -> 左子树 -> 右子树
-        list.add(root.val);
-        preOrder(root.left);
-        preOrder(root.right);
-    }
-    
-    /* 中序遍历 */
-    void inOrder(TreeNode root) {
-        if (root == null) return;
-        // 访问优先级：左子树 -> 根结点 -> 右子树
-        inOrder(root.left);
-        list.add(root.val);
-        inOrder(root.right);
-    }
-    
-    /* 后序遍历 */
-    void postOrder(TreeNode root) {
-        if (root == null) return;
-        // 访问优先级：左子树 -> 右子树 -> 根结点
-        postOrder(root.left);
-        postOrder(root.right);
-        list.add(root.val);
-    }
+    [class]{binary_tree_dfs}-[func]{preOrder}
+
+    [class]{binary_tree_dfs}-[func]{inOrder}
+
+    [class]{binary_tree_dfs}-[func]{postOrder}
     ```
 
 === "C++"

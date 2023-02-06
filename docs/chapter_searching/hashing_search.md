@@ -19,12 +19,7 @@ comments: true
 === "Java"
 
     ```java title="hashing_search.java"
-    /* 哈希查找（数组） */
-    int hashingSearchArray(Map<Integer, Integer> map, int target) {
-        // 哈希表的 key: 目标元素，value: 索引
-        // 若哈希表中无此 key ，返回 -1
-        return map.getOrDefault(target, -1);
-    }
+    [class]{hashing_search}-[func]{hashingSearchArray}
     ```
 
 === "C++"
@@ -125,12 +120,7 @@ comments: true
 === "Java"
 
     ```java title="hashing_search.java"
-    /* 哈希查找（链表） */
-    ListNode hashingSearchLinkedList(Map<Integer, ListNode> map, int target) {
-        // 哈希表的 key: 目标结点值，value: 结点对象
-        // 若哈希表中无此 key ，返回 null
-        return map.getOrDefault(target, null);
-    }
+    [class]{hashing_search}-[func]{hashingSearchLinkedList}
     ```
 
 === "C++"

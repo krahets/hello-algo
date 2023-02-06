@@ -18,7 +18,7 @@ fn hierOrder(comptime T: type, mem_allocator: std.mem.Allocator, root: *inc.Tree
     while (queue.len > 0) {
         var queue_node = queue.popFirst().?;    // 队列出队
         var node = queue_node.data;
-        try list.append(node.val);              // 保存结点
+        try list.append(node.val);              // 保存结点值
         if (node.left != null) {
             var tmp_node = try mem_allocator.create(L.Node);
             tmp_node.data = node.left.?;

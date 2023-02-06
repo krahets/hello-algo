@@ -15,7 +15,7 @@ function hierOrder(root) {
     let list = [];
     while (queue.length) {
         let node = queue.shift();  // 队列出队
-        list.push(node.val);          // 保存结点
+        list.push(node.val);          // 保存结点值
         if (node.left)
             queue.push(node.left);    // 左子结点入队
         if (node.right)
