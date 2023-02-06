@@ -124,8 +124,8 @@ pub fn main() !void {
     std.debug.print("\n队列长度 size = {}", .{size});
 
     // 判断队列是否为空
-    var isEmpty = queue.isEmpty();
-    std.debug.print("\n队列是否为空 = {}", .{isEmpty});
+    var is_empty = queue.isEmpty();
+    std.debug.print("\n队列是否为空 = {}", .{is_empty});
 
     // 测试环形数组
     var i: i32 = 0;

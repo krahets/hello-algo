@@ -23,12 +23,12 @@ pub fn main() !void {
     inc.PrintUtil.printList(i32, stack);
 
     // 访问栈顶元素
-    var top = stack.items[stack.items.len - 1];
-    std.debug.print("\n栈顶元素 top = {}", .{top});
+    var peek = stack.items[stack.items.len - 1];
+    std.debug.print("\n栈顶元素 peek = {}", .{peek});
 
     // 元素出栈
-    top = stack.pop();
-    std.debug.print("\n出栈元素 pop = {}，出栈后 stack = ", .{top});
+    var pop = stack.pop();
+    std.debug.print("\n出栈元素 pop = {}，出栈后 stack = ", .{pop});
     inc.PrintUtil.printList(i32, stack);
 
     // 获取栈的长度
@@ -39,6 +39,5 @@ pub fn main() !void {
     var empty = if (stack.items.len == 0) true else false;
     std.debug.print("\n栈是否为空 = {}", .{empty});
 
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }

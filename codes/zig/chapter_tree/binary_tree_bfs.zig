@@ -53,6 +53,5 @@ pub fn main() !void {
     std.debug.print("\n层序遍历的结点打印序列 = ", .{});
     inc.PrintUtil.printList(i32, list);
 
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }

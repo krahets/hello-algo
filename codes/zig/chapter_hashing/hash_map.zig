@@ -49,7 +49,6 @@ pub fn main() !void {
         std.debug.print("{s}\n", .{kv.value_ptr.*});
     }
 
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }
 

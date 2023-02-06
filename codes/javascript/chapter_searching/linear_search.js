@@ -4,7 +4,7 @@
  * Author: JoseHung (szhong@link.cuhk.edu.hk)
  */
 
-const ListNode = require("../include/ListNode");
+const { ListNode, arrToLinkedList } = require("../include/ListNode");
 
 /* 线性查找（数组） */
 function linearSearchArray(nums, target) {
@@ -34,15 +34,14 @@ function linearSearchLinkedList(head, target) {
 }
 
 /* Driver Code */
-var target = 3;
+const target = 3;
 
 /* 在数组中执行线性查找 */
-var nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
-var index = linearSearchArray(nums, target);
+const nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
+const index = linearSearchArray(nums, target);
 console.log("目标元素 3 的索引 = " + index);
 
 /* 在链表中执行线性查找 */
-var linkedList = new ListNode();
-var head = linkedList.arrToLinkedList(nums);
-var node = linearSearchLinkedList(head, target);
-console.log("目标结点值 3 的对应结点对象为 " + node);
+const head = arrToLinkedList(nums);
+const node = linearSearchLinkedList(head, target);
+console.log("目标结点值 3 的对应结点对象为 ", node);

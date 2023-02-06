@@ -1,6 +1,71 @@
+[package]
+name = "hello-algo-rust"
+version = "0.1.0"
+edition = "2021"
 
-[workspace]
-members = [
-    "chapter_computational_complexity",
-    "chapter_array_and_linkedlist"
-]
+[lib]
+name = "inc"
+path = "include/include.rs"
+
+# Run Command: cargo run --bin time_complexity
+[[bin]]
+name = "time_complexity"
+path = "chapter_computational_complexity/time_complexity.rs"
+
+# Run Command: cargo run --bin worst_best_time_complexity
+[[bin]]
+name = "worst_best_time_complexity"
+path = "chapter_computational_complexity/worst_best_time_complexity.rs"
+
+# Run Command: cargo run --bin leetcode_two_sum
+[[bin]]
+name = "leetcode_two_sum"
+path = "chapter_computational_complexity/leetcode_two_sum.rs"
+
+# Run Command: cargo run --bin array
+[[bin]]
+name = "array"
+path = "chapter_array_and_linkedlist/array.rs"
+
+# Run Command: cargo run --bin list
+[[bin]]
+name = "list"
+path = "chapter_array_and_linkedlist/list.rs"
+
+# Run Command: cargo run --bin stack
+[[bin]]
+name = "stack"
+path = "chapter_stack_and_queue/stack.rs"
+
+# Run Command: cargo run --bin queue
+[[bin]]
+name = "queue"
+path = "chapter_stack_and_queue/queue.rs"
+
+# Run Command: cargo run --bin deque
+[[bin]]
+name = "deque"
+path = "chapter_stack_and_queue/deque.rs"
+
+# Run Command: cargo run --bin hash_map
+[[bin]]
+name = "hash_map"
+path = "chapter_hashing/hash_map.rs"
+
+# Run Command: cargo run --bin binary_search
+[[bin]]
+name = "binary_search"
+path = "chapter_searching/binary_search.rs"
+
+# Run Command: cargo run --bin bubble_sort
+[[bin]]
+name = "bubble_sort"
+path = "chapter_sorting/bubble_sort.rs"
+
+# Run Command: cargo run --bin array_stack
+[[bin]]
+name = "array_stack"
+path = "chapter_stack_and_queue/array_stack.rs"
+
+[dependencies]
+rand = "0.8.5"

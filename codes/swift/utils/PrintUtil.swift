@@ -82,4 +82,12 @@ public enum PrintUtil {
         let root = TreeNode.listToTree(list: queue)
         printTree(root: root)
     }
+
+    public static func printMatrix<T>(matrix: [[T]]) {
+        print("[")
+        for row in matrix {
+            print("  \(row),")
+        }
+        print("]")
+    }
 }

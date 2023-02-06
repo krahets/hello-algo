@@ -11,6 +11,7 @@ from include import *
 """ 方法一：暴力枚举 """
 class SolutionBruteForce:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # 两层循环，时间复杂度 O(n^2)
         for i in range(len(nums) - 1):
             for j in range(i + 1, len(nums)):
                 if nums[i] + nums[j] == target:
@@ -20,7 +21,9 @@ class SolutionBruteForce:
 """ 方法二：辅助哈希表 """
 class SolutionHashMap:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # 辅助哈希表，空间复杂度 O(n)
         dic = {}
+        # 单层循环，时间复杂度 O(n)
         for i in range(len(nums)):
             if target - nums[i] in dic:
                 return dic[target - nums[i]], i
@@ -31,13 +34,13 @@ class SolutionHashMap:
 """ Driver Code """
 if __name__ == '__main__':
     # ======= Test Case =======
-    nums = [ 2,7,11,15 ];
-    target = 9;
+    nums = [2,7,11,15]
+    target = 9
     
     # ====== Driver Code ======
     # 方法一
-    res = SolutionBruteForce().twoSum(nums, target);
+    res = SolutionBruteForce().twoSum(nums, target)
     print("方法一 res =", res)
     # 方法二
-    res = SolutionHashMap().twoSum(nums, target);
+    res = SolutionHashMap().twoSum(nums, target)
     print("方法二 res =", res)

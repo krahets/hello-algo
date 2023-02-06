@@ -7,7 +7,7 @@
 import utils
 
 /* 线性查找（数组） */
-func linearSearch(nums: [Int], target: Int) -> Int {
+func linearSearchArray(nums: [Int], target: Int) -> Int {
     // 遍历数组
     for i in nums.indices {
         // 找到目标元素，返回其索引
@@ -20,7 +20,7 @@ func linearSearch(nums: [Int], target: Int) -> Int {
 }
 
 /* 线性查找（链表） */
-func linearSearch(head: ListNode?, target: Int) -> ListNode? {
+func linearSearchLinkedList(head: ListNode?, target: Int) -> ListNode? {
     var head = head
     // 遍历链表
     while head != nil {
@@ -42,12 +42,12 @@ enum LinearSearch {
 
         /* 在数组中执行线性查找 */
         let nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
-        let index = linearSearch(nums: nums, target: target)
+        let index = linearSearchArray(nums: nums, target: target)
         print("目标元素 3 的索引 = \(index)")
 
         /* 在链表中执行线性查找 */
         let head = ListNode.arrToLinkedList(arr: nums)
-        let node = linearSearch(head: head, target: target)
+        let node = linearSearchLinkedList(head: head, target: target)
         print("目标结点值 3 的对应结点对象为 \(node!)")
     }
 }
