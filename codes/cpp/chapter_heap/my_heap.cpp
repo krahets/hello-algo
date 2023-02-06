@@ -120,6 +120,7 @@ public:
         cout << "堆的树状表示：" << endl;
         TreeNode *root = vecToTree(maxHeap);
         PrintUtil::printTree(root);
+        freeMemoryTree(root);
     }
 };
 
