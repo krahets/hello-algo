@@ -2555,7 +2555,7 @@ $$
     ```js title="worst_best_time_complexity.js"
     /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
     function randomNumbers(n) {
-        let nums = Array(n);
+        const nums = Array(n);
         // 生成数组 nums = { 1, 2, 3, ..., n }
         for (let i = 0; i < n; i++) {
             nums[i] = i + 1;
@@ -2588,15 +2588,15 @@ $$
     ```typescript title="worst_best_time_complexity.ts"
     /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
     function randomNumbers(n: number): number[] {
-        let nums = Array(n);
+        const nums = Array(n);
         // 生成数组 nums = { 1, 2, 3, ..., n }
         for (let i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
         // 随机打乱数组元素
         for (let i = 0; i < n; i++) {
-            let r = Math.floor(Math.random() * (i + 1));
-            let temp = nums[i];
+            const r = Math.floor(Math.random() * (i + 1));
+            const temp = nums[i];
             nums[i] = nums[r];
             nums[r] = temp;
         }
