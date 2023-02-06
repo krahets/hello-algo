@@ -1037,7 +1037,6 @@ comments: true
             this.siftDown(i);
         }
     }
-    //JavaScript类只允许有一个构造函数
     ```
 
 === "TypeScript"
