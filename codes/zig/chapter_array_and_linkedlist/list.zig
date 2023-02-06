@@ -74,7 +74,6 @@ pub fn main() !void {
     std.debug.print("\n排序列表后 list = ", .{});
     inc.PrintUtil.printList(i32, list);
 
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }
 

@@ -62,5 +62,10 @@ path = "chapter_searching/binary_search.rs"
 name = "bubble_sort"
 path = "chapter_sorting/bubble_sort.rs"
 
+# Run Command: cargo run --bin array_stack
+[[bin]]
+name = "array_stack"
+path = "chapter_stack_and_queue/array_stack.rs"
+
 [dependencies]
 rand = "0.8.5"

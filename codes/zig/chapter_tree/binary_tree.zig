@@ -34,7 +34,6 @@ pub fn main() !void {
     std.debug.print("删除结点 P 后\n", .{});
     try inc.PrintUtil.printTree(&n1, null, false);
 
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }
 

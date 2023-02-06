@@ -76,6 +76,5 @@ pub fn main() !void {
     std.debug.print("\n输入列表并建立小顶堆后\n", .{});
     try inc.PrintUtil.printHeap(i32, mem_allocator, minHeap);
 
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }

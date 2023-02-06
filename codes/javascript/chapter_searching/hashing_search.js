@@ -30,7 +30,7 @@ const map = new Map();
 for (let i = 0; i < nums.length; i++) {
     map.set(nums[i], i);  // key: 元素，value: 索引
 }
-const index = hashingSearch(map, target);
+const index = hashingSearchArray(map, target);
 console.log("目标元素 3 的索引 = " + index);
 
 /* 哈希查找（链表） */
@@ -41,5 +41,5 @@ while (head != null) {
     map1.set(head.val, head);  // key: 结点值，value: 结点
     head = head.next;
 }
-const node = hashingSearch1(map1, target);
+const node = hashingSearchLinkedList(map1, target);
 console.log("目标结点值 3 的对应结点对象为", node);

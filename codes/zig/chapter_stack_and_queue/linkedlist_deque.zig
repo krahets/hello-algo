@@ -222,8 +222,8 @@ pub fn main() !void {
     std.debug.print("\n队列长度 size = {}", .{size});
 
     // 判断双向队列是否为空
-    var isEmpty = deque.isEmpty();
-    std.debug.print("\n双向队列是否为空 = {}", .{isEmpty});
+    var is_empty = deque.isEmpty();
+    std.debug.print("\n双向队列是否为空 = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

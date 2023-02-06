@@ -60,7 +60,7 @@ pub fn printQueue(comptime T: type, queue: std.TailQueue(T)) void {
     }
 }
 
-// Print a HashMap
+// Print a hash map
 pub fn printHashMap(comptime TKey: type, comptime TValue: type, map: std.AutoHashMap(TKey, TValue)) void {
     var it = map.iterator();
     while (it.next()) |kv| {

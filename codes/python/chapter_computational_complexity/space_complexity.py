@@ -21,7 +21,7 @@ def constant(n):
     node = ListNode(0)
     # 循环中的变量占用 O(1) 空间
     for _ in range(n):
-         c = 0
+        c = 0
     # 循环中的函数占用 O(1) 空间
     for _ in range(n):
         function()
@@ -49,8 +49,8 @@ def quadratic(n):
 """ 平方阶（递归实现） """
 def quadratic_recur(n):
     if n <= 0: return 0
+    # 数组 nums 长度为 n, n-1, ..., 2, 1
     nums = [0] * n
-    print("递归 n =", n, "中的 nums 长度 =", len(nums))
     return quadratic_recur(n - 1)
 
 """ 指数阶（建立满二叉树） """
