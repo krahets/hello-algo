@@ -6,7 +6,7 @@
 
 /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
 function randomNumbers(n) {
-    let nums = Array(n);
+    const nums = Array(n);
     // 生成数组 nums = { 1, 2, 3, ..., n }
     for (let i = 0; i < n; i++) {
         nums[i] = i + 1;

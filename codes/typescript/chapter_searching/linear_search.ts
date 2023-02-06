@@ -37,7 +37,7 @@ function linearSearchLinkedList(head: ListNode | null, target: number): ListNode
 const target = 3;
 
 /* 在数组中执行线性查找 */
-const nums = [ 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 ];
+const nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
 const index = linearSearchArray(nums, target);
 console.log('目标元素 3 的索引 =', index);
 
