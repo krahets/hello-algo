@@ -31,4 +31,17 @@ function arrToLinkedList(arr: number[]): ListNode | null {
     return dum.next;
 }
 
-export { ListNode, arrToLinkedList };
+/**
+ * Get a list node with specific value from a linked list
+ * @param head
+ * @param val
+ * @return
+ */
+function getListNode(head: ListNode, val: number): ListNode | null {
+    while (head !== null && head.val !== val) {
+        head = head.next;
+    }
+    return head;
+}
+
+export { ListNode, arrToLinkedList, getListNode };
