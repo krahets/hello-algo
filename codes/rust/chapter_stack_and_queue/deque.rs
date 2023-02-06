@@ -1,12 +1,12 @@
-/**
- * File: deque.rs
- * Created Time: 2023-02-05
- * Author: sjinzh (sjinzh@gmail.com)
-*/
+// File: deque.rs
+// Created Time: 2023-02-05
+// Author: sjinzh (sjinzh@gmail.com)
+
+include!("../include/include.rs");
 
 use std::collections::LinkedList;
 
-/* Driver Code */
+// Driver Code
 pub fn main() {
     // 初始化双向队列
     let mut deque: LinkedList<i32> = LinkedList::new();
@@ -16,7 +16,7 @@ pub fn main() {
     deque.push_front(3);    // 添加至队首
     deque.push_front(1);
     print!("双向队列 deque = ");
-    inc::print_util::print_queue(&deque);
+    print_util::print_queue(&deque);
 
     // 访问元素
     let peek_first = deque.front().unwrap();    // 队首元素
@@ -27,16 +27,16 @@ pub fn main() {
     // 元素出队
     let poll_first = deque.pop_front().unwrap();    // 队首元素出队
     print!("\n队首出队元素 pollFirst = {poll_first}，队首出队后 deque = ");
-    inc::print_util::print_queue(&deque);
+    print_util::print_queue(&deque);
     let poll_last = deque.pop_back().unwrap();      // 队尾元素出队     
     print!("\n队尾出队元素 pollLast = {poll_last}，队尾出队后 deque = ");
-    inc::print_util::print_queue(&deque);
+    print_util::print_queue(&deque);
 
     // 获取双向队列的长度
     let size = deque.len();
     print!("\n双向队列长度 size = {size}");
 
-    /* 判断双向队列是否为空 */
+    // 判断双向队列是否为空
     let is_empty = deque.is_empty();
     print!("\n双向队列是否为空 = {is_empty}");
 }

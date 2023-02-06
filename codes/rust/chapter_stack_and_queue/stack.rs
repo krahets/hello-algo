@@ -1,10 +1,10 @@
-/**
- * File: stack.rs
- * Created Time: 2023-02-05
- * Author: sjinzh (sjinzh@gmail.com)
-*/
+// File: stack.rs
+// Created Time: 2023-02-05
+// Author: sjinzh (sjinzh@gmail.com)
 
-/* Driver Code */
+include!("../include/include.rs");
+
+// Driver Code
 pub fn main() {
     // 初始化栈
     // 在 rust 中，推荐将 Vec 当作栈来使用
@@ -17,7 +17,7 @@ pub fn main() {
     stack.push(5);
     stack.push(4);
     print!("栈 stack = ");
-    inc::print_util::print_array(&stack);
+    print_util::print_array(&stack);
 
     // 访问栈顶元素
     let peek = stack.get(stack.len() - 1).unwrap();
@@ -26,7 +26,7 @@ pub fn main() {
     // 元素出栈
     let pop = stack.pop().unwrap();
     print!("\n出栈元素 pop = {pop}，出栈后 stack = ");
-    inc::print_util::print_array(&stack);
+    print_util::print_array(&stack);
 
     // 获取栈的长度
     let size = stack.len();
