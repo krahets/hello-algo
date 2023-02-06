@@ -8,14 +8,15 @@
  * Definition for a binary tree node.
  */
 class TreeNode {
-    val: number;
-    left: TreeNode | null;
-    right: TreeNode | null;
-
-    constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
-        this.val = val === undefined ? 0 : val; // 结点值
-        this.left = left === undefined ? null : left; // 左子结点指针
-        this.right = right === undefined ? null : right; // 右子结点指针
+    val: number;            // 结点值
+    height: number;         // 结点高度
+    left: TreeNode | null;  // 左子结点指针
+    right: TreeNode | null; // 右子结点指针
+    constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
+        this.val = val === undefined ? 0 : val;
+        this.height = height === undefined ? 0 : height; 
+        this.left = left === undefined ? null : left; 
+        this.right = right === undefined ? null : right; 
     }
 }
 
@@ -33,7 +34,7 @@ function arrToTree(arr: (number | null)[]): TreeNode | null {
     const queue = [root];
     let i = 0;
     while (queue.length) {
-        let node = queue.shift() as TreeNode;
+        const node = queue.shift() as TreeNode;
         if (++i >= arr.length) break;
         if (arr[i] !== null) {
             node.left = new TreeNode(arr[i] as number);

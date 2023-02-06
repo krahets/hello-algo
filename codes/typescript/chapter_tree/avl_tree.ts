@@ -1,33 +1,34 @@
 /**
- * File: avl_tree.js
- * Created Time: 2023-02-05
- * Author: what-is-me (whatisme@outlook.jp)
+ * File: avl_tree.ts
+ * Created Time: 2023-02-06
+ * Author: Justin (xiefahit@gmail.com)
  */
 
-const { TreeNode } = require("../include/TreeNode");
-const { printTree } = require("../include/PrintUtil");
+import { TreeNode } from "../module/TreeNode";
+import { printTree } from "../module/PrintUtil";
 
 /* AVL 树*/
 class AVLTree {
+    root: TreeNode;
     /*构造函数*/
     constructor() {
         this.root = null; //根节点
     }
 
     /* 获取结点高度 */
-    height(node) {
+    height(node: TreeNode): number {
         // 空结点高度为 -1 ，叶结点高度为 0
         return node === null ? -1 : node.height;
     }
 
     /* 更新结点高度 */
-    updateHeight(node) {
+    updateHeight(node: TreeNode): void {
         // 结点高度等于最高子树高度 + 1
         node.height = Math.max(this.height(node.left), this.height(node.right)) + 1;
     }
 
     /* 获取平衡因子 */
-    balanceFactor(node) {
+    balanceFactor(node: TreeNode): number {
         // 空结点平衡因子为 0
         if (node === null) return 0;
         // 结点平衡因子 = 左子树高度 - 右子树高度
@@ -35,7 +36,7 @@ class AVLTree {
     }
 
     /* 右旋操作 */
-    rightRotate(node) {
+    rightRotate(node: TreeNode): TreeNode {
         const child = node.left;
         const grandChild = child.right;
         // 以 child 为原点，将 node 向右旋转
@@ -49,7 +50,7 @@ class AVLTree {
     }
 
     /* 左旋操作 */
-    leftRotate(node) {
+    leftRotate(node: TreeNode): TreeNode {
         const child = node.right;
         const grandChild = child.left;
         // 以 child 为原点，将 node 向左旋转
@@ -63,7 +64,7 @@ class AVLTree {
     }
 
     /* 执行旋转操作，使该子树重新恢复平衡 */
-    rotate(node) {
+    rotate(node: TreeNode): TreeNode {
         // 获取结点 node 的平衡因子
         const balanceFactor = this.balanceFactor(node);
         // 左偏树
@@ -93,18 +94,22 @@ class AVLTree {
     }
 
     /* 插入结点 */
-    insert(val) {
+    insert(val: number): TreeNode {
         this.root = this.insertHelper(this.root, val);
         return this.root;
     }
 
     /* 递归插入结点（辅助函数） */
-    insertHelper(node, val) {
+    insertHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return new TreeNode(val);
         /* 1. 查找插入位置，并插入结点 */
-        if (val < node.val) node.left = this.insertHelper(node.left, val);
-        else if (val > node.val) node.right = this.insertHelper(node.right, val);
-        else return node; // 重复结点不插入，直接返回
+        if (val < node.val) {
+            node.left = this.insertHelper(node.left, val);
+        } else if (val > node.val) {
+            node.right = this.insertHelper(node.right, val);
+        } else {
+            return node; // 重复结点不插入，直接返回
+        }
         this.updateHeight(node); // 更新结点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = this.rotate(node);
@@ -113,24 +118,29 @@ class AVLTree {
     }
 
     /* 删除结点 */
-    remove(val) {
+    remove(val: number): TreeNode {
         this.root = this.removeHelper(this.root, val);
         return this.root;
     }
 
     /* 递归删除结点（辅助函数） */
-    removeHelper(node, val) {
+    removeHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return null;
         /* 1. 查找结点，并删除之 */
-        if (val < node.val) node.left = this.removeHelper(node.left, val);
-        else if (val > node.val) node.right = this.removeHelper(node.right, val);
-        else {
+        if (val < node.val) {
+            node.left = this.removeHelper(node.left, val);
+        } else if (val > node.val) {
+            node.right = this.removeHelper(node.right, val);
+        } else {
             if (node.left === null || node.right === null) {
                 const child = node.left !== null ? node.left : node.right;
                 // 子结点数量 = 0 ，直接删除 node 并返回
-                if (child === null) return null;
-                // 子结点数量 = 1 ，直接删除 node
-                else node = child;
+                if (child === null) {
+                    return null;
+                } else {
+                    // 子结点数量 = 1 ，直接删除 node
+                     node = child;
+                }
             } else {
                 // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
                 const temp = this.getInOrderNext(node.right);
@@ -146,7 +156,7 @@ class AVLTree {
     }
 
     /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    getInOrderNext(node) {
+    getInOrderNext(node: TreeNode): TreeNode {
         if (node === null) return node;
         // 循环访问左子结点，直到叶结点时为最小结点，跳出
         while (node.left !== null) {
@@ -156,29 +166,33 @@ class AVLTree {
     }
 
     /* 查找结点 */
-    search(val) {
+    search(val: number): TreeNode {
         let cur = this.root;
         // 循环查找，越过叶结点后跳出
         while (cur !== null) {
-            // 目标结点在 cur 的右子树中
-            if (cur.val < val) cur = cur.right;
-            // 目标结点在 cur 的左子树中
-            else if (cur.val > val) cur = cur.left;
-            // 找到目标结点，跳出循环
-            else break;
+            if (cur.val < val) {
+                // 目标结点在 cur 的右子树中
+                cur = cur.right;
+            } else if (cur.val > val) {
+                // 目标结点在 cur 的左子树中
+                cur = cur.left;
+            } else {
+                // 找到目标结点，跳出循环
+                break;
+            }
         }
         // 返回目标结点
         return cur;
     }
 }
 
-function testInsert(tree, val) {
+function testInsert(tree: AVLTree, val: number): void {
     tree.insert(val);
     console.log("\n插入结点 " + val + " 后，AVL 树为");
     printTree(tree.root);
 }
 
-function testRemove(tree, val) {
+function testRemove(tree: AVLTree, val: number): void {
     tree.remove(val);
     console.log("\n删除结点 " + val + " 后，AVL 树为");
     printTree(tree.root);
