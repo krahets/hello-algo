@@ -143,13 +143,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    """ 随机访问元素 """
-    def random_access(nums):
-        # 在区间 [0, len(nums)-1] 中随机抽取一个数字
-        random_index = random.randint(0, len(nums) - 1)
-        # 获取并返回随机元素
-        random_num = nums[random_index]
-        return random_num
+    [class]{}-[func]{random_access}
     ```
 
 === "Go"
@@ -279,17 +273,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    """ 扩展数组长度 """
-    # 请注意，Python 的 list 是动态数组，可以直接扩展
-    # 为了方便学习，本函数将 list 看作是长度不可变的数组
-    def extend(nums, enlarge):
-        # 初始化一个扩展长度后的数组
-        res = [0] * (len(nums) + enlarge)
-        # 将原数组中的所有元素复制到新数组
-        for i in range(len(nums)):
-            res[i] = nums[i]
-        # 返回扩展后的新数组
-        return res
+    [class]{}-[func]{extend}
     ```
 
 === "Go"
@@ -452,19 +436,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    """ 在数组的索引 index 处插入元素 num """
-    def insert(nums, num, index):
-        # 把索引 index 以及之后的所有元素向后移动一位
-        for i in range(len(nums) - 1, index, -1):
-            nums[i] = nums[i - 1]
-        # 将 num 赋给 index 处元素
-        nums[index] = num
+    [class]{}-[func]{insert}
     
-    """ 删除索引 index 处元素 """
-    def remove(nums, index):
-        # 把索引 index 之后的所有元素向前移动一位
-        for i in range(index, len(nums) - 1):
-            nums[i] = nums[i + 1]
+    [class]{}-[func]{remove}
     ```
 
 === "Go"
@@ -648,15 +622,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    """ 遍历数组 """
-    def traverse(nums):
-        count = 0
-        # 通过索引遍历数组
-        for i in range(len(nums)):
-            count += 1
-        # 直接遍历数组
-        for num in nums:
-            count += 1
+    [class]{}-[func]{traverse}
     ```
 
 === "Go"
@@ -803,12 +769,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    """ 在数组中查找指定元素 """
-    def find(nums, target):
-        for i in range(len(nums)):
-            if nums[i] == target:
-                return i
-        return -1
+    [class]{}-[func]{find}
     ```
 
 === "Go"

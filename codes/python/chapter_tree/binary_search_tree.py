@@ -54,11 +54,9 @@ class BinarySearchTree:
         # 若树为空，直接提前返回
         if root is None:
             return None
-
-        cur = root
-        pre = None
-
+        
         # 循环查找，越过叶结点后跳出
+        cur, pre = root, None
         while cur is not None:
             # 找到重复结点，直接返回
             if cur.val == num:
@@ -86,10 +84,8 @@ class BinarySearchTree:
         if root is None:
             return None
 
-        cur = root
-        pre = None
-
         # 循环查找，越过叶结点后跳出
+        cur, pre = root, None
         while cur is not None:
             # 找到待删除结点，跳出循环
             if cur.val == num:
@@ -99,7 +95,6 @@ class BinarySearchTree:
                 cur = cur.right
             else:  # 待删除结点在 cur 的左子树中
                 cur = cur.left
-
         # 若无待删除结点，则直接返回
         if cur is None:
             return None

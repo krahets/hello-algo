@@ -7,9 +7,6 @@
 hello-algo.iml
 
 # mkdocs files
-site/
 .cache/
 scripts/
 docs/overrides/
-
-src/

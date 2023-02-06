@@ -523,42 +523,9 @@ $$
 === "Python"
 
     ```python title="array_hash_map.py"
-    """ 键值对 int->String """
-    class Entry:
-        def __init__(self, key, val):
-            self.key = key
-            self.val = val
+    [class]{Entry}-[func]{}
 
-    """ 基于数组简易实现的哈希表 """
-    class ArrayHashMap:
-        def __init__(self):
-            # 初始化一个长度为 100 的桶（数组）
-            self.bucket = [None] * 100
-
-        """ 哈希函数 """
-        def hash_func(self, key):
-            index = key % 100
-            return index
-
-        """ 查询操作 """
-        def get(self, key):
-            index = self.hash_func(key)
-            pair = self.bucket[index]
-            if pair is None:
-                return None
-            return pair.val
-
-        """ 添加操作 """
-        def put(self, key, val):
-            pair = Entry(key, val)
-            index = self.hash_func(key)
-            self.bucket[index] = pair
-
-        """ 删除操作 """
-        def remove(self, key):
-            index = self.hash_func(key)
-            # 置为 None ，代表删除
-            self.bucket[index] = None
+    [class]{ArrayHashMap}-[func]{}
     ```
 
 === "Go"

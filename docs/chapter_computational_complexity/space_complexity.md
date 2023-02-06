@@ -624,18 +624,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    """ 常数阶 """
-    def constant(n):
-        # 常量、变量、对象占用 O(1) 空间
-        a = 0
-        nums = [0] * 10000
-        node = ListNode(0)
-        # 循环中的变量占用 O(1) 空间
-        for _ in range(n):
-            c = 0
-        # 循环中的函数占用 O(1) 空间
-        for _ in range(n):
-            function()
+    [class]{}-[func]{constant}
     ```
 
 === "Go"
@@ -829,14 +818,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    """ 线性阶 """
-    def linear(n):
-        # 长度为 n 的列表占用 O(n) 空间
-        nums = [0] * n
-        # 长度为 n 的哈希表占用 O(n) 空间
-        mapp = {}
-        for i in range(n):
-            mapp[i] = str(i)
+    [class]{}-[func]{linear}
     ```
 
 === "Go"
@@ -996,11 +978,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    """ 线性阶（递归实现） """
-    def linear_recur(n):
-        print("递归 n =", n)
-        if n == 1: return
-        linear_recur(n - 1)
+    [class]{}-[func]{linear_recur}
     ```
 
 === "Go"
@@ -1127,10 +1105,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    """ 平方阶 """
-    def quadratic(n):
-        # 二维列表占用 O(n^2) 空间
-        num_matrix = [[0] * n for _ in range(n)]
+    [class]{}-[func]{quadratic}
     ```
 
 === "Go"
@@ -1272,12 +1247,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    """ 平方阶（递归实现） """
-    def quadratic_recur(n):
-        if n <= 0: return 0
-        # 数组 nums 长度为 n, n-1, ..., 2, 1
-        nums = [0] * n
-        return quadratic_recur(n - 1)
+    [class]{}-[func]{quadratic_recur}
     ```
 
 === "Go"
@@ -1400,13 +1370,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    """ 指数阶（建立满二叉树） """
-    def build_tree(n):
-        if n == 0: return None
-        root = TreeNode(0)
-        root.left = build_tree(n - 1)
-        root.right = build_tree(n - 1)
-        return root
+    [class]{}-[func]{build_tree}
     ```
 
 === "Go"

@@ -369,20 +369,9 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    """ 在链表的结点 n0 之后插入结点 P """
-    def insert(n0, P):
-        n1 = n0.next
-        n0.next = P
-        P.next = n1
+    [class]{}-[func]{insert}
 
-    """ 删除链表的结点 n0 之后的首个结点 """
-    def remove(n0):
-        if not n0.next:
-            return
-        # n0 -> P -> n1
-        P = n0.next
-        n1 = P.next
-        n0.next = n1
+    [class]{}-[func]{remove}
     ```
 
 === "Go"
@@ -557,13 +546,7 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    """ 访问链表中索引为 index 的结点 """
-    def access(head, index):
-        for _ in range(index):
-            if not head:
-                return None
-            head = head.next
-        return head
+    [class]{}-[func]{access}
     ```
 
 === "Go"
@@ -704,15 +687,7 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    """ 在链表中查找值为 target 的首个结点 """
-    def find(head, target):
-        index = 0
-        while head:
-            if head.val == target:
-                return index
-            head = head.next
-            index += 1
-        return -1
+    [class]{}-[func]{find}
     ```
 
 === "Go"

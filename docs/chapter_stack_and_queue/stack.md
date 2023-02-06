@@ -378,39 +378,7 @@ comments: true
 === "Python"
 
     ```python title="linkedlist_stack.py"
-    """ 基于链表实现的栈 """
-    class LinkedListStack:
-        def __init__(self):
-            self.__peek = None
-            self.__size = 0
-    
-        """ 获取栈的长度 """
-        def size(self):
-            return self.__size
-    
-        """ 判断栈是否为空 """
-        def is_empty(self):
-            return not self.__peek
-    
-        """ 入栈 """
-        def push(self, val):
-            node = ListNode(val)
-            node.next = self.__peek
-            self.__peek = node
-            self.__size += 1
-    
-        """ 出栈 """
-        def pop(self):
-            num = self.peek()
-            self.__peek = self.__peek.next
-            self.__size -= 1
-            return num
-    
-        """ 访问栈顶元素 """
-        def peek(self):
-            # 判空处理
-            if not self.__peek: return None
-            return self.__peek.val
+    [class]{LinkedListStack}-[func]{}
     ```
 
 === "Go"
@@ -785,32 +753,7 @@ comments: true
 === "Python"
 
     ```python title="array_stack.py"
-    """ 基于数组实现的栈 """
-    class ArrayStack:
-        def __init__(self):
-            self.__stack = []
-    
-        """ 获取栈的长度 """
-        def size(self):
-            return len(self.__stack)
-    
-        """ 判断栈是否为空 """
-        def is_empty(self):
-            return self.__stack == []
-    
-        """ 入栈 """
-        def push(self, item):
-            self.__stack.append(item)
-    
-        """ 出栈 """
-        def pop(self):
-            assert not self.is_empty(), "栈为空"
-            return self.__stack.pop()
-    
-        """ 访问栈顶元素 """
-        def peek(self):
-            assert not self.is_empty(), "栈为空"
-            return self.__stack[-1]
+    [class]{ArrayStack}-[func]{}
     ```
 
 === "Go"

@@ -398,49 +398,7 @@ comments: true
 === "Python"
 
     ```python title="linkedlist_queue.py"
-    """ 基于链表实现的队列 """
-    class LinkedListQueue:
-        def __init__(self):
-            self.__front = None  # 头结点 front
-            self.__rear = None   # 尾结点 rear
-            self.__size = 0
-    
-        """ 获取队列的长度 """
-        def size(self):
-            return self.__size
-    
-        """ 判断队列是否为空 """
-        def is_empty(self):
-            return not self.__front
-    
-        """ 入队 """
-        def push(self, num):
-            # 尾结点后添加 num
-            node = ListNode(num)
-            # 如果队列为空，则令头、尾结点都指向该结点
-            if self.__front is None:
-                self.__front = node
-                self.__rear = node
-            # 如果队列不为空，则将该结点添加到尾结点后
-            else:
-                self.__rear.next = node
-                self.__rear = node
-            self.__size += 1
-    
-        """ 出队 """
-        def poll(self):
-            num = self.peek()
-            # 删除头结点
-            self.__front = self.__front.next
-            self.__size -= 1
-            return num
-    
-        """ 访问队首元素 """
-        def peek(self):
-            if self.size() == 0:
-                print("队列为空")
-                return False
-            return self.__front.val
+    [class]{LinkedListQueue}-[func]{}
     ```
 
 === "Go"
@@ -881,47 +839,7 @@ comments: true
 === "Python"
 
     ```python title="array_queue.py"
-    """ 基于环形数组实现的队列 """
-    class ArrayQueue:
-        def __init__(self, size):
-            self.__nums = [0] * size  # 用于存储队列元素的数组
-            self.__front = 0          # 队首指针，指向队首元素
-            self.__size = 0           # 队列长度
-
-        """ 获取队列的容量 """
-        def capacity(self):
-            return len(self.__nums)
-
-        """ 获取队列的长度 """
-        def size(self):
-            return self.__size
-
-        """ 判断队列是否为空 """
-        def is_empty(self):
-            return self.__size == 0
-
-        """ 入队 """
-        def push(self, num):
-            assert self.__size < self.capacity(), "队列已满"
-            # 计算尾指针，指向队尾索引 + 1
-            # 通过取余操作，实现 rear 越过数组尾部后回到头部
-            rear = (self.__front + self.__size) % self.capacity()
-            # 尾结点后添加 num
-            self.__nums[rear] = num
-            self.__size += 1
-
-        """ 出队 """
-        def poll(self):
-            num = self.peek()
-            # 队首指针向后移动一位，若越过尾部则返回到数组头部
-            self.__front = (self.__front + 1) % self.capacity()
-            self.__size -= 1
-            return num
-
-        """ 访问队首元素 """
-        def peek(self):
-            assert not self.is_empty(), "队列为空"
-            return self.__nums[self.__front]
+    [class]{ArrayQueue}-[func]{}
     ```
 
 === "Go"

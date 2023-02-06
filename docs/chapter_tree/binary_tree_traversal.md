@@ -65,21 +65,7 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_bfs.py"
-    """ 层序遍历 """
-    def hier_order(root: Optional[TreeNode]):
-        # 初始化队列，加入根结点
-        queue = collections.deque()
-        queue.append(root)
-        # 初始化一个列表，用于保存遍历序列
-        res = []
-        while queue:
-            node = queue.popleft()       # 队列出队
-            res.append(node.val)         # 保存节点值
-            if node.left is not None:
-                queue.append(node.left)  # 左子结点入队
-            if node.right is not None:
-                queue.append(node.right) # 右子结点入队
-        return res
+    [class]{}-[func]{hier_order}
     ```
 
 === "Go"
@@ -299,32 +285,11 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_dfs.py"
-    """ 前序遍历 """
-    def pre_order(root: Optional[TreeNode]):
-        if root is None:
-            return
-        # 访问优先级：根结点 -> 左子树 -> 右子树
-        res.append(root.val)
-        pre_order(root=root.left)
-        pre_order(root=root.right)
+    [class]{}-[func]{pre_order}
 
-    """ 中序遍历 """
-    def in_order(root: Optional[TreeNode]):
-        if root is None:
-            return
-        # 访问优先级：左子树 -> 根结点 -> 右子树
-        in_order(root=root.left)
-        res.append(root.val)
-        in_order(root=root.right)
+    [class]{}-[func]{in_order}
 
-    """ 后序遍历 """
-    def post_order(root: Optional[TreeNode]):
-        if root is None:
-            return
-        # 访问优先级：左子树 -> 右子树 -> 根结点
-        post_order(root=root.left)
-        post_order(root=root.right)
-        res.append(root.val)
+    [class]{}-[func]{post_order}
     ```
 
 === "Go"
