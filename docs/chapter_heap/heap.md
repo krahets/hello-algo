@@ -208,7 +208,7 @@ comments: true
 === "JavaScript"
 
     ```js title="heap.js"
-    //JavaScript 未提供内置 heap 类
+    // JavaScript 未提供内置 heap 类
     ```
 
 === "TypeScript"
