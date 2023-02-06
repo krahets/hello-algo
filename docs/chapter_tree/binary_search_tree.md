@@ -531,14 +531,6 @@ comments: true
 
 删除结点操作也使用 $O(\log n)$ 时间，其中查找待删除结点 $O(\log n)$ ，获取中序遍历后继结点 $O(\log n)$ 。
 
-### 排序
-
-我们知道，「中序遍历」遵循“左 $\rightarrow$ 根 $\rightarrow$ 右”的遍历优先级，而二叉搜索树遵循“左子结点 $<$ 根结点 $<$ 右子结点”的大小关系。因此，在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小结点，从而得出一条重要性质：**二叉搜索树的中序遍历序列是升序的**。
-
-借助中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 $O(n)$ 时间，而无需额外排序，非常高效。
-
-![bst_inorder_traversal](binary_search_tree.assets/bst_inorder_traversal.png)
-
 === "Java"
 
     ```java title="binary_search_tree.java"
@@ -1039,6 +1031,14 @@ comments: true
     ```zig title="binary_search_tree.zig"
 
     ```
+
+### 排序
+
+我们知道，「中序遍历」遵循“左 $\rightarrow$ 根 $\rightarrow$ 右”的遍历优先级，而二叉搜索树遵循“左子结点 $<$ 根结点 $<$ 右子结点”的大小关系。因此，在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小结点，从而得出一条重要性质：**二叉搜索树的中序遍历序列是升序的**。
+
+借助中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 $O(n)$ 时间，而无需额外排序，非常高效。
+
+![bst_inorder_traversal](binary_search_tree.assets/bst_inorder_traversal.png)
 
 ## 7.3.2. 二叉搜索树的效率
 
