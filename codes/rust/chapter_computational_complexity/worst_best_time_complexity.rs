@@ -1,4 +1,4 @@
-/**
+/*
  * File: time_complexity.rs
  * Created Time: 2023-01-13
  * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
