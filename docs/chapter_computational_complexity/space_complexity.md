@@ -130,7 +130,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     /* 类 */
     class Node {
         val;
@@ -309,7 +309,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     function algorithm(n) {
         const a = 0;                   // O(1)
         const b = new Array(10000);    // O(1)
@@ -455,7 +455,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     function constFunc() {
         // do something
         return 0;
@@ -622,7 +622,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="space_complexity.js"
+    ```javascript title="space_complexity.js"
     /* 常数阶 */
     function constant(n) {
         // 常量、变量、对象占用 O(1) 空间
@@ -785,7 +785,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="space_complexity.js"
+    ```javascript title="space_complexity.js"
     /* 线性阶 */
     function linear(n) {
         // 长度为 n 的数组占用 O(n) 空间
@@ -928,7 +928,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="space_complexity.js"
+    ```javascript title="space_complexity.js"
     /* 线性阶（递归实现） */
     function linearRecur(n) {
         console.log(`递归 n = ${n}`);
@@ -1031,7 +1031,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="space_complexity.js"
+    ```javascript title="space_complexity.js"
     /* 平方阶 */
     function quadratic(n) {
         // 矩阵占用 O(n^2) 空间
@@ -1162,7 +1162,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="space_complexity.js"
+    ```javascript title="space_complexity.js"
     /* 平方阶（递归实现） */
     function quadraticRecur(n) {
         if (n <= 0) return 0;
@@ -1272,7 +1272,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="space_complexity.js"
+    ```javascript title="space_complexity.js"
     /* 指数阶（建立满二叉树） */
     function buildTree(n) {
         if (n === 0) return null;

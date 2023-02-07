@@ -68,7 +68,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     /* 链表结点结构体 */
     class ListNode {
         val;
@@ -225,7 +225,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linked_list.js"
+    ```javascript title="linked_list.js"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
     // 初始化各个结点
     const n0 = new ListNode(1);
@@ -385,7 +385,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linked_list.js"
+    ```javascript title="linked_list.js"
     /* 在链表的结点 n0 之后插入结点 P */
     function insert(n0, P) {
         let n1 = n0.next;
@@ -537,7 +537,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linked_list.js"
+    ```javascript title="linked_list.js"
     /* 访问链表中索引为 index 的结点 */
     function access(head, index) {
         for (let i = 0; i < index; i++) {
@@ -660,7 +660,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linked_list.js"
+    ```javascript title="linked_list.js"
     /* 在链表中查找值为 target 的首个结点 */
     function find(head, target) {
         let index = 0;
@@ -815,7 +815,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     /* 双向链表结点类 */
     class ListNode {
         val;

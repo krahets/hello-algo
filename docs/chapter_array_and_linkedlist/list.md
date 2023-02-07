@@ -56,7 +56,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="list.js"
+    ```javascript title="list.js"
     /* 初始化列表 */
     // 无初始值
     const list1 = [];
@@ -154,7 +154,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="list.js"
+    ```javascript title="list.js"
     /* 访问元素 */
     const num = list[1];  // 访问索引 1 处的元素
 
@@ -292,7 +292,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="list.js"
+    ```javascript title="list.js"
     /* 清空列表 */
     list.length = 0;
 
@@ -462,7 +462,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="list.js"
+    ```javascript title="list.js"
     /* 通过索引遍历列表 */
     let count = 0;
     for (let i = 0; i < list.length; i++) {
@@ -586,7 +586,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="list.js"
+    ```javascript title="list.js"
     /* 拼接两个列表 */
     const list1 = [6, 8, 7, 10, 9];
     list.push(...list1);  // 将列表 list1 拼接到 list 之后
@@ -664,7 +664,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="list.js"
+    ```javascript title="list.js"
     /* 排序列表 */  
     list.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
     ```
@@ -835,7 +835,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="my_list.js"
+    ```javascript title="my_list.js"
     /* 列表类简易实现 */
     class MyList {
         #nums = new Array(); // 数组（存储列表元素）

@@ -49,7 +49,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linear_search.js"
+    ```javascript title="linear_search.js"
     /* 线性查找（数组） */
     function linearSearchArray(nums, target) {
         // 遍历数组
@@ -170,7 +170,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linear_search.js"
+    ```javascript title="linear_search.js"
     /* 线性查找（链表）*/
     function linearSearchLinkedList(head, target) {
         // 遍历链表

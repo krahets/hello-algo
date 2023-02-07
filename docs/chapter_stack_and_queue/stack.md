@@ -144,7 +144,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="stack.js"
+    ```javascript title="stack.js"
     /* 初始化栈 */
     // Javascript 没有内置的栈类，可以把 Array 当作栈来使用 
     const stack = [];
@@ -355,7 +355,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linkedlist_stack.js"
+    ```javascript title="linkedlist_stack.js"
     /* 基于链表实现的栈 */
     class LinkedListStack {
         #stackPeek;  // 将头结点作为栈顶
@@ -671,7 +671,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="array_stack.js"
+    ```javascript title="array_stack.js"
     /* 基于数组实现的栈 */
     class ArrayStack {
         stack;

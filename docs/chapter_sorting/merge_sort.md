@@ -171,7 +171,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="merge_sort.js"
+    ```javascript title="merge_sort.js"
     /* 合并左子数组和右子数组 */
     // 左子数组区间 [left, mid]
     // 右子数组区间 [mid + 1, right]

@@ -63,7 +63,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="insertion_sort.js"
+    ```javascript title="insertion_sort.js"
     /* 插入排序 */
     function insertionSort(nums) {
         // 外循环：base = nums[1], nums[2], ..., nums[n-1]

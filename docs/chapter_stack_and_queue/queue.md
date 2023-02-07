@@ -142,7 +142,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="queue.js"
+    ```javascript title="queue.js"
     /* 初始化队列 */
     // JavaScript 没有内置的队列，可以把 Array 当作队列来使用
     const queue = [];
@@ -352,7 +352,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linkedlist_queue.js"
+    ```javascript title="linkedlist_queue.js"
     /* 基于链表实现的队列 */
     class LinkedListQueue {
         #front;  // 头结点 #front
@@ -697,7 +697,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="array_queue.js"
+    ```javascript title="array_queue.js"
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
         #nums;         // 用于存储队列元素的数组

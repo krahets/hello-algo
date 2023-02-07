@@ -79,7 +79,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="binary_search_tree.js"
+    ```javascript title="binary_search_tree.js"
     /* 查找结点 */
     function search(num) {
         let cur = root;
@@ -244,7 +244,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="binary_search_tree.js"
+    ```javascript title="binary_search_tree.js"
     /* 插入结点 */
     function insert(num) {
         // 若树为空，直接提前返回
@@ -517,7 +517,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="binary_search_tree.js"
+    ```javascript title="binary_search_tree.js"
     /* 删除结点 */
     function remove(num) {
         // 若树为空，直接提前返回

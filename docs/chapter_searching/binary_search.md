@@ -94,7 +94,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="binary_search.js"
+    ```javascript title="binary_search.js"
     /* 二分查找（双闭区间） */
     function binarySearch(nums, target) {
         // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
@@ -243,7 +243,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="binary_search.js"
+    ```javascript title="binary_search.js"
     /* 二分查找（左闭右开） */
     function binarySearch1(nums, target) {
         // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
@@ -400,7 +400,7 @@ $$
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     // (i + j) 有可能超出 int 的取值范围
     let m = parseInt((i + j) / 2);
     // 更换为此写法则不会越界

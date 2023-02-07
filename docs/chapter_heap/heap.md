@@ -207,7 +207,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="heap.js"
+    ```javascript title="heap.js"
     // JavaScript 未提供内置 heap 类
     ```
 
@@ -329,7 +329,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="my_heap.js"
+    ```javascript title="my_heap.js"
     #maxHeap;
 
     /* 构造函数，建立空堆或根据输入列表建堆 */
@@ -465,7 +465,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="my_heap.js"
+    ```javascript title="my_heap.js"
     /* 访问堆顶元素 */
     peek() {
         return this.#maxHeap[0];
@@ -586,7 +586,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="my_heap.js"
+    ```javascript title="my_heap.js"
     /* 元素入堆 */
     push(val) {
         // 添加结点
@@ -794,7 +794,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="my_heap.js"
+    ```javascript title="my_heap.js"
     /* 元素出堆 */
     poll() {
         // 判空处理
@@ -967,7 +967,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="my_heap.js"
+    ```javascript title="my_heap.js"
     /* 构造函数，建立空堆或根据输入列表建堆 */
     constructor(nums) {
         // 将列表元素原封不动添加进堆

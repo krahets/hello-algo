@@ -131,7 +131,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="hash_map.js"
+    ```javascript title="hash_map.js"
     /* 初始化哈希表 */
     const map = new ArrayHashMap();
     /* 添加操作 */
@@ -309,7 +309,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="hash_map.js"
+    ```javascript title="hash_map.js"
     /* 遍历哈希表 */
     // 遍历键值对 key->value
     for (const entry of map.entries()) {
@@ -490,7 +490,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="array_hash_map.js"
+    ```javascript title="array_hash_map.js"
     /* 键值对 Number -> String */
     class Entry {
         constructor(key, val) {

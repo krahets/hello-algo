@@ -78,7 +78,7 @@ $$
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     // 在某运行平台下
     function algorithm(n) {
         var a = 2; // 1 ns
@@ -252,7 +252,7 @@ $$
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     // 算法 A 时间复杂度：常数阶
     function algorithm_A(n) {
         console.log(0);
@@ -445,7 +445,7 @@ $$
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     function algorithm(n){
         var a = 1; // +1
         a += 1; // +1
@@ -646,7 +646,7 @@ $$
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     function algorithm(n) {
         let a = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
@@ -826,7 +826,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 常数阶 */
     function constant(n) {
         let count = 0;
@@ -944,7 +944,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 线性阶 */
     function linear(n) {
         let count = 0;
@@ -1057,7 +1057,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 线性阶（遍历数组） */
     function arrayTraversal(nums) {
         let count = 0;
@@ -1181,7 +1181,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 平方阶 */
     function quadratic(n) {
         let count = 0;
@@ -1333,7 +1333,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 平方阶（冒泡排序） */
     function bubbleSort(nums) {
         let count = 0; // 计数器
@@ -1524,7 +1524,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 指数阶（循环实现） */
     function exponential(n) {
         let count = 0,
@@ -1679,7 +1679,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 指数阶（递归实现） */
     function expRecur(n) {
         if (n == 1) return 1;
@@ -1783,7 +1783,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 对数阶（循环实现） */
     function logarithmic(n) {
         let count = 0;
@@ -1909,7 +1909,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 对数阶（递归实现） */
     function logRecur(n) {
         if (n <= 1) return 0;
@@ -2014,7 +2014,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 线性对数阶 */
     function linearLogRecur(n) {
         if (n <= 1) return 1;
@@ -2156,7 +2156,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 阶乘阶（递归实现） */
     function factorialRecur(n) {
         if (n == 0) return 1;
@@ -2338,7 +2338,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="worst_best_time_complexity.js"
+    ```javascript title="worst_best_time_complexity.js"
     /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
     function randomNumbers(n) {
         const nums = Array(n);

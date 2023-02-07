@@ -79,7 +79,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     class TreeNode {
         val; // 结点值
         height; //结点高度
@@ -214,7 +214,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
+    ```javascript title="avl_tree.js"
     /* 获取结点高度 */
     height(node) {
         // 空结点高度为 -1 ，叶结点高度为 0
@@ -328,7 +328,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
+    ```javascript title="avl_tree.js"
     /* 获取平衡因子 */
     balanceFactor(node) {
         // 空结点平衡因子为 0
@@ -459,7 +459,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
+    ```javascript title="avl_tree.js"
     /* 右旋操作 */
     rightRotate(node) {
         const child = node.left;
@@ -592,7 +592,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
+    ```javascript title="avl_tree.js"
     /* 左旋操作 */
     leftRotate(node) {
         const child = node.right;
@@ -766,7 +766,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
+    ```javascript title="avl_tree.js"
     /* 执行旋转操作，使该子树重新恢复平衡 */
     rotate(node) {
         // 获取结点 node 的平衡因子
@@ -1003,7 +1003,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
+    ```javascript title="avl_tree.js"
     /* 插入结点 */
     insert(val) {
         this.root = this.insertHelper(this.root, val);
@@ -1245,7 +1245,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
+    ```javascript title="avl_tree.js"
     /* 删除结点 */
     remove(val) {
         this.root = this.removeHelper(this.root, val);

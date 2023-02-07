@@ -66,7 +66,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="binary_tree_bfs.js"
+    ```javascript title="binary_tree_bfs.js"
     /* 层序遍历 */
     function hierOrder(root) {
         // 初始化队列，加入根结点
@@ -257,7 +257,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="binary_tree_dfs.js"
+    ```javascript title="binary_tree_dfs.js"
     /* 前序遍历 */
     function preOrder(root){
         if (root === null) return;

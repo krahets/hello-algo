@@ -85,7 +85,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="bubble_sort.js"
+    ```javascript title="bubble_sort.js"
     /* 冒泡排序 */
     function bubbleSort(nums) {
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
@@ -256,7 +256,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="bubble_sort.js"
+    ```javascript title="bubble_sort.js"
     /* 冒泡排序（标志优化）*/
     function bubbleSortWithFlag(nums) {
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1

@@ -287,7 +287,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="quick_sort.js"
+    ```javascript title="quick_sort.js"
     /* 快速排序 */
     function quickSort(nums, left, right) {
         // 子数组长度为 1 时终止递归
@@ -444,7 +444,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="quick_sort.js"
+    ```javascript title="quick_sort.js"
     /* 选取三个元素的中位数 */
     function medianThree(nums, left, mid, right) {
         // 使用了异或操作来简化代码
@@ -606,7 +606,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="quick_sort.js"
+    ```javascript title="quick_sort.js"
     /* 快速排序（尾递归优化） */
     function quickSort(nums, left, right) {
         // 子数组长度为 1 时终止

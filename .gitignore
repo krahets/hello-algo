@@ -10,3 +10,7 @@ hello-algo.iml
 .cache/
 scripts/
 docs/overrides/
+
+# build
+build/
+site/

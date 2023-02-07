@@ -67,7 +67,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="leetcode_two_sum.js"
+    ```javascript title="leetcode_two_sum.js"
     function twoSumBruteForce(nums, target) {
         const n = nums.length;
         // 两层循环，时间复杂度 O(n^2)
@@ -208,7 +208,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="leetcode_two_sum.js"
+    ```javascript title="leetcode_two_sum.js"
     function twoSumHashTable(nums, target) {
         // 辅助哈希表，空间复杂度 O(n)
         let m = {};

@@ -51,7 +51,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="hashing_search.js"
+    ```javascript title="hashing_search.js"
     /* 哈希查找（数组） */
     function hashingSearchArray(map, target) {
         // 哈希表的 key: 目标元素，value: 索引
@@ -145,7 +145,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="hashing_search.js"
+    ```javascript title="hashing_search.js"
     /* 哈希查找（链表） */
     function hashingSearchLinkedList(map, target) {
         // 哈希表的 key: 目标结点值，value: 结点对象
