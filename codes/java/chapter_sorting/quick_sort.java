@@ -123,7 +123,7 @@ class QuickSortTailCall {
     }
 
     /* 快速排序（尾递归优化） */
-    static void quickSort(int[] nums, int left, int right) {
+    public static void quickSort(int[] nums, int left, int right) {
         // 子数组长度为 1 时终止
         while (left < right) {
             // 哨兵划分操作

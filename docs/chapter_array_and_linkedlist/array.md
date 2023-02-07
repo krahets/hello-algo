@@ -117,14 +117,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Java"
 
     ```java title="array.java"
-    /* 随机返回一个数组元素 */
-    int randomAccess(int[] nums) {
-        // 在区间 [0, nums.length) 中随机抽取一个数字
-        int randomIndex = ThreadLocalRandom.current().
-                          nextInt(0, nums.length);
-        int randomNum = nums[randomIndex];
-        return randomNum;
-    }
+    [class]{array}-[func]{randomAccess}
     ```
 
 === "C++"
@@ -143,13 +136,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    """ 随机访问元素 """
-    def random_access(nums):
-        # 在区间 [0, len(nums)-1] 中随机抽取一个数字
-        random_index = random.randint(0, len(nums) - 1)
-        # 获取并返回随机元素
-        random_num = nums[random_index]
-        return random_num
+    [class]{}-[func]{random_access}
     ```
 
 === "Go"
@@ -245,17 +232,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Java"
 
     ```java title="array.java"
-    /* 扩展数组长度 */
-    int[] extend(int[] nums, int enlarge) {
-        // 初始化一个扩展长度后的数组
-        int[] res = new int[nums.length + enlarge];
-        // 将原数组中的所有元素复制到新数组
-        for (int i = 0; i < nums.length; i++) {
-            res[i] = nums[i];
-        }
-        // 返回扩展后的新数组
-        return res;
-    }
+    [class]{array}-[func]{extend}
     ```
 
 === "C++"
@@ -279,17 +256,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    """ 扩展数组长度 """
-    # 请注意，Python 的 list 是动态数组，可以直接扩展
-    # 为了方便学习，本函数将 list 看作是长度不可变的数组
-    def extend(nums, enlarge):
-        # 初始化一个扩展长度后的数组
-        res = [0] * (len(nums) + enlarge)
-        # 将原数组中的所有元素复制到新数组
-        for i in range(len(nums)):
-            res[i] = nums[i]
-        # 返回扩展后的新数组
-        return res
+    [class]{}-[func]{extend}
     ```
 
 === "Go"
@@ -408,23 +375,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Java"
 
     ```java title="array.java"
-    /* 在数组的索引 index 处插入元素 num */
-    void insert(int[] nums, int num, int index) {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for (int i = nums.length - 1; i > index; i--) {
-            nums[i] = nums[i - 1];
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num;
-    }
-    
-    /* 删除索引 index 处元素 */
-    void remove(int[] nums, int index) {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (int i = index; i < nums.length - 1; i++) {
-            nums[i] = nums[i + 1];
-        }
-    }
+    [class]{array}-[func]{insert}
+
+    [class]{array}-[func]{remove}
     ```
 
 === "C++"
@@ -452,19 +405,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    """ 在数组的索引 index 处插入元素 num """
-    def insert(nums, num, index):
-        # 把索引 index 以及之后的所有元素向后移动一位
-        for i in range(len(nums) - 1, index, -1):
-            nums[i] = nums[i - 1]
-        # 将 num 赋给 index 处元素
-        nums[index] = num
+    [class]{}-[func]{insert}
     
-    """ 删除索引 index 处元素 """
-    def remove(nums, index):
-        # 把索引 index 之后的所有元素向前移动一位
-        for i in range(index, len(nums) - 1):
-            nums[i] = nums[i + 1]
+    [class]{}-[func]{remove}
     ```
 
 === "Go"
@@ -618,18 +561,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Java"
 
     ```java title="array.java"
-    /* 遍历数组 */
-    void traverse(int[] nums) {
-        int count = 0;
-        // 通过索引遍历数组
-        for (int i = 0; i < nums.length; i++) {
-            count++;
-        }
-        // 直接遍历数组
-        for (int num : nums) {
-            count++;
-        }
-    }
+    [class]{array}-[func]{traverse}
     ```
 
 === "C++"
@@ -648,15 +580,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    """ 遍历数组 """
-    def traverse(nums):
-        count = 0
-        # 通过索引遍历数组
-        for i in range(len(nums)):
-            count += 1
-        # 直接遍历数组
-        for num in nums:
-            count += 1
+    [class]{}-[func]{traverse}
     ```
 
 === "Go"
@@ -777,14 +701,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Java"
 
     ```java title="array.java"
-    /* 在数组中查找指定元素 */
-    int find(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == target)
-                return i;
-        }
-        return -1;
-    }
+    [class]{array}-[func]{find}
     ```
 
 === "C++"
@@ -803,12 +720,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    """ 在数组中查找指定元素 """
-    def find(nums, target):
-        for i in range(len(nums)):
-            if nums[i] == target:
-                return i
-        return -1
+    [class]{}-[func]{find}
     ```
 
 === "Go"

@@ -10,7 +10,7 @@ pub fn AVLTree(comptime T: type) type {
     return struct {
         const Self = @This();
 
-        root: ?*inc.TreeNode(T) = null,                 // 根节点
+        root: ?*inc.TreeNode(T) = null,                 // 根结点
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
@@ -59,7 +59,7 @@ pub fn AVLTree(comptime T: type) type {
             // 更新结点高度
             self.updateHeight(node);
             self.updateHeight(child);
-            // 返回旋转后子树的根节点
+            // 返回旋转后子树的根结点
             return child;
         }
 
@@ -73,7 +73,7 @@ pub fn AVLTree(comptime T: type) type {
             // 更新结点高度
             self.updateHeight(node);
             self.updateHeight(child);
-            // 返回旋转后子树的根节点
+            // 返回旋转后子树的根结点
             return child;
         }
 
@@ -132,7 +132,7 @@ pub fn AVLTree(comptime T: type) type {
             self.updateHeight(node);    // 更新结点高度
             // 2. 执行旋转操作，使该子树重新恢复平衡
             node = self.rotate(node);
-            // 返回子树的根节点
+            // 返回子树的根结点
             return node;
         }
 
@@ -171,7 +171,7 @@ pub fn AVLTree(comptime T: type) type {
             self.updateHeight(node);    // 更新结点高度
             // 2. 执行旋转操作，使该子树重新恢复平衡
             node = self.rotate(node);
-            // 返回子树的根节点
+            // 返回子树的根结点
             return node;
         }
 

@@ -12,7 +12,7 @@ namespace hello_algo.chapter_tree
     /* AVL 树 */
     class AVLTree
     {
-        public TreeNode? root; // 根节点
+        public TreeNode? root; // 根结点
 
         /* 获取结点高度 */
         public int height(TreeNode? node)
@@ -48,7 +48,7 @@ namespace hello_algo.chapter_tree
             // 更新结点高度
             updateHeight(node);
             updateHeight(child);
-            // 返回旋转后子树的根节点
+            // 返回旋转后子树的根结点
             return child;
         }
 
@@ -63,7 +63,7 @@ namespace hello_algo.chapter_tree
             // 更新结点高度
             updateHeight(node);
             updateHeight(child);
-            // 返回旋转后子树的根节点
+            // 返回旋转后子树的根结点
             return child;
         }
 
@@ -127,7 +127,7 @@ namespace hello_algo.chapter_tree
             updateHeight(node);  // 更新结点高度
             /* 2. 执行旋转操作，使该子树重新恢复平衡 */
             node = rotate(node);
-            // 返回子树的根节点
+            // 返回子树的根结点
             return node;
         }
 
@@ -170,7 +170,7 @@ namespace hello_algo.chapter_tree
             updateHeight(node);  // 更新结点高度
             /* 2. 执行旋转操作，使该子树重新恢复平衡 */
             node = rotate(node);
-            // 返回子树的根节点
+            // 返回子树的根结点
             return node;
         }
 

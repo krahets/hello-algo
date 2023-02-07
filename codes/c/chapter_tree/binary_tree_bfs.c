@@ -28,7 +28,7 @@ int *levelOrder(TreeNode *root, int *size) {
     while (front < rear) {
         // 队列出队
         node = queue[front++];
-        // 保存结点
+        // 保存结点值
         arr[index++] = node->val;
         if (node->left != NULL) {
             // 左子结点入队

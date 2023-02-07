@@ -15,17 +15,7 @@ comments: true
 === "Java"
 
     ```java title="linear_search.java"
-    /* 线性查找（数组） */
-    int linearSearchArray(int[] nums, int target) {
-        // 遍历数组
-        for (int i = 0; i < nums.length; i++) {
-            // 找到目标元素，返回其索引
-            if (nums[i] == target)
-                return i;
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
+    [class]{hashing_search}-[func]{linearSearchArray}
     ```
 
 === "C++"
@@ -47,13 +37,7 @@ comments: true
 === "Python"
 
     ```python title="linear_search.py"
-    """ 线性查找（数组） """
-    def linear_search_array(nums, target):
-        # 遍历数组
-        for i in range(len(nums)):
-            if nums[i] == target:  # 找到目标元素，返回其索引
-                return i
-        return -1                  # 未找到目标元素，返回 -1
+    [class]{}-[func]{linear_search_array}
     ```
 
 === "Go"
@@ -161,18 +145,7 @@ comments: true
 === "Java"
 
     ```java title="linear_search.java"
-    /* 线性查找（链表） */
-    ListNode linearSearchLinkedList(ListNode head, int target) {
-        // 遍历链表
-        while (head != null) {
-            // 找到目标结点，返回之
-            if (head.val == target)
-                return head;
-            head = head.next;
-        }
-        // 未找到目标结点，返回 null
-        return null;
-    }
+    [class]{hashing_search}-[func]{linearSearchLinkedList}
     ```
 
 === "C++"
@@ -195,14 +168,7 @@ comments: true
 === "Python"
 
     ```python title="linear_search.py"
-    """ 线性查找（链表） """
-    def linear_search_linkedlist(head, target):
-        # 遍历链表
-        while head:
-            if head.val == target: # 找到目标结点，返回之
-                return head
-            head = head.next
-        return None                # 未找到目标结点，返回 None
+    [class]{}-[func]{linear_search_linkedlist}
     ```
 
 === "Go"

@@ -9,11 +9,9 @@ package chapter_sorting;
 import java.util.*;
 
 public class merge_sort {
-    /**
-     * 合并左子数组和右子数组
-     * 左子数组区间 [left, mid]
-     * 右子数组区间 [mid + 1, right]
-     */
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
     static void merge(int[] nums, int left, int mid, int right) {
         // 初始化辅助数组
         int[] tmp = Arrays.copyOfRange(nums, left, right + 1);   

@@ -582,22 +582,7 @@ $$
 === "Java"
 
     ```java title="space_complexity.java"
-    /* 常数阶 */
-    void constant(int n) {
-        // 常量、变量、对象占用 O(1) 空间
-        final int a = 0;
-        int b = 0;
-        int[] nums = new int[10000];
-        ListNode node = new ListNode(0);
-        // 循环中的变量占用 O(1) 空间
-        for (int i = 0; i < n; i++) {
-            int c = 0;
-        }
-        // 循环中的函数占用 O(1) 空间
-        for (int i = 0; i < n; i++) {
-            function();
-        }
-    }
+    [class]{space_complexity}-[func]{constant}
     ```
 
 === "C++"
@@ -624,18 +609,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    """ 常数阶 """
-    def constant(n):
-        # 常量、变量、对象占用 O(1) 空间
-        a = 0
-        nums = [0] * 10000
-        node = ListNode(0)
-        # 循环中的变量占用 O(1) 空间
-        for _ in range(n):
-            c = 0
-        # 循环中的函数占用 O(1) 空间
-        for _ in range(n):
-            function()
+    [class]{}-[func]{constant}
     ```
 
 === "Go"
@@ -789,21 +763,7 @@ $$
 === "Java"
 
     ```java title="space_complexity.java"
-    /* 线性阶 */
-    void linear(int n) {
-        // 长度为 n 的数组占用 O(n) 空间
-        int[] nums = new int[n];
-        // 长度为 n 的列表占用 O(n) 空间
-        List<ListNode> nodes = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            nodes.add(new ListNode(i));
-        }
-        // 长度为 n 的哈希表占用 O(n) 空间
-        Map<Integer, String> map = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            map.put(i, String.valueOf(i));
-        }
-    }
+    [class]{space_complexity}-[func]{linear}
     ```
 
 === "C++"
@@ -829,14 +789,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    """ 线性阶 """
-    def linear(n):
-        # 长度为 n 的列表占用 O(n) 空间
-        nums = [0] * n
-        # 长度为 n 的哈希表占用 O(n) 空间
-        mapp = {}
-        for i in range(n):
-            mapp[i] = str(i)
+    [class]{}-[func]{linear}
     ```
 
 === "Go"
@@ -974,12 +927,7 @@ $$
 === "Java"
 
     ```java title="space_complexity.java"
-    /* 线性阶（递归实现） */
-    void linearRecur(int n) {
-        System.out.println("递归 n = " + n);
-        if (n == 1) return;
-        linearRecur(n - 1);
-    }
+    [class]{space_complexity}-[func]{linearRecur}
     ```
 
 === "C++"
@@ -996,11 +944,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    """ 线性阶（递归实现） """
-    def linear_recur(n):
-        print("递归 n =", n)
-        if n == 1: return
-        linear_recur(n - 1)
+    [class]{}-[func]{linear_recur}
     ```
 
 === "Go"
@@ -1091,20 +1035,7 @@ $$
 === "Java"
 
     ```java title="space_complexity.java"
-    /* 平方阶 */
-    void quadratic(int n) {
-        // 矩阵占用 O(n^2) 空间
-        int [][]numMatrix = new int[n][n];
-        // 二维列表占用 O(n^2) 空间
-        List<List<Integer>> numList = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            List<Integer> tmp = new ArrayList<>();
-            for (int j = 0; j < n; j++) {
-                tmp.add(0);
-            }
-            numList.add(tmp);
-        }
-    }
+    [class]{space_complexity}-[func]{quadratic}
     ```
 
 === "C++"
@@ -1127,10 +1058,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    """ 平方阶 """
-    def quadratic(n):
-        # 二维列表占用 O(n^2) 空间
-        num_matrix = [[0] * n for _ in range(n)]
+    [class]{}-[func]{quadratic}
     ```
 
 === "Go"
@@ -1248,13 +1176,7 @@ $$
 === "Java"
 
     ```java title="space_complexity.java"
-    /* 平方阶（递归实现） */
-    int quadraticRecur(int n) {
-        if (n <= 0) return 0;
-        // 数组 nums 长度为 n, n-1, ..., 2, 1
-        int[] nums = new int[n];
-        return quadraticRecur(n - 1);
-    }
+    [class]{space_complexity}-[func]{quadraticRecur}
     ```
 
 === "C++"
@@ -1272,12 +1194,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    """ 平方阶（递归实现） """
-    def quadratic_recur(n):
-        if n <= 0: return 0
-        # 数组 nums 长度为 n, n-1, ..., 2, 1
-        nums = [0] * n
-        return quadratic_recur(n - 1)
+    [class]{}-[func]{quadratic_recur}
     ```
 
 === "Go"
@@ -1374,14 +1291,7 @@ $$
 === "Java"
 
     ```java title="space_complexity.java"
-    /* 指数阶（建立满二叉树） */
-    TreeNode buildTree(int n) {
-        if (n == 0) return null;
-        TreeNode root = new TreeNode(0);
-        root.left = buildTree(n - 1);
-        root.right = buildTree(n - 1);
-        return root;
-    }
+    [class]{space_complexity}-[func]{buildTree}
     ```
 
 === "C++"
@@ -1400,13 +1310,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    """ 指数阶（建立满二叉树） """
-    def build_tree(n):
-        if n == 0: return None
-        root = TreeNode(0)
-        root.left = build_tree(n - 1)
-        root.right = build_tree(n - 1)
-        return root
+    [class]{}-[func]{build_tree}
     ```
 
 === "Go"

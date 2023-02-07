@@ -4,11 +4,9 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/**
- * 合并左子数组和右子数组
- * 左子数组区间 [left, mid]
- * 右子数组区间 [mid + 1, right]
- */
+/* 合并左子数组和右子数组 */
+// 左子数组区间 [left, mid]
+// 右子数组区间 [mid + 1, right]
 function merge(nums: number[], left: number, mid: number, right: number): void {
     // 初始化辅助数组
     let tmp = nums.slice(left, right + 1);

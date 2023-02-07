@@ -144,7 +144,7 @@ public class linkedlist_deque {
         deque.pushLast(3);
         deque.pushLast(2);
         deque.pushLast(5);
-        System.out.print("双点队列 deque = ");
+        System.out.print("双向队列 deque = ");
         deque.print();
 
         /* 访问元素 */

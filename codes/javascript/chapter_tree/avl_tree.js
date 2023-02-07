@@ -1,17 +1,17 @@
 /**
- * File: avl_tree.cpp
+ * File: avl_tree.js
  * Created Time: 2023-02-05
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
-let { TreeNode } = require("../include/TreeNode");
-let { printTree } = require("../include/PrintUtil");
+const { TreeNode } = require("../include/TreeNode");
+const { printTree } = require("../include/PrintUtil");
 
 /* AVL 树*/
 class AVLTree {
     /*构造函数*/
     constructor() {
-        this.root = null; //根节点
+        this.root = null; //根结点
     }
 
     /* 获取结点高度 */
@@ -36,36 +36,36 @@ class AVLTree {
 
     /* 右旋操作 */
     rightRotate(node) {
-        let child = node.left;
-        let grandChild = child.right;
+        const child = node.left;
+        const grandChild = child.right;
         // 以 child 为原点，将 node 向右旋转
         child.right = node;
         node.left = grandChild;
         // 更新结点高度
         this.updateHeight(node);
         this.updateHeight(child);
-        // 返回旋转后子树的根节点
+        // 返回旋转后子树的根结点
         return child;
     }
 
     /* 左旋操作 */
     leftRotate(node) {
-        let child = node.right;
-        let grandChild = child.left;
+        const child = node.right;
+        const grandChild = child.left;
         // 以 child 为原点，将 node 向左旋转
         child.left = node;
         node.right = grandChild;
         // 更新结点高度
         this.updateHeight(node);
         this.updateHeight(child);
-        // 返回旋转后子树的根节点
+        // 返回旋转后子树的根结点
         return child;
     }
 
     /* 执行旋转操作，使该子树重新恢复平衡 */
     rotate(node) {
         // 获取结点 node 的平衡因子
-        let balanceFactor = this.balanceFactor(node);
+        const balanceFactor = this.balanceFactor(node);
         // 左偏树
         if (balanceFactor > 1) {
             if (this.balanceFactor(node.left) >= 0) {
@@ -108,7 +108,7 @@ class AVLTree {
         this.updateHeight(node); // 更新结点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = this.rotate(node);
-        // 返回子树的根节点
+        // 返回子树的根结点
         return node;
     }
 
@@ -126,14 +126,14 @@ class AVLTree {
         else if (val > node.val) node.right = this.removeHelper(node.right, val);
         else {
             if (node.left === null || node.right === null) {
-                let child = node.left !== null ? node.left : node.right;
+                const child = node.left !== null ? node.left : node.right;
                 // 子结点数量 = 0 ，直接删除 node 并返回
                 if (child === null) return null;
                 // 子结点数量 = 1 ，直接删除 node
                 else node = child;
             } else {
                 // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
-                let temp = this.getInOrderNext(node.right);
+                const temp = this.getInOrderNext(node.right);
                 node.right = this.removeHelper(node.right, temp.val);
                 node.val = temp.val;
             }
@@ -141,7 +141,7 @@ class AVLTree {
         this.updateHeight(node); // 更新结点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = this.rotate(node);
-        // 返回子树的根节点
+        // 返回子树的根结点
         return node;
     }
 
@@ -184,8 +184,9 @@ function testRemove(tree, val) {
     printTree(tree.root);
 }
 
+/* Driver Code */
 /* 初始化空 AVL 树 */
-let avlTree = new AVLTree();
+const avlTree = new AVLTree();
 /* 插入结点 */
 // 请关注插入结点后，AVL 树是如何保持平衡的
 testInsert(avlTree, 1);
@@ -209,5 +210,5 @@ testRemove(avlTree, 5); // 删除度为 1 的结点
 testRemove(avlTree, 4); // 删除度为 2 的结点
 
 /* 查询结点 */
-let node = avlTree.search(7);
-console.log("\n查找到的结点对象为 " + node + "，结点值 = " + node.val);
+const node = avlTree.search(7);
+console.log("\n查找到的结点对象为", node, "，结点值 = " + node.val);

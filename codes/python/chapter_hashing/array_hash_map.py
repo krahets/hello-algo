@@ -6,7 +6,7 @@ Author: msk397 (machangxinq@gmail.com)
 
 """ 键值对 int->String """
 class Entry:
-    def __init__(self, key: int, val: str):
+    def __init__(self, key, val):
         self.key = key
         self.val = val
 
