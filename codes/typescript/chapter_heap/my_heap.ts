@@ -3,6 +3,7 @@
  * Created Time: 2023-02-07
  * Author: Justin (xiefahit@gmail.com)
  */
+ 
 import { printHeap } from "../module/PrintUtil";
 
 /* 最大堆类 */
@@ -115,6 +116,7 @@ class MaxHeap {
         printHeap(this.maxHeap);
     }
 }
+
 
 function testPush(maxHeap: MaxHeap, val: number): void {
     maxHeap.push(val); // 元素入堆
