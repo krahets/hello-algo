@@ -73,7 +73,7 @@ class Array {
 }
 
 /* Driver Code */
-void main() {
+int main() {
   /* 初始化固定长度数组 */
   var arr = List.filled(5, 0);
   print('数组 arr = $arr');
@@ -102,4 +102,6 @@ void main() {
   /* 查找元素 */
   int index = Array().find(nums, 3);
   print("在 nums 中查找元素 3 ，得到索引 = $index");
+  
+  return 0;
 }
