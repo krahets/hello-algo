@@ -1209,6 +1209,16 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return root;
     }
 
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    TreeNode* getInOrderNext(TreeNode* node) {
+        if (node == nullptr) return node;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (node->left != nullptr) {
+            node = node->left;
+        }
+        return node;
+    }
+
     /* 递归删除结点（辅助函数） */
     TreeNode* removeHelper(TreeNode* node, int val) {
         if (node == nullptr) return nullptr;
@@ -1299,6 +1309,18 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回子树的根结点
         return node
     }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    func getInOrderNext(node *TreeNode) *TreeNode {
+        if node == nil {
+            return node
+        }
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        for node.Left != nil {
+            node = node.Left
+        }
+        return node
+    }
     ```
 
 === "JavaScript"
@@ -1334,16 +1356,6 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = this.rotate(node);
         // 返回子树的根结点
-        return node;
-    }
-
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    getInOrderNext(node) {
-        if (node === null) return node;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (node.left !== null) {
-            node = node.left;
-        }
         return node;
     }
 
@@ -1461,6 +1473,18 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         // 返回子树的根结点
         return node;
     }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    private TreeNode? getInOrderNext(TreeNode? node)
+    {
+        if (node == null) return node;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (node.left != null)
+        {
+            node = node.left;
+        }
+        return node;
+    }
     ```
 
 === "Swift"
@@ -1506,6 +1530,19 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node: node)
         // 返回子树的根结点
+        return node
+    }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    private func getInOrderNext(node: TreeNode?) -> TreeNode? {
+        var node = node
+        if node == nil {
+            return node
+        }
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while node?.left != nil {
+            node = node?.left
+        }
         return node
     }
     ```
