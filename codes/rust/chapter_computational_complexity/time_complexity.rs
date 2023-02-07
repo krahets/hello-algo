@@ -1,4 +1,4 @@
-/*
+/**
  * File: time_complexity.rs
  * Created Time: 2023-01-10
  * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
@@ -24,7 +24,7 @@ fn linear(n: i32) -> i32 {
     count
 }
 
-/* 线性阶（遍历数组） */ 
+/* 线性阶（遍历数组） */
 fn array_traversal(nums: &[i32]) -> i32 {
     let mut count = 0;
     // 循环次数与数组长度成正比
@@ -80,7 +80,7 @@ fn exponential(n: i32) -> i32 {
     count
 }
 
-/* 指数阶（递归实现） */ 
+/* 指数阶（递归实现） */
 fn exp_recur(n: i32) -> i32 {
     if n == 1 {
         return 1;
@@ -106,7 +106,7 @@ fn log_recur(n: f32) -> i32 {
     log_recur(n / 2.0) + 1
 }
 
-/* 线性对数阶 */ 
+/* 线性对数阶 */
 fn linear_log_recur(n: f32) -> i32 {
     if n <= 1.0 {
         return 1;
