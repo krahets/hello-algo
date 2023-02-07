@@ -293,51 +293,7 @@ comments: true
 === "C++"
 
     ```cpp title="linkedlist_stack.cpp"
-    /* 基于链表实现的栈 */
-    class LinkedListStack {
-    private:
-        ListNode* stackTop; // 将头结点作为栈顶
-        int stkSize;        // 栈的长度
-    
-    public:
-        LinkedListStack() {
-            stackTop = nullptr;
-            stkSize = 0;
-        }
-        ~LinkedListStack() {
-            freeMemoryLinkedList(stackTop);
-        }
-        /* 获取栈的长度 */
-        int size() {
-            return stkSize;
-        }
-        /* 判断栈是否为空 */
-        bool empty() {
-            return size() == 0;
-        }
-        /* 入栈 */
-        void push(int num) {
-            ListNode* node = new ListNode(num);
-            node->next = stackTop;
-            stackTop = node;
-            stkSize++;
-        }
-        /* 出栈 */
-        void pop() {
-            int num = top();
-            ListNode *tmp = stackTop;
-            stackTop = stackTop->next;
-            // 释放内存
-            delete tmp;
-            stkSize--;
-        }
-        /* 访问栈顶元素 */
-        int top() {
-            if (size() == 0)
-                throw out_of_range("栈为空");
-            return stackTop->val;
-        }
-    };
+    [class]{LinkedListStack}-[func]{}
     ```
 
 === "Python"
@@ -652,36 +608,7 @@ comments: true
 === "C++"
 
     ```cpp title="array_stack.cpp"
-    /* 基于数组实现的栈 */
-    class ArrayStack {
-    private:
-        vector<int> stack;
-        
-    public:
-        /* 获取栈的长度 */
-        int size() {
-            return stack.size();
-        }
-        /* 判断栈是否为空 */
-        bool empty() {
-            return stack.empty();
-        }
-        /* 入栈 */
-        void push(int num) {
-            stack.push_back(num);
-        }
-        /* 出栈 */
-        void pop() {
-            int oldTop = top();
-            stack.pop_back();
-        }
-        /* 访问栈顶元素 */
-        int top() {
-            if(empty())
-                throw out_of_range("栈为空");
-            return stack.back();
-        }
-    };
+    [class]{ArrayStack}-[func]{}
     ```
 
 === "Python"

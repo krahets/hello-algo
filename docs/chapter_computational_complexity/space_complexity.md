@@ -588,22 +588,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 常数阶 */
-    void constant(int n) {
-        // 常量、变量、对象占用 O(1) 空间
-        const int a = 0;
-        int b = 0;
-        vector<int> nums(10000);
-        ListNode node(0);
-        // 循环中的变量占用 O(1) 空间
-        for (int i = 0; i < n; i++) {
-            int c = 0;
-        }
-        // 循环中的函数占用 O(1) 空间
-        for (int i = 0; i < n; i++) {
-            func();
-        }
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "Python"
@@ -769,21 +754,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 线性阶 */
-    void linear(int n) {
-        // 长度为 n 的数组占用 O(n) 空间
-        vector<int> nums(n);
-        // 长度为 n 的列表占用 O(n) 空间
-        vector<ListNode> nodes;
-        for (int i = 0; i < n; i++) {
-            nodes.push_back(ListNode(i));
-        }
-        // 长度为 n 的哈希表占用 O(n) 空间
-        unordered_map<int, string> map;
-        for (int i = 0; i < n; i++) {
-            map[i] = to_string(i);
-        }
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "Python"
@@ -933,12 +904,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 线性阶（递归实现） */
-    void linearRecur(int n) {
-        cout << "递归 n = " << n << endl;
-        if (n == 1) return;
-        linearRecur(n - 1);
-    }
+    [class]{}-[func]{linearRecur}
     ```
 
 === "Python"
@@ -1041,18 +1007,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 平方阶 */
-    void quadratic(int n) {
-        // 二维列表占用 O(n^2) 空间
-        vector<vector<int>> numMatrix;
-        for (int i = 0; i < n; i++) {
-            vector<int> tmp;
-            for (int j = 0; j < n; j++) {
-                tmp.push_back(0);
-            }
-            numMatrix.push_back(tmp);
-        }
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "Python"
@@ -1182,13 +1137,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 平方阶（递归实现） */
-    int quadraticRecur(int n) {
-        if (n <= 0) return 0;
-        vector<int> nums(n);
-        cout << "递归 n = " << n << " 中的 nums 长度 = " << nums.size() << endl;
-        return quadraticRecur(n - 1);
-    }
+    [class]{}-[func]{quadraticRecur}
     ```
 
 === "Python"
@@ -1297,14 +1246,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 指数阶（建立满二叉树） */
-    TreeNode* buildTree(int n) {
-        if (n == 0) return nullptr;
-        TreeNode* root = new TreeNode(0);
-        root->left = buildTree(n - 1);
-        root->right = buildTree(n - 1);
-        return root;
-    }
+    [class]{}-[func]{buildTree}
     ```
 
 === "Python"

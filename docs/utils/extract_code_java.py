@@ -5,19 +5,27 @@ Author: Krahets (krahets@163.com)
 """
 
 import re
-import os
-import os.path as osp
+import glob
+import sys, os.path as osp
+sys.path.append(osp.dirname(osp.dirname(osp.dirname(osp.abspath(__file__)))))
 
 
 class ExtractCodeBlocksJava:
     def __init__(self) -> None:
-        self.langs = ["java"]
+        self.ind = 4
+        
         # Pattern to match function names and class names
-        self.func_pattern = r'(\s+)(public|private|)\s*(static|)\s*(\S+)\s+(\w+)(\(.*\))\s+\{'
+        self.func_pattern = r'(\s*)(public|private|)\s*(static|)\s*(\S+)\s+(\w+)(\(.*\))\s+\{'
         self.class_pattern = r'(public|)\s*class\s+(\w+)\s*\{'
+        
+        self.func_pattern_keys = ["total", "ind", "scope", "static", "return", "label", "args"]
+        self.class_pattern_keys = ["total", "scope", "label"]
+        
         # Pattern to match the start and end of a block
         self.block_end_pattern = '^\s{ind}\}'
         self.block_start_pattern = '^\s{ind}\/\*.+\*\/'
+        self.block_start_shift = 0
+        self.block_end_shift = 0
 
     def extract(self, file_path):
         """
@@ -53,17 +61,17 @@ class ExtractCodeBlocksJava:
         # Search the code
         for i in range(header_line + 1, len(self.lines)):
             if re.match(block_end_pattern, self.lines[i]) is not None:
-                end_line = i
+                end_line = i + self.block_end_shift
                 break
         # Search the header comment
         for i in range(header_line - 1, -1, -1):
             if re.search(block_start_pattern, self.lines[i]) is not None:
-                start_line = i
+                start_line = i + self.block_start_shift
                 break
 
         return start_line, end_line, self.lines[start_line:end_line + 1]
 
-    def extract_function_blocks(self, indentation=4, start_line=-1, end_line=-1):
+    def extract_function_blocks(self, indentation=0, start_line=-1, end_line=-1):
         """
         Extract all the functions with given indentation
         """
@@ -82,7 +90,7 @@ class ExtractCodeBlocksJava:
             if func_match is None:
                 continue
             # The function should match the input indentation
-            if len(func_match.group(1)) != indentation:
+            if len(func_match.group(self.func_pattern_keys.index("ind"))) != indentation:
                 continue
             header_line = line_num
 
@@ -90,7 +98,7 @@ class ExtractCodeBlocksJava:
             start_line, end_line, func_block = self.search_block(
                 header_line, indentation)
             # Construct the funcs dict
-            func_label = func_match.group(5)
+            func_label = func_match.group(self.func_pattern_keys.index("label"))
             funcs[func_label] = {
                 "indentation": indentation,
                 "line_number": {
@@ -122,7 +130,7 @@ class ExtractCodeBlocksJava:
             start_line, end_line, class_block = self.search_block(
                 header_line, 0)
             # Construct the classes dict
-            class_label = class_match.group(2)
+            class_label = class_match.group(self.class_pattern_keys.index("label"))
             classes[class_label] = {
                 "indentation": 0,
                 "line_number": {
@@ -132,7 +140,7 @@ class ExtractCodeBlocksJava:
                 },
                 "block": class_block,
                 "funcs": self.extract_function_blocks(
-                    indentation=4, start_line=start_line, end_line=end_line)
+                    indentation=self.ind, start_line=start_line, end_line=end_line)
             }
 
         return classes
@@ -144,7 +152,7 @@ class ExtractCodeBlocksJava:
         def remove_keyword(func):
             block = func["block"]
             header_line = func["line_number"]["header"] - \
-                          func["line_number"]["start"]
+                func["line_number"]["start"]
             block[header_line] = block[header_line] \
                 .replace("static ", "").replace("public ", "").replace("private ", "")
         for clas in classes.values():

@@ -28,7 +28,7 @@ private:
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
-    void shifUp(int i) {
+    void siftUp(int i) {
         while (true) {
             // 获取结点 i 的父结点
             int p =  parent(i);
@@ -43,7 +43,7 @@ private:
     }
 
     /* 从结点 i 开始，从顶至底堆化 */
-    void shifDown(int i) {
+    void siftDown(int i) {
         while (true) {
             // 判断结点 i, l, r 中值最大的结点，记为 ma
             int l = left(i), r = right(i), ma = i;
@@ -68,7 +68,7 @@ public:
         maxHeap = nums;
         // 堆化除叶结点以外的其他所有结点
         for (int i = parent(size() - 1); i >= 0; i--) {
-            shifDown(i);
+            siftDown(i);
         }
     }
 
@@ -92,7 +92,7 @@ public:
         // 添加结点
         maxHeap.push_back(val);
         // 从底至顶堆化
-        shifUp(size() - 1);
+        siftUp(size() - 1);
     }
 
     /* 元素出堆 */
@@ -107,7 +107,7 @@ public:
         // 删除结点
         maxHeap.pop_back();
         // 从顶至底堆化
-        shifDown(0);
+        siftDown(0);
     }
 
     /* 打印堆（二叉树）*/

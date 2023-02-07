@@ -12,6 +12,7 @@ import glob
 import shutil
 from docs.utils.extract_code_python import ExtractCodeBlocksPython
 from docs.utils.extract_code_java import ExtractCodeBlocksJava
+from docs.utils.extract_code_cpp import ExtractCodeBlocksCpp
 
 
 def build_markdown(md_path):
@@ -22,10 +23,12 @@ def build_markdown(md_path):
     file_pattern = re.compile(r'\s*```(\w+)\s+title="(.+)"')
     src_pattern = re.compile(r'\s*\[class\]\{(.*?)\}-\[func\]\{(.*?)\}')
     
-    for i in range(len(lines)):
+    i = 0
+    while i < len(lines):
         # Find the line target to the source codes
         src_match = src_pattern.match(lines[i])
         if src_match is None:
+            i += 1
             continue
         for j in range(i - 1, -1 ,-1):
             file_match = file_pattern.match(lines[j])
@@ -70,6 +73,8 @@ def build_markdown(md_path):
                     func_block = class_dict["funcs"][func_label]
                     for code_line in func_block["block"][::-1]:
                         lines.insert(header_line, code_line)
+        
+        i += 1
                     
     with open(md_path.replace("docs/", "build/"), "w") as f:
         f.writelines(lines)
@@ -79,6 +84,7 @@ def build_markdown(md_path):
 extractor_dict = {
     "java": ExtractCodeBlocksJava(),
     "python": ExtractCodeBlocksPython(),
+    "cpp": ExtractCodeBlocksCpp(),
 }
 
 

@@ -511,15 +511,7 @@ comments: true
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* 访问链表中索引为 index 的结点 */
-    ListNode* access(ListNode* head, int index) {
-        for (int i = 0; i < index; i++) {
-            if (head == nullptr)
-                return nullptr;
-            head = head->next;
-        }
-        return head;
-    }
+    [class]{}-[func]{access}
     ```
 
 === "Python"
@@ -640,17 +632,7 @@ comments: true
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* 在链表中查找值为 target 的首个结点 */
-    int find(ListNode* head, int target) {
-        int index = 0;
-        while (head != nullptr) {
-            if (head->val == target)
-                return index;
-            head = head->next;
-            index++;
-        }
-        return -1;
-    }
+    [class]{}-[func]{find}
     ```
 
 === "Python"

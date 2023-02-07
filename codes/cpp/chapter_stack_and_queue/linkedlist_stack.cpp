@@ -10,7 +10,7 @@
 class LinkedListStack {
 private:
     ListNode* stackTop; // 将头结点作为栈顶
-    int stkSize;      // 栈的长度
+    int stkSize;        // 栈的长度
 
 public:
     LinkedListStack() {
