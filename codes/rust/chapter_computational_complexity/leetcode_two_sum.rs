@@ -1,4 +1,4 @@
-/*
+/**
  * File: leetcode_two_sum.rs
  * Created Time: 2023-01-14
  * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
