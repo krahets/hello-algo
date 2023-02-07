@@ -4,6 +4,8 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
+const { arrToTree } = require("./TreeNode");
+
 /**
  * Print a linked list
  * @param head
@@ -82,7 +84,19 @@ function showTrunks(p) {
     process.stdout.write(p.str);
 }
 
+/**
+ * Print a heap
+ * @param arr
+ */
+function printHeap(arr) {
+    console.log("堆的数组表示：");
+    console.log(arr);
+    console.log("堆的树状表示：");
+    printTree(arrToTree(arr));
+}
+
 module.exports = {
     printLinkedList,
-    printTree
-}
+    printTree,
+    printHeap,
+};
