@@ -18,7 +18,7 @@ def hier_order(root: Optional[TreeNode]):
     res = []
     while queue:
         node = queue.popleft()       # 队列出队
-        res.append(node.val)         # 保存节点值
+        res.append(node.val)         # 保存结点值
         if node.left is not None:
             queue.append(node.left)  # 左子结点入队
         if node.right is not None:

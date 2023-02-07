@@ -8,7 +8,7 @@ import utils
 
 /* AVL 树 */
 class AVLTree {
-    fileprivate var root: TreeNode? // 根节点
+    fileprivate var root: TreeNode? // 根结点
 
     /* 获取结点高度 */
     func height(node: TreeNode?) -> Int {
@@ -40,7 +40,7 @@ class AVLTree {
         // 更新结点高度
         updateHeight(node: node)
         updateHeight(node: child)
-        // 返回旋转后子树的根节点
+        // 返回旋转后子树的根结点
         return child
     }
 
@@ -54,7 +54,7 @@ class AVLTree {
         // 更新结点高度
         updateHeight(node: node)
         updateHeight(node: child)
-        // 返回旋转后子树的根节点
+        // 返回旋转后子树的根结点
         return child
     }
 
@@ -112,7 +112,7 @@ class AVLTree {
         updateHeight(node: node) // 更新结点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node: node)
-        // 返回子树的根节点
+        // 返回子树的根结点
         return node
     }
 
@@ -155,7 +155,7 @@ class AVLTree {
         updateHeight(node: node) // 更新结点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node: node)
-        // 返回子树的根节点
+        // 返回子树的根结点
         return node
     }
 

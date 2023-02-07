@@ -8,7 +8,7 @@ import . "github.com/krahets/hello-algo/pkg"
 
 /* AVL 树 */
 type avlTree struct {
-	// 根节点
+	// 根结点
 	root *TreeNode
 }
 
@@ -57,7 +57,7 @@ func rightRotate(node *TreeNode) *TreeNode {
 	// 更新结点高度
 	updateHeight(node)
 	updateHeight(child)
-	// 返回旋转后子树的根节点
+	// 返回旋转后子树的根结点
 	return child
 }
 
@@ -71,7 +71,7 @@ func leftRotate(node *TreeNode) *TreeNode {
 	// 更新结点高度
 	updateHeight(node)
 	updateHeight(child)
-	// 返回旋转后子树的根节点
+	// 返回旋转后子树的根结点
 	return child
 }
 
@@ -130,7 +130,7 @@ func insertHelper(node *TreeNode, val int) *TreeNode {
 	updateHeight(node)
 	/* 2. 执行旋转操作，使该子树重新恢复平衡 */
 	node = rotate(node)
-	// 返回子树的根节点
+	// 返回子树的根结点
 	return node
 }
 
@@ -174,7 +174,7 @@ func removeHelper(node *TreeNode, val int) *TreeNode {
 	updateHeight(node)
 	/* 2. 执行旋转操作，使该子树重新恢复平衡 */
 	node = rotate(node)
-	// 返回子树的根节点
+	// 返回子树的根结点
 	return node
 }
 

@@ -43,7 +43,7 @@ class AVLTree:
         # 更新结点高度
         self.__update_height(node)
         self.__update_height(child)
-        # 返回旋转后子树的根节点
+        # 返回旋转后子树的根结点
         return child
 
     """ 左旋操作 """
@@ -56,7 +56,7 @@ class AVLTree:
         # 更新结点高度
         self.__update_height(node)
         self.__update_height(child)
-        # 返回旋转后子树的根节点
+        # 返回旋转后子树的根结点
         return child
 
     """ 执行旋转操作，使该子树重新恢复平衡 """

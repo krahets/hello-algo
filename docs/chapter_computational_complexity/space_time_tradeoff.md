@@ -33,19 +33,7 @@ comments: true
 === "Java"
 
     ```java title="leetcode_two_sum.java"
-    class SolutionBruteForce {
-        public int[] twoSum(int[] nums, int target) {
-            int size = nums.length;
-            // 两层循环，时间复杂度 O(n^2)
-            for (int i = 0; i < size - 1; i++) {
-                for (int j = i + 1; j < size; j++) {
-                    if (nums[i] + nums[j] == target)
-                        return new int[] { i, j };
-                }
-            }
-            return new int[0];
-        }
-    }
+    [class]{SolutionBruteForce}-[func]{}
     ```
 
 === "C++"
@@ -70,14 +58,7 @@ comments: true
 === "Python"
 
     ```python title="leetcode_two_sum.py"
-    class SolutionBruteForce:
-        def twoSum(self, nums: List[int], target: int) -> List[int]:
-            # 两层循环，时间复杂度 O(n^2)
-            for i in range(len(nums) - 1):
-                for j in range(i + 1, len(nums)):
-                    if nums[i] + nums[j] == target:
-                        return i, j
-            return []
+    [class]{SolutionBruteForce}-[func]{}
     ```
 
 === "Go"
@@ -206,21 +187,7 @@ comments: true
 === "Java"
 
     ```java title="leetcode_two_sum.java"
-    class SolutionHashMap {
-        public int[] twoSum(int[] nums, int target) {
-            int size = nums.length;
-            // 辅助哈希表，空间复杂度 O(n)
-            Map<Integer, Integer> dic = new HashMap<>();
-            // 单层循环，时间复杂度 O(n)
-            for (int i = 0; i < size; i++) {
-                if (dic.containsKey(target - nums[i])) {
-                    return new int[] { dic.get(target - nums[i]), i };
-                }
-                dic.put(nums[i], i);
-            }
-            return new int[0];
-        }
-    }
+    [class]{SolutionHashMap}-[func]{}
     ```
 
 === "C++"
@@ -247,16 +214,7 @@ comments: true
 === "Python"
 
     ```python title="leetcode_two_sum.py"
-    class SolutionHashMap:
-        def twoSum(self, nums: List[int], target: int) -> List[int]:
-            # 辅助哈希表，空间复杂度 O(n)
-            dic = {}
-            # 单层循环，时间复杂度 O(n)
-            for i in range(len(nums)):
-                if target - nums[i] in dic:
-                    return dic[target - nums[i]], i
-                dic[nums[i]] = i
-            return []
+    [class]{SolutionHashMap}-[func]{}
     ```
 
 === "Go"

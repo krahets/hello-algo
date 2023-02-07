@@ -38,21 +38,7 @@ comments: true
 === "Java"
 
     ```java title="binary_search_tree.java"
-    /* 查找结点 */
-    TreeNode search(int num) {
-        TreeNode cur = root;
-        // 循环查找，越过叶结点后跳出
-        while (cur != null) {
-            // 目标结点在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
-            // 目标结点在 cur 的左子树中
-            else if (cur.val > num) cur = cur.left;
-            // 找到目标结点，跳出循环
-            else break;
-        }
-        // 返回目标结点
-        return cur;
-    }
+    [class]{BinarySearchTree}-[func]{search}
     ```
 
 === "C++"
@@ -78,21 +64,7 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
-    """ 查找结点 """
-    def search(self, num: int) -> Optional[TreeNode]:
-        cur = self.root
-        # 循环查找，越过叶结点后跳出
-        while cur is not None:
-            # 目标结点在 cur 的右子树中
-            if cur.val < num:
-                cur = cur.right
-            # 目标结点在 cur 的左子树中
-            elif cur.val > num:
-                cur = cur.left
-            # 找到目标结点，跳出循环
-            else:
-                break
-        return cur
+    [class]{BinarySearchTree}-[func]{search}
     ```
 
 === "Go"
@@ -234,27 +206,7 @@ comments: true
 === "Java"
 
     ```java title="binary_search_tree.java"
-    /* 插入结点 */
-    TreeNode insert(int num) {
-        // 若树为空，直接提前返回
-        if (root == null) return null;
-        TreeNode cur = root, pre = null;
-        // 循环查找，越过叶结点后跳出
-        while (cur != null) {
-            // 找到重复结点，直接返回
-            if (cur.val == num) return null;
-            pre = cur;
-            // 插入位置在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
-            // 插入位置在 cur 的左子树中
-            else cur = cur.left;
-        }
-        // 插入结点 val
-        TreeNode node = new TreeNode(num);
-        if (pre.val < num) pre.right = node;
-        else pre.left = node;
-        return node;
-    }
+    [class]{BinarySearchTree}-[func]{insert}
     ```
 
 === "C++"
@@ -286,36 +238,7 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
-    """ 插入结点 """
-    def insert(self, num: int) -> Optional[TreeNode]:
-        root = self.root
-        # 若树为空，直接提前返回
-        if root is None:
-            return None
-    
-        cur = root
-        pre = None
-    
-        # 循环查找，越过叶结点后跳出
-        while cur is not None:
-            # 找到重复结点，直接返回
-            if cur.val == num:
-                return None
-            pre = cur
-            # 插入位置在 cur 的右子树中
-            if cur.val < num:
-                cur = cur.right
-            # 插入位置在 cur 的左子树中
-            else:
-                cur = cur.left
-    
-        # 插入结点 val
-        node = TreeNode(num)
-        if pre.val < num:
-            pre.right = node
-        else:
-            pre.left = node
-        return node
+    [class]{BinarySearchTree}-[func]{insert}
     ```
 
 === "Go"
@@ -531,66 +454,12 @@ comments: true
 
 删除结点操作也使用 $O(\log n)$ 时间，其中查找待删除结点 $O(\log n)$ ，获取中序遍历后继结点 $O(\log n)$ 。
 
-### 排序
-
-我们知道，「中序遍历」遵循“左 $\rightarrow$ 根 $\rightarrow$ 右”的遍历优先级，而二叉搜索树遵循“左子结点 $<$ 根结点 $<$ 右子结点”的大小关系。因此，在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小结点，从而得出一条重要性质：**二叉搜索树的中序遍历序列是升序的**。
-
-借助中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 $O(n)$ 时间，而无需额外排序，非常高效。
-
-![bst_inorder_traversal](binary_search_tree.assets/bst_inorder_traversal.png)
-
 === "Java"
 
     ```java title="binary_search_tree.java"
-    /* 删除结点 */
-    TreeNode remove(int num) {
-        // 若树为空，直接提前返回
-        if (root == null) return null;
-        TreeNode cur = root, pre = null;
-        // 循环查找，越过叶结点后跳出
-        while (cur != null) {
-            // 找到待删除结点，跳出循环
-            if (cur.val == num) break;
-            pre = cur;
-            // 待删除结点在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
-            // 待删除结点在 cur 的左子树中
-            else cur = cur.left;
-        }
-        // 若无待删除结点，则直接返回
-        if (cur == null) return null;
-        // 子结点数量 = 0 or 1
-        if (cur.left == null || cur.right == null) {
-            // 当子结点数量 = 0 / 1 时， child = null / 该子结点
-            TreeNode child = cur.left != null ? cur.left : cur.right;
-            // 删除结点 cur
-            if (pre.left == cur) pre.left = child;
-            else pre.right = child;
-            // 释放内存
-            delete cur;
-        }
-        // 子结点数量 = 2
-        else {
-            // 获取中序遍历中 cur 的下一个结点
-            TreeNode nex = getInOrderNext(cur.right);
-            int tmp = nex.val;
-            // 递归删除结点 nex
-            remove(nex.val);
-            // 将 nex 的值复制给 cur
-            cur.val = tmp;
-        }
-        return cur;
-    }
+    [class]{BinarySearchTree}-[func]{remove}
 
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    public TreeNode getInOrderNext(TreeNode root) {
-        if (root == null) return root;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (root.left != null) {
-            root = root.left;
-        }
-        return root;
-    }
+    [class]{BinarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "C++"
@@ -648,59 +517,9 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
-    """ 删除结点 """
-    def remove(self, num: int) -> Optional[TreeNode]:
-        root = self.root
-        # 若树为空，直接提前返回
-        if root is None:
-            return None
-    
-        cur = root
-        pre = None
-    
-        # 循环查找，越过叶结点后跳出
-        while cur is not None:
-            # 找到待删除结点，跳出循环
-            if cur.val == num:
-                break
-            pre = cur
-            if cur.val < num:  # 待删除结点在 cur 的右子树中
-                cur = cur.right
-            else:  # 待删除结点在 cur 的左子树中
-                cur = cur.left
-    
-        # 若无待删除结点，则直接返回
-        if cur is None:
-            return None
-    
-        # 子结点数量 = 0 or 1
-        if cur.left is None or cur.right is None:
-            # 当子结点数量 = 0 / 1 时， child = null / 该子结点
-            child = cur.left or cur.right
-            # 删除结点 cur
-            if pre.left == cur:
-                pre.left = child
-            else:
-                pre.right = child
-        # 子结点数量 = 2
-        else:
-            # 获取中序遍历中 cur 的下一个结点
-            nex = self.get_inorder_next(cur.right)
-            tmp = nex.val
-            # 递归删除结点 nex
-            self.remove(nex.val)
-            # 将 nex 的值复制给 cur
-            cur.val = tmp
-        return cur
+    [class]{BinarySearchTree}-[func]{remove}
 
-    """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
-    def get_inorder_next(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        if root is None:
-            return root
-        # 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while root.left is not None:
-            root = root.left
-        return root
+    [class]{BinarySearchTree}-[func]{get_inorder_next}
     ```
 
 === "Go"
@@ -1039,6 +858,14 @@ comments: true
     ```zig title="binary_search_tree.zig"
 
     ```
+
+### 排序
+
+我们知道，「中序遍历」遵循“左 $\rightarrow$ 根 $\rightarrow$ 右”的遍历优先级，而二叉搜索树遵循“左子结点 $<$ 根结点 $<$ 右子结点”的大小关系。因此，在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小结点，从而得出一条重要性质：**二叉搜索树的中序遍历序列是升序的**。
+
+借助中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 $O(n)$ 时间，而无需额外排序，非常高效。
+
+![bst_inorder_traversal](binary_search_tree.assets/bst_inorder_traversal.png)
 
 ## 7.3.2. 二叉搜索树的效率
 

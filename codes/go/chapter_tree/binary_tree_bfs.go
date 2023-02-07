@@ -20,7 +20,7 @@ func levelOrder(root *TreeNode) []int {
 	for queue.Len() > 0 {
 		// poll
 		node := queue.Remove(queue.Front()).(*TreeNode)
-		// 保存结点
+		// 保存结点值
 		nums = append(nums, node.Val)
 		if node.Left != nil {
 			// 左子结点入队

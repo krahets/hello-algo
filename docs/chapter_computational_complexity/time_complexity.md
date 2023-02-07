@@ -795,14 +795,7 @@ $$
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 常数阶 */
-    int constant(int n) {
-        int count = 0;
-        int size = 100000;
-        for (int i = 0; i < size; i++)
-            count++;
-        return count;
-    }
+    [class]{time_complexity}-[func]{constant}
     ```
 
 === "C++"
@@ -821,13 +814,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    """ 常数阶 """
-    def constant(n):
-        count = 0
-        size = 100000
-        for _ in range(size):
-            count += 1
-        return count
+    [class]{}-[func]{constant}
     ```
 
 === "Go"
@@ -934,13 +921,7 @@ $$
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 线性阶 */
-    int linear(int n) {
-        int count = 0;
-        for (int i = 0; i < n; i++)
-            count++;
-        return count;
-    }
+    [class]{time_complexity}-[func]{linear}
     ```
 
 === "C++"
@@ -958,12 +939,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    """ 线性阶 """
-    def linear(n):
-        count = 0
-        for _ in range(n):
-            count += 1
-        return count
+    [class]{}-[func]{linear}
     ```
 
 === "Go"
@@ -1063,15 +1039,7 @@ $$
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 线性阶（遍历数组） */
-    int arrayTraversal(int[] nums) {
-        int count = 0;
-        // 循环次数与数组长度成正比
-        for (int num : nums) {
-            count++;
-        }
-        return count;
-    }
+    [class]{time_complexity}-[func]{arrayTraversal}
     ```
 
 === "C++"
@@ -1091,13 +1059,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    """ 线性阶（遍历数组）"""
-    def array_traversal(nums):
-        count = 0
-        # 循环次数与数组长度成正比
-        for num in nums:
-            count += 1
-        return count
+    [class]{}-[func]{array_traversal}
     ```
 
 === "Go"
@@ -1207,17 +1169,7 @@ $$
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 平方阶 */
-    int quadratic(int n) {
-        int count = 0;
-        // 循环次数与数组长度成平方关系
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                count++;
-            }
-        }
-        return count;
-    }
+    [class]{time_complexity}-[func]{quadratic}
     ```
 
 === "C++"
@@ -1239,14 +1191,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    """ 平方阶 """
-    def quadratic(n):
-        count = 0
-        # 循环次数与数组长度成平方关系
-        for i in range(n):
-            for j in range(n):
-                count += 1
-        return count
+    [class]{}-[func]{quadratic}
     ```
 
 === "Go"
@@ -1379,24 +1324,7 @@ $$
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 平方阶（冒泡排序） */
-    int bubbleSort(int[] nums) {
-        int count = 0;  // 计数器
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = nums.length - 1; i > 0; i--) {
-            // 内循环：冒泡操作
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3;  // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count;
-    }
+    [class]{time_complexity}-[func]{bubbleSort}
     ```
 
 === "C++"
@@ -1425,20 +1353,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    """ 平方阶（冒泡排序）"""
-    def bubble_sort(nums):
-        count = 0  # 计数器
-        # 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i in range(len(nums) - 1, 0, -1):
-            # 内循环：冒泡操作
-            for j in range(i):
-                if nums[j] > nums[j + 1]:
-                    # 交换 nums[j] 与 nums[j + 1]
-                    tmp = nums[j]
-                    nums[j] = nums[j + 1]
-                    nums[j + 1] = tmp
-                    count += 3  # 元素交换包含 3 个单元操作
-        return count
+    [class]{}-[func]{bubble_sort}
     ```
 
 === "Go"
@@ -1622,19 +1537,7 @@ $$
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 指数阶（循环实现） */
-    int exponential(int n) {
-        int count = 0, base = 1;
-        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < base; j++) {
-                count++;
-            }
-            base *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count;
-    }
+    [class]{time_complexity}-[func]{exponential}
     ```
 
 === "C++"
@@ -1658,16 +1561,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    """ 指数阶（循环实现）"""
-    def exponential(n):
-        count, base = 0, 1
-        # cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for _ in range(n):
-            for _ in range(base):
-                count += 1
-            base *= 2
-        # count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count
+    [class]{}-[func]{exponential}
     ```
 
 === "Go"
@@ -1816,11 +1710,7 @@ $$
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 指数阶（递归实现） */
-    int expRecur(int n) {
-        if (n == 1) return 1;
-        return expRecur(n - 1) + expRecur(n - 1) + 1;
-    }
+    [class]{time_complexity}-[func]{expRecur}
     ```
 
 === "C++"
@@ -1836,10 +1726,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    """ 指数阶（递归实现）"""
-    def exp_recur(n):
-        if n == 1: return 1
-        return exp_recur(n - 1) + exp_recur(n - 1) + 1
+    [class]{}-[func]{exp_recur}
     ```
 
 === "Go"
@@ -1929,15 +1816,7 @@ $$
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 对数阶（循环实现） */
-    int logarithmic(float n) {
-        int count = 0;
-        while (n > 1) {
-            n = n / 2;
-            count++;
-        }
-        return count;
-    }
+    [class]{time_complexity}-[func]{logarithmic}
     ```
 
 === "C++"
@@ -1957,13 +1836,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    """ 对数阶（循环实现）"""
-    def logarithmic(n):
-        count = 0
-        while n > 1:
-            n = n / 2
-            count += 1
-        return count
+    [class]{}-[func]{logarithmic}
     ```
 
 === "Go"
@@ -2079,11 +1952,7 @@ $$
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 对数阶（递归实现） */
-    int logRecur(float n) {
-        if (n <= 1) return 0;
-        return logRecur(n / 2) + 1;
-    }
+    [class]{time_complexity}-[func]{logRecur}
     ```
 
 === "C++"
@@ -2099,10 +1968,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    """ 对数阶（递归实现）"""
-    def log_recur(n):
-        if n <= 1: return 0
-        return log_recur(n / 2) + 1
+    [class]{}-[func]{log_recur}
     ```
 
 === "Go"
@@ -2190,16 +2056,7 @@ $$
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 线性对数阶 */
-    int linearLogRecur(float n) {
-        if (n <= 1) return 1;
-        int count = linearLogRecur(n / 2) +
-                    linearLogRecur(n / 2);
-        for (int i = 0; i < n; i++) {
-            count++;
-        }
-        return count;
-    }
+    [class]{time_complexity}-[func]{linearLogRecur}
     ```
 
 === "C++"
@@ -2220,14 +2077,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    """ 线性对数阶 """
-    def linear_log_recur(n):
-        if n <= 1: return 1
-        count = linear_log_recur(n // 2) + \
-                linear_log_recur(n // 2)
-        for _ in range(n):
-            count += 1
-        return count
+    [class]{}-[func]{linear_log_recur}
     ```
 
 === "Go"
@@ -2357,16 +2207,7 @@ $$
 === "Java"
 
     ```java title="time_complexity.java"
-    /* 阶乘阶（递归实现） */
-    int factorialRecur(int n) {
-        if (n == 0) return 1;
-        int count = 0;
-        // 从 1 个分裂出 n 个
-        for (int i = 0; i < n; i++) {
-            count += factorialRecur(n - 1);
-        }
-        return count;
-    }
+    [class]{time_complexity}-[func]{factorialRecur}
     ```
 
 === "C++"
@@ -2387,14 +2228,7 @@ $$
 === "Python"
 
     ```python title="time_complexity.py"
-    """ 阶乘阶（递归实现）"""
-    def factorial_recur(n):
-        if n == 0: return 1
-        count = 0
-        # 从 1 个分裂出 n 个
-        for _ in range(n):
-            count += factorial_recur(n - 1)
-        return count
+    [class]{}-[func]{factorial_recur}
     ```
 
 === "Go"
@@ -2524,35 +2358,9 @@ $$
 === "Java"
 
     ```java title="worst_best_time_complexity.java"
-    public class worst_best_time_complexity {
-        /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-        int[] randomNumbers(int n) {
-            Integer[] nums = new Integer[n];
-            // 生成数组 nums = { 1, 2, 3, ..., n }
-            for (int i = 0; i < n; i++) {
-                nums[i] = i + 1;
-            }
-            // 随机打乱数组元素
-            Collections.shuffle(Arrays.asList(nums));
-            // Integer[] -> int[]
-            int[] res = new int[n];
-            for (int i = 0; i < n; i++) {
-                res[i] = nums[i];
-            }
-            return res;
-        }
+    [class]{worst_best_time_complexity}-[func]{randomNumbers}
 
-        /* 查找数组 nums 中数字 1 所在索引 */
-        int findOne(int[] nums) {
-            for (int i = 0; i < nums.length; i++) {
-                // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-                // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-                if (nums[i] == 1)
-                    return i;
-            }
-            return -1;
-        }
-    }
+    [class]{worst_best_time_complexity}-[func]{findOne}
     ```
 
 === "C++"
@@ -2587,22 +2395,9 @@ $$
 === "Python"
 
     ```python title="worst_best_time_complexity.py"
-    """ 生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱 """
-    def random_numbers(n):
-        # 生成数组 nums =: 1, 2, 3, ..., n
-        nums = [i for i in range(1, n + 1)]
-        # 随机打乱数组元素
-        random.shuffle(nums)
-        return nums
+    [class]{}-[func]{random_numbers}
 
-    """ 查找数组 nums 中数字 1 所在索引 """
-    def find_one(nums):
-        for i in range(len(nums)):
-            # 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            # 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if nums[i] == 1:
-                return i
-        return -1
+    [class]{}-[func]{find_one}
     ```
 
 === "Go"
@@ -2640,7 +2435,7 @@ $$
     ```js title="worst_best_time_complexity.js"
     /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
     function randomNumbers(n) {
-        let nums = Array(n);
+        const nums = Array(n);
         // 生成数组 nums = { 1, 2, 3, ..., n }
         for (let i = 0; i < n; i++) {
             nums[i] = i + 1;
@@ -2673,15 +2468,15 @@ $$
     ```typescript title="worst_best_time_complexity.ts"
     /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
     function randomNumbers(n: number): number[] {
-        let nums = Array(n);
+        const nums = Array(n);
         // 生成数组 nums = { 1, 2, 3, ..., n }
         for (let i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
         // 随机打乱数组元素
         for (let i = 0; i < n; i++) {
-            let r = Math.floor(Math.random() * (i + 1));
-            let temp = nums[i];
+            const r = Math.floor(Math.random() * (i + 1));
+            const temp = nums[i];
             nums[i] = nums[r];
             nums[r] = temp;
         }

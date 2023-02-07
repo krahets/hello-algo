@@ -331,5 +331,6 @@ class PrintUtil {
             cout << "堆的树状表示：" << endl;
             TreeNode *root = vecToTree(vec);
             printTree(root);
+            freeMemoryTree(root);
         }
 };
