@@ -4,6 +4,9 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
+/**
+ * Definition for a singly-linked list node
+ */
 class ListNode {
   int val;
   ListNode? next;

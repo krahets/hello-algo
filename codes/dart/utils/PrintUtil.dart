@@ -1,13 +1,13 @@
-import '../chapter_array_and_linkedlist/array.dart';
-import 'ListNode.dart';
-
 /**
  * File: PrintUtil
  * Created Time: 2023-01-23
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
+import 'ListNode.dart';
+
 class PrintUtil {
+    
   void printLinkedList(ListNode? head) {
     List<String> list = [];
 
@@ -19,4 +19,3 @@ class PrintUtil {
     print(list.join(' -> '));
   }
 }
-
