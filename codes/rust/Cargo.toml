@@ -67,5 +67,10 @@ path = "chapter_sorting/bubble_sort.rs"
 name = "array_stack"
 path = "chapter_stack_and_queue/array_stack.rs"
 
+# Run Command: cargo run --bin array_queue
+[[bin]]
+name = "array_queue"
+path = "chapter_stack_and_queue/array_queue.rs"
+
 [dependencies]
 rand = "0.8.5"
