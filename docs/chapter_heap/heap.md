@@ -452,7 +452,7 @@ comments: true
     ```js title="my_heap.js"
     /* 访问堆顶元素 */
     peek() {
-        return this.maxHeap[0];
+        return this.#maxHeap[0];
     }
     ```
 
@@ -599,7 +599,7 @@ comments: true
     #siftUp(i) {
         while (true) {
             // 获取结点 i 的父结点
-            let p = this.#parent(i);
+            const p = this.#parent(i);
             // 当“越过根结点”或“结点无需修复”时，结束堆化
             if (p < 0 || this.#maxHeap[i] <= this.#maxHeap[p]) break;
             // 交换两结点
@@ -808,11 +808,11 @@ comments: true
     /* 元素出堆 */
     poll() {
         // 判空处理
-        if (this.isEmpty()) throw new EmptyStackException();
+        if (this.isEmpty()) throw new Error("堆为空");
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
         this.#swap(0, this.size() - 1);
         // 删除结点
-        let val = this.#maxHeap.pop();
+        const val = this.#maxHeap.pop();
         // 从顶至底堆化
         this.#siftDown(0);
         // 返回堆顶元素
@@ -823,9 +823,9 @@ comments: true
     #siftDown(i) {
         while (true) {
             // 判断结点 i, l, r 中值最大的结点，记为 ma
-            let l = this.#left(i),
-                r = this.#right(i),
-                ma = i;
+            const l = this.#left(i),
+                r = this.#right(i);
+            let ma = i;
             if (l < this.size() && this.#maxHeap[l] > this.#maxHeap[ma]) ma = l;
             if (r < this.size() && this.#maxHeap[r] > this.#maxHeap[ma]) ma = r;
             // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
