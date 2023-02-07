@@ -288,19 +288,22 @@ comments: true
     class LinkedListQueue {
         private ListNode front, rear;  // 头结点 front ，尾结点 rear 
         private int queSize = 0;
-    
+
         public LinkedListQueue() {
             front = null;
             rear = null;
         }
+
         /* 获取队列的长度 */
         public int size() {
             return queSize;
         }
+
         /* 判断队列是否为空 */
         public boolean isEmpty() {
             return size() == 0;
         }
+
         /* 入队 */
         public void push(int num) {
             // 尾结点后添加 num
@@ -316,6 +319,7 @@ comments: true
             }
             queSize++;
         }
+
         /* 出队 */
         public int poll() {
             int num = peek();
@@ -324,11 +328,23 @@ comments: true
             queSize--;
             return num;
         }
+
         /* 访问队首元素 */
         public int peek() {
             if (size() == 0)
                 throw new EmptyStackException();
             return front.val;
+        }
+
+        /* 将链表转化为 Array 并返回 */
+        public int[] toArray() {
+            ListNode node = front;
+            int[] res = new int[size()];
+            for (int i = 0; i < res.length; i++) {
+                res[i] = node.val;
+                node = node.next;
+            }
+            return res;
         }
     }
     ```
@@ -814,6 +830,16 @@ comments: true
             if (isEmpty())
                 throw new EmptyStackException();
             return nums[front];
+        }
+
+        /* 返回数组 */
+        public int[] toArray() {
+            // 仅转换有效长度范围内的列表元素
+            int[] res = new int[queSize];
+            for (int i = 0, j = front; i < queSize; i++, j++) {
+                res[i] = nums[j % capacity()];
+            }
+            return res;
         }
     }
     ```

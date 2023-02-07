@@ -52,7 +52,7 @@ comments: true
         while (!queue.empty()) {
             TreeNode* node = queue.front();
             queue.pop();                 // 队列出队
-            vec.push_back(node->val);    // 保存结点
+            vec.push_back(node->val);    // 保存结点值
             if (node->left != nullptr)
                 queue.push(node->left);  // 左子结点入队
             if (node->right != nullptr)
@@ -74,7 +74,7 @@ comments: true
         res = []
         while queue:
             node = queue.popleft()       # 队列出队
-            res.append(node.val)         # 保存节点值
+            res.append(node.val)         # 保存结点值
             if node.left is not None:
                 queue.append(node.left)  # 左子结点入队
             if node.right is not None:
@@ -95,7 +95,7 @@ comments: true
         for queue.Len() > 0 {
             // poll
             node := queue.Remove(queue.Front()).(*TreeNode)
-            // 保存结点
+            // 保存结点值
             nums = append(nums, node.Val)
             if node.Left != nil {
                 // 左子结点入队
@@ -120,12 +120,12 @@ comments: true
         // 初始化一个列表，用于保存遍历序列
         let list = [];
         while (queue.length) {
-            let node = queue.shift();  // 队列出队
-            list.push(node.val);          // 保存结点
+            let node = queue.shift();   // 队列出队
+            list.push(node.val);        // 保存结点值
             if (node.left)
-                queue.push(node.left);    // 左子结点入队
+                queue.push(node.left);  // 左子结点入队
             if (node.right)
-                queue.push(node.right);   // 右子结点入队
+                queue.push(node.right); // 右子结点入队
         }
         return list;
     }
@@ -142,7 +142,7 @@ comments: true
         const list: number[] = [];
         while (queue.length) {
             let node = queue.shift() as TreeNode; // 队列出队
-            list.push(node.val); // 保存结点
+            list.push(node.val); // 保存结点值
             if (node.left) {
                 queue.push(node.left); // 左子结点入队
             }
@@ -196,7 +196,7 @@ comments: true
         var list: [Int] = []
         while !queue.isEmpty {
             let node = queue.removeFirst() // 队列出队
-            list.append(node.val) // 保存结点
+            list.append(node.val) // 保存结点值
             if let left = node.left {
                 queue.append(left) // 左子结点入队
             }
@@ -245,7 +245,7 @@ comments: true
         preOrder(root.left);
         preOrder(root.right);
     }
-    
+
     /* 中序遍历 */
     void inOrder(TreeNode root) {
         if (root == null) return;
@@ -254,7 +254,7 @@ comments: true
         list.add(root.val);
         inOrder(root.right);
     }
-    
+
     /* 后序遍历 */
     void postOrder(TreeNode root) {
         if (root == null) return;

@@ -801,6 +801,17 @@ comments: true
             // 更新列表容量
             capacity = nums.length;
         }
+
+        /* 将列表转换为数组 */
+        public int[] toArray() {
+            int size = size();
+            // 仅转换有效长度范围内的列表元素
+            int[] nums = new int[size];
+            for (int i = 0; i < size; i++) {
+                nums[i] = get(i);
+            }
+            return nums;
+        }
     }
     ```
 

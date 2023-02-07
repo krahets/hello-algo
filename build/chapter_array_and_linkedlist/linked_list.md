@@ -331,7 +331,7 @@ comments: true
         n0.next = P;
         P.next = n1;
     }
-    
+
     /* 删除链表的结点 n0 之后的首个结点 */
     void remove(ListNode n0) {
         if (n0.next == null)

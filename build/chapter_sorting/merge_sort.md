@@ -62,11 +62,9 @@ comments: true
 === "Java"
 
     ```java title="merge_sort.java"
-    /**
-     * 合并左子数组和右子数组
-     * 左子数组区间 [left, mid]
-     * 右子数组区间 [mid + 1, right]
-     */
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
     void merge(int[] nums, int left, int mid, int right) {
         // 初始化辅助数组
         int[] tmp = Arrays.copyOfRange(nums, left, right + 1);   
@@ -89,16 +87,16 @@ comments: true
                 nums[k] = tmp[j++];
         }
     }
-    
+
     /* 归并排序 */
     void mergeSort(int[] nums, int left, int right) {
         // 终止条件
         if (left >= right) return;       // 当子数组长度为 1 时终止递归
-        // 递归划分
-        int mid = (left + right) / 2;    // 计算数组中点
+        // 划分阶段
+        int mid = (left + right) / 2;    // 计算中点
         mergeSort(nums, left, mid);      // 递归左子数组
         mergeSort(nums, mid + 1, right); // 递归右子数组
-        // 回溯合并
+        // 合并阶段
         merge(nums, left, mid, right);
     }
     ```
@@ -106,11 +104,9 @@ comments: true
 === "C++"
 
     ```cpp title="merge_sort.cpp"
-    /**
-     * 合并左子数组和右子数组
-     * 左子数组区间 [left, mid]
-     * 右子数组区间 [mid + 1, right]
-     */
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
     void merge(vector<int>& nums, int left, int mid, int right) {
         // 初始化辅助数组
         vector<int> tmp(nums.begin() + left, nums.begin() + right + 1);   
@@ -245,11 +241,9 @@ comments: true
 === "JavaScript"
 
     ```js title="merge_sort.js"
-    /**
-     * 合并左子数组和右子数组
-     * 左子数组区间 [left, mid]
-     * 右子数组区间 [mid + 1, right]
-     */
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
     function merge(nums, left, mid, right) {
         // 初始化辅助数组
         let tmp = nums.slice(left, right + 1);   
@@ -290,11 +284,9 @@ comments: true
 === "TypeScript"
 
     ```typescript title="merge_sort.ts"
-    /**
-     * 合并左子数组和右子数组
-     * 左子数组区间 [left, mid]
-     * 右子数组区间 [mid + 1, right]
-     */
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
     function merge(nums: number[], left: number, mid: number, right: number): void {
         // 初始化辅助数组
         let tmp = nums.slice(left, right + 1);
@@ -341,11 +333,9 @@ comments: true
 === "C#"
 
     ```csharp title="merge_sort.cs"
-    /**
-     * 合并左子数组和右子数组
-     * 左子数组区间 [left, mid]
-     * 右子数组区间 [mid + 1, right]
-     */
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
     void merge(int[] nums, int left, int mid, int right)
     {
         // 初始化辅助数组

@@ -39,7 +39,7 @@ comments: true
     class GraphAdjMat {
         List<Integer> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
         List<List<Integer>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
-    
+
         /* 构造函数 */
         public GraphAdjMat(int[] vertices, int[][] edges) {
             this.vertices = new ArrayList<>();
@@ -54,12 +54,12 @@ comments: true
                 addEdge(e[0], e[1]);
             }
         }
-    
+
         /* 获取顶点数量 */
         public int size() {
             return vertices.size();
         }
-    
+
         /* 添加顶点 */
         public void addVertex(int val) {
             int n = size();
@@ -76,7 +76,7 @@ comments: true
                 row.add(0);
             }
         }
-    
+
         /* 删除顶点 */
         public void removeVertex(int index) {
             if (index >= size())
@@ -90,7 +90,7 @@ comments: true
                 row.remove(index);
             }
         }
-    
+
         /* 添加边 */
         // 参数 i, j 对应 vertices 元素索引
         public void addEdge(int i, int j) {
@@ -101,7 +101,7 @@ comments: true
             adjMat.get(i).set(j, 1);
             adjMat.get(j).set(i, 1);
         }
-    
+
         /* 删除边 */
         // 参数 i, j 对应 vertices 元素索引
         public void removeEdge(int i, int j) {
@@ -110,6 +110,14 @@ comments: true
                 throw new IndexOutOfBoundsException();
             adjMat.get(i).set(j, 0);
             adjMat.get(j).set(i, 0);
+        }
+
+        /* 打印邻接矩阵 */
+        public void print() {
+            System.out.print("顶点列表 = ");
+            System.out.println(vertices);
+            System.out.println("邻接矩阵 =");
+            PrintUtil.printMatrix(adjMat);
         }
     }
     ```
@@ -364,12 +372,12 @@ comments: true
             this.val = val;
         }
     }
-    
+
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
         // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
         Map<Vertex, Set<Vertex>> adjList; // 邻接表（使用哈希表实现）
-    
+
         /* 构造函数 */
         public GraphAdjList(Vertex[][] edges) {
             this.adjList = new HashMap<>();
@@ -380,12 +388,12 @@ comments: true
                 addEdge(edge[0], edge[1]);
             }
         }
-    
+
         /* 获取顶点数量 */
         public int size() {
             return adjList.size();
         }
-    
+
         /* 添加边 */
         public void addEdge(Vertex vet1, Vertex vet2) {
             if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
@@ -394,7 +402,7 @@ comments: true
             adjList.get(vet1).add(vet2);
             adjList.get(vet2).add(vet1);
         }
-    
+
         /* 删除边 */
         public void removeEdge(Vertex vet1, Vertex vet2) {
             if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
@@ -403,7 +411,7 @@ comments: true
             adjList.get(vet1).remove(vet2);
             adjList.get(vet2).remove(vet1);
         }
-    
+
         /* 添加顶点 */
         public void addVertex(Vertex vet) {
             if (adjList.containsKey(vet))
@@ -411,7 +419,7 @@ comments: true
             // 在邻接表中添加一个新链表（即 HashSet）
             adjList.put(vet, new HashSet<>());
         }
-    
+
         /* 删除顶点 */
         public void removeVertex(Vertex vet) {
             if (!adjList.containsKey(vet))
@@ -421,6 +429,17 @@ comments: true
             // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
             for (Set<Vertex> set : adjList.values()) {
                 set.remove(vet);
+            }
+        }
+
+        /* 打印邻接表 */
+        public void print() {
+            System.out.println("邻接表 =");
+            for (Map.Entry<Vertex, Set<Vertex>> entry : adjList.entrySet()) {
+                List<Integer> tmp = new ArrayList<>();
+                for (Vertex vertex : entry.getValue())
+                    tmp.add(vertex.val);
+                System.out.println(entry.getKey().val + ": " + tmp + ",");
             }
         }
     }

@@ -122,6 +122,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 在区间 [0, nums.length) 中随机抽取一个数字
         int randomIndex = ThreadLocalRandom.current().
                           nextInt(0, nums.length);
+        // 获取并返回随机元素
         int randomNum = nums[randomIndex];
         return randomNum;
     }
@@ -417,7 +418,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 将 num 赋给 index 处元素
         nums[index] = num;
     }
-    
+
     /* 删除索引 index 处元素 */
     void remove(int[] nums, int index) {
         // 把索引 index 之后的所有元素向前移动一位

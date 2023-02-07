@@ -291,17 +291,21 @@ comments: true
     class LinkedListStack {
         private ListNode stackPeek;  // 将头结点作为栈顶
         private int stkSize = 0;   // 栈的长度
+        
         public LinkedListStack() {
             stackPeek = null;
         }
+
         /* 获取栈的长度 */
         public int size() {
             return stkSize;
         }
+
         /* 判断栈是否为空 */
         public boolean isEmpty() {
             return size() == 0;
         }
+
         /* 入栈 */
         public void push(int num) {
             ListNode node = new ListNode(num);
@@ -309,6 +313,7 @@ comments: true
             stackPeek = node;
             stkSize++;
         }
+
         /* 出栈 */
         public int pop() {
             int num = peek();
@@ -316,11 +321,23 @@ comments: true
             stkSize--;
             return num;
         }
+
         /* 访问栈顶元素 */
         public int peek() {
             if (size() == 0)
                 throw new EmptyStackException();
             return stackPeek.val;
+        }
+
+        /* 将 List 转化为 Array 并返回 */
+        public int[] toArray() {
+            ListNode node = stackPeek;
+            int[] res = new int[size()];
+            for (int i = res.length - 1; i >= 0; i--) {
+                res[i] = node.val;
+                node = node.next;
+            }
+            return res;
         }
     }
     ```
@@ -730,29 +747,39 @@ comments: true
             // 初始化列表（动态数组）
             stack = new ArrayList<>();
         }
+
         /* 获取栈的长度 */
         public int size() {
             return stack.size();
         }
+
         /* 判断栈是否为空 */
         public boolean isEmpty() {
             return size() == 0;
         }
+
         /* 入栈 */
         public void push(int num) {
             stack.add(num);
         }
+
         /* 出栈 */
         public int pop() {
             if (isEmpty())
                 throw new EmptyStackException();
             return stack.remove(size() - 1);
         }
+
         /* 访问栈顶元素 */
         public int peek() {
             if (isEmpty())
                 throw new EmptyStackException();
             return stack.get(size() - 1);
+        }
+
+        /* 将 List 转化为 Array 并返回 */
+        public Object[] toArray() {
+            return stack.toArray();
         }
     }
     ```

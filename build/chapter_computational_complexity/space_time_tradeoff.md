@@ -33,6 +33,7 @@ comments: true
 === "Java"
 
     ```java title="leetcode_two_sum.java"
+    /* 方法一：暴力枚举 */
     class SolutionBruteForce {
         public int[] twoSum(int[] nums, int target) {
             int size = nums.length;
@@ -207,6 +208,7 @@ comments: true
 === "Java"
 
     ```java title="leetcode_two_sum.java"
+    /* 方法二：辅助哈希表 */
     class SolutionHashMap {
         public int[] twoSum(int[] nums, int target) {
             int size = nums.length;

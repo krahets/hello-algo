@@ -556,8 +556,6 @@ comments: true
             // 删除结点 cur
             if (pre.left == cur) pre.left = child;
             else pre.right = child;
-            // 释放内存
-            delete cur;
         }
         // 子结点数量 = 2
         else {
@@ -573,7 +571,7 @@ comments: true
     }
 
     /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    public TreeNode getInOrderNext(TreeNode root) {
+    TreeNode getInOrderNext(TreeNode root) {
         if (root == null) return root;
         // 循环访问左子结点，直到叶结点时为最小结点，跳出
         while (root.left != null) {

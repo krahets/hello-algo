@@ -1094,7 +1094,7 @@ $$
     /* 平方阶 */
     void quadratic(int n) {
         // 矩阵占用 O(n^2) 空间
-        int [][]numMatrix = new int[n][n];
+        int[][] numMatrix = new int[n][n];
         // 二维列表占用 O(n^2) 空间
         List<List<Integer>> numList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
@@ -1253,6 +1253,7 @@ $$
         if (n <= 0) return 0;
         // 数组 nums 长度为 n, n-1, ..., 2, 1
         int[] nums = new int[n];
+        System.out.println("递归 n = " + n + " 中的 nums 长度 = " + nums.length);
         return quadraticRecur(n - 1);
     }
     ```
