@@ -86,7 +86,7 @@ function showTrunks(p) {
 
 /**
  * Print a heap
- * @param {number[]} arr
+ * @param arr
  */
 function printHeap(arr) {
     console.log("堆的数组表示：");
