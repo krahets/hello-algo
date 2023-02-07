@@ -15,31 +15,24 @@ comments: true
 完成此次冒泡操作后，**数组最大元素已在正确位置，接下来只需排序剩余 $n - 1$ 个元素**。
 
 === "Step 1"
-
     ![bubble_operation_step1](bubble_sort.assets/bubble_operation_step1.png)
 
 === "Step 2"
-
     ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.png)
 
 === "Step 3"
-
     ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.png)
 
 === "Step 4"
-
     ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.png)
 
 === "Step 5"
-
     ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.png)
 
 === "Step 6"
-
     ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.png)
 
 === "Step 7"
-
     ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.png)
 
 <p align="center"> Fig. 冒泡操作 </p>
@@ -57,21 +50,7 @@ comments: true
 === "Java"
 
     ```java title="bubble_sort.java"
-    /* 冒泡排序 */
-    void bubbleSort(int[] nums) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = nums.length - 1; i > 0; i--) {
-            // 内循环：冒泡操作
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                }
-            }
-        }
-    }
+    [class]{bubble_sort}-[func]{bubbleSort}
     ```
 
 === "C++"
@@ -96,16 +75,7 @@ comments: true
 === "Python"
 
     ```python title="bubble_sort.py"
-    """ 冒泡排序 """
-    def bubble_sort(nums):
-        n = len(nums)
-        # 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i in range(n - 1, 0, -1):
-            # 内循环：冒泡操作
-            for j in range(i):
-                if nums[j] > nums[j + 1]:
-                    # 交换 nums[j] 与 nums[j + 1]
-                    nums[j], nums[j + 1] = nums[j + 1], nums[j]
+    [class]{}-[func]{bubble_sort}
     ```
 
 === "Go"
@@ -259,24 +229,7 @@ comments: true
 === "Java"
 
     ```java title="bubble_sort.java"
-    /* 冒泡排序（标志优化）*/
-    void bubbleSortWithFlag(int[] nums) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = nums.length - 1; i > 0; i--) {
-            boolean flag = false; // 初始化标志位
-            // 内循环：冒泡操作
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    flag = true;  // 记录交换元素
-                }
-            }
-            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
-        }
-    }
+    [class]{bubble_sort}-[func]{bubbleSortWithFlag}
     ```
 
 === "C++"
@@ -304,20 +257,7 @@ comments: true
 === "Python"
 
     ```python title="bubble_sort.py"
-    """ 冒泡排序（标志优化） """
-    def bubble_sort_with_flag(nums):
-        n = len(nums)
-        # 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i in range(n - 1, 0, -1):
-            flag = False  # 初始化标志位
-            # 内循环：冒泡操作
-            for j in range(i):
-                if nums[j] > nums[j + 1]:
-                    # 交换 nums[j] 与 nums[j + 1]
-                    nums[j], nums[j + 1] = nums[j + 1], nums[j]
-                    flag = True  # 记录交换元素
-            if not flag:
-                break            # 此轮冒泡未交换任何元素，直接跳出
+    [class]{}-[func]{bubble_sort_with_flag}
     ```
 
 === "Go"

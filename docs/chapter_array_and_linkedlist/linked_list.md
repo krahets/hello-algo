@@ -325,22 +325,9 @@ comments: true
 === "Java"
 
     ```java title="linked_list.java"
-    /* 在链表的结点 n0 之后插入结点 P */
-    void insert(ListNode n0, ListNode P) {
-        ListNode n1 = n0.next;
-        n0.next = P;
-        P.next = n1;
-    }
-    
-    /* 删除链表的结点 n0 之后的首个结点 */
-    void remove(ListNode n0) {
-        if (n0.next == null)
-            return;
-        // n0 -> P -> n1
-        ListNode P = n0.next;
-        ListNode n1 = P.next;
-        n0.next = n1;
-    }
+    [class]{linked_list}-[func]{insert}
+
+    [class]{linked_list}-[func]{remove}
     ```
 
 === "C++"
@@ -369,20 +356,9 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    """ 在链表的结点 n0 之后插入结点 P """
-    def insert(n0, P):
-        n1 = n0.next
-        n0.next = P
-        P.next = n1
+    [class]{}-[func]{insert}
 
-    """ 删除链表的结点 n0 之后的首个结点 """
-    def remove(n0):
-        if not n0.next:
-            return
-        # n0 -> P -> n1
-        P = n0.next
-        n1 = P.next
-        n0.next = n1
+    [class]{}-[func]{remove}
     ```
 
 === "Go"
@@ -529,15 +505,7 @@ comments: true
 === "Java"
 
     ```java title="linked_list.java"
-    /* 访问链表中索引为 index 的结点 */
-    ListNode access(ListNode head, int index) {
-        for (int i = 0; i < index; i++) {
-            if (head == null)
-                return null;
-            head = head.next;
-        }
-        return head;
-    }
+    [class]{linked_list}-[func]{access}
     ```
 
 === "C++"
@@ -557,13 +525,7 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    """ 访问链表中索引为 index 的结点 """
-    def access(head, index):
-        for _ in range(index):
-            if not head:
-                return None
-            head = head.next
-        return head
+    [class]{}-[func]{access}
     ```
 
 === "Go"
@@ -672,17 +634,7 @@ comments: true
 === "Java"
 
     ```java title="linked_list.java"
-    /* 在链表中查找值为 target 的首个结点 */
-    int find(ListNode head, int target) {
-        int index = 0;
-        while (head != null) {
-            if (head.val == target)
-                return index;
-            head = head.next;
-            index++;
-        }
-        return -1;
-    }
+    [class]{linked_list}-[func]{find}
     ```
 
 === "C++"
@@ -704,15 +656,7 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    """ 在链表中查找值为 target 的首个结点 """
-    def find(head, target):
-        index = 0
-        while head:
-            if head.val == target:
-                return index
-            head = head.next
-            index += 1
-        return -1
+    [class]{}-[func]{find}
     ```
 
 === "Go"

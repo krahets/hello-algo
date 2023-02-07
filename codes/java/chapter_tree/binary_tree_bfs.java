@@ -18,7 +18,7 @@ public class binary_tree_bfs {
         List<Integer> list = new ArrayList<>();
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();  // 队列出队
-            list.add(node.val);            // 保存结点
+            list.add(node.val);            // 保存结点值
             if (node.left != null)
                 queue.offer(node.left);    // 左子结点入队
             if (node.right != null)

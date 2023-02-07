@@ -74,6 +74,7 @@ public class space_complexity {
     /* 平方阶（递归实现） */
     static int quadraticRecur(int n) {
         if (n <= 0) return 0;
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
         int[] nums = new int[n];
         System.out.println("递归 n = " + n + " 中的 nums 长度 = " + nums.length);
         return quadraticRecur(n - 1);

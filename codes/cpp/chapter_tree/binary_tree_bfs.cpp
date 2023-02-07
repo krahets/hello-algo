@@ -16,7 +16,7 @@ vector<int> hierOrder(TreeNode* root) {
     while (!queue.empty()) {
         TreeNode* node = queue.front();
         queue.pop();                 // 队列出队
-        vec.push_back(node->val);    // 保存结点
+        vec.push_back(node->val);    // 保存结点值
         if (node->left != nullptr)
             queue.push(node->left);  // 左子结点入队
         if (node->right != nullptr)

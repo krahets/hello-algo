@@ -9,7 +9,7 @@
 /* AVL 树 */
 class AVLTree {
 public:
-    TreeNode* root;  // 根节点
+    TreeNode* root;  // 根结点
 private:
     /* 更新结点高度 */
     void updateHeight(TreeNode* node) {
@@ -27,7 +27,7 @@ private:
         // 更新结点高度
         updateHeight(node);
         updateHeight(child);
-        // 返回旋转后子树的根节点
+        // 返回旋转后子树的根结点
         return child;
     }
 
@@ -41,7 +41,7 @@ private:
         // 更新结点高度
         updateHeight(node);
         updateHeight(child);
-        // 返回旋转后子树的根节点
+        // 返回旋转后子树的根结点
         return child;
     }
 
@@ -88,7 +88,7 @@ private:
         updateHeight(node);  // 更新结点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node);
-        // 返回子树的根节点
+        // 返回子树的根结点
         return node;
     }
 
@@ -133,7 +133,7 @@ private:
         updateHeight(node);  // 更新结点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node);
-        // 返回子树的根节点
+        // 返回子树的根结点
         return node;
     }
 
