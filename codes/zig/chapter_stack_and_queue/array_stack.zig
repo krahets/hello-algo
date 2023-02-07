@@ -31,13 +31,13 @@ pub fn ArrayStack(comptime T: type) type {
         }
 
         // 判断栈是否为空
-        pub fn is_empty(self: *Self) bool {
+        pub fn isEmpty(self: *Self) bool {
             return self.size() == 0;
         }
 
         // 访问栈顶元素
         pub fn peek(self: *Self) T {
-            if (self.is_empty()) @panic("栈为空");
+            if (self.isEmpty()) @panic("栈为空");
             return self.stack.?.items[self.size() - 1];
         }  
 
@@ -90,7 +90,7 @@ pub fn main() !void {
     std.debug.print("\n栈的长度 size = {}", .{size});
 
     // 判断栈是否为空
-    var is_empty = stack.is_empty();
+    var is_empty = stack.isEmpty();
     std.debug.print("\n栈是否为空 = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
