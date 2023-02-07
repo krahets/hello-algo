@@ -1,12 +1,14 @@
-// File: queue.rs
-// Created Time: 2023-02-05
-// Author: sjinzh (sjinzh@gmail.com)
+/*
+ * File: queue.rs
+ * Created Time: 2023-02-05
+ * Author: sjinzh (sjinzh@gmail.com)
+ */
 
 include!("../include/include.rs");
 
 use std::collections::LinkedList;
 
-// Driver Code
+/* Driver Code */
 pub fn main() {
     // 初始化队列
     let mut queue: LinkedList<i32> = LinkedList::new();

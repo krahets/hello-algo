@@ -1,12 +1,14 @@
-// File: hash_map.rs
-// Created Time: 2023-02-05
-// Author: sjinzh (sjinzh@gmail.com)
+/*
+ * File: hash_map.rs
+ * Created Time: 2023-02-05
+ * Author: sjinzh (sjinzh@gmail.com)
+ */
 
 include!("../include/include.rs");
 
 use std::collections::HashMap;
 
-// Driver Code
+/* Driver Code */
 pub fn main() {
     // 初始化哈希表
     let mut map = HashMap::new();

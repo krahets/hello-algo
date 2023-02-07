@@ -1,10 +1,12 @@
-// File: stack.rs
-// Created Time: 2023-02-05
-// Author: sjinzh (sjinzh@gmail.com)
+/*
+ * File: stack.rs
+ * Created Time: 2023-02-05
+ * Author: sjinzh (sjinzh@gmail.com)
+ */
 
 include!("../include/include.rs");
 
-// Driver Code
+/* Driver Code */
 pub fn main() {
     // 初始化栈
     // 在 rust 中，推荐将 Vec 当作栈来使用

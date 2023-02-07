@@ -1,10 +1,12 @@
-// File: list.rs
-// Created Time: 2023-01-18
-// Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
+/*
+ * File: list.rs
+ * Created Time: 2023-01-18
+ * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
+ */
 
  include!("../include/include.rs");
 
- /// Driver Code
+/* Driver Code */
  fn main() {
     //  初始化列表
     let mut list: Vec<i32> = vec![ 1, 3, 2, 5, 4 ];

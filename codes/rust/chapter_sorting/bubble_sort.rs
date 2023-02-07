@@ -1,10 +1,12 @@
-// File: bubble_sort.rs
-// Created Time: 2023-02-05
-// Author: sjinzh (sjinzh@gmail.com)
+/*
+ * File: bubble_sort.rs
+ * Created Time: 2023-02-05
+ * Author: sjinzh (sjinzh@gmail.com)
+ */
 
 include!("../include/include.rs");
 
-// 冒泡排序
+/* 冒泡排序 */
 fn bubble_sort(nums: &mut [i32]) {
     // 外循环：待排序元素数量为 n-1, n-2, ..., 1
     for i in (1..nums.len()).rev() {
@@ -20,7 +22,7 @@ fn bubble_sort(nums: &mut [i32]) {
     }
 }
 
-// 冒泡排序（标志优化）
+/* 冒泡排序（标志优化） */
 fn bubble_sort_with_flag(nums: &mut [i32]) {
     // 外循环：待排序元素数量为 n-1, n-2, ..., 1
     for i in (1..nums.len()).rev() {
@@ -39,7 +41,7 @@ fn bubble_sort_with_flag(nums: &mut [i32]) {
     }
 }
 
-// Driver Code
+/* Driver Code */
 pub fn main() {
     let mut nums = [ 4, 1, 3, 1, 5, 2 ];
     bubble_sort(&mut nums);

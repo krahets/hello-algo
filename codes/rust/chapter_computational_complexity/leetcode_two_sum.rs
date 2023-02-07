@@ -1,6 +1,8 @@
-// File: leetcode_two_sum.rs
-// Created Time: 2023-01-14
-// Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
+/*
+ * File: leetcode_two_sum.rs
+ * Created Time: 2023-01-14
+ * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
+ */
 
 include!("../include/include.rs");
 
@@ -8,7 +10,7 @@ use std::collections::HashMap;
 struct SolutionBruteForce;
 struct SolutionHashMap;
 
-// 方法一：暴力枚举
+/* 方法一：暴力枚举 */
 impl SolutionBruteForce {
     pub fn two_sum(nums: &Vec<i32>, target: i32) -> Vec<i32> {
         let size = nums.len();
@@ -24,7 +26,7 @@ impl SolutionBruteForce {
     }
 }
 
-// 方法二：辅助哈希表
+/* 方法二：辅助哈希表 */
 impl SolutionHashMap {
     pub fn two_sum(nums: &Vec<i32>, target: i32) -> Vec<i32> {
         // 辅助哈希表，空间复杂度 O(n)
@@ -40,7 +42,7 @@ impl SolutionHashMap {
     }
 }
 
-// Driver Code
+/* Driver Code */
 fn main() {
     // ======= Test Case =======
     let nums = vec![ 2, 7, 11, 15 ];

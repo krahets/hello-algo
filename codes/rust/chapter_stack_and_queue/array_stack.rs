@@ -1,36 +1,38 @@
-// File: array_stack.rs
-// Created Time: 2023-02-05
-// Author: WSL0809 (wslzzy@outlook.com), sjinzh (sjinzh@gmail.com)
+/*
+ * File: array_stack.rs
+ * Created Time: 2023-02-05
+ * Author: WSL0809 (wslzzy@outlook.com), sjinzh (sjinzh@gmail.com)
+ */
 
 include!("../include/include.rs");
 
-// 基于数组实现的栈
+/* 基于数组实现的栈 */
 struct ArrayStack<T> {
     stack: Vec<T>,
 }
 
 impl<T> ArrayStack<T> {
-    // 初始化栈
+    /* 初始化栈 */
     fn new() -> ArrayStack<T> {
         ArrayStack::<T> { stack: Vec::<T>::new() }
     }
 
-    // 获取栈的长度
+    /* 获取栈的长度 */
     fn size(&self) -> usize {
         self.stack.len()
     }
 
-    // 判断栈是否为空
+    /* 判断栈是否为空 */
     fn is_empty(&self) -> bool {
         self.size() == 0
     }
 
-    // 入栈
+    /* 入栈 */
     fn push(&mut self, num: T) {
         self.stack.push(num);
     }
 
-    // 出栈
+    /* 出栈 */
     fn pop(&mut self) -> Option<T> {
         match self.stack.pop() {
             Some(num) => Some(num),
@@ -38,19 +40,19 @@ impl<T> ArrayStack<T> {
         }
     }
 
-    // 访问栈顶元素
+    /* 访问栈顶元素 */
     fn peek(&self) -> Option<&T> {
         if self.is_empty() { panic!("栈为空") };
         self.stack.last()
     }
 
-    // 返回 &Vec
+    /* 返回 &Vec */
     fn to_array(&self) -> &Vec<T> {
         &self.stack
     }
 }
 
-// Driver Code
+/* Driver Code */
 fn main() {
     // 初始化栈
     let mut stack = ArrayStack::<i32>::new();
