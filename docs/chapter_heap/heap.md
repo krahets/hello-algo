@@ -335,30 +335,30 @@ comments: true
 === "JavaScript"
 
     ```js title="my_heap.js"
-    maxHeap;
+    #maxHeap;
 
     /* 构造函数，建立空堆或根据输入列表建堆 */
     constructor(nums) {
         // 将列表元素原封不动添加进堆
-        this.maxHeap = nums === undefined ? [] : nums.concat();
+        this.#maxHeap = nums === undefined ? [] : [...nums];
         // 堆化除叶结点以外的其他所有结点
-        for (let i = this.parent(this.size() - 1); i >= 0; i--) {
-            this.siftDown(i);
+        for (let i = this.#parent(this.size() - 1); i >= 0; i--) {
+            this.#siftDown(i);
         }
     }
 
     /* 获取左子结点索引 */
-    left(i) {
+    #left(i) {
         return 2 * i + 1;
     }
 
     /* 获取右子结点索引 */
-    right(i) {
+    #right(i) {
         return 2 * i + 2;
     }
 
     /* 获取父结点索引 */
-    parent(i) {
+    #parent(i) {
         return Math.floor((i - 1) / 2); // 向下整除
     }
     ```
@@ -590,20 +590,20 @@ comments: true
     /* 元素入堆 */
     push(val) {
         // 添加结点
-        this.maxHeap.push(val);
+        this.#maxHeap.push(val);
         // 从底至顶堆化
-        this.siftUp(this.size() - 1);
+        this.#siftUp(this.size() - 1);
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
-    siftUp(i) {
+    #siftUp(i) {
         while (true) {
             // 获取结点 i 的父结点
-            let p = this.parent(i);
+            let p = this.#parent(i);
             // 当“越过根结点”或“结点无需修复”时，结束堆化
-            if (p < 0 || this.maxHeap[i] <= this.maxHeap[p]) break;
+            if (p < 0 || this.#maxHeap[i] <= this.#maxHeap[p]) break;
             // 交换两结点
-            this.swap(i, p);
+            this.#swap(i, p);
             // 循环向上堆化
             i = p;
         }
@@ -810,28 +810,28 @@ comments: true
         // 判空处理
         if (this.isEmpty()) throw new EmptyStackException();
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
-        this.swap(0, this.size() - 1);
+        this.#swap(0, this.size() - 1);
         // 删除结点
-        let val = this.maxHeap.pop();
+        let val = this.#maxHeap.pop();
         // 从顶至底堆化
-        this.siftDown(0);
+        this.#siftDown(0);
         // 返回堆顶元素
         return val;
     }
 
     /* 从结点 i 开始，从顶至底堆化 */
-    siftDown(i) {
+    #siftDown(i) {
         while (true) {
             // 判断结点 i, l, r 中值最大的结点，记为 ma
-            let l = this.left(i),
-                r = this.right(i),
+            let l = this.#left(i),
+                r = this.#right(i),
                 ma = i;
-            if (l < this.size() && this.maxHeap[l] > this.maxHeap[ma]) ma = l;
-            if (r < this.size() && this.maxHeap[r] > this.maxHeap[ma]) ma = r;
+            if (l < this.size() && this.#maxHeap[l] > this.#maxHeap[ma]) ma = l;
+            if (r < this.size() && this.#maxHeap[r] > this.#maxHeap[ma]) ma = r;
             // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
             if (ma == i) break;
             // 交换两结点
-            this.swap(i, ma);
+            this.#swap(i, ma);
             // 循环向下堆化
             i = ma;
         }
@@ -960,10 +960,10 @@ comments: true
     /* 构造函数，建立空堆或根据输入列表建堆 */
     constructor(nums) {
         // 将列表元素原封不动添加进堆
-        this.maxHeap = nums === undefined ? [] : nums.concat();
+        this.#maxHeap = nums === undefined ? [] : [...nums];
         // 堆化除叶结点以外的其他所有结点
-        for (let i = this.parent(this.size() - 1); i >= 0; i--) {
-            this.siftDown(i);
+        for (let i = this.#parent(this.size() - 1); i >= 0; i--) {
+            this.#siftDown(i);
         }
     }
     ```
