@@ -260,11 +260,6 @@ comments: true
 === "Java"
 
     ```java title="my_heap.java"
-    // 使用列表而非数组，这样无需考虑扩容问题
-    List<Integer> maxHeap;
-
-    [class]{MaxHeap}-[func]{MaxHeap}
-
     [class]{MaxHeap}-[func]{left}
 
     [class]{MaxHeap}-[func]{right}

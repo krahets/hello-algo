@@ -19,6 +19,9 @@ class ExtractCodeBlocksPython:
         self.block_start_pattern = '^\s{ind}""".+'
     
     def extract(self, file_path):
+        """
+        Extract classes and functions from a markdown document
+        """
         self.file_path = file_path
         with open(file_path) as f:
             self.lines = f.readlines()
@@ -27,6 +30,8 @@ class ExtractCodeBlocksPython:
         # Detect and extract all the classes and fucntions
         classes = self.extract_class_blocks()
         funcs = self.extract_function_blocks()
+        
+        self.post_process(classes, funcs)
         
         return {
             "classes": classes,
@@ -45,21 +50,15 @@ class ExtractCodeBlocksPython:
         # Search the code
         for i in range(header_line + 1, len(self.lines)):
             if re.match(block_end_pattern, self.lines[i]) is not None:
-                end_line = i
+                end_line = i - 1
                 break
         # Search the header comment
         for i in range(header_line - 1, -1, -1):
             if re.search(block_start_pattern, self.lines[i]) is not None:
                 start_line = i
                 break
-        func_block = self.lines[start_line:end_line] 
-        # Remove empty lines at bottom
-        for i in range(len(func_block) - 1, -1, -1):
-            if re.search("^\s*\n", func_block[i]) is None:
-                break
-            end_line -= 1
         
-        return start_line, end_line, self.lines[start_line:end_line]
+        return start_line, end_line, self.lines[start_line:end_line + 1]
         
 
     def extract_function_blocks(self, indentation=0, start_line=-1, end_line=-1):
@@ -130,3 +129,29 @@ class ExtractCodeBlocksPython:
             }
         
         return classes
+
+    def post_process(self, classes, funcs):
+        """
+        Process the classes and functions
+        """
+        def remove_empty_lines(func):
+            start_line, end_line = func["line_number"]["start"], func["line_number"]["end"]
+            block = func["block"]
+            # Remove empty lines at bottom
+            for i in range(len(block) - 1, -1, -1):
+                if re.search("^\s*\n", block[i]) is None:
+                    break
+                end_line -= 1
+            func["line_number"]["end"] = end_line
+            func["block"] = block[:end_line - start_line + 1]
+
+        for clas in classes.values():
+            remove_empty_lines(clas)
+            for func in clas["funcs"].values():
+                remove_empty_lines(func)
+        for func in funcs.values():
+            remove_empty_lines(func)
+
+
+# ext = ExtractCodeBlocksPython()
+# ext.extract("codes/python/chapter_array_and_linkedlist/my_list.py")

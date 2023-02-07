@@ -6,7 +6,7 @@
 
 #include "../include/include.hpp"
 
-/* 最大堆类 */
+/* 大顶堆 */
 class MaxHeap {
 private:
     // 使用动态数组，这样无需考虑扩容问题
@@ -62,9 +62,6 @@ private:
     }
 
 public:
-    /* 构造函数，建立空堆 */
-    MaxHeap() {}
-
     /* 构造函数，根据输入列表建堆 */
     MaxHeap(vector<int> nums) {
         // 将列表元素原封不动添加进堆

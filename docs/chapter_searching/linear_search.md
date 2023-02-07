@@ -15,7 +15,7 @@ comments: true
 === "Java"
 
     ```java title="linear_search.java"
-    [class]{hashing_search}-[func]{linearSearchArray}
+    [class]{linear_search}-[func]{linearSearchArray}
     ```
 
 === "C++"
@@ -145,7 +145,7 @@ comments: true
 === "Java"
 
     ```java title="linear_search.java"
-    [class]{hashing_search}-[func]{linearSearchLinkedList}
+    [class]{linear_search}-[func]{linearSearchLinkedList}
     ```
 
 === "C++"
