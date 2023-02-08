@@ -2540,6 +2540,12 @@
 <a id="__codelineno-63-95" name="__codelineno-63-95" href="#__codelineno-63-95"></a><span class="w">    </span><span class="c1">// 更新列表容量</span>
 <a id="__codelineno-63-96" name="__codelineno-63-96" href="#__codelineno-63-96"></a><span class="w">    </span><span class="nx">l</span><span class="p">.</span><span class="nx">numsCapacity</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">l</span><span class="p">.</span><span class="nx">nums</span><span class="p">)</span>
 <a id="__codelineno-63-97" name="__codelineno-63-97" href="#__codelineno-63-97"></a><span class="p">}</span>
+<a id="__codelineno-63-98" name="__codelineno-63-98" href="#__codelineno-63-98"></a>
+<a id="__codelineno-63-99" name="__codelineno-63-99" href="#__codelineno-63-99"></a><span class="cm">/* 返回有效长度的列表 */</span>
+<a id="__codelineno-63-100" name="__codelineno-63-100" href="#__codelineno-63-100"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">l</span><span class="w"> </span><span class="o">*</span><span class="nx">myList</span><span class="p">)</span><span class="w"> </span><span class="nx">toArray</span><span class="p">()</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-63-101" name="__codelineno-63-101" href="#__codelineno-63-101"></a><span class="w">    </span><span class="c1">// 仅转换有效长度范围内的列表元素</span>
+<a id="__codelineno-63-102" name="__codelineno-63-102" href="#__codelineno-63-102"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">l</span><span class="p">.</span><span class="nx">nums</span><span class="p">[:</span><span class="nx">l</span><span class="p">.</span><span class="nx">numsSize</span><span class="p">]</span>
+<a id="__codelineno-63-103" name="__codelineno-63-103" href="#__codelineno-63-103"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">

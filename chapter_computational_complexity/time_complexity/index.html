@@ -2247,7 +2247,7 @@ $$</p>
 <li><strong>省略所有系数</strong>。例如，循环 <span class="arithmatex">\(2n\)</span> 次、<span class="arithmatex">\(5n + 1\)</span> 次、……，都可以化简记为 <span class="arithmatex">\(n\)</span> 次，因为 <span class="arithmatex">\(n\)</span> 前面的系数对时间复杂度也不产生影响。</li>
 <li><strong>循环嵌套时使用乘法</strong>。总操作数量等于外层循环和内层循环操作数量之积，每一层循环依然可以分别套用上述 <code>1.</code> 和 <code>2.</code> 技巧。</li>
 </ol>
-<p>根据以下示例，使用上述技巧前、后的统计结果分别为</p>
+<p>以下示例展示了使用上述技巧前、后的统计结果。</p>
 <div class="arithmatex">\[
 \begin{aligned}
 T(n) &amp; = 2n(n + 1) + (5n + 1) + 2 &amp; \text{完整统计 (-.-|||)} \newline
@@ -2510,7 +2510,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 <a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">    </span><span class="nx">size</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">100000</span>
 <a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">size</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="w">        </span><span class="nx">count</span><span class="w"> </span><span class="o">++</span>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="w">        </span><span class="nx">count</span><span class="o">++</span>
 <a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">count</span>
 <a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="p">}</span>
