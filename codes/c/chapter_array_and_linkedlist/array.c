@@ -42,7 +42,7 @@ void insert(int* nums, int size, int num, int index) {
 }
 
 /* 删除索引 index 处元素 */
-void removeItem(int* nums, int size, int index) {
+void remove(int* nums, int size, int index) {
     // 把索引 index 之后的所有元素向前移动一位
     for (int i = index; i < size - 1; i++) {
         nums[i] = nums[i + 1];
@@ -97,7 +97,7 @@ int main() {
     printArray(res, size);
 
     /* 删除元素 */
-    removeItem(res, size, 2);
+    remove(res, size, 2);
     printf("删除索引 2 处的元素，得到 nums = ");
     printArray(res, size);
     
