@@ -25,14 +25,7 @@ comments: true
 === "C++"
 
     ```cpp title="hashing_search.cpp"
-    /* 哈希查找（数组） */
-    int hashingSearchArray(unordered_map<int, int> map, int target) {
-        // 哈希表的 key: 目标元素，value: 索引
-        // 若哈希表中无此 key ，返回 -1
-        if (map.find(target) == map.end())
-            return -1;
-        return map[target];
-    }
+    [class]{}-[func]{hashingSearchArray}
     ```
 
 === "Python"
@@ -58,7 +51,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="hashing_search.js"
+    ```javascript title="hashing_search.js"
     /* 哈希查找（数组） */
     function hashingSearchArray(map, target) {
         // 哈希表的 key: 目标元素，value: 索引
@@ -126,14 +119,7 @@ comments: true
 === "C++"
 
     ```cpp title="hashing_search.cpp"
-    /* 哈希查找（链表） */
-    ListNode* hashingSearchLinkedList(unordered_map<int, ListNode*> map, int target) {
-        // 哈希表的 key: 目标结点值，value: 结点对象
-        // 若哈希表中无此 key ，返回 nullptr
-        if (map.find(target) == map.end())
-            return nullptr;
-        return map[target];
-    }
+    [class]{}-[func]{hashingSearchLinkedList}
     ```
 
 === "Python"
@@ -159,7 +145,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="hashing_search.js"
+    ```javascript title="hashing_search.js"
     /* 哈希查找（链表） */
     function hashingSearchLinkedList(map, target) {
         // 哈希表的 key: 目标结点值，value: 结点对象

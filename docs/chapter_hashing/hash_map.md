@@ -131,7 +131,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="hash_map.js"
+    ```javascript title="hash_map.js"
     /* 初始化哈希表 */
     const map = new ArrayHashMap();
     /* 添加操作 */
@@ -309,7 +309,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="hash_map.js"
+    ```javascript title="hash_map.js"
     /* 遍历哈希表 */
     // 遍历键值对 key->value
     for (const entry of map.entries()) {
@@ -424,54 +424,9 @@ $$
 === "C++"
 
     ```cpp title="array_hash_map.cpp"
-    /* 键值对 int->String */
-    struct Entry {
-    public:
-        int key;
-        string val;
-        Entry(int key, string val) {
-            this->key = key;
-            this->val = val;
-        }
-    };
-    
-    /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap {
-    private:
-        vector<Entry*> bucket;
-    public:
-        ArrayHashMap() {
-            // 初始化一个长度为 100 的桶（数组）
-            bucket= vector<Entry*>(100);
-        }
-    
-        /* 哈希函数 */
-        int hashFunc(int key) {
-            int index = key % 100;
-            return index;
-        }
-    
-        /* 查询操作 */
-        string get(int key) {
-            int index = hashFunc(key);
-            Entry* pair = bucket[index];
-            return pair->val;
-        }
-    
-        /* 添加操作 */
-        void put(int key, string val) {
-            Entry* pair = new Entry(key, val);
-            int index = hashFunc(key);
-            bucket[index] = pair;
-        }
-    
-        /* 删除操作 */
-        void remove(int key) {
-            int index = hashFunc(key);
-            // 置为 nullptr ，代表删除
-            bucket[index] = nullptr;
-        }
-    };
+    [class]{Entry}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
     ```
 
 === "Python"
@@ -535,7 +490,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="array_hash_map.js"
+    ```javascript title="array_hash_map.js"
     /* 键值对 Number -> String */
     class Entry {
         constructor(key, val) {

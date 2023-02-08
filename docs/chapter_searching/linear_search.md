@@ -15,23 +15,13 @@ comments: true
 === "Java"
 
     ```java title="linear_search.java"
-    [class]{hashing_search}-[func]{linearSearchArray}
+    [class]{linear_search}-[func]{linearSearchArray}
     ```
 
 === "C++"
 
     ```cpp title="linear_search.cpp"
-    /* 线性查找（数组） */
-    int linearSearchArray(vector<int>& nums, int target) {
-        // 遍历数组
-        for (int i = 0; i < nums.size(); i++) {
-            // 找到目标元素，返回其索引
-            if (nums[i] == target)
-                return i;
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
+    [class]{}-[func]{linearSearchArray}
     ```
 
 === "Python"
@@ -59,7 +49,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linear_search.js"
+    ```javascript title="linear_search.js"
     /* 线性查找（数组） */
     function linearSearchArray(nums, target) {
         // 遍历数组
@@ -145,24 +135,13 @@ comments: true
 === "Java"
 
     ```java title="linear_search.java"
-    [class]{hashing_search}-[func]{linearSearchLinkedList}
+    [class]{linear_search}-[func]{linearSearchLinkedList}
     ```
 
 === "C++"
 
     ```cpp title="linear_search.cpp"
-    /* 线性查找（链表） */
-    ListNode* linearSearchLinkedList(ListNode* head, int target) {
-        // 遍历链表
-        while (head != nullptr) {
-            // 找到目标结点，返回之
-            if (head->val == target)
-                return head;
-            head = head->next;
-        }
-        // 未找到目标结点，返回 nullptr
-        return nullptr;
-    }
+    [class]{}-[func]{linearSearchLinkedList}
     ```
 
 === "Python"
@@ -191,7 +170,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linear_search.js"
+    ```javascript title="linear_search.js"
     /* 线性查找（链表）*/
     function linearSearchLinkedList(head, target) {
         // 遍历链表

@@ -78,7 +78,7 @@ $$
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     // 在某运行平台下
     function algorithm(n) {
         var a = 2; // 1 ns
@@ -252,7 +252,7 @@ $$
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     // 算法 A 时间复杂度：常数阶
     function algorithm_A(n) {
         console.log(0);
@@ -445,7 +445,7 @@ $$
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     function algorithm(n){
         var a = 1; // +1
         a += 1; // +1
@@ -646,7 +646,7 @@ $$
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     function algorithm(n) {
         let a = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
@@ -801,14 +801,7 @@ $$
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 常数阶 */
-    int constant(int n) {
-        int count = 0;
-        int size = 100000;
-        for (int i = 0; i < size; i++)
-            count++;
-        return count;
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "Python"
@@ -833,7 +826,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 常数阶 */
     function constant(n) {
         let count = 0;
@@ -927,13 +920,7 @@ $$
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 线性阶 */
-    int linear(int n) {
-        int count = 0;
-        for (int i = 0; i < n; i++)
-            count++;
-        return count;
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "Python"
@@ -957,7 +944,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 线性阶 */
     function linear(n) {
         let count = 0;
@@ -1045,15 +1032,7 @@ $$
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 线性阶（遍历数组） */
-    int arrayTraversal(vector<int>& nums) {
-        int count = 0;
-        // 循环次数与数组长度成正比
-        for (int num : nums) {
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 === "Python"
@@ -1078,7 +1057,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 线性阶（遍历数组） */
     function arrayTraversal(nums) {
         let count = 0;
@@ -1175,17 +1154,7 @@ $$
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 平方阶 */
-    int quadratic(int n) {
-        int count = 0;
-        // 循环次数与数组长度成平方关系
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                count++;
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "Python"
@@ -1212,7 +1181,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 平方阶 */
     function quadratic(n) {
         let count = 0;
@@ -1330,24 +1299,7 @@ $$
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 平方阶（冒泡排序） */
-    int bubbleSort(vector<int>& nums) {
-        int count = 0;  // 计数器
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = nums.size() - 1; i > 0; i--) {
-            // 内循环：冒泡操作
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3;  // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "Python"
@@ -1381,7 +1333,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 平方阶（冒泡排序） */
     function bubbleSort(nums) {
         let count = 0; // 计数器
@@ -1543,19 +1495,7 @@ $$
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 指数阶（循环实现） */
-    int exponential(int n) {
-        int count = 0, base = 1;
-        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < base; j++) {
-                count++;
-            }
-            base *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count;
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "Python"
@@ -1584,7 +1524,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 指数阶（循环实现） */
     function exponential(n) {
         let count = 0,
@@ -1716,11 +1656,7 @@ $$
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 指数阶（递归实现） */
-    int expRecur(int n) {
-        if (n == 1) return 1;
-        return expRecur(n - 1) + expRecur(n - 1) + 1;
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 === "Python"
@@ -1743,7 +1679,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 指数阶（递归实现） */
     function expRecur(n) {
         if (n == 1) return 1;
@@ -1822,15 +1758,7 @@ $$
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 对数阶（循环实现） */
-    int logarithmic(float n) {
-        int count = 0;
-        while (n > 1) {
-            n = n / 2;
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "Python"
@@ -1855,7 +1783,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 对数阶（循环实现） */
     function logarithmic(n) {
         let count = 0;
@@ -1958,11 +1886,7 @@ $$
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 对数阶（递归实现） */
-    int logRecur(float n) {
-        if (n <= 1) return 0;
-        return logRecur(n / 2) + 1;
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 === "Python"
@@ -1985,7 +1909,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 对数阶（递归实现） */
     function logRecur(n) {
         if (n <= 1) return 0;
@@ -2062,16 +1986,7 @@ $$
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 线性对数阶 */
-    int linearLogRecur(float n) {
-        if (n <= 1) return 1;
-        int count = linearLogRecur(n / 2) +
-                    linearLogRecur(n / 2);
-        for (int i = 0; i < n; i++) {
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 === "Python"
@@ -2099,7 +2014,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 线性对数阶 */
     function linearLogRecur(n) {
         if (n <= 1) return 1;
@@ -2213,16 +2128,7 @@ $$
 === "C++"
 
     ```cpp title="time_complexity.cpp"
-    /* 阶乘阶（递归实现） */
-    int factorialRecur(int n) {
-        if (n == 0) return 1;
-        int count = 0;
-        // 从 1 个分裂出 n 个
-        for (int i = 0; i < n; i++) {
-            count += factorialRecur(n - 1);
-        }
-        return count;
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 === "Python"
@@ -2250,7 +2156,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="time_complexity.js"
+    ```javascript title="time_complexity.js"
     /* 阶乘阶（递归实现） */
     function factorialRecur(n) {
         if (n == 0) return 1;
@@ -2432,7 +2338,7 @@ $$
 
 === "JavaScript"
 
-    ```js title="worst_best_time_complexity.js"
+    ```javascript title="worst_best_time_complexity.js"
     /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
     function randomNumbers(n) {
         const nums = Array(n);

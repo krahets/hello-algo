@@ -27,24 +27,7 @@ comments: true
 === "C++"
 
     ```cpp title="binary_tree_bfs.cpp"
-    /* 层序遍历 */
-    vector<int> hierOrder(TreeNode* root) {
-        // 初始化队列，加入根结点
-        queue<TreeNode*> queue;
-        queue.push(root);
-        // 初始化一个列表，用于保存遍历序列
-        vector<int> vec;
-        while (!queue.empty()) {
-            TreeNode* node = queue.front();
-            queue.pop();                 // 队列出队
-            vec.push_back(node->val);    // 保存结点值
-            if (node->left != nullptr)
-                queue.push(node->left);  // 左子结点入队
-            if (node->right != nullptr)
-                queue.push(node->right); // 右子结点入队
-        }
-        return vec;
-    }
+    [class]{}-[func]{hierOrder}
     ```
 
 === "Python"
@@ -83,7 +66,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="binary_tree_bfs.js"
+    ```javascript title="binary_tree_bfs.js"
     /* 层序遍历 */
     function hierOrder(root) {
         // 初始化队列，加入根结点
@@ -218,32 +201,11 @@ comments: true
 === "C++"
 
     ```cpp title="binary_tree_dfs.cpp"
-    /* 前序遍历 */
-    void preOrder(TreeNode* root) {
-        if (root == nullptr) return;
-        // 访问优先级：根结点 -> 左子树 -> 右子树
-        vec.push_back(root->val);
-        preOrder(root->left);
-        preOrder(root->right);
-    }
-    
-    /* 中序遍历 */
-    void inOrder(TreeNode* root) {
-        if (root == nullptr) return;
-        // 访问优先级：左子树 -> 根结点 -> 右子树
-        inOrder(root->left);
-        vec.push_back(root->val);
-        inOrder(root->right);
-    }
-    
-    /* 后序遍历 */
-    void postOrder(TreeNode* root) {
-        if (root == nullptr) return;
-        // 访问优先级：左子树 -> 右子树 -> 根结点
-        postOrder(root->left);
-        postOrder(root->right);
-        vec.push_back(root->val);
-    }
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
     ```
 
 === "Python"
@@ -295,7 +257,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="binary_tree_dfs.js"
+    ```javascript title="binary_tree_dfs.js"
     /* 前序遍历 */
     function preOrder(root){
         if (root === null) return;

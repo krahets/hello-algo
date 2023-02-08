@@ -9,15 +9,10 @@ package chapter_heap;
 import include.*;
 import java.util.*;
 
-/* 最大堆类 */
+/* 大顶堆 */
 class MaxHeap {
     // 使用列表而非数组，这样无需考虑扩容问题
     private List<Integer> maxHeap;
-
-    /* 构造函数，建立空堆 */
-    public MaxHeap() {
-        maxHeap = new ArrayList<>();
-    }
 
     /* 构造函数，根据输入列表建堆 */
     public MaxHeap(List<Integer> nums) {

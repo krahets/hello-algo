@@ -56,7 +56,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="list.js"
+    ```javascript title="list.js"
     /* 初始化列表 */
     // 无初始值
     const list1 = [];
@@ -154,7 +154,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="list.js"
+    ```javascript title="list.js"
     /* 访问元素 */
     const num = list[1];  // 访问索引 1 处的元素
 
@@ -292,7 +292,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="list.js"
+    ```javascript title="list.js"
     /* 清空列表 */
     list.length = 0;
 
@@ -462,7 +462,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="list.js"
+    ```javascript title="list.js"
     /* 通过索引遍历列表 */
     let count = 0;
     for (let i = 0; i < list.length; i++) {
@@ -586,7 +586,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="list.js"
+    ```javascript title="list.js"
     /* 拼接两个列表 */
     const list1 = [6, 8, 7, 10, 9];
     list.push(...list1);  // 将列表 list1 拼接到 list 之后
@@ -664,7 +664,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="list.js"
+    ```javascript title="list.js"
     /* 排序列表 */  
     list.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
     ```
@@ -722,106 +722,7 @@ comments: true
 === "C++"
 
     ```cpp title="my_list.cpp"
-    /* 列表类简易实现 */
-    class MyList {
-    private:
-        int* nums;                // 数组（存储列表元素）
-        int numsCapacity = 10;    // 列表容量
-        int numsSize = 0;         // 列表长度（即当前元素数量）
-        int extendRatio = 2;      // 每次列表扩容的倍数
-
-    public:
-        /* 构造函数 */
-        MyList() {
-            nums = new int[numsCapacity];
-        }
-
-        /* 析构函数 */
-        ~MyList() {
-            delete[] nums;
-        }
-
-        /* 获取列表长度（即当前元素数量）*/
-        int size() {
-            return numsSize;
-        }
-
-        /* 获取列表容量 */
-        int capacity() {
-            return numsCapacity;
-        }
-
-        /* 访问元素 */
-        int get(int index) {
-            // 索引如果越界则抛出异常，下同
-            if (index < 0 || index >= size())
-                throw out_of_range("索引越界");
-            return nums[index];
-        }
-
-        /* 更新元素 */
-        void set(int index, int num) {
-            if (index < 0 || index >= size())
-                throw out_of_range("索引越界");
-            nums[index] = num;
-        }
-
-        /* 尾部添加元素 */
-        void add(int num) {
-            // 元素数量超出容量时，触发扩容机制
-            if (size() == capacity())
-                extendCapacity();
-            nums[size()] = num;
-            // 更新元素数量
-            numsSize++;
-        }
-
-        /* 中间插入元素 */
-        void insert(int index, int num) {
-            if (index < 0 || index >= size())
-                throw out_of_range("索引越界");
-            // 元素数量超出容量时，触发扩容机制
-            if (size() == capacity())
-                extendCapacity();
-            // 索引 i 以及之后的元素都向后移动一位
-            for (int j = size() - 1; j >= index; j--) {
-                nums[j + 1] = nums[j];
-            }
-            nums[index] = num;
-            // 更新元素数量
-            numsSize++;
-        }
-
-        /* 删除元素 */
-        int remove(int index) {
-            if (index < 0 || index >= size())
-                throw out_of_range("索引越界");
-            int num = nums[index];
-            // 索引 i 之后的元素都向前移动一位
-            for (int j = index; j < size() - 1; j++) {
-                nums[j] = nums[j + 1];
-            }
-            // 更新元素数量
-            numsSize--;
-            // 返回被删除元素
-            return num;
-        }
-
-        /* 列表扩容 */
-        void extendCapacity() {
-            // 新建一个长度为 size * extendRatio 的数组，并将原数组拷贝到新数组
-            int newCapacity = capacity() * extendRatio;
-            int* tmp = nums;
-            nums = new int[newCapacity];
-            // 将原数组中的所有元素复制到新数组
-            for (int i = 0; i < size(); i++) {
-                nums[i] = tmp[i];
-            }
-            // 释放内存
-            delete[] tmp;
-            numsCapacity = newCapacity;
-        }
-    };
+    [class]{MyList}-[func]{}
     ```
 
 === "Python"
@@ -934,7 +835,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="my_list.js"
+    ```javascript title="my_list.js"
     /* 列表类简易实现 */
     class MyList {
         #nums = new Array(); // 数组（存储列表元素）

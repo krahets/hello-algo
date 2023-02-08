@@ -142,7 +142,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="queue.js"
+    ```javascript title="queue.js"
     /* 初始化队列 */
     // JavaScript 没有内置的队列，可以把 Array 当作队列来使用
     const queue = [];
@@ -290,63 +290,7 @@ comments: true
 === "C++"
 
     ```cpp title="linkedlist_queue.cpp"
-    /* 基于链表实现的队列 */
-    class LinkedListQueue {
-    private:
-        ListNode *front, *rear;  // 头结点 front ，尾结点 rear 
-        int queSize;
-    
-    public:
-        LinkedListQueue() {
-            front = nullptr;
-            rear = nullptr;
-            queSize = 0;
-        }
-        ~LinkedListQueue() {
-            delete front;
-            delete rear;
-        }
-        /* 获取队列的长度 */
-        int size() {
-            return queSize;
-        }
-        /* 判断队列是否为空 */
-        bool empty() {
-            return queSize == 0;
-        }
-        /* 入队 */
-        void push(int num) {
-            // 尾结点后添加 num
-            ListNode* node = new ListNode(num);
-            // 如果队列为空，则令头、尾结点都指向该结点
-            if (front == nullptr) {
-                front = node;
-                rear = node;
-            }
-            // 如果队列不为空，则将该结点添加到尾结点后
-            else {
-                rear->next = node;
-                rear = node;
-            }
-            queSize++;
-        }
-        /* 出队 */
-        void poll() {
-            int num = peek();
-            // 删除头结点
-            ListNode *tmp = front;
-            front = front->next;
-            // 释放内存
-            delete tmp; 
-            queSize--;
-        }
-        /* 访问队首元素 */
-        int peek() {
-            if (size() == 0)
-                throw out_of_range("队列为空");
-            return front->val;
-        }
-    };
+    [class]{LinkedListQueue}-[func]{}
     ```
 
 === "Python"
@@ -408,7 +352,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linkedlist_queue.js"
+    ```javascript title="linkedlist_queue.js"
     /* 基于链表实现的队列 */
     class LinkedListQueue {
         #front;  // 头结点 #front
@@ -669,70 +613,7 @@ comments: true
 === "C++"
 
     ```cpp title="array_queue.cpp"
-    /* 基于环形数组实现的队列 */
-    class ArrayQueue {
-    private:
-        int *nums;       // 用于存储队列元素的数组
-        int front;       // 队首指针，指向队首元素
-        int queSize;     // 队列长度
-        int queCapacity; // 队列容量
-
-    public:
-        ArrayQueue(int capacity) {
-            // 初始化数组
-            nums = new int[capacity];
-            queCapacity = capacity;
-            front = queSize = 0;
-        }
-
-        ~ArrayQueue() {
-            delete[] nums;
-        }
-
-        /* 获取队列的容量 */
-        int capacity() {
-            return queCapacity;
-        }
-
-        /* 获取队列的长度 */
-        int size() {
-            return queSize;
-        }
-
-        /* 判断队列是否为空 */
-        bool empty() {
-            return size() == 0;
-        }
-
-        /* 入队 */
-        void push(int num) {
-            if (queSize == queCapacity) {
-                cout << "队列已满" << endl;
-                return;
-            }
-            // 计算队尾指针，指向队尾索引 + 1
-            // 通过取余操作，实现 rear 越过数组尾部后回到头部
-            int rear = (front + queSize) % queCapacity;
-            // 尾结点后添加 num
-            nums[rear] = num;
-            queSize++;
-        }
-
-        /* 出队 */
-        void poll() {
-            int num = peek();
-            // 队首指针向后移动一位，若越过尾部则返回到数组头部
-            front = (front + 1) % queCapacity;
-            queSize--;
-        }
-
-        /* 访问队首元素 */
-        int peek() {
-            if (empty())
-                throw out_of_range("队列为空");
-            return nums[front];
-        }
-    };
+    [class]{ArrayQueue}-[func]{}
     ```
 
 === "Python"
@@ -816,7 +697,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="array_queue.js"
+    ```javascript title="array_queue.js"
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
         #nums;         // 用于存储队列元素的数组

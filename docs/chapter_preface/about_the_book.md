@@ -142,7 +142,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     /* 标题注释，用于标注函数、类、测试样例等 */
     
     // 内容注释，用于详解代码

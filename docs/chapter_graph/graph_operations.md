@@ -141,7 +141,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="graph_adjacency_matrix.js"
+    ```javascript title="graph_adjacency_matrix.js"
 
     ```
 
@@ -390,7 +390,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="graph_adjacency_list.js"
+    ```javascript title="graph_adjacency_list.js"
 
     ```
 

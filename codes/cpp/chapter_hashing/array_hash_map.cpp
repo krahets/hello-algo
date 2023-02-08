@@ -37,9 +37,8 @@ public:
     string get(int key) {
         int index = hashFunc(key);
         Entry* pair = bucket[index];
-        if (pair == nullptr) {
-            return "Not Found";
-        }
+        if (pair == nullptr)
+            return nullptr;
         return pair->val;
     }
 

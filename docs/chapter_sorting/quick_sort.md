@@ -259,17 +259,7 @@ comments: true
 === "C++"
 
     ```cpp title="quick_sort.cpp"
-    /* 快速排序 */
-    void quickSort(vector<int>& nums, int left, int right) {
-        // 子数组长度为 1 时终止递归
-        if (left >= right)
-            return;
-        // 哨兵划分
-        int pivot = partition(nums, left, right);
-        // 递归左子数组、右子数组
-        quickSort(nums, left, pivot - 1);
-        quickSort(nums, pivot + 1, right);
-    }
+    [class]{QuickSort}-[func]{quickSort}
     ```
 
 === "Python"
@@ -297,7 +287,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="quick_sort.js"
+    ```javascript title="quick_sort.js"
     /* 快速排序 */
     function quickSort(nums, left, right) {
         // 子数组长度为 1 时终止递归
@@ -415,27 +405,9 @@ comments: true
 === "C++"
 
     ```cpp title="quick_sort.cpp"
-    /* 选取三个元素的中位数 */
-    int medianThree(vector<int>& nums, int left, int mid, int right) {
-        // 使用了异或操作来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
-            return left;
-        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-            return mid;
-        else
-            return right;
-    }
+    [class]{QuickSortMedian}-[func]{medianThree}
 
-    /* 哨兵划分（三数取中值） */
-    int partition(vector<int>& nums, int left, int right) {
-        // 选取三个候选元素的中位数
-        int med = medianThree(nums, left, (left + right) / 2, right);
-        // 将中位数交换至数组最左端
-        swap(nums, left, med);
-        // 以 nums[left] 作为基准数
-        // 下同省略...
-    }
+    [class]{QuickSortMedian}-[func]{partition}
     ```
 
 === "Python"
@@ -472,7 +444,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="quick_sort.js"
+    ```javascript title="quick_sort.js"
     /* 选取三个元素的中位数 */
     function medianThree(nums, left, mid, right) {
         // 使用了异或操作来简化代码
@@ -602,22 +574,7 @@ comments: true
 === "C++"
 
     ```cpp title="quick_sort.cpp"
-    /* 快速排序（尾递归优化） */
-    void quickSort(vector<int>& nums, int left, int right) {
-        // 子数组长度为 1 时终止
-        while (left < right) {
-            // 哨兵划分操作
-            int pivot = partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
-            if (pivot - left < right - pivot) {
-                quickSort(nums, left, pivot - 1);  // 递归排序左子数组
-                left = pivot + 1;  // 剩余待排序区间为 [pivot + 1, right]
-            } else {
-                quickSort(nums, pivot + 1, right); // 递归排序右子数组
-                right = pivot - 1; // 剩余待排序区间为 [left, pivot - 1]
-            }
-        }
-    }
+    [class]{QuickSortTailCall}-[func]{quickSort}
     ```
 
 === "Python"
@@ -649,7 +606,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="quick_sort.js"
+    ```javascript title="quick_sort.js"
     /* 快速排序（尾递归优化） */
     function quickSort(nums, left, right) {
         // 子数组长度为 1 时终止
