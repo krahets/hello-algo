@@ -305,52 +305,7 @@ comments: true
 === "Go"
 
     ```go title="linkedlist_stack.go"
-    /* 基于链表实现的栈 */
-    type linkedListStack struct {
-        // 使用内置包 list 来实现栈
-        data *list.List
-    }
-    
-    // newLinkedListStack 初始化链表
-    func newLinkedListStack() *linkedListStack {
-        return &linkedListStack{
-            data: list.New(),
-        }
-    }
-    
-    // push 入栈
-    func (s *linkedListStack) push(value int) {
-        s.data.PushBack(value)
-    }
-    
-    // pop 出栈
-    func (s *linkedListStack) pop() any {
-        if s.isEmpty() {
-            return nil
-        }
-        e := s.data.Back()
-        s.data.Remove(e)
-        return e.Value
-    }
-    
-    // peek 访问栈顶元素
-    func (s *linkedListStack) peek() any {
-        if s.isEmpty() {
-            return nil
-        }
-        e := s.data.Back()
-        return e.Value
-    }
-    
-    // size 获取栈的长度
-    func (s *linkedListStack) size() int {
-        return s.data.Len()
-    }
-    
-    // isEmpty 判断栈是否为空
-    func (s *linkedListStack) isEmpty() bool {
-        return s.data.Len() == 0
-    }
+    [class]{linkedListStack}-[func]{}
     ```
 
 === "JavaScript"
@@ -425,53 +380,7 @@ comments: true
 === "Go"
 
     ```go title="array_stack.go"
-    /* 基于数组实现的栈 */
-    type arrayStack struct {
-        data []int // 数据
-    }
-    
-    func newArrayStack() *arrayStack {
-        return &arrayStack{
-            // 设置栈的长度为 0，容量为 16
-            data: make([]int, 0, 16),
-        }
-    }
-    
-    // size 栈的长度
-    func (s *arrayStack) size() int {
-        return len(s.data)
-    }
-    
-    // isEmpty 栈是否为空
-    func (s *arrayStack) isEmpty() bool {
-        return s.size() == 0
-    }
-    
-    // push 入栈
-    func (s *arrayStack) push(v int) {
-        // 切片会自动扩容
-        s.data = append(s.data, v)
-    }
-    
-    // pop 出栈
-    func (s *arrayStack) pop() any {
-        // 弹出栈前，先判断是否为空
-        if s.isEmpty() {
-            return nil
-        }
-        val := s.peek()
-        s.data = s.data[:len(s.data)-1]
-        return val
-    }
-    
-    // peek 获取栈顶元素
-    func (s *arrayStack) peek() any {
-        if s.isEmpty() {
-            return nil
-        }
-        val := s.data[len(s.data)-1]
-        return val
-    }
+    [class]{arrayStack}-[func]{}
     ```
 
 === "JavaScript"

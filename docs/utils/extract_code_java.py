@@ -119,7 +119,6 @@ class ExtractCodeBlocksJava:
         Extract all the classes with given indentation
         """
         classes = {}
-
         class_pattern = re.compile(self.class_pattern)
 
         for line_num, line in enumerate(self.lines):

@@ -37,16 +37,7 @@ comments: true
 === "Go"
 
     ```go title="hashing_search.go"
-    /* 哈希查找（数组） */
-    func hashingSearchArray(m map[int]int, target int) int {
-    // 哈希表的 key: 目标元素，value: 索引
-    // 若哈希表中无此 key ，返回 -1
-        if index, ok := m[target]; ok {
-            return index
-        } else {
-            return -1
-        }
-    }
+    [class]{}-[func]{hashingSearchArray}
     ```
 
 === "JavaScript"
@@ -110,16 +101,7 @@ comments: true
 === "Go"
 
     ```go title="hashing_search.go"
-    /* 哈希查找（链表） */
-    func hashingSearchLinkedList(m map[int]*ListNode, target int) *ListNode {
-        // 哈希表的 key: 目标结点值，value: 结点对象
-        // 若哈希表中无此 key ，返回 nil
-        if node, ok := m[target]; ok {
-            return node
-        } else {
-            return nil
-        }
-    }
+    [class]{}-[func]{hashingSearchLinkedList}
     ```
 
 === "JavaScript"

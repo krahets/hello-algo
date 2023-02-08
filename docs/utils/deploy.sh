@@ -24,4 +24,4 @@ cd site
 git add .
 git commit -m "deploy"
 git push -u origin gh-pages
-cd..
+cd ..

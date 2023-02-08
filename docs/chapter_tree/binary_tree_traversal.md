@@ -39,29 +39,7 @@ comments: true
 === "Go"
 
     ```go title="binary_tree_bfs.go"
-    /* 层序遍历 */
-    func levelOrder(root *TreeNode) []int {
-        // 初始化队列，加入根结点
-        queue := list.New()
-        queue.PushBack(root)
-        // 初始化一个切片，用于保存遍历序列
-        nums := make([]int, 0)
-        for queue.Len() > 0 {
-            // poll
-            node := queue.Remove(queue.Front()).(*TreeNode)
-            // 保存结点值
-            nums = append(nums, node.Val)
-            if node.Left != nil {
-                // 左子结点入队
-                queue.PushBack(node.Left)
-            }
-            if node.Right != nil {
-                // 右子结点入队
-                queue.PushBack(node.Right)
-            }
-        }
-        return nums
-    }
+    [class]{}-[func]{hierOrder}
     ```
 
 === "JavaScript"
@@ -153,38 +131,11 @@ comments: true
 === "Go"
 
     ```go title="binary_tree_dfs.go"
-    /* 前序遍历 */
-    func preOrder(node *TreeNode) {
-        if node == nil {
-            return
-        }
-        // 访问优先级：根结点 -> 左子树 -> 右子树
-        nums = append(nums, node.Val)
-        preOrder(node.Left)
-        preOrder(node.Right)
-    }
-    
-    /* 中序遍历 */
-    func inOrder(node *TreeNode) {
-        if node == nil {
-            return
-        }
-        // 访问优先级：左子树 -> 根结点 -> 右子树
-        inOrder(node.Left)
-        nums = append(nums, node.Val)
-        inOrder(node.Right)
-    }
-    
-    /* 后序遍历 */
-    func postOrder(node *TreeNode) {
-        if node == nil {
-            return
-        }
-        // 访问优先级：左子树 -> 右子树 -> 根结点
-        postOrder(node.Left)
-        postOrder(node.Right)
-        nums = append(nums, node.Val)
-    }
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
     ```
 
 === "JavaScript"

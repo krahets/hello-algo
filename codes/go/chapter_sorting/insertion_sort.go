@@ -4,6 +4,7 @@
 
 package chapter_sorting
 
+/* 插入排序 */
 func insertionSort(nums []int) {
 	// 外循环：待排序元素数量为 n-1, n-2, ..., 1
 	for i := 1; i < len(nums); i++ {

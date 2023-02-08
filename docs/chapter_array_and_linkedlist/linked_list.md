@@ -333,24 +333,9 @@ comments: true
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* 在链表的结点 n0 之后插入结点 P */
-    void insert(ListNode* n0, ListNode* P) {
-        ListNode* n1 = n0->next;
-        n0->next = P;
-        P->next = n1;
-    }
+    [class]{}-[func]{insert}
 
-    /* 删除链表的结点 n0 之后的首个结点 */
-    void remove(ListNode* n0) {
-        if (n0->next == nullptr)
-            return;
-        // n0 -> P -> n1
-        ListNode* P = n0->next;
-        ListNode* n1 = P->next;
-        n0->next = n1;
-        // 释放内存
-        delete P;
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "Python"
@@ -364,66 +349,25 @@ comments: true
 === "Go"
 
     ```go title="linked_list.go"
-    /* 在链表的结点 n0 之后插入结点 P */
-    func insert(n0 *ListNode, P *ListNode) {
-        n1 := n0.Next
-        n0.Next = P
-        P.Next = n1
-    }
+    [class]{}-[func]{insertNode}
 
-    /* 删除链表的结点 n0 之后的首个结点 */
-    func removeNode(n0 *ListNode) {
-        if n0.Next == nil {
-            return
-        }
-        // n0 -> P -> n1
-        P := n0.Next
-        n1 := P.Next
-        n0.Next = n1
-    }
+    [class]{}-[func]{removeNode}
     ```
 
 === "JavaScript"
 
     ```javascript title="linked_list.js"
-    /* 在链表的结点 n0 之后插入结点 P */
-    function insert(n0, P) {
-        let n1 = n0.next;
-        n0.next = P;
-        P.next = n1;
-    }
+    [class]{}-[func]{insert}
 
-    /* 删除链表的结点 n0 之后的首个结点 */
-    function remove(n0) {
-        if (!n0.next)
-            return;
-        // n0 -> P -> n1
-        let P = n0.next;
-        let n1 = P.next;
-        n0.next = n1;
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "TypeScript"
 
     ```typescript title="linked_list.ts"
-    /* 在链表的结点 n0 之后插入结点 P */
-    function insert(n0: ListNode, P: ListNode): void {
-        const n1 = n0.next;
-        n0.next = P;
-        P.next = n1;
-    }
-    
-    /* 删除链表的结点 n0 之后的首个结点 */
-    function remove(n0: ListNode): void {
-        if (!n0.next) {
-            return;
-        }
-        // n0 -> P -> n1
-        const P = n0.next;
-        const n1 = P.next;
-        n0.next = n1;
-    }
+    [class]{}-[func]{insert}
+
+    [class]{}-[func]{remove}
     ```
 
 === "C"
@@ -443,24 +387,9 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* 在链表的结点 n0 之后插入结点 P */
-    func insert(n0: ListNode, P: ListNode) {
-        let n1 = n0.next
-        n0.next = P
-        P.next = n1
-    }
+    [class]{}-[func]{insert}
 
-    /* 删除链表的结点 n0 之后的首个结点 */
-    func remove(n0: ListNode) {
-        if n0.next == nil {
-            return
-        }
-        // n0 -> P -> n1
-        let P = n0.next
-        let n1 = P?.next
-        n0.next = n1
-        P?.next = nil
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "Zig"
@@ -508,16 +437,7 @@ comments: true
 === "Go"
 
     ```go title="linked_list.go"
-    /* 访问链表中索引为 index 的结点 */
-    func access(head *ListNode, index int) *ListNode {
-        for i := 0; i < index; i++ {
-            if head == nil {
-                return nil
-            }
-            head = head.Next
-        }
-        return head
-    }
+    [class]{}-[func]{access}
     ```
 
 === "JavaScript"
@@ -592,18 +512,7 @@ comments: true
 === "Go"
 
     ```go title="linked_list.go"
-    /* 在链表中查找值为 target 的首个结点 */
-    func find(head *ListNode, target int) int {
-        index := 0
-        for head != nil {
-            if head.Val == target {
-                return index
-            }
-            head = head.Next
-            index++
-        }
-        return -1
-    }
+    [class]{}-[func]{findNode}
     ```
 
 === "JavaScript"
