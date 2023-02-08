@@ -3,8 +3,7 @@
  * Created Time: 2023-01-23
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
-
-import 'ListNode.dart';
+import 'list_node.dart';
 
 class PrintUtil {
     
