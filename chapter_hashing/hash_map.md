@@ -976,49 +976,89 @@ $$
     class Entry {
         var key: Int
         var val: String
-    
+
         init(key: Int, val: String) {
             self.key = key
             self.val = val
         }
     }
-    
+
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
         private var bucket: [Entry?] = []
-    
+
         init() {
             // 初始化一个长度为 100 的桶（数组）
             for _ in 0 ..< 100 {
                 bucket.append(nil)
             }
         }
-    
+
         /* 哈希函数 */
         private func hashFunc(key: Int) -> Int {
             let index = key % 100
             return index
         }
-    
+
         /* 查询操作 */
         func get(key: Int) -> String? {
             let index = hashFunc(key: key)
             let pair = bucket[index]
             return pair?.val
         }
-    
+
         /* 添加操作 */
         func put(key: Int, val: String) {
             let pair = Entry(key: key, val: val)
             let index = hashFunc(key: key)
             bucket[index] = pair
         }
-    
+
         /* 删除操作 */
         func remove(key: Int) {
             let index = hashFunc(key: key)
             // 置为 nil ，代表删除
             bucket[index] = nil
+        }
+
+        /* 获取所有键值对 */
+        func entrySet() -> [Entry] {
+            var entrySet: [Entry] = []
+            for pair in bucket {
+                if let pair = pair {
+                    entrySet.append(pair)
+                }
+            }
+            return entrySet
+        }
+
+        /* 获取所有键 */
+        func keySet() -> [Int] {
+            var keySet: [Int] = []
+            for pair in bucket {
+                if let pair = pair {
+                    keySet.append(pair.key)
+                }
+            }
+            return keySet
+        }
+
+        /* 获取所有值 */
+        func valueSet() -> [String] {
+            var valueSet: [String] = []
+            for pair in bucket {
+                if let pair = pair {
+                    valueSet.append(pair.val)
+                }
+            }
+            return valueSet
+        }
+
+        /* 打印哈希表 */
+        func print() {
+            for entry in entrySet() {
+                Swift.print("\(entry.key) -> \(entry.val)")
+            }
         }
     }
     ```

@@ -141,14 +141,14 @@ comments: true
 
     ```javascript title="quick_sort.js"
     /* 元素交换 */
-    function swap(nums, i, j) {
+    swap(nums, i, j) {
         let tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
-    
+
     /* 哨兵划分 */
-    function partition(nums, left, right) {
+    partition(nums, left, right) {
         // 以 nums[left] 作为基准数
         let i = left, j = right;
         while (i < j) {
@@ -159,9 +159,9 @@ comments: true
                 i += 1; // 从左向右找首个大于基准数的元素
             }
             // 元素交换
-            swap(nums, i, j); // 交换这两个元素
+            this.swap(nums, i, j); // 交换这两个元素
         }
-        swap(nums, i, left); // 将基准数交换至两子数组的分界线
+        this.swap(nums, i, left); // 将基准数交换至两子数组的分界线
         return i; // 返回基准数的索引
     }
     ```
@@ -170,14 +170,14 @@ comments: true
 
     ```typescript title="quick_sort.ts"
     /* 元素交换 */
-    function swap(nums: number[], i: number, j: number): void {
+    swap(nums: number[], i: number, j: number): void {
         let tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
     /* 哨兵划分 */
-    function partition(nums: number[], left: number, right: number): number {
+    partition(nums: number[], left: number, right: number): number {
         // 以 nums[left] 作为基准数
         let i = left, j = right;
         while (i < j) {
@@ -188,9 +188,9 @@ comments: true
                 i += 1; // 从左向右找首个大于基准数的元素
             }
             // 元素交换
-            swap(nums, i, j); // 交换这两个元素
+            this.swap(nums, i, j); // 交换这两个元素
         }
-        swap(nums, i, left); // 将基准数交换至两子数组的分界线
+        this.swap(nums, i, left); // 将基准数交换至两子数组的分界线
         return i; // 返回基准数的索引
     }
     ```
@@ -698,13 +698,12 @@ comments: true
     }
 
     /* 哨兵划分（三数取中值） */
-    func partition(nums: inout [Int], left: Int, right: Int) -> Int {
+    func partitionMedian(nums: inout [Int], left: Int, right: Int) -> Int {
         // 选取三个候选元素的中位数
         let med = medianThree(nums: nums, left: left, mid: (left + right) / 2, right: right)
         // 将中位数交换至数组最左端
         swap(nums: &nums, i: left, j: med)
-        // 以 nums[left] 作为基准数
-        // 下同省略...
+        return partition(nums: &nums, left: left, right: right)
     }
     ```
 
@@ -879,7 +878,7 @@ comments: true
 
     ```swift title="quick_sort.swift"
     /* 快速排序（尾递归优化） */
-    func quickSort(nums: inout [Int], left: Int, right: Int) {
+    func quickSortTailCall(nums: inout [Int], left: Int, right: Int) {
         var left = left
         var right = right
         // 子数组长度为 1 时终止
@@ -888,10 +887,10 @@ comments: true
             let pivot = partition(nums: &nums, left: left, right: right)
             // 对两个子数组中较短的那个执行快排
             if (pivot - left) < (right - pivot) {
-                quickSort(nums: &nums, left: left, right: pivot - 1) // 递归排序左子数组
+                quickSortTailCall(nums: &nums, left: left, right: pivot - 1) // 递归排序左子数组
                 left = pivot + 1 // 剩余待排序区间为 [pivot + 1, right]
             } else {
-                quickSort(nums: &nums, left: pivot + 1, right: right) // 递归排序右子数组
+                quickSortTailCall(nums: &nums, left: pivot + 1, right: right) // 递归排序右子数组
                 right = pivot - 1 // 剩余待排序区间为 [left, pivot - 1]
             }
         }

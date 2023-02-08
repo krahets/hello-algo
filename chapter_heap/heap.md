@@ -386,13 +386,6 @@ comments: true
 === "Swift"
 
     ```swift title="my_heap.swift"
-    var maxHeap: [Int]
-
-    /* 构造函数，建立空堆 */
-    init() {
-        maxHeap = []
-    }
-
     /* 获取左子结点索引 */
     func left(i: Int) -> Int {
         2 * i + 1

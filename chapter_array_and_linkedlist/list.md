@@ -1517,6 +1517,15 @@ comments: true
             // 更新列表容量
             _capacity = nums.count
         }
+
+        /* 将列表转换为数组 */
+        func toArray() -> [Int] {
+            var nums = Array(repeating: 0, count: _size)
+            for i in 0 ..< _size {
+                nums[i] = get(index: i)
+            }
+            return nums
+        }
     }
     ```
 

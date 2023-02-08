@@ -1342,12 +1342,14 @@ $$
 
     ```swift title="space_complexity.swift"
     /* 平方阶（递归实现） */
+    @discardableResult
     func quadraticRecur(n: Int) -> Int {
         if n <= 0 {
             return 0
         }
         // 数组 nums 长度为 n, n-1, ..., 2, 1
         let nums = Array(repeating: 0, count: n)
+        print("递归 n = \(n) 中的 nums 长度 = \(nums.count)")
         return quadraticRecur(n: n - 1)
     }
     ```

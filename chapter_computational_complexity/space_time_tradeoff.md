@@ -161,6 +161,7 @@ comments: true
 === "Swift"
 
     ```swift title="leetcode_two_sum.swift"
+    /* 方法一：暴力枚举 */
     func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
         // 两层循环，时间复杂度 O(n^2)
         for i in nums.indices.dropLast() {
@@ -344,6 +345,7 @@ comments: true
 === "Swift"
 
     ```swift title="leetcode_two_sum.swift"
+    /* 方法二：辅助哈希表 */
     func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
         // 辅助哈希表，空间复杂度 O(n)
         var dic: [Int: Int] = [:]

@@ -687,19 +687,19 @@ comments: true
     class LinkedListStack {
         private var _peek: ListNode? // 将头结点作为栈顶
         private var _size = 0 // 栈的长度
-    
+
         init() {}
-    
+
         /* 获取栈的长度 */
         func size() -> Int {
             _size
         }
-    
+
         /* 判断栈是否为空 */
         func isEmpty() -> Bool {
             size() == 0
         }
-    
+
         /* 入栈 */
         func push(num: Int) {
             let node = ListNode(x: num)
@@ -707,7 +707,7 @@ comments: true
             _peek = node
             _size += 1
         }
-    
+
         /* 出栈 */
         @discardableResult
         func pop() -> Int {
@@ -716,13 +716,24 @@ comments: true
             _size -= 1
             return num
         }
-    
+
         /* 访问栈顶元素 */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("栈为空")
             }
             return _peek!.val
+        }
+
+        /* 将 List 转化为 Array 并返回 */
+        func toArray() -> [Int] {
+            var node = _peek
+            var res = Array(repeating: 0, count: _size)
+            for i in sequence(first: res.count - 1, next: { $0 >= 0 + 1 ? $0 - 1 : nil }) {
+                res[i] = node!.val
+                node = node?.next
+            }
+            return res
         }
     }
     ```
@@ -1076,27 +1087,27 @@ comments: true
     /* 基于数组实现的栈 */
     class ArrayStack {
         private var stack: [Int]
-    
+
         init() {
             // 初始化列表（动态数组）
             stack = []
         }
-    
+
         /* 获取栈的长度 */
         func size() -> Int {
             stack.count
         }
-    
+
         /* 判断栈是否为空 */
         func isEmpty() -> Bool {
             stack.isEmpty
         }
-    
+
         /* 入栈 */
         func push(num: Int) {
             stack.append(num)
         }
-    
+
         /* 出栈 */
         @discardableResult
         func pop() -> Int {
@@ -1105,13 +1116,18 @@ comments: true
             }
             return stack.removeLast()
         }
-    
+
         /* 访问栈顶元素 */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("栈为空")
             }
             return stack.last!
+        }
+
+        /* 将 List 转化为 Array 并返回 */
+        func toArray() -> [Int] {
+            stack
         }
     }
     ```

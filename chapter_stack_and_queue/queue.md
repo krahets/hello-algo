@@ -751,19 +751,19 @@ comments: true
         private var front: ListNode? // 头结点
         private var rear: ListNode? // 尾结点
         private var _size = 0
-    
+
         init() {}
-    
+
         /* 获取队列的长度 */
         func size() -> Int {
             _size
         }
-    
+
         /* 判断队列是否为空 */
         func isEmpty() -> Bool {
             size() == 0
         }
-    
+
         /* 入队 */
         func push(num: Int) {
             // 尾结点后添加 num
@@ -780,7 +780,7 @@ comments: true
             }
             _size += 1
         }
-    
+
         /* 出队 */
         @discardableResult
         func poll() -> Int {
@@ -790,13 +790,24 @@ comments: true
             _size -= 1
             return num
         }
-    
+
         /* 访问队首元素 */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("队列为空")
             }
             return front!.val
+        }
+
+        /* 将链表转化为 Array 并返回 */
+        func toArray() -> [Int] {
+            var node = front
+            var res = Array(repeating: 0, count: size())
+            for i in res.indices {
+                res[i] = node!.val
+                node = node?.next
+            }
+            return res
         }
     }
     ```
@@ -1379,6 +1390,16 @@ comments: true
                 fatalError("队列为空")
             }
             return nums[front]
+        }
+
+        /* 返回数组 */
+        func toArray() -> [Int] {
+            // 仅转换有效长度范围内的列表元素
+            var res = Array(repeating: 0, count: queSize)
+            for (i, j) in sequence(first: (0, front), next: { $0 < self.queSize - 1 ? ($0 + 1, $1 + 1) : nil }) {
+                res[i] = nums[j % capacity()]
+            }
+            return res
         }
     }
     ```

@@ -903,7 +903,7 @@ $$
     /* 常数阶 */
     func constant(n: Int) -> Int {
         var count = 0
-        let size = 100000
+        let size = 100_000
         for _ in 0 ..< size {
             count += 1
         }
