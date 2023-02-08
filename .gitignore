@@ -1,0 +1,7 @@
+# MacOS Desktop Services Store
+.DS_Store
+
+# Images
+*.png
+*.jpg
+*.gif
