@@ -304,18 +304,6 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
-    type maxHeap struct {
-        // 使用切片而非数组，这样无需考虑扩容问题
-        data []any
-    }
-
-    /* 构造函数，建立空堆 */
-    func newHeap() *maxHeap {
-        return &maxHeap{
-            data: make([]any, 0),
-        }
-    }
-
     /* 获取左子结点索引 */
     func (h *maxHeap) left(i int) int {
         return 2*i + 1
@@ -1060,8 +1048,8 @@ comments: true
     func newMaxHeap(nums []any) *maxHeap {
         // 将列表元素原封不动添加进堆
         h := &maxHeap{data: nums}
-        // 堆化除叶结点以外的其他所有结点
         for i := len(h.data) - 1; i >= 0; i-- {
+            // 堆化除叶结点以外的其他所有结点
             h.siftDown(i)
         }
         return h

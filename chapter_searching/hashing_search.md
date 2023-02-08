@@ -55,8 +55,8 @@ comments: true
     ```go title="hashing_search.go"
     /* 哈希查找（数组） */
     func hashingSearchArray(m map[int]int, target int) int {
-    // 哈希表的 key: 目标元素，value: 索引
-    // 若哈希表中无此 key ，返回 -1
+        // 哈希表的 key: 目标元素，value: 索引
+        // 若哈希表中无此 key ，返回 -1
         if index, ok := m[target]; ok {
             return index
         } else {

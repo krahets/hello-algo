@@ -465,20 +465,20 @@ comments: true
         // 使用内置包 list 来实现栈
         data *list.List
     }
-    
-    // newLinkedListStack 初始化链表
+
+    /* 初始化栈 */
     func newLinkedListStack() *linkedListStack {
         return &linkedListStack{
             data: list.New(),
         }
     }
-    
-    // push 入栈
+
+    /* 入栈 */
     func (s *linkedListStack) push(value int) {
         s.data.PushBack(value)
     }
-    
-    // pop 出栈
+
+    /* 出栈 */
     func (s *linkedListStack) pop() any {
         if s.isEmpty() {
             return nil
@@ -487,8 +487,8 @@ comments: true
         s.data.Remove(e)
         return e.Value
     }
-    
-    // peek 访问栈顶元素
+
+    /* 访问栈顶元素 */
     func (s *linkedListStack) peek() any {
         if s.isEmpty() {
             return nil
@@ -496,15 +496,20 @@ comments: true
         e := s.data.Back()
         return e.Value
     }
-    
-    // size 获取栈的长度
+
+    /* 获取栈的长度 */
     func (s *linkedListStack) size() int {
         return s.data.Len()
     }
-    
-    // isEmpty 判断栈是否为空
+
+    /* 判断栈是否为空 */
     func (s *linkedListStack) isEmpty() bool {
         return s.data.Len() == 0
+    }
+
+    /* 获取 List 用于打印 */
+    func (s *linkedListStack) toList() *list.List {
+        return s.data
     }
     ```
 
@@ -917,48 +922,50 @@ comments: true
     type arrayStack struct {
         data []int // 数据
     }
-    
+
+    /* 初始化栈 */
     func newArrayStack() *arrayStack {
         return &arrayStack{
             // 设置栈的长度为 0，容量为 16
             data: make([]int, 0, 16),
         }
     }
-    
-    // size 栈的长度
+
+    /* 栈的长度 */
     func (s *arrayStack) size() int {
         return len(s.data)
     }
-    
-    // isEmpty 栈是否为空
+
+    /* 栈是否为空 */
     func (s *arrayStack) isEmpty() bool {
         return s.size() == 0
     }
-    
-    // push 入栈
+
+    /* 入栈 */
     func (s *arrayStack) push(v int) {
         // 切片会自动扩容
         s.data = append(s.data, v)
     }
-    
-    // pop 出栈
+
+    /* 出栈 */
     func (s *arrayStack) pop() any {
-        // 弹出栈前，先判断是否为空
-        if s.isEmpty() {
-            return nil
-        }
         val := s.peek()
         s.data = s.data[:len(s.data)-1]
         return val
     }
-    
-    // peek 获取栈顶元素
+
+    /* 获取栈顶元素 */
     func (s *arrayStack) peek() any {
         if s.isEmpty() {
             return nil
         }
         val := s.data[len(s.data)-1]
         return val
+    }
+
+    /* 获取 Slice 用于打印 */
+    func (s *arrayStack) toSlice() []int {
+        return s.data
     }
     ```
 

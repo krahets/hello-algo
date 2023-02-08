@@ -86,7 +86,7 @@ comments: true
 
     ```go title="binary_tree_bfs.go"
     /* 层序遍历 */
-    func levelOrder(root *TreeNode) []int {
+    func hierOrder(root *TreeNode) []int {
         // 初始化队列，加入根结点
         queue := list.New()
         queue.PushBack(root)
@@ -340,7 +340,7 @@ comments: true
         preOrder(node.Left)
         preOrder(node.Right)
     }
-    
+
     /* 中序遍历 */
     func inOrder(node *TreeNode) {
         if node == nil {
@@ -351,7 +351,7 @@ comments: true
         nums = append(nums, node.Val)
         inOrder(node.Right)
     }
-    
+
     /* 后序遍历 */
     func postOrder(node *TreeNode) {
         if node == nil {

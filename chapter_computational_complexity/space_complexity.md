@@ -1289,8 +1289,8 @@ $$
         if n <= 0 {
             return 0
         }
-        // 数组 nums 长度为 n, n-1, ..., 2, 1
         nums := make([]int, n)
+        fmt.Printf("递归 n = %d 中的 nums 长度 = %d \n", n, len(nums))
         return spaceQuadraticRecur(n - 1)
     }
     ```

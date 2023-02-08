@@ -675,6 +675,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         for i := 0; i < len(nums); i++ {
             count++
         }
+        count = 0
         // 直接遍历数组
         for range nums {
             count++

@@ -206,8 +206,8 @@ comments: true
 === "Go"
 
     ```go title="linear_search.go"
-    /* 线性查找（链表）*/
-    func linerSearchLinkedList(node *ListNode, target int) *ListNode {
+    /* 线性查找（链表） */
+    func linearSearchLinkedList(node *ListNode, target int) *ListNode {
         // 遍历链表
         for node != nil {
             // 找到目标结点，返回之

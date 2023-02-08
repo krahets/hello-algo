@@ -389,7 +389,7 @@ comments: true
 
     ```go title="linked_list.go"
     /* 在链表的结点 n0 之后插入结点 P */
-    func insert(n0 *ListNode, P *ListNode) {
+    func insertNode(n0 *ListNode, P *ListNode) {
         n1 := n0.Next
         n0.Next = P
         P.Next = n1
@@ -412,7 +412,7 @@ comments: true
     ```javascript title="linked_list.js"
     /* 在链表的结点 n0 之后插入结点 P */
     function insert(n0, P) {
-        let n1 = n0.next;
+        const n1 = n0.next;
         n0.next = P;
         P.next = n1;
     }
@@ -422,8 +422,8 @@ comments: true
         if (!n0.next)
             return;
         // n0 -> P -> n1
-        let P = n0.next;
-        let n1 = P.next;
+        const P = n0.next;
+        const n1 = P.next;
         n0.next = n1;
     }
     ```
@@ -437,7 +437,7 @@ comments: true
         n0.next = P;
         P.next = n1;
     }
-    
+
     /* 删除链表的结点 n0 之后的首个结点 */
     function remove(n0: ListNode): void {
         if (!n0.next) {
@@ -720,7 +720,7 @@ comments: true
 
     ```go title="linked_list.go"
     /* 在链表中查找值为 target 的首个结点 */
-    func find(head *ListNode, target int) int {
+    func findNode(head *ListNode, target int) int {
         index := 0
         for head != nil {
             if head.Val == target {

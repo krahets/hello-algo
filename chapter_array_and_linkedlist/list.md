@@ -1101,6 +1101,12 @@ comments: true
         // 更新列表容量
         l.numsCapacity = len(l.nums)
     }
+
+    /* 返回有效长度的列表 */
+    func (l *myList) toArray() []int {
+        // 仅转换有效长度范围内的列表元素
+        return l.nums[:l.numsSize]
+    }
     ```
 
 === "JavaScript"

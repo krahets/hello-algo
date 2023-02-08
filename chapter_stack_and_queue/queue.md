@@ -493,20 +493,20 @@ comments: true
         // 使用内置包 list 来实现队列
         data *list.List
     }
-    
-    // newLinkedListQueue 初始化链表
+
+    /* 初始化队列 */
     func newLinkedListQueue() *linkedListQueue {
         return &linkedListQueue{
             data: list.New(),
         }
     }
-    
-    // push 入队
+
+    /* 入队 */
     func (s *linkedListQueue) push(value any) {
         s.data.PushBack(value)
     }
-    
-    // poll 出队
+
+    /* 出队 */
     func (s *linkedListQueue) poll() any {
         if s.isEmpty() {
             return nil
@@ -515,8 +515,8 @@ comments: true
         s.data.Remove(e)
         return e.Value
     }
-    
-    // peek 访问队首元素
+
+    /* 访问队首元素 */
     func (s *linkedListQueue) peek() any {
         if s.isEmpty() {
             return nil
@@ -524,15 +524,20 @@ comments: true
         e := s.data.Front()
         return e.Value
     }
-    
-    // size 获取队列的长度
+
+    /* 获取队列的长度 */
     func (s *linkedListQueue) size() int {
         return s.data.Len()
     }
-    
-    // isEmpty 判断队列是否为空
+
+    /* 判断队列是否为空 */
     func (s *linkedListQueue) isEmpty() bool {
         return s.data.Len() == 0
+    }
+
+    /* 获取 List 用于打印 */
+    func (s *linkedListQueue) toList() *list.List {
+        return s.data
     }
     ```
 
@@ -1073,7 +1078,7 @@ comments: true
         queCapacity int   // 队列容量（即最大容纳元素数量）
     }
 
-    // newArrayQueue 基于环形数组实现的队列
+    /* 初始化队列 */
     func newArrayQueue(queCapacity int) *arrayQueue {
         return &arrayQueue{
             nums:        make([]int, queCapacity),
@@ -1083,17 +1088,17 @@ comments: true
         }
     }
 
-    // size 获取队列的长度
+    /* 获取队列的长度 */
     func (q *arrayQueue) size() int {
         return q.queSize
     }
 
-    // isEmpty 判断队列是否为空
+    /* 判断队列是否为空 */
     func (q *arrayQueue) isEmpty() bool {
         return q.queSize == 0
     }
 
-    // push 入队
+    /* 入队 */
     func (q *arrayQueue) push(num int) {
         // 当 rear == queCapacity 表示队列已满
         if q.queSize == q.queCapacity {
@@ -1107,7 +1112,7 @@ comments: true
         q.queSize++
     }
 
-    // poll 出队
+    /* 出队 */
     func (q *arrayQueue) poll() any {
         num := q.peek()
         // 队首指针向后移动一位，若越过尾部则返回到数组头部
@@ -1116,7 +1121,7 @@ comments: true
         return num
     }
 
-    // peek 访问队首元素
+    /* 访问队首元素 */
     func (q *arrayQueue) peek() any {
         if q.isEmpty() {
             return nil
@@ -1124,7 +1129,7 @@ comments: true
         return q.nums[q.front]
     }
 
-    // 获取 Slice 用于打印
+    /* 获取 Slice 用于打印 */
     func (q *arrayQueue) toSlice() []int {
         rear := (q.front + q.queSize)
         if rear >= q.queCapacity {
