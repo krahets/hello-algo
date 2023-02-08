@@ -1164,7 +1164,7 @@ $$
     {
         int count = 0;
         // 循环次数与数组长度成正比
-        foreach(int num in nums)
+        foreach (int num in nums)
         {
             count++;
         }
@@ -1560,7 +1560,6 @@ $$
         }
         return count;
     }
-
     ```
 
 === "Swift"

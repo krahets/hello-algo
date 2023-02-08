@@ -459,22 +459,22 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    // 在链表的结点 n0 之后插入结点 P
-    void Insert(ListNode n0, ListNode P)
+    /* 在链表的结点 n0 之后插入结点 P */
+    void insert(ListNode n0, ListNode P)
     {
-        ListNode n1 = n0.next;
+        ListNode? n1 = n0.next;
         n0.next = P;
         P.next = n1;
     }
 
-    // 删除链表的结点 n0 之后的首个结点
-    void Remove(ListNode n0)
+    /* 删除链表的结点 n0 之后的首个结点 */
+    void remove(ListNode n0)
     {
         if (n0.next == null)
             return;
         // n0 -> P -> n1
         ListNode P = n0.next;
-        ListNode n1 = P.next;
+        ListNode? n1 = P.next;
         n0.next = n1;
     }
     ```
@@ -620,8 +620,8 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    // 访问链表中索引为 index 的结点
-    ListNode Access(ListNode head, int index)
+    /* 访问链表中索引为 index 的结点 */
+    ListNode? access(ListNode head, int index)
     {
         for (int i = 0; i < index; i++)
         {
@@ -776,8 +776,8 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    // 在链表中查找值为 target 的首个结点
-    int Find(ListNode head, int target)
+    /* 在链表中查找值为 target 的首个结点 */
+    int find(ListNode head, int target)
     {
         int index = 0;
         while (head != null)

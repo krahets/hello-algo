@@ -437,7 +437,7 @@ comments: true
             // 插入位置在 cur 的左子树中
             else cur = cur.left;
         }
-    
+
         // 插入结点 val
         TreeNode node = new TreeNode(num);
         if (pre != null)
@@ -939,7 +939,7 @@ comments: true
     }
 
     /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    private TreeNode? getInOrderNext(TreeNode? root)
+    TreeNode? getInOrderNext(TreeNode? root)
     {
         if (root == null) return root;
         // 循环访问左子结点，直到叶结点时为最小结点，跳出

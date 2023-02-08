@@ -202,9 +202,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
     ```csharp title="array.cs"
     /* 随机返回一个数组元素 */
-    int RandomAccess(int[] nums)
+    int randomAccess(int[] nums)
     {
-        Random random=new();
+        Random random = new();
         // 在区间 [0, nums.Length) 中随机抽取一个数字
         int randomIndex = random.Next(nums.Length);
         // 获取并返回随机元素
@@ -355,7 +355,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
     ```csharp title="array.cs"
     /* 扩展数组长度 */
-    int[] Extend(int[] nums, int enlarge)
+    int[] extend(int[] nums, int enlarge)
     {
         // 初始化一个扩展长度后的数组
         int[] res = new int[nums.Length + enlarge];
@@ -548,7 +548,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
     ```csharp title="array.cs"
     /* 在数组的索引 index 处插入元素 num */
-    void Insert(int[] nums, int num, int index)
+    void insert(int[] nums, int num, int index)
     {
         // 把索引 index 以及之后的所有元素向后移动一位
         for (int i = nums.Length - 1; i > index; i--)
@@ -558,8 +558,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 将 num 赋给 index 处元素
         nums[index] = num;
     }
+
     /* 删除索引 index 处元素 */
-    void Remove(int[] nums, int index)
+    void remove(int[] nums, int index)
     {
         // 把索引 index 之后的所有元素向前移动一位
         for (int i = index; i < nums.Length - 1; i++)
@@ -725,7 +726,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
     ```csharp title="array.cs"
     /* 遍历数组 */
-    void Traverse(int[] nums)
+    void traverse(int[] nums)
     {
         int count = 0;
         // 通过索引遍历数组
@@ -868,7 +869,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
     ```csharp title="array.cs"
     /* 在数组中查找指定元素 */
-    int Find(int[] nums, int target)
+    int find(int[] nums, int target)
     {
         for (int i = 0; i < nums.Length; i++)
         {

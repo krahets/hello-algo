@@ -270,14 +270,14 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
     ```csharp title="avl_tree.cs"
     /* 获取结点高度 */
-    public int height(TreeNode? node)
+    int height(TreeNode? node)
     {
         // 空结点高度为 -1 ，叶结点高度为 0
         return node == null ? -1 : node.height;
     }
 
     /* 更新结点高度 */
-    private void updateHeight(TreeNode node)
+    void updateHeight(TreeNode node)
     {
         // 结点高度等于最高子树高度 + 1
         node.height = Math.Max(height(node.left), height(node.right)) + 1;
@@ -396,7 +396,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
     ```csharp title="avl_tree.cs"
     /* 获取平衡因子 */
-    public int balanceFactor(TreeNode? node)
+    int balanceFactor(TreeNode? node)
     {
         // 空结点平衡因子为 0
         if (node == null) return 0;
@@ -1284,14 +1284,14 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
     ```csharp title="avl_tree.cs"
     /* 插入结点 */
-    public TreeNode? insert(int val)
+    TreeNode? insert(int val)
     {
         root = insertHelper(root, val);
         return root;
     }
 
     /* 递归插入结点（辅助函数） */
-    private TreeNode? insertHelper(TreeNode? node, int val)
+    TreeNode? insertHelper(TreeNode? node, int val)
     {
         if (node == null) return new TreeNode(val);
         /* 1. 查找插入位置，并插入结点 */
@@ -1650,14 +1650,14 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
     ```csharp title="avl_tree.cs"
     /* 删除结点 */
-    public TreeNode? remove(int val)
+    TreeNode? remove(int val)
     {
         root = removeHelper(root, val);
         return root;
     }
 
     /* 递归删除结点（辅助函数） */
-    private TreeNode? removeHelper(TreeNode? node, int val)
+    TreeNode? removeHelper(TreeNode? node, int val)
     {
         if (node == null) return null;
         /* 1. 查找结点，并删除之 */
@@ -1689,6 +1689,18 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node);
         // 返回子树的根结点
+        return node;
+    }
+
+    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    TreeNode? getInOrderNext(TreeNode? node)
+    {
+        if (node == null) return node;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (node.left != null)
+        {
+            node = node.left;
+        }
         return node;
     }
     ```

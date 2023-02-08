@@ -1323,101 +1323,114 @@ comments: true
 === "C#"
 
     ```csharp title="my_list.cs"
+    /* 列表类简易实现 */
     class MyList
     {
         private int[] nums;           // 数组（存储列表元素）
-        private int capacity = 10;    // 列表容量
-        private int size = 0;         // 列表长度（即当前元素数量）
+        private int numsCapacity = 10;    // 列表容量
+        private int numsSize = 0;         // 列表长度（即当前元素数量）
         private int extendRatio = 2;  // 每次列表扩容的倍数
 
         /* 构造函数 */
         public MyList()
         {
-            nums = new int[capacity];
+            nums = new int[numsCapacity];
         }
 
         /* 获取列表长度（即当前元素数量）*/
-        public int Size()
+        public int size()
         {
-            return size;
+            return numsSize;
         }
 
         /* 获取列表容量 */
-        public int Capacity()
+        public int capacity()
         {
-            return capacity;
+            return numsCapacity;
         }
 
         /* 访问元素 */
-        public int Get(int index)
+        public int get(int index)
         {
             // 索引如果越界则抛出异常，下同
-            if (index < 0 || index >= size)
+            if (index < 0 || index >= numsSize)
                 throw new IndexOutOfRangeException("索引越界");
             return nums[index];
         }
 
         /* 更新元素 */
-        public void Set(int index, int num)
+        public void set(int index, int num)
         {
-            if (index < 0 || index >= size)
+            if (index < 0 || index >= numsSize)
                 throw new IndexOutOfRangeException("索引越界");
             nums[index] = num;
         }
 
         /* 尾部添加元素 */
-        public void Add(int num)
+        public void add(int num)
         {
             // 元素数量超出容量时，触发扩容机制
-            if (size == Capacity())
-                ExtendCapacity();
-            nums[size] = num;
+            if (numsSize == numsCapacity)
+                extendCapacity();
+            nums[numsSize] = num;
             // 更新元素数量
-            size++;
+            numsSize++;
         }
 
         /* 中间插入元素 */
-        public void Insert(int index, int num)
+        public void insert(int index, int num)
         {
-            if (index < 0 || index >= size)
+            if (index < 0 || index >= numsSize)
                 throw new IndexOutOfRangeException("索引越界");
             // 元素数量超出容量时，触发扩容机制
-            if (size == Capacity())
-                ExtendCapacity();
+            if (numsSize == numsCapacity)
+                extendCapacity();
             // 将索引 index 以及之后的元素都向后移动一位
-            for (int j = size - 1; j >= index; j--)
+            for (int j = numsSize - 1; j >= index; j--)
             {
                 nums[j + 1] = nums[j];
             }
             nums[index] = num;
             // 更新元素数量
-            size++;
+            numsSize++;
         }
 
         /* 删除元素 */
-        public int Remove(int index)
+        public int remove(int index)
         {
-            if (index < 0 || index >= size)
+            if (index < 0 || index >= numsSize)
                 throw new IndexOutOfRangeException("索引越界");
             int num = nums[index];
             // 将索引 index 之后的元素都向前移动一位
-            for (int j = index; j < size - 1; j++)
+            for (int j = index; j < numsSize - 1; j++)
             {
                 nums[j] = nums[j + 1];
             }
             // 更新元素数量
-            size--;
+            numsSize--;
             // 返回被删除元素
             return num;
         }
 
         /* 列表扩容 */
-        public void ExtendCapacity()
+        public void extendCapacity()
         {
-            // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
-            System.Array.Resize(ref nums, Capacity() * extendRatio);
+            // 新建一个长度为 numsCapacity * extendRatio 的数组，并将原数组拷贝到新数组
+            System.Array.Resize(ref nums, numsCapacity * extendRatio);
             // 更新列表容量
-            capacity = nums.Length;
+            numsCapacity = nums.Length;
+        }
+
+        /* 将列表转换为数组 */
+        public int[] toArray()
+        {
+            // 仅转换有效长度范围内的列表元素
+            int[] nums = new int[numsSize];
+            for (int i = 0; i < numsSize; i++)
+            {
+                nums[i] = get(i);
+            }
+            return nums;
         }
     }
     ```

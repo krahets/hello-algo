@@ -165,7 +165,7 @@ comments: true
 
     ```csharp title="binary_tree_bfs.cs"
     /* 层序遍历 */
-    public List<int?> hierOrder(TreeNode root)
+    List<int> hierOrder(TreeNode root)
     {
         // 初始化队列，加入根结点
         Queue<TreeNode> queue = new();
@@ -183,7 +183,6 @@ comments: true
         }
         return list;
     }
-    
     ```
 
 === "Swift"

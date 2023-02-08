@@ -690,21 +690,25 @@ comments: true
     {
         private ListNode? front, rear;  // 头结点 front ，尾结点 rear 
         private int queSize = 0;
+
         public LinkedListQueue()
         {
             front = null;
             rear = null;
         }
+
         /* 获取队列的长度 */
         public int size()
         {
             return queSize;
         }
+
         /* 判断队列是否为空 */
         public bool isEmpty()
         {
             return size() == 0;
         }
+
         /* 入队 */
         public void push(int num)
         {
@@ -724,6 +728,7 @@ comments: true
             }
             queSize++;
         }
+
         /* 出队 */
         public int poll()
         {
@@ -733,12 +738,29 @@ comments: true
             queSize--;
             return num;
         }
+
         /* 访问队首元素 */
         public int peek()
         {
             if (size() == 0 || front == null)
                 throw new Exception();
             return front.val;
+        }
+
+        /* 将链表转化为 Array 并返回 */
+        public int[] toArray()
+        {
+            if (front == null)
+                return Array.Empty<int>();
+
+            ListNode node = front;
+            int[] res = new int[size()];
+            for (int i = 0; i < res.Length; i++)
+            {
+                res[i] = node.val;
+                node = node.next;
+            }
+            return res;
         }
     }
     ```
@@ -975,11 +997,10 @@ comments: true
 
         /* 将数组转化为 Vector 并返回 */
         vector<int> toVector() {
-            int cap = queCapacity;
             // 仅转换有效长度范围内的列表元素
             vector<int> arr(queSize);
             for (int i = 0, j = front; i < queSize; i++, j++) {
-                arr[i] = nums[j % cap];
+                arr[i] = nums[j % queCapacity];
             }
             return arr;
         }
@@ -1327,6 +1348,18 @@ comments: true
             if (isEmpty())
                 throw new Exception();
             return nums[front];
+        }
+
+        /* 返回数组 */
+        public int[] toArray()
+        {
+            // 仅转换有效长度范围内的列表元素
+            int[] res = new int[queSize];
+            for (int i = 0, j = front; i < queSize; i++, j++)
+            {
+                res[i] = nums[j % this.capacity()];
+            }
+            return res;
         }
     }
     ```

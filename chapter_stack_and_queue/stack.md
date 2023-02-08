@@ -638,22 +638,26 @@ comments: true
     /* 基于链表实现的栈 */
     class LinkedListStack
     {
-        private ListNode stackPeek;  // 将头结点作为栈顶
+        private ListNode? stackPeek;  // 将头结点作为栈顶
         private int stkSize = 0;   // 栈的长度
+
         public LinkedListStack()
         {
             stackPeek = null;
         }
+
         /* 获取栈的长度 */
         public int size()
         {
             return stkSize;
         }
+
         /* 判断栈是否为空 */
         public bool isEmpty()
         {
             return size() == 0;
         }
+
         /* 入栈 */
         public void push(int num)
         {
@@ -662,20 +666,41 @@ comments: true
             stackPeek = node;
             stkSize++;
         }
+
         /* 出栈 */
         public int pop()
         {
+            if (stackPeek == null)
+                throw new Exception();
+
             int num = peek();
-            stackPeek = stackPeek?.next;
+            stackPeek = stackPeek.next;
             stkSize--;
             return num;
         }
+
         /* 访问栈顶元素 */
         public int peek()
         {
-            if (size() == 0)
+            if (size() == 0 || stackPeek == null)
                 throw new Exception();
             return stackPeek.val;
+        }
+
+        /* 将 List 转化为 Array 并返回 */
+        public int[] toArray()
+        {
+            if (stackPeek == null)
+                return Array.Empty<int>();
+
+            ListNode node = stackPeek;
+            int[] res = new int[size()];
+            for (int i = res.Length - 1; i >= 0; i--)
+            {
+                res[i] = node.val;
+                node = node.next;
+            }
+            return res;
         }
     }
     ```
@@ -1047,21 +1072,25 @@ comments: true
             // 初始化列表（动态数组）
             stack = new();
         }
+
         /* 获取栈的长度 */
         public int size()
         {
             return stack.Count();
         }
+
         /* 判断栈是否为空 */
         public bool isEmpty()
         {
             return size() == 0;
         }
+
         /* 入栈 */
         public void push(int num)
         {
             stack.Add(num);
         }
+
         /* 出栈 */
         public int pop()
         {
@@ -1071,12 +1100,19 @@ comments: true
             stack.RemoveAt(size() - 1);
             return val;
         }
+
         /* 访问栈顶元素 */
         public int peek()
         {
             if (isEmpty())
                 throw new Exception();
             return stack[size() - 1];
+        }
+
+        /* 将 List 转化为 Array 并返回 */
+        public int[] toArray()
+        {
+            return stack.ToArray();
         }
     }
     ```
