@@ -70,19 +70,25 @@ class ExtractCodeBlocksGo(ExtractCodeBlocksJava):
             func_cls_label = func_match.group(self.func_pattern_keys.index("class"))
             func_return = func_match.group(self.func_pattern_keys.index("return"))
             
+            def check_func_blong_to_class(label):
+                class_label_pattern = re.compile(f".*\*{label}\).*")
+                func_return_pattern = re.compile(f".*\*{label}.*")
+                constructor_pattern = re.compile(f".*new.*")
+                
+                class_label_match = class_label_pattern.match(f"{func_cls_label}")
+                func_return_match = func_return_pattern.match(f"{func_return}")
+                constructor_match = constructor_pattern.match(func_label)
+                
+                return class_label_match, func_return_match, constructor_match
+            
             if classes:
                 # The function should not blong to any class
                 flag = False
                 for label in classes:
                     # Match the target class label
-                    class_label_pattern = re.compile(f".*\*{label}\).*")
-                    func_return_pattern = re.compile(f".*\*{label}.*")
-                    constructor_pattern = re.compile(f".*new.*")
+                    class_label_match, func_return_match, constructor_match = \
+                        check_func_blong_to_class(label)
 
-                    class_label_match = class_label_pattern.match(f"{func_cls_label}")
-                    func_return_match = func_return_pattern.match(f"{func_return}")
-                    constructor_match = constructor_pattern.match(func_label)
-                    
                     if class_label_match is not None or \
                        func_return_match is not None and constructor_match is not None:
                         flag = True                    
@@ -91,17 +97,11 @@ class ExtractCodeBlocksGo(ExtractCodeBlocksJava):
 
             elif class_label:
                 # Match the target class label
-                class_label_pattern = re.compile(f".*\*{class_label}\).*")
-                func_return_pattern = re.compile(f".*\*{class_label}.*")
-                constructor_pattern = re.compile(f".*new.*")
-
-                class_label_match = class_label_pattern.match(f"{func_cls_label}")
-                func_return_match = func_return_pattern.match(f"{func_return}")
-                constructor_match = constructor_pattern.match(func_label)
+                class_label_match, func_return_match, constructor_match = \
+                    check_func_blong_to_class(class_label)
                 
-                if class_label_match is None and func_return_match is None:
-                    continue
-                if func_return_match is not None and constructor_match is None:
+                if class_label_match is None and func_return_match is None or \
+                   func_return_match is not None and constructor_match is None:
                     continue
 
             # Search the block from the header line
@@ -177,7 +177,8 @@ class ExtractCodeBlocksGo(ExtractCodeBlocksJava):
         for func in funcs.values():
             replace_tabs(func)
 
-for code_path in glob.glob("codes/go/chapter_*/array_hash_map.go"):
-    ext = ExtractCodeBlocksGo()
-    res = ext.extract(code_path)
-    pass
+
+# for code_path in glob.glob("codes/go/chapter_*/array_hash_map.go"):
+#     ext = ExtractCodeBlocksGo()
+#     res = ext.extract(code_path)
+#     pass
