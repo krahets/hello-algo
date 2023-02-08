@@ -181,14 +181,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Swift"
 
     ```swift title="array.swift"
-    /* 随机返回一个数组元素 */
-    func randomAccess(nums: [Int]) -> Int {
-        // 在区间 [0, nums.count) 中随机抽取一个数字
-        let randomIndex = nums.indices.randomElement()!
-        // 获取并返回随机元素
-        let randomNum = nums[randomIndex]
-        return randomNum
-    }
+    [class]{}-[func]{randomAccess}
     ```
 
 === "Zig"
@@ -281,17 +274,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Swift"
 
     ```swift title="array.swift"
-    /* 扩展数组长度 */
-    func extend(nums: [Int], enlarge: Int) -> [Int] {
-        // 初始化一个扩展长度后的数组
-        var res = Array(repeating: 0, count: nums.count + enlarge)
-        // 将原数组中的所有元素复制到新数组
-        for i in nums.indices {
-            res[i] = nums[i]
-        }
-        // 返回扩展后的新数组
-        return res
-    }
+    [class]{}-[func]{extend}
     ```
 
 === "Zig"
@@ -415,24 +398,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Swift"
 
     ```swift title="array.swift"
-    /* 在数组的索引 index 处插入元素 num */
-    func insert(nums: inout [Int], num: Int, index: Int) {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for i in sequence(first: nums.count - 1, next: { $0 > index + 1 ? $0 - 1 : nil }) {
-            nums[i] = nums[i - 1]
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num
-    }
+    [class]{}-[func]{insert}
 
-    /* 删除索引 index 处元素 */
-    func remove(nums: inout [Int], index: Int) {
-        let count = nums.count
-        // 把索引 index 之后的所有元素向前移动一位
-        for i in sequence(first: index, next: { $0 < count - 1 - 1 ? $0 + 1 : nil }) {
-            nums[i] = nums[i + 1]
-        }
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "Zig"
@@ -539,18 +507,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Swift"
 
     ```swift title="array.swift"
-    /* 遍历数组 */
-    func traverse(nums: [Int]) {
-        var count = 0
-        // 通过索引遍历数组
-        for _ in nums.indices {
-            count += 1
-        }
-        // 直接遍历数组
-        for _ in nums {
-            count += 1
-        }
-    }
+    [class]{}-[func]{traverse}
     ```
 
 === "Zig"
@@ -644,15 +601,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Swift"
 
     ```swift title="array.swift"
-    /* 在数组中查找指定元素 */
-    func find(nums: [Int], target: Int) -> Int {
-        for i in nums.indices {
-            if nums[i] == target {
-                return i
-            }
-        }
-        return -1
-    }
+    [class]{}-[func]{find}
     ```
 
 === "Zig"

@@ -82,12 +82,7 @@ comments: true
 === "Swift"
 
     ```swift title="hashing_search.swift"
-    /* 哈希查找（数组） */
-    func hashingSearchArray(map: [Int: Int], target: Int) -> Int {
-        // 哈希表的 key: 目标元素，value: 索引
-        // 若哈希表中无此 key ，返回 -1
-        return map[target, default: -1]
-    }
+    [class]{}-[func]{hashingSearchArray}
     ```
 
 === "Zig"
@@ -167,12 +162,7 @@ comments: true
 === "Swift"
 
     ```swift title="hashing_search.swift"
-    /* 哈希查找（链表） */
-    func hashingSearchLinkedList(map: [Int: ListNode], target: Int) -> ListNode? {
-        // 哈希表的 key: 目标结点值，value: 结点对象
-        // 若哈希表中无此 key ，返回 null
-        return map[target]
-    }
+    [class]{}-[func]{hashingSearchLinkedList}
     ```
 
 === "Zig"

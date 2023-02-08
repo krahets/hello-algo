@@ -87,18 +87,7 @@ comments: true
 === "Swift"
 
     ```swift title="linear_search.swift"
-    /* 线性查找（数组） */
-    func linearSearchArray(nums: [Int], target: Int) -> Int {
-        // 遍历数组
-        for i in nums.indices {
-            // 找到目标元素，返回其索引
-            if nums[i] == target {
-                return i
-            }
-        }
-        // 未找到目标元素，返回 -1
-        return -1
-    }
+    [class]{}-[func]{linearSearchArray}
     ```
 
 === "Zig"
@@ -185,20 +174,7 @@ comments: true
 === "Swift"
 
     ```swift title="linear_search.swift"
-    /* 线性查找（链表） */
-    func linearSearchLinkedList(head: ListNode?, target: Int) -> ListNode? {
-        var head = head
-        // 遍历链表
-        while head != nil {
-            // 找到目标结点，返回之
-            if head?.val == target {
-                return head
-            }
-            head = head?.next
-        }
-        // 未找到目标结点，返回 null
-        return nil
-    }
+    [class]{}-[func]{linearSearchLinkedList}
     ```
 
 === "Zig"

@@ -108,17 +108,7 @@ comments: true
 === "Swift"
 
     ```swift title="leetcode_two_sum.swift"
-    func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
-        // 两层循环，时间复杂度 O(n^2)
-        for i in nums.indices.dropLast() {
-            for j in nums.indices.dropFirst(i + 1) {
-                if nums[i] + nums[j] == target {
-                    return [i, j]
-                }
-            }
-        }
-        return [0]
-    }
+    [class]{}-[func]{twoSumBruteForce}
     ```
 
 === "Zig"
@@ -229,18 +219,7 @@ comments: true
 === "Swift"
 
     ```swift title="leetcode_two_sum.swift"
-    func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
-        // 辅助哈希表，空间复杂度 O(n)
-        var dic: [Int: Int] = [:]
-        // 单层循环，时间复杂度 O(n)
-        for i in nums.indices {
-            if let j = dic[target - nums[i]] {
-                return [j, i]
-            }
-            dic[nums[i]] = i
-        }
-        return [0]
-    }
+    [class]{}-[func]{twoSumHashTable}
     ```
 
 === "Zig"

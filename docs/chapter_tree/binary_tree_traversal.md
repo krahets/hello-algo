@@ -110,24 +110,7 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree_bfs.swift"
-    /* 层序遍历 */
-    func hierOrder(root: TreeNode) -> [Int] {
-        // 初始化队列，加入根结点
-        var queue: [TreeNode] = [root]
-        // 初始化一个列表，用于保存遍历序列
-        var list: [Int] = []
-        while !queue.isEmpty {
-            let node = queue.removeFirst() // 队列出队
-            list.append(node.val) // 保存结点值
-            if let left = node.left {
-                queue.append(left) // 左子结点入队
-            }
-            if let right = node.right {
-                queue.append(right) // 右子结点入队
-            }
-        }
-        return list
-    }
+    [class]{}-[func]{hierOrder}
     ```
 
 === "Zig"
@@ -286,38 +269,11 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree_dfs.swift"
-    /* 前序遍历 */
-    func preOrder(root: TreeNode?) {
-        guard let root = root else {
-            return
-        }
-        // 访问优先级：根结点 -> 左子树 -> 右子树
-        list.append(root.val)
-        preOrder(root: root.left)
-        preOrder(root: root.right)
-    }
+    [class]{}-[func]{preOrder}
 
-    /* 中序遍历 */
-    func inOrder(root: TreeNode?) {
-        guard let root = root else {
-            return
-        }
-        // 访问优先级：左子树 -> 根结点 -> 右子树
-        inOrder(root: root.left)
-        list.append(root.val)
-        inOrder(root: root.right)
-    }
+    [class]{}-[func]{inOrder}
 
-    /* 后序遍历 */
-    func postOrder(root: TreeNode?) {
-        guard let root = root else {
-            return
-        }
-        // 访问优先级：左子树 -> 右子树 -> 根结点
-        postOrder(root: root.left)
-        postOrder(root: root.right)
-        list.append(root.val)
-    }
+    [class]{}-[func]{postOrder}
     ```
 
 === "Zig"

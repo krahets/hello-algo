@@ -1,6 +1,6 @@
 """
-File: extract_code_jsts.py
-Created Time: 2023-02-07
+File: extract_code_swift.py
+Created Time: 2023-02-08
 Author: Krahets (krahets@163.com)
 """
 
@@ -11,15 +11,15 @@ sys.path.append(osp.dirname(osp.dirname(osp.dirname(osp.abspath(__file__)))))
 from docs.utils.extract_code_java import ExtractCodeBlocksJava
 
 
-class ExtractCodeBlocksJSTS(ExtractCodeBlocksJava):
+class ExtractCodeBlocksSwift(ExtractCodeBlocksJava):
     def __init__(self) -> None:
         super().__init__()
 
         # Pattern to match function names and class names
-        self.func_pattern = r'(\s*)(function|private|public|)\s*(\S*)\(.*\)(:|)\s*(.*)\s+{\s*\n'
+        self.func_pattern = r'(\s*)(public|private|)\s*(static|)\s*(func|)\s*(\w+)\(.*\).+{\s*\n'
         self.class_pattern = r'(public|)\s*class\s+(\w+)\s*\{'
         
-        self.func_pattern_keys = ["total", "ind", "prefix", "label", ":", "return"]
+        self.func_pattern_keys = ["total", "ind", "scope", "static", "func", "label"]
         self.class_pattern_keys = ["total", "scope", "label"]
 
 

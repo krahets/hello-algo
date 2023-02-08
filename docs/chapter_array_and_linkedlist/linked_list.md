@@ -572,17 +572,7 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* 访问链表中索引为 index 的结点 */
-    func access(head: ListNode, index: Int) -> ListNode? {
-        var head: ListNode? = head
-        for _ in 0 ..< index {
-            if head == nil {
-                return nil
-            }
-            head = head?.next
-        }
-        return head
-    }
+    [class]{}-[func]{access}
     ```
 
 === "Zig"
@@ -680,19 +670,7 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* 在链表中查找值为 target 的首个结点 */
-    func find(head: ListNode, target: Int) -> Int {
-        var head: ListNode? = head
-        var index = 0
-        while head != nil {
-            if head?.val == target {
-                return index
-            }
-            head = head?.next
-            index += 1
-        }
-        return -1
-    }
+    [class]{}-[func]{find}
     ```
 
 === "Zig"

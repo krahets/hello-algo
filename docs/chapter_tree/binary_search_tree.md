@@ -120,27 +120,7 @@ comments: true
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
-    /* 查找结点 */
-    func search(num: Int) -> TreeNode? {
-        var cur = root
-        // 循环查找，越过叶结点后跳出
-        while cur != nil {
-            // 目标结点在 cur 的右子树中
-            if cur!.val < num {
-                cur = cur?.right
-            }
-            // 目标结点在 cur 的左子树中
-            else if cur!.val > num {
-                cur = cur?.left
-            }
-            // 找到目标结点，跳出循环
-            else {
-                break
-            }
-        }
-        // 返回目标结点
-        return cur
-    }
+    [class]{BinarySearchTree}-[func]{search}
     ```
 
 === "Zig"
@@ -266,39 +246,7 @@ comments: true
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
-    /* 插入结点 */
-    func insert(num: Int) -> TreeNode? {
-        // 若树为空，直接提前返回
-        if root == nil {
-            return nil
-        }
-        var cur = root
-        var pre: TreeNode?
-        // 循环查找，越过叶结点后跳出
-        while cur != nil {
-            // 找到重复结点，直接返回
-            if cur!.val == num {
-                return nil
-            }
-            pre = cur
-            // 插入位置在 cur 的右子树中
-            if cur!.val < num {
-                cur = cur?.right
-            }
-            // 插入位置在 cur 的左子树中
-            else {
-                cur = cur?.left
-            }
-        }
-        // 插入结点 val
-        let node = TreeNode(x: num)
-        if pre!.val < num {
-            pre?.right = node
-        } else {
-            pre?.left = node
-        }
-        return node
-    }
+    [class]{BinarySearchTree}-[func]{insert}
     ```
 
 === "Zig"
@@ -530,71 +478,9 @@ comments: true
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
-    /* 删除结点 */
-    @discardableResult
-    func remove(num: Int) -> TreeNode? {
-        // 若树为空，直接提前返回
-        if root == nil {
-            return nil
-        }
-        var cur = root
-        var pre: TreeNode?
-        // 循环查找，越过叶结点后跳出
-        while cur != nil {
-            // 找到待删除结点，跳出循环
-            if cur!.val == num {
-                break
-            }
-            pre = cur
-            // 待删除结点在 cur 的右子树中
-            if cur!.val < num {
-                cur = cur?.right
-            }
-            // 待删除结点在 cur 的左子树中
-            else {
-                cur = cur?.left
-            }
-        }
-        // 若无待删除结点，则直接返回
-        if cur == nil {
-            return nil
-        }
-        // 子结点数量 = 0 or 1
-        if cur?.left == nil || cur?.right == nil {
-            // 当子结点数量 = 0 / 1 时， child = null / 该子结点
-            let child = cur?.left != nil ? cur?.left : cur?.right
-            // 删除结点 cur
-            if pre?.left === cur {
-                pre?.left = child
-            } else {
-                pre?.right = child
-            }
-        }
-        // 子结点数量 = 2
-        else {
-            // 获取中序遍历中 cur 的下一个结点
-            let nex = getInOrderNext(root: cur?.right)
-            let tmp = nex!.val
-            // 递归删除结点 nex
-            remove(num: nex!.val)
-            // 将 nex 的值复制给 cur
-            cur?.val = tmp
-        }
-        return cur
-    }
+    [class]{BinarySearchTree}-[func]{remove}
 
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    func getInOrderNext(root: TreeNode?) -> TreeNode? {
-        var root = root
-        if root == nil {
-            return root
-        }
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while root?.left != nil {
-            root = root?.left
-        }
-        return root
-    }
+    [class]{BinarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "Zig"

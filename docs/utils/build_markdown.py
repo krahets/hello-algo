@@ -14,6 +14,7 @@ from docs.utils.extract_code_python import ExtractCodeBlocksPython
 from docs.utils.extract_code_java import ExtractCodeBlocksJava
 from docs.utils.extract_code_cpp import ExtractCodeBlocksCpp
 from docs.utils.extract_code_jsts import ExtractCodeBlocksJSTS
+from docs.utils.extract_code_swift import ExtractCodeBlocksSwift
 
 
 def build_markdown(md_path):
@@ -88,6 +89,7 @@ extractor_dict = {
     "cpp": ExtractCodeBlocksCpp(),
     "javascript": ExtractCodeBlocksJSTS(),
     "typescript": ExtractCodeBlocksJSTS(),
+    "swift": ExtractCodeBlocksSwift(),
 }
 
 

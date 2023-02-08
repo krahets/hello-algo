@@ -868,15 +868,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 常数阶 */
-    func constant(n: Int) -> Int {
-        var count = 0
-        let size = 100000
-        for _ in 0 ..< size {
-            count += 1
-        }
-        return count
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "Zig"
@@ -971,14 +963,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 线性阶 */
-    func linear(n: Int) -> Int {
-        var count = 0
-        for _ in 0 ..< n {
-            count += 1
-        }
-        return count
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "Zig"
@@ -1078,15 +1063,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 线性阶（遍历数组） */
-    func arrayTraversal(nums: [Int]) -> Int {
-        var count = 0
-        // 循环次数与数组长度成正比
-        for _ in nums {
-            count += 1
-        }
-        return count
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 === "Zig"
@@ -1191,17 +1168,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 平方阶 */
-    func quadratic(n: Int) -> Int {
-        var count = 0
-        // 循环次数与数组长度成平方关系
-        for _ in 0 ..< n {
-            for _ in 0 ..< n {
-                count += 1
-            }
-        }
-        return count
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "Zig"
@@ -1341,24 +1308,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 平方阶（冒泡排序） */
-    func bubbleSort(nums: inout [Int]) -> Int {
-        var count = 0 // 计数器
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i in sequence(first: nums.count - 1, next: { $0 > 0 + 1 ? $0 - 1 : nil }) {
-            // 内循环：冒泡操作
-            for j in 0 ..< i {
-                if nums[j] > nums[j + 1] {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j]
-                    nums[j] = nums[j + 1]
-                    nums[j + 1] = tmp
-                    count += 3 // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "Zig"
@@ -1485,20 +1435,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 指数阶（循环实现） */
-    func exponential(n: Int) -> Int {
-        var count = 0
-        var base = 1
-        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for _ in 0 ..< n {
-            for _ in 0 ..< base {
-                count += 1
-            }
-            base *= 2
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "Zig"
@@ -1594,13 +1531,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 指数阶（递归实现） */
-    func expRecur(n: Int) -> Int {
-        if n == 1 {
-            return 1
-        }
-        return expRecur(n: n - 1) + expRecur(n: n - 1) + 1
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 === "Zig"
@@ -1698,16 +1629,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 对数阶（循环实现） */
-    func logarithmic(n: Int) -> Int {
-        var count = 0
-        var n = n
-        while n > 1 {
-            n = n / 2
-            count += 1
-        }
-        return count
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "Zig"
@@ -1799,13 +1721,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 对数阶（递归实现） */
-    func logRecur(n: Int) -> Int {
-        if n <= 1 {
-            return 0
-        }
-        return logRecur(n: n / 2) + 1
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 === "Zig"
@@ -1907,17 +1823,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 线性对数阶 */
-    func linearLogRecur(n: Double) -> Int {
-        if n <= 1 {
-            return 1
-        }
-        var count = linearLogRecur(n: n / 2) + linearLogRecur(n: n / 2)
-        for _ in 0 ..< Int(n) {
-            count += 1
-        }
-        return count
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 === "Zig"
@@ -2032,18 +1938,7 @@ $$
 === "Swift"
 
     ```swift title="time_complexity.swift"
-    /* 阶乘阶（递归实现） */
-    func factorialRecur(n: Int) -> Int {
-        if n == 0 {
-            return 1
-        }
-        var count = 0
-        // 从 1 个分裂出 n 个
-        for _ in 0 ..< n {
-            count += factorialRecur(n: n - 1)
-        }
-        return count
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 === "Zig"

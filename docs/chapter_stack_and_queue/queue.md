@@ -432,59 +432,7 @@ comments: true
 === "Swift"
 
     ```swift title="linkedlist_queue.swift"
-    /* 基于链表实现的队列 */
-    class LinkedListQueue {
-        private var front: ListNode? // 头结点
-        private var rear: ListNode? // 尾结点
-        private var _size = 0
-    
-        init() {}
-    
-        /* 获取队列的长度 */
-        func size() -> Int {
-            _size
-        }
-    
-        /* 判断队列是否为空 */
-        func isEmpty() -> Bool {
-            size() == 0
-        }
-    
-        /* 入队 */
-        func push(num: Int) {
-            // 尾结点后添加 num
-            let node = ListNode(x: num)
-            // 如果队列为空，则令头、尾结点都指向该结点
-            if front == nil {
-                front = node
-                rear = node
-            }
-            // 如果队列不为空，则将该结点添加到尾结点后
-            else {
-                rear?.next = node
-                rear = node
-            }
-            _size += 1
-        }
-    
-        /* 出队 */
-        @discardableResult
-        func poll() -> Int {
-            let num = peek()
-            // 删除头结点
-            front = front?.next
-            _size -= 1
-            return num
-        }
-    
-        /* 访问队首元素 */
-        func peek() -> Int {
-            if isEmpty() {
-                fatalError("队列为空")
-            }
-            return front!.val
-        }
-    }
+    [class]{LinkedListQueue}-[func]{}
     ```
 
 === "Zig"
@@ -692,64 +640,7 @@ comments: true
 === "Swift"
 
     ```swift title="array_queue.swift"
-    /* 基于环形数组实现的队列 */
-    class ArrayQueue {
-        private var nums: [Int] // 用于存储队列元素的数组
-        private var front = 0 // 队首指针，指向队首元素
-        private var queSize = 0 // 队列长度
-
-        init(capacity: Int) {
-            // 初始化数组
-            nums = Array(repeating: 0, count: capacity)
-        }
-
-        /* 获取队列的容量 */
-        func capacity() -> Int {
-            nums.count
-        }
-
-        /* 获取队列的长度 */
-        func size() -> Int {
-            queSize
-        }
-
-        /* 判断队列是否为空 */
-        func isEmpty() -> Bool {
-            queSize == 0
-        }
-
-        /* 入队 */
-        func push(num: Int) {
-            if size() == capacity() {
-                print("队列已满")
-                return
-            }
-            // 计算尾指针，指向队尾索引 + 1
-            // 通过取余操作，实现 rear 越过数组尾部后回到头部
-            let rear = (front + queSize) % capacity()
-            // 尾结点后添加 num
-            nums[rear] = num
-            queSize += 1
-        }
-
-        /* 出队 */
-        @discardableResult
-        func poll() -> Int {
-            let num = peek()
-            // 队首指针向后移动一位，若越过尾部则返回到数组头部
-            front = (front + 1) % capacity()
-            queSize -= 1
-            return num
-        }
-
-        /* 访问队首元素 */
-        func peek() -> Int {
-            if isEmpty() {
-                fatalError("队列为空")
-            }
-            return nums[front]
-        }
-    }
+    [class]{ArrayQueue}-[func]{}
     ```
 
 === "Zig"

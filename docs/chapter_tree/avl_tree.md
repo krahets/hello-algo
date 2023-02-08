@@ -362,13 +362,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Swift"
 
     ```swift title="avl_tree.swift"
-    /* 获取平衡因子 */
-    func balanceFactor(node: TreeNode?) -> Int {
-        // 空结点平衡因子为 0
-        guard let node = node else { return 0 }
-        // 结点平衡因子 = 左子树高度 - 右子树高度
-        return height(node: node.left) - height(node: node.right)
-    }
+    [class]{AVLTree}-[func]{balanceFactor}
     ```
 
 === "Zig"
@@ -485,19 +479,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Swift"
 
     ```swift title="avl_tree.swift"
-    /* 右旋操作 */
-    func rightRotate(node: TreeNode?) -> TreeNode? {
-        let child = node?.left
-        let grandChild = child?.right
-        // 以 child 为原点，将 node 向右旋转
-        child?.right = node
-        node?.left = grandChild
-        // 更新结点高度
-        updateHeight(node: node)
-        updateHeight(node: child)
-        // 返回旋转后子树的根结点
-        return child
-    }
+    [class]{AVLTree}-[func]{rightRotate}
     ```
 
 === "Zig"
@@ -596,20 +578,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Swift"
 
     ```swift title="avl_tree.swift"
-    /* 左旋操作 */
-    func leftRotate(node: TreeNode?) -> TreeNode? {
-        let child = node?.right
-        let grandChild = child?.left
-        // 以 child 为原点，将 node 向左旋转
-        child?.left = node
-        node?.right = grandChild
-        // 更新结点高度
-        updateHeight(node: node)
-        updateHeight(node: child)
-        // 返回旋转后子树的根结点
-        return child
-    }
-
+    [class]{AVLTree}-[func]{leftRotate}
     ```
 
 === "Zig"
@@ -768,35 +737,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Swift"
 
     ```swift title="avl_tree.swift"
-    /* 执行旋转操作，使该子树重新恢复平衡 */
-    func rotate(node: TreeNode?) -> TreeNode? {
-        // 获取结点 node 的平衡因子
-        let balanceFactor = balanceFactor(node: node)
-        // 左偏树
-        if balanceFactor > 1 {
-            if self.balanceFactor(node: node?.left) >= 0 {
-                // 右旋
-                return rightRotate(node: node)
-            } else {
-                // 先左旋后右旋
-                node?.left = leftRotate(node: node?.left)
-                return rightRotate(node: node)
-            }
-        }
-        // 右偏树
-        if balanceFactor < -1 {
-            if self.balanceFactor(node: node?.right) <= 0 {
-                // 左旋
-                return leftRotate(node: node)
-            } else {
-                // 先右旋后左旋
-                node?.right = rightRotate(node: node?.right)
-                return leftRotate(node: node)
-            }
-        }
-        // 平衡树，无需旋转，直接返回
-        return node
-    }
+    [class]{AVLTree}-[func]{rotate}
     ```
 
 === "Zig"
