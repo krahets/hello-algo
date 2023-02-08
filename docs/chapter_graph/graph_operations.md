@@ -141,7 +141,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="graph_adjacency_matrix.js"
+    ```javascript title="graph_adjacency_matrix.js"
 
     ```
 
@@ -160,7 +160,7 @@ comments: true
 === "C#"
 
     ```csharp title="graph_adjacency_matrix.cs"
-
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "Swift"
@@ -390,7 +390,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="graph_adjacency_list.js"
+    ```javascript title="graph_adjacency_list.js"
 
     ```
 
@@ -409,7 +409,9 @@ comments: true
 === "C#"
 
     ```csharp title="graph_adjacency_list.cs"
+    [class]{Vertex}-[func]{}
 
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "Swift"

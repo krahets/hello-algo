@@ -25,14 +25,7 @@ comments: true
 === "C++"
 
     ```cpp title="hashing_search.cpp"
-    /* 哈希查找（数组） */
-    int hashingSearchArray(unordered_map<int, int> map, int target) {
-        // 哈希表的 key: 目标元素，value: 索引
-        // 若哈希表中无此 key ，返回 -1
-        if (map.find(target) == map.end())
-            return -1;
-        return map[target];
-    }
+    [class]{}-[func]{hashingSearchArray}
     ```
 
 === "Python"
@@ -58,24 +51,14 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="hashing_search.js"
-    /* 哈希查找（数组） */
-    function hashingSearchArray(map, target) {
-        // 哈希表的 key: 目标元素，value: 索引
-        // 若哈希表中无此 key ，返回 -1
-        return map.has(target) ? map.get(target) : -1;
-    }
+    ```javascript title="hashing_search.js"
+    [class]{}-[func]{hashingSearchArray}
     ```
 
 === "TypeScript"
 
     ```typescript title="hashing_search.ts"
-    /* 哈希查找（数组） */
-    function hashingSearchArray(map: Map<number, number>, target: number): number {
-        // 哈希表的 key: 目标元素，value: 索引
-        // 若哈希表中无此 key ，返回 -1
-        return map.has(target) ? map.get(target) as number : -1;
-    }
+    [class]{}-[func]{hashingSearchArray}
     ```
 
 === "C"
@@ -87,24 +70,13 @@ comments: true
 === "C#"
 
     ```csharp title="hashing_search.cs"
-    /* 哈希查找（数组） */
-    int hashingSearchArray(Dictionary<int, int> map, int target)
-    {
-        // 哈希表的 key: 目标元素，value: 索引
-        // 若哈希表中无此 key ，返回 -1
-        return map.GetValueOrDefault(target, -1);
-    }
+    [class]{hashing_search}-[func]{hashingSearchArray}
     ```
 
 === "Swift"
 
     ```swift title="hashing_search.swift"
-    /* 哈希查找（数组） */
-    func hashingSearchArray(map: [Int: Int], target: Int) -> Int {
-        // 哈希表的 key: 目标元素，value: 索引
-        // 若哈希表中无此 key ，返回 -1
-        return map[target, default: -1]
-    }
+    [class]{}-[func]{hashingSearchArray}
     ```
 
 === "Zig"
@@ -126,14 +98,7 @@ comments: true
 === "C++"
 
     ```cpp title="hashing_search.cpp"
-    /* 哈希查找（链表） */
-    ListNode* hashingSearchLinkedList(unordered_map<int, ListNode*> map, int target) {
-        // 哈希表的 key: 目标结点值，value: 结点对象
-        // 若哈希表中无此 key ，返回 nullptr
-        if (map.find(target) == map.end())
-            return nullptr;
-        return map[target];
-    }
+    [class]{}-[func]{hashingSearchLinkedList}
     ```
 
 === "Python"
@@ -159,24 +124,14 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="hashing_search.js"
-    /* 哈希查找（链表） */
-    function hashingSearchLinkedList(map, target) {
-        // 哈希表的 key: 目标结点值，value: 结点对象
-        // 若哈希表中无此 key ，返回 null
-        return map.has(target) ? map.get(target) : null;
-    }
+    ```javascript title="hashing_search.js"
+    [class]{}-[func]{hashingSearchLinkedList}
     ```
 
 === "TypeScript"
 
     ```typescript title="hashing_search.ts"
-    /* 哈希查找（链表） */
-    function hashingSearchLinkedList(map: Map<number, ListNode>, target: number): ListNode | null {
-        // 哈希表的 key: 目标结点值，value: 结点对象
-        // 若哈希表中无此 key ，返回 null
-        return map.has(target) ? map.get(target) as ListNode : null;
-    }
+    [class]{}-[func]{hashingSearchLinkedList}
     ```
 
 === "C"
@@ -188,25 +143,13 @@ comments: true
 === "C#"
 
     ```csharp title="hashing_search.cs"
-    /* 哈希查找（链表） */
-    ListNode? hashingSearchLinkedList(Dictionary<int, ListNode> map, int target)
-    {
-
-        // 哈希表的 key: 目标结点值，value: 结点对象
-        // 若哈希表中无此 key ，返回 null
-        return map.GetValueOrDefault(target);
-    }
+    [class]{hashing_search}-[func]{hashingSearchLinkedList}
     ```
 
 === "Swift"
 
     ```swift title="hashing_search.swift"
-    /* 哈希查找（链表） */
-    func hashingSearchLinkedList(map: [Int: ListNode], target: Int) -> ListNode? {
-        // 哈希表的 key: 目标结点值，value: 结点对象
-        // 若哈希表中无此 key ，返回 null
-        return map[target]
-    }
+    [class]{}-[func]{hashingSearchLinkedList}
     ```
 
 === "Zig"

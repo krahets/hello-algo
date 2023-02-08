@@ -130,7 +130,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     /* 类 */
     class Node {
         val;
@@ -309,7 +309,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     function algorithm(n) {
         const a = 0;                   // O(1)
         const b = new Array(10000);    // O(1)
@@ -455,7 +455,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     function constFunc() {
         // do something
         return 0;
@@ -588,22 +588,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 常数阶 */
-    void constant(int n) {
-        // 常量、变量、对象占用 O(1) 空间
-        const int a = 0;
-        int b = 0;
-        vector<int> nums(10000);
-        ListNode node(0);
-        // 循环中的变量占用 O(1) 空间
-        for (int i = 0; i < n; i++) {
-            int c = 0;
-        }
-        // 循环中的函数占用 O(1) 空间
-        for (int i = 0; i < n; i++) {
-            func();
-        }
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "Python"
@@ -637,44 +622,14 @@ $$
 
 === "JavaScript"
 
-    ```js title="space_complexity.js"
-    /* 常数阶 */
-    function constant(n) {
-        // 常量、变量、对象占用 O(1) 空间
-        const a = 0;
-        const b = 0;
-        const nums = new Array(10000);
-        const node = new ListNode(0);
-        // 循环中的变量占用 O(1) 空间
-        for (let i = 0; i < n; i++) {
-            const c = 0;
-        }
-        // 循环中的函数占用 O(1) 空间
-        for (let i = 0; i < n; i++) {
-            constFunc();
-        }
-    }
+    ```javascript title="space_complexity.js"
+    [class]{}-[func]{constant}
     ```
 
 === "TypeScript"
 
     ```typescript title="space_complexity.ts"
-    /* 常数阶 */
-    function constant(n: number): void {
-        // 常量、变量、对象占用 O(1) 空间
-        const a = 0;
-        const b = 0;
-        const nums = new Array(10000);
-        const node = new ListNode(0);
-        // 循环中的变量占用 O(1) 空间
-        for (let i = 0; i < n; i++) {
-            const c = 0;
-        }
-        // 循环中的函数占用 O(1) 空间
-        for (let i = 0; i < n; i++) {
-            constFunc();
-        }
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "C"
@@ -686,46 +641,13 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    /* 常数阶 */
-    void constant(int n)
-    {
-        // 常量、变量、对象占用 O(1) 空间
-        int a = 0;
-        int b = 0;
-        int[] nums = new int[10000];
-        ListNode node = new ListNode(0);
-        // 循环中的变量占用 O(1) 空间
-        for (int i = 0; i < n; i++)
-        {
-            int c = 0;
-        }
-        // 循环中的函数占用 O(1) 空间
-        for (int i = 0; i < n; i++)
-        {
-            function();
-        }
-    }
+    [class]{space_complexity}-[func]{constant}
     ```
 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    /* 常数阶 */
-    func constant(n: Int) {
-        // 常量、变量、对象占用 O(1) 空间
-        let a = 0
-        var b = 0
-        let nums = Array(repeating: 0, count: 10000)
-        let node = ListNode(x: 0)
-        // 循环中的变量占用 O(1) 空间
-        for _ in 0 ..< n {
-            let c = 0
-        }
-        // 循环中的函数占用 O(1) 空间
-        for _ in 0 ..< n {
-            function()
-        }
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "Zig"
@@ -769,21 +691,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 线性阶 */
-    void linear(int n) {
-        // 长度为 n 的数组占用 O(n) 空间
-        vector<int> nums(n);
-        // 长度为 n 的列表占用 O(n) 空间
-        vector<ListNode> nodes;
-        for (int i = 0; i < n; i++) {
-            nodes.push_back(ListNode(i));
-        }
-        // 长度为 n 的哈希表占用 O(n) 空间
-        unordered_map<int, string> map;
-        for (int i = 0; i < n; i++) {
-            map[i] = to_string(i);
-        }
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "Python"
@@ -814,42 +722,14 @@ $$
 
 === "JavaScript"
 
-    ```js title="space_complexity.js"
-    /* 线性阶 */
-    function linear(n) {
-        // 长度为 n 的数组占用 O(n) 空间
-        const nums = new Array(n);
-        // 长度为 n 的列表占用 O(n) 空间
-        const nodes = [];
-        for (let i = 0; i < n; i++) {
-            nodes.push(new ListNode(i));
-        }
-        // 长度为 n 的哈希表占用 O(n) 空间
-        const map = new Map();
-        for (let i = 0; i < n; i++) {
-            map.set(i, i.toString());
-        }
-    }
+    ```javascript title="space_complexity.js"
+    [class]{}-[func]{linear}
     ```
 
 === "TypeScript"
 
     ```typescript title="space_complexity.ts"
-    /* 线性阶 */
-    function linear(n: number): void {
-        // 长度为 n 的数组占用 O(n) 空间
-        const nums = new Array(n);
-        // 长度为 n 的列表占用 O(n) 空间
-        const nodes: ListNode[] = [];
-        for (let i = 0; i < n; i++) {
-            nodes.push(new ListNode(i));
-        }
-        // 长度为 n 的哈希表占用 O(n) 空间
-        const map = new Map();
-        for (let i = 0; i < n; i++) {
-            map.set(i, i.toString());
-        }
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "C"
@@ -861,38 +741,13 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    /* 线性阶 */
-    void linear(int n)
-    {
-        // 长度为 n 的数组占用 O(n) 空间
-        int[] nums = new int[n];
-        // 长度为 n 的列表占用 O(n) 空间
-        List<ListNode> nodes = new();
-        for (int i = 0; i < n; i++)
-        {
-            nodes.Add(new ListNode(i));
-        }
-        // 长度为 n 的哈希表占用 O(n) 空间
-        Dictionary<int, String> map = new();
-        for (int i = 0; i < n; i++)
-        {
-            map.Add(i, i.ToString());
-        }
-    }
+    [class]{space_complexity}-[func]{linear}
     ```
 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    /* 线性阶 */
-    func linear(n: Int) {
-        // 长度为 n 的数组占用 O(n) 空间
-        let nums = Array(repeating: 0, count: n)
-        // 长度为 n 的列表占用 O(n) 空间
-        let nodes = (0 ..< n).map { ListNode(x: $0) }
-        // 长度为 n 的哈希表占用 O(n) 空间
-        let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "Zig"
@@ -933,12 +788,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 线性阶（递归实现） */
-    void linearRecur(int n) {
-        cout << "递归 n = " << n << endl;
-        if (n == 1) return;
-        linearRecur(n - 1);
-    }
+    [class]{}-[func]{linearRecur}
     ```
 
 === "Python"
@@ -962,24 +812,14 @@ $$
 
 === "JavaScript"
 
-    ```js title="space_complexity.js"
-    /* 线性阶（递归实现） */
-    function linearRecur(n) {
-        console.log(`递归 n = ${n}`);
-        if (n === 1) return;
-        linearRecur(n - 1);
-    }
+    ```javascript title="space_complexity.js"
+    [class]{}-[func]{linearRecur}
     ```
 
 === "TypeScript"
 
     ```typescript title="space_complexity.ts"
-    /* 线性阶（递归实现） */
-    function linearRecur(n: number): void {
-        console.log(`递归 n = ${n}`);
-        if (n === 1) return;
-        linearRecur(n - 1);
-    }
+    [class]{}-[func]{linearRecur}
     ```
 
 === "C"
@@ -991,26 +831,13 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    /* 线性阶（递归实现） */
-    void linearRecur(int n)
-    {
-        Console.WriteLine("递归 n = " + n);
-        if (n == 1) return;
-        linearRecur(n - 1);
-    }
+    [class]{space_complexity}-[func]{linearRecur}
     ```
 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    /* 线性阶（递归实现） */
-    func linearRecur(n: Int) {
-        print("递归 n = \(n)")
-        if n == 1 {
-            return
-        }
-        linearRecur(n: n - 1)
-    }
+    [class]{}-[func]{linearRecur}
     ```
 
 === "Zig"
@@ -1041,18 +868,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 平方阶 */
-    void quadratic(int n) {
-        // 二维列表占用 O(n^2) 空间
-        vector<vector<int>> numMatrix;
-        for (int i = 0; i < n; i++) {
-            vector<int> tmp;
-            for (int j = 0; j < n; j++) {
-                tmp.push_back(0);
-            }
-            numMatrix.push_back(tmp);
-        }
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "Python"
@@ -1076,40 +892,14 @@ $$
 
 === "JavaScript"
 
-    ```js title="space_complexity.js"
-    /* 平方阶 */
-    function quadratic(n) {
-        // 矩阵占用 O(n^2) 空间
-        const numMatrix = Array(n).fill(null).map(() => Array(n).fill(null));
-        // 二维列表占用 O(n^2) 空间
-        const numList = [];
-        for (let i = 0; i < n; i++) {
-            const tmp = [];
-            for (let j = 0; j < n; j++) {
-                tmp.push(0);
-            }
-            numList.push(tmp);
-        }
-    }
+    ```javascript title="space_complexity.js"
+    [class]{}-[func]{quadratic}
     ```
 
 === "TypeScript"
 
     ```typescript title="space_complexity.ts"
-    /* 平方阶 */
-    function quadratic(n: number): void {
-        // 矩阵占用 O(n^2) 空间
-        const numMatrix = Array(n).fill(null).map(() => Array(n).fill(null));
-        // 二维列表占用 O(n^2) 空间
-        const numList = [];
-        for (let i = 0; i < n; i++) {
-            const tmp = [];
-            for (let j = 0; j < n; j++) {
-                tmp.push(0);
-            }
-            numList.push(tmp);
-        }
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "C"
@@ -1121,33 +911,13 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    /* 平方阶 */
-    void quadratic(int n)
-    {
-        // 矩阵占用 O(n^2) 空间
-        int[,] numMatrix = new int[n, n];
-        // 二维列表占用 O(n^2) 空间
-        List<List<int>> numList = new();
-        for (int i = 0; i < n; i++)
-        {
-            List<int> tmp = new();
-            for (int j = 0; j < n; j++)
-            {
-                tmp.Add(0);
-            }
-            numList.Add(tmp);
-        }
-    }
+    [class]{space_complexity}-[func]{quadratic}
     ```
 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    /* 平方阶 */
-    func quadratic(n: Int) {
-        // 二维列表占用 O(n^2) 空间
-        let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "Zig"
@@ -1182,13 +952,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 平方阶（递归实现） */
-    int quadraticRecur(int n) {
-        if (n <= 0) return 0;
-        vector<int> nums(n);
-        cout << "递归 n = " << n << " 中的 nums 长度 = " << nums.size() << endl;
-        return quadraticRecur(n - 1);
-    }
+    [class]{}-[func]{quadraticRecur}
     ```
 
 === "Python"
@@ -1213,26 +977,14 @@ $$
 
 === "JavaScript"
 
-    ```js title="space_complexity.js"
-    /* 平方阶（递归实现） */
-    function quadraticRecur(n) {
-        if (n <= 0) return 0;
-        const nums = new Array(n);
-        console.log(`递归 n = ${n} 中的 nums 长度 = ${nums.length}`);
-        return quadraticRecur(n - 1);
-    }
+    ```javascript title="space_complexity.js"
+    [class]{}-[func]{quadraticRecur}
     ```
 
 === "TypeScript"
 
     ```typescript title="space_complexity.ts"
-    /* 平方阶（递归实现） */
-    function quadraticRecur(n: number): number {
-        if (n <= 0) return 0;
-        const nums = new Array(n);
-        console.log(`递归 n = ${n} 中的 nums 长度 = ${nums.length}`);
-        return quadraticRecur(n - 1);
-    }
+    [class]{}-[func]{quadraticRecur}
     ```
 
 === "C"
@@ -1244,28 +996,13 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    /* 平方阶（递归实现） */
-    int quadraticRecur(int n)
-    {
-        if (n <= 0) return 0;
-        // 数组 nums 长度为 n, n-1, ..., 2, 1
-        int[] nums = new int[n];
-        return quadraticRecur(n - 1);
-    }
+    [class]{space_complexity}-[func]{quadraticRecur}
     ```
 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    /* 平方阶（递归实现） */
-    func quadraticRecur(n: Int) -> Int {
-        if n <= 0 {
-            return 0
-        }
-        // 数组 nums 长度为 n, n-1, ..., 2, 1
-        let nums = Array(repeating: 0, count: n)
-        return quadraticRecur(n: n - 1)
-    }
+    [class]{}-[func]{quadraticRecur}
     ```
 
 === "Zig"
@@ -1297,14 +1034,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 指数阶（建立满二叉树） */
-    TreeNode* buildTree(int n) {
-        if (n == 0) return nullptr;
-        TreeNode* root = new TreeNode(0);
-        root->left = buildTree(n - 1);
-        root->right = buildTree(n - 1);
-        return root;
-    }
+    [class]{}-[func]{buildTree}
     ```
 
 === "Python"
@@ -1330,28 +1060,14 @@ $$
 
 === "JavaScript"
 
-    ```js title="space_complexity.js"
-    /* 指数阶（建立满二叉树） */
-    function buildTree(n) {
-        if (n === 0) return null;
-        const root = new TreeNode(0);
-        root.left = buildTree(n - 1);
-        root.right = buildTree(n - 1);
-        return root;
-    }
+    ```javascript title="space_complexity.js"
+    [class]{}-[func]{buildTree}
     ```
 
 === "TypeScript"
 
     ```typescript title="space_complexity.ts"
-    /* 指数阶（建立满二叉树） */
-    function buildTree(n: number): TreeNode | null {
-        if (n === 0) return null;
-        const root = new TreeNode(0);
-        root.left = buildTree(n - 1);
-        root.right = buildTree(n - 1);
-        return root;
-    }
+    [class]{}-[func]{buildTree}
     ```
 
 === "C"
@@ -1363,30 +1079,13 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    /* 指数阶（建立满二叉树） */
-    TreeNode? buildTree(int n)
-    {
-        if (n == 0) return null;
-        TreeNode root = new TreeNode(0);
-        root.left = buildTree(n - 1);
-        root.right = buildTree(n - 1);
-        return root;
-    }
+    [class]{space_complexity}-[func]{buildTree}
     ```
 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    /* 指数阶（建立满二叉树） */
-    func buildTree(n: Int) -> TreeNode? {
-        if n == 0 {
-            return nil
-        }
-        let root = TreeNode(x: 0)
-        root.left = buildTree(n: n - 1)
-        root.right = buildTree(n: n - 1)
-        return root
-    }
+    [class]{}-[func]{buildTree}
     ```
 
 === "Zig"

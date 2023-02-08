@@ -79,7 +79,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     class TreeNode {
         val; // 结点值
         height; //结点高度
@@ -214,7 +214,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
+    ```javascript title="avl_tree.js"
     /* 获取结点高度 */
     height(node) {
         // 空结点高度为 -1 ，叶结点高度为 0
@@ -253,19 +253,9 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    /* 获取结点高度 */
-    public int height(TreeNode? node)
-    {
-        // 空结点高度为 -1 ，叶结点高度为 0
-        return node == null ? -1 : node.height;
-    }
+    [class]{AVLTree}-[func]{height}
 
-    /* 更新结点高度 */
-    private void updateHeight(TreeNode node)
-    {
-        // 结点高度等于最高子树高度 + 1
-        node.height = Math.Max(height(node.left), height(node.right)) + 1;
-    }
+    [class]{AVLTree}-[func]{updateHeight}
     ```
 
 === "Swift"
@@ -303,13 +293,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    /* 获取平衡因子 */
-    int balanceFactor(TreeNode* node) {
-        // 空结点平衡因子为 0
-        if (node == nullptr) return 0;
-        // 结点平衡因子 = 左子树高度 - 右子树高度
-        return height(node->left) - height(node->right);
-    }
+    [class]{AVLTree}-[func]{balanceFactor}
     ```
 
 === "Python"
@@ -334,26 +318,14 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
-    /* 获取平衡因子 */
-    balanceFactor(node) {
-        // 空结点平衡因子为 0
-        if (node === null) return 0;
-        // 结点平衡因子 = 左子树高度 - 右子树高度
-        return this.height(node.left) - this.height(node.right);
-    }
+    ```javascript title="avl_tree.js"
+    [class]{AVLTree}-[func]{balanceFactor}
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-    /* 获取平衡因子 */
-    balanceFactor(node: TreeNode): number {
-        // 空结点平衡因子为 0
-        if (node === null) return 0;
-        // 结点平衡因子 = 左子树高度 - 右子树高度
-        return this.height(node.left) - this.height(node.right);
-    }
+    [class]{AVLTree}-[func]{balanceFactor}
     ```
 
 === "C"
@@ -367,26 +339,13 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    /* 获取平衡因子 */
-    public int balanceFactor(TreeNode? node)
-    {
-        // 空结点平衡因子为 0
-        if (node == null) return 0;
-        // 结点平衡因子 = 左子树高度 - 右子树高度
-        return height(node.left) - height(node.right);
-    }
+    [class]{AVLTree}-[func]{balanceFactor}
     ```
 
 === "Swift"
 
     ```swift title="avl_tree.swift"
-    /* 获取平衡因子 */
-    func balanceFactor(node: TreeNode?) -> Int {
-        // 空结点平衡因子为 0
-        guard let node = node else { return 0 }
-        // 结点平衡因子 = 左子树高度 - 右子树高度
-        return height(node: node.left) - height(node: node.right)
-    }
+    [class]{AVLTree}-[func]{balanceFactor}
     ```
 
 === "Zig"
@@ -436,19 +395,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    /* 右旋操作 */
-    TreeNode* rightRotate(TreeNode* node) {
-        TreeNode* child = node->left;
-        TreeNode* grandChild = child->right;
-        // 以 child 为原点，将 node 向右旋转
-        child->right = node;
-        node->left = grandChild;
-        // 更新结点高度
-        updateHeight(node);
-        updateHeight(child);
-        // 返回旋转后子树的根结点
-        return child;
-    }
+    [class]{AVLTree}-[func]{rightRotate}
     ```
 
 === "Python"
@@ -477,38 +424,14 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
-    /* 右旋操作 */
-    rightRotate(node) {
-        const child = node.left;
-        const grandChild = child.right;
-        // 以 child 为原点，将 node 向右旋转
-        child.right = node;
-        node.left = grandChild;
-        // 更新结点高度
-        this.updateHeight(node);
-        this.updateHeight(child);
-        // 返回旋转后子树的根结点
-        return child;
-    }
+    ```javascript title="avl_tree.js"
+    [class]{AVLTree}-[func]{rightRotate}
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-    /* 右旋操作 */
-    rightRotate(node: TreeNode): TreeNode {
-        const child = node.left;
-        const grandChild = child.right;
-        // 以 child 为原点，将 node 向右旋转
-        child.right = node;
-        node.left = grandChild;
-        // 更新结点高度
-        this.updateHeight(node);
-        this.updateHeight(child);
-        // 返回旋转后子树的根结点
-        return child;
-    }
+    [class]{AVLTree}-[func]{rightRotate}
     ```
 
 === "C"
@@ -520,38 +443,13 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    /* 右旋操作 */
-    TreeNode? rightRotate(TreeNode? node)
-    {
-        TreeNode? child = node.left;
-        TreeNode? grandChild = child?.right;
-        // 以 child 为原点，将 node 向右旋转
-        child.right = node;
-        node.left = grandChild;
-        // 更新结点高度
-        updateHeight(node);
-        updateHeight(child);
-        // 返回旋转后子树的根结点
-        return child;
-    }
+    [class]{AVLTree}-[func]{rightRotate}
     ```
 
 === "Swift"
 
     ```swift title="avl_tree.swift"
-    /* 右旋操作 */
-    func rightRotate(node: TreeNode?) -> TreeNode? {
-        let child = node?.left
-        let grandChild = child?.right
-        // 以 child 为原点，将 node 向右旋转
-        child?.right = node
-        node?.left = grandChild
-        // 更新结点高度
-        updateHeight(node: node)
-        updateHeight(node: child)
-        // 返回旋转后子树的根结点
-        return child
-    }
+    [class]{AVLTree}-[func]{rightRotate}
     ```
 
 === "Zig"
@@ -581,19 +479,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    /* 左旋操作 */
-    TreeNode* leftRotate(TreeNode* node) {
-        TreeNode* child = node->right;
-        TreeNode* grandChild = child->left;
-        // 以 child 为原点，将 node 向左旋转
-        child->left = node;
-        node->right = grandChild;
-        // 更新结点高度
-        updateHeight(node);
-        updateHeight(child);
-        // 返回旋转后子树的根结点
-        return child;
-    }
+    [class]{AVLTree}-[func]{leftRotate}
     ```
 
 === "Python"
@@ -622,38 +508,14 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
-    /* 左旋操作 */
-    leftRotate(node) {
-        const child = node.right;
-        const grandChild = child.left;
-        // 以 child 为原点，将 node 向左旋转
-        child.left = node;
-        node.right = grandChild;
-        // 更新结点高度
-        this.updateHeight(node);
-        this.updateHeight(child);
-        // 返回旋转后子树的根结点
-        return child;
-    }
+    ```javascript title="avl_tree.js"
+    [class]{AVLTree}-[func]{leftRotate}
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-    /* 左旋操作 */
-    leftRotate(node: TreeNode): TreeNode {
-        const child = node.right;
-        const grandChild = child.left;
-        // 以 child 为原点，将 node 向左旋转
-        child.left = node;
-        node.right = grandChild;
-        // 更新结点高度
-        this.updateHeight(node);
-        this.updateHeight(child);
-        // 返回旋转后子树的根结点
-        return child;
-    }
+    [class]{AVLTree}-[func]{leftRotate}
     ```
 
 === "C"
@@ -667,39 +529,13 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    /* 左旋操作 */
-    TreeNode? leftRotate(TreeNode? node)
-    {
-        TreeNode? child = node.right;
-        TreeNode? grandChild = child?.left;
-        // 以 child 为原点，将 node 向左旋转
-        child.left = node;
-        node.right = grandChild;
-        // 更新结点高度
-        updateHeight(node);
-        updateHeight(child);
-        // 返回旋转后子树的根结点
-        return child;
-    }
+    [class]{AVLTree}-[func]{leftRotate}
     ```
 
 === "Swift"
 
     ```swift title="avl_tree.swift"
-    /* 左旋操作 */
-    func leftRotate(node: TreeNode?) -> TreeNode? {
-        let child = node?.right
-        let grandChild = child?.left
-        // 以 child 为原点，将 node 向左旋转
-        child?.left = node
-        node?.right = grandChild
-        // 更新结点高度
-        updateHeight(node: node)
-        updateHeight(node: child)
-        // 返回旋转后子树的根结点
-        return child
-    }
-
+    [class]{AVLTree}-[func]{leftRotate}
     ```
 
 === "Zig"
@@ -750,35 +586,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    /* 执行旋转操作，使该子树重新恢复平衡 */
-    TreeNode* rotate(TreeNode* node) {
-        // 获取结点 node 的平衡因子
-        int _balanceFactor = balanceFactor(node);
-        // 左偏树
-        if (_balanceFactor > 1) {
-            if (balanceFactor(node->left) >= 0) {
-                // 右旋
-                return rightRotate(node);
-            } else {
-                // 先左旋后右旋
-                node->left = leftRotate(node->left);
-                return rightRotate(node);
-            }
-        }
-        // 右偏树
-        if (_balanceFactor < -1) {
-            if (balanceFactor(node->right) <= 0) {
-                // 左旋
-                return leftRotate(node);
-            } else {
-                // 先右旋后左旋
-                node->right = rightRotate(node->right);
-                return leftRotate(node);
-            }
-        }
-        // 平衡树，无需旋转，直接返回
-        return node;
-    }
+    [class]{AVLTree}-[func]{rotate}
     ```
 
 === "Python"
@@ -824,70 +632,14 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
-    /* 执行旋转操作，使该子树重新恢复平衡 */
-    rotate(node) {
-        // 获取结点 node 的平衡因子
-        const balanceFactor = this.balanceFactor(node);
-        // 左偏树
-        if (balanceFactor > 1) {
-            if (this.balanceFactor(node.left) >= 0) {
-                // 右旋
-                return this.rightRotate(node);
-            } else {
-                // 先左旋后右旋
-                node.left = this.leftRotate(node.left);
-                return this.rightRotate(node);
-            }
-        }
-        // 右偏树
-        if (balanceFactor < -1) {
-            if (this.balanceFactor(node.right) <= 0) {
-                // 左旋
-                return this.leftRotate(node);
-            } else {
-                // 先右旋后左旋
-                node.right = this.rightRotate(node.right);
-                return this.leftRotate(node);
-            }
-        }
-        // 平衡树，无需旋转，直接返回
-        return node;
-    }
+    ```javascript title="avl_tree.js"
+    [class]{AVLTree}-[func]{rotate}
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-    /* 执行旋转操作，使该子树重新恢复平衡 */
-    rotate(node: TreeNode): TreeNode {
-        // 获取结点 node 的平衡因子
-        const balanceFactor = this.balanceFactor(node);
-        // 左偏树
-        if (balanceFactor > 1) {
-            if (this.balanceFactor(node.left) >= 0) {
-                // 右旋
-                return this.rightRotate(node);
-            } else {
-                // 先左旋后右旋
-                node.left = this.leftRotate(node.left);
-                return this.rightRotate(node);
-            }
-        }
-        // 右偏树
-        if (balanceFactor < -1) {
-            if (this.balanceFactor(node.right) <= 0) {
-                // 左旋
-                return this.leftRotate(node);
-            } else {
-                // 先右旋后左旋
-                node.right = this.rightRotate(node.right);
-                return this.leftRotate(node);
-            }
-        }
-        // 平衡树，无需旋转，直接返回
-        return node;
-    }
+    [class]{AVLTree}-[func]{rotate}
     ```
 
 === "C"
@@ -899,78 +651,13 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    /* 执行旋转操作，使该子树重新恢复平衡 */
-    TreeNode? rotate(TreeNode? node)
-    {
-        // 获取结点 node 的平衡因子
-        int balanceFactorInt = balanceFactor(node);
-        // 左偏树
-        if (balanceFactorInt > 1)
-        {
-            if (balanceFactor(node.left) >= 0)
-            {
-                // 右旋
-                return rightRotate(node);
-            }
-            else
-            {
-                // 先左旋后右旋
-                node.left = leftRotate(node?.left);
-                return rightRotate(node);
-            }
-        }
-        // 右偏树
-        if (balanceFactorInt < -1)
-        {
-            if (balanceFactor(node.right) <= 0)
-            {
-                // 左旋
-                return leftRotate(node);
-            }
-            else
-            {
-                // 先右旋后左旋
-                node.right = rightRotate(node?.right);
-                return leftRotate(node);
-            }
-        }
-        // 平衡树，无需旋转，直接返回
-        return node;
-    }
+    [class]{AVLTree}-[func]{rotate}
     ```
 
 === "Swift"
 
     ```swift title="avl_tree.swift"
-    /* 执行旋转操作，使该子树重新恢复平衡 */
-    func rotate(node: TreeNode?) -> TreeNode? {
-        // 获取结点 node 的平衡因子
-        let balanceFactor = balanceFactor(node: node)
-        // 左偏树
-        if balanceFactor > 1 {
-            if self.balanceFactor(node: node?.left) >= 0 {
-                // 右旋
-                return rightRotate(node: node)
-            } else {
-                // 先左旋后右旋
-                node?.left = leftRotate(node: node?.left)
-                return rightRotate(node: node)
-            }
-        }
-        // 右偏树
-        if balanceFactor < -1 {
-            if self.balanceFactor(node: node?.right) <= 0 {
-                // 左旋
-                return leftRotate(node: node)
-            } else {
-                // 先右旋后左旋
-                node?.right = rightRotate(node: node?.right)
-                return leftRotate(node: node)
-            }
-        }
-        // 平衡树，无需旋转，直接返回
-        return node
-    }
+    [class]{AVLTree}-[func]{rotate}
     ```
 
 === "Zig"
@@ -1061,7 +748,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
+    ```javascript title="avl_tree.js"
     /* 插入结点 */
     insert(val) {
         this.root = this.insertHelper(this.root, val);
@@ -1122,30 +809,9 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    /* 插入结点 */
-    public TreeNode? insert(int val)
-    {
-        root = insertHelper(root, val);
-        return root;
-    }
+    [class]{AVLTree}-[func]{insert}
 
-    /* 递归插入结点（辅助函数） */
-    private TreeNode? insertHelper(TreeNode? node, int val)
-    {
-        if (node == null) return new TreeNode(val);
-        /* 1. 查找插入位置，并插入结点 */
-        if (val < node.val)
-            node.left = insertHelper(node.left, val);
-        else if (val > node.val)
-            node.right = insertHelper(node.right, val);
-        else
-            return node;     // 重复结点不插入，直接返回
-        updateHeight(node);  // 更新结点高度
-        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
-        node = rotate(node);
-        // 返回子树的根结点
-        return node;
-    }
+    [class]{AVLTree}-[func]{insertHelper}
     ```
 
 === "Swift"
@@ -1325,7 +991,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 === "JavaScript"
 
-    ```js title="avl_tree.js"
+    ```javascript title="avl_tree.js"
     /* 删除结点 */
     remove(val) {
         this.root = this.removeHelper(this.root, val);
@@ -1431,60 +1097,11 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    /* 删除结点 */
-    public TreeNode? remove(int val)
-    {
-        root = removeHelper(root, val);
-        return root;
-    }
+    [class]{AVLTree}-[func]{remove}
 
-    /* 递归删除结点（辅助函数） */
-    private TreeNode? removeHelper(TreeNode? node, int val)
-    {
-        if (node == null) return null;
-        /* 1. 查找结点，并删除之 */
-        if (val < node.val)
-            node.left = removeHelper(node.left, val);
-        else if (val > node.val)
-            node.right = removeHelper(node.right, val);
-        else
-        {
-            if (node.left == null || node.right == null)
-            {
-                TreeNode? child = node.left != null ? node.left : node.right;
-                // 子结点数量 = 0 ，直接删除 node 并返回
-                if (child == null)
-                    return null;
-                // 子结点数量 = 1 ，直接删除 node
-                else
-                    node = child;
-            }
-            else
-            {
-                // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
-                TreeNode? temp = getInOrderNext(node.right);
-                node.right = removeHelper(node.right, temp.val);
-                node.val = temp.val;
-            }
-        }
-        updateHeight(node);  // 更新结点高度
-        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
-        node = rotate(node);
-        // 返回子树的根结点
-        return node;
-    }
+    [class]{AVLTree}-[func]{removeHelper}
 
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    private TreeNode? getInOrderNext(TreeNode? node)
-    {
-        if (node == null) return node;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (node.left != null)
-        {
-            node = node.left;
-        }
-        return node;
-    }
+    [class]{AVLTree}-[func]{getInOrderNext}
     ```
 
 === "Swift"

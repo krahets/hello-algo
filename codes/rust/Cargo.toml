@@ -2,10 +2,7 @@
 name = "hello-algo-rust"
 version = "0.1.0"
 edition = "2021"
-
-[lib]
-name = "inc"
-path = "include/include.rs"
+publish = false
 
 # Run Command: cargo run --bin time_complexity
 [[bin]]

@@ -9,26 +9,24 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
 """ 方法一：暴力枚举 """
-class SolutionBruteForce:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # 两层循环，时间复杂度 O(n^2)
-        for i in range(len(nums) - 1):
-            for j in range(i + 1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return i, j
-        return []
+def two_sum_brute_force(nums: List[int], target: int) -> List[int]:
+    # 两层循环，时间复杂度 O(n^2)
+    for i in range(len(nums) - 1):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return i, j
+    return []
 
 """ 方法二：辅助哈希表 """
-class SolutionHashMap:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # 辅助哈希表，空间复杂度 O(n)
-        dic = {}
-        # 单层循环，时间复杂度 O(n)
-        for i in range(len(nums)):
-            if target - nums[i] in dic:
-                return dic[target - nums[i]], i
-            dic[nums[i]] = i
-        return []
+def two_sum_hash_table(nums: List[int], target: int) -> List[int]:
+    # 辅助哈希表，空间复杂度 O(n)
+    dic = {}
+    # 单层循环，时间复杂度 O(n)
+    for i in range(len(nums)):
+        if target - nums[i] in dic:
+            return dic[target - nums[i]], i
+        dic[nums[i]] = i
+    return []
 
 
 """ Driver Code """
@@ -39,8 +37,8 @@ if __name__ == '__main__':
     
     # ====== Driver Code ======
     # 方法一
-    res = SolutionBruteForce().twoSum(nums, target)
+    res = two_sum_brute_force(nums, target)
     print("方法一 res =", res)
     # 方法二
-    res = SolutionHashMap().twoSum(nums, target)
+    res = two_sum_hash_table(nums, target)
     print("方法二 res =", res)

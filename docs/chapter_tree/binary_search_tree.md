@@ -44,21 +44,7 @@ comments: true
 === "C++"
 
     ```cpp title="binary_search_tree.cpp"
-    /* 查找结点 */
-    TreeNode* search(int num) {
-        TreeNode* cur = root;
-        // 循环查找，越过叶结点后跳出
-        while (cur != nullptr) {
-            // 目标结点在 cur 的右子树中
-            if (cur->val < num) cur = cur->right;
-            // 目标结点在 cur 的左子树中
-            else if (cur->val > num) cur = cur->left;
-            // 找到目标结点，跳出循环
-            else break;
-        }
-        // 返回目标结点
-        return cur;
-    }
+    [class]{BinarySearchTree}-[func]{search}
     ```
 
 === "Python"
@@ -93,43 +79,14 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="binary_search_tree.js"
-    /* 查找结点 */
-    function search(num) {
-        let cur = root;
-        // 循环查找，越过叶结点后跳出
-        while (cur !== null) {
-            // 目标结点在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
-            // 目标结点在 cur 的左子树中
-            else if (cur.val > num) cur = cur.left;
-            // 找到目标结点，跳出循环
-            else break;
-        }
-        // 返回目标结点
-        return cur;
-    }
+    ```javascript title="binary_search_tree.js"
+    [class]{}-[func]{search}
     ```
 
 === "TypeScript"
 
     ```typescript title="binary_search_tree.ts"
-    /* 查找结点 */
-    function search(num: number): TreeNode | null {
-        let cur = root;
-        // 循环查找，越过叶结点后跳出
-        while (cur !== null) {
-            if (cur.val < num) {
-                cur = cur.right; // 目标结点在 cur 的右子树中
-            } else if (cur.val > num) {
-                cur = cur.left; // 目标结点在 cur 的左子树中
-            } else {
-                break; // 找到目标结点，跳出循环
-            }
-        }
-        // 返回目标结点
-        return cur;
-    }
+    [class]{}-[func]{search}
     ```
 
 === "C"
@@ -141,49 +98,13 @@ comments: true
 === "C#"
 
     ```csharp title="binary_search_tree.cs"
-    /* 查找结点 */
-    TreeNode? search(int num)
-    {
-        TreeNode? cur = root;
-        // 循环查找，越过叶结点后跳出
-        while (cur != null)
-        {
-            // 目标结点在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
-            // 目标结点在 cur 的左子树中
-            else if (cur.val > num) cur = cur.left;
-            // 找到目标结点，跳出循环
-            else break;
-        }
-        // 返回目标结点
-        return cur;
-    }
+    [class]{BinarySearchTree}-[func]{search}
     ```
 
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
-    /* 查找结点 */
-    func search(num: Int) -> TreeNode? {
-        var cur = root
-        // 循环查找，越过叶结点后跳出
-        while cur != nil {
-            // 目标结点在 cur 的右子树中
-            if cur!.val < num {
-                cur = cur?.right
-            }
-            // 目标结点在 cur 的左子树中
-            else if cur!.val > num {
-                cur = cur?.left
-            }
-            // 找到目标结点，跳出循环
-            else {
-                break
-            }
-        }
-        // 返回目标结点
-        return cur
-    }
+    [class]{BinarySearchTree}-[func]{search}
     ```
 
 === "Zig"
@@ -212,27 +133,7 @@ comments: true
 === "C++"
 
     ```cpp title="binary_search_tree.cpp"
-    /* 插入结点 */
-    TreeNode* insert(int num) {
-        // 若树为空，直接提前返回
-        if (root == nullptr) return nullptr;
-        TreeNode *cur = root, *pre = nullptr;
-        // 循环查找，越过叶结点后跳出
-        while (cur != nullptr) {
-            // 找到重复结点，直接返回
-            if (cur->val == num) return nullptr;
-            pre = cur;
-            // 插入位置在 cur 的右子树中
-            if (cur->val < num) cur = cur->right;
-            // 插入位置在 cur 的左子树中
-            else cur = cur->left;
-        }
-        // 插入结点 val
-        TreeNode* node = new TreeNode(num);
-        if (pre->val < num) pre->right = node;
-        else pre->left = node;
-        return node;
-    }
+    [class]{BinarySearchTree}-[func]{insert}
     ```
 
 === "Python"
@@ -278,62 +179,14 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="binary_search_tree.js"
-    /* 插入结点 */
-    function insert(num) {
-        // 若树为空，直接提前返回
-        if (root === null) return null;
-        let cur = root, pre = null;
-        // 循环查找，越过叶结点后跳出
-        while (cur !== null) {
-            // 找到重复结点，直接返回
-            if (cur.val === num) return null;
-            pre = cur;
-            // 插入位置在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
-            // 插入位置在 cur 的左子树中
-            else cur = cur.left;
-        }
-        // 插入结点 val
-        let node = new Tree.TreeNode(num);
-        if (pre.val < num) pre.right = node;
-        else pre.left = node;
-        return node;
-    }
+    ```javascript title="binary_search_tree.js"
+    [class]{}-[func]{insert}
     ```
 
 === "TypeScript"
 
     ```typescript title="binary_search_tree.ts"
-    /* 插入结点 */
-    function insert(num: number): TreeNode | null {
-        // 若树为空，直接提前返回
-        if (root === null) {
-            return null;
-        }
-        let cur = root,
-            pre: TreeNode | null = null;
-        // 循环查找，越过叶结点后跳出
-        while (cur !== null) {
-            if (cur.val === num) {
-                return null; // 找到重复结点，直接返回
-            }
-            pre = cur;
-            if (cur.val < num) {
-                cur = cur.right as TreeNode; // 插入位置在 cur 的右子树中
-            } else {
-                cur = cur.left as TreeNode; // 插入位置在 cur 的左子树中
-            }
-        }
-        // 插入结点 val
-        let node = new TreeNode(num);
-        if (pre!.val < num) {
-            pre!.right = node;
-        } else {
-            pre!.left = node;
-        }
-        return node;
-    }
+    [class]{}-[func]{insert}
     ```
 
 === "C"
@@ -345,71 +198,13 @@ comments: true
 === "C#"
 
     ```csharp title="binary_search_tree.cs"
-    /* 插入结点 */
-    TreeNode? insert(int num)
-    {
-        // 若树为空，直接提前返回
-        if (root == null) return null;
-        TreeNode? cur = root, pre = null;
-        // 循环查找，越过叶结点后跳出
-        while (cur != null)
-        {
-            // 找到重复结点，直接返回
-            if (cur.val == num) return null;
-            pre = cur;
-            // 插入位置在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
-            // 插入位置在 cur 的左子树中
-            else cur = cur.left;
-        }
-    
-        // 插入结点 val
-        TreeNode node = new TreeNode(num);
-        if (pre != null)
-        {
-            if (pre.val < num) pre.right = node;
-            else pre.left = node;
-        }
-        return node;
-    }
+    [class]{BinarySearchTree}-[func]{insert}
     ```
 
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
-    /* 插入结点 */
-    func insert(num: Int) -> TreeNode? {
-        // 若树为空，直接提前返回
-        if root == nil {
-            return nil
-        }
-        var cur = root
-        var pre: TreeNode?
-        // 循环查找，越过叶结点后跳出
-        while cur != nil {
-            // 找到重复结点，直接返回
-            if cur!.val == num {
-                return nil
-            }
-            pre = cur
-            // 插入位置在 cur 的右子树中
-            if cur!.val < num {
-                cur = cur?.right
-            }
-            // 插入位置在 cur 的左子树中
-            else {
-                cur = cur?.left
-            }
-        }
-        // 插入结点 val
-        let node = TreeNode(x: num)
-        if pre!.val < num {
-            pre?.right = node
-        } else {
-            pre?.left = node
-        }
-        return node
-    }
+    [class]{BinarySearchTree}-[func]{insert}
     ```
 
 === "Zig"
@@ -465,53 +260,9 @@ comments: true
 === "C++"
 
     ```cpp title="binary_search_tree.cpp"
-    /* 删除结点 */
-    TreeNode* remove(int num) {
-        // 若树为空，直接提前返回
-        if (root == nullptr) return nullptr;
-        TreeNode *cur = root, *pre = nullptr;
-        // 循环查找，越过叶结点后跳出
-        while (cur != nullptr) {
-            // 找到待删除结点，跳出循环
-            if (cur->val == num) break;
-            pre = cur;
-            // 待删除结点在 cur 的右子树中
-            if (cur->val < num) cur = cur->right;
-            // 待删除结点在 cur 的左子树中
-            else cur = cur->left;
-        }
-        // 若无待删除结点，则直接返回
-        if (cur == nullptr) return nullptr;
-        // 子结点数量 = 0 or 1
-        if (cur->left == nullptr || cur->right == nullptr) {
-            // 当子结点数量 = 0 / 1 时， child = nullptr / 该子结点
-            TreeNode* child = cur->left != nullptr ? cur->left : cur->right;
-            // 删除结点 cur
-            if (pre->left == cur) pre->left = child;
-            else pre->right = child;
-        }
-        // 子结点数量 = 2
-        else {
-            // 获取中序遍历中 cur 的下一个结点
-            TreeNode* nex = getInOrderNext(cur->right);
-            int tmp = nex->val;
-            // 递归删除结点 nex
-            remove(nex->val);
-            // 将 nex 的值复制给 cur
-            cur->val = tmp;
-        }
-        return cur;
-    }
+    [class]{BinarySearchTree}-[func]{remove}
 
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    TreeNode* getInOrderNext(TreeNode* root) {
-        if (root == nullptr) return root;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (root->left != nullptr) {
-            root = root->left;
-        }
-        return root;
-    }
+    [class]{BinarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "Python"
@@ -595,119 +346,18 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="binary_search_tree.js"
-    /* 删除结点 */
-    function remove(num) {
-        // 若树为空，直接提前返回
-        if (root === null) return null;
-        let cur = root, pre = null;
-        // 循环查找，越过叶结点后跳出
-        while (cur !== null) {
-            // 找到待删除结点，跳出循环
-            if (cur.val === num) break;
-            pre = cur;
-            // 待删除结点在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
-            // 待删除结点在 cur 的左子树中
-            else cur = cur.left;
-        }
-        // 若无待删除结点，则直接返回
-        if (cur === null) return null;
-        // 子结点数量 = 0 or 1
-        if (cur.left === null || cur.right === null) {
-            // 当子结点数量 = 0 / 1 时， child = null / 该子结点
-            let child = cur.left !== null ? cur.left : cur.right;
-            // 删除结点 cur
-            if (pre.left === cur) pre.left = child;
-            else pre.right = child;
-        }
-        // 子结点数量 = 2
-        else {
-            // 获取中序遍历中 cur 的下一个结点
-            let nex = getInOrderNext(cur.right);
-            let tmp = nex.val;
-            // 递归删除结点 nex
-            remove(nex.val);
-            // 将 nex 的值复制给 cur
-            cur.val = tmp;
-        }
-        return cur;
-    }
+    ```javascript title="binary_search_tree.js"
+    [class]{}-[func]{remove}
 
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    function getInOrderNext(root) {
-        if (root === null) return root;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (root.left !== null) {
-            root = root.left;
-        }
-        return root;
-    }
+    [class]{}-[func]{getInOrderNext}
     ```
 
 === "TypeScript"
 
     ```typescript title="binary_search_tree.ts"
-    /* 删除结点 */
-    function remove(num: number): TreeNode | null {
-        // 若树为空，直接提前返回
-        if (root === null) {
-            return null;
-        }
-        let cur = root,
-            pre: TreeNode | null = null;
-        // 循环查找，越过叶结点后跳出
-        while (cur !== null) {
-            // 找到待删除结点，跳出循环
-            if (cur.val === num) {
-                break;
-            }
-            pre = cur;
-            if (cur.val < num) {
-                cur = cur.right as TreeNode; // 待删除结点在 cur 的右子树中
-            } else {
-                cur = cur.left as TreeNode; // 待删除结点在 cur 的左子树中
-            }
-        }
-        // 若无待删除结点，则直接返回
-        if (cur === null) {
-            return null;
-        }
-        // 子结点数量 = 0 or 1
-        if (cur.left === null || cur.right === null) {
-            // 当子结点数量 = 0 / 1 时， child = null / 该子结点
-            let child = cur.left !== null ? cur.left : cur.right;
-            // 删除结点 cur
-            if (pre!.left === cur) {
-                pre!.left = child;
-            } else {
-                pre!.right = child;
-            }
-        }
-        // 子结点数量 = 2
-        else {
-            // 获取中序遍历中 cur 的下一个结点
-            let next = getInOrderNext(cur.right);
-            let tmp = next!.val;
-            // 递归删除结点 nex
-            remove(next!.val);
-            // 将 nex 的值复制给 cur
-            cur.val = tmp;
-        }
-        return cur;
-    }
+    [class]{}-[func]{remove}
 
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    function getInOrderNext(root: TreeNode | null): TreeNode | null {
-        if (root === null) {
-            return null;
-        }
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (root.left !== null) {
-            root = root.left;
-        }
-        return root;
-    }
+    [class]{}-[func]{getInOrderNext}
     ```
 
 === "C"
@@ -719,138 +369,17 @@ comments: true
 === "C#"
 
     ```csharp title="binary_search_tree.cs"
-    /* 删除结点 */
-    TreeNode? remove(int num)
-    {
-        // 若树为空，直接提前返回
-        if (root == null) return null;
-        TreeNode? cur = root, pre = null;
-        // 循环查找，越过叶结点后跳出
-        while (cur != null)
-        {
-            // 找到待删除结点，跳出循环
-            if (cur.val == num) break;
-            pre = cur;
-            // 待删除结点在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
-            // 待删除结点在 cur 的左子树中
-            else cur = cur.left;
-        }
-        // 若无待删除结点，则直接返回
-        if (cur == null || pre == null) return null;
-        // 子结点数量 = 0 or 1
-        if (cur.left == null || cur.right == null)
-        {
-            // 当子结点数量 = 0 / 1 时， child = null / 该子结点
-            TreeNode? child = cur.left != null ? cur.left : cur.right;
-            // 删除结点 cur
-            if (pre.left == cur)
-            {
-                pre.left = child;
-            }
-            else
-            {
-                pre.right = child;
-            }
-        }
-        // 子结点数量 = 2
-        else
-        {
-            // 获取中序遍历中 cur 的下一个结点
-            TreeNode? nex = getInOrderNext(cur.right);
-            if (nex != null)
-            {
-                int tmp = nex.val;
-                // 递归删除结点 nex
-                remove(nex.val);
-                // 将 nex 的值复制给 cur
-                cur.val = tmp;
-            }
-        }
-        return cur;
-    }
+    [class]{BinarySearchTree}-[func]{remove}
 
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    private TreeNode? getInOrderNext(TreeNode? root)
-    {
-        if (root == null) return root;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (root.left != null)
-        {
-            root = root.left;
-        }
-        return root;
-    }
+    [class]{BinarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
-    /* 删除结点 */
-    @discardableResult
-    func remove(num: Int) -> TreeNode? {
-        // 若树为空，直接提前返回
-        if root == nil {
-            return nil
-        }
-        var cur = root
-        var pre: TreeNode?
-        // 循环查找，越过叶结点后跳出
-        while cur != nil {
-            // 找到待删除结点，跳出循环
-            if cur!.val == num {
-                break
-            }
-            pre = cur
-            // 待删除结点在 cur 的右子树中
-            if cur!.val < num {
-                cur = cur?.right
-            }
-            // 待删除结点在 cur 的左子树中
-            else {
-                cur = cur?.left
-            }
-        }
-        // 若无待删除结点，则直接返回
-        if cur == nil {
-            return nil
-        }
-        // 子结点数量 = 0 or 1
-        if cur?.left == nil || cur?.right == nil {
-            // 当子结点数量 = 0 / 1 时， child = null / 该子结点
-            let child = cur?.left != nil ? cur?.left : cur?.right
-            // 删除结点 cur
-            if pre?.left === cur {
-                pre?.left = child
-            } else {
-                pre?.right = child
-            }
-        }
-        // 子结点数量 = 2
-        else {
-            // 获取中序遍历中 cur 的下一个结点
-            let nex = getInOrderNext(root: cur?.right)
-            let tmp = nex!.val
-            // 递归删除结点 nex
-            remove(num: nex!.val)
-            // 将 nex 的值复制给 cur
-            cur?.val = tmp
-        }
-        return cur
-    }
+    [class]{BinarySearchTree}-[func]{remove}
 
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    func getInOrderNext(root: TreeNode?) -> TreeNode? {
-        var root = root
-        if root == nil {
-            return root
-        }
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while root?.left != nil {
-            root = root?.left
-        }
-        return root
-    }
+    [class]{BinarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "Zig"

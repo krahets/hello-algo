@@ -148,7 +148,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="deque.js"
+    ```javascript title="deque.js"
     /* 初始化双向队列 */
     // JavaScript 没有内置的双端队列，只能把 Array 当作双端队列来使用
     const deque = [];
@@ -346,7 +346,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linkedlist_deque.js"
+    ```javascript title="linkedlist_deque.js"
     /* 双向链表结点 */
     class ListNode {
         prev;   // 前驱结点引用 (指针)
@@ -607,7 +607,9 @@ comments: true
 === "C#"
 
     ```csharp title="linkedlist_deque.cs"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "Swift"

@@ -36,8 +36,8 @@ pub fn main() !void {
     std.debug.print("\n栈的长度 size = {}", .{size});
 
     // 判断栈是否为空
-    var empty = if (stack.items.len == 0) true else false;
-    std.debug.print("\n栈是否为空 = {}", .{empty});
+    var is_empty = if (stack.items.len == 0) true else false;
+    std.debug.print("\n栈是否为空 = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

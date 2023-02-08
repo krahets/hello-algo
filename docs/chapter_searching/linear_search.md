@@ -21,17 +21,7 @@ comments: true
 === "C++"
 
     ```cpp title="linear_search.cpp"
-    /* 线性查找（数组） */
-    int linearSearchArray(vector<int>& nums, int target) {
-        // 遍历数组
-        for (int i = 0; i < nums.size(); i++) {
-            // 找到目标元素，返回其索引
-            if (nums[i] == target)
-                return i;
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
+    [class]{}-[func]{linearSearchArray}
     ```
 
 === "Python"
@@ -59,37 +49,14 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linear_search.js"
-    /* 线性查找（数组） */
-    function linearSearchArray(nums, target) {
-        // 遍历数组
-        for (let i = 0; i < nums.length; i++) {
-            // 找到目标元素，返回其索引
-            if (nums[i] === target) {
-                return i;
-            }
-        }
-        // 未找到目标元素，返回 -1
-        return -1; 
-    }
-
+    ```javascript title="linear_search.js"
+    [class]{}-[func]{linearSearchArray}
     ```
 
 === "TypeScript"
 
     ```typescript title="linear_search.ts"
-    /* 线性查找（数组）*/
-    function linearSearchArray(nums: number[], target: number): number {
-        // 遍历数组
-        for (let i = 0; i < nums.length; i++) {
-            // 找到目标元素，返回其索引
-            if (nums[i] === target) {
-                return i;
-            }
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
+    [class]{}-[func]{linearSearchArray}
     ```
 
 === "C"
@@ -101,37 +68,13 @@ comments: true
 === "C#"
 
     ```csharp title="linear_search.cs"
-    /* 线性查找（数组） */
-    int linearSearchArray(int[] nums, int target)
-    {
-        // 遍历数组
-        for (int i = 0; i < nums.Length; i++)
-        {
-            // 找到目标元素，返回其索引
-            if (nums[i] == target)
-                return i;
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
-
+    [class]{linear_search}-[func]{linearSearchArray}
     ```
 
 === "Swift"
 
     ```swift title="linear_search.swift"
-    /* 线性查找（数组） */
-    func linearSearchArray(nums: [Int], target: Int) -> Int {
-        // 遍历数组
-        for i in nums.indices {
-            // 找到目标元素，返回其索引
-            if nums[i] == target {
-                return i
-            }
-        }
-        // 未找到目标元素，返回 -1
-        return -1
-    }
+    [class]{}-[func]{linearSearchArray}
     ```
 
 === "Zig"
@@ -151,18 +94,7 @@ comments: true
 === "C++"
 
     ```cpp title="linear_search.cpp"
-    /* 线性查找（链表） */
-    ListNode* linearSearchLinkedList(ListNode* head, int target) {
-        // 遍历链表
-        while (head != nullptr) {
-            // 找到目标结点，返回之
-            if (head->val == target)
-                return head;
-            head = head->next;
-        }
-        // 未找到目标结点，返回 nullptr
-        return nullptr;
-    }
+    [class]{}-[func]{linearSearchLinkedList}
     ```
 
 === "Python"
@@ -191,38 +123,14 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linear_search.js"
-    /* 线性查找（链表）*/
-    function linearSearchLinkedList(head, target) {
-        // 遍历链表
-        while(head) {
-            // 找到目标结点，返回之
-            if(head.val === target) {
-                return head;
-            }
-            head = head.next;
-        }
-        // 未找到目标结点，返回 null
-        return null;
-    }
+    ```javascript title="linear_search.js"
+    [class]{}-[func]{linearSearchLinkedList}
     ```
 
 === "TypeScript"
 
     ```typescript title="linear_search.ts"
-    /* 线性查找（链表）*/
-    function linearSearchLinkedList(head: ListNode | null, target: number): ListNode | null {
-        // 遍历链表
-        while (head) {
-            // 找到目标结点，返回之
-            if (head.val === target) {
-                return head;
-            }
-            head = head.next;
-        }
-        // 未找到目标结点，返回 null
-        return null;
-    }
+    [class]{}-[func]{linearSearchLinkedList}
     ```
 
 === "C"
@@ -234,39 +142,13 @@ comments: true
 === "C#"
 
     ```csharp title="linear_search.cs"
-    /* 线性查找（链表） */
-    ListNode? linearSearchLinkedList(ListNode head, int target)
-    {
-        // 遍历链表
-        while (head != null)
-        {
-            // 找到目标结点，返回之
-            if (head.val == target)
-                return head;
-            head = head.next;
-        }
-        // 未找到目标结点，返回 null
-        return null;
-    }
+    [class]{linear_search}-[func]{linearSearchLinkedList}
     ```
 
 === "Swift"
 
     ```swift title="linear_search.swift"
-    /* 线性查找（链表） */
-    func linearSearchLinkedList(head: ListNode?, target: Int) -> ListNode? {
-        var head = head
-        // 遍历链表
-        while head != nil {
-            // 找到目标结点，返回之
-            if head?.val == target {
-                return head
-            }
-            head = head?.next
-        }
-        // 未找到目标结点，返回 null
-        return nil
-    }
+    [class]{}-[func]{linearSearchLinkedList}
     ```
 
 === "Zig"

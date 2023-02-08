@@ -1,8 +1,10 @@
-/**
+/*
  * File: bubble_sort.rs
  * Created Time: 2023-02-05
  * Author: sjinzh (sjinzh@gmail.com)
-*/
+ */
+
+include!("../include/include.rs");
 
 /* 冒泡排序 */
 fn bubble_sort(nums: &mut [i32]) {
@@ -44,10 +46,10 @@ pub fn main() {
     let mut nums = [ 4, 1, 3, 1, 5, 2 ];
     bubble_sort(&mut nums);
     print!("冒泡排序完成后 nums = ");
-    inc::print_util::print_array(&nums);
+    print_util::print_array(&nums);
 
     let mut nums1 = [ 4, 1, 3, 1, 5, 2 ];
     bubble_sort_with_flag(&mut nums1);
     print!("\n冒泡排序完成后 nums1 = ");
-    inc::print_util::print_array(&nums1);
+    print_util::print_array(&nums1);
 }

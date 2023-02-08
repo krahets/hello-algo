@@ -4,7 +4,7 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-/* 随机访问元素 */
+/* 随机返回一个数组元素 */
 function randomAccess(nums) {
     // 在区间 [0, nums.length) 中随机抽取一个数字
     const random_index = Math.floor(Math.random() * nums.length);

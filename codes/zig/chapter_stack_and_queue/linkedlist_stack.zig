@@ -37,7 +37,7 @@ pub fn LinkedListStack(comptime T: type) type {
         }
 
         // 判断栈是否为空
-        pub fn empty(self: *Self) bool {
+        pub fn isEmpty(self: *Self) bool {
             return self.size() == 0;
         }
 
@@ -110,7 +110,7 @@ pub fn main() !void {
     std.debug.print("\n栈的长度 size = {}", .{size});
 
     // 判断栈是否为空
-    var is_empty = stack.empty();
+    var is_empty = stack.isEmpty();
     std.debug.print("\n栈是否为空 = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
