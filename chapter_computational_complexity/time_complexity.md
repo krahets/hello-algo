@@ -1705,7 +1705,6 @@ $$
         // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
         return count;
     }
-
     ```
 
 === "TypeScript"
@@ -1872,7 +1871,6 @@ $$
         if (n == 1) return 1;
         return expRecur(n - 1) + expRecur(n - 1) + 1;
     }
-
     ```
 
 === "C"

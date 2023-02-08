@@ -88,7 +88,6 @@ comments: true
         // 未找到目标元素，返回 -1
         return -1; 
     }
-
     ```
 
 === "TypeScript"

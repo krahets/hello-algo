@@ -34,18 +34,16 @@ comments: true
 
     ```java title="leetcode_two_sum.java"
     /* 方法一：暴力枚举 */
-    class SolutionBruteForce {
-        public int[] twoSum(int[] nums, int target) {
-            int size = nums.length;
-            // 两层循环，时间复杂度 O(n^2)
-            for (int i = 0; i < size - 1; i++) {
-                for (int j = i + 1; j < size; j++) {
-                    if (nums[i] + nums[j] == target)
-                        return new int[] { i, j };
-                }
+    int[] twoSumBruteForce(int[] nums, int target) {
+        int size = nums.length;
+        // 两层循环，时间复杂度 O(n^2)
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (nums[i] + nums[j] == target)
+                    return new int[] { i, j };
             }
-            return new int[0];
         }
+        return new int[0];
     }
     ```
 
@@ -53,34 +51,30 @@ comments: true
 
     ```cpp title="leetcode_two_sum.cpp"
     /* 方法一：暴力枚举 */
-    class SolutionBruteForce {
-    public:
-        vector<int> twoSum(vector<int>& nums, int target) {
-            int size = nums.size();
-            // 两层循环，时间复杂度 O(n^2)
-            for (int i = 0; i < size - 1; i++) {
-                for (int j = i + 1; j < size; j++) {
-                    if (nums[i] + nums[j] == target)
-                        return { i, j };
-                }
+    vector<int> twoSumBruteForce(vector<int>& nums, int target) {
+        int size = nums.size();
+        // 两层循环，时间复杂度 O(n^2)
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (nums[i] + nums[j] == target)
+                    return { i, j };
             }
-            return {};
         }
-    };
+        return {};
+    }
     ```
 
 === "Python"
 
     ```python title="leetcode_two_sum.py"
     """ 方法一：暴力枚举 """
-    class SolutionBruteForce:
-        def twoSum(self, nums: List[int], target: int) -> List[int]:
-            # 两层循环，时间复杂度 O(n^2)
-            for i in range(len(nums) - 1):
-                for j in range(i + 1, len(nums)):
-                    if nums[i] + nums[j] == target:
-                        return i, j
-            return []
+    def two_sum_brute_force(nums: List[int], target: int) -> List[int]:
+        # 两层循环，时间复杂度 O(n^2)
+        for i in range(len(nums) - 1):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return i, j
+        return []
     ```
 
 === "Go"
@@ -103,6 +97,7 @@ comments: true
 === "JavaScript"
 
     ```javascript title="leetcode_two_sum.js"
+    /* 方法一：暴力枚举 */
     function twoSumBruteForce(nums, target) {
         const n = nums.length;
         // 两层循环，时间复杂度 O(n^2)
@@ -120,6 +115,7 @@ comments: true
 === "TypeScript"
 
     ```typescript title="leetcode_two_sum.ts"
+    /* 方法一：暴力枚举 */
     function twoSumBruteForce(nums: number[], target: number): number[] {
         const n = nums.length;
         // 两层循环，时间复杂度 O(n^2)
@@ -210,20 +206,18 @@ comments: true
 
     ```java title="leetcode_two_sum.java"
     /* 方法二：辅助哈希表 */
-    class SolutionHashMap {
-        public int[] twoSum(int[] nums, int target) {
-            int size = nums.length;
-            // 辅助哈希表，空间复杂度 O(n)
-            Map<Integer, Integer> dic = new HashMap<>();
-            // 单层循环，时间复杂度 O(n)
-            for (int i = 0; i < size; i++) {
-                if (dic.containsKey(target - nums[i])) {
-                    return new int[] { dic.get(target - nums[i]), i };
-                }
-                dic.put(nums[i], i);
+    int[] twoSumHashTable(int[] nums, int target) {
+        int size = nums.length;
+        // 辅助哈希表，空间复杂度 O(n)
+        Map<Integer, Integer> dic = new HashMap<>();
+        // 单层循环，时间复杂度 O(n)
+        for (int i = 0; i < size; i++) {
+            if (dic.containsKey(target - nums[i])) {
+                return new int[] { dic.get(target - nums[i]), i };
             }
-            return new int[0];
+            dic.put(nums[i], i);
         }
+        return new int[0];
     }
     ```
 
@@ -231,38 +225,34 @@ comments: true
 
     ```cpp title="leetcode_two_sum.cpp"
     /* 方法二：辅助哈希表 */
-    class SolutionHashMap {
-    public:
-        vector<int> twoSum(vector<int>& nums, int target) {
-            int size = nums.size();
-            // 辅助哈希表，空间复杂度 O(n)
-            unordered_map<int, int> dic;
-            // 单层循环，时间复杂度 O(n)
-            for (int i = 0; i < size; i++) {
-                if (dic.find(target - nums[i]) != dic.end()) {
-                    return { dic[target - nums[i]], i };
-                }
-                dic.emplace(nums[i], i);
+    vector<int> twoSumHashTable(vector<int>& nums, int target) {
+        int size = nums.size();
+        // 辅助哈希表，空间复杂度 O(n)
+        unordered_map<int, int> dic;
+        // 单层循环，时间复杂度 O(n)
+        for (int i = 0; i < size; i++) {
+            if (dic.find(target - nums[i]) != dic.end()) {
+                return { dic[target - nums[i]], i };
             }
-            return {};
+            dic.emplace(nums[i], i);
         }
-    };
+        return {};
+    }
     ```
 
 === "Python"
 
     ```python title="leetcode_two_sum.py"
     """ 方法二：辅助哈希表 """
-    class SolutionHashMap:
-        def twoSum(self, nums: List[int], target: int) -> List[int]:
-            # 辅助哈希表，空间复杂度 O(n)
-            dic = {}
-            # 单层循环，时间复杂度 O(n)
-            for i in range(len(nums)):
-                if target - nums[i] in dic:
-                    return dic[target - nums[i]], i
-                dic[nums[i]] = i
-            return []
+    def two_sum_hash_table(nums: List[int], target: int) -> List[int]:
+        # 辅助哈希表，空间复杂度 O(n)
+        dic = {}
+        # 单层循环，时间复杂度 O(n)
+        for i in range(len(nums)):
+            if target - nums[i] in dic:
+                return dic[target - nums[i]], i
+            dic[nums[i]] = i
+        return []
     ```
 
 === "Go"
@@ -285,6 +275,7 @@ comments: true
 === "JavaScript"
 
     ```javascript title="leetcode_two_sum.js"
+    /* 方法二：辅助哈希表 */
     function twoSumHashTable(nums, target) {
         // 辅助哈希表，空间复杂度 O(n)
         let m = {};
@@ -303,6 +294,7 @@ comments: true
 === "TypeScript"
 
     ```typescript title="leetcode_two_sum.ts"
+    /* 方法二：辅助哈希表 */
     function twoSumHashTable(nums: number[], target: number): number[] {
         // 辅助哈希表，空间复杂度 O(n)
         let m: Map<number, number> = new Map();

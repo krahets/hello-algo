@@ -544,18 +544,22 @@ comments: true
         #front;  // 头结点 #front
         #rear;   // 尾结点 #rear
         #queSize = 0;
+
         constructor() {
             this.#front = null;
             this.#rear = null;
         }
+
         /* 获取队列的长度 */
         get size() {
             return this.#queSize;
         }
+
         /* 判断队列是否为空 */
         isEmpty() {
             return this.size === 0;
         }
+
         /* 入队 */
         push(num) {
             // 尾结点后添加 num
@@ -571,6 +575,7 @@ comments: true
             }
             this.#queSize++;
         }
+
         /* 出队 */
         poll() {
             const num = this.peek();
@@ -579,11 +584,23 @@ comments: true
             this.#queSize--;
             return num;
         }
+
         /* 访问队首元素 */
         peek() {
             if (this.size === 0)
                 throw new Error("队列为空");
             return this.#front.val;
+        }
+
+        /* 将链表转化为 Array 并返回 */
+        toArray() {
+            let node = this.#front;
+            const res = new Array(this.size);
+            for (let i = 0; i < res.length; i++) {
+                res[i] = node.val;
+                node = node.next;
+            }
+            return res;
         }
     }
     ```
@@ -596,18 +613,22 @@ comments: true
         private front: ListNode | null; // 头结点 front
         private rear: ListNode | null;  // 尾结点 rear
         private queSize: number = 0;
+
         constructor() {
             this.front = null;
             this.rear = null;
         }
+
         /* 获取队列的长度 */
         get size(): number {
             return this.queSize;
         }
+
         /* 判断队列是否为空 */
         isEmpty(): boolean {
             return this.size === 0;
         }
+
         /* 入队 */
         push(num: number): void {
             // 尾结点后添加 num
@@ -623,6 +644,7 @@ comments: true
             }
             this.queSize++;
         }
+
         /* 出队 */
         poll(): number {
             const num = this.peek();
@@ -633,11 +655,23 @@ comments: true
             this.queSize--;
             return num;
         }
+
         /* 访问队首元素 */
         peek(): number {
             if (this.size === 0)
                 throw new Error("队列为空");
             return this.front!.val;
+        }
+
+        /* 将链表转化为 Array 并返回 */
+        toArray(): number[] {
+            let node = this.front;
+            const res = new Array<number>(this.size);
+            for (let i = 0; i < res.length; i++) {
+                res[i] = node!.val;
+                node = node!.next;
+            }
+            return res;
         }
     }
     ```
@@ -1126,6 +1160,16 @@ comments: true
                 throw new Error("队列为空");
             return this.#nums[this.#front];
         }
+
+        /* 返回 Array */
+        toArray() {
+            // 仅转换有效长度范围内的列表元素
+            const arr = new Array(this.size);
+            for (let i = 0, j = this.#front; i < this.size; i++, j++) {
+                arr[i] = this.#nums[j % this.capacity];
+            }
+            return arr;
+        }
     }
     ```
 
@@ -1186,6 +1230,16 @@ comments: true
             if (this.empty())
                 throw new Error("队列为空");
             return this.nums[this.front];
+        }
+
+        /* 返回 Array */
+        toArray(): number[] {
+            // 仅转换有效长度范围内的列表元素
+            const arr = new Array(this.size);
+            for (let i = 0, j = this.front; i < this.size; i++, j++) {
+                arr[i] = this.nums[j % this.capacity];
+            }
+            return arr;
         }
     }
     ```

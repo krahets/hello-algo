@@ -374,10 +374,10 @@ comments: true
                     let tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    flag = true;  // 记录交换元素
+                    flag = true; // 记录交换元素
                 }
             }
-            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
+            if (!flag) break; // 此轮冒泡未交换任何元素，直接跳出
         }
     }
     ```

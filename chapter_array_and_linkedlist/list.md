@@ -1195,6 +1195,17 @@ comments: true
             // 更新列表容量
             this.#capacity = this.#nums.length;
         }
+
+        /* 将列表转换为数组 */
+        toArray() {
+            let size = this.size();
+            // 仅转换有效长度范围内的列表元素
+            const nums = new Array(size);
+            for (let i = 0; i < size; i++) {
+                nums[i] = this.get(i);
+            }
+            return nums;
+        }
     }
     ```
 
@@ -1288,6 +1299,17 @@ comments: true
             );
             // 更新列表容量
             this._capacity = this.nums.length;
+        }
+
+        /* 将列表转换为数组 */
+        public toArray(): number[] {
+            let size = this.size();
+            // 仅转换有效长度范围内的列表元素
+            let nums = new Array(size);
+            for (let i = 0; i < size; i++) {
+                nums[i] = this.get(i);
+            }
+            return nums;
         }
     }
     ```

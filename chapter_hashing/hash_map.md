@@ -731,7 +731,7 @@ $$
             this.val = val;
         }
     }
-    
+
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
         #bucket;
@@ -739,12 +739,12 @@ $$
             // 初始化一个长度为 100 的桶（数组）
             this.#bucket = new Array(100).fill(null);
         }
-    
+
         /* 哈希函数 */
         #hashFunc(key) {
             return key % 100;
         }
-    
+
         /* 查询操作 */
         get(key) {
             let index = this.#hashFunc(key);
@@ -752,18 +752,60 @@ $$
             if (entry === null) return null;
             return entry.val;
         }
-    
+
         /* 添加操作 */
         set(key, val) {
             let index = this.#hashFunc(key);
             this.#bucket[index] = new Entry(key, val);
         }
-    
+
         /* 删除操作 */
         delete(key) {
             let index = this.#hashFunc(key);
             // 置为 null ，代表删除
             this.#bucket[index] = null;
+        }
+
+        /* 获取所有键值对 */
+        entries() {
+            let arr = [];
+            for (let i = 0; i < this.#bucket.length; i++) {
+                if (this.#bucket[i]) {
+                    arr.push(this.#bucket[i]);
+                }
+            }
+            return arr;
+        }
+
+        /* 获取所有键 */
+        keys() {
+            let arr = [];
+            for (let i = 0; i < this.#bucket.length; i++) {
+                if (this.#bucket[i]) {
+                    arr.push(this.#bucket[i]?.key);
+                }
+            }
+            return arr;
+        }
+
+        /* 获取所有值 */
+        values() {
+            let arr = [];
+            for (let i = 0; i < this.#bucket.length; i++) {
+                if (this.#bucket[i]) {
+                    arr.push(this.#bucket[i]?.val);
+                }
+            }
+            return arr;
+        }
+
+        /* 打印哈希表 */
+        print() {
+            let entrySet = this.entries();
+            for (const entry of entrySet) {
+                if (!entry) continue;
+                console.info(`${entry.key} -> ${entry.val}`);
+            }
         }
     }
     ```
@@ -773,30 +815,30 @@ $$
     ```typescript title="array_hash_map.ts"
     /* 键值对 Number -> String */
     class Entry {
-    public key: number;
-    public val: string;
-    
+        public key: number;
+        public val: string;
+
         constructor(key: number, val: string) {
             this.key = key;
             this.val = val;
         }
     }
-    
+
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
-    
+
         private readonly bucket: (Entry | null)[];
-    
+
         constructor() {
             // 初始化一个长度为 100 的桶（数组）
             this.bucket = (new Array(100)).fill(null);
         }
-    
+
         /* 哈希函数 */
         private hashFunc(key: number): number {
             return key % 100;
         }
-    
+
         /* 查询操作 */
         public get(key: number): string | null {
             let index = this.hashFunc(key);
@@ -804,18 +846,60 @@ $$
             if (entry === null) return null;
             return entry.val;
         }
-    
+
         /* 添加操作 */
         public set(key: number, val: string) {
             let index = this.hashFunc(key);
             this.bucket[index] = new Entry(key, val);
         }
-    
+
         /* 删除操作 */
         public delete(key: number) {
             let index = this.hashFunc(key);
             // 置为 null ，代表删除
             this.bucket[index] = null;
+        }
+
+        /* 获取所有键值对 */
+        public entries(): (Entry | null)[] {
+            let arr: (Entry | null)[] = [];
+            for (let i = 0; i < this.bucket.length; i++) {
+                if (this.bucket[i]) {
+                    arr.push(this.bucket[i]);
+                }
+            }
+            return arr;
+        }
+
+        /* 获取所有键 */
+        public keys(): (number | undefined)[] {
+            let arr: (number | undefined)[] = [];
+            for (let i = 0; i < this.bucket.length; i++) {
+                if (this.bucket[i]) {
+                    arr.push(this.bucket[i]?.key);
+                }
+            }
+            return arr;
+        }
+
+        /* 获取所有值 */
+        public values(): (string | undefined)[] {
+            let arr: (string | undefined)[] = [];
+            for (let i = 0; i < this.bucket.length; i++) {
+                if (this.bucket[i]) {
+                    arr.push(this.bucket[i]?.val);
+                }
+            }
+            return arr;
+        }
+
+        /* 打印哈希表 */
+        public print() {
+            let entrySet = this.entries();
+            for (const entry of entrySet) {
+                if (!entry) continue;
+                console.info(`${entry.key} -> ${entry.val}`);
+            }
         }
     }
     ```

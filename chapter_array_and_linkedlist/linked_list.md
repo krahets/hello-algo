@@ -587,8 +587,9 @@ comments: true
     /* 访问链表中索引为 index 的结点 */
     function access(head, index) {
         for (let i = 0; i < index; i++) {
-            if (!head)
+            if (!head) {
                 return null;
+            }
             head = head.next;
         }
         return head;
