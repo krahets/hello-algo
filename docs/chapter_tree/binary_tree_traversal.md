@@ -67,45 +67,13 @@ comments: true
 === "JavaScript"
 
     ```javascript title="binary_tree_bfs.js"
-    /* 层序遍历 */
-    function hierOrder(root) {
-        // 初始化队列，加入根结点
-        let queue = [root];
-        // 初始化一个列表，用于保存遍历序列
-        let list = [];
-        while (queue.length) {
-            let node = queue.shift();  // 队列出队
-            list.push(node.val);          // 保存结点值
-            if (node.left)
-                queue.push(node.left);    // 左子结点入队
-            if (node.right)
-                queue.push(node.right);   // 右子结点入队
-        }
-        return list;
-    }
+    [class]{}-[func]{hierOrder}
     ```
 
 === "TypeScript"
 
     ```typescript title="binary_tree_bfs.ts"
-    /* 层序遍历 */
-    function hierOrder(root: TreeNode | null): number[] {
-        // 初始化队列，加入根结点
-        const queue = [root];
-        // 初始化一个列表，用于保存遍历序列
-        const list: number[] = [];
-        while (queue.length) {
-            let node = queue.shift() as TreeNode; // 队列出队
-            list.push(node.val); // 保存结点值
-            if (node.left) {
-                queue.push(node.left); // 左子结点入队
-            }
-            if (node.right) {
-                queue.push(node.right); // 右子结点入队
-            }
-        }
-        return list;
-    }
+    [class]{}-[func]{hierOrder}
     ```
 
 === "C"
@@ -258,69 +226,21 @@ comments: true
 === "JavaScript"
 
     ```javascript title="binary_tree_dfs.js"
-    /* 前序遍历 */
-    function preOrder(root){
-        if (root === null) return;
-        // 访问优先级：根结点 -> 左子树 -> 右子树
-        list.push(root.val);
-        preOrder(root.left);
-        preOrder(root.right);
-    }
-    
-    /* 中序遍历 */
-    function inOrder(root) {
-        if (root === null) return;
-        // 访问优先级：左子树 -> 根结点 -> 右子树
-        inOrder(root.left);
-        list.push(root.val);
-        inOrder(root.right);
-    }
-    
-    /* 后序遍历 */
-    function postOrder(root) {
-        if (root === null) return;
-        // 访问优先级：左子树 -> 右子树 -> 根结点
-        postOrder(root.left);
-        postOrder(root.right);
-        list.push(root.val);
-    }
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
     ```
 
 === "TypeScript"
 
     ```typescript title="binary_tree_dfs.ts"
-    /* 前序遍历 */
-    function preOrder(root: TreeNode | null): void {
-        if (root === null) {
-            return;
-        }
-        // 访问优先级：根结点 -> 左子树 -> 右子树
-        list.push(root.val);
-        preOrder(root.left);
-        preOrder(root.right);
-    }
-    
-    /* 中序遍历 */
-    function inOrder(root: TreeNode | null): void {
-        if (root === null) {
-            return;
-        }
-        // 访问优先级：左子树 -> 根结点 -> 右子树
-        inOrder(root.left);
-        list.push(root.val);
-        inOrder(root.right);
-    }
-    
-    /* 后序遍历 */
-    function postOrder(root: TreeNode | null): void {
-        if (root === null) {
-            return;
-        }
-        // 访问优先级：左子树 -> 右子树 -> 根结点
-        postOrder(root.left);
-        postOrder(root.right);
-        list.push(root.val);
-    }
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
     ```
 
 === "C"

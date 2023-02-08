@@ -16,10 +16,10 @@ class ExtractCodeBlocksJSTS(ExtractCodeBlocksJava):
         super().__init__()
 
         # Pattern to match function names and class names
-        self.func_pattern = r'\s*(function|private|public|)\s*(\S*)\(.*\)(:|)\s*(\S*)\s*{\s*\n'
+        self.func_pattern = r'(\s*)(function|private|public|)\s*(\S*)\(.*\)(:|)\s*(.*)\s+{\s*\n'
         self.class_pattern = r'class\s+(\w+)\s*\{'
         
-        self.func_pattern_keys = ["total", "prefix", "label", ":", "return"]
+        self.func_pattern_keys = ["total", "ind", "prefix", "label", ":", "return"]
         self.class_pattern_keys = ["total", "label"]
 
 

@@ -491,100 +491,17 @@ $$
 === "JavaScript"
 
     ```javascript title="array_hash_map.js"
-    /* 键值对 Number -> String */
-    class Entry {
-        constructor(key, val) {
-            this.key = key;
-            this.val = val;
-        }
-    }
-    
-    /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap {
-        #bucket;
-        constructor() {
-            // 初始化一个长度为 100 的桶（数组）
-            this.#bucket = new Array(100).fill(null);
-        }
-    
-        /* 哈希函数 */
-        #hashFunc(key) {
-            return key % 100;
-        }
-    
-        /* 查询操作 */
-        get(key) {
-            let index = this.#hashFunc(key);
-            let entry = this.#bucket[index];
-            if (entry === null) return null;
-            return entry.val;
-        }
-    
-        /* 添加操作 */
-        set(key, val) {
-            let index = this.#hashFunc(key);
-            this.#bucket[index] = new Entry(key, val);
-        }
-    
-        /* 删除操作 */
-        delete(key) {
-            let index = this.#hashFunc(key);
-            // 置为 null ，代表删除
-            this.#bucket[index] = null;
-        }
-    }
+    [class]{Entry}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="array_hash_map.ts"
-    /* 键值对 Number -> String */
-    class Entry {
-    public key: number;
-    public val: string;
-    
-        constructor(key: number, val: string) {
-            this.key = key;
-            this.val = val;
-        }
-    }
-    
-    /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap {
-    
-        private readonly bucket: (Entry | null)[];
-    
-        constructor() {
-            // 初始化一个长度为 100 的桶（数组）
-            this.bucket = (new Array(100)).fill(null);
-        }
-    
-        /* 哈希函数 */
-        private hashFunc(key: number): number {
-            return key % 100;
-        }
-    
-        /* 查询操作 */
-        public get(key: number): string | null {
-            let index = this.hashFunc(key);
-            let entry = this.bucket[index];
-            if (entry === null) return null;
-            return entry.val;
-        }
-    
-        /* 添加操作 */
-        public set(key: number, val: string) {
-            let index = this.hashFunc(key);
-            this.bucket[index] = new Entry(key, val);
-        }
-    
-        /* 删除操作 */
-        public delete(key: number) {
-            let index = this.hashFunc(key);
-            // 置为 null ，代表删除
-            this.bucket[index] = null;
-        }
-    }
+    [class]{Entry}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
     ```
 
 === "C"

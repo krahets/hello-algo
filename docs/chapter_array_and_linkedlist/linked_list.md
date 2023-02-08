@@ -538,30 +538,13 @@ comments: true
 === "JavaScript"
 
     ```javascript title="linked_list.js"
-    /* 访问链表中索引为 index 的结点 */
-    function access(head, index) {
-        for (let i = 0; i < index; i++) {
-            if (!head)
-                return null;
-            head = head.next;
-        }
-        return head;
-    }
+    [class]{}-[func]{access}
     ```
 
 === "TypeScript"
 
     ```typescript title="linked_list.ts"
-    /* 访问链表中索引为 index 的结点 */
-    function access(head: ListNode | null, index: number): ListNode | null {
-        for (let i = 0; i < index; i++) {
-            if (!head) {
-                return null;
-            }
-            head = head.next;
-        }
-        return head;
-    }
+    [class]{}-[func]{access}
     ```
 
 === "C"
@@ -661,35 +644,13 @@ comments: true
 === "JavaScript"
 
     ```javascript title="linked_list.js"
-    /* 在链表中查找值为 target 的首个结点 */
-    function find(head, target) {
-        let index = 0;
-        while (head !== null) {
-            if (head.val === target) {
-                return index;
-            }
-            head = head.next;
-            index += 1;
-        }
-        return -1;
-    }
+    [class]{}-[func]{find}
     ```
 
 === "TypeScript"
 
     ```typescript title="linked_list.ts"
-    /* 在链表中查找值为 target 的首个结点 */
-    function find(head: ListNode | null, target: number): number {
-        let index = 0;
-        while (head !== null) {
-            if (head.val === target) {
-                return index;
-            }
-            head = head.next;
-            index += 1;
-        }
-        return -1;
-    }
+    [class]{}-[func]{find}
     ```
 
 === "C"

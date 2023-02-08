@@ -33,19 +33,19 @@ comments: true
 === "Java"
 
     ```java title="leetcode_two_sum.java"
-    [class]{SolutionBruteForce}-[func]{}
+    [class]{leetcode_two_sum}-[func]{twoSumBruteForce}
     ```
 
 === "C++"
 
     ```cpp title="leetcode_two_sum.cpp"
-    [class]{SolutionBruteForce}-[func]{}
+    [class]{}-[func]{twoSumBruteForce}
     ```
 
 === "Python"
 
     ```python title="leetcode_two_sum.py"
-    [class]{SolutionBruteForce}-[func]{}
+    [class]{}-[func]{two_sum_brute_force}
     ```
 
 === "Go"
@@ -68,35 +68,13 @@ comments: true
 === "JavaScript"
 
     ```javascript title="leetcode_two_sum.js"
-    function twoSumBruteForce(nums, target) {
-        const n = nums.length;
-        // 两层循环，时间复杂度 O(n^2)
-        for (let i = 0; i < n; i++) {
-            for (let j = i + 1; j < n; j++) {
-                if (nums[i] + nums[j] === target) {
-                    return [i, j];
-                }
-            }
-        }
-        return [];
-    }
+    [class]{}-[func]{twoSumBruteForce}
     ```
 
 === "TypeScript"
 
     ```typescript title="leetcode_two_sum.ts"
-    function twoSumBruteForce(nums: number[], target: number): number[] {
-        const n = nums.length;
-        // 两层循环，时间复杂度 O(n^2)
-        for (let i = 0; i < n; i++) {
-            for (let j = i + 1; j < n; j++) {
-                if (nums[i] + nums[j] === target) {
-                    return [i, j];
-                }
-            }
-        }
-        return [];
-    };
+    [class]{}-[func]{twoSumBruteForce}
     ```
 
 === "C"
@@ -174,19 +152,19 @@ comments: true
 === "Java"
 
     ```java title="leetcode_two_sum.java"
-    [class]{SolutionHashMap}-[func]{}
+    [class]{leetcode_two_sum}-[func]{twoSumHashTable}
     ```
 
 === "C++"
 
     ```cpp title="leetcode_two_sum.cpp"
-    [class]{SolutionHashMap}-[func]{}
+    [class]{}-[func]{twoSumHashTable}
     ```
 
 === "Python"
 
     ```python title="leetcode_two_sum.py"
-    [class]{SolutionHashMap}-[func]{}
+    [class]{}-[func]{two_sum_hash_table}
     ```
 
 === "Go"
@@ -209,38 +187,13 @@ comments: true
 === "JavaScript"
 
     ```javascript title="leetcode_two_sum.js"
-    function twoSumHashTable(nums, target) {
-        // 辅助哈希表，空间复杂度 O(n)
-        let m = {};
-        // 单层循环，时间复杂度 O(n)
-        for (let i = 0; i < nums.length; i++) {
-            if (m[nums[i]] !== undefined) {
-                return [m[nums[i]], i];
-            } else {
-                m[target - nums[i]] = i;
-            }
-        }
-        return [];
-    }
+    [class]{}-[func]{twoSumHashTable}
     ```
 
 === "TypeScript"
 
     ```typescript title="leetcode_two_sum.ts"
-    function twoSumHashTable(nums: number[], target: number): number[] {
-        // 辅助哈希表，空间复杂度 O(n)
-        let m: Map<number, number> = new Map();
-        // 单层循环，时间复杂度 O(n)
-        for (let i = 0; i < nums.length; i++) {
-            let index = m.get(nums[i]);
-            if (index !== undefined) {
-                return [index, i];
-            } else {
-                m.set(target - nums[i], i);
-            }
-        }
-        return [];
-    };
+    [class]{}-[func]{twoSumHashTable}
     ```
 
 === "C"

@@ -329,25 +329,13 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "JavaScript"
 
     ```javascript title="avl_tree.js"
-    /* 获取平衡因子 */
-    balanceFactor(node) {
-        // 空结点平衡因子为 0
-        if (node === null) return 0;
-        // 结点平衡因子 = 左子树高度 - 右子树高度
-        return this.height(node.left) - this.height(node.right);
-    }
+    [class]{AVLTree}-[func]{balanceFactor}
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-    /* 获取平衡因子 */
-    balanceFactor(node: TreeNode): number {
-        // 空结点平衡因子为 0
-        if (node === null) return 0;
-        // 结点平衡因子 = 左子树高度 - 右子树高度
-        return this.height(node.left) - this.height(node.right);
-    }
+    [class]{AVLTree}-[func]{balanceFactor}
     ```
 
 === "C"
@@ -460,37 +448,13 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "JavaScript"
 
     ```javascript title="avl_tree.js"
-    /* 右旋操作 */
-    rightRotate(node) {
-        const child = node.left;
-        const grandChild = child.right;
-        // 以 child 为原点，将 node 向右旋转
-        child.right = node;
-        node.left = grandChild;
-        // 更新结点高度
-        this.updateHeight(node);
-        this.updateHeight(child);
-        // 返回旋转后子树的根结点
-        return child;
-    }
+    [class]{AVLTree}-[func]{rightRotate}
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-    /* 右旋操作 */
-    rightRotate(node: TreeNode): TreeNode {
-        const child = node.left;
-        const grandChild = child.right;
-        // 以 child 为原点，将 node 向右旋转
-        child.right = node;
-        node.left = grandChild;
-        // 更新结点高度
-        this.updateHeight(node);
-        this.updateHeight(child);
-        // 返回旋转后子树的根结点
-        return child;
-    }
+    [class]{AVLTree}-[func]{rightRotate}
     ```
 
 === "C"
@@ -593,37 +557,13 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "JavaScript"
 
     ```javascript title="avl_tree.js"
-    /* 左旋操作 */
-    leftRotate(node) {
-        const child = node.right;
-        const grandChild = child.left;
-        // 以 child 为原点，将 node 向左旋转
-        child.left = node;
-        node.right = grandChild;
-        // 更新结点高度
-        this.updateHeight(node);
-        this.updateHeight(child);
-        // 返回旋转后子树的根结点
-        return child;
-    }
+    [class]{AVLTree}-[func]{leftRotate}
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-    /* 左旋操作 */
-    leftRotate(node: TreeNode): TreeNode {
-        const child = node.right;
-        const grandChild = child.left;
-        // 以 child 为原点，将 node 向左旋转
-        child.left = node;
-        node.right = grandChild;
-        // 更新结点高度
-        this.updateHeight(node);
-        this.updateHeight(child);
-        // 返回旋转后子树的根结点
-        return child;
-    }
+    [class]{AVLTree}-[func]{leftRotate}
     ```
 
 === "C"
@@ -767,69 +707,13 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "JavaScript"
 
     ```javascript title="avl_tree.js"
-    /* 执行旋转操作，使该子树重新恢复平衡 */
-    rotate(node) {
-        // 获取结点 node 的平衡因子
-        const balanceFactor = this.balanceFactor(node);
-        // 左偏树
-        if (balanceFactor > 1) {
-            if (this.balanceFactor(node.left) >= 0) {
-                // 右旋
-                return this.rightRotate(node);
-            } else {
-                // 先左旋后右旋
-                node.left = this.leftRotate(node.left);
-                return this.rightRotate(node);
-            }
-        }
-        // 右偏树
-        if (balanceFactor < -1) {
-            if (this.balanceFactor(node.right) <= 0) {
-                // 左旋
-                return this.leftRotate(node);
-            } else {
-                // 先右旋后左旋
-                node.right = this.rightRotate(node.right);
-                return this.leftRotate(node);
-            }
-        }
-        // 平衡树，无需旋转，直接返回
-        return node;
-    }
+    [class]{AVLTree}-[func]{rotate}
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
-    /* 执行旋转操作，使该子树重新恢复平衡 */
-    rotate(node: TreeNode): TreeNode {
-        // 获取结点 node 的平衡因子
-        const balanceFactor = this.balanceFactor(node);
-        // 左偏树
-        if (balanceFactor > 1) {
-            if (this.balanceFactor(node.left) >= 0) {
-                // 右旋
-                return this.rightRotate(node);
-            } else {
-                // 先左旋后右旋
-                node.left = this.leftRotate(node.left);
-                return this.rightRotate(node);
-            }
-        }
-        // 右偏树
-        if (balanceFactor < -1) {
-            if (this.balanceFactor(node.right) <= 0) {
-                // 左旋
-                return this.leftRotate(node);
-            } else {
-                // 先右旋后左旋
-                node.right = this.rightRotate(node.right);
-                return this.leftRotate(node);
-            }
-        }
-        // 平衡树，无需旋转，直接返回
-        return node;
-    }
+    [class]{AVLTree}-[func]{rotate}
     ```
 
 === "C"
