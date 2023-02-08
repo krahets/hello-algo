@@ -2405,7 +2405,18 @@
 <a id="__codelineno-18-50" name="__codelineno-18-50" href="#__codelineno-18-50"></a>        <span class="p">}</span>
 <a id="__codelineno-18-51" name="__codelineno-18-51" href="#__codelineno-18-51"></a>        <span class="k">return</span> <span class="n">front</span><span class="p">!.</span><span class="n">val</span>
 <a id="__codelineno-18-52" name="__codelineno-18-52" href="#__codelineno-18-52"></a>    <span class="p">}</span>
-<a id="__codelineno-18-53" name="__codelineno-18-53" href="#__codelineno-18-53"></a><span class="p">}</span>
+<a id="__codelineno-18-53" name="__codelineno-18-53" href="#__codelineno-18-53"></a>
+<a id="__codelineno-18-54" name="__codelineno-18-54" href="#__codelineno-18-54"></a>    <span class="cm">/* 将链表转化为 Array 并返回 */</span>
+<a id="__codelineno-18-55" name="__codelineno-18-55" href="#__codelineno-18-55"></a>    <span class="kd">func</span> <span class="nf">toArray</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">{</span>
+<a id="__codelineno-18-56" name="__codelineno-18-56" href="#__codelineno-18-56"></a>        <span class="kd">var</span> <span class="nv">node</span> <span class="p">=</span> <span class="n">front</span>
+<a id="__codelineno-18-57" name="__codelineno-18-57" href="#__codelineno-18-57"></a>        <span class="kd">var</span> <span class="nv">res</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">size</span><span class="p">())</span>
+<a id="__codelineno-18-58" name="__codelineno-18-58" href="#__codelineno-18-58"></a>        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">res</span><span class="p">.</span><span class="bp">indices</span> <span class="p">{</span>
+<a id="__codelineno-18-59" name="__codelineno-18-59" href="#__codelineno-18-59"></a>            <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">node</span><span class="p">!.</span><span class="n">val</span>
+<a id="__codelineno-18-60" name="__codelineno-18-60" href="#__codelineno-18-60"></a>            <span class="n">node</span> <span class="p">=</span> <span class="n">node</span><span class="p">?.</span><span class="n">next</span>
+<a id="__codelineno-18-61" name="__codelineno-18-61" href="#__codelineno-18-61"></a>        <span class="p">}</span>
+<a id="__codelineno-18-62" name="__codelineno-18-62" href="#__codelineno-18-62"></a>        <span class="k">return</span> <span class="n">res</span>
+<a id="__codelineno-18-63" name="__codelineno-18-63" href="#__codelineno-18-63"></a>    <span class="p">}</span>
+<a id="__codelineno-18-64" name="__codelineno-18-64" href="#__codelineno-18-64"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2971,7 +2982,17 @@
 <a id="__codelineno-28-55" name="__codelineno-28-55" href="#__codelineno-28-55"></a>        <span class="p">}</span>
 <a id="__codelineno-28-56" name="__codelineno-28-56" href="#__codelineno-28-56"></a>        <span class="k">return</span> <span class="n">nums</span><span class="p">[</span><span class="n">front</span><span class="p">]</span>
 <a id="__codelineno-28-57" name="__codelineno-28-57" href="#__codelineno-28-57"></a>    <span class="p">}</span>
-<a id="__codelineno-28-58" name="__codelineno-28-58" href="#__codelineno-28-58"></a><span class="p">}</span>
+<a id="__codelineno-28-58" name="__codelineno-28-58" href="#__codelineno-28-58"></a>
+<a id="__codelineno-28-59" name="__codelineno-28-59" href="#__codelineno-28-59"></a>    <span class="cm">/* 返回数组 */</span>
+<a id="__codelineno-28-60" name="__codelineno-28-60" href="#__codelineno-28-60"></a>    <span class="kd">func</span> <span class="nf">toArray</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">{</span>
+<a id="__codelineno-28-61" name="__codelineno-28-61" href="#__codelineno-28-61"></a>        <span class="c1">// 仅转换有效长度范围内的列表元素</span>
+<a id="__codelineno-28-62" name="__codelineno-28-62" href="#__codelineno-28-62"></a>        <span class="kd">var</span> <span class="nv">res</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">queSize</span><span class="p">)</span>
+<a id="__codelineno-28-63" name="__codelineno-28-63" href="#__codelineno-28-63"></a>        <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">in</span> <span class="n">sequence</span><span class="p">(</span><span class="bp">first</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">front</span><span class="p">),</span> <span class="n">next</span><span class="p">:</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&lt;</span> <span class="kc">self</span><span class="p">.</span><span class="n">queSize</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">?</span> <span class="p">(</span><span class="nv">$0</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:</span> <span class="kc">nil</span> <span class="p">})</span> <span class="p">{</span>
+<a id="__codelineno-28-64" name="__codelineno-28-64" href="#__codelineno-28-64"></a>            <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span> <span class="o">%</span> <span class="n">capacity</span><span class="p">()]</span>
+<a id="__codelineno-28-65" name="__codelineno-28-65" href="#__codelineno-28-65"></a>        <span class="p">}</span>
+<a id="__codelineno-28-66" name="__codelineno-28-66" href="#__codelineno-28-66"></a>        <span class="k">return</span> <span class="n">res</span>
+<a id="__codelineno-28-67" name="__codelineno-28-67" href="#__codelineno-28-67"></a>    <span class="p">}</span>
+<a id="__codelineno-28-68" name="__codelineno-28-68" href="#__codelineno-28-68"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">

@@ -2842,14 +2842,16 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">space_complexity.swift</span><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="cm">/* 平方阶（递归实现） */</span>
-<a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a><span class="kd">func</span> <span class="nf">quadraticRecur</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
-<a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">{</span>
-<a id="__codelineno-78-4" name="__codelineno-78-4" href="#__codelineno-78-4"></a>        <span class="k">return</span> <span class="mi">0</span>
-<a id="__codelineno-78-5" name="__codelineno-78-5" href="#__codelineno-78-5"></a>    <span class="p">}</span>
-<a id="__codelineno-78-6" name="__codelineno-78-6" href="#__codelineno-78-6"></a>    <span class="c1">// 数组 nums 长度为 n, n-1, ..., 2, 1</span>
-<a id="__codelineno-78-7" name="__codelineno-78-7" href="#__codelineno-78-7"></a>    <span class="kd">let</span> <span class="nv">nums</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">n</span><span class="p">)</span>
-<a id="__codelineno-78-8" name="__codelineno-78-8" href="#__codelineno-78-8"></a>    <span class="k">return</span> <span class="n">quadraticRecur</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-78-9" name="__codelineno-78-9" href="#__codelineno-78-9"></a><span class="p">}</span>
+<a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a><span class="p">@</span><span class="n">discardableResult</span>
+<a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a><span class="kd">func</span> <span class="nf">quadraticRecur</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<a id="__codelineno-78-4" name="__codelineno-78-4" href="#__codelineno-78-4"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">{</span>
+<a id="__codelineno-78-5" name="__codelineno-78-5" href="#__codelineno-78-5"></a>        <span class="k">return</span> <span class="mi">0</span>
+<a id="__codelineno-78-6" name="__codelineno-78-6" href="#__codelineno-78-6"></a>    <span class="p">}</span>
+<a id="__codelineno-78-7" name="__codelineno-78-7" href="#__codelineno-78-7"></a>    <span class="c1">// 数组 nums 长度为 n, n-1, ..., 2, 1</span>
+<a id="__codelineno-78-8" name="__codelineno-78-8" href="#__codelineno-78-8"></a>    <span class="kd">let</span> <span class="nv">nums</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-78-9" name="__codelineno-78-9" href="#__codelineno-78-9"></a>    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;递归 n = </span><span class="si">\(</span><span class="n">n</span><span class="si">)</span><span class="s"> 中的 nums 长度 = </span><span class="si">\(</span><span class="n">nums</span><span class="p">.</span><span class="bp">count</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<a id="__codelineno-78-10" name="__codelineno-78-10" href="#__codelineno-78-10"></a>    <span class="k">return</span> <span class="n">quadraticRecur</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-78-11" name="__codelineno-78-11" href="#__codelineno-78-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
