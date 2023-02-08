@@ -31,6 +31,9 @@ class ExtractCodeBlocksJava:
         """
         Extract classes and functions from a markdown document
         """
+        if not osp.isfile(file_path):
+            return None
+        
         self.file_path = file_path
         with open(file_path) as f:
             self.lines = f.readlines()

@@ -49,7 +49,3 @@ class ExtractCodeBlocksPython(ExtractCodeBlocksJava):
                 remove_empty_lines(func)
         for func in funcs.values():
             remove_empty_lines(func)
-
-
-# ext = ExtractCodeBlocksPython()
-# ext.extract("codes/python/chapter_array_and_linkedlist/my_list.py")

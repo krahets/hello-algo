@@ -21,8 +21,3 @@ class ExtractCodeBlocksSwift(ExtractCodeBlocksJava):
         
         self.func_pattern_keys = ["total", "ind", "scope", "static", "func", "label"]
         self.class_pattern_keys = ["total", "scope", "label"]
-
-
-# for code_path in glob.glob("codes/cpp/chapter_*/my_heap.cpp"):
-#     ext = ExtractCodeBlocksCpp()
-#     ext.extract(code_path)

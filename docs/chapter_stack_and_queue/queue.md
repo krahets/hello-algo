@@ -371,62 +371,7 @@ comments: true
 === "C#"
 
     ```csharp title="linkedlist_queue.cs"
-    /* 基于链表实现的队列 */
-    class LinkedListQueue
-    {
-        private ListNode? front, rear;  // 头结点 front ，尾结点 rear 
-        private int queSize = 0;
-        public LinkedListQueue()
-        {
-            front = null;
-            rear = null;
-        }
-        /* 获取队列的长度 */
-        public int size()
-        {
-            return queSize;
-        }
-        /* 判断队列是否为空 */
-        public bool isEmpty()
-        {
-            return size() == 0;
-        }
-        /* 入队 */
-        public void push(int num)
-        {
-            // 尾结点后添加 num
-            ListNode node = new ListNode(num);
-            // 如果队列为空，则令头、尾结点都指向该结点
-            if (front == null)
-            {
-                front = node;
-                rear = node;
-                // 如果队列不为空，则将该结点添加到尾结点后
-            }
-            else if (rear != null)
-            {
-                rear.next = node;
-                rear = node;
-            }
-            queSize++;
-        }
-        /* 出队 */
-        public int poll()
-        {
-            int num = peek();
-            // 删除头结点
-            front = front?.next;
-            queSize--;
-            return num;
-        }
-        /* 访问队首元素 */
-        public int peek()
-        {
-            if (size() == 0 || front == null)
-                throw new Exception();
-            return front.val;
-        }
-    }
+    [class]{LinkedListQueue}-[func]{}
     ```
 
 === "Swift"
@@ -570,71 +515,7 @@ comments: true
 === "C#"
 
     ```csharp title="array_queue.cs"
-    /* 基于环形数组实现的队列 */
-    class ArrayQueue
-    {
-        private int[] nums;  // 用于存储队列元素的数组
-        private int front;   // 队首指针，指向队首元素
-        private int queSize; // 队列长度
-
-        public ArrayQueue(int capacity)
-        {
-            nums = new int[capacity];
-            front = queSize = 0;
-        }
-
-        /* 获取队列的容量 */
-        public int capacity()
-        {
-            return nums.Length;
-        }
-
-        /* 获取队列的长度 */
-        public int size()
-        {
-            return queSize;
-        }
-
-        /* 判断队列是否为空 */
-        public bool isEmpty()
-        {
-            return queSize == 0;
-        }
-
-        /* 入队 */
-        public void push(int num)
-        {
-            if (queSize == capacity())
-            {
-                Console.WriteLine("队列已满");
-                return;
-            }
-            // 计算尾指针，指向队尾索引 + 1
-            // 通过取余操作，实现 rear 越过数组尾部后回到头部
-            int rear = (front + queSize) % capacity();
-            // 尾结点后添加 num
-            nums[rear] = num;
-            queSize++;
-        }
-
-        /* 出队 */
-        public int poll()
-        {
-            int num = peek();
-            // 队首指针向后移动一位，若越过尾部则返回到数组头部
-            front = (front + 1) % capacity();
-            queSize--;
-            return num;
-        }
-
-        /* 访问队首元素 */
-        public int peek()
-        {
-            if (isEmpty())
-                throw new Exception();
-            return nums[front];
-        }
-    }
+    [class]{ArrayQueue}-[func]{}
     ```
 
 === "Swift"

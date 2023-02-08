@@ -70,13 +70,7 @@ comments: true
 === "C#"
 
     ```csharp title="hashing_search.cs"
-    /* 哈希查找（数组） */
-    int hashingSearchArray(Dictionary<int, int> map, int target)
-    {
-        // 哈希表的 key: 目标元素，value: 索引
-        // 若哈希表中无此 key ，返回 -1
-        return map.GetValueOrDefault(target, -1);
-    }
+    [class]{hashing_search}-[func]{hashingSearchArray}
     ```
 
 === "Swift"
@@ -149,14 +143,7 @@ comments: true
 === "C#"
 
     ```csharp title="hashing_search.cs"
-    /* 哈希查找（链表） */
-    ListNode? hashingSearchLinkedList(Dictionary<int, ListNode> map, int target)
-    {
-
-        // 哈希表的 key: 目标结点值，value: 结点对象
-        // 若哈希表中无此 key ，返回 null
-        return map.GetValueOrDefault(target);
-    }
+    [class]{hashing_search}-[func]{hashingSearchLinkedList}
     ```
 
 === "Swift"

@@ -166,16 +166,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    /* 随机返回一个数组元素 */
-    int RandomAccess(int[] nums)
-    {
-        Random random=new();
-        // 在区间 [0, nums.Length) 中随机抽取一个数字
-        int randomIndex = random.Next(nums.Length);
-        // 获取并返回随机元素
-        int randomNum = nums[randomIndex];
-        return randomNum;
-    }
+    [class]{array}-[func]{randomAccess}
     ```
 
 === "Swift"
@@ -256,19 +247,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    /* 扩展数组长度 */
-    int[] Extend(int[] nums, int enlarge)
-    {
-        // 初始化一个扩展长度后的数组
-        int[] res = new int[nums.Length + enlarge];
-        // 将原数组中的所有元素复制到新数组
-        for (int i = 0; i < nums.Length; i++)
-        {
-            res[i] = nums[i];
-        }
-        // 返回扩展后的新数组
-        return res;
-    }
+    [class]{array}-[func]{extend}
     ```
 
 === "Swift"
@@ -373,26 +352,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    /* 在数组的索引 index 处插入元素 num */
-    void Insert(int[] nums, int num, int index)
-    {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for (int i = nums.Length - 1; i > index; i--)
-        {
-            nums[i] = nums[i - 1];
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num;
-    }
-    /* 删除索引 index 处元素 */
-    void Remove(int[] nums, int index)
-    {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (int i = index; i < nums.Length - 1; i++)
-        {
-            nums[i] = nums[i + 1];
-        }
-    }
+    [class]{array}-[func]{insert}
+
+    [class]{array}-[func]{remove}
     ```
 
 === "Swift"
@@ -487,21 +449,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    /* 遍历数组 */
-    void Traverse(int[] nums)
-    {
-        int count = 0;
-        // 通过索引遍历数组
-        for (int i = 0; i < nums.Length; i++)
-        {
-            count++;
-        }
-        // 直接遍历数组
-        foreach (int num in nums)
-        {
-            count++;
-        }
-    }
+    [class]{array}-[func]{traverse}
     ```
 
 === "Swift"
@@ -586,16 +534,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    /* 在数组中查找指定元素 */
-    int Find(int[] nums, int target)
-    {
-        for (int i = 0; i < nums.Length; i++)
-        {
-            if (nums[i] == target)
-                return i;
-        }
-        return -1;
-    }
+    [class]{array}-[func]{find}
     ```
 
 === "Swift"

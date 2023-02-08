@@ -21,8 +21,3 @@ class ExtractCodeBlocksJSTS(ExtractCodeBlocksJava):
         
         self.func_pattern_keys = ["total", "ind", "prefix", "label", ":", "return"]
         self.class_pattern_keys = ["total", "scope", "label"]
-
-
-# for code_path in glob.glob("codes/cpp/chapter_*/my_heap.cpp"):
-#     ext = ExtractCodeBlocksCpp()
-#     ext.extract(code_path)

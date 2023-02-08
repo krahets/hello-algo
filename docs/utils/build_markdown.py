@@ -15,6 +15,7 @@ from docs.utils.extract_code_java import ExtractCodeBlocksJava
 from docs.utils.extract_code_cpp import ExtractCodeBlocksCpp
 from docs.utils.extract_code_jsts import ExtractCodeBlocksJSTS
 from docs.utils.extract_code_swift import ExtractCodeBlocksSwift
+from docs.utils.extract_code_csharp import ExtractCodeBlocksCSharp
 
 
 def build_markdown(md_path):
@@ -42,8 +43,12 @@ def build_markdown(md_path):
         extractor = extractor_dict[lang]
         # Get code blocks
         if file_name not in code_blocks_dict:
-            code_blocks_dict[file_name] = extractor.extract(
+            code_blocks = extractor.extract(
                 file_path=osp.dirname(md_path).replace("docs/", f"codes/{lang}/") + f"/{file_name}")
+            if code_blocks is None:
+                i += 1
+                continue
+            code_blocks_dict[file_name] = code_blocks
 
         header_line = i
         class_label = src_match[1]
@@ -90,6 +95,7 @@ extractor_dict = {
     "javascript": ExtractCodeBlocksJSTS(),
     "typescript": ExtractCodeBlocksJSTS(),
     "swift": ExtractCodeBlocksSwift(),
+    "csharp": ExtractCodeBlocksCSharp(),
 }
 
 

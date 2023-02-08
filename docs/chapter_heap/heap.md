@@ -344,7 +344,11 @@ comments: true
 === "C#"
 
     ```csharp title="my_heap.cs"
+    [class]{MaxHeap}-[func]{left}
 
+    [class]{MaxHeap}-[func]{right}
+
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 === "Swift"
@@ -415,7 +419,7 @@ comments: true
 === "C#"
 
     ```csharp title="my_heap.cs"
-
+    [class]{MaxHeap}-[func]{peek}
     ```
 
 === "Swift"
@@ -531,7 +535,9 @@ comments: true
 === "C#"
 
     ```csharp title="my_heap.cs"
+    [class]{MaxHeap}-[func]{push}
 
+    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 === "Swift"
@@ -682,7 +688,9 @@ comments: true
 === "C#"
 
     ```csharp title="my_heap.cs"
+    [class]{MaxHeap}-[func]{poll}
 
+    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 === "Swift"
@@ -759,7 +767,7 @@ comments: true
 === "C#"
 
     ```csharp title="my_heap.cs"
-
+    [class]{MaxHeap}-[func]{MaxHeap}
     ```
 
 === "Swift"

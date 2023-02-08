@@ -607,7 +607,9 @@ comments: true
 === "C#"
 
     ```csharp title="linkedlist_deque.cs"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "Swift"
