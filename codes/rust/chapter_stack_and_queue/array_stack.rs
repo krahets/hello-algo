@@ -1,84 +1,85 @@
-/**
+/*
  * File: array_stack.rs
  * Created Time: 2023-02-05
- * Author: WSL0809 (wslzzy@outlook.com)
+ * Author: WSL0809 (wslzzy@outlook.com), sjinzh (sjinzh@gmail.com)
  */
 
-use std::vec::Vec;
-struct ArrayStack {
-    stack: Vec<i32>,
+include!("../include/include.rs");
+
+/* 基于数组实现的栈 */
+struct ArrayStack<T> {
+    stack: Vec<T>,
 }
 
-impl ArrayStack {
-    fn new() -> ArrayStack {
-        ArrayStack { stack: Vec::new() }
+impl<T> ArrayStack<T> {
+    /* 初始化栈 */
+    fn new() -> ArrayStack<T> {
+        ArrayStack::<T> { stack: Vec::<T>::new() }
     }
 
-    //获取栈的长度
+    /* 获取栈的长度 */
     fn size(&self) -> usize {
         self.stack.len()
     }
 
-    //判断栈是否为空
+    /* 判断栈是否为空 */
     fn is_empty(&self) -> bool {
         self.size() == 0
     }
 
-    //入栈
-    fn push(&mut self, num: i32) {
+    /* 入栈 */
+    fn push(&mut self, num: T) {
         self.stack.push(num);
     }
 
-    //出栈
-    fn pop(&mut self) -> i32 {
+    /* 出栈 */
+    fn pop(&mut self) -> Option<T> {
         match self.stack.pop() {
-            Some(num) => num,
-            None => panic!("stack is empty"),
+            Some(num) => Some(num),
+            None => None,
         }
     }
 
-    //访问栈顶元素
-    fn peek(&self) -> i32 {
-        *self
-            .stack
-            .last()
-            .unwrap_or_else(|| panic!("stack is empty"))
+    /* 访问栈顶元素 */
+    fn peek(&self) -> Option<&T> {
+        if self.is_empty() { panic!("栈为空") };
+        self.stack.last()
     }
 
-    fn to_vec(&self) -> Vec<i32> {
-        self.stack.clone()
+    /* 返回 &Vec */
+    fn to_array(&self) -> &Vec<T> {
+        &self.stack
     }
 }
 
+/* Driver Code */
 fn main() {
-    //初始化栈
-    let mut stack = ArrayStack::new();
+    // 初始化栈
+    let mut stack = ArrayStack::<i32>::new();
 
-    //元素入栈
+    // 元素入栈
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    println!("栈 stack = {:?}", stack.to_vec());
+    print!("栈 stack = ");
+    print_util::print_array(stack.to_array());
 
     //访问栈顶元素
-    let peek = stack.peek();
-    println!("栈顶元素 peek = {}", peek);
+    let peek = stack.peek().unwrap();
+    print!("\n栈顶元素 peek = {}", peek);
 
-    //元素出栈
-    let pop = stack.pop();
-    println!(
-        "出栈元素 pop = {}，出栈后 stack = {:?}",
-        pop,
-        stack.to_vec()
-    );
+    // 元素出栈
+    let pop = stack.pop().unwrap();
+    print!("\n出栈元素 pop = {pop}，出栈后 stack = ");
+    print_util::print_array(stack.to_array());
 
-    //获取栈的长度
+    // 获取栈的长度
     let size = stack.size();
-    println!("栈的长度 size = {}", size);
+    print!("\n栈的长度 size = {size}");
 
-    //判断是否为空
+    // 判断是否为空
     let is_empty = stack.is_empty();
-    println!("栈是否为空 = {}", is_empty);
+    print!("\n栈是否为空 = {is_empty}");
 }

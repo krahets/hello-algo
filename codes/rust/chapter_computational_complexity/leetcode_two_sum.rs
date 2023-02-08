@@ -1,8 +1,10 @@
-/**
+/*
  * File: leetcode_two_sum.rs
  * Created Time: 2023-01-14
  * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
-*/
+ */
+
+include!("../include/include.rs");
 
 use std::collections::HashMap;
 struct SolutionBruteForce;
@@ -49,9 +51,9 @@ fn main() {
     // 方法一
     let res = SolutionBruteForce::two_sum(&nums, target);
     print!("方法一 res = ");
-    inc::print_util::print_array(&res);
+    print_util::print_array(&res);
     // 方法二
     let res = SolutionHashMap::two_sum(&nums, target);
     print!("\n方法二 res = ");
-    inc::print_util::print_array(&res);
+    print_util::print_array(&res);
 }
