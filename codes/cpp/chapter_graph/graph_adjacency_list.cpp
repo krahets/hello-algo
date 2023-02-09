@@ -21,6 +21,7 @@ namespace std {
         size_t operator()(const Vertex &vertex) const { return vertex.val; }
     };
 }
+
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
     // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
@@ -90,6 +91,7 @@ public:
         }
     }
 };
+
 int main() {
     /* 初始化无向图 */
     Vertex v0(1), v1(3), v2(2), v3(5), v4(4);
