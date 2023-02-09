@@ -9,6 +9,7 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_heap;
 
+/* 大顶堆 */
 class MaxHeap
 {
     // 使用列表而非数组，这样无需考虑扩容问题
@@ -19,6 +20,7 @@ class MaxHeap
     {
         maxHeap = new List<int>();
     }
+    
     /* 构造函数，根据输入列表建堆 */
     public MaxHeap(IEnumerable<int> nums)
     {
@@ -49,11 +51,13 @@ class MaxHeap
     {
         return (i - 1) / 2; // 向下整除
     }
+    
     /* 访问堆顶元素 */
     public int Peek()
     {
         return maxHeap[0];
     }
+    
     /* 元素入堆 */
     public void Push(int val)
     {
@@ -62,11 +66,13 @@ class MaxHeap
         // 从底至顶堆化
         SiftUp(size() - 1);
     }
+    
     /* 获取堆大小 */
     public int size()
     {
         return maxHeap.Count;
     }
+    
     /* 判断堆是否为空 */
     public bool IsEmpty()
     {
@@ -89,6 +95,7 @@ class MaxHeap
             i = p;
         }
     }
+    
     /* 元素出堆 */
     public int Poll()
     {
@@ -125,11 +132,13 @@ class MaxHeap
             i = ma;
         }
     }
+    
     /* 交换元素 */
     void Swap(int i, int p)
     {
         (maxHeap[i], maxHeap[p]) = (maxHeap[p], maxHeap[i]);
     }
+    
     /* 打印堆（二叉树） */
     public void Print()
     {
