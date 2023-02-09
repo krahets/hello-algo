@@ -3,6 +3,7 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_graph;
 
+/* 基于邻接矩阵实现的无向图类 */
 class GraphAdjMat
 {
     List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
@@ -108,7 +109,7 @@ public class graph_adjacency_matrix
         /* 初始化无向图 */
         // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
         int[] vertices = { 1, 3, 2, 5, 4 };
-        int[][] edges = new int[][] { new int[] { 0, 1 }, new int[] { 0, 2 }, new int[] { 1, 2 }, new int[] { 2, 3 }, new int[] { 0, 3 }, new int[] { 2, 4 }, new int[] { 3, 4 } };
+        int[][] edges = new int[][] { new int[] { 0, 1 }, new int[] { 1, 2 }, new int[] { 2, 3 }, new int[] { 0, 3 }, new int[] { 2, 4 }, new int[] { 3, 4 } };
         GraphAdjMat graph = new GraphAdjMat(vertices, edges);
         Console.WriteLine("\n初始化后，图为");
         graph.Print();
