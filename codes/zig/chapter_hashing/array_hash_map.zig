@@ -10,7 +10,7 @@ const Entry = struct {
     key: usize = undefined,
     val: []const u8 = undefined,
 
-   pub fn init(key: usize, val: []const u8) Entry {
+    pub fn init(key: usize, val: []const u8) Entry {
         return Entry {
             .key = key,
             .val = val,

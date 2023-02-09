@@ -72,7 +72,7 @@ fn bubbleSort(nums: []i32) i32 {
 }
 
 // 指数阶（循环实现）
-fn exponential(n: i32) i32{
+fn exponential(n: i32) i32 {
     var count: i32 = 0;
     var bas: i32 = 1;
     var i: i32 = 0;
@@ -89,14 +89,13 @@ fn exponential(n: i32) i32{
 }
 
 // 指数阶（递归实现）
-fn expRecur(n: i32) i32{
+fn expRecur(n: i32) i32 {
     if (n == 1) return 1;
     return expRecur(n - 1) + expRecur(n - 1) + 1;
 }
 
 // 对数阶（循环实现）
-fn logarithmic(n: f32) i32
-{
+fn logarithmic(n: f32) i32 {
     var count: i32 = 0;
     var n_var = n;
     while (n_var > 1)
@@ -108,15 +107,13 @@ fn logarithmic(n: f32) i32
 }
 
 // 对数阶（递归实现）
-fn logRecur(n: f32) i32
-{
+fn logRecur(n: f32) i32 {
     if (n <= 1) return 0;
     return logRecur(n / 2) + 1;
 }
 
 // 线性对数阶
-fn linearLogRecur(n: f32) i32
-{
+fn linearLogRecur(n: f32) i32 {
     if (n <= 1) return 1;
     var count: i32 = linearLogRecur(n / 2) +
                 linearLogRecur(n / 2);

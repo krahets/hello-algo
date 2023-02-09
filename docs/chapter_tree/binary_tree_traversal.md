@@ -75,7 +75,7 @@ comments: true
 === "Zig"
 
     ```zig title="binary_tree_bfs.zig"
-
+    [class]{}-[func]{hierOrder}
     ```
 
 ## 7.2.2. 前序、中序、后序遍历
@@ -187,7 +187,11 @@ comments: true
 === "Zig"
 
     ```zig title="binary_tree_dfs.zig"
+    [class]{}-[func]{preOrder}
 
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
     ```
 
 !!! note

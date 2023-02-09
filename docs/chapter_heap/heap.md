@@ -342,7 +342,11 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{left}
 
+    [class]{MaxHeap}-[func]{right}
+
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 ### 访问堆顶元素
@@ -406,7 +410,7 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
-
+    [class]{MaxHeap}-[func]{peek}
     ```
 
 ### 元素入堆
@@ -506,7 +510,9 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{push}
 
+    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 ### 堆顶元素出堆
@@ -622,7 +628,9 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{poll}
 
+    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 ### 输入数据并建堆 *
@@ -688,7 +696,7 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
-
+    [class]{MaxHeap}-[func]{init}
     ```
 
 那么，第二种建堆方法的时间复杂度时多少呢？我们来做一下简单推算。

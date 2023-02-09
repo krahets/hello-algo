@@ -97,7 +97,7 @@ comments: true
 === "Zig"
 
     ```zig title="insertion_sort.zig"
-
+    [class]{}-[func]{insertionSort}
     ```
 
 ## 11.3.2. 算法特性
