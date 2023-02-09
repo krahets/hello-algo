@@ -11,7 +11,7 @@ class GraphAdjMat {
     private var vertices: [Int] // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
     private var adjMat: [[Int]] // 邻接矩阵，行列索引对应“顶点索引”
 
-    /* 构造函数 */
+    /* 构造方法 */
     init(vertices: [Int], edges: [[Int]]) {
         self.vertices = []
         adjMat = []

@@ -10,7 +10,7 @@ const { printHeap } = require("../include/PrintUtil");
 class MaxHeap {
     #maxHeap;
 
-    /* 构造函数，建立空堆或根据输入列表建堆 */
+    /* 构造方法，建立空堆或根据输入列表建堆 */
     constructor(nums) {
         // 将列表元素原封不动添加进堆
         this.#maxHeap = nums === undefined ? [] : [...nums];

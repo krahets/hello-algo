@@ -66,7 +66,7 @@ class ExtractCodeBlocksGo(ExtractCodeBlocksJava):
             
             def check_func_blong_to_class(label):
                 class_label_pattern = re.compile(f".*\*{label}\).*")
-                func_return_pattern = re.compile(f".*\*{label}.*")
+                func_return_pattern = re.compile(f".*{label}.*")
                 constructor_pattern = re.compile(f".*new.*")
                 
                 class_label_match = class_label_pattern.match(f"{func_cls_label}")
@@ -172,7 +172,7 @@ class ExtractCodeBlocksGo(ExtractCodeBlocksJava):
             replace_tabs(func)
 
 
-# for code_path in glob.glob("codes/go/chapter_*/array_hash_map.go"):
-#     ext = ExtractCodeBlocksGo()
-#     res = ext.extract(code_path)
-#     pass
+for code_path in glob.glob("codes/*/chapter_*/graph_adjacency_matrix.go"):
+    ext = ExtractCodeBlocksGo()
+    res = ext.extract(code_path)
+    pass

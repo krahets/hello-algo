@@ -95,7 +95,7 @@ class AVLTree {
         return root
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     private func insertHelper(node: TreeNode?, val: Int) -> TreeNode? {
         var node = node
         if node == nil {
@@ -123,7 +123,7 @@ class AVLTree {
         return root
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     private func removeHelper(node: TreeNode?, val: Int) -> TreeNode? {
         var node = node
         if node == nil {

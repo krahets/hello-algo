@@ -62,7 +62,7 @@ private:
     }
 
 public:
-    /* 构造函数，根据输入列表建堆 */
+    /* 构造方法，根据输入列表建堆 */
     MaxHeap(vector<int> nums) {
         // 将列表元素原封不动添加进堆
         maxHeap = nums;

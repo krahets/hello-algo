@@ -14,7 +14,7 @@ class GraphAdjMat {
     List<Integer> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
     List<List<Integer>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
-    /* 构造函数 */
+    /* 构造方法 */
     public GraphAdjMat(int[] vertices, int[][] edges) {
         this.vertices = new ArrayList<>();
         this.adjMat = new ArrayList<>();

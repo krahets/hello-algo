@@ -12,7 +12,7 @@ type myList struct {
 	extendRatio  int
 }
 
-/* 构造函数 */
+/* 构造方法 */
 func newMyList() *myList {
 	return &myList{
 		numsCapacity: 10,              // 列表容量

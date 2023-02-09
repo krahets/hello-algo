@@ -21,7 +21,7 @@ class GraphAdjList {
     // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
     Map<Vertex, Set<Vertex>> adjList; // 邻接表（使用哈希表实现）
 
-    /* 构造函数 */
+    /* 构造方法 */
     public GraphAdjList(Vertex[][] edges) {
         this.adjList = new HashMap<>();
         // 添加所有顶点和边

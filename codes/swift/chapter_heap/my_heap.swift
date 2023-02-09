@@ -10,7 +10,7 @@ import utils
 class MaxHeap {
     private var maxHeap: [Int]
 
-    /* 构造函数，根据输入列表建堆 */
+    /* 构造方法，根据输入列表建堆 */
     init(nums: [Int]) {
         // 将列表元素原封不动添加进堆
         maxHeap = nums

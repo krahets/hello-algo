@@ -15,7 +15,7 @@ class Vertex {
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
     adjList: Map<Vertex, Set<Vertex>>;
-    /* 构造函数 */
+    /* 构造方法 */
     constructor(edges: Vertex[][]) {
         this.adjList = new Map();
         // 添加所有顶点和边

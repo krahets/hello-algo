@@ -11,7 +11,7 @@ class MyList {
   int _size = 0; // 列表长度（即当前元素数量）
   int _extendRatio = 2; // 每次列表扩容的倍数
 
-  /* 构造函数 */
+  /* 构造方法 */
   MyList() {
     _nums = List.filled(_capacity, 0);
   }

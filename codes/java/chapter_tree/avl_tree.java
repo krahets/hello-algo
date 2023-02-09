@@ -96,7 +96,7 @@ class AVLTree {
         return root;
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     private TreeNode insertHelper(TreeNode node, int val) {
         if (node == null) return new TreeNode(val);
         /* 1. 查找插入位置，并插入结点 */
@@ -119,7 +119,7 @@ class AVLTree {
         return root;
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     private TreeNode removeHelper(TreeNode node, int val) {
         if (node == null) return null;
         /* 1. 查找结点，并删除之 */

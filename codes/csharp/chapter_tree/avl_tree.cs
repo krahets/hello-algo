@@ -113,7 +113,7 @@ class AVLTree
         return root;
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     private TreeNode? insertHelper(TreeNode? node, int val)
     {
         if (node == null) return new TreeNode(val);
@@ -138,7 +138,7 @@ class AVLTree
         return root;
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     private TreeNode? removeHelper(TreeNode? node, int val)
     {
         if (node == null) return null;
