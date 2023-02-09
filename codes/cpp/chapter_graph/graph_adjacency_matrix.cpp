@@ -26,7 +26,7 @@ public:
     }
 
     /* 获取顶点数量 */
-    size_t size() const {
+    int size() const {
         return vertices.size();
     }
 
