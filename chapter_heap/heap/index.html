@@ -2669,7 +2669,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="8:10"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><input id="__tabbed_8_5" name="__tabbed_8" type="radio" /><input id="__tabbed_8_6" name="__tabbed_8" type="radio" /><input id="__tabbed_8_7" name="__tabbed_8" type="radio" /><input id="__tabbed_8_8" name="__tabbed_8" type="radio" /><input id="__tabbed_8_9" name="__tabbed_8" type="radio" /><input id="__tabbed_8_10" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Java</label><label for="__tabbed_8_2">C++</label><label for="__tabbed_8_3">Python</label><label for="__tabbed_8_4">Go</label><label for="__tabbed_8_5">JavaScript</label><label for="__tabbed_8_6">TypeScript</label><label for="__tabbed_8_7">C</label><label for="__tabbed_8_8">C#</label><label for="__tabbed_8_9">Swift</label><label for="__tabbed_8_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.java</span><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="cm">/* 构造函数，根据输入列表建堆 */</span>
+<div class="highlight"><span class="filename">my_heap.java</span><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="cm">/* 构造方法，根据输入列表建堆 */</span>
 <a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="n">MaxHeap</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="w">    </span><span class="c1">// 将列表元素原封不动添加进堆</span>
 <a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="w">    </span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
@@ -2681,7 +2681,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.cpp</span><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="cm">/* 构造函数，根据输入列表建堆 */</span>
+<div class="highlight"><span class="filename">my_heap.cpp</span><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="cm">/* 构造方法，根据输入列表建堆 */</span>
 <a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="n">MaxHeap</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="w">    </span><span class="c1">// 将列表元素原封不动添加进堆</span>
 <a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="w">    </span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">;</span>
@@ -2697,7 +2697,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.go</span><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="cm">/* 构造函数，根据切片建堆 */</span>
+<div class="highlight"><span class="filename">my_heap.go</span><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="cm">/* 构造方法，根据切片建堆 */</span>
 <a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">newMaxHeap</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">maxHeap</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="w">    </span><span class="c1">// 将列表元素原封不动添加进堆</span>
 <a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="w">    </span><span class="nx">h</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">maxHeap</span><span class="p">{</span><span class="nx">data</span><span class="p">:</span><span class="w"> </span><span class="nx">nums</span><span class="p">}</span>
@@ -2710,7 +2710,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.js</span><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="cm">/* 构造函数，建立空堆或根据输入列表建堆 */</span>
+<div class="highlight"><span class="filename">my_heap.js</span><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="cm">/* 构造方法，建立空堆或根据输入列表建堆 */</span>
 <a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="kr">constructor</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w">    </span><span class="c1">// 将列表元素原封不动添加进堆</span>
 <a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[...</span><span class="nx">nums</span><span class="p">];</span>
@@ -2722,7 +2722,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.ts</span><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="cm">/* 构造函数，建立空堆或根据输入列表建堆 */</span>
+<div class="highlight"><span class="filename">my_heap.ts</span><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="cm">/* 构造方法，建立空堆或根据输入列表建堆 */</span>
 <a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="kr">constructor</span><span class="p">(</span><span class="nx">nums?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="w">    </span><span class="c1">// 将列表元素原封不动添加进堆</span>
 <a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[...</span><span class="nx">nums</span><span class="p">];</span>
@@ -2742,7 +2742,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.swift</span><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="cm">/* 构造函数，根据输入列表建堆 */</span>
+<div class="highlight"><span class="filename">my_heap.swift</span><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="cm">/* 构造方法，根据输入列表建堆 */</span>
 <a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="kd">init</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">])</span> <span class="p">{</span>
 <a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>    <span class="c1">// 将列表元素原封不动添加进堆</span>
 <a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a>    <span class="n">maxHeap</span> <span class="p">=</span> <span class="n">nums</span>
@@ -2754,7 +2754,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.zig</span><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="c1">// 构造函数，根据输入列表建堆</span>
+<div class="highlight"><span class="filename">my_heap.zig</span><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="c1">// 构造方法，根据输入列表建堆</span>
 <a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="k">fn</span><span class="w"> </span><span class="n">init</span><span class="p">(</span><span class="n">self</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="n">Self</span><span class="p">,</span><span class="w"> </span><span class="n">allocator</span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">mem</span><span class="p">.</span><span class="n">Allocator</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="kr">const</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">maxHeap</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="w">    </span><span class="n">self</span><span class="p">.</span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">ArrayList</span><span class="p">(</span><span class="n">T</span><span class="p">).</span><span class="n">init</span><span class="p">(</span><span class="n">allocator</span><span class="p">);</span>
