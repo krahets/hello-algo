@@ -6,8 +6,8 @@
 
 /* 基于邻接矩阵实现的无向图类 */
 class GraphAdjMat {
-    vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    adjMat; // 邻接矩阵，行列索引对应“顶点索引”
+    vertices;   // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+    adjMat;     // 邻接矩阵，行列索引对应“顶点索引”
 
     /* 构造函数 */
     constructor(vertices, edges) {
@@ -49,7 +49,7 @@ class GraphAdjMat {
     /* 删除顶点 */
     removeVertex(index) {
         if (index >= this.size()) {
-            return;
+            throw new RangeError("Index Out Of Bounds Exception");
         }
         // 在顶点列表中移除索引 index 的顶点
         this.vertices.splice(index, 1);
@@ -66,8 +66,8 @@ class GraphAdjMat {
     // 参数 i, j 对应 vertices 元素索引
     addEdge(i, j) {
         // 索引越界与相等处理
-        if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i == j) {
-            return;
+        if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
+            throw new RangeError("Index Out Of Bounds Exception");
         }
         // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
         this.adjMat[i][j] = 1;
@@ -78,8 +78,8 @@ class GraphAdjMat {
     // 参数 i, j 对应 vertices 元素索引
     removeEdge(i, j) {
         // 索引越界与相等处理
-        if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i == j) {
-            return;
+        if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
+            throw new RangeError("Index Out Of Bounds Exception");
         }
         this.adjMat[i][j] = 0;
         this.adjMat[j][i] = 0;
