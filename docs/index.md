@@ -64,14 +64,29 @@ hide:
 
     **—— 邓俊辉，清华大学计算机系教授**
 
-<h2 align="center"> 致谢 </h2>
+<h2 align="center"> 参与创作 </h2>
 
-感谢本开源书的每一位撰稿人，是他们的无私奉献让这本书变得更好，他们是：
+感谢本开源书的每一位撰稿人，是他们的无私奉献让这本书变得更好，他们是（按 contrib.rocks 生成的顺序）：
 
 <p align="center">
     <a href="https://github.com/krahets/hello-algo/graphs/contributors">
         <img width="600" src="https://contrib.rocks/image?repo=krahets/hello-algo" />
     </a>
 </p>
+
+本开源项目的维护与更新离不开各位 Reviewers 的辛勤付出，感谢他们（按首字母顺序）：
+
+<div class="center-table">
+    <table>
+        <tbody>
+            <tr>
+            <td align="center"><a href="https://github.com/justin-tse"><img src="https://avatars.githubusercontent.com/u/24556310?v=4" width="50px;" alt="justin-tse"/><br /><sub><b>justin-tse</b></sub></a><br /><sub>JS / TS</sub></td>
+            <td align="center"><a href="https://github.com/krahets"><img src="https://avatars.githubusercontent.com/u/26993056?v=4" width="50px;" alt="krahets"/><br /><sub><b>krahets</b></sub></a><br /><sub>Java / Python</sub></td>
+            <td align="center"><a href="https://github.com/nuomi1"><img src="https://avatars.githubusercontent.com/u/3739017?v=4" width="50px;" alt="nuomi1"/><br /><sub><b>nuomi1</b></sub></a><br /><sub>Swift</sub></td>
+            <td align="center"><a href="https://github.com/Reanon"><img src="https://avatars.githubusercontent.com/u/22005836?v=4" width="50px;" alt="Reanon"/><br /><sub><b>Reanon</b></sub></a><br /><sub>Go / C</sub></td>
+            <td align="center"><a href="https://github.com/sjinzh"><img src="https://avatars.githubusercontent.com/u/99076655?v=4" width="50px;" alt="sjinzh"/><br /><sub><b>sjinzh</b></sub></a><br /><sub>Rust / Zig</sub></td>
+        </tbody>
+    </table>
+</div>
 
 ---

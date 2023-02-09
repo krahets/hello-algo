@@ -15,7 +15,6 @@ public class list
     {
 
         /* 初始化列表 */
-        // 注意数组的元素类型是 int[] 的包装类 int[]
         int[] numbers = new int[] { 1, 3, 2, 5, 4 };
         List<int> list = numbers.ToList();
         Console.WriteLine("列表 list = " + string.Join(",", list));
