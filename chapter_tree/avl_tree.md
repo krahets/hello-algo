@@ -1187,7 +1187,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return root;
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     TreeNode insertHelper(TreeNode node, int val) {
         if (node == null) return new TreeNode(val);
         /* 1. 查找插入位置，并插入结点 */
@@ -1214,7 +1214,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return root;
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     TreeNode* insertHelper(TreeNode* node, int val) {
         if (node == nullptr) return new TreeNode(val);
         /* 1. 查找插入位置，并插入结点 */
@@ -1240,7 +1240,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         self.root = self.__insert_helper(self.root, val)
         return self.root
 
-    """ 递归插入结点（辅助函数）"""
+    """ 递归插入结点（辅助方法）"""
     def __insert_helper(self, node: Optional[TreeNode], val: int) -> TreeNode:
         if node is None:
             return TreeNode(val)
@@ -1267,7 +1267,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return t.root
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
         if node == nil {
             return NewTreeNode(val)
@@ -1299,7 +1299,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return this.root;
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     insertHelper(node, val) {
         if (node === null) return new TreeNode(val);
         /* 1. 查找插入位置，并插入结点 */
@@ -1323,7 +1323,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return this.root;
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     insertHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return new TreeNode(val);
         /* 1. 查找插入位置，并插入结点 */
@@ -1360,7 +1360,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return root;
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     TreeNode? insertHelper(TreeNode? node, int val)
     {
         if (node == null) return new TreeNode(val);
@@ -1389,7 +1389,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return root
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     func insertHelper(node: TreeNode?, val: Int) -> TreeNode? {
         var node = node
         if node == nil {
@@ -1420,7 +1420,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return self.root;
     }
 
-    // 递归插入结点（辅助函数）
+    // 递归插入结点（辅助方法）
     fn insertHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) !?*inc.TreeNode(T) {
         var node = node_;
         if (node == null) {
@@ -1457,7 +1457,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return root;
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     TreeNode removeHelper(TreeNode node, int val) {
         if (node == null) return null;
         /* 1. 查找结点，并删除之 */
@@ -1508,7 +1508,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return root;
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     TreeNode* removeHelper(TreeNode* node, int val) {
         if (node == nullptr) return nullptr;
         /* 1. 查找结点，并删除之 */
@@ -1562,7 +1562,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         root = self.__remove_helper(self.root, val)
         return root
 
-    """ 递归删除结点（辅助函数） """
+    """ 递归删除结点（辅助方法） """
     def __remove_helper(self, node: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         if node is None:
             return None
@@ -1608,7 +1608,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return root
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
         if node == nil {
             return nil
@@ -1668,7 +1668,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return this.root;
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     removeHelper(node, val) {
         if (node === null) return null;
         /* 1. 查找结点，并删除之 */
@@ -1715,7 +1715,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return this.root;
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     removeHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return null;
         /* 1. 查找结点，并删除之 */
@@ -1774,7 +1774,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return root;
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     TreeNode? removeHelper(TreeNode? node, int val)
     {
         if (node == null) return null;
@@ -1833,7 +1833,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return root
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     func removeHelper(node: TreeNode?, val: Int) -> TreeNode? {
         var node = node
         if node == nil {
@@ -1892,7 +1892,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         return self.root;
     }
 
-    // 递归删除结点（辅助函数）
+    // 递归删除结点（辅助方法）
     fn removeHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) ?*inc.TreeNode(T) {
         var node = node_;
         if (node == null) return null;

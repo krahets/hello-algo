@@ -1179,7 +1179,7 @@ $$
 
             const Self = @This();
             
-            // 构造函数
+            // 构造方法
             pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
                 self.mem_allocator = allocator;
                 // 初始化一个长度为 100 的桶（数组）
@@ -1190,7 +1190,7 @@ $$
                 }
             }
 
-            // 析构函数
+            // 析构方法
             pub fn deinit(self: *Self) void {
                 if (self.bucket != null) self.bucket.?.deinit();
             }

@@ -781,7 +781,7 @@ comments: true
             mem_arena: ?std.heap.ArenaAllocator = null,
             mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
-            // 构造函数（分配内存+初始化栈）
+            // 构造方法（分配内存+初始化栈）
             pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
                 if (self.mem_arena == null) {
                     self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -791,7 +791,7 @@ comments: true
                 self.stkSize = 0;
             }
 
-            // 析构函数（释放内存）
+            // 析构方法（释放内存）
             pub fn deinit(self: *Self) void {
                 if (self.mem_arena == null) return;
                 self.mem_arena.?.deinit();
@@ -1257,14 +1257,14 @@ comments: true
 
             stack: ?std.ArrayList(T) = null,     
 
-            // 构造函数（分配内存+初始化栈）
+            // 构造方法（分配内存+初始化栈）
             pub fn init(self: *Self, allocator: std.mem.Allocator) void {
                 if (self.stack == null) {
                     self.stack = std.ArrayList(T).init(allocator);
                 }
             }
 
-            // 析构函数（释放内存）
+            // 析构方法（释放内存）
             pub fn deinit(self: *Self) void {
                 if (self.stack == null) return;
                 self.stack.?.deinit();

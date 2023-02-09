@@ -1079,7 +1079,7 @@ comments: true
 === "Java"
 
     ```java title="my_heap.java"
-    /* 构造函数，根据输入列表建堆 */
+    /* 构造方法，根据输入列表建堆 */
     MaxHeap(List<Integer> nums) {
         // 将列表元素原封不动添加进堆
         maxHeap = new ArrayList<>(nums);
@@ -1093,7 +1093,7 @@ comments: true
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    /* 构造函数，根据输入列表建堆 */
+    /* 构造方法，根据输入列表建堆 */
     MaxHeap(vector<int> nums) {
         // 将列表元素原封不动添加进堆
         maxHeap = nums;
@@ -1113,7 +1113,7 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
-    /* 构造函数，根据切片建堆 */
+    /* 构造方法，根据切片建堆 */
     func newMaxHeap(nums []any) *maxHeap {
         // 将列表元素原封不动添加进堆
         h := &maxHeap{data: nums}
@@ -1128,7 +1128,7 @@ comments: true
 === "JavaScript"
 
     ```javascript title="my_heap.js"
-    /* 构造函数，建立空堆或根据输入列表建堆 */
+    /* 构造方法，建立空堆或根据输入列表建堆 */
     constructor(nums) {
         // 将列表元素原封不动添加进堆
         this.#maxHeap = nums === undefined ? [] : [...nums];
@@ -1142,7 +1142,7 @@ comments: true
 === "TypeScript"
 
     ```typescript title="my_heap.ts"
-    /* 构造函数，建立空堆或根据输入列表建堆 */
+    /* 构造方法，建立空堆或根据输入列表建堆 */
     constructor(nums?: number[]) {
         // 将列表元素原封不动添加进堆
         this.maxHeap = nums === undefined ? [] : [...nums];
@@ -1168,7 +1168,7 @@ comments: true
 === "Swift"
 
     ```swift title="my_heap.swift"
-    /* 构造函数，根据输入列表建堆 */
+    /* 构造方法，根据输入列表建堆 */
     init(nums: [Int]) {
         // 将列表元素原封不动添加进堆
         maxHeap = nums
@@ -1182,7 +1182,7 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
-    // 构造函数，根据输入列表建堆
+    // 构造方法，根据输入列表建堆
     fn init(self: *Self, allocator: std.mem.Allocator, nums: []const T) !void {
         if (self.maxHeap != null) return;
         self.maxHeap = std.ArrayList(T).init(allocator);

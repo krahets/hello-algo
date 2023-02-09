@@ -723,7 +723,7 @@ comments: true
         private int size = 0;         // 列表长度（即当前元素数量）
         private int extendRatio = 2;  // 每次列表扩容的倍数
 
-        /* 构造函数 */
+        /* 构造方法 */
         public MyList() {
             nums = new int[capacity];
         }
@@ -827,12 +827,12 @@ comments: true
         int extendRatio = 2;      // 每次列表扩容的倍数
 
     public:
-        /* 构造函数 */
+        /* 构造方法 */
         MyList() {
             nums = new int[numsCapacity];
         }
 
-        /* 析构函数 */
+        /* 析构方法 */
         ~MyList() {
             delete[] nums;
         }
@@ -935,7 +935,7 @@ comments: true
     ```python title="my_list.py"
     """ 列表类简易实现 """
     class MyList:
-        """ 构造函数 """
+        """ 构造方法 """
         def __init__(self):
             self.__capacity = 10                 # 列表容量
             self.__nums = [0] * self.__capacity  # 数组（存储列表元素）
@@ -1012,7 +1012,7 @@ comments: true
         extendRatio  int
     }
 
-    /* 构造函数 */
+    /* 构造方法 */
     func newMyList() *myList {
         return &myList{
             numsCapacity: 10,              // 列表容量
@@ -1119,7 +1119,7 @@ comments: true
         #size = 0; // 列表长度（即当前元素数量）
         #extendRatio = 2; // 每次列表扩容的倍数
 
-        /* 构造函数 */
+        /* 构造方法 */
         constructor() {
             this.#nums = new Array(this.#capacity);
         }
@@ -1225,7 +1225,7 @@ comments: true
         private _size: number = 0; // 列表长度（即当前元素数量）
         private extendRatio: number = 2; // 每次列表扩容的倍数
 
-        /* 构造函数 */
+        /* 构造方法 */
         constructor() {
             this.nums = new Array(this._capacity);
         }
@@ -1337,7 +1337,7 @@ comments: true
         private int numsSize = 0;         // 列表长度（即当前元素数量）
         private int extendRatio = 2;  // 每次列表扩容的倍数
 
-        /* 构造函数 */
+        /* 构造方法 */
         public MyList()
         {
             nums = new int[numsCapacity];
@@ -1451,7 +1451,7 @@ comments: true
         private var _size = 0 // 列表长度（即当前元素数量）
         private let extendRatio = 2 // 每次列表扩容的倍数
 
-        /* 构造函数 */
+        /* 构造方法 */
         init() {
             nums = Array(repeating: 0, count: _capacity)
         }
@@ -1563,7 +1563,7 @@ comments: true
             mem_arena: ?std.heap.ArenaAllocator = null,
             mem_allocator: std.mem.Allocator = undefined, // 内存分配器
 
-            // 构造函数（分配内存+初始化列表）
+            // 构造方法（分配内存+初始化列表）
             pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
                 if (self.mem_arena == null) {
                     self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -1573,7 +1573,7 @@ comments: true
                 std.mem.set(T, self.nums, @as(T, 0));
             }
 
-            // 析构函数（释放内存）
+            // 析构方法（释放内存）
             pub fn deinit(self: *Self) void {
                 if (self.mem_arena == null) return;
                 self.mem_arena.?.deinit();

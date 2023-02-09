@@ -40,7 +40,7 @@ comments: true
         List<Integer> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
         List<List<Integer>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
-        /* 构造函数 */
+        /* 构造方法 */
         public GraphAdjMat(int[] vertices, int[][] edges) {
             this.vertices = new ArrayList<>();
             this.adjMat = new ArrayList<>();
@@ -125,13 +125,13 @@ comments: true
 === "C++"
 
     ```cpp title="graph_adjacency_matrix.cpp"
-
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "Python"
 
     ```python title="graph_adjacency_matrix.py"
-
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "Go"
@@ -145,6 +145,7 @@ comments: true
         adjMat [][]int
     }
 
+    /* 构造方法 */
     func newGraphAdjMat(vertices []int, edges [][]int) *graphAdjMat {
         // 添加顶点
         n := len(vertices)
@@ -221,24 +222,33 @@ comments: true
         g.adjMat[i][j] = 0
         g.adjMat[j][i] = 0
     }
+
+    /* 打印邻接矩阵 */
+    func (g *graphAdjMat) print() {
+        fmt.Printf("\t顶点列表 = %v\n", g.vertices)
+        fmt.Printf("\t邻接矩阵 = \n")
+        for i := range g.adjMat {
+            fmt.Printf("\t\t\t%v\n", g.adjMat[i])
+        }
+    }
     ```
 
 === "JavaScript"
 
     ```javascript title="graph_adjacency_matrix.js"
-
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="graph_adjacency_matrix.ts"
-
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "C"
 
     ```c title="graph_adjacency_matrix.c"
-
+    [class]{graphAdjMat}-[func]{}
     ```
 
 === "C#"
@@ -255,7 +265,7 @@ comments: true
         private var vertices: [Int] // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
         private var adjMat: [[Int]] // 邻接矩阵，行列索引对应“顶点索引”
 
-        /* 构造函数 */
+        /* 构造方法 */
         init(vertices: [Int], edges: [[Int]]) {
             self.vertices = []
             adjMat = []
@@ -326,6 +336,14 @@ comments: true
             adjMat[i][j] = 0
             adjMat[j][i] = 0
         }
+
+        /* 打印邻接矩阵 */
+        func print() {
+            Swift.print("顶点列表 = ", terminator: "")
+            Swift.print(vertices)
+            Swift.print("邻接矩阵 =")
+            PrintUtil.printMatrix(matrix: adjMat)
+        }
     }
     ```
 
@@ -378,7 +396,7 @@ comments: true
         // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
         Map<Vertex, Set<Vertex>> adjList; // 邻接表（使用哈希表实现）
 
-        /* 构造函数 */
+        /* 构造方法 */
         public GraphAdjList(Vertex[][] edges) {
             this.adjList = new HashMap<>();
             // 添加所有顶点和边
@@ -448,13 +466,17 @@ comments: true
 === "C++"
 
     ```cpp title="graph_adjacency_list.cpp"
+    [class]{Vertex}-[func]{}
 
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "Python"
 
     ```python title="graph_adjacency_list.py"
+    [class]{Vertex}-[func]{}
 
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "Go"
@@ -465,6 +487,7 @@ comments: true
         val int
     }
 
+    /* 构造方法 */
     func newVertex(val int) vertex {
         return vertex{
             val: val,
@@ -478,7 +501,7 @@ comments: true
         adjList map[vertex]map[vertex]struct{}
     }
 
-    /* 构造函数 */
+    /* 构造方法 */
     func newGraphAdjList(edges [][]vertex) *graphAdjList {
         g := &graphAdjList{
             adjList: make(map[vertex]map[vertex]struct{}),
@@ -545,24 +568,196 @@ comments: true
             delete(set, vet)
         }
     }
+
+    /* 打印邻接表 */
+    func (g *graphAdjList) print() {
+        var builder strings.Builder
+        fmt.Printf("邻接表 = \n")
+        for k, v := range g.adjList {
+            builder.WriteString("\t\t" + strconv.Itoa(k.val) + ": ")
+            for vet := range v {
+                builder.WriteString(strconv.Itoa(vet.val) + " ")
+            }
+            fmt.Println(builder.String())
+            builder.Reset()
+        }
+    }
     ```
 
 === "JavaScript"
 
     ```javascript title="graph_adjacency_list.js"
+    /* 顶点类 */
+    class Vertex {
+        val;
+        constructor(val) {
+            this.val = val;
+        }
+    }
 
+    /* 基于邻接表实现的无向图类 */
+    class GraphAdjList {
+        adjList;
+        /* 构造方法 */
+        constructor(edges) {
+            this.adjList = new Map();
+            // 添加所有顶点和边
+            for (const edge of edges) {
+                this.addVertex(edge[0]);
+                this.addVertex(edge[1]);
+                this.addEdge(edge[0], edge[1]);
+            }
+        }
+
+        /* 获取顶点数量 */
+        size() {
+            return this.adjList.size;
+        }
+
+        /* 添加边 */
+        addEdge(vet1, vet2) {
+            if (!this.adjList.has(vet1) || !this.adjList.has(vet2) || vet1 === vet2) {
+                throw new Error("Illegal Argument Exception");
+            }
+            // 添加边 vet1 - vet2
+            this.adjList.get(vet1).add(vet2);
+            this.adjList.get(vet2).add(vet1);
+        }
+
+        /* 删除边 */
+        removeEdge(vet1, vet2) {
+            if (!this.adjList.has(vet1) || !this.adjList.has(vet2) || vet1 === vet2) {
+                throw new Error("Illegal Argument Exception");
+            }
+            // 删除边 vet1 - vet2
+            this.adjList.get(vet1).delete(vet2);
+            this.adjList.get(vet2).delete(vet1);
+        }
+
+        /* 添加顶点 */
+        addVertex(vet) {
+            if (this.adjList.has(vet)) return;
+            // 在邻接表中添加一个新链表（即 HashSet）
+            this.adjList.set(vet, new Set());
+        }
+
+        /* 删除顶点 */
+        removeVertex(vet) {
+            if (!this.adjList.has(vet)) {
+                throw new Error("Illegal Argument Exception");
+            }
+            // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
+            this.adjList.delete(vet);
+            // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
+            for (let set of this.adjList.values()) {
+                set.delete(vet);
+            }
+        }
+
+        /* 打印邻接表 */
+        print() {
+            console.log("邻接表 =");
+            for (const [key, value] of this.adjList) {
+                const tmp = [];
+                for (const vertex of value){
+                    tmp.push(vertex.val);
+                }
+                console.log(key.val + ": " + tmp + ",");
+            }
+        }
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="graph_adjacency_list.ts"
+    /* 顶点类 */
+    class Vertex {
+        val: number;
+        constructor(val: number) {
+            this.val = val;
+        }
+    }
 
+    /* 基于邻接表实现的无向图类 */
+    class GraphAdjList {
+        adjList: Map<Vertex, Set<Vertex>>;
+        /* 构造方法 */
+        constructor(edges: Vertex[][]) {
+            this.adjList = new Map();
+            // 添加所有顶点和边
+            for (const edge of edges) {
+                this.addVertex(edge[0]);
+                this.addVertex(edge[1]);
+                this.addEdge(edge[0], edge[1]);
+            }
+        }
+
+        /* 获取顶点数量 */
+        size(): number {
+            return this.adjList.size;
+        }
+
+        /* 添加边 */
+        addEdge(vet1: Vertex, vet2: Vertex): void {
+            if (!this.adjList.has(vet1) || !this.adjList.has(vet2) || vet1 === vet2) {
+                throw new Error("Illegal Argument Exception");
+            }
+            // 添加边 vet1 - vet2
+            this.adjList.get(vet1).add(vet2);
+            this.adjList.get(vet2).add(vet1);
+        }
+
+        /* 删除边 */
+        removeEdge(vet1: Vertex, vet2: Vertex): void {
+            if (!this.adjList.has(vet1) || !this.adjList.has(vet2) || vet1 === vet2) {
+                throw new Error("Illegal Argument Exception");
+            }
+            // 删除边 vet1 - vet2
+            this.adjList.get(vet1).delete(vet2);
+            this.adjList.get(vet2).delete(vet1);
+        }
+
+        /* 添加顶点 */
+        addVertex(vet: Vertex): void {
+            if (this.adjList.has(vet)) return;
+            // 在邻接表中添加一个新链表（即 HashSet）
+            this.adjList.set(vet, new Set());
+        }
+
+        /* 删除顶点 */
+        removeVertex(vet: Vertex): void {
+            if (!this.adjList.has(vet)) {
+                throw new Error("Illegal Argument Exception");
+            }
+            // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
+            this.adjList.delete(vet);
+            // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
+            for (let set of this.adjList.values()) {
+                set.delete(vet);
+            }
+        }
+
+        /* 打印邻接表 */
+        print(): void {
+            console.log("邻接表 =");
+            for (const [key, value] of this.adjList.entries()) {
+                const tmp = [];
+                for (const vertex of value){
+                    tmp.push(vertex.val);
+                }
+                console.log(key.val + ": " + tmp + ",");
+            }
+        }
+    }
     ```
 
 === "C"
 
     ```c title="graph_adjacency_list.c"
+    [class]{vertex}-[func]{}
 
+    [class]{graphAdjList}-[func]{}
     ```
 
 === "C#"
@@ -576,22 +771,7 @@ comments: true
 === "Swift"
 
     ```swift title="graph_adjacency_list.swift"
-    /* 顶点类 */
-    class Vertex: Hashable {
-        var val: Int
-
-        init(val: Int) {
-            self.val = val
-        }
-
-        static func == (lhs: Vertex, rhs: Vertex) -> Bool {
-            lhs.val == rhs.val
-        }
-
-        func hash(into hasher: inout Hasher) {
-            hasher.combine(val)
-        }
-    }
+    [class]{Vertex}-[func]{}
 
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
@@ -654,13 +834,27 @@ comments: true
                 adjList[key]?.remove(vet)
             }
         }
+
+        /* 打印邻接表 */
+        func print() {
+            Swift.print("邻接表 =")
+            for entry in adjList {
+                var tmp: [Int] = []
+                for vertex in entry.value {
+                    tmp.append(vertex.val)
+                }
+                Swift.print("\(entry.key.val): \(tmp),")
+            }
+        }
     }
     ```
 
 === "Zig"
 
     ```zig title="graph_adjacency_list.zig"
+    [class]{Vertex}-[func]{}
 
+    [class]{GraphAdjList}-[func]{}
     ```
 
 ## 9.2.3. 效率对比
