@@ -21,12 +21,6 @@ class ExtractCodeBlocksGo(ExtractCodeBlocksJava):
         
         self.func_pattern_keys = ["total", "ind", "class", "label", "params", "return"]
         self.class_pattern_keys = ["total", "ind", "label"]
-        
-        # Pattern to match the start and end of a block
-        self.block_end_pattern = '^\s{ind}\}'
-        self.block_start_pattern = '^\s{ind}\/\*.+\*\/'
-        self.block_start_shift = 0
-        self.block_end_shift = 0
 
     def extract(self, file_path):
         """

@@ -73,7 +73,7 @@ comments: true
 === "Zig"
 
     ```zig title="hashing_search.zig"
-
+    [class]{}-[func]{hashingSearchArray}
     ```
 
 再比如，如果我们想要给定一个目标结点值 `target` ，获取对应的链表结点对象，那么也可以使用哈希查找实现。
@@ -137,7 +137,7 @@ comments: true
 === "Zig"
 
     ```zig title="hashing_search.zig"
-
+    [class]{}-[func]{hashingSearchLinkedList}
     ```
 
 ## 10.3.2. 复杂度分析
