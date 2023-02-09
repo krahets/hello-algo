@@ -135,40 +135,19 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-    /* 随机返回一个数组元素 */
-    func randomAccess(nums []int) (randomNum int) {
-        // 在区间 [0, nums.length) 中随机抽取一个数字
-        randomIndex := rand.Intn(len(nums))
-        // 获取并返回随机元素
-        randomNum = nums[randomIndex]
-        return
-    }
+    [class]{}-[func]{randomAccess}
     ```
 
 === "JavaScript"
 
     ```javascript title="array.js"
-    /* 随机返回一个数组元素 */
-    function randomAccess(nums) {
-        // 在区间 [0, nums.length) 中随机抽取一个数字
-        const random_index = Math.floor(Math.random() * nums.length);
-        // 获取并返回随机元素
-        const random_num = nums[random_index];
-        return random_num;
-    }
+    [class]{}-[func]{randomAccess}
     ```
 
 === "TypeScript"
 
     ```typescript title="array.ts"
-    /* 随机返回一个数组元素 */
-    function randomAccess(nums: number[]): number {
-        // 在区间 [0, nums.length) 中随机抽取一个数字
-        const random_index = Math.floor(Math.random() * nums.length);
-        // 获取并返回随机元素
-        const random_num = nums[random_index];
-        return random_num;
-    }
+    [class]{}-[func]{randomAccess}
     ```
 
 === "C"
@@ -180,29 +159,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    /* 随机返回一个数组元素 */
-    int RandomAccess(int[] nums)
-    {
-        Random random=new();
-        // 在区间 [0, nums.Length) 中随机抽取一个数字
-        int randomIndex = random.Next(nums.Length);
-        // 获取并返回随机元素
-        int randomNum = nums[randomIndex];
-        return randomNum;
-    }
+    [class]{array}-[func]{randomAccess}
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    /* 随机返回一个数组元素 */
-    func randomAccess(nums: [Int]) -> Int {
-        // 在区间 [0, nums.count) 中随机抽取一个数字
-        let randomIndex = nums.indices.randomElement()!
-        // 获取并返回随机元素
-        let randomNum = nums[randomIndex]
-        return randomNum
-    }
+    [class]{}-[func]{randomAccess}
     ```
 
 === "Zig"
@@ -243,49 +206,19 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-    /* 扩展数组长度 */
-    func extend(nums []int, enlarge int) []int {
-        // 初始化一个扩展长度后的数组
-        res := make([]int, len(nums)+enlarge)
-        // 将原数组中的所有元素复制到新数组
-        for i, num := range nums {
-            res[i] = num
-        }
-        // 返回扩展后的新数组
-        return res
-    }
+    [class]{}-[func]{extend}
     ```
 
 === "JavaScript"
 
     ```javascript title="array.js"
-    /* 扩展数组长度 */
-    function extend(nums, enlarge) {
-        // 初始化一个扩展长度后的数组
-        const res = new Array(nums.length + enlarge).fill(0);
-        // 将原数组中的所有元素复制到新数组
-        for (let i = 0; i < nums.length; i++) {
-            res[i] = nums[i];
-        }
-        // 返回扩展后的新数组
-        return res;
-    }
+    [class]{}-[func]{extend}
     ```
 
 === "TypeScript"
 
     ```typescript title="array.ts"
-    /* 扩展数组长度 */
-    function extend(nums: number[], enlarge: number): number[] {
-        // 初始化一个扩展长度后的数组
-        const res = new Array(nums.length + enlarge).fill(0);
-        // 将原数组中的所有元素复制到新数组
-        for (let i = 0; i < nums.length; i++) {
-            res[i] = nums[i];
-        }
-        // 返回扩展后的新数组
-        return res;
-    }
+    [class]{}-[func]{extend}
     ```
 
 === "C"
@@ -297,35 +230,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    /* 扩展数组长度 */
-    int[] Extend(int[] nums, int enlarge)
-    {
-        // 初始化一个扩展长度后的数组
-        int[] res = new int[nums.Length + enlarge];
-        // 将原数组中的所有元素复制到新数组
-        for (int i = 0; i < nums.Length; i++)
-        {
-            res[i] = nums[i];
-        }
-        // 返回扩展后的新数组
-        return res;
-    }
+    [class]{array}-[func]{extend}
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    /* 扩展数组长度 */
-    func extend(nums: [Int], enlarge: Int) -> [Int] {
-        // 初始化一个扩展长度后的数组
-        var res = Array(repeating: 0, count: nums.count + enlarge)
-        // 将原数组中的所有元素复制到新数组
-        for i in nums.indices {
-            res[i] = nums[i]
-        }
-        // 返回扩展后的新数组
-        return res
-    }
+    [class]{}-[func]{extend}
     ```
 
 === "Zig"
@@ -380,67 +291,25 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-    /* 在数组的索引 index 处插入元素 num */
-    func insert(nums []int, num int, index int) {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for i := len(nums) - 1; i > index; i-- {
-            nums[i] = nums[i-1]
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num
-    }
+    [class]{}-[func]{insert}
 
-    /* 删除索引 index 处元素 */
-    func remove(nums []int, index int) {
-        // 把索引 index 之后的所有元素向前移动一位
-        for i := index; i < len(nums)-1; i++ {
-            nums[i] = nums[i+1]
-        }
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "JavaScript"
 
     ```javascript title="array.js"
-    /* 在数组的索引 index 处插入元素 num */
-    function insert(nums, num, index) {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for (let i = nums.length - 1; i > index; i--) {
-            nums[i] = nums[i - 1];
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num;
-    }
-    
-    /* 删除索引 index 处元素 */
-    function remove(nums, index) {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (let i = index; i < nums.length - 1; i++) {
-            nums[i] = nums[i + 1];
-        }
-    }
+    [class]{}-[func]{insert}
+
+    [class]{}-[func]{remove}
     ```
 
 === "TypeScript"
 
     ```typescript title="array.ts"
-    /* 在数组的索引 index 处插入元素 num */
-    function insert(nums: number[], num: number, index: number): void {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for (let i = nums.length - 1; i > index; i--) {
-            nums[i] = nums[i - 1];
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num;
-    }
-    
-    /* 删除索引 index 处元素 */
-    function remove(nums: number[], index: number): void {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (let i = index; i < nums.length - 1; i++) {
-            nums[i] = nums[i + 1];
-        }
-    }
+    [class]{}-[func]{insert}
+
+    [class]{}-[func]{remove}
     ```
 
 === "C"
@@ -452,49 +321,17 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    /* 在数组的索引 index 处插入元素 num */
-    void Insert(int[] nums, int num, int index)
-    {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for (int i = nums.Length - 1; i > index; i--)
-        {
-            nums[i] = nums[i - 1];
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num;
-    }
-    /* 删除索引 index 处元素 */
-    void Remove(int[] nums, int index)
-    {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (int i = index; i < nums.Length - 1; i++)
-        {
-            nums[i] = nums[i + 1];
-        }
-    }
+    [class]{array}-[func]{insert}
+
+    [class]{array}-[func]{remove}
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    /* 在数组的索引 index 处插入元素 num */
-    func insert(nums: inout [Int], num: Int, index: Int) {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for i in sequence(first: nums.count - 1, next: { $0 > index + 1 ? $0 - 1 : nil }) {
-            nums[i] = nums[i - 1]
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num
-    }
+    [class]{}-[func]{insert}
 
-    /* 删除索引 index 处元素 */
-    func remove(nums: inout [Int], index: Int) {
-        let count = nums.count
-        // 把索引 index 之后的所有元素向前移动一位
-        for i in sequence(first: index, next: { $0 < count - 1 - 1 ? $0 + 1 : nil }) {
-            nums[i] = nums[i + 1]
-        }
-    }
+    [class]{}-[func]{remove}
     ```
 
 === "Zig"
@@ -546,52 +383,19 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-    /* 遍历数组 */
-    func traverse(nums []int) {
-        count := 0
-        // 通过索引遍历数组
-        for i := 0; i < len(nums); i++ {
-            count++
-        }
-        // 直接遍历数组
-        for range nums {
-            count++
-        }
-    }
+    [class]{}-[func]{traverse}
     ```
 
 === "JavaScript"
 
     ```javascript title="array.js"
-    /* 遍历数组 */
-    function traverse(nums) {
-        let count = 0;
-        // 通过索引遍历数组
-        for (let i = 0; i < nums.length; i++) {
-            count++;
-        }
-        // 直接遍历数组
-        for (let num of nums) {
-            count += 1;
-        }
-    }
+    [class]{}-[func]{traverse}
     ```
 
 === "TypeScript"
 
     ```typescript title="array.ts"
-    /* 遍历数组 */
-    function traverse(nums: number[]): void {
-        let count = 0;
-        // 通过索引遍历数组
-        for (let i = 0; i < nums.length; i++) {
-            count++;
-        }
-        // 直接遍历数组
-        for(let num of nums){
-            count += 1;
-        }
-    }
+    [class]{}-[func]{traverse}
     ```
 
 === "C"
@@ -603,38 +407,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    /* 遍历数组 */
-    void Traverse(int[] nums)
-    {
-        int count = 0;
-        // 通过索引遍历数组
-        for (int i = 0; i < nums.Length; i++)
-        {
-            count++;
-        }
-        // 直接遍历数组
-        foreach (int num in nums)
-        {
-            count++;
-        }
-    }
+    [class]{array}-[func]{traverse}
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    /* 遍历数组 */
-    func traverse(nums: [Int]) {
-        var count = 0
-        // 通过索引遍历数组
-        for _ in nums.indices {
-            count += 1
-        }
-        // 直接遍历数组
-        for _ in nums {
-            count += 1
-        }
-    }
+    [class]{}-[func]{traverse}
     ```
 
 === "Zig"
@@ -679,43 +458,19 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Go"
 
     ```go title="array.go"
-    /* 在数组中查找指定元素 */
-    func find(nums []int, target int) (index int) {
-        index = -1
-        for i := 0; i < len(nums); i++ {
-            if nums[i] == target {
-                index = i
-                break
-            }
-        }
-        return
-    }
+    [class]{}-[func]{find}
     ```
 
 === "JavaScript"
 
     ```javascript title="array.js"
-    /* 在数组中查找指定元素 */
-    function find(nums, target) {
-        for (let i = 0; i < nums.length; i++) {
-            if (nums[i] == target) return i;
-        }
-        return -1;
-    }
+    [class]{}-[func]{find}
     ```
 
 === "TypeScript"
 
     ```typescript title="array.ts"
-    /* 在数组中查找指定元素 */
-    function find(nums: number[], target: number): number {
-        for (let i = 0; i < nums.length; i++) {
-            if (nums[i] === target) {
-                return i;
-            }
-        }
-        return -1;
-    }
+    [class]{}-[func]{find}
     ```
 
 === "C"
@@ -727,30 +482,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C#"
 
     ```csharp title="array.cs"
-    /* 在数组中查找指定元素 */
-    int Find(int[] nums, int target)
-    {
-        for (int i = 0; i < nums.Length; i++)
-        {
-            if (nums[i] == target)
-                return i;
-        }
-        return -1;
-    }
+    [class]{array}-[func]{find}
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    /* 在数组中查找指定元素 */
-    func find(nums: [Int], target: Int) -> Int {
-        for i in nums.indices {
-            if nums[i] == target {
-                return i
-            }
-        }
-        return -1
-    }
+    [class]{}-[func]{find}
     ```
 
 === "Zig"

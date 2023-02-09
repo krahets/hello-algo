@@ -1,8 +1,27 @@
-# This script is borrowed from https://gist.github.com/cobyism/4730490
+python docs/utils/build_markdown.py
 
-git add build && git commit -m "build"
-git subtree push --prefix build origin built-docs
+while true; do
+    read -p "Do you wish to deploy the site? [y] [n]" yn
+    case $yn in
+        [Yy]* ) make install; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes[y] or no[n].";;
+    esac
+done
 
+# push the built docs
+cd build
+git add .
+git commit -m "build"
+git push -u origin docs
+cd ..
+
+# Build mkdocs
 mkdocs build --clean
-git add site && git commit -m "deploy"
-git subtree push --prefix site origin gh-pages
+
+# deploy the site
+cd site
+git add .
+git commit -m "deploy"
+git push -u origin gh-pages
+cd ..

@@ -154,7 +154,7 @@ pub fn build(b: *std.build.Builder) void {
         exe_array_stack.setTarget(target);
         exe_array_stack.setBuildMode(mode);
         exe_array_stack.install();
-        const run_cmd_array_stack = exe_linkedlist_stack.run();
+        const run_cmd_array_stack = exe_array_stack.run();
         run_cmd_array_stack.step.dependOn(b.getInstallStep());
         if (b.args) |args| run_cmd_array_stack.addArgs(args);
         const run_step_array_stack = b.step("run_array_stack", "Run array_stack");

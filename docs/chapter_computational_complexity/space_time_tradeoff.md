@@ -33,70 +33,37 @@ comments: true
 === "Java"
 
     ```java title="leetcode_two_sum.java"
-    [class]{SolutionBruteForce}-[func]{}
+    [class]{leetcode_two_sum}-[func]{twoSumBruteForce}
     ```
 
 === "C++"
 
     ```cpp title="leetcode_two_sum.cpp"
-    [class]{SolutionBruteForce}-[func]{}
+    [class]{}-[func]{twoSumBruteForce}
     ```
 
 === "Python"
 
     ```python title="leetcode_two_sum.py"
-    [class]{SolutionBruteForce}-[func]{}
+    [class]{}-[func]{two_sum_brute_force}
     ```
 
 === "Go"
 
     ```go title="leetcode_two_sum.go"
-    func twoSumBruteForce(nums []int, target int) []int {
-        size := len(nums)
-        // 两层循环，时间复杂度 O(n^2)
-        for i := 0; i < size-1; i++ {
-            for j := i + 1; i < size; j++ {
-                if nums[i]+nums[j] == target {
-                    return []int{i, j}
-                }
-            }
-        }
-        return nil
-    }
+    [class]{}-[func]{twoSumBruteForce}
     ```
 
 === "JavaScript"
 
     ```javascript title="leetcode_two_sum.js"
-    function twoSumBruteForce(nums, target) {
-        const n = nums.length;
-        // 两层循环，时间复杂度 O(n^2)
-        for (let i = 0; i < n; i++) {
-            for (let j = i + 1; j < n; j++) {
-                if (nums[i] + nums[j] === target) {
-                    return [i, j];
-                }
-            }
-        }
-        return [];
-    }
+    [class]{}-[func]{twoSumBruteForce}
     ```
 
 === "TypeScript"
 
     ```typescript title="leetcode_two_sum.ts"
-    function twoSumBruteForce(nums: number[], target: number): number[] {
-        const n = nums.length;
-        // 两层循环，时间复杂度 O(n^2)
-        for (let i = 0; i < n; i++) {
-            for (let j = i + 1; j < n; j++) {
-                if (nums[i] + nums[j] === target) {
-                    return [i, j];
-                }
-            }
-        }
-        return [];
-    };
+    [class]{}-[func]{twoSumBruteForce}
     ```
 
 === "C"
@@ -108,39 +75,13 @@ comments: true
 === "C#"
 
     ```csharp title="leetcode_two_sum.cs"
-    class SolutionBruteForce
-    {
-        public int[] twoSum(int[] nums, int target)
-        {
-            int size = nums.Length;
-            // 两层循环，时间复杂度 O(n^2)
-            for (int i = 0; i < size - 1; i++)
-            {
-                for (int j = i + 1; j < size; j++)
-                {
-                    if (nums[i] + nums[j] == target)
-                        return new int[] { i, j };
-                }
-            }
-            return new int[0];
-        }
-    }
+    [class]{leetcode_two_sum}-[func]{twoSumBruteForce}
     ```
 
 === "Swift"
 
     ```swift title="leetcode_two_sum.swift"
-    func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
-        // 两层循环，时间复杂度 O(n^2)
-        for i in nums.indices.dropLast() {
-            for j in nums.indices.dropFirst(i + 1) {
-                if nums[i] + nums[j] == target {
-                    return [i, j]
-                }
-            }
-        }
-        return [0]
-    }
+    [class]{}-[func]{twoSumBruteForce}
     ```
 
 === "Zig"
@@ -174,73 +115,37 @@ comments: true
 === "Java"
 
     ```java title="leetcode_two_sum.java"
-    [class]{SolutionHashMap}-[func]{}
+    [class]{leetcode_two_sum}-[func]{twoSumHashTable}
     ```
 
 === "C++"
 
     ```cpp title="leetcode_two_sum.cpp"
-    [class]{SolutionHashMap}-[func]{}
+    [class]{}-[func]{twoSumHashTable}
     ```
 
 === "Python"
 
     ```python title="leetcode_two_sum.py"
-    [class]{SolutionHashMap}-[func]{}
+    [class]{}-[func]{two_sum_hash_table}
     ```
 
 === "Go"
 
     ```go title="leetcode_two_sum.go"
-    func twoSumHashTable(nums []int, target int) []int {
-        // 辅助哈希表，空间复杂度 O(n)
-        hashTable := map[int]int{}
-        // 单层循环，时间复杂度 O(n)
-        for idx, val := range nums {
-            if preIdx, ok := hashTable[target-val]; ok {
-                return []int{preIdx, idx}
-            }
-            hashTable[val] = idx
-        }
-        return nil
-    }
+    [class]{}-[func]{twoSumHashTable}
     ```
 
 === "JavaScript"
 
     ```javascript title="leetcode_two_sum.js"
-    function twoSumHashTable(nums, target) {
-        // 辅助哈希表，空间复杂度 O(n)
-        let m = {};
-        // 单层循环，时间复杂度 O(n)
-        for (let i = 0; i < nums.length; i++) {
-            if (m[nums[i]] !== undefined) {
-                return [m[nums[i]], i];
-            } else {
-                m[target - nums[i]] = i;
-            }
-        }
-        return [];
-    }
+    [class]{}-[func]{twoSumHashTable}
     ```
 
 === "TypeScript"
 
     ```typescript title="leetcode_two_sum.ts"
-    function twoSumHashTable(nums: number[], target: number): number[] {
-        // 辅助哈希表，空间复杂度 O(n)
-        let m: Map<number, number> = new Map();
-        // 单层循环，时间复杂度 O(n)
-        for (let i = 0; i < nums.length; i++) {
-            let index = m.get(nums[i]);
-            if (index !== undefined) {
-                return [index, i];
-            } else {
-                m.set(target - nums[i], i);
-            }
-        }
-        return [];
-    };
+    [class]{}-[func]{twoSumHashTable}
     ```
 
 === "C"
@@ -252,42 +157,13 @@ comments: true
 === "C#"
 
     ```csharp title="leetcode_two_sum.cs"
-    class SolutionHashMap
-    {
-        public int[] twoSum(int[] nums, int target)
-        {
-            int size = nums.Length;
-            // 辅助哈希表，空间复杂度 O(n)
-            Dictionary<int, int> dic = new();
-            // 单层循环，时间复杂度 O(n)
-            for (int i = 0; i < size; i++)
-            {
-                if (dic.ContainsKey(target - nums[i]))
-                {
-                    return new int[] { dic[target - nums[i]], i };
-                }
-                dic.Add(nums[i], i);
-            }
-            return new int[0];
-        }
-    }
+    [class]{leetcode_two_sum}-[func]{twoSumHashTable}
     ```
 
 === "Swift"
 
     ```swift title="leetcode_two_sum.swift"
-    func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
-        // 辅助哈希表，空间复杂度 O(n)
-        var dic: [Int: Int] = [:]
-        // 单层循环，时间复杂度 O(n)
-        for i in nums.indices {
-            if let j = dic[target - nums[i]] {
-                return [j, i]
-            }
-            dic[nums[i]] = i
-        }
-        return [0]
-    }
+    [class]{}-[func]{twoSumHashTable}
     ```
 
 === "Zig"

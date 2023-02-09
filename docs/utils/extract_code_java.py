@@ -1,5 +1,5 @@
 """
-File: extract_code_python.py
+File: extract_code_java.py
 Created Time: 2023-02-07
 Author: Krahets (krahets@163.com)
 """
@@ -31,6 +31,9 @@ class ExtractCodeBlocksJava:
         """
         Extract classes and functions from a markdown document
         """
+        if not osp.isfile(file_path):
+            return None
+        
         self.file_path = file_path
         with open(file_path) as f:
             self.lines = f.readlines()
@@ -116,7 +119,6 @@ class ExtractCodeBlocksJava:
         Extract all the classes with given indentation
         """
         classes = {}
-
         class_pattern = re.compile(self.class_pattern)
 
         for line_num, line in enumerate(self.lines):

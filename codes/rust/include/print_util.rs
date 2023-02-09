@@ -1,12 +1,11 @@
-/**
+/*
  * File: print_util.rs
  * Created Time: 2023-02-05
  * Author: sjinzh (sjinzh@gmail.com)
-*/
+ */
 
 use std::fmt::Display;
-use std::collections::HashMap;
-use std::collections::LinkedList;
+use std::collections::{HashMap, LinkedList};
 
 /* Print an array */
 pub fn print_array<T: Display>(nums: &[T]) {

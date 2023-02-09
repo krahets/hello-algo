@@ -160,7 +160,7 @@ comments: true
 === "C#"
 
     ```csharp title="graph_adjacency_matrix.cs"
-
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "Swift"
@@ -409,7 +409,9 @@ comments: true
 === "C#"
 
     ```csharp title="graph_adjacency_list.cs"
+    [class]{Vertex}-[func]{}
 
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "Swift"

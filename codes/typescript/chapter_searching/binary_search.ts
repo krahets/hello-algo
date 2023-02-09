@@ -5,7 +5,7 @@
 */
 
 /* 二分查找（双闭区间） */
-const binarySearch = function (nums: number[], target: number): number {
+function binarySearch(nums: number[], target: number): number {
     // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
     let i = 0, j = nums.length - 1;
     // 循环，当搜索区间为空时跳出（当 i > j 时为空）
@@ -23,7 +23,7 @@ const binarySearch = function (nums: number[], target: number): number {
 }
 
 /* 二分查找（左闭右开） */
-const binarySearch1 = function (nums: number[], target: number): number {
+function binarySearch1(nums: number[], target: number): number {
     // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     let i = 0, j = nums.length;
     // 循环，当搜索区间为空时跳出（当 i = j 时为空）

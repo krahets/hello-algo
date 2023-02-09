@@ -1,5 +1,5 @@
 /**
- * File: my_heap.js
+ * File: my_heap.ts
  * Created Time: 2023-02-07
  * Author: Justin (xiefahit@gmail.com)
  */

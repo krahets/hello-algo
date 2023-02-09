@@ -1,8 +1,8 @@
-/**
+/*
  * File: time_complexity.rs
  * Created Time: 2023-01-10
  * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
-*/
+ */
 
 /* 常数阶 */
 fn constant(n: i32) -> i32 {

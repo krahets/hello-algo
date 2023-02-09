@@ -347,255 +347,17 @@ comments: true
 === "JavaScript"
 
     ```javascript title="linkedlist_deque.js"
-    /* 双向链表结点 */
-    class ListNode {
-        prev;   // 前驱结点引用 (指针)
-        next;   // 后继结点引用 (指针)
-        val;    // 结点值
-        
-        constructor(val) {
-            this.val = val;
-            this.next = null;
-            this.prev = null;
-        }
-    }
+    [class]{ListNode}-[func]{}
 
-    /* 基于双向链表实现的双向队列 */
-    class LinkedListDeque {
-        front;  // 头结点 front
-        rear;   // 尾结点 rear
-        len;    // 双向队列的长度
-
-        constructor() {
-            this.front = null;
-            this.rear = null;
-            this.len = 0;
-        }
-
-        /* 队尾入队操作 */
-        pushLast(val) {
-            const node = new ListNode(val);
-            // 若链表为空，则令 front, rear 都指向 node
-            if (this.len === 0) {
-                this.front = node;
-                this.rear = node;
-            } else {
-                // 将 node 添加至链表尾部
-                this.rear.next = node;
-                node.prev = this.rear;
-                this.rear = node; // 更新尾结点
-            }
-            this.len++;
-        }
-
-        /* 队首入队操作 */
-        pushFirst(val) {
-            const node = new ListNode(val);
-            // 若链表为空，则令 front, rear 都指向 node
-            if (this.len === 0) {
-                this.front = node;
-                this.rear = node;
-            } else {
-                // 将 node 添加至链表头部
-                this.front.prev = node;
-                node.next = this.front;
-                this.front = node; // 更新头结点
-            }
-            this.len++;
-        }
-
-        /* 队尾出队操作 */
-        pollLast() {
-            if (this.len === 0) {
-                return null;
-            }
-            const value = this.rear.val; // 存储尾结点值
-            // 删除尾结点
-            let temp = this.rear.prev;
-            if (temp !== null) {
-                temp.next = null;
-                this.rear.prev = null;
-            }
-            this.rear = temp;   // 更新尾结点
-            this.len--;
-            return value;
-        }
-
-        /* 队首出队操作 */
-        pollFirst() {
-            if (this.len === 0) {
-                return null;
-            }
-            const value = this.front.val; // 存储尾结点值
-            // 删除头结点
-            let temp = this.front.next;
-            if (temp !== null) {
-                temp.prev = null;
-                this.front.next = null;
-            }
-            this.front = temp;   // 更新头结点
-            this.len--;
-            return value;
-        }
-
-        /* 访问队尾元素 */
-        peekLast() {
-            return this.len === 0 ? null : this.rear.val;
-        }
-
-        /* 访问队首元素 */
-        peekFirst() {
-            return this.len === 0 ? null : this.front.val;
-        }
-
-        /* 获取双向队列的长度 */
-        size() {
-            return this.len;
-        }
-
-        /* 判断双向队列是否为空 */
-        isEmpty() {
-            return this.len === 0;
-        }
-
-        /* 打印双向队列 */
-        print() {
-            const arr = [];
-            let temp = this.front;
-            while (temp !== null) {
-                arr.push(temp.val);
-                temp = temp.next;
-            }
-            console.log("[" + arr.join(", ") + "]");
-        }
-    }
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="linkedlist_deque.ts"
-    /* 双向链表结点 */
-    class ListNode {
-        prev: ListNode;     // 前驱结点引用 (指针)
-        next: ListNode;     // 后继结点引用 (指针)
-        val: number;        // 结点值
+    [class]{ListNode}-[func]{}
 
-        constructor(val: number) {
-            this.val = val;
-            this.next = null;
-            this.prev = null;
-        }
-    }
-
-    /* 基于双向链表实现的双向队列 */
-    class LinkedListDeque {
-        front: ListNode;    // 头结点 front
-        rear: ListNode;     // 尾结点 rear
-        len: number;        // 双向队列的长度
-
-        constructor() {
-            this.front = null;
-            this.rear = null;
-            this.len = 0;
-        }
-        
-        /* 队尾入队操作 */
-        pushLast(val: number): void {
-            const node: ListNode = new ListNode(val);
-            // 若链表为空，则令 front, rear 都指向 node
-            if (this.len === 0) {
-                this.front = node;
-                this.rear = node;
-            } else {
-                // 将 node 添加至链表尾部
-                this.rear.next = node;
-                node.prev = this.rear;
-                this.rear = node; // 更新尾结点
-            }
-            this.len++;
-        }
-
-        /* 队首入队操作 */
-        pushFirst(val: number): void {
-            const node: ListNode = new ListNode(val);
-            // 若链表为空，则令 front, rear 都指向 node
-            if (this.len === 0) {
-                this.front = node;
-                this.rear = node;
-            } else {
-                // 将 node 添加至链表头部
-                this.front.prev = node;
-                node.next = this.front;
-                this.front = node; // 更新头结点
-            }
-            this.len++;
-        }
-
-        /* 队尾出队操作 */
-        pollLast(): number {
-            if (this.len === 0) {
-                return null;
-            }
-            const value: number = this.rear.val; // 存储尾结点值
-            // 删除尾结点
-            let temp: ListNode = this.rear.prev;
-            if (temp !== null) {
-                temp.next = null;
-                this.rear.prev = null;
-            }
-            this.rear = temp;   // 更新尾结点
-            this.len--;
-            return value;
-        }
-
-        /* 队首出队操作 */
-        pollFirst(): number {
-            if (this.len === 0) {
-                return null;
-            }
-            const value: number = this.front.val; // 存储尾结点值
-            // 删除头结点
-            let temp: ListNode = this.front.next;
-            if (temp !== null) {
-                temp.prev = null;
-                this.front.next = null;
-            }
-            this.front = temp;   // 更新头结点
-            this.len--;
-            return value;
-        }
-
-        /* 访问队尾元素 */
-        peekLast(): number {
-            return this.len === 0 ? null : this.rear.val;
-        }
-
-        /* 访问队首元素 */
-        peekFirst(): number {
-            return this.len === 0 ? null : this.front.val;
-        }
-
-        /* 获取双向队列的长度 */
-        size(): number {
-            return this.len;
-        }
-
-        /* 判断双向队列是否为空 */
-        isEmpty(): boolean {
-            return this.len === 0;
-        }
-
-        /* 打印双向队列 */
-        print(): void {
-            const arr: number[] = [];
-            let temp: ListNode = this.front;
-            while (temp !== null) {
-                arr.push(temp.val);
-                temp = temp.next;
-            }
-            console.log("[" + arr.join(", ") + "]");
-        }
-    }
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "C"
@@ -607,7 +369,9 @@ comments: true
 === "C#"
 
     ```csharp title="linkedlist_deque.cs"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "Swift"
