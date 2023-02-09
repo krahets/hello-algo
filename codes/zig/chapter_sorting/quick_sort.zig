@@ -7,6 +7,7 @@ const inc = @import("include");
 
 // 快速排序类
 const QuickSort = struct {
+
     // 元素交换
     pub fn swap(nums: []i32, i: usize, j: usize) void {
         var tmp = nums[i];
@@ -42,6 +43,7 @@ const QuickSort = struct {
 
 // 快速排序类（中位基准数优化）
 const QuickSortMedian = struct {
+
     // 元素交换
     pub fn swap(nums: []i32, i: usize, j: usize) void {
         var tmp = nums[i];
@@ -95,6 +97,7 @@ const QuickSortMedian = struct {
 
 // 快速排序类（尾递归优化）
 const QuickSortTailCall = struct {
+
     // 元素交换
     pub fn swap(nums: []i32, i: usize, j: usize) void {
         var tmp = nums[i];

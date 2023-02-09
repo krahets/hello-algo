@@ -13,7 +13,7 @@ fn hashingSearchArray(comptime T: type, map: std.AutoHashMap(T, T), target: T) T
     return map.get(target).?;
 }
 
-// 哈希查找（数组）
+// 哈希查找（链表）
 fn hashingSearchLinkedList(comptime T: type, map: std.AutoHashMap(T, *inc.ListNode(T)), target: T) ?*inc.ListNode(T) {
     // 哈希表的 key: 目标结点值，value: 结点对象
     // 若哈希表中无此 key ，返回 null 

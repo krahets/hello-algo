@@ -341,7 +341,7 @@ comments: true
 === "Zig"
 
     ```zig title="linkedlist_stack.zig"
-
+    [class]{LinkedListStack}-[func]{}
     ```
 
 ### 基于数组的实现
@@ -416,7 +416,7 @@ comments: true
 === "Zig"
 
     ```zig title="array_stack.zig"
-
+    [class]{ArrayStack}-[func]{}
     ```
 
 ## 5.1.3. 两种实现对比

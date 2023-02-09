@@ -486,7 +486,9 @@ $$
 === "Zig"
 
     ```zig title="array_hash_map.zig"
+    [class]{Entry}-[func]{}
 
+    [class]{ArrayHashMap}-[func]{}
     ```
 
 ## 6.1.4. 哈希冲突

@@ -38,6 +38,7 @@ pub fn twoSumHashTable(nums: []i32, target: i32) !?[2]i32 {
     return null;
 }
 
+
 pub fn main() !void {
     // ======= Test Case =======
     var nums = [_]i32{ 2, 7, 11, 15 };
@@ -53,4 +54,3 @@ pub fn main() !void {
     std.debug.print("\n方法二 res = ", .{});
     inc.PrintUtil.printArray(i32, &res); 
 }
-

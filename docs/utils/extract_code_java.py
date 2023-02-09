@@ -22,8 +22,8 @@ class ExtractCodeBlocksJava:
         self.class_pattern_keys = ["total", "scope", "label"]
         
         # Pattern to match the start and end of a block
-        self.block_end_pattern = '^\s{ind}\}'
         self.block_start_pattern = '^\s{ind}\/\*.+\*\/'
+        self.block_end_pattern = '^\s{ind}\}'
         self.block_start_shift = 0
         self.block_end_shift = 0
 
@@ -156,8 +156,9 @@ class ExtractCodeBlocksJava:
             header_line = func["line_number"]["header"] - \
                 func["line_number"]["start"]
             block[header_line] = block[header_line] \
-                .replace("static ", "").replace("public ", "").replace("private ", "")
+                .replace("static ", "", 1).replace("public ", "", 1).replace("private ", "", 1)
         for clas in classes.values():
+            remove_keyword(clas)
             for func in clas["funcs"].values():
                 remove_keyword(func)
         for func in funcs.values():

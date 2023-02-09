@@ -108,7 +108,7 @@ $$
 === "Zig"
 
     ```zig title="binary_search.zig"
-
+    [class]{}-[func]{binarySearch}
     ```
 
 ### “左闭右开”实现
@@ -172,7 +172,7 @@ $$
 === "Zig"
 
     ```zig title="binary_search.zig"
-
+    [class]{}-[func]{binarySearch1}
     ```
 
 ### 两种表示对比
