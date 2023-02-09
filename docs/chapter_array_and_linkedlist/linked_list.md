@@ -395,21 +395,9 @@ comments: true
 === "Zig"
 
     ```zig title="linked_list.zig"
-    // 在链表的结点 n0 之后插入结点 P
-    pub fn insert(n0: ?*inc.ListNode(i32), P: ?*inc.ListNode(i32)) void {
-        var n1 = n0.?.next;
-        n0.?.next = P;
-        P.?.next = n1;
-    }
+    [class]{}-[func]{insert}
 
-    // 删除链表的结点 n0 之后的首个结点
-    pub fn remove(n0: ?*inc.ListNode(i32)) void {
-        if (n0.?.next == null) return;
-        // n0 -> P -> n1
-        var P = n0.?.next;
-        var n1 = P.?.next;
-        n0.?.next = n1;
-    }
+    [class]{}-[func]{remove}
     ```
 
 ## 4.2.2. 链表缺点
@@ -473,16 +461,7 @@ comments: true
 === "Zig"
 
     ```zig title="linked_list.zig"
-    // 访问链表中索引为 index 的结点
-    pub fn access(node: ?*inc.ListNode(i32), index: i32) ?*inc.ListNode(i32) {
-        var head = node;
-        var i: i32 = 0;
-        while (i < index) : (i += 1) {
-            head = head.?.next;
-            if (head == null) return null;
-        }
-        return head;
-    }
+    [class]{}-[func]{access}
     ```
 
 **链表的内存占用多**。链表以结点为单位，每个结点除了保存值外，还需额外保存指针（引用）。这意味着同样数据量下，链表比数组需要占用更多内存空间。
@@ -548,17 +527,7 @@ comments: true
 === "Zig"
 
     ```zig title="linked_list.zig"
-    // 在链表中查找值为 target 的首个结点
-    pub fn find(node: ?*inc.ListNode(i32), target: i32) i32 {
-        var head = node;
-        var index: i32 = 0;
-        while (head != null) {
-            if (head.?.val == target) return index;
-            head = head.?.next;
-            index += 1;
-        }
-        return -1;
-    }
+    [class]{}-[func]{find}
     ```
 
 ## 4.2.4. 常见链表类型

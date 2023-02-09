@@ -86,7 +86,7 @@ comments: true
     /* 初始化列表 */
     // 无初始值
     List<int> list1 = new ();
-    // 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）
+    // 有初始值
     int[] numbers = new int[] { 1, 3, 2, 5, 4 };
     List<int> list = numbers.ToList();
     ```
@@ -770,120 +770,5 @@ comments: true
 === "Zig"
 
     ```zig title="my_list.zig"
-    // 列表类简易实现
-    pub fn MyList(comptime T: type) type {
-        return struct {
-            const Self = @This();
-            
-            nums: []T = undefined,                        // 数组（存储列表元素）
-            numsCapacity: usize = 10,                     // 列表容量
-            numSize: usize = 0,                           // 列表长度（即当前元素数量）
-            extendRatio: usize = 2,                       // 每次列表扩容的倍数
-            mem_arena: ?std.heap.ArenaAllocator = null,
-            mem_allocator: std.mem.Allocator = undefined, // 内存分配器
-
-            // 构造函数（分配内存+初始化列表）
-            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
-                if (self.mem_arena == null) {
-                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
-                    self.mem_allocator = self.mem_arena.?.allocator();
-                }
-                self.nums = try self.mem_allocator.alloc(T, self.numsCapacity);
-                std.mem.set(T, self.nums, @as(T, 0));
-            }
-
-            // 析构函数（释放内存）
-            pub fn deinit(self: *Self) void {
-                if (self.mem_arena == null) return;
-                self.mem_arena.?.deinit();
-            }
-
-            // 获取列表长度（即当前元素数量）
-            pub fn size(self: *Self) usize {
-                return self.numSize;
-            }
-
-            // 获取列表容量
-            pub fn capacity(self: *Self) usize {
-                return self.numsCapacity;
-            }
-
-            // 访问元素
-            pub fn get(self: *Self, index: usize) T {
-                // 索引如果越界则抛出异常，下同
-                if (index < 0 or index >= self.size()) @panic("索引越界");
-                return self.nums[index];
-            }  
-
-            // 更新元素
-            pub fn set(self: *Self, index: usize, num: T) void {
-                // 索引如果越界则抛出异常，下同
-                if (index < 0 or index >= self.size()) @panic("索引越界");
-                self.nums[index] = num;
-            }  
-
-            // 尾部添加元素
-            pub fn add(self: *Self, num: T) !void {
-                // 元素数量超出容量时，触发扩容机制
-                if (self.size() == self.capacity()) try self.extendCapacity();
-                self.nums[self.size()] = num;
-                // 更新元素数量
-                self.numSize += 1;
-            }  
-
-            // 中间插入元素
-            pub fn insert(self: *Self, index: usize, num: T) !void {
-                if (index < 0 or index >= self.size()) @panic("索引越界");
-                // 元素数量超出容量时，触发扩容机制
-                if (self.size() == self.capacity()) try self.extendCapacity();
-                // 索引 i 以及之后的元素都向后移动一位
-                var j = self.size() - 1;
-                while (j >= index) : (j -= 1) {
-                    self.nums[j + 1] = self.nums[j];
-                }
-                self.nums[index] = num;
-                // 更新元素数量
-                self.numSize += 1;
-            }
-
-            // 删除元素
-            pub fn remove(self: *Self, index: usize) T {
-                if (index < 0 or index >= self.size()) @panic("索引越界");
-                var num = self.nums[index];
-                // 索引 i 之后的元素都向前移动一位
-                var j = index;
-                while (j < self.size() - 1) : (j += 1) {
-                    self.nums[j] = self.nums[j + 1];
-                }
-                // 更新元素数量
-                self.numSize -= 1;
-                // 返回被删除元素
-                return num;
-            }
-
-            // 列表扩容
-            pub fn extendCapacity(self: *Self) !void {
-                // 新建一个长度为 size * extendRatio 的数组，并将原数组拷贝到新数组
-                var newCapacity = self.capacity() * self.extendRatio;
-                var extend = try self.mem_allocator.alloc(T, newCapacity);
-                std.mem.set(T, extend, @as(T, 0));
-                // 将原数组中的所有元素复制到新数组
-                std.mem.copy(T, extend, self.nums);
-                self.nums = extend;
-                // 更新列表容量
-                self.numsCapacity = newCapacity;
-            }
-
-            // 将列表转换为数组
-            pub fn toArray(self: *Self) ![]T {
-                // 仅转换有效长度范围内的列表元素
-                var nums = try self.mem_allocator.alloc(T, self.size());
-                std.mem.set(T, nums, @as(T, 0));
-                for (nums) |*num, i| {
-                    num.* = self.get(i);
-                }
-                return nums;
-            }
-        };
-    }
+    [class]{MyList}-[func]{}
     ```

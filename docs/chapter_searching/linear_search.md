@@ -69,7 +69,7 @@ comments: true
 === "Zig"
 
     ```zig title="linear_search.zig"
-
+    [class]{}-[func]{linearSearchArray}
     ```
 
 再比如，我们想要在给定一个目标结点值 `target` ，返回此结点对象，也可以在链表中进行线性查找。
@@ -131,7 +131,7 @@ comments: true
 === "Zig"
 
     ```zig title="linear_search.zig"
-
+    [class]{}-[func]{linearSearchLinkedList}
     ```
 
 ## 10.1.2. 复杂度分析

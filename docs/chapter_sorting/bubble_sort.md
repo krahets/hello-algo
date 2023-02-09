@@ -120,7 +120,7 @@ comments: true
 === "Zig"
 
     ```zig title="bubble_sort.zig"
-
+    [class]{}-[func]{bubbleSort}
     ```
 
 ## 11.2.2. 算法特性
@@ -217,5 +217,5 @@ comments: true
 === "Zig"
 
     ```zig title="bubble_sort.zig"
-
+    [class]{}-[func]{bubbleSortWithFlag}
     ```

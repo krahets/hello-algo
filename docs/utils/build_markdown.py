@@ -17,6 +17,7 @@ from docs.utils.extract_code_jsts import ExtractCodeBlocksJSTS
 from docs.utils.extract_code_swift import ExtractCodeBlocksSwift
 from docs.utils.extract_code_csharp import ExtractCodeBlocksCSharp
 from docs.utils.extract_code_go import ExtractCodeBlocksGo
+from docs.utils.extract_code_zig import ExtractCodeBlocksZig
 
 
 def build_markdown(md_path):
@@ -41,6 +42,12 @@ def build_markdown(md_path):
         # Get the coresponding language code extractor
         lang = file_match[1]
         file_name = file_match[2]
+        
+        if lang not in extractor_dict:
+            print(f"warning: {lang} is not in the extractor_dict")
+            i += 1
+            continue
+        
         extractor = extractor_dict[lang]
         # Get code blocks
         if file_name not in code_blocks_dict:
@@ -98,6 +105,7 @@ extractor_dict = {
     "typescript": ExtractCodeBlocksJSTS(),
     "swift": ExtractCodeBlocksSwift(),
     "csharp": ExtractCodeBlocksCSharp(),
+    "zig": ExtractCodeBlocksZig(),
 }
 
 

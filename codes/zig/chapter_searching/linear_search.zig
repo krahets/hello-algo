@@ -6,7 +6,7 @@ const std = @import("std");
 const inc = @import("include");
 
 // 线性查找（数组）
-fn linearSearchList(comptime T: type, nums: std.ArrayList(T), target: T) T {
+fn linearSearchArray(comptime T: type, nums: std.ArrayList(T), target: T) T {
     // 遍历数组
     for (nums.items) |num, i| {
         // 找到目标元素， 返回其索引
@@ -38,7 +38,7 @@ pub fn main() !void {
     var nums = std.ArrayList(i32).init(std.heap.page_allocator);
     defer nums.deinit();
     try nums.appendSlice(&[_]i32{ 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 });
-    var index = linearSearchList(i32, nums, target);
+    var index = linearSearchArray(i32, nums, target);
     std.debug.print("目标元素 3 的索引 = {}\n", .{index});
 
     // 在链表中执行线性查找

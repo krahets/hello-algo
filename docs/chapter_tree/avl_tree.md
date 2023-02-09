@@ -228,7 +228,9 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Zig"
 
     ```zig title="avl_tree.zig"
+    [class]{AVLTree}-[func]{height}
 
+    [class]{AVLTree}-[func]{updateHeight}
     ```
 
 ### 结点平衡因子
@@ -294,7 +296,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Zig"
 
     ```zig title="avl_tree.zig"
-
+    [class]{AVLTree}-[func]{balanceFactor}
     ```
 
 !!! note
@@ -386,7 +388,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Zig"
 
     ```zig title="avl_tree.zig"
-
+    [class]{AVLTree}-[func]{rightRotate}
     ```
 
 ### Case 2 - 左旋
@@ -460,7 +462,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Zig"
 
     ```zig title="avl_tree.zig"
-
+    [class]{AVLTree}-[func]{leftRotate}
     ```
 
 ### Case 3 - 先左后右
@@ -553,7 +555,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Zig"
 
     ```zig title="avl_tree.zig"
-
+    [class]{AVLTree}-[func]{rotate}
     ```
 
 ## 7.4.3. AVL 树常用操作
@@ -637,7 +639,9 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Zig"
 
     ```zig title="avl_tree.zig"
+    [class]{AVLTree}-[func]{insert}
 
+    [class]{AVLTree}-[func]{insertHelper}
     ```
 
 ### 删除结点
@@ -733,7 +737,11 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Zig"
 
     ```zig title="avl_tree.zig"
+    [class]{AVLTree}-[func]{remove}
 
+    [class]{AVLTree}-[func]{removeHelper}
+
+    [class]{AVLTree}-[func]{getInOrderNext}
     ```
 
 ### 查找结点
