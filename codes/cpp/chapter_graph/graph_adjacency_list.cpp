@@ -4,8 +4,6 @@
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
-#include <unordered_set>
-
 #include "../include/include.hpp"
 
 /* 顶点类 */
