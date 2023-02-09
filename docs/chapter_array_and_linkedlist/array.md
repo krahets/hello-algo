@@ -449,7 +449,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     ```c title="array.c"
     [class]{}-[func]{insert}
 
-    [class]{}-[func]{remove}
+    [class]{}-[func]{removeItem}
     ```
 
 === "C#"
