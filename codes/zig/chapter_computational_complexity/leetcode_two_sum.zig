@@ -6,8 +6,7 @@ const std = @import("std");
 const inc = @import("include");
 
 // 方法一：暴力枚举
-pub fn twoSumBruteForce(nums: []i32, target: i32) [2]i32 {
-    _ = self;
+pub fn twoSumBruteForce(nums: []i32, target: i32) ?[2]i32 {
     var size: usize = nums.len;
     var i: usize = 0;
     // 两层循环，时间复杂度 O(n^2)
@@ -19,12 +18,11 @@ pub fn twoSumBruteForce(nums: []i32, target: i32) [2]i32 {
             }
         }
     }
-    return undefined;
+    return null;
 }
 
 // 方法二：辅助哈希表
-pub fn twoSumHashTable(nums: []i32, target: i32) ![2]i32 {
-    _ = self;
+pub fn twoSumHashTable(nums: []i32, target: i32) !?[2]i32 {
     var size: usize = nums.len;
     // 辅助哈希表，空间复杂度 O(n)
     var dic = std.AutoHashMap(i32, i32).init(std.heap.page_allocator);
@@ -37,21 +35,22 @@ pub fn twoSumHashTable(nums: []i32, target: i32) ![2]i32 {
         }
         try dic.put(nums[i], @intCast(i32, i));
     }
-    return undefined;
+    return null;
 }
 
 
-// Driver Code
 pub fn main() !void {
     // ======= Test Case =======
     var nums = [_]i32{ 2, 7, 11, 15 };
     var target: i32 = 9;
+
+    // ====== Driver Code ======
     // 方法一
-    twoSumBruteForce(&nums, target);
+    var res = twoSumBruteForce(&nums, target).?;
     std.debug.print("方法一 res = ", .{});
     inc.PrintUtil.printArray(i32, &res); 
     // 方法二
-    twoSumHashTable(&nums, target);
-    std.debug.print("方法二 res = ", .{});
+    res = (try twoSumHashTable(&nums, target)).?;
+    std.debug.print("\n方法二 res = ", .{});
     inc.PrintUtil.printArray(i32, &res); 
 }
