@@ -178,8 +178,7 @@ comments: true
 
     ```zig title="leetcode_two_sum.zig"
     // 方法一：暴力枚举
-    fn twoSumBruteForce(nums: []i32, target: i32) [2]i32 {
-        _ = self;
+    fn twoSumBruteForce(nums: []i32, target: i32) ?[2]i32 {
         var size: usize = nums.len;
         var i: usize = 0;
         // 两层循环，时间复杂度 O(n^2)
@@ -191,7 +190,7 @@ comments: true
                 }
             }
         }
-        return undefined;
+        return null;
     }
     ```
 
@@ -361,8 +360,7 @@ comments: true
 
     ```zig title="leetcode_two_sum.zig"
     // 方法二：辅助哈希表
-    fn twoSumHashTable(nums: []i32, target: i32) ![2]i32 {
-        _ = self;
+    fn twoSumHashTable(nums: []i32, target: i32) !?[2]i32 {
         var size: usize = nums.len;
         // 辅助哈希表，空间复杂度 O(n)
         var dic = std.AutoHashMap(i32, i32).init(std.heap.page_allocator);
@@ -375,6 +373,6 @@ comments: true
             }
             try dic.put(nums[i], @intCast(i32, i));
         }
-        return undefined;
+        return null;
     }
     ```
