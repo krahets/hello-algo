@@ -1,5 +1,5 @@
 /**
- * File: graph_adjacency_matrix.java
+ * File: graph_adjacency_list.java
  * Created Time: 2023-01-26
  * Author: Krahets (krahets@163.com)
  */
