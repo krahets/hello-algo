@@ -86,7 +86,7 @@ comments: true
     /* 初始化列表 */
     // 无初始值
     List<int> list1 = new ();
-    // 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）
+    // 有初始值
     int[] numbers = new int[] { 1, 3, 2, 5, 4 };
     List<int> list = numbers.ToList();
     ```
