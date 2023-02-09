@@ -771,7 +771,79 @@ comments: true
 === "Zig"
 
     ```zig title="linkedlist_stack.zig"
+    // 基于链表实现的栈
+    fn LinkedListStack(comptime T: type) type {
+        return struct {
+            const Self = @This();
 
+            stackTop: ?*inc.ListNode(T) = null,             // 将头结点作为栈顶
+            stkSize: usize = 0,                             // 栈的长度
+            mem_arena: ?std.heap.ArenaAllocator = null,
+            mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
+
+            // 构造函数（分配内存+初始化栈）
+            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
+                if (self.mem_arena == null) {
+                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
+                    self.mem_allocator = self.mem_arena.?.allocator();
+                }
+                self.stackTop = null;
+                self.stkSize = 0;
+            }
+
+            // 析构函数（释放内存）
+            pub fn deinit(self: *Self) void {
+                if (self.mem_arena == null) return;
+                self.mem_arena.?.deinit();
+            }
+
+            // 获取栈的长度
+            pub fn size(self: *Self) usize {
+                return self.stkSize;
+            }
+
+            // 判断栈是否为空
+            pub fn isEmpty(self: *Self) bool {
+                return self.size() == 0;
+            }
+
+            // 访问栈顶元素
+            pub fn top(self: *Self) T {
+                if (self.size() == 0) @panic("栈为空");
+                return self.stackTop.?.val;
+            }  
+
+            // 入栈
+            pub fn push(self: *Self, num: T) !void {
+                var node = try self.mem_allocator.create(inc.ListNode(T));
+                node.init(num);
+                node.next = self.stackTop;
+                self.stackTop = node;
+                self.stkSize += 1;
+            } 
+
+            // 出栈
+            pub fn pop(self: *Self) T {
+                var num = self.top();
+                self.stackTop = self.stackTop.?.next;
+                self.stkSize -= 1;
+                return num;
+            } 
+
+            // 将栈转换为数组
+            pub fn toArray(self: *Self) ![]T {
+                var node = self.stackTop;
+                var res = try self.mem_allocator.alloc(T, self.size());
+                std.mem.set(T, res, @as(T, 0));
+                var i: usize = 0;
+                while (i < res.len) : (i += 1) {
+                    res[res.len - i - 1] = node.?.val;
+                    node = node.?.next;
+                }
+                return res;
+            }
+        };
+    }
     ```
 
 ### 基于数组的实现
@@ -1178,7 +1250,59 @@ comments: true
 === "Zig"
 
     ```zig title="array_stack.zig"
+    // 基于数组实现的栈
+    fn ArrayStack(comptime T: type) type {
+        return struct {
+            const Self = @This();
 
+            stack: ?std.ArrayList(T) = null,     
+
+            // 构造函数（分配内存+初始化栈）
+            pub fn init(self: *Self, allocator: std.mem.Allocator) void {
+                if (self.stack == null) {
+                    self.stack = std.ArrayList(T).init(allocator);
+                }
+            }
+
+            // 析构函数（释放内存）
+            pub fn deinit(self: *Self) void {
+                if (self.stack == null) return;
+                self.stack.?.deinit();
+            }
+
+            // 获取栈的长度
+            pub fn size(self: *Self) usize {
+                return self.stack.?.items.len;
+            }
+
+            // 判断栈是否为空
+            pub fn isEmpty(self: *Self) bool {
+                return self.size() == 0;
+            }
+
+            // 访问栈顶元素
+            pub fn peek(self: *Self) T {
+                if (self.isEmpty()) @panic("栈为空");
+                return self.stack.?.items[self.size() - 1];
+            }  
+
+            // 入栈
+            pub fn push(self: *Self, num: T) !void {
+                try self.stack.?.append(num);
+            } 
+
+            // 出栈
+            pub fn pop(self: *Self) T {
+                var num = self.stack.?.pop();
+                return num;
+            } 
+
+            // 返回 ArrayList
+            pub fn toList(self: *Self) std.ArrayList(T) {
+                return self.stack.?;
+            }
+        };
+    }
     ```
 
 ## 5.1.3. 两种实现对比

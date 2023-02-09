@@ -119,7 +119,13 @@ comments: true
 === "Zig"
 
     ```zig title="hashing_search.zig"
-
+    // 哈希查找（数组）
+    fn hashingSearchArray(comptime T: type, map: std.AutoHashMap(T, T), target: T) T {
+        // 哈希表的 key: 目标元素，value: 索引
+        // 若哈希表中无此 key ，返回 -1   
+        if (map.getKey(target) == null) return -1;
+        return map.get(target).?;
+    }
     ```
 
 再比如，如果我们想要给定一个目标结点值 `target` ，获取对应的链表结点对象，那么也可以使用哈希查找实现。
@@ -230,7 +236,13 @@ comments: true
 === "Zig"
 
     ```zig title="hashing_search.zig"
-
+    // 哈希查找（链表）
+    fn hashingSearchLinkedList(comptime T: type, map: std.AutoHashMap(T, *inc.ListNode(T)), target: T) ?*inc.ListNode(T) {
+        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 若哈希表中无此 key ，返回 null 
+        if (map.getKey(target) == null) return null;
+        return map.get(target);
+    }
     ```
 
 ## 10.3.2. 复杂度分析

@@ -842,7 +842,90 @@ comments: true
 === "Zig"
 
     ```zig title="linkedlist_queue.zig"
+    // 基于链表实现的队列
+    fn LinkedListQueue(comptime T: type) type {
+        return struct {
+            const Self = @This();
 
+            front: ?*inc.ListNode(T) = null,                // 头结点 front
+            rear: ?*inc.ListNode(T) = null,                 // 尾结点 rear
+            queSize: usize = 0,                             // 队列的长度
+            mem_arena: ?std.heap.ArenaAllocator = null,
+            mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
+
+            // 构造函数（分配内存+初始化队列）
+            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
+                if (self.mem_arena == null) {
+                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
+                    self.mem_allocator = self.mem_arena.?.allocator();
+                }
+                self.front = null;
+                self.rear = null;
+                self.queSize = 0;
+            }
+
+            // 析构函数（释放内存）
+            pub fn deinit(self: *Self) void {
+                if (self.mem_arena == null) return;
+                self.mem_arena.?.deinit();
+            }
+
+            // 获取队列的长度
+            pub fn size(self: *Self) usize {
+                return self.queSize;
+            }
+
+            // 判断队列是否为空
+            pub fn isEmpty(self: *Self) bool {
+                return self.size() == 0;
+            }
+
+            // 访问队首元素
+            pub fn peek(self: *Self) T {
+                if (self.size() == 0) @panic("队列为空");
+                return self.front.?.val;
+            }  
+
+            // 入队
+            pub fn push(self: *Self, num: T) !void {
+                // 尾结点后添加 num
+                var node = try self.mem_allocator.create(inc.ListNode(T));
+                node.init(num);
+                // 如果队列为空，则令头、尾结点都指向该结点
+                if (self.front == null) {
+                    self.front = node;
+                    self.rear = node;
+                // 如果队列不为空，则将该结点添加到尾结点后
+                } else {
+                    self.rear.?.next = node;
+                    self.rear = node;
+                }
+                self.queSize += 1;
+            } 
+
+            // 出队
+            pub fn poll(self: *Self) T {
+                var num = self.peek();
+                // 删除头结点
+                self.front = self.front.?.next;
+                self.queSize -= 1;
+                return num;
+            } 
+
+            // 将链表转换为数组
+            pub fn toArray(self: *Self) ![]T {
+                var node = self.front;
+                var res = try self.mem_allocator.alloc(T, self.size());
+                std.mem.set(T, res, @as(T, 0));
+                var i: usize = 0;
+                while (i < res.len) : (i += 1) {
+                    res[i] = node.?.val;
+                    node = node.?.next;
+                }
+                return res;
+            }
+        };
+    }
     ```
 
 ### 基于数组的实现
@@ -1445,7 +1528,93 @@ comments: true
 === "Zig"
 
     ```zig title="array_queue.zig"
+    // 基于环形数组实现的队列
+    fn ArrayQueue(comptime T: type) type {
+        return struct {
+            const Self = @This();
 
+            nums: []T = undefined,                          // 用于存储队列元素的数组     
+            cap: usize = 0,                                 // 队列容量
+            front: usize = 0,                               // 队首指针，指向队首元素
+            queSize: usize = 0,                             // 尾指针，指向队尾 + 1
+            mem_arena: ?std.heap.ArenaAllocator = null,
+            mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
+
+            // 构造函数（分配内存+初始化数组）
+            pub fn init(self: *Self, allocator: std.mem.Allocator, cap: usize) !void {
+                if (self.mem_arena == null) {
+                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
+                    self.mem_allocator = self.mem_arena.?.allocator();
+                }
+                self.cap = cap;
+                self.nums = try self.mem_allocator.alloc(T, self.cap);
+                std.mem.set(T, self.nums, @as(T, 0));
+            }
+            
+            // 析构函数（释放内存）
+            pub fn deinit(self: *Self) void {
+                if (self.mem_arena == null) return;
+                self.mem_arena.?.deinit();
+            }
+
+            // 获取队列的容量
+            pub fn capacity(self: *Self) usize {
+                return self.cap;
+            }
+
+            // 获取队列的长度
+            pub fn size(self: *Self) usize {
+                return self.queSize;
+            }
+
+            // 判断队列是否为空
+            pub fn isEmpty(self: *Self) bool {
+                return self.queSize == 0;
+            }
+
+            // 入队
+            pub fn push(self: *Self, num: T) !void {
+                if (self.size() == self.capacity()) {
+                    std.debug.print("队列已满\n", .{});
+                    return;
+                }
+                // 计算尾指针，指向队尾索引 + 1
+                // 通过取余操作，实现 rear 越过数组尾部后回到头部
+                var rear = (self.front + self.queSize) % self.capacity();
+                // 尾结点后添加 num
+                self.nums[rear] = num;
+                self.queSize += 1;
+            } 
+
+            // 出队
+            pub fn poll(self: *Self) T {
+                var num = self.peek();
+                // 队首指针向后移动一位，若越过尾部则返回到数组头部
+                self.front = (self.front + 1) % self.capacity();
+                self.queSize -= 1;
+                return num;
+            } 
+
+            // 访问队首元素
+            pub fn peek(self: *Self) T {
+                if (self.isEmpty()) @panic("队列为空");
+                return self.nums[self.front];
+            } 
+
+            // 返回数组
+            pub fn toArray(self: *Self) ![]T {
+                // 仅转换有效长度范围内的列表元素
+                var res = try self.mem_allocator.alloc(T, self.size());
+                std.mem.set(T, res, @as(T, 0));
+                var i: usize = 0;
+                var j: usize = self.front;
+                while (i < self.size()) : ({ i += 1; j += 1; }) {
+                    res[i] = self.nums[j % self.capacity()];
+                }
+                return res;
+            }
+        };
+    }
     ```
 
 以上代码仍存在局限性，即长度不可变。然而，我们可以通过将数组替换为列表（即动态数组）来引入扩容机制，有兴趣的同学可以尝试实现。

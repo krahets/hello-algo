@@ -217,7 +217,25 @@ comments: true
 === "Zig"
 
     ```zig title="binary_search_tree.zig"
-
+    // 查找结点
+    fn search(self: *Self, num: T) ?*inc.TreeNode(T) {
+        var cur = self.root;
+        // 循环查找，越过叶结点后跳出
+        while (cur != null) {
+            // 目标结点在 cur 的右子树中
+            if (cur.?.val < num) {
+                cur = cur.?.right;
+            // 目标结点在 cur 的左子树中
+            } else if (cur.?.val > num) {
+                cur = cur.?.left;
+            // 找到目标结点，跳出循环
+            } else {
+                break;
+            }
+        }
+        // 返回目标结点
+        return cur;
+    }
     ```
 
 ### 插入结点
@@ -490,7 +508,35 @@ comments: true
 === "Zig"
 
     ```zig title="binary_search_tree.zig"
-
+    // 插入结点
+    fn insert(self: *Self, num: T) !?*inc.TreeNode(T) {
+        // 若树为空，直接提前返回
+        if (self.root == null) return null;
+        var cur = self.root;
+        var pre: ?*inc.TreeNode(T) = null;
+        // 循环查找，越过叶结点后跳出
+        while (cur != null) {
+            // 找到重复结点，直接返回
+            if (cur.?.val == num) return null;
+            pre = cur;
+            // 插入位置在 cur 的右子树中
+            if (cur.?.val < num) {
+                cur = cur.?.right;
+            // 插入位置在 cur 的左子树中
+            } else {
+                cur = cur.?.left;
+            }
+        }
+        // 插入结点 val
+        var node = try self.mem_allocator.create(inc.TreeNode(T));
+        node.init(num);
+        if (pre.?.val < num) {
+            pre.?.right = node;
+        } else {
+            pre.?.left = node;
+        }
+        return node;
+    }
     ```
 
 为了插入结点，需要借助 **辅助结点 `pre`** 保存上一轮循环的结点，这样在遍历到 $\text{null}$ 时，我们也可以获取到其父结点，从而完成结点插入操作。
@@ -1024,7 +1070,61 @@ comments: true
 === "Zig"
 
     ```zig title="binary_search_tree.zig"
+    // 删除结点
+    fn remove(self: *Self, num: T) ?*inc.TreeNode(T) {
+        // 若树为空，直接提前返回
+        if (self.root == null) return null;
+        var cur = self.root;
+        var pre: ?*inc.TreeNode(T) = null;
+        // 循环查找，越过叶结点后跳出
+        while (cur != null) {
+            // 找到待删除结点，跳出循环
+            if (cur.?.val == num) break;
+            pre = cur;
+            // 待删除结点在 cur 的右子树中
+            if (cur.?.val < num) {
+                cur = cur.?.right;
+            // 待删除结点在 cur 的左子树中
+            } else {
+                cur = cur.?.left;
+            }
+        }
+        // 若无待删除结点，则直接返回
+        if (cur == null) return null;
+        // 子结点数量 = 0 or 1
+        if (cur.?.left == null or cur.?.right == null) {
+            // 当子结点数量 = 0 / 1 时， child = null / 该子结点
+            var child = if (cur.?.left != null) cur.?.left else cur.?.right;
+            // 删除结点 cur
+            if (pre.?.left == cur) {
+                pre.?.left = child;
+            } else {
+                pre.?.right = child;
+            }
+        // 子结点数量 = 2
+        } else {
+            // 获取中序遍历中 cur 的下一个结点
+            var nex = self.getInOrderNext(cur.?.right);
+            var tmp = nex.?.val;
+            // 递归删除结点 nex
+            _ = self.remove(nex.?.val);
+            // 将 nex 的值复制给 cur
+            cur.?.val = tmp;
+        }
+        return cur;
+    }
 
+    // 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况）
+    fn getInOrderNext(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
+        _ = self;
+        var node_tmp = node;
+        if (node_tmp == null) return null;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (node_tmp.?.left != null) {
+            node_tmp = node_tmp.?.left;
+        }
+        return node_tmp;
+    }
     ```
 
 ### 排序

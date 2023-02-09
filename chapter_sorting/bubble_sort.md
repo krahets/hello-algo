@@ -228,7 +228,23 @@ comments: true
 === "Zig"
 
     ```zig title="bubble_sort.zig"
-
+    // 冒泡排序
+    fn bubbleSort(nums: []i32) void {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        var i: usize = nums.len - 1;
+        while (i > 0) : (i -= 1) {
+            var j: usize = 0;
+            // 内循环：冒泡操作
+            while (j < i) : (j += 1) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    var tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                }
+            }
+        }
+    }
     ```
 
 ## 11.2.2. 算法特性
@@ -461,5 +477,24 @@ comments: true
 === "Zig"
 
     ```zig title="bubble_sort.zig"
-
+    // 冒泡排序（标志优化）
+    fn bubbleSortWithFlag(nums: []i32) void {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        var i: usize = nums.len - 1;
+        while (i > 0) : (i -= 1) {
+            var flag = false;   // 初始化标志位
+            var j: usize = 0;
+            // 内循环：冒泡操作
+            while (j < i) : (j += 1) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    var tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    flag = true;
+                }
+            }
+            if (!flag) break;   // 此轮冒泡未交换任何元素，直接跳出
+        }
+    }
     ```

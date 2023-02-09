@@ -397,7 +397,21 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
+    // 获取左子结点索引
+    fn left(i: usize) usize {
+        return 2 * i + 1;
+    }
 
+    // 获取右子结点索引
+    fn right(i: usize) usize {
+        return 2 * i + 2;
+    }
+
+    // 获取父结点索引
+    fn parent(i: usize) usize {
+        // return (i - 1) / 2; // 向下整除
+        return @divFloor(i - 1, 2);
+    }
     ```
 
 ### 访问堆顶元素
@@ -479,7 +493,10 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
-
+    // 访问堆顶元素
+    fn peek(self: *Self) T {
+        return self.maxHeap.?.items[0];
+    }  
     ```
 
 ### 元素入堆
@@ -694,7 +711,28 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
+    // 元素入堆
+    fn push(self: *Self, val: T) !void {
+        // 添加结点
+        try self.maxHeap.?.append(val);
+        // 从底至顶堆化
+        try self.siftUp(self.size() - 1);
+    }  
 
+    // 从结点 i 开始，从底至顶堆化
+    fn siftUp(self: *Self, i_: usize) !void {
+        var i = i_;
+        while (true) {
+            // 获取结点 i 的父结点
+            var p = parent(i);
+            // 当“越过根结点”或“结点无需修复”时，结束堆化
+            if (p < 0 or self.maxHeap.?.items[i] <= self.maxHeap.?.items[p]) break;
+            // 交换两结点
+            try self.swap(i, p);
+            // 循环向上堆化
+            i = p;
+        }
+    }
     ```
 
 ### 堆顶元素出堆
@@ -998,7 +1036,38 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
+    // 元素出堆
+    fn poll(self: *Self) !T {
+        // 判断处理
+        if (self.isEmpty()) unreachable;
+        // 交换根结点与最右叶结点（即交换首元素与尾元素）
+        try self.swap(0, self.size() - 1);
+        // 删除结点
+        var val = self.maxHeap.?.pop();
+        // 从顶至底堆化
+        try self.siftDown(0);
+        // 返回堆顶元素
+        return val;
+    } 
 
+    // 从结点 i 开始，从顶至底堆化
+    fn siftDown(self: *Self, i_: usize) !void {
+        var i = i_;
+        while (true) {
+            // 判断结点 i, l, r 中值最大的结点，记为 ma
+            var l = left(i);
+            var r = right(i);
+            var ma = i;
+            if (l < self.size() and self.maxHeap.?.items[l] > self.maxHeap.?.items[ma]) ma = l;
+            if (r < self.size() and self.maxHeap.?.items[r] > self.maxHeap.?.items[ma]) ma = r;
+            // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            if (ma == i) break;
+            // 交换两结点
+            try self.swap(i, ma);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
     ```
 
 ### 输入数据并建堆 *
@@ -1113,7 +1182,18 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
-
+    // 构造函数，根据输入列表建堆
+    fn init(self: *Self, allocator: std.mem.Allocator, nums: []const T) !void {
+        if (self.maxHeap != null) return;
+        self.maxHeap = std.ArrayList(T).init(allocator);
+        // 将列表元素原封不动添加进堆
+        try self.maxHeap.?.appendSlice(nums);
+        // 堆化除叶结点以外的其他所有结点
+        var i: usize = parent(self.size() - 1) + 1;
+        while (i > 0) : (i -= 1) {
+            try self.siftDown(i - 1);
+        }
+    }
     ```
 
 那么，第二种建堆方法的时间复杂度时多少呢？我们来做一下简单推算。

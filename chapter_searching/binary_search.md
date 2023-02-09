@@ -237,7 +237,25 @@ $$
 === "Zig"
 
     ```zig title="binary_search.zig"
-
+    // 二分查找（双闭区间）
+    fn binarySearch(comptime T: type, nums: std.ArrayList(T), target: T) T {
+        // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
+        var i: usize = 0;
+        var j: usize = nums.items.len - 1;
+        // 循环，当搜索区间为空时跳出（当 i > j 时为空）
+        while (i <= j) {
+            var m = (i + j) / 2;                    // 计算中点索引 m
+            if (nums.items[m] < target) {           // 此情况说明 target 在区间 [m+1, j] 中
+                i = m + 1;
+            } else if (nums.items[m] > target) {    // 此情况说明 target 在区间 [i, m-1] 中
+                j = m - 1;
+            } else {                                // 找到目标元素，返回其索引
+                return @intCast(T, m);
+            }
+        }
+        // 未找到目标元素，返回 -1
+        return -1;
+    }
     ```
 
 ### “左闭右开”实现
@@ -431,7 +449,25 @@ $$
 === "Zig"
 
     ```zig title="binary_search.zig"
-
+    // 二分查找（左闭右开）
+    fn binarySearch1(comptime T: type, nums: std.ArrayList(T), target: T) T {
+        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        var i: usize = 0;
+        var j: usize = nums.items.len;
+        // 循环，当搜索区间为空时跳出（当 i = j 时为空）
+        while (i <= j) {
+            var m = (i + j) / 2;                    // 计算中点索引 m
+            if (nums.items[m] < target) {           // 此情况说明 target 在区间 [m+1, j) 中
+                i = m + 1;
+            } else if (nums.items[m] > target) {    // 此情况说明 target 在区间 [i, m) 中
+                j = m;
+            } else {                                // 找到目标元素，返回其索引
+                return @intCast(T, m);
+            }
+        }
+        // 未找到目标元素，返回 -1
+        return -1;
+    }
     ```
 
 ### 两种表示对比

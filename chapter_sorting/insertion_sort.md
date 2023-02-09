@@ -197,7 +197,20 @@ comments: true
 === "Zig"
 
     ```zig title="insertion_sort.zig"
-
+    // 插入排序
+    fn insertionSort(nums: []i32) void {
+        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
+        var i: usize = 1;
+        while (i < nums.len) : (i += 1) {
+            var base = nums[i];
+            var j: usize = i;
+            // 内循环：将 base 插入到左边的正确位置
+            while (j >= 1 and nums[j - 1] > base) : (j -= 1) {
+                nums[j] = nums[j - 1];  // 1. 将 nums[j] 向右移动一位
+            }
+            nums[j] = base;             // 2. 将 base 赋值到正确位置
+        }
+    }
     ```
 
 ## 11.3.2. 算法特性

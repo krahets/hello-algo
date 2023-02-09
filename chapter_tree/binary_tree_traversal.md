@@ -211,7 +211,33 @@ comments: true
 === "Zig"
 
     ```zig title="binary_tree_bfs.zig"
-
+    // 层序遍历
+    fn hierOrder(comptime T: type, mem_allocator: std.mem.Allocator, root: *inc.TreeNode(T)) !std.ArrayList(T) {
+        // 初始化队列，加入根结点
+        const L = std.TailQueue(*inc.TreeNode(T));
+        var queue = L{};
+        var root_node = try mem_allocator.create(L.Node);
+        root_node.data = root;
+        queue.append(root_node); 
+        // 初始化一个列表，用于保存遍历序列
+        var list = std.ArrayList(T).init(std.heap.page_allocator);
+        while (queue.len > 0) {
+            var queue_node = queue.popFirst().?;    // 队列出队
+            var node = queue_node.data;
+            try list.append(node.val);              // 保存结点值
+            if (node.left != null) {
+                var tmp_node = try mem_allocator.create(L.Node);
+                tmp_node.data = node.left.?;
+                queue.append(tmp_node);             // 左子结点入队
+            }
+            if (node.right != null) {
+                var tmp_node = try mem_allocator.create(L.Node);
+                tmp_node.data = node.right.?;
+                queue.append(tmp_node);             // 右子结点入队
+            }        
+        }
+        return list;
+    }
     ```
 
 ## 7.2.2. 前序、中序、后序遍历
@@ -512,7 +538,32 @@ comments: true
 === "Zig"
 
     ```zig title="binary_tree_dfs.zig"
+    // 前序遍历
+    fn preOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
+        if (root == null) return;
+        // 访问优先级：根结点 -> 左子树 -> 右子树
+        try list.append(root.?.val);
+        try preOrder(T, root.?.left);
+        try preOrder(T, root.?.right);
+    }
 
+    // 中序遍历
+    fn inOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
+        if (root == null) return;
+        // 访问优先级：左子树 -> 根结点 -> 右子树
+        try inOrder(T, root.?.left);
+        try list.append(root.?.val);
+        try inOrder(T, root.?.right);
+    }
+
+    // 后序遍历
+    fn postOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
+        if (root == null) return;
+        // 访问优先级：左子树 -> 右子树 -> 根结点
+        try postOrder(T, root.?.left);
+        try postOrder(T, root.?.right);
+        try list.append(root.?.val);
+    }
     ```
 
 !!! note

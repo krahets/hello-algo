@@ -1552,7 +1552,7 @@ comments: true
 
     ```zig title="my_list.zig"
     // 列表类简易实现
-    pub fn MyList(comptime T: type) type {
+    fn MyList(comptime T: type) type {
         return struct {
             const Self = @This();
             

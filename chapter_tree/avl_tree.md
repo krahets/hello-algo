@@ -303,7 +303,18 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Zig"
 
     ```zig title="avl_tree.zig"
+    // 获取结点高度
+    fn height(self: *Self, node: ?*inc.TreeNode(T)) i32 {
+        _ = self;
+        // 空结点高度为 -1 ，叶结点高度为 0
+        return if (node == null) -1 else node.?.height;
+    }
 
+    // 更新结点高度
+    fn updateHeight(self: *Self, node: ?*inc.TreeNode(T)) void {
+        // 结点高度等于最高子树高度 + 1
+        node.?.height = std.math.max(self.height(node.?.left), self.height(node.?.right)) + 1;
+    }
     ```
 
 ### 结点平衡因子
@@ -420,7 +431,13 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Zig"
 
     ```zig title="avl_tree.zig"
-
+    // 获取平衡因子
+    fn balanceFactor(self: *Self, node: ?*inc.TreeNode(T)) i32 {
+        // 空结点平衡因子为 0
+        if (node == null) return 0;
+        // 结点平衡因子 = 左子树高度 - 右子树高度
+        return self.height(node.?.left) - self.height(node.?.right);
+    }
     ```
 
 !!! note
@@ -608,7 +625,19 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Zig"
 
     ```zig title="avl_tree.zig"
-
+    // 右旋操作
+    fn rightRotate(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
+        var child = node.?.left;
+        var grandChild = child.?.right;
+        // 以 child 为原点，将 node 向右旋转
+        child.?.right = node;
+        node.?.left = grandChild;
+        // 更新结点高度
+        self.updateHeight(node);
+        self.updateHeight(child);
+        // 返回旋转后子树的根结点
+        return child;
+    }
     ```
 
 ### Case 2 - 左旋
@@ -778,7 +807,19 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Zig"
 
     ```zig title="avl_tree.zig"
-
+    // 左旋操作
+    fn leftRotate(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
+        var child = node.?.right;
+        var grandChild = child.?.left;
+        // 以 child 为原点，将 node 向左旋转
+        child.?.left = node;
+        node.?.right = grandChild;
+        // 更新结点高度
+        self.updateHeight(node);
+        self.updateHeight(child);
+        // 返回旋转后子树的根结点
+        return child;
+    }
     ```
 
 ### Case 3 - 先左后右
@@ -1100,7 +1141,35 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Zig"
 
     ```zig title="avl_tree.zig"
-
+    // 执行旋转操作，使该子树重新恢复平衡
+    fn rotate(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
+        // 获取结点 node 的平衡因子
+        var balance_factor = self.balanceFactor(node);
+        // 左偏树
+        if (balance_factor > 1) {
+            if (self.balanceFactor(node.?.left) >= 0) {
+                // 右旋
+                return self.rightRotate(node);
+            } else {
+                // 先左旋后右旋
+                node.?.left = self.leftRotate(node.?.left);
+                return self.rightRotate(node);
+            }
+        }
+        // 右偏树
+        if (balance_factor < -1) {
+            if (self.balanceFactor(node.?.right) <= 0) {
+                // 左旋
+                return self.leftRotate(node);
+            } else {
+                // 先右旋后左旋
+                node.?.right = self.rightRotate(node.?.right);
+                return self.leftRotate(node);
+            }
+        }
+        // 平衡树，无需旋转，直接返回
+        return node;
+    }
     ```
 
 ## 7.4.3. AVL 树常用操作
@@ -1345,7 +1414,34 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Zig"
 
     ```zig title="avl_tree.zig"
+    // 插入结点
+    fn insert(self: *Self, val: T) !?*inc.TreeNode(T) {
+        self.root = try self.insertHelper(self.root, val);
+        return self.root;
+    }
 
+    // 递归插入结点（辅助函数）
+    fn insertHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) !?*inc.TreeNode(T) {
+        var node = node_;
+        if (node == null) {
+            var tmp_node = try self.mem_allocator.create(inc.TreeNode(T));
+            tmp_node.init(val);
+            return tmp_node;
+        }
+        // 1. 查找插入位置，并插入结点
+        if (val < node.?.val) {
+            node.?.left = try self.insertHelper(node.?.left, val);
+        } else if (val > node.?.val) {
+            node.?.right = try self.insertHelper(node.?.right, val);
+        } else {
+            return node;            // 重复结点不插入，直接返回
+        }
+        self.updateHeight(node);    // 更新结点高度
+        // 2. 执行旋转操作，使该子树重新恢复平衡
+        node = self.rotate(node);
+        // 返回子树的根结点
+        return node;
+    }
     ```
 
 ### 删除结点
@@ -1790,7 +1886,56 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Zig"
 
     ```zig title="avl_tree.zig"
+    // 删除结点
+    fn remove(self: *Self, val: T) ?*inc.TreeNode(T) {
+       self.root = self.removeHelper(self.root, val);
+        return self.root;
+    }
 
+    // 递归删除结点（辅助函数）
+    fn removeHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) ?*inc.TreeNode(T) {
+        var node = node_;
+        if (node == null) return null;
+        // 1. 查找结点，并删除之
+        if (val < node.?.val) {
+            node.?.left = self.removeHelper(node.?.left, val);
+        } else if (val > node.?.val) {
+            node.?.right = self.removeHelper(node.?.right, val);
+        } else {
+            if (node.?.left == null or node.?.right == null) {
+                var child = if (node.?.left != null) node.?.left else node.?.right;
+                // 子结点数量 = 0 ，直接删除 node 并返回
+                if (child == null) {
+                    return null;
+                // 子结点数量 = 1 ，直接删除 node
+                } else {
+                    node = child;
+                }
+            } else {
+                // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
+                var temp = self.getInOrderNext(node.?.right);
+                node.?.right = self.removeHelper(node.?.right, temp.?.val);
+                node.?.val = temp.?.val;
+            }
+        }
+        self.updateHeight(node);    // 更新结点高度
+        // 2. 执行旋转操作，使该子树重新恢复平衡
+        node = self.rotate(node);
+        // 返回子树的根结点
+        return node;
+    }
+
+    // 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况）
+    fn getInOrderNext(self: *Self, node_: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
+        _ = self;
+        var node = node_;
+        if (node == null) return node;
+        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        while (node.?.left != null) {
+            node = node.?.left;
+        }
+        return node;
+    }
     ```
 
 ### 查找结点

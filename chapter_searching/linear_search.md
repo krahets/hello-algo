@@ -151,7 +151,18 @@ comments: true
 === "Zig"
 
     ```zig title="linear_search.zig"
-
+    // 线性查找（数组）
+    fn linearSearchArray(comptime T: type, nums: std.ArrayList(T), target: T) T {
+        // 遍历数组
+        for (nums.items) |num, i| {
+            // 找到目标元素， 返回其索引
+            if (num == target) {
+                return @intCast(T, i);
+            }
+        }
+        // 未找到目标元素，返回 -1
+        return -1;
+    }
     ```
 
 再比如，我们想要在给定一个目标结点值 `target` ，返回此结点对象，也可以在链表中进行线性查找。
@@ -304,7 +315,17 @@ comments: true
 === "Zig"
 
     ```zig title="linear_search.zig"
-
+    // 线性查找（链表）
+    fn linearSearchLinkedList(comptime T: type, node: ?*inc.ListNode(T), target: T) ?*inc.ListNode(T) {
+        var head = node;
+        // 遍历链表
+        while (head != null) {
+            // 找到目标结点，返回之
+            if (head.?.val == target) return head;
+            head = head.?.next;
+        }
+        return null;
+    }
     ```
 
 ## 10.1.2. 复杂度分析

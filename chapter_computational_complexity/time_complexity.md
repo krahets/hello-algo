@@ -1363,7 +1363,7 @@ $$
             }
         }
         return count;
-    }   
+    }
     ```
 
 ![time_complexity_constant_linear_quadratic](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
@@ -1788,7 +1788,7 @@ $$
 
     ```zig title="time_complexity.zig"
     // 指数阶（循环实现）
-    fn exponential(n: i32) i32{
+    fn exponential(n: i32) i32 {
         var count: i32 = 0;
         var bas: i32 = 1;
         var i: i32 = 0;
@@ -1802,7 +1802,7 @@ $$
         }
         // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
         return count;
-    }       
+    }
     ```
 
 ![time_complexity_exponential](time_complexity.assets/time_complexity_exponential.png)
@@ -1909,7 +1909,7 @@ $$
 
     ```zig title="time_complexity.zig"
     // 指数阶（递归实现）
-    fn expRecur(n: i32) i32{
+    fn expRecur(n: i32) i32 {
         if (n == 1) return 1;
         return expRecur(n - 1) + expRecur(n - 1) + 1;
     }
@@ -2054,8 +2054,7 @@ $$
 
     ```zig title="time_complexity.zig"
     // 对数阶（循环实现）
-    fn logarithmic(n: f32) i32
-    {
+    fn logarithmic(n: f32) i32 {
         var count: i32 = 0;
         var n_var = n;
         while (n_var > 1)
@@ -2171,8 +2170,7 @@ $$
 
     ```zig title="time_complexity.zig"
     // 对数阶（递归实现）
-    fn logRecur(n: f32) i32
-    {
+    fn logRecur(n: f32) i32 {
         if (n <= 1) return 0;
         return logRecur(n / 2) + 1;
     }
@@ -2324,8 +2322,7 @@ $$
 
     ```zig title="time_complexity.zig"
     // 线性对数阶
-    fn linearLogRecur(n: f32) i32
-    {
+    fn linearLogRecur(n: f32) i32 {
         if (n <= 1) return 1;
         var count: i32 = linearLogRecur(n / 2) +
                     linearLogRecur(n / 2);
