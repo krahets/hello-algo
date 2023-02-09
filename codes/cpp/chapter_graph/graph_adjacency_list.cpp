@@ -1,6 +1,6 @@
 /**
- * File: graph_adjacency_matrix.java
- * Created Time: 2023-01-26
+ * File: graph_adjacency_list.cpp
+ * Created Time: 2023-02-09
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
