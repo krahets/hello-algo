@@ -96,7 +96,7 @@ class GraphAdjMat {
 /* 初始化无向图 */
 // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
 const vertices: number[] = [1, 3, 2, 5, 4];
-const edges: number[][] = [[0, 1], [0, 2], [1, 2], [2, 3], [0, 3], [2, 4], [3, 4]
+const edges: number[][] = [[0, 1], [1, 2], [2, 3], [0, 3], [2, 4], [3, 4]
 ];
 const graph: GraphAdjMat = new GraphAdjMat(vertices, edges);
 console.log("\n初始化后，图为");
