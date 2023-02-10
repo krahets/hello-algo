@@ -3,7 +3,6 @@
  * Created Time: 2023-02-06
  * Author: WSL0809 (wslzzy@outlook.com)
  */
-
 use std::vec::Vec;
 
 struct ArrayQueue {
@@ -22,7 +21,6 @@ impl ArrayQueue {
             que_capacity: capacity,
         }
     }
-
 
     fn size(&self) -> i32 {
         self.que_size
@@ -81,7 +79,7 @@ fn main() {
 
     let poll = queue.poll();
     println!(
-        "出队元素 poll = {:?} \n出队后 queue = {:?}",
+        "出队元素 poll = {:?},出队后 queue = {:?}",
         poll,
         queue.to_vector()
     );
