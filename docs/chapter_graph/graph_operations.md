@@ -41,7 +41,7 @@ comments: true
 === "C++"
 
     ```cpp title="graph_adjacency_matrix.cpp"
-
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "Python"
@@ -289,7 +289,9 @@ comments: true
 === "C++"
 
     ```cpp title="graph_adjacency_list.cpp"
+    [class]{Vertex}-[func]{}
 
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "Python"
