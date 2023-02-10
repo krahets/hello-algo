@@ -10,29 +10,19 @@
 struct Vertex {
     int val;
     Vertex(int val) : val(val) {}
-    bool operator==(const Vertex &v) const { return v.val == val; }
 };
-
-/* 顶点类的哈希类 */
-namespace std {
-    template <>
-    class hash<Vertex> {
-    public:
-        size_t operator()(const Vertex &vertex) const { return vertex.val; }
-    };
-}
 
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
     // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
-    unordered_map<Vertex, unordered_set<Vertex>>
+    unordered_map<Vertex*, unordered_set<Vertex*>>
         adjList;  // 邻接表（使用哈希表实现）
 
 public:
-    /* 构造函数 */
-    GraphAdjList(const vector<vector<Vertex>> &edges) {
+    /* 构造方法 */
+    GraphAdjList(const vector<vector<Vertex*>>& edges) {
         // 添加所有顶点和边
-        for (const vector<Vertex> &edge : edges) {
+        for (const vector<Vertex*>& edge : edges) {
             addVertex(edge[0]);
             addVertex(edge[1]);
             addEdge(edge[0], edge[1]);
@@ -43,7 +33,7 @@ public:
     int size() { return adjList.size(); }
 
     /* 添加边 */
-    void addEdge(Vertex vet1, Vertex vet2) {
+    void addEdge(Vertex* vet1, Vertex* vet2) {
         if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
             throw invalid_argument("不存在顶点");
         // 添加边 vet1 - vet2
@@ -52,7 +42,7 @@ public:
     }
 
     /* 删除边 */
-    void removeEdge(Vertex vet1, Vertex vet2) {
+    void removeEdge(Vertex* vet1, Vertex* vet2) {
         if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
             throw invalid_argument("不存在顶点");
         // 删除边 vet1 - vet2
@@ -61,20 +51,20 @@ public:
     }
 
     /* 添加顶点 */
-    void addVertex(Vertex vet) {
+    void addVertex(Vertex* vet) {
         if (adjList.count(vet)) return;
         // 在邻接表中添加一个新链表（即 HashSet）
-        adjList[vet] = unordered_set<Vertex>();
+        adjList[vet] = unordered_set<Vertex*>();
     }
 
     /* 删除顶点 */
-    void removeVertex(Vertex vet) {
+    void removeVertex(Vertex* vet) {
         if (!adjList.count(vet))
             throw invalid_argument("不存在顶点");
         // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
         adjList.erase(vet);
         // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
-        for (auto &[key, set_] : adjList) {
+        for (auto& [key, set_] : adjList) {
             set_.erase(vet);
         }
     }
@@ -82,11 +72,11 @@ public:
     /* 打印邻接表 */
     void print() {
         cout << "邻接表 =" << endl;
-        for (auto &[key, value] : adjList) {
+        for (auto& [key, value] : adjList) {
             vector<int> tmp;
-            for (Vertex vertex : value)
-                tmp.push_back(vertex.val);
-            cout << key.val << ": ";
+            for (Vertex* vertex : value)
+                tmp.push_back(vertex->val);
+            cout << key->val << ": ";
             PrintUtil::printVector(tmp);
         }
     }
@@ -94,8 +84,12 @@ public:
 
 int main() {
     /* 初始化无向图 */
-    Vertex v0(1), v1(3), v2(2), v3(5), v4(4);
-    vector<vector<Vertex>> edges = {{v0, v1}, {v1, v2}, {v2, v3}, {v0, v3}, {v2, v4}, {v3, v4}};
+    Vertex *v0 = new Vertex(1),
+           *v1 = new Vertex(3),
+           *v2 = new Vertex(2),
+           *v3 = new Vertex(5),
+           *v4 = new Vertex(4);
+    vector<vector<Vertex*>> edges = {{v0, v1}, {v1, v2}, {v2, v3}, {v0, v3}, {v2, v4}, {v3, v4}};
     GraphAdjList graph(edges);
     cout << "\n初始化后，图为" << endl;
     graph.print();
@@ -113,7 +107,7 @@ int main() {
     graph.print();
 
     /* 添加顶点 */
-    Vertex v5(6);
+    Vertex* v5 = new Vertex(6);
     graph.addVertex(v5);
     cout << "\n添加顶点 6 后，图为" << endl;
     graph.print();
@@ -123,4 +117,12 @@ int main() {
     graph.removeVertex(v1);
     cout << "\n删除顶点 3 后，图为" << endl;
     graph.print();
+
+    /* 释放内存 */
+    delete v0;
+    delete v1;
+    delete v2;
+    delete v3;
+    delete v4;
+    delete v5;
 }
