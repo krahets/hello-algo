@@ -70,7 +70,7 @@ comments: true
 === "C"
 
     ```c title="array.c"
-    int arr[5] = {0}; // { 0, 0, 0, 0, 0 }
+    int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
     int nums[5] = { 1, 3, 2, 5, 4 };
     ```
 
