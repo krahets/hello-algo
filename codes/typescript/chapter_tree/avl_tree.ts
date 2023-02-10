@@ -10,7 +10,7 @@ import { printTree } from "../module/PrintUtil";
 /* AVL 树*/
 class AVLTree {
     root: TreeNode;
-    /*构造函数*/
+    /*构造方法*/
     constructor() {
         this.root = null; //根结点
     }
@@ -99,7 +99,7 @@ class AVLTree {
         return this.root;
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     insertHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return new TreeNode(val);
         /* 1. 查找插入位置，并插入结点 */
@@ -123,7 +123,7 @@ class AVLTree {
         return this.root;
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     removeHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return null;
         /* 1. 查找结点，并删除之 */

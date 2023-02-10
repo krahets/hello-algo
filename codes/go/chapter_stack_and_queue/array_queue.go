@@ -12,7 +12,7 @@ type arrayQueue struct {
 	queCapacity int   // 队列容量（即最大容纳元素数量）
 }
 
-// newArrayQueue 基于环形数组实现的队列
+/* 初始化队列 */
 func newArrayQueue(queCapacity int) *arrayQueue {
 	return &arrayQueue{
 		nums:        make([]int, queCapacity),
@@ -22,17 +22,17 @@ func newArrayQueue(queCapacity int) *arrayQueue {
 	}
 }
 
-// size 获取队列的长度
+/* 获取队列的长度 */
 func (q *arrayQueue) size() int {
 	return q.queSize
 }
 
-// isEmpty 判断队列是否为空
+/* 判断队列是否为空 */
 func (q *arrayQueue) isEmpty() bool {
 	return q.queSize == 0
 }
 
-// push 入队
+/* 入队 */
 func (q *arrayQueue) push(num int) {
 	// 当 rear == queCapacity 表示队列已满
 	if q.queSize == q.queCapacity {
@@ -46,7 +46,7 @@ func (q *arrayQueue) push(num int) {
 	q.queSize++
 }
 
-// poll 出队
+/* 出队 */
 func (q *arrayQueue) poll() any {
 	num := q.peek()
 	// 队首指针向后移动一位，若越过尾部则返回到数组头部
@@ -55,7 +55,7 @@ func (q *arrayQueue) poll() any {
 	return num
 }
 
-// peek 访问队首元素
+/* 访问队首元素 */
 func (q *arrayQueue) peek() any {
 	if q.isEmpty() {
 		return nil
@@ -63,7 +63,7 @@ func (q *arrayQueue) peek() any {
 	return q.nums[q.front]
 }
 
-// 获取 Slice 用于打印
+/* 获取 Slice 用于打印 */
 func (q *arrayQueue) toSlice() []int {
 	rear := (q.front + q.queSize)
 	if rear >= q.queCapacity {

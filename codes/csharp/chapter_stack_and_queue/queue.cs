@@ -6,40 +6,38 @@
 
 using NUnit.Framework;
 
-namespace hello_algo.chapter_stack_and_queue
+namespace hello_algo.chapter_stack_and_queue;
+
+public class queue
 {
-    public class queue
+    [Test]
+    public void Test()
     {
-        [Test]
-        public void Test()
-        {
-            /* 初始化队列 */
-            Queue<int> queue = new();
+        /* 初始化队列 */
+        Queue<int> queue = new();
 
-            /* 元素入队 */
-            queue.Enqueue(1);
-            queue.Enqueue(3);
-            queue.Enqueue(2);
-            queue.Enqueue(5);
-            queue.Enqueue(4);
-            Console.WriteLine("队列 queue = " + String.Join(",", queue.ToArray()));
+        /* 元素入队 */
+        queue.Enqueue(1);
+        queue.Enqueue(3);
+        queue.Enqueue(2);
+        queue.Enqueue(5);
+        queue.Enqueue(4);
+        Console.WriteLine("队列 queue = " + String.Join(",", queue.ToArray()));
 
-            /* 访问队首元素 */
-            int peek = queue.Peek();
-            Console.WriteLine("队首元素 peek = " + peek);
+        /* 访问队首元素 */
+        int peek = queue.Peek();
+        Console.WriteLine("队首元素 peek = " + peek);
 
-            /* 元素出队 */
-            int poll = queue.Dequeue();
-            Console.WriteLine("出队元素 poll = " + poll + "，出队后 queue = " + String.Join(",", queue.ToArray()));
+        /* 元素出队 */
+        int poll = queue.Dequeue();
+        Console.WriteLine("出队元素 poll = " + poll + "，出队后 queue = " + String.Join(",", queue.ToArray()));
 
-            /* 获取队列的长度 */
-            int size = queue.Count();
-            Console.WriteLine("队列长度 size = " + size);
+        /* 获取队列的长度 */
+        int size = queue.Count();
+        Console.WriteLine("队列长度 size = " + size);
 
-            /* 判断队列是否为空 */
-            bool isEmpty = queue.Count() == 0;
-            Console.WriteLine("队列是否为空 = " + isEmpty);
-        }
+        /* 判断队列是否为空 */
+        bool isEmpty = queue.Count() == 0;
+        Console.WriteLine("队列是否为空 = " + isEmpty);
     }
-
 }

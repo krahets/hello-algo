@@ -72,11 +72,10 @@ public:
 
     /* 将数组转化为 Vector 并返回 */
     vector<int> toVector() {
-        int cap = queCapacity;
         // 仅转换有效长度范围内的列表元素
         vector<int> arr(queSize);
         for (int i = 0, j = front; i < queSize; i++, j++) {
-            arr[i] = nums[j % cap];
+            arr[i] = nums[j % queCapacity];
         }
         return arr;
     }

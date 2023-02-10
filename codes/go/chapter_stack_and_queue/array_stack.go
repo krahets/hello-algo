@@ -9,6 +9,7 @@ type arrayStack struct {
 	data []int // 数据
 }
 
+/* 初始化栈 */
 func newArrayStack() *arrayStack {
 	return &arrayStack{
 		// 设置栈的长度为 0，容量为 16
@@ -16,34 +17,30 @@ func newArrayStack() *arrayStack {
 	}
 }
 
-// size 栈的长度
+/* 栈的长度 */
 func (s *arrayStack) size() int {
 	return len(s.data)
 }
 
-// isEmpty 栈是否为空
+/* 栈是否为空 */
 func (s *arrayStack) isEmpty() bool {
 	return s.size() == 0
 }
 
-// push 入栈
+/* 入栈 */
 func (s *arrayStack) push(v int) {
 	// 切片会自动扩容
 	s.data = append(s.data, v)
 }
 
-// pop 出栈
+/* 出栈 */
 func (s *arrayStack) pop() any {
-	// 弹出栈前，先判断是否为空
-	if s.isEmpty() {
-		return nil
-	}
 	val := s.peek()
 	s.data = s.data[:len(s.data)-1]
 	return val
 }
 
-// peek 获取栈顶元素
+/* 获取栈顶元素 */
 func (s *arrayStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -52,7 +49,7 @@ func (s *arrayStack) peek() any {
 	return val
 }
 
-// 获取 Slice 用于打印
+/* 获取 Slice 用于打印 */
 func (s *arrayStack) toSlice() []int {
 	return s.data
 }

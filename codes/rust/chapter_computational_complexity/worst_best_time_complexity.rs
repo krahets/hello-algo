@@ -1,8 +1,10 @@
-/**
+/*
  * File: time_complexity.rs
  * Created Time: 2023-01-13
  * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
  */
+
+ include!("../include/include.rs");
 
  use rand::seq::SliceRandom;
  use rand::thread_rng;
@@ -35,7 +37,7 @@
          let nums = random_numbers(n);
          let index = find_one(&nums).unwrap();
          print!("\n数组 [ 1, 2, ..., n ] 被打乱后 = ");
-         inc::print_util::print_array(&nums);
+         print_util::print_array(&nums);
          println!("\n数字 1 的索引为 {}", index);
      }
  }

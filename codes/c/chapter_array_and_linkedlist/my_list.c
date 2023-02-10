@@ -19,7 +19,7 @@ typedef struct myList myList;
 /* 前置声明 */
 void extendCapacity(myList *list);
 
-/* 构造函数 */
+/* 构造方法 */
 myList *newMyList() {
     myList *list = malloc(sizeof(myList));
     list->capacity = 10;
@@ -29,7 +29,7 @@ myList *newMyList() {
     return list;
 }
 
-/* 析构函数 */
+/* 析构方法 */
 void delMyList(myList *list) {
     free(list->nums);
     free(list);

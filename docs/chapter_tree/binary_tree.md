@@ -62,7 +62,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     /* 链表结点类 */
     function TreeNode(val, left, right) {
         this.val = (val === undefined ? 0 : val); // 结点值
@@ -229,7 +229,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="binary_tree.js"
+    ```javascript title="binary_tree.js"
     /* 初始化二叉树 */
     // 初始化结点
     let n1 = new TreeNode(1),
@@ -361,7 +361,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="binary_tree.js"
+    ```javascript title="binary_tree.js"
     /* 插入与删除结点 */
     let P = new TreeNode(0);
     // 在 n1 -> n2 中间插入结点 P
@@ -527,7 +527,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     /* 二叉树的数组表示 */
     // 直接使用 null 来表示空位
     let tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];

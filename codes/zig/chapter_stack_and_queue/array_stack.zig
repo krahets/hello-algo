@@ -12,14 +12,14 @@ pub fn ArrayStack(comptime T: type) type {
 
         stack: ?std.ArrayList(T) = null,     
 
-        // 构造函数（分配内存+初始化栈）
+        // 构造方法（分配内存+初始化栈）
         pub fn init(self: *Self, allocator: std.mem.Allocator) void {
             if (self.stack == null) {
                 self.stack = std.ArrayList(T).init(allocator);
             }
         }
 
-        // 析构函数（释放内存）
+        // 析构方法（释放内存）
         pub fn deinit(self: *Self) void {
             if (self.stack == null) return;
             self.stack.?.deinit();
@@ -31,13 +31,13 @@ pub fn ArrayStack(comptime T: type) type {
         }
 
         // 判断栈是否为空
-        pub fn empty(self: *Self) bool {
+        pub fn isEmpty(self: *Self) bool {
             return self.size() == 0;
         }
 
         // 访问栈顶元素
-        pub fn top(self: *Self) T {
-            if (self.size() == 0) @panic("栈为空");
+        pub fn peek(self: *Self) T {
+            if (self.isEmpty()) @panic("栈为空");
             return self.stack.?.items[self.size() - 1];
         }  
 
@@ -77,7 +77,7 @@ pub fn main() !void {
     inc.PrintUtil.printList(i32, stack.toList());
 
     // 访问栈顶元素
-    var peek = stack.top();
+    var peek = stack.peek();
     std.debug.print("\n栈顶元素 peek = {}", .{peek});
 
     // 元素出栈
@@ -90,7 +90,7 @@ pub fn main() !void {
     std.debug.print("\n栈的长度 size = {}", .{size});
 
     // 判断栈是否为空
-    var is_empty = stack.empty();
+    var is_empty = stack.isEmpty();
     std.debug.print("\n栈是否为空 = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();

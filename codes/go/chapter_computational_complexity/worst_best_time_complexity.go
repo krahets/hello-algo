@@ -5,7 +5,6 @@
 package chapter_computational_complexity
 
 import (
-	"fmt"
 	"math/rand"
 )
 
@@ -33,15 +32,4 @@ func findOne(nums []int) int {
 		}
 	}
 	return -1
-}
-
-/* Driver Code */
-func main() {
-	for i := 0; i < 10; i++ {
-		n := 100
-		nums := randomNumbers(n)
-		index := findOne(nums)
-		fmt.Println("\n数组 [ 1, 2, ..., n ] 被打乱后 =", nums)
-		fmt.Println("数字 1 的索引为", index)
-	}
 }

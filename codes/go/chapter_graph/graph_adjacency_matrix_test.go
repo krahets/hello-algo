@@ -13,7 +13,7 @@ func TestGraphAdjMat(t *testing.T) {
 	/* 初始化无向图 */
 	// 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
 	vertices := []int{1, 3, 2, 5, 4}
-	edges := [][]int{{0, 1}, {0, 2}, {1, 2}, {2, 3}, {0, 3}, {2, 4}, {3, 4}}
+	edges := [][]int{{0, 1}, {1, 2}, {2, 3}, {0, 3}, {2, 4}, {3, 4}}
 	graph := newGraphAdjMat(vertices, edges)
 	fmt.Println("初始化后，图为:")
 	graph.print()

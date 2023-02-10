@@ -14,19 +14,19 @@ type linkedListQueue struct {
 	data *list.List
 }
 
-// newLinkedListQueue 初始化链表
+/* 初始化队列 */
 func newLinkedListQueue() *linkedListQueue {
 	return &linkedListQueue{
 		data: list.New(),
 	}
 }
 
-// push 入队
+/* 入队 */
 func (s *linkedListQueue) push(value any) {
 	s.data.PushBack(value)
 }
 
-// poll 出队
+/* 出队 */
 func (s *linkedListQueue) poll() any {
 	if s.isEmpty() {
 		return nil
@@ -36,7 +36,7 @@ func (s *linkedListQueue) poll() any {
 	return e.Value
 }
 
-// peek 访问队首元素
+/* 访问队首元素 */
 func (s *linkedListQueue) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,17 +45,17 @@ func (s *linkedListQueue) peek() any {
 	return e.Value
 }
 
-// size 获取队列的长度
+/* 获取队列的长度 */
 func (s *linkedListQueue) size() int {
 	return s.data.Len()
 }
 
-// isEmpty 判断队列是否为空
+/* 判断队列是否为空 */
 func (s *linkedListQueue) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-// 获取 List 用于打印
+/* 获取 List 用于打印 */
 func (s *linkedListQueue) toList() *list.List {
 	return s.data
 }

@@ -15,6 +15,7 @@ type vertex struct {
 	val int
 }
 
+/* 构造方法 */
 func newVertex(val int) vertex {
 	return vertex{
 		val: val,
@@ -28,7 +29,7 @@ type graphAdjList struct {
 	adjList map[vertex]map[vertex]struct{}
 }
 
-/* 构造函数 */
+/* 构造方法 */
 func newGraphAdjList(edges [][]vertex) *graphAdjList {
 	g := &graphAdjList{
 		adjList: make(map[vertex]map[vertex]struct{}),

@@ -12,8 +12,8 @@ func swap(nums: inout [Int], i: Int, j: Int) {
 }
 
 /* 快速排序类 */
-// 快速排序类-哨兵划分
-func quickSortPartition(nums: inout [Int], left: Int, right: Int) -> Int {
+/* 哨兵划分 */
+func partition(nums: inout [Int], left: Int, right: Int) -> Int {
     // 以 nums[left] 作为基准数
     var i = left
     var j = right
@@ -30,22 +30,23 @@ func quickSortPartition(nums: inout [Int], left: Int, right: Int) -> Int {
     return i // 返回基准数的索引
 }
 
-// 快速排序类-快速排序
+/* 快速排序 */
 func quickSort(nums: inout [Int], left: Int, right: Int) {
     // 子数组长度为 1 时终止递归
     if left >= right {
         return
     }
     // 哨兵划分
-    let pivot = quickSortPartition(nums: &nums, left: left, right: right)
+    let pivot = partition(nums: &nums, left: left, right: right)
     // 递归左子数组、右子数组
     quickSort(nums: &nums, left: left, right: pivot - 1)
     quickSort(nums: &nums, left: pivot + 1, right: right)
 }
 
+
 /* 快速排序类（中位基准数优化） */
-// 快速排序类（中位基准数优化）-选取三个元素的中位数
-func quickSortMedianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
+/* 选取三个元素的中位数 */
+func medianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
     if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
         return left
     } else if (nums[mid] < nums[left]) != (nums[mid] < nums[right]) {
@@ -55,42 +56,37 @@ func quickSortMedianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
     }
 }
 
-// 快速排序类（中位基准数优化）-哨兵划分（三数取中值）
-func quickSortMedianPartition(nums: inout [Int], left: Int, right: Int) -> Int {
+/* 哨兵划分（三数取中值） */
+func partitionMedian(nums: inout [Int], left: Int, right: Int) -> Int {
     // 选取三个候选元素的中位数
-    let med = quickSortMedianThree(nums: nums, left: left, mid: (left + right) / 2, right: right)
+    let med = medianThree(nums: nums, left: left, mid: (left + right) / 2, right: right)
     // 将中位数交换至数组最左端
     swap(nums: &nums, i: left, j: med)
-    return quickSortPartition(nums: &nums, left: left, right: right)
+    return partition(nums: &nums, left: left, right: right)
 }
 
-// 快速排序类（中位基准数优化）-快速排序
+/* 快速排序（中位基准数优化） */
 func quickSortMedian(nums: inout [Int], left: Int, right: Int) {
     // 子数组长度为 1 时终止递归
     if left >= right {
         return
     }
     // 哨兵划分
-    let pivot = quickSortMedianPartition(nums: &nums, left: left, right: right)
+    let pivot = partitionMedian(nums: &nums, left: left, right: right)
     // 递归左子数组、右子数组
     quickSortMedian(nums: &nums, left: left, right: pivot - 1)
     quickSortMedian(nums: &nums, left: pivot + 1, right: right)
 }
 
-/* 快速排序类（尾递归优化） */
-// 快速排序类（尾递归优化）-哨兵划分
-func quickSortTailCallPartition(nums: inout [Int], left: Int, right: Int) -> Int {
-    quickSortPartition(nums: &nums, left: left, right: right)
-}
 
-// 快速排序类（尾递归优化）-快速排序（尾递归优化）
+/* 快速排序（尾递归优化） */
 func quickSortTailCall(nums: inout [Int], left: Int, right: Int) {
     var left = left
     var right = right
     // 子数组长度为 1 时终止
     while left < right {
         // 哨兵划分操作
-        let pivot = quickSortTailCallPartition(nums: &nums, left: left, right: right)
+        let pivot = partition(nums: &nums, left: left, right: right)
         // 对两个子数组中较短的那个执行快排
         if (pivot - left) < (right - pivot) {
             quickSortTailCall(nums: &nums, left: left, right: pivot - 1) // 递归排序左子数组
