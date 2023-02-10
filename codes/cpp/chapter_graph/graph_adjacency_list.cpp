@@ -15,8 +15,7 @@ struct Vertex {
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
     // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
-    unordered_map<Vertex*, unordered_set<Vertex*>>
-        adjList;  // 邻接表（使用哈希表实现）
+    unordered_map<Vertex*, unordered_set<Vertex*>> adjList;  // 邻接表（使用哈希表实现）
 
 public:
     /* 构造方法 */
@@ -27,6 +26,11 @@ public:
             addVertex(edge[1]);
             addEdge(edge[0], edge[1]);
         }
+    }
+
+    /* 析构方法 */
+    ~GraphAdjList() {
+        for (auto [vet, to] : adjList) delete vet;
     }
 
     /* 获取顶点数量 */
@@ -67,6 +71,7 @@ public:
         for (auto& [key, set_] : adjList) {
             set_.erase(vet);
         }
+        delete vet;
     }
 
     /* 打印邻接表 */
@@ -117,12 +122,4 @@ int main() {
     graph.removeVertex(v1);
     cout << "\n删除顶点 3 后，图为" << endl;
     graph.print();
-
-    /* 释放内存 */
-    delete v0;
-    delete v1;
-    delete v2;
-    delete v3;
-    delete v4;
-    delete v5;
 }
