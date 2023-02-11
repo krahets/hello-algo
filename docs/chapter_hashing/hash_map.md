@@ -464,7 +464,9 @@ $$
 === "C"
 
     ```c title="array_hash_map.c"
-    
+    [class]{entry}-[func]{}
+
+    [class]{arrayHashMap}-[func]{}
     ```
 
 === "C#"

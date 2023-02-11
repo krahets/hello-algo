@@ -69,7 +69,7 @@ comments: true
 === "C"
 
     ```c title="leetcode_two_sum.c"
-
+    [class]{}-[func]{twoSumBruteForce}
     ```
 
 === "C#"
@@ -135,7 +135,7 @@ comments: true
 === "C"
 
     ```c title="leetcode_two_sum.c"
-
+    [class]{}-[func]{twoSumHashTable}
     ```
 
 === "C#"

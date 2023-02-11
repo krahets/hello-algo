@@ -373,7 +373,9 @@ comments: true
 === "C"
 
     ```c title="linked_list.c"
+    [class]{}-[func]{insertNode}
 
+    [class]{}-[func]{removeNode}
     ```
 
 === "C#"
@@ -443,7 +445,7 @@ comments: true
 === "C"
 
     ```c title="linked_list.c"
-
+    [class]{}-[func]{access}
     ```
 
 === "C#"
@@ -509,7 +511,7 @@ comments: true
 === "C"
 
     ```c title="linked_list.c"
-
+    [class]{}-[func]{findNode}
     ```
 
 === "C#"

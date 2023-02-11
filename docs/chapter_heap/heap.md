@@ -316,7 +316,11 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
+    [class]{maxHeap}-[func]{left}
 
+    [class]{maxHeap}-[func]{right}
+
+    [class]{maxHeap}-[func]{parent}
     ```
 
 === "C#"
@@ -392,7 +396,7 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
-
+    [class]{maxHeap}-[func]{peek}
     ```
 
 === "C#"
@@ -488,7 +492,9 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
+    [class]{maxHeap}-[func]{push}
 
+    [class]{maxHeap}-[func]{siftUp}
     ```
 
 === "C#"
@@ -606,7 +612,9 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
+    [class]{maxHeap}-[func]{poll}
 
+    [class]{maxHeap}-[func]{siftDown}
     ```
 
 === "C#"
@@ -678,7 +686,7 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
-
+    [class]{maxHeap}-[func]{newMaxHeap}
     ```
 
 === "C#"

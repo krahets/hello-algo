@@ -323,7 +323,7 @@ comments: true
 === "C"
 
     ```c title="linkedlist_stack.c"
-    
+    [class]{linkedListStack}-[func]{}
     ```
 
 === "C#"
@@ -398,7 +398,7 @@ comments: true
 === "C"
 
     ```c title="array_stack.c"
-    
+    [class]{arrayStack}-[func]{}
     ```
 
 === "C#"

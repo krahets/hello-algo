@@ -618,7 +618,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-
+    [class]{}-[func]{spaceConstant}
     ```
 
 === "C#"
@@ -682,7 +682,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-
+    [class]{}-[func]{spaceLinear}
     ```
 
 === "C#"
@@ -744,7 +744,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-
+    [class]{}-[func]{spaceLinearRecur}
     ```
 
 === "C#"
@@ -812,7 +812,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-
+    [class]{}-[func]{spaceQuadratic}
     ```
 
 === "C#"
@@ -874,7 +874,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-
+    [class]{}-[func]{spaceQuadraticRecur}
     ```
 
 === "C#"
@@ -942,7 +942,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-
+    [class]{}-[func]{buildTree}
     ```
 
 === "C#"

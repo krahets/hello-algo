@@ -831,16 +831,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 常数阶 */
-    int constant(int n) {
-        int count = 0;
-        int size = 100000;
-        int i = 0;
-        for (int i = 0; i < size; i++) {
-            count ++;
-        }
-        return count;
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "C#"
@@ -904,14 +895,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 线性阶 */
-    int linear(int n) {
-        int count = 0;
-        for (int i = 0; i < n; i++) {
-            count ++;
-        }
-        return count;
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "C#"
@@ -977,15 +961,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 线性阶（遍历数组） */
-    int arrayTraversal(int *nums, int n) {
-        int count = 0;
-        // 循环次数与数组长度成正比
-        for (int i = 0; i < n; i++) {
-            count ++;
-        }
-        return count;
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 === "C#"
@@ -1049,17 +1025,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 平方阶 */
-    int quadratic(int n) {
-        int count = 0;
-        // 循环次数与数组长度成平方关系
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                count ++;
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "C#"
@@ -1129,26 +1095,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 平方阶（冒泡排序） */
-    int bubbleSort(int *nums, int n) {
-        int count = 0;  // 计数器 
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = n - 1; i > 0; i--) {
-            // 内循环：冒泡操作
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums [j + 1]) 
-                {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3;  // 元素交换包含 3 个单元操作
-                }
-            }
-            
-        }
-        return count;
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "C#"
@@ -1216,20 +1163,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 指数阶（循环实现） */
-    int exponential(int n) {
-        int count = 0;
-        int bas = 1;
-        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < bas; j++) {
-                count++;
-            }
-            bas *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count;
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "C#"
@@ -1295,11 +1229,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 指数阶（递归实现） */
-    int expRecur(int n) {
-        if (n == 1) return 1;
-        return expRecur(n - 1) + expRecur(n - 1) + 1;
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 === "C#"
@@ -1367,15 +1297,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 对数阶（循环实现） */
-    int logarithmic(float n) {
-        int count = 0;
-        while (n > 1) {
-            n = n / 2;
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "C#"
@@ -1441,11 +1363,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 对数阶（递归实现） */
-    int logRecur(float n) {
-        if (n <= 1) return 0;
-        return logRecur(n / 2) + 1;
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 === "C#"
@@ -1511,16 +1429,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 线性对数阶 */
-    int linearLogRecur(float n) {
-        if (n <= 1) return 1;
-        int count = linearLogRecur(n / 2) +
-                    linearLogRecur(n / 2);
-        for (int i = 0; i < n; i++) {
-            count ++;
-        }
-        return count;
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 === "C#"
@@ -1594,15 +1503,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 阶乘阶（递归实现） */
-    int factorialRecur(int n) {
-        if (n == 0) return 1;
-        int count = 0;
-        for (int i = 0; i < n; i++) {
-            count += factorialRecur(n - 1);
-        }
-        return count;
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 === "C#"

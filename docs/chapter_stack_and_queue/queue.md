@@ -320,7 +320,7 @@ comments: true
 === "C"
 
     ```c title="linkedlist_queue.c"
-    
+    [class]{linkedListQueue}-[func]{}
     ```
 
 === "C#"
@@ -397,7 +397,7 @@ comments: true
 === "C"
 
     ```c title="array_queue.c"
-    
+    [class]{arrayQueue}-[func]{}
     ```
 
 === "C#"

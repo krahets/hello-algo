@@ -90,7 +90,7 @@ $$
 === "C"
 
     ```c title="binary_search.c"
-
+    [class]{}-[func]{binarySearch}
     ```
 
 === "C#"
@@ -154,7 +154,7 @@ $$
 === "C"
 
     ```c title="binary_search.c"
-
+    [class]{}-[func]{binarySearch1}
     ```
 
 === "C#"

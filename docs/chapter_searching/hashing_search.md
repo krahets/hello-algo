@@ -55,7 +55,7 @@ comments: true
 === "C"
 
     ```c title="hashing_search.c"
-
+    [class]{}-[func]{hashingSearchArray}
     ```
 
 === "C#"
@@ -119,7 +119,7 @@ comments: true
 === "C"
 
     ```c title="hashing_search.c"
-
+    [class]{}-[func]{hashingSearchLinkedList}
     ```
 
 === "C#"

@@ -74,7 +74,7 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-    
+    [class]{binarySearchTree}-[func]{search}
     ```
 
 === "C#"
@@ -145,7 +145,7 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-    
+    [class]{binarySearchTree}-[func]{insert}
     ```
 
 === "C#"
@@ -253,7 +253,9 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-    
+    [class]{binarySearchTree}-[func]{remove}
+
+    [class]{binarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "C#"
