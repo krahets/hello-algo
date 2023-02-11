@@ -99,8 +99,7 @@ public:
     void poll() {
         // 判空处理
         if (empty()) {
-            cout << "Error:堆为空" << endl;
-            return;
+            throw out_of_range("堆为空");
         }
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
         swap(maxHeap[0], maxHeap[size() - 1]);
