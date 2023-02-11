@@ -1,9 +1,9 @@
-/**
+/*
  * File: array_queue.rs
  * Created Time: 2023-02-06
  * Author: WSL0809 (wslzzy@outlook.com)
  */
-use std::vec::Vec;
+
 
 struct ArrayQueue {
     nums: Vec<i32>,
