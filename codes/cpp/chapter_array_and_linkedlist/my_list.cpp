@@ -15,12 +15,12 @@ private:
     int extendRatio = 2;      // 每次列表扩容的倍数
 
 public:
-    /* 构造函数 */
+    /* 构造方法 */
     MyList() {
         nums = new int[numsCapacity];
     }
 
-    /* 析构函数 */
+    /* 析构方法 */
     ~MyList() {
         delete[] nums;
     }

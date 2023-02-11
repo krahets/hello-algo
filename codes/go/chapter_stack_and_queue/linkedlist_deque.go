@@ -8,29 +8,30 @@ import (
 	"container/list"
 )
 
-// linkedListDeque 基于链表实现的双端队列, 使用内置包 list 来实现栈
+/* 基于链表实现的双端队列 */
 type linkedListDeque struct {
+	// 使用内置包 list 来实现栈
 	data *list.List
 }
 
-// newLinkedListDeque 初始化双端队列
+/* 初始化双端队列 */
 func newLinkedListDeque() *linkedListDeque {
 	return &linkedListDeque{
 		data: list.New(),
 	}
 }
 
-// pushFirst 队首元素入队
+/* 队首元素入队 */
 func (s *linkedListDeque) pushFirst(value any) {
 	s.data.PushFront(value)
 }
 
-// pushLast 队尾元素入队
+/* 队尾元素入队 */
 func (s *linkedListDeque) pushLast(value any) {
 	s.data.PushBack(value)
 }
 
-// pollFirst 队首元素出队
+/* 队首元素出队 */
 func (s *linkedListDeque) pollFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -40,7 +41,7 @@ func (s *linkedListDeque) pollFirst() any {
 	return e.Value
 }
 
-// pollLast 队尾元素出队
+/* 队尾元素出队 */
 func (s *linkedListDeque) pollLast() any {
 	if s.isEmpty() {
 		return nil
@@ -50,7 +51,7 @@ func (s *linkedListDeque) pollLast() any {
 	return e.Value
 }
 
-// peekFirst 访问队首元素
+/* 访问队首元素 */
 func (s *linkedListDeque) peekFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -59,7 +60,7 @@ func (s *linkedListDeque) peekFirst() any {
 	return e.Value
 }
 
-// peekLast 访问队尾元素
+/* 访问队尾元素 */
 func (s *linkedListDeque) peekLast() any {
 	if s.isEmpty() {
 		return nil
@@ -68,17 +69,17 @@ func (s *linkedListDeque) peekLast() any {
 	return e.Value
 }
 
-// size 获取队列的长度
+/* 获取队列的长度 */
 func (s *linkedListDeque) size() int {
 	return s.data.Len()
 }
 
-// isEmpty 判断队列是否为空
+/* 判断队列是否为空 */
 func (s *linkedListDeque) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-// 获取 List 用于打印
+/* 获取 List 用于打印 */
 func (s *linkedListDeque) toList() *list.List {
 	return s.data
 }

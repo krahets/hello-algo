@@ -1,8 +1,10 @@
-/**
+/*
  * File: hash_map.rs
  * Created Time: 2023-02-05
  * Author: sjinzh (sjinzh@gmail.com)
-*/
+ */
+
+include!("../include/include.rs");
 
 use std::collections::HashMap;
 
@@ -19,7 +21,7 @@ pub fn main() {
     map.insert(13276, "小法");
     map.insert(10583, "小鸭");
     println!("\n添加完成后，哈希表为\nKey -> Value");
-    inc::print_util::print_hash_map(&map);
+    print_util::print_hash_map(&map);
 
     // 查询操作
     // 向哈希表输入键 key ，得到值 value
@@ -30,11 +32,11 @@ pub fn main() {
     // 在哈希表中删除键值对 (key, value)
     _ = map.remove(&10583);
     println!("\n删除 10583 后，哈希表为\nKey -> Value");
-    inc::print_util::print_hash_map(&map);
+    print_util::print_hash_map(&map);
 
     // 遍历哈希表
     println!("\n遍历键值对 Key->Value");
-    inc::print_util::print_hash_map(&map);
+    print_util::print_hash_map(&map);
     println!("\n单独遍历键 Key");
     for key in map.keys() {
         println!("{key}");

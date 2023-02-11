@@ -2,10 +2,7 @@
 name = "hello-algo-rust"
 version = "0.1.0"
 edition = "2021"
-
-[lib]
-name = "inc"
-path = "include/include.rs"
+publish = false
 
 # Run Command: cargo run --bin time_complexity
 [[bin]]
@@ -66,6 +63,11 @@ path = "chapter_sorting/bubble_sort.rs"
 [[bin]]
 name = "array_stack"
 path = "chapter_stack_and_queue/array_stack.rs"
+
+# Run Command: cargo run --bin array_queue
+[[bin]]
+name = "array_queue"
+path = "chapter_stack_and_queue/array_queue.rs"
 
 [dependencies]
 rand = "0.8.5"

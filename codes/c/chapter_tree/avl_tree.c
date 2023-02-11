@@ -110,7 +110,7 @@ TreeNode *rotate(TreeNode *node) {
     return node;
 }
 
-/* 递归插入结点（辅助函数） */
+/* 递归插入结点（辅助方法） */
 TreeNode *insertHelper(TreeNode *node, int val) {
     if (node == NULL) {
         return newTreeNode(val);
@@ -151,7 +151,7 @@ TreeNode *getInOrderNext(TreeNode *node) {
     return node;
 }
 
-/* 递归删除结点（辅助函数） */
+/* 递归删除结点（辅助方法） */
 TreeNode *removeHelper(TreeNode *node, int val) {
     TreeNode *child, *grandChild, *temp;
     if (node == NULL) {

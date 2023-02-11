@@ -10,7 +10,7 @@ const Entry = struct {
     key: usize = undefined,
     val: []const u8 = undefined,
 
-   pub fn init(key: usize, val: []const u8) Entry {
+    pub fn init(key: usize, val: []const u8) Entry {
         return Entry {
             .key = key,
             .val = val,
@@ -26,7 +26,7 @@ pub fn ArrayHashMap(comptime T: type) type {
 
         const Self = @This();
         
-        // 构造函数
+        // 构造方法
         pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
             self.mem_allocator = allocator;
             // 初始化一个长度为 100 的桶（数组）
@@ -37,7 +37,7 @@ pub fn ArrayHashMap(comptime T: type) type {
             }
         }
 
-        // 析构函数
+        // 析构方法
         pub fn deinit(self: *Self) void {
             if (self.bucket != null) self.bucket.?.deinit();
         }

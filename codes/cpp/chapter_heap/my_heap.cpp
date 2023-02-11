@@ -6,7 +6,7 @@
 
 #include "../include/include.hpp"
 
-/* 最大堆类 */
+/* 大顶堆 */
 class MaxHeap {
 private:
     // 使用动态数组，这样无需考虑扩容问题
@@ -28,7 +28,7 @@ private:
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
-    void shifUp(int i) {
+    void siftUp(int i) {
         while (true) {
             // 获取结点 i 的父结点
             int p =  parent(i);
@@ -43,7 +43,7 @@ private:
     }
 
     /* 从结点 i 开始，从顶至底堆化 */
-    void shifDown(int i) {
+    void siftDown(int i) {
         while (true) {
             // 判断结点 i, l, r 中值最大的结点，记为 ma
             int l = left(i), r = right(i), ma = i;
@@ -62,16 +62,13 @@ private:
     }
 
 public:
-    /* 构造函数，建立空堆 */
-    MaxHeap() {}
-
-    /* 构造函数，根据输入列表建堆 */
+    /* 构造方法，根据输入列表建堆 */
     MaxHeap(vector<int> nums) {
         // 将列表元素原封不动添加进堆
         maxHeap = nums;
         // 堆化除叶结点以外的其他所有结点
         for (int i = parent(size() - 1); i >= 0; i--) {
-            shifDown(i);
+            siftDown(i);
         }
     }
 
@@ -95,22 +92,21 @@ public:
         // 添加结点
         maxHeap.push_back(val);
         // 从底至顶堆化
-        shifUp(size() - 1);
+        siftUp(size() - 1);
     }
 
     /* 元素出堆 */
     void poll() {
         // 判空处理
         if (empty()) {
-            cout << "Error:堆为空" << endl;
-            return;
+            throw out_of_range("堆为空");
         }
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
         swap(maxHeap[0], maxHeap[size() - 1]);
         // 删除结点
         maxHeap.pop_back();
         // 从顶至底堆化
-        shifDown(0);
+        siftDown(0);
     }
 
     /* 打印堆（二叉树）*/

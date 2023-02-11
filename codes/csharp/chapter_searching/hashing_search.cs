@@ -7,54 +7,53 @@
 using hello_algo.include;
 using NUnit.Framework;
 
-namespace hello_algo.chapter_searching
+namespace hello_algo.chapter_searching;
+
+public class hashing_search
 {
-    public class hashing_search
+    /* 哈希查找（数组） */
+    static int hashingSearchArray(Dictionary<int, int> map, int target)
     {
+        // 哈希表的 key: 目标元素，value: 索引
+        // 若哈希表中无此 key ，返回 -1
+        return map.GetValueOrDefault(target, -1);
+    }
+
+    /* 哈希查找（链表） */
+    static ListNode? hashingSearchLinkedList(Dictionary<int, ListNode> map, int target)
+    {
+
+        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 若哈希表中无此 key ，返回 null
+        return map.GetValueOrDefault(target);
+    }
+
+    [Test]
+    public void Test()
+    {
+        int target = 3;
+
         /* 哈希查找（数组） */
-        static int hashingSearchArray(Dictionary<int, int> map, int target)
+        int[] nums = { 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 };
+        // 初始化哈希表
+        Dictionary<int, int> map = new();
+        for (int i = 0; i < nums.Length; i++)
         {
-            // 哈希表的 key: 目标元素，value: 索引
-            // 若哈希表中无此 key ，返回 -1
-            return map.GetValueOrDefault(target, -1);
+            map[nums[i]] = i;  // key: 元素，value: 索引
         }
+        int index = hashingSearchArray(map, target);
+        Console.WriteLine("目标元素 3 的索引 = " + index);
 
         /* 哈希查找（链表） */
-        static ListNode? hashingSearchLinkedList(Dictionary<int, ListNode> map, int target)
+        ListNode? head = ListNode.ArrToLinkedList(nums);
+        // 初始化哈希表
+        Dictionary<int, ListNode> map1 = new();
+        while (head != null)
         {
-
-            // 哈希表的 key: 目标结点值，value: 结点对象
-            // 若哈希表中无此 key ，返回 null
-            return map.GetValueOrDefault(target);
+            map1[head.val] = head;  // key: 结点值，value: 结点
+            head = head.next;
         }
-
-        [Test]
-        public void Test()
-        {
-            int target = 3;
-
-            /* 哈希查找（数组） */
-            int[] nums = { 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 };
-            // 初始化哈希表
-            Dictionary<int, int> map = new();
-            for (int i = 0; i < nums.Length; i++)
-            {
-                map[nums[i]] = i;  // key: 元素，value: 索引
-            }
-            int index = hashingSearchArray(map, target);
-            Console.WriteLine("目标元素 3 的索引 = " + index);
-
-            /* 哈希查找（链表） */
-            ListNode? head = ListNode.ArrToLinkedList(nums);
-            // 初始化哈希表
-            Dictionary<int, ListNode> map1 = new();
-            while (head != null)
-            {
-                map1[head.val] = head;  // key: 结点值，value: 结点
-                head = head.next;
-            }
-            ListNode? node = hashingSearchLinkedList(map1, target);
-            Console.WriteLine("目标结点值 3 的对应结点对象为 " + node);
-        }
+        ListNode? node = hashingSearchLinkedList(map1, target);
+        Console.WriteLine("目标结点值 3 的对应结点对象为 " + node);
     }
 }

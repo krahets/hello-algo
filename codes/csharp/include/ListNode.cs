@@ -2,67 +2,66 @@
 // Created Time: 2022-12-16
 // Author: mingXta (1195669834@qq.com)
 
-namespace hello_algo.include
+namespace hello_algo.include;
+
+/// <summary>
+/// Definition for a singly-linked list node
+/// </summary>
+public class ListNode
 {
+    public int val;
+    public ListNode? next;
+
     /// <summary>
-    /// Definition for a singly-linked list node
+    /// Generate a linked list with an array
     /// </summary>
-    public class ListNode
+    /// <param name="x"></param>
+    public ListNode(int x)
     {
-        public int val;
-        public ListNode? next;
+        val = x;
+    }
 
-        /// <summary>
-        /// Generate a linked list with an array
-        /// </summary>
-        /// <param name="x"></param>
-        public ListNode(int x)
+    /// <summary>
+    /// Generate a linked list with an array
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
+    public static ListNode? ArrToLinkedList(int[] arr)
+    {
+        ListNode dum = new ListNode(0);
+        ListNode head = dum;
+        foreach (int val in arr)
         {
-            val = x;
+            head.next = new ListNode(val);
+            head = head.next;
         }
+        return dum.next;
+    }
 
-        /// <summary>
-        /// Generate a linked list with an array
-        /// </summary>
-        /// <param name="arr"></param>
-        /// <returns></returns>
-        public static ListNode? ArrToLinkedList(int[] arr)
+    /// <summary>
+    /// Get a list node with specific value from a linked list
+    /// </summary>
+    /// <param name="head"></param>
+    /// <param name="val"></param>
+    /// <returns></returns>
+    public static ListNode? GetListNode(ListNode? head, int val)
+    {
+        while (head != null && head.val != val)
         {
-            ListNode dum = new ListNode(0);
-            ListNode head = dum;
-            foreach (int val in arr)
-            {
-                head.next = new ListNode(val);
-                head = head.next;
-            }
-            return dum.next;
+            head = head.next;
         }
+        return head;
+    }
 
-        /// <summary>
-        /// Get a list node with specific value from a linked list
-        /// </summary>
-        /// <param name="head"></param>
-        /// <param name="val"></param>
-        /// <returns></returns>
-        public static ListNode? GetListNode(ListNode? head, int val)
+    public override string? ToString()
+    {
+        List<string> list = new();
+        var head = this;
+        while (head != null)
         {
-            while (head != null && head.val != val)
-            {
-                head = head.next;
-            }
-            return head;
+            list.Add(head.val.ToString());
+            head = head.next;
         }
-
-        public override string? ToString()
-        {
-            List<string> list = new();
-            var head = this;
-            while (head != null)
-            {
-                list.Add(head.val.ToString());
-                head = head.next;
-            }
-            return string.Join("->", list);
-        }
+        return string.Join("->", list);
     }
 }

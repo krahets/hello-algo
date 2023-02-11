@@ -15,12 +15,26 @@ type binarySearchTree struct {
 }
 
 func newBinarySearchTree(nums []int) *binarySearchTree {
-	// sorting array
+	// 排序数组
 	sort.Ints(nums)
-	root := buildBinarySearchTree(nums, 0, len(nums)-1)
-	return &binarySearchTree{
-		root: root,
+	// 构建二叉搜索树
+	bst := &binarySearchTree{}
+	bst.root = bst.buildTree(nums, 0, len(nums)-1)
+	return bst
+}
+
+/* 构建二叉搜索树 */
+func (bst *binarySearchTree) buildTree(nums []int, left, right int) *TreeNode {
+	if left > right {
+		return nil
 	}
+	// 将数组中间结点作为根结点
+	middle := left + (right-left)>>1
+	root := NewTreeNode(nums[middle])
+	// 递归构建左子树和右子树
+	root.Left = bst.buildTree(nums, left, middle-1)
+	root.Right = bst.buildTree(nums, middle+1, right)
+	return root
 }
 
 /* 获取根结点 */
@@ -146,21 +160,7 @@ func (bst *binarySearchTree) remove(num int) *TreeNode {
 	return cur
 }
 
-// buildBinarySearchTree Build a binary search tree from array.
-func buildBinarySearchTree(nums []int, left, right int) *TreeNode {
-	if left > right {
-		return nil
-	}
-	// 将数组中间结点作为根结点
-	middle := left + (right-left)>>1
-	root := NewTreeNode(nums[middle])
-	// 递归构建左子树和右子树
-	root.Left = buildBinarySearchTree(nums, left, middle-1)
-	root.Right = buildBinarySearchTree(nums, middle+1, right)
-	return root
-}
-
-// print binary search tree
+/* 打印二叉搜索树 */
 func (bst *binarySearchTree) print() {
 	PrintTree(bst.root)
 }

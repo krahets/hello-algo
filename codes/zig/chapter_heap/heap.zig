@@ -68,8 +68,8 @@ pub fn main() !void {
     std.debug.print("\n堆元素数量为 {}\n", .{size});
 
     // 判断堆是否为空
-    var isEmpty = if (maxHeap.len == 0) true else false;
-    std.debug.print("\n堆是否为空 {}\n", .{isEmpty});
+    var is_empty = if (maxHeap.len == 0) true else false;
+    std.debug.print("\n堆是否为空 {}\n", .{is_empty});
 
     // 输入列表并建堆
     try minHeap.addSlice(&[_]i32{ 1, 3, 2, 5, 4 });

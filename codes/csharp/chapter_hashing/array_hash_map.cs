@@ -6,159 +6,157 @@
 
 using NUnit.Framework;
 
-namespace hello_algo.chapter_hashing
-{
+namespace hello_algo.chapter_hashing;
 
-    /* 键值对 int->String */
-    class Entry
+/* 键值对 int->String */
+class Entry
+{
+    public int key;
+    public String val;
+    public Entry(int key, String val)
     {
-        public int key;
-        public String val;
-        public Entry(int key, String val)
+        this.key = key;
+        this.val = val;
+    }
+}
+
+/* 基于数组简易实现的哈希表 */
+class ArrayHashMap
+{
+    private List<Entry?> bucket;
+    public ArrayHashMap()
+    {
+        // 初始化一个长度为 100 的桶（数组）
+        bucket = new();
+        for (int i = 0; i < 100; i++)
         {
-            this.key = key;
-            this.val = val;
+            bucket.Add(null);
         }
     }
 
-    /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap
+    /* 哈希函数 */
+    private int hashFunc(int key)
     {
-        private List<Entry?> bucket;
-        public ArrayHashMap()
-        {
-            // 初始化一个长度为 100 的桶（数组）
-            bucket = new ();
-            for (int i = 0; i < 100; i++)
-            {
-                bucket.Add(null);
-            }
-        }
+        int index = key % 100;
+        return index;
+    }
 
-        /* 哈希函数 */
-        private int hashFunc(int key)
-        {
-            int index = key % 100;
-            return index;
-        }
+    /* 查询操作 */
+    public String? get(int key)
+    {
+        int index = hashFunc(key);
+        Entry? pair = bucket[index];
+        if (pair == null) return null;
+        return pair.val;
+    }
 
-        /* 查询操作 */
-        public String? get(int key)
+    /* 添加操作 */
+    public void put(int key, String val)
+    {
+        Entry pair = new Entry(key, val);
+        int index = hashFunc(key);
+        bucket[index] = pair;
+    }
+
+    /* 删除操作 */
+    public void remove(int key)
+    {
+        int index = hashFunc(key);
+        // 置为 null ，代表删除
+        bucket[index] = null;
+    }
+
+    /* 获取所有键值对 */
+    public List<Entry> entrySet()
+    {
+        List<Entry> entrySet = new();
+        foreach (Entry? pair in bucket)
         {
-            int index = hashFunc(key);
-            Entry? pair = bucket[index];
-            if (pair == null) return null;
-            return pair.val;
+            if (pair != null)
+                entrySet.Add(pair);
         }
+        return entrySet;
+    }
+
+    /* 获取所有键 */
+    public List<int> keySet()
+    {
+        List<int> keySet = new();
+        foreach (Entry? pair in bucket)
+        {
+            if (pair != null)
+                keySet.Add(pair.key);
+        }
+        return keySet;
+    }
+
+    /* 获取所有值 */
+    public List<String> valueSet()
+    {
+        List<String> valueSet = new();
+        foreach (Entry? pair in bucket)
+        {
+            if (pair != null)
+                valueSet.Add(pair.val);
+        }
+        return valueSet;
+    }
+
+    /* 打印哈希表 */
+    public void print()
+    {
+        foreach (Entry kv in entrySet())
+        {
+            Console.WriteLine(kv.key + " -> " + kv.val);
+        }
+    }
+}
+
+
+public class array_hash_map
+{
+    [Test]
+    public void Test()
+    {
+        /* 初始化哈希表 */
+        ArrayHashMap map = new ArrayHashMap();
 
         /* 添加操作 */
-        public void put(int key, String val)
-        {
-            Entry pair = new Entry(key, val);
-            int index = hashFunc(key);
-            bucket[index]=pair;
-        }
+        // 在哈希表中添加键值对 (key, value)
+        map.put(12836, "小哈");
+        map.put(15937, "小啰");
+        map.put(16750, "小算");
+        map.put(13276, "小法");
+        map.put(10583, "小鸭");
+        Console.WriteLine("\n添加完成后，哈希表为\nKey -> Value");
+        map.print();
+
+        /* 查询操作 */
+        // 向哈希表输入键 key ，得到值 value
+        String? name = map.get(15937);
+        Console.WriteLine("\n输入学号 15937 ，查询到姓名 " + name);
 
         /* 删除操作 */
-        public void remove(int key)
+        // 在哈希表中删除键值对 (key, value)
+        map.remove(10583);
+        Console.WriteLine("\n删除 10583 后，哈希表为\nKey -> Value");
+        map.print();
+
+        /* 遍历哈希表 */
+        Console.WriteLine("\n遍历键值对 Key->Value");
+        foreach (Entry kv in map.entrySet())
         {
-            int index = hashFunc(key);
-            // 置为 null ，代表删除
-            bucket[index]=null;
+            Console.WriteLine(kv.key + " -> " + kv.val);
         }
-
-        /* 获取所有键值对 */
-        public List<Entry> entrySet()
+        Console.WriteLine("\n单独遍历键 Key");
+        foreach (int key in map.keySet())
         {
-            List<Entry> entrySet = new ();
-            foreach (Entry? pair in bucket)
-            {
-                if (pair != null)
-                    entrySet.Add(pair);
-            }
-            return entrySet;
+            Console.WriteLine(key);
         }
-
-        /* 获取所有键 */
-        public List<int> keySet()
+        Console.WriteLine("\n单独遍历值 Value");
+        foreach (String val in map.valueSet())
         {
-            List<int> keySet = new ();
-            foreach (Entry? pair in bucket)
-            {
-                if (pair != null)
-                    keySet.Add(pair.key);
-            }
-            return keySet;
-        }
-
-        /* 获取所有值 */
-        public List<String> valueSet()
-        {
-            List<String> valueSet = new ();
-            foreach (Entry? pair in bucket)
-            {
-                if (pair != null)
-                    valueSet.Add(pair.val);
-            }
-            return valueSet;
-        }
-
-        /* 打印哈希表 */
-        public void print()
-        {
-            foreach (Entry kv in entrySet())
-            {
-                Console.WriteLine(kv.key + " -> " + kv.val);
-            }
-        }
-    }
-
-
-    public class array_hash_map
-    {
-        [Test]
-        public void Test()
-        {
-            /* 初始化哈希表 */
-            ArrayHashMap map = new ArrayHashMap();
-
-            /* 添加操作 */
-            // 在哈希表中添加键值对 (key, value)
-            map.put(12836, "小哈");
-            map.put(15937, "小啰");
-            map.put(16750, "小算");
-            map.put(13276, "小法");
-            map.put(10583, "小鸭");
-            Console.WriteLine("\n添加完成后，哈希表为\nKey -> Value");
-            map.print();
-
-            /* 查询操作 */
-            // 向哈希表输入键 key ，得到值 value
-            String? name = map.get(15937);
-            Console.WriteLine("\n输入学号 15937 ，查询到姓名 " + name);
-
-            /* 删除操作 */
-            // 在哈希表中删除键值对 (key, value)
-            map.remove(10583);
-            Console.WriteLine("\n删除 10583 后，哈希表为\nKey -> Value");
-            map.print();
-
-            /* 遍历哈希表 */
-            Console.WriteLine("\n遍历键值对 Key->Value");
-            foreach (Entry kv in map.entrySet())
-            {
-                Console.WriteLine(kv.key + " -> " + kv.val);
-            }
-            Console.WriteLine("\n单独遍历键 Key");
-            foreach (int key in map.keySet())
-            {
-                Console.WriteLine(key);
-            }
-            Console.WriteLine("\n单独遍历值 Value");
-            foreach (String val in map.valueSet())
-            {
-                Console.WriteLine(val);
-            }
+            Console.WriteLine(val);
         }
     }
 }

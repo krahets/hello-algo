@@ -41,13 +41,13 @@ func TestAVLTree(t *testing.T) {
 	fmt.Printf("\n查找到的结点对象为 %#v ，结点值 = %d \n", node, node.Val)
 }
 
-func testInsert(tree *avlTree, val int) {
+func testInsert(tree *aVLTree, val int) {
 	tree.insert(val)
 	fmt.Printf("\n插入结点 %d 后，AVL 树为 \n", val)
 	PrintTree(tree.root)
 }
 
-func testRemove(tree *avlTree, val int) {
+func testRemove(tree *aVLTree, val int) {
 	tree.remove(val)
 	fmt.Printf("\n删除结点 %d 后，AVL 树为 \n", val)
 	PrintTree(tree.root)

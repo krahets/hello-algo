@@ -10,7 +10,7 @@ from include import *
 
 """ 列表类简易实现 """
 class MyList:
-    """ 构造函数 """
+    """ 构造方法 """
     def __init__(self):
         self.__capacity = 10                 # 列表容量
         self.__nums = [0] * self.__capacity  # 数组（存储列表元素）

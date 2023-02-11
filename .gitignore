@@ -1,12 +1,15 @@
-# MacOS Desktop Services Store
+# macOS
 .DS_Store
 
 # Editor
 .vscode/
 .idea/
-hello-algo.iml
 
 # mkdocs files
 .cache/
 scripts/
 docs/overrides/
+
+# build
+build/
+site/
