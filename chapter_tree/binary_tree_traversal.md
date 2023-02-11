@@ -158,7 +158,7 @@ comments: true
 === "C"
 
     ```c title="binary_tree_bfs.c"
-    
+    [class]{}-[func]{hierOrder}
     ```
 
 === "C#"
@@ -461,7 +461,11 @@ comments: true
 === "C"
 
     ```c title="binary_tree_dfs.c"
-    
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
     ```
 
 === "C#"

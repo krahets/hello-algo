@@ -198,7 +198,7 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
-
+    [class]{quickSort}-[func]{partition}
     ```
 
 === "C#"
@@ -399,7 +399,7 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
-
+    [class]{quickSort}-[func]{quickSort}
     ```
 
 === "C#"
@@ -694,7 +694,9 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
+    [class]{quickSortMedian}-[func]{medianThree}
 
+    [class]{quickSortMedian}-[func]{partition}
     ```
 
 === "C#"
@@ -926,7 +928,7 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
-
+    [class]{quickSortTailCall}-[func]{quickSort}
     ```
 
 === "C#"

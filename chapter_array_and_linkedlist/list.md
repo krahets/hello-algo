@@ -1323,7 +1323,7 @@ comments: true
 === "C"
 
     ```c title="my_list.c"
-
+    [class]{myList}-[func]{}
     ```
 
 === "C#"

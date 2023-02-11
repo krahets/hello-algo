@@ -125,7 +125,89 @@ comments: true
 === "C++"
 
     ```cpp title="graph_adjacency_matrix.cpp"
-    [class]{GraphAdjMat}-[func]{}
+    /* 基于邻接矩阵实现的无向图类 */
+    class GraphAdjMat {
+        vector<int> vertices;        // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        vector<vector<int>> adjMat;  // 邻接矩阵，行列索引对应“顶点索引”
+
+    public:
+        /* 构造方法 */
+        GraphAdjMat(const vector<int>& vertices, const vector<vector<int>>& edges) {
+            // 添加顶点
+            for (int val : vertices) {
+                addVertex(val);
+            }
+            // 添加边
+            // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+            for (const vector<int>& edge : edges) {
+                addEdge(edge[0], edge[1]);
+            }
+        }
+
+        /* 获取顶点数量 */
+        int size() const {
+            return vertices.size();
+        }
+
+        /* 添加顶点 */
+        void addVertex(int val) {
+            int n = size();
+            // 向顶点列表中添加新顶点的值
+            vertices.push_back(val);
+            // 在邻接矩阵中添加一行
+            adjMat.emplace_back(n, 0);
+            // 在邻接矩阵中添加一列
+            for (vector<int>& row : adjMat) {
+                row.push_back(0);
+            }
+        }
+
+        /* 删除顶点 */
+        void removeVertex(int index) {
+            if (index >= size()) {
+                throw out_of_range("顶点不存在");
+            }
+            // 在顶点列表中移除索引 index 的顶点
+            vertices.erase(vertices.begin() + index);
+            // 在邻接矩阵中删除索引 index 的行
+            adjMat.erase(adjMat.begin() + index);
+            // 在邻接矩阵中删除索引 index 的列
+            for (vector<int>& row : adjMat) {
+                row.erase(row.begin() + index);
+            }
+        }
+
+        /* 添加边 */
+        // 参数 i, j 对应 vertices 元素索引
+        void addEdge(int i, int j) {
+            // 索引越界与相等处理
+            if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
+                throw out_of_range("顶点不存在");
+            }
+            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            adjMat[i][j] = 1;
+            adjMat[j][i] = 1;
+        }
+
+        /* 删除边 */
+        // 参数 i, j 对应 vertices 元素索引
+        void removeEdge(int i, int j) {
+            // 索引越界与相等处理
+            if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
+                throw out_of_range("顶点不存在");
+            }
+            adjMat[i][j] = 0;
+            adjMat[j][i] = 0;
+        }
+
+        /* 打印邻接矩阵 */
+        void print() {
+            cout << "顶点列表 = ";
+            PrintUtil::printVector(vertices);
+            cout << "邻接矩阵 =" << endl;
+            PrintUtil::printVectorMatrix(adjMat);
+        }
+    };
     ```
 
 === "Python"
@@ -236,13 +318,185 @@ comments: true
 === "JavaScript"
 
     ```javascript title="graph_adjacency_matrix.js"
-    [class]{GraphAdjMat}-[func]{}
+    /* 基于邻接矩阵实现的无向图类 */
+    class GraphAdjMat {
+        vertices;   // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        adjMat;     // 邻接矩阵，行列索引对应“顶点索引”
+
+        /* 构造函数 */
+        constructor(vertices, edges) {
+            this.vertices = [];
+            this.adjMat = [];
+            // 添加顶点
+            for (const val of vertices) {
+                this.addVertex(val);
+            }
+            // 添加边
+            // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+            for (const e of edges) {
+                this.addEdge(e[0], e[1]);
+            }
+        }
+
+        /* 获取顶点数量 */
+        size() {
+            return this.vertices.length;
+        }
+
+        /* 添加顶点 */
+        addVertex(val) {
+            const n = this.size();
+            // 向顶点列表中添加新顶点的值
+            this.vertices.push(val);
+            // 在邻接矩阵中添加一行
+            const newRow = [];
+            for (let j = 0; j < n; j++) {
+                newRow.push(0);
+            }
+            this.adjMat.push(newRow);
+            // 在邻接矩阵中添加一列
+            for (const row of this.adjMat) {
+                row.push(0);
+            }
+        }
+
+        /* 删除顶点 */
+        removeVertex(index) {
+            if (index >= this.size()) {
+                throw new RangeError("Index Out Of Bounds Exception");
+            }
+            // 在顶点列表中移除索引 index 的顶点
+            this.vertices.splice(index, 1);
+
+            // 在邻接矩阵中删除索引 index 的行
+            this.adjMat.splice(index, 1);
+            // 在邻接矩阵中删除索引 index 的列
+            for (const row of this.adjMat) {
+                row.splice(index, 1);
+            }
+        }
+
+        /* 添加边 */
+        // 参数 i, j 对应 vertices 元素索引
+        addEdge(i, j) {
+            // 索引越界与相等处理
+            if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
+                throw new RangeError("Index Out Of Bounds Exception");
+            }
+            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            this.adjMat[i][j] = 1;
+            this.adjMat[j][i] = 1;
+        }
+
+        /* 删除边 */
+        // 参数 i, j 对应 vertices 元素索引
+        removeEdge(i, j) {
+            // 索引越界与相等处理
+            if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
+                throw new RangeError("Index Out Of Bounds Exception");
+            }
+            this.adjMat[i][j] = 0;
+            this.adjMat[j][i] = 0;
+        }
+
+        /* 打印邻接矩阵 */
+        print() {
+            console.log("顶点列表 = ", this.vertices);
+            console.log("邻接矩阵 =", this.adjMat);
+        }
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="graph_adjacency_matrix.ts"
-    [class]{GraphAdjMat}-[func]{}
+    /* 基于邻接矩阵实现的无向图类 */
+    class GraphAdjMat {
+        vertices: number[];     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        adjMat: number[][];     // 邻接矩阵，行列索引对应“顶点索引”
+
+        /* 构造函数 */
+        constructor(vertices: number[], edges: number[][]) {
+            this.vertices = [];
+            this.adjMat = [];
+            // 添加顶点
+            for (const val of vertices) {
+                this.addVertex(val);
+            }
+            // 添加边
+            // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+            for (const e of edges) {
+                this.addEdge(e[0], e[1]);
+            }
+        }
+
+        /* 获取顶点数量 */
+        size(): number {
+            return this.vertices.length;
+        }
+
+        /* 添加顶点 */
+        addVertex(val: number): void {
+            const n: number = this.size();
+            // 向顶点列表中添加新顶点的值
+            this.vertices.push(val);
+            // 在邻接矩阵中添加一行
+            const newRow: number[] = [];
+            for (let j: number = 0; j < n; j++) {
+                newRow.push(0);
+            }
+            this.adjMat.push(newRow);
+            // 在邻接矩阵中添加一列
+            for (const row of this.adjMat) {
+                row.push(0);
+            }
+        }
+
+        /* 删除顶点 */
+        removeVertex(index: number): void {
+            if (index >= this.size()) {
+                throw new RangeError("Index Out Of Bounds Exception");
+            }
+            // 在顶点列表中移除索引 index 的顶点
+            this.vertices.splice(index, 1);
+
+            // 在邻接矩阵中删除索引 index 的行
+            this.adjMat.splice(index, 1);
+            // 在邻接矩阵中删除索引 index 的列
+            for (const row of this.adjMat) {
+                row.splice(index, 1);
+            }
+        }
+
+        /* 添加边 */
+        // 参数 i, j 对应 vertices 元素索引
+        addEdge(i: number, j: number): void {
+            // 索引越界与相等处理
+            if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
+                throw new RangeError("Index Out Of Bounds Exception");
+            }
+            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            this.adjMat[i][j] = 1;
+            this.adjMat[j][i] = 1;
+        }
+
+        /* 删除边 */
+        // 参数 i, j 对应 vertices 元素索引
+        removeEdge(i: number, j: number): void {
+            // 索引越界与相等处理
+            if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
+                throw new RangeError("Index Out Of Bounds Exception");
+            }
+            this.adjMat[i][j] = 0;
+            this.adjMat[j][i] = 0;
+        }
+
+        /* 打印邻接矩阵 */
+        print(): void {
+            console.log("顶点列表 = ", this.vertices);
+            console.log("邻接矩阵 =", this.adjMat);
+        }
+    }
     ```
 
 === "C"
@@ -466,9 +720,80 @@ comments: true
 === "C++"
 
     ```cpp title="graph_adjacency_list.cpp"
-    [class]{Vertex}-[func]{}
+    /* 顶点类 */
+    struct Vertex {
+        int val;
+        Vertex(int val) : val(val) {}
+    };
 
-    [class]{GraphAdjList}-[func]{}
+    /* 基于邻接表实现的无向图类 */
+    class GraphAdjList {
+        // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
+        unordered_map<Vertex*, unordered_set<Vertex*>> adjList;  // 邻接表（使用哈希表实现）
+
+    public:
+        /* 构造方法 */
+        GraphAdjList(const vector<vector<Vertex*>>& edges) {
+            // 添加所有顶点和边
+            for (const vector<Vertex*>& edge : edges) {
+                addVertex(edge[0]);
+                addVertex(edge[1]);
+                addEdge(edge[0], edge[1]);
+            }
+        }
+
+        /* 获取顶点数量 */
+        int size() { return adjList.size(); }
+
+        /* 添加边 */
+        void addEdge(Vertex* vet1, Vertex* vet2) {
+            if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
+                throw invalid_argument("不存在顶点");
+            // 添加边 vet1 - vet2
+            adjList[vet1].insert(vet2);
+            adjList[vet2].insert(vet1);
+        }
+
+        /* 删除边 */
+        void removeEdge(Vertex* vet1, Vertex* vet2) {
+            if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
+                throw invalid_argument("不存在顶点");
+            // 删除边 vet1 - vet2
+            adjList[vet1].erase(vet2);
+            adjList[vet2].erase(vet1);
+        }
+
+        /* 添加顶点 */
+        void addVertex(Vertex* vet) {
+            if (adjList.count(vet)) return;
+            // 在邻接表中添加一个新链表（即 HashSet）
+            adjList[vet] = unordered_set<Vertex*>();
+        }
+
+        /* 删除顶点 */
+        void removeVertex(Vertex* vet) {
+            if (!adjList.count(vet))
+                throw invalid_argument("不存在顶点");
+            // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
+            adjList.erase(vet);
+            // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
+            for (auto& [key, set_] : adjList) {
+                set_.erase(vet);
+            }
+        }
+
+        /* 打印邻接表 */
+        void print() {
+            cout << "邻接表 =" << endl;
+            for (auto& [key, value] : adjList) {
+                vector<int> tmp;
+                for (Vertex* vertex : value)
+                    tmp.push_back(vertex->val);
+                cout << key->val << ": ";
+                PrintUtil::printVector(tmp);
+            }
+        }
+    };
     ```
 
 === "Python"

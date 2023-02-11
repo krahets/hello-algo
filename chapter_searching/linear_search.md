@@ -110,7 +110,7 @@ comments: true
 === "C"
 
     ```c title="linear_search.c"
-
+    [class]{}-[func]{linearSearchArray}
     ```
 
 === "C#"
@@ -271,7 +271,7 @@ comments: true
 === "C"
 
     ```c title="linear_search.c"
-
+    [class]{}-[func]{linearSearchLinkedList}
     ```
 
 === "C#"

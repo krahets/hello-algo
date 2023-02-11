@@ -263,7 +263,9 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C"
 
     ```c title="avl_tree.c"
+    [class]{aVLTree}-[func]{height}
 
+    [class]{aVLTree}-[func]{updateHeight}
     ```
 
 === "C#"
@@ -398,9 +400,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C"
 
     ```c title="avl_tree.c"
-
-
-
+    [class]{aVLTree}-[func]{balanceFactor}
     ```
 
 === "C#"
@@ -582,7 +582,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C"
 
     ```c title="avl_tree.c"
-
+    [class]{aVLTree}-[func]{rightRotate}
     ```
 
 === "C#"
@@ -762,9 +762,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C"
 
     ```c title="avl_tree.c"
-
-
-
+    [class]{aVLTree}-[func]{leftRotate}
     ```
 
 === "C#"
@@ -1058,7 +1056,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C"
 
     ```c title="avl_tree.c"
-
+    [class]{aVLTree}-[func]{rotate}
     ```
 
 === "C#"
@@ -1345,9 +1343,9 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C"
 
     ```c title="avl_tree.c"
+    [class]{aVLTree}-[func]{insert}
 
-
-
+    [class]{aVLTree}-[func]{insertHelper}
     ```
 
 === "C#"
@@ -1761,7 +1759,11 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "C"
 
     ```c title="avl_tree.c"
+    [class]{aVLTree}-[func]{remove}
 
+    [class]{aVLTree}-[func]{removeHelper}
+
+    [class]{aVLTree}-[func]{getInOrderNext}
     ```
 
 === "C#"

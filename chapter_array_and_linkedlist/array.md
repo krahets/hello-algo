@@ -70,7 +70,8 @@ comments: true
 === "C"
 
     ```c title="array.c"
-    
+    int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
+    int nums[5] = { 1, 3, 2, 5, 4 };
     ```
 
 === "C#"
@@ -195,7 +196,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C"
 
     ```c title="array.c"
-    
+    [class]{}-[func]{randomAccess}
     ```
 
 === "C#"
@@ -348,7 +349,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C"
 
     ```c title="array.c"
-    
+    [class]{}-[func]{extend}
     ```
 
 === "C#"
@@ -541,7 +542,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C"
 
     ```c title="array.c"
-    
+    [class]{}-[func]{insert}
+
+    [class]{}-[func]{removeItem}
     ```
 
 === "C#"
@@ -720,7 +723,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C"
 
     ```c title="array.c"
-    
+    [class]{}-[func]{traverse}
     ```
 
 === "C#"
@@ -863,7 +866,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "C"
 
     ```c title="array.c"
-    
+    [class]{}-[func]{find}
     ```
 
 === "C#"
