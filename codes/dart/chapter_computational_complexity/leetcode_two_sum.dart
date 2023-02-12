@@ -4,9 +4,9 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-/* 方法一： 暴力枚举 */
 import 'dart:collection';
 
+/* 方法一： 暴力枚举 */
 class SolutionBruteForce {
   List<int> twoSum(List<int> nums, int target) {
     int size = nums.length;
