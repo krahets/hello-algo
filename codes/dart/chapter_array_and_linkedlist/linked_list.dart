@@ -4,8 +4,9 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-import '../utils/ListNode.dart';
-import '../utils/PrintUtil.dart';
+import '../utils/list_node.dart';
+import '../utils/print_util.dart';
+
 
 class LinkedList {
   /* 在链表的结点 n0 之后插入结点 P */
@@ -62,15 +63,15 @@ int main() {
   n3.next = n4;
 
   print('初始化的链表为');
-  PrintUtil().printLinkedList(n0);
+  PrintUtil.printLinkedList(n0);
 
   /* 插入结点 */
   LinkedList().insert(n0, ListNode(0));
-  PrintUtil().printLinkedList(n0);
+  PrintUtil.printLinkedList(n0);
 
   /* 删除结点 */
   LinkedList().remove(n0);
-  PrintUtil().printLinkedList(n0);
+  PrintUtil.printLinkedList(n0);
 
   /* 访问结点 */
   ListNode? node = LinkedList().access(n0, 3);

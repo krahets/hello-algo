@@ -1,3 +1,9 @@
+/**
+ * File: tree_node.dart
+ * Created Time: 2023-2-12
+ * Author: Jefferson (JeffersonHuang77@gmail.com)
+ */
+
 import 'dart:collection';
 
 class TreeNode {
