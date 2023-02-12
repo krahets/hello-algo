@@ -76,20 +76,19 @@ comments: true
 
 === "C"
 
-    ```c title="list.c"
-    // C 语言中没有 list，用数组实现 list
-    struct List {
+    ```c title="my_list.c"
+    struct myList {
         int *items;       // 数组（存储列表元素）
         int capacity;    // 列表容量
         int size;        // 列表大小
         int extendRatio; // 列表每次扩容的倍数
     };
 
-    typedef struct List List;
+    typedef struct myList myList;
 
     /* 构造方法 */
-    List *newList() {
-        List *list = malloc(sizeof(List));
+    myList *newMyList() {
+        myList *list = malloc(sizeof(myList));
         list->capacity = 10;
         list->items = malloc(sizeof(int) * list->capacity);
         list->size = 0;
@@ -98,7 +97,7 @@ comments: true
     }
 
     /* 初始化列表 */
-    List *list = newList();
+    List *list = newMyList();
     ```
 
 === "C#"
@@ -195,9 +194,9 @@ comments: true
 
 === "C"
 
-    ```c title="list.c"
+    ```c title="my_list.c"
     /* 访问元素 */
-    int get(List *list, int index) {
+    int get(myList *list, int index) {
         assert(index >= 0 && index < list->size);
         return list->items[index];
     }
@@ -366,9 +365,9 @@ comments: true
 
 === "C"
 
-    ```c title="list.c"
+    ```c title="my_list.c"
     /* 尾部添加元素 */
-    void add(List *list, int num) {
+    void add(myList *list, int num) {
         if (size(list) == capacity(list)) {
             extendCapacity(list); // 扩容
         }
@@ -563,7 +562,7 @@ comments: true
 
 === "C"
 
-    ```c title="list.c"
+    ```c title="my_list.c"
     /* 通过索引遍历列表 */
     int count = 0;
     for (int i = 0; i < list->size; i++)
@@ -676,9 +675,9 @@ comments: true
 
 === "C"
 
-    ```c title="list.c"
+    ```c title="my_list.c"
     /* 拼接两个列表 */
-    List *list1 = newList();
+    List *list1 = newMyList();
     add(list1, 1);
     add(list1, 3);
     add(list1, 2);
@@ -759,7 +758,7 @@ comments: true
 
 === "C"
 
-    ```c title="list.c"
+    ```c title="my_list.c"
     /* 排序比较函数 */
     int cmp(const void *a,const void *b) {
         return *(int*)a > *(int*)b;
@@ -838,7 +837,7 @@ comments: true
 
 === "C"
 
-    ```c title="list.c"
+    ```c title="my_list.c"
     [class]{List}-[func]{}
     ```
 

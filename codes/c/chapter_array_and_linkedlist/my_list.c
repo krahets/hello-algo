@@ -6,22 +6,22 @@
 
 #include "../include/include.h"
 
-// C 语言中没有 list，用数组实现 list
-struct List {
+/* C 语言中没有 list，用数组实现 list */ 
+struct myList {
     int *items;       // 数组（存储列表元素）
     int capacity;    // 列表容量
     int size;        // 列表大小
     int extendRatio; // 列表每次扩容的倍数
 };
 
-typedef struct List List;
+typedef struct myList myList;
 
 /* 前置声明 */
-void extendCapacity(List *list);
+void extendCapacity(myList *list);
 
 /* 构造方法 */
-List *newList() {
-    List *list = malloc(sizeof(List));
+myList *newMyList() {
+    myList *list = malloc(sizeof(myList));
     list->capacity = 10;
     list->items = malloc(sizeof(int) * list->capacity);
     list->size = 0;
@@ -30,25 +30,25 @@ List *newList() {
 }
 
 /* 析构方法 */
-void delList(List *list) {
+void delmyList(myList *list) {
     free(list->items);
     free(list);
 }
 
 /* 访问元素 */
-int get(List *list, int index) {
+int get(myList *list, int index) {
     assert(index >= 0 && index < list->size);
     return list->items[index];
 }
 
 /* 更新元素 */
-void set(List *list, int index, int num) {
+void set(myList *list, int index, int num) {
     assert(index >= 0 && index < list->size);
     list->items[index] = num;
 }
 
 /* 尾部添加元素 */
-void add(List *list, int num) {
+void add(myList *list, int num) {
     if (list->size == list->capacity) {
         extendCapacity(list); // 扩容
     }
@@ -57,7 +57,7 @@ void add(List *list, int num) {
 }
 
 /* 中间插入元素 */
-void insert(List *list, int index, int num) {
+void insert(myList *list, int index, int num) {
     assert(index >= 0 && index < list->size);
     for (int i = list->size; i > index; --i) {
         list->items[i] = list->items[i - 1];
@@ -69,7 +69,7 @@ void insert(List *list, int index, int num) {
 /* 删除元素 */
 // 由于引入了 stdio.h ，此处无法使用 remove 关键词
 // 详见 https://github.com/krahets/hello-algo/pull/244#discussion_r1067863888
-int removeItem(List *list, int index) {
+int removeItem(myList *list, int index) {
     assert(index >= 0 && index < list->size);
     int num = list->items[index];
     for (int i = index; i < list->size - 1; i++) {
@@ -80,7 +80,7 @@ int removeItem(List *list, int index) {
 }
 
 /* 列表扩容 */
-void extendCapacity(List *list) {
+void extendCapacity(myList *list) {
     // 先分配空间
     int newCapacity = list->capacity * list->extendRatio;
     int *extend = (int *) malloc(sizeof(int) * newCapacity);
@@ -99,8 +99,8 @@ void extendCapacity(List *list) {
 }
 
 /* 拼接列表 */
-List *append(List *listA, List *listB) {
-    List *ret = newList();
+myList *append(myList *listA, myList *listB) {
+    myList *ret = newMyList();
     for (int i = 0; i < listA->size; i++)
     {
         add(ret, listA->items[i]);
@@ -119,7 +119,7 @@ int cmp(const void *a,const void *b) {
 
 int main() {
     /* 初始化列表 */
-    List *list = newList();
+    myList *list = newMyList();
     /* 尾部添加元素 */
     add(list, 1);
     add(list, 3);
@@ -157,7 +157,7 @@ int main() {
     }
 
     /* 拼接两个列表 */
-    List *list1 = newList();
+    myList *list1 = newMyList();
     add(list1, 1);
     add(list1, 3);
     add(list1, 2);
@@ -183,5 +183,5 @@ int main() {
     printf("容量 = %d ，长度 = %d\n", list->capacity, list->size);
 
     /* 释放分配内存 */
-    delList(list);
+    delmyList(list);
 }
