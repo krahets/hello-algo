@@ -1,7 +1,8 @@
 /**
- * File: list.c
- * Update Time: 2023-02-12
- * Author: Guanngxu (446678850@qq.com)
+ * File: my_list.c
+ * Created Time: 2023-01-12
+ * Author: Zero (glj0@outlook.com)
+ * Update Time: 2023-02-12 Guanngxu (446678850@qq.com)
  */
 
 #include "../include/include.h"
