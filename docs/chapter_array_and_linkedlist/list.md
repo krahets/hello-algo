@@ -77,7 +77,28 @@ comments: true
 === "C"
 
     ```c title="list.c"
+    // C 语言中没有 list，用数组实现 list
+    struct List {
+        int *items;       // 数组（存储列表元素）
+        int capacity;    // 列表容量
+        int size;        // 列表大小
+        int extendRatio; // 列表每次扩容的倍数
+    };
 
+    typedef struct List List;
+
+    /* 构造方法 */
+    List *newList() {
+        List *list = malloc(sizeof(List));
+        list->capacity = 10;
+        list->items = malloc(sizeof(int) * list->capacity);
+        list->size = 0;
+        list->extendRatio = 2;
+        return list;
+    }
+
+    /* 初始化列表 */
+    List *list = newList();
     ```
 
 === "C#"
@@ -175,7 +196,20 @@ comments: true
 === "C"
 
     ```c title="list.c"
+    /* 访问元素 */
+    int get(List *list, int index) {
+        assert(index >= 0 && index < list->size);
+        return list->items[index];
+    }
+    int num = get(list, 1);
 
+
+    /* 更新元素 */
+    void set(List *list, int index, int num) {
+        assert(index >= 0 && index < list->size);
+        list->items[index] = num;
+    }
+    set(list, 1, 0);
     ```
 
 === "C#"
@@ -333,7 +367,42 @@ comments: true
 === "C"
 
     ```c title="list.c"
+    /* 尾部添加元素 */
+    void add(List *list, int num) {
+        if (size(list) == capacity(list)) {
+            extendCapacity(list); // 扩容
+        }
+        list->items[size(list)] = num;
+        list->size++;
+    }
+    add(list, 1);
+    add(list, 3);
+    add(list, 2);
+    add(list, 5);
+    add(list, 4);
 
+    /* 中间插入元素 */
+    void insert(List *list, int index, int num) {
+        assert(index >= 0 && index < size(list));
+        for (int i = size(list); i > index; --i) {
+            list->items[i] = list->items[i - 1];
+        }
+        list->items[index] = num;
+        list->size++;
+    }
+    insert(list, 3, 6);
+
+    /* 删除元素 */
+    int removeItem(List *list, int index) {
+        assert(index >= 0 && index < size(list));
+        int num = list->items[index];
+        for (int i = index; i < size(list) - 1; i++) {
+            list->items[i] = list->items[i + 1];
+        }
+        list->size--;
+        return num;
+    }
+    removeItem(list, 3);
     ```
 
 === "C#"
@@ -495,7 +564,12 @@ comments: true
 === "C"
 
     ```c title="list.c"
-
+    /* 通过索引遍历列表 */
+    int count = 0;
+    for (int i = 0; i < list->size; i++)
+    {
+        count++;
+    }
     ```
 
 === "C#"
@@ -603,7 +677,14 @@ comments: true
 === "C"
 
     ```c title="list.c"
-
+    /* 拼接两个列表 */
+    List *list1 = newList();
+    add(list1, 1);
+    add(list1, 3);
+    add(list1, 2);
+    add(list1, 5);
+    add(list1, 4);
+    list = append(list, list1);
     ```
 
 === "C#"
@@ -679,7 +760,13 @@ comments: true
 === "C"
 
     ```c title="list.c"
-
+    /* 排序比较函数 */
+    int cmp(const void *a,const void *b) {
+        return *(int*)a > *(int*)b;
+    }
+    
+    /* 排序列表 */
+    qsort(list->items, list->size, sizeof(int), cmp);
     ```
 
 === "C#"
@@ -751,8 +838,8 @@ comments: true
 
 === "C"
 
-    ```c title="my_list.c"
-    [class]{myList}-[func]{}
+    ```c title="list.c"
+    [class]{List}-[func]{}
     ```
 
 === "C#"
