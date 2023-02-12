@@ -12,14 +12,14 @@ pub fn ArrayStack(comptime T: type) type {
 
         stack: ?std.ArrayList(T) = null,     
 
-        // 构造函数（分配内存+初始化栈）
+        // 构造方法（分配内存+初始化栈）
         pub fn init(self: *Self, allocator: std.mem.Allocator) void {
             if (self.stack == null) {
                 self.stack = std.ArrayList(T).init(allocator);
             }
         }
 
-        // 析构函数（释放内存）
+        // 析构方法（释放内存）
         pub fn deinit(self: *Self) void {
             if (self.stack == null) return;
             self.stack.?.deinit();

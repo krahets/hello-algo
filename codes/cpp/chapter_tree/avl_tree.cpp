@@ -75,7 +75,7 @@ private:
         return node;
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     TreeNode* insertHelper(TreeNode* node, int val) {
         if (node == nullptr) return new TreeNode(val);
         /* 1. 查找插入位置，并插入结点 */
@@ -102,7 +102,7 @@ private:
         return node;
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     TreeNode* removeHelper(TreeNode* node, int val) {
         if (node == nullptr) return nullptr;
         /* 1. 查找结点，并删除之 */
@@ -183,10 +183,10 @@ public:
         return cur;
     }
 
-    /*构造函数*/
+    /*构造方法*/
     AVLTree() : root(nullptr) {}
 
-    /*析构函数*/
+    /*析构方法*/
     ~AVLTree() {
         freeMemoryTree(root);
     }

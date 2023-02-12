@@ -90,7 +90,7 @@ $$
 === "C"
 
     ```c title="binary_search.c"
-
+    [class]{}-[func]{binarySearch}
     ```
 
 === "C#"
@@ -108,7 +108,7 @@ $$
 === "Zig"
 
     ```zig title="binary_search.zig"
-
+    [class]{}-[func]{binarySearch}
     ```
 
 ### “左闭右开”实现
@@ -154,7 +154,7 @@ $$
 === "C"
 
     ```c title="binary_search.c"
-
+    [class]{}-[func]{binarySearch1}
     ```
 
 === "C#"
@@ -172,7 +172,7 @@ $$
 === "Zig"
 
     ```zig title="binary_search.zig"
-
+    [class]{}-[func]{binarySearch1}
     ```
 
 ### 两种表示对比

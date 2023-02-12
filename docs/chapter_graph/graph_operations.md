@@ -41,120 +41,37 @@ comments: true
 === "C++"
 
     ```cpp title="graph_adjacency_matrix.cpp"
-
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "Python"
 
     ```python title="graph_adjacency_matrix.py"
-
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "Go"
 
     ```go title="graph_adjacency_matrix.go"
-    /* 基于邻接矩阵实现的无向图类 */
-    type graphAdjMat struct {
-        // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-        vertices []int
-        // 邻接矩阵，行列索引对应“顶点索引”
-        adjMat [][]int
-    }
-
-    func newGraphAdjMat(vertices []int, edges [][]int) *graphAdjMat {
-        // 添加顶点
-        n := len(vertices)
-        adjMat := make([][]int, n)
-        for i := range adjMat {
-            adjMat[i] = make([]int, n)
-        }
-        // 初始化图
-        g := &graphAdjMat{
-            vertices: vertices,
-            adjMat:   adjMat,
-        }
-        // 添加边
-        // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-        for i := range edges {
-            g.addEdge(edges[i][0], edges[i][1])
-        }
-        return g
-    }
-
-    /* 获取顶点数量 */
-    func (g *graphAdjMat) size() int {
-        return len(g.vertices)
-    }
-
-    /* 添加顶点 */
-    func (g *graphAdjMat) addVertex(val int) {
-        n := g.size()
-        // 向顶点列表中添加新顶点的值
-        g.vertices = append(g.vertices, val)
-        // 在邻接矩阵中添加一行
-        newRow := make([]int, n)
-        g.adjMat = append(g.adjMat, newRow)
-        // 在邻接矩阵中添加一列
-        for i := range g.adjMat {
-            g.adjMat[i] = append(g.adjMat[i], 0)
-        }
-    }
-
-    /* 删除顶点 */
-    func (g *graphAdjMat) removeVertex(index int) {
-        if index >= g.size() {
-            return
-        }
-        // 在顶点列表中移除索引 index 的顶点
-        g.vertices = append(g.vertices[:index], g.vertices[index+1:]...)
-        // 在邻接矩阵中删除索引 index 的行
-        g.adjMat = append(g.adjMat[:index], g.adjMat[index+1:]...)
-        // 在邻接矩阵中删除索引 index 的列
-        for i := range g.adjMat {
-            g.adjMat[i] = append(g.adjMat[i][:index], g.adjMat[i][index+1:]...)
-        }
-    }
-
-    /* 添加边 */
-    // 参数 i, j 对应 vertices 元素索引
-    func (g *graphAdjMat) addEdge(i, j int) {
-        // 索引越界与相等处理
-        if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
-            fmt.Errorf("%s", "Index Out Of Bounds Exception")
-        }
-        // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
-        g.adjMat[i][j] = 1
-        g.adjMat[j][i] = 1
-    }
-
-    /* 删除边 */
-    // 参数 i, j 对应 vertices 元素索引
-    func (g *graphAdjMat) removeEdge(i, j int) {
-        // 索引越界与相等处理
-        if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
-            fmt.Errorf("%s", "Index Out Of Bounds Exception")
-        }
-        g.adjMat[i][j] = 0
-        g.adjMat[j][i] = 0
-    }
+    [class]{graphAdjMat}-[func]{}
     ```
 
 === "JavaScript"
 
     ```javascript title="graph_adjacency_matrix.js"
-
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="graph_adjacency_matrix.ts"
-
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "C"
 
     ```c title="graph_adjacency_matrix.c"
-
+    [class]{graphAdjMat}-[func]{}
     ```
 
 === "C#"
@@ -166,83 +83,7 @@ comments: true
 === "Swift"
 
     ```swift title="graph_adjacency_matrix.swift"
-    /* 基于邻接矩阵实现的无向图类 */
-    class GraphAdjMat {
-        private var vertices: [Int] // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-        private var adjMat: [[Int]] // 邻接矩阵，行列索引对应“顶点索引”
-
-        /* 构造函数 */
-        init(vertices: [Int], edges: [[Int]]) {
-            self.vertices = []
-            adjMat = []
-            // 添加顶点
-            for val in vertices {
-                addVertex(val: val)
-            }
-            // 添加边
-            // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-            for e in edges {
-                addEdge(i: e[0], j: e[1])
-            }
-        }
-
-        /* 获取顶点数量 */
-        func size() -> Int {
-            vertices.count
-        }
-
-        /* 添加顶点 */
-        func addVertex(val: Int) {
-            let n = size()
-            // 向顶点列表中添加新顶点的值
-            vertices.append(val)
-            // 在邻接矩阵中添加一行
-            let newRow = Array(repeating: 0, count: n)
-            adjMat.append(newRow)
-            // 在邻接矩阵中添加一列
-            for i in adjMat.indices {
-                adjMat[i].append(0)
-            }
-        }
-
-        /* 删除顶点 */
-        func removeVertex(index: Int) {
-            if index >= size() {
-                fatalError("越界")
-            }
-            // 在顶点列表中移除索引 index 的顶点
-            vertices.remove(at: index)
-            // 在邻接矩阵中删除索引 index 的行
-            adjMat.remove(at: index)
-            // 在邻接矩阵中删除索引 index 的列
-            for i in adjMat.indices {
-                adjMat[i].remove(at: index)
-            }
-        }
-
-        /* 添加边 */
-        // 参数 i, j 对应 vertices 元素索引
-        func addEdge(i: Int, j: Int) {
-            // 索引越界与相等处理
-            if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
-                fatalError("越界")
-            }
-            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
-            adjMat[i][j] = 1
-            adjMat[j][i] = 1
-        }
-
-        /* 删除边 */
-        // 参数 i, j 对应 vertices 元素索引
-        func removeEdge(i: Int, j: Int) {
-            // 索引越界与相等处理
-            if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
-                fatalError("越界")
-            }
-            adjMat[i][j] = 0
-            adjMat[j][i] = 0
-        }
-    }
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "Zig"
@@ -289,121 +130,49 @@ comments: true
 === "C++"
 
     ```cpp title="graph_adjacency_list.cpp"
+    [class]{Vertex}-[func]{}
 
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "Python"
 
     ```python title="graph_adjacency_list.py"
+    [class]{Vertex}-[func]{}
 
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "Go"
 
     ```go title="graph_adjacency_list.go"
-    /* 顶点类 */
-    type vertex struct {
-        val int
-    }
+    [class]{vertex}-[func]{}
 
-    func newVertex(val int) vertex {
-        return vertex{
-            val: val,
-        }
-    }
-
-    /* 基于邻接表实现的无向图类 */
-    type graphAdjList struct {
-        // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
-        // 邻接表（使用哈希表实现）, 使用哈希表模拟集合
-        adjList map[vertex]map[vertex]struct{}
-    }
-
-    /* 构造函数 */
-    func newGraphAdjList(edges [][]vertex) *graphAdjList {
-        g := &graphAdjList{
-            adjList: make(map[vertex]map[vertex]struct{}),
-        }
-        // 添加所有顶点和边
-        for _, edge := range edges {
-            g.addVertex(edge[0])
-            g.addVertex(edge[1])
-            g.addEdge(edge[0], edge[1])
-        }
-        return g
-    }
-
-    /* 获取顶点数量 */
-    func (g *graphAdjList) size() int {
-        return len(g.adjList)
-    }
-
-    /* 添加边 */
-    func (g *graphAdjList) addEdge(vet1 vertex, vet2 vertex) {
-        _, ok1 := g.adjList[vet1]
-        _, ok2 := g.adjList[vet2]
-        if !ok1 || !ok2 || vet1 == vet2 {
-            panic("error")
-        }
-        // 添加边 vet1 - vet2, 添加匿名 struct{},
-        g.adjList[vet1][vet2] = struct{}{}
-        g.adjList[vet2][vet1] = struct{}{}
-    }
-
-    /* 删除边 */
-    func (g *graphAdjList) removeEdge(vet1 vertex, vet2 vertex) {
-        _, ok1 := g.adjList[vet1]
-        _, ok2 := g.adjList[vet2]
-        if !ok1 || !ok2 || vet1 == vet2 {
-            panic("error")
-        }
-        // 删除边 vet1 - vet2, 借助 delete 来删除 map 中的键
-        delete(g.adjList[vet1], vet2)
-        delete(g.adjList[vet2], vet1)
-    }
-
-    /* 添加顶点 */
-    func (g *graphAdjList) addVertex(vet vertex) {
-        _, ok := g.adjList[vet]
-        if ok {
-            return
-        }
-        // 在邻接表中添加一个新链表（即 set）
-        g.adjList[vet] = make(map[vertex]struct{})
-    }
-
-    /* 删除顶点 */
-    func (g *graphAdjList) removeVertex(vet vertex) {
-        _, ok := g.adjList[vet]
-        if !ok {
-            panic("error")
-        }
-        // 在邻接表中删除顶点 vet 对应的链表
-        delete(g.adjList, vet)
-        // 遍历其它顶点的链表（即 Set），删除所有包含 vet 的边
-        for _, set := range g.adjList {
-            // 操作
-            delete(set, vet)
-        }
-    }
+    [class]{graphAdjList}-[func]{}
     ```
 
 === "JavaScript"
 
     ```javascript title="graph_adjacency_list.js"
+    [class]{Vertex}-[func]{}
 
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="graph_adjacency_list.ts"
+    [class]{Vertex}-[func]{}
 
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "C"
 
     ```c title="graph_adjacency_list.c"
+    [class]{vertex}-[func]{}
 
+    [class]{graphAdjList}-[func]{}
     ```
 
 === "C#"
@@ -417,91 +186,17 @@ comments: true
 === "Swift"
 
     ```swift title="graph_adjacency_list.swift"
-    /* 顶点类 */
-    class Vertex: Hashable {
-        var val: Int
+    [class]{Vertex}-[func]{}
 
-        init(val: Int) {
-            self.val = val
-        }
-
-        static func == (lhs: Vertex, rhs: Vertex) -> Bool {
-            lhs.val == rhs.val
-        }
-
-        func hash(into hasher: inout Hasher) {
-            hasher.combine(val)
-        }
-    }
-
-    /* 基于邻接表实现的无向图类 */
-    class GraphAdjList {
-        // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
-        private var adjList: [Vertex: Set<Vertex>] // 邻接表（使用哈希表实现）
-
-        init(edges: [[Vertex]]) {
-            adjList = [:]
-            // 添加所有顶点和边
-            for edge in edges {
-                addVertex(vet: edge[0])
-                addVertex(vet: edge[1])
-                addEdge(vet1: edge[0], vet2: edge[1])
-            }
-        }
-
-        /* 获取顶点数量 */
-        func size() -> Int {
-            adjList.count
-        }
-
-        /* 添加边 */
-        func addEdge(vet1: Vertex, vet2: Vertex) {
-            if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-                fatalError("参数错误")
-            }
-            // 添加边 vet1 - vet2
-            adjList[vet1]?.insert(vet2)
-            adjList[vet2]?.insert(vet1)
-        }
-
-        /* 删除边 */
-        func removeEdge(vet1: Vertex, vet2: Vertex) {
-            if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-                fatalError("参数错误")
-            }
-            // 删除边 vet1 - vet2
-            adjList[vet1]?.remove(vet2)
-            adjList[vet2]?.remove(vet1)
-        }
-
-        /* 添加顶点 */
-        func addVertex(vet: Vertex) {
-            if adjList[vet] != nil {
-                return
-            }
-            // 在邻接表中添加一个新链表（即 HashSet）
-            adjList[vet] = []
-        }
-
-        /* 删除顶点 */
-        func removeVertex(vet: Vertex) {
-            if adjList[vet] == nil {
-                fatalError("参数错误")
-            }
-            // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
-            adjList.removeValue(forKey: vet)
-            // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
-            for key in adjList.keys {
-                adjList[key]?.remove(vet)
-            }
-        }
-    }
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "Zig"
 
     ```zig title="graph_adjacency_list.zig"
+    [class]{Vertex}-[func]{}
 
+    [class]{GraphAdjList}-[func]{}
     ```
 
 ## 9.2.3. 效率对比

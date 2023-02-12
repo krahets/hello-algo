@@ -831,16 +831,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 常数阶 */
-    int constant(int n) {
-        int count = 0;
-        int size = 100000;
-        int i = 0;
-        for (int i = 0; i < size; i++) {
-            count ++;
-        }
-        return count;
-    }
+    [class]{}-[func]{constant}
     ```
 
 === "C#"
@@ -858,17 +849,7 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 常数阶
-    fn constant(n: i32) i32 {
-        _ = n;
-        var count: i32 = 0;
-        const size: i32 = 100_000;
-        var i: i32 = 0;
-        while(i<size) : (i += 1) {
-            count += 1;
-        }
-        return count;
-    }
+    [class]{}-[func]{constant}
     ```
 
 ### 线性阶 $O(n)$
@@ -914,14 +895,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 线性阶 */
-    int linear(int n) {
-        int count = 0;
-        for (int i = 0; i < n; i++) {
-            count ++;
-        }
-        return count;
-    }
+    [class]{}-[func]{linear}
     ```
 
 === "C#"
@@ -939,15 +913,7 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 线性阶
-    fn linear(n: i32) i32 {
-        var count: i32 = 0;
-        var i: i32 = 0;
-        while (i < n) : (i += 1) {
-            count += 1;
-        }
-        return count;
-    }
+    [class]{}-[func]{linear}
     ```
 
 「遍历数组」和「遍历链表」等操作，时间复杂度都为 $O(n)$ ，其中 $n$ 为数组或链表的长度。
@@ -995,15 +961,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 线性阶（遍历数组） */
-    int arrayTraversal(int *nums, int n) {
-        int count = 0;
-        // 循环次数与数组长度成正比
-        for (int i = 0; i < n; i++) {
-            count ++;
-        }
-        return count;
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 === "C#"
@@ -1021,15 +979,7 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 线性阶（遍历数组）
-    fn arrayTraversal(nums: []i32) i32 {
-        var count: i32 = 0;
-        // 循环次数与数组长度成正比
-        for (nums) |_| {
-            count += 1;
-        }
-        return count;
-    }
+    [class]{}-[func]{arrayTraversal}
     ```
 
 ### 平方阶 $O(n^2)$
@@ -1075,17 +1025,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 平方阶 */
-    int quadratic(int n) {
-        int count = 0;
-        // 循环次数与数组长度成平方关系
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                count ++;
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{quadratic}
     ```
 
 === "C#"
@@ -1103,19 +1043,7 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 平方阶
-    fn quadratic(n: i32) i32 {
-        var count: i32 = 0;
-        var i: i32 = 0;
-        // 循环次数与数组长度成平方关系
-        while (i < n) : (i += 1) {
-            var j: i32 = 0;
-            while (j < n) : (j += 1) {
-                count += 1;
-            }
-        }
-        return count;
-    }   
+    [class]{}-[func]{quadratic}
     ```
 
 ![time_complexity_constant_linear_quadratic](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
@@ -1167,26 +1095,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 平方阶（冒泡排序） */
-    int bubbleSort(int *nums, int n) {
-        int count = 0;  // 计数器 
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = n - 1; i > 0; i--) {
-            // 内循环：冒泡操作
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums [j + 1]) 
-                {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3;  // 元素交换包含 3 个单元操作
-                }
-            }
-            
-        }
-        return count;
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "C#"
@@ -1204,26 +1113,7 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 平方阶（冒泡排序）
-    fn bubbleSort(nums: []i32) i32 {
-        var count: i32 = 0;  // 计数器 
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        var i: i32 = @intCast(i32, nums.len ) - 1;
-        while (i > 0) : (i -= 1) {
-            var j: usize = 0;
-            // 内循环：冒泡操作
-            while (j < i) : (j += 1) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    var tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    count += 3;  // 元素交换包含 3 个单元操作
-                }
-            }
-        }
-        return count;
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 ### 指数阶 $O(2^n)$
@@ -1273,20 +1163,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 指数阶（循环实现） */
-    int exponential(int n) {
-        int count = 0;
-        int bas = 1;
-        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < bas; j++) {
-                count++;
-            }
-            bas *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count;
-    }
+    [class]{}-[func]{exponential}
     ```
 
 === "C#"
@@ -1304,22 +1181,7 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 指数阶（循环实现）
-    fn exponential(n: i32) i32{
-        var count: i32 = 0;
-        var bas: i32 = 1;
-        var i: i32 = 0;
-        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
-        while (i < n) : (i += 1) {
-            var j: i32 = 0;
-            while (j < bas) : (j += 1) {
-                count += 1;
-            }
-            bas *= 2;
-        }
-        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
-        return count;
-    }       
+    [class]{}-[func]{exponential}
     ```
 
 ![time_complexity_exponential](time_complexity.assets/time_complexity_exponential.png)
@@ -1367,11 +1229,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 指数阶（递归实现） */
-    int expRecur(int n) {
-        if (n == 1) return 1;
-        return expRecur(n - 1) + expRecur(n - 1) + 1;
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 === "C#"
@@ -1389,11 +1247,7 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 指数阶（递归实现）
-    fn expRecur(n: i32) i32{
-        if (n == 1) return 1;
-        return expRecur(n - 1) + expRecur(n - 1) + 1;
-    }
+    [class]{}-[func]{expRecur}
     ```
 
 ### 对数阶 $O(\log n)$
@@ -1443,15 +1297,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 对数阶（循环实现） */
-    int logarithmic(float n) {
-        int count = 0;
-        while (n > 1) {
-            n = n / 2;
-            count++;
-        }
-        return count;
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 === "C#"
@@ -1469,18 +1315,7 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 对数阶（循环实现）
-    fn logarithmic(n: f32) i32
-    {
-        var count: i32 = 0;
-        var n_var = n;
-        while (n_var > 1)
-        {
-            n_var = n_var / 2;
-            count +=1;
-        }
-        return count;
-    }
+    [class]{}-[func]{logarithmic}
     ```
 
 ![time_complexity_logarithmic](time_complexity.assets/time_complexity_logarithmic.png)
@@ -1528,11 +1363,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 对数阶（递归实现） */
-    int logRecur(float n) {
-        if (n <= 1) return 0;
-        return logRecur(n / 2) + 1;
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 === "C#"
@@ -1550,12 +1381,7 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 对数阶（递归实现）
-    fn logRecur(n: f32) i32
-    {
-        if (n <= 1) return 0;
-        return logRecur(n / 2) + 1;
-    }
+    [class]{}-[func]{logRecur}
     ```
 
 ### 线性对数阶 $O(n \log n)$
@@ -1603,16 +1429,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 线性对数阶 */
-    int linearLogRecur(float n) {
-        if (n <= 1) return 1;
-        int count = linearLogRecur(n / 2) +
-                    linearLogRecur(n / 2);
-        for (int i = 0; i < n; i++) {
-            count ++;
-        }
-        return count;
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 === "C#"
@@ -1630,18 +1447,7 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 线性对数阶
-    fn linearLogRecur(n: f32) i32
-    {
-        if (n <= 1) return 1;
-        var count: i32 = linearLogRecur(n / 2) +
-                    linearLogRecur(n / 2);
-        var i: f32 = 0;
-        while (i < n) : (i += 1) {
-            count += 1;
-        }
-        return count;
-    }
+    [class]{}-[func]{linearLogRecur}
     ```
 
 ![time_complexity_logarithmic_linear](time_complexity.assets/time_complexity_logarithmic_linear.png)
@@ -1697,15 +1503,7 @@ $$
 === "C"
 
     ```c title="time_complexity.c"
-    /* 阶乘阶（递归实现） */
-    int factorialRecur(int n) {
-        if (n == 0) return 1;
-        int count = 0;
-        for (int i = 0; i < n; i++) {
-            count += factorialRecur(n - 1);
-        }
-        return count;
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 === "C#"
@@ -1723,17 +1521,7 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
-    // 阶乘阶（递归实现）
-    fn factorialRecur(n: i32) i32 {
-        if (n == 0) return 1;
-        var count: i32 = 0;
-        var i: i32 = 0;
-        // 从 1 个分裂出 n 个
-        while (i < n) : (i += 1) {
-            count += factorialRecur(n - 1);
-        }
-        return count;
-    }
+    [class]{}-[func]{factorialRecur}
     ```
 
 ![time_complexity_factorial](time_complexity.assets/time_complexity_factorial.png)

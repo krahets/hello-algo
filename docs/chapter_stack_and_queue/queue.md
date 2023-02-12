@@ -320,7 +320,7 @@ comments: true
 === "C"
 
     ```c title="linkedlist_queue.c"
-    
+    [class]{linkedListQueue}-[func]{}
     ```
 
 === "C#"
@@ -338,7 +338,7 @@ comments: true
 === "Zig"
 
     ```zig title="linkedlist_queue.zig"
-
+    [class]{LinkedListQueue}-[func]{}
     ```
 
 ### 基于数组的实现
@@ -397,7 +397,7 @@ comments: true
 === "C"
 
     ```c title="array_queue.c"
-    
+    [class]{arrayQueue}-[func]{}
     ```
 
 === "C#"
@@ -415,7 +415,7 @@ comments: true
 === "Zig"
 
     ```zig title="array_queue.zig"
-
+    [class]{ArrayQueue}-[func]{}
     ```
 
 以上代码仍存在局限性，即长度不可变。然而，我们可以通过将数组替换为列表（即动态数组）来引入扩容机制，有兴趣的同学可以尝试实现。

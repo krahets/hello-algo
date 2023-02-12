@@ -17,7 +17,7 @@ pub fn ArrayQueue(comptime T: type) type {
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
-        // 构造函数（分配内存+初始化数组）
+        // 构造方法（分配内存+初始化数组）
         pub fn init(self: *Self, allocator: std.mem.Allocator, cap: usize) !void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -28,7 +28,7 @@ pub fn ArrayQueue(comptime T: type) type {
             std.mem.set(T, self.nums, @as(T, 0));
         }
         
-        // 析构函数（释放内存）
+        // 析构方法（释放内存）
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();

@@ -74,7 +74,7 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-    
+    [class]{binarySearchTree}-[func]{search}
     ```
 
 === "C#"
@@ -92,7 +92,7 @@ comments: true
 === "Zig"
 
     ```zig title="binary_search_tree.zig"
-
+    [class]{BinarySearchTree}-[func]{search}
     ```
 
 ### 插入结点
@@ -145,7 +145,7 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-    
+    [class]{binarySearchTree}-[func]{insert}
     ```
 
 === "C#"
@@ -163,7 +163,7 @@ comments: true
 === "Zig"
 
     ```zig title="binary_search_tree.zig"
-
+    [class]{BinarySearchTree}-[func]{insert}
     ```
 
 为了插入结点，需要借助 **辅助结点 `pre`** 保存上一轮循环的结点，这样在遍历到 $\text{null}$ 时，我们也可以获取到其父结点，从而完成结点插入操作。
@@ -253,7 +253,9 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-    
+    [class]{binarySearchTree}-[func]{remove}
+
+    [class]{binarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "C#"
@@ -275,7 +277,9 @@ comments: true
 === "Zig"
 
     ```zig title="binary_search_tree.zig"
+    [class]{BinarySearchTree}-[func]{remove}
 
+    [class]{BinarySearchTree}-[func]{getInOrderNext}
     ```
 
 ### 排序

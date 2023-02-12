@@ -112,7 +112,7 @@ func (t *aVLTree) insert(val int) *TreeNode {
 	return t.root
 }
 
-/* 递归插入结点（辅助函数） */
+/* 递归插入结点（辅助方法） */
 func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return NewTreeNode(val)
@@ -140,7 +140,7 @@ func (t *aVLTree) remove(val int) *TreeNode {
 	return root
 }
 
-/* 递归删除结点（辅助函数） */
+/* 递归删除结点（辅助方法） */
 func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return nil

@@ -62,7 +62,7 @@ private:
     }
 
 public:
-    /* 构造函数，根据输入列表建堆 */
+    /* 构造方法，根据输入列表建堆 */
     MaxHeap(vector<int> nums) {
         // 将列表元素原封不动添加进堆
         maxHeap = nums;
@@ -99,8 +99,7 @@ public:
     void poll() {
         // 判空处理
         if (empty()) {
-            cout << "Error:堆为空" << endl;
-            return;
+            throw out_of_range("堆为空");
         }
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
         swap(maxHeap[0], maxHeap[size() - 1]);

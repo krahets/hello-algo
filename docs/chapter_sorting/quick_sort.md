@@ -90,7 +90,7 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
-
+    [class]{quickSort}-[func]{partition}
     ```
 
 === "C#"
@@ -112,7 +112,9 @@ comments: true
 === "Zig"
 
     ```zig title="quick_sort.zig"
+    [class]{QuickSort}-[func]{swap}
 
+    [class]{QuickSort}-[func]{partition}
     ```
 
 !!! note "快速排序的分治思想"
@@ -170,7 +172,7 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
-
+    [class]{quickSort}-[func]{quickSort}
     ```
 
 === "C#"
@@ -188,7 +190,7 @@ comments: true
 === "Zig"
 
     ```zig title="quick_sort.zig"
-
+    [class]{QuickSort}-[func]{quickSort}
     ```
 
 ## 11.4.2. 算法特性
@@ -272,7 +274,9 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
+    [class]{quickSortMedian}-[func]{medianThree}
 
+    [class]{quickSortMedian}-[func]{partition}
     ```
 
 === "C#"
@@ -294,7 +298,9 @@ comments: true
 === "Zig"
 
     ```zig title="quick_sort.zig"
+    [class]{QuickSortMedian}-[func]{medianThree}
 
+    [class]{QuickSortMedian}-[func]{partition}
     ```
 
 ## 11.4.5. 尾递归优化
@@ -342,7 +348,7 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
-
+    [class]{quickSortTailCall}-[func]{quickSort}
     ```
 
 === "C#"
@@ -360,5 +366,5 @@ comments: true
 === "Zig"
 
     ```zig title="quick_sort.zig"
-
+    [class]{QuickSortTailCall}-[func]{quickSort}
     ```

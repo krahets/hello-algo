@@ -316,7 +316,11 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
+    [class]{maxHeap}-[func]{left}
 
+    [class]{maxHeap}-[func]{right}
+
+    [class]{maxHeap}-[func]{parent}
     ```
 
 === "C#"
@@ -342,7 +346,11 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{left}
 
+    [class]{MaxHeap}-[func]{right}
+
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 ### 访问堆顶元素
@@ -388,7 +396,7 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
-
+    [class]{maxHeap}-[func]{peek}
     ```
 
 === "C#"
@@ -406,7 +414,7 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
-
+    [class]{MaxHeap}-[func]{peek}
     ```
 
 ### 元素入堆
@@ -484,7 +492,9 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
+    [class]{maxHeap}-[func]{push}
 
+    [class]{maxHeap}-[func]{siftUp}
     ```
 
 === "C#"
@@ -506,7 +516,9 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{push}
 
+    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 ### 堆顶元素出堆
@@ -600,7 +612,9 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
+    [class]{maxHeap}-[func]{poll}
 
+    [class]{maxHeap}-[func]{siftDown}
     ```
 
 === "C#"
@@ -622,12 +636,14 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{poll}
 
+    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 ### 输入数据并建堆 *
 
-如果我们想要直接输入一个列表并将其建堆，那么该怎么做呢？最直接地，考虑使用「元素入堆」方法，将列表元素依次入堆。元素入堆的时间复杂度为 $O(n)$ ，而平均长度为 $\frac{n}{2}$ ，因此该方法的总体时间复杂度为 $O(n \log n)$ 。
+如果我们想要直接输入一个列表并将其建堆，那么该怎么做呢？最直接地，考虑使用「元素入堆」方法，将列表元素依次入堆。元素入堆的时间复杂度为 $O(\log n)$ ，而平均长度为 $\frac{n}{2}$ ，因此该方法的总体时间复杂度为 $O(n \log n)$ 。
 
 然而，存在一种更加优雅的建堆方法。设结点数量为 $n$ ，我们先将列表所有元素原封不动添加进堆，**然后迭代地对各个结点执行「从顶至底堆化」**。当然，**无需对叶结点执行堆化**，因为其没有子结点。
 
@@ -670,7 +686,7 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
-
+    [class]{maxHeap}-[func]{newMaxHeap}
     ```
 
 === "C#"
@@ -688,7 +704,7 @@ comments: true
 === "Zig"
 
     ```zig title="my_heap.zig"
-
+    [class]{MaxHeap}-[func]{init}
     ```
 
 那么，第二种建堆方法的时间复杂度时多少呢？我们来做一下简单推算。

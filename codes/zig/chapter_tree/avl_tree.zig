@@ -14,7 +14,7 @@ pub fn AVLTree(comptime T: type) type {
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
-        // 构造函数
+        // 构造方法
         pub fn init(self: *Self, allocator: std.mem.Allocator) void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -22,7 +22,7 @@ pub fn AVLTree(comptime T: type) type {
             }
         }
 
-        // 析构函数
+        // 析构方法
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -113,7 +113,7 @@ pub fn AVLTree(comptime T: type) type {
             return self.root;
         }
 
-        // 递归插入结点（辅助函数）
+        // 递归插入结点（辅助方法）
         fn insertHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) !?*inc.TreeNode(T) {
             var node = node_;
             if (node == null) {
@@ -142,7 +142,7 @@ pub fn AVLTree(comptime T: type) type {
             return self.root;
         }
 
-        // 递归删除结点（辅助函数）
+        // 递归删除结点（辅助方法）
         fn removeHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) ?*inc.TreeNode(T) {
             var node = node_;
             if (node == null) return null;

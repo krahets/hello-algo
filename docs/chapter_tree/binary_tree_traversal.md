@@ -57,7 +57,7 @@ comments: true
 === "C"
 
     ```c title="binary_tree_bfs.c"
-    
+    [class]{}-[func]{hierOrder}
     ```
 
 === "C#"
@@ -75,7 +75,7 @@ comments: true
 === "Zig"
 
     ```zig title="binary_tree_bfs.zig"
-
+    [class]{}-[func]{hierOrder}
     ```
 
 ## 7.2.2. 前序、中序、后序遍历
@@ -161,7 +161,11 @@ comments: true
 === "C"
 
     ```c title="binary_tree_dfs.c"
-    
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
     ```
 
 === "C#"
@@ -187,7 +191,11 @@ comments: true
 === "Zig"
 
     ```zig title="binary_tree_dfs.zig"
+    [class]{}-[func]{preOrder}
 
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
     ```
 
 !!! note
