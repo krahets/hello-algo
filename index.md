@@ -60,6 +60,12 @@ hide:
 
 !!! quote
 
+    “如果我当年学数据结构与算法的时候有《Hello 算法》，学起来应该会简单10倍！”
+
+    **—— 李沐，亚马逊资深首席科学家**
+
+!!! quote
+
     “一本通俗易懂的数据结构与算法入门书，引导读者手脑并用地学习，强烈推荐算法初学者阅读。”
 
     **—— 邓俊辉，清华大学计算机系教授**
@@ -79,7 +85,6 @@ hide:
 <div class="center-table">
     <table>
         <tbody>
-            <tr>
             <td align="center"><a href="https://github.com/justin-tse"><img src="https://avatars.githubusercontent.com/u/24556310?v=4" width="50px;" alt="justin-tse"/><br /><sub><b>justin-tse</b></sub></a><br /><sub>JS / TS</sub></td>
             <td align="center"><a href="https://github.com/krahets"><img src="https://avatars.githubusercontent.com/u/26993056?v=4" width="50px;" alt="krahets"/><br /><sub><b>krahets</b></sub></a><br /><sub>Java / Python</sub></td>
             <td align="center"><a href="https://github.com/nuomi1"><img src="https://avatars.githubusercontent.com/u/3739017?v=4" width="50px;" alt="nuomi1"/><br /><sub><b>nuomi1</b></sub></a><br /><sub>Swift</sub></td>
