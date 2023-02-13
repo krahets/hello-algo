@@ -4,7 +4,9 @@ comments: true
 
 # 7.2. 二叉树遍历
 
-非线性数据结构的遍历操作比线性数据结构更加复杂，往往需要使用搜索算法来实现。常见的二叉树遍历方式有层序遍历、前序遍历、中序遍历、后序遍历。
+从物理结构角度看，树是一种基于链表的数据结构，因此遍历方式也是通过指针（即引用）逐个遍历结点。同时，树还是一种非线性数据结构，这导致遍历树比遍历链表更加复杂，需要使用搜索算法来实现。
+
+常见的二叉树遍历方式有层序遍历、前序遍历、中序遍历、后序遍历。
 
 ## 7.2.1. 层序遍历
 
@@ -102,9 +104,9 @@ comments: true
 
     ```java title="binary_tree_dfs.java"
     [class]{binary_tree_dfs}-[func]{preOrder}
-
+    
     [class]{binary_tree_dfs}-[func]{inOrder}
-
+    
     [class]{binary_tree_dfs}-[func]{postOrder}
     ```
 
@@ -112,9 +114,9 @@ comments: true
 
     ```cpp title="binary_tree_dfs.cpp"
     [class]{}-[func]{preOrder}
-
+    
     [class]{}-[func]{inOrder}
-
+    
     [class]{}-[func]{postOrder}
     ```
 
@@ -122,9 +124,9 @@ comments: true
 
     ```python title="binary_tree_dfs.py"
     [class]{}-[func]{pre_order}
-
+    
     [class]{}-[func]{in_order}
-
+    
     [class]{}-[func]{post_order}
     ```
 
@@ -132,9 +134,9 @@ comments: true
 
     ```go title="binary_tree_dfs.go"
     [class]{}-[func]{preOrder}
-
+    
     [class]{}-[func]{inOrder}
-
+    
     [class]{}-[func]{postOrder}
     ```
 
@@ -142,9 +144,9 @@ comments: true
 
     ```javascript title="binary_tree_dfs.js"
     [class]{}-[func]{preOrder}
-
+    
     [class]{}-[func]{inOrder}
-
+    
     [class]{}-[func]{postOrder}
     ```
 
@@ -152,9 +154,9 @@ comments: true
 
     ```typescript title="binary_tree_dfs.ts"
     [class]{}-[func]{preOrder}
-
+    
     [class]{}-[func]{inOrder}
-
+    
     [class]{}-[func]{postOrder}
     ```
 
@@ -162,9 +164,9 @@ comments: true
 
     ```c title="binary_tree_dfs.c"
     [class]{}-[func]{preOrder}
-
+    
     [class]{}-[func]{inOrder}
-
+    
     [class]{}-[func]{postOrder}
     ```
 
@@ -172,9 +174,9 @@ comments: true
 
     ```csharp title="binary_tree_dfs.cs"
     [class]{binary_tree_dfs}-[func]{preOrder}
-
+    
     [class]{binary_tree_dfs}-[func]{inOrder}
-
+    
     [class]{binary_tree_dfs}-[func]{postOrder}
     ```
 
@@ -182,9 +184,9 @@ comments: true
 
     ```swift title="binary_tree_dfs.swift"
     [class]{}-[func]{preOrder}
-
+    
     [class]{}-[func]{inOrder}
-
+    
     [class]{}-[func]{postOrder}
     ```
 
@@ -192,9 +194,9 @@ comments: true
 
     ```zig title="binary_tree_dfs.zig"
     [class]{}-[func]{preOrder}
-
+    
     [class]{}-[func]{inOrder}
-
+    
     [class]{}-[func]{postOrder}
     ```
 
