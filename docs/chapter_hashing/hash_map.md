@@ -311,18 +311,17 @@ comments: true
 
     ```javascript title="hash_map.js"
     /* 遍历哈希表 */
-    // 遍历键值对 key->value
-    for (const entry of map.entries()) {
-        if (!entry) continue;
-        console.info(entry.key + ' -> ' + entry.val);
+    console.info('\n遍历键值对 Key->Value');
+    for (const [k, v] of map.entries()) {
+        console.info(k + ' -> ' + v);
     }
-    // 单独遍历键 key
-    for (const key of map.keys()) {
-        console.info(key);
+    console.info('\n单独遍历键 Key');
+    for (const k of map.keys()) {
+        console.info(k);
     }
-    // 单独遍历值 value
-    for (const val of map.values()) {
-        console.info(val);
+    console.info('\n单独遍历值 Value');
+    for (const v of map.values()) {
+        console.info(v);
     }
     ```
 
