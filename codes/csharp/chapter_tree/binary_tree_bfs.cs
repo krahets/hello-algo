@@ -13,7 +13,7 @@ public class binary_tree_bfs
 {
 
     /* 层序遍历 */
-    public List<int> hierOrder(TreeNode root)
+    public List<int> levelOrder(TreeNode root)
     {
         // 初始化队列，加入根结点
         Queue<TreeNode> queue = new();
@@ -41,7 +41,7 @@ public class binary_tree_bfs
         Console.WriteLine("\n初始化二叉树\n");
         PrintUtil.PrintTree(root);
 
-        List<int> list = hierOrder(root);
+        List<int> list = levelOrder(root);
         Console.WriteLine("\n层序遍历的结点打印序列 = " + string.Join(",", list.ToArray()));
     }
 }

@@ -11,7 +11,7 @@ import java.util.*;
 
 public class binary_tree_bfs {
     /* 层序遍历 */
-    static List<Integer> hierOrder(TreeNode root) {
+    static List<Integer> levelOrder(TreeNode root) {
         // 初始化队列，加入根结点
         Queue<TreeNode> queue = new LinkedList<>() {{ add(root); }};
         // 初始化一个列表，用于保存遍历序列
@@ -35,7 +35,7 @@ public class binary_tree_bfs {
         PrintUtil.printTree(root);
 
         /* 层序遍历 */
-        List<Integer> list = hierOrder(root);
+        List<Integer> list = levelOrder(root);
         System.out.println("\n层序遍历的结点打印序列 = " + list);
     }
 }

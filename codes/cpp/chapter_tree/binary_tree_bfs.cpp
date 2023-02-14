@@ -7,7 +7,7 @@
 #include "../include/include.hpp"
 
 /* 层序遍历 */
-vector<int> hierOrder(TreeNode* root) {
+vector<int> levelOrder(TreeNode* root) {
     // 初始化队列，加入根结点
     queue<TreeNode*> queue;
     queue.push(root);
@@ -35,7 +35,7 @@ int main() {
     PrintUtil::printTree(root);
 
     /* 层序遍历 */
-    vector<int> vec = hierOrder(root);
+    vector<int> vec = levelOrder(root);
     cout << endl << "层序遍历的结点打印序列 = ";
     PrintUtil::printVector(vec);
 

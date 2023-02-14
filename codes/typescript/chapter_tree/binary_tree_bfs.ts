@@ -9,7 +9,7 @@ import { arrToTree } from '../module/TreeNode';
 import { printTree } from '../module/PrintUtil';
 
 /* 层序遍历 */
-function hierOrder(root: TreeNode | null): number[] {
+function levelOrder(root: TreeNode | null): number[] {
     // 初始化队列，加入根结点
     const queue = [root];
     // 初始化一个列表，用于保存遍历序列
@@ -35,7 +35,7 @@ console.log('\n初始化二叉树\n');
 printTree(root);
 
 /* 层序遍历 */
-const list = hierOrder(root);
+const list = levelOrder(root);
 console.log('\n层序遍历的结点打印序列 = ' + list);
 
 export {};
