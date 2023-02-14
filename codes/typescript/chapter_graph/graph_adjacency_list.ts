@@ -14,7 +14,10 @@ class Vertex {
 
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
+    // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
+    // 请注意，adjList 中的元素是 Vertex 对象
     adjList: Map<Vertex, Set<Vertex>>;
+
     /* 构造方法 */
     constructor(edges: Vertex[][]) {
         this.adjList = new Map();
@@ -54,7 +57,7 @@ class GraphAdjList {
     /* 添加顶点 */
     addVertex(vet: Vertex): void {
         if (this.adjList.has(vet)) return;
-        // 在邻接表中添加一个新链表（即 HashSet）
+        // 在邻接表中添加一个新链表
         this.adjList.set(vet, new Set());
     }
 
@@ -63,9 +66,9 @@ class GraphAdjList {
         if (!this.adjList.has(vet)) {
             throw new Error("Illegal Argument Exception");
         }
-        // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
+        // 在邻接表中删除顶点 vet 对应的链表
         this.adjList.delete(vet);
-        // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
+        // 遍历其它顶点的链表，删除所有包含 vet 的边
         for (let set of this.adjList.values()) {
             set.delete(vet);
         }

@@ -24,8 +24,8 @@ func newVertex(val int) vertex {
 
 /* 基于邻接表实现的无向图类 */
 type graphAdjList struct {
-	// 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
-	// 邻接表（使用哈希表实现）, 使用哈希表模拟集合
+	// 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
+	// 请注意，adjList 中的元素是 Vertex 对象
 	adjList map[vertex]map[vertex]struct{}
 }
 
@@ -78,7 +78,7 @@ func (g *graphAdjList) addVertex(vet vertex) {
 	if ok {
 		return
 	}
-	// 在邻接表中添加一个新链表（即 set）
+	// 在邻接表中添加一个新链表
 	g.adjList[vet] = make(map[vertex]struct{})
 }
 
@@ -90,7 +90,7 @@ func (g *graphAdjList) removeVertex(vet vertex) {
 	}
 	// 在邻接表中删除顶点 vet 对应的链表
 	delete(g.adjList, vet)
-	// 遍历其它顶点的链表（即 Set），删除所有包含 vet 的边
+	// 遍历其它顶点的链表，删除所有包含 vet 的边
 	for _, set := range g.adjList {
 		// 操作
 		delete(set, vet)

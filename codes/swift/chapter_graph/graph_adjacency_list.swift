@@ -23,9 +23,11 @@ class Vertex: Hashable {
 
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
-    // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
-    private var adjList: [Vertex: Set<Vertex>] // 邻接表（使用哈希表实现）
+    // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
+    // 请注意，adjList 中的元素是 Vertex 对象
+    private var adjList: [Vertex: Set<Vertex>]
 
+    /* 构造方法 */
     init(edges: [[Vertex]]) {
         adjList = [:]
         // 添加所有顶点和边
@@ -66,7 +68,7 @@ class GraphAdjList {
         if adjList[vet] != nil {
             return
         }
-        // 在邻接表中添加一个新链表（即 HashSet）
+        // 在邻接表中添加一个新链表
         adjList[vet] = []
     }
 
@@ -75,9 +77,9 @@ class GraphAdjList {
         if adjList[vet] == nil {
             fatalError("参数错误")
         }
-        // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
+        // 在邻接表中删除顶点 vet 对应的链表
         adjList.removeValue(forKey: vet)
-        // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
+        // 遍历其它顶点的链表，删除所有包含 vet 的边
         for key in adjList.keys {
             adjList[key]?.remove(vet)
         }
