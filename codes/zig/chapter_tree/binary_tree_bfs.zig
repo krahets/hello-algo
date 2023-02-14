@@ -6,7 +6,7 @@ const std = @import("std");
 const inc = @import("include");
 
 // 层序遍历
-fn hierOrder(comptime T: type, mem_allocator: std.mem.Allocator, root: *inc.TreeNode(T)) !std.ArrayList(T) {
+fn levelOrder(comptime T: type, mem_allocator: std.mem.Allocator, root: *inc.TreeNode(T)) !std.ArrayList(T) {
     // 初始化队列，加入根结点
     const L = std.TailQueue(*inc.TreeNode(T));
     var queue = L{};
@@ -48,7 +48,7 @@ pub fn main() !void {
     try inc.PrintUtil.printTree(root, null, false);
 
     // 层序遍历
-    var list = try hierOrder(i32, mem_allocator, root.?);
+    var list = try levelOrder(i32, mem_allocator, root.?);
     defer list.deinit();
     std.debug.print("\n层序遍历的结点打印序列 = ", .{});
     inc.PrintUtil.printList(i32, list);

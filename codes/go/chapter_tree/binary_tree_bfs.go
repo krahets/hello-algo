@@ -11,7 +11,7 @@ import (
 )
 
 /* 层序遍历 */
-func hierOrder(root *TreeNode) []int {
+func levelOrder(root *TreeNode) []int {
 	// 初始化队列，加入根结点
 	queue := list.New()
 	queue.PushBack(root)

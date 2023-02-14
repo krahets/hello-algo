@@ -10,7 +10,7 @@ from include import *
 
 
 """ 层序遍历 """
-def hier_order(root: Optional[TreeNode]):
+def level_order(root: Optional[TreeNode]):
     # 初始化队列，加入根结点
     queue = collections.deque()
     queue.append(root)
@@ -35,6 +35,6 @@ if __name__ == "__main__":
     print_tree(root)
 
     # 层序遍历
-    res = hier_order(root)
+    res = level_order(root)
     print("\n层序遍历的结点打印序列 = ", res)
     assert res == [1, 2, 3, 4, 5, 6, 7]

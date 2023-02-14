@@ -8,7 +8,7 @@ const { arrToTree } = require("../include/TreeNode");
 const { printTree } = require("../include/PrintUtil");
 
 /* 层序遍历 */
-function hierOrder(root) {
+function levelOrder(root) {
     // 初始化队列，加入根结点
     let queue = [root];
     // 初始化一个列表，用于保存遍历序列
@@ -33,5 +33,5 @@ console.log("\n初始化二叉树\n");
 printTree(root);
 
 /* 层序遍历 */
-let list = hierOrder(root);
+let list = levelOrder(root);
 console.log("\n层序遍历的结点打印序列 = " + list);

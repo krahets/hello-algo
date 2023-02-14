@@ -7,7 +7,7 @@
 import utils
 
 /* 层序遍历 */
-func hierOrder(root: TreeNode) -> [Int] {
+func levelOrder(root: TreeNode) -> [Int] {
     // 初始化队列，加入根结点
     var queue: [TreeNode] = [root]
     // 初始化一个列表，用于保存遍历序列
@@ -36,7 +36,7 @@ enum BinaryTreeBFS {
         PrintUtil.printTree(root: node)
 
         /* 层序遍历 */
-        let list = hierOrder(root: node)
+        let list = levelOrder(root: node)
         print("\n层序遍历的结点打印序列 = \(list)")
     }
 }
