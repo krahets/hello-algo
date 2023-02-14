@@ -22,15 +22,15 @@ $$
 
 根据边是否有方向，分为「无向图 Undirected Graph」和「有向图 Directed Graph」。
 
-- 在无向图中，边表示两结点之间“双向”的连接关系，例如微信或 QQ 中的“好友关系”；
+- 在无向图中，边表示两顶点之间“双向”的连接关系，例如微信或 QQ 中的“好友关系”；
 - 在有向图中，边是有方向的，即 $A \rightarrow B$ 和 $A \leftarrow B$ 两个方向的边是相互独立的，例如微博或抖音上的“关注”与“被关注”关系；
 
 ![directed_graph](graph.assets/directed_graph.png)
 
 根据所有顶点是否连通，分为「连通图 Connected Graph」和「非连通图 Disconnected Graph」。
 
-- 对于连通图，从某个结点出发，可以到达其余任意结点；
-- 对于非连通图，从某个结点出发，至少有一个结点无法到达；
+- 对于连通图，从某个顶点出发，可以到达其余任意顶点；
+- 对于非连通图，从某个顶点出发，至少有一个顶点无法到达；
 
 ![connected_graph](graph.assets/connected_graph.png)
 
@@ -51,6 +51,8 @@ $$
 ### 邻接矩阵
 
 设图的顶点数量为 $n$ ，「邻接矩阵 Adjacency Matrix」使用一个 $n \times n$ 大小的矩阵来表示图，每一行（列）代表一个顶点，矩阵元素代表边，使用 $1$ 或 $0$ 来表示两个顶点之间有边或无边。
+
+如下图所示，记邻接矩阵为 $M$ 、顶点列表为 $V$ ，则矩阵元素 $M[i][j] = 1$ 代表着顶点 $V[i]$ 到顶点 $V[j]$ 之间有边，相反地 $M[i][j] = 0$ 代表两顶点之间无边。
 
 ![adjacency_matrix](graph.assets/adjacency_matrix.png)
 
