@@ -1,7 +1,7 @@
 /*
  * File: deque.rs
  * Created Time: 2023-02-05
- * Author: sjinzh (sjinzh@gmail.com), (xBLACKICEx@outlook.com)
+ * Author: sjinzh (sjinzh@gmail.com), xBLACKICEx (xBLACKICEx@outlook.com)
  */
 
 include!("../include/include.rs");
