@@ -4,7 +4,7 @@
 
 package chapter_sorting
 
-// 合并左子数组和右子数组
+/* 合并左子数组和右子数组 */
 // 左子数组区间 [left, mid]
 // 右子数组区间 [mid + 1, right]
 func merge(nums []int, left, mid, right int) {
@@ -37,6 +37,7 @@ func merge(nums []int, left, mid, right int) {
 	}
 }
 
+/* 归并排序 */
 func mergeSort(nums []int, left, right int) {
 	// 终止条件
 	if left >= right {

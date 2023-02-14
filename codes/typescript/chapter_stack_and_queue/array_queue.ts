@@ -11,7 +11,7 @@ class ArrayQueue {
     private queSize: number; // 队列长度
 
     constructor(capacity: number) {
-        this.nums = new Array<number>(capacity);
+        this.nums = new Array(capacity);
         this.front = this.queSize = 0;
     }
 
@@ -32,8 +32,10 @@ class ArrayQueue {
 
     /* 入队 */
     push(num: number): void {
-        if (this.size == this.capacity)
-            throw new Error("队列已满");
+        if (this.size == this.capacity) {
+            console.log("队列已满");
+            return;
+        }
         // 计算尾指针，指向队尾索引 + 1
         // 通过取余操作，实现 rear 越过数组尾部后回到头部
         const rear = (this.front + this.queSize) % this.capacity;

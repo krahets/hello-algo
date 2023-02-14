@@ -10,7 +10,7 @@ import include.*;
 
 /* AVL 树 */
 class AVLTree {
-    TreeNode root; // 根节点
+    TreeNode root; // 根结点
 
     /* 获取结点高度 */
     public int height(TreeNode node) {
@@ -42,7 +42,7 @@ class AVLTree {
         // 更新结点高度
         updateHeight(node);
         updateHeight(child);
-        // 返回旋转后子树的根节点
+        // 返回旋转后子树的根结点
         return child;
     }
 
@@ -56,7 +56,7 @@ class AVLTree {
         // 更新结点高度
         updateHeight(node);
         updateHeight(child);
-        // 返回旋转后子树的根节点
+        // 返回旋转后子树的根结点
         return child;
     }
 
@@ -96,7 +96,7 @@ class AVLTree {
         return root;
     }
 
-    /* 递归插入结点（辅助函数） */
+    /* 递归插入结点（辅助方法） */
     private TreeNode insertHelper(TreeNode node, int val) {
         if (node == null) return new TreeNode(val);
         /* 1. 查找插入位置，并插入结点 */
@@ -109,7 +109,7 @@ class AVLTree {
         updateHeight(node);  // 更新结点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node);
-        // 返回子树的根节点
+        // 返回子树的根结点
         return node;
     }
 
@@ -119,7 +119,7 @@ class AVLTree {
         return root;
     }
 
-    /* 递归删除结点（辅助函数） */
+    /* 递归删除结点（辅助方法） */
     private TreeNode removeHelper(TreeNode node, int val) {
         if (node == null) return null;
         /* 1. 查找结点，并删除之 */
@@ -146,7 +146,7 @@ class AVLTree {
         updateHeight(node);  // 更新结点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node);
-        // 返回子树的根节点
+        // 返回子树的根结点
         return node;
     }
 

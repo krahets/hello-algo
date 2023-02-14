@@ -15,31 +15,24 @@ comments: true
 完成此次冒泡操作后，**数组最大元素已在正确位置，接下来只需排序剩余 $n - 1$ 个元素**。
 
 === "Step 1"
-
     ![bubble_operation_step1](bubble_sort.assets/bubble_operation_step1.png)
 
 === "Step 2"
-
     ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.png)
 
 === "Step 3"
-
     ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.png)
 
 === "Step 4"
-
     ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.png)
 
 === "Step 5"
-
     ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.png)
 
 === "Step 6"
-
     ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.png)
 
 === "Step 7"
-
     ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.png)
 
 <p align="center"> Fig. 冒泡操作 </p>
@@ -57,185 +50,61 @@ comments: true
 === "Java"
 
     ```java title="bubble_sort.java"
-    /* 冒泡排序 */
-    void bubbleSort(int[] nums) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = nums.length - 1; i > 0; i--) {
-            // 内循环：冒泡操作
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                }
-            }
-        }
-    }
+    [class]{bubble_sort}-[func]{bubbleSort}
     ```
 
 === "C++"
 
     ```cpp title="bubble_sort.cpp"
-    /* 冒泡排序 */
-    void bubbleSort(vector<int>& nums) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = nums.size() - 1; i > 0; i--) {
-            // 内循环：冒泡操作
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    // 这里使用了 std::swap() 函数
-                    swap(nums[j], nums[j + 1]);
-                }
-            }
-        }
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "Python"
 
     ```python title="bubble_sort.py"
-    """ 冒泡排序 """
-    def bubble_sort(nums):
-        n = len(nums)
-        # 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i in range(n - 1, 0, -1):
-            # 内循环：冒泡操作
-            for j in range(i):
-                if nums[j] > nums[j + 1]:
-                    # 交换 nums[j] 与 nums[j + 1]
-                    nums[j], nums[j + 1] = nums[j + 1], nums[j]
+    [class]{}-[func]{bubble_sort}
     ```
 
 === "Go"
 
     ```go title="bubble_sort.go"
-    /* 冒泡排序 */
-    func bubbleSort(nums []int) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i := len(nums) - 1; i > 0; i-- {
-            // 内循环：冒泡操作
-            for j := 0; j < i; j++ {
-                if nums[j] > nums[j+1] {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    nums[j], nums[j+1] = nums[j+1], nums[j]
-                }
-            }
-        }
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "JavaScript"
 
-    ```js title="bubble_sort.js"
-    /* 冒泡排序 */
-    function bubbleSort(nums) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (let i = nums.length - 1; i > 0; i--) {
-            // 内循环：冒泡操作
-            for (let j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                }
-            }
-        }
-    }
+    ```javascript title="bubble_sort.js"
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "TypeScript"
 
     ```typescript title="bubble_sort.ts"
-    /* 冒泡排序 */
-    function bubbleSort(nums: number[]): void {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (let i = nums.length - 1; i > 0; i--) {
-            // 内循环：冒泡操作
-            for (let j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                }
-            }
-        }
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "C"
 
     ```c title="bubble_sort.c"
-    /* 冒泡排序 */
-    void bubbleSort(int nums[], int size) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = 0; i < size - 1; i++)
-        {
-            // 内循环：冒泡操作
-            for (int j = 0; j < size - 1 - i; j++)
-            {
-                if (nums[j] > nums[j + 1])
-                {
-                    int temp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = temp;
-                }
-            }
-        }
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "C#"
 
     ```csharp title="bubble_sort.cs"
-    /* 冒泡排序 */
-    void bubbleSort(int[] nums)
-    {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = nums.Length - 1; i > 0; i--)
-        {
-            // 内循环：冒泡操作
-            for (int j = 0; j < i; j++)
-            {
-                if (nums[j] > nums[j + 1])
-                {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                }
-            }
-        }
-    }
+    [class]{bubble_sort}-[func]{bubbleSort}
     ```
 
 === "Swift"
 
     ```swift title="bubble_sort.swift"
-    /* 冒泡排序 */
-    func bubbleSort(nums: inout [Int]) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i in stride(from: nums.count - 1, to: 0, by: -1) {
-            // 内循环：冒泡操作
-            for j in stride(from: 0, to: i, by: 1) {
-                if nums[j] > nums[j + 1] {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j]
-                    nums[j] = nums[j + 1]
-                    nums[j + 1] = tmp
-                }
-            }
-        }
-    }
+    [class]{}-[func]{bubbleSort}
     ```
 
 === "Zig"
 
     ```zig title="bubble_sort.zig"
-
+    [class]{}-[func]{bubbleSort}
     ```
 
 ## 11.2.2. 算法特性
@@ -259,214 +128,59 @@ comments: true
 === "Java"
 
     ```java title="bubble_sort.java"
-    /* 冒泡排序（标志优化）*/
-    void bubbleSortWithFlag(int[] nums) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = nums.length - 1; i > 0; i--) {
-            boolean flag = false; // 初始化标志位
-            // 内循环：冒泡操作
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    flag = true;  // 记录交换元素
-                }
-            }
-            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
-        }
-    }
+    [class]{bubble_sort}-[func]{bubbleSortWithFlag}
     ```
 
 === "C++"
 
     ```cpp title="bubble_sort.cpp"
-    /* 冒泡排序（标志优化）*/
-    void bubbleSortWithFlag(vector<int>& nums) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = nums.size() - 1; i > 0; i--) {
-            bool flag = false; // 初始化标志位
-            // 内循环：冒泡操作
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    // 这里使用了 std::swap() 函数
-                    swap(nums[j], nums[j + 1]);
-                    flag = true;  // 记录交换元素
-                }
-            }
-            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
-        }
-    }
+    [class]{}-[func]{bubbleSortWithFlag}
     ```
 
 === "Python"
 
     ```python title="bubble_sort.py"
-    """ 冒泡排序（标志优化） """
-    def bubble_sort_with_flag(nums):
-        n = len(nums)
-        # 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i in range(n - 1, 0, -1):
-            flag = False  # 初始化标志位
-            # 内循环：冒泡操作
-            for j in range(i):
-                if nums[j] > nums[j + 1]:
-                    # 交换 nums[j] 与 nums[j + 1]
-                    nums[j], nums[j + 1] = nums[j + 1], nums[j]
-                    flag = True  # 记录交换元素
-            if not flag:
-                break            # 此轮冒泡未交换任何元素，直接跳出
+    [class]{}-[func]{bubble_sort_with_flag}
     ```
 
 === "Go"
 
     ```go title="bubble_sort.go"
-    /* 冒泡排序（标志优化）*/
-    func bubbleSortWithFlag(nums []int) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i := len(nums) - 1; i > 0; i-- {
-            flag := false // 初始化标志位
-            // 内循环：冒泡操作
-            for j := 0; j < i; j++ {
-                if nums[j] > nums[j+1] {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    nums[j], nums[j+1] = nums[j+1], nums[j]
-                    flag = true // 记录交换元素
-                }
-            }
-            if flag == false { // 此轮冒泡未交换任何元素，直接跳出
-                break
-            }
-        }
-    }
+    [class]{}-[func]{bubbleSortWithFlag}
     ```
 
 === "JavaScript"
 
-    ```js title="bubble_sort.js"
-    /* 冒泡排序（标志优化）*/
-    function bubbleSortWithFlag(nums) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (let i = nums.length - 1; i > 0; i--) {
-            let flag = false; // 初始化标志位
-            // 内循环：冒泡操作
-            for (let j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    flag = true;  // 记录交换元素
-                }
-            }
-            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
-        }
-    }
+    ```javascript title="bubble_sort.js"
+    [class]{}-[func]{bubbleSortWithFlag}
     ```
 
 === "TypeScript"
 
     ```typescript title="bubble_sort.ts"
-    /* 冒泡排序（标志优化）*/
-    function bubbleSortWithFlag(nums: number[]): void {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (let i = nums.length - 1; i > 0; i--) {
-            let flag = false; // 初始化标志位
-            // 内循环：冒泡操作
-            for (let j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    flag = true;  // 记录交换元素
-                }
-            }
-            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
-        }
-    }
+    [class]{}-[func]{bubbleSortWithFlag}
     ```
 
 === "C"
 
     ```c title="bubble_sort.c"
-    /* 冒泡排序 */
-    void bubbleSortWithFlag(int nums[], int size) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = 0; i < size - 1; i++)
-        {
-            bool flag = false;
-            // 内循环：冒泡操作
-            for (int j = 0; j < size - 1 - i; j++)
-            {
-                if (nums[j] > nums[j + 1])
-                {
-                    int temp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = temp;
-                    flag = true;
-                }
-            }
-            if(!flag) break;
-        }
-    }
+    [class]{}-[func]{bubbleSortWithFlag}
     ```
 
 === "C#"
 
     ```csharp title="bubble_sort.cs"
-    /* 冒泡排序（标志优化）*/
-    void bubbleSortWithFlag(int[] nums)
-    {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for (int i = nums.Length - 1; i > 0; i--)
-        {
-            bool flag = false; // 初始化标志位
-            // 内循环：冒泡操作
-            for (int j = 0; j < i; j++)
-            {
-                if (nums[j] > nums[j + 1])
-                {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    flag = true;  // 记录交换元素
-                }
-            }
-            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
-        }
-    }
+    [class]{bubble_sort}-[func]{bubbleSortWithFlag}
     ```
 
 === "Swift"
 
     ```swift title="bubble_sort.swift"
-    /* 冒泡排序（标志优化）*/
-    func bubbleSortWithFlag(nums: inout [Int]) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i in stride(from: nums.count - 1, to: 0, by: -1) {
-            var flag = false // 初始化标志位
-            for j in stride(from: 0, to: i, by: 1) {
-                if nums[j] > nums[j + 1] {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j]
-                    nums[j] = nums[j + 1]
-                    nums[j + 1] = tmp
-                    flag = true // 记录交换元素
-                }
-            }
-            if !flag { // 此轮冒泡未交换任何元素，直接跳出
-                break
-            }
-        }
-    }
+    [class]{}-[func]{bubbleSortWithFlag}
     ```
 
 === "Zig"
 
     ```zig title="bubble_sort.zig"
-
+    [class]{}-[func]{bubbleSortWithFlag}
     ```

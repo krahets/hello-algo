@@ -142,7 +142,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     /* 标题注释，用于标注函数、类、测试样例等 */
     
     // 内容注释，用于详解代码
@@ -244,11 +244,13 @@ comments: true
 
 - 感谢我的女朋友泡泡担任本书的首位读者，从算法小白的视角为本书的写作提出了许多建议，使这本书更加适合算法初学者来阅读。
 - 感谢腾宝、琦宝、飞宝为本书起了个响当当的名字，好听又有梗，直接唤起我最初敲下第一行代码 "Hello, World!" 的回忆。
-- 感谢我的导师李博，在小酌畅谈时您告诉我“觉得适合、想做就去做”，坚定了我写这本书的决心。
+- 感谢我的导师李博，在小酌畅谈时您告诉我“觉得应该做就去做”，坚定了我写这本书的决心。
 - 感谢苏潼为本书设计了封面和 LOGO ，我有些强迫症，前后多次修改，谢谢你的耐心。
-- 感谢 @squidfunk ，包括 [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material/tree/master) 顶级开源项目以及给出的写作排版建议。
+- 感谢 @squidfunk 给出的写作排版建议，以及优秀开源项目 [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material/tree/master) 。
 
-在写作过程中，我阅读了许多与数据结构与算法的书籍材料，学习到了许多知识，感谢前辈们的精彩创作。
+本书鼓励“手脑并用”的学习方式，在这点上受到了《动手学深度学习》很大影响，也在此向各位同学强烈推荐这本著作，包括[中文版](https://github.com/d2l-ai/d2l-zh)、[英文版](https://github.com/d2l-ai/d2l-en)、[李沐老师 bilibili 主页](https://space.bilibili.com/1567748478)。
+
+在写作过程中，我阅读了许多与数据结构与算法的书籍与教材，这些著作为本书作出了很好的榜样，保证了本书内容的正确性与质量，感谢前辈们的精彩创作！
 
 感谢父母，你们一贯的支持与鼓励给了我自由度来做这些有趣的事。
 
@@ -261,5 +263,5 @@ comments: true
 <h5 align="center"> 大厂高级算法工程师、算法爱好者 </h5>
 
 <p align="center"> 力扣（LeetCode）全网阅读量最高博主 </p>
-<p align="center"> 分享近百道算法题解，累积回复数千读者的评论问题 </p>
-<p align="center"> 创作 LeetBook《图解算法数据结构》，已免费售出 22 万本 </p>
+<p align="center"> 分享近百道算法题解，累积回复数千读者的问题 </p>
+<p align="center"> 发表的 LeetBook《图解算法数据结构》已订阅 22 万本 </p>

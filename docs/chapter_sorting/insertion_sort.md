@@ -6,9 +6,9 @@ comments: true
 
 「插入排序 Insertion Sort」是一种基于 **数组插入操作** 的排序算法。
 
-「插入操作」的思想：选定数组的某个元素为基准数 `base` ，将 `base` 与其左边的元素依次对比大小，并“插入”到正确位置。
+「插入操作」原理：选定某个待排序元素为基准数 `base`，将 `base` 与其左侧已排序区间元素依次对比大小，并插入到正确位置。
 
-然而，由于数组在内存中的存储方式是连续的，我们无法直接把 `base` 插入到目标位置，而是需要将从目标位置到 `base` 之间的所有元素向右移动一位（本质上是一次数组插入操作）。
+回忆数组插入操作，我们需要将从目标索引到 `base` 之间的所有元素向右移动一位，然后再将 `base` 赋值给目标索引。
 
 ![insertion_operation](insertion_sort.assets/insertion_operation.png)
 
@@ -16,9 +16,9 @@ comments: true
 
 ## 11.3.1. 算法流程
 
-1. 第 1 轮先选取数组的 **第 2 个元素** 为 `base` ，执行「插入操作」后， **数组前 2 个元素已完成排序**。
-2. 第 2 轮选取 **第 3 个元素** 为 `base` ，执行「插入操作」后， **数组前 3 个元素已完成排序**。
-3. 以此类推……最后一轮选取 **数组尾元素** 为 `base` ，执行「插入操作」后 **所有元素已完成排序**。
+1. 第 1 轮先选取数组的 **第 2 个元素** 为 `base` ，执行「插入操作」后，**数组前 2 个元素已完成排序**。
+2. 第 2 轮选取 **第 3 个元素** 为 `base` ，执行「插入操作」后，**数组前 3 个元素已完成排序**。
+3. 以此类推……最后一轮选取 **数组尾元素** 为 `base` ，执行「插入操作」后，**所有元素已完成排序**。
 
 ![insertion_sort](insertion_sort.assets/insertion_sort.png)
 
@@ -27,177 +27,61 @@ comments: true
 === "Java"
 
     ```java title="insertion_sort.java"
-    /* 插入排序 */
-    void insertionSort(int[] nums) {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for (int i = 1; i < nums.length; i++) {
-            int base = nums[i], j = i - 1;
-            // 内循环：将 base 插入到左边的正确位置
-            while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j];  // 1. 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = base;         // 2. 将 base 赋值到正确位置
-        }
-    }
+    [class]{insertion_sort}-[func]{insertionSort}
     ```
 
 === "C++"
 
     ```cpp title="insertion_sort.cpp"
-    /* 插入排序 */
-    void insertionSort(vector<int>& nums) {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for (int i = 1; i < nums.size(); i++) {
-            int base = nums[i], j = i - 1;
-            // 内循环：将 base 插入到左边的正确位置
-            while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j];  // 1. 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = base;         // 2. 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "Python"
 
     ```python title="insertion_sort.py"
-    """ 插入排序 """
-    def insertion_sort(nums):
-        # 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for i in range(1, len(nums)):
-            base = nums[i]
-            j = i - 1
-            # 内循环：将 base 插入到左边的正确位置
-            while j >= 0 and nums[j] > base:
-                nums[j + 1] = nums[j]  # 1. 将 nums[j] 向右移动一位
-                j -= 1
-            nums[j + 1] = base         # 2. 将 base 赋值到正确位置
+    [class]{}-[func]{insertion_sort}
     ```
 
 === "Go"
 
     ```go title="insertion_sort.go"
-    /* 插入排序 */
-    func insertionSort(nums []int) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i := 1; i < len(nums); i++ {
-            base := nums[i]
-            j := i - 1
-            // 内循环：将 base 插入到左边的正确位置
-            for j >= 0 && nums[j] > base {
-                nums[j+1] = nums[j]     // 1. 将 nums[j] 向右移动一位
-                j--
-            }
-            nums[j+1] = base            // 2. 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "JavaScript"
 
-    ```js title="insertion_sort.js"
-    /* 插入排序 */
-    function insertionSort(nums) {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for (let i = 1; i < nums.length; i++) {
-            let base = nums[i], j = i - 1;
-            // 内循环：将 base 插入到左边的正确位置
-            while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j];  // 1. 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = base;         // 2. 将 base 赋值到正确位置
-        }
-    }
+    ```javascript title="insertion_sort.js"
+    [class]{}-[func]{insertionSort}
     ```
 
 === "TypeScript"
 
     ```typescript title="insertion_sort.ts"
-    /* 插入排序 */
-    function insertionSort(nums: number[]): void {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for (let i = 1; i < nums.length; i++) {
-            const base = nums[i];
-            let j = i - 1;
-            // 内循环：将 base 插入到左边的正确位置
-            while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j];  // 1. 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = base;         // 2. 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "C"
 
     ```c title="insertion_sort.c"
-    /* 插入排序 */
-    void insertionSort(int nums[], int size) {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for (int i = 1; i < size; i++)
-        {
-            int base = nums[i], j = i - 1;
-            // 内循环：将 base 插入到左边的正确位置
-            while (j >= 0 && nums[j] > base)
-            {
-                // 1. 将 nums[j] 向右移动一位
-                nums[j + 1] = nums[j]; 
-                j--;
-            }
-            // 2. 将 base 赋值到正确位置
-            nums[j + 1] = base; 
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "C#"
 
     ```csharp title="insertion_sort.cs"
-    /* 插入排序 */
-    void insertionSort(int[] nums)
-    {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for (int i = 1; i < nums.Length; i++)
-        {
-            int bas = nums[i], j = i - 1;
-            // 内循环：将 base 插入到左边的正确位置
-            while (j >= 0 && nums[j] > bas)
-            {
-                nums[j + 1] = nums[j]; // 1. 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = bas;         // 2. 将 base 赋值到正确位置
-        }
-    }
+    [class]{insertion_sort}-[func]{insertionSort}
     ```
 
 === "Swift"
 
     ```swift title="insertion_sort.swift"
-    /* 插入排序 */
-    func insertionSort(nums: inout [Int]) {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for i in stride(from: 1, to: nums.count, by: 1) {
-            let base = nums[i]
-            var j = i - 1
-            // 内循环：将 base 插入到左边的正确位置
-            while j >= 0, nums[j] > base {
-                nums[j + 1] = nums[j] // 1. 将 nums[j] 向右移动一位
-                j -= 1
-            }
-            nums[j + 1] = base // 2. 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "Zig"
 
     ```zig title="insertion_sort.zig"
-
+    [class]{}-[func]{insertionSort}
     ```
 
 ## 11.3.2. 算法特性

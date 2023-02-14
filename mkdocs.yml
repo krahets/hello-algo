@@ -3,18 +3,19 @@ site_name: Hello 算法
 site_url: https://www.hello-algo.com/
 site_author: Krahets
 site_description: 一本动画图解、能运行、可提问的数据结构与算法入门书
+docs_dir: build
 # Repository
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
-edit_uri: https://github.com/krahets/hello-algo/tree/master/docs/
+edit_uri: https://github.com/krahets/hello-algo/tree/main/docs/
 
 # Copyright
-copyright: Copyright &copy; 2022 Krahets
+copyright: Copyright &copy; 2023 Krahets
 
 # Configuration
 theme:
   name: material
-  custom_dir: docs/overrides
+  custom_dir: build/overrides
   language: zh
   features:
     # - announce.dismiss

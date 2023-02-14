@@ -4,7 +4,7 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-const ListNode = require("../include/ListNode");
+const { ListNode } = require("../include/ListNode");
 
 /* 基于链表实现的栈 */
 class LinkedListStack {
@@ -44,7 +44,7 @@ class LinkedListStack {
     /* 访问栈顶元素 */
     peek() {
         if (!this.#stackPeek)
-            throw new Error("栈为空！");
+            throw new Error("栈为空");
         return this.#stackPeek.val;
     }
 

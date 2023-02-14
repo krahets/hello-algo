@@ -148,14 +148,78 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="deque.js"
-    
+    ```javascript title="deque.js"
+    /* 初始化双向队列 */
+    // JavaScript 没有内置的双端队列，只能把 Array 当作双端队列来使用
+    const deque = [];
+
+    /* 元素入队 */
+    deque.push(2);
+    deque.push(5);
+    deque.push(4);
+    // 请注意，由于是数组，unshift() 方法的时间复杂度为 O(n)
+    deque.unshift(3);
+    deque.unshift(1);
+    console.log("双向队列 deque = ", deque);
+
+    /* 访问元素 */
+    const peekFirst = deque[0];
+    console.log("队首元素 peekFirst = " + peekFirst);
+    const peekLast = deque[deque.length - 1];
+    console.log("队尾元素 peekLast = " + peekLast);
+
+    /* 元素出队 */
+    // 请注意，由于是数组，shift() 方法的时间复杂度为 O(n)
+    const popFront = deque.shift();
+    console.log("队首出队元素 popFront = " + popFront + "，队首出队后 deque = " + deque);
+    const popBack = deque.pop();
+    console.log("队尾出队元素 popBack = " + popBack + "，队尾出队后 deque = " + deque);
+
+    /* 获取双向队列的长度 */
+    const size = deque.length;
+    console.log("双向队列长度 size = " + size);
+
+    /* 判断双向队列是否为空 */
+    const isEmpty = size === 0;
+    console.log("双向队列是否为空 = " + isEmpty);
     ```
 
 === "TypeScript"
 
     ```typescript title="deque.ts"
-    
+    /* 初始化双向队列 */
+    // TypeScript 没有内置的双端队列，只能把 Array 当作双端队列来使用
+    const deque: number[] = [];
+
+    /* 元素入队 */
+    deque.push(2);
+    deque.push(5);
+    deque.push(4);
+    // 请注意，由于是数组，unshift() 方法的时间复杂度为 O(n)
+    deque.unshift(3);
+    deque.unshift(1);
+    console.log("双向队列 deque = ", deque);
+
+    /* 访问元素 */
+    const peekFirst: number = deque[0];
+    console.log("队首元素 peekFirst = " + peekFirst);
+    const peekLast: number = deque[deque.length - 1];
+    console.log("队尾元素 peekLast = " + peekLast);
+
+    /* 元素出队 */
+    // 请注意，由于是数组，shift() 方法的时间复杂度为 O(n)
+    const popFront: number = deque.shift() as number;
+    console.log("队首出队元素 popFront = " + popFront + "，队首出队后 deque = " + deque);
+    const popBack: number = deque.pop() as number;
+    console.log("队尾出队元素 popBack = " + popBack + "，队尾出队后 deque = " + deque);
+
+    /* 获取双向队列的长度 */
+    const size: number = deque.length;
+    console.log("双向队列长度 size = " + size);
+
+    /* 判断双向队列是否为空 */
+    const isEmpty: boolean = size === 0;
+    console.log("双向队列是否为空 = " + isEmpty);
     ```
 
 === "C"
@@ -257,119 +321,9 @@ comments: true
 === "Java"
 
     ```java title="linkedlist_deque.java"
-    /* 双向链表结点 */
-    class ListNode {
-        int val;       // 结点值
-        ListNode next; // 后继结点引用（指针）
-        ListNode prev; // 前驱结点引用（指针）
-        ListNode(int val) {
-            this.val = val;
-            prev = next = null;
-        }
-    }
-    
-    /* 基于双向链表实现的双向队列 */
-    class LinkedListDeque {
-    private ListNode front, rear; // 头结点 front ，尾结点 rear
-    private int size = 0;         // 双向队列的长度
-    
-        public LinkedListDeque() {
-            front = rear = null;
-        }
-    
-        /* 获取双向队列的长度 */
-        public int size() {
-            return size;
-        }
-    
-        /* 判断双向队列是否为空 */
-        public boolean isEmpty() {
-            return size() == 0;
-        }
-    
-        /* 入队操作 */
-        private void push(int num, boolean isFront) {
-            ListNode node = new ListNode(num);
-            // 若链表为空，则令 front, rear 都指向 node
-            if (isEmpty())
-                front = rear = node;
-            // 队首入队操作
-            else if (isFront) {
-                // 将 node 添加至链表头部
-                front.prev = node;
-                node.next = front;
-                front = node; // 更新头结点
-            // 队尾入队操作
-            } else {
-                // 将 node 添加至链表尾部
-                rear.next = node;
-                node.prev = rear;
-                rear = node;  // 更新尾结点
-            }
-            size++; // 更新队列长度
-        }
-    
-        /* 队首入队 */
-        public void pushFirst(int num) {
-            push(num, true);
-        }
-    
-        /* 队尾入队 */
-        public void pushLast(int num) {
-            push(num, false);
-        }
-    
-        /* 出队操作 */
-        private Integer poll(boolean isFront) {
-            // 若队列为空，直接返回 null
-            if (isEmpty())
-                return null;
-            int val;
-            // 队首出队操作
-            if (isFront) {
-                val = front.val; // 暂存头结点值
-                // 删除头结点
-                ListNode fNext = front.next;
-                if (fNext != null) {
-                    fNext.prev = null;
-                    front.next = null;
-                }
-                front = fNext;   // 更新头结点
-            // 队尾出队操作
-            } else {
-                val = rear.val;  // 暂存尾结点值
-                // 删除尾结点
-                ListNode rPrev = rear.prev;
-                if (rPrev != null) {
-                    rPrev.next = null;
-                    rear.prev = null;
-                }
-                rear = rPrev;    // 更新尾结点
-            }
-            size--; // 更新队列长度
-            return val;
-        }
-    
-        /* 队首出队 */
-        public Integer pollFirst() {
-            return poll(true);
-        }
-    
-        /* 队尾出队 */
-        public Integer pollLast() {
-            return poll(false);
-        }
-    
-        /* 访问队首元素 */
-        public Integer peekFirst() {
-            return isEmpty() ? null : front.val;
-        }
-    
-        /* 访问队尾元素 */
-        public Integer peekLast() {
-            return isEmpty() ? null : rear.val;
-        }
-    }
+    [class]{ListNode}-[func]{}
+
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "C++"
@@ -392,14 +346,18 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="linkedlist_deque.js"
+    ```javascript title="linkedlist_deque.js"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="linkedlist_deque.ts"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "C"
@@ -411,7 +369,9 @@ comments: true
 === "C#"
 
     ```csharp title="linkedlist_deque.cs"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "Swift"

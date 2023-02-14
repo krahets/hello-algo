@@ -34,12 +34,16 @@
 本项目致力于构建一本开源免费、新手友好的数据结构与算法入门书。
 
 - 全书采用动画图解，结构化地讲解数据结构与算法知识，内容清晰易懂、学习曲线平滑；
-- 算法源代码皆可一键运行，现已支持 Java, C++, Python, Go, JS, TS, C#, Swift 等语言；
+- 算法源代码皆可一键运行，现已支持 Java, C++, Python, Go, JS, TS, C#, Swift, Zig 等语言；
 - 鼓励读者在章节讨论区互帮互助、共同进步，提问与评论一般能在两日内得到回复；
 
 如果本书对您有所帮助，请点个 Star :star: 支持一下，谢谢！
 
 ## 推荐语
+
+> “如果我当年学数据结构与算法的时候有《Hello 算法》，学起来应该会简单 10 倍！”
+>
+> **—— 李沐，亚马逊资深首席科学家**
 
 > “一本通俗易懂的数据结构与算法入门书，引导读者手脑并用地学习，强烈推荐算法初学者阅读。”
 >
@@ -55,9 +59,11 @@
 
 感谢本开源书的每一位撰稿人，是他们的无私奉献让这本书变得更好，他们是：
 
-<a href="https://github.com/krahets/hello-algo/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=krahets/hello-algo" />
-</a>
+<p align="left">
+    <a href="https://github.com/krahets/hello-algo/graphs/contributors">
+        <img width="550" src="https://contrib.rocks/image?repo=krahets/hello-algo" />
+    </a>
+</p>
 
 ## License
 

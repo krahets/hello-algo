@@ -6,7 +6,6 @@ const std = @import("std");
 const inc = @import("include");
 
 // 基于链表实现的栈
-// 编译期泛型
 pub fn LinkedListStack(comptime T: type) type {
     return struct {
         const Self = @This();
@@ -16,7 +15,7 @@ pub fn LinkedListStack(comptime T: type) type {
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
-        // 构造函数（分配内存+初始化栈）
+        // 构造方法（分配内存+初始化栈）
         pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -26,7 +25,7 @@ pub fn LinkedListStack(comptime T: type) type {
             self.stkSize = 0;
         }
 
-        // 析构函数（释放内存）
+        // 析构方法（释放内存）
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -38,7 +37,7 @@ pub fn LinkedListStack(comptime T: type) type {
         }
 
         // 判断栈是否为空
-        pub fn empty(self: *Self) bool {
+        pub fn isEmpty(self: *Self) bool {
             return self.size() == 0;
         }
 
@@ -111,10 +110,9 @@ pub fn main() !void {
     std.debug.print("\n栈的长度 size = {}", .{size});
 
     // 判断栈是否为空
-    var empty = stack.empty();
-    std.debug.print("\n栈是否为空 = {}", .{empty});
+    var is_empty = stack.isEmpty();
+    std.debug.print("\n栈是否为空 = {}", .{is_empty});
 
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }
 

@@ -10,11 +10,11 @@ pub fn AVLTree(comptime T: type) type {
     return struct {
         const Self = @This();
 
-        root: ?*inc.TreeNode(T) = null,                 // 根节点
+        root: ?*inc.TreeNode(T) = null,                 // 根结点
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
-        // 构造函数
+        // 构造方法
         pub fn init(self: *Self, allocator: std.mem.Allocator) void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -22,7 +22,7 @@ pub fn AVLTree(comptime T: type) type {
             }
         }
 
-        // 析构函数
+        // 析构方法
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -59,7 +59,7 @@ pub fn AVLTree(comptime T: type) type {
             // 更新结点高度
             self.updateHeight(node);
             self.updateHeight(child);
-            // 返回旋转后子树的根节点
+            // 返回旋转后子树的根结点
             return child;
         }
 
@@ -73,7 +73,7 @@ pub fn AVLTree(comptime T: type) type {
             // 更新结点高度
             self.updateHeight(node);
             self.updateHeight(child);
-            // 返回旋转后子树的根节点
+            // 返回旋转后子树的根结点
             return child;
         }
 
@@ -113,7 +113,7 @@ pub fn AVLTree(comptime T: type) type {
             return self.root;
         }
 
-        // 递归插入结点（辅助函数）
+        // 递归插入结点（辅助方法）
         fn insertHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) !?*inc.TreeNode(T) {
             var node = node_;
             if (node == null) {
@@ -132,7 +132,7 @@ pub fn AVLTree(comptime T: type) type {
             self.updateHeight(node);    // 更新结点高度
             // 2. 执行旋转操作，使该子树重新恢复平衡
             node = self.rotate(node);
-            // 返回子树的根节点
+            // 返回子树的根结点
             return node;
         }
 
@@ -142,7 +142,7 @@ pub fn AVLTree(comptime T: type) type {
             return self.root;
         }
 
-        // 递归删除结点（辅助函数）
+        // 递归删除结点（辅助方法）
         fn removeHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) ?*inc.TreeNode(T) {
             var node = node_;
             if (node == null) return null;
@@ -171,7 +171,7 @@ pub fn AVLTree(comptime T: type) type {
             self.updateHeight(node);    // 更新结点高度
             // 2. 执行旋转操作，使该子树重新恢复平衡
             node = self.rotate(node);
-            // 返回子树的根节点
+            // 返回子树的根结点
             return node;
         }
 

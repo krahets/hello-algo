@@ -16,7 +16,7 @@ struct ArrayQueue {
 
 typedef struct ArrayQueue ArrayQueue;
 
-/* 构造函数 */
+/* 构造方法 */
 ArrayQueue *newArrayQueue(int capacity) {
     ArrayQueue *queue = (ArrayQueue *) malloc(sizeof(ArrayQueue));
     // 初始化数组
@@ -26,7 +26,7 @@ ArrayQueue *newArrayQueue(int capacity) {
     return queue;
 }
 
-/* 析构函数 */
+/* 析构方法 */
 void delArrayQueue(ArrayQueue *queue) {
     free(queue->nums);
     queue->queCapacity = 0;

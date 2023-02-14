@@ -14,7 +14,7 @@ func hierOrder(root: TreeNode) -> [Int] {
     var list: [Int] = []
     while !queue.isEmpty {
         let node = queue.removeFirst() // 队列出队
-        list.append(node.val) // 保存结点
+        list.append(node.val) // 保存结点值
         if let left = node.left {
             queue.append(left) // 左子结点入队
         }

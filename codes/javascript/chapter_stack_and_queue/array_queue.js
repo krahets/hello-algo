@@ -31,8 +31,10 @@ class ArrayQueue {
 
     /* 入队 */
     push(num) {
-        if (this.size == this.capacity)
-            throw new Error("队列已满");
+        if (this.size == this.capacity) {
+            console.log("队列已满");
+            return;
+        }
         // 计算尾指针，指向队尾索引 + 1
         // 通过取余操作，实现 rear 越过数组尾部后回到头部
         const rear = (this.#front + this.size) % this.capacity;

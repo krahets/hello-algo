@@ -112,7 +112,6 @@ pub fn main() !void {
     var index = find(nums, 3);
     std.debug.print("\n在 nums 中查找元素 3 ，得到索引 = {}\n", .{index});
 
-    const getchar = try std.io.getStdIn().reader().readByte();
-    _ = getchar;
+    _ = try std.io.getStdIn().reader().readByte();
 }
 

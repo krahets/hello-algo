@@ -54,190 +54,61 @@ $$
 === "Java"
 
     ```java title="binary_search.java"
-    /* 二分查找（双闭区间） */
-    int binarySearch(int[] nums, int target) {
-        // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-        int i = 0, j = nums.length - 1;
-        // 循环，当搜索区间为空时跳出（当 i > j 时为空）
-        while (i <= j) {
-            int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
-                i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m-1] 中
-                j = m - 1;
-            else                       // 找到目标元素，返回其索引
-                return m;
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
+    [class]{binary_search}-[func]{binarySearch}
     ```
 
 === "C++"
 
     ```cpp title="binary_search.cpp"
-    /* 二分查找（双闭区间） */
-    int binarySearch(vector<int>& nums, int target) {
-        // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-        int i = 0, j = nums.size() - 1;
-        // 循环，当搜索区间为空时跳出（当 i > j 时为空）
-        while (i <= j) {
-            int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
-                i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m-1] 中
-                j = m - 1;
-            else                       // 找到目标元素，返回其索引
-                return m;
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
+    [class]{}-[func]{binarySearch}
     ```
 
 === "Python"
 
     ```python title="binary_search.py"
-    """ 二分查找（双闭区间） """
-    def binary_search(nums, target):
-        # 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-        i, j = 0, len(nums) - 1
-        while i <= j:
-            m = (i + j) // 2        # 计算中点索引 m
-            if nums[m] < target:    # 此情况说明 target 在区间 [m+1, j] 中
-                i = m + 1
-            elif nums[m] > target:  # 此情况说明 target 在区间 [i, m-1] 中
-                j = m - 1
-            else:
-                return m            # 找到目标元素，返回其索引
-        return -1                   # 未找到目标元素，返回 -1
+    [class]{}-[func]{binary_search}
     ```
 
 === "Go"
 
     ```go title="binary_search.go"
-    /* 二分查找（双闭区间） */
-    func binarySearch(nums []int, target int) int {
-        // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-        i, j := 0, len(nums)-1
-        // 循环，当搜索区间为空时跳出（当 i > j 时为空）
-        for i <= j {
-            m := (i + j) / 2                // 计算中点索引 m
-            if nums[m] < target {           // 此情况说明 target 在区间 [m+1, j] 中
-                i = m + 1
-            } else if nums[m] > target {    // 此情况说明 target 在区间 [i, m-1] 中
-                j = m - 1
-            } else {                        // 找到目标元素，返回其索引
-                return m
-            }
-        }
-        // 未找到目标元素，返回 -1
-        return -1
-    }
+    [class]{}-[func]{binarySearch}
     ```
 
 === "JavaScript"
 
-    ```js title="binary_search.js"
-    /* 二分查找（双闭区间） */
-    function binarySearch(nums, target) {
-        // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-        let i = 0, j = nums.length - 1;
-        // 循环，当搜索区间为空时跳出（当 i > j 时为空）
-        while (i <= j) {
-            let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
-            if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j] 中
-                i = m + 1;
-            else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m-1] 中
-                j = m - 1;
-            else
-                return m;                  // 找到目标元素，返回其索引
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
+    ```javascript title="binary_search.js"
+    [class]{}-[func]{binarySearch}
     ```
 
 === "TypeScript"
 
     ```typescript title="binary_search.ts"
-    /* 二分查找（双闭区间） */
-    const binarySearch = function (nums: number[], target: number): number {
-        // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-        let i = 0, j = nums.length - 1;
-        // 循环，当搜索区间为空时跳出（当 i > j 时为空）
-        while (i <= j) {
-            const m = Math.floor(i + (j - i) / 2);  // 计算中点索引 m
-            if (nums[m] < target) {                 // 此情况说明 target 在区间 [m+1, j] 中
-                i = m + 1;
-            } else if (nums[m] > target) {          // 此情况说明 target 在区间 [i, m-1] 中
-                j = m - 1;
-            } else {                                // 找到目标元素，返回其索引
-                return m;
-            }
-        }
-        return -1; // 未找到目标元素，返回 -1
-    }
+    [class]{}-[func]{binarySearch}
     ```
 
 === "C"
 
     ```c title="binary_search.c"
-
+    [class]{}-[func]{binarySearch}
     ```
 
 === "C#"
 
     ```csharp title="binary_search.cs"
-    /* 二分查找（双闭区间） */
-    int binarySearch(int[] nums, int target)
-    {
-        // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-        int i = 0, j = nums.Length - 1;
-        // 循环，当搜索区间为空时跳出（当 i > j 时为空）
-        while (i <= j)
-        {
-            int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
-                i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m-1] 中
-                j = m - 1;
-            else                       // 找到目标元素，返回其索引
-                return m;
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
+    [class]{binary_search}-[func]{binarySearch}
     ```
 
 === "Swift"
 
     ```swift title="binary_search.swift"
-    /* 二分查找（双闭区间） */
-    func binarySearch(nums: [Int], target: Int) -> Int {
-        // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-        var i = 0
-        var j = nums.count - 1
-        // 循环，当搜索区间为空时跳出（当 i > j 时为空）
-        while i <= j {
-            let m = (i + j) / 2 // 计算中点索引 m
-            if nums[m] < target { // 此情况说明 target 在区间 [m+1, j] 中
-                i = m + 1
-            } else if nums[m] > target { // 此情况说明 target 在区间 [i, m-1] 中
-                j = m - 1
-            } else { // 找到目标元素，返回其索引
-                return m
-            }
-        }
-        // 未找到目标元素，返回 -1
-        return -1
-    }
+    [class]{}-[func]{binarySearch}
     ```
 
 === "Zig"
 
     ```zig title="binary_search.zig"
-
+    [class]{}-[func]{binarySearch}
     ```
 
 ### “左闭右开”实现
@@ -247,191 +118,61 @@ $$
 === "Java"
 
     ```java title="binary_search.java"
-    /* 二分查找（左闭右开） */
-    int binarySearch1(int[] nums, int target) {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
-        int i = 0, j = nums.length;
-        // 循环，当搜索区间为空时跳出（当 i = j 时为空）
-        while (i < j) {
-            int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
-                i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
-                j = m;
-            else                       // 找到目标元素，返回其索引
-                return m;
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
+    [class]{binary_search}-[func]{binarySearch1}
     ```
 
 === "C++"
 
     ```cpp title="binary_search.cpp"
-    /* 二分查找（左闭右开） */
-    int binarySearch1(vector<int>& nums, int target) {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
-        int i = 0, j = nums.size();
-        // 循环，当搜索区间为空时跳出（当 i = j 时为空）
-        while (i < j) {
-            int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
-                i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
-                j = m;
-            else                       // 找到目标元素，返回其索引
-                return m;
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
+    [class]{}-[func]{binarySearch1}
     ```
 
 === "Python"
 
     ```python title="binary_search.py"
-    """ 二分查找（左闭右开） """
-    def binary_search1(nums, target):
-        # 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
-        i, j = 0, len(nums)
-        # 循环，当搜索区间为空时跳出（当 i = j 时为空）
-        while i < j:
-            m = (i + j) // 2        # 计算中点索引 m
-            if nums[m] < target:    # 此情况说明 target 在区间 [m+1, j) 中
-                i = m + 1
-            elif nums[m] > target:  # 此情况说明 target 在区间 [i, m) 中
-                j = m
-            else:                   # 找到目标元素，返回其索引
-                return m
-        return -1                   # 未找到目标元素，返回 -1
+    [class]{}-[func]{binary_search1}
     ```
 
 === "Go"
 
     ```go title="binary_search.go"
-    /* 二分查找（左闭右开） */
-    func binarySearch1(nums []int, target int) int {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
-        i, j := 0, len(nums)
-        // 循环，当搜索区间为空时跳出（当 i = j 时为空）
-        for i < j {
-            m := (i + j) / 2             // 计算中点索引 m
-            if nums[m] < target {        // 此情况说明 target 在区间 [m+1, j) 中
-                i = m + 1
-            } else if nums[m] > target { // 此情况说明 target 在区间 [i, m) 中
-                j = m
-            } else {                     // 找到目标元素，返回其索引
-                return m
-            }
-        }
-        // 未找到目标元素，返回 -1
-        return -1
-    }
+    [class]{}-[func]{binarySearch1}
     ```
 
 === "JavaScript"
 
-    ```js title="binary_search.js"
-    /* 二分查找（左闭右开） */
-    function binarySearch1(nums, target) {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
-        let i = 0, j = nums.length;
-        // 循环，当搜索区间为空时跳出（当 i = j 时为空）
-        while (i < j) {
-            let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
-            if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j) 中
-                i = m + 1;
-            else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m) 中
-                j = m;
-            else                           // 找到目标元素，返回其索引
-                return m;
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
+    ```javascript title="binary_search.js"
+    [class]{}-[func]{binarySearch1}
     ```
 
 === "TypeScript"
 
     ```typescript title="binary_search.ts"
-    /* 二分查找（左闭右开） */
-    const binarySearch1 = function (nums: number[], target: number): number {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
-        let i = 0, j = nums.length;
-        // 循环，当搜索区间为空时跳出（当 i = j 时为空）
-        while (i < j) {
-            const m = Math.floor(i + (j - i) / 2);  // 计算中点索引 m
-            if (nums[m] < target) {                 // 此情况说明 target 在区间 [m+1, j) 中
-                i = m + 1;
-            } else if (nums[m] > target) {          // 此情况说明 target 在区间 [i, m) 中
-                j = m;
-            } else {                                // 找到目标元素，返回其索引
-                return m;
-            }
-        }
-        return -1; // 未找到目标元素，返回 -1
-    }
+    [class]{}-[func]{binarySearch1}
     ```
 
 === "C"
 
     ```c title="binary_search.c"
-
+    [class]{}-[func]{binarySearch1}
     ```
 
 === "C#"
 
     ```csharp title="binary_search.cs"
-    /* 二分查找（左闭右开） */
-    int binarySearch1(int[] nums, int target)
-    {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
-        int i = 0, j = nums.Length;
-        // 循环，当搜索区间为空时跳出（当 i = j 时为空）
-        while (i < j)
-        {
-            int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
-                i = m + 1;
-            else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
-                j = m;
-            else                       // 找到目标元素，返回其索引
-                return m;
-        }
-        // 未找到目标元素，返回 -1
-        return -1;
-    }
+    [class]{binary_search}-[func]{binarySearch1}
     ```
 
 === "Swift"
 
     ```swift title="binary_search.swift"
-    /* 二分查找（左闭右开） */
-    func binarySearch1(nums: [Int], target: Int) -> Int {
-        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
-        var i = 0
-        var j = nums.count
-        // 循环，当搜索区间为空时跳出（当 i = j 时为空）
-        while i < j {
-            let m = (i + j) / 2 // 计算中点索引 m
-            if nums[m] < target { // 此情况说明 target 在区间 [m+1, j) 中
-                i = m + 1
-            } else if nums[m] > target { // 此情况说明 target 在区间 [i, m) 中
-                j = m
-            } else { // 找到目标元素，返回其索引
-                return m
-            }
-        }
-        // 未找到目标元素，返回 -1
-        return -1
-    }
+    [class]{}-[func]{binarySearch1}
     ```
 
 === "Zig"
 
     ```zig title="binary_search.zig"
-
+    [class]{}-[func]{binarySearch1}
     ```
 
 ### 两种表示对比
@@ -489,7 +230,7 @@ $$
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     // (i + j) 有可能超出 int 的取值范围
     let m = parseInt((i + j) / 2);
     // 更换为此写法则不会越界

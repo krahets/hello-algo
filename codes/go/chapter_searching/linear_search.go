@@ -9,7 +9,7 @@ import (
 )
 
 /* 线性查找（数组） */
-func linerSearchArray(nums []int, target int) int {
+func linearSearchArray(nums []int, target int) int {
 	// 遍历数组
 	for i := 0; i < len(nums); i++ {
 		// 找到目标元素，返回其索引
@@ -22,10 +22,10 @@ func linerSearchArray(nums []int, target int) int {
 }
 
 /* 线性查找（链表） */
-func linerSearchLinkedList(node *ListNode, target int) *ListNode {
+func linearSearchLinkedList(node *ListNode, target int) *ListNode {
 	// 遍历链表
 	for node != nil {
-		// 找到目标元素，返回其索引
+		// 找到目标结点，返回之
 		if node.Val == target {
 			return node
 		}

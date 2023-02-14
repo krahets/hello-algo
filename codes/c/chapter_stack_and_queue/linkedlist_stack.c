@@ -14,7 +14,7 @@ struct linkedListStack {
 
 typedef struct linkedListStack linkedListStack;
 
-/* 构造函数 */
+/* 构造方法 */
 linkedListStack *newLinkedListStack() {
     linkedListStack *s = malloc(sizeof(linkedListStack));
     s->top = NULL;
@@ -22,7 +22,7 @@ linkedListStack *newLinkedListStack() {
     return s;
 }
 
-/* 析构函数 */
+/* 析构方法 */
 void delLinkedListStack(linkedListStack *s) {
     while (s->top) {
         ListNode *n = s->top->next;
@@ -80,7 +80,7 @@ int pop(linkedListStack *s) {
 /* Driver Code */
 int main() {
     /* 初始化栈 */
-    // 构造函数
+    // 构造方法
     linkedListStack *stack = newLinkedListStack();
 
     /* 元素入栈 */
@@ -109,7 +109,7 @@ int main() {
     bool empty = isEmpty(stack);
     printf("栈是否为空 = %s\n", empty ? "true" : "false");
 
-    /* 析构函数 */
+    /* 析构方法 */
     delLinkedListStack(stack);
     return 0;
 }

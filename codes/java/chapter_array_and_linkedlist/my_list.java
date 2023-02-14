@@ -15,7 +15,7 @@ class MyList {
     private int size = 0;         // 列表长度（即当前元素数量）
     private int extendRatio = 2;  // 每次列表扩容的倍数
 
-    /* 构造函数 */
+    /* 构造方法 */
     public MyList() {
         nums = new int[capacity];
     }

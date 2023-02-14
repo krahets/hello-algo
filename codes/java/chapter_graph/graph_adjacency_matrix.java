@@ -14,7 +14,7 @@ class GraphAdjMat {
     List<Integer> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
     List<List<Integer>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
-    /* 构造函数 */
+    /* 构造方法 */
     public GraphAdjMat(int[] vertices, int[][] edges) {
         this.vertices = new ArrayList<>();
         this.adjMat = new ArrayList<>();
@@ -100,7 +100,7 @@ public class graph_adjacency_matrix {
         /* 初始化无向图 */
         // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
         int[] vertices = { 1, 3, 2, 5, 4 };
-        int[][] edges = { { 0, 1 }, { 0, 2 }, { 1, 2 }, { 2, 3 }, { 0, 3 }, { 2, 4 }, { 3, 4 } };
+        int[][] edges = { { 0, 1 }, { 1, 2 }, { 2, 3 }, { 0, 3 }, { 2, 4 }, { 3, 4 } };
         GraphAdjMat graph = new GraphAdjMat(vertices, edges);
         System.out.println("\n初始化后，图为");
         graph.print();

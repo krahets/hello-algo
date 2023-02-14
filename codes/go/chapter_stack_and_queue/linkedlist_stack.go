@@ -14,19 +14,19 @@ type linkedListStack struct {
 	data *list.List
 }
 
-// newLinkedListStack 初始化链表
+/* 初始化栈 */
 func newLinkedListStack() *linkedListStack {
 	return &linkedListStack{
 		data: list.New(),
 	}
 }
 
-// push 入栈
+/* 入栈 */
 func (s *linkedListStack) push(value int) {
 	s.data.PushBack(value)
 }
 
-// pop 出栈
+/* 出栈 */
 func (s *linkedListStack) pop() any {
 	if s.isEmpty() {
 		return nil
@@ -36,7 +36,7 @@ func (s *linkedListStack) pop() any {
 	return e.Value
 }
 
-// peek 访问栈顶元素
+/* 访问栈顶元素 */
 func (s *linkedListStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,17 +45,17 @@ func (s *linkedListStack) peek() any {
 	return e.Value
 }
 
-// size 获取栈的长度
+/* 获取栈的长度 */
 func (s *linkedListStack) size() int {
 	return s.data.Len()
 }
 
-// isEmpty 判断栈是否为空
+/* 判断栈是否为空 */
 func (s *linkedListStack) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-// 获取 List 用于打印
+/* 获取 List 用于打印 */
 func (s *linkedListStack) toList() *list.List {
 	return s.data
 }

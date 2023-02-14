@@ -14,12 +14,12 @@ function hierOrder(root) {
     // 初始化一个列表，用于保存遍历序列
     let list = [];
     while (queue.length) {
-        let node = queue.shift();  // 队列出队
-        list.push(node.val);          // 保存结点
+        let node = queue.shift();   // 队列出队
+        list.push(node.val);        // 保存结点值
         if (node.left)
-            queue.push(node.left);    // 左子结点入队
+            queue.push(node.left);  // 左子结点入队
         if (node.right)
-            queue.push(node.right);   // 右子结点入队
+            queue.push(node.right); // 右子结点入队
 
     }
     return list;

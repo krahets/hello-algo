@@ -4,7 +4,7 @@ comments: true
 
 # 8.1. 堆
 
-「堆 Heap」是一颗限定条件下的「完全二叉树」。根据成立条件，堆主要分为两种类型：
+「堆 Heap」是一棵限定条件下的「完全二叉树」。根据成立条件，堆主要分为两种类型：
 
 - 「大顶堆 Max Heap」，任意结点的值 $\geq$ 其子结点的值；
 - 「小顶堆 Min Heap」，任意结点的值 $\leq$ 其子结点的值；
@@ -85,7 +85,39 @@ comments: true
 === "C++"
 
     ```cpp title="heap.cpp"
+    /* 初始化堆 */
+    // 初始化小顶堆
+    priority_queue<int, vector<int>, greater<int>> minHeap;
+    // 初始化大顶堆
+    priority_queue<int, vector<int>, less<int>> maxHeap;
 
+    /* 元素入堆 */
+    maxHeap.push(1);
+    maxHeap.push(3);
+    maxHeap.push(2);
+    maxHeap.push(5);
+    maxHeap.push(4);
+
+    /* 获取堆顶元素 */
+    int peek = maxHeap.top(); // 5
+
+    /* 堆顶元素出堆 */
+    // 出堆元素会形成一个从大到小的序列
+    maxHeap.pop(); // 5
+    maxHeap.pop(); // 4
+    maxHeap.pop(); // 3
+    maxHeap.pop(); // 2
+    maxHeap.pop(); // 1
+
+    /* 获取堆大小 */
+    int size = maxHeap.size();
+
+    /* 判断堆是否为空 */
+    bool isEmpty = maxHeap.empty();
+
+    /* 输入列表并建堆 */
+    vector<int> input{1, 3, 2, 5, 4};
+    priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
     ```
 
 === "Python"
@@ -175,14 +207,14 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="heap.js"
-
+    ```javascript title="heap.js"
+    // JavaScript 未提供内置 heap 类
     ```
 
 === "TypeScript"
 
     ```typescript title="heap.ts"
-
+    // TypeScript 未提供内置堆 Heap 类
     ```
 
 === "C"
@@ -247,7 +279,7 @@ comments: true
 
 ### 堆的存储与表示
 
-在二叉树章节我们学过，「完全二叉树」非常适合使用「数组」来表示，而堆恰好是一颗完全二叉树，**因而我们采用「数组」来存储「堆」**。
+在二叉树章节我们学过，「完全二叉树」非常适合使用「数组」来表示，而堆恰好是一棵完全二叉树，**因而我们采用「数组」来存储「堆」**。
 
 **二叉树指针**。使用数组表示二叉树时，元素代表结点值，索引代表结点在二叉树中的位置，**而结点指针通过索引映射公式来实现**。
 
@@ -260,34 +292,21 @@ comments: true
 === "Java"
 
     ```java title="my_heap.java"
-    // 使用列表而非数组，这样无需考虑扩容问题
-    List<Integer> maxHeap;
-    
-    /* 构造函数，建立空堆 */
-    public MaxHeap() {
-        maxHeap = new ArrayList<>();
-    }
-    
-    /* 获取左子结点索引 */
-    int left(int i) {
-        return 2 * i + 1;
-    }
-    
-    /* 获取右子结点索引 */
-    int right(int i) {
-        return 2 * i + 2;
-    }
-    
-    /* 获取父结点索引 */
-    int parent(int i) {
-        return (i - 1) / 2; // 向下整除
-    }
+    [class]{MaxHeap}-[func]{left}
+
+    [class]{MaxHeap}-[func]{right}
+
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 === "C++"
 
     ```cpp title="my_heap.cpp"
+    [class]{MaxHeap}-[func]{left}
 
+    [class]{MaxHeap}-[func]{right}
+
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 === "Python"
@@ -299,114 +318,71 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
-    type maxHeap struct {
-        // 使用切片而非数组，这样无需考虑扩容问题
-        data []any
-    }
+    [class]{maxHeap}-[func]{left}
 
-    /* 构造函数，建立空堆 */
-    func newHeap() *maxHeap {
-        return &maxHeap{
-            data: make([]any, 0),
-        }
-    }
+    [class]{maxHeap}-[func]{right}
 
-    /* 获取左子结点索引 */
-    func (h *maxHeap) left(i int) int {
-        return 2*i + 1
-    }
-
-    /* 获取右子结点索引 */
-    func (h *maxHeap) right(i int) int {
-        return 2*i + 2
-    }
-
-    /* 获取父结点索引 */
-    func (h *maxHeap) parent(i int) int {
-        // 向下整除
-        return (i - 1) / 2
-    }
+    [class]{maxHeap}-[func]{parent}
     ```
 
 === "JavaScript"
 
-    ```js title="my_heap.js"
+    ```javascript title="my_heap.js"
+    [class]{MaxHeap}-[func]{#left}
 
+    [class]{MaxHeap}-[func]{#right}
+
+    [class]{MaxHeap}-[func]{#parent}
     ```
 
 === "TypeScript"
 
     ```typescript title="my_heap.ts"
+    [class]{MaxHeap}-[func]{left}
 
+    [class]{MaxHeap}-[func]{right}
+
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 === "C"
 
     ```c title="my_heap.c"
+    [class]{maxHeap}-[func]{left}
 
+    [class]{maxHeap}-[func]{right}
+
+    [class]{maxHeap}-[func]{parent}
     ```
 
 === "C#"
 
     ```csharp title="my_heap.cs"
-    // 使用列表而非数组，这样无需考虑扩容问题
-    private readonly List<int> maxHeap;
+    [class]{MaxHeap}-[func]{left}
 
-    /* 构造函数，建立空堆 */
-    public MaxHeap()
-    {
-        maxHeap = new List<int>();
-    }
+    [class]{MaxHeap}-[func]{right}
 
-    /* 获取左子结点索引 */
-    int Left(int i)
-    {
-        return 2 * i + 1;
-    }
-
-    /* 获取右子结点索引 */
-    int Right(int i)
-    {
-        return 2 * i + 2;
-    }
-
-    /* 获取父结点索引 */
-    int Parent(int i)
-    {
-        return (i - 1) / 2; // 向下整除
-    }
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 === "Swift"
 
     ```swift title="my_heap.swift"
-    var maxHeap: [Int]
+    [class]{MaxHeap}-[func]{left}
 
-    /* 构造函数，建立空堆 */
-    init() {
-        maxHeap = []
-    }
+    [class]{MaxHeap}-[func]{right}
 
-    /* 获取左子结点索引 */
-    func left(i: Int) -> Int {
-        2 * i + 1
-    }
-
-    /* 获取右子结点索引 */
-    func right(i: Int) -> Int {
-        2 * i + 2
-    }
-
-    /* 获取父结点索引 */
-    func parent(i: Int) -> Int {
-        (i - 1) / 2 // 向下整除
-    }
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 === "Zig"
 
     ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{left}
 
+    [class]{MaxHeap}-[func]{right}
+
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 ### 访问堆顶元素
@@ -416,16 +392,13 @@ comments: true
 === "Java"
 
     ```java title="my_heap.java"
-    /* 访问堆顶元素 */
-    public int peek() {
-        return maxHeap.get(0);
-    }
+    [class]{MaxHeap}-[func]{peek}
     ```
 
 === "C++"
 
     ```cpp title="my_heap.cpp"
-
+    [class]{MaxHeap}-[func]{peek}
     ```
 
 === "Python"
@@ -437,53 +410,43 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
-    /* 访问堆顶元素 */
-    func (h *maxHeap) peek() any {
-        return h.data[0]
-    }
+    [class]{maxHeap}-[func]{peek}
     ```
 
 === "JavaScript"
 
-    ```js title="my_heap.js"
-
+    ```javascript title="my_heap.js"
+    [class]{MaxHeap}-[func]{peek}
     ```
 
 === "TypeScript"
 
     ```typescript title="my_heap.ts"
-
+    [class]{MaxHeap}-[func]{peek}
     ```
 
 === "C"
 
     ```c title="my_heap.c"
-
+    [class]{maxHeap}-[func]{peek}
     ```
 
 === "C#"
 
     ```csharp title="my_heap.cs"
-    /* 访问堆顶元素 */
-    public int Peek()
-    {
-        return maxHeap[0];
-    }
+    [class]{MaxHeap}-[func]{peek}
     ```
 
 === "Swift"
 
     ```swift title="my_heap.swift"
-    /* 访问堆顶元素 */
-    func peek() -> Int {
-        maxHeap[0]
-    }
+    [class]{MaxHeap}-[func]{peek}
     ```
 
 === "Zig"
 
     ```zig title="my_heap.zig"
-
+    [class]{MaxHeap}-[func]{peek}
     ```
 
 ### 元素入堆
@@ -515,34 +478,17 @@ comments: true
 === "Java"
 
     ```java title="my_heap.java"
-    /* 元素入堆 */
-    void push(int val) {
-        // 添加结点
-        maxHeap.add(val);
-        // 从底至顶堆化
-        siftUp(size() - 1);
-    }
-    
-    /* 从结点 i 开始，从底至顶堆化 */
-    void siftUp(int i) {
-        while (true) {
-            // 获取结点 i 的父结点
-            int p = parent(i);
-            // 若“越过根结点”或“结点无需修复”，则结束堆化
-            if (p < 0 || maxHeap.get(i) <= maxHeap.get(p))
-                break;
-            // 交换两结点
-            swap(i, p);
-            // 循环向上堆化
-            i = p;
-        }
-    }
+    [class]{MaxHeap}-[func]{push}
+
+    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 === "C++"
 
     ```cpp title="my_heap.cpp"
+    [class]{MaxHeap}-[func]{push}
 
+    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 === "Python"
@@ -554,112 +500,57 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
-    /* 元素入堆 */
-    func (h *maxHeap) push(val any) {
-        // 添加结点
-        h.data = append(h.data, val)
-        // 从底至顶堆化
-        h.siftUp(len(h.data) - 1)
-    }
+    [class]{maxHeap}-[func]{push}
 
-    /* 从结点 i 开始，从底至顶堆化 */
-    func (h *maxHeap) siftUp(i int) {
-        for true {
-            // 获取结点 i 的父结点
-            p := h.parent(i)
-            // 当“越过根结点”或“结点无需修复”时，结束堆化
-            if p < 0 || h.data[i].(int) <= h.data[p].(int) {
-                break
-            }
-            // 交换两结点
-            h.swap(i, p)
-            // 循环向上堆化
-            i = p
-        }
-    }
+    [class]{maxHeap}-[func]{siftUp}
     ```
 
 === "JavaScript"
 
-    ```js title="my_heap.js"
+    ```javascript title="my_heap.js"
+    [class]{MaxHeap}-[func]{push}
 
+    [class]{MaxHeap}-[func]{#siftUp}
     ```
 
 === "TypeScript"
 
     ```typescript title="my_heap.ts"
+    [class]{MaxHeap}-[func]{push}
 
+    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 === "C"
 
     ```c title="my_heap.c"
+    [class]{maxHeap}-[func]{push}
 
+    [class]{maxHeap}-[func]{siftUp}
     ```
 
 === "C#"
 
     ```csharp title="my_heap.cs"
-    /* 元素入堆 */
-    public void Push(int val)
-    {
-        // 添加结点
-        maxHeap.Add(val);
-        // 从底至顶堆化
-        SiftUp(Size() - 1);
-    }
+    [class]{MaxHeap}-[func]{push}
 
-    /* 从结点 i 开始，从底至顶堆化 */
-    void SiftUp(int i)
-    {
-        while (true)
-        {
-            // 获取结点 i 的父结点
-            int p = Parent(i);
-            // 若“越过根结点”或“结点无需修复”，则结束堆化
-            if (p < 0 || maxHeap[i] <= maxHeap[p])
-                break;
-            // 交换两结点
-            Swap(i, p);
-            // 循环向上堆化
-            i = p;
-        }
-    }
+    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 === "Swift"
 
     ```swift title="my_heap.swift"
-    /* 元素入堆 */
-    func push(val: Int) {
-        // 添加结点
-        maxHeap.append(val)
-        // 从底至顶堆化
-        siftUp(i: size() - 1)
-    }
+    [class]{MaxHeap}-[func]{push}
 
-    /* 从结点 i 开始，从底至顶堆化 */
-    func siftUp(i: Int) {
-        var i = i
-        while true {
-            // 获取结点 i 的父结点
-            let p = parent(i: i)
-            // 当“越过根结点”或“结点无需修复”时，结束堆化
-            if p < 0 || maxHeap[i] <= maxHeap[p] {
-                break
-            }
-            // 交换两结点
-            swap(i: i, j: p)
-            // 循环向上堆化
-            i = p
-        }
-    }
+    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 === "Zig"
 
     ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{push}
 
+    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 ### 堆顶元素出堆
@@ -707,44 +598,17 @@ comments: true
 === "Java"
 
     ```java title="my_heap.java"
-    /* 元素出堆 */
-    int poll() {
-        // 判空处理
-        if (isEmpty())
-            throw new EmptyStackException();
-        // 交换根结点与最右叶结点（即交换首元素与尾元素）
-        swap(0, size() - 1);
-        // 删除结点
-        int val = maxHeap.remove(size() - 1);
-        // 从顶至底堆化
-        siftDown(0);
-        // 返回堆顶元素
-        return val;
-    }
-    
-    /* 从结点 i 开始，从顶至底堆化 */
-    void siftDown(int i) {
-        while (true) {
-            // 判断结点 i, l, r 中值最大的结点，记为 ma
-            int l = left(i), r = right(i), ma = i;
-            if (l < size() && maxHeap.get(l) > maxHeap.get(ma))
-                ma = l;
-            if (r < size() && maxHeap.get(r) > maxHeap.get(ma))
-                ma = r;
-            // 若“结点 i 最大”或“越过叶结点”，则结束堆化
-            if (ma == i) break;
-            // 交换两结点
-            swap(i, ma);
-            // 循环向下堆化
-            i = ma;
-        }
-    }
+    [class]{MaxHeap}-[func]{poll}
+
+    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 === "C++"
 
     ```cpp title="my_heap.cpp"
+    [class]{MaxHeap}-[func]{poll}
 
+    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 === "Python"
@@ -756,182 +620,75 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
-    /* 元素出堆 */
-    func (h *maxHeap) poll() any {
-        // 判空处理
-        if h.isEmpty() {
-            fmt.Println("error")
-            return nil
-        }
-        // 交换根结点与最右叶结点（即交换首元素与尾元素）
-        h.swap(0, h.size()-1)
-        // 删除结点
-        val := h.data[len(h.data)-1]
-        h.data = h.data[:len(h.data)-1]
-        // 从顶至底堆化
-        h.siftDown(0)
+    [class]{maxHeap}-[func]{poll}
 
-        // 返回堆顶元素
-        return val
-    }
-
-    /* 从结点 i 开始，从顶至底堆化 */
-    func (h *maxHeap) siftDown(i int) {
-        for true {
-            // 判断结点 i, l, r 中值最大的结点，记为 max
-            l, r, max := h.left(i), h.right(i), i
-            if l < h.size() && h.data[l].(int) > h.data[max].(int) {
-                max = l
-            }
-            if r < h.size() && h.data[r].(int) > h.data[max].(int) {
-                max = r
-            }
-            // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
-            if max == i {
-                break
-            }
-            // 交换两结点
-            h.swap(i, max)
-            // 循环向下堆化
-            i = max
-        }
-    }
+    [class]{maxHeap}-[func]{siftDown}
     ```
 
 === "JavaScript"
 
-    ```js title="my_heap.js"
+    ```javascript title="my_heap.js"
+    [class]{MaxHeap}-[func]{poll}
 
+    [class]{MaxHeap}-[func]{#siftDown}
     ```
 
 === "TypeScript"
 
     ```typescript title="my_heap.ts"
+    [class]{MaxHeap}-[func]{poll}
 
+    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 === "C"
 
     ```c title="my_heap.c"
+    [class]{maxHeap}-[func]{poll}
 
+    [class]{maxHeap}-[func]{siftDown}
     ```
 
 === "C#"
 
     ```csharp title="my_heap.cs"
-    /* 元素出堆 */
-    public int Poll()
-    {
-        // 判空处理
-        if (IsEmpty())
-            throw new IndexOutOfRangeException();
-        // 交换根结点与最右叶结点（即交换首元素与尾元素）
-        Swap(0, maxHeap.Count - 1);
-        // 删除结点
-        int val = maxHeap.Last();
-        maxHeap.RemoveAt(Size() - 1);
-        // 从顶至底堆化
-        SiftDown(0);
-        // 返回堆顶元素
-        return val;
-    }
+    [class]{MaxHeap}-[func]{poll}
 
-    /* 从结点 i 开始，从顶至底堆化 */
-    void SiftDown(int i)
-    {
-        while (true)
-        {
-            // 判断结点 i, l, r 中值最大的结点，记为 ma
-            int l = Left(i), r = Right(i), ma = i;
-            if (l < Size() && maxHeap[l] > maxHeap[ma])
-                ma = l;
-            if (r < Size() && maxHeap[r] > maxHeap[ma])
-                ma = r;
-            // 若“结点 i 最大”或“越过叶结点”，则结束堆化
-            if (ma == i) break;
-            // 交换两结点
-            Swap(i, ma);
-            // 循环向下堆化
-            i = ma;
-        }
-    }
+    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 === "Swift"
 
     ```swift title="my_heap.swift"
-    /* 元素出堆 */
-    func poll() -> Int {
-        // 判空处理
-        if isEmpty() {
-            fatalError("堆为空")
-        }
-        // 交换根结点与最右叶结点（即交换首元素与尾元素）
-        swap(i: 0, j: size() - 1)
-        // 删除结点
-        let val = maxHeap.remove(at: size() - 1)
-        // 从顶至底堆化
-        siftDown(i: 0)
-        // 返回堆顶元素
-        return val
-    }
+    [class]{MaxHeap}-[func]{poll}
 
-    /* 从结点 i 开始，从顶至底堆化 */
-    func siftDown(i: Int) {
-        var i = i
-        while true {
-            // 判断结点 i, l, r 中值最大的结点，记为 ma
-            let l = left(i: i)
-            let r = right(i: i)
-            var ma = i
-            if l < size(), maxHeap[l] > maxHeap[ma] {
-                ma = l
-            }
-            if r < size(), maxHeap[r] > maxHeap[ma] {
-                ma = r
-            }
-            // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
-            if ma == i {
-                break
-            }
-            // 交换两结点
-            swap(i: i, j: ma)
-            // 循环向下堆化
-            i = ma
-        }
-    }
+    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 === "Zig"
 
     ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{poll}
 
+    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 ### 输入数据并建堆 *
 
-如果我们想要直接输入一个列表并将其建堆，那么该怎么做呢？最直接地，考虑使用「元素入堆」方法，将列表元素依次入堆。元素入堆的时间复杂度为 $O(n)$ ，而平均长度为 $\frac{n}{2}$ ，因此该方法的总体时间复杂度为 $O(n \log n)$ 。
+如果我们想要直接输入一个列表并将其建堆，那么该怎么做呢？最直接地，考虑使用「元素入堆」方法，将列表元素依次入堆。元素入堆的时间复杂度为 $O(\log n)$ ，而平均长度为 $\frac{n}{2}$ ，因此该方法的总体时间复杂度为 $O(n \log n)$ 。
 
 然而，存在一种更加优雅的建堆方法。设结点数量为 $n$ ，我们先将列表所有元素原封不动添加进堆，**然后迭代地对各个结点执行「从顶至底堆化」**。当然，**无需对叶结点执行堆化**，因为其没有子结点。
 
 === "Java"
 
     ```java title="my_heap.java"
-    /* 构造函数，根据输入列表建堆 */
-    public MaxHeap(List<Integer> nums) {
-        // 将列表元素原封不动添加进堆
-        maxHeap = new ArrayList<>(nums);
-        // 堆化除叶结点以外的其他所有结点
-        for (int i = parent(size() - 1); i >= 0; i--) {
-            siftDown(i);
-        }
-    }
+    [class]{MaxHeap}-[func]{MaxHeap}
     ```
 
 === "C++"
 
     ```cpp title="my_heap.cpp"
-
+    [class]{MaxHeap}-[func]{MaxHeap}
     ```
 
 === "Python"
@@ -943,71 +700,43 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
-    /* 构造函数，根据切片建堆 */
-    func newMaxHeap(nums []any) *maxHeap {
-        // 将列表元素原封不动添加进堆
-        h := &maxHeap{data: nums}
-        // 堆化除叶结点以外的其他所有结点
-        for i := len(h.data) - 1; i >= 0; i-- {
-            h.siftDown(i)
-        }
-        return h
-    }
+    [class]{maxHeap}-[func]{newMaxHeap}
     ```
 
 === "JavaScript"
 
-    ```js title="my_heap.js"
-
+    ```javascript title="my_heap.js"
+    [class]{MaxHeap}-[func]{constructor}
     ```
 
 === "TypeScript"
 
     ```typescript title="my_heap.ts"
-
+    [class]{MaxHeap}-[func]{constructor}
     ```
 
 === "C"
 
     ```c title="my_heap.c"
-
+    [class]{maxHeap}-[func]{newMaxHeap}
     ```
 
 === "C#"
 
     ```csharp title="my_heap.cs"
-    /* 构造函数，根据输入列表建堆 */
-    public MaxHeap(IEnumerable<int> nums)
-    {
-        // 将列表元素原封不动添加进堆
-        maxHeap = new List<int>(nums);
-        // 堆化除叶结点以外的其他所有结点
-        var size = Parent(Size() - 1);
-        for (int i = size; i >= 0; i--)
-        {
-            SiftDown(i);
-        }
-    }
+    [class]{MaxHeap}-[func]{MaxHeap}
     ```
 
 === "Swift"
 
     ```swift title="my_heap.swift"
-    /* 构造函数，根据输入列表建堆 */
-    init(nums: [Int]) {
-        // 将列表元素原封不动添加进堆
-        maxHeap = nums
-        // 堆化除叶结点以外的其他所有结点
-        for i in stride(from: parent(i: size() - 1), through: 0, by: -1) {
-            siftDown(i: i)
-        }
-    }
+    [class]{MaxHeap}-[func]{init}
     ```
 
 === "Zig"
 
     ```zig title="my_heap.zig"
-
+    [class]{MaxHeap}-[func]{init}
     ```
 
 那么，第二种建堆方法的时间复杂度时多少呢？我们来做一下简单推算。

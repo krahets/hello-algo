@@ -1,3 +1,2 @@
-**/target
-**/worst_best_time_complexity/
-**/time_complexity/
+target/
+Cargo.lock

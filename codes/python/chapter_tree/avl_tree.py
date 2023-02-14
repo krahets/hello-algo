@@ -43,7 +43,7 @@ class AVLTree:
         # 更新结点高度
         self.__update_height(node)
         self.__update_height(child)
-        # 返回旋转后子树的根节点
+        # 返回旋转后子树的根结点
         return child
 
     """ 左旋操作 """
@@ -56,7 +56,7 @@ class AVLTree:
         # 更新结点高度
         self.__update_height(node)
         self.__update_height(child)
-        # 返回旋转后子树的根节点
+        # 返回旋转后子树的根结点
         return child
 
     """ 执行旋转操作，使该子树重新恢复平衡 """
@@ -89,7 +89,7 @@ class AVLTree:
         self.root = self.__insert_helper(self.root, val)
         return self.root
 
-    """ 递归插入结点（辅助函数）"""
+    """ 递归插入结点（辅助方法）"""
     def __insert_helper(self, node: Optional[TreeNode], val: int) -> TreeNode:
         if node is None:
             return TreeNode(val)
@@ -111,7 +111,7 @@ class AVLTree:
         root = self.__remove_helper(self.root, val)
         return root
 
-    """ 递归删除结点（辅助函数） """
+    """ 递归删除结点（辅助方法） """
     def __remove_helper(self, node: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         if node is None:
             return None

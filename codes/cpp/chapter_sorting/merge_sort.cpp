@@ -6,11 +6,9 @@
 
 #include "../include/include.hpp"
 
-/**
- * 合并左子数组和右子数组
- * 左子数组区间 [left, mid]
- * 右子数组区间 [mid + 1, right]
- */
+/* 合并左子数组和右子数组 */
+// 左子数组区间 [left, mid]
+// 右子数组区间 [mid + 1, right]
 void merge(vector<int>& nums, int left, int mid, int right) {
     // 初始化辅助数组
     vector<int> tmp(nums.begin() + left, nums.begin() + right + 1);   

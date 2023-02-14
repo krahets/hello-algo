@@ -61,7 +61,7 @@ TreeNode *rightRotate(TreeNode *node) {
     // 更新结点高度
     updateHeight(node);
     updateHeight(child);
-    // 返回旋转后子树的根节点
+    // 返回旋转后子树的根结点
     return child;
 }
 
@@ -76,7 +76,7 @@ TreeNode *leftRotate(TreeNode *node) {
     // 更新结点高度
     updateHeight(node);
     updateHeight(child);
-    // 返回旋转后子树的根节点
+    // 返回旋转后子树的根结点
     return child;
 }
 
@@ -110,7 +110,7 @@ TreeNode *rotate(TreeNode *node) {
     return node;
 }
 
-/* 递归插入结点（辅助函数） */
+/* 递归插入结点（辅助方法） */
 TreeNode *insertHelper(TreeNode *node, int val) {
     if (node == NULL) {
         return newTreeNode(val);
@@ -128,7 +128,7 @@ TreeNode *insertHelper(TreeNode *node, int val) {
     updateHeight(node);
     /* 2. 执行旋转操作，使该子树重新恢复平衡 */
     node = rotate(node);
-    // 返回子树的根节点
+    // 返回子树的根结点
     return node;
 }
 
@@ -151,7 +151,7 @@ TreeNode *getInOrderNext(TreeNode *node) {
     return node;
 }
 
-/* 递归删除结点（辅助函数） */
+/* 递归删除结点（辅助方法） */
 TreeNode *removeHelper(TreeNode *node, int val) {
     TreeNode *child, *grandChild, *temp;
     if (node == NULL) {
@@ -186,7 +186,7 @@ TreeNode *removeHelper(TreeNode *node, int val) {
     updateHeight(node);
     /* 2. 执行旋转操作，使该子树重新恢复平衡 */
     node = rotate(node);
-    // 返回子树的根节点
+    // 返回子树的根结点
     return node;
 }
 

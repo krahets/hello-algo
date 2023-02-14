@@ -4,8 +4,8 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-import { ListNode } from './ListNode';
-import { TreeNode } from './TreeNode';
+import { ListNode } from "./ListNode";
+import { TreeNode, arrToTree } from "./TreeNode";
 
 /**
  * Print a linked list
@@ -93,4 +93,20 @@ function showTrunks(p: Trunk | null) {
     // restart the vscode
 }
 
-export { printLinkedList, printTree };
+/**
+ * Print a heap
+ * @param arr
+ */
+function printHeap(arr: number[]): void {
+    console.log("堆的数组表示：");
+    console.log(arr);
+    console.log("堆的树状表示：");
+    const root = arrToTree(arr);
+    printTree(root);
+}
+
+export {
+    printLinkedList,
+    printTree,
+    printHeap
+};

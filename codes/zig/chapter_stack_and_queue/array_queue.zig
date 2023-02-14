@@ -17,7 +17,7 @@ pub fn ArrayQueue(comptime T: type) type {
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
-        // 构造函数（分配内存+初始化数组）
+        // 构造方法（分配内存+初始化数组）
         pub fn init(self: *Self, allocator: std.mem.Allocator, cap: usize) !void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -28,7 +28,7 @@ pub fn ArrayQueue(comptime T: type) type {
             std.mem.set(T, self.nums, @as(T, 0));
         }
         
-        // 析构函数（释放内存）
+        // 析构方法（释放内存）
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -124,8 +124,8 @@ pub fn main() !void {
     std.debug.print("\n队列长度 size = {}", .{size});
 
     // 判断队列是否为空
-    var isEmpty = queue.isEmpty();
-    std.debug.print("\n队列是否为空 = {}", .{isEmpty});
+    var is_empty = queue.isEmpty();
+    std.debug.print("\n队列是否为空 = {}", .{is_empty});
 
     // 测试环形数组
     var i: i32 = 0;

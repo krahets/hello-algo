@@ -26,12 +26,12 @@ pub fn main() !void {
     inc.PrintUtil.printQueue(i32, queue);
 
     // 访问队首元素
-    var front = queue.first.?.data;
-    std.debug.print("\n队首元素 front = {}", .{front});
+    var peek = queue.first.?.data;
+    std.debug.print("\n队首元素 peek = {}", .{peek});
 
     // 元素出队
-    front = queue.popFirst().?.data;
-    std.debug.print("\n出队元素 front = {}，出队后 queue = ", .{front});
+    var poll = queue.popFirst().?.data;
+    std.debug.print("\n出队元素 poll = {}，出队后 queue = ", .{poll});
     inc.PrintUtil.printQueue(i32, queue);
 
     // 获取队列的长度
@@ -39,8 +39,8 @@ pub fn main() !void {
     std.debug.print("\n队列长度 size = {}", .{size});
 
     // 判断队列是否为空
-    var empty = if (queue.len == 0) true else false;
-    std.debug.print("\n队列是否为空 = {}", .{empty});
+    var is_empty = if (queue.len == 0) true else false;
+    std.debug.print("\n队列是否为空 = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

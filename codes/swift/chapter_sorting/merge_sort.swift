@@ -4,11 +4,9 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/**
- * 合并左子数组和右子数组
- * 左子数组区间 [left, mid]
- * 右子数组区间 [mid + 1, right]
- */
+/* 合并左子数组和右子数组 */
+// 左子数组区间 [left, mid]
+// 右子数组区间 [mid + 1, right]
 func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
     // 初始化辅助数组
     let tmp = Array(nums[left ..< (right + 1)])

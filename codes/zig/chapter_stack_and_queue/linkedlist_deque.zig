@@ -34,7 +34,7 @@ pub fn LinkedListDeque(comptime T: type) type {
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
-        // 构造函数（分配内存+初始化队列）
+        // 构造方法（分配内存+初始化队列）
         pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -45,7 +45,7 @@ pub fn LinkedListDeque(comptime T: type) type {
             self.deqSize = 0;
         }
 
-        // 析构函数（释放内存）
+        // 析构方法（释放内存）
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -222,8 +222,8 @@ pub fn main() !void {
     std.debug.print("\n队列长度 size = {}", .{size});
 
     // 判断双向队列是否为空
-    var isEmpty = deque.isEmpty();
-    std.debug.print("\n双向队列是否为空 = {}", .{isEmpty});
+    var is_empty = deque.isEmpty();
+    std.debug.print("\n双向队列是否为空 = {}", .{is_empty});
 
     _ = try std.io.getStdIn().reader().readByte();
 }
