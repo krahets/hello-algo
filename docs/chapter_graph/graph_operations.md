@@ -129,7 +129,7 @@ comments: true
 
     ```java title="graph_adjacency_list.java"
     [class]{Vertex}-[func]{}
-    
+
     [class]{GraphAdjList}-[func]{}
     ```
 
@@ -137,7 +137,7 @@ comments: true
 
     ```cpp title="graph_adjacency_list.cpp"
     [class]{Vertex}-[func]{}
-    
+
     [class]{GraphAdjList}-[func]{}
     ```
 
@@ -145,7 +145,7 @@ comments: true
 
     ```python title="graph_adjacency_list.py"
     [class]{Vertex}-[func]{}
-    
+
     [class]{GraphAdjList}-[func]{}
     ```
 
@@ -153,7 +153,7 @@ comments: true
 
     ```go title="graph_adjacency_list.go"
     [class]{vertex}-[func]{}
-    
+
     [class]{graphAdjList}-[func]{}
     ```
 
@@ -161,7 +161,7 @@ comments: true
 
     ```javascript title="graph_adjacency_list.js"
     [class]{Vertex}-[func]{}
-    
+
     [class]{GraphAdjList}-[func]{}
     ```
 
@@ -169,7 +169,7 @@ comments: true
 
     ```typescript title="graph_adjacency_list.ts"
     [class]{Vertex}-[func]{}
-    
+
     [class]{GraphAdjList}-[func]{}
     ```
 
@@ -177,7 +177,7 @@ comments: true
 
     ```c title="graph_adjacency_list.c"
     [class]{vertex}-[func]{}
-    
+
     [class]{graphAdjList}-[func]{}
     ```
 
@@ -185,7 +185,7 @@ comments: true
 
     ```csharp title="graph_adjacency_list.cs"
     [class]{Vertex}-[func]{}
-    
+
     [class]{GraphAdjList}-[func]{}
     ```
 
@@ -193,7 +193,7 @@ comments: true
 
     ```swift title="graph_adjacency_list.swift"
     [class]{Vertex}-[func]{}
-    
+
     [class]{GraphAdjList}-[func]{}
     ```
 
@@ -201,7 +201,7 @@ comments: true
 
     ```zig title="graph_adjacency_list.zig"
     [class]{Vertex}-[func]{}
-    
+
     [class]{GraphAdjList}-[func]{}
     ```
 
