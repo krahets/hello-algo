@@ -89,7 +89,7 @@ comments: true
 === "Zig"
 
     ```zig title="graph_adjacency_matrix.zig"
-
+    
     ```
 
 ## 9.2.2. 基于邻接表的实现
@@ -118,6 +118,12 @@ comments: true
     ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_remove_vertex.png)
 
 基于邻接表实现图的代码如下所示。
+
+!!! question "为什么需要使用顶点类 `Vertex` ？"
+
+    如果我们直接通过顶点值来区分不同顶点，那么值重复的顶点将无法被区分。
+    如果建立一个顶点列表，用索引来区分不同顶点，那么假设我们想要删除索引为 `i` 的顶点，则需要遍历整个邻接表，将其中 $> i$ 的索引全部执行 $-1$ ，这样的操作是比较耗时的。
+    因此，通过引入顶点类 `Vertex` ，每个顶点都是唯一的对象，这样在删除操作时就无需改动其余顶点了。
 
 === "Java"
 
