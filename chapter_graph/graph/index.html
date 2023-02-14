@@ -1110,6 +1110,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
@@ -1228,6 +1230,20 @@
     <li class="md-nav__item">
       <a href="../graph_operations/" class="md-nav__link">
         9.2. 图基础操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph_traversal/" class="md-nav__link">
+        9.3. 图的遍历
       </a>
     </li>
   
@@ -1637,14 +1653,14 @@ G &amp; = \{ V, E \} \newline
 <h2 id="911">9.1.1. 图常见类型<a class="headerlink" href="#911" title="Permanent link">&para;</a></h2>
 <p>根据边是否有方向，分为「无向图 Undirected Graph」和「有向图 Directed Graph」。</p>
 <ul>
-<li>在无向图中，边表示两结点之间“双向”的连接关系，例如微信或 QQ 中的“好友关系”；</li>
+<li>在无向图中，边表示两顶点之间“双向”的连接关系，例如微信或 QQ 中的“好友关系”；</li>
 <li>在有向图中，边是有方向的，即 <span class="arithmatex">\(A \rightarrow B\)</span> 和 <span class="arithmatex">\(A \leftarrow B\)</span> 两个方向的边是相互独立的，例如微博或抖音上的“关注”与“被关注”关系；</li>
 </ul>
 <p><img alt="directed_graph" src="../graph.assets/directed_graph.png" /></p>
 <p>根据所有顶点是否连通，分为「连通图 Connected Graph」和「非连通图 Disconnected Graph」。</p>
 <ul>
-<li>对于连通图，从某个结点出发，可以到达其余任意结点；</li>
-<li>对于非连通图，从某个结点出发，至少有一个结点无法到达；</li>
+<li>对于连通图，从某个顶点出发，可以到达其余任意顶点；</li>
+<li>对于非连通图，从某个顶点出发，至少有一个顶点无法到达；</li>
 </ul>
 <p><img alt="connected_graph" src="../graph.assets/connected_graph.png" /></p>
 <p>我们可以给边添加“权重”变量，得到「有权图 Weighted Graph」。例如，在王者荣耀等游戏中，系统会根据共同游戏时间来计算玩家之间的“亲密度”，这种亲密度网络就可以使用有权图来表示。</p>
@@ -1659,6 +1675,7 @@ G &amp; = \{ V, E \} \newline
 <p>图的常用表示方法有「邻接矩阵」和「邻接表」。以下使用「无向图」来举例。</p>
 <h3 id="_1">邻接矩阵<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>设图的顶点数量为 <span class="arithmatex">\(n\)</span> ，「邻接矩阵 Adjacency Matrix」使用一个 <span class="arithmatex">\(n \times n\)</span> 大小的矩阵来表示图，每一行（列）代表一个顶点，矩阵元素代表边，使用 <span class="arithmatex">\(1\)</span> 或 <span class="arithmatex">\(0\)</span> 来表示两个顶点之间有边或无边。</p>
+<p>如下图所示，记邻接矩阵为 <span class="arithmatex">\(M\)</span> 、顶点列表为 <span class="arithmatex">\(V\)</span> ，则矩阵元素 <span class="arithmatex">\(M[i][j] = 1\)</span> 代表着顶点 <span class="arithmatex">\(V[i]\)</span> 到顶点 <span class="arithmatex">\(V[j]\)</span> 之间有边，相反地 <span class="arithmatex">\(M[i][j] = 0\)</span> 代表两顶点之间无边。</p>
 <p><img alt="adjacency_matrix" src="../graph.assets/adjacency_matrix.png" /></p>
 <p>邻接矩阵具有以下性质：</p>
 <ul>

@@ -1014,12 +1014,52 @@
     7.2.1. 层序遍历
   </a>
   
+    <nav class="md-nav" aria-label="7.2.1. 层序遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    算法实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    复杂度分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#722" class="md-nav__link">
     7.2.2. 前序、中序、后序遍历
   </a>
+  
+    <nav class="md-nav" aria-label="7.2.2. 前序、中序、后序遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    算法实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    复杂度分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1158,6 +1198,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
@@ -1194,6 +1236,20 @@
     <li class="md-nav__item">
       <a href="../../chapter_graph/graph_operations/" class="md-nav__link">
         9.2. 图基础操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_graph/graph_traversal/" class="md-nav__link">
+        9.3. 图的遍历
       </a>
     </li>
   
@@ -1522,12 +1578,52 @@
     7.2.1. 层序遍历
   </a>
   
+    <nav class="md-nav" aria-label="7.2.1. 层序遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    算法实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    复杂度分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#722" class="md-nav__link">
     7.2.2. 前序、中序、后序遍历
   </a>
+  
+    <nav class="md-nav" aria-label="7.2.2. 前序、中序、后序遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    算法实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    复杂度分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1556,19 +1652,21 @@
 
 
 <h1 id="72">7.2. 二叉树遍历<a class="headerlink" href="#72" title="Permanent link">&para;</a></h1>
-<p>非线性数据结构的遍历操作比线性数据结构更加复杂，往往需要使用搜索算法来实现。常见的二叉树遍历方式有层序遍历、前序遍历、中序遍历、后序遍历。</p>
+<p>从物理结构角度看，树是一种基于链表的数据结构，因此遍历方式也是通过指针（即引用）逐个遍历结点。同时，树还是一种非线性数据结构，这导致遍历树比遍历链表更加复杂，需要使用搜索算法来实现。</p>
+<p>常见的二叉树遍历方式有层序遍历、前序遍历、中序遍历、后序遍历。</p>
 <h2 id="721">7.2.1. 层序遍历<a class="headerlink" href="#721" title="Permanent link">&para;</a></h2>
-<p>「层序遍历 Hierarchical-Order Traversal」从顶至底、一层一层地遍历二叉树，并在每层中按照从左到右的顺序访问结点。</p>
+<p>「层序遍历 Level-Order Traversal」从顶至底、一层一层地遍历二叉树，并在每层中按照从左到右的顺序访问结点。</p>
 <p>层序遍历本质上是「广度优先搜索 Breadth-First Traversal」，其体现着一种“一圈一圈向外”的层进遍历方式。</p>
 <p><img alt="binary_tree_bfs" src="../binary_tree_traversal.assets/binary_tree_bfs.png" /></p>
 <p align="center"> Fig. 二叉树的层序遍历 </p>
 
+<h3 id="_1">算法实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>广度优先遍历一般借助「队列」来实现。队列的规则是“先进先出”，广度优先遍历的规则是 ”一层层平推“ ，两者背后的思想是一致的。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree_bfs.java</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/* 层序遍历 */</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">hierOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="c1">// 初始化队列，加入根结点</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">root</span><span class="p">);</span><span class="w"> </span><span class="p">}};</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="c1">// 初始化一个列表，用于保存遍历序列</span>
@@ -1587,7 +1685,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree_bfs.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* 层序遍历 */</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hierOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// 初始化队列，加入根结点</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">queue</span><span class="p">;</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">queue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
@@ -1608,7 +1706,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree_bfs.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="sd">&quot;&quot;&quot; 层序遍历 &quot;&quot;&quot;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">def</span> <span class="nf">hier_order</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">]):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">def</span> <span class="nf">level_order</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">]):</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="c1"># 初始化队列，加入根结点</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">queue</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">()</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
@@ -1626,7 +1724,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree_bfs.go</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* 层序遍历 */</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">hierOrder</span><span class="p">(</span><span class="nx">root</span><span class="w"> </span><span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">levelOrder</span><span class="p">(</span><span class="nx">root</span><span class="w"> </span><span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="c1">// 初始化队列，加入根结点</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nx">queue</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">list</span><span class="p">.</span><span class="nx">New</span><span class="p">()</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nx">queue</span><span class="p">.</span><span class="nx">PushBack</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span>
@@ -1652,7 +1750,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree_bfs.js</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* 层序遍历 */</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">hierOrder</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">levelOrder</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// 初始化队列，加入根结点</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">root</span><span class="p">];</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="c1">// 初始化一个列表，用于保存遍历序列</span>
@@ -1672,7 +1770,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree_bfs.ts</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* 层序遍历 */</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">hierOrder</span><span class="p">(</span><span class="nx">root</span><span class="o">:</span><span class="w"> </span><span class="kt">TreeNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">levelOrder</span><span class="p">(</span><span class="nx">root</span><span class="o">:</span><span class="w"> </span><span class="kt">TreeNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// 初始化队列，加入根结点</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">root</span><span class="p">];</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="c1">// 初始化一个列表，用于保存遍历序列</span>
@@ -1692,12 +1790,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree_bfs.c</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">hierOrder</span><span class="p">}</span>
+<div class="highlight"><span class="filename">binary_tree_bfs.c</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">levelOrder</span><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree_bfs.cs</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* 层序遍历 */</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hierOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">)</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">{</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="c1">// 初始化队列，加入根结点</span>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
@@ -1719,7 +1817,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree_bfs.swift</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* 层序遍历 */</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">func</span> <span class="nf">hierOrder</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">func</span> <span class="nf">levelOrder</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">{</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="c1">// 初始化队列，加入根结点</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="kd">var</span> <span class="nv">queue</span><span class="p">:</span> <span class="p">[</span><span class="n">TreeNode</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="n">root</span><span class="p">]</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="c1">// 初始化一个列表，用于保存遍历序列</span>
@@ -1740,7 +1838,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_tree_bfs.zig</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// 层序遍历</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="n">hierOrder</span><span class="p">(</span><span class="kr">comptime</span><span class="w"> </span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="kt">type</span><span class="p">,</span><span class="w"> </span><span class="n">mem_allocator</span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">mem</span><span class="p">.</span><span class="n">Allocator</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="n">inc</span><span class="p">.</span><span class="n">TreeNode</span><span class="p">(</span><span class="n">T</span><span class="p">))</span><span class="w"> </span><span class="o">!</span><span class="n">std</span><span class="p">.</span><span class="n">ArrayList</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="n">levelOrder</span><span class="p">(</span><span class="kr">comptime</span><span class="w"> </span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="kt">type</span><span class="p">,</span><span class="w"> </span><span class="n">mem_allocator</span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">mem</span><span class="p">.</span><span class="n">Allocator</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="n">inc</span><span class="p">.</span><span class="n">TreeNode</span><span class="p">(</span><span class="n">T</span><span class="p">))</span><span class="w"> </span><span class="o">!</span><span class="n">std</span><span class="p">.</span><span class="n">ArrayList</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// 初始化队列，加入根结点</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">TailQueue</span><span class="p">(</span><span class="o">*</span><span class="n">inc</span><span class="p">.</span><span class="n">TreeNode</span><span class="p">(</span><span class="n">T</span><span class="p">));</span>
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="p">{};</span>
@@ -1770,6 +1868,9 @@
 </div>
 </div>
 </div>
+<h3 id="_2">复杂度分析<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><strong>时间复杂度</strong>：所有结点被访问一次，使用 <span class="arithmatex">\(O(n)\)</span> 时间，其中 <span class="arithmatex">\(n\)</span> 为结点数量。</p>
+<p><strong>空间复杂度</strong>：当为满二叉树时达到最差情况，遍历到最底层前，队列中最多同时存在 <span class="arithmatex">\(\frac{n + 1}{2}\)</span> 个结点，使用 <span class="arithmatex">\(O(n)\)</span> 空间。</p>
 <h2 id="722">7.2.2. 前序、中序、后序遍历<a class="headerlink" href="#722" title="Permanent link">&para;</a></h2>
 <p>相对地，前、中、后序遍历皆属于「深度优先遍历 Depth-First Traversal」，其体现着一种“先走到尽头，再回头继续”的回溯遍历方式。</p>
 <p>如下图所示，左侧是深度优先遍历的的示意图，右上方是对应的递归实现代码。深度优先遍历就像是绕着整个二叉树的外围“走”一圈，走的过程中，在每个结点都会遇到三个位置，分别对应前序遍历、中序遍历、后序遍历。</p>
@@ -1804,6 +1905,7 @@
 </tbody>
 </table>
 </div>
+<h3 id="_3">算法实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2102,6 +2204,9 @@
 <p class="admonition-title">Note</p>
 <p>使用循环一样可以实现前、中、后序遍历，但代码相对繁琐，有兴趣的同学可以自行实现。</p>
 </div>
+<h3 id="_4">复杂度分析<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><strong>时间复杂度</strong>：所有结点被访问一次，使用 <span class="arithmatex">\(O(n)\)</span> 时间，其中 <span class="arithmatex">\(n\)</span> 为结点数量。</p>
+<p><strong>空间复杂度</strong>：当树退化为链表时达到最差情况，递归深度达到 <span class="arithmatex">\(n\)</span> ，系统使用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。</p>
 
 
 
