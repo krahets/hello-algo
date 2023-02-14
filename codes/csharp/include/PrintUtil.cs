@@ -148,7 +148,7 @@ namespace hello_algo.include
             PrintTree(tree);
         }
 
-        public static void PrintMatrix(List<List<int>> matrix)
+        public static void printMatrix(List<List<int>> matrix)
         {
             Console.WriteLine("[");
             foreach (List<int> row in matrix)
