@@ -4,20 +4,21 @@
  * Author: zjkung1123 (zjkung1123@gmail.com)
  */
 
+using System.Diagnostics.Metrics;
 using hello_algo.include;
 using NUnit.Framework;
 namespace hello_algo.chapter_heap;
 
 public class heap
 {
-    public static void testPush(PriorityQueue<int, int> heap, int val)
+    public void testPush(PriorityQueue<int, int> heap, int val)
     {
         heap.Enqueue(val, val); // 元素入堆
         Console.WriteLine($"\n元素 {val} 入堆后\n");
         PrintUtil.printHeap(heap);
     }
 
-    public static void testPoll(PriorityQueue<int, int> heap)
+    public void testPoll(PriorityQueue<int, int> heap)
     {
         int val = heap.Dequeue(); // 堆顶元素出堆
         Console.WriteLine($"\n堆顶元素 {val} 出堆后\n");
@@ -52,7 +53,6 @@ public class heap
         testPoll(maxHeap);
         testPoll(maxHeap);
         testPoll(maxHeap);
-        testPoll(maxHeap);
 
         /* 获取堆大小 */
         int size = maxHeap.Count;
@@ -65,7 +65,8 @@ public class heap
         Console.WriteLine($"堆是否为空 {isEmpty}");
 
         /* 输入列表并建堆 */
-        minHeap = new PriorityQueue<int, int>(new List<(int, int)> { (1, 1), (3, 3), (2, 2), (5, 5), (4, 4), });
+        var list = new int[] { 1, 3, 2, 5, 4 };
+        minHeap = new PriorityQueue<int, int>(list.Select(x => (x, x)));
         Console.WriteLine("输入列表并建立小顶堆后");
         PrintUtil.printHeap(minHeap);
     }

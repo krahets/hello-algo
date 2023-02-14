@@ -1,9 +1,11 @@
-﻿/**
- * File: PrintUtil.cs
- * Created Time: 2022-12-23
- * Author: haptear (haptear@hotmail.com)
- */
+﻿
 
+using System.Diagnostics.Metrics;
+/**
+* File: PrintUtil.cs
+* Created Time: 2022-12-23
+* Author: haptear (haptear@hotmail.com)
+*/
 namespace hello_algo.include
 {
     public class Trunk
@@ -132,15 +134,16 @@ namespace hello_algo.include
 
         public static void printHeap(PriorityQueue<int, int> queue)
         {
-            var newQueue = new PriorityQueue<int,int>(queue.Comparer).UnorderedItems;
+            var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
             Console.Write("堆的数组表示：");
+            // Console.WriteLine(string.Join(',', originalSet.ToList()));
             List<int> list = new List<int>();
-            while (queue.TryDequeue(out int element, out int priority))
+            while (newQueue.TryDequeue(out int element, out int priority))
             {
                 list.Add(element);
             }
-            Console.WriteLine(string.Join(',', list));
             Console.WriteLine("堆的树状表示：");
+            Console.WriteLine(string.Join(',', list.ToList()));
             TreeNode tree = TreeNode.ArrToTree(list.Cast<int?>().ToArray());
             PrintTree(tree);
         }
