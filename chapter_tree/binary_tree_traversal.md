@@ -4,11 +4,13 @@ comments: true
 
 # 7.2. 二叉树遍历
 
-非线性数据结构的遍历操作比线性数据结构更加复杂，往往需要使用搜索算法来实现。常见的二叉树遍历方式有层序遍历、前序遍历、中序遍历、后序遍历。
+从物理结构角度看，树是一种基于链表的数据结构，因此遍历方式也是通过指针（即引用）逐个遍历结点。同时，树还是一种非线性数据结构，这导致遍历树比遍历链表更加复杂，需要使用搜索算法来实现。
+
+常见的二叉树遍历方式有层序遍历、前序遍历、中序遍历、后序遍历。
 
 ## 7.2.1. 层序遍历
 
-「层序遍历 Hierarchical-Order Traversal」从顶至底、一层一层地遍历二叉树，并在每层中按照从左到右的顺序访问结点。
+「层序遍历 Level-Order Traversal」从顶至底、一层一层地遍历二叉树，并在每层中按照从左到右的顺序访问结点。
 
 层序遍历本质上是「广度优先搜索 Breadth-First Traversal」，其体现着一种“一圈一圈向外”的层进遍历方式。
 
@@ -16,13 +18,15 @@ comments: true
 
 <p align="center"> Fig. 二叉树的层序遍历 </p>
 
+### 算法实现
+
 广度优先遍历一般借助「队列」来实现。队列的规则是“先进先出”，广度优先遍历的规则是 ”一层层平推“ ，两者背后的思想是一致的。
 
 === "Java"
 
     ```java title="binary_tree_bfs.java"
     /* 层序遍历 */
-    List<Integer> hierOrder(TreeNode root) {
+    List<Integer> levelOrder(TreeNode root) {
         // 初始化队列，加入根结点
         Queue<TreeNode> queue = new LinkedList<>() {{ add(root); }};
         // 初始化一个列表，用于保存遍历序列
@@ -43,7 +47,7 @@ comments: true
 
     ```cpp title="binary_tree_bfs.cpp"
     /* 层序遍历 */
-    vector<int> hierOrder(TreeNode* root) {
+    vector<int> levelOrder(TreeNode* root) {
         // 初始化队列，加入根结点
         queue<TreeNode*> queue;
         queue.push(root);
@@ -66,7 +70,7 @@ comments: true
 
     ```python title="binary_tree_bfs.py"
     """ 层序遍历 """
-    def hier_order(root: Optional[TreeNode]):
+    def level_order(root: Optional[TreeNode]):
         # 初始化队列，加入根结点
         queue = collections.deque()
         queue.append(root)
@@ -86,7 +90,7 @@ comments: true
 
     ```go title="binary_tree_bfs.go"
     /* 层序遍历 */
-    func hierOrder(root *TreeNode) []int {
+    func levelOrder(root *TreeNode) []int {
         // 初始化队列，加入根结点
         queue := list.New()
         queue.PushBack(root)
@@ -114,7 +118,7 @@ comments: true
 
     ```javascript title="binary_tree_bfs.js"
     /* 层序遍历 */
-    function hierOrder(root) {
+    function levelOrder(root) {
         // 初始化队列，加入根结点
         let queue = [root];
         // 初始化一个列表，用于保存遍历序列
@@ -136,7 +140,7 @@ comments: true
 
     ```typescript title="binary_tree_bfs.ts"
     /* 层序遍历 */
-    function hierOrder(root: TreeNode | null): number[] {
+    function levelOrder(root: TreeNode | null): number[] {
         // 初始化队列，加入根结点
         const queue = [root];
         // 初始化一个列表，用于保存遍历序列
@@ -158,14 +162,14 @@ comments: true
 === "C"
 
     ```c title="binary_tree_bfs.c"
-    [class]{}-[func]{hierOrder}
+    [class]{}-[func]{levelOrder}
     ```
 
 === "C#"
 
     ```csharp title="binary_tree_bfs.cs"
     /* 层序遍历 */
-    List<int> hierOrder(TreeNode root)
+    List<int> levelOrder(TreeNode root)
     {
         // 初始化队列，加入根结点
         Queue<TreeNode> queue = new();
@@ -189,7 +193,7 @@ comments: true
 
     ```swift title="binary_tree_bfs.swift"
     /* 层序遍历 */
-    func hierOrder(root: TreeNode) -> [Int] {
+    func levelOrder(root: TreeNode) -> [Int] {
         // 初始化队列，加入根结点
         var queue: [TreeNode] = [root]
         // 初始化一个列表，用于保存遍历序列
@@ -212,7 +216,7 @@ comments: true
 
     ```zig title="binary_tree_bfs.zig"
     // 层序遍历
-    fn hierOrder(comptime T: type, mem_allocator: std.mem.Allocator, root: *inc.TreeNode(T)) !std.ArrayList(T) {
+    fn levelOrder(comptime T: type, mem_allocator: std.mem.Allocator, root: *inc.TreeNode(T)) !std.ArrayList(T) {
         // 初始化队列，加入根结点
         const L = std.TailQueue(*inc.TreeNode(T));
         var queue = L{};
@@ -240,6 +244,12 @@ comments: true
     }
     ```
 
+### 复杂度分析
+
+**时间复杂度**：所有结点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为结点数量。
+
+**空间复杂度**：当为满二叉树时达到最差情况，遍历到最底层前，队列中最多同时存在 $\frac{n + 1}{2}$ 个结点，使用 $O(n)$ 空间。
+
 ## 7.2.2. 前序、中序、后序遍历
 
 相对地，前、中、后序遍历皆属于「深度优先遍历 Depth-First Traversal」，其体现着一种“先走到尽头，再回头继续”的回溯遍历方式。
@@ -259,6 +269,8 @@ comments: true
 | 紫色圆圈处 | 已访问完左子树和右子树，即将返回     | 后序遍历 Post-Order Traversal |
 
 </div>
+
+### 算法实现
 
 === "Java"
 
@@ -573,3 +585,9 @@ comments: true
 !!! note
 
     使用循环一样可以实现前、中、后序遍历，但代码相对繁琐，有兴趣的同学可以自行实现。
+
+### 复杂度分析
+
+**时间复杂度**：所有结点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为结点数量。
+
+**空间复杂度**：当树退化为链表时达到最差情况，递归深度达到 $n$ ，系统使用 $O(n)$ 栈帧空间。

@@ -634,21 +634,20 @@ comments: true
 
 基于邻接表实现图的代码如下所示。
 
+!!! question "为什么需要使用顶点类 `Vertex` ？"
+
+    如果我们直接通过顶点值来区分不同顶点，那么值重复的顶点将无法被区分。
+    如果建立一个顶点列表，用索引来区分不同顶点，那么假设我们想要删除索引为 `i` 的顶点，则需要遍历整个邻接表，将其中 $> i$ 的索引全部执行 $-1$ ，这样的操作是比较耗时的。
+    因此，通过引入顶点类 `Vertex` ，每个顶点都是唯一的对象，这样在删除操作时就无需改动其余顶点了。
+
 === "Java"
 
     ```java title="graph_adjacency_list.java"
-    /* 顶点类 */
-    class Vertex {
-        int val;
-        public Vertex(int val) {
-            this.val = val;
-        }
-    }
-
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-        // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
-        Map<Vertex, Set<Vertex>> adjList; // 邻接表（使用哈希表实现）
+        // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
+        // 请注意，adjList 中的元素是 Vertex 对象
+        Map<Vertex, List<Vertex>> adjList;
 
         /* 构造方法 */
         public GraphAdjList(Vertex[][] edges) {
@@ -688,26 +687,26 @@ comments: true
         public void addVertex(Vertex vet) {
             if (adjList.containsKey(vet))
                 return;
-            // 在邻接表中添加一个新链表（即 HashSet）
-            adjList.put(vet, new HashSet<>());
+            // 在邻接表中添加一个新链表
+            adjList.put(vet, new ArrayList<>());
         }
 
         /* 删除顶点 */
         public void removeVertex(Vertex vet) {
             if (!adjList.containsKey(vet))
                 throw new IllegalArgumentException();
-            // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
+            // 在邻接表中删除顶点 vet 对应的链表
             adjList.remove(vet);
-            // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
-            for (Set<Vertex> set : adjList.values()) {
-                set.remove(vet);
+            // 遍历其它顶点的链表，删除所有包含 vet 的边
+            for (List<Vertex> list : adjList.values()) {
+                list.remove(vet);
             }
         }
 
         /* 打印邻接表 */
         public void print() {
             System.out.println("邻接表 =");
-            for (Map.Entry<Vertex, Set<Vertex>> entry : adjList.entrySet()) {
+            for (Map.Entry<Vertex, List<Vertex>> entry : adjList.entrySet()) {
                 List<Integer> tmp = new ArrayList<>();
                 for (Vertex vertex : entry.getValue())
                     tmp.add(vertex.val);
@@ -720,16 +719,11 @@ comments: true
 === "C++"
 
     ```cpp title="graph_adjacency_list.cpp"
-    /* 顶点类 */
-    struct Vertex {
-        int val;
-        Vertex(int val) : val(val) {}
-    };
-
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-        // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
-        unordered_map<Vertex*, unordered_set<Vertex*>> adjList;  // 邻接表（使用哈希表实现）
+        // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
+        // 请注意，adjList 中的元素是 Vertex 对象
+        unordered_map<Vertex*, unordered_set<Vertex*>> adjList;
 
     public:
         /* 构造方法 */
@@ -766,7 +760,7 @@ comments: true
         /* 添加顶点 */
         void addVertex(Vertex* vet) {
             if (adjList.count(vet)) return;
-            // 在邻接表中添加一个新链表（即 HashSet）
+            // 在邻接表中添加一个新链表
             adjList[vet] = unordered_set<Vertex*>();
         }
 
@@ -774,9 +768,9 @@ comments: true
         void removeVertex(Vertex* vet) {
             if (!adjList.count(vet))
                 throw invalid_argument("不存在顶点");
-            // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
+            // 在邻接表中删除顶点 vet 对应的链表
             adjList.erase(vet);
-            // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
+            // 遍历其它顶点的链表，删除所有包含 vet 的边
             for (auto& [key, set_] : adjList) {
                 set_.erase(vet);
             }
@@ -799,30 +793,16 @@ comments: true
 === "Python"
 
     ```python title="graph_adjacency_list.py"
-    [class]{Vertex}-[func]{}
-
     [class]{GraphAdjList}-[func]{}
     ```
 
 === "Go"
 
     ```go title="graph_adjacency_list.go"
-    /* 顶点类 */
-    type vertex struct {
-        val int
-    }
-
-    /* 构造方法 */
-    func newVertex(val int) vertex {
-        return vertex{
-            val: val,
-        }
-    }
-
     /* 基于邻接表实现的无向图类 */
     type graphAdjList struct {
-        // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
-        // 邻接表（使用哈希表实现）, 使用哈希表模拟集合
+        // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
+        // 请注意，adjList 中的元素是 Vertex 对象
         adjList map[vertex]map[vertex]struct{}
     }
 
@@ -875,7 +855,7 @@ comments: true
         if ok {
             return
         }
-        // 在邻接表中添加一个新链表（即 set）
+        // 在邻接表中添加一个新链表
         g.adjList[vet] = make(map[vertex]struct{})
     }
 
@@ -887,7 +867,7 @@ comments: true
         }
         // 在邻接表中删除顶点 vet 对应的链表
         delete(g.adjList, vet)
-        // 遍历其它顶点的链表（即 Set），删除所有包含 vet 的边
+        // 遍历其它顶点的链表，删除所有包含 vet 的边
         for _, set := range g.adjList {
             // 操作
             delete(set, vet)
@@ -912,17 +892,12 @@ comments: true
 === "JavaScript"
 
     ```javascript title="graph_adjacency_list.js"
-    /* 顶点类 */
-    class Vertex {
-        val;
-        constructor(val) {
-            this.val = val;
-        }
-    }
-
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
+        // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
+        // 请注意，adjList 中的元素是 Vertex 对象
         adjList;
+
         /* 构造方法 */
         constructor(edges) {
             this.adjList = new Map();
@@ -962,7 +937,7 @@ comments: true
         /* 添加顶点 */
         addVertex(vet) {
             if (this.adjList.has(vet)) return;
-            // 在邻接表中添加一个新链表（即 HashSet）
+            // 在邻接表中添加一个新链表
             this.adjList.set(vet, new Set());
         }
 
@@ -971,9 +946,9 @@ comments: true
             if (!this.adjList.has(vet)) {
                 throw new Error("Illegal Argument Exception");
             }
-            // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
+            // 在邻接表中删除顶点 vet 对应的链表
             this.adjList.delete(vet);
-            // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
+            // 遍历其它顶点的链表，删除所有包含 vet 的边
             for (let set of this.adjList.values()) {
                 set.delete(vet);
             }
@@ -996,17 +971,12 @@ comments: true
 === "TypeScript"
 
     ```typescript title="graph_adjacency_list.ts"
-    /* 顶点类 */
-    class Vertex {
-        val: number;
-        constructor(val: number) {
-            this.val = val;
-        }
-    }
-
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
+        // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
+        // 请注意，adjList 中的元素是 Vertex 对象
         adjList: Map<Vertex, Set<Vertex>>;
+
         /* 构造方法 */
         constructor(edges: Vertex[][]) {
             this.adjList = new Map();
@@ -1046,7 +1016,7 @@ comments: true
         /* 添加顶点 */
         addVertex(vet: Vertex): void {
             if (this.adjList.has(vet)) return;
-            // 在邻接表中添加一个新链表（即 HashSet）
+            // 在邻接表中添加一个新链表
             this.adjList.set(vet, new Set());
         }
 
@@ -1055,9 +1025,9 @@ comments: true
             if (!this.adjList.has(vet)) {
                 throw new Error("Illegal Argument Exception");
             }
-            // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
+            // 在邻接表中删除顶点 vet 对应的链表
             this.adjList.delete(vet);
-            // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
+            // 遍历其它顶点的链表，删除所有包含 vet 的边
             for (let set of this.adjList.values()) {
                 set.delete(vet);
             }
@@ -1080,29 +1050,25 @@ comments: true
 === "C"
 
     ```c title="graph_adjacency_list.c"
-    [class]{vertex}-[func]{}
-
     [class]{graphAdjList}-[func]{}
     ```
 
 === "C#"
 
     ```csharp title="graph_adjacency_list.cs"
-    [class]{Vertex}-[func]{}
-
     [class]{GraphAdjList}-[func]{}
     ```
 
 === "Swift"
 
     ```swift title="graph_adjacency_list.swift"
-    [class]{Vertex}-[func]{}
-
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-        // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
-        private var adjList: [Vertex: Set<Vertex>] // 邻接表（使用哈希表实现）
+        // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
+        // 请注意，adjList 中的元素是 Vertex 对象
+        private var adjList: [Vertex: Set<Vertex>]
 
+        /* 构造方法 */
         init(edges: [[Vertex]]) {
             adjList = [:]
             // 添加所有顶点和边
@@ -1143,7 +1109,7 @@ comments: true
             if adjList[vet] != nil {
                 return
             }
-            // 在邻接表中添加一个新链表（即 HashSet）
+            // 在邻接表中添加一个新链表
             adjList[vet] = []
         }
 
@@ -1152,9 +1118,9 @@ comments: true
             if adjList[vet] == nil {
                 fatalError("参数错误")
             }
-            // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
+            // 在邻接表中删除顶点 vet 对应的链表
             adjList.removeValue(forKey: vet)
-            // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
+            // 遍历其它顶点的链表，删除所有包含 vet 的边
             for key in adjList.keys {
                 adjList[key]?.remove(vet)
             }
@@ -1177,8 +1143,6 @@ comments: true
 === "Zig"
 
     ```zig title="graph_adjacency_list.zig"
-    [class]{Vertex}-[func]{}
-
     [class]{GraphAdjList}-[func]{}
     ```
 
