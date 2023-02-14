@@ -89,7 +89,7 @@ comments: true
 === "Zig"
 
     ```zig title="graph_adjacency_matrix.zig"
-    
+
     ```
 
 ## 9.2.2. 基于邻接表的实现
@@ -128,80 +128,60 @@ comments: true
 === "Java"
 
     ```java title="graph_adjacency_list.java"
-    [class]{Vertex}-[func]{}
-
     [class]{GraphAdjList}-[func]{}
     ```
 
 === "C++"
 
     ```cpp title="graph_adjacency_list.cpp"
-    [class]{Vertex}-[func]{}
-
     [class]{GraphAdjList}-[func]{}
     ```
 
 === "Python"
 
     ```python title="graph_adjacency_list.py"
-    [class]{Vertex}-[func]{}
-
     [class]{GraphAdjList}-[func]{}
     ```
 
 === "Go"
 
     ```go title="graph_adjacency_list.go"
-    [class]{vertex}-[func]{}
-
     [class]{graphAdjList}-[func]{}
     ```
 
 === "JavaScript"
 
     ```javascript title="graph_adjacency_list.js"
-    [class]{Vertex}-[func]{}
-
     [class]{GraphAdjList}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="graph_adjacency_list.ts"
-    [class]{Vertex}-[func]{}
-
     [class]{GraphAdjList}-[func]{}
     ```
 
 === "C"
 
     ```c title="graph_adjacency_list.c"
-    [class]{vertex}-[func]{}
-
     [class]{graphAdjList}-[func]{}
     ```
 
 === "C#"
 
     ```csharp title="graph_adjacency_list.cs"
-    [class]{Vertex}-[func]{}
-
     [class]{GraphAdjList}-[func]{}
     ```
 
 === "Swift"
 
     ```swift title="graph_adjacency_list.swift"
-    [class]{Vertex}-[func]{}
-
     [class]{GraphAdjList}-[func]{}
     ```
 
 === "Zig"
 
     ```zig title="graph_adjacency_list.zig"
-    [class]{Vertex}-[func]{}
-
     [class]{GraphAdjList}-[func]{}
     ```
 
