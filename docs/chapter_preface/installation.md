@@ -17,7 +17,7 @@ comments: true
 
 ## 0.3.3. C/C++ 环境
 
-1. Windows 系统需要安装 [MinGW](https://sourceforge.net/projects/mingw-w64/files/) （[配置教程](https://glj0.netlify.app/d-%E8%BD%AF%E4%BB%B6%E6%8A%80%E8%83%BD/windows%20%E4%B8%8B%E4%BD%BF%E7%94%A8%20vscode%20+%20mingw%20%E5%AE%8C%E6%88%90%E7%AE%80%E5%8D%95%20c%20%E6%88%96%20cpp%20%E4%BB%A3%E7%A0%81%E7%9A%84%E8%BF%90%E8%A1%8C%E4%B8%8E%E8%B0%83%E8%AF%95/)|[国内镜像](https://blog.csdn.net/qq_33698226/article/details/129031241)），MacOS 自带 Clang 无需安装。
+1. Windows 系统需要安装 [MinGW](https://sourceforge.net/projects/mingw-w64/files/)（[配置教程](https://blog.csdn.net/qq_33698226/article/details/129031241)），MacOS 自带 Clang 无需安装。
 2. 在 VSCode 的插件市场中搜索 `c++` ，安装 C/C++ Extension Pack 。
 
 ## 0.3.4. Python 环境
