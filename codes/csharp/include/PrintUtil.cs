@@ -1,8 +1,9 @@
-﻿/**
+/**
 * File: PrintUtil.cs
 * Created Time: 2022-12-23
-* Author: haptear (haptear@hotmail.com)
+* Author: haptear (haptear@hotmail.com), krahets (krahets@163.com)
 */
+
 namespace hello_algo.include;
 
 public class Trunk
@@ -19,6 +20,15 @@ public class Trunk
 
 public class PrintUtil
 {
+    /**
+     * Print a list
+     * @param list
+     */
+    public static void PrintList(List<int> list)
+    {
+        Console.WriteLine("[" + string.Join(", ", list) + "]");
+    }
+
     /**
      * Print a linked list
      * @param head
@@ -149,7 +159,7 @@ public class PrintUtil
         Console.WriteLine("[");
         foreach (List<int> row in matrix)
         {
-            Console.WriteLine(string.Join(',', row.Select(r => $"  {r}")));
+            Console.WriteLine("  [" + string.Join(", ", row.Select(r => $"{r}")) + "],");
         }
         Console.WriteLine("]");
     }
