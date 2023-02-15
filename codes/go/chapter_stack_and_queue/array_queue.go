@@ -41,7 +41,7 @@ func (q *arrayQueue) push(num int) {
 	// 计算尾指针，指向队尾索引 + 1
 	// 通过取余操作，实现 rear 越过数组尾部后回到头部
 	rear := (q.front + q.queSize) % q.queCapacity
-	// 尾结点后添加 num
+	// 将 num 添加至队尾
 	q.nums[rear] = num
 	q.queSize++
 }

@@ -293,11 +293,15 @@ comments: true
 
     ```
 
-## 5.3.2. 双向队列实现
+## 5.3.2. 双向队列实现 *
 
-双向队列需要一种可以在两端添加、两端删除的数据结构。与队列的实现方法类似，双向队列也可以使用双向链表和循环数组来实现。
+与队列类似，双向队列同样可以使用链表或数组来实现。
 
 ### 基于双向链表的实现
+
+回忆上节内容，由于可以方便地删除链表头结点（对应出队操作），以及在链表尾结点后添加新结点（对应入队操作），因此我们使用普通单向链表来实现队列。
+
+而双向队列的头部和尾部都可以执行入队与出队操作，换言之，双向队列的操作是“首尾对称”的，也需要实现另一个对称方向的操作。因此，双向队列需要使用「双向链表」来实现。
 
 我们将双向链表的头结点和尾结点分别看作双向队列的队首和队尾，并且实现在两端都能添加与删除结点。
 
@@ -316,7 +320,7 @@ comments: true
 === "pollFirst()"
     ![linkedlist_deque_poll_first](deque.assets/linkedlist_deque_poll_first.png)
 
-以下是使用双向链表实现双向队列的示例代码。
+以下是具体实现代码。
 
 === "Java"
 
@@ -383,5 +387,86 @@ comments: true
 === "Zig"
 
     ```zig title="linkedlist_deque.zig"
+
+    ```
+
+### 基于数组的实现
+
+与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。在实现队列的基础上，增加实现“队首入队”和“队尾出队”方法即可。
+
+=== "ArrayDeque"
+    ![array_deque](deque.assets/array_deque.png)
+
+=== "pushLast()"
+    ![array_deque_push_last](deque.assets/array_deque_push_last.png)
+
+=== "pushFirst()"
+    ![array_deque_push_first](deque.assets/array_deque_push_first.png)
+
+=== "pollLast()"
+    ![array_deque_poll_last](deque.assets/array_deque_poll_last.png)
+
+=== "pollFirst()"
+    ![array_deque_poll_first](deque.assets/array_deque_poll_first.png)
+
+以下是具体实现代码。
+
+=== "Java"
+
+    ```java title="array_deque.java"
+    [class]{ArrayDeque}-[func]{}
+    ```
+
+=== "C++"
+
+    ```cpp title="array_deque.cpp"
+
+    ```
+
+=== "Python"
+
+    ```python title="array_deque.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="array_deque.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="array_deque.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array_deque.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="array_deque.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="array_deque.cs"
+
+    ```
+
+=== "Swift"
+
+    ```swift title="array_deque.swift"
+
+    ```
+
+=== "Zig"
+
+    ```zig title="array_deque.zig"
 
     ```
