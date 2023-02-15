@@ -1,8 +1,8 @@
-﻿/**
- * File: PrintUtil.cs
- * Created Time: 2022-12-23
- * Author: haptear (haptear@hotmail.com)
- */
+/**
+* File: PrintUtil.cs
+* Created Time: 2022-12-23
+* Author: haptear (haptear@hotmail.com), krahets (krahets@163.com)
+*/
 
 namespace hello_algo.include;
 
@@ -20,6 +20,15 @@ public class Trunk
 
 public class PrintUtil
 {
+    /**
+     * Print a list
+     * @param list
+     */
+    public static void PrintList(List<int> list)
+    {
+        Console.WriteLine("[" + string.Join(", ", list) + "]");
+    }
+
     /**
      * Print a linked list
      * @param head
@@ -118,5 +127,40 @@ public class PrintUtil
         {
             Console.WriteLine(kv.ToString() + " -> " + map[kv]?.ToString());
         }
+    }
+
+    public static void printHeap(Queue<int> queue)
+    {
+        Console.Write("堆的数组表示：");
+        List<int> list = queue.ToList();
+        Console.WriteLine(string.Join(',', list));
+        Console.WriteLine("堆的树状表示：");
+        TreeNode tree = TreeNode.ArrToTree(list.Cast<int?>().ToArray());
+        PrintTree(tree);
+    }
+
+    public static void printHeap(PriorityQueue<int, int> queue)
+    {
+        var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
+        Console.Write("堆的数组表示：");    
+        List<int> list = new List<int>();
+        while (newQueue.TryDequeue(out int element, out int priority))
+        {
+            list.Add(element);
+        }
+        Console.WriteLine("堆的树状表示：");
+        Console.WriteLine(string.Join(',', list.ToList()));
+        TreeNode tree = TreeNode.ArrToTree(list.Cast<int?>().ToArray());
+        PrintTree(tree);
+    }
+
+    public static void printMatrix(List<List<int>> matrix)
+    {
+        Console.WriteLine("[");
+        foreach (List<int> row in matrix)
+        {
+            Console.WriteLine("  [" + string.Join(", ", row.Select(r => $"{r}")) + "],");
+        }
+        Console.WriteLine("]");
     }
 }
