@@ -4,30 +4,21 @@
  * Author: zjkung1123 (zjkung1123@gmail.com)
  */
 
+using hello_algo.include;
 using NUnit.Framework;
 
 namespace hello_algo.chapter_graph;
 
-/* 顶点类 */
-class Vertex
-{
-    public int Val { get; init; }
-    public Vertex(int val)
-    {
-        Val = val;
-    }
-}
-
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList
 {
-    // 请注意，vertices 和 adjList 中存储的都是 Vertex 对象
-    Dictionary<Vertex, HashSet<Vertex>> adjList; // 邻接表（使用哈希表实现）
+    // 邻接表 adjList 中的元素是 Vertex 对象
+    Dictionary<Vertex, List<Vertex>> adjList;
 
     /* 构造函数 */
     public GraphAdjList(Vertex[][] edges)
     {
-        this.adjList = new Dictionary<Vertex, HashSet<Vertex>>();
+        this.adjList = new Dictionary<Vertex, List<Vertex>>();
         // 添加所有顶点和边
         foreach (Vertex[] edge in edges)
         {
@@ -68,8 +59,8 @@ class GraphAdjList
     {
         if (adjList.ContainsKey(vet))
             return;
-        // 在邻接表中添加一个新链表（即 HashSet）
-        adjList.Add(vet, new HashSet<Vertex>());
+        // 在邻接表中添加一个新链表
+        adjList.Add(vet, new List<Vertex>());
     }
 
     /* 删除顶点 */
@@ -77,12 +68,12 @@ class GraphAdjList
     {
         if (!adjList.ContainsKey(vet))
             throw new InvalidOperationException();
-        // 在邻接表中删除顶点 vet 对应的链表（即 HashSet）
+        // 在邻接表中删除顶点 vet 对应的链表
         adjList.Remove(vet);
-        // 遍历其它顶点的链表（即 HashSet），删除所有包含 vet 的边
-        foreach (HashSet<Vertex> set in adjList.Values)
+        // 遍历其它顶点的链表，删除所有包含 vet 的边
+        foreach (List<Vertex> list in adjList.Values)
         {
-            set.Remove(vet);
+            list.Remove(vet);
         }
     }
 
@@ -90,12 +81,12 @@ class GraphAdjList
     public void print()
     {
         Console.WriteLine("邻接表 =");
-        foreach (KeyValuePair<Vertex, HashSet<Vertex>> entry in adjList)
+        foreach (KeyValuePair<Vertex, List<Vertex>> entry in adjList)
         {
             List<int> tmp = new List<int>();
             foreach (Vertex vertex in entry.Value)
                 tmp.Add(vertex.Val);
-            Console.WriteLine(entry.Key.Val + ": " + string.Join(' ', tmp) + ",");
+            Console.WriteLine(entry.Key.Val + ": [" + string.Join(", ", tmp) + "],");
         }
     }
 }
@@ -106,25 +97,23 @@ public class graph_adjacency_list
     public void Test()
     {
         /* 初始化无向图 */
-        Vertex v0 = new Vertex(1),
-               v1 = new Vertex(3),
-               v2 = new Vertex(2),
-               v3 = new Vertex(5),
-               v4 = new Vertex(4);
-        Vertex[][] edges = new Vertex[][] { new Vertex[] { v0, v1 }, new Vertex[] { v1, v2 }, new Vertex[] { v2, v3 }, new Vertex[] { v0, v3 }, new Vertex[] { v2, v4 }, new Vertex[] { v3, v4 } };
+        Vertex[] v = Vertex.valsToVets(new int[] { 1, 3, 2, 5, 4 });
+        Vertex[][] edges = new Vertex[][] { new Vertex[] { v[0], v[1] }, new Vertex[] { v[0], v[3] },
+                                            new Vertex[] { v[1], v[2] }, new Vertex[] { v[2], v[3] },
+                                            new Vertex[] { v[2], v[4] }, new Vertex[] { v[3], v[4] } };
         GraphAdjList graph = new GraphAdjList(edges);
         Console.WriteLine("\n初始化后，图为");
         graph.print();
 
         /* 添加边 */
-        // 顶点 1, 2 即 v0, v2
-        graph.addEdge(v0, v2);
+        // 顶点 1, 2 即 v[0], v[2]
+        graph.addEdge(v[0], v[2]);
         Console.WriteLine("\n添加边 1-2 后，图为");
         graph.print();
 
         /* 删除边 */
-        // 顶点 1, 3 即 v0, v1
-        graph.removeEdge(v0, v1);
+        // 顶点 1, 3 即 v[0], v[1]
+        graph.removeEdge(v[0], v[1]);
         Console.WriteLine("\n删除边 1-3 后，图为");
         graph.print();
 
@@ -135,8 +124,8 @@ public class graph_adjacency_list
         graph.print();
 
         /* 删除顶点 */
-        // 顶点 3 即 v1
-        graph.removeVertex(v1);
+        // 顶点 3 即 v[1]
+        graph.removeVertex(v[1]);
         Console.WriteLine("\n删除顶点 3 后，图为");
         graph.print();
     }
