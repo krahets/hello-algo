@@ -39,7 +39,7 @@ void countSort(List<int> nums, int exp) {
 /* 基数排序 */
 void radixSort(List<int> nums) {
   // 获取数组的最大元素，用于判断最大位数
-  int ma = -9223372036854775808;
+  int ma = -1 << 31;
   for (int num in nums) if (num > ma) ma = num;
   // 按照从低位到高位的顺序遍历
   for (int exp = 1; ma >= exp; exp *= 10)
@@ -51,6 +51,7 @@ void radixSort(List<int> nums) {
     countSort(nums, exp);
 }
 
+/* Driver Code */
 void main() {
   /* 基数排序 */
   List<int> nums = [23, 12, 3, 4, 788, 192];

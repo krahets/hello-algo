@@ -51,6 +51,6 @@ public class bubble_sort {
 
         int[] nums1 = { 4, 1, 3, 1, 5, 2 };
         bubbleSortWithFlag(nums1);
-        System.out.println("冒泡排序完成后 nums1 = " + Arrays.toString(nums));
+        System.out.println("冒泡排序完成后 nums1 = " + Arrays.toString(nums1));
     }
 }

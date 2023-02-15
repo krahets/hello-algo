@@ -42,6 +42,7 @@ void mergeSort(List<int> nums, int left, int right) {
   merge(nums, left, mid, right);
 }
 
+/* Driver Code */
 void main() {
   /* 归并排序 */
   List<int> nums = [7, 3, 2, 6, 0, 1, 5, 4];
