@@ -1,3 +1,9 @@
+"""
+File: number_headings.py
+Created Time: 2023-02-16
+Author: Krahets (krahets@163.com)
+"""
+
 import re
 
 def get_heading_info_from_nav(mkdocs_path):
