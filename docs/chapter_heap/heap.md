@@ -242,7 +242,6 @@ comments: true
     /* 获取堆顶元素 */
     int peek = maxHeap.Peek();//5
 
-
     /* 堆顶元素出堆 */
     // 出堆元素会形成一个从大到小的序列
     peek = maxHeap.Dequeue();  // 5
