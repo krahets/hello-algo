@@ -1,17 +1,17 @@
 /*
  * File: deque.rs
  * Created Time: 2023-02-05
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: sjinzh (sjinzh@gmail.com), xBLACKICEx (xBLACKICEx@outlook.com)
  */
 
 include!("../include/include.rs");
 
-use std::collections::LinkedList;
+use std::collections::VecDeque;
 
 /* Driver Code */
 pub fn main() {
     // 初始化双向队列
-    let mut deque: LinkedList<i32> = LinkedList::new();
+    let mut deque: VecDeque<i32> = VecDeque::new();
     deque.push_back(2);     // 添加至队尾
     deque.push_back(5);
     deque.push_back(4);

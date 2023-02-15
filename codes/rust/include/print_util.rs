@@ -1,11 +1,11 @@
 /*
  * File: print_util.rs
  * Created Time: 2023-02-05
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: sjinzh (sjinzh@gmail.com), xBLACKICEx (xBLACKICEx@outlook.com)
  */
 
 use std::fmt::Display;
-use std::collections::{HashMap, LinkedList};
+use std::collections::{HashMap, VecDeque};
 
 /* Print an array */
 pub fn print_array<T: Display>(nums: &[T]) {
@@ -27,7 +27,7 @@ pub fn print_hash_map<TKey: Display, TValue: Display>(map: &HashMap<TKey, TValue
 }
 
 /* Print a queue or deque */
-pub fn print_queue<T: Display>(queue: &LinkedList<T>) {
+pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
     print!("[");
     let iter = queue.iter();
     for (i, data) in iter.enumerate() {

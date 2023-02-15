@@ -1,17 +1,17 @@
 /*
  * File: queue.rs
  * Created Time: 2023-02-05
- * Author: sjinzh (sjinzh@gmail.com)
+ * Author: sjinzh (sjinzh@gmail.com), xBLACKICEx (xBLACKICEx@outlook.com)
  */
 
 include!("../include/include.rs");
 
-use std::collections::LinkedList;
+use std::collections::VecDeque;
 
 /* Driver Code */
 pub fn main() {
     // 初始化队列
-    let mut queue: LinkedList<i32> = LinkedList::new();
+    let mut queue: VecDeque<i32> = VecDeque::new();
 
     // 元素入队
     queue.push_back(1);
