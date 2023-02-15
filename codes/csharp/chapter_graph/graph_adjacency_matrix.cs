@@ -97,11 +97,12 @@ class GraphAdjMat
         adjMat[i][j] = 0;
         adjMat[j][i] = 0;
     }
+    
     /* 打印邻接矩阵 */
     public void print()
     {
-        Console.WriteLine("顶点列表 = ");
-        Console.WriteLine(string.Join(",", vertices));
+        Console.Write("顶点列表 = ");
+        PrintUtil.PrintList(vertices);
         Console.WriteLine("邻接矩阵 =");
         PrintUtil.printMatrix(adjMat);
     }
@@ -115,7 +116,9 @@ public class graph_adjacency_matrix
         /* 初始化无向图 */
         // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
         int[] vertices = { 1, 3, 2, 5, 4 };
-        int[][] edges = new int[][] { new int[] { 0, 1 }, new int[] { 1, 2 }, new int[] { 2, 3 }, new int[] { 0, 3 }, new int[] { 2, 4 }, new int[] { 3, 4 } };
+        int[][] edges = new int[][] { new int[] { 0, 1 }, new int[] { 0, 3 },
+                                      new int[] { 1, 2 }, new int[] { 2, 3 },
+                                      new int[] { 2, 4 }, new int[] { 3, 4 } };
         GraphAdjMat graph = new GraphAdjMat(vertices, edges);
         Console.WriteLine("\n初始化后，图为");
         graph.print();
@@ -123,24 +126,24 @@ public class graph_adjacency_matrix
         /* 添加边 */
         // 顶点 1, 2 的索引分别为 0, 2
         graph.addEdge(0, 2);
-        Console.WriteLine("添加边 1-2 后，图为");
+        Console.WriteLine("\n添加边 1-2 后，图为");
         graph.print();
 
         /* 删除边 */
         // 顶点 1, 3 的索引分别为 0, 1
         graph.removeEdge(0, 1);
-        Console.WriteLine("删除边 1-3 后，图为");
+        Console.WriteLine("\n删除边 1-3 后，图为");
         graph.print();
 
         /* 添加顶点 */
         graph.addVertex(6);
-        Console.WriteLine("添加顶点 6 后，图为");
+        Console.WriteLine("\n添加顶点 6 后，图为");
         graph.print();
 
         /* 删除顶点 */
         // 顶点 3 的索引为 1
         graph.removeVertex(1);
-        Console.WriteLine("删除顶点 3 后，图为");
+        Console.WriteLine("\n删除顶点 3 后，图为");
         graph.print();
     }
 }
