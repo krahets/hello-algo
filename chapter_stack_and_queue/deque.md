@@ -293,11 +293,15 @@ comments: true
 
     ```
 
-## 5.3.2. 双向队列实现
+## 5.3.2. 双向队列实现 *
 
-双向队列需要一种可以在两端添加、两端删除的数据结构。与队列的实现方法类似，双向队列也可以使用双向链表和循环数组来实现。
+与队列类似，双向队列同样可以使用链表或数组来实现。
 
 ### 基于双向链表的实现
+
+回忆上节内容，由于可以方便地删除链表头结点（对应出队操作），以及在链表尾结点后添加新结点（对应入队操作），因此我们使用普通单向链表来实现队列。
+
+而双向队列的头部和尾部都可以执行入队与出队操作，换言之，双向队列的操作是“首尾对称”的，也需要实现另一个对称方向的操作。因此，双向队列需要使用「双向链表」来实现。
 
 我们将双向链表的头结点和尾结点分别看作双向队列的队首和队尾，并且实现在两端都能添加与删除结点。
 
@@ -316,7 +320,7 @@ comments: true
 === "pollFirst()"
     ![linkedlist_deque_poll_first](deque.assets/linkedlist_deque_poll_first.png)
 
-以下是使用双向链表实现双向队列的示例代码。
+以下是具体实现代码。
 
 === "Java"
 
@@ -434,19 +438,15 @@ comments: true
             return isEmpty() ? null : rear.val;
         }
 
-        /* 打印双向队列 */
-        public void print() {
-            if (isEmpty()) {
-                System.out.println("[ ]");
-                return;
+        /* 返回数组用于打印 */
+        public int[] toArray() {
+            ListNode node = front;
+            int[] res = new int[size()];
+            for (int i = 0; i < res.length; i++) {
+                res[i] = node.val;
+                node = node.next;
             }
-            List<String> list = new ArrayList<>();
-            ListNode head = front;
-            while (head != null) {
-                list.add(String.valueOf(head.val));
-                head = head.next;
-            }
-            System.out.println("[" + String.join(", ", list) + "]");
+            return res;
         }
     }
     ```
@@ -746,5 +746,189 @@ comments: true
 === "Zig"
 
     ```zig title="linkedlist_deque.zig"
+
+    ```
+
+### 基于数组的实现
+
+与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。在实现队列的基础上，增加实现“队首入队”和“队尾出队”方法即可。
+
+=== "ArrayDeque"
+    ![array_deque](deque.assets/array_deque.png)
+
+=== "pushLast()"
+    ![array_deque_push_last](deque.assets/array_deque_push_last.png)
+
+=== "pushFirst()"
+    ![array_deque_push_first](deque.assets/array_deque_push_first.png)
+
+=== "pollLast()"
+    ![array_deque_poll_last](deque.assets/array_deque_poll_last.png)
+
+=== "pollFirst()"
+    ![array_deque_poll_first](deque.assets/array_deque_poll_first.png)
+
+以下是具体实现代码。
+
+=== "Java"
+
+    ```java title="array_deque.java"
+    /* 基于环形数组实现的双向队列 */
+    class ArrayDeque {
+        private int[] nums;  // 用于存储双向队列元素的数组
+        private int front;   // 队首指针，指向队首元素
+        private int queSize; // 双向队列长度
+
+        /* 构造方法 */
+        public ArrayDeque(int capacity) {
+            this.nums = new int[capacity];
+            front = queSize = 0;
+        }
+
+        /* 获取双向队列的容量 */
+        public int capacity() {
+            return nums.length;
+        }
+
+        /* 获取双向队列的长度 */
+        public int size() {
+            return queSize;
+        }
+
+        /* 判断双向队列是否为空 */
+        public boolean isEmpty() {
+            return queSize == 0;
+        }
+
+        /* 计算环形数组索引 */
+        private int index(int i) {
+            // 通过取余操作实现数组首尾相连
+            // 当 i 越过数组尾部后，回到头部
+            // 当 i 越过数组头部后，回到尾部
+            return (i + capacity()) % capacity();
+        }
+
+        /* 队首入队 */
+        public void pushFirst(int num) {
+            if (queSize == capacity()) {
+                System.out.println("双向队列已满");
+                return;
+            }
+            // 队首指针向左移动一位
+            // 通过取余操作，实现 front 越过数组头部后回到尾部
+            front = index(front - 1);
+            // 将 num 添加至队首
+            nums[front] = num;
+            queSize++;
+        }
+
+        /* 队尾入队 */
+        public void pushLast(int num) {
+            if (queSize == capacity()) {
+                System.out.println("双向队列已满");
+                return;
+            }
+            // 计算尾指针，指向队尾索引 + 1
+            int rear = index(front + queSize);
+            // 将 num 添加至队尾
+            nums[rear] = num;
+            queSize++;
+        }
+
+        /* 队首出队 */
+        public int pollFirst() {
+            int num = peekFirst();
+            // 队首指针向后移动一位
+            front = index(front + 1);
+            queSize--;
+            return num;
+        }
+
+        /* 队尾出队 */
+        public int pollLast() {
+            int num = peekLast();
+            queSize--;
+            return num;
+        }
+
+        /* 访问队首元素 */
+        public int peekFirst() {
+            if (isEmpty())
+                throw new EmptyStackException();
+            return nums[front];
+        }
+
+        /* 访问队尾元素 */
+        public int peekLast() {
+            if (isEmpty())
+                throw new EmptyStackException();
+            // 计算尾元素索引
+            int last = index(front + queSize - 1);
+            return nums[last];
+        }
+
+        /* 返回数组用于打印 */
+        public int[] toArray() {
+            // 仅转换有效长度范围内的列表元素
+            int[] res = new int[queSize];
+            for (int i = 0, j = front; i < queSize; i++, j++) {
+                res[i] = nums[index(j)];
+            }
+            return res;
+        }
+    }
+    ```
+
+=== "C++"
+
+    ```cpp title="array_deque.cpp"
+
+    ```
+
+=== "Python"
+
+    ```python title="array_deque.py"
+
+    ```
+
+=== "Go"
+
+    ```go title="array_deque.go"
+
+    ```
+
+=== "JavaScript"
+
+    ```js title="array_deque.js"
+
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array_deque.ts"
+
+    ```
+
+=== "C"
+
+    ```c title="array_deque.c"
+
+    ```
+
+=== "C#"
+
+    ```csharp title="array_deque.cs"
+
+    ```
+
+=== "Swift"
+
+    ```swift title="array_deque.swift"
+
+    ```
+
+=== "Zig"
+
+    ```zig title="array_deque.zig"
 
     ```
