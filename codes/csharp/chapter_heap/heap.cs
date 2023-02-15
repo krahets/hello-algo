@@ -4,9 +4,9 @@
  * Author: zjkung1123 (zjkung1123@gmail.com)
  */
 
-using System.Diagnostics.Metrics;
 using hello_algo.include;
 using NUnit.Framework;
+
 namespace hello_algo.chapter_heap;
 
 public class heap
@@ -32,7 +32,6 @@ public class heap
         PriorityQueue<int, int> minHeap = new PriorityQueue<int, int>();
         // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
         PriorityQueue<int, int> maxHeap = new PriorityQueue<int, int>(Comparer<int>.Create((x, y) => y - x));
-
         Console.WriteLine("以下测试样例为大顶堆");
 
         /* 元素入堆 */
@@ -56,12 +55,10 @@ public class heap
 
         /* 获取堆大小 */
         int size = maxHeap.Count;
-
         Console.WriteLine($"堆元素数量为 {size}");
 
         /* 判断堆是否为空 */
         bool isEmpty = maxHeap.Count == 0;
-
         Console.WriteLine($"堆是否为空 {isEmpty}");
 
         /* 输入列表并建堆 */
