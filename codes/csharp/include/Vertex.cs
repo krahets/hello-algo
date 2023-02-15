@@ -4,8 +4,10 @@
  * Author: zjkung1123 (zjkung1123@gmail.com), krahets (krahets@163.com)
  */
 
+namespace hello_algo.include;
+
 /* 顶点类 */
-class Vertex
+public class Vertex
 {
     public int Val { get; init; }
     public Vertex(int val)

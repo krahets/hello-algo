@@ -11,8 +11,7 @@ import include.*;
 
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
-    // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
-    // 请注意，adjList 中的元素是 Vertex 对象
+    // 邻接表，key: 顶点，value：该顶点的所有邻接结点
     Map<Vertex, List<Vertex>> adjList;
 
     /* 构造方法 */

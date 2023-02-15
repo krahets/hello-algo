@@ -12,7 +12,7 @@ namespace hello_algo.chapter_graph;
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList
 {
-    // 邻接表 adjList 中的元素是 Vertex 对象
+    // 邻接表，key: 顶点，value：该顶点的所有邻接结点
     Dictionary<Vertex, List<Vertex>> adjList;
 
     /* 构造函数 */
