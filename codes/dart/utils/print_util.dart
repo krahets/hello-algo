@@ -15,61 +15,58 @@ class Trunk {
   Trunk(this.prev, this.str);
 }
 
-class PrintUtil {
-  static void printLinkedList(ListNode? head) {
-    List<String> list = [];
+void printLinkedList(ListNode? head) {
+  List<String> list = [];
 
-    while (head != null) {
-      list.add('${head.val}');
-      head = head.next;
-    }
-
-    print(list.join(' -> '));
+  while (head != null) {
+    list.add('${head.val}');
+    head = head.next;
   }
-  /*
+
+  print(list.join(' -> '));
+}
+/*
    * Print a binary tree
    * @param root
    * @param prev
    * @param isLeft
    */
 
-  static void printTree(TreeNode? root,
-      [Trunk? prev = null, bool isLeft = false]) {
-    if (root == null) {
-      return;
-    }
-
-    String prev_str = '    ';
-    Trunk trunk = Trunk(prev, prev_str);
-
-    printTree(root.right, trunk, true);
-
-    if (prev == null) {
-      trunk.str = '---';
-    } else if (isLeft) {
-      trunk.str = '/---';
-      prev_str = '   |';
-    } else {
-      trunk.str = '\\---';
-      prev.str = prev_str;
-    }
-    showTrunks(trunk);
-    print(' ${root.val}');
-
-    if (prev != null) {
-      prev.str = prev_str;
-    }
-    trunk.str = '   |';
-
-    printTree(root.left, trunk, false);
+void printTree(TreeNode? root, [Trunk? prev = null, bool isLeft = false]) {
+  if (root == null) {
+    return;
   }
 
-  static void showTrunks(Trunk? p) {
-    if (p == null) {
-      return;
-    }
+  String prev_str = '    ';
+  Trunk trunk = Trunk(prev, prev_str);
 
-    showTrunks(p.prev);
-    stdout.write(p.str);
+  printTree(root.right, trunk, true);
+
+  if (prev == null) {
+    trunk.str = '---';
+  } else if (isLeft) {
+    trunk.str = '/---';
+    prev_str = '   |';
+  } else {
+    trunk.str = '\\---';
+    prev.str = prev_str;
   }
+  showTrunks(trunk);
+  print(' ${root.val}');
+
+  if (prev != null) {
+    prev.str = prev_str;
+  }
+  trunk.str = '   |';
+
+  printTree(root.left, trunk, false);
+}
+
+void showTrunks(Trunk? p) {
+  if (p == null) {
+    return;
+  }
+
+  showTrunks(p.prev);
+  stdout.write(p.str);
 }

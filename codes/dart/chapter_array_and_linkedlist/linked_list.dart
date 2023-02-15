@@ -63,15 +63,15 @@ int main() {
   n3.next = n4;
 
   print('初始化的链表为');
-  PrintUtil.printLinkedList(n0);
+  printLinkedList(n0);
 
   /* 插入结点 */
   LinkedList().insert(n0, ListNode(0));
-  PrintUtil.printLinkedList(n0);
+  printLinkedList(n0);
 
   /* 删除结点 */
   LinkedList().remove(n0);
-  PrintUtil.printLinkedList(n0);
+  printLinkedList(n0);
 
   /* 访问结点 */
   ListNode? node = LinkedList().access(n0, 3);
