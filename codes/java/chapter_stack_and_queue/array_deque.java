@@ -8,11 +8,13 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
+/* 基于环形数组实现的双向队列 */
 class ArrayDeque {
     private int[] nums;  // 用于存储双向队列元素的数组
     private int front;   // 队首指针，指向队首元素
     private int queSize; // 双向队列长度
 
+    /* 构造方法 */
     public ArrayDeque(int capacity) {
         this.nums = new int[capacity];
         front = queSize = 0;

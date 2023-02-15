@@ -293,11 +293,15 @@ comments: true
 
     ```
 
-## 5.3.2. 双向队列实现
+## 5.3.2. 双向队列实现 *
 
-双向队列需要一种可以在两端添加、两端删除的数据结构。与队列的实现方法类似，双向队列也可以使用双向链表和循环数组来实现。
+与队列类似，双向队列同样可以使用链表或数组来实现。
 
 ### 基于双向链表的实现
+
+回忆上节内容，由于可以方便地删除链表头结点（对应出队操作），以及在链表尾结点后添加新结点（对应入队操作），因此我们使用普通单向链表来实现队列。
+
+而双向队列的头部和尾部都可以执行入队与出队操作，换言之，双向队列的操作是“首尾对称”的，也需要实现另一个对称方向的操作。因此，双向队列需要使用「双向链表」来实现。
 
 我们将双向链表的头结点和尾结点分别看作双向队列的队首和队尾，并且实现在两端都能添加与删除结点。
 
@@ -316,7 +320,7 @@ comments: true
 === "pollFirst()"
     ![linkedlist_deque_poll_first](deque.assets/linkedlist_deque_poll_first.png)
 
-以下是使用双向链表实现双向队列的示例代码。
+以下是具体实现代码。
 
 === "Java"
 
@@ -388,114 +392,29 @@ comments: true
 
 ### 基于数组的实现
 
-数组删除首元素和删除尾元素的时间复杂度为 $O(n)$，因此不适合直接用来实现双向队列。然而，我们可以借助两个指针 `front`, `rear` 来分别记录队首和队尾的索引位置，
-在队首入队/队首出队时将 `front` 向前/向后移动一位，在队尾入队/队尾出队时将 `rear` 向后/向前移动一位即可，这样每次仅需操作一个元素，时间复杂度降至 $O(1)$。
+与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。在实现队列的基础上，增加实现“队首入队”和“队尾出队”方法即可。
 
 === "ArrayDeque"
+    ![array_deque](deque.assets/array_deque.png)
 
 === "pushLast()"
+    ![array_deque_push_last](deque.assets/array_deque_push_last.png)
 
 === "pushFirst()"
+    ![array_deque_push_first](deque.assets/array_deque_push_first.png)
 
 === "pollLast()"
+    ![array_deque_poll_last](deque.assets/array_deque_poll_last.png)
 
 === "pollFirst()"
+    ![array_deque_poll_first](deque.assets/array_deque_poll_first.png)
 
-与数组实现队列类似，两个指针在向前/向后移动时，**在到达队首/队尾后就无法继续移动了**，为了解决这个问题，我们同样采用将数组看作"环形"的方法，
-使得队首/队尾指针到达数组头部/尾部时，仍然可以正确处理操作。
+以下是具体实现代码。
 
 === "Java"
 
     ```java title="array_deque.java"
-    /* 基于数组实现的双向队列 */
-    class ArrayDeque {
-    private final int[] nums; // 用于存储队列元素的数组
-    private int front; // 队首指针，指向队首元素
-    private int rear; // 队尾指针，指向队尾元素
-    private int queSize; // 双向队列长度
-    
-        public ArrayDeque(int capacity) {
-            this.nums = new int[capacity];
-            front = rear = 0;
-            queSize = 0;
-        }
-    
-        /* 获取双向队列的容量 */
-        public int capacity() {
-            return nums.length;
-        }
-    
-        /* 获取双向队列的长度 */
-        public int size() {
-            return queSize;
-        }
-    
-        /* 判断双向队列是否为空 */
-        public boolean isEmpty() {
-            return queSize == 0;
-        }
-    
-        /* 队首入队 */
-        public void pushFirst(int num) {
-            if (queSize == capacity()) {
-                System.out.println("双向队列已满");
-                return;
-            }
-    
-            queSize++;
-            // 队首指针先向队首移动一位，越过队首后，通过取余操作返回到队尾
-            front = (front - 1 + capacity()) % capacity();
-            // 队首前添加num，这里与从队尾进行操作的方法需要区分：队尾操作是先添加num，再进行指针移动，如果都是先移动、再添加则会产生值覆盖的情况
-            nums[front] = num;
-        }
-    
-        /* 队尾入队 */
-        public void pushLast(int num) {
-            if (queSize == capacity()) {
-                System.out.println("双向队列已满");
-                return;
-            }
-    
-            queSize++;
-            // 队尾入队先在队尾添加num
-            nums[rear] = num;
-            // 队尾指针再向队尾移动一位，越过尾部则返回队首
-            rear = (rear + 1) % capacity();
-        }
-    
-        /* 队首出队 */
-        public Integer pollFirst() {
-            int num = peekFirst();
-    
-            // 队首元素出队，队首指针需要向队尾移动一位，越过尾部返回队首
-            front = (front + 1) % capacity();
-            queSize--;
-    
-            return num;
-        }
-    
-        /* 队尾出队 */
-        public Integer pollLast() {
-            int num = peekLast();
-    
-            // 队尾元素出队，队尾指针需要向队首移动一位，越过队首返回队尾
-            rear = (rear - 1 + capacity()) % capacity();
-            queSize--;
-    
-            return num;
-        }
-    
-        /* 访问队首元素 */
-        public Integer peekFirst() {
-            return isEmpty() ? null : nums[front];
-        }
-    
-        /* 访问队尾元素 */
-        public Integer peekLast() {
-            // 队尾指针所在的位置是队尾元素的后一位，取值时需要取队尾指针前一位，越过队首则返回队尾
-            return isEmpty() ? null : nums[(rear - 1 + capacity()) % capacity()];
-        }
-    }
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "C++"
@@ -551,5 +470,3 @@ comments: true
     ```zig title="array_deque.zig"
 
     ```
-
-以上代码仍存在局限性，即长度不可变。然而，我们可以通过将数组替换为列表（即动态数组）来引入扩容机制，有兴趣的同学可以尝试实现。
