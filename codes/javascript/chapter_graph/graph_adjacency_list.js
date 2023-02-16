@@ -4,13 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 顶点类 */
-class Vertex {
-    val;
-    constructor(val) {
-        this.val = val;
-    }
-}
+const { Vertex } = require('../include/Vertex')
 
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
@@ -40,8 +34,8 @@ class GraphAdjList {
             throw new Error("Illegal Argument Exception");
         }
         // 添加边 vet1 - vet2
-        this.adjList.get(vet1).add(vet2);
-        this.adjList.get(vet2).add(vet1);
+        this.adjList.get(vet1).push(vet2);
+        this.adjList.get(vet2).push(vet1);
     }
 
     /* 删除边 */
@@ -50,15 +44,15 @@ class GraphAdjList {
             throw new Error("Illegal Argument Exception");
         }
         // 删除边 vet1 - vet2
-        this.adjList.get(vet1).delete(vet2);
-        this.adjList.get(vet2).delete(vet1);
+        this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
+        this.adjList.get(vet2).splice(this.adjList.get(vet2).indexOf(vet1), 1);
     }
 
     /* 添加顶点 */
     addVertex(vet) {
         if (this.adjList.has(vet)) return;
         // 在邻接表中添加一个新链表
-        this.adjList.set(vet, new Set());
+        this.adjList.set(vet, []);
     }
 
     /* 删除顶点 */
@@ -70,7 +64,10 @@ class GraphAdjList {
         this.adjList.delete(vet);
         // 遍历其它顶点的链表，删除所有包含 vet 的边
         for (let set of this.adjList.values()) {
-            set.delete(vet);
+            const index = set.indexOf(vet);
+            if (index > -1) {
+                set.splice(index, 1);
+            }
         }
     }
 
@@ -79,10 +76,10 @@ class GraphAdjList {
         console.log("邻接表 =");
         for (const [key, value] of this.adjList) {
             const tmp = [];
-            for (const vertex of value){
+            for (const vertex of value) {
                 tmp.push(vertex.val);
             }
-            console.log(key.val + ": " + tmp + ",");
+            console.log(key.val + ": " + tmp.join());
         }
     }
 }
