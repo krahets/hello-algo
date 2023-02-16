@@ -39,7 +39,7 @@ class ArrayQueue {
         // 计算尾指针，指向队尾索引 + 1
         // 通过取余操作，实现 rear 越过数组尾部后回到头部
         let rear = (front + queSize) % capacity()
-        // 尾结点后添加 num
+        // 将 num 添加至队尾
         nums[rear] = num
         queSize += 1
     }

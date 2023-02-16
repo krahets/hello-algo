@@ -10,6 +10,7 @@ sys.path.append(osp.dirname(osp.dirname(osp.dirname(osp.abspath(__file__)))))
 import re
 import glob
 import shutil
+from docs.utils.number_headings import number_headings
 from docs.utils.extract_code_python import ExtractCodeBlocksPython
 from docs.utils.extract_code_java import ExtractCodeBlocksJava
 from docs.utils.extract_code_cpp import ExtractCodeBlocksCpp
@@ -20,7 +21,7 @@ from docs.utils.extract_code_go import ExtractCodeBlocksGo
 from docs.utils.extract_code_zig import ExtractCodeBlocksZig
 
 
-def build_markdown(md_path):
+def build_code_blocks(md_path):
     with open(md_path, "r") as f:
         lines = f.readlines()
     
@@ -114,6 +115,9 @@ if __name__ == "__main__":
     shutil.copytree("docs", "build", dirs_exist_ok=True)
     shutil.rmtree("build/utils")
     
-    # Build docs
+    # Build code blocks
     for md_path in glob.glob("docs/chapter_*/*.md"):
-        build_markdown(md_path)
+        build_code_blocks(md_path)
+
+    # Build headings
+    number_headings("mkdocs.yml", "build")
