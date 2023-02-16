@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 4.1. 数组
+# 数组
 
 「数组 Array」是一种将 **相同类型元素** 存储在 **连续内存空间** 的数据结构，将元素在数组中的位置称为元素的「索引 Index」。
 
@@ -102,7 +102,7 @@ comments: true
     var nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
-## 4.1.1. 数组优点
+## 数组优点
 
 **在数组中访问元素非常高效**。这是因为在数组中，计算元素的内存地址非常容易。给定数组首个元素的地址、和一个元素的索引，利用以下公式可以直接计算得到该元素的内存地址，从而直接访问此元素。
 
@@ -179,7 +179,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{randomAccess}
     ```
 
-## 4.1.2. 数组缺点
+## 数组缺点
 
 **数组在初始化后长度不可变**。由于系统无法保证数组之后的内存空间是可用的，因此数组长度无法扩展。而若希望扩容数组，则需新建一个数组，然后把原数组元素依次拷贝到新数组，在数组很大的情况下，这是非常耗时的。
 
@@ -333,7 +333,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{remove}
     ```
 
-## 4.1.3. 数组常用操作
+## 数组常用操作
 
 **数组遍历**。以下介绍两种常用的遍历方法。
 
@@ -459,7 +459,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{find}
     ```
 
-## 4.1.4. 数组典型应用
+## 数组典型应用
 
 **随机访问**。如果我们想要随机抽取一些样本，那么可以用数组存储，并生成一个随机序列，根据索引实现样本的随机抽取。
 

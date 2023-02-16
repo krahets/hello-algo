@@ -62,7 +62,7 @@ void push(ArrayQueue *queue, int num) {
     // 计算队尾指针，指向队尾索引 + 1
     // 通过取余操作，实现 rear 越过数组尾部后回到头部
     int rear = (queue->front + queue->queSize) % queue->queCapacity;
-    // 尾结点后添加 num
+    // 将 num 添加至队尾
     queue->nums[rear] = num;
     queue->queSize++;
 }

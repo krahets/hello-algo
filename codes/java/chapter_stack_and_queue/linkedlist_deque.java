@@ -121,19 +121,15 @@ class LinkedListDeque {
         return isEmpty() ? null : rear.val;
     }
 
-    /* 打印双向队列 */
-    public void print() {
-        if (isEmpty()) {
-            System.out.println("[ ]");
-            return;
+    /* 返回数组用于打印 */
+    public int[] toArray() {
+        ListNode node = front;
+        int[] res = new int[size()];
+        for (int i = 0; i < res.length; i++) {
+            res[i] = node.val;
+            node = node.next;
         }
-        List<String> list = new ArrayList<>();
-        ListNode head = front;
-        while (head != null) {
-            list.add(String.valueOf(head.val));
-            head = head.next;
-        }
-        System.out.println("[" + String.join(", ", list) + "]");
+        return res;
     }
 }
 
@@ -144,8 +140,7 @@ public class linkedlist_deque {
         deque.pushLast(3);
         deque.pushLast(2);
         deque.pushLast(5);
-        System.out.print("双向队列 deque = ");
-        deque.print();
+        System.out.println("双向队列 deque = " + Arrays.toString(deque.toArray()));
 
         /* 访问元素 */
         int peekFirst = deque.peekFirst();
@@ -155,19 +150,15 @@ public class linkedlist_deque {
 
         /* 元素入队 */
         deque.pushLast(4);
-        System.out.print("元素 4 队尾入队后 deque = ");
-        deque.print();
+        System.out.println("元素 4 队尾入队后 deque = " + Arrays.toString(deque.toArray()));
         deque.pushFirst(1);
-        System.out.print("元素 1 队首入队后 deque = ");
-        deque.print();
+        System.out.println("元素 1 队首入队后 deque = " + Arrays.toString(deque.toArray()));
 
         /* 元素出队 */
         int pollLast = deque.pollLast();
-        System.out.print("队尾出队元素 = " + pollLast + "，队尾出队后 deque = ");
-        deque.print();
+        System.out.println("队尾出队元素 = " + pollLast + "，队尾出队后 deque = " + Arrays.toString(deque.toArray()));
         int pollFirst = deque.pollFirst();
-        System.out.print("队首出队元素 = " + pollFirst + "，队首出队后 deque = ");
-        deque.print();
+        System.out.println("队首出队元素 = " + pollFirst + "，队首出队后 deque = " + Arrays.toString(deque.toArray()));
 
         /* 获取双向队列的长度 */
         int size = deque.size();
