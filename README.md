@@ -5,7 +5,7 @@
 </p>
 
 <h3 align="center">
-  《 Hello，算法 》
+  《 Hello 算法 》
 </h3>
 
 <p align="center"> 
@@ -34,7 +34,7 @@
 本项目致力于构建一本开源免费、新手友好的数据结构与算法入门书。
 
 - 全书采用动画图解，结构化地讲解数据结构与算法知识，内容清晰易懂、学习曲线平滑；
-- 算法源代码皆可一键运行，现已支持 Java, C++, Python, Go, JS, TS, C#, Swift, Zig 等语言；
+- 算法源代码皆可一键运行，支持 Java, C++, Python, Go, JS, TS, C#, Swift, Zig 等语言；
 - 鼓励读者在章节讨论区互帮互助、共同进步，提问与评论一般能在两日内得到回复；
 
 如果本书对您有所帮助，请点个 Star :star: 支持一下，谢谢！
@@ -51,11 +51,11 @@
 
 ## 参与写作
 
-我们正在加速更新本书，期待您通过提交 Pull Request 来[参与创作](https://www.hello-algo.com/chapter_preface/contribution/)，以帮助其他读者获取更优质的学习内容。
+我们正在加速更新本书，期待您通过提交 Pull Request 来[参与本项目](https://www.hello-algo.com/chapter_preface/contribution/)，以帮助其他读者获取更优质的学习内容。
 
-- 如您发现语法错误、内容缺失、文字歧义、无效链接、解释不清晰等问题，烦请帮忙修正或评论指出；
-- 期待您参与 C++, Python, Go, JavaScript, TypeScript, C, C#, Swift, Zig, Rust [代码翻译](https://github.com/krahets/hello-algo/issues/15)；
-- 欢迎您拓展内容或新增章节，若有任何问题请与我联系 WeChat: krahets-jyd ；
+- 如您发现语法错误、内容缺失、文字歧义、无效链接、解释不清晰等问题，请帮忙修正或评论指出；
+- 期待您参与 C++, Python, Go, JavaScript, TypeScript, C, C#, Swift, Zig, Rust, Dart 等语言[代码翻译](https://github.com/krahets/hello-algo/issues/15)；
+- 欢迎为您本书内容提出宝贵的意见建议，若有任何问题请提 Issues 或与我联系 WeChat: krahets-jyd ；
 
 感谢本开源书的每一位撰稿人，是他们的无私奉献让这本书变得更好，他们是：
 
