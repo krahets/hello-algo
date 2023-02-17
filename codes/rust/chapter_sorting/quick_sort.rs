@@ -11,6 +11,7 @@ struct QuickSortMedian;
 // 快速排序（尾递归优化）
 struct QuickSortTailCall;
 
+/* 快速排序 */
 impl QuickSort {
     /* 哨兵划分 */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
@@ -42,7 +43,7 @@ impl QuickSort {
     }
 }
 
-/* 快速排序类（中位基准数优化） */
+/* 快速排序（中位基准数优化） */
 impl QuickSortMedian {
     /* 选取三个元素的中位数 */
     fn median_three(nums: &mut [i32], left: usize, mid: usize, right: usize) -> usize {
@@ -90,6 +91,7 @@ impl QuickSortMedian {
     }
 }
 
+/* 快速排序（尾递归优化） */
 impl QuickSortTailCall {
     /* 哨兵划分 */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
