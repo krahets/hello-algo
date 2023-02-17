@@ -1,5 +1,5 @@
 /**
- * File: merge_sort.swift
+ * File: merge_sort.rs
  * Created Time: 2023-02-14
  * Author: xBLACKICEx (xBLACKICEx@outlook.com)
  */
@@ -36,6 +36,7 @@ fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
     }
 }
 
+/* 归并排序 */
 fn merge_sort(left: usize, right: usize, nums: &mut [i32]) {
     // 终止条件
     if left >= right { return; }       // 当子数组长度为 1 时终止递归

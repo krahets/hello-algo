@@ -1,5 +1,5 @@
 /**
- * File: quick_sort.cpp
+ * File: quick_sort.rs
  * Created Time: 2023-02-16
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
