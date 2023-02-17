@@ -64,6 +64,11 @@ path = "chapter_sorting/bubble_sort.rs"
 name = "insertion_sort"
 path = "chapter_sorting/insertion_sort.rs"
 
+# Run Command: cargo run --bin quick_sort
+[[bin]]
+name = "quick_sort"
+path = "chapter_sorting/quick_sort.rs"
+
 # Run Command: cargo run --bin merge_sort
 [[bin]]
 name = "merge_sort"
