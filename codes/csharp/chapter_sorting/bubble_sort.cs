@@ -62,6 +62,6 @@ public class bubble_sort
 
         int[] nums1 = { 4, 1, 3, 1, 5, 2 };
         bubbleSortWithFlag(nums1);
-        Console.WriteLine("冒泡排序完成后 nums1 = " + string.Join(",", nums));
+        Console.WriteLine("冒泡排序完成后 nums1 = " + string.Join(",", nums1));
     }
 }
