@@ -84,40 +84,43 @@ class GraphAdjList {
     }
 }
 
-/* Driver Code */
-/* 初始化无向图 */
-const v0 = new Vertex(1),
-    v1 = new Vertex(3),
-    v2 = new Vertex(2),
-    v3 = new Vertex(5),
-    v4 = new Vertex(4);
-const edges = [[v0, v1], [v1, v2], [v2, v3], [v0, v3], [v2, v4], [v3, v4]];
-const graph: GraphAdjList = new GraphAdjList(edges);
-console.log("\n初始化后，图为");
-graph.print();
+// need to add the package @types/node contains type definitions for Node.js, npm i --save-dev @types/node
+if (require.main === module) {
+    /* Driver Code */
+    /* 初始化无向图 */
+    const v0 = new Vertex(1),
+        v1 = new Vertex(3),
+        v2 = new Vertex(2),
+        v3 = new Vertex(5),
+        v4 = new Vertex(4);
+    const edges: Vertex[][] = [[v0, v1], [v1, v2], [v2, v3], [v0, v3], [v2, v4], [v3, v4]];
+    const graph: GraphAdjList = new GraphAdjList(edges);
+    console.log("\n初始化后，图为");
+    graph.print();
 
-/* 添加边 */
-// 顶点 1, 2 即 v0, v2
-graph.addEdge(v0, v2);
-console.log("\n添加边 1-2 后，图为");
-graph.print();
+    /* 添加边 */
+    // 顶点 1, 2 即 v0, v2
+    graph.addEdge(v0, v2);
+    console.log("\n添加边 1-2 后，图为");
+    graph.print();
 
-/* 删除边 */
-// 顶点 1, 3 即 v0, v1
-graph.removeEdge(v0, v1);
-console.log("\n删除边 1-3 后，图为");
-graph.print();
+    /* 删除边 */
+    // 顶点 1, 3 即 v0, v1
+    graph.removeEdge(v0, v1);
+    console.log("\n删除边 1-3 后，图为");
+    graph.print();
 
-/* 添加顶点 */
-const v5: Vertex = new Vertex(6);
-graph.addVertex(v5);
-console.log("\n添加顶点 6 后，图为");
-graph.print();
+    /* 添加顶点 */
+    const v5: Vertex = new Vertex(6);
+    graph.addVertex(v5);
+    console.log("\n添加顶点 6 后，图为");
+    graph.print();
 
-/* 删除顶点 */
-// 顶点 3 即 v1
-graph.removeVertex(v1);
-console.log("\n删除顶点 3 后，图为");
-graph.print();
+    /* 删除顶点 */
+    // 顶点 3 即 v1
+    graph.removeVertex(v1);
+    console.log("\n删除顶点 3 后，图为");
+    graph.print();
+}
 
-export {};
+export { GraphAdjList };
