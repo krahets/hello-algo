@@ -8,31 +8,21 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+
+	. "github.com/krahets/hello-algo/pkg"
 )
-
-/* 顶点类 */
-type vertex struct {
-	val int
-}
-
-/* 构造方法 */
-func newVertex(val int) vertex {
-	return vertex{
-		val: val,
-	}
-}
 
 /* 基于邻接表实现的无向图类 */
 type graphAdjList struct {
 	// 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
 	// 请注意，adjList 中的元素是 Vertex 对象
-	adjList map[vertex]map[vertex]struct{}
+	adjList map[Vertex]map[Vertex]struct{}
 }
 
 /* 构造方法 */
-func newGraphAdjList(edges [][]vertex) *graphAdjList {
+func newGraphAdjList(edges [][]Vertex) *graphAdjList {
 	g := &graphAdjList{
-		adjList: make(map[vertex]map[vertex]struct{}),
+		adjList: make(map[Vertex]map[Vertex]struct{}),
 	}
 	// 添加所有顶点和边
 	for _, edge := range edges {
@@ -49,7 +39,7 @@ func (g *graphAdjList) size() int {
 }
 
 /* 添加边 */
-func (g *graphAdjList) addEdge(vet1 vertex, vet2 vertex) {
+func (g *graphAdjList) addEdge(vet1 Vertex, vet2 Vertex) {
 	_, ok1 := g.adjList[vet1]
 	_, ok2 := g.adjList[vet2]
 	if !ok1 || !ok2 || vet1 == vet2 {
@@ -61,7 +51,7 @@ func (g *graphAdjList) addEdge(vet1 vertex, vet2 vertex) {
 }
 
 /* 删除边 */
-func (g *graphAdjList) removeEdge(vet1 vertex, vet2 vertex) {
+func (g *graphAdjList) removeEdge(vet1 Vertex, vet2 Vertex) {
 	_, ok1 := g.adjList[vet1]
 	_, ok2 := g.adjList[vet2]
 	if !ok1 || !ok2 || vet1 == vet2 {
@@ -73,17 +63,17 @@ func (g *graphAdjList) removeEdge(vet1 vertex, vet2 vertex) {
 }
 
 /* 添加顶点 */
-func (g *graphAdjList) addVertex(vet vertex) {
+func (g *graphAdjList) addVertex(vet Vertex) {
 	_, ok := g.adjList[vet]
 	if ok {
 		return
 	}
 	// 在邻接表中添加一个新链表
-	g.adjList[vet] = make(map[vertex]struct{})
+	g.adjList[vet] = make(map[Vertex]struct{})
 }
 
 /* 删除顶点 */
-func (g *graphAdjList) removeVertex(vet vertex) {
+func (g *graphAdjList) removeVertex(vet Vertex) {
 	_, ok := g.adjList[vet]
 	if !ok {
 		panic("error")
@@ -102,9 +92,9 @@ func (g *graphAdjList) print() {
 	var builder strings.Builder
 	fmt.Printf("邻接表 = \n")
 	for k, v := range g.adjList {
-		builder.WriteString("\t\t" + strconv.Itoa(k.val) + ": ")
+		builder.WriteString("\t\t" + strconv.Itoa(k.Val) + ": ")
 		for vet := range v {
-			builder.WriteString(strconv.Itoa(vet.val) + " ")
+			builder.WriteString(strconv.Itoa(vet.Val) + " ")
 		}
 		fmt.Println(builder.String())
 		builder.Reset()
