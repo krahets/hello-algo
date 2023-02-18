@@ -3,7 +3,10 @@
 
 # Editor
 .vscode/
-.idea/
+**/.idea
+**/cmake-build-debug
+codes/c/.idea/
+codes/c/cmake-build-debug/
 
 # mkdocs files
 .cache/
