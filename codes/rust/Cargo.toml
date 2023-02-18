@@ -49,6 +49,11 @@ path = "chapter_stack_and_queue/deque.rs"
 name = "hash_map"
 path = "chapter_hashing/hash_map.rs"
 
+# Run Command: cargo run --bin array_hash_map
+[[bin]]
+name = "array_hash_map"
+path = "chapter_hashing/array_hash_map.rs"
+
 # Run Command: cargo run --bin binary_search
 [[bin]]
 name = "binary_search"
