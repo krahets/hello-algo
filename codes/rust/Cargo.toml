@@ -59,6 +59,21 @@ path = "chapter_searching/binary_search.rs"
 name = "bubble_sort"
 path = "chapter_sorting/bubble_sort.rs"
 
+# Run Command: cargo run --bin insertion_sort
+[[bin]]
+name = "insertion_sort"
+path = "chapter_sorting/insertion_sort.rs"
+
+# Run Command: cargo run --bin quick_sort
+[[bin]]
+name = "quick_sort"
+path = "chapter_sorting/quick_sort.rs"
+
+# Run Command: cargo run --bin merge_sort
+[[bin]]
+name = "merge_sort"
+path = "chapter_sorting/merge_sort.rs"
+
 # Run Command: cargo run --bin array_stack
 [[bin]]
 name = "array_stack"
