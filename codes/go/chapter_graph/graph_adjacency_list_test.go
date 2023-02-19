@@ -13,25 +13,21 @@ import (
 
 func TestGraphAdjList(t *testing.T) {
 	/* 初始化无向图 */
-	v0 := NewVertex(1)
-	v1 := NewVertex(3)
-	v2 := NewVertex(2)
-	v3 := NewVertex(5)
-	v4 := NewVertex(4)
-	edges := [][]Vertex{{v0, v1}, {v1, v2}, {v2, v3}, {v0, v3}, {v2, v4}, {v3, v4}}
+	v := ValsToVets([]int{1, 3, 2, 5, 4})
+	edges := [][]Vertex{{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]}, {v[2], v[3]}, {v[2], v[4]}, {v[3], v[4]}}
 	graph := newGraphAdjList(edges)
 	fmt.Println("初始化后，图为:")
 	graph.print()
 
 	/* 添加边 */
-	// 顶点 1, 2 即 v0, v2
-	graph.addEdge(v0, v2)
+	// 顶点 1, 2, 即 v[0], v[2]
+	graph.addEdge(v[0], v[2])
 	fmt.Println("\n添加边 1-2 后，图为")
 	graph.print()
 
 	/* 删除边 */
-	// 顶点 1, 3 即 v0, v1
-	graph.removeEdge(v0, v1)
+	// 顶点 1, 3, 即 v[0], v[1]
+	graph.removeEdge(v[0], v[1])
 	fmt.Println("\n删除边 1-3 后，图为")
 	graph.print()
 
@@ -42,8 +38,8 @@ func TestGraphAdjList(t *testing.T) {
 	graph.print()
 
 	/* 删除顶点 */
-	// 顶点 3 即 v1
-	graph.removeVertex(v1)
+	// 顶点 3 , 即 v[1]
+	graph.removeVertex(v[1])
 	fmt.Println("\n删除顶点 3 后，图为")
 	graph.print()
 }
