@@ -65,7 +65,7 @@ let package = Package(
         .executableTarget(name: "avl_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["avl_tree.swift"]),
         .executableTarget(name: "my_heap", dependencies: ["utils"], path: "chapter_heap", sources: ["my_heap.swift"]),
         .executableTarget(name: "graph_adjacency_matrix", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_matrix.swift"]),
-        .executableTarget(name: "graph_adjacency_list", path: "chapter_graph", sources: ["graph_adjacency_list.swift"]),
+        .executableTarget(name: "graph_adjacency_list", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_list.swift"]),
         .executableTarget(name: "linear_search", dependencies: ["utils"], path: "chapter_searching", sources: ["linear_search.swift"]),
         .executableTarget(name: "binary_search", path: "chapter_searching", sources: ["binary_search.swift"]),
         .executableTarget(name: "hashing_search", dependencies: ["utils"], path: "chapter_searching", sources: ["hashing_search.swift"]),
