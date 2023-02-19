@@ -93,8 +93,8 @@ if (require.main === module) {
         v2 = new Vertex(2),
         v3 = new Vertex(5),
         v4 = new Vertex(4);
-    const edges: Vertex[][] = [[v0, v1], [v1, v2], [v2, v3], [v0, v3], [v2, v4], [v3, v4]];
-    const graph: GraphAdjList = new GraphAdjList(edges);
+    const edges = [[v0, v1], [v1, v2], [v2, v3], [v0, v3], [v2, v4], [v3, v4]];
+    const graph = new GraphAdjList(edges);
     console.log("\n初始化后，图为");
     graph.print();
 
@@ -111,7 +111,7 @@ if (require.main === module) {
     graph.print();
 
     /* 添加顶点 */
-    const v5: Vertex = new Vertex(6);
+    const v5 = new Vertex(6);
     graph.addVertex(v5);
     console.log("\n添加顶点 6 后，图为");
     graph.print();
