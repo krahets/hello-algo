@@ -37,7 +37,7 @@ enum GraphDFS {
     /* Driver Code */
     static func main() {
         /* 初始化无向图 */
-        let v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6])
+        let v = Vertex.valsToVets(vals: [0, 1, 2, 3, 4, 5, 6])
         let edges = [
             [v[0], v[1]], [v[0], v[3]], [v[1], v[2]],
             [v[2], v[5]], [v[4], v[5]], [v[5], v[6]],
@@ -49,6 +49,6 @@ enum GraphDFS {
         /* 深度优先遍历 BFS */
         let res = graphDFS(graph: graph, startVet: v[0])
         print("\n深度优先遍历（DFS）顶点序列为")
-        print(Vertex.vetsToVals(res))
+        print(Vertex.vetsToVals(vets: res))
     }
 }

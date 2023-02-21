@@ -38,7 +38,7 @@ enum GraphBFS {
     /* Driver Code */
     static func main() {
         /* 初始化无向图 */
-        let v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+        let v = Vertex.valsToVets(vals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
         let edges = [
             [v[0], v[1]], [v[0], v[3]], [v[1], v[2]], [v[1], v[4]],
             [v[2], v[5]], [v[3], v[4]], [v[3], v[6]], [v[4], v[5]],
@@ -51,6 +51,6 @@ enum GraphBFS {
         /* 广度优先遍历 BFS */
         let res = graphBFS(graph: graph, startVet: v[0])
         print("\n广度优先遍历（BFS）顶点序列为")
-        print(Vertex.vetsToVals(res))
+        print(Vertex.vetsToVals(vets: res))
     }
 }

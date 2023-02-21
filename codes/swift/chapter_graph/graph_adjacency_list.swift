@@ -90,7 +90,7 @@ enum GraphAdjacencyList {
     /* Driver Code */
     static func main() {
         /* 初始化无向图 */
-        let v = Vertex.valsToVets([1, 3, 2, 5, 4])
+        let v = Vertex.valsToVets(vals: [1, 3, 2, 5, 4])
         let edges = [[v[0], v[1]], [v[0], v[3]], [v[1], v[2]], [v[2], v[3]], [v[2], v[4]], [v[3], v[4]]]
         let graph = GraphAdjList(edges: edges)
         print("\n初始化后，图为")
