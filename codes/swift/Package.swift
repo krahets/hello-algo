@@ -37,6 +37,8 @@ let package = Package(
         // chapter_graph
         .executable(name: "graph_adjacency_matrix", targets: ["graph_adjacency_matrix"]),
         .executable(name: "graph_adjacency_list", targets: ["graph_adjacency_list"]),
+        .executable(name: "graph_bfs", targets: ["graph_bfs"]),
+        .executable(name: "graph_dfs", targets: ["graph_dfs"]),
         // chapter_searching
         .executable(name: "linear_search", targets: ["linear_search"]),
         .executable(name: "binary_search", targets: ["binary_search"]),
@@ -49,7 +51,9 @@ let package = Package(
         .executable(name: "radix_sort", targets: ["radix_sort"]),
     ],
     targets: [
+        // helper
         .target(name: "utils", path: "utils"),
+        .target(name: "graph_adjacency_list_target", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_list_target.swift"], swiftSettings: [.define("TARGET")]),
         // chapter_computational_complexity
         .executableTarget(name: "time_complexity", path: "chapter_computational_complexity", sources: ["time_complexity.swift"]),
         .executableTarget(name: "worst_best_time_complexity", path: "chapter_computational_complexity", sources: ["worst_best_time_complexity.swift"]),
@@ -82,6 +86,8 @@ let package = Package(
         // chapter_graph
         .executableTarget(name: "graph_adjacency_matrix", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_matrix.swift"]),
         .executableTarget(name: "graph_adjacency_list", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_list.swift"]),
+        .executableTarget(name: "graph_bfs", dependencies: ["utils", "graph_adjacency_list_target"], path: "chapter_graph", sources: ["graph_bfs.swift"]),
+        .executableTarget(name: "graph_dfs", dependencies: ["utils", "graph_adjacency_list_target"], path: "chapter_graph", sources: ["graph_dfs.swift"]),
         // chapter_searching
         .executableTarget(name: "linear_search", dependencies: ["utils"], path: "chapter_searching", sources: ["linear_search.swift"]),
         .executableTarget(name: "binary_search", path: "chapter_searching", sources: ["binary_search.swift"]),
