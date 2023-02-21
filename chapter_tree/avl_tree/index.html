@@ -2159,7 +2159,7 @@
 <p>我们将平衡因子的绝对值 <span class="arithmatex">\(&gt; 1\)</span> 的结点称为「失衡结点」。根据结点的失衡情况，旋转操作分为 <strong>右旋、左旋、先右旋后左旋、先左旋后右旋</strong>，接下来我们来一起来看看它们是如何操作的。</p>
 <h3 id="case-1-">Case 1 - 右旋<a class="headerlink" href="#case-1-" title="Permanent link">&para;</a></h3>
 <p>如下图所示（结点下方为「平衡因子」），从底至顶看，二叉树中首个失衡结点是 <strong>结点 3</strong>。我们聚焦在以该失衡结点为根结点的子树上，将该结点记为 <code>node</code> ，将其左子结点记为 <code>child</code> ，执行「右旋」操作。完成右旋后，该子树已经恢复平衡，并且仍然为二叉搜索树。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Step 1</label><label for="__tabbed_4_2">Step 2</label><label for="__tabbed_4_3">Step 3</label><label for="__tabbed_4_4">Step 4</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="right_rotate_step1" src="../avl_tree.assets/right_rotate_step1.png" /></p>
