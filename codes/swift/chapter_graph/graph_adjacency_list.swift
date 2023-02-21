@@ -113,7 +113,7 @@ enum GraphAdjacencyList {
         graph.print()
 
         /* 删除顶点 */
-        // 顶点 3 即 v1
+        // 顶点 3 即 v[1]
         graph.removeVertex(vet: v[1])
         print("\n删除顶点 3 后，图为")
         graph.print()
