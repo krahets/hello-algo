@@ -47,7 +47,7 @@ func (q *quickSort) quickSort(nums []int, left, right int) {
 
 /* 选取三个元素的中位数 */
 func (q *quickSortMedian) medianThree(nums []int, left, mid, right int) int {
-	// 使用了异或操作来简化代码（!= 在这里起到异或的作用）
+	// 此处使用异或运算来简化代码（!= 在这里起到异或的作用）
 	// 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
 	if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
 		return left

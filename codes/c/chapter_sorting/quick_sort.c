@@ -52,7 +52,7 @@ void quickSort(int nums[], int left, int right) {
 /* 快速排序类（中位基准数优化） */
 // 选取三个元素的中位数
 int medianThree(int nums[], int left, int mid, int right) {
-    // 使用了异或操作来简化代码
+    // 此处使用异或运算来简化代码
     // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
     if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
         return left;

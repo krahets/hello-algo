@@ -53,7 +53,7 @@ const QuickSortMedian = struct {
 
     // 选取三个元素的中位数
     pub fn medianThree(nums: []i32, left: usize, mid: usize, right: usize) usize {
-        // 使用了异或操作来简化代码
+        // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if ((nums[left] < nums[mid]) != (nums[left] < nums[right])) {
             return left;

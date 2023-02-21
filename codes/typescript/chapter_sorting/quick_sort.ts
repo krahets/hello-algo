@@ -56,7 +56,7 @@ class QuickSortMedian {
 
     /* 选取三个元素的中位数 */
     medianThree(nums: number[], left: number, mid: number, right: number): number {
-        // 使用了异或操作来简化代码
+        // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if (Number(nums[left] < nums[mid]) ^ Number(nums[left] < nums[right])) {
             return left;
