@@ -14,31 +14,31 @@ comments: true
 
 「哨兵划分」执行完毕后，原数组被划分成两个部分，即 **左子数组** 和 **右子数组**，且满足 **左子数组任意元素 < 基准数 < 右子数组任意元素**。因此，接下来我们只需要排序两个子数组即可。
 
-=== "Step 1"
+=== "<1>"
     ![pivot_division_step1](quick_sort.assets/pivot_division_step1.png)
 
-=== "Step 2"
+=== "<2>"
     ![pivot_division_step2](quick_sort.assets/pivot_division_step2.png)
 
-=== "Step 3"
+=== "<3>"
     ![pivot_division_step3](quick_sort.assets/pivot_division_step3.png)
 
-=== "Step 4"
+=== "<4>"
     ![pivot_division_step4](quick_sort.assets/pivot_division_step4.png)
 
-=== "Step 5"
+=== "<5>"
     ![pivot_division_step5](quick_sort.assets/pivot_division_step5.png)
 
-=== "Step 6"
+=== "<6>"
     ![pivot_division_step6](quick_sort.assets/pivot_division_step6.png)
 
-=== "Step 7"
+=== "<7>"
     ![pivot_division_step7](quick_sort.assets/pivot_division_step7.png)
 
-=== "Step 8"
+=== "<8>"
     ![pivot_division_step8](quick_sort.assets/pivot_division_step8.png)
 
-=== "Step 9"
+=== "<9>"
     ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png)
 
 <p align="center"> Fig. 哨兵划分 </p>

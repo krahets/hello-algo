@@ -18,15 +18,15 @@ comments: true
 2. 由于在英文字母表中 $r$ 在 $m$ 的后面，因此应排除字典前半部分，查找范围仅剩后半部分；
 3. 循环执行步骤 1-2 ，直到找到拼音首字母为 $r$ 的页码时终止。
 
-=== "Step 1"
+=== "<1>"
     ![look_up_dictionary_step_1](algorithms_are_everywhere.assets/look_up_dictionary_step_1.png)
-=== "Step 2"
+=== "<2>"
     ![look_up_dictionary_step_2](algorithms_are_everywhere.assets/look_up_dictionary_step_2.png)
-=== "Step 3"
+=== "<3>"
     ![look_up_dictionary_step_3](algorithms_are_everywhere.assets/look_up_dictionary_step_3.png)
-=== "Step 4"
+=== "<4>"
     ![look_up_dictionary_step_4](algorithms_are_everywhere.assets/look_up_dictionary_step_4.png)
-=== "Step 5"
+=== "<5>"
     ![look_up_dictionary_step_5](algorithms_are_everywhere.assets/look_up_dictionary_step_5.png)
 
 查字典这个小学生的标配技能，实际上就是大名鼎鼎的「二分查找」。从数据结构角度，我们可以将字典看作是一个已排序的「数组」；而从算法角度，我们可将上述查字典的一系列指令看作是「二分查找」算法。
