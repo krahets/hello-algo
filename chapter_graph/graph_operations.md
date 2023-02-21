@@ -1014,8 +1014,8 @@ comments: true
                 throw new Error("Illegal Argument Exception");
             }
             // 添加边 vet1 - vet2
-            this.adjList.get(vet1).add(vet2);
-            this.adjList.get(vet2).add(vet1);
+            this.adjList.get(vet1).push(vet2);
+            this.adjList.get(vet2).push(vet1);
         }
 
         /* 删除边 */
@@ -1024,15 +1024,15 @@ comments: true
                 throw new Error("Illegal Argument Exception");
             }
             // 删除边 vet1 - vet2
-            this.adjList.get(vet1).delete(vet2);
-            this.adjList.get(vet2).delete(vet1);
+            this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
+            this.adjList.get(vet2).splice(this.adjList.get(vet2).indexOf(vet1), 1);
         }
 
         /* 添加顶点 */
         addVertex(vet) {
             if (this.adjList.has(vet)) return;
             // 在邻接表中添加一个新链表
-            this.adjList.set(vet, new Set());
+            this.adjList.set(vet, []);
         }
 
         /* 删除顶点 */
@@ -1044,7 +1044,10 @@ comments: true
             this.adjList.delete(vet);
             // 遍历其它顶点的链表，删除所有包含 vet 的边
             for (let set of this.adjList.values()) {
-                set.delete(vet);
+                const index = set.indexOf(vet);
+                if (index > -1) {
+                    set.splice(index, 1);
+                }
             }
         }
 
@@ -1053,10 +1056,10 @@ comments: true
             console.log("邻接表 =");
             for (const [key, value] of this.adjList) {
                 const tmp = [];
-                for (const vertex of value){
+                for (const vertex of value) {
                     tmp.push(vertex.val);
                 }
-                console.log(key.val + ": " + tmp + ",");
+                console.log(key.val + ": " + tmp.join());
             }
         }
     }
@@ -1069,7 +1072,7 @@ comments: true
     class GraphAdjList {
         // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
         // 请注意，adjList 中的元素是 Vertex 对象
-        adjList: Map<Vertex, Set<Vertex>>;
+        adjList: Map<Vertex, Vertex[]>;
 
         /* 构造方法 */
         constructor(edges: Vertex[][]) {
@@ -1093,8 +1096,8 @@ comments: true
                 throw new Error("Illegal Argument Exception");
             }
             // 添加边 vet1 - vet2
-            this.adjList.get(vet1).add(vet2);
-            this.adjList.get(vet2).add(vet1);
+            this.adjList.get(vet1).push(vet2);
+            this.adjList.get(vet2).push(vet1);
         }
 
         /* 删除边 */
@@ -1103,15 +1106,15 @@ comments: true
                 throw new Error("Illegal Argument Exception");
             }
             // 删除边 vet1 - vet2
-            this.adjList.get(vet1).delete(vet2);
-            this.adjList.get(vet2).delete(vet1);
+            this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
+            this.adjList.get(vet2).splice(this.adjList.get(vet2).indexOf(vet1), 1);
         }
 
         /* 添加顶点 */
         addVertex(vet: Vertex): void {
             if (this.adjList.has(vet)) return;
             // 在邻接表中添加一个新链表
-            this.adjList.set(vet, new Set());
+            this.adjList.set(vet, []);
         }
 
         /* 删除顶点 */
@@ -1123,7 +1126,10 @@ comments: true
             this.adjList.delete(vet);
             // 遍历其它顶点的链表，删除所有包含 vet 的边
             for (let set of this.adjList.values()) {
-                set.delete(vet);
+                const index: number = set.indexOf(vet);
+                if (index > -1) {
+                    set.splice(index, 1);
+                }
             }
         }
 
@@ -1132,10 +1138,10 @@ comments: true
             console.log("邻接表 =");
             for (const [key, value] of this.adjList.entries()) {
                 const tmp = [];
-                for (const vertex of value){
+                for (const vertex of value) {
                     tmp.push(vertex.val);
                 }
-                console.log(key.val + ": " + tmp + ",");
+                console.log(key.val + ": " + tmp.join());
             }
         }
     }
@@ -1240,7 +1246,7 @@ comments: true
     class GraphAdjList {
         // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
         // 请注意，adjList 中的元素是 Vertex 对象
-        private var adjList: [Vertex: Set<Vertex>]
+        private var adjList: [Vertex: [Vertex]]
 
         /* 构造方法 */
         init(edges: [[Vertex]]) {
@@ -1264,8 +1270,8 @@ comments: true
                 fatalError("参数错误")
             }
             // 添加边 vet1 - vet2
-            adjList[vet1]?.insert(vet2)
-            adjList[vet2]?.insert(vet1)
+            adjList[vet1]?.append(vet2)
+            adjList[vet2]?.append(vet1)
         }
 
         /* 删除边 */
@@ -1274,8 +1280,8 @@ comments: true
                 fatalError("参数错误")
             }
             // 删除边 vet1 - vet2
-            adjList[vet1]?.remove(vet2)
-            adjList[vet2]?.remove(vet1)
+            adjList[vet1]?.removeAll(where: { $0 == vet2 })
+            adjList[vet2]?.removeAll(where: { $0 == vet1 })
         }
 
         /* 添加顶点 */
@@ -1296,7 +1302,7 @@ comments: true
             adjList.removeValue(forKey: vet)
             // 遍历其它顶点的链表，删除所有包含 vet 的边
             for key in adjList.keys {
-                adjList[key]?.remove(vet)
+                adjList[key]?.removeAll(where: { $0 == vet })
             }
         }
 

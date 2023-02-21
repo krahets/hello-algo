@@ -486,7 +486,7 @@ comments: true
     ```java title="quick_sort.java"
     /* 选取三个元素的中位数 */
     int medianThree(int[] nums, int left, int mid, int right) {
-        // 使用了异或操作来简化代码
+        // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
             return left;
@@ -521,7 +521,7 @@ comments: true
     ```cpp title="quick_sort.cpp"
     /* 选取三个元素的中位数 */
     int medianThree(vector<int>& nums, int left, int mid, int right) {
-        // 使用了异或操作来简化代码
+        // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
             return left;
@@ -556,11 +556,11 @@ comments: true
     ```python title="quick_sort.py"
     """ 选取三个元素的中位数 """
     def median_three(self, nums, left, mid, right):
-        # 使用了异或操作来简化代码
+        # 此处使用异或运算来简化代码
         # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]):
             return left
-        elif (nums[mid] < nums[left]) ^ (nums[mid] > nums[right]):
+        elif (nums[mid] < nums[left]) ^ (nums[mid] < nums[right]):
             return mid
         return right
 
@@ -589,7 +589,7 @@ comments: true
     ```go title="quick_sort.go"
     /* 选取三个元素的中位数 */
     func (q *quickSortMedian) medianThree(nums []int, left, mid, right int) int {
-        // 使用了异或操作来简化代码（!= 在这里起到异或的作用）
+        // 此处使用异或运算来简化代码（!= 在这里起到异或的作用）
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
             return left
@@ -628,7 +628,7 @@ comments: true
     ```javascript title="quick_sort.js"
     /* 选取三个元素的中位数 */
     medianThree(nums, left, mid, right) {
-        // 使用了异或操作来简化代码
+        // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right])) return left;
         else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right])) return mid;
@@ -658,7 +658,7 @@ comments: true
     ```typescript title="quick_sort.ts"
     /* 选取三个元素的中位数 */
     medianThree(nums: number[], left: number, mid: number, right: number): number {
-        // 使用了异或操作来简化代码
+        // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if (Number(nums[left] < nums[mid]) ^ Number(nums[left] < nums[right])) {
             return left;
@@ -705,7 +705,7 @@ comments: true
     /* 选取三个元素的中位数 */
     int medianThree(int[] nums, int left, int mid, int right)
     {
-        // 使用了异或操作来简化代码
+        // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
             return left;
@@ -766,7 +766,7 @@ comments: true
     ```zig title="quick_sort.zig"
     // 选取三个元素的中位数
     fn medianThree(nums: []i32, left: usize, mid: usize, right: usize) usize {
-        // 使用了异或操作来简化代码
+        // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if ((nums[left] < nums[mid]) != (nums[left] < nums[right])) {
             return left;
