@@ -4,19 +4,13 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 顶点类 */
-class Vertex {
-    val: number;
-    constructor(val: number) {
-        this.val = val;
-    }
-}
+import { Vertex } from "../module/Vertex";
 
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
     // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
     // 请注意，adjList 中的元素是 Vertex 对象
-    adjList: Map<Vertex, Set<Vertex>>;
+    adjList: Map<Vertex, Vertex[]>;
 
     /* 构造方法 */
     constructor(edges: Vertex[][]) {
@@ -40,8 +34,8 @@ class GraphAdjList {
             throw new Error("Illegal Argument Exception");
         }
         // 添加边 vet1 - vet2
-        this.adjList.get(vet1).add(vet2);
-        this.adjList.get(vet2).add(vet1);
+        this.adjList.get(vet1).push(vet2);
+        this.adjList.get(vet2).push(vet1);
     }
 
     /* 删除边 */
@@ -50,15 +44,15 @@ class GraphAdjList {
             throw new Error("Illegal Argument Exception");
         }
         // 删除边 vet1 - vet2
-        this.adjList.get(vet1).delete(vet2);
-        this.adjList.get(vet2).delete(vet1);
+        this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
+        this.adjList.get(vet2).splice(this.adjList.get(vet2).indexOf(vet1), 1);
     }
 
     /* 添加顶点 */
     addVertex(vet: Vertex): void {
         if (this.adjList.has(vet)) return;
         // 在邻接表中添加一个新链表
-        this.adjList.set(vet, new Set());
+        this.adjList.set(vet, []);
     }
 
     /* 删除顶点 */
@@ -70,7 +64,10 @@ class GraphAdjList {
         this.adjList.delete(vet);
         // 遍历其它顶点的链表，删除所有包含 vet 的边
         for (let set of this.adjList.values()) {
-            set.delete(vet);
+            const index: number = set.indexOf(vet);
+            if (index > -1) {
+                set.splice(index, 1);
+            }
         }
     }
 
@@ -79,48 +76,51 @@ class GraphAdjList {
         console.log("邻接表 =");
         for (const [key, value] of this.adjList.entries()) {
             const tmp = [];
-            for (const vertex of value){
+            for (const vertex of value) {
                 tmp.push(vertex.val);
             }
-            console.log(key.val + ": " + tmp + ",");
+            console.log(key.val + ": " + tmp.join());
         }
     }
 }
 
-/* Driver Code */
-/* 初始化无向图 */
-const v0 = new Vertex(1),
-    v1 = new Vertex(3),
-    v2 = new Vertex(2),
-    v3 = new Vertex(5),
-    v4 = new Vertex(4);
-const edges = [[v0, v1], [v1, v2], [v2, v3], [v0, v3], [v2, v4], [v3, v4]];
-const graph = new GraphAdjList(edges);
-console.log("\n初始化后，图为");
-graph.print();
+// need to add the package @types/node contains type definitions for Node.js, npm i --save-dev @types/node
+if (require.main === module) {
+    /* Driver Code */
+    /* 初始化无向图 */
+    const v0 = new Vertex(1),
+        v1 = new Vertex(3),
+        v2 = new Vertex(2),
+        v3 = new Vertex(5),
+        v4 = new Vertex(4);
+    const edges = [[v0, v1], [v1, v2], [v2, v3], [v0, v3], [v2, v4], [v3, v4]];
+    const graph = new GraphAdjList(edges);
+    console.log("\n初始化后，图为");
+    graph.print();
 
-/* 添加边 */
-// 顶点 1, 2 即 v0, v2
-graph.addEdge(v0, v2);
-console.log("\n添加边 1-2 后，图为");
-graph.print();
+    /* 添加边 */
+    // 顶点 1, 2 即 v0, v2
+    graph.addEdge(v0, v2);
+    console.log("\n添加边 1-2 后，图为");
+    graph.print();
 
-/* 删除边 */
-// 顶点 1, 3 即 v0, v1
-graph.removeEdge(v0, v1);
-console.log("\n删除边 1-3 后，图为");
-graph.print();
+    /* 删除边 */
+    // 顶点 1, 3 即 v0, v1
+    graph.removeEdge(v0, v1);
+    console.log("\n删除边 1-3 后，图为");
+    graph.print();
 
-/* 添加顶点 */
-const v5 = new Vertex(6);
-graph.addVertex(v5);
-console.log("\n添加顶点 6 后，图为");
-graph.print();
+    /* 添加顶点 */
+    const v5 = new Vertex(6);
+    graph.addVertex(v5);
+    console.log("\n添加顶点 6 后，图为");
+    graph.print();
 
-/* 删除顶点 */
-// 顶点 3 即 v1
-graph.removeVertex(v1);
-console.log("\n删除顶点 3 后，图为");
-graph.print();
+    /* 删除顶点 */
+    // 顶点 3 即 v1
+    graph.removeVertex(v1);
+    console.log("\n删除顶点 3 后，图为");
+    graph.print();
+}
 
-export {}
+export { GraphAdjList };
