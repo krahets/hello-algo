@@ -28,25 +28,25 @@ $$
 
 首先，我们先采用“双闭区间”的表示，在数组 `nums` 中查找目标元素 `target` 的对应索引。
 
-=== "Step 1"
+=== "<1>"
     ![binary_search_step1](binary_search.assets/binary_search_step1.png)
 
-=== "Step 2"
+=== "<2>"
     ![binary_search_step2](binary_search.assets/binary_search_step2.png)
 
-=== "Step 3"
+=== "<3>"
     ![binary_search_step3](binary_search.assets/binary_search_step3.png)
 
-=== "Step 4"
+=== "<4>"
     ![binary_search_step4](binary_search.assets/binary_search_step4.png)
 
-=== "Step 5"
+=== "<5>"
     ![binary_search_step5](binary_search.assets/binary_search_step5.png)
 
-=== "Step 6"
+=== "<6>"
     ![binary_search_step6](binary_search.assets/binary_search_step6.png)
 
-=== "Step 7"
+=== "<7>"
     ![binary_search_step7](binary_search.assets/binary_search_step7.png)
 
 二分查找“双闭区间”表示下的代码如下所示。

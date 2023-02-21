@@ -454,22 +454,22 @@ comments: true
 
 考虑从入堆结点开始，**从底至顶执行堆化**。具体地，比较插入结点与其父结点的值，若插入结点更大则将它们交换；并循环以上操作，从底至顶地修复堆中的各个结点；直至越过根结点时结束，或当遇到无需交换的结点时提前结束。
 
-=== "Step 1"
+=== "<1>"
     ![heap_push_step1](heap.assets/heap_push_step1.png)
 
-=== "Step 2"
+=== "<2>"
     ![heap_push_step2](heap.assets/heap_push_step2.png)
 
-=== "Step 3"
+=== "<3>"
     ![heap_push_step3](heap.assets/heap_push_step3.png)
 
-=== "Step 4"
+=== "<4>"
     ![heap_push_step4](heap.assets/heap_push_step4.png)
 
-=== "Step 5"
+=== "<5>"
     ![heap_push_step5](heap.assets/heap_push_step5.png)
 
-=== "Step 6"
+=== "<6>"
     ![heap_push_step6](heap.assets/heap_push_step6.png)
 
 设结点总数为 $n$ ，则树的高度为 $O(\log n)$ ，易得堆化操作的循环轮数最多为 $O(\log n)$ ，**因而元素入堆操作的时间复杂度为 $O(\log n)$** 。
@@ -562,34 +562,34 @@ comments: true
 
 顾名思义，**从顶至底堆化的操作方向与从底至顶堆化相反**，我们比较根结点的值与其两个子结点的值，将最大的子结点与根结点执行交换，并循环以上操作，直到越过叶结点时结束，或当遇到无需交换的结点时提前结束。
 
-=== "Step 1"
+=== "<1>"
     ![heap_poll_step1](heap.assets/heap_poll_step1.png)
 
-=== "Step 2"
+=== "<2>"
     ![heap_poll_step2](heap.assets/heap_poll_step2.png)
 
-=== "Step 3"
+=== "<3>"
     ![heap_poll_step3](heap.assets/heap_poll_step3.png)
 
-=== "Step 4"
+=== "<4>"
     ![heap_poll_step4](heap.assets/heap_poll_step4.png)
 
-=== "Step 5"
+=== "<5>"
     ![heap_poll_step5](heap.assets/heap_poll_step5.png)
 
-=== "Step 6"
+=== "<6>"
     ![heap_poll_step6](heap.assets/heap_poll_step6.png)
 
-=== "Step 7"
+=== "<7>"
     ![heap_poll_step7](heap.assets/heap_poll_step7.png)
 
-=== "Step 8"
+=== "<8>"
     ![heap_poll_step8](heap.assets/heap_poll_step8.png)
 
-=== "Step 9"
+=== "<9>"
     ![heap_poll_step9](heap.assets/heap_poll_step9.png)
 
-=== "Step 10"
+=== "<10>"
     ![heap_poll_step10](heap.assets/heap_poll_step10.png)
 
 与元素入堆操作类似，**堆顶元素出堆操作的时间复杂度为 $O(\log n)$** 。

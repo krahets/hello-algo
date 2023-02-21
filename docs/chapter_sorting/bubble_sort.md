@@ -14,25 +14,25 @@ comments: true
 
 完成此次冒泡操作后，**数组最大元素已在正确位置，接下来只需排序剩余 $n - 1$ 个元素**。
 
-=== "Step 1"
+=== "<1>"
     ![bubble_operation_step1](bubble_sort.assets/bubble_operation_step1.png)
 
-=== "Step 2"
+=== "<2>"
     ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.png)
 
-=== "Step 3"
+=== "<3>"
     ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.png)
 
-=== "Step 4"
+=== "<4>"
     ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.png)
 
-=== "Step 5"
+=== "<5>"
     ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.png)
 
-=== "Step 6"
+=== "<6>"
     ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.png)
 
-=== "Step 7"
+=== "<7>"
     ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.png)
 
 <p align="center"> Fig. 冒泡操作 </p>

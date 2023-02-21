@@ -24,34 +24,34 @@ comments: true
 
 需要注意，由于从长度为 1 的子数组开始合并，所以 **每个子数组都是有序的**。因此，合并任务本质是要 **将两个有序子数组合并为一个有序数组**。
 
-=== "Step1"
+=== "<1>"
     ![merge_sort_step1](merge_sort.assets/merge_sort_step1.png)
 
-=== "Step2"
+=== "<2>"
     ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png)
 
-=== "Step3"
+=== "<3>"
     ![merge_sort_step3](merge_sort.assets/merge_sort_step3.png)
 
-=== "Step4"
+=== "<4>"
     ![merge_sort_step4](merge_sort.assets/merge_sort_step4.png)
 
-=== "Step5"
+=== "<5>"
     ![merge_sort_step5](merge_sort.assets/merge_sort_step5.png)
 
-=== "Step6"
+=== "<6>"
     ![merge_sort_step6](merge_sort.assets/merge_sort_step6.png)
 
-=== "Step7"
+=== "<7>"
     ![merge_sort_step7](merge_sort.assets/merge_sort_step7.png)
 
-=== "Step8"
+=== "<8>"
     ![merge_sort_step8](merge_sort.assets/merge_sort_step8.png)
 
-=== "Step9"
+=== "<9>"
     ![merge_sort_step9](merge_sort.assets/merge_sort_step9.png)
 
-=== "Step10"
+=== "<10>"
     ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png)
 
 观察发现，归并排序的递归顺序就是二叉树的「后序遍历」。

@@ -32,7 +32,7 @@ comments: true
 | 浮点数 | **float**   | 4 bytes           | $-3.4 \times 10^{38}$ ~ $3.4 \times 10^{38}$   | $0.0$ f        |
 |        | double      | 8 bytes           | $-1.7 \times 10^{308}$ ~ $1.7 \times 10^{308}$ | $0.0$          |
 | 字符   | **char**    | 2 bytes / 1 byte   | $0$ ~ $2^{16} - 1$                             | $0$            |
-| 布尔   | **boolean(bool)** | 1 byte / 1 bit  | $\text{true}$ 或 $\text{false}$                | $\text{false}$ |
+| 布尔   | **bool** | 1 byte / 1 bit  | $\text{true}$ 或 $\text{false}$                | $\text{false}$ |
 
 </div>
 
