@@ -31,7 +31,7 @@ function extend(nums, enlarge) {
 function insert(nums, num, index) {
     // 把索引 index 以及之后的所有元素向后移动一位
     for (let i = nums.length - 1; i > index; i--) {
-        nums[i] = nums[i - 1];
+        nums[i + 1] = nums[i];
     }
     // 将 num 赋给 index 处元素
     nums[index] = num;
