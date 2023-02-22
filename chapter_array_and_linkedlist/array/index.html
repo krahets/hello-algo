@@ -1684,8 +1684,8 @@
 <p><img alt="array_memory_location_calculation" src="../array.assets/array_memory_location_calculation.png" /></p>
 <p align="center"> Fig. 数组元素的内存地址计算 </p>
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">elementAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">firtstElementAddr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">elementLength</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">elementIndex</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nv">elementAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>firtstElementAddr<span class="w"> </span>+<span class="w"> </span>elementLength<span class="w"> </span>*<span class="w"> </span>elementIndex
 </code></pre></div>
 <p><strong>为什么数组元素索引从 0 开始编号？</strong> 根据地址计算公式，<strong>索引本质上表示的是内存地址偏移量</strong>，首个元素的地址偏移量是 <span class="arithmatex">\(0\)</span> ，那么索引是 <span class="arithmatex">\(0\)</span> 也就很自然了。</p>
 <p>访问元素的高效性带来了许多便利。例如，我们可以在 <span class="arithmatex">\(O(1)\)</span> 时间内随机获取一个数组中的元素。</p>

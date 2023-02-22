@@ -616,6 +616,33 @@
     3.1.1. 基本数据类型
   </a>
   
+    <nav class="md-nav" aria-label="3.1.1. 基本数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    整数表示方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    浮点数表示方式 *
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基本数据类型与数据结构的关系
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1538,6 +1565,33 @@
     3.1.1. 基本数据类型
   </a>
   
+    <nav class="md-nav" aria-label="3.1.1. 基本数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    整数表示方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    浮点数表示方式 *
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基本数据类型与数据结构的关系
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1573,20 +1627,14 @@
 
 <h1 id="31">3.1. 数据与内存<a class="headerlink" href="#31" title="Permanent link">&para;</a></h1>
 <h2 id="311">3.1.1. 基本数据类型<a class="headerlink" href="#311" title="Permanent link">&para;</a></h2>
-<p>谈到计算机中的数据，我们能够想到文本、图片、视频、语音、3D 模型等等，这些数据虽然组织形式不同，但是有一个共同点，即都是由各种基本数据类型构成的。</p>
-<p><strong>「基本数据类型」是 CPU 可以直接进行运算的类型，在算法中直接被使用。</strong></p>
+<p>谈到计算机中的数据，我们能够想到文本、图片、视频、语音、3D 模型等等，这些数据虽然组织形式不同，但都是由各种基本数据类型构成的。</p>
+<p><strong>「基本数据类型」是 CPU 可以直接进行运算的类型，在算法中直接被使用</strong>。</p>
 <ul>
 <li>「整数」根据不同的长度分为 byte, short, int, long ，根据算法需求选用，即在满足取值范围的情况下尽量减小内存空间占用；</li>
 <li>「浮点数」代表小数，根据长度分为 float, double ，同样根据算法的实际需求选用；</li>
 <li>「字符」在计算机中是以字符集的形式保存的，char 的值实际上是数字，代表字符集中的编号，计算机通过字符集查表来完成编号到字符的转换。占用空间与具体编程语言有关，通常为 2 bytes 或 1 byte ；</li>
-<li>「布尔」代表逻辑中的 “是” 与 “否” ，其占用空间需要具体根据编程语言确定，通常为 1 byte 或 1 bit ；</li>
+<li>「布尔」代表逻辑中的“是”与“否”，其占用空间需要具体根据编程语言确定，通常为 1 byte 或 1 bit ；</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">字节与比特</p>
-<p>1 字节 (byte) = 8 比特 (bit) ， 1 比特即最基本的 1 个二进制位</p>
-</div>
-<p align="center"> Table. Java 的基本数据类型 </p>
-
 <div class="center-table">
 <table>
 <thead>
@@ -1662,8 +1710,79 @@
 <p class="admonition-title">Tip</p>
 <p>以上表格中，加粗项在「算法题」中最为常用。此表格无需硬背，大致理解即可，需要时可以通过查表来回忆。</p>
 </div>
-<p><strong>「基本数据类型」与「数据结构」之间的联系与区别</strong></p>
-<p>我们知道，数据结构是在计算机中 <strong>组织与存储数据的方式</strong>，它的主语是“结构”，而不是“数据”。比如，我们想要表示“一排数字”，自然应该使用「数组」这个数据结构。数组的存储方式使之可以表示数字的相邻关系、先后关系等一系列我们需要的信息，但至于其中存储的是整数 int ，还是小数 float ，或是字符 char ，<strong>则与所谓的数据的结构无关了</strong>。</p>
+<h3 id="_1">整数表示方式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>整数的取值范围取决于变量使用的内存长度，即字节（或比特）数。在计算机中， 1 字节 (byte) = 8 比特 (bit) ， 1 比特即 1 个二进制位。以 int 类型为例：</p>
+<ol>
+<li>整数类型 int 占用 4 bytes = 32 bits ，因此可以表示 <span class="arithmatex">\(2^{32}\)</span> 个不同的数字；</li>
+<li>将最高位看作符号位，<span class="arithmatex">\(0\)</span> 代表正数，<span class="arithmatex">\(1\)</span> 代表负数，从而可以表示 <span class="arithmatex">\(2^{31}\)</span> 个正数和 <span class="arithmatex">\(2^{31}\)</span> 个负数；</li>
+<li>当所有 bits 为 0 时代表数字 <span class="arithmatex">\(0\)</span> ，从零开始增大，可得最大正数为 <span class="arithmatex">\(2^{31} - 1\)</span> ；</li>
+<li>剩余 <span class="arithmatex">\(2^{31}\)</span> 个数字全部用来表示负数，因此最小负数为 <span class="arithmatex">\(-2^{31}\)</span> ；具体细节涉及到到“源码、反码、补码”知识，有兴趣的同学可以查阅学习；  </li>
+</ol>
+<p>其它整数类型 byte, short, long 取值范围的计算方法与 int 类似，在此不再赘述。</p>
+<h3 id="_2">浮点数表示方式 *<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>细心的你可能会疑惑： int 和 float 长度相同，都是 4 bytes ，<strong>但为什么 float 的取值范围远大于 int</strong> ？这是因为浮点数 float 采用了不同的表示方式。</p>
+<p>IEEE 754 标准规定，32-bit 长度的 float 由以下部分构成：</p>
+<ul>
+<li>符号位 <span class="arithmatex">\(\mathrm{S}\)</span> ：占 1 bit ；</li>
+<li>指数位 <span class="arithmatex">\(\mathrm{E}\)</span> ：占 8 bits ；</li>
+<li>分数位 <span class="arithmatex">\(\mathrm{N}\)</span> ：占 24 bits ，其中 23 位显式存储；</li>
+</ul>
+<p>设 32-bit 二进制数的第 <span class="arithmatex">\(i\)</span> 位为 <span class="arithmatex">\(b_i\)</span> ，则 float 值的计算方法定义为</p>
+<div class="arithmatex">\[
+\text { val } = (-1)^{b_{31}} \times 2^{\left(b_{30} b_{29} \ldots b_{23}\right)_2-127} \times\left(1 . b_{22} b_{21} \ldots b_0\right)_2
+\]</div>
+<p>转化到十进制下的计算公式为</p>
+<div class="arithmatex">\[
+\text { val }=(-1)^{\mathrm{S}} \times 2^{\mathrm{E} -127} \times (1 + \mathrm{N})
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathrm{S} \in \{-1, 1\}\)</span> , <span class="arithmatex">\(\mathrm{E} \in \{ 1, 2, \dots, 254 \}\)</span> , <span class="arithmatex">\((1 + \mathrm{N}) = 1+\sum_{i=1}^{23} b_{23-i} 2^{-i} \subset [1, 2 - 2^{-23}]\)</span> 。</p>
+<p><img alt="IEEE-754-float" src="../data_and_memory.assets/IEEE-754-float.png" /></p>
+<p>以上图为例，<span class="arithmatex">\(\mathrm{S} = 0\)</span> ， <span class="arithmatex">\(\mathrm{E} = 124\)</span> ，<span class="arithmatex">\(\mathrm{N} = 2^{-2} + 2^{-3} = 0.375\)</span> ，易得</p>
+<div class="arithmatex">\[
+\text { val } = (-1)^0 \times 2^{124 - 127} \times (1 + 0.375) = 0.171875
+\]</div>
+<p>现在我们可以回答开始的问题：<strong>float 的表示方式包含指数位，导致其取值范围远大于 int</strong> 。根据以上计算， float 可表示的最大正数为 <span class="arithmatex">\(2^{127} \times (2 - 2^{-23}) \approx 3.4 \times 10^{38}\)</span> ，切换符号位便可得到最小负数。</p>
+<p><strong>浮点数 float 虽然拓展了取值范围，但副作用是牺牲了精度</strong>。整数类型 int 将全部 32 位用于表示数字，数字是均匀分布的；而由于指数位的存在，浮点数 float 的数值越大，相邻两个数字之间的差值就会趋向越大。</p>
+<p>进一步地，指数位 <span class="arithmatex">\(E = 0\)</span> 和 <span class="arithmatex">\(E = 255\)</span> 具有特殊含义，<strong>用于表示零、无穷大、<span class="arithmatex">\(\mathrm{NaN}\)</span> 等</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>指数位 E</th>
+<th>分数位 <span class="arithmatex">\(\mathrm{N} = 0\)</span></th>
+<th>分数位 <span class="arithmatex">\(\mathrm{N} \ne 0\)</span></th>
+<th>计算公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\pm 0\)</span></td>
+<td>次正规数（subnormal number）</td>
+<td><span class="arithmatex">\((-1)^{\mathrm{S}} \times 2^{-126} \times (0.\mathrm{N})\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1, 2, \dots, 254\)</span></td>
+<td>正规数</td>
+<td>正规数</td>
+<td><span class="arithmatex">\((-1)^{\mathrm{S}} \times 2^{(\mathrm{E} -127)} \times (1.\mathrm{N})\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(255\)</span></td>
+<td><span class="arithmatex">\(\pm \infty\)</span></td>
+<td><span class="arithmatex">\(\mathrm{NaN}\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>特别地，次正规数显著提升了小数精度：</p>
+<ul>
+<li>最小正正规数为 <span class="arithmatex">\(2^{-126} \approx 1.18 \times 10^{-38}\)</span> ；</li>
+<li>最小正次正规数为 <span class="arithmatex">\(2^{-126} \times 2^{-23} \approx 1.4 \times 10^{-45}\)</span> ；</li>
+</ul>
+<p>双精度 double 也采用类似 float 的表示方法，在此不再赘述。</p>
+<h3 id="_3">基本数据类型与数据结构的关系<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>我们知道，<strong>数据结构是在计算机中组织与存储数据的方式</strong>，它的主语是“结构”，而不是“数据”。如果我们想要表示“一排数字”，自然想到使用「数组」数据结构。数组的存储方式可以表示数字的相邻关系、顺序关系，但至于其中存储的是整数 int ，还是小数 float ，或是字符 char ，<strong>则与所谓的数据的结构无关了</strong>。</p>
+<p>换言之，基本数据类型提供了数据的“内容类型”，而数据结构提供数据的“组织方式”。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
