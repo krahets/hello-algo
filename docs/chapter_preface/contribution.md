@@ -36,7 +36,7 @@ comments: true
 
 你可以使用 Docker 来部署本项目。
 
-```bash
+```shell
 git clone https://github.com/krahets/hello-algo.git
 cd hello-algo
 docker-compose up -d
@@ -46,6 +46,6 @@ docker-compose up -d
 
 使用以下命令即可删除部署。
 
-```bash
+```shell
 docker-compose down
 ```

@@ -20,12 +20,16 @@ comments: true
 
 === "<1>"
     ![look_up_dictionary_step_1](algorithms_are_everywhere.assets/look_up_dictionary_step_1.png)
+
 === "<2>"
     ![look_up_dictionary_step_2](algorithms_are_everywhere.assets/look_up_dictionary_step_2.png)
+
 === "<3>"
     ![look_up_dictionary_step_3](algorithms_are_everywhere.assets/look_up_dictionary_step_3.png)
+
 === "<4>"
     ![look_up_dictionary_step_4](algorithms_are_everywhere.assets/look_up_dictionary_step_4.png)
+
 === "<5>"
     ![look_up_dictionary_step_5](algorithms_are_everywhere.assets/look_up_dictionary_step_5.png)
 
