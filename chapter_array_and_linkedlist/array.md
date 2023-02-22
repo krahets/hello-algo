@@ -110,8 +110,8 @@ comments: true
 
 <p align="center"> Fig. 数组元素的内存地址计算 </p>
 
-```java title=""
-// 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引
+```shell
+# 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引
 elementAddr = firtstElementAddr + elementLength * elementIndex
 ```
 
