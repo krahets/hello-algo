@@ -7,13 +7,13 @@
 import utils
 
 /* 基于邻接表实现的无向图类 */
-class GraphAdjList {
+public class GraphAdjList {
     // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
     // 请注意，adjList 中的元素是 Vertex 对象
-    private var adjList: [Vertex: [Vertex]]
+    public private(set) var adjList: [Vertex: [Vertex]]
 
     /* 构造方法 */
-    init(edges: [[Vertex]]) {
+    public init(edges: [[Vertex]]) {
         adjList = [:]
         // 添加所有顶点和边
         for edge in edges {
@@ -24,12 +24,12 @@ class GraphAdjList {
     }
 
     /* 获取顶点数量 */
-    func size() -> Int {
+    public func size() -> Int {
         adjList.count
     }
 
     /* 添加边 */
-    func addEdge(vet1: Vertex, vet2: Vertex) {
+    public func addEdge(vet1: Vertex, vet2: Vertex) {
         if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
             fatalError("参数错误")
         }
@@ -39,7 +39,7 @@ class GraphAdjList {
     }
 
     /* 删除边 */
-    func removeEdge(vet1: Vertex, vet2: Vertex) {
+    public func removeEdge(vet1: Vertex, vet2: Vertex) {
         if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
             fatalError("参数错误")
         }
@@ -49,7 +49,7 @@ class GraphAdjList {
     }
 
     /* 添加顶点 */
-    func addVertex(vet: Vertex) {
+    public func addVertex(vet: Vertex) {
         if adjList[vet] != nil {
             return
         }
@@ -58,7 +58,7 @@ class GraphAdjList {
     }
 
     /* 删除顶点 */
-    func removeVertex(vet: Vertex) {
+    public func removeVertex(vet: Vertex) {
         if adjList[vet] == nil {
             fatalError("参数错误")
         }
@@ -71,7 +71,7 @@ class GraphAdjList {
     }
 
     /* 打印邻接表 */
-    func print() {
+    public func print() {
         Swift.print("邻接表 =")
         for entry in adjList {
             var tmp: [Int] = []
@@ -83,12 +83,14 @@ class GraphAdjList {
     }
 }
 
+#if !TARGET
+
 @main
 enum GraphAdjacencyList {
     /* Driver Code */
     static func main() {
         /* 初始化无向图 */
-        let v = Vertex.valsToVets([1, 3, 2, 5, 4])
+        let v = Vertex.valsToVets(vals: [1, 3, 2, 5, 4])
         let edges = [[v[0], v[1]], [v[0], v[3]], [v[1], v[2]], [v[2], v[3]], [v[2], v[4]], [v[3], v[4]]]
         let graph = GraphAdjList(edges: edges)
         print("\n初始化后，图为")
@@ -119,3 +121,5 @@ enum GraphAdjacencyList {
         graph.print()
     }
 }
+
+#endif

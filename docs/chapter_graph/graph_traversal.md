@@ -79,7 +79,7 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Swift"
 
     ```swift title="graph_bfs.swift"
-
+    [class]{}-[func]{graphBFS}
     ```
 
 === "Zig"
@@ -196,7 +196,9 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Swift"
 
     ```swift title="graph_dfs.swift"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graphDFS}
     ```
 
 === "Zig"
