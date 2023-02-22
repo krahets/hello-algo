@@ -47,9 +47,9 @@ comments: true
 
 ### 浮点数表示方式 *
 
-细心的你可能会疑惑： int 和 float 长度相同，都是 4 bytes ，**但为什么 float 的取值范围远大于 int** ？这是因为浮点数 float 采用了不同的表示方式。
+细心的你可能会疑惑： int 和 float 长度相同，都是 4 bytes ，**但为什么 float 的取值范围远大于 int** ？按说 float 需要表示小数，取值范围应该变小才对。
 
-IEEE 754 标准规定，32-bit 长度的 float 由以下部分构成：
+其实，这是因为浮点数 float 采用了不同的表示方式。IEEE 754 标准规定，32-bit 长度的 float 由以下部分构成：
 
 - 符号位 $\mathrm{S}$ ：占 1 bit ；
 - 指数位 $\mathrm{E}$ ：占 8 bits ；
@@ -67,7 +67,14 @@ $$
 \text { val }=(-1)^{\mathrm{S}} \times 2^{\mathrm{E} -127} \times (1 + \mathrm{N})
 $$
 
-其中 $\mathrm{S} \in \{-1, 1\}$ , $\mathrm{E} \in \{ 1, 2, \dots, 254 \}$ , $(1 + \mathrm{N}) = 1+\sum_{i=1}^{23} b_{23-i} 2^{-i} \subset [1, 2 - 2^{-23}]$ 。
+其中各项的取值范围为
+
+$$
+\begin{aligned}
+\mathrm{S} \in & \{ 0, 1\} , \quad \mathrm{E} \in \{ 1, 2, \dots, 254 \} \newline
+(1 + \mathrm{N}) = & (1 + \sum_{i=1}^{23} b_{23-i} 2^{-i}) \subset [1, 2 - 2^{-23}]
+\end{aligned}
+$$
 
 ![IEEE-754-float](data_and_memory.assets/IEEE-754-float.png)
 
@@ -77,7 +84,7 @@ $$
 \text { val } = (-1)^0 \times 2^{124 - 127} \times (1 + 0.375) = 0.171875
 $$
 
-现在我们可以回答开始的问题：**float 的表示方式包含指数位，导致其取值范围远大于 int** 。根据以上计算， float 可表示的最大正数为 $2^{127} \times (2 - 2^{-23}) \approx 3.4 \times 10^{38}$ ，切换符号位便可得到最小负数。
+现在我们可以回答开始的问题：**float 的表示方式包含指数位，导致其取值范围远大于 int** 。根据以上计算， float 可表示的最大正数为 $2^{254 - 127} \times (2 - 2^{-23}) \approx 3.4 \times 10^{38}$ ，切换符号位便可得到最小负数。
 
 **浮点数 float 虽然拓展了取值范围，但副作用是牺牲了精度**。整数类型 int 将全部 32 位用于表示数字，数字是均匀分布的；而由于指数位的存在，浮点数 float 的数值越大，相邻两个数字之间的差值就会趋向越大。
 
