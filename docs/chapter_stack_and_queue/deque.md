@@ -381,7 +381,9 @@ comments: true
 === "Swift"
 
     ```swift title="linkedlist_deque.swift"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "Zig"
@@ -462,7 +464,7 @@ comments: true
 === "Swift"
 
     ```swift title="array_deque.swift"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "Zig"
