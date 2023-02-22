@@ -28,7 +28,7 @@ public class heap {
         // 初始化小顶堆
         Queue<Integer> minHeap = new PriorityQueue<>();
         // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
-        Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> { return b - a; });
+        Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
         System.out.println("\n以下测试样例为大顶堆");
 
