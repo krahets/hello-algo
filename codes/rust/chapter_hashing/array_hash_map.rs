@@ -70,11 +70,10 @@ impl ArrayHashMap {
 }
 
 fn main() {
-    // /* 初始化哈希表 */
+    /* 初始化哈希表 */
     let mut map = ArrayHashMap::new();
-    //
-    // /*添加操作 */
-    // // 在哈希表中添加键值对 （key, value）
+    /*添加操作 */
+    // 在哈希表中添加键值对（key, value）
     map.put(12836, "小哈");
     map.put(15937, "小啰");
     map.put(16750, "小算");
