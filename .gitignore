@@ -7,9 +7,9 @@
 
 # mkdocs files
 .cache/
-scripts/
 docs/overrides/
 
 # build
 build/
 site/
+utils/
