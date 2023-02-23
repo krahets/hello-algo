@@ -6,7 +6,7 @@ Author: Krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
 
 import copy
 import queue
-from .binary_tree import TreeNode, tree_to_list
+from .binary_tree import TreeNode, tree_to_list, list_to_tree
 from .linked_list import ListNode, linked_list_to_list
 
 def print_matrix(mat):
@@ -81,3 +81,9 @@ def print_dict(d):
     """
     for key, value in d.items():
         print(key, '->', value)
+
+def print_heap(heap):
+    print("堆的数组表示：", heap);
+    print("堆的树状表示：");
+    root = list_to_tree(heap)
+    print_tree(root);
