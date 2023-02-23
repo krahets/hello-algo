@@ -23,6 +23,8 @@ let package = Package(
         .executable(name: "linkedlist_queue", targets: ["linkedlist_queue"]),
         .executable(name: "array_queue", targets: ["array_queue"]),
         .executable(name: "deque", targets: ["deque"]),
+        .executable(name: "linkedlist_deque", targets: ["linkedlist_deque"]),
+        .executable(name: "array_deque", targets: ["array_deque"]),
         // chapter_hashing
         .executable(name: "hash_map", targets: ["hash_map"]),
         .executable(name: "array_hash_map", targets: ["array_hash_map"]),
@@ -72,6 +74,8 @@ let package = Package(
         .executableTarget(name: "linkedlist_queue", dependencies: ["utils"], path: "chapter_stack_and_queue", sources: ["linkedlist_queue.swift"]),
         .executableTarget(name: "array_queue", path: "chapter_stack_and_queue", sources: ["array_queue.swift"]),
         .executableTarget(name: "deque", path: "chapter_stack_and_queue", sources: ["deque.swift"]),
+        .executableTarget(name: "linkedlist_deque", path: "chapter_stack_and_queue", sources: ["linkedlist_deque.swift"]),
+        .executableTarget(name: "array_deque", path: "chapter_stack_and_queue", sources: ["array_deque.swift"]),
         // chapter_hashing
         .executableTarget(name: "hash_map", dependencies: ["utils"], path: "chapter_hashing", sources: ["hash_map.swift"]),
         .executableTarget(name: "array_hash_map", path: "chapter_hashing", sources: ["array_hash_map.swift"]),
