@@ -811,7 +811,7 @@ comments: true
     ```java title="graph_adjacency_list.java"
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-        // 邻接表，key: 顶点，value：该顶点的所有邻接结点
+        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
         Map<Vertex, List<Vertex>> adjList;
 
         /* 构造方法 */
@@ -960,7 +960,7 @@ comments: true
     ```python title="graph_adjacency_list.py"
     """ 基于邻接表实现的无向图类 """
     class GraphAdjList:
-        # 邻接表，key: 顶点，value：该顶点的所有邻接结点
+        # 邻接表，key: 顶点，value：该顶点的所有邻接顶点
         adj_list = {}
 
         """ 构造方法 """
@@ -1116,8 +1116,7 @@ comments: true
     ```javascript title="graph_adjacency_list.js"
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-        // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
-        // 请注意，adjList 中的元素是 Vertex 对象
+        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
         adjList;
 
         /* 构造方法 */
@@ -1198,8 +1197,7 @@ comments: true
     ```typescript title="graph_adjacency_list.ts"
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-        // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
-        // 请注意，adjList 中的元素是 Vertex 对象
+        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
         adjList: Map<Vertex, Vertex[]>;
 
         /* 构造方法 */
@@ -1287,7 +1285,7 @@ comments: true
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList
     {
-        // 邻接表，key: 顶点，value：该顶点的所有邻接结点
+        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
         Dictionary<Vertex, List<Vertex>> adjList;
 
         /* 构造函数 */
@@ -1372,8 +1370,7 @@ comments: true
     ```swift title="graph_adjacency_list.swift"
     /* 基于邻接表实现的无向图类 */
     class GraphAdjList {
-        // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
-        // 请注意，adjList 中的元素是 Vertex 对象
+        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
         public private(set) var adjList: [Vertex: [Vertex]]
 
         /* 构造方法 */
