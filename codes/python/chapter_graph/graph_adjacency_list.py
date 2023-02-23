@@ -9,7 +9,7 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
 
-""" 基于邻接表实现的无向图类  """                                                               
+""" 基于邻接表实现的无向图类 """
 class GraphAdjList:
     # 邻接表，key: 顶点，value：该顶点的所有邻接结点
     adj_list = {}

@@ -43,7 +43,7 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Python"
 
     ```python title="graph_bfs.py"
-
+    [class]{}-[func]{graph_bfs}
     ```
 
 === "Go"
@@ -160,7 +160,9 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Python"
 
     ```python title="graph_dfs.py"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graph_dfs}
     ```
 
 === "Go"

@@ -8,6 +8,7 @@ import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
+
 """ 基于邻接矩阵实现的无向图类 """
 class GraphAdjMat:
     # 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
@@ -75,7 +76,7 @@ class GraphAdjMat:
         self.adj_mat[i][j] = 0
         self.adj_mat[j][i] = 0
 
-    # 打印邻接矩阵
+    """ 打印邻接矩阵 """
     def print(self):
         print("顶点列表 =", self.vertices)
         print("邻接矩阵 =")

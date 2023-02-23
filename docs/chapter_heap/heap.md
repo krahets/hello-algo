@@ -123,7 +123,41 @@ comments: true
 === "Python"
 
     ```python title="heap.py"
+    # 初始化小顶堆
+    min_heap, flag = [], 1
+    # 初始化大顶堆
+    max_heap, flag = [], -1
 
+    # Python 的 heapq 模块默认实现小顶堆
+    # 考虑将“元素取负”后再入堆，这样就可以将大小关系颠倒，从而实现大顶堆
+    # 在本示例中，flag = 1 时对应小顶堆，flag = -1 时对应大顶堆
+    """ 元素入堆 """
+    heapq.heappush(max_heap, flag * 1)
+    heapq.heappush(max_heap, flag * 3)
+    heapq.heappush(max_heap, flag * 2)
+    heapq.heappush(max_heap, flag * 5)
+    heapq.heappush(max_heap, flag * 4)
+
+    """ 获取堆顶元素 """
+    peek = flag * max_heap[0] # 5
+
+    """ 堆顶元素出堆 """
+    # 出堆元素会形成一个从大到小的序列
+    val = flag * heapq.heappop(max_heap) # 5
+    val = flag * heapq.heappop(max_heap) # 4
+    val = flag * heapq.heappop(max_heap) # 3
+    val = flag * heapq.heappop(max_heap) # 2
+    val = flag * heapq.heappop(max_heap) # 1
+
+    """ 获取堆大小 """
+    size = len(max_heap)
+
+    """ 判断堆是否为空 """
+    is_empty = not max_heap
+
+    """ 输入列表并建堆 """
+    min_heap = [1, 3, 2, 5, 4]
+    heapq.heapify(min_heap)
     ```
 
 === "Go"
@@ -311,7 +345,11 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
+    [class]{MaxHeap}-[func]{left}
 
+    [class]{MaxHeap}-[func]{right}
+
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 === "Go"
@@ -403,7 +441,7 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-
+    [class]{MaxHeap}-[func]{peek}
     ```
 
 === "Go"
@@ -493,7 +531,9 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
+    [class]{MaxHeap}-[func]{push}
 
+    [class]{MaxHeap}-[func]{sift_up}
     ```
 
 === "Go"
@@ -613,7 +653,9 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
+    [class]{MaxHeap}-[func]{poll}
 
+    [class]{MaxHeap}-[func]{sift_down}
     ```
 
 === "Go"
@@ -693,7 +735,7 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-
+    [class]{MaxHeap}-[func]{__init__}
     ```
 
 === "Go"

@@ -8,9 +8,9 @@ import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from include import *
 
-# 大顶堆
+""" 大顶堆 """
 class MaxHeap:
-    # 使用列表而非数组，这样无需考虑扩容问题
+    """ 构造方法 """
     def __init__(self, nums: List[int]):
         # 将列表元素原封不动添加进堆
         self.max_heap = nums
@@ -18,43 +18,43 @@ class MaxHeap:
         for i in range(self.parent(self.size() - 1), -1, -1):
             self.sift_down(i)
 
-    # 获取左子结点索引
+    """ 获取左子结点索引 """
     def left(self, i: int) -> int:
         return 2 * i + 1
 
-    # 获取右子结点索引
+    """ 获取右子结点索引 """
     def right(self, i: int) -> int:
         return 2 * i + 2
 
-    # 获取父结点索引
+    """ 获取父结点索引 """
     def parent(self, i: int) -> int:
         return (i - 1) // 2  # 向下整除
 
-    # 交换元素
+    """ 交换元素 """
     def swap(self, i: int, j: int):
         a, b = self.max_heap[i], self.max_heap[j]
         self.max_heap[i], self.max_heap[j] = b, a
 
-    # 获取堆大小
+    """ 获取堆大小 """
     def size(self) -> int:
         return len(self.max_heap)
 
-    # 判断堆是否为空
+    """ 判断堆是否为空 """
     def is_empty(self) -> bool:
         return self.size() == 0
 
-    # 访问堆顶元素
+    """ 访问堆顶元素 """
     def peek(self) -> int:
         return self.max_heap[0]
 
-    # 元素入堆
+    """ 元素入堆 """
     def push(self, val: int):
         # 添加结点
         self.max_heap.append(val)
         # 从底至顶堆化
         self.sift_up(self.size() - 1)
 
-    # 从结点 i 开始，从底至顶堆化
+    """ 从结点 i 开始，从底至顶堆化 """
     def sift_up(self, i: int):
         while True:
             # 获取结点 i 的父结点
@@ -67,7 +67,7 @@ class MaxHeap:
             # 循环向上堆化
             i = p
 
-    # 元素出堆
+    """ 元素出堆 """
     def poll(self) -> int:
         # 判空处理
         assert not self.is_empty()
@@ -80,7 +80,7 @@ class MaxHeap:
         # 返回堆顶元素
         return val
 
-    # 从结点 i 开始，从顶至底堆化
+    """ 从结点 i 开始，从顶至底堆化 """
     def sift_down(self, i: int):
         while True:
             # 判断结点 i, l, r 中值最大的结点，记为 ma
@@ -97,7 +97,7 @@ class MaxHeap:
             # 循环向下堆化
             i = ma
 
-    # 打印堆（二叉树）
+    """ 打印堆（二叉树） """
     def print(self):
         print_heap(self.max_heap)
 
