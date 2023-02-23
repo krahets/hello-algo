@@ -213,7 +213,78 @@ comments: true
 === "Python"
 
     ```python title="graph_adjacency_matrix.py"
-    [class]{GraphAdjMat}-[func]{}
+    """ 基于邻接矩阵实现的无向图类 """
+    class GraphAdjMat:
+        # 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        vertices = []
+        # 邻接矩阵，行列索引对应“顶点索引”
+        adj_mat = []
+
+        """ 构造方法 """
+        def __init__(self, vertices, edges):
+            self.vertices = []
+            self.adj_mat = []
+            # 添加顶点
+            for val in vertices:
+                self.add_vertex(val)
+            # 添加边
+            # 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+            for e in edges:
+                self.add_edge(e[0], e[1])
+
+        """ 获取顶点数量 """
+        def size(self):
+            return len(self.vertices)
+
+        """ 添加顶点 """
+        def add_vertex(self, val):
+            n = self.size()
+            # 向顶点列表中添加新顶点的值
+            self.vertices.append(val)
+            # 在邻接矩阵中添加一行
+            new_row = [0]*n
+            self.adj_mat.append(new_row)
+            # 在邻接矩阵中添加一列
+            for row in self.adj_mat:
+                row.append(0)
+
+
+        """ 删除顶点 """
+        def remove_vertex(self, index):
+            if index >= self.size():
+                raise IndexError()
+            # 在顶点列表中移除索引 index 的顶点
+            self.vertices.pop(index)
+            # 在邻接矩阵中删除索引 index 的行
+            self.adj_mat.pop(index)
+            # 在邻接矩阵中删除索引 index 的列
+            for row in self.adj_mat:
+                row.pop(index)
+
+        """ 添加边 """
+        # 参数 i, j 对应 vertices 元素索引
+        def add_edge(self, i, j):
+            # 索引越界与相等处理
+            if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
+                raise IndexError()
+            # 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            self.adj_mat[i][j] = 1
+            self.adj_mat[j][i] = 1
+
+        """ 删除边 """
+        # 参数 i, j 对应 vertices 元素索引
+        def remove_edge(self, i, j):
+            # 索引越界与相等处理
+            if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
+                raise IndexError()
+            self.adj_mat[i][j] = 0
+            self.adj_mat[j][i] = 0
+
+        """ 打印邻接矩阵 """
+        def print(self):
+            print("顶点列表 =", self.vertices)
+            print("邻接矩阵 =")
+            print_matrix(self.adj_mat)
     ```
 
 === "Go"
@@ -887,7 +958,64 @@ comments: true
 === "Python"
 
     ```python title="graph_adjacency_list.py"
-    [class]{GraphAdjList}-[func]{}
+    """ 基于邻接表实现的无向图类 """
+    class GraphAdjList:
+        # 邻接表，key: 顶点，value：该顶点的所有邻接结点
+        adj_list = {}
+
+        """ 构造方法 """
+        def __init__(self, edges: List[List[Vertex]]) -> None:
+            self.adj_list = {}
+            # 添加所有顶点和边
+            for edge in edges:
+                self.add_vertex(edge[0])
+                self.add_vertex(edge[1])
+                self.add_edge(edge[0], edge[1])
+
+        """ 获取顶点数量 """
+        def size(self) -> int:
+            return len(self.adj_list)
+
+        """ 添加边 """
+        def add_edge(self, vet1: Vertex, vet2: Vertex) -> None:
+            if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
+                raise ValueError
+            # 添加边 vet1 - vet2
+            self.adj_list[vet1].append(vet2)
+            self.adj_list[vet2].append(vet1)
+
+        """ 删除边 """
+        def remove_edge(self, vet1: Vertex, vet2: Vertex) -> None:
+            if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
+                raise ValueError
+            # 删除边 vet1 - vet2
+            self.adj_list[vet1].remove(vet2)
+            self.adj_list[vet2].remove(vet1)
+
+        """ 添加顶点 """
+        def add_vertex(self, vet: Vertex) -> None:
+            if vet in self.adj_list:
+                return
+            # 在邻接表中添加一个新链表
+            self.adj_list[vet] = []
+
+        """ 删除顶点 """
+        def remove_vertex(self, vet: Vertex) -> None:
+            if vet not in self.adj_list:
+                raise ValueError
+            # 在邻接表中删除顶点 vet 对应的链表
+            self.adj_list.pop(vet)
+            # 遍历其它顶点的链表，删除所有包含 vet 的边
+            for vertex in self.adj_list:
+                if vet in self.adj_list[vertex]:
+                    self.adj_list[vertex].remove(vet)
+
+        """ 打印邻接表 """
+        def print(self) -> None:
+            print("邻接表 =")
+            for vertex in self.adj_list:
+                tmp = [v.val for v in self.adj_list[vertex]]
+                print(f"{vertex.val}: {tmp},")
     ```
 
 === "Go"
@@ -1246,10 +1374,10 @@ comments: true
     class GraphAdjList {
         // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
         // 请注意，adjList 中的元素是 Vertex 对象
-        private var adjList: [Vertex: [Vertex]]
+        public private(set) var adjList: [Vertex: [Vertex]]
 
         /* 构造方法 */
-        init(edges: [[Vertex]]) {
+        public init(edges: [[Vertex]]) {
             adjList = [:]
             // 添加所有顶点和边
             for edge in edges {
@@ -1260,12 +1388,12 @@ comments: true
         }
 
         /* 获取顶点数量 */
-        func size() -> Int {
+        public func size() -> Int {
             adjList.count
         }
 
         /* 添加边 */
-        func addEdge(vet1: Vertex, vet2: Vertex) {
+        public func addEdge(vet1: Vertex, vet2: Vertex) {
             if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
                 fatalError("参数错误")
             }
@@ -1275,7 +1403,7 @@ comments: true
         }
 
         /* 删除边 */
-        func removeEdge(vet1: Vertex, vet2: Vertex) {
+        public func removeEdge(vet1: Vertex, vet2: Vertex) {
             if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
                 fatalError("参数错误")
             }
@@ -1285,7 +1413,7 @@ comments: true
         }
 
         /* 添加顶点 */
-        func addVertex(vet: Vertex) {
+        public func addVertex(vet: Vertex) {
             if adjList[vet] != nil {
                 return
             }
@@ -1294,7 +1422,7 @@ comments: true
         }
 
         /* 删除顶点 */
-        func removeVertex(vet: Vertex) {
+        public func removeVertex(vet: Vertex) {
             if adjList[vet] == nil {
                 fatalError("参数错误")
             }
@@ -1307,7 +1435,7 @@ comments: true
         }
 
         /* 打印邻接表 */
-        func print() {
+        public func print() {
             Swift.print("邻接表 =")
             for entry in adjList {
                 var tmp: [Int] = []

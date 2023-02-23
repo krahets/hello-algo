@@ -66,7 +66,27 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Python"
 
     ```python title="graph_bfs.py"
-
+    """ 广度优先遍历 BFS """
+    # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> List[Vertex]:
+        # 顶点遍历序列
+        res = []
+        # 哈希表，用于记录已被访问过的顶点
+        visited = set([start_vet])
+        # 队列用于实现 BFS
+        que = collections.deque([start_vet])
+        # 以顶点 vet 为起点，循环直至访问完所有顶点
+        while len(que) > 0:
+            vet = que.popleft()  # 队首顶点出队
+            res.append(vet)      # 记录访问顶点
+            # 遍历该顶点的所有邻接顶点
+            for adj_vet in graph.adj_list[vet]:
+                if adj_vet in visited:
+                    continue         # 跳过已被访问过的顶点
+                que.append(adj_vet)  # 只入队未访问的顶点
+                visited.add(adj_vet) # 标记该顶点已被访问
+        # 返回顶点遍历序列
+        return res
     ```
 
 === "Go"
@@ -102,7 +122,31 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Swift"
 
     ```swift title="graph_bfs.swift"
-
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    func graphBFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
+        // 顶点遍历序列
+        var res: [Vertex] = []
+        // 哈希表，用于记录已被访问过的顶点
+        var visited: Set<Vertex> = [startVet]
+        // 队列用于实现 BFS
+        var que: [Vertex] = [startVet]
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while !que.isEmpty {
+            let vet = que.removeFirst() // 队首顶点出队
+            res.append(vet) // 记录访问顶点
+            // 遍历该顶点的所有邻接顶点
+            for adjVet in graph.adjList[vet] ?? [] {
+                if visited.contains(adjVet) {
+                    continue // 跳过已被访问过的顶点
+                }
+                que.append(adjVet) // 只入队未访问的顶点
+                visited.insert(adjVet) // 标记该顶点已被访问
+            }
+        }
+        // 返回顶点遍历序列
+        return res
+    }
     ```
 
 === "Zig"
@@ -203,7 +247,26 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Python"
 
     ```python title="graph_dfs.py"
+    """ 深度优先遍历 DFS 辅助函数 """
+    def dfs(graph: GraphAdjList, visited: Set[Vertex], res: List[Vertex], vet: Vertex):
+        res.append(vet)     # 记录访问顶点
+        visited.add(vet) # 标记该顶点已被访问
+        # 遍历该顶点的所有邻接顶点
+        for adjVet in graph.adj_list[vet]:
+            if adjVet in visited:
+                continue # 跳过已被访问过的顶点
+            # 递归访问邻接顶点
+            dfs(graph, visited, res, adjVet)
 
+    """ 深度优先遍历 DFS """
+    # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> List[Vertex]:
+        # 顶点遍历序列
+        res = []
+        # 哈希表，用于记录已被访问过的顶点
+        visited = set()
+        dfs(graph, visited, res, start_vet)
+        return res
     ```
 
 === "Go"
@@ -239,7 +302,30 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Swift"
 
     ```swift title="graph_dfs.swift"
+    /* 深度优先遍历 DFS 辅助函数 */
+    func dfs(graph: GraphAdjList, visited: inout Set<Vertex>, res: inout [Vertex], vet: Vertex) {
+        res.append(vet) // 记录访问顶点
+        visited.insert(vet) // 标记该顶点已被访问
+        // 遍历该顶点的所有邻接顶点
+        for adjVet in graph.adjList[vet] ?? [] {
+            if visited.contains(adjVet) {
+                continue // 跳过已被访问过的顶点
+            }
+            // 递归访问邻接顶点
+            dfs(graph: graph, visited: &visited, res: &res, vet: adjVet)
+        }
+    }
 
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    func graphDFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
+        // 顶点遍历序列
+        var res: [Vertex] = []
+        // 哈希表，用于记录已被访问过的顶点
+        var visited: Set<Vertex> = []
+        dfs(graph: graph, visited: &visited, res: &res, vet: startVet)
+        return res
+    }
     ```
 
 === "Zig"
