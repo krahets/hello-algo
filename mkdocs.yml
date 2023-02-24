@@ -129,7 +129,7 @@ nav:
     - 0.2. &nbsp; 如何使用本书: chapter_preface/suggestions.md
     - 0.3. &nbsp; 编程环境安装: chapter_preface/installation.md
     - 0.4. &nbsp; 一起参与创作: chapter_preface/contribution.md
-  - 1. &nbsp; &nbsp; 引言: 
+  - 1. &nbsp; &nbsp; 引言:
     - 1.1. &nbsp; 算法无处不在: chapter_introduction/algorithms_are_everywhere.md
     - 1.2. &nbsp; 算法是什么: chapter_introduction/what_is_dsa.md
   - 2. &nbsp; &nbsp; 计算复杂度:
@@ -138,11 +138,11 @@ nav:
     - 2.3. &nbsp; 空间复杂度: chapter_computational_complexity/space_complexity.md
     - 2.4. &nbsp; 权衡时间与空间: chapter_computational_complexity/space_time_tradeoff.md
     - 2.5. &nbsp; 小结: chapter_computational_complexity/summary.md
-  - 3. &nbsp; &nbsp; 数据结构简介: 
+  - 3. &nbsp; &nbsp; 数据结构简介:
     - 3.1. &nbsp; 数据与内存: chapter_data_structure/data_and_memory.md
     - 3.2. &nbsp; 数据结构分类: chapter_data_structure/classification_of_data_structure.md
     - 3.3. &nbsp; 小结: chapter_data_structure/summary.md
-  - 4. &nbsp; &nbsp; 数组与链表: 
+  - 4. &nbsp; &nbsp; 数组与链表:
     - 4.1. &nbsp; 数组（Array）: chapter_array_and_linkedlist/array.md
     - 4.2. &nbsp; 链表（LinkedList）: chapter_array_and_linkedlist/linked_list.md
     - 4.3. &nbsp; 列表（List）: chapter_array_and_linkedlist/list.md

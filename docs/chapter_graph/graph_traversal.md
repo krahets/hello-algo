@@ -37,7 +37,7 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "C++"
 
     ```cpp title="graph_bfs.cpp"
-
+    [class]{}-[func]{graphBFS}
     ```
 
 === "Python"
@@ -49,31 +49,31 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Go"
 
     ```go title="graph_bfs.go"
-
+    [class]{}-[func]{graphBFS}
     ```
 
 === "JavaScript"
 
     ```javascript title="graph_bfs.js"
-
+    [class]{}-[func]{graphBFS}
     ```
 
 === "TypeScript"
 
     ```typescript title="graph_bfs.ts"
-
+    [class]{}-[func]{graphBFS}
     ```
 
 === "C"
 
     ```c title="graph_bfs.c"
-
+    [class]{}-[func]{graphBFS}
     ```
 
 === "C#"
 
     ```csharp title="graph_bfs.cs"
-
+    [class]{graph_bfs}-[func]{graphBFS}
     ```
 
 === "Swift"
@@ -85,7 +85,7 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Zig"
 
     ```zig title="graph_bfs.zig"
-
+    [class]{}-[func]{graphBFS}
     ```
 
 代码相对抽象，建议对照以下动画图示来加深理解。
@@ -154,7 +154,9 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "C++"
 
     ```cpp title="graph_dfs.cpp"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graphDFS}
     ```
 
 === "Python"
@@ -168,31 +170,41 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Go"
 
     ```go title="graph_dfs.go"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graphDFS}
     ```
 
 === "JavaScript"
 
     ```javascript title="graph_dfs.js"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graphDFS}
     ```
 
 === "TypeScript"
 
     ```typescript title="graph_dfs.ts"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graphDFS}
     ```
 
 === "C"
 
     ```c title="graph_dfs.c"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graphDFS}
     ```
 
 === "C#"
 
     ```csharp title="graph_dfs.cs"
+    [class]{graph_dfs}-[func]{dfs}
 
+    [class]{graph_dfs}-[func]{graphDFS}
     ```
 
 === "Swift"
@@ -206,7 +218,9 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Zig"
 
     ```zig title="graph_dfs.zig"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graphDFS}
     ```
 
 深度优先遍历的算法流程如下图所示，其中
