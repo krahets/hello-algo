@@ -17,10 +17,10 @@ const graphBfs = (graph: GraphAdjList, startVet: Vertex): Vertex[] => {
     const visited: Set<Vertex> = new Set();
     visited.add(startVet);
     // 队列用于实现 BFS
-    const que: Vertex[] = [startVet];
+    const que = [startVet];
     // 以顶点 vet 为起点，循环直至访问完所有顶点
     while (que.length) {
-        const vet: Vertex = que.shift();    // 队首顶点出队
+        const vet = que.shift();    // 队首顶点出队
         res.push(vet);                      // 记录访问顶点
         // 遍历该顶点的所有邻接顶点
         for (const adjVet of graph.adjList.get(vet) ?? []) {
