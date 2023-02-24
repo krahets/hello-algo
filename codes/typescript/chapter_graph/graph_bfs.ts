@@ -10,7 +10,7 @@ import { Vertex } from '../module/Vertex';
 
 /* 广度优先遍历 BFS */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-function graphBfs(graph: GraphAdjList, startVet: Vertex): Vertex[] {
+function graphBFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
     // 顶点遍历序列
     const res: Vertex[] = [];
     // 哈希表，用于记录已被访问过的顶点
@@ -47,6 +47,6 @@ console.log("\n初始化后，图为");
 graph.print();
 
 /* 广度优先遍历 BFS */
-const res = graphBfs(graph, v[0]);
+const res = graphBFS(graph, v[0]);
 console.log("\n广度优先遍历（BFS）顶点序列为");
 console.log(Vertex.vetsToVals(res));

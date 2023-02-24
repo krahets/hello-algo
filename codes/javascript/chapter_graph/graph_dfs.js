@@ -39,7 +39,7 @@ function graphDFS(graph, startVet) {
 /* 初始化无向图 */
 const v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6]);
 const edges = [[v[0], v[1]], [v[0], v[3]], [v[1], v[2]],
-[v[2], v[5]], [v[4], v[5]], [v[5], v[6]]];
+               [v[2], v[5]], [v[4], v[5]], [v[5], v[6]]];
 const graph = new GraphAdjList(edges);
 console.log("\n初始化后，图为");
 graph.print();
