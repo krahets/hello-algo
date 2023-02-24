@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 0.4. 一起参与创作
+# 0.4. &nbsp; 一起参与创作
 
 !!! success "开源的魅力"
 
@@ -10,7 +10,7 @@ comments: true
 
 由于作者水平有限，书中内容难免疏漏谬误，请您谅解。如果发现笔误、无效链接、内容缺失、文字歧义、解释不清晰、行文结构不合理等问题，请您帮忙修正，以帮助其他读者获取更优质的学习内容。所有[撰稿人](https://github.com/krahets/hello-algo/graphs/contributors)将被展示在仓库与网站主页，以感谢他们对开源社区的无私奉献！
 
-## 0.4.1. 内容微调
+## 0.4.1. &nbsp; 内容微调
 
 每个页面的右上角都有一个「编辑」图标，你可以按照以下步骤修改文字或代码：
 
@@ -22,7 +22,7 @@ comments: true
 
 图片无法直接修改，需要通过新建 [Issue](https://github.com/krahets/hello-algo/issues) 或评论留言来描述图片问题，我会第一时间重新画图并替换图片。
 
-## 0.4.2. 内容创作
+## 0.4.2. &nbsp; 内容创作
 
 如果您想要参与本开源项目，包括翻译代码至其他编程语言、拓展文章内容等，那么需要实施 Pull Request 工作流程：
 
@@ -32,7 +32,7 @@ comments: true
 4. 将本地更改 Commit ，并 Push 至远程仓库；
 5. 刷新仓库网页，点击“Create pull request”按钮发起拉取请求即可；
 
-## 0.4.3. Docker 部署
+## 0.4.3. &nbsp; Docker 部署
 
 你可以使用 Docker 来部署本项目。
 
