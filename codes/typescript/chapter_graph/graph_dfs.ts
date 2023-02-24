@@ -33,6 +33,8 @@ const graphDFS = (graph: GraphAdjList, startVet: Vertex): Vertex[] => {
     return res;
 }
 
+
+/* Driver Code */
 /* 初始化无向图 */
 const v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6]);
 const edges = [[v[0], v[1]], [v[0], v[3]], [v[1], v[2]],
