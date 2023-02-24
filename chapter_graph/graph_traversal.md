@@ -60,7 +60,7 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "C++"
 
     ```cpp title="graph_bfs.cpp"
-
+    [class]{}-[func]{graphBFS}
     ```
 
 === "Python"
@@ -92,31 +92,81 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Go"
 
     ```go title="graph_bfs.go"
-
+    [class]{}-[func]{graphBFS}
     ```
 
 === "JavaScript"
 
     ```javascript title="graph_bfs.js"
-
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    function graphBFS(graph, startVet) {
+        // 顶点遍历序列
+        const res = [];
+        // 哈希表，用于记录已被访问过的顶点
+        const visited = new Set();
+        visited.add(startVet);
+        // 队列用于实现 BFS
+        const que = [startVet];
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while (que.length) {
+            const vet = que.shift();    // 队首顶点出队
+            res.push(vet);              // 记录访问顶点
+            // 遍历该顶点的所有邻接顶点
+            for (const adjVet of graph.adjList.get(vet) ?? []) {
+                if (visited.has(adjVet)) {
+                    continue;           // 跳过已被访问过的顶点
+                }
+                que.push(adjVet);       // 只入队未访问的顶点
+                visited.add(adjVet);    // 标记该顶点已被访问
+            }
+        }
+        // 返回顶点遍历序列
+        return res;
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="graph_bfs.ts"
-
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    function graphBFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
+        // 顶点遍历序列
+        const res: Vertex[] = [];
+        // 哈希表，用于记录已被访问过的顶点
+        const visited: Set<Vertex> = new Set();
+        visited.add(startVet);
+        // 队列用于实现 BFS
+        const que = [startVet];
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while (que.length) {
+            const vet = que.shift();    // 队首顶点出队
+            res.push(vet);                      // 记录访问顶点
+            // 遍历该顶点的所有邻接顶点
+            for (const adjVet of graph.adjList.get(vet) ?? []) {
+                if (visited.has(adjVet)) {
+                    continue;           // 跳过已被访问过的顶点
+                }
+                que.push(adjVet);       // 只入队未访问
+                visited.add(adjVet);    // 标记该顶点已被访问
+            }
+        }
+        // 返回顶点遍历序列
+        return res;
+    }
     ```
 
 === "C"
 
     ```c title="graph_bfs.c"
-
+    [class]{}-[func]{graphBFS}
     ```
 
 === "C#"
 
     ```csharp title="graph_bfs.cs"
-
+    [class]{graph_bfs}-[func]{graphBFS}
     ```
 
 === "Swift"
@@ -152,7 +202,7 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Zig"
 
     ```zig title="graph_bfs.zig"
-
+    [class]{}-[func]{graphBFS}
     ```
 
 代码相对抽象，建议对照以下动画图示来加深理解。
@@ -241,7 +291,9 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "C++"
 
     ```cpp title="graph_dfs.cpp"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graphDFS}
     ```
 
 === "Python"
@@ -272,31 +324,84 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Go"
 
     ```go title="graph_dfs.go"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graphDFS}
     ```
 
 === "JavaScript"
 
     ```javascript title="graph_dfs.js"
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    function dfs(graph, visited, res, vet) {
+        res.push(vet);      // 记录访问顶点
+        visited.add(vet);   // 标记该顶点已被访问
+        // 遍历该顶点的所有邻接顶点
+        for (const adjVet of graph.adjList.get(vet)) {
+            if (visited.has(adjVet)) {
+                continue; // 跳过已被访问过的顶点
+            }
+            // 递归访问邻接顶点
+            dfs(graph, visited, res, adjVet);
+        }
+    }
 
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    function graphDFS(graph, startVet) {
+        // 顶点遍历序列
+        const res = [];
+        // 哈希表，用于记录已被访问过的顶点
+        const visited = new Set();
+        dfs(graph, visited, res, startVet);
+        return res;
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="graph_dfs.ts"
+    /* 深度优先遍历 DFS 辅助函数 */
+    function dfs(graph: GraphAdjList, visited: Set<Vertex>, res: Vertex[], vet: Vertex): void {
+        res.push(vet);      // 记录访问顶点
+        visited.add(vet);   // 标记该顶点已被访问
+        // 遍历该顶点的所有邻接顶点
+        for (const adjVet of graph.adjList.get(vet)) {
+            if (visited.has(adjVet)) {
+                continue; // 跳过已被访问过的顶点
+            }
+            // 递归访问邻接顶点
+            dfs(graph, visited, res, adjVet);
+        }
+    }
 
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    function graphDFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
+        // 顶点遍历序列
+        const res: Vertex[] = [];
+        // 哈希表，用于记录已被访问过的顶点
+        const visited: Set<Vertex> = new Set();
+        dfs(graph, visited, res, startVet);
+        return res;
+    }
     ```
 
 === "C"
 
     ```c title="graph_dfs.c"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graphDFS}
     ```
 
 === "C#"
 
     ```csharp title="graph_dfs.cs"
+    [class]{graph_dfs}-[func]{dfs}
 
+    [class]{graph_dfs}-[func]{graphDFS}
     ```
 
 === "Swift"
@@ -331,7 +436,9 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Zig"
 
     ```zig title="graph_dfs.zig"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graphDFS}
     ```
 
 深度优先遍历的算法流程如下图所示，其中
