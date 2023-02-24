@@ -10,7 +10,7 @@ const { GraphAdjList } = require('./graph_adjacency_list');
 
 /* 深度优先遍历 DFS */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-const dfs = (graph, visited, res, vet) => {
+function dfs(graph, visited, res, vet) {
     res.push(vet);      // 记录访问顶点
     visited.add(vet);   // 标记该顶点已被访问
     // 遍历该顶点的所有邻接顶点
@@ -25,7 +25,7 @@ const dfs = (graph, visited, res, vet) => {
 
 /* 深度优先遍历 DFS */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-const graphDFS = (graph, startVet) => {
+function graphDFS(graph, startVet) {
     // 顶点遍历序列
     const res = [];
     // 哈希表，用于记录已被访问过的顶点
