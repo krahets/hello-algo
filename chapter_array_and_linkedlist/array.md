@@ -405,15 +405,9 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-**数组中插入或删除元素效率低下**。假设我们想要在数组中间某位置插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。删除元素也是类似，需要把此索引之后的元素都向前移动一位。总体看有以下缺点：
+**数组中插入或删除元素效率低下**。如果我们想要在数组中间插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。
 
-- **时间复杂度高**：数组的插入和删除的平均时间复杂度均为 $O(N)$ ，其中 $N$ 为数组长度。
-- **丢失元素**：由于数组的长度不可变，因此在插入元素后，超出数组长度范围的元素会被丢失。
-- **内存浪费**：我们一般会初始化一个比较长的数组，只用前面一部分，这样在插入数据时，丢失的末尾元素都是我们不关心的，但这样做同时也会造成内存空间的浪费。
-
-![array_insert_remove_element](array.assets/array_insert_remove_element.png)
-
-<p align="center"> Fig. 在数组中插入与删除元素 </p>
+![array_insert_element](array.assets/array_insert_element.png)
 
 === "Java"
 
@@ -426,14 +420,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         }
         // 将 num 赋给 index 处元素
         nums[index] = num;
-    }
-
-    /* 删除索引 index 处元素 */
-    void remove(int[] nums, int index) {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (int i = index; i < nums.length - 1; i++) {
-            nums[i] = nums[i + 1];
-        }
     }
     ```
 
@@ -449,14 +435,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 将 num 赋给 index 处元素
         nums[index] = num;
     }
-
-    /* 删除索引 index 处元素 */
-    void remove(int* nums, int size, int index) {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (int i = index; i < size - 1; i++) {
-            nums[i] = nums[i + 1];
-        }
-    }
     ```
 
 === "Python"
@@ -469,12 +447,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
             nums[i] = nums[i - 1]
         # 将 num 赋给 index 处元素
         nums[index] = num
-    
-    """ 删除索引 index 处元素 """
-    def remove(nums, index):
-        # 把索引 index 之后的所有元素向前移动一位
-        for i in range(index, len(nums) - 1):
-            nums[i] = nums[i + 1]
     ```
 
 === "Go"
@@ -488,14 +460,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         }
         // 将 num 赋给 index 处元素
         nums[index] = num
-    }
-
-    /* 删除索引 index 处元素 */
-    func remove(nums []int, index int) {
-        // 把索引 index 之后的所有元素向前移动一位
-        for i := index; i < len(nums)-1; i++ {
-            nums[i] = nums[i+1]
-        }
     }
     ```
 
@@ -511,14 +475,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 将 num 赋给 index 处元素
         nums[index] = num;
     }
-
-    /* 删除索引 index 处元素 */
-    function remove(nums, index) {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (let i = index; i < nums.length - 1; i++) {
-            nums[i] = nums[i + 1];
-        }
-    }
     ```
 
 === "TypeScript"
@@ -533,22 +489,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 将 num 赋给 index 处元素
         nums[index] = num;
     }
-
-    /* 删除索引 index 处元素 */
-    function remove(nums: number[], index: number): void {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (let i = index; i < nums.length - 1; i++) {
-            nums[i] = nums[i + 1];
-        }
-    }
     ```
 
 === "C"
 
     ```c title="array.c"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{removeItem}
     ```
 
 === "C#"
@@ -565,16 +511,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 将 num 赋给 index 处元素
         nums[index] = num;
     }
-
-    /* 删除索引 index 处元素 */
-    void remove(int[] nums, int index)
-    {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (int i = index; i < nums.Length - 1; i++)
-        {
-            nums[i] = nums[i + 1];
-        }
-    }
     ```
 
 === "Swift"
@@ -589,7 +525,105 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 将 num 赋给 index 处元素
         nums[index] = num
     }
+    ```
 
+删除元素也是类似，如果我们想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，我们无需特意去修改它。
+
+![array_remove_element](array.assets/array_remove_element.png)
+
+=== "Java"
+
+    ```java title="array.java"
+    /* 删除索引 index 处元素 */
+    void remove(int[] nums, int index) {
+        // 把索引 index 之后的所有元素向前移动一位
+        for (int i = index; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
+    ```
+
+=== "C++"
+
+    ```cpp title="array.cpp"
+    /* 删除索引 index 处元素 */
+    void remove(int* nums, int size, int index) {
+        // 把索引 index 之后的所有元素向前移动一位
+        for (int i = index; i < size - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
+    ```
+
+=== "Python"
+
+    ```python title="array.py"
+    """ 删除索引 index 处元素 """
+    def remove(nums, index):
+        # 把索引 index 之后的所有元素向前移动一位
+        for i in range(index, len(nums) - 1):
+            nums[i] = nums[i + 1]
+    ```
+
+=== "Go"
+
+    ```go title="array.go"
+    /* 删除索引 index 处元素 */
+    func remove(nums []int, index int) {
+        // 把索引 index 之后的所有元素向前移动一位
+        for i := index; i < len(nums)-1; i++ {
+            nums[i] = nums[i+1]
+        }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="array.js"
+    /* 删除索引 index 处元素 */
+    function remove(nums, index) {
+        // 把索引 index 之后的所有元素向前移动一位
+        for (let i = index; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array.ts"
+    /* 删除索引 index 处元素 */
+    function remove(nums: number[], index: number): void {
+        // 把索引 index 之后的所有元素向前移动一位
+        for (let i = index; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{removeItem}
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    /* 删除索引 index 处元素 */
+    void remove(int[] nums, int index)
+    {
+        // 把索引 index 之后的所有元素向前移动一位
+        for (int i = index; i < nums.Length - 1; i++)
+        {
+            nums[i] = nums[i + 1];
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
     /* 删除索引 index 处元素 */
     func remove(nums: inout [Int], index: Int) {
         let count = nums.count
@@ -603,17 +637,6 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Zig"
 
     ```zig title="array.zig"
-    // 在数组的索引 index 处插入元素 num
-    fn insert(nums: []i32, num: i32, index: usize) void {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        var i = nums.len - 1;
-        while (i > index) : (i -= 1) {
-            nums[i] = nums[i - 1];
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num;
-    }
-
     // 删除索引 index 处元素
     fn remove(nums: []i32, index: usize) void {
         // 把索引 index 之后的所有元素向前移动一位
@@ -623,6 +646,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         }
     }
     ```
+
+总结来看，数组的插入与删除操作有以下缺点：
+
+- **时间复杂度高**：数组的插入和删除的平均时间复杂度均为 $O(N)$ ，其中 $N$ 为数组长度。
+- **丢失元素**：由于数组的长度不可变，因此在插入元素后，超出数组长度范围的元素会被丢失。
+- **内存浪费**：我们一般会初始化一个比较长的数组，只用前面一部分，这样在插入数据时，丢失的末尾元素都是我们不关心的，但这样做同时也会造成内存空间的浪费。
 
 ## 4.1.3. &nbsp; 数组常用操作
 

@@ -296,7 +296,7 @@ comments: true
 
 观察发现，快速排序和「二分查找」的原理类似，都是以对数阶的时间复杂度来缩小处理区间。
 
-![quick_sort](quick_sort.assets/quick_sort.png)
+![quick_sort_overview](quick_sort.assets/quick_sort_overview.png)
 
 <p align="center"> Fig. 快速排序流程 </p>
 

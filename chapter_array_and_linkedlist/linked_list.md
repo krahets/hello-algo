@@ -316,11 +316,9 @@ comments: true
 
 ## 4.2.1. &nbsp; 链表优点
 
-**在链表中，插入与删除结点的操作效率高**。例如，如果想在链表中间的两个结点 `A` , `B` 之间插入一个新结点 `P` ，我们只需要改变两个结点指针即可，时间复杂度为 $O(1)$ ，相比数组的插入操作高效很多。在链表中删除某个结点也很方便，只需要改变一个结点指针即可。
+**在链表中，插入与删除结点的操作效率高**。比如，如果我们想在链表中间的两个结点 `A` , `B` 之间插入一个新结点 `P` ，我们只需要改变两个结点指针即可，时间复杂度为 $O(1)$ ，相比数组的插入操作高效很多。
 
-![linkedlist_insert_remove_node](linked_list.assets/linkedlist_insert_remove_node.png)
-
-<p align="center"> Fig. 在链表中插入与删除结点 </p>
+![linkedlist_insert_node](linked_list.assets/linkedlist_insert_node.png)
 
 === "Java"
 
@@ -331,7 +329,109 @@ comments: true
         n0.next = P;
         P.next = n1;
     }
+    ```
 
+=== "C++"
+
+    ```cpp title="linked_list.cpp"
+    /* 在链表的结点 n0 之后插入结点 P */
+    void insert(ListNode* n0, ListNode* P) {
+        ListNode* n1 = n0->next;
+        n0->next = P;
+        P->next = n1;
+    }
+    ```
+
+=== "Python"
+
+    ```python title="linked_list.py"
+    """ 在链表的结点 n0 之后插入结点 P """
+    def insert(n0, P):
+        n1 = n0.next
+        n0.next = P
+        P.next = n1
+    ```
+
+=== "Go"
+
+    ```go title="linked_list.go"
+    /* 在链表的结点 n0 之后插入结点 P */
+    func insertNode(n0 *ListNode, P *ListNode) {
+        n1 := n0.Next
+        n0.Next = P
+        P.Next = n1
+    }
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="linked_list.js"
+    /* 在链表的结点 n0 之后插入结点 P */
+    function insert(n0, P) {
+        const n1 = n0.next;
+        n0.next = P;
+        P.next = n1;
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="linked_list.ts"
+    /* 在链表的结点 n0 之后插入结点 P */
+    function insert(n0: ListNode, P: ListNode): void {
+        const n1 = n0.next;
+        n0.next = P;
+        P.next = n1;
+    }
+    ```
+
+=== "C"
+
+    ```c title="linked_list.c"
+    [class]{}-[func]{insertNode}
+    ```
+
+=== "C#"
+
+    ```csharp title="linked_list.cs"
+    /* 在链表的结点 n0 之后插入结点 P */
+    void insert(ListNode n0, ListNode P)
+    {
+        ListNode? n1 = n0.next;
+        n0.next = P;
+        P.next = n1;
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+    /* 在链表的结点 n0 之后插入结点 P */
+    func insert(n0: ListNode, P: ListNode) {
+        let n1 = n0.next
+        n0.next = P
+        P.next = n1
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
+    // 在链表的结点 n0 之后插入结点 P
+    fn insert(n0: ?*inc.ListNode(i32), P: ?*inc.ListNode(i32)) void {
+        var n1 = n0.?.next;
+        n0.?.next = P;
+        P.?.next = n1;
+    }
+    ```
+
+在链表中删除结点也很方便，只需要改变一个结点指针即可。如下图所示，虽然在完成删除后结点 `P` 仍然指向 `n2` ，但实际上 `P` 已经不属于此链表了，因为遍历此链表是无法访问到 `P` 的。
+
+![linkedlist_remove_node](linked_list.assets/linkedlist_remove_node.png)
+
+=== "Java"
+
+    ```java title="linked_list.java"
     /* 删除链表的结点 n0 之后的首个结点 */
     void remove(ListNode n0) {
         if (n0.next == null)
@@ -346,13 +446,6 @@ comments: true
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* 在链表的结点 n0 之后插入结点 P */
-    void insert(ListNode* n0, ListNode* P) {
-        ListNode* n1 = n0->next;
-        n0->next = P;
-        P->next = n1;
-    }
-
     /* 删除链表的结点 n0 之后的首个结点 */
     void remove(ListNode* n0) {
         if (n0->next == nullptr)
@@ -369,12 +462,6 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    """ 在链表的结点 n0 之后插入结点 P """
-    def insert(n0, P):
-        n1 = n0.next
-        n0.next = P
-        P.next = n1
-
     """ 删除链表的结点 n0 之后的首个结点 """
     def remove(n0):
         if not n0.next:
@@ -388,13 +475,6 @@ comments: true
 === "Go"
 
     ```go title="linked_list.go"
-    /* 在链表的结点 n0 之后插入结点 P */
-    func insertNode(n0 *ListNode, P *ListNode) {
-        n1 := n0.Next
-        n0.Next = P
-        P.Next = n1
-    }
-
     /* 删除链表的结点 n0 之后的首个结点 */
     func removeNode(n0 *ListNode) {
         if n0.Next == nil {
@@ -410,13 +490,6 @@ comments: true
 === "JavaScript"
 
     ```javascript title="linked_list.js"
-    /* 在链表的结点 n0 之后插入结点 P */
-    function insert(n0, P) {
-        const n1 = n0.next;
-        n0.next = P;
-        P.next = n1;
-    }
-
     /* 删除链表的结点 n0 之后的首个结点 */
     function remove(n0) {
         if (!n0.next)
@@ -431,13 +504,6 @@ comments: true
 === "TypeScript"
 
     ```typescript title="linked_list.ts"
-    /* 在链表的结点 n0 之后插入结点 P */
-    function insert(n0: ListNode, P: ListNode): void {
-        const n1 = n0.next;
-        n0.next = P;
-        P.next = n1;
-    }
-
     /* 删除链表的结点 n0 之后的首个结点 */
     function remove(n0: ListNode): void {
         if (!n0.next) {
@@ -453,22 +519,12 @@ comments: true
 === "C"
 
     ```c title="linked_list.c"
-    [class]{}-[func]{insertNode}
-
     [class]{}-[func]{removeNode}
     ```
 
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* 在链表的结点 n0 之后插入结点 P */
-    void insert(ListNode n0, ListNode P)
-    {
-        ListNode? n1 = n0.next;
-        n0.next = P;
-        P.next = n1;
-    }
-
     /* 删除链表的结点 n0 之后的首个结点 */
     void remove(ListNode n0)
     {
@@ -484,13 +540,6 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* 在链表的结点 n0 之后插入结点 P */
-    func insert(n0: ListNode, P: ListNode) {
-        let n1 = n0.next
-        n0.next = P
-        P.next = n1
-    }
-
     /* 删除链表的结点 n0 之后的首个结点 */
     func remove(n0: ListNode) {
         if n0.next == nil {
@@ -507,13 +556,6 @@ comments: true
 === "Zig"
 
     ```zig title="linked_list.zig"
-    // 在链表的结点 n0 之后插入结点 P
-    fn insert(n0: ?*inc.ListNode(i32), P: ?*inc.ListNode(i32)) void {
-        var n1 = n0.?.next;
-        n0.?.next = P;
-        P.?.next = n1;
-    }
-
     // 删除链表的结点 n0 之后的首个结点
     fn remove(n0: ?*inc.ListNode(i32)) void {
         if (n0.?.next == null) return;
