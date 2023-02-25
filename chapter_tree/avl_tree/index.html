@@ -1778,9 +1778,9 @@
 <h1 id="74-avl">7.4. &nbsp; AVL 树 *<a class="headerlink" href="#74-avl" title="Permanent link">&para;</a></h1>
 <p>在「二叉搜索树」章节中提到，在进行多次插入与删除操作后，二叉搜索树可能会退化为链表。此时所有操作的时间复杂度都会由 <span class="arithmatex">\(O(\log n)\)</span> 劣化至 <span class="arithmatex">\(O(n)\)</span> 。</p>
 <p>如下图所示，执行两步删除结点后，该二叉搜索树就会退化为链表。</p>
-<p><img alt="degradation_from_removing_node" src="../avl_tree.assets/degradation_from_removing_node.png" /></p>
+<p><img alt="avltree_degradation_from_removing_node" src="../avl_tree.assets/avltree_degradation_from_removing_node.png" /></p>
 <p>再比如，在以下完美二叉树中插入两个结点后，树严重向左偏斜，查找操作的时间复杂度也随之发生劣化。</p>
-<p><img alt="degradation_from_inserting_node" src="../avl_tree.assets/degradation_from_inserting_node.png" /></p>
+<p><img alt="avltree_degradation_from_inserting_node" src="../avl_tree.assets/avltree_degradation_from_inserting_node.png" /></p>
 <p>G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorithm for the organization of information" 中提出了「AVL 树」。<strong>论文中描述了一系列操作，使得在不断添加与删除结点后，AVL 树仍然不会发生退化</strong>，进而使得各种操作的时间复杂度均能保持在 <span class="arithmatex">\(O(\log n)\)</span> 级别。</p>
 <p>换言之，在频繁增删查改的使用场景中，AVL 树可始终保持很高的数据增删查改效率，具有很好的应用价值。</p>
 <h2 id="741-avl">7.4.1. &nbsp; AVL 树常见术语<a class="headerlink" href="#741-avl" title="Permanent link">&para;</a></h2>
@@ -2162,21 +2162,21 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><img alt="right_rotate_step1" src="../avl_tree.assets/right_rotate_step1.png" /></p>
+<p><img alt="avltree_right_rotate_step1" src="../avl_tree.assets/avltree_right_rotate_step1.png" /></p>
 </div>
 <div class="tabbed-block">
-<p><img alt="right_rotate_step2" src="../avl_tree.assets/right_rotate_step2.png" /></p>
+<p><img alt="avltree_right_rotate_step2" src="../avl_tree.assets/avltree_right_rotate_step2.png" /></p>
 </div>
 <div class="tabbed-block">
-<p><img alt="right_rotate_step3" src="../avl_tree.assets/right_rotate_step3.png" /></p>
+<p><img alt="avltree_right_rotate_step3" src="../avl_tree.assets/avltree_right_rotate_step3.png" /></p>
 </div>
 <div class="tabbed-block">
-<p><img alt="right_rotate_step4" src="../avl_tree.assets/right_rotate_step4.png" /></p>
+<p><img alt="avltree_right_rotate_step4" src="../avl_tree.assets/avltree_right_rotate_step4.png" /></p>
 </div>
 </div>
 </div>
 <p>进而，如果结点 <code>child</code> 本身有右子结点（记为 <code>grandChild</code> ），则需要在「右旋」中添加一步：将 <code>grandChild</code> 作为 <code>node</code> 的左子结点。</p>
-<p><img alt="right_rotate_with_grandchild" src="../avl_tree.assets/right_rotate_with_grandchild.png" /></p>
+<p><img alt="avltree_right_rotate_with_grandchild" src="../avl_tree.assets/avltree_right_rotate_with_grandchild.png" /></p>
 <p>“向右旋转”是一种形象化的说法，实际需要通过修改结点指针实现，代码如下所示。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:10"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JavaScript</label><label for="__tabbed_5_6">TypeScript</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label></div>
 <div class="tabbed-content">
@@ -2332,9 +2332,9 @@
 </div>
 <h3 id="case-2-">Case 2 - 左旋<a class="headerlink" href="#case-2-" title="Permanent link">&para;</a></h3>
 <p>类似地，如果将取上述失衡二叉树的“镜像”，那么则需要「左旋」操作。</p>
-<p><img alt="left_rotate" src="../avl_tree.assets/left_rotate.png" /></p>
+<p><img alt="avltree_left_rotate" src="../avl_tree.assets/avltree_left_rotate.png" /></p>
 <p>同理，若结点 <code>child</code> 本身有左子结点（记为 <code>grandChild</code> ），则需要在「左旋」中添加一步：将 <code>grandChild</code> 作为 <code>node</code> 的右子结点。</p>
-<p><img alt="left_rotate_with_grandchild" src="../avl_tree.assets/left_rotate_with_grandchild.png" /></p>
+<p><img alt="avltree_left_rotate_with_grandchild" src="../avl_tree.assets/avltree_left_rotate_with_grandchild.png" /></p>
 <p>观察发现，<strong>「左旋」和「右旋」操作是镜像对称的，两者对应解决的两种失衡情况也是对称的</strong>。根据对称性，我们可以很方便地从「右旋」推导出「左旋」。具体地，只需将「右旋」代码中的把所有的 <code>left</code> 替换为 <code>right</code> 、所有的 <code>right</code> 替换为 <code>left</code> ，即可得到「左旋」代码。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:10"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Python</label><label for="__tabbed_6_4">Go</label><label for="__tabbed_6_5">JavaScript</label><label for="__tabbed_6_6">TypeScript</label><label for="__tabbed_6_7">C</label><label for="__tabbed_6_8">C#</label><label for="__tabbed_6_9">Swift</label><label for="__tabbed_6_10">Zig</label></div>
 <div class="tabbed-content">
@@ -2490,13 +2490,13 @@
 </div>
 <h3 id="case-3-">Case 3 - 先左后右<a class="headerlink" href="#case-3-" title="Permanent link">&para;</a></h3>
 <p>对于下图的失衡结点 3 ，<strong>单一使用左旋或右旋都无法使子树恢复平衡</strong>，此时需要「先左旋后右旋」，即先对 <code>child</code> 执行「左旋」，再对 <code>node</code> 执行「右旋」。</p>
-<p><img alt="left_right_rotate" src="../avl_tree.assets/left_right_rotate.png" /></p>
+<p><img alt="avltree_left_right_rotate" src="../avl_tree.assets/avltree_left_right_rotate.png" /></p>
 <h3 id="case-4-">Case 4 - 先右后左<a class="headerlink" href="#case-4-" title="Permanent link">&para;</a></h3>
 <p>同理，取以上失衡二叉树的镜像，则需要「先右旋后左旋」，即先对 <code>child</code> 执行「右旋」，然后对 <code>node</code> 执行「左旋」。</p>
-<p><img alt="right_left_rotate" src="../avl_tree.assets/right_left_rotate.png" /></p>
+<p><img alt="avltree_right_left_rotate" src="../avl_tree.assets/avltree_right_left_rotate.png" /></p>
 <h3 id="_3">旋转的选择<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>下图描述的四种失衡情况与上述 Cases 逐个对应，分别需采用 <strong>右旋、左旋、先右后左、先左后右</strong> 的旋转操作。</p>
-<p><img alt="rotation_cases" src="../avl_tree.assets/rotation_cases.png" /></p>
+<p><img alt="avltree_rotation_cases" src="../avl_tree.assets/avltree_rotation_cases.png" /></p>
 <p>具体地，在代码中使用 <strong>失衡结点的平衡因子、较高一侧子结点的平衡因子</strong> 来确定失衡结点属于上图中的哪种情况。</p>
 <div class="center-table">
 <table>
