@@ -43,7 +43,7 @@ public class graph_dfs {
         System.out.println("\n初始化后，图为");
         graph.print();
 
-        /* 深度优先遍历 BFS */
+        /* 深度优先遍历 DFS */
         List<Vertex> res = graphDFS(graph, v[0]);
         System.out.println("\n深度优先遍历（DFS）顶点序列为");
         System.out.println(Vertex.vetsToVals(res));
