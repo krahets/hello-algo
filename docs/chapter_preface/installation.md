@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 编程环境安装
 
 （TODO 视频教程）

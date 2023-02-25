@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 链表
 
 !!! note "引言"

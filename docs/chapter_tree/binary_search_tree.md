@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 二叉搜索树
 
 「二叉搜索树 Binary Search Tree」满足以下条件：

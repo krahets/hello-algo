@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 小结
 
 - 整数 byte, short, int, long 、浮点数 float, double 、字符 char 、布尔 boolean 是计算机中的基本数据类型，占用空间的大小决定了它们的取值范围。

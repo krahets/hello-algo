@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 排序简介
 
 「排序算法 Sorting Algorithm」使得列表中的所有元素按照从小到大的顺序排列。

@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 一起参与创作
 
 !!! success "开源的魅力"

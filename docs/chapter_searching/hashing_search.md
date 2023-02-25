@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 哈希查找
 
 !!! question

@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 插入排序
 
 「插入排序 Insertion Sort」是一种基于 **数组插入操作** 的排序算法。
