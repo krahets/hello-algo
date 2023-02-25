@@ -138,7 +138,7 @@ $$
 
     ```swift title=""
     // 在某运行平台下
-    func algorithm(_ n: Int) {
+    func algorithm(n: Int) {
         var a = 2 // 1 ns
         a = a + 1 // 1 ns
         a = a * 2 // 10 ns
@@ -340,19 +340,19 @@ $$
 
     ```swift title=""
     // 算法 A 时间复杂度：常数阶
-    func algorithmA(_ n: Int) {
+    func algorithmA(n: Int) {
         print(0)
     }
 
     // 算法 B 时间复杂度：线性阶
-    func algorithmB(_ n: Int) {
+    func algorithmB(n: Int) {
         for _ in 0 ..< n {
             print(0)
         }
     }
 
     // 算法 C 时间复杂度：常数阶
-    func algorithmC(_ n: Int) {
+    func algorithmC(n: Int) {
         for _ in 0 ..< 1000000 {
             print(0)
         }
@@ -1701,26 +1701,9 @@ $$
 === "Swift"
 
     ```swift title="worst_best_time_complexity.swift"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    func randomNumbers(n: Int) -> [Int] {
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        var nums = Array(1 ... n)
-        // 随机打乱数组元素
-        nums.shuffle()
-        return nums
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    func findOne(nums: [Int]) -> Int {
-        for i in nums.indices {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if nums[i] == 1 {
-                return i
-            }
-        }
-        return -1
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "Zig"
