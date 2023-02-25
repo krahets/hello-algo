@@ -114,15 +114,3 @@
 在写作过程中，我阅读了许多与数据结构与算法的书籍与教材，这些著作为本书作出了很好的榜样，保证了本书内容的正确性与质量，感谢前辈们的精彩创作！
 
 感谢父母，你们一贯的支持与鼓励给了我自由度来做这些有趣的事。
-
-## 作者简介
-
-![profile](about_the_book.assets/profile.png){: .center}
-
-<h2 align="center"> 靳宇栋（Krahets） </h2>
-
-<h5 align="center"> 华为高级算法工程师、算法爱好者 </h5>
-
-<p align="center"> 力扣（LeetCode）全网阅读量最高博主 </p>
-<p align="center"> 分享近百道算法题解，累积回复数千读者的问题 </p>
-<p align="center"> 发表的 LeetBook《图解算法数据结构》已订阅 22 万本 </p>

@@ -97,3 +97,18 @@ hide:
 </div>
 
 ---
+
+<h2 align="center"> 作者 </h2>
+
+</br>
+
+<p align="center">
+    <img width="110" src="index.assets/profile.png" />
+</p>
+
+<h3 align="center"> 靳宇栋 Krahets </h2>
+
+<h6 align="center"> 大厂高级算法工程师 </h5>
+
+<h6 align="center"> 力扣（LeetCode）全网阅读量最高博主 </p>
+<h6 align="center"> LeetBook《图解算法数据结构》已订阅 22 万本 </p>
