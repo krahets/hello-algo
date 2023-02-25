@@ -20,7 +20,7 @@ comments: true
 2. 第 2 轮选取 **第 3 个元素** 为 `base` ，执行「插入操作」后，**数组前 3 个元素已完成排序**。
 3. 以此类推……最后一轮选取 **数组尾元素** 为 `base` ，执行「插入操作」后，**所有元素已完成排序**。
 
-![insertion_sort](insertion_sort.assets/insertion_sort.png)
+![insertion_sort_overview](insertion_sort.assets/insertion_sort_overview.png)
 
 <p align="center"> Fig. 插入排序流程 </p>
 

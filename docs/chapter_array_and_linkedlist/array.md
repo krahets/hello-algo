@@ -243,95 +243,133 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{extend}
     ```
 
-**数组中插入或删除元素效率低下**。假设我们想要在数组中间某位置插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。删除元素也是类似，需要把此索引之后的元素都向前移动一位。总体看有以下缺点：
+**数组中插入或删除元素效率低下**。如果我们想要在数组中间插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。
 
-- **时间复杂度高**：数组的插入和删除的平均时间复杂度均为 $O(N)$ ，其中 $N$ 为数组长度。
-- **丢失元素**：由于数组的长度不可变，因此在插入元素后，超出数组长度范围的元素会被丢失。
-- **内存浪费**：我们一般会初始化一个比较长的数组，只用前面一部分，这样在插入数据时，丢失的末尾元素都是我们不关心的，但这样做同时也会造成内存空间的浪费。
-
-![array_insert_remove_element](array.assets/array_insert_remove_element.png)
-
-<p align="center"> Fig. 在数组中插入与删除元素 </p>
+![array_insert_element](array.assets/array_insert_element.png)
 
 === "Java"
 
     ```java title="array.java"
     [class]{array}-[func]{insert}
-
-    [class]{array}-[func]{remove}
     ```
 
 === "C++"
 
     ```cpp title="array.cpp"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "Python"
 
     ```python title="array.py"
     [class]{}-[func]{insert}
-    
-    [class]{}-[func]{remove}
     ```
 
 === "Go"
 
     ```go title="array.go"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "JavaScript"
 
     ```javascript title="array.js"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "TypeScript"
 
     ```typescript title="array.ts"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "C"
 
     ```c title="array.c"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{removeItem}
     ```
 
 === "C#"
 
     ```csharp title="array.cs"
     [class]{array}-[func]{insert}
-
-    [class]{array}-[func]{remove}
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
     [class]{}-[func]{insert}
+    ```
 
+删除元素也是类似，如果我们想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，我们无需特意去修改它。
+
+![array_remove_element](array.assets/array_remove_element.png)
+
+=== "Java"
+
+    ```java title="array.java"
+    [class]{array}-[func]{remove}
+    ```
+
+=== "C++"
+
+    ```cpp title="array.cpp"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Python"
+
+    ```python title="array.py"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Go"
+
+    ```go title="array.go"
+    [class]{}-[func]{remove}
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="array.js"
+    [class]{}-[func]{remove}
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array.ts"
+    [class]{}-[func]{remove}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{removeItem}
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{remove}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
     [class]{}-[func]{remove}
     ```
 
 === "Zig"
 
     ```zig title="array.zig"
-    [class]{}-[func]{insert}
-
     [class]{}-[func]{remove}
     ```
+
+总结来看，数组的插入与删除操作有以下缺点：
+
+- **时间复杂度高**：数组的插入和删除的平均时间复杂度均为 $O(N)$ ，其中 $N$ 为数组长度。
+- **丢失元素**：由于数组的长度不可变，因此在插入元素后，超出数组长度范围的元素会被丢失。
+- **内存浪费**：我们一般会初始化一个比较长的数组，只用前面一部分，这样在插入数据时，丢失的末尾元素都是我们不关心的，但这样做同时也会造成内存空间的浪费。
 
 ## 数组常用操作
 

@@ -22,16 +22,16 @@ comments: true
 - 若 `cur.val = num` ，说明找到目标结点，跳出循环并返回该结点即可；
 
 === "<1>"
-    ![bst_search_1](binary_search_tree.assets/bst_search_1.png)
+    ![bst_search_step1](binary_search_tree.assets/bst_search_step1.png)
 
 === "<2>"
-    ![bst_search_2](binary_search_tree.assets/bst_search_2.png)
+    ![bst_search_step2](binary_search_tree.assets/bst_search_step2.png)
 
 === "<3>"
-    ![bst_search_3](binary_search_tree.assets/bst_search_3.png)
+    ![bst_search_step3](binary_search_tree.assets/bst_search_step3.png)
 
 === "<4>"
-    ![bst_search_4](binary_search_tree.assets/bst_search_4.png)
+    ![bst_search_step4](binary_search_tree.assets/bst_search_step4.png)
 
 二叉搜索树的查找操作和二分查找算法如出一辙，也是在每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 $O(\log n)$ 时间。
 
@@ -189,16 +189,16 @@ comments: true
 3. 使用 `nex` 替换待删除结点；
 
 === "<1>"
-    ![bst_remove_case3_1](binary_search_tree.assets/bst_remove_case3_1.png)
+    ![bst_remove_case3_step1](binary_search_tree.assets/bst_remove_case3_step1.png)
 
 === "<2>"
-    ![bst_remove_case3_2](binary_search_tree.assets/bst_remove_case3_2.png)
+    ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.png)
 
 === "<3>"
-    ![bst_remove_case3_3](binary_search_tree.assets/bst_remove_case3_3.png)
+    ![bst_remove_case3_step3](binary_search_tree.assets/bst_remove_case3_step3.png)
 
 === "<4>"
-    ![bst_remove_case3_4](binary_search_tree.assets/bst_remove_case3_4.png)
+    ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.png)
 
 删除结点操作也使用 $O(\log n)$ 时间，其中查找待删除结点 $O(\log n)$ ，获取中序遍历后继结点 $O(\log n)$ 。
 

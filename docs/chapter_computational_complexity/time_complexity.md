@@ -369,7 +369,7 @@ $$
 
     ```
 
-![time_complexity_first_example](time_complexity.assets/time_complexity_first_example.png)
+![time_complexity_simple_example](time_complexity.assets/time_complexity_simple_example.png)
 
 <p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
 

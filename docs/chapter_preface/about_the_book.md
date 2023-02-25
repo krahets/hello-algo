@@ -36,7 +36,7 @@ comments: true
 
 本书主要内容分为复杂度分析、数据结构、算法三个部分。
 
-![mindmap](about_the_book.assets/mindmap.png)
+![hello_algo_mindmap](about_the_book.assets/hello_algo_mindmap.png)
 
 <p align="center"> Fig. 知识点思维导图 </p>
 

@@ -316,89 +316,131 @@ comments: true
 
 ## 链表优点
 
-**在链表中，插入与删除结点的操作效率高**。例如，如果想在链表中间的两个结点 `A` , `B` 之间插入一个新结点 `P` ，我们只需要改变两个结点指针即可，时间复杂度为 $O(1)$ ，相比数组的插入操作高效很多。在链表中删除某个结点也很方便，只需要改变一个结点指针即可。
+**在链表中，插入与删除结点的操作效率高**。比如，如果我们想在链表中间的两个结点 `A` , `B` 之间插入一个新结点 `P` ，我们只需要改变两个结点指针即可，时间复杂度为 $O(1)$ ，相比数组的插入操作高效很多。
 
-![linkedlist_insert_remove_node](linked_list.assets/linkedlist_insert_remove_node.png)
-
-<p align="center"> Fig. 在链表中插入与删除结点 </p>
+![linkedlist_insert_node](linked_list.assets/linkedlist_insert_node.png)
 
 === "Java"
 
     ```java title="linked_list.java"
     [class]{linked_list}-[func]{insert}
-
-    [class]{linked_list}-[func]{remove}
     ```
 
 === "C++"
 
     ```cpp title="linked_list.cpp"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "Python"
 
     ```python title="linked_list.py"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
     [class]{}-[func]{insertNode}
-
-    [class]{}-[func]{removeNode}
     ```
 
 === "JavaScript"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "TypeScript"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "C"
 
     ```c title="linked_list.c"
     [class]{}-[func]{insertNode}
-
-    [class]{}-[func]{removeNode}
     ```
 
 === "C#"
 
     ```csharp title="linked_list.cs"
     [class]{linked_list}-[func]{insert}
-
-    [class]{linked_list}-[func]{remove}
     ```
 
 === "Swift"
 
     ```swift title="linked_list.swift"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "Zig"
 
     ```zig title="linked_list.zig"
     [class]{}-[func]{insert}
+    ```
 
+在链表中删除结点也很方便，只需要改变一个结点指针即可。如下图所示，虽然在完成删除后结点 `P` 仍然指向 `n2` ，但实际上 `P` 已经不属于此链表了，因为遍历此链表是无法访问到 `P` 的。
+
+![linkedlist_remove_node](linked_list.assets/linkedlist_remove_node.png)
+
+=== "Java"
+
+    ```java title="linked_list.java"
+    [class]{linked_list}-[func]{remove}
+    ```
+
+=== "C++"
+
+    ```cpp title="linked_list.cpp"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Python"
+
+    ```python title="linked_list.py"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Go"
+
+    ```go title="linked_list.go"
+    [class]{}-[func]{removeNode}
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="linked_list.js"
+    [class]{}-[func]{remove}
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="linked_list.ts"
+    [class]{}-[func]{remove}
+    ```
+
+=== "C"
+
+    ```c title="linked_list.c"
+    [class]{}-[func]{removeNode}
+    ```
+
+=== "C#"
+
+    ```csharp title="linked_list.cs"
+    [class]{linked_list}-[func]{remove}
+    ```
+
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
     [class]{}-[func]{remove}
     ```
 

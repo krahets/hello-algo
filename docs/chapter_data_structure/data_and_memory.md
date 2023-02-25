@@ -80,7 +80,7 @@ $$
 \end{aligned}
 $$
 
-![IEEE-754-float](data_and_memory.assets/IEEE-754-float.png)
+![ieee_754_float](data_and_memory.assets/ieee_754_float.png)
 
 以上图为例，$\mathrm{S} = 0$ ， $\mathrm{E} = 124$ ，$\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$ ，易得
 

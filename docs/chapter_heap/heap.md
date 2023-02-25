@@ -793,7 +793,7 @@ $$
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \cdots + 2^{(h-1)}\times1
 $$
 
-![heapify_count](heap.assets/heapify_count.png)
+![heapify_operations_count](heap.assets/heapify_operations_count.png)
 
 化简上式需要借助中学的数列知识，先对 $T(h)$ 乘以 $2$ ，易得
 
