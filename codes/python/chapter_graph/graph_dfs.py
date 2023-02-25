@@ -42,7 +42,7 @@ if __name__ == "__main__":
     print("\n初始化后，图为")
     graph.print()
     
-    # 深度优先遍历 BFS
+    # 深度优先遍历 DFS
     res = graph_dfs(graph, v[0])
     print("\n深度优先遍历（DFS）顶点序列为")
     print(vets_to_vals(res))
