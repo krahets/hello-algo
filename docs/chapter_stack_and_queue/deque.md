@@ -8,8 +8,6 @@
 
 双向队列的常用操作见下表，方法名需根据特定语言来确定。
 
-<p align="center"> Table. 双向队列的常用操作 </p>
-
 <div class="center-table" markdown>
 
 | 方法名        | 描述             | 时间复杂度 |

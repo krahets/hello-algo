@@ -31,8 +31,6 @@
 === "<7>"
     ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.png)
 
-<p align="center"> Fig. 冒泡操作 </p>
-
 ## 算法流程
 
 1. 设数组长度为 $n$ ，完成第一轮「冒泡」后，数组最大元素已在正确位置，接下来只需排序剩余 $n - 1$ 个元素。

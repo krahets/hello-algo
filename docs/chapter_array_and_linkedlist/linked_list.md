@@ -719,5 +719,3 @@
     ```
 
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)
-
-<p align="center"> Fig. 常见链表类型 </p>

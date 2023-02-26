@@ -21,8 +21,6 @@
 
 堆的常用操作见下表（方法命名以 Java 为例）。
 
-<p align="center"> Table. 堆的常用操作 </p>
-
 <div class="center-table" markdown>
 
 | 方法      | 描述                                         | 时间复杂度  |
