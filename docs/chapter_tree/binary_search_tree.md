@@ -5,7 +5,7 @@
 1. 对于根结点，左子树中所有结点的值 $<$ 根结点的值 $<$ 右子树中所有结点的值；
 2. 任意结点的左子树和右子树也是二叉搜索树，即也满足条件 `1.` ；
 
-![binary_search_tree](binary_search_tree.assets/binary_search_tree.png)
+![二叉搜索树](binary_search_tree.assets/binary_search_tree.png)
 
 ## 二叉搜索树的操作
 
@@ -100,7 +100,7 @@
 
 二叉搜索树不允许存在重复结点，否则将会违背其定义。因此若待插入结点在树中已经存在，则不执行插入，直接返回即可。
 
-![bst_insert](binary_search_tree.assets/bst_insert.png)
+![在二叉搜索树中插入结点](binary_search_tree.assets/bst_insert.png)
 
 === "Java"
 
@@ -172,11 +172,11 @@
 
 **当待删除结点的子结点数量 $= 0$ 时**，表明待删除结点是叶结点，直接删除即可。
 
-![bst_remove_case1](binary_search_tree.assets/bst_remove_case1.png)
+![在二叉搜索树中删除结点（度为 0）](binary_search_tree.assets/bst_remove_case1.png)
 
 **当待删除结点的子结点数量 $= 1$ 时**，将待删除结点替换为其子结点即可。
 
-![bst_remove_case2](binary_search_tree.assets/bst_remove_case2.png)
+![在二叉搜索树中删除结点（度为 1）](binary_search_tree.assets/bst_remove_case2.png)
 
 **当待删除结点的子结点数量 $= 2$ 时**，删除操作分为三步：
 
@@ -284,7 +284,7 @@
 
 借助中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 $O(n)$ 时间，而无需额外排序，非常高效。
 
-![bst_inorder_traversal](binary_search_tree.assets/bst_inorder_traversal.png)
+![二叉搜索树的中序遍历序列](binary_search_tree.assets/bst_inorder_traversal.png)
 
 ## 二叉搜索树的效率
 
@@ -325,7 +325,7 @@
 
     在实际应用中，如何保持二叉搜索树的平衡，也是一个需要重要考虑的问题。
 
-![bst_degradation](binary_search_tree.assets/bst_degradation.png)
+![二叉搜索树的平衡与退化](binary_search_tree.assets/bst_degradation.png)
 
 ## 二叉搜索树常见应用
 

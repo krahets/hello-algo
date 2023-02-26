@@ -6,9 +6,7 @@
 
 我们将这一摞元素的顶部称为「栈顶」，将底部称为「栈底」，将把元素添加到栈顶的操作称为「入栈」，将删除栈顶元素的操作称为「出栈」。
 
-![stack_operations](stack.assets/stack_operations.png)
-
-<p align="center"> Fig. 栈的先入后出特性 </p>
+![栈的先入后出规则](stack.assets/stack_operations.png)
 
 ## 栈常用操作
 

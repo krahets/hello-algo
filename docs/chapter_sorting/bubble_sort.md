@@ -39,9 +39,7 @@
 2. 同理，对剩余 $n - 1$ 个元素执行「冒泡」，可将第二大元素交换至正确位置，因而待排序元素只剩 $n - 2$ 个。
 3. 以此类推…… **循环 $n - 1$ 轮「冒泡」，即可完成整个数组的排序**。
 
-![bubble_sort_overview](bubble_sort.assets/bubble_sort_overview.png)
-
-<p align="center"> Fig. 冒泡排序流程 </p>
+![冒泡排序流程](bubble_sort.assets/bubble_sort_overview.png)
 
 === "Java"
 

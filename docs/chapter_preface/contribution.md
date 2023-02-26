@@ -14,7 +14,7 @@
 2. 修改 Markdown 源文件内容，并检查内容正确性，尽量保持排版格式统一；
 3. 在页面底部填写更改说明，然后单击“Propose file change”按钮；页面跳转后，点击“Create pull request”按钮发起拉取请求即可。
 
-![edit_markdown](contribution.assets/edit_markdown.png)
+![页面编辑按键](contribution.assets/edit_markdown.png)
 
 图片无法直接修改，需要通过新建 [Issue](https://github.com/krahets/hello-algo/issues) 或评论留言来描述图片问题，我会第一时间重新画图并替换图片。
 

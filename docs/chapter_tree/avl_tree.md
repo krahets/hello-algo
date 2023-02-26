@@ -4,11 +4,11 @@
 
 如下图所示，执行两步删除结点后，该二叉搜索树就会退化为链表。
 
-![avltree_degradation_from_removing_node](avl_tree.assets/avltree_degradation_from_removing_node.png)
+![AVL 树在删除结点后发生退化](avl_tree.assets/avltree_degradation_from_removing_node.png)
 
 再比如，在以下完美二叉树中插入两个结点后，树严重向左偏斜，查找操作的时间复杂度也随之发生劣化。
 
-![avltree_degradation_from_inserting_node](avl_tree.assets/avltree_degradation_from_inserting_node.png)
+![AVL 树在插入结点后发生退化](avl_tree.assets/avltree_degradation_from_inserting_node.png)
 
 G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorithm for the organization of information" 中提出了「AVL 树」。**论文中描述了一系列操作，使得在不断添加与删除结点后，AVL 树仍然不会发生退化**，进而使得各种操作的时间复杂度均能保持在 $O(\log n)$ 级别。
 
@@ -323,7 +323,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 进而，如果结点 `child` 本身有右子结点（记为 `grandChild` ），则需要在「右旋」中添加一步：将 `grandChild` 作为 `node` 的左子结点。
 
-![avltree_right_rotate_with_grandchild](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
+![有 grandChild 的右旋操作](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
 
 “向右旋转”是一种形象化的说法，实际需要通过修改结点指针实现，代码如下所示。
 
@@ -391,11 +391,11 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 类似地，如果将取上述失衡二叉树的“镜像”，那么则需要「左旋」操作。
 
-![avltree_left_rotate](avl_tree.assets/avltree_left_rotate.png)
+![左旋操作](avl_tree.assets/avltree_left_rotate.png)
 
 同理，若结点 `child` 本身有左子结点（记为 `grandChild` ），则需要在「左旋」中添加一步：将 `grandChild` 作为 `node` 的右子结点。
 
-![avltree_left_rotate_with_grandchild](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
+![有 grandChild 的左旋操作](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
 
 观察发现，**「左旋」和「右旋」操作是镜像对称的，两者对应解决的两种失衡情况也是对称的**。根据对称性，我们可以很方便地从「右旋」推导出「左旋」。具体地，只需将「右旋」代码中的把所有的 `left` 替换为 `right` 、所有的 `right` 替换为 `left` ，即可得到「左旋」代码。
 
@@ -463,19 +463,19 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
 对于下图的失衡结点 3 ，**单一使用左旋或右旋都无法使子树恢复平衡**，此时需要「先左旋后右旋」，即先对 `child` 执行「左旋」，再对 `node` 执行「右旋」。
 
-![avltree_left_right_rotate](avl_tree.assets/avltree_left_right_rotate.png)
+![先左旋后右旋](avl_tree.assets/avltree_left_right_rotate.png)
 
 ### Case 4 - 先右后左
 
 同理，取以上失衡二叉树的镜像，则需要「先右旋后左旋」，即先对 `child` 执行「右旋」，然后对 `node` 执行「左旋」。
 
-![avltree_right_left_rotate](avl_tree.assets/avltree_right_left_rotate.png)
+![先右旋后左旋](avl_tree.assets/avltree_right_left_rotate.png)
 
 ### 旋转的选择
 
 下图描述的四种失衡情况与上述 Cases 逐个对应，分别需采用 **右旋、左旋、先右后左、先左后右** 的旋转操作。
 
-![avltree_rotation_cases](avl_tree.assets/avltree_rotation_cases.png)
+![AVL 树的四种旋转情况](avl_tree.assets/avltree_rotation_cases.png)
 
 具体地，在代码中使用 **失衡结点的平衡因子、较高一侧子结点的平衡因子** 来确定失衡结点属于上图中的哪种情况。
 

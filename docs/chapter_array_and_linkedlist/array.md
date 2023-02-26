@@ -2,9 +2,7 @@
 
 「数组 Array」是一种将 **相同类型元素** 存储在 **连续内存空间** 的数据结构，将元素在数组中的位置称为元素的「索引 Index」。
 
-![array_definition](array.assets/array_definition.png)
-
-<p align="center"> Fig. 数组定义与存储方式 </p>
+![数组定义与存储方式](array.assets/array_definition.png)
 
 !!! note
 
@@ -102,9 +100,7 @@
 
 **在数组中访问元素非常高效**。这是因为在数组中，计算元素的内存地址非常容易。给定数组首个元素的地址、和一个元素的索引，利用以下公式可以直接计算得到该元素的内存地址，从而直接访问此元素。
 
-![array_memory_location_calculation](array.assets/array_memory_location_calculation.png)
-
-<p align="center"> Fig. 数组元素的内存地址计算 </p>
+![数组元素的内存地址计算](array.assets/array_memory_location_calculation.png)
 
 ```shell
 # 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引
@@ -241,7 +237,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
 **数组中插入或删除元素效率低下**。如果我们想要在数组中间插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。
 
-![array_insert_element](array.assets/array_insert_element.png)
+![数组插入元素](array.assets/array_insert_element.png)
 
 === "Java"
 
@@ -299,7 +295,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
 删除元素也是类似，如果我们想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，我们无需特意去修改它。
 
-![array_remove_element](array.assets/array_remove_element.png)
+![数组删除元素](array.assets/array_remove_element.png)
 
 === "Java"
 

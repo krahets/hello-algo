@@ -10,7 +10,7 @@
 
 如果我们想要给定数组中的一个目标元素 `target` ，获取该元素的索引，那么可以借助一个哈希表实现查找。
 
-![hash_search_index](hashing_search.assets/hash_search_index.png)
+![哈希查找数组索引](hashing_search.assets/hash_search_index.png)
 
 === "Java"
 
@@ -74,7 +74,7 @@
 
 再比如，如果我们想要给定一个目标结点值 `target` ，获取对应的链表结点对象，那么也可以使用哈希查找实现。
 
-![hash_search_listnode](hashing_search.assets/hash_search_listnode.png)
+![哈希查找链表结点](hashing_search.assets/hash_search_listnode.png)
 
 === "Java"
 

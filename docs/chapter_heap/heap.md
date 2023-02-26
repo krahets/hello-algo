@@ -5,7 +5,7 @@
 - 「大顶堆 Max Heap」，任意结点的值 $\geq$ 其子结点的值；
 - 「小顶堆 Min Heap」，任意结点的值 $\leq$ 其子结点的值；
 
-![min_heap_and_max_heap](heap.assets/min_heap_and_max_heap.png)
+![小顶堆与大顶堆](heap.assets/min_heap_and_max_heap.png)
 
 ## 堆术语与性质
 
@@ -314,7 +314,7 @@
 
 具体地，给定索引 $i$ ，那么其左子结点索引为 $2i + 1$ 、右子结点索引为 $2i + 2$ 、父结点索引为 $(i - 1) / 2$ （向下整除）。当索引越界时，代表空结点或结点不存在。
 
-![representation_of_heap](heap.assets/representation_of_heap.png)
+![堆的表示与存储](heap.assets/representation_of_heap.png)
 
 我们将索引映射公式封装成函数，以便后续使用。
 
@@ -789,7 +789,7 @@ $$
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \cdots + 2^{(h-1)}\times1
 $$
 
-![heapify_operations_count](heap.assets/heapify_operations_count.png)
+![完美二叉树的各层结点数量](heap.assets/heapify_operations_count.png)
 
 化简上式需要借助中学的数列知识，先对 $T(h)$ 乘以 $2$ ，易得
 

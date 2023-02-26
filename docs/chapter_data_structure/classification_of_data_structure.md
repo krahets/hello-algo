@@ -11,9 +11,7 @@
 - **线性数据结构**：数组、链表、栈、队列、哈希表；
 - **非线性数据结构**：树、图、堆、哈希表；
 
-![classification_logic_structure](classification_of_data_structure.assets/classification_logic_structure.png)
-
-<p align="center"> Fig. 线性与非线性数据结构 </p>
+![线性与非线性数据结构](classification_of_data_structure.assets/classification_logic_structure.png)
 
 ## 物理结构：连续与离散
 
@@ -23,9 +21,7 @@
 
 **「物理结构」反映了数据在计算机内存中的存储方式**。从本质上看，分别是 **数组的连续空间存储** 和 **链表的离散空间存储**。物理结构从底层上决定了数据的访问、更新、增删等操作方法，在时间效率和空间效率方面呈现出此消彼长的特性。
 
-![classification_phisical_structure](classification_of_data_structure.assets/classification_phisical_structure.png)
-
-<p align="center"> Fig. 连续空间存储与离散空间存储 </p>
+![连续空间存储与离散空间存储](classification_of_data_structure.assets/classification_phisical_structure.png)
 
 **所有数据结构都是基于数组、或链表、或两者组合实现的**。例如栈和队列，既可以使用数组实现、也可以使用链表实现，而例如哈希表，其实现同时包含了数组和链表。
 

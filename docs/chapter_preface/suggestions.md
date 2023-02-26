@@ -6,11 +6,11 @@
 
 标题后标注 `*` 的是选读章节，内容相对较难。如果你的时间有限，建议可以先跳过。
 
-文章中的重要名词会用 `「」` 括号标注，例如 `「数组 Array」` 。建议记住这些名词，包括英文翻译，以便后续阅读文献时使用。
+文章中的重要名词会用 `「括号」` 标注，例如 `「数组 Array」` 。建议记住这些名词，包括英文翻译，以便后续阅读文献时使用。
 
 重点内容、总起句、总结句会被 **加粗** ，此类文字值得特别关注。
 
-专有名词和有特指含义的词句会使用 `“ ”` 双引号标注，以避免歧义。
+专有名词和有特指含义的词句会使用 `“双引号”` 标注，以避免歧义。
 
 本书部分放弃了编程语言的注释规范，以换取更加紧凑的内容排版。注释主要分为三种类型：标题注释、内容注释、多行注释。
 
@@ -148,7 +148,7 @@
 
 阅读本书时，若发现某段内容提供了动画或图解，**建议你以图为主线**，将文字内容（一般在图的上方）对齐到图中内容，综合来理解。
 
-![animation](suggestions.assets/animation.gif)
+![动画图解示例](suggestions.assets/animation.gif)
 
 ## 在代码实践中加深理解
 
@@ -171,17 +171,17 @@ git clone https://github.com/krahets/hello-algo.git
 
 当然，你也可以点击“Download ZIP”直接下载代码压缩包，解压即可。
 
-![download_code](suggestions.assets/download_code.png)
+![克隆仓库与下载代码](suggestions.assets/download_code.png)
 
 ### 3) 运行源代码
 
 若代码块的顶部标有文件名称，则可在仓库 `codes` 文件夹中找到对应的 **源代码文件**。
 
-![code_md_to_repo](suggestions.assets/code_md_to_repo.png)
+![代码块与对应的源代码文件](suggestions.assets/code_md_to_repo.png)
 
 源代码文件可以帮助你省去不必要的调试时间，将精力集中在学习内容上。
 
-![running_code](suggestions.assets/running_code.gif)
+![运行代码示例](suggestions.assets/running_code.gif)
 
 ## 在提问讨论中共同成长
 
@@ -189,4 +189,4 @@ git clone https://github.com/krahets/hello-algo.git
 
 同时，也希望你可以多花时间逛逛评论区。一方面，可以看看大家遇到了什么问题，反过来查漏补缺，这往往可以引起更加深度的思考。另一方面，也希望你可以慷慨地解答小伙伴们的问题、分享自己的见解，大家互相学习与进步！
 
-![comment](suggestions.assets/comment.gif)
+![评论区示例](suggestions.assets/comment.gif)

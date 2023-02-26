@@ -8,9 +8,7 @@
 
 链表的「结点 Node」包含两项数据，一是结点「值 Value」，二是指向下一结点的「指针 Pointer」（或称「引用 Reference」）。
 
-![linkedlist_definition](linked_list.assets/linkedlist_definition.png)
-
-<p align="center"> Fig. 链表定义与存储方式 </p>
+![链表定义与存储方式](linked_list.assets/linkedlist_definition.png)
 
 === "Java"
 
@@ -314,7 +312,7 @@
 
 **在链表中，插入与删除结点的操作效率高**。比如，如果我们想在链表中间的两个结点 `A` , `B` 之间插入一个新结点 `P` ，我们只需要改变两个结点指针即可，时间复杂度为 $O(1)$ ，相比数组的插入操作高效很多。
 
-![linkedlist_insert_node](linked_list.assets/linkedlist_insert_node.png)
+![链表插入结点](linked_list.assets/linkedlist_insert_node.png)
 
 === "Java"
 
@@ -378,7 +376,7 @@
 
 在链表中删除结点也很方便，只需要改变一个结点指针即可。如下图所示，虽然在完成删除后结点 `P` 仍然指向 `n2` ，但实际上 `P` 已经不属于此链表了，因为遍历此链表是无法访问到 `P` 的。
 
-![linkedlist_remove_node](linked_list.assets/linkedlist_remove_node.png)
+![链表删除结点](linked_list.assets/linkedlist_remove_node.png)
 
 === "Java"
 
@@ -720,6 +718,6 @@
     }
     ```
 
-![linkedlist_common_types](linked_list.assets/linkedlist_common_types.png)
+![常见链表种类](linked_list.assets/linkedlist_common_types.png)
 
 <p align="center"> Fig. 常见链表类型 </p>

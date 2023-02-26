@@ -20,7 +20,7 @@
 
 在原始哈希表中，桶内的每个地址只能存储一个元素（即键值对）。**考虑将单个元素转化成一个链表，将所有冲突元素都存储在一个链表中**。
 
-![hash_collision_chaining](hash_collision.assets/hash_collision_chaining.png)
+![链式地址](hash_collision.assets/hash_collision_chaining.png)
 
 链式地址下，哈希表操作方法为：
 
@@ -50,7 +50,7 @@
 1. 找到对应元素，返回 value 即可；
 2. 若遇到空位，则说明查找键值对不在哈希表中；
 
-![hash_collision_linear_probing](hash_collision.assets/hash_collision_linear_probing.png)
+![线性探测](hash_collision.assets/hash_collision_linear_probing.png)
 
 线性探测存在以下缺陷：
 
