@@ -1,4 +1,4 @@
-# 链表
+# 链表（Linked List）
 
 !!! note "引言"
 

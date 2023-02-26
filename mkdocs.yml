@@ -144,7 +144,7 @@ nav:
     - 3.3. &nbsp; 小结: chapter_data_structure/summary.md
   - 4. &nbsp; &nbsp; 数组与链表:
     - 4.1. &nbsp; 数组（Array）: chapter_array_and_linkedlist/array.md
-    - 4.2. &nbsp; 链表（LinkedList）: chapter_array_and_linkedlist/linked_list.md
+    - 4.2. &nbsp; 链表（Linked List）: chapter_array_and_linkedlist/linked_list.md
     - 4.3. &nbsp; 列表（List）: chapter_array_and_linkedlist/list.md
     - 4.4. &nbsp; 小结: chapter_array_and_linkedlist/summary.md
   - 5. &nbsp; &nbsp; 栈与队列:
@@ -153,7 +153,7 @@ nav:
     - 5.3. &nbsp; 双向队列（Deque）: chapter_stack_and_queue/deque.md
     - 5.4. &nbsp; 小结: chapter_stack_and_queue/summary.md
   - 6. &nbsp; &nbsp; 散列表:
-    - 6.1. &nbsp; 哈希表（HashMap）: chapter_hashing/hash_map.md
+    - 6.1. &nbsp; 哈希表（Hash Map）: chapter_hashing/hash_map.md
     - 6.2. &nbsp; 哈希冲突处理: chapter_hashing/hash_collision.md
     - 6.3. &nbsp; 小结: chapter_hashing/summary.md
   - 7. &nbsp; &nbsp; 二叉树:
