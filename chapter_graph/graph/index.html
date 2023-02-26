@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://www.hello-algo.com/chapter_graph/graph/">
       
       
-        <link rel="prev" href="../../chapter_heap/build_heap/">
+        <link rel="prev" href="../../chapter_heap/summary/">
       
       
         <link rel="next" href="../graph_operations/">
@@ -364,6 +364,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -400,6 +402,20 @@
     <li class="md-nav__item">
       <a href="../../chapter_introduction/what_is_dsa/" class="md-nav__link">
         1.2. &nbsp; 算法是什么
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_introduction/summary/" class="md-nav__link">
+        1.3. &nbsp; 小结
       </a>
     </li>
   
@@ -1053,6 +1069,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -1095,6 +1113,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_heap/summary/" class="md-nav__link">
+        8.3. &nbsp; 小结
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1121,6 +1153,8 @@
       <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
       
       
+        
+          
         
           
         
@@ -1260,6 +1294,20 @@
     <li class="md-nav__item">
       <a href="../graph_traversal/" class="md-nav__link">
         9.3. &nbsp; 图的遍历
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        9.4. &nbsp; 小结
       </a>
     </li>
   
@@ -1691,8 +1739,8 @@ G &amp; = \{ V, E \} \newline
 
 <h2 id="912">9.1.2. &nbsp; 图常用术语<a class="headerlink" href="#912" title="Permanent link">&para;</a></h2>
 <ul>
-<li>「邻接 Adjacency」：当两顶点之间有边相连时，称此两顶点“邻接”。</li>
-<li>「路径 Path」：从顶点 A 到顶点 B 走过的边构成的序列，被称为从 A 到 B 的“路径”。</li>
+<li>「邻接 Adjacency」：当两顶点之间有边相连时，称此两顶点“邻接”。例如，上图中顶点 1 的邻接顶点为顶点 2, 3, 5 。</li>
+<li>「路径 Path」：从顶点 A 到顶点 B 走过的边构成的序列，被称为从 A 到 B 的“路径”。例如，上图中 1, 5, 2, 4 是顶点 1 到顶点 4 的一个路径。</li>
 <li>「度 Degree」表示一个顶点具有多少条边。对于有向图，「入度 In-Degree」表示有多少条边指向该顶点，「出度 Out-Degree」表示有多少条边从该顶点指出。</li>
 </ul>
 <h2 id="913">9.1.3. &nbsp; 图的表示<a class="headerlink" href="#913" title="Permanent link">&para;</a></h2>
@@ -1711,12 +1759,12 @@ G &amp; = \{ V, E \} \newline
 </ul>
 <p>使用邻接矩阵表示图时，我们可以直接通过访问矩阵元素来获取边，因此增删查操作的效率很高，时间复杂度均为 <span class="arithmatex">\(O(1)\)</span> 。然而，矩阵的空间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ，内存占用较大。</p>
 <h3 id="_2">邻接表<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>「邻接表 Adjacency List」使用 <span class="arithmatex">\(n\)</span> 个链表来表示图，链表结点表示顶点。第 <span class="arithmatex">\(i\)</span> 条链表对应顶点 <span class="arithmatex">\(i\)</span> ，其中存储了所有与该顶点相连的顶点。</p>
+<p>「邻接表 Adjacency List」使用 <span class="arithmatex">\(n\)</span> 个链表来表示图，链表结点表示顶点。第 <span class="arithmatex">\(i\)</span> 条链表对应顶点 <span class="arithmatex">\(i\)</span> ，其中存储了该顶点的所有邻接顶点（即与该顶点相连的顶点）。</p>
 <p><img alt="图的邻接表表示" src="../graph.assets/adjacency_list.png" /></p>
 <p align="center"> Fig. 图的邻接表表示 </p>
 
 <p>邻接表仅存储存在的边，而边的总数往往远小于 <span class="arithmatex">\(n^2\)</span> ，因此更加节省空间。但是，因为在邻接表中需要通过遍历链表来查找边，所以其时间效率不如邻接矩阵。</p>
-<p>观察上图发现，<strong>邻接表结构与哈希表「链地址法」非常相似，因此我们也可以用类似方法来优化效率</strong>。比如，当链表较长时，可以把链表转化为「AVL 树」，从而将时间效率从 <span class="arithmatex">\(O(n)\)</span> 优化至 <span class="arithmatex">\(O(\log n)\)</span> ，还可以通过中序遍历获取有序序列；还可以将链表转化为 HashSet（即哈希表），将时间复杂度降低至 <span class="arithmatex">\(O(1)\)</span> 。</p>
+<p>观察上图发现，<strong>邻接表结构与哈希表「链地址法」非常相似，因此我们也可以用类似方法来优化效率</strong>。比如，当链表较长时，可以把链表转化为 AVL 树或红黑树，从而将时间效率从 <span class="arithmatex">\(O(n)\)</span> 优化至 <span class="arithmatex">\(O(\log n)\)</span> ，还可以通过中序遍历获取有序序列；还可以将链表转化为哈希表，将时间复杂度降低至 <span class="arithmatex">\(O(1)\)</span> 。</p>
 <h2 id="914">9.1.4. &nbsp; 图常见应用<a class="headerlink" href="#914" title="Permanent link">&para;</a></h2>
 <p>现实中的许多系统都可以使用图来建模，对应的待求解问题也可以被约化为图计算问题。</p>
 <div class="center-table">
@@ -1828,7 +1876,7 @@ G &amp; = \{ V, E \} \newline
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../chapter_heap/build_heap/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 8.2. &amp;nbsp; 建堆操作 *" rel="prev">
+          <a href="../../chapter_heap/summary/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 8.3. &amp;nbsp; 小结" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1837,7 +1885,7 @@ G &amp; = \{ V, E \} \newline
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                8.2. &nbsp; 建堆操作 *
+                8.3. &nbsp; 小结
               </div>
             </div>
           </a>

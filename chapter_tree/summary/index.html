@@ -364,6 +364,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -400,6 +402,20 @@
     <li class="md-nav__item">
       <a href="../../chapter_introduction/what_is_dsa/" class="md-nav__link">
         1.2. &nbsp; 算法是什么
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_introduction/summary/" class="md-nav__link">
+        1.3. &nbsp; 小结
       </a>
     </li>
   
@@ -1027,9 +1043,54 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          7.5. &nbsp; 小结
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         7.5. &nbsp; 小结
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    二叉树
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二叉树遍历
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    二叉搜索树
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1060,6 +1121,8 @@
       <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
       
       
+        
+          
         
           
         
@@ -1107,6 +1170,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_heap/summary/" class="md-nav__link">
+        8.3. &nbsp; 小结
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1131,6 +1208,8 @@
       <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
       
       
+        
+          
         
           
         
@@ -1188,6 +1267,20 @@
     <li class="md-nav__item">
       <a href="../../chapter_graph/graph_traversal/" class="md-nav__link">
         9.3. &nbsp; 图的遍历
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_graph/summary/" class="md-nav__link">
+        9.4. &nbsp; 小结
       </a>
     </li>
   
@@ -1505,6 +1598,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    二叉树
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二叉树遍历
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    二叉搜索树
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1528,19 +1650,22 @@
 
 
 <h1 id="75">7.5. &nbsp; 小结<a class="headerlink" href="#75" title="Permanent link">&para;</a></h1>
+<h3 id="_1">二叉树<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>二叉树是一种非线性数据结构，代表着“一分为二”的分治逻辑。二叉树的结点包含「值」和两个「指针」，分别指向左子结点和右子结点。</li>
 <li>选定二叉树中某结点，将其左（右）子结点以下形成的树称为左（右）子树。</li>
 <li>二叉树的术语较多，包括根结点、叶结点、层、度、边、高度、深度等。</li>
 <li>二叉树的初始化、结点插入、结点删除操作与链表的操作方法类似。</li>
 <li>常见的二叉树类型包括完美二叉树、完全二叉树、完满二叉树、平衡二叉树。完美二叉树是理想状态，链表则是退化后的最差状态。</li>
-<li>
-<p>二叉树可以使用数组表示，具体做法是将结点值和空位按照层序遍历的顺序排列，并基于父结点和子结点之间的索引映射公式实现指针。</p>
-</li>
-<li>
-<p>二叉树层序遍历是一种广度优先搜索，体现着“一圈一圈向外”的层进式遍历方式，通常借助队列来实现。</p>
-</li>
+<li>二叉树可以使用数组表示，具体做法是将结点值和空位按照层序遍历的顺序排列，并基于父结点和子结点之间的索引映射公式实现指针。</li>
+</ul>
+<h3 id="_2">二叉树遍历<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>二叉树层序遍历是一种广度优先搜索，体现着“一圈一圈向外”的层进式遍历方式，通常借助队列来实现。</li>
 <li>前序、中序、后序遍历是深度优先搜索，体现着“走到头、再回头继续”的回溯遍历方式，通常使用递归实现。</li>
+</ul>
+<h3 id="_3">二叉搜索树<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
 <li>二叉搜索树是一种高效的元素查找数据结构，查找、插入、删除操作的时间复杂度皆为 <span class="arithmatex">\(O(\log n)\)</span> 。二叉搜索树退化为链表后，各项时间复杂度劣化至 <span class="arithmatex">\(O(n)\)</span> ，因此如何避免退化是非常重要的课题。</li>
 <li>AVL 树又称平衡二叉搜索树，其通过旋转操作，使得在不断插入与删除结点后，仍然可以保持二叉树的平衡（不退化）。</li>
 <li>AVL 树的旋转操作分为右旋、左旋、先右旋后左旋、先左旋后右旋。在插入或删除结点后，AVL 树会从底至顶地执行旋转操作，使树恢复平衡。</li>

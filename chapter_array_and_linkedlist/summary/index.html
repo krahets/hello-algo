@@ -364,6 +364,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -400,6 +402,20 @@
     <li class="md-nav__item">
       <a href="../../chapter_introduction/what_is_dsa/" class="md-nav__link">
         1.2. &nbsp; 算法是什么
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_introduction/summary/" class="md-nav__link">
+        1.3. &nbsp; 小结
       </a>
     </li>
   
@@ -718,40 +734,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          4.4. &nbsp; 小结
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         4.4. &nbsp; 小结
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#441-vs" class="md-nav__link">
-    4.4.1. &nbsp; 数组 VS 链表
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1096,6 +1081,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -1138,6 +1125,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_heap/summary/" class="md-nav__link">
+        8.3. &nbsp; 小结
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1162,6 +1163,8 @@
       <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
       
       
+        
+          
         
           
         
@@ -1219,6 +1222,20 @@
     <li class="md-nav__item">
       <a href="../../chapter_graph/graph_traversal/" class="md-nav__link">
         9.3. &nbsp; 图的遍历
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_graph/summary/" class="md-nav__link">
+        9.4. &nbsp; 小结
       </a>
     </li>
   
@@ -1536,21 +1553,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#441-vs" class="md-nav__link">
-    4.4.1. &nbsp; 数组 VS 链表
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1579,8 +1581,8 @@
 <li>数组支持随机访问、内存空间占用小；但插入与删除元素效率低，且初始化后长度不可变。</li>
 <li>链表可通过更改指针实现高效的结点插入与删除，并且可以灵活地修改长度；但结点访问效率低、占用内存多。常见的链表类型有单向链表、循环链表、双向链表。</li>
 <li>列表又称动态数组，是基于数组实现的一种数据结构，其保存了数组的优势，且可以灵活改变长度。列表的出现大大提升了数组的实用性，但副作用是会造成部分内存空间浪费。</li>
+<li>下表总结对比了数组与链表的各项特性。</li>
 </ul>
-<h2 id="441-vs">4.4.1. &nbsp; 数组 VS 链表<a class="headerlink" href="#441-vs" title="Permanent link">&para;</a></h2>
 <div class="center-table">
 <table>
 <thead>
@@ -1614,10 +1616,13 @@
 </tbody>
 </table>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>「缓存局部性（Cache locality）」涉及到了计算机操作系统，在本书不做展开介绍，建议有兴趣的同学 Google / Baidu 一下。</p>
+<div class="admonition question">
+<p class="admonition-title">缓存局部性的简单解释</p>
+<p>在计算机中，数据读写速度排序是“硬盘 &lt; 内存 &lt; CPU 缓存”。当我们访问数组元素时，计算机不仅会加载它，还会缓存其周围的其它数据，从而借助高速缓存来提升后续操作的执行速度。链表则不然，计算机只能挨个地缓存各个结点，这样的多次“搬运”降低了整体效率。</p>
 </div>
+<ul>
+<li>下表对比了数组与链表的各种操作效率。</li>
+</ul>
 <div class="center-table">
 <table>
 <thead>

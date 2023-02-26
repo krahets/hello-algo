@@ -81,6 +81,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_graph/summary/</loc>
+         <lastmod>2023-02-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_hashing/hash_collision/</loc>
          <lastmod>2023-02-26</lastmod>
          <changefreq>daily</changefreq>
@@ -106,7 +111,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_heap/summary/</loc>
+         <lastmod>2023-02-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_introduction/algorithms_are_everywhere/</loc>
+         <lastmod>2023-02-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.hello-algo.com/chapter_introduction/summary/</loc>
          <lastmod>2023-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
