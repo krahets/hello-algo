@@ -116,7 +116,8 @@ class ArrayDeque {
 public class array_deque {
     public static void main(String[] args) {
         /* 初始化双向队列 */
-        LinkedListDeque deque = new LinkedListDeque();
+        int capacity = 5;
+        ArrayDeque deque = new ArrayDeque(capacity);
         deque.pushLast(3);
         deque.pushLast(2);
         deque.pushLast(5);
