@@ -157,31 +157,23 @@
 - 若学习时间紧张，**建议至少将所有代码通读并运行一遍**。
 - 若时间允许，**强烈建议对照着代码自己敲一遍**。相比于读代码，写代码的过程往往能带来新的收获。
 
-### 1) 安装编程环境
+![运行代码示例](suggestions.assets/running_code.gif)
 
-如果没有本地编程环境，可以参照[下节](https://www.hello-algo.com/chapter_preface/installation/)。
+**第一步：安装本地编程环境**。参照[下节内容](https://www.hello-algo.com/chapter_preface/installation/)，如果已有可直接跳过。
 
-### 2) 下载代码仓
-
-如果已经安装 [Git](https://git-scm.com/downloads) ，可以通过命令行来克隆代码仓。
+**第二步：下载代码仓**。如果已经安装 [Git](https://git-scm.com/downloads) ，可以通过命令行来克隆代码仓。
 
 ```shell
 git clone https://github.com/krahets/hello-algo.git
 ```
 
-当然，你也可以点击“Download ZIP”直接下载代码压缩包，解压即可。
+当然，你也可以点击“Download ZIP”直接下载代码压缩包，本地解压即可。
 
 ![克隆仓库与下载代码](suggestions.assets/download_code.png)
 
-### 3) 运行源代码
-
-若代码块的顶部标有文件名称，则可在仓库 `codes` 文件夹中找到对应的 **源代码文件**。
+**第三步：运行源代码**。若代码块的顶部标有文件名称，则可在仓库 `codes` 文件夹中找到对应的 **源代码文件**。源代码文件可以帮助你省去不必要的调试时间，将精力集中在学习内容上。
 
 ![代码块与对应的源代码文件](suggestions.assets/code_md_to_repo.png)
-
-源代码文件可以帮助你省去不必要的调试时间，将精力集中在学习内容上。
-
-![运行代码示例](suggestions.assets/running_code.gif)
 
 ## 在提问讨论中共同成长
 
