@@ -8,9 +8,7 @@ comments: true
 
 例如，给定一个包含 $n$ 个学生的数据库，每个学生有“姓名 `name` ”和“学号 `id` ”两项数据，希望实现一个查询功能：**输入一个学号，返回对应的姓名**，则可以使用哈希表实现。
 
-![hash_map](hash_map.assets/hash_map.png)
-
-<p align="center"> Fig. 哈希表抽象表示 </p>
+![哈希表的抽象表示](hash_map.assets/hash_map.png)
 
 ## 6.1.1. &nbsp; 哈希表效率
 
@@ -408,9 +406,7 @@ $$
 f(x) = x \% 100
 $$
 
-![hash_function](hash_map.assets/hash_function.png)
-
-<p align="center"> Fig. 哈希函数 </p>
+![简单哈希函数示例](hash_map.assets/hash_function.png)
 
 === "Java"
 
@@ -1275,9 +1271,7 @@ $$
 
 两个学号指向了同一个姓名，这明显是不对的，我们将这种现象称为「哈希冲突 Hash Collision」。如何避免哈希冲突的问题将被留在下章讨论。
 
-![hash_collision](hash_map.assets/hash_collision.png)
-
-<p align="center"> Fig. 哈希冲突 </p>
+![哈希冲突示例](hash_map.assets/hash_collision.png)
 
 综上所述，一个优秀的「哈希函数」应该具备以下特性：
 

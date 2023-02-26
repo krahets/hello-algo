@@ -6,9 +6,7 @@ comments: true
 
 对于队列，我们只能在头部删除或在尾部添加元素，而「双向队列 Deque」更加灵活，在其头部和尾部都能执行元素添加或删除操作。
 
-![deque_operations](deque.assets/deque_operations.png)
-
-<p align="center"> Fig. 双向队列的操作 </p>
+![双向队列的操作](deque.assets/deque_operations.png)
 
 ## 5.3.1. &nbsp; 双向队列常用操作
 

@@ -10,9 +10,7 @@ comments: true
 
 回忆数组插入操作，我们需要将从目标索引到 `base` 之间的所有元素向右移动一位，然后再将 `base` 赋值给目标索引。
 
-![insertion_operation](insertion_sort.assets/insertion_operation.png)
-
-<p align="center"> Fig. 插入操作 </p>
+![单次插入操作](insertion_sort.assets/insertion_operation.png)
 
 ## 11.3.1. &nbsp; 算法流程
 
@@ -20,9 +18,7 @@ comments: true
 2. 第 2 轮选取 **第 3 个元素** 为 `base` ，执行「插入操作」后，**数组前 3 个元素已完成排序**。
 3. 以此类推……最后一轮选取 **数组尾元素** 为 `base` ，执行「插入操作」后，**所有元素已完成排序**。
 
-![insertion_sort_overview](insertion_sort.assets/insertion_sort_overview.png)
-
-<p align="center"> Fig. 插入排序流程 </p>
+![插入排序流程](insertion_sort.assets/insertion_sort_overview.png)
 
 === "Java"
 

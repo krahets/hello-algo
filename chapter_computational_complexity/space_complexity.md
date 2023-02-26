@@ -24,9 +24,7 @@ comments: true
 - 「栈帧空间」用于保存调用函数的上下文数据。系统每次调用函数都会在栈的顶部创建一个栈帧，函数返回时，栈帧空间会被释放。
 - 「指令空间」用于保存编译后的程序指令，**在实际统计中一般忽略不计**。
 
-![space_types](space_complexity.assets/space_types.png)
-
-<p align="center"> Fig. 算法使用的相关空间 </p>
+![算法使用的相关空间](space_complexity.assets/space_types.png)
 
 === "Java"
 
@@ -565,9 +563,7 @@ O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
 \end{aligned}
 $$
 
-![space_complexity_common_types](space_complexity.assets/space_complexity_common_types.png)
-
-<p align="center"> Fig. 空间复杂度的常见类型 </p>
+![空间复杂度的常见类型](space_complexity.assets/space_complexity_common_types.png)
 
 !!! tip
 
@@ -1080,9 +1076,7 @@ $$
     }
     ```
 
-![space_complexity_recursive_linear](space_complexity.assets/space_complexity_recursive_linear.png)
-
-<p align="center"> Fig. 递归函数产生的线性阶空间复杂度 </p>
+![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png)
 
 ### 平方阶 $O(n^2)$
 
@@ -1366,9 +1360,7 @@ $$
     }
     ```
 
-![space_complexity_recursive_quadratic](space_complexity.assets/space_complexity_recursive_quadratic.png)
-
-<p align="center"> Fig. 递归函数产生的平方阶空间复杂度 </p>
+![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
 ### 指数阶 $O(2^n)$
 
@@ -1502,9 +1494,7 @@ $$
     }
     ```
 
-![space_complexity_exponential](space_complexity.assets/space_complexity_exponential.png)
-
-<p align="center"> Fig. 满二叉树下的指数阶空间复杂度 </p>
+![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.png)
 
 ### 对数阶 $O(\log n)$
 

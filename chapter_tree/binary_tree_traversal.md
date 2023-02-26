@@ -14,7 +14,7 @@ comments: true
 
 层序遍历本质上是「广度优先搜索 Breadth-First Traversal」，其体现着一种“一圈一圈向外”的层进遍历方式。
 
-![binary_tree_bfs](binary_tree_traversal.assets/binary_tree_bfs.png)
+![二叉树的层序遍历](binary_tree_traversal.assets/binary_tree_bfs.png)
 
 <p align="center"> Fig. 二叉树的层序遍历 </p>
 
@@ -256,7 +256,7 @@ comments: true
 
 如下图所示，左侧是深度优先遍历的的示意图，右上方是对应的递归实现代码。深度优先遍历就像是绕着整个二叉树的外围“走”一圈，走的过程中，在每个结点都会遇到三个位置，分别对应前序遍历、中序遍历、后序遍历。
 
-![binary_tree_dfs](binary_tree_traversal.assets/binary_tree_dfs.png)
+![二叉搜索树的前、中、后序遍历](binary_tree_traversal.assets/binary_tree_dfs.png)
 
 <p align="center"> Fig. 二叉树的前 / 中 / 后序遍历 </p>
 

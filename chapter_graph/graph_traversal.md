@@ -16,7 +16,7 @@ comments: true
 
 **广度优先遍历优是一种由近及远的遍历方式，从距离最近的顶点开始访问，并一层层向外扩张**。具体地，从某个顶点出发，先遍历该顶点的所有邻接顶点，随后遍历下个顶点的所有邻接顶点，以此类推……
 
-![graph_bfs](graph_traversal.assets/graph_bfs.png)
+![图的广度优先遍历](graph_traversal.assets/graph_bfs.png)
 
 ### 算法实现
 
@@ -254,7 +254,7 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 
 **深度优先遍历是一种优先走到底、无路可走再回头的遍历方式**。具体地，从某个顶点出发，不断地访问当前结点的某个邻接顶点，直到走到尽头时回溯，再继续走到底 + 回溯，以此类推……直至所有顶点遍历完成时结束。
 
-![graph_dfs](graph_traversal.assets/graph_dfs.png)
+![图的深度优先遍历](graph_traversal.assets/graph_dfs.png)
 
 ### 算法实现
 

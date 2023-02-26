@@ -9,9 +9,7 @@ comments: true
 1. **划分阶段**：通过递归不断 **将数组从中点位置划分开**，将长数组的排序问题转化为短数组的排序问题；
 2. **合并阶段**：划分到子数组长度为 1 时，开始向上合并，不断将 **左、右两个短排序数组** 合并为 **一个长排序数组**，直至合并至原数组时完成排序；
 
-![merge_sort_overview](merge_sort.assets/merge_sort_overview.png)
-
-<p align="center"> Fig. 归并排序两阶段：划分与合并 </p>
+![归并排序的划分与合并阶段](merge_sort.assets/merge_sort_overview.png)
 
 ## 11.5.1. &nbsp; 算法流程
 

@@ -4,8 +4,6 @@ comments: true
 
 # 0.3. &nbsp; 编程环境安装
 
-（TODO 视频教程）
-
 ## 0.3.1. &nbsp; 安装 VSCode
 
 本书推荐使用开源轻量的 VSCode 作为本地 IDE ，下载并安装 [VSCode](https://code.visualstudio.com/) 。

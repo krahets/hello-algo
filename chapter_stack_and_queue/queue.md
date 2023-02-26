@@ -8,9 +8,7 @@ comments: true
 
 我们将队列头部称为「队首」，队列尾部称为「队尾」，将把元素加入队尾的操作称为「入队」，删除队首元素的操作称为「出队」。
 
-![queue_operations](queue.assets/queue_operations.png)
-
-<p align="center"> Fig. 队列的先入先出特性 </p>
+![队列的先入先出规则](queue.assets/queue_operations.png)
 
 ## 5.2.1. &nbsp; 队列常用操作
 
