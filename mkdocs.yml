@@ -164,6 +164,7 @@ nav:
     - 7.5. &nbsp; 小结: chapter_tree/summary.md
   - 8. &nbsp; &nbsp; 堆:
     - 8.1. &nbsp; 堆（Heap）: chapter_heap/heap.md
+    - 8.2. &nbsp; 建堆操作 *: chapter_heap/build_heap.md
   - 9. &nbsp; &nbsp; 图:
     - 9.1. &nbsp; 图（Graph）: chapter_graph/graph.md
     - 9.2. &nbsp; 图基础操作: chapter_graph/graph_operations.md
