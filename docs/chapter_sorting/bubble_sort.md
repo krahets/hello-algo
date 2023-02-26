@@ -11,7 +11,7 @@
 完成此次冒泡操作后，**数组最大元素已在正确位置，接下来只需排序剩余 $n - 1$ 个元素**。
 
 === "<1>"
-    ![bubble_operation_step1](bubble_sort.assets/bubble_operation_step1.png)
+    ![冒泡操作步骤](bubble_sort.assets/bubble_operation_step1.png)
 
 === "<2>"
     ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.png)

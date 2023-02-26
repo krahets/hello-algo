@@ -266,7 +266,7 @@
 对于入栈操作，将元素插入到链表头部即可，这种结点添加方式被称为“头插法”。而对于出栈操作，则将头结点从链表中删除即可。
 
 === "LinkedListStack"
-    ![linkedlist_stack](stack.assets/linkedlist_stack.png)
+    ![基于链表实现栈的入栈出栈操作](stack.assets/linkedlist_stack.png)
 
 === "push()"
     ![linkedlist_stack_push](stack.assets/linkedlist_stack_push.png)
@@ -341,7 +341,7 @@
 使用「数组」实现栈时，考虑将数组的尾部当作栈顶。这样设计下，「入栈」与「出栈」操作就对应在数组尾部「添加元素」与「删除元素」，时间复杂度都为 $O(1)$ 。
 
 === "ArrayStack"
-    ![array_stack](stack.assets/array_stack.png)
+    ![基于数组实现栈的入栈出栈操作](stack.assets/array_stack.png)
 
 === "push()"
     ![array_stack_push](stack.assets/array_stack_push.png)

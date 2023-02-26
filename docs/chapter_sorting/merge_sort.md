@@ -19,7 +19,7 @@
 需要注意，由于从长度为 1 的子数组开始合并，所以 **每个子数组都是有序的**。因此，合并任务本质是要 **将两个有序子数组合并为一个有序数组**。
 
 === "<1>"
-    ![merge_sort_step1](merge_sort.assets/merge_sort_step1.png)
+    ![归并排序步骤](merge_sort.assets/merge_sort_step1.png)
 
 === "<2>"
     ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png)

@@ -87,7 +87,7 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 代码相对抽象，建议对照以下动画图示来加深理解。
 
 === "<1>"
-    ![graph_bfs_step1](graph_traversal.assets/graph_bfs_step1.png)
+    ![图的广度优先遍历步骤](graph_traversal.assets/graph_bfs_step1.png)
 
 === "<2>"
     ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.png)
@@ -227,7 +227,7 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 为了加深理解，请你将图示与代码结合起来，在脑中（或者用笔画下来）模拟整个 DFS 过程，包括每个递归方法何时开启、何时返回。
 
 === "<1>"
-    ![graph_dfs_step1](graph_traversal.assets/graph_dfs_step1.png)
+    ![图的深度优先遍历步骤](graph_traversal.assets/graph_dfs_step1.png)
 
 === "<2>"
     ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.png)

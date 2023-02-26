@@ -263,7 +263,7 @@
 我们将链表的「头结点」和「尾结点」分别看作是队首和队尾，并规定队尾只可添加结点，队首只可删除结点。
 
 === "LinkedListQueue"
-    ![linkedlist_queue](queue.assets/linkedlist_queue.png)
+    ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue.png)
 
 === "push()"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_push.png)
@@ -347,7 +347,7 @@
 观察发现，入队与出队操作都仅需单次操作即可完成，时间复杂度皆为 $O(1)$ 。
 
 === "ArrayQueue"
-    ![array_queue](queue.assets/array_queue.png)
+    ![基于数组实现队列的入队出队操作](queue.assets/array_queue.png)
 
 === "push()"
     ![array_queue_push](queue.assets/array_queue_push.png)
