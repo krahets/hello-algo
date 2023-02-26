@@ -1746,7 +1746,7 @@
 (1 + \mathrm{N}) = &amp; (1 + \sum_{i=1}^{23} b_{23-i} 2^{-i}) \subset [1, 2 - 2^{-23}]
 \end{aligned}
 \]</div>
-<p><img alt="ieee_754_float" src="../data_and_memory.assets/ieee_754_float.png" /></p>
+<p><img alt="IEEE 754 标准下的 float 表示方式" src="../data_and_memory.assets/ieee_754_float.png" /></p>
 <p>以上图为例，<span class="arithmatex">\(\mathrm{S} = 0\)</span> ， <span class="arithmatex">\(\mathrm{E} = 124\)</span> ，<span class="arithmatex">\(\mathrm{N} = 2^{-2} + 2^{-3} = 0.375\)</span> ，易得</p>
 <div class="arithmatex">\[
 \text { val } = (-1)^0 \times 2^{124 - 127} \times (1 + 0.375) = 0.171875
@@ -1870,9 +1870,7 @@
 <p>在计算机中，内存和硬盘是两种主要的存储硬件设备。「硬盘」主要用于长期存储数据，容量较大（通常可达到 TB 级别）、速度较慢。「内存」用于运行程序时暂存数据，速度较快，但容量较小（通常为 GB 级别）。</p>
 <p><strong>算法运行中，相关数据都被存储在内存中</strong>。下图展示了一个计算机内存条，其中每个黑色方块都包含一块内存空间。我们可以将内存想象成一个巨大的 Excel 表格，其中每个单元格都可以存储 1 byte 的数据，在算法运行时，所有数据都被存储在这些单元格中。</p>
 <p><strong>系统通过「内存地址 Memory Location」来访问目标内存位置的数据</strong>。计算机根据特定规则给表格中每个单元格编号，保证每块内存空间都有独立的内存地址。自此，程序便通过这些地址，访问内存中的数据。</p>
-<p><img alt="computer_memory_location" src="../data_and_memory.assets/computer_memory_location.png" /></p>
-<p align="center"> Fig. 内存条、内存空间、内存地址 </p>
-
+<p><img alt="内存条、内存空间、内存地址" src="../data_and_memory.assets/computer_memory_location.png" /></p>
 <p><strong>内存资源是设计数据结构与算法的重要考虑因素</strong>。内存是所有程序的公共资源，当内存被某程序占用时，不能被其它程序同时使用。我们需要根据剩余内存资源的情况来设计算法。例如，若剩余内存空间有限，则要求算法占用的峰值内存不能超过系统剩余内存；若运行的程序很多、缺少大块连续的内存空间，则要求选取的数据结构必须能够存储在离散的内存空间内。</p>
 
 

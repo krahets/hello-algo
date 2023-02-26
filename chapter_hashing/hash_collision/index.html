@@ -1636,7 +1636,7 @@
 <p>与数组扩容类似，<strong>哈希表扩容操作的开销很大</strong>，因为需要将所有键值对从原哈希表依次移动至新哈希表。</p>
 <h2 id="622">6.2.2. &nbsp; 链式地址<a class="headerlink" href="#622" title="Permanent link">&para;</a></h2>
 <p>在原始哈希表中，桶内的每个地址只能存储一个元素（即键值对）。<strong>考虑将单个元素转化成一个链表，将所有冲突元素都存储在一个链表中</strong>。</p>
-<p><img alt="hash_collision_chaining" src="../hash_collision.assets/hash_collision_chaining.png" /></p>
+<p><img alt="链式地址" src="../hash_collision.assets/hash_collision_chaining.png" /></p>
 <p>链式地址下，哈希表操作方法为：</p>
 <ul>
 <li><strong>查询元素</strong>：先将 key 输入到哈希函数得到桶内索引，即可访问链表头结点，再通过遍历链表查找对应 value 。</li>
@@ -1659,7 +1659,7 @@
 <li>找到对应元素，返回 value 即可；</li>
 <li>若遇到空位，则说明查找键值对不在哈希表中；</li>
 </ol>
-<p><img alt="hash_collision_linear_probing" src="../hash_collision.assets/hash_collision_linear_probing.png" /></p>
+<p><img alt="线性探测" src="../hash_collision.assets/hash_collision_linear_probing.png" /></p>
 <p>线性探测存在以下缺陷：</p>
 <ul>
 <li><strong>不能直接删除元素</strong>。删除元素会导致桶内出现一个空位，在查找其他元素时，该空位有可能导致程序认为元素不存在（即上述第 <code>2.</code> 种情况）。因此需要借助一个标志位来标记删除元素。</li>

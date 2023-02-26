@@ -1606,9 +1606,7 @@
 </div>
 <p>「链表 Linked List」是一种线性数据结构，其中每个元素都是单独的对象，各个元素（一般称为结点）之间通过指针连接。由于结点中记录了连接关系，因此链表的存储方式相比于数组更加灵活，系统不必保证内存地址的连续性。</p>
 <p>链表的「结点 Node」包含两项数据，一是结点「值 Value」，二是指向下一结点的「指针 Pointer」（或称「引用 Reference」）。</p>
-<p><img alt="linkedlist_definition" src="../linked_list.assets/linkedlist_definition.png" /></p>
-<p align="center"> Fig. 链表定义与存储方式 </p>
-
+<p><img alt="链表定义与存储方式" src="../linked_list.assets/linkedlist_definition.png" /></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1875,7 +1873,7 @@
 </div>
 <h2 id="421">4.2.1. &nbsp; 链表优点<a class="headerlink" href="#421" title="Permanent link">&para;</a></h2>
 <p><strong>在链表中，插入与删除结点的操作效率高</strong>。比如，如果我们想在链表中间的两个结点 <code>A</code> , <code>B</code> 之间插入一个新结点 <code>P</code> ，我们只需要改变两个结点指针即可，时间复杂度为 <span class="arithmatex">\(O(1)\)</span> ，相比数组的插入操作高效很多。</p>
-<p><img alt="linkedlist_insert_node" src="../linked_list.assets/linkedlist_insert_node.png" /></p>
+<p><img alt="链表插入结点" src="../linked_list.assets/linkedlist_insert_node.png" /></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:10"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1966,7 +1964,7 @@
 </div>
 </div>
 <p>在链表中删除结点也很方便，只需要改变一个结点指针即可。如下图所示，虽然在完成删除后结点 <code>P</code> 仍然指向 <code>n2</code> ，但实际上 <code>P</code> 已经不属于此链表了，因为遍历此链表是无法访问到 <code>P</code> 的。</p>
-<p><img alt="linkedlist_remove_node" src="../linked_list.assets/linkedlist_remove_node.png" /></p>
+<p><img alt="链表删除结点" src="../linked_list.assets/linkedlist_remove_node.png" /></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:10"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JavaScript</label><label for="__tabbed_4_6">TypeScript</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2484,7 +2482,7 @@
 </div>
 </div>
 </div>
-<p><img alt="linkedlist_common_types" src="../linked_list.assets/linkedlist_common_types.png" /></p>
+<p><img alt="常见链表种类" src="../linked_list.assets/linkedlist_common_types.png" /></p>
 <p align="center"> Fig. 常见链表类型 </p>
 
 

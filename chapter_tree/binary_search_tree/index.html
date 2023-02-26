@@ -1673,7 +1673,7 @@
 <li>对于根结点，左子树中所有结点的值 <span class="arithmatex">\(&lt;\)</span> 根结点的值 <span class="arithmatex">\(&lt;\)</span> 右子树中所有结点的值；</li>
 <li>任意结点的左子树和右子树也是二叉搜索树，即也满足条件 <code>1.</code> ；</li>
 </ol>
-<p><img alt="binary_search_tree" src="../binary_search_tree.assets/binary_search_tree.png" /></p>
+<p><img alt="二叉搜索树" src="../binary_search_tree.assets/binary_search_tree.png" /></p>
 <h2 id="731">7.3.1. &nbsp; 二叉搜索树的操作<a class="headerlink" href="#731" title="Permanent link">&para;</a></h2>
 <h3 id="_1">查找结点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>给定目标结点值 <code>num</code> ，可以根据二叉搜索树的性质来查找。我们声明一个结点 <code>cur</code> ，从二叉树的根结点 <code>root</code> 出发，循环比较结点值 <code>cur.val</code> 和 <code>num</code> 之间的大小关系</p>
@@ -1893,7 +1893,7 @@
 <li><strong>在该位置插入结点</strong>：初始化结点 <code>num</code> ，将该结点放到 <span class="arithmatex">\(\text{null}\)</span> 的位置 ；</li>
 </ol>
 <p>二叉搜索树不允许存在重复结点，否则将会违背其定义。因此若待插入结点在树中已经存在，则不执行插入，直接返回即可。</p>
-<p><img alt="bst_insert" src="../binary_search_tree.assets/bst_insert.png" /></p>
+<p><img alt="在二叉搜索树中插入结点" src="../binary_search_tree.assets/bst_insert.png" /></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:10"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2173,9 +2173,9 @@
 <h3 id="_3">删除结点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>与插入结点一样，我们需要在删除操作后维持二叉搜索树的“左子树 &lt; 根结点 &lt; 右子树”的性质。首先，我们需要在二叉树中执行查找操作，获取待删除结点。接下来，根据待删除结点的子结点数量，删除操作需要分为三种情况：</p>
 <p><strong>当待删除结点的子结点数量 <span class="arithmatex">\(= 0\)</span> 时</strong>，表明待删除结点是叶结点，直接删除即可。</p>
-<p><img alt="bst_remove_case1" src="../binary_search_tree.assets/bst_remove_case1.png" /></p>
+<p><img alt="在二叉搜索树中删除结点（度为 0）" src="../binary_search_tree.assets/bst_remove_case1.png" /></p>
 <p><strong>当待删除结点的子结点数量 <span class="arithmatex">\(= 1\)</span> 时</strong>，将待删除结点替换为其子结点即可。</p>
-<p><img alt="bst_remove_case2" src="../binary_search_tree.assets/bst_remove_case2.png" /></p>
+<p><img alt="在二叉搜索树中删除结点（度为 1）" src="../binary_search_tree.assets/bst_remove_case2.png" /></p>
 <p><strong>当待删除结点的子结点数量 <span class="arithmatex">\(= 2\)</span> 时</strong>，删除操作分为三步：</p>
 <ol>
 <li>找到待删除结点在 <strong>中序遍历序列</strong> 中的下一个结点，记为 <code>nex</code> ；</li>
@@ -2740,7 +2740,7 @@
 <h3 id="_4">排序<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>我们知道，「中序遍历」遵循“左 <span class="arithmatex">\(\rightarrow\)</span> 根 <span class="arithmatex">\(\rightarrow\)</span> 右”的遍历优先级，而二叉搜索树遵循“左子结点 <span class="arithmatex">\(&lt;\)</span> 根结点 <span class="arithmatex">\(&lt;\)</span> 右子结点”的大小关系。因此，在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小结点，从而得出一条重要性质：<strong>二叉搜索树的中序遍历序列是升序的</strong>。</p>
 <p>借助中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 <span class="arithmatex">\(O(n)\)</span> 时间，而无需额外排序，非常高效。</p>
-<p><img alt="bst_inorder_traversal" src="../binary_search_tree.assets/bst_inorder_traversal.png" /></p>
+<p><img alt="二叉搜索树的中序遍历序列" src="../binary_search_tree.assets/bst_inorder_traversal.png" /></p>
 <h2 id="732">7.3.2. &nbsp; 二叉搜索树的效率<a class="headerlink" href="#732" title="Permanent link">&para;</a></h2>
 <p>假设给定 <span class="arithmatex">\(n\)</span> 个数字，最常用的存储方式是「数组」，那么对于这串乱序的数字，常见操作的效率为：</p>
 <ul>
@@ -2802,7 +2802,7 @@
 <p class="admonition-title">Note</p>
 <p>在实际应用中，如何保持二叉搜索树的平衡，也是一个需要重要考虑的问题。</p>
 </div>
-<p><img alt="bst_degradation" src="../binary_search_tree.assets/bst_degradation.png" /></p>
+<p><img alt="二叉搜索树的平衡与退化" src="../binary_search_tree.assets/bst_degradation.png" /></p>
 <h2 id="734">7.3.4. &nbsp; 二叉搜索树常见应用<a class="headerlink" href="#734" title="Permanent link">&para;</a></h2>
 <ul>
 <li>系统中的多级索引，高效查找、插入、删除操作。</li>

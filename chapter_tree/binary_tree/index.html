@@ -1790,9 +1790,7 @@
 </div>
 <p>结点的两个指针分别指向「左子结点 Left Child Node」和「右子结点 Right Child Node」，并且称该结点为两个子结点的「父结点 Parent Node」。给定二叉树某结点，将左子结点以下的树称为该结点的「左子树 Left Subtree」，右子树同理。</p>
 <p>除了叶结点外，每个结点都有子结点和子树。例如，若将下图的「结点 2」看作父结点，那么其左子结点和右子结点分别为「结点 4」和「结点 5」，左子树和右子树分别为「结点 4 及其以下结点形成的树」和「结点 5 及其以下结点形成的树」。</p>
-<p><img alt="binary_tree_definition" src="../binary_tree.assets/binary_tree_definition.png" /></p>
-<p align="center"> Fig. 子结点与子树 </p>
-
+<p><img alt="父结点、子结点、子树" src="../binary_tree.assets/binary_tree_definition.png" /></p>
 <h2 id="711">7.1.1. &nbsp; 二叉树常见术语<a class="headerlink" href="#711" title="Permanent link">&para;</a></h2>
 <p>二叉树的术语较多，建议尽量理解并记住。后续可能遗忘，可以在需要使用时回来查看确认。</p>
 <ul>
@@ -1805,9 +1803,7 @@
 <li>结点「深度 Depth」 ：根结点到该结点走过边的数量；</li>
 <li>结点「高度 Height」：最远叶结点到该结点走过边的数量；</li>
 </ul>
-<p><img alt="binary_tree_terminology" src="../binary_tree.assets/binary_tree_terminology.png" /></p>
-<p align="center"> Fig. 二叉树的常见术语 </p>
-
+<p><img alt="二叉树的常用术语" src="../binary_tree.assets/binary_tree_terminology.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">高度与深度的定义</p>
 <p>值得注意，我们通常将「高度」和「深度」定义为“走过边的数量”，而有些题目或教材会将其定义为“走过结点的数量”，此时高度或深度都需要 + 1 。</p>
@@ -1945,9 +1941,7 @@
 </div>
 </div>
 <p><strong>插入与删除结点</strong>。与链表类似，插入与删除结点都可以通过修改指针实现。</p>
-<p><img alt="binary_tree_add_remove" src="../binary_tree.assets/binary_tree_add_remove.png" /></p>
-<p align="center"> Fig. 在二叉树中插入与删除结点 </p>
-
+<p><img alt="在二叉树中插入与删除结点" src="../binary_tree.assets/binary_tree_add_remove.png" /></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:10"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2049,26 +2043,24 @@
 <p class="admonition-title">Tip</p>
 <p>在中文社区中，完美二叉树常被称为「满二叉树」，请注意与完满二叉树区分。</p>
 </div>
-<p><img alt="perfect_binary_tree" src="../binary_tree.assets/perfect_binary_tree.png" /></p>
+<p><img alt="完美二叉树" src="../binary_tree.assets/perfect_binary_tree.png" /></p>
 <h3 id="_2">完全二叉树<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>「完全二叉树 Complete Binary Tree」只有最底层的结点未被填满，且最底层结点尽量靠左填充。</p>
 <p><strong>完全二叉树非常适合用数组来表示</strong>。如果按照层序遍历序列的顺序来存储，那么空结点 <code>null</code> 一定全部出现在序列的尾部，因此我们就可以不用存储这些 null 了。</p>
-<p><img alt="complete_binary_tree" src="../binary_tree.assets/complete_binary_tree.png" /></p>
+<p><img alt="完全二叉树" src="../binary_tree.assets/complete_binary_tree.png" /></p>
 <h3 id="_3">完满二叉树<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>「完满二叉树 Full Binary Tree」除了叶结点之外，其余所有结点都有两个子结点。</p>
-<p><img alt="full_binary_tree" src="../binary_tree.assets/full_binary_tree.png" /></p>
+<p><img alt="完满二叉树" src="../binary_tree.assets/full_binary_tree.png" /></p>
 <h3 id="_4">平衡二叉树<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>「平衡二叉树 Balanced Binary Tree」中任意结点的左子树和右子树的高度之差的绝对值 <span class="arithmatex">\(\leq 1\)</span> 。</p>
-<p><img alt="balanced_binary_tree" src="../binary_tree.assets/balanced_binary_tree.png" /></p>
+<p><img alt="平衡二叉树" src="../binary_tree.assets/balanced_binary_tree.png" /></p>
 <h2 id="714">7.1.4. &nbsp; 二叉树的退化<a class="headerlink" href="#714" title="Permanent link">&para;</a></h2>
 <p>当二叉树的每层的结点都被填满时，达到「完美二叉树」；而当所有结点都偏向一边时，二叉树退化为「链表」。</p>
 <ul>
 <li>完美二叉树是一个二叉树的“最佳状态”，可以完全发挥出二叉树“分治”的优势；</li>
 <li>链表则是另一个极端，各项操作都变为线性操作，时间复杂度退化至 <span class="arithmatex">\(O(n)\)</span> ；</li>
 </ul>
-<p><img alt="binary_tree_corner_cases" src="../binary_tree.assets/binary_tree_corner_cases.png" /></p>
-<p align="center"> Fig. 二叉树的最佳和最差结构 </p>
-
+<p><img alt="二叉树的最佳与最二叉树的最佳和最差结构差情况" src="../binary_tree.assets/binary_tree_corner_cases.png" /></p>
 <p>如下表所示，在最佳和最差结构下，二叉树的叶结点数量、结点总数、高度等达到极大或极小值。</p>
 <div class="center-table">
 <table>
@@ -2107,9 +2099,9 @@
 <p>我们一般使用二叉树的「链表表示」，即存储单位为结点 <code>TreeNode</code> ，结点之间通过指针（引用）相连接。本文前述示例代码展示了二叉树在链表表示下的各项基本操作。</p>
 <p>那能否可以用「数组表示」二叉树呢？答案是肯定的。先来分析一个简单案例，给定一个「完美二叉树」，将结点按照层序遍历的顺序编号（从 0 开始），那么可以推导得出父结点索引与子结点索引之间的「映射公式」：<strong>设结点的索引为 <span class="arithmatex">\(i\)</span> ，则该结点的左子结点索引为 <span class="arithmatex">\(2i + 1\)</span> 、右子结点索引为 <span class="arithmatex">\(2i + 2\)</span></strong> 。</p>
 <p><strong>本质上，映射公式的作用就是链表中的指针</strong>。对于层序遍历序列中的任意结点，我们都可以使用映射公式来访问子结点。因此，可以直接使用层序遍历序列（即数组）来表示完美二叉树。</p>
-<p><img alt="array_representation_mapping" src="../binary_tree.assets/array_representation_mapping.png" /></p>
+<p><img alt="完美二叉树的数组表示" src="../binary_tree.assets/array_representation_mapping.png" /></p>
 <p>然而，完美二叉树只是个例，二叉树中间层往往存在许多空结点（即 <code>null</code> ），而层序遍历序列并不包含这些空结点，并且我们无法单凭序列来猜测空结点的数量和分布位置，<strong>即理论上存在许多种二叉树都符合该层序遍历序列</strong>。显然，这种情况无法使用数组来存储二叉树。</p>
-<p><img alt="array_representation_without_empty" src="../binary_tree.assets/array_representation_without_empty.png" /></p>
+<p><img alt="给定数组对应多种二叉树可能性" src="../binary_tree.assets/array_representation_without_empty.png" /></p>
 <p>为了解决此问题，考虑按照完美二叉树的形式来表示所有二叉树，<strong>即在序列中使用特殊符号来显式地表示“空位”</strong>。如下图所示，这样处理后，序列（数组）就可以唯一表示二叉树了。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:10"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JavaScript</label><label for="__tabbed_4_6">TypeScript</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label></div>
 <div class="tabbed-content">
@@ -2170,9 +2162,9 @@
 </div>
 </div>
 </div>
-<p><img alt="array_representation_with_empty" src="../binary_tree.assets/array_representation_with_empty.png" /></p>
+<p><img alt="任意类型二叉树的数组表示" src="../binary_tree.assets/array_representation_with_empty.png" /></p>
 <p>回顾「完全二叉树」的定义，其只有最底层有空结点，并且最底层的结点尽量靠左，因而所有空结点都一定出现在层序遍历序列的末尾。<strong>因为我们先验地确定了空位的位置，所以在使用数组表示完全二叉树时，可以省略存储“空位”</strong>。因此，完全二叉树非常适合使用数组来表示。</p>
-<p><img alt="array_representation_complete_binary_tree" src="../binary_tree.assets/array_representation_complete_binary_tree.png" /></p>
+<p><img alt="完全二叉树的数组表示" src="../binary_tree.assets/array_representation_complete_binary_tree.png" /></p>
 <p>数组表示有两个优点： 一是不需要存储指针，节省空间；二是可以随机访问结点。然而，当二叉树中的“空位”很多时，数组中只包含很少结点的数据，空间利用率很低。</p>
 
 

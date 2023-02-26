@@ -1687,7 +1687,7 @@
 <li>「大顶堆 Max Heap」，任意结点的值 <span class="arithmatex">\(\geq\)</span> 其子结点的值；</li>
 <li>「小顶堆 Min Heap」，任意结点的值 <span class="arithmatex">\(\leq\)</span> 其子结点的值；</li>
 </ul>
-<p><img alt="min_heap_and_max_heap" src="../heap.assets/min_heap_and_max_heap.png" /></p>
+<p><img alt="小顶堆与大顶堆" src="../heap.assets/min_heap_and_max_heap.png" /></p>
 <h2 id="811">8.1.1. &nbsp; 堆术语与性质<a class="headerlink" href="#811" title="Permanent link">&para;</a></h2>
 <ul>
 <li>由于堆是完全二叉树，因此最底层结点靠左填充，其它层结点皆被填满。</li>
@@ -1994,7 +1994,7 @@
 <p>在二叉树章节我们学过，「完全二叉树」非常适合使用「数组」来表示，而堆恰好是一棵完全二叉树，<strong>因而我们采用「数组」来存储「堆」</strong>。</p>
 <p><strong>二叉树指针</strong>。使用数组表示二叉树时，元素代表结点值，索引代表结点在二叉树中的位置，<strong>而结点指针通过索引映射公式来实现</strong>。</p>
 <p>具体地，给定索引 <span class="arithmatex">\(i\)</span> ，那么其左子结点索引为 <span class="arithmatex">\(2i + 1\)</span> 、右子结点索引为 <span class="arithmatex">\(2i + 2\)</span> 、父结点索引为 <span class="arithmatex">\((i - 1) / 2\)</span> （向下整除）。当索引越界时，代表空结点或结点不存在。</p>
-<p><img alt="representation_of_heap" src="../heap.assets/representation_of_heap.png" /></p>
+<p><img alt="堆的表示与存储" src="../heap.assets/representation_of_heap.png" /></p>
 <p>我们将索引映射公式封装成函数，以便后续使用。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label></div>
 <div class="tabbed-content">
@@ -3014,7 +3014,7 @@
 <div class="arithmatex">\[
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \cdots + 2^{(h-1)}\times1
 \]</div>
-<p><img alt="heapify_operations_count" src="../heap.assets/heapify_operations_count.png" /></p>
+<p><img alt="完美二叉树的各层结点数量" src="../heap.assets/heapify_operations_count.png" /></p>
 <p>化简上式需要借助中学的数列知识，先对 <span class="arithmatex">\(T(h)\)</span> 乘以 <span class="arithmatex">\(2\)</span> ，易得</p>
 <div class="arithmatex">\[
 \begin{aligned}
