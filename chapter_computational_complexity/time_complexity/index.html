@@ -261,10 +261,6 @@
         
           
         
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -301,34 +297,6 @@
     <li class="md-nav__item">
       <a href="../../chapter_preface/suggestions/" class="md-nav__link">
         0.2. &nbsp; 如何使用本书
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_preface/installation/" class="md-nav__link">
-        0.3. &nbsp; 编程环境安装
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_preface/contribution/" class="md-nav__link">
-        0.4. &nbsp; 一起参与创作
       </a>
     </li>
   
@@ -462,14 +430,14 @@
       
       
         <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          2. &nbsp; &nbsp; 计算复杂度
+          2. &nbsp; &nbsp; 复杂度分析
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          2. &nbsp; &nbsp; 计算复杂度
+          2. &nbsp; &nbsp; 复杂度分析
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1647,6 +1615,77 @@
       
         
           
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          12. &nbsp; &nbsp; 附录
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          12. &nbsp; &nbsp; 附录
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_appendix/installation/" class="md-nav__link">
+        12.1. &nbsp; 编程环境安装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_appendix/contribution/" class="md-nav__link">
+        12.2. &nbsp; 一起参与创作
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+      
+      
+        
+          
             
           
         
@@ -1659,8 +1698,8 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_13">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_14">
           <span class="md-nav__icon md-icon"></span>
           参考文献
         </label>
@@ -2174,7 +2213,7 @@
 <p>相比直接统计算法运行时间，时间复杂度分析的做法有什么好处呢？以及有什么不足？</p>
 <p><strong>时间复杂度可以有效评估算法效率</strong>。算法 <code>B</code> 运行时间的增长是线性的，在 <span class="arithmatex">\(n &gt; 1\)</span> 时慢于算法 <code>A</code> ，在 <span class="arithmatex">\(n &gt; 1000000\)</span> 时慢于算法 <code>C</code> 。实质上，只要输入数据大小 <span class="arithmatex">\(n\)</span> 足够大，复杂度为「常数阶」的算法一定优于「线性阶」的算法，这也正是时间增长趋势的含义。</p>
 <p><strong>时间复杂度的推算方法更加简便</strong>。在时间复杂度分析中，我们可以将统计「计算操作的运行时间」简化为统计「计算操作的数量」，这是因为，无论是运行平台还是计算操作类型，都与算法运行时间的增长趋势无关。因而，我们可以简单地将所有计算操作的执行时间统一看作是相同的“单位时间”，这样的简化做法大大降低了估算难度。</p>
-<p><strong>时间复杂度也存在一定的局限性</strong>。比如，虽然算法 <code>A</code> 和 <code>C</code> 的时间复杂度相同，但是实际的运行时间有非常大的差别。再比如，虽然算法 <code>B</code> 比 <code>C</code> 的时间复杂度要更高，但在输入数据大小 <span class="arithmatex">\(n\)</span> 比较小时，算法 <code>B</code> 是要明显优于算法 <code>C</code> 的。对于以上情况，我们很难仅凭时间复杂度来判定算法效率高低。然而，即使存在这些问题，计算复杂度仍然是评判算法效率的最有效且常用的方法。</p>
+<p><strong>时间复杂度也存在一定的局限性</strong>。比如，虽然算法 <code>A</code> 和 <code>C</code> 的时间复杂度相同，但是实际的运行时间有非常大的差别。再比如，虽然算法 <code>B</code> 比 <code>C</code> 的时间复杂度要更高，但在输入数据大小 <span class="arithmatex">\(n\)</span> 比较小时，算法 <code>B</code> 是要明显优于算法 <code>C</code> 的。对于以上情况，我们很难仅凭时间复杂度来判定算法效率高低。然而，即使存在这些问题，复杂度分析仍然是评判算法效率的最有效且常用的方法。</p>
 <h2 id="223">2.2.3. &nbsp; 函数渐近上界<a class="headerlink" href="#223" title="Permanent link">&para;</a></h2>
 <p>设算法「计算操作数量」为 <span class="arithmatex">\(T(n)\)</span> ，其是一个关于输入数据大小 <span class="arithmatex">\(n\)</span> 的函数。例如，以下算法的操作数量为</p>
 <div class="arithmatex">\[
