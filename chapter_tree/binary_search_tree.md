@@ -22,7 +22,7 @@ comments: true
 - 若 `cur.val = num` ，说明找到目标结点，跳出循环并返回该结点即可；
 
 === "<1>"
-    ![bst_search_step1](binary_search_tree.assets/bst_search_step1.png)
+    ![查找结点步骤](binary_search_tree.assets/bst_search_step1.png)
 
 === "<2>"
     ![bst_search_step2](binary_search_tree.assets/bst_search_step2.png)
@@ -562,7 +562,7 @@ comments: true
 3. 使用 `nex` 替换待删除结点；
 
 === "<1>"
-    ![bst_remove_case3_step1](binary_search_tree.assets/bst_remove_case3_step1.png)
+    ![删除结点（度为 2）步骤](binary_search_tree.assets/bst_remove_case3_step1.png)
 
 === "<2>"
     ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.png)

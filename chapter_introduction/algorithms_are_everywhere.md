@@ -19,7 +19,7 @@ comments: true
 3. 循环执行步骤 1-2 ，直到找到拼音首字母为 $r$ 的页码时终止。
 
 === "<1>"
-    ![look_up_dictionary_step_1](algorithms_are_everywhere.assets/look_up_dictionary_step_1.png)
+    ![查字典步骤](algorithms_are_everywhere.assets/look_up_dictionary_step_1.png)
 
 === "<2>"
     ![look_up_dictionary_step_2](algorithms_are_everywhere.assets/look_up_dictionary_step_2.png)

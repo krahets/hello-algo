@@ -11,8 +11,6 @@ comments: true
 
 ## 4.4.1. &nbsp; 数组 VS 链表
 
-<p align="center"> Table. 数组与链表特点对比 </p>
-
 <div class="center-table" markdown>
 
 |              | 数组                     | 链表         |
@@ -27,8 +25,6 @@ comments: true
 !!! tip
 
     「缓存局部性（Cache locality）」涉及到了计算机操作系统，在本书不做展开介绍，建议有兴趣的同学 Google / Baidu 一下。
-
-<p align="center"> Table. 数组与链表操作时间复杂度 </p>
 
 <div class="center-table" markdown>
 

@@ -25,8 +25,6 @@ comments: true
 
 堆的常用操作见下表（方法命名以 Java 为例）。
 
-<p align="center"> Table. 堆的常用操作 </p>
-
 <div class="center-table" markdown>
 
 | 方法      | 描述                                         | 时间复杂度  |
@@ -603,7 +601,7 @@ comments: true
 考虑从入堆结点开始，**从底至顶执行堆化**。具体地，比较插入结点与其父结点的值，若插入结点更大则将它们交换；并循环以上操作，从底至顶地修复堆中的各个结点；直至越过根结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "<1>"
-    ![heap_push_step1](heap.assets/heap_push_step1.png)
+    ![元素入堆步骤](heap.assets/heap_push_step1.png)
 
 === "<2>"
     ![heap_push_step2](heap.assets/heap_push_step2.png)
@@ -885,7 +883,7 @@ comments: true
 顾名思义，**从顶至底堆化的操作方向与从底至顶堆化相反**，我们比较根结点的值与其两个子结点的值，将最大的子结点与根结点执行交换，并循环以上操作，直到越过叶结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "<1>"
-    ![heap_poll_step1](heap.assets/heap_poll_step1.png)
+    ![堆顶元素出堆步骤](heap.assets/heap_poll_step1.png)
 
 === "<2>"
     ![heap_poll_step2](heap.assets/heap_poll_step2.png)
