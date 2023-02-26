@@ -3,19 +3,23 @@ File: linked_list.py
 Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
 """
+import os.path as osp
+import sys
+import typing
 
-import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from include import ListNode, print_linked_list
 
-""" 在链表的结点 n0 之后插入结点 P """
-def insert(n0, P):
+
+def insert(n0: ListNode, P: ListNode) -> None:
+    """ 在链表的结点 n0 之后插入结点 P """
     n1 = n0.next
     n0.next = P
     P.next = n1
 
-""" 删除链表的结点 n0 之后的首个结点 """
-def remove(n0):
+
+def remove(n0: ListNode) -> None:
+    """ 删除链表的结点 n0 之后的首个结点 """
     if not n0.next:
         return
     # n0 -> P -> n1
@@ -23,16 +27,18 @@ def remove(n0):
     n1 = P.next
     n0.next = n1
 
-""" 访问链表中索引为 index 的结点 """
-def access(head, index):
+
+def access(head: typing.Optional[ListNode], index: int) -> typing.Optional[ListNode]:
+    """ 访问链表中索引为 index 的结点 """
     for _ in range(index):
         if not head:
             return None
         head = head.next
     return head
 
-""" 在链表中查找值为 target 的首个结点 """
-def find(head, target):
+
+def find(head: typing.Optional[ListNode], target: int) -> int:
+    """ 在链表中查找值为 target 的首个结点 """
     index = 0
     while head:
         if head.val == target:
