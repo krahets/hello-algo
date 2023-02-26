@@ -8,6 +8,8 @@ comments: true
 
 ![数组定义与存储方式](array.assets/array_definition.png)
 
+<p align="center"> Fig. 数组定义与存储方式 </p>
+
 !!! note
 
     观察上图，我们发现 **数组首元素的索引为 $0$** 。你可能会想，这并不符合日常习惯，首个元素的索引为什么不是 $1$ 呢，这不是更加自然吗？我认同你的想法，但请先记住这个设定，后面讲内存地址计算时，我会尝试解答这个问题。
@@ -105,6 +107,8 @@ comments: true
 **在数组中访问元素非常高效**。这是因为在数组中，计算元素的内存地址非常容易。给定数组首个元素的地址、和一个元素的索引，利用以下公式可以直接计算得到该元素的内存地址，从而直接访问此元素。
 
 ![数组元素的内存地址计算](array.assets/array_memory_location_calculation.png)
+
+<p align="center"> Fig. 数组元素的内存地址计算 </p>
 
 ```shell
 # 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引
@@ -405,6 +409,8 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
 ![数组插入元素](array.assets/array_insert_element.png)
 
+<p align="center"> Fig. 数组插入元素 </p>
+
 === "Java"
 
     ```java title="array.java"
@@ -526,6 +532,8 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 删除元素也是类似，如果我们想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，我们无需特意去修改它。
 
 ![数组删除元素](array.assets/array_remove_element.png)
+
+<p align="center"> Fig. 数组删除元素 </p>
 
 === "Java"
 

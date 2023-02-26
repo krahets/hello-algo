@@ -11,6 +11,8 @@ comments: true
 
 ![小顶堆与大顶堆](heap.assets/min_heap_and_max_heap.png)
 
+<p align="center"> Fig. 小顶堆与大顶堆 </p>
+
 ## 8.1.1. &nbsp; 堆术语与性质
 
 - 由于堆是完全二叉树，因此最底层结点靠左填充，其它层结点皆被填满。
@@ -317,6 +319,8 @@ comments: true
 具体地，给定索引 $i$ ，那么其左子结点索引为 $2i + 1$ 、右子结点索引为 $2i + 2$ 、父结点索引为 $(i - 1) / 2$ （向下整除）。当索引越界时，代表空结点或结点不存在。
 
 ![堆的表示与存储](heap.assets/representation_of_heap.png)
+
+<p align="center"> Fig. 堆的表示与存储 </p>
 
 我们将索引映射公式封装成函数，以便后续使用。
 
@@ -1426,6 +1430,8 @@ T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \cdots + 2^{(h-1)}\times1
 $$
 
 ![完美二叉树的各层结点数量](heap.assets/heapify_operations_count.png)
+
+<p align="center"> Fig. 完美二叉树的各层结点数量 </p>
 
 化简上式需要借助中学的数列知识，先对 $T(h)$ 乘以 $2$ ，易得
 

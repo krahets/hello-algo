@@ -26,6 +26,8 @@ comments: true
 
 ![算法使用的相关空间](space_complexity.assets/space_types.png)
 
+<p align="center"> Fig. 算法使用的相关空间 </p>
+
 === "Java"
 
     ```java title=""
@@ -565,6 +567,8 @@ $$
 
 ![空间复杂度的常见类型](space_complexity.assets/space_complexity_common_types.png)
 
+<p align="center"> Fig. 空间复杂度的常见类型 </p>
+
 !!! tip
 
     部分示例代码需要一些前置知识，包括数组、链表、二叉树、递归算法等。如果遇到看不懂的地方无需担心，可以在学习完后面章节后再来复习，现阶段先聚焦在理解空间复杂度含义和推算方法上。
@@ -1078,6 +1082,8 @@ $$
 
 ![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png)
 
+<p align="center"> Fig. 递归函数产生的线性阶空间复杂度 </p>
+
 ### 平方阶 $O(n^2)$
 
 平方阶常见于元素数量与 $n$ 成平方关系的矩阵、图。
@@ -1362,6 +1368,8 @@ $$
 
 ![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
+<p align="center"> Fig. 递归函数产生的平方阶空间复杂度 </p>
+
 ### 指数阶 $O(2^n)$
 
 指数阶常见于二叉树。高度为 $n$ 的「满二叉树」的结点数量为 $2^n - 1$ ，使用 $O(2^n)$ 空间。
@@ -1495,6 +1503,8 @@ $$
     ```
 
 ![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.png)
+
+<p align="center"> Fig. 满二叉树产生的指数阶空间复杂度 </p>
 
 ### 对数阶 $O(\log n)$
 

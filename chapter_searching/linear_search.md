@@ -12,6 +12,8 @@ comments: true
 
 ![在数组中线性查找元素](linear_search.assets/linear_search.png)
 
+<p align="center"> Fig. 在数组中线性查找元素 </p>
+
 === "Java"
 
     ```java title="linear_search.java"

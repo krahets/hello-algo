@@ -11,6 +11,8 @@ comments: true
 
 ![排序中不同的元素类型和判断规则](intro_to_sort.assets/sorting_examples.png)
 
+<p align="center"> Fig. 排序中不同的元素类型和判断规则 </p>
+
 ## 11.1.1. &nbsp; 评价维度
 
 排序算法主要可根据 **稳定性 、就地性 、自适应性 、比较类** 来分类。

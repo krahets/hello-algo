@@ -11,6 +11,8 @@ comments: true
 
 ![归并排序的划分与合并阶段](merge_sort.assets/merge_sort_overview.png)
 
+<p align="center"> Fig. 归并排序的划分与合并阶段 </p>
+
 ## 11.5.1. &nbsp; 算法流程
 
 **「递归划分」** 从顶至底递归地 **将数组从中点切为两个子数组**，直至长度为 1 ；

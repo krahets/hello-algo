@@ -40,6 +40,8 @@ comments: true
 
 ![Hello 算法内容结构](about_the_book.assets/hello_algo_mindmap.png)
 
+<p align="center"> Fig. Hello 算法内容结构 </p>
+
 ### 复杂度分析
 
 首先介绍数据结构与算法的评价维度、算法效率的评估方法，引出了计算复杂度概念。
@@ -82,6 +84,8 @@ comments: true
 根据观察，很多同学都是从“第二阶段”开始学习算法的。而作为入门教程，**本书内容主要对应“第一阶段”**，致力于帮助读者更高效地开展第二、三阶段的学习。
 
 ![算法学习路线](suggestions.assets/learning_route.png)
+
+<p align="center"> Fig. 算法学习路线 </p>
 
 ## 0.1.4. &nbsp; 本书特点
 

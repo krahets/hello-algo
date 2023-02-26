@@ -14,6 +14,8 @@ comments: true
 
 ![链表定义与存储方式](linked_list.assets/linkedlist_definition.png)
 
+<p align="center"> Fig. 链表定义与存储方式 </p>
+
 === "Java"
 
     ```java title=""
@@ -318,6 +320,8 @@ comments: true
 
 ![链表插入结点](linked_list.assets/linkedlist_insert_node.png)
 
+<p align="center"> Fig. 链表插入结点 </p>
+
 === "Java"
 
     ```java title="linked_list.java"
@@ -426,6 +430,8 @@ comments: true
 在链表中删除结点也很方便，只需要改变一个结点指针即可。如下图所示，虽然在完成删除后结点 `P` 仍然指向 `n2` ，但实际上 `P` 已经不属于此链表了，因为遍历此链表是无法访问到 `P` 的。
 
 ![链表删除结点](linked_list.assets/linkedlist_remove_node.png)
+
+<p align="center"> Fig. 链表删除结点 </p>
 
 === "Java"
 
@@ -1018,3 +1024,5 @@ comments: true
     ```
 
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)
+
+<p align="center"> Fig. 常见链表种类 </p>

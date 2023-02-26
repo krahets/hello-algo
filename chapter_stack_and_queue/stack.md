@@ -12,6 +12,8 @@ comments: true
 
 ![栈的先入后出规则](stack.assets/stack_operations.png)
 
+<p align="center"> Fig. 栈的先入后出规则 </p>
+
 ## 5.1.1. &nbsp; 栈常用操作
 
 栈的常用操作见下表（方法命名以 Java 为例）。

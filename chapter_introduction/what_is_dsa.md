@@ -33,6 +33,8 @@ comments: true
 
 ![数据结构与算法的关系](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png)
 
+<p align="center"> Fig. 数据结构与算法的关系 </p>
+
 如果将「LEGO 乐高」类比到「数据结构与算法」，那么可以得到下表所示的对应关系。
 
 <div class="center-table" markdown>

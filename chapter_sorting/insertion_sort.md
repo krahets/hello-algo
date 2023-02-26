@@ -12,6 +12,8 @@ comments: true
 
 ![单次插入操作](insertion_sort.assets/insertion_operation.png)
 
+<p align="center"> Fig. 单次插入操作 </p>
+
 ## 11.3.1. &nbsp; 算法流程
 
 1. 第 1 轮先选取数组的 **第 2 个元素** 为 `base` ，执行「插入操作」后，**数组前 2 个元素已完成排序**。
@@ -19,6 +21,8 @@ comments: true
 3. 以此类推……最后一轮选取 **数组尾元素** 为 `base` ，执行「插入操作」后，**所有元素已完成排序**。
 
 ![插入排序流程](insertion_sort.assets/insertion_sort_overview.png)
+
+<p align="center"> Fig. 插入排序流程 </p>
 
 === "Java"
 

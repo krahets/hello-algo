@@ -133,6 +133,8 @@ comments: true
 
 ![父结点、子结点、子树](binary_tree.assets/binary_tree_definition.png)
 
+<p align="center"> Fig. 父结点、子结点、子树 </p>
+
 ## 7.1.1. &nbsp; 二叉树常见术语
 
 二叉树的术语较多，建议尽量理解并记住。后续可能遗忘，可以在需要使用时回来查看确认。
@@ -147,6 +149,8 @@ comments: true
 - 结点「高度 Height」：最远叶结点到该结点走过边的数量；
 
 ![二叉树的常用术语](binary_tree.assets/binary_tree_terminology.png)
+
+<p align="center"> Fig. 二叉树的常用术语 </p>
 
 !!! tip "高度与深度的定义"
 
@@ -306,6 +310,8 @@ comments: true
 
 ![在二叉树中插入与删除结点](binary_tree.assets/binary_tree_add_remove.png)
 
+<p align="center"> Fig. 在二叉树中插入与删除结点 </p>
+
 === "Java"
 
     ```java title="binary_tree.java"
@@ -428,6 +434,8 @@ comments: true
 
 ![完美二叉树](binary_tree.assets/perfect_binary_tree.png)
 
+<p align="center"> Fig. 完美二叉树 </p>
+
 ### 完全二叉树
 
 「完全二叉树 Complete Binary Tree」只有最底层的结点未被填满，且最底层结点尽量靠左填充。
@@ -436,17 +444,23 @@ comments: true
 
 ![完全二叉树](binary_tree.assets/complete_binary_tree.png)
 
+<p align="center"> Fig. 完全二叉树 </p>
+
 ### 完满二叉树
 
 「完满二叉树 Full Binary Tree」除了叶结点之外，其余所有结点都有两个子结点。
 
 ![完满二叉树](binary_tree.assets/full_binary_tree.png)
 
+<p align="center"> Fig. 完满二叉树 </p>
+
 ### 平衡二叉树
 
 「平衡二叉树 Balanced Binary Tree」中任意结点的左子树和右子树的高度之差的绝对值 $\leq 1$ 。
 
 ![平衡二叉树](binary_tree.assets/balanced_binary_tree.png)
+
+<p align="center"> Fig. 平衡二叉树 </p>
 
 ## 7.1.4. &nbsp; 二叉树的退化
 
@@ -456,6 +470,8 @@ comments: true
 - 链表则是另一个极端，各项操作都变为线性操作，时间复杂度退化至 $O(n)$ ；
 
 ![二叉树的最佳与最二叉树的最佳和最差结构差情况](binary_tree.assets/binary_tree_corner_cases.png)
+
+<p align="center"> Fig. 二叉树的最佳与最二叉树的最佳和最差结构差情况 </p>
 
 如下表所示，在最佳和最差结构下，二叉树的叶结点数量、结点总数、高度等达到极大或极小值。
 
@@ -480,9 +496,13 @@ comments: true
 
 ![完美二叉树的数组表示](binary_tree.assets/array_representation_mapping.png)
 
+<p align="center"> Fig. 完美二叉树的数组表示 </p>
+
 然而，完美二叉树只是个例，二叉树中间层往往存在许多空结点（即 `null` ），而层序遍历序列并不包含这些空结点，并且我们无法单凭序列来猜测空结点的数量和分布位置，**即理论上存在许多种二叉树都符合该层序遍历序列**。显然，这种情况无法使用数组来存储二叉树。
 
 ![给定数组对应多种二叉树可能性](binary_tree.assets/array_representation_without_empty.png)
+
+<p align="center"> Fig. 给定数组对应多种二叉树可能性 </p>
 
 为了解决此问题，考虑按照完美二叉树的形式来表示所有二叉树，**即在序列中使用特殊符号来显式地表示“空位”**。如下图所示，这样处理后，序列（数组）就可以唯一表示二叉树了。
 
@@ -563,8 +583,12 @@ comments: true
 
 ![任意类型二叉树的数组表示](binary_tree.assets/array_representation_with_empty.png)
 
+<p align="center"> Fig. 任意类型二叉树的数组表示 </p>
+
 回顾「完全二叉树」的定义，其只有最底层有空结点，并且最底层的结点尽量靠左，因而所有空结点都一定出现在层序遍历序列的末尾。**因为我们先验地确定了空位的位置，所以在使用数组表示完全二叉树时，可以省略存储“空位”**。因此，完全二叉树非常适合使用数组来表示。
 
 ![完全二叉树的数组表示](binary_tree.assets/array_representation_complete_binary_tree.png)
+
+<p align="center"> Fig. 完全二叉树的数组表示 </p>
 
 数组表示有两个优点： 一是不需要存储指针，节省空间；二是可以随机访问结点。然而，当二叉树中的“空位”很多时，数组中只包含很少结点的数据，空间利用率很低。

@@ -371,6 +371,8 @@ $$
 
 ![算法 A, B, C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.png)
 
+<p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
+
 相比直接统计算法运行时间，时间复杂度分析的做法有什么好处呢？以及有什么不足？
 
 **时间复杂度可以有效评估算法效率**。算法 `B` 运行时间的增长是线性的，在 $n > 1$ 时慢于算法 `A` ，在 $n > 1000000$ 时慢于算法 `C` 。实质上，只要输入数据大小 $n$ 足够大，复杂度为「常数阶」的算法一定优于「线性阶」的算法，这也正是时间增长趋势的含义。
@@ -537,6 +539,8 @@ $T(n)$ 是个一次函数，说明时间增长趋势是线性的，因此易得�
     $$
 
 ![函数的渐近上界](time_complexity.assets/asymptotic_upper_bound.png)
+
+<p align="center"> Fig. 函数的渐近上界 </p>
 
 本质上看，计算渐近上界就是在找一个函数 $f(n)$ ，**使得在 $n$ 趋向于无穷大时，$T(n)$ 和 $f(n)$ 处于相同的增长级别（仅相差一个常数项 $c$ 的倍数）**。
 
@@ -775,6 +779,8 @@ O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
 $$
 
 ![时间复杂度的常见类型](time_complexity.assets/time_complexity_common_types.png)
+
+<p align="center"> Fig. 时间复杂度的常见类型 </p>
 
 !!! tip
 
@@ -1328,6 +1334,8 @@ $$
 
 ![常数阶、线性阶、平方阶的时间复杂度](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
 
+<p align="center"> Fig. 常数阶、线性阶、平方阶的时间复杂度 </p>
+
 以「冒泡排序」为例，外层循环 $n - 1$ 次，内层循环 $n-1, n-2, \cdots, 2, 1$ 次，平均为 $\frac{n}{2}$ 次，因此时间复杂度为 $O(n^2)$ 。
 
 $$
@@ -1733,6 +1741,8 @@ $$
 
 ![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.png)
 
+<p align="center"> Fig. 指数阶的时间复杂度 </p>
+
 在实际算法中，指数阶常出现于递归函数。例如以下代码，不断地一分为二，分裂 $n$ 次后停止。
 
 === "Java"
@@ -1979,6 +1989,8 @@ $$
     ```
 
 ![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png)
+
+<p align="center"> Fig. 对数阶的时间复杂度 </p>
 
 与指数阶类似，对数阶也常出现于递归函数。以下代码形成了一个高度为 $\log_2 n$ 的递归树。
 
@@ -2233,6 +2245,8 @@ $$
 
 ![线性对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic_linear.png)
 
+<p align="center"> Fig. 线性对数阶的时间复杂度 </p>
+
 ### 阶乘阶 $O(n!)$
 
 阶乘阶对应数学上的「全排列」。即给定 $n$ 个互不重复的元素，求其所有可能的排列方案，则方案数量为
@@ -2390,6 +2404,8 @@ $$
     ```
 
 ![阶乘阶的时间复杂度](time_complexity.assets/time_complexity_factorial.png)
+
+<p align="center"> Fig. 阶乘阶的时间复杂度 </p>
 
 ## 2.2.6. &nbsp; 最差、最佳、平均时间复杂度
 

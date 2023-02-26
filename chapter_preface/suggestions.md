@@ -154,6 +154,8 @@ comments: true
 
 ![动画图解示例](suggestions.assets/animation.gif)
 
+<p align="center"> Fig. 动画图解示例 </p>
+
 ## 0.2.3. &nbsp; 在代码实践中加深理解
 
 本书的配套代码托管在[GitHub 仓库](https://github.com/krahets/hello-algo)，**源代码包含详细注释，配有测试样例，可以直接运行**。
@@ -177,15 +179,21 @@ git clone https://github.com/krahets/hello-algo.git
 
 ![克隆仓库与下载代码](suggestions.assets/download_code.png)
 
+<p align="center"> Fig. 克隆仓库与下载代码 </p>
+
 ### 3) 运行源代码
 
 若代码块的顶部标有文件名称，则可在仓库 `codes` 文件夹中找到对应的 **源代码文件**。
 
 ![代码块与对应的源代码文件](suggestions.assets/code_md_to_repo.png)
 
+<p align="center"> Fig. 代码块与对应的源代码文件 </p>
+
 源代码文件可以帮助你省去不必要的调试时间，将精力集中在学习内容上。
 
 ![运行代码示例](suggestions.assets/running_code.gif)
+
+<p align="center"> Fig. 运行代码示例 </p>
 
 ## 0.2.4. &nbsp; 在提问讨论中共同成长
 
@@ -194,3 +202,5 @@ git clone https://github.com/krahets/hello-algo.git
 同时，也希望你可以多花时间逛逛评论区。一方面，可以看看大家遇到了什么问题，反过来查漏补缺，这往往可以引起更加深度的思考。另一方面，也希望你可以慷慨地解答小伙伴们的问题、分享自己的见解，大家互相学习与进步！
 
 ![评论区示例](suggestions.assets/comment.gif)
+
+<p align="center"> Fig. 评论区示例 </p>

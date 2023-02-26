@@ -296,6 +296,8 @@ comments: true
 
 ![快速排序流程](quick_sort.assets/quick_sort_overview.png)
 
+<p align="center"> Fig. 快速排序流程 </p>
+
 === "Java"
 
     ```java title="quick_sort.java"

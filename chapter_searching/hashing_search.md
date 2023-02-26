@@ -16,6 +16,8 @@ comments: true
 
 ![哈希查找数组索引](hashing_search.assets/hash_search_index.png)
 
+<p align="center"> Fig. 哈希查找数组索引 </p>
+
 === "Java"
 
     ```java title="hashing_search.java"
@@ -131,6 +133,8 @@ comments: true
 再比如，如果我们想要给定一个目标结点值 `target` ，获取对应的链表结点对象，那么也可以使用哈希查找实现。
 
 ![哈希查找链表结点](hashing_search.assets/hash_search_listnode.png)
+
+<p align="center"> Fig. 哈希查找链表结点 </p>
 
 === "Java"
 

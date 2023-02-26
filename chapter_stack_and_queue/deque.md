@@ -8,6 +8,8 @@ comments: true
 
 ![双向队列的操作](deque.assets/deque_operations.png)
 
+<p align="center"> Fig. 双向队列的操作 </p>
+
 ## 5.3.1. &nbsp; 双向队列常用操作
 
 双向队列的常用操作见下表，方法名需根据特定语言来确定。

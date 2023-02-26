@@ -10,6 +10,8 @@ comments: true
 
 ![哈希表的抽象表示](hash_map.assets/hash_map.png)
 
+<p align="center"> Fig. 哈希表的抽象表示 </p>
+
 ## 6.1.1. &nbsp; 哈希表效率
 
 除了哈希表之外，还可以使用以下数据结构来实现上述查询功能：
@@ -407,6 +409,8 @@ f(x) = x \% 100
 $$
 
 ![简单哈希函数示例](hash_map.assets/hash_function.png)
+
+<p align="center"> Fig. 简单哈希函数示例 </p>
 
 === "Java"
 
@@ -1272,6 +1276,8 @@ $$
 两个学号指向了同一个姓名，这明显是不对的，我们将这种现象称为「哈希冲突 Hash Collision」。如何避免哈希冲突的问题将被留在下章讨论。
 
 ![哈希冲突示例](hash_map.assets/hash_collision.png)
+
+<p align="center"> Fig. 哈希冲突示例 </p>
 
 综上所述，一个优秀的「哈希函数」应该具备以下特性：
 

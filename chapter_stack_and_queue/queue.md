@@ -10,6 +10,8 @@ comments: true
 
 ![队列的先入先出规则](queue.assets/queue_operations.png)
 
+<p align="center"> Fig. 队列的先入先出规则 </p>
+
 ## 5.2.1. &nbsp; 队列常用操作
 
 队列的常用操作见下表，方法名需根据特定语言来确定。

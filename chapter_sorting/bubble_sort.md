@@ -43,6 +43,8 @@ comments: true
 
 ![冒泡排序流程](bubble_sort.assets/bubble_sort_overview.png)
 
+<p align="center"> Fig. 冒泡排序流程 </p>
+
 === "Java"
 
     ```java title="bubble_sort.java"

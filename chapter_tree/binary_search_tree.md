@@ -11,6 +11,8 @@ comments: true
 
 ![二叉搜索树](binary_search_tree.assets/binary_search_tree.png)
 
+<p align="center"> Fig. 二叉搜索树 </p>
+
 ## 7.3.1. &nbsp; 二叉搜索树的操作
 
 ### 查找结点
@@ -248,6 +250,8 @@ comments: true
 二叉搜索树不允许存在重复结点，否则将会违背其定义。因此若待插入结点在树中已经存在，则不执行插入，直接返回即可。
 
 ![在二叉搜索树中插入结点](binary_search_tree.assets/bst_insert.png)
+
+<p align="center"> Fig. 在二叉搜索树中插入结点 </p>
 
 === "Java"
 
@@ -551,9 +555,13 @@ comments: true
 
 ![在二叉搜索树中删除结点（度为 0）](binary_search_tree.assets/bst_remove_case1.png)
 
+<p align="center"> Fig. 在二叉搜索树中删除结点（度为 0） </p>
+
 **当待删除结点的子结点数量 $= 1$ 时**，将待删除结点替换为其子结点即可。
 
 ![在二叉搜索树中删除结点（度为 1）](binary_search_tree.assets/bst_remove_case2.png)
+
+<p align="center"> Fig. 在二叉搜索树中删除结点（度为 1） </p>
 
 **当待删除结点的子结点数量 $= 2$ 时**，删除操作分为三步：
 
@@ -1137,6 +1145,8 @@ comments: true
 
 ![二叉搜索树的中序遍历序列](binary_search_tree.assets/bst_inorder_traversal.png)
 
+<p align="center"> Fig. 二叉搜索树的中序遍历序列 </p>
+
 ## 7.3.2. &nbsp; 二叉搜索树的效率
 
 假设给定 $n$ 个数字，最常用的存储方式是「数组」，那么对于这串乱序的数字，常见操作的效率为：
@@ -1177,6 +1187,8 @@ comments: true
     在实际应用中，如何保持二叉搜索树的平衡，也是一个需要重要考虑的问题。
 
 ![二叉搜索树的平衡与退化](binary_search_tree.assets/bst_degradation.png)
+
+<p align="center"> Fig. 二叉搜索树的平衡与退化 </p>
 
 ## 7.3.4. &nbsp; 二叉搜索树常见应用
 

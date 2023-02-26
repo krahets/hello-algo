@@ -26,6 +26,8 @@ comments: true
 
 ![链式地址](hash_collision.assets/hash_collision_chaining.png)
 
+<p align="center"> Fig. 链式地址 </p>
+
 链式地址下，哈希表操作方法为：
 
 - **查询元素**：先将 key 输入到哈希函数得到桶内索引，即可访问链表头结点，再通过遍历链表查找对应 value 。
@@ -55,6 +57,8 @@ comments: true
 2. 若遇到空位，则说明查找键值对不在哈希表中；
 
 ![线性探测](hash_collision.assets/hash_collision_linear_probing.png)
+
+<p align="center"> Fig. 线性探测 </p>
 
 线性探测存在以下缺陷：
 
