@@ -1590,6 +1590,8 @@
 <p>「插入操作」原理：选定某个待排序元素为基准数 <code>base</code>，将 <code>base</code> 与其左侧已排序区间元素依次对比大小，并插入到正确位置。</p>
 <p>回忆数组插入操作，我们需要将从目标索引到 <code>base</code> 之间的所有元素向右移动一位，然后再将 <code>base</code> 赋值给目标索引。</p>
 <p><img alt="单次插入操作" src="../insertion_sort.assets/insertion_operation.png" /></p>
+<p align="center"> Fig. 单次插入操作 </p>
+
 <h2 id="1131">11.3.1. &nbsp; 算法流程<a class="headerlink" href="#1131" title="Permanent link">&para;</a></h2>
 <ol>
 <li>第 1 轮先选取数组的 <strong>第 2 个元素</strong> 为 <code>base</code> ，执行「插入操作」后，<strong>数组前 2 个元素已完成排序</strong>。</li>
@@ -1597,6 +1599,8 @@
 <li>以此类推……最后一轮选取 <strong>数组尾元素</strong> 为 <code>base</code> ，执行「插入操作」后，<strong>所有元素已完成排序</strong>。</li>
 </ol>
 <p><img alt="插入排序流程" src="../insertion_sort.assets/insertion_sort_overview.png" /></p>
+<p align="center"> Fig. 插入排序流程 </p>
+
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

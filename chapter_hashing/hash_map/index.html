@@ -1603,6 +1603,8 @@
 <p>哈希表通过建立「键 key」和「值 value」之间的映射，实现高效的元素查找。具体地，输入一个 key ，在哈希表中查询并获取 value ，时间复杂度为 <span class="arithmatex">\(O(1)\)</span> 。</p>
 <p>例如，给定一个包含 <span class="arithmatex">\(n\)</span> 个学生的数据库，每个学生有“姓名 <code>name</code> ”和“学号 <code>id</code> ”两项数据，希望实现一个查询功能：<strong>输入一个学号，返回对应的姓名</strong>，则可以使用哈希表实现。</p>
 <p><img alt="哈希表的抽象表示" src="../hash_map.assets/hash_map.png" /></p>
+<p align="center"> Fig. 哈希表的抽象表示 </p>
+
 <h2 id="611">6.1.1. &nbsp; 哈希表效率<a class="headerlink" href="#611" title="Permanent link">&para;</a></h2>
 <p>除了哈希表之外，还可以使用以下数据结构来实现上述查询功能：</p>
 <ol>
@@ -1988,6 +1990,8 @@
 f(x) = x \% 100
 \]</div>
 <p><img alt="简单哈希函数示例" src="../hash_map.assets/hash_function.png" /></p>
+<p align="center"> Fig. 简单哈希函数示例 </p>
+
 <div class="tabbed-set tabbed-alternate" data-tabs="3:10"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2832,6 +2836,8 @@ f(12836) = f(20336) = 36
 \]</div>
 <p>两个学号指向了同一个姓名，这明显是不对的，我们将这种现象称为「哈希冲突 Hash Collision」。如何避免哈希冲突的问题将被留在下章讨论。</p>
 <p><img alt="哈希冲突示例" src="../hash_map.assets/hash_collision.png" /></p>
+<p align="center"> Fig. 哈希冲突示例 </p>
+
 <p>综上所述，一个优秀的「哈希函数」应该具备以下特性：</p>
 <ul>
 <li>尽量少地发生哈希冲突；</li>

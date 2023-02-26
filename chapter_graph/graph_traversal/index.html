@@ -1661,6 +1661,8 @@
 <h2 id="931">9.3.1. &nbsp; 广度优先遍历<a class="headerlink" href="#931" title="Permanent link">&para;</a></h2>
 <p><strong>广度优先遍历优是一种由近及远的遍历方式，从距离最近的顶点开始访问，并一层层向外扩张</strong>。具体地，从某个顶点出发，先遍历该顶点的所有邻接顶点，随后遍历下个顶点的所有邻接顶点，以此类推……</p>
 <p><img alt="图的广度优先遍历" src="../graph_traversal.assets/graph_bfs.png" /></p>
+<p align="center"> Fig. 图的广度优先遍历 </p>
+
 <h3 id="_1">算法实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>BFS 常借助「队列」来实现。队列具有“先入先出”的性质，这与 BFS “由近及远”的思想是异曲同工的。</p>
 <ol>
@@ -1878,6 +1880,8 @@
 <h2 id="932">9.3.2. &nbsp; 深度优先遍历<a class="headerlink" href="#932" title="Permanent link">&para;</a></h2>
 <p><strong>深度优先遍历是一种优先走到底、无路可走再回头的遍历方式</strong>。具体地，从某个顶点出发，不断地访问当前结点的某个邻接顶点，直到走到尽头时回溯，再继续走到底 + 回溯，以此类推……直至所有顶点遍历完成时结束。</p>
 <p><img alt="图的深度优先遍历" src="../graph_traversal.assets/graph_dfs.png" /></p>
+<p align="center"> Fig. 图的深度优先遍历 </p>
+
 <h3 id="_3">算法实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>这种“走到头 + 回溯”的算法形式一般基于递归来实现。与 BFS 类似，在 DFS 中我们也需要借助一个哈希表 <code>visited</code> 来记录已被访问的顶点，以避免重复访问顶点。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:10"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label></div>

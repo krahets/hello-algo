@@ -1602,6 +1602,8 @@
 <h1 id="41">4.1. &nbsp; 数组<a class="headerlink" href="#41" title="Permanent link">&para;</a></h1>
 <p>「数组 Array」是一种将 <strong>相同类型元素</strong> 存储在 <strong>连续内存空间</strong> 的数据结构，将元素在数组中的位置称为元素的「索引 Index」。</p>
 <p><img alt="数组定义与存储方式" src="../array.assets/array_definition.png" /></p>
+<p align="center"> Fig. 数组定义与存储方式 </p>
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>观察上图，我们发现 <strong>数组首元素的索引为 <span class="arithmatex">\(0\)</span></strong> 。你可能会想，这并不符合日常习惯，首个元素的索引为什么不是 <span class="arithmatex">\(1\)</span> 呢，这不是更加自然吗？我认同你的想法，但请先记住这个设定，后面讲内存地址计算时，我会尝试解答这个问题。</p>
@@ -1680,6 +1682,8 @@
 <h2 id="411">4.1.1. &nbsp; 数组优点<a class="headerlink" href="#411" title="Permanent link">&para;</a></h2>
 <p><strong>在数组中访问元素非常高效</strong>。这是因为在数组中，计算元素的内存地址非常容易。给定数组首个元素的地址、和一个元素的索引，利用以下公式可以直接计算得到该元素的内存地址，从而直接访问此元素。</p>
 <p><img alt="数组元素的内存地址计算" src="../array.assets/array_memory_location_calculation.png" /></p>
+<p align="center"> Fig. 数组元素的内存地址计算 </p>
+
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nv">elementAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>firtstElementAddr<span class="w"> </span>+<span class="w"> </span>elementLength<span class="w"> </span>*<span class="w"> </span>elementIndex
 </code></pre></div>
@@ -1939,6 +1943,8 @@
 </div>
 <p><strong>数组中插入或删除元素效率低下</strong>。如果我们想要在数组中间插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。</p>
 <p><img alt="数组插入元素" src="../array.assets/array_insert_element.png" /></p>
+<p align="center"> Fig. 数组插入元素 </p>
+
 <div class="tabbed-set tabbed-alternate" data-tabs="4:9"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JavaScript</label><label for="__tabbed_4_6">TypeScript</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2045,6 +2051,8 @@
 </div>
 <p>删除元素也是类似，如果我们想要删除索引 <span class="arithmatex">\(i\)</span> 处的元素，则需要把索引 <span class="arithmatex">\(i\)</span> 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，我们无需特意去修改它。</p>
 <p><img alt="数组删除元素" src="../array.assets/array_remove_element.png" /></p>
+<p align="center"> Fig. 数组删除元素 </p>
+
 <div class="tabbed-set tabbed-alternate" data-tabs="5:10"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JavaScript</label><label for="__tabbed_5_6">TypeScript</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
