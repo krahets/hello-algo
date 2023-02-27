@@ -51,7 +51,7 @@
 
 ## 参与写作
 
-我们正在加速更新本书，期待您通过提交 Pull Request 来[参与本项目](https://www.hello-algo.com/chapter_preface/contribution/)，以帮助其他读者获取更优质的学习内容。
+我们正在加速更新本书，期待您通过提交 Pull Request 来[参与本项目](https://www.hello-algo.com/chapter_appendix/contribution/)，以帮助其他读者获取更优质的学习内容。
 
 - 如您发现语法错误、内容缺失、文字歧义、无效链接、解释不清晰等问题，请帮忙修正或评论指出；
 - 期待您参与 C++, Python, Go, JavaScript, TypeScript, C, C#, Swift, Zig, Rust, Dart 等语言[代码翻译](https://github.com/krahets/hello-algo/issues/15)；

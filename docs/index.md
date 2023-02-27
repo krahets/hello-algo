@@ -7,9 +7,9 @@ hide:
 === " "
 
     <div class="result" markdown>
-    ![conceptual_rendering](index.assets/conceptual_rendering.png){ align=left width=350 }
+    ![conceptual_rendering](index.assets/conceptual_rendering.png){ align=left width=330 }
     </br></br></br></br></br>
-    <h1 align="center"> 《 Hello，算法 》 </h1>
+    <h1 align="center"> 《 Hello 算法 》 </h1>
     <p align="center"> 动画图解、能运行、可提问的</br>数据结构与算法快速入门教程 </p>
     <p align="center"> [![github-stars](https://img.shields.io/github/stars/krahets/hello-algo?style=social)](https://github.com/krahets/hello-algo)</p>
     <h6 align="center"> [@Krahets](https://leetcode.cn/u/jyd/) </h6>

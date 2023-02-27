@@ -10,8 +10,8 @@ import { printLinkedList } from '../module/PrintUtil';
 /* 在链表的结点 n0 之后插入结点 P */
 function insert(n0: ListNode, P: ListNode): void {
     const n1 = n0.next;
-    n0.next = P;
     P.next = n1;
+    n0.next = P;
 }
 
 /* 删除链表的结点 n0 之后的首个结点 */

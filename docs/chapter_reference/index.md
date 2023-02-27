@@ -15,3 +15,5 @@
 [7] 王争. 数据结构与算法之美.
 
 [8] Gayle Laakmann McDowell. Cracking the Coding Interview: 189 Programming Questions and Solutions (6th Edition). 
+
+[9] Aston Zhang, et al. Dive into Deep Learning.

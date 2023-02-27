@@ -11,8 +11,8 @@ from include import *
 """ 在链表的结点 n0 之后插入结点 P """
 def insert(n0, P):
     n1 = n0.next
-    n0.next = P
     P.next = n1
+    n0.next = P
 
 """ 删除链表的结点 n0 之后的首个结点 """
 def remove(n0):

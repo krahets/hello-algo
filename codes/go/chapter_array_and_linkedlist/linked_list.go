@@ -11,8 +11,8 @@ import (
 /* 在链表的结点 n0 之后插入结点 P */
 func insertNode(n0 *ListNode, P *ListNode) {
 	n1 := n0.Next
-	n0.Next = P
 	P.Next = n1
+	n0.Next = P
 }
 
 /* 删除链表的结点 n0 之后的首个结点 */

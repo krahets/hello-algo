@@ -8,31 +8,20 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+
+	. "github.com/krahets/hello-algo/pkg"
 )
-
-/* 顶点类 */
-type vertex struct {
-	val int
-}
-
-/* 构造方法 */
-func newVertex(val int) vertex {
-	return vertex{
-		val: val,
-	}
-}
 
 /* 基于邻接表实现的无向图类 */
 type graphAdjList struct {
-	// 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
-	// 请注意，adjList 中的元素是 Vertex 对象
-	adjList map[vertex]map[vertex]struct{}
+	// 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+	adjList map[Vertex][]Vertex
 }
 
 /* 构造方法 */
-func newGraphAdjList(edges [][]vertex) *graphAdjList {
+func newGraphAdjList(edges [][]Vertex) *graphAdjList {
 	g := &graphAdjList{
-		adjList: make(map[vertex]map[vertex]struct{}),
+		adjList: make(map[Vertex][]Vertex),
 	}
 	// 添加所有顶点和边
 	for _, edge := range edges {
@@ -49,41 +38,41 @@ func (g *graphAdjList) size() int {
 }
 
 /* 添加边 */
-func (g *graphAdjList) addEdge(vet1 vertex, vet2 vertex) {
+func (g *graphAdjList) addEdge(vet1 Vertex, vet2 Vertex) {
 	_, ok1 := g.adjList[vet1]
 	_, ok2 := g.adjList[vet2]
 	if !ok1 || !ok2 || vet1 == vet2 {
 		panic("error")
 	}
 	// 添加边 vet1 - vet2, 添加匿名 struct{},
-	g.adjList[vet1][vet2] = struct{}{}
-	g.adjList[vet2][vet1] = struct{}{}
+	g.adjList[vet1] = append(g.adjList[vet1], vet2)
+	g.adjList[vet2] = append(g.adjList[vet2], vet1)
 }
 
 /* 删除边 */
-func (g *graphAdjList) removeEdge(vet1 vertex, vet2 vertex) {
+func (g *graphAdjList) removeEdge(vet1 Vertex, vet2 Vertex) {
 	_, ok1 := g.adjList[vet1]
 	_, ok2 := g.adjList[vet2]
 	if !ok1 || !ok2 || vet1 == vet2 {
 		panic("error")
 	}
-	// 删除边 vet1 - vet2, 借助 delete 来删除 map 中的键
-	delete(g.adjList[vet1], vet2)
-	delete(g.adjList[vet2], vet1)
+	// 删除边 vet1 - vet2
+	DeleteSliceElms(g.adjList[vet1], vet2)
+	DeleteSliceElms(g.adjList[vet2], vet1)
 }
 
 /* 添加顶点 */
-func (g *graphAdjList) addVertex(vet vertex) {
+func (g *graphAdjList) addVertex(vet Vertex) {
 	_, ok := g.adjList[vet]
 	if ok {
 		return
 	}
 	// 在邻接表中添加一个新链表
-	g.adjList[vet] = make(map[vertex]struct{})
+	g.adjList[vet] = make([]Vertex, 0)
 }
 
 /* 删除顶点 */
-func (g *graphAdjList) removeVertex(vet vertex) {
+func (g *graphAdjList) removeVertex(vet Vertex) {
 	_, ok := g.adjList[vet]
 	if !ok {
 		panic("error")
@@ -91,9 +80,8 @@ func (g *graphAdjList) removeVertex(vet vertex) {
 	// 在邻接表中删除顶点 vet 对应的链表
 	delete(g.adjList, vet)
 	// 遍历其它顶点的链表，删除所有包含 vet 的边
-	for _, set := range g.adjList {
-		// 操作
-		delete(set, vet)
+	for _, list := range g.adjList {
+		DeleteSliceElms(list, vet)
 	}
 }
 
@@ -101,10 +89,11 @@ func (g *graphAdjList) removeVertex(vet vertex) {
 func (g *graphAdjList) print() {
 	var builder strings.Builder
 	fmt.Printf("邻接表 = \n")
+	// 使邻接表有序输出
 	for k, v := range g.adjList {
-		builder.WriteString("\t\t" + strconv.Itoa(k.val) + ": ")
-		for vet := range v {
-			builder.WriteString(strconv.Itoa(vet.val) + " ")
+		builder.WriteString("\t\t" + strconv.Itoa(k.Val) + ": ")
+		for _, vet := range v {
+			builder.WriteString(strconv.Itoa(vet.Val) + " ")
 		}
 		fmt.Println(builder.String())
 		builder.Reset()
