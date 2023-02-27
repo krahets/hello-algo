@@ -41,6 +41,10 @@ comments: true
 === "<9>"
     ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png)
 
+!!! note "快速排序的分治思想"
+
+    哨兵划分的实质是将 **一个长数组的排序问题** 简化为 **两个短数组的排序问题**。
+
 === "Java"
 
     ```java title="quick_sort.java"
@@ -281,10 +285,6 @@ comments: true
         return i;               // 返回基准数的索引
     }
     ```
-
-!!! note "快速排序的分治思想"
-
-    哨兵划分的实质是将 **一个长数组的排序问题** 简化为 **两个短数组的排序问题**。
 
 ## 11.4.1. &nbsp; 算法流程
 
