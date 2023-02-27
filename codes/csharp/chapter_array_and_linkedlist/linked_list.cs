@@ -13,8 +13,8 @@ public class linked_list
     public static void insert(ListNode n0, ListNode P)
     {
         ListNode? n1 = n0.next;
-        n0.next = P;
         P.next = n1;
+        n0.next = P;
     }
 
     /* 删除链表的结点 n0 之后的首个结点 */
