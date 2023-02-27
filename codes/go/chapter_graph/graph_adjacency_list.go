@@ -89,7 +89,6 @@ func (g *graphAdjList) removeVertex(vet Vertex) {
 func (g *graphAdjList) print() {
 	var builder strings.Builder
 	fmt.Printf("邻接表 = \n")
-	// 使邻接表有序输出
 	for k, v := range g.adjList {
 		builder.WriteString("\t\t" + strconv.Itoa(k.Val) + ": ")
 		for _, vet := range v {

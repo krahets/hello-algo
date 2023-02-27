@@ -40,7 +40,7 @@
 === "Go"
 
     ```go title=""
-    /* 链表结点类 */
+    /* 链表结点结构体 */
     type TreeNode struct {
         Val   int
         Left  *TreeNode

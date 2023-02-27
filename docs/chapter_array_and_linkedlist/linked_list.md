@@ -63,7 +63,7 @@
 === "JavaScript"
 
     ```javascript title=""
-    /* 链表结点结构体 */
+    /* 链表结点类 */
     class ListNode {
         val;
         next;
@@ -77,7 +77,7 @@
 === "TypeScript"
 
     ```typescript title=""
-    /* 链表结点结构体 */
+    /* 链表结点类 */
     class ListNode {
         val: number;
         next: ListNode | null;
@@ -595,7 +595,7 @@
 === "C++"
 
     ```cpp title=""
-    /* 链表结点结构体 */
+    /* 双向链表结点结构体 */
     struct ListNode {
         int val;         // 结点值
         ListNode *next;  // 指向后继结点的指针（引用）
