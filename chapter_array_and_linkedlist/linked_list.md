@@ -328,8 +328,8 @@ comments: true
     /* 在链表的结点 n0 之后插入结点 P */
     void insert(ListNode n0, ListNode P) {
         ListNode n1 = n0.next;
-        n0.next = P;
         P.next = n1;
+        n0.next = P;
     }
     ```
 
@@ -339,8 +339,8 @@ comments: true
     /* 在链表的结点 n0 之后插入结点 P */
     void insert(ListNode* n0, ListNode* P) {
         ListNode* n1 = n0->next;
-        n0->next = P;
         P->next = n1;
+        n0->next = P;
     }
     ```
 
@@ -350,8 +350,8 @@ comments: true
     """ 在链表的结点 n0 之后插入结点 P """
     def insert(n0, P):
         n1 = n0.next
-        n0.next = P
         P.next = n1
+        n0.next = P
     ```
 
 === "Go"
@@ -360,8 +360,8 @@ comments: true
     /* 在链表的结点 n0 之后插入结点 P */
     func insertNode(n0 *ListNode, P *ListNode) {
         n1 := n0.Next
-        n0.Next = P
         P.Next = n1
+        n0.Next = P
     }
     ```
 
@@ -371,8 +371,8 @@ comments: true
     /* 在链表的结点 n0 之后插入结点 P */
     function insert(n0, P) {
         const n1 = n0.next;
-        n0.next = P;
         P.next = n1;
+        n0.next = P;
     }
     ```
 
@@ -382,8 +382,8 @@ comments: true
     /* 在链表的结点 n0 之后插入结点 P */
     function insert(n0: ListNode, P: ListNode): void {
         const n1 = n0.next;
-        n0.next = P;
         P.next = n1;
+        n0.next = P;
     }
     ```
 
@@ -400,8 +400,8 @@ comments: true
     void insert(ListNode n0, ListNode P)
     {
         ListNode? n1 = n0.next;
-        n0.next = P;
         P.next = n1;
+        n0.next = P;
     }
     ```
 
@@ -411,8 +411,8 @@ comments: true
     /* 在链表的结点 n0 之后插入结点 P */
     func insert(n0: ListNode, P: ListNode) {
         let n1 = n0.next
-        n0.next = P
         P.next = n1
+        n0.next = P
     }
     ```
 
@@ -422,8 +422,8 @@ comments: true
     // 在链表的结点 n0 之后插入结点 P
     fn insert(n0: ?*inc.ListNode(i32), P: ?*inc.ListNode(i32)) void {
         var n1 = n0.?.next;
-        n0.?.next = P;
         P.?.next = n1;
+        n0.?.next = P;
     }
     ```
 
