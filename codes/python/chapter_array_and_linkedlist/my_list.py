@@ -86,35 +86,35 @@ class MyList:
 """ Driver Code """
 if __name__ == "__main__":
     """ 初始化列表 """
-    my_list = MyList()
+    list = MyList()
     """ 尾部添加元素 """
-    my_list.add(1)
-    my_list.add(3)
-    my_list.add(2)
-    my_list.add(5)
-    my_list.add(4)
-    print("列表 my_list = {} ，容量 = {} ，长度 = {}"
-          .format(my_list.to_array(), my_list.capacity(), my_list.size()))
+    list.add(1)
+    list.add(3)
+    list.add(2)
+    list.add(5)
+    list.add(4)
+    print("列表 list = {} ，容量 = {} ，长度 = {}"
+          .format(list.to_array(), list.capacity(), list.size()))
 
     """ 中间插入元素 """
-    my_list.insert(value=6, index=3)
-    print("在索引 3 处插入数字 6 ，得到 my_list =", my_list.to_array())
+    list.add(num=6, index=3)
+    print("在索引 3 处插入数字 6 ，得到 list =", list.to_array())
 
     """ 删除元素 """
-    my_list.remove(3)
-    print("删除索引 3 处的元素，得到 my_list =", my_list.to_array())
+    list.remove(3)
+    print("删除索引 3 处的元素，得到 list =", list.to_array())
 
     """ 访问元素 """
-    num = my_list.get(1)
+    num = list.get(1)
     print("访问索引 1 处的元素，得到 num =", num)
 
     """ 更新元素 """
-    my_list.set(0, 1)
-    print("将索引 1 处的元素更新为 0 ，得到 my_list =", my_list.to_array())
+    list.set(0, 1)
+    print("将索引 1 处的元素更新为 0 ，得到 list =", list.to_array())
 
     """ 测试扩容机制 """
     for i in range(10):
         # 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
-        my_list.add(i)
-    print("扩容后的列表 my_list = {} ，容量 = {} ，长度 = {}"
-          .format(my_list.to_array(), my_list.capacity(), my_list.size()))
+        list.add(i)
+    print("扩容后的列表 list = {} ，容量 = {} ，长度 = {}"
+          .format(list.to_array(), list.capacity(), list.size()))
