@@ -20,13 +20,13 @@ func TestGraphAdjList(t *testing.T) {
 	graph.print()
 
 	/* 添加边 */
-	// 顶点 1, 2, 即 v[0], v[2]
+	// 顶点 1, 2 即 v[0], v[2]
 	graph.addEdge(v[0], v[2])
 	fmt.Println("\n添加边 1-2 后，图为")
 	graph.print()
 
 	/* 删除边 */
-	// 顶点 1, 3, 即 v[0], v[1]
+	// 顶点 1, 3 即 v[0], v[1]
 	graph.removeEdge(v[0], v[1])
 	fmt.Println("\n删除边 1-3 后，图为")
 	graph.print()
@@ -38,7 +38,7 @@ func TestGraphAdjList(t *testing.T) {
 	graph.print()
 
 	/* 删除顶点 */
-	// 顶点 3 , 即 v[1]
+	// 顶点 3 即 v[1]
 	graph.removeVertex(v[1])
 	fmt.Println("\n删除顶点 3 后，图为")
 	graph.print()
