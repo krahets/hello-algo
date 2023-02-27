@@ -5,7 +5,6 @@
 .vscode/
 **/.idea
 
-
 # mkdocs files
 .cache/
 docs/overrides/
