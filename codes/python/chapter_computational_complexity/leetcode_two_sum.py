@@ -29,13 +29,13 @@ def two_sum_hash_table(nums: List[int], target: int) -> Optional[Tuple[int, int]
 """ Driver Code """
 if __name__ == '__main__':
     # ======= Test Case =======
-    test_nums = [2, 7, 11, 15]
-    test_target = 9
-
+    nums = [2, 7, 11, 15]
+    target = 9
+    
     # ====== Driver Code ======
     # 方法一
-    res = two_sum_brute_force(test_nums, test_target)
+    res = two_sum_brute_force(nums, target)
     print("方法一 res =", res)
     # 方法二
-    res = two_sum_hash_table(test_nums, test_target)
+    res = two_sum_hash_table(nums, target)
     print("方法二 res =", res)
