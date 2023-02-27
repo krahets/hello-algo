@@ -6,7 +6,6 @@ package chapter_graph
 
 import (
 	"fmt"
-	"sort"
 	"strconv"
 	"strings"
 
@@ -90,18 +89,10 @@ func (g *graphAdjList) removeVertex(vet Vertex) {
 func (g *graphAdjList) print() {
 	var builder strings.Builder
 	fmt.Printf("邻接表 = \n")
-	// 给 g.adjList 排序一下
-	keys := make([]Vertex, 0, len(g.adjList))
-	for k := range g.adjList {
-		keys = append(keys, k)
-	}
-	sort.Slice(keys, func(i, j int) bool {
-		return keys[i].Val < keys[j].Val
-	})
 	// 使邻接表有序输出
-	for _, k := range keys {
+	for k, v := range g.adjList {
 		builder.WriteString("\t\t" + strconv.Itoa(k.Val) + ": ")
-		for _, vet := range g.adjList[k] {
+		for _, vet := range v {
 			builder.WriteString(strconv.Itoa(vet.Val) + " ")
 		}
 		fmt.Println(builder.String())
