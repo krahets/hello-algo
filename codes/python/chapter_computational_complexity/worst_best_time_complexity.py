@@ -27,9 +27,10 @@ def find_one(nums: List[int]) -> int:
 
 """ Driver Code """
 if __name__ == "__main__":
-    for _ in range(10):
-        target_count = 100
-        random_nums = random_numbers(target_count)
-        index = find_one(random_nums)
-        print("\n数组 [ 1, 2, ..., n ] 被打乱后 =", random_nums)
+    for i in range(10):
+        n = 100
+        nums = random_numbers(n)
+        index = find_one(nums)
+        print("\n数组 [ 1, 2, ..., n ] 被打乱后 =", nums)
         print("数字 1 的索引为", index)
+
