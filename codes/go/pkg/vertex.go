@@ -33,3 +33,23 @@ func VetsToVals(vets []Vertex) []int {
 	}
 	return vals
 }
+
+// DeleteSliceElms 删除切片指定元素
+func DeleteSliceElms[T any](a []T, elms ...T) []T {
+	if len(a) == 0 || len(elms) == 0 {
+		return a
+	}
+	// 先将元素转为 set
+	m := make(map[any]struct{})
+	for _, v := range elms {
+		m[v] = struct{}{}
+	}
+	// 过滤掉指定元素
+	res := make([]T, 0, len(a))
+	for _, v := range a {
+		if _, ok := m[v]; !ok {
+			res = append(res, v)
+		}
+	}
+	return res
+}

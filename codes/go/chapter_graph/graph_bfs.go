@@ -27,7 +27,7 @@ func graphBFS(g *graphAdjList, startVet Vertex) []Vertex {
 		// 记录访问顶点
 		res = append(res, vet)
 		// 遍历该顶点的所有邻接顶点
-		for adjVet := range g.adjList[vet] {
+		for _, adjVet := range g.adjList[vet] {
 			_, isExist := visited[adjVet]
 			// 只入队未访问的顶点
 			if !isExist {
