@@ -3,11 +3,11 @@ File: linked_list.py
 Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
 """
+
 import os.path as osp
 import sys
-import typing
-
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
+from typing import Optional
 from include import ListNode, print_linked_list
 
 
@@ -28,7 +28,7 @@ def remove(n0: ListNode) -> None:
     n0.next = n1
 
 
-def access(head: typing.Optional[ListNode], index: int) -> typing.Optional[ListNode]:
+def access(head: Optional[ListNode], index: int) -> Optional[ListNode]:
     """ 访问链表中索引为 index 的结点 """
     for _ in range(index):
         if not head:
@@ -37,7 +37,7 @@ def access(head: typing.Optional[ListNode], index: int) -> typing.Optional[ListN
     return head
 
 
-def find(head: typing.Optional[ListNode], target: int) -> int:
+def find(head: Optional[ListNode], target: int) -> int:
     """ 在链表中查找值为 target 的首个结点 """
     index = 0
     while head:
@@ -51,7 +51,7 @@ def find(head: typing.Optional[ListNode], target: int) -> int:
 """ Driver Code """
 if __name__ == "__main__":
     """ 初始化链表 """
-    # 初始化各个结点 
+    # 初始化各个结点
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)

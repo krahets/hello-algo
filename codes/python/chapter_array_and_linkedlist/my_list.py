@@ -3,17 +3,15 @@ File: my_list.py
 Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
 """
-import typing
+
+from typing import List
 
 """ 列表类简易实现 """
-
-
 class MyList:
-    """ 构造方法 """
-
     def __init__(self):
+        """ 构造方法 """
         self.__capacity = 10  # 列表容量
-        self.__nums: typing.List[int] = [0] * self.__capacity  # 数组（存储列表元素）
+        self.__nums: List[int] = [0] * self.__capacity  # 数组（存储列表元素）
         self.__size = 0  # 列表长度（即当前元素数量）
         self.__extend_ratio = 2  # 每次列表扩容的倍数
 
@@ -80,7 +78,7 @@ class MyList:
         # 更新列表容量
         self.__capacity = len(self.__nums)
 
-    def to_array(self) -> typing.List[int]:
+    def to_array(self) -> List[int]:
         """ 返回有效长度的列表 """
         return self.__nums[:self.__size]
 

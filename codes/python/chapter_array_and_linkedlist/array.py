@@ -3,15 +3,16 @@ File: array.py
 Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
 """
+
 import os.path as osp
 import random
 import sys
-import typing
+from typing import List
 
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 
 
-def random_access(nums: typing.List[int]) -> int:
+def random_access(nums: List[int]) -> int:
     """ 随机访问元素 """
     # 在区间 [0, len(nums)-1] 中随机抽取一个数字
     random_index = random.randint(0, len(nums) - 1)
@@ -22,7 +23,7 @@ def random_access(nums: typing.List[int]) -> int:
 
 # 请注意，Python 的 list 是动态数组，可以直接扩展
 # 为了方便学习，本函数将 list 看作是长度不可变的数组
-def extend(nums: typing.List[int], enlarge: int) -> typing.List[int]:
+def extend(nums: List[int], enlarge: int) -> List[int]:
     """ 扩展数组长度 """
     # 初始化一个扩展长度后的数组
     res = [0] * (len(nums) + enlarge)
@@ -33,7 +34,7 @@ def extend(nums: typing.List[int], enlarge: int) -> typing.List[int]:
     return res
 
 
-def insert(nums: typing.List[int], num: int, index: int) -> None:
+def insert(nums: List[int], num: int, index: int) -> None:
     """ 在数组的索引 index 处插入元素 num """
     # 把索引 index 以及之后的所有元素向后移动一位
     for i in range(len(nums) - 1, index, -1):
@@ -42,14 +43,14 @@ def insert(nums: typing.List[int], num: int, index: int) -> None:
     nums[index] = num
 
 
-def remove(nums: typing.List[int], index: int) -> None:
+def remove(nums: List[int], index: int) -> None:
     """ 删除索引 index 处元素 """
     # 把索引 index 之后的所有元素向前移动一位
     for i in range(index, len(nums) - 1):
         nums[i] = nums[i + 1]
 
 
-def traverse(nums: typing.List[int]) -> None:
+def traverse(nums: List[int]) -> None:
     """ 遍历数组 """
     count = 0
     # 通过索引遍历数组
@@ -60,7 +61,7 @@ def traverse(nums: typing.List[int]) -> None:
         count += 1
 
 
-def find(nums: typing.List[int], target: int):
+def find(nums: List[int], target: int):
     """ 在数组中查找指定元素 """
     for i in range(len(nums)):
         if nums[i] == target:

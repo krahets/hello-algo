@@ -3,7 +3,8 @@ File: time_complexity.py
 Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
 """
-import typing
+
+from typing import List
 
 
 def constant(n: int) -> int:
@@ -14,7 +15,6 @@ def constant(n: int) -> int:
         count += 1
     return count
 
-
 def linear(n: int) -> int:
     """ 线性阶 """
     count = 0
@@ -22,15 +22,13 @@ def linear(n: int) -> int:
         count += 1
     return count
 
-
-def array_traversal(nums: typing.List[int]) -> int:
+def array_traversal(nums: List[int]) -> int:
     """ 线性阶（遍历数组）"""
     count = 0
     # 循环次数与数组长度成正比
     for num in nums:
         count += 1
     return count
-
 
 def quadratic(n: int) -> int:
     """ 平方阶 """
@@ -41,8 +39,7 @@ def quadratic(n: int) -> int:
             count += 1
     return count
 
-
-def bubble_sort(nums: typing.List[int]) -> int:
+def bubble_sort(nums: List[int]) -> int:
     """ 平方阶（冒泡排序）"""
     count = 0  # 计数器
     # 外循环：待排序元素数量为 n-1, n-2, ..., 1
@@ -57,7 +54,6 @@ def bubble_sort(nums: typing.List[int]) -> int:
                 count += 3  # 元素交换包含 3 个单元操作
     return count
 
-
 def exponential(n: int) -> int:
     """ 指数阶（循环实现）"""
     count, base = 0, 1
@@ -69,13 +65,11 @@ def exponential(n: int) -> int:
     # count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
     return count
 
-
 def exp_recur(n: int) -> int:
     """ 指数阶（递归实现）"""
     if n == 1:
         return 1
     return exp_recur(n - 1) + exp_recur(n - 1) + 1
-
 
 def logarithmic(n: int) -> int:
     """ 对数阶（循环实现）"""
@@ -85,13 +79,11 @@ def logarithmic(n: int) -> int:
         count += 1
     return count
 
-
 def log_recur(n: float) -> int:
     """ 对数阶（递归实现）"""
     if n <= 1:
         return 0
     return log_recur(n / 2) + 1
-
 
 def linear_log_recur(n: int) -> int:
     """ 线性对数阶 """
@@ -101,7 +93,6 @@ def linear_log_recur(n: int) -> int:
     for _ in range(n):
         count += 1
     return count
-
 
 def factorial_recur(n: int) -> int:
     """ 阶乘阶（递归实现）"""

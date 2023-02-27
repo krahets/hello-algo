@@ -3,11 +3,12 @@ File: space_complexity.py
 Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
 """
+
 import os.path as osp
 import sys
-import typing
-
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
+
+from typing import Optional
 from include import ListNode, TreeNode, print_tree
 
 
@@ -15,7 +16,6 @@ def function() -> int:
     """ 函数 """
     # do something
     return 0
-
 
 def constant(n: int):
     """ 常数阶 """
@@ -30,7 +30,6 @@ def constant(n: int):
     for _ in range(n):
         function()
 
-
 def linear(n: int):
     """ 线性阶 """
     # 长度为 n 的列表占用 O(n) 空间
@@ -40,7 +39,6 @@ def linear(n: int):
     for i in range(n):
         mapp[i] = str(i)
 
-
 def linear_recur(n: int):
     """ 线性阶（递归实现） """
     print("递归 n =", n)
@@ -48,12 +46,10 @@ def linear_recur(n: int):
         return
     linear_recur(n - 1)
 
-
 def quadratic(n):
     """ 平方阶 """
     # 二维列表占用 O(n^2) 空间
     num_matrix = [[0] * n for _ in range(n)]
-
 
 def quadratic_recur(n: int) -> int:
     """ 平方阶（递归实现） """
@@ -63,8 +59,7 @@ def quadratic_recur(n: int) -> int:
     nums = [0] * n
     return quadratic_recur(n - 1)
 
-
-def build_tree(n: int) -> typing.Optional[TreeNode]:
+def build_tree(n: int) -> Optional[TreeNode]:
     """ 指数阶（建立满二叉树） """
     if n == 0:
         return None
