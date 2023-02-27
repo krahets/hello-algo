@@ -89,5 +89,10 @@ path = "chapter_stack_and_queue/array_stack.rs"
 name = "array_queue"
 path = "chapter_stack_and_queue/array_queue.rs"
 
+# Run Command: cargo run --bin binary_tree
+[[bin]]
+name = "binary_tree"
+path = "chapter_tree/binary_tree.rs"
+
 [dependencies]
 rand = "0.8.5"
