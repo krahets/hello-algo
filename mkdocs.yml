@@ -142,31 +142,31 @@ nav:
     - 3.2. &nbsp; 数据结构分类: chapter_data_structure/classification_of_data_structure.md
     - 3.3. &nbsp; 小结: chapter_data_structure/summary.md
   - 4. &nbsp; &nbsp; 数组与链表:
-    - 4.1. &nbsp; 数组（Array）: chapter_array_and_linkedlist/array.md
-    - 4.2. &nbsp; 链表（Linked List）: chapter_array_and_linkedlist/linked_list.md
-    - 4.3. &nbsp; 列表（List）: chapter_array_and_linkedlist/list.md
+    - 4.1. &nbsp; 数组: chapter_array_and_linkedlist/array.md
+    - 4.2. &nbsp; 链表: chapter_array_and_linkedlist/linked_list.md
+    - 4.3. &nbsp; 列表: chapter_array_and_linkedlist/list.md
     - 4.4. &nbsp; 小结: chapter_array_and_linkedlist/summary.md
   - 5. &nbsp; &nbsp; 栈与队列:
-    - 5.1. &nbsp; 栈（Stack）: chapter_stack_and_queue/stack.md
-    - 5.2. &nbsp; 队列（Queue）: chapter_stack_and_queue/queue.md
-    - 5.3. &nbsp; 双向队列（Deque）: chapter_stack_and_queue/deque.md
+    - 5.1. &nbsp; 栈: chapter_stack_and_queue/stack.md
+    - 5.2. &nbsp; 队列: chapter_stack_and_queue/queue.md
+    - 5.3. &nbsp; 双向队列: chapter_stack_and_queue/deque.md
     - 5.4. &nbsp; 小结: chapter_stack_and_queue/summary.md
   - 6. &nbsp; &nbsp; 散列表:
-    - 6.1. &nbsp; 哈希表（Hash Map）: chapter_hashing/hash_map.md
+    - 6.1. &nbsp; 哈希表: chapter_hashing/hash_map.md
     - 6.2. &nbsp; 哈希冲突处理: chapter_hashing/hash_collision.md
     - 6.3. &nbsp; 小结: chapter_hashing/summary.md
-  - 7. &nbsp; &nbsp; 二叉树:
-    - 7.1. &nbsp; 二叉树（Binary Tree）: chapter_tree/binary_tree.md
+  - 7. &nbsp; &nbsp; 树:
+    - 7.1. &nbsp; 二叉树: chapter_tree/binary_tree.md
     - 7.2. &nbsp; 二叉树遍历: chapter_tree/binary_tree_traversal.md
     - 7.3. &nbsp; 二叉搜索树: chapter_tree/binary_search_tree.md
     - 7.4. &nbsp; AVL 树 *: chapter_tree/avl_tree.md
     - 7.5. &nbsp; 小结: chapter_tree/summary.md
   - 8. &nbsp; &nbsp; 堆:
-    - 8.1. &nbsp; 堆（Heap）: chapter_heap/heap.md
+    - 8.1. &nbsp; 堆: chapter_heap/heap.md
     - 8.2. &nbsp; 建堆操作 *: chapter_heap/build_heap.md
     - 8.3. &nbsp; 小结: chapter_heap/summary.md
   - 9. &nbsp; &nbsp; 图:
-    - 9.1. &nbsp; 图（Graph）: chapter_graph/graph.md
+    - 9.1. &nbsp; 图: chapter_graph/graph.md
     - 9.2. &nbsp; 图基础操作: chapter_graph/graph_operations.md
     - 9.3. &nbsp; 图的遍历: chapter_graph/graph_traversal.md
     - 9.4. &nbsp; 小结: chapter_graph/summary.md
