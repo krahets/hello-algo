@@ -348,15 +348,18 @@
     ```csharp title="hash_map.cs"
     /* 遍历哈希表 */
     // 遍历键值对 Key->Value
-    foreach (var kv in map) {
+    foreach (var kv in map)
+    {
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
     // 单独遍历键 key
-    foreach (int key in map.Keys) {
+    foreach (int key in map.Keys)
+    {
         Console.WriteLine(key);
     }
     // 单独遍历值 value
-    foreach (String val in map.Values) {
+    foreach (String val in map.Values)
+    {
         Console.WriteLine(val);
     }
     ```

@@ -440,7 +440,7 @@ $$
 === "JavaScript"
 
     ```javascript title=""
-    function algorithm(n){
+    function algorithm(n) {
         var a = 1; // +1
         a += 1; // +1
         a *= 2; // +1
@@ -448,7 +448,6 @@ $$
         for(let i = 0; i < n; i++){ // +1（每轮都执行 i ++）
             console.log(0); // +1
         }
-
     }
     ```
 
@@ -463,7 +462,6 @@ $$
         for(let i = 0; i < n; i++){ // +1（每轮都执行 i ++）
             console.log(0); // +1
         }
-
     }
     ```
 
@@ -484,13 +482,15 @@ $$
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n) {
+    void algorithm(int n)
+    {
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
         // 循环 n 次
-        for (int i = 0; i < n; i++) { // +1（每轮都执行 i ++）
-            Console.WriteLine(0);     // +1
+        for (int i = 0; i < n; i++) // +1（每轮都执行 i ++）
+        {
+            Console.WriteLine(0);   // +1
         }
     }
     ```
