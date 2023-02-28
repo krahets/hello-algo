@@ -25,7 +25,7 @@
     
     
       
-        <title>6.1.   哈希表（Hash Map） - Hello 算法</title>
+        <title>6.1.   哈希表 - Hello 算法</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#61-hash-map" class="md-skip">
+        <a href="#61" class="md-skip">
           跳转至
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6.1. &nbsp; 哈希表（Hash Map）
+              6.1. &nbsp; 哈希表
             
           </span>
         </div>
@@ -650,7 +650,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_array_and_linkedlist/array/" class="md-nav__link">
-        4.1. &nbsp; 数组（Array）
+        4.1. &nbsp; 数组
       </a>
     </li>
   
@@ -664,7 +664,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_array_and_linkedlist/linked_list/" class="md-nav__link">
-        4.2. &nbsp; 链表（Linked List）
+        4.2. &nbsp; 链表
       </a>
     </li>
   
@@ -678,7 +678,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_array_and_linkedlist/list/" class="md-nav__link">
-        4.3. &nbsp; 列表（List）
+        4.3. &nbsp; 列表
       </a>
     </li>
   
@@ -753,7 +753,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_stack_and_queue/stack/" class="md-nav__link">
-        5.1. &nbsp; 栈（Stack）
+        5.1. &nbsp; 栈
       </a>
     </li>
   
@@ -767,7 +767,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_stack_and_queue/queue/" class="md-nav__link">
-        5.2. &nbsp; 队列（Queue）
+        5.2. &nbsp; 队列
       </a>
     </li>
   
@@ -781,7 +781,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_stack_and_queue/deque/" class="md-nav__link">
-        5.3. &nbsp; 双向队列（Deque）
+        5.3. &nbsp; 双向队列
       </a>
     </li>
   
@@ -865,12 +865,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          6.1. &nbsp; 哈希表（Hash Map）
+          6.1. &nbsp; 哈希表
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        6.1. &nbsp; 哈希表（Hash Map）
+        6.1. &nbsp; 哈希表
       </a>
       
         
@@ -991,14 +991,14 @@
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-          7. &nbsp; &nbsp; 二叉树
+          7. &nbsp; &nbsp; 树
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
-          7. &nbsp; &nbsp; 二叉树
+          7. &nbsp; &nbsp; 树
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1009,7 +1009,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_tree/binary_tree/" class="md-nav__link">
-        7.1. &nbsp; 二叉树（Binary Tree）
+        7.1. &nbsp; 二叉树
       </a>
     </li>
   
@@ -1124,7 +1124,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_heap/heap/" class="md-nav__link">
-        8.1. &nbsp; 堆（Heap）
+        8.1. &nbsp; 堆
       </a>
     </li>
   
@@ -1213,7 +1213,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_graph/graph/" class="md-nav__link">
-        9.1. &nbsp; 图（Graph）
+        9.1. &nbsp; 图
       </a>
     </li>
   
@@ -1702,7 +1702,7 @@
 
 
 
-<h1 id="61-hash-map">6.1. &nbsp; 哈希表（Hash Map）<a class="headerlink" href="#61-hash-map" title="Permanent link">&para;</a></h1>
+<h1 id="61">6.1. &nbsp; 哈希表<a class="headerlink" href="#61" title="Permanent link">&para;</a></h1>
 <p>哈希表通过建立「键 key」和「值 value」之间的映射，实现高效的元素查找。具体地，输入一个 key ，在哈希表中查询并获取 value ，时间复杂度为 <span class="arithmatex">\(O(1)\)</span> 。</p>
 <p>例如，给定一个包含 <span class="arithmatex">\(n\)</span> 个学生的数据库，每个学生有“姓名 <code>name</code> ”和“学号 <code>id</code> ”两项数据，希望实现一个查询功能：<strong>输入一个学号，返回对应的姓名</strong>，则可以使用哈希表实现。</p>
 <p><img alt="哈希表的抽象表示" src="../hash_map.assets/hash_map.png" /></p>
