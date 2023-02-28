@@ -452,19 +452,122 @@ comments: true
 === "C++"
 
     ```cpp title="linkedlist_deque.cpp"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "Python"
 
     ```python title="linkedlist_deque.py"
+    """ 双向链表结点 """
+    class ListNode:
+        def __init__(self, val):
+            self.val = val
+            self.next = None  # 后继结点引用（指针）
+            self.prev = None  # 前驱结点引用（指针）
 
+    """ 基于双向链表实现的双向队列 """
+    class LinkedListDeque:
+        """ 构造方法 """
+        def __init__(self):
+            self.front, self.rear = None, None  # 头结点 front ，尾结点 rear
+            self.__size = 0  # 双向队列的长度
+
+        """ 获取双向队列的长度 """
+        def size(self):
+            return self.__size
+
+        """ 判断双向队列是否为空 """
+        def is_empty(self):
+            return self.size() == 0
+
+        """ 入队操作 """
+        def push(self, num, is_front):
+            node = ListNode(num)
+            # 若链表为空，则令 front, rear 都指向 node
+            if self.is_empty():
+                self.front = self.rear = node
+            # 队首入队操作
+            elif is_front:
+                # 将 node 添加至链表头部
+                self.front.prev = node
+                node.next = self.front
+                self.front = node  # 更新头结点
+            # 队尾入队操作
+            else:
+                # 将 node 添加至链表尾部
+                self.rear.next = node
+                node.prev = self.rear
+                self.rear = node  # 更新尾结点
+            self.__size += 1  # 更新队列长度
+
+        """ 队首入队 """
+        def push_first(self, num):
+            self.push(num, True)
+
+        """ 队尾入队 """
+        def push_last(self, num):
+            self.push(num, False)
+
+        """ 出队操作 """
+        def poll(self, is_front):
+            # 若队列为空，直接返回 None
+            if self.is_empty():
+                return None
+            # 队首出队操作
+            if is_front:
+                val = self.front.val  # 暂存头结点值
+                # 删除头结点
+                fnext = self.front.next
+                if fnext != None:
+                    fnext.prev = None
+                    self.front.next = None
+                self.front = fnext  # 更新头结点
+            # 队尾出队操作
+            else:
+                val = self.rear.val  # 暂存尾结点值
+                # 删除尾结点
+                rprev = self.rear.prev
+                if rprev != None:
+                    rprev.next = None
+                    self.rear.prev = None
+                self.rear = rprev  # 更新尾结点
+            self.__size -= 1  # 更新队列长度
+            return val
+
+        """ 队首出队 """
+        def poll_first(self):
+            return self.poll(True)
+
+        """ 队尾出队 """
+        def poll_last(self):
+            return self.poll(False)
+
+        """ 访问队首元素 """
+        def peek_first(self):
+            return None if self.is_empty() else self.front.val
+
+        """ 访问队尾元素 """
+        def peek_last(self):
+            return None if self.is_empty() else self.rear.val
+
+        """ 返回数组用于打印 """
+        def to_array(self):
+            node = self.front
+            res = [0] * self.size()
+            for i in range(self.size()):
+                res[i] = node.val
+                node = node.next
+            return res
     ```
 
 === "Go"
 
     ```go title="linkedlist_deque.go"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "JavaScript"
@@ -724,7 +827,9 @@ comments: true
 === "C"
 
     ```c title="linkedlist_deque.c"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "C#"
@@ -872,7 +977,174 @@ comments: true
 === "Zig"
 
     ```zig title="linkedlist_deque.zig"
+    // 双向链表结点
+    fn ListNode(comptime T: type) type {
+        return struct {
+            const Self = @This();
+            
+            val: T = undefined,     // 结点值
+            next: ?*Self = null,    // 后继结点引用（指针）
+            prev: ?*Self = null,    // 前驱结点引用（指针）
 
+            // Initialize a list node with specific value
+            pub fn init(self: *Self, x: i32) void {
+                self.val = x;
+                self.next = null;
+                self.prev = null;
+            }
+        };
+    }
+
+    // 基于双向链表实现的双向队列
+    fn LinkedListDeque(comptime T: type) type {
+        return struct {
+            const Self = @This();
+
+            front: ?*ListNode(T) = null,                    // 头结点 front
+            rear: ?*ListNode(T) = null,                     // 尾结点 rear
+            deqSize: usize = 0,                             // 双向队列的长度
+            mem_arena: ?std.heap.ArenaAllocator = null,
+            mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
+
+            // 构造方法（分配内存+初始化队列）
+            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
+                if (self.mem_arena == null) {
+                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
+                    self.mem_allocator = self.mem_arena.?.allocator();
+                }
+                self.front = null;
+                self.rear = null;
+                self.deqSize = 0;
+            }
+
+            // 析构方法（释放内存）
+            pub fn deinit(self: *Self) void {
+                if (self.mem_arena == null) return;
+                self.mem_arena.?.deinit();
+            }
+
+            // 获取双向队列的长度
+            pub fn size(self: *Self) usize {
+                return self.deqSize;
+            }
+
+            // 判断双向队列是否为空
+            pub fn isEmpty(self: *Self) bool {
+                return self.size() == 0;
+            }
+
+            // 入队操作
+            pub fn push(self: *Self, num: T, isFront: bool) !void {
+                var node = try self.mem_allocator.create(ListNode(T));
+                node.init(num);
+                // 若链表为空，则令 front, rear 都指向 node
+                if (self.isEmpty()) {
+                    self.front = node;
+                    self.rear = node;
+                // 队首入队操作
+                } else if (isFront) {
+                    // 将 node 添加至链表头部
+                    self.front.?.prev = node;
+                    node.next = self.front;
+                    self.front = node;  // 更新头结点
+                // 队尾入队操作
+                } else {
+                    // 将 node 添加至链表尾部
+                    self.rear.?.next = node;
+                    node.prev = self.rear;
+                    self.rear = node;   // 更新尾结点
+                }
+                self.deqSize += 1;      // 更新队列长度
+            } 
+
+            // 队首入队
+            pub fn pushFirst(self: *Self, num: T) !void {
+                try self.push(num, true);
+            } 
+
+            // 队尾入队
+            pub fn pushLast(self: *Self, num: T) !void {
+                try self.push(num, false);
+            } 
+            
+            // 出队操作
+            pub fn poll(self: *Self, isFront: bool) T {
+                if (self.isEmpty()) @panic("双向队列为空");
+                var val: T = undefined;
+                // 队首出队操作
+                if (isFront) {
+                    val = self.front.?.val;     // 暂存头结点值
+                    // 删除头结点
+                    var fNext = self.front.?.next;
+                    if (fNext != null) {
+                        fNext.?.prev = null;
+                        self.front.?.next = null;
+                    }
+                    self.front = fNext;         // 更新头结点
+                // 队尾出队操作
+                } else {
+                    val = self.rear.?.val;      // 暂存尾结点值
+                    // 删除尾结点
+                    var rPrev = self.rear.?.prev;
+                    if (rPrev != null) {
+                        rPrev.?.next = null;
+                        self.rear.?.prev = null;
+                    }
+                    self.rear = rPrev;          // 更新尾结点
+                }
+                self.deqSize -= 1;              // 更新队列长度
+                return val;
+            } 
+
+            // 队首出队
+            pub fn pollFirst(self: *Self) T {
+                return self.poll(true);
+            } 
+
+            // 队尾出队
+            pub fn pollLast(self: *Self) T {
+                return self.poll(false);
+            } 
+
+            // 访问队首元素
+            pub fn peekFirst(self: *Self) T {
+                if (self.isEmpty()) @panic("双向队列为空");
+                return self.front.?.val;
+            }  
+
+            // 访问队尾元素
+            pub fn peekLast(self: *Self) T {
+                if (self.isEmpty()) @panic("双向队列为空");
+                return self.rear.?.val;
+            }
+
+            // 将链表转换为数组
+            pub fn toArray(self: *Self) ![]T {
+                var node = self.front;
+                var res = try self.mem_allocator.alloc(T, self.size());
+                std.mem.set(T, res, @as(T, 0));
+                var i: usize = 0;
+                while (i < res.len) : (i += 1) {
+                    res[i] = node.?.val;
+                    node = node.?.next;
+                }
+                return res;
+            }
+
+            // 打印双向队列
+            pub fn print(self: *Self) !void {
+                var nums = try self.toArray();
+                std.debug.print("[", .{});
+                if (nums.len > 0) {
+                    for (nums) |num, j| {
+                        std.debug.print("{}{s}", .{num, if (j == nums.len - 1) "]" else " <-> " });
+                    }
+                } else {
+                    std.debug.print("]", .{});
+                }
+            }
+        };
+    }
     ```
 
 ### 基于数组的实现
@@ -1008,43 +1280,125 @@ comments: true
 === "C++"
 
     ```cpp title="array_deque.cpp"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "Python"
 
     ```python title="array_deque.py"
+    """ 基于环形数组实现的双向队列 """
+    class ArrayDeque:
+        """  构造方法 """
+        def __init__(self, capacity):
+            self.nums = [0] * capacity
+            self.front = 0
+            self.que_size = 0
 
+        """  获取双向队列的容量  """
+        def capacity(self):
+            return len(self.nums)
+
+        """ 获取双向队列的长度  """
+        def size(self):
+            return self.que_size
+
+        """ 判断双向队列是否为空 """
+        def is_empty(self):
+            return self.que_size == 0
+
+        """ 计算环形数组索引 """
+        def index(self, i):
+            # 通过取余操作实现数组首尾相连
+            # 当 i 越过数组尾部后，回到头部
+            # 当 i 越过数组头部后，回到尾部
+            return (i + self.capacity()) % self.capacity()
+
+        """ 队首入队 """
+        def push_first(self, num):
+            if self.que_size == self.capacity():
+                print("双向队列已满")
+                return
+            # 队首指针向左移动一位
+            # 通过取余操作，实现 front 越过数组头部后回到尾部
+            self.front = self.index(self.front-1)
+            # 将 num 添加至队首
+            self.nums[self.front] = num
+            self.que_size += 1
+
+        """ 队尾入队 """
+        def push_last(self, num):
+            if self.que_size == self.capacity():
+                print("双向队列已满")
+                return
+            # 计算尾指针，指向队尾索引 + 1
+            rear = self.index(self.front + self.que_size)
+            # 将 num 添加至队尾
+            self.nums[rear] = num
+            self.que_size += 1
+
+        """ 队首出队 """
+        def poll_first(self):
+            num = self.peek_first()
+            # 队首指针向后移动一位
+            self.front = self.index(self.front+1)
+            self.que_size -= 1
+            return num
+
+        """ 队尾出队 """
+        def poll_last(self):
+            num = self.peek_last()
+            self.que_size -= 1
+            return num
+
+        """ 访问队首元素 """
+        def peek_first(self):
+            assert not self.is_empty(), "双向队列为空"
+            return self.nums[self.front]
+
+        """ 访问队尾元素 """
+        def peek_last(self):
+            assert not self.is_empty(), "双向队列为空"
+            # 计算尾元素索引
+            last = self.index(self.front + self.que_size - 1)
+            return self.nums[last]
+
+        """ 返回数组用于打印 """
+        def to_array(self):
+            # 仅转换有效长度范围内的列表元素
+            res = []
+            for i in range(self.que_size):
+                res.append(self.nums[self.index(self.front+i)])
+            return res
     ```
 
 === "Go"
 
     ```go title="array_deque.go"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "JavaScript"
 
     ```js title="array_deque.js"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="array_deque.ts"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "C"
 
     ```c title="array_deque.c"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "C#"
 
     ```csharp title="array_deque.cs"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "Swift"
@@ -1162,5 +1516,5 @@ comments: true
 === "Zig"
 
     ```zig title="array_deque.zig"
-
+    [class]{ArrayDeque}-[func]{}
     ```
