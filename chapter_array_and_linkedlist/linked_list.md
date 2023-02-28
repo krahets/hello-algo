@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 4.2. &nbsp; 链表（Linked List）
+# 4.2. &nbsp; 链表
 
 !!! note "引言"
 
