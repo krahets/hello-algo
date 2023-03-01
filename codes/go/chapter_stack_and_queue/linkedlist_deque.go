@@ -8,9 +8,9 @@ import (
 	"container/list"
 )
 
-/* 基于链表实现的双端队列 */
+/* 基于双向链表实现的双向队列 */
 type linkedListDeque struct {
-	// 使用内置包 list 来实现栈
+	// 使用内置包 list
 	data *list.List
 }
 

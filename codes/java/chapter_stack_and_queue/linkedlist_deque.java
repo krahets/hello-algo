@@ -22,7 +22,7 @@ class ListNode {
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {
     private ListNode front, rear; // 头结点 front ，尾结点 rear
-    private int size = 0;         // 双向队列的长度
+    private int queSize = 0;      // 双向队列的长度
 
     public LinkedListDeque() {
         front = rear = null;
@@ -30,7 +30,7 @@ class LinkedListDeque {
 
     /* 获取双向队列的长度 */
     public int size() {
-        return size;
+        return queSize;
     }
 
     /* 判断双向队列是否为空 */
@@ -57,7 +57,7 @@ class LinkedListDeque {
             node.prev = rear;
             rear = node;  // 更新尾结点
         }
-        size++; // 更新队列长度
+        queSize++; // 更新队列长度
     }
 
     /* 队首入队 */
@@ -97,7 +97,7 @@ class LinkedListDeque {
             }
             rear = rPrev;    // 更新尾结点
         }
-        size--; // 更新队列长度
+        queSize--; // 更新队列长度
         return val;
     }
 
