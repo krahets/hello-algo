@@ -341,9 +341,7 @@
 === "Go"
 
     ```go title="linkedlist_deque.go"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
+    [class]{linkedListDeque}-[func]{}
     ```
 
 === "JavaScript"

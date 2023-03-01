@@ -30,15 +30,13 @@
 
 ## Docker 部署
 
-你可以使用 Docker 来部署本项目。
+你可以使用 Docker 来部署本项目。稍等片刻，即可使用浏览器打开 `http://localhost:8000` 访问本项目。
 
 ```shell
 git clone https://github.com/krahets/hello-algo.git
 cd hello-algo
 docker-compose up -d
 ```
-
-稍等片刻，即可使用浏览器打开 `http://localhost:8000` 访问本项目。
 
 使用以下命令即可删除部署。
 
