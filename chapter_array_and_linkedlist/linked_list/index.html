@@ -2006,8 +2006,8 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">linked_list.py</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="sd">&quot;&quot;&quot; 在链表的结点 n0 之后插入结点 P &quot;&quot;&quot;</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">n0</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+<div class="highlight"><span class="filename">linked_list.py</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">n0</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 在链表的结点 n0 之后插入结点 P &quot;&quot;&quot;</span>
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    <span class="n">n1</span> <span class="o">=</span> <span class="n">n0</span><span class="o">.</span><span class="n">next</span>
 <a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="n">P</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">n1</span>
 <a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    <span class="n">n0</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">P</span>
@@ -2107,8 +2107,8 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">linked_list.py</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="sd">&quot;&quot;&quot; 删除链表的结点 n0 之后的首个结点 &quot;&quot;&quot;</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">n0</span><span class="p">):</span>
+<div class="highlight"><span class="filename">linked_list.py</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">n0</span><span class="p">):</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 删除链表的结点 n0 之后的首个结点 &quot;&quot;&quot;</span>
 <a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">n0</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
 <a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>        <span class="k">return</span>
 <a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>    <span class="c1"># n0 -&gt; P -&gt; n1</span>
@@ -2228,8 +2228,8 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">linked_list.py</span><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="sd">&quot;&quot;&quot; 访问链表中索引为 index 的结点 &quot;&quot;&quot;</span>
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="k">def</span> <span class="nf">access</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<div class="highlight"><span class="filename">linked_list.py</span><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">def</span> <span class="nf">access</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 访问链表中索引为 index 的结点 &quot;&quot;&quot;</span>
 <a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
 <a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span><span class="p">:</span>
 <a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>            <span class="k">return</span> <span class="kc">None</span>
@@ -2357,8 +2357,8 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">linked_list.py</span><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="sd">&quot;&quot;&quot; 在链表中查找值为 target 的首个结点 &quot;&quot;&quot;</span>
-<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+<div class="highlight"><span class="filename">linked_list.py</span><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 在链表中查找值为 target 的首个结点 &quot;&quot;&quot;</span>
 <a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>    <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
 <a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>    <span class="k">while</span> <span class="n">head</span><span class="p">:</span>
 <a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>        <span class="k">if</span> <span class="n">head</span><span class="o">.</span><span class="n">val</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
