@@ -4,7 +4,7 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-const { ListNode } = require("../include/ListNode");
+const { ListNode } = require("../modules/ListNode");
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {

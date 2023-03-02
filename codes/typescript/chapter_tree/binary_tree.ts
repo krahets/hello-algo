@@ -4,8 +4,8 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-import { TreeNode } from '../module/TreeNode';
-import { printTree } from '../module/PrintUtil';
+import { TreeNode } from '../modules/TreeNode';
+import { printTree } from '../modules/PrintUtil';
 
 /* 初始化二叉树 */
 // 初始化结点

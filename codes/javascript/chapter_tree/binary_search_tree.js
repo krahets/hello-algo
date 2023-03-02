@@ -1,14 +1,14 @@
 /**
- * File: binary_tree.js
+ * File: binary_search_tree.js
  * Created Time: 2022-12-04
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-const Tree = require("../include/TreeNode");
-const { printTree } = require("../include/PrintUtil");
+const { TreeNode } = require("../modules/TreeNode");
+const { printTree } = require("../modules/PrintUtil");
 
 /* 二叉搜索树 */
-var root;
+let root;
 
 function BinarySearchTree(nums) {
     nums.sort((a, b) => { return a - b }); // 排序数组
@@ -25,7 +25,7 @@ function buildTree(nums, i, j) {
     if (i > j) return null;
     // 将数组中间结点作为根结点
     let mid = Math.floor((i + j) / 2);
-    let root = new Tree.TreeNode(nums[mid]);
+    let root = new TreeNode(nums[mid]);
     // 递归建立左子树和右子树
     root.left = buildTree(nums, i, mid - 1);
     root.right = buildTree(nums, mid + 1, j);
@@ -64,7 +64,7 @@ function insert(num) {
         else cur = cur.left;
     }
     // 插入结点 val
-    let node = new Tree.TreeNode(num);
+    let node = new TreeNode(num);
     if (pre.val < num) pre.right = node;
     else pre.left = node;
     return node;
@@ -120,7 +120,7 @@ function getInOrderNext(root) {
 
 /* Driver Code */
 /* 初始化二叉搜索树 */
-var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 BinarySearchTree(nums);
 console.log("\n初始化的二叉树为\n");
 printTree(getRoot());

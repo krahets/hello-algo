@@ -1,5 +1,5 @@
 /**
- * File: quick_sort.js
+ * File: merge_sort.js
  * Created Time: 2022-12-01
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
@@ -44,6 +44,6 @@ function mergeSort(nums, left, right) {
 }
 
 /* Driver Code */
-const nums = [ 7, 3, 2, 6, 0, 1, 5, 4 ]
-mergeSort(nums, 0, nums.length - 1)
-console.log('归并排序完成后 nums =', nums)
+const nums = [7, 3, 2, 6, 0, 1, 5, 4];
+mergeSort(nums, 0, nums.length - 1);
+console.log('归并排序完成后 nums =', nums);

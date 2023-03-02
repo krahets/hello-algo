@@ -4,24 +4,21 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-import { printLinkedList } from "../module/PrintUtil";
-import { ListNode, arrToLinkedList } from "../module/ListNode";
-
+import { ListNode, arrToLinkedList } from '../modules/ListNode';
 
 /* 哈希查找（数组） */
 function hashingSearchArray(map: Map<number, number>, target: number): number {
     // 哈希表的 key: 目标元素，value: 索引
     // 若哈希表中无此 key ，返回 -1
-    return map.has(target) ? map.get(target) as number : -1;
+    return map.has(target) ? (map.get(target) as number) : -1;
 }
 
 /* 哈希查找（链表） */
 function hashingSearchLinkedList(map: Map<number, ListNode>, target: number): ListNode | null {
     // 哈希表的 key: 目标结点值，value: 结点对象
     // 若哈希表中无此 key ，返回 null
-    return map.has(target) ? map.get(target) as ListNode : null;
+    return map.has(target) ? (map.get(target) as ListNode) : null;
 }
-
 
 /* Driver Code */
 const target = 3;
@@ -31,20 +28,20 @@ const nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
 // 初始化哈希表
 const map = new Map();
 for (let i = 0; i < nums.length; i++) {
-  map.set(nums[i], i);  // key: 元素，value: 索引
+    map.set(nums[i], i); // key: 元素，value: 索引
 }
 const index = hashingSearchArray(map, target);
-console.log("目标元素 3 的索引 = " + index);
+console.log('目标元素 3 的索引 = ' + index);
 
 /* 哈希查找（链表） */
-let head = arrToLinkedList(nums)
+let head = arrToLinkedList(nums);
 // 初始化哈希表
 const map1 = new Map();
 while (head != null) {
-  map1.set(head.val, head);  // key: 结点值，value: 结点
-  head = head.next;
+    map1.set(head.val, head); // key: 结点值，value: 结点
+    head = head.next;
 }
 const node = hashingSearchLinkedList(map1, target);
-console.log("目标结点值 3 的对应结点对象为", node);
+console.log('目标结点值 3 的对应结点对象为', node);
 
 export {};

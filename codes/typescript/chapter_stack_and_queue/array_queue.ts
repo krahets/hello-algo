@@ -71,6 +71,7 @@ class ArrayQueue {
     }
 }
 
+/* Driver Code */
 /* 初始化队列 */
 const capacity = 10;
 const queue = new ArrayQueue(capacity);

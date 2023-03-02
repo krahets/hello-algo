@@ -49,7 +49,6 @@ class ArrayStack {
 
 
 /* Driver Code */
-
 /* 初始化栈 */
 const stack = new ArrayStack();
 

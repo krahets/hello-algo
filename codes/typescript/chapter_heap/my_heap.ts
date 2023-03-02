@@ -3,8 +3,8 @@
  * Created Time: 2023-02-07
  * Author: Justin (xiefahit@gmail.com)
  */
- 
-import { printHeap } from "../module/PrintUtil";
+
+import { printHeap } from '../modules/PrintUtil';
 
 /* 最大堆类 */
 class MaxHeap {
@@ -83,7 +83,7 @@ class MaxHeap {
     /* 元素出堆 */
     public poll(): number {
         // 判空处理
-        if (this.isEmpty()) throw new RangeError("Heap is empty.");
+        if (this.isEmpty()) throw new RangeError('Heap is empty.');
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
         this.swap(0, this.size() - 1);
         // 删除结点
@@ -98,7 +98,8 @@ class MaxHeap {
     private siftDown(i: number): void {
         while (true) {
             // 判断结点 i, l, r 中值最大的结点，记为 ma
-            const l = this.left(i), r = this.right(i);
+            const l = this.left(i),
+                r = this.right(i);
             let ma = i;
             if (l < this.size() && this.maxHeap[l] > this.maxHeap[ma]) ma = l;
             if (r < this.size() && this.maxHeap[r] > this.maxHeap[ma]) ma = r;
@@ -117,7 +118,6 @@ class MaxHeap {
     }
 }
 
-
 function testPush(maxHeap: MaxHeap, val: number): void {
     maxHeap.push(val); // 元素入堆
     console.log(`\n添加元素 ${val} 后`);
@@ -133,7 +133,7 @@ function testPoll(maxHeap: MaxHeap): void {
 /* Driver Code */
 /* 初始化大顶堆 */
 const maxHeap = new MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-console.log("\n输入列表并建堆后");
+console.log('\n输入列表并建堆后');
 maxHeap.print();
 
 /* 获取堆顶元素 */

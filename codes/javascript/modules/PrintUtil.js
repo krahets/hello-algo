@@ -98,5 +98,5 @@ function printHeap(arr) {
 module.exports = {
     printLinkedList,
     printTree,
-    printHeap,
+    printHeap
 };

@@ -4,7 +4,7 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-const { ListNode, arrToLinkedList } = require("../include/ListNode");
+const { arrToLinkedList } = require("../modules/ListNode");
 
 /* 哈希查找（数组） */
 function hashingSearchArray(map, target) {

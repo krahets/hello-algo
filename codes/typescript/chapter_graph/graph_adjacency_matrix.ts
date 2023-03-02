@@ -92,7 +92,7 @@ class GraphAdjMat {
     }
 }
 
-
+/* Driver Code */
 /* 初始化无向图 */
 // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
 const vertices: number[] = [1, 3, 2, 5, 4];

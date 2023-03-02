@@ -49,4 +49,7 @@ function arrToTree(arr: (number | null)[]): TreeNode | null {
     return root;
 }
 
-export { TreeNode, arrToTree };
+export {
+    TreeNode,
+    arrToTree
+};

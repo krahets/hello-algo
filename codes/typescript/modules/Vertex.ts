@@ -7,14 +7,14 @@
 
 /* 顶点类 */
 class Vertex {
-    val;
-    constructor(val) {
+    val: number;
+    constructor(val: number) {
         this.val = val;
     }
 
     /* 输入值列表 vals ，返回顶点列表 vets */
-    static valsToVets(vals) {
-        const vets = [];
+    public static valsToVets(vals: number[]): Vertex[] {
+        const vets: Vertex[] = [];
         for (let i = 0; i < vals.length; i++) {
             vets[i] = new Vertex(vals[i]);
         }
@@ -22,8 +22,8 @@ class Vertex {
     }
 
     /* 输入顶点列表 vets ，返回值列表 vals */
-    static vetsToVals(vets) {
-        const vals = [];
+    public static vetsToVals(vets: Vertex[]): number[] {
+        const vals: number[] = [];
         for (const vet of vets) {
             vals.push(vet.val);
         }
@@ -31,6 +31,6 @@ class Vertex {
     }
 }
 
-module.exports = {
+export {
     Vertex
 };

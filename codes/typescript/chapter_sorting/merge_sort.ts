@@ -1,5 +1,5 @@
 /**
- * File: quick_sort.ts
+ * File: merge_sort.ts
  * Created Time: 2022-12-12
  * Author: Justin (xiefahit@gmail.com)
  */

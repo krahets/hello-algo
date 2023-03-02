@@ -10,7 +10,7 @@ function binarySearch(nums: number[], target: number): number {
     let i = 0, j = nums.length - 1;
     // 循环，当搜索区间为空时跳出（当 i > j 时为空）
     while (i <= j) {
-        const m = Math.floor(i + (j - i) / 2); // 计算中点索引 m
+        const m = Math.floor((i + j) / 2); // 计算中点索引 m
         if (nums[m] < target) {        // 此情况说明 target 在区间 [m+1, j] 中
             i = m + 1;
         } else if (nums[m] > target) { // 此情况说明 target 在区间 [i, m-1] 中
@@ -28,7 +28,7 @@ function binarySearch1(nums: number[], target: number): number {
     let i = 0, j = nums.length;
     // 循环，当搜索区间为空时跳出（当 i = j 时为空）
     while (i < j) {
-        const m = Math.floor(i + (j - i) / 2); // 计算中点索引 m
+        const m = Math.floor((i + j) / 2); // 计算中点索引 m
         if (nums[m] < target) {        // 此情况说明 target 在区间 [m+1, j) 中
             i = m + 1;
         } else if (nums[m] > target) { // 此情况说明 target 在区间 [i, m) 中

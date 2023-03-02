@@ -4,9 +4,9 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-import { type TreeNode } from '../module/TreeNode';
-import { arrToTree } from '../module/TreeNode';
-import { printTree } from '../module/PrintUtil';
+import { type TreeNode } from '../modules/TreeNode';
+import { arrToTree } from '../modules/TreeNode';
+import { printTree } from '../modules/PrintUtil';
 
 /* 层序遍历 */
 function levelOrder(root: TreeNode | null): number[] {
@@ -30,7 +30,7 @@ function levelOrder(root: TreeNode | null): number[] {
 /* Driver Code */
 /* 初始化二叉树 */
 // 这里借助了一个从数组直接生成二叉树的函数
-var root = arrToTree([1, 2, 3, 4, 5, 6, 7]);
+const root = arrToTree([1, 2, 3, 4, 5, 6, 7]);
 console.log('\n初始化二叉树\n');
 printTree(root);
 

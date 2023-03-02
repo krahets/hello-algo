@@ -4,7 +4,7 @@
  * Author: JoseHung (szhong@link.cuhk.edu.hk)
  */
 
-const { ListNode, arrToLinkedList } = require("../include/ListNode");
+const { ListNode, arrToLinkedList } = require("../modules/ListNode");
 
 /* 线性查找（数组） */
 function linearSearchArray(nums, target) {

@@ -4,8 +4,8 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-import { ListNode } from '../module/ListNode';
-import { printLinkedList } from '../module/PrintUtil';
+import { ListNode } from '../modules/ListNode';
+import { printLinkedList } from '../modules/PrintUtil';
 
 /* 在链表的结点 n0 之后插入结点 P */
 function insert(n0: ListNode, P: ListNode): void {

@@ -4,7 +4,7 @@
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
-const { printHeap } = require("../include/PrintUtil");
+const { printHeap } = require("../modules/PrintUtil");
 
 /* 最大堆类 */
 class MaxHeap {

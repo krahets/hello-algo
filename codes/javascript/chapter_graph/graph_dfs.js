@@ -4,8 +4,7 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-
-const { Vertex } = require('../include/Vertex');
+const { Vertex } = require('../modules/Vertex');
 const { GraphAdjList } = require('./graph_adjacency_list');
 
 /* 深度优先遍历 DFS */
@@ -33,7 +32,6 @@ function graphDFS(graph, startVet) {
     dfs(graph, visited, res, startVet);
     return res;
 }
-
 
 /* Driver Code */
 /* 初始化无向图 */

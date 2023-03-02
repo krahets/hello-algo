@@ -4,9 +4,9 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-const { ListNode } = require('../include/ListNode');
-const { TreeNode } = require('../include/TreeNode');
-const { printTree } = require('../include/PrintUtil');
+const { ListNode } = require('../modules/ListNode');
+const { TreeNode } = require('../modules/TreeNode');
+const { printTree } = require('../modules/PrintUtil');
 
 /* 函数 */
 function constFunc() {
