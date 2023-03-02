@@ -325,7 +325,7 @@
 === "C++"
 
     ```cpp title="linkedlist_deque.cpp"
-    [class]{ListNode}-[func]{}
+    [class]{DoublyListNode}-[func]{}
 
     [class]{LinkedListDeque}-[func]{}
     ```
