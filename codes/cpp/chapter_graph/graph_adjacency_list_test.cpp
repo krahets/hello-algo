@@ -40,8 +40,10 @@ int main() {
     cout << "\n删除顶点 3 后，图为" << endl;
     graph.print();
 
-    /* 释放内存 */
+    // 释放内存
     for (Vertex *vet : v) {
         delete vet;
     }
+
+    return 0;
 }

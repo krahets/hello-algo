@@ -50,5 +50,10 @@ int main() {
     cout << "\n广度优先遍历（BFS）顶点序列为" << endl;
     PrintUtil::printVector(vetsToVals(res));
 
+    // 释放内存
+    for (Vertex *vet : v) {
+        delete vet;
+    }
+
     return 0;
 }

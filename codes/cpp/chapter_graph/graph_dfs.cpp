@@ -46,5 +46,10 @@ int main() {
     cout << "\n深度优先遍历（DFS）顶点序列为" << endl;
     PrintUtil::printVector(vetsToVals(res));
 
+    // 释放内存
+    for (Vertex *vet : v) {
+        delete vet;
+    }
+
     return 0;
 }
