@@ -4,8 +4,8 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-import { TreeNode } from '../module/TreeNode';
-import { printTree } from '../module/PrintUtil';
+import { TreeNode } from '../modules/TreeNode';
+import { printTree } from '../modules/PrintUtil';
 
 /* 二叉搜索树 */
 let root: TreeNode | null;

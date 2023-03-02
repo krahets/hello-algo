@@ -4,9 +4,9 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-import { type TreeNode } from '../module/TreeNode';
-import { arrToTree } from '../module/TreeNode';
-import { printTree } from '../module/PrintUtil';
+import { type TreeNode } from '../modules/TreeNode';
+import { arrToTree } from '../modules/TreeNode';
+import { printTree } from '../modules/PrintUtil';
 
 /* 层序遍历 */
 function levelOrder(root: TreeNode | null): number[] {

@@ -127,6 +127,7 @@ class LinkedListDeque {
     }
 }
 
+/* Driver Code */
 /* 初始化双向队列 */
 const linkedListDeque = new LinkedListDeque();
 linkedListDeque.pushLast(3);

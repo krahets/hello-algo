@@ -4,7 +4,7 @@
  * Author: Daniel (better.sunjian@gmail.com)
  */
 
-import { ListNode, arrToLinkedList } from '../module/ListNode';
+import { ListNode, arrToLinkedList } from '../modules/ListNode';
 
 /* 线性查找（数组）*/
 function linearSearchArray(nums: number[], target: number): number {

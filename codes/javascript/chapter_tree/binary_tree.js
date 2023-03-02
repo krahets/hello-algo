@@ -4,8 +4,8 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-const { TreeNode } = require("../include/TreeNode");
-const { printTree } = require("../include/PrintUtil");
+const { TreeNode } = require("../modules/TreeNode");
+const { printTree } = require("../modules/PrintUtil");
 
 /* 初始化二叉树 */
 // 初始化结点

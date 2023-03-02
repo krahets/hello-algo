@@ -1,11 +1,11 @@
 /**
- * File: binary_tree.js
+ * File: binary_tree_bfs.js
  * Created Time: 2022-12-04
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-const { arrToTree } = require("../include/TreeNode");
-const { printTree } = require("../include/PrintUtil");
+const { arrToTree } = require("../modules/TreeNode");
+const { printTree } = require("../modules/PrintUtil");
 
 /* 层序遍历 */
 function levelOrder(root) {

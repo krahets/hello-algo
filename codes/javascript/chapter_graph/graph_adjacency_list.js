@@ -4,7 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-const { Vertex } = require('../include/Vertex')
+const { Vertex } = require('../modules/Vertex')
 
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {

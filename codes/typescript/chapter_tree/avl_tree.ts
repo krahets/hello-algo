@@ -4,8 +4,8 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-import { TreeNode } from "../module/TreeNode";
-import { printTree } from "../module/PrintUtil";
+import { TreeNode } from '../modules/TreeNode';
+import { printTree } from '../modules/PrintUtil';
 
 /* AVL 树*/
 class AVLTree {
@@ -139,7 +139,7 @@ class AVLTree {
                     return null;
                 } else {
                     // 子结点数量 = 1 ，直接删除 node
-                     node = child;
+                    node = child;
                 }
             } else {
                 // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
@@ -188,13 +188,13 @@ class AVLTree {
 
 function testInsert(tree: AVLTree, val: number): void {
     tree.insert(val);
-    console.log("\n插入结点 " + val + " 后，AVL 树为");
+    console.log('\n插入结点 ' + val + ' 后，AVL 树为');
     printTree(tree.root);
 }
 
 function testRemove(tree: AVLTree, val: number): void {
     tree.remove(val);
-    console.log("\n删除结点 " + val + " 后，AVL 树为");
+    console.log('\n删除结点 ' + val + ' 后，AVL 树为');
     printTree(tree.root);
 }
 
@@ -225,4 +225,4 @@ testRemove(avlTree, 4); // 删除度为 2 的结点
 
 /* 查询结点 */
 const node = avlTree.search(7);
-console.log("\n查找到的结点对象为", node, "，结点值 = " + node.val);
+console.log('\n查找到的结点对象为', node, '，结点值 = ' + node.val);

@@ -1,11 +1,11 @@
 /**
- * File: binary_tree.js
+ * File: binary_search_tree.js
  * Created Time: 2022-12-04
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-const { TreeNode } = require("../include/TreeNode");
-const { printTree } = require("../include/PrintUtil");
+const { TreeNode } = require("../modules/TreeNode");
+const { printTree } = require("../modules/PrintUtil");
 
 /* 二叉搜索树 */
 let root;

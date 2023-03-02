@@ -4,10 +4,8 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-
 const { GraphAdjList } = require('./graph_adjacency_list');
-const { Vertex } = require('../include/Vertex');
-
+const { Vertex } = require('../modules/Vertex');
 
 /* 广度优先遍历 BFS */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
@@ -35,7 +33,6 @@ function graphBFS(graph, startVet) {
     // 返回顶点遍历序列
     return res;
 }
-
 
 /* Driver Code */
 /* 初始化无向图 */

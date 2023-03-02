@@ -4,9 +4,9 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-import { type TreeNode } from '../module/TreeNode';
-import { arrToTree } from '../module/TreeNode';
-import { printTree } from '../module/PrintUtil';
+import { type TreeNode } from '../modules/TreeNode';
+import { arrToTree } from '../modules/TreeNode';
+import { printTree } from '../modules/PrintUtil';
 
 // 初始化列表，用于存储遍历序列
 const list: number[] = [];

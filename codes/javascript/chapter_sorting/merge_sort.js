@@ -1,5 +1,5 @@
 /**
- * File: quick_sort.js
+ * File: merge_sort.js
  * Created Time: 2022-12-01
  * Author: IsChristina (christinaxia77@foxmail.com)
  */

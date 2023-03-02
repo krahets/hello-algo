@@ -4,7 +4,7 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-const { ListNode } = require("../include/ListNode");
+const { ListNode } = require("../modules/ListNode");
 
 /* 基于链表实现的栈 */
 class LinkedListStack {
@@ -60,7 +60,7 @@ class LinkedListStack {
     }
 }
 
-
+/* Driver Code */
 /* 初始化栈 */
 const stack = new LinkedListStack();
 

@@ -4,8 +4,8 @@
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
-const { TreeNode } = require("../include/TreeNode");
-const { printTree } = require("../include/PrintUtil");
+const { TreeNode } = require("../modules/TreeNode");
+const { printTree } = require("../modules/PrintUtil");
 
 /* AVL 树*/
 class AVLTree {

@@ -4,6 +4,7 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
+/* Driver Code */
 /* 初始化双向队列 */
 // JavaScript 没有内置的双端队列，只能把 Array 当作双端队列来使用
 const deque = [];

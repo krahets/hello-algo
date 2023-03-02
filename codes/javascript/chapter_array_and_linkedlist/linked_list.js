@@ -4,8 +4,8 @@
  * Author: IsChristina (christinaxia77@foxmail.com), Justin (xiefahit@gmail.com)
  */
 
-const { printLinkedList } = require("../include/PrintUtil");
-const { ListNode } = require("../include/ListNode");
+const { printLinkedList } = require("../modules/PrintUtil");
+const { ListNode } = require("../modules/ListNode");
 
 /* 在链表的结点 n0 之后插入结点 P */
 function insert(n0, P) {
