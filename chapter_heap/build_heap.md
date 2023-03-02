@@ -47,8 +47,8 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-    """ 构造方法 """
     def __init__(self, nums: List[int]):
+        """ 构造方法 """
         # 将列表元素原封不动添加进堆
         self.max_heap = nums
         # 堆化除叶结点以外的其他所有结点

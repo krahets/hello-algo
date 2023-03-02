@@ -429,23 +429,24 @@ comments: true
 === "Python"
 
     ```python title="linkedlist_queue.py"
-    """ 基于链表实现的队列 """
     class LinkedListQueue:
+        """ 基于链表实现的队列 """
         def __init__(self):
+            """ 构造方法 """
             self.__front = None  # 头结点 front
             self.__rear = None   # 尾结点 rear
             self.__size = 0
 
-        """ 获取队列的长度 """
         def size(self):
+            """ 获取队列的长度 """
             return self.__size
 
-        """ 判断队列是否为空 """
         def is_empty(self):
+            """ 判断队列是否为空 """
             return not self.__front
 
-        """ 入队 """
         def push(self, num):
+            """ 入队 """
             # 尾结点后添加 num
             node = ListNode(num)
             # 如果队列为空，则令头、尾结点都指向该结点
@@ -458,23 +459,23 @@ comments: true
                 self.__rear = node
             self.__size += 1
 
-        """ 出队 """
         def poll(self):
+            """ 出队 """
             num = self.peek()
             # 删除头结点
             self.__front = self.__front.next
             self.__size -= 1
             return num
 
-        """ 访问队首元素 """
         def peek(self):
+            """ 访问队首元素 """
             if self.size() == 0:
                 print("队列为空")
                 return False
             return self.__front.val
 
-        """ 转化为列表用于打印 """
         def to_list(self):
+            """ 转化为列表用于打印 """
             queue = []
             temp = self.__front
             while temp:
@@ -614,7 +615,7 @@ comments: true
     /* 基于链表实现的队列 */
     class LinkedListQueue {
         private front: ListNode | null; // 头结点 front
-        private rear: ListNode | null;  // 尾结点 rear
+        private rear: ListNode | null; // 尾结点 rear
         private queSize: number = 0;
 
         constructor() {
@@ -651,8 +652,7 @@ comments: true
         /* 出队 */
         poll(): number {
             const num = this.peek();
-            if (!this.front)
-                throw new Error("队列为空")
+            if (!this.front) throw new Error('队列为空');
             // 删除头结点
             this.front = this.front.next;
             this.queSize--;
@@ -661,8 +661,7 @@ comments: true
 
         /* 访问队首元素 */
         peek(): number {
-            if (this.size === 0)
-                throw new Error("队列为空");
+            if (this.size === 0) throw new Error('队列为空');
             return this.front!.val;
         }
 
@@ -1105,27 +1104,28 @@ comments: true
 === "Python"
 
     ```python title="array_queue.py"
-    """ 基于环形数组实现的队列 """
     class ArrayQueue:
+        """ 基于环形数组实现的队列 """
         def __init__(self, size):
+            """ 构造方法 """
             self.__nums = [0] * size  # 用于存储队列元素的数组
             self.__front = 0          # 队首指针，指向队首元素
             self.__size = 0           # 队列长度
 
-        """ 获取队列的容量 """
         def capacity(self):
+            """ 获取队列的容量 """
             return len(self.__nums)
 
-        """ 获取队列的长度 """
         def size(self):
+            """ 获取队列的长度 """
             return self.__size
 
-        """ 判断队列是否为空 """
         def is_empty(self):
+            """ 判断队列是否为空 """
             return self.__size == 0
 
-        """ 入队 """
         def push(self, num):
+            """ 入队 """
             assert self.__size < self.capacity(), "队列已满"
             # 计算尾指针，指向队尾索引 + 1
             # 通过取余操作，实现 rear 越过数组尾部后回到头部
@@ -1134,21 +1134,21 @@ comments: true
             self.__nums[rear] = num
             self.__size += 1
 
-        """ 出队 """
         def poll(self):
+            """ 出队 """
             num = self.peek()
             # 队首指针向后移动一位，若越过尾部则返回到数组头部
             self.__front = (self.__front + 1) % self.capacity()
             self.__size -= 1
             return num
 
-        """ 访问队首元素 """
         def peek(self):
+            """ 访问队首元素 """
             assert not self.is_empty(), "队列为空"
             return self.__nums[self.__front]
 
-        """ 返回列表用于打印 """
         def to_list(self):
+            """ 返回列表用于打印 """
             res = [0] * self.size()
             j = self.__front
             for i in range(self.size()):

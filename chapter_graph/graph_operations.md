@@ -127,8 +127,8 @@ comments: true
     ```cpp title="graph_adjacency_matrix.cpp"
     /* 基于邻接矩阵实现的无向图类 */
     class GraphAdjMat {
-        vector<int> vertices;        // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-        vector<vector<int>> adjMat;  // 邻接矩阵，行列索引对应“顶点索引”
+        vector<int> vertices;       // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        vector<vector<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
     public:
         /* 构造方法 */
@@ -213,15 +213,15 @@ comments: true
 === "Python"
 
     ```python title="graph_adjacency_matrix.py"
-    """ 基于邻接矩阵实现的无向图类 """
     class GraphAdjMat:
+        """ 基于邻接矩阵实现的无向图类 """
         # 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
         vertices = []
         # 邻接矩阵，行列索引对应“顶点索引”
         adj_mat = []
 
-        """ 构造方法 """
         def __init__(self, vertices, edges):
+            """ 构造方法 """
             self.vertices = []
             self.adj_mat = []
             # 添加顶点
@@ -232,12 +232,12 @@ comments: true
             for e in edges:
                 self.add_edge(e[0], e[1])
 
-        """ 获取顶点数量 """
         def size(self):
+            """ 获取顶点数量 """
             return len(self.vertices)
 
-        """ 添加顶点 """
         def add_vertex(self, val):
+            """ 添加顶点 """
             n = self.size()
             # 向顶点列表中添加新顶点的值
             self.vertices.append(val)
@@ -248,9 +248,8 @@ comments: true
             for row in self.adj_mat:
                 row.append(0)
 
-
-        """ 删除顶点 """
         def remove_vertex(self, index):
+            """ 删除顶点 """
             if index >= self.size():
                 raise IndexError()
             # 在顶点列表中移除索引 index 的顶点
@@ -261,9 +260,9 @@ comments: true
             for row in self.adj_mat:
                 row.pop(index)
 
-        """ 添加边 """
-        # 参数 i, j 对应 vertices 元素索引
         def add_edge(self, i, j):
+            """ 添加边 """
+            # 参数 i, j 对应 vertices 元素索引
             # 索引越界与相等处理
             if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
                 raise IndexError()
@@ -271,17 +270,17 @@ comments: true
             self.adj_mat[i][j] = 1
             self.adj_mat[j][i] = 1
 
-        """ 删除边 """
-        # 参数 i, j 对应 vertices 元素索引
         def remove_edge(self, i, j):
+            """ 删除边 """
+            # 参数 i, j 对应 vertices 元素索引
             # 索引越界与相等处理
             if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
                 raise IndexError()
             self.adj_mat[i][j] = 0
             self.adj_mat[j][i] = 0
 
-        """ 打印邻接矩阵 """
         def print(self):
+            """ 打印邻接矩阵 """
             print("顶点列表 =", self.vertices)
             print("邻接矩阵 =")
             print_matrix(self.adj_mat)
@@ -964,13 +963,13 @@ comments: true
 === "Python"
 
     ```python title="graph_adjacency_list.py"
-    """ 基于邻接表实现的无向图类 """
     class GraphAdjList:
+        """ 基于邻接表实现的无向图类 """
         # 邻接表，key: 顶点，value：该顶点的所有邻接顶点
         adj_list = {}
 
-        """ 构造方法 """
         def __init__(self, edges: List[List[Vertex]]) -> None:
+            """ 构造方法 """
             self.adj_list = {}
             # 添加所有顶点和边
             for edge in edges:
@@ -978,35 +977,35 @@ comments: true
                 self.add_vertex(edge[1])
                 self.add_edge(edge[0], edge[1])
 
-        """ 获取顶点数量 """
         def size(self) -> int:
+            """ 获取顶点数量 """
             return len(self.adj_list)
 
-        """ 添加边 """
         def add_edge(self, vet1: Vertex, vet2: Vertex) -> None:
+            """ 添加边 """
             if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
                 raise ValueError
             # 添加边 vet1 - vet2
             self.adj_list[vet1].append(vet2)
             self.adj_list[vet2].append(vet1)
 
-        """ 删除边 """
         def remove_edge(self, vet1: Vertex, vet2: Vertex) -> None:
+            """ 删除边 """
             if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
                 raise ValueError
             # 删除边 vet1 - vet2
             self.adj_list[vet1].remove(vet2)
             self.adj_list[vet2].remove(vet1)
 
-        """ 添加顶点 """
         def add_vertex(self, vet: Vertex) -> None:
+            """ 添加顶点 """
             if vet in self.adj_list:
                 return
             # 在邻接表中添加一个新链表
             self.adj_list[vet] = []
 
-        """ 删除顶点 """
         def remove_vertex(self, vet: Vertex) -> None:
+            """ 删除顶点 """
             if vet not in self.adj_list:
                 raise ValueError
             # 在邻接表中删除顶点 vet 对应的链表
@@ -1016,8 +1015,8 @@ comments: true
                 if vet in self.adj_list[vertex]:
                     self.adj_list[vertex].remove(vet)
 
-        """ 打印邻接表 """
         def print(self) -> None:
+            """ 打印邻接表 """
             print("邻接表 =")
             for vertex in self.adj_list:
                 tmp = [v.val for v in self.adj_list[vertex]]
@@ -1223,7 +1222,7 @@ comments: true
         /* 添加边 */
         addEdge(vet1: Vertex, vet2: Vertex): void {
             if (!this.adjList.has(vet1) || !this.adjList.has(vet2) || vet1 === vet2) {
-                throw new Error("Illegal Argument Exception");
+                throw new Error('Illegal Argument Exception');
             }
             // 添加边 vet1 - vet2
             this.adjList.get(vet1).push(vet2);
@@ -1233,7 +1232,7 @@ comments: true
         /* 删除边 */
         removeEdge(vet1: Vertex, vet2: Vertex): void {
             if (!this.adjList.has(vet1) || !this.adjList.has(vet2) || vet1 === vet2) {
-                throw new Error("Illegal Argument Exception");
+                throw new Error('Illegal Argument Exception');
             }
             // 删除边 vet1 - vet2
             this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
@@ -1250,7 +1249,7 @@ comments: true
         /* 删除顶点 */
         removeVertex(vet: Vertex): void {
             if (!this.adjList.has(vet)) {
-                throw new Error("Illegal Argument Exception");
+                throw new Error('Illegal Argument Exception');
             }
             // 在邻接表中删除顶点 vet 对应的链表
             this.adjList.delete(vet);
@@ -1265,13 +1264,13 @@ comments: true
 
         /* 打印邻接表 */
         print(): void {
-            console.log("邻接表 =");
+            console.log('邻接表 =');
             for (const [key, value] of this.adjList.entries()) {
                 const tmp = [];
                 for (const vertex of value) {
                     tmp.push(vertex.val);
                 }
-                console.log(key.val + ": " + tmp.join());
+                console.log(key.val + ': ' + tmp.join());
             }
         }
     }

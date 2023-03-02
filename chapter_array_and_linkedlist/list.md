@@ -933,40 +933,45 @@ comments: true
 === "Python"
 
     ```python title="my_list.py"
-    """ 列表类简易实现 """
     class MyList:
-        """ 构造方法 """
+        """ 列表类简易实现 """
         def __init__(self):
+            """ 构造方法 """
             self.__capacity = 10                 # 列表容量
             self.__nums = [0] * self.__capacity  # 数组（存储列表元素）
             self.__size = 0                      # 列表长度（即当前元素数量）
             self.__extend_ratio = 2              # 每次列表扩容的倍数
 
-        """ 获取列表长度（即当前元素数量） """
         def size(self):
+            """ 获取列表长度（即当前元素数量） """
             return self.__size
         
-        """ 获取列表容量 """
         def capacity(self):
+            """ 获取列表容量 """
             return self.__capacity
         
-        """ 访问元素 """
         def get(self, index):
+            """ 访问元素 """
             # 索引如果越界则抛出异常，下同
             assert index >= 0 and index < self.__size, "索引越界"
             return self.__nums[index]
 
-        """ 更新元素 """
         def set(self, num, index):
+            """ 更新元素 """
             assert index >= 0 and index < self.__size, "索引越界"
             self.__nums[index] = num
+        
+        def add(self, num):
+            """ 尾部添加元素 """
+            # 元素数量超出容量时，触发扩容机制
+            if self.size() == self.capacity():
+                self.extend_capacity();
+            self.__nums[self.__size] = num
+            self.__size += 1
 
-        """ 中间插入（尾部添加）元素 """
-        def add(self, num, index=-1):
+        def insert(self, num, index):
+            """ 中间插入元素 """
             assert index >= 0 and index < self.__size, "索引越界"
-            # 若不指定索引 index ，则向数组尾部添加元素
-            if index == -1:
-                index = self.__size
             # 元素数量超出容量时，触发扩容机制
             if self.__size == self.capacity():
                 self.extend_capacity()
@@ -977,10 +982,10 @@ comments: true
             # 更新元素数量
             self.__size += 1
 
-        """ 删除元素 """
         def remove(self, index):
+            """ 删除元素 """
             assert index >= 0 and index < self.__size, "索引越界"
-            num = self.nums[index]
+            num = self.__nums[index]
             # 索引 i 之后的元素都向前移动一位
             for j in range(index, self.__size - 1):
                 self.__nums[j] = self.__nums[j + 1]
@@ -989,15 +994,15 @@ comments: true
             # 返回被删除元素
             return num
 
-        """ 列表扩容 """
         def extend_capacity(self):
+            """ 列表扩容 """
             # 新建一个长度为 self.__size 的数组，并将原数组拷贝到新数组
             self.__nums = self.__nums + [0] * self.capacity() * (self.__extend_ratio - 1)
             # 更新列表容量
             self.__capacity = len(self.__nums)
         
-        """ 返回有效长度的列表 """
         def to_array(self):
+            """ 返回有效长度的列表 """
             return self.__nums[:self.__size]
     ```
 
@@ -1311,7 +1316,7 @@ comments: true
         public toArray(): number[] {
             let size = this.size();
             // 仅转换有效长度范围内的列表元素
-            let nums = new Array(size);
+            const nums = new Array(size);
             for (let i = 0; i < size; i++) {
                 nums[i] = this.get(i);
             }

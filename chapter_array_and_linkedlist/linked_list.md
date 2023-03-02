@@ -351,8 +351,8 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    """ 在链表的结点 n0 之后插入结点 P """
     def insert(n0, P):
+        """ 在链表的结点 n0 之后插入结点 P """
         n1 = n0.next
         P.next = n1
         n0.next = P
@@ -470,8 +470,8 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    """ 删除链表的结点 n0 之后的首个结点 """
     def remove(n0):
+        """ 删除链表的结点 n0 之后的首个结点 """
         if not n0.next:
             return
         # n0 -> P -> n1
@@ -609,8 +609,8 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    """ 访问链表中索引为 index 的结点 """
     def access(head, index):
+        """ 访问链表中索引为 index 的结点 """
         for _ in range(index):
             if not head:
                 return None
@@ -757,8 +757,8 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    """ 在链表中查找值为 target 的首个结点 """
     def find(head, target):
+        """ 在链表中查找值为 target 的首个结点 """
         index = 0
         while head:
             if head.val == target:

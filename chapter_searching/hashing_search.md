@@ -45,8 +45,8 @@ comments: true
 === "Python"
 
     ```python title="hashing_search.py"
-    """ 哈希查找（数组） """
     def hashing_search_array(mapp, target):
+        """ 哈希查找（数组） """
         # 哈希表的 key: 目标元素，value: 索引
         # 若哈希表中无此 key ，返回 -1
         return mapp.get(target, -1)
@@ -85,7 +85,7 @@ comments: true
     function hashingSearchArray(map: Map<number, number>, target: number): number {
         // 哈希表的 key: 目标元素，value: 索引
         // 若哈希表中无此 key ，返回 -1
-        return map.has(target) ? map.get(target) as number : -1;
+        return map.has(target) ? (map.get(target) as number) : -1;
     }
     ```
 
@@ -163,8 +163,8 @@ comments: true
 === "Python"
 
     ```python title="hashing_search.py"
-    """  哈希查找（链表） """
     def hashing_search_linkedlist(mapp, target):
+        """ 哈希查找（链表） """
         # 哈希表的 key: 目标元素，value: 结点对象
         # 若哈希表中无此 key ，返回 -1
         return mapp.get(target, -1)
@@ -203,7 +203,7 @@ comments: true
     function hashingSearchLinkedList(map: Map<number, ListNode>, target: number): ListNode | null {
         // 哈希表的 key: 目标结点值，value: 结点对象
         // 若哈希表中无此 key ，返回 null
-        return map.has(target) ? map.get(target) as ListNode : null;
+        return map.has(target) ? (map.get(target) as ListNode) : null;
     }
     ```
 

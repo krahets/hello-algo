@@ -49,8 +49,8 @@ comments: true
 === "Python"
 
     ```python title="linear_search.py"
-    """ 线性查找（数组） """
     def linear_search_array(nums, target):
+        """ 线性查找（数组） """
         # 遍历数组
         for i in range(len(nums)):
             if nums[i] == target:  # 找到目标元素，返回其索引
@@ -206,8 +206,8 @@ comments: true
 === "Python"
 
     ```python title="linear_search.py"
-    """ 线性查找（链表） """
     def linear_search_linkedlist(head, target):
+        """ 线性查找（链表） """
         # 遍历链表
         while head:
             if head.val == target: # 找到目标结点，返回之

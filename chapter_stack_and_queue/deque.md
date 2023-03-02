@@ -590,30 +590,31 @@ comments: true
 === "Python"
 
     ```python title="linkedlist_deque.py"
-    """ 双向链表结点 """
     class ListNode:
+        """ 双向链表结点 """
         def __init__(self, val):
+            """ 构造方法 """
             self.val = val
             self.next = None  # 后继结点引用（指针）
             self.prev = None  # 前驱结点引用（指针）
 
-    """ 基于双向链表实现的双向队列 """
     class LinkedListDeque:
-        """ 构造方法 """
+        """ 基于双向链表实现的双向队列 """
         def __init__(self):
+            """ 构造方法 """
             self.front, self.rear = None, None  # 头结点 front ，尾结点 rear
             self.__size = 0  # 双向队列的长度
 
-        """ 获取双向队列的长度 """
         def size(self):
+            """ 获取双向队列的长度 """
             return self.__size
 
-        """ 判断双向队列是否为空 """
         def is_empty(self):
+            """ 判断双向队列是否为空 """
             return self.size() == 0
 
-        """ 入队操作 """
         def push(self, num, is_front):
+            """ 入队操作 """
             node = ListNode(num)
             # 若链表为空，则令 front, rear 都指向 node
             if self.is_empty():
@@ -632,16 +633,16 @@ comments: true
                 self.rear = node  # 更新尾结点
             self.__size += 1  # 更新队列长度
 
-        """ 队首入队 """
         def push_first(self, num):
+            """ 队首入队 """
             self.push(num, True)
 
-        """ 队尾入队 """
         def push_last(self, num):
+            """ 队尾入队 """
             self.push(num, False)
 
-        """ 出队操作 """
         def poll(self, is_front):
+            """ 出队操作 """
             # 若队列为空，直接返回 None
             if self.is_empty():
                 return None
@@ -666,24 +667,24 @@ comments: true
             self.__size -= 1  # 更新队列长度
             return val
 
-        """ 队首出队 """
         def poll_first(self):
+            """ 队首出队 """
             return self.poll(True)
 
-        """ 队尾出队 """
         def poll_last(self):
+            """ 队尾出队 """
             return self.poll(False)
 
-        """ 访问队首元素 """
         def peek_first(self):
+            """ 访问队首元素 """
             return None if self.is_empty() else self.front.val
 
-        """ 访问队尾元素 """
         def peek_last(self):
+            """ 访问队尾元素 """
             return None if self.is_empty() else self.rear.val
 
-        """ 返回数组用于打印 """
         def to_array(self):
+            """ 返回数组用于打印 """
             node = self.front
             res = [0] * self.size()
             for i in range(self.size()):
@@ -790,106 +791,106 @@ comments: true
 
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
-        front;  // 头结点 front
-        rear;   // 尾结点 rear
-        len;    // 双向队列的长度
+        #front;  // 头结点 front
+        #rear;   // 尾结点 rear
+        #queSize;    // 双向队列的长度
 
         constructor() {
-            this.front = null;
-            this.rear = null;
-            this.len = 0;
+            this.#front = null;
+            this.#rear = null;
+            this.#queSize = 0;
         }
 
         /* 队尾入队操作 */
         pushLast(val) {
             const node = new ListNode(val);
             // 若链表为空，则令 front, rear 都指向 node
-            if (this.len === 0) {
-                this.front = node;
-                this.rear = node;
+            if (this.#queSize === 0) {
+                this.#front = node;
+                this.#rear = node;
             } else {
                 // 将 node 添加至链表尾部
-                this.rear.next = node;
-                node.prev = this.rear;
-                this.rear = node; // 更新尾结点
+                this.#rear.next = node;
+                node.prev = this.#rear;
+                this.#rear = node; // 更新尾结点
             }
-            this.len++;
+            this.#queSize++;
         }
 
         /* 队首入队操作 */
         pushFirst(val) {
             const node = new ListNode(val);
             // 若链表为空，则令 front, rear 都指向 node
-            if (this.len === 0) {
-                this.front = node;
-                this.rear = node;
+            if (this.#queSize === 0) {
+                this.#front = node;
+                this.#rear = node;
             } else {
                 // 将 node 添加至链表头部
-                this.front.prev = node;
-                node.next = this.front;
-                this.front = node; // 更新头结点
+                this.#front.prev = node;
+                node.next = this.#front;
+                this.#front = node; // 更新头结点
             }
-            this.len++;
+            this.#queSize++;
         }
 
         /* 队尾出队操作 */
         pollLast() {
-            if (this.len === 0) {
+            if (this.#queSize === 0) {
                 return null;
             }
-            const value = this.rear.val; // 存储尾结点值
+            const value = this.#rear.val; // 存储尾结点值
             // 删除尾结点
-            let temp = this.rear.prev;
+            let temp = this.#rear.prev;
             if (temp !== null) {
                 temp.next = null;
-                this.rear.prev = null;
+                this.#rear.prev = null;
             }
-            this.rear = temp;   // 更新尾结点
-            this.len--;
+            this.#rear = temp;   // 更新尾结点
+            this.#queSize--;
             return value;
         }
 
         /* 队首出队操作 */
         pollFirst() {
-            if (this.len === 0) {
+            if (this.#queSize === 0) {
                 return null;
             }
-            const value = this.front.val; // 存储尾结点值
+            const value = this.#front.val; // 存储尾结点值
             // 删除头结点
-            let temp = this.front.next;
+            let temp = this.#front.next;
             if (temp !== null) {
                 temp.prev = null;
-                this.front.next = null;
+                this.#front.next = null;
             }
-            this.front = temp;   // 更新头结点
-            this.len--;
+            this.#front = temp;   // 更新头结点
+            this.#queSize--;
             return value;
         }
 
         /* 访问队尾元素 */
         peekLast() {
-            return this.len === 0 ? null : this.rear.val;
+            return this.#queSize === 0 ? null : this.#rear.val;
         }
 
         /* 访问队首元素 */
         peekFirst() {
-            return this.len === 0 ? null : this.front.val;
+            return this.#queSize === 0 ? null : this.#front.val;
         }
 
         /* 获取双向队列的长度 */
         size() {
-            return this.len;
+            return this.#queSize;
         }
 
         /* 判断双向队列是否为空 */
         isEmpty() {
-            return this.len === 0;
+            return this.#queSize === 0;
         }
 
         /* 打印双向队列 */
         print() {
             const arr = [];
-            let temp = this.front;
+            let temp = this.#front;
             while (temp !== null) {
                 arr.push(temp.val);
                 temp = temp.next;
@@ -917,21 +918,21 @@ comments: true
 
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
-        front: ListNode;    // 头结点 front
-        rear: ListNode;     // 尾结点 rear
-        len: number;        // 双向队列的长度
+        private front: ListNode;    // 头结点 front
+        private rear: ListNode;     // 尾结点 rear
+        private queSize: number;        // 双向队列的长度
 
         constructor() {
             this.front = null;
             this.rear = null;
-            this.len = 0;
+            this.queSize = 0;
         }
         
         /* 队尾入队操作 */
         pushLast(val: number): void {
             const node: ListNode = new ListNode(val);
             // 若链表为空，则令 front, rear 都指向 node
-            if (this.len === 0) {
+            if (this.queSize === 0) {
                 this.front = node;
                 this.rear = node;
             } else {
@@ -940,14 +941,14 @@ comments: true
                 node.prev = this.rear;
                 this.rear = node; // 更新尾结点
             }
-            this.len++;
+            this.queSize++;
         }
 
         /* 队首入队操作 */
         pushFirst(val: number): void {
             const node: ListNode = new ListNode(val);
             // 若链表为空，则令 front, rear 都指向 node
-            if (this.len === 0) {
+            if (this.queSize === 0) {
                 this.front = node;
                 this.rear = node;
             } else {
@@ -956,12 +957,12 @@ comments: true
                 node.next = this.front;
                 this.front = node; // 更新头结点
             }
-            this.len++;
+            this.queSize++;
         }
 
         /* 队尾出队操作 */
         pollLast(): number {
-            if (this.len === 0) {
+            if (this.queSize === 0) {
                 return null;
             }
             const value: number = this.rear.val; // 存储尾结点值
@@ -972,13 +973,13 @@ comments: true
                 this.rear.prev = null;
             }
             this.rear = temp;   // 更新尾结点
-            this.len--;
+            this.queSize--;
             return value;
         }
 
         /* 队首出队操作 */
         pollFirst(): number {
-            if (this.len === 0) {
+            if (this.queSize === 0) {
                 return null;
             }
             const value: number = this.front.val; // 存储尾结点值
@@ -989,28 +990,28 @@ comments: true
                 this.front.next = null;
             }
             this.front = temp;   // 更新头结点
-            this.len--;
+            this.queSize--;
             return value;
         }
 
         /* 访问队尾元素 */
         peekLast(): number {
-            return this.len === 0 ? null : this.rear.val;
+            return this.queSize === 0 ? null : this.rear.val;
         }
 
         /* 访问队首元素 */
         peekFirst(): number {
-            return this.len === 0 ? null : this.front.val;
+            return this.queSize === 0 ? null : this.front.val;
         }
 
         /* 获取双向队列的长度 */
         size(): number {
-            return this.len;
+            return this.queSize;
         }
 
         /* 判断双向队列是否为空 */
         isEmpty(): boolean {
-            return this.len === 0;
+            return this.queSize === 0;
         }
 
         /* 打印双向队列 */
@@ -1593,35 +1594,35 @@ comments: true
 === "Python"
 
     ```python title="array_deque.py"
-    """ 基于环形数组实现的双向队列 """
     class ArrayDeque:
-        """  构造方法 """
+        """ 基于环形数组实现的双向队列 """
         def __init__(self, capacity):
+            """  构造方法 """
             self.nums = [0] * capacity
             self.front = 0
             self.que_size = 0
 
-        """  获取双向队列的容量  """
         def capacity(self):
+            """ 获取双向队列的容量 """
             return len(self.nums)
 
-        """ 获取双向队列的长度  """
         def size(self):
+            """ 获取双向队列的长度 """
             return self.que_size
 
-        """ 判断双向队列是否为空 """
         def is_empty(self):
+            """ 判断双向队列是否为空 """
             return self.que_size == 0
 
-        """ 计算环形数组索引 """
         def index(self, i):
+            """ 计算环形数组索引 """
             # 通过取余操作实现数组首尾相连
             # 当 i 越过数组尾部后，回到头部
             # 当 i 越过数组头部后，回到尾部
             return (i + self.capacity()) % self.capacity()
 
-        """ 队首入队 """
         def push_first(self, num):
+            """ 队首入队 """
             if self.que_size == self.capacity():
                 print("双向队列已满")
                 return
@@ -1632,8 +1633,8 @@ comments: true
             self.nums[self.front] = num
             self.que_size += 1
 
-        """ 队尾入队 """
         def push_last(self, num):
+            """ 队尾入队 """
             if self.que_size == self.capacity():
                 print("双向队列已满")
                 return
@@ -1643,34 +1644,34 @@ comments: true
             self.nums[rear] = num
             self.que_size += 1
 
-        """ 队首出队 """
         def poll_first(self):
+            """ 队首出队 """
             num = self.peek_first()
             # 队首指针向后移动一位
             self.front = self.index(self.front+1)
             self.que_size -= 1
             return num
 
-        """ 队尾出队 """
         def poll_last(self):
+            """ 队尾出队 """
             num = self.peek_last()
             self.que_size -= 1
             return num
 
-        """ 访问队首元素 """
         def peek_first(self):
+            """ 访问队首元素 """
             assert not self.is_empty(), "双向队列为空"
             return self.nums[self.front]
 
-        """ 访问队尾元素 """
         def peek_last(self):
+            """ 访问队尾元素 """
             assert not self.is_empty(), "双向队列为空"
             # 计算尾元素索引
             last = self.index(self.front + self.que_size - 1)
             return self.nums[last]
 
-        """ 返回数组用于打印 """
         def to_array(self):
+            """ 返回数组用于打印 """
             # 仅转换有效长度范围内的列表元素
             res = []
             for i in range(self.que_size):

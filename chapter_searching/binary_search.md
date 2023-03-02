@@ -98,8 +98,8 @@ $$
 === "Python"
 
     ```python title="binary_search.py"
-    """ 二分查找（双闭区间） """
     def binary_search(nums, target):
+        """ 二分查找（双闭区间） """
         # 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
         i, j = 0, len(nums) - 1
         while i <= j:
@@ -145,7 +145,7 @@ $$
         let i = 0, j = nums.length - 1;
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
         while (i <= j) {
-            let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
+            const m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
             if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
             else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m-1] 中
@@ -167,7 +167,7 @@ $$
         let i = 0, j = nums.length - 1;
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
         while (i <= j) {
-            const m = Math.floor(i + (j - i) / 2); // 计算中点索引 m
+            const m = Math.floor((i + j) / 2); // 计算中点索引 m
             if (nums[m] < target) {        // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
             } else if (nums[m] > target) { // 此情况说明 target 在区间 [i, m-1] 中
@@ -309,8 +309,8 @@ $$
 === "Python"
 
     ```python title="binary_search.py"
-    """ 二分查找（左闭右开） """
     def binary_search1(nums, target):
+        """ 二分查找（左闭右开） """
         # 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         i, j = 0, len(nums)
         # 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -357,7 +357,7 @@ $$
         let i = 0, j = nums.length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
-            let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
+            const m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
             if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
             else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m) 中
@@ -379,7 +379,7 @@ $$
         let i = 0, j = nums.length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
-            const m = Math.floor(i + (j - i) / 2); // 计算中点索引 m
+            const m = Math.floor((i + j) / 2); // 计算中点索引 m
             if (nums[m] < target) {        // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
             } else if (nums[m] > target) { // 此情况说明 target 在区间 [i, m) 中

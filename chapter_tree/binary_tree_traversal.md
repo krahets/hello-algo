@@ -69,8 +69,8 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_bfs.py"
-    """ 层序遍历 """
     def level_order(root: Optional[TreeNode]):
+        """ 层序遍历 """
         # 初始化队列，加入根结点
         queue = collections.deque()
         queue.append(root)
@@ -120,9 +120,9 @@ comments: true
     /* 层序遍历 */
     function levelOrder(root) {
         // 初始化队列，加入根结点
-        let queue = [root];
+        const queue = [root];
         // 初始化一个列表，用于保存遍历序列
-        let list = [];
+        const list = [];
         while (queue.length) {
             let node = queue.shift();   // 队列出队
             list.push(node.val);        // 保存结点值
@@ -337,8 +337,8 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_dfs.py"
-    """ 前序遍历 """
     def pre_order(root: Optional[TreeNode]):
+        """ 前序遍历 """
         if root is None:
             return
         # 访问优先级：根结点 -> 左子树 -> 右子树
@@ -346,8 +346,8 @@ comments: true
         pre_order(root=root.left)
         pre_order(root=root.right)
 
-    """ 中序遍历 """
     def in_order(root: Optional[TreeNode]):
+        """ 中序遍历 """
         if root is None:
             return
         # 访问优先级：左子树 -> 根结点 -> 右子树
@@ -355,8 +355,8 @@ comments: true
         res.append(root.val)
         in_order(root=root.right)
 
-    """ 后序遍历 """
     def post_order(root: Optional[TreeNode]):
+        """ 后序遍历 """
         if root is None:
             return
         # 访问优先级：左子树 -> 右子树 -> 根结点

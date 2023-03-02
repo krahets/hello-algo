@@ -87,8 +87,8 @@ comments: true
 === "Python"
 
     ```python title="bubble_sort.py"
-    """ 冒泡排序 """
     def bubble_sort(nums):
+        """ 冒泡排序 """
         n = len(nums)
         # 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for i in range(n - 1, 0, -1):
@@ -295,8 +295,8 @@ comments: true
 === "Python"
 
     ```python title="bubble_sort.py"
-    """ 冒泡排序（标志优化） """
     def bubble_sort_with_flag(nums):
+        """ 冒泡排序（标志优化） """
         n = len(nums)
         # 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for i in range(n - 1, 0, -1):

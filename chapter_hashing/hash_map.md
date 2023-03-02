@@ -604,69 +604,70 @@ $$
 === "Python"
 
     ```python title="array_hash_map.py"
-    """ 键值对 int->String """
     class Entry:
+        """ 键值对 int->String """
         def __init__(self, key, val):
             self.key = key
             self.val = val
 
-    """ 基于数组简易实现的哈希表 """
     class ArrayHashMap:
+        """ 基于数组简易实现的哈希表 """
         def __init__(self):
+            """ 构造方法 """
             # 初始化一个长度为 100 的桶（数组）
             self.bucket = [None] * 100
 
-        """ 哈希函数 """
         def hash_func(self, key):
+            """ 哈希函数 """
             index = key % 100
             return index
 
-        """ 查询操作 """
         def get(self, key):
+            """ 查询操作 """
             index = self.hash_func(key)
             pair = self.bucket[index]
             if pair is None:
                 return None
             return pair.val
 
-        """ 添加操作 """
         def put(self, key, val):
+            """ 添加操作 """
             pair = Entry(key, val)
             index = self.hash_func(key)
             self.bucket[index] = pair
 
-        """ 删除操作 """
         def remove(self, key):
+            """ 删除操作 """
             index = self.hash_func(key)
             # 置为 None ，代表删除
             self.bucket[index] = None
 
-        """ 获取所有键值对 """
         def entry_set(self):
+            """ 获取所有键值对 """
             result = []
             for pair in self.bucket:
                 if pair is not None:
                     result.append(pair)
             return result
 
-        """ 获取所有键 """
         def key_set(self):
+            """ 获取所有键 """
             result = []
             for pair in self.bucket:
                 if pair is not None:
                     result.append(pair.key)
             return result
 
-        """ 获取所有值 """
         def value_set(self):
+            """ 获取所有值 """
             result = []
             for pair in self.bucket:
                 if pair is not None:
                     result.append(pair.val)
             return result
 
-        """ 打印哈希表 """
         def print(self):
+            """ 打印哈希表 """
             for pair in self.bucket:
                 if pair is not None:
                     print(pair.key, "->", pair.val)

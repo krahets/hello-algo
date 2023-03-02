@@ -65,8 +65,8 @@ comments: true
 === "Python"
 
     ```python title="leetcode_two_sum.py"
-    """ 方法一：暴力枚举 """
     def two_sum_brute_force(nums: List[int], target: int) -> List[int]:
+        """ 方法一：暴力枚举 """
         # 两层循环，时间复杂度 O(n^2)
         for i in range(len(nums) - 1):
             for j in range(i + 1, len(nums)):
@@ -242,8 +242,8 @@ comments: true
 === "Python"
 
     ```python title="leetcode_two_sum.py"
-    """ 方法二：辅助哈希表 """
     def two_sum_hash_table(nums: List[int], target: int) -> List[int]:
+        """ 方法二：辅助哈希表 """
         # 辅助哈希表，空间复杂度 O(n)
         dic = {}
         # 单层循环，时间复杂度 O(n)

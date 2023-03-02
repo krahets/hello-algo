@@ -365,16 +365,16 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-    """ 获取左子结点索引 """
     def left(self, i: int) -> int:
+        """ 获取左子结点索引 """
         return 2 * i + 1
 
-    """ 获取右子结点索引 """
     def right(self, i: int) -> int:
+        """ 获取右子结点索引 """
         return 2 * i + 2
 
-    """ 获取父结点索引 """
     def parent(self, i: int) -> int:
+        """ 获取父结点索引 """
         return (i - 1) // 2  # 向下整除
     ```
 
@@ -532,8 +532,8 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-    """ 访问堆顶元素 """
     def peek(self) -> int:
+        """ 访问堆顶元素 """
         return self.max_heap[0]
     ```
 
@@ -681,15 +681,15 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-    """ 元素入堆 """
     def push(self, val: int):
+        """ 元素入堆 """
         # 添加结点
         self.max_heap.append(val)
         # 从底至顶堆化
         self.sift_up(self.size() - 1)
 
-    """ 从结点 i 开始，从底至顶堆化 """
     def sift_up(self, i: int):
+        """ 从结点 i 开始，从底至顶堆化 """
         while True:
             # 获取结点 i 的父结点
             p = self.parent(i)
@@ -995,8 +995,8 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-    """ 元素出堆 """
     def poll(self) -> int:
+        """ 元素出堆 """
         # 判空处理
         assert not self.is_empty()
         # 交换根结点与最右叶结点（即交换首元素与尾元素）
@@ -1008,8 +1008,8 @@ comments: true
         # 返回堆顶元素
         return val
 
-    """ 从结点 i 开始，从顶至底堆化 """
     def sift_down(self, i: int):
+        """ 从结点 i 开始，从顶至底堆化 """
         while True:
             # 判断结点 i, l, r 中值最大的结点，记为 ma
             l, r, ma = self.left(i), self.right(i), i
@@ -1113,7 +1113,7 @@ comments: true
     /* 元素出堆 */
     poll(): number {
         // 判空处理
-        if (this.isEmpty()) throw new RangeError("Heap is empty.");
+        if (this.isEmpty()) throw new RangeError('Heap is empty.');
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
         this.swap(0, this.size() - 1);
         // 删除结点
@@ -1128,7 +1128,8 @@ comments: true
     siftDown(i: number): void {
         while (true) {
             // 判断结点 i, l, r 中值最大的结点，记为 ma
-            const l = this.left(i), r = this.right(i);
+            const l = this.left(i),
+                r = this.right(i);
             let ma = i;
             if (l < this.size() && this.maxHeap[l] > this.maxHeap[ma]) ma = l;
             if (r < this.size() && this.maxHeap[r] > this.maxHeap[ma]) ma = r;

@@ -63,9 +63,9 @@ comments: true
 === "Python"
 
     ```python title="insertion_sort.py"
-    """ 插入排序 """
     def insertion_sort(nums):
-        # 外循环：base = nums[1], nums[2], ..., nums[n-1]
+        """ 插入排序 """
+        # 外循环：base = nums[1], nums[2], ..., nums[n-1]   
         for i in range(1, len(nums)):
             base = nums[i]
             j = i - 1

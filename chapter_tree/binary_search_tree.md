@@ -80,8 +80,8 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
-    """ 查找结点 """
     def search(self, num: int) -> Optional[TreeNode]:
+        """ 查找结点 """
         cur = self.root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
@@ -308,8 +308,8 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
-    """ 插入结点 """
     def insert(self, num: int) -> Optional[TreeNode]:
+        """ 插入结点 """
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -392,7 +392,7 @@ comments: true
             else cur = cur.left;
         }
         // 插入结点 val
-        let node = new Tree.TreeNode(num);
+        let node = new TreeNode(num);
         if (pre.val < num) pre.right = node;
         else pre.left = node;
         return node;
@@ -692,8 +692,8 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
-    """ 删除结点 """
     def remove(self, num: int) -> Optional[TreeNode]:
+        """ 删除结点 """
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -734,8 +734,8 @@ comments: true
             cur.val = tmp
         return cur
 
-    """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
     def get_inorder_next(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
         if root is None:
             return root
         # 循环访问左子结点，直到叶结点时为最小结点，跳出
