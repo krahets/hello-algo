@@ -1,15 +1,14 @@
 FROM python:3.9.0-alpine
 
-RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip
-RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple mkdocs-material==9.0.8
+RUN pip install --upgrade pip
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple mkdocs-material==9.0.13
 
 WORKDIR /app
 
-COPY codes /app/codes
-COPY docs /app/docs
+COPY docs /app/build
 COPY mkdocs.yml /app/mkdocs.yml
 
-RUN mkdir ./docs/overrides && mkdocs build
+RUN mkdir -p ./build/overrides && mkdocs build
 
 EXPOSE 8000
 
