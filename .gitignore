@@ -14,4 +14,3 @@ build/
 site/
 utils/
 **/cmake-build-debug
-git
