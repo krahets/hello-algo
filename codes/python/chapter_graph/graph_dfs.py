@@ -6,12 +6,11 @@ Author: Krahets (krahets@163.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 from graph_adjacency_list import GraphAdjList
 
-
-""" 深度优先遍历 DFS 辅助函数 """
 def dfs(graph: GraphAdjList, visited: Set[Vertex], res: List[Vertex], vet: Vertex):
+    """ 深度优先遍历 DFS 辅助函数 """
     res.append(vet)     # 记录访问顶点
     visited.add(vet) # 标记该顶点已被访问
     # 遍历该顶点的所有邻接顶点
@@ -21,9 +20,9 @@ def dfs(graph: GraphAdjList, visited: Set[Vertex], res: List[Vertex], vet: Verte
         # 递归访问邻接顶点
         dfs(graph, visited, res, adjVet)
 
-""" 深度优先遍历 DFS """
 # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> List[Vertex]:
+    """ 深度优先遍历 DFS """
     # 顶点遍历序列
     res = []
     # 哈希表，用于记录已被访问过的顶点

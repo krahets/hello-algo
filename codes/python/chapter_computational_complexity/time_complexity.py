@@ -6,33 +6,33 @@ Author: Krahets (krahets@163.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-""" 常数阶 """
 def constant(n):
+    """ 常数阶 """
     count = 0
     size = 100000
     for _ in range(size):
         count += 1
     return count
 
-""" 线性阶 """
 def linear(n):
+    """ 线性阶 """
     count = 0
     for _ in range(n):
         count += 1
     return count
 
-""" 线性阶（遍历数组）"""
 def array_traversal(nums):
+    """ 线性阶（遍历数组）"""
     count = 0
     # 循环次数与数组长度成正比
     for num in nums:
         count += 1
     return count
 
-""" 平方阶 """
 def quadratic(n):
+    """ 平方阶 """
     count = 0
     # 循环次数与数组长度成平方关系
     for i in range(n):
@@ -40,8 +40,8 @@ def quadratic(n):
             count += 1
     return count
 
-""" 平方阶（冒泡排序）"""
 def bubble_sort(nums):
+    """ 平方阶（冒泡排序）"""
     count = 0  # 计数器
     # 外循环：待排序元素数量为 n-1, n-2, ..., 1
     for i in range(len(nums) - 1, 0, -1):
@@ -55,8 +55,8 @@ def bubble_sort(nums):
                 count += 3  # 元素交换包含 3 个单元操作
     return count
 
-""" 指数阶（循环实现）"""
 def exponential(n):
+    """ 指数阶（循环实现）"""
     count, base = 0, 1
     # cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
     for _ in range(n):
@@ -66,26 +66,26 @@ def exponential(n):
     # count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
     return count
 
-""" 指数阶（递归实现）"""
 def exp_recur(n):
+    """ 指数阶（递归实现）"""
     if n == 1: return 1
     return exp_recur(n - 1) + exp_recur(n - 1) + 1
 
-""" 对数阶（循环实现）"""
 def logarithmic(n):
+    """ 对数阶（循环实现）"""
     count = 0
     while n > 1:
         n = n / 2
         count += 1
     return count
 
-""" 对数阶（递归实现）"""
 def log_recur(n):
+    """ 对数阶（递归实现）"""
     if n <= 1: return 0
     return log_recur(n / 2) + 1
 
-""" 线性对数阶 """
 def linear_log_recur(n):
+    """ 线性对数阶 """
     if n <= 1: return 1
     count = linear_log_recur(n // 2) + \
             linear_log_recur(n // 2)
@@ -93,8 +93,8 @@ def linear_log_recur(n):
         count += 1
     return count
 
-""" 阶乘阶（递归实现）"""
 def factorial_recur(n):
+    """ 阶乘阶（递归实现）"""
     if n == 0: return 1
     count = 0
     # 从 1 个分裂出 n 个

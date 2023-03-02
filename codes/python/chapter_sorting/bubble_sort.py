@@ -6,10 +6,10 @@ Author: timi (xisunyy@163.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-""" 冒泡排序 """
 def bubble_sort(nums):
+    """ 冒泡排序 """
     n = len(nums)
     # 外循环：待排序元素数量为 n-1, n-2, ..., 1
     for i in range(n - 1, 0, -1):
@@ -19,8 +19,8 @@ def bubble_sort(nums):
                 # 交换 nums[j] 与 nums[j + 1]
                 nums[j], nums[j + 1] = nums[j + 1], nums[j]
 
-""" 冒泡排序（标志优化） """
 def bubble_sort_with_flag(nums):
+    """ 冒泡排序（标志优化） """
     n = len(nums)
     # 外循环：待排序元素数量为 n-1, n-2, ..., 1
     for i in range(n - 1, 0, -1):

@@ -6,11 +6,11 @@ Author: timi (xisunyy@163.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-""" 插入排序 """
 def insertion_sort(nums):
-    # 外循环：base = nums[1], nums[2], ..., nums[n-1]
+    """ 插入排序 """
+    # 外循环：base = nums[1], nums[2], ..., nums[n-1]   
     for i in range(1, len(nums)):
         base = nums[i]
         j = i - 1

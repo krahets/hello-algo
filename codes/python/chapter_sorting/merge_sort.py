@@ -6,13 +6,12 @@ Author: timi (xisunyy@163.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-
-""" 合并左子数组和右子数组 """
-# 左子数组区间 [left, mid]
-# 右子数组区间 [mid + 1, right]
 def merge(nums, left, mid, right):
+    """ 合并左子数组和右子数组 """
+    # 左子数组区间 [left, mid]
+    # 右子数组区间 [mid + 1, right]
     # 初始化辅助数组 借助 copy模块
     tmp = nums[left:right + 1]
     # 左子数组的起始索引和结束索引
@@ -36,8 +35,8 @@ def merge(nums, left, mid, right):
             nums[k] = tmp[j]
             j += 1
 
-""" 归并排序 """
 def merge_sort(nums, left, right):
+    """ 归并排序 """
     # 终止条件
     if left >= right:
         return                        # 当子数组长度为 1 时终止递归

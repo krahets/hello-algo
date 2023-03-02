@@ -6,7 +6,7 @@ Author: Krahets (krahets@163.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
 def test_push(heap, val, flag=1):
     heapq.heappush(heap, flag * val)  # 元素入堆
@@ -18,6 +18,7 @@ def test_pop(heap, flag=1):
     print(f"\n堆顶元素 {val} 出堆后")
     print_heap([flag * val for val in heap])
 
+""" Driver Code """
 if __name__ == "__main__":
     # 初始化小顶堆
     min_heap, flag = [], 1

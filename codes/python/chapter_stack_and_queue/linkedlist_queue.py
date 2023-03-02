@@ -8,25 +8,26 @@ import os.path as osp
 import sys
 
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-""" 基于链表实现的队列 """
 class LinkedListQueue:
+    """ 基于链表实现的队列 """
     def __init__(self):
+        """ 构造方法 """
         self.__front = None  # 头结点 front
         self.__rear = None   # 尾结点 rear
         self.__size = 0
 
-    """ 获取队列的长度 """
     def size(self):
+        """ 获取队列的长度 """
         return self.__size
 
-    """ 判断队列是否为空 """
     def is_empty(self):
+        """ 判断队列是否为空 """
         return not self.__front
 
-    """ 入队 """
     def push(self, num):
+        """ 入队 """
         # 尾结点后添加 num
         node = ListNode(num)
         # 如果队列为空，则令头、尾结点都指向该结点
@@ -39,23 +40,23 @@ class LinkedListQueue:
             self.__rear = node
         self.__size += 1
 
-    """ 出队 """
     def poll(self):
+        """ 出队 """
         num = self.peek()
         # 删除头结点
         self.__front = self.__front.next
         self.__size -= 1
         return num
 
-    """ 访问队首元素 """
     def peek(self):
+        """ 访问队首元素 """
         if self.size() == 0:
             print("队列为空")
             return False
         return self.__front.val
 
-    """ 转化为列表用于打印 """
     def to_list(self):
+        """ 转化为列表用于打印 """
         queue = []
         temp = self.__front
         while temp:

@@ -6,17 +6,18 @@ Author: a16su (lpluls001@gmail.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
 
-""" 二叉搜索树 """
 class BinarySearchTree:
+    """ 二叉搜索树 """
     def __init__(self, nums: List[int]) -> None:
+        """ 构造方法 """
         nums.sort()
         self.__root = self.build_tree(nums, 0, len(nums) - 1)
 
-    """ 构建二叉搜索树 """
     def build_tree(self, nums: List[int], start_index: int, end_index: int) -> Optional[TreeNode]:
+        """ 构建二叉搜索树 """
         if start_index > end_index:
             return None
 
@@ -32,8 +33,8 @@ class BinarySearchTree:
     def root(self) -> Optional[TreeNode]:
         return self.__root
 
-    """ 查找结点 """
     def search(self, num: int) -> Optional[TreeNode]:
+        """ 查找结点 """
         cur = self.root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
@@ -48,8 +49,8 @@ class BinarySearchTree:
                 break
         return cur
 
-    """ 插入结点 """
     def insert(self, num: int) -> Optional[TreeNode]:
+        """ 插入结点 """
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -77,8 +78,8 @@ class BinarySearchTree:
             pre.left = node
         return node
 
-    """ 删除结点 """
     def remove(self, num: int) -> Optional[TreeNode]:
+        """ 删除结点 """
         root = self.root
         # 若树为空，直接提前返回
         if root is None:
@@ -119,8 +120,8 @@ class BinarySearchTree:
             cur.val = tmp
         return cur
 
-    """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
     def get_inorder_next(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
         if root is None:
             return root
         # 循环访问左子结点，直到叶结点时为最小结点，跳出

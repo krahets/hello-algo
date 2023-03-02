@@ -6,13 +6,11 @@ Author: a16su (lpluls001@gmail.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
 
-res = []
-
-""" 前序遍历 """
 def pre_order(root: Optional[TreeNode]):
+    """ 前序遍历 """
     if root is None:
         return
     # 访问优先级：根结点 -> 左子树 -> 右子树
@@ -20,8 +18,8 @@ def pre_order(root: Optional[TreeNode]):
     pre_order(root=root.left)
     pre_order(root=root.right)
 
-""" 中序遍历 """
 def in_order(root: Optional[TreeNode]):
+    """ 中序遍历 """
     if root is None:
         return
     # 访问优先级：左子树 -> 根结点 -> 右子树
@@ -29,8 +27,8 @@ def in_order(root: Optional[TreeNode]):
     res.append(root.val)
     in_order(root=root.right)
 
-""" 后序遍历 """
 def post_order(root: Optional[TreeNode]):
+    """ 后序遍历 """
     if root is None:
         return
     # 访问优先级：左子树 -> 右子树 -> 根结点
@@ -38,6 +36,7 @@ def post_order(root: Optional[TreeNode]):
     post_order(root=root.right)
     res.append(root.val)
 
+res = []
 
 """ Driver Code """
 if __name__ == "__main__":

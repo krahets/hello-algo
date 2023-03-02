@@ -8,37 +8,37 @@ import os.path as osp
 import sys
 
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-""" 基于环形数组实现的双向队列 """
 class ArrayDeque:
-    """  构造方法 """
+    """ 基于环形数组实现的双向队列 """
     def __init__(self, capacity):
+        """  构造方法 """
         self.nums = [0] * capacity
         self.front = 0
         self.que_size = 0
 
-    """  获取双向队列的容量  """
     def capacity(self):
+        """ 获取双向队列的容量 """
         return len(self.nums)
 
-    """ 获取双向队列的长度  """
     def size(self):
+        """ 获取双向队列的长度 """
         return self.que_size
 
-    """ 判断双向队列是否为空 """
     def is_empty(self):
+        """ 判断双向队列是否为空 """
         return self.que_size == 0
 
-    """ 计算环形数组索引 """
     def index(self, i):
+        """ 计算环形数组索引 """
         # 通过取余操作实现数组首尾相连
         # 当 i 越过数组尾部后，回到头部
         # 当 i 越过数组头部后，回到尾部
         return (i + self.capacity()) % self.capacity()
 
-    """ 队首入队 """
     def push_first(self, num):
+        """ 队首入队 """
         if self.que_size == self.capacity():
             print("双向队列已满")
             return
@@ -49,8 +49,8 @@ class ArrayDeque:
         self.nums[self.front] = num
         self.que_size += 1
 
-    """ 队尾入队 """
     def push_last(self, num):
+        """ 队尾入队 """
         if self.que_size == self.capacity():
             print("双向队列已满")
             return
@@ -60,34 +60,34 @@ class ArrayDeque:
         self.nums[rear] = num
         self.que_size += 1
 
-    """ 队首出队 """
     def poll_first(self):
+        """ 队首出队 """
         num = self.peek_first()
         # 队首指针向后移动一位
         self.front = self.index(self.front+1)
         self.que_size -= 1
         return num
 
-    """ 队尾出队 """
     def poll_last(self):
+        """ 队尾出队 """
         num = self.peek_last()
         self.que_size -= 1
         return num
 
-    """ 访问队首元素 """
     def peek_first(self):
+        """ 访问队首元素 """
         assert not self.is_empty(), "双向队列为空"
         return self.nums[self.front]
 
-    """ 访问队尾元素 """
     def peek_last(self):
+        """ 访问队尾元素 """
         assert not self.is_empty(), "双向队列为空"
         # 计算尾元素索引
         last = self.index(self.front + self.que_size - 1)
         return self.nums[last]
 
-    """ 返回数组用于打印 """
     def to_array(self):
+        """ 返回数组用于打印 """
         # 仅转换有效长度范围内的列表元素
         res = []
         for i in range(self.que_size):

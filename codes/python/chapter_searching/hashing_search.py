@@ -6,16 +6,16 @@ Author: timi (xisunyy@163.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-""" 哈希查找（数组） """
 def hashing_search_array(mapp, target):
+    """ 哈希查找（数组） """
     # 哈希表的 key: 目标元素，value: 索引
     # 若哈希表中无此 key ，返回 -1
     return mapp.get(target, -1)
 
-"""  哈希查找（链表） """
 def hashing_search_linkedlist(mapp, target):
+    """ 哈希查找（链表） """
     # 哈希表的 key: 目标元素，value: 结点对象
     # 若哈希表中无此 key ，返回 -1
     return mapp.get(target, -1)

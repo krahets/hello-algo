@@ -6,7 +6,7 @@ Author: msk397 (machangxinq@gmail.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
 
 """ Driver Code """

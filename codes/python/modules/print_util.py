@@ -4,8 +4,6 @@ Created Time: 2021-12-11
 Author: Krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
 """
 
-import copy
-import queue
 from .binary_tree import TreeNode, tree_to_list, list_to_tree
 from .linked_list import ListNode, linked_list_to_list
 

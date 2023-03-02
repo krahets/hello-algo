@@ -6,10 +6,10 @@ Author: timi (xisunyy@163.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-""" 二分查找（双闭区间） """
 def binary_search(nums, target):
+    """ 二分查找（双闭区间） """
     # 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
     i, j = 0, len(nums) - 1
     while i <= j:
@@ -23,8 +23,8 @@ def binary_search(nums, target):
     return -1                   # 未找到目标元素，返回 -1
 
 
-""" 二分查找（左闭右开） """
 def binary_search1(nums, target):
+    """ 二分查找（左闭右开） """
     # 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     i, j = 0, len(nums)
     # 循环，当搜索区间为空时跳出（当 i = j 时为空）

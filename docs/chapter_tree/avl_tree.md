@@ -188,7 +188,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     ```javascript title="avl_tree.js"
     [class]{AVLTree}-[func]{height}
 
-    [class]{AVLTree}-[func]{updateHeight}
+    [class]{AVLTree}-[func]{#updateHeight}
     ```
 
 === "TypeScript"
@@ -354,7 +354,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "JavaScript"
 
     ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{rightRotate}
+    [class]{AVLTree}-[func]{#rightRotate}
     ```
 
 === "TypeScript"
@@ -426,7 +426,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "JavaScript"
 
     ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{leftRotate}
+    [class]{AVLTree}-[func]{#leftRotate}
     ```
 
 === "TypeScript"
@@ -519,7 +519,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "JavaScript"
 
     ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{rotate}
+    [class]{AVLTree}-[func]{#rotate}
     ```
 
 === "TypeScript"
@@ -595,7 +595,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
     ```javascript title="avl_tree.js"
     [class]{AVLTree}-[func]{insert}
 
-    [class]{AVLTree}-[func]{insertHelper}
+    [class]{AVLTree}-[func]{#insertHelper}
     ```
 
 === "TypeScript"
@@ -687,9 +687,9 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
     ```javascript title="avl_tree.js"
     [class]{AVLTree}-[func]{remove}
 
-    [class]{AVLTree}-[func]{removeHelper}
+    [class]{AVLTree}-[func]{#removeHelper}
 
-    [class]{AVLTree}-[func]{getInOrderNext}
+    [class]{AVLTree}-[func]{#getInOrderNext}
     ```
 
 === "TypeScript"

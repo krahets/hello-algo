@@ -148,19 +148,19 @@ class QuickSortTailCall {
 
 /* Driver Code */
 /* 快速排序  */
-const nums = [4, 1, 3, 1, 5, 2];
+const nums = [2, 4, 1, 0, 3, 5];
 const quickSort = new QuickSort();
 quickSort.quickSort(nums, 0, nums.length - 1);
 console.log('快速排序完成后 nums =', nums);
 
 /* 快速排序（中位基准数优化） */
-const nums1 = [4, 1, 3, 1, 5, 2];
+const nums1 = [2, 4, 1, 0, 3, 5];
 const quickSortMedian = new QuickSort();
 quickSortMedian.quickSort(nums1, 0, nums1.length - 1);
 console.log('快速排序（中位基准数优化）完成后 nums =', nums1);
 
 /* 快速排序（尾递归优化） */
-const nums2 = [4, 1, 3, 1, 5, 2];
+const nums2 = [2, 4, 1, 0, 3, 5];
 const quickSortTailCall = new QuickSort();
 quickSortTailCall.quickSort(nums2, 0, nums2.length - 1);
 console.log('快速排序（尾递归优化）完成后 nums =', nums2);

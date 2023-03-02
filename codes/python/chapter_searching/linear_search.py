@@ -6,18 +6,18 @@ Author: timi (xisunyy@163.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-""" 线性查找（数组） """
 def linear_search_array(nums, target):
+    """ 线性查找（数组） """
     # 遍历数组
     for i in range(len(nums)):
         if nums[i] == target:  # 找到目标元素，返回其索引
             return i
     return -1                  # 未找到目标元素，返回 -1
 
-""" 线性查找（链表） """
 def linear_search_linkedlist(head, target):
+    """ 线性查找（链表） """
     # 遍历链表
     while head:
         if head.val == target: # 找到目标结点，返回之

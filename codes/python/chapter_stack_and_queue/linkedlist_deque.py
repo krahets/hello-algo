@@ -8,32 +8,33 @@ import os.path as osp
 import sys
 
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-""" 双向链表结点 """
 class ListNode:
+    """ 双向链表结点 """
     def __init__(self, val):
+        """ 构造方法 """
         self.val = val
         self.next = None  # 后继结点引用（指针）
         self.prev = None  # 前驱结点引用（指针）
 
-""" 基于双向链表实现的双向队列 """
 class LinkedListDeque:
-    """ 构造方法 """
+    """ 基于双向链表实现的双向队列 """
     def __init__(self):
+        """ 构造方法 """
         self.front, self.rear = None, None  # 头结点 front ，尾结点 rear
         self.__size = 0  # 双向队列的长度
 
-    """ 获取双向队列的长度 """
     def size(self):
+        """ 获取双向队列的长度 """
         return self.__size
 
-    """ 判断双向队列是否为空 """
     def is_empty(self):
+        """ 判断双向队列是否为空 """
         return self.size() == 0
 
-    """ 入队操作 """
     def push(self, num, is_front):
+        """ 入队操作 """
         node = ListNode(num)
         # 若链表为空，则令 front, rear 都指向 node
         if self.is_empty():
@@ -52,16 +53,16 @@ class LinkedListDeque:
             self.rear = node  # 更新尾结点
         self.__size += 1  # 更新队列长度
 
-    """ 队首入队 """
     def push_first(self, num):
+        """ 队首入队 """
         self.push(num, True)
 
-    """ 队尾入队 """
     def push_last(self, num):
+        """ 队尾入队 """
         self.push(num, False)
 
-    """ 出队操作 """
     def poll(self, is_front):
+        """ 出队操作 """
         # 若队列为空，直接返回 None
         if self.is_empty():
             return None
@@ -86,24 +87,24 @@ class LinkedListDeque:
         self.__size -= 1  # 更新队列长度
         return val
 
-    """ 队首出队 """
     def poll_first(self):
+        """ 队首出队 """
         return self.poll(True)
 
-    """ 队尾出队 """
     def poll_last(self):
+        """ 队尾出队 """
         return self.poll(False)
 
-    """ 访问队首元素 """
     def peek_first(self):
+        """ 访问队首元素 """
         return None if self.is_empty() else self.front.val
 
-    """ 访问队尾元素 """
     def peek_last(self):
+        """ 访问队尾元素 """
         return None if self.is_empty() else self.rear.val
 
-    """ 返回数组用于打印 """
     def to_array(self):
+        """ 返回数组用于打印 """
         node = self.front
         res = [0] * self.size()
         for i in range(self.size()):

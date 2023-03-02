@@ -6,44 +6,45 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-""" 基于链表实现的栈 """
 class LinkedListStack:
+    """ 基于链表实现的栈 """
     def __init__(self):
+        """ 构造方法 """
         self.__peek = None
         self.__size = 0
 
-    """ 获取栈的长度 """
     def size(self):
+        """ 获取栈的长度 """
         return self.__size
 
-    """ 判断栈是否为空 """
     def is_empty(self):
+        """ 判断栈是否为空 """
         return not self.__peek
 
-    """ 入栈 """
     def push(self, val):
+        """ 入栈 """
         node = ListNode(val)
         node.next = self.__peek
         self.__peek = node
         self.__size += 1
 
-    """ 出栈 """
     def pop(self):
+        """ 出栈 """
         num = self.peek()
         self.__peek = self.__peek.next
         self.__size -= 1
         return num
 
-    """ 访问栈顶元素 """
     def peek(self):
+        """ 访问栈顶元素 """
         # 判空处理
         if not self.__peek: return None
         return self.__peek.val
 
-    """ 转化为列表用于打印 """
     def to_list(self):
+        """ 转化为列表用于打印 """
         arr = []
         node = self.__peek
         while node:

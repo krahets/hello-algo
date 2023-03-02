@@ -6,12 +6,12 @@ Author: Krahets (krahets@163.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 from graph_adjacency_list import GraphAdjList
 
-""" 广度优先遍历 BFS """
-# 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> List[Vertex]:
+    """ 广度优先遍历 BFS """
+    # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     # 顶点遍历序列
     res = []
     # 哈希表，用于记录已被访问过的顶点
@@ -32,6 +32,7 @@ def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> List[Vertex]:
     return res
 
 
+""" Driver Code """
 if __name__ == "__main__":
     """初始化无向图"""
     v = vals_to_vets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])

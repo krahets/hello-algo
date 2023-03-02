@@ -8,29 +8,30 @@ import os.path as osp
 import sys
 
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-""" 基于环形数组实现的队列 """
 class ArrayQueue:
+    """ 基于环形数组实现的队列 """
     def __init__(self, size):
+        """ 构造方法 """
         self.__nums = [0] * size  # 用于存储队列元素的数组
         self.__front = 0          # 队首指针，指向队首元素
         self.__size = 0           # 队列长度
 
-    """ 获取队列的容量 """
     def capacity(self):
+        """ 获取队列的容量 """
         return len(self.__nums)
 
-    """ 获取队列的长度 """
     def size(self):
+        """ 获取队列的长度 """
         return self.__size
 
-    """ 判断队列是否为空 """
     def is_empty(self):
+        """ 判断队列是否为空 """
         return self.__size == 0
 
-    """ 入队 """
     def push(self, num):
+        """ 入队 """
         assert self.__size < self.capacity(), "队列已满"
         # 计算尾指针，指向队尾索引 + 1
         # 通过取余操作，实现 rear 越过数组尾部后回到头部
@@ -39,21 +40,21 @@ class ArrayQueue:
         self.__nums[rear] = num
         self.__size += 1
 
-    """ 出队 """
     def poll(self):
+        """ 出队 """
         num = self.peek()
         # 队首指针向后移动一位，若越过尾部则返回到数组头部
         self.__front = (self.__front + 1) % self.capacity()
         self.__size -= 1
         return num
 
-    """ 访问队首元素 """
     def peek(self):
+        """ 访问队首元素 """
         assert not self.is_empty(), "队列为空"
         return self.__nums[self.__front]
 
-    """ 返回列表用于打印 """
     def to_list(self):
+        """ 返回列表用于打印 """
         res = [0] * self.size()
         j = self.__front
         for i in range(self.size()):

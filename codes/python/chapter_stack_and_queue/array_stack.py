@@ -6,37 +6,38 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from include import *
+from modules import *
 
-""" 基于数组实现的栈 """
 class ArrayStack:
+    """ 基于数组实现的栈 """
     def __init__(self):
+        """ 构造方法 """
         self.__stack = []
 
-    """ 获取栈的长度 """
     def size(self):
+        """ 获取栈的长度 """
         return len(self.__stack)
 
-    """ 判断栈是否为空 """
     def is_empty(self):
+        """ 判断栈是否为空 """
         return self.__stack == []
 
-    """ 入栈 """
     def push(self, item):
+        """ 入栈 """
         self.__stack.append(item)
 
-    """ 出栈 """
     def pop(self):
+        """ 出栈 """
         assert not self.is_empty(), "栈为空"
         return self.__stack.pop()
 
-    """ 访问栈顶元素 """
     def peek(self):
+        """ 访问栈顶元素 """
         assert not self.is_empty(), "栈为空"
         return self.__stack[-1]
     
-    """ 返回列表用于打印 """
     def to_list(self):
+        """ 返回列表用于打印 """
         return self.__stack
 
 
