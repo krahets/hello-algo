@@ -1,5 +1,5 @@
 /**
- * File: Vertex.ts
+ * File: Vertex.js
  * Created Time: 2023-02-15
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */

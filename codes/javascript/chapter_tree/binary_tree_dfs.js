@@ -8,7 +8,7 @@ const { arrToTree } = require("../include/TreeNode");
 const { printTree } = require("../include/PrintUtil");
 
 // 初始化列表，用于存储遍历序列
-var list = [];
+const list = [];
 
 /* 前序遍历 */
 function preOrder(root) {
@@ -40,7 +40,7 @@ function postOrder(root) {
 /* Driver Code */
 /* 初始化二叉树 */
 // 这里借助了一个从数组直接生成二叉树的函数
-var root = arrToTree([1, 2, 3, 4, 5, 6, 7]);
+const root = arrToTree([1, 2, 3, 4, 5, 6, 7]);
 console.log("\n初始化二叉树\n");
 printTree(root);
 

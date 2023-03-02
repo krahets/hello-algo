@@ -22,7 +22,7 @@ class AVLTree {
     }
 
     /* 更新结点高度 */
-    updateHeight(node: TreeNode): void {
+    private updateHeight(node: TreeNode): void {
         // 结点高度等于最高子树高度 + 1
         node.height = Math.max(this.height(node.left), this.height(node.right)) + 1;
     }
@@ -36,7 +36,7 @@ class AVLTree {
     }
 
     /* 右旋操作 */
-    rightRotate(node: TreeNode): TreeNode {
+    private rightRotate(node: TreeNode): TreeNode {
         const child = node.left;
         const grandChild = child.right;
         // 以 child 为原点，将 node 向右旋转
@@ -50,7 +50,7 @@ class AVLTree {
     }
 
     /* 左旋操作 */
-    leftRotate(node: TreeNode): TreeNode {
+    private leftRotate(node: TreeNode): TreeNode {
         const child = node.right;
         const grandChild = child.left;
         // 以 child 为原点，将 node 向左旋转
@@ -64,7 +64,7 @@ class AVLTree {
     }
 
     /* 执行旋转操作，使该子树重新恢复平衡 */
-    rotate(node: TreeNode): TreeNode {
+    private rotate(node: TreeNode): TreeNode {
         // 获取结点 node 的平衡因子
         const balanceFactor = this.balanceFactor(node);
         // 左偏树
@@ -100,7 +100,7 @@ class AVLTree {
     }
 
     /* 递归插入结点（辅助方法） */
-    insertHelper(node: TreeNode, val: number): TreeNode {
+    private insertHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return new TreeNode(val);
         /* 1. 查找插入位置，并插入结点 */
         if (val < node.val) {
@@ -124,7 +124,7 @@ class AVLTree {
     }
 
     /* 递归删除结点（辅助方法） */
-    removeHelper(node: TreeNode, val: number): TreeNode {
+    private removeHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return null;
         /* 1. 查找结点，并删除之 */
         if (val < node.val) {
@@ -156,7 +156,7 @@ class AVLTree {
     }
 
     /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    getInOrderNext(node: TreeNode): TreeNode {
+    private getInOrderNext(node: TreeNode): TreeNode {
         if (node === null) return node;
         // 循环访问左子结点，直到叶结点时为最小结点，跳出
         while (node.left !== null) {

@@ -19,21 +19,21 @@ class ListNode {
 
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {
-    front: ListNode;    // 头结点 front
-    rear: ListNode;     // 尾结点 rear
-    len: number;        // 双向队列的长度
+    private front: ListNode;    // 头结点 front
+    private rear: ListNode;     // 尾结点 rear
+    private queSize: number;        // 双向队列的长度
 
     constructor() {
         this.front = null;
         this.rear = null;
-        this.len = 0;
+        this.queSize = 0;
     }
     
     /* 队尾入队操作 */
     pushLast(val: number): void {
         const node: ListNode = new ListNode(val);
         // 若链表为空，则令 front, rear 都指向 node
-        if (this.len === 0) {
+        if (this.queSize === 0) {
             this.front = node;
             this.rear = node;
         } else {
@@ -42,14 +42,14 @@ class LinkedListDeque {
             node.prev = this.rear;
             this.rear = node; // 更新尾结点
         }
-        this.len++;
+        this.queSize++;
     }
 
     /* 队首入队操作 */
     pushFirst(val: number): void {
         const node: ListNode = new ListNode(val);
         // 若链表为空，则令 front, rear 都指向 node
-        if (this.len === 0) {
+        if (this.queSize === 0) {
             this.front = node;
             this.rear = node;
         } else {
@@ -58,12 +58,12 @@ class LinkedListDeque {
             node.next = this.front;
             this.front = node; // 更新头结点
         }
-        this.len++;
+        this.queSize++;
     }
 
     /* 队尾出队操作 */
     pollLast(): number {
-        if (this.len === 0) {
+        if (this.queSize === 0) {
             return null;
         }
         const value: number = this.rear.val; // 存储尾结点值
@@ -74,13 +74,13 @@ class LinkedListDeque {
             this.rear.prev = null;
         }
         this.rear = temp;   // 更新尾结点
-        this.len--;
+        this.queSize--;
         return value;
     }
 
     /* 队首出队操作 */
     pollFirst(): number {
-        if (this.len === 0) {
+        if (this.queSize === 0) {
             return null;
         }
         const value: number = this.front.val; // 存储尾结点值
@@ -91,28 +91,28 @@ class LinkedListDeque {
             this.front.next = null;
         }
         this.front = temp;   // 更新头结点
-        this.len--;
+        this.queSize--;
         return value;
     }
 
     /* 访问队尾元素 */
     peekLast(): number {
-        return this.len === 0 ? null : this.rear.val;
+        return this.queSize === 0 ? null : this.rear.val;
     }
 
     /* 访问队首元素 */
     peekFirst(): number {
-        return this.len === 0 ? null : this.front.val;
+        return this.queSize === 0 ? null : this.front.val;
     }
 
     /* 获取双向队列的长度 */
     size(): number {
-        return this.len;
+        return this.queSize;
     }
 
     /* 判断双向队列是否为空 */
     isEmpty(): boolean {
-        return this.len === 0;
+        return this.queSize === 0;
     }
 
     /* 打印双向队列 */

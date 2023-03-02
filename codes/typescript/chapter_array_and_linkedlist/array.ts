@@ -70,13 +70,13 @@ function find(nums: number[], target: number): number {
 
 /* Driver Code */
 /* 初始化数组 */
-let arr: number[] = new Array(5).fill(0);
+const arr: number[] = new Array(5).fill(0);
 console.log('数组 arr =', arr);
 let nums: number[] = [1, 3, 2, 5, 4];
 console.log('数组 nums =', nums);
 
 /* 随机访问 */
-const random_num = randomAccess(nums);
+let random_num = randomAccess(nums);
 console.log('在 nums 中获取随机元素', random_num);
 
 /* 长度扩展 */
@@ -95,7 +95,7 @@ console.log('删除索引 2 处的元素，得到 nums =', nums);
 traverse(nums);
 
 /* 查找元素 */
-var index: number = find(nums, 3);
+let index = find(nums, 3);
 console.log('在 nums 中查找元素 3 ，得到索引 =', index);
 
 export {};

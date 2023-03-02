@@ -10,7 +10,7 @@ function binarySearch(nums, target) {
     let i = 0, j = nums.length - 1;
     // 循环，当搜索区间为空时跳出（当 i > j 时为空）
     while (i <= j) {
-        let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
+        const m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
         if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j] 中
             i = m + 1;
         else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m-1] 中
@@ -28,7 +28,7 @@ function binarySearch1(nums, target) {
     let i = 0, j = nums.length;
     // 循环，当搜索区间为空时跳出（当 i = j 时为空）
     while (i < j) {
-        let m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
+        const m = parseInt((i + j) / 2); // 计算中点索引 m ，在 JS 中需使用 parseInt 函数取整
         if (nums[m] < target)          // 此情况说明 target 在区间 [m+1, j) 中
             i = m + 1;
         else if (nums[m] > target)     // 此情况说明 target 在区间 [i, m) 中
@@ -41,11 +41,11 @@ function binarySearch1(nums, target) {
 }
 
 /* Driver Code */
-var target = 6;
-var nums = [1, 3, 6, 8, 12, 15, 23, 67, 70, 92];
+const target = 6;
+const nums = [1, 3, 6, 8, 12, 15, 23, 67, 70, 92];
 
 /* 二分查找（双闭区间） */
-var index = binarySearch(nums, target);
+let index = binarySearch(nums, target);
 console.log("目标元素 6 的索引 = " + index);
 
 /* 二分查找（左闭右开） */

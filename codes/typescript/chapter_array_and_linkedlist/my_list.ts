@@ -97,7 +97,7 @@ class MyList {
     public toArray(): number[] {
         let size = this.size();
         // 仅转换有效长度范围内的列表元素
-        let nums = new Array(size);
+        const nums = new Array(size);
         for (let i = 0; i < size; i++) {
             nums[i] = this.get(i);
         }
@@ -107,7 +107,7 @@ class MyList {
 
 /* Driver Code */
 /* 初始化列表 */
-let list = new MyList();
+const list = new MyList();
 /* 尾部添加元素 */
 list.add(1);
 list.add(3);
@@ -127,7 +127,7 @@ list.remove(3);
 console.log(`删除索引 3 处的元素，得到 list = ${list.toArray()}`);
 
 /* 访问元素 */
-let num = list.get(1);
+const num = list.get(1);
 console.log(`访问索引 1 处的元素，得到 num = ${num}`);
 
 /* 更新元素 */

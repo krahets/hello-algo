@@ -19,106 +19,106 @@ class ListNode {
 
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {
-    front;  // 头结点 front
-    rear;   // 尾结点 rear
-    len;    // 双向队列的长度
+    #front;  // 头结点 front
+    #rear;   // 尾结点 rear
+    #queSize;    // 双向队列的长度
 
     constructor() {
-        this.front = null;
-        this.rear = null;
-        this.len = 0;
+        this.#front = null;
+        this.#rear = null;
+        this.#queSize = 0;
     }
 
     /* 队尾入队操作 */
     pushLast(val) {
         const node = new ListNode(val);
         // 若链表为空，则令 front, rear 都指向 node
-        if (this.len === 0) {
-            this.front = node;
-            this.rear = node;
+        if (this.#queSize === 0) {
+            this.#front = node;
+            this.#rear = node;
         } else {
             // 将 node 添加至链表尾部
-            this.rear.next = node;
-            node.prev = this.rear;
-            this.rear = node; // 更新尾结点
+            this.#rear.next = node;
+            node.prev = this.#rear;
+            this.#rear = node; // 更新尾结点
         }
-        this.len++;
+        this.#queSize++;
     }
 
     /* 队首入队操作 */
     pushFirst(val) {
         const node = new ListNode(val);
         // 若链表为空，则令 front, rear 都指向 node
-        if (this.len === 0) {
-            this.front = node;
-            this.rear = node;
+        if (this.#queSize === 0) {
+            this.#front = node;
+            this.#rear = node;
         } else {
             // 将 node 添加至链表头部
-            this.front.prev = node;
-            node.next = this.front;
-            this.front = node; // 更新头结点
+            this.#front.prev = node;
+            node.next = this.#front;
+            this.#front = node; // 更新头结点
         }
-        this.len++;
+        this.#queSize++;
     }
 
     /* 队尾出队操作 */
     pollLast() {
-        if (this.len === 0) {
+        if (this.#queSize === 0) {
             return null;
         }
-        const value = this.rear.val; // 存储尾结点值
+        const value = this.#rear.val; // 存储尾结点值
         // 删除尾结点
-        let temp = this.rear.prev;
+        let temp = this.#rear.prev;
         if (temp !== null) {
             temp.next = null;
-            this.rear.prev = null;
+            this.#rear.prev = null;
         }
-        this.rear = temp;   // 更新尾结点
-        this.len--;
+        this.#rear = temp;   // 更新尾结点
+        this.#queSize--;
         return value;
     }
 
     /* 队首出队操作 */
     pollFirst() {
-        if (this.len === 0) {
+        if (this.#queSize === 0) {
             return null;
         }
-        const value = this.front.val; // 存储尾结点值
+        const value = this.#front.val; // 存储尾结点值
         // 删除头结点
-        let temp = this.front.next;
+        let temp = this.#front.next;
         if (temp !== null) {
             temp.prev = null;
-            this.front.next = null;
+            this.#front.next = null;
         }
-        this.front = temp;   // 更新头结点
-        this.len--;
+        this.#front = temp;   // 更新头结点
+        this.#queSize--;
         return value;
     }
 
     /* 访问队尾元素 */
     peekLast() {
-        return this.len === 0 ? null : this.rear.val;
+        return this.#queSize === 0 ? null : this.#rear.val;
     }
 
     /* 访问队首元素 */
     peekFirst() {
-        return this.len === 0 ? null : this.front.val;
+        return this.#queSize === 0 ? null : this.#front.val;
     }
 
     /* 获取双向队列的长度 */
     size() {
-        return this.len;
+        return this.#queSize;
     }
 
     /* 判断双向队列是否为空 */
     isEmpty() {
-        return this.len === 0;
+        return this.#queSize === 0;
     }
 
     /* 打印双向队列 */
     print() {
         const arr = [];
-        let temp = this.front;
+        let temp = this.#front;
         while (temp !== null) {
             arr.push(temp.val);
             temp = temp.next;

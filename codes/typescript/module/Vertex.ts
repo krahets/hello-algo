@@ -31,4 +31,6 @@ class Vertex {
     }
 }
 
-export { Vertex };
+export {
+    Vertex
+};
