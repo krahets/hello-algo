@@ -8,8 +8,8 @@
 
 /* 基于邻接矩阵实现的无向图类 */
 class GraphAdjMat {
-    vector<int> vertices;        // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    vector<vector<int>> adjMat;  // 邻接矩阵，行列索引对应“顶点索引”
+    vector<int> vertices;       // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+    vector<vector<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
 public:
     /* 构造方法 */
@@ -90,13 +90,12 @@ public:
     }
 };
 
-
 /* Driver Code */
 int main() {
     /* 初始化无向图 */
     // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-    vector<int> vertices = {1, 3, 2, 5, 4};
-    vector<vector<int>> edges = {{0, 1}, {0, 2}, {1, 2}, {2, 3}, {0, 3}, {2, 4}, {3, 4}};
+    vector<int> vertices = { 1, 3, 2, 5, 4 };
+    vector<vector<int>> edges = { { 0, 1 }, { 0, 3 }, { 1, 2 }, { 2, 3 }, { 2, 4 }, { 3, 4 } };
     GraphAdjMat graph(vertices, edges);
     cout << "\n初始化后，图为" << endl;
     graph.print();
@@ -123,4 +122,6 @@ int main() {
     graph.removeVertex(1);
     cout << "\n删除顶点 3 后，图为" << endl;
     graph.print();
+
+    return 0;
 }

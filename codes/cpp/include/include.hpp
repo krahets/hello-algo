@@ -22,6 +22,7 @@
 
 #include "ListNode.hpp"
 #include "TreeNode.hpp"
+#include "Vertex.hpp"
 #include "PrintUtil.hpp"
 
 using namespace std;

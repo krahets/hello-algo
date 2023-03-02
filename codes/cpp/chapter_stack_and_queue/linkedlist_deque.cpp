@@ -8,17 +8,17 @@
 
 
 /* 双向链表结点 */
-struct DoubleListNode {
+struct DoublyListNode {
     int val;               // 结点值
-    DoubleListNode *next;  // 后继结点指针
-    DoubleListNode *prev;  // 前驱结点指针
-    DoubleListNode(int val) : val(val), prev(nullptr), next(nullptr) {}
+    DoublyListNode *next;  // 后继结点指针
+    DoublyListNode *prev;  // 前驱结点指针
+    DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {}
 };
 
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {
 private:
-    DoubleListNode *front, *rear; // 头结点 front ，尾结点 rear
+    DoublyListNode *front, *rear; // 头结点 front ，尾结点 rear
     int queSize = 0;              // 双向队列的长度
 
 public:
@@ -28,7 +28,7 @@ public:
     /* 析构方法 */
     ~LinkedListDeque() {
         // 释放内存
-        DoubleListNode *pre, *cur = front;
+        DoublyListNode *pre, *cur = front;
         while (cur != nullptr) {
             pre = cur;
             cur = cur->next;
@@ -48,7 +48,7 @@ public:
 
     /* 入队操作 */
     void push(int num, bool isFront) {
-        DoubleListNode *node = new DoubleListNode(num);
+        DoublyListNode *node = new DoublyListNode(num);
         // 若链表为空，则令 front, rear 都指向 node
         if (isEmpty())
             front = rear = node;
@@ -88,7 +88,7 @@ public:
         if (isFront) {
             val = front->val; // 暂存头结点值
             // 删除头结点
-            DoubleListNode *fNext = front->next;
+            DoublyListNode *fNext = front->next;
             if (fNext != nullptr) {
                 fNext->prev = nullptr;
                 front->next = nullptr;
@@ -98,7 +98,7 @@ public:
         } else {
             val = rear->val; // 暂存尾结点值
             // 删除尾结点
-            DoubleListNode *rPrev = rear->prev;
+            DoublyListNode *rPrev = rear->prev;
             if (rPrev != nullptr) {
                 rPrev->next = nullptr;
                 rear->prev = nullptr;
@@ -131,7 +131,7 @@ public:
 
     /* 返回数组用于打印 */
     vector<int> toVector() {
-        DoubleListNode *node = front;
+        DoublyListNode *node = front;
         vector<int> res(size());
         for (int i = 0; i < res.size(); i++) {
             res[i] = node->val;
