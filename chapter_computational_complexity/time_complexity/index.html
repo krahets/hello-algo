@@ -2016,7 +2016,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// 在某运行平台下</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">func</span> <span class="nf">algorithm</span><span class="p">(</span><span class="kc">_</span> <span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">func</span> <span class="nf">algorithm</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="kd">var</span> <span class="nv">a</span> <span class="p">=</span> <span class="mi">2</span> <span class="c1">// 1 ns</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">a</span> <span class="p">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">// 1 ns</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">a</span> <span class="p">=</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span> <span class="c1">// 10 ns</span>
@@ -2198,19 +2198,19 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// 算法 A 时间复杂度：常数阶</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kd">func</span> <span class="nf">algorithmA</span><span class="p">(</span><span class="kc">_</span> <span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kd">func</span> <span class="nf">algorithmA</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    <span class="bp">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="p">}</span>
 <a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
 <a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="c1">// 算法 B 时间复杂度：线性阶</span>
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="kd">func</span> <span class="nf">algorithmB</span><span class="p">(</span><span class="kc">_</span> <span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="kd">func</span> <span class="nf">algorithmB</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
 <a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>    <span class="k">for</span> <span class="kc">_</span> <span class="k">in</span> <span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">n</span> <span class="p">{</span>
 <a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>        <span class="bp">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>    <span class="p">}</span>
 <a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="p">}</span>
 <a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>
 <a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="c1">// 算法 C 时间复杂度：常数阶</span>
-<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="kd">func</span> <span class="nf">algorithmC</span><span class="p">(</span><span class="kc">_</span> <span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="kd">func</span> <span class="nf">algorithmC</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
 <a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>    <span class="k">for</span> <span class="kc">_</span> <span class="k">in</span> <span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="mi">1000000</span> <span class="p">{</span>
 <a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>        <span class="bp">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>    <span class="p">}</span>
@@ -3630,7 +3630,7 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">time_complexity.swift</span><pre><span></span><code><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a><span class="cm">/* 对数阶（循环实现） */</span>
-<a id="__codelineno-118-2" name="__codelineno-118-2" href="#__codelineno-118-2"></a><span class="kd">func</span> <span class="nf">logarithmic</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<a id="__codelineno-118-2" name="__codelineno-118-2" href="#__codelineno-118-2"></a><span class="kd">func</span> <span class="nf">logarithmic</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Double</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
 <a id="__codelineno-118-3" name="__codelineno-118-3" href="#__codelineno-118-3"></a>    <span class="kd">var</span> <span class="nv">count</span> <span class="p">=</span> <span class="mi">0</span>
 <a id="__codelineno-118-4" name="__codelineno-118-4" href="#__codelineno-118-4"></a>    <span class="kd">var</span> <span class="nv">n</span> <span class="p">=</span> <span class="n">n</span>
 <a id="__codelineno-118-5" name="__codelineno-118-5" href="#__codelineno-118-5"></a>    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">{</span>
@@ -3727,7 +3727,7 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">time_complexity.swift</span><pre><span></span><code><a id="__codelineno-128-1" name="__codelineno-128-1" href="#__codelineno-128-1"></a><span class="cm">/* 对数阶（递归实现） */</span>
-<a id="__codelineno-128-2" name="__codelineno-128-2" href="#__codelineno-128-2"></a><span class="kd">func</span> <span class="nf">logRecur</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<a id="__codelineno-128-2" name="__codelineno-128-2" href="#__codelineno-128-2"></a><span class="kd">func</span> <span class="nf">logRecur</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Double</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
 <a id="__codelineno-128-3" name="__codelineno-128-3" href="#__codelineno-128-3"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="p">{</span>
 <a id="__codelineno-128-4" name="__codelineno-128-4" href="#__codelineno-128-4"></a>        <span class="k">return</span> <span class="mi">0</span>
 <a id="__codelineno-128-5" name="__codelineno-128-5" href="#__codelineno-128-5"></a>    <span class="p">}</span>
@@ -3852,7 +3852,7 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 <a id="__codelineno-138-4" name="__codelineno-138-4" href="#__codelineno-138-4"></a>        <span class="k">return</span> <span class="mi">1</span>
 <a id="__codelineno-138-5" name="__codelineno-138-5" href="#__codelineno-138-5"></a>    <span class="p">}</span>
 <a id="__codelineno-138-6" name="__codelineno-138-6" href="#__codelineno-138-6"></a>    <span class="kd">var</span> <span class="nv">count</span> <span class="p">=</span> <span class="n">linearLogRecur</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">linearLogRecur</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-138-7" name="__codelineno-138-7" href="#__codelineno-138-7"></a>    <span class="k">for</span> <span class="kc">_</span> <span class="k">in</span> <span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="nb">Int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-138-7" name="__codelineno-138-7" href="#__codelineno-138-7"></a>    <span class="k">for</span> <span class="kc">_</span> <span class="k">in</span> <span class="n">sequence</span><span class="p">(</span><span class="bp">first</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">next</span><span class="p">:</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">?</span> <span class="nv">$0</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="kc">nil</span> <span class="p">})</span> <span class="p">{</span>
 <a id="__codelineno-138-8" name="__codelineno-138-8" href="#__codelineno-138-8"></a>        <span class="bp">count</span> <span class="o">+=</span> <span class="mi">1</span>
 <a id="__codelineno-138-9" name="__codelineno-138-9" href="#__codelineno-138-9"></a>    <span class="p">}</span>
 <a id="__codelineno-138-10" name="__codelineno-138-10" href="#__codelineno-138-10"></a>    <span class="k">return</span> <span class="bp">count</span>
