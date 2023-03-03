@@ -111,6 +111,7 @@ class ArrayDeque {
     }
 }
 
+/* Driver Code */
 /* 初始化双向队列 */
 const capacity = 5;
 const deque = new ArrayDeque(capacity);
