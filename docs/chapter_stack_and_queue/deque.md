@@ -439,7 +439,7 @@
 
 === "JavaScript"
 
-    ```js title="array_deque.js"
+    ```javascript title="array_deque.js"
     [class]{ArrayDeque}-[func]{}
     ```
 

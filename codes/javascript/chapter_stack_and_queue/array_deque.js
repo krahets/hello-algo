@@ -4,7 +4,6 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-
 /* 基于环形数组实现的双向队列 */
 class ArrayDeque {
     #nums;       // 用于存储双向队列元素的数组

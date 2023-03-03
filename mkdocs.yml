@@ -127,6 +127,7 @@ nav:
   - 0. &nbsp; &nbsp; 写在前面:
     - 0.1. &nbsp; 关于本书: chapter_preface/about_the_book.md
     - 0.2. &nbsp; 如何使用本书: chapter_preface/suggestions.md
+    - 0.3. &nbsp; 小结: chapter_preface/summary.md
   - 1. &nbsp; &nbsp; 引言:
     - 1.1. &nbsp; 算法无处不在: chapter_introduction/algorithms_are_everywhere.md
     - 1.2. &nbsp; 算法是什么: chapter_introduction/what_is_dsa.md
