@@ -142,7 +142,7 @@ $$
 
     ```swift title=""
     // 在某运行平台下
-    func algorithm(_ n: Int) {
+    func algorithm(n: Int) {
         var a = 2 // 1 ns
         a = a + 1 // 1 ns
         a = a * 2 // 10 ns
@@ -344,19 +344,19 @@ $$
 
     ```swift title=""
     // 算法 A 时间复杂度：常数阶
-    func algorithmA(_ n: Int) {
+    func algorithmA(n: Int) {
         print(0)
     }
 
     // 算法 B 时间复杂度：线性阶
-    func algorithmB(_ n: Int) {
+    func algorithmB(n: Int) {
         for _ in 0 ..< n {
             print(0)
         }
     }
 
     // 算法 C 时间复杂度：常数阶
-    func algorithmC(_ n: Int) {
+    func algorithmC(n: Int) {
         for _ in 0 ..< 1000000 {
             print(0)
         }
@@ -1961,7 +1961,7 @@ $$
 
     ```swift title="time_complexity.swift"
     /* 对数阶（循环实现） */
-    func logarithmic(n: Int) -> Int {
+    func logarithmic(n: Double) -> Int {
         var count = 0
         var n = n
         while n > 1 {
@@ -2076,7 +2076,7 @@ $$
 
     ```swift title="time_complexity.swift"
     /* 对数阶（递归实现） */
-    func logRecur(n: Int) -> Int {
+    func logRecur(n: Double) -> Int {
         if n <= 1 {
             return 0
         }
@@ -2220,7 +2220,7 @@ $$
             return 1
         }
         var count = linearLogRecur(n: n / 2) + linearLogRecur(n: n / 2)
-        for _ in 0 ..< Int(n) {
+        for _ in sequence(first: 0, next: { $0 < n - 1 ? $0 + 1 : nil }) {
             count += 1
         }
         return count
