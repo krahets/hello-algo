@@ -88,7 +88,7 @@ func expRecur(n: Int) -> Int {
 }
 
 /* 对数阶（循环实现） */
-func logarithmic(n: Int) -> Int {
+func logarithmic(n: Double) -> Int {
     var count = 0
     var n = n
     while n > 1 {
@@ -99,7 +99,7 @@ func logarithmic(n: Int) -> Int {
 }
 
 /* 对数阶（递归实现） */
-func logRecur(n: Int) -> Int {
+func logRecur(n: Double) -> Int {
     if n <= 1 {
         return 0
     }
@@ -107,7 +107,7 @@ func logRecur(n: Int) -> Int {
 }
 
 /* 线性对数阶 */
-func linearLogRecur(n: Int) -> Int {
+func linearLogRecur(n: Double) -> Int {
     if n <= 1 {
         return 1
     }
