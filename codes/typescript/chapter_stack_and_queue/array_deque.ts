@@ -7,9 +7,9 @@
 
 /* 基于环形数组实现的双向队列 */
 class ArrayDeque {
-    nums: number[];     // 用于存储双向队列元素的数组
-    front: number;      // 队首指针，指向队首元素
-    queSize: number;    // 双向队列长度
+    private nums: number[];     // 用于存储双向队列元素的数组
+    private front: number;      // 队首指针，指向队首元素
+    private queSize: number;    // 双向队列长度
 
     /* 构造方法 */
     constructor(capacity: number) {
