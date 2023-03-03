@@ -138,7 +138,7 @@ $$
 
     ```swift title=""
     // 在某运行平台下
-    func algorithm(_ n: Int) {
+    func algorithm(n: Int) {
         var a = 2 // 1 ns
         a = a + 1 // 1 ns
         a = a * 2 // 10 ns
@@ -340,19 +340,19 @@ $$
 
     ```swift title=""
     // 算法 A 时间复杂度：常数阶
-    func algorithmA(_ n: Int) {
+    func algorithmA(n: Int) {
         print(0)
     }
 
     // 算法 B 时间复杂度：线性阶
-    func algorithmB(_ n: Int) {
+    func algorithmB(n: Int) {
         for _ in 0 ..< n {
             print(0)
         }
     }
 
     // 算法 C 时间复杂度：常数阶
-    func algorithmC(_ n: Int) {
+    func algorithmC(n: Int) {
         for _ in 0 ..< 1000000 {
             print(0)
         }
