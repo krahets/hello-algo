@@ -48,7 +48,7 @@ class ArrayDeque {
             return;
         }
         // 队首指针向左移动一位
-        // 通过取余操作，实现 #front 越过数组头部后回到尾部
+        // 通过取余操作，实现 front 越过数组头部后回到尾部
         this.#front = this.index(this.#front - 1);
         // 将 num 添加至队首
         this.#nums[this.#front] = num;
