@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#31" class="md-skip">
+        <a href="#comments-true" class="md-skip">
           跳转至
         </a>
       
@@ -584,8 +584,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           3.1. &nbsp; 数据与内存
@@ -602,8 +600,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -612,11 +608,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#311" class="md-nav__link">
-    3.1.1. &nbsp; 基本数据类型
+  <a href="#comments-true" class="md-nav__link">
+    comments: true
   </a>
   
-    <nav class="md-nav" aria-label="3.1.1. &nbsp; 基本数据类型">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-31" class="md-nav__link">
+    3.1. &nbsp; 3.1. &nbsp; 数据与内存
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. &nbsp; 3.1. &nbsp; 数据与内存">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-311" class="md-nav__link">
+    3.1.1. &nbsp; 3.1.1. &nbsp; 基本数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1.1. &nbsp; 3.1.1. &nbsp; 基本数据类型">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -644,11 +655,16 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#312" class="md-nav__link">
-    3.1.2. &nbsp; 计算机内存
+        
+          <li class="md-nav__item">
+  <a href="#312-312" class="md-nav__link">
+    3.1.2. &nbsp; 3.1.2. &nbsp; 计算机内存
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1670,8 +1686,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1680,11 +1694,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#311" class="md-nav__link">
-    3.1.1. &nbsp; 基本数据类型
+  <a href="#comments-true" class="md-nav__link">
+    comments: true
   </a>
   
-    <nav class="md-nav" aria-label="3.1.1. &nbsp; 基本数据类型">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-31" class="md-nav__link">
+    3.1. &nbsp; 3.1. &nbsp; 数据与内存
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. &nbsp; 3.1. &nbsp; 数据与内存">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-311" class="md-nav__link">
+    3.1.1. &nbsp; 3.1.1. &nbsp; 基本数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1.1. &nbsp; 3.1.1. &nbsp; 基本数据类型">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1712,11 +1741,16 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#312" class="md-nav__link">
-    3.1.2. &nbsp; 计算机内存
+        
+          <li class="md-nav__item">
+  <a href="#312-312" class="md-nav__link">
+    3.1.2. &nbsp; 3.1.2. &nbsp; 计算机内存
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1744,15 +1778,19 @@
 
 
 
-<h1 id="31">3.1. &nbsp; 数据与内存<a class="headerlink" href="#31" title="Permanent link">&para;</a></h1>
-<h2 id="311">3.1.1. &nbsp; 基本数据类型<a class="headerlink" href="#311" title="Permanent link">&para;</a></h2>
+  <h1>3.1. &nbsp; 数据与内存</h1>
+
+<hr />
+<h2 id="comments-true">comments: true<a class="headerlink" href="#comments-true" title="Permanent link">&para;</a></h2>
+<h1 id="31-31">3.1. &nbsp; 3.1. &nbsp; 数据与内存<a class="headerlink" href="#31-31" title="Permanent link">&para;</a></h1>
+<h2 id="311-311">3.1.1. &nbsp; 3.1.1. &nbsp; 基本数据类型<a class="headerlink" href="#311-311" title="Permanent link">&para;</a></h2>
 <p>谈到计算机中的数据，我们能够想到文本、图片、视频、语音、3D 模型等等，这些数据虽然组织形式不同，但都是由各种基本数据类型构成的。</p>
 <p><strong>「基本数据类型」是 CPU 可以直接进行运算的类型，在算法中直接被使用</strong>。</p>
 <ul>
 <li>「整数」根据不同的长度分为 byte, short, int, long ，根据算法需求选用，即在满足取值范围的情况下尽量减小内存空间占用；</li>
 <li>「浮点数」代表小数，根据长度分为 float, double ，同样根据算法的实际需求选用；</li>
-<li>「字符」在计算机中是以字符集的形式保存的，char 的值实际上是数字，代表字符集中的编号，计算机通过字符集查表来完成编号到字符的转换。占用空间与具体编程语言有关，通常为 2 bytes 或 1 byte ；</li>
-<li>「布尔」代表逻辑中的“是”与“否”，其占用空间需要具体根据编程语言确定，通常为 1 byte 或 1 bit ；</li>
+<li>「字符」在计算机中是以字符集的形式保存的，char 的值实际上是数字，代表字符集中的编号，计算机通过字符集查表来完成编号到字符的转换。占用空间通常为 2 bytes 或 1 byte ；</li>
+<li>「布尔」代表逻辑中的“是”与“否”，其占用空间需根据编程语言确定，通常为 1 byte 或 1 bit ；</li>
 </ul>
 <div class="center-table">
 <table>
@@ -1868,6 +1906,8 @@
 <p><img alt="IEEE 754 标准下的 float 表示方式" src="../data_and_memory.assets/ieee_754_float.png" /></p>
 <p align="center"> Fig. IEEE 754 标准下的 float 表示方式 </p>
 
+<p align="center"> Fig. IEEE 754 标准下的 float 表示方式 </p>
+
 <p>以上图为例，<span class="arithmatex">\(\mathrm{S} = 0\)</span> ， <span class="arithmatex">\(\mathrm{E} = 124\)</span> ，<span class="arithmatex">\(\mathrm{N} = 2^{-2} + 2^{-3} = 0.375\)</span> ，易得</p>
 <div class="arithmatex">\[
 \text { val } = (-1)^0 \times 2^{124 - 127} \times (1 + 0.375) = 0.171875
@@ -1875,6 +1915,7 @@
 <p>现在我们可以回答开始的问题：<strong>float 的表示方式包含指数位，导致其取值范围远大于 int</strong> 。根据以上计算， float 可表示的最大正数为 <span class="arithmatex">\(2^{254 - 127} \times (2 - 2^{-23}) \approx 3.4 \times 10^{38}\)</span> ，切换符号位便可得到最小负数。</p>
 <p><strong>浮点数 float 虽然拓展了取值范围，但副作用是牺牲了精度</strong>。整数类型 int 将全部 32 位用于表示数字，数字是均匀分布的；而由于指数位的存在，浮点数 float 的数值越大，相邻两个数字之间的差值就会趋向越大。</p>
 <p>进一步地，指数位 <span class="arithmatex">\(E = 0\)</span> 和 <span class="arithmatex">\(E = 255\)</span> 具有特殊含义，<strong>用于表示零、无穷大、<span class="arithmatex">\(\mathrm{NaN}\)</span> 等</strong>。</p>
+<div class="center-table">
 <table>
 <thead>
 <tr>
@@ -1905,6 +1946,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>特别地，次正规数显著提升了小数精度：</p>
 <ul>
 <li>最小正正规数为 <span class="arithmatex">\(2^{-126} \approx 1.18 \times 10^{-38}\)</span> ；</li>
@@ -1987,11 +2029,13 @@
 </div>
 </div>
 </div>
-<h2 id="312">3.1.2. &nbsp; 计算机内存<a class="headerlink" href="#312" title="Permanent link">&para;</a></h2>
+<h2 id="312-312">3.1.2. &nbsp; 3.1.2. &nbsp; 计算机内存<a class="headerlink" href="#312-312" title="Permanent link">&para;</a></h2>
 <p>在计算机中，内存和硬盘是两种主要的存储硬件设备。「硬盘」主要用于长期存储数据，容量较大（通常可达到 TB 级别）、速度较慢。「内存」用于运行程序时暂存数据，速度较快，但容量较小（通常为 GB 级别）。</p>
 <p><strong>算法运行中，相关数据都被存储在内存中</strong>。下图展示了一个计算机内存条，其中每个黑色方块都包含一块内存空间。我们可以将内存想象成一个巨大的 Excel 表格，其中每个单元格都可以存储 1 byte 的数据，在算法运行时，所有数据都被存储在这些单元格中。</p>
 <p><strong>系统通过「内存地址 Memory Location」来访问目标内存位置的数据</strong>。计算机根据特定规则给表格中每个单元格编号，保证每块内存空间都有独立的内存地址。自此，程序便通过这些地址，访问内存中的数据。</p>
 <p><img alt="内存条、内存空间、内存地址" src="../data_and_memory.assets/computer_memory_location.png" /></p>
+<p align="center"> Fig. 内存条、内存空间、内存地址 </p>
+
 <p align="center"> Fig. 内存条、内存空间、内存地址 </p>
 
 <p><strong>内存资源是设计数据结构与算法的重要考虑因素</strong>。内存是所有程序的公共资源，当内存被某程序占用时，不能被其它程序同时使用。我们需要根据剩余内存资源的情况来设计算法。例如，若剩余内存空间有限，则要求算法占用的峰值内存不能超过系统剩余内存；若运行的程序很多、缺少大块连续的内存空间，则要求选取的数据结构必须能够存储在离散的内存空间内。</p>
