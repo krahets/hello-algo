@@ -29,14 +29,23 @@
 
 /* Center Markdown Tables (requires md_in_html extension) */
 .center-table {
-    text-align: center;
+  text-align: center;
 }
 
+/* Reset alignment for table cells */
 .md-typeset .center-table :is(td,th):not([align]) {
-    /* Reset alignment for table cells */
-    text-align: initial;
+  text-align: initial;
 }
 
+/* Font size */
+.md-typeset {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.md-typeset pre {
+  font-size: 0.95em;
+}
 
 /* Markdown Header */
 /* https://github.com/squidfunk/mkdocs-material/blob/dcab57dd1cced4b77875c1aa1b53467c62709d31/src/assets/stylesheets/main/_typeset.scss */
@@ -72,5 +81,5 @@ body {
 /* max height of code block */
 /* https://github.com/squidfunk/mkdocs-material/issues/3444 */
 .md-typeset pre > code {
-  max-height: 30rem;
+  max-height: 25rem;
 }
