@@ -29,6 +29,7 @@
   </em>
 </p>
 
+
 ## 关于本书
 
 本项目致力于构建一本开源免费、新手友好的数据结构与算法入门书。
@@ -48,6 +49,19 @@
 > “如果我当年学数据结构与算法的时候有《Hello 算法》，学起来应该会简单 10 倍！”
 >
 > **—— 李沐，亚马逊资深首席科学家**
+
+## 部署
+
+```bash
+git clone https://github.com/krahets/hello-algo.git
+
+cd hello-algo
+#安装mkdocs
+pip install mkdocs mkdocs-material
+
+#运行
+mkdocs serve
+```
 
 ## 参与写作
 
