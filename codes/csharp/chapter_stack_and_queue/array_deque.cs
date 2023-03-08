@@ -1,4 +1,10 @@
-﻿using NUnit.Framework;
+﻿/**
+ * File: array_deque.cs
+ * Created Time: 2023-03-08
+ * Author: hpstory (hpstory1024@163.com)
+ */
+
+using NUnit.Framework;
 
 namespace hello_algo.chapter_stack_and_queue
 {
@@ -51,7 +57,6 @@ namespace hello_algo.chapter_stack_and_queue
                 Console.WriteLine("双向队列已满");
                 return;
             }
-
             // 队首指针向左移动一位
             // 通过取余操作，实现 front 越过数组头部后回到尾部
             front = index(front - 1);
@@ -68,7 +73,6 @@ namespace hello_algo.chapter_stack_and_queue
                 Console.WriteLine("双向队列已满");
                 return;
             }
-
             // 计算尾指针，指向队尾索引 + 1
             int rear = index(front + queSize);
             // 将 num 添加至队尾
@@ -100,8 +104,7 @@ namespace hello_algo.chapter_stack_and_queue
             if (isEmpty())
             {
                 throw new InvalidOperationException();
-            }
-                
+            }              
             return nums[front];
         }
 
@@ -111,8 +114,7 @@ namespace hello_algo.chapter_stack_and_queue
             if (isEmpty())
             {
                 throw new InvalidOperationException();
-            }
-                
+            }               
             // 计算尾元素索引
             int last = index(front + queSize - 1);
             return nums[last];

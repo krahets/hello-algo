@@ -1,4 +1,10 @@
-﻿using NUnit.Framework;
+﻿/**
+ * File: linkedlist_deque.cs
+ * Created Time: 2023-03-08
+ * Author: hpstory (hpstory1024@163.com)
+ */
+
+using NUnit.Framework;
 
 namespace hello_algo.chapter_stack_and_queue
 {
@@ -57,9 +63,9 @@ namespace hello_algo.chapter_stack_and_queue
                 // 将 node 添加至链表头部
                 front.prev = node;
                 node.next = front;
-                front = node; // 更新头结点
-                              // 队尾入队操作
+                front = node; // 更新头结点                           
             }
+            // 队尾入队操作
             else
             {
                 // 将 node 添加至链表尾部
@@ -106,8 +112,8 @@ namespace hello_algo.chapter_stack_and_queue
                 }
 
                 front = fNext;   // 更新头结点
-                                 // 队尾出队操作
             }
+            // 队尾出队操作
             else
             {
                 val = rear.val;  // 暂存尾结点值
