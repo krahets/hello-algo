@@ -1,4 +1,10 @@
-﻿using hello_algo.include;
+﻿/**
+ * File: graph_dfs.cs
+ * Created Time: 2023-03-08
+ * Author: hpstory (hpstory1024@163.com)
+ */
+
+using hello_algo.include;
 using NUnit.Framework;
 
 namespace hello_algo.chapter_graph
@@ -10,15 +16,14 @@ namespace hello_algo.chapter_graph
         {
             res.Add(vet);     // 记录访问顶点
             visited.Add(vet); // 标记该顶点已被访问
-                              // 遍历该顶点的所有邻接顶点
+            // 遍历该顶点的所有邻接顶点
             foreach (Vertex adjVet in graph.adjList[vet])
             {
                 if (visited.Contains(adjVet))
                 {
-                    continue; // 跳过已被访问过的顶点
-                              // 递归访问邻接顶点
+                    continue; // 跳过已被访问过的顶点                             
                 }
-
+                // 递归访问邻接顶点
                 dfs(graph, visited, res, adjVet);
             }
         }

@@ -1,4 +1,10 @@
-﻿using hello_algo.include;
+﻿/**
+ * File: graph_bfs.cs
+ * Created Time: 2023-03-08
+ * Author: hpstory (hpstory1024@163.com)
+ */
+
+using hello_algo.include;
 using NUnit.Framework;
 
 namespace hello_algo.chapter_graph
@@ -27,7 +33,6 @@ namespace hello_algo.chapter_graph
                     {
                         continue;          // 跳过已被访问过的顶点
                     }
-
                     que.Enqueue(adjVet);   // 只入队未访问的顶点
                     visited.Add(adjVet);   // 标记该顶点已被访问
                 }
