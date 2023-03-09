@@ -66,11 +66,11 @@ theme:
 
 extra:
   social:
-    - icon: fontawesome/brands/github 
+    - icon: fontawesome/brands/github
       link: https://github.com/krahets
-    - icon: fontawesome/brands/twitter 
+    - icon: fontawesome/brands/twitter
       link: https://twitter.com/krahets
-    - icon: fontawesome/solid/code 
+    - icon: fontawesome/solid/code
       link: https://leetcode.cn/u/jyd/
   generator: false
 

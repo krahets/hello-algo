@@ -15,9 +15,9 @@
 </br>
 
 <p align="center">
-  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="400">
+  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="49%">
   <a>&nbsp;</a>
-  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="400">
+  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="49%">
 </p>
 
 <p align="center">
@@ -27,14 +27,21 @@
     hello-algo.com
     </a>
   </em>
+  &nbsp; | &nbsp;
+  <em>
+    下载 PDF >
+    <a href="https://github.com/krahets/hello-algo/releases/tag/1.0.0b1">
+    Release
+    </a>
+  </em>
 </p>
 
 ## 关于本书
 
 本项目致力于构建一本开源免费、新手友好的数据结构与算法入门书。
 
-- 全书采用动画图解，结构化地讲解数据结构与算法知识，内容清晰易懂、学习曲线平滑；
-- 算法源代码皆可一键运行，支持 Java, C++, Python, Go, JS, TS, C#, Swift, Zig 等语言；
+- 全书采用动画图解，内容清晰易懂、学习曲线平滑，引导初学者探索数据结构与算法的“知识地图”；
+- 源代码可一键运行，帮助读者在实践练习中提升编程技能，了解算法工作原理和数据结构底层实现；
 - 鼓励读者在章节讨论区互帮互助、共同进步，提问与评论一般能在两日内得到回复；
 
 如果本书对您有所帮助，请点个 Star :star: 支持一下，谢谢！
