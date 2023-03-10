@@ -16,7 +16,6 @@
 
 <p align="center">
   <img src="https://www.hello-algo.com/index.assets/animation.gif" width="49%">
-  <a>&nbsp;</a>
   <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="49%">
 </p>
 
@@ -27,11 +26,12 @@
     hello-algo.com
     </a>
   </em>
-  &nbsp; | &nbsp;
+</p>
+<p align="center">
   <em>
     下载 PDF >
     <a href="https://github.com/krahets/hello-algo/releases/tag/1.0.0b1">
-    Release
+    Releases/1.0.0b1
     </a>
   </em>
 </p>
