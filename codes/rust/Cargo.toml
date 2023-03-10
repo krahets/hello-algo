@@ -29,6 +29,11 @@ path = "chapter_array_and_linkedlist/array.rs"
 name = "list"
 path = "chapter_array_and_linkedlist/list.rs"
 
+# Run Command: cargo run --bin linked_list
+[[bin]]
+name = "linked_list"
+path = "chapter_array_and_linkedlist/linked_list.rs"
+
 # Run Command: cargo run --bin stack
 [[bin]]
 name = "stack"
