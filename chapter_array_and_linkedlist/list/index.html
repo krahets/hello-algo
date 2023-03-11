@@ -2542,7 +2542,7 @@
 <a id="__codelineno-62-30" name="__codelineno-62-30" href="#__codelineno-62-30"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot; 尾部添加元素 &quot;&quot;&quot;</span>
 <a id="__codelineno-62-31" name="__codelineno-62-31" href="#__codelineno-62-31"></a>        <span class="c1"># 元素数量超出容量时，触发扩容机制</span>
 <a id="__codelineno-62-32" name="__codelineno-62-32" href="#__codelineno-62-32"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">():</span>
-<a id="__codelineno-62-33" name="__codelineno-62-33" href="#__codelineno-62-33"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">extend_capacity</span><span class="p">();</span>
+<a id="__codelineno-62-33" name="__codelineno-62-33" href="#__codelineno-62-33"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">extend_capacity</span><span class="p">()</span>
 <a id="__codelineno-62-34" name="__codelineno-62-34" href="#__codelineno-62-34"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__nums</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__size</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span>
 <a id="__codelineno-62-35" name="__codelineno-62-35" href="#__codelineno-62-35"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__size</span> <span class="o">+=</span> <span class="mi">1</span>
 <a id="__codelineno-62-36" name="__codelineno-62-36" href="#__codelineno-62-36"></a>
