@@ -965,7 +965,7 @@ comments: true
             """ 尾部添加元素 """
             # 元素数量超出容量时，触发扩容机制
             if self.size() == self.capacity():
-                self.extend_capacity();
+                self.extend_capacity()
             self.__nums[self.__size] = num
             self.__size += 1
 

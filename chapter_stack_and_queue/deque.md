@@ -91,28 +91,28 @@ comments: true
 
     ```python title="deque.py"
     """ 初始化双向队列 """
-    duque = deque()
+    deque = deque()
     
     """ 元素入队 """
-    duque.append(2)      # 添加至队尾
-    duque.append(5)
-    duque.append(4)
-    duque.appendleft(3)  # 添加至队首
-    duque.appendleft(1)
+    deque.append(2)      # 添加至队尾
+    deque.append(5)
+    deque.append(4)
+    deque.appendleft(3)  # 添加至队首
+    deque.appendleft(1)
     
     """ 访问元素 """
-    front = duque[0]  # 队首元素
-    rear = duque[-1]  # 队尾元素
+    front = deque[0]  # 队首元素
+    rear = deque[-1]  # 队尾元素
     
     """ 元素出队 """
-    pop_front = duque.popleft()  # 队首元素出队
-    pop_rear = duque.pop()       # 队尾元素出队
+    pop_front = deque.popleft()  # 队首元素出队
+    pop_rear = deque.pop()       # 队尾元素出队
     
     """ 获取双向队列的长度 """
-    size = len(duque)
+    size = len(deque)
     
     """ 判断双向队列是否为空 """
-    is_empty = len(duque) == 0
+    is_empty = len(deque) == 0
     ```
 
 === "Go"
@@ -2034,3 +2034,9 @@ comments: true
     ```zig title="array_deque.zig"
     [class]{ArrayDeque}-[func]{}
     ```
+
+## 5.3.3. &nbsp; 双向队列应用
+
+双向队列同时表现出栈与队列的逻辑，**因此可以实现两者的所有应用，并且提供更高的自由度**。
+
+我们知道，软件的“撤销”功能需要使用栈来实现；系统把每一次更改操作 `push` 到栈中，然后通过 `pop` 实现撤销。然而，考虑到系统资源有限，软件一般会限制撤销的步数（例如仅允许保存 $50$ 步），那么当栈的长度 $> 50$ 时，软件就需要在栈底（即队首）执行删除，**但栈无法实现，此时就需要使用双向队列来替代栈**。注意，“撤销”的核心逻辑仍然是栈的先入后出，只是双向队列可以更加灵活地实现。
