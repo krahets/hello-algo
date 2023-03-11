@@ -26,7 +26,7 @@ int main() {
     cout << "栈顶元素 top = " << top << endl;
 
     /* 元素出栈 */
-    stack.pop();
+    stack.pop(); // 无返回值
     cout << "出栈元素 pop = " << top << "，出栈后 stack = ";
     PrintUtil::printStack(stack);
 

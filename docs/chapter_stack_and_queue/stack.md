@@ -10,7 +10,7 @@
 
 ## 栈常用操作
 
-栈的常用操作见下表（方法命名以 Java 为例）。
+栈的常用操作见下表，方法名需根据语言来确定，此处以 Java 为例。
 
 <div class="center-table" markdown>
 
@@ -19,8 +19,6 @@
 | push()    | 元素入栈（添加至栈顶） | $O(1)$     |
 | pop()     | 栈顶元素出栈           | $O(1)$     |
 | peek()    | 访问栈顶元素           | $O(1)$     |
-| size()    | 获取栈的长度           | $O(1)$     |
-| isEmpty() | 判断栈是否为空         | $O(1)$     |
 
 </div>
 
@@ -30,25 +28,24 @@
 
     ```java title="stack.java"
     /* 初始化栈 */
-    // 在 Java 中，推荐将 ArrayList 当作栈来使用
-    List<Integer> stack = new ArrayList<>();
-    
+    Stack<Integer> stack = new Stack<>();
+
     /* 元素入栈 */
-    stack.add(1);
-    stack.add(3);
-    stack.add(2);
-    stack.add(5);
-    stack.add(4);
-    
+    stack.push(1);
+    stack.push(3);
+    stack.push(2);
+    stack.push(5);
+    stack.push(4);
+
     /* 访问栈顶元素 */
-    int peek = stack.get(stack.size() - 1);
-    
+    int peek = stack.peek();
+
     /* 元素出栈 */
-    int pop = stack.remove(stack.size() - 1);
-    
+    int pop = stack.pop();
+
     /* 获取栈的长度 */
     int size = stack.size();
-    
+
     /* 判断是否为空 */
     boolean isEmpty = stack.isEmpty();
     ```
@@ -70,7 +67,7 @@
     int top = stack.top();
     
     /* 元素出栈 */
-    stack.pop();
+    stack.pop(); // 无返回值
     
     /* 获取栈的长度 */
     int size = stack.size();
