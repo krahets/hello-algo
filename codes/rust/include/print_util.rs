@@ -47,7 +47,7 @@ pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
 
 /* Print a linked list */
 pub fn print_linked_list<T: Display>(head: &Rc<RefCell<ListNode<T>>>) {
-    print!("{}{}", head.borrow().val, if head.borrow().next.is_none() {"\n"} else {"->"});
+    print!("{}{}", head.borrow().val, if head.borrow().next.is_none() {"\n"} else {" -> "});
     if let Some(node) = &head.borrow().next {
         return print_linked_list(node);
     }
