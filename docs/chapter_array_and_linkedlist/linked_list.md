@@ -93,8 +93,8 @@
     ```c title=""
     /* 链表结点结构体 */
     struct ListNode {
-        int val;         // 结点值
-        ListNode *next;  // 指向下一结点的指针（引用）
+        int val;               // 结点值
+        struct ListNode *next; // 指向下一结点的指针（引用）
     };
     ```
 
