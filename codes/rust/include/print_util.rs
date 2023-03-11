@@ -9,6 +9,7 @@ use std::fmt::Display;
 use std::collections::{HashMap, VecDeque};
 use std::rc::Rc;
 
+use crate::list_node::ListNode;
 use crate::tree_node::TreeNode;
 
 struct Trunk<'a, 'b> {
@@ -43,6 +44,15 @@ pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
         print!("{}{}", data, if i == queue.len() - 1 {"]"} else {", "} );
     }
 }
+
+/* Print a linked list */
+pub fn print_linked_list<T: Display>(head: &Rc<RefCell<ListNode<T>>>) {
+    print!("{}{}", head.borrow().val, if head.borrow().next.is_none() {"\n"} else {" -> "});
+    if let Some(node) = &head.borrow().next {
+        return print_linked_list(node);
+    }
+}
+
 pub fn print_tree(root: &Rc<RefCell<TreeNode>>) {
     _print_tree(Some(root), None, false);
 }

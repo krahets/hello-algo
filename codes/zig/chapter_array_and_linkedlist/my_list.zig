@@ -160,7 +160,6 @@ pub fn main() !void {
     inc.PrintUtil.printArray(i32, try list.toArray());
 
     // 测试扩容机制
-    list.set(1, 0);
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
         // 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
