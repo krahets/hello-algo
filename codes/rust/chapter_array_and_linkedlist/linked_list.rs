@@ -60,17 +60,17 @@ fn main() {
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
     n3.borrow_mut().next = Some(n4.clone());
-    print!("初始化的链表为");
+    print!("初始化的链表为 ");
     print_util::print_linked_list(&n0);
 
     /* 插入结点 */
     insert(&n0, ListNode::new(0));
-    print!("插入结点后的链表为");
+    print!("插入结点后的链表为 ");
     print_util::print_linked_list(&n0);
 
     /* 删除结点 */
     remove(&n0);
-    print!("删除结点后的链表为");
+    print!("删除结点后的链表为 ");
     print_util::print_linked_list(&n0);
    
     /* 访问结点 */
