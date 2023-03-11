@@ -12,7 +12,7 @@ comments: true
 
 ## 5.3.1. &nbsp; 双向队列常用操作
 
-双向队列的常用操作见下表，方法名需根据特定语言来确定。
+双向队列的常用操作见下表，方法名需根据语言来确定，此处以 Java 为例。
 
 <div class="center-table" markdown>
 
@@ -24,8 +24,6 @@ comments: true
 | pollLast()   | 删除队尾元素     | $O(1)$     |
 | peekFirst()  | 访问队首元素     | $O(1)$     |
 | peekLast()   | 访问队尾元素     | $O(1)$     |
-| size()       | 获取队列的长度   | $O(1)$     |
-| isEmpty()    | 判断队列是否为空 | $O(1)$     |
 
 </div>
 
