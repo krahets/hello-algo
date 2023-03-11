@@ -24,15 +24,20 @@ path = "chapter_computational_complexity/leetcode_two_sum.rs"
 name = "array"
 path = "chapter_array_and_linkedlist/array.rs"
 
+# Run Command: cargo run --bin linked_list
+[[bin]]
+name = "linked_list"
+path = "chapter_array_and_linkedlist/linked_list.rs"
+
 # Run Command: cargo run --bin list
 [[bin]]
 name = "list"
 path = "chapter_array_and_linkedlist/list.rs"
 
-# Run Command: cargo run --bin linked_list
+# Run Command: cargo run --bin my_list
 [[bin]]
-name = "linked_list"
-path = "chapter_array_and_linkedlist/linked_list.rs"
+name = "my_list"
+path = "chapter_array_and_linkedlist/my_list.rs"
 
 # Run Command: cargo run --bin stack
 [[bin]]
