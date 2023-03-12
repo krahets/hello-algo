@@ -30,7 +30,7 @@ pub fn LinkedListDeque(comptime T: type) type {
 
         front: ?*ListNode(T) = null,                    // 头结点 front
         rear: ?*ListNode(T) = null,                     // 尾结点 rear
-        deqSize: usize = 0,                             // 双向队列的长度
+        que_size: usize = 0,                             // 双向队列的长度
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
@@ -42,7 +42,7 @@ pub fn LinkedListDeque(comptime T: type) type {
             }
             self.front = null;
             self.rear = null;
-            self.deqSize = 0;
+            self.que_size = 0;
         }
 
         // 析构方法（释放内存）
@@ -53,7 +53,7 @@ pub fn LinkedListDeque(comptime T: type) type {
 
         // 获取双向队列的长度
         pub fn size(self: *Self) usize {
-            return self.deqSize;
+            return self.que_size;
         }
 
         // 判断双向队列是否为空
@@ -82,7 +82,7 @@ pub fn LinkedListDeque(comptime T: type) type {
                 node.prev = self.rear;
                 self.rear = node;   // 更新尾结点
             }
-            self.deqSize += 1;      // 更新队列长度
+            self.que_size += 1;      // 更新队列长度
         } 
 
         // 队首入队
@@ -120,7 +120,7 @@ pub fn LinkedListDeque(comptime T: type) type {
                 }
                 self.rear = rPrev;          // 更新尾结点
             }
-            self.deqSize -= 1;              // 更新队列长度
+            self.que_size -= 1;              // 更新队列长度
             return val;
         } 
 

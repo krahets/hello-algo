@@ -8,6 +8,7 @@ include!("../include/include.rs");
 
 use std::rc::Rc;
 use std::cell::RefCell;
+use list_node::ListNode;
 
 /* 基于链表实现的队列 */
 #[allow(dead_code)]
