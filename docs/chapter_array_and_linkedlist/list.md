@@ -35,9 +35,9 @@
     ```python title="list.py"
     """ 初始化列表 """
     # 无初始值
-    list1 = []
+    list1: List[int] = []
     # 有初始值
-    list = [1, 3, 2, 5, 4]
+    list: List[int] = [1, 3, 2, 5, 4]
     ```
 
 === "Go"
@@ -132,7 +132,7 @@
 
     ```python title="list.py"
     """ 访问元素 """
-    num = list[1]  # 访问索引 1 处的元素
+    num: int = list[1]  # 访问索引 1 处的元素
 
     """ 更新元素 """
     list[1] = 0    # 将索引 1 处的元素更新为 0
@@ -430,12 +430,12 @@
 
     ```python title="list.py"
     """ 通过索引遍历列表 """
-    count = 0
+    count: int = 0
     for i in range(len(list)):
         count += 1
 
     """ 直接遍历列表元素 """
-    count = 0
+    count: int = 0
     for n in list:
         count += 1
     ```
@@ -568,7 +568,7 @@
 
     ```python title="list.py"
     """ 拼接两个列表 """
-    list1 = [6, 8, 7, 10, 9]
+    list1: List[int] = [6, 8, 7, 10, 9]
     list += list1  # 将列表 list1 拼接到 list 之后
     ```
 

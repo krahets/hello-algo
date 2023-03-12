@@ -10,12 +10,10 @@ from modules import *
 
 class GraphAdjList:
     """ 基于邻接表实现的无向图类 """
-    # 邻接表，key: 顶点，value：该顶点的所有邻接顶点
-    adj_list = {}
-
     def __init__(self, edges: List[List[Vertex]]) -> None:
         """ 构造方法 """
-        self.adj_list = {}
+        # 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        self.adj_list: Dict = {}
         # 添加所有顶点和边
         for edge in edges:
             self.add_vertex(edge[0])

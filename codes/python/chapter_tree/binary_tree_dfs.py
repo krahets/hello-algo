@@ -9,7 +9,7 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
 
-def pre_order(root: Optional[TreeNode]):
+def pre_order(root: Optional[TreeNode]) -> None:
     """ 前序遍历 """
     if root is None:
         return
@@ -18,7 +18,7 @@ def pre_order(root: Optional[TreeNode]):
     pre_order(root=root.left)
     pre_order(root=root.right)
 
-def in_order(root: Optional[TreeNode]):
+def in_order(root: Optional[TreeNode]) -> None:
     """ 中序遍历 """
     if root is None:
         return
@@ -27,7 +27,7 @@ def in_order(root: Optional[TreeNode]):
     res.append(root.val)
     in_order(root=root.right)
 
-def post_order(root: Optional[TreeNode]):
+def post_order(root: Optional[TreeNode]) -> None:
     """ 后序遍历 """
     if root is None:
         return
@@ -36,7 +36,6 @@ def post_order(root: Optional[TreeNode]):
     post_order(root=root.right)
     res.append(root.val)
 
-res = []
 
 """ Driver Code """
 if __name__ == "__main__":
@@ -47,7 +46,7 @@ if __name__ == "__main__":
     print_tree(root)
 
     # 前序遍历
-    res.clear()
+    res = []
     pre_order(root)
     print("\n前序遍历的结点打印序列 = ", res)
     assert res == [1, 2, 4, 5, 3, 6, 7]

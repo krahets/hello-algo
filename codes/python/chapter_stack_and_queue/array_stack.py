@@ -10,33 +10,33 @@ from modules import *
 
 class ArrayStack:
     """ 基于数组实现的栈 """
-    def __init__(self):
+    def __init__(self) -> None:
         """ 构造方法 """
-        self.__stack = []
+        self.__stack: List[int] = []
 
-    def size(self):
+    def size(self) -> int:
         """ 获取栈的长度 """
         return len(self.__stack)
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         """ 判断栈是否为空 """
         return self.__stack == []
 
-    def push(self, item):
+    def push(self, item: int) -> None:
         """ 入栈 """
         self.__stack.append(item)
 
-    def pop(self):
+    def pop(self) -> int:
         """ 出栈 """
         assert not self.is_empty(), "栈为空"
         return self.__stack.pop()
 
-    def peek(self):
+    def peek(self) -> int:
         """ 访问栈顶元素 """
         assert not self.is_empty(), "栈为空"
         return self.__stack[-1]
     
-    def to_list(self):
+    def to_list(self) -> List[int]:
         """ 返回列表用于打印 """
         return self.__stack
 
@@ -55,18 +55,18 @@ if __name__ == "__main__":
     print("栈 stack =", stack.to_list())
 
     """ 访问栈顶元素 """
-    peek = stack.peek()
+    peek: int = stack.peek()
     print("栈顶元素 peek =", peek)
 
     """ 元素出栈 """
-    pop = stack.pop()
+    pop: int = stack.pop()
     print("出栈元素 pop =", pop)
     print("出栈后 stack =", stack.to_list())
 
     """ 获取栈的长度 """
-    size = stack.size()
+    size: int = stack.size()
     print("栈的长度 size =", size)
 
     """ 判断是否为空 """
-    is_empty = stack.is_empty()
+    is_empty: bool = stack.is_empty()
     print("栈是否为空 =", is_empty)

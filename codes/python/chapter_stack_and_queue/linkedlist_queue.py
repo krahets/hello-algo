@@ -4,9 +4,7 @@ Created Time: 2022-12-01
 Author: Peng Chen (pengchzn@gmail.com)
 """
 
-import os.path as osp
-import sys
-
+import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
@@ -14,19 +12,19 @@ class LinkedListQueue:
     """ 基于链表实现的队列 """
     def __init__(self):
         """ 构造方法 """
-        self.__front = None  # 头结点 front
-        self.__rear = None   # 尾结点 rear
-        self.__size = 0
+        self.__front: Optional[ListNode] = None  # 头结点 front
+        self.__rear: Optional[ListNode] = None   # 尾结点 rear
+        self.__size: int = 0
 
-    def size(self):
+    def size(self) -> int:
         """ 获取队列的长度 """
         return self.__size
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         """ 判断队列是否为空 """
         return not self.__front
 
-    def push(self, num):
+    def push(self, num: int) -> None:
         """ 入队 """
         # 尾结点后添加 num
         node = ListNode(num)
@@ -40,7 +38,7 @@ class LinkedListQueue:
             self.__rear = node
         self.__size += 1
 
-    def poll(self):
+    def poll(self) -> int:
         """ 出队 """
         num = self.peek()
         # 删除头结点
@@ -48,14 +46,14 @@ class LinkedListQueue:
         self.__size -= 1
         return num
 
-    def peek(self):
+    def peek(self) -> int:
         """ 访问队首元素 """
         if self.size() == 0:
             print("队列为空")
             return False
         return self.__front.val
 
-    def to_list(self):
+    def to_list(self) -> List[int]:
         """ 转化为列表用于打印 """
         queue = []
         temp = self.__front
@@ -79,18 +77,18 @@ if __name__ == "__main__":
     print("队列 queue =", queue.to_list())
 
     """ 访问队首元素 """
-    peek = queue.peek()
+    peek: int = queue.peek()
     print("队首元素 front =", peek)
 
     """ 元素出队 """
-    pop_front = queue.poll()
+    pop_front: int = queue.poll()
     print("出队元素 poll =", pop_front)
     print("出队后 queue =", queue.to_list())
 
     """ 获取队列的长度 """
-    size = queue.size()
+    size: int = queue.size()
     print("队列长度 size =", size)
 
     """ 判断队列是否为空 """
-    is_empty = queue.is_empty()
+    is_empty: bool = queue.is_empty()
     print("队列是否为空 =", is_empty)

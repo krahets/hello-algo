@@ -81,7 +81,7 @@
 
     ```python title="hash_map.py"
     """ 初始化哈希表 """
-    mapp = {}
+    mapp: Dict = {}
     
     """ 添加操作 """
     # 在哈希表中添加键值对 (key, value)
@@ -93,7 +93,7 @@
     
     """ 查询操作 """
     # 向哈希表输入键 key ，得到值 value
-    name = mapp[15937]
+    name: str = mapp[15937]
     
     """ 删除操作 """
     # 在哈希表中删除键值对 (key, value)

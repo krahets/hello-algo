@@ -10,7 +10,7 @@ from modules import *
 
 class QuickSort:
     """ 快速排序类 """
-    def partition(self, nums, left, right):
+    def partition(self, nums: List[int], left: int, right: int) -> int:
         """ 哨兵划分 """
         # 以 nums[left] 作为基准数
         i, j = left, right
@@ -25,20 +25,20 @@ class QuickSort:
         nums[i], nums[left] = nums[left], nums[i]
         return i  # 返回基准数的索引
 
-    def quick_sort(self, nums, left, right):
+    def quick_sort(self, nums: List[int], left: int, right: int) -> None:
         """ 快速排序 """
         # 子数组长度为 1 时终止递归
         if left >= right:
             return
         # 哨兵划分
-        pivot = self.partition(nums, left, right)
+        pivot: int = self.partition(nums, left, right)
         # 递归左子数组、右子数组
         self.quick_sort(nums, left, pivot - 1)
         self.quick_sort(nums, pivot + 1, right)
 
 class QuickSortMedian:
     """ 快速排序类（中位基准数优化）"""
-    def median_three(self, nums, left, mid, right):
+    def median_three(self, nums: List[int], left: int, mid: int, right: int) -> int:
         """ 选取三个元素的中位数 """
         # 此处使用异或运算来简化代码
         # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
@@ -48,10 +48,10 @@ class QuickSortMedian:
             return mid
         return right
 
-    def partition(self, nums, left, right):
+    def partition(self, nums: List[int], left: int, right: int) -> int:
         """ 哨兵划分（三数取中值） """
         # 以 nums[left] 作为基准数
-        med = self.median_three(nums, left, (left + right) // 2, right)
+        med: int = self.median_three(nums, left, (left + right) // 2, right)
         # 将中位数交换至数组最左端
         nums[left], nums[med] = nums[med], nums[left]
         # 以 nums[left] 作为基准数
@@ -67,19 +67,20 @@ class QuickSortMedian:
         nums[i], nums[left] = nums[left], nums[i]
         return i  # 返回基准数的索引
 
-    def quick_sort(self, nums, left, right):
+    def quick_sort(self, nums: List[int], left: int, right: int) -> None:
         """ 快速排序 """
         # 子数组长度为 1 时终止递归
-        if left >= right: return
+        if left >= right:
+            return
         # 哨兵划分
-        pivot = self.partition(nums, left, right)
+        pivot: int = self.partition(nums, left, right)
         # 递归左子数组、右子数组
         self.quick_sort(nums, left, pivot - 1)
         self.quick_sort(nums, pivot + 1, right)
 
 class QuickSortTailCall:
     """ 快速排序类（尾递归优化） """
-    def partition(self, nums, left, right):
+    def partition(self, nums: List[int], left: int, right: int) -> int:
         """ 哨兵划分 """
         # 以 nums[left] 作为基准数
         i, j = left, right
@@ -94,12 +95,12 @@ class QuickSortTailCall:
         nums[i], nums[left] = nums[left], nums[i]
         return i  # 返回基准数的索引
 
-    def quick_sort(self, nums, left, right):
+    def quick_sort(self, nums: List[int], left: int, right: int) -> None:
         """ 快速排序（尾递归优化） """
         # 子数组长度为 1 时终止
         while left < right:
             # 哨兵划分操作
-            pivot = self.partition(nums, left, right)
+            pivot: int = self.partition(nums, left, right)
             # 对两个子数组中较短的那个执行快排
             if pivot - left < right - pivot:
                 self.quick_sort(nums, left, pivot - 1)  # 递归排序左子数组
@@ -112,16 +113,16 @@ class QuickSortTailCall:
 """ Driver Code """
 if __name__ == '__main__':
     # 快速排序 
-    nums = [2, 4, 1, 0, 3, 5]
+    nums: List[int] = [2, 4, 1, 0, 3, 5]
     QuickSort().quick_sort(nums, 0, len(nums) - 1)
     print("快速排序完成后 nums =", nums)
 
     # 快速排序（中位基准数优化）
-    nums1 = [2, 4, 1, 0, 3, 5]
+    nums1: List[int] = [2, 4, 1, 0, 3, 5]
     QuickSortMedian().quick_sort(nums1, 0, len(nums1) - 1)
     print("快速排序（中位基准数优化）完成后 nums =", nums1)
 
     # 快速排序（尾递归优化）
-    nums2 = [2, 4, 1, 0, 3, 5]
+    nums2: List[int] = [2, 4, 1, 0, 3, 5]
     QuickSortTailCall().quick_sort(nums2, 0, len(nums2) - 1)
     print("快速排序（尾递归优化）完成后 nums =", nums2)

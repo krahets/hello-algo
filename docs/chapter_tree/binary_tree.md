@@ -5,7 +5,7 @@
 === "Java"
 
     ```java title=""
-    /* 链表结点类 */
+    /* 二叉树结点类 */
     class TreeNode {
         int val;         // 结点值
         TreeNode left;   // 左子结点指针
@@ -17,7 +17,7 @@
 === "C++"
 
     ```cpp title=""
-    /* 链表结点结构体 */
+    /* 二叉树结点结构体 */
     struct TreeNode {
         int val;          // 结点值
         TreeNode *left;   // 左子结点指针
@@ -29,18 +29,18 @@
 === "Python"
 
     ```python title=""
-    """ 链表结点类 """
+    """ 二叉树结点类 """
     class TreeNode:
-        def __init__(self, val=None, left=None, right=None):
-            self.val = val      # 结点值
-            self.left = left    # 左子结点指针
-            self.right = right  # 右子结点指针
+        def __init__(self, val: int):
+            self.val: int = val                   # 结点值
+            self.left: Optional[TreeNode] = None  # 左子结点指针
+            self.right: Optional[TreeNode] = None # 右子结点指针
     ```
 
 === "Go"
 
     ```go title=""
-    /* 链表结点结构体 */
+    /* 二叉树结点结构体 */
     type TreeNode struct {
         Val   int
         Left  *TreeNode
@@ -59,7 +59,7 @@
 === "JavaScript"
 
     ```javascript title=""
-    /* 链表结点类 */
+    /* 二叉树结点类 */
     function TreeNode(val, left, right) {
         this.val = (val === undefined ? 0 : val); // 结点值
         this.left = (left === undefined ? null : left); // 左子结点指针
@@ -70,7 +70,7 @@
 === "TypeScript"
 
     ```typescript title=""
-    /* 链表结点类 */
+    /* 二叉树结点类 */
     class TreeNode {
         val: number;
         left: TreeNode | null;
@@ -93,7 +93,7 @@
 === "C#"
 
     ```csharp title=""
-    /* 链表结点类 */
+    /* 二叉树结点类 */
     class TreeNode {
         int val;          // 结点值
         TreeNode? left;   // 左子结点指针
@@ -105,7 +105,7 @@
 === "Swift"
 
     ```swift title=""
-    /* 链表结点类 */
+    /* 二叉树结点类 */
     class TreeNode {
         var val: Int // 结点值
         var left: TreeNode? // 左子结点指针

@@ -14,7 +14,7 @@ def two_sum_brute_force(nums: List[int], target: int) -> List[int]:
     for i in range(len(nums) - 1):
         for j in range(i + 1, len(nums)):
             if nums[i] + nums[j] == target:
-                return i, j
+                return [i, j]
     return []
 
 def two_sum_hash_table(nums: List[int], target: int) -> List[int]:
@@ -24,7 +24,7 @@ def two_sum_hash_table(nums: List[int], target: int) -> List[int]:
     # 单层循环，时间复杂度 O(n)
     for i in range(len(nums)):
         if target - nums[i] in dic:
-            return dic[target - nums[i]], i
+            return [dic[target - nums[i]], i]
         dic[nums[i]] = i
     return []
 
@@ -37,8 +37,8 @@ if __name__ == '__main__':
     
     # ====== Driver Code ======
     # 方法一
-    res = two_sum_brute_force(nums, target)
+    res: List[int] = two_sum_brute_force(nums, target)
     print("方法一 res =", res)
     # 方法二
-    res = two_sum_hash_table(nums, target)
+    res: List[int] = two_sum_hash_table(nums, target)
     print("方法二 res =", res)

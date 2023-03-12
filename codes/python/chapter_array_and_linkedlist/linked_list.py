@@ -8,13 +8,13 @@ import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
-def insert(n0, P):
+def insert(n0: ListNode, P: ListNode) -> None:
     """ 在链表的结点 n0 之后插入结点 P """
     n1 = n0.next
     P.next = n1
     n0.next = P
 
-def remove(n0):
+def remove(n0: ListNode) -> None:
     """ 删除链表的结点 n0 之后的首个结点 """
     if not n0.next:
         return
@@ -23,7 +23,7 @@ def remove(n0):
     n1 = P.next
     n0.next = n1
 
-def access(head, index):
+def access(head: ListNode, index: int) -> Optional[ListNode]:
     """ 访问链表中索引为 index 的结点 """
     for _ in range(index):
         if not head:
@@ -31,7 +31,7 @@ def access(head, index):
         head = head.next
     return head
 
-def find(head, target):
+def find(head: ListNode, target: int) -> int:
     """ 在链表中查找值为 target 的首个结点 """
     index = 0
     while head:
@@ -70,9 +70,9 @@ if __name__ == "__main__":
     print_linked_list(n0)
 
     """ 访问结点 """
-    node = access(n0, 3)
+    node: ListNode = access(n0, 3)
     print("链表中索引 3 处的结点的值 = {}".format(node.val))
 
     """ 查找结点 """
-    index = find(n0, 2)
+    index: int = find(n0, 2)
     print("链表中值为 2 的结点的索引 = {}".format(index))

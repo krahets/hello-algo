@@ -48,7 +48,7 @@ $$
 
     ```python title=""
     # 在某运行平台下
-    def algorithm(n):
+    def algorithm(n: int) -> None:
         a = 2      # 1 ns
         a = a + 1  # 1 ns
         a = a * 2  # 10 ns
@@ -213,14 +213,14 @@ $$
 
     ```python title=""
     # 算法 A 时间复杂度：常数阶
-    def algorithm_A(n):
+    def algorithm_A(n: int) -> None:
         print(0)
     # 算法 B 时间复杂度：线性阶
-    def algorithm_B(n):
+    def algorithm_B(n: int) -> None:
         for _ in range(n):
             print(0)
     # 算法 C 时间复杂度：常数阶
-    def algorithm_C(n):
+    def algorithm_C(n: int) -> None:
         for _ in range(1000000):
             print(0)
     ```
@@ -414,8 +414,8 @@ $$
 === "Python"
 
     ```python title=""
-    def algorithm(n):
-        a = 1  # +1
+    def algorithm(n: int) -> None:
+        a: int = 1  # +1
         a = a + 1  # +1
         a = a * 2  # +1
         # 循环 n 次
@@ -605,9 +605,9 @@ $$
 === "Python"
 
     ```python title=""
-    def algorithm(n):
-        a = 1      # +0（技巧 1）
-        a = a + n  # +0（技巧 1）
+    def algorithm(n: int) -> None:
+        a: int = 1  # +0（技巧 1）
+        a = a + n   # +0（技巧 1）
         # +n（技巧 2）
         for i in range(5 * n + 1):
             print(0)
