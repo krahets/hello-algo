@@ -71,7 +71,7 @@ comments: true
         for i in range(len(nums) - 1):
             for j in range(i + 1, len(nums)):
                 if nums[i] + nums[j] == target:
-                    return i, j
+                    return [i, j]
         return []
     ```
 
@@ -249,7 +249,7 @@ comments: true
         # 单层循环，时间复杂度 O(n)
         for i in range(len(nums)):
             if target - nums[i] in dic:
-                return dic[target - nums[i]], i
+                return [dic[target - nums[i]], i]
             dic[nums[i]] = i
         return []
     ```

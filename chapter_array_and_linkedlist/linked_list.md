@@ -43,9 +43,9 @@ comments: true
     ```python title=""
     """ 链表结点类 """ 
     class ListNode:
-        def __init__(self, x):
-            self.val = x      # 结点值
-            self.next = None  # 指向下一结点的指针（引用）
+        def __init__(self, val: int):
+            self.val: int = val                  # 结点值
+            self.next: Optional[ListNode] = None # 指向下一结点的指针（引用）
     ```
 
 === "Go"
@@ -351,7 +351,7 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    def insert(n0, P):
+    def insert(n0: ListNode, P: ListNode) -> None:
         """ 在链表的结点 n0 之后插入结点 P """
         n1 = n0.next
         P.next = n1
@@ -470,7 +470,7 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    def remove(n0):
+    def remove(n0: ListNode) -> None:
         """ 删除链表的结点 n0 之后的首个结点 """
         if not n0.next:
             return
@@ -609,7 +609,7 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    def access(head, index):
+    def access(head: ListNode, index: int) -> Optional[ListNode]:
         """ 访问链表中索引为 index 的结点 """
         for _ in range(index):
             if not head:
@@ -757,7 +757,7 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    def find(head, target):
+    def find(head: ListNode, target: int) -> int:
         """ 在链表中查找值为 target 的首个结点 """
         index = 0
         while head:
@@ -914,10 +914,10 @@ comments: true
     ```python title=""
     """ 双向链表结点类 """ 
     class ListNode:
-        def __init__(self, x):
-            self.val = x      # 结点值
-            self.next = None  # 指向后继结点的指针（引用）
-            self.prev = None  # 指向前驱结点的指针（引用）
+        def __init__(self, val: int):
+            self.val: int = val                   # 结点值
+            self.next: Optional[ListNode] = None  # 指向后继结点的指针（引用）
+            self.prev: Optional[ListNode] = None  # 指向前驱结点的指针（引用）
     ```
 
 === "Go"

@@ -139,7 +139,7 @@ comments: true
     heapq.heappush(max_heap, flag * 4)
 
     """ 获取堆顶元素 """
-    peek = flag * max_heap[0] # 5
+    peek: int = flag * max_heap[0] # 5
 
     """ 堆顶元素出堆 """
     # 出堆元素会形成一个从大到小的序列
@@ -150,13 +150,13 @@ comments: true
     val = flag * heapq.heappop(max_heap) # 1
 
     """ 获取堆大小 """
-    size = len(max_heap)
+    size: int = len(max_heap)
 
     """ 判断堆是否为空 """
-    is_empty = not max_heap
+    is_empty: bool = not max_heap
 
     """ 输入列表并建堆 """
-    min_heap = [1, 3, 2, 5, 4]
+    min_heap: List[int] = [1, 3, 2, 5, 4]
     heapq.heapify(min_heap)
     ```
 

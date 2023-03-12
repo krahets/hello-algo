@@ -39,9 +39,9 @@ comments: true
     ```python title="list.py"
     """ 初始化列表 """
     # 无初始值
-    list1 = []
+    list1: List[int] = []
     # 有初始值
-    list = [1, 3, 2, 5, 4]
+    list: List[int] = [1, 3, 2, 5, 4]
     ```
 
 === "Go"
@@ -136,7 +136,7 @@ comments: true
 
     ```python title="list.py"
     """ 访问元素 """
-    num = list[1]  # 访问索引 1 处的元素
+    num: int = list[1]  # 访问索引 1 处的元素
 
     """ 更新元素 """
     list[1] = 0    # 将索引 1 处的元素更新为 0
@@ -434,12 +434,12 @@ comments: true
 
     ```python title="list.py"
     """ 通过索引遍历列表 """
-    count = 0
+    count: int = 0
     for i in range(len(list)):
         count += 1
 
     """ 直接遍历列表元素 """
-    count = 0
+    count: int = 0
     for n in list:
         count += 1
     ```
@@ -572,7 +572,7 @@ comments: true
 
     ```python title="list.py"
     """ 拼接两个列表 """
-    list1 = [6, 8, 7, 10, 9]
+    list1: List[int] = [6, 8, 7, 10, 9]
     list += list1  # 将列表 list1 拼接到 list 之后
     ```
 
@@ -937,31 +937,31 @@ comments: true
         """ 列表类简易实现 """
         def __init__(self):
             """ 构造方法 """
-            self.__capacity = 10                 # 列表容量
-            self.__nums = [0] * self.__capacity  # 数组（存储列表元素）
-            self.__size = 0                      # 列表长度（即当前元素数量）
-            self.__extend_ratio = 2              # 每次列表扩容的倍数
+            self.__capacity: int = 10                       # 列表容量
+            self.__nums: List[int] = [0] * self.__capacity  # 数组（存储列表元素）
+            self.__size: int = 0                            # 列表长度（即当前元素数量）
+            self.__extend_ratio: int = 2                    # 每次列表扩容的倍数
 
-        def size(self):
+        def size(self) -> int:
             """ 获取列表长度（即当前元素数量） """
             return self.__size
         
-        def capacity(self):
+        def capacity(self) -> int:
             """ 获取列表容量 """
             return self.__capacity
         
-        def get(self, index):
+        def get(self, index: int) -> int:
             """ 访问元素 """
             # 索引如果越界则抛出异常，下同
             assert index >= 0 and index < self.__size, "索引越界"
             return self.__nums[index]
 
-        def set(self, num, index):
+        def set(self, num: int, index: int) -> None:
             """ 更新元素 """
             assert index >= 0 and index < self.__size, "索引越界"
             self.__nums[index] = num
         
-        def add(self, num):
+        def add(self, num: int) -> None:
             """ 尾部添加元素 """
             # 元素数量超出容量时，触发扩容机制
             if self.size() == self.capacity():
@@ -969,7 +969,7 @@ comments: true
             self.__nums[self.__size] = num
             self.__size += 1
 
-        def insert(self, num, index):
+        def insert(self, num: int, index: int) -> None:
             """ 中间插入元素 """
             assert index >= 0 and index < self.__size, "索引越界"
             # 元素数量超出容量时，触发扩容机制
@@ -982,7 +982,7 @@ comments: true
             # 更新元素数量
             self.__size += 1
 
-        def remove(self, index):
+        def remove(self, index: int) -> int:
             """ 删除元素 """
             assert index >= 0 and index < self.__size, "索引越界"
             num = self.__nums[index]
@@ -994,14 +994,14 @@ comments: true
             # 返回被删除元素
             return num
 
-        def extend_capacity(self):
+        def extend_capacity(self) -> None:
             """ 列表扩容 """
             # 新建一个长度为 self.__size 的数组，并将原数组拷贝到新数组
             self.__nums = self.__nums + [0] * self.capacity() * (self.__extend_ratio - 1)
             # 更新列表容量
             self.__capacity = len(self.__nums)
         
-        def to_array(self):
+        def to_array(self) -> List[int]:
             """ 返回有效长度的列表 """
             return self.__nums[:self.__size]
     ```

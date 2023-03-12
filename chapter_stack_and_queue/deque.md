@@ -89,7 +89,7 @@ comments: true
 
     ```python title="deque.py"
     """ 初始化双向队列 """
-    deque = deque()
+    deque: Deque[int] = collections.deque()
     
     """ 元素入队 """
     deque.append(2)      # 添加至队尾
@@ -99,18 +99,18 @@ comments: true
     deque.appendleft(1)
     
     """ 访问元素 """
-    front = deque[0]  # 队首元素
-    rear = deque[-1]  # 队尾元素
+    front: int = deque[0]  # 队首元素
+    rear: int = deque[-1]  # 队尾元素
     
     """ 元素出队 """
-    pop_front = deque.popleft()  # 队首元素出队
-    pop_rear = deque.pop()       # 队尾元素出队
+    pop_front: int = deque.popleft()  # 队首元素出队
+    pop_rear: int = deque.pop()       # 队尾元素出队
     
     """ 获取双向队列的长度 """
-    size = len(deque)
+    size: int = len(deque)
     
     """ 判断双向队列是否为空 """
-    is_empty = len(deque) == 0
+    is_empty: bool = len(deque) == 0
     ```
 
 === "Go"
@@ -590,28 +590,29 @@ comments: true
     ```python title="linkedlist_deque.py"
     class ListNode:
         """ 双向链表结点 """
-        def __init__(self, val):
+        def __init__(self, val: int) -> None:
             """ 构造方法 """
-            self.val = val
-            self.next = None  # 后继结点引用（指针）
-            self.prev = None  # 前驱结点引用（指针）
+            self.val: int = val
+            self.next: Optional[ListNode] = None  # 后继结点引用（指针）
+            self.prev: Optional[ListNode] = None  # 前驱结点引用（指针）
 
     class LinkedListDeque:
         """ 基于双向链表实现的双向队列 """
-        def __init__(self):
+        def __init__(self) -> None:
             """ 构造方法 """
-            self.front, self.rear = None, None  # 头结点 front ，尾结点 rear
-            self.__size = 0  # 双向队列的长度
+            self.front: Optional[ListNode] = None # 头结点 front
+            self.rear: Optional[ListNode] = None  # 尾结点 rear
+            self.__size: int = 0        # 双向队列的长度
 
-        def size(self):
+        def size(self) -> int:
             """ 获取双向队列的长度 """
             return self.__size
 
-        def is_empty(self):
+        def is_empty(self) -> bool:
             """ 判断双向队列是否为空 """
             return self.size() == 0
 
-        def push(self, num, is_front):
+        def push(self, num: int, is_front: bool) -> None:
             """ 入队操作 """
             node = ListNode(num)
             # 若链表为空，则令 front, rear 都指向 node
@@ -631,33 +632,33 @@ comments: true
                 self.rear = node  # 更新尾结点
             self.__size += 1  # 更新队列长度
 
-        def push_first(self, num):
+        def push_first(self, num: int) -> None:
             """ 队首入队 """
             self.push(num, True)
 
-        def push_last(self, num):
+        def push_last(self, num: int) -> None:
             """ 队尾入队 """
             self.push(num, False)
 
-        def poll(self, is_front):
+        def poll(self, is_front: bool) -> int:
             """ 出队操作 """
             # 若队列为空，直接返回 None
             if self.is_empty():
                 return None
             # 队首出队操作
             if is_front:
-                val = self.front.val  # 暂存头结点值
+                val: int = self.front.val  # 暂存头结点值
                 # 删除头结点
-                fnext = self.front.next
+                fnext: Optional[ListNode] = self.front.next
                 if fnext != None:
                     fnext.prev = None
                     self.front.next = None
                 self.front = fnext  # 更新头结点
             # 队尾出队操作
             else:
-                val = self.rear.val  # 暂存尾结点值
+                val: int = self.rear.val  # 暂存尾结点值
                 # 删除尾结点
-                rprev = self.rear.prev
+                rprev: Optional[ListNode] = self.rear.prev
                 if rprev != None:
                     rprev.next = None
                     self.rear.prev = None
@@ -665,26 +666,26 @@ comments: true
             self.__size -= 1  # 更新队列长度
             return val
 
-        def poll_first(self):
+        def poll_first(self) -> int:
             """ 队首出队 """
             return self.poll(True)
 
-        def poll_last(self):
+        def poll_last(self) -> int:
             """ 队尾出队 """
             return self.poll(False)
 
-        def peek_first(self):
+        def peek_first(self) -> int:
             """ 访问队首元素 """
             return None if self.is_empty() else self.front.val
 
-        def peek_last(self):
+        def peek_last(self) -> int:
             """ 访问队尾元素 """
             return None if self.is_empty() else self.rear.val
 
-        def to_array(self):
+        def to_array(self) -> List[int]:
             """ 返回数组用于打印 """
-            node = self.front
-            res = [0] * self.size()
+            node: Optional[ListNode] = self.front
+            res: List[int] = [0] * self.size()
             for i in range(self.size()):
                 res[i] = node.val
                 node = node.next
@@ -1594,86 +1595,87 @@ comments: true
     ```python title="array_deque.py"
     class ArrayDeque:
         """ 基于环形数组实现的双向队列 """
-        def __init__(self, capacity):
-            """  构造方法 """
-            self.nums = [0] * capacity
-            self.front = 0
-            self.que_size = 0
 
-        def capacity(self):
+        def __init__(self, capacity: int) -> None:
+            """ 构造方法 """
+            self.__nums: List[int] = [0] * capacity
+            self.__front: int = 0
+            self.__size: int = 0
+
+        def capacity(self) -> int:
             """ 获取双向队列的容量 """
-            return len(self.nums)
+            return len(self.__nums)
 
-        def size(self):
+        def size(self) -> int:
             """ 获取双向队列的长度 """
-            return self.que_size
+            return self.__size
 
-        def is_empty(self):
+        def is_empty(self) -> bool:
             """ 判断双向队列是否为空 """
-            return self.que_size == 0
+            return self.__size == 0
 
-        def index(self, i):
+        def index(self, i: int) -> int:
             """ 计算环形数组索引 """
             # 通过取余操作实现数组首尾相连
             # 当 i 越过数组尾部后，回到头部
             # 当 i 越过数组头部后，回到尾部
             return (i + self.capacity()) % self.capacity()
 
-        def push_first(self, num):
+        def push_first(self, num: int) -> None:
             """ 队首入队 """
-            if self.que_size == self.capacity():
+            if self.__size == self.capacity():
                 print("双向队列已满")
                 return
             # 队首指针向左移动一位
             # 通过取余操作，实现 front 越过数组头部后回到尾部
-            self.front = self.index(self.front-1)
+            self.__front = self.index(self.__front - 1)
             # 将 num 添加至队首
-            self.nums[self.front] = num
-            self.que_size += 1
+            self.__nums[self.__front] = num
+            self.__size += 1
 
-        def push_last(self, num):
+        def push_last(self, num: int) -> None:
             """ 队尾入队 """
-            if self.que_size == self.capacity():
+            if self.__size == self.capacity():
                 print("双向队列已满")
                 return
             # 计算尾指针，指向队尾索引 + 1
-            rear = self.index(self.front + self.que_size)
+            rear = self.index(self.__front + self.__size)
             # 将 num 添加至队尾
-            self.nums[rear] = num
-            self.que_size += 1
+            self.__nums[rear] = num
+            self.__size += 1
 
-        def poll_first(self):
+        def poll_first(self) -> int:
             """ 队首出队 """
             num = self.peek_first()
             # 队首指针向后移动一位
-            self.front = self.index(self.front+1)
-            self.que_size -= 1
+            self.__front = self.index(self.__front + 1)
+            self.__size -= 1
             return num
 
-        def poll_last(self):
+        def poll_last(self) -> int:
             """ 队尾出队 """
             num = self.peek_last()
-            self.que_size -= 1
+            self.__size -= 1
             return num
 
-        def peek_first(self):
+        def peek_first(self) -> int:
             """ 访问队首元素 """
             assert not self.is_empty(), "双向队列为空"
-            return self.nums[self.front]
+            return self.__nums[self.__front]
 
-        def peek_last(self):
+        def peek_last(self) -> int:
             """ 访问队尾元素 """
             assert not self.is_empty(), "双向队列为空"
             # 计算尾元素索引
-            last = self.index(self.front + self.que_size - 1)
-            return self.nums[last]
+            last = self.index(self.__front + self.__size - 1)
+            return self.__nums[last]
 
-        def to_array(self):
+        def to_array(self) -> List[int]:
             """ 返回数组用于打印 """
             # 仅转换有效长度范围内的列表元素
             res = []
-            for i in range(self.que_size):
-                res.append(self.nums[self.index(self.front+i)])
+            for i in range(self.__size):
+                res.append(self.__nums[self.index(self.__front + i)])
             return res
     ```
 

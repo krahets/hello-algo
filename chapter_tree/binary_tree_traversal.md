@@ -69,20 +69,20 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_bfs.py"
-    def level_order(root: Optional[TreeNode]):
+    def level_order(root: Optional[TreeNode]) -> List[int]:
         """ 层序遍历 """
         # 初始化队列，加入根结点
-        queue = collections.deque()
+        queue: Deque[TreeNode] = collections.deque()
         queue.append(root)
         # 初始化一个列表，用于保存遍历序列
-        res = []
+        res: List[int] = []
         while queue:
-            node = queue.popleft()       # 队列出队
-            res.append(node.val)         # 保存结点值
+            node: TreeNode = queue.popleft() # 队列出队
+            res.append(node.val)             # 保存结点值
             if node.left is not None:
-                queue.append(node.left)  # 左子结点入队
+                queue.append(node.left)      # 左子结点入队
             if node.right is not None:
-                queue.append(node.right) # 右子结点入队
+                queue.append(node.right)     # 右子结点入队
         return res
     ```
 
@@ -337,7 +337,7 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_dfs.py"
-    def pre_order(root: Optional[TreeNode]):
+    def pre_order(root: Optional[TreeNode]) -> None:
         """ 前序遍历 """
         if root is None:
             return
@@ -346,7 +346,7 @@ comments: true
         pre_order(root=root.left)
         pre_order(root=root.right)
 
-    def in_order(root: Optional[TreeNode]):
+    def in_order(root: Optional[TreeNode]) -> None:
         """ 中序遍历 """
         if root is None:
             return
@@ -355,7 +355,7 @@ comments: true
         res.append(root.val)
         in_order(root=root.right)
 
-    def post_order(root: Optional[TreeNode]):
+    def post_order(root: Optional[TreeNode]) -> None:
         """ 后序遍历 """
         if root is None:
             return

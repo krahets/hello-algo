@@ -87,7 +87,7 @@ comments: true
 
     ```python title="hash_map.py"
     """ 初始化哈希表 """
-    mapp = {}
+    mapp: Dict = {}
     
     """ 添加操作 """
     # 在哈希表中添加键值对 (key, value)
@@ -99,7 +99,7 @@ comments: true
     
     """ 查询操作 """
     # 向哈希表输入键 key ，得到值 value
-    name = mapp[15937]
+    name: str = mapp[15937]
     
     """ 删除操作 """
     # 在哈希表中删除键值对 (key, value)
@@ -606,7 +606,7 @@ $$
     ```python title="array_hash_map.py"
     class Entry:
         """ 键值对 int->String """
-        def __init__(self, key, val):
+        def __init__(self, key: int, val: str):
             self.key = key
             self.val = val
 
@@ -615,58 +615,58 @@ $$
         def __init__(self):
             """ 构造方法 """
             # 初始化一个长度为 100 的桶（数组）
-            self.bucket = [None] * 100
+            self.bucket: List[Optional[Entry]] = [None] * 100
 
-        def hash_func(self, key):
+        def hash_func(self, key: int) -> int:
             """ 哈希函数 """
-            index = key % 100
+            index: int = key % 100
             return index
 
-        def get(self, key):
+        def get(self, key: int) -> str:
             """ 查询操作 """
-            index = self.hash_func(key)
-            pair = self.bucket[index]
+            index: int = self.hash_func(key)
+            pair: Entry = self.bucket[index]
             if pair is None:
                 return None
             return pair.val
 
-        def put(self, key, val):
+        def put(self, key: int, val: str) -> None:
             """ 添加操作 """
             pair = Entry(key, val)
-            index = self.hash_func(key)
+            index: int = self.hash_func(key)
             self.bucket[index] = pair
 
-        def remove(self, key):
+        def remove(self, key: int) -> None:
             """ 删除操作 """
-            index = self.hash_func(key)
+            index: int = self.hash_func(key)
             # 置为 None ，代表删除
             self.bucket[index] = None
 
-        def entry_set(self):
+        def entry_set(self) -> List[Entry]:
             """ 获取所有键值对 """
-            result = []
+            result: List[Entry] = []
             for pair in self.bucket:
                 if pair is not None:
                     result.append(pair)
             return result
 
-        def key_set(self):
+        def key_set(self) -> List[int]:
             """ 获取所有键 """
-            result = []
+            result: List[int] = []
             for pair in self.bucket:
                 if pair is not None:
                     result.append(pair.key)
             return result
 
-        def value_set(self):
+        def value_set(self) -> List[str]:
             """ 获取所有值 """
-            result = []
+            result: List[str] = []
             for pair in self.bucket:
                 if pair is not None:
                     result.append(pair.val)
             return result
 
-        def print(self):
+        def print(self) -> None:
             """ 打印哈希表 """
             for pair in self.bucket:
                 if pair is not None:

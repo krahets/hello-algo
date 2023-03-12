@@ -100,7 +100,7 @@ comments: true
 === "Python"
 
     ```python title="quick_sort.py"
-    def partition(self, nums, left, right):
+    def partition(self, nums: List[int], left: int, right: int) -> int:
         """ 哨兵划分 """
         # 以 nums[left] 作为基准数
         i, j = left, right
@@ -333,13 +333,13 @@ comments: true
 === "Python"
 
     ```python title="quick_sort.py"
-    def quick_sort(self, nums, left, right):
+    def quick_sort(self, nums: List[int], left: int, right: int) -> None:
         """ 快速排序 """
         # 子数组长度为 1 时终止递归
         if left >= right:
             return
         # 哨兵划分
-        pivot = self.partition(nums, left, right)
+        pivot: int = self.partition(nums, left, right)
         # 递归左子数组、右子数组
         self.quick_sort(nums, left, pivot - 1)
         self.quick_sort(nums, pivot + 1, right)
@@ -552,7 +552,7 @@ comments: true
 === "Python"
 
     ```python title="quick_sort.py"
-    def median_three(self, nums, left, mid, right):
+    def median_three(self, nums: List[int], left: int, mid: int, right: int) -> int:
         """ 选取三个元素的中位数 """
         # 此处使用异或运算来简化代码
         # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
@@ -562,10 +562,10 @@ comments: true
             return mid
         return right
 
-    def partition(self, nums, left, right):
+    def partition(self, nums: List[int], left: int, right: int) -> int:
         """ 哨兵划分（三数取中值） """
         # 以 nums[left] 作为基准数
-        med = self.median_three(nums, left, (left + right) // 2, right)
+        med: int = self.median_three(nums, left, (left + right) // 2, right)
         # 将中位数交换至数组最左端
         nums[left], nums[med] = nums[med], nums[left]
         # 以 nums[left] 作为基准数
@@ -845,12 +845,12 @@ comments: true
 === "Python"
 
     ```python title="quick_sort.py"
-    def quick_sort(self, nums, left, right):
+    def quick_sort(self, nums: List[int], left: int, right: int) -> None:
         """ 快速排序（尾递归优化） """
         # 子数组长度为 1 时终止
         while left < right:
             # 哨兵划分操作
-            pivot = self.partition(nums, left, right)
+            pivot: int = self.partition(nums, left, right)
             # 对两个子数组中较短的那个执行快排
             if pivot - left < right - pivot:
                 self.quick_sort(nums, left, pivot - 1)  # 递归排序左子数组

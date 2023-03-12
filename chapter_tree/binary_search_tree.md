@@ -82,7 +82,7 @@ comments: true
     ```python title="binary_search_tree.py"
     def search(self, num: int) -> Optional[TreeNode]:
         """ 查找结点 """
-        cur = self.root
+        cur: Optional[TreeNode] = self.__root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
             # 目标结点在 cur 的右子树中
@@ -310,13 +310,12 @@ comments: true
     ```python title="binary_search_tree.py"
     def insert(self, num: int) -> Optional[TreeNode]:
         """ 插入结点 """
-        root = self.root
         # 若树为空，直接提前返回
-        if root is None:
+        if self.__root is None:
             return None
         
         # 循环查找，越过叶结点后跳出
-        cur, pre = root, None
+        cur, pre = self.__root, None
         while cur is not None:
             # 找到重复结点，直接返回
             if cur.val == num:
@@ -694,13 +693,12 @@ comments: true
     ```python title="binary_search_tree.py"
     def remove(self, num: int) -> Optional[TreeNode]:
         """ 删除结点 """
-        root = self.root
         # 若树为空，直接提前返回
-        if root is None:
+        if self.__root is None:
             return None
 
         # 循环查找，越过叶结点后跳出
-        cur, pre = root, None
+        cur, pre = self.__root, None
         while cur is not None:
             # 找到待删除结点，跳出循环
             if cur.val == num:
@@ -726,8 +724,8 @@ comments: true
         # 子结点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个结点
-            nex = self.get_inorder_next(cur.right)
-            tmp = nex.val
+            nex: TreeNode = self.get_inorder_next(cur.right)
+            tmp: int = nex.val
             # 递归删除结点 nex
             self.remove(nex.val)
             # 将 nex 的值复制给 cur

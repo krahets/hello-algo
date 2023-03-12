@@ -40,8 +40,8 @@ comments: true
 
     ```python title="array.py"
     """ 初始化数组 """
-    arr = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums = [1, 3, 2, 5, 4]  
+    arr: List[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
+    nums: List[int] = [1, 3, 2, 5, 4]  
     ```
 
 === "Go"
@@ -149,7 +149,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    def random_access(nums):
+    def random_access(nums: List[int]) -> int:
         """ 随机访问元素 """
         # 在区间 [0, len(nums)-1] 中随机抽取一个数字
         random_index = random.randint(0, len(nums) - 1)
@@ -285,7 +285,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    def extend(nums, enlarge):
+    def extend(nums: List[int], enlarge: int) -> List[int]:
         """ 扩展数组长度 """
         # 初始化一个扩展长度后的数组
         res = [0] * (len(nums) + enlarge)
@@ -440,7 +440,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    def insert(nums, num, index):
+    def insert(nums: List[int], num: int, index: int) -> None:
         """ 在数组的索引 index 处插入元素 num """
         # 把索引 index 以及之后的所有元素向后移动一位
         for i in range(len(nums) - 1, index, -1):
@@ -560,7 +560,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    def remove(nums, index):
+    def remove(nums: List[int], index: int) -> None:
         """ 删除索引 index 处元素 """
         # 把索引 index 之后的所有元素向前移动一位
         for i in range(index, len(nums) - 1):
@@ -692,7 +692,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    def traverse(nums):
+    def traverse(nums: List[int]) -> None:
         """ 遍历数组 """
         count = 0
         # 通过索引遍历数组
@@ -848,7 +848,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    def find(nums, target):
+    def find(nums: List[int], target: int) -> int:
         """ 在数组中查找指定元素 """
         for i in range(len(nums)):
             if nums[i] == target:

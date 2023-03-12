@@ -49,7 +49,7 @@ comments: true
 === "Python"
 
     ```python title="linear_search.py"
-    def linear_search_array(nums, target):
+    def linear_search_array(nums: List[int], target: int) -> int:
         """ 线性查找（数组） """
         # 遍历数组
         for i in range(len(nums)):
@@ -206,7 +206,7 @@ comments: true
 === "Python"
 
     ```python title="linear_search.py"
-    def linear_search_linkedlist(head, target):
+    def linear_search_linkedlist(head: ListNode, target: int) -> Optional[ListNode]:
         """ 线性查找（链表） """
         # 遍历链表
         while head:

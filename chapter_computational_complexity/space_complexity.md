@@ -72,8 +72,8 @@ comments: true
     int algorithm(int n) {        // 输入数据
         const int a = 0;          // 暂存数据（常量）
         int b = 0;                // 暂存数据（变量）
-        Node* node = new Node(0);  // 暂存数据（对象）
-        int c = func();       // 栈帧空间（调用函数）
+        Node* node = new Node(0); // 暂存数据（对象）
+        int c = func();           // 栈帧空间（调用函数）
         return a + b + c;         // 输出数据
     }
     ```
@@ -83,20 +83,20 @@ comments: true
     ```python title=""
     """ 类 """
     class Node:
-        def __init__(self, x):
-            self.val = x      # 结点值
-            self.next = None  # 指向下一结点的指针（引用）
+        def __init__(self, x: int):
+            self.val: int = x                 # 结点值
+            self.next: Optional[Node] = None  # 指向下一结点的指针（引用）
 
     """ 函数 """
-    def function():
+    def function() -> int:
         # do something...
         return 0
 
-    def algorithm(n):     # 输入数据
-        b = 0             # 暂存数据（变量）
-        node = Node(0)    # 暂存数据（对象）
-        c = function()    # 栈帧空间（调用函数）
-        return a + b + c  # 输出数据
+    def algorithm(n) -> int:  # 输入数据
+        b: int = 0            # 暂存数据（变量）
+        node = Node(0)        # 暂存数据（对象）
+        c: int = function()   # 栈帧空间（调用函数）
+        return a + b + c      # 输出数据
     ```
 
 === "Go"
@@ -286,11 +286,11 @@ comments: true
 === "Python"
 
     ```python title=""
-    def algorithm(n):
-        a = 0               # O(1)
-        b = [0] * 10000     # O(1)
+    def algorithm(n: int) -> None:
+        a: int = 0                     # O(1)
+        b: List[int] = [0] * 10000     # O(1)
         if n > 10:
-            nums = [0] * n  # O(n)
+            nums: List[int] = [0] * n  # O(n)
     ```
 
 === "Go"
@@ -414,17 +414,17 @@ comments: true
 === "Python"
 
     ```python title=""
-    def function():
+    def function() -> int:
         # do something
         return 0
 
     """ 循环 O(1) """
-    def loop(n):
+    def loop(n: int) -> None:
         for _ in range(n):
             function()
 
     """ 递归 O(n) """
-    def recur(n):
+    def recur(n: int) -> int:
         if n == 1: return
         return recur(n - 1)
     ```
@@ -624,15 +624,15 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    def constant(n):
+    def constant(n: int) -> None:
         """ 常数阶 """
         # 常量、变量、对象占用 O(1) 空间
-        a = 0
-        nums = [0] * 10000
+        a: int = 0
+        nums: List[int] = [0] * 10000
         node = ListNode(0)
         # 循环中的变量占用 O(1) 空间
         for _ in range(n):
-            c = 0
+            c: int = 0
         # 循环中的函数占用 O(1) 空间
         for _ in range(n):
             function()
@@ -829,12 +829,12 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    def linear(n):
+    def linear(n: int) -> None:
         """ 线性阶 """
         # 长度为 n 的列表占用 O(n) 空间
-        nums = [0] * n
+        nums: List[int] = [0] * n
         # 长度为 n 的哈希表占用 O(n) 空间
-        mapp = {}
+        mapp: Dict = {}
         for i in range(n):
             mapp[i] = str(i)
     ```
@@ -996,7 +996,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    def linear_recur(n):
+    def linear_recur(n: int) -> None:
         """ 线性阶（递归实现） """
         print("递归 n =", n)
         if n == 1: return
@@ -1127,10 +1127,10 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    def quadratic(n):
+    def quadratic(n: int) -> None:
         """ 平方阶 """
         # 二维列表占用 O(n^2) 空间
-        num_matrix = [[0] * n for _ in range(n)]
+        num_matrix: List[List[int]] = [[0] * n for _ in range(n)]
     ```
 
 === "Go"
@@ -1275,11 +1275,11 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    def quadratic_recur(n):
+    def quadratic_recur(n: int) -> int:
         """ 平方阶（递归实现） """
         if n <= 0: return 0
         # 数组 nums 长度为 n, n-1, ..., 2, 1
-        nums = [0] * n
+        nums: List[int] = [0] * n
         return quadratic_recur(n - 1)
     ```
 
@@ -1405,7 +1405,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    def build_tree(n):
+    def build_tree(n: int) -> Optional[TreeNode]:
         """ 指数阶（建立满二叉树） """
         if n == 0: return None
         root = TreeNode(0)
