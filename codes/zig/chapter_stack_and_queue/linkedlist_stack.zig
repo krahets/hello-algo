@@ -42,7 +42,7 @@ pub fn LinkedListStack(comptime T: type) type {
         }
 
         // 访问栈顶元素
-        pub fn top(self: *Self) T {
+        pub fn peek(self: *Self) T {
             if (self.size() == 0) @panic("栈为空");
             return self.stackTop.?.val;
         }  
@@ -58,7 +58,7 @@ pub fn LinkedListStack(comptime T: type) type {
 
         // 出栈
         pub fn pop(self: *Self) T {
-            var num = self.top();
+            var num = self.peek();
             self.stackTop = self.stackTop.?.next;
             self.stkSize -= 1;
             return num;
@@ -97,12 +97,12 @@ pub fn main() !void {
     inc.PrintUtil.printArray(i32, try stack.toArray());
 
     // 访问栈顶元素
-    var top = stack.top();
-    std.debug.print("\n栈顶元素 top = {}", .{top});
+    var peek = stack.peek();
+    std.debug.print("\n栈顶元素 top = {}", .{peek});
 
     // 元素出栈
-    top = stack.pop();
-    std.debug.print("\n出栈元素 pop = {}，出栈后 stack = ", .{top});
+    var pop = stack.pop();
+    std.debug.print("\n出栈元素 pop = {}，出栈后 stack = ", .{pop});
     inc.PrintUtil.printArray(i32, try stack.toArray());
 
     // 获取栈的长度
