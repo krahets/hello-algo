@@ -66,8 +66,8 @@
     int algorithm(int n) {        // 输入数据
         const int a = 0;          // 暂存数据（常量）
         int b = 0;                // 暂存数据（变量）
-        Node* node = new Node(0);  // 暂存数据（对象）
-        int c = func();       // 栈帧空间（调用函数）
+        Node* node = new Node(0); // 暂存数据（对象）
+        int c = func();           // 栈帧空间（调用函数）
         return a + b + c;         // 输出数据
     }
     ```
@@ -77,20 +77,20 @@
     ```python title=""
     """ 类 """
     class Node:
-        def __init__(self, x):
-            self.val = x      # 结点值
-            self.next = None  # 指向下一结点的指针（引用）
+        def __init__(self, x: int):
+            self.val: int = x                 # 结点值
+            self.next: Optional[Node] = None  # 指向下一结点的指针（引用）
 
     """ 函数 """
-    def function():
+    def function() -> int:
         # do something...
         return 0
 
-    def algorithm(n):     # 输入数据
-        b = 0             # 暂存数据（变量）
-        node = Node(0)    # 暂存数据（对象）
-        c = function()    # 栈帧空间（调用函数）
-        return a + b + c  # 输出数据
+    def algorithm(n) -> int:  # 输入数据
+        b: int = 0            # 暂存数据（变量）
+        node = Node(0)        # 暂存数据（对象）
+        c: int = function()   # 栈帧空间（调用函数）
+        return a + b + c      # 输出数据
     ```
 
 === "Go"
@@ -280,11 +280,11 @@
 === "Python"
 
     ```python title=""
-    def algorithm(n):
-        a = 0               # O(1)
-        b = [0] * 10000     # O(1)
+    def algorithm(n: int) -> None:
+        a: int = 0                     # O(1)
+        b: List[int] = [0] * 10000     # O(1)
         if n > 10:
-            nums = [0] * n  # O(n)
+            nums: List[int] = [0] * n  # O(n)
     ```
 
 === "Go"
@@ -408,17 +408,17 @@
 === "Python"
 
     ```python title=""
-    def function():
+    def function() -> int:
         # do something
         return 0
 
     """ 循环 O(1) """
-    def loop(n):
+    def loop(n: int) -> None:
         for _ in range(n):
             function()
 
     """ 递归 O(n) """
-    def recur(n):
+    def recur(n: int) -> int:
         if n == 1: return
         return recur(n - 1)
     ```

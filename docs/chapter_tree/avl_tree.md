@@ -27,9 +27,9 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     ```java title=""
     /* AVL 树结点类 */
     class TreeNode {
-        public int val; // 结点值
-        public int height; // 结点高度
-        public TreeNode left; // 左子结点
+        public int val;        // 结点值
+        public int height;     // 结点高度
+        public TreeNode left;  // 左子结点
         public TreeNode right; // 右子结点
         public TreeNode(int x) { val = x; }
     }
@@ -40,10 +40,10 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     ```cpp title=""
     /* AVL 树结点类 */
     struct TreeNode {
-        int val{};              // 结点值
-        int height = 0;         // 结点高度
-        TreeNode *left{};       // 左子结点
-        TreeNode *right{};      // 右子结点
+        int val{};          // 结点值
+        int height = 0;     // 结点高度
+        TreeNode *left{};   // 左子结点
+        TreeNode *right{};  // 右子结点
         TreeNode() = default;
         explicit TreeNode(int x) : val(x){}
     };
@@ -54,11 +54,11 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     ```python title=""
     """ AVL 树结点类 """
     class TreeNode:
-        def __init__(self, val=None, left=None, right=None):
-            self.val = val      # 结点值
-            self.height = 0     # 结点高度
-            self.left = left    # 左子结点引用
-            self.right = right  # 右子结点引用
+        def __init__(self, val: int):
+            self.val: int = val                    # 结点值
+            self.height: int = 0                   # 结点高度
+            self.left: Optional[TreeNode] = None   # 左子结点引用
+            self.right: Optional[TreeNode] = None  # 右子结点引用
     ```
 
 === "Go"

@@ -11,14 +11,14 @@ from modules import *
 class GraphAdjMat:
     """ 基于邻接矩阵实现的无向图类 """
     # 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    vertices = []
+    vertices: List[int] = []
     # 邻接矩阵，行列索引对应“顶点索引”
-    adj_mat = []
+    adj_mat: List[List[int]] = []
 
-    def __init__(self, vertices, edges):
+    def __init__(self, vertices: List[int], edges: List[List[int]]) -> None:
         """ 构造方法 """
-        self.vertices = []
-        self.adj_mat = []
+        self.vertices: List[int] = []
+        self.adj_mat: List[List[int]] = []
         # 添加顶点
         for val in vertices:
             self.add_vertex(val)
@@ -27,23 +27,23 @@ class GraphAdjMat:
         for e in edges:
             self.add_edge(e[0], e[1])
 
-    def size(self):
+    def size(self) -> int:
         """ 获取顶点数量 """
         return len(self.vertices)
 
-    def add_vertex(self, val):
+    def add_vertex(self, val: int) -> None:
         """ 添加顶点 """
         n = self.size()
         # 向顶点列表中添加新顶点的值
         self.vertices.append(val)
         # 在邻接矩阵中添加一行
-        new_row = [0]*n
+        new_row = [0] * n
         self.adj_mat.append(new_row)
         # 在邻接矩阵中添加一列
         for row in self.adj_mat:
             row.append(0)
 
-    def remove_vertex(self, index):
+    def remove_vertex(self, index: int) -> None:
         """ 删除顶点 """
         if index >= self.size():
             raise IndexError()
@@ -55,7 +55,7 @@ class GraphAdjMat:
         for row in self.adj_mat:
             row.pop(index)
 
-    def add_edge(self, i, j):
+    def add_edge(self, i: int, j: int) -> None:
         """ 添加边 """
         # 参数 i, j 对应 vertices 元素索引
         # 索引越界与相等处理
@@ -65,7 +65,7 @@ class GraphAdjMat:
         self.adj_mat[i][j] = 1
         self.adj_mat[j][i] = 1
 
-    def remove_edge(self, i, j):
+    def remove_edge(self, i: int, j: int) -> None:
         """ 删除边 """
         # 参数 i, j 对应 vertices 元素索引
         # 索引越界与相等处理
@@ -74,7 +74,7 @@ class GraphAdjMat:
         self.adj_mat[i][j] = 0
         self.adj_mat[j][i] = 0
 
-    def print(self):
+    def print(self) -> None:
         """ 打印邻接矩阵 """
         print("顶点列表 =", self.vertices)
         print("邻接矩阵 =")
@@ -85,8 +85,8 @@ class GraphAdjMat:
 if __name__ == "__main__":
     """ 初始化无向图 """
     # 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-    vertices = [1, 3, 2, 5, 4]
-    edges = [[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]]
+    vertices: List[int] = [1, 3, 2, 5, 4]
+    edges: List[List[int]] = [[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]]
     graph = GraphAdjMat(vertices, edges)
     print("\n初始化后，图为")
     graph.print()

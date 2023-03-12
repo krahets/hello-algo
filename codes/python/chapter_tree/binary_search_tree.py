@@ -22,7 +22,7 @@ class BinarySearchTree:
             return None
 
         # 将数组中间结点作为根结点
-        mid = (start_index + end_index) // 2
+        mid: int = (start_index + end_index) // 2
         root = TreeNode(nums[mid])
         # 递归建立左子树和右子树
         root.left = self.build_tree(nums=nums, start_index=start_index, end_index=mid - 1)
@@ -35,7 +35,7 @@ class BinarySearchTree:
 
     def search(self, num: int) -> Optional[TreeNode]:
         """ 查找结点 """
-        cur = self.root
+        cur: Optional[TreeNode] = self.__root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
             # 目标结点在 cur 的右子树中
@@ -51,13 +51,12 @@ class BinarySearchTree:
 
     def insert(self, num: int) -> Optional[TreeNode]:
         """ 插入结点 """
-        root = self.root
         # 若树为空，直接提前返回
-        if root is None:
+        if self.__root is None:
             return None
         
         # 循环查找，越过叶结点后跳出
-        cur, pre = root, None
+        cur, pre = self.__root, None
         while cur is not None:
             # 找到重复结点，直接返回
             if cur.val == num:
@@ -80,13 +79,12 @@ class BinarySearchTree:
 
     def remove(self, num: int) -> Optional[TreeNode]:
         """ 删除结点 """
-        root = self.root
         # 若树为空，直接提前返回
-        if root is None:
+        if self.__root is None:
             return None
 
         # 循环查找，越过叶结点后跳出
-        cur, pre = root, None
+        cur, pre = self.__root, None
         while cur is not None:
             # 找到待删除结点，跳出循环
             if cur.val == num:
@@ -112,8 +110,8 @@ class BinarySearchTree:
         # 子结点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个结点
-            nex = self.get_inorder_next(cur.right)
-            tmp = nex.val
+            nex: TreeNode = self.get_inorder_next(cur.right)
+            tmp: int = nex.val
             # 递归删除结点 nex
             self.remove(nex.val)
             # 将 nex 的值复制给 cur
@@ -143,7 +141,7 @@ if __name__ == "__main__":
     print("\n查找到的结点对象为: {}，结点值 = {}".format(node, node.val))
 
     # 插入结点
-    ndoe = bst.insert(16)
+    node = bst.insert(16)
     print("\n插入结点 16 后，二叉树为\n")
     print_tree(bst.root)
 

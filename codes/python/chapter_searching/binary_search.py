@@ -8,7 +8,7 @@ import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
-def binary_search(nums, target):
+def binary_search(nums: List[int], target: int) -> int:
     """ 二分查找（双闭区间） """
     # 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
     i, j = 0, len(nums) - 1
@@ -23,7 +23,7 @@ def binary_search(nums, target):
     return -1                   # 未找到目标元素，返回 -1
 
 
-def binary_search1(nums, target):
+def binary_search1(nums: List[int], target: int) -> int:
     """ 二分查找（左闭右开） """
     # 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     i, j = 0, len(nums)
@@ -41,13 +41,13 @@ def binary_search1(nums, target):
 
 """ Driver Code """
 if __name__ == '__main__':
-    target = 6
-    nums = [1, 3, 6, 8, 12, 15, 23, 67, 70, 92]
+    target: int = 6
+    nums: List[int] = [1, 3, 6, 8, 12, 15, 23, 67, 70, 92]
 
     # 二分查找（双闭区间）
-    index = binary_search(nums, target)
+    index: int = binary_search(nums, target)
     print("目标元素 6 的索引 = ", index)
     
     # 二分查找（左闭右开）
-    index = binary_search1(nums, target)
+    index: int = binary_search1(nums, target)
     print("目标元素 6 的索引 = ", index)

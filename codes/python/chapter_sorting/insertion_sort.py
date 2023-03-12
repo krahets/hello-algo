@@ -8,12 +8,12 @@ import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
-def insertion_sort(nums):
+def insertion_sort(nums: List[int]) -> None:
     """ 插入排序 """
     # 外循环：base = nums[1], nums[2], ..., nums[n-1]   
     for i in range(1, len(nums)):
-        base = nums[i]
-        j = i - 1
+        base: int = nums[i]
+        j: int = i - 1
         # 内循环：将 base 插入到左边的正确位置
         while j >= 0 and nums[j] > base:
             nums[j + 1] = nums[j]  # 1. 将 nums[j] 向右移动一位
@@ -23,6 +23,6 @@ def insertion_sort(nums):
 
 """ Driver Code """
 if __name__ == '__main__':
-    nums = [4, 1, 3, 1, 5, 2]
+    nums: List[int] = [4, 1, 3, 1, 5, 2]
     insertion_sort(nums)
     print("排序后数组 nums =", nums)

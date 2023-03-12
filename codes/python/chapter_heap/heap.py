@@ -4,16 +4,18 @@ Created Time: 2023-02-23
 Author: Krahets (krahets@163.com)
 """
 
-import sys, os.path as osp
+import sys
+import os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
-def test_push(heap, val, flag=1):
+
+def test_push(heap: List, val: int, flag: int = 1) -> None:
     heapq.heappush(heap, flag * val)  # 元素入堆
     print(f"\n元素 {val} 入堆后")
     print_heap([flag * val for val in heap])
 
-def test_pop(heap, flag=1):
+def test_pop(heap: List, flag: int = 1) -> None:
     val = flag * heapq.heappop(heap)  # 堆顶元素出堆
     print(f"\n堆顶元素 {val} 出堆后")
     print_heap([flag * val for val in heap])
@@ -37,7 +39,7 @@ if __name__ == "__main__":
     test_push(max_heap, 4, flag)
 
     """ 获取堆顶元素 """
-    peek = flag * max_heap[0]
+    peek: int = flag * max_heap[0]
     print(f"\n堆顶元素为 {peek}")
 
     """ 堆顶元素出堆 """
@@ -48,16 +50,16 @@ if __name__ == "__main__":
     test_pop(max_heap, flag)
 
     """ 获取堆大小 """
-    size = len(max_heap)
+    size: int = len(max_heap)
     print(f"\n堆元素数量为 {size}")
 
     """ 判断堆是否为空 """
-    is_empty = not max_heap
+    is_empty: bool = not max_heap
     print(f"\n堆是否为空 {is_empty}")
 
     """ 输入列表并建堆 """
     # 时间复杂度为 O(n) ，而非 O(nlogn)
-    min_heap = [1, 3, 2, 5, 4]
+    min_heap: List[int] = [1, 3, 2, 5, 4]
     heapq.heapify(min_heap)
     print("\n输入列表并建立小顶堆后")
     print_heap(min_heap)
