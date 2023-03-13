@@ -13,7 +13,7 @@ pub fn ArrayQueue(comptime T: type) type {
         nums: []T = undefined,                          // 用于存储队列元素的数组     
         cap: usize = 0,                                 // 队列容量
         front: usize = 0,                               // 队首指针，指向队首元素
-        queSize: usize = 0,                             // 尾指针，指向队尾 + 1
+        que_size: usize = 0,                             // 尾指针，指向队尾 + 1
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
@@ -41,12 +41,12 @@ pub fn ArrayQueue(comptime T: type) type {
 
         // 获取队列的长度
         pub fn size(self: *Self) usize {
-            return self.queSize;
+            return self.que_size;
         }
 
         // 判断队列是否为空
         pub fn isEmpty(self: *Self) bool {
-            return self.queSize == 0;
+            return self.que_size == 0;
         }
 
         // 入队
@@ -57,10 +57,10 @@ pub fn ArrayQueue(comptime T: type) type {
             }
             // 计算尾指针，指向队尾索引 + 1
             // 通过取余操作，实现 rear 越过数组尾部后回到头部
-            var rear = (self.front + self.queSize) % self.capacity();
+            var rear = (self.front + self.que_size) % self.capacity();
             // 将 num 添加至队尾
             self.nums[rear] = num;
-            self.queSize += 1;
+            self.que_size += 1;
         } 
 
         // 出队
@@ -68,7 +68,7 @@ pub fn ArrayQueue(comptime T: type) type {
             var num = self.peek();
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
             self.front = (self.front + 1) % self.capacity();
-            self.queSize -= 1;
+            self.que_size -= 1;
             return num;
         } 
 
