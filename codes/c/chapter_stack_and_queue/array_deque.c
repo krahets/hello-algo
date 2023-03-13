@@ -152,7 +152,6 @@ int main() {
     int pollLastNum = pollLast(deque);
     printf("队尾出队元素 = %d，队尾出队后 deque= ", pollLastNum);
     printArrayDeque(deque);
-
     int pollFirstNum = pollFirst(deque);
     printf("队首出队元素 = %d，队首出队后 deque= ", pollFirstNum);
     printArrayDeque(deque);
@@ -165,7 +164,8 @@ int main() {
     bool isEmpty = empty(deque);
     printf("队列是否为空 = %s\r\n", isEmpty ? "true" : "false");
 
-    /* 释放内存 */ 
+    // 释放内存
     delArrayDeque(deque);
+    
     return 0;
 }
