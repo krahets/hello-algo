@@ -1,0 +1,5 @@
+add_executable(avl_tree avl_tree.cpp)
+add_executable(binary_search_tree binary_search_tree.cpp)
+add_executable(binary_tree binary_tree.cpp)
+add_executable(binary_tree_bfs binary_tree_bfs.cpp)
+add_executable(binary_tree_dfs binary_tree_dfs.cpp)

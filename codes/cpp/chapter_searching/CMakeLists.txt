@@ -1,0 +1,3 @@
+add_executable(binary_search binary_search.cpp)
+add_executable(hashing_search hashing_search.cpp)
+add_executable(linear_search linear_search.cpp)
