@@ -97,7 +97,7 @@ comments: true
         // 初始化一个切片，用于保存遍历序列
         nums := make([]int, 0)
         for queue.Len() > 0 {
-            // poll
+            // 队列出队
             node := queue.Remove(queue.Front()).(*TreeNode)
             // 保存结点值
             nums = append(nums, node.Val)

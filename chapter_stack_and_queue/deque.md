@@ -1204,7 +1204,7 @@ comments: true
 
             front: ?*ListNode(T) = null,                    // 头结点 front
             rear: ?*ListNode(T) = null,                     // 尾结点 rear
-            deqSize: usize = 0,                             // 双向队列的长度
+            que_size: usize = 0,                             // 双向队列的长度
             mem_arena: ?std.heap.ArenaAllocator = null,
             mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
@@ -1216,7 +1216,7 @@ comments: true
                 }
                 self.front = null;
                 self.rear = null;
-                self.deqSize = 0;
+                self.que_size = 0;
             }
 
             // 析构方法（释放内存）
@@ -1227,7 +1227,7 @@ comments: true
 
             // 获取双向队列的长度
             pub fn size(self: *Self) usize {
-                return self.deqSize;
+                return self.que_size;
             }
 
             // 判断双向队列是否为空
@@ -1236,7 +1236,7 @@ comments: true
             }
 
             // 入队操作
-            pub fn push(self: *Self, num: T, isFront: bool) !void {
+            pub fn push(self: *Self, num: T, is_front: bool) !void {
                 var node = try self.mem_allocator.create(ListNode(T));
                 node.init(num);
                 // 若链表为空，则令 front, rear 都指向 node
@@ -1244,7 +1244,7 @@ comments: true
                     self.front = node;
                     self.rear = node;
                 // 队首入队操作
-                } else if (isFront) {
+                } else if (is_front) {
                     // 将 node 添加至链表头部
                     self.front.?.prev = node;
                     node.next = self.front;
@@ -1256,7 +1256,7 @@ comments: true
                     node.prev = self.rear;
                     self.rear = node;   // 更新尾结点
                 }
-                self.deqSize += 1;      // 更新队列长度
+                self.que_size += 1;      // 更新队列长度
             } 
 
             // 队首入队
@@ -1270,11 +1270,11 @@ comments: true
             } 
             
             // 出队操作
-            pub fn pop(self: *Self, isFront: bool) T {
+            pub fn pop(self: *Self, is_front: bool) T {
                 if (self.isEmpty()) @panic("双向队列为空");
                 var val: T = undefined;
                 // 队首出队操作
-                if (isFront) {
+                if (is_front) {
                     val = self.front.?.val;     // 暂存头结点值
                     // 删除头结点
                     var fNext = self.front.?.next;
@@ -1294,7 +1294,7 @@ comments: true
                     }
                     self.rear = rPrev;          // 更新尾结点
                 }
-                self.deqSize -= 1;              // 更新队列长度
+                self.que_size -= 1;              // 更新队列长度
                 return val;
             } 
 
@@ -1320,7 +1320,7 @@ comments: true
                 return self.rear.?.val;
             }
 
-            // 将链表转换为数组
+            // 返回数组用于打印
             pub fn toArray(self: *Self) ![]T {
                 var node = self.front;
                 var res = try self.mem_allocator.alloc(T, self.size());
@@ -1331,19 +1331,6 @@ comments: true
                     node = node.?.next;
                 }
                 return res;
-            }
-
-            // 打印双向队列
-            pub fn print(self: *Self) !void {
-                var nums = try self.toArray();
-                std.debug.print("[", .{});
-                if (nums.len > 0) {
-                    for (nums) |num, j| {
-                        std.debug.print("{}{s}", .{num, if (j == nums.len - 1) "]" else " <-> " });
-                    }
-                } else {
-                    std.debug.print("]", .{});
-                }
             }
         };
     }

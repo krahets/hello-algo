@@ -25,17 +25,17 @@ comments: true
 
 而恰好，**堆的定义与优先队列的操作逻辑完全吻合**，大顶堆就是一个元素从大到小出队的优先队列。从使用角度看，我们可以将「优先队列」和「堆」理解为等价的数据结构。因此，本文与代码对两者不做特别区分，统一使用「堆」来命名。
 
-堆的常用操作见下表（方法命名以 Java 为例）。
+堆的常用操作见下表，方法名需根据编程语言确定。
 
 <div class="center-table" markdown>
 
-| 方法      | 描述                                         | 时间复杂度  |
-| --------- | -------------------------------------------- | ----------- |
-| add()     | 元素入堆                                     | $O(\log n)$ |
-| poll()    | 堆顶元素出堆                                 | $O(\log n)$ |
-| peek()    | 访问堆顶元素（大 / 小顶堆分别为最大 / 小值） | $O(1)$      |
-| size()    | 获取堆的元素数量                             | $O(1)$      |
-| isEmpty() | 判断堆是否为空                               | $O(1)$      |
+| 方法名     | 描述                                         | 时间复杂度  |
+| --------- | ------------------------------------------ | ----------- |
+| push()    | 元素入堆                                    | $O(\log n)$ |
+| pop()     | 堆顶元素出堆                                   | $O(\log n)$ |
+| peek()    | 访问堆顶元素（大 / 小顶堆分别为最大 / 小值）       | $O(1)$      |
+| size()    | 获取堆的元素数量                               | $O(1)$      |
+| isEmpty() | 判断堆是否为空                                 | $O(1)$      |
 
 </div>
 
@@ -55,11 +55,11 @@ comments: true
     Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
     
     /* 元素入堆 */
-    maxHeap.add(1);
-    maxHeap.add(3);
-    maxHeap.add(2);
-    maxHeap.add(5);
-    maxHeap.add(4);
+    maxHeap.offer(1);
+    maxHeap.offer(3);
+    maxHeap.offer(2);
+    maxHeap.offer(5);
+    maxHeap.offer(4);
     
     /* 获取堆顶元素 */
     int peek = maxHeap.peek(); // 5
@@ -223,11 +223,11 @@ comments: true
 
         /* 堆顶元素出堆 */
         // 调用 heap.Interface 的方法，来移除元素
-        heap.Pop(maxHeap)
-        heap.Pop(maxHeap)
-        heap.Pop(maxHeap)
-        heap.Pop(maxHeap)
-        heap.Pop(maxHeap)
+        heap.Pop(maxHeap) // 5
+        heap.Pop(maxHeap) // 4
+        heap.Pop(maxHeap) // 3
+        heap.Pop(maxHeap) // 2
+        heap.Pop(maxHeap) // 1
 
         /* 获取堆大小 */
         size := len(*maxHeap)
@@ -242,13 +242,13 @@ comments: true
 === "JavaScript"
 
     ```javascript title="heap.js"
-    // JavaScript 未提供内置 heap 类
+    // JavaScript 未提供内置 Heap 类
     ```
 
 === "TypeScript"
 
     ```typescript title="heap.ts"
-    // TypeScript 未提供内置堆 Heap 类
+    // TypeScript 未提供内置 Heap 类
     ```
 
 === "C"
@@ -297,7 +297,7 @@ comments: true
 === "Swift"
 
     ```swift title="heap.swift"
-    // Swift 未提供内置 heap 类
+    // Swift 未提供内置 Heap 类
     ```
 
 === "Zig"
@@ -887,34 +887,34 @@ comments: true
 顾名思义，**从顶至底堆化的操作方向与从底至顶堆化相反**，我们比较根结点的值与其两个子结点的值，将最大的子结点与根结点执行交换，并循环以上操作，直到越过叶结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "<1>"
-    ![堆顶元素出堆步骤](heap.assets/heap_poll_step1.png)
+    ![堆顶元素出堆步骤](heap.assets/heap_pop_step1.png)
 
 === "<2>"
-    ![heap_poll_step2](heap.assets/heap_poll_step2.png)
+    ![heap_pop_step2](heap.assets/heap_pop_step2.png)
 
 === "<3>"
-    ![heap_poll_step3](heap.assets/heap_poll_step3.png)
+    ![heap_pop_step3](heap.assets/heap_pop_step3.png)
 
 === "<4>"
-    ![heap_poll_step4](heap.assets/heap_poll_step4.png)
+    ![heap_pop_step4](heap.assets/heap_pop_step4.png)
 
 === "<5>"
-    ![heap_poll_step5](heap.assets/heap_poll_step5.png)
+    ![heap_pop_step5](heap.assets/heap_pop_step5.png)
 
 === "<6>"
-    ![heap_poll_step6](heap.assets/heap_poll_step6.png)
+    ![heap_pop_step6](heap.assets/heap_pop_step6.png)
 
 === "<7>"
-    ![heap_poll_step7](heap.assets/heap_poll_step7.png)
+    ![heap_pop_step7](heap.assets/heap_pop_step7.png)
 
 === "<8>"
-    ![heap_poll_step8](heap.assets/heap_poll_step8.png)
+    ![heap_pop_step8](heap.assets/heap_pop_step8.png)
 
 === "<9>"
-    ![heap_poll_step9](heap.assets/heap_poll_step9.png)
+    ![heap_pop_step9](heap.assets/heap_pop_step9.png)
 
 === "<10>"
-    ![heap_poll_step10](heap.assets/heap_poll_step10.png)
+    ![heap_pop_step10](heap.assets/heap_pop_step10.png)
 
 与元素入堆操作类似，**堆顶元素出堆操作的时间复杂度为 $O(\log n)$** 。
 
@@ -922,7 +922,7 @@ comments: true
 
     ```java title="my_heap.java"
     /* 元素出堆 */
-    int poll() {
+    int pop() {
         // 判空处理
         if (isEmpty())
             throw new EmptyStackException();
@@ -959,7 +959,7 @@ comments: true
 
     ```cpp title="my_heap.cpp"
     /* 元素出堆 */
-    void poll() {
+    void pop() {
         // 判空处理
         if (empty()) {
             throw out_of_range("堆为空");
@@ -995,7 +995,7 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-    def poll(self) -> int:
+    def pop(self) -> int:
         """ 元素出堆 """
         # 判空处理
         assert not self.is_empty()
@@ -1030,7 +1030,7 @@ comments: true
 
     ```go title="my_heap.go"
     /* 元素出堆 */
-    func (h *maxHeap) poll() any {
+    func (h *maxHeap) pop() any {
         // 判空处理
         if h.isEmpty() {
             fmt.Println("error")
@@ -1075,7 +1075,7 @@ comments: true
 
     ```javascript title="my_heap.js"
     /* 元素出堆 */
-    poll() {
+    pop() {
         // 判空处理
         if (this.isEmpty()) throw new Error("堆为空");
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
@@ -1111,7 +1111,7 @@ comments: true
 
     ```typescript title="my_heap.ts"
     /* 元素出堆 */
-    poll(): number {
+    pop(): number {
         // 判空处理
         if (this.isEmpty()) throw new RangeError('Heap is empty.');
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
@@ -1146,7 +1146,7 @@ comments: true
 === "C"
 
     ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{poll}
+    [class]{maxHeap}-[func]{pop}
 
     [class]{maxHeap}-[func]{siftDown}
     ```
@@ -1155,7 +1155,7 @@ comments: true
 
     ```csharp title="my_heap.cs"
     /* 元素出堆 */
-    int poll()
+    int pop()
     {
         // 判空处理
         if (isEmpty())
@@ -1196,7 +1196,7 @@ comments: true
 
     ```swift title="my_heap.swift"
     /* 元素出堆 */
-    func poll() -> Int {
+    func pop() -> Int {
         // 判空处理
         if isEmpty() {
             fatalError("堆为空")
@@ -1241,7 +1241,7 @@ comments: true
 
     ```zig title="my_heap.zig"
     // 元素出堆
-    fn poll(self: *Self) !T {
+    fn pop(self: *Self) !T {
         // 判断处理
         if (self.isEmpty()) unreachable;
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
