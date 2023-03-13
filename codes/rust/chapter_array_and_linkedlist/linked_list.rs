@@ -5,8 +5,10 @@
  */
 
 include!("../include/include.rs");
+
 use std::rc::Rc;
 use std::cell::RefCell;
+use list_node::ListNode;
 
 /* 在链表的结点 n0 之后插入结点 P */
 #[allow(non_snake_case)]
