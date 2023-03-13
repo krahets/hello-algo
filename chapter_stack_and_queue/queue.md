@@ -14,15 +14,15 @@ comments: true
 
 ## 5.2.1. &nbsp; 队列常用操作
 
-队列的常用操作见下表，方法名需根据语言来确定，此处以 Java 为例。
+队列的常用操作见下表。需要注意，不同编程语言的方法名是不同的，在这里我们采用与栈相同的方法命名。
 
 <div class="center-table" markdown>
 
 | 方法名     | 描述                        | 时间复杂度 |
 | --------- | -------------------------- | -------- |
 | push()    | 元素入队，即将元素添加至队尾    | $O(1)$   |
-| poll()    | 队首元素出队                 | $O(1)$   |
-| peek()   | 访问队首元素                 | $O(1)$   |
+| pop()     | 队首元素出队                 | $O(1)$   |
+| peek()    | 访问队首元素                 | $O(1)$   |
 
 </div>
 
@@ -45,7 +45,7 @@ comments: true
     int peek = queue.peek();
     
     /* 元素出队 */
-    int poll = queue.poll();
+    int pop = queue.poll();
     
     /* 获取队列的长度 */
     int size = queue.size();
@@ -126,8 +126,8 @@ comments: true
     peek := queue.Front()
     
     /* 元素出队 */
-    poll := queue.Front()
-    queue.Remove(poll)
+    pop := queue.Front()
+    queue.Remove(pop)
     
     /* 获取队列的长度 */
     size := queue.Len()
@@ -155,7 +155,7 @@ comments: true
     
     /* 元素出队 */
     // 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
-    const poll = queue.shift();
+    const pop = queue.shift();
     
     /* 获取队列的长度 */
     const size = queue.length;
@@ -183,7 +183,7 @@ comments: true
     
     /* 元素出队 */
     // 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
-    const poll = queue.shift();
+    const pop = queue.shift();
     
     /* 获取队列的长度 */
     const size = queue.length;
@@ -215,7 +215,7 @@ comments: true
     int peek = queue.Peek();
     
     /* 元素出队 */
-    int poll = queue.Dequeue();
+    int pop = queue.Dequeue();
     
     /* 获取队列的长度 */
     int size = queue.Count();
@@ -242,7 +242,7 @@ comments: true
     let peek = queue.first!
     
     /* 元素出队 */
-    // 使用 Array 模拟时 poll 的复杂度为 O(n)
+    // 由于是数组，因此 removeFirst 的复杂度为 O(n)
     let pool = queue.removeFirst()
     
     /* 获取队列的长度 */
@@ -272,8 +272,8 @@ comments: true
 === "push()"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_push.png)
 
-=== "poll()"
-    ![linkedlist_queue_poll](queue.assets/linkedlist_queue_poll.png)
+=== "pop()"
+    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_pop.png)
 
 以下是使用链表实现队列的示例代码。
 
@@ -317,7 +317,7 @@ comments: true
         }
 
         /* 出队 */
-        public int poll() {
+        public int pop() {
             int num = peek();
             // 删除头结点
             front = front.next;
@@ -394,7 +394,7 @@ comments: true
         }
 
         /* 出队 */
-        void poll() {
+        void pop() {
             int num = peek();
             // 删除头结点
             ListNode *tmp = front;
@@ -457,7 +457,7 @@ comments: true
                 self.__rear = node
             self.__size += 1
 
-        def poll(self) -> int:
+        def pop(self) -> int:
             """ 出队 """
             num = self.peek()
             # 删除头结点
@@ -504,7 +504,7 @@ comments: true
     }
 
     /* 出队 */
-    func (s *linkedListQueue) poll() any {
+    func (s *linkedListQueue) pop() any {
         if s.isEmpty() {
             return nil
         }
@@ -579,7 +579,7 @@ comments: true
         }
 
         /* 出队 */
-        poll() {
+        pop() {
             const num = this.peek();
             // 删除头结点
             this.#front = this.#front.next;
@@ -648,7 +648,7 @@ comments: true
         }
 
         /* 出队 */
-        poll(): number {
+        pop(): number {
             const num = this.peek();
             if (!this.front) throw new Error('队列为空');
             // 删除头结点
@@ -730,7 +730,7 @@ comments: true
         }
 
         /* 出队 */
-        public int poll()
+        public int pop()
         {
             int num = peek();
             // 删除头结点
@@ -805,7 +805,7 @@ comments: true
 
         /* 出队 */
         @discardableResult
-        func poll() -> Int {
+        func pop() -> Int {
             let num = peek()
             // 删除头结点
             front = front?.next
@@ -899,7 +899,7 @@ comments: true
             } 
 
             // 出队
-            pub fn poll(self: *Self) T {
+            pub fn pop(self: *Self) T {
                 var num = self.peek();
                 // 删除头结点
                 self.front = self.front.?.next;
@@ -942,8 +942,8 @@ comments: true
 === "push()"
     ![array_queue_push](queue.assets/array_queue_push.png)
 
-=== "poll()"
-    ![array_queue_poll](queue.assets/array_queue_poll.png)
+=== "pop()"
+    ![array_queue_pop](queue.assets/array_queue_pop.png)
 
 细心的同学可能会发现一个问题：在不断入队与出队的过程中，`front` 和 `rear` 都在向右移动，**在到达数组尾部后就无法继续移动了**。为解决此问题，**我们考虑将数组看作是首尾相接的**，这样的数组被称为「环形数组」。
 
@@ -993,7 +993,7 @@ comments: true
         }
 
         /* 出队 */
-        public int poll() {
+        public int pop() {
             int num = peek();
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
             front = (front + 1) % capacity();
@@ -1073,7 +1073,7 @@ comments: true
         }
 
         /* 出队 */
-        void poll() {
+        void pop() {
             int num = peek();
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
             front = (front + 1) % queCapacity;
@@ -1132,7 +1132,7 @@ comments: true
             self.__nums[rear] = num
             self.__size += 1
 
-        def poll(self) -> int:
+        def pop(self) -> int:
             """ 出队 """
             num: int = self.peek()
             # 队首指针向后移动一位，若越过尾部则返回到数组头部
@@ -1201,7 +1201,7 @@ comments: true
     }
 
     /* 出队 */
-    func (q *arrayQueue) poll() any {
+    func (q *arrayQueue) pop() any {
         num := q.peek()
         // 队首指针向后移动一位，若越过尾部则返回到数组头部
         q.front = (q.front + 1) % q.queCapacity
@@ -1271,7 +1271,7 @@ comments: true
         }
 
         /* 出队 */
-        poll() {
+        pop() {
             const num = this.peek();
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
             this.#front = (this.#front + 1) % this.capacity;
@@ -1342,7 +1342,7 @@ comments: true
         }
 
         /* 出队 */
-        poll(): number {
+        pop(): number {
             const num = this.peek();
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
             this.front = (this.front + 1) % this.capacity;
@@ -1426,7 +1426,7 @@ comments: true
         }
 
         /* 出队 */
-        public int poll()
+        public int pop()
         {
             int num = peek();
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
@@ -1502,7 +1502,7 @@ comments: true
 
         /* 出队 */
         @discardableResult
-        func poll() -> Int {
+        func pop() -> Int {
             let num = peek()
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
             front = (front + 1) % capacity()
@@ -1592,7 +1592,7 @@ comments: true
             } 
 
             // 出队
-            pub fn poll(self: *Self) T {
+            pub fn pop(self: *Self) T {
                 var num = self.peek();
                 // 队首指针向后移动一位，若越过尾部则返回到数组头部
                 self.front = (self.front + 1) % self.capacity();

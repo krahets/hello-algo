@@ -16,7 +16,7 @@ comments: true
 
 ## 5.1.1. &nbsp; 栈常用操作
 
-栈的常用操作见下表，方法名需根据语言来确定，此处以 Java 为例。
+栈的常用操作见下表，方法名需根据编程语言来确定，此处我们以常见的 `push` , `pop` , `peek` 为例。
 
 <div class="center-table" markdown>
 

@@ -12,18 +12,18 @@ comments: true
 
 ## 5.3.1. &nbsp; 双向队列常用操作
 
-双向队列的常用操作见下表，方法名需根据语言来确定，此处以 Java 为例。
+双向队列的常用操作见下表，方法名需根据语言来确定。
 
 <div class="center-table" markdown>
 
-| 方法名        | 描述             | 时间复杂度 |
-| ------------ | ---------------- | ---------- |
-| pushFirst() | 将元素添加至队首 | $O(1)$     |
-| pushLast()  | 将元素添加至队尾 | $O(1)$     |
-| pollFirst()  | 删除队首元素     | $O(1)$     |
-| pollLast()   | 删除队尾元素     | $O(1)$     |
-| peekFirst()  | 访问队首元素     | $O(1)$     |
-| peekLast()   | 访问队尾元素     | $O(1)$     |
+| 方法名       | 描述            | 时间复杂度 |
+| ----------- | -------------- | ---------- |
+| pushFirst() | 将元素添加至队首  | $O(1)$     |
+| pushLast()  | 将元素添加至队尾  | $O(1)$     |
+| popFirst()  | 删除队首元素     | $O(1)$     |
+| popLast()   | 删除队尾元素     | $O(1)$     |
+| peekFirst() | 访问队首元素     | $O(1)$     |
+| peekLast()  | 访问队尾元素     | $O(1)$     |
 
 </div>
 
@@ -47,8 +47,8 @@ comments: true
     int peekLast = deque.peekLast();    // 队尾元素
     
     /* 元素出队 */
-    int pollFirst = deque.pollFirst();  // 队首元素出队
-    int pollLast = deque.pollLast();    // 队尾元素出队
+    int popFirst = deque.pollFirst();  // 队首元素出队
+    int popLast = deque.pollLast();    // 队尾元素出队
     
     /* 获取双向队列的长度 */
     int size = deque.size();
@@ -272,9 +272,9 @@ comments: true
     let peekLast = deque.last! // 队尾元素
 
     /* 元素出队 */
-    // 使用 Array 模拟时 pollFirst 的复杂度为 O(n)
-    let pollFirst = deque.removeFirst() // 队首元素出队
-    let pollLast = deque.removeLast() // 队尾元素出队
+    // 使用 Array 模拟时 popFirst 的复杂度为 O(n)
+    let popFirst = deque.removeFirst() // 队首元素出队
+    let popLast = deque.removeLast() // 队尾元素出队
 
     /* 获取双向队列的长度 */
     let size = deque.count
@@ -310,11 +310,11 @@ comments: true
 === "pushFirst()"
     ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_push_first.png)
 
-=== "pollLast()"
-    ![linkedlist_deque_poll_last](deque.assets/linkedlist_deque_poll_last.png)
+=== "popLast()"
+    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_pop_last.png)
 
-=== "pollFirst()"
-    ![linkedlist_deque_poll_first](deque.assets/linkedlist_deque_poll_first.png)
+=== "popFirst()"
+    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_pop_first.png)
 
 以下是具体实现代码。
 
@@ -384,7 +384,7 @@ comments: true
         }
 
         /* 出队操作 */
-        private Integer poll(boolean isFront) {
+        private Integer pop(boolean isFront) {
             // 若队列为空，直接返回 null
             if (isEmpty())
                 return null;
@@ -415,13 +415,13 @@ comments: true
         }
 
         /* 队首出队 */
-        public Integer pollFirst() {
-            return poll(true);
+        public Integer popFirst() {
+            return pop(true);
         }
 
         /* 队尾出队 */
-        public Integer pollLast() {
-            return poll(false);
+        public Integer popLast() {
+            return pop(false);
         }
 
         /* 访问队首元素 */
@@ -522,7 +522,7 @@ comments: true
         }
 
         /* 出队操作 */
-        int poll(bool isFront) {
+        int pop(bool isFront) {
             // 若队列为空，直接返回 -1
             if (isEmpty())
                 return -1;
@@ -553,13 +553,13 @@ comments: true
         }
 
         /* 队首出队 */
-        int pollFirst() {
-            return poll(true);
+        int popFirst() {
+            return pop(true);
         }
 
         /* 队尾出队 */
-        int pollLast() {
-            return poll(false);
+        int popLast() {
+            return pop(false);
         }
 
         /* 访问队首元素 */
@@ -640,7 +640,7 @@ comments: true
             """ 队尾入队 """
             self.push(num, False)
 
-        def poll(self, is_front: bool) -> int:
+        def pop(self, is_front: bool) -> int:
             """ 出队操作 """
             # 若队列为空，直接返回 None
             if self.is_empty():
@@ -666,13 +666,13 @@ comments: true
             self.__size -= 1  # 更新队列长度
             return val
 
-        def poll_first(self) -> int:
+        def pop_first(self) -> int:
             """ 队首出队 """
-            return self.poll(True)
+            return self.pop(True)
 
-        def poll_last(self) -> int:
+        def pop_last(self) -> int:
             """ 队尾出队 """
-            return self.poll(False)
+            return self.pop(False)
 
         def peek_first(self) -> int:
             """ 访问队首元素 """
@@ -719,7 +719,7 @@ comments: true
     }
 
     /* 队首元素出队 */
-    func (s *linkedListDeque) pollFirst() any {
+    func (s *linkedListDeque) popFirst() any {
         if s.isEmpty() {
             return nil
         }
@@ -729,7 +729,7 @@ comments: true
     }
 
     /* 队尾元素出队 */
-    func (s *linkedListDeque) pollLast() any {
+    func (s *linkedListDeque) popLast() any {
         if s.isEmpty() {
             return nil
         }
@@ -833,7 +833,7 @@ comments: true
         }
 
         /* 队尾出队操作 */
-        pollLast() {
+        popLast() {
             if (this.#queSize === 0) {
                 return null;
             }
@@ -850,7 +850,7 @@ comments: true
         }
 
         /* 队首出队操作 */
-        pollFirst() {
+        popFirst() {
             if (this.#queSize === 0) {
                 return null;
             }
@@ -960,7 +960,7 @@ comments: true
         }
 
         /* 队尾出队操作 */
-        pollLast(): number {
+        popLast(): number {
             if (this.queSize === 0) {
                 return null;
             }
@@ -977,7 +977,7 @@ comments: true
         }
 
         /* 队首出队操作 */
-        pollFirst(): number {
+        popFirst(): number {
             if (this.queSize === 0) {
                 return null;
             }
@@ -1112,7 +1112,7 @@ comments: true
         }
 
         /* 出队操作 */
-        private func poll(isFront: Bool) -> Int {
+        private func pop(isFront: Bool) -> Int {
             if isEmpty() {
                 fatalError("双向队列为空")
             }
@@ -1144,13 +1144,13 @@ comments: true
         }
 
         /* 队首出队 */
-        func pollFirst() -> Int {
-            poll(isFront: true)
+        func popFirst() -> Int {
+            pop(isFront: true)
         }
 
         /* 队尾出队 */
-        func pollLast() -> Int {
-            poll(isFront: false)
+        func popLast() -> Int {
+            pop(isFront: false)
         }
 
         /* 访问队首元素 */
@@ -1270,7 +1270,7 @@ comments: true
             } 
             
             // 出队操作
-            pub fn poll(self: *Self, isFront: bool) T {
+            pub fn pop(self: *Self, isFront: bool) T {
                 if (self.isEmpty()) @panic("双向队列为空");
                 var val: T = undefined;
                 // 队首出队操作
@@ -1299,13 +1299,13 @@ comments: true
             } 
 
             // 队首出队
-            pub fn pollFirst(self: *Self) T {
-                return self.poll(true);
+            pub fn popFirst(self: *Self) T {
+                return self.pop(true);
             } 
 
             // 队尾出队
-            pub fn pollLast(self: *Self) T {
-                return self.poll(false);
+            pub fn popLast(self: *Self) T {
+                return self.pop(false);
             } 
 
             // 访问队首元素
@@ -1362,11 +1362,11 @@ comments: true
 === "pushFirst()"
     ![array_deque_push_first](deque.assets/array_deque_push_first.png)
 
-=== "pollLast()"
-    ![array_deque_poll_last](deque.assets/array_deque_poll_last.png)
+=== "popLast()"
+    ![array_deque_pop_last](deque.assets/array_deque_pop_last.png)
 
-=== "pollFirst()"
-    ![array_deque_poll_first](deque.assets/array_deque_poll_first.png)
+=== "popFirst()"
+    ![array_deque_pop_first](deque.assets/array_deque_pop_first.png)
 
 以下是具体实现代码。
 
@@ -1436,7 +1436,7 @@ comments: true
         }
 
         /* 队首出队 */
-        public int pollFirst() {
+        public int popFirst() {
             int num = peekFirst();
             // 队首指针向后移动一位
             front = index(front + 1);
@@ -1445,7 +1445,7 @@ comments: true
         }
 
         /* 队尾出队 */
-        public int pollLast() {
+        public int popLast() {
             int num = peekLast();
             queSize--;
             return num;
@@ -1547,7 +1547,7 @@ comments: true
         }
 
         /* 队首出队 */
-        int pollFirst() {
+        int popFirst() {
             int num = peekFirst();
             // 队首指针向后移动一位
             front = index(front + 1);
@@ -1556,7 +1556,7 @@ comments: true
         }
 
         /* 队尾出队 */
-        int pollLast() {
+        int popLast() {
             int num = peekLast();
             queSize--;
             return num;
@@ -1644,7 +1644,7 @@ comments: true
             self.__nums[rear] = num
             self.__size += 1
 
-        def poll_first(self) -> int:
+        def pop_first(self) -> int:
             """ 队首出队 """
             num = self.peek_first()
             # 队首指针向后移动一位
@@ -1652,7 +1652,7 @@ comments: true
             self.__size -= 1
             return num
 
-        def poll_last(self) -> int:
+        def pop_last(self) -> int:
             """ 队尾出队 """
             num = self.peek_last()
             self.__size -= 1
@@ -1752,7 +1752,7 @@ comments: true
         }
 
         /* 队首出队 */
-        pollFirst() {
+        popFirst() {
             const num = this.peekFirst();
             // 队首指针向后移动一位
             this.#front = this.index(this.#front + 1);
@@ -1761,7 +1761,7 @@ comments: true
         }
 
         /* 队尾出队 */
-        pollLast() {
+        popLast() {
             const num = this.peekLast();
             this.#queSize--;
             return num;
@@ -1862,7 +1862,7 @@ comments: true
         }
 
         /* 队首出队 */
-        pollFirst(): number {
+        popFirst(): number {
             const num: number = this.peekFirst();
             // 队首指针向后移动一位
             this.front = this.index(this.front + 1);
@@ -1871,7 +1871,7 @@ comments: true
         }
 
         /* 队尾出队 */
-        pollLast(): number {
+        popLast(): number {
             const num: number = this.peekLast();
             this.queSize--;
             return num;
@@ -1984,7 +1984,7 @@ comments: true
         }
 
         /* 队首出队 */
-        func pollFirst() -> Int {
+        func popFirst() -> Int {
             let num = peekFirst()
             // 队首指针向后移动一位
             front = index(i: front + 1)
@@ -1993,7 +1993,7 @@ comments: true
         }
 
         /* 队尾出队 */
-        func pollLast() -> Int {
+        func popLast() -> Int {
             let num = peekLast()
             queSize -= 1
             return num
