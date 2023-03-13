@@ -18,7 +18,7 @@ public class heap
         PrintUtil.printHeap(heap);
     }
 
-    public void testPoll(PriorityQueue<int, int> heap)
+    public void testPop(PriorityQueue<int, int> heap)
     {
         int val = heap.Dequeue(); // 堆顶元素出堆
         Console.WriteLine($"\n堆顶元素 {val} 出堆后\n");
@@ -47,11 +47,11 @@ public class heap
 
         /* 堆顶元素出堆 */
         // 出堆元素会形成一个从大到小的序列
-        testPoll(maxHeap);
-        testPoll(maxHeap);
-        testPoll(maxHeap);
-        testPoll(maxHeap);
-        testPoll(maxHeap);
+        testPop(maxHeap);
+        testPop(maxHeap);
+        testPop(maxHeap);
+        testPop(maxHeap);
+        testPop(maxHeap);
 
         /* 获取堆大小 */
         int size = maxHeap.Count;

@@ -76,7 +76,7 @@ func TestMyHeap(t *testing.T) {
 	maxHeap.print()
 
 	/* 堆顶元素出堆 */
-	peek = maxHeap.poll()
+	peek = maxHeap.pop()
 	fmt.Printf("\n堆顶元素 %d 出堆后\n", peek)
 	maxHeap.print()
 

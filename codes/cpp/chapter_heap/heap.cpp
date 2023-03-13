@@ -13,7 +13,7 @@ void testPush(priority_queue<int> &heap, int val)
     PrintUtil::printHeap(heap);
 }
 
-void testPoll(priority_queue<int> &heap)
+void testPop(priority_queue<int> &heap)
 {
     int val = heap.top();
     heap.pop();
@@ -43,11 +43,11 @@ int main()
     cout << "\n堆顶元素为 " << peek << endl;
 
     /* 堆顶元素出堆 */
-    testPoll(maxHeap);
-    testPoll(maxHeap);
-    testPoll(maxHeap);
-    testPoll(maxHeap);
-    testPoll(maxHeap);
+    testPop(maxHeap);
+    testPop(maxHeap);
+    testPop(maxHeap);
+    testPop(maxHeap);
+    testPop(maxHeap);
 
     /* 获取堆大小 */
     int size = maxHeap.size();

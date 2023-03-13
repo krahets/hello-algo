@@ -94,7 +94,7 @@ func (h *maxHeap) siftUp(i int) {
 }
 
 /* 元素出堆 */
-func (h *maxHeap) poll() any {
+func (h *maxHeap) pop() any {
 	// 判空处理
 	if h.isEmpty() {
 		fmt.Println("error")

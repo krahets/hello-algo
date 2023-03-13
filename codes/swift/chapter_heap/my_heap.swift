@@ -81,7 +81,7 @@ class MaxHeap {
     }
 
     /* 元素出堆 */
-    func poll() -> Int {
+    func pop() -> Int {
         // 判空处理
         if isEmpty() {
             fatalError("堆为空")
@@ -148,7 +148,7 @@ enum MyHeap {
         maxHeap.print()
 
         /* 堆顶元素出堆 */
-        peek = maxHeap.poll()
+        peek = maxHeap.pop()
         print("\n堆顶元素 \(peek) 出堆后")
         maxHeap.print()
 

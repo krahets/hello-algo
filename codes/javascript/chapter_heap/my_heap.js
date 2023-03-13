@@ -82,7 +82,7 @@ class MaxHeap {
     }
 
     /* 元素出堆 */
-    poll() {
+    pop() {
         // 判空处理
         if (this.isEmpty()) throw new Error("堆为空");
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
@@ -119,18 +119,6 @@ class MaxHeap {
     }
 }
 
-function testPush(maxHeap, val) {
-    maxHeap.push(val); // 元素入堆
-    console.log(`\n添加元素 ${val} 后`);
-    maxHeap.print();
-}
-
-function testPoll(maxHeap) {
-    let val = maxHeap.poll(); // 堆顶元素出堆
-    console.log(`\n出堆元素为 ${val}`);
-    maxHeap.print();
-}
-
 /* Driver Code */
 /* 初始化大顶堆 */
 const maxHeap = new MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
@@ -148,7 +136,7 @@ console.log(`\n元素 ${val} 入堆后`);
 maxHeap.print();
 
 /* 堆顶元素出堆 */
-peek = maxHeap.poll();
+peek = maxHeap.pop();
 console.log(`\n堆顶元素 ${peek} 出堆后`);
 maxHeap.print();
 

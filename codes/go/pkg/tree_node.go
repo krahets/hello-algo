@@ -36,7 +36,7 @@ func ArrToTree(arr []any) *TreeNode {
 	queue.PushBack(root)
 	i := 0
 	for queue.Len() > 0 {
-		// poll
+		// 队首元素出队
 		node := queue.Remove(queue.Front()).(*TreeNode)
 		i++
 		if i < len(arr) {
