@@ -38,7 +38,7 @@ class ArrayQueue:
         self.__nums[rear] = num
         self.__size += 1
 
-    def poll(self) -> int:
+    def pop(self) -> int:
         """ 出队 """
         num: int = self.peek()
         # 队首指针向后移动一位，若越过尾部则返回到数组头部
@@ -79,8 +79,8 @@ if __name__ == "__main__":
     print("队首元素 peek =", peek)
 
     """ 元素出队 """
-    poll: int = queue.poll()
-    print("出队元素 poll =", poll)
+    pop: int = queue.pop()
+    print("出队元素 pop =", pop)
     print("出队后 queue =", queue.to_list())
 
     """ 获取队列的长度 """
@@ -94,5 +94,5 @@ if __name__ == "__main__":
     """ 测试环形数组 """
     for i in range(10):
         queue.push(i)
-        queue.poll()
+        queue.pop()
         print("第", i, "轮入队 + 出队后 queue = ", queue.to_list())

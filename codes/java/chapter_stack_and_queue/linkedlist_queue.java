@@ -45,7 +45,7 @@ class LinkedListQueue {
     }
 
     /* 出队 */
-    public int poll() {
+    public int pop() {
         int num = peek();
         // 删除头结点
         front = front.next;
@@ -90,8 +90,8 @@ public class linkedlist_queue {
         System.out.println("队首元素 peek = " + peek);
 
         /* 元素出队 */
-        int poll = queue.poll();
-        System.out.println("出队元素 poll = " + poll + "，出队后 queue = " + Arrays.toString(queue.toArray()));
+        int pop = queue.pop();
+        System.out.println("出队元素 pop = " + pop + "，出队后 queue = " + Arrays.toString(queue.toArray()));
 
         /* 获取队列的长度 */
         int size = queue.size();

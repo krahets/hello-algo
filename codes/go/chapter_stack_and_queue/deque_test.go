@@ -112,11 +112,11 @@ func TestLinkedListDeque(t *testing.T) {
 	fmt.Println("队尾元素 rear =", rear)
 
 	// 元素出队
-	pollFirst := deque.pollFirst()
-	fmt.Print("队首出队元素 pollFirst = ", pollFirst, "，队首出队后 deque = ")
+	popFirst := deque.popFirst()
+	fmt.Print("队首出队元素 popFirst = ", popFirst, "，队首出队后 deque = ")
 	PrintList(deque.toList())
-	pollLast := deque.pollLast()
-	fmt.Print("队尾出队元素 pollLast = ", pollLast, "，队尾出队后 deque = ")
+	popLast := deque.popLast()
+	fmt.Print("队尾出队元素 popLast = ", popLast, "，队尾出队后 deque = ")
 	PrintList(deque.toList())
 
 	// 获取队的长度
@@ -136,6 +136,6 @@ func BenchmarkLinkedListDeque(b *testing.B) {
 		deque.pushLast(777)
 	}
 	for i := 0; i < b.N; i++ {
-		deque.pollFirst()
+		deque.popFirst()
 	}
 }

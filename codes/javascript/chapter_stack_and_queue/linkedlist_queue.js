@@ -44,7 +44,7 @@ class LinkedListQueue {
     }
 
     /* 出队 */
-    poll() {
+    pop() {
         const num = this.peek();
         // 删除头结点
         this.#front = this.#front.next;
@@ -90,8 +90,8 @@ const peek = queue.peek();
 console.log("队首元素 peek = " + peek);
 
 /* 元素出队 */
-const poll = queue.poll();
-console.log("出队元素 poll = " + poll + "，出队后 queue = " + queue.toArray());
+const pop = queue.pop();
+console.log("出队元素 pop = " + pop + "，出队后 queue = " + queue.toArray());
 
 /* 获取队列的长度 */
 const size = queue.size;

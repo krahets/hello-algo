@@ -64,7 +64,7 @@ pub fn ArrayQueue(comptime T: type) type {
         } 
 
         // 出队
-        pub fn poll(self: *Self) T {
+        pub fn pop(self: *Self) T {
             var num = self.peek();
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
             self.front = (self.front + 1) % self.capacity();
@@ -115,8 +115,8 @@ pub fn main() !void {
     std.debug.print("\n队首元素 peek = {}", .{peek});
 
     // 元素出队
-    var poll = queue.poll();
-    std.debug.print("\n出队元素 poll = {}，出队后 queue = ", .{poll});
+    var pop = queue.pop();
+    std.debug.print("\n出队元素 pop = {}，出队后 queue = ", .{pop});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 
     // 获取队列的长度
@@ -131,7 +131,7 @@ pub fn main() !void {
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
         try queue.push(i);
-        _ = queue.poll();
+        _ = queue.pop();
         std.debug.print("\n第 {} 轮入队 + 出队后 queue = ", .{i});
         inc.PrintUtil.printArray(i32, try queue.toArray());
     }

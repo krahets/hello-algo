@@ -38,7 +38,7 @@ class LinkedListQueue:
             self.__rear = node
         self.__size += 1
 
-    def poll(self) -> int:
+    def pop(self) -> int:
         """ 出队 """
         num = self.peek()
         # 删除头结点
@@ -81,8 +81,8 @@ if __name__ == "__main__":
     print("队首元素 front =", peek)
 
     """ 元素出队 """
-    pop_front: int = queue.poll()
-    print("出队元素 poll =", pop_front)
+    pop_front: int = queue.pop()
+    print("出队元素 pop =", pop_front)
     print("出队后 queue =", queue.to_list())
 
     """ 获取队列的长度 """

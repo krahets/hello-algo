@@ -68,7 +68,7 @@ class ArrayDeque {
     }
 
     /* 队首出队 */
-    func pollFirst() -> Int {
+    func popFirst() -> Int {
         let num = peekFirst()
         // 队首指针向后移动一位
         front = index(i: front + 1)
@@ -77,7 +77,7 @@ class ArrayDeque {
     }
 
     /* 队尾出队 */
-    func pollLast() -> Int {
+    func popLast() -> Int {
         let num = peekLast()
         queSize -= 1
         return num
@@ -136,10 +136,10 @@ enum _ArrayDeque {
         print("元素 1 队首入队后 deque = \(deque.toArray())")
 
         /* 元素出队 */
-        let pollLast = deque.pollLast()
-        print("队尾出队元素 = \(pollLast)，队尾出队后 deque = \(deque.toArray())")
-        let pollFirst = deque.pollFirst()
-        print("队首出队元素 = \(pollFirst)，队首出队后 deque = \(deque.toArray())")
+        let popLast = deque.popLast()
+        print("队尾出队元素 = \(popLast)，队尾出队后 deque = \(deque.toArray())")
+        let popFirst = deque.popFirst()
+        print("队首出队元素 = \(popFirst)，队首出队后 deque = \(deque.toArray())")
 
         /* 获取双向队列的长度 */
         let size = deque.size()

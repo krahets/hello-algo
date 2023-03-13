@@ -52,7 +52,7 @@ public:
     }
 
     /* 出队 */
-    void poll() {
+    void pop() {
         int num = peek();
         // 删除头结点
         ListNode *tmp = front;
@@ -101,8 +101,8 @@ int main() {
     cout << "队首元素 peek = " << peek << endl;
 
     /* 元素出队 */
-    queue->poll();
-    cout << "出队元素 poll = " << peek << "，出队后 queue = ";
+    queue->pop();
+    cout << "出队元素 pop = " << peek << "，出队后 queue = ";
     PrintUtil::printVector(queue->toVector());
 
     /* 获取队列的长度 */

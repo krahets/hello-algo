@@ -60,7 +60,7 @@ class LinkedListDeque:
         """ 队尾入队 """
         self.push(num, False)
 
-    def poll(self, is_front: bool) -> int:
+    def pop(self, is_front: bool) -> int:
         """ 出队操作 """
         # 若队列为空，直接返回 None
         if self.is_empty():
@@ -86,13 +86,13 @@ class LinkedListDeque:
         self.__size -= 1  # 更新队列长度
         return val
 
-    def poll_first(self) -> int:
+    def pop_first(self) -> int:
         """ 队首出队 """
-        return self.poll(True)
+        return self.pop(True)
 
-    def poll_last(self) -> int:
+    def pop_last(self) -> int:
         """ 队尾出队 """
-        return self.poll(False)
+        return self.pop(False)
 
     def peek_first(self) -> int:
         """ 访问队首元素 """
@@ -134,10 +134,10 @@ if __name__ == "__main__":
     print("元素 1 队首入队后 deque =", deque.to_array())
 
     """ 元素出队 """
-    poll_last: int = deque.poll_last()
-    print("队尾出队元素 =", poll_last, "，队尾出队后 deque =", deque.to_array())
-    poll_first: int = deque.poll_first()
-    print("队首出队元素 =", poll_first, "，队首出队后 deque =", deque.to_array())
+    pop_last: int = deque.pop_last()
+    print("队尾出队元素 =", pop_last, "，队尾出队后 deque =", deque.to_array())
+    pop_first: int = deque.pop_first()
+    print("队首出队元素 =", pop_first, "，队首出队后 deque =", deque.to_array())
 
     """ 获取双向队列的长度 """
     size: int = deque.size()

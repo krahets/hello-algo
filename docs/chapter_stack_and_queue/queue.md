@@ -8,15 +8,15 @@
 
 ## 队列常用操作
 
-队列的常用操作见下表，方法名需根据语言来确定，此处以 Java 为例。
+队列的常用操作见下表。需要注意，不同编程语言的方法名是不同的，在这里我们采用与栈相同的方法命名。
 
 <div class="center-table" markdown>
 
 | 方法名     | 描述                        | 时间复杂度 |
 | --------- | -------------------------- | -------- |
 | push()    | 元素入队，即将元素添加至队尾    | $O(1)$   |
-| poll()    | 队首元素出队                 | $O(1)$   |
-| peek()   | 访问队首元素                 | $O(1)$   |
+| pop()     | 队首元素出队                 | $O(1)$   |
+| peek()    | 访问队首元素                 | $O(1)$   |
 
 </div>
 
@@ -39,7 +39,7 @@
     int peek = queue.peek();
     
     /* 元素出队 */
-    int poll = queue.poll();
+    int pop = queue.poll();
     
     /* 获取队列的长度 */
     int size = queue.size();
@@ -120,8 +120,8 @@
     peek := queue.Front()
     
     /* 元素出队 */
-    poll := queue.Front()
-    queue.Remove(poll)
+    pop := queue.Front()
+    queue.Remove(pop)
     
     /* 获取队列的长度 */
     size := queue.Len()
@@ -149,7 +149,7 @@
     
     /* 元素出队 */
     // 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
-    const poll = queue.shift();
+    const pop = queue.shift();
     
     /* 获取队列的长度 */
     const size = queue.length;
@@ -177,7 +177,7 @@
     
     /* 元素出队 */
     // 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
-    const poll = queue.shift();
+    const pop = queue.shift();
     
     /* 获取队列的长度 */
     const size = queue.length;
@@ -209,7 +209,7 @@
     int peek = queue.Peek();
     
     /* 元素出队 */
-    int poll = queue.Dequeue();
+    int pop = queue.Dequeue();
     
     /* 获取队列的长度 */
     int size = queue.Count();
@@ -236,7 +236,7 @@
     let peek = queue.first!
     
     /* 元素出队 */
-    // 使用 Array 模拟时 poll 的复杂度为 O(n)
+    // 由于是数组，因此 removeFirst 的复杂度为 O(n)
     let pool = queue.removeFirst()
     
     /* 获取队列的长度 */
@@ -266,8 +266,8 @@
 === "push()"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_push.png)
 
-=== "poll()"
-    ![linkedlist_queue_poll](queue.assets/linkedlist_queue_poll.png)
+=== "pop()"
+    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_pop.png)
 
 以下是使用链表实现队列的示例代码。
 
@@ -350,8 +350,8 @@
 === "push()"
     ![array_queue_push](queue.assets/array_queue_push.png)
 
-=== "poll()"
-    ![array_queue_poll](queue.assets/array_queue_poll.png)
+=== "pop()"
+    ![array_queue_pop](queue.assets/array_queue_pop.png)
 
 细心的同学可能会发现一个问题：在不断入队与出队的过程中，`front` 和 `rear` 都在向右移动，**在到达数组尾部后就无法继续移动了**。为解决此问题，**我们考虑将数组看作是首尾相接的**，这样的数组被称为「环形数组」。
 

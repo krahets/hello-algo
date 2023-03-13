@@ -27,8 +27,8 @@ pub fn main() {
     println!("\n队首元素 peek = {peek}");
 
     // 元素出队
-    let poll = queue.pop_front().unwrap();
-    print!("出队元素 poll = {poll}，出队后 queue = ");
+    let pop = queue.pop_front().unwrap();
+    print!("出队元素 pop = {pop}，出队后 queue = ");
     print_util::print_queue(&queue);
 
     // 获取队列的长度

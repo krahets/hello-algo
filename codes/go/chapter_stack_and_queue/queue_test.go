@@ -31,9 +31,9 @@ func TestQueue(t *testing.T) {
 	fmt.Println("队首元素 peek =", peek.Value)
 
 	/* 元素出队 */
-	poll := queue.Front()
-	queue.Remove(poll)
-	fmt.Print("出队元素 poll = ", poll.Value, "，出队后 queue = ")
+	pop := queue.Front()
+	queue.Remove(pop)
+	fmt.Print("出队元素 pop = ", pop.Value, "，出队后 queue = ")
 	PrintList(queue)
 
 	/* 获取队列的长度 */
@@ -64,8 +64,8 @@ func TestArrayQueue(t *testing.T) {
 	fmt.Println("队首元素 peek =", peek)
 
 	// 元素出队
-	poll := queue.poll()
-	fmt.Print("出队元素 poll = ", poll, ", 出队后 queue = ")
+	pop := queue.pop()
+	fmt.Print("出队元素 pop = ", pop, ", 出队后 queue = ")
 	PrintSlice(queue.toSlice())
 
 	// 获取队的长度
@@ -79,7 +79,7 @@ func TestArrayQueue(t *testing.T) {
 	/* 测试环形数组 */
 	for i := 0; i < 10; i++ {
 		queue.push(i)
-		queue.poll()
+		queue.pop()
 		fmt.Print("第", i, "轮入队 + 出队后 queue =")
 		PrintSlice(queue.toSlice())
 	}
@@ -103,8 +103,8 @@ func TestLinkedListQueue(t *testing.T) {
 	fmt.Println("队首元素 peek =", peek)
 
 	// 元素出队
-	poll := queue.poll()
-	fmt.Print("出队元素 poll = ", poll, ", 出队后 queue = ")
+	pop := queue.pop()
+	fmt.Print("出队元素 pop = ", pop, ", 出队后 queue = ")
 	PrintList(queue.toList())
 
 	// 获取队的长度
@@ -125,7 +125,7 @@ func BenchmarkArrayQueue(b *testing.B) {
 		queue.push(777)
 	}
 	for i := 0; i < b.N; i++ {
-		queue.poll()
+		queue.pop()
 	}
 }
 
@@ -137,6 +137,6 @@ func BenchmarkLinkedQueue(b *testing.B) {
 		queue.push(777)
 	}
 	for i := 0; i < b.N; i++ {
-		queue.poll()
+		queue.pop()
 	}
 }

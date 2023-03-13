@@ -71,7 +71,7 @@ class LinkedListDeque {
     }
 
     /* 出队操作 */
-    private func poll(isFront: Bool) -> Int {
+    private func pop(isFront: Bool) -> Int {
         if isEmpty() {
             fatalError("双向队列为空")
         }
@@ -103,13 +103,13 @@ class LinkedListDeque {
     }
 
     /* 队首出队 */
-    func pollFirst() -> Int {
-        poll(isFront: true)
+    func popFirst() -> Int {
+        pop(isFront: true)
     }
 
     /* 队尾出队 */
-    func pollLast() -> Int {
-        poll(isFront: false)
+    func popLast() -> Int {
+        pop(isFront: false)
     }
 
     /* 访问队首元素 */
@@ -158,10 +158,10 @@ enum _LinkedListDeque {
         print("元素 1 队首入队后 deque = \(deque.toArray())")
 
         /* 元素出队 */
-        let pollLast = deque.pollLast()
-        print("队尾出队元素 = \(pollLast)，队尾出队后 deque = \(deque.toArray())")
-        let pollFirst = deque.pollFirst()
-        print("队首出队元素 = \(pollFirst)，队首出队后 deque = \(deque.toArray())")
+        let popLast = deque.popLast()
+        print("队尾出队元素 = \(popLast)，队尾出队后 deque = \(deque.toArray())")
+        let popFirst = deque.popFirst()
+        print("队首出队元素 = \(popFirst)，队首出队后 deque = \(deque.toArray())")
 
         /* 获取双向队列的长度 */
         let size = deque.size()

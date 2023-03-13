@@ -29,8 +29,8 @@ public class queue
         Console.WriteLine("队首元素 peek = " + peek);
 
         /* 元素出队 */
-        int poll = queue.Dequeue();
-        Console.WriteLine("出队元素 poll = " + poll + "，出队后 queue = " + String.Join(",", queue.ToArray()));
+        int pop = queue.Dequeue();
+        Console.WriteLine("出队元素 pop = " + pop + "，出队后 queue = " + String.Join(",", queue.ToArray()));
 
         /* 获取队列的长度 */
         int size = queue.Count();

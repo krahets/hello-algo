@@ -71,7 +71,7 @@ class ArrayDeque {
     }
 
     /* 队首出队 */
-    public int pollFirst() {
+    public int popFirst() {
         int num = peekFirst();
         // 队首指针向后移动一位
         front = index(front + 1);
@@ -80,7 +80,7 @@ class ArrayDeque {
     }
 
     /* 队尾出队 */
-    public int pollLast() {
+    public int popLast() {
         int num = peekLast();
         queSize--;
         return num;
@@ -135,10 +135,10 @@ public class array_deque {
         System.out.println("元素 1 队首入队后 deque = " + Arrays.toString(deque.toArray()));
 
         /* 元素出队 */
-        int pollLast = deque.pollLast();
-        System.out.println("队尾出队元素 = " + pollLast + "，队尾出队后 deque = " + Arrays.toString(deque.toArray()));
-        int pollFirst = deque.pollFirst();
-        System.out.println("队首出队元素 = " + pollFirst + "，队首出队后 deque = " + Arrays.toString(deque.toArray()));
+        int popLast = deque.popLast();
+        System.out.println("队尾出队元素 = " + popLast + "，队尾出队后 deque = " + Arrays.toString(deque.toArray()));
+        int popFirst = deque.popFirst();
+        System.out.println("队首出队元素 = " + popFirst + "，队首出队后 deque = " + Arrays.toString(deque.toArray()));
 
         /* 获取双向队列的长度 */
         int size = deque.size();

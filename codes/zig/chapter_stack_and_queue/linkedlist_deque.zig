@@ -96,7 +96,7 @@ pub fn LinkedListDeque(comptime T: type) type {
         } 
         
         // 出队操作
-        pub fn poll(self: *Self, is_front: bool) T {
+        pub fn pop(self: *Self, is_front: bool) T {
             if (self.isEmpty()) @panic("双向队列为空");
             var val: T = undefined;
             // 队首出队操作
@@ -125,13 +125,13 @@ pub fn LinkedListDeque(comptime T: type) type {
         } 
 
         // 队首出队
-        pub fn pollFirst(self: *Self) T {
-            return self.poll(true);
+        pub fn popFirst(self: *Self) T {
+            return self.pop(true);
         } 
 
         // 队尾出队
-        pub fn pollLast(self: *Self) T {
-            return self.poll(false);
+        pub fn popLast(self: *Self) T {
+            return self.pop(false);
         } 
 
         // 访问队首元素
@@ -188,11 +188,11 @@ pub fn main() !void {
     inc.PrintUtil.printArray(i32, try deque.toArray());
 
     // 元素出队
-    var poll_last = deque.pollLast();
-    std.debug.print("\n队尾出队元素 = {}，队尾出队后 deque = ", .{poll_last});
+    var pop_last = deque.popLast();
+    std.debug.print("\n队尾出队元素 = {}，队尾出队后 deque = ", .{pop_last});
     inc.PrintUtil.printArray(i32, try deque.toArray());
-    var poll_first = deque.pollFirst();
-    std.debug.print("\n队首出队元素 = {}，队首出队后 deque = ", .{poll_first});
+    var pop_first = deque.popFirst();
+    std.debug.print("\n队首出队元素 = {}，队首出队后 deque = ", .{pop_first});
     inc.PrintUtil.printArray(i32, try deque.toArray());
 
     // 获取双向队列的长度

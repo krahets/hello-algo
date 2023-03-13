@@ -6,18 +6,18 @@
 
 ## 双向队列常用操作
 
-双向队列的常用操作见下表，方法名需根据语言来确定，此处以 Java 为例。
+双向队列的常用操作见下表，方法名需根据语言来确定。
 
 <div class="center-table" markdown>
 
-| 方法名        | 描述             | 时间复杂度 |
-| ------------ | ---------------- | ---------- |
-| pushFirst() | 将元素添加至队首 | $O(1)$     |
-| pushLast()  | 将元素添加至队尾 | $O(1)$     |
-| pollFirst()  | 删除队首元素     | $O(1)$     |
-| pollLast()   | 删除队尾元素     | $O(1)$     |
-| peekFirst()  | 访问队首元素     | $O(1)$     |
-| peekLast()   | 访问队尾元素     | $O(1)$     |
+| 方法名       | 描述            | 时间复杂度 |
+| ----------- | -------------- | ---------- |
+| pushFirst() | 将元素添加至队首  | $O(1)$     |
+| pushLast()  | 将元素添加至队尾  | $O(1)$     |
+| popFirst()  | 删除队首元素     | $O(1)$     |
+| popLast()   | 删除队尾元素     | $O(1)$     |
+| peekFirst() | 访问队首元素     | $O(1)$     |
+| peekLast()  | 访问队尾元素     | $O(1)$     |
 
 </div>
 
@@ -41,8 +41,8 @@
     int peekLast = deque.peekLast();    // 队尾元素
     
     /* 元素出队 */
-    int pollFirst = deque.pollFirst();  // 队首元素出队
-    int pollLast = deque.pollLast();    // 队尾元素出队
+    int popFirst = deque.pollFirst();  // 队首元素出队
+    int popLast = deque.pollLast();    // 队尾元素出队
     
     /* 获取双向队列的长度 */
     int size = deque.size();
@@ -266,9 +266,9 @@
     let peekLast = deque.last! // 队尾元素
 
     /* 元素出队 */
-    // 使用 Array 模拟时 pollFirst 的复杂度为 O(n)
-    let pollFirst = deque.removeFirst() // 队首元素出队
-    let pollLast = deque.removeLast() // 队尾元素出队
+    // 使用 Array 模拟时 popFirst 的复杂度为 O(n)
+    let popFirst = deque.removeFirst() // 队首元素出队
+    let popLast = deque.removeLast() // 队尾元素出队
 
     /* 获取双向队列的长度 */
     let size = deque.count
@@ -304,11 +304,11 @@
 === "pushFirst()"
     ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_push_first.png)
 
-=== "pollLast()"
-    ![linkedlist_deque_poll_last](deque.assets/linkedlist_deque_poll_last.png)
+=== "popLast()"
+    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_pop_last.png)
 
-=== "pollFirst()"
-    ![linkedlist_deque_poll_first](deque.assets/linkedlist_deque_poll_first.png)
+=== "popFirst()"
+    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_pop_first.png)
 
 以下是具体实现代码。
 
@@ -403,11 +403,11 @@
 === "pushFirst()"
     ![array_deque_push_first](deque.assets/array_deque_push_first.png)
 
-=== "pollLast()"
-    ![array_deque_poll_last](deque.assets/array_deque_poll_last.png)
+=== "popLast()"
+    ![array_deque_pop_last](deque.assets/array_deque_pop_last.png)
 
-=== "pollFirst()"
-    ![array_deque_poll_first](deque.assets/array_deque_poll_first.png)
+=== "popFirst()"
+    ![array_deque_pop_first](deque.assets/array_deque_pop_first.png)
 
 以下是具体实现代码。
 

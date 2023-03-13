@@ -23,8 +23,8 @@ console.log("队首元素 peek =", peek);
 
 /* 元素出队 */
 // 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
-const poll = queue.shift();
-console.log("出队元素 poll =", poll, "，出队后 queue = ", queue);
+const pop = queue.shift();
+console.log("出队元素 pop =", pop, "，出队后 queue = ", queue);
 
 /* 获取队列的长度 */
 const size = queue.length;

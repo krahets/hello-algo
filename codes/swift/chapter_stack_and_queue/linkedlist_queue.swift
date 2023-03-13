@@ -43,7 +43,7 @@ class LinkedListQueue {
 
     /* 出队 */
     @discardableResult
-    func poll() -> Int {
+    func pop() -> Int {
         let num = peek()
         // 删除头结点
         front = front?.next
@@ -91,8 +91,8 @@ enum _LinkedListQueue {
         print("队首元素 peek = \(peek)")
 
         /* 元素出队 */
-        let poll = queue.poll()
-        print("出队元素 poll = \(poll)，出队后 queue = \(queue.toArray())")
+        let pop = queue.pop()
+        print("出队元素 pop = \(pop)，出队后 queue = \(queue.toArray())")
 
         /* 获取队列的长度 */
         let size = queue.size()

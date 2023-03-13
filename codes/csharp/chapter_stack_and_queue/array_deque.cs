@@ -81,7 +81,7 @@ namespace hello_algo.chapter_stack_and_queue
         }
 
         /* 队首出队 */
-        public int pollFirst()
+        public int popFirst()
         {
             int num = peekFirst();
             // 队首指针向后移动一位
@@ -91,7 +91,7 @@ namespace hello_algo.chapter_stack_and_queue
         }
 
         /* 队尾出队 */
-        public int pollLast()
+        public int popLast()
         {
             int num = peekLast();
             queSize--;
@@ -158,10 +158,10 @@ namespace hello_algo.chapter_stack_and_queue
             Console.WriteLine("元素 1 队首入队后 deque = " + string.Join(" ", deque.toArray()));
 
             /* 元素出队 */
-            int pollLast = deque.pollLast();
-            Console.WriteLine("队尾出队元素 = " + pollLast + "，队尾出队后 deque = " + string.Join(" ", deque.toArray()));
-            int pollFirst = deque.pollFirst();
-            Console.WriteLine("队首出队元素 = " + pollFirst + "，队首出队后 deque = " + string.Join(" ", deque.toArray()));
+            int popLast = deque.popLast();
+            Console.WriteLine("队尾出队元素 = " + popLast + "，队尾出队后 deque = " + string.Join(" ", deque.toArray()));
+            int popFirst = deque.popFirst();
+            Console.WriteLine("队首出队元素 = " + popFirst + "，队首出队后 deque = " + string.Join(" ", deque.toArray()));
 
             /* 获取双向队列的长度 */
             int size = deque.size();
