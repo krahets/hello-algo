@@ -96,7 +96,7 @@ public:
     }
 
     /* 元素出堆 */
-    void poll() {
+    void pop() {
         // 判空处理
         if (empty()) {
             throw out_of_range("堆为空");
@@ -121,48 +121,35 @@ public:
 };
 
 
-void testPush(MaxHeap maxHeap, int val) {
-    maxHeap.push(val);
-    cout << "\n添加元素 " << val << " 后" << endl;
-    maxHeap.print();
-}
-
-void testPop(MaxHeap maxHeap) {
-    int val = maxHeap.peek();
-    maxHeap.poll();
-    cout << "\n出堆元素为 " << val << endl;
-    maxHeap.print();
-}
-
 /* Driver Code */
 int main() {
     /* 初始化大顶堆 */
     vector<int> vec{9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2};
-    MaxHeap maxheap(vec);
+    MaxHeap maxHeap(vec);
     cout << "\n输入列表并建堆后" << endl;
-    maxheap.print();
+    maxHeap.print();
 
     /* 获取堆顶元素 */
-    int peek = maxheap.peek();
+    int peek = maxHeap.peek();
     cout << "\n堆顶元素为 " << peek << endl;
 
     /* 元素入堆 */
     int val = 7;
-    maxheap.push(val);
+    maxHeap.push(val);
     cout << "\n元素 " << val << " 入堆后" << endl;
-    maxheap.print();
+    maxHeap.print();
 
     /* 堆顶元素出堆 */
-    peek = maxheap.peek();
-    maxheap.poll();
+    peek = maxHeap.peek();
+    maxHeap.pop();
     cout << "\n堆顶元素 " << peek << " 出堆后" << endl;
-    maxheap.print();
+    maxHeap.print();
 
     /* 获取堆大小 */
-    int size = maxheap.size();
+    int size = maxHeap.size();
     cout << "\n堆元素数量为 " << size << endl;
 
     /* 判断堆是否为空 */
-    bool isEmpty = maxheap.empty();
+    bool isEmpty = maxHeap.empty();
     cout << "\n堆是否为空 " << isEmpty << endl;
 }

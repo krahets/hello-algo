@@ -12,12 +12,12 @@ import java.util.*;
 
 public class heap {
     public static void testPush(Queue<Integer> heap, int val) {
-        heap.add(val); // 元素入堆
+        heap.offer(val); // 元素入堆
         System.out.format("\n元素 %d 入堆后\n", val);
         PrintUtil.printHeap(heap);
     }
 
-    public static void testPoll(Queue<Integer> heap) {
+    public static void testPop(Queue<Integer> heap) {
         int val = heap.poll(); // 堆顶元素出堆
         System.out.format("\n堆顶元素 %d 出堆后\n", val);
         PrintUtil.printHeap(heap);
@@ -44,11 +44,11 @@ public class heap {
         System.out.format("\n堆顶元素为 %d\n", peek);
 
         /* 堆顶元素出堆 */
-        testPoll(maxHeap);
-        testPoll(maxHeap);
-        testPoll(maxHeap);
-        testPoll(maxHeap);
-        testPoll(maxHeap);
+        testPop(maxHeap);
+        testPop(maxHeap);
+        testPop(maxHeap);
+        testPop(maxHeap);
+        testPop(maxHeap);
 
         /* 获取堆大小 */
         int size = maxHeap.size();

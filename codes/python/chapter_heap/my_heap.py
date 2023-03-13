@@ -67,7 +67,7 @@ class MaxHeap:
             # 循环向上堆化
             i = p
 
-    def poll(self) -> int:
+    def pop(self) -> int:
         """ 元素出堆 """
         # 判空处理
         assert not self.is_empty()
@@ -102,18 +102,6 @@ class MaxHeap:
         print_heap(self.max_heap)
 
 
-def test_push(max_heap: MaxHeap, val: int):
-    max_heap.push(val)  # 元素入堆
-    print(f"\n添加元素 {val} 后\n")
-    max_heap.print()
-
-
-def test_poll(max_heap: MaxHeap):
-    val = max_heap.poll()  # 堆顶元素出堆
-    print(f"\n出堆元素为 {val}\n")
-    max_heap.print()
-
-
 """ Driver Code """
 if __name__ == "__main__":
     # 初始化大顶堆
@@ -132,7 +120,7 @@ if __name__ == "__main__":
     max_heap.print()
 
     # 堆顶元素出堆
-    peek = max_heap.poll()
+    peek = max_heap.pop()
     print(f"\n堆顶元素 {peek} 出堆后")
     max_heap.print()
 

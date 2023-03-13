@@ -87,7 +87,7 @@ class MaxHeap {
     }
 
     /* 元素出堆 */
-    public int poll() {
+    public int pop() {
         // 判空处理
         if (isEmpty())
             throw new EmptyStackException();
@@ -129,18 +129,6 @@ class MaxHeap {
 
 
 public class my_heap {
-    public static void testPush(MaxHeap maxHeap, int val) {
-        maxHeap.push(val);  // 元素入堆
-        System.out.format("\n添加元素 %d 后\n", val);
-        maxHeap.print();
-    }
-
-    public static void testPoll(MaxHeap maxHeap) {
-        int val = maxHeap.poll(); // 堆顶元素出堆
-        System.out.format("\n出堆元素为 %d\n", val);
-        maxHeap.print();
-    }
-
     public static void main(String[] args) {
         /* 初始化大顶堆 */
         MaxHeap maxHeap = new MaxHeap(Arrays.asList(9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2));
@@ -158,7 +146,7 @@ public class my_heap {
         maxHeap.print();
 
         /* 堆顶元素出堆 */
-        peek = maxHeap.poll();
+        peek = maxHeap.pop();
         System.out.format("\n堆顶元素 %d 出堆后\n", peek);
         maxHeap.print();
 

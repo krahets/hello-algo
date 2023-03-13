@@ -86,7 +86,7 @@ int push(maxHeap *h, int val) {
 }
 
 /* 元素出堆 */
-int poll(maxHeap *h) {
+int pop(maxHeap *h) {
     // 判空处理
     if (isEmpty(h)) {
         printf("heap is empty!");
@@ -162,7 +162,7 @@ int main() {
     printHeap(heap->data, heap->size);
 
     /* 堆顶元素出堆 */
-    int top = poll(heap);
+    int top = pop(heap);
     printf("\n堆顶元素 %d 出堆后\n", top);
     printHeap(heap->data, heap->size);
 

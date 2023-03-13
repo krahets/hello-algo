@@ -97,7 +97,7 @@ class MaxHeap
     }
 
     /* 元素出堆 */
-    public int poll()
+    public int pop()
     {
         // 判空处理
         if (isEmpty())
@@ -168,7 +168,7 @@ public class my_heap
         maxHeap.print();
 
         /* 堆顶元素出堆 */
-        peek = maxHeap.poll();
+        peek = maxHeap.pop();
         Console.WriteLine($"堆顶元素 {peek} 出堆后");
         maxHeap.print();
 
