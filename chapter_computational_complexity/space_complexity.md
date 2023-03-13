@@ -93,10 +93,11 @@ comments: true
         return 0
 
     def algorithm(n) -> int:  # 输入数据
+        A: int = 0            # 暂存数据（常量，一般用大写字母表示）
         b: int = 0            # 暂存数据（变量）
         node = Node(0)        # 暂存数据（对象）
         c: int = function()   # 栈帧空间（调用函数）
-        return a + b + c      # 输出数据
+        return A + b + c      # 输出数据
     ```
 
 === "Go"
@@ -149,7 +150,7 @@ comments: true
 
     function algorithm(n) {       // 输入数据
         const a = 0;              // 暂存数据（常量）
-        const b = 0;              // 暂存数据（变量）
+        let b = 0;                // 暂存数据（变量）
         const node = new Node(0); // 暂存数据（对象）
         const c = constFunc();    // 栈帧空间（调用函数）
         return a + b + c;         // 输出数据
@@ -177,7 +178,7 @@ comments: true
 
     function algorithm(n: number): number { // 输入数据
         const a = 0;                        // 暂存数据（常量）
-        const b = 0;                        // 暂存数据（变量）
+        let b = 0;                          // 暂存数据（变量）
         const node = new Node(0);           // 暂存数据（对象）
         const c = constFunc();              // 栈帧空间（调用函数）
         return a + b + c;                   // 输出数据
@@ -210,7 +211,7 @@ comments: true
 
     int algorithm(int n)          // 输入数据
     {
-        int a = 0;                // 暂存数据（常量）
+        const int a = 0;          // 暂存数据（常量）
         int b = 0;                // 暂存数据（变量）
         Node node = new Node(0);  // 暂存数据（对象）
         int c = function();       // 栈帧空间（调用函数）
@@ -238,11 +239,11 @@ comments: true
     }
 
     func algorithm(n: Int) -> Int { // 输入数据
-        let a = 0 // 暂存数据（常量）
-        var b = 0 // 暂存数据（变量）
+        let a = 0             // 暂存数据（常量）
+        var b = 0             // 暂存数据（变量）
         let node = Node(x: 0) // 暂存数据（对象）
-        let c = function() // 栈帧空间（调用函数）
-        return a + b + c // 输出数据
+        let c = function()    // 栈帧空间（调用函数）
+        return a + b + c      // 输出数据
     }
     ```
 
