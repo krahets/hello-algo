@@ -79,7 +79,7 @@ public:
     }
 
     /* 出队操作 */
-    int poll(bool isFront) {
+    int pop(bool isFront) {
         // 若队列为空，直接返回 -1
         if (isEmpty())
             return -1;
@@ -110,13 +110,13 @@ public:
     }
 
     /* 队首出队 */
-    int pollFirst() {
-        return poll(true);
+    int popFirst() {
+        return pop(true);
     }
 
     /* 队尾出队 */
-    int pollLast() {
-        return poll(false);
+    int popLast() {
+        return pop(false);
     }
 
     /* 访问队首元素 */
@@ -166,11 +166,11 @@ int main() {
     PrintUtil::printVector(deque->toVector());
 
     /* 元素出队 */
-    int pollLast = deque->pollLast();
-    cout << "队尾出队元素 = " << pollLast << "，队尾出队后 deque = ";
+    int popLast = deque->popLast();
+    cout << "队尾出队元素 = " << popLast << "，队尾出队后 deque = ";
     PrintUtil::printVector(deque->toVector());
-    int pollFirst = deque->pollFirst();
-    cout << "队首出队元素 = " << pollFirst << "，队首出队后 deque = ";
+    int popFirst = deque->popFirst();
+    cout << "队首出队元素 = " << popFirst << "，队首出队后 deque = ";
     PrintUtil::printVector(deque->toVector());
 
     /* 获取双向队列的长度 */

@@ -60,7 +60,7 @@ class ArrayDeque:
         self.__nums[rear] = num
         self.__size += 1
 
-    def poll_first(self) -> int:
+    def pop_first(self) -> int:
         """ 队首出队 """
         num = self.peek_first()
         # 队首指针向后移动一位
@@ -68,7 +68,7 @@ class ArrayDeque:
         self.__size -= 1
         return num
 
-    def poll_last(self) -> int:
+    def pop_last(self) -> int:
         """ 队尾出队 """
         num = self.peek_last()
         self.__size -= 1
@@ -117,10 +117,10 @@ if __name__ == "__main__":
     print("元素 1 队首入队后 deque =", deque.to_array())
 
     """ 元素出队 """
-    poll_last: int = deque.poll_last()
-    print("队尾出队元素 =", poll_last, "，队尾出队后 deque =", deque.to_array())
-    poll_first: int = deque.poll_first()
-    print("队首出队元素 =", poll_first, "，队首出队后 deque =", deque.to_array())
+    pop_last: int = deque.pop_last()
+    print("队尾出队元素 =", pop_last, "，队尾出队后 deque =", deque.to_array())
+    pop_first: int = deque.pop_first()
+    print("队首出队元素 =", pop_first, "，队首出队后 deque =", deque.to_array())
 
     """ 获取双向队列的长度 """
     size: int = deque.size()

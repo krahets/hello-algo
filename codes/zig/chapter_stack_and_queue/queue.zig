@@ -30,8 +30,8 @@ pub fn main() !void {
     std.debug.print("\n队首元素 peek = {}", .{peek});
 
     // 元素出队
-    var poll = queue.popFirst().?.data;
-    std.debug.print("\n出队元素 poll = {}，出队后 queue = ", .{poll});
+    var pop = queue.popFirst().?.data;
+    std.debug.print("\n出队元素 pop = {}，出队后 queue = ", .{pop});
     inc.PrintUtil.printQueue(i32, queue);
 
     // 获取队列的长度

@@ -67,8 +67,8 @@ void push(ArrayQueue *queue, int num) {
     queue->queSize++;
 }
 
-/*  出队 */
-void poll(ArrayQueue *queue) {
+/* 出队 */
+void pop(ArrayQueue *queue) {
     int num = peek(queue);
     // 队首指针向后移动一位，若越过尾部则返回到数组头部
     queue->front = (queue->front + 1) % queue->queCapacity;
@@ -106,8 +106,8 @@ int main() {
     printf("队首元素 peek = %d\r\n", peekNum);
 
     /* 元素出队 */
-    poll(queue);
-    printf("出队元素 poll = %d，出队后 queue = ", peekNum);
+    pop(queue);
+    printf("出队元素 pop = %d，出队后 queue = ", peekNum);
     printArrayQueue(queue);
 
     /* 获取队列的长度 */
@@ -121,7 +121,7 @@ int main() {
     /* 测试环形数组 */
     for (int i = 0; i < 10; i++) {
         push(queue, i);
-        poll(queue);
+        pop(queue);
         printf("第 %d 轮入队 + 出队后 queue = ", i);
         printArrayQueue(queue);
     }

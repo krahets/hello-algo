@@ -72,7 +72,7 @@ public:
     }
 
     /* 队首出队 */
-    int pollFirst() {
+    int popFirst() {
         int num = peekFirst();
         // 队首指针向后移动一位
         front = index(front + 1);
@@ -81,7 +81,7 @@ public:
     }
 
     /* 队尾出队 */
-    int pollLast() {
+    int popLast() {
         int num = peekLast();
         queSize--;
         return num;
@@ -139,11 +139,11 @@ int main() {
     PrintUtil::printVector(deque->toVector());
 
     /* 元素出队 */
-    int pollLast = deque->pollLast();
-    cout << "队尾出队元素 = " << pollLast << "，队尾出队后 deque = ";
+    int popLast = deque->popLast();
+    cout << "队尾出队元素 = " << popLast << "，队尾出队后 deque = ";
     PrintUtil::printVector(deque->toVector());
-    int pollFirst = deque->pollFirst();
-    cout << "队首出队元素 = " << pollFirst << "，队首出队后 deque = ";
+    int popFirst = deque->popFirst();
+    cout << "队首出队元素 = " << popFirst << "，队首出队后 deque = ";
     PrintUtil::printVector(deque->toVector());
 
     /* 获取双向队列的长度 */

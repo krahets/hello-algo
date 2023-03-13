@@ -32,7 +32,7 @@ func (s *linkedListDeque) pushLast(value any) {
 }
 
 /* 队首元素出队 */
-func (s *linkedListDeque) pollFirst() any {
+func (s *linkedListDeque) popFirst() any {
 	if s.isEmpty() {
 		return nil
 	}
@@ -42,7 +42,7 @@ func (s *linkedListDeque) pollFirst() any {
 }
 
 /* 队尾元素出队 */
-func (s *linkedListDeque) pollLast() any {
+func (s *linkedListDeque) popLast() any {
 	if s.isEmpty() {
 		return nil
 	}

@@ -68,7 +68,7 @@ class ArrayDeque {
     }
 
     /* 队首出队 */
-    pollFirst() {
+    popFirst() {
         const num = this.peekFirst();
         // 队首指针向后移动一位
         this.#front = this.index(this.#front + 1);
@@ -77,7 +77,7 @@ class ArrayDeque {
     }
 
     /* 队尾出队 */
-    pollLast() {
+    popLast() {
         const num = this.peekLast();
         this.#queSize--;
         return num;
@@ -132,10 +132,10 @@ deque.pushFirst(1);
 console.log("元素 1 队首入队后 deque = [" + deque.toArray() + "]");
 
 /* 元素出队 */
-const pollLast = deque.pollLast();
-console.log("队尾出队元素 = " + pollLast + "，队尾出队后 deque = [" + deque.toArray() + "]");
-const pollFirst = deque.pollFirst();
-console.log("队首出队元素 = " + pollFirst + "，队首出队后 deque = [" + deque.toArray()+ "]");
+const popLast = deque.popLast();
+console.log("队尾出队元素 = " + popLast + "，队尾出队后 deque = [" + deque.toArray() + "]");
+const popFirst = deque.popFirst();
+console.log("队首出队元素 = " + popFirst + "，队首出队后 deque = [" + deque.toArray()+ "]");
 
 /* 获取双向队列的长度 */
 const size = deque.size();

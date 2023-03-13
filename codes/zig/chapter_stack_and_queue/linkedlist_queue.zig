@@ -67,7 +67,7 @@ pub fn LinkedListQueue(comptime T: type) type {
         } 
 
         // 出队
-        pub fn poll(self: *Self) T {
+        pub fn pop(self: *Self) T {
             var num = self.peek();
             // 删除头结点
             self.front = self.front.?.next;
@@ -111,8 +111,8 @@ pub fn main() !void {
     std.debug.print("\n队首元素 peek = {}", .{peek});
 
     // 元素出队
-    var poll = queue.poll();
-    std.debug.print("\n出队元素 poll = {}，出队后 queue = ", .{poll});
+    var pop = queue.pop();
+    std.debug.print("\n出队元素 pop = {}，出队后 queue = ", .{pop});
     inc.PrintUtil.printArray(i32, try queue.toArray());
 
     // 获取队列的长度

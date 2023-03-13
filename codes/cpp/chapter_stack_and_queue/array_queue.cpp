@@ -56,7 +56,7 @@ public:
     }
 
     /* 出队 */
-    void poll() {
+    void pop() {
         int num = peek();
         // 队首指针向后移动一位，若越过尾部则返回到数组头部
         front = (front + 1) % queCapacity;
@@ -102,8 +102,8 @@ int main() {
     cout << "队首元素 peek = " << peek << endl;
     
     /* 元素出队 */
-    queue->poll();
-    cout << "出队元素 poll = " << peek << "，出队后 queue = ";
+    queue->pop();
+    cout << "出队元素 pop = " << peek << "，出队后 queue = ";
     PrintUtil::printVector(queue->toVector());
 
     /* 获取队列的长度 */
@@ -117,7 +117,7 @@ int main() {
     /* 测试环形数组 */
     for (int i = 0; i < 10; i++) {
         queue->push(i);
-        queue->poll();
+        queue->pop();
         cout << "第 " << i << " 轮入队 + 出队后 queue = ";
         PrintUtil::printVector(queue->toVector());
     }

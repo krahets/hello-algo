@@ -27,7 +27,7 @@ func (s *linkedListQueue) push(value any) {
 }
 
 /* 出队 */
-func (s *linkedListQueue) poll() any {
+func (s *linkedListQueue) pop() any {
 	if s.isEmpty() {
 		return nil
 	}

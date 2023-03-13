@@ -27,11 +27,11 @@ pub fn main() {
     print!("\n队尾元素 peekLast = {peek_last}");
 
     // 元素出队
-    let poll_first = deque.pop_front().unwrap();    // 队首元素出队
-    print!("\n队首出队元素 pollFirst = {poll_first}，队首出队后 deque = ");
+    let pop_first = deque.pop_front().unwrap();    // 队首元素出队
+    print!("\n队首出队元素 popFirst = {pop_first}，队首出队后 deque = ");
     print_util::print_queue(&deque);
-    let poll_last = deque.pop_back().unwrap();      // 队尾元素出队     
-    print!("\n队尾出队元素 pollLast = {poll_last}，队尾出队后 deque = ");
+    let pop_last = deque.pop_back().unwrap();      // 队尾元素出队     
+    print!("\n队尾出队元素 popLast = {pop_last}，队尾出队后 deque = ");
     print_util::print_queue(&deque);
 
     // 获取双向队列的长度

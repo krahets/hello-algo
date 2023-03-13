@@ -96,7 +96,7 @@ pub fn LinkedListDeque(comptime T: type) type {
         } 
         
         // 出队操作
-        pub fn poll(self: *Self, isFront: bool) T {
+        pub fn pop(self: *Self, isFront: bool) T {
             if (self.isEmpty()) @panic("双向队列为空");
             var val: T = undefined;
             // 队首出队操作
@@ -125,13 +125,13 @@ pub fn LinkedListDeque(comptime T: type) type {
         } 
 
         // 队首出队
-        pub fn pollFirst(self: *Self) T {
-            return self.poll(true);
+        pub fn popFirst(self: *Self) T {
+            return self.pop(true);
         } 
 
         // 队尾出队
-        pub fn pollLast(self: *Self) T {
-            return self.poll(false);
+        pub fn popLast(self: *Self) T {
+            return self.pop(false);
         } 
 
         // 访问队首元素
@@ -196,7 +196,7 @@ pub fn main() !void {
     std.debug.print("\n队尾元素为 {}", .{last});
     // 队尾出队
     while (!deque.isEmpty()) {
-        last = deque.pollLast();
+        last = deque.popLast();
         std.debug.print("\n队尾出队元素为 {} ，队列为\n", .{last});
         try deque.print();
     }
@@ -212,7 +212,7 @@ pub fn main() !void {
     std.debug.print("\n队首元素为 {}", .{first});
     // 队首出队
     while (!deque.isEmpty()) {
-        first = deque.pollFirst();
+        first = deque.popFirst();
         std.debug.print("\n队首出队元素为 {} ，队列为\n", .{first});
         try deque.print();
     }

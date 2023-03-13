@@ -30,10 +30,10 @@ public class deque {
         System.out.println("元素 1 队首入队后 deque = " + deque);
 
         /* 元素出队 */
-        int pollLast = deque.pollLast();
-        System.out.println("队尾出队元素 = " + pollLast + "，队尾出队后 deque = " + deque);
-        int pollFirst = deque.pollFirst();
-        System.out.println("队首出队元素 = " + pollFirst + "，队首出队后 deque = " + deque);
+        int popLast = deque.pollLast();
+        System.out.println("队尾出队元素 = " + popLast + "，队尾出队后 deque = " + deque);
+        int popFirst = deque.pollFirst();
+        System.out.println("队首出队元素 = " + popFirst + "，队首出队后 deque = " + deque);
 
         /* 获取双向队列的长度 */
         int size = deque.size();

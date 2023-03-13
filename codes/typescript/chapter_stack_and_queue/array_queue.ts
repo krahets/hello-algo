@@ -45,7 +45,7 @@ class ArrayQueue {
     }
 
     /* 出队 */
-    poll(): number {
+    pop(): number {
         const num = this.peek();
         // 队首指针向后移动一位，若越过尾部则返回到数组头部
         this.front = (this.front + 1) % this.capacity;
@@ -89,8 +89,8 @@ const peek = queue.peek();
 console.log("队首元素 peek = " + peek);
 
 /* 元素出队 */
-const poll = queue.poll();
-console.log("出队元素 poll = " + poll + "，出队后 queue =", queue.toArray());
+const pop = queue.pop();
+console.log("出队元素 pop = " + pop + "，出队后 queue =", queue.toArray());
 
 /* 获取队列的长度 */
 const size = queue.size;
@@ -103,7 +103,7 @@ console.log("队列是否为空 = " + empty);
 /* 测试环形数组 */
 for (let i = 0; i < 10; i++) {
     queue.push(i);
-    queue.poll();
+    queue.pop();
     console.log("第 " + i + " 轮入队 + 出队后 queue =", queue.toArray());
 }
 

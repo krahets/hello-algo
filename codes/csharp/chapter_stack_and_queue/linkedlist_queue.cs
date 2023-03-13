@@ -54,7 +54,7 @@ class LinkedListQueue
     }
 
     /* 出队 */
-    public int poll()
+    public int pop()
     {
         int num = peek();
         // 删除头结点
@@ -109,8 +109,8 @@ public class linkedlist_queue
         Console.WriteLine("队首元素 peek = " + peek);
 
         /* 元素出队 */
-        int poll = queue.poll();
-        Console.WriteLine("出队元素 poll = " + poll + "，出队后 queue = " + String.Join(",", queue.toArray()));
+        int pop = queue.pop();
+        Console.WriteLine("出队元素 pop = " + pop + "，出队后 queue = " + String.Join(",", queue.toArray()));
 
         /* 获取队列的长度 */
         int size = queue.size();

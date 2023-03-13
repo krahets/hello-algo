@@ -32,11 +32,11 @@ pub fn main() !void {
     std.debug.print("\n队尾元素 peekLast = {}", .{peekLast});
 
     // 元素出队
-    var pollFirst = deque.popFirst().?.data;    // 队首元素出队
-    std.debug.print("\n队首出队元素 pollFirst = {}，队首出队后 deque = ", .{pollFirst});
+    var popFirst = deque.popFirst().?.data;    // 队首元素出队
+    std.debug.print("\n队首出队元素 popFirst = {}，队首出队后 deque = ", .{popFirst});
     inc.PrintUtil.printQueue(i32, deque);
-    var pollLast = deque.pop().?.data;          // 队尾元素出队
-    std.debug.print("\n队尾出队元素 pollLast = {}，队尾出队后 deque = ", .{pollLast});
+    var popLast = deque.pop().?.data;          // 队尾元素出队
+    std.debug.print("\n队尾出队元素 popLast = {}，队尾出队后 deque = ", .{popLast});
     inc.PrintUtil.printQueue(i32, deque);
 
     // 获取双向队列的长度

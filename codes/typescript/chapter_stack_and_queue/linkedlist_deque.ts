@@ -62,7 +62,7 @@ class LinkedListDeque {
     }
 
     /* 队尾出队操作 */
-    pollLast(): number {
+    popLast(): number {
         if (this.queSize === 0) {
             return null;
         }
@@ -79,7 +79,7 @@ class LinkedListDeque {
     }
 
     /* 队首出队操作 */
-    pollFirst(): number {
+    popFirst(): number {
         if (this.queSize === 0) {
             return null;
         }
@@ -151,11 +151,11 @@ console.log("元素 1 队首入队后 linkedListDeque = ");
 linkedListDeque.print();
 
 /* 元素出队 */
-const pollLast: number = linkedListDeque.pollLast();
-console.log("队尾出队元素 = " + pollLast + "，队尾出队后 linkedListDeque = ");
+const popLast: number = linkedListDeque.popLast();
+console.log("队尾出队元素 = " + popLast + "，队尾出队后 linkedListDeque = ");
 linkedListDeque.print();
-const pollFirst: number = linkedListDeque.pollFirst();
-console.log("队首出队元素 = " + pollFirst + "，队首出队后 linkedListDeque = ");
+const popFirst: number = linkedListDeque.popFirst();
+console.log("队首出队元素 = " + popFirst + "，队首出队后 linkedListDeque = ");
 linkedListDeque.print();
 
 /* 获取双向队列的长度 */

@@ -49,7 +49,7 @@ class ArrayQueue {
     }
 
     /* 出队 */
-    public int poll() {
+    public int pop() {
         int num = peek();
         // 队首指针向后移动一位，若越过尾部则返回到数组头部
         front = (front + 1) % capacity();
@@ -94,8 +94,8 @@ public class array_queue {
         System.out.println("队首元素 peek = " + peek);
 
         /* 元素出队 */
-        int poll = queue.poll();
-        System.out.println("出队元素 poll = " + poll + "，出队后 queue = " + Arrays.toString(queue.toArray()));
+        int pop = queue.pop();
+        System.out.println("出队元素 pop = " + pop + "，出队后 queue = " + Arrays.toString(queue.toArray()));
 
         /* 获取队列的长度 */
         int size = queue.size();
@@ -108,7 +108,7 @@ public class array_queue {
         /* 测试环形数组 */
         for (int i = 0; i < 10; i++) {
             queue.push(i);
-            queue.poll();
+            queue.pop();
             System.out.println("第 " + i + " 轮入队 + 出队后 queue = " + Arrays.toString(queue.toArray()));
         }
     }

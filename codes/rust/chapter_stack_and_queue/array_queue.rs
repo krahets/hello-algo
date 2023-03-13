@@ -36,7 +36,7 @@ impl ArrayQueue {
         self.que_size += 1;
     }
 
-    fn poll(&mut self) -> i32 {
+    fn pop(&mut self) -> i32 {
         let num = self.peek();
         self.front = (self.front + 1) % self.que_capacity;
         self.que_size -= 1;
@@ -77,10 +77,10 @@ fn main() {
     let peek = queue.peek();
     println!("队首元素 peek = {}", peek);
 
-    let poll = queue.poll();
+    let pop = queue.pop();
     println!(
-        "出队元素 poll = {:?},出队后 queue = {:?}",
-        poll,
+        "出队元素 pop = {:?},出队后 queue = {:?}",
+        pop,
         queue.to_vector()
     );
 
@@ -92,7 +92,7 @@ fn main() {
 
     for i in 0..10 {
         queue.push(i);
-        queue.poll();
+        queue.pop();
         println!("第 {:?} 轮入队 + 出队后 queue = {:?}", i, queue.to_vector());
     }
 }

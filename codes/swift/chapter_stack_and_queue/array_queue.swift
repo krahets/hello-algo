@@ -46,7 +46,7 @@ class ArrayQueue {
 
     /* 出队 */
     @discardableResult
-    func poll() -> Int {
+    func pop() -> Int {
         let num = peek()
         // 队首指针向后移动一位，若越过尾部则返回到数组头部
         front = (front + 1) % capacity()
@@ -94,8 +94,8 @@ enum _ArrayQueue {
         print("队首元素 peek = \(peek)")
 
         /* 元素出队 */
-        let poll = queue.poll()
-        print("出队元素 poll = \(poll)，出队后 queue = \(queue.toArray())")
+        let pop = queue.pop()
+        print("出队元素 pop = \(pop)，出队后 queue = \(queue.toArray())")
 
         /* 获取队列的长度 */
         let size = queue.size()
@@ -108,7 +108,7 @@ enum _ArrayQueue {
         /* 测试环形数组 */
         for i in 0 ..< 10 {
             queue.push(num: i)
-            queue.poll()
+            queue.pop()
             print("第 \(i) 轮入队 + 出队后 queue = \(queue.toArray())")
         }
     }
