@@ -26,17 +26,17 @@ pub fn main() !void {
     inc.PrintUtil.printQueue(i32, deque);
 
     // 访问元素
-    var peekFirst = deque.first.?.data; // 队首元素
-    std.debug.print("\n队首元素 peekFirst = {}", .{peekFirst});
-    var peekLast = deque.last.?.data;   // 队尾元素
-    std.debug.print("\n队尾元素 peekLast = {}", .{peekLast});
+    var peek_first = deque.first.?.data; // 队首元素
+    std.debug.print("\n队首元素 peek_first = {}", .{peek_first});
+    var peek_last = deque.last.?.data;   // 队尾元素
+    std.debug.print("\n队尾元素 peek_last = {}", .{peek_last});
 
     // 元素出队
-    var popFirst = deque.popFirst().?.data;    // 队首元素出队
-    std.debug.print("\n队首出队元素 popFirst = {}，队首出队后 deque = ", .{popFirst});
+    var pop_first = deque.popFirst().?.data;    // 队首元素出队
+    std.debug.print("\n队首出队元素 pop_first = {}，队首出队后 deque = ", .{pop_first});
     inc.PrintUtil.printQueue(i32, deque);
-    var popLast = deque.pop().?.data;          // 队尾元素出队
-    std.debug.print("\n队尾出队元素 popLast = {}，队尾出队后 deque = ", .{popLast});
+    var pop_last = deque.pop().?.data;          // 队尾元素出队
+    std.debug.print("\n队尾出队元素 pop_last = {}，队尾出队后 deque = ", .{pop_last});
     inc.PrintUtil.printQueue(i32, deque);
 
     // 获取双向队列的长度
