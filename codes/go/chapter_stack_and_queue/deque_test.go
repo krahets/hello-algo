@@ -49,6 +49,49 @@ func TestDeque(t *testing.T) {
 	fmt.Println("双向队列是否为空 =", isEmpty)
 }
 
+func TestArrayDeque(t *testing.T) {
+	/* 初始化双向队列 */
+	// 在 Go 中，将 list 作为双向队列使用
+	deque := newArrayDeque(16)
+
+	/* 元素入队 */
+	deque.pushLast(3)
+	deque.pushLast(2)
+	deque.pushLast(5)
+	fmt.Print("双向队列 deque = ")
+	PrintSlice(deque.toSlice())
+
+	/* 访问元素 */
+	peekFirst := deque.peekFirst()
+	fmt.Println("队首元素 peekFirst =", peekFirst)
+	peekLast := deque.peekLast()
+	fmt.Println("队尾元素 peekLast =", peekLast)
+
+	/* 元素入队 */
+	deque.pushLast(4)
+	fmt.Print("元素 4 队尾入队后 deque = ")
+	PrintSlice(deque.toSlice())
+	deque.pushFirst(1)
+	fmt.Print("元素 1 队首入队后 deque = ")
+	PrintSlice(deque.toSlice())
+
+	/* 元素出队 */
+	pollFirst := deque.pollFirst()
+	fmt.Print("队首出队元素 pollFirst = ", pollFirst, "，队首出队后 deque = ")
+	PrintSlice(deque.toSlice())
+	pollLast := deque.pollLast()
+	fmt.Print("队尾出队元素 pollLast = ", pollLast, "，队尾出队后 deque = ")
+	PrintSlice(deque.toSlice())
+
+	/* 获取双向队列的长度 */
+	size := deque.size()
+	fmt.Println("双向队列长度 size =", size)
+
+	/* 判断双向队列是否为空 */
+	isEmpty := deque.isEmpty()
+	fmt.Println("双向队列是否为空 =", isEmpty)
+}
+
 func TestLinkedListDeque(t *testing.T) {
 	// 初始化队列
 	deque := newLinkedListDeque()
@@ -85,7 +128,7 @@ func TestLinkedListDeque(t *testing.T) {
 	fmt.Println("队是否为空 =", isEmpty)
 }
 
-// BenchmarkArrayQueue 67.92 ns/op in Mac M1 Pro
+// BenchmarkLinkedListDeque 67.92 ns/op in Mac M1 Pro
 func BenchmarkLinkedListDeque(b *testing.B) {
 	deque := newLinkedListDeque()
 	// use b.N for looping

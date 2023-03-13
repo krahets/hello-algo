@@ -12,7 +12,7 @@ pub fn LinkedListQueue(comptime T: type) type {
 
         front: ?*inc.ListNode(T) = null,                // 头结点 front
         rear: ?*inc.ListNode(T) = null,                 // 尾结点 rear
-        queSize: usize = 0,                             // 队列的长度
+        que_size: usize = 0,                             // 队列的长度
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
@@ -24,7 +24,7 @@ pub fn LinkedListQueue(comptime T: type) type {
             }
             self.front = null;
             self.rear = null;
-            self.queSize = 0;
+            self.que_size = 0;
         }
 
         // 析构方法（释放内存）
@@ -35,7 +35,7 @@ pub fn LinkedListQueue(comptime T: type) type {
 
         // 获取队列的长度
         pub fn size(self: *Self) usize {
-            return self.queSize;
+            return self.que_size;
         }
 
         // 判断队列是否为空
@@ -63,7 +63,7 @@ pub fn LinkedListQueue(comptime T: type) type {
                 self.rear.?.next = node;
                 self.rear = node;
             }
-            self.queSize += 1;
+            self.que_size += 1;
         } 
 
         // 出队
@@ -71,7 +71,7 @@ pub fn LinkedListQueue(comptime T: type) type {
             var num = self.peek();
             // 删除头结点
             self.front = self.front.?.next;
-            self.queSize -= 1;
+            self.que_size -= 1;
             return num;
         } 
 

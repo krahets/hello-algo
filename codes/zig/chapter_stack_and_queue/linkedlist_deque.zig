@@ -30,7 +30,7 @@ pub fn LinkedListDeque(comptime T: type) type {
 
         front: ?*ListNode(T) = null,                    // 头结点 front
         rear: ?*ListNode(T) = null,                     // 尾结点 rear
-        deqSize: usize = 0,                             // 双向队列的长度
+        que_size: usize = 0,                             // 双向队列的长度
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
@@ -42,7 +42,7 @@ pub fn LinkedListDeque(comptime T: type) type {
             }
             self.front = null;
             self.rear = null;
-            self.deqSize = 0;
+            self.que_size = 0;
         }
 
         // 析构方法（释放内存）
@@ -53,7 +53,7 @@ pub fn LinkedListDeque(comptime T: type) type {
 
         // 获取双向队列的长度
         pub fn size(self: *Self) usize {
-            return self.deqSize;
+            return self.que_size;
         }
 
         // 判断双向队列是否为空
@@ -62,7 +62,7 @@ pub fn LinkedListDeque(comptime T: type) type {
         }
 
         // 入队操作
-        pub fn push(self: *Self, num: T, isFront: bool) !void {
+        pub fn push(self: *Self, num: T, is_front: bool) !void {
             var node = try self.mem_allocator.create(ListNode(T));
             node.init(num);
             // 若链表为空，则令 front, rear 都指向 node
@@ -70,7 +70,7 @@ pub fn LinkedListDeque(comptime T: type) type {
                 self.front = node;
                 self.rear = node;
             // 队首入队操作
-            } else if (isFront) {
+            } else if (is_front) {
                 // 将 node 添加至链表头部
                 self.front.?.prev = node;
                 node.next = self.front;
@@ -82,7 +82,7 @@ pub fn LinkedListDeque(comptime T: type) type {
                 node.prev = self.rear;
                 self.rear = node;   // 更新尾结点
             }
-            self.deqSize += 1;      // 更新队列长度
+            self.que_size += 1;      // 更新队列长度
         } 
 
         // 队首入队
@@ -96,11 +96,11 @@ pub fn LinkedListDeque(comptime T: type) type {
         } 
         
         // 出队操作
-        pub fn pop(self: *Self, isFront: bool) T {
+        pub fn pop(self: *Self, is_front: bool) T {
             if (self.isEmpty()) @panic("双向队列为空");
             var val: T = undefined;
             // 队首出队操作
-            if (isFront) {
+            if (is_front) {
                 val = self.front.?.val;     // 暂存头结点值
                 // 删除头结点
                 var fNext = self.front.?.next;
@@ -120,7 +120,7 @@ pub fn LinkedListDeque(comptime T: type) type {
                 }
                 self.rear = rPrev;          // 更新尾结点
             }
-            self.deqSize -= 1;              // 更新队列长度
+            self.que_size -= 1;              // 更新队列长度
             return val;
         } 
 
@@ -146,7 +146,7 @@ pub fn LinkedListDeque(comptime T: type) type {
             return self.rear.?.val;
         }
 
-        // 将链表转换为数组
+        // 返回数组用于打印
         pub fn toArray(self: *Self) ![]T {
             var node = self.front;
             var res = try self.mem_allocator.alloc(T, self.size());
@@ -158,19 +158,6 @@ pub fn LinkedListDeque(comptime T: type) type {
             }
             return res;
         }
-
-        // 打印双向队列
-        pub fn print(self: *Self) !void {
-            var nums = try self.toArray();
-            std.debug.print("[", .{});
-            if (nums.len > 0) {
-                for (nums) |num, j| {
-                    std.debug.print("{}{s}", .{num, if (j == nums.len - 1) "]" else " <-> " });
-                }
-            } else {
-                std.debug.print("]", .{});
-            }
-        }
     };
 }
 
@@ -180,46 +167,37 @@ pub fn main() !void {
     var deque = LinkedListDeque(i32){};
     try deque.init(std.heap.page_allocator);
     defer deque.deinit();
-    std.debug.print("初始化空队列\n", .{});
-    try deque.print();
+    try deque.pushLast(3);
+    try deque.pushLast(2);
+    try deque.pushLast(5);
+    std.debug.print("双向队列 deque = ", .{});
+    inc.PrintUtil.printArray(i32, try deque.toArray());
 
-    var nums = [_]i32{ 1, 2, 3};    // 测试数据
+    // 访问元素
+    var peek_first = deque.peekFirst();
+    std.debug.print("\n队首元素 peek_first = {}", .{peek_first});
+    var peek_last = deque.peekLast();
+    std.debug.print("\n队尾元素 peek_last = {}", .{peek_last});
 
-    // 队尾入队
-    for (nums) |num| {
-        try deque.pushLast(num);
-        std.debug.print("\n元素 {} 队尾入队后，队列为\n", .{num});
-        try deque.print();
-    }
-    // 获取队尾元素
-    var last = deque.peekLast();
-    std.debug.print("\n队尾元素为 {}", .{last});
-    // 队尾出队
-    while (!deque.isEmpty()) {
-        last = deque.popLast();
-        std.debug.print("\n队尾出队元素为 {} ，队列为\n", .{last});
-        try deque.print();
-    }
+    // 元素入队
+    try deque.pushLast(4);
+    std.debug.print("\n元素 4 队尾入队后 deque = ", .{});
+    inc.PrintUtil.printArray(i32, try deque.toArray());
+    try deque.pushFirst(1);
+    std.debug.print("\n元素 1 队首入队后 deque = ", .{});
+    inc.PrintUtil.printArray(i32, try deque.toArray());
 
-    // 队首入队
-    for (nums) |num| {
-        try deque.pushFirst(num);
-        std.debug.print("\n元素 {} 队首入队后，队列为\n", .{num});
-        try deque.print();
-    }
-    // 获取队首元素
-    var first = deque.peekFirst();
-    std.debug.print("\n队首元素为 {}", .{first});
-    // 队首出队
-    while (!deque.isEmpty()) {
-        first = deque.popFirst();
-        std.debug.print("\n队首出队元素为 {} ，队列为\n", .{first});
-        try deque.print();
-    }
+    // 元素出队
+    var pop_last = deque.popLast();
+    std.debug.print("\n队尾出队元素 = {}，队尾出队后 deque = ", .{pop_last});
+    inc.PrintUtil.printArray(i32, try deque.toArray());
+    var pop_first = deque.popFirst();
+    std.debug.print("\n队首出队元素 = {}，队首出队后 deque = ", .{pop_first});
+    inc.PrintUtil.printArray(i32, try deque.toArray());
 
-    // 获取队列的长度
+    // 获取双向队列的长度
     var size = deque.size();
-    std.debug.print("\n队列长度 size = {}", .{size});
+    std.debug.print("\n双向队列长度 size = {}", .{size});
 
     // 判断双向队列是否为空
     var is_empty = deque.isEmpty();
