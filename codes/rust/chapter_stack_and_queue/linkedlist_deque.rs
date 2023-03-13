@@ -99,7 +99,7 @@ impl<T: Copy> LinkedListDeque<T> {
     }
 
     /* 出队操作 */
-    pub fn poll(&mut self, is_front: bool) -> Option<T> {
+    pub fn pop(&mut self, is_front: bool) -> Option<T> {
         if self.is_empty() {return None};
         // 队首出队操作
         if is_front {
@@ -135,13 +135,13 @@ impl<T: Copy> LinkedListDeque<T> {
     }
 
     /* 队首出队 */
-    pub fn poll_first(&mut self) -> Option<T> {
-        return self.poll(true);
+    pub fn pop_first(&mut self) -> Option<T> {
+        return self.pop(true);
     }
 
     /* 队尾出队 */
-    pub fn poll_last(&mut self) -> Option<T> {
-        return self.poll(false);
+    pub fn pop_last(&mut self) -> Option<T> {
+        return self.pop(false);
     }
 
     /* 访问队首元素 */
@@ -190,11 +190,11 @@ fn main() {
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
     /* 元素出队 */
-    let poll_last = deque.poll_last().unwrap();
-    print!("\n队尾出队元素 = {}，队尾出队后 deque = ", poll_last);
+    let pop_last = deque.pop_last().unwrap();
+    print!("\n队尾出队元素 = {}，队尾出队后 deque = ", pop_last);
     print_util::print_array(&deque.to_array(deque.peek_first()));
-    let poll_first = deque.poll_first().unwrap();
-    print!("\n队首出队元素 = {}，队首出队后 deque = ", poll_first);
+    let pop_first = deque.pop_first().unwrap();
+    print!("\n队首出队元素 = {}，队首出队后 deque = ", pop_first);
     print_util::print_array(&deque.to_array(deque.peek_first()));   
 
     /* 获取双向队列的长度 */

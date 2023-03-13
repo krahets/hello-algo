@@ -97,7 +97,7 @@ int peekLast(ArrayDeque *deque) {
 }
 
 /* 队首出队 */
-int pollFirst(ArrayDeque *deque) {
+int popFirst(ArrayDeque *deque) {
     int num = peekFirst(deque);
     // 队首指针向后移动一位
     deque->front = dequeIndex(deque, deque->front + 1);
@@ -106,7 +106,7 @@ int pollFirst(ArrayDeque *deque) {
 }
 
 /* 队尾出队 */
-int pollLast(ArrayDeque *deque) {
+int popLast(ArrayDeque *deque) {
     int num = peekLast(deque);
     deque->queSize--;
     return num;
@@ -149,11 +149,11 @@ int main() {
     printArrayDeque(deque);
 
     /* 元素出队 */
-    int pollLastNum = pollLast(deque);
-    printf("队尾出队元素 = %d，队尾出队后 deque= ", pollLastNum);
+    int popLastNum = popLast(deque);
+    printf("队尾出队元素 = %d，队尾出队后 deque= ", popLastNum);
     printArrayDeque(deque);
-    int pollFirstNum = pollFirst(deque);
-    printf("队首出队元素 = %d，队首出队后 deque= ", pollFirstNum);
+    int popFirstNum = popFirst(deque);
+    printf("队首出队元素 = %d，队首出队后 deque= ", popFirstNum);
     printArrayDeque(deque);
 
     /* 获取队列的长度 */

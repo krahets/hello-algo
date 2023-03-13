@@ -76,11 +76,11 @@ func TestArrayDeque(t *testing.T) {
 	PrintSlice(deque.toSlice())
 
 	/* 元素出队 */
-	pollFirst := deque.pollFirst()
-	fmt.Print("队首出队元素 pollFirst = ", pollFirst, "，队首出队后 deque = ")
+	popFirst := deque.popFirst()
+	fmt.Print("队首出队元素 popFirst = ", popFirst, "，队首出队后 deque = ")
 	PrintSlice(deque.toSlice())
-	pollLast := deque.pollLast()
-	fmt.Print("队尾出队元素 pollLast = ", pollLast, "，队尾出队后 deque = ")
+	popLast := deque.popLast()
+	fmt.Print("队尾出队元素 popLast = ", popLast, "，队尾出队后 deque = ")
 	PrintSlice(deque.toSlice())
 
 	/* 获取双向队列的长度 */

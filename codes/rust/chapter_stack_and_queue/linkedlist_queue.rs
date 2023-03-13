@@ -57,7 +57,7 @@ impl<T: Copy> LinkedListQueue<T> {
     }
 
     /* 出队 */
-    pub fn poll(&mut self) -> Option<T> {
+    pub fn pop(&mut self) -> Option<T> {
         self.front.take().map(|old_front| {
             match old_front.borrow_mut().next.take() {
                 Some(new_front) => {
@@ -107,8 +107,8 @@ fn main() {
     print!("\n队首元素 peek = {}", peek);
 
     /* 元素出队 */
-    let poll = queue.poll().unwrap();
-    print!("\n出队元素 poll = {}，出队后 queue = ", poll);
+    let pop = queue.pop().unwrap();
+    print!("\n出队元素 pop = {}，出队后 queue = ", pop);
     print_util::print_array(&queue.to_array(queue.peek()));
 
     /* 获取队列的长度 */

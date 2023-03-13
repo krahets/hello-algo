@@ -70,7 +70,7 @@ func (q *arrayDeque) pushLast(num int) {
 }
 
 /* 队首出队 */
-func (q *arrayDeque) pollFirst() any {
+func (q *arrayDeque) popFirst() any {
 	num := q.peekFirst()
 	// 队首指针向后移动一位
 	q.front = q.index(q.front + 1)
@@ -79,7 +79,7 @@ func (q *arrayDeque) pollFirst() any {
 }
 
 /* 队尾出队 */
-func (q *arrayDeque) pollLast() any {
+func (q *arrayDeque) popLast() any {
 	num := q.peekLast()
 	q.queSize--
 	return num
