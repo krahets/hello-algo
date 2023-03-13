@@ -94,7 +94,7 @@ pub fn MaxHeap(comptime T: type) type {
         }
 
         // 元素出堆
-        pub fn poll(self: *Self) !T {
+        pub fn pop(self: *Self) !T {
             // 判断处理
             if (self.isEmpty()) unreachable;
             // 交换根结点与最右叶结点（即交换首元素与尾元素）
@@ -171,7 +171,7 @@ pub fn main() !void {
     try max_heap.print(mem_allocator);
 
     // 堆顶元素出堆
-    peek = try max_heap.poll();
+    peek = try max_heap.pop();
     std.debug.print("\n堆顶元素 {} 出堆后\n", .{peek});
     try max_heap.print(mem_allocator);
 
