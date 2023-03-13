@@ -83,8 +83,8 @@ void printLinkedListQueue(LinkedListQueue *queue) {
     int i;
     ListNode *node;
     for (i=0, node = queue->front; i < queue->queSize && queue->front != queue->rear; i++){
-      arr[i] = node->val;
-      node = node->next;
+        arr[i] = node->val;
+        node = node->next;
     }
     printArray(arr, queue->queSize);
 }
