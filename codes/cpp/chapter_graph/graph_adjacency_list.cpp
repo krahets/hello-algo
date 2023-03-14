@@ -75,7 +75,9 @@ public:
     /* 打印邻接表 */
     void print() {
         cout << "邻接表 =" << endl;
-        for (auto& [key, vec] : adjList) {
+        for (auto& adj  : adjList) {
+            const auto& key= adj.first;
+            const auto& vec = adj.second;
             cout << key->val << ": ";
             PrintUtil::printVector(vetsToVals(vec));
         }
