@@ -436,7 +436,7 @@ $$
     class ArrayHashMap {
         private List<Entry> buckets;
         public ArrayHashMap() {
-            // 初始化一个长度为 100 的桶（数组）
+            // 初始化数组，包含 100 个桶
             buckets = new ArrayList<>();
             for (int i = 0; i < 100; i++) {
                 buckets.add(null);
@@ -530,8 +530,8 @@ $$
         vector<Entry*> buckets;
     public:
         ArrayHashMap() {
-            // 初始化一个长度为 100 的桶（数组）
-            buckets= vector<Entry*>(100);
+            // 初始化数组，包含 100 个桶
+            buckets = vector<Entry*>(100);
         }
 
         /* 哈希函数 */
@@ -618,7 +618,7 @@ $$
         """ 基于数组简易实现的哈希表 """
         def __init__(self):
             """ 构造方法 """
-            # 初始化一个长度为 100 的桶（数组）
+            # 初始化数组，包含 100 个桶
             self.buckets: List[Optional[Entry]] = [None] * 100
 
         def hash_func(self, key: int) -> int:
@@ -693,7 +693,7 @@ $$
 
     /* 初始化哈希表 */
     func newArrayHashMap() *arrayHashMap {
-        // 初始化一个长度为 100 的桶（数组）
+        // 初始化数组，包含 100 个桶
         buckets := make([]*entry, 100)
         return &arrayHashMap{buckets: buckets}
     }
@@ -786,7 +786,7 @@ $$
     class ArrayHashMap {
         #buckets;
         constructor() {
-            // 初始化一个长度为 100 的桶（数组）
+            // 初始化数组，包含 100 个桶
             this.#buckets = new Array(100).fill(null);
         }
 
@@ -880,7 +880,7 @@ $$
         private readonly buckets: (Entry | null)[];
 
         constructor() {
-            // 初始化一个长度为 100 的桶（数组）
+            // 初始化数组，包含 100 个桶
             this.buckets = (new Array(100)).fill(null);
         }
 
@@ -983,7 +983,7 @@ $$
         private List<Entry?> buckets;
         public ArrayHashMap()
         {
-            // 初始化一个长度为 100 的桶（数组）
+            // 初始化数组，包含 100 个桶
             buckets = new();
             for (int i = 0; i < 100; i++)
             {
@@ -1089,7 +1089,7 @@ $$
         private var buckets: [Entry?] = []
 
         init() {
-            // 初始化一个长度为 100 的桶（数组）
+            // 初始化数组，包含 100 个桶
             for _ in 0 ..< 100 {
                 buckets.append(nil)
             }
@@ -1191,7 +1191,7 @@ $$
             // 构造方法
             pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
                 self.mem_allocator = allocator;
-                // 初始化一个长度为 100 的桶（数组）
+                // 初始化数组，包含 100 个桶
                 self.buckets = std.ArrayList(?T).init(self.mem_allocator);
                 var i: i32 = 0;
                 while (i < 100) : (i += 1) {
