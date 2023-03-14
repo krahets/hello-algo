@@ -21,7 +21,7 @@ class ArrayHashMap {
     private readonly buckets: (Entry | null)[];
 
     constructor() {
-        // 初始化一个长度为 100 的桶（数组）
+        // 初始化数组，包含 100 个桶
         this.buckets = (new Array(100)).fill(null);
     }
 

@@ -18,7 +18,7 @@ class ArrayHashMap:
     """ 基于数组简易实现的哈希表 """
     def __init__(self):
         """ 构造方法 """
-        # 初始化一个长度为 100 的桶（数组）
+        # 初始化数组，包含 100 个桶
         self.buckets: List[Optional[Entry]] = [None] * 100
 
     def hash_func(self, key: int) -> int:

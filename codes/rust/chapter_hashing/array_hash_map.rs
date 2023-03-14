@@ -16,7 +16,7 @@ pub struct ArrayHashMap { buckets: Vec<Option<Entry>> }
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
-        // 初始化一个长度为 100 的桶（数组）
+        // 初始化数组，包含 100 个桶
         Self { buckets: vec![None; 100] }
     }
 

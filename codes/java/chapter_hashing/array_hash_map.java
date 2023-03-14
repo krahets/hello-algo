@@ -22,7 +22,7 @@ class Entry {
 class ArrayHashMap {
     private List<Entry> buckets;
     public ArrayHashMap() {
-        // 初始化一个长度为 100 的桶（数组）
+        // 初始化数组，包含 100 个桶
         buckets = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             buckets.add(null);

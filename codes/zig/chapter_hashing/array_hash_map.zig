@@ -29,7 +29,7 @@ pub fn ArrayHashMap(comptime T: type) type {
         // 构造方法
         pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
             self.mem_allocator = allocator;
-            // 初始化一个长度为 100 的桶（数组）
+            // 初始化数组，包含 100 个桶
             self.buckets = std.ArrayList(?T).init(self.mem_allocator);
             var i: i32 = 0;
             while (i < 100) : (i += 1) {

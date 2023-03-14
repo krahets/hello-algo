@@ -19,7 +19,7 @@ type arrayHashMap struct {
 
 /* 初始化哈希表 */
 func newArrayHashMap() *arrayHashMap {
-	// 初始化一个长度为 100 的桶（数组）
+	// 初始化数组，包含 100 个桶
 	buckets := make([]*entry, 100)
 	return &arrayHashMap{buckets: buckets}
 }

@@ -20,7 +20,7 @@ class ArrayHashMap {
     private var buckets: [Entry?] = []
 
     init() {
-        // 初始化一个长度为 100 的桶（数组）
+        // 初始化数组，包含 100 个桶
         for _ in 0 ..< 100 {
             buckets.append(nil)
         }
