@@ -12,12 +12,12 @@ pub struct Entry {
 }
 
 /* 基于数组简易实现的哈希表 */
-pub struct ArrayHashMap { bucket: Vec<Option<Entry>> }
+pub struct ArrayHashMap { buckets: Vec<Option<Entry>> }
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
         // 初始化一个长度为 100 的桶（数组）
-        Self { bucket: vec![None; 100] }
+        Self { buckets: vec![None; 100] }
     }
 
     /* 哈希函数 */
@@ -28,13 +28,13 @@ impl ArrayHashMap {
     /* 查询操作 */
     pub fn get(&self, key: i32) -> Option<&String> {
         let index = self.hash_func(key);
-        self.bucket[index].as_ref().map(|entry| &entry.val)
+        self.buckets[index].as_ref().map(|entry| &entry.val)
     }
 
     /* 添加操作 */
     pub fn put(&mut self, key: i32, val: &str) {
         let index = self.hash_func(key);
-        self.bucket[index] = Some(Entry {
+        self.buckets[index] = Some(Entry {
             key,
             val: val.to_string(),
         });
@@ -43,22 +43,22 @@ impl ArrayHashMap {
     /* 删除操作 */
     pub fn remove(&mut self, key: i32) {
         let index = self.hash_func(key);
-        self.bucket[index] = None;
+        self.buckets[index] = None;
     }
 
     /* 获取所有键值对 */
     pub fn entry_set(&self) -> Vec<&Entry> {
-        self.bucket.iter().filter_map(|entry| entry.as_ref()).collect()
+        self.buckets.iter().filter_map(|entry| entry.as_ref()).collect()
     }
 
     /* 获取所有键 */
     pub fn key_set(&self) -> Vec<&i32> {
-        self.bucket.iter().filter_map(|entry| entry.as_ref().map(|entry| &entry.key)).collect()
+        self.buckets.iter().filter_map(|entry| entry.as_ref().map(|entry| &entry.key)).collect()
     }
 
     /* 获取所有值 */
     pub fn value_set(&self) -> Vec<&String> {
-        self.bucket.iter().filter_map(|entry| entry.as_ref().map(|entry| &entry.val)).collect()
+        self.buckets.iter().filter_map(|entry| entry.as_ref().map(|entry| &entry.val)).collect()
     }
 
     /* 打印哈希表 */

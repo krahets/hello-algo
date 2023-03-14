@@ -20,12 +20,12 @@ class Entry {
 
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
-    private List<Entry> bucket;
+    private List<Entry> buckets;
     public ArrayHashMap() {
         // 初始化一个长度为 100 的桶（数组）
-        bucket = new ArrayList<>();
+        buckets = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            bucket.add(null);
+            buckets.add(null);
         }
     }
 
@@ -38,7 +38,7 @@ class ArrayHashMap {
     /* 查询操作 */
     public String get(int key) {
         int index = hashFunc(key);
-        Entry pair = bucket.get(index);
+        Entry pair = buckets.get(index);
         if (pair == null) return null;
         return pair.val;
     }
@@ -47,20 +47,20 @@ class ArrayHashMap {
     public void put(int key, String val) {
         Entry pair = new Entry(key, val);
         int index = hashFunc(key);
-        bucket.set(index, pair);
+        buckets.set(index, pair);
     }
 
     /* 删除操作 */
     public void remove(int key) {
         int index = hashFunc(key);
         // 置为 null ，代表删除
-        bucket.set(index, null);
+        buckets.set(index, null);
     }
 
     /* 获取所有键值对 */
     public List<Entry> entrySet() {
         List<Entry> entrySet = new ArrayList<>();
-        for (Entry pair : bucket) {
+        for (Entry pair : buckets) {
             if (pair != null)
                 entrySet.add(pair);
         }
@@ -70,7 +70,7 @@ class ArrayHashMap {
     /* 获取所有键 */
     public List<Integer> keySet() {
         List<Integer> keySet = new ArrayList<>();
-        for (Entry pair : bucket) {
+        for (Entry pair : buckets) {
             if (pair != null)
                 keySet.add(pair.key);
         }
@@ -80,7 +80,7 @@ class ArrayHashMap {
     /* 获取所有值 */
     public List<String> valueSet() {
         List<String> valueSet = new ArrayList<>();
-        for (Entry pair : bucket) {
+        for (Entry pair : buckets) {
             if (pair != null)
                 valueSet.add(pair.val);
         }

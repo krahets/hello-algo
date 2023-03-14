@@ -23,14 +23,14 @@ class Entry
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap
 {
-    private List<Entry?> bucket;
+    private List<Entry?> buckets;
     public ArrayHashMap()
     {
         // 初始化一个长度为 100 的桶（数组）
-        bucket = new();
+        buckets = new();
         for (int i = 0; i < 100; i++)
         {
-            bucket.Add(null);
+            buckets.Add(null);
         }
     }
 
@@ -45,7 +45,7 @@ class ArrayHashMap
     public String? get(int key)
     {
         int index = hashFunc(key);
-        Entry? pair = bucket[index];
+        Entry? pair = buckets[index];
         if (pair == null) return null;
         return pair.val;
     }
@@ -55,7 +55,7 @@ class ArrayHashMap
     {
         Entry pair = new Entry(key, val);
         int index = hashFunc(key);
-        bucket[index] = pair;
+        buckets[index] = pair;
     }
 
     /* 删除操作 */
@@ -63,14 +63,14 @@ class ArrayHashMap
     {
         int index = hashFunc(key);
         // 置为 null ，代表删除
-        bucket[index] = null;
+        buckets[index] = null;
     }
 
     /* 获取所有键值对 */
     public List<Entry> entrySet()
     {
         List<Entry> entrySet = new();
-        foreach (Entry? pair in bucket)
+        foreach (Entry? pair in buckets)
         {
             if (pair != null)
                 entrySet.Add(pair);
@@ -82,7 +82,7 @@ class ArrayHashMap
     public List<int> keySet()
     {
         List<int> keySet = new();
-        foreach (Entry? pair in bucket)
+        foreach (Entry? pair in buckets)
         {
             if (pair != null)
                 keySet.Add(pair.key);
@@ -94,7 +94,7 @@ class ArrayHashMap
     public List<String> valueSet()
     {
         List<String> valueSet = new();
-        foreach (Entry? pair in bucket)
+        foreach (Entry? pair in buckets)
         {
             if (pair != null)
                 valueSet.Add(pair.val);

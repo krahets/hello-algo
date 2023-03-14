@@ -19,7 +19,7 @@ class ArrayHashMap:
     def __init__(self):
         """ 构造方法 """
         # 初始化一个长度为 100 的桶（数组）
-        self.bucket: List[Optional[Entry]] = [None] * 100
+        self.buckets: List[Optional[Entry]] = [None] * 100
 
     def hash_func(self, key: int) -> int:
         """ 哈希函数 """
@@ -29,7 +29,7 @@ class ArrayHashMap:
     def get(self, key: int) -> str:
         """ 查询操作 """
         index: int = self.hash_func(key)
-        pair: Entry = self.bucket[index]
+        pair: Entry = self.buckets[index]
         if pair is None:
             return None
         return pair.val
@@ -38,18 +38,18 @@ class ArrayHashMap:
         """ 添加操作 """
         pair = Entry(key, val)
         index: int = self.hash_func(key)
-        self.bucket[index] = pair
+        self.buckets[index] = pair
 
     def remove(self, key: int) -> None:
         """ 删除操作 """
         index: int = self.hash_func(key)
         # 置为 None ，代表删除
-        self.bucket[index] = None
+        self.buckets[index] = None
 
     def entry_set(self) -> List[Entry]:
         """ 获取所有键值对 """
         result: List[Entry] = []
-        for pair in self.bucket:
+        for pair in self.buckets:
             if pair is not None:
                 result.append(pair)
         return result
@@ -57,7 +57,7 @@ class ArrayHashMap:
     def key_set(self) -> List[int]:
         """ 获取所有键 """
         result: List[int] = []
-        for pair in self.bucket:
+        for pair in self.buckets:
             if pair is not None:
                 result.append(pair.key)
         return result
@@ -65,14 +65,14 @@ class ArrayHashMap:
     def value_set(self) -> List[str]:
         """ 获取所有值 """
         result: List[str] = []
-        for pair in self.bucket:
+        for pair in self.buckets:
             if pair is not None:
                 result.append(pair.val)
         return result
 
     def print(self) -> None:
         """ 打印哈希表 """
-        for pair in self.bucket:
+        for pair in self.buckets:
             if pair is not None:
                 print(pair.key, "->", pair.val)
 

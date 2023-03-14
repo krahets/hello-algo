@@ -18,11 +18,11 @@ class Entry {
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
 
-    private readonly bucket: (Entry | null)[];
+    private readonly buckets: (Entry | null)[];
 
     constructor() {
         // 初始化一个长度为 100 的桶（数组）
-        this.bucket = (new Array(100)).fill(null);
+        this.buckets = (new Array(100)).fill(null);
     }
 
     /* 哈希函数 */
@@ -33,7 +33,7 @@ class ArrayHashMap {
     /* 查询操作 */
     public get(key: number): string | null {
         let index = this.hashFunc(key);
-        let entry = this.bucket[index];
+        let entry = this.buckets[index];
         if (entry === null) return null;
         return entry.val;
     }
@@ -41,22 +41,22 @@ class ArrayHashMap {
     /* 添加操作 */
     public set(key: number, val: string) {
         let index = this.hashFunc(key);
-        this.bucket[index] = new Entry(key, val);
+        this.buckets[index] = new Entry(key, val);
     }
 
     /* 删除操作 */
     public delete(key: number) {
         let index = this.hashFunc(key);
         // 置为 null ，代表删除
-        this.bucket[index] = null;
+        this.buckets[index] = null;
     }
 
     /* 获取所有键值对 */
     public entries(): (Entry | null)[] {
         let arr: (Entry | null)[] = [];
-        for (let i = 0; i < this.bucket.length; i++) {
-            if (this.bucket[i]) {
-                arr.push(this.bucket[i]);
+        for (let i = 0; i < this.buckets.length; i++) {
+            if (this.buckets[i]) {
+                arr.push(this.buckets[i]);
             }
         }
         return arr;
@@ -65,9 +65,9 @@ class ArrayHashMap {
     /* 获取所有键 */
     public keys(): (number | undefined)[] {
         let arr: (number | undefined)[] = [];
-        for (let i = 0; i < this.bucket.length; i++) {
-            if (this.bucket[i]) {
-                arr.push(this.bucket[i]?.key);
+        for (let i = 0; i < this.buckets.length; i++) {
+            if (this.buckets[i]) {
+                arr.push(this.buckets[i]?.key);
             }
         }
         return arr;
@@ -76,9 +76,9 @@ class ArrayHashMap {
     /* 获取所有值 */
     public values(): (string | undefined)[] {
         let arr: (string | undefined)[] = [];
-        for (let i = 0; i < this.bucket.length; i++) {
-            if (this.bucket[i]) {
-                arr.push(this.bucket[i]?.val);
+        for (let i = 0; i < this.buckets.length; i++) {
+            if (this.buckets[i]) {
+                arr.push(this.buckets[i]?.val);
             }
         }
         return arr;

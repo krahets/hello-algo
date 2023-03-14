@@ -17,12 +17,12 @@ class Entry {
 
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
-    private var bucket: [Entry?] = []
+    private var buckets: [Entry?] = []
 
     init() {
         // 初始化一个长度为 100 的桶（数组）
         for _ in 0 ..< 100 {
-            bucket.append(nil)
+            buckets.append(nil)
         }
     }
 
@@ -35,7 +35,7 @@ class ArrayHashMap {
     /* 查询操作 */
     func get(key: Int) -> String? {
         let index = hashFunc(key: key)
-        let pair = bucket[index]
+        let pair = buckets[index]
         return pair?.val
     }
 
@@ -43,20 +43,20 @@ class ArrayHashMap {
     func put(key: Int, val: String) {
         let pair = Entry(key: key, val: val)
         let index = hashFunc(key: key)
-        bucket[index] = pair
+        buckets[index] = pair
     }
 
     /* 删除操作 */
     func remove(key: Int) {
         let index = hashFunc(key: key)
         // 置为 nil ，代表删除
-        bucket[index] = nil
+        buckets[index] = nil
     }
 
     /* 获取所有键值对 */
     func entrySet() -> [Entry] {
         var entrySet: [Entry] = []
-        for pair in bucket {
+        for pair in buckets {
             if let pair = pair {
                 entrySet.append(pair)
             }
@@ -67,7 +67,7 @@ class ArrayHashMap {
     /* 获取所有键 */
     func keySet() -> [Int] {
         var keySet: [Int] = []
-        for pair in bucket {
+        for pair in buckets {
             if let pair = pair {
                 keySet.append(pair.key)
             }
@@ -78,7 +78,7 @@ class ArrayHashMap {
     /* 获取所有值 */
     func valueSet() -> [String] {
         var valueSet: [String] = []
-        for pair in bucket {
+        for pair in buckets {
             if let pair = pair {
                 valueSet.append(pair.val)
             }
