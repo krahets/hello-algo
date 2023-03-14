@@ -141,10 +141,10 @@ comments: true
     ```zig title="my_heap.zig"
     // 构造方法，根据输入列表建堆
     fn init(self: *Self, allocator: std.mem.Allocator, nums: []const T) !void {
-        if (self.maxHeap != null) return;
-        self.maxHeap = std.ArrayList(T).init(allocator);
+        if (self.max_heap != null) return;
+        self.max_heap = std.ArrayList(T).init(allocator);
         // 将列表元素原封不动添加进堆
-        try self.maxHeap.?.appendSlice(nums);
+        try self.max_heap.?.appendSlice(nums);
         // 堆化除叶结点以外的其他所有结点
         var i: usize = parent(self.size() - 1) + 1;
         while (i > 0) : (i -= 1) {

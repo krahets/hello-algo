@@ -594,7 +594,7 @@ comments: true
     ```zig title="my_heap.zig"
     // 访问堆顶元素
     fn peek(self: *Self) T {
-        return self.maxHeap.?.items[0];
+        return self.max_heap.?.items[0];
     }  
     ```
 
@@ -855,7 +855,7 @@ comments: true
     // 元素入堆
     fn push(self: *Self, val: T) !void {
         // 添加结点
-        try self.maxHeap.?.append(val);
+        try self.max_heap.?.append(val);
         // 从底至顶堆化
         try self.siftUp(self.size() - 1);
     }  
@@ -867,7 +867,7 @@ comments: true
             // 获取结点 i 的父结点
             var p = parent(i);
             // 当“越过根结点”或“结点无需修复”时，结束堆化
-            if (p < 0 or self.maxHeap.?.items[i] <= self.maxHeap.?.items[p]) break;
+            if (p < 0 or self.max_heap.?.items[i] <= self.max_heap.?.items[p]) break;
             // 交换两结点
             try self.swap(i, p);
             // 循环向上堆化
@@ -1247,7 +1247,7 @@ comments: true
         // 交换根结点与最右叶结点（即交换首元素与尾元素）
         try self.swap(0, self.size() - 1);
         // 删除结点
-        var val = self.maxHeap.?.pop();
+        var val = self.max_heap.?.pop();
         // 从顶至底堆化
         try self.siftDown(0);
         // 返回堆顶元素
@@ -1262,8 +1262,8 @@ comments: true
             var l = left(i);
             var r = right(i);
             var ma = i;
-            if (l < self.size() and self.maxHeap.?.items[l] > self.maxHeap.?.items[ma]) ma = l;
-            if (r < self.size() and self.maxHeap.?.items[r] > self.maxHeap.?.items[ma]) ma = r;
+            if (l < self.size() and self.max_heap.?.items[l] > self.max_heap.?.items[ma]) ma = l;
+            if (r < self.size() and self.max_heap.?.items[r] > self.max_heap.?.items[ma]) ma = r;
             // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
             if (ma == i) break;
             // 交换两结点
