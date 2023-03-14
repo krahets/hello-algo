@@ -91,13 +91,13 @@ impl ArrayDeque {
 
     /* 访问队首元素 */
     fn peek_first(&self) -> i32 {
-        if self.is_empty() {panic!("双向队列为空")};
+        if self.is_empty() { panic!("双向队列为空") };
         self.nums[self.front]
     }
 
     /* 访问队尾元素 */
     fn peek_last(&self) -> i32 {
-        if self.is_empty() {panic!("双向队列为空")};
+        if self.is_empty() { panic!("双向队列为空") };
         // 计算尾元素索引
         let last = self.index(self.front as i32 + self.que_size as i32 - 1);
         self.nums[last]
