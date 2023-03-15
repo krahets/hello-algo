@@ -26,8 +26,7 @@
     hello-algo.com
     </a>
   </em>
-</p>
-<p align="center">
+  </br>
   <em>
     下载 PDF >
     <a href="https://github.com/krahets/hello-algo/releases/tag/1.0.0b1">

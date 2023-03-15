@@ -432,7 +432,7 @@
 === "Go"
 
     ```go title="array_deque.go"
-    [class]{ArrayDeque}-[func]{}
+    [class]{arrayDeque}-[func]{}
     ```
 
 === "JavaScript"
