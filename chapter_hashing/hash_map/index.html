@@ -2102,20 +2102,19 @@
 </div>
 <h2 id="613">6.1.3. &nbsp; 哈希函数<a class="headerlink" href="#613" title="Permanent link">&para;</a></h2>
 <p>哈希表的底层实现是数组，并且可能包含链表、二叉树（红黑树）等数据结构，以提升查询性能（下节会讨论）。</p>
-<p>首先考虑最简单的情况，<strong>即仅用一个「数组」来实现哈希表</strong>。根据习惯，我们将数组中的每个空位称为「桶 Bucket」，用于存储键值对。</p>
-<p>我们将键值对 key, value 包装成一个类 <code>Entry</code> ，并将所有 <code>Entry</code> 都放入数组中，那么每个 <code>Entry</code> 在数组中都有唯一的索引。显然，访问 <code>Entry</code> 需要给定索引，而为了 <strong>建立 key 和索引之间的映射关系</strong>，我们需要使用「哈希函数 Hash Function」。</p>
-<p>具体地，设数组为 <code>buckets</code> ，哈希函数为 <code>f(x)</code> ，输入键为 <code>key</code> 。那么获取 value 的步骤为：</p>
+<p>首先考虑最简单的情况，<strong>仅用一个「数组」来实现哈希表</strong>。根据习惯，我们将数组中的每个空位称为「桶 Bucket」，用于存储键值对。</p>
+<p>我们将键值对 key, value 包装成一个类 <code>Entry</code> ，并将所有 <code>Entry</code> 都放入数组中，那么每个 <code>Entry</code> 在数组中都有唯一的索引。而为了建立 key 和索引之间的映射关系，我们需要使用「哈希函数 Hash Function」。</p>
+<p>设哈希表的数组为 <code>buckets</code> ，哈希函数为 <code>f(x)</code> ，那么查询操作的步骤为：</p>
 <ol>
-<li>通过哈希函数计算出索引，即 <code>index = f(key)</code> ；</li>
-<li>通过索引在数组中获取键值对，即 <code>Entry = buckets[index]</code> ；</li>
+<li>输入 <code>key</code> ，通过哈希函数计算出索引 <code>index</code> ，即 <code>index = f(key)</code> ；</li>
+<li>通过索引在数组中访问到键值对 <code>entry</code> ，即 <code>entry = buckets[index]</code> ，并在 <code>entry</code> 中获取到 <code>value</code> 即可；</li>
 </ol>
 <p>以上述学生数据 <code>key 学号 -&gt; value 姓名</code> 为例，我们可以将「哈希函数」设计为</p>
 <div class="arithmatex">\[
 f(x) = x \% 100
 \]</div>
-<p>如下图所示，输入一个学号 key ，经过哈希函数计算就能访问到对应的姓名 value 。</p>
-<p><img alt="简单哈希函数示例" src="../hash_map.assets/hash_function.png" /></p>
-<p align="center"> Fig. 简单哈希函数示例 </p>
+<p><img alt="哈希函数工作原理" src="../hash_map.assets/hash_function.png" /></p>
+<p align="center"> Fig. 哈希函数工作原理 </p>
 
 <div class="tabbed-set tabbed-alternate" data-tabs="3:10"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label></div>
 <div class="tabbed-content">
