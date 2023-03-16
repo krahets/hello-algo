@@ -534,7 +534,9 @@ comments: true
 === "Go"
 
     ```go title=""
-    
+    /* 二叉树的数组表示 */
+    // 使用 any 类型的切片, 就可以使用 nil 来标记空位
+    tree := []any{1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15}
     ```
 
 === "JavaScript"

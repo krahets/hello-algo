@@ -1230,7 +1230,8 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
     /* 递归插入结点（辅助方法） */
     TreeNode* insertHelper(TreeNode* node, int val) {
-        if (node == nullptr) return new TreeNode(val);
+        if (node == nullptr)
+            return new TreeNode(val);
         /* 1. 查找插入位置，并插入结点 */
         if (val < node->val)
             node->left = insertHelper(node->left, val);
@@ -1524,7 +1525,8 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
     /* 递归删除结点（辅助方法） */
     TreeNode* removeHelper(TreeNode* node, int val) {
-        if (node == nullptr) return nullptr;
+        if (node == nullptr)
+            return nullptr;
         /* 1. 查找结点，并删除之 */
         if (val < node->val)
             node->left = removeHelper(node->left, val);
@@ -1546,8 +1548,9 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
             } else {
                 // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
                 TreeNode* temp = getInOrderNext(node->right);
+                int tempVal = temp->val;
                 node->right = removeHelper(node->right, temp->val);
-                node->val = temp->val;
+                node->val = tempVal;
             }
         }
         updateHeight(node);  // 更新结点高度
@@ -1559,7 +1562,8 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 
     /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
     TreeNode* getInOrderNext(TreeNode* node) {
-        if (node == nullptr) return node;
+        if (node == nullptr)
+            return node;
         // 循环访问左子结点，直到叶结点时为最小结点，跳出
         while (node->left != nullptr) {
             node = node->left;
