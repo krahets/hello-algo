@@ -19,6 +19,7 @@ public:
     }
 
     ~LinkedListStack() {
+        // 遍历链表删除结点，释放内存
         freeMemoryLinkedList(stackTop);
     }
 

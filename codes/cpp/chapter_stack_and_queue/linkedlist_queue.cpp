@@ -20,8 +20,8 @@ public:
     }
 
     ~LinkedListQueue() {
-        delete front;
-        delete rear;
+        // 遍历链表删除结点，释放内存
+        freeMemoryLinkedList(front);
     }
 
     /* 获取队列的长度 */

@@ -16,7 +16,7 @@ public class radix_sort {
     }
 
     /* 计数排序（根据 nums 第 k 位排序） */
-    static void countSort(int[] nums, int exp) {
+    static void countingSort(int[] nums, int exp) {
         // 十进制的各位数字范围为 0~9 ，因此需要长度为 10 的桶
         int[] bucket = new int[10];
         int n = nums.length;
@@ -55,7 +55,7 @@ public class radix_sort {
             // k = 2 -> exp = 10
             // k = 3 -> exp = 100
             // 即 exp = 10^(k-1)
-            countSort(nums, exp);
+            countingSort(nums, exp);
     }
 
     public static void main(String[] args) {

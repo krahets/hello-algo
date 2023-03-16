@@ -12,7 +12,7 @@ fn digit(num: i32, exp: i32) i32 {
 }
 
 // 计数排序（根据 nums 第 k 位排序）
-fn countSort(nums: []i32, exp: i32) !void {
+fn countingSort(nums: []i32, exp: i32) !void {
     // 十进制的各位数字范围为 0~9 ，因此需要长度为 10 的桶
     var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     // defer mem_arena.deinit();
@@ -62,7 +62,7 @@ fn radixSort(nums: []i32) !void {
         // k = 2 -> exp = 10
         // k = 3 -> exp = 100
         // 即 exp = 10^(k-1)
-        try countSort(nums, exp);    
+        try countingSort(nums, exp);    
     }
 } 
 

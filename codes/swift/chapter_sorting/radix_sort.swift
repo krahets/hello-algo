@@ -11,7 +11,7 @@ func digit(num: Int, exp: Int) -> Int {
 }
 
 /* 计数排序（根据 nums 第 k 位排序） */
-func countSort(nums: inout [Int], exp: Int) {
+func countingSort(nums: inout [Int], exp: Int) {
     // 十进制的各位数字范围为 0~9 ，因此需要长度为 10 的桶
     var bucket = Array(repeating: 0, count: 10)
     let n = nums.count
@@ -54,7 +54,7 @@ func radixSort(nums: inout [Int]) {
         // k = 2 -> exp = 10
         // k = 3 -> exp = 100
         // 即 exp = 10^(k-1)
-        countSort(nums: &nums, exp: exp)
+        countingSort(nums: &nums, exp: exp)
     }
 }
 

@@ -13,7 +13,7 @@ func digit(num, exp int) int {
 }
 
 /* 计数排序（根据 nums 第 k 位排序） */
-func countSort(nums []int, exp int) {
+func countingSort(nums []int, exp int) {
 	// 十进制的各位数字范围为 0~9 ，因此需要长度为 10 的桶
 	bucket := make([]int, 10)
 	n := len(nums)
@@ -56,6 +56,6 @@ func radixSort(nums []int) {
 		// k = 2 -> exp = 10
 		// k = 3 -> exp = 100
 		// 即 exp = 10^(k-1)
-		countSort(nums, exp)
+		countingSort(nums, exp)
 	}
 }

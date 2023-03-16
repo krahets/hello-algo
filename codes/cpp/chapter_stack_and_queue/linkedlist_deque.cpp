@@ -27,7 +27,7 @@ public:
 
     /* 析构方法 */
     ~LinkedListDeque() {
-        // 释放内存
+        // 遍历链表删除结点，释放内存
         DoublyListNode *pre, *cur = front;
         while (cur != nullptr) {
             pre = cur;

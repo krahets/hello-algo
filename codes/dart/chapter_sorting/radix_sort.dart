@@ -11,7 +11,7 @@ int digit(int num, int exp) {
 }
 
 /* 计数排序（根据 nums 第 k 位排序） */
-void countSort(List<int> nums, int exp) {
+void countingSort(List<int> nums, int exp) {
   // 十进制的各位数字范围为 0~9 ，因此需要长度为 10 的桶
   List<int> bucket = List<int>.filled(10, 0);
   int n = nums.length;
@@ -49,7 +49,7 @@ void radixSort(List<int> nums) {
     // k = 2 -> exp = 10
     // k = 3 -> exp = 100
     // 即 exp = 10^(k-1)
-    countSort(nums, exp);
+    countingSort(nums, exp);
 }
 
 /* Driver Code */
