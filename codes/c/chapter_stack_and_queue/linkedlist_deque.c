@@ -171,8 +171,6 @@ void printLinkedListDeque(LinkedListDeque *deque) {
 int main() {
     /* 初始化双向队列 */
     LinkedListDeque *deque = newLinkedListDeque();
-
-    /* 元素入队 */
     pushLast(deque, 3);
     pushLast(deque, 2);
     pushLast(deque, 5);
@@ -184,6 +182,14 @@ int main() {
     printf("队首元素 peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
     printf("队首元素 peekLast = %d\r\n", peekLastNum);
+
+    /* 元素入队 */
+    pushLast(deque, 4);
+    printf("元素 4 队尾入队后 deque =");
+    printLinkedListDeque(deque);
+    pushFirst(deque, 1);
+    printf("元素 1 队首入队后 deque =");
+    printLinkedListDeque(deque);
 
     /* 元素出队 */
     int popLastNum = popLast(deque);
