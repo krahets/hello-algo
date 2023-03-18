@@ -1749,11 +1749,11 @@
 <p>理想情况下，哈希函数应该为每个输入产生唯一的输出，使得 key 和 value 一一对应。而实际上，往往存在向哈希函数输入不同的 key 而产生相同输出的情况，这种情况被称为「哈希冲突 Hash Collision」。哈希冲突会导致查询结果错误，从而严重影响哈希表的可用性。</p>
 <p>那么，为什么会出现哈希冲突呢？本质上看，<strong>由于哈希函数的输入空间往往远大于输出空间</strong>，因此不可避免地会出现多个输入产生相同输出的情况，即为哈希冲突。比如，输入空间是全体整数，输出空间是一个固定大小的数组，那么必定会有多个整数映射到同一个数组索引。</p>
 <p>为了缓解哈希冲突，一方面，<strong>我们可以通过哈希表扩容来减小冲突概率</strong>。极端情况下，当输入空间和输出空间大小相等时，哈希表就等价于数组了，每个 key 都对应唯一的数组索引，可谓“大力出奇迹”。</p>
-<p>另一方面，<strong>考虑通过优化哈希表的来缓解哈希冲突</strong>，常见的方法有「链式地址」和「开放寻址」。</p>
+<p>另一方面，<strong>考虑通过优化哈希表的表示来缓解哈希冲突</strong>，常见的方法有「链式地址」和「开放寻址」。</p>
 <h2 id="621">6.2.1. &nbsp; 哈希表扩容<a class="headerlink" href="#621" title="Permanent link">&para;</a></h2>
-<p>「负载因子 Load Factor」定义为 <strong>哈希表中元素数量除以桶数量（即数组大小）</strong>，代表哈希冲突的严重程度。</p>
-<p><strong>负载因子常用作哈希表扩容的触发条件</strong>。比如在 Java 中，当负载因子 <span class="arithmatex">\(&gt; 0.75\)</span> 时则触发扩容，将 HashMap 大小扩充至原先的 <span class="arithmatex">\(2\)</span> 倍。</p>
-<p>与数组扩容类似，<strong>哈希表扩容操作的开销很大</strong>，因为需要将所有键值对从原哈希表依次移动至新哈希表。</p>
+<p>哈希函数的最后一步往往是对桶数量 <span class="arithmatex">\(n\)</span> 取余，以将哈希值映射到桶的索引范围，从而将 key 放入对应的桶中。当哈希表容量越大（即 <span class="arithmatex">\(n\)</span> 越大）时，多个 key 被分配到同一个桶中的概率就越低，冲突就越少。</p>
+<p>因此，<strong>在哈希表内的冲突整体比较严重时，编程语言一般通过扩容哈希表来缓解</strong>。与数组扩容类似，哈希表扩容需要将所有键值对从原哈希表移动至新哈希表，<strong>开销很大</strong>。</p>
+<p>编程语言一般使用「负载因子 Load Factor」来评估哈希冲突的严重程度，<strong>其定义为哈希表中元素数量除以桶数量</strong>，常用作哈希表扩容的触发条件。比如在 Java 中，当负载因子 <span class="arithmatex">\(&gt; 0.75\)</span> 时，系统会将 HashMap 容量扩充至原先的 <span class="arithmatex">\(2\)</span> 倍。</p>
 <h2 id="622">6.2.2. &nbsp; 链式地址<a class="headerlink" href="#622" title="Permanent link">&para;</a></h2>
 <p>在原始哈希表中，每个桶只能存储一个元素（即键值对）。<strong>考虑将单个元素转化成一个链表，将所有冲突元素都存储在一个链表中</strong>。</p>
 <p><img alt="链式地址" src="../hash_collision.assets/hash_collision_chaining.png" /></p>
