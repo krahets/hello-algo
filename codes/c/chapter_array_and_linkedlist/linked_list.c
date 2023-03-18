@@ -51,7 +51,7 @@ int find(ListNode* head, int target) {
 
 /* Driver Code */
 int main() {
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    /* 初始化链表 */
     // 初始化各个结点 
     ListNode* n0 = newListNode(1);
     ListNode* n1 = newListNode(3);
