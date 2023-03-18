@@ -6,7 +6,7 @@
 
 #include "../include/include.h"
 
-/* 基于链表实现的队列 */
+/* 双向链表结点 */
 struct DoublyListNode {
     int val;                     // 结点值
     struct DoublyListNode *next; // 后继结点
@@ -15,6 +15,7 @@ struct DoublyListNode {
 
 typedef struct DoublyListNode DoublyListNode;
 
+/* 双向链表结点构造方法 */
 DoublyListNode *newDoublyListNode(int num) {
     DoublyListNode* new = (DoublyListNode *) malloc(sizeof(DoublyListNode));
     new->val = num;
@@ -23,13 +24,15 @@ DoublyListNode *newDoublyListNode(int num) {
     return new;
 }
 
+/* 双向链表结点析构方法 */
 void delDoublyListNode(DoublyListNode *node) {
     free(node);
 }
 
+/* 基于双向链表实现的双向队列 */
 struct LinkedListDeque {
-    DoublyListNode *front, *rear;
-    int queSize;
+    DoublyListNode *front, *rear; // 头结点 front ，尾结点 rear
+    int queSize;                  // 双向队列的长度
 };
 
 typedef struct LinkedListDeque LinkedListDeque;
