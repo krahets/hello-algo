@@ -5,8 +5,6 @@
  */
 
 #include "../include/include.h"
-#include <cstdio>
-#include <string.h>
 
 /**
   @brief    Duplicate a string
@@ -36,9 +34,11 @@ static char *xstrdup(const char *s) {
 static int hash_map_grow(hash_map_t *d) {
   char **new_val;
   long *new_key;
+  ssize_t i, cur_size;
 
-  new_val = (char **)calloc(d->size * 2, sizeof *d->val);
-  new_key = (long *)calloc(d->size * 2, sizeof *d->key);
+  cur_size = d->size * 2;
+  new_val = (char **)calloc(cur_size, sizeof *d->val);
+  new_key = (long *)calloc(cur_size, sizeof *d->key);
   if (!new_val || !new_key) {
     /* An allocation failed, leave the hash_map unchanged */
     if (new_val)
@@ -49,7 +49,9 @@ static int hash_map_grow(hash_map_t *d) {
   }
 
   /* Set default key */
-  memset(new_key, HASH_MAP_DEFAULT_KEY, d->size * 2);
+  for (i = 0; i < cur_size; i++) {
+    d->key[i] = HASH_MAP_DEFAULT_KEY;
+  }
 
   /* Initialize the newly allocated space */
   memcpy(new_val, d->val, d->size * sizeof(char *));
@@ -58,7 +60,7 @@ static int hash_map_grow(hash_map_t *d) {
   free(d->val);
   free(d->key);
   /* Actually update the hash_map */
-  d->size *= 2;
+  d->size = cur_size;
   d->val = new_val;
   d->key = new_key;
   return 0;
@@ -71,6 +73,7 @@ static int hash_map_grow(hash_map_t *d) {
  */
 hash_map_t *new_hash_map(size_t size) {
   hash_map_t *d;
+  ssize_t i;
 
   /* If no size was specified, allocate space for HASH_MAP_MIN_SIZE */
   if (size < HASH_MAP_MIN_SIZE)
@@ -83,7 +86,9 @@ hash_map_t *new_hash_map(size_t size) {
     d->val = (char **)calloc(size, sizeof *d->val);
     d->key = (long *)calloc(size, sizeof *d->key);
     /* Set default key */
-    memset(d->key, HASH_MAP_DEFAULT_KEY, size);
+    for (i = 0; i < d->size; i++) {
+      d->key[i] = HASH_MAP_DEFAULT_KEY;
+    }
   }
   return d;
 }
@@ -165,7 +170,7 @@ int put(hash_map_t *d, const long key, const char *val) {
   /* Insert key in the first empty slot. Start at d->n and wrap at
      d->size. Because d->n < d->size this will necessarily
      terminate. */
-  for (i = d->n; d->key[i];) {
+  for (i = d->n; d->key[i] != HASH_MAP_DEFAULT_KEY;) {
     if (++i == d->size)
       i = 0;
   }
@@ -245,4 +250,22 @@ int main() {
   remove_item(map, 10583);
   printf("\n删除 10583 后，哈希表为\nKey -> Value\n");
   show_map(map);
+
+  /* 遍历哈希表 */
+  int i;
+
+  printf("\n遍历键值对 Key->Value\n");
+  for (i = 0; i < map->n; i++) {
+    printf("%ld -> %s\n", map->key[i], map->val[i]);
+  }
+
+  printf("\n单独遍历键 Key\n");
+  for (i = 0; i < map->n; i++) {
+    printf("%ld\n", map->key[i]);
+  }
+
+  printf("\n单独遍历键 Value\n");
+  for (i = 0; i < map->n; i++) {
+    printf("%s\n", map->val[i]);
+  }
 }
