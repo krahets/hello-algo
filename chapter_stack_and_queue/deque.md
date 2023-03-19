@@ -535,6 +535,7 @@ comments: true
                 if (fNext != nullptr) {
                     fNext->prev = nullptr;
                     front->next = nullptr;
+                    delete front;
                 }
                 front = fNext;   // 更新头结点
             // 队尾出队操作
@@ -545,6 +546,7 @@ comments: true
                 if (rPrev != nullptr) {
                     rPrev->next = nullptr;
                     rear->prev = nullptr;
+                    delete rear;
                 }
                 rear = rPrev;    // 更新尾结点
             }

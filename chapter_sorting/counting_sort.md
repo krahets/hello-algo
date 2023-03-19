@@ -29,7 +29,7 @@ comments: true
 
     ```java title="counting_sort.java"
     /* 计数排序 */
-    // 该实现无法用于排序对象
+    // 简单实现，无法用于排序对象
     void countingSortNaive(int[] nums) {
         // 1. 统计数组最大元素 m
         int m = 0;
@@ -153,7 +153,7 @@ $$
 
     ```java title="counting_sort.java"
     /* 计数排序 */
-    // 该实现可排序对象，并且是稳定排序
+    // 完整实现，可排序对象，并且是稳定排序
     void countingSort(int[] nums) {
         // 1. 统计数组最大元素 m
         int m = 0;
