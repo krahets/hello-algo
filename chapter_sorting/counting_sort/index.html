@@ -12,20 +12,20 @@
         <meta name="author" content="Krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/chapter_graph/summary/">
+        <link rel="canonical" href="https://www.hello-algo.com/chapter_sorting/counting_sort/">
       
       
-        <link rel="prev" href="../graph_traversal/">
+        <link rel="prev" href="../merge_sort/">
       
       
-        <link rel="next" href="../../chapter_searching/linear_search/">
+        <link rel="next" href="../summary/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
-        <title>9.4.   小结 - Hello 算法</title>
+        <title>11.6.   计数排序（New） - Hello 算法</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#94" class="md-skip">
+        <a href="#116" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              9.4. &nbsp; 小结
+              11.6. &nbsp; 计数排序（New）
             
           </span>
         </div>
@@ -1125,18 +1125,16 @@
 
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
       
       
         
@@ -1155,7 +1153,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           9. &nbsp; &nbsp; 图
@@ -1168,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph/" class="md-nav__link">
+      <a href="../../chapter_graph/graph/" class="md-nav__link">
         9.1. &nbsp; 图
       </a>
     </li>
@@ -1182,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph_operations/" class="md-nav__link">
+      <a href="../../chapter_graph/graph_operations/" class="md-nav__link">
         9.2. &nbsp; 图基础操作
       </a>
     </li>
@@ -1196,7 +1194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph_traversal/" class="md-nav__link">
+      <a href="../../chapter_graph/graph_traversal/" class="md-nav__link">
         9.3. &nbsp; 图的遍历（New）
       </a>
     </li>
@@ -1208,21 +1206,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../chapter_graph/summary/" class="md-nav__link">
         9.4. &nbsp; 小结
       </a>
-      
     </li>
   
 
@@ -1343,16 +1331,18 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
       
       
         
@@ -1377,7 +1367,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
           11. &nbsp; &nbsp; 排序算法
@@ -1390,7 +1380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_sorting/intro_to_sort/" class="md-nav__link">
+      <a href="../intro_to_sort/" class="md-nav__link">
         11.1. &nbsp; 排序简介
       </a>
     </li>
@@ -1404,7 +1394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_sorting/bubble_sort/" class="md-nav__link">
+      <a href="../bubble_sort/" class="md-nav__link">
         11.2. &nbsp; 冒泡排序
       </a>
     </li>
@@ -1418,7 +1408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_sorting/insertion_sort/" class="md-nav__link">
+      <a href="../insertion_sort/" class="md-nav__link">
         11.3. &nbsp; 插入排序
       </a>
     </li>
@@ -1432,7 +1422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_sorting/quick_sort/" class="md-nav__link">
+      <a href="../quick_sort/" class="md-nav__link">
         11.4. &nbsp; 快速排序
       </a>
     </li>
@@ -1446,7 +1436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_sorting/merge_sort/" class="md-nav__link">
+      <a href="../merge_sort/" class="md-nav__link">
         11.5. &nbsp; 归并排序
       </a>
     </li>
@@ -1458,11 +1448,73 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../chapter_sorting/counting_sort/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          11.6. &nbsp; 计数排序（New）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         11.6. &nbsp; 计数排序（New）
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1161" class="md-nav__link">
+    11.6.1. &nbsp; 简单实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1162" class="md-nav__link">
+    11.6.2. &nbsp; 完整实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1163" class="md-nav__link">
+    11.6.3. &nbsp; 算法特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1164" class="md-nav__link">
+    11.6.4. &nbsp; 局限性
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1474,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_sorting/summary/" class="md-nav__link">
+      <a href="../summary/" class="md-nav__link">
         11.7. &nbsp; 小结
       </a>
     </li>
@@ -1626,6 +1678,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1161" class="md-nav__link">
+    11.6.1. &nbsp; 简单实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1162" class="md-nav__link">
+    11.6.2. &nbsp; 完整实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1163" class="md-nav__link">
+    11.6.3. &nbsp; 算法特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1164" class="md-nav__link">
+    11.6.4. &nbsp; 局限性
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1639,7 +1727,7 @@
                   
 
   
-    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_graph/summary.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_sorting/counting_sort.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1647,20 +1735,225 @@
   
 
 
-<h1 id="94">9.4. &nbsp; 小结<a class="headerlink" href="#94" title="Permanent link">&para;</a></h1>
-<ul>
-<li>图由顶点和边组成，可以表示为一组顶点和一组边构成的集合。</li>
-<li>相比线性关系（链表）和分治关系（树），网络关系（图）的自由度更高，也从而更为复杂。</li>
-<li>有向图的边存在方向，连通图中的任意顶点都可达，有权图的每条边都包含权重变量。</li>
-<li>邻接矩阵使用方阵来表示图，每一行（列）代表一个顶点，矩阵元素代表边，使用 <span class="arithmatex">\(1\)</span> 或 <span class="arithmatex">\(0\)</span> 来表示两个顶点之间有边或无边。邻接矩阵的增删查操作效率很高，但占用空间大。</li>
-<li>邻接表使用多个链表来表示图，第 <span class="arithmatex">\(i\)</span> 条链表对应顶点 <span class="arithmatex">\(i\)</span> ，其中存储了该顶点的所有邻接顶点。邻接表相对邻接矩阵更加节省空间，但由于需要通过遍历链表来查找边，因此时间效率较低。</li>
-<li>当邻接表中的链表过长时，可以将其转化为红黑树或哈希表，从而提升查询效率。</li>
-<li>从算法思想角度分析，邻接矩阵体现“以空间换时间”，邻接表体现“以时间换空间”</li>
-<li>图可以用于建模各类现实系统，例如社交网络、地铁线路等。</li>
-<li>树是图的一种特例，树的遍历也是图的遍历的一种特例。</li>
-<li>图的广度优先遍历是一种由近及远、层层扩张的搜索方式，常借助队列实现。</li>
-<li>图的深度优先遍历是一种优先走到底、无路可走再回头的搜索方式，常基于递归来实现。</li>
-</ul>
+<h1 id="116">11.6. &nbsp; 计数排序<a class="headerlink" href="#116" title="Permanent link">&para;</a></h1>
+<p>前面介绍的几种排序算法都属于 <strong>基于比较的排序算法</strong>，即通过比较元素之间的大小来实现排序，此类排序算法的时间复杂度无法超越 <span class="arithmatex">\(O(n \log n)\)</span> 。接下来，我们将学习一种 <strong>非比较排序算法</strong> ，名为「计数排序 Counting Sort」，其时间复杂度可以达到 <span class="arithmatex">\(O(n)\)</span> 。</p>
+<h2 id="1161">11.6.1. &nbsp; 简单实现<a class="headerlink" href="#1161" title="Permanent link">&para;</a></h2>
+<p>先看一个简单例子。给定一个长度为 <span class="arithmatex">\(n\)</span> 的数组 <code>nums</code> ，元素皆为 <strong>非负整数</strong>。计数排序的整体流程为：</p>
+<ol>
+<li>统计数组的最大数字，记为 <span class="arithmatex">\(m\)</span> ，并建立一个长度为 <span class="arithmatex">\(m + 1\)</span> 的辅助数组 <code>counter</code> ；</li>
+<li><strong>借助 <code>counter</code> 统计 <code>nums</code> 中各数字的出现次数</strong>，其中 <code>counter[num]</code> 对应数字 <code>num</code> 的出现次数。统计方法很简单，只需遍历 <code>nums</code> （设当前数字为 <code>num</code>），每轮将 <code>counter[num]</code> 自增 <span class="arithmatex">\(1\)</span> 即可。</li>
+<li><strong>由于 <code>counter</code> 的各个索引是天然有序的，因此相当于所有数字已经被排序好了</strong>。接下来，我们遍历 <code>counter</code> ，根据各数字的出现次数，将各数字按从小到大的顺序填入 <code>nums</code> 即可。</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="counting_sort_naive_step1" src="../counting_sort.assets/counting_sort_naive_step1.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="counting_sort_naive_step2" src="../counting_sort.assets/counting_sort_naive_step2.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="counting_sort_naive_step3" src="../counting_sort.assets/counting_sort_naive_step3.png" /></p>
+</div>
+</div>
+</div>
+<p>以下是实现代码，计数排序名副其实，确实是通过“统计数量”来实现排序的。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.java</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/* 计数排序 */</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">// 该实现无法用于排序对象</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">countingSortNaive</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="c1">// 1. 统计数组最大元素 m</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">);</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="c1">// 2. 统计各数字的出现次数</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="c1">// counter[num] 代表 num 的出现次数</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="n">counter</span><span class="o">[</span><span class="n">num</span><span class="o">]++</span><span class="p">;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="c1">// 3. 遍历 counter ，将各元素填入原数组 nums</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">num</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">counter</span><span class="o">[</span><span class="n">num</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">            </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">[</span><span class="k">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">countingSortNaive</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">counting_sort_naive</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.go</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">countingSortNaive</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.js</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">countingSortNaive</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.ts</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">countingSortNaive</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.c</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">countingSortNaive</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.cs</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">counting_sort</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">countingSortNaive</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.swift</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">countingSortNaive</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.zig</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">countingSortNaive</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="1162">11.6.2. &nbsp; 完整实现<a class="headerlink" href="#1162" title="Permanent link">&para;</a></h2>
+<p>细心的同学可能发现，<strong>如果输入数据是对象，上述步骤 <code>3.</code> 就失效了</strong>。例如输入数据是商品对象，我们想要按照商品价格（类的成员变量）对商品进行排序，而上述算法只能给出价格的排序结果。</p>
+<p>那么如何才能得到原数据的排序结果呢？我们首先计算 <code>counter</code> 的「前缀和」，顾名思义，索引 <code>i</code> 处的前缀和 <code>prefix[i]</code> 等于数组前 <code>i</code> 个元素之和，即</p>
+<div class="arithmatex">\[
+\text{prefix}[i] = \sum_{j=0}^i \text{counter[j]}
+\]</div>
+<p><strong>前缀和具有明确意义，<code>prefix[num] - 1</code> 代表元素 <code>num</code> 在结果数组 <code>res</code> 中最后一次出现的索引</strong>。这个信息很关键，因为其给出了各个元素应该出现在结果数组的哪个位置。接下来，我们倒序遍历原数组 <code>nums</code> 的每个元素 <code>num</code> ，在每轮迭代中执行：</p>
+<ol>
+<li>将 <code>num</code> 填入数组 <code>res</code> 的索引 <code>prefix[num] - 1</code> 处；</li>
+<li>令前缀和 <code>prefix[num]</code> 自减 <span class="arithmatex">\(1\)</span> ，从而得到下次放置 <code>num</code> 的索引；</li>
+</ol>
+<p>完成遍历后，数组 <code>res</code> 中就是排序好的结果，最后使用 <code>res</code> 覆盖原数组 <code>nums</code> 即可；</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:8"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label><label for="__tabbed_3_5">&lt;5&gt;</label><label for="__tabbed_3_6">&lt;6&gt;</label><label for="__tabbed_3_7">&lt;7&gt;</label><label for="__tabbed_3_8">&lt;8&gt;</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="counting_sort_step1" src="../counting_sort.assets/counting_sort_step1.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="counting_sort_step2" src="../counting_sort.assets/counting_sort_step2.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="counting_sort_step3" src="../counting_sort.assets/counting_sort_step3.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="counting_sort_step4" src="../counting_sort.assets/counting_sort_step4.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="counting_sort_step5" src="../counting_sort.assets/counting_sort_step5.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="counting_sort_step6" src="../counting_sort.assets/counting_sort_step6.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="counting_sort_step7" src="../counting_sort.assets/counting_sort_step7.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="counting_sort_step8" src="../counting_sort.assets/counting_sort_step8.png" /></p>
+</div>
+</div>
+</div>
+<p>计数排序的实现代码如下所示。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:10"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JavaScript</label><label for="__tabbed_4_6">TypeScript</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.java</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* 计数排序 */</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1">// 该实现可排序对象，并且是稳定排序</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">countingSort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="c1">// 1. 统计数组最大元素 m</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">);</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="c1">// 2. 统计各数字的出现次数</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="c1">// counter[num] 代表 num 的出现次数</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="n">counter</span><span class="o">[</span><span class="n">num</span><span class="o">]++</span><span class="p">;</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="c1">// 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="c1">// 即 counter[num]-1 是 num 在 res 中最后一次出现的索引</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">        </span><span class="n">counter</span><span class="o">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">counter</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="c1">// 4. 倒序遍历 nums ，将各元素填入结果数组 res</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">    </span><span class="c1">// 初始化数组 res 用于记录结果</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">    </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="w">        </span><span class="n">res</span><span class="o">[</span><span class="n">counter</span><span class="o">[</span><span class="n">num</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="c1">// 将 num 放置到对应索引处</span>
+<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a><span class="w">        </span><span class="n">counter</span><span class="o">[</span><span class="n">num</span><span class="o">]--</span><span class="p">;</span><span class="w"> </span><span class="c1">// 令前缀和自减 1 ，得到下次放置 num 的索引</span>
+<a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="w">    </span><span class="c1">// 使用结果数组 res 覆盖原数组 nums</span>
+<a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a><span class="w">        </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.cpp</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">[</span><span class="k">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">countingSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.py</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">counting_sort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.go</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">countingSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.js</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">countingSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.ts</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">countingSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.c</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">countingSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.cs</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">counting_sort</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">countingSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.swift</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">countingSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">counting_sort.zig</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">countingSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="1163">11.6.3. &nbsp; 算法特性<a class="headerlink" href="#1163" title="Permanent link">&para;</a></h2>
+<p><strong>时间复杂度 <span class="arithmatex">\(O(n + m)\)</span></strong> ：涉及遍历 <code>nums</code> 和遍历 <code>counter</code> ，都使用线性时间。一般情况下 <span class="arithmatex">\(n \gg m\)</span> ，此时使用线性 <span class="arithmatex">\(O(n)\)</span> 时间。</p>
+<p><strong>空间复杂度 <span class="arithmatex">\(O(n + m)\)</span></strong> ：数组 <code>res</code> 和 <code>counter</code> 长度分别为 <span class="arithmatex">\(n\)</span> , <span class="arithmatex">\(m\)</span> 。</p>
+<p><strong>非原地排序</strong>：借助了辅助数组 <code>counter</code> 和结果数组 <code>res</code> 的额外空间。</p>
+<p><strong>稳定排序</strong>：倒序遍历 <code>nums</code> 保持了相等元素的相对位置。</p>
+<p><strong>非自适应排序</strong>：与元素分布无关。</p>
+<div class="admonition question">
+<p class="admonition-title">为什么是稳定排序？</p>
+<p>由于向 <code>res</code> 中填充元素的顺序是“从右向左”的，因此倒序遍历 <code>nums</code> 可以避免改变相等元素之间的相对位置，从而实现“稳定排序”；其实正序遍历 <code>nums</code> 也可以得到正确的排序结果，但结果“非稳定”。</p>
+</div>
+<h2 id="1164">11.6.4. &nbsp; 局限性<a class="headerlink" href="#1164" title="Permanent link">&para;</a></h2>
+<p>看到这里，你也许会觉得计数排序太妙了，咔咔一通操作，时间复杂度就下来了。但实际上与其它算法一样，计数排序也无法摆脱“此消彼长”的宿命，<strong>时间复杂度优化的代价是通用型变差</strong>。</p>
+<p><strong>计数排序只适用于非负整数</strong>。若想要用在其他类型数据上，则要求该数据必须可以被转化为非负整数，并且不能改变各个元素之间的相对大小关系。例如，对于包含负数的整数数组，可以先给所有数字加上一个常数，将全部数字转化为正数，排序完成后再转换回去即可。</p>
+<p><strong>计数排序只适用于数据范围不大的情况</strong>。比如，上述示例中 <span class="arithmatex">\(m\)</span> 不能太大，否则占用空间太多；而当 <span class="arithmatex">\(n \ll m\)</span> 时，计数排序使用 <span class="arithmatex">\(O(m)\)</span> 时间，有可能比 <span class="arithmatex">\(O(n \log n)\)</span> 的排序算法还要慢。</p>
 
 
 
@@ -1738,7 +2031,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../graph_traversal/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 9.3. &amp;nbsp; 图的遍历（New）" rel="prev">
+          <a href="../merge_sort/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 11.5. &amp;nbsp; 归并排序" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1747,20 +2040,20 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                9.3. &nbsp; 图的遍历（New）
+                11.5. &nbsp; 归并排序
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../chapter_searching/linear_search/" class="md-footer__link md-footer__link--next" aria-label="下一页: 10.1. &amp;nbsp; 线性查找" rel="next">
+          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: 11.7. &amp;nbsp; 小结" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                10.1. &nbsp; 线性查找
+                11.7. &nbsp; 小结
               </div>
             </div>
             <div class="md-footer__button md-icon">
