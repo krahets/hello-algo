@@ -64,21 +64,21 @@ bool get(HashTable table, uint32_t key, HashItem* item) {
 
 int main() {
     HashTable hash_table = createHashTable();
-    printf("Put key 1 value 10 into hash table.");
+    printf("Put key 1 value 10 into hash table.\n");
 
     put(hash_table, 1, 10);
-    printf("Put key 3 value 30 into hash table.");
+    printf("Put key 3 value 30 into hash table.\n");
     put(hash_table, 3, 30);
 
     
     for (uint32_t key = 1; key <= 3; key++) {
         HashItem item;
-        printf("Get key %d from hash table:", key);
-        bool result = get(hash_table, 2, &item);
+        printf("Get key %d from hash table:\n", key);
+        bool result = get(hash_table, key, &item);
         if (result == true) {
-            printf("Successfully get item from hash table:%d->%d", item.key, item.val);
+            printf("Successfully get item from hash table:%d->%d\n", item.key, item.val);
         } else {
-            printf("Failed to get from hash table");
+            printf("Failed to get from hash table.\n");
         }
     }
 
