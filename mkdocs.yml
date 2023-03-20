@@ -169,7 +169,7 @@ nav:
   - 9. &nbsp; &nbsp; 图:
     - 9.1. &nbsp; 图: chapter_graph/graph.md
     - 9.2. &nbsp; 图基础操作: chapter_graph/graph_operations.md
-    - 9.3. &nbsp; 图的遍历: chapter_graph/graph_traversal.md
+    - 9.3. &nbsp; 图的遍历（New）: chapter_graph/graph_traversal.md
     - 9.4. &nbsp; 小结: chapter_graph/summary.md
   - 10. &nbsp; &nbsp; 查找算法:
     - 10.1. &nbsp; 线性查找: chapter_searching/linear_search.md
@@ -182,7 +182,8 @@ nav:
     - 11.3. &nbsp; 插入排序: chapter_sorting/insertion_sort.md
     - 11.4. &nbsp; 快速排序: chapter_sorting/quick_sort.md
     - 11.5. &nbsp; 归并排序: chapter_sorting/merge_sort.md
-    - 11.6. &nbsp; 小结: chapter_sorting/summary.md
+    - 11.6. &nbsp; 计数排序（New）: chapter_sorting/counting_sort.md
+    - 11.7. &nbsp; 小结: chapter_sorting/summary.md
   - 12. &nbsp; &nbsp; 附录:
     - 12.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
     - 12.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
