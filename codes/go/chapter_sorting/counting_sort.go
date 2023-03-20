@@ -8,7 +8,7 @@ type CountingSort struct{}
 
 /* 计数排序 */
 // 简单实现，无法用于排序对象
-func (c *CountingSort) countingSortNaive(nums []int) {
+func countingSortNaive(nums []int) {
 	// 1. 统计数组最大元素 m
 	m := 0
 	for num := range nums {
@@ -31,7 +31,9 @@ func (c *CountingSort) countingSortNaive(nums []int) {
 	}
 }
 
-func (c *CountingSort) countingSort(nums []int) {
+/* 计数排序 */
+// 完整实现，可排序对象，并且是稳定排序
+func countingSort(nums []int) {
 	// 1. 统计数组最大元素 m
 	m := 0
 	for num := range nums {
