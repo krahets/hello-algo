@@ -10,18 +10,16 @@
 extern "C" {
 #endif
 
-/**
- * @brief Definition for a singly-linked list node
- *
- */
+/* 链表结点结构体 */
 struct ListNode {
     int val;               // 结点值
     struct ListNode *next; // 指向下一结点的指针（引用）
 };
 
-// typedef 为 C 语言的关键字，作用是为一种数据类型定义一个新名字
+// typedef 作用是为一种数据类型定义一个新名字
 typedef struct ListNode ListNode;
 
+/* 构造函数，初始化一个新结点 */
 ListNode *newListNode(int val) {
     ListNode *node, *next;
     node = (ListNode *) malloc(sizeof(ListNode));
@@ -36,7 +34,6 @@ ListNode *newListNode(int val) {
  * @param list
  * @return ListNode*
  */
-
 ListNode *arrToLinkedList(const int *arr, size_t size) {
     if (size <= 0) {
         return NULL;
