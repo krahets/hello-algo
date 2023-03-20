@@ -9,15 +9,15 @@
 /* 二分查找（双闭区间） */
 int binarySearch(int *nums, int len, int target) {
     // 初始化双闭区间 [0, n-1] ，即 left, right 分别指向数组首元素、尾元素
-    int left = 0, right = len-1;
+    int left = 0, right = len - 1;
     // 循环，当搜索区间为空时跳出（当 left > right 时为空）
     while (left <= right) {
-        int mid = (left + right) / 2;       // 计算中点索引 mid
-        if (nums[mid] < target)      // 此情况说明 target 在区间 [mid+1, right] 中
+        int mid = (left + right) / 2; // 计算中点索引 mid
+        if (nums[mid] < target)       // 此情况说明 target 在区间 [mid+1, right] 中
             left = mid + 1;
-        else if (nums[mid] > target) // 此情况说明 target 在区间 [left, mid-1] 中
+        else if (nums[mid] > target)  // 此情况说明 target 在区间 [left, mid-1] 中
             right = mid - 1;
-        else                       // 找到目标元素，返回其索引
+        else                          // 找到目标元素，返回其索引
             return mid;
     }
     // 未找到目标元素，返回 -1
@@ -30,18 +30,17 @@ int binarySearch1(int *nums, int len, int target) {
     int left = 0, right = len;
     // 循环，当搜索区间为空时跳出（当 left = right 时为空）
     while (left < right) {
-        int mid = (left + right) / 2;       // 计算中点索引 mid
-        if (nums[mid] < target)      // 此情况说明 target 在区间 [mid+1, right) 中
+        int mid = (left + right) / 2; // 计算中点索引 mid
+        if (nums[mid] < target)       // 此情况说明 target 在区间 [mid+1, right) 中
             left = mid + 1;
-        else if (nums[mid] > target) // 此情况说明 target 在区间 [left, mid) 中
+        else if (nums[mid] > target)  // 此情况说明 target 在区间 [left, mid) 中
             right = mid;
-        else                       // 找到目标元素，返回其索引
+        else                          // 找到目标元素，返回其索引
             return mid;
     }
     // 未找到目标元素，返回 -1
     return -1;
 }
-
 
 /* Driver Code */
 int main() {
