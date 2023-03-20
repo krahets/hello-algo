@@ -13,4 +13,3 @@ docs/overrides/
 build/
 site/
 utils/
-**/cmake-build-debug
