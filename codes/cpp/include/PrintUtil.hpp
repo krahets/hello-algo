@@ -99,10 +99,13 @@ class PrintUtil {
         static void printArray(T* arr, int n)
         {
             cout << "[";
-            for (size_t i = 0; i < n - 1; i++) {
+            for (int i = 0; i < n - 1; i++) {
                 cout << arr[i] << ", ";
             }
-            cout << arr[n - 1] << "]" << '\n';
+            if (n>=1)
+                cout << arr[n - 1] << "]" << endl;
+            else
+                cout << "]" << endl;
         }
 
         /**
