@@ -33,6 +33,7 @@ int main() {
     graph.addVertex(v5);
     cout << "\n添加顶点 6 后，图为" << endl;
     graph.print();
+    delete v5;
 
     /* 删除顶点 */
     // 顶点 3 即 v[1]
