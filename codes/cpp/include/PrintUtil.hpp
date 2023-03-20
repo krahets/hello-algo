@@ -102,7 +102,7 @@ class PrintUtil {
             for (int i = 0; i < n - 1; i++) {
                 cout << arr[i] << ", ";
             }
-            if (n>=1)
+            if (n >= 1)
                 cout << arr[n - 1] << "]" << endl;
             else
                 cout << "]" << endl;
