@@ -27,7 +27,7 @@ ListNode* linearSearchLinkedList(ListNode* head, int target) {
             return head;
         head = head->next;
     }
-    // 未找到目标结点，返回 nullptr
+    // 未找到目标结点，返回 NULL
     return NULL;
 }
 
