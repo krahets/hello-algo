@@ -99,10 +99,13 @@ class PrintUtil {
         static void printArray(T* arr, int n)
         {
             cout << "[";
-            for (size_t i = 0; i < n - 1; i++) {
+            for (int i = 0; i < n - 1; i++) {
                 cout << arr[i] << ", ";
             }
-            cout << arr[n - 1] << "]" << '\n';
+            if (n>=1)
+                cout << arr[n - 1] << "]" << endl;
+            else
+                cout << "]" << endl;
         }
 
         /**
@@ -206,31 +209,31 @@ class PrintUtil {
             }
         
             string prev_str = "    ";
-            Trunk *trunk = new Trunk(prev, prev_str);
+            Trunk trunk(prev, prev_str);
         
-            printTree(root->right, trunk, true);
+            printTree(root->right, &trunk, true);
         
             if (!prev) {
-                trunk->str = "———";
+                trunk.str = "———";
             }
             else if (isLeft) {
-                trunk->str = "/———";
+                trunk.str = "/———";
                 prev_str = "   |";
             }
             else {
-                trunk->str = "\\———";
+                trunk.str = "\\———";
                 prev->str = prev_str;
             }
         
-            showTrunks(trunk);
+            showTrunks(&trunk);
             cout << " " << root->val << endl;
         
             if (prev) {
                 prev->str = prev_str;
             }
-            trunk->str = "   |";
+            trunk.str = "   |";
         
-            printTree(root->left, trunk, false);
+            printTree(root->left, &trunk, false);
         }
     
         /**
