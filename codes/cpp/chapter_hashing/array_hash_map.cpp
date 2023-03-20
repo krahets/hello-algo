@@ -27,6 +27,14 @@ public:
         buckets = vector<Entry*>(100);
     }
 
+    ~ArrayHashMap() {
+        // 释放内存
+        for (const auto &bucket : buckets) {
+            delete bucket;
+        }
+        buckets.clear();
+    }
+
     /* 哈希函数 */
     int hashFunc(int key) {
         int index = key % 100;
@@ -52,7 +60,8 @@ public:
     /* 删除操作 */
     void remove(int key) {
         int index = hashFunc(key);
-        // 置为 nullptr ，代表删除
+        // 先释放，在置为 nullptr
+        delete buckets[index];
         buckets[index] = nullptr;
     }
 
