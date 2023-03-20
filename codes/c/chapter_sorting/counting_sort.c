@@ -1,8 +1,9 @@
 /**
  * File: counting_sort.c
  * Created Time: 2023-03-20
- * Author: Reanon (793584285@qq.com)
+ * Author: Reanon (793584285@qq.com), Guanngxu (446678850@qq.com)
  */
+
 #include "../include/include.h"
 
 /* 计数排序 */
@@ -30,7 +31,6 @@ void countingSortNaive(int nums[], int size) {
     }
 }
 
-
 /* 计数排序 */
 // 完整实现，可排序对象，并且是稳定排序
 void countingSort(int nums[], int size) {
@@ -57,10 +57,8 @@ void countingSort(int nums[], int size) {
     int *res = malloc(sizeof(int) * size);
     for (int i = size - 1; i >= 0; i--) {
         int num = nums[i];
-        // 将 num 放置到对应索引处
-        res[counter[num] - 1] = num;
-        // 令前缀和自减 1 ，得到下次放置 num 的索引
-        counter[num]--;
+        res[counter[num] - 1] = num; // 将 num 放置到对应索引处
+        counter[num]--; // 令前缀和自减 1 ，得到下次放置 num 的索引
     }
     // 使用结果数组 res 覆盖原数组 nums
     memcpy(nums, res, size * sizeof(int));
@@ -77,5 +75,6 @@ int main() {
     countingSort(nums, size);
     printf("计数排序完成后 nums = ");
     printArray(nums, size);
+
     return 0;
 }
