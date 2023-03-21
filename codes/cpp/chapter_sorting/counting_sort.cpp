@@ -1,26 +1,24 @@
 /**
- * File: counting_sort.c
- * Created Time: 2023-03-20
- * Author: Reanon (793584285@qq.com), Guanngxu (446678850@qq.com)
+ * File: counting_sort.cpp
+ * Created Time: 2023-03-17
+ * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.h"
+#include "../include/include.hpp"
 
 /* 计数排序 */
 // 简单实现，无法用于排序对象
-void countingSortNaive(int nums[], int size) {
+void countingSortNaive(vector<int>& nums) {
     // 1. 统计数组最大元素 m
     int m = 0;
-    for (int i = 0; i < size; i++) {
-        if (nums[i] > m) {
-            m = nums[i];
-        }
+    for (int num : nums) {
+        m = max(m, num);
     }
     // 2. 统计各数字的出现次数
     // counter[num] 代表 num 的出现次数
-    int *counter = malloc(sizeof(int) * size);
-    for (int i = 0; i < size; i++) {
-        counter[nums[i]]++;
+    vector<int> counter(m + 1, 0);
+    for (int num : nums) {
+        counter[num]++;
     }
     // 3. 遍历 counter ，将各元素填入原数组 nums
     int i = 0;
@@ -33,19 +31,17 @@ void countingSortNaive(int nums[], int size) {
 
 /* 计数排序 */
 // 完整实现，可排序对象，并且是稳定排序
-void countingSort(int nums[], int size) {
+void countingSort(vector<int>& nums) {
     // 1. 统计数组最大元素 m
     int m = 0;
-    for (int i = 0; i < size; i++) {
-        if (nums[i] > m) {
-            m = nums[i];
-        }
+    for (int num : nums) {
+        m = max(m, num);
     }
     // 2. 统计各数字的出现次数
     // counter[num] 代表 num 的出现次数
-    int *counter = malloc(sizeof(int) * size);
-    for (int i = 0; i < size; i++) {
-        counter[nums[i]]++;
+    vector<int> counter(m + 1, 0);
+    for (int num : nums) {
+        counter[num]++;
     }
     // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
     // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
@@ -54,29 +50,28 @@ void countingSort(int nums[], int size) {
     }
     // 4. 倒序遍历 nums ，将各元素填入结果数组 res
     // 初始化数组 res 用于记录结果
-    int *res = malloc(sizeof(int) * size);
-    for (int i = size - 1; i >= 0; i--) {
+    int n = nums.size();
+    vector<int> res(n);
+    for (int i = n - 1; i >= 0; i--) {
         int num = nums[i];
         res[counter[num] - 1] = num; // 将 num 放置到对应索引处
         counter[num]--; // 令前缀和自减 1 ，得到下次放置 num 的索引
     }
     // 使用结果数组 res 覆盖原数组 nums
-    memcpy(nums, res, size * sizeof(int));
+    nums = res;
 }
 
 /* Driver Code */
 int main() {
-    int nums[] = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
-    int size = sizeof(nums) / sizeof(int);
-    countingSortNaive(nums, size);
-    printf("计数排序（无法排序对象）完成后 nums = ");
-    printArray(nums, size);
+    vector<int> nums = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
+    countingSortNaive(nums);
+    cout << "计数排序（无法排序对象）完成后 nums = ";
+    PrintUtil::printVector(nums);
 
-    int nums1[] = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
-    int size1 = sizeof(nums1) / sizeof(int);
-    countingSort(nums1, size1);
-    printf("计数排序完成后 nums1 = ");
-    printArray(nums1, size1);
+    vector<int> nums1 = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
+    countingSort(nums1);
+    cout << "计数排序完成后 nums1 = ";
+    PrintUtil::printVector(nums1);
 
     return 0;
 }

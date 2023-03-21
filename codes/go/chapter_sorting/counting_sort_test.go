@@ -14,6 +14,7 @@ func TestCountingSort(t *testing.T) {
 	countingSortNaive(nums)
 	fmt.Println("计数排序（无法排序对象）完成后 nums = ", nums)
 
-	countingSort(nums)
-	fmt.Println("计数排序完成后 nums = ", nums)
+	nums1 := []int{1, 0, 1, 2, 0, 4, 0, 2, 2, 4}
+	countingSort(nums1)
+	fmt.Println("计数排序完成后 nums1 = ", nums1)
 }
