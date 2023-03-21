@@ -1,5 +1,5 @@
 /**
- * File: hash_map.c
+ * File: array_hash_map.c
  * Created Time: 2023-03-18
  * Author: Guanngxu (446678850@qq.com)
  */
