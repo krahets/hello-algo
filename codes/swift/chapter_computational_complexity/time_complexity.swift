@@ -49,7 +49,7 @@ func quadratic(n: Int) -> Int {
 func bubbleSort(nums: inout [Int]) -> Int {
     var count = 0 // 计数器
     // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-    for i in sequence(first: nums.count - 1, next: { $0 > 0 + 1 ? $0 - 1 : nil }) {
+    for i in stride(from: nums.count - 1, to: 0, by: -1) {
         // 内循环：冒泡操作
         for j in 0 ..< i {
             if nums[j] > nums[j + 1] {
@@ -112,7 +112,7 @@ func linearLogRecur(n: Double) -> Int {
         return 1
     }
     var count = linearLogRecur(n: n / 2) + linearLogRecur(n: n / 2)
-    for _ in sequence(first: 0, next: { $0 < n - 1 ? $0 + 1 : nil }) {
+    for _ in stride(from: 0, to: n, by: 1) {
         count += 1
     }
     return count
@@ -149,7 +149,7 @@ enum TimeComplexity {
 
         count = quadratic(n: n)
         print("平方阶的计算操作数量 = \(count)")
-        var nums = Array(sequence(first: n, next: { $0 > 0 + 1 ? $0 - 1 : nil })) // [n,n-1,...,2,1]
+        var nums = Array(stride(from: n, to: 0, by: -1)) // [n,n-1,...,2,1]
         count = bubbleSort(nums: &nums)
         print("平方阶（冒泡排序）的计算操作数量 = \(count)")
 
