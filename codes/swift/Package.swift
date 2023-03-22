@@ -50,6 +50,7 @@ let package = Package(
         .executable(name: "insertion_sort", targets: ["insertion_sort"]),
         .executable(name: "quick_sort", targets: ["quick_sort"]),
         .executable(name: "merge_sort", targets: ["merge_sort"]),
+        .executable(name: "counting_sort", targets: ["counting_sort"]),
         .executable(name: "radix_sort", targets: ["radix_sort"]),
     ],
     targets: [
@@ -101,6 +102,7 @@ let package = Package(
         .executableTarget(name: "insertion_sort", path: "chapter_sorting", sources: ["insertion_sort.swift"]),
         .executableTarget(name: "quick_sort", path: "chapter_sorting", sources: ["quick_sort.swift"]),
         .executableTarget(name: "merge_sort", path: "chapter_sorting", sources: ["merge_sort.swift"]),
+        .executableTarget(name: "counting_sort", path: "chapter_sorting", sources: ["counting_sort.swift"]),
         .executableTarget(name: "radix_sort", path: "chapter_sorting", sources: ["radix_sort.swift"]),
     ]
 )
