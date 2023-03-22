@@ -6,20 +6,13 @@
 
 先看一个简单例子。给定一个长度为 $n$ 的数组 `nums` ，元素皆为 **非负整数**。计数排序的整体流程为：
 
-1. 统计数组的最大数字，记为 $m$ ，并建立一个长度为 $m + 1$ 的辅助数组 `counter` ；
+1. 遍历记录数组中的最大数字，记为 $m$ ，并建立一个长度为 $m + 1$ 的辅助数组 `counter` ；
 2. **借助 `counter` 统计 `nums` 中各数字的出现次数**，其中 `counter[num]` 对应数字 `num` 的出现次数。统计方法很简单，只需遍历 `nums` （设当前数字为 `num`），每轮将 `counter[num]` 自增 $1$ 即可。
 3. **由于 `counter` 的各个索引是天然有序的，因此相当于所有数字已经被排序好了**。接下来，我们遍历 `counter` ，根据各数字的出现次数，将各数字按从小到大的顺序填入 `nums` 即可。
 
-=== "<1>"
-    ![counting_sort_naive_step1](counting_sort.assets/counting_sort_naive_step1.png)
+观察发现，计数排序名副其实，是通过“统计元素数量”来实现排序的。
 
-=== "<2>"
-    ![counting_sort_naive_step2](counting_sort.assets/counting_sort_naive_step2.png)
-
-=== "<3>"
-    ![counting_sort_naive_step3](counting_sort.assets/counting_sort_naive_step3.png)
-
-以下是实现代码，计数排序名副其实，确实是通过“统计数量”来实现排序的。
+![counting_sort_overview](counting_sort.assets/counting_sort_overview.png)
 
 === "Java"
 
