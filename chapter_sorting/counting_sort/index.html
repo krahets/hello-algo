@@ -1745,8 +1745,8 @@
 <li><strong>由于 <code>counter</code> 的各个索引是天然有序的，因此相当于所有数字已经被排序好了</strong>。接下来，我们遍历 <code>counter</code> ，根据各数字的出现次数，将各数字按从小到大的顺序填入 <code>nums</code> 即可。</li>
 </ol>
 <p>观察发现，计数排序名副其实，是通过“统计元素数量”来实现排序的。</p>
-<p><img alt="counting_sort_overview" src="../counting_sort.assets/counting_sort_overview.png" /></p>
-<p align="center"> Fig. counting_sort_overview </p>
+<p><img alt="计数排序流程" src="../counting_sort.assets/counting_sort_overview.png" /></p>
+<p align="center"> Fig. 计数排序流程 </p>
 
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label></div>
 <div class="tabbed-content">
@@ -2137,7 +2137,7 @@
 <p>由于向 <code>res</code> 中填充元素的顺序是“从右向左”的，因此倒序遍历 <code>nums</code> 可以避免改变相等元素之间的相对位置，从而实现“稳定排序”；其实正序遍历 <code>nums</code> 也可以得到正确的排序结果，但结果“非稳定”。</p>
 </div>
 <h2 id="1164">11.6.4. &nbsp; 局限性<a class="headerlink" href="#1164" title="Permanent link">&para;</a></h2>
-<p>看到这里，你也许会觉得计数排序太妙了，咔咔一通操作，时间复杂度就下来了。但实际上与其它算法一样，计数排序也无法摆脱“此消彼长”的宿命，<strong>时间复杂度优化的代价是通用型变差</strong>。</p>
+<p>看到这里，你也许会觉得计数排序太妙了，咔咔一通操作，时间复杂度就下来了。然而，使用技术排序的前置条件比较苛刻。</p>
 <p><strong>计数排序只适用于非负整数</strong>。若想要用在其他类型数据上，则要求该数据必须可以被转化为非负整数，并且不能改变各个元素之间的相对大小关系。例如，对于包含负数的整数数组，可以先给所有数字加上一个常数，将全部数字转化为正数，排序完成后再转换回去即可。</p>
 <p><strong>计数排序只适用于数据范围不大的情况</strong>。比如，上述示例中 <span class="arithmatex">\(m\)</span> 不能太大，否则占用空间太多；而当 <span class="arithmatex">\(n \ll m\)</span> 时，计数排序使用 <span class="arithmatex">\(O(m)\)</span> 时间，有可能比 <span class="arithmatex">\(O(n \log n)\)</span> 的排序算法还要慢。</p>
 
