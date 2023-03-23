@@ -4,17 +4,11 @@ Created Time: 2023-03-01
 Author: Krahets (krahets@163.com)
 """
 
-import sys, os.path as osp
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from modules import *
-
-
 class ArrayDeque:
     """ 基于环形数组实现的双向队列 """
-
     def __init__(self, capacity: int) -> None:
         """ 构造方法 """
-        self.__nums: List[int] = [0] * capacity
+        self.__nums: list[int] = [0] * capacity
         self.__front: int = 0
         self.__size: int = 0
 
@@ -86,7 +80,7 @@ class ArrayDeque:
         last = self.index(self.__front + self.__size - 1)
         return self.__nums[last]
 
-    def to_array(self) -> List[int]:
+    def to_array(self) -> list[int]:
         """ 返回数组用于打印 """
         # 仅转换有效长度范围内的列表元素
         res = []

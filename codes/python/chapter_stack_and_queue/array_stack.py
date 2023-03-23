@@ -4,15 +4,11 @@ Created Time: 2022-11-29
 Author: Peng Chen (pengchzn@gmail.com)
 """
 
-import sys, os.path as osp
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from modules import *
-
 class ArrayStack:
     """ 基于数组实现的栈 """
     def __init__(self) -> None:
         """ 构造方法 """
-        self.__stack: List[int] = []
+        self.__stack: list[int] = []
 
     def size(self) -> int:
         """ 获取栈的长度 """
@@ -36,7 +32,7 @@ class ArrayStack:
         assert not self.is_empty(), "栈为空"
         return self.__stack[-1]
     
-    def to_list(self) -> List[int]:
+    def to_list(self) -> list[int]:
         """ 返回列表用于打印 """
         return self.__stack
 

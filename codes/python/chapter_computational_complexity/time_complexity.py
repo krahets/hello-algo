@@ -4,10 +4,6 @@ Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
 """
 
-import sys, os.path as osp
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from modules import *
-
 def constant(n: int) -> int:
     """ 常数阶 """
     count: int = 0
@@ -23,7 +19,7 @@ def linear(n: int) -> int:
         count += 1
     return count
 
-def array_traversal(nums: List[int]) -> int:
+def array_traversal(nums: list[int]) -> int:
     """ 线性阶（遍历数组）"""
     count: int = 0
     # 循环次数与数组长度成正比
@@ -40,7 +36,7 @@ def quadratic(n: int) -> int:
             count += 1
     return count
 
-def bubble_sort(nums: List[int]) -> int:
+def bubble_sort(nums: list[int]) -> int:
     """ 平方阶（冒泡排序）"""
     count: int = 0  # 计数器
     # 外循环：待排序元素数量为 n-1, n-2, ..., 1
@@ -120,7 +116,7 @@ if __name__ == "__main__":
 
     count: int = quadratic(n)
     print("平方阶的计算操作数量 =", count)
-    nums: List[int] = [i for i in range(n, 0, -1)]  # [n,n-1,...,2,1]
+    nums: list[int] = [i for i in range(n, 0, -1)]  # [n,n-1,...,2,1]
     count: int = bubble_sort(nums)
     print("平方阶（冒泡排序）的计算操作数量 =", count)
 

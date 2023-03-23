@@ -4,11 +4,7 @@ Created Time: 2022-11-25
 Author: timi (xisunyy@163.com)
 """
 
-import sys, os.path as osp
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from modules import *
-
-def insertion_sort(nums: List[int]) -> None:
+def insertion_sort(nums: list[int]) -> None:
     """ 插入排序 """
     # 外循环：base = nums[1], nums[2], ..., nums[n-1]   
     for i in range(1, len(nums)):
@@ -23,6 +19,6 @@ def insertion_sort(nums: List[int]) -> None:
 
 """ Driver Code """
 if __name__ == '__main__':
-    nums: List[int] = [4, 1, 3, 1, 5, 2]
+    nums: list[int] = [4, 1, 3, 1, 5, 2]
     insertion_sort(nums)
     print("排序后数组 nums =", nums)

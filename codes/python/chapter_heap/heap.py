@@ -4,18 +4,19 @@ Created Time: 2023-02-23
 Author: Krahets (krahets@163.com)
 """
 
-import sys
-import os.path as osp
+import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
+import heapq
 
-def test_push(heap: List, val: int, flag: int = 1) -> None:
+
+def test_push(heap: list, val: int, flag: int = 1) -> None:
     heapq.heappush(heap, flag * val)  # 元素入堆
     print(f"\n元素 {val} 入堆后")
     print_heap([flag * val for val in heap])
 
-def test_pop(heap: List, flag: int = 1) -> None:
+def test_pop(heap: list, flag: int = 1) -> None:
     val = flag * heapq.heappop(heap)  # 堆顶元素出堆
     print(f"\n堆顶元素 {val} 出堆后")
     print_heap([flag * val for val in heap])
@@ -59,7 +60,7 @@ if __name__ == "__main__":
 
     """ 输入列表并建堆 """
     # 时间复杂度为 O(n) ，而非 O(nlogn)
-    min_heap: List[int] = [1, 3, 2, 5, 4]
+    min_heap: list[int] = [1, 3, 2, 5, 4]
     heapq.heapify(min_heap)
     print("\n输入列表并建立小顶堆后")
     print_heap(min_heap)

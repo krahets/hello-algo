@@ -8,11 +8,10 @@ import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
-
 """ Driver Code """
 if __name__ == "__main__":
     """ 初始化哈希表 """
-    mapp: Dict = {}
+    mapp = dict[int, str]()
 
     """ 添加操作 """
     # 在哈希表中添加键值对 (key, value)

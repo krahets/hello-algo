@@ -23,7 +23,7 @@ def remove(n0: ListNode) -> None:
     n1 = P.next
     n0.next = n1
 
-def access(head: ListNode, index: int) -> Optional[ListNode]:
+def access(head: ListNode, index: int) -> ListNode | None:
     """ 访问链表中索引为 index 的结点 """
     for _ in range(index):
         if not head:

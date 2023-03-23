@@ -4,16 +4,12 @@ Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
 """
 
-import sys, os.path as osp
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from modules import *
-
 class MyList:
     """ 列表类简易实现 """
     def __init__(self):
         """ 构造方法 """
         self.__capacity: int = 10                       # 列表容量
-        self.__nums: List[int] = [0] * self.__capacity  # 数组（存储列表元素）
+        self.__nums: my_list[int] = [0] * self.__capacity  # 数组（存储列表元素）
         self.__size: int = 0                            # 列表长度（即当前元素数量）
         self.__extend_ratio: int = 2                    # 每次列表扩容的倍数
 
@@ -76,7 +72,7 @@ class MyList:
         # 更新列表容量
         self.__capacity = len(self.__nums)
     
-    def to_array(self) -> List[int]:
+    def to_array(self) -> list[int]:
         """ 返回有效长度的列表 """
         return self.__nums[:self.__size]
 
@@ -84,35 +80,35 @@ class MyList:
 """ Driver Code """
 if __name__ == "__main__":
     """ 初始化列表 """
-    list = MyList()
+    my_list = MyList()
     """ 尾部添加元素 """
-    list.add(1)
-    list.add(3)
-    list.add(2)
-    list.add(5)
-    list.add(4)
-    print("列表 list = {} ，容量 = {} ，长度 = {}"
-          .format(list.to_array(), list.capacity(), list.size()))
+    my_list.add(1)
+    my_list.add(3)
+    my_list.add(2)
+    my_list.add(5)
+    my_list.add(4)
+    print("列表 my_list = {} ，容量 = {} ，长度 = {}"
+          .format(my_list.to_array(), my_list.capacity(), my_list.size()))
 
     """ 中间插入元素 """
-    list.insert(6, index=3)
-    print("在索引 3 处插入数字 6 ，得到 list =", list.to_array())
+    my_list.insert(6, index=3)
+    print("在索引 3 处插入数字 6 ，得到 my_list =", my_list.to_array())
 
     """ 删除元素 """
-    list.remove(3)
-    print("删除索引 3 处的元素，得到 list =", list.to_array())
+    my_list.remove(3)
+    print("删除索引 3 处的元素，得到 my_list =", my_list.to_array())
 
     """ 访问元素 """
-    num = list.get(1)
+    num = my_list.get(1)
     print("访问索引 1 处的元素，得到 num =", num)
 
     """ 更新元素 """
-    list.set(0, 1)
-    print("将索引 1 处的元素更新为 0 ，得到 list =", list.to_array())
+    my_list.set(0, 1)
+    print("将索引 1 处的元素更新为 0 ，得到 my_list =", my_list.to_array())
 
     """ 测试扩容机制 """
     for i in range(10):
         # 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
-        list.add(i)
-    print("扩容后的列表 list = {} ，容量 = {} ，长度 = {}"
-          .format(list.to_array(), list.capacity(), list.size()))
+        my_list.add(i)
+    print("扩容后的列表 my_list = {} ，容量 = {} ，长度 = {}"
+          .format(my_list.to_array(), my_list.capacity(), my_list.size()))

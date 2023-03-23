@@ -4,24 +4,20 @@ Created Time: 2023-03-01
 Author: Krahets (krahets@163.com)
 """
 
-import sys, os.path as osp
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from modules import *
-
 class ListNode:
     """ 双向链表结点 """
     def __init__(self, val: int) -> None:
         """ 构造方法 """
         self.val: int = val
-        self.next: Optional[ListNode] = None  # 后继结点引用（指针）
-        self.prev: Optional[ListNode] = None  # 前驱结点引用（指针）
+        self.next: ListNode | None = None  # 后继结点引用（指针）
+        self.prev: ListNode | None = None  # 前驱结点引用（指针）
 
 class LinkedListDeque:
     """ 基于双向链表实现的双向队列 """
     def __init__(self) -> None:
         """ 构造方法 """
-        self.front: Optional[ListNode] = None # 头结点 front
-        self.rear: Optional[ListNode] = None  # 尾结点 rear
+        self.front: ListNode | None = None # 头结点 front
+        self.rear: ListNode | None = None  # 尾结点 rear
         self.__size: int = 0        # 双向队列的长度
 
     def size(self) -> int:
@@ -69,7 +65,7 @@ class LinkedListDeque:
         if is_front:
             val: int = self.front.val  # 暂存头结点值
             # 删除头结点
-            fnext: Optional[ListNode] = self.front.next
+            fnext: ListNode | None = self.front.next
             if fnext != None:
                 fnext.prev = None
                 self.front.next = None
@@ -78,7 +74,7 @@ class LinkedListDeque:
         else:
             val: int = self.rear.val  # 暂存尾结点值
             # 删除尾结点
-            rprev: Optional[ListNode] = self.rear.prev
+            rprev: ListNode | None = self.rear.prev
             if rprev != None:
                 rprev.next = None
                 self.rear.prev = None
@@ -102,10 +98,10 @@ class LinkedListDeque:
         """ 访问队尾元素 """
         return None if self.is_empty() else self.rear.val
 
-    def to_array(self) -> List[int]:
+    def to_array(self) -> list[int]:
         """ 返回数组用于打印 """
-        node: Optional[ListNode] = self.front
-        res: List[int] = [0] * self.size()
+        node: ListNode | None = self.front
+        res: list[int] = [0] * self.size()
         for i in range(self.size()):
             res[i] = node.val
             node = node.next

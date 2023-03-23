@@ -7,17 +7,18 @@ Author: Krahets (krahets@163.com)
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
+from collections import deque
 from graph_adjacency_list import GraphAdjList
 
-def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> List[Vertex]:
+def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     """ 广度优先遍历 BFS """
     # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     # 顶点遍历序列
     res = []
     # 哈希表，用于记录已被访问过的顶点
-    visited = set([start_vet])
+    visited = set[Vertex]([start_vet])
     # 队列用于实现 BFS
-    que = collections.deque([start_vet])
+    que = deque[Vertex]([start_vet])
     # 以顶点 vet 为起点，循环直至访问完所有顶点
     while len(que) > 0:
         vet = que.popleft()  # 队首顶点出队
