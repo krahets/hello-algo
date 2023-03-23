@@ -632,7 +632,7 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    def access(head: ListNode, index: int) -> Optional[ListNode]:
+    def access(head: ListNode, index: int) -> ListNode | None:
         """ 访问链表中索引为 index 的结点 """
         for _ in range(index):
             if not head:

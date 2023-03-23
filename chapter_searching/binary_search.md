@@ -98,7 +98,7 @@ $$
 === "Python"
 
     ```python title="binary_search.py"
-    def binary_search(nums: List[int], target: int) -> int:
+    def binary_search(nums: list[int], target: int) -> int:
         """ 二分查找（双闭区间） """
         # 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
         i, j = 0, len(nums) - 1
@@ -309,7 +309,7 @@ $$
 === "Python"
 
     ```python title="binary_search.py"
-    def binary_search1(nums: List[int], target: int) -> int:
+    def binary_search1(nums: list[int], target: int) -> int:
         """ 二分查找（左闭右开） """
         # 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         i, j = 0, len(nums)

@@ -194,14 +194,14 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Python"
 
     ```python title="avl_tree.py"
-    def height(self, node: Optional[TreeNode]) -> int:
+    def height(self, node: TreeNode | None) -> int:
         """ 获取结点高度 """
         # 空结点高度为 -1 ，叶结点高度为 0
         if node is not None:
             return node.height
         return -1
 
-    def __update_height(self, node: Optional[TreeNode]):
+    def __update_height(self, node: TreeNode | None):
         """ 更新结点高度 """
         # 结点高度等于最高子树高度 + 1
         node.height = max([self.height(node.left), self.height(node.right)]) + 1
@@ -354,7 +354,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Python"
 
     ```python title="avl_tree.py"
-    def balance_factor(self, node: Optional[TreeNode]) -> int:
+    def balance_factor(self, node: TreeNode | None) -> int:
         """ 获取平衡因子 """
         # 空结点平衡因子为 0
         if node is None:
@@ -517,7 +517,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Python"
 
     ```python title="avl_tree.py"
-    def __right_rotate(self, node: Optional[TreeNode]) -> Optional[TreeNode]:
+    def __right_rotate(self, node: TreeNode | None) -> TreeNode | None:
         """ 右旋操作 """
         child = node.left
         grand_child = child.right
@@ -701,7 +701,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Python"
 
     ```python title="avl_tree.py"
-    def __left_rotate(self, node: Optional[TreeNode]) -> Optional[TreeNode]:
+    def __left_rotate(self, node: TreeNode | None) -> TreeNode | None:
         """ 左旋操作 """
         child = node.right
         grand_child = child.left
@@ -940,7 +940,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Python"
 
     ```python title="avl_tree.py"
-    def __rotate(self, node: Optional[TreeNode]) -> Optional[TreeNode]:
+    def __rotate(self, node: TreeNode | None) -> TreeNode | None:
         """ 执行旋转操作，使该子树重新恢复平衡 """
         # 获取结点 node 的平衡因子
         balance_factor = self.balance_factor(node)
@@ -1255,7 +1255,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         self.__root = self.__insert_helper(self.__root, val)
         return self.__root
 
-    def __insert_helper(self, node: Optional[TreeNode], val: int) -> TreeNode:
+    def __insert_helper(self, node: TreeNode | None, val: int) -> TreeNode:
         """ 递归插入结点（辅助方法）"""
         if node is None:
             return TreeNode(val)
@@ -1575,12 +1575,12 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
 === "Python"
 
     ```python title="avl_tree.py"
-    def remove(self, val: int) -> Optional[TreeNode]:
+    def remove(self, val: int) -> TreeNode | None:
         """ 删除结点 """
         self.__root = self.__remove_helper(self.__root, val)
         return self.__root 
 
-    def __remove_helper(self, node: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+    def __remove_helper(self, node: TreeNode | None, val: int) -> TreeNode | None:
         """ 递归删除结点（辅助方法） """
         if node is None:
             return None
@@ -1607,7 +1607,7 @@ AVL 树的独特之处在于「旋转 Rotation」的操作，其可 **在不影�
         # 2. 执行旋转操作，使该子树重新恢复平衡
         return self.__rotate(node)
 
-    def __get_inorder_next(self, node: Optional[TreeNode]) -> Optional[TreeNode]:
+    def __get_inorder_next(self, node: TreeNode | None) -> TreeNode | None:
         """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
         if node is None:
             return None

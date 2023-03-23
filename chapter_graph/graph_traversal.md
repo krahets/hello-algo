@@ -93,15 +93,15 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Python"
 
     ```python title="graph_bfs.py"
-    def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> List[Vertex]:
+    def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
         """ 广度优先遍历 BFS """
         # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
         # 顶点遍历序列
         res = []
         # 哈希表，用于记录已被访问过的顶点
-        visited = set([start_vet])
+        visited = set[Vertex]([start_vet])
         # 队列用于实现 BFS
-        que = collections.deque([start_vet])
+        que = deque[Vertex]([start_vet])
         # 以顶点 vet 为起点，循环直至访问完所有顶点
         while len(que) > 0:
             vet = que.popleft()  # 队首顶点出队
@@ -378,7 +378,7 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Python"
 
     ```python title="graph_dfs.py"
-    def dfs(graph: GraphAdjList, visited: Set[Vertex], res: List[Vertex], vet: Vertex):
+    def dfs(graph: GraphAdjList, visited: set[Vertex], res: list[Vertex], vet: Vertex):
         """ 深度优先遍历 DFS 辅助函数 """
         res.append(vet)     # 记录访问顶点
         visited.add(vet) # 标记该顶点已被访问
@@ -389,12 +389,12 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
             # 递归访问邻接顶点
             dfs(graph, visited, res, adjVet)
 
-    def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> List[Vertex]:
+    def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
         """ 深度优先遍历 DFS """
         # 顶点遍历序列
         res = []
         # 哈希表，用于记录已被访问过的顶点
-        visited = set()
+        visited = set[Vertex]()
         dfs(graph, visited, res, start_vet)
         return res
     ```

@@ -146,12 +146,12 @@ comments: true
 === "Python"
 
     ```python title="merge_sort.py"
-    def merge(nums: List[int], left: int, mid: int, right: int) -> None:
+    def merge(nums: list[int], left: int, mid: int, right: int) -> None:
         """ 合并左子数组和右子数组 """
         # 左子数组区间 [left, mid]
         # 右子数组区间 [mid + 1, right]
-        # 初始化辅助数组 借助 copy模块
-        tmp: List[int] = nums[left:right + 1].copy()
+        # 初始化辅助数组
+        tmp: list[int] = list(nums[left:right + 1])
         # 左子数组的起始索引和结束索引
         left_start: int = 0
         left_end: int = mid - left
@@ -176,7 +176,7 @@ comments: true
                 nums[k] = tmp[j]
                 j += 1
 
-    def merge_sort(nums: List[int], left: int, right: int) -> None:
+    def merge_sort(nums: list[int], left: int, right: int) -> None:
         """ 归并排序 """
         # 终止条件
         if left >= right:

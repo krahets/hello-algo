@@ -216,14 +216,14 @@ comments: true
     class GraphAdjMat:
         """ 基于邻接矩阵实现的无向图类 """
         # 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-        vertices: List[int] = []
+        vertices: list[int] = []
         # 邻接矩阵，行列索引对应“顶点索引”
-        adj_mat: List[List[int]] = []
+        adj_mat: list[list[int]] = []
 
-        def __init__(self, vertices: List[int], edges: List[List[int]]) -> None:
+        def __init__(self, vertices: list[int], edges: list[list[int]]) -> None:
             """ 构造方法 """
-            self.vertices: List[int] = []
-            self.adj_mat: List[List[int]] = []
+            self.vertices: list[int] = []
+            self.adj_mat: list[list[int]] = []
             # 添加顶点
             for val in vertices:
                 self.add_vertex(val)
@@ -967,10 +967,10 @@ comments: true
     ```python title="graph_adjacency_list.py"
     class GraphAdjList:
         """ 基于邻接表实现的无向图类 """
-        def __init__(self, edges: List[List[Vertex]]) -> None:
+        def __init__(self, edges: list[list[Vertex]]) -> None:
             """ 构造方法 """
             # 邻接表，key: 顶点，value：该顶点的所有邻接顶点
-            self.adj_list: Dict = {}
+            self.adj_list = dict[Vertex, Vertex]()
             # 添加所有顶点和边
             for edge in edges:
                 self.add_vertex(edge[0])

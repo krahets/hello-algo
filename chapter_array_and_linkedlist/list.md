@@ -938,7 +938,7 @@ comments: true
         def __init__(self):
             """ 构造方法 """
             self.__capacity: int = 10                       # 列表容量
-            self.__nums: List[int] = [0] * self.__capacity  # 数组（存储列表元素）
+            self.__nums: my_list[int] = [0] * self.__capacity  # 数组（存储列表元素）
             self.__size: int = 0                            # 列表长度（即当前元素数量）
             self.__extend_ratio: int = 2                    # 每次列表扩容的倍数
 
@@ -1001,7 +1001,7 @@ comments: true
             # 更新列表容量
             self.__capacity = len(self.__nums)
         
-        def to_array(self) -> List[int]:
+        def to_array(self) -> list[int]:
             """ 返回有效长度的列表 """
             return self.__nums[:self.__size]
     ```

@@ -49,7 +49,7 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-    def __init__(self, nums: List[int]):
+    def __init__(self, nums: list[int]):
         """ 构造方法 """
         # 将列表元素原封不动添加进堆
         self.max_heap = nums

@@ -149,7 +149,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    def random_access(nums: List[int]) -> int:
+    def random_access(nums: list[int]) -> int:
         """ 随机访问元素 """
         # 在区间 [0, len(nums)-1] 中随机抽取一个数字
         random_index = random.randint(0, len(nums) - 1)
@@ -285,7 +285,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    def extend(nums: List[int], enlarge: int) -> List[int]:
+    def extend(nums: list[int], enlarge: int) -> list[int]:
         """ 扩展数组长度 """
         # 初始化一个扩展长度后的数组
         res = [0] * (len(nums) + enlarge)
@@ -440,7 +440,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    def insert(nums: List[int], num: int, index: int) -> None:
+    def insert(nums: list[int], num: int, index: int) -> None:
         """ 在数组的索引 index 处插入元素 num """
         # 把索引 index 以及之后的所有元素向后移动一位
         for i in range(len(nums) - 1, index, -1):
@@ -560,7 +560,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    def remove(nums: List[int], index: int) -> None:
+    def remove(nums: list[int], index: int) -> None:
         """ 删除索引 index 处元素 """
         # 把索引 index 之后的所有元素向前移动一位
         for i in range(index, len(nums) - 1):
@@ -692,7 +692,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    def traverse(nums: List[int]) -> None:
+    def traverse(nums: list[int]) -> None:
         """ 遍历数组 """
         count = 0
         # 通过索引遍历数组
@@ -848,7 +848,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Python"
 
     ```python title="array.py"
-    def find(nums: List[int], target: int) -> int:
+    def find(nums: list[int], target: int) -> int:
         """ 在数组中查找指定元素 """
         for i in range(len(nums)):
             if nums[i] == target:

@@ -431,8 +431,8 @@ comments: true
         """ 基于链表实现的队列 """
         def __init__(self):
             """ 构造方法 """
-            self.__front: Optional[ListNode] = None  # 头结点 front
-            self.__rear: Optional[ListNode] = None   # 尾结点 rear
+            self.__front: ListNode | None = None  # 头结点 front
+            self.__rear: ListNode | None = None   # 尾结点 rear
             self.__size: int = 0
 
         def size(self) -> int:
@@ -472,7 +472,7 @@ comments: true
                 return False
             return self.__front.val
 
-        def to_list(self) -> List[int]:
+        def to_list(self) -> list[int]:
             """ 转化为列表用于打印 """
             queue = []
             temp = self.__front
@@ -1106,7 +1106,7 @@ comments: true
         """ 基于环形数组实现的队列 """
         def __init__(self, size: int) -> None:
             """ 构造方法 """
-            self.__nums: List[int] = [0] * size  # 用于存储队列元素的数组
+            self.__nums: list[int] = [0] * size  # 用于存储队列元素的数组
             self.__front: int = 0          # 队首指针，指向队首元素
             self.__size: int = 0           # 队列长度
 
@@ -1145,9 +1145,9 @@ comments: true
             assert not self.is_empty(), "队列为空"
             return self.__nums[self.__front]
 
-        def to_list(self) -> List[int]:
+        def to_list(self) -> list[int]:
             """ 返回列表用于打印 """
-            res: List[int] = [0] * self.size()
+            res: list[int] = [0] * self.size()
             j: int = self.__front
             for i in range(self.size()):
                 res[i] = self.__nums[(j % self.capacity())]

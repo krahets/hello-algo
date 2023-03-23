@@ -100,7 +100,7 @@ comments: true
 === "Python"
 
     ```python title="quick_sort.py"
-    def partition(self, nums: List[int], left: int, right: int) -> int:
+    def partition(self, nums: list[int], left: int, right: int) -> int:
         """ 哨兵划分 """
         # 以 nums[left] 作为基准数
         i, j = left, right
@@ -343,7 +343,7 @@ comments: true
 === "Python"
 
     ```python title="quick_sort.py"
-    def quick_sort(self, nums: List[int], left: int, right: int) -> None:
+    def quick_sort(self, nums: list[int], left: int, right: int) -> None:
         """ 快速排序 """
         # 子数组长度为 1 时终止递归
         if left >= right:
@@ -562,7 +562,7 @@ comments: true
 === "Python"
 
     ```python title="quick_sort.py"
-    def median_three(self, nums: List[int], left: int, mid: int, right: int) -> int:
+    def median_three(self, nums: list[int], left: int, mid: int, right: int) -> int:
         """ 选取三个元素的中位数 """
         # 此处使用异或运算来简化代码
         # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
@@ -572,7 +572,7 @@ comments: true
             return mid
         return right
 
-    def partition(self, nums: List[int], left: int, right: int) -> int:
+    def partition(self, nums: list[int], left: int, right: int) -> int:
         """ 哨兵划分（三数取中值） """
         # 以 nums[left] 作为基准数
         med: int = self.median_three(nums, left, (left + right) // 2, right)
@@ -855,7 +855,7 @@ comments: true
 === "Python"
 
     ```python title="quick_sort.py"
-    def quick_sort(self, nums: List[int], left: int, right: int) -> None:
+    def quick_sort(self, nums: list[int], left: int, right: int) -> None:
         """ 快速排序（尾递归优化） """
         # 子数组长度为 1 时终止
         while left < right:
