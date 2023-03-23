@@ -11,12 +11,12 @@ from modules import *
 
 class BinarySearchTree:
     """ 二叉搜索树 """
-    def __init__(self, nums: List[int]) -> None:
+    def __init__(self, nums: list[int]) -> None:
         """ 构造方法 """
         nums.sort()
         self.__root = self.build_tree(nums, 0, len(nums) - 1)
 
-    def build_tree(self, nums: List[int], start_index: int, end_index: int) -> Optional[TreeNode]:
+    def build_tree(self, nums: list[int], start_index: int, end_index: int) -> TreeNode | None:
         """ 构建二叉搜索树 """
         if start_index > end_index:
             return None
@@ -30,12 +30,12 @@ class BinarySearchTree:
         return root
 
     @property
-    def root(self) -> Optional[TreeNode]:
+    def root(self) -> TreeNode | None:
         return self.__root
 
-    def search(self, num: int) -> Optional[TreeNode]:
+    def search(self, num: int) -> TreeNode | None:
         """ 查找结点 """
-        cur: Optional[TreeNode] = self.__root
+        cur: TreeNode | None = self.__root
         # 循环查找，越过叶结点后跳出
         while cur is not None:
             # 目标结点在 cur 的右子树中
@@ -49,7 +49,7 @@ class BinarySearchTree:
                 break
         return cur
 
-    def insert(self, num: int) -> Optional[TreeNode]:
+    def insert(self, num: int) -> TreeNode | None:
         """ 插入结点 """
         # 若树为空，直接提前返回
         if self.__root is None:
@@ -77,7 +77,7 @@ class BinarySearchTree:
             pre.left = node
         return node
 
-    def remove(self, num: int) -> Optional[TreeNode]:
+    def remove(self, num: int) -> TreeNode | None:
         """ 删除结点 """
         # 若树为空，直接提前返回
         if self.__root is None:
@@ -118,7 +118,7 @@ class BinarySearchTree:
             cur.val = tmp
         return cur
 
-    def get_inorder_next(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+    def get_inorder_next(self, root: TreeNode | None) -> TreeNode | None:
         """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
         if root is None:
             return root

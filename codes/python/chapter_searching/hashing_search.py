@@ -8,13 +8,13 @@ import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
-def hashing_search_array(mapp: Dict[int, int], target: int) -> int:
+def hashing_search_array(mapp: dict[int, int], target: int) -> int:
     """ 哈希查找（数组） """
     # 哈希表的 key: 目标元素，value: 索引
     # 若哈希表中无此 key ，返回 -1
     return mapp.get(target, -1)
 
-def hashing_search_linkedlist(mapp: Dict[int, ListNode], target: int) -> Optional[ListNode]:
+def hashing_search_linkedlist(mapp: dict[int, ListNode], target: int) -> ListNode | None:
     """ 哈希查找（链表） """
     # 哈希表的 key: 目标元素，value: 结点对象
     # 若哈希表中无此 key ，返回 None
@@ -26,18 +26,18 @@ if __name__ == '__main__':
     target: int = 3
     
     # 哈希查找（数组）
-    nums: List[int] = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
+    nums: list[int] = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
     # 初始化哈希表
-    mapp: Dict[int, int] = {}
+    map0 = dict[int, int]()
     for i in range(len(nums)):
-        mapp[nums[i]] = i       # key: 元素，value: 索引
-    index: int = hashing_search_array(mapp, target)
+        map0[nums[i]] = i  # key: 元素，value: 索引
+    index: int = hashing_search_array(map0, target)
     print("目标元素 3 的索引 =", index)
 
     # 哈希查找（链表）
     head: ListNode = list_to_linked_list(nums)
     # 初始化哈希表
-    map1: Dict[int, ListNode] = {}
+    map1 = dict[int, ListNode]()
     while head:
         map1[head.val] = head  # key: 结点值，value: 结点
         head = head.next

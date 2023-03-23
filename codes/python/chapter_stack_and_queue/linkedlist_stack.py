@@ -12,7 +12,7 @@ class LinkedListStack:
     """ 基于链表实现的栈 """
     def __init__(self):
         """ 构造方法 """
-        self.__peek: Optional[ListNode] = None
+        self.__peek: ListNode | None = None
         self.__size: int = 0
 
     def size(self) -> int:
@@ -43,9 +43,9 @@ class LinkedListStack:
         if not self.__peek: return None
         return self.__peek.val
 
-    def to_list(self) -> List[int]:
+    def to_list(self) -> list[int]:
         """ 转化为列表用于打印 """
-        arr: List[int] = []
+        arr: list[int] = []
         node = self.__peek
         while node:
             arr.append(node.val)

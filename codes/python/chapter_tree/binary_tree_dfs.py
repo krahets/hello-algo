@@ -8,8 +8,7 @@ import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
-
-def pre_order(root: Optional[TreeNode]) -> None:
+def pre_order(root: TreeNode | None) -> None:
     """ 前序遍历 """
     if root is None:
         return
@@ -18,7 +17,7 @@ def pre_order(root: Optional[TreeNode]) -> None:
     pre_order(root=root.left)
     pre_order(root=root.right)
 
-def in_order(root: Optional[TreeNode]) -> None:
+def in_order(root: TreeNode | None) -> None:
     """ 中序遍历 """
     if root is None:
         return
@@ -27,7 +26,7 @@ def in_order(root: Optional[TreeNode]) -> None:
     res.append(root.val)
     in_order(root=root.right)
 
-def post_order(root: Optional[TreeNode]) -> None:
+def post_order(root: TreeNode | None) -> None:
     """ 后序遍历 """
     if root is None:
         return

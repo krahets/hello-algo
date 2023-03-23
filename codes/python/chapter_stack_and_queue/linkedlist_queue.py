@@ -12,8 +12,8 @@ class LinkedListQueue:
     """ 基于链表实现的队列 """
     def __init__(self):
         """ 构造方法 """
-        self.__front: Optional[ListNode] = None  # 头结点 front
-        self.__rear: Optional[ListNode] = None   # 尾结点 rear
+        self.__front: ListNode | None = None  # 头结点 front
+        self.__rear: ListNode | None = None   # 尾结点 rear
         self.__size: int = 0
 
     def size(self) -> int:
@@ -53,7 +53,7 @@ class LinkedListQueue:
             return False
         return self.__front.val
 
-    def to_list(self) -> List[int]:
+    def to_list(self) -> list[int]:
         """ 转化为列表用于打印 """
         queue = []
         temp = self.__front

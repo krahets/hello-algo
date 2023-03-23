@@ -4,15 +4,11 @@ Created Time: 2022-12-01
 Author: Peng Chen (pengchzn@gmail.com)
 """
 
-import sys, os.path as osp
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from modules import *
-
 class ArrayQueue:
     """ 基于环形数组实现的队列 """
     def __init__(self, size: int) -> None:
         """ 构造方法 """
-        self.__nums: List[int] = [0] * size  # 用于存储队列元素的数组
+        self.__nums: list[int] = [0] * size  # 用于存储队列元素的数组
         self.__front: int = 0          # 队首指针，指向队首元素
         self.__size: int = 0           # 队列长度
 
@@ -51,9 +47,9 @@ class ArrayQueue:
         assert not self.is_empty(), "队列为空"
         return self.__nums[self.__front]
 
-    def to_list(self) -> List[int]:
+    def to_list(self) -> list[int]:
         """ 返回列表用于打印 """
-        res: List[int] = [0] * self.size()
+        res: list[int] = [0] * self.size()
         j: int = self.__front
         for i in range(self.size()):
             res[i] = self.__nums[(j % self.capacity())]

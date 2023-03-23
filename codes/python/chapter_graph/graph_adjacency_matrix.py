@@ -11,14 +11,14 @@ from modules import *
 class GraphAdjMat:
     """ 基于邻接矩阵实现的无向图类 """
     # 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    vertices: List[int] = []
+    vertices: list[int] = []
     # 邻接矩阵，行列索引对应“顶点索引”
-    adj_mat: List[List[int]] = []
+    adj_mat: list[list[int]] = []
 
-    def __init__(self, vertices: List[int], edges: List[List[int]]) -> None:
+    def __init__(self, vertices: list[int], edges: list[list[int]]) -> None:
         """ 构造方法 """
-        self.vertices: List[int] = []
-        self.adj_mat: List[List[int]] = []
+        self.vertices: list[int] = []
+        self.adj_mat: list[list[int]] = []
         # 添加顶点
         for val in vertices:
             self.add_vertex(val)
@@ -85,8 +85,8 @@ class GraphAdjMat:
 if __name__ == "__main__":
     """ 初始化无向图 """
     # 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-    vertices: List[int] = [1, 3, 2, 5, 4]
-    edges: List[List[int]] = [[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]]
+    vertices: list[int] = [1, 3, 2, 5, 4]
+    edges: list[list[int]] = [[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]]
     graph = GraphAdjMat(vertices, edges)
     print("\n初始化后，图为")
     graph.print()

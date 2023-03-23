@@ -7,15 +7,15 @@ Author: a16su (lpluls001@gmail.com)
 import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
+from collections import deque
 
-
-def level_order(root: Optional[TreeNode]) -> List[int]:
+def level_order(root: TreeNode | None) -> list[int]:
     """ 层序遍历 """
     # 初始化队列，加入根结点
-    queue: Deque[TreeNode] = collections.deque()
+    queue: deque[TreeNode] = deque()
     queue.append(root)
     # 初始化一个列表，用于保存遍历序列
-    res: List[int] = []
+    res: list[int] = []
     while queue:
         node: TreeNode = queue.popleft() # 队列出队
         res.append(node.val)             # 保存结点值
@@ -35,6 +35,6 @@ if __name__ == "__main__":
     print_tree(root)
 
     # 层序遍历
-    res: List[int] = level_order(root)
+    res: list[int] = level_order(root)
     print("\n层序遍历的结点打印序列 = ", res)
     assert res == [1, 2, 3, 4, 5, 6, 7]
