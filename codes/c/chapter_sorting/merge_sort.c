@@ -13,8 +13,8 @@ void merge(int *nums, int left, int mid, int right) {
     int index;
     // 初始化辅助数组
     int tmp[right + 1 - left];
-    for(index = left; index < right+1; index++) {
-        tmp[index-left] = nums[index];
+    for(index = left; index < right + 1; index++) {
+        tmp[index - left] = nums[index];
     }
     // 左子数组的起始索引和结束索引  
     int leftStart = left - left, leftEnd = mid - left;
