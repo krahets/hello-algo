@@ -156,14 +156,13 @@ void val_set(array_hash_map_t *d, set_t *set) {
  */
 void print(array_hash_map_t *d) {
     int i;
-    set_t *set = malloc(sizeof(set_t));
-    entry_set(d, set);
-    entry_t *entries = (entry_t*) set->set;
-    for (i = 0; i < set->len; i++) {
+    set_t set;
+    entry_set(d, &set);
+    entry_t *entries = (entry_t*) set.set;
+    for (i = 0; i < set.len; i++) {
         printf("%d -> %s\n", entries[i].key, entries[i].val);
     }
-    free(set->set);
-    free(set);
+    free(set.set);
 }
 
 int main() {
