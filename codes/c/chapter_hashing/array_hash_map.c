@@ -5,8 +5,6 @@
  */
 
 #include "../include/include.h"
-#include <stdlib.h>
-#include <string.h>
 
 /**
   @brief    Create a new hash_map object.
