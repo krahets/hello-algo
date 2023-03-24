@@ -5,132 +5,41 @@
  */
 
 #include "../include/include.h"
-
-/**
-  @brief    Duplicate a string
-  @param    s String to duplicate
-  @return   Pointer to a newly allocated string, to be freed with free()
- */
-static char * xstrdup(const char * s) {
-    char * t;
-    size_t len;
-    if (!s)
-        return NULL;
-
-    len = strlen(s) + 1;
-    t = (char * ) malloc(len);
-    if (t) {
-        memcpy(t, s, len);
-    }
-    return t;
-}
-
-/**
-  @brief    Double the size of the hash_map
-  @param    d Hash_map to grow
-  @return   This function returns non-zero in case of failure
- */
-static int hash_map_grow(hash_map_t * d) {
-    char * * new_val;
-    long * new_key;
-    ssize_t i, cur_size;
-
-    cur_size = d -> size * 2;
-    new_val = (char * * ) calloc(cur_size, sizeof * d -> val);
-    new_key = (long * ) calloc(cur_size, sizeof * d -> key);
-    if (!new_val || !new_key) {
-        /* An allocation failed, leave the hash_map unchanged */
-        if (new_val)
-            free(new_val);
-        if (new_key)
-            free(new_key);
-        return -1;
-    }
-
-    /* Set default key */
-    for (i = 0; i < cur_size; i++) {
-        d -> key[i] = HASH_MAP_DEFAULT_KEY;
-    }
-
-    /* Initialize the newly allocated space */
-    memcpy(new_val, d -> val, d -> size * sizeof(char * ));
-    memcpy(new_key, d -> key, d -> size * sizeof(long));
-    /* Delete previous data */
-    free(d -> val);
-    free(d -> key);
-    /* Actually update the hash_map */
-    d -> size = cur_size;
-    d -> val = new_val;
-    d -> key = new_key;
-    return 0;
-}
+#include <stdlib.h>
+#include <string.h>
 
 /**
   @brief    Create a new hash_map object.
   @param    size    Optional initial size of the hash_map.
   @return   1 newly allocated hash_map objet.
  */
-hash_map_t * new_hash_map(size_t size) {
-    hash_map_t * d;
-    ssize_t i;
-
-    /* If no size was specified, allocate space for HASH_MAP_MIN_SIZE */
-    if (size < HASH_MAP_MIN_SIZE)
-        size = HASH_MAP_MIN_SIZE;
-
-    d = (hash_map_t * ) calloc(1, sizeof * d);
-
-    if (d) {
-        d -> size = size;
-        d -> val = (char * * ) calloc(size, sizeof * d -> val);
-        d -> key = (long * ) calloc(size, sizeof * d -> key);
-        /* Set default key */
-        for (i = 0; i < d -> size; i++) {
-            d -> key[i] = HASH_MAP_DEFAULT_KEY;
-        }
-    }
-    return d;
+array_hash_map_t *new_array_hash_map() {
+    array_hash_map_t *array_hash_map = malloc(sizeof(array_hash_map_t));
+    return array_hash_map;
 }
 
 /**
-  @brief    Delete a hash_map object
-  @param    d   hash_map object to deallocate.
-  @return   void
- */
-void del(hash_map_t * d) {
-    ssize_t i;
-
-    if (d == NULL)
-        return;
-    for (i = 0; i < d -> size; i++) {
-        if (d -> val[i] != NULL)
-            free(d -> val[i]);
-    }
-    free(d -> val);
-    free(d -> key);
-    free(d);
-    return;
+  @brief    Compute hash.
+  @param    key
+  @return   computed result.
+*/
+int hash_func(int key) {
+    int index = key % HASH_MAP_DEFAULT_SIZE;
+    return index;
 }
 
 /**
   @brief    Get a value from a hash_map.
   @param    d       hash_map object to search.
   @param    key     Key to look for in the hash_map.
-  @param    def     Default value to return if key not found.
   @return   1 pointer to internally allocated character string.
  */
-const char * get(const hash_map_t * d,
-    const long key,
-        const char * def) {
-    ssize_t i;
-
-    for (i = 0; i < d -> size; i++) {
-        /* Compare key */
-        if (key == d -> key[i]) {
-            return d -> val[i];
-        }
-    }
-    return def;
+const char *get(const array_hash_map_t *d, const int key) {
+    int index = hash_func(key);
+    const entry_t *pair = d->buckets + index;
+    if(pair == NULL) 
+        return NULL;
+    return pair->val;
 }
 
 /**
@@ -138,50 +47,13 @@ const char * get(const hash_map_t * d,
   @param    d       hash_map object to modify.
   @param    key     Key to modify or add.
   @param    val     Value to add.
-  @return   int     0 if Ok, anything else otherwise
+  @return   void
  */
-int put(hash_map_t * d,
-    const long key,
-        const char * val) {
-    ssize_t i;
-
-    if (d == NULL)
-        return -1;
-
-    /* Find if value is already in hash_map */
-    if (d -> n > 0) {
-        for (i = 0; i < d -> size; i++) {
-            if (key == d -> key[i]) { /* Same key */
-                /* Found a value: modify and return */
-                if (d -> val[i] != NULL)
-                    free(d -> val[i]);
-                d -> val[i] = (val ? xstrdup(val) : NULL);
-                /* Value has been modified: return */
-                return 0;
-            }
-        }
-    }
-
-    /* Add a new value */
-    /* See if hash_map needs to grow */
-    if (d -> n == d -> size) {
-        /* Reached maximum size: reallocate hash_map */
-        if (hash_map_grow(d) != 0)
-            return -1;
-    }
-
-    /* Insert key in the first empty slot. Start at d->n and wrap at
-       d->size. Because d->n < d->size this will necessarily
-       terminate. */
-    for (i = d -> n; d -> key[i] != HASH_MAP_DEFAULT_KEY;) {
-        if (++i == d -> size)
-            i = 0;
-    }
-    /* Copy key */
-    d -> key[i] = key;
-    d -> val[i] = (val ? xstrdup(val) : NULL);
-    d -> n++;
-    return 0;
+void put(array_hash_map_t *d, const int key, const char *val) {
+    int index = hash_func(key);
+    d->buckets[index].key = key;
+    d->buckets[index].val = malloc(strlen(val) + 1);
+    strcpy(d->buckets[index].val, val);
 }
 
 /**
@@ -190,32 +62,93 @@ int put(hash_map_t * d,
   @param    key     Key to remove.
   @return   void
  */
-void remove_item(hash_map_t * d,
-    const long key) {
-    ssize_t i;
+void remove_item(array_hash_map_t *d, const int key) {
+    int index = hash_func(key);
+    free(d->buckets[index].val);
+    d->buckets[index].val = NULL;
+}
 
-    if (d == NULL) {
-        return;
-    }
-
-    for (i = 0; i < d -> size; i++) {
-        /* Compare key */
-        if (key == d -> key[i]) {
-            /* Found key */
-            break;
+/**
+  @brief    Get entrySet from a hash_map
+  @param    d       hash_map object.
+  @param    set     entry_set to return.
+  @return   void
+ */
+void entry_set(array_hash_map_t *d, set_t *set) {
+    int i = 0, total = 0;
+    /* count entry */
+    for(i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+        if(d->buckets[i].val != NULL) {
+            total++;
         }
     }
-    if (i >= d -> size)
-    /* Key not found */
-        return;
 
-    d -> key[i] = HASH_MAP_DEFAULT_KEY;
-    if (d -> val[i] != NULL) {
-        free(d -> val[i]);
-        d -> val[i] = NULL;
+    int index = 0;
+    entry_t *entries = malloc(total * sizeof(entry_t));
+    for(i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+        if(d->buckets[i].val != NULL) {
+            entries[index].key = d->buckets[i].key;
+            entries[index].val = malloc(strlen(d->buckets[i].val + 1));
+            strcpy(entries[index].val, d->buckets[i].val);
+            index++;
+        }
     }
-    d -> n--;
-    return;
+    set->set = entries;
+    set->len = total;
+}
+
+/**
+  @brief    Get keySet from a hash_map
+  @param    d       hash_map object.
+  @param    set     key_set to return.
+  @return   void
+ */
+void key_set(array_hash_map_t *d, set_t *set) {
+    int i = 0, total = 0;
+    /* count key */
+    for(i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+        if(d->buckets[i].val != NULL) {
+            total++;
+        }
+    }
+
+    int index = 0;
+    int *keys = malloc(total * sizeof(int));
+    for(i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+        if(d->buckets[i].val != NULL) {
+            keys[index] = d->buckets[i].key;
+            index++;
+        }
+    }
+    set->set = keys;
+    set->len = total;
+}
+
+/**
+  @brief    Get valSet from a hash_map
+  @param    d       hash_map object.
+  @param    set     val_set to return.
+  @return   void
+ */
+void val_set(array_hash_map_t *d, set_t *set) {
+    int i = 0, total = 0;
+    /* count val */
+    for(i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+        if(d->buckets[i].val != NULL) {
+            total++;
+        }
+    }
+
+    int index = 0;
+    char **vals = malloc(total * sizeof(char *));
+    for(i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+        if(d->buckets[i].val != NULL) {
+            vals[index] = d->buckets[i].val;
+            index++;
+        }
+    }
+    set->set = vals;
+    set->len = total;
 }
 
 /**
@@ -223,16 +156,21 @@ void remove_item(hash_map_t * d,
   @param    d       hash_map object to show.
   @return   void
  */
-void show_map(hash_map_t * d) {
+void print(array_hash_map_t *d) {
     int i;
-    for (i = 0; i < d -> n; i++) {
-        printf("%ld -> %s\n", d -> key[i], d -> val[i]);
+    set_t *set = malloc(sizeof(set_t));
+    entry_set(d, set);
+    entry_t *entries = (entry_t*) set->set;
+    for (i = 0; i < set->len; i++) {
+        printf("%d -> %s\n", entries[i].key, entries[i].val);
     }
+    free(set->set);
+    free(set);
 }
 
 int main() {
     /* 初始化哈希表 */
-    hash_map_t * map = new_hash_map(4);
+    array_hash_map_t * map = new_array_hash_map();
 
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
@@ -242,34 +180,41 @@ int main() {
     put(map, 13276, "小法");
     put(map, 10583, "小鸭");
     printf("\n添加完成后，哈希表为\nKey -> Value\n");
-    show_map(map);
+    print(map);
 
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
-    const char * name = get(map, 15937, "NULL");
+    const char * name = get(map, 15937);
     printf("\n输入学号 15937 ，查询到姓名 %s\n", name);
 
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     remove_item(map, 10583);
     printf("\n删除 10583 后，哈希表为\nKey -> Value\n");
-    show_map(map);
+    print(map);
 
     /* 遍历哈希表 */
     int i;
 
     printf("\n遍历键值对 Key->Value\n");
-    for (i = 0; i < map -> n; i++) {
-        printf("%ld -> %s\n", map -> key[i], map -> val[i]);
-    }
+    print(map);
 
+    set_t set;
+
+    key_set(map, &set);
+    int *keys = (int*) set.set;
     printf("\n单独遍历键 Key\n");
-    for (i = 0; i < map -> n; i++) {
-        printf("%ld\n", map -> key[i]);
+    for (i = 0; i < set.len; i++) {
+        printf("%d\n", keys[i]);
     }
+    free(set.set);
 
+    val_set(map, &set);
+    char **vals = (char**) set.set;
     printf("\n单独遍历键 Value\n");
-    for (i = 0; i < map -> n; i++) {
-        printf("%s\n", map -> val[i]);
+    for (i = 0; i < set.len; i++) {
+        printf("%s\n", vals[i]);
     }
+    free(set.set);
+
 }
