@@ -54,7 +54,7 @@ comments: true
         nums[i] = nums[j];
         nums[j] = tmp;
     }
-
+    
     /* 哨兵划分 */
     int partition(int[] nums, int left, int right) {
         // 以 nums[left] 作为基准数
@@ -80,7 +80,7 @@ comments: true
         nums[i] = nums[j];
         nums[j] = tmp;
     }
-
+    
     /* 哨兵划分 */
     int partition(vector<int>& nums, int left, int right) {
         // 以 nums[left] 作为基准数
@@ -148,7 +148,7 @@ comments: true
         nums[i] = nums[j];
         nums[j] = tmp;
     }
-
+    
     /* 哨兵划分 */
     partition(nums, left, right) {
         // 以 nums[left] 作为基准数
@@ -177,7 +177,7 @@ comments: true
         nums[i] = nums[j];
         nums[j] = tmp;
     }
-
+    
     /* 哨兵划分 */
     partition(nums: number[], left: number, right: number): number {
         // 以 nums[left] 作为基准数
@@ -213,7 +213,7 @@ comments: true
         nums[i] = nums[j];
         nums[j] = tmp;
     }
-
+    
     /* 哨兵划分 */
     int partition(int[] nums, int left, int right)
     {
@@ -241,7 +241,7 @@ comments: true
         nums[i] = nums[j]
         nums[j] = tmp
     }
-
+    
     /* 哨兵划分 */
     func partition(nums: inout [Int], left: Int, right: Int) -> Int {
         // 以 nums[left] 作为基准数
@@ -270,7 +270,7 @@ comments: true
         nums[i] = nums[j];
         nums[j] = tmp;
     }
-
+    
     // 哨兵划分
     fn partition(nums: []i32, left: usize, right: usize) usize {
         // 以 nums[left] 作为基准数
@@ -289,11 +289,11 @@ comments: true
 !!! question "“从右往左查找”与“从左往右查找”顺序可以交换吗？"
 
     不行，当我们以最左端元素为基准数时，必须先“从右往左查找”再“从左往右查找”。这个结论有些反直觉，我们来剖析一下原因。
-
+    
     哨兵划分 `partition()` 的最后一步是交换 `nums[left]` 和 `nums[i]` ，完成交换后，基准数左边的元素都 `<=` 基准数，**这就要求最后一步交换前 `nums[left] >= nums[i]` 必须成立**。假设我们先“从左往右查找”，那么如果找不到比基准数更小的元素，**则会在 `i == j` 时跳出循环，此时可能 `nums[j] == nums[i] > nums[left]`** ；也就是说，此时最后一步交换操作会把一个比基准数更大的元素交换至数组最左端，导致哨兵划分失败。
-
+    
     举个例子，给定数组 `[0, 0, 0, 0, 1]` ，如果先“从左向右查找”，哨兵划分后数组为 `[1, 0, 0, 0, 0]` ，这个结果是不对的。
-
+    
     再深想一步，如果我们选择 `nums[right]` 为基准数，那么正好反过来，必须先“从左往右查找”。
 
 ## 11.4.1. &nbsp; 算法流程
@@ -461,7 +461,9 @@ comments: true
 
 ## 11.4.2. &nbsp; 算法特性
 
-**时间复杂度 $O(n \log n)$** ：平均情况下，哨兵划分的递归层数为 $\log n$ ，每层中的总循环数为 $n$ ，总体使用 $O(n \log n)$ 时间。最差情况下，每轮哨兵划分操作都将长度为 $n$ 的数组划分为长度为 $0$ 和 $n - 1$ 的两个子数组，此时递归层数达到 $n$ 层，每层中的循环数为 $n$ ，总体使用 $O(n^2)$ 时间，因此是“非稳定排序”。
+**时间复杂度 $O(n \log n)$** ：平均情况下，哨兵划分的递归层数为 $\log n$ ，每层中的总循环数为 $n$ ，总体使用 $O(n \log n)$ 时间。
+
+最差情况下，每轮哨兵划分操作都将长度为 $n$ 的数组划分为长度为 $0$ 和 $n - 1$ 的两个子数组，此时递归层数达到 $n$ 层，每层中的循环数为 $n$ ，总体使用 $O(n^2)$ 时间，因此是“非稳定排序”。
 
 **空间复杂度 $O(n)$** ：输入数组完全倒序下，达到最差递归深度 $n$ 。由于未借助辅助数组空间，因此是“原地排序”。
 
@@ -497,7 +499,7 @@ comments: true
         else
             return right;
     }
-
+    
     /* 哨兵划分（三数取中值） */
     int partition(int[] nums, int left, int right) {
         // 选取三个候选元素的中位数
@@ -532,7 +534,7 @@ comments: true
         else
             return right;
     }
-
+    
     /* 哨兵划分（三数取中值） */
     int partition(vector<int>& nums, int left, int right) {
         // 选取三个候选元素的中位数
@@ -565,7 +567,7 @@ comments: true
         elif (nums[mid] < nums[left]) ^ (nums[mid] < nums[right]):
             return mid
         return right
-
+    
     def partition(self, nums: list[int], left: int, right: int) -> int:
         """ 哨兵划分（三数取中值） """
         # 以 nums[left] 作为基准数
@@ -600,7 +602,7 @@ comments: true
         }
         return right
     }
-
+    
     /* 哨兵划分（三数取中值）*/
     func (q *quickSortMedian) partition(nums []int, left, right int) int {
         // 以 nums[left] 作为基准数
@@ -636,7 +638,7 @@ comments: true
         else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right])) return mid;
         else return right;
     }
-
+    
     /* 哨兵划分（三数取中值） */
     partition(nums, left, right) {
         // 选取三个候选元素的中位数
@@ -670,7 +672,7 @@ comments: true
             return right;
         }
     }
-
+    
     /* 哨兵划分（三数取中值） */
     partition(nums: number[], left: number, right: number): number {
         // 选取三个候选元素的中位数
@@ -697,7 +699,7 @@ comments: true
 
     ```c title="quick_sort.c"
     [class]{quickSortMedian}-[func]{medianThree}
-
+    
     [class]{quickSortMedian}-[func]{partition}
     ```
 
@@ -716,7 +718,7 @@ comments: true
         else
             return right;
     }
-
+    
     /* 哨兵划分（三数取中值） */
     int partition(int[] nums, int left, int right)
     {
@@ -752,7 +754,7 @@ comments: true
             return right
         }
     }
-
+    
     /* 哨兵划分（三数取中值） */
     func partitionMedian(nums: inout [Int], left: Int, right: Int) -> Int {
         // 选取三个候选元素的中位数
@@ -778,7 +780,7 @@ comments: true
             return right;
         }
     }
-
+    
     // 哨兵划分（三数取中值）
     fn partition(nums: []i32, left: usize, right: usize) usize {
         // 选取三个候选元素的中位数
