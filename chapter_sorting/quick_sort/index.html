@@ -1360,6 +1360,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
@@ -1533,8 +1535,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../bucket_sort/" class="md-nav__link">
+        11.7. &nbsp; 桶排序（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../summary/" class="md-nav__link">
-        11.7. &nbsp; 小结
+        11.8. &nbsp; 小结
       </a>
     </li>
   
@@ -2171,7 +2187,8 @@
 </div>
 </div>
 <h2 id="1142">11.4.2. &nbsp; 算法特性<a class="headerlink" href="#1142" title="Permanent link">&para;</a></h2>
-<p><strong>时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span></strong> ：平均情况下，哨兵划分的递归层数为 <span class="arithmatex">\(\log n\)</span> ，每层中的总循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。最差情况下，每轮哨兵划分操作都将长度为 <span class="arithmatex">\(n\)</span> 的数组划分为长度为 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(n - 1\)</span> 的两个子数组，此时递归层数达到 <span class="arithmatex">\(n\)</span> 层，每层中的循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n^2)\)</span> 时间，因此是“非稳定排序”。</p>
+<p><strong>时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span></strong> ：平均情况下，哨兵划分的递归层数为 <span class="arithmatex">\(\log n\)</span> ，每层中的总循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。</p>
+<p>最差情况下，每轮哨兵划分操作都将长度为 <span class="arithmatex">\(n\)</span> 的数组划分为长度为 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(n - 1\)</span> 的两个子数组，此时递归层数达到 <span class="arithmatex">\(n\)</span> 层，每层中的循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n^2)\)</span> 时间，因此是“非稳定排序”。</p>
 <p><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：输入数组完全倒序下，达到最差递归深度 <span class="arithmatex">\(n\)</span> 。由于未借助辅助数组空间，因此是“原地排序”。</p>
 <p><strong>非稳定排序</strong>：哨兵划分最后一步可能会将基准数交换至相等元素的右边。</p>
 <h2 id="1143">11.4.3. &nbsp; 快排为什么快？<a class="headerlink" href="#1143" title="Permanent link">&para;</a></h2>
