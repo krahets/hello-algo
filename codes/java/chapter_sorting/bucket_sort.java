@@ -11,7 +11,7 @@ import java.util.*;
 public class bucket_sort {
     /* 桶排序 */
     static void bucketSort(float[] nums) {
-        // 初始化 k = n/3 个桶，预期向每个桶分配 3 个元素
+        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
         int k = nums.length / 2;
         List<List<Float>> buckets = new ArrayList<>();
         for (int i = 0; i < k; i++) {
@@ -40,7 +40,7 @@ public class bucket_sort {
 
     public static void main(String[] args) {
         // 设输入数据为浮点数，范围为 [0, 1)
-        float[] nums = { 0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.58f, 0.15f, 0.37f, 0.55f, 0.28f };
+        float[] nums = { 0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f };
         bucketSort(nums);
         System.out.println("桶排序完成后 nums = " + Arrays.toString(nums));
     }
