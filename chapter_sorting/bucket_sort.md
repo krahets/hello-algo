@@ -23,7 +23,7 @@ comments: true
     ```java title="bucket_sort.java"
     /* 桶排序 */
     void bucketSort(float[] nums) {
-        // 初始化 k = n/3 个桶，预期向每个桶分配 3 个元素
+        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
         int k = nums.length / 2;
         List<List<Float>> buckets = new ArrayList<>();
         for (int i = 0; i < k; i++) {
