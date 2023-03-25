@@ -2171,12 +2171,9 @@
 </div>
 </div>
 <h2 id="1142">11.4.2. &nbsp; 算法特性<a class="headerlink" href="#1142" title="Permanent link">&para;</a></h2>
-<p><strong>平均时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span></strong> ：平均情况下，哨兵划分的递归层数为 <span class="arithmatex">\(\log n\)</span> ，每层中的总循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。</p>
-<p><strong>最差时间复杂度 <span class="arithmatex">\(O(n^2)\)</span></strong> ：最差情况下，哨兵划分操作将长度为 <span class="arithmatex">\(n\)</span> 的数组划分为长度为 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(n - 1\)</span> 的两个子数组，此时递归层数达到 <span class="arithmatex">\(n\)</span> 层，每层中的循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n^2)\)</span> 时间。</p>
-<p><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：输入数组完全倒序下，达到最差递归深度 <span class="arithmatex">\(n\)</span> 。</p>
-<p><strong>原地排序</strong>：只在递归中使用 <span class="arithmatex">\(O(\log n)\)</span> 大小的栈帧空间。</p>
-<p><strong>非稳定排序</strong>：哨兵划分操作可能改变相等元素的相对位置。</p>
-<p><strong>自适应排序</strong>：最差情况下，时间复杂度劣化至 <span class="arithmatex">\(O(n^2)\)</span> 。</p>
+<p><strong>时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span></strong> ：平均情况下，哨兵划分的递归层数为 <span class="arithmatex">\(\log n\)</span> ，每层中的总循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。最差情况下，每轮哨兵划分操作都将长度为 <span class="arithmatex">\(n\)</span> 的数组划分为长度为 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(n - 1\)</span> 的两个子数组，此时递归层数达到 <span class="arithmatex">\(n\)</span> 层，每层中的循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n^2)\)</span> 时间，因此是“非稳定排序”。</p>
+<p><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：输入数组完全倒序下，达到最差递归深度 <span class="arithmatex">\(n\)</span> 。由于未借助辅助数组空间，因此是“原地排序”。</p>
+<p><strong>非稳定排序</strong>：哨兵划分最后一步可能会将基准数交换至相等元素的右边。</p>
 <h2 id="1143">11.4.3. &nbsp; 快排为什么快？<a class="headerlink" href="#1143" title="Permanent link">&para;</a></h2>
 <p>从命名能够看出，快速排序在效率方面一定“有两把刷子”。快速排序的平均时间复杂度虽然与「归并排序」和「堆排序」一致，但实际 <strong>效率更高</strong>，这是因为：</p>
 <ul>

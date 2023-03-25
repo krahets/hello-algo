@@ -2128,14 +2128,8 @@
 </div>
 <h2 id="1163">11.6.3. &nbsp; 算法特性<a class="headerlink" href="#1163" title="Permanent link">&para;</a></h2>
 <p><strong>时间复杂度 <span class="arithmatex">\(O(n + m)\)</span></strong> ：涉及遍历 <code>nums</code> 和遍历 <code>counter</code> ，都使用线性时间。一般情况下 <span class="arithmatex">\(n \gg m\)</span> ，此时使用线性 <span class="arithmatex">\(O(n)\)</span> 时间。</p>
-<p><strong>空间复杂度 <span class="arithmatex">\(O(n + m)\)</span></strong> ：数组 <code>res</code> 和 <code>counter</code> 长度分别为 <span class="arithmatex">\(n\)</span> , <span class="arithmatex">\(m\)</span> 。</p>
-<p><strong>非原地排序</strong>：借助了辅助数组 <code>counter</code> 和结果数组 <code>res</code> 的额外空间。</p>
-<p><strong>稳定排序</strong>：倒序遍历 <code>nums</code> 保持了相等元素的相对位置。</p>
-<p><strong>非自适应排序</strong>：与元素分布无关。</p>
-<div class="admonition question">
-<p class="admonition-title">为什么是稳定排序？</p>
-<p>由于向 <code>res</code> 中填充元素的顺序是“从右向左”的，因此倒序遍历 <code>nums</code> 可以避免改变相等元素之间的相对位置，从而实现“稳定排序”；其实正序遍历 <code>nums</code> 也可以得到正确的排序结果，但结果“非稳定”。</p>
-</div>
+<p><strong>空间复杂度 <span class="arithmatex">\(O(n + m)\)</span></strong> ：借助了长度分别为 <span class="arithmatex">\(n\)</span> , <span class="arithmatex">\(m\)</span> 的数组 <code>res</code> 和 <code>counter</code> ，是“非原地排序”；</p>
+<p><strong>稳定排序</strong>：由于向 <code>res</code> 中填充元素的顺序是“从右向左”的，因此倒序遍历 <code>nums</code> 可以避免改变相等元素之间的相对位置，从而实现“稳定排序”；其实正序遍历 <code>nums</code> 也可以得到正确的排序结果，但结果“非稳定”。</p>
 <h2 id="1164">11.6.4. &nbsp; 局限性<a class="headerlink" href="#1164" title="Permanent link">&para;</a></h2>
 <p>看到这里，你也许会觉得计数排序太妙了，咔咔一通操作，时间复杂度就下来了。然而，使用技术排序的前置条件比较苛刻。</p>
 <p><strong>计数排序只适用于非负整数</strong>。若想要用在其他类型数据上，则要求该数据必须可以被转化为非负整数，并且不能改变各个元素之间的相对大小关系。例如，对于包含负数的整数数组，可以先给所有数字加上一个常数，将全部数字转化为正数，排序完成后再转换回去即可。</p>

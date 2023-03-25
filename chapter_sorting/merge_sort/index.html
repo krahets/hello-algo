@@ -2198,13 +2198,9 @@
 <li>判断 <code>tmp[i]</code> 和 <code>tmp[j]</code> 的大小的操作中，还 <strong>需考虑当子数组遍历完成后的索引越界问题</strong>，即 <code>i &gt; leftEnd</code> 和 <code>j &gt; rightEnd</code> 的情况，索引越界的优先级是最高的，例如如果左子数组已经被合并完了，那么不用继续判断，直接合并右子数组元素即可。</li>
 </ul>
 <h2 id="1152">11.5.2. &nbsp; 算法特性<a class="headerlink" href="#1152" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span></strong> ：划分形成高度为 <span class="arithmatex">\(\log n\)</span> 的递归树，每层合并的总操作数量为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。</li>
-<li><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：需借助辅助数组实现合并，使用 <span class="arithmatex">\(O(n)\)</span> 大小的额外空间；递归深度为 <span class="arithmatex">\(\log n\)</span> ，使用 <span class="arithmatex">\(O(\log n)\)</span> 大小的栈帧空间。</li>
-<li><strong>非原地排序</strong>：辅助数组需要使用 <span class="arithmatex">\(O(n)\)</span> 额外空间。</li>
-<li><strong>稳定排序</strong>：在合并时可保证相等元素的相对位置不变。</li>
-<li><strong>非自适应排序</strong>：对于任意输入数据，归并排序的时间复杂度皆相同。</li>
-</ul>
+<p><strong>时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span></strong> ：划分形成高度为 <span class="arithmatex">\(\log n\)</span> 的递归树，每层合并的总操作数量为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。</p>
+<p><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：需借助辅助数组实现合并，使用 <span class="arithmatex">\(O(n)\)</span> 大小的额外空间；递归深度为 <span class="arithmatex">\(\log n\)</span> ，使用 <span class="arithmatex">\(O(\log n)\)</span> 大小的栈帧空间，因此是“非原地排序”。</p>
+<p>在合并时，不改变相等元素的次序，是“稳定排序”。</p>
 <h2 id="1153">11.5.3. &nbsp; 链表排序 *<a class="headerlink" href="#1153" title="Permanent link">&para;</a></h2>
 <p>归并排序有一个很特别的优势，用于排序链表时有很好的性能表现，<strong>空间复杂度可被优化至 <span class="arithmatex">\(O(1)\)</span></strong> ，这是因为：</p>
 <ul>
