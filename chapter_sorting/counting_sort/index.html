@@ -15,17 +15,17 @@
         <link rel="canonical" href="https://www.hello-algo.com/chapter_sorting/counting_sort/">
       
       
-        <link rel="prev" href="../merge_sort/">
+        <link rel="prev" href="../bucket_sort/">
       
       
-        <link rel="next" href="../bucket_sort/">
+        <link rel="next" href="../radix_sort/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
-        <title>11.6.   计数排序（New） - Hello 算法</title>
+        <title>11.7.   计数排序（New） - Hello 算法</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#116" class="md-skip">
+        <a href="#117" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              11.6. &nbsp; 计数排序（New）
+              11.7. &nbsp; 计数排序（New）
             
           </span>
         </div>
@@ -1362,6 +1362,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
@@ -1450,6 +1452,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../bucket_sort/" class="md-nav__link">
+        11.6. &nbsp; 桶排序（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -1462,12 +1478,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          11.6. &nbsp; 计数排序（New）
+          11.7. &nbsp; 计数排序（New）
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        11.6. &nbsp; 计数排序（New）
+        11.7. &nbsp; 计数排序（New）
       </a>
       
         
@@ -1486,29 +1502,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1161" class="md-nav__link">
-    11.6.1. &nbsp; 简单实现
+  <a href="#1171" class="md-nav__link">
+    11.7.1. &nbsp; 简单实现
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1162" class="md-nav__link">
-    11.6.2. &nbsp; 完整实现
+  <a href="#1172" class="md-nav__link">
+    11.7.2. &nbsp; 完整实现
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1163" class="md-nav__link">
-    11.6.3. &nbsp; 算法特性
+  <a href="#1173" class="md-nav__link">
+    11.7.3. &nbsp; 算法特性
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1164" class="md-nav__link">
-    11.6.4. &nbsp; 局限性
+  <a href="#1174" class="md-nav__link">
+    11.7.4. &nbsp; 局限性
   </a>
   
 </li>
@@ -1528,8 +1544,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../bucket_sort/" class="md-nav__link">
-        11.7. &nbsp; 桶排序（New）
+      <a href="../radix_sort/" class="md-nav__link">
+        11.8. &nbsp; 基数排序（New）
       </a>
     </li>
   
@@ -1543,7 +1559,7 @@
   
     <li class="md-nav__item">
       <a href="../summary/" class="md-nav__link">
-        11.8. &nbsp; 小结
+        11.9. &nbsp; 小结
       </a>
     </li>
   
@@ -1701,29 +1717,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1161" class="md-nav__link">
-    11.6.1. &nbsp; 简单实现
+  <a href="#1171" class="md-nav__link">
+    11.7.1. &nbsp; 简单实现
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1162" class="md-nav__link">
-    11.6.2. &nbsp; 完整实现
+  <a href="#1172" class="md-nav__link">
+    11.7.2. &nbsp; 完整实现
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1163" class="md-nav__link">
-    11.6.3. &nbsp; 算法特性
+  <a href="#1173" class="md-nav__link">
+    11.7.3. &nbsp; 算法特性
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1164" class="md-nav__link">
-    11.6.4. &nbsp; 局限性
+  <a href="#1174" class="md-nav__link">
+    11.7.4. &nbsp; 局限性
   </a>
   
 </li>
@@ -1751,16 +1767,15 @@
   
 
 
-<h1 id="116">11.6. &nbsp; 计数排序<a class="headerlink" href="#116" title="Permanent link">&para;</a></h1>
-<p>前面介绍的几种排序算法都属于 <strong>基于比较的排序算法</strong>，即通过比较元素之间的大小来实现排序，此类排序算法的时间复杂度无法超越 <span class="arithmatex">\(O(n \log n)\)</span> 。接下来，我们将学习一种 <strong>非比较排序算法</strong> ，名为「计数排序 Counting Sort」，其时间复杂度可以达到 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<h2 id="1161">11.6.1. &nbsp; 简单实现<a class="headerlink" href="#1161" title="Permanent link">&para;</a></h2>
+<h1 id="117">11.7. &nbsp; 计数排序<a class="headerlink" href="#117" title="Permanent link">&para;</a></h1>
+<p>顾名思义，「计数排序 Counting Sort」通过统计元素数量来实现排序，一般应用于整数数组。</p>
+<h2 id="1171">11.7.1. &nbsp; 简单实现<a class="headerlink" href="#1171" title="Permanent link">&para;</a></h2>
 <p>先看一个简单例子。给定一个长度为 <span class="arithmatex">\(n\)</span> 的数组 <code>nums</code> ，元素皆为 <strong>非负整数</strong>。计数排序的整体流程为：</p>
 <ol>
 <li>遍历记录数组中的最大数字，记为 <span class="arithmatex">\(m\)</span> ，并建立一个长度为 <span class="arithmatex">\(m + 1\)</span> 的辅助数组 <code>counter</code> ；</li>
 <li><strong>借助 <code>counter</code> 统计 <code>nums</code> 中各数字的出现次数</strong>，其中 <code>counter[num]</code> 对应数字 <code>num</code> 的出现次数。统计方法很简单，只需遍历 <code>nums</code> （设当前数字为 <code>num</code>），每轮将 <code>counter[num]</code> 自增 <span class="arithmatex">\(1\)</span> 即可。</li>
 <li><strong>由于 <code>counter</code> 的各个索引是天然有序的，因此相当于所有数字已经被排序好了</strong>。接下来，我们遍历 <code>counter</code> ，根据各数字的出现次数，将各数字按从小到大的顺序填入 <code>nums</code> 即可。</li>
 </ol>
-<p>观察发现，计数排序名副其实，是通过“统计元素数量”来实现排序的。</p>
 <p><img alt="计数排序流程" src="../counting_sort.assets/counting_sort_overview.png" /></p>
 <p align="center"> Fig. 计数排序流程 </p>
 
@@ -1909,7 +1924,11 @@
 </div>
 </div>
 </div>
-<h2 id="1162">11.6.2. &nbsp; 完整实现<a class="headerlink" href="#1162" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">计数排序与桶排序的联系</p>
+<p>从桶排序的角度看，我们可以把计数排序中计数数组 <code>counter</code> 的每个索引想象成一个桶，将统计数量的过程想象成把各个元素分配到对应的桶中。本质上，计数排序是桶排序在整型数据下的一个特例。</p>
+</div>
+<h2 id="1172">11.7.2. &nbsp; 完整实现<a class="headerlink" href="#1172" title="Permanent link">&para;</a></h2>
 <p>细心的同学可能发现，<strong>如果输入数据是对象，上述步骤 <code>3.</code> 就失效了</strong>。例如输入数据是商品对象，我们想要按照商品价格（类的成员变量）对商品进行排序，而上述算法只能给出价格的排序结果。</p>
 <p>那么如何才能得到原数据的排序结果呢？我们首先计算 <code>counter</code> 的「前缀和」，顾名思义，索引 <code>i</code> 处的前缀和 <code>prefix[i]</code> 等于数组前 <code>i</code> 个元素之和，即</p>
 <div class="arithmatex">\[
@@ -2142,14 +2161,14 @@
 </div>
 </div>
 </div>
-<h2 id="1163">11.6.3. &nbsp; 算法特性<a class="headerlink" href="#1163" title="Permanent link">&para;</a></h2>
+<h2 id="1173">11.7.3. &nbsp; 算法特性<a class="headerlink" href="#1173" title="Permanent link">&para;</a></h2>
 <p><strong>时间复杂度 <span class="arithmatex">\(O(n + m)\)</span></strong> ：涉及遍历 <code>nums</code> 和遍历 <code>counter</code> ，都使用线性时间。一般情况下 <span class="arithmatex">\(n \gg m\)</span> ，此时使用线性 <span class="arithmatex">\(O(n)\)</span> 时间。</p>
-<p><strong>空间复杂度 <span class="arithmatex">\(O(n + m)\)</span></strong> ：借助了长度分别为 <span class="arithmatex">\(n\)</span> , <span class="arithmatex">\(m\)</span> 的数组 <code>res</code> 和 <code>counter</code> ，是“非原地排序”；</p>
+<p><strong>空间复杂度 <span class="arithmatex">\(O(n + m)\)</span></strong> ：借助了长度分别为 <span class="arithmatex">\(n\)</span> , <span class="arithmatex">\(m\)</span> 的数组 <code>res</code> 和 <code>counter</code> ，是“非原地排序”。</p>
 <p><strong>稳定排序</strong>：由于向 <code>res</code> 中填充元素的顺序是“从右向左”的，因此倒序遍历 <code>nums</code> 可以避免改变相等元素之间的相对位置，从而实现“稳定排序”；其实正序遍历 <code>nums</code> 也可以得到正确的排序结果，但结果“非稳定”。</p>
-<h2 id="1164">11.6.4. &nbsp; 局限性<a class="headerlink" href="#1164" title="Permanent link">&para;</a></h2>
+<h2 id="1174">11.7.4. &nbsp; 局限性<a class="headerlink" href="#1174" title="Permanent link">&para;</a></h2>
 <p>看到这里，你也许会觉得计数排序太妙了，咔咔一通操作，时间复杂度就下来了。然而，使用技术排序的前置条件比较苛刻。</p>
 <p><strong>计数排序只适用于非负整数</strong>。若想要用在其他类型数据上，则要求该数据必须可以被转化为非负整数，并且不能改变各个元素之间的相对大小关系。例如，对于包含负数的整数数组，可以先给所有数字加上一个常数，将全部数字转化为正数，排序完成后再转换回去即可。</p>
-<p><strong>计数排序只适用于数据范围不大的情况</strong>。比如，上述示例中 <span class="arithmatex">\(m\)</span> 不能太大，否则占用空间太多；而当 <span class="arithmatex">\(n \ll m\)</span> 时，计数排序使用 <span class="arithmatex">\(O(m)\)</span> 时间，有可能比 <span class="arithmatex">\(O(n \log n)\)</span> 的排序算法还要慢。</p>
+<p><strong>计数排序适用于数据量大但数据范围不大的情况</strong>。比如，上述示例中 <span class="arithmatex">\(m\)</span> 不能太大，否则占用空间太多；而当 <span class="arithmatex">\(n \ll m\)</span> 时，计数排序使用 <span class="arithmatex">\(O(m)\)</span> 时间，有可能比 <span class="arithmatex">\(O(n \log n)\)</span> 的排序算法还要慢。</p>
 
 
 
@@ -2227,7 +2246,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../merge_sort/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 11.5. &amp;nbsp; 归并排序" rel="prev">
+          <a href="../bucket_sort/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 11.6. &amp;nbsp; 桶排序（New）" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2236,20 +2255,20 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                11.5. &nbsp; 归并排序
+                11.6. &nbsp; 桶排序（New）
               </div>
             </div>
           </a>
         
         
           
-          <a href="../bucket_sort/" class="md-footer__link md-footer__link--next" aria-label="下一页: 11.7. &amp;nbsp; 桶排序（New）" rel="next">
+          <a href="../radix_sort/" class="md-footer__link md-footer__link--next" aria-label="下一页: 11.8. &amp;nbsp; 基数排序（New）" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                11.7. &nbsp; 桶排序（New）
+                11.8. &nbsp; 基数排序（New）
               </div>
             </div>
             <div class="md-footer__button md-icon">

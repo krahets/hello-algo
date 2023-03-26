@@ -15,17 +15,17 @@
         <link rel="canonical" href="https://www.hello-algo.com/chapter_sorting/bucket_sort/">
       
       
-        <link rel="prev" href="../counting_sort/">
+        <link rel="prev" href="../merge_sort/">
       
       
-        <link rel="next" href="../summary/">
+        <link rel="next" href="../counting_sort/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
-        <title>11.7.   桶排序（New） - Hello 算法</title>
+        <title>11.6.   桶排序（New） - Hello 算法</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#117" class="md-skip">
+        <a href="#116" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              11.7. &nbsp; 桶排序（New）
+              11.6. &nbsp; 桶排序（New）
             
           </span>
         </div>
@@ -1362,6 +1362,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
@@ -1450,20 +1452,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../counting_sort/" class="md-nav__link">
-        11.6. &nbsp; 计数排序（New）
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -1476,12 +1464,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          11.7. &nbsp; 桶排序（New）
+          11.6. &nbsp; 桶排序（New）
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        11.7. &nbsp; 桶排序（New）
+        11.6. &nbsp; 桶排序（New）
       </a>
       
         
@@ -1500,22 +1488,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1171" class="md-nav__link">
-    11.7.1. &nbsp; 算法流程
+  <a href="#1161" class="md-nav__link">
+    11.6.1. &nbsp; 算法流程
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1172" class="md-nav__link">
-    11.7.2. &nbsp; 算法特性
+  <a href="#1162" class="md-nav__link">
+    11.6.2. &nbsp; 算法特性
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1173" class="md-nav__link">
-    11.7.3. &nbsp; 如何实现平均分配
+  <a href="#1163" class="md-nav__link">
+    11.6.3. &nbsp; 如何实现平均分配
   </a>
   
 </li>
@@ -1535,8 +1523,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../counting_sort/" class="md-nav__link">
+        11.7. &nbsp; 计数排序（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../radix_sort/" class="md-nav__link">
+        11.8. &nbsp; 基数排序（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../summary/" class="md-nav__link">
-        11.8. &nbsp; 小结
+        11.9. &nbsp; 小结
       </a>
     </li>
   
@@ -1694,22 +1710,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1171" class="md-nav__link">
-    11.7.1. &nbsp; 算法流程
+  <a href="#1161" class="md-nav__link">
+    11.6.1. &nbsp; 算法流程
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1172" class="md-nav__link">
-    11.7.2. &nbsp; 算法特性
+  <a href="#1162" class="md-nav__link">
+    11.6.2. &nbsp; 算法特性
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1173" class="md-nav__link">
-    11.7.3. &nbsp; 如何实现平均分配
+  <a href="#1163" class="md-nav__link">
+    11.6.3. &nbsp; 如何实现平均分配
   </a>
   
 </li>
@@ -1737,9 +1753,10 @@
   
 
 
-<h1 id="117">11.7. &nbsp; 桶排序<a class="headerlink" href="#117" title="Permanent link">&para;</a></h1>
-<p>「桶排序 Bucket Sort」是分治思想的典型体现，其通过设置一些桶，将数据平均分配到各个桶中，并在每个桶内部分别执行排序，最终根据桶之间天然的大小顺序将各个桶内元素合并，从而得到排序结果。</p>
-<h2 id="1171">11.7.1. &nbsp; 算法流程<a class="headerlink" href="#1171" title="Permanent link">&para;</a></h2>
+<h1 id="116">11.6. &nbsp; 桶排序<a class="headerlink" href="#116" title="Permanent link">&para;</a></h1>
+<p>前面介绍的几种排序算法都属于 <strong>基于比较的排序算法</strong>，即通过比较元素之间的大小来实现排序，此类排序算法的时间复杂度无法超越 <span class="arithmatex">\(O(n \log n)\)</span> 。接下来，我们将学习几种 <strong>非比较排序算法</strong> ，其时间复杂度可以达到线性级别。</p>
+<p>「桶排序 Bucket Sort」是分治思想的典型体现，其通过设置一些具有大小顺序的桶，每个桶对应一个数据范围，将数据平均分配到各个桶中，并在每个桶内部分别执行排序，最终按照桶的顺序将所有数据合并即可。</p>
+<h2 id="1161">11.6.1. &nbsp; 算法流程<a class="headerlink" href="#1161" title="Permanent link">&para;</a></h2>
 <p>输入一个长度为 <span class="arithmatex">\(n\)</span> 的数组，元素是范围 <span class="arithmatex">\([0, 1)\)</span> 的浮点数，桶排序流程为：</p>
 <ol>
 <li>初始化 <span class="arithmatex">\(k\)</span> 个桶，将 <span class="arithmatex">\(n\)</span> 个元素分配至 <span class="arithmatex">\(k\)</span> 个桶中；</li>
@@ -1820,16 +1837,16 @@
 </div>
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">桶排序是计数排序的一种推广</p>
-<p>从桶排序的角度，我们可以把计数排序中计数数组 <code>counter</code> 的每个索引想象成一个桶，将统计数量的过程想象成把各个元素分配到对应的桶中，再根据桶之间的有序性输出结果，从而实现排序。</p>
+<div class="admonition question">
+<p class="admonition-title">桶排序的应用场景是什么？</p>
+<p>桶排序一般用于排序超大体量的数据。例如输入数据包含 100 万个元素，由于空间有限，系统无法一次性将所有数据加载进内存，那么可以先将数据划分到 1000 个桶里，再依次排序每个桶，最终合并结果即可。</p>
 </div>
-<h2 id="1172">11.7.2. &nbsp; 算法特性<a class="headerlink" href="#1172" title="Permanent link">&para;</a></h2>
+<h2 id="1162">11.6.2. &nbsp; 算法特性<a class="headerlink" href="#1162" title="Permanent link">&para;</a></h2>
 <p><strong>时间复杂度 <span class="arithmatex">\(O(n + k)\)</span></strong> ：假设元素平均分布在各个桶内，则每个桶内元素数量为 <span class="arithmatex">\(\frac{n}{k}\)</span> 。假设排序单个桶使用 <span class="arithmatex">\(O(\frac{n}{k} \log\frac{n}{k})\)</span> 时间，则排序所有桶使用 <span class="arithmatex">\(O(n \log\frac{n}{k})\)</span> 时间，<strong>当桶数量 <span class="arithmatex">\(k\)</span> 比较大时，时间复杂度则趋向于 <span class="arithmatex">\(O(n)\)</span></strong> 。最后合并结果需要遍历 <span class="arithmatex">\(n\)</span> 个桶，使用 <span class="arithmatex">\(O(k)\)</span> 时间。</p>
 <p>最差情况下，所有数据被分配到一个桶中，且排序算法退化至 <span class="arithmatex">\(O(n^2)\)</span> ，此时使用 <span class="arithmatex">\(O(n^2)\)</span> 时间，因此是“自适应排序”。</p>
 <p><strong>空间复杂度 <span class="arithmatex">\(O(n + k)\)</span></strong> ：需要借助 <span class="arithmatex">\(k\)</span> 个桶和共 <span class="arithmatex">\(n\)</span> 个元素的额外空间，是“非原地排序”。</p>
 <p>桶排序是否稳定取决于排序桶内元素的算法是否稳定。</p>
-<h2 id="1173">11.7.3. &nbsp; 如何实现平均分配<a class="headerlink" href="#1173" title="Permanent link">&para;</a></h2>
+<h2 id="1163">11.6.3. &nbsp; 如何实现平均分配<a class="headerlink" href="#1163" title="Permanent link">&para;</a></h2>
 <p>桶排序的时间复杂度理论上可以达到 <span class="arithmatex">\(O(n)\)</span> ，<strong>难点是需要将元素均匀分配到各个桶中</strong>，因为现实中的数据往往都不是均匀分布的。举个例子，假设我们想要把淘宝的所有商品根据价格范围平均分配到 10 个桶中，然而商品价格不是均匀分布的，100 元以下非常多、1000 元以上非常少；如果我们将价格区间平均划为 10 份，那么各个桶内的商品数量差距会非常大。</p>
 <p>为了实现平均分配，我们可以先大致设置一个分界线，将数据粗略分到 3 个桶，分配完后，<strong>再把商品较多的桶继续划分为 3 个桶，直至所有桶内元素数量大致平均为止</strong>。此方法本质上是生成一个递归树，让叶结点的值尽量平均。当然，不一定非要划分为 3 个桶，可以根据数据特点灵活选取。</p>
 <p><img alt="递归划分桶" src="../bucket_sort.assets/scatter_in_buckets_recursively.png" /></p>
@@ -1915,7 +1932,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../counting_sort/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 11.6. &amp;nbsp; 计数排序（New）" rel="prev">
+          <a href="../merge_sort/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 11.5. &amp;nbsp; 归并排序" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1924,20 +1941,20 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                11.6. &nbsp; 计数排序（New）
+                11.5. &nbsp; 归并排序
               </div>
             </div>
           </a>
         
         
           
-          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: 11.8. &amp;nbsp; 小结" rel="next">
+          <a href="../counting_sort/" class="md-footer__link md-footer__link--next" aria-label="下一页: 11.7. &amp;nbsp; 计数排序（New）" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                11.8. &nbsp; 小结
+                11.7. &nbsp; 计数排序（New）
               </div>
             </div>
             <div class="md-footer__button md-icon">

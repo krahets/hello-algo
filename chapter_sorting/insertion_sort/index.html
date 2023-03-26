@@ -1362,6 +1362,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
@@ -1458,8 +1460,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1133-vs" class="md-nav__link">
-    11.3.3. &nbsp; 插入排序 vs 冒泡排序
+  <a href="#1133" class="md-nav__link">
+    11.3.3. &nbsp; 插入排序优势
   </a>
   
 </li>
@@ -1507,8 +1509,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../counting_sort/" class="md-nav__link">
-        11.6. &nbsp; 计数排序（New）
+      <a href="../bucket_sort/" class="md-nav__link">
+        11.6. &nbsp; 桶排序（New）
       </a>
     </li>
   
@@ -1521,8 +1523,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../bucket_sort/" class="md-nav__link">
-        11.7. &nbsp; 桶排序（New）
+      <a href="../counting_sort/" class="md-nav__link">
+        11.7. &nbsp; 计数排序（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../radix_sort/" class="md-nav__link">
+        11.8. &nbsp; 基数排序（New）
       </a>
     </li>
   
@@ -1536,7 +1552,7 @@
   
     <li class="md-nav__item">
       <a href="../summary/" class="md-nav__link">
-        11.8. &nbsp; 小结
+        11.9. &nbsp; 小结
       </a>
     </li>
   
@@ -1708,8 +1724,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1133-vs" class="md-nav__link">
-    11.3.3. &nbsp; 插入排序 vs 冒泡排序
+  <a href="#1133" class="md-nav__link">
+    11.3.3. &nbsp; 插入排序优势
   </a>
   
 </li>
@@ -1915,18 +1931,18 @@
 <p><strong>时间复杂度 <span class="arithmatex">\(O(n^2)\)</span></strong> ：最差情况下，各轮插入操作循环 <span class="arithmatex">\(n - 1\)</span> , <span class="arithmatex">\(n-2\)</span> , <span class="arithmatex">\(\cdots\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(1\)</span> 次，求和为 <span class="arithmatex">\(\frac{(n - 1) n}{2}\)</span> ，使用 <span class="arithmatex">\(O(n^2)\)</span> 时间。输入数组完全有序下，达到最佳时间复杂度 <span class="arithmatex">\(O(n)\)</span> ，因此是“自适应排序”。</p>
 <p><strong>空间复杂度 <span class="arithmatex">\(O(1)\)</span></strong> ：指针 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> 使用常数大小的额外空间，因此是“原地排序”。</p>
 <p>在插入操作中，我们会将元素插入到相等元素的右边，不会改变它们的次序，因此是“稳定排序”。</p>
-<h2 id="1133-vs">11.3.3. &nbsp; 插入排序 vs 冒泡排序<a class="headerlink" href="#1133-vs" title="Permanent link">&para;</a></h2>
+<h2 id="1133">11.3.3. &nbsp; 插入排序优势<a class="headerlink" href="#1133" title="Permanent link">&para;</a></h2>
 <p>回顾「冒泡排序」和「插入排序」的复杂度分析，两者的循环轮数都是 <span class="arithmatex">\(\frac{(n - 1) n}{2}\)</span> 。但不同的是：</p>
 <ul>
 <li>冒泡操作基于 <strong>元素交换</strong> 实现，需要借助一个临时变量实现，共 3 个单元操作；</li>
 <li>插入操作基于 <strong>元素赋值</strong> 实现，只需 1 个单元操作；</li>
 </ul>
-<p>因此，可以粗略估计出冒泡排序的计算开销约为插入排序的 3 倍，因此更受欢迎。实际上，许多编程语言（例如 Java）的内置排序函数都使用到了插入排序，大致思路为：</p>
+<p>粗略估计，冒泡排序的计算开销约为插入排序的 3 倍，因此插入排序更受欢迎，许多编程语言（例如 Java）的内置排序函数都使用到了插入排序，大致思路为：</p>
 <ul>
 <li>对于 <strong>长数组</strong>，采用基于分治的排序算法，例如「快速排序」，时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> ；</li>
 <li>对于 <strong>短数组</strong>，直接使用「插入排序」，时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ；</li>
 </ul>
-<p><strong>在数据量较小时插入排序更快</strong>，这是因为复杂度中的常数项（即每轮中的单元操作数量）占主导作用。这个现象与「线性查找」和「二分查找」的情况类似。</p>
+<p>虽然插入排序比快速排序的时间复杂度更高，<strong>但实际上在数据量较小时插入排序更快</strong>，这是因为复杂度中的常数项（即每轮中的单元操作数量）占主导作用。这个现象与「线性查找」和「二分查找」的情况类似。</p>
 
 
 
