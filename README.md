@@ -29,8 +29,8 @@
   </br>
   <em>
     下载 PDF >
-    <a href="https://github.com/krahets/hello-algo/releases/tag/1.0.0b1">
-    Releases/1.0.0b1
+    <a href="https://github.com/krahets/hello-algo/releases/tag/1.0.0b2">
+    Releases/1.0.0b2
     </a>
   </em>
 </p>
