@@ -16,107 +16,55 @@
 extern "C" {
 #endif
 
-/** Minimal allocated number of entries in a hash map */
+/* 哈希表默认数组大小 */
 # define HASH_MAP_DEFAULT_SIZE 100
 
-/**
-  @brief    Hash_map entry
-*/
+/* 键值对 int->string */
 typedef struct  {
 	int key;
 	char *val;
 } entry_t;
 
-/**
-  @brief    Hash_map object
-*/
+/* 基于数组简易实现的哈希表 */
 typedef struct {
+  // 初始化数组，包含 100 个桶
 	entry_t buckets[HASH_MAP_DEFAULT_SIZE]; /** Entries in hash_map */
 } array_hash_map_t;
 
-/**
-  @brief    KeySet、EntrySet、ValueSet object
-*/
+/* 用于表示键值对、键、值的集合 */
 typedef struct {
 	void *set;
 	int len;
 } set_t;
 
-/**
-  @brief    Create a new hash_map object.
-  @param    size    Optional initial size of the hash_map.
-  @return   1 newly allocated hash_map objet.
-*/
+/* 哈希表初始化函数 */
 array_hash_map_t *new_hash_map();
 
-/**
-  @brief    Compute hash.
-  @param    key
-  @return   computed result.
-*/
+/* 哈希函数 */
 int hash_func(int key);
 
-/**
-  @brief    Get a value from a hash_map.
-  @param    d       hash_map object to search.
-  @param    key     Key to look for in the hash_map.
-  @return   1 pointer to internally allocated character string.
-*/
+/* 查询操作 */
 const char *get(const array_hash_map_t *d, const int key);
 
-/**
-  @brief    Put a value in a hash_map.
-  @param    d       hash_map object to modify.
-  @param    key     Key to modify or add.
-  @param    val     Value to add.
-  @return   void
-*/
+/* 添加操作 */
 void put(array_hash_map_t *d, const int key, const char *val);
 
-/**
-  @brief    Delete a hash_map object
-  @param    d   hash_map object to deallocate.
-  @return   void
-*/
+/* 删除操作 */
 void del(array_hash_map_t *d);
 
-/**
-  @brief    Delete a key in a hash_map
-  @param    d       hash_map object to modify.
-  @param    key     Key to remove.
-  @return   void
-*/
+/* 获取所有键值对 */
 void remove_item(array_hash_map_t *d, const int key);
 
-/**
-  @brief    Get entrySet from a hash_map
-  @param    d       hash_map object.
-  @param    set     entry_set to return.
-  @return   void
- */
+/* 获取所有键值对 */
 void entry_set(array_hash_map_t *d, set_t *set);
 
-/**
-  @brief    Get keySet from a hash_map
-  @param    d       hash_map object.
-  @param    set     key_set to return.
-  @return   void
- */
+/* 获取所有键 */
 void key_set(array_hash_map_t *d, set_t *set);
 
-/**
-  @brief    Get valSet from a hash_map
-  @param    d       hash_map object.
-  @param    set     val_set to return.
-  @return   void
- */
+/* 获取所有值 */
 void val_set(array_hash_map_t *d, set_t *set);
 
-/**
-  @brief    Show a hash_map object
-  @param    d       hash_map object to show.
-  @return   void
-*/
+/* 打印哈希表 */
 void print(array_hash_map_t *d);
 
 #ifdef __cplusplus

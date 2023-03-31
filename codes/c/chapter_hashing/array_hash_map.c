@@ -6,32 +6,19 @@
 
 #include "../include/include.h"
 
-/**
-  @brief    Create a new hash_map object.
-  @param    size    Optional initial size of the hash_map.
-  @return   1 newly allocated hash_map objet.
- */
+/* 哈希表初始化函数 */
 array_hash_map_t *new_array_hash_map() {
     array_hash_map_t *array_hash_map = malloc(sizeof(array_hash_map_t));
     return array_hash_map;
 }
 
-/**
-  @brief    Compute hash.
-  @param    key
-  @return   computed result.
-*/
+/* 哈希函数 */
 int hash_func(int key) {
     int index = key % HASH_MAP_DEFAULT_SIZE;
     return index;
 }
 
-/**
-  @brief    Get a value from a hash_map.
-  @param    d       hash_map object to search.
-  @param    key     Key to look for in the hash_map.
-  @return   1 pointer to internally allocated character string.
- */
+/* 查询操作 */
 const char *get(const array_hash_map_t *d, const int key) {
     int index = hash_func(key);
     const entry_t *pair = d->buckets + index;
@@ -40,13 +27,7 @@ const char *get(const array_hash_map_t *d, const int key) {
     return pair->val;
 }
 
-/**
-  @brief    Put a value in a hash_map.
-  @param    d       hash_map object to modify.
-  @param    key     Key to modify or add.
-  @param    val     Value to add.
-  @return   void
- */
+/* 添加操作 */
 void put(array_hash_map_t *d, const int key, const char *val) {
     int index = hash_func(key);
     d->buckets[index].key = key;
@@ -54,27 +35,17 @@ void put(array_hash_map_t *d, const int key, const char *val) {
     strcpy(d->buckets[index].val, val);
 }
 
-/**
-  @brief    Delete a key in a hash_map
-  @param    d       hash_map object to modify.
-  @param    key     Key to remove.
-  @return   void
- */
+/* 删除操作 */
 void remove_item(array_hash_map_t *d, const int key) {
     int index = hash_func(key);
     free(d->buckets[index].val);
     d->buckets[index].val = NULL;
 }
 
-/**
-  @brief    Get entrySet from a hash_map
-  @param    d       hash_map object.
-  @param    set     entry_set to return.
-  @return   void
- */
+/* 获取所有键值对 */
 void entry_set(array_hash_map_t *d, set_t *set) {
     int i = 0, total = 0;
-    /* count entry */
+    /* 统计有效键值对数量 */
     for(i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
         if(d->buckets[i].val != NULL) {
             total++;
@@ -95,15 +66,10 @@ void entry_set(array_hash_map_t *d, set_t *set) {
     set->len = total;
 }
 
-/**
-  @brief    Get keySet from a hash_map
-  @param    d       hash_map object.
-  @param    set     key_set to return.
-  @return   void
- */
+/* 获取所有键 */
 void key_set(array_hash_map_t *d, set_t *set) {
     int i = 0, total = 0;
-    /* count key */
+    /* 统计有效键数量 */
     for(i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
         if(d->buckets[i].val != NULL) {
             total++;
@@ -122,15 +88,10 @@ void key_set(array_hash_map_t *d, set_t *set) {
     set->len = total;
 }
 
-/**
-  @brief    Get valSet from a hash_map
-  @param    d       hash_map object.
-  @param    set     val_set to return.
-  @return   void
- */
+/* 获取所有值 */
 void val_set(array_hash_map_t *d, set_t *set) {
     int i = 0, total = 0;
-    /* count val */
+    /* 统计有效值的数量 */
     for(i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
         if(d->buckets[i].val != NULL) {
             total++;
@@ -149,11 +110,7 @@ void val_set(array_hash_map_t *d, set_t *set) {
     set->len = total;
 }
 
-/**
-  @brief    Show a hash_map object
-  @param    d       hash_map object to show.
-  @return   void
- */
+/* 打印哈希表 */
 void print(array_hash_map_t *d) {
     int i;
     set_t set;
