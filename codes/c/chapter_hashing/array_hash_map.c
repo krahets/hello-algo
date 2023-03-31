@@ -6,11 +6,7 @@
 
 #include "../include/include.h"
 
-/**
-  @brief    Duplicate a string
-  @param    s String to duplicate
-  @return   Pointer to a newly allocated string, to be freed with free()
- */
+/* 字符串拷贝函数 */
 static char *xstrdup(const char *s) {
   char *t;
   size_t len;
@@ -25,12 +21,7 @@ static char *xstrdup(const char *s) {
   return t;
 }
 
-/**
-  @brief    Double the size of the hash_map
-  @param    d Hash_map to grow
-  @return   This function returns non-zero in case of failure
- */
-/*--------------------------------------------------------------------------*/
+/* 扩大哈希表容量 */
 static int hash_map_grow(hash_map_t *d) {
   char **new_val;
   long *new_key;
@@ -40,7 +31,7 @@ static int hash_map_grow(hash_map_t *d) {
   new_val = (char **)calloc(cur_size, sizeof *d->val);
   new_key = (long *)calloc(cur_size, sizeof *d->key);
   if (!new_val || !new_key) {
-    /* An allocation failed, leave the hash_map unchanged */
+    /* 若内存分配失败，则退出 */
     if (new_val)
       free(new_val);
     if (new_key)
@@ -48,34 +39,30 @@ static int hash_map_grow(hash_map_t *d) {
     return -1;
   }
 
-  /* Set default key */
+  /* 设置默认键 */
   for (i = 0; i < cur_size; i++) {
     d->key[i] = HASH_MAP_DEFAULT_KEY;
   }
 
-  /* Initialize the newly allocated space */
+  /* 拷贝原哈希表所有键值对 */
   memcpy(new_val, d->val, d->size * sizeof(char *));
   memcpy(new_key, d->key, d->size * sizeof(long));
-  /* Delete previous data */
+  /* 删除原哈希表 */
   free(d->val);
   free(d->key);
-  /* Actually update the hash_map */
+  /* 更新哈希表 */
   d->size = cur_size;
   d->val = new_val;
   d->key = new_key;
   return 0;
 }
 
-/**
-  @brief    Create a new hash_map object.
-  @param    size    Optional initial size of the hash_map.
-  @return   1 newly allocated hash_map objet.
- */
+/* 创建新的哈希表 */
 hash_map_t *new_hash_map(size_t size) {
   hash_map_t *d;
   ssize_t i;
 
-  /* If no size was specified, allocate space for HASH_MAP_MIN_SIZE */
+  /* 如果没有指定哈希表大小，则使用默认大小 */
   if (size < HASH_MAP_MIN_SIZE)
     size = HASH_MAP_MIN_SIZE;
 
@@ -85,7 +72,7 @@ hash_map_t *new_hash_map(size_t size) {
     d->size = size;
     d->val = (char **)calloc(size, sizeof *d->val);
     d->key = (long *)calloc(size, sizeof *d->key);
-    /* Set default key */
+    /* 设置默认键 */
     for (i = 0; i < d->size; i++) {
       d->key[i] = HASH_MAP_DEFAULT_KEY;
     }
@@ -93,11 +80,85 @@ hash_map_t *new_hash_map(size_t size) {
   return d;
 }
 
-/**
-  @brief    Delete a hash_map object
-  @param    d   hash_map object to deallocate.
-  @return   void
- */
+/* 查询操作 */
+const char *get(const hash_map_t *d, const long key, const char *def) {
+  ssize_t i;
+
+  for (i = 0; i < d->size; i++) {
+    /* Compare key */
+    if (key == d->key[i]) {
+      return d->val[i];
+    }
+  }
+  return def;
+}
+
+/* 添加操作 */
+int put(hash_map_t *d, const long key, const char *val) {
+  ssize_t i;
+
+  if (d == NULL)
+    return -1;
+
+  /* 查找是否已经有相同键的键值对 */
+  if (d->n > 0) {
+    for (i = 0; i < d->size; i++) {
+      if (key == d->key[i]) {
+        /* 存在相同键，直接更新值 */
+        if (d->val[i] != NULL)
+          free(d->val[i]);
+        d->val[i] = (val ? xstrdup(val) : NULL);
+        return 0;
+      }
+    }
+  }
+
+  /* 添加新的值，需要检验是否需要扩大哈希表 */
+  if (d->n == d->size) {
+    /* 达到哈希表允许的最大大小 */
+    if (hash_map_grow(d) != 0)
+      return -1;
+  }
+
+  for (i = d->n; d->key[i] != HASH_MAP_DEFAULT_KEY;) {
+    if (++i == d->size)
+      i = 0;
+  }
+  /* 设置键值对 */
+  d->key[i] = key;
+  d->val[i] = (val ? xstrdup(val) : NULL);
+  d->n++;
+  return 0;
+}
+
+/* 删除操作 */
+void remove_item(hash_map_t *d, const long key) {
+  ssize_t i;
+
+  if (d == NULL) {
+    return;
+  }
+
+  for (i = 0; i < d->size; i++) {
+    /* 对比键 */
+    if (key == d->key[i]) {
+      break;
+    }
+  }
+  if (i >= d->size)
+    /* 没有找到键 */
+    return;
+
+  d->key[i] = HASH_MAP_DEFAULT_KEY;
+  if (d->val[i] != NULL) {
+    free(d->val[i]);
+    d->val[i] = NULL;
+  }
+  d->n--;
+  return;
+}
+
+/* 删除哈希表 */
 void del(hash_map_t *d) {
   ssize_t i;
 
@@ -113,113 +174,8 @@ void del(hash_map_t *d) {
   return;
 }
 
-/**
-  @brief    Get a value from a hash_map.
-  @param    d       hash_map object to search.
-  @param    key     Key to look for in the hash_map.
-  @param    def     Default value to return if key not found.
-  @return   1 pointer to internally allocated character string.
- */
-const char *get(const hash_map_t *d, const long key, const char *def) {
-  ssize_t i;
-
-  for (i = 0; i < d->size; i++) {
-    /* Compare key */
-    if (key == d->key[i]) {
-      return d->val[i];
-    }
-  }
-  return def;
-}
-
-/**
-  @brief    Put a value in a hash_map.
-  @param    d       hash_map object to modify.
-  @param    key     Key to modify or add.
-  @param    val     Value to add.
-  @return   int     0 if Ok, anything else otherwise
- */
-int put(hash_map_t *d, const long key, const char *val) {
-  ssize_t i;
-
-  if (d == NULL)
-    return -1;
-
-  /* Find if value is already in hash_map */
-  if (d->n > 0) {
-    for (i = 0; i < d->size; i++) {
-      if (key == d->key[i]) { /* Same key */
-        /* Found a value: modify and return */
-        if (d->val[i] != NULL)
-          free(d->val[i]);
-        d->val[i] = (val ? xstrdup(val) : NULL);
-        /* Value has been modified: return */
-        return 0;
-      }
-    }
-  }
-
-  /* Add a new value */
-  /* See if hash_map needs to grow */
-  if (d->n == d->size) {
-    /* Reached maximum size: reallocate hash_map */
-    if (hash_map_grow(d) != 0)
-      return -1;
-  }
-
-  /* Insert key in the first empty slot. Start at d->n and wrap at
-     d->size. Because d->n < d->size this will necessarily
-     terminate. */
-  for (i = d->n; d->key[i] != HASH_MAP_DEFAULT_KEY;) {
-    if (++i == d->size)
-      i = 0;
-  }
-  /* Copy key */
-  d->key[i] = key;
-  d->val[i] = (val ? xstrdup(val) : NULL);
-  d->n++;
-  return 0;
-}
-
-/**
-  @brief    Delete a key in a hash_map
-  @param    d       hash_map object to modify.
-  @param    key     Key to remove.
-  @return   void
- */
-void remove_item(hash_map_t *d, const long key) {
-  ssize_t i;
-
-  if (d == NULL) {
-    return;
-  }
-
-  for (i = 0; i < d->size; i++) {
-    /* Compare key */
-    if (key == d->key[i]) {
-      /* Found key */
-      break;
-    }
-  }
-  if (i >= d->size)
-    /* Key not found */
-    return;
-
-  d->key[i] = HASH_MAP_DEFAULT_KEY;
-  if (d->val[i] != NULL) {
-    free(d->val[i]);
-    d->val[i] = NULL;
-  }
-  d->n--;
-  return;
-}
-
-/**
-  @brief    Show a hash_map object
-  @param    d       hash_map object to show.
-  @return   void
- */
-void show_map(hash_map_t *d) {
+/* 打印哈希表 */
+void print(hash_map_t *d) {
   int i;
   for (i = 0; i < d->n; i++) {
     printf("%ld -> %s\n", d->key[i], d->val[i]);
@@ -238,7 +194,7 @@ int main() {
   put(map, 13276, "小法");
   put(map, 10583, "小鸭");
   printf("\n添加完成后，哈希表为\nKey -> Value\n");
-  show_map(map);
+  print(map);
 
   /* 查询操作 */
   // 向哈希表输入键 key ，得到值 value
@@ -249,7 +205,7 @@ int main() {
   // 在哈希表中删除键值对 (key, value)
   remove_item(map, 10583);
   printf("\n删除 10583 后，哈希表为\nKey -> Value\n");
-  show_map(map);
+  print(map);
 
   /* 遍历哈希表 */
   int i;

@@ -16,68 +16,37 @@
 extern "C" {
 #endif
 
-/** Minimal allocated number of entries in a hash map */
+/* 哈希表最小容量 */
 #define HASH_MAP_MIN_SIZE 128
 
-/** Default key in a hash map */
+/* 哈希表默认 key */
 #define HASH_MAP_DEFAULT_KEY -1
 
-/**
-  @brief    Hash_map object
- */
+/* 基于数组简易实现的哈希表 */
 typedef struct _hash_map_ {
-  int n;        /** Number of entries in hash_map */
-  ssize_t size; /** Storage size */
-  char **val;   /** List of string values */
-  long *key;     /** List of int keys */
+  int n;        // 哈希表键值对数量
+  ssize_t size; // 哈希表可用存储空间大小
+  char **val;   // 哈希表值数组
+  long *key;    // 哈希表键数组
 } hash_map_t;
 
-/**
-  @brief    Create a new hash_map object.
-  @param    size    Optional initial size of the hash_map.
-  @return   1 newly allocated hash_map objet.
- */
+/* 创建新的哈希表 */
 hash_map_t *new_hash_map(size_t size);
 
-/**
-  @brief    Delete a hash_map object
-  @param    d   hash_map object to deallocate.
-  @return   void
- */
-void del(hash_map_t *d);
-
-/**
-  @brief    Get a value from a hash_map.
-  @param    d       hash_map object to search.
-  @param    key     Key to look for in the hash_map.
-  @param    def     Default value to return if key not found.
-  @return   1 pointer to internally allocated character string.
- */
+/* 查询操作 */
 const char *get(const hash_map_t *d, const long key, const char *def);
 
-/**
-  @brief    Put a value in a hash_map.
-  @param    d       hash_map object to modify.
-  @param    key     Key to modify or add.
-  @param    val     Value to add.
-  @return   int     0 if Ok, anything else otherwise
- */
+/* 添加操作 */
 int put(hash_map_t *d, const long key, const char *val);
 
-/**
-  @brief    Delete a key in a hash_map
-  @param    d       hash_map object to modify.
-  @param    key     Key to remove.
-  @return   void
- */
+/* 删除操作 */
 void remove_item(hash_map_t *d, const long key);
 
-/**
-  @brief    Show a hash_map object
-  @param    d       hash_map object to show.
-  @return   void
- */
-void show_map(hash_map_t *d);
+/* 删除哈希表 */
+void del(hash_map_t *d);
+
+/* 打印哈希表 */
+void print(hash_map_t *d);
 
 #ifdef __cplusplus
 }
