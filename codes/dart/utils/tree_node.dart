@@ -7,14 +7,12 @@
 import 'dart:collection';
 
 class TreeNode {
-  late int val; // 结点值
-  late int height; // 结点高度
-  late TreeNode? left; // 左子结点引用
-  late TreeNode? right; // 右子结点引用
+  int val; // 结点值
+  int height; // 结点高度
+  TreeNode? left; // 左子结点引用
+  TreeNode? right; // 右子结点引用
 
-  TreeNode(int x) {
-    val = x;
-  }
+  TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
 
 /**
@@ -30,14 +28,13 @@ TreeNode? listToTree(List<int> list) {
   Queue<TreeNode?> queue = Queue();
   queue.add(root);
   int i = 0;
-  while (!queue.isEmpty) {
-    TreeNode? node = queue.first;
-    queue.removeFirst();
+  while (queue.isNotEmpty) {
+    TreeNode? node = queue.removeFirst();
     if (++i >= size) break;
     node?.left = TreeNode(list[i]);
     queue.add(node?.left);
     if (++i >= size) break;
-    node?.left = TreeNode(list[i]);
+    node?.right = TreeNode(list[i]);
     queue.add(node?.right);
   }
   return root;
