@@ -17,6 +17,7 @@
 #include "list_node.h"
 #include "tree_node.h"
 #include "print_util.h"
+#include "macro_fun.h"
 
 #ifdef __cplusplus
 extern "C" {
