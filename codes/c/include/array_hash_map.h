@@ -1,5 +1,5 @@
 /**
- * File: hash_map.h
+ * File: array_hash_map.h
  * Created Time: 2023-03-18
  * Author: Guanngxu (446678850@qq.com)
  */
@@ -21,20 +21,20 @@ extern "C" {
 
 /* 键值对 int->string */
 typedef struct  {
-	int key;
-	char *val;
+    int key;
+    char *val;
 } entry_t;
 
 /* 基于数组简易实现的哈希表 */
 typedef struct {
-  // 初始化数组，包含 100 个桶
-	entry_t buckets[HASH_MAP_DEFAULT_SIZE]; /** Entries in hash_map */
+    // 初始化数组，包含 100 个桶
+    entry_t buckets[HASH_MAP_DEFAULT_SIZE]; /** Entries in hash_map */
 } array_hash_map_t;
 
 /* 用于表示键值对、键、值的集合 */
 typedef struct {
-	void *set;
-	int len;
+    void *set;
+    int len;
 } set_t;
 
 /* 哈希表初始化函数 */
