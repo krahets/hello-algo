@@ -124,6 +124,11 @@ path = "chapter_stack_and_queue/array_stack.rs"
 name = "array_queue"
 path = "chapter_stack_and_queue/array_queue.rs"
 
+# Run Command: cargo run --bin binary_tree_dfs
+[[bin]]
+name = "binary_tree_dfs"
+path = "chapter_tree/binary_tree_dfs.rs"
+
 # Run Command: cargo run --bin binary_tree
 [[bin]]
 name = "binary_tree"

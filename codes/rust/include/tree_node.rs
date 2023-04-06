@@ -5,6 +5,7 @@
  */
 
 use std::cell::RefCell;
+use std::collections::VecDeque;
 use std::rc::Rc;
 
 #[allow(dead_code)]
@@ -26,4 +27,65 @@ impl TreeNode {
             right: None
         }))
     }
+}
+
+/// This function takes a vector of integers and generates a binary tree from it in a level order traversal manner.
+/// The first element of the vector is used as the root node of the tree. Each node in the tree is represented by a `TreeNode` struct that has a value and pointers to its left and right children.
+///
+/// # Arguments
+///
+/// * `list` - A vector of integers to be used to generate the binary tree.
+///
+/// # Returns
+///
+/// An `Option<Rc<RefCell<TreeNode>>>` where the `Option` is `None` if the vector is empty, and `Some` containing the root node of the tree otherwise.
+///
+/// # Examples
+///
+/// ```
+/// use std::rc::Rc;
+/// use std::cell::RefCell;
+/// use std::collections::VecDeque;
+///
+/// let list = vec![1, 2, 3, 4, 5, 6, 7];
+/// let root = vec_to_tree(list).unwrap();
+///
+/// // The resulting tree looks like:
+/// //
+/// //        1
+/// //       / \
+/// //      2   3
+/// //     / \ / \
+/// //    4   56  7
+/// ```
+pub fn vec_to_tree(list: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+    if list.is_empty() {
+        return None;
+    }
+
+    let root = TreeNode::new(list[0]);
+    let mut que = VecDeque::new();
+    que.push_back(Rc::clone(&root));
+
+    let mut index = 0;
+    while let Some(node) = que.pop_front() {
+        index += 1;
+        if index >= list.len() {
+            break;
+        }
+        if index < list.len() {
+            node.borrow_mut().left = Some(TreeNode::new(list[index]));
+            que.push_back(Rc::clone(&node.borrow().left.as_ref().unwrap()));
+        }
+
+        index += 1;
+        if index >= list.len() {
+            break;
+        }
+        if index < list.len() {
+            node.borrow_mut().right = Some(TreeNode::new(list[index]));
+            que.push_back(Rc::clone(&node.borrow().right.as_ref().unwrap()));
+        }
+    }
+    Some(root)
 }
