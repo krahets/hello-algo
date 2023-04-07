@@ -2166,7 +2166,7 @@
 <p><strong>空间复杂度 <span class="arithmatex">\(O(n + m)\)</span></strong> ：借助了长度分别为 <span class="arithmatex">\(n\)</span> , <span class="arithmatex">\(m\)</span> 的数组 <code>res</code> 和 <code>counter</code> ，是“非原地排序”。</p>
 <p><strong>稳定排序</strong>：由于向 <code>res</code> 中填充元素的顺序是“从右向左”的，因此倒序遍历 <code>nums</code> 可以避免改变相等元素之间的相对位置，从而实现“稳定排序”；其实正序遍历 <code>nums</code> 也可以得到正确的排序结果，但结果“非稳定”。</p>
 <h2 id="1174">11.7.4. &nbsp; 局限性<a class="headerlink" href="#1174" title="Permanent link">&para;</a></h2>
-<p>看到这里，你也许会觉得计数排序太妙了，咔咔一通操作，时间复杂度就下来了。然而，使用技术排序的前置条件比较苛刻。</p>
+<p>看到这里，你也许会觉得计数排序太妙了，咔咔一通操作，时间复杂度就下来了。然而，使用计数排序的前置条件比较苛刻。</p>
 <p><strong>计数排序只适用于非负整数</strong>。若想要用在其他类型数据上，则要求该数据必须可以被转化为非负整数，并且不能改变各个元素之间的相对大小关系。例如，对于包含负数的整数数组，可以先给所有数字加上一个常数，将全部数字转化为正数，排序完成后再转换回去即可。</p>
 <p><strong>计数排序适用于数据量大但数据范围不大的情况</strong>。比如，上述示例中 <span class="arithmatex">\(m\)</span> 不能太大，否则占用空间太多；而当 <span class="arithmatex">\(n \ll m\)</span> 时，计数排序使用 <span class="arithmatex">\(O(m)\)</span> 时间，有可能比 <span class="arithmatex">\(O(n \log n)\)</span> 的排序算法还要慢。</p>
 

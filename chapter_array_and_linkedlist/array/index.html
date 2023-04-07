@@ -1768,15 +1768,11 @@
 
 
 <h1 id="41">4.1. &nbsp; 数组<a class="headerlink" href="#41" title="Permanent link">&para;</a></h1>
-<p>「数组 Array」是一种将 <strong>相同类型元素</strong> 存储在 <strong>连续内存空间</strong> 的数据结构，将元素在数组中的位置称为元素的「索引 Index」。</p>
+<p>「数组 Array」是一种线性数据结构，其将相同类型元素存储在连续的内存空间中。我们将元素在数组中的位置称为元素的「索引 Index」。</p>
 <p><img alt="数组定义与存储方式" src="../array.assets/array_definition.png" /></p>
 <p align="center"> Fig. 数组定义与存储方式 </p>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>观察上图，我们发现 <strong>数组首元素的索引为 <span class="arithmatex">\(0\)</span></strong> 。你可能会想，这并不符合日常习惯，首个元素的索引为什么不是 <span class="arithmatex">\(1\)</span> 呢，这不是更加自然吗？我认同你的想法，但请先记住这个设定，后面讲内存地址计算时，我会尝试解答这个问题。</p>
-</div>
-<p><strong>数组初始化</strong>。一般会用到无初始值、给定初始值两种写法，可根据需求选取。在不给定初始值的情况下，一般所有元素会被初始化为默认值 <span class="arithmatex">\(0\)</span> 。</p>
+<p><strong>数组初始化</strong>。通常有无初始值和给定初始值两种方式，我们可根据需求选择合适的方法。在未给定初始值的情况下，数组的所有元素通常会被初始化为默认值 <span class="arithmatex">\(0\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1848,15 +1844,19 @@
 </div>
 </div>
 <h2 id="411">4.1.1. &nbsp; 数组优点<a class="headerlink" href="#411" title="Permanent link">&para;</a></h2>
-<p><strong>在数组中访问元素非常高效</strong>。这是因为在数组中，计算元素的内存地址非常容易。给定数组首个元素的地址、和一个元素的索引，利用以下公式可以直接计算得到该元素的内存地址，从而直接访问此元素。</p>
+<p><strong>在数组中访问元素非常高效</strong>。由于数组元素被存储在连续的内存空间中，因此计算数组元素的内存地址非常容易。给定数组首个元素的地址和某个元素的索引，我们可以使用以下公式计算得到该元素的内存地址，从而直接访问此元素。</p>
 <p><img alt="数组元素的内存地址计算" src="../array.assets/array_memory_location_calculation.png" /></p>
 <p align="center"> Fig. 数组元素的内存地址计算 </p>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nv">elementAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>firtstElementAddr<span class="w"> </span>+<span class="w"> </span>elementLength<span class="w"> </span>*<span class="w"> </span>elementIndex
 </code></pre></div>
-<p><strong>为什么数组元素索引从 0 开始编号？</strong> 根据地址计算公式，<strong>索引本质上表示的是内存地址偏移量</strong>，首个元素的地址偏移量是 <span class="arithmatex">\(0\)</span> ，那么索引是 <span class="arithmatex">\(0\)</span> 也就很自然了。</p>
-<p>访问元素的高效性带来了许多便利。例如，我们可以在 <span class="arithmatex">\(O(1)\)</span> 时间内随机获取一个数组中的元素。</p>
+<div class="admonition question">
+<p class="admonition-title">为什么数组元素的索引要从 <span class="arithmatex">\(0\)</span> 开始编号呢？</p>
+<p>观察上图，我们发现数组首个元素的索引为 <span class="arithmatex">\(0\)</span> ，这似乎有些反直觉，因为从 <span class="arithmatex">\(1\)</span> 开始计数会更自然。</p>
+<p>然而，从地址计算公式的角度看，<strong>索引本质上表示的是内存地址的偏移量</strong>。首个元素的地址偏移量是 <span class="arithmatex">\(0\)</span> ，因此索引为 <span class="arithmatex">\(0\)</span> 也是合理的。</p>
+</div>
+<p>访问元素的高效性带来了诸多便利。例如，我们可以在 <span class="arithmatex">\(O(1)\)</span> 时间内随机获取数组中的任意一个元素。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2321,9 +2321,9 @@
 </div>
 <p>总结来看，数组的插入与删除操作有以下缺点：</p>
 <ul>
-<li><strong>时间复杂度高</strong>：数组的插入和删除的平均时间复杂度均为 <span class="arithmatex">\(O(N)\)</span> ，其中 <span class="arithmatex">\(N\)</span> 为数组长度。</li>
-<li><strong>丢失元素</strong>：由于数组的长度不可变，因此在插入元素后，超出数组长度范围的元素会被丢失。</li>
-<li><strong>内存浪费</strong>：我们一般会初始化一个比较长的数组，只用前面一部分，这样在插入数据时，丢失的末尾元素都是我们不关心的，但这样做同时也会造成内存空间的浪费。</li>
+<li><strong>时间复杂度高</strong>：数组的插入和删除的平均时间复杂度均为 <span class="arithmatex">\(O(n)\)</span> ，其中 <span class="arithmatex">\(n\)</span> 为数组长度。</li>
+<li><strong>丢失元素</strong>：由于数组的长度不可变，因此在插入元素后，超出数组长度范围的元素会丢失。</li>
+<li><strong>内存浪费</strong>：我们可以初始化一个比较长的数组，只用前面一部分，这样在插入数据时，丢失的末尾元素都是我们不关心的，但这样做同时也会造成内存空间的浪费。</li>
 </ul>
 <h2 id="413">4.1.3. &nbsp; 数组常用操作<a class="headerlink" href="#413" title="Permanent link">&para;</a></h2>
 <p><strong>数组遍历</strong>。以下介绍两种常用的遍历方法。</p>
