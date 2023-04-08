@@ -24,7 +24,7 @@ fn main() {
     println!("\n初始化二叉树\n");
     print_util::print_tree(&n1);
 
-    // 插入节点与删除节点
+    // 插入结点与删除结点
     let p = TreeNode::new(0);
     // 在 n1 -> n2 中间插入结点 P
     p.borrow_mut().left = Some(Rc::clone(&n2));

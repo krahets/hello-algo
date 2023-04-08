@@ -8,7 +8,7 @@ import '../utils/list_node.dart';
 
 /* 基于链表类实现的栈 */
 class LinkedListStack {
-  ListNode? _stackPeek; // 将头节点作为栈顶
+  ListNode? _stackPeek; // 将头结点作为栈顶
   int _stkSize = 0; // 栈的长度
 
   LinkedListStack() {

@@ -13,7 +13,7 @@ List<int> list = [];
 /* 前序遍历 */
 void preOrder(TreeNode? node) {
   if (node == null) return;
-  // 访问优先级：根节点 -> 左子树 -> 右子树
+  // 访问优先级：根结点 -> 左子树 -> 右子树
   list.add(node.val);
   preOrder(node.left);
   preOrder(node.right);
@@ -22,7 +22,7 @@ void preOrder(TreeNode? node) {
 /* 中序遍历 */
 void inOrder(TreeNode? node) {
   if (node == null) return;
-  // 访问优先级：左子树 -> 根节点 -> 右子树
+  // 访问优先级：左子树 -> 根结点 -> 右子树
   inOrder(node.left);
   list.add(node.val);
   inOrder(node.right);
@@ -31,7 +31,7 @@ void inOrder(TreeNode? node) {
 /* 后序遍历 */
 void postOrder(TreeNode? node) {
   if (node == null) return;
-  // 访问优先级：左子树 -> 右子树 -> 根节点
+  // 访问优先级：左子树 -> 右子树 -> 根结点
   postOrder(node.left);
   postOrder(node.right);
   list.add(node.val);

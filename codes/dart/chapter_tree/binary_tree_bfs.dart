@@ -10,7 +10,7 @@ import '../utils/tree_node.dart';
 
 /* 层序遍历 */
 List<int> levelOrder(TreeNode? root) {
-  // 初始化队列，加入根节点
+  // 初始化队列，加入根结点
   Queue<TreeNode?> queue = Queue();
   queue.add(root);
   // 初始化一个列表，用于保存遍历序列
@@ -18,8 +18,8 @@ List<int> levelOrder(TreeNode? root) {
   while (queue.isNotEmpty) {
     TreeNode? node = queue.removeFirst(); // 队列出队
     res.add(node!.val); // 保存结点值
-    if (node.left != null) queue.add(node.left); // 左子节点入队
-    if (node.right != null) queue.add(node.right); // 右子节点入队
+    if (node.left != null) queue.add(node.left); // 左子结点入队
+    if (node.right != null) queue.add(node.right); // 右子结点入队
   }
   return res;
 }

@@ -15,7 +15,7 @@ void binarySearchTree(List<int> nums) {
   root = buildTree(nums, 0, nums.length - 1); // 构建二叉搜索树
 }
 
-/* 获取二叉树的根节点 */
+/* 获取二叉树的根结点 */
 TreeNode? getRoot() {
   return root;
 }
@@ -146,7 +146,7 @@ void main() {
 
   /* 插入结点 */
   node = insert(16);
-  print("\n插入节点 16 后，二叉树为\n");
+  print("\n插入结点 16 后，二叉树为\n");
   printTree(getRoot());
 
   /* 删除结点 */

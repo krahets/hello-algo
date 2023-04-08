@@ -25,7 +25,7 @@ void main() {
 
   /* 插入与删除结点 */
   TreeNode p = TreeNode(0);
-  // 在 n1 -> n2 中间插入节点 p
+  // 在 n1 -> n2 中间插入结点 p
   n1.left = p;
   p.left = n2;
   print("\n插入结点 P 后\n");
