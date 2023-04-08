@@ -409,42 +409,44 @@ comments: true
 
     ```python title="linkedlist_stack.py"
     class LinkedListStack:
-        """ 基于链表实现的栈 """
+        """基于链表实现的栈"""
+
         def __init__(self):
-            """ 构造方法 """
+            """构造方法"""
             self.__peek: ListNode | None = None
             self.__size: int = 0
 
         def size(self) -> int:
-            """ 获取栈的长度 """
+            """获取栈的长度"""
             return self.__size
 
         def is_empty(self) -> bool:
-            """ 判断栈是否为空 """
+            """判断栈是否为空"""
             return not self.__peek
 
         def push(self, val: int) -> None:
-            """ 入栈 """
+            """入栈"""
             node = ListNode(val)
             node.next = self.__peek
             self.__peek = node
             self.__size += 1
 
         def pop(self) -> int:
-            """ 出栈 """
+            """出栈"""
             num: int = self.peek()
             self.__peek = self.__peek.next
             self.__size -= 1
             return num
 
         def peek(self) -> int:
-            """ 访问栈顶元素 """
+            """访问栈顶元素"""
             # 判空处理
-            if not self.__peek: return None
+            if not self.__peek:
+                return None
             return self.__peek.val
 
         def to_list(self) -> list[int]:
-            """ 转化为列表用于打印 """
+            """转化为列表用于打印"""
             arr: list[int] = []
             node = self.__peek
             while node:
@@ -951,35 +953,36 @@ comments: true
 
     ```python title="array_stack.py"
     class ArrayStack:
-        """ 基于数组实现的栈 """
+        """基于数组实现的栈"""
+
         def __init__(self) -> None:
-            """ 构造方法 """
+            """构造方法"""
             self.__stack: list[int] = []
 
         def size(self) -> int:
-            """ 获取栈的长度 """
+            """获取栈的长度"""
             return len(self.__stack)
 
         def is_empty(self) -> bool:
-            """ 判断栈是否为空 """
+            """判断栈是否为空"""
             return self.__stack == []
 
         def push(self, item: int) -> None:
-            """ 入栈 """
+            """入栈"""
             self.__stack.append(item)
 
         def pop(self) -> int:
-            """ 出栈 """
+            """出栈"""
             assert not self.is_empty(), "栈为空"
             return self.__stack.pop()
 
         def peek(self) -> int:
-            """ 访问栈顶元素 """
+            """访问栈顶元素"""
             assert not self.is_empty(), "栈为空"
             return self.__stack[-1]
-        
+
         def to_list(self) -> list[int]:
-            """ 返回列表用于打印 """
+            """返回列表用于打印"""
             return self.__stack
     ```
 

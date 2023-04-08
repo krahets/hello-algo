@@ -50,7 +50,7 @@ comments: true
 
     ```python title="my_heap.py"
     def __init__(self, nums: list[int]):
-        """ 构造方法 """
+        """构造方法"""
         # 将列表元素原封不动添加进堆
         self.max_heap = nums
         # 堆化除叶节点以外的其他所有节点

@@ -101,7 +101,7 @@ comments: true
 
     ```python title="quick_sort.py"
     def partition(self, nums: list[int], left: int, right: int) -> int:
-        """ 哨兵划分 """
+        """哨兵划分"""
         # 以 nums[left] 作为基准数
         i, j = left, right
         while i < j:
@@ -334,7 +334,7 @@ comments: true
 
     ```python title="quick_sort.py"
     def quick_sort(self, nums: list[int], left: int, right: int) -> None:
-        """ 快速排序 """
+        """快速排序"""
         # 子数组长度为 1 时终止递归
         if left >= right:
             return
@@ -549,7 +549,7 @@ comments: true
 
     ```python title="quick_sort.py"
     def median_three(self, nums: list[int], left: int, mid: int, right: int) -> int:
-        """ 选取三个元素的中位数 """
+        """选取三个元素的中位数"""
         # 此处使用异或运算来简化代码
         # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]):
@@ -559,7 +559,7 @@ comments: true
         return right
 
     def partition(self, nums: list[int], left: int, right: int) -> int:
-        """ 哨兵划分（三数取中值） """
+        """哨兵划分（三数取中值）"""
         # 以 nums[left] 作为基准数
         med: int = self.median_three(nums, left, (left + right) // 2, right)
         # 将中位数交换至数组最左端
@@ -842,7 +842,7 @@ comments: true
 
     ```python title="quick_sort.py"
     def quick_sort(self, nums: list[int], left: int, right: int) -> None:
-        """ 快速排序（尾递归优化） """
+        """快速排序（尾递归优化）"""
         # 子数组长度为 1 时终止
         while left < right:
             # 哨兵划分操作
@@ -850,10 +850,10 @@ comments: true
             # 对两个子数组中较短的那个执行快排
             if pivot - left < right - pivot:
                 self.quick_sort(nums, left, pivot - 1)  # 递归排序左子数组
-                left = pivot + 1     # 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1  # 剩余待排序区间为 [pivot + 1, right]
             else:
                 self.quick_sort(nums, pivot + 1, right)  # 递归排序右子数组
-                right = pivot - 1    # 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1  # 剩余待排序区间为 [left, pivot - 1]
     ```
 
 === "Go"

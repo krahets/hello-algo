@@ -4,11 +4,11 @@ comments: true
 
 # 4.2. &nbsp; 链表
 
-内存空间是所有程序的公共资源，排除已被占用的内存空间，空闲内存空间通常散落在内存各处。在上一节中，我们提到存储数组的内存空间必须是连续的，而当我们需要申请一个非常大的数组时，空闲内存中可能没有这么大的连续空间。
+内存空间是所有程序的公共资源，排除已被占用的内存空间，空闲内存空间通常散落在内存各处。在上一节中，我们提到存储数组的内存空间必须是连续的，而当我们需要申请一个非常大的数组时，空闲内存中可能没有这么大的连续空间。与数组相比，链表更具灵活性，它可以被存储在非连续的内存空间中。
 
-与数组相比，链表更具灵活性，因为它可以存储在非连续的内存空间。「链表 Linked List」是一种线性数据结构，其每个元素都是一个节点对象，各个节点之间通过指针连接，从当前节点通过指针可以访问到下一个节点。由于指针记录了下个节点的内存地址，因此无需保证内存地址的连续性，从而可以将各个节点分散存储在内存各处。
+「链表 Linked List」是一种线性数据结构，其每个元素都是一个节点对象，各个节点之间通过指针连接，从当前节点通过指针可以访问到下一个节点。**由于指针记录了下个节点的内存地址，因此无需保证内存地址的连续性**，从而可以将各个节点分散存储在内存各处。
 
-链表「节点 Node」包含两项数据，一是节点「值 Value」，二是指向下一节点的「指针 Pointer」，或称指向下一节点的「引用 Reference」。
+链表「节点 Node」包含两项数据，一是节点「值 Value」，二是指向下一节点的「指针 Pointer」，或称「引用 Reference」。
 
 ![链表定义与存储方式](linked_list.assets/linkedlist_definition.png)
 
@@ -374,7 +374,7 @@ comments: true
 
     ```python title="linked_list.py"
     def insert(n0: ListNode, P: ListNode) -> None:
-        """ 在链表的节点 n0 之后插入节点 P """
+        """在链表的节点 n0 之后插入节点 P"""
         n1 = n0.next
         P.next = n1
         n0.next = P
@@ -493,7 +493,7 @@ comments: true
 
     ```python title="linked_list.py"
     def remove(n0: ListNode) -> None:
-        """ 删除链表的节点 n0 之后的首个节点 """
+        """删除链表的节点 n0 之后的首个节点"""
         if not n0.next:
             return
         # n0 -> P -> n1
@@ -632,7 +632,7 @@ comments: true
 
     ```python title="linked_list.py"
     def access(head: ListNode, index: int) -> ListNode | None:
-        """ 访问链表中索引为 index 的节点 """
+        """访问链表中索引为 index 的节点"""
         for _ in range(index):
             if not head:
                 return None
@@ -780,7 +780,7 @@ comments: true
 
     ```python title="linked_list.py"
     def find(head: ListNode, target: int) -> int:
-        """ 在链表中查找值为 target 的首个节点 """
+        """在链表中查找值为 target 的首个节点"""
         index = 0
         while head:
             if head.val == target:

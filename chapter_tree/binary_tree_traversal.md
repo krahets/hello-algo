@@ -70,19 +70,19 @@ comments: true
 
     ```python title="binary_tree_bfs.py"
     def level_order(root: TreeNode | None) -> list[int]:
-        """ 层序遍历 """
+        """层序遍历"""
         # 初始化队列，加入根节点
         queue: deque[TreeNode] = deque()
         queue.append(root)
         # 初始化一个列表，用于保存遍历序列
         res: list[int] = []
         while queue:
-            node: TreeNode = queue.popleft() # 队列出队
-            res.append(node.val)             # 保存节点值
+            node: TreeNode = queue.popleft()  # 队列出队
+            res.append(node.val)  # 保存节点值
             if node.left is not None:
-                queue.append(node.left)      # 左子节点入队
+                queue.append(node.left)  # 左子节点入队
             if node.right is not None:
-                queue.append(node.right)     # 右子节点入队
+                queue.append(node.right)  # 右子节点入队
         return res
     ```
 
@@ -338,7 +338,7 @@ comments: true
 
     ```python title="binary_tree_dfs.py"
     def pre_order(root: TreeNode | None) -> None:
-        """ 前序遍历 """
+        """前序遍历"""
         if root is None:
             return
         # 访问优先级：根节点 -> 左子树 -> 右子树
@@ -347,7 +347,7 @@ comments: true
         pre_order(root=root.right)
 
     def in_order(root: TreeNode | None) -> None:
-        """ 中序遍历 """
+        """中序遍历"""
         if root is None:
             return
         # 访问优先级：左子树 -> 根节点 -> 右子树
@@ -356,7 +356,7 @@ comments: true
         in_order(root=root.right)
 
     def post_order(root: TreeNode | None) -> None:
-        """ 后序遍历 """
+        """后序遍历"""
         if root is None:
             return
         # 访问优先级：左子树 -> 右子树 -> 根节点

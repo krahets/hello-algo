@@ -820,7 +820,7 @@ $$
 
     ```python title="time_complexity.py"
     def constant(n: int) -> int:
-        """ 常数阶 """
+        """常数阶"""
         count: int = 0
         size: int = 100000
         for _ in range(size):
@@ -948,7 +948,7 @@ $$
 
     ```python title="time_complexity.py"
     def linear(n: int) -> int:
-        """ 线性阶 """
+        """线性阶"""
         count: int = 0
         for _ in range(n):
             count += 1
@@ -1074,7 +1074,7 @@ $$
 
     ```python title="time_complexity.py"
     def array_traversal(nums: list[int]) -> int:
-        """ 线性阶（遍历数组）"""
+        """线性阶（遍历数组）"""
         count: int = 0
         # 循环次数与数组长度成正比
         for num in nums:
@@ -1214,7 +1214,7 @@ $$
 
     ```python title="time_complexity.py"
     def quadratic(n: int) -> int:
-        """ 平方阶 """
+        """平方阶"""
         count: int = 0
         # 循环次数与数组长度成平方关系
         for i in range(n):
@@ -1390,7 +1390,7 @@ $$
 
     ```python title="time_complexity.py"
     def bubble_sort(nums: list[int]) -> int:
-        """ 平方阶（冒泡排序）"""
+        """平方阶（冒泡排序）"""
         count: int = 0  # 计数器
         # 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for i in range(len(nums) - 1, 0, -1):
@@ -1603,7 +1603,7 @@ $$
 
     ```python title="time_complexity.py"
     def exponential(n: int) -> int:
-        """ 指数阶（循环实现）"""
+        """指数阶（循环实现）"""
         count: int = 0
         base: int = 1
         # cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
@@ -1768,8 +1768,9 @@ $$
 
     ```python title="time_complexity.py"
     def exp_recur(n: int) -> int:
-        """ 指数阶（递归实现）"""
-        if n == 1: return 1
+        """指数阶（递归实现）"""
+        if n == 1:
+            return 1
         return exp_recur(n - 1) + exp_recur(n - 1) + 1
     ```
 
@@ -1884,7 +1885,7 @@ $$
 
     ```python title="time_complexity.py"
     def logarithmic(n: float) -> int:
-        """ 对数阶（循环实现）"""
+        """对数阶（循环实现）"""
         count: int = 0
         while n > 1:
             n = n / 2
@@ -2017,8 +2018,9 @@ $$
 
     ```python title="time_complexity.py"
     def log_recur(n: float) -> int:
-        """ 对数阶（递归实现）"""
-        if n <= 1: return 0
+        """对数阶（递归实现）"""
+        if n <= 1:
+            return 0
         return log_recur(n / 2) + 1
     ```
 
@@ -2133,10 +2135,10 @@ $$
 
     ```python title="time_complexity.py"
     def linear_log_recur(n: float) -> int:
-        """ 线性对数阶 """
-        if n <= 1: return 1
-        count: int = linear_log_recur(n // 2) + \
-                     linear_log_recur(n // 2)
+        """线性对数阶"""
+        if n <= 1:
+            return 1
+        count: int = linear_log_recur(n // 2) + linear_log_recur(n // 2)
         for _ in range(n):
             count += 1
         return count
@@ -2290,8 +2292,9 @@ $$
 
     ```python title="time_complexity.py"
     def factorial_recur(n: int) -> int:
-        """ 阶乘阶（递归实现）"""
-        if n == 0: return 1
+        """阶乘阶（递归实现）"""
+        if n == 0:
+            return 1
         count: int = 0
         # 从 1 个分裂出 n 个
         for _ in range(n):
@@ -2480,7 +2483,7 @@ $$
 
     ```python title="worst_best_time_complexity.py"
     def random_numbers(n: int) -> list[int]:
-        """ 生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱 """
+        """生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱"""
         # 生成数组 nums =: 1, 2, 3, ..., n
         nums: list[int] = [i for i in range(1, n + 1)]
         # 随机打乱数组元素
@@ -2488,7 +2491,7 @@ $$
         return nums
 
     def find_one(nums: list[int]) -> int:
-        """ 查找数组 nums 中数字 1 所在索引 """
+        """查找数组 nums 中数字 1 所在索引"""
         for i in range(len(nums)):
             # 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
             # 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)

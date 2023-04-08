@@ -607,25 +607,27 @@ $$
 
     ```python title="array_hash_map.py"
     class Entry:
-        """ 键值对 int->String """
+        """键值对 int->String"""
+
         def __init__(self, key: int, val: str):
             self.key = key
             self.val = val
 
     class ArrayHashMap:
-        """ 基于数组简易实现的哈希表 """
+        """基于数组简易实现的哈希表"""
+
         def __init__(self):
-            """ 构造方法 """
+            """构造方法"""
             # 初始化数组，包含 100 个桶
             self.buckets: list[Entry | None] = [None] * 100
 
         def hash_func(self, key: int) -> int:
-            """ 哈希函数 """
+            """哈希函数"""
             index: int = key % 100
             return index
 
         def get(self, key: int) -> str:
-            """ 查询操作 """
+            """查询操作"""
             index: int = self.hash_func(key)
             pair: Entry = self.buckets[index]
             if pair is None:
@@ -633,19 +635,19 @@ $$
             return pair.val
 
         def put(self, key: int, val: str) -> None:
-            """ 添加操作 """
+            """添加操作"""
             pair = Entry(key, val)
             index: int = self.hash_func(key)
             self.buckets[index] = pair
 
         def remove(self, key: int) -> None:
-            """ 删除操作 """
+            """删除操作"""
             index: int = self.hash_func(key)
             # 置为 None ，代表删除
             self.buckets[index] = None
 
         def entry_set(self) -> list[Entry]:
-            """ 获取所有键值对 """
+            """获取所有键值对"""
             result: list[Entry] = []
             for pair in self.buckets:
                 if pair is not None:
@@ -653,7 +655,7 @@ $$
             return result
 
         def key_set(self) -> list[int]:
-            """ 获取所有键 """
+            """获取所有键"""
             result: list[int] = []
             for pair in self.buckets:
                 if pair is not None:
@@ -661,7 +663,7 @@ $$
             return result
 
         def value_set(self) -> list[str]:
-            """ 获取所有值 """
+            """获取所有值"""
             result: list[str] = []
             for pair in self.buckets:
                 if pair is not None:
@@ -669,7 +671,7 @@ $$
             return result
 
         def print(self) -> None:
-            """ 打印哈希表 """
+            """打印哈希表"""
             for pair in self.buckets:
                 if pair is not None:
                     print(pair.key, "->", pair.val)

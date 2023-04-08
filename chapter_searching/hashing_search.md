@@ -46,7 +46,7 @@ comments: true
 
     ```python title="hashing_search.py"
     def hashing_search_array(mapp: dict[int, int], target: int) -> int:
-        """ 哈希查找（数组） """
+        """哈希查找（数组）"""
         # 哈希表的 key: 目标元素，value: 索引
         # 若哈希表中无此 key ，返回 -1
         return mapp.get(target, -1)
@@ -163,11 +163,8 @@ comments: true
 === "Python"
 
     ```python title="hashing_search.py"
-    def hashing_search_linkedlist(mapp: dict[int, ListNode], target: int) -> ListNode | None:
-        """ 哈希查找（链表） """
-        # 哈希表的 key: 目标元素，value: 节点对象
-        # 若哈希表中无此 key ，返回 None
-        return mapp.get(target, None)
+    def hashing_search_linkedlist(
+        mapp: dict[int, ListNode], target: int
     ```
 
 === "Go"

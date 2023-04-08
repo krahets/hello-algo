@@ -81,7 +81,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     def search(self, num: int) -> TreeNode | None:
-        """ 查找节点 """
+        """查找节点"""
         cur: TreeNode | None = self.__root
         # 循环查找，越过叶节点后跳出
         while cur is not None:
@@ -309,11 +309,11 @@ comments: true
 
     ```python title="binary_search_tree.py"
     def insert(self, num: int) -> TreeNode | None:
-        """ 插入节点 """
+        """插入节点"""
         # 若树为空，直接提前返回
         if self.__root is None:
             return None
-        
+
         # 循环查找，越过叶节点后跳出
         cur, pre = self.__root, None
         while cur is not None:
@@ -692,7 +692,7 @@ comments: true
 
     ```python title="binary_search_tree.py"
     def remove(self, num: int) -> TreeNode | None:
-        """ 删除节点 """
+        """删除节点"""
         # 若树为空，直接提前返回
         if self.__root is None:
             return None
@@ -733,7 +733,7 @@ comments: true
         return cur
 
     def get_inorder_next(self, root: TreeNode | None) -> TreeNode | None:
-        """ 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） """
+        """获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况）"""
         if root is None:
             return root
         # 循环访问左子节点，直到叶节点时为最小节点，跳出

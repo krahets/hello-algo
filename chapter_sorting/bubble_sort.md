@@ -90,7 +90,7 @@ comments: true
 
     ```python title="bubble_sort.py"
     def bubble_sort(nums: list[int]) -> None:
-        """ 冒泡排序 """
+        """冒泡排序"""
         n: int = len(nums)
         # 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for i in range(n - 1, 0, -1):
@@ -294,7 +294,7 @@ comments: true
 
     ```python title="bubble_sort.py"
     def bubble_sort_with_flag(nums: list[int]) -> None:
-        """ 冒泡排序（标志优化） """
+        """冒泡排序（标志优化）"""
         n: int = len(nums)
         # 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for i in range(n - 1, 0, -1):
@@ -306,7 +306,7 @@ comments: true
                     nums[j], nums[j + 1] = nums[j + 1], nums[j]
                     flag = True  # 记录交换元素
             if not flag:
-                break            # 此轮冒泡未交换任何元素，直接跳出
+                break  # 此轮冒泡未交换任何元素，直接跳出
     ```
 
 === "Go"

@@ -66,8 +66,8 @@ comments: true
 
     ```python title="insertion_sort.py"
     def insertion_sort(nums: list[int]) -> None:
-        """ 插入排序 """
-        # 外循环：base = nums[1], nums[2], ..., nums[n-1]   
+        """插入排序"""
+        # 外循环：base = nums[1], nums[2], ..., nums[n-1]
         for i in range(1, len(nums)):
             base: int = nums[i]
             j: int = i - 1
@@ -75,7 +75,7 @@ comments: true
             while j >= 0 and nums[j] > base:
                 nums[j + 1] = nums[j]  # 1. 将 nums[j] 向右移动一位
                 j -= 1
-            nums[j + 1] = base         # 2. 将 base 赋值到正确位置
+            nums[j + 1] = base  # 2. 将 base 赋值到正确位置
     ```
 
 === "Go"

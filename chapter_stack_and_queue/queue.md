@@ -428,23 +428,24 @@ comments: true
 
     ```python title="linkedlist_queue.py"
     class LinkedListQueue:
-        """ 基于链表实现的队列 """
+        """基于链表实现的队列"""
+
         def __init__(self):
-            """ 构造方法 """
+            """构造方法"""
             self.__front: ListNode | None = None  # 头节点 front
-            self.__rear: ListNode | None = None   # 尾节点 rear
+            self.__rear: ListNode | None = None  # 尾节点 rear
             self.__size: int = 0
 
         def size(self) -> int:
-            """ 获取队列的长度 """
+            """获取队列的长度"""
             return self.__size
 
         def is_empty(self) -> bool:
-            """ 判断队列是否为空 """
+            """判断队列是否为空"""
             return not self.__front
 
         def push(self, num: int) -> None:
-            """ 入队 """
+            """入队"""
             # 尾节点后添加 num
             node = ListNode(num)
             # 如果队列为空，则令头、尾节点都指向该节点
@@ -458,7 +459,7 @@ comments: true
             self.__size += 1
 
         def pop(self) -> int:
-            """ 出队 """
+            """出队"""
             num = self.peek()
             # 删除头节点
             self.__front = self.__front.next
@@ -466,14 +467,14 @@ comments: true
             return num
 
         def peek(self) -> int:
-            """ 访问队首元素 """
+            """访问队首元素"""
             if self.size() == 0:
                 print("队列为空")
                 return False
             return self.__front.val
 
         def to_list(self) -> list[int]:
-            """ 转化为列表用于打印 """
+            """转化为列表用于打印"""
             queue = []
             temp = self.__front
             while temp:
@@ -1103,27 +1104,28 @@ comments: true
 
     ```python title="array_queue.py"
     class ArrayQueue:
-        """ 基于环形数组实现的队列 """
+        """基于环形数组实现的队列"""
+
         def __init__(self, size: int) -> None:
-            """ 构造方法 """
+            """构造方法"""
             self.__nums: list[int] = [0] * size  # 用于存储队列元素的数组
-            self.__front: int = 0          # 队首指针，指向队首元素
-            self.__size: int = 0           # 队列长度
+            self.__front: int = 0  # 队首指针，指向队首元素
+            self.__size: int = 0  # 队列长度
 
         def capacity(self) -> int:
-            """ 获取队列的容量 """
+            """获取队列的容量"""
             return len(self.__nums)
 
         def size(self) -> int:
-            """ 获取队列的长度 """
+            """获取队列的长度"""
             return self.__size
 
         def is_empty(self) -> bool:
-            """ 判断队列是否为空 """
+            """判断队列是否为空"""
             return self.__size == 0
 
         def push(self, num: int) -> None:
-            """ 入队 """
+            """入队"""
             assert self.__size < self.capacity(), "队列已满"
             # 计算尾指针，指向队尾索引 + 1
             # 通过取余操作，实现 rear 越过数组尾部后回到头部
@@ -1133,7 +1135,7 @@ comments: true
             self.__size += 1
 
         def pop(self) -> int:
-            """ 出队 """
+            """出队"""
             num: int = self.peek()
             # 队首指针向后移动一位，若越过尾部则返回到数组头部
             self.__front = (self.__front + 1) % self.capacity()
@@ -1141,12 +1143,12 @@ comments: true
             return num
 
         def peek(self) -> int:
-            """ 访问队首元素 """
+            """访问队首元素"""
             assert not self.is_empty(), "队列为空"
             return self.__nums[self.__front]
 
         def to_list(self) -> list[int]:
-            """ 返回列表用于打印 """
+            """返回列表用于打印"""
             res: list[int] = [0] * self.size()
             j: int = self.__front
             for i in range(self.size()):

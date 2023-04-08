@@ -50,12 +50,12 @@ comments: true
 
     ```python title="linear_search.py"
     def linear_search_array(nums: list[int], target: int) -> int:
-        """ 线性查找（数组） """
+        """线性查找（数组）"""
         # 遍历数组
         for i in range(len(nums)):
             if nums[i] == target:  # 找到目标元素，返回其索引
                 return i
-        return -1                  # 未找到目标元素，返回 -1
+        return -1  # 未找到目标元素，返回 -1
     ```
 
 === "Go"
@@ -207,13 +207,13 @@ comments: true
 
     ```python title="linear_search.py"
     def linear_search_linkedlist(head: ListNode, target: int) -> ListNode | None:
-        """ 线性查找（链表） """
+        """线性查找（链表）"""
         # 遍历链表
         while head:
-            if head.val == target: # 找到目标节点，返回之
+            if head.val == target:  # 找到目标节点，返回之
                 return head
             head = head.next
-        return None                # 未找到目标节点，返回 None
+        return None  # 未找到目标节点，返回 None
     ```
 
 === "Go"
