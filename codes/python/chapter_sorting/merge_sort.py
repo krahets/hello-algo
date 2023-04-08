@@ -4,12 +4,13 @@ Created Time: 2022-11-25
 Author: timi (xisunyy@163.com)
 """
 
+
 def merge(nums: list[int], left: int, mid: int, right: int) -> None:
-    """ 合并左子数组和右子数组 """
+    """合并左子数组和右子数组"""
     # 左子数组区间 [left, mid]
     # 右子数组区间 [mid + 1, right]
     # 初始化辅助数组
-    tmp: list[int] = list(nums[left:right + 1])
+    tmp: list[int] = list(nums[left : right + 1])
     # 左子数组的起始索引和结束索引
     left_start: int = 0
     left_end: int = mid - left
@@ -34,21 +35,22 @@ def merge(nums: list[int], left: int, mid: int, right: int) -> None:
             nums[k] = tmp[j]
             j += 1
 
+
 def merge_sort(nums: list[int], left: int, right: int) -> None:
-    """ 归并排序 """
+    """归并排序"""
     # 终止条件
     if left >= right:
-        return                        # 当子数组长度为 1 时终止递归
+        return  # 当子数组长度为 1 时终止递归
     # 划分阶段
-    mid: int = (left + right) // 2    # 计算中点
-    merge_sort(nums, left, mid)       # 递归左子数组
+    mid: int = (left + right) // 2  # 计算中点
+    merge_sort(nums, left, mid)  # 递归左子数组
     merge_sort(nums, mid + 1, right)  # 递归右子数组
     # 合并阶段
     merge(nums, left, mid, right)
 
 
 """ Driver Code """
-if __name__ == '__main__':
-    nums: list[int] = [ 7, 3, 2, 6, 0, 1, 5, 4 ]
+if __name__ == "__main__":
+    nums: list[int] = [7, 3, 2, 6, 0, 1, 5, 4]
     merge_sort(nums, 0, len(nums) - 1)
     print("归并排序完成后 nums =", nums)

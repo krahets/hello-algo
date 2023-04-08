@@ -5,13 +5,16 @@ Author: Krahets (krahets@163.com)
 """
 
 import sys, os.path as osp
+
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
+
 class MaxHeap:
-    """ 大顶堆 """
+    """大顶堆"""
+
     def __init__(self, nums: list[int]):
-        """ 构造方法 """
+        """构造方法"""
         # 将列表元素原封不动添加进堆
         self.max_heap = nums
         # 堆化除叶节点以外的其他所有节点
@@ -19,43 +22,43 @@ class MaxHeap:
             self.sift_down(i)
 
     def left(self, i: int) -> int:
-        """ 获取左子节点索引 """
+        """获取左子节点索引"""
         return 2 * i + 1
 
     def right(self, i: int) -> int:
-        """ 获取右子节点索引 """
+        """获取右子节点索引"""
         return 2 * i + 2
 
     def parent(self, i: int) -> int:
-        """ 获取父节点索引 """
+        """获取父节点索引"""
         return (i - 1) // 2  # 向下整除
 
     def swap(self, i: int, j: int):
-        """ 交换元素 """
+        """交换元素"""
         a, b = self.max_heap[i], self.max_heap[j]
         self.max_heap[i], self.max_heap[j] = b, a
 
     def size(self) -> int:
-        """ 获取堆大小 """
+        """获取堆大小"""
         return len(self.max_heap)
 
     def is_empty(self) -> bool:
-        """ 判断堆是否为空 """
+        """判断堆是否为空"""
         return self.size() == 0
 
     def peek(self) -> int:
-        """ 访问堆顶元素 """
+        """访问堆顶元素"""
         return self.max_heap[0]
 
     def push(self, val: int):
-        """ 元素入堆 """
+        """元素入堆"""
         # 添加节点
         self.max_heap.append(val)
         # 从底至顶堆化
         self.sift_up(self.size() - 1)
 
     def sift_up(self, i: int):
-        """ 从节点 i 开始，从底至顶堆化 """
+        """从节点 i 开始，从底至顶堆化"""
         while True:
             # 获取节点 i 的父节点
             p = self.parent(i)
@@ -68,7 +71,7 @@ class MaxHeap:
             i = p
 
     def pop(self) -> int:
-        """ 元素出堆 """
+        """元素出堆"""
         # 判空处理
         assert not self.is_empty()
         # 交换根节点与最右叶节点（即交换首元素与尾元素）
@@ -81,7 +84,7 @@ class MaxHeap:
         return val
 
     def sift_down(self, i: int):
-        """ 从节点 i 开始，从顶至底堆化 """
+        """从节点 i 开始，从顶至底堆化"""
         while True:
             # 判断节点 i, l, r 中值最大的节点，记为 ma
             l, r, ma = self.left(i), self.right(i), i
@@ -98,7 +101,7 @@ class MaxHeap:
             i = ma
 
     def print(self):
-        """ 打印堆（二叉树） """
+        """打印堆（二叉树）"""
         print_heap(self.max_heap)
 
 
