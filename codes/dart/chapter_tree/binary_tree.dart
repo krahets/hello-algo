@@ -9,7 +9,7 @@ import '../utils/tree_node.dart';
 
 void main() {
   /* 初始化二叉树 */
-  // 舒适化结点
+  // 舒适化节点
   TreeNode n1 = TreeNode(1);
   TreeNode n2 = TreeNode(2);
   TreeNode n3 = TreeNode(3);
@@ -23,15 +23,15 @@ void main() {
   print("\n初始化二叉树\n");
   printTree(n1);
 
-  /* 插入与删除结点 */
+  /* 插入与删除节点 */
   TreeNode p = TreeNode(0);
-  // 在 n1 -> n2 中间插入结点 p
+  // 在 n1 -> n2 中间插入节点 p
   n1.left = p;
   p.left = n2;
-  print("\n插入结点 P 后\n");
+  print("\n插入节点 P 后\n");
   printTree(n1);
-  // 删除结点 P
+  // 删除节点 P
   n1.left = n2;
-  print("\n删除结点 P 后\n");
+  print("\n删除节点 P 后\n");
   printTree(n1);
 }

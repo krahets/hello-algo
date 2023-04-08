@@ -2,19 +2,19 @@
 
 内存空间是所有程序的公共资源，排除已被占用的内存空间，空闲内存空间通常散落在内存各处。在上一节中，我们提到存储数组的内存空间必须是连续的，而当我们需要申请一个非常大的数组时，空闲内存中可能没有这么大的连续空间。
 
-与数组相比，链表更具灵活性，因为它可以存储在非连续的内存空间。「链表 Linked List」是一种线性数据结构，其每个元素都是一个结点对象，各个结点之间通过指针连接，从当前结点通过指针可以访问到下一个结点。由于指针记录了下个结点的内存地址，因此无需保证内存地址的连续性，从而可以将各个结点分散存储在内存各处。
+与数组相比，链表更具灵活性，因为它可以存储在非连续的内存空间。「链表 Linked List」是一种线性数据结构，其每个元素都是一个节点对象，各个节点之间通过指针连接，从当前节点通过指针可以访问到下一个节点。由于指针记录了下个节点的内存地址，因此无需保证内存地址的连续性，从而可以将各个节点分散存储在内存各处。
 
-链表「结点 Node」包含两项数据，一是结点「值 Value」，二是指向下一结点的「指针 Pointer」，或称指向下一结点的「引用 Reference」。
+链表「节点 Node」包含两项数据，一是节点「值 Value」，二是指向下一节点的「指针 Pointer」，或称指向下一节点的「引用 Reference」。
 
 ![链表定义与存储方式](linked_list.assets/linkedlist_definition.png)
 
 === "Java"
 
     ```java title=""
-    /* 链表结点类 */
+    /* 链表节点类 */
     class ListNode {
-        int val;        // 结点值
-        ListNode next;  // 指向下一结点的指针（引用）
+        int val;        // 节点值
+        ListNode next;  // 指向下一节点的指针（引用）
         ListNode(int x) { val = x; }  // 构造函数
     }
     ```
@@ -22,10 +22,10 @@
 === "C++"
 
     ```cpp title=""
-    /* 链表结点结构体 */
+    /* 链表节点结构体 */
     struct ListNode {
-        int val;         // 结点值
-        ListNode *next;  // 指向下一结点的指针（引用）
+        int val;         // 节点值
+        ListNode *next;  // 指向下一节点的指针（引用）
         ListNode(int x) : val(x), next(nullptr) {}  // 构造函数
     };
     ```
@@ -33,20 +33,20 @@
 === "Python"
 
     ```python title=""
-    """ 链表结点类 """ 
+    """ 链表节点类 """ 
     class ListNode:
         def __init__(self, val: int):
-            self.val: int = val                  # 结点值
-            self.next: Optional[ListNode] = None # 指向下一结点的指针（引用）
+            self.val: int = val                  # 节点值
+            self.next: Optional[ListNode] = None # 指向下一节点的指针（引用）
     ```
 
 === "Go"
 
     ```go title=""
-    /* 链表结点结构体 */
+    /* 链表节点结构体 */
     type ListNode struct {
-        Val  int       // 结点值
-        Next *ListNode // 指向下一结点的指针（引用）
+        Val  int       // 节点值
+        Next *ListNode // 指向下一节点的指针（引用）
     }
     
     // NewListNode 构造函数，创建一个新的链表
@@ -61,13 +61,13 @@
 === "JavaScript"
 
     ```javascript title=""
-    /* 链表结点类 */
+    /* 链表节点类 */
     class ListNode {
         val;
         next;
         constructor(val, next) {
-            this.val = (val === undefined ? 0 : val);       // 结点值
-            this.next = (next === undefined ? null : next); // 指向下一结点的引用
+            this.val = (val === undefined ? 0 : val);       // 节点值
+            this.next = (next === undefined ? null : next); // 指向下一节点的引用
         }
     }
     ```
@@ -75,13 +75,13 @@
 === "TypeScript"
 
     ```typescript title=""
-    /* 链表结点类 */
+    /* 链表节点类 */
     class ListNode {
         val: number;
         next: ListNode | null;
         constructor(val?: number, next?: ListNode | null) {
-            this.val = val === undefined ? 0 : val;        // 结点值
-            this.next = next === undefined ? null : next;  // 指向下一结点的引用
+            this.val = val === undefined ? 0 : val;        // 节点值
+            this.next = next === undefined ? null : next;  // 指向下一节点的引用
         }
     }
     ```
@@ -89,16 +89,16 @@
 === "C"
 
     ```c title=""
-    /* 链表结点结构体 */
+    /* 链表节点结构体 */
     struct ListNode {
-        int val;               // 结点值
-        struct ListNode *next; // 指向下一结点的指针（引用）
+        int val;               // 节点值
+        struct ListNode *next; // 指向下一节点的指针（引用）
     };
 
     // typedef 作用是为一种数据类型定义一个新名字
     typedef struct ListNode ListNode;
 
-    /* 构造函数，初始化一个新结点 */
+    /* 构造函数，初始化一个新节点 */
     ListNode *newListNode(int val) {
         ListNode *node, *next;
         node = (ListNode *) malloc(sizeof(ListNode));
@@ -111,11 +111,11 @@
 === "C#"
 
     ```csharp title=""
-    /* 链表结点类 */
+    /* 链表节点类 */
     class ListNode
     {
-        int val;         // 结点值
-        ListNode next;   // 指向下一结点的引用
+        int val;         // 节点值
+        ListNode next;   // 指向下一节点的引用
         ListNode(int x) => val = x;  //构造函数
     }
     ```
@@ -123,10 +123,10 @@
 === "Swift"
 
     ```swift title=""
-    /* 链表结点类 */
+    /* 链表节点类 */
     class ListNode {
-        var val: Int // 结点值
-        var next: ListNode? // 指向下一结点的指针（引用）
+        var val: Int // 节点值
+        var next: ListNode? // 指向下一节点的指针（引用）
 
         init(x: Int) { // 构造函数
             val = x
@@ -137,13 +137,13 @@
 === "Zig"
 
     ```zig title=""
-    // 链表结点类
+    // 链表节点类
     pub fn ListNode(comptime T: type) type {
         return struct {
             const Self = @This();
             
-            val: T = 0, // 结点值
-            next: ?*Self = null, // 指向下一结点的指针（引用）
+            val: T = 0, // 节点值
+            next: ?*Self = null, // 指向下一节点的指针（引用）
 
             // 构造函数
             pub fn init(self: *Self, x: i32) void {
@@ -154,21 +154,21 @@
     }
     ```
 
-!!! question "尾结点指向什么？"
+!!! question "尾节点指向什么？"
 
-    我们将链表的最后一个结点称为「尾结点」，其指向的是“空”，在 Java, C++, Python 中分别记为 `null`, `nullptr`, `None` 。在不引起歧义的前提下，本书都使用 `null` 来表示空。
+    我们将链表的最后一个节点称为「尾节点」，其指向的是“空”，在 Java, C++, Python 中分别记为 `null`, `nullptr`, `None` 。在不引起歧义的前提下，本书都使用 `null` 来表示空。
 
 !!! question "如何称呼链表？"
 
-    在编程语言中，数组整体就是一个变量，例如数组 `nums` ，包含各个元素 `nums[0]` , `nums[1]` 等等。而链表是由多个结点对象组成，我们通常将头结点当作链表的代称，例如头结点 `head` 和链表 `head` 实际上是同义的。
+    在编程语言中，数组整体就是一个变量，例如数组 `nums` ，包含各个元素 `nums[0]` , `nums[1]` 等等。而链表是由多个节点对象组成，我们通常将头节点当作链表的代称，例如头节点 `head` 和链表 `head` 实际上是同义的。
 
-**链表初始化方法**。建立链表分为两步，第一步是初始化各个结点对象，第二步是构建引用指向关系。完成后，即可以从链表的头结点（即首个结点）出发，通过指针 `next` 依次访问所有结点。
+**链表初始化方法**。建立链表分为两步，第一步是初始化各个节点对象，第二步是构建引用指向关系。完成后，即可以从链表的头节点（即首个节点）出发，通过指针 `next` 依次访问所有节点。
 
 === "Java"
 
     ```java title="linked_list.java"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个结点 
+    // 初始化各个节点 
     ListNode n0 = new ListNode(1);
     ListNode n1 = new ListNode(3);
     ListNode n2 = new ListNode(2);
@@ -185,7 +185,7 @@
 
     ```cpp title="linked_list.cpp"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个结点 
+    // 初始化各个节点 
     ListNode* n0 = new ListNode(1);
     ListNode* n1 = new ListNode(3);
     ListNode* n2 = new ListNode(2);
@@ -202,7 +202,7 @@
 
     ```python title="linked_list.py"
     """ 初始化链表 1 -> 3 -> 2 -> 5 -> 4 """
-    # 初始化各个结点 
+    # 初始化各个节点 
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)
@@ -219,7 +219,7 @@
 
     ```go title="linked_list.go"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个结点
+    // 初始化各个节点
     n0 := NewListNode(1)
     n1 := NewListNode(3)
     n2 := NewListNode(2)
@@ -236,7 +236,7 @@
 
     ```javascript title="linked_list.js"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个结点
+    // 初始化各个节点
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
@@ -253,7 +253,7 @@
 
     ```typescript title="linked_list.ts"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个结点
+    // 初始化各个节点
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
@@ -270,7 +270,7 @@
 
     ```c title="linked_list.c"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个结点 
+    // 初始化各个节点 
     ListNode* n0 = newListNode(1);
     ListNode* n1 = newListNode(3);
     ListNode* n2 = newListNode(2);
@@ -287,7 +287,7 @@
 
     ```csharp title="linked_list.cs"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个结点 
+    // 初始化各个节点 
     ListNode n0 = new ListNode(1);
     ListNode n1 = new ListNode(3);
     ListNode n2 = new ListNode(2);
@@ -304,7 +304,7 @@
 
     ```swift title="linked_list.swift"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个结点
+    // 初始化各个节点
     let n0 = ListNode(x: 1)
     let n1 = ListNode(x: 3)
     let n2 = ListNode(x: 2)
@@ -321,7 +321,7 @@
 
     ```zig title="linked_list.zig"
     // 初始化链表
-    // 初始化各个结点 
+    // 初始化各个节点 
     var n0 = inc.ListNode(i32){.val = 1};
     var n1 = inc.ListNode(i32){.val = 3};
     var n2 = inc.ListNode(i32){.val = 2};
@@ -336,9 +336,9 @@
 
 ## 链表优点
 
-**链表中插入与删除结点的操作效率高**。例如，如果我们想在链表中间的两个结点 `A` , `B` 之间插入一个新结点 `P` ，我们只需要改变两个结点指针即可，时间复杂度为 $O(1)$ ；相比之下，数组的插入操作效率要低得多。
+**链表中插入与删除节点的操作效率高**。例如，如果我们想在链表中间的两个节点 `A` , `B` 之间插入一个新节点 `P` ，我们只需要改变两个节点指针即可，时间复杂度为 $O(1)$ ；相比之下，数组的插入操作效率要低得多。
 
-![链表插入结点](linked_list.assets/linkedlist_insert_node.png)
+![链表插入节点](linked_list.assets/linkedlist_insert_node.png)
 
 === "Java"
 
@@ -400,9 +400,9 @@
     [class]{}-[func]{insert}
     ```
 
-在链表中删除结点也非常方便，只需改变一个结点的指针即可。如下图所示，尽管在删除操作完成后，结点 `P` 仍然指向 `n1`，但实际上 `P` 已经不再属于此链表，因为遍历此链表时无法访问到 `P`。
+在链表中删除节点也非常方便，只需改变一个节点的指针即可。如下图所示，尽管在删除操作完成后，节点 `P` 仍然指向 `n1`，但实际上 `P` 已经不再属于此链表，因为遍历此链表时无法访问到 `P`。
 
-![链表删除结点](linked_list.assets/linkedlist_remove_node.png)
+![链表删除节点](linked_list.assets/linkedlist_remove_node.png)
 
 === "Java"
 
@@ -466,7 +466,7 @@
 
 ## 链表缺点
 
-**链表访问结点效率较低**。如上节所述，数组可以在 $O(1)$ 时间下访问任意元素。然而，链表无法直接访问任意结点，这是因为系统需要从头结点出发，逐个向后遍历直至找到目标结点。例如，若要访问链表索引为 `index`（即第 `index + 1` 个）的结点，则需要向后遍历 `index` 轮。
+**链表访问节点效率较低**。如上节所述，数组可以在 $O(1)$ 时间下访问任意元素。然而，链表无法直接访问任意节点，这是因为系统需要从头节点出发，逐个向后遍历直至找到目标节点。例如，若要访问链表索引为 `index`（即第 `index + 1` 个）的节点，则需要向后遍历 `index` 轮。
 
 === "Java"
 
@@ -528,11 +528,11 @@
     [class]{}-[func]{access}
     ```
 
-**链表的内存占用较大**。链表以结点为单位，每个结点除了保存值之外，还需额外保存指针（引用）。这意味着在相同数据量的情况下，链表比数组需要占用更多的内存空间。
+**链表的内存占用较大**。链表以节点为单位，每个节点除了保存值之外，还需额外保存指针（引用）。这意味着在相同数据量的情况下，链表比数组需要占用更多的内存空间。
 
 ## 链表常用操作
 
-**遍历链表查找**。遍历链表，查找链表内值为 `target` 的结点，输出结点在链表中的索引。
+**遍历链表查找**。遍历链表，查找链表内值为 `target` 的节点，输出节点在链表中的索引。
 
 === "Java"
 
@@ -596,20 +596,20 @@
 
 ## 常见链表类型
 
-**单向链表**。即上述介绍的普通链表。单向链表的结点包含值和指向下一结点的指针（引用）两项数据。我们将首个结点称为头结点，将最后一个结点成为尾结点，尾结点指向 `null` 。
+**单向链表**。即上述介绍的普通链表。单向链表的节点包含值和指向下一节点的指针（引用）两项数据。我们将首个节点称为头节点，将最后一个节点成为尾节点，尾节点指向 `null` 。
 
-**环形链表**。如果我们令单向链表的尾结点指向头结点（即首尾相接），则得到一个环形链表。在环形链表中，任意结点都可以视作头结点。
+**环形链表**。如果我们令单向链表的尾节点指向头节点（即首尾相接），则得到一个环形链表。在环形链表中，任意节点都可以视作头节点。
 
-**双向链表**。与单向链表相比，双向链表记录了两个方向的指针（引用）。双向链表的结点定义同时包含指向后继结点（下一结点）和前驱结点（上一结点）的指针。相较于单向链表，双向链表更具灵活性，可以朝两个方向遍历链表，但相应地也需要占用更多的内存空间。
+**双向链表**。与单向链表相比，双向链表记录了两个方向的指针（引用）。双向链表的节点定义同时包含指向后继节点（下一节点）和前驱节点（上一节点）的指针。相较于单向链表，双向链表更具灵活性，可以朝两个方向遍历链表，但相应地也需要占用更多的内存空间。
 
 === "Java"
 
     ```java title=""
-    /* 双向链表结点类 */
+    /* 双向链表节点类 */
     class ListNode {
-        int val;        // 结点值
-        ListNode next;  // 指向后继结点的指针（引用）
-        ListNode prev;  // 指向前驱结点的指针（引用）
+        int val;        // 节点值
+        ListNode next;  // 指向后继节点的指针（引用）
+        ListNode prev;  // 指向前驱节点的指针（引用）
         ListNode(int x) { val = x; }  // 构造函数
     }
     ```
@@ -617,11 +617,11 @@
 === "C++"
 
     ```cpp title=""
-    /* 双向链表结点结构体 */
+    /* 双向链表节点结构体 */
     struct ListNode {
-        int val;         // 结点值
-        ListNode *next;  // 指向后继结点的指针（引用）
-        ListNode *prev;  // 指向前驱结点的指针（引用）
+        int val;         // 节点值
+        ListNode *next;  // 指向后继节点的指针（引用）
+        ListNode *prev;  // 指向前驱节点的指针（引用）
         ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // 构造函数
     };
     ```
@@ -629,22 +629,22 @@
 === "Python"
 
     ```python title=""
-    """ 双向链表结点类 """ 
+    """ 双向链表节点类 """ 
     class ListNode:
         def __init__(self, val: int):
-            self.val: int = val                   # 结点值
-            self.next: Optional[ListNode] = None  # 指向后继结点的指针（引用）
-            self.prev: Optional[ListNode] = None  # 指向前驱结点的指针（引用）
+            self.val: int = val                   # 节点值
+            self.next: Optional[ListNode] = None  # 指向后继节点的指针（引用）
+            self.prev: Optional[ListNode] = None  # 指向前驱节点的指针（引用）
     ```
 
 === "Go"
 
     ```go title=""
-    /* 双向链表结点结构体 */
+    /* 双向链表节点结构体 */
     type DoublyListNode struct {
-        Val  int             // 结点值
-        Next *DoublyListNode // 指向后继结点的指针（引用）
-        Prev *DoublyListNode // 指向前驱结点的指针（引用）
+        Val  int             // 节点值
+        Next *DoublyListNode // 指向后继节点的指针（引用）
+        Prev *DoublyListNode // 指向前驱节点的指针（引用）
     }
     
     // NewDoublyListNode 初始化
@@ -660,15 +660,15 @@
 === "JavaScript"
 
     ```javascript title=""
-    /* 双向链表结点类 */
+    /* 双向链表节点类 */
     class ListNode {
         val;
         next;
         prev;
         constructor(val, next) {
-            this.val = val  ===  undefined ? 0 : val;        // 结点值
-            this.next = next  ===  undefined ? null : next;  // 指向后继结点的指针（引用）
-            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的指针（引用）
+            this.val = val  ===  undefined ? 0 : val;        // 节点值
+            this.next = next  ===  undefined ? null : next;  // 指向后继节点的指针（引用）
+            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱节点的指针（引用）
         }
     }
     ```
@@ -676,15 +676,15 @@
 === "TypeScript"
 
     ```typescript title=""
-    /* 双向链表结点类 */
+    /* 双向链表节点类 */
     class ListNode {
         val: number;
         next: ListNode | null;
         prev: ListNode | null;
         constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
-            this.val = val  ===  undefined ? 0 : val;        // 结点值
-            this.next = next  ===  undefined ? null : next;  // 指向后继结点的指针（引用）
-            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱结点的指针（引用）
+            this.val = val  ===  undefined ? 0 : val;        // 节点值
+            this.next = next  ===  undefined ? null : next;  // 指向后继节点的指针（引用）
+            this.prev = prev  ===  undefined ? null : prev;  // 指向前驱节点的指针（引用）
         }
     }
     ```
@@ -698,11 +698,11 @@
 === "C#"
 
     ```csharp title=""
-    /* 双向链表结点类 */
+    /* 双向链表节点类 */
     class ListNode {
-        int val;        // 结点值
-        ListNode next;  // 指向后继结点的指针（引用）
-        ListNode prev;  // 指向前驱结点的指针（引用）
+        int val;        // 节点值
+        ListNode next;  // 指向后继节点的指针（引用）
+        ListNode prev;  // 指向前驱节点的指针（引用）
         ListNode(int x) => val = x;  // 构造函数
     }
     ```
@@ -710,11 +710,11 @@
 === "Swift"
 
     ```swift title=""
-    /* 双向链表结点类 */
+    /* 双向链表节点类 */
     class ListNode {
-        var val: Int // 结点值
-        var next: ListNode? // 指向后继结点的指针（引用）
-        var prev: ListNode? // 指向前驱结点的指针（引用）
+        var val: Int // 节点值
+        var next: ListNode? // 指向后继节点的指针（引用）
+        var prev: ListNode? // 指向前驱节点的指针（引用）
 
         init(x: Int) { // 构造函数
             val = x
@@ -725,14 +725,14 @@
 === "Zig"
 
     ```zig title=""
-    // 双向链表结点类
+    // 双向链表节点类
     pub fn ListNode(comptime T: type) type {
         return struct {
             const Self = @This();
             
-            val: T = 0, // 结点值
-            next: ?*Self = null, // 指向后继结点的指针（引用）
-            prev: ?*Self = null, // 指向前驱结点的指针（引用）
+            val: T = 0, // 节点值
+            next: ?*Self = null, // 指向后继节点的指针（引用）
+            prev: ?*Self = null, // 指向前驱节点的指针（引用）
 
             // 构造函数
             pub fn init(self: *Self, x: i32) void {

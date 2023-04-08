@@ -12,7 +12,7 @@ vector<int> vec;
 /* 前序遍历 */
 void preOrder(TreeNode* root) {
     if (root == nullptr) return;
-    // 访问优先级：根结点 -> 左子树 -> 右子树
+    // 访问优先级：根节点 -> 左子树 -> 右子树
     vec.push_back(root->val);
     preOrder(root->left);
     preOrder(root->right);
@@ -21,7 +21,7 @@ void preOrder(TreeNode* root) {
 /* 中序遍历 */
 void inOrder(TreeNode* root) {
     if (root == nullptr) return;
-    // 访问优先级：左子树 -> 根结点 -> 右子树
+    // 访问优先级：左子树 -> 根节点 -> 右子树
     inOrder(root->left);
     vec.push_back(root->val);
     inOrder(root->right);
@@ -30,7 +30,7 @@ void inOrder(TreeNode* root) {
 /* 后序遍历 */
 void postOrder(TreeNode* root) {
     if (root == nullptr) return;
-    // 访问优先级：左子树 -> 右子树 -> 根结点
+    // 访问优先级：左子树 -> 右子树 -> 根节点
     postOrder(root->left);
     postOrder(root->right);
     vec.push_back(root->val);
@@ -48,19 +48,19 @@ int main() {
     /* 前序遍历 */
     vec.clear();
     preOrder(root);
-    cout << endl << "前序遍历的结点打印序列 = ";
+    cout << endl << "前序遍历的节点打印序列 = ";
     PrintUtil::printVector(vec);
 
     /* 中序遍历 */
     vec.clear();
     inOrder(root);
-    cout << endl << "中序遍历的结点打印序列 = ";
+    cout << endl << "中序遍历的节点打印序列 = ";
     PrintUtil::printVector(vec);
 
     /* 后序遍历 */
     vec.clear();
     postOrder(root);
-    cout << endl << "后序遍历的结点打印序列 = ";
+    cout << endl << "后序遍历的节点打印序列 = ";
     PrintUtil::printVector(vec);
     
     return 0;

@@ -8,11 +8,11 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* 双向链表结点 */
+/* 双向链表节点 */
 class ListNode {
-    int val;       // 结点值
-    ListNode next; // 后继结点引用（指针）
-    ListNode prev; // 前驱结点引用（指针）
+    int val;       // 节点值
+    ListNode next; // 后继节点引用（指针）
+    ListNode prev; // 前驱节点引用（指针）
     ListNode(int val) {
         this.val = val;
         prev = next = null;
@@ -21,7 +21,7 @@ class ListNode {
 
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {
-    private ListNode front, rear; // 头结点 front ，尾结点 rear
+    private ListNode front, rear; // 头节点 front ，尾节点 rear
     private int queSize = 0;      // 双向队列的长度
 
     public LinkedListDeque() {
@@ -49,13 +49,13 @@ class LinkedListDeque {
             // 将 node 添加至链表头部
             front.prev = node;
             node.next = front;
-            front = node; // 更新头结点
+            front = node; // 更新头节点
         // 队尾入队操作
         } else {
             // 将 node 添加至链表尾部
             rear.next = node;
             node.prev = rear;
-            rear = node;  // 更新尾结点
+            rear = node;  // 更新尾节点
         }
         queSize++; // 更新队列长度
     }
@@ -78,24 +78,24 @@ class LinkedListDeque {
         int val;
         // 队首出队操作
         if (isFront) {
-            val = front.val; // 暂存头结点值
-            // 删除头结点
+            val = front.val; // 暂存头节点值
+            // 删除头节点
             ListNode fNext = front.next;
             if (fNext != null) {
                 fNext.prev = null;
                 front.next = null;
             }
-            front = fNext;   // 更新头结点
+            front = fNext;   // 更新头节点
         // 队尾出队操作
         } else {
-            val = rear.val;  // 暂存尾结点值
-            // 删除尾结点
+            val = rear.val;  // 暂存尾节点值
+            // 删除尾节点
             ListNode rPrev = rear.prev;
             if (rPrev != null) {
                 rPrev.next = null;
                 rear.prev = null;
             }
-            rear = rPrev;    // 更新尾结点
+            rear = rPrev;    // 更新尾节点
         }
         queSize--; // 更新队列长度
         return val;

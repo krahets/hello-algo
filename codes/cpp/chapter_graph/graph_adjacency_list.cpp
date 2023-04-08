@@ -12,7 +12,7 @@ public:
     // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
     unordered_map<Vertex*, vector<Vertex*>> adjList;
     
-    /* 在 vector 中删除指定结点 */
+    /* 在 vector 中删除指定节点 */
     void remove(vector<Vertex*> &vec, Vertex *vet) {
         for (int i = 0; i < vec.size(); i++) {
             if (vec[i] == vet) {

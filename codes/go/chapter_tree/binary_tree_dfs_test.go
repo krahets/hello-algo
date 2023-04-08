@@ -21,15 +21,15 @@ func TestPreInPostOrderTraversal(t *testing.T) {
 	// 前序遍历
 	nums = nil
 	preOrder(root)
-	fmt.Println("\n前序遍历的结点打印序列 =", nums)
+	fmt.Println("\n前序遍历的节点打印序列 =", nums)
 
 	// 中序遍历
 	nums = nil
 	inOrder(root)
-	fmt.Println("\n中序遍历的结点打印序列 =", nums)
+	fmt.Println("\n中序遍历的节点打印序列 =", nums)
 
 	// 后序遍历
 	nums = nil
 	postOrder(root)
-	fmt.Println("\n后序遍历的结点打印序列 =", nums)
+	fmt.Println("\n后序遍历的节点打印序列 =", nums)
 }

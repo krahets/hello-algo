@@ -8,7 +8,7 @@ const { ListNode } = require("../modules/ListNode");
 
 /* 基于链表实现的栈 */
 class LinkedListStack {
-    #stackPeek;     // 将头结点作为栈顶
+    #stackPeek;     // 将头节点作为栈顶
     #stkSize = 0;   // 栈的长度
 
     constructor() {

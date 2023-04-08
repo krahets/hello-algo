@@ -4,11 +4,11 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-/* 双向链表结点 */
+/* 双向链表节点 */
 class ListNode {
-    prev;   // 前驱结点引用 (指针)
-    next;   // 后继结点引用 (指针)
-    val;    // 结点值
+    prev;   // 前驱节点引用 (指针)
+    next;   // 后继节点引用 (指针)
+    val;    // 节点值
     
     constructor(val) {
         this.val = val;
@@ -19,8 +19,8 @@ class ListNode {
 
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {
-    #front;  // 头结点 front
-    #rear;   // 尾结点 rear
+    #front;  // 头节点 front
+    #rear;   // 尾节点 rear
     #queSize;    // 双向队列的长度
 
     constructor() {
@@ -40,7 +40,7 @@ class LinkedListDeque {
             // 将 node 添加至链表尾部
             this.#rear.next = node;
             node.prev = this.#rear;
-            this.#rear = node; // 更新尾结点
+            this.#rear = node; // 更新尾节点
         }
         this.#queSize++;
     }
@@ -56,7 +56,7 @@ class LinkedListDeque {
             // 将 node 添加至链表头部
             this.#front.prev = node;
             node.next = this.#front;
-            this.#front = node; // 更新头结点
+            this.#front = node; // 更新头节点
         }
         this.#queSize++;
     }
@@ -66,14 +66,14 @@ class LinkedListDeque {
         if (this.#queSize === 0) {
             return null;
         }
-        const value = this.#rear.val; // 存储尾结点值
-        // 删除尾结点
+        const value = this.#rear.val; // 存储尾节点值
+        // 删除尾节点
         let temp = this.#rear.prev;
         if (temp !== null) {
             temp.next = null;
             this.#rear.prev = null;
         }
-        this.#rear = temp;   // 更新尾结点
+        this.#rear = temp;   // 更新尾节点
         this.#queSize--;
         return value;
     }
@@ -83,14 +83,14 @@ class LinkedListDeque {
         if (this.#queSize === 0) {
             return null;
         }
-        const value = this.#front.val; // 存储尾结点值
-        // 删除头结点
+        const value = this.#front.val; // 存储尾节点值
+        // 删除头节点
         let temp = this.#front.next;
         if (temp !== null) {
             temp.prev = null;
             this.#front.next = null;
         }
-        this.#front = temp;   // 更新头结点
+        this.#front = temp;   // 更新头节点
         this.#queSize--;
         return value;
     }

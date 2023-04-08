@@ -7,14 +7,14 @@
 const { printLinkedList } = require("../modules/PrintUtil");
 const { ListNode } = require("../modules/ListNode");
 
-/* 在链表的结点 n0 之后插入结点 P */
+/* 在链表的节点 n0 之后插入节点 P */
 function insert(n0, P) {
     const n1 = n0.next;
     P.next = n1;
     n0.next = P;
 }
 
-/* 删除链表的结点 n0 之后的首个结点 */
+/* 删除链表的节点 n0 之后的首个节点 */
 function remove(n0) {
     if (!n0.next)
         return;
@@ -24,7 +24,7 @@ function remove(n0) {
     n0.next = n1;
 }
 
-/* 访问链表中索引为 index 的结点 */
+/* 访问链表中索引为 index 的节点 */
 function access(head, index) {
     for (let i = 0; i < index; i++) {
         if (!head) {
@@ -35,7 +35,7 @@ function access(head, index) {
     return head;
 }
 
-/* 在链表中查找值为 target 的首个结点 */
+/* 在链表中查找值为 target 的首个节点 */
 function find(head, target) {
     let index = 0;
     while (head !== null) {
@@ -50,7 +50,7 @@ function find(head, target) {
 
 /* Driver Code */
 /* 初始化链表 */
-// 初始化各个结点
+// 初始化各个节点
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
 const n2 = new ListNode(2);
@@ -64,20 +64,20 @@ n3.next = n4;
 console.log("初始化的链表为");
 printLinkedList(n0);
 
-/* 插入结点 */
+/* 插入节点 */
 insert(n0, new ListNode(0));
-console.log("插入结点后的链表为");
+console.log("插入节点后的链表为");
 printLinkedList(n0);
 
-/* 删除结点 */
+/* 删除节点 */
 remove(n0);
-console.log("删除结点后的链表为");
+console.log("删除节点后的链表为");
 printLinkedList(n0);
 
-/* 访问结点 */
+/* 访问节点 */
 const node = access(n0, 3);
-console.log("链表中索引 3 处的结点的值 = " + node.val);
+console.log("链表中索引 3 处的节点的值 = " + node.val);
 
-/* 查找结点 */
+/* 查找节点 */
 const index = find(n0, 2);
-console.log("链表中值为 2 的结点的索引 = " + index);
+console.log("链表中值为 2 的节点的索引 = " + index);

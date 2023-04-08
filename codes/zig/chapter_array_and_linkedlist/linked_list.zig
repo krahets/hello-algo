@@ -5,14 +5,14 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 在链表的结点 n0 之后插入结点 P
+// 在链表的节点 n0 之后插入节点 P
 pub fn insert(n0: ?*inc.ListNode(i32), P: ?*inc.ListNode(i32)) void {
     var n1 = n0.?.next;
     P.?.next = n1;
     n0.?.next = P;
 }
 
-// 删除链表的结点 n0 之后的首个结点
+// 删除链表的节点 n0 之后的首个节点
 pub fn remove(n0: ?*inc.ListNode(i32)) void {
     if (n0.?.next == null) return;
     // n0 -> P -> n1
@@ -21,7 +21,7 @@ pub fn remove(n0: ?*inc.ListNode(i32)) void {
     n0.?.next = n1;
 }
 
-// 访问链表中索引为 index 的结点
+// 访问链表中索引为 index 的节点
 pub fn access(node: ?*inc.ListNode(i32), index: i32) ?*inc.ListNode(i32) {
     var head = node;
     var i: i32 = 0;
@@ -32,7 +32,7 @@ pub fn access(node: ?*inc.ListNode(i32), index: i32) ?*inc.ListNode(i32) {
     return head;
 }
 
-// 在链表中查找值为 target 的首个结点
+// 在链表中查找值为 target 的首个节点
 pub fn find(node: ?*inc.ListNode(i32), target: i32) i32 {
     var head = node;
     var index: i32 = 0;
@@ -47,7 +47,7 @@ pub fn find(node: ?*inc.ListNode(i32), target: i32) i32 {
 // Driver Code
 pub fn main() !void {
     // 初始化链表
-    // 初始化各个结点 
+    // 初始化各个节点 
     var n0 = inc.ListNode(i32){.val = 1};
     var n1 = inc.ListNode(i32){.val = 3};
     var n2 = inc.ListNode(i32){.val = 2};
@@ -61,24 +61,24 @@ pub fn main() !void {
     std.debug.print("初始化的链表为", .{});
     try inc.PrintUtil.printLinkedList(i32, &n0);
 
-    // 插入结点
+    // 插入节点
     var tmp = inc.ListNode(i32){.val = 0};
     insert(&n0, &tmp);
-    std.debug.print("插入结点后的链表为", .{});
+    std.debug.print("插入节点后的链表为", .{});
     try inc.PrintUtil.printLinkedList(i32, &n0);
 
-    // 删除结点
+    // 删除节点
     remove(&n0);
-    std.debug.print("删除结点后的链表为", .{});
+    std.debug.print("删除节点后的链表为", .{});
     try inc.PrintUtil.printLinkedList(i32, &n0);
 
-    // 访问结点
+    // 访问节点
     var node = access(&n0, 3);
-    std.debug.print("链表中索引 3 处的结点的值 = {}\n", .{node.?.val});
+    std.debug.print("链表中索引 3 处的节点的值 = {}\n", .{node.?.val});
 
-    // 查找结点
+    // 查找节点
     var index = find(&n0, 2);
-    std.debug.print("链表中值为 2 的结点的索引 = {}\n", .{index});
+    std.debug.print("链表中值为 2 的节点的索引 = {}\n", .{index});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

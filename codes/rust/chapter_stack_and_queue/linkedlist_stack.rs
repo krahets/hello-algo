@@ -13,7 +13,7 @@ use list_node::ListNode;
 /* 基于链表实现的栈 */
 #[allow(dead_code)]
 pub struct LinkedListStack<T> {
-    stack_peek: Option<Rc<RefCell<ListNode<T>>>>,   // 将头结点作为栈顶
+    stack_peek: Option<Rc<RefCell<ListNode<T>>>>,   // 将头节点作为栈顶
     stk_size: usize,                                // 栈的长度
 }
 

@@ -72,9 +72,9 @@
     [class]{}-[func]{hashingSearchArray}
     ```
 
-再比如，如果我们想要给定一个目标结点值 `target` ，获取对应的链表结点对象，那么也可以使用哈希查找实现。
+再比如，如果我们想要给定一个目标节点值 `target` ，获取对应的链表节点对象，那么也可以使用哈希查找实现。
 
-![哈希查找链表结点](hashing_search.assets/hash_search_listnode.png)
+![哈希查找链表节点](hashing_search.assets/hash_search_listnode.png)
 
 === "Java"
 

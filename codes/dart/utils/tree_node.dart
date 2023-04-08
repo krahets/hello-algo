@@ -7,10 +7,10 @@
 import 'dart:collection';
 
 class TreeNode {
-  int val; // 结点值
-  int height; // 结点高度
-  TreeNode? left; // 左子结点引用
-  TreeNode? right; // 右子结点引用
+  int val; // 节点值
+  int height; // 节点高度
+  TreeNode? left; // 左子节点引用
+  TreeNode? right; // 右子节点引用
 
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }

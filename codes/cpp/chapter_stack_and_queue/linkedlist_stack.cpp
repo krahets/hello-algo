@@ -9,7 +9,7 @@
 /* 基于链表实现的栈 */
 class LinkedListStack {
 private:
-    ListNode* stackTop; // 将头结点作为栈顶
+    ListNode* stackTop; // 将头节点作为栈顶
     int stkSize;        // 栈的长度
 
 public:
@@ -19,7 +19,7 @@ public:
     }
 
     ~LinkedListStack() {
-        // 遍历链表删除结点，释放内存
+        // 遍历链表删除节点，释放内存
         freeMemoryLinkedList(stackTop);
     }
 

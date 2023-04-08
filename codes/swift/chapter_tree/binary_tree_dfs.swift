@@ -14,7 +14,7 @@ func preOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // 访问优先级：根结点 -> 左子树 -> 右子树
+    // 访问优先级：根节点 -> 左子树 -> 右子树
     list.append(root.val)
     preOrder(root: root.left)
     preOrder(root: root.right)
@@ -25,7 +25,7 @@ func inOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // 访问优先级：左子树 -> 根结点 -> 右子树
+    // 访问优先级：左子树 -> 根节点 -> 右子树
     inOrder(root: root.left)
     list.append(root.val)
     inOrder(root: root.right)
@@ -36,7 +36,7 @@ func postOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // 访问优先级：左子树 -> 右子树 -> 根结点
+    // 访问优先级：左子树 -> 右子树 -> 根节点
     postOrder(root: root.left)
     postOrder(root: root.right)
     list.append(root.val)
@@ -55,16 +55,16 @@ enum BinaryTreeDFS {
         /* 前序遍历 */
         list.removeAll()
         preOrder(root: root)
-        print("\n前序遍历的结点打印序列 = \(list)")
+        print("\n前序遍历的节点打印序列 = \(list)")
 
         /* 中序遍历 */
         list.removeAll()
         inOrder(root: root)
-        print("\n中序遍历的结点打印序列 = \(list)")
+        print("\n中序遍历的节点打印序列 = \(list)")
 
         /* 后序遍历 */
         list.removeAll()
         postOrder(root: root)
-        print("\n后序遍历的结点打印序列 = \(list)")
+        print("\n后序遍历的节点打印序列 = \(list)")
     }
 }

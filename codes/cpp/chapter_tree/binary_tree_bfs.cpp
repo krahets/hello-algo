@@ -8,7 +8,7 @@
 
 /* 层序遍历 */
 vector<int> levelOrder(TreeNode* root) {
-    // 初始化队列，加入根结点
+    // 初始化队列，加入根节点
     queue<TreeNode*> queue;
     queue.push(root);
     // 初始化一个列表，用于保存遍历序列
@@ -16,11 +16,11 @@ vector<int> levelOrder(TreeNode* root) {
     while (!queue.empty()) {
         TreeNode* node = queue.front();
         queue.pop();                 // 队列出队
-        vec.push_back(node->val);    // 保存结点值
+        vec.push_back(node->val);    // 保存节点值
         if (node->left != nullptr)
-            queue.push(node->left);  // 左子结点入队
+            queue.push(node->left);  // 左子节点入队
         if (node->right != nullptr)
-            queue.push(node->right); // 右子结点入队
+            queue.push(node->right); // 右子节点入队
     }
     return vec;
 }
@@ -36,7 +36,7 @@ int main() {
 
     /* 层序遍历 */
     vector<int> vec = levelOrder(root);
-    cout << endl << "层序遍历的结点打印序列 = ";
+    cout << endl << "层序遍历的节点打印序列 = ";
     PrintUtil::printVector(vec);
 
     return 0;

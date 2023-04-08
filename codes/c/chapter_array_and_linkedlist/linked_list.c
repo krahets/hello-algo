@@ -6,14 +6,14 @@
 
 #include "../include/include.h"
 
-/* 在链表的结点 n0 之后插入结点 P */
+/* 在链表的节点 n0 之后插入节点 P */
 void insert(ListNode* n0, ListNode* P) {
     ListNode *n1 = n0->next;
     P->next = n1;
     n0->next = P;
 }
 
-/* 删除链表的结点 n0 之后的首个结点 */
+/* 删除链表的节点 n0 之后的首个节点 */
 // 由于引入了 stdio.h ，此处无法使用 remove 关键词
 // 详见 https://github.com/krahets/hello-algo/pull/244#discussion_r1067863888
 void removeNode(ListNode* n0) {
@@ -27,7 +27,7 @@ void removeNode(ListNode* n0) {
     free(P);
 }
 
-/* 访问链表中索引为 index 的结点 */
+/* 访问链表中索引为 index 的节点 */
 ListNode* access(ListNode* head, int index) {
     while (head && head->next && index) {
         head = head->next;
@@ -36,7 +36,7 @@ ListNode* access(ListNode* head, int index) {
     return head;
 }
 
-/* 在链表中查找值为 target 的首个结点 */
+/* 在链表中查找值为 target 的首个节点 */
 int find(ListNode* head, int target) {
     int index = 0;
     while (head) {
@@ -52,7 +52,7 @@ int find(ListNode* head, int target) {
 /* Driver Code */
 int main() {
     /* 初始化链表 */
-    // 初始化各个结点 
+    // 初始化各个节点 
     ListNode* n0 = newListNode(1);
     ListNode* n1 = newListNode(3);
     ListNode* n2 = newListNode(2);
@@ -66,23 +66,23 @@ int main() {
     printf("初始化的链表为\r\n"); 
     printLinkedList(n0);
 
-    /* 插入结点 */
+    /* 插入节点 */
     insert(n0, newListNode(0));
-    printf("插入结点后的链表为\r\n");
+    printf("插入节点后的链表为\r\n");
     printLinkedList(n0);
 
-    /* 删除结点 */
+    /* 删除节点 */
     removeNode(n0);
-    printf("删除结点后的链表为\r\n");
+    printf("删除节点后的链表为\r\n");
     printLinkedList(n0);
 
-    /* 访问结点 */
+    /* 访问节点 */
     ListNode* node = access(n0, 3);
-    printf("链表中索引 3 处的结点的值 = %d\r\n", node->val);
+    printf("链表中索引 3 处的节点的值 = %d\r\n", node->val);
 
-    /* 查找结点 */
+    /* 查找节点 */
     int index = find(n0, 2);
-    printf("链表中值为 2 的结点的索引 = %d\r\n", index);
+    printf("链表中值为 2 的节点的索引 = %d\r\n", index);
 
     return 0;
 }
