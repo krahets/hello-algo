@@ -1794,63 +1794,63 @@
 
 
 <h1 id="62">6.2. &nbsp; 哈希冲突<a class="headerlink" href="#62" title="Permanent link">&para;</a></h1>
-<p>理想情况下，哈希函数应该为每个输入产生唯一的输出，使得 key 和 value 一一对应。而实际上，往往存在向哈希函数输入不同的 key 而产生相同输出的情况，这种情况被称为「哈希冲突 Hash Collision」。哈希冲突会导致查询结果错误，从而严重影响哈希表的可用性。</p>
-<p>那么，为什么会出现哈希冲突呢？本质上看，<strong>由于哈希函数的输入空间往往远大于输出空间</strong>，因此不可避免地会出现多个输入产生相同输出的情况，即为哈希冲突。比如，输入空间是全体整数，输出空间是一个固定大小的数组，那么必定会有多个整数映射到同一个数组索引。</p>
-<p>为了缓解哈希冲突，一方面，<strong>我们可以通过哈希表扩容来减小冲突概率</strong>。极端情况下，当输入空间和输出空间大小相等时，哈希表就等价于数组了，每个 key 都对应唯一的数组索引，可谓“大力出奇迹”。</p>
-<p>另一方面，<strong>考虑通过优化哈希表的表示来缓解哈希冲突</strong>，常见的方法有「链式地址 Separate Chaining」和「开放寻址 Open Addressing」。</p>
+<p>在理想情况下，哈希函数应为每个输入生成唯一的输出，实现 key 和 value 的一一对应。然而实际上，向哈希函数输入不同的 key 却产生相同输出的情况是存在的，这种现象被称为「哈希冲突 Hash Collision」。哈希冲突可能导致查询结果错误，从而严重影响哈希表的可用性。</p>
+<p>那么，为何会出现哈希冲突呢？从本质上看，由于哈希函数的输入空间通常远大于输出空间，因此多个输入产生相同输出的情况是不可避免的。例如，若输入空间为全体整数，而输出空间为固定大小的数组，则必然有多个整数映射至同一数组索引。</p>
+<p>为了减轻哈希冲突，一方面，<strong>可以通过扩大哈希表容量来降低冲突概率</strong>。极端情况下，当输入空间和输出空间大小相等时，哈希表等同于数组，每个 key 都对应唯一的数组索引，可谓“大力出奇迹”。</p>
+<p>另一方面，<strong>可以考虑优化哈希表的表示以缓解哈希冲突</strong>，常用方法包括「链式地址 Separate Chaining」和「开放寻址 Open Addressing」。</p>
 <h2 id="621">6.2.1. &nbsp; 哈希表扩容<a class="headerlink" href="#621" title="Permanent link">&para;</a></h2>
-<p>哈希函数的最后一步往往是对桶数量 <span class="arithmatex">\(n\)</span> 取余，以将哈希值映射到桶的索引范围，从而将 key 放入对应的桶中。当哈希表容量越大（即 <span class="arithmatex">\(n\)</span> 越大）时，多个 key 被分配到同一个桶中的概率就越低，冲突就越少。</p>
-<p>因此，<strong>在哈希表内的冲突整体比较严重时，编程语言一般通过扩容哈希表来缓解</strong>。与数组扩容类似，哈希表扩容需要将所有键值对从原哈希表移动至新哈希表，<strong>开销很大</strong>。</p>
-<p>编程语言一般使用「负载因子 Load Factor」来评估哈希冲突的严重程度，<strong>其定义为哈希表中元素数量除以桶数量</strong>，常用作哈希表扩容的触发条件。比如在 Java 中，当负载因子 <span class="arithmatex">\(&gt; 0.75\)</span> 时，系统会将 HashMap 容量扩充至原先的 <span class="arithmatex">\(2\)</span> 倍。</p>
+<p>哈希函数的最后一步通常是对桶数量 <span class="arithmatex">\(n\)</span> 取余，作用是将哈希值映射到桶索引范围，从而将 key 放入对应的桶中。当哈希表容量越大（即 <span class="arithmatex">\(n\)</span> 越大）时，多个 key 被分配到同一个桶中的概率就越低，冲突就越少。</p>
+<p>因此，<strong>当哈希表内的冲突总体较为严重时，编程语言通常通过扩容哈希表来缓解冲突</strong>。类似于数组扩容，哈希表扩容需将所有键值对从原哈希表迁移至新哈希表，开销较大。</p>
+<p>编程语言通常使用「负载因子 Load Factor」来衡量哈希冲突的严重程度，<strong>定义为哈希表中元素数量除以桶数量</strong>，常作为哈希表扩容的触发条件。在 Java 中，当负载因子 <span class="arithmatex">\(&gt; 0.75\)</span> 时，系统会将 HashMap 容量扩展为原先的 <span class="arithmatex">\(2\)</span> 倍。</p>
 <h2 id="622">6.2.2. &nbsp; 链式地址<a class="headerlink" href="#622" title="Permanent link">&para;</a></h2>
-<p>在原始哈希表中，每个桶只能存储一个键值对。<strong>链式地址考虑将单个元素转化成一个链表，将键值对作为链表结点，将所有冲突键值对都存储在一个链表中</strong>。</p>
+<p>在原始哈希表中，每个桶仅能存储一个键值对。<strong>链式地址将单个元素转换为链表，将键值对作为链表节点，将所有发生冲突的键值对都存储在同一链表中</strong>。</p>
 <p><img alt="链式地址" src="../hash_collision.assets/hash_collision_chaining.png" /></p>
 <p align="center"> Fig. 链式地址 </p>
 
-<p>链式地址下，哈希表操作方法为：</p>
+<p>链式地址下，哈希表的操作方法包括：</p>
 <ul>
-<li><strong>查询元素</strong>：输入 key ，经过哈希函数得到数组索引，即可访问链表头结点，再通过遍历链表并对比 key 来查找键值对。</li>
-<li><strong>添加元素</strong>：先通过哈希函数访问链表头结点，再将结点（即键值对）添加到链表即可。</li>
-<li><strong>删除元素</strong>：同样先根据哈希函数结果访问链表头部，再遍历链表查找对应结点，删除之即可。</li>
+<li><strong>查询元素</strong>：输入 key ，经过哈希函数得到数组索引，即可访问链表头结点，然后遍历链表并对比 key 以查找目标键值对。</li>
+<li><strong>添加元素</strong>：先通过哈希函数访问链表头结点，然后将结点（即键值对）添加到链表中。</li>
+<li><strong>删除元素</strong>：根据哈希函数的结果访问链表头部，接着遍历链表以查找目标结点，并将其删除。</li>
 </ul>
-<p>链式地址虽然解决了哈希冲突问题，但仍存在局限性，包括：</p>
+<p>尽管链式地址法解决了哈希冲突问题，但仍存在一些局限性，包括：</p>
 <ul>
-<li><strong>占用空间变大</strong>，因为链表或二叉树包含结点指针，相比于数组更加耗费内存空间；</li>
+<li><strong>占用空间增大</strong>，由于链表或二叉树包含结点指针，相比数组更加耗费内存空间；</li>
 <li><strong>查询效率降低</strong>，因为需要线性遍历链表来查找对应元素；</li>
 </ul>
-<p>为了提升操作效率，<strong>可以把「链表」转化为「AVL 树」或「红黑树」</strong>，将查询操作的时间复杂度优化至 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
+<p>为了提高操作效率，<strong>可以将链表转换为「AVL 树」或「红黑树」</strong>，将查询操作的时间复杂度优化至 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
 <h2 id="623">6.2.3. &nbsp; 开放寻址<a class="headerlink" href="#623" title="Permanent link">&para;</a></h2>
-<p>「开放寻址」不引入额外数据结构，而是通过“多次探测”来解决哈希冲突。根据探测方法的不同，主要分为 <strong>线性探测、平方探测、多次哈希</strong>。</p>
+<p>「开放寻址」方法不引入额外的数据结构，而是通过“多次探测”来解决哈希冲突，<strong>探测方主要包括线性探测、平方探测、多次哈希</strong>。</p>
 <h3 id="_1">线性探测<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>「线性探测」使用固定步长的线性查找来解决哈希冲突。</p>
-<p><strong>插入元素</strong>：如果出现哈希冲突，则从冲突位置向后线性遍历（步长一般取 1 ），直到找到一个空位，则将元素插入到该空位中。</p>
-<p><strong>查找元素</strong>：若出现哈希冲突，则使用相同步长执行线性查找，会遇到两种情况：</p>
+<p>「线性探测」采用固定步长的线性查找来解决哈希冲突。</p>
+<p><strong>插入元素</strong>：若出现哈希冲突，则从冲突位置向后线性遍历（步长通常为 <span class="arithmatex">\(1\)</span> ），直至找到空位，将元素插入其中。</p>
+<p><strong>查找元素</strong>：在出现哈希冲突时，使用相同步长进行线性查找，可能遇到以下两种情况。</p>
 <ol>
 <li>找到对应元素，返回 value 即可；</li>
-<li>若遇到空位，则说明查找键值对不在哈希表中；</li>
+<li>若遇到空位，说明目标键值对不在哈希表中；</li>
 </ol>
 <p><img alt="线性探测" src="../hash_collision.assets/hash_collision_linear_probing.png" /></p>
 <p align="center"> Fig. 线性探测 </p>
 
 <p>线性探测存在以下缺陷：</p>
 <ul>
-<li><strong>不能直接删除元素</strong>。删除元素会导致数组内出现一个空位，在查找其他元素时，该空位有可能导致程序认为元素不存在（即上述第 <code>2.</code> 种情况）。因此需要借助一个标志位来标记删除元素。</li>
-<li><strong>容易产生聚集</strong>。数组内被占用的连续位置越长，这些连续位置发生哈希冲突的可能性越大，从而进一步促进这一位置的“聚堆生长”，最终导致增删查改操作效率的劣化。</li>
+<li><strong>不能直接删除元素</strong>。删除元素会在数组内产生一个空位，查找其他元素时，该空位可能导致程序误判元素不存在（即上述第 <code>2.</code> 种情况）。因此，需要借助一个标志位来标记已删除元素。</li>
+<li><strong>容易产生聚集</strong>。数组内连续被占用位置越长，这些连续位置发生哈希冲突的可能性越大，进一步促使这一位置的“聚堆生长”，最终导致增删查改操作效率降低。</li>
 </ul>
 <h3 id="_2">多次哈希<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>顾名思义，「多次哈希」的思路是使用多个哈希函数 <span class="arithmatex">\(f_1(x)\)</span> , <span class="arithmatex">\(f_2(x)\)</span> , <span class="arithmatex">\(f_3(x)\)</span> , <span class="arithmatex">\(\cdots\)</span> 进行探测。</p>
-<p><strong>插入元素</strong>：若哈希函数 <span class="arithmatex">\(f_1(x)\)</span> 出现冲突，则尝试 <span class="arithmatex">\(f_2(x)\)</span> ，以此类推……直到找到空位后插入元素。</p>
-<p><strong>查找元素</strong>：以相同的哈希函数顺序查找，存在两种情况：</p>
+<p>顾名思义，「多次哈希」方法是使用多个哈希函数 <span class="arithmatex">\(f_1(x)\)</span> , <span class="arithmatex">\(f_2(x)\)</span> , <span class="arithmatex">\(f_3(x)\)</span> , <span class="arithmatex">\(\cdots\)</span> 进行探测。</p>
+<p><strong>插入元素</strong>：若哈希函数 <span class="arithmatex">\(f_1(x)\)</span> 出现冲突，则尝试 <span class="arithmatex">\(f_2(x)\)</span> ，以此类推，直到找到空位后插入元素。</p>
+<p><strong>查找元素</strong>：在相同的哈希函数顺序下进行查找，存在以下两种情况：</p>
 <ol>
-<li>找到目标元素，则返回之；</li>
-<li>到空位或已尝试所有哈希函数，说明哈希表中无此元素；</li>
+<li>如果找到目标元素，则返回之；</li>
+<li>若遇到空位或已尝试所有哈希函数，则说明哈希表中不存在该元素；</li>
 </ol>
-<p>相比于「线性探测」，「多次哈希」方法更不容易产生聚集，代价是多个哈希函数增加了额外计算量。</p>
+<p>与线性探测相比，多次哈希方法不易产生聚集，但多个哈希函数会增加额外的计算量。</p>
 <div class="admonition note">
-<p class="admonition-title">工业界方案</p>
-<p>Java 采用「链式地址」。在 JDK 1.8 之后，HashMap 内数组长度大于 64 时，长度大于 8 的链表会被转化为「红黑树」，以提升查找性能。</p>
-<p>Python 采用「开放寻址」。字典 dict 使用伪随机数进行探测。 </p>
-<p>Golang 采用「链式地址」。Go 规定每个桶最多存储 8 个键值对，超出容量则连接一个溢出桶；当溢出桶过多时，会执行一次特殊的等量扩容操作，以保证性能。</p>
+<p class="admonition-title">哈希表设计方案</p>
+<p>Java 采用「链式地址」。自 JDK 1.8 以来，当 HashMap 内数组长度大于 64 且链表长度大于 8 时，链表会被转换为「红黑树」以提升查找性能。</p>
+<p>Python 采用「开放寻址」。字典 dict 使用伪随机数进行探测。</p>
+<p>Golang 采用「链式地址」。Go 规定每个桶最多存储 8 个键值对，超出容量则连接一个溢出桶；当溢出桶过多时，会执行一次特殊的等量扩容操作，以确保性能。</p>
 </div>
 
 
