@@ -36,4 +36,4 @@ function bucketSort(nums) {
 /* Driver Code */
 const nums = [0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37];
 bucketSort(nums);
-console.log(`桶排序完成后 nums = ${nums}`);
+console.log('桶排序完成后 nums =', nums);

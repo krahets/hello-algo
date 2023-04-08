@@ -64,8 +64,8 @@ function countingSort(nums) {
 /* Driver Code */
 const nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4];
 countingSortNaive(nums);
-console.log(`计数排序（无法排序对象）完成后 nums = ${nums}`);
+console.log('计数排序（无法排序对象）完成后 nums =', nums);
 
 const nums1 = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4];
 countingSort(nums1);
-console.log(`计数排序完成后 nums1 = ${nums1}`);
+console.log('计数排序完成后 nums1 =', nums1);
