@@ -4,10 +4,12 @@ Created Time: 2022-11-25
 Author: timi (xisunyy@163.com)
 """
 
+
 class QuickSort:
-    """ 快速排序类 """
+    """快速排序类"""
+
     def partition(self, nums: list[int], left: int, right: int) -> int:
-        """ 哨兵划分 """
+        """哨兵划分"""
         # 以 nums[left] 作为基准数
         i, j = left, right
         while i < j:
@@ -22,7 +24,7 @@ class QuickSort:
         return i  # 返回基准数的索引
 
     def quick_sort(self, nums: list[int], left: int, right: int) -> None:
-        """ 快速排序 """
+        """快速排序"""
         # 子数组长度为 1 时终止递归
         if left >= right:
             return
@@ -32,10 +34,12 @@ class QuickSort:
         self.quick_sort(nums, left, pivot - 1)
         self.quick_sort(nums, pivot + 1, right)
 
+
 class QuickSortMedian:
-    """ 快速排序类（中位基准数优化）"""
+    """快速排序类（中位基准数优化）"""
+
     def median_three(self, nums: list[int], left: int, mid: int, right: int) -> int:
-        """ 选取三个元素的中位数 """
+        """选取三个元素的中位数"""
         # 此处使用异或运算来简化代码
         # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]):
@@ -45,7 +49,7 @@ class QuickSortMedian:
         return right
 
     def partition(self, nums: list[int], left: int, right: int) -> int:
-        """ 哨兵划分（三数取中值） """
+        """哨兵划分（三数取中值）"""
         # 以 nums[left] 作为基准数
         med: int = self.median_three(nums, left, (left + right) // 2, right)
         # 将中位数交换至数组最左端
@@ -64,7 +68,7 @@ class QuickSortMedian:
         return i  # 返回基准数的索引
 
     def quick_sort(self, nums: list[int], left: int, right: int) -> None:
-        """ 快速排序 """
+        """快速排序"""
         # 子数组长度为 1 时终止递归
         if left >= right:
             return
@@ -74,10 +78,12 @@ class QuickSortMedian:
         self.quick_sort(nums, left, pivot - 1)
         self.quick_sort(nums, pivot + 1, right)
 
+
 class QuickSortTailCall:
-    """ 快速排序类（尾递归优化） """
+    """快速排序类（尾递归优化）"""
+
     def partition(self, nums: list[int], left: int, right: int) -> int:
-        """ 哨兵划分 """
+        """哨兵划分"""
         # 以 nums[left] 作为基准数
         i, j = left, right
         while i < j:
@@ -92,7 +98,7 @@ class QuickSortTailCall:
         return i  # 返回基准数的索引
 
     def quick_sort(self, nums: list[int], left: int, right: int) -> None:
-        """ 快速排序（尾递归优化） """
+        """快速排序（尾递归优化）"""
         # 子数组长度为 1 时终止
         while left < right:
             # 哨兵划分操作
@@ -100,15 +106,15 @@ class QuickSortTailCall:
             # 对两个子数组中较短的那个执行快排
             if pivot - left < right - pivot:
                 self.quick_sort(nums, left, pivot - 1)  # 递归排序左子数组
-                left = pivot + 1     # 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1  # 剩余待排序区间为 [pivot + 1, right]
             else:
                 self.quick_sort(nums, pivot + 1, right)  # 递归排序右子数组
-                right = pivot - 1    # 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1  # 剩余待排序区间为 [left, pivot - 1]
 
 
 """ Driver Code """
-if __name__ == '__main__':
-    # 快速排序 
+if __name__ == "__main__":
+    # 快速排序
     nums: list[int] = [2, 4, 1, 0, 3, 5]
     QuickSort().quick_sort(nums, 0, len(nums) - 1)
     print("快速排序完成后 nums =", nums)

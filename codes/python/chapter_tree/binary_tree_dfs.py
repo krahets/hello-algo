@@ -5,11 +5,13 @@ Author: a16su (lpluls001@gmail.com)
 """
 
 import sys, os.path as osp
+
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
+
 def pre_order(root: TreeNode | None) -> None:
-    """ 前序遍历 """
+    """前序遍历"""
     if root is None:
         return
     # 访问优先级：根节点 -> 左子树 -> 右子树
@@ -17,8 +19,9 @@ def pre_order(root: TreeNode | None) -> None:
     pre_order(root=root.left)
     pre_order(root=root.right)
 
+
 def in_order(root: TreeNode | None) -> None:
-    """ 中序遍历 """
+    """中序遍历"""
     if root is None:
         return
     # 访问优先级：左子树 -> 根节点 -> 右子树
@@ -26,8 +29,9 @@ def in_order(root: TreeNode | None) -> None:
     res.append(root.val)
     in_order(root=root.right)
 
+
 def post_order(root: TreeNode | None) -> None:
-    """ 后序遍历 """
+    """后序遍历"""
     if root is None:
         return
     # 访问优先级：左子树 -> 右子树 -> 根节点

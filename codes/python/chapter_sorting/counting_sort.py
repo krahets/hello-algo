@@ -4,8 +4,9 @@ Created Time: 2023-03-21
 Author: Krahets (krahets@163.com)
 """
 
+
 def counting_sort_naive(nums: list[int]) -> None:
-    """ 计数排序 """
+    """计数排序"""
     # 简单实现，无法用于排序对象
     # 1. 统计数组最大元素 m
     m = 0
@@ -23,8 +24,9 @@ def counting_sort_naive(nums: list[int]) -> None:
             nums[i] = num
             i += 1
 
+
 def counting_sort(nums: list[int]) -> None:
-    """ 计数排序 """
+    """计数排序"""
     # 完整实现，可排序对象，并且是稳定排序
     # 1. 统计数组最大元素 m
     m = max(nums)
@@ -48,6 +50,7 @@ def counting_sort(nums: list[int]) -> None:
     # 使用结果数组 res 覆盖原数组 nums
     for i in range(n):
         nums[i] = res[i]
+
 
 """ Driver Code """
 if __name__ == "__main__":

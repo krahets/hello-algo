@@ -5,6 +5,7 @@ Author: Krahets (krahets@163.com)
 """
 
 import sys, os.path as osp
+
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
@@ -16,10 +17,12 @@ def test_push(heap: list, val: int, flag: int = 1) -> None:
     print(f"\n元素 {val} 入堆后")
     print_heap([flag * val for val in heap])
 
+
 def test_pop(heap: list, flag: int = 1) -> None:
     val = flag * heapq.heappop(heap)  # 堆顶元素出堆
     print(f"\n堆顶元素 {val} 出堆后")
     print_heap([flag * val for val in heap])
+
 
 """ Driver Code """
 if __name__ == "__main__":

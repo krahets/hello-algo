@@ -5,13 +5,16 @@ Author: a16su (lpluls001@gmail.com)
 """
 
 import sys, os.path as osp
+
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
+
 class AVLTree:
-    """ AVL 树 """
+    """AVL 树"""
+
     def __init__(self, root: TreeNode | None = None):
-        """ 构造方法 """
+        """构造方法"""
         self.__root = root
 
     @property
@@ -19,19 +22,19 @@ class AVLTree:
         return self.__root
 
     def height(self, node: TreeNode | None) -> int:
-        """ 获取节点高度 """
+        """获取节点高度"""
         # 空节点高度为 -1 ，叶节点高度为 0
         if node is not None:
             return node.height
         return -1
 
     def __update_height(self, node: TreeNode | None):
-        """ 更新节点高度 """
+        """更新节点高度"""
         # 节点高度等于最高子树高度 + 1
         node.height = max([self.height(node.left), self.height(node.right)]) + 1
 
     def balance_factor(self, node: TreeNode | None) -> int:
-        """ 获取平衡因子 """
+        """获取平衡因子"""
         # 空节点平衡因子为 0
         if node is None:
             return 0
@@ -39,7 +42,7 @@ class AVLTree:
         return self.height(node.left) - self.height(node.right)
 
     def __right_rotate(self, node: TreeNode | None) -> TreeNode | None:
-        """ 右旋操作 """
+        """右旋操作"""
         child = node.left
         grand_child = child.right
         # 以 child 为原点，将 node 向右旋转
@@ -52,7 +55,7 @@ class AVLTree:
         return child
 
     def __left_rotate(self, node: TreeNode | None) -> TreeNode | None:
-        """ 左旋操作 """
+        """左旋操作"""
         child = node.right
         grand_child = child.left
         # 以 child 为原点，将 node 向左旋转
@@ -65,7 +68,7 @@ class AVLTree:
         return child
 
     def __rotate(self, node: TreeNode | None) -> TreeNode | None:
-        """ 执行旋转操作，使该子树重新恢复平衡 """
+        """执行旋转操作，使该子树重新恢复平衡"""
         # 获取节点 node 的平衡因子
         balance_factor = self.balance_factor(node)
         # 左偏树
@@ -90,12 +93,12 @@ class AVLTree:
         return node
 
     def insert(self, val) -> TreeNode:
-        """ 插入节点 """
+        """插入节点"""
         self.__root = self.__insert_helper(self.__root, val)
         return self.__root
 
     def __insert_helper(self, node: TreeNode | None, val: int) -> TreeNode:
-        """ 递归插入节点（辅助方法）"""
+        """递归插入节点（辅助方法）"""
         if node is None:
             return TreeNode(val)
         # 1. 查找插入位置，并插入节点
@@ -112,12 +115,12 @@ class AVLTree:
         return self.__rotate(node)
 
     def remove(self, val: int) -> TreeNode | None:
-        """ 删除节点 """
+        """删除节点"""
         self.__root = self.__remove_helper(self.__root, val)
-        return self.__root 
+        return self.__root
 
     def __remove_helper(self, node: TreeNode | None, val: int) -> TreeNode | None:
-        """ 递归删除节点（辅助方法） """
+        """递归删除节点（辅助方法）"""
         if node is None:
             return None
         # 1. 查找节点，并删除之
@@ -144,7 +147,7 @@ class AVLTree:
         return self.__rotate(node)
 
     def __get_inorder_next(self, node: TreeNode | None) -> TreeNode | None:
-        """ 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） """
+        """获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况）"""
         if node is None:
             return None
         # 循环访问左子节点，直到叶节点时为最小节点，跳出
@@ -153,7 +156,7 @@ class AVLTree:
         return node
 
     def search(self, val: int) -> TreeNode | None:
-        """ 查找节点 """
+        """查找节点"""
         cur = self.__root
         # 循环查找，越过叶节点后跳出
         while cur is not None:
@@ -172,6 +175,7 @@ class AVLTree:
 
 """ Driver Code """
 if __name__ == "__main__":
+
     def test_insert(tree: AVLTree, val: int):
         tree.insert(val)
         print("\n插入节点 {} 后，AVL 树为".format(val))
