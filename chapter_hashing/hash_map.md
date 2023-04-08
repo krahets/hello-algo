@@ -86,10 +86,10 @@ comments: true
 === "Python"
 
     ```python title="hash_map.py"
-    """ 初始化哈希表 """
+    # 初始化哈希表
     mapp: Dict = {}
     
-    """ 添加操作 """
+    # 添加操作
     # 在哈希表中添加键值对 (key, value)
     mapp[12836] = "小哈"
     mapp[15937] = "小啰"
@@ -97,11 +97,11 @@ comments: true
     mapp[13276] = "小法"
     mapp[10583] = "小鸭"
     
-    """ 查询操作 """
+    # 查询操作
     # 向哈希表输入键 key ，得到值 value
     name: str = mapp[15937]
     
-    """ 删除操作 """
+    # 删除操作
     # 在哈希表中删除键值对 (key, value)
     mapp.pop(10583)
     ```
@@ -277,7 +277,7 @@ comments: true
 === "Python"
 
     ```python title="hash_map.py"
-    """ 遍历哈希表 """
+    # 遍历哈希表
     # 遍历键值对 key->value
     for key, value in mapp.items():
         print(key, "->", value)

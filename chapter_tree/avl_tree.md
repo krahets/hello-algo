@@ -60,8 +60,8 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Python"
 
     ```python title=""
-    """ AVL 树节点类 """
     class TreeNode:
+        """AVL 树节点类"""
         def __init__(self, val: int):
             self.val: int = val                    # 节点值
             self.height: int = 0                   # 节点高度

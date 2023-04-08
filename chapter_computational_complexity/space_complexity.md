@@ -81,14 +81,14 @@ comments: true
 === "Python"
 
     ```python title=""
-    """ 类 """
     class Node:
+        """类"""
         def __init__(self, x: int):
             self.val: int = x                 # 节点值
             self.next: Optional[Node] = None  # 指向下一节点的指针（引用）
 
-    """ 函数 """
     def function() -> int:
+        """函数"""
         # do something...
         return 0
 
@@ -419,13 +419,13 @@ comments: true
         # do something
         return 0
 
-    """ 循环 O(1) """
     def loop(n: int) -> None:
+        """循环 O(1)"""
         for _ in range(n):
             function()
 
-    """ 递归 O(n) """
     def recur(n: int) -> int:
+        """递归 O(n)"""
         if n == 1: return
         return recur(n - 1)
     ```

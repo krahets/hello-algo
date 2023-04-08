@@ -33,8 +33,8 @@ comments: true
 === "Python"
 
     ```python title=""
-    """ 二叉树节点类 """
     class TreeNode:
+        """二叉树节点类"""
         def __init__(self, val: int):
             self.val: int = val                   # 节点值
             self.left: Optional[TreeNode] = None  # 左子节点指针
@@ -196,7 +196,7 @@ comments: true
 === "Python"
 
     ```python title="binary_tree.py"
-    """ 初始化二叉树 """
+    # 初始化二叉树
     # 初始化节点
     n1 = TreeNode(val=1)
     n2 = TreeNode(val=2)
@@ -338,7 +338,7 @@ comments: true
 === "Python"
 
     ```python title="binary_tree.py"
-    """ 插入与删除节点 """
+    # 插入与删除节点
     p = TreeNode(0)
     # 在 n1 -> n2 中间插入节点 P
     n1.left = p
@@ -526,7 +526,7 @@ comments: true
 === "Python"
 
     ```python title=""
-    """ 二叉树的数组表示 """
+    # 二叉树的数组表示
     # 直接使用 None 来表示空位
     tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     ```

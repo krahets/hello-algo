@@ -39,8 +39,8 @@ comments: true
 === "Python"
 
     ```python title=""
-    """ 链表节点类 """ 
     class ListNode:
+        """链表节点类"""
         def __init__(self, val: int):
             self.val: int = val                  # 节点值
             self.next: Optional[ListNode] = None # 指向下一节点的指针（引用）
@@ -207,7 +207,7 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    """ 初始化链表 1 -> 3 -> 2 -> 5 -> 4 """
+    # 初始化链表 1 -> 3 -> 2 -> 5 -> 4
     # 初始化各个节点 
     n0 = ListNode(1)
     n1 = ListNode(3)
@@ -934,8 +934,8 @@ comments: true
 === "Python"
 
     ```python title=""
-    """ 双向链表节点类 """ 
     class ListNode:
+        """双向链表节点类"""
         def __init__(self, val: int):
             self.val: int = val                   # 节点值
             self.next: Optional[ListNode] = None  # 指向后继节点的指针（引用）

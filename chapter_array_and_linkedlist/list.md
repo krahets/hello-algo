@@ -37,7 +37,7 @@ comments: true
 === "Python"
 
     ```python title="list.py"
-    """ 初始化列表 """
+    # 初始化列表
     # 无初始值
     list1: List[int] = []
     # 有初始值
@@ -135,10 +135,10 @@ comments: true
 === "Python"
 
     ```python title="list.py"
-    """ 访问元素 """
+    # 访问元素
     num: int = list[1]  # 访问索引 1 处的元素
 
-    """ 更新元素 """
+    # 更新元素
     list[1] = 0    # 将索引 1 处的元素更新为 0
     ```
 
@@ -253,20 +253,20 @@ comments: true
 === "Python"
 
     ```python title="list.py"
-    """ 清空列表 """
+    # 清空列表
     list.clear()
 
-    """ 尾部添加元素 """
+    # 尾部添加元素
     list.append(1)
     list.append(3)
     list.append(2)
     list.append(5)
     list.append(4)
 
-    """ 中间插入元素 """
+    # 中间插入元素
     list.insert(3, 6)  # 在索引 3 处插入数字 6
 
-    """ 删除元素 """
+    # 删除元素
     list.pop(3)        # 删除索引 3 处的元素
     ```
 
@@ -433,12 +433,12 @@ comments: true
 === "Python"
 
     ```python title="list.py"
-    """ 通过索引遍历列表 """
+    # 通过索引遍历列表
     count: int = 0
     for i in range(len(list)):
         count += 1
 
-    """ 直接遍历列表元素 """
+    # 直接遍历列表元素
     count: int = 0
     for n in list:
         count += 1
@@ -571,7 +571,7 @@ comments: true
 === "Python"
 
     ```python title="list.py"
-    """ 拼接两个列表 """
+    # 拼接两个列表
     list1: List[int] = [6, 8, 7, 10, 9]
     list += list1  # 将列表 list1 拼接到 list 之后
     ```
@@ -651,7 +651,7 @@ comments: true
 === "Python"
 
     ```python title="list.py"
-    """ 排序列表 """
+    # 排序列表
     list.sort()  # 排序后，列表元素从小到大排列
     ```
 
