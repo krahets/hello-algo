@@ -34,7 +34,7 @@ def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     return res
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化无向图
     v = vals_to_vets([0, 1, 2, 3, 4, 5, 6])

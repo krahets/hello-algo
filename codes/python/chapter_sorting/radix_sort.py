@@ -50,7 +50,7 @@ def radix_sort(nums: list[int]) -> None:
         exp *= 10
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 基数排序
     nums = [

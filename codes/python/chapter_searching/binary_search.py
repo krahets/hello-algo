@@ -36,7 +36,7 @@ def binary_search1(nums: list[int], target: int) -> int:
     return -1  # 未找到目标元素，返回 -1
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     target: int = 6
     nums: list[int] = [1, 3, 6, 8, 12, 15, 23, 67, 70, 92]

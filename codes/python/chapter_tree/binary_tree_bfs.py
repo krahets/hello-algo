@@ -28,7 +28,7 @@ def level_order(root: TreeNode | None) -> list[int]:
     return res
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化二叉树
     # 这里借助了一个从数组直接生成二叉树的函数

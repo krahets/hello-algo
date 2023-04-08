@@ -64,7 +64,7 @@ def find(nums: list[int], target: int) -> int:
     return -1
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化数组
     arr: list[int] = [0] * 5

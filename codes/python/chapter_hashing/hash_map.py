@@ -9,7 +9,7 @@ import sys, os.path as osp
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化哈希表
     mapp = dict[int, str]()

@@ -29,7 +29,7 @@
 === "Python"
 
     ```python title="array.py"
-    """ 初始化数组 """
+    # 初始化数组
     arr: List[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
     nums: List[int] = [1, 3, 2, 5, 4]  
     ```
@@ -293,7 +293,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{insert}
     ```
 
-删除元素也是类似，如果我们想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，我们无需特意去修改它。
+删除元素也类似，如果我们想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，我们无需特意去修改它。
 
 ![数组删除元素](array.assets/array_remove_element.png)
 

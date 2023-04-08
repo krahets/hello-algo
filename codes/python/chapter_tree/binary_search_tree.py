@@ -136,7 +136,7 @@ class BinarySearchTree:
         return root
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化二叉搜索树
     nums = list(range(1, 16))  # [1, 2, ..., 15]

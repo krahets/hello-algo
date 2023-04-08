@@ -29,7 +29,7 @@ def linear_search_linkedlist(head: ListNode, target: int) -> ListNode | None:
     return None  # 未找到目标节点，返回 None
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     target: int = 3
 

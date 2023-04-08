@@ -173,7 +173,7 @@ class AVLTree:
         return cur
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
 
     def test_insert(tree: AVLTree, val: int):

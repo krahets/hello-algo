@@ -73,7 +73,7 @@ def build_tree(n: int) -> TreeNode | None:
     return root
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     n = 5
     # 常数阶

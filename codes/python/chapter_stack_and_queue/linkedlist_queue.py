@@ -66,7 +66,7 @@ class LinkedListQueue:
         return queue
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化队列
     queue = LinkedListQueue()

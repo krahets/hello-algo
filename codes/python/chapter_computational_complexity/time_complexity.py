@@ -114,7 +114,7 @@ def factorial_recur(n: int) -> int:
     return count
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 可以修改 n 运行，体会一下各种复杂度的操作数量变化趋势
     n = 8

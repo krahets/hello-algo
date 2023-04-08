@@ -39,7 +39,7 @@ class ArrayStack:
         return self.__stack
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化栈
     stack = ArrayStack()

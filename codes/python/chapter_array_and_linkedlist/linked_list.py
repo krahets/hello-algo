@@ -47,7 +47,7 @@ def find(head: ListNode, target: int) -> int:
     return -1
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化链表
     # 初始化各个节点

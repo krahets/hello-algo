@@ -1,6 +1,6 @@
 # 队列
 
-「队列 Queue」是一种遵循「先入先出 first in, first out」数据操作规则的线性数据结构。顾名思义，队列模拟的是排队现象，即外面的人不断加入队列尾部，而处于队列头部的人不断地离开。
+「队列 Queue」是一种遵循先入先出（first in, first out）数据操作规则的线性数据结构。顾名思义，队列模拟的是排队现象，即外面的人不断加入队列尾部，而处于队列头部的人不断地离开。
 
 我们将队列头部称为「队首」，队列尾部称为「队尾」，将把元素加入队尾的操作称为「入队」，删除队首元素的操作称为「出队」。
 
@@ -77,28 +77,28 @@
 === "Python"
 
     ```python title="queue.py"
-    """ 初始化队列 """
+    # 初始化队列
     # 在 Python 中，我们一般将双向队列类 deque 看作队列使用
     # 虽然 queue.Queue() 是纯正的队列类，但不太好用，因此不建议
     que: Deque[int] = collections.deque()
     
-    """ 元素入队 """
+    # 元素入队
     que.append(1)
     que.append(3)
     que.append(2)
     que.append(5)
     que.append(4)
     
-    """ 访问队首元素 """
+    # 访问队首元素
     front: int = que[0];
     
-    """ 元素出队 """
+    # 元素出队
     pop: int = que.popleft()
     
-    """ 获取队列的长度 """
+    # 获取队列的长度
     size: int = len(que)
     
-    """ 判断队列是否为空 """
+    # 判断队列是否为空
     is_empty: bool = len(que) == 0
     ```
 

@@ -112,7 +112,7 @@ class QuickSortTailCall:
                 right = pivot - 1  # 剩余待排序区间为 [left, pivot - 1]
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 快速排序
     nums: list[int] = [2, 4, 1, 0, 3, 5]

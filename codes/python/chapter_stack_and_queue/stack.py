@@ -4,7 +4,7 @@ Created Time: 2022-11-29
 Author: Peng Chen (pengchzn@gmail.com)
 """
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化栈
     # Python 没有内置的栈类，可以把 list 当作栈来使用

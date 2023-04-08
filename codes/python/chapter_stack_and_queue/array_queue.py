@@ -59,7 +59,7 @@ class ArrayQueue:
         return res
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化队列
     queue = ArrayQueue(10)

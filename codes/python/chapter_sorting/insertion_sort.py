@@ -18,7 +18,7 @@ def insertion_sort(nums: list[int]) -> None:
         nums[j + 1] = base  # 2. 将 base 赋值到正确位置
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     nums: list[int] = [4, 1, 3, 1, 5, 2]
     insertion_sort(nums)

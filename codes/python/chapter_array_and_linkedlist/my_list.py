@@ -79,7 +79,7 @@ class MyList:
         return self.__nums[: self.__size]
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化列表
     my_list = MyList()

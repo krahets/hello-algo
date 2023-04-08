@@ -132,7 +132,7 @@ $$
 === "Python"
 
     ```python title=""
-    """ Python 的 list 可以自由存储各种基本数据类型和对象 """
+    # Python 的 list 可以自由存储各种基本数据类型和对象
     list = [0, 0.0, 'a', False]
     ```
 

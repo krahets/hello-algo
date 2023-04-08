@@ -27,7 +27,7 @@ def two_sum_hash_table(nums: list[int], target: int) -> list[int]:
     return []
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # ======= Test Case =======
     nums = [2, 7, 11, 15]

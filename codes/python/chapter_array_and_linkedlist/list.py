@@ -4,7 +4,7 @@ Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
 """
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化列表
     arr: list[int] = [1, 3, 2, 5, 4]

@@ -58,7 +58,7 @@ class LinkedListStack:
         return arr
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化栈
     stack = LinkedListStack()

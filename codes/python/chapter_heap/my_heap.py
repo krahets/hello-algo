@@ -105,7 +105,7 @@ class MaxHeap:
         print_heap(self.max_heap)
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化大顶堆
     max_heap = MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2])

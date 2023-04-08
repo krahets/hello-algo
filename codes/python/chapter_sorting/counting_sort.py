@@ -52,7 +52,7 @@ def counting_sort(nums: list[int]) -> None:
         nums[i] = res[i]
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]
 

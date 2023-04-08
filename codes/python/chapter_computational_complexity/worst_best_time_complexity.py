@@ -26,7 +26,7 @@ def find_one(nums: list[int]) -> int:
     return -1
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     for i in range(10):
         n: int = 100

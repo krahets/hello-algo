@@ -6,7 +6,7 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 from collections import deque
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化队列
     # 在 Python 中，我们一般将双向队列类 deque 看作队列使用

@@ -40,7 +40,7 @@ def post_order(root: TreeNode | None) -> None:
     res.append(root.val)
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化二叉树
     # 这里借助了一个从数组直接生成二叉树的函数

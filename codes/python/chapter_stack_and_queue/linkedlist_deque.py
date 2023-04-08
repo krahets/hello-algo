@@ -112,7 +112,7 @@ class LinkedListDeque:
         return res
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化双向队列
     deque = LinkedListDeque()

@@ -6,7 +6,7 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 from collections import deque
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化双向队列
     deq: deque[int] = deque()

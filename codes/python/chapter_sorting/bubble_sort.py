@@ -33,7 +33,7 @@ def bubble_sort_with_flag(nums: list[int]) -> None:
             break  # 此轮冒泡未交换任何元素，直接跳出
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     nums: list[int] = [4, 1, 3, 1, 5, 2]
     bubble_sort(nums)

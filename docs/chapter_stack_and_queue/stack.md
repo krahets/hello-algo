@@ -1,6 +1,6 @@
 # 栈
 
-「栈 Stack」是一种遵循「先入后出 first in, last out」数据操作规则的线性数据结构。我们可以将栈类比为放在桌面上的一摞盘子，如果需要拿出底部的盘子，则需要先将上面的盘子依次取出。
+「栈 Stack」是一种遵循先入后出（first in, last out）数据操作规则的线性数据结构。我们可以将栈类比为放在桌面上的一摞盘子，如果需要拿出底部的盘子，则需要先将上面的盘子依次取出。
 
 “盘子”是一种形象比喻，我们将盘子替换为任意一种元素（例如整数、字符、对象等），就得到了栈数据结构。
 
@@ -79,27 +79,27 @@
 === "Python"
 
     ```python title="stack.py"
-    """ 初始化栈 """
+    # 初始化栈
     # Python 没有内置的栈类，可以把 List 当作栈来使用 
     stack: List[int] = []
     
-    """ 元素入栈 """
+    # 元素入栈
     stack.append(1)
     stack.append(3)
     stack.append(2)
     stack.append(5)
     stack.append(4)
     
-    """ 访问栈顶元素 """
+    # 访问栈顶元素
     peek: int = stack[-1]
     
-    """ 元素出栈 """
+    # 元素出栈
     pop: int = stack.pop()
     
-    """ 获取栈的长度 """
+    # 获取栈的长度
     size: int = len(stack)
     
-    """ 判断是否为空 """
+    # 判断是否为空
     is_empty: bool = len(stack) == 0
     ```
 

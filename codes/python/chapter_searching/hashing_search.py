@@ -26,7 +26,7 @@ def hashing_search_linkedlist(
     return mapp.get(target, None)
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     target: int = 3
 

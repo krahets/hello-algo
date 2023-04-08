@@ -69,7 +69,7 @@ class GraphAdjList:
             print(f"{vertex.val}: {tmp},")
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     # 初始化无向图
     v = vals_to_vets([1, 3, 2, 5, 4])

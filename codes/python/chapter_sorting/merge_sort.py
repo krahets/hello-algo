@@ -49,7 +49,7 @@ def merge_sort(nums: list[int], left: int, right: int) -> None:
     merge(nums, left, mid, right)
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
     nums: list[int] = [7, 3, 2, 6, 0, 1, 5, 4]
     merge_sort(nums, 0, len(nums) - 1)
