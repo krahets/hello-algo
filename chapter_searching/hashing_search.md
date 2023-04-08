@@ -130,18 +130,18 @@ comments: true
     }
     ```
 
-再比如，如果我们想要给定一个目标结点值 `target` ，获取对应的链表结点对象，那么也可以使用哈希查找实现。
+再比如，如果我们想要给定一个目标节点值 `target` ，获取对应的链表节点对象，那么也可以使用哈希查找实现。
 
-![哈希查找链表结点](hashing_search.assets/hash_search_listnode.png)
+![哈希查找链表节点](hashing_search.assets/hash_search_listnode.png)
 
-<p align="center"> Fig. 哈希查找链表结点 </p>
+<p align="center"> Fig. 哈希查找链表节点 </p>
 
 === "Java"
 
     ```java title="hashing_search.java"
     /* 哈希查找（链表） */
     ListNode hashingSearchLinkedList(Map<Integer, ListNode> map, int target) {
-        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 哈希表的 key: 目标节点值，value: 节点对象
         // 若哈希表中无此 key ，返回 null
         return map.getOrDefault(target, null);
     }
@@ -152,7 +152,7 @@ comments: true
     ```cpp title="hashing_search.cpp"
     /* 哈希查找（链表） */
     ListNode* hashingSearchLinkedList(unordered_map<int, ListNode*> map, int target) {
-        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 哈希表的 key: 目标节点值，value: 节点对象
         // 若哈希表中无此 key ，返回 nullptr
         if (map.find(target) == map.end())
             return nullptr;
@@ -165,7 +165,7 @@ comments: true
     ```python title="hashing_search.py"
     def hashing_search_linkedlist(mapp: dict[int, ListNode], target: int) -> ListNode | None:
         """ 哈希查找（链表） """
-        # 哈希表的 key: 目标元素，value: 结点对象
+        # 哈希表的 key: 目标元素，value: 节点对象
         # 若哈希表中无此 key ，返回 None
         return mapp.get(target, None)
     ```
@@ -175,7 +175,7 @@ comments: true
     ```go title="hashing_search.go"
     /* 哈希查找（链表） */
     func hashingSearchLinkedList(m map[int]*ListNode, target int) *ListNode {
-        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 哈希表的 key: 目标节点值，value: 节点对象
         // 若哈希表中无此 key ，返回 nil
         if node, ok := m[target]; ok {
             return node
@@ -190,7 +190,7 @@ comments: true
     ```javascript title="hashing_search.js"
     /* 哈希查找（链表） */
     function hashingSearchLinkedList(map, target) {
-        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 哈希表的 key: 目标节点值，value: 节点对象
         // 若哈希表中无此 key ，返回 null
         return map.has(target) ? map.get(target) : null;
     }
@@ -201,7 +201,7 @@ comments: true
     ```typescript title="hashing_search.ts"
     /* 哈希查找（链表） */
     function hashingSearchLinkedList(map: Map<number, ListNode>, target: number): ListNode | null {
-        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 哈希表的 key: 目标节点值，value: 节点对象
         // 若哈希表中无此 key ，返回 null
         return map.has(target) ? (map.get(target) as ListNode) : null;
     }
@@ -220,7 +220,7 @@ comments: true
     ListNode? hashingSearchLinkedList(Dictionary<int, ListNode> map, int target)
     {
 
-        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 哈希表的 key: 目标节点值，value: 节点对象
         // 若哈希表中无此 key ，返回 null
         return map.GetValueOrDefault(target);
     }
@@ -231,7 +231,7 @@ comments: true
     ```swift title="hashing_search.swift"
     /* 哈希查找（链表） */
     func hashingSearchLinkedList(map: [Int: ListNode], target: Int) -> ListNode? {
-        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 哈希表的 key: 目标节点值，value: 节点对象
         // 若哈希表中无此 key ，返回 null
         return map[target]
     }
@@ -242,7 +242,7 @@ comments: true
     ```zig title="hashing_search.zig"
     // 哈希查找（链表）
     fn hashingSearchLinkedList(comptime T: type, map: std.AutoHashMap(T, *inc.ListNode(T)), target: T) ?*inc.ListNode(T) {
-        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 哈希表的 key: 目标节点值，value: 节点对象
         // 若哈希表中无此 key ，返回 null 
         if (map.getKey(target) == null) return null;
         return map.get(target);

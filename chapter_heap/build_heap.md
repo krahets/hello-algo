@@ -16,7 +16,7 @@ comments: true
 
 ### 基于堆化操作实现
 
-有趣的是，存在一种更高效的建堆方法，其时间复杂度仅为 $O(n)$ 。我们先将列表所有元素原封不动添加到堆中，**然后迭代地对各个结点执行“从顶至底堆化”**。当然，**我们不需要对叶结点执行堆化操作**，因为它们没有子结点。
+有趣的是，存在一种更高效的建堆方法，其时间复杂度仅为 $O(n)$ 。我们先将列表所有元素原封不动添加到堆中，**然后迭代地对各个节点执行“从顶至底堆化”**。当然，**我们不需要对叶节点执行堆化操作**，因为它们没有子节点。
 
 === "Java"
 
@@ -25,7 +25,7 @@ comments: true
     MaxHeap(List<Integer> nums) {
         // 将列表元素原封不动添加进堆
         maxHeap = new ArrayList<>(nums);
-        // 堆化除叶结点以外的其他所有结点
+        // 堆化除叶节点以外的其他所有节点
         for (int i = parent(size() - 1); i >= 0; i--) {
             siftDown(i);
         }
@@ -39,7 +39,7 @@ comments: true
     MaxHeap(vector<int> nums) {
         // 将列表元素原封不动添加进堆
         maxHeap = nums;
-        // 堆化除叶结点以外的其他所有结点
+        // 堆化除叶节点以外的其他所有节点
         for (int i = parent(size() - 1); i >= 0; i--) {
             siftDown(i);
         }
@@ -53,7 +53,7 @@ comments: true
         """ 构造方法 """
         # 将列表元素原封不动添加进堆
         self.max_heap = nums
-        # 堆化除叶结点以外的其他所有结点
+        # 堆化除叶节点以外的其他所有节点
         for i in range(self.parent(self.size() - 1), -1, -1):
             self.sift_down(i)
     ```
@@ -66,7 +66,7 @@ comments: true
         // 将列表元素原封不动添加进堆
         h := &maxHeap{data: nums}
         for i := len(h.data) - 1; i >= 0; i-- {
-            // 堆化除叶结点以外的其他所有结点
+            // 堆化除叶节点以外的其他所有节点
             h.siftDown(i)
         }
         return h
@@ -80,7 +80,7 @@ comments: true
     constructor(nums) {
         // 将列表元素原封不动添加进堆
         this.#maxHeap = nums === undefined ? [] : [...nums];
-        // 堆化除叶结点以外的其他所有结点
+        // 堆化除叶节点以外的其他所有节点
         for (let i = this.#parent(this.size() - 1); i >= 0; i--) {
             this.#siftDown(i);
         }
@@ -94,7 +94,7 @@ comments: true
     constructor(nums?: number[]) {
         // 将列表元素原封不动添加进堆
         this.maxHeap = nums === undefined ? [] : [...nums];
-        // 堆化除叶结点以外的其他所有结点
+        // 堆化除叶节点以外的其他所有节点
         for (let i = this.parent(this.size() - 1); i >= 0; i--) {
             this.siftDown(i);
         }
@@ -115,7 +115,7 @@ comments: true
     {
         // 将列表元素原封不动添加进堆
         maxHeap = new List<int>(nums);
-        // 堆化除叶结点以外的其他所有结点
+        // 堆化除叶节点以外的其他所有节点
         var size = parent(this.size() - 1);
         for (int i = size; i >= 0; i--)
         {
@@ -131,7 +131,7 @@ comments: true
     init(nums: [Int]) {
         // 将列表元素原封不动添加进堆
         maxHeap = nums
-        // 堆化除叶结点以外的其他所有结点
+        // 堆化除叶节点以外的其他所有节点
         for i in stride(from: parent(i: size() - 1), through: 0, by: -1) {
             siftDown(i: i)
         }
@@ -147,7 +147,7 @@ comments: true
         self.max_heap = std.ArrayList(T).init(allocator);
         // 将列表元素原封不动添加进堆
         try self.max_heap.?.appendSlice(nums);
-        // 堆化除叶结点以外的其他所有结点
+        // 堆化除叶节点以外的其他所有节点
         var i: usize = parent(self.size() - 1) + 1;
         while (i > 0) : (i -= 1) {
             try self.siftDown(i - 1);
@@ -159,18 +159,18 @@ comments: true
 
 为什么第二种建堆方法的时间复杂度是 $O(n)$ ？我们来展开推算一下。
 
-- 完全二叉树中，设结点总数为 $n$ ，则叶结点数量为 $(n + 1) / 2$ ，其中 $/$ 为向下整除。因此，在排除叶结点后，需要堆化的结点数量为 $(n - 1)/2$ ，复杂度为 $O(n)$ ；
-- 在从顶至底堆化的过程中，每个结点最多堆化到叶结点，因此最大迭代次数为二叉树高度 $O(\log n)$ ；
+- 完全二叉树中，设节点总数为 $n$ ，则叶节点数量为 $(n + 1) / 2$ ，其中 $/$ 为向下整除。因此，在排除叶节点后，需要堆化的节点数量为 $(n - 1)/2$ ，复杂度为 $O(n)$ ；
+- 在从顶至底堆化的过程中，每个节点最多堆化到叶节点，因此最大迭代次数为二叉树高度 $O(\log n)$ ；
 
-将上述两者相乘，可得到建堆过程的时间复杂度为 $O(n \log n)$。**然而，这个估算结果并不准确，因为我们没有考虑到二叉树底层结点数量远多于顶层结点的特性**。
+将上述两者相乘，可得到建堆过程的时间复杂度为 $O(n \log n)$。**然而，这个估算结果并不准确，因为我们没有考虑到二叉树底层节点数量远多于顶层节点的特性**。
 
-接下来我们来进行更为详细的计算。为了减小计算难度，我们假设树是一个“完美二叉树”，该假设不会影响计算结果的正确性。设二叉树（即堆）结点数量为 $n$ ，树高度为 $h$ 。上文提到，**结点堆化最大迭代次数等于该结点到叶结点的距离，而该距离正是“结点高度”**。
+接下来我们来进行更为详细的计算。为了减小计算难度，我们假设树是一个“完美二叉树”，该假设不会影响计算结果的正确性。设二叉树（即堆）节点数量为 $n$ ，树高度为 $h$ 。上文提到，**节点堆化最大迭代次数等于该节点到叶节点的距离，而该距离正是“节点高度”**。
 
-![完美二叉树的各层结点数量](build_heap.assets/heapify_operations_count.png)
+![完美二叉树的各层节点数量](build_heap.assets/heapify_operations_count.png)
 
-<p align="center"> Fig. 完美二叉树的各层结点数量 </p>
+<p align="center"> Fig. 完美二叉树的各层节点数量 </p>
 
-因此，我们可以将各层的“结点数量 $\times$ 结点高度”求和，**从而得到所有结点的堆化迭代次数的总和**。
+因此，我们可以将各层的“节点数量 $\times$ 节点高度”求和，**从而得到所有节点的堆化迭代次数的总和**。
 
 $$
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \cdots + 2^{(h-1)}\times1
@@ -201,4 +201,4 @@ T(h) & = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 \end{aligned}
 $$
 
-进一步地，高度为 $h$ 的完美二叉树的结点数量为 $n = 2^{h+1} - 1$ ，易得复杂度为 $O(2^h) = O(n)$ 。以上推算表明，**输入列表并建堆的时间复杂度为 $O(n)$ ，非常高效**。
+进一步地，高度为 $h$ 的完美二叉树的节点数量为 $n = 2^{h+1} - 1$ ，易得复杂度为 $O(2^h) = O(n)$ 。以上推算表明，**输入列表并建堆的时间复杂度为 $O(n)$ ，非常高效**。

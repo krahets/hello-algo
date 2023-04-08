@@ -145,13 +145,67 @@ comments: true
 === "JavaScript"
 
     ```javascript title="bucket_sort.js"
-    [class]{}-[func]{bucketSort}
+    /* 桶排序 */
+    function bucketSort(nums) {
+        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+        const k = nums.length / 2;
+        const buckets = [];
+        for (let i = 0; i < k; i++) {
+            buckets.push([]);
+        }
+        // 1. 将数组元素分配到各个桶中
+        for (const num of nums) {
+            // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+            const i = Math.floor(num * k);
+            // 将 num 添加进桶 i
+            buckets[i].push(num);
+        }
+        // 2. 对各个桶执行排序
+        for (const bucket of buckets) {
+            // 使用内置排序函数，也可以替换成其它排序算法
+            bucket.sort((a, b) => a - b);
+        }
+        // 3. 遍历桶合并结果
+        let i = 0;
+        for (const bucket of buckets) {
+            for (const num of bucket) {
+                nums[i++] = num;
+            }
+        }
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="bucket_sort.ts"
-    [class]{}-[func]{bucketSort}
+    /* 桶排序 */
+    function bucketSort(nums: number[]): void {
+        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+        const k = nums.length / 2;
+        const buckets: number[][] = [];
+        for (let i = 0; i < k; i++) {
+            buckets.push([]);
+        }
+        // 1. 将数组元素分配到各个桶中
+        for (const num of nums) {
+            // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+            const i = Math.floor(num * k);
+            // 将 num 添加进桶 i
+            buckets[i].push(num);
+        }
+        // 2. 对各个桶执行排序
+        for (const bucket of buckets) {
+            // 使用内置排序函数，也可以替换成其它排序算法
+            bucket.sort((a, b) => a - b);
+        }
+        // 3. 遍历桶合并结果
+        let i = 0;
+        for (const bucket of buckets) {
+            for (const num of bucket) {
+                nums[i++] = num;
+            }
+        }
+    }
     ```
 
 === "C"
@@ -221,7 +275,7 @@ comments: true
 
 桶排序的时间复杂度理论上可以达到 $O(n)$ ，**难点是需要将元素均匀分配到各个桶中**，因为现实中的数据往往都不是均匀分布的。举个例子，假设我们想要把淘宝的所有商品根据价格范围平均分配到 10 个桶中，然而商品价格不是均匀分布的，100 元以下非常多、1000 元以上非常少；如果我们将价格区间平均划为 10 份，那么各个桶内的商品数量差距会非常大。
 
-为了实现平均分配，我们可以先大致设置一个分界线，将数据粗略分到 3 个桶，分配完后，**再把商品较多的桶继续划分为 3 个桶，直至所有桶内元素数量大致平均为止**。此方法本质上是生成一个递归树，让叶结点的值尽量平均。当然，不一定非要划分为 3 个桶，可以根据数据特点灵活选取。
+为了实现平均分配，我们可以先大致设置一个分界线，将数据粗略分到 3 个桶，分配完后，**再把商品较多的桶继续划分为 3 个桶，直至所有桶内元素数量大致平均为止**。此方法本质上是生成一个递归树，让叶节点的值尽量平均。当然，不一定非要划分为 3 个桶，可以根据数据特点灵活选取。
 
 ![递归划分桶](bucket_sort.assets/scatter_in_buckets_recursively.png)
 

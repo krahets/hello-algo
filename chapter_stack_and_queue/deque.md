@@ -295,11 +295,11 @@ comments: true
 
 ### 基于双向链表的实现
 
-回忆上节内容，由于可以方便地删除链表头结点（对应出队操作），以及在链表尾结点后添加新结点（对应入队操作），因此我们使用普通单向链表来实现队列。
+回忆上节内容，由于可以方便地删除链表头节点（对应出队操作），以及在链表尾节点后添加新节点（对应入队操作），因此我们使用普通单向链表来实现队列。
 
 而双向队列的头部和尾部都可以执行入队与出队操作，换言之，双向队列的操作是“首尾对称”的，也需要实现另一个对称方向的操作。因此，双向队列需要使用「双向链表」来实现。
 
-我们将双向链表的头结点和尾结点分别看作双向队列的队首和队尾，并且实现在两端都能添加与删除结点。
+我们将双向链表的头节点和尾节点分别看作双向队列的队首和队尾，并且实现在两端都能添加与删除节点。
 
 === "LinkedListDeque"
     ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque.png)
@@ -321,11 +321,11 @@ comments: true
 === "Java"
 
     ```java title="linkedlist_deque.java"
-    /* 双向链表结点 */
+    /* 双向链表节点 */
     class ListNode {
-        int val;       // 结点值
-        ListNode next; // 后继结点引用（指针）
-        ListNode prev; // 前驱结点引用（指针）
+        int val;       // 节点值
+        ListNode next; // 后继节点引用（指针）
+        ListNode prev; // 前驱节点引用（指针）
         ListNode(int val) {
             this.val = val;
             prev = next = null;
@@ -334,7 +334,7 @@ comments: true
 
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
-        private ListNode front, rear; // 头结点 front ，尾结点 rear
+        private ListNode front, rear; // 头节点 front ，尾节点 rear
         private int queSize = 0;      // 双向队列的长度
 
         public LinkedListDeque() {
@@ -362,13 +362,13 @@ comments: true
                 // 将 node 添加至链表头部
                 front.prev = node;
                 node.next = front;
-                front = node; // 更新头结点
+                front = node; // 更新头节点
             // 队尾入队操作
             } else {
                 // 将 node 添加至链表尾部
                 rear.next = node;
                 node.prev = rear;
-                rear = node;  // 更新尾结点
+                rear = node;  // 更新尾节点
             }
             queSize++; // 更新队列长度
         }
@@ -391,24 +391,24 @@ comments: true
             int val;
             // 队首出队操作
             if (isFront) {
-                val = front.val; // 暂存头结点值
-                // 删除头结点
+                val = front.val; // 暂存头节点值
+                // 删除头节点
                 ListNode fNext = front.next;
                 if (fNext != null) {
                     fNext.prev = null;
                     front.next = null;
                 }
-                front = fNext;   // 更新头结点
+                front = fNext;   // 更新头节点
             // 队尾出队操作
             } else {
-                val = rear.val;  // 暂存尾结点值
-                // 删除尾结点
+                val = rear.val;  // 暂存尾节点值
+                // 删除尾节点
                 ListNode rPrev = rear.prev;
                 if (rPrev != null) {
                     rPrev.next = null;
                     rear.prev = null;
                 }
-                rear = rPrev;    // 更新尾结点
+                rear = rPrev;    // 更新尾节点
             }
             queSize--; // 更新队列长度
             return val;
@@ -450,18 +450,18 @@ comments: true
 === "C++"
 
     ```cpp title="linkedlist_deque.cpp"
-    /* 双向链表结点 */
+    /* 双向链表节点 */
     struct DoublyListNode {
-        int val;               // 结点值
-        DoublyListNode *next;  // 后继结点指针
-        DoublyListNode *prev;  // 前驱结点指针
+        int val;               // 节点值
+        DoublyListNode *next;  // 后继节点指针
+        DoublyListNode *prev;  // 前驱节点指针
         DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {}
     };
 
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
     private:
-        DoublyListNode *front, *rear; // 头结点 front ，尾结点 rear
+        DoublyListNode *front, *rear; // 头节点 front ，尾节点 rear
         int queSize = 0;              // 双向队列的长度
 
     public:
@@ -470,7 +470,7 @@ comments: true
 
         /* 析构方法 */
         ~LinkedListDeque() {
-            // 遍历链表删除结点，释放内存
+            // 遍历链表删除节点，释放内存
             DoublyListNode *pre, *cur = front;
             while (cur != nullptr) {
                 pre = cur;
@@ -500,13 +500,13 @@ comments: true
                 // 将 node 添加至链表头部
                 front->prev = node;
                 node->next = front;
-                front = node; // 更新头结点
+                front = node; // 更新头节点
             // 队尾入队操作
             } else {
                 // 将 node 添加至链表尾部
                 rear->next = node;
                 node->prev = rear;
-                rear = node;  // 更新尾结点
+                rear = node;  // 更新尾节点
             }
             queSize++; // 更新队列长度
         }
@@ -529,26 +529,26 @@ comments: true
             int val;
             // 队首出队操作
             if (isFront) {
-                val = front->val; // 暂存头结点值
-                // 删除头结点
+                val = front->val; // 暂存头节点值
+                // 删除头节点
                 DoublyListNode *fNext = front->next;
                 if (fNext != nullptr) {
                     fNext->prev = nullptr;
                     front->next = nullptr;
                     delete front;
                 }
-                front = fNext;   // 更新头结点
+                front = fNext;   // 更新头节点
             // 队尾出队操作
             } else {
-                val = rear->val; // 暂存尾结点值
-                // 删除尾结点
+                val = rear->val; // 暂存尾节点值
+                // 删除尾节点
                 DoublyListNode *rPrev = rear->prev;
                 if (rPrev != nullptr) {
                     rPrev->next = nullptr;
                     rear->prev = nullptr;
                     delete rear;
                 }
-                rear = rPrev;    // 更新尾结点
+                rear = rPrev;    // 更新尾节点
             }
             queSize--; // 更新队列长度
             return val;
@@ -591,19 +591,19 @@ comments: true
 
     ```python title="linkedlist_deque.py"
     class ListNode:
-        """ 双向链表结点 """
+        """ 双向链表节点 """
         def __init__(self, val: int) -> None:
             """ 构造方法 """
             self.val: int = val
-            self.next: ListNode | None = None  # 后继结点引用（指针）
-            self.prev: ListNode | None = None  # 前驱结点引用（指针）
+            self.next: ListNode | None = None  # 后继节点引用（指针）
+            self.prev: ListNode | None = None  # 前驱节点引用（指针）
 
     class LinkedListDeque:
         """ 基于双向链表实现的双向队列 """
         def __init__(self) -> None:
             """ 构造方法 """
-            self.front: ListNode | None = None # 头结点 front
-            self.rear: ListNode | None = None  # 尾结点 rear
+            self.front: ListNode | None = None # 头节点 front
+            self.rear: ListNode | None = None  # 尾节点 rear
             self.__size: int = 0        # 双向队列的长度
 
         def size(self) -> int:
@@ -625,13 +625,13 @@ comments: true
                 # 将 node 添加至链表头部
                 self.front.prev = node
                 node.next = self.front
-                self.front = node  # 更新头结点
+                self.front = node  # 更新头节点
             # 队尾入队操作
             else:
                 # 将 node 添加至链表尾部
                 self.rear.next = node
                 node.prev = self.rear
-                self.rear = node  # 更新尾结点
+                self.rear = node  # 更新尾节点
             self.__size += 1  # 更新队列长度
 
         def push_first(self, num: int) -> None:
@@ -649,22 +649,22 @@ comments: true
                 return None
             # 队首出队操作
             if is_front:
-                val: int = self.front.val  # 暂存头结点值
-                # 删除头结点
+                val: int = self.front.val  # 暂存头节点值
+                # 删除头节点
                 fnext: ListNode | None = self.front.next
                 if fnext != None:
                     fnext.prev = None
                     self.front.next = None
-                self.front = fnext  # 更新头结点
+                self.front = fnext  # 更新头节点
             # 队尾出队操作
             else:
-                val: int = self.rear.val  # 暂存尾结点值
-                # 删除尾结点
+                val: int = self.rear.val  # 暂存尾节点值
+                # 删除尾节点
                 rprev: ListNode | None = self.rear.prev
                 if rprev != None:
                     rprev.next = None
                     self.rear.prev = None
-                self.rear = rprev  # 更新尾结点
+                self.rear = rprev  # 更新尾节点
             self.__size -= 1  # 更新队列长度
             return val
 
@@ -777,11 +777,11 @@ comments: true
 === "JavaScript"
 
     ```javascript title="linkedlist_deque.js"
-    /* 双向链表结点 */
+    /* 双向链表节点 */
     class ListNode {
-        prev;   // 前驱结点引用 (指针)
-        next;   // 后继结点引用 (指针)
-        val;    // 结点值
+        prev;   // 前驱节点引用 (指针)
+        next;   // 后继节点引用 (指针)
+        val;    // 节点值
         
         constructor(val) {
             this.val = val;
@@ -792,8 +792,8 @@ comments: true
 
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
-        #front;  // 头结点 front
-        #rear;   // 尾结点 rear
+        #front;  // 头节点 front
+        #rear;   // 尾节点 rear
         #queSize;    // 双向队列的长度
 
         constructor() {
@@ -813,7 +813,7 @@ comments: true
                 // 将 node 添加至链表尾部
                 this.#rear.next = node;
                 node.prev = this.#rear;
-                this.#rear = node; // 更新尾结点
+                this.#rear = node; // 更新尾节点
             }
             this.#queSize++;
         }
@@ -829,7 +829,7 @@ comments: true
                 // 将 node 添加至链表头部
                 this.#front.prev = node;
                 node.next = this.#front;
-                this.#front = node; // 更新头结点
+                this.#front = node; // 更新头节点
             }
             this.#queSize++;
         }
@@ -839,14 +839,14 @@ comments: true
             if (this.#queSize === 0) {
                 return null;
             }
-            const value = this.#rear.val; // 存储尾结点值
-            // 删除尾结点
+            const value = this.#rear.val; // 存储尾节点值
+            // 删除尾节点
             let temp = this.#rear.prev;
             if (temp !== null) {
                 temp.next = null;
                 this.#rear.prev = null;
             }
-            this.#rear = temp;   // 更新尾结点
+            this.#rear = temp;   // 更新尾节点
             this.#queSize--;
             return value;
         }
@@ -856,14 +856,14 @@ comments: true
             if (this.#queSize === 0) {
                 return null;
             }
-            const value = this.#front.val; // 存储尾结点值
-            // 删除头结点
+            const value = this.#front.val; // 存储尾节点值
+            // 删除头节点
             let temp = this.#front.next;
             if (temp !== null) {
                 temp.prev = null;
                 this.#front.next = null;
             }
-            this.#front = temp;   // 更新头结点
+            this.#front = temp;   // 更新头节点
             this.#queSize--;
             return value;
         }
@@ -904,11 +904,11 @@ comments: true
 === "TypeScript"
 
     ```typescript title="linkedlist_deque.ts"
-    /* 双向链表结点 */
+    /* 双向链表节点 */
     class ListNode {
-        prev: ListNode;     // 前驱结点引用 (指针)
-        next: ListNode;     // 后继结点引用 (指针)
-        val: number;        // 结点值
+        prev: ListNode;     // 前驱节点引用 (指针)
+        next: ListNode;     // 后继节点引用 (指针)
+        val: number;        // 节点值
 
         constructor(val: number) {
             this.val = val;
@@ -919,8 +919,8 @@ comments: true
 
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
-        private front: ListNode;    // 头结点 front
-        private rear: ListNode;     // 尾结点 rear
+        private front: ListNode;    // 头节点 front
+        private rear: ListNode;     // 尾节点 rear
         private queSize: number;        // 双向队列的长度
 
         constructor() {
@@ -940,7 +940,7 @@ comments: true
                 // 将 node 添加至链表尾部
                 this.rear.next = node;
                 node.prev = this.rear;
-                this.rear = node; // 更新尾结点
+                this.rear = node; // 更新尾节点
             }
             this.queSize++;
         }
@@ -956,7 +956,7 @@ comments: true
                 // 将 node 添加至链表头部
                 this.front.prev = node;
                 node.next = this.front;
-                this.front = node; // 更新头结点
+                this.front = node; // 更新头节点
             }
             this.queSize++;
         }
@@ -966,14 +966,14 @@ comments: true
             if (this.queSize === 0) {
                 return null;
             }
-            const value: number = this.rear.val; // 存储尾结点值
-            // 删除尾结点
+            const value: number = this.rear.val; // 存储尾节点值
+            // 删除尾节点
             let temp: ListNode = this.rear.prev;
             if (temp !== null) {
                 temp.next = null;
                 this.rear.prev = null;
             }
-            this.rear = temp;   // 更新尾结点
+            this.rear = temp;   // 更新尾节点
             this.queSize--;
             return value;
         }
@@ -983,14 +983,14 @@ comments: true
             if (this.queSize === 0) {
                 return null;
             }
-            const value: number = this.front.val; // 存储尾结点值
-            // 删除头结点
+            const value: number = this.front.val; // 存储尾节点值
+            // 删除头节点
             let temp: ListNode = this.front.next;
             if (temp !== null) {
                 temp.prev = null;
                 this.front.next = null;
             }
-            this.front = temp;   // 更新头结点
+            this.front = temp;   // 更新头节点
             this.queSize--;
             return value;
         }
@@ -1047,11 +1047,11 @@ comments: true
 === "Swift"
 
     ```swift title="linkedlist_deque.swift"
-    /* 双向链表结点 */
+    /* 双向链表节点 */
     class ListNode {
-        var val: Int // 结点值
-        var next: ListNode? // 后继结点引用（指针）
-        var prev: ListNode? // 前驱结点引用（指针）
+        var val: Int // 节点值
+        var next: ListNode? // 后继节点引用（指针）
+        var prev: ListNode? // 前驱节点引用（指针）
 
         init(val: Int) {
             self.val = val
@@ -1060,8 +1060,8 @@ comments: true
 
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
-        private var front: ListNode? // 头结点 front
-        private var rear: ListNode? // 尾结点 rear
+        private var front: ListNode? // 头节点 front
+        private var rear: ListNode? // 尾节点 rear
         private var queSize: Int // 双向队列的长度
 
         init() {
@@ -1091,14 +1091,14 @@ comments: true
                 // 将 node 添加至链表头部
                 front?.prev = node
                 node.next = front
-                front = node // 更新头结点
+                front = node // 更新头节点
             }
             // 队尾入队操作
             else {
                 // 将 node 添加至链表尾部
                 rear?.next = node
                 node.prev = rear
-                rear = node // 更新尾结点
+                rear = node // 更新尾节点
             }
             queSize += 1 // 更新队列长度
         }
@@ -1121,25 +1121,25 @@ comments: true
             let val: Int
             // 队首出队操作
             if isFront {
-                val = front!.val // 暂存头结点值
-                // 删除头结点
+                val = front!.val // 暂存头节点值
+                // 删除头节点
                 let fNext = front?.next
                 if fNext != nil {
                     fNext?.prev = nil
                     front?.next = nil
                 }
-                front = fNext // 更新头结点
+                front = fNext // 更新头节点
             }
             // 队尾出队操作
             else {
-                val = rear!.val // 暂存尾结点值
-                // 删除尾结点
+                val = rear!.val // 暂存尾节点值
+                // 删除尾节点
                 let rPrev = rear?.prev
                 if rPrev != nil {
                     rPrev?.next = nil
                     rear?.prev = nil
                 }
-                rear = rPrev // 更新尾结点
+                rear = rPrev // 更新尾节点
             }
             queSize -= 1 // 更新队列长度
             return val
@@ -1181,14 +1181,14 @@ comments: true
 === "Zig"
 
     ```zig title="linkedlist_deque.zig"
-    // 双向链表结点
+    // 双向链表节点
     fn ListNode(comptime T: type) type {
         return struct {
             const Self = @This();
             
-            val: T = undefined,     // 结点值
-            next: ?*Self = null,    // 后继结点引用（指针）
-            prev: ?*Self = null,    // 前驱结点引用（指针）
+            val: T = undefined,     // 节点值
+            next: ?*Self = null,    // 后继节点引用（指针）
+            prev: ?*Self = null,    // 前驱节点引用（指针）
 
             // Initialize a list node with specific value
             pub fn init(self: *Self, x: i32) void {
@@ -1204,8 +1204,8 @@ comments: true
         return struct {
             const Self = @This();
 
-            front: ?*ListNode(T) = null,                    // 头结点 front
-            rear: ?*ListNode(T) = null,                     // 尾结点 rear
+            front: ?*ListNode(T) = null,                    // 头节点 front
+            rear: ?*ListNode(T) = null,                     // 尾节点 rear
             que_size: usize = 0,                             // 双向队列的长度
             mem_arena: ?std.heap.ArenaAllocator = null,
             mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
@@ -1250,13 +1250,13 @@ comments: true
                     // 将 node 添加至链表头部
                     self.front.?.prev = node;
                     node.next = self.front;
-                    self.front = node;  // 更新头结点
+                    self.front = node;  // 更新头节点
                 // 队尾入队操作
                 } else {
                     // 将 node 添加至链表尾部
                     self.rear.?.next = node;
                     node.prev = self.rear;
-                    self.rear = node;   // 更新尾结点
+                    self.rear = node;   // 更新尾节点
                 }
                 self.que_size += 1;      // 更新队列长度
             } 
@@ -1277,24 +1277,24 @@ comments: true
                 var val: T = undefined;
                 // 队首出队操作
                 if (is_front) {
-                    val = self.front.?.val;     // 暂存头结点值
-                    // 删除头结点
+                    val = self.front.?.val;     // 暂存头节点值
+                    // 删除头节点
                     var fNext = self.front.?.next;
                     if (fNext != null) {
                         fNext.?.prev = null;
                         self.front.?.next = null;
                     }
-                    self.front = fNext;         // 更新头结点
+                    self.front = fNext;         // 更新头节点
                 // 队尾出队操作
                 } else {
-                    val = self.rear.?.val;      // 暂存尾结点值
-                    // 删除尾结点
+                    val = self.rear.?.val;      // 暂存尾节点值
+                    // 删除尾节点
                     var rPrev = self.rear.?.prev;
                     if (rPrev != null) {
                         rPrev.?.next = null;
                         self.rear.?.prev = null;
                     }
-                    self.rear = rPrev;          // 更新尾结点
+                    self.rear = rPrev;          // 更新尾节点
                 }
                 self.que_size -= 1;              // 更新队列长度
                 return val;

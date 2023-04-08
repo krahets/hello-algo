@@ -264,7 +264,7 @@ comments: true
 
 ### 基于链表的实现
 
-我们将链表的「头结点」和「尾结点」分别看作是队首和队尾，并规定队尾只可添加结点，队首只可删除结点。
+我们将链表的「头节点」和「尾节点」分别看作是队首和队尾，并规定队尾只可添加节点，队首只可删除节点。
 
 === "LinkedListQueue"
     ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue.png)
@@ -282,7 +282,7 @@ comments: true
     ```java title="linkedlist_queue.java"
     /* 基于链表实现的队列 */
     class LinkedListQueue {
-        private ListNode front, rear;  // 头结点 front ，尾结点 rear 
+        private ListNode front, rear;  // 头节点 front ，尾节点 rear 
         private int queSize = 0;
 
         public LinkedListQueue() {
@@ -302,13 +302,13 @@ comments: true
 
         /* 入队 */
         public void push(int num) {
-            // 尾结点后添加 num
+            // 尾节点后添加 num
             ListNode node = new ListNode(num);
-            // 如果队列为空，则令头、尾结点都指向该结点
+            // 如果队列为空，则令头、尾节点都指向该节点
             if (front == null) {
                 front = node;
                 rear = node;
-            // 如果队列不为空，则将该结点添加到尾结点后
+            // 如果队列不为空，则将该节点添加到尾节点后
             } else {
                 rear.next = node;
                 rear = node;
@@ -319,7 +319,7 @@ comments: true
         /* 出队 */
         public int pop() {
             int num = peek();
-            // 删除头结点
+            // 删除头节点
             front = front.next;
             queSize--;
             return num;
@@ -351,7 +351,7 @@ comments: true
     /* 基于链表实现的队列 */
     class LinkedListQueue {
     private:
-        ListNode *front, *rear;  // 头结点 front ，尾结点 rear 
+        ListNode *front, *rear;  // 头节点 front ，尾节点 rear 
         int queSize;
 
     public:
@@ -362,7 +362,7 @@ comments: true
         }
 
         ~LinkedListQueue() {
-            // 遍历链表删除结点，释放内存
+            // 遍历链表删除节点，释放内存
             freeMemoryLinkedList(front);
         }
 
@@ -378,14 +378,14 @@ comments: true
 
         /* 入队 */
         void push(int num) {
-            // 尾结点后添加 num
+            // 尾节点后添加 num
             ListNode* node = new ListNode(num);
-            // 如果队列为空，则令头、尾结点都指向该结点
+            // 如果队列为空，则令头、尾节点都指向该节点
             if (front == nullptr) {
                 front = node;
                 rear = node;
             }
-            // 如果队列不为空，则将该结点添加到尾结点后
+            // 如果队列不为空，则将该节点添加到尾节点后
             else {
                 rear->next = node;
                 rear = node;
@@ -396,7 +396,7 @@ comments: true
         /* 出队 */
         void pop() {
             int num = peek();
-            // 删除头结点
+            // 删除头节点
             ListNode *tmp = front;
             front = front->next;
             // 释放内存
@@ -431,8 +431,8 @@ comments: true
         """ 基于链表实现的队列 """
         def __init__(self):
             """ 构造方法 """
-            self.__front: ListNode | None = None  # 头结点 front
-            self.__rear: ListNode | None = None   # 尾结点 rear
+            self.__front: ListNode | None = None  # 头节点 front
+            self.__rear: ListNode | None = None   # 尾节点 rear
             self.__size: int = 0
 
         def size(self) -> int:
@@ -445,13 +445,13 @@ comments: true
 
         def push(self, num: int) -> None:
             """ 入队 """
-            # 尾结点后添加 num
+            # 尾节点后添加 num
             node = ListNode(num)
-            # 如果队列为空，则令头、尾结点都指向该结点
+            # 如果队列为空，则令头、尾节点都指向该节点
             if self.__front is None:
                 self.__front = node
                 self.__rear = node
-            # 如果队列不为空，则将该结点添加到尾结点后
+            # 如果队列不为空，则将该节点添加到尾节点后
             else:
                 self.__rear.next = node
                 self.__rear = node
@@ -460,7 +460,7 @@ comments: true
         def pop(self) -> int:
             """ 出队 """
             num = self.peek()
-            # 删除头结点
+            # 删除头节点
             self.__front = self.__front.next
             self.__size -= 1
             return num
@@ -543,8 +543,8 @@ comments: true
     ```javascript title="linkedlist_queue.js"
     /* 基于链表实现的队列 */
     class LinkedListQueue {
-        #front;  // 头结点 #front
-        #rear;   // 尾结点 #rear
+        #front;  // 头节点 #front
+        #rear;   // 尾节点 #rear
         #queSize = 0;
 
         constructor() {
@@ -564,13 +564,13 @@ comments: true
 
         /* 入队 */
         push(num) {
-            // 尾结点后添加 num
+            // 尾节点后添加 num
             const node = new ListNode(num);
-            // 如果队列为空，则令头、尾结点都指向该结点
+            // 如果队列为空，则令头、尾节点都指向该节点
             if (!this.#front) {
                 this.#front = node;
                 this.#rear = node;
-                // 如果队列不为空，则将该结点添加到尾结点后
+                // 如果队列不为空，则将该节点添加到尾节点后
             } else {
                 this.#rear.next = node;
                 this.#rear = node;
@@ -581,7 +581,7 @@ comments: true
         /* 出队 */
         pop() {
             const num = this.peek();
-            // 删除头结点
+            // 删除头节点
             this.#front = this.#front.next;
             this.#queSize--;
             return num;
@@ -612,8 +612,8 @@ comments: true
     ```typescript title="linkedlist_queue.ts"
     /* 基于链表实现的队列 */
     class LinkedListQueue {
-        private front: ListNode | null; // 头结点 front
-        private rear: ListNode | null; // 尾结点 rear
+        private front: ListNode | null; // 头节点 front
+        private rear: ListNode | null; // 尾节点 rear
         private queSize: number = 0;
 
         constructor() {
@@ -633,13 +633,13 @@ comments: true
 
         /* 入队 */
         push(num: number): void {
-            // 尾结点后添加 num
+            // 尾节点后添加 num
             const node = new ListNode(num);
-            // 如果队列为空，则令头、尾结点都指向该结点
+            // 如果队列为空，则令头、尾节点都指向该节点
             if (!this.front) {
                 this.front = node;
                 this.rear = node;
-                // 如果队列不为空，则将该结点添加到尾结点后
+                // 如果队列不为空，则将该节点添加到尾节点后
             } else {
                 this.rear!.next = node;
                 this.rear = node;
@@ -651,7 +651,7 @@ comments: true
         pop(): number {
             const num = this.peek();
             if (!this.front) throw new Error('队列为空');
-            // 删除头结点
+            // 删除头节点
             this.front = this.front.next;
             this.queSize--;
             return num;
@@ -688,7 +688,7 @@ comments: true
     /* 基于链表实现的队列 */
     class LinkedListQueue
     {
-        private ListNode? front, rear;  // 头结点 front ，尾结点 rear 
+        private ListNode? front, rear;  // 头节点 front ，尾节点 rear 
         private int queSize = 0;
 
         public LinkedListQueue()
@@ -712,14 +712,14 @@ comments: true
         /* 入队 */
         public void push(int num)
         {
-            // 尾结点后添加 num
+            // 尾节点后添加 num
             ListNode node = new ListNode(num);
-            // 如果队列为空，则令头、尾结点都指向该结点
+            // 如果队列为空，则令头、尾节点都指向该节点
             if (front == null)
             {
                 front = node;
                 rear = node;
-                // 如果队列不为空，则将该结点添加到尾结点后
+                // 如果队列不为空，则将该节点添加到尾节点后
             }
             else if (rear != null)
             {
@@ -733,7 +733,7 @@ comments: true
         public int pop()
         {
             int num = peek();
-            // 删除头结点
+            // 删除头节点
             front = front?.next;
             queSize--;
             return num;
@@ -770,8 +770,8 @@ comments: true
     ```swift title="linkedlist_queue.swift"
     /* 基于链表实现的队列 */
     class LinkedListQueue {
-        private var front: ListNode? // 头结点
-        private var rear: ListNode? // 尾结点
+        private var front: ListNode? // 头节点
+        private var rear: ListNode? // 尾节点
         private var _size = 0
 
         init() {}
@@ -788,14 +788,14 @@ comments: true
 
         /* 入队 */
         func push(num: Int) {
-            // 尾结点后添加 num
+            // 尾节点后添加 num
             let node = ListNode(x: num)
-            // 如果队列为空，则令头、尾结点都指向该结点
+            // 如果队列为空，则令头、尾节点都指向该节点
             if front == nil {
                 front = node
                 rear = node
             }
-            // 如果队列不为空，则将该结点添加到尾结点后
+            // 如果队列不为空，则将该节点添加到尾节点后
             else {
                 rear?.next = node
                 rear = node
@@ -807,7 +807,7 @@ comments: true
         @discardableResult
         func pop() -> Int {
             let num = peek()
-            // 删除头结点
+            // 删除头节点
             front = front?.next
             _size -= 1
             return num
@@ -842,8 +842,8 @@ comments: true
         return struct {
             const Self = @This();
 
-            front: ?*inc.ListNode(T) = null,                // 头结点 front
-            rear: ?*inc.ListNode(T) = null,                 // 尾结点 rear
+            front: ?*inc.ListNode(T) = null,                // 头节点 front
+            rear: ?*inc.ListNode(T) = null,                 // 尾节点 rear
             que_size: usize = 0,                             // 队列的长度
             mem_arena: ?std.heap.ArenaAllocator = null,
             mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
@@ -883,14 +883,14 @@ comments: true
 
             // 入队
             pub fn push(self: *Self, num: T) !void {
-                // 尾结点后添加 num
+                // 尾节点后添加 num
                 var node = try self.mem_allocator.create(inc.ListNode(T));
                 node.init(num);
-                // 如果队列为空，则令头、尾结点都指向该结点
+                // 如果队列为空，则令头、尾节点都指向该节点
                 if (self.front == null) {
                     self.front = node;
                     self.rear = node;
-                // 如果队列不为空，则将该结点添加到尾结点后
+                // 如果队列不为空，则将该节点添加到尾节点后
                 } else {
                     self.rear.?.next = node;
                     self.rear = node;
@@ -901,7 +901,7 @@ comments: true
             // 出队
             pub fn pop(self: *Self) T {
                 var num = self.peek();
-                // 删除头结点
+                // 删除头节点
                 self.front = self.front.?.next;
                 self.que_size -= 1;
                 return num;

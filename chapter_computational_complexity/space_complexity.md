@@ -84,8 +84,8 @@ comments: true
     """ 类 """
     class Node:
         def __init__(self, x: int):
-            self.val: int = x                 # 结点值
-            self.next: Optional[Node] = None  # 指向下一结点的指针（引用）
+            self.val: int = x                 # 节点值
+            self.next: Optional[Node] = None  # 指向下一节点的指针（引用）
 
     """ 函数 """
     def function() -> int:
@@ -137,8 +137,8 @@ comments: true
         val;
         next;
         constructor(val) {
-            this.val = val === undefined ? 0 : val; // 结点值
-            this.next = null;                       // 指向下一结点的引用
+            this.val = val === undefined ? 0 : val; // 节点值
+            this.next = null;                       // 指向下一节点的引用
         }
     }
 
@@ -165,8 +165,8 @@ comments: true
         val: number;
         next: Node | null;
         constructor(val?: number) {
-            this.val = val === undefined ? 0 : val; // 结点值
-            this.next = null;                       // 指向下一结点的引用
+            this.val = val === undefined ? 0 : val; // 节点值
+            this.next = null;                       // 指向下一节点的引用
         }
     }
 
@@ -1375,7 +1375,7 @@ $$
 
 ### 指数阶 $O(2^n)$
 
-指数阶常见于二叉树。高度为 $n$ 的「满二叉树」的结点数量为 $2^n - 1$ ，占用 $O(2^n)$ 空间。
+指数阶常见于二叉树。高度为 $n$ 的「满二叉树」的节点数量为 $2^n - 1$ ，占用 $O(2^n)$ 空间。
 
 === "Java"
 

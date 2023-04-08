@@ -264,9 +264,9 @@ comments: true
 
 ### 基于链表的实现
 
-使用「链表」实现栈时，将链表的头结点看作栈顶，将尾结点看作栈底。
+使用「链表」实现栈时，将链表的头节点看作栈顶，将尾节点看作栈底。
 
-对于入栈操作，将元素插入到链表头部即可，这种结点添加方式被称为“头插法”。而对于出栈操作，则将头结点从链表中删除即可。
+对于入栈操作，将元素插入到链表头部即可，这种节点添加方式被称为“头插法”。而对于出栈操作，则将头节点从链表中删除即可。
 
 === "LinkedListStack"
     ![基于链表实现栈的入栈出栈操作](stack.assets/linkedlist_stack.png)
@@ -284,7 +284,7 @@ comments: true
     ```java title="linkedlist_stack.java"
     /* 基于链表实现的栈 */
     class LinkedListStack {
-        private ListNode stackPeek;  // 将头结点作为栈顶
+        private ListNode stackPeek;  // 将头节点作为栈顶
         private int stkSize = 0;   // 栈的长度
         
         public LinkedListStack() {
@@ -343,7 +343,7 @@ comments: true
     /* 基于链表实现的栈 */
     class LinkedListStack {
     private:
-        ListNode* stackTop; // 将头结点作为栈顶
+        ListNode* stackTop; // 将头节点作为栈顶
         int stkSize;        // 栈的长度
 
     public:
@@ -353,7 +353,7 @@ comments: true
         }
 
         ~LinkedListStack() {
-            // 遍历链表删除结点，释放内存
+            // 遍历链表删除节点，释放内存
             freeMemoryLinkedList(stackTop);
         }
 
@@ -515,7 +515,7 @@ comments: true
     ```javascript title="linkedlist_stack.js"
     /* 基于链表实现的栈 */
     class LinkedListStack {
-        #stackPeek;     // 将头结点作为栈顶
+        #stackPeek;     // 将头节点作为栈顶
         #stkSize = 0;   // 栈的长度
 
         constructor() {
@@ -573,7 +573,7 @@ comments: true
     ```typescript title="linkedlist_stack.ts"
     /* 基于链表实现的栈 */
     class LinkedListStack {
-        private stackPeek: ListNode | null; // 将头结点作为栈顶
+        private stackPeek: ListNode | null; // 将头节点作为栈顶
         private stkSize: number = 0; // 栈的长度
 
         constructor() {
@@ -638,7 +638,7 @@ comments: true
     /* 基于链表实现的栈 */
     class LinkedListStack
     {
-        private ListNode? stackPeek;  // 将头结点作为栈顶
+        private ListNode? stackPeek;  // 将头节点作为栈顶
         private int stkSize = 0;   // 栈的长度
 
         public LinkedListStack()
@@ -710,7 +710,7 @@ comments: true
     ```swift title="linkedlist_stack.swift"
     /* 基于链表实现的栈 */
     class LinkedListStack {
-        private var _peek: ListNode? // 将头结点作为栈顶
+        private var _peek: ListNode? // 将头节点作为栈顶
         private var _size = 0 // 栈的长度
 
         init() {}
@@ -771,7 +771,7 @@ comments: true
         return struct {
             const Self = @This();
 
-            stack_top: ?*inc.ListNode(T) = null,             // 将头结点作为栈顶
+            stack_top: ?*inc.ListNode(T) = null,             // 将头节点作为栈顶
             stk_size: usize = 0,                             // 栈的长度
             mem_arena: ?std.heap.ArenaAllocator = null,
             mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
@@ -1311,7 +1311,7 @@ comments: true
 
 在数组（列表）实现中，入栈与出栈操作都是在预先分配好的连续内存中操作，具有很好的缓存本地性，效率很好。然而，如果入栈时超出数组容量，则会触发扩容机制，那么该次入栈操作的时间复杂度为 $O(n)$ 。
 
-在链表实现中，链表的扩容非常灵活，不存在上述数组扩容时变慢的问题。然而，入栈操作需要初始化结点对象并修改指针，因而效率不如数组。进一步地思考，如果入栈元素不是 `int` 而是结点对象，那么就可以省去初始化步骤，从而提升效率。
+在链表实现中，链表的扩容非常灵活，不存在上述数组扩容时变慢的问题。然而，入栈操作需要初始化节点对象并修改指针，因而效率不如数组。进一步地思考，如果入栈元素不是 `int` 而是节点对象，那么就可以省去初始化步骤，从而提升效率。
 
 综上所述，当入栈与出栈操作的元素是基本数据类型（例如 `int` , `double` ）时，则结论如下：
 
@@ -1322,7 +1322,7 @@ comments: true
 
 在初始化列表时，系统会给列表分配“初始容量”，该容量可能超过我们的需求。并且扩容机制一般是按照特定倍率（比如 2 倍）进行扩容，扩容后的容量也可能超出我们的需求。因此，**数组实现栈会造成一定的空间浪费**。
 
-当然，由于结点需要额外存储指针，因此 **链表结点比数组元素占用更大**。
+当然，由于节点需要额外存储指针，因此 **链表节点比数组元素占用更大**。
 
 综上，我们不能简单地确定哪种实现更加省内存，需要 case-by-case 地分析。
 

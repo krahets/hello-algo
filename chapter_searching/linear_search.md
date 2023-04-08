@@ -167,7 +167,7 @@ comments: true
     }
     ```
 
-再比如，我们想要在给定一个目标结点值 `target` ，返回此结点对象，也可以在链表中进行线性查找。
+再比如，我们想要在给定一个目标节点值 `target` ，返回此节点对象，也可以在链表中进行线性查找。
 
 === "Java"
 
@@ -176,12 +176,12 @@ comments: true
     ListNode linearSearchLinkedList(ListNode head, int target) {
         // 遍历链表
         while (head != null) {
-            // 找到目标结点，返回之
+            // 找到目标节点，返回之
             if (head.val == target)
                 return head;
             head = head.next;
         }
-        // 未找到目标结点，返回 null
+        // 未找到目标节点，返回 null
         return null;
     }
     ```
@@ -193,12 +193,12 @@ comments: true
     ListNode* linearSearchLinkedList(ListNode* head, int target) {
         // 遍历链表
         while (head != nullptr) {
-            // 找到目标结点，返回之
+            // 找到目标节点，返回之
             if (head->val == target)
                 return head;
             head = head->next;
         }
-        // 未找到目标结点，返回 nullptr
+        // 未找到目标节点，返回 nullptr
         return nullptr;
     }
     ```
@@ -210,10 +210,10 @@ comments: true
         """ 线性查找（链表） """
         # 遍历链表
         while head:
-            if head.val == target: # 找到目标结点，返回之
+            if head.val == target: # 找到目标节点，返回之
                 return head
             head = head.next
-        return None                # 未找到目标结点，返回 None
+        return None                # 未找到目标节点，返回 None
     ```
 
 === "Go"
@@ -223,7 +223,7 @@ comments: true
     func linearSearchLinkedList(node *ListNode, target int) *ListNode {
         // 遍历链表
         for node != nil {
-            // 找到目标结点，返回之
+            // 找到目标节点，返回之
             if node.Val == target {
                 return node
             }
@@ -241,13 +241,13 @@ comments: true
     function linearSearchLinkedList(head, target) {
         // 遍历链表
         while(head) {
-            // 找到目标结点，返回之
+            // 找到目标节点，返回之
             if(head.val === target) {
                 return head;
             }
             head = head.next;
         }
-        // 未找到目标结点，返回 null
+        // 未找到目标节点，返回 null
         return null;
     }
     ```
@@ -259,13 +259,13 @@ comments: true
     function linearSearchLinkedList(head: ListNode | null, target: number): ListNode | null {
         // 遍历链表
         while (head) {
-            // 找到目标结点，返回之
+            // 找到目标节点，返回之
             if (head.val === target) {
                 return head;
             }
             head = head.next;
         }
-        // 未找到目标结点，返回 null
+        // 未找到目标节点，返回 null
         return null;
     }
     ```
@@ -285,12 +285,12 @@ comments: true
         // 遍历链表
         while (head != null)
         {
-            // 找到目标结点，返回之
+            // 找到目标节点，返回之
             if (head.val == target)
                 return head;
             head = head.next;
         }
-        // 未找到目标结点，返回 null
+        // 未找到目标节点，返回 null
         return null;
     }
     ```
@@ -303,13 +303,13 @@ comments: true
         var head = head
         // 遍历链表
         while head != nil {
-            // 找到目标结点，返回之
+            // 找到目标节点，返回之
             if head?.val == target {
                 return head
             }
             head = head?.next
         }
-        // 未找到目标结点，返回 null
+        // 未找到目标节点，返回 null
         return nil
     }
     ```
@@ -322,7 +322,7 @@ comments: true
         var head = node;
         // 遍历链表
         while (head != null) {
-            // 找到目标结点，返回之
+            // 找到目标节点，返回之
             if (head.?.val == target) return head;
             head = head.?.next;
         }
