@@ -2190,15 +2190,15 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">my_heap.py</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span> <span class="nf">left</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 获取左子节点索引 &quot;&quot;&quot;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;获取左子节点索引&quot;&quot;&quot;</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="k">def</span> <span class="nf">right</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 获取右子节点索引 &quot;&quot;&quot;</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;获取右子节点索引&quot;&quot;&quot;</span>
 <a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span>
 <a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
 <a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="k">def</span> <span class="nf">parent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 获取父节点索引 &quot;&quot;&quot;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;获取父节点索引&quot;&quot;&quot;</span>
 <a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># 向下整除</span>
 </code></pre></div>
 </div>
@@ -2339,7 +2339,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">my_heap.py</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 访问堆顶元素 &quot;&quot;&quot;</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;访问堆顶元素&quot;&quot;&quot;</span>
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_heap</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div>
 </div>
@@ -2472,14 +2472,14 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">my_heap.py</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 元素入堆 &quot;&quot;&quot;</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;元素入堆&quot;&quot;&quot;</span>
 <a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>    <span class="c1"># 添加节点</span>
 <a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">max_heap</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
 <a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>    <span class="c1"># 从底至顶堆化</span>
 <a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sift_up</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>
 <a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="k">def</span> <span class="nf">sift_up</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 从节点 i 开始，从底至顶堆化 &quot;&quot;&quot;</span>
+<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;从节点 i 开始，从底至顶堆化&quot;&quot;&quot;</span>
 <a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>        <span class="c1"># 获取节点 i 的父节点</span>
 <a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -2771,7 +2771,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">my_heap.py</span><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 元素出堆 &quot;&quot;&quot;</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;元素出堆&quot;&quot;&quot;</span>
 <a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>    <span class="c1"># 判空处理</span>
 <a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>    <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span>
 <a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>    <span class="c1"># 交换根节点与最右叶节点（即交换首元素与尾元素）</span>
@@ -2784,7 +2784,7 @@
 <a id="__codelineno-42-12" name="__codelineno-42-12" href="#__codelineno-42-12"></a>    <span class="k">return</span> <span class="n">val</span>
 <a id="__codelineno-42-13" name="__codelineno-42-13" href="#__codelineno-42-13"></a>
 <a id="__codelineno-42-14" name="__codelineno-42-14" href="#__codelineno-42-14"></a><span class="k">def</span> <span class="nf">sift_down</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-42-15" name="__codelineno-42-15" href="#__codelineno-42-15"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 从节点 i 开始，从顶至底堆化 &quot;&quot;&quot;</span>
+<a id="__codelineno-42-15" name="__codelineno-42-15" href="#__codelineno-42-15"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;从节点 i 开始，从顶至底堆化&quot;&quot;&quot;</span>
 <a id="__codelineno-42-16" name="__codelineno-42-16" href="#__codelineno-42-16"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <a id="__codelineno-42-17" name="__codelineno-42-17" href="#__codelineno-42-17"></a>        <span class="c1"># 判断节点 i, l, r 中值最大的节点，记为 ma</span>
 <a id="__codelineno-42-18" name="__codelineno-42-18" href="#__codelineno-42-18"></a>        <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">ma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span>

@@ -1768,9 +1768,9 @@
 
 
 <h1 id="42">4.2. &nbsp; 链表<a class="headerlink" href="#42" title="Permanent link">&para;</a></h1>
-<p>内存空间是所有程序的公共资源，排除已被占用的内存空间，空闲内存空间通常散落在内存各处。在上一节中，我们提到存储数组的内存空间必须是连续的，而当我们需要申请一个非常大的数组时，空闲内存中可能没有这么大的连续空间。</p>
-<p>与数组相比，链表更具灵活性，因为它可以存储在非连续的内存空间。「链表 Linked List」是一种线性数据结构，其每个元素都是一个节点对象，各个节点之间通过指针连接，从当前节点通过指针可以访问到下一个节点。由于指针记录了下个节点的内存地址，因此无需保证内存地址的连续性，从而可以将各个节点分散存储在内存各处。</p>
-<p>链表「节点 Node」包含两项数据，一是节点「值 Value」，二是指向下一节点的「指针 Pointer」，或称指向下一节点的「引用 Reference」。</p>
+<p>内存空间是所有程序的公共资源，排除已被占用的内存空间，空闲内存空间通常散落在内存各处。在上一节中，我们提到存储数组的内存空间必须是连续的，而当我们需要申请一个非常大的数组时，空闲内存中可能没有这么大的连续空间。与数组相比，链表更具灵活性，它可以被存储在非连续的内存空间中。</p>
+<p>「链表 Linked List」是一种线性数据结构，其每个元素都是一个节点对象，各个节点之间通过指针连接，从当前节点通过指针可以访问到下一个节点。<strong>由于指针记录了下个节点的内存地址，因此无需保证内存地址的连续性</strong>，从而可以将各个节点分散存储在内存各处。</p>
+<p>链表「节点 Node」包含两项数据，一是节点「值 Value」，二是指向下一节点的「指针 Pointer」，或称「引用 Reference」。</p>
 <p><img alt="链表定义与存储方式" src="../linked_list.assets/linkedlist_definition.png" /></p>
 <p align="center"> Fig. 链表定义与存储方式 </p>
 
@@ -2094,7 +2094,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">linked_list.py</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">n0</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">,</span> <span class="n">P</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 在链表的节点 n0 之后插入节点 P &quot;&quot;&quot;</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;在链表的节点 n0 之后插入节点 P&quot;&quot;&quot;</span>
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    <span class="n">n1</span> <span class="o">=</span> <span class="n">n0</span><span class="o">.</span><span class="n">next</span>
 <a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="n">P</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">n1</span>
 <a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    <span class="n">n0</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">P</span>
@@ -2195,7 +2195,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">linked_list.py</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">n0</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 删除链表的节点 n0 之后的首个节点 &quot;&quot;&quot;</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;删除链表的节点 n0 之后的首个节点&quot;&quot;&quot;</span>
 <a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">n0</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
 <a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>        <span class="k">return</span>
 <a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>    <span class="c1"># n0 -&gt; P -&gt; n1</span>
@@ -2316,7 +2316,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">linked_list.py</span><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">def</span> <span class="nf">access</span><span class="p">(</span><span class="n">head</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ListNode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 访问链表中索引为 index 的节点 &quot;&quot;&quot;</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;访问链表中索引为 index 的节点&quot;&quot;&quot;</span>
 <a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
 <a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span><span class="p">:</span>
 <a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>            <span class="k">return</span> <span class="kc">None</span>
@@ -2445,7 +2445,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">linked_list.py</span><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">head</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 在链表中查找值为 target 的首个节点 &quot;&quot;&quot;</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;在链表中查找值为 target 的首个节点&quot;&quot;&quot;</span>
 <a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>    <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
 <a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>    <span class="k">while</span> <span class="n">head</span><span class="p">:</span>
 <a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>        <span class="k">if</span> <span class="n">head</span><span class="o">.</span><span class="n">val</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
