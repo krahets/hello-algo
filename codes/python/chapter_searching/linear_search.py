@@ -20,10 +20,10 @@ def linear_search_linkedlist(head: ListNode, target: int) -> ListNode | None:
     """ 线性查找（链表） """
     # 遍历链表
     while head:
-        if head.val == target: # 找到目标结点，返回之
+        if head.val == target: # 找到目标节点，返回之
             return head
         head = head.next
-    return None                # 未找到目标结点，返回 None
+    return None                # 未找到目标节点，返回 None
 
 
 """ Driver Code """
@@ -38,4 +38,4 @@ if __name__ == '__main__':
     # 在链表中执行线性查找
     head: ListNode = list_to_linked_list(nums)
     node: ListNode | None = linear_search_linkedlist(head, target)
-    print("目标结点值 3 的对应结点对象为", node)
+    print("目标节点值 3 的对应节点对象为", node)

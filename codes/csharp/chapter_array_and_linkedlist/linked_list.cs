@@ -9,7 +9,7 @@ namespace hello_algo.chapter_array_and_linkedlist;
 
 public class linked_list
 {
-    /* 在链表的结点 n0 之后插入结点 P */
+    /* 在链表的节点 n0 之后插入节点 P */
     public static void insert(ListNode n0, ListNode P)
     {
         ListNode? n1 = n0.next;
@@ -17,7 +17,7 @@ public class linked_list
         n0.next = P;
     }
 
-    /* 删除链表的结点 n0 之后的首个结点 */
+    /* 删除链表的节点 n0 之后的首个节点 */
     public static void remove(ListNode n0)
     {
         if (n0.next == null)
@@ -28,7 +28,7 @@ public class linked_list
         n0.next = n1;
     }
 
-    /* 访问链表中索引为 index 的结点 */
+    /* 访问链表中索引为 index 的节点 */
     public static ListNode? access(ListNode head, int index)
     {
         for (int i = 0; i < index; i++)
@@ -40,7 +40,7 @@ public class linked_list
         return head;
     }
 
-    /* 在链表中查找值为 target 的首个结点 */
+    /* 在链表中查找值为 target 的首个节点 */
     public static int find(ListNode head, int target)
     {
         int index = 0;
@@ -59,7 +59,7 @@ public class linked_list
     public void Test()
     {
         // 初始化链表 
-        // 初始化各个结点 
+        // 初始化各个节点 
         ListNode n0 = new ListNode(1);
         ListNode n1 = new ListNode(3);
         ListNode n2 = new ListNode(2);
@@ -72,20 +72,20 @@ public class linked_list
         n3.next = n4;
         Console.WriteLine($"初始化的链表为{n0}");
 
-        // 插入结点 
+        // 插入节点 
         insert(n0, new ListNode(0));
-        Console.WriteLine($"插入结点后的链表为{n0}");
+        Console.WriteLine($"插入节点后的链表为{n0}");
 
-        // 删除结点 
+        // 删除节点 
         remove(n0);
-        Console.WriteLine($"删除结点后的链表为{n0}");
+        Console.WriteLine($"删除节点后的链表为{n0}");
 
-        // 访问结点 
+        // 访问节点 
         ListNode? node = access(n0, 3);
-        Console.WriteLine($"链表中索引 3 处的结点的值 = {node?.val}");
+        Console.WriteLine($"链表中索引 3 处的节点的值 = {node?.val}");
 
-        // 查找结点 
+        // 查找节点 
         int index = find(n0, 2);
-        Console.WriteLine($"链表中值为 2 的结点的索引 = {index}");
+        Console.WriteLine($"链表中值为 2 的节点的索引 = {index}");
     }
 }

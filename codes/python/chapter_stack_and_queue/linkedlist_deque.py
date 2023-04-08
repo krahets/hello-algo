@@ -5,19 +5,19 @@ Author: Krahets (krahets@163.com)
 """
 
 class ListNode:
-    """ 双向链表结点 """
+    """ 双向链表节点 """
     def __init__(self, val: int) -> None:
         """ 构造方法 """
         self.val: int = val
-        self.next: ListNode | None = None  # 后继结点引用（指针）
-        self.prev: ListNode | None = None  # 前驱结点引用（指针）
+        self.next: ListNode | None = None  # 后继节点引用（指针）
+        self.prev: ListNode | None = None  # 前驱节点引用（指针）
 
 class LinkedListDeque:
     """ 基于双向链表实现的双向队列 """
     def __init__(self) -> None:
         """ 构造方法 """
-        self.front: ListNode | None = None # 头结点 front
-        self.rear: ListNode | None = None  # 尾结点 rear
+        self.front: ListNode | None = None # 头节点 front
+        self.rear: ListNode | None = None  # 尾节点 rear
         self.__size: int = 0        # 双向队列的长度
 
     def size(self) -> int:
@@ -39,13 +39,13 @@ class LinkedListDeque:
             # 将 node 添加至链表头部
             self.front.prev = node
             node.next = self.front
-            self.front = node  # 更新头结点
+            self.front = node  # 更新头节点
         # 队尾入队操作
         else:
             # 将 node 添加至链表尾部
             self.rear.next = node
             node.prev = self.rear
-            self.rear = node  # 更新尾结点
+            self.rear = node  # 更新尾节点
         self.__size += 1  # 更新队列长度
 
     def push_first(self, num: int) -> None:
@@ -63,22 +63,22 @@ class LinkedListDeque:
             return None
         # 队首出队操作
         if is_front:
-            val: int = self.front.val  # 暂存头结点值
-            # 删除头结点
+            val: int = self.front.val  # 暂存头节点值
+            # 删除头节点
             fnext: ListNode | None = self.front.next
             if fnext != None:
                 fnext.prev = None
                 self.front.next = None
-            self.front = fnext  # 更新头结点
+            self.front = fnext  # 更新头节点
         # 队尾出队操作
         else:
-            val: int = self.rear.val  # 暂存尾结点值
-            # 删除尾结点
+            val: int = self.rear.val  # 暂存尾节点值
+            # 删除尾节点
             rprev: ListNode | None = self.rear.prev
             if rprev != None:
                 rprev.next = None
                 self.rear.prev = None
-            self.rear = rprev  # 更新尾结点
+            self.rear = rprev  # 更新尾节点
         self.__size -= 1  # 更新队列长度
         return val
 

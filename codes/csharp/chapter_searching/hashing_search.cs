@@ -23,7 +23,7 @@ public class hashing_search
     static ListNode? hashingSearchLinkedList(Dictionary<int, ListNode> map, int target)
     {
 
-        // 哈希表的 key: 目标结点值，value: 结点对象
+        // 哈希表的 key: 目标节点值，value: 节点对象
         // 若哈希表中无此 key ，返回 null
         return map.GetValueOrDefault(target);
     }
@@ -50,10 +50,10 @@ public class hashing_search
         Dictionary<int, ListNode> map1 = new();
         while (head != null)
         {
-            map1[head.val] = head;  // key: 结点值，value: 结点
+            map1[head.val] = head;  // key: 节点值，value: 节点
             head = head.next;
         }
         ListNode? node = hashingSearchLinkedList(map1, target);
-        Console.WriteLine("目标结点值 3 的对应结点对象为 " + node);
+        Console.WriteLine("目标节点值 3 的对应节点对象为 " + node);
     }
 }

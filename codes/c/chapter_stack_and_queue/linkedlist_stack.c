@@ -8,7 +8,7 @@
 
 /* 基于链表实现的栈 */
 struct linkedListStack {
-    ListNode *top; // 将头结点作为栈顶
+    ListNode *top; // 将头节点作为栈顶
     int size;           // 栈的长度
 };
 
@@ -55,8 +55,8 @@ int peek(linkedListStack *s) {
 void push(linkedListStack *s, int num) {
     assert(s);
     ListNode *node = (ListNode *) malloc(sizeof(ListNode));
-    node->next = s->top;   // 更新新加结点指针域
-    node->val = num;       // 更新新加结点数据域
+    node->next = s->top;   // 更新新加节点指针域
+    node->val = num;       // 更新新加节点数据域
     s->top = node;         // 更新栈顶
     s->size++;             // 更新栈大小
 }

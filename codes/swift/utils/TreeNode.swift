@@ -5,10 +5,10 @@
  */
 
 public class TreeNode {
-    public var val: Int // 结点值
-    public var height: Int // 结点高度
-    public var left: TreeNode? // 左子结点引用
-    public var right: TreeNode? // 右子结点引用
+    public var val: Int // 节点值
+    public var height: Int // 节点高度
+    public var left: TreeNode? // 左子节点引用
+    public var right: TreeNode? // 右子节点引用
 
     public init(x: Int) {
         val = x

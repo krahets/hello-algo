@@ -15,7 +15,7 @@ public class binary_tree_bfs
     /* 层序遍历 */
     public List<int> levelOrder(TreeNode root)
     {
-        // 初始化队列，加入根结点
+        // 初始化队列，加入根节点
         Queue<TreeNode> queue = new();
         queue.Enqueue(root);
         // 初始化一个列表，用于保存遍历序列
@@ -23,11 +23,11 @@ public class binary_tree_bfs
         while (queue.Count != 0)
         {
             TreeNode node = queue.Dequeue(); // 队列出队
-            list.Add(node.val);              // 保存结点值
+            list.Add(node.val);              // 保存节点值
             if (node.left != null)
-                queue.Enqueue(node.left);    // 左子结点入队
+                queue.Enqueue(node.left);    // 左子节点入队
             if (node.right != null)
-                queue.Enqueue(node.right);   // 右子结点入队
+                queue.Enqueue(node.right);   // 右子节点入队
         }
         return list;
     }
@@ -42,6 +42,6 @@ public class binary_tree_bfs
         PrintUtil.PrintTree(root);
 
         List<int> list = levelOrder(root);
-        Console.WriteLine("\n层序遍历的结点打印序列 = " + string.Join(",", list.ToArray()));
+        Console.WriteLine("\n层序遍历的节点打印序列 = " + string.Join(",", list.ToArray()));
     }
 }

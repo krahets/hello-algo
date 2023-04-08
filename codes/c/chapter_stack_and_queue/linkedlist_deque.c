@@ -6,16 +6,16 @@
 
 #include "../include/include.h"
 
-/* 双向链表结点 */
+/* 双向链表节点 */
 struct DoublyListNode {
-    int val;                     // 结点值
-    struct DoublyListNode *next; // 后继结点
-    struct DoublyListNode *prev; // 前驱结点
+    int val;                     // 节点值
+    struct DoublyListNode *next; // 后继节点
+    struct DoublyListNode *prev; // 前驱节点
 };
 
 typedef struct DoublyListNode DoublyListNode;
 
-/* 双向链表结点构造方法 */
+/* 双向链表节点构造方法 */
 DoublyListNode *newDoublyListNode(int num) {
     DoublyListNode* new = (DoublyListNode *) malloc(sizeof(DoublyListNode));
     new->val = num;
@@ -24,14 +24,14 @@ DoublyListNode *newDoublyListNode(int num) {
     return new;
 }
 
-/* 双向链表结点析构方法 */
+/* 双向链表节点析构方法 */
 void delDoublyListNode(DoublyListNode *node) {
     free(node);
 }
 
 /* 基于双向链表实现的双向队列 */
 struct LinkedListDeque {
-    DoublyListNode *front, *rear; // 头结点 front ，尾结点 rear
+    DoublyListNode *front, *rear; // 头节点 front ，尾节点 rear
     int queSize;                  // 双向队列的长度
 };
 
@@ -47,7 +47,7 @@ LinkedListDeque *newLinkedListDeque() {
 
 /* 析构方法 */
 void delLinkedListdeque(LinkedListDeque *deque) {
-    // 释放所有结点
+    // 释放所有节点
     for (int i=0; i<deque->queSize && deque->front != NULL; i++) {
         DoublyListNode *tmp = deque->front;
         deque->front = deque->front->next;
@@ -79,7 +79,7 @@ void push(LinkedListDeque *deque, int num, bool isFront) {
         // 将 node 添加至链表头部
         deque->front->prev = node;
         node->next = deque->front;
-        deque->front = node;// 更新头结点
+        deque->front = node;// 更新头节点
     }
     // 对尾入队操作
     else {
@@ -120,25 +120,25 @@ int pop(LinkedListDeque *deque, bool isFront) {
     int val;
     // 队首出队操作
     if(isFront) {
-        val = peekFirst(deque); // 暂存头结点值
+        val = peekFirst(deque); // 暂存头节点值
         DoublyListNode *fNext = deque->front->next;
         if (fNext) {
             fNext->prev = NULL;
             deque->front->next = NULL;
             delDoublyListNode(deque->front);
         }
-        deque->front = fNext; // 更新头结点
+        deque->front = fNext; // 更新头节点
     }
     // 队尾出队操作
     else {
-        val = peekLast(deque); // 暂存尾结点值
+        val = peekLast(deque); // 暂存尾节点值
         DoublyListNode *rPrev = deque->rear->prev;
         if (rPrev) {
             rPrev->next = NULL;
             deque->rear->prev = NULL;
             delDoublyListNode(deque->rear);
         }
-        deque->rear = rPrev; // 更新尾结点
+        deque->rear = rPrev; // 更新尾节点
     }
     deque->queSize--;      // 更新队列长度
     return val;

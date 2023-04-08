@@ -17,7 +17,7 @@ public class binary_tree_dfs
     void preOrder(TreeNode? root)
     {
         if (root == null) return;
-        // 访问优先级：根结点 -> 左子树 -> 右子树
+        // 访问优先级：根节点 -> 左子树 -> 右子树
         list.Add(root.val);
         preOrder(root.left);
         preOrder(root.right);
@@ -27,7 +27,7 @@ public class binary_tree_dfs
     void inOrder(TreeNode? root)
     {
         if (root == null) return;
-        // 访问优先级：左子树 -> 根结点 -> 右子树
+        // 访问优先级：左子树 -> 根节点 -> 右子树
         inOrder(root.left);
         list.Add(root.val);
         inOrder(root.right);
@@ -37,7 +37,7 @@ public class binary_tree_dfs
     void postOrder(TreeNode? root)
     {
         if (root == null) return;
-        // 访问优先级：左子树 -> 右子树 -> 根结点
+        // 访问优先级：左子树 -> 右子树 -> 根节点
         postOrder(root.left);
         postOrder(root.right);
         list.Add(root.val);
@@ -54,14 +54,14 @@ public class binary_tree_dfs
 
         list.Clear();
         preOrder(root);
-        Console.WriteLine("\n前序遍历的结点打印序列 = " + string.Join(",", list.ToArray()));
+        Console.WriteLine("\n前序遍历的节点打印序列 = " + string.Join(",", list.ToArray()));
 
         list.Clear();
         inOrder(root);
-        Console.WriteLine("\n中序遍历的结点打印序列 = " + string.Join(",", list.ToArray()));
+        Console.WriteLine("\n中序遍历的节点打印序列 = " + string.Join(",", list.ToArray()));
 
         list.Clear();
         postOrder(root);
-        Console.WriteLine("\n后序遍历的结点打印序列 = " + string.Join(",", list.ToArray()));
+        Console.WriteLine("\n后序遍历的节点打印序列 = " + string.Join(",", list.ToArray()));
     }
 }

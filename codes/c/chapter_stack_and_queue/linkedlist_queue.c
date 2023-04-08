@@ -24,7 +24,7 @@ LinkedListQueue *newLinkedListQueue() {
 
 /* 析构方法 */
 void delLinkedListQueue(LinkedListQueue *queue) {
-    // 释放所有结点
+    // 释放所有节点
     for (int i=0; i<queue->queSize && queue->front != NULL; i++) {
         ListNode *tmp = queue->front;
         queue->front = queue->front->next;
@@ -46,14 +46,14 @@ bool empty(LinkedListQueue *queue) {
 
 /* 入队 */
 void push(LinkedListQueue *queue, int num) {
-    // 尾结点处添加 node 
+    // 尾节点处添加 node 
     ListNode *node = newListNode(num);
-    // 如果队列为空，则令头、尾结点都指向该结点
+    // 如果队列为空，则令头、尾节点都指向该节点
     if (queue->front == NULL) {
         queue->front = node;
         queue->rear = node;
     }  
-    // 如果队列不为空，则将该结点添加到尾结点后
+    // 如果队列不为空，则将该节点添加到尾节点后
     else {
         queue->rear->next = node;
         queue->rear = node;

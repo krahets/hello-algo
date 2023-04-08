@@ -12,7 +12,7 @@ namespace hello_algo.chapter_stack_and_queue;
 /* 基于链表实现的队列 */
 class LinkedListQueue
 {
-    private ListNode? front, rear;  // 头结点 front ，尾结点 rear 
+    private ListNode? front, rear;  // 头节点 front ，尾节点 rear 
     private int queSize = 0;
 
     public LinkedListQueue()
@@ -36,14 +36,14 @@ class LinkedListQueue
     /* 入队 */
     public void push(int num)
     {
-        // 尾结点后添加 num
+        // 尾节点后添加 num
         ListNode node = new ListNode(num);
-        // 如果队列为空，则令头、尾结点都指向该结点
+        // 如果队列为空，则令头、尾节点都指向该节点
         if (front == null)
         {
             front = node;
             rear = node;
-            // 如果队列不为空，则将该结点添加到尾结点后
+            // 如果队列不为空，则将该节点添加到尾节点后
         }
         else if (rear != null)
         {
@@ -57,7 +57,7 @@ class LinkedListQueue
     public int pop()
     {
         int num = peek();
-        // 删除头结点
+        // 删除头节点
         front = front?.next;
         queSize--;
         return num;

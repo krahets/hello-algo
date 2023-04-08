@@ -12,7 +12,7 @@ import (
 
 /* 层序遍历 */
 func levelOrder(root *TreeNode) []int {
-	// 初始化队列，加入根结点
+	// 初始化队列，加入根节点
 	queue := list.New()
 	queue.PushBack(root)
 	// 初始化一个切片，用于保存遍历序列
@@ -20,14 +20,14 @@ func levelOrder(root *TreeNode) []int {
 	for queue.Len() > 0 {
 		// 队列出队
 		node := queue.Remove(queue.Front()).(*TreeNode)
-		// 保存结点值
+		// 保存节点值
 		nums = append(nums, node.Val)
 		if node.Left != nil {
-			// 左子结点入队
+			// 左子节点入队
 			queue.PushBack(node.Left)
 		}
 		if node.Right != nil {
-			// 右子结点入队
+			// 右子节点入队
 			queue.PushBack(node.Right)
 		}
 	}

@@ -7,8 +7,8 @@ Author: Krahets (krahets@163.com)
 class ListNode:
     """ Definition for a singly-linked list node """
     def __init__(self, val: int):
-        self.val: int = val                  # 结点值
-        self.next: ListNode | None = None # 后继结点引用
+        self.val: int = val                  # 节点值
+        self.next: ListNode | None = None # 后继节点引用
 
 def list_to_linked_list(arr: list[int]) -> ListNode | None:
     """ Generate a linked list with a list """

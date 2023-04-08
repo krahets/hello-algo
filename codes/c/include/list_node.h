@@ -10,16 +10,16 @@
 extern "C" {
 #endif
 
-/* 链表结点结构体 */
+/* 链表节点结构体 */
 struct ListNode {
-    int val;               // 结点值
-    struct ListNode *next; // 指向下一结点的指针（引用）
+    int val;               // 节点值
+    struct ListNode *next; // 指向下一节点的指针（引用）
 };
 
 // typedef 作用是为一种数据类型定义一个新名字
 typedef struct ListNode ListNode;
 
-/* 构造函数，初始化一个新结点 */
+/* 构造函数，初始化一个新节点 */
 ListNode *newListNode(int val) {
     ListNode *node, *next;
     node = (ListNode *) malloc(sizeof(ListNode));

@@ -21,7 +21,7 @@ class BinarySearchTree:
         if start_index > end_index:
             return None
 
-        # 将数组中间结点作为根结点
+        # 将数组中间节点作为根节点
         mid: int = (start_index + end_index) // 2
         root = TreeNode(nums[mid])
         # 递归建立左子树和右子树
@@ -34,31 +34,31 @@ class BinarySearchTree:
         return self.__root
 
     def search(self, num: int) -> TreeNode | None:
-        """ 查找结点 """
+        """ 查找节点 """
         cur: TreeNode | None = self.__root
-        # 循环查找，越过叶结点后跳出
+        # 循环查找，越过叶节点后跳出
         while cur is not None:
-            # 目标结点在 cur 的右子树中
+            # 目标节点在 cur 的右子树中
             if cur.val < num:
                 cur = cur.right
-            # 目标结点在 cur 的左子树中
+            # 目标节点在 cur 的左子树中
             elif cur.val > num:
                 cur = cur.left
-            # 找到目标结点，跳出循环
+            # 找到目标节点，跳出循环
             else:
                 break
         return cur
 
     def insert(self, num: int) -> TreeNode | None:
-        """ 插入结点 """
+        """ 插入节点 """
         # 若树为空，直接提前返回
         if self.__root is None:
             return None
         
-        # 循环查找，越过叶结点后跳出
+        # 循环查找，越过叶节点后跳出
         cur, pre = self.__root, None
         while cur is not None:
-            # 找到重复结点，直接返回
+            # 找到重复节点，直接返回
             if cur.val == num:
                 return None
             pre = cur
@@ -69,7 +69,7 @@ class BinarySearchTree:
             else:
                 cur = cur.left
 
-        # 插入结点 val
+        # 插入节点 val
         node = TreeNode(num)
         if pre.val < num:
             pre.right = node
@@ -78,51 +78,51 @@ class BinarySearchTree:
         return node
 
     def remove(self, num: int) -> TreeNode | None:
-        """ 删除结点 """
+        """ 删除节点 """
         # 若树为空，直接提前返回
         if self.__root is None:
             return None
 
-        # 循环查找，越过叶结点后跳出
+        # 循环查找，越过叶节点后跳出
         cur, pre = self.__root, None
         while cur is not None:
-            # 找到待删除结点，跳出循环
+            # 找到待删除节点，跳出循环
             if cur.val == num:
                 break
             pre = cur
-            if cur.val < num:  # 待删除结点在 cur 的右子树中
+            if cur.val < num:  # 待删除节点在 cur 的右子树中
                 cur = cur.right
-            else:  # 待删除结点在 cur 的左子树中
+            else:  # 待删除节点在 cur 的左子树中
                 cur = cur.left
-        # 若无待删除结点，则直接返回
+        # 若无待删除节点，则直接返回
         if cur is None:
             return None
 
-        # 子结点数量 = 0 or 1
+        # 子节点数量 = 0 or 1
         if cur.left is None or cur.right is None:
-            # 当子结点数量 = 0 / 1 时， child = null / 该子结点
+            # 当子节点数量 = 0 / 1 时， child = null / 该子节点
             child = cur.left or cur.right
-            # 删除结点 cur
+            # 删除节点 cur
             if pre.left == cur:
                 pre.left = child
             else:
                 pre.right = child
-        # 子结点数量 = 2
+        # 子节点数量 = 2
         else:
-            # 获取中序遍历中 cur 的下一个结点
+            # 获取中序遍历中 cur 的下一个节点
             nex: TreeNode = self.get_inorder_next(cur.right)
             tmp: int = nex.val
-            # 递归删除结点 nex
+            # 递归删除节点 nex
             self.remove(nex.val)
             # 将 nex 的值复制给 cur
             cur.val = tmp
         return cur
 
     def get_inorder_next(self, root: TreeNode | None) -> TreeNode | None:
-        """ 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） """
+        """ 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） """
         if root is None:
             return root
-        # 循环访问左子结点，直到叶结点时为最小结点，跳出
+        # 循环访问左子节点，直到叶节点时为最小节点，跳出
         while root.left is not None:
             root = root.left
         return root
@@ -136,24 +136,24 @@ if __name__ == "__main__":
     print("\n初始化的二叉树为\n")
     print_tree(bst.root)
 
-    # 查找结点
+    # 查找节点
     node = bst.search(7)
-    print("\n查找到的结点对象为: {}，结点值 = {}".format(node, node.val))
+    print("\n查找到的节点对象为: {}，节点值 = {}".format(node, node.val))
 
-    # 插入结点
+    # 插入节点
     node = bst.insert(16)
-    print("\n插入结点 16 后，二叉树为\n")
+    print("\n插入节点 16 后，二叉树为\n")
     print_tree(bst.root)
 
-    # 删除结点
+    # 删除节点
     bst.remove(1)
-    print("\n删除结点 1 后，二叉树为\n")
+    print("\n删除节点 1 后，二叉树为\n")
     print_tree(bst.root)
 
     bst.remove(2)
-    print("\n删除结点 2 后，二叉树为\n")
+    print("\n删除节点 2 后，二叉树为\n")
     print_tree(bst.root)
 
     bst.remove(4)
-    print("\n删除结点 4 后，二叉树为\n")
+    print("\n删除节点 4 后，二叉树为\n")
     print_tree(bst.root)

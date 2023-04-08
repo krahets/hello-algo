@@ -22,12 +22,12 @@ int linearSearchArray(vector<int>& nums, int target) {
 ListNode* linearSearchLinkedList(ListNode* head, int target) {
     // 遍历链表
     while (head != nullptr) {
-        // 找到目标结点，返回之
+        // 找到目标节点，返回之
         if (head->val == target)
             return head;
         head = head->next;
     }
-    // 未找到目标结点，返回 nullptr
+    // 未找到目标节点，返回 nullptr
     return nullptr;
 }
 
@@ -44,7 +44,7 @@ int main() {
     /* 在链表中执行线性查找 */
     ListNode* head = vecToLinkedList(nums);
     ListNode* node = linearSearchLinkedList(head, target);
-    cout << "目标结点值 3 的对应结点对象为 " << node << endl;
+    cout << "目标节点值 3 的对应节点对象为 " << node << endl;
     
     return 0;
 }

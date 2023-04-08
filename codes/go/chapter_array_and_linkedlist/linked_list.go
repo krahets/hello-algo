@@ -8,14 +8,14 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* 在链表的结点 n0 之后插入结点 P */
+/* 在链表的节点 n0 之后插入节点 P */
 func insertNode(n0 *ListNode, P *ListNode) {
 	n1 := n0.Next
 	P.Next = n1
 	n0.Next = P
 }
 
-/* 删除链表的结点 n0 之后的首个结点 */
+/* 删除链表的节点 n0 之后的首个节点 */
 func removeNode(n0 *ListNode) {
 	if n0.Next == nil {
 		return
@@ -26,7 +26,7 @@ func removeNode(n0 *ListNode) {
 	n0.Next = n1
 }
 
-/* 访问链表中索引为 index 的结点 */
+/* 访问链表中索引为 index 的节点 */
 func access(head *ListNode, index int) *ListNode {
 	for i := 0; i < index; i++ {
 		if head == nil {
@@ -37,7 +37,7 @@ func access(head *ListNode, index int) *ListNode {
 	return head
 }
 
-/* 在链表中查找值为 target 的首个结点 */
+/* 在链表中查找值为 target 的首个节点 */
 func findNode(head *ListNode, target int) int {
 	index := 0
 	for head != nil {

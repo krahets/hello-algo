@@ -14,20 +14,20 @@ class MaxHeap:
         """ 构造方法 """
         # 将列表元素原封不动添加进堆
         self.max_heap = nums
-        # 堆化除叶结点以外的其他所有结点
+        # 堆化除叶节点以外的其他所有节点
         for i in range(self.parent(self.size() - 1), -1, -1):
             self.sift_down(i)
 
     def left(self, i: int) -> int:
-        """ 获取左子结点索引 """
+        """ 获取左子节点索引 """
         return 2 * i + 1
 
     def right(self, i: int) -> int:
-        """ 获取右子结点索引 """
+        """ 获取右子节点索引 """
         return 2 * i + 2
 
     def parent(self, i: int) -> int:
-        """ 获取父结点索引 """
+        """ 获取父节点索引 """
         return (i - 1) // 2  # 向下整除
 
     def swap(self, i: int, j: int):
@@ -49,20 +49,20 @@ class MaxHeap:
 
     def push(self, val: int):
         """ 元素入堆 """
-        # 添加结点
+        # 添加节点
         self.max_heap.append(val)
         # 从底至顶堆化
         self.sift_up(self.size() - 1)
 
     def sift_up(self, i: int):
-        """ 从结点 i 开始，从底至顶堆化 """
+        """ 从节点 i 开始，从底至顶堆化 """
         while True:
-            # 获取结点 i 的父结点
+            # 获取节点 i 的父节点
             p = self.parent(i)
-            # 当“越过根结点”或“结点无需修复”时，结束堆化
+            # 当“越过根节点”或“节点无需修复”时，结束堆化
             if p < 0 or self.max_heap[i] <= self.max_heap[p]:
                 break
-            # 交换两结点
+            # 交换两节点
             self.swap(i, p)
             # 循环向上堆化
             i = p
@@ -71,9 +71,9 @@ class MaxHeap:
         """ 元素出堆 """
         # 判空处理
         assert not self.is_empty()
-        # 交换根结点与最右叶结点（即交换首元素与尾元素）
+        # 交换根节点与最右叶节点（即交换首元素与尾元素）
         self.swap(0, self.size() - 1)
-        # 删除结点
+        # 删除节点
         val = self.max_heap.pop()
         # 从顶至底堆化
         self.sift_down(0)
@@ -81,18 +81,18 @@ class MaxHeap:
         return val
 
     def sift_down(self, i: int):
-        """ 从结点 i 开始，从顶至底堆化 """
+        """ 从节点 i 开始，从顶至底堆化 """
         while True:
-            # 判断结点 i, l, r 中值最大的结点，记为 ma
+            # 判断节点 i, l, r 中值最大的节点，记为 ma
             l, r, ma = self.left(i), self.right(i), i
             if l < self.size() and self.max_heap[l] > self.max_heap[ma]:
                 ma = l
             if r < self.size() and self.max_heap[r] > self.max_heap[ma]:
                 ma = r
-            # 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            # 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
             if ma == i:
                 break
-            # 交换两结点
+            # 交换两节点
             self.swap(i, ma)
             # 循环向下堆化
             i = ma

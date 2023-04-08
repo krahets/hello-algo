@@ -25,7 +25,7 @@ func linearSearchArray(nums []int, target int) int {
 func linearSearchLinkedList(node *ListNode, target int) *ListNode {
 	// 遍历链表
 	for node != nil {
-		// 找到目标结点，返回之
+		// 找到目标节点，返回之
 		if node.Val == target {
 			return node
 		}

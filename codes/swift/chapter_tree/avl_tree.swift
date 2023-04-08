@@ -8,25 +8,25 @@ import utils
 
 /* AVL 树 */
 class AVLTree {
-    fileprivate var root: TreeNode? // 根结点
+    fileprivate var root: TreeNode? // 根节点
 
-    /* 获取结点高度 */
+    /* 获取节点高度 */
     func height(node: TreeNode?) -> Int {
-        // 空结点高度为 -1 ，叶结点高度为 0
+        // 空节点高度为 -1 ，叶节点高度为 0
         node == nil ? -1 : node!.height
     }
 
-    /* 更新结点高度 */
+    /* 更新节点高度 */
     private func updateHeight(node: TreeNode?) {
-        // 结点高度等于最高子树高度 + 1
+        // 节点高度等于最高子树高度 + 1
         node?.height = max(height(node: node?.left), height(node: node?.right)) + 1
     }
 
     /* 获取平衡因子 */
     func balanceFactor(node: TreeNode?) -> Int {
-        // 空结点平衡因子为 0
+        // 空节点平衡因子为 0
         guard let node = node else { return 0 }
-        // 结点平衡因子 = 左子树高度 - 右子树高度
+        // 节点平衡因子 = 左子树高度 - 右子树高度
         return height(node: node.left) - height(node: node.right)
     }
 
@@ -37,10 +37,10 @@ class AVLTree {
         // 以 child 为原点，将 node 向右旋转
         child?.right = node
         node?.left = grandChild
-        // 更新结点高度
+        // 更新节点高度
         updateHeight(node: node)
         updateHeight(node: child)
-        // 返回旋转后子树的根结点
+        // 返回旋转后子树的根节点
         return child
     }
 
@@ -51,16 +51,16 @@ class AVLTree {
         // 以 child 为原点，将 node 向左旋转
         child?.left = node
         node?.right = grandChild
-        // 更新结点高度
+        // 更新节点高度
         updateHeight(node: node)
         updateHeight(node: child)
-        // 返回旋转后子树的根结点
+        // 返回旋转后子树的根节点
         return child
     }
 
     /* 执行旋转操作，使该子树重新恢复平衡 */
     private func rotate(node: TreeNode?) -> TreeNode? {
-        // 获取结点 node 的平衡因子
+        // 获取节点 node 的平衡因子
         let balanceFactor = balanceFactor(node: node)
         // 左偏树
         if balanceFactor > 1 {
@@ -88,48 +88,48 @@ class AVLTree {
         return node
     }
 
-    /* 插入结点 */
+    /* 插入节点 */
     @discardableResult
     func insert(val: Int) -> TreeNode? {
         root = insertHelper(node: root, val: val)
         return root
     }
 
-    /* 递归插入结点（辅助方法） */
+    /* 递归插入节点（辅助方法） */
     private func insertHelper(node: TreeNode?, val: Int) -> TreeNode? {
         var node = node
         if node == nil {
             return TreeNode(x: val)
         }
-        /* 1. 查找插入位置，并插入结点 */
+        /* 1. 查找插入位置，并插入节点 */
         if val < node!.val {
             node?.left = insertHelper(node: node?.left, val: val)
         } else if val > node!.val {
             node?.right = insertHelper(node: node?.right, val: val)
         } else {
-            return node // 重复结点不插入，直接返回
+            return node // 重复节点不插入，直接返回
         }
-        updateHeight(node: node) // 更新结点高度
+        updateHeight(node: node) // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node: node)
-        // 返回子树的根结点
+        // 返回子树的根节点
         return node
     }
 
-    /* 删除结点 */
+    /* 删除节点 */
     @discardableResult
     func remove(val: Int) -> TreeNode? {
         root = removeHelper(node: root, val: val)
         return root
     }
 
-    /* 递归删除结点（辅助方法） */
+    /* 递归删除节点（辅助方法） */
     private func removeHelper(node: TreeNode?, val: Int) -> TreeNode? {
         var node = node
         if node == nil {
             return nil
         }
-        /* 1. 查找结点，并删除之 */
+        /* 1. 查找节点，并删除之 */
         if val < node!.val {
             node?.left = removeHelper(node: node?.left, val: val)
         } else if val > node!.val {
@@ -137,59 +137,59 @@ class AVLTree {
         } else {
             if node?.left == nil || node?.right == nil {
                 let child = node?.left != nil ? node?.left : node?.right
-                // 子结点数量 = 0 ，直接删除 node 并返回
+                // 子节点数量 = 0 ，直接删除 node 并返回
                 if child == nil {
                     return nil
                 }
-                // 子结点数量 = 1 ，直接删除 node
+                // 子节点数量 = 1 ，直接删除 node
                 else {
                     node = child
                 }
             } else {
-                // 子结点数量 = 2 ，则将中序遍历的下个结点删除，并用该结点替换当前结点
+                // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
                 let temp = getInOrderNext(node: node?.right)
                 node?.right = removeHelper(node: node?.right, val: temp!.val)
                 node?.val = temp!.val
             }
         }
-        updateHeight(node: node) // 更新结点高度
+        updateHeight(node: node) // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node: node)
-        // 返回子树的根结点
+        // 返回子树的根节点
         return node
     }
 
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
     private func getInOrderNext(node: TreeNode?) -> TreeNode? {
         var node = node
         if node == nil {
             return node
         }
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        // 循环访问左子节点，直到叶节点时为最小节点，跳出
         while node?.left != nil {
             node = node?.left
         }
         return node
     }
 
-    /* 查找结点 */
+    /* 查找节点 */
     func search(val: Int) -> TreeNode? {
         var cur = root
         while cur != nil {
-            // 目标结点在 cur 的右子树中
+            // 目标节点在 cur 的右子树中
             if cur!.val < val {
                 cur = cur?.right
             }
-            // 目标结点在 cur 的左子树中
+            // 目标节点在 cur 的左子树中
             else if cur!.val > val {
                 cur = cur?.left
             }
-            // 找到目标结点，跳出循环
+            // 找到目标节点，跳出循环
             else {
                 break
             }
         }
-        // 返回目标结点
+        // 返回目标节点
         return cur
     }
 }
@@ -198,13 +198,13 @@ class AVLTree {
 enum _AVLTree {
     static func testInsert(tree: AVLTree, val: Int) {
         tree.insert(val: val)
-        print("\n插入结点 \(val) 后，AVL 树为")
+        print("\n插入节点 \(val) 后，AVL 树为")
         PrintUtil.printTree(root: tree.root)
     }
 
     static func testRemove(tree: AVLTree, val: Int) {
         tree.remove(val: val)
-        print("\n删除结点 \(val) 后，AVL 树为")
+        print("\n删除节点 \(val) 后，AVL 树为")
         PrintUtil.printTree(root: tree.root)
     }
 
@@ -213,8 +213,8 @@ enum _AVLTree {
         /* 初始化空 AVL 树 */
         let avlTree = AVLTree()
 
-        /* 插入结点 */
-        // 请关注插入结点后，AVL 树是如何保持平衡的
+        /* 插入节点 */
+        // 请关注插入节点后，AVL 树是如何保持平衡的
         testInsert(tree: avlTree, val: 1)
         testInsert(tree: avlTree, val: 2)
         testInsert(tree: avlTree, val: 3)
@@ -226,17 +226,17 @@ enum _AVLTree {
         testInsert(tree: avlTree, val: 10)
         testInsert(tree: avlTree, val: 6)
 
-        /* 插入重复结点 */
+        /* 插入重复节点 */
         testInsert(tree: avlTree, val: 7)
 
-        /* 删除结点 */
-        // 请关注删除结点后，AVL 树是如何保持平衡的
-        testRemove(tree: avlTree, val: 8) // 删除度为 0 的结点
-        testRemove(tree: avlTree, val: 5) // 删除度为 1 的结点
-        testRemove(tree: avlTree, val: 4) // 删除度为 2 的结点
+        /* 删除节点 */
+        // 请关注删除节点后，AVL 树是如何保持平衡的
+        testRemove(tree: avlTree, val: 8) // 删除度为 0 的节点
+        testRemove(tree: avlTree, val: 5) // 删除度为 1 的节点
+        testRemove(tree: avlTree, val: 4) // 删除度为 2 的节点
 
-        /* 查询结点 */
+        /* 查询节点 */
         let node = avlTree.search(val: 7)
-        print("\n查找到的结点对象为 \(node!)，结点值 = \(node!.val)")
+        print("\n查找到的节点对象为 \(node!)，节点值 = \(node!.val)")
     }
 }

@@ -12,8 +12,8 @@ class LinkedListQueue:
     """ 基于链表实现的队列 """
     def __init__(self):
         """ 构造方法 """
-        self.__front: ListNode | None = None  # 头结点 front
-        self.__rear: ListNode | None = None   # 尾结点 rear
+        self.__front: ListNode | None = None  # 头节点 front
+        self.__rear: ListNode | None = None   # 尾节点 rear
         self.__size: int = 0
 
     def size(self) -> int:
@@ -26,13 +26,13 @@ class LinkedListQueue:
 
     def push(self, num: int) -> None:
         """ 入队 """
-        # 尾结点后添加 num
+        # 尾节点后添加 num
         node = ListNode(num)
-        # 如果队列为空，则令头、尾结点都指向该结点
+        # 如果队列为空，则令头、尾节点都指向该节点
         if self.__front is None:
             self.__front = node
             self.__rear = node
-        # 如果队列不为空，则将该结点添加到尾结点后
+        # 如果队列不为空，则将该节点添加到尾节点后
         else:
             self.__rear.next = node
             self.__rear = node
@@ -41,7 +41,7 @@ class LinkedListQueue:
     def pop(self) -> int:
         """ 出队 """
         num = self.peek()
-        # 删除头结点
+        # 删除头节点
         self.__front = self.__front.next
         self.__size -= 1
         return num

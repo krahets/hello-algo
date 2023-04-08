@@ -21,7 +21,7 @@ public:
         freeMemoryTree(root);
     }
 
-    /* 获取二叉树根结点 */
+    /* 获取二叉树根节点 */
     TreeNode* getRoot() {
         return root;
     }
@@ -29,7 +29,7 @@ public:
     /* 构建二叉搜索树 */
     TreeNode* buildTree(vector<int> nums, int i, int j) {
         if (i > j) return nullptr;
-        // 将数组中间结点作为根结点
+        // 将数组中间节点作为根节点
         int mid = (i + j) / 2;
         TreeNode* root = new TreeNode(nums[mid]);
         // 递归建立左子树和右子树
@@ -38,30 +38,30 @@ public:
         return root;
     }
 
-    /* 查找结点 */
+    /* 查找节点 */
     TreeNode* search(int num) {
         TreeNode* cur = root;
-        // 循环查找，越过叶结点后跳出
+        // 循环查找，越过叶节点后跳出
         while (cur != nullptr) {
-            // 目标结点在 cur 的右子树中
+            // 目标节点在 cur 的右子树中
             if (cur->val < num) cur = cur->right;
-            // 目标结点在 cur 的左子树中
+            // 目标节点在 cur 的左子树中
             else if (cur->val > num) cur = cur->left;
-            // 找到目标结点，跳出循环
+            // 找到目标节点，跳出循环
             else break;
         }
-        // 返回目标结点
+        // 返回目标节点
         return cur;
     }
 
-    /* 插入结点 */
+    /* 插入节点 */
     TreeNode* insert(int num) {
         // 若树为空，直接提前返回
         if (root == nullptr) return nullptr;
         TreeNode *cur = root, *pre = nullptr;
-        // 循环查找，越过叶结点后跳出
+        // 循环查找，越过叶节点后跳出
         while (cur != nullptr) {
-            // 找到重复结点，直接返回
+            // 找到重复节点，直接返回
             if (cur->val == num) return nullptr;
             pre = cur;
             // 插入位置在 cur 的右子树中
@@ -69,46 +69,46 @@ public:
             // 插入位置在 cur 的左子树中
             else cur = cur->left;
         }
-        // 插入结点 val
+        // 插入节点 val
         TreeNode* node = new TreeNode(num);
         if (pre->val < num) pre->right = node;
         else pre->left = node;
         return node;
     }
 
-    /* 删除结点 */
+    /* 删除节点 */
     TreeNode* remove(int num) {
         // 若树为空，直接提前返回
         if (root == nullptr) return nullptr;
         TreeNode *cur = root, *pre = nullptr;
-        // 循环查找，越过叶结点后跳出
+        // 循环查找，越过叶节点后跳出
         while (cur != nullptr) {
-            // 找到待删除结点，跳出循环
+            // 找到待删除节点，跳出循环
             if (cur->val == num) break;
             pre = cur;
-            // 待删除结点在 cur 的右子树中
+            // 待删除节点在 cur 的右子树中
             if (cur->val < num) cur = cur->right;
-            // 待删除结点在 cur 的左子树中
+            // 待删除节点在 cur 的左子树中
             else cur = cur->left;
         }
-        // 若无待删除结点，则直接返回
+        // 若无待删除节点，则直接返回
         if (cur == nullptr) return nullptr;
-        // 子结点数量 = 0 or 1
+        // 子节点数量 = 0 or 1
         if (cur->left == nullptr || cur->right == nullptr) {
-            // 当子结点数量 = 0 / 1 时， child = nullptr / 该子结点
+            // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
             TreeNode* child = cur->left != nullptr ? cur->left : cur->right;
-            // 删除结点 cur
+            // 删除节点 cur
             if (pre->left == cur) pre->left = child;
             else pre->right = child;
             // 释放内存
             delete cur;
         }
-        // 子结点数量 = 2
+        // 子节点数量 = 2
         else {
-            // 获取中序遍历中 cur 的下一个结点
+            // 获取中序遍历中 cur 的下一个节点
             TreeNode* nex = getInOrderNext(cur->right);
             int tmp = nex->val;
-            // 递归删除结点 nex
+            // 递归删除节点 nex
             remove(nex->val);
             // 将 nex 的值复制给 cur
             cur->val = tmp;
@@ -116,10 +116,10 @@ public:
         return cur;
     }
 
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
+    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
     TreeNode* getInOrderNext(TreeNode* root) {
         if (root == nullptr) return root;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
+        // 循环访问左子节点，直到叶节点时为最小节点，跳出
         while (root->left != nullptr) {
             root = root->left;
         }
@@ -136,24 +136,24 @@ int main() {
     cout << endl << "初始化的二叉树为\n" << endl;
     PrintUtil::printTree(bst->getRoot());
 
-    /* 查找结点 */
+    /* 查找节点 */
     TreeNode* node = bst->search(7);
-    cout << endl << "查找到的结点对象为 " << node << "，结点值 = " << node->val << endl;
+    cout << endl << "查找到的节点对象为 " << node << "，节点值 = " << node->val << endl;
 
-    /* 插入结点 */
+    /* 插入节点 */
     node = bst->insert(16);
-    cout << endl << "插入结点 16 后，二叉树为\n" << endl;
+    cout << endl << "插入节点 16 后，二叉树为\n" << endl;
     PrintUtil::printTree(bst->getRoot());
 
-    /* 删除结点 */
+    /* 删除节点 */
     bst->remove(1);
-    cout << endl << "删除结点 1 后，二叉树为\n" << endl;
+    cout << endl << "删除节点 1 后，二叉树为\n" << endl;
     PrintUtil::printTree(bst->getRoot());
     bst->remove(2);
-    cout << endl << "删除结点 2 后，二叉树为\n" << endl;
+    cout << endl << "删除节点 2 后，二叉树为\n" << endl;
     PrintUtil::printTree(bst->getRoot());
     bst->remove(4);
-    cout << endl << "删除结点 4 后，二叉树为\n" << endl;
+    cout << endl << "删除节点 4 后，二叉树为\n" << endl;
     PrintUtil::printTree(bst->getRoot());
 
     // 释放内存
