@@ -2113,8 +2113,8 @@
 <p>为了更加清晰地了解栈的运行机制，接下来我们来自己动手实现一个栈类。</p>
 <p>栈规定元素是先入后出的，因此我们只能在栈顶添加或删除元素。然而，数组或链表都可以在任意位置添加删除元素，因此 <strong>栈可被看作是一种受约束的数组或链表</strong>。换言之，我们可以“屏蔽”数组或链表的部分无关操作，使之对外的表现逻辑符合栈的规定即可。</p>
 <h3 id="_1">基于链表的实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>使用「链表」实现栈时，将链表的头结点看作栈顶，将尾结点看作栈底。</p>
-<p>对于入栈操作，将元素插入到链表头部即可，这种结点添加方式被称为“头插法”。而对于出栈操作，则将头结点从链表中删除即可。</p>
+<p>使用「链表」实现栈时，将链表的头节点看作栈顶，将尾节点看作栈底。</p>
+<p>对于入栈操作，将元素插入到链表头部即可，这种节点添加方式被称为“头插法”。而对于出栈操作，则将头节点从链表中删除即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListStack</label><label for="__tabbed_2_2">push()</label><label for="__tabbed_2_3">pop()</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2134,7 +2134,7 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">linkedlist_stack.java</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* 基于链表实现的栈 */</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">class</span> <span class="nc">LinkedListStack</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ListNode</span><span class="w"> </span><span class="n">stackPeek</span><span class="p">;</span><span class="w">  </span><span class="c1">// 将头结点作为栈顶</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ListNode</span><span class="w"> </span><span class="n">stackPeek</span><span class="p">;</span><span class="w">  </span><span class="c1">// 将头节点作为栈顶</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stkSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// 栈的长度</span>
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">LinkedListStack</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -2191,7 +2191,7 @@
 <div class="highlight"><span class="filename">linkedlist_stack.cpp</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* 基于链表实现的栈 */</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">LinkedListStack</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">private</span><span class="o">:</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">stackTop</span><span class="p">;</span><span class="w"> </span><span class="c1">// 将头结点作为栈顶</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">stackTop</span><span class="p">;</span><span class="w"> </span><span class="c1">// 将头节点作为栈顶</span>
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">stkSize</span><span class="p">;</span><span class="w">        </span><span class="c1">// 栈的长度</span>
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
 <a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">public</span><span class="o">:</span>
@@ -2201,7 +2201,7 @@
 <a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
 <a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="o">~</span><span class="n">LinkedListStack</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">        </span><span class="c1">// 遍历链表删除结点，释放内存</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">        </span><span class="c1">// 遍历链表删除节点，释放内存</span>
 <a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">        </span><span class="n">freeMemoryLinkedList</span><span class="p">(</span><span class="n">stackTop</span><span class="p">);</span>
 <a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
@@ -2357,7 +2357,7 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">linkedlist_stack.js</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/* 基于链表实现的栈 */</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">class</span><span class="w"> </span><span class="nx">LinkedListStack</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="err">#</span><span class="nx">stackPeek</span><span class="p">;</span><span class="w">     </span><span class="c1">// 将头结点作为栈顶</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="err">#</span><span class="nx">stackPeek</span><span class="p">;</span><span class="w">     </span><span class="c1">// 将头节点作为栈顶</span>
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="err">#</span><span class="nx">stkSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// 栈的长度</span>
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
 <a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -2413,7 +2413,7 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">linkedlist_stack.ts</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/* 基于链表实现的栈 */</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kd">class</span><span class="w"> </span><span class="nx">LinkedListStack</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">stackPeek</span><span class="o">:</span><span class="w"> </span><span class="kt">ListNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// 将头结点作为栈顶</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">stackPeek</span><span class="o">:</span><span class="w"> </span><span class="kt">ListNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// 将头节点作为栈顶</span>
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">stkSize</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 栈的长度</span>
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -2474,7 +2474,7 @@
 <div class="highlight"><span class="filename">linkedlist_stack.cs</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cm">/* 基于链表实现的栈 */</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">LinkedListStack</span>
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="p">{</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">ListNode</span><span class="o">?</span><span class="w"> </span><span class="n">stackPeek</span><span class="p">;</span><span class="w">  </span><span class="c1">// 将头结点作为栈顶</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">ListNode</span><span class="o">?</span><span class="w"> </span><span class="n">stackPeek</span><span class="p">;</span><span class="w">  </span><span class="c1">// 将头节点作为栈顶</span>
 <a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stkSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// 栈的长度</span>
 <a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
 <a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">LinkedListStack</span><span class="p">()</span>
@@ -2544,7 +2544,7 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">linkedlist_stack.swift</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cm">/* 基于链表实现的栈 */</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kd">class</span> <span class="nc">LinkedListStack</span> <span class="p">{</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">_peek</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">?</span> <span class="c1">// 将头结点作为栈顶</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">_peek</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">?</span> <span class="c1">// 将头节点作为栈顶</span>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">_size</span> <span class="p">=</span> <span class="mi">0</span> <span class="c1">// 栈的长度</span>
 <a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
 <a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    <span class="kd">init</span><span class="p">()</span> <span class="p">{}</span>
@@ -2603,7 +2603,7 @@
 <a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">        </span><span class="kr">const</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@This</span><span class="p">();</span>
 <a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">        </span><span class="n">stack_top</span><span class="o">:</span><span class="w"> </span><span class="o">?*</span><span class="n">inc</span><span class="p">.</span><span class="n">ListNode</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">             </span><span class="c1">// 将头结点作为栈顶</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">        </span><span class="n">stack_top</span><span class="o">:</span><span class="w"> </span><span class="o">?*</span><span class="n">inc</span><span class="p">.</span><span class="n">ListNode</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">             </span><span class="c1">// 将头节点作为栈顶</span>
 <a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">        </span><span class="n">stk_size</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">                             </span><span class="c1">// 栈的长度</span>
 <a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">        </span><span class="n">mem_arena</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="n">std</span><span class="p">.</span><span class="n">heap</span><span class="p">.</span><span class="n">ArenaAllocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">        </span><span class="n">mem_allocator</span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">mem</span><span class="p">.</span><span class="n">Allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">undefined</span><span class="p">,</span><span class="w">   </span><span class="c1">// 内存分配器</span>
@@ -3125,7 +3125,7 @@
 <p>两种实现都支持栈定义中的各项操作，数组实现额外支持随机访问，但这已经超出栈的定义范畴，一般不会用到。</p>
 <h3 id="_4">时间效率<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>在数组（列表）实现中，入栈与出栈操作都是在预先分配好的连续内存中操作，具有很好的缓存本地性，效率很好。然而，如果入栈时超出数组容量，则会触发扩容机制，那么该次入栈操作的时间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<p>在链表实现中，链表的扩容非常灵活，不存在上述数组扩容时变慢的问题。然而，入栈操作需要初始化结点对象并修改指针，因而效率不如数组。进一步地思考，如果入栈元素不是 <code>int</code> 而是结点对象，那么就可以省去初始化步骤，从而提升效率。</p>
+<p>在链表实现中，链表的扩容非常灵活，不存在上述数组扩容时变慢的问题。然而，入栈操作需要初始化节点对象并修改指针，因而效率不如数组。进一步地思考，如果入栈元素不是 <code>int</code> 而是节点对象，那么就可以省去初始化步骤，从而提升效率。</p>
 <p>综上所述，当入栈与出栈操作的元素是基本数据类型（例如 <code>int</code> , <code>double</code> ）时，则结论如下：</p>
 <ul>
 <li>数组实现的栈在触发扩容时会变慢，但由于扩容是低频操作，因此 <strong>总体效率更高</strong>；</li>
@@ -3133,7 +3133,7 @@
 </ul>
 <h3 id="_5">空间效率<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>在初始化列表时，系统会给列表分配“初始容量”，该容量可能超过我们的需求。并且扩容机制一般是按照特定倍率（比如 2 倍）进行扩容，扩容后的容量也可能超出我们的需求。因此，<strong>数组实现栈会造成一定的空间浪费</strong>。</p>
-<p>当然，由于结点需要额外存储指针，因此 <strong>链表结点比数组元素占用更大</strong>。</p>
+<p>当然，由于节点需要额外存储指针，因此 <strong>链表节点比数组元素占用更大</strong>。</p>
 <p>综上，我们不能简单地确定哪种实现更加省内存，需要 case-by-case 地分析。</p>
 <h2 id="514">5.1.4. &nbsp; 栈典型应用<a class="headerlink" href="#514" title="Permanent link">&para;</a></h2>
 <ul>

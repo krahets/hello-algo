@@ -1806,7 +1806,7 @@
 </div>
 <p>观察发现，归并排序的递归顺序就是二叉树的「后序遍历」。</p>
 <ul>
-<li><strong>后序遍历</strong>：先递归左子树、再递归右子树、最后处理根结点。</li>
+<li><strong>后序遍历</strong>：先递归左子树、再递归右子树、最后处理根节点。</li>
 <li><strong>归并排序</strong>：先递归左子树、再递归右子树、最后处理合并。</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label></div>
@@ -2236,7 +2236,7 @@
 <h2 id="1153">11.5.3. &nbsp; 链表排序 *<a class="headerlink" href="#1153" title="Permanent link">&para;</a></h2>
 <p>归并排序有一个很特别的优势，用于排序链表时有很好的性能表现，<strong>空间复杂度可被优化至 <span class="arithmatex">\(O(1)\)</span></strong> ，这是因为：</p>
 <ul>
-<li>由于链表可仅通过改变指针来实现结点增删，因此“将两个短有序链表合并为一个长有序链表”无需使用额外空间，即回溯合并阶段不用像排序数组一样建立辅助数组 <code>tmp</code> ；</li>
+<li>由于链表可仅通过改变指针来实现节点增删，因此“将两个短有序链表合并为一个长有序链表”无需使用额外空间，即回溯合并阶段不用像排序数组一样建立辅助数组 <code>tmp</code> ；</li>
 <li>通过使用「迭代」代替「递归划分」，可省去递归使用的栈帧空间；</li>
 </ul>
 <blockquote>
