@@ -803,7 +803,7 @@ comments: true
 以下是基于邻接表实现图的代码示例。细心的同学可能注意到，**我们在邻接表中使用 `Vertex` 节点类来表示顶点**，这样做的原因有：
 
 - 如果我们选择通过顶点值来区分不同顶点，那么值重复的顶点将无法被区分。
-- 如果类似邻接矩阵那样，使用顶点列表索引来区分不同顶点。那么，假设我们想要删除索引为 $i$ 的顶点，则需要遍历整个邻接表，将其中 $> i$ 的索引全部减 $1$，这样操作效率较低。
+- 如果类似邻接矩阵那样，使用顶点列表索引来区分不同顶点。那么，假设我们想要删除索引为 $i$ 的顶点，则需要遍历整个邻接表，将其中 $> i$ 的索引全部减 $1$ ，这样操作效率较低。
 - 因此我们考虑引入顶点类 `Vertex` ，使得每个顶点都是唯一的对象，此时删除顶点时就无需改动其余顶点了。
 
 === "Java"
@@ -862,7 +862,7 @@ comments: true
                 throw new IllegalArgumentException();
             // 在邻接表中删除顶点 vet 对应的链表
             adjList.remove(vet);
-            // 遍历其它顶点的链表，删除所有包含 vet 的边
+            // 遍历其他顶点的链表，删除所有包含 vet 的边
             for (List<Vertex> list : adjList.values()) {
                 list.remove(vet);
             }
@@ -884,83 +884,7 @@ comments: true
 === "C++"
 
     ```cpp title="graph_adjacency_list.cpp"
-    /* 基于邻接表实现的无向图类 */
-    class GraphAdjList {
-    public:
-        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
-        unordered_map<Vertex*, vector<Vertex*>> adjList;
-        
-        /* 在 vector 中删除指定节点 */
-        void remove(vector<Vertex*> &vec, Vertex *vet) {
-            for (int i = 0; i < vec.size(); i++) {
-                if (vec[i] == vet) {
-                    vec.erase(vec.begin() + i);
-                    break;
-                }
-            }
-        }
-
-        /* 构造方法 */
-        GraphAdjList(const vector<vector<Vertex*>>& edges) {
-            // 添加所有顶点和边
-            for (const vector<Vertex*>& edge : edges) {
-                addVertex(edge[0]);
-                addVertex(edge[1]);
-                addEdge(edge[0], edge[1]);
-            }
-        }
-
-        /* 获取顶点数量 */
-        int size() { return adjList.size(); }
-
-        /* 添加边 */
-        void addEdge(Vertex* vet1, Vertex* vet2) {
-            if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-                throw invalid_argument("不存在顶点");
-            // 添加边 vet1 - vet2
-            adjList[vet1].push_back(vet2);
-            adjList[vet2].push_back(vet1);
-        }
-
-        /* 删除边 */
-        void removeEdge(Vertex* vet1, Vertex* vet2) {
-            if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-                throw invalid_argument("不存在顶点");
-            // 删除边 vet1 - vet2
-            remove(adjList[vet1], vet2);
-            remove(adjList[vet2], vet1);
-        }
-
-        /* 添加顶点 */
-        void addVertex(Vertex* vet) {
-            if (adjList.count(vet)) return;
-            // 在邻接表中添加一个新链表
-            adjList[vet] = vector<Vertex*>();
-        }
-
-        /* 删除顶点 */
-        void removeVertex(Vertex* vet) {
-            if (!adjList.count(vet))
-                throw invalid_argument("不存在顶点");
-            // 在邻接表中删除顶点 vet 对应的链表
-            adjList.erase(vet);
-            // 遍历其它顶点的链表，删除所有包含 vet 的边
-            for (auto& [key, vec] : adjList) {
-                remove(vec, vet);
-            }
-        }
-
-        /* 打印邻接表 */
-        void print() {
-            cout << "邻接表 =" << endl;
-            for (auto& adj  : adjList) {
-                const auto& key= adj.first;
-                const auto& vec = adj.second;
-                cout << key->val << ": ";
-                PrintUtil::printVector(vetsToVals(vec));
-            }
-        }
-    };
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "Python"
@@ -1012,7 +936,7 @@ comments: true
                 raise ValueError
             # 在邻接表中删除顶点 vet 对应的链表
             self.adj_list.pop(vet)
-            # 遍历其它顶点的链表，删除所有包含 vet 的边
+            # 遍历其他顶点的链表，删除所有包含 vet 的边
             for vertex in self.adj_list:
                 if vet in self.adj_list[vertex]:
                     self.adj_list[vertex].remove(vet)
@@ -1095,7 +1019,7 @@ comments: true
         }
         // 在邻接表中删除顶点 vet 对应的链表
         delete(g.adjList, vet)
-        // 遍历其它顶点的链表，删除所有包含 vet 的边
+        // 遍历其他顶点的链表，删除所有包含 vet 的边
         for _, list := range g.adjList {
             DeleteSliceElms(list, vet)
         }
@@ -1174,7 +1098,7 @@ comments: true
             }
             // 在邻接表中删除顶点 vet 对应的链表
             this.adjList.delete(vet);
-            // 遍历其它顶点的链表，删除所有包含 vet 的边
+            // 遍历其他顶点的链表，删除所有包含 vet 的边
             for (let set of this.adjList.values()) {
                 const index = set.indexOf(vet);
                 if (index > -1) {
@@ -1255,7 +1179,7 @@ comments: true
             }
             // 在邻接表中删除顶点 vet 对应的链表
             this.adjList.delete(vet);
-            // 遍历其它顶点的链表，删除所有包含 vet 的边
+            // 遍历其他顶点的链表，删除所有包含 vet 的边
             for (let set of this.adjList.values()) {
                 const index: number = set.indexOf(vet);
                 if (index > -1) {
@@ -1348,7 +1272,7 @@ comments: true
                 throw new InvalidOperationException();
             // 在邻接表中删除顶点 vet 对应的链表
             adjList.Remove(vet);
-            // 遍历其它顶点的链表，删除所有包含 vet 的边
+            // 遍历其他顶点的链表，删除所有包含 vet 的边
             foreach (List<Vertex> list in adjList.Values)
             {
                 list.Remove(vet);
@@ -1430,7 +1354,7 @@ comments: true
             }
             // 在邻接表中删除顶点 vet 对应的链表
             adjList.removeValue(forKey: vet)
-            // 遍历其它顶点的链表，删除所有包含 vet 的边
+            // 遍历其他顶点的链表，删除所有包含 vet 的边
             for key in adjList.keys {
                 adjList[key]?.removeAll(where: { $0 == vet })
             }
