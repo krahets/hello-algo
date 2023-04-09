@@ -15,7 +15,7 @@
 3. **链表**：每个节点的值为 `[学号, 姓名]` ；
 4. **二叉搜索树**：每个节点的值为 `[学号, 姓名]` ，根据学号大小来构建树；
 
-各项操作的时间复杂度如下表所示（详解可见[二叉搜索树章节](https://www.hello-algo.com/chapter_tree/binary_search_tree/)）。无论是查找元素还是增删元素，哈希表的时间复杂度都是 $O(1)$，全面胜出！
+各项操作的时间复杂度如下表所示（详解可见[二叉搜索树章节](https://www.hello-algo.com/chapter_tree/binary_search_tree/)）。无论是查找元素还是增删元素，哈希表的时间复杂度都是 $O(1)$ ，全面胜出！
 
 <div class="center-table" markdown>
 
