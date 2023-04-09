@@ -1114,24 +1114,17 @@
       
         <li class="md-nav__item">
   <a href="#811" class="md-nav__link">
-    8.1.1. &nbsp; 堆术语与性质
+    8.1.1. &nbsp; 堆常用操作
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#812" class="md-nav__link">
-    8.1.2. &nbsp; 堆常用操作
+    8.1.2. &nbsp; 堆的实现
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#813" class="md-nav__link">
-    8.1.3. &nbsp; 堆的实现
-  </a>
-  
-    <nav class="md-nav" aria-label="8.1.3. &nbsp; 堆的实现">
+    <nav class="md-nav" aria-label="8.1.2. &nbsp; 堆的实现">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1168,8 +1161,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#814" class="md-nav__link">
-    8.1.4. &nbsp; 堆常见应用
+  <a href="#813" class="md-nav__link">
+    8.1.3. &nbsp; 堆常见应用
   </a>
   
 </li>
@@ -1752,24 +1745,17 @@
       
         <li class="md-nav__item">
   <a href="#811" class="md-nav__link">
-    8.1.1. &nbsp; 堆术语与性质
+    8.1.1. &nbsp; 堆常用操作
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#812" class="md-nav__link">
-    8.1.2. &nbsp; 堆常用操作
+    8.1.2. &nbsp; 堆的实现
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#813" class="md-nav__link">
-    8.1.3. &nbsp; 堆的实现
-  </a>
-  
-    <nav class="md-nav" aria-label="8.1.3. &nbsp; 堆的实现">
+    <nav class="md-nav" aria-label="8.1.2. &nbsp; 堆的实现">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1806,8 +1792,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#814" class="md-nav__link">
-    8.1.4. &nbsp; 堆常见应用
+  <a href="#813" class="md-nav__link">
+    8.1.3. &nbsp; 堆常见应用
   </a>
   
 </li>
@@ -1836,7 +1822,7 @@
 
 
 <h1 id="81">8.1. &nbsp; 堆<a class="headerlink" href="#81" title="Permanent link">&para;</a></h1>
-<p>「堆 Heap」是一棵限定条件下的「完全二叉树」。根据成立条件，堆主要分为两种类型：</p>
+<p>「堆 Heap」是一种满足特定条件的完全二叉树，可分为两种类型：</p>
 <ul>
 <li>「大顶堆 Max Heap」，任意节点的值 <span class="arithmatex">\(\geq\)</span> 其子节点的值；</li>
 <li>「小顶堆 Min Heap」，任意节点的值 <span class="arithmatex">\(\leq\)</span> 其子节点的值；</li>
@@ -1844,16 +1830,16 @@
 <p><img alt="小顶堆与大顶堆" src="../heap.assets/min_heap_and_max_heap.png" /></p>
 <p align="center"> Fig. 小顶堆与大顶堆 </p>
 
-<h2 id="811">8.1.1. &nbsp; 堆术语与性质<a class="headerlink" href="#811" title="Permanent link">&para;</a></h2>
+<p>堆作为完全二叉树的一个特例，具有以下特性：</p>
 <ul>
-<li>由于堆是完全二叉树，因此最底层节点靠左填充，其它层节点皆被填满。</li>
-<li>二叉树中的根节点对应「堆顶」，底层最靠右节点对应「堆底」。</li>
-<li>对于大顶堆 / 小顶堆，其堆顶元素（即根节点）的值最大 / 最小。</li>
+<li>最底层节点靠左填充，其他层的节点都被填满。</li>
+<li>我们将二叉树的根节点称为「堆顶」，将底层最靠右的节点称为「堆底」。</li>
+<li>对于大顶堆（小顶堆），堆顶元素（即根节点）的值分别是最大（最小）的。</li>
 </ul>
-<h2 id="812">8.1.2. &nbsp; 堆常用操作<a class="headerlink" href="#812" title="Permanent link">&para;</a></h2>
-<p>值得说明的是，多数编程语言提供的是「优先队列 Priority Queue」，其是一种抽象数据结构，<strong>定义为具有出队优先级的队列</strong>。</p>
-<p>而恰好，<strong>堆的定义与优先队列的操作逻辑完全吻合</strong>，大顶堆就是一个元素从大到小出队的优先队列。从使用角度看，我们可以将「优先队列」和「堆」理解为等价的数据结构。因此，本文与代码对两者不做特别区分，统一使用「堆」来命名。</p>
-<p>堆的常用操作见下表，方法名需根据编程语言确定。</p>
+<h2 id="811">8.1.1. &nbsp; 堆常用操作<a class="headerlink" href="#811" title="Permanent link">&para;</a></h2>
+<p>需要指出的是，许多编程语言提供的是「优先队列 Priority Queue」，这是一种抽象数据结构，定义为具有优先级排序的队列。</p>
+<p>实际上，<strong>堆通常用作实现优先队列，大顶堆相当于元素按从大到小顺序出队的优先队列</strong>。从使用角度来看，我们可以将「优先队列」和「堆」看作等价的数据结构。因此，本书对两者不做特别区分，统一使用「堆」来命名。</p>
+<p>堆的常用操作见下表，方法名需要根据编程语言来确定。</p>
 <div class="center-table">
 <table>
 <thead>
@@ -1892,10 +1878,10 @@
 </tbody>
 </table>
 </div>
-<p>我们可以直接使用编程语言提供的堆类（或优先队列类）。</p>
+<p>在实际应用中，我们可以直接使用编程语言提供的堆类（或优先队列类）。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>类似于排序中“从小到大排列”和“从大到小排列”，“大顶堆”和“小顶堆”可仅通过修改 Comparator 来互相转换。</p>
+<p>类似于排序算法中的“从小到大排列”和“从大到小排列”，我们可以通过修改 Comparator 来实现“小顶堆”与“大顶堆”之间的转换。</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label></div>
 <div class="tabbed-content">
@@ -2143,16 +2129,16 @@
 </div>
 </div>
 </div>
-<h2 id="813">8.1.3. &nbsp; 堆的实现<a class="headerlink" href="#813" title="Permanent link">&para;</a></h2>
-<p>下文实现的是「大顶堆」，若想转换为「小顶堆」，将所有大小逻辑判断取逆（例如将 <span class="arithmatex">\(\geq\)</span> 替换为 <span class="arithmatex">\(\leq\)</span> ）即可，有兴趣的同学可自行实现。</p>
+<h2 id="812">8.1.2. &nbsp; 堆的实现<a class="headerlink" href="#812" title="Permanent link">&para;</a></h2>
+<p>下文实现的是大顶堆。若要将其转换为小顶堆，只需将所有大小逻辑判断取逆（例如，将 <span class="arithmatex">\(\geq\)</span> 替换为 <span class="arithmatex">\(\leq\)</span> ）。感兴趣的读者可以自行实现。</p>
 <h3 id="_1">堆的存储与表示<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>在二叉树章节我们学过，「完全二叉树」非常适合使用「数组」来表示，而堆恰好是一棵完全二叉树，<strong>因而我们采用「数组」来存储「堆」</strong>。</p>
-<p><strong>二叉树指针</strong>。使用数组表示二叉树时，元素代表节点值，索引代表节点在二叉树中的位置，<strong>而节点指针通过索引映射公式来实现</strong>。</p>
-<p>具体地，给定索引 <span class="arithmatex">\(i\)</span> ，那么其左子节点索引为 <span class="arithmatex">\(2i + 1\)</span> 、右子节点索引为 <span class="arithmatex">\(2i + 2\)</span> 、父节点索引为 <span class="arithmatex">\((i - 1) / 2\)</span> （向下整除）。当索引越界时，代表空节点或节点不存在。</p>
+<p>我们在二叉树章节中学习到，完全二叉树非常适合用数组来表示。由于堆正是一种完全二叉树，<strong>我们将采用数组来存储堆</strong>。</p>
+<p>当使用数组表示二叉树时，元素代表节点值，索引代表节点在二叉树中的位置。<strong>节点指针通过索引映射公式来实现</strong>。</p>
+<p>具体而言，给定索引 <span class="arithmatex">\(i\)</span> ，其左子节点索引为 <span class="arithmatex">\(2i + 1\)</span> ，右子节点索引为 <span class="arithmatex">\(2i + 2\)</span> ，父节点索引为 <span class="arithmatex">\((i - 1) / 2\)</span>（向下取整）。当索引越界时，表示空节点或节点不存在。</p>
 <p><img alt="堆的表示与存储" src="../heap.assets/representation_of_heap.png" /></p>
 <p align="center"> Fig. 堆的表示与存储 </p>
 
-<p>我们将索引映射公式封装成函数，以便后续使用。</p>
+<p>我们可以将索引映射公式封装成函数，方便后续使用。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2321,7 +2307,7 @@
 </div>
 </div>
 <h3 id="_2">访问堆顶元素<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>堆顶元素是二叉树的根节点，即列表首元素。</p>
+<p>堆顶元素即为二叉树的根节点，也就是列表的首个元素。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:10"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2394,8 +2380,8 @@
 </div>
 </div>
 <h3 id="_3">元素入堆<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>给定元素 <code>val</code> ，我们先将其添加到堆底。添加后，由于 <code>val</code> 可能大于堆中其它元素，此时堆的成立条件可能已经被破坏，<strong>因此需要修复从插入节点到根节点这条路径上的各个节点</strong>，该操作被称为「堆化 Heapify」。</p>
-<p>考虑从入堆节点开始，<strong>从底至顶执行堆化</strong>。具体地，比较插入节点与其父节点的值，若插入节点更大则将它们交换；并循环以上操作，从底至顶地修复堆中的各个节点；直至越过根节点时结束，或当遇到无需交换的节点时提前结束。</p>
+<p>给定元素 <code>val</code> ，我们首先将其添加到堆底。添加之后，由于 val 可能大于堆中其他元素，堆的成立条件可能已被破坏。因此，<strong>需要修复从插入节点到根节点的路径上的各个节点</strong>，这个操作被称为「堆化 Heapify」。</p>
+<p>考虑从入堆节点开始，<strong>从底至顶执行堆化</strong>。具体来说，我们比较插入节点与其父节点的值，如果插入节点更大，则将它们交换。然后继续执行此操作，从底至顶修复堆中的各个节点，直至越过根节点或遇到无需交换的节点时结束。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:6"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2418,7 +2404,7 @@
 </div>
 </div>
 </div>
-<p>设节点总数为 <span class="arithmatex">\(n\)</span> ，则树的高度为 <span class="arithmatex">\(O(\log n)\)</span> ，易得堆化操作的循环轮数最多为 <span class="arithmatex">\(O(\log n)\)</span> ，<strong>因而元素入堆操作的时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span></strong> 。</p>
+<p>设节点总数为 <span class="arithmatex">\(n\)</span> ，则树的高度为 <span class="arithmatex">\(O(\log n)\)</span> 。由此可知，堆化操作的循环轮数最多为 <span class="arithmatex">\(O(\log n)\)</span> ，<strong>元素入堆操作的时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span></strong> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:10"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JavaScript</label><label for="__tabbed_5_6">TypeScript</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2656,13 +2642,13 @@
 </div>
 </div>
 <h3 id="_4">堆顶元素出堆<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>堆顶元素是二叉树根节点，即列表首元素，如果我们直接将首元素从列表中删除，则二叉树中所有节点都会随之发生移位（索引发生变化），这样后续使用堆化修复就很麻烦了。为了尽量减少元素索引变动，采取以下操作步骤：</p>
+<p>堆顶元素是二叉树的根节点，即列表首元素。如果我们直接从列表中删除首元素，那么二叉树中所有节点的索引都会发生变化，这将使得后续使用堆化修复变得困难。为了尽量减少元素索引的变动，我们采取以下操作步骤：</p>
 <ol>
 <li>交换堆顶元素与堆底元素（即交换根节点与最右叶节点）；</li>
-<li>交换完成后，将堆底从列表中删除（注意，因为已经交换，实际上删除的是原来的堆顶元素）；</li>
+<li>交换完成后，将堆底从列表中删除（注意，由于已经交换，实际上删除的是原来的堆顶元素）；</li>
 <li>从根节点开始，<strong>从顶至底执行堆化</strong>；</li>
 </ol>
-<p>顾名思义，<strong>从顶至底堆化的操作方向与从底至顶堆化相反</strong>，我们比较根节点的值与其两个子节点的值，将最大的子节点与根节点执行交换，并循环以上操作，直到越过叶节点时结束，或当遇到无需交换的节点时提前结束。</p>
+<p>顾名思义，<strong>从顶至底堆化的操作方向与从底至顶堆化相反</strong>，我们将根节点的值与其两个子节点的值进行比较，将最大的子节点与根节点交换；然后循环执行此操作，直到越过叶节点或遇到无需交换的节点时结束。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:10"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">&lt;1&gt;</label><label for="__tabbed_6_2">&lt;2&gt;</label><label for="__tabbed_6_3">&lt;3&gt;</label><label for="__tabbed_6_4">&lt;4&gt;</label><label for="__tabbed_6_5">&lt;5&gt;</label><label for="__tabbed_6_6">&lt;6&gt;</label><label for="__tabbed_6_7">&lt;7&gt;</label><label for="__tabbed_6_8">&lt;8&gt;</label><label for="__tabbed_6_9">&lt;9&gt;</label><label for="__tabbed_6_10">&lt;10&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2697,7 +2683,7 @@
 </div>
 </div>
 </div>
-<p>与元素入堆操作类似，<strong>堆顶元素出堆操作的时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span></strong> 。</p>
+<p>与元素入堆操作相似，堆顶元素出堆操作的时间复杂度也为 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:10"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><input id="__tabbed_7_5" name="__tabbed_7" type="radio" /><input id="__tabbed_7_6" name="__tabbed_7" type="radio" /><input id="__tabbed_7_7" name="__tabbed_7" type="radio" /><input id="__tabbed_7_8" name="__tabbed_7" type="radio" /><input id="__tabbed_7_9" name="__tabbed_7" type="radio" /><input id="__tabbed_7_10" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Java</label><label for="__tabbed_7_2">C++</label><label for="__tabbed_7_3">Python</label><label for="__tabbed_7_4">Go</label><label for="__tabbed_7_5">JavaScript</label><label for="__tabbed_7_6">TypeScript</label><label for="__tabbed_7_7">C</label><label for="__tabbed_7_8">C#</label><label for="__tabbed_7_9">Swift</label><label for="__tabbed_7_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3038,11 +3024,11 @@
 </div>
 </div>
 </div>
-<h2 id="814">8.1.4. &nbsp; 堆常见应用<a class="headerlink" href="#814" title="Permanent link">&para;</a></h2>
+<h2 id="813">8.1.3. &nbsp; 堆常见应用<a class="headerlink" href="#813" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>优先队列</strong>。堆常作为实现优先队列的首选数据结构，入队和出队操作时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span> ，建队操作为 <span class="arithmatex">\(O(n)\)</span> ，皆非常高效。</li>
-<li><strong>堆排序</strong>。给定一组数据，我们使用其建堆，并依次全部弹出，则可以得到有序的序列。当然，堆排序一般无需弹出元素，仅需每轮将堆顶元素交换至数组尾部并减小堆的长度即可。</li>
-<li><strong>获取最大的 <span class="arithmatex">\(k\)</span> 个元素</strong>。这既是一道经典算法题目，也是一种常见应用，例如选取热度前 10 的新闻作为微博热搜，选取前 10 销量的商品等。</li>
+<li><strong>优先队列</strong>：堆通常作为实现优先队列的首选数据结构，其入队和出队操作的时间复杂度均为 <span class="arithmatex">\(O(\log n)\)</span> ，而建队操作为 <span class="arithmatex">\(O(n)\)</span> ，这些操作都非常高效。</li>
+<li><strong>堆排序</strong>：给定一组数据，我们可以用它们建立一个堆，然后依次将所有元素弹出，从而得到一个有序序列。当然，堆排序的实现方法并不需要弹出元素，而是每轮将堆顶元素交换至数组尾部并缩小堆的长度。</li>
+<li><strong>获取最大的 <span class="arithmatex">\(k\)</span> 个元素</strong>：这是一个经典的算法问题，同时也是一种典型应用，例如选择热度前 10 的新闻作为微博热搜，选取销量前 10 的商品等。</li>
 </ul>
 
 

@@ -1348,7 +1348,7 @@
       
         <li class="md-nav__item">
   <a href="#1033" class="md-nav__link">
-    10.3.3. &nbsp; 优点与缺点
+    10.3.3. &nbsp; 优点与局限性
   </a>
   
 </li>
@@ -1725,7 +1725,7 @@
       
         <li class="md-nav__item">
   <a href="#1033" class="md-nav__link">
-    10.3.3. &nbsp; 优点与缺点
+    10.3.3. &nbsp; 优点与局限性
   </a>
   
 </li>
@@ -1754,13 +1754,10 @@
 
 
 <h1 id="103">10.3. &nbsp; 哈希查找<a class="headerlink" href="#103" title="Permanent link">&para;</a></h1>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>在数据量很大时，「线性查找」太慢；而「二分查找」要求数据必须是有序的，并且只能在数组中应用。那么是否有方法可以同时避免上述缺点呢？答案是肯定的，此方法被称为「哈希查找」。</p>
-</div>
-<p>「哈希查找 Hash Searching」借助一个哈希表来存储需要的「键值对 Key Value Pair」，我们可以在 <span class="arithmatex">\(O(1)\)</span> 时间下实现“键 <span class="arithmatex">\(\rightarrow\)</span> 值”映射查找，体现着“以空间换时间”的算法思想。</p>
+<p>「哈希查找 Hash Searching」通过使用哈希表来存储所需的键值对，从而可在 <span class="arithmatex">\(O(1)\)</span> 时间内完成“键 <span class="arithmatex">\(\rightarrow\)</span> 值”的查找操作。</p>
+<p>与线性查找相比，哈希查找通过利用额外空间来提高效率，体现了“以空间换时间”的算法思想。</p>
 <h2 id="1031">10.3.1. &nbsp; 算法实现<a class="headerlink" href="#1031" title="Permanent link">&para;</a></h2>
-<p>如果我们想要给定数组中的一个目标元素 <code>target</code> ，获取该元素的索引，那么可以借助一个哈希表实现查找。</p>
+<p>例如，若我们想要在给定数组中找到目标元素 <code>target</code> 的索引，则可以使用哈希查找来实现。</p>
 <p><img alt="哈希查找数组索引" src="../hashing_search.assets/hash_search_index.png" /></p>
 <p align="center"> Fig. 哈希查找数组索引 </p>
 
@@ -1860,7 +1857,7 @@
 </div>
 </div>
 </div>
-<p>再比如，如果我们想要给定一个目标节点值 <code>target</code> ，获取对应的链表节点对象，那么也可以使用哈希查找实现。</p>
+<p>同样，若要根据目标节点值 target 查找对应的链表节点对象，也可以采用哈希查找方法。</p>
 <p><img alt="哈希查找链表节点" src="../hashing_search.assets/hash_search_listnode.png" /></p>
 <p align="center"> Fig. 哈希查找链表节点 </p>
 
@@ -1960,16 +1957,16 @@
 </div>
 <h2 id="1032">10.3.2. &nbsp; 复杂度分析<a class="headerlink" href="#1032" title="Permanent link">&para;</a></h2>
 <p><strong>时间复杂度 <span class="arithmatex">\(O(1)\)</span></strong> ：哈希表的查找操作使用 <span class="arithmatex">\(O(1)\)</span> 时间。</p>
-<p><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：其中 <span class="arithmatex">\(n\)</span> 为数组或链表长度。</p>
-<h2 id="1033">10.3.3. &nbsp; 优点与缺点<a class="headerlink" href="#1033" title="Permanent link">&para;</a></h2>
-<p>在哈希表中，<strong>查找、插入、删除操作的平均时间复杂度都为 <span class="arithmatex">\(O(1)\)</span></strong> ，这意味着无论是高频增删还是高频查找场景，哈希查找的性能表现都非常好。当然，一切的前提是保证哈希表未退化。</p>
-<p>即使如此，哈希查找仍存在一些问题，在实际应用中，需要根据情况灵活选择方法。</p>
+<p><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：其中 <span class="arithmatex">\(n\)</span> 是数组或链表的长度。</p>
+<h2 id="1033">10.3.3. &nbsp; 优点与局限性<a class="headerlink" href="#1033" title="Permanent link">&para;</a></h2>
+<p>哈希查找的性能表现相当优秀，查找、插入、删除操作的平均时间复杂度均为 <span class="arithmatex">\(O(1)\)</span> 。尽管如此，哈希查找仍然存在一些问题：</p>
 <ul>
-<li>辅助哈希表 <strong>需要使用 <span class="arithmatex">\(O(n)\)</span> 的额外空间</strong>，意味着需要预留更多的计算机内存；</li>
-<li>建立和维护哈希表需要时间，因此哈希查找 <strong>不适合高频增删、低频查找的使用场景</strong>；</li>
-<li>当哈希冲突严重时，哈希表会退化为链表，<strong>时间复杂度劣化至 <span class="arithmatex">\(O(n)\)</span></strong> ；</li>
-<li><strong>当数据量很小时，线性查找比哈希查找更快</strong>。这是因为计算哈希映射函数可能比遍历一个小型数组更慢；</li>
+<li>辅助哈希表需要占用 <span class="arithmatex">\(O(n)\)</span> 的额外空间，意味着需要预留更多的计算机内存；</li>
+<li>构建和维护哈希表需要时间，因此哈希查找不适用于高频增删、低频查找的场景；</li>
+<li>当哈希冲突严重时，哈希表可能退化为链表，导致时间复杂度劣化至 <span class="arithmatex">\(O(n)\)</span> ；</li>
+<li>当数据量较小时，线性查找可能比哈希查找更快。这是因为计算哈希函数可能比遍历一个小型数组更慢；</li>
 </ul>
+<p>因此，在实际应用中，我们需要根据具体情况灵活选择解决方案。</p>
 
 
 

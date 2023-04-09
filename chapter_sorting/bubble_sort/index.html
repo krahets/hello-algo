@@ -1754,13 +1754,9 @@
 
 
 <h1 id="112">11.2. &nbsp; 冒泡排序<a class="headerlink" href="#112" title="Permanent link">&para;</a></h1>
-<p>「冒泡排序 Bubble Sort」是一种基于元素交换实现排序的算法，非常适合作为第一个学习的排序算法。</p>
-<div class="admonition question">
-<p class="admonition-title">为什么叫“冒泡”</p>
-<p>在水中，越大的泡泡浮力越大，所以最大的泡泡会最先浮到水面。</p>
-</div>
-<p>「冒泡操作」则是在模拟上述过程，具体做法为：从数组最左端开始向右遍历，依次对比相邻元素大小，若“左元素 &gt; 右元素”则将它俩交换，最终可将最大元素移动至数组最右端。</p>
-<p>完成一次冒泡操作后，<strong>数组最大元素已在正确位置，接下来只需排序剩余 <span class="arithmatex">\(n - 1\)</span> 个元素</strong>。</p>
+<p>「冒泡排序 Bubble Sort」的工作原理类似于泡泡在水中的浮动。在水中，较大的泡泡会最先浮到水面。</p>
+<p>「冒泡操作」利用元素交换操作模拟了上述过程，具体做法为：从数组最左端开始向右遍历，依次比较相邻元素大小，如果“左元素 &gt; 右元素”就交换它俩。遍历完成后，最大的元素会被移动到数组的最右端。</p>
+<p><strong>在完成一次冒泡操作后，数组的最大元素已位于正确位置，接下来只需对剩余 <span class="arithmatex">\(n - 1\)</span> 个元素进行排序</strong>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1787,11 +1783,11 @@
 </div>
 </div>
 <h2 id="1121">11.2.1. &nbsp; 算法流程<a class="headerlink" href="#1121" title="Permanent link">&para;</a></h2>
-<p>设输入数组长度为 <span class="arithmatex">\(n\)</span> ，循环执行「冒泡」操作：</p>
+<p>设输入数组长度为 <span class="arithmatex">\(n\)</span> ，整个冒泡排序的步骤为：</p>
 <ol>
-<li>完成第一轮「冒泡」后，数组最大元素已在正确位置，接下来只需排序剩余 <span class="arithmatex">\(n - 1\)</span> 个元素；</li>
-<li>对剩余 <span class="arithmatex">\(n - 1\)</span> 个元素执行「冒泡」，可将第二大元素交换至正确位置，因而待排序元素只剩 <span class="arithmatex">\(n - 2\)</span> 个；</li>
-<li>以此类推…… <strong>循环 <span class="arithmatex">\(n - 1\)</span> 轮「冒泡」，即可完成整个数组的排序</strong>；</li>
+<li>完成第一轮「冒泡」后，数组的最大元素已位于正确位置，接下来只需对剩余 <span class="arithmatex">\(n - 1\)</span> 个元素进行排序；</li>
+<li>对剩余 <span class="arithmatex">\(n - 1\)</span> 个元素执行冒泡操作，可将第二大元素交换至正确位置，因而待排序元素只剩 <span class="arithmatex">\(n - 2\)</span> 个；</li>
+<li>如此类推，经过 <span class="arithmatex">\(n - 1\)</span> 轮冒泡操作，整个数组便完成排序；</li>
 </ol>
 <p><img alt="冒泡排序流程" src="../bubble_sort.assets/bubble_sort_overview.png" /></p>
 <p align="center"> Fig. 冒泡排序流程 </p>
@@ -1965,12 +1961,12 @@
 </div>
 </div>
 <h2 id="1122">11.2.2. &nbsp; 算法特性<a class="headerlink" href="#1122" title="Permanent link">&para;</a></h2>
-<p><strong>时间复杂度 <span class="arithmatex">\(O(n^2)\)</span></strong> ：各轮冒泡遍历的数组长度为 <span class="arithmatex">\(n - 1\)</span> , <span class="arithmatex">\(n - 2\)</span> , <span class="arithmatex">\(\cdots\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(1\)</span> 次，求和为 <span class="arithmatex">\(\frac{(n - 1) n}{2}\)</span> ，因此使用 <span class="arithmatex">\(O(n^2)\)</span> 时间。引入下文的 <code>flag</code> 优化后，最佳时间复杂度可以达到 <span class="arithmatex">\(O(N)\)</span> ，因此是“自适应排序”。</p>
+<p><strong>时间复杂度 <span class="arithmatex">\(O(n^2)\)</span></strong> ：各轮冒泡遍历的数组长度依次为 <span class="arithmatex">\(n - 1\)</span> , <span class="arithmatex">\(n - 2\)</span> , <span class="arithmatex">\(\cdots\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(1\)</span> ，总和为 <span class="arithmatex">\(\frac{(n - 1) n}{2}\)</span> ，因此使用 <span class="arithmatex">\(O(n^2)\)</span> 时间。在引入下文的 <code>flag</code> 优化后，最佳时间复杂度可达到 <span class="arithmatex">\(O(n)\)</span> ，所以它是“自适应排序”。</p>
 <p><strong>空间复杂度 <span class="arithmatex">\(O(1)\)</span></strong> ：指针 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> 使用常数大小的额外空间，因此是“原地排序”。</p>
-<p>在冒泡操作中遇到相等元素不交换，因此是“稳定排序”。</p>
+<p>由于冒泡操作中遇到相等元素不交换，因此冒泡排序是“稳定排序”。</p>
 <h2 id="1123">11.2.3. &nbsp; 效率优化<a class="headerlink" href="#1123" title="Permanent link">&para;</a></h2>
-<p>我们发现，若在某轮「冒泡」中未执行任何交换操作，则说明数组已经完成排序，可直接返回结果。考虑可以增加一个标志位 <code>flag</code> 来监听该情况，若出现则直接返回。</p>
-<p>优化后，冒泡排序的最差和平均时间复杂度仍为 <span class="arithmatex">\(O(n^2)\)</span> ；而在输入数组完全有序时，达到最佳时间复杂度 <span class="arithmatex">\(O(n)\)</span> 。 </p>
+<p>我们发现，如果某轮冒泡操作中没有执行任何交换操作，说明数组已经完成排序，可直接返回结果。因此，可以增加一个标志位 <code>flag</code> 来监测这种情况，一旦出现就立即返回。</p>
+<p>经过优化，冒泡排序的最差和平均时间复杂度仍为 <span class="arithmatex">\(O(n^2)\)</span> ；但当输入数组完全有序时，可达到最佳时间复杂度 <span class="arithmatex">\(O(n)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:10"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

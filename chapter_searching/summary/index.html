@@ -1681,10 +1681,10 @@
 
 <h1 id="104">10.4. &nbsp; 小结<a class="headerlink" href="#104" title="Permanent link">&para;</a></h1>
 <ul>
-<li>线性查找是一种最基础的查找方法，通过遍历数据结构 + 判断条件实现查找。</li>
-<li>二分查找利用数据的有序性，通过循环不断缩小一半搜索区间来实现查找，其要求输入数据是有序的，并且仅适用于数组或基于数组实现的数据结构。</li>
-<li>哈希查找借助哈希表来实现常数阶时间复杂度的查找操作，体现以空间换时间的算法思想。</li>
-<li>下表总结对比了查找算法的各种特性和时间复杂度。</li>
+<li>线性查找通过遍历数据结构并进行条件判断来完成查找任务。</li>
+<li>二分查找依赖于数据的有序性，通过循环逐步缩减一半搜索区间来实现查找。它要求输入数据有序，且仅适用于数组或基于数组实现的数据结构。</li>
+<li>哈希查找利用哈希表实现常数阶时间复杂度的查找操作，体现了空间换时间的算法思维。</li>
+<li>下表概括并对比了三种查找算法的特性和时间复杂度。</li>
 </ul>
 <div class="center-table">
 <table>
@@ -1700,26 +1700,14 @@
 <tr>
 <td>适用数据结构</td>
 <td>数组、链表</td>
-<td>数组</td>
+<td>有序数组</td>
 <td>数组、链表</td>
 </tr>
 <tr>
-<td>输入数据要求</td>
-<td>无</td>
-<td>有序</td>
-<td>无</td>
-</tr>
-<tr>
-<td>平均时间复杂度</br>查找 / 插入 / 删除</td>
-<td><span class="arithmatex">\(O(n)\)</span> / <span class="arithmatex">\(O(1)\)</span> / <span class="arithmatex">\(O(n)\)</span></td>
-<td><span class="arithmatex">\(O(\log n)\)</span> / <span class="arithmatex">\(O(n)\)</span> / <span class="arithmatex">\(O(n)\)</span></td>
-<td><span class="arithmatex">\(O(1)\)</span> / <span class="arithmatex">\(O(1)\)</span> / <span class="arithmatex">\(O(1)\)</span></td>
-</tr>
-<tr>
-<td>最差时间复杂度</br>查找 / 插入 / 删除</td>
-<td><span class="arithmatex">\(O(n)\)</span> / <span class="arithmatex">\(O(1)\)</span> / <span class="arithmatex">\(O(n)\)</span></td>
-<td><span class="arithmatex">\(O(\log n)\)</span> / <span class="arithmatex">\(O(n)\)</span> / <span class="arithmatex">\(O(n)\)</span></td>
-<td><span class="arithmatex">\(O(n)\)</span> / <span class="arithmatex">\(O(n)\)</span> / <span class="arithmatex">\(O(n)\)</span></td>
+<td>时间复杂度</br>（查找，插入，删除）</td>
+<td><span class="arithmatex">\(O(n)\)</span> , <span class="arithmatex">\(O(1)\)</span> , <span class="arithmatex">\(O(n)\)</span></td>
+<td><span class="arithmatex">\(O(\log n)\)</span> , <span class="arithmatex">\(O(n)\)</span> , <span class="arithmatex">\(O(n)\)</span></td>
+<td><span class="arithmatex">\(O(1)\)</span> , <span class="arithmatex">\(O(1)\)</span> , <span class="arithmatex">\(O(1)\)</span></td>
 </tr>
 <tr>
 <td>空间复杂度</td>

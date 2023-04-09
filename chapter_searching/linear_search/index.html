@@ -1320,7 +1320,7 @@
       
         <li class="md-nav__item">
   <a href="#1013" class="md-nav__link">
-    10.1.3. &nbsp; 优点与缺点
+    10.1.3. &nbsp; 优点与局限性
   </a>
   
 </li>
@@ -1725,7 +1725,7 @@
       
         <li class="md-nav__item">
   <a href="#1013" class="md-nav__link">
-    10.1.3. &nbsp; 优点与缺点
+    10.1.3. &nbsp; 优点与局限性
   </a>
   
 </li>
@@ -1754,9 +1754,9 @@
 
 
 <h1 id="101">10.1. &nbsp; 线性查找<a class="headerlink" href="#101" title="Permanent link">&para;</a></h1>
-<p>「线性查找 Linear Search」是一种最基础的查找方法，其从数据结构的一端开始，依次访问每个元素，直到另一端后停止。</p>
+<p>「线性查找 Linear Search」是一种简单的查找方法，其从数据结构的一端开始，逐个访问每个元素，直至另一端为止。</p>
 <h2 id="1011">10.1.1. &nbsp; 算法实现<a class="headerlink" href="#1011" title="Permanent link">&para;</a></h2>
-<p>线性查找实质上就是遍历数据结构 + 判断条件。比如，我们想要在数组 <code>nums</code> 中查找目标元素 <code>target</code> 的对应索引，那么可以在数组中进行线性查找。</p>
+<p>例如，若我们想要在数组 <code>nums</code> 中查找目标元素 <code>target</code> 的对应索引，可以采用线性查找方法。</p>
 <p><img alt="在数组中线性查找元素" src="../linear_search.assets/linear_search.png" /></p>
 <p align="center"> Fig. 在数组中线性查找元素 </p>
 
@@ -1897,7 +1897,7 @@
 </div>
 </div>
 </div>
-<p>再比如，我们想要在给定一个目标节点值 <code>target</code> ，返回此节点对象，也可以在链表中进行线性查找。</p>
+<p>另一个例子，若需要在链表中查找给定目标节点值 <code>target</code> 并返回该节点对象，同样可以使用线性查找。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2044,11 +2044,11 @@
 </div>
 </div>
 <h2 id="1012">10.1.2. &nbsp; 复杂度分析<a class="headerlink" href="#1012" title="Permanent link">&para;</a></h2>
-<p><strong>时间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：其中 <span class="arithmatex">\(n\)</span> 为数组或链表长度。</p>
-<p><strong>空间复杂度 <span class="arithmatex">\(O(1)\)</span></strong> ：无需使用额外空间。</p>
-<h2 id="1013">10.1.3. &nbsp; 优点与缺点<a class="headerlink" href="#1013" title="Permanent link">&para;</a></h2>
-<p><strong>线性查找的通用性极佳</strong>。由于线性查找是依次访问元素的，即没有跳跃访问元素，因此数组或链表皆适用。</p>
-<p><strong>线性查找的时间复杂度太高</strong>。在数据量 <span class="arithmatex">\(n\)</span> 很大时，查找效率很低。</p>
+<p><strong>时间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：其中 <span class="arithmatex">\(n\)</span> 代表数组或链表的长度。</p>
+<p><strong>空间复杂度 <span class="arithmatex">\(O(1)\)</span></strong> ：无需借助额外的存储空间。</p>
+<h2 id="1013">10.1.3. &nbsp; 优点与局限性<a class="headerlink" href="#1013" title="Permanent link">&para;</a></h2>
+<p><strong>线性查找具有极佳的通用性</strong>。由于线性查找是逐个访问元素的，没有跳跃式访问，因此适用于数组和链表的查找。</p>
+<p><strong>线性查找的时间复杂度较高</strong>。当数据量 <span class="arithmatex">\(n\)</span> 较大时，线性查找的效率较低。</p>
 
 
 

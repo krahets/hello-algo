@@ -1754,12 +1754,12 @@
 
 
 <h1 id="116">11.6. &nbsp; 桶排序<a class="headerlink" href="#116" title="Permanent link">&para;</a></h1>
-<p>前面介绍的几种排序算法都属于 <strong>基于比较的排序算法</strong>，即通过比较元素之间的大小来实现排序，此类排序算法的时间复杂度无法超越 <span class="arithmatex">\(O(n \log n)\)</span> 。接下来，我们将学习几种 <strong>非比较排序算法</strong> ，其时间复杂度可以达到线性级别。</p>
-<p>「桶排序 Bucket Sort」是分治思想的典型体现，其通过设置一些具有大小顺序的桶，每个桶对应一个数据范围，将数据平均分配到各个桶中，并在每个桶内部分别执行排序，最终按照桶的顺序将所有数据合并即可。</p>
+<p>前述的几种排序算法都属于“基于比较的排序算法”，它们通过比较元素间的大小来实现排序。此类排序算法的时间复杂度无法超越 <span class="arithmatex">\(O(n \log n)\)</span> 。接下来，我们将探讨几种“非比较排序算法”，它们的时间复杂度可以达到线性水平。</p>
+<p>「桶排序 Bucket Sort」是分治思想的一个典型应用。它通过设置一些具有大小顺序的桶，每个桶对应一个数据范围，将数据平均分配到各个桶中；然后，在每个桶内部分别执行排序；最终按照桶的顺序将所有数据合并。</p>
 <h2 id="1161">11.6.1. &nbsp; 算法流程<a class="headerlink" href="#1161" title="Permanent link">&para;</a></h2>
-<p>输入一个长度为 <span class="arithmatex">\(n\)</span> 的数组，元素是范围 <span class="arithmatex">\([0, 1)\)</span> 的浮点数，桶排序流程为：</p>
+<p>考虑一个长度为 <span class="arithmatex">\(n\)</span> 的数组，元素是范围 <span class="arithmatex">\([0, 1)\)</span> 的浮点数。桶排序的流程如下：</p>
 <ol>
-<li>初始化 <span class="arithmatex">\(k\)</span> 个桶，将 <span class="arithmatex">\(n\)</span> 个元素分配至 <span class="arithmatex">\(k\)</span> 个桶中；</li>
+<li>初始化 <span class="arithmatex">\(k\)</span> 个桶，将 <span class="arithmatex">\(n\)</span> 个元素分配到 <span class="arithmatex">\(k\)</span> 个桶中；</li>
 <li>对每个桶分别执行排序（本文采用编程语言的内置排序函数）；</li>
 <li>按照桶的从小到大的顺序，合并结果；</li>
 </ol>
@@ -1786,7 +1786,7 @@
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="c1">// 2. 对各个桶执行排序</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="c1">// 使用内置排序函数，也可以替换成其它排序算法</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="c1">// 使用内置排序函数，也可以替换成其他排序算法</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">bucket</span><span class="p">);</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="c1">// 3. 遍历桶合并结果</span>
@@ -1800,31 +1800,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">bucket_sort.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* 桶排序 */</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">bucketSort</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">buckets</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// 1. 将数组元素分配到各个桶中</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="c1">// 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="c1">// 将 num 添加进桶 bucket_idx</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="c1">// 2. 对各个桶执行排序</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bucket</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="c1">// 使用内置排序函数，也可以替换成其它排序算法</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="n">sort</span><span class="p">(</span><span class="n">bucket</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">bucket</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="c1">// 3. 遍历桶合并结果</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bucket</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">bucket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">            </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="p">}</span>
+<div class="highlight"><span class="filename">bucket_sort.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">[</span><span class="k">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">bucketSort</span><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1841,7 +1817,7 @@
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="c1"># 2. 对各个桶执行排序5</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">buckets</span><span class="p">:</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="c1"># 使用内置排序函数，也可以替换成其它排序算法</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="c1"># 使用内置排序函数，也可以替换成其他排序算法</span>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="n">bucket</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="c1"># 3. 遍历桶合并结果</span>
 <a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1869,7 +1845,7 @@
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="c1">// 2. 对各个桶执行排序</span>
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="c1">// 使用内置切片排序函数，也可以替换成其它排序算法</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="c1">// 使用内置切片排序函数，也可以替换成其他排序算法</span>
 <a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="nx">sort</span><span class="p">.</span><span class="nx">Float64s</span><span class="p">(</span><span class="nx">buckets</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
 <a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="c1">// 3. 遍历桶合并结果</span>
@@ -1901,7 +1877,7 @@
 <a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="c1">// 2. 对各个桶执行排序</span>
 <a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">bucket</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="c1">// 使用内置排序函数，也可以替换成其它排序算法</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="c1">// 使用内置排序函数，也可以替换成其他排序算法</span>
 <a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="nx">bucket</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span>
 <a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="c1">// 3. 遍历桶合并结果</span>
@@ -1932,7 +1908,7 @@
 <a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="c1">// 2. 对各个桶执行排序</span>
 <a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">bucket</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="c1">// 使用内置排序函数，也可以替换成其它排序算法</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="c1">// 使用内置排序函数，也可以替换成其他排序算法</span>
 <a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">        </span><span class="nx">bucket</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span>
 <a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="c1">// 3. 遍历桶合并结果</span>
@@ -1968,7 +1944,7 @@
 <a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="p">}</span>
 <a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    <span class="c1">// 2. 对各个桶执行排序</span>
 <a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">buckets</span><span class="p">.</span><span class="bp">indices</span> <span class="p">{</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>        <span class="c1">// 使用内置排序函数，也可以替换成其它排序算法</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>        <span class="c1">// 使用内置排序函数，也可以替换成其他排序算法</span>
 <a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>        <span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="bp">sort</span><span class="p">()</span>
 <a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    <span class="p">}</span>
 <a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    <span class="c1">// 3. 遍历桶合并结果</span>
@@ -1989,21 +1965,21 @@
 </div>
 </div>
 <div class="admonition question">
-<p class="admonition-title">桶排序的应用场景是什么？</p>
-<p>桶排序一般用于排序超大体量的数据。例如输入数据包含 100 万个元素，由于空间有限，系统无法一次性将所有数据加载进内存，那么可以先将数据划分到 1000 个桶里，再依次排序每个桶，最终合并结果即可。</p>
+<p class="admonition-title">桶排序的适用场景是什么？</p>
+<p>桶排序适用于处理体量很大的数据。例如，输入数据包含 100 万个元素，由于空间限制，系统内存无法一次性加载所有数据。此时，可以将数据分成 1000 个桶，然后分别对每个桶进行排序，最后将结果合并。</p>
 </div>
 <h2 id="1162">11.6.2. &nbsp; 算法特性<a class="headerlink" href="#1162" title="Permanent link">&para;</a></h2>
-<p><strong>时间复杂度 <span class="arithmatex">\(O(n + k)\)</span></strong> ：假设元素平均分布在各个桶内，则每个桶内元素数量为 <span class="arithmatex">\(\frac{n}{k}\)</span> 。假设排序单个桶使用 <span class="arithmatex">\(O(\frac{n}{k} \log\frac{n}{k})\)</span> 时间，则排序所有桶使用 <span class="arithmatex">\(O(n \log\frac{n}{k})\)</span> 时间，<strong>当桶数量 <span class="arithmatex">\(k\)</span> 比较大时，时间复杂度则趋向于 <span class="arithmatex">\(O(n)\)</span></strong> 。最后合并结果需要遍历 <span class="arithmatex">\(n\)</span> 个桶，使用 <span class="arithmatex">\(O(k)\)</span> 时间。</p>
-<p>最差情况下，所有数据被分配到一个桶中，且排序算法退化至 <span class="arithmatex">\(O(n^2)\)</span> ，此时使用 <span class="arithmatex">\(O(n^2)\)</span> 时间，因此是“自适应排序”。</p>
-<p><strong>空间复杂度 <span class="arithmatex">\(O(n + k)\)</span></strong> ：需要借助 <span class="arithmatex">\(k\)</span> 个桶和共 <span class="arithmatex">\(n\)</span> 个元素的额外空间，是“非原地排序”。</p>
+<p><strong>时间复杂度 <span class="arithmatex">\(O(n + k)\)</span></strong> ：假设元素在各个桶内平均分布，那么每个桶内的元素数量为 <span class="arithmatex">\(\frac{n}{k}\)</span> 。假设排序单个桶使用 <span class="arithmatex">\(O(\frac{n}{k} \log\frac{n}{k})\)</span> 时间，则排序所有桶使用 <span class="arithmatex">\(O(n \log\frac{n}{k})\)</span> 时间。<strong>当桶数量 <span class="arithmatex">\(k\)</span> 比较大时，时间复杂度则趋向于 <span class="arithmatex">\(O(n)\)</span></strong> 。合并结果时需要遍历 <span class="arithmatex">\(n\)</span> 个桶，花费 <span class="arithmatex">\(O(k)\)</span> 时间。</p>
+<p>在最坏情况下，所有数据被分配到一个桶中，且排序该桶使用 <span class="arithmatex">\(O(n^2)\)</span> 时间，因此是“自适应排序”。</p>
+<p><strong>空间复杂度 <span class="arithmatex">\(O(n + k)\)</span></strong> ：需要借助 <span class="arithmatex">\(k\)</span> 个桶和总共 <span class="arithmatex">\(n\)</span> 个元素的额外空间，属于“非原地排序”。</p>
 <p>桶排序是否稳定取决于排序桶内元素的算法是否稳定。</p>
 <h2 id="1163">11.6.3. &nbsp; 如何实现平均分配<a class="headerlink" href="#1163" title="Permanent link">&para;</a></h2>
-<p>桶排序的时间复杂度理论上可以达到 <span class="arithmatex">\(O(n)\)</span> ，<strong>难点是需要将元素均匀分配到各个桶中</strong>，因为现实中的数据往往都不是均匀分布的。举个例子，假设我们想要把淘宝的所有商品根据价格范围平均分配到 10 个桶中，然而商品价格不是均匀分布的，100 元以下非常多、1000 元以上非常少；如果我们将价格区间平均划为 10 份，那么各个桶内的商品数量差距会非常大。</p>
-<p>为了实现平均分配，我们可以先大致设置一个分界线，将数据粗略分到 3 个桶，分配完后，<strong>再把商品较多的桶继续划分为 3 个桶，直至所有桶内元素数量大致平均为止</strong>。此方法本质上是生成一个递归树，让叶节点的值尽量平均。当然，不一定非要划分为 3 个桶，可以根据数据特点灵活选取。</p>
+<p>桶排序的时间复杂度理论上可以达到 <span class="arithmatex">\(O(n)\)</span> ，<strong>关键在于将元素均匀分配到各个桶中</strong>，因为实际数据往往不是均匀分布的。例如，我们想要将淘宝上的所有商品按价格范围平均分配到 10 个桶中，但商品价格分布不均，低于 100 元的非常多，高于 1000 元的非常少。若将价格区间平均划分为 10 份，各个桶中的商品数量差距会非常大。</p>
+<p>为实现平均分配，我们可以先设定一个大致的分界线，将数据粗略地分到 3 个桶中。<strong>分配完毕后，再将商品较多的桶继续划分为 3 个桶，直至所有桶中的元素数量大致相等</strong>。这种方法本质上是创建一个递归树，使叶节点的值尽可能平均。当然，不一定要每轮将数据划分为 3 个桶，具体划分方式可根据数据特点灵活选择。</p>
 <p><img alt="递归划分桶" src="../bucket_sort.assets/scatter_in_buckets_recursively.png" /></p>
 <p align="center"> Fig. 递归划分桶 </p>
 
-<p>如果我们提前知道商品价格的概率分布，<strong>那么也可以根据数据概率分布来设置每个桶的价格分界线</strong>。注意，数据分布不一定需要特意去统计，也可以根据数据特点采用某种概率模型来近似。如下图所示，我们假设商品价格服从正态分布，就可以合理设置价格区间，将商品平均分配到各个桶中。</p>
+<p>如果我们提前知道商品价格的概率分布，<strong>则可以根据数据概率分布设置每个桶的价格分界线</strong>。值得注意的是，数据分布并不一定需要特意统计，也可以根据数据特点采用某种概率模型进行近似。如下图所示，我们假设商品价格服从正态分布，这样就可以合理地设定价格区间，从而将商品平均分配到各个桶中。</p>
 <p><img alt="根据概率分布划分桶" src="../bucket_sort.assets/scatter_in_buckets_distribution.png" /></p>
 <p align="center"> Fig. 根据概率分布划分桶 </p>
 

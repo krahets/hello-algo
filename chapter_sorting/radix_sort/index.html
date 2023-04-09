@@ -1740,24 +1740,24 @@
 
 
 <h1 id="118">11.8. &nbsp; 基数排序<a class="headerlink" href="#118" title="Permanent link">&para;</a></h1>
-<p>上节介绍的计数排序适用于数据量 <span class="arithmatex">\(n\)</span> 大但数据范围 <span class="arithmatex">\(m\)</span> 不大的情况。假设需要排序 <span class="arithmatex">\(n = 10^6\)</span> 个学号数据，学号是 <span class="arithmatex">\(8\)</span> 位数字，那么数据范围 <span class="arithmatex">\(m = 10^8\)</span> 很大，使用计数排序则需要开辟巨大的内存空间，而基数排序则可以避免这种情况。</p>
-<p>「基数排序 Radix Sort」主体思路与计数排序一致，也通过统计出现次数实现排序，<strong>并在此基础上利用位与位之间的递进关系，依次对每一位执行排序</strong>，从而获得排序结果。</p>
+<p>上一节我们介绍了计数排序，它适用于数据量 <span class="arithmatex">\(n\)</span> 较大但数据范围 <span class="arithmatex">\(m\)</span> 较小的情况。假设我们需要对 <span class="arithmatex">\(n = 10^6\)</span> 个学号进行排序，而学号是一个 <span class="arithmatex">\(8\)</span> 位数字，这意味着数据范围 <span class="arithmatex">\(m = 10^8\)</span> 非常大，使用计数排序需要分配大量内存空间，而基数排序可以避免这种情况。</p>
+<p>「基数排序 Radix Sort」的核心思想与计数排序一致，也通过统计个数来实现排序。在此基础上，基数排序利用数字各位之间的递进关系，依次对每一位进行排序**，从而得到最终的排序结果。</p>
 <h2 id="1181">11.8.1. &nbsp; 算法流程<a class="headerlink" href="#1181" title="Permanent link">&para;</a></h2>
-<p>以上述的学号数据为例，设数字最低位为第 <span class="arithmatex">\(1\)</span> 位、最高位为第 <span class="arithmatex">\(8\)</span> 位，基数排序的流程为：</p>
+<p>以学号数据为例，假设数字的最低位是第 <span class="arithmatex">\(1\)</span> 位，最高位是第 <span class="arithmatex">\(8\)</span> 位，基数排序的步骤如下：</p>
 <ol>
 <li>初始化位数 <span class="arithmatex">\(k = 1\)</span> ；</li>
-<li>对学号的第 <span class="arithmatex">\(k\)</span> 位执行「计数排序」，完成后，数据即按照第 <span class="arithmatex">\(k\)</span> 位从小到大排序；</li>
-<li>将 <span class="arithmatex">\(k\)</span> 自增 <span class="arithmatex">\(1\)</span> ，并返回第 <code>2.</code> 步继续迭代，直至排序完所有位后结束；</li>
+<li>对学号的第 <span class="arithmatex">\(k\)</span> 位执行「计数排序」。完成后，数据会根据第 <span class="arithmatex">\(k\)</span> 位从小到大排序；</li>
+<li>将 <span class="arithmatex">\(k\)</span> 增加 <span class="arithmatex">\(1\)</span> ，然后返回步骤 <code>2.</code> 继续迭代，直到所有位都排序完成后结束；</li>
 </ol>
 <p><img alt="基数排序算法流程" src="../radix_sort.assets/radix_sort_overview.png" /></p>
 <p align="center"> Fig. 基数排序算法流程 </p>
 
-<p>下面来剖析代码实现。对于一个 <span class="arithmatex">\(d\)</span> 进制的数字 <span class="arithmatex">\(x\)</span> ，其第 <span class="arithmatex">\(k\)</span> 位 <span class="arithmatex">\(x_k\)</span> 的计算公式为</p>
+<p>下面来剖析代码实现。对于一个 <span class="arithmatex">\(d\)</span> 进制的数字 <span class="arithmatex">\(x\)</span> ，要获取其第 <span class="arithmatex">\(k\)</span> 位 <span class="arithmatex">\(x_k\)</span> ，可以使用以下计算公式：</p>
 <div class="arithmatex">\[
 x_k = \lfloor\frac{x}{d^{k-1}}\rfloor \mod d
 \]</div>
-<p>其中 <span class="arithmatex">\(\lfloor a \rfloor\)</span> 代表对浮点数 <span class="arithmatex">\(a\)</span> 执行向下取整，<span class="arithmatex">\(\mod d\)</span> 代表对 <span class="arithmatex">\(d\)</span> 取余。学号数据的 <span class="arithmatex">\(d = 10\)</span> , <span class="arithmatex">\(k \in [1, 8]\)</span> 。</p>
-<p>此外，我们需要小幅改动计数排序代码，使之可以根据数字第 <span class="arithmatex">\(k\)</span> 位执行排序。</p>
+<p>其中 <span class="arithmatex">\(\lfloor a \rfloor\)</span> 表示对浮点数 <span class="arithmatex">\(a\)</span> 向下取整，而 <span class="arithmatex">\(\mod d\)</span> 表示对 <span class="arithmatex">\(d\)</span> 取余。对于学号数据，<span class="arithmatex">\(d = 10\)</span> 且 <span class="arithmatex">\(k \in [1, 8]\)</span> 。</p>
+<p>此外，我们需要小幅改动计数排序代码，使之可以根据数字的第 <span class="arithmatex">\(k\)</span> 位进行排序。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2204,12 +2204,12 @@ x_k = \lfloor\frac{x}{d^{k-1}}\rfloor \mod d
 </div>
 <div class="admonition question">
 <p class="admonition-title">为什么从最低位开始排序？</p>
-<p>对于先后两轮排序，第二轮排序可能会覆盖第一轮排序的结果，比如第一轮认为 <span class="arithmatex">\(a &lt; b\)</span> ，而第二轮认为 <span class="arithmatex">\(a &gt; b\)</span> ，则第二轮会取代第一轮的结果。由于数字高位比低位的优先级更高，所以要先排序低位再排序高位。</p>
+<p>在连续的排序轮次中，后一轮排序会覆盖前一轮排序的结果。举例来说，如果第一轮排序结果 <span class="arithmatex">\(a &lt; b\)</span> ，而第二轮排序结果 <span class="arithmatex">\(a &gt; b\)</span> ，那么第二轮的结果将取代第一轮的结果。由于数字的高位优先级高于低位，我们应该先排序低位再排序高位。</p>
 </div>
 <h2 id="1182">11.8.2. &nbsp; 算法特性<a class="headerlink" href="#1182" title="Permanent link">&para;</a></h2>
-<p><strong>时间复杂度 <span class="arithmatex">\(O(n k)\)</span></strong> ：设数据量为 <span class="arithmatex">\(n\)</span> 、数据为 <span class="arithmatex">\(d\)</span> 进制、最大为 <span class="arithmatex">\(k\)</span> 位，则对某一位执行计数排序使用 <span class="arithmatex">\(O(n + d)\)</span> 时间，排序 <span class="arithmatex">\(k\)</span> 位使用 <span class="arithmatex">\(O((n + d)k)\)</span> 时间；一般情况下 <span class="arithmatex">\(d\)</span> 和 <span class="arithmatex">\(k\)</span> 都比较小，此时时间复杂度近似为 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<p><strong>空间复杂度 <span class="arithmatex">\(O(n + d)\)</span></strong> ：与计数排序一样，借助了长度分别为 <span class="arithmatex">\(n\)</span> , <span class="arithmatex">\(d\)</span> 的数组 <code>res</code> 和 <code>counter</code> ，因此是“非原地排序”。</p>
-<p>与计数排序一致，基数排序也是稳定排序。相比于计数排序，基数排序可适用于数值范围较大的情况，<strong>但前提是数据必须可以被表示为固定位数的格式，且位数不能太大</strong>。比如浮点数就不适合使用基数排序，因为其位数 <span class="arithmatex">\(k\)</span> 太大，可能时间复杂度 <span class="arithmatex">\(O(nk) \gg O(n^2)\)</span> 。</p>
+<p><strong>时间复杂度 <span class="arithmatex">\(O(nk)\)</span></strong> ：设数据量为 <span class="arithmatex">\(n\)</span> 、数据为 <span class="arithmatex">\(d\)</span> 进制、最大位数为 <span class="arithmatex">\(k\)</span> ，则对某一位执行计数排序使用 <span class="arithmatex">\(O(n + d)\)</span> 时间，排序所有 <span class="arithmatex">\(k\)</span> 位使用 <span class="arithmatex">\(O((n + d)k)\)</span> 时间。通常情况下，<span class="arithmatex">\(d\)</span> 和 <span class="arithmatex">\(k\)</span> 都相对较小，时间复杂度趋向 <span class="arithmatex">\(O(n)\)</span> 。</p>
+<p><strong>空间复杂度 <span class="arithmatex">\(O(n + d)\)</span></strong> ：与计数排序相同，基数排序需要借助长度为 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(d\)</span> 的数组 <code>res</code> 和 <code>counter</code> ，因此它是一种“非原地排序”。</p>
+<p>基数排序与计数排序一样，都属于稳定排序。相较于计数排序，基数排序适用于数值范围较大的情况，<strong>但前提是数据必须可以表示为固定位数的格式，且位数不能过大</strong>。例如，浮点数不适合使用基数排序，因为其位数 <span class="arithmatex">\(k\)</span> 过大，可能导致时间复杂度 <span class="arithmatex">\(O(nk) \gg O(n^2)\)</span> 。</p>
 
 
 

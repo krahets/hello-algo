@@ -1782,14 +1782,14 @@
 
 
 <h1 id="114">11.4. &nbsp; 快速排序<a class="headerlink" href="#114" title="Permanent link">&para;</a></h1>
-<p>「快速排序 Quick Sort」是一种基于“分治思想”的排序算法，速度很快、应用很广。</p>
-<p>快速排序的核心操作为「哨兵划分」，其目标为：选取数组某个元素为 <strong>基准数</strong>，将所有小于基准数的元素移动至其左边，大于基准数的元素移动至其右边。「哨兵划分」的实现流程为：</p>
+<p>「快速排序 Quick Sort」是一种基于分治思想的排序算法，运行高效，应用广泛。</p>
+<p>快速排序的核心操作是「哨兵划分」，其目标是：选择数组中的某个元素作为“基准数”，将所有小于基准数的元素移到其左侧，而大于基准数的元素移到其右侧。具体来说，哨兵划分的流程为：</p>
 <ol>
-<li>以数组最左端元素作为基准数，初始化两个指针 <code>i</code> , <code>j</code> 指向数组两端；</li>
-<li>设置一个循环，每轮中使用 <code>i</code> / <code>j</code> 分别寻找首个比基准数大 / 小的元素，并交换此两元素；</li>
-<li>不断循环步骤 <code>2.</code> ，直至 <code>i</code> , <code>j</code> 相遇时跳出，最终把基准数交换至两个子数组的分界线；</li>
+<li>选取数组最左端元素作为基准数，初始化两个指针 <code>i</code> 和 <code>j</code> 分别指向数组的两端；</li>
+<li>设置一个循环，在每轮中使用 <code>i</code>（<code>j</code>）分别寻找第一个比基准数大（小）的元素，然后交换这两个元素；</li>
+<li>循环执行步骤 <code>2.</code> ，直到 <code>i</code> 和 <code>j</code> 相遇时停止，最后将基准数交换至两个子数组的分界线；</li>
 </ol>
-<p>「哨兵划分」执行完毕后，原数组被划分成两个部分，即 <strong>左子数组</strong> 和 <strong>右子数组</strong>，且满足 <strong>左子数组任意元素 &lt; 基准数 &lt; 右子数组任意元素</strong>。因此，接下来我们只需要排序两个子数组即可。</p>
+<p>哨兵划分完成后，原数组被划分成三部分：左子数组、基准数、右子数组，且满足“左子数组任意元素 <span class="arithmatex">\(\leq\)</span> 基准数 <span class="arithmatex">\(\leq\)</span> 右子数组任意元素”。因此，我们接下来只需对这两个子数组进行排序。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:9"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1823,7 +1823,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">快速排序的分治思想</p>
-<p>哨兵划分的实质是将 <strong>一个长数组的排序问题</strong> 简化为 <strong>两个短数组的排序问题</strong>。</p>
+<p>哨兵划分的实质是将一个较长数组的排序问题简化为两个较短数组的排序问题。</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label></div>
 <div class="tabbed-content">
@@ -2052,11 +2052,10 @@
 </div>
 <h2 id="1141">11.4.1. &nbsp; 算法流程<a class="headerlink" href="#1141" title="Permanent link">&para;</a></h2>
 <ol>
-<li>首先，对数组执行一次「哨兵划分」，得到待排序的 <strong>左子数组</strong> 和 <strong>右子数组</strong>；</li>
-<li>接下来，对 <strong>左子数组</strong> 和 <strong>右子数组</strong> 分别 <strong>递归执行</strong>「哨兵划分」……</li>
-<li>直至子数组长度为 1 时 <strong>终止递归</strong>，即可完成对整个数组的排序；</li>
+<li>首先，对原数组执行一次「哨兵划分」，得到待排序的左子数组和右子数组；</li>
+<li>然后，对左子数组和右子数组分别递归执行「哨兵划分」；</li>
+<li>持续递归，直至子数组长度为 1 时终止，从而完成整个数组的排序；</li>
 </ol>
-<p>观察发现，快速排序和「二分查找」的原理类似，都是以对数阶的时间复杂度来缩小处理区间。</p>
 <p><img alt="快速排序流程" src="../quick_sort.assets/quick_sort_overview.png" /></p>
 <p align="center"> Fig. 快速排序流程 </p>
 
@@ -2196,21 +2195,22 @@
 </div>
 </div>
 <h2 id="1142">11.4.2. &nbsp; 算法特性<a class="headerlink" href="#1142" title="Permanent link">&para;</a></h2>
-<p><strong>时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span></strong> ：平均情况下，哨兵划分的递归层数为 <span class="arithmatex">\(\log n\)</span> ，每层中的总循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。</p>
-<p>最差情况下，每轮哨兵划分操作都将长度为 <span class="arithmatex">\(n\)</span> 的数组划分为长度为 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(n - 1\)</span> 的两个子数组，此时递归层数达到 <span class="arithmatex">\(n\)</span> 层，每层中的循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n^2)\)</span> 时间，因此是“非稳定排序”。</p>
-<p><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：输入数组完全倒序下，达到最差递归深度 <span class="arithmatex">\(n\)</span> 。由于未借助辅助数组空间，因此是“原地排序”。</p>
-<p><strong>非稳定排序</strong>：哨兵划分最后一步可能会将基准数交换至相等元素的右边。</p>
+<p><strong>时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span></strong> ：在平均情况下，哨兵划分的递归层数为 <span class="arithmatex">\(\log n\)</span> ，每层中的总循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n \log n)\)</span> 时间。</p>
+<p>在最差情况下，每轮哨兵划分操作都将长度为 <span class="arithmatex">\(n\)</span> 的数组划分为长度为 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(n - 1\)</span> 的两个子数组，此时递归层数达到 <span class="arithmatex">\(n\)</span> 层，每层中的循环数为 <span class="arithmatex">\(n\)</span> ，总体使用 <span class="arithmatex">\(O(n^2)\)</span> 时间；因此快速排序是“自适应排序”。</p>
+<p><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：在输入数组完全倒序的情况下，达到最差递归深度 <span class="arithmatex">\(n\)</span> 。由于未使用辅助数组，因此算法是“原地排序”。</p>
+<p>在哨兵划分的最后一步，基准数可能会被交换至相等元素的右侧，因此是“非稳定排序”。</p>
 <h2 id="1143">11.4.3. &nbsp; 快排为什么快？<a class="headerlink" href="#1143" title="Permanent link">&para;</a></h2>
-<p>从命名能够看出，快速排序在效率方面一定“有两把刷子”。快速排序的平均时间复杂度虽然与「归并排序」和「堆排序」一致，但实际 <strong>效率更高</strong>，这是因为：</p>
+<p>从名称上就能看出，快速排序在效率方面应该具有一定的优势。尽管快速排序的平均时间复杂度与「归并排序」和「堆排序」相同，但通常快速排序的效率更高，原因如下：</p>
 <ul>
-<li><strong>出现最差情况的概率很低</strong>：虽然快速排序的最差时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ，不如归并排序，但绝大部分情况下，快速排序可以达到 <span class="arithmatex">\(O(n \log n)\)</span> 的复杂度。</li>
-<li><strong>缓存使用效率高</strong>：哨兵划分操作时，将整个子数组加载入缓存中，访问元素效率很高。而诸如「堆排序」需要跳跃式访问元素，因此不具有此特性。</li>
-<li><strong>复杂度的常数系数低</strong>：在提及的三种算法中，快速排序的 <strong>比较</strong>、<strong>赋值</strong>、<strong>交换</strong> 三种操作的总体数量最少（类似于「插入排序」快于「冒泡排序」的原因）。</li>
+<li><strong>出现最差情况的概率很低</strong>：虽然快速排序的最差时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ，没有归并排序稳定，但在绝大多数情况下，快速排序能在 <span class="arithmatex">\(O(n \log n)\)</span> 的时间复杂度下运行。</li>
+<li><strong>缓存使用效率高</strong>：在执行哨兵划分操作时，系统可将整个子数组加载到缓存，因此访问元素的效率较高。而像「堆排序」这类算法需要跳跃式访问元素，从而缺乏这一特性。</li>
+<li><strong>复杂度的常数系数低</strong>：在上述三种算法中，快速排序的比较、赋值、交换等操作的总数量最少。这与「插入排序」比「冒泡排序」更快的原因类似。</li>
 </ul>
 <h2 id="1144">11.4.4. &nbsp; 基准数优化<a class="headerlink" href="#1144" title="Permanent link">&para;</a></h2>
-<p><strong>普通快速排序在某些输入下的时间效率变差</strong>。举个极端例子，假设输入数组是完全倒序的，由于我们选取最左端元素为基准数，那么在哨兵划分完成后，基准数被交换至数组最右端，从而 <strong>左子数组长度为 <span class="arithmatex">\(n - 1\)</span>、右子数组长度为 <span class="arithmatex">\(0\)</span></strong> 。这样进一步递归下去，<strong>每轮哨兵划分后的右子数组长度都为 <span class="arithmatex">\(0\)</span></strong> ，分治策略失效，快速排序退化为「冒泡排序」了。</p>
-<p>为了尽量避免这种情况发生，我们可以优化一下基准数的选取策略。首先，在哨兵划分中，我们可以 <strong>随机选取一个元素作为基准数</strong>。但如果运气很差，每次都选择到比较差的基准数，那么效率依然不好。</p>
-<p>进一步地，我们可以在数组中选取 3 个候选元素（一般为数组的首、尾、中点元素），<strong>并将三个候选元素的中位数作为基准数</strong>，这样基准数“既不大也不小”的概率就大大提升了。当然，如果数组很长的话，我们也可以选取更多候选元素，来进一步提升算法的稳健性。采取该方法后，时间复杂度劣化至 <span class="arithmatex">\(O(n^2)\)</span> 的概率极低。</p>
+<p><strong>快速排序在某些输入下的时间效率可能降低</strong>。举一个极端例子，假设输入数组是完全倒序的，由于我们选择最左端元素作为基准数，那么在哨兵划分完成后，基准数被交换至数组最右端，导致左子数组长度为 <span class="arithmatex">\(n - 1\)</span> 、右子数组长度为 <span class="arithmatex">\(0\)</span> 。如此递归下去，每轮哨兵划分后的右子数组长度都为 <span class="arithmatex">\(0\)</span> ，分治策略失效，快速排序退化为「冒泡排序」。</p>
+<p>为了尽量避免这种情况发生，<strong>我们可以优化哨兵划分中的基准数的选取策略</strong>。例如，我们可以随机选取一个元素作为基准数。然而，如果运气不佳，每次都选到不理想的基准数，效率仍然不尽如人意。</p>
+<p>需要注意的是，编程语言通常生成的是“伪随机数”。如果我们针对伪随机数序列构建一个特定的测试样例，那么快速排序的效率仍然可能劣化。</p>
+<p>为了进一步改进，我们可以在数组中选取三个候选元素（通常为数组的首、尾、中点元素），<strong>并将这三个候选元素的中位数作为基准数</strong>。这样一来，基准数“既不太小也不太大”的概率将大幅提升。当然，我们还可以选取更多候选元素，以进一步提高算法的稳健性。采用这种方法后，时间复杂度劣化至 <span class="arithmatex">\(O(n^2)\)</span> 的概率大大降低。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:10"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JavaScript</label><label for="__tabbed_4_6">TypeScript</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2511,8 +2511,8 @@
 </div>
 </div>
 <h2 id="1145">11.4.5. &nbsp; 尾递归优化<a class="headerlink" href="#1145" title="Permanent link">&para;</a></h2>
-<p><strong>普通快速排序在某些输入下的空间效率变差</strong>。仍然以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 0 ，那么将形成一个高度为 <span class="arithmatex">\(n - 1\)</span> 的递归树，此时使用的栈帧空间大小劣化至 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<p>为了避免栈帧空间的累积，我们可以在每轮哨兵排序完成后，判断两个子数组的长度大小，仅递归排序较短的子数组。由于较短的子数组长度不会超过 <span class="arithmatex">\(\frac{n}{2}\)</span> ，因此这样做能保证递归深度不超过 <span class="arithmatex">\(\log n\)</span> ，即最差空间复杂度被优化至 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
+<p><strong>在某些输入下，快速排序可能占用空间较多</strong>。以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 <span class="arithmatex">\(0\)</span> ，递归树的高度会达到 <span class="arithmatex">\(n - 1\)</span> ，此时需要占用 <span class="arithmatex">\(O(n)\)</span> 大小的栈帧空间。</p>
+<p>为了防止栈帧空间的累积，我们可以在每轮哨兵排序完成后，比较两个子数组的长度，<strong>仅对较短的子数组进行递归</strong>。由于较短子数组的长度不会超过 <span class="arithmatex">\(\frac{n}{2}\)</span> ，因此这种方法能确保递归深度不超过 <span class="arithmatex">\(\log n\)</span> ，从而将最差空间复杂度优化至 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:10"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JavaScript</label><label for="__tabbed_5_6">TypeScript</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2701,9 +2701,9 @@
 <div class="admonition question">
 <p class="admonition-title">哨兵划分中“从右往左查找”与“从左往右查找”的顺序可以交换吗？</p>
 <p>不行，当我们以最左端元素为基准数时，必须先“从右往左查找”再“从左往右查找”。这个结论有些反直觉，我们来剖析一下原因。</p>
-<p>哨兵划分 <code>partition()</code> 的最后一步是交换 <code>nums[left]</code> 和 <code>nums[i]</code> ，完成交换后，基准数左边的元素都 <code>&lt;=</code> 基准数，<strong>这就要求最后一步交换前 <code>nums[left] &gt;= nums[i]</code> 必须成立</strong>。假设我们先“从左往右查找”，那么如果找不到比基准数更小的元素，<strong>则会在 <code>i == j</code> 时跳出循环，此时可能 <code>nums[j] == nums[i] &gt; nums[left]</code></strong> ；也就是说，此时最后一步交换操作会把一个比基准数更大的元素交换至数组最左端，导致哨兵划分失败。</p>
-<p>举个例子，给定数组 <code>[0, 0, 0, 0, 1]</code> ，如果先“从左向右查找”，哨兵划分后数组为 <code>[1, 0, 0, 0, 0]</code> ，这个结果是不对的。</p>
-<p>再深想一步，如果我们选择 <code>nums[right]</code> 为基准数，那么正好反过来，必须先“从左往右查找”。</p>
+<p>哨兵划分 <code>partition()</code> 的最后一步是交换 <code>nums[left]</code> 和 <code>nums[i]</code> 。完成交换后，基准数左边的元素都 <code>&lt;=</code> 基准数，<strong>这就要求最后一步交换前 <code>nums[left] &gt;= nums[i]</code> 必须成立</strong>。假设我们先“从左往右查找”，那么如果找不到比基准数更小的元素，<strong>则会在 <code>i == j</code> 时跳出循环，此时可能 <code>nums[j] == nums[i] &gt; nums[left]</code></strong>。也就是说，此时最后一步交换操作会把一个比基准数更大的元素交换至数组最左端，导致哨兵划分失败。</p>
+<p>举个例子，给定数组 <code>[0, 0, 0, 0, 1]</code> ，如果先“从左向右查找”，哨兵划分后数组为 <code>[1, 0, 0, 0, 0]</code> ，这个结果是不正确的。</p>
+<p>再深入思考一下，如果我们选择 <code>nums[right]</code> 为基准数，那么正好反过来，必须先“从左往右查找”。</p>
 </div>
 
 
