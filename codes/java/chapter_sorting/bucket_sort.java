@@ -26,7 +26,7 @@ public class bucket_sort {
         }
         // 2. 对各个桶执行排序
         for (List<Float> bucket : buckets) {
-            // 使用内置排序函数，也可以替换成其它排序算法
+            // 使用内置排序函数，也可以替换成其他排序算法
             Collections.sort(bucket);
         }
         // 3. 遍历桶合并结果

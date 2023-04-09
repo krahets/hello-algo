@@ -62,7 +62,7 @@ class GraphAdjList {
             throw new IllegalArgumentException();
         // 在邻接表中删除顶点 vet 对应的链表
         adjList.remove(vet);
-        // 遍历其它顶点的链表，删除所有包含 vet 的边
+        // 遍历其他顶点的链表，删除所有包含 vet 的边
         for (List<Vertex> list : adjList.values()) {
             list.remove(vet);
         }

@@ -21,7 +21,7 @@ function bucketSort(nums: number[]): void {
     }
     // 2. 对各个桶执行排序
     for (const bucket of buckets) {
-        // 使用内置排序函数，也可以替换成其它排序算法
+        // 使用内置排序函数，也可以替换成其他排序算法
         bucket.sort((a, b) => a - b);
     }
     // 3. 遍历桶合并结果

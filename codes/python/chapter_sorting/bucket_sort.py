@@ -18,7 +18,7 @@ def bucket_sort(nums: list[float]) -> None:
         buckets[i].append(num)
     # 2. 对各个桶执行排序5
     for bucket in buckets:
-        # 使用内置排序函数，也可以替换成其它排序算法
+        # 使用内置排序函数，也可以替换成其他排序算法
         bucket.sort()
     # 3. 遍历桶合并结果
     i = 0
