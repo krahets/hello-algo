@@ -1794,12 +1794,12 @@
 
 
 <h1 id="53">5.3. &nbsp; 双向队列<a class="headerlink" href="#53" title="Permanent link">&para;</a></h1>
-<p>对于队列，我们只能在头部删除或在尾部添加元素，而「双向队列 Deque」更加灵活，在其头部和尾部都能执行元素添加或删除操作。</p>
+<p>对于队列，我们仅能在头部删除或在尾部添加元素。然而，「双向队列 Deque」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。</p>
 <p><img alt="双向队列的操作" src="../deque.assets/deque_operations.png" /></p>
 <p align="center"> Fig. 双向队列的操作 </p>
 
 <h2 id="531">5.3.1. &nbsp; 双向队列常用操作<a class="headerlink" href="#531" title="Permanent link">&para;</a></h2>
-<p>双向队列的常用操作见下表，方法名需根据语言来确定。</p>
+<p>双向队列的常用操作如下表所示，具体的方法名称需要根据所使用的编程语言来确定。</p>
 <div class="center-table">
 <table>
 <thead>
@@ -1843,7 +1843,7 @@
 </tbody>
 </table>
 </div>
-<p>相同地，我们可以直接使用编程语言实现好的双向队列类。</p>
+<p>同样地，我们可以直接使用编程语言中已实现的双向队列类。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2089,11 +2089,11 @@
 </div>
 </div>
 <h2 id="532">5.3.2. &nbsp; 双向队列实现 *<a class="headerlink" href="#532" title="Permanent link">&para;</a></h2>
-<p>与队列类似，双向队列同样可以使用链表或数组来实现。</p>
+<p>双向队列的实现与队列类似，可以选择链表或数组作为底层数据结构。</p>
 <h3 id="_1">基于双向链表的实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>回忆上节内容，由于可以方便地删除链表头节点（对应出队操作），以及在链表尾节点后添加新节点（对应入队操作），因此我们使用普通单向链表来实现队列。</p>
-<p>而双向队列的头部和尾部都可以执行入队与出队操作，换言之，双向队列的操作是“首尾对称”的，也需要实现另一个对称方向的操作。因此，双向队列需要使用「双向链表」来实现。</p>
-<p>我们将双向链表的头节点和尾节点分别看作双向队列的队首和队尾，并且实现在两端都能添加与删除节点。</p>
+<p>回顾上一节内容，我们使用普通单向链表来实现队列，因为它可以方便地删除头节点（对应出队操作）和在尾节点后添加新节点（对应入队操作）。</p>
+<p>对于双向队列而言，头部和尾部都可以执行入队和出队操作。换句话说，双向队列需要实现另一个对称方向的操作。为此，我们采用「双向链表」作为双向队列的底层数据结构。</p>
+<p>我们将双向链表的头节点和尾节点视为双向队列的队首和队尾，同时实现在两端添加和删除节点的功能。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListDeque</label><label for="__tabbed_2_2">pushLast()</label><label for="__tabbed_2_3">pushFirst()</label><label for="__tabbed_2_4">popLast()</label><label for="__tabbed_2_5">popFirst()</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3121,7 +3121,7 @@
 </div>
 </div>
 <h3 id="_2">基于数组的实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。在实现队列的基础上，增加实现“队首入队”和“队尾出队”方法即可。</p>
+<p>与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:5"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ArrayDeque</label><label for="__tabbed_4_2">pushLast()</label><label for="__tabbed_4_3">pushFirst()</label><label for="__tabbed_4_4">popLast()</label><label for="__tabbed_4_5">popFirst()</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3898,8 +3898,8 @@
 </div>
 </div>
 <h2 id="533">5.3.3. &nbsp; 双向队列应用<a class="headerlink" href="#533" title="Permanent link">&para;</a></h2>
-<p>双向队列同时表现出栈与队列的逻辑，<strong>因此可以实现两者的所有应用，并且提供更高的自由度</strong>。</p>
-<p>我们知道，软件的“撤销”功能需要使用栈来实现；系统把每一次更改操作 <code>push</code> 到栈中，然后通过 <code>pop</code> 实现撤销。然而，考虑到系统资源有限，软件一般会限制撤销的步数（例如仅允许保存 <span class="arithmatex">\(50\)</span> 步），那么当栈的长度 <span class="arithmatex">\(&gt; 50\)</span> 时，软件就需要在栈底（即队首）执行删除，<strong>但栈无法实现，此时就需要使用双向队列来替代栈</strong>。注意，“撤销”的核心逻辑仍然是栈的先入后出，只是双向队列可以更加灵活地实现。</p>
+<p>双向队列兼具栈与队列的逻辑，<strong>因此它可以实现这两者的所有应用场景，同时提供更高的自由度</strong>。</p>
+<p>我们知道，软件的“撤销”功能通常使用栈来实现：系统将每次更改操作 <code>push</code> 到栈中，然后通过 <code>pop</code> 实现撤销。然而，考虑到系统资源的限制，软件通常会限制撤销的步数（例如仅允许保存 <span class="arithmatex">\(50\)</span> 步）。当栈的长度超过 <span class="arithmatex">\(50\)</span> 时，软件需要在栈底（即队首）执行删除操作。<strong>但栈无法实现该功能，此时就需要使用双向队列来替代栈</strong>。请注意，“撤销”的核心逻辑仍然遵循栈的先入后出原则，只是双向队列能够更加灵活地实现一些额外逻辑。</p>
 
 
 
