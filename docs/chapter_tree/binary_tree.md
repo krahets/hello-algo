@@ -449,7 +449,7 @@
 - 完美二叉树是理想情况，可以充分发挥二叉树“分治”的优势；
 - 链表则是另一个极端，各项操作都变为线性操作，时间复杂度退化至 $O(n)$ ；
 
-![二叉树的最佳与最二叉树的最佳和最差结构差情况](binary_tree.assets/binary_tree_corner_cases.png)
+![二叉树的最佳与最差结构](binary_tree.assets/binary_tree_corner_cases.png)
 
 如下表所示，在最佳和最差结构下，二叉树的叶节点数量、节点总数、高度等达到极大或极小值。
 
