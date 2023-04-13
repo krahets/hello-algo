@@ -282,7 +282,7 @@ comments: true
     ```java title="linkedlist_queue.java"
     /* 基于链表实现的队列 */
     class LinkedListQueue {
-        private ListNode front, rear;  // 头节点 front ，尾节点 rear 
+        private ListNode front, rear; // 头节点 front ，尾节点 rear
         private int queSize = 0;
 
         public LinkedListQueue() {
@@ -350,11 +350,11 @@ comments: true
     ```cpp title="linkedlist_queue.cpp"
     /* 基于链表实现的队列 */
     class LinkedListQueue {
-    private:
-        ListNode *front, *rear;  // 头节点 front ，尾节点 rear 
+      private:
+        ListNode *front, *rear; // 头节点 front ，尾节点 rear
         int queSize;
 
-    public:
+      public:
         LinkedListQueue() {
             front = nullptr;
             rear = nullptr;
@@ -379,7 +379,7 @@ comments: true
         /* 入队 */
         void push(int num) {
             // 尾节点后添加 num
-            ListNode* node = new ListNode(num);
+            ListNode *node = new ListNode(num);
             // 如果队列为空，则令头、尾节点都指向该节点
             if (front == nullptr) {
                 front = node;
@@ -400,7 +400,7 @@ comments: true
             ListNode *tmp = front;
             front = front->next;
             // 释放内存
-            delete tmp; 
+            delete tmp;
             queSize--;
         }
 
@@ -413,7 +413,7 @@ comments: true
 
         /* 将链表转化为 Vector 并返回 */
         vector<int> toVector() {
-            ListNode* node = front;
+            ListNode *node = front;
             vector<int> res(size());
             for (int i = 0; i < res.size(); i++) {
                 res[i] = node->val;
@@ -955,8 +955,8 @@ comments: true
     ```java title="array_queue.java"
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
-        private int[] nums;  // 用于存储队列元素的数组
-        private int front;   // 队首指针，指向队首元素
+        private int[] nums; // 用于存储队列元素的数组
+        private int front; // 队首指针，指向队首元素
         private int queSize; // 队列长度
 
         public ArrayQueue(int capacity) {
@@ -1026,13 +1026,13 @@ comments: true
     ```cpp title="array_queue.cpp"
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
-    private:
+      private:
         int *nums;       // 用于存储队列元素的数组
         int front;       // 队首指针，指向队首元素
         int queSize;     // 队列长度
         int queCapacity; // 队列容量
 
-    public:
+      public:
         ArrayQueue(int capacity) {
             // 初始化数组
             nums = new int[capacity];

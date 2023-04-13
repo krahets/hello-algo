@@ -978,7 +978,8 @@ $$
     /* 线性阶（递归实现） */
     void linearRecur(int n) {
         System.out.println("递归 n = " + n);
-        if (n == 1) return;
+        if (n == 1)
+            return;
         linearRecur(n - 1);
     }
     ```
@@ -989,7 +990,8 @@ $$
     /* 线性阶（递归实现） */
     void linearRecur(int n) {
         cout << "递归 n = " << n << endl;
-        if (n == 1) return;
+        if (n == 1)
+            return;
         linearRecur(n - 1);
     }
     ```
@@ -1254,7 +1256,8 @@ $$
     ```java title="space_complexity.java"
     /* 平方阶（递归实现） */
     int quadraticRecur(int n) {
-        if (n <= 0) return 0;
+        if (n <= 0)
+            return 0;
         // 数组 nums 长度为 n, n-1, ..., 2, 1
         int[] nums = new int[n];
         System.out.println("递归 n = " + n + " 中的 nums 长度 = " + nums.length);
@@ -1267,7 +1270,8 @@ $$
     ```cpp title="space_complexity.cpp"
     /* 平方阶（递归实现） */
     int quadraticRecur(int n) {
-        if (n <= 0) return 0;
+        if (n <= 0)
+            return 0;
         vector<int> nums(n);
         cout << "递归 n = " << n << " 中的 nums 长度 = " << nums.size() << endl;
         return quadraticRecur(n - 1);
@@ -1384,7 +1388,8 @@ $$
     ```java title="space_complexity.java"
     /* 指数阶（建立满二叉树） */
     TreeNode buildTree(int n) {
-        if (n == 0) return null;
+        if (n == 0)
+            return null;
         TreeNode root = new TreeNode(0);
         root.left = buildTree(n - 1);
         root.right = buildTree(n - 1);
@@ -1396,9 +1401,10 @@ $$
 
     ```cpp title="space_complexity.cpp"
     /* 指数阶（建立满二叉树） */
-    TreeNode* buildTree(int n) {
-        if (n == 0) return nullptr;
-        TreeNode* root = new TreeNode(0);
+    TreeNode *buildTree(int n) {
+        if (n == 0)
+            return nullptr;
+        TreeNode *root = new TreeNode(0);
         root->left = buildTree(n - 1);
         root->right = buildTree(n - 1);
         return root;

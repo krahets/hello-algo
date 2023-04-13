@@ -149,7 +149,7 @@ comments: true
 
     ```cpp title="hashing_search.cpp"
     /* 哈希查找（链表） */
-    ListNode* hashingSearchLinkedList(unordered_map<int, ListNode*> map, int target) {
+    ListNode *hashingSearchLinkedList(unordered_map<int, ListNode *> map, int target) {
         // 哈希表的 key: 目标节点值，value: 节点对象
         // 若哈希表中无此 key ，返回 nullptr
         if (map.find(target) == map.end())

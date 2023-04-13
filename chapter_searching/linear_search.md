@@ -34,7 +34,7 @@ comments: true
 
     ```cpp title="linear_search.cpp"
     /* 线性查找（数组） */
-    int linearSearchArray(vector<int>& nums, int target) {
+    int linearSearchArray(vector<int> &nums, int target) {
         // 遍历数组
         for (int i = 0; i < nums.size(); i++) {
             // 找到目标元素，返回其索引
@@ -190,7 +190,7 @@ comments: true
 
     ```cpp title="linear_search.cpp"
     /* 线性查找（链表） */
-    ListNode* linearSearchLinkedList(ListNode* head, int target) {
+    ListNode *linearSearchLinkedList(ListNode *head, int target) {
         // 遍历链表
         while (head != nullptr) {
             // 找到目标节点，返回之

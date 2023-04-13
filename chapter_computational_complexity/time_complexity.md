@@ -1060,7 +1060,7 @@ $$
 
     ```cpp title="time_complexity.cpp"
     /* 线性阶（遍历数组） */
-    int arrayTraversal(vector<int>& nums) {
+    int arrayTraversal(vector<int> &nums) {
         int count = 0;
         // 循环次数与数组长度成正比
         for (int num : nums) {
@@ -1345,7 +1345,7 @@ $$
     ```java title="time_complexity.java"
     /* 平方阶（冒泡排序） */
     int bubbleSort(int[] nums) {
-        int count = 0;  // 计数器
+        int count = 0; // 计数器
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for (int i = nums.length - 1; i > 0; i--) {
             // 内循环：冒泡操作
@@ -1355,7 +1355,7 @@ $$
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3;  // 元素交换包含 3 个单元操作
+                    count += 3; // 元素交换包含 3 个单元操作
                 }
             }
         }
@@ -1367,8 +1367,8 @@ $$
 
     ```cpp title="time_complexity.cpp"
     /* 平方阶（冒泡排序） */
-    int bubbleSort(vector<int>& nums) {
-        int count = 0;  // 计数器
+    int bubbleSort(vector<int> &nums) {
+        int count = 0; // 计数器
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for (int i = nums.size() - 1; i > 0; i--) {
             // 内循环：冒泡操作
@@ -1378,7 +1378,7 @@ $$
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3;  // 元素交换包含 3 个单元操作
+                    count += 3; // 元素交换包含 3 个单元操作
                 }
             }
         }
@@ -1749,7 +1749,8 @@ $$
     ```java title="time_complexity.java"
     /* 指数阶（递归实现） */
     int expRecur(int n) {
-        if (n == 1) return 1;
+        if (n == 1)
+            return 1;
         return expRecur(n - 1) + expRecur(n - 1) + 1;
     }
     ```
@@ -1759,7 +1760,8 @@ $$
     ```cpp title="time_complexity.cpp"
     /* 指数阶（递归实现） */
     int expRecur(int n) {
-        if (n == 1) return 1;
+        if (n == 1)
+            return 1;
         return expRecur(n - 1) + expRecur(n - 1) + 1;
     }
     ```
@@ -1999,7 +2001,8 @@ $$
     ```java title="time_complexity.java"
     /* 对数阶（递归实现） */
     int logRecur(float n) {
-        if (n <= 1) return 0;
+        if (n <= 1)
+            return 0;
         return logRecur(n / 2) + 1;
     }
     ```
@@ -2009,7 +2012,8 @@ $$
     ```cpp title="time_complexity.cpp"
     /* 对数阶（递归实现） */
     int logRecur(float n) {
-        if (n <= 1) return 0;
+        if (n <= 1)
+            return 0;
         return logRecur(n / 2) + 1;
     }
     ```
@@ -2106,9 +2110,10 @@ $$
     ```java title="time_complexity.java"
     /* 线性对数阶 */
     int linearLogRecur(float n) {
-        if (n <= 1) return 1;
-        int count = linearLogRecur(n / 2) + 
-                    linearLogRecur(n / 2);
+        if (n <= 1)
+            return 1;
+        int count = linearLogRecur(n / 2) +
+                linearLogRecur(n / 2);
         for (int i = 0; i < n; i++) {
             count++;
         }
@@ -2121,9 +2126,9 @@ $$
     ```cpp title="time_complexity.cpp"
     /* 线性对数阶 */
     int linearLogRecur(float n) {
-        if (n <= 1) return 1;
-        int count = linearLogRecur(n / 2) + 
-                    linearLogRecur(n / 2);
+        if (n <= 1)
+            return 1;
+        int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
         for (int i = 0; i < n; i++) {
             count++;
         }
@@ -2263,7 +2268,8 @@ $$
     ```java title="time_complexity.java"
     /* 阶乘阶（递归实现） */
     int factorialRecur(int n) {
-        if (n == 0) return 1;
+        if (n == 0)
+            return 1;
         int count = 0;
         // 从 1 个分裂出 n 个
         for (int i = 0; i < n; i++) {
@@ -2278,7 +2284,8 @@ $$
     ```cpp title="time_complexity.cpp"
     /* 阶乘阶（递归实现） */
     int factorialRecur(int n) {
-        if (n == 0) return 1;
+        if (n == 0)
+            return 1;
         int count = 0;
         // 从 1 个分裂出 n 个
         for (int i = 0; i < n; i++) {
@@ -2468,7 +2475,7 @@ $$
     }
 
     /* 查找数组 nums 中数字 1 所在索引 */
-    int findOne(vector<int>& nums) {
+    int findOne(vector<int> &nums) {
         for (int i = 0; i < nums.size(); i++) {
             // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
             // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)

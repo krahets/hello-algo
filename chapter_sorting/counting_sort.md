@@ -50,7 +50,7 @@ comments: true
     ```cpp title="counting_sort.cpp"
     /* 计数排序 */
     // 简单实现，无法用于排序对象
-    void countingSortNaive(vector<int>& nums) {
+    void countingSortNaive(vector<int> &nums) {
         // 1. 统计数组最大元素 m
         int m = 0;
         for (int num : nums) {
@@ -311,7 +311,7 @@ $$
     ```cpp title="counting_sort.cpp"
     /* 计数排序 */
     // 完整实现，可排序对象，并且是稳定排序
-    void countingSort(vector<int>& nums) {
+    void countingSort(vector<int> &nums) {
         // 1. 统计数组最大元素 m
         int m = 0;
         for (int num : nums) {
@@ -335,7 +335,7 @@ $$
         for (int i = n - 1; i >= 0; i--) {
             int num = nums[i];
             res[counter[num] - 1] = num; // 将 num 放置到对应索引处
-            counter[num]--; // 令前缀和自减 1 ，得到下次放置 num 的索引
+            counter[num]--;              // 令前缀和自减 1 ，得到下次放置 num 的索引
         }
         // 使用结果数组 res 覆盖原数组 nums
         nums = res;

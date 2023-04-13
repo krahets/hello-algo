@@ -284,9 +284,9 @@ comments: true
     ```java title="linkedlist_stack.java"
     /* 基于链表实现的栈 */
     class LinkedListStack {
-        private ListNode stackPeek;  // 将头节点作为栈顶
-        private int stkSize = 0;   // 栈的长度
-        
+        private ListNode stackPeek; // 将头节点作为栈顶
+        private int stkSize = 0; // 栈的长度
+
         public LinkedListStack() {
             stackPeek = null;
         }
@@ -342,11 +342,11 @@ comments: true
     ```cpp title="linkedlist_stack.cpp"
     /* 基于链表实现的栈 */
     class LinkedListStack {
-    private:
-        ListNode* stackTop; // 将头节点作为栈顶
+      private:
+        ListNode *stackTop; // 将头节点作为栈顶
         int stkSize;        // 栈的长度
 
-    public:
+      public:
         LinkedListStack() {
             stackTop = nullptr;
             stkSize = 0;
@@ -369,7 +369,7 @@ comments: true
 
         /* 入栈 */
         void push(int num) {
-            ListNode* node = new ListNode(num);
+            ListNode *node = new ListNode(num);
             node->next = stackTop;
             stackTop = node;
             stkSize++;
@@ -394,7 +394,7 @@ comments: true
 
         /* 将 List 转化为 Array 并返回 */
         vector<int> toVector() {
-            ListNode* node = stackTop;
+            ListNode *node = stackTop;
             vector<int> res(size());
             for (int i = res.size() - 1; i >= 0; i--) {
                 res[i] = node->val;
@@ -864,6 +864,7 @@ comments: true
     /* 基于数组实现的栈 */
     class ArrayStack {
         private ArrayList<Integer> stack;
+
         public ArrayStack() {
             // 初始化列表（动态数组）
             stack = new ArrayList<>();
@@ -910,10 +911,10 @@ comments: true
     ```cpp title="array_stack.cpp"
     /* 基于数组实现的栈 */
     class ArrayStack {
-    private:
+      private:
         vector<int> stack;
-        
-    public:
+
+      public:
         /* 获取栈的长度 */
         int size() {
             return stack.size();
@@ -937,7 +938,7 @@ comments: true
 
         /* 访问栈顶元素 */
         int top() {
-            if(empty())
+            if (empty())
                 throw out_of_range("栈为空");
             return stack.back();
         }

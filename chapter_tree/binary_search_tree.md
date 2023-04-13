@@ -46,11 +46,14 @@ comments: true
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 目标节点在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
+            if (cur.val < num)
+                cur = cur.right;
             // 目标节点在 cur 的左子树中
-            else if (cur.val > num) cur = cur.left;
+            else if (cur.val > num)
+                cur = cur.left;
             // 找到目标节点，跳出循环
-            else break;
+            else
+                break;
         }
         // 返回目标节点
         return cur;
@@ -61,16 +64,19 @@ comments: true
 
     ```cpp title="binary_search_tree.cpp"
     /* 查找节点 */
-    TreeNode* search(int num) {
-        TreeNode* cur = root;
+    TreeNode *search(int num) {
+        TreeNode *cur = root;
         // 循环查找，越过叶节点后跳出
         while (cur != nullptr) {
             // 目标节点在 cur 的右子树中
-            if (cur->val < num) cur = cur->right;
+            if (cur->val < num)
+                cur = cur->right;
             // 目标节点在 cur 的左子树中
-            else if (cur->val > num) cur = cur->left;
+            else if (cur->val > num)
+                cur = cur->left;
             // 找到目标节点，跳出循环
-            else break;
+            else
+                break;
         }
         // 返回目标节点
         return cur;
@@ -259,22 +265,28 @@ comments: true
     /* 插入节点 */
     TreeNode insert(int num) {
         // 若树为空，直接提前返回
-        if (root == null) return null;
+        if (root == null)
+            return null;
         TreeNode cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 找到重复节点，直接返回
-            if (cur.val == num) return null;
+            if (cur.val == num)
+                return null;
             pre = cur;
             // 插入位置在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
+            if (cur.val < num)
+                cur = cur.right;
             // 插入位置在 cur 的左子树中
-            else cur = cur.left;
+            else
+                cur = cur.left;
         }
         // 插入节点 val
         TreeNode node = new TreeNode(num);
-        if (pre.val < num) pre.right = node;
-        else pre.left = node;
+        if (pre.val < num)
+            pre.right = node;
+        else
+            pre.left = node;
         return node;
     }
     ```
@@ -283,24 +295,30 @@ comments: true
 
     ```cpp title="binary_search_tree.cpp"
     /* 插入节点 */
-    TreeNode* insert(int num) {
+    TreeNode *insert(int num) {
         // 若树为空，直接提前返回
-        if (root == nullptr) return nullptr;
+        if (root == nullptr)
+            return nullptr;
         TreeNode *cur = root, *pre = nullptr;
         // 循环查找，越过叶节点后跳出
         while (cur != nullptr) {
             // 找到重复节点，直接返回
-            if (cur->val == num) return nullptr;
+            if (cur->val == num)
+                return nullptr;
             pre = cur;
             // 插入位置在 cur 的右子树中
-            if (cur->val < num) cur = cur->right;
+            if (cur->val < num)
+                cur = cur->right;
             // 插入位置在 cur 的左子树中
-            else cur = cur->left;
+            else
+                cur = cur->left;
         }
         // 插入节点 val
-        TreeNode* node = new TreeNode(num);
-        if (pre->val < num) pre->right = node;
-        else pre->left = node;
+        TreeNode *node = new TreeNode(num);
+        if (pre->val < num)
+            pre->right = node;
+        else
+            pre->left = node;
         return node;
     }
     ```
@@ -588,27 +606,34 @@ comments: true
     /* 删除节点 */
     TreeNode remove(int num) {
         // 若树为空，直接提前返回
-        if (root == null) return null;
+        if (root == null)
+            return null;
         TreeNode cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 找到待删除节点，跳出循环
-            if (cur.val == num) break;
+            if (cur.val == num)
+                break;
             pre = cur;
             // 待删除节点在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
+            if (cur.val < num)
+                cur = cur.right;
             // 待删除节点在 cur 的左子树中
-            else cur = cur.left;
+            else
+                cur = cur.left;
         }
         // 若无待删除节点，则直接返回
-        if (cur == null) return null;
+        if (cur == null)
+            return null;
         // 子节点数量 = 0 or 1
         if (cur.left == null || cur.right == null) {
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
             TreeNode child = cur.left != null ? cur.left : cur.right;
             // 删除节点 cur
-            if (pre.left == cur) pre.left = child;
-            else pre.right = child;
+            if (pre.left == cur)
+                pre.left = child;
+            else
+                pre.right = child;
         }
         // 子节点数量 = 2
         else {
@@ -625,7 +650,8 @@ comments: true
 
     /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
     TreeNode getInOrderNext(TreeNode root) {
-        if (root == null) return root;
+        if (root == null)
+            return root;
         // 循环访问左子节点，直到叶节点时为最小节点，跳出
         while (root.left != null) {
             root = root.left;
@@ -638,36 +664,43 @@ comments: true
 
     ```cpp title="binary_search_tree.cpp"
     /* 删除节点 */
-    TreeNode* remove(int num) {
+    TreeNode *remove(int num) {
         // 若树为空，直接提前返回
-        if (root == nullptr) return nullptr;
+        if (root == nullptr)
+            return nullptr;
         TreeNode *cur = root, *pre = nullptr;
         // 循环查找，越过叶节点后跳出
         while (cur != nullptr) {
             // 找到待删除节点，跳出循环
-            if (cur->val == num) break;
+            if (cur->val == num)
+                break;
             pre = cur;
             // 待删除节点在 cur 的右子树中
-            if (cur->val < num) cur = cur->right;
+            if (cur->val < num)
+                cur = cur->right;
             // 待删除节点在 cur 的左子树中
-            else cur = cur->left;
+            else
+                cur = cur->left;
         }
         // 若无待删除节点，则直接返回
-        if (cur == nullptr) return nullptr;
+        if (cur == nullptr)
+            return nullptr;
         // 子节点数量 = 0 or 1
         if (cur->left == nullptr || cur->right == nullptr) {
             // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
-            TreeNode* child = cur->left != nullptr ? cur->left : cur->right;
+            TreeNode *child = cur->left != nullptr ? cur->left : cur->right;
             // 删除节点 cur
-            if (pre->left == cur) pre->left = child;
-            else pre->right = child;
+            if (pre->left == cur)
+                pre->left = child;
+            else
+                pre->right = child;
             // 释放内存
             delete cur;
         }
         // 子节点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个节点
-            TreeNode* nex = getInOrderNext(cur->right);
+            TreeNode *nex = getInOrderNext(cur->right);
             int tmp = nex->val;
             // 递归删除节点 nex
             remove(nex->val);
@@ -678,8 +711,9 @@ comments: true
     }
 
     /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    TreeNode* getInOrderNext(TreeNode* root) {
-        if (root == nullptr) return root;
+    TreeNode *getInOrderNext(TreeNode *root) {
+        if (root == nullptr)
+            return root;
         // 循环访问左子节点，直到叶节点时为最小节点，跳出
         while (root->left != nullptr) {
             root = root->left;

@@ -64,13 +64,13 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     ```cpp title="graph_bfs.cpp"
     /* 广度优先遍历 BFS */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-    vector<Vertex*> graphBFS(GraphAdjList &graph, Vertex *startVet) {
+    vector<Vertex *> graphBFS(GraphAdjList &graph, Vertex *startVet) {
         // 顶点遍历序列
-        vector<Vertex*> res;
+        vector<Vertex *> res;
         // 哈希表，用于记录已被访问过的顶点
-        unordered_set<Vertex*> visited = { startVet };
+        unordered_set<Vertex *> visited = {startVet};
         // 队列用于实现 BFS
-        queue<Vertex*> que;
+        queue<Vertex *> que;
         que.push(startVet);
         // 以顶点 vet 为起点，循环直至访问完所有顶点
         while (!que.empty()) {
@@ -80,8 +80,8 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
             // 遍历该顶点的所有邻接顶点
             for (auto adjVet : graph.adjList[vet]) {
                 if (visited.count(adjVet))
-                    continue;           // 跳过已被访问过的顶点
-                que.push(adjVet);       // 只入队未访问的顶点
+                    continue;            // 跳过已被访问过的顶点
+                que.push(adjVet);        // 只入队未访问的顶点
                 visited.emplace(adjVet); // 标记该顶点已被访问
             }
         }
@@ -351,13 +351,13 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 
     ```cpp title="graph_dfs.cpp"
     /* 深度优先遍历 DFS 辅助函数 */
-    void dfs(GraphAdjList& graph, unordered_set<Vertex*>& visited, vector<Vertex*>& res, Vertex* vet) {
+    void dfs(GraphAdjList &graph, unordered_set<Vertex *> &visited, vector<Vertex *> &res, Vertex *vet) {
         res.push_back(vet);   // 记录访问顶点
         visited.emplace(vet); // 标记该顶点已被访问
         // 遍历该顶点的所有邻接顶点
-        for (Vertex* adjVet : graph.adjList[vet]) {
+        for (Vertex *adjVet : graph.adjList[vet]) {
             if (visited.count(adjVet))
-                continue;     // 跳过已被访问过的顶点
+                continue; // 跳过已被访问过的顶点
             // 递归访问邻接顶点
             dfs(graph, visited, res, adjVet);
         }
@@ -365,11 +365,11 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 
     /* 深度优先遍历 DFS */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-    vector<Vertex*> graphDFS(GraphAdjList& graph, Vertex* startVet) {
+    vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
         // 顶点遍历序列
-        vector<Vertex*> res;
+        vector<Vertex *> res;
         // 哈希表，用于记录已被访问过的顶点
-        unordered_set<Vertex*> visited;
+        unordered_set<Vertex *> visited;
         dfs(graph, visited, res, startVet);
         return res;
     }

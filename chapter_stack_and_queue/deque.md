@@ -323,9 +323,10 @@ comments: true
     ```java title="linkedlist_deque.java"
     /* 双向链表节点 */
     class ListNode {
-        int val;       // 节点值
+        int val; // 节点值
         ListNode next; // 后继节点引用（指针）
         ListNode prev; // 前驱节点引用（指针）
+
         ListNode(int val) {
             this.val = val;
             prev = next = null;
@@ -335,7 +336,7 @@ comments: true
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
         private ListNode front, rear; // 头节点 front ，尾节点 rear
-        private int queSize = 0;      // 双向队列的长度
+        private int queSize = 0; // 双向队列的长度
 
         public LinkedListDeque() {
             front = rear = null;
@@ -368,7 +369,7 @@ comments: true
                 // 将 node 添加至链表尾部
                 rear.next = node;
                 node.prev = rear;
-                rear = node;  // 更新尾节点
+                rear = node; // 更新尾节点
             }
             queSize++; // 更新队列长度
         }
@@ -398,17 +399,17 @@ comments: true
                     fNext.prev = null;
                     front.next = null;
                 }
-                front = fNext;   // 更新头节点
+                front = fNext; // 更新头节点
             // 队尾出队操作
             } else {
-                val = rear.val;  // 暂存尾节点值
+                val = rear.val; // 暂存尾节点值
                 // 删除尾节点
                 ListNode rPrev = rear.prev;
                 if (rPrev != null) {
                     rPrev.next = null;
                     rear.prev = null;
                 }
-                rear = rPrev;    // 更新尾节点
+                rear = rPrev; // 更新尾节点
             }
             queSize--; // 更新队列长度
             return val;
@@ -452,21 +453,23 @@ comments: true
     ```cpp title="linkedlist_deque.cpp"
     /* 双向链表节点 */
     struct DoublyListNode {
-        int val;               // 节点值
-        DoublyListNode *next;  // 后继节点指针
-        DoublyListNode *prev;  // 前驱节点指针
-        DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {}
+        int val;              // 节点值
+        DoublyListNode *next; // 后继节点指针
+        DoublyListNode *prev; // 前驱节点指针
+        DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
+        }
     };
 
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
-    private:
+      private:
         DoublyListNode *front, *rear; // 头节点 front ，尾节点 rear
         int queSize = 0;              // 双向队列的长度
 
-    public:
+      public:
         /* 构造方法 */
-        LinkedListDeque() : front(nullptr), rear(nullptr) {}
+        LinkedListDeque() : front(nullptr), rear(nullptr) {
+        }
 
         /* 析构方法 */
         ~LinkedListDeque() {
@@ -506,7 +509,7 @@ comments: true
                 // 将 node 添加至链表尾部
                 rear->next = node;
                 node->prev = rear;
-                rear = node;  // 更新尾节点
+                rear = node; // 更新尾节点
             }
             queSize++; // 更新队列长度
         }
@@ -537,7 +540,7 @@ comments: true
                     front->next = nullptr;
                     delete front;
                 }
-                front = fNext;   // 更新头节点
+                front = fNext; // 更新头节点
             // 队尾出队操作
             } else {
                 val = rear->val; // 暂存尾节点值
@@ -548,7 +551,7 @@ comments: true
                     rear->prev = nullptr;
                     delete rear;
                 }
-                rear = rPrev;    // 更新尾节点
+                rear = rPrev; // 更新尾节点
             }
             queSize--; // 更新队列长度
             return val;
@@ -1366,8 +1369,8 @@ comments: true
     ```java title="array_deque.java"
     /* 基于环形数组实现的双向队列 */
     class ArrayDeque {
-        private int[] nums;  // 用于存储双向队列元素的数组
-        private int front;   // 队首指针，指向队首元素
+        private int[] nums; // 用于存储双向队列元素的数组
+        private int front; // 队首指针，指向队首元素
         private int queSize; // 双向队列长度
 
         /* 构造方法 */
@@ -1475,12 +1478,12 @@ comments: true
     ```cpp title="array_deque.cpp"
     /* 基于环形数组实现的双向队列 */
     class ArrayDeque {
-    private:
-        vector<int> nums;  // 用于存储双向队列元素的数组
-        int front;         // 队首指针，指向队首元素
-        int queSize;       // 双向队列长度
+      private:
+        vector<int> nums; // 用于存储双向队列元素的数组
+        int front;        // 队首指针，指向队首元素
+        int queSize;      // 双向队列长度
 
-    public:
+      public:
         /* 构造方法 */
         ArrayDeque(int capacity) {
             nums.resize(capacity);

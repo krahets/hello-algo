@@ -71,7 +71,8 @@ $$
         // 获取数组的最大元素，用于判断最大位数
         int m = Integer.MIN_VALUE;
         for (int num : nums)
-            if (num > m) m = num;
+            if (num > m)
+                m = num;
         // 按照从低位到高位的顺序遍历
         for (int exp = 1; exp <= m; exp *= 10)
             // 对数组元素的第 k 位执行计数排序
@@ -92,7 +93,7 @@ $$
     }
 
     /* 计数排序（根据 nums 第 k 位排序） */
-    void countingSortDigit(vector<int>& nums, int exp) {
+    void countingSortDigit(vector<int> &nums, int exp) {
         // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
         vector<int> counter(10, 0);
         int n = nums.size();
@@ -119,7 +120,7 @@ $$
     }
 
     /* 基数排序 */
-    void radixSort(vector<int>& nums) {
+    void radixSort(vector<int> &nums) {
         // 获取数组的最大元素，用于判断最大位数
         int m = *max_element(nums.begin(), nums.end());
         // 按照从低位到高位的顺序遍历

@@ -424,6 +424,7 @@ $$
     class Entry {
         public int key;
         public String val;
+
         public Entry(int key, String val) {
             this.key = key;
             this.val = val;
@@ -433,6 +434,7 @@ $$
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
         private List<Entry> buckets;
+
         public ArrayHashMap() {
             // 初始化数组，包含 100 个桶
             buckets = new ArrayList<>();
@@ -451,7 +453,8 @@ $$
         public String get(int key) {
             int index = hashFunc(key);
             Entry pair = buckets.get(index);
-            if (pair == null) return null;
+            if (pair == null)
+                return null;
             return pair.val;
         }
 
@@ -501,7 +504,7 @@ $$
 
         /* 打印哈希表 */
         public void print() {
-            for (Entry kv: entrySet()) {
+            for (Entry kv : entrySet()) {
                 System.out.println(kv.key + " -> " + kv.val);
             }
         }
@@ -513,7 +516,7 @@ $$
     ```cpp title="array_hash_map.cpp"
     /* 键值对 int->String */
     struct Entry {
-    public:
+      public:
         int key;
         string val;
         Entry(int key, string val) {
@@ -524,12 +527,13 @@ $$
 
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
-    private:
-        vector<Entry*> buckets;
-    public:
+      private:
+        vector<Entry *> buckets;
+
+      public:
         ArrayHashMap() {
             // 初始化数组，包含 100 个桶
-            buckets = vector<Entry*>(100);
+            buckets = vector<Entry *>(100);
         }
 
         /* 哈希函数 */
@@ -541,7 +545,7 @@ $$
         /* 查询操作 */
         string get(int key) {
             int index = hashFunc(key);
-            Entry* pair = buckets[index];
+            Entry *pair = buckets[index];
             if (pair == nullptr)
                 return nullptr;
             return pair->val;
@@ -549,7 +553,7 @@ $$
 
         /* 添加操作 */
         void put(int key, string val) {
-            Entry* pair = new Entry(key, val);
+            Entry *pair = new Entry(key, val);
             int index = hashFunc(key);
             buckets[index] = pair;
         }
@@ -562,9 +566,9 @@ $$
         }
 
         /* 获取所有键值对 */
-        vector<Entry*> entrySet() {
-            vector<Entry*> entrySet;
-            for (Entry* pair: buckets) {
+        vector<Entry *> entrySet() {
+            vector<Entry *> entrySet;
+            for (Entry *pair : buckets) {
                 if (pair != nullptr) {
                     entrySet.push_back(pair);
                 }
@@ -575,7 +579,7 @@ $$
         /* 获取所有键 */
         vector<int> keySet() {
             vector<int> keySet;
-            for (Entry* pair: buckets) {
+            for (Entry *pair : buckets) {
                 if (pair != nullptr) {
                     keySet.push_back(pair->key);
                 }
@@ -586,8 +590,8 @@ $$
         /* 获取所有值 */
         vector<string> valueSet() {
             vector<string> valueSet;
-            for (Entry* pair: buckets) {
-                if (pair != nullptr){
+            for (Entry *pair : buckets) {
+                if (pair != nullptr) {
                     valueSet.push_back(pair->val);
                 }
             }
@@ -596,7 +600,7 @@ $$
 
         /* 打印哈希表 */
         void print() {
-            for (Entry* kv: entrySet()) {
+            for (Entry *kv : entrySet()) {
                 cout << kv->key << " -> " << kv->val << endl;
             }
         }
