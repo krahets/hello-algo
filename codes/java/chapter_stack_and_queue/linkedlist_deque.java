@@ -10,9 +10,10 @@ import java.util.*;
 
 /* 双向链表节点 */
 class ListNode {
-    int val;       // 节点值
+    int val; // 节点值
     ListNode next; // 后继节点引用（指针）
     ListNode prev; // 前驱节点引用（指针）
+
     ListNode(int val) {
         this.val = val;
         prev = next = null;
@@ -22,7 +23,7 @@ class ListNode {
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {
     private ListNode front, rear; // 头节点 front ，尾节点 rear
-    private int queSize = 0;      // 双向队列的长度
+    private int queSize = 0; // 双向队列的长度
 
     public LinkedListDeque() {
         front = rear = null;
@@ -55,7 +56,7 @@ class LinkedListDeque {
             // 将 node 添加至链表尾部
             rear.next = node;
             node.prev = rear;
-            rear = node;  // 更新尾节点
+            rear = node; // 更新尾节点
         }
         queSize++; // 更新队列长度
     }
@@ -85,17 +86,17 @@ class LinkedListDeque {
                 fNext.prev = null;
                 front.next = null;
             }
-            front = fNext;   // 更新头节点
+            front = fNext; // 更新头节点
         // 队尾出队操作
         } else {
-            val = rear.val;  // 暂存尾节点值
+            val = rear.val; // 暂存尾节点值
             // 删除尾节点
             ListNode rPrev = rear.prev;
             if (rPrev != null) {
                 rPrev.next = null;
                 rear.prev = null;
             }
-            rear = rPrev;    // 更新尾节点
+            rear = rPrev; // 更新尾节点
         }
         queSize--; // 更新队列长度
         return val;

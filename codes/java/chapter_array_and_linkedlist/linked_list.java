@@ -51,7 +51,7 @@ public class linked_list {
     /* Driver Code */
     public static void main(String[] args) {
         /* 初始化链表 */
-        // 初始化各个节点 
+        // 初始化各个节点
         ListNode n0 = new ListNode(1);
         ListNode n1 = new ListNode(3);
         ListNode n2 = new ListNode(2);

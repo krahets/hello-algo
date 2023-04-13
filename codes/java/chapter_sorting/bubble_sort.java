@@ -25,7 +25,7 @@ public class bubble_sort {
         }
     }
 
-    /* 冒泡排序（标志优化）*/
+    /* 冒泡排序（标志优化） */
     static void bubbleSortWithFlag(int[] nums) {
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for (int i = nums.length - 1; i > 0; i--) {
@@ -37,10 +37,11 @@ public class bubble_sort {
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    flag = true;  // 记录交换元素
+                    flag = true; // 记录交换元素
                 }
             }
-            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
+            if (!flag)
+                break; // 此轮冒泡未交换任何元素，直接跳出
         }
     }
 

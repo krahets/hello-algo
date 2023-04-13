@@ -27,7 +27,8 @@ class AVLTree {
     /* 获取平衡因子 */
     public int balanceFactor(TreeNode node) {
         // 空节点平衡因子为 0
-        if (node == null) return 0;
+        if (node == null)
+            return 0;
         // 节点平衡因子 = 左子树高度 - 右子树高度
         return height(node.left) - height(node.right);
     }
@@ -98,15 +99,16 @@ class AVLTree {
 
     /* 递归插入节点（辅助方法） */
     private TreeNode insertHelper(TreeNode node, int val) {
-        if (node == null) return new TreeNode(val);
+        if (node == null)
+            return new TreeNode(val);
         /* 1. 查找插入位置，并插入节点 */
         if (val < node.val)
             node.left = insertHelper(node.left, val);
         else if (val > node.val)
             node.right = insertHelper(node.right, val);
         else
-            return node;     // 重复节点不插入，直接返回
-        updateHeight(node);  // 更新节点高度
+            return node; // 重复节点不插入，直接返回
+        updateHeight(node); // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node);
         // 返回子树的根节点
@@ -121,7 +123,8 @@ class AVLTree {
 
     /* 递归删除节点（辅助方法） */
     private TreeNode removeHelper(TreeNode node, int val) {
-        if (node == null) return null;
+        if (node == null)
+            return null;
         /* 1. 查找节点，并删除之 */
         if (val < node.val)
             node.left = removeHelper(node.left, val);
@@ -143,7 +146,7 @@ class AVLTree {
                 node.val = temp.val;
             }
         }
-        updateHeight(node);  // 更新节点高度
+        updateHeight(node); // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node);
         // 返回子树的根节点
@@ -152,7 +155,8 @@ class AVLTree {
 
     /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
     private TreeNode getInOrderNext(TreeNode node) {
-        if (node == null) return node;
+        if (node == null)
+            return node;
         // 循环访问左子节点，直到叶节点时为最小节点，跳出
         while (node.left != null) {
             node = node.left;

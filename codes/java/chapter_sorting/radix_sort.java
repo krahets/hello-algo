@@ -47,7 +47,8 @@ public class radix_sort {
         // 获取数组的最大元素，用于判断最大位数
         int m = Integer.MIN_VALUE;
         for (int num : nums)
-            if (num > m) m = num;
+            if (num > m)
+                m = num;
         // 按照从低位到高位的顺序遍历
         for (int exp = 1; exp <= m; exp *= 10)
             // 对数组元素的第 k 位执行计数排序
@@ -59,7 +60,7 @@ public class radix_sort {
 
     public static void main(String[] args) {
         // 基数排序
-        int[] nums = { 10546151, 35663510, 42865989, 34862445, 81883077, 
+        int[] nums = { 10546151, 35663510, 42865989, 34862445, 81883077,
                        88906420, 72429244, 30524779, 82060337, 63832996 };
         radixSort(nums);
         System.out.println("基数排序完成后 nums = " + Arrays.toString(nums));

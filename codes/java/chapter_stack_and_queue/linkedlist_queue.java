@@ -10,7 +10,7 @@ import java.util.*;
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
-    private ListNode front, rear;  // 头节点 front ，尾节点 rear 
+    private ListNode front, rear; // 头节点 front ，尾节点 rear
     private int queSize = 0;
 
     public LinkedListQueue() {

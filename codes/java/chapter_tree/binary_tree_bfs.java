@@ -17,12 +17,12 @@ public class binary_tree_bfs {
         // 初始化一个列表，用于保存遍历序列
         List<Integer> list = new ArrayList<>();
         while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();  // 队列出队
-            list.add(node.val);            // 保存节点值
+            TreeNode node = queue.poll(); // 队列出队
+            list.add(node.val);           // 保存节点值
             if (node.left != null)
-                queue.offer(node.left);    // 左子节点入队
+                queue.offer(node.left);   // 左子节点入队
             if (node.right != null)
-                queue.offer(node.right);   // 右子节点入队
+                queue.offer(node.right);  // 右子节点入队
         }
         return list;
     }

@@ -11,6 +11,7 @@ import java.util.*;
 /* 顶点类 */
 public class Vertex {
     public int val;
+
     public Vertex(int val) {
         this.val = val;
     }

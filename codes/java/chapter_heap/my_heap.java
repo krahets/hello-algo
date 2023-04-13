@@ -41,9 +41,9 @@ class MaxHeap {
 
     /* 交换元素 */
     private void swap(int i, int j) {
-        int a = maxHeap.get(i), 
-            b = maxHeap.get(j),
-            tmp = a;
+        int a = maxHeap.get(i);
+        int b = maxHeap.get(j);
+        int tmp = a;
         maxHeap.set(i, b);
         maxHeap.set(j, tmp);
     }
@@ -111,7 +111,8 @@ class MaxHeap {
             if (r < size() && maxHeap.get(r) > maxHeap.get(ma))
                 ma = r;
             // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
-            if (ma == i) break;
+            if (ma == i)
+                break;
             // 交换两节点
             swap(i, ma);
             // 循环向下堆化
@@ -126,7 +127,6 @@ class MaxHeap {
         PrintUtil.printHeap(queue);
     }
 }
-
 
 public class my_heap {
     public static void main(String[] args) {

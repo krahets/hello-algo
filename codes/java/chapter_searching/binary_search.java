@@ -42,11 +42,11 @@ public class binary_search {
         // 未找到目标元素，返回 -1
         return -1;
     }
-    
+
     public static void main(String[] args) {
         int target = 6;
         int[] nums = { 1, 3, 6, 8, 12, 15, 23, 67, 70, 92 };
-        
+
         /* 二分查找（双闭区间） */
         int index = binarySearch(nums, target);
         System.out.println("目标元素 6 的索引 = " + index);
