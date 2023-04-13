@@ -263,16 +263,16 @@ comments: true
 
     ```java title="binary_search_tree.java"
     /* 插入节点 */
-    TreeNode insert(int num) {
+    void insert(int num) {
         // 若树为空，直接提前返回
         if (root == null)
-            return null;
+            return;
         TreeNode cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 找到重复节点，直接返回
             if (cur.val == num)
-                return null;
+                return;
             pre = cur;
             // 插入位置在 cur 的右子树中
             if (cur.val < num)
@@ -287,7 +287,6 @@ comments: true
             pre.right = node;
         else
             pre.left = node;
-        return node;
     }
     ```
 
@@ -295,16 +294,16 @@ comments: true
 
     ```cpp title="binary_search_tree.cpp"
     /* 插入节点 */
-    TreeNode *insert(int num) {
+    void insert(int num) {
         // 若树为空，直接提前返回
         if (root == nullptr)
-            return nullptr;
+            return;
         TreeNode *cur = root, *pre = nullptr;
         // 循环查找，越过叶节点后跳出
         while (cur != nullptr) {
             // 找到重复节点，直接返回
             if (cur->val == num)
-                return nullptr;
+                return;
             pre = cur;
             // 插入位置在 cur 的右子树中
             if (cur->val < num)
@@ -319,25 +318,24 @@ comments: true
             pre->right = node;
         else
             pre->left = node;
-        return node;
     }
     ```
 
 === "Python"
 
     ```python title="binary_search_tree.py"
-    def insert(self, num: int) -> TreeNode | None:
+    def insert(self, num: int) -> None:
         """插入节点"""
         # 若树为空，直接提前返回
         if self.__root is None:
-            return None
+            return
 
         # 循环查找，越过叶节点后跳出
         cur, pre = self.__root, None
         while cur is not None:
             # 找到重复节点，直接返回
             if cur.val == num:
-                return None
+                return
             pre = cur
             # 插入位置在 cur 的右子树中
             if cur.val < num:
@@ -352,25 +350,24 @@ comments: true
             pre.right = node
         else:
             pre.left = node
-        return node
     ```
 
 === "Go"
 
     ```go title="binary_search_tree.go"
     /* 插入节点 */
-    func (bst *binarySearchTree) insert(num int) *TreeNode {
+    func (bst *binarySearchTree) insert(num int) {
         cur := bst.root
         // 若树为空，直接提前返回
         if cur == nil {
-            return nil
+            return
         }
         // 待插入节点之前的节点位置
         var pre *TreeNode = nil
         // 循环查找，越过叶节点后跳出
         for cur != nil {
             if cur.Val == num {
-                return nil
+                return
             }
             pre = cur
             if cur.Val < num {
@@ -386,7 +383,6 @@ comments: true
         } else {
             pre.Left = node
         }
-        return cur
     }
     ```
 
@@ -396,12 +392,12 @@ comments: true
     /* 插入节点 */
     function insert(num) {
         // 若树为空，直接提前返回
-        if (root === null) return null;
+        if (root === null) return;
         let cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur !== null) {
             // 找到重复节点，直接返回
-            if (cur.val === num) return null;
+            if (cur.val === num) return;
             pre = cur;
             // 插入位置在 cur 的右子树中
             if (cur.val < num) cur = cur.right;
@@ -412,7 +408,6 @@ comments: true
         let node = new TreeNode(num);
         if (pre.val < num) pre.right = node;
         else pre.left = node;
-        return node;
     }
     ```
 
@@ -420,17 +415,17 @@ comments: true
 
     ```typescript title="binary_search_tree.ts"
     /* 插入节点 */
-    function insert(num: number): TreeNode | null {
+    function insert(num: number): void {
         // 若树为空，直接提前返回
         if (root === null) {
-            return null;
+            return;
         }
         let cur = root,
             pre: TreeNode | null = null;
         // 循环查找，越过叶节点后跳出
         while (cur !== null) {
             if (cur.val === num) {
-                return null; // 找到重复节点，直接返回
+                return; // 找到重复节点，直接返回
             }
             pre = cur;
             if (cur.val < num) {
@@ -446,7 +441,6 @@ comments: true
         } else {
             pre!.left = node;
         }
-        return node;
     }
     ```
 
@@ -460,16 +454,16 @@ comments: true
 
     ```csharp title="binary_search_tree.cs"
     /* 插入节点 */
-    TreeNode? insert(int num)
+    void insert(int num)
     {
         // 若树为空，直接提前返回
-        if (root == null) return null;
+        if (root == null) return;
         TreeNode? cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null)
         {
             // 找到重复节点，直接返回
-            if (cur.val == num) return null;
+            if (cur.val == num) return;
             pre = cur;
             // 插入位置在 cur 的右子树中
             if (cur.val < num) cur = cur.right;
@@ -484,7 +478,6 @@ comments: true
             if (pre.val < num) pre.right = node;
             else pre.left = node;
         }
-        return node;
     }
     ```
 
@@ -492,10 +485,10 @@ comments: true
 
     ```swift title="binary_search_tree.swift"
     /* 插入节点 */
-    func insert(num: Int) -> TreeNode? {
+    func insert(num: Int) {
         // 若树为空，直接提前返回
         if root == nil {
-            return nil
+            return
         }
         var cur = root
         var pre: TreeNode?
@@ -503,7 +496,7 @@ comments: true
         while cur != nil {
             // 找到重复节点，直接返回
             if cur!.val == num {
-                return nil
+                return
             }
             pre = cur
             // 插入位置在 cur 的右子树中
@@ -522,7 +515,6 @@ comments: true
         } else {
             pre?.left = node
         }
-        return node
     }
     ```
 
@@ -530,15 +522,15 @@ comments: true
 
     ```zig title="binary_search_tree.zig"
     // 插入节点
-    fn insert(self: *Self, num: T) !?*inc.TreeNode(T) {
+    fn insert(self: *Self, num: T) !void {
         // 若树为空，直接提前返回
-        if (self.root == null) return null;
+        if (self.root == null) return;
         var cur = self.root;
         var pre: ?*inc.TreeNode(T) = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 找到重复节点，直接返回
-            if (cur.?.val == num) return null;
+            if (cur.?.val == num) return;
             pre = cur;
             // 插入位置在 cur 的右子树中
             if (cur.?.val < num) {
@@ -556,7 +548,6 @@ comments: true
         } else {
             pre.?.left = node;
         }
-        return node;
     }
     ```
 
@@ -582,9 +573,9 @@ comments: true
 
 当待删除节点的子节点数量 $= 2$ 时，删除操作分为三步：
 
-1. 找到待删除节点在“中序遍历序列”中的下一个节点，记为 nex；
-2. 在树中递归删除节点 `nex` ；
-3. 使用 `nex` 替换待删除节点；
+1. 找到待删除节点在“中序遍历序列”中的下一个节点，记为 `tmp` ；
+2. 在树中递归删除节点 `tmp` ；
+3. 用 `tmp` 的值覆盖待删除节点的值；
 
 === "<1>"
     ![bst_remove_case3_step1](binary_search_tree.assets/bst_remove_case3_step1.png)
@@ -604,10 +595,10 @@ comments: true
 
     ```java title="binary_search_tree.java"
     /* 删除节点 */
-    TreeNode remove(int num) {
+    void remove(int num) {
         // 若树为空，直接提前返回
         if (root == null)
-            return null;
+            return;
         TreeNode cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
@@ -624,7 +615,7 @@ comments: true
         }
         // 若无待删除节点，则直接返回
         if (cur == null)
-            return null;
+            return;
         // 子节点数量 = 0 or 1
         if (cur.left == null || cur.right == null) {
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
@@ -638,25 +629,15 @@ comments: true
         // 子节点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个节点
-            TreeNode nex = getInOrderNext(cur.right);
-            int tmp = nex.val;
-            // 递归删除节点 nex
-            remove(nex.val);
-            // 将 nex 的值复制给 cur
-            cur.val = tmp;
+            TreeNode tmp = cur.right;
+            while (tmp.left != null) {
+                tmp = tmp.left;
+            }
+            // 递归删除节点 tmp
+            remove(tmp.val);
+            // 用 tmp 覆盖 cur
+            cur.val = tmp.val;
         }
-        return cur;
-    }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    TreeNode getInOrderNext(TreeNode root) {
-        if (root == null)
-            return root;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (root.left != null) {
-            root = root.left;
-        }
-        return root;
     }
     ```
 
@@ -664,10 +645,10 @@ comments: true
 
     ```cpp title="binary_search_tree.cpp"
     /* 删除节点 */
-    TreeNode *remove(int num) {
+    void remove(int num) {
         // 若树为空，直接提前返回
         if (root == nullptr)
-            return nullptr;
+            return;
         TreeNode *cur = root, *pre = nullptr;
         // 循环查找，越过叶节点后跳出
         while (cur != nullptr) {
@@ -684,7 +665,7 @@ comments: true
         }
         // 若无待删除节点，则直接返回
         if (cur == nullptr)
-            return nullptr;
+            return;
         // 子节点数量 = 0 or 1
         if (cur->left == nullptr || cur->right == nullptr) {
             // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
@@ -700,36 +681,27 @@ comments: true
         // 子节点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个节点
-            TreeNode *nex = getInOrderNext(cur->right);
-            int tmp = nex->val;
-            // 递归删除节点 nex
-            remove(nex->val);
-            // 将 nex 的值复制给 cur
-            cur->val = tmp;
+            TreeNode *tmp = cur->right;
+            while (tmp->left != nullptr) {
+                tmp = tmp->left;
+            }
+            int tmpVal = tmp->val;
+            // 递归删除节点 tmp
+            remove(tmp->val);
+            // 用 tmp 覆盖 cur
+            cur->val = tmpVal;
         }
-        return cur;
-    }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    TreeNode *getInOrderNext(TreeNode *root) {
-        if (root == nullptr)
-            return root;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (root->left != nullptr) {
-            root = root->left;
-        }
-        return root;
     }
     ```
 
 === "Python"
 
     ```python title="binary_search_tree.py"
-    def remove(self, num: int) -> TreeNode | None:
+    def remove(self, num: int) -> None:
         """删除节点"""
         # 若树为空，直接提前返回
         if self.__root is None:
-            return None
+            return
 
         # 循环查找，越过叶节点后跳出
         cur, pre = self.__root, None
@@ -738,13 +710,15 @@ comments: true
             if cur.val == num:
                 break
             pre = cur
-            if cur.val < num:  # 待删除节点在 cur 的右子树中
+            # 待删除节点在 cur 的右子树中
+            if cur.val < num:
                 cur = cur.right
-            else:  # 待删除节点在 cur 的左子树中
+            # 待删除节点在 cur 的左子树中
+            else:
                 cur = cur.left
         # 若无待删除节点，则直接返回
         if cur is None:
-            return None
+            return
 
         # 子节点数量 = 0 or 1
         if cur.left is None or cur.right is None:
@@ -758,33 +732,24 @@ comments: true
         # 子节点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个节点
-            nex: TreeNode = self.get_inorder_next(cur.right)
-            tmp: int = nex.val
-            # 递归删除节点 nex
-            self.remove(nex.val)
-            # 将 nex 的值复制给 cur
-            cur.val = tmp
-        return cur
-
-    def get_inorder_next(self, root: TreeNode | None) -> TreeNode | None:
-        """获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况）"""
-        if root is None:
-            return root
-        # 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while root.left is not None:
-            root = root.left
-        return root
+            tmp: TreeNode = cur.right
+            while tmp.left is not None:
+                tmp = tmp.left
+            # 递归删除节点 tmp
+            self.remove(tmp.val)
+            # 用 tmp 覆盖 cur
+            cur.val = tmp.val
     ```
 
 === "Go"
 
     ```go title="binary_search_tree.go"
     /* 删除节点 */
-    func (bst *binarySearchTree) remove(num int) *TreeNode {
+    func (bst *binarySearchTree) remove(num int) {
         cur := bst.root
         // 若树为空，直接提前返回
         if cur == nil {
-            return nil
+            return
         }
         // 待删除节点之前的节点位置
         var pre *TreeNode = nil
@@ -804,7 +769,7 @@ comments: true
         }
         // 若无待删除节点，则直接返回
         if cur == nil {
-            return nil
+            return
         }
         // 子节点数为 0 或 1
         if cur.Left == nil || cur.Right == nil {
@@ -824,26 +789,15 @@ comments: true
             // 子节点数为 2
         } else {
             // 获取中序遍历中待删除节点 cur 的下一个节点
-            next := bst.getInOrderNext(cur)
-            temp := next.Val
-            // 递归删除节点 next
-            bst.remove(next.Val)
-            // 将 next 的值复制给 cur
-            cur.Val = temp
+            tmp := cur.Right
+            for tmp.Left != nil {
+                tmp = tmp.Left
+            }
+            // 递归删除节点 tmp
+            bst.remove(tmp.Val)
+            // 用 tmp 覆盖 cur
+            cur.Val = tmp.Val
         }
-        return cur
-    }
-
-    /* 获取中序遍历的下一个节点（仅适用于 root 有左子节点的情况） */
-    func (bst *binarySearchTree) getInOrderNext(node *TreeNode) *TreeNode {
-        if node == nil {
-            return node
-        }
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        for node.Left != nil {
-            node = node.Left
-        }
-        return node
     }
     ```
 
@@ -853,7 +807,7 @@ comments: true
     /* 删除节点 */
     function remove(num) {
         // 若树为空，直接提前返回
-        if (root === null) return null;
+        if (root === null) return;
         let cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur !== null) {
@@ -866,7 +820,7 @@ comments: true
             else cur = cur.left;
         }
         // 若无待删除节点，则直接返回
-        if (cur === null) return null;
+        if (cur === null) return;
         // 子节点数量 = 0 or 1
         if (cur.left === null || cur.right === null) {
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
@@ -878,24 +832,15 @@ comments: true
         // 子节点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个节点
-            let nex = getInOrderNext(cur.right);
-            let tmp = nex.val;
-            // 递归删除节点 nex
-            remove(nex.val);
-            // 将 nex 的值复制给 cur
-            cur.val = tmp;
+            let tmp = cur.right;
+            while (tmp.left !== null) {
+                tmp = tmp.left;
+            }
+            // 递归删除节点 tmp
+            remove(tmp.val);
+            // 用 tmp 覆盖 cur
+            cur.val = tmp.val;
         }
-        return cur;
-    }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    function getInOrderNext(root) {
-        if (root === null) return root;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (root.left !== null) {
-            root = root.left;
-        }
-        return root;
     }
     ```
 
@@ -903,10 +848,10 @@ comments: true
 
     ```typescript title="binary_search_tree.ts"
     /* 删除节点 */
-    function remove(num: number): TreeNode | null {
+    function remove(num: number): void {
         // 若树为空，直接提前返回
         if (root === null) {
-            return null;
+            return;
         }
         let cur = root,
             pre: TreeNode | null = null;
@@ -925,7 +870,7 @@ comments: true
         }
         // 若无待删除节点，则直接返回
         if (cur === null) {
-            return null;
+            return;
         }
         // 子节点数量 = 0 or 1
         if (cur.left === null || cur.right === null) {
@@ -941,26 +886,15 @@ comments: true
         // 子节点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个节点
-            let next = getInOrderNext(cur.right);
-            let tmp = next!.val;
-            // 递归删除节点 nex
-            remove(next!.val);
-            // 将 nex 的值复制给 cur
-            cur.val = tmp;
+            let tmp = cur.right;
+            while (tmp.left !== null) {
+                tmp = tmp.left;
+            }
+            // 递归删除节点 tmp
+            remove(tmp!.val);
+            // 用 tmp 覆盖 cur
+            cur.val = tmp.val;
         }
-        return cur;
-    }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    function getInOrderNext(root: TreeNode | null): TreeNode | null {
-        if (root === null) {
-            return null;
-        }
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (root.left !== null) {
-            root = root.left;
-        }
-        return root;
     }
     ```
 
@@ -968,18 +902,16 @@ comments: true
 
     ```c title="binary_search_tree.c"
     [class]{binarySearchTree}-[func]{remove}
-
-    [class]{binarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "C#"
 
     ```csharp title="binary_search_tree.cs"
     /* 删除节点 */
-    TreeNode? remove(int num)
+    void remove(int num)
     {
         // 若树为空，直接提前返回
-        if (root == null) return null;
+        if (root == null) return;
         TreeNode? cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null)
@@ -993,7 +925,7 @@ comments: true
             else cur = cur.left;
         }
         // 若无待删除节点，则直接返回
-        if (cur == null || pre == null) return null;
+        if (cur == null || pre == null) return;
         // 子节点数量 = 0 or 1
         if (cur.left == null || cur.right == null)
         {
@@ -1013,29 +945,16 @@ comments: true
         else
         {
             // 获取中序遍历中 cur 的下一个节点
-            TreeNode? nex = getInOrderNext(cur.right);
-            if (nex != null)
+            TreeNode? tmp = cur.right;
+            while (tmp.left != null)
             {
-                int tmp = nex.val;
-                // 递归删除节点 nex
-                remove(nex.val);
-                // 将 nex 的值复制给 cur
-                cur.val = tmp;
+                tmp = tmp.left;
             }
+            // 递归删除节点 tmp
+            remove(tmp.val);
+            // 用 tmp 覆盖 cur
+            cur.val = tmp.val;
         }
-        return cur;
-    }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    TreeNode? getInOrderNext(TreeNode? root)
-    {
-        if (root == null) return root;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (root.left != null)
-        {
-            root = root.left;
-        }
-        return root;
     }
     ```
 
@@ -1044,10 +963,10 @@ comments: true
     ```swift title="binary_search_tree.swift"
     /* 删除节点 */
     @discardableResult
-    func remove(num: Int) -> TreeNode? {
+    func remove(num: Int) {
         // 若树为空，直接提前返回
         if root == nil {
-            return nil
+            return
         }
         var cur = root
         var pre: TreeNode?
@@ -1069,7 +988,7 @@ comments: true
         }
         // 若无待删除节点，则直接返回
         if cur == nil {
-            return nil
+            return
         }
         // 子节点数量 = 0 or 1
         if cur?.left == nil || cur?.right == nil {
@@ -1085,27 +1004,15 @@ comments: true
         // 子节点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个节点
-            let nex = getInOrderNext(root: cur?.right)
-            let tmp = nex!.val
-            // 递归删除节点 nex
-            remove(num: nex!.val)
-            // 将 nex 的值复制给 cur
-            cur?.val = tmp
+            let tmp = cur?.right
+            while tmp?.left != nil {
+                tmp = tmp?.left
+            }
+            // 递归删除节点 tmp
+            remove(num: tmp!.val)
+            // 用 tmp 覆盖 cur
+            cur?.val = tmp!.val
         }
-        return cur
-    }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    func getInOrderNext(root: TreeNode?) -> TreeNode? {
-        var root = root
-        if root == nil {
-            return root
-        }
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while root?.left != nil {
-            root = root?.left
-        }
-        return root
     }
     ```
 
@@ -1113,9 +1020,9 @@ comments: true
 
     ```zig title="binary_search_tree.zig"
     // 删除节点
-    fn remove(self: *Self, num: T) ?*inc.TreeNode(T) {
+    fn remove(self: *Self, num: T) !void {
         // 若树为空，直接提前返回
-        if (self.root == null) return null;
+        if (self.root == null) return;
         var cur = self.root;
         var pre: ?*inc.TreeNode(T) = null;
         // 循环查找，越过叶节点后跳出
@@ -1132,7 +1039,7 @@ comments: true
             }
         }
         // 若无待删除节点，则直接返回
-        if (cur == null) return null;
+        if (cur == null) return;
         // 子节点数量 = 0 or 1
         if (cur.?.left == null or cur.?.right == null) {
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
@@ -1146,26 +1053,16 @@ comments: true
         // 子节点数量 = 2
         } else {
             // 获取中序遍历中 cur 的下一个节点
-            var nex = self.getInOrderNext(cur.?.right);
-            var tmp = nex.?.val;
-            // 递归删除节点 nex
-            _ = self.remove(nex.?.val);
-            // 将 nex 的值复制给 cur
-            cur.?.val = tmp;
+            var tmp = cur.?.right;
+            while (tmp.?.left != null) {
+                tmp = tmp.?.left;
+            }
+            var tmpVal = tmp.?.val;
+            // 递归删除节点 tmp
+            _ = self.remove(tmp.?.val);
+            // 用 tmp 覆盖 cur
+            cur.?.val = tmpVal;
         }
-        return cur;
-    }
-
-    // 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况）
-    fn getInOrderNext(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
-        _ = self;
-        var node_tmp = node;
-        if (node_tmp == null) return null;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (node_tmp.?.left != null) {
-            node_tmp = node_tmp.?.left;
-        }
-        return node_tmp;
     }
     ```
 

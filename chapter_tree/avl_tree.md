@@ -1196,9 +1196,8 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
     ```java title="avl_tree.java"
     /* 插入节点 */
-    TreeNode insert(int val) {
+    void insert(int val) {
         root = insertHelper(root, val);
-        return root;
     }
 
     /* 递归插入节点（辅助方法） */
@@ -1224,9 +1223,8 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
     ```cpp title="avl_tree.cpp"
     /* 插入节点 */
-    TreeNode *insert(int val) {
+    void insert(int val) {
         root = insertHelper(root, val);
-        return root;
     }
 
     /* 递归插入节点（辅助方法） */
@@ -1251,10 +1249,9 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 === "Python"
 
     ```python title="avl_tree.py"
-    def insert(self, val) -> TreeNode:
+    def insert(self, val) -> None:
         """插入节点"""
         self.__root = self.__insert_helper(self.__root, val)
-        return self.__root
 
     def __insert_helper(self, node: TreeNode | None, val: int) -> TreeNode:
         """递归插入节点（辅助方法）"""
@@ -1278,9 +1275,8 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
     ```go title="avl_tree.go"
     /* 插入节点 */
-    func (t *aVLTree) insert(val int) *TreeNode {
+    func (t *aVLTree) insert(val int) {
         t.root = t.insertHelper(t.root, val)
-        return t.root
     }
 
     /* 递归插入节点（辅助方法） */
@@ -1312,7 +1308,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     /* 插入节点 */
     insert(val) {
         this.root = this.#insertHelper(this.root, val);
-        return this.root;
     }
 
     /* 递归插入节点（辅助方法） */
@@ -1334,9 +1329,8 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
     ```typescript title="avl_tree.ts"
     /* 插入节点 */
-    insert(val: number): TreeNode {
+    insert(val: number): void {
         this.root = this.insertHelper(this.root, val);
-        return this.root;
     }
 
     /* 递归插入节点（辅助方法） */
@@ -1370,10 +1364,9 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
     ```csharp title="avl_tree.cs"
     /* 插入节点 */
-    TreeNode? insert(int val)
+    void insert(int val)
     {
         root = insertHelper(root, val);
-        return root;
     }
 
     /* 递归插入节点（辅助方法） */
@@ -1400,9 +1393,8 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     ```swift title="avl_tree.swift"
     /* 插入节点 */
     @discardableResult
-    func insert(val: Int) -> TreeNode? {
+    func insert(val: Int) {
         root = insertHelper(node: root, val: val)
-        return root
     }
 
     /* 递归插入节点（辅助方法） */
@@ -1431,9 +1423,8 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
     ```zig title="avl_tree.zig"
     // 插入节点
-    fn insert(self: *Self, val: T) !?*inc.TreeNode(T) {
+    fn insert(self: *Self, val: T) void {
         self.root = try self.insertHelper(self.root, val);
-        return self.root;
     }
 
     // 递归插入节点（辅助方法）
@@ -1468,9 +1459,8 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
     ```java title="avl_tree.java"
     /* 删除节点 */
-    TreeNode remove(int val) {
+    void remove(int val) {
         root = removeHelper(root, val);
-        return root;
     }
 
     /* 递归删除节点（辅助方法） */
@@ -1493,7 +1483,10 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                     node = child;
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                TreeNode temp = getInOrderNext(node.right);
+                TreeNode temp = node.right;
+                while (temp.left != null) {
+                    temp = temp.left;
+                }
                 node.right = removeHelper(node.right, temp.val);
                 node.val = temp.val;
             }
@@ -1504,26 +1497,14 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         // 返回子树的根节点
         return node;
     }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    TreeNode getInOrderNext(TreeNode node) {
-        if (node == null)
-            return node;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (node.left != null) {
-            node = node.left;
-        }
-        return node;
-    }
     ```
 
 === "C++"
 
     ```cpp title="avl_tree.cpp"
     /* 删除节点 */
-    TreeNode *remove(int val) {
+    void remove(int val) {
         root = removeHelper(root, val);
-        return root;
     }
 
     /* 递归删除节点（辅助方法） */
@@ -1550,7 +1531,10 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 }
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                TreeNode *temp = getInOrderNext(node->right);
+                TreeNode *temp = node->right;
+                while (temp->left != nullptr) {
+                    temp = temp->left;
+                }
                 int tempVal = temp->val;
                 node->right = removeHelper(node->right, temp->val);
                 node->val = tempVal;
@@ -1562,26 +1546,14 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         // 返回子树的根节点
         return node;
     }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    TreeNode *getInOrderNext(TreeNode *node) {
-        if (node == nullptr)
-            return node;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (node->left != nullptr) {
-            node = node->left;
-        }
-        return node;
-    }
     ```
 
 === "Python"
 
     ```python title="avl_tree.py"
-    def remove(self, val: int) -> TreeNode | None:
+    def remove(self, val: int) -> None:
         """删除节点"""
         self.__root = self.__remove_helper(self.__root, val)
-        return self.__root
 
     def __remove_helper(self, node: TreeNode | None, val: int) -> TreeNode | None:
         """递归删除节点（辅助方法）"""
@@ -1601,32 +1573,25 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 # 子节点数量 = 1 ，直接删除 node
                 else:
                     node = child
-            else:  # 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                temp = self.__get_inorder_next(node.right)
+            else:
+                # 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+                temp = node.right
+                while temp.left is not None:
+                    temp = temp.left
                 node.right = self.__remove_helper(node.right, temp.val)
                 node.val = temp.val
         # 更新节点高度
         self.__update_height(node)
         # 2. 执行旋转操作，使该子树重新恢复平衡
         return self.__rotate(node)
-
-    def __get_inorder_next(self, node: TreeNode | None) -> TreeNode | None:
-        """获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况）"""
-        if node is None:
-            return None
-        # 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while node.left is not None:
-            node = node.left
-        return node
     ```
 
 === "Go"
 
     ```go title="avl_tree.go"
     /* 删除节点 */
-    func (t *aVLTree) remove(val int) *TreeNode {
-        root := t.removeHelper(t.root, val)
-        return root
+    func (t *aVLTree) remove(val int) {
+        t.root = t.removeHelper(t.root, val)
     }
 
     /* 递归删除节点（辅助方法） */
@@ -1645,8 +1610,8 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 if node.Right != nil {
                     child = node.Right
                 }
-                // 子节点数量 = 0 ，直接删除 node 并返回
                 if child == nil {
+                    // 子节点数量 = 0 ，直接删除 node 并返回
                     return nil
                 } else {
                     // 子节点数量 = 1 ，直接删除 node
@@ -1654,7 +1619,10 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 }
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                temp := t.getInOrderNext(node.Right)
+                temp := node.Right
+                for temp.Left != nil {
+                    temp = temp.Left
+                }
                 node.Right = t.removeHelper(node.Right, temp.Val)
                 node.Val = temp.Val
             }
@@ -1666,18 +1634,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         // 返回子树的根节点
         return node
     }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    func (t *aVLTree) getInOrderNext(node *TreeNode) *TreeNode {
-        if node == nil {
-            return node
-        }
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        for node.Left != nil {
-            node = node.Left
-        }
-        return node
-    }
     ```
 
 === "JavaScript"
@@ -1686,7 +1642,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     /* 删除节点 */
     remove(val) {
         this.root = this.#removeHelper(this.root, val);
-        return this.root;
     }
 
     /* 递归删除节点（辅助方法） */
@@ -1704,7 +1659,10 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 else node = child;
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                const temp = this.#getInOrderNext(node.right);
+                let temp = node.right;
+                while (temp.left !== null) {
+                    temp = temp.left;
+                }
                 node.right = this.#removeHelper(node.right, temp.val);
                 node.val = temp.val;
             }
@@ -1715,25 +1673,14 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         // 返回子树的根节点
         return node;
     }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    #getInOrderNext(node) {
-        if (node === null) return node;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (node.left !== null) {
-            node = node.left;
-        }
-        return node;
-    }
     ```
 
 === "TypeScript"
 
     ```typescript title="avl_tree.ts"
     /* 删除节点 */
-    remove(val: number): TreeNode {
+    remove(val: number): void {
         this.root = this.removeHelper(this.root, val);
-        return this.root;
     }
 
     /* 递归删除节点（辅助方法） */
@@ -1756,7 +1703,10 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 }
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                const temp = this.getInOrderNext(node.right);
+                let temp = node.right;
+                while (temp.left !== null) {
+                    temp = temp.left;
+                }
                 node.right = this.removeHelper(node.right, temp.val);
                 node.val = temp.val;
             }
@@ -1767,16 +1717,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         // 返回子树的根节点
         return node;
     }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    getInOrderNext(node: TreeNode): TreeNode {
-        if (node === null) return node;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (node.left !== null) {
-            node = node.left;
-        }
-        return node;
-    }
     ```
 
 === "C"
@@ -1785,18 +1725,15 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{aVLTree}-[func]{remove}
 
     [class]{aVLTree}-[func]{removeHelper}
-
-    [class]{aVLTree}-[func]{getInOrderNext}
     ```
 
 === "C#"
 
     ```csharp title="avl_tree.cs"
     /* 删除节点 */
-    TreeNode? remove(int val)
+    void remove(int val)
     {
         root = removeHelper(root, val);
-        return root;
     }
 
     /* 递归删除节点（辅助方法） */
@@ -1823,7 +1760,11 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
             else
             {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                TreeNode? temp = getInOrderNext(node.right);
+                TreeNode? temp = node.right;
+                while (temp.left != null)
+                {
+                    temp = temp.left;
+                }
                 node.right = removeHelper(node.right, temp.val);
                 node.val = temp.val;
             }
@@ -1834,18 +1775,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         // 返回子树的根节点
         return node;
     }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    TreeNode? getInOrderNext(TreeNode? node)
-    {
-        if (node == null) return node;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (node.left != null)
-        {
-            node = node.left;
-        }
-        return node;
-    }
     ```
 
 === "Swift"
@@ -1853,9 +1782,8 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     ```swift title="avl_tree.swift"
     /* 删除节点 */
     @discardableResult
-    func remove(val: Int) -> TreeNode? {
+    func remove(val: Int) {
         root = removeHelper(node: root, val: val)
-        return root
     }
 
     /* 递归删除节点（辅助方法） */
@@ -1882,7 +1810,10 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 }
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                let temp = getInOrderNext(node: node?.right)
+                let temp = node?.right
+                while temp?.left != nil {
+                    temp = temp?.left
+                }
                 node?.right = removeHelper(node: node?.right, val: temp!.val)
                 node?.val = temp!.val
             }
@@ -1893,28 +1824,14 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         // 返回子树的根节点
         return node
     }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    func getInOrderNext(node: TreeNode?) -> TreeNode? {
-        var node = node
-        if node == nil {
-            return node
-        }
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while node?.left != nil {
-            node = node?.left
-        }
-        return node
-    }
     ```
 
 === "Zig"
 
     ```zig title="avl_tree.zig"
     // 删除节点
-    fn remove(self: *Self, val: T) ?*inc.TreeNode(T) {
+    fn remove(self: *Self, val: T) void {
        self.root = self.removeHelper(self.root, val);
-        return self.root;
     }
 
     // 递归删除节点（辅助方法）
@@ -1938,27 +1855,18 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 }
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                var temp = self.getInOrderNext(node.?.right);
+                var temp = node.?.right;
+                while (temp.?.left != null) {
+                    temp = temp.?.left;
+                }
                 node.?.right = self.removeHelper(node.?.right, temp.?.val);
                 node.?.val = temp.?.val;
             }
         }
-        self.updateHeight(node);    // 更新节点高度
+        self.updateHeight(node); // 更新节点高度
         // 2. 执行旋转操作，使该子树重新恢复平衡
         node = self.rotate(node);
         // 返回子树的根节点
-        return node;
-    }
-
-    // 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况）
-    fn getInOrderNext(self: *Self, node_: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
-        _ = self;
-        var node = node_;
-        if (node == null) return node;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (node.?.left != null) {
-            node = node.?.left;
-        }
         return node;
     }
     ```
