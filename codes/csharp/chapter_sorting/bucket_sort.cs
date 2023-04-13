@@ -1,5 +1,5 @@
 ﻿/**
- * File: bucked_sort.cs
+ * File: bucket_sort.cs
  * Created Time: 2023-04-13
  * Author: hpstory (hpstory1024@163.com)
  */
@@ -8,7 +8,7 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_sorting;
 
-public class bucked_sort
+public class bucket_sort
 {
     /* 桶排序 */
     public static void bucketSort(float[] nums)
