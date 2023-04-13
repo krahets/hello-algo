@@ -8,7 +8,7 @@
 
 /* 计数排序 */
 // 简单实现，无法用于排序对象
-void countingSortNaive(vector<int>& nums) {
+void countingSortNaive(vector<int> &nums) {
     // 1. 统计数组最大元素 m
     int m = 0;
     for (int num : nums) {
@@ -31,7 +31,7 @@ void countingSortNaive(vector<int>& nums) {
 
 /* 计数排序 */
 // 完整实现，可排序对象，并且是稳定排序
-void countingSort(vector<int>& nums) {
+void countingSort(vector<int> &nums) {
     // 1. 统计数组最大元素 m
     int m = 0;
     for (int num : nums) {
@@ -55,7 +55,7 @@ void countingSort(vector<int>& nums) {
     for (int i = n - 1; i >= 0; i--) {
         int num = nums[i];
         res[counter[num] - 1] = num; // 将 num 放置到对应索引处
-        counter[num]--; // 令前缀和自减 1 ，得到下次放置 num 的索引
+        counter[num]--;              // 令前缀和自减 1 ，得到下次放置 num 的索引
     }
     // 使用结果数组 res 覆盖原数组 nums
     nums = res;
@@ -63,15 +63,15 @@ void countingSort(vector<int>& nums) {
 
 /* Driver Code */
 int main() {
-    vector<int> nums = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
+    vector<int> nums = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
     countingSortNaive(nums);
     cout << "计数排序（无法排序对象）完成后 nums = ";
-    PrintUtil::printVector(nums);
+    printVector(nums);
 
-    vector<int> nums1 = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
+    vector<int> nums1 = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
     countingSort(nums1);
     cout << "计数排序完成后 nums1 = ";
-    PrintUtil::printVector(nums1);
+    printVector(nums1);
 
     return 0;
 }

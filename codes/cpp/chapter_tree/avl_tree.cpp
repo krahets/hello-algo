@@ -8,19 +8,19 @@
 
 /* AVL 树 */
 class AVLTree {
-public:
-    TreeNode* root;  // 根节点
-private:
+  public:
+    TreeNode *root; // 根节点
+  private:
     /* 更新节点高度 */
-    void updateHeight(TreeNode* node) {
+    void updateHeight(TreeNode *node) {
         // 节点高度等于最高子树高度 + 1
         node->height = max(height(node->left), height(node->right)) + 1;
     }
 
     /* 右旋操作 */
-    TreeNode* rightRotate(TreeNode* node) {
-        TreeNode* child = node->left;
-        TreeNode* grandChild = child->right;
+    TreeNode *rightRotate(TreeNode *node) {
+        TreeNode *child = node->left;
+        TreeNode *grandChild = child->right;
         // 以 child 为原点，将 node 向右旋转
         child->right = node;
         node->left = grandChild;
@@ -32,9 +32,9 @@ private:
     }
 
     /* 左旋操作 */
-    TreeNode* leftRotate(TreeNode* node) {
-        TreeNode* child = node->right;
-        TreeNode* grandChild = child->left;
+    TreeNode *leftRotate(TreeNode *node) {
+        TreeNode *child = node->right;
+        TreeNode *grandChild = child->left;
         // 以 child 为原点，将 node 向左旋转
         child->left = node;
         node->right = grandChild;
@@ -46,7 +46,7 @@ private:
     }
 
     /* 执行旋转操作，使该子树重新恢复平衡 */
-    TreeNode* rotate(TreeNode* node) {
+    TreeNode *rotate(TreeNode *node) {
         // 获取节点 node 的平衡因子
         int _balanceFactor = balanceFactor(node);
         // 左偏树
@@ -76,7 +76,7 @@ private:
     }
 
     /* 递归插入节点（辅助方法） */
-    TreeNode* insertHelper(TreeNode* node, int val) {
+    TreeNode *insertHelper(TreeNode *node, int val) {
         if (node == nullptr)
             return new TreeNode(val);
         /* 1. 查找插入位置，并插入节点 */
@@ -85,8 +85,8 @@ private:
         else if (val > node->val)
             node->right = insertHelper(node->right, val);
         else
-            return node;     // 重复节点不插入，直接返回
-        updateHeight(node);  // 更新节点高度
+            return node;    // 重复节点不插入，直接返回
+        updateHeight(node); // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node);
         // 返回子树的根节点
@@ -94,7 +94,7 @@ private:
     }
 
     /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    TreeNode* getInOrderNext(TreeNode* node) {
+    TreeNode *getInOrderNext(TreeNode *node) {
         if (node == nullptr)
             return node;
         // 循环访问左子节点，直到叶节点时为最小节点，跳出
@@ -105,7 +105,7 @@ private:
     }
 
     /* 递归删除节点（辅助方法） */
-    TreeNode* removeHelper(TreeNode* node, int val) {
+    TreeNode *removeHelper(TreeNode *node, int val) {
         if (node == nullptr)
             return nullptr;
         /* 1. 查找节点，并删除之 */
@@ -115,7 +115,7 @@ private:
             node->right = removeHelper(node->right, val);
         else {
             if (node->left == nullptr || node->right == nullptr) {
-                TreeNode* child = node->left != nullptr ? node->left : node->right;
+                TreeNode *child = node->left != nullptr ? node->left : node->right;
                 // 子节点数量 = 0 ，直接删除 node 并返回
                 if (child == nullptr) {
                     delete node;
@@ -128,49 +128,50 @@ private:
                 }
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                TreeNode* temp = getInOrderNext(node->right);
+                TreeNode *temp = getInOrderNext(node->right);
                 int tempVal = temp->val;
                 node->right = removeHelper(node->right, temp->val);
                 node->val = tempVal;
             }
         }
-        updateHeight(node);  // 更新节点高度
+        updateHeight(node); // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node);
         // 返回子树的根节点
         return node;
     }
 
-public:
+  public:
     /* 获取节点高度 */
-    int height(TreeNode* node) {
+    int height(TreeNode *node) {
         // 空节点高度为 -1 ，叶节点高度为 0
         return node == nullptr ? -1 : node->height;
     }
 
     /* 获取平衡因子 */
-    int balanceFactor(TreeNode* node) {
+    int balanceFactor(TreeNode *node) {
         // 空节点平衡因子为 0
-        if (node == nullptr) return 0;
+        if (node == nullptr)
+            return 0;
         // 节点平衡因子 = 左子树高度 - 右子树高度
         return height(node->left) - height(node->right);
     }
 
     /* 插入节点 */
-    TreeNode* insert(int val) {
+    TreeNode *insert(int val) {
         root = insertHelper(root, val);
         return root;
     }
 
     /* 删除节点 */
-    TreeNode* remove(int val) {
+    TreeNode *remove(int val) {
         root = removeHelper(root, val);
         return root;
     }
 
     /* 查找节点 */
-    TreeNode* search(int val) {
-        TreeNode* cur = root;
+    TreeNode *search(int val) {
+        TreeNode *cur = root;
         // 循环查找，越过叶节点后跳出
         while (cur != nullptr) {
             // 目标节点在 cur 的右子树中
@@ -188,7 +189,8 @@ public:
     }
 
     /*构造方法*/
-    AVLTree() : root(nullptr) {}
+    AVLTree() : root(nullptr) {
+    }
 
     /*析构方法*/
     ~AVLTree() {
@@ -196,16 +198,16 @@ public:
     }
 };
 
-void testInsert(AVLTree& tree, int val) {
+void testInsert(AVLTree &tree, int val) {
     tree.insert(val);
     cout << "\n插入节点 " << val << " 后，AVL 树为" << endl;
-    PrintUtil::printTree(tree.root);
+    printTree(tree.root);
 }
 
-void testRemove(AVLTree& tree, int val) {
+void testRemove(AVLTree &tree, int val) {
     tree.remove(val);
     cout << "\n删除节点 " << val << " 后，AVL 树为" << endl;
-    PrintUtil::printTree(tree.root);
+    printTree(tree.root);
 }
 int main() {
     /* 初始化空 AVL 树 */
@@ -229,11 +231,11 @@ int main() {
 
     /* 删除节点 */
     // 请关注删除节点后，AVL 树是如何保持平衡的
-    testRemove(avlTree, 8);  // 删除度为 0 的节点
-    testRemove(avlTree, 5);  // 删除度为 1 的节点
-    testRemove(avlTree, 4);  // 删除度为 2 的节点
+    testRemove(avlTree, 8); // 删除度为 0 的节点
+    testRemove(avlTree, 5); // 删除度为 1 的节点
+    testRemove(avlTree, 4); // 删除度为 2 的节点
 
     /* 查询节点 */
-    TreeNode* node = avlTree.search(7);
+    TreeNode *node = avlTree.search(7);
     cout << "\n查找到的节点对象为 " << node << "，节点值 = " << node->val << endl;
 }

@@ -6,24 +6,25 @@
 
 #include "../include/include.hpp"
 
-
 /* 双向链表节点 */
 struct DoublyListNode {
-    int val;               // 节点值
-    DoublyListNode *next;  // 后继节点指针
-    DoublyListNode *prev;  // 前驱节点指针
-    DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {}
+    int val;              // 节点值
+    DoublyListNode *next; // 后继节点指针
+    DoublyListNode *prev; // 前驱节点指针
+    DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
+    }
 };
 
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {
-private:
+  private:
     DoublyListNode *front, *rear; // 头节点 front ，尾节点 rear
     int queSize = 0;              // 双向队列的长度
 
-public:
+  public:
     /* 构造方法 */
-    LinkedListDeque() : front(nullptr), rear(nullptr) {}
+    LinkedListDeque() : front(nullptr), rear(nullptr) {
+    }
 
     /* 析构方法 */
     ~LinkedListDeque() {
@@ -63,7 +64,7 @@ public:
             // 将 node 添加至链表尾部
             rear->next = node;
             node->prev = rear;
-            rear = node;  // 更新尾节点
+            rear = node; // 更新尾节点
         }
         queSize++; // 更新队列长度
     }
@@ -94,7 +95,7 @@ public:
                 front->next = nullptr;
                 delete front;
             }
-            front = fNext;   // 更新头节点
+            front = fNext; // 更新头节点
         // 队尾出队操作
         } else {
             val = rear->val; // 暂存尾节点值
@@ -105,7 +106,7 @@ public:
                 rear->prev = nullptr;
                 delete rear;
             }
-            rear = rPrev;    // 更新尾节点
+            rear = rPrev; // 更新尾节点
         }
         queSize--; // 更新队列长度
         return val;
@@ -151,7 +152,7 @@ int main() {
     deque->pushLast(2);
     deque->pushLast(5);
     cout << "双向队列 deque = ";
-    PrintUtil::printVector(deque->toVector());
+    printVector(deque->toVector());
 
     /* 访问元素 */
     int peekFirst = deque->peekFirst();
@@ -161,19 +162,19 @@ int main() {
 
     /* 元素入队 */
     deque->pushLast(4);
-    cout << "元素 4 队尾入队后 deque =" ;
-    PrintUtil::printVector(deque->toVector());
+    cout << "元素 4 队尾入队后 deque =";
+    printVector(deque->toVector());
     deque->pushFirst(1);
     cout << "元素 1 队首入队后 deque = ";
-    PrintUtil::printVector(deque->toVector());
+    printVector(deque->toVector());
 
     /* 元素出队 */
     int popLast = deque->popLast();
     cout << "队尾出队元素 = " << popLast << "，队尾出队后 deque = ";
-    PrintUtil::printVector(deque->toVector());
+    printVector(deque->toVector());
     int popFirst = deque->popFirst();
     cout << "队首出队元素 = " << popFirst << "，队首出队后 deque = ";
-    PrintUtil::printVector(deque->toVector());
+    printVector(deque->toVector());
 
     /* 获取双向队列的长度 */
     int size = deque->size();

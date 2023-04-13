@@ -8,7 +8,7 @@
 
 /* 大顶堆 */
 class MaxHeap {
-private:
+  private:
     // 使用动态数组，这样无需考虑扩容问题
     vector<int> maxHeap;
 
@@ -20,7 +20,7 @@ private:
     /* 获取右子节点索引 */
     int right(int i) {
         return 2 * i + 2;
-    } 
+    }
 
     /* 获取父节点索引 */
     int parent(int i) {
@@ -31,7 +31,7 @@ private:
     void siftUp(int i) {
         while (true) {
             // 获取节点 i 的父节点
-            int p =  parent(i);
+            int p = parent(i);
             // 当“越过根节点”或“节点无需修复”时，结束堆化
             if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
@@ -48,12 +48,12 @@ private:
             // 判断节点 i, l, r 中值最大的节点，记为 ma
             int l = left(i), r = right(i), ma = i;
             // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
-            if (l < size() && maxHeap[l] > maxHeap[ma]) 
+            if (l < size() && maxHeap[l] > maxHeap[ma])
                 ma = l;
             if (r < size() && maxHeap[r] > maxHeap[ma])
                 ma = r;
             // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
-            if (ma == i) 
+            if (ma == i)
                 break;
             swap(maxHeap[i], maxHeap[ma]);
             // 循环向下堆化
@@ -61,7 +61,7 @@ private:
         }
     }
 
-public:
+  public:
     /* 构造方法，根据输入列表建堆 */
     MaxHeap(vector<int> nums) {
         // 将列表元素原封不动添加进堆
@@ -112,14 +112,13 @@ public:
     /* 打印堆（二叉树）*/
     void print() {
         cout << "堆的数组表示：";
-        PrintUtil::printVector(maxHeap);
+        printVector(maxHeap);
         cout << "堆的树状表示：" << endl;
         TreeNode *root = vecToTree(maxHeap);
-        PrintUtil::printTree(root);
+        printTree(root);
         freeMemoryTree(root);
     }
 };
-
 
 /* Driver Code */
 int main() {

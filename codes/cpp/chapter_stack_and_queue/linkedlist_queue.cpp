@@ -8,11 +8,11 @@
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
-private:
-    ListNode *front, *rear;  // 头节点 front ，尾节点 rear 
+  private:
+    ListNode *front, *rear; // 头节点 front ，尾节点 rear
     int queSize;
 
-public:
+  public:
     LinkedListQueue() {
         front = nullptr;
         rear = nullptr;
@@ -37,7 +37,7 @@ public:
     /* 入队 */
     void push(int num) {
         // 尾节点后添加 num
-        ListNode* node = new ListNode(num);
+        ListNode *node = new ListNode(num);
         // 如果队列为空，则令头、尾节点都指向该节点
         if (front == nullptr) {
             front = node;
@@ -58,7 +58,7 @@ public:
         ListNode *tmp = front;
         front = front->next;
         // 释放内存
-        delete tmp; 
+        delete tmp;
         queSize--;
     }
 
@@ -71,7 +71,7 @@ public:
 
     /* 将链表转化为 Vector 并返回 */
     vector<int> toVector() {
-        ListNode* node = front;
+        ListNode *node = front;
         vector<int> res(size());
         for (int i = 0; i < res.size(); i++) {
             res[i] = node->val;
@@ -81,11 +81,10 @@ public:
     }
 };
 
-
 /* Driver Code */
 int main() {
     /* 初始化队列 */
-    LinkedListQueue* queue = new LinkedListQueue();
+    LinkedListQueue *queue = new LinkedListQueue();
 
     /* 元素入队 */
     queue->push(1);
@@ -94,7 +93,7 @@ int main() {
     queue->push(5);
     queue->push(4);
     cout << "队列 queue = ";
-    PrintUtil::printVector(queue->toVector());
+    printVector(queue->toVector());
 
     /* 访问队首元素 */
     int peek = queue->peek();
@@ -103,7 +102,7 @@ int main() {
     /* 元素出队 */
     queue->pop();
     cout << "出队元素 pop = " << peek << "，出队后 queue = ";
-    PrintUtil::printVector(queue->toVector());
+    printVector(queue->toVector());
 
     /* 获取队列的长度 */
     int size = queue->size();

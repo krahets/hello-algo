@@ -48,7 +48,8 @@ void linear(int n) {
 /* 线性阶（递归实现） */
 void linearRecur(int n) {
     cout << "递归 n = " << n << endl;
-    if (n == 1) return;
+    if (n == 1)
+        return;
     linearRecur(n - 1);
 }
 
@@ -67,21 +68,22 @@ void quadratic(int n) {
 
 /* 平方阶（递归实现） */
 int quadraticRecur(int n) {
-    if (n <= 0) return 0;
+    if (n <= 0)
+        return 0;
     vector<int> nums(n);
     cout << "递归 n = " << n << " 中的 nums 长度 = " << nums.size() << endl;
     return quadraticRecur(n - 1);
 }
 
 /* 指数阶（建立满二叉树） */
-TreeNode* buildTree(int n) {
-    if (n == 0) return nullptr;
-    TreeNode* root = new TreeNode(0);
+TreeNode *buildTree(int n) {
+    if (n == 0)
+        return nullptr;
+    TreeNode *root = new TreeNode(0);
     root->left = buildTree(n - 1);
     root->right = buildTree(n - 1);
     return root;
 }
-
 
 /* Driver Code */
 int main() {
@@ -95,8 +97,8 @@ int main() {
     quadratic(n);
     quadraticRecur(n);
     // 指数阶
-    TreeNode* root = buildTree(n);
-    PrintUtil::printTree(root);
+    TreeNode *root = buildTree(n);
+    printTree(root);
 
     // 释放内存
     freeMemoryTree(root);
