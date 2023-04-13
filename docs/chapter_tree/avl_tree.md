@@ -646,8 +646,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{AVLTree}-[func]{remove}
 
     [class]{AVLTree}-[func]{removeHelper}
-
-    [class]{AVLTree}-[func]{getInOrderNext}
     ```
 
 === "C++"
@@ -656,8 +654,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{AVLTree}-[func]{remove}
 
     [class]{AVLTree}-[func]{removeHelper}
-
-    [class]{AVLTree}-[func]{getInOrderNext}
     ```
 
 === "Python"
@@ -666,8 +662,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{AVLTree}-[func]{remove}
 
     [class]{AVLTree}-[func]{__remove_helper}
-
-    [class]{AVLTree}-[func]{__get_inorder_next}
     ```
 
 === "Go"
@@ -676,8 +670,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{aVLTree}-[func]{remove}
 
     [class]{aVLTree}-[func]{removeHelper}
-
-    [class]{aVLTree}-[func]{getInOrderNext}
     ```
 
 === "JavaScript"
@@ -686,8 +678,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{AVLTree}-[func]{remove}
 
     [class]{AVLTree}-[func]{#removeHelper}
-
-    [class]{AVLTree}-[func]{#getInOrderNext}
     ```
 
 === "TypeScript"
@@ -696,8 +686,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{AVLTree}-[func]{remove}
 
     [class]{AVLTree}-[func]{removeHelper}
-
-    [class]{AVLTree}-[func]{getInOrderNext}
     ```
 
 === "C"
@@ -706,8 +694,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{aVLTree}-[func]{remove}
 
     [class]{aVLTree}-[func]{removeHelper}
-
-    [class]{aVLTree}-[func]{getInOrderNext}
     ```
 
 === "C#"
@@ -716,8 +702,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{AVLTree}-[func]{remove}
 
     [class]{AVLTree}-[func]{removeHelper}
-
-    [class]{AVLTree}-[func]{getInOrderNext}
     ```
 
 === "Swift"
@@ -726,8 +710,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{AVLTree}-[func]{remove}
 
     [class]{AVLTree}-[func]{removeHelper}
-
-    [class]{AVLTree}-[func]{getInOrderNext}
     ```
 
 === "Zig"
@@ -736,8 +718,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{AVLTree}-[func]{remove}
 
     [class]{AVLTree}-[func]{removeHelper}
-
-    [class]{AVLTree}-[func]{getInOrderNext}
     ```
 
 ### 查找节点

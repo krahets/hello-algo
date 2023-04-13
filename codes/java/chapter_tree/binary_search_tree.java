@@ -127,17 +127,6 @@ class BinarySearchTree {
             cur.val = tmp.val;
         }
     }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    public TreeNode getInOrderNext(TreeNode root) {
-        if (root == null)
-            return root;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (root.left != null) {
-            root = root.left;
-        }
-        return root;
-    }
 }
 
 public class binary_search_tree {

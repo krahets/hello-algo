@@ -202,80 +202,60 @@
 
     ```java title="binary_search_tree.java"
     [class]{BinarySearchTree}-[func]{remove}
-
-    [class]{BinarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "C++"
 
     ```cpp title="binary_search_tree.cpp"
     [class]{BinarySearchTree}-[func]{remove}
-
-    [class]{BinarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "Python"
 
     ```python title="binary_search_tree.py"
     [class]{BinarySearchTree}-[func]{remove}
-
-    [class]{BinarySearchTree}-[func]{get_inorder_next}
     ```
 
 === "Go"
 
     ```go title="binary_search_tree.go"
     [class]{binarySearchTree}-[func]{remove}
-
-    [class]{binarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "JavaScript"
 
     ```javascript title="binary_search_tree.js"
     [class]{}-[func]{remove}
-
-    [class]{}-[func]{getInOrderNext}
     ```
 
 === "TypeScript"
 
     ```typescript title="binary_search_tree.ts"
     [class]{}-[func]{remove}
-
-    [class]{}-[func]{getInOrderNext}
     ```
 
 === "C"
 
     ```c title="binary_search_tree.c"
     [class]{binarySearchTree}-[func]{remove}
-
-    [class]{binarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "C#"
 
     ```csharp title="binary_search_tree.cs"
     [class]{BinarySearchTree}-[func]{remove}
-
-    [class]{BinarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
     [class]{BinarySearchTree}-[func]{remove}
-
-    [class]{BinarySearchTree}-[func]{getInOrderNext}
     ```
 
 === "Zig"
 
     ```zig title="binary_search_tree.zig"
     [class]{BinarySearchTree}-[func]{remove}
-
-    [class]{BinarySearchTree}-[func]{getInOrderNext}
     ```
 
 ### 排序

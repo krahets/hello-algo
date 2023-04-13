@@ -137,18 +137,6 @@ void insert(avlTree *tree, int val) {
     tree->root = insertHelper(tree->root, val);
 }
 
-/* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-TreeNode *getInOrderNext(TreeNode *node) {
-    if (node == NULL) {
-        return node;
-    }
-    // 循环访问左子节点，直到叶节点时为最小节点，跳出
-    while (node->left != NULL) {
-        node = node->left;
-    }
-    return node;
-}
-
 /* 递归删除节点（辅助方法） */
 TreeNode *removeHelper(TreeNode *node, int val) {
     TreeNode *child, *grandChild;
