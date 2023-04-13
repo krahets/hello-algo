@@ -57,10 +57,10 @@ class BinarySearchTree {
     }
 
     /* 插入节点 */
-    func insert(num: Int) -> TreeNode? {
+    func insert(num: Int) {
         // 若树为空，直接提前返回
         if root == nil {
-            return nil
+            return
         }
         var cur = root
         var pre: TreeNode?
@@ -68,7 +68,7 @@ class BinarySearchTree {
         while cur != nil {
             // 找到重复节点，直接返回
             if cur!.val == num {
-                return nil
+                return
             }
             pre = cur
             // 插入位置在 cur 的右子树中
@@ -87,15 +87,14 @@ class BinarySearchTree {
         } else {
             pre?.left = node
         }
-        return node
     }
 
     /* 删除节点 */
     @discardableResult
-    func remove(num: Int) -> TreeNode? {
+    func remove(num: Int) {
         // 若树为空，直接提前返回
         if root == nil {
-            return nil
+            return
         }
         var cur = root
         var pre: TreeNode?
@@ -117,7 +116,7 @@ class BinarySearchTree {
         }
         // 若无待删除节点，则直接返回
         if cur == nil {
-            return nil
+            return
         }
         // 子节点数量 = 0 or 1
         if cur?.left == nil || cur?.right == nil {
@@ -133,27 +132,15 @@ class BinarySearchTree {
         // 子节点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个节点
-            let nex = getInOrderNext(root: cur?.right)
-            let tmp = nex!.val
-            // 递归删除节点 nex
-            remove(num: nex!.val)
-            // 将 nex 的值复制给 cur
-            cur?.val = tmp
+            let tmp = cur?.right
+            while tmp?.left != nil {
+                tmp = tmp?.left
+            }
+            // 递归删除节点 tmp
+            remove(num: tmp!.val)
+            // 用 tmp 覆盖 cur
+            cur?.val = tmp!.val
         }
-        return cur
-    }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    func getInOrderNext(root: TreeNode?) -> TreeNode? {
-        var root = root
-        if root == nil {
-            return root
-        }
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while root?.left != nil {
-            root = root?.left
-        }
-        return root
     }
 }
 
@@ -172,7 +159,7 @@ enum _BinarySearchTree {
         print("\n查找到的节点对象为 \(node!)，节点值 = \(node!.val)")
 
         /* 插入节点 */
-        node = bst.insert(num: 16)
+        bst.insert(num: 16)
         print("\n插入节点 16 后，二叉树为\n")
         PrintUtil.printTree(root: bst.getRoot())
 

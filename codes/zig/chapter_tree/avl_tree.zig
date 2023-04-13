@@ -108,9 +108,8 @@ pub fn AVLTree(comptime T: type) type {
         }
 
         // 插入节点
-        fn insert(self: *Self, val: T) !?*inc.TreeNode(T) {
+        fn insert(self: *Self, val: T) void {
             self.root = try self.insertHelper(self.root, val);
-            return self.root;
         }
 
         // 递归插入节点（辅助方法）
@@ -137,9 +136,8 @@ pub fn AVLTree(comptime T: type) type {
         }
 
         // 删除节点
-        fn remove(self: *Self, val: T) ?*inc.TreeNode(T) {
+        fn remove(self: *Self, val: T) void {
            self.root = self.removeHelper(self.root, val);
-            return self.root;
         }
 
         // 递归删除节点（辅助方法）
@@ -163,27 +161,18 @@ pub fn AVLTree(comptime T: type) type {
                     }
                 } else {
                     // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                    var temp = self.getInOrderNext(node.?.right);
+                    var temp = node.?.right;
+                    while (temp.?.left != null) {
+                        temp = temp.?.left;
+                    }
                     node.?.right = self.removeHelper(node.?.right, temp.?.val);
                     node.?.val = temp.?.val;
                 }
             }
-            self.updateHeight(node);    // 更新节点高度
+            self.updateHeight(node); // 更新节点高度
             // 2. 执行旋转操作，使该子树重新恢复平衡
             node = self.rotate(node);
             // 返回子树的根节点
-            return node;
-        }
-
-        // 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况）
-        fn getInOrderNext(self: *Self, node_: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
-            _ = self;
-            var node = node_;
-            if (node == null) return node;
-            // 循环访问左子节点，直到叶节点时为最小节点，跳出
-            while (node.?.left != null) {
-                node = node.?.left;
-            }
             return node;
         }
 

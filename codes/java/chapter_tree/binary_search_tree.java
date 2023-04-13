@@ -56,16 +56,16 @@ class BinarySearchTree {
     }
 
     /* 插入节点 */
-    public TreeNode insert(int num) {
+    public void insert(int num) {
         // 若树为空，直接提前返回
         if (root == null)
-            return null;
+            return;
         TreeNode cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 找到重复节点，直接返回
             if (cur.val == num)
-                return null;
+                return;
             pre = cur;
             // 插入位置在 cur 的右子树中
             if (cur.val < num)
@@ -80,14 +80,13 @@ class BinarySearchTree {
             pre.right = node;
         else
             pre.left = node;
-        return node;
     }
 
     /* 删除节点 */
-    public TreeNode remove(int num) {
+    public void remove(int num) {
         // 若树为空，直接提前返回
         if (root == null)
-            return null;
+            return;
         TreeNode cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
@@ -104,7 +103,7 @@ class BinarySearchTree {
         }
         // 若无待删除节点，则直接返回
         if (cur == null)
-            return null;
+            return;
         // 子节点数量 = 0 or 1
         if (cur.left == null || cur.right == null) {
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
@@ -118,14 +117,15 @@ class BinarySearchTree {
         // 子节点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个节点
-            TreeNode nex = getInOrderNext(cur.right);
-            int tmp = nex.val;
-            // 递归删除节点 nex
-            remove(nex.val);
-            // 将 nex 的值复制给 cur
-            cur.val = tmp;
+            TreeNode tmp = cur.right;
+            while (tmp.left != null) {
+                tmp = tmp.left;
+            }
+            // 递归删除节点 tmp
+            remove(tmp.val);
+            // 用 tmp 覆盖 cur
+            cur.val = tmp.val;
         }
-        return cur;
     }
 
     /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
@@ -153,7 +153,7 @@ public class binary_search_tree {
         System.out.println("\n查找到的节点对象为 " + node + "，节点值 = " + node.val);
 
         /* 插入节点 */
-        node = bst.insert(16);
+        bst.insert(16);
         System.out.println("\n插入节点 16 后，二叉树为\n");
         PrintUtil.printTree(bst.getRoot());
 

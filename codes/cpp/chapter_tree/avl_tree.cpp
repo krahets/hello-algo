@@ -93,17 +93,6 @@ class AVLTree {
         return node;
     }
 
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    TreeNode *getInOrderNext(TreeNode *node) {
-        if (node == nullptr)
-            return node;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (node->left != nullptr) {
-            node = node->left;
-        }
-        return node;
-    }
-
     /* 递归删除节点（辅助方法） */
     TreeNode *removeHelper(TreeNode *node, int val) {
         if (node == nullptr)
@@ -128,7 +117,10 @@ class AVLTree {
                 }
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                TreeNode *temp = getInOrderNext(node->right);
+                TreeNode *temp = node->right;
+                while (temp->left != nullptr) {
+                    temp = temp->left;
+                }
                 int tempVal = temp->val;
                 node->right = removeHelper(node->right, temp->val);
                 node->val = tempVal;
@@ -158,15 +150,13 @@ class AVLTree {
     }
 
     /* 插入节点 */
-    TreeNode *insert(int val) {
+    void insert(int val) {
         root = insertHelper(root, val);
-        return root;
     }
 
     /* 删除节点 */
-    TreeNode *remove(int val) {
+    void remove(int val) {
         root = removeHelper(root, val);
-        return root;
     }
 
     /* 查找节点 */
@@ -209,6 +199,8 @@ void testRemove(AVLTree &tree, int val) {
     cout << "\n删除节点 " << val << " 后，AVL 树为" << endl;
     printTree(tree.root);
 }
+
+/* Driver Code */
 int main() {
     /* 初始化空 AVL 树 */
     AVLTree avlTree;

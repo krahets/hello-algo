@@ -92,10 +92,9 @@ class AVLTree:
         # 平衡树，无需旋转，直接返回
         return node
 
-    def insert(self, val) -> TreeNode:
+    def insert(self, val) -> None:
         """插入节点"""
         self.__root = self.__insert_helper(self.__root, val)
-        return self.__root
 
     def __insert_helper(self, node: TreeNode | None, val: int) -> TreeNode:
         """递归插入节点（辅助方法）"""
@@ -114,10 +113,9 @@ class AVLTree:
         # 2. 执行旋转操作，使该子树重新恢复平衡
         return self.__rotate(node)
 
-    def remove(self, val: int) -> TreeNode | None:
+    def remove(self, val: int) -> None:
         """删除节点"""
         self.__root = self.__remove_helper(self.__root, val)
-        return self.__root
 
     def __remove_helper(self, node: TreeNode | None, val: int) -> TreeNode | None:
         """递归删除节点（辅助方法）"""
@@ -137,23 +135,17 @@ class AVLTree:
                 # 子节点数量 = 1 ，直接删除 node
                 else:
                     node = child
-            else:  # 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                temp = self.__get_inorder_next(node.right)
+            else:
+                # 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+                temp = node.right
+                while temp.left is not None:
+                    temp = temp.left
                 node.right = self.__remove_helper(node.right, temp.val)
                 node.val = temp.val
         # 更新节点高度
         self.__update_height(node)
         # 2. 执行旋转操作，使该子树重新恢复平衡
         return self.__rotate(node)
-
-    def __get_inorder_next(self, node: TreeNode | None) -> TreeNode | None:
-        """获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况）"""
-        if node is None:
-            return None
-        # 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while node.left is not None:
-            node = node.left
-        return node
 
     def search(self, val: int) -> TreeNode | None:
         """查找节点"""

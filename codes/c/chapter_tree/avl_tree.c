@@ -15,7 +15,7 @@ typedef struct avlTree avlTree;
 
 /* 构建 AVL 树 */
 avlTree *newAVLTree() {
-    avlTree *tree = (avlTree *) malloc(sizeof(avlTree));
+    avlTree *tree = (avlTree *)malloc(sizeof(avlTree));
     tree->root = NULL;
     return tree;
 }
@@ -132,11 +132,9 @@ TreeNode *insertHelper(TreeNode *node, int val) {
     return node;
 }
 
-
 /* 插入节点 */
-TreeNode *insert(avlTree *tree, int val) {
+void insert(avlTree *tree, int val) {
     tree->root = insertHelper(tree->root, val);
-    return tree->root;
 }
 
 /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
@@ -153,7 +151,7 @@ TreeNode *getInOrderNext(TreeNode *node) {
 
 /* 递归删除节点（辅助方法） */
 TreeNode *removeHelper(TreeNode *node, int val) {
-    TreeNode *child, *grandChild, *temp;
+    TreeNode *child, *grandChild;
     if (node == NULL) {
         return NULL;
     }
@@ -177,9 +175,13 @@ TreeNode *removeHelper(TreeNode *node, int val) {
             }
         } else {
             // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-            temp = getInOrderNext(node->right);
+            TreeNode *temp = node->right;
+            while (temp->left != NULL) {
+                temp = temp->left;
+            }
+            int tempVal = temp->val;
             node->right = removeHelper(node->right, temp->val);
-            node->val = temp->val;
+            node->val = tempVal;
         }
     }
     // 更新节点高度
@@ -192,9 +194,8 @@ TreeNode *removeHelper(TreeNode *node, int val) {
 
 /* 删除节点 */
 // 由于引入了 stdio.h ，此处无法使用 remove 关键词
-TreeNode *removeNode(avlTree *tree, int val) {
+void removeNode(avlTree *tree, int val) {
     TreeNode *root = removeHelper(tree->root, val);
-    return root;
 }
 
 /* 查找节点 */
@@ -232,7 +233,7 @@ void testRemove(avlTree *tree, int val) {
 /* Driver Code */
 int main() {
     /* 初始化空 AVL 树 */
-    avlTree *tree = (avlTree *) newAVLTree();
+    avlTree *tree = (avlTree *)newAVLTree();
     /* 插入节点 */
     // 请关注插入节点后，AVL 树是如何保持平衡的
     testInsert(tree, 1);

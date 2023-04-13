@@ -51,12 +51,12 @@ function search(num) {
 /* 插入节点 */
 function insert(num) {
     // 若树为空，直接提前返回
-    if (root === null) return null;
+    if (root === null) return;
     let cur = root, pre = null;
     // 循环查找，越过叶节点后跳出
     while (cur !== null) {
         // 找到重复节点，直接返回
-        if (cur.val === num) return null;
+        if (cur.val === num) return;
         pre = cur;
         // 插入位置在 cur 的右子树中
         if (cur.val < num) cur = cur.right;
@@ -67,13 +67,12 @@ function insert(num) {
     let node = new TreeNode(num);
     if (pre.val < num) pre.right = node;
     else pre.left = node;
-    return node;
 }
 
 /* 删除节点 */
 function remove(num) {
     // 若树为空，直接提前返回
-    if (root === null) return null;
+    if (root === null) return;
     let cur = root, pre = null;
     // 循环查找，越过叶节点后跳出
     while (cur !== null) {
@@ -86,7 +85,7 @@ function remove(num) {
         else cur = cur.left;
     }
     // 若无待删除节点，则直接返回
-    if (cur === null) return null;
+    if (cur === null) return;
     // 子节点数量 = 0 or 1
     if (cur.left === null || cur.right === null) {
         // 当子节点数量 = 0 / 1 时， child = null / 该子节点
@@ -98,24 +97,15 @@ function remove(num) {
     // 子节点数量 = 2
     else {
         // 获取中序遍历中 cur 的下一个节点
-        let nex = getInOrderNext(cur.right);
-        let tmp = nex.val;
-        // 递归删除节点 nex
-        remove(nex.val);
-        // 将 nex 的值复制给 cur
-        cur.val = tmp;
+        let tmp = cur.right;
+        while (tmp.left !== null) {
+            tmp = tmp.left;
+        }
+        // 递归删除节点 tmp
+        remove(tmp.val);
+        // 用 tmp 覆盖 cur
+        cur.val = tmp.val;
     }
-    return cur;
-}
-
-/* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-function getInOrderNext(root) {
-    if (root === null) return root;
-    // 循环访问左子节点，直到叶节点时为最小节点，跳出
-    while (root.left !== null) {
-        root = root.left;
-    }
-    return root;
 }
 
 /* Driver Code */
@@ -130,7 +120,7 @@ let node = search(7);
 console.log("\n查找到的节点对象为 " + node + "，节点值 = " + node.val);
 
 /* 插入节点 */
-node = insert(16);
+insert(16);
 console.log("\n插入节点 16 后，二叉树为\n");
 printTree(getRoot());
 

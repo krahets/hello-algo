@@ -107,9 +107,8 @@ func (t *aVLTree) rotate(node *TreeNode) *TreeNode {
 }
 
 /* 插入节点 */
-func (t *aVLTree) insert(val int) *TreeNode {
+func (t *aVLTree) insert(val int) {
 	t.root = t.insertHelper(t.root, val)
-	return t.root
 }
 
 /* 递归插入节点（辅助方法） */
@@ -135,9 +134,8 @@ func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 }
 
 /* 删除节点 */
-func (t *aVLTree) remove(val int) *TreeNode {
-	root := t.removeHelper(t.root, val)
-	return root
+func (t *aVLTree) remove(val int) {
+	t.root = t.removeHelper(t.root, val)
 }
 
 /* 递归删除节点（辅助方法） */
@@ -156,8 +154,8 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 			if node.Right != nil {
 				child = node.Right
 			}
-			// 子节点数量 = 0 ，直接删除 node 并返回
 			if child == nil {
+				// 子节点数量 = 0 ，直接删除 node 并返回
 				return nil
 			} else {
 				// 子节点数量 = 1 ，直接删除 node
@@ -165,7 +163,10 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 			}
 		} else {
 			// 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-			temp := t.getInOrderNext(node.Right)
+			temp := node.Right
+			for temp.Left != nil {
+				temp = temp.Left
+			}
 			node.Right = t.removeHelper(node.Right, temp.Val)
 			node.Val = temp.Val
 		}
@@ -175,18 +176,6 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	/* 2. 执行旋转操作，使该子树重新恢复平衡 */
 	node = t.rotate(node)
 	// 返回子树的根节点
-	return node
-}
-
-/* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-func (t *aVLTree) getInOrderNext(node *TreeNode) *TreeNode {
-	if node == nil {
-		return node
-	}
-	// 循环访问左子节点，直到叶节点时为最小节点，跳出
-	for node.Left != nil {
-		node = node.Left
-	}
 	return node
 }
 

@@ -24,7 +24,7 @@ func TestBinarySearchTree(t *testing.T) {
 	fmt.Println("查找到的节点对象为", node, "，节点值 =", node.Val)
 
 	// 插入节点
-	node = bst.insert(16)
+	bst.insert(16)
 	fmt.Println("\n插入节点后 16 的二叉树为:")
 	bst.print()
 

@@ -57,18 +57,18 @@ class BinarySearchTree:
                 break
         return cur
 
-    def insert(self, num: int) -> TreeNode | None:
+    def insert(self, num: int) -> None:
         """插入节点"""
         # 若树为空，直接提前返回
         if self.__root is None:
-            return None
+            return
 
         # 循环查找，越过叶节点后跳出
         cur, pre = self.__root, None
         while cur is not None:
             # 找到重复节点，直接返回
             if cur.val == num:
-                return None
+                return
             pre = cur
             # 插入位置在 cur 的右子树中
             if cur.val < num:
@@ -83,13 +83,12 @@ class BinarySearchTree:
             pre.right = node
         else:
             pre.left = node
-        return node
 
-    def remove(self, num: int) -> TreeNode | None:
+    def remove(self, num: int) -> None:
         """删除节点"""
         # 若树为空，直接提前返回
         if self.__root is None:
-            return None
+            return
 
         # 循环查找，越过叶节点后跳出
         cur, pre = self.__root, None
@@ -98,13 +97,15 @@ class BinarySearchTree:
             if cur.val == num:
                 break
             pre = cur
-            if cur.val < num:  # 待删除节点在 cur 的右子树中
+            # 待删除节点在 cur 的右子树中
+            if cur.val < num:
                 cur = cur.right
-            else:  # 待删除节点在 cur 的左子树中
+            # 待删除节点在 cur 的左子树中
+            else:
                 cur = cur.left
         # 若无待删除节点，则直接返回
         if cur is None:
-            return None
+            return
 
         # 子节点数量 = 0 or 1
         if cur.left is None or cur.right is None:
@@ -118,22 +119,13 @@ class BinarySearchTree:
         # 子节点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个节点
-            nex: TreeNode = self.get_inorder_next(cur.right)
-            tmp: int = nex.val
-            # 递归删除节点 nex
-            self.remove(nex.val)
-            # 将 nex 的值复制给 cur
-            cur.val = tmp
-        return cur
-
-    def get_inorder_next(self, root: TreeNode | None) -> TreeNode | None:
-        """获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况）"""
-        if root is None:
-            return root
-        # 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while root.left is not None:
-            root = root.left
-        return root
+            tmp: TreeNode = cur.right
+            while tmp.left is not None:
+                tmp = tmp.left
+            # 递归删除节点 tmp
+            self.remove(tmp.val)
+            # 用 tmp 覆盖 cur
+            cur.val = tmp.val
 
 
 """Driver Code"""
@@ -149,7 +141,7 @@ if __name__ == "__main__":
     print("\n查找到的节点对象为: {}，节点值 = {}".format(node, node.val))
 
     # 插入节点
-    node = bst.insert(16)
+    bst.insert(16)
     print("\n插入节点 16 后，二叉树为\n")
     print_tree(bst.root)
 

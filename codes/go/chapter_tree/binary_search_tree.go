@@ -42,18 +42,6 @@ func (bst *binarySearchTree) getRoot() *TreeNode {
 	return bst.root
 }
 
-/* 获取中序遍历的下一个节点（仅适用于 root 有左子节点的情况） */
-func (bst *binarySearchTree) getInOrderNext(node *TreeNode) *TreeNode {
-	if node == nil {
-		return node
-	}
-	// 循环访问左子节点，直到叶节点时为最小节点，跳出
-	for node.Left != nil {
-		node = node.Left
-	}
-	return node
-}
-
 /* 查找节点 */
 func (bst *binarySearchTree) search(num int) *TreeNode {
 	node := bst.root
@@ -75,18 +63,18 @@ func (bst *binarySearchTree) search(num int) *TreeNode {
 }
 
 /* 插入节点 */
-func (bst *binarySearchTree) insert(num int) *TreeNode {
+func (bst *binarySearchTree) insert(num int) {
 	cur := bst.root
 	// 若树为空，直接提前返回
 	if cur == nil {
-		return nil
+		return
 	}
 	// 待插入节点之前的节点位置
 	var pre *TreeNode = nil
 	// 循环查找，越过叶节点后跳出
 	for cur != nil {
 		if cur.Val == num {
-			return nil
+			return
 		}
 		pre = cur
 		if cur.Val < num {
@@ -102,15 +90,14 @@ func (bst *binarySearchTree) insert(num int) *TreeNode {
 	} else {
 		pre.Left = node
 	}
-	return cur
 }
 
 /* 删除节点 */
-func (bst *binarySearchTree) remove(num int) *TreeNode {
+func (bst *binarySearchTree) remove(num int) {
 	cur := bst.root
 	// 若树为空，直接提前返回
 	if cur == nil {
-		return nil
+		return
 	}
 	// 待删除节点之前的节点位置
 	var pre *TreeNode = nil
@@ -130,7 +117,7 @@ func (bst *binarySearchTree) remove(num int) *TreeNode {
 	}
 	// 若无待删除节点，则直接返回
 	if cur == nil {
-		return nil
+		return
 	}
 	// 子节点数为 0 或 1
 	if cur.Left == nil || cur.Right == nil {
@@ -150,14 +137,15 @@ func (bst *binarySearchTree) remove(num int) *TreeNode {
 		// 子节点数为 2
 	} else {
 		// 获取中序遍历中待删除节点 cur 的下一个节点
-		next := bst.getInOrderNext(cur)
-		temp := next.Val
-		// 递归删除节点 next
-		bst.remove(next.Val)
-		// 将 next 的值复制给 cur
-		cur.Val = temp
+		tmp := cur.Right
+		for tmp.Left != nil {
+			tmp = tmp.Left
+		}
+		// 递归删除节点 tmp
+		bst.remove(tmp.Val)
+		// 用 tmp 覆盖 cur
+		cur.Val = tmp.Val
 	}
-	return cur
 }
 
 /* 打印二叉搜索树 */

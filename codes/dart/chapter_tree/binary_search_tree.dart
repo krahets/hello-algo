@@ -53,15 +53,15 @@ TreeNode? search(int num) {
 }
 
 /* 插入节点 */
-TreeNode? insert(int num) {
+void insert(int num) {
   // 若树为空，直接提前返回
-  if (root == null) return null;
+  if (root == null) return;
   TreeNode? cur = root;
   TreeNode? pre = null;
   // 循环查找，越过叶节点后跳出
   while (cur != null) {
     // 找到重复节点，直接返回
-    if (cur.val == num) return null;
+    if (cur.val == num) return;
     pre = cur;
     // 插入位置在 cur 的右子树中
     if (cur.val < num)
@@ -76,13 +76,12 @@ TreeNode? insert(int num) {
     pre.right = node;
   else
     pre.left = node;
-  return node;
 }
 
 /* 删除节点 */
-TreeNode? remove(int num) {
+void remove(int num) {
   // 若树为空，直接提前返回
-  if (root == null) return null;
+  if (root == null) return;
 
   TreeNode? cur = root;
   TreeNode? pre = null;
@@ -99,7 +98,7 @@ TreeNode? remove(int num) {
       cur = cur.left;
   }
   // 若无待删除节点，直接返回
-  if (cur == null) return null;
+  if (cur == null) return;
   // 子节点数量 = 0 or 1
   if (cur.left == null || cur.right == null) {
     // 当子节点数量 = 0 / 1 时， child = null / 该子节点
@@ -112,24 +111,15 @@ TreeNode? remove(int num) {
   } else {
     // 子节点数量 = 2
     // 获取中序遍历中 cur 的下一个节点
-    TreeNode? nex = getInOrderNext(cur.right);
-    int tem = nex!.val;
-    // 递归删除节点 nex
-    remove(nex.val);
-    // 将 nex 的值复制给 cur
-    cur.val = tem;
+    TreeNode? tmp = cur.right;
+    while (tmp!.left != null) {
+      tmp = tmp.left;
+    }
+    // 递归删除节点 tmp
+    remove(tmp.val);
+    // 用 tmp 覆盖 cur
+    cur.val = tmp.val;
   }
-  return cur;
-}
-
-/* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-TreeNode? getInOrderNext(TreeNode? root) {
-  if (root == null) return null;
-  // 循环访问左子节点，直到叶节点时为最小节点，跳出
-  while (root!.left != null) {
-    root = root.left;
-  }
-  return root;
 }
 
 /* Driver Code */

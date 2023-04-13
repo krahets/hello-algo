@@ -90,9 +90,8 @@ class AVLTree {
 
     /* 插入节点 */
     @discardableResult
-    func insert(val: Int) -> TreeNode? {
+    func insert(val: Int) {
         root = insertHelper(node: root, val: val)
-        return root
     }
 
     /* 递归插入节点（辅助方法） */
@@ -118,9 +117,8 @@ class AVLTree {
 
     /* 删除节点 */
     @discardableResult
-    func remove(val: Int) -> TreeNode? {
+    func remove(val: Int) {
         root = removeHelper(node: root, val: val)
-        return root
     }
 
     /* 递归删除节点（辅助方法） */
@@ -147,7 +145,10 @@ class AVLTree {
                 }
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                let temp = getInOrderNext(node: node?.right)
+                let temp = node?.right
+                while temp?.left != nil {
+                    temp = temp?.left
+                }
                 node?.right = removeHelper(node: node?.right, val: temp!.val)
                 node?.val = temp!.val
             }
@@ -156,19 +157,6 @@ class AVLTree {
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node: node)
         // 返回子树的根节点
-        return node
-    }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    private func getInOrderNext(node: TreeNode?) -> TreeNode? {
-        var node = node
-        if node == nil {
-            return node
-        }
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while node?.left != nil {
-            node = node?.left
-        }
         return node
     }
 

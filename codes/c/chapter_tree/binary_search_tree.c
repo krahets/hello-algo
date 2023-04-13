@@ -69,15 +69,16 @@ TreeNode *search(binarySearchTree *bst, int num) {
 }
 
 /* 插入节点 */
-TreeNode *insert(binarySearchTree *bst, int num) {
+void insert(binarySearchTree *bst, int num) {
     // 若树为空，直接提前返回
-    if (bst->root == NULL) return NULL;
+    if (bst->root == NULL)
+        return;
     TreeNode *cur = bst->root, *pre = NULL;
     // 循环查找，越过叶节点后跳出
     while (cur != NULL) {
         // 找到重复节点，直接返回
         if (cur->val == num) {
-            return NULL;
+            return;
         }
         pre = cur;
         if (cur->val < num) {
@@ -95,24 +96,14 @@ TreeNode *insert(binarySearchTree *bst, int num) {
     } else {
         pre->left = node;
     }
-    return node;
-}
-
-/* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-TreeNode *getInOrderNext(TreeNode *root) {
-    if (root == NULL) return root;
-    // 循环访问左子节点，直到叶节点时为最小节点，跳出
-    while (root->left != NULL) {
-        root = root->left;
-    }
-    return root;
 }
 
 /* 删除节点 */
 // 由于引入了 stdio.h ，此处无法使用 remove 关键词
-TreeNode *removeNode(binarySearchTree *bst, int num) {
+void removeNode(binarySearchTree *bst, int num) {
     // 若树为空，直接提前返回
-    if (bst->root == NULL) return NULL;
+    if (bst->root == NULL)
+        return;
     TreeNode *cur = bst->root, *pre = NULL;
     // 循环查找，越过叶节点后跳出
     while (cur != NULL) {
@@ -128,9 +119,8 @@ TreeNode *removeNode(binarySearchTree *bst, int num) {
         }
     }
     // 若无待删除节点，则直接返回
-    if (cur == NULL) {
-        return NULL;
-    }
+    if (cur == NULL)
+        return;
     // 判断待删除节点是否存在子节点
     if (cur->left == NULL || cur->right == NULL) {
         /* 子节点数量 = 0 or 1 */
@@ -145,14 +135,16 @@ TreeNode *removeNode(binarySearchTree *bst, int num) {
     } else {
         /* 子节点数量 = 2 */
         // 获取中序遍历中 cur 的下一个节点
-        TreeNode *nex = getInOrderNext(cur->right);
-        int tmp = nex->val;
-        // 递归删除节点 nex
-        removeNode(bst, nex->val);
-        // 将 nex 的值复制给 cur
-        cur->val = tmp;
+        TreeNode *tmp = cur->right;
+        while (tmp->left != NULL) {
+            tmp = tmp->left;
+        }
+        int tmpVal = tmp->val;
+        // 递归删除节点 tmp
+        removeNode(bst, tmp->val);
+        // 用 tmp 覆盖 cur
+        cur->val = tmpVal;
     }
-    return cur;
 }
 
 /* Driver Code */

@@ -57,16 +57,16 @@ class BinarySearchTree
     }
 
     /* 插入节点 */
-    public TreeNode? insert(int num)
+    public void insert(int num)
     {
         // 若树为空，直接提前返回
-        if (root == null) return null;
+        if (root == null) return;
         TreeNode? cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null)
         {
             // 找到重复节点，直接返回
-            if (cur.val == num) return null;
+            if (cur.val == num) return;
             pre = cur;
             // 插入位置在 cur 的右子树中
             if (cur.val < num) cur = cur.right;
@@ -81,15 +81,14 @@ class BinarySearchTree
             if (pre.val < num) pre.right = node;
             else pre.left = node;
         }
-        return node;
     }
 
 
     /* 删除节点 */
-    public TreeNode? remove(int num)
+    public void remove(int num)
     {
         // 若树为空，直接提前返回
-        if (root == null) return null;
+        if (root == null) return;
         TreeNode? cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null)
@@ -103,7 +102,7 @@ class BinarySearchTree
             else cur = cur.left;
         }
         // 若无待删除节点，则直接返回
-        if (cur == null || pre == null) return null;
+        if (cur == null || pre == null) return;
         // 子节点数量 = 0 or 1
         if (cur.left == null || cur.right == null)
         {
@@ -123,29 +122,16 @@ class BinarySearchTree
         else
         {
             // 获取中序遍历中 cur 的下一个节点
-            TreeNode? nex = getInOrderNext(cur.right);
-            if (nex != null)
+            TreeNode? tmp = cur.right;
+            while (tmp.left != null)
             {
-                int tmp = nex.val;
-                // 递归删除节点 nex
-                remove(nex.val);
-                // 将 nex 的值复制给 cur
-                cur.val = tmp;
+                tmp = tmp.left;
             }
+            // 递归删除节点 tmp
+            remove(tmp.val);
+            // 用 tmp 覆盖 cur
+            cur.val = tmp.val;
         }
-        return cur;
-    }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    private TreeNode? getInOrderNext(TreeNode? root)
-    {
-        if (root == null) return root;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (root.left != null)
-        {
-            root = root.left;
-        }
-        return root;
     }
 }
 
@@ -165,7 +151,7 @@ public class binary_search_tree
         Console.WriteLine("\n查找到的节点对象为 " + node + "，节点值 = " + node.val);
 
         /* 插入节点 */
-        node = bst.insert(16);
+        bst.insert(16);
         Console.WriteLine("\n插入节点 16 后，二叉树为\n");
         PrintUtil.PrintTree(bst.getRoot());
 

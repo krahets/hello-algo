@@ -59,16 +59,16 @@ class BinarySearchTree {
     }
 
     /* 插入节点 */
-    TreeNode *insert(int num) {
+    void insert(int num) {
         // 若树为空，直接提前返回
         if (root == nullptr)
-            return nullptr;
+            return;
         TreeNode *cur = root, *pre = nullptr;
         // 循环查找，越过叶节点后跳出
         while (cur != nullptr) {
             // 找到重复节点，直接返回
             if (cur->val == num)
-                return nullptr;
+                return;
             pre = cur;
             // 插入位置在 cur 的右子树中
             if (cur->val < num)
@@ -83,14 +83,13 @@ class BinarySearchTree {
             pre->right = node;
         else
             pre->left = node;
-        return node;
     }
 
     /* 删除节点 */
-    TreeNode *remove(int num) {
+    void remove(int num) {
         // 若树为空，直接提前返回
         if (root == nullptr)
-            return nullptr;
+            return;
         TreeNode *cur = root, *pre = nullptr;
         // 循环查找，越过叶节点后跳出
         while (cur != nullptr) {
@@ -107,7 +106,7 @@ class BinarySearchTree {
         }
         // 若无待删除节点，则直接返回
         if (cur == nullptr)
-            return nullptr;
+            return;
         // 子节点数量 = 0 or 1
         if (cur->left == nullptr || cur->right == nullptr) {
             // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
@@ -123,25 +122,16 @@ class BinarySearchTree {
         // 子节点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个节点
-            TreeNode *nex = getInOrderNext(cur->right);
-            int tmp = nex->val;
-            // 递归删除节点 nex
-            remove(nex->val);
-            // 将 nex 的值复制给 cur
-            cur->val = tmp;
+            TreeNode *tmp = cur->right;
+            while (tmp->left != nullptr) {
+                tmp = tmp->left;
+            }
+            int tmpVal = tmp->val;
+            // 递归删除节点 tmp
+            remove(tmp->val);
+            // 用 tmp 覆盖 cur
+            cur->val = tmpVal;
         }
-        return cur;
-    }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    TreeNode *getInOrderNext(TreeNode *root) {
-        if (root == nullptr)
-            return root;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (root->left != nullptr) {
-            root = root->left;
-        }
-        return root;
     }
 };
 
@@ -158,7 +148,7 @@ int main() {
     cout << endl << "查找到的节点对象为 " << node << "，节点值 = " << node->val << endl;
 
     /* 插入节点 */
-    node = bst->insert(16);
+    bst->insert(16);
     cout << endl << "插入节点 16 后，二叉树为\n" << endl;
     printTree(bst->getRoot());
 

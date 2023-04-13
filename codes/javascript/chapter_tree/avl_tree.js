@@ -95,7 +95,6 @@ class AVLTree {
     /* 插入节点 */
     insert(val) {
         this.root = this.#insertHelper(this.root, val);
-        return this.root;
     }
 
     /* 递归插入节点（辅助方法） */
@@ -115,7 +114,6 @@ class AVLTree {
     /* 删除节点 */
     remove(val) {
         this.root = this.#removeHelper(this.root, val);
-        return this.root;
     }
 
     /* 递归删除节点（辅助方法） */
@@ -133,7 +131,10 @@ class AVLTree {
                 else node = child;
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                const temp = this.#getInOrderNext(node.right);
+                let temp = node.right;
+                while (temp.left !== null) {
+                    temp = temp.left;
+                }
                 node.right = this.#removeHelper(node.right, temp.val);
                 node.val = temp.val;
             }
@@ -142,16 +143,6 @@ class AVLTree {
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = this.#rotate(node);
         // 返回子树的根节点
-        return node;
-    }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    #getInOrderNext(node) {
-        if (node === null) return node;
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while (node.left !== null) {
-            node = node.left;
-        }
         return node;
     }
 

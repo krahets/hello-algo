@@ -69,15 +69,15 @@ pub fn BinarySearchTree(comptime T: type) type {
         }
 
         // 插入节点
-        fn insert(self: *Self, num: T) !?*inc.TreeNode(T) {
+        fn insert(self: *Self, num: T) !void {
             // 若树为空，直接提前返回
-            if (self.root == null) return null;
+            if (self.root == null) return;
             var cur = self.root;
             var pre: ?*inc.TreeNode(T) = null;
             // 循环查找，越过叶节点后跳出
             while (cur != null) {
                 // 找到重复节点，直接返回
-                if (cur.?.val == num) return null;
+                if (cur.?.val == num) return;
                 pre = cur;
                 // 插入位置在 cur 的右子树中
                 if (cur.?.val < num) {
@@ -95,13 +95,12 @@ pub fn BinarySearchTree(comptime T: type) type {
             } else {
                 pre.?.left = node;
             }
-            return node;
         }
 
         // 删除节点
-        fn remove(self: *Self, num: T) ?*inc.TreeNode(T) {
+        fn remove(self: *Self, num: T) !void {
             // 若树为空，直接提前返回
-            if (self.root == null) return null;
+            if (self.root == null) return;
             var cur = self.root;
             var pre: ?*inc.TreeNode(T) = null;
             // 循环查找，越过叶节点后跳出
@@ -118,7 +117,7 @@ pub fn BinarySearchTree(comptime T: type) type {
                 }
             }
             // 若无待删除节点，则直接返回
-            if (cur == null) return null;
+            if (cur == null) return;
             // 子节点数量 = 0 or 1
             if (cur.?.left == null or cur.?.right == null) {
                 // 当子节点数量 = 0 / 1 时， child = null / 该子节点
@@ -132,26 +131,16 @@ pub fn BinarySearchTree(comptime T: type) type {
             // 子节点数量 = 2
             } else {
                 // 获取中序遍历中 cur 的下一个节点
-                var nex = self.getInOrderNext(cur.?.right);
-                var tmp = nex.?.val;
-                // 递归删除节点 nex
-                _ = self.remove(nex.?.val);
-                // 将 nex 的值复制给 cur
-                cur.?.val = tmp;
+                var tmp = cur.?.right;
+                while (tmp.?.left != null) {
+                    tmp = tmp.?.left;
+                }
+                var tmpVal = tmp.?.val;
+                // 递归删除节点 tmp
+                _ = self.remove(tmp.?.val);
+                // 用 tmp 覆盖 cur
+                cur.?.val = tmpVal;
             }
-            return cur;
-        }
-
-        // 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况）
-        fn getInOrderNext(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
-            _ = self;
-            var node_tmp = node;
-            if (node_tmp == null) return null;
-            // 循环访问左子节点，直到叶节点时为最小节点，跳出
-            while (node_tmp.?.left != null) {
-                node_tmp = node_tmp.?.left;
-            }
-            return node_tmp;
         }
     };   
 }
