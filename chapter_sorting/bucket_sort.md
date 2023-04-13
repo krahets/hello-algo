@@ -218,7 +218,40 @@ comments: true
 === "C#"
 
     ```csharp title="bucket_sort.cs"
-    [class]{bucket_sort}-[func]{bucketSort}
+    /* 桶排序 */
+    void bucketSort(float[] nums)
+    {
+        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+        int k = nums.Length / 2;
+        List<List<float>> buckets = new List<List<float>>();
+        for (int i = 0; i < k; i++)
+        {
+            buckets.Add(new List<float>());
+        }
+        // 1. 将数组元素分配到各个桶中
+        foreach (float num in nums)
+        {
+            // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+            int i = (int)num * k;
+            // 将 num 添加进桶 i
+            buckets[i].Add(num);
+        }
+        // 2. 对各个桶执行排序
+        foreach (List<float> bucket in buckets)
+        {
+            // 使用内置排序函数，也可以替换成其他排序算法
+            bucket.Sort();
+        }
+        // 3. 遍历桶合并结果
+        int j = 0;
+        foreach (List<float> bucket in buckets)
+        {
+            foreach (float num in bucket)
+            {
+                nums[j++] = num;
+            }
+        }
+    }
     ```
 
 === "Swift"

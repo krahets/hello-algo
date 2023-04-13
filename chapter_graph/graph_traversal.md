@@ -223,7 +223,36 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 === "C#"
 
     ```csharp title="graph_bfs.cs"
-    [class]{graph_bfs}-[func]{graphBFS}
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet)
+    {
+        // 顶点遍历序列
+        List<Vertex> res = new List<Vertex>();
+        // 哈希表，用于记录已被访问过的顶点
+        HashSet<Vertex> visited = new HashSet<Vertex>() { startVet };
+        // 队列用于实现 BFS
+        Queue<Vertex> que = new Queue<Vertex>();
+        que.Enqueue(startVet);
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while (que.Count > 0)
+        {
+            Vertex vet = que.Dequeue(); // 队首顶点出队
+            res.Add(vet);               // 记录访问顶点
+            foreach (Vertex adjVet in graph.adjList[vet])
+            {
+                if (visited.Contains(adjVet))
+                {
+                    continue;          // 跳过已被访问过的顶点
+                }
+                que.Enqueue(adjVet);   // 只入队未访问的顶点
+                visited.Add(adjVet);   // 标记该顶点已被访问
+            }
+        }
+
+        // 返回顶点遍历序列
+        return res;
+    }
     ```
 
 === "Swift"
@@ -500,9 +529,34 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 === "C#"
 
     ```csharp title="graph_dfs.cs"
-    [class]{graph_dfs}-[func]{dfs}
+    /* 深度优先遍历 DFS 辅助函数 */
+    void dfs(GraphAdjList graph, HashSet<Vertex> visited, List<Vertex> res, Vertex vet)
+    {
+        res.Add(vet);     // 记录访问顶点
+        visited.Add(vet); // 标记该顶点已被访问
+        // 遍历该顶点的所有邻接顶点
+        foreach (Vertex adjVet in graph.adjList[vet])
+        {
+            if (visited.Contains(adjVet))
+            {
+                continue; // 跳过已被访问过的顶点                             
+            }
+            // 递归访问邻接顶点
+            dfs(graph, visited, res, adjVet);
+        }
+    }
 
-    [class]{graph_dfs}-[func]{graphDFS}
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet)
+    {
+        // 顶点遍历序列
+        List<Vertex> res = new List<Vertex>();
+        // 哈希表，用于记录已被访问过的顶点
+        HashSet<Vertex> visited = new HashSet<Vertex>();
+        dfs(graph, visited, res, startVet);
+        return res;
+    }
     ```
 
 === "Swift"
