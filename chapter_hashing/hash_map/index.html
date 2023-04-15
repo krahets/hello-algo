@@ -1446,8 +1446,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_sorting/intro_to_sort/" class="md-nav__link">
-        11.1. &nbsp; 排序简介
+      <a href="../../chapter_sorting/sorting_algorithm/" class="md-nav__link">
+        11.1. &nbsp; 排序算法
       </a>
     </li>
   
@@ -1593,19 +1593,17 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
-          12. &nbsp; &nbsp; 附录
+          12. &nbsp; &nbsp; 回溯算法
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_13">
           <span class="md-nav__icon md-icon"></span>
-          12. &nbsp; &nbsp; 附录
+          12. &nbsp; &nbsp; 回溯算法
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1615,22 +1613,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_appendix/installation/" class="md-nav__link">
-        12.1. &nbsp; 编程环境安装
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_appendix/contribution/" class="md-nav__link">
-        12.2. &nbsp; 一起参与创作
+      <a href="../../chapter_backtracking/backtracking_algorithm/" class="md-nav__link">
+        12.1. &nbsp; 回溯算法
       </a>
     </li>
   
@@ -1663,6 +1647,77 @@
       
         
           
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+          13. &nbsp; &nbsp; 附录
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          13. &nbsp; &nbsp; 附录
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_appendix/installation/" class="md-nav__link">
+        13.1. &nbsp; 编程环境安装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_appendix/contribution/" class="md-nav__link">
+        13.2. &nbsp; 一起参与创作
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+      
+      
+        
+          
             
           
         
@@ -1675,8 +1730,8 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_14">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_15">
           <span class="md-nav__icon md-icon"></span>
           参考文献
         </label>
@@ -2281,75 +2336,84 @@ f(x) = x \% 100
 <a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="w">        </span><span class="n">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Entry</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
 <a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>
-<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a><span class="w">    </span><span class="cm">/* 哈希函数 */</span>
-<a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">hashFunc</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
-<a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">index</span><span class="p">;</span>
-<a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a>
-<a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a><span class="w">    </span><span class="cm">/* 查询操作 */</span>
-<a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
-<a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a><span class="w">        </span><span class="n">Entry</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
-<a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
-<a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pair</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
-<a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a>
-<a id="__codelineno-21-38" name="__codelineno-21-38" href="#__codelineno-21-38"></a><span class="w">    </span><span class="cm">/* 添加操作 */</span>
-<a id="__codelineno-21-39" name="__codelineno-21-39" href="#__codelineno-21-39"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">put</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-40" name="__codelineno-21-40" href="#__codelineno-21-40"></a><span class="w">        </span><span class="n">Entry</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Entry</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-21-41" name="__codelineno-21-41" href="#__codelineno-21-41"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
-<a id="__codelineno-21-42" name="__codelineno-21-42" href="#__codelineno-21-42"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">;</span>
-<a id="__codelineno-21-43" name="__codelineno-21-43" href="#__codelineno-21-43"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-21-44" name="__codelineno-21-44" href="#__codelineno-21-44"></a>
-<a id="__codelineno-21-45" name="__codelineno-21-45" href="#__codelineno-21-45"></a><span class="w">    </span><span class="cm">/* 删除操作 */</span>
-<a id="__codelineno-21-46" name="__codelineno-21-46" href="#__codelineno-21-46"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">remove</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-47" name="__codelineno-21-47" href="#__codelineno-21-47"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
-<a id="__codelineno-21-48" name="__codelineno-21-48" href="#__codelineno-21-48"></a><span class="w">        </span><span class="c1">// 置为 nullptr ，代表删除</span>
-<a id="__codelineno-21-49" name="__codelineno-21-49" href="#__codelineno-21-49"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<a id="__codelineno-21-50" name="__codelineno-21-50" href="#__codelineno-21-50"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-21-51" name="__codelineno-21-51" href="#__codelineno-21-51"></a>
-<a id="__codelineno-21-52" name="__codelineno-21-52" href="#__codelineno-21-52"></a><span class="w">    </span><span class="cm">/* 获取所有键值对 */</span>
-<a id="__codelineno-21-53" name="__codelineno-21-53" href="#__codelineno-21-53"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Entry</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">entrySet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-54" name="__codelineno-21-54" href="#__codelineno-21-54"></a><span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Entry</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">entrySet</span><span class="p">;</span>
-<a id="__codelineno-21-55" name="__codelineno-21-55" href="#__codelineno-21-55"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Entry</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-56" name="__codelineno-21-56" href="#__codelineno-21-56"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-57" name="__codelineno-21-57" href="#__codelineno-21-57"></a><span class="w">                </span><span class="n">entrySet</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">pair</span><span class="p">);</span>
-<a id="__codelineno-21-58" name="__codelineno-21-58" href="#__codelineno-21-58"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-21-59" name="__codelineno-21-59" href="#__codelineno-21-59"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-21-60" name="__codelineno-21-60" href="#__codelineno-21-60"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">entrySet</span><span class="p">;</span>
-<a id="__codelineno-21-61" name="__codelineno-21-61" href="#__codelineno-21-61"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-21-62" name="__codelineno-21-62" href="#__codelineno-21-62"></a>
-<a id="__codelineno-21-63" name="__codelineno-21-63" href="#__codelineno-21-63"></a><span class="w">    </span><span class="cm">/* 获取所有键 */</span>
-<a id="__codelineno-21-64" name="__codelineno-21-64" href="#__codelineno-21-64"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">keySet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-65" name="__codelineno-21-65" href="#__codelineno-21-65"></a><span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">keySet</span><span class="p">;</span>
-<a id="__codelineno-21-66" name="__codelineno-21-66" href="#__codelineno-21-66"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Entry</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-67" name="__codelineno-21-67" href="#__codelineno-21-67"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-68" name="__codelineno-21-68" href="#__codelineno-21-68"></a><span class="w">                </span><span class="n">keySet</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">pair</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">);</span>
-<a id="__codelineno-21-69" name="__codelineno-21-69" href="#__codelineno-21-69"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-21-70" name="__codelineno-21-70" href="#__codelineno-21-70"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-21-71" name="__codelineno-21-71" href="#__codelineno-21-71"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">keySet</span><span class="p">;</span>
-<a id="__codelineno-21-72" name="__codelineno-21-72" href="#__codelineno-21-72"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-21-73" name="__codelineno-21-73" href="#__codelineno-21-73"></a>
-<a id="__codelineno-21-74" name="__codelineno-21-74" href="#__codelineno-21-74"></a><span class="w">    </span><span class="cm">/* 获取所有值 */</span>
-<a id="__codelineno-21-75" name="__codelineno-21-75" href="#__codelineno-21-75"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">valueSet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-76" name="__codelineno-21-76" href="#__codelineno-21-76"></a><span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">valueSet</span><span class="p">;</span>
-<a id="__codelineno-21-77" name="__codelineno-21-77" href="#__codelineno-21-77"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Entry</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-78" name="__codelineno-21-78" href="#__codelineno-21-78"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-79" name="__codelineno-21-79" href="#__codelineno-21-79"></a><span class="w">                </span><span class="n">valueSet</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">pair</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-21-80" name="__codelineno-21-80" href="#__codelineno-21-80"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-21-81" name="__codelineno-21-81" href="#__codelineno-21-81"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-21-82" name="__codelineno-21-82" href="#__codelineno-21-82"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">valueSet</span><span class="p">;</span>
-<a id="__codelineno-21-83" name="__codelineno-21-83" href="#__codelineno-21-83"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-21-84" name="__codelineno-21-84" href="#__codelineno-21-84"></a>
-<a id="__codelineno-21-85" name="__codelineno-21-85" href="#__codelineno-21-85"></a><span class="w">    </span><span class="cm">/* 打印哈希表 */</span>
-<a id="__codelineno-21-86" name="__codelineno-21-86" href="#__codelineno-21-86"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-87" name="__codelineno-21-87" href="#__codelineno-21-87"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Entry</span><span class="w"> </span><span class="o">*</span><span class="n">kv</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">entrySet</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-88" name="__codelineno-21-88" href="#__codelineno-21-88"></a><span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">kv</span><span class="o">-&gt;</span><span class="n">key</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; -&gt; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">kv</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<a id="__codelineno-21-89" name="__codelineno-21-89" href="#__codelineno-21-89"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-21-90" name="__codelineno-21-90" href="#__codelineno-21-90"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-21-91" name="__codelineno-21-91" href="#__codelineno-21-91"></a><span class="p">};</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a><span class="w">    </span><span class="o">~</span><span class="n">ArrayHashMap</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a><span class="w">        </span><span class="c1">// 释放内存</span>
+<a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bucket</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a><span class="w">            </span><span class="k">delete</span><span class="w"> </span><span class="n">bucket</span><span class="p">;</span>
+<a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a><span class="w">        </span><span class="n">buckets</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a>
+<a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a><span class="w">    </span><span class="cm">/* 哈希函数 */</span>
+<a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">hashFunc</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">index</span><span class="p">;</span>
+<a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a>
+<a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a><span class="w">    </span><span class="cm">/* 查询操作 */</span>
+<a id="__codelineno-21-38" name="__codelineno-21-38" href="#__codelineno-21-38"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-39" name="__codelineno-21-39" href="#__codelineno-21-39"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+<a id="__codelineno-21-40" name="__codelineno-21-40" href="#__codelineno-21-40"></a><span class="w">        </span><span class="n">Entry</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+<a id="__codelineno-21-41" name="__codelineno-21-41" href="#__codelineno-21-41"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+<a id="__codelineno-21-42" name="__codelineno-21-42" href="#__codelineno-21-42"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<a id="__codelineno-21-43" name="__codelineno-21-43" href="#__codelineno-21-43"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pair</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+<a id="__codelineno-21-44" name="__codelineno-21-44" href="#__codelineno-21-44"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-21-45" name="__codelineno-21-45" href="#__codelineno-21-45"></a>
+<a id="__codelineno-21-46" name="__codelineno-21-46" href="#__codelineno-21-46"></a><span class="w">    </span><span class="cm">/* 添加操作 */</span>
+<a id="__codelineno-21-47" name="__codelineno-21-47" href="#__codelineno-21-47"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">put</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-48" name="__codelineno-21-48" href="#__codelineno-21-48"></a><span class="w">        </span><span class="n">Entry</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Entry</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
+<a id="__codelineno-21-49" name="__codelineno-21-49" href="#__codelineno-21-49"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+<a id="__codelineno-21-50" name="__codelineno-21-50" href="#__codelineno-21-50"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">;</span>
+<a id="__codelineno-21-51" name="__codelineno-21-51" href="#__codelineno-21-51"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-21-52" name="__codelineno-21-52" href="#__codelineno-21-52"></a>
+<a id="__codelineno-21-53" name="__codelineno-21-53" href="#__codelineno-21-53"></a><span class="w">    </span><span class="cm">/* 删除操作 */</span>
+<a id="__codelineno-21-54" name="__codelineno-21-54" href="#__codelineno-21-54"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">remove</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-55" name="__codelineno-21-55" href="#__codelineno-21-55"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+<a id="__codelineno-21-56" name="__codelineno-21-56" href="#__codelineno-21-56"></a><span class="w">        </span><span class="c1">// 释放内存并置为 nullptr</span>
+<a id="__codelineno-21-57" name="__codelineno-21-57" href="#__codelineno-21-57"></a><span class="w">        </span><span class="k">delete</span><span class="w"> </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+<a id="__codelineno-21-58" name="__codelineno-21-58" href="#__codelineno-21-58"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<a id="__codelineno-21-59" name="__codelineno-21-59" href="#__codelineno-21-59"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-21-60" name="__codelineno-21-60" href="#__codelineno-21-60"></a>
+<a id="__codelineno-21-61" name="__codelineno-21-61" href="#__codelineno-21-61"></a><span class="w">    </span><span class="cm">/* 获取所有键值对 */</span>
+<a id="__codelineno-21-62" name="__codelineno-21-62" href="#__codelineno-21-62"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Entry</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">entrySet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-63" name="__codelineno-21-63" href="#__codelineno-21-63"></a><span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Entry</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">entrySet</span><span class="p">;</span>
+<a id="__codelineno-21-64" name="__codelineno-21-64" href="#__codelineno-21-64"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Entry</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-65" name="__codelineno-21-65" href="#__codelineno-21-65"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-66" name="__codelineno-21-66" href="#__codelineno-21-66"></a><span class="w">                </span><span class="n">entrySet</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">pair</span><span class="p">);</span>
+<a id="__codelineno-21-67" name="__codelineno-21-67" href="#__codelineno-21-67"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-21-68" name="__codelineno-21-68" href="#__codelineno-21-68"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-21-69" name="__codelineno-21-69" href="#__codelineno-21-69"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">entrySet</span><span class="p">;</span>
+<a id="__codelineno-21-70" name="__codelineno-21-70" href="#__codelineno-21-70"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-21-71" name="__codelineno-21-71" href="#__codelineno-21-71"></a>
+<a id="__codelineno-21-72" name="__codelineno-21-72" href="#__codelineno-21-72"></a><span class="w">    </span><span class="cm">/* 获取所有键 */</span>
+<a id="__codelineno-21-73" name="__codelineno-21-73" href="#__codelineno-21-73"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">keySet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-74" name="__codelineno-21-74" href="#__codelineno-21-74"></a><span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">keySet</span><span class="p">;</span>
+<a id="__codelineno-21-75" name="__codelineno-21-75" href="#__codelineno-21-75"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Entry</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-76" name="__codelineno-21-76" href="#__codelineno-21-76"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-77" name="__codelineno-21-77" href="#__codelineno-21-77"></a><span class="w">                </span><span class="n">keySet</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">pair</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">);</span>
+<a id="__codelineno-21-78" name="__codelineno-21-78" href="#__codelineno-21-78"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-21-79" name="__codelineno-21-79" href="#__codelineno-21-79"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-21-80" name="__codelineno-21-80" href="#__codelineno-21-80"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">keySet</span><span class="p">;</span>
+<a id="__codelineno-21-81" name="__codelineno-21-81" href="#__codelineno-21-81"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-21-82" name="__codelineno-21-82" href="#__codelineno-21-82"></a>
+<a id="__codelineno-21-83" name="__codelineno-21-83" href="#__codelineno-21-83"></a><span class="w">    </span><span class="cm">/* 获取所有值 */</span>
+<a id="__codelineno-21-84" name="__codelineno-21-84" href="#__codelineno-21-84"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">valueSet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-85" name="__codelineno-21-85" href="#__codelineno-21-85"></a><span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">valueSet</span><span class="p">;</span>
+<a id="__codelineno-21-86" name="__codelineno-21-86" href="#__codelineno-21-86"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Entry</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-87" name="__codelineno-21-87" href="#__codelineno-21-87"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-88" name="__codelineno-21-88" href="#__codelineno-21-88"></a><span class="w">                </span><span class="n">valueSet</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">pair</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+<a id="__codelineno-21-89" name="__codelineno-21-89" href="#__codelineno-21-89"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-21-90" name="__codelineno-21-90" href="#__codelineno-21-90"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-21-91" name="__codelineno-21-91" href="#__codelineno-21-91"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">valueSet</span><span class="p">;</span>
+<a id="__codelineno-21-92" name="__codelineno-21-92" href="#__codelineno-21-92"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-21-93" name="__codelineno-21-93" href="#__codelineno-21-93"></a>
+<a id="__codelineno-21-94" name="__codelineno-21-94" href="#__codelineno-21-94"></a><span class="w">    </span><span class="cm">/* 打印哈希表 */</span>
+<a id="__codelineno-21-95" name="__codelineno-21-95" href="#__codelineno-21-95"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-96" name="__codelineno-21-96" href="#__codelineno-21-96"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Entry</span><span class="w"> </span><span class="o">*</span><span class="n">kv</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">entrySet</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-97" name="__codelineno-21-97" href="#__codelineno-21-97"></a><span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">kv</span><span class="o">-&gt;</span><span class="n">key</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; -&gt; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">kv</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-21-98" name="__codelineno-21-98" href="#__codelineno-21-98"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-21-99" name="__codelineno-21-99" href="#__codelineno-21-99"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-21-100" name="__codelineno-21-100" href="#__codelineno-21-100"></a><span class="p">};</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
