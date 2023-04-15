@@ -124,6 +124,15 @@ int *treeToArr(TreeNode *root) {
     return arr;
 }
 
+/* Free the memory allocated to a tree */
+void freeMemoryTree(TreeNode *root) {
+    if (root == NULL)
+        return;
+    freeMemoryTree(root->left);
+    freeMemoryTree(root->right);
+    // 释放内存
+    free(root);
+}
 #ifdef __cplusplus
 }
 #endif
