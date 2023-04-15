@@ -23,7 +23,6 @@ def pre_order(root: TreeNode) -> None:
     pre_order(root.right)
     # 回退
     path.pop()
-    return
 
 
 """Driver Code"""

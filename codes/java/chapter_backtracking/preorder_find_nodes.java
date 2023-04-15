@@ -15,15 +15,12 @@ public class preorder_find_nodes {
         if (root == null) {
             return;
         }
-        // 尝试
         if (root.val == 7) {
             // 记录解
             res.add(root);
         }
         preOrder(root.left);
         preOrder(root.right);
-        // 回退
-        return;
     }
 
     public static void main(String[] args) {
