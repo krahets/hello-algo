@@ -8,13 +8,13 @@
 
 /* 基于环形数组实现的队列 */
 class ArrayQueue {
-private:
+  private:
     int *nums;       // 用于存储队列元素的数组
     int front;       // 队首指针，指向队首元素
     int queSize;     // 队列长度
     int queCapacity; // 队列容量
 
-public:
+  public:
     ArrayQueue(int capacity) {
         // 初始化数组
         nums = new int[capacity];
@@ -81,12 +81,11 @@ public:
     }
 };
 
-
 /* Driver Code */
 int main() {
     /* 初始化队列 */
     int capacity = 10;
-    ArrayQueue* queue = new ArrayQueue(capacity);
+    ArrayQueue *queue = new ArrayQueue(capacity);
 
     /* 元素入队 */
     queue->push(1);
@@ -95,16 +94,16 @@ int main() {
     queue->push(5);
     queue->push(4);
     cout << "队列 queue = ";
-    PrintUtil::printVector(queue->toVector());
+    printVector(queue->toVector());
 
     /* 访问队首元素 */
     int peek = queue->peek();
     cout << "队首元素 peek = " << peek << endl;
-    
+
     /* 元素出队 */
     queue->pop();
     cout << "出队元素 pop = " << peek << "，出队后 queue = ";
-    PrintUtil::printVector(queue->toVector());
+    printVector(queue->toVector());
 
     /* 获取队列的长度 */
     int size = queue->size();
@@ -119,7 +118,7 @@ int main() {
         queue->push(i);
         queue->pop();
         cout << "第 " << i << " 轮入队 + 出队后 queue = ";
-        PrintUtil::printVector(queue->toVector());
+        printVector(queue->toVector());
     }
 
     // 释放内存

@@ -9,7 +9,7 @@
 /* Driver Code */
 int main() {
     /* 初始化二叉树 */
-    // 初始化结点
+    // 初始化节点
     TreeNode* n1 = newTreeNode(1);
     TreeNode* n2 = newTreeNode(2);
     TreeNode* n3 = newTreeNode(3);
@@ -23,19 +23,19 @@ int main() {
     printf("初始化二叉树\n");
     printTree(n1);
 
-    /* 插入与删除结点 */
+    /* 插入与删除节点 */
     TreeNode* P = newTreeNode(0);
-    // 在 n1 -> n2 中间插入结点 P
+    // 在 n1 -> n2 中间插入节点 P
     n1->left = P;
     P->left = n2;
-    printf("插入结点 P 后\n");
+    printf("插入节点 P 后\n");
     printTree(n1);
 
-    // 删除结点 P
+    // 删除节点 P
     n1->left = n2;
     // 释放内存
     free(P);
-    printf("删除结点 P 后\n");
+    printf("删除节点 P 后\n");
     printTree(n1);
 
     return 0;

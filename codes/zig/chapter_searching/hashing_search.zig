@@ -15,7 +15,7 @@ fn hashingSearchArray(comptime T: type, map: std.AutoHashMap(T, T), target: T) T
 
 // 哈希查找（链表）
 fn hashingSearchLinkedList(comptime T: type, map: std.AutoHashMap(T, *inc.ListNode(T)), target: T) ?*inc.ListNode(T) {
-    // 哈希表的 key: 目标结点值，value: 结点对象
+    // 哈希表的 key: 目标节点值，value: 节点对象
     // 若哈希表中无此 key ，返回 null 
     if (map.getKey(target) == null) return null;
     return map.get(target);
@@ -49,7 +49,7 @@ pub fn main() !void {
         head = head.?.next;
     }
     var node = hashingSearchLinkedList(i32, map1, target);
-    std.debug.print("目标结点值 3 的对应结点对象为 ", .{});
+    std.debug.print("目标节点值 3 的对应节点对象为 ", .{});
     try inc.PrintUtil.printLinkedList(i32, node);
 
     _ = try std.io.getStdIn().reader().readByte();

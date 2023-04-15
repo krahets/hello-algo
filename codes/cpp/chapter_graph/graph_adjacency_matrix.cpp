@@ -11,16 +11,16 @@ class GraphAdjMat {
     vector<int> vertices;       // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
     vector<vector<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
-public:
+  public:
     /* 构造方法 */
-    GraphAdjMat(const vector<int>& vertices, const vector<vector<int>>& edges) {
+    GraphAdjMat(const vector<int> &vertices, const vector<vector<int>> &edges) {
         // 添加顶点
         for (int val : vertices) {
             addVertex(val);
         }
         // 添加边
         // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-        for (const vector<int>& edge : edges) {
+        for (const vector<int> &edge : edges) {
             addEdge(edge[0], edge[1]);
         }
     }
@@ -38,7 +38,7 @@ public:
         // 在邻接矩阵中添加一行
         adjMat.emplace_back(n, 0);
         // 在邻接矩阵中添加一列
-        for (vector<int>& row : adjMat) {
+        for (vector<int> &row : adjMat) {
             row.push_back(0);
         }
     }
@@ -53,7 +53,7 @@ public:
         // 在邻接矩阵中删除索引 index 的行
         adjMat.erase(adjMat.begin() + index);
         // 在邻接矩阵中删除索引 index 的列
-        for (vector<int>& row : adjMat) {
+        for (vector<int> &row : adjMat) {
             row.erase(row.begin() + index);
         }
     }
@@ -84,9 +84,9 @@ public:
     /* 打印邻接矩阵 */
     void print() {
         cout << "顶点列表 = ";
-        PrintUtil::printVector(vertices);
+        printVector(vertices);
         cout << "邻接矩阵 =" << endl;
-        PrintUtil::printVectorMatrix(adjMat);
+        printVectorMatrix(adjMat);
     }
 };
 
@@ -94,8 +94,8 @@ public:
 int main() {
     /* 初始化无向图 */
     // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-    vector<int> vertices = { 1, 3, 2, 5, 4 };
-    vector<vector<int>> edges = { { 0, 1 }, { 0, 3 }, { 1, 2 }, { 2, 3 }, { 2, 4 }, { 3, 4 } };
+    vector<int> vertices = {1, 3, 2, 5, 4};
+    vector<vector<int>> edges = {{0, 1}, {0, 3}, {1, 2}, {2, 3}, {2, 4}, {3, 4}};
     GraphAdjMat graph(vertices, edges);
     cout << "\n初始化后，图为" << endl;
     graph.print();

@@ -8,7 +8,6 @@ package chapter_computational_complexity;
 
 import java.util.*;
 
-
 public class leetcode_two_sum {
     /* 方法一：暴力枚举 */
     static int[] twoSumBruteForce(int[] nums, int target) {
@@ -40,9 +39,9 @@ public class leetcode_two_sum {
 
     public static void main(String[] args) {
         // ======= Test Case =======
-        int[] nums = { 2,7,11,15 };
+        int[] nums = { 2, 7, 11, 15 };
         int target = 9;
-        
+
         // ====== Driver Code ======
         // 方法一
         int[] res = twoSumBruteForce(nums, target);

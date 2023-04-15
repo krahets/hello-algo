@@ -8,8 +8,8 @@ const { ListNode } = require("../modules/ListNode");
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
-    #front;  // 头结点 #front
-    #rear;   // 尾结点 #rear
+    #front;  // 头节点 #front
+    #rear;   // 尾节点 #rear
     #queSize = 0;
 
     constructor() {
@@ -29,13 +29,13 @@ class LinkedListQueue {
 
     /* 入队 */
     push(num) {
-        // 尾结点后添加 num
+        // 尾节点后添加 num
         const node = new ListNode(num);
-        // 如果队列为空，则令头、尾结点都指向该结点
+        // 如果队列为空，则令头、尾节点都指向该节点
         if (!this.#front) {
             this.#front = node;
             this.#rear = node;
-            // 如果队列不为空，则将该结点添加到尾结点后
+            // 如果队列不为空，则将该节点添加到尾节点后
         } else {
             this.#rear.next = node;
             this.#rear = node;
@@ -46,7 +46,7 @@ class LinkedListQueue {
     /* 出队 */
     pop() {
         const num = this.peek();
-        // 删除头结点
+        // 删除头节点
         this.#front = this.#front.next;
         this.#queSize--;
         return num;

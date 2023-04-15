@@ -15,18 +15,19 @@ class BinarySearchTree {
 
     public BinarySearchTree(int[] nums) {
         Arrays.sort(nums); // 排序数组
-        root = buildTree(nums, 0, nums.length - 1);  // 构建二叉搜索树
+        root = buildTree(nums, 0, nums.length - 1); // 构建二叉搜索树
     }
 
-    /* 获取二叉树根结点 */
+    /* 获取二叉树根节点 */
     public TreeNode getRoot() {
         return root;
     }
 
     /* 构建二叉搜索树 */
     public TreeNode buildTree(int[] nums, int i, int j) {
-        if (i > j) return null;
-        // 将数组中间结点作为根结点
+        if (i > j)
+            return null;
+        // 将数组中间节点作为根节点
         int mid = (i + j) / 2;
         TreeNode root = new TreeNode(nums[mid]);
         // 递归建立左子树和右子树
@@ -35,90 +36,96 @@ class BinarySearchTree {
         return root;
     }
 
-    /* 查找结点 */
+    /* 查找节点 */
     public TreeNode search(int num) {
         TreeNode cur = root;
-        // 循环查找，越过叶结点后跳出
+        // 循环查找，越过叶节点后跳出
         while (cur != null) {
-            // 目标结点在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
-            // 目标结点在 cur 的左子树中
-            else if (cur.val > num) cur = cur.left;
-            // 找到目标结点，跳出循环
-            else break;
+            // 目标节点在 cur 的右子树中
+            if (cur.val < num)
+                cur = cur.right;
+            // 目标节点在 cur 的左子树中
+            else if (cur.val > num)
+                cur = cur.left;
+            // 找到目标节点，跳出循环
+            else
+                break;
         }
-        // 返回目标结点
+        // 返回目标节点
         return cur;
     }
 
-    /* 插入结点 */
-    public TreeNode insert(int num) {
+    /* 插入节点 */
+    public void insert(int num) {
         // 若树为空，直接提前返回
-        if (root == null) return null;
+        if (root == null)
+            return;
         TreeNode cur = root, pre = null;
-        // 循环查找，越过叶结点后跳出
+        // 循环查找，越过叶节点后跳出
         while (cur != null) {
-            // 找到重复结点，直接返回
-            if (cur.val == num) return null;
+            // 找到重复节点，直接返回
+            if (cur.val == num)
+                return;
             pre = cur;
             // 插入位置在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
+            if (cur.val < num)
+                cur = cur.right;
             // 插入位置在 cur 的左子树中
-            else cur = cur.left;
+            else
+                cur = cur.left;
         }
-        // 插入结点 val
+        // 插入节点 val
         TreeNode node = new TreeNode(num);
-        if (pre.val < num) pre.right = node;
-        else pre.left = node;
-        return node;
+        if (pre.val < num)
+            pre.right = node;
+        else
+            pre.left = node;
     }
 
-    /* 删除结点 */
-    public TreeNode remove(int num) {
+    /* 删除节点 */
+    public void remove(int num) {
         // 若树为空，直接提前返回
-        if (root == null) return null;
+        if (root == null)
+            return;
         TreeNode cur = root, pre = null;
-        // 循环查找，越过叶结点后跳出
+        // 循环查找，越过叶节点后跳出
         while (cur != null) {
-            // 找到待删除结点，跳出循环
-            if (cur.val == num) break;
+            // 找到待删除节点，跳出循环
+            if (cur.val == num)
+                break;
             pre = cur;
-            // 待删除结点在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
-            // 待删除结点在 cur 的左子树中
-            else cur = cur.left;
+            // 待删除节点在 cur 的右子树中
+            if (cur.val < num)
+                cur = cur.right;
+            // 待删除节点在 cur 的左子树中
+            else
+                cur = cur.left;
         }
-        // 若无待删除结点，则直接返回
-        if (cur == null) return null;
-        // 子结点数量 = 0 or 1
+        // 若无待删除节点，则直接返回
+        if (cur == null)
+            return;
+        // 子节点数量 = 0 or 1
         if (cur.left == null || cur.right == null) {
-            // 当子结点数量 = 0 / 1 时， child = null / 该子结点
+            // 当子节点数量 = 0 / 1 时， child = null / 该子节点
             TreeNode child = cur.left != null ? cur.left : cur.right;
-            // 删除结点 cur
-            if (pre.left == cur) pre.left = child;
-            else pre.right = child;
+            // 删除节点 cur
+            if (pre.left == cur)
+                pre.left = child;
+            else
+                pre.right = child;
         }
-        // 子结点数量 = 2
+        // 子节点数量 = 2
         else {
-            // 获取中序遍历中 cur 的下一个结点
-            TreeNode nex = getInOrderNext(cur.right);
-            int tmp = nex.val;
-            // 递归删除结点 nex
-            remove(nex.val);
-            // 将 nex 的值复制给 cur
-            cur.val = tmp;
+            // 获取中序遍历中 cur 的下一个节点
+            TreeNode tmp = cur.right;
+            while (tmp.left != null) {
+                tmp = tmp.left;
+            }
+            // 递归删除节点 tmp
+            remove(tmp.val);
+            // 用 tmp 覆盖 cur
+            cur.val = tmp.val;
         }
-        return cur;
-    }
-
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    public TreeNode getInOrderNext(TreeNode root) {
-        if (root == null) return root;
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while (root.left != null) {
-            root = root.left;
-        }
-        return root;
     }
 }
 
@@ -130,24 +137,24 @@ public class binary_search_tree {
         System.out.println("\n初始化的二叉树为\n");
         PrintUtil.printTree(bst.getRoot());
 
-        /* 查找结点 */
+        /* 查找节点 */
         TreeNode node = bst.search(7);
-        System.out.println("\n查找到的结点对象为 " + node + "，结点值 = " + node.val);
+        System.out.println("\n查找到的节点对象为 " + node + "，节点值 = " + node.val);
 
-        /* 插入结点 */
-        node = bst.insert(16);
-        System.out.println("\n插入结点 16 后，二叉树为\n");
+        /* 插入节点 */
+        bst.insert(16);
+        System.out.println("\n插入节点 16 后，二叉树为\n");
         PrintUtil.printTree(bst.getRoot());
 
-        /* 删除结点 */
+        /* 删除节点 */
         bst.remove(1);
-        System.out.println("\n删除结点 1 后，二叉树为\n");
+        System.out.println("\n删除节点 1 后，二叉树为\n");
         PrintUtil.printTree(bst.getRoot());
         bst.remove(2);
-        System.out.println("\n删除结点 2 后，二叉树为\n");
+        System.out.println("\n删除节点 2 后，二叉树为\n");
         PrintUtil.printTree(bst.getRoot());
         bst.remove(4);
-        System.out.println("\n删除结点 4 后，二叉树为\n");
+        System.out.println("\n删除节点 4 后，二叉树为\n");
         PrintUtil.printTree(bst.getRoot());
     }
 }

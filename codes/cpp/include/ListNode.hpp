@@ -9,23 +9,16 @@
 #include <iostream>
 using namespace std;
 
-/**
- * @brief Definition for a singly-linked list node
- * 
- */
+/* Definition for a singly-linked list node */
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {
+    }
 };
 
-/**
- * @brief Generate a linked list with a vector
- * 
- * @param list 
- * @return ListNode* 
- */
-ListNode* vecToLinkedList(vector<int> list) {
+/* Generate a linked list with a vector */
+ListNode *vecToLinkedList(vector<int> list) {
     ListNode *dum = new ListNode(0);
     ListNode *head = dum;
     for (int val : list) {
@@ -35,25 +28,15 @@ ListNode* vecToLinkedList(vector<int> list) {
     return dum->next;
 }
 
-/**
- * @brief Get a list node with specific value from a linked list
- * 
- * @param head 
- * @param val 
- * @return ListNode* 
- */
-ListNode* getListNode(ListNode *head, int val) {
+/* Get a list node with specific value from a linked list */
+ListNode *getListNode(ListNode *head, int val) {
     while (head != nullptr && head->val != val) {
         head = head->next;
     }
     return head;
 }
 
-/**
- * @brief Free the memory allocated to a linked list
- * 
- * @param cur 
- */
+/* Free the memory allocated to a linked list */
 void freeMemoryLinkedList(ListNode *cur) {
     // 释放内存
     ListNode *pre;

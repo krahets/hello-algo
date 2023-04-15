@@ -6,15 +6,14 @@
 
 #include "../include/include.hpp"
 
-
 /* 基于环形数组实现的双向队列 */
 class ArrayDeque {
-private:
-    vector<int> nums;  // 用于存储双向队列元素的数组
-    int front;         // 队首指针，指向队首元素
-    int queSize;       // 双向队列长度
+  private:
+    vector<int> nums; // 用于存储双向队列元素的数组
+    int front;        // 队首指针，指向队首元素
+    int queSize;      // 双向队列长度
 
-public:
+  public:
     /* 构造方法 */
     ArrayDeque(int capacity) {
         nums.resize(capacity);
@@ -122,7 +121,7 @@ int main() {
     deque->pushLast(2);
     deque->pushLast(5);
     cout << "双向队列 deque = ";
-    PrintUtil::printVector(deque->toVector());
+    printVector(deque->toVector());
 
     /* 访问元素 */
     int peekFirst = deque->peekFirst();
@@ -133,18 +132,18 @@ int main() {
     /* 元素入队 */
     deque->pushLast(4);
     cout << "元素 4 队尾入队后 deque = ";
-    PrintUtil::printVector(deque->toVector());
+    printVector(deque->toVector());
     deque->pushFirst(1);
     cout << "元素 1 队首入队后 deque = ";
-    PrintUtil::printVector(deque->toVector());
+    printVector(deque->toVector());
 
     /* 元素出队 */
     int popLast = deque->popLast();
     cout << "队尾出队元素 = " << popLast << "，队尾出队后 deque = ";
-    PrintUtil::printVector(deque->toVector());
+    printVector(deque->toVector());
     int popFirst = deque->popFirst();
     cout << "队首出队元素 = " << popFirst << "，队首出队后 deque = ";
-    PrintUtil::printVector(deque->toVector());
+    printVector(deque->toVector());
 
     /* 获取双向队列的长度 */
     int size = deque->size();

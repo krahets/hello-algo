@@ -13,7 +13,7 @@ import (
 
 func TestBinaryTree(t *testing.T) {
 	/* 初始化二叉树 */
-	// 初始化结点
+	// 初始化节点
 	n1 := NewTreeNode(1)
 	n2 := NewTreeNode(2)
 	n3 := NewTreeNode(3)
@@ -27,15 +27,15 @@ func TestBinaryTree(t *testing.T) {
 	fmt.Println("初始化二叉树")
 	PrintTree(n1)
 
-	/* 插入与删除结点 */
-	// 插入结点
+	/* 插入与删除节点 */
+	// 插入节点
 	p := NewTreeNode(0)
 	n1.Left = p
 	p.Left = n2
-	fmt.Println("插入结点 P 后")
+	fmt.Println("插入节点 P 后")
 	PrintTree(n1)
-	// 删除结点
+	// 删除节点
 	n1.Left = n2
-	fmt.Println("删除结点 P 后")
+	fmt.Println("删除节点 P 后")
 	PrintTree(n1)
 }

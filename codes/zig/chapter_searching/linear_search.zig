@@ -23,7 +23,7 @@ pub fn linearSearchLinkedList(comptime T: type, node: ?*inc.ListNode(T), target:
     var head = node;
     // 遍历链表
     while (head != null) {
-        // 找到目标结点，返回之
+        // 找到目标节点，返回之
         if (head.?.val == target) return head;
         head = head.?.next;
     }
@@ -47,7 +47,7 @@ pub fn main() !void {
     const mem_allocator = mem_arena.allocator();
     var head = try inc.ListUtil.listToLinkedList(i32, mem_allocator, nums);
     var node = linearSearchLinkedList(i32, head, target);
-    std.debug.print("目标结点值 3 的对应结点对象为 ", .{});
+    std.debug.print("目标节点值 3 的对应节点对象为 ", .{});
     try inc.PrintUtil.printLinkedList(i32, node);
 
     _ = try std.io.getStdIn().reader().readByte();

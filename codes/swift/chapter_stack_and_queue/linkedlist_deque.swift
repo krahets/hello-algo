@@ -4,11 +4,11 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 双向链表结点 */
+/* 双向链表节点 */
 class ListNode {
-    var val: Int // 结点值
-    var next: ListNode? // 后继结点引用（指针）
-    var prev: ListNode? // 前驱结点引用（指针）
+    var val: Int // 节点值
+    var next: ListNode? // 后继节点引用（指针）
+    var prev: ListNode? // 前驱节点引用（指针）
 
     init(val: Int) {
         self.val = val
@@ -17,8 +17,8 @@ class ListNode {
 
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {
-    private var front: ListNode? // 头结点 front
-    private var rear: ListNode? // 尾结点 rear
+    private var front: ListNode? // 头节点 front
+    private var rear: ListNode? // 尾节点 rear
     private var queSize: Int // 双向队列的长度
 
     init() {
@@ -48,14 +48,14 @@ class LinkedListDeque {
             // 将 node 添加至链表头部
             front?.prev = node
             node.next = front
-            front = node // 更新头结点
+            front = node // 更新头节点
         }
         // 队尾入队操作
         else {
             // 将 node 添加至链表尾部
             rear?.next = node
             node.prev = rear
-            rear = node // 更新尾结点
+            rear = node // 更新尾节点
         }
         queSize += 1 // 更新队列长度
     }
@@ -78,25 +78,25 @@ class LinkedListDeque {
         let val: Int
         // 队首出队操作
         if isFront {
-            val = front!.val // 暂存头结点值
-            // 删除头结点
+            val = front!.val // 暂存头节点值
+            // 删除头节点
             let fNext = front?.next
             if fNext != nil {
                 fNext?.prev = nil
                 front?.next = nil
             }
-            front = fNext // 更新头结点
+            front = fNext // 更新头节点
         }
         // 队尾出队操作
         else {
-            val = rear!.val // 暂存尾结点值
-            // 删除尾结点
+            val = rear!.val // 暂存尾节点值
+            // 删除尾节点
             let rPrev = rear?.prev
             if rPrev != nil {
                 rPrev?.next = nil
                 rear?.prev = nil
             }
-            rear = rPrev // 更新尾结点
+            rear = rPrev // 更新尾节点
         }
         queSize -= 1 // 更新队列长度
         return val

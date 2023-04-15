@@ -13,8 +13,8 @@ use list_node::ListNode;
 /* 基于链表实现的队列 */
 #[allow(dead_code)]
 pub struct LinkedListQueue<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>,    // 头结点 front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,     // 尾结点 rear 
+    front: Option<Rc<RefCell<ListNode<T>>>>,    // 头节点 front
+    rear: Option<Rc<RefCell<ListNode<T>>>>,     // 尾节点 rear 
     que_size: usize,                            // 队列的长度
 }
 
@@ -39,15 +39,15 @@ impl<T: Copy> LinkedListQueue<T> {
 
     /* 入队 */
     pub fn push(&mut self, num: T) {
-        // 尾结点后添加 num
+        // 尾节点后添加 num
         let new_rear = ListNode::new(num);
         match self.rear.take() {
-            // 如果队列不为空，则将该结点添加到尾结点后
+            // 如果队列不为空，则将该节点添加到尾节点后
             Some(old_rear) => {
                 old_rear.borrow_mut().next = Some(new_rear.clone());
                 self.rear = Some(new_rear);
             }
-            // 如果队列为空，则令头、尾结点都指向该结点
+            // 如果队列为空，则令头、尾节点都指向该节点
             None => {
                 self.front = Some(new_rear.clone());
                 self.rear = Some(new_rear);

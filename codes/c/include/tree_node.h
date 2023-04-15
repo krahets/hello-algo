@@ -52,18 +52,18 @@ TreeNode *arrToTree(const int *arr, size_t size) {
     TreeNode *root, *node;
     TreeNode **queue;
 
-    /* 根结点 */
+    /* 根节点 */
     root = newTreeNode(arr[0]);
     /* 辅助队列 */
     queue = (TreeNode **) malloc(sizeof(TreeNode) * MAX_NODE_SIZE);
     // 队列指针
     front = 0, rear = 0;
-    // 将根结点放入队尾
+    // 将根节点放入队尾
     queue[rear++] = root;
     // 记录遍历数组的索引
     index = 0;
     while (front < rear) {
-        // 取队列中的头结点，并让头结点出队
+        // 取队列中的头节点，并让头节点出队
         node = queue[front++];
         index++;
         if (index < size) {
@@ -103,14 +103,14 @@ int *treeToArr(TreeNode *root) {
     queue = (TreeNode **) malloc(sizeof(TreeNode) * MAX_NODE_SIZE);
     // 队列指针
     front = 0, rear = 0;
-    // 将根结点放入队尾
+    // 将根节点放入队尾
     queue[rear++] = root;
     /* 辅助数组 */
     arr = (int *) malloc(sizeof(int) * MAX_NODE_SIZE);
     // 数组指针
     index = 0;
     while (front < rear) {
-        // 取队列中的头结点，并让头结点出队
+        // 取队列中的头节点，并让头节点出队
         node = queue[front++];
         if (node != NULL) {
             arr[index] = node->val;

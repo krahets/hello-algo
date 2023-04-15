@@ -27,23 +27,23 @@ func newMaxHeap(nums []any) *maxHeap {
 	// 将列表元素原封不动添加进堆
 	h := &maxHeap{data: nums}
 	for i := len(h.data) - 1; i >= 0; i-- {
-		// 堆化除叶结点以外的其他所有结点
+		// 堆化除叶节点以外的其他所有节点
 		h.siftDown(i)
 	}
 	return h
 }
 
-/* 获取左子结点索引 */
+/* 获取左子节点索引 */
 func (h *maxHeap) left(i int) int {
 	return 2*i + 1
 }
 
-/* 获取右子结点索引 */
+/* 获取右子节点索引 */
 func (h *maxHeap) right(i int) int {
 	return 2*i + 2
 }
 
-/* 获取父结点索引 */
+/* 获取父节点索引 */
 func (h *maxHeap) parent(i int) int {
 	// 向下整除
 	return (i - 1) / 2
@@ -71,22 +71,22 @@ func (h *maxHeap) peek() any {
 
 /* 元素入堆 */
 func (h *maxHeap) push(val any) {
-	// 添加结点
+	// 添加节点
 	h.data = append(h.data, val)
 	// 从底至顶堆化
 	h.siftUp(len(h.data) - 1)
 }
 
-/* 从结点 i 开始，从底至顶堆化 */
+/* 从节点 i 开始，从底至顶堆化 */
 func (h *maxHeap) siftUp(i int) {
 	for true {
-		// 获取结点 i 的父结点
+		// 获取节点 i 的父节点
 		p := h.parent(i)
-		// 当“越过根结点”或“结点无需修复”时，结束堆化
+		// 当“越过根节点”或“节点无需修复”时，结束堆化
 		if p < 0 || h.data[i].(int) <= h.data[p].(int) {
 			break
 		}
-		// 交换两结点
+		// 交换两节点
 		h.swap(i, p)
 		// 循环向上堆化
 		i = p
@@ -100,9 +100,9 @@ func (h *maxHeap) pop() any {
 		fmt.Println("error")
 		return nil
 	}
-	// 交换根结点与最右叶结点（即交换首元素与尾元素）
+	// 交换根节点与最右叶节点（即交换首元素与尾元素）
 	h.swap(0, h.size()-1)
-	// 删除结点
+	// 删除节点
 	val := h.data[len(h.data)-1]
 	h.data = h.data[:len(h.data)-1]
 	// 从顶至底堆化
@@ -112,10 +112,10 @@ func (h *maxHeap) pop() any {
 	return val
 }
 
-/* 从结点 i 开始，从顶至底堆化 */
+/* 从节点 i 开始，从顶至底堆化 */
 func (h *maxHeap) siftDown(i int) {
 	for true {
-		// 判断结点 i, l, r 中值最大的结点，记为 max
+		// 判断节点 i, l, r 中值最大的节点，记为 max
 		l, r, max := h.left(i), h.right(i), i
 		if l < h.size() && h.data[l].(int) > h.data[max].(int) {
 			max = l
@@ -123,11 +123,11 @@ func (h *maxHeap) siftDown(i int) {
 		if r < h.size() && h.data[r].(int) > h.data[max].(int) {
 			max = r
 		}
-		// 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+		// 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
 		if max == i {
 			break
 		}
-		// 交换两结点
+		// 交换两节点
 		h.swap(i, max)
 		// 循环向下堆化
 		i = max

@@ -182,8 +182,10 @@ nav:
     - 11.3. &nbsp; 插入排序: chapter_sorting/insertion_sort.md
     - 11.4. &nbsp; 快速排序: chapter_sorting/quick_sort.md
     - 11.5. &nbsp; 归并排序: chapter_sorting/merge_sort.md
-    - 11.6. &nbsp; 计数排序（New）: chapter_sorting/counting_sort.md
-    - 11.7. &nbsp; 小结: chapter_sorting/summary.md
+    - 11.6. &nbsp; 桶排序（New）: chapter_sorting/bucket_sort.md
+    - 11.7. &nbsp; 计数排序（New）: chapter_sorting/counting_sort.md
+    - 11.8. &nbsp; 基数排序（New）: chapter_sorting/radix_sort.md
+    - 11.9. &nbsp; 小结: chapter_sorting/summary.md
   - 12. &nbsp; &nbsp; 附录:
     - 12.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
     - 12.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md

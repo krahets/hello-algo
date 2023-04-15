@@ -8,7 +8,7 @@ const inc = @import("include");
 // Driver Code
 pub fn main() !void {
     // 初始化二叉树
-    // 初始化结点
+    // 初始化节点
     var n1 = inc.TreeNode(i32){ .val = 1 };
     var n2 = inc.TreeNode(i32){ .val = 2 };
     var n3 = inc.TreeNode(i32){ .val = 3 };
@@ -22,16 +22,16 @@ pub fn main() !void {
     std.debug.print("初始化二叉树\n", .{});
     try inc.PrintUtil.printTree(&n1, null, false);
 
-    // 插入与删除结点
+    // 插入与删除节点
     var p = inc.TreeNode(i32){ .val = 0 };
-    // 在 n1 -> n2 中间插入结点 P
+    // 在 n1 -> n2 中间插入节点 P
     n1.left = &p;
     p.left = &n2;
-    std.debug.print("插入结点 P 后\n", .{});
+    std.debug.print("插入节点 P 后\n", .{});
     try inc.PrintUtil.printTree(&n1, null, false);
-    // 删除结点
+    // 删除节点
     n1.left = &n2;
-    std.debug.print("删除结点 P 后\n", .{});
+    std.debug.print("删除节点 P 后\n", .{});
     try inc.PrintUtil.printTree(&n1, null, false);
 
     _ = try std.io.getStdIn().reader().readByte();

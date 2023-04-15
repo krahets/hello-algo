@@ -13,3 +13,6 @@ docs/overrides/
 build/
 site/
 utils/
+
+# test script
+test.sh

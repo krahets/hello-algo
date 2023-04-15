@@ -6,23 +6,20 @@
 
 #include "../include/include.hpp"
 
-void testPush(priority_queue<int> &heap, int val)
-{
+void testPush(priority_queue<int> &heap, int val) {
     heap.push(val); // 元素入堆
     cout << "\n元素 " << val << " 入堆后" << endl;
-    PrintUtil::printHeap(heap);
+    printHeap(heap);
 }
 
-void testPop(priority_queue<int> &heap)
-{
+void testPop(priority_queue<int> &heap) {
     int val = heap.top();
     heap.pop();
     cout << "\n堆顶元素 " << val << " 出堆后" << endl;
-    PrintUtil::printHeap(heap);
+    printHeap(heap);
 }
 
-int main()
-{
+int main() {
     /* 初始化堆 */
     // 初始化小顶堆
     // priority_queue<int, vector<int>, greater<int>> minHeap;
@@ -62,6 +59,6 @@ int main()
     vector<int> input{1, 3, 2, 5, 4};
     priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
     cout << "输入列表并建立小顶堆后" << endl;
-    PrintUtil::printHeap(minHeap);
+    printHeap(minHeap);
     return 0;
 }
