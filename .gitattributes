@@ -2,13 +2,13 @@
 *.py linguist-language=Python
 *.cpp linguist-language=C++
 *.hpp linguist-language=C++
-*.c linguist-language=C
 *.h linguist-language=C
 *.go linguist-language=Go
 *.js linguist-language=JavaScript
 *.ts linguist-language=TypeScript
 *.swift linguist-language=Swift
 
+*.c linguist-language=C
 *.cs linguist-language=Other
 *.zig linguist-language=Other
 *.rs linguist-language=Other
