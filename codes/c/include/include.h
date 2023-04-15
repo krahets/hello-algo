@@ -18,7 +18,7 @@
 #include "tree_node.h"
 #include "print_util.h"
 
-// 三方 hash 实现，非 c 官方
+// hash table lib
 #include "uthash.h"
 
 #ifdef __cplusplus
