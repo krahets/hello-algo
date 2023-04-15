@@ -18,6 +18,9 @@
 #include "tree_node.h"
 #include "print_util.h"
 
+// 三方 hash 实现，非 c 官方
+#include "uthash.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
