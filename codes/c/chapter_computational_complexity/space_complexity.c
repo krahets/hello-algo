@@ -67,7 +67,7 @@ void linear(int n) {
     HASH_ITER(hh, h, curr, tmp) {
         HASH_DEL(h, curr);
         free(curr);
-   }
+    }
 }
 
 /* 线性阶（递归实现） */
