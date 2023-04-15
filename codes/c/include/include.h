@@ -18,6 +18,9 @@
 #include "tree_node.h"
 #include "print_util.h"
 
+// hash table lib
+#include "uthash.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
