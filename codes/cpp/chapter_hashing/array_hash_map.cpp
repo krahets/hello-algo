@@ -61,7 +61,7 @@ class ArrayHashMap {
     /* 删除操作 */
     void remove(int key) {
         int index = hashFunc(key);
-        // 先释放，在置为 nullptr
+        // 释放内存并置为 nullptr
         delete buckets[index];
         buckets[index] = nullptr;
     }
