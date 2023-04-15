@@ -20,15 +20,12 @@ comments: true
         if (root == null) {
             return;
         }
-        // 尝试
         if (root.val == 7) {
             // 记录解
             res.add(root);
         }
         preOrder(root.left);
         preOrder(root.right);
-        // 回退
-        return;
     }
     ```
 
@@ -153,7 +150,6 @@ comments: true
         pre_order(root.right)
         # 回退
         path.pop()
-        return
     ```
 
 === "Go"
@@ -286,7 +282,6 @@ comments: true
         pre_order(root.right)
         # 回退
         path.pop()
-        return
     ```
 
 === "Go"
