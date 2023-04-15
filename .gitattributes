@@ -8,9 +8,10 @@
 *.ts linguist-language=TypeScript
 *.swift linguist-language=Swift
 
-*.c linguist-language=C
+*.c linguist-language=Other
 *.cs linguist-language=Other
 *.zig linguist-language=Other
 *.rs linguist-language=Other
+*.dart linguist-language=Other
 *.html linguist-detectable=false
 *.css linguist-detectable=false
