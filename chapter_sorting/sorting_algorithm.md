@@ -2,16 +2,15 @@
 comments: true
 ---
 
-# 11.1. &nbsp; 排序简介
+# 11.1. &nbsp; 排序算法
 
-「排序算法 Sorting Algorithm」使列表中的所有元素按照升序排列。
+「排序算法 Sorting Algorithm」用于对一组数据按照特定顺序进行排列。排序算法有着广泛的应用，因为有序数据通常能够被更有效地查找、分析和处理。
 
-- 待排序列表的元素类型可以是整数、浮点数、字符或字符串等；
-- 排序算法可根据需求设定判断规则，如数字大小、字符 ASCII 码顺序或自定义规则；
+在排序算法中，数据类型可以是整数、浮点数、字符或字符串等；顺序的判断规则可根据需求设定，如数字大小、字符 ASCII 码顺序或自定义规则。
 
-![排序中不同的元素类型和判断规则](intro_to_sort.assets/sorting_examples.png)
+![数据类型和判断规则示例](sorting_algorithm.assets/sorting_examples.png)
 
-<p align="center"> Fig. 排序中不同的元素类型和判断规则 </p>
+<p align="center"> Fig. 数据类型和判断规则示例 </p>
 
 ## 11.1.1. &nbsp; 评价维度
 
