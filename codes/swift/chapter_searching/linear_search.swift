@@ -24,13 +24,13 @@ func linearSearchLinkedList(head: ListNode?, target: Int) -> ListNode? {
     var head = head
     // 遍历链表
     while head != nil {
-        // 找到目标结点，返回之
+        // 找到目标节点，返回之
         if head?.val == target {
             return head
         }
         head = head?.next
     }
-    // 未找到目标结点，返回 null
+    // 未找到目标节点，返回 null
     return nil
 }
 
@@ -48,6 +48,6 @@ enum LinearSearch {
         /* 在链表中执行线性查找 */
         let head = ListNode.arrToLinkedList(arr: nums)
         let node = linearSearchLinkedList(head: head, target: target)
-        print("目标结点值 3 的对应结点对象为 \(node!)")
+        print("目标节点值 3 的对应节点对象为 \(node!)")
     }
 }

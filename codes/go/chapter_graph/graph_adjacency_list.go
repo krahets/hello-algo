@@ -79,7 +79,7 @@ func (g *graphAdjList) removeVertex(vet Vertex) {
 	}
 	// 在邻接表中删除顶点 vet 对应的链表
 	delete(g.adjList, vet)
-	// 遍历其它顶点的链表，删除所有包含 vet 的边
+	// 遍历其他顶点的链表，删除所有包含 vet 的边
 	for _, list := range g.adjList {
 		DeleteSliceElms(list, vet)
 	}

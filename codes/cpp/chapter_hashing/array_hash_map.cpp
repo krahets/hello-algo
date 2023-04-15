@@ -8,7 +8,7 @@
 
 /* 键值对 int->String */
 struct Entry {
-public:
+  public:
     int key;
     string val;
     Entry(int key, string val) {
@@ -19,12 +19,13 @@ public:
 
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
-private:
-    vector<Entry*> buckets;
-public:
+  private:
+    vector<Entry *> buckets;
+
+  public:
     ArrayHashMap() {
         // 初始化数组，包含 100 个桶
-        buckets = vector<Entry*>(100);
+        buckets = vector<Entry *>(100);
     }
 
     ~ArrayHashMap() {
@@ -44,7 +45,7 @@ public:
     /* 查询操作 */
     string get(int key) {
         int index = hashFunc(key);
-        Entry* pair = buckets[index];
+        Entry *pair = buckets[index];
         if (pair == nullptr)
             return nullptr;
         return pair->val;
@@ -52,7 +53,7 @@ public:
 
     /* 添加操作 */
     void put(int key, string val) {
-        Entry* pair = new Entry(key, val);
+        Entry *pair = new Entry(key, val);
         int index = hashFunc(key);
         buckets[index] = pair;
     }
@@ -66,9 +67,9 @@ public:
     }
 
     /* 获取所有键值对 */
-    vector<Entry*> entrySet() {
-        vector<Entry*> entrySet;
-        for (Entry* pair: buckets) {
+    vector<Entry *> entrySet() {
+        vector<Entry *> entrySet;
+        for (Entry *pair : buckets) {
             if (pair != nullptr) {
                 entrySet.push_back(pair);
             }
@@ -79,7 +80,7 @@ public:
     /* 获取所有键 */
     vector<int> keySet() {
         vector<int> keySet;
-        for (Entry* pair: buckets) {
+        for (Entry *pair : buckets) {
             if (pair != nullptr) {
                 keySet.push_back(pair->key);
             }
@@ -90,8 +91,8 @@ public:
     /* 获取所有值 */
     vector<string> valueSet() {
         vector<string> valueSet;
-        for (Entry* pair: buckets) {
-            if (pair != nullptr){
+        for (Entry *pair : buckets) {
+            if (pair != nullptr) {
                 valueSet.push_back(pair->val);
             }
         }
@@ -100,7 +101,7 @@ public:
 
     /* 打印哈希表 */
     void print() {
-        for (Entry* kv: entrySet()) {
+        for (Entry *kv : entrySet()) {
             cout << kv->key << " -> " << kv->val << endl;
         }
     }
@@ -134,17 +135,17 @@ int main() {
 
     /* 遍历哈希表 */
     cout << "\n遍历键值对 Key->Value" << endl;
-    for (auto kv: map.entrySet()) {
+    for (auto kv : map.entrySet()) {
         cout << kv->key << " -> " << kv->val << endl;
     }
 
     cout << "\n单独遍历键 Key" << endl;
-    for (auto key: map.keySet()) {
+    for (auto key : map.keySet()) {
         cout << key << endl;
     }
 
     cout << "\n单独遍历值 Value" << endl;
-    for (auto val: map.valueSet()) {
+    for (auto val : map.valueSet()) {
         cout << val << endl;
     }
 

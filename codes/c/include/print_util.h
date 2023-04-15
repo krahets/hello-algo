@@ -28,20 +28,20 @@ extern "C" {
 static void printArray(int arr[], int size) {
     printf("[");
     if (arr != NULL && size != 0) {
-      for (int i = 0; i < size - 1; i++) {
-          if (arr[i] != NIL) {
-              printf("%d, ", arr[i]);
-          } else {
-              printf("NULL, ");
-          }
-      }
-      if (arr[size - 1] != NIL) {
-          printf("%d]\n", arr[size - 1]);
-      } else {
-          printf("NULL]\n");
-      }
+        for (int i = 0; i < size - 1; i++) {
+            if (arr[i] != NIL) {
+                printf("%d, ", arr[i]);
+            } else {
+                printf("NULL, ");
+            }
+        }
+        if (arr[size - 1] != NIL) {
+            printf("%d]\n", arr[size - 1]);
+        } else {
+            printf("NULL]\n");
+        }
     } else {
-      printf("]");
+        printf("]");
     }
 }
 
@@ -138,7 +138,7 @@ static void printTree(TreeNode *root) {
  * @param size
  */
 static void printHeap(int arr[], int size) {
-    TreeNode * root;
+    TreeNode *root;
     printf("堆的数组表示：");
     printArray(arr, size);
     printf("堆的树状表示：\n");

@@ -22,12 +22,12 @@ int linearSearchArray(int *nums, int len, int target) {
 ListNode* linearSearchLinkedList(ListNode* head, int target) {
     // 遍历链表
     while (head != NULL) {
-        // 找到目标结点，返回之
+        // 找到目标节点，返回之
         if (head->val == target)
             return head;
         head = head->next;
     }
-    // 未找到目标结点，返回 NULL
+    // 未找到目标节点，返回 NULL
     return NULL;
 }
 
@@ -44,9 +44,9 @@ int main() {
     ListNode* head = arrToLinkedList(nums, 10);
     ListNode* node = linearSearchLinkedList(head, target);
     if(node == NULL) {
-        printf("目标结点值 3 的对应结点对象为 NULL\n");
+        printf("目标节点值 3 的对应节点对象为 NULL\n");
     } else {
-        printf("目标结点值 3 的对应结点对象为 addr: %p val: %d\n", node, node->val);
+        printf("目标节点值 3 的对应节点对象为 addr: %p val: %d\n", node, node->val);
     }
 
     return 0;

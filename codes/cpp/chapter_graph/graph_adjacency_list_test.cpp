@@ -9,9 +9,9 @@
 /* Driver Code */
 int main() {
     /* 初始化无向图 */
-    vector<Vertex*> v = valsToVets(vector<int> { 1, 3, 2, 5, 4 });
-    vector<vector<Vertex*>> edges = { { v[0], v[1] }, { v[0], v[3] }, { v[1], v[2] }, 
-                                      { v[2], v[3] }, { v[2], v[4] }, { v[3], v[4] } };
+    vector<Vertex *> v = valsToVets(vector<int>{1, 3, 2, 5, 4});
+    vector<vector<Vertex *>> edges = {{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]},
+                                      {v[2], v[3]}, {v[2], v[4]}, {v[3], v[4]}};
     GraphAdjList graph(edges);
     cout << "\n初始化后，图为" << endl;
     graph.print();
@@ -29,7 +29,7 @@ int main() {
     graph.print();
 
     /* 添加顶点 */
-    Vertex* v5 = new Vertex(6);
+    Vertex *v5 = new Vertex(6);
     graph.addVertex(v5);
     cout << "\n添加顶点 6 后，图为" << endl;
     graph.print();

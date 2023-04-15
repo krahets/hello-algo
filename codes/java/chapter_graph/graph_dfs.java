@@ -37,7 +37,7 @@ public class graph_dfs {
     public static void main(String[] args) {
         /* 初始化无向图 */
         Vertex[] v = Vertex.valsToVets(new int[] { 0, 1, 2, 3, 4, 5, 6 });
-        Vertex[][] edges = { { v[0], v[1] }, { v[0], v[3] }, { v[1], v[2] }, 
+        Vertex[][] edges = { { v[0], v[1] }, { v[0], v[3] }, { v[1], v[2] },
                              { v[2], v[5] }, { v[4], v[5] }, { v[5], v[6] } };
         GraphAdjList graph = new GraphAdjList(edges);
         System.out.println("\n初始化后，图为");

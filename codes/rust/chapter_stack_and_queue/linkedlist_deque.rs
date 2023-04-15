@@ -9,11 +9,11 @@ include!("../include/include.rs");
 use std::rc::Rc;
 use std::cell::RefCell;
 
-/* 双向链表结点 */
+/* 双向链表节点 */
 pub struct ListNode<T> {
-    pub val: T,                                 // 结点值
-    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继结点引用（指针）
-    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱结点引用（指针）
+    pub val: T,                                 // 节点值
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点引用（指针）
+    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱节点引用（指针）
 }
 
 impl<T> ListNode<T> {
@@ -29,8 +29,8 @@ impl<T> ListNode<T> {
 /* 基于双向链表实现的双向队列 */
 #[allow(dead_code)]
 pub struct LinkedListDeque<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>,    // 头结点 front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,     // 尾结点 rear 
+    front: Option<Rc<RefCell<ListNode<T>>>>,    // 头节点 front
+    rear: Option<Rc<RefCell<ListNode<T>>>>,     // 尾节点 rear 
     que_size: usize,                            // 双向队列的长度
 }
 
@@ -63,7 +63,7 @@ impl<T: Copy> LinkedListDeque<T> {
                 Some(old_front) => {
                     old_front.borrow_mut().prev = Some(node.clone());
                     node.borrow_mut().next = Some(old_front);
-                    self.front = Some(node); // 更新头结点
+                    self.front = Some(node); // 更新头节点
                 }
                 None => {
                     self.rear = Some(node.clone());
@@ -77,7 +77,7 @@ impl<T: Copy> LinkedListDeque<T> {
                 Some(old_rear) => {
                     old_rear.borrow_mut().next = Some(node.clone());
                     node.borrow_mut().prev = Some(old_rear);
-                    self.rear = Some(node); // 更新尾结点
+                    self.rear = Some(node); // 更新尾节点
                 }
                 None => {
                     self.front = Some(node.clone());
@@ -107,7 +107,7 @@ impl<T: Copy> LinkedListDeque<T> {
                 match old_front.borrow_mut().next.take() {
                     Some(new_front) => {
                         new_front.borrow_mut().prev.take();
-                        self.front = Some(new_front);   // 更新头结点
+                        self.front = Some(new_front);   // 更新头节点
                     }
                     None => {
                         self.rear.take();
@@ -122,7 +122,7 @@ impl<T: Copy> LinkedListDeque<T> {
                 match old_rear.borrow_mut().prev.take() {
                     Some(new_rear) => {
                         new_rear.borrow_mut().next.take();
-                        self.rear = Some(new_rear);     // 更新尾结点
+                        self.rear = Some(new_rear);     // 更新尾节点
                     }
                     None => {
                         self.front.take();

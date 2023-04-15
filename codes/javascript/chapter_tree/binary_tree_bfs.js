@@ -9,17 +9,17 @@ const { printTree } = require("../modules/PrintUtil");
 
 /* 层序遍历 */
 function levelOrder(root) {
-    // 初始化队列，加入根结点
+    // 初始化队列，加入根节点
     const queue = [root];
     // 初始化一个列表，用于保存遍历序列
     const list = [];
     while (queue.length) {
         let node = queue.shift();   // 队列出队
-        list.push(node.val);        // 保存结点值
+        list.push(node.val);        // 保存节点值
         if (node.left)
-            queue.push(node.left);  // 左子结点入队
+            queue.push(node.left);  // 左子节点入队
         if (node.right)
-            queue.push(node.right); // 右子结点入队
+            queue.push(node.right); // 右子节点入队
 
     }
     return list;
@@ -34,4 +34,4 @@ printTree(root);
 
 /* 层序遍历 */
 const list = levelOrder(root);
-console.log("\n层序遍历的结点打印序列 = " + list);
+console.log("\n层序遍历的节点打印序列 = " + list);

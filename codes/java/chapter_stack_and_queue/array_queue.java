@@ -10,8 +10,8 @@ import java.util.*;
 
 /* 基于环形数组实现的队列 */
 class ArrayQueue {
-    private int[] nums;  // 用于存储队列元素的数组
-    private int front;   // 队首指针，指向队首元素
+    private int[] nums; // 用于存储队列元素的数组
+    private int front; // 队首指针，指向队首元素
     private int queSize; // 队列长度
 
     public ArrayQueue(int capacity) {

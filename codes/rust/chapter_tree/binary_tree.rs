@@ -26,14 +26,14 @@ fn main() {
 
     // 插入节点与删除节点
     let p = TreeNode::new(0);
-    // 在 n1 -> n2 中间插入结点 P
+    // 在 n1 -> n2 中间插入节点 P
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
-    println!("\n插入结点 P 后\n");
+    println!("\n插入节点 P 后\n");
     print_util::print_tree(&n1);
-    // 删除结点 P
+    // 删除节点 P
     drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
-    println!("\n删除结点 P 后\n");
+    println!("\n删除节点 P 后\n");
     print_util::print_tree(&n1);
 }

@@ -9,7 +9,6 @@ package chapter_heap;
 import include.*;
 import java.util.*;
 
-
 public class heap {
     public static void testPush(Queue<Integer> heap, int val) {
         heap.offer(val); // 元素入堆

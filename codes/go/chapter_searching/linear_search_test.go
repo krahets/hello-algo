@@ -22,5 +22,5 @@ func TestLinearSearch(t *testing.T) {
 	// 在链表中执行线性查找
 	head := ArrayToLinkedList(nums)
 	node := linearSearchLinkedList(head, target)
-	fmt.Println("目标结点值 3 的对应结点对象为", node)
+	fmt.Println("目标节点值 3 的对应节点对象为", node)
 }

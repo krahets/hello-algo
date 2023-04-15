@@ -16,7 +16,7 @@ function preOrder(root: TreeNode | null): void {
     if (root === null) {
         return;
     }
-    // 访问优先级：根结点 -> 左子树 -> 右子树
+    // 访问优先级：根节点 -> 左子树 -> 右子树
     list.push(root.val);
     preOrder(root.left);
     preOrder(root.right);
@@ -27,7 +27,7 @@ function inOrder(root: TreeNode | null): void {
     if (root === null) {
         return;
     }
-    // 访问优先级：左子树 -> 根结点 -> 右子树
+    // 访问优先级：左子树 -> 根节点 -> 右子树
     inOrder(root.left);
     list.push(root.val);
     inOrder(root.right);
@@ -38,7 +38,7 @@ function postOrder(root: TreeNode | null): void {
     if (root === null) {
         return;
     }
-    // 访问优先级：左子树 -> 右子树 -> 根结点
+    // 访问优先级：左子树 -> 右子树 -> 根节点
     postOrder(root.left);
     postOrder(root.right);
     list.push(root.val);
@@ -54,16 +54,16 @@ printTree(root);
 /* 前序遍历 */
 list.length = 0;
 preOrder(root);
-console.log('\n前序遍历的结点打印序列 = ' + list);
+console.log('\n前序遍历的节点打印序列 = ' + list);
 
 /* 中序遍历 */
 list.length = 0;
 inOrder(root);
-console.log('\n中序遍历的结点打印序列 = ' + list);
+console.log('\n中序遍历的节点打印序列 = ' + list);
 
 /* 后序遍历 */
 list.length = 0;
 postOrder(root);
-console.log('\n后序遍历的结点打印序列 = ' + list);
+console.log('\n后序遍历的节点打印序列 = ' + list);
 
 export {};

@@ -8,10 +8,10 @@
  * Definition for a binary tree node.
  */
 class TreeNode {
-    val: number;            // 结点值
-    height: number;         // 结点高度
-    left: TreeNode | null;  // 左子结点指针
-    right: TreeNode | null; // 右子结点指针
+    val: number;            // 节点值
+    height: number;         // 节点高度
+    left: TreeNode | null;  // 左子节点指针
+    right: TreeNode | null; // 右子节点指针
     constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
         this.val = val === undefined ? 0 : val;
         this.height = height === undefined ? 0 : height; 

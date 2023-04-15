@@ -27,23 +27,23 @@ maxHeap *newMaxHeap(int nums[], int size) {
     h->size = size;
     memcpy(h->data, nums, size * sizeof(int));
     for (int i = size - 1; i >= 0; i--) {
-        // 堆化除叶结点以外的其他所有结点
+        // 堆化除叶节点以外的其他所有节点
         siftDown(h, i);
     }
     return h;
 }
 
-/* 获取左子结点索引 */
+/* 获取左子节点索引 */
 int left(maxHeap *h, int i) {
     return 2 * i + 1;
 }
 
-/* 获取右子结点索引 */
+/* 获取右子节点索引 */
 int right(maxHeap *h, int i) {
     return 2 * i + 2;
 }
 
-/* 获取父结点索引 */
+/* 获取父节点索引 */
 int parent(maxHeap *h, int i) {
     return (i - 1) / 2;
 }
@@ -72,12 +72,12 @@ int peek(maxHeap *h) {
 
 /* 元素入堆 */
 int push(maxHeap *h, int val) {
-    // 默认情况下，不应该添加这么多结点
+    // 默认情况下，不应该添加这么多节点
     if (h->size == MAX_SIZE) {
         printf("heap is full!");
         return NIL;
     }
-    // 添加结点
+    // 添加节点
     h->data[h->size] = val;
     h->size++;
 
@@ -92,9 +92,9 @@ int pop(maxHeap *h) {
         printf("heap is empty!");
         return NIL;
     }
-    // 交换根结点与最右叶结点（即交换首元素与尾元素）
+    // 交换根节点与最右叶节点（即交换首元素与尾元素）
     swap(h, 0, size(h) - 1);
-    // 删除结点
+    // 删除节点
     int val = h->data[h->size - 1];
     h->size--;
     // 从顶至底堆化
@@ -105,10 +105,10 @@ int pop(maxHeap *h) {
 }
 
 
-/* 从结点 i 开始，从顶至底堆化 */
+/* 从节点 i 开始，从顶至底堆化 */
 void siftDown(maxHeap *h, int i) {
     while (true) {
-        // 判断结点 i, l, r 中值最大的结点，记为 max
+        // 判断节点 i, l, r 中值最大的节点，记为 max
         int l = left(h, i);
         int r = right(h, i);
         int max = i;
@@ -118,27 +118,27 @@ void siftDown(maxHeap *h, int i) {
         if (r < size(h) && h->data[r] > h->data[max]) {
             max = r;
         }
-        // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+        // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
         if (max == i) {
             break;
         }
-        // 交换两结点
+        // 交换两节点
         swap(h, i, max);
         // 循环向下堆化
         i = max;
     }
 }
 
-/* 从结点 i 开始，从底至顶堆化 */
+/* 从节点 i 开始，从底至顶堆化 */
 void siftUp(maxHeap *h, int i) {
     while (true) {
-        // 获取结点 i 的父结点
+        // 获取节点 i 的父节点
         int p = parent(h, i);
-        // 当“越过根结点”或“结点无需修复”时，结束堆化
+        // 当“越过根节点”或“节点无需修复”时，结束堆化
         if (p < 0 || h->data[i] <= h->data[p]) {
             break;
         }
-        // 交换两结点
+        // 交换两节点
         swap(h, i, p);
         // 循环向上堆化
         i = p;

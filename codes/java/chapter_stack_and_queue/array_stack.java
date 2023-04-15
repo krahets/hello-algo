@@ -11,6 +11,7 @@ import java.util.*;
 /* 基于数组实现的栈 */
 class ArrayStack {
     private ArrayList<Integer> stack;
+
     public ArrayStack() {
         // 初始化列表（动态数组）
         stack = new ArrayList<>();
