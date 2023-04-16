@@ -290,6 +290,7 @@ comments: true
     ```cpp title="preorder_find_constrained_paths.cpp"
     /* 前序遍历 */
     void preOrder(TreeNode *root) {
+        // 剪枝
         if (root == nullptr || root->val == 3) {
             return;
         }
