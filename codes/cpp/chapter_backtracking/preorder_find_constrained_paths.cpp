@@ -11,6 +11,7 @@ vector<vector<TreeNode *>> res;
 
 /* 前序遍历 */
 static void preOrder(TreeNode *root) {
+    // 剪枝
     if (root == nullptr || root->val == 3) {
         return;
     }

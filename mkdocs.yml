@@ -169,7 +169,7 @@ nav:
   - 9. &nbsp; &nbsp; 图:
     - 9.1. &nbsp; 图: chapter_graph/graph.md
     - 9.2. &nbsp; 图基础操作: chapter_graph/graph_operations.md
-    - 9.3. &nbsp; 图的遍历（New）: chapter_graph/graph_traversal.md
+    - 9.3. &nbsp; 图的遍历: chapter_graph/graph_traversal.md
     - 9.4. &nbsp; 小结: chapter_graph/summary.md
   - 10. &nbsp; &nbsp; 查找算法:
     - 10.1. &nbsp; 线性查找: chapter_searching/linear_search.md
@@ -187,7 +187,7 @@ nav:
     - 11.8. &nbsp; 基数排序（New）: chapter_sorting/radix_sort.md
     - 11.9. &nbsp; 小结: chapter_sorting/summary.md
   - 12. &nbsp; &nbsp; 回溯算法:
-    - 12.1. &nbsp; 回溯算法: chapter_backtracking/backtracking_algorithm.md
+    - 12.1. &nbsp; 回溯算法（New）: chapter_backtracking/backtracking_algorithm.md
   - 13. &nbsp; &nbsp; 附录:
     - 13.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
     - 13.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
