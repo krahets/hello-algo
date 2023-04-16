@@ -32,7 +32,7 @@ public class preorder_find_nodes {
         res = new ArrayList<>();
         preOrder(root);
 
-        System.out.println("\n输出所有根节点到节点 7 的路径");
+        System.out.println("\n输出所有值为 7 的节点");
         List<Integer> vals = new ArrayList<>();
         for (TreeNode node : res) {
             vals.add(node.val);
