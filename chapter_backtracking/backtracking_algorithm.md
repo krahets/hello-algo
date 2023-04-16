@@ -32,7 +32,18 @@ comments: true
 === "C++"
 
     ```cpp title="preorder_find_nodes.cpp"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历 */
+    void preOrder(TreeNode *root) {
+        if (root == nullptr) {
+            return;
+        }
+        if (root->val == 7) {
+            // 记录解
+            res.push_back(root);
+        }
+        preOrder(root->left);
+        preOrder(root->right);
+    }
     ```
 
 === "Python"
@@ -131,7 +142,22 @@ comments: true
 === "C++"
 
     ```cpp title="preorder_find_paths.cpp"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历 */
+    void preOrder(TreeNode *root) {
+        if (root == nullptr) {
+            return;
+        }
+        // 尝试
+        path.push_back(root);
+        if (root->val == 7) {
+            // 记录解
+            res.push_back(path);
+        }
+        preOrder(root->left);
+        preOrder(root->right);
+        // 回退
+        path.pop_back();
+    }
     ```
 
 === "Python"
@@ -262,7 +288,22 @@ comments: true
 === "C++"
 
     ```cpp title="preorder_find_constrained_paths.cpp"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历 */
+    void preOrder(TreeNode *root) {
+        if (root == nullptr || root->val == 3) {
+            return;
+        }
+        // 尝试
+        path.push_back(root);
+        if (root->val == 7) {
+            // 记录解
+            res.push_back(path);
+        }
+        preOrder(root->left);
+        preOrder(root->right);
+        // 回退
+        path.pop_back();
+    }
     ```
 
 === "Python"
@@ -429,17 +470,52 @@ def backtrack(state, choices, res):
 === "C++"
 
     ```cpp title="backtrack_find_constrained_paths.cpp"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    bool isSolution(vector<TreeNode *> &state) {
+        return !state.empty() && state.back()->val == 7;
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    void recordSolution(vector<TreeNode *> &state, vector<vector<TreeNode *>> &res) {
+        res.push_back(state);
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    bool isValid(vector<TreeNode *> &state, TreeNode *choice) {
+        return choice != nullptr && choice->val != 3;
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    void makeChoice(vector<TreeNode *> &state, TreeNode *choice) {
+        state.push_back(choice);
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    void undoChoice(vector<TreeNode *> &state, TreeNode *choice) {
+        state.pop_back();
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法 */
+    void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<vector<TreeNode *>> &res) {
+        // 检查是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+            return;
+        }
+        // 遍历所有选择
+        for (TreeNode *choice : choices) {
+            // 剪枝：检查选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                vector<TreeNode *> nextChoices{choice->left, choice->right};
+                backtrack(state, nextChoices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
     ```
 
 === "Python"
