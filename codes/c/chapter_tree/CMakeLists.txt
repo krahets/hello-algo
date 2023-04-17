@@ -1,5 +1,5 @@
 add_executable(avl_tree avl_tree.c)
-add_executable(binary_search binary_tree.c)
+add_executable(binary_tree binary_tree.c)
 add_executable(binary_tree_bfs binary_tree_bfs.c)
 add_executable(binary_tree_dfs binary_tree_dfs.c)
 add_executable(binary_search_tree binary_search_tree.c)
