@@ -43,6 +43,7 @@ LinkedListDeque *newLinkedListDeque() {
     deque->front = NULL;
     deque->rear = NULL;
     deque->queSize = 0;
+    return deque;
 }
 
 /* 析构方法 */
@@ -207,7 +208,8 @@ int main() {
     bool isEmpty = empty(deque);
     printf("双向队列是否为空 = %s\r\n", isEmpty ? "true" : "false");
 
-    /* 释放内存 */
+    // 释放内存
     delLinkedListdeque(deque);
+
     return 0;
 }

@@ -82,5 +82,6 @@ int main() {
     res = twoSumHashTable(nums, sizeof(nums) / sizeof(int), target, &returnSize);
     printf("方法二 res = ");
     printArray(res, returnSize);
+
     return 0;
 }

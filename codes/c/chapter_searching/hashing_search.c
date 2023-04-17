@@ -142,5 +142,6 @@ int main() {
     if (node)
         printf("目标节点值 3 的对应节点对象为 %#p val: %d\r\n", node, node->val);
     deleteAll(ht1);
+
     return 0;
 }

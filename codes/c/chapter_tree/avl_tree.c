@@ -20,6 +20,7 @@ avlTree *newAVLTree() {
     return tree;
 }
 
+/* 获取节点高度 */
 int height(TreeNode *node) {
     // 空节点高度为 -1 ，叶节点高度为 0
     if (node != NULL) {
@@ -247,4 +248,6 @@ int main() {
     /* 查询节点 */
     TreeNode *node = search(tree, 7);
     printf("\n查找到的节点对象节点值 = %d \n", node->val);
+
+    return 0;
 }

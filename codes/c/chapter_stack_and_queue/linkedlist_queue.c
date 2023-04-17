@@ -20,6 +20,7 @@ LinkedListQueue *newLinkedListQueue() {
     queue->front = NULL;
     queue->rear = NULL;
     queue->queSize = 0;
+    return queue;
 }
 
 /* 析构方法 */

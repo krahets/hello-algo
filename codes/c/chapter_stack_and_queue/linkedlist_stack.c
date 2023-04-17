@@ -109,7 +109,8 @@ int main() {
     bool empty = isEmpty(stack);
     printf("栈是否为空 = %s\n", empty ? "true" : "false");
 
-    /* 析构方法 */
+    // 释放内存
     delLinkedListStack(stack);
+
     return 0;
 }

@@ -1,8 +1,6 @@
 add_executable(bubble_sort bubble_sort.c)
-add_executable(bucket_sort bucket_sort.c)
 add_executable(insertion_sort insertion_sort.c)
 add_executable(quick_sort quick_sort.c)
 add_executable(counting_sort counting_sort.c)
 add_executable(radix_sort radix_sort.c)
 add_executable(merge_sort merge_sort.c)
-

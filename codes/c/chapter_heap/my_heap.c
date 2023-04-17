@@ -75,7 +75,7 @@ void push(maxHeap *h, int val) {
     // 默认情况下，不应该添加这么多节点
     if (h->size == MAX_SIZE) {
         printf("heap is full!");
-        return NIL;
+        return;
     }
     // 添加节点
     h->data[h->size] = val;
@@ -174,4 +174,6 @@ int main() {
 
     // 释放内存
     free(heap);
+
+    return 0;
 }

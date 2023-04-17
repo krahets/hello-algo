@@ -34,13 +34,7 @@ TreeNode *newTreeNode(int val) {
     return node;
 }
 
-/**
- * @brief Generate a binary tree with an array
- *
- * @param arr
- * @param size
- * @return TreeNode *
- */
+/* Generate a binary tree with an array */
 TreeNode *arrToTree(const int *arr, size_t size) {
     if (size <= 0) {
         return NULL;
@@ -81,13 +75,7 @@ TreeNode *arrToTree(const int *arr, size_t size) {
     return root;
 }
 
-/**
- * @brief Generate a binary tree with an array
- *
- * @param arr
- * @param size
- * @return TreeNode *
- */
+/* Generate a binary tree with an array */
 int *treeToArr(TreeNode *root) {
     if (root == NULL) {
         return NULL;

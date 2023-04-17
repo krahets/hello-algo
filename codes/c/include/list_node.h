@@ -28,12 +28,7 @@ ListNode *newListNode(int val) {
     return node;
 }
 
-/**
- * @brief Generate a linked list with a vector
- *
- * @param list
- * @return ListNode*
- */
+/* Generate a linked list with a vector */
 ListNode *arrToLinkedList(const int *arr, size_t size) {
     if (size <= 0) {
         return NULL;
@@ -48,13 +43,7 @@ ListNode *arrToLinkedList(const int *arr, size_t size) {
     return dummy->next;
 }
 
-/**
- * @brief Get a list node with specific value from a linked list
- *
- * @param head
- * @param val
- * @return ListNode*
- */
+/* Get a list node with specific value from a linked list */
 ListNode *getListNode(ListNode *head, int val) {
     while (head != NULL && head->val != val) {
         head = head->next;

@@ -13,8 +13,8 @@ struct binarySearchTree {
 
 typedef struct binarySearchTree binarySearchTree;
 
+/* 比较器：从小到大排序 */
 int sortIntHelper(const void *a, const void *b) {
-    // 从小到大排序
     return (*(int *)a - *(int *)b);
 }
 
