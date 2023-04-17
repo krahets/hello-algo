@@ -983,6 +983,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -1098,13 +1100,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#815" class="md-nav__link">
-    8.1.5. &nbsp; 二叉树表示方式 *
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1134,8 +1129,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../array_representation_of_tree/" class="md-nav__link">
+        8.3. &nbsp; 二叉树数组表示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../binary_search_tree/" class="md-nav__link">
-        8.3. &nbsp; 二叉搜索树
+        8.4. &nbsp; 二叉搜索树
       </a>
     </li>
   
@@ -1149,7 +1158,7 @@
   
     <li class="md-nav__item">
       <a href="../avl_tree/" class="md-nav__link">
-        8.4. &nbsp; AVL 树 *
+        8.5. &nbsp; AVL 树 *
       </a>
     </li>
   
@@ -1163,7 +1172,7 @@
   
     <li class="md-nav__item">
       <a href="../summary/" class="md-nav__link">
-        8.5. &nbsp; 小结
+        8.6. &nbsp; 小结
       </a>
     </li>
   
@@ -1897,13 +1906,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#815" class="md-nav__link">
-    8.1.5. &nbsp; 二叉树表示方式 *
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2356,87 +2358,6 @@
 </tbody>
 </table>
 </div>
-<h2 id="815">8.1.5. &nbsp; 二叉树表示方式 *<a class="headerlink" href="#815" title="Permanent link">&para;</a></h2>
-<p>我们通常使用二叉树的「链表表示」，即存储单位为节点 <code>TreeNode</code> ，节点之间通过指针相连接。本文前述示例代码展示了二叉树在链表表示下的各项基本操作。</p>
-<p>那么，能否用「数组」来表示二叉树呢？答案是肯定的。先来分析一个简单案例，给定一个「完美二叉树」，将节点按照层序遍历的顺序编号（从 0 开始），那么可以推导得出父节点索引与子节点索引之间的“映射公式”：<strong>若节点的索引为 <span class="arithmatex">\(i\)</span> ，则该节点的左子节点索引为 <span class="arithmatex">\(2i + 1\)</span> ，右子节点索引为 <span class="arithmatex">\(2i + 2\)</span></strong> 。</p>
-<p><strong>本质上，映射公式的作用相当于链表中的指针</strong>。对于层序遍历序列中的任意节点，我们都可以使用映射公式来访问其子节点。因此，我们可以将二叉树的层序遍历序列存储到数组中，利用以上映射公式来表示二叉树。</p>
-<p><img alt="完美二叉树的数组表示" src="../binary_tree.assets/array_representation_mapping.png" /></p>
-<p align="center"> Fig. 完美二叉树的数组表示 </p>
-
-<p>然而，完美二叉树只是一个特例。在二叉树的中间层，通常存在许多 <span class="arithmatex">\(\text{null}\)</span> ，而层序遍历序列并不包含这些 <span class="arithmatex">\(\text{null}\)</span> 。我们无法仅凭序列来推测空节点的数量和分布位置，<strong>这意味着理论上存在许多种二叉树都符合该层序遍历序列</strong>。显然，在这种情况下，我们无法使用数组来存储二叉树。</p>
-<p><img alt="给定数组对应多种二叉树可能性" src="../binary_tree.assets/array_representation_without_empty.png" /></p>
-<p align="center"> Fig. 给定数组对应多种二叉树可能性 </p>
-
-<p>为了解决这个问题，我们可以考虑按照完美二叉树的形式来表示所有二叉树，<strong>并在序列中使用特殊符号来显式地表示 <span class="arithmatex">\(\text{null}\)</span></strong>。如下图所示，这样处理后，层序遍历序列就可以唯一表示二叉树了。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:10"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JavaScript</label><label for="__tabbed_4_6">TypeScript</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="cm">/* 二叉树的数组表示 */</span>
-<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="c1">// 使用 int 的包装类 Integer ，就可以使用 null 来标记空位</span>
-<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="p">};</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="cm">/* 二叉树的数组表示 */</span>
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="c1">// 为了符合数据类型为 int ，使用 int 最大值标记空位</span>
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="c1">// 该方法的使用前提是没有节点的值 = INT_MAX</span>
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">,</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">,</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="p">};</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1"># 二叉树的数组表示</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="c1"># 直接使用 None 来表示空位</span>
-<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="n">tree</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="cm">/* 二叉树的数组表示 */</span>
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="c1">// 使用 any 类型的切片, 就可以使用 nil 来标记空位</span>
-<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="nx">tree</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">any</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="cm">/* 二叉树的数组表示 */</span>
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="c1">// 直接使用 null 来表示空位</span>
-<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">];</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="cm">/* 二叉树的数组表示 */</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="c1">// 直接使用 null 来表示空位</span>
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">tree</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="kt">number</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">)[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">];</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="cm">/* 二叉树的数组表示 */</span>
-<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="c1">// 使用 int? 可空类型 ，就可以使用 null 来标记空位</span>
-<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="kt">int?</span><span class="p">[]</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="p">};</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="cm">/* 二叉树的数组表示 */</span>
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="c1">// 使用 Int? 可空类型 ，就可以使用 nil 来标记空位</span>
-<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="kd">let</span> <span class="nv">tree</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">?]</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>
-</code></pre></div>
-</div>
-</div>
-</div>
-<p><img alt="任意类型二叉树的数组表示" src="../binary_tree.assets/array_representation_with_empty.png" /></p>
-<p align="center"> Fig. 任意类型二叉树的数组表示 </p>
-
-<p><strong>完全二叉树非常适合使用数组来表示</strong>。回顾「完全二叉树」的定义，<span class="arithmatex">\(\text{null}\)</span> 只出现在最底层，并且最底层的节点尽量靠左。这意味着，<strong>所有空节点一定出现在层序遍历序列的末尾</strong>。由于我们事先知道了所有 <span class="arithmatex">\(\text{null}\)</span> 的位置，因此在使用数组表示完全二叉树时，可以省略存储它们。</p>
-<p><img alt="完全二叉树的数组表示" src="../binary_tree.assets/array_representation_complete_binary_tree.png" /></p>
-<p align="center"> Fig. 完全二叉树的数组表示 </p>
-
-<p>数组表示具有两个显著优点：首先，它不需要存储指针，从而节省了空间；其次，它允许随机访问节点。然而，当二叉树中存在大量 <span class="arithmatex">\(\text{null}\)</span> 时，数组中包含的节点数据比重较低，导致有效空间利用率降低。</p>
 
 
 

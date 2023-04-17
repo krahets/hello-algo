@@ -246,6 +246,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_tree/array_representation_of_tree/</loc>
+         <lastmod>2023-04-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_tree/avl_tree/</loc>
          <lastmod>2023-04-17</lastmod>
          <changefreq>daily</changefreq>
