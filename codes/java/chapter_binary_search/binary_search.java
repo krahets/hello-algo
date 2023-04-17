@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-package chapter_searching;
+package chapter_binary_search;
 
 public class binary_search {
     /* 二分查找（双闭区间） */

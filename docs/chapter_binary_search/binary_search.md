@@ -2,8 +2,6 @@
 
 「二分查找 Binary Search」利用数据的有序性，通过每轮减少一半搜索范围来定位目标元素。
 
-## 算法实现
-
 给定一个长度为 $n$ 的有序数组 `nums` ，元素按从小到大的顺序排列。数组索引的取值范围为：
 
 $$
@@ -12,10 +10,10 @@ $$
 
 我们通常使用以下两种方法来表示这个取值范围：
 
-1. **双闭区间 $[0, n-1]$** ，即两个边界都包含自身；在此方法下，区间 $[0, 0]$ 仍包含 $1$ 个元素；
-2. **左闭右开 $[0, n)$** ，即左边界包含自身、右边界不包含自身；在此方法下，区间 $[0, 0)$ 不包含元素；
+1. **双闭区间 $[0, n-1]$** ，即两个边界都包含自身；在此方法下，区间 $[i, i]$ 仍包含 $1$ 个元素；
+2. **左闭右开 $[0, n)$** ，即左边界包含自身、右边界不包含自身；在此方法下，区间 $[i, i)$ 不包含元素；
 
-### “双闭区间”实现
+## 双闭区间实现
 
 首先，我们采用“双闭区间”表示法，在数组 `nums` 中查找目标元素 `target` 的对应索引。
 
@@ -102,88 +100,7 @@ $$
     [class]{}-[func]{binarySearch}
     ```
 
-### “左闭右开”实现
-
-此外，我们也可以采用“左闭右开”的表示法，编写具有相同功能的二分查找代码。
-
-=== "Java"
-
-    ```java title="binary_search.java"
-    [class]{binary_search}-[func]{binarySearch1}
-    ```
-
-=== "C++"
-
-    ```cpp title="binary_search.cpp"
-    [class]{}-[func]{binarySearch1}
-    ```
-
-=== "Python"
-
-    ```python title="binary_search.py"
-    [class]{}-[func]{binary_search1}
-    ```
-
-=== "Go"
-
-    ```go title="binary_search.go"
-    [class]{}-[func]{binarySearch1}
-    ```
-
-=== "JavaScript"
-
-    ```javascript title="binary_search.js"
-    [class]{}-[func]{binarySearch1}
-    ```
-
-=== "TypeScript"
-
-    ```typescript title="binary_search.ts"
-    [class]{}-[func]{binarySearch1}
-    ```
-
-=== "C"
-
-    ```c title="binary_search.c"
-    [class]{}-[func]{binarySearch1}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search.cs"
-    [class]{binary_search}-[func]{binarySearch1}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search.swift"
-    [class]{}-[func]{binarySearch1}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search.zig"
-    [class]{}-[func]{binarySearch1}
-    ```
-
-### 两种表示对比
-
-对比这两种代码写法，我们可以发现以下不同点：
-
-<div class="center-table" markdown>
-
-| 表示方法            | 初始化指针          | 缩小区间                  | 循环终止条件 |
-| ------------------- | ------------------- | ------------------------- | ------------ |
-| 双闭区间 $[0, n-1]$ | $i = 0$ , $j = n-1$ | $i = m + 1$ , $j = m - 1$ | $i > j$      |
-| 左闭右开 $[0, n)$   | $i = 0$ , $j = n$   | $i = m + 1$ , $j = m$     | $i = j$      |
-
-</div>
-
-在“双闭区间”表示法中，由于对左右两边界的定义相同，因此缩小区间的 $i$ 和 $j$ 的处理方法也是对称的，这样更不容易出错。因此，**建议采用“双闭区间”的写法**。
-
-### 大数越界处理
-
-当数组长度非常大时，加法 $i + j$ 的结果可能会超出 `int` 类型的取值范围。在这种情况下，我们需要采用一种更安全的计算中点的方法。
+需要注意的是，**当数组长度非常大时，加法 $i + j$ 的结果可能会超出 `int` 类型的取值范围**。在这种情况下，我们需要采用一种更安全的计算中点的方法。
 
 === "Java"
 
@@ -266,6 +183,83 @@ $$
     ```zig title=""
 
     ```
+
+## 左闭右开实现
+
+我们可以采用“左闭右开”的表示法，编写具有相同功能的二分查找代码。
+
+=== "Java"
+
+    ```java title="binary_search.java"
+    [class]{binary_search}-[func]{binarySearch1}
+    ```
+
+=== "C++"
+
+    ```cpp title="binary_search.cpp"
+    [class]{}-[func]{binarySearch1}
+    ```
+
+=== "Python"
+
+    ```python title="binary_search.py"
+    [class]{}-[func]{binary_search1}
+    ```
+
+=== "Go"
+
+    ```go title="binary_search.go"
+    [class]{}-[func]{binarySearch1}
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="binary_search.js"
+    [class]{}-[func]{binarySearch1}
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="binary_search.ts"
+    [class]{}-[func]{binarySearch1}
+    ```
+
+=== "C"
+
+    ```c title="binary_search.c"
+    [class]{}-[func]{binarySearch1}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search.cs"
+    [class]{binary_search}-[func]{binarySearch1}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search.swift"
+    [class]{}-[func]{binarySearch1}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search.zig"
+    [class]{}-[func]{binarySearch1}
+    ```
+
+对比这两种代码写法，我们可以发现以下不同点：
+
+<div class="center-table" markdown>
+
+| 表示方法            | 初始化指针          | 缩小区间                  | 循环终止条件 |
+| ------------------- | ------------------- | ------------------------- | ------------ |
+| 双闭区间 $[0, n-1]$ | $i = 0$ , $j = n-1$ | $i = m + 1$ , $j = m - 1$ | $i > j$      |
+| 左闭右开 $[0, n)$   | $i = 0$ , $j = n$   | $i = m + 1$ , $j = m$     | $i = j$      |
+
+</div>
+
+在“双闭区间”表示法中，由于对左右两边界的定义相同，因此缩小区间的 $i$ 和 $j$ 的处理方法也是对称的，这样更不容易出错。因此，**建议采用“双闭区间”的写法**。
 
 ## 复杂度分析
 

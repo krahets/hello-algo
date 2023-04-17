@@ -6,7 +6,7 @@
 
 using NUnit.Framework;
 
-namespace hello_algo.chapter_searching;
+namespace hello_algo.chapter_binary_search;
 
 public class binary_search
 {

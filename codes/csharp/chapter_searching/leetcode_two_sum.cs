@@ -6,7 +6,7 @@
 
 using NUnit.Framework;
 
-namespace hello_algo.chapter_computational_complexity;
+namespace hello_algo.chapter_searching;
 
 public class leetcode_two_sum
 {

@@ -62,4 +62,3 @@ pub fn main() !void {
 
     _ = try std.io.getStdIn().reader().readByte();
 }
-

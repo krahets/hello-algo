@@ -4,6 +4,8 @@
  * Author: Krahets (krahets@163.com)
  */
 
+package chapter_backtracking;
+
 import include.*;
 import java.util.*;
 
