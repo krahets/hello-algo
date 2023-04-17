@@ -1,16 +1,17 @@
 *.java linguist-language=Java
-*.cs linguist-language=Java
 *.py linguist-language=Python
 *.cpp linguist-language=C++
 *.hpp linguist-language=C++
-*.c linguist-language=C++
-*.h linguist-language=C++
 *.go linguist-language=Go
 *.js linguist-language=JavaScript
-*.ts linguist-language=JavaScript
+*.ts linguist-language=TypeScript
 *.swift linguist-language=Swift
 
+*.c linguist-language=Other
+*.h linguist-language=Other
+*.cs linguist-language=Other
 *.zig linguist-language=Other
 *.rs linguist-language=Other
+*.dart linguist-language=Other
 *.html linguist-detectable=false
 *.css linguist-detectable=false
