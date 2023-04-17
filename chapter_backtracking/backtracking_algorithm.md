@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 12.1. &nbsp; 回溯算法
+# 13.1. &nbsp; 回溯算法
 
 「回溯算法 Backtracking Algorithm」是一种通过穷举来解决问题的方法，它的核心思想是从一个初始状态出发，暴力搜索所有可能的解决方案，当遇到正确的解则将其记录，直到找到解或者尝试了所有可能的选择都无法找到解为止。
 
@@ -87,7 +87,21 @@ comments: true
 === "C#"
 
     ```csharp title="preorder_find_nodes.cs"
-    [class]{preorder_find_nodes}-[func]{preOrder}
+    /* 前序遍历 */
+    void preOrder(TreeNode root)
+    {
+        if (root == null)
+        {
+            return;
+        }
+        if (root.val == 7)
+        {
+            // 记录解
+            res.Add(root);
+        }
+        preOrder(root.left);
+        preOrder(root.right);
+    }
     ```
 
 === "Swift"
@@ -106,7 +120,7 @@ comments: true
 
 <p align="center"> Fig. 在前序遍历中搜索节点 </p>
 
-## 12.1.1. &nbsp; 尝试与回退
+## 13.1.1. &nbsp; 尝试与回退
 
 **之所以称之为回溯算法，是因为该算法在搜索解空间时会采用“尝试”与“回退”的策略**。当算法在搜索过程中遇到某个状态无法继续前进或无法得到满足条件的解时，它会撤销上一步的选择，退回到之前的状态，并尝试其他可能的选择。
 
@@ -205,7 +219,25 @@ comments: true
 === "C#"
 
     ```csharp title="preorder_find_paths.cs"
-    [class]{preorder_find_paths}-[func]{preOrder}
+    /* 前序遍历 */
+    void preOrder(TreeNode root)
+    {
+        if (root == null)
+        {
+            return;
+        }
+        // 尝试
+        path.Add(root);
+        if (root.val == 7)
+        {
+            // 记录解
+            res.Add(new List<TreeNode>(path));
+        }
+        preOrder(root.left);
+        preOrder(root.right);
+        // 回退
+        path.RemoveAt(path.Count - 1);
+    }
     ```
 
 === "Swift"
@@ -255,7 +287,7 @@ comments: true
 === "<11>"
     ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
 
-## 12.1.2. &nbsp; 剪枝
+## 13.1.2. &nbsp; 剪枝
 
 复杂的回溯问题通常包含一个或多个约束条件，**约束条件通常可用于“剪枝”**。
 
@@ -353,7 +385,26 @@ comments: true
 === "C#"
 
     ```csharp title="preorder_find_constrained_paths.cs"
-    [class]{preorder_find_constrained_paths}-[func]{preOrder}
+    /* 前序遍历 */
+    void preOrder(TreeNode root)
+    {
+        // 剪枝
+        if (root == null || root.val == 3)
+        {
+            return;
+        }
+        // 尝试
+        path.Add(root);
+        if (root.val == 7)
+        {
+            // 记录解
+            res.Add(new List<TreeNode>(path));
+        }
+        preOrder(root.left);
+        preOrder(root.right);
+        // 回退
+        path.RemoveAt(path.Count - 1);
+    }
     ```
 
 === "Swift"
@@ -374,7 +425,7 @@ comments: true
 
 <p align="center"> Fig. 根据约束条件剪枝 </p>
 
-## 12.1.3. &nbsp; 常用术语
+## 13.1.3. &nbsp; 常用术语
 
 为了更清晰地分析算法问题，我们总结一下回溯算法中常用术语的含义，并对照例题三给出对应示例。
 
@@ -391,7 +442,7 @@ comments: true
 
     解、状态、约束条件等术语是通用的，适用于回溯算法、动态规划、贪心算法等。
 
-## 12.1.4. &nbsp; 框架代码
+## 13.1.4. &nbsp; 框架代码
 
 回溯算法可用于解决许多搜索问题、约束满足问题和组合优化问题。为提升代码通用性，我们希望将回溯算法的“尝试、回退、剪枝”的主体框架提炼出来。
 
@@ -627,17 +678,61 @@ def backtrack(state, choices, res):
 === "C#"
 
     ```csharp title="backtrack_find_constrained_paths.cs"
-    [class]{backtrack_find_constrained_paths}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    bool isSolution(List<TreeNode> state)
+    {
+        return state.Count != 0 && state[^1].val == 7;
+    }
 
-    [class]{backtrack_find_constrained_paths}-[func]{recordSolution}
+    /* 记录解 */
+    void recordSolution(List<TreeNode> state, List<List<TreeNode>> res)
+    {
+        res.Add(new List<TreeNode>(state));
+    }
 
-    [class]{backtrack_find_constrained_paths}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    bool isValid(List<TreeNode> state, TreeNode choice)
+    {
+        return choice != null && choice.val != 3;
+    }
 
-    [class]{backtrack_find_constrained_paths}-[func]{makeChoice}
+    /* 更新状态 */
+    void makeChoice(List<TreeNode> state, TreeNode choice)
+    {
+        state.Add(choice);
+    }
 
-    [class]{backtrack_find_constrained_paths}-[func]{undoChoice}
+    /* 恢复状态 */
+    void undoChoice(List<TreeNode> state, TreeNode choice)
+    {
+        state.RemoveAt(state.Count - 1);
+    }
 
-    [class]{backtrack_find_constrained_paths}-[func]{backtrack}
+    /* 回溯算法 */
+    void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res)
+    {
+        // 检查是否为解
+        if (isSolution(state))
+        {
+            // 记录解
+            recordSolution(state, res);
+            return;
+        }
+        // 遍历所有选择
+        foreach (TreeNode choice in choices)
+        {
+            // 剪枝：检查选择是否合法
+            if (isValid(state, choice))
+            {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                List<TreeNode> nextChoices = new List<TreeNode>() { choice.left, choice.right };
+                backtrack(state, nextChoices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
     ```
 
 === "Swift"
@@ -674,7 +769,7 @@ def backtrack(state, choices, res):
 
 相较于基于前序遍历的实现代码，基于回溯算法框架的实现代码虽然显得啰嗦，但通用性更好，适用于各种不同的回溯算法问题。实际上，**所有回溯问题都可以在该框架下解决**。我们只需要根据问题特点来定义框架中的各个变量，实现各个方法即可。
 
-## 12.1.5. &nbsp; 典型例题
+## 13.1.5. &nbsp; 典型例题
 
 **搜索问题**：这类问题的目标是找到满足特定条件的解决方案。
 
