@@ -1,4 +1,4 @@
-/*
+/**
  * File: worst_best_time_complexity.ts
  * Created Time: 2023-01-05
  * Author: RiverTwilight (contact@rene.wang)

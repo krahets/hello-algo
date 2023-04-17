@@ -1,2 +1,1 @@
-add_executable(binary_search binary_search.c)
 add_executable(leetcode_two_sum leetcode_two_sum.c)

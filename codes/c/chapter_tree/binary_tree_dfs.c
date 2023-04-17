@@ -11,7 +11,8 @@ int *arr;
 
 /* 前序遍历 */
 void preOrder(TreeNode *root, int *size) {
-    if (root == NULL) return;
+    if (root == NULL)
+        return;
     // 访问优先级：根节点 -> 左子树 -> 右子树
     arr[(*size)++] = root->val;
     preOrder(root->left, size);
@@ -20,7 +21,8 @@ void preOrder(TreeNode *root, int *size) {
 
 /* 中序遍历 */
 void inOrder(TreeNode *root, int *size) {
-    if (root == NULL) return;
+    if (root == NULL)
+        return;
     // 访问优先级：左子树 -> 根节点 -> 右子树
     inOrder(root->left, size);
     arr[(*size)++] = root->val;
@@ -29,13 +31,13 @@ void inOrder(TreeNode *root, int *size) {
 
 /* 后序遍历 */
 void postOrder(TreeNode *root, int *size) {
-    if (root == NULL) return;
+    if (root == NULL)
+        return;
     // 访问优先级：左子树 -> 右子树 -> 根节点
     postOrder(root->left, size);
     postOrder(root->right, size);
     arr[(*size)++] = root->val;
 }
-
 
 /* Driver Code */
 int main() {
@@ -49,7 +51,7 @@ int main() {
 
     /* 前序遍历 */
     // 初始化辅助数组
-    arr = (int *) malloc(sizeof(int) * MAX_NODE_SIZE);
+    arr = (int *)malloc(sizeof(int) * MAX_NODE_SIZE);
     size = 0;
     preOrder(root, &size);
     printf("前序遍历的节点打印序列 = ");

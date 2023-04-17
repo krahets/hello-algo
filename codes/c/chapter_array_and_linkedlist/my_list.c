@@ -93,7 +93,7 @@ int removeNum(myList *list, int index) {
 void extendCapacity(myList *list) {
     // 先分配空间
     int newCapacity = capacity(list) * list->extendRatio;
-    int *extend = (int *) malloc(sizeof(int) * newCapacity);
+    int *extend = (int *)malloc(sizeof(int) * newCapacity);
     int *temp = list->nums;
 
     // 拷贝旧数据到新数据
@@ -113,6 +113,7 @@ int *toArray(myList *list) {
     return list->nums;
 }
 
+/* Driver Code */
 int main() {
     /* 初始化列表 */
     myList *list = newMyList();
@@ -157,4 +158,6 @@ int main() {
 
     /* 释放分配内存 */
     delMyList(list);
+
+    return 0;
 }

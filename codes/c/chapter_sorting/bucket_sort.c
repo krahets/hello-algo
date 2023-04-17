@@ -7,8 +7,7 @@
 #include "../include/include.h"
 
 /* 冒泡排序 */
-void bucketSort(double nums[], int size)
-{
+void bucketSort(double nums[], int size) {
     // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
     int k = size / 2;
     // 1. 将数组元素分配到各个桶中
@@ -23,18 +22,13 @@ void bucketSort(double nums[], int size)
 }
 
 /* Driver Code */
-int main()
-{
+int main() {
     // 设输入数据为浮点数，范围为 [0, 1)
     double nums[] = {0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37};
     int size = sizeof(nums) / sizeof(double);
     bucketSort(nums, size);
 
     printf("桶排序完成后 nums = ");
-    printf("[");
-    for (int i = 0; i < size - 1; i++)
-    {
-        printf("%g, ", nums[i]);
-    }
-    printf("]");
+    printArray(nums, size);
+
 }

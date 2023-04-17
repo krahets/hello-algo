@@ -16,7 +16,7 @@ typedef struct LinkedListQueue LinkedListQueue;
 
 /* 构造方法 */
 LinkedListQueue *newLinkedListQueue() {
-    LinkedListQueue *queue = (LinkedListQueue *) malloc(sizeof(LinkedListQueue));
+    LinkedListQueue *queue = (LinkedListQueue *)malloc(sizeof(LinkedListQueue));
     queue->front = NULL;
     queue->rear = NULL;
     queue->queSize = 0;
@@ -25,7 +25,7 @@ LinkedListQueue *newLinkedListQueue() {
 /* 析构方法 */
 void delLinkedListQueue(LinkedListQueue *queue) {
     // 释放所有节点
-    for (int i=0; i<queue->queSize && queue->front != NULL; i++) {
+    for (int i = 0; i < queue->queSize && queue->front != NULL; i++) {
         ListNode *tmp = queue->front;
         queue->front = queue->front->next;
         free(tmp);
@@ -46,13 +46,13 @@ bool empty(LinkedListQueue *queue) {
 
 /* 入队 */
 void push(LinkedListQueue *queue, int num) {
-    // 尾节点处添加 node 
+    // 尾节点处添加 node
     ListNode *node = newListNode(num);
     // 如果队列为空，则令头、尾节点都指向该节点
     if (queue->front == NULL) {
         queue->front = node;
         queue->rear = node;
-    }  
+    }
     // 如果队列不为空，则将该节点添加到尾节点后
     else {
         queue->rear->next = node;
@@ -82,7 +82,7 @@ void printLinkedListQueue(LinkedListQueue *queue) {
     // 拷贝链表中的数据到数组
     int i;
     ListNode *node;
-    for (i=0, node = queue->front; i < queue->queSize && queue->front != queue->rear; i++){
+    for (i = 0, node = queue->front; i < queue->queSize && queue->front != queue->rear; i++) {
         arr[i] = node->val;
         node = node->next;
     }
@@ -125,4 +125,3 @@ int main() {
 
     return 0;
 }
-

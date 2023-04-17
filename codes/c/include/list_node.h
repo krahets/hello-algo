@@ -22,7 +22,7 @@ typedef struct ListNode ListNode;
 /* 构造函数，初始化一个新节点 */
 ListNode *newListNode(int val) {
     ListNode *node, *next;
-    node = (ListNode *) malloc(sizeof(ListNode));
+    node = (ListNode *)malloc(sizeof(ListNode));
     node->val = val;
     node->next = NULL;
     return node;

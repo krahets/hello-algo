@@ -1,8 +1,8 @@
-/*
-* File: binary_search.ts
-* Created Time: 2022-12-27
-* Author: Daniel (better.sunjian@gmail.com)
-*/
+/**
+ * File: binary_search.ts
+ * Created Time: 2022-12-27
+ * Author: Daniel (better.sunjian@gmail.com)
+ */
 
 /* 二分查找（双闭区间） */
 function binarySearch(nums: number[], target: number): number {

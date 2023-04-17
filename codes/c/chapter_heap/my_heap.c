@@ -23,7 +23,7 @@ void siftUp(maxHeap *h, int i);
 /* 构造方法，根据切片建堆 */
 maxHeap *newMaxHeap(int nums[], int size) {
     // 所有元素入堆
-    maxHeap *h = (maxHeap *) malloc(sizeof(maxHeap));
+    maxHeap *h = (maxHeap *)malloc(sizeof(maxHeap));
     h->size = size;
     memcpy(h->data, nums, size * sizeof(int));
     for (int i = size - 1; i >= 0; i--) {
@@ -49,7 +49,7 @@ int parent(maxHeap *h, int i) {
 }
 
 /* 交换元素 */
-int swap(maxHeap *h, int i, int j) {
+void swap(maxHeap *h, int i, int j) {
     int temp = h->data[i];
     h->data[i] = h->data[j];
     h->data[j] = temp;
@@ -71,7 +71,7 @@ int peek(maxHeap *h) {
 }
 
 /* 元素入堆 */
-int push(maxHeap *h, int val) {
+void push(maxHeap *h, int val) {
     // 默认情况下，不应该添加这么多节点
     if (h->size == MAX_SIZE) {
         printf("heap is full!");
@@ -103,7 +103,6 @@ int pop(maxHeap *h) {
     // 返回堆顶元素
     return val;
 }
-
 
 /* 从节点 i 开始，从顶至底堆化 */
 void siftDown(maxHeap *h, int i) {
@@ -145,6 +144,7 @@ void siftUp(maxHeap *h, int i) {
     }
 }
 
+/* Driver Code */
 int main() {
     /* 初始化堆 */
     // 初始化大顶堆

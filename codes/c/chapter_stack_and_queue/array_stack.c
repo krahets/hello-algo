@@ -67,7 +67,7 @@ int pop(arrayStack *s) {
 /* Driver Code */
 int main() {
     /* 初始化栈 */
-    arrayStack * stack = newArrayStack();
+    arrayStack *stack = newArrayStack();
 
     /* 元素入栈 */
     push(stack, 1);

@@ -18,10 +18,10 @@ typedef struct ArrayQueue ArrayQueue;
 
 /* 构造方法 */
 ArrayQueue *newArrayQueue(int capacity) {
-    ArrayQueue *queue = (ArrayQueue *) malloc(sizeof(ArrayQueue));
+    ArrayQueue *queue = (ArrayQueue *)malloc(sizeof(ArrayQueue));
     // 初始化数组
     queue->queCapacity = capacity;
-    queue->nums = (int *) malloc(sizeof(int) * queue->queCapacity);
+    queue->nums = (int *)malloc(sizeof(int) * queue->queCapacity);
     queue->front = queue->queSize = 0;
     return queue;
 }
@@ -49,8 +49,8 @@ bool empty(ArrayQueue *queue) {
 
 /* 访问队首元素 */
 int peek(ArrayQueue *queue) {
-  assert(size(queue) != 0);
-  return queue->nums[queue->front];
+    assert(size(queue) != 0);
+    return queue->nums[queue->front];
 }
 
 /* 入队 */
@@ -84,7 +84,6 @@ void printArrayQueue(ArrayQueue *queue) {
     }
     printArray(arr, queue->queSize);
 }
-
 
 /* Driver Code */
 int main() {

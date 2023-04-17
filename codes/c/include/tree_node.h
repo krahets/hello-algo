@@ -4,7 +4,6 @@
  * Author: Reanon (793584285@qq.com)
  */
 
-
 #ifndef TREE_NODE_H
 #define TREE_NODE_H
 
@@ -24,11 +23,10 @@ struct TreeNode {
 
 typedef struct TreeNode TreeNode;
 
-
 TreeNode *newTreeNode(int val) {
     TreeNode *node;
 
-    node = (TreeNode *) malloc(sizeof(TreeNode));
+    node = (TreeNode *)malloc(sizeof(TreeNode));
     node->val = val;
     node->height = 0;
     node->left = NULL;
@@ -55,7 +53,7 @@ TreeNode *arrToTree(const int *arr, size_t size) {
     /* 根节点 */
     root = newTreeNode(arr[0]);
     /* 辅助队列 */
-    queue = (TreeNode **) malloc(sizeof(TreeNode) * MAX_NODE_SIZE);
+    queue = (TreeNode **)malloc(sizeof(TreeNode) * MAX_NODE_SIZE);
     // 队列指针
     front = 0, rear = 0;
     // 将根节点放入队尾
@@ -83,7 +81,6 @@ TreeNode *arrToTree(const int *arr, size_t size) {
     return root;
 }
 
-
 /**
  * @brief Generate a binary tree with an array
  *
@@ -100,13 +97,13 @@ int *treeToArr(TreeNode *root) {
     TreeNode *node;
     TreeNode **queue;
     /* 辅助队列 */
-    queue = (TreeNode **) malloc(sizeof(TreeNode) * MAX_NODE_SIZE);
+    queue = (TreeNode **)malloc(sizeof(TreeNode) * MAX_NODE_SIZE);
     // 队列指针
     front = 0, rear = 0;
     // 将根节点放入队尾
     queue[rear++] = root;
     /* 辅助数组 */
-    arr = (int *) malloc(sizeof(int) * MAX_NODE_SIZE);
+    arr = (int *)malloc(sizeof(int) * MAX_NODE_SIZE);
     // 数组指针
     index = 0;
     while (front < rear) {

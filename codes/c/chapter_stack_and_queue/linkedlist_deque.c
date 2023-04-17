@@ -17,7 +17,7 @@ typedef struct DoublyListNode DoublyListNode;
 
 /* 双向链表节点构造方法 */
 DoublyListNode *newDoublyListNode(int num) {
-    DoublyListNode* new = (DoublyListNode *) malloc(sizeof(DoublyListNode));
+    DoublyListNode *new = (DoublyListNode *)malloc(sizeof(DoublyListNode));
     new->val = num;
     new->next = NULL;
     new->prev = NULL;
@@ -39,7 +39,7 @@ typedef struct LinkedListDeque LinkedListDeque;
 
 /* 构造方法 */
 LinkedListDeque *newLinkedListDeque() {
-    LinkedListDeque *deque = (LinkedListDeque *) malloc(sizeof(LinkedListDeque));
+    LinkedListDeque *deque = (LinkedListDeque *)malloc(sizeof(LinkedListDeque));
     deque->front = NULL;
     deque->rear = NULL;
     deque->queSize = 0;
@@ -48,7 +48,7 @@ LinkedListDeque *newLinkedListDeque() {
 /* 析构方法 */
 void delLinkedListdeque(LinkedListDeque *deque) {
     // 释放所有节点
-    for (int i=0; i<deque->queSize && deque->front != NULL; i++) {
+    for (int i = 0; i < deque->queSize && deque->front != NULL; i++) {
         DoublyListNode *tmp = deque->front;
         deque->front = deque->front->next;
         free(tmp);
@@ -75,11 +75,11 @@ void push(LinkedListDeque *deque, int num, bool isFront) {
         deque->front = deque->rear = node;
     }
     // 队首入队操作
-    else if (isFront){
+    else if (isFront) {
         // 将 node 添加至链表头部
         deque->front->prev = node;
         node->next = deque->front;
-        deque->front = node;// 更新头节点
+        deque->front = node; // 更新头节点
     }
     // 对尾入队操作
     else {
@@ -119,7 +119,7 @@ int pop(LinkedListDeque *deque, bool isFront) {
         return -1;
     int val;
     // 队首出队操作
-    if(isFront) {
+    if (isFront) {
         val = peekFirst(deque); // 暂存头节点值
         DoublyListNode *fNext = deque->front->next;
         if (fNext) {
@@ -140,7 +140,7 @@ int pop(LinkedListDeque *deque, bool isFront) {
         }
         deque->rear = rPrev; // 更新尾节点
     }
-    deque->queSize--;      // 更新队列长度
+    deque->queSize--; // 更新队列长度
     return val;
 }
 
@@ -160,9 +160,9 @@ void printLinkedListDeque(LinkedListDeque *deque) {
     // 拷贝链表中的数据到数组
     int i;
     DoublyListNode *node;
-    for (i=0, node = deque->front; i < deque->queSize; i++){
-      arr[i] = node->val;
-      node = node->next;
+    for (i = 0, node = deque->front; i < deque->queSize; i++) {
+        arr[i] = node->val;
+        node = node->next;
     }
     printArray(arr, deque->queSize);
 }
@@ -211,4 +211,3 @@ int main() {
     delLinkedListdeque(deque);
     return 0;
 }
-

@@ -8,8 +8,8 @@
 
 /* 哈希表 */
 struct hashTable {
-    int key;    // key 为 int 型
-    void* val;  // val 为 void * 型
+    int key;           // key 为 int 型
+    void *val;         // val 为 void * 型
     UT_hash_handle hh; // 借助 uthash 实现的哈希表
 };
 
@@ -19,20 +19,20 @@ typedef struct hashTable hashTable;
 void printHashTableVal(hashTable **ht) {
     struct hashTable *s;
     for (s = *ht; s != NULL; s = s->hh.next) {
-      printf("key: %d: val: %d\n", s->key, *(int *)(s->val));
+        printf("key: %d: val: %d\n", s->key, *(int *)(s->val));
     }
 }
 
 /* 打印哈希表（当 hashTable 中 val 为 ListNode* 型使用这个） */
 void printHashTableLinklist(hashTable **ht) {
-  struct hashTable *s;
-  for (s = *ht; s != NULL; s = s->hh.next) {
-    printf("key: %d: val: %d\n", s->key, ((ListNode *)s->val)->val);
-  }
+    struct hashTable *s;
+    for (s = *ht; s != NULL; s = s->hh.next) {
+        printf("key: %d: val: %d\n", s->key, ((ListNode *)s->val)->val);
+    }
 }
 
 /* 哈希表查找 */
-hashTable* find(hashTable *ht, int k) {
+hashTable *find(hashTable *ht, int k) {
     hashTable *s;
     HASH_FIND_INT(ht, &k, s);
     return s;
@@ -43,7 +43,7 @@ void addInt(hashTable **ht, int k, int v) {
     hashTable *s;
     HASH_FIND_INT(*ht, &k, s);
     if (s == NULL) {
-        s = malloc (sizeof(*s));
+        s = malloc(sizeof(*s));
         s->key = k;
         HASH_ADD_INT(*ht, key, s);
     }
@@ -53,11 +53,11 @@ void addInt(hashTable **ht, int k, int v) {
 }
 
 /* 添加 k、v 到哈希表 ht 中，v 为 ListNode* 类型 */
-void addLinkNode(hashTable **ht, int k, ListNode* v) {
+void addLinkNode(hashTable **ht, int k, ListNode *v) {
     hashTable *s;
     HASH_FIND_INT(*ht, &k, s);
     if (s == NULL) {
-        s = malloc (sizeof(*s));
+        s = malloc(sizeof(*s));
         s->key = k;
         HASH_ADD_INT(*ht, key, s);
     }
@@ -76,7 +76,7 @@ void deleteAll(hashTable **ht) {
 /* 通过 key 访问哈希表，返回 int 类型 */
 int accessInt(hashTable **h, int key) {
     hashTable *s;
-    int ret=-1;
+    int ret = -1;
     if (s = find(*h, key)) {
         ret = *(int *)s->val;
     }
@@ -84,9 +84,9 @@ int accessInt(hashTable **h, int key) {
 }
 
 /* 通过 key 访问哈希表，返回 ListNode* 类型 */
-ListNode* accessLinkNode(hashTable **h, int key) {
+ListNode *accessLinkNode(hashTable **h, int key) {
     hashTable *s;
-    ListNode *res=NULL;
+    ListNode *res = NULL;
     if (s = find(*h, key)) {
         res = (ListNode *)s->val;
     }
@@ -118,19 +118,19 @@ int main() {
     /* 哈希查找（数组） */
     int nums[] = {1, 5, 3, 2, 4, 7, 5, 9, 10, 8};
     // 初始化哈希表
-    hashTable** ht = malloc(sizeof(*ht));
+    hashTable **ht = malloc(sizeof(*ht));
     *ht = NULL;
-    for (int i = 0; i < sizeof(nums)/sizeof(nums[0]); i++) {
-      addInt(ht, nums[i], i); // key: 元素，value: 索引
+    for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
+        addInt(ht, nums[i], i); // key: 元素，value: 索引
     }
     int index = hashingSearchArray(ht, target);
     printf("目标元素 3 的索引 = %d\r\n", index);
     deleteAll(ht);
 
     /* 哈希查找（链表） */
-    ListNode *head = arrToLinkedList(nums, sizeof(nums)/sizeof(nums[0]));
+    ListNode *head = arrToLinkedList(nums, sizeof(nums) / sizeof(nums[0]));
     // 初始化哈希表
-    hashTable** ht1 = malloc(sizeof(*ht));
+    hashTable **ht1 = malloc(sizeof(*ht));
     *ht1 = NULL;
 
     while (head != NULL) {

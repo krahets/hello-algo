@@ -14,7 +14,7 @@ int *randomNumbers(int n) {
     for (int i = 0; i < n; i++) {
         nums[i] = i + 1;
     }
-    // 随机打乱数组元素 
+    // 随机打乱数组元素
     for (int i = n - 1; i > 0; i--) {
         int j = rand() % (i + 1);
         int temp = nums[i];
@@ -29,7 +29,8 @@ int findOne(int *nums, int n) {
     for (int i = 0; i < n; i++) {
         // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
         // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-        if (nums[i] == 1) return i;
+        if (nums[i] == 1)
+            return i;
     }
     return -1;
 }
@@ -51,5 +52,6 @@ int main(int argc, char *argv[]) {
             nums = NULL;
         }
     }
+
     return 0;
 }

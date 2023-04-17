@@ -8,8 +8,8 @@
 #define PRINT_UTIL_H
 
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "list_node.h"
 #include "tree_node.h"
@@ -17,7 +17,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 
 /**
  * @brief Print an Array
@@ -69,9 +68,9 @@ struct Trunk {
 typedef struct Trunk Trunk;
 
 Trunk *newTrunk(Trunk *prev, char *str) {
-    Trunk *trunk = (Trunk *) malloc(sizeof(Trunk));
+    Trunk *trunk = (Trunk *)malloc(sizeof(Trunk));
     trunk->prev = prev;
-    trunk->str = (char *) malloc(sizeof(char) * 10);
+    trunk->str = (char *)malloc(sizeof(char) * 10);
     strcpy(trunk->str, str);
     return trunk;
 }
@@ -145,7 +144,6 @@ static void printHeap(int arr[], int size) {
     root = arrToTree(arr, size);
     printTree(root);
 }
-
 
 #ifdef __cplusplus
 }

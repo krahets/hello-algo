@@ -18,10 +18,10 @@ typedef struct ArrayDeque ArrayDeque;
 
 /* 构造方法 */
 ArrayDeque *newArrayDeque(int capacity) {
-    ArrayDeque *deque = (ArrayDeque *) malloc(sizeof(ArrayDeque));
+    ArrayDeque *deque = (ArrayDeque *)malloc(sizeof(ArrayDeque));
     // 初始化数组
     deque->queCapacity = capacity;
-    deque->nums = (int *) malloc(sizeof(int) * deque->queCapacity);
+    deque->nums = (int *)malloc(sizeof(int) * deque->queCapacity);
     deque->front = deque->queSize = 0;
     return deque;
 }
@@ -85,7 +85,7 @@ void pushLast(ArrayDeque *deque, int num) {
 int peekFirst(ArrayDeque *deque) {
     // 访问异常：双向队列为空
     assert(empty(deque) == 0);
-    return deque->nums[deque->front];        
+    return deque->nums[deque->front];
 }
 
 /* 访问队尾元素 */
@@ -93,7 +93,7 @@ int peekLast(ArrayDeque *deque) {
     // 访问异常：双向队列为空
     assert(empty(deque) == 0);
     int last = dequeIndex(deque, deque->front + deque->queSize - 1);
-    return deque->nums[last];     
+    return deque->nums[last];
 }
 
 /* 队首出队 */
@@ -121,7 +121,6 @@ void printArrayDeque(ArrayDeque *deque) {
     }
     printArray(arr, deque->queSize);
 }
-
 
 /* Driver Code */
 int main() {
@@ -166,6 +165,6 @@ int main() {
 
     // 释放内存
     delArrayDeque(deque);
-    
+
     return 0;
 }
