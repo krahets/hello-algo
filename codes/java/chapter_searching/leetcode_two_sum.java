@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-package chapter_computational_complexity;
+package chapter_searching;
 
 import java.util.*;
 

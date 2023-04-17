@@ -2,7 +2,7 @@
 // Created Time: 2022-11-25
 // Author: reanon (793584285@qq.com)
 
-package chapter_computational_complexity
+package chapter_searching
 
 /* 方法一：暴力枚举 */
 func twoSumBruteForce(nums []int, target int) []int {
