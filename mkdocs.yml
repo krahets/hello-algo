@@ -160,9 +160,10 @@ nav:
   - 8. &nbsp; &nbsp; 树:
     - 8.1. &nbsp; 二叉树: chapter_tree/binary_tree.md
     - 8.2. &nbsp; 二叉树遍历: chapter_tree/binary_tree_traversal.md
-    - 8.3. &nbsp; 二叉搜索树: chapter_tree/binary_search_tree.md
-    - 8.4. &nbsp; AVL 树 *: chapter_tree/avl_tree.md
-    - 8.5. &nbsp; 小结: chapter_tree/summary.md
+    - 8.3. &nbsp; 二叉树数组表示: chapter_tree/array_representation_of_tree.md
+    - 8.4. &nbsp; 二叉搜索树: chapter_tree/binary_search_tree.md
+    - 8.5. &nbsp; AVL 树 *: chapter_tree/avl_tree.md
+    - 8.6. &nbsp; 小结: chapter_tree/summary.md
   - 9. &nbsp; &nbsp; 堆:
     - 9.1. &nbsp; 堆: chapter_heap/heap.md
     - 9.2. &nbsp; 建堆操作 *: chapter_heap/build_heap.md
