@@ -12,20 +12,20 @@
         <meta name="author" content="Krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/chapter_graph/summary/">
+        <link rel="canonical" href="https://www.hello-algo.com/chapter_searching/searching_algorithm_revisited/">
       
       
-        <link rel="prev" href="../graph_traversal/">
+        <link rel="prev" href="../../chapter_sorting/summary/">
       
       
-        <link rel="next" href="../../chapter_sorting/sorting_algorithm/">
+        <link rel="next" href="../replace_linear_by_hashing/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
     
     
       
-        <title>10.4.   小结 - Hello 算法</title>
+        <title>12.1.   搜索算法（New） - Hello 算法</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#104" class="md-skip">
+        <a href="#121" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10.4. &nbsp; 小结
+              12.1. &nbsp; 搜索算法（New）
             
           </span>
         </div>
@@ -1164,18 +1164,16 @@
 
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
       
       
         
@@ -1194,7 +1192,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
           10. &nbsp; &nbsp; 图
@@ -1207,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph/" class="md-nav__link">
+      <a href="../../chapter_graph/graph/" class="md-nav__link">
         10.1. &nbsp; 图
       </a>
     </li>
@@ -1221,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph_operations/" class="md-nav__link">
+      <a href="../../chapter_graph/graph_operations/" class="md-nav__link">
         10.2. &nbsp; 图基础操作
       </a>
     </li>
@@ -1235,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph_traversal/" class="md-nav__link">
+      <a href="../../chapter_graph/graph_traversal/" class="md-nav__link">
         10.3. &nbsp; 图的遍历
       </a>
     </li>
@@ -1247,21 +1245,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../chapter_graph/summary/" class="md-nav__link">
         10.4. &nbsp; 小结
       </a>
-      
     </li>
   
 
@@ -1462,16 +1450,18 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
       
       
         
@@ -1488,7 +1478,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_13">
           <span class="md-nav__icon md-icon"></span>
           12. &nbsp; &nbsp; 搜索算法
@@ -1499,11 +1489,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../chapter_searching/searching_algorithm_revisited/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          12.1. &nbsp; 搜索算法（New）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         12.1. &nbsp; 搜索算法（New）
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1211" class="md-nav__link">
+    12.1.1. &nbsp; 暴力搜索
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1212" class="md-nav__link">
+    12.1.2. &nbsp; 自适应搜索
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1213" class="md-nav__link">
+    12.1.3. &nbsp; 搜索方法选取
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1515,7 +1560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_searching/replace_linear_by_hashing/" class="md-nav__link">
+      <a href="../replace_linear_by_hashing/" class="md-nav__link">
         12.2. &nbsp; 哈希优化策略
       </a>
     </li>
@@ -1529,7 +1574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_searching/summary/" class="md-nav__link">
+      <a href="../summary/" class="md-nav__link">
         12.3. &nbsp; 小结
       </a>
     </li>
@@ -1736,6 +1781,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1211" class="md-nav__link">
+    12.1.1. &nbsp; 暴力搜索
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1212" class="md-nav__link">
+    12.1.2. &nbsp; 自适应搜索
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1213" class="md-nav__link">
+    12.1.3. &nbsp; 搜索方法选取
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1749,7 +1823,7 @@
                   
 
   
-    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_graph/summary.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_searching/searching_algorithm_revisited.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1757,19 +1831,119 @@
   
 
 
-<h1 id="104">10.4. &nbsp; 小结<a class="headerlink" href="#104" title="Permanent link">&para;</a></h1>
+<h1 id="121">12.1. &nbsp; 搜索算法<a class="headerlink" href="#121" title="Permanent link">&para;</a></h1>
+<p>「搜索算法 Searching Algorithm」用于在数据结构（例如数组、链表、树或图）中搜索一个或一组满足特定条件的元素。</p>
+<p>我们已经学过数组、链表、树和图的遍历方法，也学过哈希表、二叉搜索树等可用于实现查询的复杂数据结构。因此，搜索算法对于我们来说并不陌生。在本节，我们将从更加系统的视角切入，重新审视搜索算法。</p>
+<h2 id="1211">12.1.1. &nbsp; 暴力搜索<a class="headerlink" href="#1211" title="Permanent link">&para;</a></h2>
+<p>暴力搜索通过遍历数据结构的每个元素来定位目标元素。</p>
 <ul>
-<li>图由顶点和边组成，可以被表示为一组顶点和一组边构成的集合。</li>
-<li>相较于线性关系（链表）和分治关系（树），网络关系（图）具有更高的自由度，因而更为复杂。</li>
-<li>有向图的边具有方向性，连通图中的任意顶点均可达，有权图的每条边都包含权重变量。</li>
-<li>邻接矩阵利用矩阵来表示图，每一行（列）代表一个顶点，矩阵元素代表边，用 <span class="arithmatex">\(1\)</span> 或 <span class="arithmatex">\(0\)</span> 表示两个顶点之间有边或无边。邻接矩阵在增删查操作上效率很高，但空间占用较多。</li>
-<li>邻接表使用多个链表来表示图，第 <span class="arithmatex">\(i\)</span> 条链表对应顶点 <span class="arithmatex">\(i\)</span> ，其中存储了该顶点的所有邻接顶点。邻接表相对于邻接矩阵更加节省空间，但由于需要遍历链表来查找边，时间效率较低。</li>
-<li>当邻接表中的链表过长时，可以将其转换为红黑树或哈希表，从而提升查询效率。</li>
-<li>从算法思想角度分析，邻接矩阵体现“以空间换时间”，邻接表体现“以时间换空间”。</li>
-<li>图可用于建模各类现实系统，如社交网络、地铁线路等。</li>
-<li>树是图的一种特例，树的遍历也是图的遍历的一种特例。</li>
-<li>图的广度优先遍历是一种由近及远、层层扩张的搜索方式，通常借助队列实现。</li>
-<li>图的深度优先遍历是一种优先走到底、无路可走时再回溯的搜索方式，常基于递归来实现。</li>
+<li>「线性搜索」适用于数组和链表等线性数据结构。它从数据结构的一端开始，逐个访问元素，直到找到目标元素或到达另一端仍没有找到目标元素为止。</li>
+<li>「广度优先搜索」和「深度优先搜索」是图和树的两种遍历策略。广度优先搜索从初始节点开始逐层搜索，由近及远地访问各个节点。深度优先搜索是从初始节点开始，沿着一条路径走到头为止，再回溯并尝试其他路径，直到遍历完整个数据结构。</li>
+</ul>
+<p>暴力搜索的优点是简单且通用性好，<strong>无需对数据做预处理和借助额外的数据结构</strong>。</p>
+<p>然而，<strong>此类算法的时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> ，其中 <span class="arithmatex">\(n\)</span> 为元素数量，因此在数据量较大的情况下性能较差。</p>
+<h2 id="1212">12.1.2. &nbsp; 自适应搜索<a class="headerlink" href="#1212" title="Permanent link">&para;</a></h2>
+<p>自适应搜索利用数据的特有属性（例如有序性）来优化搜索过程，从而更高效地定位目标元素。</p>
+<ul>
+<li>「二分查找」利用数据的有序性实现高效查找，仅适用于数组。</li>
+<li>「哈希查找」利用哈希表将搜索数据和目标数据建立为键值对映射，从而实现查询操作。</li>
+<li>「树查找」在特定的树结构（例如二叉搜索树）中，基于比较节点值来快速排除节点，从而定位目标元素。</li>
+</ul>
+<p>此类算法的优点是效率高，<strong>时间复杂度可达到 <span class="arithmatex">\(O(\log n)\)</span> 甚至 <span class="arithmatex">\(O(1)\)</span></strong> 。</p>
+<p>然而，<strong>使用这些算法往往需要对数据进行预处理</strong>。例如，二分查找需要预先对数组进行排序，哈希查找和树查找都需要借助额外的数据结构，维护这些数据结构也需要额外的时间和空间开支。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>自适应搜索算法常被称为查找算法，<strong>主要关注在特定数据结构中快速检索目标元素</strong>。</p>
+</div>
+<h2 id="1213">12.1.3. &nbsp; 搜索方法选取<a class="headerlink" href="#1213" title="Permanent link">&para;</a></h2>
+<p>给定大小为 <span class="arithmatex">\(n\)</span> 的一组数据，我们可以使用线性搜索、二分查找、树查找、哈希查找等多种方法在该数据中搜索目标元素。各个方法的工作原理如下图所示。</p>
+<p><img alt="多种搜索策略" src="../searching_algorithm_revisited.assets/searching_algorithms.png" /></p>
+<p align="center"> Fig. 多种搜索策略 </p>
+
+<p>上述几种方法的操作效率与特性如下表所示。</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>线性搜索</th>
+<th>二分查找</th>
+<th>树查找</th>
+<th>哈希查找</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查找元素</td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+<td><span class="arithmatex">\(O(\log n)\)</span></td>
+<td><span class="arithmatex">\(O(\log n)\)</span></td>
+<td><span class="arithmatex">\(O(1)\)</span></td>
+</tr>
+<tr>
+<td>插入元素</td>
+<td><span class="arithmatex">\(O(1)\)</span></td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+<td><span class="arithmatex">\(O(\log n)\)</span></td>
+<td><span class="arithmatex">\(O(1)\)</span></td>
+</tr>
+<tr>
+<td>删除元素</td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+<td><span class="arithmatex">\(O(\log n)\)</span></td>
+<td><span class="arithmatex">\(O(1)\)</span></td>
+</tr>
+<tr>
+<td>额外空间</td>
+<td><span class="arithmatex">\(O(1)\)</span></td>
+<td><span class="arithmatex">\(O(1)\)</span></td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+</tr>
+<tr>
+<td>数据预处理</td>
+<td>/</td>
+<td>排序 <span class="arithmatex">\(O(n \log n)\)</span></td>
+<td>建树 <span class="arithmatex">\(O(n \log n)\)</span></td>
+<td>建哈希表 <span class="arithmatex">\(O(n)\)</span></td>
+</tr>
+<tr>
+<td>数据是否有序</td>
+<td>无序</td>
+<td>有序</td>
+<td>有序</td>
+<td>无序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>除了以上表格内容，搜索算法的选择还取决于数据体量、搜索性能要求、数据查询与更新频率等。</p>
+<p><strong>线性搜索</strong></p>
+<ul>
+<li>通用性较好，无需任何数据预处理操作。加入我们仅需查询一次数据，那么其他三种方法的数据预处理的时间比线性搜索的时间还要更长。</li>
+<li>适用于体量较小的数据，此情况下时间复杂度对效率影响较小。</li>
+<li>适用于数据更新频率较高的场景，因为该方法不需要对数据进行任何额外维护。</li>
+</ul>
+<p><strong>二分查找</strong></p>
+<ul>
+<li>适用于大数据量的情况，效率表现稳定，最差时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span> 。</li>
+<li>数据量不能过大，因为存储数组需要连续的内存空间。</li>
+<li>不适用于高频增删数据的场景，因为维护有序数组的开销较大。</li>
+</ul>
+<p><strong>哈希查找</strong></p>
+<ul>
+<li>适合对查询性能要求很高的场景，平均时间复杂度为 <span class="arithmatex">\(O(1)\)</span> 。</li>
+<li>不适合需要有序数据或范围查找的场景，因为哈希表无法维护数据的有序性。</li>
+<li>对哈希函数和哈希冲突处理策略的依赖性较高，具有较大的性能劣化风险。</li>
+<li>不适合数据量过大的情况，因为哈希表需要额外空间来最大程度地减少冲突，从而提供良好的查询性能。</li>
+</ul>
+<p><strong>树查找</strong></p>
+<ul>
+<li>适用于海量数据，因为树节点在内存中是离散存储的。</li>
+<li>适合需要维护有序数据或范围查找的场景。</li>
+<li>在持续增删节点的过程中，二叉搜索树可能产生倾斜，时间复杂度劣化至 <span class="arithmatex">\(O(n)\)</span> 。</li>
+<li>若使用 AVL 树或红黑树，则各项操作可在 <span class="arithmatex">\(O(\log n)\)</span> 效率下稳定运行，但维护树平衡的操作会增加额外开销。</li>
 </ul>
 
 
@@ -1848,7 +2022,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../graph_traversal/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 10.3. &amp;nbsp; 图的遍历" rel="prev">
+          <a href="../../chapter_sorting/summary/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 11.9. &amp;nbsp; 小结" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1857,20 +2031,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                10.3. &nbsp; 图的遍历
+                11.9. &nbsp; 小结
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../chapter_sorting/sorting_algorithm/" class="md-footer__link md-footer__link--next" aria-label="下一页: 11.1. &amp;nbsp; 排序算法" rel="next">
+          <a href="../replace_linear_by_hashing/" class="md-footer__link md-footer__link--next" aria-label="下一页: 12.2. &amp;nbsp; 哈希优化策略" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                11.1. &nbsp; 排序算法
+                12.2. &nbsp; 哈希优化策略
               </div>
             </div>
             <div class="md-footer__button md-icon">
