@@ -18,7 +18,7 @@ function countingSortDigit(nums, exp) {
     // 统计 0~9 各数字的出现次数
     for (let i = 0; i < n; i++) {
         const d = digit(nums[i], exp); // 获取 nums[i] 第 k 位，记为 d
-        counter[d]++;                  // 统计数字 d 的出现次数
+        counter[d]++; // 统计数字 d 的出现次数
     }
     // 求前缀和，将“出现个数”转换为“数组索引”
     for (let i = 1; i < 10; i++) {
@@ -29,8 +29,8 @@ function countingSortDigit(nums, exp) {
     for (let i = n - 1; i >= 0; i--) {
         const d = digit(nums[i], exp);
         const j = counter[d] - 1; // 获取 d 在数组中的索引 j
-        res[j] = nums[i];         // 将当前元素填入索引 j
-        counter[d]--;             // 将 d 的数量减 1
+        res[j] = nums[i]; // 将当前元素填入索引 j
+        counter[d]--; // 将 d 的数量减 1
     }
     // 使用结果覆盖原数组 nums
     for (let i = 0; i < n; i++) {
@@ -58,7 +58,9 @@ function radixSort(nums) {
 }
 
 /* Driver Code */
-const nums = [10546151, 35663510, 42865989, 34862445, 81883077,
-              88906420, 72429244, 30524779, 82060337, 63832996];
+const nums = [
+    10546151, 35663510, 42865989, 34862445, 81883077, 88906420, 72429244,
+    30524779, 82060337, 63832996,
+];
 radixSort(nums);
 console.log('基数排序完成后 nums =', nums);

@@ -4,7 +4,7 @@
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
-const { printHeap } = require("../modules/PrintUtil");
+const { printHeap } = require('../modules/PrintUtil');
 
 /* 最大堆类 */
 class MaxHeap {
@@ -84,7 +84,7 @@ class MaxHeap {
     /* 元素出堆 */
     pop() {
         // 判空处理
-        if (this.isEmpty()) throw new Error("堆为空");
+        if (this.isEmpty()) throw new Error('堆为空');
         // 交换根节点与最右叶节点（即交换首元素与尾元素）
         this.#swap(0, this.size() - 1);
         // 删除节点
@@ -122,7 +122,7 @@ class MaxHeap {
 /* Driver Code */
 /* 初始化大顶堆 */
 const maxHeap = new MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-console.log("\n输入列表并建堆后");
+console.log('\n输入列表并建堆后');
 maxHeap.print();
 
 /* 获取堆顶元素 */

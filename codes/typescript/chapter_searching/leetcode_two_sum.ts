@@ -1,7 +1,7 @@
 /**
  * File: leetcode_two_sum.ts
  * Created Time: 2022-12-15
- * Author: gyt95 (gytkwan@gmail.com) 
+ * Author: gyt95 (gytkwan@gmail.com)
  */
 
 /* 方法一：暴力枚举 */
@@ -16,7 +16,7 @@ function twoSumBruteForce(nums: number[], target: number): number[] {
         }
     }
     return [];
-};
+}
 
 /* 方法二：辅助哈希表 */
 function twoSumHashTable(nums: number[], target: number): number[] {
@@ -32,17 +32,18 @@ function twoSumHashTable(nums: number[], target: number): number[] {
         }
     }
     return [];
-};
+}
 
 /* Driver Code */
 // 方法一
-const nums = [2, 7, 11, 15], target = 9;
+const nums = [2, 7, 11, 15],
+    target = 9;
 
 let res = twoSumBruteForce(nums, target);
-console.log("方法一 res = ", res);
+console.log('方法一 res = ', res);
 
 // 方法二
 res = twoSumHashTable(nums, target);
-console.log("方法二 res = ", res);
+console.log('方法二 res = ', res);
 
 export {};

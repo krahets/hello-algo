@@ -35,11 +35,12 @@ function twoSumHashTable(nums, target) {
 
 /* Driver Code */
 // 方法一
-const nums = [2, 7, 11, 15], target = 9;
+const nums = [2, 7, 11, 15],
+    target = 9;
 
 let res = twoSumBruteForce(nums, target);
-console.log("方法一 res = ", res);
+console.log('方法一 res = ', res);
 
 // 方法二
 res = twoSumHashTable(nums, target);
-console.log("方法二 res = ", res);
+console.log('方法二 res = ', res);

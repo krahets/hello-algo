@@ -24,7 +24,8 @@ class AVLTree {
     /* 更新节点高度 */
     private updateHeight(node: TreeNode): void {
         // 节点高度等于最高子树高度 + 1
-        node.height = Math.max(this.height(node.left), this.height(node.right)) + 1;
+        node.height =
+            Math.max(this.height(node.left), this.height(node.right)) + 1;
     }
 
     /* 获取平衡因子 */

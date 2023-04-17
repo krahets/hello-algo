@@ -4,15 +4,17 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-const { TreeNode } = require("../modules/TreeNode");
-const { printTree } = require("../modules/PrintUtil");
+const { TreeNode } = require('../modules/TreeNode');
+const { printTree } = require('../modules/PrintUtil');
 
 /* 二叉搜索树 */
 let root;
 
 function BinarySearchTree(nums) {
-    nums.sort((a, b) => { return a - b }); // 排序数组
-    root = buildTree(nums, 0, nums.length - 1);  // 构建二叉搜索树
+    nums.sort((a, b) => {
+        return a - b;
+    }); // 排序数组
+    root = buildTree(nums, 0, nums.length - 1); // 构建二叉搜索树
 }
 
 /* 获取二叉树根节点 */
@@ -52,7 +54,8 @@ function search(num) {
 function insert(num) {
     // 若树为空，直接提前返回
     if (root === null) return;
-    let cur = root, pre = null;
+    let cur = root,
+        pre = null;
     // 循环查找，越过叶节点后跳出
     while (cur !== null) {
         // 找到重复节点，直接返回
@@ -73,7 +76,8 @@ function insert(num) {
 function remove(num) {
     // 若树为空，直接提前返回
     if (root === null) return;
-    let cur = root, pre = null;
+    let cur = root,
+        pre = null;
     // 循环查找，越过叶节点后跳出
     while (cur !== null) {
         // 找到待删除节点，跳出循环
@@ -112,25 +116,25 @@ function remove(num) {
 /* 初始化二叉搜索树 */
 const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 BinarySearchTree(nums);
-console.log("\n初始化的二叉树为\n");
+console.log('\n初始化的二叉树为\n');
 printTree(getRoot());
 
 /* 查找节点 */
 let node = search(7);
-console.log("\n查找到的节点对象为 " + node + "，节点值 = " + node.val);
+console.log('\n查找到的节点对象为 ' + node + '，节点值 = ' + node.val);
 
 /* 插入节点 */
 insert(16);
-console.log("\n插入节点 16 后，二叉树为\n");
+console.log('\n插入节点 16 后，二叉树为\n');
 printTree(getRoot());
 
 /* 删除节点 */
 remove(1);
-console.log("\n删除节点 1 后，二叉树为\n");
+console.log('\n删除节点 1 后，二叉树为\n');
 printTree(getRoot());
 remove(2);
-console.log("\n删除节点 2 后，二叉树为\n");
+console.log('\n删除节点 2 后，二叉树为\n');
 printTree(getRoot());
 remove(4);
-console.log("\n删除节点 4 后，二叉树为\n");
+console.log('\n删除节点 4 后，二叉树为\n');
 printTree(getRoot());

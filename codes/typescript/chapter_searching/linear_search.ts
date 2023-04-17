@@ -20,7 +20,10 @@ function linearSearchArray(nums: number[], target: number): number {
 }
 
 /* 线性查找（链表）*/
-function linearSearchLinkedList(head: ListNode | null, target: number): ListNode | null {
+function linearSearchLinkedList(
+    head: ListNode | null,
+    target: number
+): ListNode | null {
     // 遍历链表
     while (head) {
         // 找到目标节点，返回之

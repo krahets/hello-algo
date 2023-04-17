@@ -6,8 +6,8 @@
 
 /* 基于邻接矩阵实现的无向图类 */
 class GraphAdjMat {
-    vertices;   // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    adjMat;     // 邻接矩阵，行列索引对应“顶点索引”
+    vertices; // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+    adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
     /* 构造函数 */
     constructor(vertices, edges) {
@@ -49,7 +49,7 @@ class GraphAdjMat {
     /* 删除顶点 */
     removeVertex(index) {
         if (index >= this.size()) {
-            throw new RangeError("Index Out Of Bounds Exception");
+            throw new RangeError('Index Out Of Bounds Exception');
         }
         // 在顶点列表中移除索引 index 的顶点
         this.vertices.splice(index, 1);
@@ -67,7 +67,7 @@ class GraphAdjMat {
     addEdge(i, j) {
         // 索引越界与相等处理
         if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-            throw new RangeError("Index Out Of Bounds Exception");
+            throw new RangeError('Index Out Of Bounds Exception');
         }
         // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
         this.adjMat[i][j] = 1;
@@ -79,7 +79,7 @@ class GraphAdjMat {
     removeEdge(i, j) {
         // 索引越界与相等处理
         if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-            throw new RangeError("Index Out Of Bounds Exception");
+            throw new RangeError('Index Out Of Bounds Exception');
         }
         this.adjMat[i][j] = 0;
         this.adjMat[j][i] = 0;
@@ -87,8 +87,8 @@ class GraphAdjMat {
 
     /* 打印邻接矩阵 */
     print() {
-        console.log("顶点列表 = ", this.vertices);
-        console.log("邻接矩阵 =", this.adjMat);
+        console.log('顶点列表 = ', this.vertices);
+        console.log('邻接矩阵 =', this.adjMat);
     }
 }
 
@@ -96,32 +96,37 @@ class GraphAdjMat {
 /* 初始化无向图 */
 // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
 const vertices = [1, 3, 2, 5, 4];
-const edges = [[0, 1], [1, 2], [2, 3], [0, 3], [2, 4], [3, 4]
+const edges = [
+    [0, 1],
+    [1, 2],
+    [2, 3],
+    [0, 3],
+    [2, 4],
+    [3, 4],
 ];
 const graph = new GraphAdjMat(vertices, edges);
-console.log("\n初始化后，图为");
+console.log('\n初始化后，图为');
 graph.print();
 
 /* 添加边 */
 // 顶点 1, 2 的索引分别为 0, 2
 graph.addEdge(0, 2);
-console.log("\n添加边 1-2 后，图为");
+console.log('\n添加边 1-2 后，图为');
 graph.print();
 
 /* 删除边 */
 // 顶点 1, 3 的索引分别为 0, 1
 graph.removeEdge(0, 1);
-console.log("\n删除边 1-3 后，图为");
+console.log('\n删除边 1-3 后，图为');
 graph.print();
 
 /* 添加顶点 */
 graph.addVertex(6);
-console.log("\n添加顶点 6 后，图为");
+console.log('\n添加顶点 6 后，图为');
 graph.print();
 
 /* 删除顶点 */
 // 顶点 3 的索引为 1
 graph.removeVertex(1);
-console.log("\n删除顶点 3 后，图为");
+console.log('\n删除顶点 3 后，图为');
 graph.print();
-

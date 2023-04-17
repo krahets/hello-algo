@@ -38,8 +38,6 @@ for (let i = 0; i < 10; i++) {
     const n = 100;
     const nums = randomNumbers(n);
     const index = findOne(nums);
-    console.log(
-        "\n数组 [ 1, 2, ..., n ] 被打乱后 = [" + nums.join(", ") + "]"
-    );
-    console.log("数字 1 的索引为 " + index);
+    console.log('\n数组 [ 1, 2, ..., n ] 被打乱后 = [' + nums.join(', ') + ']');
+    console.log('数字 1 的索引为 ' + index);
 }
