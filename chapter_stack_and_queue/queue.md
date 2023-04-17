@@ -544,8 +544,8 @@ comments: true
     ```javascript title="linkedlist_queue.js"
     /* 基于链表实现的队列 */
     class LinkedListQueue {
-        #front;  // 头节点 #front
-        #rear;   // 尾节点 #rear
+        #front; // 头节点 #front
+        #rear; // 尾节点 #rear
         #queSize = 0;
 
         constructor() {
@@ -590,8 +590,7 @@ comments: true
 
         /* 访问队首元素 */
         peek() {
-            if (this.size === 0)
-                throw new Error("队列为空");
+            if (this.size === 0) throw new Error('队列为空');
             return this.#front.val;
         }
 
@@ -1235,9 +1234,9 @@ comments: true
     ```javascript title="array_queue.js"
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
-        #nums;         // 用于存储队列元素的数组
-        #front = 0;    // 队首指针，指向队首元素
-        #queSize = 0;  // 队列长度
+        #nums; // 用于存储队列元素的数组
+        #front = 0; // 队首指针，指向队首元素
+        #queSize = 0; // 队列长度
 
         constructor(capacity) {
             this.#nums = new Array(capacity);
@@ -1261,7 +1260,7 @@ comments: true
         /* 入队 */
         push(num) {
             if (this.size == this.capacity) {
-                console.log("队列已满");
+                console.log('队列已满');
                 return;
             }
             // 计算尾指针，指向队尾索引 + 1
@@ -1283,8 +1282,7 @@ comments: true
 
         /* 访问队首元素 */
         peek() {
-            if (this.empty())
-                throw new Error("队列为空");
+            if (this.empty()) throw new Error('队列为空');
             return this.#nums[this.#front];
         }
 
@@ -1305,8 +1303,8 @@ comments: true
     ```typescript title="array_queue.ts"
     /* 基于环形数组实现的队列 */
     class ArrayQueue {
-        private nums: number[];  // 用于存储队列元素的数组
-        private front: number;   // 队首指针，指向队首元素
+        private nums: number[]; // 用于存储队列元素的数组
+        private front: number; // 队首指针，指向队首元素
         private queSize: number; // 队列长度
 
         constructor(capacity: number) {
@@ -1332,7 +1330,7 @@ comments: true
         /* 入队 */
         push(num: number): void {
             if (this.size == this.capacity) {
-                console.log("队列已满");
+                console.log('队列已满');
                 return;
             }
             // 计算尾指针，指向队尾索引 + 1
@@ -1354,8 +1352,7 @@ comments: true
 
         /* 访问队首元素 */
         peek(): number {
-            if (this.empty())
-                throw new Error("队列为空");
+            if (this.empty()) throw new Error('队列为空');
             return this.nums[this.front];
         }
 

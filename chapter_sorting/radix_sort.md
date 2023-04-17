@@ -253,7 +253,7 @@ $$
         // 统计 0~9 各数字的出现次数
         for (let i = 0; i < n; i++) {
             const d = digit(nums[i], exp); // 获取 nums[i] 第 k 位，记为 d
-            counter[d]++;                  // 统计数字 d 的出现次数
+            counter[d]++; // 统计数字 d 的出现次数
         }
         // 求前缀和，将“出现个数”转换为“数组索引”
         for (let i = 1; i < 10; i++) {
@@ -264,8 +264,8 @@ $$
         for (let i = n - 1; i >= 0; i--) {
             const d = digit(nums[i], exp);
             const j = counter[d] - 1; // 获取 d 在数组中的索引 j
-            res[j] = nums[i];         // 将当前元素填入索引 j
-            counter[d]--;             // 将 d 的数量减 1
+            res[j] = nums[i]; // 将当前元素填入索引 j
+            counter[d]--; // 将 d 的数量减 1
         }
         // 使用结果覆盖原数组 nums
         for (let i = 0; i < n; i++) {
@@ -310,7 +310,7 @@ $$
         // 统计 0~9 各数字的出现次数
         for (let i = 0; i < n; i++) {
             const d = digit(nums[i], exp); // 获取 nums[i] 第 k 位，记为 d
-            counter[d]++;                  // 统计数字 d 的出现次数
+            counter[d]++; // 统计数字 d 的出现次数
         }
         // 求前缀和，将“出现个数”转换为“数组索引”
         for (let i = 1; i < 10; i++) {
@@ -321,8 +321,8 @@ $$
         for (let i = n - 1; i >= 0; i--) {
             const d = digit(nums[i], exp);
             const j = counter[d] - 1; // 获取 d 在数组中的索引 j
-            res[j] = nums[i];         // 将当前元素填入索引 j
-            counter[d]--;             // 将 d 的数量减 1
+            res[j] = nums[i]; // 将当前元素填入索引 j
+            counter[d]--; // 将 d 的数量减 1
         }
         // 使用结果覆盖原数组 nums
         for (let i = 0; i < n; i++) {

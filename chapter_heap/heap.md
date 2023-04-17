@@ -1079,7 +1079,7 @@ comments: true
     /* 元素出堆 */
     pop() {
         // 判空处理
-        if (this.isEmpty()) throw new Error("堆为空");
+        if (this.isEmpty()) throw new Error('堆为空');
         // 交换根节点与最右叶节点（即交换首元素与尾元素）
         this.#swap(0, this.size() - 1);
         // 删除节点

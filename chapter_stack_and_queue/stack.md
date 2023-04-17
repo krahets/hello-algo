@@ -517,8 +517,8 @@ comments: true
     ```javascript title="linkedlist_stack.js"
     /* 基于链表实现的栈 */
     class LinkedListStack {
-        #stackPeek;     // 将头节点作为栈顶
-        #stkSize = 0;   // 栈的长度
+        #stackPeek; // 将头节点作为栈顶
+        #stkSize = 0; // 栈的长度
 
         constructor() {
             this.#stackPeek = null;
@@ -552,8 +552,7 @@ comments: true
 
         /* 访问栈顶元素 */
         peek() {
-            if (!this.#stackPeek)
-                throw new Error("栈为空");
+            if (!this.#stackPeek) throw new Error('栈为空');
             return this.#stackPeek.val;
         }
 
@@ -1050,7 +1049,7 @@ comments: true
         constructor() {
             this.#stack = [];
         }
-        
+
         /* 获取栈的长度 */
         get size() {
             return this.#stack.length;
@@ -1068,15 +1067,13 @@ comments: true
 
         /* 出栈 */
         pop() {
-            if (this.empty())
-                throw new Error("栈为空");
+            if (this.empty()) throw new Error('栈为空');
             return this.#stack.pop();
         }
 
         /* 访问栈顶元素 */
         top() {
-            if (this.empty())
-                throw new Error("栈为空");
+            if (this.empty()) throw new Error('栈为空');
             return this.#stack[this.#stack.length - 1];
         }
 
@@ -1084,7 +1081,7 @@ comments: true
         toArray() {
             return this.#stack;
         }
-    };
+    }
     ```
 
 === "TypeScript"
@@ -1114,15 +1111,13 @@ comments: true
 
         /* 出栈 */
         pop(): number | undefined {
-            if (this.empty())
-                throw new Error('栈为空');
+            if (this.empty()) throw new Error('栈为空');
             return this.stack.pop();
         }
 
         /* 访问栈顶元素 */
         top(): number | undefined {
-            if (this.empty())
-                throw new Error('栈为空');
+            if (this.empty()) throw new Error('栈为空');
             return this.stack[this.stack.length - 1];
         }
 
@@ -1130,7 +1125,7 @@ comments: true
         toArray() {
             return this.stack;
         }
-    };
+    }
     ```
 
 === "C"

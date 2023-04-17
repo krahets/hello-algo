@@ -393,7 +393,8 @@ comments: true
     function insert(num) {
         // 若树为空，直接提前返回
         if (root === null) return;
-        let cur = root, pre = null;
+        let cur = root,
+            pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur !== null) {
             // 找到重复节点，直接返回
@@ -808,7 +809,8 @@ comments: true
     function remove(num) {
         // 若树为空，直接提前返回
         if (root === null) return;
-        let cur = root, pre = null;
+        let cur = root,
+            pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur !== null) {
             // 找到待删除节点，跳出循环

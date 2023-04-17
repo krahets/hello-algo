@@ -882,12 +882,11 @@ $$
 
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
-
         private readonly buckets: (Entry | null)[];
 
         constructor() {
             // 初始化数组，包含 100 个桶
-            this.buckets = (new Array(100)).fill(null);
+            this.buckets = new Array(100).fill(null);
         }
 
         /* 哈希函数 */

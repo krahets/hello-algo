@@ -152,7 +152,8 @@ comments: true
     /* 哨兵划分 */
     partition(nums, left, right) {
         // 以 nums[left] 作为基准数
-        let i = left, j = right;
+        let i = left,
+            j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left]) {
                 j -= 1; // 从右向左找首个小于基准数的元素
@@ -181,7 +182,8 @@ comments: true
     /* 哨兵划分 */
     partition(nums: number[], left: number, right: number): number {
         // 以 nums[left] 作为基准数
-        let i = left, j = right;
+        let i = left,
+            j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left]) {
                 j -= 1; // 从右向左找首个小于基准数的元素
@@ -625,18 +627,25 @@ comments: true
         // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right])) return left;
-        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right])) return mid;
+        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
+            return mid;
         else return right;
     }
 
     /* 哨兵划分（三数取中值） */
     partition(nums, left, right) {
         // 选取三个候选元素的中位数
-        let med = this.medianThree(nums, left, Math.floor((left + right) / 2), right);
+        let med = this.medianThree(
+            nums,
+            left,
+            Math.floor((left + right) / 2),
+            right
+        );
         // 将中位数交换至数组最左端
         this.swap(nums, left, med);
         // 以 nums[left] 作为基准数
-        let i = left, j = right;
+        let i = left,
+            j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left]) j--; // 从右向左找首个小于基准数的元素
             while (i < j && nums[i] <= nums[left]) i++; // 从左向右找首个大于基准数的元素
@@ -651,12 +660,19 @@ comments: true
 
     ```typescript title="quick_sort.ts"
     /* 选取三个元素的中位数 */
-    medianThree(nums: number[], left: number, mid: number, right: number): number {
+    medianThree(
+        nums: number[],
+        left: number,
+        mid: number,
+        right: number
+    ): number {
         // 此处使用异或运算来简化代码
         // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
         if (Number(nums[left] < nums[mid]) ^ Number(nums[left] < nums[right])) {
             return left;
-        } else if (Number(nums[mid] < nums[left]) ^ Number(nums[mid] < nums[right])) {
+        } else if (
+            Number(nums[mid] < nums[left]) ^ Number(nums[mid] < nums[right])
+        ) {
             return mid;
         } else {
             return right;
@@ -666,11 +682,17 @@ comments: true
     /* 哨兵划分（三数取中值） */
     partition(nums: number[], left: number, right: number): number {
         // 选取三个候选元素的中位数
-        let med = this.medianThree(nums, left, Math.floor((left + right) / 2), right);
+        let med = this.medianThree(
+            nums,
+            left,
+            Math.floor((left + right) / 2),
+            right
+        );
         // 将中位数交换至数组最左端
         this.swap(nums, left, med);
         // 以 nums[left] 作为基准数
-        let i = left, j = right;
+        let i = left,
+            j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left]) {
                 j--; // 从右向左找首个小于基准数的元素

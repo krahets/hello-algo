@@ -784,10 +784,10 @@ comments: true
     ```javascript title="linkedlist_deque.js"
     /* 双向链表节点 */
     class ListNode {
-        prev;   // 前驱节点引用 (指针)
-        next;   // 后继节点引用 (指针)
-        val;    // 节点值
-        
+        prev; // 前驱节点引用 (指针)
+        next; // 后继节点引用 (指针)
+        val; // 节点值
+
         constructor(val) {
             this.val = val;
             this.next = null;
@@ -797,9 +797,9 @@ comments: true
 
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
-        #front;  // 头节点 front
-        #rear;   // 尾节点 rear
-        #queSize;    // 双向队列的长度
+        #front; // 头节点 front
+        #rear; // 尾节点 rear
+        #queSize; // 双向队列的长度
 
         constructor() {
             this.#front = null;
@@ -851,7 +851,7 @@ comments: true
                 temp.next = null;
                 this.#rear.prev = null;
             }
-            this.#rear = temp;   // 更新尾节点
+            this.#rear = temp; // 更新尾节点
             this.#queSize--;
             return value;
         }
@@ -868,7 +868,7 @@ comments: true
                 temp.prev = null;
                 this.#front.next = null;
             }
-            this.#front = temp;   // 更新头节点
+            this.#front = temp; // 更新头节点
             this.#queSize--;
             return value;
         }
@@ -901,7 +901,7 @@ comments: true
                 arr.push(temp.val);
                 temp = temp.next;
             }
-            console.log("[" + arr.join(", ") + "]");
+            console.log('[' + arr.join(', ') + ']');
         }
     }
     ```
@@ -911,9 +911,9 @@ comments: true
     ```typescript title="linkedlist_deque.ts"
     /* 双向链表节点 */
     class ListNode {
-        prev: ListNode;     // 前驱节点引用 (指针)
-        next: ListNode;     // 后继节点引用 (指针)
-        val: number;        // 节点值
+        prev: ListNode; // 前驱节点引用 (指针)
+        next: ListNode; // 后继节点引用 (指针)
+        val: number; // 节点值
 
         constructor(val: number) {
             this.val = val;
@@ -924,16 +924,16 @@ comments: true
 
     /* 基于双向链表实现的双向队列 */
     class LinkedListDeque {
-        private front: ListNode;    // 头节点 front
-        private rear: ListNode;     // 尾节点 rear
-        private queSize: number;        // 双向队列的长度
+        private front: ListNode; // 头节点 front
+        private rear: ListNode; // 尾节点 rear
+        private queSize: number; // 双向队列的长度
 
         constructor() {
             this.front = null;
             this.rear = null;
             this.queSize = 0;
         }
-        
+
         /* 队尾入队操作 */
         pushLast(val: number): void {
             const node: ListNode = new ListNode(val);
@@ -978,7 +978,7 @@ comments: true
                 temp.next = null;
                 this.rear.prev = null;
             }
-            this.rear = temp;   // 更新尾节点
+            this.rear = temp; // 更新尾节点
             this.queSize--;
             return value;
         }
@@ -995,7 +995,7 @@ comments: true
                 temp.prev = null;
                 this.front.next = null;
             }
-            this.front = temp;   // 更新头节点
+            this.front = temp; // 更新头节点
             this.queSize--;
             return value;
         }
@@ -1028,7 +1028,7 @@ comments: true
                 arr.push(temp.val);
                 temp = temp.next;
             }
-            console.log("[" + arr.join(", ") + "]");
+            console.log('[' + arr.join(', ') + ']');
         }
     }
     ```
@@ -1790,9 +1790,9 @@ comments: true
     ```javascript title="array_deque.js"
     /* 基于环形数组实现的双向队列 */
     class ArrayDeque {
-        #nums;       // 用于存储双向队列元素的数组
-        #front;      // 队首指针，指向队首元素
-        #queSize;    // 双向队列长度
+        #nums; // 用于存储双向队列元素的数组
+        #front; // 队首指针，指向队首元素
+        #queSize; // 双向队列长度
 
         /* 构造方法 */
         constructor(capacity) {
@@ -1827,7 +1827,7 @@ comments: true
         /* 队首入队 */
         pushFirst(num) {
             if (this.#queSize === this.capacity()) {
-                console.log("双向队列已满");
+                console.log('双向队列已满');
                 return;
             }
             // 队首指针向左移动一位
@@ -1841,7 +1841,7 @@ comments: true
         /* 队尾入队 */
         pushLast(num) {
             if (this.#queSize === this.capacity()) {
-                console.log("双向队列已满");
+                console.log('双向队列已满');
                 return;
             }
             // 计算尾指针，指向队尾索引 + 1
@@ -1869,15 +1869,13 @@ comments: true
 
         /* 访问队首元素 */
         peekFirst() {
-            if (this.isEmpty())
-                throw new Error("The Deque Is Empty.");
+            if (this.isEmpty()) throw new Error('The Deque Is Empty.');
             return this.#nums[this.#front];
         }
 
         /* 访问队尾元素 */
         peekLast() {
-            if (this.isEmpty())
-                throw new Error("The Deque Is Empty.");
+            if (this.isEmpty()) throw new Error('The Deque Is Empty.');
             // 计算尾元素索引
             const last = this.index(this.#front + this.#queSize - 1);
             return this.#nums[last];
@@ -1900,9 +1898,9 @@ comments: true
     ```typescript title="array_deque.ts"
     /* 基于环形数组实现的双向队列 */
     class ArrayDeque {
-        private nums: number[];     // 用于存储双向队列元素的数组
-        private front: number;      // 队首指针，指向队首元素
-        private queSize: number;    // 双向队列长度
+        private nums: number[]; // 用于存储双向队列元素的数组
+        private front: number; // 队首指针，指向队首元素
+        private queSize: number; // 双向队列长度
 
         /* 构造方法 */
         constructor(capacity: number) {
@@ -1937,7 +1935,7 @@ comments: true
         /* 队首入队 */
         pushFirst(num: number): void {
             if (this.queSize === this.capacity()) {
-                console.log("双向队列已满");
+                console.log('双向队列已满');
                 return;
             }
             // 队首指针向左移动一位
@@ -1951,7 +1949,7 @@ comments: true
         /* 队尾入队 */
         pushLast(num: number): void {
             if (this.queSize === this.capacity()) {
-                console.log("双向队列已满");
+                console.log('双向队列已满');
                 return;
             }
             // 计算尾指针，指向队尾索引 + 1
@@ -1979,15 +1977,13 @@ comments: true
 
         /* 访问队首元素 */
         peekFirst(): number {
-            if (this.isEmpty())
-                throw new Error("The Deque Is Empty.");
+            if (this.isEmpty()) throw new Error('The Deque Is Empty.');
             return this.nums[this.front];
         }
 
         /* 访问队尾元素 */
         peekLast(): number {
-            if (this.isEmpty())
-                throw new Error("The Deque Is Empty.");
+            if (this.isEmpty()) throw new Error('The Deque Is Empty.');
             // 计算尾元素索引
             const last = this.index(this.front + this.queSize - 1);
             return this.nums[last];

@@ -242,7 +242,8 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     /* 更新节点高度 */
     #updateHeight(node) {
         // 节点高度等于最高子树高度 + 1
-        node.height = Math.max(this.height(node.left), this.height(node.right)) + 1;
+        node.height =
+            Math.max(this.height(node.left), this.height(node.right)) + 1;
     }
     ```
 
@@ -258,7 +259,8 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     /* 更新节点高度 */
     updateHeight(node: TreeNode): void {
         // 节点高度等于最高子树高度 + 1
-        node.height = Math.max(this.height(node.left), this.height(node.right)) + 1;
+        node.height =
+            Math.max(this.height(node.left), this.height(node.right)) + 1;
     }
     ```
 
@@ -1315,7 +1317,8 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         if (node === null) return new TreeNode(val);
         /* 1. 查找插入位置，并插入节点 */
         if (val < node.val) node.left = this.#insertHelper(node.left, val);
-        else if (val > node.val) node.right = this.#insertHelper(node.right, val);
+        else if (val > node.val)
+            node.right = this.#insertHelper(node.right, val);
         else return node; // 重复节点不插入，直接返回
         this.#updateHeight(node); // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
@@ -1649,7 +1652,8 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         if (node === null) return null;
         /* 1. 查找节点，并删除之 */
         if (val < node.val) node.left = this.#removeHelper(node.left, val);
-        else if (val > node.val) node.right = this.#removeHelper(node.right, val);
+        else if (val > node.val)
+            node.right = this.#removeHelper(node.right, val);
         else {
             if (node.left === null || node.right === null) {
                 const child = node.left !== null ? node.left : node.right;

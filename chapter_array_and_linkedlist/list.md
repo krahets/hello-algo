@@ -1143,15 +1143,13 @@ comments: true
         /* 访问元素 */
         get(index) {
             // 索引如果越界则抛出异常，下同
-            if (index < 0 || index >= this.#size)
-                throw new Error('索引越界');
+            if (index < 0 || index >= this.#size) throw new Error('索引越界');
             return this.#nums[index];
         }
 
         /* 更新元素 */
         set(index, num) {
-            if (index < 0 || index >= this.#size)
-                throw new Error('索引越界');
+            if (index < 0 || index >= this.#size) throw new Error('索引越界');
             this.#nums[index] = num;
         }
 
@@ -1168,8 +1166,7 @@ comments: true
 
         /* 中间插入元素 */
         insert(index, num) {
-            if (index < 0 || index >= this.#size)
-                throw new Error('索引越界');
+            if (index < 0 || index >= this.#size) throw new Error('索引越界');
             // 元素数量超出容量时，触发扩容机制
             if (this.#size === this.#capacity) {
                 this.extendCapacity();
@@ -1185,8 +1182,7 @@ comments: true
 
         /* 删除元素 */
         remove(index) {
-            if (index < 0 || index >= this.#size)
-                throw new Error('索引越界');
+            if (index < 0 || index >= this.#size) throw new Error('索引越界');
             let num = this.#nums[index];
             // 将索引 index 之后的元素都向前移动一位
             for (let j = index; j < this.#size - 1; j++) {
@@ -1249,23 +1245,20 @@ comments: true
         /* 访问元素 */
         public get(index: number): number {
             // 索引如果越界则抛出异常，下同
-            if (index < 0 || index >= this._size)
-                throw new Error('索引越界');
+            if (index < 0 || index >= this._size) throw new Error('索引越界');
             return this.nums[index];
         }
 
         /* 更新元素 */
         public set(index: number, num: number): void {
-            if (index < 0 || index >= this._size)
-                throw new Error('索引越界');
+            if (index < 0 || index >= this._size) throw new Error('索引越界');
             this.nums[index] = num;
         }
 
         /* 尾部添加元素 */
         public add(num: number): void {
             // 如果长度等于容量，则需要扩容
-            if (this._size === this._capacity)
-                this.extendCapacity();
+            if (this._size === this._capacity) this.extendCapacity();
             // 将新元素添加到列表尾部
             this.nums[this._size] = num;
             this._size++;
@@ -1273,8 +1266,7 @@ comments: true
 
         /* 中间插入元素 */
         public insert(index: number, num: number): void {
-            if (index < 0 || index >= this._size)
-                throw new Error('索引越界');
+            if (index < 0 || index >= this._size) throw new Error('索引越界');
             // 元素数量超出容量时，触发扩容机制
             if (this._size === this._capacity) {
                 this.extendCapacity();
@@ -1290,8 +1282,7 @@ comments: true
 
         /* 删除元素 */
         public remove(index: number): number {
-            if (index < 0 || index >= this._size)
-                throw new Error('索引越界');
+            if (index < 0 || index >= this._size) throw new Error('索引越界');
             let num = this.nums[index];
             // 将索引 index 之后的元素都向前移动一位
             for (let j = index; j < this._size - 1; j++) {

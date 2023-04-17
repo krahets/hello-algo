@@ -167,15 +167,15 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
         const que = [startVet];
         // 以顶点 vet 为起点，循环直至访问完所有顶点
         while (que.length) {
-            const vet = que.shift();    // 队首顶点出队
-            res.push(vet);              // 记录访问顶点
+            const vet = que.shift(); // 队首顶点出队
+            res.push(vet); // 记录访问顶点
             // 遍历该顶点的所有邻接顶点
             for (const adjVet of graph.adjList.get(vet) ?? []) {
                 if (visited.has(adjVet)) {
-                    continue;           // 跳过已被访问过的顶点
+                    continue; // 跳过已被访问过的顶点
                 }
-                que.push(adjVet);       // 只入队未访问的顶点
-                visited.add(adjVet);    // 标记该顶点已被访问
+                que.push(adjVet); // 只入队未访问的顶点
+                visited.add(adjVet); // 标记该顶点已被访问
             }
         }
         // 返回顶点遍历序列
@@ -465,8 +465,8 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     /* 深度优先遍历 DFS */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     function dfs(graph, visited, res, vet) {
-        res.push(vet);      // 记录访问顶点
-        visited.add(vet);   // 标记该顶点已被访问
+        res.push(vet); // 记录访问顶点
+        visited.add(vet); // 标记该顶点已被访问
         // 遍历该顶点的所有邻接顶点
         for (const adjVet of graph.adjList.get(vet)) {
             if (visited.has(adjVet)) {
@@ -493,7 +493,12 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 
     ```typescript title="graph_dfs.ts"
     /* 深度优先遍历 DFS 辅助函数 */
-    function dfs(graph: GraphAdjList, visited: Set<Vertex>, res: Vertex[], vet: Vertex): void {
+    function dfs(
+        graph: GraphAdjList,
+        visited: Set<Vertex>,
+        res: Vertex[],
+        vet: Vertex
+    ): void {
         res.push(vet); // 记录访问顶点
         visited.add(vet); // 标记该顶点已被访问
         // 遍历该顶点的所有邻接顶点

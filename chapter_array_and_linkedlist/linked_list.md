@@ -522,8 +522,7 @@ comments: true
     ```javascript title="linked_list.js"
     /* 删除链表的节点 n0 之后的首个节点 */
     function remove(n0) {
-        if (!n0.next)
-            return;
+        if (!n0.next) return;
         // n0 -> P -> n1
         const P = n0.next;
         const n1 = P.next;

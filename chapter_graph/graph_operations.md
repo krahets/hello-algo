@@ -391,8 +391,8 @@ comments: true
     ```javascript title="graph_adjacency_matrix.js"
     /* 基于邻接矩阵实现的无向图类 */
     class GraphAdjMat {
-        vertices;   // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-        adjMat;     // 邻接矩阵，行列索引对应“顶点索引”
+        vertices; // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
         /* 构造函数 */
         constructor(vertices, edges) {
@@ -434,7 +434,7 @@ comments: true
         /* 删除顶点 */
         removeVertex(index) {
             if (index >= this.size()) {
-                throw new RangeError("Index Out Of Bounds Exception");
+                throw new RangeError('Index Out Of Bounds Exception');
             }
             // 在顶点列表中移除索引 index 的顶点
             this.vertices.splice(index, 1);
@@ -452,7 +452,7 @@ comments: true
         addEdge(i, j) {
             // 索引越界与相等处理
             if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-                throw new RangeError("Index Out Of Bounds Exception");
+                throw new RangeError('Index Out Of Bounds Exception');
             }
             // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
             this.adjMat[i][j] = 1;
@@ -464,7 +464,7 @@ comments: true
         removeEdge(i, j) {
             // 索引越界与相等处理
             if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-                throw new RangeError("Index Out Of Bounds Exception");
+                throw new RangeError('Index Out Of Bounds Exception');
             }
             this.adjMat[i][j] = 0;
             this.adjMat[j][i] = 0;
@@ -472,8 +472,8 @@ comments: true
 
         /* 打印邻接矩阵 */
         print() {
-            console.log("顶点列表 = ", this.vertices);
-            console.log("邻接矩阵 =", this.adjMat);
+            console.log('顶点列表 = ', this.vertices);
+            console.log('邻接矩阵 =', this.adjMat);
         }
     }
     ```
@@ -483,8 +483,8 @@ comments: true
     ```typescript title="graph_adjacency_matrix.ts"
     /* 基于邻接矩阵实现的无向图类 */
     class GraphAdjMat {
-        vertices: number[];     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-        adjMat: number[][];     // 邻接矩阵，行列索引对应“顶点索引”
+        vertices: number[]; // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        adjMat: number[][]; // 邻接矩阵，行列索引对应“顶点索引”
 
         /* 构造函数 */
         constructor(vertices: number[], edges: number[][]) {
@@ -526,7 +526,7 @@ comments: true
         /* 删除顶点 */
         removeVertex(index: number): void {
             if (index >= this.size()) {
-                throw new RangeError("Index Out Of Bounds Exception");
+                throw new RangeError('Index Out Of Bounds Exception');
             }
             // 在顶点列表中移除索引 index 的顶点
             this.vertices.splice(index, 1);
@@ -544,7 +544,7 @@ comments: true
         addEdge(i: number, j: number): void {
             // 索引越界与相等处理
             if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-                throw new RangeError("Index Out Of Bounds Exception");
+                throw new RangeError('Index Out Of Bounds Exception');
             }
             // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
             this.adjMat[i][j] = 1;
@@ -556,7 +556,7 @@ comments: true
         removeEdge(i: number, j: number): void {
             // 索引越界与相等处理
             if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-                throw new RangeError("Index Out Of Bounds Exception");
+                throw new RangeError('Index Out Of Bounds Exception');
             }
             this.adjMat[i][j] = 0;
             this.adjMat[j][i] = 0;
@@ -564,8 +564,8 @@ comments: true
 
         /* 打印邻接矩阵 */
         print(): void {
-            console.log("顶点列表 = ", this.vertices);
-            console.log("邻接矩阵 =", this.adjMat);
+            console.log('顶点列表 = ', this.vertices);
+            console.log('邻接矩阵 =', this.adjMat);
         }
     }
     ```
@@ -1145,8 +1145,12 @@ comments: true
 
         /* 添加边 */
         addEdge(vet1, vet2) {
-            if (!this.adjList.has(vet1) || !this.adjList.has(vet2) || vet1 === vet2) {
-                throw new Error("Illegal Argument Exception");
+            if (
+                !this.adjList.has(vet1) ||
+                !this.adjList.has(vet2) ||
+                vet1 === vet2
+            ) {
+                throw new Error('Illegal Argument Exception');
             }
             // 添加边 vet1 - vet2
             this.adjList.get(vet1).push(vet2);
@@ -1155,8 +1159,12 @@ comments: true
 
         /* 删除边 */
         removeEdge(vet1, vet2) {
-            if (!this.adjList.has(vet1) || !this.adjList.has(vet2) || vet1 === vet2) {
-                throw new Error("Illegal Argument Exception");
+            if (
+                !this.adjList.has(vet1) ||
+                !this.adjList.has(vet2) ||
+                vet1 === vet2
+            ) {
+                throw new Error('Illegal Argument Exception');
             }
             // 删除边 vet1 - vet2
             this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
@@ -1173,7 +1181,7 @@ comments: true
         /* 删除顶点 */
         removeVertex(vet) {
             if (!this.adjList.has(vet)) {
-                throw new Error("Illegal Argument Exception");
+                throw new Error('Illegal Argument Exception');
             }
             // 在邻接表中删除顶点 vet 对应的链表
             this.adjList.delete(vet);
@@ -1188,13 +1196,13 @@ comments: true
 
         /* 打印邻接表 */
         print() {
-            console.log("邻接表 =");
+            console.log('邻接表 =');
             for (const [key, value] of this.adjList) {
                 const tmp = [];
                 for (const vertex of value) {
                     tmp.push(vertex.val);
                 }
-                console.log(key.val + ": " + tmp.join());
+                console.log(key.val + ': ' + tmp.join());
             }
         }
     }
@@ -1226,7 +1234,11 @@ comments: true
 
         /* 添加边 */
         addEdge(vet1: Vertex, vet2: Vertex): void {
-            if (!this.adjList.has(vet1) || !this.adjList.has(vet2) || vet1 === vet2) {
+            if (
+                !this.adjList.has(vet1) ||
+                !this.adjList.has(vet2) ||
+                vet1 === vet2
+            ) {
                 throw new Error('Illegal Argument Exception');
             }
             // 添加边 vet1 - vet2
@@ -1236,7 +1248,11 @@ comments: true
 
         /* 删除边 */
         removeEdge(vet1: Vertex, vet2: Vertex): void {
-            if (!this.adjList.has(vet1) || !this.adjList.has(vet2) || vet1 === vet2) {
+            if (
+                !this.adjList.has(vet1) ||
+                !this.adjList.has(vet2) ||
+                vet1 === vet2
+            ) {
                 throw new Error('Illegal Argument Exception');
             }
             // 删除边 vet1 - vet2

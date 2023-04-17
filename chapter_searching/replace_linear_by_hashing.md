@@ -118,7 +118,7 @@ comments: true
             }
         }
         return [];
-    };
+    }
     ```
 
 === "C"
@@ -302,7 +302,7 @@ comments: true
             }
         }
         return [];
-    };
+    }
     ```
 
 === "C"
