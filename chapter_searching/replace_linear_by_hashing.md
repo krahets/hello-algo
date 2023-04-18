@@ -322,6 +322,32 @@ comments: true
 === "C"
 
     ```c title="leetcode_two_sum.c"
+    /* 哈希表 */
+    struct hashTable {
+        int key;
+        int val;
+        UT_hash_handle hh; // 基于 uthash.h 实现
+    };
+
+    /* 哈希表查询 */
+    hashTable *find(hashTable *h, int key) {
+        hashTable *tmp;
+        HASH_FIND_INT(h, &key, tmp);
+        return tmp;
+    }
+
+    /* 哈希表元素插入 */
+    void insert(hashTable *h, int key, int val) {
+        hashTable *t = find(h, key);
+        if (t == NULL) {
+            hashTable *tmp = malloc(sizeof(hashTable));
+            tmp->key = key, tmp->val = val;
+            HASH_ADD_INT(h, key, tmp);
+        } else {
+            t->val = val;
+        }
+    }
+
     /* 方法二：辅助哈希表 */
     int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
         hashTable *hashtable = NULL;

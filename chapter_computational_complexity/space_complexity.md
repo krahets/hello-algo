@@ -949,6 +949,13 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
+    /* 哈希表 */
+    struct hashTable {
+        int key;
+        int val;
+        UT_hash_handle hh; // 基于 uthash.h 实现
+    };
+
     /* 线性阶 */
     void linear(int n) {
         // 长度为 n 的数组占用 O(n) 空间
@@ -968,7 +975,6 @@ $$
 
         // 长度为 n 的哈希表占用 O(n) 空间
         hashTable *h = NULL;
-
         for (int i = 0; i < n; i++) {
             hashTable *tmp = malloc(sizeof(hashTable));
             tmp->key = i;
