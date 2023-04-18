@@ -6,19 +6,19 @@
 
 #include "../include/include.h"
 
-/* 基于环形数组形成的队列 */
-struct ArrayQueue {
+/* 基于环形数组实现的队列 */
+struct arrayQueue {
     int *nums;       // 用于存储队列元素的数组
     int front;       // 队首指针，指向队首元素
     int queSize;     // 尾指针，指向队尾 + 1
     int queCapacity; // 队列容量
 };
 
-typedef struct ArrayQueue ArrayQueue;
+typedef struct arrayQueue arrayQueue;
 
-/* 构造方法 */
-ArrayQueue *newArrayQueue(int capacity) {
-    ArrayQueue *queue = (ArrayQueue *)malloc(sizeof(ArrayQueue));
+/* 构造函数 */
+arrayQueue *newArrayQueue(int capacity) {
+    arrayQueue *queue = (arrayQueue *)malloc(sizeof(arrayQueue));
     // 初始化数组
     queue->queCapacity = capacity;
     queue->nums = (int *)malloc(sizeof(int) * queue->queCapacity);
@@ -26,35 +26,35 @@ ArrayQueue *newArrayQueue(int capacity) {
     return queue;
 }
 
-/* 析构方法 */
-void delArrayQueue(ArrayQueue *queue) {
+/* 析构函数 */
+void delArrayQueue(arrayQueue *queue) {
     free(queue->nums);
     queue->queCapacity = 0;
 }
 
 /* 获取队列的容量 */
-int capacity(ArrayQueue *queue) {
+int capacity(arrayQueue *queue) {
     return queue->queCapacity;
 }
 
 /* 获取队列的长度 */
-int size(ArrayQueue *queue) {
+int size(arrayQueue *queue) {
     return queue->queSize;
 }
 
 /* 判断队列是否为空 */
-bool empty(ArrayQueue *queue) {
+bool empty(arrayQueue *queue) {
     return queue->queSize == 0;
 }
 
 /* 访问队首元素 */
-int peek(ArrayQueue *queue) {
+int peek(arrayQueue *queue) {
     assert(size(queue) != 0);
     return queue->nums[queue->front];
 }
 
 /* 入队 */
-void push(ArrayQueue *queue, int num) {
+void push(arrayQueue *queue, int num) {
     if (size(queue) == capacity(queue)) {
         printf("队列已满\r\n");
         return;
@@ -68,15 +68,15 @@ void push(ArrayQueue *queue, int num) {
 }
 
 /* 出队 */
-void pop(ArrayQueue *queue) {
+void pop(arrayQueue *queue) {
     int num = peek(queue);
     // 队首指针向后移动一位，若越过尾部则返回到数组头部
     queue->front = (queue->front + 1) % queue->queCapacity;
     queue->queSize--;
 }
 
-/* 打印基于环形数组形成的队列 */
-void printArrayQueue(ArrayQueue *queue) {
+/* 打印队列 */
+void printArrayQueue(arrayQueue *queue) {
     int arr[queue->queSize];
     // 拷贝
     for (int i = 0, j = queue->front; i < queue->queSize; i++, j++) {
@@ -89,7 +89,7 @@ void printArrayQueue(ArrayQueue *queue) {
 int main() {
     /* 初始化队列 */
     int capacity = 10;
-    ArrayQueue *queue = newArrayQueue(capacity);
+    arrayQueue *queue = newArrayQueue(capacity);
 
     /* 元素入队 */
     push(queue, 1);

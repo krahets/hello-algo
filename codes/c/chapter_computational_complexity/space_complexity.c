@@ -29,10 +29,12 @@ void constant(int n) {
     }
 }
 
-typedef struct {
+/* 哈希表 */
+typedef struct hashTable {
     int key;
-    char val[10];
-    UT_hash_handle hh; // 借助 uthash 实现的哈希表
+    int val;
+    // 借助 LetCode 上常用的哈希表
+    UT_hash_handle hh;
 } hashTable;
 
 /* 线性阶 */
@@ -58,7 +60,7 @@ void linear(int n) {
     for (int i = 0; i < n; i++) {
         hashTable *tmp = malloc(sizeof(hashTable));
         tmp->key = i;
-        sprintf(tmp->val, "%d", i);
+        tmp->val = i;
         HASH_ADD_INT(h, key, tmp);
     }
 

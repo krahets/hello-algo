@@ -182,7 +182,18 @@
 === "C"
 
     ```c title=""
+    /* 函数 */
+    int func() {
+        // do something...
+        return 0;
+    }
 
+    int algorithm(int n) { // 输入数据
+        const int a = 0;   // 暂存数据（常量）
+        int b = 0;         // 暂存数据（变量）
+        int c = func();    // 栈帧空间（调用函数）
+        return a + b + c;  // 输出数据
+    }
     ```
 
 === "C#"
@@ -329,7 +340,12 @@
 === "C"
 
     ```c title=""
-
+    void algorithm(int n) {
+        int a = 0;               // O(1)
+        int b[10000];            // O(1)
+        if (n > 10)
+            vector<int> nums(n); // O(n)
+    }
     ```
 
 === "C#"
@@ -491,7 +507,21 @@
 === "C"
 
     ```c title=""
-    
+    int func() {
+        // do something
+        return 0;
+    }
+    /* 循环 O(1) */
+    void loop(int n) {
+        for (int i = 0; i < n; i++) {
+            func();
+        }
+    }
+    /* 递归 O(n) */
+    void recur(int n) {
+        if (n == 1) return;
+        return recur(n - 1);
+    }
     ```
 
 === "C#"
@@ -611,7 +641,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceConstant}
+    [class]{}-[func]{constant}
     ```
 
 === "C#"
@@ -675,7 +705,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceLinear}
+    [class]{}-[func]{linear}
     ```
 
 === "C#"
@@ -737,7 +767,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceLinearRecur}
+    [class]{}-[func]{linearRecur}
     ```
 
 === "C#"
@@ -803,7 +833,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceQuadratic}
+    [class]{}-[func]{quadratic}
     ```
 
 === "C#"
@@ -865,7 +895,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceQuadraticRecur}
+    [class]{}-[func]{quadraticRecur}
     ```
 
 === "C#"

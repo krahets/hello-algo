@@ -6,7 +6,7 @@
 
 #include "../include/include.h"
 
-// 用数组实现 list
+/* 列表类简易实现 */
 struct myList {
     int *nums;       // 数组（存储列表元素）
     int capacity;    // 列表容量
@@ -16,10 +16,9 @@ struct myList {
 
 typedef struct myList myList;
 
-/* 前置声明 */
 void extendCapacity(myList *list);
 
-/* 构造方法 */
+/* 构造函数 */
 myList *newMyList() {
     myList *list = malloc(sizeof(myList));
     list->capacity = 10;
@@ -29,7 +28,7 @@ myList *newMyList() {
     return list;
 }
 
-/* 析构方法 */
+/* 析构函数 */
 void delMyList(myList *list) {
     free(list->nums);
     free(list);
@@ -77,8 +76,7 @@ void insert(myList *list, int index, int num) {
 }
 
 /* 删除元素 */
-// 由于引入了 stdio.h ，此处无法使用 remove 关键词
-// 详见 https://github.com/krahets/hello-algo/pull/244#discussion_r1067863888
+// 注意：stdio.h 占用了 remove 关键词
 int removeNum(myList *list, int index) {
     assert(index >= 0 && index < size(list));
     int num = list->nums[index];

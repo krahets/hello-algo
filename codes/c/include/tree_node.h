@@ -15,11 +15,12 @@ extern "C" {
 
 #define MAX_NODE_SIZE 5000
 
+/* 二叉树节点结构体 */
 struct TreeNode {
-    int val;
-    int height;
-    struct TreeNode *left;
-    struct TreeNode *right;
+    int val;                // 节点值
+    int height;             // 节点高度
+    struct TreeNode *left;  // 左子节点指针
+    struct TreeNode *right; // 右子节点指针
 };
 
 typedef struct TreeNode TreeNode;
@@ -60,7 +61,7 @@ TreeNode *arrToTree(const int *arr, size_t size) {
         node = queue[front++];
         index++;
         if (index < size) {
-            // represent null with INT_MAX 
+            // represent null with INT_MAX
             if (arr[index] != INT_MAX) {
                 node->left = newTreeNode(arr[index]);
                 queue[rear++] = node->left;

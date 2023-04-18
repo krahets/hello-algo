@@ -6,19 +6,19 @@
 
 #include "../include/include.h"
 
-/* 基于环形数组形成的双向队列 */
-struct ArrayDeque {
+/* 基于环形数组实现的双向队列 */
+struct arrayDeque {
     int *nums;       // 用于存储队列元素的数组
     int front;       // 队首指针，指向队首元素
     int queSize;     // 尾指针，指向队尾 + 1
     int queCapacity; // 队列容量
 };
 
-typedef struct ArrayDeque ArrayDeque;
+typedef struct arrayDeque arrayDeque;
 
-/* 构造方法 */
-ArrayDeque *newArrayDeque(int capacity) {
-    ArrayDeque *deque = (ArrayDeque *)malloc(sizeof(ArrayDeque));
+/* 构造函数 */
+arrayDeque *newArrayDeque(int capacity) {
+    arrayDeque *deque = (arrayDeque *)malloc(sizeof(arrayDeque));
     // 初始化数组
     deque->queCapacity = capacity;
     deque->nums = (int *)malloc(sizeof(int) * deque->queCapacity);
@@ -26,28 +26,28 @@ ArrayDeque *newArrayDeque(int capacity) {
     return deque;
 }
 
-/* 析构方法 */
-void delArrayDeque(ArrayDeque *deque) {
+/* 析构函数 */
+void delArrayDeque(arrayDeque *deque) {
     free(deque->nums);
     deque->queCapacity = 0;
 }
 
 /* 获取双向队列的容量 */
-int capacity(ArrayDeque *deque) {
+int capacity(arrayDeque *deque) {
     return deque->queCapacity;
 }
 
 /* 获取双向队列的长度 */
-int size(ArrayDeque *deque) {
+int size(arrayDeque *deque) {
     return deque->queSize;
 }
 
 /* 判断双向队列是否为空 */
-bool empty(ArrayDeque *deque) {
+bool empty(arrayDeque *deque) {
     return deque->queSize == 0;
 }
 
-int dequeIndex(ArrayDeque *deque, int i) {
+int dequeIndex(arrayDeque *deque, int i) {
     // 通过取余操作实现数组首尾相连
     // 当 i 越过数组尾部时，回到头部
     // 当 i 越过数组头部后，回到尾部
@@ -55,7 +55,7 @@ int dequeIndex(ArrayDeque *deque, int i) {
 }
 
 /* 队首入队 */
-void pushFirst(ArrayDeque *deque, int num) {
+void pushFirst(arrayDeque *deque, int num) {
     if (deque->queSize == capacity(deque)) {
         printf("双向队列已满\r\n");
         return;
@@ -69,7 +69,7 @@ void pushFirst(ArrayDeque *deque, int num) {
 }
 
 /* 队尾入队 */
-void pushLast(ArrayDeque *deque, int num) {
+void pushLast(arrayDeque *deque, int num) {
     if (deque->queSize == capacity(deque)) {
         printf("双向队列已满\r\n");
         return;
@@ -82,14 +82,14 @@ void pushLast(ArrayDeque *deque, int num) {
 }
 
 /* 访问队首元素 */
-int peekFirst(ArrayDeque *deque) {
+int peekFirst(arrayDeque *deque) {
     // 访问异常：双向队列为空
     assert(empty(deque) == 0);
     return deque->nums[deque->front];
 }
 
 /* 访问队尾元素 */
-int peekLast(ArrayDeque *deque) {
+int peekLast(arrayDeque *deque) {
     // 访问异常：双向队列为空
     assert(empty(deque) == 0);
     int last = dequeIndex(deque, deque->front + deque->queSize - 1);
@@ -97,7 +97,7 @@ int peekLast(ArrayDeque *deque) {
 }
 
 /* 队首出队 */
-int popFirst(ArrayDeque *deque) {
+int popFirst(arrayDeque *deque) {
     int num = peekFirst(deque);
     // 队首指针向后移动一位
     deque->front = dequeIndex(deque, deque->front + 1);
@@ -106,14 +106,14 @@ int popFirst(ArrayDeque *deque) {
 }
 
 /* 队尾出队 */
-int popLast(ArrayDeque *deque) {
+int popLast(arrayDeque *deque) {
     int num = peekLast(deque);
     deque->queSize--;
     return num;
 }
 
-/* 打印基于环形数组形成的队列 */
-void printArrayDeque(ArrayDeque *deque) {
+/* 打印队列 */
+void printArrayDeque(arrayDeque *deque) {
     int arr[deque->queSize];
     // 拷贝
     for (int i = 0, j = deque->front; i < deque->queSize; i++, j++) {
@@ -126,7 +126,7 @@ void printArrayDeque(ArrayDeque *deque) {
 int main() {
     /* 初始化队列 */
     int capacity = 10;
-    ArrayDeque *deque = newArrayDeque(capacity);
+    arrayDeque *deque = newArrayDeque(capacity);
     pushLast(deque, 3);
     pushLast(deque, 2);
     pushLast(deque, 5);
