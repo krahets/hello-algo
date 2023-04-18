@@ -648,7 +648,42 @@ comments: true
 
 !!! note
 
-    使用循环一样可以实现前、中、后序遍历，但代码相对繁琐，有兴趣的同学可以自行实现。
+    我们也可以仅基于循环实现前、中、后序遍历，有兴趣的同学可以自行实现。
+
+递归过程可分为“递”和“归”两个相反的部分。“递”表示开启新方法，程序在此过程中访问下一个节点；“归”表示函数返回，代表该节点已经访问完毕。如下图所示，为前序遍历二叉树的递归过程。
+
+=== "<1>"
+    ![preorder_step1](binary_tree_traversal.assets/preorder_step1.png)
+
+=== "<2>"
+    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.png)
+
+=== "<3>"
+    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.png)
+
+=== "<4>"
+    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.png)
+
+=== "<5>"
+    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.png)
+
+=== "<6>"
+    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.png)
+
+=== "<7>"
+    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.png)
+
+=== "<8>"
+    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.png)
+
+=== "<9>"
+    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.png)
+
+=== "<10>"
+    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.png)
+
+=== "<11>"
+    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.png)
 
 ### 复杂度分析
 
