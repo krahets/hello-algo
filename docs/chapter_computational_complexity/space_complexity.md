@@ -705,6 +705,8 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
+    [class]{hashTable}-[func]{}
+
     [class]{}-[func]{linear}
     ```
 

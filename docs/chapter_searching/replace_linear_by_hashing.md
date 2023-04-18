@@ -126,6 +126,8 @@
 === "C"
 
     ```c title="leetcode_two_sum.c"
+    [class]{hashTable}-[func]{}
+
     [class]{}-[func]{twoSumHashTable}
     ```
 

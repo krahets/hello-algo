@@ -8,9 +8,9 @@
 
 /* 哈希表 */
 struct hashTable {
-    int key;           // key 为 int 型
-    void *val;         // val 为 void * 型
-    UT_hash_handle hh; // 借助 uthash 实现的哈希表
+    int key;
+    void *val;
+    UT_hash_handle hh; // 基于 uthash.h 实现
 };
 
 typedef struct hashTable hashTable;

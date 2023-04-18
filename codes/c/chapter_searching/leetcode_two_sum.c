@@ -26,8 +26,7 @@ int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
 struct hashTable {
     int key;
     int val;
-    // 借助 LetCode 上常用的哈希表
-    UT_hash_handle hh;
+    UT_hash_handle hh; // 基于 uthash.h 实现
 };
 
 typedef struct hashTable hashTable;
