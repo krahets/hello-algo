@@ -174,7 +174,7 @@ comments: true
 === "C"
 
     ```c title="hash_map.c"
-    
+    // C 未提供内置哈希表
     ```
 
 === "C#"
@@ -339,7 +339,7 @@ comments: true
 === "C"
 
     ```c title="hash_map.c"
-    
+    // C 未提供内置哈希表
     ```
 
 === "C#"

@@ -171,7 +171,25 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{search}
+    /* 查找节点 */
+    TreeNode *search(binarySearchTree *bst, int num) {
+        TreeNode *cur = bst->root;
+        // 循环查找，越过叶节点后跳出
+        while (cur != NULL) {
+            if (cur->val < num) {
+                // 目标节点在 cur 的右子树中
+                cur = cur->right;
+            } else if (cur->val > num) {
+                // 目标节点在 cur 的左子树中
+                cur = cur->left;
+            } else {
+                // 找到目标节点，跳出循环
+                break;
+            }
+        }
+        // 返回目标节点
+        return cur;
+    }
     ```
 
 === "C#"
@@ -448,7 +466,35 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{insert}
+    /* 插入节点 */
+    void insert(binarySearchTree *bst, int num) {
+        // 若树为空，直接提前返回
+        if (bst->root == NULL)
+            return;
+        TreeNode *cur = bst->root, *pre = NULL;
+        // 循环查找，越过叶节点后跳出
+        while (cur != NULL) {
+            // 找到重复节点，直接返回
+            if (cur->val == num) {
+                return;
+            }
+            pre = cur;
+            if (cur->val < num) {
+                // 插入位置在 cur 的右子树中
+                cur = cur->right;
+            } else {
+                // 插入位置在 cur 的左子树中
+                cur = cur->left;
+            }
+        }
+        // 插入节点 val
+        TreeNode *node = newTreeNode(num);
+        if (pre->val < num) {
+            pre->right = node;
+        } else {
+            pre->left = node;
+        }
+    }
     ```
 
 === "C#"
@@ -903,7 +949,55 @@ comments: true
 === "C"
 
     ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{remove}
+    /* 删除节点 */
+    // 由于引入了 stdio.h ，此处无法使用 remove 关键词
+    void removeNode(binarySearchTree *bst, int num) {
+        // 若树为空，直接提前返回
+        if (bst->root == NULL)
+            return;
+        TreeNode *cur = bst->root, *pre = NULL;
+        // 循环查找，越过叶节点后跳出
+        while (cur != NULL) {
+            // 找到待删除节点，跳出循环
+            if (cur->val == num)
+                break;
+            pre = cur;
+            if (cur->val < num) {
+                // 待删除节点在 root 的右子树中
+                cur = cur->right;
+            } else {
+                // 待删除节点在 root 的左子树中
+                cur = cur->left;
+            }
+        }
+        // 若无待删除节点，则直接返回
+        if (cur == NULL)
+            return;
+        // 判断待删除节点是否存在子节点
+        if (cur->left == NULL || cur->right == NULL) {
+            /* 子节点数量 = 0 or 1 */
+            // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
+            TreeNode *child = cur->left != NULL ? cur->left : cur->right;
+            // 删除节点 cur
+            if (pre->left == cur) {
+                pre->left = child;
+            } else {
+                pre->right = child;
+            }
+        } else {
+            /* 子节点数量 = 2 */
+            // 获取中序遍历中 cur 的下一个节点
+            TreeNode *tmp = cur->right;
+            while (tmp->left != NULL) {
+                tmp = tmp->left;
+            }
+            int tmpVal = tmp->val;
+            // 递归删除节点 tmp
+            removeNode(bst, tmp->val);
+            // 用 tmp 覆盖 cur
+            cur->val = tmpVal;
+        }
+    }
     ```
 
 === "C#"

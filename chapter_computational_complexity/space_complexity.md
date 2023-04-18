@@ -188,7 +188,18 @@ comments: true
 === "C"
 
     ```c title=""
+    /* 函数 */
+    int func() {
+        // do something...
+        return 0;
+    }
 
+    int algorithm(int n) { // 输入数据
+        const int a = 0;   // 暂存数据（常量）
+        int b = 0;         // 暂存数据（变量）
+        int c = func();    // 栈帧空间（调用函数）
+        return a + b + c;  // 输出数据
+    }
     ```
 
 === "C#"
@@ -335,7 +346,12 @@ comments: true
 === "C"
 
     ```c title=""
-
+    void algorithm(int n) {
+        int a = 0;               // O(1)
+        int b[10000];            // O(1)
+        if (n > 10)
+            vector<int> nums(n); // O(n)
+    }
     ```
 
 === "C#"
@@ -497,7 +513,21 @@ comments: true
 === "C"
 
     ```c title=""
-    
+    int func() {
+        // do something
+        return 0;
+    }
+    /* 循环 O(1) */
+    void loop(int n) {
+        for (int i = 0; i < n; i++) {
+            func();
+        }
+    }
+    /* 递归 O(n) */
+    void recur(int n) {
+        if (n == 1) return;
+        return recur(n - 1);
+    }
     ```
 
 === "C#"
@@ -707,7 +737,23 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceConstant}
+    /* 常数阶 */
+    void constant(int n) {
+        // 常量、变量、对象占用 O(1) 空间
+        const int a = 0;
+        int b = 0;
+        int nums[1000];
+        ListNode *node = newListNode(0);
+        free(node);
+        // 循环中的变量占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            int c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            func();
+        }
+    }
     ```
 
 === "C#"
@@ -903,7 +949,40 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceLinear}
+    /* 线性阶 */
+    void linear(int n) {
+        // 长度为 n 的数组占用 O(n) 空间
+        int *nums = malloc(sizeof(int) * n);
+        free(nums);
+
+        // 长度为 n 的列表占用 O(n) 空间
+        ListNode **nodes = malloc(sizeof(ListNode *) * n);
+        for (int i = 0; i < n; i++) {
+            nodes[i] = newListNode(i);
+        }
+        // 内存释放
+        for (int i = 0; i < n; i++) {
+            free(nodes[i]);
+        }
+        free(nodes);
+
+        // 长度为 n 的哈希表占用 O(n) 空间
+        hashTable *h = NULL;
+
+        for (int i = 0; i < n; i++) {
+            hashTable *tmp = malloc(sizeof(hashTable));
+            tmp->key = i;
+            tmp->val = i;
+            HASH_ADD_INT(h, key, tmp);
+        }
+
+        // 内存释放
+        hashTable *curr, *tmp;
+        HASH_ITER(hh, h, curr, tmp) {
+            HASH_DEL(h, curr);
+            free(curr);
+        }
+    }
     ```
 
 === "C#"
@@ -1045,7 +1124,13 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceLinearRecur}
+    /* 线性阶（递归实现） */
+    void linearRecur(int n) {
+        printf("递归 n = %d\r\n", n);
+        if (n == 1)
+            return;
+        linearRecur(n - 1);
+    }
     ```
 
 === "C#"
@@ -1195,7 +1280,24 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceQuadratic}
+    /* 平方阶 */
+    void quadratic(int n) {
+        // 二维列表占用 O(n^2) 空间
+        int **numMatrix = malloc(sizeof(int *) * n);
+        for (int i = 0; i < n; i++) {
+            int *tmp = malloc(sizeof(int) * n);
+            for (int j = 0; j < n; j++) {
+                tmp[j] = 0;
+            }
+            numMatrix[i] = tmp;
+        }
+
+        // 内存释放
+        for (int i = 0; i < n; i++) {
+            free(numMatrix[i]);
+        }
+        free(numMatrix);
+    }
     ```
 
 === "C#"
@@ -1333,7 +1435,15 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceQuadraticRecur}
+    /* 平方阶（递归实现） */
+    int quadraticRecur(int n) {
+        if (n <= 0)
+            return 0;
+        int *nums = malloc(sizeof(int) * n);
+        printf("递归 n = %d 中的 nums 长度 = %d\r\n", n, n);
+        free(nums);
+        return quadraticRecur(n - 1);
+    }
     ```
 
 === "C#"
@@ -1470,7 +1580,15 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{buildTree}
+    /* 指数阶（建立满二叉树） */
+    TreeNode *buildTree(int n) {
+        if (n == 0)
+            return NULL;
+        TreeNode *root = newTreeNode(0);
+        root->left = buildTree(n - 1);
+        root->right = buildTree(n - 1);
+        return root;
+    }
     ```
 
 === "C#"

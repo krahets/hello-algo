@@ -124,7 +124,21 @@ comments: true
 === "C"
 
     ```c title="leetcode_two_sum.c"
-    [class]{}-[func]{twoSumBruteForce}
+    /* 方法一：暴力枚举 */
+    int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
+        for (int i = 0; i < numsSize; ++i) {
+            for (int j = i + 1; j < numsSize; ++j) {
+                if (nums[i] + nums[j] == target) {
+                    int *res = malloc(sizeof(int) * 2);
+                    res[0] = i, res[1] = j;
+                    *returnSize = 2;
+                    return res;
+                }
+            }
+        }
+        *returnSize = 0;
+        return NULL;
+    }
     ```
 
 === "C#"
@@ -308,7 +322,22 @@ comments: true
 === "C"
 
     ```c title="leetcode_two_sum.c"
-    [class]{}-[func]{twoSumHashTable}
+    /* 方法二：辅助哈希表 */
+    int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
+        hashTable *hashtable = NULL;
+        for (int i = 0; i < numsSize; i++) {
+            hashTable *t = find(hashtable, target - nums[i]);
+            if (t != NULL) {
+                int *res = malloc(sizeof(int) * 2);
+                res[0] = t->val, res[1] = i;
+                *returnSize = 2;
+                return res;
+            }
+            insert(hashtable, nums[i], i);
+        }
+        *returnSize = 0;
+        return NULL;
+    }
     ```
 
 === "C#"

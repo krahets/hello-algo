@@ -42,9 +42,8 @@ comments: true
 
     ```cpp title=""
     /* 二叉树的数组表示 */
-    // 为了符合数据类型为 int ，使用 int 最大值标记空位
-    // 该方法的使用前提是没有节点的值 = INT_MAX
-    vector<int> tree = { 1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15 };
+    // 使用 int 最大值标记空位，因此要求节点值不能为 INT_MAX
+    vector<int> tree = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
 === "Python"
@@ -82,7 +81,9 @@ comments: true
 === "C"
 
     ```c title=""
-    
+    /* 二叉树的数组表示 */
+    // 使用 int 最大值标记空位，因此要求节点值不能为 INT_MAX
+    int tree[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
 === "C#"

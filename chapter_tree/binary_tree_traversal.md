@@ -159,7 +159,44 @@ comments: true
 === "C"
 
     ```c title="binary_tree_bfs.c"
-    [class]{}-[func]{levelOrder}
+    /* 层序遍历 */
+    int *levelOrder(TreeNode *root, int *size) {
+        /* 辅助队列 */
+        int front, rear;
+        int index, *arr;
+        TreeNode *node;
+        TreeNode **queue;
+
+        /* 辅助队列 */
+        queue = (TreeNode **)malloc(sizeof(TreeNode) * MAX_NODE_SIZE);
+        // 队列指针
+        front = 0, rear = 0;
+        // 加入根节点
+        queue[rear++] = root;
+        // 初始化一个列表，用于保存遍历序列
+        /* 辅助数组 */
+        arr = (int *)malloc(sizeof(int) * MAX_NODE_SIZE);
+        // 数组指针
+        index = 0;
+        while (front < rear) {
+            // 队列出队
+            node = queue[front++];
+            // 保存节点值
+            arr[index++] = node->val;
+            if (node->left != NULL) {
+                // 左子节点入队
+                queue[rear++] = node->left;
+            }
+            if (node->right != NULL) {
+                // 右子节点入队
+                queue[rear++] = node->right;
+            }
+        }
+        // 更新数组长度的值
+        *size = index;
+        arr = realloc(arr, sizeof(int) * (*size));
+        return arr;
+    }
     ```
 
 === "C#"
@@ -476,11 +513,35 @@ comments: true
 === "C"
 
     ```c title="binary_tree_dfs.c"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历 */
+    void preOrder(TreeNode *root, int *size) {
+        if (root == NULL)
+            return;
+        // 访问优先级：根节点 -> 左子树 -> 右子树
+        arr[(*size)++] = root->val;
+        preOrder(root->left, size);
+        preOrder(root->right, size);
+    }
 
-    [class]{}-[func]{inOrder}
+    /* 中序遍历 */
+    void inOrder(TreeNode *root, int *size) {
+        if (root == NULL)
+            return;
+        // 访问优先级：左子树 -> 根节点 -> 右子树
+        inOrder(root->left, size);
+        arr[(*size)++] = root->val;
+        inOrder(root->right, size);
+    }
 
-    [class]{}-[func]{postOrder}
+    /* 后序遍历 */
+    void postOrder(TreeNode *root, int *size) {
+        if (root == NULL)
+            return;
+        // 访问优先级：左子树 -> 右子树 -> 根节点
+        postOrder(root->left, size);
+        postOrder(root->right, size);
+        arr[(*size)++] = root->val;
+    }
     ```
 
 === "C#"

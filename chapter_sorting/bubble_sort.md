@@ -158,7 +158,20 @@ comments: true
 === "C"
 
     ```c title="bubble_sort.c"
-    [class]{}-[func]{bubbleSort}
+    /* 冒泡排序 */
+    void bubbleSort(int nums[], int size) {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = 0; i < size - 1; i++) {
+            // 内循环：冒泡操作
+            for (int j = 0; j < size - 1 - i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+    }
     ```
 
 === "C#"
@@ -379,7 +392,24 @@ comments: true
 === "C"
 
     ```c title="bubble_sort.c"
-    [class]{}-[func]{bubbleSortWithFlag}
+    /* 冒泡排序（标志优化）*/
+    void bubbleSortWithFlag(int nums[], int size) {
+        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+        for (int i = 0; i < size - 1; i++) {
+            bool flag = false;
+            // 内循环：冒泡操作
+            for (int j = 0; j < size - 1 - i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                    flag = true;
+                }
+            }
+            if (!flag)
+                break;
+        }
+    }
     ```
 
 === "C#"

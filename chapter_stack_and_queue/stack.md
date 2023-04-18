@@ -194,7 +194,7 @@ comments: true
 === "C"
 
     ```c title="stack.c"
-    
+    // C 未提供内置栈
     ```
 
 === "C#"
@@ -630,7 +630,74 @@ comments: true
 === "C"
 
     ```c title="linkedlist_stack.c"
-    [class]{linkedListStack}-[func]{}
+    /* 基于链表实现的栈 */
+    struct linkedListStack {
+        ListNode *top; // 将头节点作为栈顶
+        int size;      // 栈的长度
+    };
+
+    /* 构造函数 */
+    linkedListStack *newLinkedListStack() {
+        linkedListStack *s = malloc(sizeof(linkedListStack));
+        s->top = NULL;
+        s->size = 0;
+        return s;
+    }
+
+    /* 析构函数 */
+    void delLinkedListStack(linkedListStack *s) {
+        while (s->top) {
+            ListNode *n = s->top->next;
+            free(s->top);
+            s->top = n;
+        }
+        free(s);
+    }
+
+    /* 获取栈的长度 */
+    int size(linkedListStack *s) {
+        assert(s);
+        return s->size;
+    }
+
+    /* 判断栈是否为空 */
+    bool isEmpty(linkedListStack *s) {
+        assert(s);
+        return size(s) == 0;
+    }
+
+    /* 访问栈顶元素 */
+    int peek(linkedListStack *s) {
+        assert(s);
+        assert(size(s) != 0);
+        return s->top->val;
+    }
+
+    /* 入栈 */
+    void push(linkedListStack *s, int num) {
+        assert(s);
+        ListNode *node = (ListNode *)malloc(sizeof(ListNode));
+        node->next = s->top; // 更新新加节点指针域
+        node->val = num;     // 更新新加节点数据域
+        s->top = node;       // 更新栈顶
+        s->size++;           // 更新栈大小
+    }
+
+    /* 出栈 */
+    int pop(linkedListStack *s) {
+        if (s->size == 0) {
+            printf("stack is empty.\n");
+            return INT_MAX;
+        }
+        assert(s);
+        int val = peek(s);
+        ListNode *tmp = s->top;
+        s->top = s->top->next;
+        // 释放内存
+        free(tmp);
+        s->size--;
+        return val;
+    }
     ```
 
 === "C#"
@@ -1131,7 +1198,60 @@ comments: true
 === "C"
 
     ```c title="array_stack.c"
-    [class]{arrayStack}-[func]{}
+    /* 基于数组实现的栈 */
+    struct arrayStack {
+        int *data;
+        int size;
+    };
+
+    /* 构造函数 */
+    arrayStack *newArrayStack() {
+        arrayStack *s = malloc(sizeof(arrayStack));
+        // 初始化一个大容量，避免扩容
+        s->data = malloc(sizeof(int) * MAX_SIZE);
+        s->size = 0;
+        return s;
+    }
+
+    /* 获取栈的长度 */
+    int size(arrayStack *s) {
+        return s->size;
+    }
+
+    /* 判断栈是否为空 */
+    bool isEmpty(arrayStack *s) {
+        return s->size == 0;
+    }
+
+    /* 入栈 */
+    void push(arrayStack *s, int num) {
+        if (s->size == MAX_SIZE) {
+            printf("stack is full.\n");
+            return;
+        }
+        s->data[s->size] = num;
+        s->size++;
+    }
+
+    /* 访问栈顶元素 */
+    int peek(arrayStack *s) {
+        if (s->size == 0) {
+            printf("stack is empty.\n");
+            return INT_MAX;
+        }
+        return s->data[s->size - 1];
+    }
+
+    /* 出栈 */
+    int pop(arrayStack *s) {
+        if (s->size == 0) {
+            printf("stack is empty.\n");
+            return INT_MAX;
+        }
+        int val = peek(s);
+        s->size--;
+        return val;
+    }
     ```
 
 === "C#"
