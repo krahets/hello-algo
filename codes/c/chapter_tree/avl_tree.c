@@ -30,7 +30,7 @@ int height(TreeNode *node) {
 }
 
 /* 更新节点高度 */
-int updateHeight(TreeNode *node) {
+void updateHeight(TreeNode *node) {
     int lh = height(node->left);
     int rh = height(node->right);
     // 节点高度等于最高子树高度 + 1

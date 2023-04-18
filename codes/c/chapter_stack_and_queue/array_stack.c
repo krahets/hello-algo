@@ -48,7 +48,7 @@ void push(arrayStack *s, int num) {
 int peek(arrayStack *s) {
     if (s->size == 0) {
         printf("stack is empty.\n");
-        return NIL;
+        return INT_MAX;
     }
     return s->data[s->size - 1];
 }
@@ -57,7 +57,7 @@ int peek(arrayStack *s) {
 int pop(arrayStack *s) {
     if (s->size == 0) {
         printf("stack is empty.\n");
-        return NIL;
+        return INT_MAX;
     }
     int val = peek(s);
     s->size--;

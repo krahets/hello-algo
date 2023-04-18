@@ -49,7 +49,7 @@ int *levelOrder(TreeNode *root, int *size) {
 int main() {
     /* 初始化二叉树 */
     // 这里借助了一个从数组直接生成二叉树的函数
-    int nums[] = {1, 2, 3, NIL, 5, 6, NIL};
+    int nums[] = {1, 2, 3, 4, 5, 6, 7};
     int size = sizeof(nums) / sizeof(int);
     TreeNode *root = arrToTree(nums, size);
     printf("初始化二叉树\n");

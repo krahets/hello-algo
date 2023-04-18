@@ -23,13 +23,13 @@ static void printArray(int arr[], int size) {
     printf("[");
     if (arr != NULL && size != 0) {
         for (int i = 0; i < size - 1; i++) {
-            if (arr[i] != NIL) {
+            if (arr[i] != INT_MAX) {
                 printf("%d, ", arr[i]);
             } else {
                 printf("NULL, ");
             }
         }
-        if (arr[size - 1] != NIL) {
+        if (arr[size - 1] != INT_MAX) {
             printf("%d]\n", arr[size - 1]);
         } else {
             printf("NULL]\n");

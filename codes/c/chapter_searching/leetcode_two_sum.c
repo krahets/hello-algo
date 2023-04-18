@@ -11,10 +11,10 @@ int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
     for (int i = 0; i < numsSize; ++i) {
         for (int j = i + 1; j < numsSize; ++j) {
             if (nums[i] + nums[j] == target) {
-                int *ret = malloc(sizeof(int) * 2);
-                ret[0] = i, ret[1] = j;
+                int *res = malloc(sizeof(int) * 2);
+                res[0] = i, res[1] = j;
                 *returnSize = 2;
-                return ret;
+                return res;
             }
         }
     }
@@ -32,12 +32,14 @@ struct hashTable {
 
 typedef struct hashTable hashTable;
 
+/* 哈希表查询 */
 hashTable *find(hashTable *h, int key) {
     hashTable *tmp;
     HASH_FIND_INT(h, &key, tmp);
     return tmp;
 }
 
+/* 哈希表元素插入 */
 void insert(hashTable *h, int key, int val) {
     hashTable *t = find(h, key);
     if (t == NULL) {
@@ -55,10 +57,10 @@ int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
     for (int i = 0; i < numsSize; i++) {
         hashTable *t = find(hashtable, target - nums[i]);
         if (t != NULL) {
-            int *ret = malloc(sizeof(int) * 2);
-            ret[0] = t->val, ret[1] = i;
+            int *res = malloc(sizeof(int) * 2);
+            res[0] = t->val, res[1] = i;
             *returnSize = 2;
-            return ret;
+            return res;
         }
         insert(hashtable, nums[i], i);
     }

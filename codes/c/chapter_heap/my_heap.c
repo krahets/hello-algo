@@ -90,7 +90,7 @@ int pop(maxHeap *h) {
     // 判空处理
     if (isEmpty(h)) {
         printf("heap is empty!");
-        return NIL;
+        return INT_MAX;
     }
     // 交换根节点与最右叶节点（即交换首元素与尾元素）
     swap(h, 0, size(h) - 1);

@@ -65,7 +65,7 @@ void push(linkedListStack *s, int num) {
 int pop(linkedListStack *s) {
     if (s->size == 0) {
         printf("stack is empty.\n");
-        return NIL;
+        return INT_MAX;
     }
     assert(s);
     int val = peek(s);

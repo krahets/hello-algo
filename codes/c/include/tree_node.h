@@ -11,7 +11,8 @@
 extern "C" {
 #endif
 
-#define NIL ('#')
+#include <limits.h>
+
 #define MAX_NODE_SIZE 5000
 
 struct TreeNode {
@@ -59,14 +60,15 @@ TreeNode *arrToTree(const int *arr, size_t size) {
         node = queue[front++];
         index++;
         if (index < size) {
-            if (arr[index] != NIL) {
+            // represent null with INT_MAX 
+            if (arr[index] != INT_MAX) {
                 node->left = newTreeNode(arr[index]);
                 queue[rear++] = node->left;
             }
         }
         index++;
         if (index < size) {
-            if (arr[index] != NIL) {
+            if (arr[index] != INT_MAX) {
                 node->right = newTreeNode(arr[index]);
                 queue[rear++] = node->right;
             }
@@ -102,7 +104,7 @@ int *treeToArr(TreeNode *root) {
             queue[rear++] = node->left;
             queue[rear++] = node->right;
         } else {
-            arr[index] = NIL;
+            arr[index] = INT_MAX;
         }
         index++;
     }
