@@ -17,7 +17,7 @@ void constant(int n) {
     const int a = 0;
     int b = 0;
     int nums[1000];
-    ListNode* node = newListNode(0);
+    ListNode *node = newListNode(0);
     free(node);
     // 循环中的变量占用 O(1) 空间
     for (int i = 0; i < n; i++) {
@@ -29,20 +29,23 @@ void constant(int n) {
     }
 }
 
-typedef struct {
+/* 哈希表 */
+struct hashTable {
     int key;
-    char val[10];
-    UT_hash_handle hh; // 借助 uthash 实现的哈希表
-} hashTable;
+    int val;
+    UT_hash_handle hh; // 基于 uthash.h 实现
+};
+
+typedef struct hashTable hashTable;
 
 /* 线性阶 */
 void linear(int n) {
     // 长度为 n 的数组占用 O(n) 空间
-    int *nums = malloc (sizeof(int) * n);
+    int *nums = malloc(sizeof(int) * n);
     free(nums);
 
     // 长度为 n 的列表占用 O(n) 空间
-    ListNode** nodes = malloc(sizeof(ListNode *) * n);
+    ListNode **nodes = malloc(sizeof(ListNode *) * n);
     for (int i = 0; i < n; i++) {
         nodes[i] = newListNode(i);
     }
@@ -54,11 +57,10 @@ void linear(int n) {
 
     // 长度为 n 的哈希表占用 O(n) 空间
     hashTable *h = NULL;
-
     for (int i = 0; i < n; i++) {
-        hashTable *tmp = malloc(sizeof (hashTable));
+        hashTable *tmp = malloc(sizeof(hashTable));
         tmp->key = i;
-        sprintf(tmp->val, "%d", i);
+        tmp->val = i;
         HASH_ADD_INT(h, key, tmp);
     }
 
@@ -81,7 +83,7 @@ void linearRecur(int n) {
 /* 平方阶 */
 void quadratic(int n) {
     // 二维列表占用 O(n^2) 空间
-    int** numMatrix = malloc(sizeof(int *) * n);
+    int **numMatrix = malloc(sizeof(int *) * n);
     for (int i = 0; i < n; i++) {
         int *tmp = malloc(sizeof(int) * n);
         for (int j = 0; j < n; j++) {
@@ -100,8 +102,8 @@ void quadratic(int n) {
 /* 平方阶（递归实现） */
 int quadraticRecur(int n) {
     if (n <= 0)
-      return 0;
-    int* nums = malloc(sizeof(int) * n);
+        return 0;
+    int *nums = malloc(sizeof(int) * n);
     printf("递归 n = %d 中的 nums 长度 = %d\r\n", n, n);
     free(nums);
     return quadraticRecur(n - 1);

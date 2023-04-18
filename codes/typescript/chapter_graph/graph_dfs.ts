@@ -8,7 +8,12 @@ import { Vertex } from '../modules/Vertex';
 import { GraphAdjList } from './graph_adjacency_list';
 
 /* 深度优先遍历 DFS 辅助函数 */
-function dfs(graph: GraphAdjList, visited: Set<Vertex>, res: Vertex[], vet: Vertex): void {
+function dfs(
+    graph: GraphAdjList,
+    visited: Set<Vertex>,
+    res: Vertex[],
+    vet: Vertex
+): void {
     res.push(vet); // 记录访问顶点
     visited.add(vet); // 标记该顶点已被访问
     // 遍历该顶点的所有邻接顶点
@@ -41,7 +46,7 @@ const edges = [
     [v[1], v[2]],
     [v[2], v[5]],
     [v[4], v[5]],
-    [v[5], v[6]]
+    [v[5], v[6]],
 ];
 const graph = new GraphAdjList(edges);
 console.log('\n初始化后，图为');

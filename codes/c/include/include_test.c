@@ -17,7 +17,7 @@ void testListNode() {
 }
 
 void testTreeNode() {
-    int nums[] = {1, 2, 3, NIL, 5, 6, NIL};
+    int nums[] = {1, 2, 3, INT_MAX, 5, 6, INT_MAX};
     int size = sizeof(nums) / sizeof(int);
     TreeNode *root = arrToTree(nums, size);
 

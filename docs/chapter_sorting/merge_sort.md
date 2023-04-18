@@ -102,7 +102,9 @@
 === "C"
 
     ```c title="merge_sort.c"
+    [class]{}-[func]{merge}
 
+    [class]{}-[func]{mergeSort}
     ```
 
 === "C#"

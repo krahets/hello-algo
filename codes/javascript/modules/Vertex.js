@@ -4,7 +4,6 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-
 /* 顶点类 */
 class Vertex {
     val;
@@ -32,5 +31,5 @@ class Vertex {
 }
 
 module.exports = {
-    Vertex
+    Vertex,
 };

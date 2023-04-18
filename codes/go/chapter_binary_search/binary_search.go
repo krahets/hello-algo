@@ -2,7 +2,7 @@
 // Created Time: 2022-12-05
 // Author: Slone123c (274325721@qq.com)
 
-package chapter_searching
+package chapter_binary_search
 
 /* 二分查找（双闭区间） */
 func binarySearch(nums []int, target int) int {

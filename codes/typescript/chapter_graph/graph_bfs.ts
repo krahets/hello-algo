@@ -49,7 +49,7 @@ const edges = [
     [v[4], v[7]],
     [v[5], v[8]],
     [v[6], v[7]],
-    [v[7], v[8]]
+    [v[7], v[8]],
 ];
 const graph = new GraphAdjList(edges);
 console.log('\n初始化后，图为');

@@ -50,5 +50,5 @@ function arrToTree(arr) {
 
 module.exports = {
     TreeNode,
-    arrToTree
+    arrToTree,
 };

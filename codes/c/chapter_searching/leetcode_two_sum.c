@@ -11,10 +11,10 @@ int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
     for (int i = 0; i < numsSize; ++i) {
         for (int j = i + 1; j < numsSize; ++j) {
             if (nums[i] + nums[j] == target) {
-                int *ret = malloc(sizeof(int) * 2);
-                ret[0] = i, ret[1] = j;
+                int *res = malloc(sizeof(int) * 2);
+                res[0] = i, res[1] = j;
                 *returnSize = 2;
-                return ret;
+                return res;
             }
         }
     }
@@ -26,18 +26,19 @@ int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
 struct hashTable {
     int key;
     int val;
-    // 借助 LetCode 上常用的哈希表
-    UT_hash_handle hh;
+    UT_hash_handle hh; // 基于 uthash.h 实现
 };
 
 typedef struct hashTable hashTable;
 
+/* 哈希表查询 */
 hashTable *find(hashTable *h, int key) {
     hashTable *tmp;
     HASH_FIND_INT(h, &key, tmp);
     return tmp;
 }
 
+/* 哈希表元素插入 */
 void insert(hashTable *h, int key, int val) {
     hashTable *t = find(h, key);
     if (t == NULL) {
@@ -55,10 +56,10 @@ int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
     for (int i = 0; i < numsSize; i++) {
         hashTable *t = find(hashtable, target - nums[i]);
         if (t != NULL) {
-            int *ret = malloc(sizeof(int) * 2);
-            ret[0] = t->val, ret[1] = i;
+            int *res = malloc(sizeof(int) * 2);
+            res[0] = t->val, res[1] = i;
             *returnSize = 2;
-            return ret;
+            return res;
         }
         insert(hashtable, nums[i], i);
     }
@@ -66,6 +67,7 @@ int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
     return NULL;
 }
 
+/* Driver Code */
 int main() {
     // ======= Test Case =======
     int nums[] = {2, 7, 11, 15};
@@ -81,5 +83,6 @@ int main() {
     res = twoSumHashTable(nums, sizeof(nums) / sizeof(int), target, &returnSize);
     printf("方法二 res = ");
     printArray(res, returnSize);
+
     return 0;
 }

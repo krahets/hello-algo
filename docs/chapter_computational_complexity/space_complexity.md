@@ -182,7 +182,18 @@
 === "C"
 
     ```c title=""
+    /* 函数 */
+    int func() {
+        // do something...
+        return 0;
+    }
 
+    int algorithm(int n) { // 输入数据
+        const int a = 0;   // 暂存数据（常量）
+        int b = 0;         // 暂存数据（变量）
+        int c = func();    // 栈帧空间（调用函数）
+        return a + b + c;  // 输出数据
+    }
     ```
 
 === "C#"
@@ -329,7 +340,12 @@
 === "C"
 
     ```c title=""
-
+    void algorithm(int n) {
+        int a = 0;               // O(1)
+        int b[10000];            // O(1)
+        if (n > 10)
+            vector<int> nums(n); // O(n)
+    }
     ```
 
 === "C#"
@@ -491,7 +507,21 @@
 === "C"
 
     ```c title=""
-    
+    int func() {
+        // do something
+        return 0;
+    }
+    /* 循环 O(1) */
+    void loop(int n) {
+        for (int i = 0; i < n; i++) {
+            func();
+        }
+    }
+    /* 递归 O(n) */
+    void recur(int n) {
+        if (n == 1) return;
+        return recur(n - 1);
+    }
     ```
 
 === "C#"
@@ -611,7 +641,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceConstant}
+    [class]{}-[func]{constant}
     ```
 
 === "C#"
@@ -675,7 +705,9 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceLinear}
+    [class]{hashTable}-[func]{}
+
+    [class]{}-[func]{linear}
     ```
 
 === "C#"
@@ -737,7 +769,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceLinearRecur}
+    [class]{}-[func]{linearRecur}
     ```
 
 === "C#"
@@ -803,7 +835,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceQuadratic}
+    [class]{}-[func]{quadratic}
     ```
 
 === "C#"
@@ -865,7 +897,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{spaceQuadraticRecur}
+    [class]{}-[func]{quadraticRecur}
     ```
 
 === "C#"
@@ -961,3 +993,11 @@ $$
 例如“归并排序”算法，输入长度为 $n$ 的数组，每轮递归将数组从中点划分为两半，形成高度为 $\log n$ 的递归树，使用 $O(\log n)$ 栈帧空间。
 
 再例如“数字转化为字符串”，输入任意正整数 $n$ ，它的位数为 $\log_{10} n$ ，即对应字符串长度为 $\log_{10} n$ ，因此空间复杂度为 $O(\log_{10} n) = O(\log n)$ 。
+
+## 权衡时间与空间
+
+理想情况下，我们希望算法的时间复杂度和空间复杂度都能达到最优。然而在实际情况中，同时优化时间复杂度和空间复杂度通常是非常困难的。
+
+**降低时间复杂度通常需要以提升空间复杂度为代价，反之亦然**。我们将牺牲内存空间来提升算法运行速度的思路称为“以空间换时间”；反之，则称为“以时间换空间”。
+
+选择哪种思路取决于我们更看重哪个方面。在大多数情况下，时间比空间更宝贵，因此以空间换时间通常是更常用的策略。当然，在数据量很大的情况下，控制空间复杂度也是非常重要的。

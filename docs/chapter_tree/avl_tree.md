@@ -62,7 +62,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Go"
 
     ```go title=""
-    /* AVL 树节点类 */
+    /* AVL 树节点结构体 */
     type TreeNode struct {
         Val    int       // 节点值
         Height int       // 节点高度
@@ -74,6 +74,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "JavaScript"
 
     ```javascript title=""
+    /* AVL 树节点类 */
     class TreeNode {
         val; // 节点值
         height; //节点高度
@@ -91,6 +92,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "TypeScript"
 
     ```typescript title=""
+    /* AVL 树节点类 */
     class TreeNode {
         val: number;            // 节点值
         height: number;         // 节点高度
@@ -108,7 +110,27 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C"
 
     ```c title=""
+    /* AVL 树节点结构体 */
+    struct TreeNode {
+        int val;
+        int height;
+        struct TreeNode *left;
+        struct TreeNode *right;
+    };
 
+    typedef struct TreeNode TreeNode;
+
+    /* 构造函数 */
+    TreeNode *newTreeNode(int val) {
+        TreeNode *node;
+
+        node = (TreeNode *)malloc(sizeof(TreeNode));
+        node->val = val;
+        node->height = 0;
+        node->left = NULL;
+        node->right = NULL;
+        return node;
+    }
     ```
 
 === "C#"
@@ -200,9 +222,9 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C"
 
     ```c title="avl_tree.c"
-    [class]{aVLTree}-[func]{height}
+    [class]{}-[func]{height}
 
-    [class]{aVLTree}-[func]{updateHeight}
+    [class]{}-[func]{updateHeight}
     ```
 
 === "C#"
@@ -272,7 +294,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "C"
 
     ```c title="avl_tree.c"
-    [class]{aVLTree}-[func]{balanceFactor}
+    [class]{}-[func]{balanceFactor}
     ```
 
 === "C#"
@@ -364,7 +386,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 === "C"
 
     ```c title="avl_tree.c"
-    [class]{aVLTree}-[func]{rightRotate}
+    [class]{}-[func]{rightRotate}
     ```
 
 === "C#"
@@ -436,7 +458,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 === "C"
 
     ```c title="avl_tree.c"
-    [class]{aVLTree}-[func]{leftRotate}
+    [class]{}-[func]{leftRotate}
     ```
 
 === "C#"
@@ -529,7 +551,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 === "C"
 
     ```c title="avl_tree.c"
-    [class]{aVLTree}-[func]{rotate}
+    [class]{}-[func]{rotate}
     ```
 
 === "C#"
@@ -609,7 +631,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     ```c title="avl_tree.c"
     [class]{aVLTree}-[func]{insert}
 
-    [class]{aVLTree}-[func]{insertHelper}
+    [class]{}-[func]{insertHelper}
     ```
 
 === "C#"
@@ -691,9 +713,9 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 === "C"
 
     ```c title="avl_tree.c"
-    [class]{aVLTree}-[func]{remove}
+    [class]{aVLTree}-[func]{removeNode}
 
-    [class]{aVLTree}-[func]{removeHelper}
+    [class]{}-[func]{removeHelper}
     ```
 
 === "C#"

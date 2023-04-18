@@ -14,7 +14,10 @@ function hashingSearchArray(map: Map<number, number>, target: number): number {
 }
 
 /* 哈希查找（链表） */
-function hashingSearchLinkedList(map: Map<number, ListNode>, target: number): ListNode | null {
+function hashingSearchLinkedList(
+    map: Map<number, ListNode>,
+    target: number
+): ListNode | null {
     // 哈希表的 key: 目标节点值，value: 节点对象
     // 若哈希表中无此 key ，返回 null
     return map.has(target) ? (map.get(target) as ListNode) : null;

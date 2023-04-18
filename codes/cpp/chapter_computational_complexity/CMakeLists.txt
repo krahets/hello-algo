@@ -1,4 +1,3 @@
-add_executable(leetcode_two_sum leetcode_two_sum.cpp)
-add_executable(space_complexity space_complexity.cpp )
+add_executable(space_complexity space_complexity.cpp)
 add_executable(time_complexity time_complexity.cpp)
 add_executable(worst_best_time_complexity worst_best_time_complexity.cpp)

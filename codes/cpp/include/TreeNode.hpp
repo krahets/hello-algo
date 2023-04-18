@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include <limits.h>
+
 /* Definition for a binary tree node */
 struct TreeNode {
     int val{};
@@ -26,20 +28,21 @@ TreeNode *vecToTree(vector<int> list) {
     auto *root = new TreeNode(list[0]);
     queue<TreeNode *> que;
     que.emplace(root);
-    size_t n = list.size(), index = 0;
+    size_t n = list.size(), i = 0;
     while (!que.empty()) {
         auto node = que.front();
         que.pop();
-        if (++index >= n)
+        if (++i >= n)
             break;
-        if (index < n) {
-            node->left = new TreeNode(list[index]);
+        // INT_MAX represent null
+        if (list[i] != INT_MAX) {
+            node->left = new TreeNode(list[i]);
             que.emplace(node->left);
         }
-        if (++index >= n)
+        if (++i >= n)
             break;
-        if (index < n) {
-            node->right = new TreeNode(list[index]);
+        if (list[i] != INT_MAX) {
+            node->right = new TreeNode(list[i]);
             que.emplace(node->right);
         }
     }

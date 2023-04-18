@@ -4,8 +4,8 @@
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
-const { TreeNode } = require("../modules/TreeNode");
-const { printTree } = require("../modules/PrintUtil");
+const { TreeNode } = require('../modules/TreeNode');
+const { printTree } = require('../modules/PrintUtil');
 
 /* AVL 树*/
 class AVLTree {
@@ -23,7 +23,8 @@ class AVLTree {
     /* 更新节点高度 */
     #updateHeight(node) {
         // 节点高度等于最高子树高度 + 1
-        node.height = Math.max(this.height(node.left), this.height(node.right)) + 1;
+        node.height =
+            Math.max(this.height(node.left), this.height(node.right)) + 1;
     }
 
     /* 获取平衡因子 */
@@ -102,7 +103,8 @@ class AVLTree {
         if (node === null) return new TreeNode(val);
         /* 1. 查找插入位置，并插入节点 */
         if (val < node.val) node.left = this.#insertHelper(node.left, val);
-        else if (val > node.val) node.right = this.#insertHelper(node.right, val);
+        else if (val > node.val)
+            node.right = this.#insertHelper(node.right, val);
         else return node; // 重复节点不插入，直接返回
         this.#updateHeight(node); // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
@@ -121,7 +123,8 @@ class AVLTree {
         if (node === null) return null;
         /* 1. 查找节点，并删除之 */
         if (val < node.val) node.left = this.#removeHelper(node.left, val);
-        else if (val > node.val) node.right = this.#removeHelper(node.right, val);
+        else if (val > node.val)
+            node.right = this.#removeHelper(node.right, val);
         else {
             if (node.left === null || node.right === null) {
                 const child = node.left !== null ? node.left : node.right;
@@ -165,13 +168,13 @@ class AVLTree {
 
 function testInsert(tree, val) {
     tree.insert(val);
-    console.log("\n插入节点 " + val + " 后，AVL 树为");
+    console.log('\n插入节点 ' + val + ' 后，AVL 树为');
     printTree(tree.root);
 }
 
 function testRemove(tree, val) {
     tree.remove(val);
-    console.log("\n删除节点 " + val + " 后，AVL 树为");
+    console.log('\n删除节点 ' + val + ' 后，AVL 树为');
     printTree(tree.root);
 }
 
@@ -202,4 +205,4 @@ testRemove(avlTree, 4); // 删除度为 2 的节点
 
 /* 查询节点 */
 const node = avlTree.search(7);
-console.log("\n查找到的节点对象为", node, "，节点值 = " + node.val);
+console.log('\n查找到的节点对象为', node, '，节点值 = ' + node.val);

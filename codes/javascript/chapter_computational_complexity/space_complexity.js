@@ -57,7 +57,9 @@ function linearRecur(n) {
 /* 平方阶 */
 function quadratic(n) {
     // 矩阵占用 O(n^2) 空间
-    const numMatrix = Array(n).fill(null).map(() => Array(n).fill(null));
+    const numMatrix = Array(n)
+        .fill(null)
+        .map(() => Array(n).fill(null));
     // 二维列表占用 O(n^2) 空间
     const numList = [];
     for (let i = 0; i < n; i++) {

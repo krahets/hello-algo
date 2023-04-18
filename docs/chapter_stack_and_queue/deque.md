@@ -215,7 +215,7 @@
 === "C"
 
     ```c title="deque.c"
-    
+    // C 未提供内置双向队列
     ```
 
 === "C#"
@@ -361,9 +361,9 @@
 === "C"
 
     ```c title="linkedlist_deque.c"
-    [class]{ListNode}-[func]{}
+    [class]{doublyListNode}-[func]{}
 
-    [class]{LinkedListDeque}-[func]{}
+    [class]{linkedListDeque}-[func]{}
     ```
 
 === "C#"
@@ -450,7 +450,7 @@
 === "C"
 
     ```c title="array_deque.c"
-    [class]{ArrayDeque}-[func]{}
+    [class]{arrayDeque}-[func]{}
     ```
 
 === "C#"

@@ -29,7 +29,11 @@ class GraphAdjList {
 
     /* 添加边 */
     addEdge(vet1: Vertex, vet2: Vertex): void {
-        if (!this.adjList.has(vet1) || !this.adjList.has(vet2) || vet1 === vet2) {
+        if (
+            !this.adjList.has(vet1) ||
+            !this.adjList.has(vet2) ||
+            vet1 === vet2
+        ) {
             throw new Error('Illegal Argument Exception');
         }
         // 添加边 vet1 - vet2
@@ -39,7 +43,11 @@ class GraphAdjList {
 
     /* 删除边 */
     removeEdge(vet1: Vertex, vet2: Vertex): void {
-        if (!this.adjList.has(vet1) || !this.adjList.has(vet2) || vet1 === vet2) {
+        if (
+            !this.adjList.has(vet1) ||
+            !this.adjList.has(vet2) ||
+            vet1 === vet2
+        ) {
             throw new Error('Illegal Argument Exception');
         }
         // 删除边 vet1 - vet2
@@ -98,7 +106,7 @@ if (require.main === module) {
         [v2, v3],
         [v0, v3],
         [v2, v4],
-        [v3, v4]
+        [v3, v4],
     ];
     const graph = new GraphAdjList(edges);
     console.log('\n初始化后，图为');

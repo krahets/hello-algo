@@ -22,18 +22,13 @@ typedef struct ListNode ListNode;
 /* 构造函数，初始化一个新节点 */
 ListNode *newListNode(int val) {
     ListNode *node, *next;
-    node = (ListNode *) malloc(sizeof(ListNode));
+    node = (ListNode *)malloc(sizeof(ListNode));
     node->val = val;
     node->next = NULL;
     return node;
 }
 
-/**
- * @brief Generate a linked list with a vector
- *
- * @param list
- * @return ListNode*
- */
+/* Generate a linked list with a vector */
 ListNode *arrToLinkedList(const int *arr, size_t size) {
     if (size <= 0) {
         return NULL;
@@ -48,13 +43,7 @@ ListNode *arrToLinkedList(const int *arr, size_t size) {
     return dummy->next;
 }
 
-/**
- * @brief Get a list node with specific value from a linked list
- *
- * @param head
- * @param val
- * @return ListNode*
- */
+/* Get a list node with specific value from a linked list */
 ListNode *getListNode(ListNode *head, int val) {
     while (head != NULL && head->val != val) {
         head = head->next;

@@ -4,12 +4,12 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-const { ListNode } = require("../modules/ListNode");
+const { ListNode } = require('../modules/ListNode');
 
 /* 基于链表实现的栈 */
 class LinkedListStack {
-    #stackPeek;     // 将头节点作为栈顶
-    #stkSize = 0;   // 栈的长度
+    #stackPeek; // 将头节点作为栈顶
+    #stkSize = 0; // 栈的长度
 
     constructor() {
         this.#stackPeek = null;
@@ -43,8 +43,7 @@ class LinkedListStack {
 
     /* 访问栈顶元素 */
     peek() {
-        if (!this.#stackPeek)
-            throw new Error("栈为空");
+        if (!this.#stackPeek) throw new Error('栈为空');
         return this.#stackPeek.val;
     }
 
@@ -70,20 +69,20 @@ stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
-console.log("栈 stack = " + stack.toArray());
+console.log('栈 stack = ' + stack.toArray());
 
 /* 访问栈顶元素 */
 const peek = stack.peek();
-console.log("栈顶元素 peek = " + peek);
+console.log('栈顶元素 peek = ' + peek);
 
 /* 元素出栈 */
 const pop = stack.pop();
-console.log("出栈元素 pop = " + pop + "，出栈后 stack = " + stack.toArray());
+console.log('出栈元素 pop = ' + pop + '，出栈后 stack = ' + stack.toArray());
 
 /* 获取栈的长度 */
 const size = stack.size;
-console.log("栈的长度 size = " + size);
+console.log('栈的长度 size = ' + size);
 
 /* 判断是否为空 */
 const isEmpty = stack.isEmpty();
-console.log("栈是否为空 = " + isEmpty);
+console.log('栈是否为空 = ' + isEmpty);

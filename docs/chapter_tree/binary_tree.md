@@ -87,7 +87,27 @@
 === "C"
 
     ```c title=""
-    
+    /* 二叉树节点结构体 */
+    struct TreeNode {
+        int val;                // 节点值
+        int height;             // 节点高度
+        struct TreeNode *left;  // 左子节点指针
+        struct TreeNode *right; // 右子节点指针
+    };
+
+    typedef struct TreeNode TreeNode;
+
+    /* 构造函数 */
+    TreeNode *newTreeNode(int val) {
+        TreeNode *node;
+
+        node = (TreeNode *)malloc(sizeof(TreeNode));
+        node->val = val;
+        node->height = 0;
+        node->left = NULL;
+        node->right = NULL;
+        return node;
+    }
     ```
 
 === "C#"
@@ -256,7 +276,18 @@
 === "C"
 
     ```c title="binary_tree.c"
-    
+    /* 初始化二叉树 */
+    // 初始化节点
+    TreeNode *n1 = newTreeNode(1);
+    TreeNode *n2 = newTreeNode(2);
+    TreeNode *n3 = newTreeNode(3);
+    TreeNode *n4 = newTreeNode(4);
+    TreeNode *n5 = newTreeNode(5);
+    // 构建引用指向（即指针）
+    n1->left = n2;
+    n1->right = n3;
+    n2->left = n4;
+    n2->right = n5;
     ```
 
 === "C#"
@@ -376,7 +407,13 @@
 === "C"
 
     ```c title="binary_tree.c"
-    
+    /* 插入与删除节点 */
+    TreeNode *P = newTreeNode(0);
+    // 在 n1 -> n2 中间插入节点 P
+    n1->left = P;
+    P->left = n2;
+    // 删除节点 P
+    n1->left = n2;
     ```
 
 === "C#"
@@ -463,104 +500,3 @@
 | 树的节点总数为 $n$ 时的高度 | $\log_2 (n+1) - 1$ | $n - 1$     |
 
 </div>
-
-## 二叉树表示方式 *
-
-我们通常使用二叉树的「链表表示」，即存储单位为节点 `TreeNode` ，节点之间通过指针相连接。本文前述示例代码展示了二叉树在链表表示下的各项基本操作。
-
-那么，能否用「数组」来表示二叉树呢？答案是肯定的。先来分析一个简单案例，给定一个「完美二叉树」，将节点按照层序遍历的顺序编号（从 0 开始），那么可以推导得出父节点索引与子节点索引之间的“映射公式”：**若节点的索引为 $i$ ，则该节点的左子节点索引为 $2i + 1$ ，右子节点索引为 $2i + 2$** 。
-
-**本质上，映射公式的作用相当于链表中的指针**。对于层序遍历序列中的任意节点，我们都可以使用映射公式来访问其子节点。因此，我们可以将二叉树的层序遍历序列存储到数组中，利用以上映射公式来表示二叉树。
-
-![完美二叉树的数组表示](binary_tree.assets/array_representation_mapping.png)
-
-然而，完美二叉树只是一个特例。在二叉树的中间层，通常存在许多 $\text{null}$ ，而层序遍历序列并不包含这些 $\text{null}$ 。我们无法仅凭序列来推测空节点的数量和分布位置，**这意味着理论上存在许多种二叉树都符合该层序遍历序列**。显然，在这种情况下，我们无法使用数组来存储二叉树。
-
-![给定数组对应多种二叉树可能性](binary_tree.assets/array_representation_without_empty.png)
-
-为了解决这个问题，我们可以考虑按照完美二叉树的形式来表示所有二叉树，**并在序列中使用特殊符号来显式地表示 $\text{null}$**。如下图所示，这样处理后，层序遍历序列就可以唯一表示二叉树了。
-
-=== "Java"
-
-    ```java title=""
-    /* 二叉树的数组表示 */
-    // 使用 int 的包装类 Integer ，就可以使用 null 来标记空位
-    Integer[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    /* 二叉树的数组表示 */
-    // 为了符合数据类型为 int ，使用 int 最大值标记空位
-    // 该方法的使用前提是没有节点的值 = INT_MAX
-    vector<int> tree = { 1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15 };
-    ```
-
-=== "Python"
-
-    ```python title=""
-    # 二叉树的数组表示
-    # 直接使用 None 来表示空位
-    tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-    ```
-
-=== "Go"
-
-    ```go title=""
-    /* 二叉树的数组表示 */
-    // 使用 any 类型的切片, 就可以使用 nil 来标记空位
-    tree := []any{1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15}
-    ```
-
-=== "JavaScript"
-
-    ```javascript title=""
-    /* 二叉树的数组表示 */
-    // 直接使用 null 来表示空位
-    let tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
-    ```
-
-=== "TypeScript"
-
-    ```typescript title=""
-    /* 二叉树的数组表示 */
-    // 直接使用 null 来表示空位
-    let tree: (number | null)[] = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
-    ```
-
-=== "C"
-
-    ```c title=""
-    
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* 二叉树的数组表示 */
-    // 使用 int? 可空类型 ，就可以使用 null 来标记空位
-    int?[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* 二叉树的数组表示 */
-    // 使用 Int? 可空类型 ，就可以使用 nil 来标记空位
-    let tree: [Int?] = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
-![任意类型二叉树的数组表示](binary_tree.assets/array_representation_with_empty.png)
-
-**完全二叉树非常适合使用数组来表示**。回顾「完全二叉树」的定义，$\text{null}$ 只出现在最底层，并且最底层的节点尽量靠左。这意味着，**所有空节点一定出现在层序遍历序列的末尾**。由于我们事先知道了所有 $\text{null}$ 的位置，因此在使用数组表示完全二叉树时，可以省略存储它们。
-
-![完全二叉树的数组表示](binary_tree.assets/array_representation_complete_binary_tree.png)
-
-数组表示具有两个显著优点：首先，它不需要存储指针，从而节省了空间；其次，它允许随机访问节点。然而，当二叉树中存在大量 $\text{null}$ 时，数组中包含的节点数据比重较低，导致有效空间利用率降低。

@@ -7,19 +7,20 @@
 #include "../include/include.h"
 
 /* AVL Tree */
-struct avlTree {
+struct aVLTree {
     TreeNode *root;
 };
 
-typedef struct avlTree avlTree;
+typedef struct aVLTree aVLTree;
 
 /* 构建 AVL 树 */
-avlTree *newAVLTree() {
-    avlTree *tree = (avlTree *)malloc(sizeof(avlTree));
+aVLTree *newAVLTree() {
+    aVLTree *tree = (aVLTree *)malloc(sizeof(aVLTree));
     tree->root = NULL;
     return tree;
 }
 
+/* 获取节点高度 */
 int height(TreeNode *node) {
     // 空节点高度为 -1 ，叶节点高度为 0
     if (node != NULL) {
@@ -29,7 +30,7 @@ int height(TreeNode *node) {
 }
 
 /* 更新节点高度 */
-int updateHeight(TreeNode *node) {
+void updateHeight(TreeNode *node) {
     int lh = height(node->left);
     int rh = height(node->right);
     // 节点高度等于最高子树高度 + 1
@@ -133,7 +134,7 @@ TreeNode *insertHelper(TreeNode *node, int val) {
 }
 
 /* 插入节点 */
-void insert(avlTree *tree, int val) {
+void insert(aVLTree *tree, int val) {
     tree->root = insertHelper(tree->root, val);
 }
 
@@ -182,12 +183,12 @@ TreeNode *removeHelper(TreeNode *node, int val) {
 
 /* 删除节点 */
 // 由于引入了 stdio.h ，此处无法使用 remove 关键词
-void removeNode(avlTree *tree, int val) {
+void removeNode(aVLTree *tree, int val) {
     TreeNode *root = removeHelper(tree->root, val);
 }
 
 /* 查找节点 */
-TreeNode *search(avlTree *tree, int val) {
+TreeNode *search(aVLTree *tree, int val) {
     TreeNode *cur = tree->root;
     // 循环查找，越过叶节点后跳出
     while (cur != NULL) {
@@ -206,13 +207,13 @@ TreeNode *search(avlTree *tree, int val) {
     return cur;
 }
 
-void testInsert(avlTree *tree, int val) {
+void testInsert(aVLTree *tree, int val) {
     insert(tree, val);
     printf("\n插入节点 %d 后，AVL 树为 \n", val);
     printTree(tree->root);
 }
 
-void testRemove(avlTree *tree, int val) {
+void testRemove(aVLTree *tree, int val) {
     removeNode(tree, val);
     printf("\n删除节点 %d 后，AVL 树为 \n", val);
     printTree(tree->root);
@@ -221,7 +222,7 @@ void testRemove(avlTree *tree, int val) {
 /* Driver Code */
 int main() {
     /* 初始化空 AVL 树 */
-    avlTree *tree = (avlTree *)newAVLTree();
+    aVLTree *tree = (aVLTree *)newAVLTree();
     /* 插入节点 */
     // 请关注插入节点后，AVL 树是如何保持平衡的
     testInsert(tree, 1);
@@ -247,4 +248,6 @@ int main() {
     /* 查询节点 */
     TreeNode *node = search(tree, 7);
     printf("\n查找到的节点对象节点值 = %d \n", node->val);
+
+    return 0;
 }

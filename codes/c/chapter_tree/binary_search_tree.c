@@ -13,9 +13,9 @@ struct binarySearchTree {
 
 typedef struct binarySearchTree binarySearchTree;
 
+/* 比较器：从小到大排序 */
 int sortIntHelper(const void *a, const void *b) {
-    // 从小到大排序
-    return (*(int *) a - *(int *) b);
+    return (*(int *)a - *(int *)b);
 }
 
 /* 构建二叉搜索树 */
@@ -33,7 +33,7 @@ TreeNode *buildTree(int nums[], int i, int j) {
 }
 
 binarySearchTree *newBinarySearchTree(int nums[], int size) {
-    binarySearchTree *bst = (binarySearchTree *) malloc(sizeof(binarySearchTree));
+    binarySearchTree *bst = (binarySearchTree *)malloc(sizeof(binarySearchTree));
     TreeNode *root;
     // 从小到大排序数组
     qsort(nums, size, sizeof(int), sortIntHelper);
@@ -108,7 +108,8 @@ void removeNode(binarySearchTree *bst, int num) {
     // 循环查找，越过叶节点后跳出
     while (cur != NULL) {
         // 找到待删除节点，跳出循环
-        if (cur->val == num) break;
+        if (cur->val == num)
+            break;
         pre = cur;
         if (cur->val < num) {
             // 待删除节点在 root 的右子树中
@@ -159,12 +160,10 @@ int main() {
     TreeNode *node = search(bst, 7);
     printf("查找到的节点对象的节点值 = %d\n", node->val);
 
-
     /* 插入节点 */
     insert(bst, 16);
     printf("插入节点 16 后，二叉树为\n");
     printTree(getRoot(bst));
-
 
     /* 删除节点 */
     removeNode(bst, 1);
