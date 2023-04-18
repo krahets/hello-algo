@@ -14,7 +14,7 @@ struct linkedListStack {
 
 typedef struct linkedListStack linkedListStack;
 
-/* 构造方法 */
+/* 构造函数 */
 linkedListStack *newLinkedListStack() {
     linkedListStack *s = malloc(sizeof(linkedListStack));
     s->top = NULL;
@@ -22,7 +22,7 @@ linkedListStack *newLinkedListStack() {
     return s;
 }
 
-/* 析构方法 */
+/* 析构函数 */
 void delLinkedListStack(linkedListStack *s) {
     while (s->top) {
         ListNode *n = s->top->next;
@@ -80,7 +80,6 @@ int pop(linkedListStack *s) {
 /* Driver Code */
 int main() {
     /* 初始化栈 */
-    // 构造方法
     linkedListStack *stack = newLinkedListStack();
 
     /* 元素入栈 */

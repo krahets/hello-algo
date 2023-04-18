@@ -95,10 +95,9 @@
         struct ListNode *next; // 指向下一节点的指针（引用）
     };
 
-    // typedef 作用是为一种数据类型定义一个新名字
     typedef struct ListNode ListNode;
 
-    /* 构造函数，初始化一个新节点 */
+    /* 构造函数 */
     ListNode *newListNode(int val) {
         ListNode *node, *next;
         node = (ListNode *) malloc(sizeof(ListNode));
@@ -379,7 +378,7 @@
 === "C"
 
     ```c title="linked_list.c"
-    [class]{}-[func]{insertNode}
+    [class]{}-[func]{insert}
     ```
 
 === "C#"
@@ -573,7 +572,7 @@
 === "C"
 
     ```c title="linked_list.c"
-    [class]{}-[func]{findNode}
+    [class]{}-[func]{find}
     ```
 
 === "C#"
@@ -692,7 +691,24 @@
 === "C"
 
     ```c title=""
+    /* 双向链表节点结构体 */
+    struct ListNode {
+        int val;               // 节点值
+        struct ListNode *next; // 指向后继节点的指针（引用）
+        struct ListNode *prev; // 指向前驱节点的指针（引用）
+    };
 
+    typedef struct ListNode ListNode;
+
+    /* 构造函数 */
+    ListNode *newListNode(int val) {
+        ListNode *node, *next;
+        node = (ListNode *) malloc(sizeof(ListNode));
+        node->val = val;
+        node->next = NULL;
+        node->prev = NULL;
+        return node;
+    }
     ```
 
 === "C#"

@@ -9,18 +9,20 @@
 #define MAX_SIZE 5000
 
 /* 大顶堆 */
-typedef struct maxHeap {
+struct maxHeap {
     // size 代表的是实际元素的个数
     int size;
     // 使用预先分配内存的数组，避免扩容
     int data[MAX_SIZE];
-} maxHeap;
+};
+
+typedef struct maxHeap maxHeap;
 
 void siftDown(maxHeap *h, int i);
 
 void siftUp(maxHeap *h, int i);
 
-/* 构造方法，根据切片建堆 */
+/* 构造函数，根据切片建堆 */
 maxHeap *newMaxHeap(int nums[], int size) {
     // 所有元素入堆
     maxHeap *h = (maxHeap *)malloc(sizeof(maxHeap));

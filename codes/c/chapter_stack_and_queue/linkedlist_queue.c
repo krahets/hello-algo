@@ -7,24 +7,24 @@
 #include "../include/include.h"
 
 /* 基于链表实现的队列 */
-struct LinkedListQueue {
+struct linkedListQueue {
     ListNode *front, *rear;
     int queSize;
 };
 
-typedef struct LinkedListQueue LinkedListQueue;
+typedef struct linkedListQueue linkedListQueue;
 
-/* 构造方法 */
-LinkedListQueue *newLinkedListQueue() {
-    LinkedListQueue *queue = (LinkedListQueue *)malloc(sizeof(LinkedListQueue));
+/* 构造函数 */
+linkedListQueue *newLinkedListQueue() {
+    linkedListQueue *queue = (linkedListQueue *)malloc(sizeof(linkedListQueue));
     queue->front = NULL;
     queue->rear = NULL;
     queue->queSize = 0;
     return queue;
 }
 
-/* 析构方法 */
-void delLinkedListQueue(LinkedListQueue *queue) {
+/* 析构函数 */
+void delLinkedListQueue(linkedListQueue *queue) {
     // 释放所有节点
     for (int i = 0; i < queue->queSize && queue->front != NULL; i++) {
         ListNode *tmp = queue->front;
@@ -36,17 +36,17 @@ void delLinkedListQueue(LinkedListQueue *queue) {
 }
 
 /* 获取队列的长度 */
-int size(LinkedListQueue *queue) {
+int size(linkedListQueue *queue) {
     return queue->queSize;
 }
 
 /* 判断队列是否为空 */
-bool empty(LinkedListQueue *queue) {
+bool empty(linkedListQueue *queue) {
     return (size(queue) == 0);
 }
 
 /* 入队 */
-void push(LinkedListQueue *queue, int num) {
+void push(linkedListQueue *queue, int num) {
     // 尾节点处添加 node
     ListNode *node = newListNode(num);
     // 如果队列为空，则令头、尾节点都指向该节点
@@ -63,13 +63,13 @@ void push(LinkedListQueue *queue, int num) {
 }
 
 /* 访问队首元素 */
-int peek(LinkedListQueue *queue) {
+int peek(linkedListQueue *queue) {
     assert(size(queue) && queue->front);
     return queue->front->val;
 }
 
 /* 出队 */
-void pop(LinkedListQueue *queue) {
+void pop(linkedListQueue *queue) {
     int num = peek(queue);
     ListNode *tmp = queue->front;
     queue->front = queue->front->next;
@@ -78,7 +78,7 @@ void pop(LinkedListQueue *queue) {
 }
 
 /* 打印队列 */
-void printLinkedListQueue(LinkedListQueue *queue) {
+void printLinkedListQueue(linkedListQueue *queue) {
     int arr[queue->queSize];
     // 拷贝链表中的数据到数组
     int i;
@@ -93,7 +93,7 @@ void printLinkedListQueue(LinkedListQueue *queue) {
 /* Driver Code */
 int main() {
     /* 初始化队列 */
-    LinkedListQueue *queue = newLinkedListQueue();
+    linkedListQueue *queue = newLinkedListQueue();
 
     /* 元素入队 */
     push(queue, 1);

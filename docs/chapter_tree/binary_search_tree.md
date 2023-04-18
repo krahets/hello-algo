@@ -237,7 +237,7 @@
 === "C"
 
     ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{remove}
+    [class]{binarySearchTree}-[func]{removeNode}
     ```
 
 === "C#"
