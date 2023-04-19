@@ -143,7 +143,7 @@ class MaxHeap
     public void print()
     {
         var queue = new Queue<int>(maxHeap);
-        PrintUtil.printHeap(queue);
+        PrintUtil.PrintHeap(queue);
     }
 }
 

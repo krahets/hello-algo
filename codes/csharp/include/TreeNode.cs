@@ -23,25 +23,25 @@ public class TreeNode
      * @param arr
      * @return
      */
-    public static TreeNode? ArrToTree(int?[] arr)
+    public static TreeNode? ListToTree(List<int?> arr)
     {
-        if (arr.Length == 0 || arr[0] == null)
+        if (arr.Count == 0 || arr[0] == null)
             return null;
 
-        TreeNode root = new TreeNode((int)arr[0]);
+        TreeNode root = new TreeNode(arr[0]!.Value);
         Queue<TreeNode> queue = new Queue<TreeNode>();
         queue.Enqueue(root);
         int i = 0;
         while (queue.Count != 0)
         {
             TreeNode node = queue.Dequeue();
-            if (++i >= arr.Length) break;
+            if (++i >= arr.Count) break;
             if (arr[i] != null)
             {
                 node.left = new TreeNode((int)arr[i]);
                 queue.Enqueue(node.left);
             }
-            if (++i >= arr.Length) break;
+            if (++i >= arr.Count) break;
             if (arr[i] != null)
             {
                 node.right = new TreeNode((int)arr[i]);
@@ -92,6 +92,6 @@ public class TreeNode
             return root;
         TreeNode? left = GetTreeNode(root.left, val);
         TreeNode? right = GetTreeNode(root.right, val);
-        return left != null ? left : right;
+        return left ?? right;
     }
 }

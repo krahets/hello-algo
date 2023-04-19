@@ -8,12 +8,12 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_hashing;
 
-/* 键值对 int->String */
+/* 键值对 int->string */
 class Entry
 {
     public int key;
-    public String val;
-    public Entry(int key, String val)
+    public string val;
+    public Entry(int key, string val)
     {
         this.key = key;
         this.val = val;
@@ -42,7 +42,7 @@ class ArrayHashMap
     }
 
     /* 查询操作 */
-    public String? get(int key)
+    public string? get(int key)
     {
         int index = hashFunc(key);
         Entry? pair = buckets[index];
@@ -51,7 +51,7 @@ class ArrayHashMap
     }
 
     /* 添加操作 */
-    public void put(int key, String val)
+    public void put(int key, string val)
     {
         Entry pair = new Entry(key, val);
         int index = hashFunc(key);
@@ -91,9 +91,9 @@ class ArrayHashMap
     }
 
     /* 获取所有值 */
-    public List<String> valueSet()
+    public List<string> valueSet()
     {
-        List<String> valueSet = new();
+        List<string> valueSet = new();
         foreach (Entry? pair in buckets)
         {
             if (pair != null)
@@ -133,7 +133,7 @@ public class array_hash_map
 
         /* 查询操作 */
         // 向哈希表输入键 key ，得到值 value
-        String? name = map.get(15937);
+        string? name = map.get(15937);
         Console.WriteLine("\n输入学号 15937 ，查询到姓名 " + name);
 
         /* 删除操作 */
@@ -154,7 +154,7 @@ public class array_hash_map
             Console.WriteLine(key);
         }
         Console.WriteLine("\n单独遍历值 Value");
-        foreach (String val in map.valueSet())
+        foreach (string val in map.valueSet())
         {
             Console.WriteLine(val);
         }

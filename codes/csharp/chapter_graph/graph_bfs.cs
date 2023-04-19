@@ -46,7 +46,7 @@ public class graph_bfs
     public void Test()
     {
         /* 初始化无向图 */
-        Vertex[] v = Vertex.valsToVets(new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+        Vertex[] v = Vertex.ValsToVets(new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
         Vertex[][] edges = new Vertex[12][]
         {
             new Vertex[2] { v[0], v[1] }, new Vertex[2] { v[0], v[3] }, new Vertex[2] { v[1], v[2] },
@@ -62,6 +62,6 @@ public class graph_bfs
         /* 广度优先遍历 BFS */
         List<Vertex> res = graphBFS(graph, v[0]);
         Console.WriteLine("\n广度优先遍历（BFS）顶点序列为");
-        Console.WriteLine(string.Join(" ", Vertex.vetsToVals(res)));
+        Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));
     }
 }

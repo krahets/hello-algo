@@ -92,7 +92,7 @@ public class linkedlist_stack
         stack.push(2);
         stack.push(5);
         stack.push(4);
-        Console.WriteLine("栈 stack = " + String.Join(",", stack.toArray()));
+        Console.WriteLine("栈 stack = " + string.Join(",", stack.toArray()));
 
         /* 访问栈顶元素 */
         int peek = stack.peek();
@@ -100,7 +100,7 @@ public class linkedlist_stack
 
         /* 元素出栈 */
         int pop = stack.pop();
-        Console.WriteLine("出栈元素 pop = " + pop + "，出栈后 stack = " + String.Join(",", stack.toArray()));
+        Console.WriteLine("出栈元素 pop = " + pop + "，出栈后 stack = " + string.Join(",", stack.toArray()));
 
         /* 获取栈的长度 */
         int size = stack.size();

@@ -102,7 +102,7 @@ public class linkedlist_queue
         queue.push(2);
         queue.push(5);
         queue.push(4);
-        Console.WriteLine("队列 queue = " + String.Join(",", queue.toArray()));
+        Console.WriteLine("队列 queue = " + string.Join(",", queue.toArray()));
 
         /* 访问队首元素 */
         int peek = queue.peek();
@@ -110,7 +110,7 @@ public class linkedlist_queue
 
         /* 元素出队 */
         int pop = queue.pop();
-        Console.WriteLine("出队元素 pop = " + pop + "，出队后 queue = " + String.Join(",", queue.toArray()));
+        Console.WriteLine("出队元素 pop = " + pop + "，出队后 queue = " + string.Join(",", queue.toArray()));
 
         /* 获取队列的长度 */
         int size = queue.size();
