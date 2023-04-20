@@ -29,6 +29,15 @@ impl TreeNode {
     }
 }
 
+#[macro_export]
+macro_rules! op_vec {
+    ( $( $x:expr ),* ) => {
+        vec![
+            $( Option::from($x).map(|x| x) ),* 
+        ]
+    };
+}
+
 /// This function takes a vector of integers and generates a binary tree from it in a level order traversal manner.
 /// The first element of the vector is used as the root node of the tree. Each node in the tree is represented by a `TreeNode` struct that has a value and pointers to its left and right children.
 ///
@@ -58,12 +67,12 @@ impl TreeNode {
 /// //     / \ / \
 /// //    4   56  7
 /// ```
-pub fn vec_to_tree(list: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+pub fn vec_to_tree(list: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
     if list.is_empty() {
         return None;
     }
 
-    let root = TreeNode::new(list[0]);
+    let root = TreeNode::new(list[0].unwrap());
     let mut que = VecDeque::new();
     que.push_back(Rc::clone(&root));
 
@@ -73,8 +82,8 @@ pub fn vec_to_tree(list: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
         if index >= list.len() {
             break;
         }
-        if index < list.len() {
-            node.borrow_mut().left = Some(TreeNode::new(list[index]));
+        if let Some(val) = list[index] {
+            node.borrow_mut().left = Some(TreeNode::new(val));
             que.push_back(Rc::clone(&node.borrow().left.as_ref().unwrap()));
         }
 
@@ -82,8 +91,8 @@ pub fn vec_to_tree(list: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
         if index >= list.len() {
             break;
         }
-        if index < list.len() {
-            node.borrow_mut().right = Some(TreeNode::new(list[index]));
+        if let Some(val) = list[index] {
+            node.borrow_mut().right = Some(TreeNode::new(val));
             que.push_back(Rc::clone(&node.borrow().right.as_ref().unwrap()));
         }
     }

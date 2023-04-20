@@ -52,7 +52,7 @@ fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 fn main() {
     /* 初始化二叉树 */
     // 这里借助了一个从数组直接生成二叉树的函数
-    let root = vec_to_tree(vec![1, 2, 3, 4, 5, 6, 7]);
+    let root = vec_to_tree(op_vec![1, 2, 3, 4, 5, 6, 7]);
     println!("初始化二叉树\n");
     print_util::print_tree(root.as_ref().unwrap());
 
