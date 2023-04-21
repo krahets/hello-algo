@@ -50,7 +50,7 @@ public class space_complexity
             nodes.Add(new ListNode(i));
         }
         // 长度为 n 的哈希表占用 O(n) 空间
-        Dictionary<int, String> map = new();
+        Dictionary<int, string> map = new();
         for (int i = 0; i < n; i++)
         {
             map.Add(i, i.ToString());

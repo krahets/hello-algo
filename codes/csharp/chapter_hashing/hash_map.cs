@@ -16,7 +16,7 @@ public class hash_map
     public void Test()
     {
         /* 初始化哈希表 */
-        Dictionary<int, String> map = new();
+        Dictionary<int, string> map = new();
 
         /* 添加操作 */
         // 在哈希表中添加键值对 (key, value)
@@ -26,18 +26,18 @@ public class hash_map
         map.Add(13276, "小法");
         map.Add(10583, "小鸭");
         Console.WriteLine("\n添加完成后，哈希表为\nKey -> Value");
-        PrintUtil.printHashMap(map);
+        PrintUtil.PrintHashMap(map);
 
         /* 查询操作 */
         // 向哈希表输入键 key ，得到值 value
-        String name = map[15937];
+        string name = map[15937];
         Console.WriteLine("\n输入学号 15937 ，查询到姓名 " + name);
 
         /* 删除操作 */
         // 在哈希表中删除键值对 (key, value)
         map.Remove(10583);
         Console.WriteLine("\n删除 10583 后，哈希表为\nKey -> Value");
-        PrintUtil.printHashMap(map);
+        PrintUtil.PrintHashMap(map);
 
         /* 遍历哈希表 */
         Console.WriteLine("\n遍历键值对 Key->Value");
@@ -51,7 +51,7 @@ public class hash_map
             Console.WriteLine(key);
         }
         Console.WriteLine("\n单独遍历值 Value");
-        foreach (String val in map.Values)
+        foreach (string val in map.Values)
         {
             Console.WriteLine(val);
         }

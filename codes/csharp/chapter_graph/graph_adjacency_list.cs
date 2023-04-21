@@ -85,8 +85,8 @@ public class GraphAdjList
         {
             List<int> tmp = new List<int>();
             foreach (Vertex vertex in entry.Value)
-                tmp.Add(vertex.Val);
-            Console.WriteLine(entry.Key.Val + ": [" + string.Join(", ", tmp) + "],");
+                tmp.Add(vertex.val);
+            Console.WriteLine(entry.Key.val + ": [" + string.Join(", ", tmp) + "],");
         }
     }
 }
@@ -97,7 +97,7 @@ public class graph_adjacency_list
     public void Test()
     {
         /* 初始化无向图 */
-        Vertex[] v = Vertex.valsToVets(new int[] { 1, 3, 2, 5, 4 });
+        Vertex[] v = Vertex.ValsToVets(new int[] { 1, 3, 2, 5, 4 });
         Vertex[][] edges = new Vertex[][] { new Vertex[] { v[0], v[1] }, new Vertex[] { v[0], v[3] },
                                             new Vertex[] { v[1], v[2] }, new Vertex[] { v[2], v[3] },
                                             new Vertex[] { v[2], v[4] }, new Vertex[] { v[3], v[4] } };

@@ -9,9 +9,9 @@ namespace hello_algo.include;
 public class Trunk
 {
     public Trunk? prev;
-    public String str;
+    public string str;
 
-    public Trunk(Trunk? prev, String str)
+    public Trunk(Trunk? prev, string str)
     {
         this.prev = prev;
         this.str = str;
@@ -24,9 +24,31 @@ public class PrintUtil
      * Print a list
      * @param list
      */
-    public static void PrintList(List<int> list)
+    public static void PrintList<T>(List<T> list)
     {
         Console.WriteLine("[" + string.Join(", ", list) + "]");
+    }
+
+    /* Print a matrix (Array) */
+    public static void PrintMatrix<T>(T[][] matrix)
+    {
+        Console.WriteLine("[");
+        foreach (T[] row in matrix)
+        {
+            Console.WriteLine("  " + string.Join(", ", row) + ",");
+        }
+        Console.WriteLine("]");
+    }
+
+    /* Print a matrix (List) */
+    public static void PrintMatrix<T>(List<List<T>> matrix)
+    {
+        Console.WriteLine("[");
+        foreach (List<T> row in matrix)
+        {
+            Console.WriteLine("  " + string.Join(", ", row) + ",");
+        }
+        Console.WriteLine("]");
     }
 
     /**
@@ -35,13 +57,13 @@ public class PrintUtil
      */
     public static void PrintLinkedList(ListNode head)
     {
-        List<String> list = new();
+        List<string> list = new();
         while (head != null)
         {
             list.Add(head.val.ToString());
             head = head.next;
         }
-        Console.Write(String.Join(" -> ", list));
+        Console.Write(string.Join(" -> ", list));
     }
 
     /**
@@ -68,7 +90,7 @@ public class PrintUtil
             return;
         }
 
-        String prev_str = "    ";
+        string prev_str = "    ";
         Trunk trunk = new Trunk(prev, prev_str);
 
         PrintTree(root.right, trunk, true);
@@ -88,7 +110,7 @@ public class PrintUtil
             prev.str = prev_str;
         }
 
-        showTrunks(trunk);
+        ShowTrunks(trunk);
         Console.WriteLine(" " + root.val);
 
         if (prev != null)
@@ -104,14 +126,14 @@ public class PrintUtil
      * Helper function to print branches of the binary tree
      * @param p
      */
-    public static void showTrunks(Trunk? p)
+    public static void ShowTrunks(Trunk? p)
     {
         if (p == null)
         {
             return;
         }
 
-        showTrunks(p.prev);
+        ShowTrunks(p.prev);
         Console.Write(p.str);
     }
 
@@ -121,7 +143,7 @@ public class PrintUtil
      * @param <V>
      * @param map
      */
-    public static void printHashMap<K, V>(Dictionary<K, V> map) where K : notnull
+    public static void PrintHashMap<K, V>(Dictionary<K, V> map) where K : notnull
     {
         foreach (var kv in map.Keys)
         {
@@ -129,17 +151,17 @@ public class PrintUtil
         }
     }
 
-    public static void printHeap(Queue<int> queue)
+    public static void PrintHeap(Queue<int> queue)
     {
         Console.Write("堆的数组表示：");
         List<int> list = queue.ToList();
         Console.WriteLine(string.Join(',', list));
         Console.WriteLine("堆的树状表示：");
-        TreeNode tree = TreeNode.ArrToTree(list.Cast<int?>().ToArray());
+        TreeNode tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }
 
-    public static void printHeap(PriorityQueue<int, int> queue)
+    public static void PrintHeap(PriorityQueue<int, int> queue)
     {
         var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
         Console.Write("堆的数组表示：");    
@@ -150,17 +172,7 @@ public class PrintUtil
         }
         Console.WriteLine("堆的树状表示：");
         Console.WriteLine(string.Join(',', list.ToList()));
-        TreeNode tree = TreeNode.ArrToTree(list.Cast<int?>().ToArray());
+        TreeNode tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
-    }
-
-    public static void printMatrix(List<List<int>> matrix)
-    {
-        Console.WriteLine("[");
-        foreach (List<int> row in matrix)
-        {
-            Console.WriteLine("  [" + string.Join(", ", row.Select(r => $"{r}")) + "],");
-        }
-        Console.WriteLine("]");
     }
 }

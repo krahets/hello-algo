@@ -15,14 +15,14 @@ public class heap
     {
         heap.Enqueue(val, val); // 元素入堆
         Console.WriteLine($"\n元素 {val} 入堆后\n");
-        PrintUtil.printHeap(heap);
+        PrintUtil.PrintHeap(heap);
     }
 
     public void testPop(PriorityQueue<int, int> heap)
     {
         int val = heap.Dequeue(); // 堆顶元素出堆
         Console.WriteLine($"\n堆顶元素 {val} 出堆后\n");
-        PrintUtil.printHeap(heap);
+        PrintUtil.PrintHeap(heap);
     }
     [Test]
     public void Test()
@@ -65,6 +65,6 @@ public class heap
         var list = new int[] { 1, 3, 2, 5, 4 };
         minHeap = new PriorityQueue<int, int>(list.Select(x => (x, x)));
         Console.WriteLine("输入列表并建立小顶堆后");
-        PrintUtil.printHeap(minHeap);
+        PrintUtil.PrintHeap(minHeap);
     }
 }
