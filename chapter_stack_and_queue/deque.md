@@ -1043,6 +1043,8 @@ comments: true
         struct doublyListNode *prev; // 前驱节点
     };
 
+    typedef struct doublyListNode doublyListNode;
+
     /* 构造函数 */
     doublyListNode *newDoublyListNode(int num) {
         doublyListNode *new = (doublyListNode *)malloc(sizeof(doublyListNode));
@@ -1062,6 +1064,8 @@ comments: true
         doublyListNode *front, *rear; // 头节点 front ，尾节点 rear
         int queSize;                  // 双向队列的长度
     };
+
+    typedef struct linkedListDeque linkedListDeque;
 
     /* 构造j */
     linkedListDeque *newLinkedListDeque() {
@@ -2165,6 +2169,8 @@ comments: true
         int queSize;     // 尾指针，指向队尾 + 1
         int queCapacity; // 队列容量
     };
+
+    typedef struct arrayDeque arrayDeque;
 
     /* 构造函数 */
     arrayDeque *newArrayDeque(int capacity) {

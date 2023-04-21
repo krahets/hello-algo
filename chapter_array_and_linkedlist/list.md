@@ -1328,6 +1328,8 @@ comments: true
         int extendRatio; // 列表每次扩容的倍数
     };
 
+    typedef struct myList myList;
+
     /* 构造函数 */
     myList *newMyList() {
         myList *list = malloc(sizeof(myList));

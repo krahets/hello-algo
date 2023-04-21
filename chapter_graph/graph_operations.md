@@ -674,7 +674,7 @@ comments: true
             Console.Write("顶点列表 = ");
             PrintUtil.PrintList(vertices);
             Console.WriteLine("邻接矩阵 =");
-            PrintUtil.printMatrix(adjMat);
+            PrintUtil.PrintMatrix(adjMat);
         }
     }
     ```
@@ -1382,8 +1382,8 @@ comments: true
             {
                 List<int> tmp = new List<int>();
                 foreach (Vertex vertex in entry.Value)
-                    tmp.Add(vertex.Val);
-                Console.WriteLine(entry.Key.Val + ": [" + string.Join(", ", tmp) + "],");
+                    tmp.Add(vertex.val);
+                Console.WriteLine(entry.Key.val + ": [" + string.Join(", ", tmp) + "],");
             }
         }
     }

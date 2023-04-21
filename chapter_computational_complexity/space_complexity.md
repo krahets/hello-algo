@@ -956,6 +956,8 @@ $$
         UT_hash_handle hh; // 基于 uthash.h 实现
     };
 
+    typedef struct hashTable hashTable;
+
     /* 线性阶 */
     void linear(int n) {
         // 长度为 n 的数组占用 O(n) 空间
@@ -1006,7 +1008,7 @@ $$
             nodes.Add(new ListNode(i));
         }
         // 长度为 n 的哈希表占用 O(n) 空间
-        Dictionary<int, String> map = new();
+        Dictionary<int, string> map = new();
         for (int i = 0; i < n; i++)
         {
             map.Add(i, i.ToString());

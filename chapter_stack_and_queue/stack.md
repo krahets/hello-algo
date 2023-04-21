@@ -636,6 +636,8 @@ comments: true
         int size;      // 栈的长度
     };
 
+    typedef struct linkedListStack linkedListStack;
+
     /* 构造函数 */
     linkedListStack *newLinkedListStack() {
         linkedListStack *s = malloc(sizeof(linkedListStack));
@@ -1203,6 +1205,8 @@ comments: true
         int *data;
         int size;
     };
+
+    typedef struct arrayStack arrayStack;
 
     /* 构造函数 */
     arrayStack *newArrayStack() {

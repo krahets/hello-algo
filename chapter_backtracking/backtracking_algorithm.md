@@ -14,8 +14,8 @@ comments: true
 
 === "Java"
 
-    ```java title="preorder_find_nodes.java"
-    /* 前序遍历 */
+    ```java title="preorder_traversal_i_compact.java"
+    /* 前序遍历：例题一 */
     void preOrder(TreeNode root) {
         if (root == null) {
             return;
@@ -31,8 +31,8 @@ comments: true
 
 === "C++"
 
-    ```cpp title="preorder_find_nodes.cpp"
-    /* 前序遍历 */
+    ```cpp title="preorder_traversal_i_compact.cpp"
+    /* 前序遍历：例题一 */
     void preOrder(TreeNode *root) {
         if (root == nullptr) {
             return;
@@ -48,9 +48,9 @@ comments: true
 
 === "Python"
 
-    ```python title="preorder_find_nodes.py"
+    ```python title="preorder_traversal_i_compact.py"
     def pre_order(root: TreeNode) -> None:
-        """前序遍历"""
+        """前序遍历：例题一"""
         if root is None:
             return
         if root.val == 7:
@@ -62,32 +62,32 @@ comments: true
 
 === "Go"
 
-    ```go title="preorder_find_nodes.go"
+    ```go title="preorder_traversal_i_compact.go"
     [class]{}-[func]{preOrder}
     ```
 
 === "JavaScript"
 
-    ```javascript title="preorder_find_nodes.js"
+    ```javascript title="preorder_traversal_i_compact.js"
     [class]{}-[func]{preOrder}
     ```
 
 === "TypeScript"
 
-    ```typescript title="preorder_find_nodes.ts"
+    ```typescript title="preorder_traversal_i_compact.ts"
     [class]{}-[func]{preOrder}
     ```
 
 === "C"
 
-    ```c title="preorder_find_nodes.c"
+    ```c title="preorder_traversal_i_compact.c"
     [class]{}-[func]{preOrder}
     ```
 
 === "C#"
 
-    ```csharp title="preorder_find_nodes.cs"
-    /* 前序遍历 */
+    ```csharp title="preorder_traversal_i_compact.cs"
+    /* 前序遍历：例题一 */
     void preOrder(TreeNode root)
     {
         if (root == null)
@@ -106,13 +106,13 @@ comments: true
 
 === "Swift"
 
-    ```swift title="preorder_find_nodes.swift"
+    ```swift title="preorder_traversal_i_compact.swift"
     [class]{}-[func]{preOrder}
     ```
 
 === "Zig"
 
-    ```zig title="preorder_find_nodes.zig"
+    ```zig title="preorder_traversal_i_compact.zig"
     [class]{}-[func]{preOrder}
     ```
 
@@ -134,8 +134,8 @@ comments: true
 
 === "Java"
 
-    ```java title="preorder_find_paths.java"
-    /* 前序遍历 */
+    ```java title="preorder_traversal_ii_compact.java"
+    /* 前序遍历：例题二 */
     void preOrder(TreeNode root) {
         if (root == null) {
             return;
@@ -155,8 +155,8 @@ comments: true
 
 === "C++"
 
-    ```cpp title="preorder_find_paths.cpp"
-    /* 前序遍历 */
+    ```cpp title="preorder_traversal_ii_compact.cpp"
+    /* 前序遍历：例题二 */
     void preOrder(TreeNode *root) {
         if (root == nullptr) {
             return;
@@ -176,9 +176,9 @@ comments: true
 
 === "Python"
 
-    ```python title="preorder_find_paths.py"
+    ```python title="preorder_traversal_ii_compact.py"
     def pre_order(root: TreeNode) -> None:
-        """前序遍历"""
+        """前序遍历：例题二"""
         if root is None:
             return
         # 尝试
@@ -194,32 +194,32 @@ comments: true
 
 === "Go"
 
-    ```go title="preorder_find_paths.go"
+    ```go title="preorder_traversal_ii_compact.go"
     [class]{}-[func]{preOrder}
     ```
 
 === "JavaScript"
 
-    ```javascript title="preorder_find_paths.js"
+    ```javascript title="preorder_traversal_ii_compact.js"
     [class]{}-[func]{preOrder}
     ```
 
 === "TypeScript"
 
-    ```typescript title="preorder_find_paths.ts"
+    ```typescript title="preorder_traversal_ii_compact.ts"
     [class]{}-[func]{preOrder}
     ```
 
 === "C"
 
-    ```c title="preorder_find_paths.c"
+    ```c title="preorder_traversal_ii_compact.c"
     [class]{}-[func]{preOrder}
     ```
 
 === "C#"
 
-    ```csharp title="preorder_find_paths.cs"
-    /* 前序遍历 */
+    ```csharp title="preorder_traversal_ii_compact.cs"
+    /* 前序遍历：例题二 */
     void preOrder(TreeNode root)
     {
         if (root == null)
@@ -242,13 +242,13 @@ comments: true
 
 === "Swift"
 
-    ```swift title="preorder_find_paths.swift"
+    ```swift title="preorder_traversal_ii_compact.swift"
     [class]{}-[func]{preOrder}
     ```
 
 === "Zig"
 
-    ```zig title="preorder_find_paths.zig"
+    ```zig title="preorder_traversal_ii_compact.zig"
     [class]{}-[func]{preOrder}
     ```
 
@@ -297,8 +297,8 @@ comments: true
 
 === "Java"
 
-    ```java title="preorder_find_constrained_paths.java"
-    /* 前序遍历 */
+    ```java title="preorder_traversal_iii_compact.java"
+    /* 前序遍历：例题三 */
     void preOrder(TreeNode root) {
         // 剪枝
         if (root == null || root.val == 3) {
@@ -319,8 +319,8 @@ comments: true
 
 === "C++"
 
-    ```cpp title="preorder_find_constrained_paths.cpp"
-    /* 前序遍历 */
+    ```cpp title="preorder_traversal_iii_compact.cpp"
+    /* 前序遍历：例题三 */
     void preOrder(TreeNode *root) {
         // 剪枝
         if (root == nullptr || root->val == 3) {
@@ -341,9 +341,9 @@ comments: true
 
 === "Python"
 
-    ```python title="preorder_find_constrained_paths.py"
+    ```python title="preorder_traversal_iii_compact.py"
     def pre_order(root: TreeNode) -> None:
-        """前序遍历"""
+        """前序遍历：例题三"""
         # 剪枝
         if root is None or root.val == 3:
             return
@@ -360,32 +360,32 @@ comments: true
 
 === "Go"
 
-    ```go title="preorder_find_constrained_paths.go"
+    ```go title="preorder_traversal_iii_compact.go"
     [class]{}-[func]{preOrder}
     ```
 
 === "JavaScript"
 
-    ```javascript title="preorder_find_constrained_paths.js"
+    ```javascript title="preorder_traversal_iii_compact.js"
     [class]{}-[func]{preOrder}
     ```
 
 === "TypeScript"
 
-    ```typescript title="preorder_find_constrained_paths.ts"
+    ```typescript title="preorder_traversal_iii_compact.ts"
     [class]{}-[func]{preOrder}
     ```
 
 === "C"
 
-    ```c title="preorder_find_constrained_paths.c"
+    ```c title="preorder_traversal_iii_compact.c"
     [class]{}-[func]{preOrder}
     ```
 
 === "C#"
 
-    ```csharp title="preorder_find_constrained_paths.cs"
-    /* 前序遍历 */
+    ```csharp title="preorder_traversal_iii_compact.cs"
+    /* 前序遍历：例题三 */
     void preOrder(TreeNode root)
     {
         // 剪枝
@@ -409,13 +409,13 @@ comments: true
 
 === "Swift"
 
-    ```swift title="preorder_find_constrained_paths.swift"
+    ```swift title="preorder_traversal_iii_compact.swift"
     [class]{}-[func]{preOrder}
     ```
 
 === "Zig"
 
-    ```zig title="preorder_find_constrained_paths.zig"
+    ```zig title="preorder_traversal_iii_compact.zig"
     [class]{}-[func]{preOrder}
     ```
 
@@ -471,7 +471,7 @@ def backtrack(state, choices, res):
 
 === "Java"
 
-    ```java title="backtrack_find_constrained_paths.java"
+    ```java title="preorder_traversal_iii_template.java"
     /* 判断当前状态是否为解 */
     boolean isSolution(List<TreeNode> state) {
         return !state.isEmpty() && state.get(state.size() - 1).val == 7;
@@ -497,7 +497,7 @@ def backtrack(state, choices, res):
         state.remove(state.size() - 1);
     }
 
-    /* 回溯算法 */
+    /* 回溯算法：例题三 */
     void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
         // 检查是否为解
         if (isSolution(state)) {
@@ -521,7 +521,7 @@ def backtrack(state, choices, res):
 
 === "C++"
 
-    ```cpp title="backtrack_find_constrained_paths.cpp"
+    ```cpp title="preorder_traversal_iii_template.cpp"
     /* 判断当前状态是否为解 */
     bool isSolution(vector<TreeNode *> &state) {
         return !state.empty() && state.back()->val == 7;
@@ -547,7 +547,7 @@ def backtrack(state, choices, res):
         state.pop_back();
     }
 
-    /* 回溯算法 */
+    /* 回溯算法：例题三 */
     void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<vector<TreeNode *>> &res) {
         // 检查是否为解
         if (isSolution(state)) {
@@ -572,7 +572,7 @@ def backtrack(state, choices, res):
 
 === "Python"
 
-    ```python title="backtrack_find_constrained_paths.py"
+    ```python title="preorder_traversal_iii_template.py"
     def is_solution(state: list[TreeNode]) -> bool:
         """判断当前状态是否为解"""
         return state and state[-1].val == 7
@@ -594,7 +594,7 @@ def backtrack(state, choices, res):
         state.pop()
 
     def backtrack(state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]):
-        """回溯算法"""
+        """回溯算法：例题三"""
         # 检查是否为解
         if is_solution(state):
             # 记录解
@@ -613,7 +613,7 @@ def backtrack(state, choices, res):
 
 === "Go"
 
-    ```go title="backtrack_find_constrained_paths.go"
+    ```go title="preorder_traversal_iii_template.go"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
@@ -629,7 +629,7 @@ def backtrack(state, choices, res):
 
 === "JavaScript"
 
-    ```javascript title="backtrack_find_constrained_paths.js"
+    ```javascript title="preorder_traversal_iii_template.js"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
@@ -645,7 +645,7 @@ def backtrack(state, choices, res):
 
 === "TypeScript"
 
-    ```typescript title="backtrack_find_constrained_paths.ts"
+    ```typescript title="preorder_traversal_iii_template.ts"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
@@ -661,7 +661,7 @@ def backtrack(state, choices, res):
 
 === "C"
 
-    ```c title="backtrack_find_constrained_paths.c"
+    ```c title="preorder_traversal_iii_template.c"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
@@ -677,7 +677,7 @@ def backtrack(state, choices, res):
 
 === "C#"
 
-    ```csharp title="backtrack_find_constrained_paths.cs"
+    ```csharp title="preorder_traversal_iii_template.cs"
     /* 判断当前状态是否为解 */
     bool isSolution(List<TreeNode> state)
     {
@@ -708,7 +708,7 @@ def backtrack(state, choices, res):
         state.RemoveAt(state.Count - 1);
     }
 
-    /* 回溯算法 */
+    /* 回溯算法：例题三 */
     void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res)
     {
         // 检查是否为解
@@ -737,7 +737,7 @@ def backtrack(state, choices, res):
 
 === "Swift"
 
-    ```swift title="backtrack_find_constrained_paths.swift"
+    ```swift title="preorder_traversal_iii_template.swift"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
@@ -753,7 +753,7 @@ def backtrack(state, choices, res):
 
 === "Zig"
 
-    ```zig title="backtrack_find_constrained_paths.zig"
+    ```zig title="preorder_traversal_iii_template.zig"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}

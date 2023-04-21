@@ -329,6 +329,8 @@ comments: true
         UT_hash_handle hh; // 基于 uthash.h 实现
     };
 
+    typedef struct hashTable hashTable;
+
     /* 哈希表查询 */
     hashTable *find(hashTable *h, int key) {
         hashTable *tmp;

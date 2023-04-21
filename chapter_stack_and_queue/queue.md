@@ -685,6 +685,8 @@ comments: true
         int queSize;
     };
 
+    typedef struct linkedListQueue linkedListQueue;
+
     /* 构造函数 */
     linkedListQueue *newLinkedListQueue() {
         linkedListQueue *queue = (linkedListQueue *)malloc(sizeof(linkedListQueue));
@@ -1458,6 +1460,8 @@ comments: true
         int queSize;     // 尾指针，指向队尾 + 1
         int queCapacity; // 队列容量
     };
+
+    typedef struct arrayQueue arrayQueue;
 
     /* 构造函数 */
     arrayQueue *newArrayQueue(int capacity) {
