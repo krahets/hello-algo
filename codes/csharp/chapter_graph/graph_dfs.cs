@@ -44,7 +44,7 @@ public class graph_dfs
     public void Test()
     {
         /* 初始化无向图 */
-        Vertex[] v = Vertex.valsToVets(new int[7] { 0, 1, 2, 3, 4, 5, 6 });
+        Vertex[] v = Vertex.ValsToVets(new int[7] { 0, 1, 2, 3, 4, 5, 6 });
         Vertex[][] edges = new Vertex[6][]
         {
             new Vertex[2] { v[0], v[1] }, new Vertex[2] { v[0], v[3] }, new Vertex[2] { v[1], v[2] },
@@ -58,6 +58,6 @@ public class graph_dfs
         /* 深度优先遍历 DFS */
         List<Vertex> res = graphDFS(graph, v[0]);
         Console.WriteLine("\n深度优先遍历（DFS）顶点序列为");
-        Console.WriteLine(string.Join(" ", Vertex.vetsToVals(res)));
+        Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));
     }
 }

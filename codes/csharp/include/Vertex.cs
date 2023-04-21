@@ -9,14 +9,14 @@ namespace hello_algo.include;
 /* 顶点类 */
 public class Vertex
 {
-    public int Val { get; init; }
+    public int val;
     public Vertex(int val)
     {
-        Val = val;
+        this.val = val;
     }
 
     /* 输入值列表 vals ，返回顶点列表 vets */
-    public static Vertex[] valsToVets(int[] vals)
+    public static Vertex[] ValsToVets(int[] vals)
     {
         Vertex[] vets = new Vertex[vals.Length];
         for (int i = 0; i < vals.Length; i++)
@@ -27,12 +27,12 @@ public class Vertex
     }
 
     /* 输入顶点列表 vets ，返回值列表 vals */
-    public static List<int> vetsToVals(List<Vertex> vets)
+    public static List<int> VetsToVals(List<Vertex> vets)
     {
         List<int> vals = new List<int>();
         foreach (Vertex vet in vets)
         {
-            vals.Add(vet.Val);
+            vals.Add(vet.val);
         }
         return vals;
     }

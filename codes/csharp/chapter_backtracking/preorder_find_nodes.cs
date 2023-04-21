@@ -6,6 +6,7 @@
 
 using hello_algo.include;
 using NUnit.Framework;
+using System.IO;
 
 namespace hello_algo.chapter_backtracking;
 
@@ -32,7 +33,7 @@ public class preorder_find_nodes
     [Test]
     public void Test()
     {
-        TreeNode root = TreeNode.ArrToTree(new int?[] { 1, 7, 3, 4, 5, 6, 7 });
+        TreeNode root = TreeNode.ListToTree(new List<int?> { 1, 7, 3, 4, 5, 6, 7 });
         Console.WriteLine("\n初始化二叉树");
         PrintUtil.PrintTree(root);
 
@@ -41,11 +42,6 @@ public class preorder_find_nodes
         preOrder(root);
 
         Console.WriteLine("\n输出所有值为 7 的节点");
-        List<int> vals = new List<int>();
-        foreach (TreeNode node in res)
-        {
-            vals.Add(node.val);
-        }
-        Console.WriteLine(string.Join(" ", vals));
+        PrintUtil.PrintList(res.Select(p => p.val).ToList());
     }
 }

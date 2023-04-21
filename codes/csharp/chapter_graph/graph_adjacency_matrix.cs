@@ -104,7 +104,7 @@ class GraphAdjMat
         Console.Write("顶点列表 = ");
         PrintUtil.PrintList(vertices);
         Console.WriteLine("邻接矩阵 =");
-        PrintUtil.printMatrix(adjMat);
+        PrintUtil.PrintMatrix(adjMat);
     }
 }
 

@@ -37,7 +37,7 @@ public class preorder_find_paths
     [Test]
     public void Test()
     {
-        TreeNode root = TreeNode.ArrToTree(new int?[] { 1, 7, 3, 4, 5, 6, 7 });
+        TreeNode root = TreeNode.ListToTree(new List<int?> { 1, 7, 3, 4, 5, 6, 7 });
         Console.WriteLine("\n初始化二叉树");
         PrintUtil.PrintTree(root);
 
@@ -49,12 +49,7 @@ public class preorder_find_paths
         Console.WriteLine("\n输出所有根节点到节点 7 的路径");
         foreach (List<TreeNode> path in res)
         {
-            List<int> vals = new List<int>();
-            foreach (TreeNode node in path)
-            {
-                vals.Add(node.val);
-            }
-            Console.WriteLine(string.Join(" ", vals));
+            PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }
     }
 }

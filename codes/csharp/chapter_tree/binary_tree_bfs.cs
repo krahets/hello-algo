@@ -37,11 +37,11 @@ public class binary_tree_bfs
     {
         /* 初始化二叉树 */
         // 这里借助了一个从数组直接生成二叉树的函数
-        TreeNode? root = TreeNode.ArrToTree(new int?[] { 1, 2, 3, 4, 5, 6, 7 });
+        TreeNode? root = TreeNode.ListToTree(new List<int?> { 1, 2, 3, 4, 5, 6, 7 });
         Console.WriteLine("\n初始化二叉树\n");
         PrintUtil.PrintTree(root);
 
         List<int> list = levelOrder(root);
-        Console.WriteLine("\n层序遍历的节点打印序列 = " + string.Join(",", list.ToArray()));
+        Console.WriteLine("\n层序遍历的节点打印序列 = " + string.Join(",", list));
     }
 }
