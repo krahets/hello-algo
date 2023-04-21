@@ -1,5 +1,5 @@
 ﻿/**
- * File: backtrack_find_constrained_paths.cs
+ * File: preorder_traversal_iii_template.cs
  * Created Time: 2023-04-17
  * Author: hpstory (hpstory1024@163.com)
  */
@@ -9,7 +9,7 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_backtracking;
 
-public class backtrack_find_constrained_paths
+public class preorder_traversal_iii_template
 {
     /* 判断当前状态是否为解 */
     static bool isSolution(List<TreeNode> state)
@@ -41,7 +41,7 @@ public class backtrack_find_constrained_paths
         state.RemoveAt(state.Count - 1);
     }
 
-    /* 回溯算法 */
+    /* 回溯算法：例题三 */
     static void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res)
     {
         // 检查是否为解

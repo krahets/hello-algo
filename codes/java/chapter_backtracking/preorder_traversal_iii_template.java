@@ -1,5 +1,5 @@
 /**
- * File: backtrack_find_constrained_paths.java
+ * File: preorder_traversal_iii_template.java
  * Created Time: 2023-04-16
  * Author: Krahets (krahets@163.com)
  */
@@ -9,7 +9,7 @@ package chapter_backtracking;
 import include.*;
 import java.util.*;
 
-public class backtrack_find_constrained_paths {
+public class preorder_traversal_iii_template {
     /* 判断当前状态是否为解 */
     static boolean isSolution(List<TreeNode> state) {
         return !state.isEmpty() && state.get(state.size() - 1).val == 7;
@@ -35,7 +35,7 @@ public class backtrack_find_constrained_paths {
         state.remove(state.size() - 1);
     }
 
-    /* 回溯算法 */
+    /* 回溯算法：例题三 */
     static void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
         // 检查是否为解
         if (isSolution(state)) {

@@ -1,5 +1,5 @@
 /**
- * File: preorder_find_constrained_paths.cpp
+ * File: preorder_traversal_iii_compact.cpp
  * Created Time: 2023-04-16
  * Author: Krahets (krahets@163.com)
  */
@@ -9,7 +9,7 @@
 vector<TreeNode *> path;
 vector<vector<TreeNode *>> res;
 
-/* 前序遍历 */
+/* 前序遍历：例题三 */
 static void preOrder(TreeNode *root) {
     // 剪枝
     if (root == nullptr || root->val == 3) {
