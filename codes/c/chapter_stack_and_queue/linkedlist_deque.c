@@ -37,7 +37,7 @@ struct linkedListDeque {
 
 typedef struct linkedListDeque linkedListDeque;
 
-/* 构造j */
+/* 构造函数 */
 linkedListDeque *newLinkedListDeque() {
     linkedListDeque *deque = (linkedListDeque *)malloc(sizeof(linkedListDeque));
     deque->front = NULL;
