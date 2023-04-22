@@ -9,7 +9,6 @@
 
 /* 哈希表初始化函数 */
 ArrayHashMap *newArrayHashMap() {
-    // 初始化数组，包含 100 个桶
     ArrayHashMap *arrayHashMap = malloc(sizeof(ArrayHashMap));
     return arrayHashMap;
 }
