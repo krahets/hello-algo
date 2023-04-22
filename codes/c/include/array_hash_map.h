@@ -23,49 +23,48 @@ extern "C" {
 typedef struct  {
     int key;
     char *val;
-} entry_t;
+} Entry;
 
 /* 基于数组简易实现的哈希表 */
 typedef struct {
-    // 初始化数组，包含 100 个桶
-    entry_t buckets[HASH_MAP_DEFAULT_SIZE]; /** Entries in hash_map */
-} array_hash_map_t;
+    Entry *buckets[HASH_MAP_DEFAULT_SIZE];
+} ArrayHashMap;
 
 /* 用于表示键值对、键、值的集合 */
 typedef struct {
     void *set;
     int len;
-} set_t;
+} MapSet;
 
 /* 哈希表初始化函数 */
-array_hash_map_t *new_hash_map();
+ArrayHashMap *newArrayHashMap();
 
 /* 哈希函数 */
-int hash_func(int key);
+int hashFunc(int key);
 
 /* 查询操作 */
-const char *get(const array_hash_map_t *d, const int key);
+const char *get(const ArrayHashMap *d, const int key);
 
 /* 添加操作 */
-void put(array_hash_map_t *d, const int key, const char *val);
+void put(ArrayHashMap *d, const int key, const char *val);
 
 /* 删除操作 */
-void del(array_hash_map_t *d);
+void del(ArrayHashMap *d);
 
 /* 获取所有键值对 */
-void remove_item(array_hash_map_t *d, const int key);
+void removeItem(ArrayHashMap *d, const int key);
 
 /* 获取所有键值对 */
-void entry_set(array_hash_map_t *d, set_t *set);
+void entrySet(ArrayHashMap *d, MapSet *set);
 
 /* 获取所有键 */
-void key_set(array_hash_map_t *d, set_t *set);
+void keySet(ArrayHashMap *d, MapSet *set);
 
 /* 获取所有值 */
-void val_set(array_hash_map_t *d, set_t *set);
+void valueSet(ArrayHashMap *d, MapSet *set);
 
 /* 打印哈希表 */
-void print(array_hash_map_t *d);
+void print(ArrayHashMap *d);
 
 #ifdef __cplusplus
 }
