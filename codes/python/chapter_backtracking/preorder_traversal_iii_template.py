@@ -1,5 +1,5 @@
 """
-File: backtrack_find_constrained_path.py
+File: find_constrained_paths_template.py
 Created Time: 2023-04-15
 Author: Krahets (krahets@163.com)
 """
@@ -36,7 +36,7 @@ def undo_choice(state: list[TreeNode], choice: TreeNode):
 
 
 def backtrack(state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]):
-    """回溯算法"""
+    """回溯算法：例题三"""
     # 检查是否为解
     if is_solution(state):
         # 记录解

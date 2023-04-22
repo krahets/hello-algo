@@ -1,29 +1,24 @@
 /**
- * File: preorder_find_paths.cpp
+ * File: preorder_traversal_i_compact.cpp
  * Created Time: 2023-04-16
  * Author: Krahets (krahets@163.com)
  */
 
 #include "../include/include.hpp"
 
-vector<TreeNode *> path;
-vector<vector<TreeNode *>> res;
+vector<TreeNode *> res;
 
-/* 前序遍历 */
+/* 前序遍历：例题一 */
 static void preOrder(TreeNode *root) {
     if (root == nullptr) {
         return;
     }
-    // 尝试
-    path.push_back(root);
     if (root->val == 7) {
         // 记录解
-        res.push_back(path);
+        res.push_back(root);
     }
     preOrder(root->left);
     preOrder(root->right);
-    // 回退
-    path.pop_back();
 }
 
 /* Driver Code */
@@ -35,12 +30,10 @@ int main() {
     // 前序遍历
     preOrder(root);
 
-    cout << "\n输出所有根节点到节点 7 的路径" << endl;
-    for (vector<TreeNode *> &path : res) {
-        vector<int> vals;
-        for (TreeNode *node : path) {
-            vals.push_back(node->val);
-        }
-        printVector(vals);
+    cout << "\n输出所有值为 7 的节点" << endl;
+    vector<int> vals;
+    for (TreeNode *node : res) {
+        vals.push_back(node->val);
     }
+    printVector(vals);
 }

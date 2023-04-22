@@ -1,5 +1,5 @@
 """
-File: preorder_find_constrained_path.py
+File: find_paths-preorder.py
 Created Time: 2023-04-15
 Author: Krahets (krahets@163.com)
 """
@@ -11,9 +11,8 @@ from modules import *
 
 
 def pre_order(root: TreeNode) -> None:
-    """前序遍历"""
-    # 剪枝
-    if root is None or root.val == 3:
+    """前序遍历：例题二"""
+    if root is None:
         return
     # 尝试
     path.append(root)
@@ -37,6 +36,6 @@ if __name__ == "__main__":
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\n输出所有根节点到节点 7 的路径，且路径中不包含值为 3 的节点")
+    print("\n输出所有根节点到节点 7 的路径")
     for path in res:
         print([node.val for node in path])

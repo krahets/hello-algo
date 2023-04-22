@@ -1,5 +1,5 @@
 /**
- * File: preorder_find_paths.java
+ * File: preorder_traversal_ii_compact.java
  * Created Time: 2023-04-16
  * Author: Krahets (krahets@163.com)
  */
@@ -9,11 +9,11 @@ package chapter_backtracking;
 import include.*;
 import java.util.*;
 
-public class preorder_find_paths {
+public class preorder_traversal_ii_compact {
     static List<TreeNode> path;
     static List<List<TreeNode>> res;
 
-    /* 前序遍历 */
+    /* 前序遍历：例题二 */
     static void preOrder(TreeNode root) {
         if (root == null) {
             return;

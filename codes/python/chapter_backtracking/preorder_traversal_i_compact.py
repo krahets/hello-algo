@@ -1,5 +1,5 @@
 """
-File: preorder_find_paths.py
+File: find_nodes-preorder.py
 Created Time: 2023-04-15
 Author: Krahets (krahets@163.com)
 """
@@ -11,18 +11,14 @@ from modules import *
 
 
 def pre_order(root: TreeNode) -> None:
-    """前序遍历"""
+    """前序遍历：例题一"""
     if root is None:
         return
-    # 尝试
-    path.append(root)
     if root.val == 7:
         # 记录解
-        res.append(list(path))
+        res.append(root)
     pre_order(root.left)
     pre_order(root.right)
-    # 回退
-    path.pop()
 
 
 """Driver Code"""
@@ -32,10 +28,8 @@ if __name__ == "__main__":
     print_tree(root)
 
     # 前序遍历
-    path = list[TreeNode]()
-    res = list[list[TreeNode]]()
+    res = list[TreeNode]()
     pre_order(root)
 
-    print("\n输出所有根节点到节点 7 的路径")
-    for path in res:
-        print([node.val for node in path])
+    print("\n输出所有值为 7 的节点")
+    print([node.val for node in res])

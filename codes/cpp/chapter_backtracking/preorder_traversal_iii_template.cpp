@@ -1,5 +1,5 @@
 /**
- * File: backtrack_find_constrained_paths.cpp
+ * File: preorder_traversal_iii_template.cpp
  * Created Time: 2023-04-16
  * Author: Krahets (krahets@163.com)
  */
@@ -31,7 +31,7 @@ void undoChoice(vector<TreeNode *> &state, TreeNode *choice) {
     state.pop_back();
 }
 
-/* 回溯算法 */
+/* 回溯算法：例题三 */
 void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<vector<TreeNode *>> &res) {
     // 检查是否为解
     if (isSolution(state)) {

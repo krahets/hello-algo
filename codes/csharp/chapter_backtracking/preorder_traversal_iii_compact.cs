@@ -1,5 +1,5 @@
 ﻿/**
- * File: preorder_find_constrained_paths.cs
+ * File: preorder_traversal_iii_compact.cs
  * Created Time: 2023-04-17
  * Author: hpstory (hpstory1024@163.com)
  */
@@ -9,12 +9,12 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_backtracking;
 
-public class preorder_find_constrained_paths
+public class preorder_traversal_iii_compact
 {
     static List<TreeNode> path;
     static List<List<TreeNode>> res;
 
-    /* 前序遍历 */
+    /* 前序遍历：例题三 */
     static void preOrder(TreeNode root)
     {
         // 剪枝

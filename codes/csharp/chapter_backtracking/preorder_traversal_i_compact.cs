@@ -1,5 +1,5 @@
 ﻿/**
- * File: preorder_find_nodes.cs
+ * File: preorder_traversal_i_compact.cs
  * Created Time: 2023-04-17
  * Author: hpstory (hpstory1024@163.com)
  */
@@ -10,11 +10,11 @@ using System.IO;
 
 namespace hello_algo.chapter_backtracking;
 
-public class preorder_find_nodes
+public class preorder_traversal_i_compact
 {
     static List<TreeNode> res;
 
-    /* 前序遍历 */
+    /* 前序遍历：例题一 */
     static void preOrder(TreeNode root)
     {
         if (root == null)

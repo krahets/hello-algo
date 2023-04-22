@@ -10,61 +10,61 @@
 
 === "Java"
 
-    ```java title="preorder_find_nodes.java"
-    [class]{preorder_find_nodes}-[func]{preOrder}
+    ```java title="preorder_traversal_i_compact.java"
+    [class]{preorder_traversal_i_compact}-[func]{preOrder}
     ```
 
 === "C++"
 
-    ```cpp title="preorder_find_nodes.cpp"
+    ```cpp title="preorder_traversal_i_compact.cpp"
     [class]{}-[func]{preOrder}
     ```
 
 === "Python"
 
-    ```python title="preorder_find_nodes.py"
+    ```python title="preorder_traversal_i_compact.py"
     [class]{}-[func]{pre_order}
     ```
 
 === "Go"
 
-    ```go title="preorder_find_nodes.go"
+    ```go title="preorder_traversal_i_compact.go"
     [class]{}-[func]{preOrder}
     ```
 
 === "JavaScript"
 
-    ```javascript title="preorder_find_nodes.js"
+    ```javascript title="preorder_traversal_i_compact.js"
     [class]{}-[func]{preOrder}
     ```
 
 === "TypeScript"
 
-    ```typescript title="preorder_find_nodes.ts"
+    ```typescript title="preorder_traversal_i_compact.ts"
     [class]{}-[func]{preOrder}
     ```
 
 === "C"
 
-    ```c title="preorder_find_nodes.c"
+    ```c title="preorder_traversal_i_compact.c"
     [class]{}-[func]{preOrder}
     ```
 
 === "C#"
 
-    ```csharp title="preorder_find_nodes.cs"
-    [class]{preorder_find_nodes}-[func]{preOrder}
+    ```csharp title="preorder_traversal_i_compact.cs"
+    [class]{preorder_traversal_i_compact}-[func]{preOrder}
     ```
 
 === "Swift"
 
-    ```swift title="preorder_find_nodes.swift"
+    ```swift title="preorder_traversal_i_compact.swift"
     [class]{}-[func]{preOrder}
     ```
 
 === "Zig"
 
-    ```zig title="preorder_find_nodes.zig"
+    ```zig title="preorder_traversal_i_compact.zig"
     [class]{}-[func]{preOrder}
     ```
 
@@ -84,61 +84,61 @@
 
 === "Java"
 
-    ```java title="preorder_find_paths.java"
-    [class]{preorder_find_paths}-[func]{preOrder}
+    ```java title="preorder_traversal_ii_compact.java"
+    [class]{preorder_traversal_ii_compact}-[func]{preOrder}
     ```
 
 === "C++"
 
-    ```cpp title="preorder_find_paths.cpp"
+    ```cpp title="preorder_traversal_ii_compact.cpp"
     [class]{}-[func]{preOrder}
     ```
 
 === "Python"
 
-    ```python title="preorder_find_paths.py"
+    ```python title="preorder_traversal_ii_compact.py"
     [class]{}-[func]{pre_order}
     ```
 
 === "Go"
 
-    ```go title="preorder_find_paths.go"
+    ```go title="preorder_traversal_ii_compact.go"
     [class]{}-[func]{preOrder}
     ```
 
 === "JavaScript"
 
-    ```javascript title="preorder_find_paths.js"
+    ```javascript title="preorder_traversal_ii_compact.js"
     [class]{}-[func]{preOrder}
     ```
 
 === "TypeScript"
 
-    ```typescript title="preorder_find_paths.ts"
+    ```typescript title="preorder_traversal_ii_compact.ts"
     [class]{}-[func]{preOrder}
     ```
 
 === "C"
 
-    ```c title="preorder_find_paths.c"
+    ```c title="preorder_traversal_ii_compact.c"
     [class]{}-[func]{preOrder}
     ```
 
 === "C#"
 
-    ```csharp title="preorder_find_paths.cs"
-    [class]{preorder_find_paths}-[func]{preOrder}
+    ```csharp title="preorder_traversal_ii_compact.cs"
+    [class]{preorder_traversal_ii_compact}-[func]{preOrder}
     ```
 
 === "Swift"
 
-    ```swift title="preorder_find_paths.swift"
+    ```swift title="preorder_traversal_ii_compact.swift"
     [class]{}-[func]{preOrder}
     ```
 
 === "Zig"
 
-    ```zig title="preorder_find_paths.zig"
+    ```zig title="preorder_traversal_ii_compact.zig"
     [class]{}-[func]{preOrder}
     ```
 
@@ -187,61 +187,61 @@
 
 === "Java"
 
-    ```java title="preorder_find_constrained_paths.java"
-    [class]{preorder_find_constrained_paths}-[func]{preOrder}
+    ```java title="preorder_traversal_iii_compact.java"
+    [class]{preorder_traversal_iii_compact}-[func]{preOrder}
     ```
 
 === "C++"
 
-    ```cpp title="preorder_find_constrained_paths.cpp"
+    ```cpp title="preorder_traversal_iii_compact.cpp"
     [class]{}-[func]{preOrder}
     ```
 
 === "Python"
 
-    ```python title="preorder_find_constrained_paths.py"
+    ```python title="preorder_traversal_iii_compact.py"
     [class]{}-[func]{pre_order}
     ```
 
 === "Go"
 
-    ```go title="preorder_find_constrained_paths.go"
+    ```go title="preorder_traversal_iii_compact.go"
     [class]{}-[func]{preOrder}
     ```
 
 === "JavaScript"
 
-    ```javascript title="preorder_find_constrained_paths.js"
+    ```javascript title="preorder_traversal_iii_compact.js"
     [class]{}-[func]{preOrder}
     ```
 
 === "TypeScript"
 
-    ```typescript title="preorder_find_constrained_paths.ts"
+    ```typescript title="preorder_traversal_iii_compact.ts"
     [class]{}-[func]{preOrder}
     ```
 
 === "C"
 
-    ```c title="preorder_find_constrained_paths.c"
+    ```c title="preorder_traversal_iii_compact.c"
     [class]{}-[func]{preOrder}
     ```
 
 === "C#"
 
-    ```csharp title="preorder_find_constrained_paths.cs"
-    [class]{preorder_find_constrained_paths}-[func]{preOrder}
+    ```csharp title="preorder_traversal_iii_compact.cs"
+    [class]{preorder_traversal_iii_compact}-[func]{preOrder}
     ```
 
 === "Swift"
 
-    ```swift title="preorder_find_constrained_paths.swift"
+    ```swift title="preorder_traversal_iii_compact.swift"
     [class]{}-[func]{preOrder}
     ```
 
 === "Zig"
 
-    ```zig title="preorder_find_constrained_paths.zig"
+    ```zig title="preorder_traversal_iii_compact.zig"
     [class]{}-[func]{preOrder}
     ```
 
@@ -295,23 +295,23 @@ def backtrack(state, choices, res):
 
 === "Java"
 
-    ```java title="backtrack_find_constrained_paths.java"
-    [class]{backtrack_find_constrained_paths}-[func]{isSolution}
+    ```java title="preorder_traversal_iii_template.java"
+    [class]{preorder_traversal_iii_template}-[func]{isSolution}
 
-    [class]{backtrack_find_constrained_paths}-[func]{recordSolution}
+    [class]{preorder_traversal_iii_template}-[func]{recordSolution}
 
-    [class]{backtrack_find_constrained_paths}-[func]{isValid}
+    [class]{preorder_traversal_iii_template}-[func]{isValid}
 
-    [class]{backtrack_find_constrained_paths}-[func]{makeChoice}
+    [class]{preorder_traversal_iii_template}-[func]{makeChoice}
 
-    [class]{backtrack_find_constrained_paths}-[func]{undoChoice}
+    [class]{preorder_traversal_iii_template}-[func]{undoChoice}
 
-    [class]{backtrack_find_constrained_paths}-[func]{backtrack}
+    [class]{preorder_traversal_iii_template}-[func]{backtrack}
     ```
 
 === "C++"
 
-    ```cpp title="backtrack_find_constrained_paths.cpp"
+    ```cpp title="preorder_traversal_iii_template.cpp"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
@@ -327,7 +327,7 @@ def backtrack(state, choices, res):
 
 === "Python"
 
-    ```python title="backtrack_find_constrained_paths.py"
+    ```python title="preorder_traversal_iii_template.py"
     [class]{}-[func]{is_solution}
 
     [class]{}-[func]{record_solution}
@@ -343,7 +343,7 @@ def backtrack(state, choices, res):
 
 === "Go"
 
-    ```go title="backtrack_find_constrained_paths.go"
+    ```go title="preorder_traversal_iii_template.go"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
@@ -359,7 +359,7 @@ def backtrack(state, choices, res):
 
 === "JavaScript"
 
-    ```javascript title="backtrack_find_constrained_paths.js"
+    ```javascript title="preorder_traversal_iii_template.js"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
@@ -375,7 +375,7 @@ def backtrack(state, choices, res):
 
 === "TypeScript"
 
-    ```typescript title="backtrack_find_constrained_paths.ts"
+    ```typescript title="preorder_traversal_iii_template.ts"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
@@ -391,7 +391,7 @@ def backtrack(state, choices, res):
 
 === "C"
 
-    ```c title="backtrack_find_constrained_paths.c"
+    ```c title="preorder_traversal_iii_template.c"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
@@ -407,23 +407,23 @@ def backtrack(state, choices, res):
 
 === "C#"
 
-    ```csharp title="backtrack_find_constrained_paths.cs"
-    [class]{backtrack_find_constrained_paths}-[func]{isSolution}
+    ```csharp title="preorder_traversal_iii_template.cs"
+    [class]{preorder_traversal_iii_template}-[func]{isSolution}
 
-    [class]{backtrack_find_constrained_paths}-[func]{recordSolution}
+    [class]{preorder_traversal_iii_template}-[func]{recordSolution}
 
-    [class]{backtrack_find_constrained_paths}-[func]{isValid}
+    [class]{preorder_traversal_iii_template}-[func]{isValid}
 
-    [class]{backtrack_find_constrained_paths}-[func]{makeChoice}
+    [class]{preorder_traversal_iii_template}-[func]{makeChoice}
 
-    [class]{backtrack_find_constrained_paths}-[func]{undoChoice}
+    [class]{preorder_traversal_iii_template}-[func]{undoChoice}
 
-    [class]{backtrack_find_constrained_paths}-[func]{backtrack}
+    [class]{preorder_traversal_iii_template}-[func]{backtrack}
     ```
 
 === "Swift"
 
-    ```swift title="backtrack_find_constrained_paths.swift"
+    ```swift title="preorder_traversal_iii_template.swift"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
@@ -439,7 +439,7 @@ def backtrack(state, choices, res):
 
 === "Zig"
 
-    ```zig title="backtrack_find_constrained_paths.zig"
+    ```zig title="preorder_traversal_iii_template.zig"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
