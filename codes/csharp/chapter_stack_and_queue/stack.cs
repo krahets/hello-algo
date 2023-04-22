@@ -8,11 +8,9 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_stack_and_queue;
 
-public class stack
-{
+public class stack {
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化栈 */
         Stack<int> stack = new();
 

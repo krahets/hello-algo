@@ -10,11 +10,9 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_hashing;
 
-public class hash_map
-{
+public class hash_map {
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化哈希表 */
         Dictionary<int, string> map = new();
 
@@ -41,18 +39,15 @@ public class hash_map
 
         /* 遍历哈希表 */
         Console.WriteLine("\n遍历键值对 Key->Value");
-        foreach (var kv in map)
-        {
+        foreach (var kv in map) {
             Console.WriteLine(kv.Key + " -> " + kv.Value);
         }
         Console.WriteLine("\n单独遍历键 Key");
-        foreach (int key in map.Keys)
-        {
+        foreach (int key in map.Keys) {
             Console.WriteLine(key);
         }
         Console.WriteLine("\n单独遍历值 Value");
-        foreach (string val in map.Values)
-        {
+        foreach (string val in map.Values) {
             Console.WriteLine(val);
         }
     }

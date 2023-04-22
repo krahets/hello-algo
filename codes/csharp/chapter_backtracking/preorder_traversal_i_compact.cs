@@ -10,19 +10,15 @@ using System.IO;
 
 namespace hello_algo.chapter_backtracking;
 
-public class preorder_traversal_i_compact
-{
+public class preorder_traversal_i_compact {
     static List<TreeNode> res;
 
     /* 前序遍历：例题一 */
-    static void preOrder(TreeNode root)
-    {
-        if (root == null)
-        {
+    static void preOrder(TreeNode root) {
+        if (root == null) {
             return;
         }
-        if (root.val == 7)
-        {
+        if (root.val == 7) {
             // 记录解
             res.Add(root);
         }
@@ -31,8 +27,7 @@ public class preorder_traversal_i_compact
     }
 
     [Test]
-    public void Test()
-    {
+    public void Test() {
         TreeNode root = TreeNode.ListToTree(new List<int?> { 1, 7, 3, 4, 5, 6, 7 });
         Console.WriteLine("\n初始化二叉树");
         PrintUtil.PrintTree(root);

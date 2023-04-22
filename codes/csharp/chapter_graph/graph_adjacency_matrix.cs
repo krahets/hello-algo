@@ -10,58 +10,49 @@ using NUnit.Framework;
 namespace hello_algo.chapter_graph;
 
 /* 基于邻接矩阵实现的无向图类 */
-class GraphAdjMat
-{
+class GraphAdjMat {
     List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
     List<List<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
     /* 构造函数 */
-    public GraphAdjMat(int[] vertices, int[][] edges)
-    {
+    public GraphAdjMat(int[] vertices, int[][] edges) {
         this.vertices = new List<int>();
         this.adjMat = new List<List<int>>();
         // 添加顶点
-        foreach (int val in vertices)
-        {
+        foreach (int val in vertices) {
             addVertex(val);
         }
         // 添加边
         // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-        foreach (int[] e in edges)
-        {
+        foreach (int[] e in edges) {
             addEdge(e[0], e[1]);
         }
     }
 
     /* 获取顶点数量 */
-    public int size()
-    {
+    public int size() {
         return vertices.Count;
     }
 
     /* 添加顶点 */
-    public void addVertex(int val)
-    {
+    public void addVertex(int val) {
         int n = size();
         // 向顶点列表中添加新顶点的值
         vertices.Add(val);
         // 在邻接矩阵中添加一行
         List<int> newRow = new List<int>(n);
-        for (int j = 0; j < n; j++)
-        {
+        for (int j = 0; j < n; j++) {
             newRow.Add(0);
         }
         adjMat.Add(newRow);
         // 在邻接矩阵中添加一列
-        foreach (List<int> row in adjMat)
-        {
+        foreach (List<int> row in adjMat) {
             row.Add(0);
         }
     }
 
     /* 删除顶点 */
-    public void removeVertex(int index)
-    {
+    public void removeVertex(int index) {
         if (index >= size())
             throw new IndexOutOfRangeException();
         // 在顶点列表中移除索引 index 的顶点
@@ -69,16 +60,14 @@ class GraphAdjMat
         // 在邻接矩阵中删除索引 index 的行
         adjMat.RemoveAt(index);
         // 在邻接矩阵中删除索引 index 的列
-        foreach (List<int> row in adjMat)
-        {
+        foreach (List<int> row in adjMat) {
             row.RemoveAt(index);
         }
     }
 
     /* 添加边 */
     // 参数 i, j 对应 vertices 元素索引
-    public void addEdge(int i, int j)
-    {
+    public void addEdge(int i, int j) {
         // 索引越界与相等处理
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
             throw new IndexOutOfRangeException();
@@ -89,18 +78,16 @@ class GraphAdjMat
 
     /* 删除边 */
     // 参数 i, j 对应 vertices 元素索引
-    public void removeEdge(int i, int j)
-    {
+    public void removeEdge(int i, int j) {
         // 索引越界与相等处理
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
             throw new IndexOutOfRangeException();
         adjMat[i][j] = 0;
         adjMat[j][i] = 0;
     }
-    
+
     /* 打印邻接矩阵 */
-    public void print()
-    {
+    public void print() {
         Console.Write("顶点列表 = ");
         PrintUtil.PrintList(vertices);
         Console.WriteLine("邻接矩阵 =");
@@ -108,11 +95,9 @@ class GraphAdjMat
     }
 }
 
-public class graph_adjacency_matrix
-{
+public class graph_adjacency_matrix {
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化无向图 */
         // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
         int[] vertices = { 1, 3, 2, 5, 4 };
