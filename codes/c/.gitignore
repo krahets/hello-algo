@@ -5,3 +5,5 @@
 # Unignore all dirs
 !*/
 *.dSYM/
+
+build/

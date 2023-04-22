@@ -8,11 +8,9 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_stack_and_queue;
 
-public class queue
-{
+public class queue {
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化队列 */
         Queue<int> queue = new();
 
@@ -22,7 +20,7 @@ public class queue
         queue.Enqueue(2);
         queue.Enqueue(5);
         queue.Enqueue(4);
-        Console.WriteLine("队列 queue = " + String.Join(",", queue.ToArray()));
+        Console.WriteLine("队列 queue = " + string.Join(",", queue));
 
         /* 访问队首元素 */
         int peek = queue.Peek();
@@ -30,7 +28,7 @@ public class queue
 
         /* 元素出队 */
         int pop = queue.Dequeue();
-        Console.WriteLine("出队元素 pop = " + pop + "，出队后 queue = " + String.Join(",", queue.ToArray()));
+        Console.WriteLine("出队元素 pop = " + pop + "，出队后 queue = " + string.Join(",", queue));
 
         /* 获取队列的长度 */
         int size = queue.Count();

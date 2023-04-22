@@ -24,7 +24,7 @@ int linear(int n) {
 }
 
 /* 线性阶（遍历数组） */
-int arrayTraversal(vector<int>& nums) {
+int arrayTraversal(vector<int> &nums) {
     int count = 0;
     // 循环次数与数组长度成正比
     for (int num : nums) {
@@ -46,8 +46,8 @@ int quadratic(int n) {
 }
 
 /* 平方阶（冒泡排序） */
-int bubbleSort(vector<int>& nums) {
-    int count = 0;  // 计数器
+int bubbleSort(vector<int> &nums) {
+    int count = 0; // 计数器
     // 外循环：待排序元素数量为 n-1, n-2, ..., 1
     for (int i = nums.size() - 1; i > 0; i--) {
         // 内循环：冒泡操作
@@ -57,7 +57,7 @@ int bubbleSort(vector<int>& nums) {
                 int tmp = nums[j];
                 nums[j] = nums[j + 1];
                 nums[j + 1] = tmp;
-                count += 3;  // 元素交换包含 3 个单元操作
+                count += 3; // 元素交换包含 3 个单元操作
             }
         }
     }
@@ -80,7 +80,8 @@ int exponential(int n) {
 
 /* 指数阶（递归实现） */
 int expRecur(int n) {
-    if (n == 1) return 1;
+    if (n == 1)
+        return 1;
     return expRecur(n - 1) + expRecur(n - 1) + 1;
 }
 
@@ -96,15 +97,16 @@ int logarithmic(float n) {
 
 /* 对数阶（递归实现） */
 int logRecur(float n) {
-    if (n <= 1) return 0;
+    if (n <= 1)
+        return 0;
     return logRecur(n / 2) + 1;
 }
 
 /* 线性对数阶 */
 int linearLogRecur(float n) {
-    if (n <= 1) return 1;
-    int count = linearLogRecur(n / 2) + 
-                linearLogRecur(n / 2);
+    if (n <= 1)
+        return 1;
+    int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
     for (int i = 0; i < n; i++) {
         count++;
     }
@@ -113,7 +115,8 @@ int linearLogRecur(float n) {
 
 /* 阶乘阶（递归实现） */
 int factorialRecur(int n) {
-    if (n == 0) return 1;
+    if (n == 0)
+        return 1;
     int count = 0;
     // 从 1 个分裂出 n 个
     for (int i = 0; i < n; i++) {
@@ -121,7 +124,6 @@ int factorialRecur(int n) {
     }
     return count;
 }
-
 
 /* Driver Code */
 int main() {
@@ -142,7 +144,7 @@ int main() {
     cout << "平方阶的计算操作数量 = " << count << endl;
     vector<int> nums(n);
     for (int i = 0; i < n; i++)
-        nums[i] = n - i;  // [n,n-1,...,2,1]
+        nums[i] = n - i; // [n,n-1,...,2,1]
     count = bubbleSort(nums);
     cout << "平方阶（冒泡排序）的计算操作数量 = " << count << endl;
 
@@ -151,12 +153,12 @@ int main() {
     count = expRecur(n);
     cout << "指数阶（递归实现）的计算操作数量 = " << count << endl;
 
-    count = logarithmic((float) n);
+    count = logarithmic((float)n);
     cout << "对数阶（循环实现）的计算操作数量 = " << count << endl;
-    count = logRecur((float) n);
+    count = logRecur((float)n);
     cout << "对数阶（递归实现）的计算操作数量 = " << count << endl;
 
-    count = linearLogRecur((float) n);
+    count = linearLogRecur((float)n);
     cout << "线性对数阶（递归实现）的计算操作数量 = " << count << endl;
 
     count = factorialRecur(n);

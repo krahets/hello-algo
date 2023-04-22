@@ -8,7 +8,6 @@ package include;
 
 import java.util.*;
 
-
 class Trunk {
     Trunk prev;
     String str;
@@ -21,11 +20,7 @@ class Trunk {
 
 public class PrintUtil {
 
-    /**
-     * Print a matrix (Array)
-     * @param <T>
-     * @param matrix
-     */
+    /* Print a matrix (Array) */
     public static <T> void printMatrix(T[][] matrix) {
         System.out.println("[");
         for (T[] row : matrix) {
@@ -34,11 +29,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /**
-     * Print a matrix (List)
-     * @param <T>
-     * @param matrix
-     */
+    /* Print a matrix (List) */
     public static <T> void printMatrix(List<List<T>> matrix) {
         System.out.println("[");
         for (List<T> row : matrix) {
@@ -47,10 +38,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /**
-     * Print a linked list
-     * @param head
-     */
+    /* Print a linked list */
     public static void printLinkedList(ListNode head) {
         List<String> list = new ArrayList<>();
         while (head != null) {
@@ -64,18 +52,12 @@ public class PrintUtil {
      * The interface of the tree printer
      * This tree printer is borrowed from TECHIE DELIGHT
      * https://www.techiedelight.com/c-program-print-binary-tree/
-     * @param root
      */
     public static void printTree(TreeNode root) {
         printTree(root, null, false);
     }
 
-    /**
-     * Print a binary tree
-     * @param root
-     * @param prev
-     * @param isLeft
-     */
+    /* Print a binary tree */
     public static void printTree(TreeNode root, Trunk prev, boolean isLeft) {
         if (root == null) {
             return;
@@ -107,10 +89,7 @@ public class PrintUtil {
         printTree(root.left, trunk, false);
     }
 
-    /**
-     * Helper function to print branches of the binary tree
-     * @param p
-     */
+    /* Helper function to print branches of the binary tree */
     public static void showTrunks(Trunk p) {
         if (p == null) {
             return;
@@ -120,22 +99,14 @@ public class PrintUtil {
         System.out.print(p.str);
     }
 
-    /**
-     * Print a hash map
-     * @param <K>
-     * @param <V>
-     * @param map
-     */
+    /* Print a hash map */
     public static <K, V> void printHashMap(Map<K, V> map) {
-        for (Map.Entry <K, V> kv: map.entrySet()) {
+        for (Map.Entry<K, V> kv : map.entrySet()) {
             System.out.println(kv.getKey() + " -> " + kv.getValue());
         }
     }
 
-    /**
-     * Print a heap (PriorityQueue)
-     * @param queue
-     */
+    /* Print a heap (PriorityQueue) */
     public static void printHeap(Queue<Integer> queue) {
         List<Integer> list = new ArrayList<>(queue);
         System.out.print("堆的数组表示：");

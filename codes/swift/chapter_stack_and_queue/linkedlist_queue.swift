@@ -8,8 +8,8 @@ import utils
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
-    private var front: ListNode? // 头结点
-    private var rear: ListNode? // 尾结点
+    private var front: ListNode? // 头节点
+    private var rear: ListNode? // 尾节点
     private var _size = 0
 
     init() {}
@@ -26,14 +26,14 @@ class LinkedListQueue {
 
     /* 入队 */
     func push(num: Int) {
-        // 尾结点后添加 num
+        // 尾节点后添加 num
         let node = ListNode(x: num)
-        // 如果队列为空，则令头、尾结点都指向该结点
+        // 如果队列为空，则令头、尾节点都指向该节点
         if front == nil {
             front = node
             rear = node
         }
-        // 如果队列不为空，则将该结点添加到尾结点后
+        // 如果队列不为空，则将该节点添加到尾节点后
         else {
             rear?.next = node
             rear = node
@@ -45,7 +45,7 @@ class LinkedListQueue {
     @discardableResult
     func pop() -> Int {
         let num = peek()
-        // 删除头结点
+        // 删除头节点
         front = front?.next
         _size -= 1
         return num

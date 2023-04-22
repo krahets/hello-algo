@@ -10,17 +10,17 @@ import java.util.*;
 
 /* 列表类简易实现 */
 class MyList {
-    private int[] nums;           // 数组（存储列表元素）
-    private int capacity = 10;    // 列表容量
-    private int size = 0;         // 列表长度（即当前元素数量）
-    private int extendRatio = 2;  // 每次列表扩容的倍数
+    private int[] nums; // 数组（存储列表元素）
+    private int capacity = 10; // 列表容量
+    private int size = 0; // 列表长度（即当前元素数量）
+    private int extendRatio = 2; // 每次列表扩容的倍数
 
     /* 构造方法 */
     public MyList() {
         nums = new int[capacity];
     }
 
-    /* 获取列表长度（即当前元素数量）*/
+    /* 获取列表长度（即当前元素数量） */
     public int size() {
         return size;
     }
@@ -118,7 +118,7 @@ public class my_list {
         list.add(5);
         list.add(4);
         System.out.println("列表 list = " + Arrays.toString(list.toArray()) +
-                           " ，容量 = " + list.capacity() + " ，长度 = " + list.size());
+                " ，容量 = " + list.capacity() + " ，长度 = " + list.size());
 
         /* 中间插入元素 */
         list.insert(3, 6);
@@ -142,6 +142,6 @@ public class my_list {
             list.add(i);
         }
         System.out.println("扩容后的列表 list = " + Arrays.toString(list.toArray()) +
-                           " ，容量 = " + list.capacity() + " ，长度 = " + list.size());
+                " ，容量 = " + list.capacity() + " ，长度 = " + list.size());
     }
 }

@@ -5,8 +5,8 @@
  */
 
 public class ListNode {
-    public var val: Int // 结点值
-    public var next: ListNode? // 后继结点引用
+    public var val: Int // 节点值
+    public var next: ListNode? // 后继节点引用
 
     public init(x: Int) {
         val = x

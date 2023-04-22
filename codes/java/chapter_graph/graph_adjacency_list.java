@@ -62,7 +62,7 @@ class GraphAdjList {
             throw new IllegalArgumentException();
         // 在邻接表中删除顶点 vet 对应的链表
         adjList.remove(vet);
-        // 遍历其它顶点的链表，删除所有包含 vet 的边
+        // 遍历其他顶点的链表，删除所有包含 vet 的边
         for (List<Vertex> list : adjList.values()) {
             list.remove(vet);
         }
@@ -84,7 +84,7 @@ public class graph_adjacency_list {
     public static void main(String[] args) {
         /* 初始化无向图 */
         Vertex[] v = Vertex.valsToVets(new int[] { 1, 3, 2, 5, 4 });
-        Vertex[][] edges = { { v[0], v[1] }, { v[0], v[3] }, { v[1], v[2] }, 
+        Vertex[][] edges = { { v[0], v[1] }, { v[0], v[3] }, { v[1], v[2] },
                              { v[2], v[3] }, { v[2], v[4] }, { v[3], v[4] } };
         GraphAdjList graph = new GraphAdjList(edges);
         System.out.println("\n初始化后，图为");

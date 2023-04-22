@@ -11,8 +11,8 @@ class ListNode {
     val;
     next;
     constructor(val, next) {
-        this.val = (val === undefined ? 0 : val);
-        this.next = (next === undefined ? null : next);
+        this.val = val === undefined ? 0 : val;
+        this.next = next === undefined ? null : next;
     }
 }
 
@@ -47,5 +47,5 @@ function getListNode(head, val) {
 module.exports = {
     ListNode,
     arrToLinkedList,
-    getListNode
+    getListNode,
 };

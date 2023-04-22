@@ -6,10 +6,9 @@
 
 #pragma once
 
-/**
- * @brief Definition for a binary tree node
- * 
- */
+#include <limits.h>
+
+/* Definition for a binary tree node */
 struct TreeNode {
     int val{};
     int height = 0;
@@ -17,15 +16,11 @@ struct TreeNode {
     TreeNode *left{};
     TreeNode *right{};
     TreeNode() = default;
-    explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {}
+    explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
+    }
 };
 
-/**
- * @brief Generate a binary tree with a vector
- * 
- * @param list 
- * @return TreeNode* 
- */
+/* Generate a binary tree with a vector */
 TreeNode *vecToTree(vector<int> list) {
     if (list.empty())
         return nullptr;
@@ -33,18 +28,21 @@ TreeNode *vecToTree(vector<int> list) {
     auto *root = new TreeNode(list[0]);
     queue<TreeNode *> que;
     que.emplace(root);
-    size_t n = list.size(), index = 0;
+    size_t n = list.size(), i = 0;
     while (!que.empty()) {
         auto node = que.front();
         que.pop();
-        if (++index >= n) break;
-        if (index < n) {
-            node->left = new TreeNode(list[index]);
+        if (++i >= n)
+            break;
+        // INT_MAX represent null
+        if (list[i] != INT_MAX) {
+            node->left = new TreeNode(list[i]);
             que.emplace(node->left);
         }
-        if (++index >= n) break;
-        if (index < n) {
-            node->right = new TreeNode(list[index]);
+        if (++i >= n)
+            break;
+        if (list[i] != INT_MAX) {
+            node->right = new TreeNode(list[i]);
             que.emplace(node->right);
         }
     }
@@ -52,13 +50,7 @@ TreeNode *vecToTree(vector<int> list) {
     return root;
 }
 
-/**
- * @brief Get a tree node with specific value in a binary tree
- * 
- * @param root 
- * @param val 
- * @return TreeNode* 
- */
+/* Get a tree node with specific value in a binary tree */
 TreeNode *getTreeNode(TreeNode *root, int val) {
     if (root == nullptr)
         return nullptr;
@@ -69,15 +61,12 @@ TreeNode *getTreeNode(TreeNode *root, int val) {
     return left != nullptr ? left : right;
 }
 
-/**
- * @brief Free the memory allocated to a tree
- * 
- * @param root 
- */
+/* Free the memory allocated to a tree */
 void freeMemoryTree(TreeNode *root) {
-    if (root == nullptr) return;
-    freeMemoryTree(root->left);    
+    if (root == nullptr)
+        return;
+    freeMemoryTree(root->left);
     freeMemoryTree(root->right);
     // 释放内存
-    delete root;    
+    delete root;
 }

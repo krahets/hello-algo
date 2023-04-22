@@ -4,41 +4,37 @@ Created Time: 2023-03-01
 Author: Krahets (krahets@163.com)
 """
 
-import sys, os.path as osp
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from modules import *
-
 
 class ArrayDeque:
-    """ 基于环形数组实现的双向队列 """
+    """基于环形数组实现的双向队列"""
 
     def __init__(self, capacity: int) -> None:
-        """ 构造方法 """
-        self.__nums: List[int] = [0] * capacity
+        """构造方法"""
+        self.__nums: list[int] = [0] * capacity
         self.__front: int = 0
         self.__size: int = 0
 
     def capacity(self) -> int:
-        """ 获取双向队列的容量 """
+        """获取双向队列的容量"""
         return len(self.__nums)
 
     def size(self) -> int:
-        """ 获取双向队列的长度 """
+        """获取双向队列的长度"""
         return self.__size
 
     def is_empty(self) -> bool:
-        """ 判断双向队列是否为空 """
+        """判断双向队列是否为空"""
         return self.__size == 0
 
     def index(self, i: int) -> int:
-        """ 计算环形数组索引 """
+        """计算环形数组索引"""
         # 通过取余操作实现数组首尾相连
         # 当 i 越过数组尾部后，回到头部
         # 当 i 越过数组头部后，回到尾部
         return (i + self.capacity()) % self.capacity()
 
     def push_first(self, num: int) -> None:
-        """ 队首入队 """
+        """队首入队"""
         if self.__size == self.capacity():
             print("双向队列已满")
             return
@@ -50,7 +46,7 @@ class ArrayDeque:
         self.__size += 1
 
     def push_last(self, num: int) -> None:
-        """ 队尾入队 """
+        """队尾入队"""
         if self.__size == self.capacity():
             print("双向队列已满")
             return
@@ -61,7 +57,7 @@ class ArrayDeque:
         self.__size += 1
 
     def pop_first(self) -> int:
-        """ 队首出队 """
+        """队首出队"""
         num = self.peek_first()
         # 队首指针向后移动一位
         self.__front = self.index(self.__front + 1)
@@ -69,25 +65,27 @@ class ArrayDeque:
         return num
 
     def pop_last(self) -> int:
-        """ 队尾出队 """
+        """队尾出队"""
         num = self.peek_last()
         self.__size -= 1
         return num
 
     def peek_first(self) -> int:
-        """ 访问队首元素 """
-        assert not self.is_empty(), "双向队列为空"
+        """访问队首元素"""
+        if self.is_empty():
+            raise IndexError("双向队列为空")
         return self.__nums[self.__front]
 
     def peek_last(self) -> int:
-        """ 访问队尾元素 """
-        assert not self.is_empty(), "双向队列为空"
+        """访问队尾元素"""
+        if self.is_empty():
+            raise IndexError("双向队列为空")
         # 计算尾元素索引
         last = self.index(self.__front + self.__size - 1)
         return self.__nums[last]
 
-    def to_array(self) -> List[int]:
-        """ 返回数组用于打印 """
+    def to_array(self) -> list[int]:
+        """返回数组用于打印"""
         # 仅转换有效长度范围内的列表元素
         res = []
         for i in range(self.__size):
@@ -95,37 +93,37 @@ class ArrayDeque:
         return res
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
-    """ 初始化双向队列 """
+    # 初始化双向队列
     deque = ArrayDeque(10)
     deque.push_last(3)
     deque.push_last(2)
     deque.push_last(5)
     print("双向队列 deque =", deque.to_array())
 
-    """ 访问元素 """
+    # 访问元素
     peek_first: int = deque.peek_first()
     print("队首元素 peek_first =", peek_first)
     peek_last: int = deque.peek_last()
     print("队尾元素 peek_last =", peek_last)
 
-    """ 元素入队 """
+    # 元素入队
     deque.push_last(4)
     print("元素 4 队尾入队后 deque =", deque.to_array())
     deque.push_first(1)
     print("元素 1 队首入队后 deque =", deque.to_array())
 
-    """ 元素出队 """
+    # 元素出队
     pop_last: int = deque.pop_last()
     print("队尾出队元素 =", pop_last, "，队尾出队后 deque =", deque.to_array())
     pop_first: int = deque.pop_first()
     print("队首出队元素 =", pop_first, "，队首出队后 deque =", deque.to_array())
 
-    """ 获取双向队列的长度 """
+    # 获取双向队列的长度
     size: int = deque.size()
     print("双向队列长度 size =", size)
 
-    """ 判断双向队列是否为空 """
+    # 判断双向队列是否为空
     is_empty: bool = deque.is_empty()
     print("双向队列是否为空 =", is_empty)

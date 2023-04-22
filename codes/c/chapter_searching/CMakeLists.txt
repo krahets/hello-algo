@@ -1,0 +1,1 @@
+add_executable(leetcode_two_sum leetcode_two_sum.c)

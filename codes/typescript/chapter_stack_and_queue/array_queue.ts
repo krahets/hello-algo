@@ -6,8 +6,8 @@
 
 /* 基于环形数组实现的队列 */
 class ArrayQueue {
-    private nums: number[];  // 用于存储队列元素的数组
-    private front: number;   // 队首指针，指向队首元素
+    private nums: number[]; // 用于存储队列元素的数组
+    private front: number; // 队首指针，指向队首元素
     private queSize: number; // 队列长度
 
     constructor(capacity: number) {
@@ -33,7 +33,7 @@ class ArrayQueue {
     /* 入队 */
     push(num: number): void {
         if (this.size == this.capacity) {
-            console.log("队列已满");
+            console.log('队列已满');
             return;
         }
         // 计算尾指针，指向队尾索引 + 1
@@ -55,8 +55,7 @@ class ArrayQueue {
 
     /* 访问队首元素 */
     peek(): number {
-        if (this.empty())
-            throw new Error("队列为空");
+        if (this.empty()) throw new Error('队列为空');
         return this.nums[this.front];
     }
 
@@ -82,29 +81,29 @@ queue.push(3);
 queue.push(2);
 queue.push(5);
 queue.push(4);
-console.log("队列 queue =", queue.toArray());
+console.log('队列 queue =', queue.toArray());
 
 /* 访问队首元素 */
 const peek = queue.peek();
-console.log("队首元素 peek = " + peek);
+console.log('队首元素 peek = ' + peek);
 
 /* 元素出队 */
 const pop = queue.pop();
-console.log("出队元素 pop = " + pop + "，出队后 queue =", queue.toArray());
+console.log('出队元素 pop = ' + pop + '，出队后 queue =', queue.toArray());
 
 /* 获取队列的长度 */
 const size = queue.size;
-console.log("队列长度 size = " + size);
+console.log('队列长度 size = ' + size);
 
 /* 判断队列是否为空 */
 const empty = queue.empty();
-console.log("队列是否为空 = " + empty);
+console.log('队列是否为空 = ' + empty);
 
 /* 测试环形数组 */
 for (let i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    console.log("第 " + i + " 轮入队 + 出队后 queue =", queue.toArray());
+    console.log('第 ' + i + ' 轮入队 + 出队后 queue =', queue.toArray());
 }
 
 export {};

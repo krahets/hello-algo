@@ -16,6 +16,7 @@ struct arrayStack {
 
 typedef struct arrayStack arrayStack;
 
+/* 构造函数 */
 arrayStack *newArrayStack() {
     arrayStack *s = malloc(sizeof(arrayStack));
     // 初始化一个大容量，避免扩容
@@ -48,7 +49,7 @@ void push(arrayStack *s, int num) {
 int peek(arrayStack *s) {
     if (s->size == 0) {
         printf("stack is empty.\n");
-        return NIL;
+        return INT_MAX;
     }
     return s->data[s->size - 1];
 }
@@ -57,7 +58,7 @@ int peek(arrayStack *s) {
 int pop(arrayStack *s) {
     if (s->size == 0) {
         printf("stack is empty.\n");
-        return NIL;
+        return INT_MAX;
     }
     int val = peek(s);
     s->size--;
@@ -67,7 +68,7 @@ int pop(arrayStack *s) {
 /* Driver Code */
 int main() {
     /* 初始化栈 */
-    arrayStack * stack = newArrayStack();
+    arrayStack *stack = newArrayStack();
 
     /* 元素入栈 */
     push(stack, 1);

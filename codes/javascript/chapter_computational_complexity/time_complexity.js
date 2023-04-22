@@ -121,35 +121,35 @@ function factorialRecur(n) {
 /* Driver Code */
 // 可以修改 n 运行，体会一下各种复杂度的操作数量变化趋势
 const n = 8;
-console.log("输入数据大小 n = " + n);
+console.log('输入数据大小 n = ' + n);
 
 let count = constant(n);
-console.log("常数阶的计算操作数量 = " + count);
+console.log('常数阶的计算操作数量 = ' + count);
 
 count = linear(n);
-console.log("线性阶的计算操作数量 = " + count);
+console.log('线性阶的计算操作数量 = ' + count);
 count = arrayTraversal(new Array(n));
-console.log("线性阶（遍历数组）的计算操作数量 = " + count);
+console.log('线性阶（遍历数组）的计算操作数量 = ' + count);
 
 count = quadratic(n);
-console.log("平方阶的计算操作数量 = " + count);
+console.log('平方阶的计算操作数量 = ' + count);
 let nums = new Array(n);
 for (let i = 0; i < n; i++) nums[i] = n - i; // [n,n-1,...,2,1]
 count = bubbleSort(nums);
-console.log("平方阶（冒泡排序）的计算操作数量 = " + count);
+console.log('平方阶（冒泡排序）的计算操作数量 = ' + count);
 
 count = exponential(n);
-console.log("指数阶（循环实现）的计算操作数量 = " + count);
+console.log('指数阶（循环实现）的计算操作数量 = ' + count);
 count = expRecur(n);
-console.log("指数阶（递归实现）的计算操作数量 = " + count);
+console.log('指数阶（递归实现）的计算操作数量 = ' + count);
 
 count = logarithmic(n);
-console.log("对数阶（循环实现）的计算操作数量 = " + count);
+console.log('对数阶（循环实现）的计算操作数量 = ' + count);
 count = logRecur(n);
-console.log("对数阶（递归实现）的计算操作数量 = " + count);
+console.log('对数阶（递归实现）的计算操作数量 = ' + count);
 
 count = linearLogRecur(n);
-console.log("线性对数阶（递归实现）的计算操作数量 = " + count);
+console.log('线性对数阶（递归实现）的计算操作数量 = ' + count);
 
 count = factorialRecur(n);
-console.log("阶乘阶（递归实现）的计算操作数量 = " + count);
+console.log('阶乘阶（递归实现）的计算操作数量 = ' + count);

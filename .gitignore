@@ -13,4 +13,6 @@ docs/overrides/
 build/
 site/
 utils/
-**/cmake-build-debug
+
+# test script
+test.sh

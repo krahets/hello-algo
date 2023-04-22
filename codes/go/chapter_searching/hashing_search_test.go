@@ -32,5 +32,5 @@ func TestHashingSearch(t *testing.T) {
 		head = head.Next
 	}
 	node := hashingSearchLinkedList(m1, target)
-	fmt.Println("目标结点值 3 的对应结点对象为 ", node)
+	fmt.Println("目标节点值 3 的对应节点对象为 ", node)
 }

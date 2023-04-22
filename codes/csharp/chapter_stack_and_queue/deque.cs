@@ -8,11 +8,9 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_stack_and_queue;
 
-public class deque
-{
+public class deque {
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化双向队列 */
         // 在 C# 中，将链表 LinkedList 看作双向队列来使用
         LinkedList<int> deque = new LinkedList<int>();
@@ -23,7 +21,7 @@ public class deque
         deque.AddLast(4);
         deque.AddFirst(3);  // 添加至队首
         deque.AddFirst(1);
-        Console.WriteLine("双向队列 deque = " + String.Join(",", deque.ToArray()));
+        Console.WriteLine("双向队列 deque = " + string.Join(",", deque));
 
         /* 访问元素 */
         int peekFirst = deque.First.Value;  // 队首元素
@@ -33,9 +31,9 @@ public class deque
 
         /* 元素出队 */
         deque.RemoveFirst();  // 队首元素出队
-        Console.WriteLine("队首元素出队后 deque = " + String.Join(",", deque.ToArray()));
+        Console.WriteLine("队首元素出队后 deque = " + string.Join(",", deque));
         deque.RemoveLast();   // 队尾元素出队
-        Console.WriteLine("队尾元素出队后 deque = " + String.Join(",", deque.ToArray()));
+        Console.WriteLine("队尾元素出队后 deque = " + string.Join(",", deque));
 
         /* 获取双向队列的长度 */
         int size = deque.Count;

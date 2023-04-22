@@ -4,8 +4,8 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-import { ListNode } from "./ListNode";
-import { TreeNode, arrToTree } from "./TreeNode";
+import { ListNode } from './ListNode';
+import { TreeNode, arrToTree } from './TreeNode';
 
 /**
  * Print a linked list
@@ -46,7 +46,11 @@ function printTree(root: TreeNode | null) {
  * @param prev
  * @param isLeft
  */
-function printTreeHelper(root: TreeNode | null, prev: Trunk | null, isLeft: boolean) {
+function printTreeHelper(
+    root: TreeNode | null,
+    prev: Trunk | null,
+    isLeft: boolean
+) {
     if (root === null) {
         return;
     }
@@ -98,15 +102,11 @@ function showTrunks(p: Trunk | null) {
  * @param arr
  */
 function printHeap(arr: number[]): void {
-    console.log("堆的数组表示：");
+    console.log('堆的数组表示：');
     console.log(arr);
-    console.log("堆的树状表示：");
+    console.log('堆的树状表示：');
     const root = arrToTree(arr);
     printTree(root);
 }
 
-export {
-    printLinkedList,
-    printTree,
-    printHeap
-};
+export { printLinkedList, printTree, printHeap };

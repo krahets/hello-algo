@@ -21,7 +21,7 @@ vector<int> randomNumbers(int n) {
 }
 
 /* 查找数组 nums 中数字 1 所在索引 */
-int findOne(vector<int>& nums) {
+int findOne(vector<int> &nums) {
     for (int i = 0; i < nums.size(); i++) {
         // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
         // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
@@ -31,7 +31,6 @@ int findOne(vector<int>& nums) {
     return -1;
 }
 
-
 /* Driver Code */
 int main() {
     for (int i = 0; i < 1000; i++) {
@@ -39,7 +38,7 @@ int main() {
         vector<int> nums = randomNumbers(n);
         int index = findOne(nums);
         cout << "\n数组 [ 1, 2, ..., n ] 被打乱后 = ";
-        PrintUtil::printVector(nums);
+        printVector(nums);
         cout << "数字 1 的索引为 " << index << endl;
     }
     return 0;

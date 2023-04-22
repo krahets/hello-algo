@@ -4,12 +4,11 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-
 /* 基于环形数组实现的双向队列 */
 class ArrayDeque {
-    private nums: number[];     // 用于存储双向队列元素的数组
-    private front: number;      // 队首指针，指向队首元素
-    private queSize: number;    // 双向队列长度
+    private nums: number[]; // 用于存储双向队列元素的数组
+    private front: number; // 队首指针，指向队首元素
+    private queSize: number; // 双向队列长度
 
     /* 构造方法 */
     constructor(capacity: number) {
@@ -44,7 +43,7 @@ class ArrayDeque {
     /* 队首入队 */
     pushFirst(num: number): void {
         if (this.queSize === this.capacity()) {
-            console.log("双向队列已满");
+            console.log('双向队列已满');
             return;
         }
         // 队首指针向左移动一位
@@ -58,7 +57,7 @@ class ArrayDeque {
     /* 队尾入队 */
     pushLast(num: number): void {
         if (this.queSize === this.capacity()) {
-            console.log("双向队列已满");
+            console.log('双向队列已满');
             return;
         }
         // 计算尾指针，指向队尾索引 + 1
@@ -86,15 +85,13 @@ class ArrayDeque {
 
     /* 访问队首元素 */
     peekFirst(): number {
-        if (this.isEmpty())
-            throw new Error("The Deque Is Empty.");
+        if (this.isEmpty()) throw new Error('The Deque Is Empty.');
         return this.nums[this.front];
     }
 
     /* 访问队尾元素 */
     peekLast(): number {
-        if (this.isEmpty())
-            throw new Error("The Deque Is Empty.");
+        if (this.isEmpty()) throw new Error('The Deque Is Empty.');
         // 计算尾元素索引
         const last = this.index(this.front + this.queSize - 1);
         return this.nums[last];
@@ -118,32 +115,44 @@ const deque: ArrayDeque = new ArrayDeque(capacity);
 deque.pushLast(3);
 deque.pushLast(2);
 deque.pushLast(5);
-console.log("双向队列 deque = [" + deque.toArray() + "]");
+console.log('双向队列 deque = [' + deque.toArray() + ']');
 
 /* 访问元素 */
 const peekFirst = deque.peekFirst();
-console.log("队首元素 peekFirst = " + peekFirst);
+console.log('队首元素 peekFirst = ' + peekFirst);
 const peekLast = deque.peekLast();
-console.log("队尾元素 peekLast = " + peekLast);
+console.log('队尾元素 peekLast = ' + peekLast);
 
 /* 元素入队 */
 deque.pushLast(4);
-console.log("元素 4 队尾入队后 deque = [" + deque.toArray() + "]");
+console.log('元素 4 队尾入队后 deque = [' + deque.toArray() + ']');
 deque.pushFirst(1);
-console.log("元素 1 队首入队后 deque = [" + deque.toArray() + "]");
+console.log('元素 1 队首入队后 deque = [' + deque.toArray() + ']');
 
 /* 元素出队 */
 const popLast = deque.popLast();
-console.log("队尾出队元素 = " + popLast + "，队尾出队后 deque = [" + deque.toArray() + "]");
+console.log(
+    '队尾出队元素 = ' +
+        popLast +
+        '，队尾出队后 deque = [' +
+        deque.toArray() +
+        ']'
+);
 const popFirst = deque.popFirst();
-console.log("队首出队元素 = " + popFirst + "，队首出队后 deque = [" + deque.toArray()+ "]");
+console.log(
+    '队首出队元素 = ' +
+        popFirst +
+        '，队首出队后 deque = [' +
+        deque.toArray() +
+        ']'
+);
 
 /* 获取双向队列的长度 */
 const size = deque.size();
-console.log("双向队列长度 size = " + size);
+console.log('双向队列长度 size = ' + size);
 
 /* 判断双向队列是否为空 */
 const isEmpty = deque.isEmpty();
-console.log("双向队列是否为空 = " + isEmpty);
+console.log('双向队列是否为空 = ' + isEmpty);
 
 export {};

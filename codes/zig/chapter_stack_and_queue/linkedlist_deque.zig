@@ -5,14 +5,14 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 双向链表结点
+// 双向链表节点
 pub fn ListNode(comptime T: type) type {
     return struct {
         const Self = @This();
         
-        val: T = undefined,     // 结点值
-        next: ?*Self = null,    // 后继结点引用（指针）
-        prev: ?*Self = null,    // 前驱结点引用（指针）
+        val: T = undefined,     // 节点值
+        next: ?*Self = null,    // 后继节点引用（指针）
+        prev: ?*Self = null,    // 前驱节点引用（指针）
 
         // Initialize a list node with specific value
         pub fn init(self: *Self, x: i32) void {
@@ -28,8 +28,8 @@ pub fn LinkedListDeque(comptime T: type) type {
     return struct {
         const Self = @This();
 
-        front: ?*ListNode(T) = null,                    // 头结点 front
-        rear: ?*ListNode(T) = null,                     // 尾结点 rear
+        front: ?*ListNode(T) = null,                    // 头节点 front
+        rear: ?*ListNode(T) = null,                     // 尾节点 rear
         que_size: usize = 0,                             // 双向队列的长度
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
@@ -74,13 +74,13 @@ pub fn LinkedListDeque(comptime T: type) type {
                 // 将 node 添加至链表头部
                 self.front.?.prev = node;
                 node.next = self.front;
-                self.front = node;  // 更新头结点
+                self.front = node;  // 更新头节点
             // 队尾入队操作
             } else {
                 // 将 node 添加至链表尾部
                 self.rear.?.next = node;
                 node.prev = self.rear;
-                self.rear = node;   // 更新尾结点
+                self.rear = node;   // 更新尾节点
             }
             self.que_size += 1;      // 更新队列长度
         } 
@@ -101,24 +101,24 @@ pub fn LinkedListDeque(comptime T: type) type {
             var val: T = undefined;
             // 队首出队操作
             if (is_front) {
-                val = self.front.?.val;     // 暂存头结点值
-                // 删除头结点
+                val = self.front.?.val;     // 暂存头节点值
+                // 删除头节点
                 var fNext = self.front.?.next;
                 if (fNext != null) {
                     fNext.?.prev = null;
                     self.front.?.next = null;
                 }
-                self.front = fNext;         // 更新头结点
+                self.front = fNext;         // 更新头节点
             // 队尾出队操作
             } else {
-                val = self.rear.?.val;      // 暂存尾结点值
-                // 删除尾结点
+                val = self.rear.?.val;      // 暂存尾节点值
+                // 删除尾节点
                 var rPrev = self.rear.?.prev;
                 if (rPrev != null) {
                     rPrev.?.next = null;
                     self.rear.?.prev = null;
                 }
-                self.rear = rPrev;          // 更新尾结点
+                self.rear = rPrev;          // 更新尾节点
             }
             self.que_size -= 1;              // 更新队列长度
             return val;

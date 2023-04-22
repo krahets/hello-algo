@@ -10,31 +10,26 @@ using NUnit.Framework;
 namespace hello_algo.chapter_stack_and_queue;
 
 /* 基于链表实现的栈 */
-class LinkedListStack
-{
-    private ListNode? stackPeek;  // 将头结点作为栈顶
+class LinkedListStack {
+    private ListNode? stackPeek;  // 将头节点作为栈顶
     private int stkSize = 0;   // 栈的长度
 
-    public LinkedListStack()
-    {
+    public LinkedListStack() {
         stackPeek = null;
     }
 
     /* 获取栈的长度 */
-    public int size()
-    {
+    public int size() {
         return stkSize;
     }
 
     /* 判断栈是否为空 */
-    public bool isEmpty()
-    {
+    public bool isEmpty() {
         return size() == 0;
     }
 
     /* 入栈 */
-    public void push(int num)
-    {
+    public void push(int num) {
         ListNode node = new ListNode(num);
         node.next = stackPeek;
         stackPeek = node;
@@ -42,8 +37,7 @@ class LinkedListStack
     }
 
     /* 出栈 */
-    public int pop()
-    {
+    public int pop() {
         if (stackPeek == null)
             throw new Exception();
 
@@ -54,23 +48,20 @@ class LinkedListStack
     }
 
     /* 访问栈顶元素 */
-    public int peek()
-    {
+    public int peek() {
         if (size() == 0 || stackPeek == null)
             throw new Exception();
         return stackPeek.val;
     }
 
     /* 将 List 转化为 Array 并返回 */
-    public int[] toArray()
-    {
+    public int[] toArray() {
         if (stackPeek == null)
             return Array.Empty<int>();
 
         ListNode node = stackPeek;
         int[] res = new int[size()];
-        for (int i = res.Length - 1; i >= 0; i--)
-        {
+        for (int i = res.Length - 1; i >= 0; i--) {
             res[i] = node.val;
             node = node.next;
         }
@@ -78,11 +69,9 @@ class LinkedListStack
     }
 }
 
-public class linkedlist_stack
-{
+public class linkedlist_stack {
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化栈 */
         LinkedListStack stack = new LinkedListStack();
 
@@ -92,7 +81,7 @@ public class linkedlist_stack
         stack.push(2);
         stack.push(5);
         stack.push(4);
-        Console.WriteLine("栈 stack = " + String.Join(",", stack.toArray()));
+        Console.WriteLine("栈 stack = " + string.Join(",", stack.toArray()));
 
         /* 访问栈顶元素 */
         int peek = stack.peek();
@@ -100,7 +89,7 @@ public class linkedlist_stack
 
         /* 元素出栈 */
         int pop = stack.pop();
-        Console.WriteLine("出栈元素 pop = " + pop + "，出栈后 stack = " + String.Join(",", stack.toArray()));
+        Console.WriteLine("出栈元素 pop = " + pop + "，出栈后 stack = " + string.Join(",", stack.toArray()));
 
         /* 获取栈的长度 */
         int size = stack.size();

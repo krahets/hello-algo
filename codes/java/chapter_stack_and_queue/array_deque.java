@@ -10,8 +10,8 @@ import java.util.*;
 
 /* 基于环形数组实现的双向队列 */
 class ArrayDeque {
-    private int[] nums;  // 用于存储双向队列元素的数组
-    private int front;   // 队首指针，指向队首元素
+    private int[] nums; // 用于存储双向队列元素的数组
+    private int front; // 队首指针，指向队首元素
     private int queSize; // 双向队列长度
 
     /* 构造方法 */
@@ -89,14 +89,14 @@ class ArrayDeque {
     /* 访问队首元素 */
     public int peekFirst() {
         if (isEmpty())
-            throw new EmptyStackException();
+            throw new IndexOutOfBoundsException();
         return nums[front];
     }
 
     /* 访问队尾元素 */
     public int peekLast() {
         if (isEmpty())
-            throw new EmptyStackException();
+            throw new IndexOutOfBoundsException();
         // 计算尾元素索引
         int last = index(front + queSize - 1);
         return nums[last];

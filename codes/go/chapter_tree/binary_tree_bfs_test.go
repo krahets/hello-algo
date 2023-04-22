@@ -20,5 +20,5 @@ func TestLevelOrder(t *testing.T) {
 
 	// 层序遍历
 	nums := levelOrder(root)
-	fmt.Println("\n层序遍历的结点打印序列 =", nums)
+	fmt.Println("\n层序遍历的节点打印序列 =", nums)
 }

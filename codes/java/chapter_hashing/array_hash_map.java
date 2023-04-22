@@ -12,6 +12,7 @@ import java.util.*;
 class Entry {
     public int key;
     public String val;
+
     public Entry(int key, String val) {
         this.key = key;
         this.val = val;
@@ -21,6 +22,7 @@ class Entry {
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
     private List<Entry> buckets;
+
     public ArrayHashMap() {
         // 初始化数组，包含 100 个桶
         buckets = new ArrayList<>();
@@ -39,7 +41,8 @@ class ArrayHashMap {
     public String get(int key) {
         int index = hashFunc(key);
         Entry pair = buckets.get(index);
-        if (pair == null) return null;
+        if (pair == null)
+            return null;
         return pair.val;
     }
 
@@ -89,12 +92,11 @@ class ArrayHashMap {
 
     /* 打印哈希表 */
     public void print() {
-        for (Entry kv: entrySet()) {
+        for (Entry kv : entrySet()) {
             System.out.println(kv.key + " -> " + kv.val);
         }
     }
 }
-
 
 public class array_hash_map {
     public static void main(String[] args) {
@@ -103,9 +105,9 @@ public class array_hash_map {
 
         /* 添加操作 */
         // 在哈希表中添加键值对 (key, value)
-        map.put(12836, "小哈");   
-        map.put(15937, "小啰");   
-        map.put(16750, "小算");   
+        map.put(12836, "小哈");
+        map.put(15937, "小啰");
+        map.put(16750, "小算");
         map.put(13276, "小法");
         map.put(10583, "小鸭");
         System.out.println("\n添加完成后，哈希表为\nKey -> Value");
@@ -124,15 +126,15 @@ public class array_hash_map {
 
         /* 遍历哈希表 */
         System.out.println("\n遍历键值对 Key->Value");
-        for (Entry kv: map.entrySet()) {
+        for (Entry kv : map.entrySet()) {
             System.out.println(kv.key + " -> " + kv.val);
         }
         System.out.println("\n单独遍历键 Key");
-        for (int key: map.keySet()) {
+        for (int key : map.keySet()) {
             System.out.println(key);
         }
         System.out.println("\n单独遍历值 Value");
-        for (String val: map.valueSet()) {
+        for (String val : map.valueSet()) {
             System.out.println(val);
         }
     }

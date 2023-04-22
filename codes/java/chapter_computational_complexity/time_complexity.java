@@ -23,7 +23,7 @@ public class time_complexity {
             count++;
         return count;
     }
-    
+
     /* 线性阶（遍历数组） */
     static int arrayTraversal(int[] nums) {
         int count = 0;
@@ -48,7 +48,7 @@ public class time_complexity {
 
     /* 平方阶（冒泡排序） */
     static int bubbleSort(int[] nums) {
-        int count = 0;  // 计数器
+        int count = 0; // 计数器
         // 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for (int i = nums.length - 1; i > 0; i--) {
             // 内循环：冒泡操作
@@ -58,7 +58,7 @@ public class time_complexity {
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3;  // 元素交换包含 3 个单元操作
+                    count += 3; // 元素交换包含 3 个单元操作
                 }
             }
         }
@@ -81,7 +81,8 @@ public class time_complexity {
 
     /* 指数阶（递归实现） */
     static int expRecur(int n) {
-        if (n == 1) return 1;
+        if (n == 1)
+            return 1;
         return expRecur(n - 1) + expRecur(n - 1) + 1;
     }
 
@@ -97,15 +98,17 @@ public class time_complexity {
 
     /* 对数阶（递归实现） */
     static int logRecur(float n) {
-        if (n <= 1) return 0;
+        if (n <= 1)
+            return 0;
         return logRecur(n / 2) + 1;
     }
 
     /* 线性对数阶 */
     static int linearLogRecur(float n) {
-        if (n <= 1) return 1;
-        int count = linearLogRecur(n / 2) + 
-                    linearLogRecur(n / 2);
+        if (n <= 1)
+            return 1;
+        int count = linearLogRecur(n / 2) +
+                linearLogRecur(n / 2);
         for (int i = 0; i < n; i++) {
             count++;
         }
@@ -114,7 +117,8 @@ public class time_complexity {
 
     /* 阶乘阶（递归实现） */
     static int factorialRecur(int n) {
-        if (n == 0) return 1;
+        if (n == 0)
+            return 1;
         int count = 0;
         // 从 1 个分裂出 n 个
         for (int i = 0; i < n; i++) {
@@ -141,7 +145,7 @@ public class time_complexity {
         System.out.println("平方阶的计算操作数量 = " + count);
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
-            nums[i] = n - i;  // [n,n-1,...,2,1]
+            nums[i] = n - i; // [n,n-1,...,2,1]
         count = bubbleSort(nums);
         System.out.println("平方阶（冒泡排序）的计算操作数量 = " + count);
 

@@ -8,8 +8,8 @@
 #define PRINT_UTIL_H
 
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "list_node.h"
 #include "tree_node.h"
@@ -18,38 +18,28 @@
 extern "C" {
 #endif
 
-
-/**
- * @brief Print an Array
- *
- * @param arr
- * @param size
- */
+/* Print an Array */
 static void printArray(int arr[], int size) {
     printf("[");
     if (arr != NULL && size != 0) {
-      for (int i = 0; i < size - 1; i++) {
-          if (arr[i] != NIL) {
-              printf("%d, ", arr[i]);
-          } else {
-              printf("NULL, ");
-          }
-      }
-      if (arr[size - 1] != NIL) {
-          printf("%d]\n", arr[size - 1]);
-      } else {
-          printf("NULL]\n");
-      }
+        for (int i = 0; i < size - 1; i++) {
+            if (arr[i] != INT_MAX) {
+                printf("%d, ", arr[i]);
+            } else {
+                printf("NULL, ");
+            }
+        }
+        if (arr[size - 1] != INT_MAX) {
+            printf("%d]\n", arr[size - 1]);
+        } else {
+            printf("NULL]\n");
+        }
     } else {
-      printf("]");
+        printf("]");
     }
 }
 
-/**
- * @brief Print a linked list
- *
- * @param head
- */
+/* Print a linked list */
 static void printLinkedList(ListNode *node) {
     if (node == NULL) {
         return;
@@ -69,18 +59,14 @@ struct Trunk {
 typedef struct Trunk Trunk;
 
 Trunk *newTrunk(Trunk *prev, char *str) {
-    Trunk *trunk = (Trunk *) malloc(sizeof(Trunk));
+    Trunk *trunk = (Trunk *)malloc(sizeof(Trunk));
     trunk->prev = prev;
-    trunk->str = (char *) malloc(sizeof(char) * 10);
+    trunk->str = (char *)malloc(sizeof(char) * 10);
     strcpy(trunk->str, str);
     return trunk;
 }
 
-/**
- * @brief Helper function to print branches of the binary tree
- *
- * @param trunk
- */
+/* Helper function to print branches of the binary tree */
 void showTrunks(Trunk *trunk) {
     if (trunk == NULL) {
         return;
@@ -89,12 +75,7 @@ void showTrunks(Trunk *trunk) {
     printf("%s", trunk->str);
 }
 
-/**
- * Help to print a binary tree, hide more details
- * @param node
- * @param prev
- * @param isLeft
- */
+/* Help to print a binary tree, hide more details */
 static void printTreeHelper(TreeNode *node, Trunk *prev, bool isLeft) {
     if (node == NULL) {
         return;
@@ -122,30 +103,20 @@ static void printTreeHelper(TreeNode *node, Trunk *prev, bool isLeft) {
     printTreeHelper(node->left, trunk, false);
 }
 
-/**
- * @brief Print a binary tree
- *
- * @param head
- */
+/* Print a binary tree */
 static void printTree(TreeNode *root) {
     printTreeHelper(root, NULL, false);
 }
 
-/**
- * @brief Print a Heap
- *
- * @param arr
- * @param size
- */
+/* Print a Heap */
 static void printHeap(int arr[], int size) {
-    TreeNode * root;
+    TreeNode *root;
     printf("堆的数组表示：");
     printArray(arr, size);
     printf("堆的树状表示：\n");
     root = arrToTree(arr, size);
     printTree(root);
 }
-
 
 #ifdef __cplusplus
 }
