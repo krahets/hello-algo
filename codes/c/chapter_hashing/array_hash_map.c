@@ -6,6 +6,26 @@
 
 #include "../include/include.h"
 
+/* 哈希表默认数组大小 */
+# define HASH_MAP_DEFAULT_SIZE 100
+
+/* 键值对 int->string */
+typedef struct  {
+    int key;
+    char *val;
+} Entry;
+
+/* 基于数组简易实现的哈希表 */
+typedef struct {
+    Entry *buckets[HASH_MAP_DEFAULT_SIZE];
+} ArrayHashMap;
+
+/* 用于表示键值对、键、值的集合 */
+typedef struct {
+    void *set;
+    int len;
+} MapSet;
+
 /* 哈希表初始化函数 */
 ArrayHashMap *newArrayHashMap() {
     ArrayHashMap *arrayHashMap = malloc(sizeof(ArrayHashMap));

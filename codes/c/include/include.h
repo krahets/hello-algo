@@ -17,7 +17,6 @@
 #include "list_node.h"
 #include "tree_node.h"
 #include "print_util.h"
-#include "array_hash_map.h"
 
 #ifdef __cplusplus
 extern "C" {
