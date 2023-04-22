@@ -5,7 +5,6 @@
  */
 
 #include "../include/include.h"
-#include <stdlib.h>
 
 /* 哈希表初始化函数 */
 ArrayHashMap *newArrayHashMap() {
