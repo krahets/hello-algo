@@ -26,12 +26,14 @@ class ArrayStack:
 
     def pop(self) -> int:
         """出栈"""
-        assert not self.is_empty(), "栈为空"
+        if self.is_empty():
+            raise IndexError("栈为空")
         return self.__stack.pop()
 
     def peek(self) -> int:
         """访问栈顶元素"""
-        assert not self.is_empty(), "栈为空"
+        if self.is_empty():
+            raise IndexError("栈为空")
         return self.__stack[-1]
 
     def to_list(self) -> list[int]:

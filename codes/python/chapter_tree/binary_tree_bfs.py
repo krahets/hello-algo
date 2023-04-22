@@ -39,4 +39,3 @@ if __name__ == "__main__":
     # 层序遍历
     res: list[int] = level_order(root)
     print("\n层序遍历的节点打印序列 = ", res)
-    assert res == [1, 2, 3, 4, 5, 6, 7]

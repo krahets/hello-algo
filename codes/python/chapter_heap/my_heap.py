@@ -73,7 +73,8 @@ class MaxHeap:
     def pop(self) -> int:
         """元素出堆"""
         # 判空处理
-        assert not self.is_empty()
+        if self.is_empty():
+            raise IndexError("堆为空")
         # 交换根节点与最右叶节点（即交换首元素与尾元素）
         self.swap(0, self.size() - 1)
         # 删除节点

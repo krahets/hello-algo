@@ -72,12 +72,14 @@ class ArrayDeque:
 
     def peek_first(self) -> int:
         """访问队首元素"""
-        assert not self.is_empty(), "双向队列为空"
+        if self.is_empty():
+            raise IndexError("双向队列为空")
         return self.__nums[self.__front]
 
     def peek_last(self) -> int:
         """访问队尾元素"""
-        assert not self.is_empty(), "双向队列为空"
+        if self.is_empty():
+            raise IndexError("双向队列为空")
         # 计算尾元素索引
         last = self.index(self.__front + self.__size - 1)
         return self.__nums[last]

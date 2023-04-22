@@ -52,16 +52,13 @@ if __name__ == "__main__":
     res = []
     pre_order(root)
     print("\n前序遍历的节点打印序列 = ", res)
-    assert res == [1, 2, 4, 5, 3, 6, 7]
 
     # 中序遍历
     res.clear()
     in_order(root)
     print("\n中序遍历的节点打印序列 = ", res)
-    assert res == [4, 2, 5, 1, 6, 3, 7]
 
     # 后序遍历
     res.clear()
     post_order(root)
     print("\n后序遍历的节点打印序列 = ", res)
-    assert res == [4, 5, 2, 6, 7, 3, 1]

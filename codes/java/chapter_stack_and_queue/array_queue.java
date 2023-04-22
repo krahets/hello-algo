@@ -60,7 +60,7 @@ class ArrayQueue {
     /* 访问队首元素 */
     public int peek() {
         if (isEmpty())
-            throw new EmptyStackException();
+            throw new IndexOutOfBoundsException();
         return nums[front];
     }
 

@@ -26,12 +26,14 @@ class MyList:
     def get(self, index: int) -> int:
         """访问元素"""
         # 索引如果越界则抛出异常，下同
-        assert index >= 0 and index < self.__size, "索引越界"
+        if index < 0 or index >= self.__size:
+            raise IndexError("索引越界")
         return self.__nums[index]
 
     def set(self, num: int, index: int) -> None:
         """更新元素"""
-        assert index >= 0 and index < self.__size, "索引越界"
+        if index < 0 or index >= self.__size:
+            raise IndexError("索引越界")
         self.__nums[index] = num
 
     def add(self, num: int) -> None:
@@ -44,7 +46,8 @@ class MyList:
 
     def insert(self, num: int, index: int) -> None:
         """中间插入元素"""
-        assert index >= 0 and index < self.__size, "索引越界"
+        if index < 0 or index >= self.__size:
+            raise IndexError("索引越界")
         # 元素数量超出容量时，触发扩容机制
         if self.__size == self.capacity():
             self.extend_capacity()
@@ -57,7 +60,8 @@ class MyList:
 
     def remove(self, index: int) -> int:
         """删除元素"""
-        assert index >= 0 and index < self.__size, "索引越界"
+        if index < 0 or index >= self.__size:
+            raise IndexError("索引越界")
         num = self.__nums[index]
         # 索引 i 之后的元素都向前移动一位
         for j in range(index, self.__size - 1):
@@ -114,5 +118,5 @@ if __name__ == "__main__":
         # 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
         my_list.add(i)
     print(
-        "扩容后的列表 {my_list.to_array()} ，容量 = {my_list.capacity()} ，长度 = {my_list.size()}"
+        f"扩容后的列表 {my_list.to_array()} ，容量 = {my_list.capacity()} ，长度 = {my_list.size()}"
     )

@@ -89,14 +89,14 @@ class ArrayDeque {
     /* 访问队首元素 */
     public int peekFirst() {
         if (isEmpty())
-            throw new EmptyStackException();
+            throw new IndexOutOfBoundsException();
         return nums[front];
     }
 
     /* 访问队尾元素 */
     public int peekLast() {
         if (isEmpty())
-            throw new EmptyStackException();
+            throw new IndexOutOfBoundsException();
         // 计算尾元素索引
         int last = index(front + queSize - 1);
         return nums[last];
