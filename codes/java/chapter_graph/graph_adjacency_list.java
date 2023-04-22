@@ -35,8 +35,12 @@ class GraphAdjList {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
             throw new IllegalArgumentException();
         // 添加边 vet1 - vet2
-        adjList.get(vet1).add(vet2);
-        adjList.get(vet2).add(vet1);
+        if (!adjList.get(vet1).contains(vet2)){
+            adjList.get(vet1).add(vet2);
+        }
+        if (!adjList.get(vet2).contains(vet1)){
+            adjList.get(vet2).add(vet1);
+        }
     }
 
     /* 删除边 */
