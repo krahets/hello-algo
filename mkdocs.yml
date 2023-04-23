@@ -189,6 +189,7 @@ nav:
     - 12.3. &nbsp; 小结: chapter_searching/summary.md
   - 13. &nbsp; &nbsp; 回溯算法:
     - 13.1. &nbsp; 回溯算法（New）: chapter_backtracking/backtracking_algorithm.md
+    - 13.2. &nbsp; 全排列问题（New）: chapter_backtracking/permutations_problem.md
   - 14. &nbsp; &nbsp; 附录:
     - 14.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
     - 14.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
