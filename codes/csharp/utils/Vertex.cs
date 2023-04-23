@@ -4,7 +4,7 @@
  * Author: zjkung1123 (zjkung1123@gmail.com), krahets (krahets@163.com)
  */
 
-namespace hello_algo.include;
+namespace hello_algo.utils;
 
 /* 顶点类 */
 public class Vertex {

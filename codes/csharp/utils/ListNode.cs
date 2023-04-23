@@ -2,7 +2,7 @@
 // Created Time: 2022-12-16
 // Author: mingXta (1195669834@qq.com)
 
-namespace hello_algo.include;
+namespace hello_algo.utils;
 
 /* Definition for a singly-linked list node */
 public class ListNode {

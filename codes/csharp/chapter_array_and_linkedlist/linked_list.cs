@@ -2,7 +2,7 @@
 // Created Time: 2022-12-16
 // Author: mingXta (1195669834@qq.com)
 
-using hello_algo.include;
+using hello_algo.utils;
 using NUnit.Framework;
 
 namespace hello_algo.chapter_array_and_linkedlist;

@@ -12,7 +12,7 @@ docs/overrides/
 # build
 build/
 site/
-utils/
+./utils/
 
 # test script
 test.sh

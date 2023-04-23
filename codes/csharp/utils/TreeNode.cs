@@ -4,7 +4,7 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-namespace hello_algo.include;
+namespace hello_algo.utils;
 
 /* 二叉树节点类 */
 public class TreeNode {

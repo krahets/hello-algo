@@ -4,7 +4,7 @@
 * Author: haptear (haptear@hotmail.com), krahets (krahets@163.com)
 */
 
-namespace hello_algo.include;
+namespace hello_algo.utils;
 
 public class Trunk {
     public Trunk? prev;
