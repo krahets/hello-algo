@@ -41,6 +41,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_backtracking/permutations_problem/</loc>
+         <lastmod>2023-04-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_binary_search/binary_search/</loc>
          <lastmod>2023-04-23</lastmod>
          <changefreq>daily</changefreq>
