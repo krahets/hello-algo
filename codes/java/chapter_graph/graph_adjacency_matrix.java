@@ -6,7 +6,7 @@
 
 package chapter_graph;
 
-import include.*;
+import utils.*;
 import java.util.*;
 
 /* 基于邻接矩阵实现的无向图类 */

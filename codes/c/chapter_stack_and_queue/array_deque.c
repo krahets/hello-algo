@@ -4,7 +4,7 @@
  * Author: Gonglja (glj0@outlook.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 基于环形数组实现的双向队列 */
 struct arrayDeque {

@@ -4,7 +4,7 @@
  * Author: sjinzh (sjinzh@gmail.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
 int *randomNumbers(int n) {

@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 随机返回一个数组元素 */
 int randomAccess(int *nums, int size) {

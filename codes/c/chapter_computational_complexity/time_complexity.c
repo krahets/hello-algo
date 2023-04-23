@@ -4,7 +4,7 @@
  * Author: sjinzh (sjinzh@gmail.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 常数阶 */
 int constant(int n) {

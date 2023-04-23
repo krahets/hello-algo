@@ -4,7 +4,7 @@
  * Author: Reanon (793584285@qq.com)
  */
 
-#include "include.h"
+#include "common.h"
 
 void testListNode() {
     int nums[] = {2, 3, 5, 6, 7};

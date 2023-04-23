@@ -4,7 +4,7 @@
  * Author: qualifier1024 (2539244001@qq.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* Driver Code */
 int main() {

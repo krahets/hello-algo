@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 回溯算法：全排列 II */
 void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &selected, vector<vector<int>> &res) {

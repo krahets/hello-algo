@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 计数排序 */
 // 简单实现，无法用于排序对象

@@ -4,7 +4,7 @@
  * Author: Reanon (793584285@qq.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 方法一：暴力枚举 */
 int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {

@@ -4,7 +4,7 @@
  * Author: Gonglja (glj0@outlook.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 基于链表实现的队列 */
 struct linkedListQueue {

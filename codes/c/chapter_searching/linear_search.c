@@ -4,7 +4,7 @@
  * Author: Guanngxu (446678850@qq.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 线性查找（数组） */
 int linearSearchArray(int *nums, int len, int target) {

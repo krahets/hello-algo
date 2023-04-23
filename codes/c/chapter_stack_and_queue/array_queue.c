@@ -4,7 +4,7 @@
  * Author: Zero (glj0@outlook.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 基于环形数组实现的队列 */
 struct arrayQueue {

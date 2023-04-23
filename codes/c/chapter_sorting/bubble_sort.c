@@ -4,7 +4,7 @@
  * Author: Listening (https://github.com/L-Super)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 冒泡排序 */
 void bubbleSort(int nums[], int size) {

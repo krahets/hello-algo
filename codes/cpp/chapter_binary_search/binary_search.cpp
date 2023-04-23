@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 二分查找（双闭区间） */
 int binarySearch(vector<int> &nums, int target) {

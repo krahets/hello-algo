@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 常数阶 */
 int constant(int n) {

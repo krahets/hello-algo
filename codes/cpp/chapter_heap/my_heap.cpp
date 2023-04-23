@@ -4,7 +4,7 @@
  * Author: LoneRanger (836253168@qq.com), what-is-me (whatisme@outlook.jp)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 大顶堆 */
 class MaxHeap {

@@ -1,5 +1,5 @@
 /**
- * File: PrintUtil.hpp
+ * File: common.hpp
  * Created Time: 2021-12-19
  * Author: Krahets (krahets@163.com)
  */
@@ -20,9 +20,9 @@
 #include <unordered_set>
 #include <vector>
 
-#include "ListNode.hpp"
-#include "PrintUtil.hpp"
-#include "TreeNode.hpp"
-#include "Vertex.hpp"
+#include "list_node.hpp"
+#include "print_utils.hpp"
+#include "tree_node.hpp"
+#include "vertex.hpp"
 
 using namespace std;

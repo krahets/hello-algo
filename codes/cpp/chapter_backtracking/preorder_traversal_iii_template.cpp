@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 判断当前状态是否为解 */
 bool isSolution(vector<TreeNode *> &state) {

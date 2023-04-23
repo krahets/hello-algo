@@ -4,7 +4,7 @@
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 基于邻接矩阵实现的无向图类 */
 class GraphAdjMat {

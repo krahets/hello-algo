@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 线性查找（数组） */
 int linearSearchArray(vector<int> &nums, int target) {

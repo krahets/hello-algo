@@ -4,7 +4,7 @@
  * Author: Guanngxu (446678850@qq.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 哈希表默认数组大小 */
 # define HASH_MAP_DEFAULT_SIZE 100
