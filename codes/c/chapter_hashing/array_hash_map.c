@@ -10,21 +10,27 @@
 # define HASH_MAP_DEFAULT_SIZE 100
 
 /* 键值对 int->string */
-typedef struct  {
+struct Entry {
     int key;
     char *val;
-} Entry;
+};
 
-/* 基于数组简易实现的哈希表 */
-typedef struct {
-    Entry *buckets[HASH_MAP_DEFAULT_SIZE];
-} ArrayHashMap;
+typedef struct Entry Entry;
 
 /* 用于表示键值对、键、值的集合 */
-typedef struct {
+struct MapSet {
     void *set;
     int len;
-} MapSet;
+};
+
+typedef struct MapSet MapSet;
+
+/* 基于数组简易实现的哈希表 */
+struct ArrayHashMap {
+    Entry *buckets[HASH_MAP_DEFAULT_SIZE];
+};
+
+typedef struct ArrayHashMap ArrayHashMap;
 
 /* 哈希表初始化函数 */
 ArrayHashMap *newArrayHashMap() {
@@ -155,6 +161,7 @@ void print(ArrayHashMap *d) {
     free(set.set);
 }
 
+/* Driver Code */
 int main() {
     /* 初始化哈希表 */
     ArrayHashMap * map = newArrayHashMap();
@@ -203,5 +210,6 @@ int main() {
         printf("%s\n", vals[i]);
     }
     free(set.set);
-
+    
+    return 0;
 }
