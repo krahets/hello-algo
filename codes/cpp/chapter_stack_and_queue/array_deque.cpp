@@ -1,5 +1,5 @@
 /**
- * File: array_deque->cpp
+ * File: array_deque.cpp
  * Created Time: 2023-03-02
  * Author: Krahets (krahets@163.com)
  */

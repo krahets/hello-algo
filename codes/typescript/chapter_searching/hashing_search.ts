@@ -1,5 +1,5 @@
 /**
- * File: hashing_search.js
+ * File: hashing_search.ts
  * Created Time: 2022-12-29
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */

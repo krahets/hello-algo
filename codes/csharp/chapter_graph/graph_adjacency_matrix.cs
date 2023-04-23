@@ -1,5 +1,5 @@
 /**
- * File: graph_adjacency_list.cs
+ * File: graph_adjacency_matrix.cs
  * Created Time: 2023-02-06
  * Author: zjkung1123 (zjkung1123@gmail.com)
  */

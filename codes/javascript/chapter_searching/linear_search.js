@@ -1,5 +1,5 @@
 /**
- * File: linear-search.js
+ * File: linear_search.js
  * Created Time: 2022-12-22
  * Author: JoseHung (szhong@link.cuhk.edu.hk)
  */
