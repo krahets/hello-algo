@@ -760,21 +760,18 @@ $$
 
     ```csharp title="space_complexity.cs"
     /* 常数阶 */
-    void constant(int n)
-    {
+    void constant(int n) {
         // 常量、变量、对象占用 O(1) 空间
         int a = 0;
         int b = 0;
         int[] nums = new int[10000];
         ListNode node = new ListNode(0);
         // 循环中的变量占用 O(1) 空间
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             int c = 0;
         }
         // 循环中的函数占用 O(1) 空间
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             function();
         }
     }
@@ -997,20 +994,17 @@ $$
 
     ```csharp title="space_complexity.cs"
     /* 线性阶 */
-    void linear(int n)
-    {
+    void linear(int n) {
         // 长度为 n 的数组占用 O(n) 空间
         int[] nums = new int[n];
         // 长度为 n 的列表占用 O(n) 空间
         List<ListNode> nodes = new();
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             nodes.Add(new ListNode(i));
         }
         // 长度为 n 的哈希表占用 O(n) 空间
         Dictionary<int, string> map = new();
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             map.Add(i, i.ToString());
         }
     }
@@ -1145,8 +1139,7 @@ $$
 
     ```csharp title="space_complexity.cs"
     /* 线性阶（递归实现） */
-    void linearRecur(int n)
-    {
+    void linearRecur(int n) {
         Console.WriteLine("递归 n = " + n);
         if (n == 1) return;
         linearRecur(n - 1);
@@ -1312,17 +1305,14 @@ $$
 
     ```csharp title="space_complexity.cs"
     /* 平方阶 */
-    void quadratic(int n)
-    {
+    void quadratic(int n) {
         // 矩阵占用 O(n^2) 空间
         int[,] numMatrix = new int[n, n];
         // 二维列表占用 O(n^2) 空间
         List<List<int>> numList = new();
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             List<int> tmp = new();
-            for (int j = 0; j < n; j++)
-            {
+            for (int j = 0; j < n; j++) {
                 tmp.Add(0);
             }
             numList.Add(tmp);
@@ -1458,8 +1448,7 @@ $$
 
     ```csharp title="space_complexity.cs"
     /* 平方阶（递归实现） */
-    int quadraticRecur(int n)
-    {
+    int quadraticRecur(int n) {
         if (n <= 0) return 0;
         int[] nums = new int[n];
         Console.WriteLine("递归 n = " + n + " 中的 nums 长度 = " + nums.Length);
@@ -1603,8 +1592,7 @@ $$
 
     ```csharp title="space_complexity.cs"
     /* 指数阶（建立满二叉树） */
-    TreeNode? buildTree(int n)
-    {
+    TreeNode? buildTree(int n) {
         if (n == 0) return null;
         TreeNode root = new TreeNode(0);
         root.left = buildTree(n - 1);

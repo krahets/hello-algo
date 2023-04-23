@@ -460,20 +460,17 @@ comments: true
 
     ```csharp title="my_heap.cs"
     /* 获取左子节点索引 */
-    int left(int i)
-    {
+    int left(int i) {
         return 2 * i + 1;
     }
 
     /* 获取右子节点索引 */
-    int right(int i)
-    {
+    int right(int i) {
         return 2 * i + 2;
     }
 
     /* 获取父节点索引 */
-    int parent(int i)
-    {
+    int parent(int i) {
         return (i - 1) / 2; // 向下整除
     }
     ```
@@ -587,8 +584,7 @@ comments: true
 
     ```csharp title="my_heap.cs"
     /* 访问堆顶元素 */
-    int peek()
-    {
+    int peek() {
         return maxHeap[0];
     }
     ```
@@ -834,8 +830,7 @@ comments: true
 
     ```csharp title="my_heap.cs"
     /* 元素入堆 */
-    void push(int val)
-    {
+    void push(int val) {
         // 添加节点
         maxHeap.Add(val);
         // 从底至顶堆化
@@ -843,10 +838,8 @@ comments: true
     }
 
     /* 从节点 i 开始，从底至顶堆化 */
-    void siftUp(int i)
-    {
-        while (true)
-        {
+    void siftUp(int i) {
+        while (true) {
             // 获取节点 i 的父节点
             int p = parent(i);
             // 若“越过根节点”或“节点无需修复”，则结束堆化
@@ -965,7 +958,7 @@ comments: true
     int pop() {
         // 判空处理
         if (isEmpty())
-            throw new EmptyStackException();
+            throw new IndexOutOfBoundsException();
         // 交换根节点与最右叶节点（即交换首元素与尾元素）
         swap(0, size() - 1);
         // 删除节点
@@ -1039,7 +1032,8 @@ comments: true
     def pop(self) -> int:
         """元素出堆"""
         # 判空处理
-        assert not self.is_empty()
+        if self.is_empty():
+            raise IndexError("堆为空")
         # 交换根节点与最右叶节点（即交换首元素与尾元素）
         self.swap(0, self.size() - 1)
         # 删除节点
@@ -1235,8 +1229,7 @@ comments: true
 
     ```csharp title="my_heap.cs"
     /* 元素出堆 */
-    int pop()
-    {
+    int pop() {
         // 判空处理
         if (isEmpty())
             throw new IndexOutOfRangeException();
@@ -1252,10 +1245,8 @@ comments: true
     }
 
     /* 从节点 i 开始，从顶至底堆化 */
-    void siftDown(int i)
-    {
-        while (true)
-        {
+    void siftDown(int i) {
+        while (true) {
             // 判断节点 i, l, r 中值最大的节点，记为 ma
             int l = left(i), r = right(i), ma = i;
             if (l < size() && maxHeap[l] > maxHeap[ma])

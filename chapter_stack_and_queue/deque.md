@@ -1067,7 +1067,7 @@ comments: true
 
     typedef struct linkedListDeque linkedListDeque;
 
-    /* 构造j */
+    /* 构造函数 */
     linkedListDeque *newLinkedListDeque() {
         linkedListDeque *deque = (linkedListDeque *)malloc(sizeof(linkedListDeque));
         deque->front = NULL;
@@ -1606,14 +1606,14 @@ comments: true
         /* 访问队首元素 */
         public int peekFirst() {
             if (isEmpty())
-                throw new EmptyStackException();
+                throw new IndexOutOfBoundsException();
             return nums[front];
         }
 
         /* 访问队尾元素 */
         public int peekLast() {
             if (isEmpty())
-                throw new EmptyStackException();
+                throw new IndexOutOfBoundsException();
             // 计算尾元素索引
             int last = index(front + queSize - 1);
             return nums[last];
@@ -1812,12 +1812,14 @@ comments: true
 
         def peek_first(self) -> int:
             """访问队首元素"""
-            assert not self.is_empty(), "双向队列为空"
+            if self.is_empty():
+                raise IndexError("双向队列为空")
             return self.__nums[self.__front]
 
         def peek_last(self) -> int:
             """访问队尾元素"""
-            assert not self.is_empty(), "双向队列为空"
+            if self.is_empty():
+                raise IndexError("双向队列为空")
             # 计算尾元素索引
             last = self.index(self.__front + self.__size - 1)
             return self.__nums[last]

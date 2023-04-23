@@ -203,15 +203,13 @@ comments: true
 
     ```csharp title="binary_tree_bfs.cs"
     /* 层序遍历 */
-    List<int> levelOrder(TreeNode root)
-    {
+    List<int> levelOrder(TreeNode root) {
         // 初始化队列，加入根节点
         Queue<TreeNode> queue = new();
         queue.Enqueue(root);
         // 初始化一个列表，用于保存遍历序列
         List<int> list = new();
-        while (queue.Count != 0)
-        {
+        while (queue.Count != 0) {
             TreeNode node = queue.Dequeue(); // 队列出队
             list.Add(node.val);              // 保存节点值
             if (node.left != null)
@@ -548,8 +546,7 @@ comments: true
 
     ```csharp title="binary_tree_dfs.cs"
     /* 前序遍历 */
-    void preOrder(TreeNode? root)
-    {
+    void preOrder(TreeNode? root) {
         if (root == null) return;
         // 访问优先级：根节点 -> 左子树 -> 右子树
         list.Add(root.val);
@@ -558,8 +555,7 @@ comments: true
     }
 
     /* 中序遍历 */
-    void inOrder(TreeNode? root)
-    {
+    void inOrder(TreeNode? root) {
         if (root == null) return;
         // 访问优先级：左子树 -> 根节点 -> 右子树
         inOrder(root.left);
@@ -568,8 +564,7 @@ comments: true
     }
 
     /* 后序遍历 */
-    void postOrder(TreeNode? root)
-    {
+    void postOrder(TreeNode? root) {
         if (root == null) return;
         // 访问优先级：左子树 -> 右子树 -> 根节点
         postOrder(root.left);

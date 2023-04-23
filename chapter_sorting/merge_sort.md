@@ -385,8 +385,7 @@ comments: true
     /* 合并左子数组和右子数组 */
     // 左子数组区间 [left, mid]
     // 右子数组区间 [mid + 1, right]
-    void merge(int[] nums, int left, int mid, int right)
-    {
+    void merge(int[] nums, int left, int mid, int right) {
         // 初始化辅助数组
         int[] tmp = nums[left..(right + 1)];
         // 左子数组的起始索引和结束索引  
@@ -396,8 +395,7 @@ comments: true
         // i, j 分别指向左子数组、右子数组的首元素
         int i = leftStart, j = rightStart;
         // 通过覆盖原数组 nums 来合并左子数组和右子数组
-        for (int k = left; k <= right; k++)
-        {
+        for (int k = left; k <= right; k++) {
             // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
             if (i > leftEnd)
                 nums[k] = tmp[j++];
@@ -411,8 +409,7 @@ comments: true
     }
 
     /* 归并排序 */
-    void mergeSort(int[] nums, int left, int right)
-    {
+    void mergeSort(int[] nums, int left, int right) {
         // 终止条件
         if (left >= right) return;       // 当子数组长度为 1 时终止递归
         // 划分阶段

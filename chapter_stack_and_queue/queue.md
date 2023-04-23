@@ -328,7 +328,7 @@ comments: true
         /* 访问队首元素 */
         public int peek() {
             if (size() == 0)
-                throw new EmptyStackException();
+                throw new IndexOutOfBoundsException();
             return front.val;
         }
 
@@ -768,43 +768,35 @@ comments: true
 
     ```csharp title="linkedlist_queue.cs"
     /* 基于链表实现的队列 */
-    class LinkedListQueue
-    {
+    class LinkedListQueue {
         private ListNode? front, rear;  // 头节点 front ，尾节点 rear 
         private int queSize = 0;
 
-        public LinkedListQueue()
-        {
+        public LinkedListQueue() {
             front = null;
             rear = null;
         }
 
         /* 获取队列的长度 */
-        public int size()
-        {
+        public int size() {
             return queSize;
         }
 
         /* 判断队列是否为空 */
-        public bool isEmpty()
-        {
+        public bool isEmpty() {
             return size() == 0;
         }
 
         /* 入队 */
-        public void push(int num)
-        {
+        public void push(int num) {
             // 尾节点后添加 num
             ListNode node = new ListNode(num);
             // 如果队列为空，则令头、尾节点都指向该节点
-            if (front == null)
-            {
+            if (front == null) {
                 front = node;
                 rear = node;
                 // 如果队列不为空，则将该节点添加到尾节点后
-            }
-            else if (rear != null)
-            {
+            } else if (rear != null) {
                 rear.next = node;
                 rear = node;
             }
@@ -812,8 +804,7 @@ comments: true
         }
 
         /* 出队 */
-        public int pop()
-        {
+        public int pop() {
             int num = peek();
             // 删除头节点
             front = front?.next;
@@ -822,23 +813,20 @@ comments: true
         }
 
         /* 访问队首元素 */
-        public int peek()
-        {
+        public int peek() {
             if (size() == 0 || front == null)
                 throw new Exception();
             return front.val;
         }
 
         /* 将链表转化为 Array 并返回 */
-        public int[] toArray()
-        {
+        public int[] toArray() {
             if (front == null)
                 return Array.Empty<int>();
 
             ListNode node = front;
             int[] res = new int[size()];
-            for (int i = 0; i < res.Length; i++)
-            {
+            for (int i = 0; i < res.Length; i++) {
                 res[i] = node.val;
                 node = node.next;
             }
@@ -1086,7 +1074,7 @@ comments: true
         /* 访问队首元素 */
         public int peek() {
             if (isEmpty())
-                throw new EmptyStackException();
+                throw new IndexOutOfBoundsException();
             return nums[front];
         }
 
@@ -1207,9 +1195,10 @@ comments: true
 
         def push(self, num: int) -> None:
             """入队"""
-            assert self.__size < self.capacity(), "队列已满"
+            if self.__size == self.capacity():
+                raise IndexError("队列已满")
             # 计算尾指针，指向队尾索引 + 1
-            # 通过取余操作，实现 rear 越过数组尾部后回到头部
+            # 通过取余操作，实现 rear 越过数组尾部后回到头部F
             rear: int = (self.__front + self.__size) % self.capacity()
             # 将 num 添加至队尾
             self.__nums[rear] = num
@@ -1225,7 +1214,8 @@ comments: true
 
         def peek(self) -> int:
             """访问队首元素"""
-            assert not self.is_empty(), "队列为空"
+            if self.is_empty():
+                raise IndexError("队列为空")
             return self.__nums[self.__front]
 
         def to_list(self) -> list[int]:
@@ -1537,41 +1527,34 @@ comments: true
 
     ```csharp title="array_queue.cs"
     /* 基于环形数组实现的队列 */
-    class ArrayQueue
-    {
+    class ArrayQueue {
         private int[] nums;  // 用于存储队列元素的数组
         private int front;   // 队首指针，指向队首元素
         private int queSize; // 队列长度
 
-        public ArrayQueue(int capacity)
-        {
+        public ArrayQueue(int capacity) {
             nums = new int[capacity];
             front = queSize = 0;
         }
 
         /* 获取队列的容量 */
-        public int capacity()
-        {
+        public int capacity() {
             return nums.Length;
         }
 
         /* 获取队列的长度 */
-        public int size()
-        {
+        public int size() {
             return queSize;
         }
 
         /* 判断队列是否为空 */
-        public bool isEmpty()
-        {
+        public bool isEmpty() {
             return queSize == 0;
         }
 
         /* 入队 */
-        public void push(int num)
-        {
-            if (queSize == capacity())
-            {
+        public void push(int num) {
+            if (queSize == capacity()) {
                 Console.WriteLine("队列已满");
                 return;
             }
@@ -1584,8 +1567,7 @@ comments: true
         }
 
         /* 出队 */
-        public int pop()
-        {
+        public int pop() {
             int num = peek();
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
             front = (front + 1) % capacity();
@@ -1594,20 +1576,17 @@ comments: true
         }
 
         /* 访问队首元素 */
-        public int peek()
-        {
+        public int peek() {
             if (isEmpty())
                 throw new Exception();
             return nums[front];
         }
 
         /* 返回数组 */
-        public int[] toArray()
-        {
+        public int[] toArray() {
             // 仅转换有效长度范围内的列表元素
             int[] res = new int[queSize];
-            for (int i = 0, j = front; i < queSize; i++, j++)
-            {
+            for (int i = 0, j = front; i < queSize; i++, j++) {
                 res[i] = nums[j % this.capacity()];
             }
             return res;

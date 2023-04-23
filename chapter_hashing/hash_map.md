@@ -971,41 +971,34 @@ $$
 
     ```csharp title="array_hash_map.cs"
     /* 键值对 int->string */
-    class Entry
-    {
+    class Entry {
         public int key;
         public string val;
-        public Entry(int key, string val)
-        {
+        public Entry(int key, string val) {
             this.key = key;
             this.val = val;
         }
     }
 
     /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap
-    {
+    class ArrayHashMap {
         private List<Entry?> buckets;
-        public ArrayHashMap()
-        {
+        public ArrayHashMap() {
             // 初始化数组，包含 100 个桶
             buckets = new();
-            for (int i = 0; i < 100; i++)
-            {
+            for (int i = 0; i < 100; i++) {
                 buckets.Add(null);
             }
         }
 
         /* 哈希函数 */
-        private int hashFunc(int key)
-        {
+        private int hashFunc(int key) {
             int index = key % 100;
             return index;
         }
 
         /* 查询操作 */
-        public string? get(int key)
-        {
+        public string? get(int key) {
             int index = hashFunc(key);
             Entry? pair = buckets[index];
             if (pair == null) return null;
@@ -1013,27 +1006,23 @@ $$
         }
 
         /* 添加操作 */
-        public void put(int key, string val)
-        {
+        public void put(int key, string val) {
             Entry pair = new Entry(key, val);
             int index = hashFunc(key);
             buckets[index] = pair;
         }
 
         /* 删除操作 */
-        public void remove(int key)
-        {
+        public void remove(int key) {
             int index = hashFunc(key);
             // 置为 null ，代表删除
             buckets[index] = null;
         }
 
         /* 获取所有键值对 */
-        public List<Entry> entrySet()
-        {
+        public List<Entry> entrySet() {
             List<Entry> entrySet = new();
-            foreach (Entry? pair in buckets)
-            {
+            foreach (Entry? pair in buckets) {
                 if (pair != null)
                     entrySet.Add(pair);
             }
@@ -1041,11 +1030,9 @@ $$
         }
 
         /* 获取所有键 */
-        public List<int> keySet()
-        {
+        public List<int> keySet() {
             List<int> keySet = new();
-            foreach (Entry? pair in buckets)
-            {
+            foreach (Entry? pair in buckets) {
                 if (pair != null)
                     keySet.Add(pair.key);
             }
@@ -1053,11 +1040,9 @@ $$
         }
 
         /* 获取所有值 */
-        public List<string> valueSet()
-        {
+        public List<string> valueSet() {
             List<string> valueSet = new();
-            foreach (Entry? pair in buckets)
-            {
+            foreach (Entry? pair in buckets) {
                 if (pair != null)
                     valueSet.Add(pair.val);
             }
@@ -1065,10 +1050,8 @@ $$
         }
 
         /* 打印哈希表 */
-        public void print()
-        {
-            foreach (Entry kv in entrySet())
-            {
+        public void print() {
+            foreach (Entry kv in entrySet()) {
                 Console.WriteLine(kv.key + " -> " + kv.val);
             }
         }
