@@ -36,9 +36,9 @@ public class permutations_i {
     [Test]
     public void Test() {
         int[] nums = { 1, 2, 3 };
-        List<List<int>> res = new List<List<int>>();
 
         // 回溯算法
+        List<List<int>> res = new List<List<int>>();
         backtrack(new List<int>(), nums, new bool[nums.Length], res);
 
         Console.WriteLine("输入数组 nums = " + string.Join(", ", nums));
