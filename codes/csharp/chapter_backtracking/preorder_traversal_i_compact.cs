@@ -6,7 +6,6 @@
 
 using hello_algo.utils;
 using NUnit.Framework;
-using System.IO;
 
 namespace hello_algo.chapter_backtracking;
 
