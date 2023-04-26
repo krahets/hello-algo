@@ -32,60 +32,80 @@
 
     ```java title="permutations_i.java"
     [class]{permutations_i}-[func]{backtrack}
+
+    [class]{permutations_i}-[func]{permutationsI}
     ```
 
 === "C++"
 
     ```cpp title="permutations_i.cpp"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsI}
     ```
 
 === "Python"
 
     ```python title="permutations_i.py"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutations_i}
     ```
 
 === "Go"
 
     ```go title="permutations_i.go"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsI}
     ```
 
 === "JavaScript"
 
     ```javascript title="permutations_i.js"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsI}
     ```
 
 === "TypeScript"
 
     ```typescript title="permutations_i.ts"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsI}
     ```
 
 === "C"
 
     ```c title="permutations_i.c"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsI}
     ```
 
 === "C#"
 
     ```csharp title="permutations_i.cs"
     [class]{permutations_i}-[func]{backtrack}
+
+    [class]{permutations_i}-[func]{permutationsI}
     ```
 
 === "Swift"
 
     ```swift title="permutations_i.swift"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsI}
     ```
 
 === "Zig"
 
     ```zig title="permutations_i.zig"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsI}
     ```
 
 需要重点关注的是，我们引入了一个布尔型数组 `selected` ，它的长度与输入数组长度相等，其中 `selected[i]` 表示 `choices[i]` 是否已被选择。我们利用 `selected` 避免某个元素被重复选择，从而实现剪枝。
@@ -114,60 +134,80 @@
 
     ```java title="permutations_ii.java"
     [class]{permutations_ii}-[func]{backtrack}
+
+    [class]{permutations_ii}-[func]{permutationsII}
     ```
 
 === "C++"
 
     ```cpp title="permutations_ii.cpp"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsII}
     ```
 
 === "Python"
 
     ```python title="permutations_ii.py"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutations_ii}
     ```
 
 === "Go"
 
     ```go title="permutations_ii.go"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsII}
     ```
 
 === "JavaScript"
 
     ```javascript title="permutations_ii.js"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsII}
     ```
 
 === "TypeScript"
 
     ```typescript title="permutations_ii.ts"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsII}
     ```
 
 === "C"
 
     ```c title="permutations_ii.c"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsII}
     ```
 
 === "C#"
 
     ```csharp title="permutations_ii.cs"
     [class]{permutations_ii}-[func]{backtrack}
+
+    [class]{permutations_ii}-[func]{permutationsII}
     ```
 
 === "Swift"
 
     ```swift title="permutations_ii.swift"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsII}
     ```
 
 === "Zig"
 
     ```zig title="permutations_ii.zig"
     [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsII}
     ```
 
 注意，虽然 `selected` 和 `duplicated` 都起到剪枝的作用，但他们剪掉的是不同的分支：
