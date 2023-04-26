@@ -21,24 +21,29 @@ public class permutations_i {
             int choice = choices[i];
             // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
             if (!selected[i]) {
-                // 尝试
-                selected[i] = true; // 做出选择
-                state.add(choice); // 更新状态
+                // 尝试：做出选择，更新状态
+                selected[i] = true;
+                state.add(choice);
                 backtrack(state, choices, selected, res);
-                // 回退
-                selected[i] = false; // 撤销选择
-                state.remove(state.size() - 1); // 恢复到之前的状态
+                // 回退：撤销选择，恢复到之前的状态
+                selected[i] = false;
+                state.remove(state.size() - 1);
             }
         }
     }
 
+    /* 全排列 I */
+    static List<List<Integer>> permutationsI(int[] nums) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        backtrack(new ArrayList<Integer>(), nums, new boolean[nums.length], res);
+        return res;
+    }
+
     public static void main(String[] args) {
         int[] nums = { 1, 2, 3 };
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
 
-        // 回溯算法
-        backtrack(new ArrayList<Integer>(), nums, new boolean[nums.length], res);
-        
+        List<List<Integer>> res = permutationsI(nums);
+
         System.out.println("输入数组 nums = " + Arrays.toString(nums));
         System.out.println("所有排列 res = " + res);
     }

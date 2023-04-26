@@ -23,23 +23,28 @@ def backtrack(
     for i, choice in enumerate(choices):
         # 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
         if not selected[i] and choice not in duplicated:
-            # 尝试
+            # 尝试：做出选择，更新状态
             duplicated.add(choice)  # 记录选择过的元素值
-            selected[i] = True  # 做出选择
-            state.append(choice)  # 更新状态
+            selected[i] = True
+            state.append(choice)
             backtrack(state, choices, selected, res)
-            # 回退
-            selected[i] = False  # 撤销选择
-            state.pop()  # 恢复到之前的状态
+            # 回退：撤销选择，恢复到之前的状态
+            selected[i] = False
+            state.pop()
+
+
+def permutations_ii(nums: list[int]) -> list[list[int]]:
+    """全排列 II"""
+    res = []
+    backtrack(state=[], choices=nums, selected=[False] * len(nums), res=res)
+    return res
 
 
 """Driver Code"""
 if __name__ == "__main__":
     nums = [1, 2, 2]
-    res = []
 
-    # 回溯算法
-    backtrack(state=[], choices=nums, selected=[False] * len(nums), res=res)
+    res = permutations_ii(nums)
 
     print(f"输入数组 nums = {nums}")
     print(f"所有排列 res = {res}")

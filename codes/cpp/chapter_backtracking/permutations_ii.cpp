@@ -19,27 +19,32 @@ void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &sel
         int choice = choices[i];
         // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
         if (!selected[i] && duplicated.find(choice) == duplicated.end()) {
-            // 尝试
+            // 尝试：做出选择，更新状态
             duplicated.emplace(choice); // 记录选择过的元素值
-            selected[i] = true;         // 做出选择
-            state.push_back(choice);    // 更新状态
+            selected[i] = true;
+            state.push_back(choice);
             backtrack(state, choices, selected, res);
-            // 回退
-            selected[i] = false; // 撤销选择
-            state.pop_back();    // 恢复到之前的状态
+            // 回退：撤销选择，恢复到之前的状态
+            selected[i] = false;
+            state.pop_back();
         }
     }
+}
+
+/* 全排列 II */
+vector<vector<int>> permutationsII(vector<int> nums) {
+    vector<int> state;
+    vector<bool> selected(nums.size(), false);
+    vector<vector<int>> res;
+    backtrack(state, nums, selected, res);
+    return res;
 }
 
 /* Driver Code */
 int main() {
     vector<int> nums = {1, 1, 2};
 
-    // 回溯算法
-    vector<int> state;
-    vector<bool> selected(nums.size(), false);
-    vector<vector<int>> res;
-    backtrack(state, nums, selected, res);
+    vector<vector<int>> res = permutationsII(nums);
 
     cout << "输入数组 nums = ";
     printVector(nums);
