@@ -49,8 +49,8 @@ public class preorder_traversal_iii_template {
             if (isValid(state, choice)) {
                 // 尝试：做出选择，更新状态
                 makeChoice(state, choice);
-                List<TreeNode> nextChoices = new List<TreeNode>() { choice.left, choice.right };
-                backtrack(state, nextChoices, res);
+                // 进行下一轮选择
+                backtrack(state, new List<TreeNode> { choice.left, choice.right }, res);
                 // 回退：撤销选择，恢复到之前的状态
                 undoChoice(state, choice);
             }

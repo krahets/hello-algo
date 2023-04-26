@@ -27,6 +27,7 @@ def backtrack(
             duplicated.add(choice)  # 记录选择过的元素值
             selected[i] = True
             state.append(choice)
+            # 进行下一轮选择
             backtrack(state, choices, selected, res)
             # 回退：撤销选择，恢复到之前的状态
             selected[i] = False

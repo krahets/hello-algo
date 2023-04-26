@@ -25,6 +25,7 @@ def backtrack(
             # 尝试：做出选择，更新状态
             selected[i] = True
             state.append(choice)
+            # 进行下一轮选择
             backtrack(state, choices, selected, res)
             # 回退：撤销选择，恢复到之前的状态
             selected[i] = False

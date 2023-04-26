@@ -45,6 +45,7 @@ void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<ve
         if (isValid(state, choice)) {
             // 尝试：做出选择，更新状态
             makeChoice(state, choice);
+            // 进行下一轮选择
             vector<TreeNode *> nextChoices{choice->left, choice->right};
             backtrack(state, nextChoices, res);
             // 回退：撤销选择，恢复到之前的状态
