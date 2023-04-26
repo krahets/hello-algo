@@ -4,79 +4,67 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using hello_algo.include;
+using hello_algo.utils;
 using NUnit.Framework;
 
 namespace hello_algo.chapter_computational_complexity;
 
-public class space_complexity
-{
+public class space_complexity {
     /* 函数 */
-    static int function()
-    {
+    static int function() {
         // do something
         return 0;
     }
 
     /* 常数阶 */
-    static void constant(int n)
-    {
+    static void constant(int n) {
         // 常量、变量、对象占用 O(1) 空间
         int a = 0;
         int b = 0;
         int[] nums = new int[10000];
         ListNode node = new ListNode(0);
         // 循环中的变量占用 O(1) 空间
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             int c = 0;
         }
         // 循环中的函数占用 O(1) 空间
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             function();
         }
     }
 
     /* 线性阶 */
-    static void linear(int n)
-    {
+    static void linear(int n) {
         // 长度为 n 的数组占用 O(n) 空间
         int[] nums = new int[n];
         // 长度为 n 的列表占用 O(n) 空间
         List<ListNode> nodes = new();
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             nodes.Add(new ListNode(i));
         }
         // 长度为 n 的哈希表占用 O(n) 空间
-        Dictionary<int, String> map = new();
-        for (int i = 0; i < n; i++)
-        {
+        Dictionary<int, string> map = new();
+        for (int i = 0; i < n; i++) {
             map.Add(i, i.ToString());
         }
     }
 
     /* 线性阶（递归实现） */
-    static void linearRecur(int n)
-    {
+    static void linearRecur(int n) {
         Console.WriteLine("递归 n = " + n);
         if (n == 1) return;
         linearRecur(n - 1);
     }
 
     /* 平方阶 */
-    static void quadratic(int n)
-    {
+    static void quadratic(int n) {
         // 矩阵占用 O(n^2) 空间
         int[,] numMatrix = new int[n, n];
         // 二维列表占用 O(n^2) 空间
         List<List<int>> numList = new();
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             List<int> tmp = new();
-            for (int j = 0; j < n; j++)
-            {
+            for (int j = 0; j < n; j++) {
                 tmp.Add(0);
             }
             numList.Add(tmp);
@@ -84,8 +72,7 @@ public class space_complexity
     }
 
     /* 平方阶（递归实现） */
-    static int quadraticRecur(int n)
-    {
+    static int quadraticRecur(int n) {
         if (n <= 0) return 0;
         int[] nums = new int[n];
         Console.WriteLine("递归 n = " + n + " 中的 nums 长度 = " + nums.Length);
@@ -93,8 +80,7 @@ public class space_complexity
     }
 
     /* 指数阶（建立满二叉树） */
-    static TreeNode? buildTree(int n)
-    {
+    static TreeNode? buildTree(int n) {
         if (n == 0) return null;
         TreeNode root = new TreeNode(0);
         root.left = buildTree(n - 1);
@@ -103,8 +89,7 @@ public class space_complexity
     }
 
     [Test]
-    public void Test()
-    {
+    public void Test() {
         int n = 5;
         // 常数阶
         constant(n);

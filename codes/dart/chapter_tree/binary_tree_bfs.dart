@@ -17,7 +17,7 @@ List<int> levelOrder(TreeNode? root) {
   List<int> res = [];
   while (queue.isNotEmpty) {
     TreeNode? node = queue.removeFirst(); // 队列出队
-    res.add(node!.val); // 保存结点值
+    res.add(node!.val); // 保存节点值
     if (node.left != null) queue.add(node.left); // 左子节点入队
     if (node.right != null) queue.add(node.right); // 右子节点入队
   }
@@ -34,5 +34,5 @@ void main() {
 
   // 层序遍历
   List<int> res = levelOrder(root);
-  print("\n层序遍历的结点打印序列 = $res");
+  print("\n层序遍历的节点打印序列 = $res");
 }

@@ -36,7 +36,7 @@ public class worst_best_time_complexity {
         }
         return -1;
     }
-    
+
     /* Driver Code */
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {

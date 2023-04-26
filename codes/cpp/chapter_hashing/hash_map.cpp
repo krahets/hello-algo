@@ -4,8 +4,7 @@
  * Author: msk397 (machangxinq@gmail.com)
  */
 
-#include "../include/include.hpp"
-
+#include "../utils/common.hpp"
 
 /* Driver Code */
 int main() {
@@ -20,7 +19,7 @@ int main() {
     map[13276] = "小法";
     map[10583] = "小鸭";
     cout << "\n添加完成后，哈希表为\nKey -> Value" << endl;
-    PrintUtil::printHashMap(map);
+    printHashMap(map);
 
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
@@ -31,21 +30,21 @@ int main() {
     // 在哈希表中删除键值对 (key, value)
     map.erase(10583);
     cout << "\n删除 10583 后，哈希表为\nKey -> Value" << endl;
-    PrintUtil::printHashMap(map);
+    printHashMap(map);
 
     /* 遍历哈希表 */
     cout << "\n遍历键值对 Key->Value" << endl;
-    for (auto kv: map) {
+    for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
 
     cout << "\n单独遍历键 Key" << endl;
-    for (auto key: map) {
+    for (auto key : map) {
         cout << key.first << endl;
     }
 
     cout << "\n单独遍历值 Value" << endl;
-    for (auto val: map) {
+    for (auto val : map) {
         cout << val.second << endl;
     }
 

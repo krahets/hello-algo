@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 桶排序 */
 void bucketSort(vector<float> &nums) {
@@ -20,7 +20,7 @@ void bucketSort(vector<float> &nums) {
     }
     // 2. 对各个桶执行排序
     for (vector<float> &bucket : buckets) {
-        // 使用内置排序函数，也可以替换成其它排序算法
+        // 使用内置排序函数，也可以替换成其他排序算法
         sort(bucket.begin(), bucket.end());
     }
     // 3. 遍历桶合并结果
@@ -38,7 +38,7 @@ int main() {
     vector<float> nums = {0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f};
     bucketSort(nums);
     cout << "桶排序完成后 nums = ";
-    PrintUtil::printVector(nums);
+    printVector(nums);
 
     return 0;
 }

@@ -15,21 +15,21 @@ queue.push(3);
 queue.push(2);
 queue.push(5);
 queue.push(4);
-console.log("队列 queue =", queue);
+console.log('队列 queue =', queue);
 
 /* 访问队首元素 */
 const peek = queue[0];
-console.log("队首元素 peek =", peek);
+console.log('队首元素 peek =', peek);
 
 /* 元素出队 */
 // 底层是数组，因此 shift() 方法的时间复杂度为 O(n)
 const pop = queue.shift();
-console.log("出队元素 pop =", pop, "，出队后 queue = ", queue);
+console.log('出队元素 pop =', pop, '，出队后 queue = ', queue);
 
 /* 获取队列的长度 */
 const size = queue.length;
-console.log("队列长度 size =", size);
+console.log('队列长度 size =', size);
 
 /* 判断队列是否为空 */
 const isEmpty = queue.length === 0;
-console.log("队列是否为空 = ", isEmpty);
+console.log('队列是否为空 = ', isEmpty);

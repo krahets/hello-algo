@@ -32,18 +32,18 @@ function bubbleSortWithFlag(nums) {
                 let tmp = nums[j];
                 nums[j] = nums[j + 1];
                 nums[j + 1] = tmp;
-                flag = true;  // 记录交换元素
+                flag = true; // 记录交换元素
             }
         }
-        if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
+        if (!flag) break; // 此轮冒泡未交换任何元素，直接跳出
     }
 }
 
 /* Driver Code */
 const nums = [4, 1, 3, 1, 5, 2];
 bubbleSort(nums);
-console.log("排序后数组 nums =", nums);
+console.log('排序后数组 nums =', nums);
 
 const nums1 = [4, 1, 3, 1, 5, 2];
 bubbleSortWithFlag(nums1);
-console.log("排序后数组 nums =", nums1);
+console.log('排序后数组 nums =', nums1);

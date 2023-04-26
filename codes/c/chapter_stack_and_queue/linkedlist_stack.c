@@ -4,17 +4,17 @@
  * Author: Zero (glj0@outlook.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 基于链表实现的栈 */
 struct linkedListStack {
-    ListNode *top; // 将头结点作为栈顶
-    int size;           // 栈的长度
+    ListNode *top; // 将头节点作为栈顶
+    int size;      // 栈的长度
 };
 
 typedef struct linkedListStack linkedListStack;
 
-/* 构造方法 */
+/* 构造函数 */
 linkedListStack *newLinkedListStack() {
     linkedListStack *s = malloc(sizeof(linkedListStack));
     s->top = NULL;
@@ -22,7 +22,7 @@ linkedListStack *newLinkedListStack() {
     return s;
 }
 
-/* 析构方法 */
+/* 析构函数 */
 void delLinkedListStack(linkedListStack *s) {
     while (s->top) {
         ListNode *n = s->top->next;
@@ -54,18 +54,18 @@ int peek(linkedListStack *s) {
 /* 入栈 */
 void push(linkedListStack *s, int num) {
     assert(s);
-    ListNode *node = (ListNode *) malloc(sizeof(ListNode));
-    node->next = s->top;   // 更新新加结点指针域
-    node->val = num;       // 更新新加结点数据域
-    s->top = node;         // 更新栈顶
-    s->size++;             // 更新栈大小
+    ListNode *node = (ListNode *)malloc(sizeof(ListNode));
+    node->next = s->top; // 更新新加节点指针域
+    node->val = num;     // 更新新加节点数据域
+    s->top = node;       // 更新栈顶
+    s->size++;           // 更新栈大小
 }
 
 /* 出栈 */
 int pop(linkedListStack *s) {
     if (s->size == 0) {
         printf("stack is empty.\n");
-        return NIL;
+        return INT_MAX;
     }
     assert(s);
     int val = peek(s);
@@ -80,7 +80,6 @@ int pop(linkedListStack *s) {
 /* Driver Code */
 int main() {
     /* 初始化栈 */
-    // 构造方法
     linkedListStack *stack = newLinkedListStack();
 
     /* 元素入栈 */
@@ -109,7 +108,8 @@ int main() {
     bool empty = isEmpty(stack);
     printf("栈是否为空 = %s\n", empty ? "true" : "false");
 
-    /* 析构方法 */
+    // 释放内存
     delLinkedListStack(stack);
+
     return 0;
 }

@@ -1,20 +1,20 @@
 # 二叉树遍历
 
-从物理结构角度看，树是一种基于链表的数据结构，因此遍历方式也是通过指针（即引用）逐个遍历结点。同时，树还是一种非线性数据结构，这导致遍历树比遍历链表更加复杂，需要使用搜索算法来实现。
+从物理结构的角度来看，树是一种基于链表的数据结构，因此其遍历方式是通过指针逐个访问节点。然而，树是一种非线性数据结构，这使得遍历树比遍历链表更加复杂，需要借助搜索算法来实现。
 
-常见的二叉树遍历方式有层序遍历、前序遍历、中序遍历、后序遍历。
+二叉树常见的遍历方式包括层序遍历、前序遍历、中序遍历和后序遍历等。
 
 ## 层序遍历
 
-「层序遍历 Level-Order Traversal」从顶至底、一层一层地遍历二叉树，并在每层中按照从左到右的顺序访问结点。
+「层序遍历 Level-Order Traversal」从顶部到底部逐层遍历二叉树，并在每一层按照从左到右的顺序访问节点。
 
-层序遍历本质上是「广度优先搜索 Breadth-First Traversal」，其体现着一种“一圈一圈向外”的层进遍历方式。
+层序遍历本质上属于「广度优先搜索 Breadth-First Traversal」，它体现了一种“一圈一圈向外扩展”的逐层搜索方式。
 
 ![二叉树的层序遍历](binary_tree_traversal.assets/binary_tree_bfs.png)
 
 ### 算法实现
 
-广度优先遍历一般借助「队列」来实现。队列的规则是“先进先出”，广度优先遍历的规则是“一层层平推”，两者背后的思想是一致的。
+广度优先遍历通常借助「队列」来实现。队列遵循“先进先出”的规则，而广度优先遍历则遵循“逐层推进”的规则，两者背后的思想是一致的。
 
 === "Java"
 
@@ -78,23 +78,23 @@
 
 ### 复杂度分析
 
-**时间复杂度**：所有结点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为结点数量。
+**时间复杂度**：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
 
-**空间复杂度**：当为满二叉树时达到最差情况，遍历到最底层前，队列中最多同时存在 $\frac{n + 1}{2}$ 个结点，使用 $O(n)$ 空间。
+**空间复杂度**：在最差情况下，即满二叉树时，遍历到最底层之前，队列中最多同时存在 $\frac{n + 1}{2}$ 个节点，占用 $O(n)$ 空间。
 
 ## 前序、中序、后序遍历
 
-相对地，前、中、后序遍历皆属于「深度优先遍历 Depth-First Traversal」，其体现着一种“先走到尽头，再回头继续”的回溯遍历方式。
+相应地，前序、中序和后序遍历都属于「深度优先遍历 Depth-First Traversal」，它体现了一种“先走到尽头，再回溯继续”的遍历方式。
 
-如下图所示，左侧是深度优先遍历的的示意图，右上方是对应的递归实现代码。深度优先遍历就像是绕着整个二叉树的外围“走”一圈，走的过程中，在每个结点都会遇到三个位置，分别对应前序遍历、中序遍历、后序遍历。
+如下图所示，左侧是深度优先遍历的示意图，右上方是对应的递归实现代码。深度优先遍历就像是绕着整个二叉树的外围“走”一圈，在这个过程中，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。
 
 ![二叉搜索树的前、中、后序遍历](binary_tree_traversal.assets/binary_tree_dfs.png)
 
 <div class="center-table" markdown>
 
-| 位置       | 含义                                 | 此处访问结点时对应            |
+| 位置       | 含义                                 | 此处访问节点时对应            |
 | ---------- | ------------------------------------ | ----------------------------- |
-| 橙色圆圈处 | 刚进入此结点，即将访问该结点的左子树 | 前序遍历 Pre-Order Traversal  |
+| 橙色圆圈处 | 刚进入此节点，即将访问该节点的左子树 | 前序遍历 Pre-Order Traversal  |
 | 蓝色圆圈处 | 已访问完左子树，即将访问右子树       | 中序遍历 In-Order Traversal   |
 | 紫色圆圈处 | 已访问完左子树和右子树，即将返回     | 后序遍历 Post-Order Traversal |
 
@@ -204,10 +204,45 @@
 
 !!! note
 
-    使用循环一样可以实现前、中、后序遍历，但代码相对繁琐，有兴趣的同学可以自行实现。
+    我们也可以仅基于循环实现前、中、后序遍历，有兴趣的同学可以自行实现。
+
+递归过程可分为“递”和“归”两个相反的部分。“递”表示开启新方法，程序在此过程中访问下一个节点；“归”表示函数返回，代表该节点已经访问完毕。如下图所示，为前序遍历二叉树的递归过程。
+
+=== "<1>"
+    ![preorder_step1](binary_tree_traversal.assets/preorder_step1.png)
+
+=== "<2>"
+    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.png)
+
+=== "<3>"
+    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.png)
+
+=== "<4>"
+    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.png)
+
+=== "<5>"
+    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.png)
+
+=== "<6>"
+    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.png)
+
+=== "<7>"
+    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.png)
+
+=== "<8>"
+    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.png)
+
+=== "<9>"
+    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.png)
+
+=== "<10>"
+    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.png)
+
+=== "<11>"
+    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.png)
 
 ### 复杂度分析
 
-**时间复杂度**：所有结点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为结点数量。
+**时间复杂度**：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
 
-**空间复杂度**：当树退化为链表时达到最差情况，递归深度达到 $n$ ，系统使用 $O(n)$ 栈帧空间。
+**空间复杂度**：在最差情况下，即树退化为链表时，递归深度达到 $n$ ，系统占用 $O(n)$ 栈帧空间。

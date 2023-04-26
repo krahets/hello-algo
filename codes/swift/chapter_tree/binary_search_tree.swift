@@ -15,7 +15,7 @@ class BinarySearchTree {
         root = buildTree(nums: nums, i: 0, j: nums.count - 1) // 构建二叉搜索树
     }
 
-    /* 获取二叉树根结点 */
+    /* 获取二叉树根节点 */
     func getRoot() -> TreeNode? {
         root
     }
@@ -25,7 +25,7 @@ class BinarySearchTree {
         if i > j {
             return nil
         }
-        // 将数组中间结点作为根结点
+        // 将数组中间节点作为根节点
         let mid = (i + j) / 2
         let root = TreeNode(x: nums[mid])
         // 递归建立左子树和右子树
@@ -34,41 +34,41 @@ class BinarySearchTree {
         return root
     }
 
-    /* 查找结点 */
+    /* 查找节点 */
     func search(num: Int) -> TreeNode? {
         var cur = root
-        // 循环查找，越过叶结点后跳出
+        // 循环查找，越过叶节点后跳出
         while cur != nil {
-            // 目标结点在 cur 的右子树中
+            // 目标节点在 cur 的右子树中
             if cur!.val < num {
                 cur = cur?.right
             }
-            // 目标结点在 cur 的左子树中
+            // 目标节点在 cur 的左子树中
             else if cur!.val > num {
                 cur = cur?.left
             }
-            // 找到目标结点，跳出循环
+            // 找到目标节点，跳出循环
             else {
                 break
             }
         }
-        // 返回目标结点
+        // 返回目标节点
         return cur
     }
 
-    /* 插入结点 */
-    func insert(num: Int) -> TreeNode? {
+    /* 插入节点 */
+    func insert(num: Int) {
         // 若树为空，直接提前返回
         if root == nil {
-            return nil
+            return
         }
         var cur = root
         var pre: TreeNode?
-        // 循环查找，越过叶结点后跳出
+        // 循环查找，越过叶节点后跳出
         while cur != nil {
-            // 找到重复结点，直接返回
+            // 找到重复节点，直接返回
             if cur!.val == num {
-                return nil
+                return
             }
             pre = cur
             // 插入位置在 cur 的右子树中
@@ -80,80 +80,67 @@ class BinarySearchTree {
                 cur = cur?.left
             }
         }
-        // 插入结点 val
+        // 插入节点 val
         let node = TreeNode(x: num)
         if pre!.val < num {
             pre?.right = node
         } else {
             pre?.left = node
         }
-        return node
     }
 
-    /* 删除结点 */
+    /* 删除节点 */
     @discardableResult
-    func remove(num: Int) -> TreeNode? {
+    func remove(num: Int) {
         // 若树为空，直接提前返回
         if root == nil {
-            return nil
+            return
         }
         var cur = root
         var pre: TreeNode?
-        // 循环查找，越过叶结点后跳出
+        // 循环查找，越过叶节点后跳出
         while cur != nil {
-            // 找到待删除结点，跳出循环
+            // 找到待删除节点，跳出循环
             if cur!.val == num {
                 break
             }
             pre = cur
-            // 待删除结点在 cur 的右子树中
+            // 待删除节点在 cur 的右子树中
             if cur!.val < num {
                 cur = cur?.right
             }
-            // 待删除结点在 cur 的左子树中
+            // 待删除节点在 cur 的左子树中
             else {
                 cur = cur?.left
             }
         }
-        // 若无待删除结点，则直接返回
+        // 若无待删除节点，则直接返回
         if cur == nil {
-            return nil
+            return
         }
-        // 子结点数量 = 0 or 1
+        // 子节点数量 = 0 or 1
         if cur?.left == nil || cur?.right == nil {
-            // 当子结点数量 = 0 / 1 时， child = null / 该子结点
+            // 当子节点数量 = 0 / 1 时， child = null / 该子节点
             let child = cur?.left != nil ? cur?.left : cur?.right
-            // 删除结点 cur
+            // 删除节点 cur
             if pre?.left === cur {
                 pre?.left = child
             } else {
                 pre?.right = child
             }
         }
-        // 子结点数量 = 2
+        // 子节点数量 = 2
         else {
-            // 获取中序遍历中 cur 的下一个结点
-            let nex = getInOrderNext(root: cur?.right)
-            let tmp = nex!.val
-            // 递归删除结点 nex
-            remove(num: nex!.val)
-            // 将 nex 的值复制给 cur
-            cur?.val = tmp
+            // 获取中序遍历中 cur 的下一个节点
+            let tmp = cur?.right
+            while tmp?.left != nil {
+                tmp = tmp?.left
+            }
+            // 递归删除节点 tmp
+            remove(num: tmp!.val)
+            // 用 tmp 覆盖 cur
+            cur?.val = tmp!.val
         }
-        return cur
-    }
-
-    /* 获取中序遍历中的下一个结点（仅适用于 root 有左子结点的情况） */
-    func getInOrderNext(root: TreeNode?) -> TreeNode? {
-        var root = root
-        if root == nil {
-            return root
-        }
-        // 循环访问左子结点，直到叶结点时为最小结点，跳出
-        while root?.left != nil {
-            root = root?.left
-        }
-        return root
     }
 }
 
@@ -167,24 +154,24 @@ enum _BinarySearchTree {
         print("\n初始化的二叉树为\n")
         PrintUtil.printTree(root: bst.getRoot())
 
-        /* 查找结点 */
+        /* 查找节点 */
         var node = bst.search(num: 7)
-        print("\n查找到的结点对象为 \(node!)，结点值 = \(node!.val)")
+        print("\n查找到的节点对象为 \(node!)，节点值 = \(node!.val)")
 
-        /* 插入结点 */
-        node = bst.insert(num: 16)
-        print("\n插入结点 16 后，二叉树为\n")
+        /* 插入节点 */
+        bst.insert(num: 16)
+        print("\n插入节点 16 后，二叉树为\n")
         PrintUtil.printTree(root: bst.getRoot())
 
-        /* 删除结点 */
+        /* 删除节点 */
         bst.remove(num: 1)
-        print("\n删除结点 1 后，二叉树为\n")
+        print("\n删除节点 1 后，二叉树为\n")
         PrintUtil.printTree(root: bst.getRoot())
         bst.remove(num: 2)
-        print("\n删除结点 2 后，二叉树为\n")
+        print("\n删除节点 2 后，二叉树为\n")
         PrintUtil.printTree(root: bst.getRoot())
         bst.remove(num: 4)
-        print("\n删除结点 4 后，二叉树为\n")
+        print("\n删除节点 4 后，二叉树为\n")
         PrintUtil.printTree(root: bst.getRoot())
     }
 }

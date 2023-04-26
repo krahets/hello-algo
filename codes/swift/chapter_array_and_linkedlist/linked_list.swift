@@ -6,14 +6,14 @@
 
 import utils
 
-/* 在链表的结点 n0 之后插入结点 P */
+/* 在链表的节点 n0 之后插入节点 P */
 func insert(n0: ListNode, P: ListNode) {
     let n1 = n0.next
     P.next = n1
     n0.next = P
 }
 
-/* 删除链表的结点 n0 之后的首个结点 */
+/* 删除链表的节点 n0 之后的首个节点 */
 func remove(n0: ListNode) {
     if n0.next == nil {
         return
@@ -25,7 +25,7 @@ func remove(n0: ListNode) {
     P?.next = nil
 }
 
-/* 访问链表中索引为 index 的结点 */
+/* 访问链表中索引为 index 的节点 */
 func access(head: ListNode, index: Int) -> ListNode? {
     var head: ListNode? = head
     for _ in 0 ..< index {
@@ -37,7 +37,7 @@ func access(head: ListNode, index: Int) -> ListNode? {
     return head
 }
 
-/* 在链表中查找值为 target 的首个结点 */
+/* 在链表中查找值为 target 的首个节点 */
 func find(head: ListNode, target: Int) -> Int {
     var head: ListNode? = head
     var index = 0
@@ -56,7 +56,7 @@ enum LinkedList {
     /* Driver Code */
     static func main() {
         /* 初始化链表 */
-        // 初始化各个结点
+        // 初始化各个节点
         let n0 = ListNode(x: 1)
         let n1 = ListNode(x: 3)
         let n2 = ListNode(x: 2)
@@ -70,22 +70,22 @@ enum LinkedList {
         print("初始化的链表为")
         PrintUtil.printLinkedList(head: n0)
 
-        /* 插入结点 */
+        /* 插入节点 */
         insert(n0: n0, P: ListNode(x: 0))
-        print("插入结点后的链表为")
+        print("插入节点后的链表为")
         PrintUtil.printLinkedList(head: n0)
 
-        /* 删除结点 */
+        /* 删除节点 */
         remove(n0: n0)
-        print("删除结点后的链表为")
+        print("删除节点后的链表为")
         PrintUtil.printLinkedList(head: n0)
 
-        /* 访问结点 */
+        /* 访问节点 */
         let node = access(head: n0, index: 3)
-        print("链表中索引 3 处的结点的值 = \(node!.val)")
+        print("链表中索引 3 处的节点的值 = \(node!.val)")
 
-        /* 查找结点 */
+        /* 查找节点 */
         let index = find(head: n0, target: 2)
-        print("链表中值为 2 的结点的索引 = \(index)")
+        print("链表中值为 2 的节点的索引 = \(index)")
     }
 }

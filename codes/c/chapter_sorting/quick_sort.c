@@ -4,7 +4,7 @@
  * Author: Reanon (793584285@qq.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 元素交换 */
 void swap(int nums[], int i, int j) {
@@ -15,7 +15,7 @@ void swap(int nums[], int i, int j) {
 
 /* 快速排序类 */
 // 快速排序类-哨兵划分
-int quickSortPartition(int nums[], int left, int right) {
+int partition(int nums[], int left, int right) {
     // 以 nums[left] 作为基准数
     int i = left, j = right;
     while (i < j) {
@@ -43,7 +43,7 @@ void quickSort(int nums[], int left, int right) {
         return;
     }
     // 哨兵划分
-    int pivot = quickSortPartition(nums, left, right);
+    int pivot = partition(nums, left, right);
     // 递归左子数组、右子数组
     quickSort(nums, left, pivot - 1);
     quickSort(nums, pivot + 1, right);
@@ -63,7 +63,7 @@ int medianThree(int nums[], int left, int mid, int right) {
 }
 
 // 哨兵划分（三数取中值）
-int quickSortMedianPartition(int nums[], int left, int right) {
+int partitionMedian(int nums[], int left, int right) {
     // 选取三个候选元素的中位数
     int med = medianThree(nums, left, (left + right) / 2, right);
     // 将中位数交换至数组最左端
@@ -72,13 +72,13 @@ int quickSortMedianPartition(int nums[], int left, int right) {
     int i = left, j = right;
     while (i < j) {
         while (i < j && nums[j] >= nums[left])
-            j--;          // 从右向左找首个小于基准数的元素
+            j--; // 从右向左找首个小于基准数的元素
         while (i < j && nums[i] <= nums[left])
             i++;          // 从左向右找首个大于基准数的元素
         swap(nums, i, j); // 交换这两个元素
     }
-    swap(nums, i, left);  // 将基准数交换至两子数组的分界线
-    return i;             // 返回基准数的索引
+    swap(nums, i, left); // 将基准数交换至两子数组的分界线
+    return i;            // 返回基准数的索引
 }
 
 // 中位基准数优化-快速排序
@@ -87,47 +87,29 @@ void quickSortMedian(int nums[], int left, int right) {
     if (left >= right)
         return;
     // 哨兵划分
-    int pivot = quickSortMedianPartition(nums, left, right);
+    int pivot = partitionMedian(nums, left, right);
     // 递归左子数组、右子数组
     quickSortMedian(nums, left, pivot - 1);
     quickSortMedian(nums, pivot + 1, right);
 }
 
-
 /* 快速排序类（尾递归优化） */
-/* 尾递归优化-哨兵划分 */
-int quickSortTailCallPartition(int nums[], int left, int right) {
-    // 以 nums[left] 作为基准数
-    int i = left, j = right;
-    while (i < j) {
-        while (i < j && nums[j] >= nums[left])
-            j--;          // 从右向左找首个小于基准数的元素
-        while (i < j && nums[i] <= nums[left])
-            i++;          // 从左向右找首个大于基准数的元素
-        swap(nums, i, j); // 交换这两个元素
-    }
-    swap(nums, i, left);  // 将基准数交换至两子数组的分界线
-    return i; // 返回基准数的索引
-}
-
-
 // 快速排序（尾递归优化）
 void quickSortTailCall(int nums[], int left, int right) {
     // 子数组长度为 1 时终止
     while (left < right) {
         // 哨兵划分操作
-        int pivot = quickSortTailCallPartition(nums, left, right);
+        int pivot = partition(nums, left, right);
         // 对两个子数组中较短的那个执行快排
         if (pivot - left < right - pivot) {
-            quickSortTailCall(nums, left, pivot - 1);  // 递归排序左子数组
-            left = pivot + 1;  // 剩余待排序区间为 [pivot + 1, right]
+            quickSortTailCall(nums, left, pivot - 1); // 递归排序左子数组
+            left = pivot + 1;                         // 剩余待排序区间为 [pivot + 1, right]
         } else {
             quickSortTailCall(nums, pivot + 1, right); // 递归排序右子数组
-            right = pivot - 1; // 剩余待排序区间为 [left, pivot - 1]
+            right = pivot - 1;                         // 剩余待排序区间为 [left, pivot - 1]
         }
     }
 }
-
 
 /* Driver Code */
 int main() {

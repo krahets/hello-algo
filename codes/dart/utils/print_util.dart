@@ -1,8 +1,9 @@
 /**
- * File: PrintUtil
+ * File: print_util.dart
  * Created Time: 2023-01-23
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
+
 import 'dart:io';
 
 import 'list_node.dart';
@@ -25,12 +26,6 @@ void printLinkedList(ListNode? head) {
 
   print(list.join(' -> '));
 }
-/*
-   * Print a binary tree
-   * @param root
-   * @param prev
-   * @param isLeft
-   */
 
 void printTree(TreeNode? root, [Trunk? prev = null, bool isLeft = false]) {
   if (root == null) {
@@ -69,4 +64,11 @@ void showTrunks(Trunk? p) {
 
   showTrunks(p.prev);
   stdout.write(p.str);
+}
+
+void printHeap(List<int> heap) {
+  print("堆的数组表示：$heap");
+  print("堆的树状表示：");
+  TreeNode? root = listToTree(heap);
+  printTree(root);
 }

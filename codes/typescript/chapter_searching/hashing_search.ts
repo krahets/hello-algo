@@ -1,5 +1,5 @@
 /**
- * File: hashing_search.js
+ * File: hashing_search.ts
  * Created Time: 2022-12-29
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
@@ -14,8 +14,11 @@ function hashingSearchArray(map: Map<number, number>, target: number): number {
 }
 
 /* 哈希查找（链表） */
-function hashingSearchLinkedList(map: Map<number, ListNode>, target: number): ListNode | null {
-    // 哈希表的 key: 目标结点值，value: 结点对象
+function hashingSearchLinkedList(
+    map: Map<number, ListNode>,
+    target: number
+): ListNode | null {
+    // 哈希表的 key: 目标节点值，value: 节点对象
     // 若哈希表中无此 key ，返回 null
     return map.has(target) ? (map.get(target) as ListNode) : null;
 }
@@ -38,10 +41,10 @@ let head = arrToLinkedList(nums);
 // 初始化哈希表
 const map1 = new Map();
 while (head != null) {
-    map1.set(head.val, head); // key: 结点值，value: 结点
+    map1.set(head.val, head); // key: 节点值，value: 节点
     head = head.next;
 }
 const node = hashingSearchLinkedList(map1, target);
-console.log('目标结点值 3 的对应结点对象为', node);
+console.log('目标节点值 3 的对应节点对象为', node);
 
 export {};

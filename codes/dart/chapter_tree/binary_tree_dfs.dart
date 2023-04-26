@@ -48,15 +48,15 @@ void main() {
   /* 前序遍历 */
   list.clear();
   preOrder(root);
-  print("\n前序遍历的结点打印序列 = $list");
+  print("\n前序遍历的节点打印序列 = $list");
 
   /* 中序遍历 */
   list.clear();
   inOrder(root);
-  print("\n中序遍历的结点打印序列 = $list");
+  print("\n中序遍历的节点打印序列 = $list");
 
   /* 后序遍历 */
   list.clear();
   postOrder(root);
-  print("\n后序遍历的结点打印序列 = $list");
+  print("\n后序遍历的节点打印序列 = $list");
 }

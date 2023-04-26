@@ -6,9 +6,8 @@
 
 package chapter_heap;
 
-import include.*;
+import utils.*;
 import java.util.*;
-
 
 public class heap {
     public static void testPush(Queue<Integer> heap, int val) {

@@ -7,7 +7,7 @@ const inc = @import("include");
 
 // 层序遍历
 fn levelOrder(comptime T: type, mem_allocator: std.mem.Allocator, root: *inc.TreeNode(T)) !std.ArrayList(T) {
-    // 初始化队列，加入根结点
+    // 初始化队列，加入根节点
     const L = std.TailQueue(*inc.TreeNode(T));
     var queue = L{};
     var root_node = try mem_allocator.create(L.Node);
@@ -18,16 +18,16 @@ fn levelOrder(comptime T: type, mem_allocator: std.mem.Allocator, root: *inc.Tre
     while (queue.len > 0) {
         var queue_node = queue.popFirst().?;    // 队列出队
         var node = queue_node.data;
-        try list.append(node.val);              // 保存结点值
+        try list.append(node.val);              // 保存节点值
         if (node.left != null) {
             var tmp_node = try mem_allocator.create(L.Node);
             tmp_node.data = node.left.?;
-            queue.append(tmp_node);             // 左子结点入队
+            queue.append(tmp_node);             // 左子节点入队
         }
         if (node.right != null) {
             var tmp_node = try mem_allocator.create(L.Node);
             tmp_node.data = node.right.?;
-            queue.append(tmp_node);             // 右子结点入队
+            queue.append(tmp_node);             // 右子节点入队
         }        
     }
     return list;
@@ -50,7 +50,7 @@ pub fn main() !void {
     // 层序遍历
     var list = try levelOrder(i32, mem_allocator, root.?);
     defer list.deinit();
-    std.debug.print("\n层序遍历的结点打印序列 = ", .{});
+    std.debug.print("\n层序遍历的节点打印序列 = ", .{});
     inc.PrintUtil.printList(i32, list);
 
     _ = try std.io.getStdIn().reader().readByte();

@@ -8,42 +8,35 @@ using NUnit.Framework;
 
 namespace hello_algo.chapter_hashing;
 
-/* 键值对 int->String */
-class Entry
-{
+/* 键值对 int->string */
+class Entry {
     public int key;
-    public String val;
-    public Entry(int key, String val)
-    {
+    public string val;
+    public Entry(int key, string val) {
         this.key = key;
         this.val = val;
     }
 }
 
 /* 基于数组简易实现的哈希表 */
-class ArrayHashMap
-{
+class ArrayHashMap {
     private List<Entry?> buckets;
-    public ArrayHashMap()
-    {
+    public ArrayHashMap() {
         // 初始化数组，包含 100 个桶
         buckets = new();
-        for (int i = 0; i < 100; i++)
-        {
+        for (int i = 0; i < 100; i++) {
             buckets.Add(null);
         }
     }
 
     /* 哈希函数 */
-    private int hashFunc(int key)
-    {
+    private int hashFunc(int key) {
         int index = key % 100;
         return index;
     }
 
     /* 查询操作 */
-    public String? get(int key)
-    {
+    public string? get(int key) {
         int index = hashFunc(key);
         Entry? pair = buckets[index];
         if (pair == null) return null;
@@ -51,27 +44,23 @@ class ArrayHashMap
     }
 
     /* 添加操作 */
-    public void put(int key, String val)
-    {
+    public void put(int key, string val) {
         Entry pair = new Entry(key, val);
         int index = hashFunc(key);
         buckets[index] = pair;
     }
 
     /* 删除操作 */
-    public void remove(int key)
-    {
+    public void remove(int key) {
         int index = hashFunc(key);
         // 置为 null ，代表删除
         buckets[index] = null;
     }
 
     /* 获取所有键值对 */
-    public List<Entry> entrySet()
-    {
+    public List<Entry> entrySet() {
         List<Entry> entrySet = new();
-        foreach (Entry? pair in buckets)
-        {
+        foreach (Entry? pair in buckets) {
             if (pair != null)
                 entrySet.Add(pair);
         }
@@ -79,11 +68,9 @@ class ArrayHashMap
     }
 
     /* 获取所有键 */
-    public List<int> keySet()
-    {
+    public List<int> keySet() {
         List<int> keySet = new();
-        foreach (Entry? pair in buckets)
-        {
+        foreach (Entry? pair in buckets) {
             if (pair != null)
                 keySet.Add(pair.key);
         }
@@ -91,11 +78,9 @@ class ArrayHashMap
     }
 
     /* 获取所有值 */
-    public List<String> valueSet()
-    {
-        List<String> valueSet = new();
-        foreach (Entry? pair in buckets)
-        {
+    public List<string> valueSet() {
+        List<string> valueSet = new();
+        foreach (Entry? pair in buckets) {
             if (pair != null)
                 valueSet.Add(pair.val);
         }
@@ -103,21 +88,17 @@ class ArrayHashMap
     }
 
     /* 打印哈希表 */
-    public void print()
-    {
-        foreach (Entry kv in entrySet())
-        {
+    public void print() {
+        foreach (Entry kv in entrySet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
         }
     }
 }
 
 
-public class array_hash_map
-{
+public class array_hash_map {
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化哈希表 */
         ArrayHashMap map = new ArrayHashMap();
 
@@ -133,7 +114,7 @@ public class array_hash_map
 
         /* 查询操作 */
         // 向哈希表输入键 key ，得到值 value
-        String? name = map.get(15937);
+        string? name = map.get(15937);
         Console.WriteLine("\n输入学号 15937 ，查询到姓名 " + name);
 
         /* 删除操作 */
@@ -144,18 +125,15 @@ public class array_hash_map
 
         /* 遍历哈希表 */
         Console.WriteLine("\n遍历键值对 Key->Value");
-        foreach (Entry kv in map.entrySet())
-        {
+        foreach (Entry kv in map.entrySet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
         }
         Console.WriteLine("\n单独遍历键 Key");
-        foreach (int key in map.keySet())
-        {
+        foreach (int key in map.keySet()) {
             Console.WriteLine(key);
         }
         Console.WriteLine("\n单独遍历值 Value");
-        foreach (String val in map.valueSet())
-        {
+        foreach (string val in map.valueSet()) {
             Console.WriteLine(val);
         }
     }

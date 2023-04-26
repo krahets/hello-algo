@@ -8,10 +8,10 @@
  * Definition for a binary tree node.
  */
 class TreeNode {
-    val; // 结点值
-    left; // 左子结点指针
-    right; // 右子结点指针
-    height; //结点高度
+    val; // 节点值
+    left; // 左子节点指针
+    right; // 右子节点指针
+    height; //节点高度
     constructor(val, left, right, height) {
         this.val = val === undefined ? 0 : val;
         this.left = left === undefined ? null : left;
@@ -50,5 +50,5 @@ function arrToTree(arr) {
 
 module.exports = {
     TreeNode,
-    arrToTree
+    arrToTree,
 };

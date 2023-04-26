@@ -5,46 +5,50 @@ Author: Peng Chen (pengchzn@gmail.com)
 """
 
 import sys, os.path as osp
+
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
+
 class LinkedListStack:
-    """ 基于链表实现的栈 """
+    """基于链表实现的栈"""
+
     def __init__(self):
-        """ 构造方法 """
+        """构造方法"""
         self.__peek: ListNode | None = None
         self.__size: int = 0
 
     def size(self) -> int:
-        """ 获取栈的长度 """
+        """获取栈的长度"""
         return self.__size
 
     def is_empty(self) -> bool:
-        """ 判断栈是否为空 """
+        """判断栈是否为空"""
         return not self.__peek
 
     def push(self, val: int) -> None:
-        """ 入栈 """
+        """入栈"""
         node = ListNode(val)
         node.next = self.__peek
         self.__peek = node
         self.__size += 1
 
     def pop(self) -> int:
-        """ 出栈 """
+        """出栈"""
         num: int = self.peek()
         self.__peek = self.__peek.next
         self.__size -= 1
         return num
 
     def peek(self) -> int:
-        """ 访问栈顶元素 """
+        """访问栈顶元素"""
         # 判空处理
-        if not self.__peek: return None
+        if not self.__peek:
+            return None
         return self.__peek.val
 
     def to_list(self) -> list[int]:
-        """ 转化为列表用于打印 """
+        """转化为列表用于打印"""
         arr: list[int] = []
         node = self.__peek
         while node:
@@ -54,12 +58,12 @@ class LinkedListStack:
         return arr
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
-    """ 初始化栈 """
+    # 初始化栈
     stack = LinkedListStack()
 
-    """ 元素入栈 """
+    # 元素入栈
     stack.push(1)
     stack.push(3)
     stack.push(2)
@@ -67,19 +71,19 @@ if __name__ == "__main__":
     stack.push(4)
     print("栈 stack =", stack.to_list())
 
-    """ 访问栈顶元素 """
+    # 访问栈顶元素
     peek: int = stack.peek()
     print("栈顶元素 peek =", peek)
 
-    """ 元素出栈 """
+    # 元素出栈
     pop: int = stack.pop()
     print("出栈元素 pop =", pop)
     print("出栈后 stack =", stack.to_list())
 
-    """ 获取栈的长度 """
+    # 获取栈的长度
     size: int = stack.size()
     print("栈的长度 size =", size)
 
-    """ 判断是否为空 """
+    # 判断是否为空
     is_empty: bool = stack.is_empty()
     print("栈是否为空 =", is_empty)

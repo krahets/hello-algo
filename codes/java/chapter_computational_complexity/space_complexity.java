@@ -6,7 +6,7 @@
 
 package chapter_computational_complexity;
 
-import include.*;
+import utils.*;
 import java.util.*;
 
 public class space_complexity {
@@ -15,7 +15,7 @@ public class space_complexity {
         // do something
         return 0;
     }
-    
+
     /* 常数阶 */
     static void constant(int n) {
         // 常量、变量、对象占用 O(1) 空间
@@ -52,7 +52,8 @@ public class space_complexity {
     /* 线性阶（递归实现） */
     static void linearRecur(int n) {
         System.out.println("递归 n = " + n);
-        if (n == 1) return;
+        if (n == 1)
+            return;
         linearRecur(n - 1);
     }
 
@@ -73,7 +74,8 @@ public class space_complexity {
 
     /* 平方阶（递归实现） */
     static int quadraticRecur(int n) {
-        if (n <= 0) return 0;
+        if (n <= 0)
+            return 0;
         // 数组 nums 长度为 n, n-1, ..., 2, 1
         int[] nums = new int[n];
         System.out.println("递归 n = " + n + " 中的 nums 长度 = " + nums.length);
@@ -82,7 +84,8 @@ public class space_complexity {
 
     /* 指数阶（建立满二叉树） */
     static TreeNode buildTree(int n) {
-        if (n == 0) return null;
+        if (n == 0)
+            return null;
         TreeNode root = new TreeNode(0);
         root.left = buildTree(n - 1);
         root.right = buildTree(n - 1);

@@ -44,8 +44,4 @@ function getListNode(head: ListNode | null, val: number): ListNode | null {
     return head;
 }
 
-export {
-    ListNode,
-    arrToLinkedList,
-    getListNode
-};
+export { ListNode, arrToLinkedList, getListNode };

@@ -5,7 +5,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */
 int digit(int num, int exp) {
@@ -14,7 +14,7 @@ int digit(int num, int exp) {
 }
 
 /* 计数排序（根据 nums 第 k 位排序） */
-void countingSortDigit(vector<int>& nums, int exp) {
+void countingSortDigit(vector<int> &nums, int exp) {
     // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
     vector<int> counter(10, 0);
     int n = nums.size();
@@ -41,7 +41,7 @@ void countingSortDigit(vector<int>& nums, int exp) {
 }
 
 /* 基数排序 */
-void radixSort(vector<int>& nums) {
+void radixSort(vector<int> &nums) {
     // 获取数组的最大元素，用于判断最大位数
     int m = *max_element(nums.begin(), nums.end());
     // 按照从低位到高位的顺序遍历
@@ -56,11 +56,11 @@ void radixSort(vector<int>& nums) {
 /* Driver Code */
 int main() {
     // 基数排序
-    vector<int> nums = { 10546151, 35663510, 42865989, 34862445, 81883077, 
-                         88906420, 72429244, 30524779, 82060337, 63832996 };
+    vector<int> nums = {10546151, 35663510, 42865989, 34862445, 81883077,
+                        88906420, 72429244, 30524779, 82060337, 63832996};
     radixSort(nums);
     cout << "基数排序完成后 nums = ";
-    PrintUtil::printVector(nums);
+    printVector(nums);
 
     return 0;
 }

@@ -8,8 +8,8 @@ import '../utils/list_node.dart';
 
 /* 基于链表实现的队列 */
 class LinkedListQueue {
-  ListNode? _front; // 头结点 _front
-  ListNode? _rear; // 尾结点 _rear
+  ListNode? _front; // 头节点 _front
+  ListNode? _rear; // 尾节点 _rear
   int _queSize = 0; // 队列长度
 
   LinkedListQueue() {
@@ -29,14 +29,14 @@ class LinkedListQueue {
 
   /* 入队 */
   void push(int num) {
-    // 尾结点后添加 num
+    // 尾节点后添加 num
     final node = ListNode(num);
-    // 如果队列为空，则令头、尾结点都指向该结点
+    // 如果队列为空，则令头、尾节点都指向该节点
     if (_front == null) {
       _front = node;
       _rear = node;
     } else {
-      // 如果队列不为空，则将该结点添加到尾结点后
+      // 如果队列不为空，则将该节点添加到尾节点后
       _rear!.next = node;
       _rear = node;
     }
@@ -46,7 +46,7 @@ class LinkedListQueue {
   /* 出队 */
   int pop() {
     final int num = peek();
-    // 删除头结点
+    // 删除头节点
     _front = _front!.next;
     _queSize--;
     return num;

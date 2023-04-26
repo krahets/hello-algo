@@ -4,56 +4,56 @@
  * Author: LoneRanger (836253168@qq.com), what-is-me (whatisme@outlook.jp)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 大顶堆 */
 class MaxHeap {
-private:
+  private:
     // 使用动态数组，这样无需考虑扩容问题
     vector<int> maxHeap;
 
-    /* 获取左子结点索引 */
+    /* 获取左子节点索引 */
     int left(int i) {
         return 2 * i + 1;
     }
 
-    /* 获取右子结点索引 */
+    /* 获取右子节点索引 */
     int right(int i) {
         return 2 * i + 2;
-    } 
+    }
 
-    /* 获取父结点索引 */
+    /* 获取父节点索引 */
     int parent(int i) {
         return (i - 1) / 2; // 向下取整
     }
 
-    /* 从结点 i 开始，从底至顶堆化 */
+    /* 从节点 i 开始，从底至顶堆化 */
     void siftUp(int i) {
         while (true) {
-            // 获取结点 i 的父结点
-            int p =  parent(i);
-            // 当“越过根结点”或“结点无需修复”时，结束堆化
+            // 获取节点 i 的父节点
+            int p = parent(i);
+            // 当“越过根节点”或“节点无需修复”时，结束堆化
             if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
-            // 交换两结点
+            // 交换两节点
             swap(maxHeap[i], maxHeap[p]);
             // 循环向上堆化
             i = p;
         }
     }
 
-    /* 从结点 i 开始，从顶至底堆化 */
+    /* 从节点 i 开始，从顶至底堆化 */
     void siftDown(int i) {
         while (true) {
-            // 判断结点 i, l, r 中值最大的结点，记为 ma
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
             int l = left(i), r = right(i), ma = i;
-            // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
-            if (l < size() && maxHeap[l] > maxHeap[ma]) 
+            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            if (l < size() && maxHeap[l] > maxHeap[ma])
                 ma = l;
             if (r < size() && maxHeap[r] > maxHeap[ma])
                 ma = r;
-            // 若结点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
-            if (ma == i) 
+            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            if (ma == i)
                 break;
             swap(maxHeap[i], maxHeap[ma]);
             // 循环向下堆化
@@ -61,12 +61,12 @@ private:
         }
     }
 
-public:
+  public:
     /* 构造方法，根据输入列表建堆 */
     MaxHeap(vector<int> nums) {
         // 将列表元素原封不动添加进堆
         maxHeap = nums;
-        // 堆化除叶结点以外的其他所有结点
+        // 堆化除叶节点以外的其他所有节点
         for (int i = parent(size() - 1); i >= 0; i--) {
             siftDown(i);
         }
@@ -89,7 +89,7 @@ public:
 
     /* 元素入堆 */
     void push(int val) {
-        // 添加结点
+        // 添加节点
         maxHeap.push_back(val);
         // 从底至顶堆化
         siftUp(size() - 1);
@@ -101,9 +101,9 @@ public:
         if (empty()) {
             throw out_of_range("堆为空");
         }
-        // 交换根结点与最右叶结点（即交换首元素与尾元素）
+        // 交换根节点与最右叶节点（即交换首元素与尾元素）
         swap(maxHeap[0], maxHeap[size() - 1]);
-        // 删除结点
+        // 删除节点
         maxHeap.pop_back();
         // 从顶至底堆化
         siftDown(0);
@@ -112,14 +112,13 @@ public:
     /* 打印堆（二叉树）*/
     void print() {
         cout << "堆的数组表示：";
-        PrintUtil::printVector(maxHeap);
+        printVector(maxHeap);
         cout << "堆的树状表示：" << endl;
         TreeNode *root = vecToTree(maxHeap);
-        PrintUtil::printTree(root);
+        printTree(root);
         freeMemoryTree(root);
     }
 };
-
 
 /* Driver Code */
 int main() {

@@ -1,5 +1,5 @@
 /**
- * File: coutning_sort.java
+ * File: counting_sort.java
  * Created Time: 2023-03-17
  * Author: Krahets (krahets@163.com)
  */
@@ -70,7 +70,7 @@ public class counting_sort {
         int[] nums = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
         countingSortNaive(nums);
         System.out.println("计数排序（无法排序对象）完成后 nums = " + Arrays.toString(nums));
-        
+
         int[] nums1 = { 1, 0, 1, 2, 0, 4, 0, 2, 2, 4 };
         countingSort(nums1);
         System.out.println("计数排序完成后 nums1 = " + Arrays.toString(nums1));

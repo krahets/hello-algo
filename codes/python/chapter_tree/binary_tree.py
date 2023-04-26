@@ -10,10 +10,10 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
 
-""" Driver Code """
+"""Driver Code"""
 if __name__ == "__main__":
-    """ 初始化二叉树 """
-    # 初始化结点
+    # 初始化二叉树
+    # 初始化节点
     n1 = TreeNode(val=1)
     n2 = TreeNode(val=2)
     n3 = TreeNode(val=3)
@@ -27,14 +27,14 @@ if __name__ == "__main__":
     print("\n初始化二叉树\n")
     print_tree(n1)
 
-    """ 插入与删除结点 """
+    # 插入与删除节点
     P = TreeNode(0)
-    # 在 n1 -> n2 中间插入结点 P
+    # 在 n1 -> n2 中间插入节点 P
     n1.left = P
     P.left = n2
-    print("\n插入结点 P 后\n")
+    print("\n插入节点 P 后\n")
     print_tree(n1)
-    # 删除结点
+    # 删除节点
     n1.left = n2
-    print("\n删除结点 P 后\n")
+    print("\n删除节点 P 后\n")
     print_tree(n1)

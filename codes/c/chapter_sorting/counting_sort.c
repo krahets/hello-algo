@@ -4,7 +4,7 @@
  * Author: Reanon (793584285@qq.com), Guanngxu (446678850@qq.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 计数排序 */
 // 简单实现，无法用于排序对象
@@ -58,7 +58,7 @@ void countingSort(int nums[], int size) {
     for (int i = size - 1; i >= 0; i--) {
         int num = nums[i];
         res[counter[num] - 1] = num; // 将 num 放置到对应索引处
-        counter[num]--; // 令前缀和自减 1 ，得到下次放置 num 的索引
+        counter[num]--;              // 令前缀和自减 1 ，得到下次放置 num 的索引
     }
     // 使用结果数组 res 覆盖原数组 nums
     memcpy(nums, res, size * sizeof(int));

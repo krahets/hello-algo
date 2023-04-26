@@ -4,7 +4,9 @@ Created Time: 2023-03-30
 Author: Krahets (krahets@163.com)
 """
 
+
 def bucket_sort(nums: list[float]) -> None:
+    """桶排序"""
     # 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
     k = len(nums) // 2
     buckets = [[] for _ in range(k)]
@@ -16,7 +18,7 @@ def bucket_sort(nums: list[float]) -> None:
         buckets[i].append(num)
     # 2. 对各个桶执行排序5
     for bucket in buckets:
-        # 使用内置排序函数，也可以替换成其它排序算法
+        # 使用内置排序函数，也可以替换成其他排序算法
         bucket.sort()
     # 3. 遍历桶合并结果
     i = 0
@@ -26,7 +28,7 @@ def bucket_sort(nums: list[float]) -> None:
             i += 1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # 设输入数据为浮点数，范围为 [0, 1)
     nums = [0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37]
     bucket_sort(nums)

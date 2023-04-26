@@ -8,18 +8,18 @@ import utils
 
 /* 层序遍历 */
 func levelOrder(root: TreeNode) -> [Int] {
-    // 初始化队列，加入根结点
+    // 初始化队列，加入根节点
     var queue: [TreeNode] = [root]
     // 初始化一个列表，用于保存遍历序列
     var list: [Int] = []
     while !queue.isEmpty {
         let node = queue.removeFirst() // 队列出队
-        list.append(node.val) // 保存结点值
+        list.append(node.val) // 保存节点值
         if let left = node.left {
-            queue.append(left) // 左子结点入队
+            queue.append(left) // 左子节点入队
         }
         if let right = node.right {
-            queue.append(right) // 右子结点入队
+            queue.append(right) // 右子节点入队
         }
     }
     return list
@@ -37,6 +37,6 @@ enum BinaryTreeBFS {
 
         /* 层序遍历 */
         let list = levelOrder(root: node)
-        print("\n层序遍历的结点打印序列 = \(list)")
+        print("\n层序遍历的节点打印序列 = \(list)")
     }
 }

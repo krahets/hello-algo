@@ -15,7 +15,7 @@ func hashingSearchArray(map: [Int: Int], target: Int) -> Int {
 
 /* 哈希查找（链表） */
 func hashingSearchLinkedList(map: [Int: ListNode], target: Int) -> ListNode? {
-    // 哈希表的 key: 目标结点值，value: 结点对象
+    // 哈希表的 key: 目标节点值，value: 节点对象
     // 若哈希表中无此 key ，返回 null
     return map[target]
 }
@@ -41,10 +41,10 @@ enum HashingSearch {
         // 初始化哈希表
         var map1: [Int: ListNode] = [:]
         while head != nil {
-            map1[head!.val] = head! // key: 结点值，value: 结点
+            map1[head!.val] = head! // key: 节点值，value: 节点
             head = head?.next
         }
         let node = hashingSearchLinkedList(map: map1, target: target)
-        print("目标结点值 3 的对应结点对象为 \(node!)")
+        print("目标节点值 3 的对应节点对象为 \(node!)")
     }
 }
