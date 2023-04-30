@@ -59,6 +59,8 @@ let package = Package(
         .executable(name: "preorder_traversal_ii_compact", targets: ["preorder_traversal_ii_compact"]),
         .executable(name: "preorder_traversal_iii_compact", targets: ["preorder_traversal_iii_compact"]),
         .executable(name: "preorder_traversal_iii_template", targets: ["preorder_traversal_iii_template"]),
+        .executable(name: "permutations_i", targets: ["permutations_i"]),
+        .executable(name: "permutations_ii", targets: ["permutations_ii"]),
     ],
     targets: [
         // helper
@@ -118,5 +120,7 @@ let package = Package(
         .executableTarget(name: "preorder_traversal_ii_compact", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_ii_compact.swift"]),
         .executableTarget(name: "preorder_traversal_iii_compact", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_iii_compact.swift"]),
         .executableTarget(name: "preorder_traversal_iii_template", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_iii_template.swift"]),
+        .executableTarget(name: "permutations_i", path: "chapter_backtracking", sources: ["permutations_i.swift"]),
+        .executableTarget(name: "permutations_ii", path: "chapter_backtracking", sources: ["permutations_ii.swift"]),
     ]
 )
