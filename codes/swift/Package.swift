@@ -9,7 +9,6 @@ let package = Package(
         .executable(name: "time_complexity", targets: ["time_complexity"]),
         .executable(name: "worst_best_time_complexity", targets: ["worst_best_time_complexity"]),
         .executable(name: "space_complexity", targets: ["space_complexity"]),
-        .executable(name: "leetcode_two_sum", targets: ["leetcode_two_sum"]),
         // chapter_array_and_linkedlist
         .executable(name: "array", targets: ["array"]),
         .executable(name: "linked_list", targets: ["linked_list"]),
@@ -25,6 +24,8 @@ let package = Package(
         .executable(name: "deque", targets: ["deque"]),
         .executable(name: "linkedlist_deque", targets: ["linkedlist_deque"]),
         .executable(name: "array_deque", targets: ["array_deque"]),
+        // chapter_binary_search
+        .executable(name: "binary_search", targets: ["binary_search"]),
         // chapter_hashing
         .executable(name: "hash_map", targets: ["hash_map"]),
         .executable(name: "array_hash_map", targets: ["array_hash_map"]),
@@ -42,8 +43,8 @@ let package = Package(
         .executable(name: "graph_bfs", targets: ["graph_bfs"]),
         .executable(name: "graph_dfs", targets: ["graph_dfs"]),
         // chapter_searching
+        .executable(name: "leetcode_two_sum", targets: ["leetcode_two_sum"]),
         .executable(name: "linear_search", targets: ["linear_search"]),
-        .executable(name: "binary_search", targets: ["binary_search"]),
         .executable(name: "hashing_search", targets: ["hashing_search"]),
         // chapter_sorting
         .executable(name: "bubble_sort", targets: ["bubble_sort"]),
@@ -62,7 +63,6 @@ let package = Package(
         .executableTarget(name: "time_complexity", path: "chapter_computational_complexity", sources: ["time_complexity.swift"]),
         .executableTarget(name: "worst_best_time_complexity", path: "chapter_computational_complexity", sources: ["worst_best_time_complexity.swift"]),
         .executableTarget(name: "space_complexity", dependencies: ["utils"], path: "chapter_computational_complexity", sources: ["space_complexity.swift"]),
-        .executableTarget(name: "leetcode_two_sum", path: "chapter_computational_complexity", sources: ["leetcode_two_sum.swift"]),
         // chapter_array_and_linkedlist
         .executableTarget(name: "array", path: "chapter_array_and_linkedlist", sources: ["array.swift"]),
         .executableTarget(name: "linked_list", dependencies: ["utils"], path: "chapter_array_and_linkedlist", sources: ["linked_list.swift"]),
@@ -78,6 +78,8 @@ let package = Package(
         .executableTarget(name: "deque", path: "chapter_stack_and_queue", sources: ["deque.swift"]),
         .executableTarget(name: "linkedlist_deque", path: "chapter_stack_and_queue", sources: ["linkedlist_deque.swift"]),
         .executableTarget(name: "array_deque", path: "chapter_stack_and_queue", sources: ["array_deque.swift"]),
+        // chapter_binary_search
+        .executableTarget(name: "binary_search", path: "chapter_binary_search", sources: ["binary_search.swift"]),
         // chapter_hashing
         .executableTarget(name: "hash_map", dependencies: ["utils"], path: "chapter_hashing", sources: ["hash_map.swift"]),
         .executableTarget(name: "array_hash_map", path: "chapter_hashing", sources: ["array_hash_map.swift"]),
@@ -95,8 +97,8 @@ let package = Package(
         .executableTarget(name: "graph_bfs", dependencies: ["utils", "graph_adjacency_list_target"], path: "chapter_graph", sources: ["graph_bfs.swift"]),
         .executableTarget(name: "graph_dfs", dependencies: ["utils", "graph_adjacency_list_target"], path: "chapter_graph", sources: ["graph_dfs.swift"]),
         // chapter_searching
+        .executableTarget(name: "leetcode_two_sum", path: "chapter_searching", sources: ["leetcode_two_sum.swift"]),
         .executableTarget(name: "linear_search", dependencies: ["utils"], path: "chapter_searching", sources: ["linear_search.swift"]),
-        .executableTarget(name: "binary_search", path: "chapter_searching", sources: ["binary_search.swift"]),
         .executableTarget(name: "hashing_search", dependencies: ["utils"], path: "chapter_searching", sources: ["hashing_search.swift"]),
         // chapter_sorting
         .executableTarget(name: "bubble_sort", path: "chapter_sorting", sources: ["bubble_sort.swift"]),
