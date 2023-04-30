@@ -145,7 +145,7 @@ class AVLTree {
                 }
             } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                let temp = node?.right
+                var temp = node?.right
                 while temp?.left != nil {
                     temp = temp?.left
                 }
