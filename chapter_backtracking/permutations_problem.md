@@ -452,3 +452,9 @@ comments: true
 ![两种剪枝条件的作用范围](permutations_problem.assets/permutations_ii_pruning_summary.png)
 
 <p align="center"> Fig. 两种剪枝条件的作用范围 </p>
+
+## 13.2.3. &nbsp; 复杂度分析
+
+假设元素两两之间互不相同，则 $n$ 个元素共有 $n!$  种排列（阶乘）；在记录结果时，需要复制长度为 $n$ 的列表，使用 $O(n)$ 时间。因此，**时间复杂度为 $O(n!n)$** 。
+
+最大递归深度为 $n$ ，使用 $O(n)$ 栈帧空间。`selected` 使用 $O(n)$ 空间。同一时刻最多共有 $n$ 个 `duplicated` ，使用 $O(n^2)$ 空间。因此，**全排列 I 的空间复杂度为 $O(n)$ ，全排列 II 的空间复杂度为 $O(n^2)$** 。

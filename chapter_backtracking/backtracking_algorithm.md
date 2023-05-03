@@ -104,7 +104,18 @@ comments: true
 === "Swift"
 
     ```swift title="preorder_traversal_i_compact.swift"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    func preOrder(root: TreeNode?) {
+        guard let root = root else {
+            return
+        }
+        if root.val == 7 {
+            // 记录解
+            res.append(root)
+        }
+        preOrder(root: root.left)
+        preOrder(root: root.right)
+    }
     ```
 
 === "Zig"
@@ -237,7 +248,22 @@ comments: true
 === "Swift"
 
     ```swift title="preorder_traversal_ii_compact.swift"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    func preOrder(root: TreeNode?) {
+        guard let root = root else {
+            return
+        }
+        // 尝试
+        path.append(root)
+        if root.val == 7 {
+            // 记录解
+            res.append(path)
+        }
+        preOrder(root: root.left)
+        preOrder(root: root.right)
+        // 回退
+        path.removeLast()
+    }
     ```
 
 === "Zig"
@@ -401,7 +427,23 @@ comments: true
 === "Swift"
 
     ```swift title="preorder_traversal_iii_compact.swift"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    func preOrder(root: TreeNode?) {
+        // 剪枝
+        guard let root = root, root.val != 3 else {
+            return
+        }
+        // 尝试
+        path.append(root)
+        if root.val == 7 {
+            // 记录解
+            res.append(path)
+        }
+        preOrder(root: root.left)
+        preOrder(root: root.right)
+        // 回退
+        path.removeLast()
+    }
     ```
 
 === "Zig"
@@ -723,17 +765,51 @@ def backtrack(state, choices, res):
 === "Swift"
 
     ```swift title="preorder_traversal_iii_template.swift"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    func isSolution(state: [TreeNode]) -> Bool {
+        !state.isEmpty && state.last!.val == 7
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    func recordSolution(state: [TreeNode], res: inout [[TreeNode]]) {
+        res.append(state)
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    func isValid(state: [TreeNode], choice: TreeNode?) -> Bool {
+        choice != nil && choice!.val != 3
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    func makeChoice(state: inout [TreeNode], choice: TreeNode) {
+        state.append(choice)
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    func undoChoice(state: inout [TreeNode], choice: TreeNode) {
+        state.removeLast()
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNode]]) {
+        // 检查是否为解
+        if isSolution(state: state) {
+            recordSolution(state: state, res: &res)
+            return
+        }
+        // 遍历所有选择
+        for choice in choices {
+            // 剪枝：检查选择是否合法
+            if isValid(state: state, choice: choice) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state: &state, choice: choice)
+                // 进行下一轮选择
+                backtrack(state: &state, choices: [choice.left, choice.right].compactMap { $0 }, res: &res)
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state: &state, choice: choice)
+            }
+        }
+    }
     ```
 
 === "Zig"

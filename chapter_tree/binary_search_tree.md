@@ -1087,7 +1087,7 @@ comments: true
         // 子节点数量 = 2
         else {
             // 获取中序遍历中 cur 的下一个节点
-            let tmp = cur?.right
+            var tmp = cur?.right
             while tmp?.left != nil {
                 tmp = tmp?.left
             }
