@@ -18,7 +18,7 @@
         <link rel="prev" href="../backtracking_algorithm/">
       
       
-        <link rel="next" href="../../chapter_appendix/installation/">
+        <link rel="next" href="../n_queens_problem/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
@@ -1572,6 +1572,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
@@ -1653,10 +1655,31 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#1323" class="md-nav__link">
+    13.2.3. &nbsp; 复杂度分析
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../n_queens_problem/" class="md-nav__link">
+        13.3. &nbsp; n 皇后问题（New）
+      </a>
     </li>
   
 
@@ -1822,6 +1845,13 @@
         <li class="md-nav__item">
   <a href="#1322" class="md-nav__link">
     13.2.2. &nbsp; 考虑重复的情况
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1323" class="md-nav__link">
+    13.2.3. &nbsp; 复杂度分析
   </a>
   
 </li>
@@ -2263,6 +2293,10 @@
 <p><img alt="两种剪枝条件的作用范围" src="../permutations_problem.assets/permutations_ii_pruning_summary.png" /></p>
 <p align="center"> Fig. 两种剪枝条件的作用范围 </p>
 
+<h2 id="1323">13.2.3. &nbsp; 复杂度分析<a class="headerlink" href="#1323" title="Permanent link">&para;</a></h2>
+<p>假设元素两两之间互不相同，则 <span class="arithmatex">\(n\)</span> 个元素共有 <span class="arithmatex">\(n!\)</span>  种排列（阶乘）；在记录结果时，需要复制长度为 <span class="arithmatex">\(n\)</span> 的列表，使用 <span class="arithmatex">\(O(n)\)</span> 时间。因此，<strong>时间复杂度为 <span class="arithmatex">\(O(n!n)\)</span></strong> 。</p>
+<p>最大递归深度为 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。<code>selected</code> 使用 <span class="arithmatex">\(O(n)\)</span> 空间。同一时刻最多共有 <span class="arithmatex">\(n\)</span> 个 <code>duplicated</code> ，使用 <span class="arithmatex">\(O(n^2)\)</span> 空间。因此，<strong>全排列 I 的空间复杂度为 <span class="arithmatex">\(O(n)\)</span> ，全排列 II 的空间复杂度为 <span class="arithmatex">\(O(n^2)\)</span></strong> 。</p>
+
 
 
 
@@ -2355,13 +2389,13 @@
         
         
           
-          <a href="../../chapter_appendix/installation/" class="md-footer__link md-footer__link--next" aria-label="下一页: 14.1. &amp;nbsp; 编程环境安装" rel="next">
+          <a href="../n_queens_problem/" class="md-footer__link md-footer__link--next" aria-label="下一页: 13.3. &amp;nbsp; n 皇后问题（New）" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                14.1. &nbsp; 编程环境安装
+                13.3. &nbsp; n 皇后问题（New）
               </div>
             </div>
             <div class="md-footer__button md-icon">
