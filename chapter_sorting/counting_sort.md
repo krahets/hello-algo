@@ -193,7 +193,7 @@ comments: true
         }
         // 2. 统计各数字的出现次数
         // counter[num] 代表 num 的出现次数
-        int *counter = malloc(sizeof(int) * size);
+        int *counter = malloc(sizeof(int) * m);
         for (int i = 0; i < size; i++) {
             counter[nums[i]]++;
         }
@@ -547,7 +547,7 @@ $$
         }
         // 2. 统计各数字的出现次数
         // counter[num] 代表 num 的出现次数
-        int *counter = malloc(sizeof(int) * size);
+        int *counter = malloc(sizeof(int) * m);
         for (int i = 0; i < size; i++) {
             counter[nums[i]]++;
         }
