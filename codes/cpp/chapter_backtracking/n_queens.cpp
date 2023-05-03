@@ -1,6 +1,6 @@
 /**
- * File: NQueens.cpp
- * Created Time: 2023-04-26
+ * File: n_queens.cpp
+ * Created Time: 2023-05-04
  * Author: Krahets (krahets@163.com)
  */
 
