@@ -207,9 +207,37 @@ comments: true
 === "Swift"
 
     ```swift title="permutations_i.swift"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：全排列 I */
+    func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
+        // 当状态长度等于元素数量时，记录解
+        if state.count == choices.count {
+            res.append(state)
+            return
+        }
+        // 遍历所有选择
+        for (i, choice) in choices.enumerated() {
+            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            if !selected[i] {
+                // 尝试：做出选择，更新状态
+                selected[i] = true
+                state.append(choice)
+                // 进行下一轮选择
+                backtrack(state: &state, choices: choices, selected: &selected, res: &res)
+                // 回退：撤销选择，恢复到之前的状态
+                selected[i] = false
+                state.removeLast()
+            }
+        }
+    }
 
-    [class]{}-[func]{permutationsI}
+    /* 全排列 I */
+    func permutationsI(nums: [Int]) -> [[Int]] {
+        var state: [Int] = []
+        var selected = Array(repeating: false, count: nums.count)
+        var res: [[Int]] = []
+        backtrack(state: &state, choices: nums, selected: &selected, res: &res)
+        return res
+    }
     ```
 
 === "Zig"
@@ -429,9 +457,39 @@ comments: true
 === "Swift"
 
     ```swift title="permutations_ii.swift"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：全排列 II */
+    func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
+        // 当状态长度等于元素数量时，记录解
+        if state.count == choices.count {
+            res.append(state)
+            return
+        }
+        // 遍历所有选择
+        var duplicated: Set<Int> = []
+        for (i, choice) in choices.enumerated() {
+            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            if !selected[i], !duplicated.contains(choice) {
+                // 尝试：做出选择，更新状态
+                duplicated.insert(choice) // 记录选择过的元素值
+                selected[i] = true
+                state.append(choice)
+                // 进行下一轮选择
+                backtrack(state: &state, choices: choices, selected: &selected, res: &res)
+                // 回退：撤销选择，恢复到之前的状态
+                selected[i] = false
+                state.removeLast()
+            }
+        }
+    }
 
-    [class]{}-[func]{permutationsII}
+    /* 全排列 II */
+    func permutationsII(nums: [Int]) -> [[Int]] {
+        var state: [Int] = []
+        var selected = Array(repeating: false, count: nums.count)
+        var res: [[Int]] = []
+        backtrack(state: &state, choices: nums, selected: &selected, res: &res)
+        return res
+    }
     ```
 
 === "Zig"

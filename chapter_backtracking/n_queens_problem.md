@@ -148,10 +148,10 @@ comments: true
         row: int,
         n: int,
         state: list[list[str]],
+        res: list[list[list[str]]],
         cols: list[bool],
         diags1: list[bool],
         diags2: list[bool],
-        res: list[list[list[str]]],
     ):
         """回溯算法：N 皇后"""
         # 当放置完所有行时，记录解
@@ -169,7 +169,7 @@ comments: true
                 state[row][col] = "Q"
                 cols[col] = diags1[diag1] = diags2[diag2] = True
                 # 放置下一行
-                backtrack(row + 1, n, state, cols, diags1, diags2, res)
+                backtrack(row + 1, n, state, res, cols, diags1, diags2)
                 # 回退：将该格子恢复为空位
                 state[row][col] = "#"
                 cols[col] = diags1[diag1] = diags2[diag2] = False
@@ -182,7 +182,7 @@ comments: true
         diags1 = [False] * (2 * n - 1)  # 记录主对角线是否有皇后
         diags2 = [False] * (2 * n - 1)  # 记录副对角线是否有皇后
         res = []
-        backtrack(0, n, state, cols, diags1, diags2, res)
+        backtrack(0, n, state, res, cols, diags1, diags2)
 
         return res
     ```
