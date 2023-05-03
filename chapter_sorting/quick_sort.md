@@ -202,6 +202,13 @@ comments: true
 === "C"
 
     ```c title="quick_sort.c"
+    /* 元素交换 */
+    void swap(int nums[], int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
     /* 快速排序类 */
     // 快速排序类-哨兵划分
     int partition(int nums[], int left, int right) {

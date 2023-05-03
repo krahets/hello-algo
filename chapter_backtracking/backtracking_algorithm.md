@@ -502,6 +502,7 @@ def backtrack(state, choices, res):
             if (isValid(state, choice)) {
                 // 尝试：做出选择，更新状态
                 makeChoice(state, choice);
+                // 进行下一轮选择
                 backtrack(state, Arrays.asList(choice.left, choice.right), res);
                 // 回退：撤销选择，恢复到之前的状态
                 undoChoice(state, choice);
@@ -552,6 +553,7 @@ def backtrack(state, choices, res):
             if (isValid(state, choice)) {
                 // 尝试：做出选择，更新状态
                 makeChoice(state, choice);
+                // 进行下一轮选择
                 vector<TreeNode *> nextChoices{choice->left, choice->right};
                 backtrack(state, nextChoices, res);
                 // 回退：撤销选择，恢复到之前的状态
@@ -597,6 +599,7 @@ def backtrack(state, choices, res):
             if is_valid(state, choice):
                 # 尝试：做出选择，更新状态
                 make_choice(state, choice)
+                # 进行下一轮选择
                 backtrack(state, [choice.left, choice.right], res)
                 # 回退：撤销选择，恢复到之前的状态
                 undo_choice(state, choice)
@@ -708,8 +711,8 @@ def backtrack(state, choices, res):
             if (isValid(state, choice)) {
                 // 尝试：做出选择，更新状态
                 makeChoice(state, choice);
-                List<TreeNode> nextChoices = new List<TreeNode>() { choice.left, choice.right };
-                backtrack(state, nextChoices, res);
+                // 进行下一轮选择
+                backtrack(state, new List<TreeNode> { choice.left, choice.right }, res);
                 // 回退：撤销选择，恢复到之前的状态
                 undoChoice(state, choice);
             }

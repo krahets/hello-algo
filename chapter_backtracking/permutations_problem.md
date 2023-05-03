@@ -52,6 +52,7 @@ comments: true
                 // 尝试：做出选择，更新状态
                 selected[i] = true;
                 state.add(choice);
+                // 进行下一轮选择
                 backtrack(state, choices, selected, res);
                 // 回退：撤销选择，恢复到之前的状态
                 selected[i] = false;
@@ -86,6 +87,7 @@ comments: true
                 // 尝试：做出选择，更新状态
                 selected[i] = true;
                 state.push_back(choice);
+                // 进行下一轮选择
                 backtrack(state, choices, selected, res);
                 // 回退：撤销选择，恢复到之前的状态
                 selected[i] = false;
@@ -122,6 +124,7 @@ comments: true
                 # 尝试：做出选择，更新状态
                 selected[i] = True
                 state.append(choice)
+                # 进行下一轮选择
                 backtrack(state, choices, selected, res)
                 # 回退：撤销选择，恢复到之前的状态
                 selected[i] = False
@@ -184,6 +187,7 @@ comments: true
                 // 尝试：做出选择，更新状态
                 selected[i] = true;
                 state.Add(choice);
+                // 进行下一轮选择
                 backtrack(state, choices, selected, res);
                 // 回退：撤销选择，恢复到之前的状态
                 selected[i] = false;
@@ -264,6 +268,7 @@ comments: true
                 duplicated.add(choice); // 记录选择过的元素值
                 selected[i] = true;
                 state.add(choice);
+                // 进行下一轮选择
                 backtrack(state, choices, selected, res);
                 // 回退：撤销选择，恢复到之前的状态
                 selected[i] = false;
@@ -300,6 +305,7 @@ comments: true
                 duplicated.emplace(choice); // 记录选择过的元素值
                 selected[i] = true;
                 state.push_back(choice);
+                // 进行下一轮选择
                 backtrack(state, choices, selected, res);
                 // 回退：撤销选择，恢复到之前的状态
                 selected[i] = false;
@@ -338,6 +344,7 @@ comments: true
                 duplicated.add(choice)  # 记录选择过的元素值
                 selected[i] = True
                 state.append(choice)
+                # 进行下一轮选择
                 backtrack(state, choices, selected, res)
                 # 回退：撤销选择，恢复到之前的状态
                 selected[i] = False
@@ -402,6 +409,7 @@ comments: true
                 duplicated.Add(choice); // 记录选择过的元素值
                 selected[i] = true;
                 state.Add(choice);
+                // 进行下一轮选择
                 backtrack(state, choices, selected, res);
                 // 回退：撤销选择，恢复到之前的状态
                 selected[i] = false;
