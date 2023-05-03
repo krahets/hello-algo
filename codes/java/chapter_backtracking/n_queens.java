@@ -1,6 +1,6 @@
 /**
  * File: NQueens.java
- * Created Time: 2023-04-26
+ * Created Time: 2023-05-04
  * Author: Krahets (krahets@163.com)
  */
 
