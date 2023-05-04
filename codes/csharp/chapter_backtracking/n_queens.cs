@@ -10,29 +10,8 @@ using NUnit.Framework;
 namespace hello_algo.chapter_backtracking;
 
 public class n_queens {
-    /* 求解 N 皇后 */
-    public static List<List<List<string>>> nQueens(int n) {
-        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
-        List<List<string>> state = new List<List<string>>();
-        for (int i = 0; i < n; i++) {
-            List<string> row = new List<string>();
-            for (int j = 0; j < n; j++) {
-                row.Add("#");
-            }
-            state.Add(row);
-        }
-        bool[] cols = new bool[n]; // 记录列是否有皇后
-        bool[] diags1 = new bool[2 * n - 1]; // 记录主对角线是否有皇后
-        bool[] diags2 = new bool[2 * n - 1]; // 记录副对角线是否有皇后
-        List<List<List<string>>> res = new List<List<List<string>>>();
-
-        backtrack(0, n, state, res, cols, diags1, diags2);
-
-        return res;
-    }
-
     /* 回溯算法：N 皇后 */
-    public static void backtrack(int row, int n, List<List<string>> state, List<List<List<string>>> res,
+    static void backtrack(int row, int n, List<List<string>> state, List<List<List<string>>> res,
             bool[] cols, bool[] diags1, bool[] diags2) {
         // 当放置完所有行时，记录解
         if (row == n) {
@@ -60,6 +39,27 @@ public class n_queens {
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
         }
+    }
+
+    /* 求解 N 皇后 */
+    static List<List<List<string>>> nQueens(int n) {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        List<List<string>> state = new List<List<string>>();
+        for (int i = 0; i < n; i++) {
+            List<string> row = new List<string>();
+            for (int j = 0; j < n; j++) {
+                row.Add("#");
+            }
+            state.Add(row);
+        }
+        bool[] cols = new bool[n]; // 记录列是否有皇后
+        bool[] diags1 = new bool[2 * n - 1]; // 记录主对角线是否有皇后
+        bool[] diags2 = new bool[2 * n - 1]; // 记录副对角线是否有皇后
+        List<List<List<string>>> res = new List<List<List<string>>>();
+
+        backtrack(0, n, state, res, cols, diags1, diags2);
+
+        return res;
     }
 
     [Test]
