@@ -9,27 +9,6 @@ package chapter_backtracking;
 import java.util.*;
 
 public class n_queens {
-    /* 求解 N 皇后 */
-    public static List<List<List<String>>> nQueens(int n) {
-        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
-        List<List<String>> state = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            List<String> row = new ArrayList<>();
-            for (int j = 0; j < n; j++) {
-                row.add("#");
-            }
-            state.add(row);
-        }
-        boolean[] cols = new boolean[n]; // 记录列是否有皇后
-        boolean[] diags1 = new boolean[2 * n - 1]; // 记录主对角线是否有皇后
-        boolean[] diags2 = new boolean[2 * n - 1]; // 记录副对角线是否有皇后
-        List<List<List<String>>> res = new ArrayList<>();
-
-        backtrack(0, n, state, res, cols, diags1, diags2);
-
-        return res;
-    }
-
     /* 回溯算法：N 皇后 */
     public static void backtrack(int row, int n, List<List<String>> state, List<List<List<String>>> res,
             boolean[] cols, boolean[] diags1, boolean[] diags2) {
@@ -59,6 +38,27 @@ public class n_queens {
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
         }
+    }
+
+    /* 求解 N 皇后 */
+    public static List<List<List<String>>> nQueens(int n) {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        List<List<String>> state = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            List<String> row = new ArrayList<>();
+            for (int j = 0; j < n; j++) {
+                row.add("#");
+            }
+            state.add(row);
+        }
+        boolean[] cols = new boolean[n]; // 记录列是否有皇后
+        boolean[] diags1 = new boolean[2 * n - 1]; // 记录主对角线是否有皇后
+        boolean[] diags2 = new boolean[2 * n - 1]; // 记录副对角线是否有皇后
+        List<List<List<String>>> res = new ArrayList<>();
+
+        backtrack(0, n, state, res, cols, diags1, diags2);
+
+        return res;
     }
 
     public static void main(String[] args) {
