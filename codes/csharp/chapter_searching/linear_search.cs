@@ -4,9 +4,6 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using hello_algo.utils;
-using NUnit.Framework;
-
 namespace hello_algo.chapter_searching;
 
 public class linear_search {

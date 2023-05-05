@@ -4,9 +4,6 @@
  * Author: zjkung1123 (zjkung1123@gmail.com)
  */
 
-using hello_algo.utils;
-using NUnit.Framework;
-
 namespace hello_algo.chapter_heap;
 
 public class heap {

@@ -4,8 +4,6 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using NUnit.Framework;
-
 namespace hello_algo.chapter_array_and_linkedlist;
 
 /* 列表类简易实现 */

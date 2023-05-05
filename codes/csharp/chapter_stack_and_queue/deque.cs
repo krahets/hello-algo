@@ -4,8 +4,6 @@
  * Author: moonache (microin1301@outlook.com)
  */
 
-using NUnit.Framework;
-
 namespace hello_algo.chapter_stack_and_queue;
 
 public class deque {

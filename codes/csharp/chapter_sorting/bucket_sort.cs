@@ -4,8 +4,6 @@
  * Author: hpstory (hpstory1024@163.com)
  */
 
-using NUnit.Framework;
-
 namespace hello_algo.chapter_sorting;
 
 public class bucket_sort {

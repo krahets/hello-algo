@@ -4,9 +4,6 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using hello_algo.utils;
-using NUnit.Framework;
-
 namespace hello_algo.chapter_stack_and_queue;
 
 /* 基于链表实现的栈 */

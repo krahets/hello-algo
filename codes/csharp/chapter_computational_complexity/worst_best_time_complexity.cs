@@ -4,8 +4,6 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using NUnit.Framework;
-
 namespace hello_algo.chapter_computational_complexity;
 
 public class worst_best_time_complexity {
