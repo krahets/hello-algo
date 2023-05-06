@@ -4,8 +4,6 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using NUnit.Framework;
-
 namespace hello_algo.chapter_stack_and_queue;
 
 /* 基于环形数组实现的队列 */

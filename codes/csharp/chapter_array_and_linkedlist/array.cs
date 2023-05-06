@@ -2,8 +2,6 @@
 // Created Time: 2022-12-14
 // Author: mingXta (1195669834@qq.com)
 
-using NUnit.Framework;
-
 namespace hello_algo.chapter_array_and_linkedlist;
 
 public class array {

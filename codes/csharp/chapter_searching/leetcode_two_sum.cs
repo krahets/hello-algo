@@ -4,8 +4,6 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using NUnit.Framework;
-
 namespace hello_algo.chapter_searching;
 
 public class leetcode_two_sum {

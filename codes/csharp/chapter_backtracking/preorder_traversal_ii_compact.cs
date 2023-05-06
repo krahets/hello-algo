@@ -4,9 +4,6 @@
  * Author: hpstory (hpstory1024@163.com)
  */
 
-using hello_algo.utils;
-using NUnit.Framework;
-
 namespace hello_algo.chapter_backtracking;
 
 public class preorder_traversal_ii_compact {
