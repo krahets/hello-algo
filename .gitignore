@@ -7,12 +7,12 @@
 
 # mkdocs files
 .cache/
-docs/overrides/
+/docs/overrides
 
 # build
-build/
-site/
-./utils/
+/build
+/site
+/utils
 
 # test script
 test.sh
