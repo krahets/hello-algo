@@ -4,7 +4,7 @@
  * Author: Zero (glj0@outlook.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 #define MAX_SIZE 5000
 

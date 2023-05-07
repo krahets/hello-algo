@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 方法一：暴力枚举 */
 vector<int> twoSumBruteForce(vector<int> &nums, int target) {

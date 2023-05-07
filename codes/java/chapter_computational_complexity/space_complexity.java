@@ -6,7 +6,7 @@
 
 package chapter_computational_complexity;
 
-import include.*;
+import utils.*;
 import java.util.*;
 
 public class space_complexity {

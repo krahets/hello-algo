@@ -6,7 +6,7 @@
 
 package chapter_searching;
 
-import include.*;
+import utils.*;
 import java.util.*;
 
 public class hashing_search {

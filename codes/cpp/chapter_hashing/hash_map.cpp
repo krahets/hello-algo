@@ -4,7 +4,7 @@
  * Author: msk397 (machangxinq@gmail.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* Driver Code */
 int main() {

@@ -4,46 +4,37 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using NUnit.Framework;
-
 namespace hello_algo.chapter_stack_and_queue;
 
 /* 基于环形数组实现的队列 */
-class ArrayQueue
-{
+class ArrayQueue {
     private int[] nums;  // 用于存储队列元素的数组
     private int front;   // 队首指针，指向队首元素
     private int queSize; // 队列长度
 
-    public ArrayQueue(int capacity)
-    {
+    public ArrayQueue(int capacity) {
         nums = new int[capacity];
         front = queSize = 0;
     }
 
     /* 获取队列的容量 */
-    public int capacity()
-    {
+    public int capacity() {
         return nums.Length;
     }
 
     /* 获取队列的长度 */
-    public int size()
-    {
+    public int size() {
         return queSize;
     }
 
     /* 判断队列是否为空 */
-    public bool isEmpty()
-    {
+    public bool isEmpty() {
         return queSize == 0;
     }
 
     /* 入队 */
-    public void push(int num)
-    {
-        if (queSize == capacity())
-        {
+    public void push(int num) {
+        if (queSize == capacity()) {
             Console.WriteLine("队列已满");
             return;
         }
@@ -56,8 +47,7 @@ class ArrayQueue
     }
 
     /* 出队 */
-    public int pop()
-    {
+    public int pop() {
         int num = peek();
         // 队首指针向后移动一位，若越过尾部则返回到数组头部
         front = (front + 1) % capacity();
@@ -66,31 +56,26 @@ class ArrayQueue
     }
 
     /* 访问队首元素 */
-    public int peek()
-    {
+    public int peek() {
         if (isEmpty())
             throw new Exception();
         return nums[front];
     }
 
     /* 返回数组 */
-    public int[] toArray()
-    {
+    public int[] toArray() {
         // 仅转换有效长度范围内的列表元素
         int[] res = new int[queSize];
-        for (int i = 0, j = front; i < queSize; i++, j++)
-        {
+        for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[j % this.capacity()];
         }
         return res;
     }
 }
 
-public class array_queue
-{
+public class array_queue {
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化队列 */
         int capacity = 10;
         ArrayQueue queue = new ArrayQueue(capacity);
@@ -120,8 +105,7 @@ public class array_queue
         Console.WriteLine("队列是否为空 = " + isEmpty);
 
         /* 测试环形数组 */
-        for (int i = 0; i < 10; i++)
-        {
+        for (int i = 0; i < 10; i++) {
             queue.push(i);
             queue.pop();
             Console.WriteLine("第 " + i + " 轮入队 + 出队后 queue = " + string.Join(",", queue.toArray()));

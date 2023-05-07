@@ -4,15 +4,11 @@
  * Author: moonache (microin1301@outlook.com)
  */
 
-using NUnit.Framework;
-
 namespace hello_algo.chapter_stack_and_queue;
 
-public class deque
-{
+public class deque {
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化双向队列 */
         // 在 C# 中，将链表 LinkedList 看作双向队列来使用
         LinkedList<int> deque = new LinkedList<int>();

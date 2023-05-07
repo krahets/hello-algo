@@ -1,5 +1,5 @@
 /**
- * File: coutning_sort.js
+ * File: counting_sort.js
  * Created Time: 2023-04-08
  * Author: Justin (xiefahit@gmail.com)
  */

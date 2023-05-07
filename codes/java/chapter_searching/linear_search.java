@@ -6,7 +6,7 @@
 
 package chapter_searching;
 
-import include.*;
+import utils.*;
 
 public class linear_search {
     /* 线性查找（数组） */

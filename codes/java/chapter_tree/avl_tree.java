@@ -6,7 +6,7 @@
 
 package chapter_tree;
 
-import include.*;
+import utils.*;
 
 /* AVL 树 */
 class AVLTree {

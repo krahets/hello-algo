@@ -4,7 +4,7 @@
  * Author: MolDuM (moldum@163.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 随机返回一个数组元素 */
 int randomAccess(int *nums, int size) {

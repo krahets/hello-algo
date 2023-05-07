@@ -1,5 +1,5 @@
 """
-File: find_constrained_paths_template.py
+File: preorder_traversal_iii_template.py
 Created Time: 2023-04-15
 Author: Krahets (krahets@163.com)
 """
@@ -48,6 +48,7 @@ def backtrack(state: list[TreeNode], choices: list[TreeNode], res: list[list[Tre
         if is_valid(state, choice):
             # 尝试：做出选择，更新状态
             make_choice(state, choice)
+            # 进行下一轮选择
             backtrack(state, [choice.left, choice.right], res)
             # 回退：撤销选择，恢复到之前的状态
             undo_choice(state, choice)

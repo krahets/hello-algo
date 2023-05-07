@@ -4,7 +4,7 @@
  * Author: qualifier1024 (2539244001@qq.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 基于链表实现的栈 */
 class LinkedListStack {

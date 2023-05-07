@@ -1,4 +1,4 @@
-// File: binary_search.go
+// File: hashing_search.go
 // Created Time: 2022-12-12
 // Author: Slone123c (274325721@qq.com)
 

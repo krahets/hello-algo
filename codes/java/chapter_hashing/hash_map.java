@@ -7,7 +7,7 @@
 package chapter_hashing;
 
 import java.util.*;
-import include.*;
+import utils.*;
 
 public class hash_map {
     public static void main(String[] args) {

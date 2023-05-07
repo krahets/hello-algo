@@ -4,15 +4,11 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using NUnit.Framework;
-
 namespace hello_algo.chapter_stack_and_queue;
 
-public class queue
-{
+public class queue {
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化队列 */
         Queue<int> queue = new();
 

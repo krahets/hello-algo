@@ -4,16 +4,11 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using hello_algo.include;
-using NUnit.Framework;
-
 namespace hello_algo.chapter_tree;
 
-public class binary_tree
-{
+public class binary_tree {
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化二叉树 */
         // 初始化节点
         TreeNode n1 = new TreeNode(1);

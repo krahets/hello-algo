@@ -4,7 +4,7 @@
  * Author: what-is-me (whatisme@outlook.jp), Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {

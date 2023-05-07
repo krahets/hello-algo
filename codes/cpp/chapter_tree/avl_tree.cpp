@@ -4,7 +4,7 @@
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* AVL 树 */
 class AVLTree {

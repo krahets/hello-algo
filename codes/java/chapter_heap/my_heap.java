@@ -6,7 +6,7 @@
 
 package chapter_heap;
 
-import include.*;
+import utils.*;
 import java.util.*;
 
 /* 大顶堆 */
@@ -90,7 +90,7 @@ class MaxHeap {
     public int pop() {
         // 判空处理
         if (isEmpty())
-            throw new EmptyStackException();
+            throw new IndexOutOfBoundsException();
         // 交换根节点与最右叶节点（即交换首元素与尾元素）
         swap(0, size() - 1);
         // 删除节点

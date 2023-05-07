@@ -6,7 +6,7 @@
 
 package chapter_array_and_linkedlist;
 
-import include.*;
+import utils.*;
 
 public class linked_list {
     /* 在链表的节点 n0 之后插入节点 P */

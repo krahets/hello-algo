@@ -4,39 +4,32 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using NUnit.Framework;
-
 namespace hello_algo.chapter_array_and_linkedlist;
 
 /* 列表类简易实现 */
-class MyList
-{
+class MyList {
     private int[] nums;           // 数组（存储列表元素）
     private int numsCapacity = 10;    // 列表容量
     private int numsSize = 0;         // 列表长度（即当前元素数量）
     private int extendRatio = 2;  // 每次列表扩容的倍数
 
     /* 构造方法 */
-    public MyList()
-    {
+    public MyList() {
         nums = new int[numsCapacity];
     }
 
     /* 获取列表长度（即当前元素数量）*/
-    public int size()
-    {
+    public int size() {
         return numsSize;
     }
 
     /* 获取列表容量 */
-    public int capacity()
-    {
+    public int capacity() {
         return numsCapacity;
     }
 
     /* 访问元素 */
-    public int get(int index)
-    {
+    public int get(int index) {
         // 索引如果越界则抛出异常，下同
         if (index < 0 || index >= numsSize)
             throw new IndexOutOfRangeException("索引越界");
@@ -44,16 +37,14 @@ class MyList
     }
 
     /* 更新元素 */
-    public void set(int index, int num)
-    {
+    public void set(int index, int num) {
         if (index < 0 || index >= numsSize)
             throw new IndexOutOfRangeException("索引越界");
         nums[index] = num;
     }
 
     /* 尾部添加元素 */
-    public void add(int num)
-    {
+    public void add(int num) {
         // 元素数量超出容量时，触发扩容机制
         if (numsSize == numsCapacity)
             extendCapacity();
@@ -63,16 +54,14 @@ class MyList
     }
 
     /* 中间插入元素 */
-    public void insert(int index, int num)
-    {
+    public void insert(int index, int num) {
         if (index < 0 || index >= numsSize)
             throw new IndexOutOfRangeException("索引越界");
         // 元素数量超出容量时，触发扩容机制
         if (numsSize == numsCapacity)
             extendCapacity();
         // 将索引 index 以及之后的元素都向后移动一位
-        for (int j = numsSize - 1; j >= index; j--)
-        {
+        for (int j = numsSize - 1; j >= index; j--) {
             nums[j + 1] = nums[j];
         }
         nums[index] = num;
@@ -81,14 +70,12 @@ class MyList
     }
 
     /* 删除元素 */
-    public int remove(int index)
-    {
+    public int remove(int index) {
         if (index < 0 || index >= numsSize)
             throw new IndexOutOfRangeException("索引越界");
         int num = nums[index];
         // 将索引 index 之后的元素都向前移动一位
-        for (int j = index; j < numsSize - 1; j++)
-        {
+        for (int j = index; j < numsSize - 1; j++) {
             nums[j] = nums[j + 1];
         }
         // 更新元素数量
@@ -98,8 +85,7 @@ class MyList
     }
 
     /* 列表扩容 */
-    public void extendCapacity()
-    {
+    public void extendCapacity() {
         // 新建一个长度为 numsCapacity * extendRatio 的数组，并将原数组拷贝到新数组
         System.Array.Resize(ref nums, numsCapacity * extendRatio);
         // 更新列表容量
@@ -107,23 +93,19 @@ class MyList
     }
 
     /* 将列表转换为数组 */
-    public int[] toArray()
-    {
+    public int[] toArray() {
         // 仅转换有效长度范围内的列表元素
         int[] nums = new int[numsSize];
-        for (int i = 0; i < numsSize; i++)
-        {
+        for (int i = 0; i < numsSize; i++) {
             nums[i] = get(i);
         }
         return nums;
     }
 }
 
-public class my_list
-{
+public class my_list {
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化列表 */
         MyList list = new MyList();
         /* 尾部添加元素 */
@@ -152,8 +134,7 @@ public class my_list
         Console.WriteLine("将索引 1 处的元素更新为 0 ，得到 list = " + string.Join(",", list.toArray()));
 
         /* 测试扩容机制 */
-        for (int i = 0; i < 10; i++)
-        {
+        for (int i = 0; i < 10; i++) {
             // 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
             list.add(i);
         }

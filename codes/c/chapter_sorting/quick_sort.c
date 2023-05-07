@@ -4,7 +4,7 @@
  * Author: Reanon (793584285@qq.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 元素交换 */
 void swap(int nums[], int i, int j) {

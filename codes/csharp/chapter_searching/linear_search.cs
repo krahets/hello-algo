@@ -4,19 +4,13 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using hello_algo.include;
-using NUnit.Framework;
-
 namespace hello_algo.chapter_searching;
 
-public class linear_search
-{
+public class linear_search {
     /* 线性查找（数组） */
-    static int linearSearchArray(int[] nums, int target)
-    {
+    static int linearSearchArray(int[] nums, int target) {
         // 遍历数组
-        for (int i = 0; i < nums.Length; i++)
-        {
+        for (int i = 0; i < nums.Length; i++) {
             // 找到目标元素，返回其索引
             if (nums[i] == target)
                 return i;
@@ -26,11 +20,9 @@ public class linear_search
     }
 
     /* 线性查找（链表） */
-    static ListNode? linearSearchLinkedList(ListNode head, int target)
-    {
+    static ListNode? linearSearchLinkedList(ListNode head, int target) {
         // 遍历链表
-        while (head != null)
-        {
+        while (head != null) {
             // 找到目标节点，返回之
             if (head.val == target)
                 return head;
@@ -41,8 +33,7 @@ public class linear_search
     }
 
     [Test]
-    public void Test()
-    {
+    public void Test() {
         int target = 3;
 
         /* 在数组中执行线性查找 */

@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 #include "./graph_adjacency_list.cpp"
 
 /* 广度优先遍历 BFS */

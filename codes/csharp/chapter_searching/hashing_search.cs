@@ -4,24 +4,18 @@
  * Author: haptear (haptear@hotmail.com)
  */
 
-using hello_algo.include;
-using NUnit.Framework;
-
 namespace hello_algo.chapter_searching;
 
-public class hashing_search
-{
+public class hashing_search {
     /* 哈希查找（数组） */
-    static int hashingSearchArray(Dictionary<int, int> map, int target)
-    {
+    static int hashingSearchArray(Dictionary<int, int> map, int target) {
         // 哈希表的 key: 目标元素，value: 索引
         // 若哈希表中无此 key ，返回 -1
         return map.GetValueOrDefault(target, -1);
     }
 
     /* 哈希查找（链表） */
-    static ListNode? hashingSearchLinkedList(Dictionary<int, ListNode> map, int target)
-    {
+    static ListNode? hashingSearchLinkedList(Dictionary<int, ListNode> map, int target) {
 
         // 哈希表的 key: 目标节点值，value: 节点对象
         // 若哈希表中无此 key ，返回 null
@@ -29,16 +23,14 @@ public class hashing_search
     }
 
     [Test]
-    public void Test()
-    {
+    public void Test() {
         int target = 3;
 
         /* 哈希查找（数组） */
         int[] nums = { 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 };
         // 初始化哈希表
         Dictionary<int, int> map = new();
-        for (int i = 0; i < nums.Length; i++)
-        {
+        for (int i = 0; i < nums.Length; i++) {
             map[nums[i]] = i;  // key: 元素，value: 索引
         }
         int index = hashingSearchArray(map, target);
@@ -48,8 +40,7 @@ public class hashing_search
         ListNode? head = ListNode.ArrToLinkedList(nums);
         // 初始化哈希表
         Dictionary<int, ListNode> map1 = new();
-        while (head != null)
-        {
+        while (head != null) {
             map1[head.val] = head;  // key: 节点值，value: 节点
             head = head.next;
         }

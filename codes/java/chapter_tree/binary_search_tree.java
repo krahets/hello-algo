@@ -7,7 +7,7 @@
 package chapter_tree;
 
 import java.util.*;
-import include.*;
+import utils.*;
 
 /* 二叉搜索树 */
 class BinarySearchTree {

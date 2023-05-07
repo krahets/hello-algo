@@ -88,6 +88,8 @@
 === "C"
 
     ```c title="quick_sort.c"
+    [class]{}-[func]{swap}
+
     [class]{}-[func]{partition}
     ```
 

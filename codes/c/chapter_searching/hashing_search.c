@@ -4,7 +4,7 @@
  * Author: Gonglja (glj0@outlook.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 哈希表 */
 struct hashTable {

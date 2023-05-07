@@ -1,5 +1,5 @@
 /**
- * File: coutning_sort.ts
+ * File: counting_sort.ts
  * Created Time: 2023-04-08
  * Author: Justin (xiefahit@gmail.com)
  */

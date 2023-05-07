@@ -6,7 +6,7 @@
 
 package chapter_backtracking;
 
-import include.*;
+import utils.*;
 import java.util.*;
 
 public class preorder_traversal_iii_template {
@@ -49,6 +49,7 @@ public class preorder_traversal_iii_template {
             if (isValid(state, choice)) {
                 // 尝试：做出选择，更新状态
                 makeChoice(state, choice);
+                // 进行下一轮选择
                 backtrack(state, Arrays.asList(choice.left, choice.right), res);
                 // 回退：撤销选择，恢复到之前的状态
                 undoChoice(state, choice);

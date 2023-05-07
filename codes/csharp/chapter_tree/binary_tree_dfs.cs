@@ -1,21 +1,16 @@
 /**
- * File: binary_tree_bfs.cs
+ * File: binary_tree_dfs.cs
  * Created Time: 2022-12-23
  * Author: haptear (haptear@hotmail.com)
  */
 
-using hello_algo.include;
-using NUnit.Framework;
-
 namespace hello_algo.chapter_tree;
 
-public class binary_tree_dfs
-{
+public class binary_tree_dfs {
     List<int> list = new();
 
     /* 前序遍历 */
-    void preOrder(TreeNode? root)
-    {
+    void preOrder(TreeNode? root) {
         if (root == null) return;
         // 访问优先级：根节点 -> 左子树 -> 右子树
         list.Add(root.val);
@@ -24,8 +19,7 @@ public class binary_tree_dfs
     }
 
     /* 中序遍历 */
-    void inOrder(TreeNode? root)
-    {
+    void inOrder(TreeNode? root) {
         if (root == null) return;
         // 访问优先级：左子树 -> 根节点 -> 右子树
         inOrder(root.left);
@@ -34,8 +28,7 @@ public class binary_tree_dfs
     }
 
     /* 后序遍历 */
-    void postOrder(TreeNode? root)
-    {
+    void postOrder(TreeNode? root) {
         if (root == null) return;
         // 访问优先级：左子树 -> 右子树 -> 根节点
         postOrder(root.left);
@@ -44,8 +37,7 @@ public class binary_tree_dfs
     }
 
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化二叉树 */
         // 这里借助了一个从数组直接生成二叉树的函数
         TreeNode? root = TreeNode.ListToTree(new List<int?> { 1, 2, 3, 4, 5, 6, 7 });

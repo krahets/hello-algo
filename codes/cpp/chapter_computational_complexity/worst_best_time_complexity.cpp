@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
 vector<int> randomNumbers(int n) {

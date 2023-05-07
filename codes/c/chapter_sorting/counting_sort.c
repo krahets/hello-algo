@@ -4,7 +4,7 @@
  * Author: Reanon (793584285@qq.com), Guanngxu (446678850@qq.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 计数排序 */
 // 简单实现，无法用于排序对象
@@ -18,7 +18,7 @@ void countingSortNaive(int nums[], int size) {
     }
     // 2. 统计各数字的出现次数
     // counter[num] 代表 num 的出现次数
-    int *counter = malloc(sizeof(int) * size);
+    int *counter = malloc(sizeof(int) * m);
     for (int i = 0; i < size; i++) {
         counter[nums[i]]++;
     }
@@ -43,7 +43,7 @@ void countingSort(int nums[], int size) {
     }
     // 2. 统计各数字的出现次数
     // counter[num] 代表 num 的出现次数
-    int *counter = malloc(sizeof(int) * size);
+    int *counter = malloc(sizeof(int) * m);
     for (int i = 0; i < size; i++) {
         counter[nums[i]]++;
     }

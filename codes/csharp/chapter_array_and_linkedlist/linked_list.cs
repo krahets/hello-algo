@@ -2,24 +2,18 @@
 // Created Time: 2022-12-16
 // Author: mingXta (1195669834@qq.com)
 
-using hello_algo.include;
-using NUnit.Framework;
-
 namespace hello_algo.chapter_array_and_linkedlist;
 
-public class linked_list
-{
+public class linked_list {
     /* 在链表的节点 n0 之后插入节点 P */
-    public static void insert(ListNode n0, ListNode P)
-    {
+    public static void insert(ListNode n0, ListNode P) {
         ListNode? n1 = n0.next;
         P.next = n1;
         n0.next = P;
     }
 
     /* 删除链表的节点 n0 之后的首个节点 */
-    public static void remove(ListNode n0)
-    {
+    public static void remove(ListNode n0) {
         if (n0.next == null)
             return;
         // n0 -> P -> n1
@@ -29,10 +23,8 @@ public class linked_list
     }
 
     /* 访问链表中索引为 index 的节点 */
-    public static ListNode? access(ListNode head, int index)
-    {
-        for (int i = 0; i < index; i++)
-        {
+    public static ListNode? access(ListNode head, int index) {
+        for (int i = 0; i < index; i++) {
             if (head == null)
                 return null;
             head = head.next;
@@ -41,11 +33,9 @@ public class linked_list
     }
 
     /* 在链表中查找值为 target 的首个节点 */
-    public static int find(ListNode head, int target)
-    {
+    public static int find(ListNode head, int target) {
         int index = 0;
-        while (head != null)
-        {
+        while (head != null) {
             if (head.val == target)
                 return index;
             head = head.next;
@@ -56,8 +46,7 @@ public class linked_list
 
 
     [Test]
-    public void Test()
-    {
+    public void Test() {
         // 初始化链表 
         // 初始化各个节点 
         ListNode n0 = new ListNode(1);

@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 在链表的节点 n0 之后插入节点 P */
 void insert(ListNode *n0, ListNode *P) {

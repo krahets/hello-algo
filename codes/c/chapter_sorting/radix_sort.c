@@ -4,7 +4,7 @@
  * Author: Reanon (793584285@qq.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */
 int digit(int num, int exp) {

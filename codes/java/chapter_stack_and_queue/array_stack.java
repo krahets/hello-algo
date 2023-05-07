@@ -35,14 +35,14 @@ class ArrayStack {
     /* 出栈 */
     public int pop() {
         if (isEmpty())
-            throw new EmptyStackException();
+            throw new IndexOutOfBoundsException();
         return stack.remove(size() - 1);
     }
 
     /* 访问栈顶元素 */
     public int peek() {
         if (isEmpty())
-            throw new EmptyStackException();
+            throw new IndexOutOfBoundsException();
         return stack.get(size() - 1);
     }
 

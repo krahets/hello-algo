@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../include/include.hpp"
+#include "../utils/common.hpp"
 
 /* 哈希查找（数组） */
 int hashingSearchArray(unordered_map<int, int> map, int target) {

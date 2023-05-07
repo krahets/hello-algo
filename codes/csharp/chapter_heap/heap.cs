@@ -4,29 +4,22 @@
  * Author: zjkung1123 (zjkung1123@gmail.com)
  */
 
-using hello_algo.include;
-using NUnit.Framework;
-
 namespace hello_algo.chapter_heap;
 
-public class heap
-{
-    public void testPush(PriorityQueue<int, int> heap, int val)
-    {
+public class heap {
+    public void testPush(PriorityQueue<int, int> heap, int val) {
         heap.Enqueue(val, val); // 元素入堆
         Console.WriteLine($"\n元素 {val} 入堆后\n");
         PrintUtil.PrintHeap(heap);
     }
 
-    public void testPop(PriorityQueue<int, int> heap)
-    {
+    public void testPop(PriorityQueue<int, int> heap) {
         int val = heap.Dequeue(); // 堆顶元素出堆
         Console.WriteLine($"\n堆顶元素 {val} 出堆后\n");
         PrintUtil.PrintHeap(heap);
     }
     [Test]
-    public void Test()
-    {
+    public void Test() {
         /* 初始化堆 */
         // 初始化小顶堆
         PriorityQueue<int, int> minHeap = new PriorityQueue<int, int>();

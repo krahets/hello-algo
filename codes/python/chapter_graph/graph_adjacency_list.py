@@ -30,7 +30,7 @@ class GraphAdjList:
     def add_edge(self, vet1: Vertex, vet2: Vertex) -> None:
         """添加边"""
         if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
-            raise ValueError
+            raise ValueError()
         # 添加边 vet1 - vet2
         self.adj_list[vet1].append(vet2)
         self.adj_list[vet2].append(vet1)
@@ -38,7 +38,7 @@ class GraphAdjList:
     def remove_edge(self, vet1: Vertex, vet2: Vertex) -> None:
         """删除边"""
         if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
-            raise ValueError
+            raise ValueError()
         # 删除边 vet1 - vet2
         self.adj_list[vet1].remove(vet2)
         self.adj_list[vet2].remove(vet1)
@@ -53,7 +53,7 @@ class GraphAdjList:
     def remove_vertex(self, vet: Vertex) -> None:
         """删除顶点"""
         if vet not in self.adj_list:
-            raise ValueError
+            raise ValueError()
         # 在邻接表中删除顶点 vet 对应的链表
         self.adj_list.pop(vet)
         # 遍历其他顶点的链表，删除所有包含 vet 的边

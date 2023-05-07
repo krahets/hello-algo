@@ -4,7 +4,7 @@
  * Author: Reanon (793584285@qq.com)
  */
 
-#include "../include/include.h"
+#include "../utils/common.h"
 
 /* 辅助数组，用于存储遍历序列 */
 int *arr;
