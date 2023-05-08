@@ -15,7 +15,7 @@ int *levelOrder(TreeNode *root, int *size) {
     TreeNode **queue;
 
     /* 辅助队列 */
-    queue = (TreeNode **)malloc(sizeof(TreeNode) * MAX_NODE_SIZE);
+    queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_NODE_SIZE);
     // 队列指针
     front = 0, rear = 0;
     // 加入根节点
@@ -42,6 +42,9 @@ int *levelOrder(TreeNode *root, int *size) {
     // 更新数组长度的值
     *size = index;
     arr = realloc(arr, sizeof(int) * (*size));
+
+    // 释放辅助数组空间
+    free(queue);
     return arr;
 }
 
@@ -61,5 +64,8 @@ int main() {
     printf("层序遍历的节点打印序列 = ");
     printArray(arr, size);
 
+    // 释放内存
+    freeMemoryTree(root);
+    free(arr);
     return 0;
 }
