@@ -20,7 +20,7 @@ comments: true
 
 === "Java"
 
-    ```java title="leetcode_two_sum.java"
+    ```java title="two_sum.java"
     /* 方法一：暴力枚举 */
     int[] twoSumBruteForce(int[] nums, int target) {
         int size = nums.length;
@@ -37,7 +37,7 @@ comments: true
 
 === "C++"
 
-    ```cpp title="leetcode_two_sum.cpp"
+    ```cpp title="two_sum.cpp"
     /* 方法一：暴力枚举 */
     vector<int> twoSumBruteForce(vector<int> &nums, int target) {
         int size = nums.size();
@@ -54,7 +54,7 @@ comments: true
 
 === "Python"
 
-    ```python title="leetcode_two_sum.py"
+    ```python title="two_sum.py"
     def two_sum_brute_force(nums: list[int], target: int) -> list[int]:
         """方法一：暴力枚举"""
         # 两层循环，时间复杂度 O(n^2)
@@ -67,7 +67,7 @@ comments: true
 
 === "Go"
 
-    ```go title="leetcode_two_sum.go"
+    ```go title="two_sum.go"
     /* 方法一：暴力枚举 */
     func twoSumBruteForce(nums []int, target int) []int {
         size := len(nums)
@@ -85,7 +85,7 @@ comments: true
 
 === "JavaScript"
 
-    ```javascript title="leetcode_two_sum.js"
+    ```javascript title="two_sum.js"
     /* 方法一：暴力枚举 */
     function twoSumBruteForce(nums, target) {
         const n = nums.length;
@@ -103,7 +103,7 @@ comments: true
 
 === "TypeScript"
 
-    ```typescript title="leetcode_two_sum.ts"
+    ```typescript title="two_sum.ts"
     /* 方法一：暴力枚举 */
     function twoSumBruteForce(nums: number[], target: number): number[] {
         const n = nums.length;
@@ -121,7 +121,7 @@ comments: true
 
 === "C"
 
-    ```c title="leetcode_two_sum.c"
+    ```c title="two_sum.c"
     /* 方法一：暴力枚举 */
     int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
         for (int i = 0; i < numsSize; ++i) {
@@ -141,7 +141,7 @@ comments: true
 
 === "C#"
 
-    ```csharp title="leetcode_two_sum.cs"
+    ```csharp title="two_sum.cs"
     /* 方法一：暴力枚举 */
     int[] twoSumBruteForce(int[] nums, int target) {
         int size = nums.Length;
@@ -158,7 +158,7 @@ comments: true
 
 === "Swift"
 
-    ```swift title="leetcode_two_sum.swift"
+    ```swift title="two_sum.swift"
     /* 方法一：暴力枚举 */
     func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
         // 两层循环，时间复杂度 O(n^2)
@@ -175,7 +175,7 @@ comments: true
 
 === "Zig"
 
-    ```zig title="leetcode_two_sum.zig"
+    ```zig title="two_sum.zig"
     // 方法一：暴力枚举
     fn twoSumBruteForce(nums: []i32, target: i32) ?[2]i32 {
         var size: usize = nums.len;
@@ -215,7 +215,7 @@ comments: true
 
 === "Java"
 
-    ```java title="leetcode_two_sum.java"
+    ```java title="two_sum.java"
     /* 方法二：辅助哈希表 */
     int[] twoSumHashTable(int[] nums, int target) {
         int size = nums.length;
@@ -234,7 +234,7 @@ comments: true
 
 === "C++"
 
-    ```cpp title="leetcode_two_sum.cpp"
+    ```cpp title="two_sum.cpp"
     /* 方法二：辅助哈希表 */
     vector<int> twoSumHashTable(vector<int> &nums, int target) {
         int size = nums.size();
@@ -253,7 +253,7 @@ comments: true
 
 === "Python"
 
-    ```python title="leetcode_two_sum.py"
+    ```python title="two_sum.py"
     def two_sum_hash_table(nums: list[int], target: int) -> list[int]:
         """方法二：辅助哈希表"""
         # 辅助哈希表，空间复杂度 O(n)
@@ -268,7 +268,7 @@ comments: true
 
 === "Go"
 
-    ```go title="leetcode_two_sum.go"
+    ```go title="two_sum.go"
     /* 方法二：辅助哈希表 */
     func twoSumHashTable(nums []int, target int) []int {
         // 辅助哈希表，空间复杂度 O(n)
@@ -286,7 +286,7 @@ comments: true
 
 === "JavaScript"
 
-    ```javascript title="leetcode_two_sum.js"
+    ```javascript title="two_sum.js"
     /* 方法二：辅助哈希表 */
     function twoSumHashTable(nums, target) {
         // 辅助哈希表，空间复杂度 O(n)
@@ -305,7 +305,7 @@ comments: true
 
 === "TypeScript"
 
-    ```typescript title="leetcode_two_sum.ts"
+    ```typescript title="two_sum.ts"
     /* 方法二：辅助哈希表 */
     function twoSumHashTable(nums: number[], target: number): number[] {
         // 辅助哈希表，空间复杂度 O(n)
@@ -325,7 +325,7 @@ comments: true
 
 === "C"
 
-    ```c title="leetcode_two_sum.c"
+    ```c title="two_sum.c"
     /* 哈希表 */
     struct hashTable {
         int key;
@@ -374,7 +374,7 @@ comments: true
 
 === "C#"
 
-    ```csharp title="leetcode_two_sum.cs"
+    ```csharp title="two_sum.cs"
     /* 方法二：辅助哈希表 */
     int[] twoSumHashTable(int[] nums, int target) {
         int size = nums.Length;
@@ -393,7 +393,7 @@ comments: true
 
 === "Swift"
 
-    ```swift title="leetcode_two_sum.swift"
+    ```swift title="two_sum.swift"
     /* 方法二：辅助哈希表 */
     func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
         // 辅助哈希表，空间复杂度 O(n)
@@ -411,7 +411,7 @@ comments: true
 
 === "Zig"
 
-    ```zig title="leetcode_two_sum.zig"
+    ```zig title="two_sum.zig"
     // 方法二：辅助哈希表
     fn twoSumHashTable(nums: []i32, target: i32) !?[2]i32 {
         var size: usize = nums.len;

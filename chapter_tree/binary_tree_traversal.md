@@ -168,7 +168,7 @@ comments: true
         TreeNode **queue;
 
         /* 辅助队列 */
-        queue = (TreeNode **)malloc(sizeof(TreeNode) * MAX_NODE_SIZE);
+        queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_NODE_SIZE);
         // 队列指针
         front = 0, rear = 0;
         // 加入根节点
@@ -195,6 +195,9 @@ comments: true
         // 更新数组长度的值
         *size = index;
         arr = realloc(arr, sizeof(int) * (*size));
+
+        // 释放辅助数组空间
+        free(queue);
         return arr;
     }
     ```
