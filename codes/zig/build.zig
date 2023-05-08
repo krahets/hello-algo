@@ -52,18 +52,18 @@ pub fn build(b: *std.build.Builder) void {
         run_step_space_complexity.dependOn(&run_cmd_space_complexity.step);
 
     // Section: "Space Time Tradeoff"
-        // Source File: "chapter_computational_complexity/leetcode_two_sum.zig"
-        // Run Command: zig build run_leetcode_two_sum
-        const exe_leetcode_two_sum = b.addExecutable("leetcode_two_sum", "chapter_computational_complexity/leetcode_two_sum.zig");
-        exe_leetcode_two_sum.addPackagePath("include", "include/include.zig");
-        exe_leetcode_two_sum.setTarget(target);
-        exe_leetcode_two_sum.setBuildMode(mode);
-        exe_leetcode_two_sum.install();
-        const run_cmd_leetcode_two_sum = exe_leetcode_two_sum.run();
-        run_cmd_leetcode_two_sum.step.dependOn(b.getInstallStep());
-        if (b.args) |args| run_cmd_leetcode_two_sum.addArgs(args);
-        const run_step_leetcode_two_sum = b.step("run_leetcode_two_sum", "Run leetcode_two_sum");
-        run_step_leetcode_two_sum.dependOn(&run_cmd_leetcode_two_sum.step);
+        // Source File: "chapter_computational_complexity/two_sum.zig"
+        // Run Command: zig build run_two_sum
+        const exe_two_sum = b.addExecutable("two_sum", "chapter_computational_complexity/two_sum.zig");
+        exe_two_sum.addPackagePath("include", "include/include.zig");
+        exe_two_sum.setTarget(target);
+        exe_two_sum.setBuildMode(mode);
+        exe_two_sum.install();
+        const run_cmd_two_sum = exe_two_sum.run();
+        run_cmd_two_sum.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run_cmd_two_sum.addArgs(args);
+        const run_step_two_sum = b.step("run_two_sum", "Run two_sum");
+        run_step_two_sum.dependOn(&run_cmd_two_sum.step);
 
     // Section: "Array"
         // Source File: "chapter_array_and_linkedlist/array.zig"

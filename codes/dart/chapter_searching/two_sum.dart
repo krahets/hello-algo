@@ -1,5 +1,5 @@
 /**
- * File: leetcode_two_sum.dart
+ * File: two_sum.dart
  * Created Time: 2023-2-11
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
@@ -34,7 +34,7 @@ List<int> twoSumHashTable(List<int> nums, int target) {
 int main() {
   // ======= Test Case =======
   List<int> nums = [2, 7, 11, 15];
-  int target = 9;
+  int target = 13;
 
   // ====== Driver Code ======
   // 方法一

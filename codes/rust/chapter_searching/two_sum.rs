@@ -1,5 +1,5 @@
 /*
- * File: leetcode_two_sum.rs
+ * File: two_sum.rs
  * Created Time: 2023-01-14
  * Author: xBLACICEx (xBLACKICEx@outlook.com), sjinzh (sjinzh@gmail.com)
  */
@@ -39,7 +39,7 @@ pub fn two_sum_hash_table(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
 fn main() {
     // ======= Test Case =======
     let nums = vec![ 2, 7, 11, 15 ];
-    let target = 9;
+    let target = 13;
 
     // ====== Driver Code ======
     // 方法一

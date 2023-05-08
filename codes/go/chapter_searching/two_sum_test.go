@@ -1,4 +1,4 @@
-// File: leetcode_two_sum_test.go
+// File: two_sum_test.go
 // Created Time: 2022-11-25
 // Author: reanon (793584285@qq.com)
 
@@ -12,7 +12,7 @@ import (
 func TestTwoSum(t *testing.T) {
 	// ======= Test Case =======
 	nums := []int{2, 7, 11, 15}
-	target := 9
+	target := 13
 
 	// ====== Driver Code ======
 	// 方法一：暴力解法

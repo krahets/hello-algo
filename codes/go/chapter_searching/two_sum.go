@@ -1,4 +1,4 @@
-// File: leetcode_two_sum.go
+// File: two_sum.go
 // Created Time: 2022-11-25
 // Author: reanon (793584285@qq.com)
 

@@ -1,15 +1,17 @@
-﻿/**
- * File: leetcode_two_sum.cs
- * Created Time: 2022-12-23
- * Author: haptear (haptear@hotmail.com)
+/**
+ * File: two_sum.java
+ * Created Time: 2022-11-25
+ * Author: Krahets (krahets@163.com)
  */
 
-namespace hello_algo.chapter_searching;
+package chapter_searching;
 
-public class leetcode_two_sum {
+import java.util.*;
+
+public class two_sum {
     /* 方法一：暴力枚举 */
-    public static int[] twoSumBruteForce(int[] nums, int target) {
-        int size = nums.Length;
+    static int[] twoSumBruteForce(int[] nums, int target) {
+        int size = nums.length;
         // 两层循环，时间复杂度 O(n^2)
         for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {
@@ -21,32 +23,31 @@ public class leetcode_two_sum {
     }
 
     /* 方法二：辅助哈希表 */
-    public static int[] twoSumHashTable(int[] nums, int target) {
-        int size = nums.Length;
+    static int[] twoSumHashTable(int[] nums, int target) {
+        int size = nums.length;
         // 辅助哈希表，空间复杂度 O(n)
-        Dictionary<int, int> dic = new();
+        Map<Integer, Integer> dic = new HashMap<>();
         // 单层循环，时间复杂度 O(n)
         for (int i = 0; i < size; i++) {
-            if (dic.ContainsKey(target - nums[i])) {
-                return new int[] { dic[target - nums[i]], i };
+            if (dic.containsKey(target - nums[i])) {
+                return new int[] { dic.get(target - nums[i]), i };
             }
-            dic.Add(nums[i], i);
+            dic.put(nums[i], i);
         }
         return new int[0];
     }
 
-    [Test]
-    public void Test() {
+    public static void main(String[] args) {
         // ======= Test Case =======
         int[] nums = { 2, 7, 11, 15 };
-        int target = 9;
+        int target = 13;
 
         // ====== Driver Code ======
         // 方法一
         int[] res = twoSumBruteForce(nums, target);
-        Console.WriteLine("方法一 res = " + string.Join(",", res));
+        System.out.println("方法一 res = " + Arrays.toString(res));
         // 方法二
         res = twoSumHashTable(nums, target);
-        Console.WriteLine("方法二 res = " + string.Join(",", res));
+        System.out.println("方法二 res = " + Arrays.toString(res));
     }
 }
