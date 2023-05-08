@@ -49,7 +49,7 @@ TreeNode *arrToTree(const int *arr, size_t size) {
     /* 根节点 */
     root = newTreeNode(arr[0]);
     /* 辅助队列 */
-    queue = (TreeNode **)malloc(sizeof(TreeNode) * MAX_NODE_SIZE);
+    queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_NODE_SIZE);
     // 队列指针
     front = 0, rear = 0;
     // 将根节点放入队尾
@@ -75,6 +75,8 @@ TreeNode *arrToTree(const int *arr, size_t size) {
             }
         }
     }
+    // 释放辅助队列空间
+    free(queue);
     return root;
 }
 
