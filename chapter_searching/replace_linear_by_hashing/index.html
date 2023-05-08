@@ -1866,16 +1866,16 @@
 
 
 <h1 id="122">12.2. &nbsp; 哈希优化策略<a class="headerlink" href="#122" title="Permanent link">&para;</a></h1>
-<p>在算法题中，<strong>我们时常通过将线性查找替换为哈希查找来降低算法的时间复杂度</strong>。以 LeetCode 全站第一题 <a href="https://leetcode.cn/problems/two-sum/">两数之和</a> 为例。</p>
+<p>在算法题中，<strong>我们常通过将线性查找替换为哈希查找来降低算法的时间复杂度</strong>。我们借助一个算法题来加深理解。</p>
 <div class="admonition question">
 <p class="admonition-title">两数之和</p>
-<p>给定一个整数数组 <code>nums</code> 和一个整数目标值 <code>target</code> ，请你在该数组中找出“和”为目标值 <code>target</code> 的那两个整数，并返回它们的数组下标。</p>
-<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
-<p>你可以按任意顺序返回答案。</p>
+<p>给定一个整数数组 <code>nums</code> 和一个整数目标值 <code>target</code> ，请在数组中搜索“和”为目标值 <code>target</code> 的两个整数，并返回他们在数组中的索引。注意，数组中同一个元素在答案里不能重复出现。返回任意一个解即可。</p>
 </div>
 <h2 id="1221">12.2.1. &nbsp; 线性查找：以时间换空间<a class="headerlink" href="#1221" title="Permanent link">&para;</a></h2>
 <p>考虑直接遍历所有可能的组合。开启一个两层循环，在每轮中判断两个整数的和是否为 <code>target</code> ，若是，则返回它们的索引。</p>
-<p>（图）</p>
+<p><img alt="线性查找求解两数之和" src="../replace_linear_by_hashing.assets/two_sum_brute_force.png" /></p>
+<p align="center"> Fig. 线性查找求解两数之和 </p>
+
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2037,13 +2037,26 @@
 </div>
 <p>此方法的时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ，空间复杂度为 <span class="arithmatex">\(O(1)\)</span> ，在大数据量下非常耗时。</p>
 <h2 id="1222">12.2.2. &nbsp; 哈希查找：以空间换时间<a class="headerlink" href="#1222" title="Permanent link">&para;</a></h2>
-<p>考虑借助一个哈希表，将数组元素和元素索引构建为键值对。循环遍历数组中的每个元素 <code>num</code> 并执行：</p>
+<p>考虑借助一个哈希表，键值对分别为数组元素和元素索引。循环遍历数组，每轮执行：</p>
 <ol>
-<li>判断数字 <code>target - num</code> 是否在哈希表中，若是则直接返回该两个元素的索引；</li>
-<li>将元素 <code>num</code> 和其索引添加进哈希表；</li>
+<li>判断数字 <code>target - nums[i]</code> 是否在哈希表中，若是则直接返回这两个元素的索引；</li>
+<li>将键值对 <code>num[i]</code> 和索引 <code>i</code> 添加进哈希表；</li>
 </ol>
-<p>（图）</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="two_sum_hashtable_step1" src="../replace_linear_by_hashing.assets/two_sum_hashtable_step1.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="two_sum_hashtable_step2" src="../replace_linear_by_hashing.assets/two_sum_hashtable_step2.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="two_sum_hashtable_step3" src="../replace_linear_by_hashing.assets/two_sum_hashtable_step3.png" /></p>
+</div>
+</div>
+</div>
+<p>实现代码如下所示，仅需单层循环即可。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:10"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">leetcode_two_sum.java</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* 方法二：辅助哈希表 */</span>
