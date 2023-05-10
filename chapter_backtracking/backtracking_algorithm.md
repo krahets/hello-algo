@@ -481,24 +481,232 @@ comments: true
 
 设 `state` 为问题的当前状态，`choices` 表示当前状态下可以做出的选择，则可得到以下回溯算法的框架代码。
 
-```python
-def backtrack(state, choices, res):
-    """回溯算法框架"""
-    # 判断是否为解
-    if is_solution(state):
-        # 记录解
-        record_solution(state, res)
-        return
-    # 遍历所有选择
-    for choice in choices:
-        # 剪枝：判断选择是否合法
-        if is_valid(state, choice):
-            # 尝试：做出选择，更新状态
-            make_choice(state, choice)
-            backtrack(state, choices, res)
-            # 回退：撤销选择，恢复到之前的状态
-            undo_choice(state, choice)
-```
+=== "Java"
+
+    ```java title=""
+    /* 回溯算法框架 */
+    void backtrack(State state, List<Choice> choices, List<State> res) {
+        // 判断是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+            return;
+        }
+        // 遍历所有选择
+        for (Choice choice : choices) {
+            // 剪枝：判断选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                backtrack(state, choices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
+    ```
+
+=== "C++"
+
+    ```cpp title=""
+    /* 回溯算法框架 */
+    void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
+        // 判断是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+            return;
+        }
+        // 遍历所有选择
+        for (Choice choice : choices) {
+            // 剪枝：判断选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                backtrack(state, choices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
+    ```
+
+=== "Python"
+
+    ```python title=""
+    def backtrack(state: State, choices: list[choice], res: list[state]) -> None:
+        """回溯算法框架"""
+        # 判断是否为解
+        if is_solution(state):
+            # 记录解
+            record_solution(state, res)
+            return
+        # 遍历所有选择
+        for choice in choices:
+            # 剪枝：判断选择是否合法
+            if is_valid(state, choice):
+                # 尝试：做出选择，更新状态
+                make_choice(state, choice)
+                backtrack(state, choices, res)
+                # 回退：撤销选择，恢复到之前的状态
+                undo_choice(state, choice)
+    ```
+
+=== "Go"
+
+    ```go title=""
+    /* 回溯算法框架 */
+    func backtrack(state *State, choices []Choice, res *[]State) {
+        // 判断是否为解
+        if isSolution(state) {
+            // 记录解
+            recordSolution(state, res)
+            return
+        }
+        // 遍历所有选择
+        for _, choice := range choices {
+            // 剪枝：判断选择是否合法
+            if isValid(state, choice) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice)
+                backtrack(state, choices, res)
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice)
+            }
+        }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```javascript title=""
+    /* 回溯算法框架 */
+    function backtrack(state, choices, res) {
+        // 判断是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+            return;
+        }
+        // 遍历所有选择
+        for (let choice of choices) {
+            // 剪枝：判断选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                backtrack(state, choices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
+    ```
+
+=== "TypeScript"
+
+    ```typescript title=""
+    /* 回溯算法框架 */
+    function backtrack(state: State, choices: Choice[], res: State[]): void {
+        // 判断是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+            return;
+        }
+        // 遍历所有选择
+        for (let choice of choices) {
+            // 剪枝：判断选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                backtrack(state, choices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
+    ```
+
+=== "C"
+
+    ```c title=""
+    /* 回溯算法框架 */
+    void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
+        // 判断是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res, numRes);
+            return;
+        }
+        // 遍历所有选择
+        for (int i = 0; i < numChoices; i++) {
+            // 剪枝：判断选择是否合法
+            if (isValid(state, &choices[i])) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, &choices[i]);
+                backtrack(state, choices, numChoices, res, numRes);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, &choices[i]);
+            }
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+    /* 回溯算法框架 */
+    void backtrack(State state, List<Choice> choices, List<State> res) {
+        // 判断是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+            return;
+        }
+        // 遍历所有选择
+        foreach (Choice choice in choices) {
+            // 剪枝：判断选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                backtrack(state, choices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    /* 回溯算法框架 */
+    func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
+        // 判断是否为解
+        if isSolution(state: state) {
+            // 记录解
+            recordSolution(state: state, res: &res)
+            return
+        }
+        // 遍历所有选择
+        for choice in choices {
+            // 剪枝：判断选择是否合法
+            if isValid(state: state, choice: choice) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state: &state, choice: choice)
+                backtrack(state: &state, choices: choices, res: &res)
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state: &state, choice: choice)
+            }
+        }
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+
+    ```
 
 下面，我们尝试基于此框架来解决例题三。在例题三中，状态 `state` 是节点遍历路径，选择 `choices` 是当前节点的左子节点和右子节点，结果 `res` 是路径列表，实现代码如下所示。
 
@@ -828,7 +1036,7 @@ def backtrack(state, choices, res):
     [class]{}-[func]{backtrack}
     ```
 
-相较于基于前序遍历的实现代码，基于回溯算法框架的实现代码虽然显得啰嗦，但通用性更好，适用于各种不同的回溯算法问题。实际上，**所有回溯问题都可以在该框架下解决**。我们只需要根据问题特点来定义框架中的各个变量，实现各个方法即可。
+相较于基于前序遍历的实现代码，基于回溯算法框架的实现代码虽然显得啰嗦，但通用性更好。实际上，**所有回溯问题都可以在该框架下解决**。我们需要根据具体问题来定义 `state` 和 `choices` ，并实现框架中的各个方法。
 
 ## 13.1.5. &nbsp; 典型例题
 
