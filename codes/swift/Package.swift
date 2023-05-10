@@ -43,7 +43,7 @@ let package = Package(
         .executable(name: "graph_bfs", targets: ["graph_bfs"]),
         .executable(name: "graph_dfs", targets: ["graph_dfs"]),
         // chapter_searching
-        .executable(name: "leetcode_two_sum", targets: ["leetcode_two_sum"]),
+        .executable(name: "two_sum", targets: ["two_sum"]),
         .executable(name: "linear_search", targets: ["linear_search"]),
         .executable(name: "hashing_search", targets: ["hashing_search"]),
         // chapter_sorting
@@ -104,7 +104,7 @@ let package = Package(
         .executableTarget(name: "graph_bfs", dependencies: ["utils", "graph_adjacency_list_target"], path: "chapter_graph", sources: ["graph_bfs.swift"]),
         .executableTarget(name: "graph_dfs", dependencies: ["utils", "graph_adjacency_list_target"], path: "chapter_graph", sources: ["graph_dfs.swift"]),
         // chapter_searching
-        .executableTarget(name: "leetcode_two_sum", path: "chapter_searching", sources: ["leetcode_two_sum.swift"]),
+        .executableTarget(name: "two_sum", path: "chapter_searching", sources: ["two_sum.swift"]),
         .executableTarget(name: "linear_search", dependencies: ["utils"], path: "chapter_searching", sources: ["linear_search.swift"]),
         .executableTarget(name: "hashing_search", dependencies: ["utils"], path: "chapter_searching", sources: ["hashing_search.swift"]),
         // chapter_sorting

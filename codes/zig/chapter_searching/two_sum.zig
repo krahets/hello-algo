@@ -1,4 +1,4 @@
-// File: leetcode_two_sum.zig
+// File: two_sum.zig
 // Created Time: 2023-01-07
 // Author: sjinzh (sjinzh@gmail.com)
 

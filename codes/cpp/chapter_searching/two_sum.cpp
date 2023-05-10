@@ -1,5 +1,5 @@
 /**
- * File: leetcode_two_sum.cpp
+ * File: two_sum.cpp
  * Created Time: 2022-11-25
  * Author: Krahets (krahets@163.com)
  */
@@ -38,7 +38,7 @@ vector<int> twoSumHashTable(vector<int> &nums, int target) {
 int main() {
     // ======= Test Case =======
     vector<int> nums = {2, 7, 11, 15};
-    int target = 9;
+    int target = 13;
 
     // ====== Driver Code ======
     // 方法一

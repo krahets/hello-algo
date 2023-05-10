@@ -88,7 +88,7 @@ hide:
 
 <h2 align="center"> 致谢 </h2>
 
-本书在开源社区众多贡献者的共同努力下不断成长。感谢每一位投入时间与精力的撰稿人，是他们无私奉献使这本书越变越好，他们是（按照 GitHub 自动生成的顺序）：
+本书在开源社区众多贡献者的共同努力下不断成长。感谢每一位投入时间与精力的撰稿人，是他们无私奉献使这本书越变越好，他们是（按照 GitHub 自动生成的顺序排列）：
 
 <p align="center">
     <a href="https://github.com/krahets/hello-algo/graphs/contributors">
@@ -96,11 +96,12 @@ hide:
     </a>
 </p>
 
-本书的代码审阅工作由 justin‐tse, krahets, nuomi1, Reanon, sjinzh 完成，感谢他们的辛勤付出！
+本书的代码审阅工作由 Gonglja, justin‐tse, krahets, nuomi1, Reanon, sjinzh 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
 
 <div class="center-table">
     <table>
         <tbody>
+            <td align="center"><a href="https://github.com/Gonglja"><img src="https://avatars.githubusercontent.com/u/39959756?v=4" width="50px;" alt="Gonglja"/><br /><sub><b>Gonglja</b></sub></a><br /><sub>C / C++</sub></td>
             <td align="center"><a href="https://github.com/justin-tse"><img src="https://avatars.githubusercontent.com/u/24556310?v=4" width="50px;" alt="justin-tse"/><br /><sub><b>justin-tse</b></sub></a><br /><sub>JS / TS</sub></td>
             <td align="center"><a href="https://github.com/krahets"><img src="https://avatars.githubusercontent.com/u/26993056?v=4" width="50px;" alt="krahets"/><br /><sub><b>krahets</b></sub></a><br /><sub>Java / Python</sub></td>
             <td align="center"><a href="https://github.com/nuomi1"><img src="https://avatars.githubusercontent.com/u/3739017?v=4" width="50px;" alt="nuomi1"/><br /><sub><b>nuomi1</b></sub></a><br /><sub>Swift</sub></td>

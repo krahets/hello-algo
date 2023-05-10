@@ -1,5 +1,5 @@
 """
-File: leetcode_two_sum.py
+File: two_sum.py
 Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
 """
@@ -31,7 +31,7 @@ def two_sum_hash_table(nums: list[int], target: int) -> list[int]:
 if __name__ == "__main__":
     # ======= Test Case =======
     nums = [2, 7, 11, 15]
-    target = 9
+    target = 13
 
     # ====== Driver Code ======
     # 方法一

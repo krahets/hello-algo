@@ -1,11 +1,11 @@
 /**
- * File: leetcode_two_sum.js
+ * File: two_sum.ts
  * Created Time: 2022-12-15
  * Author: gyt95 (gytkwan@gmail.com)
  */
 
 /* 方法一：暴力枚举 */
-function twoSumBruteForce(nums, target) {
+function twoSumBruteForce(nums: number[], target: number): number[] {
     const n = nums.length;
     // 两层循环，时间复杂度 O(n^2)
     for (let i = 0; i < n; i++) {
@@ -19,15 +19,16 @@ function twoSumBruteForce(nums, target) {
 }
 
 /* 方法二：辅助哈希表 */
-function twoSumHashTable(nums, target) {
+function twoSumHashTable(nums: number[], target: number): number[] {
     // 辅助哈希表，空间复杂度 O(n)
-    let m = {};
+    let m: Map<number, number> = new Map();
     // 单层循环，时间复杂度 O(n)
     for (let i = 0; i < nums.length; i++) {
-        if (m[nums[i]] !== undefined) {
-            return [m[nums[i]], i];
+        let index = m.get(nums[i]);
+        if (index !== undefined) {
+            return [index, i];
         } else {
-            m[target - nums[i]] = i;
+            m.set(target - nums[i], i);
         }
     }
     return [];
@@ -36,7 +37,7 @@ function twoSumHashTable(nums, target) {
 /* Driver Code */
 // 方法一
 const nums = [2, 7, 11, 15],
-    target = 9;
+    target = 13;
 
 let res = twoSumBruteForce(nums, target);
 console.log('方法一 res = ', res);
@@ -44,3 +45,5 @@ console.log('方法一 res = ', res);
 // 方法二
 res = twoSumHashTable(nums, target);
 console.log('方法二 res = ', res);
+
+export {};

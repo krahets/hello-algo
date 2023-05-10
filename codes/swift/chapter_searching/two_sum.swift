@@ -1,5 +1,5 @@
 /**
- * File: leetcode_two_sum.swift
+ * File: two_sum.swift
  * Created Time: 2023-01-03
  * Author: nuomi1 (nuomi1@qq.com)
  */
@@ -37,7 +37,7 @@ enum LeetcodeTwoSum {
     static func main() {
         // ======= Test Case =======
         let nums = [2, 7, 11, 15]
-        let target = 9
+        let target = 13
         // ====== Driver Code ======
         // 方法一
         var res = twoSumBruteForce(nums: nums, target: target)

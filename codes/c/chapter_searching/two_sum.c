@@ -1,5 +1,5 @@
 /**
- * File: leetcode_two_sum.c
+ * File: two_sum.c
  * Created Time: 2023-01-19
  * Author: Reanon (793584285@qq.com)
  */
@@ -71,7 +71,7 @@ int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
 int main() {
     // ======= Test Case =======
     int nums[] = {2, 7, 11, 15};
-    int target = 9;
+    int target = 13;
     // ====== Driver Code ======
     int returnSize;
     int *res = twoSumBruteForce(nums, sizeof(nums) / sizeof(int), target, &returnSize);
