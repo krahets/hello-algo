@@ -209,7 +209,7 @@
 递归过程可分为“递”和“归”两个相反的部分。“递”表示开启新方法，程序在此过程中访问下一个节点；“归”表示函数返回，代表该节点已经访问完毕。如下图所示，为前序遍历二叉树的递归过程。
 
 === "<1>"
-    ![preorder_step1](binary_tree_traversal.assets/preorder_step1.png)
+    ![前序遍历的递归过程](binary_tree_traversal.assets/preorder_step1.png)
 
 === "<2>"
     ![preorder_step2](binary_tree_traversal.assets/preorder_step2.png)

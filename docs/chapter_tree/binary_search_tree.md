@@ -18,7 +18,7 @@
 - 若 `cur.val = num` ，说明找到目标节点，跳出循环并返回该节点；
 
 === "<1>"
-    ![bst_search_step1](binary_search_tree.assets/bst_search_step1.png)
+    ![二叉搜索树查找节点示例](binary_search_tree.assets/bst_search_step1.png)
 
 === "<2>"
     ![bst_search_step2](binary_search_tree.assets/bst_search_step2.png)
@@ -185,7 +185,7 @@
 3. 用 `tmp` 的值覆盖待删除节点的值；
 
 === "<1>"
-    ![bst_remove_case3_step1](binary_search_tree.assets/bst_remove_case3_step1.png)
+    ![二叉搜索树删除节点示例](binary_search_tree.assets/bst_remove_case3_step1.png)
 
 === "<2>"
     ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.png)
