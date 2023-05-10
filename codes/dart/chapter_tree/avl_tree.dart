@@ -143,7 +143,7 @@ class AVLTree {
         while (temp!.left != null) {
           temp = temp.left;
         }
-        node.right = removeHelper(node.right, temp!.val);
+        node.right = removeHelper(node.right, temp.val);
         node.val = temp.val;
       }
     }

@@ -135,7 +135,7 @@ void main() {
   print("\n查找到的节点对象为 $node，节点值 = ${node?.val}");
 
   /* 插入节点 */
-  node = insert(16);
+  insert(16);
   print("\n插入节点 16 后，二叉树为\n");
   printTree(getRoot());
 
