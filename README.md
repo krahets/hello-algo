@@ -24,7 +24,7 @@
     阅读网页版
     </a>
   &nbsp; | &nbsp;
-    <a href="https://github.com/krahets/hello-algo/releases/tag/1.0.0b2">
+    <a href="https://github.com/krahets/hello-algo/releases">
     下载 PDF 版
     </a>
 </p>
