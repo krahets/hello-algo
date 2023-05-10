@@ -203,7 +203,7 @@ comments: true
 2. 将键值对 `num[i]` 和索引 `i` 添加进哈希表；
 
 === "<1>"
-    ![two_sum_hashtable_step1](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
+    ![辅助哈希表求解两数之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
 
 === "<2>"
     ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png)

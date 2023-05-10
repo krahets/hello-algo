@@ -275,7 +275,7 @@ comments: true
 在每次“尝试”中，我们通过将当前节点添加进 `path` 来记录路径；而在“回退”前，我们需要将该节点从 `path` 中弹出，**以恢复本次尝试之前的状态**。换句话说，**我们可以将尝试和回退理解为“前进”与“撤销”**，两个操作是互为相反的。
 
 === "<1>"
-    ![preorder_find_paths_step1](backtracking_algorithm.assets/preorder_find_paths_step1.png)
+    ![尝试与回退](backtracking_algorithm.assets/preorder_find_paths_step1.png)
 
 === "<2>"
     ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.png)

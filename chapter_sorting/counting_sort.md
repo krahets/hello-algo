@@ -287,7 +287,7 @@ $$
 遍历完成后，数组 `res` 中就是排序好的结果，最后使用 `res` 覆盖原数组 `nums` 即可。
 
 === "<1>"
-    ![counting_sort_step1](counting_sort.assets/counting_sort_step1.png)
+    ![计数排序步骤](counting_sort.assets/counting_sort_step1.png)
 
 === "<2>"
     ![counting_sort_step2](counting_sort.assets/counting_sort_step2.png)
