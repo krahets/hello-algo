@@ -36,7 +36,6 @@ func backtrackII(state *[]int, choices *[]int, selected *[]bool, res *[][]int) {
 }
 
 /* 全排列 II */
-
 func permutationsII(nums []int) [][]int {
 	res := make([][]int, 0)
 	state := make([]int, 0)
