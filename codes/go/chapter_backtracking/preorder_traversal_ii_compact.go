@@ -9,17 +9,18 @@ import (
 )
 
 /* 前序遍历：例题二 */
-var res = make([]any, 0)
-
-/* 前序遍历：例题一 */
-func preOrder(root *TreeNode) {
+func preOrderII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
 	if root == nil {
 		return
 	}
+	// 尝试
+	*path = append(*path, root)
 	if int(root.Val) == 7 {
 		// 记录解
-		res = append(res, root.Val)
+		*res = append(*res, *path)
 	}
-	preOrder(root.Left)
-	preOrder(root.Right)
+	preOrderII(root.Left, res, path)
+	preOrderII(root.Right, res, path)
+	// 回退
+	*path = (*path)[:len(*path)-1]
 }
