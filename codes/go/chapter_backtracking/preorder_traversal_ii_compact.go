@@ -4,15 +4,22 @@
 
 package chapter_backtracking
 
+import (
+	. "github.com/krahets/hello-algo/pkg"
+)
+
 /* 前序遍历：例题二 */
-//func preOrder(root *TreeNode) {
-//	if root == nil {
-//		return
-//	}
-//	if root.Val == 7 {
-//		// 记录解
-//		res = append(res, root)
-//	}
-//	preOrder(root.Left)
-//	preOrder(root.Right)
-//}
+var res = make([]any, 0)
+
+/* 前序遍历：例题一 */
+func preOrder(root *TreeNode) {
+	if root == nil {
+		return
+	}
+	if int(root.Val) == 7 {
+		// 记录解
+		res = append(res, root.Val)
+	}
+	preOrder(root.Left)
+	preOrder(root.Right)
+}
