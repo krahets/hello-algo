@@ -562,7 +562,7 @@
 
     [class]{}-[func]{undoChoice}
 
-    [class]{}-[func]{backtrack}
+    [class]{}-[func]{backtrackIII}
     ```
 
 === "JavaScript"
