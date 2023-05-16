@@ -63,19 +63,52 @@ comments: true
 === "Go"
 
     ```go title="preorder_traversal_i_compact.go"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    func preOrderI(root *TreeNode, res *[]*TreeNode) {
+        if root == nil {
+            return
+        }
+        if int(root.Val) == 7 {
+            // 记录解
+            *res = append(*res, root)
+        }
+        preOrderI(root.Left, res)
+        preOrderI(root.Right, res)
+    }
     ```
 
 === "JavaScript"
 
     ```javascript title="preorder_traversal_i_compact.js"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    function preOrder(root, res) {
+        if (root === null) {
+            return;
+        }
+        if (root.val === 7) {
+            // 记录解
+            res.push(root);
+        }
+        preOrder(root.left, res);
+        preOrder(root.right, res);
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="preorder_traversal_i_compact.ts"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    function preOrder(root: TreeNode | null, res: TreeNode[]): void {
+        if (root === null) {
+            return;
+        }
+        if (root.val === 7) {
+            // 记录解
+            res.push(root);
+        }
+        preOrder(root.left, res);
+        preOrder(root.right, res);
+    }
     ```
 
 === "C"
@@ -203,19 +236,68 @@ comments: true
 === "Go"
 
     ```go title="preorder_traversal_ii_compact.go"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    func preOrderII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
+        if root == nil {
+            return
+        }
+        // 尝试
+        *path = append(*path, root)
+        if int(root.Val) == 7 {
+            // 记录解
+            *res = append(*res, *path)
+        }
+        preOrderII(root.Left, res, path)
+        preOrderII(root.Right, res, path)
+        // 回退
+        *path = (*path)[:len(*path)-1]
+    }
     ```
 
 === "JavaScript"
 
     ```javascript title="preorder_traversal_ii_compact.js"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    function preOrder(root, path, res) {
+        if (root === null) {
+            return;
+        }
+        // 尝试
+        path.push(root);
+        if (root.val === 7) {
+            // 记录解
+            res.push([...path]);
+        }
+        preOrder(root.left, path, res);
+        preOrder(root.right, path, res);
+        // 回退
+        path.pop();
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="preorder_traversal_ii_compact.ts"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    function preOrder(
+        root: TreeNode | null,
+        path: TreeNode[],
+        res: TreeNode[][]
+    ): void {
+        if (root === null) {
+            return;
+        }
+        // 尝试
+        path.push(root);
+        if (root.val === 7) {
+            // 记录解
+            res.push([...path]);
+        }
+        preOrder(root.left, path, res);
+        preOrder(root.right, path, res);
+        // 回退
+        path.pop();
+    }
     ```
 
 === "C"
@@ -381,19 +463,71 @@ comments: true
 === "Go"
 
     ```go title="preorder_traversal_iii_compact.go"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    func preOrderIII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
+        // 剪枝
+        if root == nil || root.Val == 3 {
+            return
+        }
+        // 尝试
+        *path = append(*path, root)
+        if int(root.Val) == 7 {
+            // 记录解
+            *res = append(*res, *path)
+        }
+        preOrderIII(root.Left, res, path)
+        preOrderIII(root.Right, res, path)
+        // 回退
+        *path = (*path)[:len(*path)-1]
+    }
     ```
 
 === "JavaScript"
 
     ```javascript title="preorder_traversal_iii_compact.js"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    function preOrder(root, path, res) {
+        // 剪枝
+        if (root === null || root.val === 3) {
+            return;
+        }
+        // 尝试
+        path.push(root);
+        if (root.val === 7) {
+            // 记录解
+            res.push([...path]);
+        }
+        preOrder(root.left, path, res);
+        preOrder(root.right, path, res);
+        // 回退
+        path.pop();
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="preorder_traversal_iii_compact.ts"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    function preOrder(
+        root: TreeNode | null,
+        path: TreeNode[],
+        res: TreeNode[][]
+    ): void {
+        // 剪枝
+        if (root === null || root.val === 3) {
+            return;
+        }
+        // 尝试
+        path.push(root);
+        if (root.val === 7) {
+            // 记录解
+            res.push([...path]);
+        }
+        preOrder(root.left, path, res);
+        preOrder(root.right, path, res);
+        // 回退
+        path.pop();
+    }
     ```
 
 === "C"
@@ -858,15 +992,30 @@ comments: true
 === "Go"
 
     ```go title="preorder_traversal_iii_template.go"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    func isSolution(state *[]*TreeNode) bool {
+        return len(*state) != 0 && (*state)[len(*state)-1].Val == 7
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    func recordSolution(state *[]*TreeNode, res *[][]*TreeNode) {
+        *res = append(*res, *state)
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    func isValid(state *[]*TreeNode, choice *TreeNode) bool {
+        return choice != nil && choice.Val != 3
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    func makeChoice(state *[]*TreeNode, choice *TreeNode) {
+        *state = append(*state, choice)
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    func undoChoice(state *[]*TreeNode, choice *TreeNode) {
+        *state = (*state)[:len(*state)-1]
+    }
 
     [class]{}-[func]{backtrack}
     ```
@@ -874,33 +1023,107 @@ comments: true
 === "JavaScript"
 
     ```javascript title="preorder_traversal_iii_template.js"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    function isSolution(state) {
+        return state && state[state.length - 1]?.val === 7;
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    function recordSolution(state, res) {
+        res.push([...state]);
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    function isValid(state, choice) {
+        return choice !== null && choice.val !== 3;
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    function makeChoice(state, choice) {
+        state.push(choice);
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    function undoChoice(state) {
+        state.pop();
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    function backtrack(state, choices, res) {
+        // 检查是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+            return;
+        }
+        // 遍历所有选择
+        for (const choice of choices) {
+            // 剪枝：检查选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                // 进行下一轮选择
+                backtrack(state, [choice.left, choice.right], res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state);
+            }
+        }
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="preorder_traversal_iii_template.ts"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    function isSolution(state: TreeNode[]): boolean {
+        return state && state[state.length - 1]?.val === 7;
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    function recordSolution(state: TreeNode[], res: TreeNode[][]): void {
+        res.push([...state]);
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    function isValid(state: TreeNode[], choice: TreeNode): boolean {
+        return choice !== null && choice.val !== 3;
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    function makeChoice(state: TreeNode[], choice: TreeNode): void {
+        state.push(choice);
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    function undoChoice(state: TreeNode[]): void {
+        state.pop();
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    function backtrack(
+        state: TreeNode[],
+        choices: TreeNode[],
+        res: TreeNode[][]
+    ): void {
+        // 检查是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+            return;
+        }
+        // 遍历所有选择
+        for (const choice of choices) {
+            // 剪枝：检查选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                // 进行下一轮选择
+                backtrack(state, [choice.left, choice.right], res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state);
+            }
+        }
+    }
     ```
 
 === "C"

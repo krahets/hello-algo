@@ -34,7 +34,7 @@ comments: true
         // 1. 将数组元素分配到各个桶中
         for (float num : nums) {
             // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-            int i = (int) num * k;
+            int i = (int) (num * k);
             // 将 num 添加进桶 i
             buckets.get(i).add(num);
         }
@@ -123,7 +123,7 @@ comments: true
         // 1. 将数组元素分配到各个桶中
         for _, num := range nums {
             // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-            i := int(num) * k
+            i := int(num * float64(k))
             // 将 num 添加进桶 i
             buckets[i] = append(buckets[i], num)
         }
@@ -229,7 +229,7 @@ comments: true
         // 1. 将数组元素分配到各个桶中
         foreach (float num in nums) {
             // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-            int i = (int)num * k;
+            int i = (int) (num * k);
             // 将 num 添加进桶 i
             buckets[i].Add(num);
         }
@@ -259,7 +259,7 @@ comments: true
         // 1. 将数组元素分配到各个桶中
         for num in nums {
             // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-            let i = Int(num) * k
+            let i = Int(num * k)
             // 将 num 添加进桶 i
             buckets[i].append(num)
         }

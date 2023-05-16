@@ -190,25 +190,180 @@ comments: true
 === "Go"
 
     ```go title="n_queens.go"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, diags2 *[]bool) {
+        // 当放置完所有行时，记录解
+        if row == n {
+            newState := make([][]string, len(*state))
+            for i, _ := range newState {
+                newState[i] = make([]string, len((*state)[0]))
+                copy(newState[i], (*state)[i])
 
-    [class]{}-[func]{nQueens}
+            }
+            *res = append(*res, newState)
+        }
+        // 遍历所有列
+        for col := 0; col < n; col++ {
+            // 计算该格子对应的主对角线和副对角线
+            diag1 := row - col + n - 1
+            diag2 := row + col
+            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
+            if !((*cols)[col] || (*diags1)[diag1] || (*diags2)[diag2]) {
+                // 尝试：将皇后放置在该格子
+                (*state)[row][col] = "Q"
+                (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = true, true, true
+                // 放置下一行
+                backtrack(row+1, n, state, res, cols, diags1, diags2)
+                // 回退：将该格子恢复为空位
+                (*state)[row][col] = "#"
+                (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = false, false, false
+            }
+        }
+    }
+
+    /* 回溯算法：N 皇后 */
+    func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, diags2 *[]bool) {
+        // 当放置完所有行时，记录解
+        if row == n {
+            newState := make([][]string, len(*state))
+            for i, _ := range newState {
+                newState[i] = make([]string, len((*state)[0]))
+                copy(newState[i], (*state)[i])
+
+            }
+            *res = append(*res, newState)
+        }
+        // 遍历所有列
+        for col := 0; col < n; col++ {
+            // 计算该格子对应的主对角线和副对角线
+            diag1 := row - col + n - 1
+            diag2 := row + col
+            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
+            if !((*cols)[col] || (*diags1)[diag1] || (*diags2)[diag2]) {
+                // 尝试：将皇后放置在该格子
+                (*state)[row][col] = "Q"
+                (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = true, true, true
+                // 放置下一行
+                backtrack(row+1, n, state, res, cols, diags1, diags2)
+                // 回退：将该格子恢复为空位
+                (*state)[row][col] = "#"
+                (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = false, false, false
+            }
+        }
+    }
+
+    func nQueens(n int) [][][]string {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        state := make([][]string, n)
+        for i := 0; i < n; i++ {
+            row := make([]string, n)
+            for i := 0; i < n; i++ {
+                row[i] = "#"
+            }
+            state[i] = row
+        }
+        // 记录列是否有皇后
+        cols := make([]bool, n)
+        diags1 := make([]bool, 2*n-1)
+        diags2 := make([]bool, 2*n-1)
+        res := make([][][]string, 0)
+        backtrack(0, n, &state, &res, &cols, &diags1, &diags2)
+        return res
+    }
     ```
 
 === "JavaScript"
 
     ```javascript title="n_queens.js"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    function backtrack(row, n, state, res, cols, diags1, diags2) {
+        // 当放置完所有行时，记录解
+        if (row === n) {
+            res.push(state.map((row) => row.slice()));
+            return;
+        }
+        // 遍历所有列
+        for (let col = 0; col < n; col++) {
+            // 计算该格子对应的主对角线和副对角线
+            const diag1 = row - col + n - 1;
+            const diag2 = row + col;
+            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
+            if (!(cols[col] || diags1[diag1] || diags2[diag2])) {
+                // 尝试：将皇后放置在该格子
+                state[row][col] = 'Q';
+                cols[col] = diags1[diag1] = diags2[diag2] = true;
+                // 放置下一行
+                backtrack(row + 1, n, state, res, cols, diags1, diags2);
+                // 回退：将该格子恢复为空位
+                state[row][col] = '#';
+                cols[col] = diags1[diag1] = diags2[diag2] = false;
+            }
+        }
+    }
 
-    [class]{}-[func]{nQueens}
+    /* 求解 N 皇后 */
+    function nQueens(n) {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        const state = Array.from({ length: n }, () => Array(n).fill('#'));
+        const cols = Array(n).fill(false); // 记录列是否有皇后
+        const diags1 = Array(2 * n - 1).fill(false); // 记录主对角线是否有皇后
+        const diags2 = Array(2 * n - 1).fill(false); // 记录副对角线是否有皇后
+        const res = [];
+
+        backtrack(0, n, state, res, cols, diags1, diags2);
+        return res;
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="n_queens.ts"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    function backtrack(
+        row: number,
+        n: number,
+        state: string[][],
+        res: string[][][],
+        cols: boolean[],
+        diags1: boolean[],
+        diags2: boolean[]
+    ): void {
+        // 当放置完所有行时，记录解
+        if (row === n) {
+            res.push(state.map((row) => row.slice()));
+            return;
+        }
+        // 遍历所有列
+        for (let col = 0; col < n; col++) {
+            // 计算该格子对应的主对角线和副对角线
+            const diag1 = row - col + n - 1;
+            const diag2 = row + col;
+            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
+            if (!(cols[col] || diags1[diag1] || diags2[diag2])) {
+                // 尝试：将皇后放置在该格子
+                state[row][col] = 'Q';
+                cols[col] = diags1[diag1] = diags2[diag2] = true;
+                // 放置下一行
+                backtrack(row + 1, n, state, res, cols, diags1, diags2);
+                // 回退：将该格子恢复为空位
+                state[row][col] = '#';
+                cols[col] = diags1[diag1] = diags2[diag2] = false;
+            }
+        }
+    }
 
-    [class]{}-[func]{nQueens}
+    /* 求解 N 皇后 */
+    function nQueens(n: number): string[][][] {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        const state = Array.from({ length: n }, () => Array(n).fill('#'));
+        const cols = Array(n).fill(false); // 记录列是否有皇后
+        const diags1 = Array(2 * n - 1).fill(false); // 记录主对角线是否有皇后
+        const diags2 = Array(2 * n - 1).fill(false); // 记录副对角线是否有皇后
+        const res: string[][][] = [];
+
+        backtrack(0, n, state, res, cols, diags1, diags2);
+        return res;
+    }
     ```
 
 === "C"
@@ -278,9 +433,49 @@ comments: true
 === "Swift"
 
     ```swift title="n_queens.swift"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    func backtrack(row: Int, n: Int, state: inout [[String]], res: inout [[[String]]], cols: inout [Bool], diags1: inout [Bool], diags2: inout [Bool]) {
+        // 当放置完所有行时，记录解
+        if row == n {
+            res.append(state)
+            return
+        }
+        // 遍历所有列
+        for col in 0 ..< n {
+            // 计算该格子对应的主对角线和副对角线
+            let diag1 = row - col + n - 1
+            let diag2 = row + col
+            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
+            if !(cols[col] || diags1[diag1] || diags2[diag2]) {
+                // 尝试：将皇后放置在该格子
+                state[row][col] = "Q"
+                cols[col] = true
+                diags1[diag1] = true
+                diags2[diag2] = true
+                // 放置下一行
+                backtrack(row: row + 1, n: n, state: &state, res: &res, cols: &cols, diags1: &diags1, diags2: &diags2)
+                // 回退：将该格子恢复为空位
+                state[row][col] = "#"
+                cols[col] = false
+                diags1[diag1] = false
+                diags2[diag2] = false
+            }
+        }
+    }
 
-    [class]{}-[func]{nQueens}
+    /* 求解 N 皇后 */
+    func nQueens(n: Int) -> [[[String]]] {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        var state = Array(repeating: Array(repeating: "#", count: n), count: n)
+        var cols = Array(repeating: false, count: n) // 记录列是否有皇后
+        var diags1 = Array(repeating: false, count: 2 * n - 1) // 记录主对角线是否有皇后
+        var diags2 = Array(repeating: false, count: 2 * n - 1) // 记录副对角线是否有皇后
+        var res: [[[String]]] = []
+
+        backtrack(row: 0, n: n, state: &state, res: &res, cols: &cols, diags1: &diags1, diags2: &diags2)
+
+        return res
+    }
     ```
 
 === "Zig"

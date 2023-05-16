@@ -103,7 +103,7 @@ comments: true
     func countingSortNaive(nums []int) {
         // 1. 统计数组最大元素 m
         m := 0
-        for num := range nums {
+        for _, num := range nums {
             if num > m {
                 m = num
             }
@@ -424,7 +424,7 @@ $$
     func countingSort(nums []int) {
         // 1. 统计数组最大元素 m
         m := 0
-        for num := range nums {
+        for _, num := range nums {
             if num > m {
                 m = num
             }
