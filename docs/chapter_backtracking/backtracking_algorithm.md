@@ -29,7 +29,7 @@
 === "Go"
 
     ```go title="preorder_traversal_i_compact.go"
-    [class]{}-[func]{preOrder}
+    [class]{}-[func]{preOrderI}
     ```
 
 === "JavaScript"
@@ -103,7 +103,7 @@
 === "Go"
 
     ```go title="preorder_traversal_ii_compact.go"
-    [class]{}-[func]{preOrder}
+    [class]{}-[func]{preOrderII}
     ```
 
 === "JavaScript"
@@ -206,7 +206,7 @@
 === "Go"
 
     ```go title="preorder_traversal_iii_compact.go"
-    [class]{}-[func]{preOrder}
+    [class]{}-[func]{preOrderIII}
     ```
 
 === "JavaScript"

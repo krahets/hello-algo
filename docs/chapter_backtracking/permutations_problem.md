@@ -55,7 +55,7 @@
 === "Go"
 
     ```go title="permutations_i.go"
-    [class]{}-[func]{backtrack}
+    [class]{}-[func]{backtrackI}
 
     [class]{}-[func]{permutationsI}
     ```
@@ -157,7 +157,7 @@
 === "Go"
 
     ```go title="permutations_ii.go"
-    [class]{}-[func]{backtrack}
+    [class]{}-[func]{backtrackII}
 
     [class]{}-[func]{permutationsII}
     ```
