@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://www.hello-algo.com/chapter_data_structure/summary/">
       
       
-        <link rel="prev" href="../classification_of_data_structure/">
+        <link rel="prev" href="../character_encoding/">
       
       
         <link rel="next" href="../../chapter_array_and_linkedlist/array/">
@@ -25,7 +25,7 @@
     
     
       
-        <title>3.3.   小结 - Hello 算法</title>
+        <title>3.5.   小结 - Hello 算法</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#33" class="md-skip">
+        <a href="#35" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3.3. &nbsp; 小结
+              3.5. &nbsp; 小结
             
           </span>
         </div>
@@ -544,17 +544,21 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-          3. &nbsp; &nbsp; 数据结构简介
+          3. &nbsp; &nbsp; 数据结构与数据
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          3. &nbsp; &nbsp; 数据结构简介
+          3. &nbsp; &nbsp; 数据结构与数据
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -564,8 +568,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../data_and_memory/" class="md-nav__link">
-        3.1. &nbsp; 基本数据类型
+      <a href="../classification_of_data_structure/" class="md-nav__link">
+        3.1. &nbsp; 数据结构分类
       </a>
     </li>
   
@@ -578,8 +582,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../classification_of_data_structure/" class="md-nav__link">
-        3.2. &nbsp; 数据结构分类
+      <a href="../basic_data_types/" class="md-nav__link">
+        3.2. &nbsp; 基本数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../number_encoding/" class="md-nav__link">
+        3.3. &nbsp; 数字编码 *
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../character_encoding/" class="md-nav__link">
+        3.4. &nbsp; 字符编码 *
       </a>
     </li>
   
@@ -602,7 +634,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        3.3. &nbsp; 小结
+        3.5. &nbsp; 小结
       </a>
       
     </li>
@@ -1805,13 +1837,20 @@
   
 
 
-<h1 id="33">3.3. &nbsp; 小结<a class="headerlink" href="#33" title="Permanent link">&para;</a></h1>
+<h1 id="35">3.5. &nbsp; 小结<a class="headerlink" href="#35" title="Permanent link">&para;</a></h1>
 <ul>
-<li>计算机中的基本数据类型包括整数 byte, short, int, long 、浮点数 float, double 、字符 char 和布尔 boolean ，它们的取值范围取决于占用空间大小和表示方式。</li>
-<li>当程序运行时，数据被存储在计算机内存中。每个内存空间都拥有对应的内存地址，程序通过这些内存地址访问数据。</li>
 <li>数据结构可以从逻辑结构和物理结构两个角度进行分类。逻辑结构描述了数据元素之间的逻辑关系，而物理结构描述了数据在计算机内存中的存储方式。</li>
 <li>常见的逻辑结构包括线性、树状和网状等。通常我们根据逻辑结构将数据结构分为线性（数组、链表、栈、队列）和非线性（树、图、堆）两种。哈希表的实现可能同时包含线性和非线性结构。</li>
+<li>当程序运行时，数据被存储在计算机内存中。每个内存空间都拥有对应的内存地址，程序通过这些内存地址访问数据。</li>
 <li>物理结构主要分为连续空间存储（数组）和离散空间存储（链表）。所有数据结构都是由数组、链表或两者的组合实现的。</li>
+<li>计算机中的基本数据类型包括整数 byte, short, int, long 、浮点数 float, double 、字符 char 和布尔 boolean 。它们的取值范围取决于占用空间大小和表示方式。</li>
+<li>整数的原码的最高位是符号位，其余位是数字的值。数字的原码、反码和补码是可以相互转换的。</li>
+<li>整数在计算机中是以补码的形式存储的。在补码表示下，计算机可以对正数和负数的加法一视同仁，不需要为减法操作单独设计特殊的硬件电路，并且不存在正负零歧义的问题。</li>
+<li>浮点数的编码由 1 位符号位、8 位指数位和 23 位分数为构成。由于存在指数位，浮点数的取值范围远大于整数。</li>
+<li>ASCII 码是最早出现的英文字符集，长度为 1 字节，共收录 127 个字符。GBK 字符集是常用的中文字符集，共收录两万多个汉字。</li>
+<li>Unicode 致力于提供一个统一的字符集标准，其包含世界范围内的各种字符，从而解决由于字符编码不同导致的乱码问题。</li>
+<li>UTF-8 是最受欢迎的 Unicode 编码方法，通用性非常好。它是一种变长的编码方法，具有很好的扩展性，有效提升了存储空间的使用效率。</li>
+<li>UTF-16 和 UTF-32 是等长的编码方法。在编码中文时，UTF-16 比 UTF-8 的占用空间更小。Java, C# 等编程语言默认使用 UTF-16 编码。</li>
 </ul>
 
 
@@ -1890,7 +1929,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../classification_of_data_structure/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 3.2. &amp;nbsp; 数据结构分类" rel="prev">
+          <a href="../character_encoding/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 3.4. &amp;nbsp; 字符编码 *" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1899,7 +1938,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                3.2. &nbsp; 数据结构分类
+                3.4. &nbsp; 字符编码 *
               </div>
             </div>
           </a>

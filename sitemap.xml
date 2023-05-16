@@ -76,12 +76,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_data_structure/basic_data_types/</loc>
+         <lastmod>2023-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.hello-algo.com/chapter_data_structure/character_encoding/</loc>
+         <lastmod>2023-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_data_structure/classification_of_data_structure/</loc>
          <lastmod>2023-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.hello-algo.com/chapter_data_structure/data_and_memory/</loc>
+         <loc>https://www.hello-algo.com/chapter_data_structure/number_encoding/</loc>
          <lastmod>2023-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
