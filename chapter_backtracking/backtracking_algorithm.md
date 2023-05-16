@@ -1017,7 +1017,29 @@ comments: true
         *state = (*state)[:len(*state)-1]
     }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    func backtrackIII(state *[]*TreeNode, choices *[]*TreeNode, res *[][]*TreeNode) {
+        // 检查是否为解
+        if isSolution(state) {
+            // 记录解
+            recordSolution(state, res)
+            return
+        }
+        // 遍历所有选择
+        for _, choice := range *choices {
+            // 剪枝：检查选择是否合法
+            if isValid(state, choice) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice)
+                // 进行下一轮选择
+                temp := make([]*TreeNode, 0)
+                temp = append(temp, choice.Left, choice.Right)
+                backtrackIII(state, &temp, res)
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice)
+            }
+        }
+    }
     ```
 
 === "JavaScript"
