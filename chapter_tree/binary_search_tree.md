@@ -297,7 +297,7 @@ comments: true
             else
                 cur = cur.left;
         }
-        // 插入节点 val
+        // 插入节点
         TreeNode node = new TreeNode(num);
         if (pre.val < num)
             pre.right = node;
@@ -328,7 +328,7 @@ comments: true
             else
                 cur = cur->left;
         }
-        // 插入节点 val
+        // 插入节点
         TreeNode *node = new TreeNode(num);
         if (pre->val < num)
             pre->right = node;
@@ -360,7 +360,7 @@ comments: true
             else:
                 cur = cur.left
 
-        # 插入节点 val
+        # 插入节点
         node = TreeNode(num)
         if pre.val < num:
             pre.right = node
@@ -421,7 +421,7 @@ comments: true
             // 插入位置在 cur 的左子树中
             else cur = cur.left;
         }
-        // 插入节点 val
+        // 插入节点
         let node = new TreeNode(num);
         if (pre.val < num) pre.right = node;
         else pre.left = node;
@@ -451,7 +451,7 @@ comments: true
                 cur = cur.left as TreeNode; // 插入位置在 cur 的左子树中
             }
         }
-        // 插入节点 val
+        // 插入节点
         let node = new TreeNode(num);
         if (pre!.val < num) {
             pre!.right = node;
@@ -485,7 +485,7 @@ comments: true
                 cur = cur->left;
             }
         }
-        // 插入节点 val
+        // 插入节点
         TreeNode *node = newTreeNode(num);
         if (pre->val < num) {
             pre->right = node;
@@ -514,7 +514,7 @@ comments: true
             else cur = cur.left;
         }
 
-        // 插入节点 val
+        // 插入节点
         TreeNode node = new TreeNode(num);
         if (pre != null) {
             if (pre.val < num) pre.right = node;
@@ -550,7 +550,7 @@ comments: true
                 cur = cur?.left
             }
         }
-        // 插入节点 val
+        // 插入节点
         let node = TreeNode(x: num)
         if pre!.val < num {
             pre?.right = node
@@ -582,7 +582,7 @@ comments: true
                 cur = cur.?.left;
             }
         }
-        // 插入节点 val
+        // 插入节点
         var node = try self.mem_allocator.create(inc.TreeNode(T));
         node.init(num);
         if (pre.?.val < num) {
