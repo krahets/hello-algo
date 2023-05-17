@@ -3,23 +3,27 @@
  * Created Time: 2023-04-20
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
+
 use std::{cell::RefCell, rc::Rc};
 use tree_node::TreeNode;
 include!("../include/include.rs");
 type TreeNodeRc = Rc<RefCell<TreeNode>>;
 
+/* 二叉搜索树 */
 pub struct BinarySearchTree {
     root: Option<TreeNodeRc>,
 }
 
 impl BinarySearchTree {
-    pub fn new(mut num: Vec<i32>) -> Self {
-        num.sort();                                 // 排序数组
-        if num.is_empty() {
+    pub fn new(mut nums: Vec<i32>) -> Self {
+        // 排序数组
+        nums.sort();
+        if nums.is_empty() {
             Self { root: None }
         } else {
+            // 构建二叉搜索树
             Self {
-                root: Some(Self::build_tree(&num)), // 构建二叉搜索树
+                root: Some(Self::build_tree(&num)),
             }
         }
     }
@@ -73,10 +77,8 @@ impl BinarySearchTree {
         if self.root.is_none() {
             return None;
         }
-
         let mut cur = self.root.clone();
         let mut pre = None;
-
         // 循环查找，越过叶节点后跳出
         while let Some(node) = cur.clone() {
             // 找到重复节点，直接返回
@@ -169,13 +171,13 @@ impl BinarySearchTree {
 
 /* Driver Code */
 fn main() {
-    /* 初始化二叉搜索树 */
+    // 初始化二叉搜索树
     let nums = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
     let mut bst = BinarySearchTree::new(nums);
     println!("初始化的二叉树为\n");
     print_util::print_tree(&bst.get_root().unwrap());
 
-    /* 查找节点 */
+    // 查找节点
     let node = bst.search(7).unwrap();
     println!(
         "\n查找到的节点对象为: {:p} 节点值 = {}\n",
@@ -183,12 +185,12 @@ fn main() {
         node.borrow().val
     );
 
-    // /* 插入节点 */
+    // 插入节点
     let node = bst.insert(16).unwrap();
     println!("插入节点 {} 后，二叉树为\n", node.borrow().val);
     print_util::print_tree(&bst.get_root().unwrap());
 
-    /* 删除节点 */
+    // 删除节点
     bst.remove(1);
     println!("\n删除节点 1 后，二叉树为\n");
     print_util::print_tree(&bst.get_root().unwrap());
