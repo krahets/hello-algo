@@ -80,7 +80,7 @@ class BinarySearchTree {
                 cur = cur?.left
             }
         }
-        // 插入节点 val
+        // 插入节点
         let node = TreeNode(x: num)
         if pre!.val < num {
             pre?.right = node

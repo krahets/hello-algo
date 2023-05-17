@@ -66,7 +66,7 @@ function insert(num) {
         // 插入位置在 cur 的左子树中
         else cur = cur.left;
     }
-    // 插入节点 val
+    // 插入节点
     let node = new TreeNode(num);
     if (pre.val < num) pre.right = node;
     else pre.left = node;
