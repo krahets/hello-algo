@@ -1956,10 +1956,14 @@
 <li>UTF-8 是最受欢迎的 Unicode 编码方法，通用性非常好。它是一种变长的编码方法，具有很好的扩展性，有效提升了存储空间的使用效率。UTF-16 和 UTF-32 是等长的编码方法。在编码中文时，UTF-16 比 UTF-8 的占用空间更小。Java, C# 等编程语言默认使用 UTF-16 编码。</li>
 </ul>
 <h2 id="352-q-a">3.5.2. &nbsp; Q &amp; A<a class="headerlink" href="#352-q-a" title="Permanent link">&para;</a></h2>
-<p><strong>Q</strong>：为什么哈希表同时包含线性数据结构和非线性数据结构？</p>
-<p><strong>A</strong>：哈希表底层是数组，而为了解决哈希冲突，我们可能会使用“拉链法”（后续散列表章节会讲）。在拉链法中，数组中每个地址（桶）指向一个链表；当这个链表长度超过一定阈值时，又可能被转化为树（通常为红黑树）。因此，哈希表可能同时包含线性（数组、链表）和非线性（树）数据结构。</p>
-<p><strong>Q</strong>：char 类型的长度是 1 bytes 吗？</p>
-<p><strong>A</strong>：这个与编程语言采用的编码方法有关。例如，Java, JS, TS, C# 都采用 UTF-16 编码（保存 Unicode 码点），因此 char 类型的长度为 2 bytes 。</p>
+<div class="admonition question">
+<p class="admonition-title">为什么哈希表同时包含线性数据结构和非线性数据结构？</p>
+<p>哈希表底层是数组，而为了解决哈希冲突，我们可能会使用“拉链法”（后续散列表章节会讲）。在拉链法中，数组中每个地址（桶）指向一个链表；当这个链表长度超过一定阈值时，又可能被转化为树（通常为红黑树）。因此，哈希表可能同时包含线性（数组、链表）和非线性（树）数据结构。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">char 类型的长度是 1 bytes 吗？</p>
+<p>这个与编程语言采用的编码方法有关。例如，Java, JS, TS, C# 都采用 UTF-16 编码（保存 Unicode 码点），因此 char 类型的长度为 2 bytes 。</p>
+</div>
 
 
 
