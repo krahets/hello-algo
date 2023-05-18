@@ -368,7 +368,7 @@ $$
 
     ```java title="binary_search.java"
     /* 二分查找（左闭右开） */
-    int binarySearch1(int[] nums, int target) {
+    int binarySearchLCRO(int[] nums, int target) {
         // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         int i = 0, j = nums.length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -390,7 +390,7 @@ $$
 
     ```cpp title="binary_search.cpp"
     /* 二分查找（左闭右开） */
-    int binarySearch1(vector<int> &nums, int target) {
+    int binarySearchLCRO(vector<int> &nums, int target) {
         // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         int i = 0, j = nums.size();
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -411,7 +411,7 @@ $$
 === "Python"
 
     ```python title="binary_search.py"
-    def binary_search1(nums: list[int], target: int) -> int:
+    def binary_search_lcro(nums: list[int], target: int) -> int:
         """二分查找（左闭右开）"""
         # 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         i, j = 0, len(nums)
@@ -431,7 +431,7 @@ $$
 
     ```go title="binary_search.go"
     /* 二分查找（左闭右开） */
-    func binarySearch1(nums []int, target int) int {
+    func binarySearchLCRO(nums []int, target int) int {
         // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         i, j := 0, len(nums)
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -454,7 +454,7 @@ $$
 
     ```javascript title="binary_search.js"
     /* 二分查找（左闭右开） */
-    function binarySearch1(nums, target) {
+    function binarySearchLCRO(nums, target) {
         // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         let i = 0,
             j = nums.length;
@@ -480,7 +480,7 @@ $$
 
     ```typescript title="binary_search.ts"
     /* 二分查找（左闭右开） */
-    function binarySearch1(nums: number[], target: number): number {
+    function binarySearchLCRO(nums: number[], target: number): number {
         // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         let i = 0,
             j = nums.length;
@@ -507,7 +507,7 @@ $$
 
     ```c title="binary_search.c"
     /* 二分查找（左闭右开） */
-    int binarySearch1(int *nums, int len, int target) {
+    int binarySearchLCRO(int *nums, int len, int target) {
         // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         int i = 0, j = len;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -529,7 +529,7 @@ $$
 
     ```csharp title="binary_search.cs"
     /* 二分查找（左闭右开） */
-    int binarySearch1(int[] nums, int target) {
+    int binarySearchLCRO(int[] nums, int target) {
         // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         int i = 0, j = nums.Length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -551,7 +551,7 @@ $$
 
     ```swift title="binary_search.swift"
     /* 二分查找（左闭右开） */
-    func binarySearch1(nums: [Int], target: Int) -> Int {
+    func binarySearchLCRO(nums: [Int], target: Int) -> Int {
         // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         var i = 0
         var j = nums.count
@@ -575,7 +575,7 @@ $$
 
     ```zig title="binary_search.zig"
     // 二分查找（左闭右开）
-    fn binarySearch1(comptime T: type, nums: std.ArrayList(T), target: T) T {
+    fn binarySearchLCRO(comptime T: type, nums: std.ArrayList(T), target: T) T {
         // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         var i: usize = 0;
         var j: usize = nums.items.len;
