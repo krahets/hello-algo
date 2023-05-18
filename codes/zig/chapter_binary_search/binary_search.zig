@@ -26,7 +26,7 @@ fn binarySearch(comptime T: type, nums: std.ArrayList(T), target: T) T {
 }
 
 // 二分查找（左闭右开）
-fn binarySearch1(comptime T: type, nums: std.ArrayList(T), target: T) T {
+fn binarySearchLCRO(comptime T: type, nums: std.ArrayList(T), target: T) T {
     // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     var i: usize = 0;
     var j: usize = nums.items.len;
@@ -57,7 +57,7 @@ pub fn main() !void {
     std.debug.print("目标元素 6 的索引 = {}\n", .{index});
 
     // 二分查找（左闭右开）
-    index = binarySearch1(i32, nums, target);
+    index = binarySearchLCRO(i32, nums, target);
     std.debug.print("目标元素 6 的索引 = {}\n", .{index});
 
     _ = try std.io.getStdIn().reader().readByte();

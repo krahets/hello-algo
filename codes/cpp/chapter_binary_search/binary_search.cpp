@@ -25,7 +25,7 @@ int binarySearch(vector<int> &nums, int target) {
 }
 
 /* 二分查找（左闭右开） */
-int binarySearch1(vector<int> &nums, int target) {
+int binarySearchLCRO(vector<int> &nums, int target) {
     // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     int i = 0, j = nums.size();
     // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -52,7 +52,7 @@ int main() {
     cout << "目标元素 6 的索引 = " << index << endl;
 
     /* 二分查找（左闭右开） */
-    index = binarySearch1(nums, target);
+    index = binarySearchLCRO(nums, target);
     cout << "目标元素 6 的索引 = " << index << endl;
 
     return 0;

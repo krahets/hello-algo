@@ -25,7 +25,7 @@ fn binary_search(nums: &[i32], target: i32) -> i32 {
 }
 
 /* 二分查找（左闭右开） */
-fn binary_search1(nums: &[i32], target: i32) -> i32 {
+fn binary_search_lcro(nums: &[i32], target: i32) -> i32 {
     // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     let mut i = 0;
     let mut j = nums.len();
@@ -54,6 +54,6 @@ pub fn main() {
     println!("目标元素 6 的索引 = {index}");
 
     // 二分查找（左闭右开）
-    index = binary_search1(&nums, target);
+    index = binary_search_lcro(&nums, target);
     println!("目标元素 6 的索引 = {index}");
 }
