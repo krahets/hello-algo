@@ -2288,8 +2288,9 @@
 </ol>
 <p>以学生数据 <code>key 学号 -&gt; value 姓名</code> 为例，我们可以设计如下哈希函数：</p>
 <div class="arithmatex">\[
-f(x) = x \% 100
+f(x) = x \bmod {100}
 \]</div>
+<p>其中 <span class="arithmatex">\(\bmod\)</span> 表示取余运算。</p>
 <p><img alt="哈希函数工作原理" src="../hash_map.assets/hash_function.png" /></p>
 <p align="center"> Fig. 哈希函数工作原理 </p>
 
@@ -3129,7 +3130,7 @@ f(x) = x \% 100
 </div>
 </div>
 <h2 id="713">7.1.3. &nbsp; 哈希冲突<a class="headerlink" href="#713" title="Permanent link">&para;</a></h2>
-<p>细心的你可能已经注意到，<strong>在某些情况下，哈希函数 <span class="arithmatex">\(f(x) = x % 100\)</span> 可能无法正常工作</strong>。具体来说，当输入的 key 后两位相同时，哈希函数的计算结果也会相同，从而指向同一个 value 。例如，查询学号为 <span class="arithmatex">\(12836\)</span> 和 <span class="arithmatex">\(20336\)</span> 的两个学生时，我们得到：</p>
+<p>细心的你可能已经注意到，<strong>在某些情况下，哈希函数 <span class="arithmatex">\(f(x) = x \bmod 100\)</span> 可能无法正常工作</strong>。具体来说，当输入的 key 后两位相同时，哈希函数的计算结果也会相同，从而指向同一个 value 。例如，查询学号为 <span class="arithmatex">\(12836\)</span> 和 <span class="arithmatex">\(20336\)</span> 的两个学生时，我们得到：</p>
 <div class="arithmatex">\[
 f(12836) = f(20336) = 36
 \]</div>
