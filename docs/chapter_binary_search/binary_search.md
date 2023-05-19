@@ -194,61 +194,61 @@ $$
 === "Java"
 
     ```java title="binary_search.java"
-    [class]{binary_search}-[func]{binarySearch1}
+    [class]{binary_search}-[func]{binarySearchLCRO}
     ```
 
 === "C++"
 
     ```cpp title="binary_search.cpp"
-    [class]{}-[func]{binarySearch1}
+    [class]{}-[func]{binarySearchLCRO}
     ```
 
 === "Python"
 
     ```python title="binary_search.py"
-    [class]{}-[func]{binary_search1}
+    [class]{}-[func]{binary_search_lcro}
     ```
 
 === "Go"
 
     ```go title="binary_search.go"
-    [class]{}-[func]{binarySearch1}
+    [class]{}-[func]{binarySearchLCRO}
     ```
 
 === "JavaScript"
 
     ```javascript title="binary_search.js"
-    [class]{}-[func]{binarySearch1}
+    [class]{}-[func]{binarySearchLCRO}
     ```
 
 === "TypeScript"
 
     ```typescript title="binary_search.ts"
-    [class]{}-[func]{binarySearch1}
+    [class]{}-[func]{binarySearchLCRO}
     ```
 
 === "C"
 
     ```c title="binary_search.c"
-    [class]{}-[func]{binarySearch1}
+    [class]{}-[func]{binarySearchLCRO}
     ```
 
 === "C#"
 
     ```csharp title="binary_search.cs"
-    [class]{binary_search}-[func]{binarySearch1}
+    [class]{binary_search}-[func]{binarySearchLCRO}
     ```
 
 === "Swift"
 
     ```swift title="binary_search.swift"
-    [class]{}-[func]{binarySearch1}
+    [class]{}-[func]{binarySearchLCRO}
     ```
 
 === "Zig"
 
     ```zig title="binary_search.zig"
-    [class]{}-[func]{binarySearch1}
+    [class]{}-[func]{binarySearchLCRO}
     ```
 
 对比这两种代码写法，我们可以发现以下不同点：

@@ -87,7 +87,7 @@ pub fn BinarySearchTree(comptime T: type) type {
                     cur = cur.?.left;
                 }
             }
-            // 插入节点 val
+            // 插入节点
             var node = try self.mem_allocator.create(inc.TreeNode(T));
             node.init(num);
             if (pre.?.val < num) {

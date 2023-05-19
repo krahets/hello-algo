@@ -137,10 +137,12 @@ nav:
     - 2.2. &nbsp; 时间复杂度: chapter_computational_complexity/time_complexity.md
     - 2.3. &nbsp; 空间复杂度: chapter_computational_complexity/space_complexity.md
     - 2.4. &nbsp; 小结: chapter_computational_complexity/summary.md
-  - 3. &nbsp; &nbsp; 数据结构简介:
-    - 3.1. &nbsp; 数据与内存: chapter_data_structure/data_and_memory.md
-    - 3.2. &nbsp; 数据结构分类: chapter_data_structure/classification_of_data_structure.md
-    - 3.3. &nbsp; 小结: chapter_data_structure/summary.md
+  - 3. &nbsp; &nbsp; 数据结构与类型:
+    - 3.1. &nbsp; 数据结构分类: chapter_data_structure/classification_of_data_structure.md
+    - 3.2. &nbsp; 基本数据类型: chapter_data_structure/basic_data_types.md
+    - 3.3. &nbsp; 数字编码 *: chapter_data_structure/number_encoding.md
+    - 3.4. &nbsp; 字符编码 *: chapter_data_structure/character_encoding.md
+    - 3.5. &nbsp; 小结: chapter_data_structure/summary.md
   - 4. &nbsp; &nbsp; 数组与链表:
     - 4.1. &nbsp; 数组: chapter_array_and_linkedlist/array.md
     - 4.2. &nbsp; 链表: chapter_array_and_linkedlist/linked_list.md

@@ -20,7 +20,7 @@ def binary_search(nums: list[int], target: int) -> int:
     return -1  # 未找到目标元素，返回 -1
 
 
-def binary_search1(nums: list[int], target: int) -> int:
+def binary_search_lcro(nums: list[int], target: int) -> int:
     """二分查找（左闭右开）"""
     # 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     i, j = 0, len(nums)
@@ -46,5 +46,5 @@ if __name__ == "__main__":
     print("目标元素 6 的索引 = ", index)
 
     # 二分查找（左闭右开）
-    index: int = binary_search1(nums, target)
+    index: int = binary_search_lcro(nums, target)
     print("目标元素 6 的索引 = ", index)

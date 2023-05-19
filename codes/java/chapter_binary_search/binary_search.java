@@ -26,7 +26,7 @@ public class binary_search {
     }
 
     /* 二分查找（左闭右开） */
-    static int binarySearch1(int[] nums, int target) {
+    static int binarySearchLCRO(int[] nums, int target) {
         // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
         int i = 0, j = nums.length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
@@ -52,7 +52,7 @@ public class binary_search {
         System.out.println("目标元素 6 的索引 = " + index);
 
         /* 二分查找（左闭右开） */
-        index = binarySearch1(nums, target);
+        index = binarySearchLCRO(nums, target);
         System.out.println("目标元素 6 的索引 = " + index);
     }
 }

@@ -77,7 +77,7 @@ class BinarySearchTree {
             else
                 cur = cur->left;
         }
-        // 插入节点 val
+        // 插入节点
         TreeNode *node = new TreeNode(num);
         if (pre->val < num)
             pre->right = node;

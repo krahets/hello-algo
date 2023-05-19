@@ -28,7 +28,7 @@ function binarySearch(nums: number[], target: number): number {
 }
 
 /* 二分查找（左闭右开） */
-function binarySearch1(nums: number[], target: number): number {
+function binarySearchLCRO(nums: number[], target: number): number {
     // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     let i = 0,
         j = nums.length;
@@ -59,7 +59,7 @@ let index = binarySearch(nums, target);
 console.info('目标元素 6 的索引 = %d', index);
 
 /* 二分查找（左闭右开） */
-index = binarySearch1(nums, target);
+index = binarySearchLCRO(nums, target);
 console.info('目标元素 6 的索引 = %d', index);
 
 export {};
