@@ -23,7 +23,7 @@ impl BinarySearchTree {
         } else {
             // 构建二叉搜索树
             Self {
-                root: Some(Self::build_tree(&num)),
+                root: Some(Self::build_tree(&nums)),
             }
         }
     }
