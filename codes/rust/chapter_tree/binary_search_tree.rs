@@ -146,26 +146,21 @@ impl BinarySearchTree {
             // 子节点数量 = 2
             else {
                 // 获取中序遍历中 cur 的下一个节点
-                let tmp = Self::get_next_node(cur.borrow().right.clone()).unwrap();
+                let mut tmp = cur.borrow().right.clone();
+                while let Some(node) = tmp.clone() {
+                    if node.borrow().left.is_some() {
+                        tmp = node.borrow().left.clone();
+                    } else {
+                        break;
+                    }
+                }
+                let tmpval = tmp.unwrap().borrow().val;
                 // 递归删除节点 next
-                self.remove(tmp.borrow().val);
+                self.remove(tmpval);
                 // 将 nex 的值复制给 cur
-                cur.borrow_mut().val = tmp.borrow().val;
+                cur.borrow_mut().val = tmpval;
             }
         }
-    }
-
-    /* 获取中序遍历中的下一个节点（仅适用于 root 有左子节点的情况） */
-    fn get_next_node(mut root: Option<TreeNodeRc>) -> Option<TreeNodeRc> {
-        // 循环访问左子节点，直到叶节点时为最小节点，跳出
-        while let Some(node) = root.clone() {
-            if node.borrow().left.is_some() {
-                root = node.borrow().left.clone();
-            } else {
-                break;
-            }
-        }
-        root
     }
 }
 
