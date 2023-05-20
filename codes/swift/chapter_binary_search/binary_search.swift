@@ -11,7 +11,7 @@ func binarySearch(nums: [Int], target: Int) -> Int {
     var j = nums.count - 1
     // 循环，当搜索区间为空时跳出（当 i > j 时为空）
     while i <= j {
-        let m = (i + j) / 2 // 计算中点索引 m
+        let m = i + (j - i) / 2 // 计算中点索引 m
         if nums[m] < target { // 此情况说明 target 在区间 [m+1, j] 中
             i = m + 1
         } else if nums[m] > target { // 此情况说明 target 在区间 [i, m-1] 中
@@ -31,7 +31,7 @@ func binarySearchLCRO(nums: [Int], target: Int) -> Int {
     var j = nums.count
     // 循环，当搜索区间为空时跳出（当 i = j 时为空）
     while i < j {
-        let m = (i + j) / 2 // 计算中点索引 m
+        let m = i + (j - i) / 2 // 计算中点索引 m
         if nums[m] < target { // 此情况说明 target 在区间 [m+1, j) 中
             i = m + 1
         } else if nums[m] > target { // 此情况说明 target 在区间 [i, m) 中

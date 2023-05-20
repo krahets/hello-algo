@@ -12,7 +12,7 @@ function binarySearch(nums, target) {
     // 循环，当搜索区间为空时跳出（当 i > j 时为空）
     while (i <= j) {
         // 计算中点索引 m ，使用 parseInt() 向下取整
-        const m = parseInt((i + j) / 2);
+        const m = parseInt(i + (j - i) / 2);
         if (nums[m] < target)
             // 此情况说明 target 在区间 [m+1, j] 中
             i = m + 1;
@@ -33,7 +33,7 @@ function binarySearchLCRO(nums, target) {
     // 循环，当搜索区间为空时跳出（当 i = j 时为空）
     while (i < j) {
         // 计算中点索引 m ，使用 parseInt() 向下取整
-        const m = parseInt((i + j) / 2);
+        const m = parseInt(i + (j - i) / 2);
         if (nums[m] < target)
             // 此情况说明 target 在区间 [m+1, j) 中
             i = m + 1;

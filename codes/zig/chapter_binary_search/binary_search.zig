@@ -12,7 +12,7 @@ fn binarySearch(comptime T: type, nums: std.ArrayList(T), target: T) T {
     var j: usize = nums.items.len - 1;
     // 循环，当搜索区间为空时跳出（当 i > j 时为空）
     while (i <= j) {
-        var m = (i + j) / 2;                    // 计算中点索引 m
+        var m = i + (j - i) / 2;                // 计算中点索引 m
         if (nums.items[m] < target) {           // 此情况说明 target 在区间 [m+1, j] 中
             i = m + 1;
         } else if (nums.items[m] > target) {    // 此情况说明 target 在区间 [i, m-1] 中
@@ -32,7 +32,7 @@ fn binarySearchLCRO(comptime T: type, nums: std.ArrayList(T), target: T) T {
     var j: usize = nums.items.len;
     // 循环，当搜索区间为空时跳出（当 i = j 时为空）
     while (i <= j) {
-        var m = (i + j) / 2;                    // 计算中点索引 m
+        var m = i + (j - i) / 2;                // 计算中点索引 m
         if (nums.items[m] < target) {           // 此情况说明 target 在区间 [m+1, j) 中
             i = m + 1;
         } else if (nums.items[m] > target) {    // 此情况说明 target 在区间 [i, m) 中

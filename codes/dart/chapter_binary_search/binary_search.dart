@@ -10,7 +10,7 @@ int binarySearch(List<int> nums, int target) {
   int i = 0, j = nums.length - 1;
   // 循环，当搜索区间为空时跳出（当 i > j 时为空）
   while (i <= j) {
-    int m = (i + j) ~/ 2; // 计算中点索引 m
+    int m = i + (j - i) ~/ 2; // 计算中点索引 m
     if (nums[m] < target) {
       // 此情况说明 target 在区间 [m+1, j] 中
       i = m + 1;
@@ -32,7 +32,7 @@ int binarySearchLCRO(List<int> nums, int target) {
   int i = 0, j = nums.length;
   // 循环，当搜索区间为空时跳出（当 i = j 时为空）
   while (i < j) {
-    int m = (i + j) ~/ 2; // 计算中点索引 m
+    int m = i + (j - i) ~/ 2; // 计算中点索引 m
     if (nums[m] < target) {
       // 此情况说明 target 在区间 [m+1, j) 中
       i = m + 1;
