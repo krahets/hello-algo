@@ -4,25 +4,31 @@ comments: true
 
 # 6.1. &nbsp; 二分查找
 
-「二分查找 Binary Search」利用数据的有序性，通过每轮减少一半搜索范围来定位目标元素。
+「二分查找 Binary Search」是一种基于分治思想的高效搜索算法。它利用数据的有序性，每轮减少一半搜索范围，实现定位目标元素。
 
-给定一个长度为 $n$ 的有序数组 `nums` ，元素按从小到大的顺序排列。数组索引的取值范围为：
+我们先来求解一个简单的二分查找问题。
 
-$$
-0, 1, 2, \cdots, n-1
-$$
+!!! question "给定一个长度为 $n$ 的有序数组 `nums` ，元素按从小到大的顺序排列。查找并返回元素 `target` 在该数组中的索引。若数组中不包含该元素，则返回 $-1$ 。数组中不包含重复元素。"
 
-我们通常使用以下两种方法来表示这个取值范围：
+该数组的索引范围可以使用区间 $[0, n - 1]$ 来表示。其中，**中括号表示“闭区间”，即包含边界值本身**。在该表示下，区间 $[i, j]$ 在 $i = j$ 时仍包含一个元素，在 $i > j$ 时为空区间。
 
-1. **双闭区间 $[0, n-1]$** ，即两个边界都包含自身；在此方法下，区间 $[i, i]$ 仍包含 $1$ 个元素；
-2. **左闭右开 $[0, n)$** ，即左边界包含自身、右边界不包含自身；在此方法下，区间 $[i, i)$ 不包含元素；
+接下来，我们基于上述区间定义实现二分查找。先初始化指针 $i = 0$ 和 $j = n - 1$ ，分别指向数组首元素和尾元素。之后循环执行以下两个步骤:
 
-## 6.1.1. &nbsp; 双闭区间实现
+1. 计算中点索引 $m = \lfloor {(i + j) / 2} \rfloor$ ，其中 $\lfloor \space \rfloor$ 表示向下取整操作。
+2. 根据 `nums[m]` 和 `target` 缩小搜索区间，分为三种情况：
+    1. 当 `nums[m] < target` 时，说明 `target` 在区间 $[m + 1, j]$ 中，因此执行 $i = m + 1$ ；
+    2. 当 `nums[m] > target` 时，说明 `target` 在区间 $[i, m - 1]$ 中，因此执行 $j = m - 1$ ；
+    3. 当 `nums[m] = target` 时，说明找到目标元素，直接返回索引 $m$ 即可；
 
-首先，我们采用“双闭区间”表示法，在数组 `nums` 中查找目标元素 `target` 的对应索引。
+**若数组不包含目标元素，搜索区间最终会缩小为空**，即达到 $i > j$ 。此时，终止循环并返回 $-1$ 即可。
+
+为了更清晰地表示区间，我们在下图中以折线图的形式表示数组。
+
+=== "<0>"
+    ![二分查找步骤](binary_search.assets/binary_search_step0.png)
 
 === "<1>"
-    ![二分查找步骤](binary_search.assets/binary_search_step1.png)
+    ![binary_search_step1](binary_search.assets/binary_search_step1.png)
 
 === "<2>"
     ![binary_search_step2](binary_search.assets/binary_search_step2.png)
@@ -42,7 +48,9 @@ $$
 === "<7>"
     ![binary_search_step7](binary_search.assets/binary_search_step7.png)
 
-二分查找在“双闭区间”表示下的代码如下所示。
+值得注意的是，**当数组长度 $n$ 很大时，加法 $i + j$ 的结果可能会超出 `int` 类型的取值范围**。为了避免大数越界，我们通常采用公式 $m = \lfloor {i + (j - i) / 2} \rfloor$ 来计算中点。
+
+有趣的是，理论上 Python 的数字可以无限大（取决于内存大小），因此无需考虑大数越界问题。
 
 === "Java"
 
@@ -53,12 +61,12 @@ $$
         int i = 0, j = nums.length - 1;
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
         while (i <= j) {
-            int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target) // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
             else if (nums[m] > target) // 此情况说明 target 在区间 [i, m-1] 中
                 j = m - 1;
-            else                       // 找到目标元素，返回其索引
+            else // 找到目标元素，返回其索引
                 return m;
         }
         // 未找到目标元素，返回 -1
@@ -75,8 +83,8 @@ $$
         int i = 0, j = nums.size() - 1;
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
         while (i <= j) {
-            int m = (i + j) / 2;  // 计算中点索引 m
-            if (nums[m] < target) // 此情况说明 target 在区间 [m+1, j] 中
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target)    // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
             else if (nums[m] > target) // 此情况说明 target 在区间 [i, m-1] 中
                 j = m - 1;
@@ -95,12 +103,13 @@ $$
         """二分查找（双闭区间）"""
         # 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
         i, j = 0, len(nums) - 1
+        # 循环，当搜索区间为空时跳出（当 i > j 时为空）
         while i <= j:
             m = (i + j) // 2  # 计算中点索引 m
-            if nums[m] < target:  # 此情况说明 target 在区间 [m+1, j] 中
-                i = m + 1
-            elif nums[m] > target:  # 此情况说明 target 在区间 [i, m-1] 中
-                j = m - 1
+            if nums[m] < target:
+                i = m + 1  # 此情况说明 target 在区间 [m+1, j] 中
+            elif nums[m] > target:
+                j = m - 1  # 此情况说明 target 在区间 [i, m-1] 中
             else:
                 return m  # 找到目标元素，返回其索引
         return -1  # 未找到目标元素，返回 -1
@@ -115,7 +124,7 @@ $$
         i, j := 0, len(nums)-1
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
         for i <= j {
-            m := (i + j) / 2      // 计算中点索引 m
+            m := i + (j-i)/2      // 计算中点索引 m
             if nums[m] < target { // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1
             } else if nums[m] > target { // 此情况说明 target 在区间 [i, m-1] 中
@@ -140,7 +149,7 @@ $$
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
         while (i <= j) {
             // 计算中点索引 m ，使用 parseInt() 向下取整
-            const m = parseInt((i + j) / 2);
+            const m = parseInt(i + (j - i) / 2);
             if (nums[m] < target)
                 // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
@@ -165,7 +174,7 @@ $$
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
         while (i <= j) {
             // 计算中点索引 m
-            const m = Math.floor((i + j) / 2);
+            const m = Math.floor(i + (j - i) / 2);
             if (nums[m] < target) {
                 // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
@@ -190,8 +199,8 @@ $$
         int i = 0, j = len - 1;
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
         while (i <= j) {
-            int m = (i + j) / 2; // 计算中点索引 m
-            if (nums[m] < target)       // 此情况说明 target 在区间 [m+1, j] 中
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target)    // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
             else if (nums[m] > target) // 此情况说明 target 在区间 [i, m-1] 中
                 j = m - 1;
@@ -212,7 +221,7 @@ $$
         int i = 0, j = nums.Length - 1;
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
         while (i <= j) {
-            int m = (i + j) / 2;       // 计算中点索引 m
+            int m = i + (j - i) / 2;   // 计算中点索引 m
             if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
             else if (nums[m] > target) // 此情况说明 target 在区间 [i, m-1] 中
@@ -235,7 +244,7 @@ $$
         var j = nums.count - 1
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
         while i <= j {
-            let m = (i + j) / 2 // 计算中点索引 m
+            let m = i + (j - i) / 2 // 计算中点索引 m
             if nums[m] < target { // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1
             } else if nums[m] > target { // 此情况说明 target 在区间 [i, m-1] 中
@@ -259,7 +268,7 @@ $$
         var j: usize = nums.items.len - 1;
         // 循环，当搜索区间为空时跳出（当 i > j 时为空）
         while (i <= j) {
-            var m = (i + j) / 2;                    // 计算中点索引 m
+            var m = i + (j - i) / 2;                // 计算中点索引 m
             if (nums.items[m] < target) {           // 此情况说明 target 在区间 [m+1, j] 中
                 i = m + 1;
             } else if (nums.items[m] > target) {    // 此情况说明 target 在区间 [i, m-1] 中
@@ -273,96 +282,15 @@ $$
     }
     ```
 
-需要注意的是，**当数组长度非常大时，加法 $i + j$ 的结果可能会超出 `int` 类型的取值范围**。在这种情况下，我们需要采用一种更安全的计算中点的方法。
+时间复杂度为 $O(\log n)$ 。每轮缩小一半区间，因此二分循环次数为 $\log_2 n$ 。
 
-=== "Java"
+空间复杂度为 $O(1)$  。指针 `i` , `j` 使用常数大小空间。
 
-    ```java title=""
-    // (i + j) 有可能超出 int 的取值范围
-    int m = (i + j) / 2;
-    // 更换为此写法则不会越界
-    int m = i + (j - i) / 2;
-    ```
+## 6.1.1. &nbsp; 区间表示方法
 
-=== "C++"
+除了上述的双闭区间外，常见的区间表示还有“左闭右开”区间，定义为 $[0, n)$ ，即左边界包含自身，右边界不包含自身。在该表示下，区间 $[i, j]$ 在 $i = j$ 时为空。
 
-    ```cpp title=""
-    // (i + j) 有可能超出 int 的取值范围
-    int m = (i + j) / 2;
-    // 更换为此写法则不会越界
-    int m = i + (j - i) / 2;
-    ```
-
-=== "Python"
-
-    ```py title=""
-    # Python 中的数字理论上可以无限大（取决于内存大小）
-    # 因此无需考虑大数越界问题
-    ```
-
-=== "Go"
-
-    ```go title=""
-    // (i + j) 有可能超出 int 的取值范围
-    m := (i + j) / 2
-    // 更换为此写法则不会越界
-    m := i + (j - i) / 2
-    ```
-
-=== "JavaScript"
-
-    ```javascript title=""
-    // (i + j) 有可能超出 int 的取值范围
-    let m = parseInt((i + j) / 2);
-    // 更换为此写法则不会越界
-    let m = parseInt(i + (j - i) / 2);
-    ```
-
-=== "TypeScript"
-
-    ```typescript title=""
-    // (i + j) 有可能超出 Number 的取值范围
-    let m = Math.floor((i + j) / 2);
-    // 更换为此写法则不会越界
-    let m = Math.floor(i + (j - i) / 2);
-    ```
-
-=== "C"
-
-    ```c title=""
-    // (i + j) 有可能超出 int 的取值范围
-    int m = (i + j) / 2;
-    // 更换为此写法则不会越界
-    int m = i + (j - i) / 2;
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    // (i + j) 有可能超出 int 的取值范围
-    int m = (i + j) / 2;
-    // 更换为此写法则不会越界
-    int m = i + (j - i) / 2;
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    // (i + j) 有可能超出 int 的取值范围
-    let m = (i + j) / 2
-    // 更换为此写法则不会越界
-    let m = i + (j - 1) / 2
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
-## 6.1.2. &nbsp; 左闭右开实现
-
-我们可以采用“左闭右开”的表示法，编写具有相同功能的二分查找代码。
+我们可以基于该表示实现具有相同功能的二分查找算法。
 
 === "Java"
 
@@ -373,12 +301,12 @@ $$
         int i = 0, j = nums.length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
-            int m = (i + j) / 2;       // 计算中点索引 m
-            if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target) // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
             else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
                 j = m;
-            else                       // 找到目标元素，返回其索引
+            else // 找到目标元素，返回其索引
                 return m;
         }
         // 未找到目标元素，返回 -1
@@ -395,8 +323,8 @@ $$
         int i = 0, j = nums.size();
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
-            int m = (i + j) / 2;  // 计算中点索引 m
-            if (nums[m] < target) // 此情况说明 target 在区间 [m+1, j) 中
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target)    // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
             else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
                 j = m;
@@ -418,12 +346,12 @@ $$
         # 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while i < j:
             m = (i + j) // 2  # 计算中点索引 m
-            if nums[m] < target:  # 此情况说明 target 在区间 [m+1, j) 中
-                i = m + 1
-            elif nums[m] > target:  # 此情况说明 target 在区间 [i, m) 中
-                j = m
-            else:  # 找到目标元素，返回其索引
-                return m
+            if nums[m] < target:
+                i = m + 1  # 此情况说明 target 在区间 [m+1, j) 中
+            elif nums[m] > target:
+                j = m  # 此情况说明 target 在区间 [i, m) 中
+            else:
+                return m  # 找到目标元素，返回其索引
         return -1  # 未找到目标元素，返回 -1
     ```
 
@@ -436,7 +364,7 @@ $$
         i, j := 0, len(nums)
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         for i < j {
-            m := (i + j) / 2      // 计算中点索引 m
+            m := i + (j-i)/2      // 计算中点索引 m
             if nums[m] < target { // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1
             } else if nums[m] > target { // 此情况说明 target 在区间 [i, m) 中
@@ -461,7 +389,7 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
             // 计算中点索引 m ，使用 parseInt() 向下取整
-            const m = parseInt((i + j) / 2);
+            const m = parseInt(i + (j - i) / 2);
             if (nums[m] < target)
                 // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
@@ -487,7 +415,7 @@ $$
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
             // 计算中点索引 m
-            const m = Math.floor((i + j) / 2);
+            const m = Math.floor(i + (j - i) / 2);
             if (nums[m] < target) {
                 // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
@@ -512,8 +440,8 @@ $$
         int i = 0, j = len;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
-            int m = (i + j) / 2; // 计算中点索引 m
-            if (nums[m] < target)       // 此情况说明 target 在区间 [m+1, j) 中
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target)    // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
             else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
                 j = m;
@@ -534,7 +462,7 @@ $$
         int i = 0, j = nums.Length;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i < j) {
-            int m = (i + j) / 2;       // 计算中点索引 m
+            int m = i + (j - i) / 2;   // 计算中点索引 m
             if (nums[m] < target)      // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
             else if (nums[m] > target) // 此情况说明 target 在区间 [i, m) 中
@@ -557,7 +485,7 @@ $$
         var j = nums.count
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while i < j {
-            let m = (i + j) / 2 // 计算中点索引 m
+            let m = i + (j - i) / 2 // 计算中点索引 m
             if nums[m] < target { // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1
             } else if nums[m] > target { // 此情况说明 target 在区间 [i, m) 中
@@ -581,7 +509,7 @@ $$
         var j: usize = nums.items.len;
         // 循环，当搜索区间为空时跳出（当 i = j 时为空）
         while (i <= j) {
-            var m = (i + j) / 2;                    // 计算中点索引 m
+            var m = i + (j - i) / 2;                // 计算中点索引 m
             if (nums.items[m] < target) {           // 此情况说明 target 在区间 [m+1, j) 中
                 i = m + 1;
             } else if (nums.items[m] > target) {    // 此情况说明 target 在区间 [i, m) 中
@@ -595,26 +523,15 @@ $$
     }
     ```
 
-对比这两种代码写法，我们可以发现以下不同点：
+如下图所示，在两种区间表示下，二分查找算法的初始化、循环条件和缩小区间操作皆有所不同。
 
-<div class="center-table" markdown>
+在“双闭区间”表示法中，由于左右边界都被定义为闭区间，因此指针 $i$ 和 $j$ 缩小区间操作也是对称的。这样更不容易出错。因此，**我们通常采用“双闭区间”的写法**。
 
-| 表示方法            | 初始化指针          | 缩小区间                  | 循环终止条件 |
-| ------------------- | ------------------- | ------------------------- | ------------ |
-| 双闭区间 $[0, n-1]$ | $i = 0$ , $j = n-1$ | $i = m + 1$ , $j = m - 1$ | $i > j$      |
-| 左闭右开 $[0, n)$   | $i = 0$ , $j = n$   | $i = m + 1$ , $j = m$     | $i = j$      |
+![两种区间定义](binary_search.assets/binary_search_ranges.png)
 
-</div>
+<p align="center"> Fig. 两种区间定义 </p>
 
-在“双闭区间”表示法中，由于对左右两边界的定义相同，因此缩小区间的 $i$ 和 $j$ 的处理方法也是对称的，这样更不容易出错。因此，**建议采用“双闭区间”的写法**。
-
-## 6.1.3. &nbsp; 复杂度分析
-
-**时间复杂度 $O(\log n)$** ：其中 $n$ 为数组长度；每轮排除一半的区间，因此循环轮数为 $\log_2 n$ ，使用 $O(\log n)$ 时间。
-
-**空间复杂度 $O(1)$** ：指针 `i` , `j` 使用常数大小空间。
-
-## 6.1.4. &nbsp; 优点与局限性
+## 6.1.2. &nbsp; 优点与局限性
 
 二分查找效率很高，主要体现在：
 
