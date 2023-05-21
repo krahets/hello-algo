@@ -12,7 +12,7 @@ import (
 func TestBinarySearch(t *testing.T) {
 	var (
 		target   = 6
-		nums     = []int{1, 3, 6, 8, 12, 15, 23, 67, 70, 92}
+		nums     = []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
 		expected = 2
 	)
 	// 在数组中执行二分查找

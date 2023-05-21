@@ -50,7 +50,7 @@ pub fn main() !void {
     var target: i32 = 6;
     var nums = std.ArrayList(i32).init(std.heap.page_allocator);
     defer nums.deinit();
-    try nums.appendSlice(&[_]i32{ 1, 3, 6, 8, 12, 15, 23, 67, 70, 92 });
+    try nums.appendSlice(&[_]i32{ 1, 3, 6, 8, 12, 15, 23, 26, 31, 35 });
 
     // 二分查找（双闭区间）
     var index = binarySearch(i32, nums, target);
