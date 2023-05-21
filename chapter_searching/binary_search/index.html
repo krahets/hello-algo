@@ -1876,24 +1876,22 @@
 
 <h1 id="101">10.1. &nbsp; 二分查找<a class="headerlink" href="#101" title="Permanent link">&para;</a></h1>
 <p>「二分查找 Binary Search」是一种基于分治思想的高效搜索算法。它利用数据的有序性，每轮减少一半搜索范围，直至找到目标元素或搜索区间为空为止。</p>
-<p>我们先来求解一个简单的二分查找问题。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的有序数组 <code>nums</code> ，元素按从小到大的顺序排列。请查找并返回元素 <code>target</code> 在该数组中的索引。若数组中不包含该元素，则返回 <span class="arithmatex">\(-1\)</span> 。数组中不包含重复元素。</p>
+<p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的数组 <code>nums</code> ，元素按从小到大的顺序排列，数组不包含重复元素。请查找并返回元素 <code>target</code> 在该数组中的索引。若数组不包含该元素，则返回 <span class="arithmatex">\(-1\)</span> 。</p>
 </div>
-<p>该数组的索引范围可以使用区间 <span class="arithmatex">\([0, n - 1]\)</span> 来表示。其中，<strong>中括号表示“闭区间”，即包含边界值本身</strong>。在该表示下，区间 <span class="arithmatex">\([i, j]\)</span> 在 <span class="arithmatex">\(i = j\)</span> 时仍包含一个元素，在 <span class="arithmatex">\(i &gt; j\)</span> 时为空区间。</p>
-<p>接下来，我们基于上述区间定义实现二分查找。先初始化指针 <span class="arithmatex">\(i = 0\)</span> 和 <span class="arithmatex">\(j = n - 1\)</span> ，分别指向数组首元素和尾元素。之后循环执行以下两个步骤:</p>
+<p>对于上述问题，我们先初始化指针 <span class="arithmatex">\(i = 0\)</span> 和 <span class="arithmatex">\(j = n - 1\)</span> ，分别指向数组首元素和尾元素，代表搜索区间 <span class="arithmatex">\([0, n - 1]\)</span> 。其中，中括号表示“闭区间”，即包含边界值本身。</p>
+<p>接下来，循环执行以下两个步骤：</p>
 <ol>
 <li>计算中点索引 <span class="arithmatex">\(m = \lfloor {(i + j) / 2} \rfloor\)</span> ，其中 <span class="arithmatex">\(\lfloor \space \rfloor\)</span> 表示向下取整操作。</li>
-<li>根据 <code>nums[m]</code> 和 <code>target</code> 缩小搜索区间，分为三种情况：<ol>
+<li>判断 <code>nums[m]</code> 和 <code>target</code> 的大小关系，分为三种情况：<ol>
 <li>当 <code>nums[m] &lt; target</code> 时，说明 <code>target</code> 在区间 <span class="arithmatex">\([m + 1, j]\)</span> 中，因此执行 <span class="arithmatex">\(i = m + 1\)</span> ；</li>
 <li>当 <code>nums[m] &gt; target</code> 时，说明 <code>target</code> 在区间 <span class="arithmatex">\([i, m - 1]\)</span> 中，因此执行 <span class="arithmatex">\(j = m - 1\)</span> ；</li>
-<li>当 <code>nums[m] = target</code> 时，说明找到目标元素，直接返回索引 <span class="arithmatex">\(m\)</span> 即可；</li>
+<li>当 <code>nums[m] = target</code> 时，说明找到 <code>target</code> ，因此返回索引 <span class="arithmatex">\(m\)</span> ；</li>
 </ol>
 </li>
 </ol>
-<p><strong>若数组不包含目标元素，搜索区间最终会缩小为空</strong>，即达到 <span class="arithmatex">\(i &gt; j\)</span> 。此时，终止循环并返回 <span class="arithmatex">\(-1\)</span> 即可。</p>
-<p>如下图所示，为了更清晰地表示区间，我们以折线图的形式表示数组。</p>
+<p>若数组不包含目标元素，搜索区间最终会缩小为空。此时返回 <span class="arithmatex">\(-1\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;0&gt;</label><label for="__tabbed_1_2">&lt;1&gt;</label><label for="__tabbed_1_3">&lt;2&gt;</label><label for="__tabbed_1_4">&lt;3&gt;</label><label for="__tabbed_1_5">&lt;4&gt;</label><label for="__tabbed_1_6">&lt;5&gt;</label><label for="__tabbed_1_7">&lt;6&gt;</label><label for="__tabbed_1_8">&lt;7&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1922,7 +1920,7 @@
 </div>
 </div>
 </div>
-<p>值得注意的是，<strong>当数组长度 <span class="arithmatex">\(n\)</span> 很大时，加法 <span class="arithmatex">\(i + j\)</span> 的结果可能会超出 <code>int</code> 类型的取值范围</strong>。为了避免大数越界，我们通常采用公式 <span class="arithmatex">\(m = \lfloor {i + (j - i) / 2} \rfloor\)</span> 来计算中点。</p>
+<p>值得注意的是，由于 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 都是 <code>int</code> 类型，<strong>因此 <span class="arithmatex">\(i + j\)</span> 可能会超出 <code>int</code> 类型的取值范围</strong>。为了避免大数越界，我们通常采用公式 <span class="arithmatex">\(m = \lfloor {i + (j - i) / 2} \rfloor\)</span> 来计算中点。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2366,14 +2364,14 @@
 <h2 id="1012">10.1.2. &nbsp; 优点与局限性<a class="headerlink" href="#1012" title="Permanent link">&para;</a></h2>
 <p>二分查找在时间和空间方面都有较好的性能：</p>
 <ul>
-<li><strong>二分查找的时间效率高</strong>。在大数据量下，对数阶的时间复杂度具有显著优势。例如，当数据大小 <span class="arithmatex">\(n = 2^{20}\)</span> 时，线性查找需要 <span class="arithmatex">\(2^{20} = 1048576\)</span> 轮循环，而二分查找仅需 <span class="arithmatex">\(\log_2 2^{20} = 20\)</span> 轮循环。</li>
-<li><strong>二分查找无需额外空间</strong>。相较于需要借助额外空间的搜索算法（例如哈希查找），二分查找更加节省空间。</li>
+<li>二分查找的时间效率高。在大数据量下，对数阶的时间复杂度具有显著优势。例如，当数据大小 <span class="arithmatex">\(n = 2^{20}\)</span> 时，线性查找需要 <span class="arithmatex">\(2^{20} = 1048576\)</span> 轮循环，而二分查找仅需 <span class="arithmatex">\(\log_2 2^{20} = 20\)</span> 轮循环。</li>
+<li>二分查找无需额外空间。相较于需要借助额外空间的搜索算法（例如哈希查找），二分查找更加节省空间。</li>
 </ul>
 <p>然而，二分查找并非适用于所有情况，原因如下：</p>
 <ul>
-<li><strong>二分查找仅适用于有序数据</strong>。若输入数据无序，为了使用二分查找而专门进行排序，得不偿失。因为排序算法的时间复杂度通常为 <span class="arithmatex">\(O(n \log n)\)</span> ，比线性查找和二分查找都更高。对于频繁插入元素的场景，为保持数组有序性，需要将元素插入到特定位置，时间复杂度为 <span class="arithmatex">\(O(n)\)</span> ，也是非常昂贵的。</li>
-<li><strong>二分查找仅适用于数组</strong>。二分查找需要跳跃式（非连续地）访问元素，而在链表中执行跳跃式访问的效率较低，因此不适合应用在链表或基于链表实现的数据结构。</li>
-<li><strong>小数据量下，线性查找性能更佳</strong>。在线性查找中，每轮只需要 1 次判断操作；而在二分查找中，需要 1 次加法、1 次除法、1 ~ 3 次判断操作、1 次加法（减法），共 4 ~ 6 个单元操作；因此，当数据量 <span class="arithmatex">\(n\)</span> 较小时，线性查找反而比二分查找更快。</li>
+<li>二分查找仅适用于有序数据。若输入数据无序，为了使用二分查找而专门进行排序，得不偿失。因为排序算法的时间复杂度通常为 <span class="arithmatex">\(O(n \log n)\)</span> ，比线性查找和二分查找都更高。对于频繁插入元素的场景，为保持数组有序性，需要将元素插入到特定位置，时间复杂度为 <span class="arithmatex">\(O(n)\)</span> ，也是非常昂贵的。</li>
+<li>二分查找仅适用于数组。二分查找需要跳跃式（非连续地）访问元素，而在链表中执行跳跃式访问的效率较低，因此不适合应用在链表或基于链表实现的数据结构。</li>
+<li>小数据量下，线性查找性能更佳。在线性查找中，每轮只需要 1 次判断操作；而在二分查找中，需要 1 次加法、1 次除法、1 ~ 3 次判断操作、1 次加法（减法），共 4 ~ 6 个单元操作；因此，当数据量 <span class="arithmatex">\(n\)</span> 较小时，线性查找反而比二分查找更快。</li>
 </ul>
 
 
