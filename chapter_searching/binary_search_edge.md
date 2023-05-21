@@ -14,7 +14,9 @@ comments: true
 
 ## 10.2.1. &nbsp; 查找最左一个元素
 
-!!! question "查找并返回元素 `target` 在有序数组 `nums` 中首次出现的索引。若数组中不包含该元素，则返回 $-1$ 。数组可能包含重复元素。"
+!!! question
+
+    给定一个长度为 $n$ 的有序数组 `nums` 。请查找并返回元素 `target` 在该数组中首次出现的索引。若数组中不包含该元素，则返回 $-1$ 。数组可能包含重复元素。
 
 实际上，我们可以仅通过二分查找解决以上问题。方法的整体框架不变，先计算中点索引 `m` ，再判断 `target` 和 `nums[m]` 大小关系：
 
@@ -104,11 +106,11 @@ comments: true
         while i <= j:
             m = (i + j) // 2  # 计算中点索引 m
             if nums[m] < target:
-                i = m + 1  # 此情况说明 target 在区间 [m+1, j] 中
+                i = m + 1  # target 在区间 [m+1, j] 中
             elif nums[m] > target:
-                j = m - 1  # 此情况说明 target 在区间 [i, m-1] 中
+                j = m - 1  # target 在区间 [i, m-1] 中
             else:
-                j = m - 1  # 此情况说明首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1  # 首个小于 target 的元素在区间 [i, m-1] 中
         if i == len(nums) or nums[i] != target:
             return -1  # 未找到目标元素，返回 -1
         return i
