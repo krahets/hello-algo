@@ -155,6 +155,7 @@ nav:
     - 5.4. &nbsp; 小结: chapter_stack_and_queue/summary.md
   - 6. &nbsp; &nbsp; 二分查找:
     - 6.1. &nbsp; 二分查找: chapter_binary_search/binary_search.md
+    - 6.2. &nbsp; 二分查找边界: chapter_binary_search/binary_search_edge.md 
   - 7. &nbsp; &nbsp; 散列表:
     - 7.1. &nbsp; 哈希表: chapter_hashing/hash_map.md
     - 7.2. &nbsp; 哈希冲突处理: chapter_hashing/hash_collision.md
