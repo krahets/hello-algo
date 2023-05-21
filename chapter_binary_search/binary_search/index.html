@@ -18,7 +18,7 @@
         <link rel="prev" href="../../chapter_stack_and_queue/summary/">
       
       
-        <link rel="next" href="../../chapter_hashing/hash_map/">
+        <link rel="next" href="../binary_search_edge/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
@@ -865,6 +865,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -936,6 +938,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binary_search_edge/" class="md-nav__link">
+        6.2. &nbsp; 二分查找边界
+      </a>
     </li>
   
 
@@ -1898,7 +1914,7 @@
 
 
 <h1 id="61">6.1. &nbsp; 二分查找<a class="headerlink" href="#61" title="Permanent link">&para;</a></h1>
-<p>「二分查找 Binary Search」是一种基于分治思想的高效搜索算法。它利用数据的有序性，每轮减少一半搜索范围，实现定位目标元素。</p>
+<p>「二分查找 Binary Search」是一种基于分治思想的高效搜索算法。它利用数据的有序性，每轮减少一半搜索范围，直至找到目标元素或搜索区间为空为止。</p>
 <p>我们先来求解一个简单的二分查找问题。</p>
 <div class="admonition question">
 <p class="admonition-title">给定一个长度为 <span class="arithmatex">\(n\)</span> 的有序数组 <code>nums</code> ，元素按从小到大的顺序排列。查找并返回元素 <code>target</code> 在该数组中的索引。若数组中不包含该元素，则返回 <span class="arithmatex">\(-1\)</span> 。数组中不包含重复元素。</p>
@@ -1915,7 +1931,7 @@
 </li>
 </ol>
 <p><strong>若数组不包含目标元素，搜索区间最终会缩小为空</strong>，即达到 <span class="arithmatex">\(i &gt; j\)</span> 。此时，终止循环并返回 <span class="arithmatex">\(-1\)</span> 即可。</p>
-<p>为了更清晰地表示区间，我们在下图中以折线图的形式表示数组。</p>
+<p>如下图所示，为了更清晰地表示区间，我们以折线图的形式表示数组。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;0&gt;</label><label for="__tabbed_1_2">&lt;1&gt;</label><label for="__tabbed_1_3">&lt;2&gt;</label><label for="__tabbed_1_4">&lt;3&gt;</label><label for="__tabbed_1_5">&lt;4&gt;</label><label for="__tabbed_1_6">&lt;5&gt;</label><label for="__tabbed_1_7">&lt;6&gt;</label><label for="__tabbed_1_8">&lt;7&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1945,7 +1961,6 @@
 </div>
 </div>
 <p>值得注意的是，<strong>当数组长度 <span class="arithmatex">\(n\)</span> 很大时，加法 <span class="arithmatex">\(i + j\)</span> 的结果可能会超出 <code>int</code> 类型的取值范围</strong>。为了避免大数越界，我们通常采用公式 <span class="arithmatex">\(m = \lfloor {i + (j - i) / 2} \rfloor\)</span> 来计算中点。</p>
-<p>有趣的是，理论上 Python 的数字可以无限大（取决于内存大小），因此无需考虑大数越界问题。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1995,14 +2010,15 @@
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="c1"># 循环，当搜索区间为空时跳出（当 i &gt; j 时为空）</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">:</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># 计算中点索引 m</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>            <span class="n">i</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># 此情况说明 target 在区间 [m+1, j] 中</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>            <span class="n">j</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># 此情况说明 target 在区间 [i, m-1] 中</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>            <span class="k">return</span> <span class="n">m</span>  <span class="c1"># 找到目标元素，返回其索引</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># 未找到目标元素，返回 -1</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="c1"># 理论上 Python 的数字可以无限大（取决于内存大小），无需考虑大数越界问题</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># 计算中点索引 m</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>            <span class="n">i</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># 此情况说明 target 在区间 [m+1, j] 中</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>            <span class="n">j</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># 此情况说明 target 在区间 [i, m-1] 中</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>            <span class="k">return</span> <span class="n">m</span>  <span class="c1"># 找到目标元素，返回其索引</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># 未找到目标元素，返回 -1</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2386,12 +2402,12 @@
 <p align="center"> Fig. 两种区间定义 </p>
 
 <h2 id="612">6.1.2. &nbsp; 优点与局限性<a class="headerlink" href="#612" title="Permanent link">&para;</a></h2>
-<p>二分查找效率很高，主要体现在：</p>
+<p>二分查找在时间和空间方面都有较好的性能：</p>
 <ul>
-<li><strong>二分查找的时间复杂度较低</strong>。对数阶在大数据量情况下具有显著优势。例如，当数据大小 <span class="arithmatex">\(n = 2^{20}\)</span> 时，线性查找需要 <span class="arithmatex">\(2^{20} = 1048576\)</span> 轮循环，而二分查找仅需 <span class="arithmatex">\(\log_2 2^{20} = 20\)</span> 轮循环。</li>
-<li><strong>二分查找无需额外空间</strong>。与哈希查找相比，二分查找更加节省空间。</li>
+<li><strong>二分查找的时间效率高</strong>。在大数据量下，对数阶的时间复杂度具有显著优势。例如，当数据大小 <span class="arithmatex">\(n = 2^{20}\)</span> 时，线性查找需要 <span class="arithmatex">\(2^{20} = 1048576\)</span> 轮循环，而二分查找仅需 <span class="arithmatex">\(\log_2 2^{20} = 20\)</span> 轮循环。</li>
+<li><strong>二分查找无需额外空间</strong>。相较于需要借助额外空间的搜索算法（例如哈希查找），二分查找更加节省空间。</li>
 </ul>
-<p>然而，并非所有情况下都可使用二分查找，原因如下：</p>
+<p>然而，二分查找并非适用于所有情况，原因如下：</p>
 <ul>
 <li><strong>二分查找仅适用于有序数据</strong>。若输入数据无序，为了使用二分查找而专门进行排序，得不偿失。因为排序算法的时间复杂度通常为 <span class="arithmatex">\(O(n \log n)\)</span> ，比线性查找和二分查找都更高。对于频繁插入元素的场景，为保持数组有序性，需要将元素插入到特定位置，时间复杂度为 <span class="arithmatex">\(O(n)\)</span> ，也是非常昂贵的。</li>
 <li><strong>二分查找仅适用于数组</strong>。二分查找需要跳跃式（非连续地）访问元素，而在链表中执行跳跃式访问的效率较低，因此不适合应用在链表或基于链表实现的数据结构。</li>
@@ -2490,13 +2506,13 @@
         
         
           
-          <a href="../../chapter_hashing/hash_map/" class="md-footer__link md-footer__link--next" aria-label="下一页: 7.1. &amp;nbsp; 哈希表" rel="next">
+          <a href="../binary_search_edge/" class="md-footer__link md-footer__link--next" aria-label="下一页: 6.2. &amp;nbsp; 二分查找边界" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                7.1. &nbsp; 哈希表
+                6.2. &nbsp; 二分查找边界
               </div>
             </div>
             <div class="md-footer__button md-icon">
