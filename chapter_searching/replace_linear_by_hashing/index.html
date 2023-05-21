@@ -1877,8 +1877,8 @@
 <h1 id="103">10.3. &nbsp; 哈希优化策略<a class="headerlink" href="#103" title="Permanent link">&para;</a></h1>
 <p>在算法题中，<strong>我们常通过将线性查找替换为哈希查找来降低算法的时间复杂度</strong>。我们借助一个算法题来加深理解。</p>
 <div class="admonition question">
-<p class="admonition-title">两数之和</p>
-<p>给定一个整数数组 <code>nums</code> 和一个整数目标值 <code>target</code> ，请在数组中搜索“和”为目标值 <code>target</code> 的两个整数，并返回他们在数组中的索引。注意，数组中同一个元素在答案里不能重复出现。返回任意一个解即可。</p>
+<p class="admonition-title">Question</p>
+<p>给定一个整数数组 <code>nums</code> 和一个目标元素 <code>target</code> ，请在数组中搜索“和”为 <code>target</code> 的两个元素，并返回它们的数组索引。返回任意一个解即可。</p>
 </div>
 <h2 id="1031">10.3.1. &nbsp; 线性查找：以时间换空间<a class="headerlink" href="#1031" title="Permanent link">&para;</a></h2>
 <p>考虑直接遍历所有可能的组合。开启一个两层循环，在每轮中判断两个整数的和是否为 <code>target</code> ，若是，则返回它们的索引。</p>

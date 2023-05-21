@@ -1878,7 +1878,8 @@
 <p>「二分查找 Binary Search」是一种基于分治思想的高效搜索算法。它利用数据的有序性，每轮减少一半搜索范围，直至找到目标元素或搜索区间为空为止。</p>
 <p>我们先来求解一个简单的二分查找问题。</p>
 <div class="admonition question">
-<p class="admonition-title">给定一个长度为 <span class="arithmatex">\(n\)</span> 的有序数组 <code>nums</code> ，元素按从小到大的顺序排列。查找并返回元素 <code>target</code> 在该数组中的索引。若数组中不包含该元素，则返回 <span class="arithmatex">\(-1\)</span> 。数组中不包含重复元素。</p>
+<p class="admonition-title">Question</p>
+<p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的有序数组 <code>nums</code> ，元素按从小到大的顺序排列。请查找并返回元素 <code>target</code> 在该数组中的索引。若数组中不包含该元素，则返回 <span class="arithmatex">\(-1\)</span> 。数组中不包含重复元素。</p>
 </div>
 <p>该数组的索引范围可以使用区间 <span class="arithmatex">\([0, n - 1]\)</span> 来表示。其中，<strong>中括号表示“闭区间”，即包含边界值本身</strong>。在该表示下，区间 <span class="arithmatex">\([i, j]\)</span> 在 <span class="arithmatex">\(i = j\)</span> 时仍包含一个元素，在 <span class="arithmatex">\(i &gt; j\)</span> 时为空区间。</p>
 <p>接下来，我们基于上述区间定义实现二分查找。先初始化指针 <span class="arithmatex">\(i = 0\)</span> 和 <span class="arithmatex">\(j = n - 1\)</span> ，分别指向数组首元素和尾元素。之后循环执行以下两个步骤:</p>

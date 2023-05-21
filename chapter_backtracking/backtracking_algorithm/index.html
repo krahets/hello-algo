@@ -1920,7 +1920,8 @@
 <p>「回溯算法 Backtracking Algorithm」是一种通过穷举来解决问题的方法，它的核心思想是从一个初始状态出发，暴力搜索所有可能的解决方案，当遇到正确的解则将其记录，直到找到解或者尝试了所有可能的选择都无法找到解为止。</p>
 <p>回溯算法通常采用「深度优先搜索」来遍历解空间。在二叉树章节中，我们提到前序、中序和后序遍历都属于深度优先搜索。下面，我们从二叉树的前序遍历入手，逐步了解回溯算法的工作原理。</p>
 <div class="admonition question">
-<p class="admonition-title">例题一：在二叉树中搜索并返回所有值为 <span class="arithmatex">\(7\)</span> 的节点</p>
+<p class="admonition-title">例题一</p>
+<p>给定一个二叉树，搜索并记录所有值为 <span class="arithmatex">\(7\)</span> 的节点，返回节点列表。</p>
 </div>
 <p><strong>解题思路</strong>：前序遍历这颗树，并判断当前节点的值是否为 <span class="arithmatex">\(7\)</span> ，若是则将该节点的值加入到结果列表 <code>res</code> 之中。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:10"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label></div>
@@ -2060,7 +2061,8 @@
 <p>对于例题一，访问每个节点都代表一次“尝试”，而越过叶结点或返回父节点的 <code>return</code> 则表示“回退”。</p>
 <p>值得说明的是，<strong>回退并不等价于函数返回</strong>。为解释这一点，我们对例题一稍作拓展。</p>
 <div class="admonition question">
-<p class="admonition-title">在二叉树中搜索所有值为 <span class="arithmatex">\(7\)</span> 的节点，<strong>返回根节点到这些节点的路径</strong></p>
+<p class="admonition-title">例题二</p>
+<p>在二叉树中搜索所有值为 <span class="arithmatex">\(7\)</span> 的节点，<strong>返回根节点到这些节点的路径</strong>。</p>
 </div>
 <p><strong>解题思路</strong>：在例题一代码的基础上，我们需要借助一个列表 <code>path</code> 记录访问过的节点路径。当访问到值为 <span class="arithmatex">\(7\)</span> 的节点时，则复制 <code>path</code> 并添加进结果列表 <code>res</code> 。遍历完成后，<code>res</code> 中保存的就是所有的解。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label></div>
@@ -2269,8 +2271,9 @@
 <h2 id="1212">12.1.2. &nbsp; 剪枝<a class="headerlink" href="#1212" title="Permanent link">&para;</a></h2>
 <p>复杂的回溯问题通常包含一个或多个约束条件，<strong>约束条件通常可用于“剪枝”</strong>。</p>
 <div class="admonition question">
-<p class="admonition-title">例题三：在二叉树中搜索所有值为 <span class="arithmatex">\(7\)</span> 的节点，返回根节点到这些节点的路径，<strong>路径中不能包含值为 <span class="arithmatex">\(3\)</span> 的节点</strong></p>
+<p class="admonition-title">例题三</p>
 </div>
+<p>在二叉树中搜索所有值为 <span class="arithmatex">\(7\)</span> 的节点，返回根节点到这些节点的路径，<strong>路径中不能包含值为 <span class="arithmatex">\(3\)</span> 的节点</strong>。</p>
 <p><strong>解题思路</strong>：在例题二的基础上添加剪枝操作，当遇到值为 <span class="arithmatex">\(3\)</span> 的节点时，则终止继续搜索。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:10"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JavaScript</label><label for="__tabbed_4_6">TypeScript</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label></div>
 <div class="tabbed-content">
