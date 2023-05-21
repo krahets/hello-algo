@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://www.hello-algo.com/chapter_backtracking/backtracking_algorithm/">
       
       
-        <link rel="prev" href="../../chapter_searching/summary/">
+        <link rel="prev" href="../../chapter_sorting/summary/">
       
       
         <link rel="next" href="../permutations_problem/">
@@ -25,7 +25,7 @@
     
     
       
-        <title>13.1.   回溯算法（New） - Hello 算法</title>
+        <title>12.1.   回溯算法（New） - Hello 算法</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#131" class="md-skip">
+        <a href="#121" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              13.1. &nbsp; 回溯算法（New）
+              12.1. &nbsp; 回溯算法（New）
             
           </span>
         </div>
@@ -865,17 +865,19 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-          6. &nbsp; &nbsp; 二分查找
+          6. &nbsp; &nbsp; 散列表
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
-          6. &nbsp; &nbsp; 二分查找
+          6. &nbsp; &nbsp; 散列表
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -885,8 +887,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_binary_search/binary_search/" class="md-nav__link">
-        6.1. &nbsp; 二分查找
+      <a href="../../chapter_hashing/hash_map/" class="md-nav__link">
+        6.1. &nbsp; 哈希表
       </a>
     </li>
   
@@ -899,8 +901,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_binary_search/binary_search_edge/" class="md-nav__link">
-        6.2. &nbsp; 二分查找边界
+      <a href="../../chapter_hashing/hash_collision/" class="md-nav__link">
+        6.2. &nbsp; 哈希冲突处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_hashing/summary/" class="md-nav__link">
+        6.3. &nbsp; 小结
       </a>
     </li>
   
@@ -938,17 +954,23 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-          7. &nbsp; &nbsp; 散列表
+          7. &nbsp; &nbsp; 树
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
-          7. &nbsp; &nbsp; 散列表
+          7. &nbsp; &nbsp; 树
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -958,8 +980,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_hashing/hash_map/" class="md-nav__link">
-        7.1. &nbsp; 哈希表
+      <a href="../../chapter_tree/binary_tree/" class="md-nav__link">
+        7.1. &nbsp; 二叉树
       </a>
     </li>
   
@@ -972,8 +994,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_hashing/hash_collision/" class="md-nav__link">
-        7.2. &nbsp; 哈希冲突处理
+      <a href="../../chapter_tree/binary_tree_traversal/" class="md-nav__link">
+        7.2. &nbsp; 二叉树遍历
       </a>
     </li>
   
@@ -986,8 +1008,50 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_hashing/summary/" class="md-nav__link">
-        7.3. &nbsp; 小结
+      <a href="../../chapter_tree/array_representation_of_tree/" class="md-nav__link">
+        7.3. &nbsp; 二叉树数组表示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_tree/binary_search_tree/" class="md-nav__link">
+        7.4. &nbsp; 二叉搜索树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_tree/avl_tree/" class="md-nav__link">
+        7.5. &nbsp; AVL 树 *
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_tree/summary/" class="md-nav__link">
+        7.6. &nbsp; 小结
       </a>
     </li>
   
@@ -1025,23 +1089,17 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-          8. &nbsp; &nbsp; 树
+          8. &nbsp; &nbsp; 堆
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_9">
           <span class="md-nav__icon md-icon"></span>
-          8. &nbsp; &nbsp; 树
+          8. &nbsp; &nbsp; 堆
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1051,8 +1109,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_tree/binary_tree/" class="md-nav__link">
-        8.1. &nbsp; 二叉树
+      <a href="../../chapter_heap/heap/" class="md-nav__link">
+        8.1. &nbsp; 堆
       </a>
     </li>
   
@@ -1065,8 +1123,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_tree/binary_tree_traversal/" class="md-nav__link">
-        8.2. &nbsp; 二叉树遍历
+      <a href="../../chapter_heap/build_heap/" class="md-nav__link">
+        8.2. &nbsp; 建堆操作 *
       </a>
     </li>
   
@@ -1079,50 +1137,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_tree/array_representation_of_tree/" class="md-nav__link">
-        8.3. &nbsp; 二叉树数组表示
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_tree/binary_search_tree/" class="md-nav__link">
-        8.4. &nbsp; 二叉搜索树
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_tree/avl_tree/" class="md-nav__link">
-        8.5. &nbsp; AVL 树 *
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_tree/summary/" class="md-nav__link">
-        8.6. &nbsp; 小结
+      <a href="../../chapter_heap/summary/" class="md-nav__link">
+        8.3. &nbsp; 小结
       </a>
     </li>
   
@@ -1160,17 +1176,19 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
-          9. &nbsp; &nbsp; 堆
+          9. &nbsp; &nbsp; 图
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
-          9. &nbsp; &nbsp; 堆
+          9. &nbsp; &nbsp; 图
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1180,8 +1198,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_heap/heap/" class="md-nav__link">
-        9.1. &nbsp; 堆
+      <a href="../../chapter_graph/graph/" class="md-nav__link">
+        9.1. &nbsp; 图
       </a>
     </li>
   
@@ -1194,8 +1212,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_heap/build_heap/" class="md-nav__link">
-        9.2. &nbsp; 建堆操作 *
+      <a href="../../chapter_graph/graph_operations/" class="md-nav__link">
+        9.2. &nbsp; 图基础操作
       </a>
     </li>
   
@@ -1208,8 +1226,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_heap/summary/" class="md-nav__link">
-        9.3. &nbsp; 小结
+      <a href="../../chapter_graph/graph_traversal/" class="md-nav__link">
+        9.3. &nbsp; 图的遍历
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_graph/summary/" class="md-nav__link">
+        9.4. &nbsp; 小结
       </a>
     </li>
   
@@ -1249,17 +1281,19 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
-          10. &nbsp; &nbsp; 图
+          10. &nbsp; &nbsp; 搜索算法
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
-          10. &nbsp; &nbsp; 图
+          10. &nbsp; &nbsp; 搜索算法
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1269,8 +1303,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_graph/graph/" class="md-nav__link">
-        10.1. &nbsp; 图
+      <a href="../../chapter_searching/binary_search/" class="md-nav__link">
+        10.1. &nbsp; 二分查找（New）
       </a>
     </li>
   
@@ -1283,8 +1317,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_graph/graph_operations/" class="md-nav__link">
-        10.2. &nbsp; 图基础操作
+      <a href="../../chapter_searching/binary_search_edge/" class="md-nav__link">
+        10.2. &nbsp; 二分查找边界（New）
       </a>
     </li>
   
@@ -1297,8 +1331,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_graph/graph_traversal/" class="md-nav__link">
-        10.3. &nbsp; 图的遍历
+      <a href="../../chapter_searching/replace_linear_by_hashing/" class="md-nav__link">
+        10.3. &nbsp; 哈希优化策略
       </a>
     </li>
   
@@ -1311,8 +1345,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_graph/summary/" class="md-nav__link">
-        10.4. &nbsp; 小结
+      <a href="../../chapter_searching/searching_algorithm_revisited/" class="md-nav__link">
+        10.4. &nbsp; 重识搜索算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_searching/summary/" class="md-nav__link">
+        10.5. &nbsp; 小结
       </a>
     </li>
   
@@ -1514,16 +1562,18 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
       
       
         
@@ -1536,103 +1586,14 @@
       
       
         <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
-          12. &nbsp; &nbsp; 搜索算法
+          12. &nbsp; &nbsp; 回溯算法
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_13">
           <span class="md-nav__icon md-icon"></span>
-          12. &nbsp; &nbsp; 搜索算法
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_searching/searching_algorithm_revisited/" class="md-nav__link">
-        12.1. &nbsp; 搜索算法（New）
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_searching/replace_linear_by_hashing/" class="md-nav__link">
-        12.2. &nbsp; 哈希优化策略
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_searching/summary/" class="md-nav__link">
-        12.3. &nbsp; 小结
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked>
-      
-      
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
-          13. &nbsp; &nbsp; 回溯算法
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_14">
-          <span class="md-nav__icon md-icon"></span>
-          13. &nbsp; &nbsp; 回溯算法
+          12. &nbsp; &nbsp; 回溯算法
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1652,12 +1613,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          13.1. &nbsp; 回溯算法（New）
+          12.1. &nbsp; 回溯算法（New）
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        13.1. &nbsp; 回溯算法（New）
+        12.1. &nbsp; 回溯算法（New）
       </a>
       
         
@@ -1676,36 +1637,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1311" class="md-nav__link">
-    13.1.1. &nbsp; 尝试与回退
+  <a href="#1211" class="md-nav__link">
+    12.1.1. &nbsp; 尝试与回退
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1312" class="md-nav__link">
-    13.1.2. &nbsp; 剪枝
+  <a href="#1212" class="md-nav__link">
+    12.1.2. &nbsp; 剪枝
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1313" class="md-nav__link">
-    13.1.3. &nbsp; 常用术语
+  <a href="#1213" class="md-nav__link">
+    12.1.3. &nbsp; 常用术语
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1314" class="md-nav__link">
-    13.1.4. &nbsp; 框架代码
+  <a href="#1214" class="md-nav__link">
+    12.1.4. &nbsp; 框架代码
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1315" class="md-nav__link">
-    13.1.5. &nbsp; 典型例题
+  <a href="#1215" class="md-nav__link">
+    12.1.5. &nbsp; 典型例题
   </a>
   
 </li>
@@ -1726,7 +1687,7 @@
   
     <li class="md-nav__item">
       <a href="../permutations_problem/" class="md-nav__link">
-        13.2. &nbsp; 全排列问题（New）
+        12.2. &nbsp; 全排列问题（New）
       </a>
     </li>
   
@@ -1740,7 +1701,78 @@
   
     <li class="md-nav__item">
       <a href="../n_queens_problem/" class="md-nav__link">
-        13.3. &nbsp; N 皇后问题（New）
+        12.3. &nbsp; N 皇后问题（New）
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+          13. &nbsp; &nbsp; 附录
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          13. &nbsp; &nbsp; 附录
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_appendix/installation/" class="md-nav__link">
+        13.1. &nbsp; 编程环境安装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_appendix/contribution/" class="md-nav__link">
+        13.2. &nbsp; 一起参与创作
       </a>
     </li>
   
@@ -1773,77 +1805,6 @@
       
         
           
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
-          14. &nbsp; &nbsp; 附录
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_15">
-          <span class="md-nav__icon md-icon"></span>
-          14. &nbsp; &nbsp; 附录
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_appendix/installation/" class="md-nav__link">
-        14.1. &nbsp; 编程环境安装
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../chapter_appendix/contribution/" class="md-nav__link">
-        14.2. &nbsp; 一起参与创作
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
-      
-      
-        
-          
             
           
         
@@ -1856,8 +1817,8 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_16">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_15">
           <span class="md-nav__icon md-icon"></span>
           参考文献
         </label>
@@ -1898,36 +1859,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1311" class="md-nav__link">
-    13.1.1. &nbsp; 尝试与回退
+  <a href="#1211" class="md-nav__link">
+    12.1.1. &nbsp; 尝试与回退
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1312" class="md-nav__link">
-    13.1.2. &nbsp; 剪枝
+  <a href="#1212" class="md-nav__link">
+    12.1.2. &nbsp; 剪枝
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1313" class="md-nav__link">
-    13.1.3. &nbsp; 常用术语
+  <a href="#1213" class="md-nav__link">
+    12.1.3. &nbsp; 常用术语
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1314" class="md-nav__link">
-    13.1.4. &nbsp; 框架代码
+  <a href="#1214" class="md-nav__link">
+    12.1.4. &nbsp; 框架代码
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1315" class="md-nav__link">
-    13.1.5. &nbsp; 典型例题
+  <a href="#1215" class="md-nav__link">
+    12.1.5. &nbsp; 典型例题
   </a>
   
 </li>
@@ -1955,7 +1916,7 @@
   
 
 
-<h1 id="131">13.1. &nbsp; 回溯算法<a class="headerlink" href="#131" title="Permanent link">&para;</a></h1>
+<h1 id="121">12.1. &nbsp; 回溯算法<a class="headerlink" href="#121" title="Permanent link">&para;</a></h1>
 <p>「回溯算法 Backtracking Algorithm」是一种通过穷举来解决问题的方法，它的核心思想是从一个初始状态出发，暴力搜索所有可能的解决方案，当遇到正确的解则将其记录，直到找到解或者尝试了所有可能的选择都无法找到解为止。</p>
 <p>回溯算法通常采用「深度优先搜索」来遍历解空间。在二叉树章节中，我们提到前序、中序和后序遍历都属于深度优先搜索。下面，我们从二叉树的前序遍历入手，逐步了解回溯算法的工作原理。</p>
 <div class="admonition question">
@@ -2094,7 +2055,7 @@
 <p><img alt="在前序遍历中搜索节点" src="../backtracking_algorithm.assets/preorder_find_nodes.png" /></p>
 <p align="center"> Fig. 在前序遍历中搜索节点 </p>
 
-<h2 id="1311">13.1.1. &nbsp; 尝试与回退<a class="headerlink" href="#1311" title="Permanent link">&para;</a></h2>
+<h2 id="1211">12.1.1. &nbsp; 尝试与回退<a class="headerlink" href="#1211" title="Permanent link">&para;</a></h2>
 <p><strong>之所以称之为回溯算法，是因为该算法在搜索解空间时会采用“尝试”与“回退”的策略</strong>。当算法在搜索过程中遇到某个状态无法继续前进或无法得到满足条件的解时，它会撤销上一步的选择，退回到之前的状态，并尝试其他可能的选择。</p>
 <p>对于例题一，访问每个节点都代表一次“尝试”，而越过叶结点或返回父节点的 <code>return</code> 则表示“回退”。</p>
 <p>值得说明的是，<strong>回退并不等价于函数返回</strong>。为解释这一点，我们对例题一稍作拓展。</p>
@@ -2305,7 +2266,7 @@
 </div>
 </div>
 </div>
-<h2 id="1312">13.1.2. &nbsp; 剪枝<a class="headerlink" href="#1312" title="Permanent link">&para;</a></h2>
+<h2 id="1212">12.1.2. &nbsp; 剪枝<a class="headerlink" href="#1212" title="Permanent link">&para;</a></h2>
 <p>复杂的回溯问题通常包含一个或多个约束条件，<strong>约束条件通常可用于“剪枝”</strong>。</p>
 <div class="admonition question">
 <p class="admonition-title">例题三：在二叉树中搜索所有值为 <span class="arithmatex">\(7\)</span> 的节点，返回根节点到这些节点的路径，<strong>路径中不能包含值为 <span class="arithmatex">\(3\)</span> 的节点</strong></p>
@@ -2488,7 +2449,7 @@
 <p><img alt="根据约束条件剪枝" src="../backtracking_algorithm.assets/preorder_find_constrained_paths.png" /></p>
 <p align="center"> Fig. 根据约束条件剪枝 </p>
 
-<h2 id="1313">13.1.3. &nbsp; 常用术语<a class="headerlink" href="#1313" title="Permanent link">&para;</a></h2>
+<h2 id="1213">12.1.3. &nbsp; 常用术语<a class="headerlink" href="#1213" title="Permanent link">&para;</a></h2>
 <p>为了更清晰地分析算法问题，我们总结一下回溯算法中常用术语的含义，并对照例题三给出对应示例。</p>
 <table>
 <thead>
@@ -2535,7 +2496,7 @@
 <p class="admonition-title">Tip</p>
 <p>解、状态、约束条件等术语是通用的，适用于回溯算法、动态规划、贪心算法等。</p>
 </div>
-<h2 id="1314">13.1.4. &nbsp; 框架代码<a class="headerlink" href="#1314" title="Permanent link">&para;</a></h2>
+<h2 id="1214">12.1.4. &nbsp; 框架代码<a class="headerlink" href="#1214" title="Permanent link">&para;</a></h2>
 <p>回溯算法可用于解决许多搜索问题、约束满足问题和组合优化问题。为提升代码通用性，我们希望将回溯算法的“尝试、回退、剪枝”的主体框架提炼出来。</p>
 <p>设 <code>state</code> 为问题的当前状态，<code>choices</code> 表示当前状态下可以做出的选择，则可得到以下回溯算法的框架代码。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:10"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JavaScript</label><label for="__tabbed_5_6">TypeScript</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label></div>
@@ -3172,7 +3133,7 @@
 </div>
 </div>
 <p>相较于基于前序遍历的实现代码，基于回溯算法框架的实现代码虽然显得啰嗦，但通用性更好。实际上，<strong>所有回溯问题都可以在该框架下解决</strong>。我们需要根据具体问题来定义 <code>state</code> 和 <code>choices</code> ，并实现框架中的各个方法。</p>
-<h2 id="1315">13.1.5. &nbsp; 典型例题<a class="headerlink" href="#1315" title="Permanent link">&para;</a></h2>
+<h2 id="1215">12.1.5. &nbsp; 典型例题<a class="headerlink" href="#1215" title="Permanent link">&para;</a></h2>
 <p><strong>搜索问题</strong>：这类问题的目标是找到满足特定条件的解决方案。</p>
 <ul>
 <li>全排列问题：给定一个集合，求出其所有可能的排列组合。</li>
@@ -3269,7 +3230,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../chapter_searching/summary/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 12.3. &amp;nbsp; 小结" rel="prev">
+          <a href="../../chapter_sorting/summary/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 11.9. &amp;nbsp; 小结" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -3278,20 +3239,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                12.3. &nbsp; 小结
+                11.9. &nbsp; 小结
               </div>
             </div>
           </a>
         
         
           
-          <a href="../permutations_problem/" class="md-footer__link md-footer__link--next" aria-label="下一页: 13.2. &amp;nbsp; 全排列问题（New）" rel="next">
+          <a href="../permutations_problem/" class="md-footer__link md-footer__link--next" aria-label="下一页: 12.2. &amp;nbsp; 全排列问题（New）" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                13.2. &nbsp; 全排列问题（New）
+                12.2. &nbsp; 全排列问题（New）
               </div>
             </div>
             <div class="md-footer__button md-icon">

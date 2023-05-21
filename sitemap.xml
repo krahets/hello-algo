@@ -51,16 +51,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.hello-algo.com/chapter_binary_search/binary_search/</loc>
-         <lastmod>2023-05-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.hello-algo.com/chapter_binary_search/binary_search_edge/</loc>
-         <lastmod>2023-05-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.hello-algo.com/chapter_computational_complexity/performance_evaluation/</loc>
          <lastmod>2023-05-21</lastmod>
          <changefreq>daily</changefreq>
@@ -187,6 +177,16 @@
     </url>
     <url>
          <loc>https://www.hello-algo.com/chapter_reference/</loc>
+         <lastmod>2023-05-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.hello-algo.com/chapter_searching/binary_search/</loc>
+         <lastmod>2023-05-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.hello-algo.com/chapter_searching/binary_search_edge/</loc>
          <lastmod>2023-05-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
