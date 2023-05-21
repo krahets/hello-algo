@@ -12,11 +12,11 @@ def binary_search_left_edge(nums: list[int], target: int) -> int:
     while i <= j:
         m = (i + j) // 2  # 计算中点索引 m
         if nums[m] < target:
-            i = m + 1  # 此情况说明 target 在区间 [m+1, j] 中
+            i = m + 1  # target 在区间 [m+1, j] 中
         elif nums[m] > target:
-            j = m - 1  # 此情况说明 target 在区间 [i, m-1] 中
+            j = m - 1  # target 在区间 [i, m-1] 中
         else:
-            j = m - 1  # 此情况说明首个小于 target 的元素在区间 [i, m-1] 中
+            j = m - 1  # 首个小于 target 的元素在区间 [i, m-1] 中
     if i == len(nums) or nums[i] != target:
         return -1  # 未找到目标元素，返回 -1
     return i
