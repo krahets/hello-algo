@@ -4,7 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-package chapter_binary_search;
+package chapter_searching;
 
 public class binary_search_edge {
     /* 二分查找最左一个元素 */

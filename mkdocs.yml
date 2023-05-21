@@ -153,29 +153,32 @@ nav:
     - 5.2. &nbsp; 队列: chapter_stack_and_queue/queue.md
     - 5.3. &nbsp; 双向队列: chapter_stack_and_queue/deque.md
     - 5.4. &nbsp; 小结: chapter_stack_and_queue/summary.md
-  - 6. &nbsp; &nbsp; 二分查找:
-    - 6.1. &nbsp; 二分查找: chapter_binary_search/binary_search.md
-    - 6.2. &nbsp; 二分查找边界: chapter_binary_search/binary_search_edge.md 
-  - 7. &nbsp; &nbsp; 散列表:
-    - 7.1. &nbsp; 哈希表: chapter_hashing/hash_map.md
-    - 7.2. &nbsp; 哈希冲突处理: chapter_hashing/hash_collision.md
-    - 7.3. &nbsp; 小结: chapter_hashing/summary.md
-  - 8. &nbsp; &nbsp; 树:
-    - 8.1. &nbsp; 二叉树: chapter_tree/binary_tree.md
-    - 8.2. &nbsp; 二叉树遍历: chapter_tree/binary_tree_traversal.md
-    - 8.3. &nbsp; 二叉树数组表示: chapter_tree/array_representation_of_tree.md
-    - 8.4. &nbsp; 二叉搜索树: chapter_tree/binary_search_tree.md
-    - 8.5. &nbsp; AVL 树 *: chapter_tree/avl_tree.md
-    - 8.6. &nbsp; 小结: chapter_tree/summary.md
-  - 9. &nbsp; &nbsp; 堆:
-    - 9.1. &nbsp; 堆: chapter_heap/heap.md
-    - 9.2. &nbsp; 建堆操作 *: chapter_heap/build_heap.md
-    - 9.3. &nbsp; 小结: chapter_heap/summary.md
-  - 10. &nbsp; &nbsp; 图:
-    - 10.1. &nbsp; 图: chapter_graph/graph.md
-    - 10.2. &nbsp; 图基础操作: chapter_graph/graph_operations.md
-    - 10.3. &nbsp; 图的遍历: chapter_graph/graph_traversal.md
-    - 10.4. &nbsp; 小结: chapter_graph/summary.md
+  - 6. &nbsp; &nbsp; 散列表:
+    - 6.1. &nbsp; 哈希表: chapter_hashing/hash_map.md
+    - 6.2. &nbsp; 哈希冲突处理: chapter_hashing/hash_collision.md
+    - 6.3. &nbsp; 小结: chapter_hashing/summary.md
+  - 7. &nbsp; &nbsp; 树:
+    - 7.1. &nbsp; 二叉树: chapter_tree/binary_tree.md
+    - 7.2. &nbsp; 二叉树遍历: chapter_tree/binary_tree_traversal.md
+    - 7.3. &nbsp; 二叉树数组表示: chapter_tree/array_representation_of_tree.md
+    - 7.4. &nbsp; 二叉搜索树: chapter_tree/binary_search_tree.md
+    - 7.5. &nbsp; AVL 树 *: chapter_tree/avl_tree.md
+    - 7.6. &nbsp; 小结: chapter_tree/summary.md
+  - 8. &nbsp; &nbsp; 堆:
+    - 8.1. &nbsp; 堆: chapter_heap/heap.md
+    - 8.2. &nbsp; 建堆操作 *: chapter_heap/build_heap.md
+    - 8.3. &nbsp; 小结: chapter_heap/summary.md
+  - 9. &nbsp; &nbsp; 图:
+    - 9.1. &nbsp; 图: chapter_graph/graph.md
+    - 9.2. &nbsp; 图基础操作: chapter_graph/graph_operations.md
+    - 9.3. &nbsp; 图的遍历: chapter_graph/graph_traversal.md
+    - 9.4. &nbsp; 小结: chapter_graph/summary.md
+  - 10. &nbsp; &nbsp; 搜索算法:
+    - 10.1. &nbsp; 二分查找（New）: chapter_searching/binary_search.md
+    - 10.2. &nbsp; 二分查找边界（New）: chapter_searching/binary_search_edge.md 
+    - 10.3. &nbsp; 哈希优化策略: chapter_searching/replace_linear_by_hashing.md
+    - 10.4. &nbsp; 重识搜索算法: chapter_searching/searching_algorithm_revisited.md
+    - 10.5. &nbsp; 小结: chapter_searching/summary.md
   - 11. &nbsp; &nbsp; 排序算法:
     - 11.1. &nbsp; 排序算法: chapter_sorting/sorting_algorithm.md
     - 11.2. &nbsp; 冒泡排序: chapter_sorting/bubble_sort.md
@@ -186,16 +189,12 @@ nav:
     - 11.7. &nbsp; 计数排序: chapter_sorting/counting_sort.md
     - 11.8. &nbsp; 基数排序: chapter_sorting/radix_sort.md
     - 11.9. &nbsp; 小结: chapter_sorting/summary.md
-  - 12. &nbsp; &nbsp; 搜索算法:
-    - 12.1. &nbsp; 搜索算法（New）: chapter_searching/searching_algorithm_revisited.md
-    - 12.2. &nbsp; 哈希优化策略: chapter_searching/replace_linear_by_hashing.md
-    - 12.3. &nbsp; 小结: chapter_searching/summary.md
-  - 13. &nbsp; &nbsp; 回溯算法:
-    - 13.1. &nbsp; 回溯算法（New）: chapter_backtracking/backtracking_algorithm.md
-    - 13.2. &nbsp; 全排列问题（New）: chapter_backtracking/permutations_problem.md
-    - 13.3. &nbsp; N 皇后问题（New）: chapter_backtracking/n_queens_problem.md
-  - 14. &nbsp; &nbsp; 附录:
-    - 14.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
-    - 14.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
+  - 12. &nbsp; &nbsp; 回溯算法:
+    - 12.1. &nbsp; 回溯算法（New）: chapter_backtracking/backtracking_algorithm.md
+    - 12.2. &nbsp; 全排列问题（New）: chapter_backtracking/permutations_problem.md
+    - 12.3. &nbsp; N 皇后问题（New）: chapter_backtracking/n_queens_problem.md
+  - 13. &nbsp; &nbsp; 附录:
+    - 13.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
+    - 13.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
   - 参考文献:
     - chapter_reference/index.md
