@@ -26,7 +26,7 @@ class BinarySearchTree:
             return None
 
         # 将数组中间节点作为根节点
-        mid: int = (start_index + end_index) // 2
+        mid = (start_index + end_index) // 2
         root = TreeNode(nums[mid])
         # 递归建立左子树和右子树
         root.left = self.build_tree(

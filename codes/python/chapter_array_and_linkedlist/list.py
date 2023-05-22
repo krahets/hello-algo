@@ -7,7 +7,7 @@ Author: Krahets (krahets@163.com)
 """Driver Code"""
 if __name__ == "__main__":
     # 初始化列表
-    arr: list[int] = [1, 3, 2, 5, 4]
+    arr = [1, 3, 2, 5, 4]
     print("列表 arr =", arr)
 
     # 访问元素
@@ -39,17 +39,17 @@ if __name__ == "__main__":
     print("删除索引 3 处的元素，得到 arr =", arr)
 
     # 通过索引遍历列表
-    count: int = 0
+    count = 0
     for i in range(len(arr)):
         count += 1
 
     # 直接遍历列表元素
-    count: int = 0
+    count = 0
     for n in arr:
         count += 1
 
     # 拼接两个列表
-    arr1: list[int] = [6, 8, 7, 10, 9]
+    arr1 = [6, 8, 7, 10, 9]
     arr += arr1
     print("将列表 arr1 拼接到 arr 之后，得到 arr =", arr)
 

@@ -41,8 +41,8 @@ def binary_search_right_edge(nums: list[int], target: int) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    target: int = 6
-    nums: list[int] = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
+    target = 6
+    nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
 
     # 二分查找最左一个元素
     index_left = binary_search_left_edge(nums, target)

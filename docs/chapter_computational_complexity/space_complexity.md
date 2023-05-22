@@ -87,10 +87,10 @@
         return 0
 
     def algorithm(n) -> int:  # 输入数据
-        A: int = 0            # 暂存数据（常量，一般用大写字母表示）
-        b: int = 0            # 暂存数据（变量）
+        A = 0                 # 暂存数据（常量，一般用大写字母表示）
+        b = 0                 # 暂存数据（变量）
         node = Node(0)        # 暂存数据（对象）
-        c: int = function()   # 栈帧空间（调用函数）
+        c = function()        # 栈帧空间（调用函数）
         return A + b + c      # 输出数据
     ```
 
@@ -293,10 +293,10 @@
 
     ```python title=""
     def algorithm(n: int) -> None:
-        a: int = 0                     # O(1)
-        b: List[int] = [0] * 10000     # O(1)
+        a = 0                     # O(1)
+        b = [0] * 10000     # O(1)
         if n > 10:
-            nums: List[int] = [0] * n  # O(n)
+            nums = [0] * n  # O(n)
     ```
 
 === "Go"

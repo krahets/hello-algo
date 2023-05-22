@@ -40,8 +40,8 @@ def binary_search_lcro(nums: list[int], target: int) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    target: int = 6
-    nums: list[int] = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
+    target = 6
+    nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
 
     # 二分查找（双闭区间）
     index: int = binary_search(nums, target)

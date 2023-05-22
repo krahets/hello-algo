@@ -88,8 +88,8 @@ class GraphAdjMat:
 if __name__ == "__main__":
     # 初始化无向图
     # 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-    vertices: list[int] = [1, 3, 2, 5, 4]
-    edges: list[list[int]] = [[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]]
+    vertices = [1, 3, 2, 5, 4]
+    edges = [[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]]
     graph = GraphAdjMat(vertices, edges)
     print("\n初始化后，图为")
     graph.print()

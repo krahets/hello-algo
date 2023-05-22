@@ -64,7 +64,7 @@ if __name__ == "__main__":
 
     # 输入列表并建堆
     # 时间复杂度为 O(n) ，而非 O(nlogn)
-    min_heap: list[int] = [1, 3, 2, 5, 4]
+    min_heap = [1, 3, 2, 5, 4]
     heapq.heapify(min_heap)
     print("\n输入列表并建立小顶堆后")
     print_heap(min_heap)
