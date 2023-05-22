@@ -75,7 +75,7 @@ comments: true
         queue: deque[TreeNode] = deque()
         queue.append(root)
         # 初始化一个列表，用于保存遍历序列
-        res: list[int] = []
+        res = []
         while queue:
             node: TreeNode = queue.popleft()  # 队列出队
             res.append(node.val)  # 保存节点值

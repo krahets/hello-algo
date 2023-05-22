@@ -976,7 +976,9 @@ comments: true
         """恢复状态"""
         state.pop()
 
-    def backtrack(state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]):
+    def backtrack(
+        state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]
+    ):
         """回溯算法：例题三"""
         # 检查是否为解
         if is_solution(state):

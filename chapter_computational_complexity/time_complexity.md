@@ -421,7 +421,7 @@ $$
 
     ```python title=""
     def algorithm(n: int) -> None:
-        a: int = 1  # +1
+        a = 1      # +1
         a = a + 1  # +1
         a = a * 2  # +1
         # 循环 n 次
@@ -612,8 +612,8 @@ $$
 
     ```python title=""
     def algorithm(n: int) -> None:
-        a: int = 1  # +0（技巧 1）
-        a = a + n   # +0（技巧 1）
+        a = 1      # +0（技巧 1）
+        a = a + n  # +0（技巧 1）
         # +n（技巧 2）
         for i in range(5 * n + 1):
             print(0)
@@ -627,7 +627,7 @@ $$
 
     ```go title=""
     func algorithm(n int) {
-        a := 1      // +0（技巧 1）
+        a := 1     // +0（技巧 1）
         a = a + n  // +0（技巧 1）
         // +n（技巧 2）
         for i := 0; i < 5 * n + 1; i++ {
@@ -821,8 +821,8 @@ $$
     ```python title="time_complexity.py"
     def constant(n: int) -> int:
         """常数阶"""
-        count: int = 0
-        size: int = 100000
+        count = 0
+        size = 100000
         for _ in range(size):
             count += 1
         return count
@@ -957,7 +957,7 @@ $$
     ```python title="time_complexity.py"
     def linear(n: int) -> int:
         """线性阶"""
-        count: int = 0
+        count = 0
         for _ in range(n):
             count += 1
         return count
@@ -1089,7 +1089,7 @@ $$
     ```python title="time_complexity.py"
     def array_traversal(nums: list[int]) -> int:
         """线性阶（遍历数组）"""
-        count: int = 0
+        count = 0
         # 循环次数与数组长度成正比
         for num in nums:
             count += 1
@@ -1235,7 +1235,7 @@ $$
     ```python title="time_complexity.py"
     def quadratic(n: int) -> int:
         """平方阶"""
-        count: int = 0
+        count = 0
         # 循环次数与数组长度成平方关系
         for i in range(n):
             for j in range(n):
@@ -1418,7 +1418,7 @@ $$
     ```python title="time_complexity.py"
     def bubble_sort(nums: list[int]) -> int:
         """平方阶（冒泡排序）"""
-        count: int = 0  # 计数器
+        count = 0  # 计数器
         # 外循环：待排序元素数量为 n-1, n-2, ..., 1
         for i in range(len(nums) - 1, 0, -1):
             # 内循环：冒泡操作
@@ -1644,8 +1644,8 @@ $$
     ```python title="time_complexity.py"
     def exponential(n: int) -> int:
         """指数阶（循环实现）"""
-        count: int = 0
-        base: int = 1
+        count = 0
+        base = 1
         # cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
         for _ in range(n):
             for _ in range(base):
@@ -1942,7 +1942,7 @@ $$
     ```python title="time_complexity.py"
     def logarithmic(n: float) -> int:
         """对数阶（循环实现）"""
-        count: int = 0
+        count = 0
         while n > 1:
             n = n / 2
             count += 1
@@ -2373,7 +2373,7 @@ $$
         """阶乘阶（递归实现）"""
         if n == 0:
             return 1
-        count: int = 0
+        count = 0
         # 从 1 个分裂出 n 个
         for _ in range(n):
             count += factorial_recur(n - 1)
@@ -2570,7 +2570,7 @@ $$
     def random_numbers(n: int) -> list[int]:
         """生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱"""
         # 生成数组 nums =: 1, 2, 3, ..., n
-        nums: list[int] = [i for i in range(1, n + 1)]
+        nums = [i for i in range(1, n + 1)]
         # 随机打乱数组元素
         random.shuffle(nums)
         return nums

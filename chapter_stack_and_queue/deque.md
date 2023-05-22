@@ -691,8 +691,8 @@ comments: true
 
         def to_array(self) -> list[int]:
             """返回数组用于打印"""
-            node: ListNode | None = self.front
-            res: list[int] = [0] * self.size()
+            node = self.front
+            res = [0] * self.size()
             for i in range(self.size()):
                 res[i] = node.val
                 node = node.next

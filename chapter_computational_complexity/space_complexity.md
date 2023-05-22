@@ -93,10 +93,10 @@ comments: true
         return 0
 
     def algorithm(n) -> int:  # 输入数据
-        A: int = 0            # 暂存数据（常量，一般用大写字母表示）
-        b: int = 0            # 暂存数据（变量）
+        A = 0                 # 暂存数据（常量，一般用大写字母表示）
+        b = 0                 # 暂存数据（变量）
         node = Node(0)        # 暂存数据（对象）
-        c: int = function()   # 栈帧空间（调用函数）
+        c = function()        # 栈帧空间（调用函数）
         return A + b + c      # 输出数据
     ```
 
@@ -299,10 +299,10 @@ comments: true
 
     ```python title=""
     def algorithm(n: int) -> None:
-        a: int = 0                     # O(1)
-        b: List[int] = [0] * 10000     # O(1)
+        a = 0                     # O(1)
+        b = [0] * 10000     # O(1)
         if n > 10:
-            nums: List[int] = [0] * n  # O(n)
+            nums = [0] * n  # O(n)
     ```
 
 === "Go"
@@ -658,12 +658,12 @@ $$
     def constant(n: int) -> None:
         """常数阶"""
         # 常量、变量、对象占用 O(1) 空间
-        a: int = 0
-        nums: list[int] = [0] * 10000
+        a = 0
+        nums = [0] * 10000
         node = ListNode(0)
         # 循环中的变量占用 O(1) 空间
         for _ in range(n):
-            c: int = 0
+            c = 0
         # 循环中的函数占用 O(1) 空间
         for _ in range(n):
             function()
@@ -876,7 +876,7 @@ $$
     def linear(n: int) -> None:
         """线性阶"""
         # 长度为 n 的列表占用 O(n) 空间
-        nums: list[int] = [0] * n
+        nums = [0] * n
         # 长度为 n 的哈希表占用 O(n) 空间
         mapp = dict[int, str]()
         for i in range(n):
@@ -1220,7 +1220,7 @@ $$
     def quadratic(n: int) -> None:
         """平方阶"""
         # 二维列表占用 O(n^2) 空间
-        num_matrix: list[list[int]] = [[0] * n for _ in range(n)]
+        num_matrix = [[0] * n for _ in range(n)]
     ```
 
 === "Go"
@@ -1388,7 +1388,7 @@ $$
         if n <= 0:
             return 0
         # 数组 nums 长度为 n, n-1, ..., 2, 1
-        nums: list[int] = [0] * n
+        nums = [0] * n
         return quadratic_recur(n - 1)
     ```
 

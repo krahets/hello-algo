@@ -631,7 +631,7 @@ $$
 
         def hash_func(self, key: int) -> int:
             """哈希函数"""
-            index: int = key % 100
+            index = key % 100
             return index
 
         def get(self, key: int) -> str:
@@ -664,7 +664,7 @@ $$
 
         def key_set(self) -> list[int]:
             """获取所有键"""
-            result: list[int] = []
+            result = []
             for pair in self.buckets:
                 if pair is not None:
                     result.append(pair.key)
@@ -672,7 +672,7 @@ $$
 
         def value_set(self) -> list[str]:
             """获取所有值"""
-            result: list[str] = []
+            result = []
             for pair in self.buckets:
                 if pair is not None:
                     result.append(pair.val)

@@ -364,7 +364,7 @@ comments: true
         if left >= right:
             return
         # 哨兵划分
-        pivot: int = self.partition(nums, left, right)
+        pivot = self.partition(nums, left, right)
         # 递归左子数组、右子数组
         self.quick_sort(nums, left, pivot - 1)
         self.quick_sort(nums, pivot + 1, right)
@@ -621,7 +621,7 @@ comments: true
     def partition(self, nums: list[int], left: int, right: int) -> int:
         """哨兵划分（三数取中值）"""
         # 以 nums[left] 作为基准数
-        med: int = self.median_three(nums, left, (left + right) // 2, right)
+        med = self.median_three(nums, left, (left + right) // 2, right)
         # 将中位数交换至数组最左端
         nums[left], nums[med] = nums[med], nums[left]
         # 以 nums[left] 作为基准数
@@ -964,7 +964,7 @@ comments: true
         # 子数组长度为 1 时终止
         while left < right:
             # 哨兵划分操作
-            pivot: int = self.partition(nums, left, right)
+            pivot = self.partition(nums, left, right)
             # 对两个子数组中较短的那个执行快排
             if pivot - left < right - pivot:
                 self.quick_sort(nums, left, pivot - 1)  # 递归排序左子数组
