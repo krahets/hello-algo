@@ -125,6 +125,6 @@ if __name__ == "__main__":
     print("快速排序（中位基准数优化）完成后 nums =", nums1)
 
     # 快速排序（尾递归优化）
-    nums2= [2, 4, 1, 0, 3, 5]
+    nums2 = [2, 4, 1, 0, 3, 5]
     QuickSortTailCall().quick_sort(nums2, 0, len(nums2) - 1)
     print("快速排序（尾递归优化）完成后 nums =", nums2)
