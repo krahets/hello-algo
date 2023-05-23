@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 11.4. &nbsp; 快速排序
+# 11.5. &nbsp; 快速排序
 
 「快速排序 Quick Sort」是一种基于分治思想的排序算法，运行高效，应用广泛。
 
@@ -313,9 +313,9 @@ comments: true
     }
     ```
 
-## 11.4.1. &nbsp; 算法流程
+## 11.5.1. &nbsp; 算法流程
 
-1. 首先，对原数组执行一次「哨兵划分」，得到待排序的左子数组和右子数组；
+1. 首先，对原数组执行一次「哨兵划分」，得到未排序的左子数组和右子数组；
 2. 然后，对左子数组和右子数组分别递归执行「哨兵划分」；
 3. 持续递归，直至子数组长度为 1 时终止，从而完成整个数组的排序；
 
@@ -507,17 +507,13 @@ comments: true
     }
     ```
 
-## 11.4.2. &nbsp; 算法特性
+## 11.5.2. &nbsp; 算法特性
 
-**时间复杂度 $O(n \log n)$** ：在平均情况下，哨兵划分的递归层数为 $\log n$ ，每层中的总循环数为 $n$ ，总体使用 $O(n \log n)$ 时间。
+- **时间复杂度 $O(n \log n)$ 、自适应排序** ：在平均情况下，哨兵划分的递归层数为 $\log n$ ，每层中的总循环数为 $n$ ，总体使用 $O(n \log n)$ 时间。在最差情况下，每轮哨兵划分操作都将长度为 $n$ 的数组划分为长度为 $0$ 和 $n - 1$ 的两个子数组，此时递归层数达到 $n$ 层，每层中的循环数为 $n$ ，总体使用 $O(n^2)$ 时间。
+- **空间复杂度 $O(n)$ 、原地排序** ：在输入数组完全倒序的情况下，达到最差递归深度 $n$ ，使用 $O(n)$ 栈帧空间。排序操作是在原数组上进行的，未借助额外数组。
+- **非稳定排序**：在哨兵划分的最后一步，基准数可能会被交换至相等元素的右侧。
 
-在最差情况下，每轮哨兵划分操作都将长度为 $n$ 的数组划分为长度为 $0$ 和 $n - 1$ 的两个子数组，此时递归层数达到 $n$ 层，每层中的循环数为 $n$ ，总体使用 $O(n^2)$ 时间；因此快速排序是“自适应排序”。
-
-**空间复杂度 $O(n)$** ：在输入数组完全倒序的情况下，达到最差递归深度 $n$ 。由于未使用辅助数组，因此算法是“原地排序”。
-
-在哨兵划分的最后一步，基准数可能会被交换至相等元素的右侧，因此是“非稳定排序”。
-
-## 11.4.3. &nbsp; 快排为什么快？
+## 11.5.3. &nbsp; 快排为什么快？
 
 从名称上就能看出，快速排序在效率方面应该具有一定的优势。尽管快速排序的平均时间复杂度与「归并排序」和「堆排序」相同，但通常快速排序的效率更高，原因如下：
 
@@ -525,7 +521,7 @@ comments: true
 - **缓存使用效率高**：在执行哨兵划分操作时，系统可将整个子数组加载到缓存，因此访问元素的效率较高。而像「堆排序」这类算法需要跳跃式访问元素，从而缺乏这一特性。
 - **复杂度的常数系数低**：在上述三种算法中，快速排序的比较、赋值、交换等操作的总数量最少。这与「插入排序」比「冒泡排序」更快的原因类似。
 
-## 11.4.4. &nbsp; 基准数优化
+## 11.5.4. &nbsp; 基准数优化
 
 **快速排序在某些输入下的时间效率可能降低**。举一个极端例子，假设输入数组是完全倒序的，由于我们选择最左端元素作为基准数，那么在哨兵划分完成后，基准数被交换至数组最右端，导致左子数组长度为 $n - 1$ 、右子数组长度为 $0$ 。如此递归下去，每轮哨兵划分后的右子数组长度都为 $0$ ，分治策略失效，快速排序退化为「冒泡排序」。
 
@@ -908,7 +904,7 @@ comments: true
     }
     ```
 
-## 11.4.5. &nbsp; 尾递归优化
+## 11.5.5. &nbsp; 尾递归优化
 
 **在某些输入下，快速排序可能占用空间较多**。以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 $0$ ，递归树的高度会达到 $n - 1$ ，此时需要占用 $O(n)$ 大小的栈帧空间。
 
@@ -926,10 +922,10 @@ comments: true
             // 对两个子数组中较短的那个执行快排
             if (pivot - left < right - pivot) {
                 quickSort(nums, left, pivot - 1); // 递归排序左子数组
-                left = pivot + 1; // 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1; // 剩余未排序区间为 [pivot + 1, right]
             } else {
                 quickSort(nums, pivot + 1, right); // 递归排序右子数组
-                right = pivot - 1; // 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
             }
         }
     }
@@ -947,10 +943,10 @@ comments: true
             // 对两个子数组中较短的那个执行快排
             if (pivot - left < right - pivot) {
                 quickSort(nums, left, pivot - 1); // 递归排序左子数组
-                left = pivot + 1;                 // 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1;                 // 剩余未排序区间为 [pivot + 1, right]
             } else {
                 quickSort(nums, pivot + 1, right); // 递归排序右子数组
-                right = pivot - 1;                 // 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1;                 // 剩余未排序区间为 [left, pivot - 1]
             }
         }
     }
@@ -968,10 +964,10 @@ comments: true
             # 对两个子数组中较短的那个执行快排
             if pivot - left < right - pivot:
                 self.quick_sort(nums, left, pivot - 1)  # 递归排序左子数组
-                left = pivot + 1  # 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1  # 剩余未排序区间为 [pivot + 1, right]
             else:
                 self.quick_sort(nums, pivot + 1, right)  # 递归排序右子数组
-                right = pivot - 1  # 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1  # 剩余未排序区间为 [left, pivot - 1]
     ```
 
 === "Go"
@@ -986,10 +982,10 @@ comments: true
             // 对两个子数组中较短的那个执行快排
             if pivot-left < right-pivot {
                 q.quickSort(nums, left, pivot-1) // 递归排序左子数组
-                left = pivot + 1                 // 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1                 // 剩余未排序区间为 [pivot + 1, right]
             } else {
                 q.quickSort(nums, pivot+1, right) // 递归排序右子数组
-                right = pivot - 1                 // 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1                 // 剩余未排序区间为 [left, pivot - 1]
             }
         }
     }
@@ -1007,10 +1003,10 @@ comments: true
             // 对两个子数组中较短的那个执行快排
             if (pivot - left < right - pivot) {
                 this.quickSort(nums, left, pivot - 1); // 递归排序左子数组
-                left = pivot + 1; // 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1; // 剩余未排序区间为 [pivot + 1, right]
             } else {
                 this.quickSort(nums, pivot + 1, right); // 递归排序右子数组
-                right = pivot - 1; // 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
             }
         }
     }
@@ -1028,10 +1024,10 @@ comments: true
             // 对两个子数组中较短的那个执行快排
             if (pivot - left < right - pivot) {
                 this.quickSort(nums, left, pivot - 1); // 递归排序左子数组
-                left = pivot + 1; // 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1; // 剩余未排序区间为 [pivot + 1, right]
             } else {
                 this.quickSort(nums, pivot + 1, right); // 递归排序右子数组
-                right = pivot - 1; // 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
             }
         }
     }
@@ -1050,10 +1046,10 @@ comments: true
             // 对两个子数组中较短的那个执行快排
             if (pivot - left < right - pivot) {
                 quickSortTailCall(nums, left, pivot - 1); // 递归排序左子数组
-                left = pivot + 1;                         // 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1;                         // 剩余未排序区间为 [pivot + 1, right]
             } else {
                 quickSortTailCall(nums, pivot + 1, right); // 递归排序右子数组
-                right = pivot - 1;                         // 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1;                         // 剩余未排序区间为 [left, pivot - 1]
             }
         }
     }
@@ -1071,10 +1067,10 @@ comments: true
             // 对两个子数组中较短的那个执行快排
             if (pivot - left < right - pivot) {
                 quickSort(nums, left, pivot - 1);  // 递归排序左子数组
-                left = pivot + 1;  // 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1;  // 剩余未排序区间为 [pivot + 1, right]
             } else {
                 quickSort(nums, pivot + 1, right); // 递归排序右子数组
-                right = pivot - 1; // 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
             }
         }
     }
@@ -1094,10 +1090,10 @@ comments: true
             // 对两个子数组中较短的那个执行快排
             if (pivot - left) < (right - pivot) {
                 quickSortTailCall(nums: &nums, left: left, right: pivot - 1) // 递归排序左子数组
-                left = pivot + 1 // 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1 // 剩余未排序区间为 [pivot + 1, right]
             } else {
                 quickSortTailCall(nums: &nums, left: pivot + 1, right: right) // 递归排序右子数组
-                right = pivot - 1 // 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1 // 剩余未排序区间为 [left, pivot - 1]
             }
         }
     }
@@ -1117,10 +1113,10 @@ comments: true
             // 对两个子数组中较短的那个执行快排
             if (pivot - left < right - pivot) {
                 quickSort(nums, left, pivot - 1);   // 递归排序左子数组
-                left = pivot + 1;                   // 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1;                   // 剩余未排序区间为 [pivot + 1, right]
             } else {
                 quickSort(nums, pivot + 1, right);  // 递归排序右子数组
-                right = pivot - 1;                  // 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1;                  // 剩余未排序区间为 [left, pivot - 1]
             }
         }
     }
