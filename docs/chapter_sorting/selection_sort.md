@@ -109,4 +109,4 @@
 - **空间复杂度 $O(1)$ 、原地排序**：指针 $i$ , $j$ 使用常数大小的额外空间。
 - **非稳定排序**：在交换元素时，有可能将 `nums[i]` 交换至其相等元素的右边，导致两者的相对顺序发生改变。
 
-![选择排序非稳定示例](selection_sort.assets/selection_sort_step11.png)
+![选择排序非稳定示例](selection_sort.assets/selection_sort_instability.png)
