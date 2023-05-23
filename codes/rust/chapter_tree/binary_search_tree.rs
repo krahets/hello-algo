@@ -155,9 +155,9 @@ impl BinarySearchTree {
                     }
                 }
                 let tmpval = tmp.unwrap().borrow().val;
-                // 递归删除节点 next
+                // 递归删除节点 tmp
                 self.remove(tmpval);
-                // 将 nex 的值复制给 cur
+                // 将 tmp 的值复制给 cur
                 cur.borrow_mut().val = tmpval;
             }
         }
