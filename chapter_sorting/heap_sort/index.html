@@ -12,20 +12,16 @@
         <meta name="author" content="Krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/chapter_sorting/sorting_algorithm/">
+        <link rel="canonical" href="https://www.hello-algo.com/chapter_sorting/heap_sort/">
       
       
-        <link rel="prev" href="../../chapter_searching/summary/">
-      
-      
-        <link rel="next" href="../selection_sort/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
     
     
       
-        <title>11.1.   排序算法 - Hello 算法</title>
+        <title>堆排序 - Hello 算法</title>
       
     
     
@@ -79,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#111" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              11.1. &nbsp; 排序算法
+              堆排序
             
           </span>
         </div>
@@ -1379,18 +1375,16 @@
 
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
       
       
         
@@ -1421,7 +1415,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
           11. &nbsp; &nbsp; 排序算法
@@ -1432,59 +1426,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          11.1. &nbsp; 排序算法
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sorting_algorithm/" class="md-nav__link">
         11.1. &nbsp; 排序算法
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1111" class="md-nav__link">
-    11.1.1. &nbsp; 评价维度
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1112" class="md-nav__link">
-    11.1.2. &nbsp; 理想排序算法
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1847,28 +1793,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1111" class="md-nav__link">
-    11.1.1. &nbsp; 评价维度
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1112" class="md-nav__link">
-    11.1.2. &nbsp; 理想排序算法
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1882,7 +1806,7 @@
                   
 
   
-    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_sorting/sorting_algorithm.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_sorting/heap_sort.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1890,93 +1814,11 @@
   
 
 
-<h1 id="111">11.1. &nbsp; 排序算法<a class="headerlink" href="#111" title="Permanent link">&para;</a></h1>
-<p>「排序算法 Sorting Algorithm」用于对一组数据按照特定顺序进行排列。排序算法有着广泛的应用，因为有序数据通常能够被更有效地查找、分析和处理。</p>
-<p>在排序算法中，数据类型可以是整数、浮点数、字符或字符串等；顺序的判断规则可根据需求设定，如数字大小、字符 ASCII 码顺序或自定义规则。</p>
-<p><img alt="数据类型和判断规则示例" src="../sorting_algorithm.assets/sorting_examples.png" /></p>
-<p align="center"> Fig. 数据类型和判断规则示例 </p>
-
-<h2 id="1111">11.1.1. &nbsp; 评价维度<a class="headerlink" href="#1111" title="Permanent link">&para;</a></h2>
-<p><strong>运行效率</strong>：我们期望排序算法的时间复杂度尽量低，且总体操作数量较少（即时间复杂度中的常数项降低）。对于大数据量情况，运行效率显得尤为重要。</p>
-<p><strong>就地性</strong>：顾名思义，「原地排序」通过在原数组上直接操作实现排序，无需借助额外的辅助数组，从而节省内存。通常情况下，原地排序的数据搬运操作较少，运行速度也更快。</p>
-<p><strong>稳定性</strong>：「稳定排序」在完成排序后，相等元素在数组中的相对顺序不发生改变。稳定排序是优良特性，也是多级排序场景的必要条件。</p>
-<p>假设我们有一个存储学生信息的表格，第 1, 2 列分别是姓名和年龄。在这种情况下，「非稳定排序」可能导致输入数据的有序性丧失。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 输入数据是按照姓名排序好的</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># (name, age)</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;A&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;C&#39;</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;D&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># 假设使用非稳定排序算法按年龄排序列表，</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># 结果中 (&#39;D&#39;, 19) 和 (&#39;A&#39;, 19) 的相对位置改变，</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># 输入数据按姓名排序的性质丢失</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;D&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;A&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;C&#39;</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
-</code></pre></div>
-<p><strong>自适应性</strong>：「自适应排序」的时间复杂度会受输入数据的影响，即最佳、最差、平均时间复杂度并不完全相等。</p>
-<p>自适应性需要根据具体情况来评估。如果最差时间复杂度差于平均时间复杂度，说明排序算法在某些数据下性能可能劣化，因此被视为负面属性；而如果最佳时间复杂度优于平均时间复杂度，则被视为正面属性。</p>
-<p><strong>是否基于比较</strong>：「基于比较的排序」依赖于比较运算符（<span class="arithmatex">\(&lt;\)</span> , <span class="arithmatex">\(=\)</span> , <span class="arithmatex">\(&gt;\)</span>）来判断元素的相对顺序，从而排序整个数组，理论最优时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。而「非比较排序」不使用比较运算符，时间复杂度可达 <span class="arithmatex">\(O(n)\)</span> ，但其通用性相对较差。</p>
-<h2 id="1112">11.1.2. &nbsp; 理想排序算法<a class="headerlink" href="#1112" title="Permanent link">&para;</a></h2>
-<p><strong>运行快、原地、稳定、正向自适应、通用性好</strong>。显然，迄今为止尚未发现兼具以上所有特性的排序算法。因此，在选择排序算法时，需要根据具体的数据特点和问题需求来决定。</p>
-<p>接下来，我们将共同学习各种排序算法，并基于上述评价维度对各个排序算法的优缺点进行分析。</p>
+<h1 id="_1">堆排序<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 
 
 
 
-
-  <h2 id="__comments">评论</h2>
-  <!-- Insert generated snippet here -->
-  <script 
-    src="https://giscus.app/client.js"
-    data-repo="krahets/hello-algo"
-    data-repo-id="R_kgDOIXtSqw"
-    data-category="Announcements"
-    data-category-id="DIC_kwDOIXtSq84CSZk_"
-    data-mapping="pathname"
-    data-strict="1"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
-    crossorigin="anonymous"
-    async
-  >
-  </script>
-  <!-- Synchronize Giscus theme with palette -->
-  <script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate" ? "dark" : "light"
-      giscus.setAttribute("data-theme", theme) 
-    }
-
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate" ? "dark" : "light"
-
-          /* Instruct Giscus to change theme */
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-  </script>
 
                 
               </article>
@@ -1996,42 +1838,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
-        
-          
-          <a href="../../chapter_searching/summary/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 10.5. &amp;nbsp; 小结" rel="prev">
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                10.5. &nbsp; 小结
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../selection_sort/" class="md-footer__link md-footer__link--next" aria-label="下一页: 11.2. &amp;nbsp; 选择排序(New)" rel="next">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                11.2. &nbsp; 选择排序(New)
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
