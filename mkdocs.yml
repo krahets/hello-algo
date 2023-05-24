@@ -181,7 +181,7 @@ nav:
     - 10.5. &nbsp; 小结: chapter_searching/summary.md
   - 11. &nbsp; &nbsp; 排序算法:
     - 11.1. &nbsp; 排序算法: chapter_sorting/sorting_algorithm.md
-    - 11.2. &nbsp; 选择排序: chapter_sorting/selection_sort.md
+    - 11.2. &nbsp; 选择排序(New): chapter_sorting/selection_sort.md
     - 11.3. &nbsp; 冒泡排序: chapter_sorting/bubble_sort.md
     - 11.4. &nbsp; 插入排序: chapter_sorting/insertion_sort.md
     - 11.5. &nbsp; 快速排序: chapter_sorting/quick_sort.md
