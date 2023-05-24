@@ -4,7 +4,9 @@ comments: true
 
 # 11.2. &nbsp; 选择排序
 
-「选择排序 Insertion Sort」的工作原理非常直接：开启一个循环，每轮从未排序区间选择最小的元素，将其放到已排序区间的末尾。完整步骤如下：
+「选择排序 Selection Sort」的工作原理非常直接：开启一个循环，每轮从未排序区间选择最小的元素，将其放到已排序区间的末尾。
+
+选择排序的算法流程如下：
 
 1. 初始状态下，所有元素未排序，即未排序（索引）区间为 $[0, n-1]$ 。
 2. 选取区间 $[0, n-1]$ 中的最小元素，将其与索引 $0$ 处元素交换。完成后，数组前 1 个元素已排序。
@@ -55,12 +57,11 @@ comments: true
         int n = nums.length;
         // 外循环：未排序区间为 [i, n-1]
         for (int i = 0; i < n - 1; i++) {
-            // 内循环：找到未排序区间 [i, n-1] 中的最小元素
+            // 内循环：找到未排序区间内的最小元素
             int k = i;
             for (int j = i + 1; j < n; j++) {
-                if (nums[j] < nums[k]) {
-                    k = j; // 更新最小元素
-                }
+                if (nums[j] < nums[k])
+                    k = j; // 记录最小元素的索引
             }
             // 将该最小元素与未排序区间的首个元素交换
             int temp = nums[i];
@@ -78,12 +79,11 @@ comments: true
         int n = nums.size();
         // 外循环：未排序区间为 [i, n-1]
         for (int i = 0; i < n - 1; i++) {
-            // 内循环：找到未排序区间 [i, n-1] 中的最小元素
+            // 内循环：找到未排序区间内的最小元素
             int k = i;
             for (int j = i + 1; j < n; j++) {
-                if (nums[j] < nums[k]) {
-                    k = j; // 更新最小元素
-                }
+                if (nums[j] < nums[k])
+                    k = j; // 记录最小元素的索引
             }
             // 将该最小元素与未排序区间的首个元素交换
             swap(nums[i], nums[k]);
@@ -99,11 +99,11 @@ comments: true
         n = len(nums)
         # 外循环：未排序区间为 [i, n-1]
         for i in range(n - 1):
-            # 内循环：找到未排序区间 [i, n-1] 中的最小元素
+            # 内循环：找到未排序区间内的最小元素
             k = i
             for j in range(i + 1, n):
                 if nums[j] < nums[k]:
-                    k = j  # 更新最小元素
+                    k = j  # 记录最小元素的索引
             # 将该最小元素与未排序区间的首个元素交换
             nums[i], nums[k] = nums[k], nums[i]
     ```
