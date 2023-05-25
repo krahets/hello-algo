@@ -1503,6 +1503,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
@@ -1538,7 +1540,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_sorting/selection_sort/" class="md-nav__link">
-        11.2. &nbsp; 选择排序(New)
+        11.2. &nbsp; 选择排序（New）
       </a>
     </li>
   
@@ -1607,8 +1609,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../../chapter_sorting/heap_sort/" class="md-nav__link">
+        11.7. &nbsp; 堆排序（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../chapter_sorting/bucket_sort/" class="md-nav__link">
-        11.7. &nbsp; 桶排序
+        11.8. &nbsp; 桶排序
       </a>
     </li>
   
@@ -1622,7 +1638,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_sorting/counting_sort/" class="md-nav__link">
-        11.8. &nbsp; 计数排序
+        11.9. &nbsp; 计数排序
       </a>
     </li>
   
@@ -1636,7 +1652,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_sorting/radix_sort/" class="md-nav__link">
-        11.9. &nbsp; 基数排序
+        11.10. &nbsp; 基数排序
       </a>
     </li>
   
@@ -1650,7 +1666,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_sorting/summary/" class="md-nav__link">
-        11.10. &nbsp; 小结
+        11.11. &nbsp; 小结
       </a>
     </li>
   
@@ -2541,7 +2557,7 @@
 <h3 id="_3">元素入堆<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>给定元素 <code>val</code> ，我们首先将其添加到堆底。添加之后，由于 val 可能大于堆中其他元素，堆的成立条件可能已被破坏。因此，<strong>需要修复从插入节点到根节点的路径上的各个节点</strong>，这个操作被称为「堆化 Heapify」。</p>
 <p>考虑从入堆节点开始，<strong>从底至顶执行堆化</strong>。具体来说，我们比较插入节点与其父节点的值，如果插入节点更大，则将它们交换。然后继续执行此操作，从底至顶修复堆中的各个节点，直至越过根节点或遇到无需交换的节点时结束。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:6"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:9"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="元素入堆步骤" src="../heap.assets/heap_push_step1.png" /></p>
@@ -2560,6 +2576,15 @@
 </div>
 <div class="tabbed-block">
 <p><img alt="heap_push_step6" src="../heap.assets/heap_push_step6.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="heap_push_step7" src="../heap.assets/heap_push_step7.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="heap_push_step8" src="../heap.assets/heap_push_step8.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="heap_push_step9" src="../heap.assets/heap_push_step9.png" /></p>
 </div>
 </div>
 </div>
@@ -3248,7 +3273,7 @@
 <h2 id="813">8.1.3. &nbsp; 堆常见应用<a class="headerlink" href="#813" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>优先队列</strong>：堆通常作为实现优先队列的首选数据结构，其入队和出队操作的时间复杂度均为 <span class="arithmatex">\(O(\log n)\)</span> ，而建队操作为 <span class="arithmatex">\(O(n)\)</span> ，这些操作都非常高效。</li>
-<li><strong>堆排序</strong>：给定一组数据，我们可以用它们建立一个堆，然后不断地执行元素出堆操作，从而得到有序数据。当然，堆排序还有一种更优雅的实现，详见后续的堆排序章节。</li>
+<li><strong>堆排序</strong>：给定一组数据，我们可以用它们建立一个堆，然后不断地执行元素出堆操作，从而得到有序数据。然而，我们通常会使用一种更优雅的方式实现堆排序，详见后续的堆排序章节。</li>
 <li><strong>获取最大的 <span class="arithmatex">\(k\)</span> 个元素</strong>：这是一个经典的算法问题，同时也是一种典型应用，例如选择热度前 10 的新闻作为微博热搜，选取销量前 10 的商品等。</li>
 </ul>
 
