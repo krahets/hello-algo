@@ -38,7 +38,6 @@ void heapSort(vector<int> &nums) {
     for (int i = nums.size() - 1; i > 0; --i) {
         // 交换根节点与最右叶节点（即交换首元素与尾元素）
         swap(nums[0], nums[i]);
-
         // 以根节点为起点，从顶至底进行堆化
         siftDown(nums, i, 0);
     }
