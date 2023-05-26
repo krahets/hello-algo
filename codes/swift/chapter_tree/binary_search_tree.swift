@@ -123,10 +123,15 @@ class BinarySearchTree {
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
             let child = cur?.left != nil ? cur?.left : cur?.right
             // 删除节点 cur
-            if pre?.left === cur {
-                pre?.left = child
+            if cur != root {
+                if pre?.left === cur {
+                    pre?.left = child
+                } else {
+                    pre?.right = child
+                }
             } else {
-                pre?.right = child
+                // 若删除节点为根节点，则重新指定根节点
+                root = cur;
             }
         }
         // 子节点数量 = 2

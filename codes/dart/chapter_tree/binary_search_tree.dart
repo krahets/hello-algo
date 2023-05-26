@@ -104,10 +104,16 @@ void remove(int num) {
     // 当子节点数量 = 0 / 1 时， child = null / 该子节点
     TreeNode? child = cur.left ?? cur.right;
     // 删除节点 cur
-    if (pre!.left == cur)
-      pre.left = child;
-    else
-      pre.right = child;
+    if (cur != root) {
+      if (pre!.left == cur)
+        pre.left = child;
+      else
+        pre.right = child;
+    } else {
+      // 若删除节点为根节点，则重新指定根节点
+      root = child;
+    }
+
   } else {
     // 子节点数量 = 2
     // 获取中序遍历中 cur 的下一个节点
