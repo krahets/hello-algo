@@ -549,14 +549,14 @@
       
       
         <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-          3. &nbsp; &nbsp; 数据结构与类型
+          3. &nbsp; &nbsp; 数据结构简介
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          3. &nbsp; &nbsp; 数据结构与类型
+          3. &nbsp; &nbsp; 数据结构简介
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1555,7 +1555,14 @@
       
         <li class="md-nav__item">
   <a href="#1171" class="md-nav__link">
-    11.7.1. &nbsp; 算法特性
+    11.7.1. &nbsp; 算法流程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1172" class="md-nav__link">
+    11.7.2. &nbsp; 算法特性
   </a>
   
 </li>
@@ -1864,7 +1871,14 @@
       
         <li class="md-nav__item">
   <a href="#1171" class="md-nav__link">
-    11.7.1. &nbsp; 算法特性
+    11.7.1. &nbsp; 算法流程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1172" class="md-nav__link">
+    11.7.2. &nbsp; 算法特性
   </a>
   
 </li>
@@ -1900,10 +1914,11 @@
 <p>「堆排序 Heap Sort」是一种基于堆数据结构实现的高效排序算法。我们可以利用已经学过的“建堆操作”和“元素出堆操作”实现堆排序：</p>
 <ol>
 <li>输入数组并建立小顶堆，此时最小元素位于堆顶。</li>
-<li>初始化一个数组 <code>res</code> ，用于存储排序结果。</li>
-<li>循环执行 <span class="arithmatex">\(n\)</span> 轮出堆操作，并依次将出堆元素记录至 <code>res</code> ，即可得到从小到大排序的序列。</li>
+<li>不断执行出堆操作，依次记录出堆元素，即可得到从小到大排序的序列。</li>
 </ol>
-<p>该方法虽然可行，但需要借助一个额外数组，比较浪费空间。在实际中，我们通常使用一种更加优雅的实现方式。设数组的长度为 <span class="arithmatex">\(n\)</span> ，堆排序的流程如下：</p>
+<p>以上方法虽然可行，但需要借助一个额外数组来保存弹出的元素，比较浪费空间。在实际中，我们通常使用一种更加优雅的实现方式。</p>
+<h2 id="1171">11.7.1. &nbsp; 算法流程<a class="headerlink" href="#1171" title="Permanent link">&para;</a></h2>
+<p>设数组的长度为 <span class="arithmatex">\(n\)</span> ，堆排序的流程如下：</p>
 <ol>
 <li>输入数组并建立大顶堆。完成后，最大元素位于堆顶。</li>
 <li>将堆顶元素（第一个元素）与堆底元素（最后一个元素）交换。完成交换后，堆的长度减 <span class="arithmatex">\(1\)</span> ，已排序元素数量加 <span class="arithmatex">\(1\)</span> 。</li>
@@ -2112,9 +2127,9 @@
 </div>
 </div>
 </div>
-<h2 id="1171">11.7.1. &nbsp; 算法特性<a class="headerlink" href="#1171" title="Permanent link">&para;</a></h2>
+<h2 id="1172">11.7.2. &nbsp; 算法特性<a class="headerlink" href="#1172" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span> 、非自适应排序</strong> ：从堆中提取最大元素的时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span> ，共循环 <span class="arithmatex">\(n - 1\)</span> 轮。</li>
+<li><strong>时间复杂度 <span class="arithmatex">\(O(n \log n)\)</span> 、非自适应排序</strong> ：建堆操作使用 <span class="arithmatex">\(O(n)\)</span> 时间。从堆中提取最大元素的时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span> ，共循环 <span class="arithmatex">\(n - 1\)</span> 轮。</li>
 <li><strong>空间复杂度 <span class="arithmatex">\(O(1)\)</span> 、原地排序</strong> ：几个指针变量使用 <span class="arithmatex">\(O(1)\)</span> 空间。元素交换和堆化操作都是在原数组上进行的。</li>
 <li><strong>非稳定排序</strong>：在交换堆顶元素和堆底元素时，相等元素的相对位置可能发生变化。</li>
 </ul>
