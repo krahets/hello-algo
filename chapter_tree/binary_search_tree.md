@@ -88,7 +88,7 @@ comments: true
     ```python title="binary_search_tree.py"
     def search(self, num: int) -> TreeNode | None:
         """查找节点"""
-        cur: TreeNode | None = self.__root
+        cur: TreeNode | None = self.root
         # 循环查找，越过叶节点后跳出
         while cur is not None:
             # 目标节点在 cur 的右子树中
@@ -201,11 +201,14 @@ comments: true
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 目标节点在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
+            if (cur.val < num) cur =
+                cur.right;
             // 目标节点在 cur 的左子树中
-            else if (cur.val > num) cur = cur.left;
+            else if (cur.val > num)
+                cur = cur.left;
             // 找到目标节点，跳出循环
-            else break;
+            else
+                break;
         }
         // 返回目标节点
         return cur;
@@ -343,11 +346,11 @@ comments: true
     def insert(self, num: int) -> None:
         """插入节点"""
         # 若树为空，直接提前返回
-        if self.__root is None:
+        if self.root is None:
             return
 
         # 循环查找，越过叶节点后跳出
-        cur, pre = self.__root, None
+        cur, pre = self.root, None
         while cur is not None:
             # 找到重复节点，直接返回
             if cur.val == num:
@@ -501,24 +504,30 @@ comments: true
     /* 插入节点 */
     void insert(int num) {
         // 若树为空，直接提前返回
-        if (root == null) return;
+        if (root == null)
+            return;
         TreeNode? cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 找到重复节点，直接返回
-            if (cur.val == num) return;
+            if (cur.val == num)
+                return;
             pre = cur;
             // 插入位置在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
+            if (cur.val < num)
+                cur = cur.right;
             // 插入位置在 cur 的左子树中
-            else cur = cur.left;
+            else
+                cur = cur.left;
         }
 
         // 插入节点
         TreeNode node = new TreeNode(num);
         if (pre != null) {
-            if (pre.val < num) pre.right = node;
-            else pre.left = node;
+            if (pre.val < num)
+                pre.right = node;
+            else
+                pre.left = node;
         }
     }
     ```
@@ -663,10 +672,15 @@ comments: true
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
             TreeNode child = cur.left != null ? cur.left : cur.right;
             // 删除节点 cur
-            if (pre.left == cur)
-                pre.left = child;
-            else
-                pre.right = child;
+            if (cur != root) {
+                if (pre.left == cur)
+                    pre.left = child;
+                else
+                    pre.right = child;
+            } else {
+                // 若删除节点为根节点，则重新指定根节点
+                root = child;
+            }
         }
         // 子节点数量 = 2
         else {
@@ -713,10 +727,15 @@ comments: true
             // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
             TreeNode *child = cur->left != nullptr ? cur->left : cur->right;
             // 删除节点 cur
-            if (pre->left == cur)
-                pre->left = child;
-            else
-                pre->right = child;
+            if (cur != root) {
+                if (pre->left == cur)
+                    pre->left = child;
+                else
+                    pre->right = child;
+            } else {
+                // 若删除节点为根节点，则重新指定根节点
+                root = child;
+            }
             // 释放内存
             delete cur;
         }
@@ -742,11 +761,11 @@ comments: true
     def remove(self, num: int) -> None:
         """删除节点"""
         # 若树为空，直接提前返回
-        if self.__root is None:
+        if self.root is None:
             return
 
         # 循环查找，越过叶节点后跳出
-        cur, pre = self.__root, None
+        cur, pre = self.root, None
         while cur is not None:
             # 找到待删除节点，跳出循环
             if cur.val == num:
@@ -767,10 +786,14 @@ comments: true
             # 当子节点数量 = 0 / 1 时， child = null / 该子节点
             child = cur.left or cur.right
             # 删除节点 cur
-            if pre.left == cur:
-                pre.left = child
+            if cur != self.root:
+                if pre.left == cur:
+                    pre.left = child
+                else:
+                    pre.right = child
             else:
-                pre.right = child
+                # 若删除节点为根节点，则重新指定根节点
+                self.__root = cur
         # 子节点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个节点
@@ -822,11 +845,16 @@ comments: true
             } else {
                 child = cur.Right
             }
-            // 将子节点替换为待删除节点
-            if pre.Left == cur {
-                pre.Left = child
+            // 删除节点 cur
+            if cur != bst.root {
+                if pre.Left == cur {
+                    pre.Left = child
+                } else {
+                    pre.Right = child
+                }
             } else {
-                pre.Right = child
+                // 若删除节点为根节点，则重新指定根节点
+                bst.root = child
             }
             // 子节点数为 2
         } else {
@@ -869,8 +897,13 @@ comments: true
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
             let child = cur.left !== null ? cur.left : cur.right;
             // 删除节点 cur
-            if (pre.left === cur) pre.left = child;
-            else pre.right = child;
+            if (cur != root) {
+                if (pre.left === cur) pre.left = child;
+                else pre.right = child;
+            } else {
+                // 若删除节点为根节点，则重新指定根节点
+                root = child;
+            }
         }
         // 子节点数量 = 2
         else {
@@ -920,10 +953,15 @@ comments: true
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
             let child = cur.left !== null ? cur.left : cur.right;
             // 删除节点 cur
-            if (pre!.left === cur) {
-                pre!.left = child;
+            if (cur != root) {
+                if (pre!.left === cur) {
+                    pre!.left = child;
+                } else {
+                    pre!.right = child;
+                }
             } else {
-                pre!.right = child;
+                // 若删除节点为根节点，则重新指定根节点
+                root = child;
             }
         }
         // 子节点数量 = 2
@@ -1001,29 +1039,38 @@ comments: true
     /* 删除节点 */
     void remove(int num) {
         // 若树为空，直接提前返回
-        if (root == null) return;
+        if (root == null)
+            return;
         TreeNode? cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
             // 找到待删除节点，跳出循环
-            if (cur.val == num) break;
+            if (cur.val == num)
+                break;
             pre = cur;
             // 待删除节点在 cur 的右子树中
-            if (cur.val < num) cur = cur.right;
+            if (cur.val < num)
+                cur = cur.right;
             // 待删除节点在 cur 的左子树中
-            else cur = cur.left;
+            else
+                cur = cur.left;
         }
         // 若无待删除节点，则直接返回
-        if (cur == null || pre == null) return;
+        if (cur == null || pre == null)
+            return;
         // 子节点数量 = 0 or 1
         if (cur.left == null || cur.right == null) {
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
             TreeNode? child = cur.left != null ? cur.left : cur.right;
             // 删除节点 cur
-            if (pre.left == cur) {
-                pre.left = child;
+            if (cur != root) {
+                if (pre.left == cur)
+                    pre.left = child;
+                else
+                    pre.right = child;
             } else {
-                pre.right = child;
+                // 若删除节点为根节点，则重新指定根节点
+                root = child;
             }
         }
         // 子节点数量 = 2
@@ -1078,10 +1125,15 @@ comments: true
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
             let child = cur?.left != nil ? cur?.left : cur?.right
             // 删除节点 cur
-            if pre?.left === cur {
-                pre?.left = child
+            if cur != root {
+                if pre?.left === cur {
+                    pre?.left = child
+                } else {
+                    pre?.right = child
+                }
             } else {
-                pre?.right = child
+                // 若删除节点为根节点，则重新指定根节点
+                root = cur;
             }
         }
         // 子节点数量 = 2
