@@ -139,7 +139,6 @@ func (bst *binarySearchTree) remove(num int) {
 			// 若删除节点为根节点，则重新指定根节点
 			bst.root = child
 		}
-
 		// 子节点数为 2
 	} else {
 		// 获取中序遍历中待删除节点 cur 的下一个节点

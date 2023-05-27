@@ -664,7 +664,7 @@
         val;
         next;
         prev;
-        constructor(val, next) {
+        constructor(val, next, prev) {
             this.val = val  ===  undefined ? 0 : val;        // 节点值
             this.next = next  ===  undefined ? null : next;  // 指向后继节点的指针（引用）
             this.prev = prev  ===  undefined ? null : prev;  // 指向前驱节点的指针（引用）
