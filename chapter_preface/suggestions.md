@@ -168,7 +168,7 @@ comments: true
 
 在阅读本书时，如果发现某段内容提供了动画或图解，**建议以图为主线**，以文字（通常位于图像上方）为辅，综合两者来理解内容。
 
-![动画图解示例](suggestions.assets/animation.gif)
+![动画图解示例](../index.assets/animation.gif)
 
 <p align="center"> Fig. 动画图解示例 </p>
 
@@ -178,7 +178,7 @@ comments: true
 
 如果学习时间有限，建议你至少通读并运行所有代码。如果时间充裕，**建议参照代码自行敲一遍**。与仅阅读代码相比，编写代码的过程往往能带来更多收获。
 
-![运行代码示例](suggestions.assets/running_code.gif)
+![运行代码示例](../index.assets/running_code.gif)
 
 <p align="center"> Fig. 运行代码示例 </p>
 
@@ -208,6 +208,6 @@ git clone https://github.com/krahets/hello-algo.git
 
 同时，也希望您能在评论区多花些时间。一方面，您可以了解大家遇到的问题，从而查漏补缺，这将有助于激发更深入的思考。另一方面，希望您能慷慨地回答其他小伙伴的问题、分享您的见解，让大家共同学习和进步。
 
-![评论区示例](suggestions.assets/comment.gif)
+![评论区示例](../index.assets/comment.gif)
 
 <p align="center"> Fig. 评论区示例 </p>
