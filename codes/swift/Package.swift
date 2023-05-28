@@ -47,6 +47,7 @@ let package = Package(
         .executable(name: "linear_search", targets: ["linear_search"]),
         .executable(name: "hashing_search", targets: ["hashing_search"]),
         // chapter_sorting
+        .executable(name: "selection_sort", targets: ["selection_sort"]),
         .executable(name: "bubble_sort", targets: ["bubble_sort"]),
         .executable(name: "insertion_sort", targets: ["insertion_sort"]),
         .executable(name: "quick_sort", targets: ["quick_sort"]),
@@ -109,6 +110,7 @@ let package = Package(
         .executableTarget(name: "linear_search", dependencies: ["utils"], path: "chapter_searching", sources: ["linear_search.swift"]),
         .executableTarget(name: "hashing_search", dependencies: ["utils"], path: "chapter_searching", sources: ["hashing_search.swift"]),
         // chapter_sorting
+        .executableTarget(name: "selection_sort", path: "chapter_sorting", sources: ["selection_sort.swift"]),
         .executableTarget(name: "bubble_sort", path: "chapter_sorting", sources: ["bubble_sort.swift"]),
         .executableTarget(name: "insertion_sort", path: "chapter_sorting", sources: ["insertion_sort.swift"]),
         .executableTarget(name: "quick_sort", path: "chapter_sorting", sources: ["quick_sort.swift"]),
