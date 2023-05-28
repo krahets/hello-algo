@@ -6,22 +6,22 @@
 
 /* 插入排序 */
 function insertionSort(nums: number[]): void {
-    // 外循环：base = nums[1], nums[2], ..., nums[n-1]
+    // 外循环：已排序元素数量为 1, 2, ..., n
     for (let i = 1; i < nums.length; i++) {
         const base = nums[i];
         let j = i - 1;
-        // 内循环：将 base 插入到左边的正确位置
+        // 内循环：将 base 插入到已排序部分的正确位置
         while (j >= 0 && nums[j] > base) {
-            nums[j + 1] = nums[j]; // 1. 将 nums[j] 向右移动一位
+            nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
             j--;
         }
-        nums[j + 1] = base; // 2. 将 base 赋值到正确位置
+        nums[j + 1] = base; // 将 base 赋值到正确位置
     }
 }
 
 /* Driver Code */
 const nums = [4, 1, 3, 1, 5, 2];
 insertionSort(nums);
-console.log('排序后数组 nums =', nums);
+console.log('插入排序完成后 nums =', nums);
 
 export {};

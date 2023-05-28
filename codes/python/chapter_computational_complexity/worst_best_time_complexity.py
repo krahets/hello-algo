@@ -10,7 +10,7 @@ import random
 def random_numbers(n: int) -> list[int]:
     """生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱"""
     # 生成数组 nums =: 1, 2, 3, ..., n
-    nums: list[int] = [i for i in range(1, n + 1)]
+    nums = [i for i in range(1, n + 1)]
     # 随机打乱数组元素
     random.shuffle(nums)
     return nums
@@ -29,7 +29,7 @@ def find_one(nums: list[int]) -> int:
 """Driver Code"""
 if __name__ == "__main__":
     for i in range(10):
-        n: int = 100
+        n = 100
         nums: list[int] = random_numbers(n)
         index: int = find_one(nums)
         print("\n数组 [ 1, 2, ..., n ] 被打乱后 =", nums)

@@ -37,10 +37,8 @@ class MaxHeap {
 
     /* 交换元素 */
     #swap(i, j) {
-        const a = this.#maxHeap[i],
-            b = this.#maxHeap[j],
-            tmp = a;
-        this.#maxHeap[i] = b;
+        const tmp = this.#maxHeap[i];
+        this.#maxHeap[i] = this.#maxHeap[j];
         this.#maxHeap[j] = tmp;
     }
 

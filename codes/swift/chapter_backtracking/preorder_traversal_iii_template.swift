@@ -53,7 +53,7 @@ func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNo
 }
 
 @main
-enum preorder_traversal_iii_template {
+enum PreorderTraversalIIITemplate {
     /* Driver Code */
     static func main() {
         let root = TreeNode.listToTree(list: [1, 7, 3, 4, 5, 6, 7])

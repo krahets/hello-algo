@@ -28,10 +28,10 @@ def hashing_search_linkedlist(
 
 """Driver Code"""
 if __name__ == "__main__":
-    target: int = 3
+    target = 3
 
     # 哈希查找（数组）
-    nums: list[int] = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
+    nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
     # 初始化哈希表
     map0 = dict[int, int]()
     for i in range(len(nums)):

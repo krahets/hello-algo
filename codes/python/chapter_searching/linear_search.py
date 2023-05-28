@@ -31,10 +31,10 @@ def linear_search_linkedlist(head: ListNode, target: int) -> ListNode | None:
 
 """Driver Code"""
 if __name__ == "__main__":
-    target: int = 3
+    target = 3
 
     # 在数组中执行线性查找
-    nums: list[int] = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
+    nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
     index: int = linear_search_array(nums, target)
     print("目标元素 3 的索引 =", index)
 

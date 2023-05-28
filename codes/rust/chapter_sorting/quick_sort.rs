@@ -119,10 +119,10 @@ impl QuickSortTailCall {
             // 对两个子数组中较短的那个执行快排
             if  pivot - left < right - pivot {
                 Self::quick_sort(left, pivot - 1, nums);  // 递归排序左子数组
-                left = pivot + 1;  // 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1;  // 剩余未排序区间为 [pivot + 1, right]
             } else {
                 Self::quick_sort(pivot + 1, right, nums); // 递归排序右子数组
-                right = pivot - 1; // 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
             }
         }
     }

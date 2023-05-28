@@ -53,7 +53,7 @@ class ArrayQueue:
 
     def to_list(self) -> list[int]:
         """返回列表用于打印"""
-        res: list[int] = [0] * self.size()
+        res = [0] * self.size()
         j: int = self.__front
         for i in range(self.size()):
             res[i] = self.__nums[(j % self.capacity())]

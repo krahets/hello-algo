@@ -35,8 +35,7 @@ class MaxHeap:
 
     def swap(self, i: int, j: int):
         """交换元素"""
-        a, b = self.max_heap[i], self.max_heap[j]
-        self.max_heap[i], self.max_heap[j] = b, a
+        self.max_heap[i], self.max_heap[j] = self.max_heap[j], self.max_heap[i]
 
     def size(self) -> int:
         """获取堆大小"""
