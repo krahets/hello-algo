@@ -128,11 +128,16 @@ func (bst *binarySearchTree) remove(num int) {
 		} else {
 			child = cur.Right
 		}
-		// 将子节点替换为待删除节点
-		if pre.Left == cur {
-			pre.Left = child
+		// 删除节点 cur
+		if cur != bst.root {
+			if pre.Left == cur {
+				pre.Left = child
+			} else {
+				pre.Right = child
+			}
 		} else {
-			pre.Right = child
+			// 若删除节点为根节点，则重新指定根节点
+			bst.root = child
 		}
 		// 子节点数为 2
 	} else {

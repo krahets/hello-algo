@@ -24,8 +24,6 @@ let package = Package(
         .executable(name: "deque", targets: ["deque"]),
         .executable(name: "linkedlist_deque", targets: ["linkedlist_deque"]),
         .executable(name: "array_deque", targets: ["array_deque"]),
-        // chapter_binary_search
-        .executable(name: "binary_search", targets: ["binary_search"]),
         // chapter_hashing
         .executable(name: "hash_map", targets: ["hash_map"]),
         .executable(name: "array_hash_map", targets: ["array_hash_map"]),
@@ -43,10 +41,13 @@ let package = Package(
         .executable(name: "graph_bfs", targets: ["graph_bfs"]),
         .executable(name: "graph_dfs", targets: ["graph_dfs"]),
         // chapter_searching
+        .executable(name: "binary_search", targets: ["binary_search"]),
+        .executable(name: "binary_search_edge", targets: ["binary_search_edge"]),
         .executable(name: "two_sum", targets: ["two_sum"]),
         .executable(name: "linear_search", targets: ["linear_search"]),
         .executable(name: "hashing_search", targets: ["hashing_search"]),
         // chapter_sorting
+        .executable(name: "selection_sort", targets: ["selection_sort"]),
         .executable(name: "bubble_sort", targets: ["bubble_sort"]),
         .executable(name: "insertion_sort", targets: ["insertion_sort"]),
         .executable(name: "quick_sort", targets: ["quick_sort"]),
@@ -61,6 +62,7 @@ let package = Package(
         .executable(name: "preorder_traversal_iii_template", targets: ["preorder_traversal_iii_template"]),
         .executable(name: "permutations_i", targets: ["permutations_i"]),
         .executable(name: "permutations_ii", targets: ["permutations_ii"]),
+        .executable(name: "n_queens", targets: ["n_queens"]),
     ],
     targets: [
         // helper
@@ -85,8 +87,6 @@ let package = Package(
         .executableTarget(name: "deque", path: "chapter_stack_and_queue", sources: ["deque.swift"]),
         .executableTarget(name: "linkedlist_deque", path: "chapter_stack_and_queue", sources: ["linkedlist_deque.swift"]),
         .executableTarget(name: "array_deque", path: "chapter_stack_and_queue", sources: ["array_deque.swift"]),
-        // chapter_binary_search
-        .executableTarget(name: "binary_search", path: "chapter_binary_search", sources: ["binary_search.swift"]),
         // chapter_hashing
         .executableTarget(name: "hash_map", dependencies: ["utils"], path: "chapter_hashing", sources: ["hash_map.swift"]),
         .executableTarget(name: "array_hash_map", path: "chapter_hashing", sources: ["array_hash_map.swift"]),
@@ -104,10 +104,13 @@ let package = Package(
         .executableTarget(name: "graph_bfs", dependencies: ["utils", "graph_adjacency_list_target"], path: "chapter_graph", sources: ["graph_bfs.swift"]),
         .executableTarget(name: "graph_dfs", dependencies: ["utils", "graph_adjacency_list_target"], path: "chapter_graph", sources: ["graph_dfs.swift"]),
         // chapter_searching
+        .executableTarget(name: "binary_search", path: "chapter_searching", sources: ["binary_search.swift"]),
+        .executableTarget(name: "binary_search_edge", path: "chapter_searching", sources: ["binary_search_edge.swift"]),
         .executableTarget(name: "two_sum", path: "chapter_searching", sources: ["two_sum.swift"]),
         .executableTarget(name: "linear_search", dependencies: ["utils"], path: "chapter_searching", sources: ["linear_search.swift"]),
         .executableTarget(name: "hashing_search", dependencies: ["utils"], path: "chapter_searching", sources: ["hashing_search.swift"]),
         // chapter_sorting
+        .executableTarget(name: "selection_sort", path: "chapter_sorting", sources: ["selection_sort.swift"]),
         .executableTarget(name: "bubble_sort", path: "chapter_sorting", sources: ["bubble_sort.swift"]),
         .executableTarget(name: "insertion_sort", path: "chapter_sorting", sources: ["insertion_sort.swift"]),
         .executableTarget(name: "quick_sort", path: "chapter_sorting", sources: ["quick_sort.swift"]),
@@ -122,5 +125,6 @@ let package = Package(
         .executableTarget(name: "preorder_traversal_iii_template", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_iii_template.swift"]),
         .executableTarget(name: "permutations_i", path: "chapter_backtracking", sources: ["permutations_i.swift"]),
         .executableTarget(name: "permutations_ii", path: "chapter_backtracking", sources: ["permutations_ii.swift"]),
+        .executableTarget(name: "n_queens", path: "chapter_backtracking", sources: ["n_queens.swift"]),
     ]
 )

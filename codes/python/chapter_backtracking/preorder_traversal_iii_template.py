@@ -35,7 +35,9 @@ def undo_choice(state: list[TreeNode], choice: TreeNode):
     state.pop()
 
 
-def backtrack(state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]):
+def backtrack(
+    state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]
+):
     """回溯算法：例题三"""
     # 检查是否为解
     if is_solution(state):
@@ -59,7 +61,7 @@ if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
     print("\n初始化二叉树")
     print_tree(root)
-    
+
     # 回溯算法
     res = []
     backtrack(state=[], choices=[root], res=res)

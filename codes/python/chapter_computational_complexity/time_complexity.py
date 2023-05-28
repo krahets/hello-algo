@@ -7,8 +7,8 @@ Author: Krahets (krahets@163.com)
 
 def constant(n: int) -> int:
     """常数阶"""
-    count: int = 0
-    size: int = 100000
+    count = 0
+    size = 100000
     for _ in range(size):
         count += 1
     return count
@@ -16,7 +16,7 @@ def constant(n: int) -> int:
 
 def linear(n: int) -> int:
     """线性阶"""
-    count: int = 0
+    count = 0
     for _ in range(n):
         count += 1
     return count
@@ -24,7 +24,7 @@ def linear(n: int) -> int:
 
 def array_traversal(nums: list[int]) -> int:
     """线性阶（遍历数组）"""
-    count: int = 0
+    count = 0
     # 循环次数与数组长度成正比
     for num in nums:
         count += 1
@@ -33,7 +33,7 @@ def array_traversal(nums: list[int]) -> int:
 
 def quadratic(n: int) -> int:
     """平方阶"""
-    count: int = 0
+    count = 0
     # 循环次数与数组长度成平方关系
     for i in range(n):
         for j in range(n):
@@ -43,10 +43,10 @@ def quadratic(n: int) -> int:
 
 def bubble_sort(nums: list[int]) -> int:
     """平方阶（冒泡排序）"""
-    count: int = 0  # 计数器
-    # 外循环：待排序元素数量为 n-1, n-2, ..., 1
+    count = 0  # 计数器
+    # 外循环：未排序区间为 [0, i]
     for i in range(len(nums) - 1, 0, -1):
-        # 内循环：冒泡操作
+        # 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
         for j in range(i):
             if nums[j] > nums[j + 1]:
                 # 交换 nums[j] 与 nums[j + 1]
@@ -59,8 +59,8 @@ def bubble_sort(nums: list[int]) -> int:
 
 def exponential(n: int) -> int:
     """指数阶（循环实现）"""
-    count: int = 0
-    base: int = 1
+    count = 0
+    base = 1
     # cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
     for _ in range(n):
         for _ in range(base):
@@ -79,7 +79,7 @@ def exp_recur(n: int) -> int:
 
 def logarithmic(n: float) -> int:
     """对数阶（循环实现）"""
-    count: int = 0
+    count = 0
     while n > 1:
         n = n / 2
         count += 1
@@ -107,7 +107,7 @@ def factorial_recur(n: int) -> int:
     """阶乘阶（递归实现）"""
     if n == 0:
         return 1
-    count: int = 0
+    count = 0
     # 从 1 个分裂出 n 个
     for _ in range(n):
         count += factorial_recur(n - 1)
@@ -130,7 +130,7 @@ if __name__ == "__main__":
 
     count: int = quadratic(n)
     print("平方阶的计算操作数量 =", count)
-    nums: list[int] = [i for i in range(n, 0, -1)]  # [n,n-1,...,2,1]
+    nums = [i for i in range(n, 0, -1)]  # [n, n-1, ..., 2, 1]
     count: int = bubble_sort(nums)
     print("平方阶（冒泡排序）的计算操作数量 =", count)
 

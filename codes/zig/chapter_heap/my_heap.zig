@@ -48,10 +48,8 @@ pub fn MaxHeap(comptime T: type) type {
 
         // 交换元素
         fn swap(self: *Self, i: usize, j: usize) !void {
-            var a = self.max_heap.?.items[i];
-            var b = self.max_heap.?.items[j];
-            var tmp = a;
-            try self.max_heap.?.replaceRange(i, 1, &[_]T{b});
+            var tmp = self.max_heap.?.items[i];
+            try self.max_heap.?.replaceRange(i, 1, &[_]T{self.max_heap.?.items[j]});
             try self.max_heap.?.replaceRange(j, 1, &[_]T{tmp});
         }
 

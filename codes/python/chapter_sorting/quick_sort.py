@@ -29,7 +29,7 @@ class QuickSort:
         if left >= right:
             return
         # 哨兵划分
-        pivot: int = self.partition(nums, left, right)
+        pivot = self.partition(nums, left, right)
         # 递归左子数组、右子数组
         self.quick_sort(nums, left, pivot - 1)
         self.quick_sort(nums, pivot + 1, right)
@@ -51,7 +51,7 @@ class QuickSortMedian:
     def partition(self, nums: list[int], left: int, right: int) -> int:
         """哨兵划分（三数取中值）"""
         # 以 nums[left] 作为基准数
-        med: int = self.median_three(nums, left, (left + right) // 2, right)
+        med = self.median_three(nums, left, (left + right) // 2, right)
         # 将中位数交换至数组最左端
         nums[left], nums[med] = nums[med], nums[left]
         # 以 nums[left] 作为基准数
@@ -73,7 +73,7 @@ class QuickSortMedian:
         if left >= right:
             return
         # 哨兵划分
-        pivot: int = self.partition(nums, left, right)
+        pivot = self.partition(nums, left, right)
         # 递归左子数组、右子数组
         self.quick_sort(nums, left, pivot - 1)
         self.quick_sort(nums, pivot + 1, right)
@@ -102,29 +102,29 @@ class QuickSortTailCall:
         # 子数组长度为 1 时终止
         while left < right:
             # 哨兵划分操作
-            pivot: int = self.partition(nums, left, right)
+            pivot = self.partition(nums, left, right)
             # 对两个子数组中较短的那个执行快排
             if pivot - left < right - pivot:
                 self.quick_sort(nums, left, pivot - 1)  # 递归排序左子数组
-                left = pivot + 1  # 剩余待排序区间为 [pivot + 1, right]
+                left = pivot + 1  # 剩余未排序区间为 [pivot + 1, right]
             else:
                 self.quick_sort(nums, pivot + 1, right)  # 递归排序右子数组
-                right = pivot - 1  # 剩余待排序区间为 [left, pivot - 1]
+                right = pivot - 1  # 剩余未排序区间为 [left, pivot - 1]
 
 
 """Driver Code"""
 if __name__ == "__main__":
     # 快速排序
-    nums: list[int] = [2, 4, 1, 0, 3, 5]
+    nums = [2, 4, 1, 0, 3, 5]
     QuickSort().quick_sort(nums, 0, len(nums) - 1)
     print("快速排序完成后 nums =", nums)
 
     # 快速排序（中位基准数优化）
-    nums1: list[int] = [2, 4, 1, 0, 3, 5]
+    nums1 = [2, 4, 1, 0, 3, 5]
     QuickSortMedian().quick_sort(nums1, 0, len(nums1) - 1)
     print("快速排序（中位基准数优化）完成后 nums =", nums1)
 
     # 快速排序（尾递归优化）
-    nums2: list[int] = [2, 4, 1, 0, 3, 5]
+    nums2 = [2, 4, 1, 0, 3, 5]
     QuickSortTailCall().quick_sort(nums2, 0, len(nums2) - 1)
     print("快速排序（尾递归优化）完成后 nums =", nums2)

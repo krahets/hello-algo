@@ -70,9 +70,9 @@ def find(nums: list[int], target: int) -> int:
 """Driver Code"""
 if __name__ == "__main__":
     # 初始化数组
-    arr: list[int] = [0] * 5
+    arr = [0] * 5
     print("数组 arr =", arr)
-    nums: list[int] = [1, 3, 2, 5, 4]
+    nums = [1, 3, 2, 5, 4]
     print("数组 nums =", nums)
 
     # 随机访问

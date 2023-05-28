@@ -430,12 +430,12 @@
 
     ```python title="list.py"
     # 通过索引遍历列表
-    count: int = 0
+    count = 0
     for i in range(len(list)):
         count += 1
 
     # 直接遍历列表元素
-    count: int = 0
+    count = 0
     for n in list:
         count += 1
     ```

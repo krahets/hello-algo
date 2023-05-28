@@ -49,7 +49,7 @@ class LinkedListStack:
 
     def to_list(self) -> list[int]:
         """转化为列表用于打印"""
-        arr: list[int] = []
+        arr = []
         node = self.__peek
         while node:
             arr.append(node.val)

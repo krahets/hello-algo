@@ -415,7 +415,7 @@ $$
 
     ```python title=""
     def algorithm(n: int) -> None:
-        a: int = 1  # +1
+        a = 1      # +1
         a = a + 1  # +1
         a = a * 2  # +1
         # 循环 n 次
@@ -604,8 +604,8 @@ $$
 
     ```python title=""
     def algorithm(n: int) -> None:
-        a: int = 1  # +0（技巧 1）
-        a = a + n   # +0（技巧 1）
+        a = 1      # +0（技巧 1）
+        a = a + n  # +0（技巧 1）
         # +n（技巧 2）
         for i in range(5 * n + 1):
             print(0)
@@ -619,7 +619,7 @@ $$
 
     ```go title=""
     func algorithm(n int) {
-        a := 1      // +0（技巧 1）
+        a := 1     // +0（技巧 1）
         a = a + n  // +0（技巧 1）
         // +n（技巧 2）
         for i := 0; i < 5 * n + 1; i++ {

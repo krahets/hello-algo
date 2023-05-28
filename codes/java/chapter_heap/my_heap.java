@@ -41,10 +41,8 @@ class MaxHeap {
 
     /* 交换元素 */
     private void swap(int i, int j) {
-        int a = maxHeap.get(i);
-        int b = maxHeap.get(j);
-        int tmp = a;
-        maxHeap.set(i, b);
+        int tmp = maxHeap.get(i);
+        maxHeap.set(i, maxHeap.get(j));
         maxHeap.set(j, tmp);
     }
 

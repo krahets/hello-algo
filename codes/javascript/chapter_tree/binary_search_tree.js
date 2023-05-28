@@ -66,7 +66,7 @@ function insert(num) {
         // 插入位置在 cur 的左子树中
         else cur = cur.left;
     }
-    // 插入节点 val
+    // 插入节点
     let node = new TreeNode(num);
     if (pre.val < num) pre.right = node;
     else pre.left = node;
@@ -95,8 +95,13 @@ function remove(num) {
         // 当子节点数量 = 0 / 1 时， child = null / 该子节点
         let child = cur.left !== null ? cur.left : cur.right;
         // 删除节点 cur
-        if (pre.left === cur) pre.left = child;
-        else pre.right = child;
+        if (cur != root) {
+            if (pre.left === cur) pre.left = child;
+            else pre.right = child;
+        } else {
+            // 若删除节点为根节点，则重新指定根节点
+            root = child;
+        }
     }
     // 子节点数量 = 2
     else {

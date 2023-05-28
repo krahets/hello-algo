@@ -22,7 +22,7 @@ def list_to_tree(arr: list[int]) -> TreeNode | None:
     if not arr:
         return None
 
-    i: int = 0
+    i = 0
     root = TreeNode(arr[0])
     queue: deque[TreeNode] = deque([root])
     while queue:

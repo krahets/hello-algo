@@ -6,15 +6,15 @@ package chapter_sorting
 
 /* 插入排序 */
 func insertionSort(nums []int) {
-	// 外循环：待排序元素数量为 n-1, n-2, ..., 1
+	// 外循环：未排序区间为 [0, i]
 	for i := 1; i < len(nums); i++ {
 		base := nums[i]
 		j := i - 1
-		// 内循环：将 base 插入到左边的正确位置
+		// 内循环：将 base 插入到已排序部分的正确位置
 		for j >= 0 && nums[j] > base {
-			nums[j+1] = nums[j] // 1. 将 nums[j] 向右移动一位
+			nums[j+1] = nums[j] // 将 nums[j] 向右移动一位
 			j--
 		}
-		nums[j+1] = base // 2. 将 base 赋值到正确位置
+		nums[j+1] = base // 将 base 赋值到正确位置
 	}
 }

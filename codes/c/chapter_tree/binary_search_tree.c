@@ -89,7 +89,7 @@ void insert(binarySearchTree *bst, int num) {
             cur = cur->left;
         }
     }
-    // 插入节点 val
+    // 插入节点
     TreeNode *node = newTreeNode(num);
     if (pre->val < num) {
         pre->right = node;

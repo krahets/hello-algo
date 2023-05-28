@@ -16,6 +16,14 @@ class Trunk {
   Trunk(this.prev, this.str);
 }
 
+void printMatrix(List<List<int>> matrix) {
+  print("[");
+  for (List<int> row in matrix) {
+    print("  $row,");
+  }
+  print("]");
+}
+
 void printLinkedList(ListNode? head) {
   List<String> list = [];
 

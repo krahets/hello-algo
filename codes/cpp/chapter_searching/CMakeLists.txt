@@ -1,3 +1,5 @@
+add_executable(binary_search binary_search.cpp)
+add_executable(binary_search binary_search_edge.cpp)
 add_executable(hashing_search hashing_search.cpp)
 add_executable(two_sum two_sum.cpp)
 add_executable(linear_search linear_search.cpp)
