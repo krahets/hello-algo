@@ -1,0 +1,1 @@
+add_executable(preorder_traversal_i_compact preorder_traversal_i_compact.c)
