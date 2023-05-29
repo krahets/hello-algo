@@ -4,6 +4,7 @@
 
 package chapter_sorting
 
+/* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
 func siftDown(nums *[]int, n, i int) {
 	for true {
 		// 判断节点 i, l, r 中值最大的节点，记为 ma
