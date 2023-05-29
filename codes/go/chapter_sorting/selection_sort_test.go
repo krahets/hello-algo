@@ -10,7 +10,6 @@ import (
 )
 
 func TestSelectionSort(t *testing.T) {
-	/* 基数排序 */
 	nums := []int{4, 1, 3, 1, 5, 2}
 	selectionSort(nums)
 	fmt.Println("选择排序完成后 nums = ", nums)
