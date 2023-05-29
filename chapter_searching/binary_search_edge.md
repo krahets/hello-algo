@@ -105,8 +105,7 @@ comments: true
     ```python title="binary_search_edge.py"
     def binary_search_left_edge(nums: list[int], target: int) -> int:
         """二分查找最左一个元素"""
-        # 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-        i, j = 0, len(nums) - 1
+        i, j = 0, len(nums) - 1  # 初始化双闭区间 [0, n-1]
         while i <= j:
             m = (i + j) // 2  # 计算中点索引 m
             if nums[m] < target:
@@ -123,7 +122,30 @@ comments: true
 === "Go"
 
     ```go title="binary_search_edge.go"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个元素 */
+    func binarySearchLeftEdge(nums []int, target int) int {
+        // 初始化双闭区间 [0, n-1]
+        i, j := 0, len(nums)-1
+        for i <= j {
+            // 计算中点索引 m
+            m := i + (j-i)/2
+            if nums[m] < target {
+                // target 在区间 [m+1, j] 中
+                i = m + 1
+            } else if nums[m] > target {
+                // target 在区间 [i, m-1] 中
+                j = m - 1
+            } else {
+                // 首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1
+            }
+        }
+        if i == len(nums) || nums[i] != target {
+            // 未找到目标元素，返回 -1
+            return -1
+        }
+        return i
+    }
     ```
 
 === "JavaScript"
@@ -153,7 +175,26 @@ comments: true
 === "Swift"
 
     ```swift title="binary_search_edge.swift"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个元素 */
+    func binarySearchLeftEdge(nums: [Int], target: Int) -> Int {
+        // 初始化双闭区间 [0, n-1]
+        var i = 0
+        var j = nums.count - 1
+        while i <= j {
+            let m = i + (j - 1) / 2 // 计算中点索引 m
+            if nums[m] < target {
+                i = m + 1 // target 在区间 [m+1, j] 中
+            } else if nums[m] > target {
+                j = m - 1 // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1 // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        if i == nums.count || nums[i] != target {
+            return -1 // 未找到目标元素，返回 -1
+        }
+        return i
+    }
     ```
 
 === "Zig"
@@ -215,8 +256,7 @@ comments: true
     ```python title="binary_search_edge.py"
     def binary_search_right_edge(nums: list[int], target: int) -> int:
         """二分查找最右一个元素"""
-        # 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-        i, j = 0, len(nums) - 1
+        i, j = 0, len(nums) - 1  # 初始化双闭区间 [0, n-1]
         while i <= j:
             m = (i + j) // 2  # 计算中点索引 m
             if nums[m] < target:
@@ -233,7 +273,30 @@ comments: true
 === "Go"
 
     ```go title="binary_search_edge.go"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个元素 */
+    func binarySearchRightEdge(nums []int, target int) int {
+        // 初始化双闭区间 [0, n-1]
+        i, j := 0, len(nums)-1
+        for i <= j {
+            // 计算中点索引 m
+            m := i + (j-i)/2
+            if nums[m] < target {
+                // target 在区间 [m+1, j] 中
+                i = m + 1
+            } else if nums[m] > target {
+                // target 在区间 [i, m-1] 中
+                j = m - 1
+            } else {
+                // 首个大于 target 的元素在区间 [m+1, j] 中
+                i = m + 1
+            }
+        }
+        if j < 0 || nums[j] != target {
+            // 未找到目标元素，返回 -1
+            return -1
+        }
+        return j
+    }
     ```
 
 === "JavaScript"
@@ -263,7 +326,26 @@ comments: true
 === "Swift"
 
     ```swift title="binary_search_edge.swift"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个元素 */
+    func binarySearchRightEdge(nums: [Int], target: Int) -> Int {
+        // 初始化双闭区间 [0, n-1]
+        var i = 0
+        var j = nums.count - 1
+        while i <= j {
+            let m = i + (j - i) / 2 // 计算中点索引 m
+            if nums[m] < target {
+                i = m + 1 // target 在区间 [m+1, j] 中
+            } else if nums[m] > target {
+                j = m - 1 // target 在区间 [i, m-1] 中
+            } else {
+                i = m + 1 // 首个大于 target 的元素在区间 [m+1, j] 中
+            }
+        }
+        if j < 0 || nums[j] != target {
+            return -1 // 未找到目标元素，返回 -1
+        }
+        return j
+    }
     ```
 
 === "Zig"

@@ -187,9 +187,44 @@ comments: true
 === "Go"
 
     ```go title="heap_sort.go"
-    [class]{}-[func]{siftDown}
+    /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
+    func siftDown(nums *[]int, n, i int) {
+        for true {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            l := 2*i + 1
+            r := 2*i + 2
+            ma := i
+            if l < n && (*nums)[l] > (*nums)[ma] {
+                ma = l
+            }
+            if r < n && (*nums)[r] > (*nums)[ma] {
+                ma = r
+            }
+            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            if ma == i {
+                break
+            }
+            // 交换两节点
+            (*nums)[i], (*nums)[ma] = (*nums)[ma], (*nums)[i]
+            // 循环向下堆化
+            i = ma
+        }
+    }
 
-    [class]{}-[func]{heapSort}
+    /* 堆排序 */
+    func heapSort(nums *[]int) {
+        // 建堆操作：堆化除叶节点以外的其他所有节点
+        for i := len(*nums)/2 - 1; i >= 0; i-- {
+            siftDown(nums, len(*nums), i)
+        }
+        // 从堆中提取最大元素，循环 n-1 轮
+        for i := len(*nums) - 1; i > 0; i-- {
+            // 交换根节点与最右叶节点（即交换首元素与尾元素）
+            (*nums)[0], (*nums)[i] = (*nums)[i], (*nums)[0]
+            // 以根节点为起点，从顶至底进行堆化
+            siftDown(nums, i, 0)
+        }
+    }
     ```
 
 === "JavaScript"
@@ -227,9 +262,45 @@ comments: true
 === "Swift"
 
     ```swift title="heap_sort.swift"
-    [class]{}-[func]{siftDown}
+    /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
+    func siftDown(nums: inout [Int], n: Int, i: Int) {
+        var i = i
+        while true {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            let l = 2 * i + 1
+            let r = 2 * i + 2
+            var ma = i
+            if l < n, nums[l] > nums[ma] {
+                ma = l
+            }
+            if r < n, nums[r] > nums[ma] {
+                ma = r
+            }
+            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            if ma == i {
+                break
+            }
+            // 交换两节点
+            nums.swapAt(i, ma)
+            // 循环向下堆化
+            i = ma
+        }
+    }
 
-    [class]{}-[func]{heapSort}
+    /* 堆排序 */
+    func heapSort(nums: inout [Int]) {
+        // 建堆操作：堆化除叶节点以外的其他所有节点
+        for i in stride(from: nums.count / 2 - 1, through: 0, by: -1) {
+            siftDown(nums: &nums, n: nums.count, i: i)
+        }
+        // 从堆中提取最大元素，循环 n-1 轮
+        for i in stride(from: nums.count - 1, to: 0, by: -1) {
+            // 交换根节点与最右叶节点（即交换首元素与尾元素）
+            nums.swapAt(0, i)
+            // 以根节点为起点，从顶至底进行堆化
+            siftDown(nums: &nums, n: i, i: 0)
+        }
+    }
     ```
 
 === "Zig"
