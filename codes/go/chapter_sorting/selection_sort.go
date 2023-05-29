@@ -4,6 +4,7 @@
 
 package chapter_sorting
 
+/* 选择排序 */
 func selectionSort(nums []int) {
 	n := len(nums)
 	// 外循环：未排序区间为 [i, n-1]
