@@ -86,7 +86,7 @@ int main() {
 
   /* 长度扩展 */
   nums = Array().extend(nums, 3);
-  print('将数组长度扩展至 8， 得到nums = $nums');
+  print('将数组长度扩展至 8 ，得到 nums = $nums');
 
   /* 插入元素 */
   Array().insert(nums, 6, 3);
@@ -102,6 +102,6 @@ int main() {
   /* 查找元素 */
   int index = Array().find(nums, 3);
   print("在 nums 中查找元素 3 ，得到索引 = $index");
-  
+
   return 0;
 }

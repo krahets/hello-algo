@@ -23,8 +23,7 @@ void main() {
 
   /* 元素出栈 */
   final int pop = stack.removeLast();
-  print("出栈元素 pop = $pop");
-  print("出栈后 stack = $stack");
+  print("出栈元素 pop = $pop，出栈后 stack = $stack");
 
   /* 获取栈的长度 */
   final int size = stack.length;

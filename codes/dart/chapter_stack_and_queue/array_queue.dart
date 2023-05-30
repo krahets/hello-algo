@@ -99,7 +99,7 @@ void main() {
 
   /* 判断队列是否为空 */
   final bool isEmpty = queue.isEmpty();
-  print("队列是否为空 isEmpty = $isEmpty");
+  print("队列是否为空 = $isEmpty");
 
   /* 测试环形数组 */
   for (int i = 0; i < 10; i++) {
