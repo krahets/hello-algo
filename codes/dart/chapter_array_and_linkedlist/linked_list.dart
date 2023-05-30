@@ -7,7 +7,6 @@
 import '../utils/list_node.dart';
 import '../utils/print_util.dart';
 
-
 class LinkedList {
   /* 在链表的节点 n0 之后插入节点 P */
   void insert(ListNode n0, ListNode P) {
@@ -67,10 +66,12 @@ int main() {
 
   /* 插入节点 */
   LinkedList().insert(n0, ListNode(0));
+  print('插入节点后的链表为');
   printLinkedList(n0);
 
   /* 删除节点 */
   LinkedList().remove(n0);
+  print('删除节点后的链表为');
   printLinkedList(n0);
 
   /* 访问节点 */

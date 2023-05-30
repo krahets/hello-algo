@@ -103,11 +103,12 @@ int main() {
   list.add(2);
   list.add(5);
   list.add(4);
-  print('列表 list = ${list.toArray()}，容量 =  ${list.capacity()}，长度 = ${list.size()}');
+  print(
+      '列表 list = ${list.toArray()} ，容量 = ${list.capacity()} ，长度 = ${list.size()}');
 
   /* 中间插入元素 */
   list.insert(3, 6);
-  print('在索引 3 处插入数字 6 ，得到 list =  ${list.toArray()}');
+  print('在索引 3 处插入数字 6 ，得到 list = ${list.toArray()}');
 
   /* 删除元素 */
   list.remove(3);
@@ -115,18 +116,19 @@ int main() {
 
   /* 访问元素 */
   int num = list.get(1);
-  print('访问索引 1 处的元素，得到 num =  $num');
+  print('访问索引 1 处的元素，得到 num = $num');
 
   /* 更新元素 */
   list.set(1, 0);
-  print('将索引 1 处的元素更新为 0 ，得到 list =  ${list.toArray()}');
+  print('将索引 1 处的元素更新为 0 ，得到 list = ${list.toArray()}');
 
   /* 测试扩容机制 */
   for (var i = 0; i < 10; i++) {
     // 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
     list.add(i);
   }
-  print('扩容后的列表 list = ${list.toArray()}，容量 = ${list.capacity()}  ，长度 = ${list.size()}');
-  
+  print(
+      '扩容后的列表 list = ${list.toArray()} ，容量 = ${list.capacity()} ，长度 = ${list.size()}');
+
   return 0;
 }

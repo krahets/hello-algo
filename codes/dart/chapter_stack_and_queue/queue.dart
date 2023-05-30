@@ -25,7 +25,7 @@ void main() {
 
   /* 元素出队 */
   final int pop = queue.removeFirst();
-  print("出队元素 pop = $pop，出队后队列 queue = $queue");
+  print("出队元素 pop = $pop，出队后 queue = $queue");
 
   /* 获取队列长度 */
   final int size = queue.length;
@@ -33,5 +33,5 @@ void main() {
 
   /* 判断队列是否为空 */
   final bool isEmpty = queue.isEmpty;
-  print("队列是否为空 isEmpty = $isEmpty");
+  print("队列是否为空 = $isEmpty");
 }
