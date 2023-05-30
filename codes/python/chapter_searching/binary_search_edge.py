@@ -7,8 +7,7 @@ Author: Krahets (krahets@163.com)
 
 def binary_search_left_edge(nums: list[int], target: int) -> int:
     """二分查找最左一个元素"""
-    # 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-    i, j = 0, len(nums) - 1
+    i, j = 0, len(nums) - 1  # 初始化双闭区间 [0, n-1]
     while i <= j:
         m = (i + j) // 2  # 计算中点索引 m
         if nums[m] < target:
@@ -24,8 +23,7 @@ def binary_search_left_edge(nums: list[int], target: int) -> int:
 
 def binary_search_right_edge(nums: list[int], target: int) -> int:
     """二分查找最右一个元素"""
-    # 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
-    i, j = 0, len(nums) - 1
+    i, j = 0, len(nums) - 1  # 初始化双闭区间 [0, n-1]
     while i <= j:
         m = (i + j) // 2  # 计算中点索引 m
         if nums[m] < target:
