@@ -114,6 +114,11 @@ path = "chapter_sorting/quick_sort.rs"
 name = "merge_sort"
 path = "chapter_sorting/merge_sort.rs"
 
+# Run Command: cargo run --bin selection_sort
+[[bin]]
+name = "selection_sort"
+path = "chapter_sorting/selection_sort.rs"
+
 # Run Command: cargo run --bin array_stack
 [[bin]]
 name = "array_stack"
