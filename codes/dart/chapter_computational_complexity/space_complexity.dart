@@ -75,14 +75,14 @@ void quadratic(int n) {
 int quadraticRecur(int n) {
   if (n <= 0) return 0;
   List<int> nums = List.filled(n, 0);
-  print('递归 n = $n 中的长度 nums 长度 = ${nums.length}');
+  print('递归 n = $n 中的 nums 长度 = ${nums.length}');
   return quadraticRecur(n - 1);
 }
 
 /* 指数阶（建立满二叉树） */
 TreeNode? buildTree(int n) {
   if (n == 0) return null;
-  TreeNode root = TreeNode(n);
+  TreeNode root = TreeNode(0);
   root.left = buildTree(n - 1);
   root.right = buildTree(n - 1);
   return root;

@@ -138,7 +138,7 @@ void main() {
 
   /* 获取双向队列的长度 */
   final int size = deque.size();
-  print("双向队列的长度 size = $size");
+  print("双向队列长度 size = $size");
 
   /* 判断双向队列是否为空 */
   final bool isEmpty = deque.isEmpty();

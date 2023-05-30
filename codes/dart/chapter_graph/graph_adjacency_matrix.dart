@@ -85,8 +85,7 @@ class GraphAdjMat {
 
   /* 打印邻接矩阵 */
   void printAdjMat() {
-    print("顶点列表 = ");
-    print(vertices);
+    print("顶点列表 = $vertices");
     print("邻接矩阵 = ");
     printMatrix(adjMat);
   }
