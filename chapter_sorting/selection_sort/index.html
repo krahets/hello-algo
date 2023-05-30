@@ -2064,7 +2064,7 @@
 </div>
 <h2 id="1121">11.2.1. &nbsp; 算法特性<a class="headerlink" href="#1121" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> 、非自适应排序</strong>：共有 <span class="arithmatex">\(n - 1\)</span> 轮外循环，分别包含 <span class="arithmatex">\(n\)</span> , <span class="arithmatex">\(n - 1\)</span> , <span class="arithmatex">\(\cdots\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(2\)</span> 轮内循环，求和为 <span class="arithmatex">\(\frac{(n - 1)(n + 2)}{2}\)</span> 。</li>
+<li><strong>时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> 、非自适应排序</strong>：共有 <span class="arithmatex">\(n - 1\)</span> 轮外循环，分别包含 <span class="arithmatex">\(n\)</span> , <span class="arithmatex">\(n - 1\)</span> , <span class="arithmatex">\(\cdots\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(1\)</span> 轮内循环，求和为 <span class="arithmatex">\(\frac{(n - 1)(n + 2)}{2}\)</span> 。</li>
 <li><strong>空间复杂度 <span class="arithmatex">\(O(1)\)</span> 、原地排序</strong>：指针 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> 使用常数大小的额外空间。</li>
 <li><strong>非稳定排序</strong>：在交换元素时，有可能将 <code>nums[i]</code> 交换至其相等元素的右边，导致两者的相对顺序发生改变。</li>
 </ul>
