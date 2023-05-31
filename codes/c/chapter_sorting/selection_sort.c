@@ -6,13 +6,6 @@
 
 #include "../utils/common.h"
 
-/* 交换两个元素的值 */
-void swap(int *a, int *b) {
-    int tmp = *a;
-    *a = *b;
-    *b = tmp;
-}
-
 /* 选择排序 */
 void selectionSort(int nums[], int n) {
     // 外循环：未排序区间为 [i, n-1]
@@ -24,7 +17,9 @@ void selectionSort(int nums[], int n) {
                 k = j; // 记录最小元素的索引
         }
         // 将该最小元素与未排序区间的首个元素交换
-        swap(&nums[i], &nums[k]);
+        int temp = nums[i];
+        nums[i] = nums[k];
+        nums[k] = temp;
     }
 }
 
