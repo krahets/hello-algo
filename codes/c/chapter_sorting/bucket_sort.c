@@ -78,7 +78,7 @@ int main() {
     float nums[ARRAY_SIZE] = {0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f};
     bucketSort(nums, ARRAY_SIZE);
     printf("桶排序完成后 nums = ");
-    printArray1(nums, ARRAY_SIZE);
+    printArrayFloat(nums, ARRAY_SIZE);
 
     return 0;
 }
