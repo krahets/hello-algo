@@ -1939,13 +1939,18 @@
 <tr>
 <td>布尔</td>
 <td><code>bool</code></td>
-<td>1 byte / 1 bit</td>
+<td>1 byte</td>
 <td><span class="arithmatex">\(\text{false}\)</span></td>
 <td><span class="arithmatex">\(\text{true}\)</span></td>
 <td><span class="arithmatex">\(\text{false}\)</span></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>字符的占用空间大小取决于编程语言采用的字符编码方法，详见「字符编码」章节。</p>
+<p>现代计算机 CPU 通常将 1 字节作为最小寻址内存单元。因此，即使表示布尔量仅需 1 位（<span class="arithmatex">\(0\)</span> 或 <span class="arithmatex">\(1\)</span>），它在内存中通常被存储为 1 字节。</p>
 </div>
 <p>那么，基本数据类型与数据结构之间有什么联系与区别呢？我们知道，数据结构是在计算机中组织与存储数据的方式。它的主语是“结构”，而非“数据”。如果想要表示“一排数字”，我们自然会想到使用数组。这是因为数组的线性结构可以表示数字的相邻关系和顺序关系，但至于存储的内容是整数 <code>int</code> 、小数 <code>float</code> 、还是字符 <code>char</code> ，则与“数据结构”无关。</p>
 <p>换句话说，<strong>基本数据类型提供了数据的“内容类型”，而数据结构提供了数据的“组织方式”</strong>。如以下代码所示，我们可以使用不同基本数据类型来初始化数组。</p>
