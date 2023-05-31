@@ -94,6 +94,11 @@ path = "chapter_hashing/array_hash_map.rs"
 name = "binary_search"
 path = "chapter_searching/binary_search.rs"
 
+# Run Command: cargo run --bin binary_search_edge
+[[bin]]
+name = "binary_search_edge"
+path = "chapter_searching/binary_search_edge.rs"
+
 # Run Command: cargo run --bin bubble_sort
 [[bin]]
 name = "bubble_sort"
