@@ -163,7 +163,22 @@ comments: true
 === "C"
 
     ```c title="binary_search_edge.c"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个元素 */
+    int binarySearchLeftEdge(int *nums, int size, int target) {
+        int i = 0, j = size - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target)
+                i = m + 1; // target 在区间 [m+1, j] 中
+            else if (nums[m] > target)
+                j = m - 1; // target 在区间 [i, m-1] 中
+            else
+                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+        }
+        if (i == size || nums[i] != target)
+            return -1; // 未找到目标元素，返回 -1
+        return i;
+    }
     ```
 
 === "C#"
@@ -221,7 +236,21 @@ comments: true
 === "Dart"
 
     ```dart title="binary_search_edge.dart"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个元素 */
+    int binarySearchLeftEdge(List<int> nums, int target) {
+      int i = 0, j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+      while (i <= j) {
+        int m = i + (j - i) ~/ 2; // 计算中间索引 m
+        if (nums[m] < target)
+          i = m + 1; // target 在区间 [m+1, j] 中
+        else if (nums[m] > target)
+          j = m - 1; // target 在区间 [i, m-1] 中
+        else
+          j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+      }
+      if (i == nums.length || nums[i] != target) return -1; // 未找到目标元素，返回 -1
+      return i;
+    }
     ```
 
 ## 10.2.3. &nbsp; 查找右边界
@@ -335,7 +364,22 @@ comments: true
 === "C"
 
     ```c title="binary_search_edge.c"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个元素 */
+    int binarySearchRightEdge(int *nums, int size, int target) {
+        int i = 0, j = size - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target)
+                i = m + 1; // target 在区间 [m+1, j] 中
+            else if (nums[m] > target)
+                j = m - 1; // target 在区间 [i, m-1] 中
+            else
+                i = m + 1; // 首个大于 target 的元素在区间 [m+1, j] 中
+        }
+        if (j < 0 || nums[j] != target)
+            return -1; // 未找到目标元素，返回 -1
+        return j;
+    }
     ```
 
 === "C#"
@@ -393,7 +437,21 @@ comments: true
 === "Dart"
 
     ```dart title="binary_search_edge.dart"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个元素 */
+    int binarySearchRightEdge(List<int> nums, int target) {
+      int i = 0, j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+      while (i <= j) {
+        int m = i + (j - i) ~/ 2; // 计算中间索引 m
+        if (nums[m] < target)
+          i = m + 1; // target 在区间 [m+1, j] 中
+        else if (nums[m] > target)
+          j = m - 1; // target 在区间 [i, m-1] 中
+        else
+          i = m + 1; // 首个大于 target 的元素在区间 [m+1, j] 中
+      }
+      if (j < 0 || nums[j] != target) return -1; // 未找到目标元素，返回 -1
+      return j;
+    }
     ```
 
 观察下图，搜索最右边元素时指针 $j$ 的作用与搜索最左边元素时指针 $i$ 的作用一致，反之亦然。也就是说，**搜索最左边元素和最右边元素的实现是镜像对称的**。
