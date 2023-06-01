@@ -307,6 +307,12 @@ comments: true
 
     ```
 
+=== "Dart"
+
+    ```dart title="heap.dart"
+
+    ```
+
 ## 8.1.2. &nbsp; 堆的实现
 
 下文实现的是大顶堆。若要将其转换为小顶堆，只需将所有大小逻辑判断取逆（例如，将 $\geq$ 替换为 $\leq$ ）。感兴趣的读者可以自行实现。
@@ -514,6 +520,25 @@ comments: true
     }
     ```
 
+=== "Dart"
+
+    ```dart title="my_heap.dart"
+    /* 获取左子节点索引 */
+    int _left(int i) {
+      return 2 * i + 1;
+    }
+
+    /* 获取右子节点索引 */
+    int _right(int i) {
+      return 2 * i + 2;
+    }
+
+    /* 获取父节点索引 */
+    int _parent(int i) {
+      return (i - 1) ~/ 2; // 向下整除
+    }
+    ```
+
 ### 访问堆顶元素
 
 堆顶元素即为二叉树的根节点，也就是列表的首个元素。
@@ -605,6 +630,15 @@ comments: true
     fn peek(self: *Self) T {
         return self.max_heap.?.items[0];
     }  
+    ```
+
+=== "Dart"
+
+    ```dart title="my_heap.dart"
+    /* 访问堆顶元素 */
+    int peek() {
+      return _maxHeap[0];
+    }
     ```
 
 ### 元素入堆
@@ -916,6 +950,20 @@ comments: true
             i = p;
         }
     }
+    ```
+
+=== "Dart"
+
+    ```dart title="my_heap.dart"
+    /* 元素入堆 */
+    void push(int val) {
+      // 添加节点
+      _maxHeap.add(val);
+      // 从底至顶堆化
+      _siftUp(size() - 1);
+    }
+
+    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 ### 堆顶元素出堆
@@ -1352,6 +1400,26 @@ comments: true
             i = ma;
         }
     }
+    ```
+
+=== "Dart"
+
+    ```dart title="my_heap.dart"
+    /* 元素出堆 */
+    int pop() {
+      // 判空处理
+      if (isEmpty()) throw Exception('堆为空');
+      // 交换根节点与最右叶节点（即交换首元素与尾元素）
+      _swap(0, size() - 1);
+      // 删除节点
+      int val = _maxHeap.removeLast();
+      // 从顶至底堆化
+      _siftDown(0);
+      // 返回堆顶元素
+      return val;
+    }
+
+    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 ## 8.1.3. &nbsp; 堆常见应用

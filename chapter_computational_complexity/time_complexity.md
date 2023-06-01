@@ -159,6 +159,12 @@ $$
 
     ```
 
+=== "Dart"
+
+    ```dart title=""
+
+    ```
+
 然而实际上，**统计算法的运行时间既不合理也不现实**。首先，我们不希望预估时间和运行平台绑定，因为算法需要在各种不同的平台上运行。其次，我们很难获知每种操作的运行时间，这给预估过程带来了极大的难度。
 
 ## 2.2.2. &nbsp; 统计时间增长趋势
@@ -369,6 +375,12 @@ $$
 
     ```
 
+=== "Dart"
+
+    ```dart title=""
+
+    ```
+
 ![算法 A, B, C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.png)
 
 <p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
@@ -518,6 +530,12 @@ $$
 === "Zig"
 
     ```zig title=""
+
+    ```
+
+=== "Dart"
+
+    ```dart title=""
 
     ```
 
@@ -747,6 +765,12 @@ $$
 
     ```
 
+=== "Dart"
+
+    ```dart title=""
+
+    ```
+
 ### 2) 判断渐近上界
 
 **时间复杂度由多项式 $T(n)$ 中最高阶的项来决定**。这是因为在 $n$ 趋于无穷大时，最高阶的项将发挥主导作用，其他项的影响都可以被忽略。
@@ -924,6 +948,20 @@ $$
     }
     ```
 
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    /* 常数阶 */
+    int constant(int n) {
+      int count = 0;
+      int size = 100000;
+      for (var i = 0; i < size; i++) {
+        count++;
+      }
+      return count;
+    }
+    ```
+
 ### 线性阶 $O(n)$
 
 线性阶的操作数量相对于输入数据大小以线性级别增长。线性阶通常出现在单层循环中。
@@ -1047,6 +1085,19 @@ $$
             count += 1;
         }
         return count;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    /* 线性阶 */
+    int linear(int n) {
+      int count = 0;
+      for (var i = 0; i < n; i++) {
+        count++;
+      }
+      return count;
     }
     ```
 
@@ -1191,6 +1242,20 @@ $$
             count += 1;
         }
         return count;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    /* 线性阶（遍历数组） */
+    int arrayTraversal(List<int> nums) {
+      int count = 0;
+      // 循环次数与数组长度成正比
+      for (var num in nums) {
+        count++;
+      }
+      return count;
     }
     ```
 
@@ -1354,6 +1419,22 @@ $$
             }
         }
         return count;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    /* 平方阶 */
+    int quadratic(int n) {
+      int count = 0;
+      // 循环次数与数组长度成平方关系
+      for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+          count++;
+        }
+      }
+      return count;
     }
     ```
 
@@ -1595,6 +1676,29 @@ $$
     }
     ```
 
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    /* 平方阶（冒泡排序） */
+    int bubbleSort(List<int> nums) {
+      int count = 0; // 计数器
+      // 外循环：未排序区间为 [0, i]
+      for (var i = nums.length - 1; i > 0; i--) {
+        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+        for (var j = 0; j < i; j++) {
+          if (nums[j] > nums[j + 1]) {
+            // 交换 nums[j] 与 nums[j + 1]
+            int tmp = nums[j];
+            nums[j] = nums[j + 1];
+            nums[j + 1] = tmp;
+            count += 3; // 元素交换包含 3 个单元操作
+          }
+        }
+      }
+      return count;
+    }
+    ```
+
 ### 指数阶 $O(2^n)$
 
 !!! note
@@ -1788,6 +1892,24 @@ $$
     }
     ```
 
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    /* 指数阶（循环实现） */
+    int exponential(int n) {
+      int count = 0, base = 1;
+      // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+      for (var i = 0; i < n; i++) {
+        for (var j = 0; j < base; j++) {
+          count++;
+        }
+        base *= 2;
+      }
+      // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
+      return count;
+    }
+    ```
+
 ![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.png)
 
 <p align="center"> Fig. 指数阶的时间复杂度 </p>
@@ -1898,6 +2020,16 @@ $$
     fn expRecur(n: i32) i32 {
         if (n == 1) return 1;
         return expRecur(n - 1) + expRecur(n - 1) + 1;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    /* 指数阶（递归实现） */
+    int expRecur(int n) {
+      if (n == 1) return 1;
+      return expRecur(n - 1) + expRecur(n - 1) + 1;
     }
     ```
 
@@ -2050,6 +2182,20 @@ $$
     }
     ```
 
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    /* 对数阶（循环实现） */
+    int logarithmic(num n) {
+      int count = 0;
+      while (n > 1) {
+        n = n / 2;
+        count++;
+      }
+      return count;
+    }
+    ```
+
 ![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png)
 
 <p align="center"> Fig. 对数阶的时间复杂度 </p>
@@ -2160,6 +2306,16 @@ $$
     fn logRecur(n: f32) i32 {
         if (n <= 1) return 0;
         return logRecur(n / 2) + 1;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    /* 对数阶（递归实现） */
+    int logRecur(num n) {
+      if (n <= 1) return 0;
+      return logRecur(n / 2) + 1;
     }
     ```
 
@@ -2317,6 +2473,20 @@ $$
             count += 1;
         }
         return count;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    /* 线性对数阶 */
+    int linearLogRecur(num n) {
+      if (n <= 1) return 1;
+      int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+      for (var i = 0; i < n; i++) {
+        count++;
+      }
+      return count;
     }
     ```
 
@@ -2487,6 +2657,21 @@ $$
             count += factorialRecur(n - 1);
         }
         return count;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    /* 阶乘阶（递归实现） */
+    int factorialRecur(int n) {
+      if (n == 0) return 1;
+      int count = 0;
+      // 从 1 个分裂出 n 个
+      for (var i = 0; i < n; i++) {
+        count += factorialRecur(n - 1);
+      }
+      return count;
     }
     ```
 
@@ -2797,6 +2982,33 @@ $$
             if (num == 1) return @intCast(i32, i);
         }
         return -1;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="worst_best_time_complexity.dart"
+    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
+    List<int> randomNumbers(int n) {
+      final nums = List.filled(n, 0);
+      // 生成数组 nums = { 1, 2, 3, ..., n }
+      for (var i = 0; i < n; i++) {
+        nums[i] = i + 1;
+      }
+      // 随机打乱数组元素
+      nums.shuffle();
+
+      return nums;
+    }
+
+    /* 查找数组 nums 中数字 1 所在索引 */
+    int findOne(List<int> nums) {
+      for (var i = 0; i < nums.length; i++) {
+        // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+        // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
+        if (nums[i] == 1) return i;
+      }
+      return -1;
     }
     ```
 

@@ -488,6 +488,14 @@ comments: true
     [class]{}-[func]{nQueens}
     ```
 
+=== "Dart"
+
+    ```dart title="n_queens.dart"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{nQueens}
+    ```
+
 ## 12.3.1. &nbsp; 复杂度分析
 
 逐行放置 $n$ 次，考虑列约束，则从第一行到最后一行分别有 $n, n-1, \cdots, 2, 1$ 个选择，**因此时间复杂度为 $O(n!)$** 。实际上，根据对角线约束的剪枝也能够大幅地缩小搜索空间，因而搜索效率往往优于以上时间复杂度。

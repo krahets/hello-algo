@@ -265,6 +265,12 @@ comments: true
     }
     ```
 
+=== "Dart"
+
+    ```dart title="binary_search_tree.dart"
+    [class]{BinarySearchTree}-[func]{search}
+    ```
+
 ### 插入节点
 
 给定一个待插入元素 `num` ，为了保持二叉搜索树“左子树 < 根节点 < 右子树”的性质，插入操作分为两步：
@@ -600,6 +606,12 @@ comments: true
             pre.?.left = node;
         }
     }
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_search_tree.dart"
+    [class]{BinarySearchTree}-[func]{insert}
     ```
 
 为了插入节点，我们需要利用辅助节点 `pre` 保存上一轮循环的节点，这样在遍历至 $\text{null}$ 时，我们可以获取到其父节点，从而完成节点插入操作。
@@ -1199,6 +1211,12 @@ comments: true
             cur.?.val = tmpVal;
         }
     }
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_search_tree.dart"
+    [class]{BinarySearchTree}-[func]{remove}
     ```
 
 ### 排序

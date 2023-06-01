@@ -256,6 +256,12 @@ comments: true
 
     ```
 
+=== "Dart"
+
+    ```dart title="stack.dart"
+
+    ```
+
 ## 5.1.2. &nbsp; 栈的实现
 
 为了深入了解栈的运行机制，我们来尝试自己实现一个栈类。
@@ -902,6 +908,66 @@ comments: true
     }
     ```
 
+=== "Dart"
+
+    ```dart title="linkedlist_stack.dart"
+    /* 基于链表类实现的栈 */
+    class LinkedListStack {
+      ListNode? _stackPeek; // 将头节点作为栈顶
+      int _stkSize = 0; // 栈的长度
+
+      LinkedListStack() {
+        _stackPeek = null;
+      }
+
+      /* 获取栈的长度 */
+      int size() {
+        return _stkSize;
+      }
+
+      /* 判断栈是否为空 */
+      bool isEmpty() {
+        return _stkSize == 0;
+      }
+
+      /* 入栈 */
+      void push(int num) {
+        final ListNode node = ListNode(num);
+        node.next = _stackPeek;
+        _stackPeek = node;
+        _stkSize++;
+      }
+
+      /* 出栈 */
+      int pop() {
+        final int num = peek();
+        _stackPeek = _stackPeek!.next;
+        _stkSize--;
+        return num;
+      }
+
+      /* 访问栈顶元素 */
+      int peek() {
+        if (_stackPeek == null) {
+          throw Exception("栈为空");
+        }
+        return _stackPeek!.val;
+      }
+
+      /* 将链表转化为 List 并返回 */
+      List<int> toList() {
+        ListNode? node = _stackPeek;
+        List<int> list = [];
+        while (node != null) {
+          list.add(node.val);
+          node = node.next;
+        }
+        list = list.reversed.toList();
+        return list;
+      }
+    }
+    ```
+
 ### 基于数组的实现
 
 在基于「数组」实现栈时，我们可以将数组的尾部作为栈顶。在这样的设计下，入栈与出栈操作就分别对应在数组尾部添加元素与删除元素，时间复杂度都为 $O(1)$ 。
@@ -1406,6 +1472,52 @@ comments: true
                 return self.stack.?;
             }
         };
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="array_stack.dart"
+    /* 基于数组实现的栈 */
+    class ArrayStack {
+      late List<int> _stack;
+      ArrayStack() {
+        _stack = [];
+      }
+
+      /* 获取栈的长度 */
+      int size() {
+        return _stack.length;
+      }
+
+      /* 判断栈是否为空 */
+      bool isEmpty() {
+        return _stack.isEmpty;
+      }
+
+      /* 入栈 */
+      void push(int num) {
+        _stack.add(num);
+      }
+
+      /* 出栈 */
+      int pop() {
+        if (isEmpty()) {
+          throw Exception("栈为空");
+        }
+        return _stack.removeLast();
+      }
+
+      /* 访问栈顶元素 */
+      int peek() {
+        if (isEmpty()) {
+          throw Exception("栈为空");
+        }
+        return _stack.last;
+      }
+
+      /* 将栈转化为 Array 并返回 */
+      List<int> toArray() => _stack;
     }
     ```
 

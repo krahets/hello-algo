@@ -98,6 +98,12 @@ comments: true
     var nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
+=== "Dart"
+
+    ```dart title="array.dart"
+
+    ```
+
 ## 4.1.1. &nbsp; 数组优点
 
 **在数组中访问元素非常高效**。由于数组元素被存储在连续的内存空间中，因此计算数组元素的内存地址非常容易。给定数组首个元素的地址和某个元素的索引，我们可以使用以下公式计算得到该元素的内存地址，从而直接访问此元素。
@@ -246,6 +252,19 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         // 获取并返回随机元素
         var randomNum = nums[randomIndex];
         return randomNum;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
+    /* 随机返回一个 数组元素 */
+    int randomAccess(List nums) {
+      // 在区间[0,size) 中随机抽取一个数字
+      int randomIndex = Random().nextInt(nums.length);
+      // 获取并返回随机元素
+      int randomNum = nums[randomIndex];
+      return randomNum;
     }
     ```
 
@@ -420,6 +439,23 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
+=== "Dart"
+
+    ```dart title="array.dart"
+    /* 扩展数组长度 */
+    List extend(List nums, int enlarge) {
+      // 初始化一个扩展长度后的数组，元素初始值为0
+      List<int> res = List.filled(nums.length + enlarge, 0);
+
+      // 将原数组中的所有元素复制到新数组
+      for (var i = 0; i < nums.length; i++) {
+        res[i] = nums[i];
+      }
+      // 返回扩展后的新数组
+      return res;
+    }
+    ```
+
 **数组中插入或删除元素效率低下**。如果我们想要在数组中间插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。
 
 ![数组插入元素](array.assets/array_insert_element.png)
@@ -550,6 +586,35 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
+=== "Zig"
+
+    ```zig title="array.zig"
+    // 在数组的索引 index 处插入元素 num
+    fn insert(nums: []i32, num: i32, index: usize) void {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        var i = nums.len - 1;
+        while (i > index) : (i -= 1) {
+            nums[i] = nums[i - 1];
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
+    /* 在数组的索引 index 处插入元素 num */
+    void insert(List nums, int num, int index) {
+      // 把索引index以及之后的所有元素向后移动一位
+      for (var i = nums.length - 1; i > index; i--) {
+        nums[i] = nums[i - 1];
+      }
+      // 将 num 赋给 index 处元素
+      nums[index] = num;
+    }
+    ```
+
 删除元素也类似，如果我们想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，我们无需特意去修改它。
 
 ![数组删除元素](array.assets/array_remove_element.png)
@@ -674,6 +739,17 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         while (i < nums.len - 1) : (i += 1) {
             nums[i] = nums[i + 1];
         }
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
+    /* 删除索引 index 处元素 */
+    void remove(List nums, int index) {
+      for (var i = index; i < nums.length - 1; i++) {
+        nums[i] = nums[i + 1];
+      }
     }
     ```
 
@@ -852,6 +928,27 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
+=== "Dart"
+
+    ```dart title="array.dart"
+    /* 遍历数组元素 */
+    void traverse(List nums) {
+      var count = 0;
+      // 通过索引遍历数组
+      for (var i = 0; i < nums.length; i++) {
+        count++;
+      }
+      // 直接遍历数组
+      for (var num in nums) {
+        count++;
+      }
+      // 通过forEach方法遍历数组
+      nums.forEach((element) {
+        count++;
+      });
+    }
+    ```
+
 **数组查找**。通过遍历数组，查找数组内的指定元素，并输出对应索引。
 
 === "Java"
@@ -982,6 +1079,18 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
             if (num == target) return @intCast(i32, i);
         }
         return -1;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
+    /* 在数组中查找指定元素 */
+    int find(List nums, int target) {
+      for (var i = 0; i < nums.length; i++) {
+        if (nums[i] == target) return i;
+      }
+      return -1;
     }
     ```
 

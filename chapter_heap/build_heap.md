@@ -162,6 +162,20 @@ comments: true
     }
     ```
 
+=== "Dart"
+
+    ```dart title="my_heap.dart"
+    /* 构造方法，根据输入列表建堆 */
+    MaxHeap(List<int> nums) {
+      // 将列表元素原封不动添加进堆
+      _maxHeap = nums;
+      // 堆化除叶节点以外的其他所有节点
+      for (int i = _parent(size() - 1); i >= 0; i--) {
+        _siftDown(i);
+      }
+    }
+    ```
+
 ## 8.2.3. &nbsp; 复杂度分析
 
 为什么第二种建堆方法的时间复杂度是 $O(n)$ ？我们来展开推算一下。

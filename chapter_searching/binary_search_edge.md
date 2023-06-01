@@ -218,6 +218,12 @@ comments: true
     [class]{}-[func]{binarySearchLeftEdge}
     ```
 
+=== "Dart"
+
+    ```dart title="binary_search_edge.dart"
+    [class]{}-[func]{binarySearchLeftEdge}
+    ```
+
 ## 10.2.3. &nbsp; 查找右边界
 
 类似地，我们也可以二分查找最右边的 `target` 。当 `nums[m] == target` 时，说明大于 `target` 的元素在区间 $[m + 1, j]$ 中，因此执行 `i = m + 1` ，**使得指针 $i$ 向大于 `target` 的元素靠近**。
@@ -381,6 +387,12 @@ comments: true
 === "Zig"
 
     ```zig title="binary_search_edge.zig"
+    [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_search_edge.dart"
     [class]{}-[func]{binarySearchRightEdge}
     ```
 

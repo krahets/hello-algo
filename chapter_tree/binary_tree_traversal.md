@@ -279,6 +279,26 @@ comments: true
     }
     ```
 
+=== "Dart"
+
+    ```dart title="binary_tree_bfs.dart"
+    /* 层序遍历 */
+    List<int> levelOrder(TreeNode? root) {
+      // 初始化队列，加入根节点
+      Queue<TreeNode?> queue = Queue();
+      queue.add(root);
+      // 初始化一个列表，用于保存遍历序列
+      List<int> res = [];
+      while (queue.isNotEmpty) {
+        TreeNode? node = queue.removeFirst(); // 队列出队
+        res.add(node!.val); // 保存节点值
+        if (node.left != null) queue.add(node.left); // 左子节点入队
+        if (node.right != null) queue.add(node.right); // 右子节点入队
+      }
+      return res;
+    }
+    ```
+
 ### 复杂度分析
 
 **时间复杂度**：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
@@ -641,6 +661,37 @@ comments: true
         try postOrder(T, root.?.left);
         try postOrder(T, root.?.right);
         try list.append(root.?.val);
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_tree_dfs.dart"
+    /* 前序遍历 */
+    void preOrder(TreeNode? node) {
+      if (node == null) return;
+      // 访问优先级：根节点 -> 左子树 -> 右子树
+      list.add(node.val);
+      preOrder(node.left);
+      preOrder(node.right);
+    }
+
+    /* 中序遍历 */
+    void inOrder(TreeNode? node) {
+      if (node == null) return;
+      // 访问优先级：左子树 -> 根节点 -> 右子树
+      inOrder(node.left);
+      list.add(node.val);
+      inOrder(node.right);
+    }
+
+    /* 后序遍历 */
+    void postOrder(TreeNode? node) {
+      if (node == null) return;
+      // 访问优先级：左子树 -> 右子树 -> 根节点
+      postOrder(node.left);
+      postOrder(node.right);
+      list.add(node.val);
     }
     ```
 

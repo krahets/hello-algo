@@ -110,6 +110,12 @@ comments: true
     try list.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
     ```
 
+=== "Dart"
+
+    ```dart title="list.dart"
+
+    ```
+
 **访问与更新元素**。由于列表的底层数据结构是数组，因此可以在 $O(1)$ 时间内访问和更新元素，效率很高。
 
 === "Java"
@@ -206,6 +212,12 @@ comments: true
 
     // 更新元素
     list.items[1] = 0; // 将索引 1 处的元素更新为 0  
+    ```
+
+=== "Dart"
+
+    ```dart title="list.dart"
+
     ```
 
 **在列表中添加、插入、删除元素**。相较于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 $O(1)$ ，但插入和删除元素的效率仍与数组相同，时间复杂度为 $O(N)$ 。
@@ -396,6 +408,12 @@ comments: true
     _ = list.orderedRemove(3); // 删除索引 3 处的元素
     ```
 
+=== "Dart"
+
+    ```dart title="list.dart"
+
+    ```
+
 **遍历列表**。与数组一样，列表可以根据索引遍历，也可以直接遍历各元素。
 
 === "Java"
@@ -549,6 +567,12 @@ comments: true
     }
     ```
 
+=== "Dart"
+
+    ```dart title="list.dart"
+
+    ```
+
 **拼接两个列表**。给定一个新列表 `list1` ，我们可以将该列表拼接到原列表的尾部。
 
 === "Java"
@@ -632,6 +656,12 @@ comments: true
     try list.insertSlice(list.items.len, list1.items); // 将列表 list1 拼接到 list 之后
     ```
 
+=== "Dart"
+
+    ```dart title="list.dart"
+
+    ```
+
 **排序列表**。排序也是常用的方法之一。完成列表排序后，我们便可以使用在数组类算法题中经常考察的「二分查找」和「双指针」算法。
 
 === "Java"
@@ -701,6 +731,12 @@ comments: true
     ```zig title="list.zig"
     // 排序列表
     std.sort.sort(i32, list.items, {}, comptime std.sort.asc(i32));
+    ```
+
+=== "Dart"
+
+    ```dart title="list.dart"
+
     ```
 
 ## 4.3.2. &nbsp; 列表实现 *
@@ -1754,5 +1790,98 @@ comments: true
                 return nums;
             }
         };
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="my_list.dart"
+    /* 列表类简易实现 */
+    class MyList {
+      late List<int> _nums; // 数组（存储列表元素）
+      int _capacity = 10; // 列表容量
+      int _size = 0; // 列表长度（即当前元素数量）
+      int _extendRatio = 2; // 每次列表扩容的倍数
+
+      /* 构造方法 */
+      MyList() {
+        _nums = List.filled(_capacity, 0);
+      }
+
+      /* 获取列表长度（即当前元素数量）*/
+      int size() => _size;
+
+      /* 获取列表容量 */
+      int capacity() => _capacity;
+
+      /* 访问元素 */
+      int get(int index) {
+        if (index >= _size) throw RangeError('索引越界');
+        return _nums[index];
+      }
+
+      /* 更新元素 */
+      void set(int index, int num) {
+        if (index >= _size) throw RangeError('索引越界');
+        _nums[index] = num;
+      }
+
+      /* 尾部添加元素 */
+      void add(int num) {
+        // 元素数量超出容量时，触发扩容机制
+        if (_size == _capacity) extendCapacity();
+        _nums[_size] = num;
+        // 更新元素数量
+        _size++;
+      }
+
+      /* 中间插入元素 */
+      void insert(int index, int num) {
+        if (index >= _size) throw RangeError('索引越界');
+        // 元素数量超出容量时，触发扩容机制
+        if (_size == _capacity) extendCapacity();
+        // 将索引 index 以及之后的元素都向后移动一位
+        for (var j = _size - 1; j >= index; j--) {
+          _nums[j + 1] = _nums[j];
+        }
+        _nums[index] = num;
+        // 更新元素数量
+        _size++;
+      }
+
+      /* 删除元素 */
+      int remove(int index) {
+        if (index >= _size) throw RangeError('索引越界');
+        int num = _nums[index];
+        // 将索引 index 之后的元素都向前移动一位
+        for (var j = index; j < _size - 1; j++) {
+          _nums[j] = _nums[j + 1];
+        }
+        // 更新元素数量
+        _size--;
+        // 返回被删除元素
+        return num;
+      }
+
+      /* 列表扩容 */
+      void extendCapacity() {
+        // 新建一个长度为 _capacity * _extendRatio 的数组
+        final _newNums = List.filled(_capacity * _extendRatio, 0);
+        // 将原数组拷贝到新数组
+        List.copyRange(_newNums, 0, _nums);
+        // 更新 _nums 的引用
+        _nums = _newNums;
+        // 更新列表容量
+        _capacity = _nums.length;
+      }
+
+      /* 将列表转换为数组 */
+      List<int> toArray() {
+        List<int> nums = [];
+        for (var i = 0; i < _size; i++) {
+          nums.add(get(i));
+        }
+        return nums;
+      }
     }
     ```

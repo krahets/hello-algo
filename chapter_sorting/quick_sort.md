@@ -313,6 +313,30 @@ comments: true
     }
     ```
 
+=== "Dart"
+
+    ```dart title="quick_sort.dart"
+    /* 元素交换 */
+    void _swap(List<int> nums, int i, int j) {
+      int tmp = nums[i];
+      nums[i] = nums[j];
+      nums[j] = tmp;
+    }
+
+    /* 哨兵划分 */
+    int _partition(List<int> nums, int left, int right) {
+      // 以 nums[left] 作为基准数
+      int i = left, j = right;
+      while (i < j) {
+        while (i < j && nums[j] >= nums[left]) j--; // 从右向左找首个小于基准数的元素
+        while (i < j && nums[i] <= nums[left]) i++; // 从左向右找首个大于基准数的元素
+        _swap(nums, i, j); // 交换这两个元素
+      }
+      _swap(nums, i, left); // 将基准数交换至两子数组的分界线
+      return i; // 返回基准数的索引
+    }
+    ```
+
 ## 11.5.1. &nbsp; 算法流程
 
 1. 首先，对原数组执行一次「哨兵划分」，得到未排序的左子数组和右子数组；
@@ -504,6 +528,21 @@ comments: true
         // 递归左子数组、右子数组
         quickSort(nums, left, pivot - 1);
         quickSort(nums, pivot + 1, right);
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="quick_sort.dart"
+    /* 快速排序 */
+    void quickSort(List<int> nums, int left, int right) {
+      // 子数组长度为 1 时终止递归
+      if (left >= right) return;
+      // 哨兵划分
+      int pivot = _partition(nums, left, right);
+      // 递归左子数组、右子数组
+      quickSort(nums, left, pivot - 1);
+      quickSort(nums, pivot + 1, right);
     }
     ```
 
@@ -904,6 +943,39 @@ comments: true
     }
     ```
 
+=== "Dart"
+
+    ```dart title="quick_sort.dart"
+    /* 选取三个元素的中位数 */
+    int _medianThree(List<int> nums, int left, int mid, int right) {
+      // 此处使用异或运算来简化代码
+      // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
+      if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
+        return left;
+      else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
+        return mid;
+      else
+        return right;
+    }
+
+    /* 哨兵划分（三数取中值） */
+    int _partition(List<int> nums, int left, int right) {
+      // 选取三个候选元素的中位数
+      int med = _medianThree(nums, left, (left + right) ~/ 2, right);
+      // 将中位数交换至数组最左端
+      _swap(nums, left, med);
+      // 以 nums[left] 作为基准数
+      int i = left, j = right;
+      while (i < j) {
+        while (i < j && nums[j] >= nums[left]) j--; // 从右向左找首个小于基准数的元素
+        while (i < j && nums[i] <= nums[left]) i++; // 从左向右找首个大于基准数的元素
+        _swap(nums, i, j); // 交换这两个元素
+      }
+      _swap(nums, i, left); // 将基准数交换至两子数组的分界线
+      return i; // 返回基准数的索引
+    }
+    ```
+
 ## 11.5.5. &nbsp; 尾递归优化
 
 **在某些输入下，快速排序可能占用空间较多**。以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 $0$ ，递归树的高度会达到 $n - 1$ ，此时需要占用 $O(n)$ 大小的栈帧空间。
@@ -1119,5 +1191,26 @@ comments: true
                 right = pivot - 1;                  // 剩余未排序区间为 [left, pivot - 1]
             }
         }
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="quick_sort.dart"
+    /* 快速排序（尾递归优化） */
+    void quickSort(List<int> nums, int left, int right) {
+      // 子数组长度为 1 时终止
+      while (left < right) {
+        // 哨兵划分操作
+        int pivot = _partition(nums, left, right);
+        // 对两个子数组中较短的那个执行快排
+        if (pivot - left < right - pivot) {
+          quickSort(nums, left, pivot - 1); // 递归排序左子数组
+          left = pivot + 1; // 剩余未排序区间为 [pivot + 1, right]
+        } else {
+          quickSort(nums, pivot + 1, right); // 递归排序右子数组
+          right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
+        }
+      }
     }
     ```

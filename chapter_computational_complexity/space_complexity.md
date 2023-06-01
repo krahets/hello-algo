@@ -264,6 +264,12 @@ comments: true
 
     ```
 
+=== "Dart"
+
+    ```dart title=""
+
+    ```
+
 ## 2.3.2. &nbsp; 推算方法
 
 空间复杂度的推算方法与时间复杂度大致相同，只是将统计对象从“计算操作数量”转为“使用空间大小”。与时间复杂度不同的是，**我们通常只关注「最差空间复杂度」**，这是因为内存空间是一项硬性要求，我们必须确保在所有输入数据下都有足够的内存空间预留。
@@ -383,6 +389,12 @@ comments: true
 === "Zig"
 
     ```zig title=""
+
+    ```
+
+=== "Dart"
+
+    ```dart title=""
 
     ```
 
@@ -582,6 +594,12 @@ comments: true
 === "Zig"
 
     ```zig title=""
+
+    ```
+
+=== "Dart"
+
+    ```dart title=""
 
     ```
 
@@ -826,6 +844,27 @@ $$
     }
     ```
 
+=== "Dart"
+
+    ```dart title="space_complexity.dart"
+    /* 常数阶 */
+    void constant(int n) {
+      // 常量、变量、对象占用 O(1) 空间
+      final int a = 0;
+      int b = 0;
+
+      List<int> nums = List.filled(10000, 0);
+      // 循环中的变量占用 O(1) 空间
+      for (var i = 0; i < n; i++) {
+        int c = 0;
+      }
+      // 循环中的函数占用 O(1) 空间
+      for (var i = 0; i < n; i++) {
+        function();
+      }
+    }
+    ```
+
 ### 线性阶 $O(n)$
 
 线性阶常见于元素数量与 $n$ 成正比的数组、链表、栈、队列等。
@@ -1051,6 +1090,26 @@ $$
     }
     ```
 
+=== "Dart"
+
+    ```dart title="space_complexity.dart"
+    /* 线性阶 */
+    void linear(int n) {
+      // 长度为 n 的数组占用 O(n) 空间
+      List<int> nums = List.filled(n, 0);
+      // 长度为 n 的列表占用 O(n) 空间
+      List<ListNode> nodes = [];
+      for (var i = 0; i < n; i++) {
+        nodes.add(ListNode(i));
+      }
+      // 长度为 n 的哈希表占用 O(n) 空间
+      Map<int, String> map = HashMap();
+      for (var i = 0; i < n; i++) {
+        map.putIfAbsent(i, () => i.toString());
+      }
+    }
+    ```
+
 以下递归函数会同时存在 $n$ 个未返回的 `algorithm()` 函数，使用 $O(n)$ 大小的栈帧空间。
 
 === "Java"
@@ -1167,6 +1226,17 @@ $$
         std.debug.print("递归 n = {}\n", .{n});
         if (n == 1) return;
         linearRecur(n - 1);
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="space_complexity.dart"
+    /* 线性阶（递归实现） */
+    void linearRecur(int n) {
+      print('递归 n = $n');
+      if (n == 1) return;
+      linearRecur(n - 1);
     }
     ```
 
@@ -1351,6 +1421,26 @@ $$
     }
     ```
 
+=== "Dart"
+
+    ```dart title="space_complexity.dart"
+    /* 平方阶 */
+    void quadratic(int n) {
+      // 矩阵占用 O(n^2) 空间
+      List<List<int>> numMatrix = List.generate(n, (_) => List.filled(n, 0));
+      // 二维列表占用 O(n^2) 空间
+      List<List<int>> numList = [];
+
+      for (var i = 0; i < n; i++) {
+        List<int> tmp = [];
+        for (int j = 0; j < n; j++) {
+          tmp.add(0);
+        }
+        numList.add(tmp);
+      }
+    }
+    ```
+
 在以下递归函数中，同时存在 $n$ 个未返回的 `algorithm()` ，并且每个函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $\frac{n}{2}$ ，因此总体占用 $O(n^2)$ 空间。
 
 === "Java"
@@ -1481,6 +1571,18 @@ $$
         var nums = [_]i32{0}**n;
         std.debug.print("递归 n = {} 中的 nums 长度 = {}\n", .{n, nums.len});
         return quadraticRecur(n - 1);
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="space_complexity.dart"
+    /* 平方阶（递归实现） */
+    int quadraticRecur(int n) {
+      if (n <= 0) return 0;
+      List<int> nums = List.filled(n, 0);
+      print('递归 n = $n 中的 nums 长度 = ${nums.length}');
+      return quadraticRecur(n - 1);
     }
     ```
 
@@ -1627,6 +1729,19 @@ $$
         root.left = try buildTree(mem_allocator, n - 1);
         root.right = try buildTree(mem_allocator, n - 1);
         return root;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="space_complexity.dart"
+    /* 指数阶（建立满二叉树） */
+    TreeNode? buildTree(int n) {
+      if (n == 0) return null;
+      TreeNode root = TreeNode(0);
+      root.left = buildTree(n - 1);
+      root.right = buildTree(n - 1);
+      return root;
     }
     ```
 

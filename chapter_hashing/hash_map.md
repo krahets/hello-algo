@@ -229,6 +229,12 @@ comments: true
 
     ```
 
+=== "Dart"
+
+    ```dart title="hash_map.dart"
+
+    ```
+
 遍历哈希表有三种方式，即 **遍历键值对、遍历键、遍历值**。
 
 === "Java"
@@ -384,6 +390,12 @@ comments: true
 === "Zig"
 
     ```zig title="hash_map.zig"
+
+    ```
+
+=== "Dart"
+
+    ```dart title="hash_map.dart"
 
     ```
 
@@ -1260,6 +1272,96 @@ $$
                 }
             }
         };
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="array_hash_map.dart"
+    /* 键值对 int -> String */
+    class Entry {
+      int key;
+      String val;
+      Entry(this.key, this.val);
+    }
+
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+      late List<Entry?> _buckets;
+
+      ArrayHashMap() {
+        // 初始化数组，包含 100 个桶
+        _buckets = List.filled(100, null);
+      }
+
+      /* 哈希函数 */
+      int _hashFunc(int key) {
+        final int index = key % 100;
+        return index;
+      }
+
+      /* 查询操作 */
+      String? get(int key) {
+        final int index = _hashFunc(key);
+        final Entry? pair = _buckets[index];
+        if (pair == null) {
+          return null;
+        }
+        return pair.val;
+      }
+
+      /* 添加操作 */
+      void put(int key, String val) {
+        final Entry pair = Entry(key, val);
+        final int index = _hashFunc(key);
+        _buckets[index] = pair;
+      }
+
+      /* 删除操作 */
+      void remove(int key) {
+        final int index = _hashFunc(key);
+        _buckets[index] = null;
+      }
+
+      /* 获取所有键值对 */
+      List<Entry> entrySet() {
+        List<Entry> entrySet = [];
+        for (final Entry? pair in _buckets) {
+          if (pair != null) {
+            entrySet.add(pair);
+          }
+        }
+        return entrySet;
+      }
+
+      /* 获取所有键 */
+      List<int> keySet() {
+        List<int> keySet = [];
+        for (final Entry? pair in _buckets) {
+          if (pair != null) {
+            keySet.add(pair.key);
+          }
+        }
+        return keySet;
+      }
+
+      /* 获取所有值 */
+      List<String> values() {
+        List<String> valueSet = [];
+        for (final Entry? pair in _buckets) {
+          if (pair != null) {
+            valueSet.add(pair.val);
+          }
+        }
+        return valueSet;
+      }
+
+      /* 打印哈希表 */
+      void printHashMap() {
+        for (final Entry kv in entrySet()) {
+          print("${kv.key} -> ${kv.val}");
+        }
+      }
     }
     ```
 

@@ -108,6 +108,12 @@ comments: true
 
     ```
 
+=== "Dart"
+
+    ```dart title=""
+
+    ```
+
 ![任意类型二叉树的数组表示](binary_tree.assets/array_representation_with_empty.png)
 
 <p align="center"> Fig. 任意类型二叉树的数组表示 </p>

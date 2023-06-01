@@ -159,6 +159,12 @@ comments: true
     [class]{}-[func]{preOrder}
     ```
 
+=== "Dart"
+
+    ```dart title="preorder_traversal_i_compact.dart"
+    [class]{}-[func]{preOrder}
+    ```
+
 ![在前序遍历中搜索节点](backtracking_algorithm.assets/preorder_find_nodes.png)
 
 <p align="center"> Fig. 在前序遍历中搜索节点 </p>
@@ -355,6 +361,12 @@ comments: true
 === "Zig"
 
     ```zig title="preorder_traversal_ii_compact.zig"
+    [class]{}-[func]{preOrder}
+    ```
+
+=== "Dart"
+
+    ```dart title="preorder_traversal_ii_compact.dart"
     [class]{}-[func]{preOrder}
     ```
 
@@ -589,6 +601,12 @@ comments: true
 === "Zig"
 
     ```zig title="preorder_traversal_iii_compact.zig"
+    [class]{}-[func]{preOrder}
+    ```
+
+=== "Dart"
+
+    ```dart title="preorder_traversal_iii_compact.dart"
     [class]{}-[func]{preOrder}
     ```
 
@@ -845,6 +863,12 @@ comments: true
 === "Zig"
 
     ```zig title=""
+
+    ```
+
+=== "Dart"
+
+    ```dart title=""
 
     ```
 
@@ -1276,6 +1300,22 @@ comments: true
 === "Zig"
 
     ```zig title="preorder_traversal_iii_template.zig"
+    [class]{}-[func]{isSolution}
+
+    [class]{}-[func]{recordSolution}
+
+    [class]{}-[func]{isValid}
+
+    [class]{}-[func]{makeChoice}
+
+    [class]{}-[func]{undoChoice}
+
+    [class]{}-[func]{backtrack}
+    ```
+
+=== "Dart"
+
+    ```dart title="preorder_traversal_iii_template.dart"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}

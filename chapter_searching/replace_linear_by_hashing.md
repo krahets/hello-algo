@@ -193,6 +193,21 @@ comments: true
     }
     ```
 
+=== "Dart"
+
+    ```dart title="two_sum.dart"
+    /* 方法一： 暴力枚举 */
+    List<int> twoSumBruteForce(List<int> nums, int target) {
+      int size = nums.length;
+      for (var i = 0; i < size - 1; i++) {
+        for (var j = i + 1; j < size; j++) {
+          if (nums[i] + nums[j] == target) return [i, j];
+        }
+      }
+      return [0];
+    }
+    ```
+
 此方法的时间复杂度为 $O(n^2)$ ，空间复杂度为 $O(1)$ ，在大数据量下非常耗时。
 
 ## 10.3.2. &nbsp; 哈希查找：以空间换时间
@@ -427,6 +442,23 @@ comments: true
             try dic.put(nums[i], @intCast(i32, i));
         }
         return null;
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="two_sum.dart"
+    /* 方法二： 辅助哈希表 */
+    List<int> twoSumHashTable(List<int> nums, int target) {
+      int size = nums.length;
+      Map<int, int> dic = HashMap();
+      for (var i = 0; i < size; i++) {
+        if (dic.containsKey(target - nums[i])) {
+          return [dic[target - nums[i]]!, i];
+        }
+        dic.putIfAbsent(nums[i], () => i);
+      }
+      return [0];
     }
     ```
 

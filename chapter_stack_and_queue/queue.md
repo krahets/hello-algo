@@ -258,6 +258,12 @@ comments: true
 
     ```
 
+=== "Dart"
+
+    ```dart title="queue.dart"
+
+    ```
+
 ## 5.2.2. &nbsp; 队列实现
 
 为了实现队列，我们需要一种数据结构，可以在一端添加元素，并在另一端删除元素。因此，链表和数组都可以用来实现队列。
@@ -990,6 +996,76 @@ comments: true
                 return res;
             }
         };
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="linkedlist_queue.dart"
+    /* 基于链表实现的队列 */
+    class LinkedListQueue {
+      ListNode? _front; // 头节点 _front
+      ListNode? _rear; // 尾节点 _rear
+      int _queSize = 0; // 队列长度
+
+      LinkedListQueue() {
+        _front = null;
+        _rear = null;
+      }
+
+      /* 获取队列的长度 */
+      int size() {
+        return _queSize;
+      }
+
+      /* 判断队列是否为空 */
+      bool isEmpty() {
+        return _queSize == 0;
+      }
+
+      /* 入队 */
+      void push(int num) {
+        // 尾节点后添加 num
+        final node = ListNode(num);
+        // 如果队列为空，则令头、尾节点都指向该节点
+        if (_front == null) {
+          _front = node;
+          _rear = node;
+        } else {
+          // 如果队列不为空，则将该节点添加到尾节点后
+          _rear!.next = node;
+          _rear = node;
+        }
+        _queSize++;
+      }
+
+      /* 出队 */
+      int pop() {
+        final int num = peek();
+        // 删除头节点
+        _front = _front!.next;
+        _queSize--;
+        return num;
+      }
+
+      /* 访问队首元素 */
+      int peek() {
+        if (_queSize == 0) {
+          throw Exception('队列为空');
+        }
+        return _front!.val;
+      }
+
+      /* 将链表转化为 Array 并返回 */
+      List<int> toArray() {
+        ListNode? node = _front;
+        final List<int> queue = [];
+        while (node != null) {
+          queue.add(node.val);
+          node = node.next;
+        }
+        return queue;
+      }
     }
     ```
 
@@ -1756,6 +1832,77 @@ comments: true
                 return res;
             }
         };
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="array_queue.dart"
+    /* 基于环形数组实现的队列 */
+    class ArrayQueue {
+      late List<int> _nums; // 用于储存队列元素的数组
+      late int _front; // 队首指针，指向队首元素
+      late int _queSize; // 队列长度
+
+      ArrayQueue(int capacity) {
+        _nums = List.filled(capacity, 0);
+        _front = _queSize = 0;
+      }
+
+      /* 获取队列的容量 */
+      int capaCity() {
+        return _nums.length;
+      }
+
+      /* 获取队列的长度 */
+      int size() {
+        return _queSize;
+      }
+
+      /* 判断队列是否为空 */
+      bool isEmpty() {
+        return _queSize == 0;
+      }
+
+      /* 入队 */
+      void push(int num) {
+        if (_queSize == capaCity()) {
+          throw Exception("队列已满");
+        }
+        // 计算尾指针，指向队尾索引 + 1
+        // 通过取余操作，实现 rear 越过数组尾部后回到头部
+        int rear = (_front + _queSize) % capaCity();
+        // 将 num 添加至队尾
+        _nums[rear] = num;
+        _queSize++;
+      }
+
+      /* 出队 */
+      int pop() {
+        int num = peek();
+        // 队首指针向后移动一位，若越过尾部则返回到数组头部
+        _front = (_front + 1) % capaCity();
+        _queSize--;
+        return num;
+      }
+
+      /* 访问队首元素 */
+      int peek() {
+        if (isEmpty()) {
+          throw Exception("队列为空");
+        }
+        return _nums[_front];
+      }
+
+      /* 返回 Array */
+      List<int> toArray() {
+        // 仅转换有效长度范围内的列表元素
+        final List<int> res = List.filled(_queSize, 0);
+        for (int i = 0, j = _front; i < _queSize; i++, j++) {
+          res[i] = _nums[j % capaCity()];
+        }
+        return res;
+      }
     }
     ```
 

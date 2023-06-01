@@ -212,6 +212,24 @@ comments: true
     }
     ```
 
+=== "Dart"
+
+    ```dart title="insertion_sort.dart"
+    /* 插入排序 */
+    void insertionSort(List<int> nums) {
+      // 外循环：已排序元素数量为 1, 2, ..., n
+      for (int i = 1; i < nums.length; i++) {
+        int base = nums[i], j = i - 1;
+        // 内循环：将 base 插入到已排序部分的正确位置
+        while (j >= 0 && nums[j] > base) {
+          nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
+          j--;
+        }
+        nums[j + 1] = base; // 将 base 赋值到正确位置
+      }
+    }
+    ```
+
 ## 11.4.2. &nbsp; 算法特性
 
 - **时间复杂度 $O(n^2)$ 、自适应排序** ：最差情况下，每次插入操作分别需要循环 $n - 1$ , $n-2$ , $\cdots$ , $2$ , $1$ 次，求和得到 $\frac{(n - 1) n}{2}$ ，因此时间复杂度为 $O(n^2)$ 。在遇到有序数据时，插入操作会提前终止。当输入数组完全有序时，插入排序达到最佳时间复杂度 $O(n)$ 。

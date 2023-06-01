@@ -285,6 +285,36 @@ comments: true
     [class]{}-[func]{bucketSort}
     ```
 
+=== "Dart"
+
+    ```dart title="bucket_sort.dart"
+    /* 桶排序 */
+    void bucketSort(List<double> nums) {
+      // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+      int k = nums.length ~/ 2;
+      List<List<double>> buckets = List.generate(k, (index) => []);
+
+      // 1. 将数组元素分配到各个桶中
+      for (double num in nums) {
+        // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+        int i = (num * k).toInt();
+        // 将 num 添加进桶 bucket_idx
+        buckets[i].add(num);
+      }
+      // 2. 对各个桶执行排序
+      for (List<double> bucket in buckets) {
+        bucket.sort();
+      }
+      // 3. 遍历桶合并结果
+      int i = 0;
+      for (List<double> bucket in buckets) {
+        for (double num in bucket) {
+          nums[i++] = num;
+        }
+      }
+    }
+    ```
+
 !!! question "桶排序的适用场景是什么？"
 
     桶排序适用于处理体量很大的数据。例如，输入数据包含 100 万个元素，由于空间限制，系统内存无法一次性加载所有数据。此时，可以将数据分成 1000 个桶，然后分别对每个桶进行排序，最后将结果合并。

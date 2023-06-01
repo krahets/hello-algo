@@ -762,6 +762,95 @@ comments: true
 
     ```
 
+=== "Dart"
+
+    ```dart title="graph_adjacency_matrix.dart"
+    /* 基于邻接矩阵实现的无向图类 */
+    class GraphAdjMat {
+      List<int> vertices = []; // 顶点元素，元素代表“顶点值”，索引代表“顶点索引”
+      List<List<int>> adjMat = []; //邻接矩阵，行列索引对应“顶点索引”
+
+      /* 构造方法 */
+      GraphAdjMat(List<int> vertices, List<List<int>> edges) {
+        this.vertices = [];
+        this.adjMat = [];
+        // 添加顶点
+        for (int val in vertices) {
+          addVertex(val);
+        }
+        // 添加边
+        // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+        for (List<int> e in edges) {
+          addEdge(e[0], e[1]);
+        }
+      }
+
+      /* 获取顶点数量 */
+      int size() {
+        return vertices.length;
+      }
+
+      /* 添加顶点 */
+      void addVertex(int val) {
+        int n = size();
+        // 向顶点列表中添加新顶点的值
+        vertices.add(val);
+        // 在邻接矩阵中添加一行
+        List<int> newRow = List.filled(n, 0, growable: true);
+        adjMat.add(newRow);
+        // 在邻接矩阵中添加一列
+        for (List<int> row in adjMat) {
+          row.add(0);
+        }
+      }
+
+      /* 删除顶点 */
+      void removeVertex(int index) {
+        if (index >= size()) {
+          throw IndexError;
+        }
+        // 在顶点列表中移除索引 index 的顶点
+        vertices.removeAt(index);
+        // 在邻接矩阵中删除索引 index 的行
+        adjMat.removeAt(index);
+        // 在邻接矩阵中删除索引 index 的列
+        for (List<int> row in adjMat) {
+          row.removeAt(index);
+        }
+      }
+
+      /* 添加边 */
+      // 参数 i, j 对应 vertices 元素索引
+      void addEdge(int i, int j) {
+        // 索引越界与相等处理
+        if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
+          throw IndexError;
+        }
+        // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+        adjMat[i][j] = 1;
+        adjMat[j][i] = 1;
+      }
+
+      /* 删除边 */
+      // 参数 i, j 对应 vertices 元素索引
+      void removeEdge(int i, int j) {
+        // 索引越界与相等处理
+        if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
+          throw IndexError;
+        }
+        adjMat[i][j] = 0;
+        adjMat[j][i] = 0;
+      }
+
+      /* 打印邻接矩阵 */
+      void printAdjMat() {
+        print("顶点列表 = $vertices");
+        print("邻接矩阵 = ");
+        printMatrix(adjMat);
+      }
+    }
+    ```
+
 ## 9.2.2. &nbsp; 基于邻接表的实现
 
 设无向图的顶点总数为 $n$ 、边总数为 $m$ ，则有：
@@ -1449,6 +1538,86 @@ comments: true
 
     ```zig title="graph_adjacency_list.zig"
     [class]{GraphAdjList}-[func]{}
+    ```
+
+=== "Dart"
+
+    ```dart title="graph_adjacency_list.dart"
+    /* 基于邻接表实现的无向图类 */
+    class GraphAdjList {
+      // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+      Map<Vertex, List<Vertex>> adjList = {};
+
+      /* 构造方法 */
+      GraphAdjList(List<List<Vertex>> edges) {
+        for (List<Vertex> edge in edges) {
+          addVertex(edge[0]);
+          addVertex(edge[1]);
+          addEdge(edge[0], edge[1]);
+        }
+      }
+
+      /* 获取顶点数量 */
+      int size() {
+        return adjList.length;
+      }
+
+      /* 添加边 */
+      void addEdge(Vertex vet1, Vertex vet2) {
+        if (!adjList.containsKey(vet1) ||
+            !adjList.containsKey(vet2) ||
+            vet1 == vet2) {
+          throw ArgumentError;
+        }
+        // 添加边 vet1 - vet2
+        adjList[vet1]!.add(vet2);
+        adjList[vet2]!.add(vet1);
+      }
+
+      /* 删除边 */
+      void removeEdge(Vertex vet1, Vertex vet2) {
+        if (!adjList.containsKey(vet1) ||
+            !adjList.containsKey(vet2) ||
+            vet1 == vet2) {
+          throw ArgumentError;
+        }
+        // 删除边 vet1 - vet2
+        adjList[vet1]!.remove(vet2);
+        adjList[vet2]!.remove(vet1);
+      }
+
+      /* 添加顶点 */
+      void addVertex(Vertex vet) {
+        if (adjList.containsKey(vet)) return;
+        // 在邻接表中添加一个新链表
+        adjList[vet] = [];
+      }
+
+      /* 删除顶点 */
+      void removeVertex(Vertex vet) {
+        if (!adjList.containsKey(vet)) {
+          throw ArgumentError;
+        }
+        // 在邻接表中删除顶点 vet 对应的链表
+        adjList.remove(vet);
+        // 遍历其他顶点的链表，删除所有包含 vet 的边
+        adjList.forEach((key, value) {
+          value.remove(vet);
+        });
+      }
+
+      /* 打印邻接表 */
+      void printAdjList() {
+        print("邻接表 =");
+        adjList.forEach((key, value) {
+          List<int> tmp = [];
+          for (Vertex vertex in value) {
+            tmp.add(vertex.val);
+          }
+          print("${key.val}: $tmp,");
+        });
+      }
+    }
     ```
 
 ## 9.2.3. &nbsp; 效率对比
