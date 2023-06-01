@@ -6,7 +6,6 @@
 
 #include "../utils/common.h"
 
-
 #define ARRAY_SIZE 10
 
 /* 比较两个浮点数的大小 */
@@ -44,7 +43,7 @@ void bucketSort(float nums[], int size) {
         }
         float temp = nums[i];
         while (j < ARRAY_SIZE && buckets[bucket_idx][j] > 0) {
-              swap(&temp, &buckets[bucket_idx][j]);
+            swap(&temp, &buckets[bucket_idx][j]);
             j++;
         }
         buckets[bucket_idx][j] = temp;
@@ -70,7 +69,6 @@ void bucketSort(float nums[], int size) {
     }
     free(buckets);
 }
-
 
 /* Driver Code */
 int main() {

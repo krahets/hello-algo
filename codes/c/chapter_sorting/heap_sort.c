@@ -6,12 +6,6 @@
 
 #include "../utils/common.h"
 
-void swap(int *a, int *b) {
-    int tmp = *a;
-    *a = *b;
-    *b = tmp;
-}
-
 /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
 void siftDown(int nums[], int n, int i) {
     while (1) {
@@ -28,7 +22,9 @@ void siftDown(int nums[], int n, int i) {
             break;
         }
         // 交换两节点
-        swap(&nums[i], &nums[ma]);
+        int temp = nums[i];
+        nums[i] = nums[ma];
+        nums[ma] = temp;
         // 循环向下堆化
         i = ma;
     }
@@ -43,12 +39,13 @@ void heapSort(int nums[], int n) {
     // 从堆中提取最大元素，循环 n-1 轮
     for (int i = n - 1; i > 0; --i) {
         // 交换根节点与最右叶节点（即交换首元素与尾元素）
-        swap(&nums[0], &nums[i]);
+        int tmp = nums[0];
+        nums[0] = nums[i];
+        nums[i] = tmp;
         // 以根节点为起点，从顶至底进行堆化
         siftDown(nums, i, 0);
     }
 }
-
 
 /* Driver Code */
 int main() {
