@@ -301,6 +301,12 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title="heap.dart"
+
+    ```
+
 ## 堆的实现
 
 下文实现的是大顶堆。若要将其转换为小顶堆，只需将所有大小逻辑判断取逆（例如，将 $\geq$ 替换为 $\leq$ ）。感兴趣的读者可以自行实现。
@@ -417,6 +423,16 @@
     [class]{MaxHeap}-[func]{parent}
     ```
 
+=== "Dart"
+
+    ```dart title="my_heap.dart"
+    [class]{MaxHeap}-[func]{_left}
+
+    [class]{MaxHeap}-[func]{_right}
+
+    [class]{MaxHeap}-[func]{_parent}
+    ```
+
 ### 访问堆顶元素
 
 堆顶元素即为二叉树的根节点，也就是列表的首个元素。
@@ -478,6 +494,12 @@
 === "Zig"
 
     ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{peek}
+    ```
+
+=== "Dart"
+
+    ```dart title="my_heap.dart"
     [class]{MaxHeap}-[func]{peek}
     ```
 
@@ -591,6 +613,14 @@
 === "Zig"
 
     ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{push}
+
+    [class]{MaxHeap}-[func]{siftUp}
+    ```
+
+=== "Dart"
+
+    ```dart title="my_heap.dart"
     [class]{MaxHeap}-[func]{push}
 
     [class]{MaxHeap}-[func]{siftUp}
@@ -713,6 +743,14 @@
 === "Zig"
 
     ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{pop}
+
+    [class]{MaxHeap}-[func]{siftDown}
+    ```
+
+=== "Dart"
+
+    ```dart title="my_heap.dart"
     [class]{MaxHeap}-[func]{pop}
 
     [class]{MaxHeap}-[func]{siftDown}

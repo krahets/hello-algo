@@ -100,6 +100,12 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title=""
+
+    ```
+
 ![任意类型二叉树的数组表示](binary_tree.assets/array_representation_with_empty.png)
 
 ## 优势与局限性

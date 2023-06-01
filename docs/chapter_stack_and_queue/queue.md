@@ -252,6 +252,12 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title="queue.dart"
+
+    ```
+
 ## 队列实现
 
 为了实现队列，我们需要一种数据结构，可以在一端添加元素，并在另一端删除元素。因此，链表和数组都可以用来实现队列。
@@ -328,6 +334,12 @@
 === "Zig"
 
     ```zig title="linkedlist_queue.zig"
+    [class]{LinkedListQueue}-[func]{}
+    ```
+
+=== "Dart"
+
+    ```dart title="linkedlist_queue.dart"
     [class]{LinkedListQueue}-[func]{}
     ```
 
@@ -414,6 +426,12 @@
 === "Zig"
 
     ```zig title="array_queue.zig"
+    [class]{ArrayQueue}-[func]{}
+    ```
+
+=== "Dart"
+
+    ```dart title="array_queue.dart"
     [class]{ArrayQueue}-[func]{}
     ```
 

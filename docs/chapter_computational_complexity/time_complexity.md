@@ -155,6 +155,12 @@ $$
 
     ```
 
+=== "Dart"
+
+    ```dart title=""
+
+    ```
+
 然而实际上，**统计算法的运行时间既不合理也不现实**。首先，我们不希望预估时间和运行平台绑定，因为算法需要在各种不同的平台上运行。其次，我们很难获知每种操作的运行时间，这给预估过程带来了极大的难度。
 
 ## 统计时间增长趋势
@@ -365,6 +371,12 @@ $$
 
     ```
 
+=== "Dart"
+
+    ```dart title=""
+
+    ```
+
 ![算法 A, B, C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.png)
 
 相较于直接统计算法运行时间，时间复杂度分析有哪些优势和局限性呢？
@@ -512,6 +524,12 @@ $$
 === "Zig"
 
     ```zig title=""
+
+    ```
+
+=== "Dart"
+
+    ```dart title=""
 
     ```
 
@@ -739,6 +757,12 @@ $$
 
     ```
 
+=== "Dart"
+
+    ```dart title=""
+
+    ```
+
 ### 2) 判断渐近上界
 
 **时间复杂度由多项式 $T(n)$ 中最高阶的项来决定**。这是因为在 $n$ 趋于无穷大时，最高阶的项将发挥主导作用，其他项的影响都可以被忽略。
@@ -840,6 +864,12 @@ $$
     [class]{}-[func]{constant}
     ```
 
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    [class]{}-[func]{constant}
+    ```
+
 ### 线性阶 $O(n)$
 
 线性阶的操作数量相对于输入数据大小以线性级别增长。线性阶通常出现在单层循环中。
@@ -901,6 +931,12 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
+    [class]{}-[func]{linear}
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
     [class]{}-[func]{linear}
     ```
 
@@ -970,6 +1006,12 @@ $$
     [class]{}-[func]{arrayTraversal}
     ```
 
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    [class]{}-[func]{arrayTraversal}
+    ```
+
 ### 平方阶 $O(n^2)$
 
 平方阶的操作数量相对于输入数据大小以平方级别增长。平方阶通常出现在嵌套循环中，外层循环和内层循环都为 $O(n)$ ，因此总体为 $O(n^2)$ 。
@@ -1031,6 +1073,12 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
+    [class]{}-[func]{quadratic}
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
     [class]{}-[func]{quadratic}
     ```
 
@@ -1102,6 +1150,12 @@ $$
     [class]{}-[func]{bubbleSort}
     ```
 
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    [class]{}-[func]{bubbleSort}
+    ```
+
 ### 指数阶 $O(2^n)$
 
 !!! note
@@ -1170,6 +1224,12 @@ $$
     [class]{}-[func]{exponential}
     ```
 
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    [class]{}-[func]{exponential}
+    ```
+
 ![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.png)
 
 在实际算法中，指数阶常出现于递归函数。例如以下代码，不断地一分为二，经过 $n$ 次分裂后停止。
@@ -1231,6 +1291,12 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
+    [class]{}-[func]{expRecur}
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
     [class]{}-[func]{expRecur}
     ```
 
@@ -1302,6 +1368,12 @@ $$
     [class]{}-[func]{logarithmic}
     ```
 
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
+    [class]{}-[func]{logarithmic}
+    ```
+
 ![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png)
 
 与指数阶类似，对数阶也常出现于递归函数。以下代码形成了一个高度为 $\log_2 n$ 的递归树。
@@ -1363,6 +1435,12 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
+    [class]{}-[func]{logRecur}
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
     [class]{}-[func]{logRecur}
     ```
 
@@ -1429,6 +1507,12 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
+    [class]{}-[func]{linearLogRecur}
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
     [class]{}-[func]{linearLogRecur}
     ```
 
@@ -1501,6 +1585,12 @@ $$
 === "Zig"
 
     ```zig title="time_complexity.zig"
+    [class]{}-[func]{factorialRecur}
+    ```
+
+=== "Dart"
+
+    ```dart title="time_complexity.dart"
     [class]{}-[func]{factorialRecur}
     ```
 
@@ -1612,6 +1702,14 @@ $$
         }
         return -1;
     }
+    ```
+
+=== "Dart"
+
+    ```dart title="worst_best_time_complexity.dart"
+    [class]{}-[func]{randomNumbers}
+
+    [class]{}-[func]{findOne}
     ```
 
 !!! tip

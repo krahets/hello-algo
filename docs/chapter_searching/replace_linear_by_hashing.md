@@ -72,6 +72,12 @@
     [class]{}-[func]{twoSumBruteForce}
     ```
 
+=== "Dart"
+
+    ```dart title="two_sum.dart"
+    [class]{}-[func]{twoSumBruteForce}
+    ```
+
 此方法的时间复杂度为 $O(n^2)$ ，空间复杂度为 $O(1)$ ，在大数据量下非常耗时。
 
 ## 哈希查找：以空间换时间
@@ -151,6 +157,12 @@
 === "Zig"
 
     ```zig title="two_sum.zig"
+    [class]{}-[func]{twoSumHashTable}
+    ```
+
+=== "Dart"
+
+    ```dart title="two_sum.dart"
     [class]{}-[func]{twoSumHashTable}
     ```
 
