@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_array_and_linkedlist/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_array_and_linkedlist/array/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
@@ -36,6 +41,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_backtracking/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_backtracking/backtracking_algorithm/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
@@ -47,6 +57,11 @@
     </url>
     <url>
          <loc>https://www.hello-algo.com/chapter_backtracking/permutations_problem/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.hello-algo.com/chapter_computational_complexity/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -67,6 +82,11 @@
     </url>
     <url>
          <loc>https://www.hello-algo.com/chapter_computational_complexity/time_complexity/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.hello-algo.com/chapter_data_structure/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -96,6 +116,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_graph/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_graph/graph/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
@@ -116,6 +141,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_hashing/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_hashing/hash_collision/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
@@ -127,6 +157,11 @@
     </url>
     <url>
          <loc>https://www.hello-algo.com/chapter_hashing/summary/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.hello-algo.com/chapter_heap/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -146,6 +181,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_introduction/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_introduction/algorithms_are_everywhere/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
@@ -157,6 +197,11 @@
     </url>
     <url>
          <loc>https://www.hello-algo.com/chapter_introduction/what_is_dsa/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.hello-algo.com/chapter_preface/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -177,6 +222,11 @@
     </url>
     <url>
          <loc>https://www.hello-algo.com/chapter_reference/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.hello-algo.com/chapter_searching/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -202,6 +252,11 @@
     </url>
     <url>
          <loc>https://www.hello-algo.com/chapter_searching/summary/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.hello-algo.com/chapter_sorting/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -261,6 +316,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_stack_and_queue/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_stack_and_queue/deque/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
@@ -277,6 +337,11 @@
     </url>
     <url>
          <loc>https://www.hello-algo.com/chapter_stack_and_queue/summary/</loc>
+         <lastmod>2023-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.hello-algo.com/chapter_tree/</loc>
          <lastmod>2023-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
