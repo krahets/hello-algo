@@ -91,6 +91,12 @@
     [class]{BinarySearchTree}-[func]{search}
     ```
 
+=== "Dart"
+
+    ```dart title="binary_search_tree.dart"
+    [class]{BinarySearchTree}-[func]{search}
+    ```
+
 ### 插入节点
 
 给定一个待插入元素 `num` ，为了保持二叉搜索树“左子树 < 根节点 < 右子树”的性质，插入操作分为两步：
@@ -159,6 +165,12 @@
 === "Zig"
 
     ```zig title="binary_search_tree.zig"
+    [class]{BinarySearchTree}-[func]{insert}
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_search_tree.dart"
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
@@ -255,6 +267,12 @@
 === "Zig"
 
     ```zig title="binary_search_tree.zig"
+    [class]{BinarySearchTree}-[func]{remove}
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_search_tree.dart"
     [class]{BinarySearchTree}-[func]{remove}
     ```
 

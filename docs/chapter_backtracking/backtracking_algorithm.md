@@ -70,6 +70,12 @@
     [class]{}-[func]{preOrder}
     ```
 
+=== "Dart"
+
+    ```dart title="preorder_traversal_i_compact.dart"
+    [class]{}-[func]{preOrder}
+    ```
+
 ![在前序遍历中搜索节点](backtracking_algorithm.assets/preorder_find_nodes.png)
 
 ## 尝试与回退
@@ -143,6 +149,12 @@
 === "Zig"
 
     ```zig title="preorder_traversal_ii_compact.zig"
+    [class]{}-[func]{preOrder}
+    ```
+
+=== "Dart"
+
+    ```dart title="preorder_traversal_ii_compact.dart"
     [class]{}-[func]{preOrder}
     ```
 
@@ -248,6 +260,12 @@
 === "Zig"
 
     ```zig title="preorder_traversal_iii_compact.zig"
+    [class]{}-[func]{preOrder}
+    ```
+
+=== "Dart"
+
+    ```dart title="preorder_traversal_iii_compact.dart"
     [class]{}-[func]{preOrder}
     ```
 
@@ -505,6 +523,12 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title=""
+
+    ```
+
 下面，我们尝试基于此框架来解决例题三。在例题三中，状态 `state` 是节点遍历路径，选择 `choices` 是当前节点的左子节点和右子节点，结果 `res` 是路径列表，实现代码如下所示。
 
 === "Java"
@@ -654,6 +678,22 @@
 === "Zig"
 
     ```zig title="preorder_traversal_iii_template.zig"
+    [class]{}-[func]{isSolution}
+
+    [class]{}-[func]{recordSolution}
+
+    [class]{}-[func]{isValid}
+
+    [class]{}-[func]{makeChoice}
+
+    [class]{}-[func]{undoChoice}
+
+    [class]{}-[func]{backtrack}
+    ```
+
+=== "Dart"
+
+    ```dart title="preorder_traversal_iii_template.dart"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}

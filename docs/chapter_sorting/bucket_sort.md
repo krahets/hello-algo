@@ -74,6 +74,12 @@
     [class]{}-[func]{bucketSort}
     ```
 
+=== "Dart"
+
+    ```dart title="bucket_sort.dart"
+    [class]{}-[func]{bucketSort}
+    ```
+
 !!! question "桶排序的适用场景是什么？"
 
     桶排序适用于处理体量很大的数据。例如，输入数据包含 100 万个元素，由于空间限制，系统内存无法一次性加载所有数据。此时，可以将数据分成 1000 个桶，然后分别对每个桶进行排序，最后将结果合并。

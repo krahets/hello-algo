@@ -117,6 +117,14 @@
     [class]{QuickSort}-[func]{partition}
     ```
 
+=== "Dart"
+
+    ```dart title="quick_sort.dart"
+    [class]{QuickSort}-[func]{_swap}
+
+    [class]{QuickSort}-[func]{_partition}
+    ```
+
 ## 算法流程
 
 1. 首先，对原数组执行一次「哨兵划分」，得到未排序的左子数组和右子数组；
@@ -182,6 +190,12 @@
 === "Zig"
 
     ```zig title="quick_sort.zig"
+    [class]{QuickSort}-[func]{quickSort}
+    ```
+
+=== "Dart"
+
+    ```dart title="quick_sort.dart"
     [class]{QuickSort}-[func]{quickSort}
     ```
 
@@ -289,6 +303,14 @@
     [class]{QuickSortMedian}-[func]{partition}
     ```
 
+=== "Dart"
+
+    ```dart title="quick_sort.dart"
+    [class]{QuickSortMedian}-[func]{_medianThree}
+
+    [class]{QuickSortMedian}-[func]{_partition}
+    ```
+
 ## 尾递归优化
 
 **在某些输入下，快速排序可能占用空间较多**。以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 $0$ ，递归树的高度会达到 $n - 1$ ，此时需要占用 $O(n)$ 大小的栈帧空间。
@@ -352,5 +374,11 @@
 === "Zig"
 
     ```zig title="quick_sort.zig"
+    [class]{QuickSortTailCall}-[func]{quickSort}
+    ```
+
+=== "Dart"
+
+    ```dart title="quick_sort.dart"
     [class]{QuickSortTailCall}-[func]{quickSort}
     ```

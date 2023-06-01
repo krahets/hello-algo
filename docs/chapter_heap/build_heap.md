@@ -72,6 +72,12 @@
     [class]{MaxHeap}-[func]{init}
     ```
 
+=== "Dart"
+
+    ```dart title="my_heap.dart"
+    [class]{MaxHeap}-[func]{MaxHeap}
+    ```
+
 ## 复杂度分析
 
 为什么第二种建堆方法的时间复杂度是 $O(n)$ ？我们来展开推算一下。

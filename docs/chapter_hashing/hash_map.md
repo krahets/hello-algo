@@ -223,6 +223,12 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title="hash_map.dart"
+
+    ```
+
 遍历哈希表有三种方式，即 **遍历键值对、遍历键、遍历值**。
 
 === "Java"
@@ -381,6 +387,12 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title="hash_map.dart"
+
+    ```
+
 ## 哈希函数
 
 哈希表的底层实现为数组，同时可能包含链表、二叉树（红黑树）等数据结构，以提高查询性能（将在下节讨论）。
@@ -479,6 +491,14 @@ $$
 === "Zig"
 
     ```zig title="array_hash_map.zig"
+    [class]{Entry}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
+    ```
+
+=== "Dart"
+
+    ```dart title="array_hash_map.dart"
     [class]{Entry}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
