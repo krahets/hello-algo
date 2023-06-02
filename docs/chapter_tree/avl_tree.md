@@ -172,7 +172,14 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 === "Dart"
 
     ```dart title=""
-
+    /* AVL 树节点类 */
+    class TreeNode {
+      int val;         // 节点值
+      int height;      // 节点高度
+      TreeNode? left;  // 左子节点
+      TreeNode? right; // 右子节点
+      TreeNode(this.val, [this.height = 0, this.left, this.right]);
+    }
     ```
 
 「节点高度」是指从该节点到最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 0 ，而空节点的高度为 -1 。我们将创建两个工具函数，分别用于获取和更新节点的高度。

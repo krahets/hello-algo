@@ -95,7 +95,9 @@
 === "Dart"
 
     ```dart title="array.dart"
-
+    /* 初始化数组 */
+    List<int> arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
+    List<int> nums = [1, 3, 2, 5, 4];
     ```
 
 ## 数组优点
