@@ -2231,7 +2231,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* 链表节点类 */</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ListNode</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="c1">// 节点值</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="n">ListNode</span><span class="o">?</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向下一节点的指针（引用）</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="n">ListNode</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="n">next</span><span class="p">]);</span><span class="w"> </span><span class="c1">// 构造函数</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -2398,7 +2403,18 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">linked_list.dart</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>
+<div class="highlight"><span class="filename">linked_list.dart</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cm">/* 初始化链表 1 -&gt; 3 -&gt; 2 -&gt; 5 -&gt; 4 */</span><span class="err">\</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="c1">// 初始化各个节点</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">n0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">n4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="c1">// 构建引用指向</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="n">n0</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n1</span><span class="p">;</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="n">n1</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="n">n2</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n3</span><span class="p">;</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="n">n3</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n4</span><span class="p">;</span>
 </code></pre></div>
 </div>
 </div>
@@ -2646,10 +2662,11 @@
 <div class="highlight"><span class="filename">linked_list.dart</span><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="cm">/* 删除链表的节点 n0 之后的首个节点 */</span>
 <a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">remove</span><span class="p">(</span><span class="n">ListNode</span><span class="w"> </span><span class="n">n0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n0</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
-<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">  </span><span class="n">ListNode</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n0</span><span class="p">.</span><span class="n">next</span><span class="o">!</span><span class="p">;</span>
-<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="w">  </span><span class="n">ListNode</span><span class="o">?</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>
-<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="w">  </span><span class="n">n0</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n1</span><span class="p">;</span>
-<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="p">}</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">  </span><span class="c1">// n0 -&gt; P -&gt; n1</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="w">  </span><span class="n">ListNode</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n0</span><span class="p">.</span><span class="n">next</span><span class="o">!</span><span class="p">;</span>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="w">  </span><span class="n">ListNode</span><span class="o">?</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="w">  </span><span class="n">n0</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n1</span><span class="p">;</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -3105,7 +3122,13 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="cm">/* 双向链表节点类 */</span>
+<a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ListNode</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w">        </span><span class="c1">// 节点值</span>
+<a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a><span class="w">    </span><span class="n">ListNode</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w">  </span><span class="c1">// 指向后继节点的指针（引用）</span>
+<a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a><span class="w">    </span><span class="n">ListNode</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span><span class="w">  </span><span class="c1">// 指向前驱节点的指针（引用）</span>
+<a id="__codelineno-76-6" name="__codelineno-76-6" href="#__codelineno-76-6"></a><span class="w">    </span><span class="n">ListNode</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="n">next</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">prev</span><span class="p">]);</span><span class="w">  </span><span class="c1">// 构造函数</span>
+<a id="__codelineno-76-7" name="__codelineno-76-7" href="#__codelineno-76-7"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
