@@ -103,7 +103,9 @@
 === "Dart"
 
     ```dart title=""
-
+    /* 二叉树的数组表示 */
+    // 使用 int? 可空类型 ，就可以使用 null 来标记空位
+    List<int?> tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 ![任意类型二叉树的数组表示](binary_tree.assets/array_representation_with_empty.png)

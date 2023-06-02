@@ -17,6 +17,7 @@ void insert(ListNode n0, ListNode P) {
 /* 删除链表的节点 n0 之后的首个节点 */
 void remove(ListNode n0) {
   if (n0.next == null) return;
+  // n0 -> P -> n1
   ListNode P = n0.next!;
   ListNode? n1 = P.next;
   n0.next = n1;
@@ -45,9 +46,9 @@ int find(ListNode? head, int target) {
 }
 
 /* Driver Code */
-int main() {
+void main() {
   // 初始化链表
-  //初始化各个节点
+  // 初始化各个节点
   ListNode n0 = ListNode(1);
   ListNode n1 = ListNode(3);
   ListNode n2 = ListNode(2);
@@ -79,6 +80,4 @@ int main() {
   /* 查找节点 */
   int index = find(n0, 2);
   print('链表中值为 2 的节点的索引 = $index');
-
-  return 0;
 }

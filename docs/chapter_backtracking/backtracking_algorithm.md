@@ -526,7 +526,26 @@
 === "Dart"
 
     ```dart title=""
-
+    /* 回溯算法框架 */
+    void backtrack(State state, List<Choice>, List<State> res) {
+      // 判断是否为解
+      if (isSolution(state)) {
+        // 记录解
+        recordSolution(state, res);
+        return;
+      }
+      // 遍历所有选择
+      for (Choice choice in choices) {
+        // 剪枝：判断选择是否合法
+        if (isValid(state, choice)) {
+          // 尝试：做出选择，更新状态
+          makeChoice(state, choice);
+          backtrack(state, choices, res);
+          // 回退：撤销选择，恢复到之前的状态
+          undoChoice(state, choice);
+        }
+      }
+    }
     ```
 
 下面，我们尝试基于此框架来解决例题三。在例题三中，状态 `state` 是节点遍历路径，选择 `choices` 是当前节点的左子节点和右子节点，结果 `res` 是路径列表，实现代码如下所示。

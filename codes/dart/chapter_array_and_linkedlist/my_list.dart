@@ -94,7 +94,7 @@ class MyList {
 }
 
 /* Driver Code */
-int main() {
+void main() {
   /* 初始化列表 */
   MyList list = MyList();
   /* 尾部添加元素 */
@@ -129,6 +129,4 @@ int main() {
   }
   print(
       '扩容后的列表 list = ${list.toArray()} ，容量 = ${list.capacity()} ，长度 = ${list.size()}');
-
-  return 0;
 }

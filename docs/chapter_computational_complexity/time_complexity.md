@@ -158,7 +158,16 @@ $$
 === "Dart"
 
     ```dart title=""
-
+    // 在某运行平台下
+    void algorithm(int n) {
+      int a = 2; // 1 ns
+      a = a + 1; // 1 ns
+      a = a * 2; // 10 ns
+      // 循环 n 次
+      for (int i = 0; i < n; i++) { // 1 ns ，每轮都要执行 i++
+        print(0); // 5 ns
+      }
+    }
     ```
 
 然而实际上，**统计算法的运行时间既不合理也不现实**。首先，我们不希望预估时间和运行平台绑定，因为算法需要在各种不同的平台上运行。其次，我们很难获知每种操作的运行时间，这给预估过程带来了极大的难度。
@@ -374,7 +383,22 @@ $$
 === "Dart"
 
     ```dart title=""
-
+    // 算法 A 时间复杂度：常数阶
+    void algorithmA(int n) {
+      print(0);
+    }
+    // 算法 B 时间复杂度：线性阶
+    void algorithmB(int n) {
+      for (int i = 0; i < n; i++) {
+        print(0);
+      }
+    }
+    // 算法 C 时间复杂度：常数阶
+    void algorithmC(int n) {
+      for (int i = 0; i < 1000000; i++) {
+        print(0);
+      }
+    }
     ```
 
 ![算法 A, B, C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.png)
@@ -530,7 +554,15 @@ $$
 === "Dart"
 
     ```dart title=""
-
+    void algorithm(int n) {
+      int a = 1; // +1
+      a = a + 1; // +1
+      a = a * 2; // +1
+      // 循环 n 次
+      for (int i = 0; i < n; i++) { // +1（每轮都执行 i ++）
+        print(0); // +1
+      }
+    }
     ```
 
 $T(n)$ 是一次函数，说明时间增长趋势是线性的，因此可以得出时间复杂度是线性阶。
@@ -760,7 +792,20 @@ $$
 === "Dart"
 
     ```dart title=""
-
+    void algorithm(int n) {
+      int a = 1; // +0（技巧 1）
+      a = a + n; // +0（技巧 1）
+      // +n（技巧 2）
+      for (int i = 0; i < 5 * n + 1; i++) {
+        print(0);
+      }
+      // +n*n（技巧 3）
+      for (int i = 0; i < 2 * n; i++) {
+        for (int j = 0; j < n + 1; j++) {
+          print(0);
+        }
+      }
+    }
     ```
 
 ### 2) 判断渐近上界

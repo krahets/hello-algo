@@ -34,7 +34,8 @@ void main() {
   print("\n遍历键值对 Key->Value");
   map.forEach((key, value) => print("$key -> $value"));
   print("\n单独遍历键 Key");
-  map.forEach((key, value) => print("$key"));
+  map.keys.forEach((key) => print(key));
   print("\n单独遍历值 Value");
   map.forEach((key, value) => print("$value"));
+  map.values.forEach((value) => print(value));
 }

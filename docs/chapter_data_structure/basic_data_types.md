@@ -133,5 +133,9 @@
 === "Dart"
 
     ```dart title=""
-
+    /* 使用多种「基本数据类型」来初始化「数组」 */
+    List<int> numbers = List.filled(5, 0);
+    List<double> decimals = List.filled(5, 0.0);
+    List<String> characters = List.filled(5, 'a');
+    List<bool> booleans = List.filled(5, false);
     ```

@@ -29,7 +29,7 @@ int findOne(List<int> nums) {
 }
 
 /* Driver Code */
-int main() {
+void main() {
   for (var i = 0; i < 10; i++) {
     int n = 100;
     final nums = randomNumbers(n);
@@ -37,6 +37,4 @@ int main() {
     print('\n数组 [ 1, 2, ..., n ] 被打乱后 = $nums');
     print('数字 1 的索引为 + $index');
   }
-
-  return 0;
 }
