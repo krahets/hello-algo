@@ -259,7 +259,28 @@ comments: true
 === "Dart"
 
     ```dart title="stack.dart"
+    /* 初始化栈 */
+    // Dart 没有内置的栈类，可以把 List 当作栈来使用
+    List<int> stack = [];
 
+    /* 元素入栈 */
+    stack.add(1);
+    stack.add(3);
+    stack.add(2);
+    stack.add(5);
+    stack.add(4);
+
+    /* 访问栈顶元素 */
+    int peek = stack.last;
+
+    /* 元素出栈 */
+    int pop = stack.removeLast();
+
+    /* 获取栈的长度 */
+    int size = stack.length;
+
+    /* 判断是否为空 */
+    bool isEmpty = stack.isEmpty;
     ```
 
 ## 5.1.2. &nbsp; 栈的实现

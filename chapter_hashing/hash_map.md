@@ -232,7 +232,24 @@ comments: true
 === "Dart"
 
     ```dart title="hash_map.dart"
+    /* 初始化哈希表 */
+    Map<int, String> map = {};
 
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map[12836] = "小哈";
+    map[15937] = "小啰";
+    map[16750] = "小算";
+    map[13276] = "小法";
+    map[10583] = "小鸭";
+
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    String name = map[15937];
+
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.remove(10583);
     ```
 
 遍历哈希表有三种方式，即 **遍历键值对、遍历键、遍历值**。
@@ -396,7 +413,21 @@ comments: true
 === "Dart"
 
     ```dart title="hash_map.dart"
+    /* 遍历哈希表 */
+    // 遍历键值对 Key->Value
+    map.forEach((key, value) {
+      print('$key -> $value');
+    });
 
+    // 单独遍历键 Key
+    map.keys.forEach((key) {
+      print(key);
+    });
+
+    // 单独遍历值 Value
+    map.values.forEach((value) {
+      print(value);
+    });
     ```
 
 ## 6.1.2. &nbsp; 哈希函数

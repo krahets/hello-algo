@@ -150,7 +150,13 @@ comments: true
 === "Dart"
 
     ```dart title=""
-
+    /* 二叉树节点类 */
+    class TreeNode {
+      int val;         // 节点值
+      TreeNode? left;  // 左子节点指针
+      TreeNode? right; // 右子节点指针
+      TreeNode(this.val, [this.left, this.right]);
+    }
     ```
 
 节点的两个指针分别指向「左子节点」和「右子节点」，同时该节点被称为这两个子节点的「父节点」。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的「左子树」，同理可得「右子树」。
@@ -346,7 +352,18 @@ comments: true
 === "Dart"
 
     ```dart title="binary_tree.dart"
-
+    /* 初始化二叉树 */
+    // 初始化节点
+    TreeNode n1 = new TreeNode(1);
+    TreeNode n2 = new TreeNode(2);
+    TreeNode n3 = new TreeNode(3);
+    TreeNode n4 = new TreeNode(4);
+    TreeNode n5 = new TreeNode(5);
+    // 构建引用指向（即指针）
+    n1.left = n2;
+    n1.right = n3;
+    n2.left = n4;
+    n2.right = n5;
     ```
 
 **插入与删除节点**。与链表类似，通过修改指针来实现插入与删除节点。
@@ -470,7 +487,13 @@ comments: true
 === "Dart"
 
     ```dart title="binary_tree.dart"
-
+    /* 插入与删除节点 */
+    TreeNode P = new TreeNode(0);
+    // 在 n1 -> n2 中间插入节点 P
+    n1.left = P;
+    P.left = n2;
+    // 删除节点 P
+    n1.left = n2;
     ```
 
 !!! note

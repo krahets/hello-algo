@@ -267,7 +267,26 @@ comments: true
 === "Dart"
 
     ```dart title=""
+    /* 类 */
+    class Node {
+      int val;
+      Node next;
+      Node(this.val, [this.next]);
+    }
 
+    /* 函数 */
+    int function() {
+      // do something...
+      return 0;
+    }
+
+    int algorithm(int n) {  // 输入数据
+      const int a = 0;      // 暂存数据（常量）
+      int b = 0;            // 暂存数据（变量）
+      Node node = Node(0);  // 暂存数据（对象）
+      int c = function();   // 栈帧空间（调用函数）
+      return a + b + c;     // 输出数据
+    }
     ```
 
 ## 2.3.2. &nbsp; 推算方法
@@ -395,7 +414,13 @@ comments: true
 === "Dart"
 
     ```dart title=""
-
+    void algorithm(int n) {
+      int a = 0;                            // O(1)
+      List<int> b = List.filled(10000, 0);  // O(1)
+      if (n > 10) {
+        List<int> nums = List.filled(n, 0); // O(n)
+      }
+    }
     ```
 
 **在递归函数中，需要注意统计栈帧空间**。例如，函数 `loop()` 在循环中调用了 $n$ 次 `function()` ，每轮中的 `function()` 都返回并释放了栈帧空间，因此空间复杂度仍为 $O(1)$ 。而递归函数 `recur()` 在运行过程中会同时存在 $n$ 个未返回的 `recur()` ，从而占用 $O(n)$ 的栈帧空间。
@@ -600,7 +625,21 @@ comments: true
 === "Dart"
 
     ```dart title=""
-
+    int function() {
+      // do something
+      return 0;
+    }
+    /* 循环 O(1) */
+    void loop(int n) {
+      for (int i = 0; i < n; i++) {
+        function();
+      }
+    }
+    /* 递归 O(n) */
+    void recur(int n) {
+      if (n == 1) return;
+      return recur(n - 1);
+    }
     ```
 
 ## 2.3.3. &nbsp; 常见类型

@@ -162,7 +162,12 @@ comments: true
 === "Dart"
 
     ```dart title=""
-
+    /* 链表节点类 */
+    class ListNode {
+      int val; // 节点值
+      ListNode? next; // 指向下一节点的指针（引用）
+      ListNode(this.val, [this.next]); // 构造函数
+    }
     ```
 
 !!! question "尾节点指向什么？"
@@ -348,7 +353,18 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */\
+    // 初始化各个节点
+    ListNode n0 = ListNode(1);
+    ListNode n1 = ListNode(3);
+    ListNode n2 = ListNode(2);
+    ListNode n3 = ListNode(5);
+    ListNode n4 = ListNode(4);
+    // 构建引用指向
+    n0.next = n1;
+    n1.next = n2;
+    n2.next = n3;
+    n3.next = n4;
     ```
 
 ## 4.2.1. &nbsp; 链表优点
@@ -637,6 +653,7 @@ comments: true
     /* 删除链表的节点 n0 之后的首个节点 */
     void remove(ListNode n0) {
       if (n0.next == null) return;
+      // n0 -> P -> n1
       ListNode P = n0.next!;
       ListNode? n1 = P.next;
       n0.next = n1;
@@ -1159,7 +1176,13 @@ comments: true
 === "Dart"
 
     ```dart title=""
-
+    /* 双向链表节点类 */
+    class ListNode {
+        int val;        // 节点值
+        ListNode next;  // 指向后继节点的指针（引用）
+        ListNode prev;  // 指向前驱节点的指针（引用）
+        ListNode(this.val, [this.next, this.prev]);  // 构造函数
+    }
     ```
 
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)
