@@ -73,7 +73,7 @@ class MyList {
 
   /* 列表扩容 */
   void extendCapacity() {
-    // 新建一个长度为 _capacity * _extendRatio 的数组
+    // 新建一个长度为原数组 _extendRatio 倍的新数组
     final _newNums = List.filled(_capacity * _extendRatio, 0);
     // 将原数组拷贝到新数组
     List.copyRange(_newNums, 0, _nums);

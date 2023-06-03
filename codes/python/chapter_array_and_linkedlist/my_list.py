@@ -73,7 +73,7 @@ class MyList:
 
     def extend_capacity(self) -> None:
         """列表扩容"""
-        # 新建一个长度为 self.__size 的数组，并将原数组拷贝到新数组
+        # 新建一个长度为原数组 __extend_ratio 倍的新数组，并将原数组拷贝到新数组
         self.__nums = self.__nums + [0] * self.capacity() * (self.__extend_ratio - 1)
         # 更新列表容量
         self.__capacity = len(self.__nums)
