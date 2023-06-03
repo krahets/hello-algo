@@ -582,15 +582,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1) 统计操作数量
+  <a href="#_1" class="md-nav__link">
+    第一步：统计操作数量
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2) 判断渐近上界
+  <a href="#_2" class="md-nav__link">
+    第二步：判断渐近上界
   </a>
   
 </li>
@@ -2164,15 +2164,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1) 统计操作数量
+  <a href="#_1" class="md-nav__link">
+    第一步：统计操作数量
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2) 判断渐近上界
+  <a href="#_2" class="md-nav__link">
+    第二步：判断渐近上界
   </a>
   
 </li>
@@ -2794,7 +2794,7 @@ $$</p>
 <h2 id="224">2.2.4. &nbsp; 推算方法<a class="headerlink" href="#224" title="Permanent link">&para;</a></h2>
 <p>渐近上界的数学味儿有点重，如果你感觉没有完全理解，也无需担心。因为在实际使用中，我们只需要掌握推算方法，数学意义可以逐渐领悟。</p>
 <p>根据定义，确定 <span class="arithmatex">\(f(n)\)</span> 之后，我们便可得到时间复杂度 <span class="arithmatex">\(O(f(n))\)</span> 。那么如何确定渐近上界 <span class="arithmatex">\(f(n)\)</span> 呢？总体分为两步：首先统计操作数量，然后判断渐近上界。</p>
-<h3 id="1">1) 统计操作数量<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h3 id="_1">第一步：统计操作数量<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>针对代码，逐行从上到下计算即可。然而，由于上述 <span class="arithmatex">\(c \cdot f(n)\)</span> 中的常数项 <span class="arithmatex">\(c\)</span> 可以取任意大小，<strong>因此操作数量 <span class="arithmatex">\(T(n)\)</span> 中的各种系数、常数项都可以被忽略</strong>。根据此原则，可以总结出以下计数简化技巧：</p>
 <ol>
 <li><strong>忽略与 <span class="arithmatex">\(n\)</span> 无关的操作</strong>。因为它们都是 <span class="arithmatex">\(T(n)\)</span> 中的常数项，对时间复杂度不产生影响。</li>
@@ -2988,7 +2988,7 @@ T(n) &amp; = n^2 + n &amp; \text{偷懒统计 (o.O)}
 </div>
 </div>
 </div>
-<h3 id="2">2) 判断渐近上界<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h3 id="_2">第二步：判断渐近上界<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p><strong>时间复杂度由多项式 <span class="arithmatex">\(T(n)\)</span> 中最高阶的项来决定</strong>。这是因为在 <span class="arithmatex">\(n\)</span> 趋于无穷大时，最高阶的项将发挥主导作用，其他项的影响都可以被忽略。</p>
 <p>以下表格展示了一些例子，其中一些夸张的值是为了强调“系数无法撼动阶数”这一结论。当 <span class="arithmatex">\(n\)</span> 趋于无穷大时，这些常数变得无足轻重。</p>
 <div class="center-table">
