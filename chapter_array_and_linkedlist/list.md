@@ -867,7 +867,7 @@ comments: true
 
         /* 列表扩容 */
         public void extendCapacity() {
-            // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
+            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
             nums = Arrays.copyOf(nums, capacity() * extendRatio);
             // 更新列表容量
             capacity = nums.length;
@@ -976,7 +976,7 @@ comments: true
 
         /* 列表扩容 */
         void extendCapacity() {
-            // 新建一个长度为 size * extendRatio 的数组，并将原数组拷贝到新数组
+            // 新建一个长度为原数组 extendRatio 倍的新数组
             int newCapacity = capacity() * extendRatio;
             int *tmp = nums;
             nums = new int[newCapacity];
@@ -1072,7 +1072,7 @@ comments: true
 
         def extend_capacity(self) -> None:
             """列表扩容"""
-            # 新建一个长度为 self.__size 的数组，并将原数组拷贝到新数组
+            # 新建一个长度为原数组 __extend_ratio 倍的新数组，并将原数组拷贝到新数组
             self.__nums = self.__nums + [0] * self.capacity() * (self.__extend_ratio - 1)
             # 更新列表容量
             self.__capacity = len(self.__nums)
@@ -1177,7 +1177,7 @@ comments: true
 
     /* 列表扩容 */
     func (l *myList) extendCapacity() {
-        // 新建一个长度为 self.__size 的数组，并将原数组拷贝到新数组
+        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
         l.nums = append(l.nums, make([]int, l.numsCapacity*(l.extendRatio-1))...)
         // 更新列表容量
         l.numsCapacity = len(l.nums)
@@ -1271,7 +1271,7 @@ comments: true
 
         /* 列表扩容 */
         extendCapacity() {
-            // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
+            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
             this.#nums = this.#nums.concat(
                 new Array(this.capacity() * (this.#extendRatio - 1))
             );
@@ -1690,7 +1690,7 @@ comments: true
 
         /* 列表扩容 */
         func extendCapacity() {
-            // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
+            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
             nums = nums + Array(repeating: 0, count: _capacity * (extendRatio - 1))
             // 更新列表容量
             _capacity = nums.count
@@ -1803,7 +1803,7 @@ comments: true
 
             // 列表扩容
             pub fn extendCapacity(self: *Self) !void {
-                // 新建一个长度为 size * extend_ratio 的数组，并将原数组拷贝到新数组
+                // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
                 var newCapacity = self.capacity() * self.extend_ratio;
                 var extend = try self.mem_allocator.alloc(T, newCapacity);
                 std.mem.set(T, extend, @as(T, 0));
@@ -1900,7 +1900,7 @@ comments: true
 
       /* 列表扩容 */
       void extendCapacity() {
-        // 新建一个长度为 _capacity * _extendRatio 的数组
+        // 新建一个长度为原数组 _extendRatio 倍的新数组
         final _newNums = List.filled(_capacity * _extendRatio, 0);
         // 将原数组拷贝到新数组
         List.copyRange(_newNums, 0, _nums);
