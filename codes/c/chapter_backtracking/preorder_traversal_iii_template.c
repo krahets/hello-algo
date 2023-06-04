@@ -49,59 +49,59 @@ void vectorClear(Vector *v) {
 
 /* 判断当前状态是否为解 */
 bool isSolution(Vector *state) {
-	return state->size != 0 && ((TreeNode *)(state->data[state->size-1]))->val == 7;
+    return state->size != 0 && ((TreeNode *)(state->data[state->size - 1]))->val == 7;
 }
 
 /* 记录解 */
 void recordSolution(Vector *state, Vector *res) {
-	Vector *newPath = malloc(sizeof(Vector));
-	vectorInit(newPath);
-	for (int i = 0; i < state->size; i++) {
-		vectorPushback(newPath, state->data[i]);
-	}
-	vectorPushback(res, newPath);
+    Vector *newPath = malloc(sizeof(Vector));
+    vectorInit(newPath);
+    for (int i = 0; i < state->size; i++) {
+        vectorPushback(newPath, state->data[i]);
+    }
+    vectorPushback(res, newPath);
 }
 
 /* 判断在当前状态下，该选择是否合法 */
-bool isValid(Vector *state, TreeNode *choice){
-	return choice != NULL && choice->val != 3;
+bool isValid(Vector *state, TreeNode *choice) {
+    return choice != NULL && choice->val != 3;
 }
 
 /* 更新状态 */
 void makeChoice(Vector *state, TreeNode *choice) {
-	vectorPushback(state, choice);
+    vectorPushback(state, choice);
 }
 
 /* 恢复状态 */
 void undoChoice(Vector *state, TreeNode *choice) {
-	vectorPopback(state);
+    vectorPopback(state);
 }
 
 /* 前序遍历：例题三 */
 void backtrace(Vector *state, Vector *choices, Vector *res) {
-	// 检查是否为解
-	if (isSolution(state)) {
-		// 记录解
-		recordSolution(state, res);
-		return;
-	}
-	// 遍历所有选择
-	for (int i=0; i<choices->size; i++) {
-		TreeNode *choice = choices->data[i];
-		// 剪枝：检查选择是否合法
-		if (isValid(state, choice)) {
-			// 尝试：做出选择，更新状态
-			makeChoice(state, choice);
-			// 进行下一轮选择
-			Vector nextChoices;
-			vectorInit(&nextChoices);
-			vectorPushback(&nextChoices, choice->left);
-			vectorPushback(&nextChoices, choice->right);
-			backtrace(state, &nextChoices, res);
-			// 回退：撤销选择，恢复到之前的状态
-			undoChoice(state, choice);
-		}
-	}
+    // 检查是否为解
+    if (isSolution(state)) {
+        // 记录解
+        recordSolution(state, res);
+        return;
+    }
+    // 遍历所有选择
+    for (int i = 0; i < choices->size; i++) {
+        TreeNode *choice = choices->data[i];
+        // 剪枝：检查选择是否合法
+        if (isValid(state, choice)) {
+            // 尝试：做出选择，更新状态
+            makeChoice(state, choice);
+            // 进行下一轮选择
+            Vector nextChoices;
+            vectorInit(&nextChoices);
+            vectorPushback(&nextChoices, choice->left);
+            vectorPushback(&nextChoices, choice->right);
+            backtrace(state, &nextChoices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            undoChoice(state, choice);
+        }
+    }
 }
 
 // 打印向量中的元素
@@ -123,13 +123,13 @@ int main() {
     printf("\r\n初始化二叉树\r\n");
     printTree(root);
 
-	// 回溯算法
+    // 回溯算法
     Vector state, choices;
-	Vector res;
+    Vector res;
     vectorInit(&state);
-	vectorInit(&choices);
+    vectorInit(&choices);
     vectorInit(&res);
-	vectorPushback(&choices, root);
+    vectorPushback(&choices, root);
 
     // 前序遍历
     backtrace(&state, &choices, &res);
@@ -139,6 +139,6 @@ int main() {
     printResult(&res);
 
     // 释放内存
-    
+
     return 0;
 }

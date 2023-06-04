@@ -104,6 +104,6 @@ int main() {
     printResult(&res);
 
     // 释放内存
-    
+
     return 0;
 }
