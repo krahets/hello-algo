@@ -4,8 +4,8 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+/* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
 function sift_down(nums, n, i) {
-    /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
     while (true) {
         // 判断节点 i, l, r 中值最大的节点，记为 ma
         let l = 2 * i + 1;
@@ -28,8 +28,8 @@ function sift_down(nums, n, i) {
     }
 }
 
+/* 堆排序 */
 function heap_sort(nums) {
-    /* 堆排序 */
     // 建堆操作：堆化除叶节点以外的其他所有节点
     for (let i = Math.floor(nums.length / 2) - 1; i >= 0; i--) {
         sift_down(nums, nums.length, i);

@@ -4,8 +4,8 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+/* 选择排序 */
 function selection_sort(nums) {
-    /* 选择排序 */
     let n = nums.length;
     // 外循环：未排序区间为 [i, n-1]
     for (let i = 0; i < n - 1; i++) {

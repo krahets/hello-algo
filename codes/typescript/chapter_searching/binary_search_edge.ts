@@ -4,8 +4,8 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+/* 二分查找最左一个元素 */
 function binary_search_left_edge(nums: number[], target: number): number {
-    /* 二分查找最左一个元素 */
     let i = 0, j = nums.length - 1;  // 初始化双闭区间 [0, n-1]
     while (i <= j) {
         let m = Math.floor((i + j) / 2);  // 计算中点索引 m
@@ -23,8 +23,8 @@ function binary_search_left_edge(nums: number[], target: number): number {
     return i;
 }
 
+/* 二分查找最右一个元素 */
 function binary_search_right_edge(nums: number[], target: number): number {
-    /* 二分查找最右一个元素 */
     let i = 0, j = nums.length - 1;  // 初始化双闭区间 [0, n-1]
     while (i <= j) {
         let m = Math.floor((i + j) / 2);  // 计算中点索引 m
