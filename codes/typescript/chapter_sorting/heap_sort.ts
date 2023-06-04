@@ -5,7 +5,7 @@
  */
 
 /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
-function sift_down(nums: number[], n: number, i: number): void {
+function siftDown(nums: number[], n: number, i: number): void {
     while (true) {
         // 判断节点 i, l, r 中值最大的节点，记为 ma
         let l = 2 * i + 1;
@@ -29,23 +29,23 @@ function sift_down(nums: number[], n: number, i: number): void {
 }
 
 /* 堆排序 */
-function heap_sort(nums: number[]): void {
+function heapSort(nums: number[]): void {
     // 建堆操作：堆化除叶节点以外的其他所有节点
     for (let i = Math.floor(nums.length / 2) - 1; i >= 0; i--) {
-        sift_down(nums, nums.length, i);
+        siftDown(nums, nums.length, i);
     }
     // 从堆中提取最大元素，循环 n-1 轮
     for (let i = nums.length - 1; i > 0; i--) {
         // 交换根节点与最右叶节点（即交换首元素与尾元素）
         [nums[0], nums[i]] = [nums[i], nums[0]];
         // 以根节点为起点，从顶至底进行堆化
-        sift_down(nums, i, 0);
+        siftDown(nums, i, 0);
     }
 }
 
 /* Driver Code */
 const nums: number[] = [4, 1, 3, 1, 5, 2];
-heap_sort(nums);
-console.log("堆排序完成后 nums =", nums);
+heapSort(nums);
+console.log('堆排序完成后 nums =', nums);
 
-export { };
+export {};

@@ -5,7 +5,7 @@
  */
 
 /* 选择排序 */
-function selection_sort(nums) {
+function selectionSort(nums) {
     let n = nums.length;
     // 外循环：未排序区间为 [i, n-1]
     for (let i = 0; i < n - 1; i++) {
@@ -13,7 +13,7 @@ function selection_sort(nums) {
         let k = i;
         for (let j = i + 1; j < n; j++) {
             if (nums[j] < nums[k]) {
-                k = j;  // 记录最小元素的索引
+                k = j; // 记录最小元素的索引
             }
         }
         // 将该最小元素与未排序区间的首个元素交换
@@ -23,5 +23,5 @@ function selection_sort(nums) {
 
 /* Driver Code */
 const nums = [4, 1, 3, 1, 5, 2];
-selection_sort(nums);
-console.log("选择排序完成后 nums =", nums);
+selectionSort(nums);
+console.log('选择排序完成后 nums =', nums);

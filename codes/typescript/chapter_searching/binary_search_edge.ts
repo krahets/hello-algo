@@ -5,7 +5,7 @@
  */
 
 /* 二分查找最左一个元素 */
-function binary_search_left_edge(nums: number[], target: number): number {
+function binarySearchLeftEdge(nums: number[], target: number): number {
     let i = 0, j = nums.length - 1;  // 初始化双闭区间 [0, n-1]
     while (i <= j) {
         let m = Math.floor((i + j) / 2);  // 计算中点索引 m
@@ -24,7 +24,7 @@ function binary_search_left_edge(nums: number[], target: number): number {
 }
 
 /* 二分查找最右一个元素 */
-function binary_search_right_edge(nums: number[], target: number): number {
+function binarySearchRightEdge(nums: number[], target: number): number {
     let i = 0, j = nums.length - 1;  // 初始化双闭区间 [0, n-1]
     while (i <= j) {
         let m = Math.floor((i + j) / 2);  // 计算中点索引 m
@@ -47,9 +47,9 @@ let target: number = 6;
 const nums: number[] = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
 
 // 二分查找最左一个元素
-let index_left: number = binary_search_left_edge(nums, target);
+let index_left: number = binarySearchLeftEdge(nums, target);
 console.log("数组中最左一个元素 6 的索引 = ", index_left);
 
 // 二分查找最右一个元素
-let index_right: number = binary_search_right_edge(nums, target);
+let index_right: number = binarySearchRightEdge(nums, target);
 console.log("数组中最右一个元素 6 的索引 = ", index_right);
