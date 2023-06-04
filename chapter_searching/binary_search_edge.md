@@ -151,13 +151,48 @@ comments: true
 === "JavaScript"
 
     ```javascript title="binary_search_edge.js"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个元素 */
+    function binarySearchLeftEdge(nums, target) {
+        let i = 0,
+            j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            let m = Math.floor((i + j) / 2); // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        if (i == nums.length || nums[i] != target) {
+            return -1; // 未找到目标元素，返回 -1
+        }
+        return i;
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="binary_search_edge.ts"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个元素 */
+    function binarySearchLeftEdge(nums: number[], target: number): number {
+        let i = 0, j = nums.length - 1;  // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            let m = Math.floor((i + j) / 2);  // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1;  // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1;  // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1;  // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        if (i == nums.length || nums[i] != target) {
+            return -1;  // 未找到目标元素，返回 -1
+        }
+        return i;
+    }
     ```
 
 === "C"
@@ -352,13 +387,48 @@ comments: true
 === "JavaScript"
 
     ```javascript title="binary_search_edge.js"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个元素 */
+    function binarySearchRightEdge(nums, target) {
+        let i = 0,
+            j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            let m = Math.floor((i + j) / 2); // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                i = m + 1; // 首个大于 target 的元素在区间 [m+1, j] 中
+            }
+        }
+        if (j == nums.length || nums[j] != target) {
+            return -1; // 未找到目标元素，返回 -1
+        }
+        return j;
+    }
     ```
 
 === "TypeScript"
 
     ```typescript title="binary_search_edge.ts"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个元素 */
+    function binarySearchRightEdge(nums: number[], target: number): number {
+        let i = 0, j = nums.length - 1;  // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            let m = Math.floor((i + j) / 2);  // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1;  // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1;  // target 在区间 [i, m-1] 中
+            } else {
+                i = m + 1;  // 首个大于 target 的元素在区间 [m+1, j] 中
+            }
+        }
+        if (j == nums.length || nums[j] != target) {
+            return -1;  // 未找到目标元素，返回 -1
+        }
+        return j;
+    }
     ```
 
 === "C"
