@@ -16,7 +16,7 @@ function backtrack(
 ): void {
     // 当放置完所有行时，记录解
     if (row === n) {
-        res.push(state.map((row) => row.slice()));
+        res.push(state.map(row => row.slice()));
         return;
     }
     // 遍历所有列
@@ -27,12 +27,12 @@ function backtrack(
         // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
         if (!(cols[col] || diags1[diag1] || diags2[diag2])) {
             // 尝试：将皇后放置在该格子
-            state[row][col] = 'Q';
+            state[row][col] = "Q";
             cols[col] = diags1[diag1] = diags2[diag2] = true;
             // 放置下一行
             backtrack(row + 1, n, state, res, cols, diags1, diags2);
             // 回退：将该格子恢复为空位
-            state[row][col] = '#';
+            state[row][col] = "#";
             cols[col] = diags1[diag1] = diags2[diag2] = false;
         }
     }
@@ -41,7 +41,7 @@ function backtrack(
 /* 求解 N 皇后 */
 function nQueens(n: number): string[][][] {
     // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
-    const state = Array.from({ length: n }, () => Array(n).fill('#'));
+    const state = Array.from({ length: n }, () => Array(n).fill("#"));
     const cols = Array(n).fill(false); // 记录列是否有皇后
     const diags1 = Array(2 * n - 1).fill(false); // 记录主对角线是否有皇后
     const diags2 = Array(2 * n - 1).fill(false); // 记录副对角线是否有皇后
@@ -57,9 +57,7 @@ const res = nQueens(n);
 
 console.log(`输入棋盘长宽为 ${n}`);
 console.log(`皇后放置方案共有 ${res.length} 种`);
-res.forEach((state) => {
-    console.log('--------------------');
-    state.forEach((row) => console.log(row));
+res.forEach(state => {
+    console.log("--------------------");
+    state.forEach(row => console.log(row));
 });
-
-export {};
