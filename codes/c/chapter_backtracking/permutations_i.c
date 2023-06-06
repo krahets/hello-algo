@@ -8,16 +8,39 @@
 
 /* 定义向量类型 */
 typedef struct Vector {
-    int size;     // 当前向量的大小
-    int capacity; // 当前向量的容量
-    void **data;  // 指向数据的指针数组
+	int size;     // 当前向量的大小
+	int capacity; // 当前向量的容量
+	int depth;    // 当前向量的深度
+	void **data;  // 指向数据的指针数组
 } Vector;
 
-/* 初始化向量 */
-void vectorInit(Vector *v) {
-    v->size = 0;
-    v->capacity = 4;
-    v->data = malloc(v->capacity * sizeof(void *));
+/* 构造向量 */
+Vector* newVector() {
+	Vector *v = malloc (sizeof(Vector));
+	v->size = 0;
+	v->capacity = 4;
+	v->depth = 1;
+	v->data = malloc(v->capacity * sizeof(void *));
+	return v;
+}
+
+/* 析构向量 */
+void delVector(Vector *v) {
+	if (v) {
+		if (v->depth == 0) {
+			return ;
+		} else if (v->depth == 1) {
+			for (int i=0; i<v->size; i++) {
+				free(v->data[i]);
+			}
+			free(v);
+		} else {
+			for (int i=0; i<v->size; i++) {
+				delVector(v->data[i]);
+			}
+			v->depth--;
+		}
+	}
 }
 
 /*  添加元素到向量尾部 */
@@ -51,8 +74,7 @@ void vectorClear(Vector *v) {
 void backtrack(Vector *state, Vector *choices, Vector *selected, Vector *res) {
     // 当状态长度等于元素数量时，记录解
     if (state->size == choices->size) {
-        Vector *newState = malloc(sizeof(Vector));
-        vectorInit(newState);
+        Vector *newState = newVector();
         for (int i = 0; i < state->size; i++) {
             vectorPushback(newState, state->data[i]);
         }
@@ -99,34 +121,30 @@ void printVectorMatrix(Vector *vv) {
 
 /* 全排列 I */
 Vector *permutationsI(Vector *nums) {
-    Vector iState;
-    vectorInit(&iState);
+    Vector *iState = newVector();
 
     int select[3] = {false, false, false};
-    Vector bSelected;
-    vectorInit(&bSelected);
+    Vector *bSelected = newVector();
     for (int i = 0; i < nums->size; i++) {
-        vectorPushback(&bSelected, &select[i]);
+        vectorPushback(bSelected, &select[i]);
     }
 
-    Vector *res = malloc(sizeof(Vector));
-    vectorInit(res);
+    Vector *res = newVector();
 
     // 前序遍历
-    backtrack(&iState, nums, &bSelected, res);
+    backtrack(iState, nums, bSelected, res);
     return res;
 }
 
 int main() {
 
     int nums[] = {1, 2, 3};
-    Vector iNums; // int
-    vectorInit(&iNums);
+    Vector *iNums = newVector(); // int
     for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
-        vectorPushback(&iNums, &nums[i]);
+        vectorPushback(iNums, &nums[i]);
     }
 
-    Vector *res = permutationsI(&iNums);
+    Vector *res = permutationsI(iNums);
 
     // 输出结果
     printf("输入数组 nums = ");
@@ -135,6 +153,7 @@ int main() {
     printVectorMatrix(res);
 
     // 释放内存
-
+	delVector(iNums);
+	delVector(res);
     return 0;
 }

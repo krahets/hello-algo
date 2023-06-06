@@ -8,16 +8,39 @@
 
 /* 定义向量类型 */
 typedef struct Vector {
-    int size;     // 当前向量的大小
-    int capacity; // 当前向量的容量
-    void **data;  // 指向数据的指针数组
+	int size;     // 当前向量的大小
+	int capacity; // 当前向量的容量
+	int depth;    // 当前向量的深度
+	void **data;  // 指向数据的指针数组
 } Vector;
 
-/* 初始化向量 */
-void vectorInit(Vector *v) {
-    v->size = 0;
-    v->capacity = 4;
-    v->data = malloc(v->capacity * sizeof(void *));
+/* 构造向量 */
+Vector* newVector() {
+	Vector *v = malloc (sizeof(Vector));
+	v->size = 0;
+	v->capacity = 4;
+	v->depth = 1;
+	v->data = malloc(v->capacity * sizeof(void *));
+	return v;
+}
+
+/* 析构向量 */
+void delVector(Vector *v) {
+	if (v) {
+		if (v->depth == 0) {
+			return ;
+		} else if (v->depth == 1) {
+			for (int i=0; i<v->size; i++) {
+				free(v->data[i]);
+			}
+			free(v);
+		} else {
+			for (int i=0; i<v->size; i++) {
+				delVector(v->data[i]);
+			}
+			v->depth--;
+		}
+	}
 }
 
 /*  添加元素到向量尾部 */
@@ -54,8 +77,7 @@ bool isSolution(Vector *state) {
 
 /* 记录解 */
 void recordSolution(Vector *state, Vector *res) {
-    Vector *newPath = malloc(sizeof(Vector));
-    vectorInit(newPath);
+    Vector *newPath = newVector();
     for (int i = 0; i < state->size; i++) {
         vectorPushback(newPath, state->data[i]);
     }
@@ -93,11 +115,10 @@ void backtrace(Vector *state, Vector *choices, Vector *res) {
             // 尝试：做出选择，更新状态
             makeChoice(state, choice);
             // 进行下一轮选择
-            Vector nextChoices;
-            vectorInit(&nextChoices);
-            vectorPushback(&nextChoices, choice->left);
-            vectorPushback(&nextChoices, choice->right);
-            backtrace(state, &nextChoices, res);
+            Vector *nextChoices = newVector();
+            vectorPushback(nextChoices, choice->left);
+            vectorPushback(nextChoices, choice->right);
+            backtrace(state, nextChoices, res);
             // 回退：撤销选择，恢复到之前的状态
             undoChoice(state, choice);
         }
@@ -124,21 +145,21 @@ int main() {
     printTree(root);
 
     // 回溯算法
-    Vector state, choices;
-    Vector res;
-    vectorInit(&state);
-    vectorInit(&choices);
-    vectorInit(&res);
-    vectorPushback(&choices, root);
+    Vector *state = newVector();
+	Vector *choices = newVector();
+    Vector *res = newVector();
+    vectorPushback(choices, root);
 
     // 前序遍历
-    backtrace(&state, &choices, &res);
+    backtrace(state, choices, res);
 
     // 输出结果
     printf("输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点:\n");
-    printResult(&res);
+    printResult(res);
 
     // 释放内存
-
+	delVector(state);
+	delVector(choices);
+	delVector(res);
     return 0;
 }

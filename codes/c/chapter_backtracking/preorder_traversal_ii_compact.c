@@ -10,14 +10,37 @@
 typedef struct Vector {
     int size;     // 当前向量的大小
     int capacity; // 当前向量的容量
+    int depth;    // 当前向量的深度 
     void **data;  // 指向数据的指针数组
 } Vector;
 
-/* 初始化向量 */
-void vectorInit(Vector *v) {
+/* 构造向量 */
+Vector* newVector() {
+    Vector *v = malloc (sizeof(Vector));
     v->size = 0;
     v->capacity = 4;
+    v->depth = 1;
     v->data = malloc(v->capacity * sizeof(void *));
+    return v;
+}
+
+/* 析构向量 */
+void delVector(Vector *v) {
+    if (v) {
+		if (v->depth == 0) {
+			return ;
+		} else if (v->depth == 1) {
+			for (int i=0; i<v->size; i++) {
+				free(v->data[i]);
+			}
+			free(v);
+		} else {
+			for (int i=0; i<v->size; i++) {
+				delVector(v->data[i]);
+			}
+			v->depth--;
+		}
+    }
 }
 
 /*  添加元素到向量尾部 */
@@ -38,14 +61,28 @@ void vectorPopback(Vector *v) {
 
 /* 清空向量 */
 void vectorClear(Vector *v) {
-    for (int i = 0; i < v->size; i++) {
-        free(v->data[i]);
-    }
-    free(v->data);
+	delVector(v);
     v->size = 0;
     v->capacity = 4;
+	v->depth = 1;
     v->data = malloc(v->capacity * sizeof(void *));
 }
+
+/* 获取向量的大小 */
+int vectorSize(Vector *v) {
+    return v->size;
+}
+
+/* 获取向量的尾元素 */
+void* vectorBack(Vector *v) {
+    return v->data[v->size];
+}
+
+/* 获取向量的头元素 */
+void* vectorFront(Vector *v) {
+    return v->data[0];
+}
+
 
 /* 前序遍历：例题二 */
 void preOrder(TreeNode *root, Vector *path, Vector *res) {
@@ -56,12 +93,11 @@ void preOrder(TreeNode *root, Vector *path, Vector *res) {
     vectorPushback(path, root);
     if (root->val == 7) {
         // 记录解
-        Vector *newPath = malloc(sizeof(Vector));
-        vectorInit(newPath);
-        for (int i = 0; i < path->size; i++) {
-            vectorPushback(newPath, path->data[i]);
-        }
-        vectorPushback(res, newPath);
+         Vector *newPath = newVector();
+         for (int i = 0; i < path->size; i++) {
+             vectorPushback(newPath, path->data[i]);
+         }
+         vectorPushback(res, newPath);
     }
 
     preOrder(root->left, path, res);
@@ -91,18 +127,18 @@ int main() {
     printTree(root);
 
     // 创建存储路径和结果的向量
-    Vector path, res;
-    vectorInit(&path);
-    vectorInit(&res);
+    Vector *path = newVector();
+    Vector *res = newVector();
 
     // 前序遍历
-    preOrder(root, &path, &res);
+    preOrder(root, path, res);
 
     // 输出结果
     printf("输出所有根节点到节点 7 的路径:\n");
-    printResult(&res);
+    printResult(res);
 
     // 释放内存
-
+    delVector(path);
+    delVector(res);
     return 0;
 }
