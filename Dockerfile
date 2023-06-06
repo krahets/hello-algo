@@ -5,10 +5,11 @@ RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple mkdocs-material==9.0
 
 WORKDIR /app
 
-COPY docs /app/build
+COPY docs /app/docs
 COPY mkdocs.yml /app/mkdocs.yml
+COPY requirements.txt /app/requirements.txt
 
-RUN mkdir -p ./build/overrides && mkdocs build
+RUN pip install  -r /app/requirements.txt && mkdir -p /app/docs/overrides
 
 EXPOSE 8000
 

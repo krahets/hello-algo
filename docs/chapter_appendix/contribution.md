@@ -43,3 +43,20 @@ docker-compose up -d
 ```shell
 docker-compose down
 ```
+
+## 本机开发部署 
+在任何一个支持python3.9以上的平台上都兼容。  这里用linux举例（喜欢干净环境的的可以使用virtualenv隔离）   
+**使用该方法的部署的优势是编辑后可以刷新实时预览**
+```bash
+cd hello-algo
+pip3 install  --upgrade pip
+pip3 install -r requirements.txt
+mkdir docs/overrides
+mkdocs serve
+```
+
+## 增加python库依赖
+如果需要增加python库依赖，修改requirements.txt即可，添加对应的package和版本后，也可以使用如下命令生成, 生成后手动清理多余的package即可，保持文件简洁易懂。
+```bash
+pip3 freeze > requirements.txt
+```
