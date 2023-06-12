@@ -176,7 +176,7 @@ nav:
     - chapter_heap/index.md
     - 8.1. &nbsp; 堆: chapter_heap/heap.md
     - 8.2. &nbsp; 建堆操作: chapter_heap/build_heap.md
-    - 8.3. &nbsp; Top-K 问题: chapter_heap/top_k.md
+    - 8.3. &nbsp; Top-K 问题（New）: chapter_heap/top_k.md
     - 8.4. &nbsp; 小结: chapter_heap/summary.md
   - 9. &nbsp; &nbsp; 图:
     - chapter_graph/index.md
