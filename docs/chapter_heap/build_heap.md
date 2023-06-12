@@ -27,7 +27,7 @@
 === "Python"
 
     ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{build_heap}
+    [class]{MaxHeap}-[func]{__init__}
     ```
 
 === "Go"
