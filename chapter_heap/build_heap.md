@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 8.2. &nbsp; 建堆操作 *
+# 8.2. &nbsp; 建堆操作
 
 如果我们想要根据输入列表生成一个堆，这个过程被称为「建堆」。
 
@@ -48,7 +48,7 @@ comments: true
 
     ```python title="my_heap.py"
     def __init__(self, nums: list[int]):
-        """构造方法"""
+        """构造方法，根据输入列表建堆"""
         # 将列表元素原封不动添加进堆
         self.max_heap = nums
         # 堆化除叶节点以外的其他所有节点
