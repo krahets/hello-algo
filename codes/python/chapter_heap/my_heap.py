@@ -13,7 +13,7 @@ from modules import *
 class MaxHeap:
     """大顶堆"""
 
-    def __init__(self, nums):
+    def __init__(self, nums: list[int]):
         """构造方法，根据输入列表建堆"""
         # 将列表元素原封不动添加进堆
         self.max_heap = nums
