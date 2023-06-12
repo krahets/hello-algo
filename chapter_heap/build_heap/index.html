@@ -18,14 +18,14 @@
         <link rel="prev" href="../heap/">
       
       
-        <link rel="next" href="../summary/">
+        <link rel="next" href="../top_k/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.11">
     
     
       
-        <title>8.2.   建堆操作 * - Hello 算法</title>
+        <title>8.2.   建堆操作 - Hello 算法</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              8.2. &nbsp; 建堆操作 *
+              8.2. &nbsp; 建堆操作
             
           </span>
         </div>
@@ -1197,6 +1197,8 @@
         
           
         
+          
+        
       
       
         
@@ -1249,12 +1251,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          8.2. &nbsp; 建堆操作 *
+          8.2. &nbsp; 建堆操作
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        8.2. &nbsp; 建堆操作 *
+        8.2. &nbsp; 建堆操作
       </a>
       
         
@@ -1308,8 +1310,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../top_k/" class="md-nav__link">
+        8.3. &nbsp; Top-K 问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../summary/" class="md-nav__link">
-        8.3. &nbsp; 小结
+        8.4. &nbsp; 小结
       </a>
     </li>
   
@@ -2082,7 +2098,7 @@
   
 
 
-<h1 id="82">8.2. &nbsp; 建堆操作 *<a class="headerlink" href="#82" title="Permanent link">&para;</a></h1>
+<h1 id="82">8.2. &nbsp; 建堆操作<a class="headerlink" href="#82" title="Permanent link">&para;</a></h1>
 <p>如果我们想要根据输入列表生成一个堆，这个过程被称为「建堆」。</p>
 <h2 id="821">8.2.1. &nbsp; 借助入堆方法实现<a class="headerlink" href="#821" title="Permanent link">&para;</a></h2>
 <p>最直接的方法是借助“元素入堆操作”实现，首先创建一个空堆，然后将列表元素依次添加到堆中。</p>
@@ -2117,7 +2133,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">my_heap.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;构造方法&quot;&quot;&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;构造方法，根据输入列表建堆&quot;&quot;&quot;</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="c1"># 将列表元素原封不动添加进堆</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">max_heap</span> <span class="o">=</span> <span class="n">nums</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="c1"># 堆化除叶节点以外的其他所有节点</span>
@@ -2359,13 +2375,13 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
         
         
           
-          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: 8.3. &amp;nbsp; 小结" rel="next">
+          <a href="../top_k/" class="md-footer__link md-footer__link--next" aria-label="下一页: 8.3. &amp;nbsp; Top-K 问题" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                8.3. &nbsp; 小结
+                8.3. &nbsp; Top-K 问题
               </div>
             </div>
             <div class="md-footer__button md-icon">
