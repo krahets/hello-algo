@@ -13,8 +13,13 @@ from modules import *
 class MaxHeap:
     """大顶堆"""
 
-    def __init__(self, nums: list[int]):
+    def __init__(self, nums: list[int] | None = None):
         """构造方法"""
+        if nums is not None:
+            self.build_heap(nums)
+    
+    def build_heap(self, nums: list[int]):
+        """建堆操作"""
         # 将列表元素原封不动添加进堆
         self.max_heap = nums
         # 堆化除叶节点以外的其他所有节点

@@ -1,4 +1,4 @@
-# 建堆操作 *
+# 建堆操作
 
 如果我们想要根据输入列表生成一个堆，这个过程被称为「建堆」。
 
@@ -27,7 +27,7 @@
 === "Python"
 
     ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{__init__}
+    [class]{MaxHeap}-[func]{build_heap}
     ```
 
 === "Go"

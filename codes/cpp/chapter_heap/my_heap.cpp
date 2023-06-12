@@ -151,4 +151,6 @@ int main() {
     /* 判断堆是否为空 */
     bool isEmpty = maxHeap.empty();
     cout << "\n堆是否为空 " << isEmpty << endl;
+
+    return 0;
 }
