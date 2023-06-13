@@ -5,13 +5,13 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 键值对 int->String
-const Entry = struct {
+// 键值对
+const Pair = struct {
     key: usize = undefined,
     val: []const u8 = undefined,
 
-    pub fn init(key: usize, val: []const u8) Entry {
-        return Entry {
+    pub fn init(key: usize, val: []const u8) Pair {
+        return Pair {
             .key = key,
             .val = val,
         };
@@ -57,7 +57,7 @@ pub fn ArrayHashMap(comptime T: type) type {
 
         // 添加操作
         pub fn put(self: *Self, key: usize, val: []const u8) !void {
-            var pair = Entry.init(key, val);
+            var pair = Pair.init(key, val);
             var index = hashFunc(key);
             self.buckets.?.items[index] = pair;
         }
@@ -70,7 +70,7 @@ pub fn ArrayHashMap(comptime T: type) type {
         }       
 
         // 获取所有键值对
-        pub fn entrySet(self: *Self) !*std.ArrayList(T) {
+        pub fn pairSet(self: *Self) !*std.ArrayList(T) {
             var entry_set = std.ArrayList(T).init(self.mem_allocator);
             for (self.buckets.?.items) |item| {
                 if (item == null) continue;
@@ -101,7 +101,7 @@ pub fn ArrayHashMap(comptime T: type) type {
 
         // 打印哈希表
         pub fn print(self: *Self) !void {
-            var entry_set = try self.entrySet();
+            var entry_set = try self.pairSet();
             defer entry_set.deinit();
             for (entry_set.items) |item| {
                 std.debug.print("{} -> {s}\n", .{item.key, item.val});
@@ -113,7 +113,7 @@ pub fn ArrayHashMap(comptime T: type) type {
 // Driver Code
 pub fn main() !void {
     // 初始化哈希表
-    var map = ArrayHashMap(Entry){};
+    var map = ArrayHashMap(Pair){};
     try map.init(std.heap.page_allocator);
     defer map.deinit();
 
@@ -140,7 +140,7 @@ pub fn main() !void {
     
     // 遍历哈希表
     std.debug.print("\n遍历键值对 Key->Value\n", .{});
-    var entry_set = try map.entrySet();
+    var entry_set = try map.pairSet();
     for (entry_set.items) |kv| {
         std.debug.print("{} -> {s}\n", .{kv.key, kv.val});
     }

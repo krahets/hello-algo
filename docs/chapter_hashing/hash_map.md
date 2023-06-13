@@ -6,16 +6,20 @@
 
 ![哈希表的抽象表示](hash_map.assets/hash_map.png)
 
-除哈希表外，我们还可以使用数组或链表实现查询功能，各项操作的时间复杂度如下表所示。
+除哈希表外，我们还可以使用数组或链表实现元素查询，其中：
 
-在哈希表中增删查改的时间复杂度都是 $O(1)$ ，全面胜出！因此，哈希表常用于对查找效率要求较高的场景。
+- 查询元素需要遍历所有元素，使用 $O(n)$ 时间；
+- 添加元素仅需添加至尾部即可，使用 $O(1)$ 时间；
+- 删除元素需要先查询再删除，使用 $O(n)$ 时间；
+
+然而，在哈希表中进行增删查的时间复杂度都是 $O(1)$ 。哈希表全面胜出！因此，哈希表常用于对查找效率要求较高的场景。
 
 <div class="center-table" markdown>
 
 |          | 数组   | 链表   | 哈希表 |
 | -------- | ------ | ------ | ------ |
 | 查找元素 | $O(n)$ | $O(n)$ | $O(1)$ |
-| 插入元素 | $O(1)$ | $O(1)$ | $O(1)$ |
+| 添加元素 | $O(1)$ | $O(1)$ | $O(1)$ |
 | 删除元素 | $O(n)$ | $O(n)$ | $O(1)$ |
 
 </div>
@@ -430,12 +434,12 @@
 
 首先考虑最简单的情况，**仅使用一个数组来实现哈希表**。通常，我们将数组中的每个空位称为「桶 Bucket」，用于存储键值对。
 
-我们将键值对 key, value 封装成一个类 `Entry` ，并将所有 `Entry` 放入数组中。这样，数组中的每个 `Entry` 都具有唯一的索引。为了建立 key 和索引之间的映射关系，我们需要使用「哈希函数 Hash Function」。
+我们将键值对 key, value 封装成一个类 `Pair` ，并将所有 `Pair` 放入数组中。这样，数组中的每个 `Pair` 都具有唯一的索引。为了建立 key 和索引之间的映射关系，我们需要使用「哈希函数 Hash Function」。
 
 设哈希表的数组为 `buckets` ，哈希函数为 `f(x)` ，那么查询操作的步骤如下：
 
 1. 输入 `key` ，通过哈希函数计算出索引 `index` ，即 `index = f(key)` ；
-2. 通过索引在数组中访问到键值对 `entry` ，即 `entry = buckets[index]` ，然后从 `entry` 中获取对应的 `value` ；
+2. 通过索引在数组中访问到键值对 `pair` ，即 `pair = buckets[index]` ，然后从 `pair` 中获取对应的 `value` ；
 
 以学生数据 `key 学号 -> value 姓名` 为例，我们可以设计如下哈希函数：
 
@@ -450,7 +454,7 @@ $$
 === "Java"
 
     ```java title="array_hash_map.java"
-    [class]{Entry}-[func]{}
+    [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
     ```
@@ -458,7 +462,7 @@ $$
 === "C++"
 
     ```cpp title="array_hash_map.cpp"
-    [class]{Entry}-[func]{}
+    [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
     ```
@@ -466,7 +470,7 @@ $$
 === "Python"
 
     ```python title="array_hash_map.py"
-    [class]{Entry}-[func]{}
+    [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
     ```
@@ -474,7 +478,7 @@ $$
 === "Go"
 
     ```go title="array_hash_map.go"
-    [class]{entry}-[func]{}
+    [class]{pair}-[func]{}
 
     [class]{arrayHashMap}-[func]{}
     ```
@@ -482,7 +486,7 @@ $$
 === "JavaScript"
 
     ```javascript title="array_hash_map.js"
-    [class]{Entry}-[func]{}
+    [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
     ```
@@ -490,7 +494,7 @@ $$
 === "TypeScript"
 
     ```typescript title="array_hash_map.ts"
-    [class]{Entry}-[func]{}
+    [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
     ```
@@ -498,7 +502,7 @@ $$
 === "C"
 
     ```c title="array_hash_map.c"
-    [class]{entry}-[func]{}
+    [class]{pair}-[func]{}
 
     [class]{arrayHashMap}-[func]{}
     ```
@@ -506,7 +510,7 @@ $$
 === "C#"
 
     ```csharp title="array_hash_map.cs"
-    [class]{Entry}-[func]{}
+    [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
     ```
@@ -514,7 +518,7 @@ $$
 === "Swift"
 
     ```swift title="array_hash_map.swift"
-    [class]{Entry}-[func]{}
+    [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
     ```
@@ -522,7 +526,7 @@ $$
 === "Zig"
 
     ```zig title="array_hash_map.zig"
-    [class]{Entry}-[func]{}
+    [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
     ```
@@ -530,7 +534,7 @@ $$
 === "Dart"
 
     ```dart title="array_hash_map.dart"
-    [class]{Entry}-[func]{}
+    [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
     ```

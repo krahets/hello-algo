@@ -162,7 +162,7 @@ nav:
   - 6. &nbsp; &nbsp; 散列表:
     - chapter_hashing/index.md
     - 6.1. &nbsp; 哈希表: chapter_hashing/hash_map.md
-    - 6.2. &nbsp; 哈希冲突处理: chapter_hashing/hash_collision.md
+    - 6.2. &nbsp; 哈希冲突: chapter_hashing/hash_collision.md
     - 6.3. &nbsp; 小结: chapter_hashing/summary.md
   - 7. &nbsp; &nbsp; 树:
     - chapter_tree/index.md
