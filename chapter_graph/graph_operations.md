@@ -947,11 +947,11 @@ comments: true
         /* 打印邻接表 */
         public void print() {
             System.out.println("邻接表 =");
-            for (Map.Entry<Vertex, List<Vertex>> entry : adjList.entrySet()) {
+            for (Map.Entry<Vertex, List<Vertex>> pair : adjList.entrySet()) {
                 List<Integer> tmp = new ArrayList<>();
-                for (Vertex vertex : entry.getValue())
+                for (Vertex vertex : pair.getValue())
                     tmp.add(vertex.val);
-                System.out.println(entry.getKey().val + ": " + tmp + ",");
+                System.out.println(pair.getKey().val + ": " + tmp + ",");
             }
         }
     }
@@ -1444,11 +1444,11 @@ comments: true
         /* 打印邻接表 */
         public void print() {
             Console.WriteLine("邻接表 =");
-            foreach (KeyValuePair<Vertex, List<Vertex>> entry in adjList) {
+            foreach (KeyValuePair<Vertex, List<Vertex>> pair in adjList) {
                 List<int> tmp = new List<int>();
-                foreach (Vertex vertex in entry.Value)
+                foreach (Vertex vertex in pair.Value)
                     tmp.Add(vertex.val);
-                Console.WriteLine(entry.Key.val + ": [" + string.Join(", ", tmp) + "],");
+                Console.WriteLine(pair.Key.val + ": [" + string.Join(", ", tmp) + "],");
             }
         }
     }
@@ -1523,12 +1523,12 @@ comments: true
         /* 打印邻接表 */
         public func print() {
             Swift.print("邻接表 =")
-            for entry in adjList {
+            for pair in adjList {
                 var tmp: [Int] = []
-                for vertex in entry.value {
+                for vertex in pair.value {
                     tmp.append(vertex.val)
                 }
-                Swift.print("\(entry.key.val): \(tmp),")
+                Swift.print("\(pair.key.val): \(tmp),")
             }
         }
     }

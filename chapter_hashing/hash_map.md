@@ -12,16 +12,20 @@ comments: true
 
 <p align="center"> Fig. 哈希表的抽象表示 </p>
 
-除哈希表外，我们还可以使用数组或链表实现查询功能，各项操作的时间复杂度如下表所示。
+除哈希表外，我们还可以使用数组或链表实现元素查询，其中：
 
-在哈希表中增删查改的时间复杂度都是 $O(1)$ ，全面胜出！因此，哈希表常用于对查找效率要求较高的场景。
+- 查询元素需要遍历所有元素，使用 $O(n)$ 时间；
+- 添加元素仅需添加至尾部即可，使用 $O(1)$ 时间；
+- 删除元素需要先查询再删除，使用 $O(n)$ 时间；
+
+然而，在哈希表中进行增删查的时间复杂度都是 $O(1)$ 。哈希表全面胜出！因此，哈希表常用于对查找效率要求较高的场景。
 
 <div class="center-table" markdown>
 
 |          | 数组   | 链表   | 哈希表 |
 | -------- | ------ | ------ | ------ |
 | 查找元素 | $O(n)$ | $O(n)$ | $O(1)$ |
-| 插入元素 | $O(1)$ | $O(1)$ | $O(1)$ |
+| 添加元素 | $O(1)$ | $O(1)$ | $O(1)$ |
 | 删除元素 | $O(n)$ | $O(n)$ | $O(1)$ |
 
 </div>
@@ -436,12 +440,12 @@ comments: true
 
 首先考虑最简单的情况，**仅使用一个数组来实现哈希表**。通常，我们将数组中的每个空位称为「桶 Bucket」，用于存储键值对。
 
-我们将键值对 key, value 封装成一个类 `Entry` ，并将所有 `Entry` 放入数组中。这样，数组中的每个 `Entry` 都具有唯一的索引。为了建立 key 和索引之间的映射关系，我们需要使用「哈希函数 Hash Function」。
+我们将键值对 key, value 封装成一个类 `Pair` ，并将所有 `Pair` 放入数组中。这样，数组中的每个 `Pair` 都具有唯一的索引。为了建立 key 和索引之间的映射关系，我们需要使用「哈希函数 Hash Function」。
 
 设哈希表的数组为 `buckets` ，哈希函数为 `f(x)` ，那么查询操作的步骤如下：
 
 1. 输入 `key` ，通过哈希函数计算出索引 `index` ，即 `index = f(key)` ；
-2. 通过索引在数组中访问到键值对 `entry` ，即 `entry = buckets[index]` ，然后从 `entry` 中获取对应的 `value` ；
+2. 通过索引在数组中访问到键值对 `pair` ，即 `pair = buckets[index]` ，然后从 `pair` 中获取对应的 `value` ；
 
 以学生数据 `key 学号 -> value 姓名` 为例，我们可以设计如下哈希函数：
 
@@ -458,12 +462,12 @@ $$
 === "Java"
 
     ```java title="array_hash_map.java"
-    /* 键值对 int->String */
-    class Entry {
+    /* 键值对 */
+    class Pair {
         public int key;
         public String val;
 
-        public Entry(int key, String val) {
+        public Pair(int key, String val) {
             this.key = key;
             this.val = val;
         }
@@ -471,7 +475,7 @@ $$
 
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
-        private List<Entry> buckets;
+        private List<Pair> buckets;
 
         public ArrayHashMap() {
             // 初始化数组，包含 100 个桶
@@ -490,7 +494,7 @@ $$
         /* 查询操作 */
         public String get(int key) {
             int index = hashFunc(key);
-            Entry pair = buckets.get(index);
+            Pair pair = buckets.get(index);
             if (pair == null)
                 return null;
             return pair.val;
@@ -498,7 +502,7 @@ $$
 
         /* 添加操作 */
         public void put(int key, String val) {
-            Entry pair = new Entry(key, val);
+            Pair pair = new Pair(key, val);
             int index = hashFunc(key);
             buckets.set(index, pair);
         }
@@ -511,19 +515,19 @@ $$
         }
 
         /* 获取所有键值对 */
-        public List<Entry> entrySet() {
-            List<Entry> entrySet = new ArrayList<>();
-            for (Entry pair : buckets) {
+        public List<Pair> pairSet() {
+            List<Pair> pairSet = new ArrayList<>();
+            for (Pair pair : buckets) {
                 if (pair != null)
-                    entrySet.add(pair);
+                    pairSet.add(pair);
             }
-            return entrySet;
+            return pairSet;
         }
 
         /* 获取所有键 */
         public List<Integer> keySet() {
             List<Integer> keySet = new ArrayList<>();
-            for (Entry pair : buckets) {
+            for (Pair pair : buckets) {
                 if (pair != null)
                     keySet.add(pair.key);
             }
@@ -533,7 +537,7 @@ $$
         /* 获取所有值 */
         public List<String> valueSet() {
             List<String> valueSet = new ArrayList<>();
-            for (Entry pair : buckets) {
+            for (Pair pair : buckets) {
                 if (pair != null)
                     valueSet.add(pair.val);
             }
@@ -542,7 +546,7 @@ $$
 
         /* 打印哈希表 */
         public void print() {
-            for (Entry kv : entrySet()) {
+            for (Pair kv : pairSet()) {
                 System.out.println(kv.key + " -> " + kv.val);
             }
         }
@@ -552,12 +556,12 @@ $$
 === "C++"
 
     ```cpp title="array_hash_map.cpp"
-    /* 键值对 int->String */
-    struct Entry {
+    /* 键值对 */
+    struct Pair {
       public:
         int key;
         string val;
-        Entry(int key, string val) {
+        Pair(int key, string val) {
             this->key = key;
             this->val = val;
         }
@@ -566,12 +570,12 @@ $$
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
       private:
-        vector<Entry *> buckets;
+        vector<Pair *> buckets;
 
       public:
         ArrayHashMap() {
             // 初始化数组，包含 100 个桶
-            buckets = vector<Entry *>(100);
+            buckets = vector<Pair *>(100);
         }
 
         ~ArrayHashMap() {
@@ -591,7 +595,7 @@ $$
         /* 查询操作 */
         string get(int key) {
             int index = hashFunc(key);
-            Entry *pair = buckets[index];
+            Pair *pair = buckets[index];
             if (pair == nullptr)
                 return nullptr;
             return pair->val;
@@ -599,7 +603,7 @@ $$
 
         /* 添加操作 */
         void put(int key, string val) {
-            Entry *pair = new Entry(key, val);
+            Pair *pair = new Pair(key, val);
             int index = hashFunc(key);
             buckets[index] = pair;
         }
@@ -613,20 +617,20 @@ $$
         }
 
         /* 获取所有键值对 */
-        vector<Entry *> entrySet() {
-            vector<Entry *> entrySet;
-            for (Entry *pair : buckets) {
+        vector<Pair *> pairSet() {
+            vector<Pair *> pairSet;
+            for (Pair *pair : buckets) {
                 if (pair != nullptr) {
-                    entrySet.push_back(pair);
+                    pairSet.push_back(pair);
                 }
             }
-            return entrySet;
+            return pairSet;
         }
 
         /* 获取所有键 */
         vector<int> keySet() {
             vector<int> keySet;
-            for (Entry *pair : buckets) {
+            for (Pair *pair : buckets) {
                 if (pair != nullptr) {
                     keySet.push_back(pair->key);
                 }
@@ -637,7 +641,7 @@ $$
         /* 获取所有值 */
         vector<string> valueSet() {
             vector<string> valueSet;
-            for (Entry *pair : buckets) {
+            for (Pair *pair : buckets) {
                 if (pair != nullptr) {
                     valueSet.push_back(pair->val);
                 }
@@ -647,7 +651,7 @@ $$
 
         /* 打印哈希表 */
         void print() {
-            for (Entry *kv : entrySet()) {
+            for (Pair *kv : pairSet()) {
                 cout << kv->key << " -> " << kv->val << endl;
             }
         }
@@ -657,8 +661,8 @@ $$
 === "Python"
 
     ```python title="array_hash_map.py"
-    class Entry:
-        """键值对 int->String"""
+    class Pair:
+        """键值对"""
 
         def __init__(self, key: int, val: str):
             self.key = key
@@ -670,7 +674,7 @@ $$
         def __init__(self):
             """构造方法"""
             # 初始化数组，包含 100 个桶
-            self.buckets: list[Entry | None] = [None] * 100
+            self.buckets: list[Pair | None] = [None] * 100
 
         def hash_func(self, key: int) -> int:
             """哈希函数"""
@@ -680,26 +684,26 @@ $$
         def get(self, key: int) -> str:
             """查询操作"""
             index: int = self.hash_func(key)
-            pair: Entry = self.buckets[index]
+            pair: Pair = self.buckets[index]
             if pair is None:
                 return None
             return pair.val
 
-        def put(self, key: int, val: str) -> None:
+        def put(self, key: int, val: str):
             """添加操作"""
-            pair = Entry(key, val)
+            pair = Pair(key, val)
             index: int = self.hash_func(key)
             self.buckets[index] = pair
 
-        def remove(self, key: int) -> None:
+        def remove(self, key: int):
             """删除操作"""
             index: int = self.hash_func(key)
             # 置为 None ，代表删除
             self.buckets[index] = None
 
-        def entry_set(self) -> list[Entry]:
+        def entry_set(self) -> list[Pair]:
             """获取所有键值对"""
-            result: list[Entry] = []
+            result: list[Pair] = []
             for pair in self.buckets:
                 if pair is not None:
                     result.append(pair)
@@ -721,7 +725,7 @@ $$
                     result.append(pair.val)
             return result
 
-        def print(self) -> None:
+        def print(self):
             """打印哈希表"""
             for pair in self.buckets:
                 if pair is not None:
@@ -731,21 +735,21 @@ $$
 === "Go"
 
     ```go title="array_hash_map.go"
-    /* 键值对 int->String */
-    type entry struct {
+    /* 键值对 */
+    type pair struct {
         key int
         val string
     }
 
     /* 基于数组简易实现的哈希表 */
     type arrayHashMap struct {
-        buckets []*entry
+        buckets []*pair
     }
 
     /* 初始化哈希表 */
     func newArrayHashMap() *arrayHashMap {
         // 初始化数组，包含 100 个桶
-        buckets := make([]*entry, 100)
+        buckets := make([]*pair, 100)
         return &arrayHashMap{buckets: buckets}
     }
 
@@ -767,7 +771,7 @@ $$
 
     /* 添加操作 */
     func (a *arrayHashMap) put(key int, val string) {
-        pair := &entry{key: key, val: val}
+        pair := &pair{key: key, val: val}
         index := a.hashFunc(key)
         a.buckets[index] = pair
     }
@@ -780,8 +784,8 @@ $$
     }
 
     /* 获取所有键对 */
-    func (a *arrayHashMap) entrySet() []*entry {
-        var pairs []*entry
+    func (a *arrayHashMap) pairSet() []*pair {
+        var pairs []*pair
         for _, pair := range a.buckets {
             if pair != nil {
                 pairs = append(pairs, pair)
@@ -826,7 +830,7 @@ $$
 
     ```javascript title="array_hash_map.js"
     /* 键值对 Number -> String */
-    class Entry {
+    class Pair {
         constructor(key, val) {
             this.key = key;
             this.val = val;
@@ -849,15 +853,15 @@ $$
         /* 查询操作 */
         get(key) {
             let index = this.#hashFunc(key);
-            let entry = this.#buckets[index];
-            if (entry === null) return null;
-            return entry.val;
+            let pair = this.#buckets[index];
+            if (pair === null) return null;
+            return pair.val;
         }
 
         /* 添加操作 */
         set(key, val) {
             let index = this.#hashFunc(key);
-            this.#buckets[index] = new Entry(key, val);
+            this.#buckets[index] = new Pair(key, val);
         }
 
         /* 删除操作 */
@@ -902,10 +906,10 @@ $$
 
         /* 打印哈希表 */
         print() {
-            let entrySet = this.entries();
-            for (const entry of entrySet) {
-                if (!entry) continue;
-                console.info(`${entry.key} -> ${entry.val}`);
+            let pairSet = this.entries();
+            for (const pair of pairSet) {
+                if (!pair) continue;
+                console.info(`${pair.key} -> ${pair.val}`);
             }
         }
     }
@@ -915,7 +919,7 @@ $$
 
     ```typescript title="array_hash_map.ts"
     /* 键值对 Number -> String */
-    class Entry {
+    class Pair {
         public key: number;
         public val: string;
 
@@ -927,7 +931,7 @@ $$
 
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
-        private readonly buckets: (Entry | null)[];
+        private readonly buckets: (Pair | null)[];
 
         constructor() {
             // 初始化数组，包含 100 个桶
@@ -942,15 +946,15 @@ $$
         /* 查询操作 */
         public get(key: number): string | null {
             let index = this.hashFunc(key);
-            let entry = this.buckets[index];
-            if (entry === null) return null;
-            return entry.val;
+            let pair = this.buckets[index];
+            if (pair === null) return null;
+            return pair.val;
         }
 
         /* 添加操作 */
         public set(key: number, val: string) {
             let index = this.hashFunc(key);
-            this.buckets[index] = new Entry(key, val);
+            this.buckets[index] = new Pair(key, val);
         }
 
         /* 删除操作 */
@@ -961,8 +965,8 @@ $$
         }
 
         /* 获取所有键值对 */
-        public entries(): (Entry | null)[] {
-            let arr: (Entry | null)[] = [];
+        public entries(): (Pair | null)[] {
+            let arr: (Pair | null)[] = [];
             for (let i = 0; i < this.buckets.length; i++) {
                 if (this.buckets[i]) {
                     arr.push(this.buckets[i]);
@@ -995,10 +999,10 @@ $$
 
         /* 打印哈希表 */
         public print() {
-            let entrySet = this.entries();
-            for (const entry of entrySet) {
-                if (!entry) continue;
-                console.info(`${entry.key} -> ${entry.val}`);
+            let pairSet = this.entries();
+            for (const pair of pairSet) {
+                if (!pair) continue;
+                console.info(`${pair.key} -> ${pair.val}`);
             }
         }
     }
@@ -1007,7 +1011,13 @@ $$
 === "C"
 
     ```c title="array_hash_map.c"
-    [class]{entry}-[func]{}
+    /* 键值对 int->string */
+    struct pair {
+        int key;
+        char *val;
+    };
+
+    typedef struct pair pair;
 
     [class]{arrayHashMap}-[func]{}
     ```
@@ -1016,10 +1026,10 @@ $$
 
     ```csharp title="array_hash_map.cs"
     /* 键值对 int->string */
-    class Entry {
+    class Pair {
         public int key;
         public string val;
-        public Entry(int key, string val) {
+        public Pair(int key, string val) {
             this.key = key;
             this.val = val;
         }
@@ -1027,7 +1037,7 @@ $$
 
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
-        private List<Entry?> buckets;
+        private List<Pair?> buckets;
         public ArrayHashMap() {
             // 初始化数组，包含 100 个桶
             buckets = new();
@@ -1045,14 +1055,14 @@ $$
         /* 查询操作 */
         public string? get(int key) {
             int index = hashFunc(key);
-            Entry? pair = buckets[index];
+            Pair? pair = buckets[index];
             if (pair == null) return null;
             return pair.val;
         }
 
         /* 添加操作 */
         public void put(int key, string val) {
-            Entry pair = new Entry(key, val);
+            Pair pair = new Pair(key, val);
             int index = hashFunc(key);
             buckets[index] = pair;
         }
@@ -1065,19 +1075,19 @@ $$
         }
 
         /* 获取所有键值对 */
-        public List<Entry> entrySet() {
-            List<Entry> entrySet = new();
-            foreach (Entry? pair in buckets) {
+        public List<Pair> pairSet() {
+            List<Pair> pairSet = new();
+            foreach (Pair? pair in buckets) {
                 if (pair != null)
-                    entrySet.Add(pair);
+                    pairSet.Add(pair);
             }
-            return entrySet;
+            return pairSet;
         }
 
         /* 获取所有键 */
         public List<int> keySet() {
             List<int> keySet = new();
-            foreach (Entry? pair in buckets) {
+            foreach (Pair? pair in buckets) {
                 if (pair != null)
                     keySet.Add(pair.key);
             }
@@ -1087,7 +1097,7 @@ $$
         /* 获取所有值 */
         public List<string> valueSet() {
             List<string> valueSet = new();
-            foreach (Entry? pair in buckets) {
+            foreach (Pair? pair in buckets) {
                 if (pair != null)
                     valueSet.Add(pair.val);
             }
@@ -1096,7 +1106,7 @@ $$
 
         /* 打印哈希表 */
         public void print() {
-            foreach (Entry kv in entrySet()) {
+            foreach (Pair kv in pairSet()) {
                 Console.WriteLine(kv.key + " -> " + kv.val);
             }
         }
@@ -1106,8 +1116,8 @@ $$
 === "Swift"
 
     ```swift title="array_hash_map.swift"
-    /* 键值对 int->String */
-    class Entry {
+    /* 键值对 */
+    class Pair {
         var key: Int
         var val: String
 
@@ -1119,7 +1129,7 @@ $$
 
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
-        private var buckets: [Entry?] = []
+        private var buckets: [Pair?] = []
 
         init() {
             // 初始化数组，包含 100 个桶
@@ -1143,7 +1153,7 @@ $$
 
         /* 添加操作 */
         func put(key: Int, val: String) {
-            let pair = Entry(key: key, val: val)
+            let pair = Pair(key: key, val: val)
             let index = hashFunc(key: key)
             buckets[index] = pair
         }
@@ -1156,14 +1166,14 @@ $$
         }
 
         /* 获取所有键值对 */
-        func entrySet() -> [Entry] {
-            var entrySet: [Entry] = []
+        func pairSet() -> [Pair] {
+            var pairSet: [Pair] = []
             for pair in buckets {
                 if let pair = pair {
-                    entrySet.append(pair)
+                    pairSet.append(pair)
                 }
             }
-            return entrySet
+            return pairSet
         }
 
         /* 获取所有键 */
@@ -1190,8 +1200,8 @@ $$
 
         /* 打印哈希表 */
         func print() {
-            for entry in entrySet() {
-                Swift.print("\(entry.key) -> \(entry.val)")
+            for pair in pairSet() {
+                Swift.print("\(pair.key) -> \(pair.val)")
             }
         }
     }
@@ -1200,13 +1210,13 @@ $$
 === "Zig"
 
     ```zig title="array_hash_map.zig"
-    // 键值对 int->String
-    const Entry = struct {
+    // 键值对
+    const Pair = struct {
         key: usize = undefined,
         val: []const u8 = undefined,
 
-        pub fn init(key: usize, val: []const u8) Entry {
-            return Entry {
+        pub fn init(key: usize, val: []const u8) Pair {
+            return Pair {
                 .key = key,
                 .val = val,
             };
@@ -1252,7 +1262,7 @@ $$
 
             // 添加操作
             pub fn put(self: *Self, key: usize, val: []const u8) !void {
-                var pair = Entry.init(key, val);
+                var pair = Pair.init(key, val);
                 var index = hashFunc(key);
                 self.buckets.?.items[index] = pair;
             }
@@ -1265,7 +1275,7 @@ $$
             }       
 
             // 获取所有键值对
-            pub fn entrySet(self: *Self) !*std.ArrayList(T) {
+            pub fn pairSet(self: *Self) !*std.ArrayList(T) {
                 var entry_set = std.ArrayList(T).init(self.mem_allocator);
                 for (self.buckets.?.items) |item| {
                     if (item == null) continue;
@@ -1296,7 +1306,7 @@ $$
 
             // 打印哈希表
             pub fn print(self: *Self) !void {
-                var entry_set = try self.entrySet();
+                var entry_set = try self.pairSet();
                 defer entry_set.deinit();
                 for (entry_set.items) |item| {
                     std.debug.print("{} -> {s}\n", .{item.key, item.val});
@@ -1309,16 +1319,16 @@ $$
 === "Dart"
 
     ```dart title="array_hash_map.dart"
-    /* 键值对 int -> String */
-    class Entry {
+    /* 键值对 */
+    class Pair {
       int key;
       String val;
-      Entry(this.key, this.val);
+      Pair(this.key, this.val);
     }
 
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
-      late List<Entry?> _buckets;
+      late List<Pair?> _buckets;
 
       ArrayHashMap() {
         // 初始化数组，包含 100 个桶
@@ -1334,7 +1344,7 @@ $$
       /* 查询操作 */
       String? get(int key) {
         final int index = _hashFunc(key);
-        final Entry? pair = _buckets[index];
+        final Pair? pair = _buckets[index];
         if (pair == null) {
           return null;
         }
@@ -1343,7 +1353,7 @@ $$
 
       /* 添加操作 */
       void put(int key, String val) {
-        final Entry pair = Entry(key, val);
+        final Pair pair = Pair(key, val);
         final int index = _hashFunc(key);
         _buckets[index] = pair;
       }
@@ -1355,20 +1365,20 @@ $$
       }
 
       /* 获取所有键值对 */
-      List<Entry> entrySet() {
-        List<Entry> entrySet = [];
-        for (final Entry? pair in _buckets) {
+      List<Pair> pairSet() {
+        List<Pair> pairSet = [];
+        for (final Pair? pair in _buckets) {
           if (pair != null) {
-            entrySet.add(pair);
+            pairSet.add(pair);
           }
         }
-        return entrySet;
+        return pairSet;
       }
 
       /* 获取所有键 */
       List<int> keySet() {
         List<int> keySet = [];
-        for (final Entry? pair in _buckets) {
+        for (final Pair? pair in _buckets) {
           if (pair != null) {
             keySet.add(pair.key);
           }
@@ -1379,7 +1389,7 @@ $$
       /* 获取所有值 */
       List<String> values() {
         List<String> valueSet = [];
-        for (final Entry? pair in _buckets) {
+        for (final Pair? pair in _buckets) {
           if (pair != null) {
             valueSet.add(pair.val);
           }
@@ -1389,7 +1399,7 @@ $$
 
       /* 打印哈希表 */
       void printHashMap() {
-        for (final Entry kv in entrySet()) {
+        for (final Pair kv in pairSet()) {
           print("${kv.key} -> ${kv.val}");
         }
       }
