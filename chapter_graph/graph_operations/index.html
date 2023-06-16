@@ -949,6 +949,8 @@
         
           
         
+          
+        
       
       
         
@@ -978,7 +980,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_hashing/hash_map/" class="md-nav__link">
-        6.1. &nbsp; 哈希表
+        6.1. &nbsp; 哈希表（New）
       </a>
     </li>
   
@@ -1005,8 +1007,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../../chapter_hashing/hash_algorithm/" class="md-nav__link">
+        6.3. &nbsp; 哈希算法（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../chapter_hashing/summary/" class="md-nav__link">
-        6.3. &nbsp; 小结
+        6.4. &nbsp; 小结
       </a>
     </li>
   
@@ -2249,7 +2265,7 @@
 <a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">        </span><span class="c1">// 向顶点列表中添加新顶点的值</span>
 <a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">        </span><span class="n">vertices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
 <a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">        </span><span class="c1">// 在邻接矩阵中添加一行</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">        </span><span class="n">adjMat</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">        </span><span class="n">adjMat</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
 <a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">        </span><span class="c1">// 在邻接矩阵中添加一列</span>
 <a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">row</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">adjMat</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">            </span><span class="n">row</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>

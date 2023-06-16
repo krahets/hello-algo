@@ -18,7 +18,7 @@
         <link rel="prev" href="../hash_map/">
       
       
-        <link rel="next" href="../summary/">
+        <link rel="next" href="../hash_algorithm/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.11">
@@ -951,6 +951,8 @@
         
           
         
+          
+        
       
       
         
@@ -980,7 +982,7 @@
   
     <li class="md-nav__item">
       <a href="../hash_map/" class="md-nav__link">
-        6.1. &nbsp; 哈希表
+        6.1. &nbsp; 哈希表（New）
       </a>
     </li>
   
@@ -1028,24 +1030,17 @@
       
         <li class="md-nav__item">
   <a href="#621" class="md-nav__link">
-    6.2.1. &nbsp; 哈希表扩容
+    6.2.1. &nbsp; 链式地址
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#622" class="md-nav__link">
-    6.2.2. &nbsp; 链式地址
+    6.2.2. &nbsp; 开放寻址
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#623" class="md-nav__link">
-    6.2.3. &nbsp; 开放寻址
-  </a>
-  
-    <nav class="md-nav" aria-label="6.2.3. &nbsp; 开放寻址">
+    <nav class="md-nav" aria-label="6.2.2. &nbsp; 开放寻址">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1082,8 +1077,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../hash_algorithm/" class="md-nav__link">
+        6.3. &nbsp; 哈希算法（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../summary/" class="md-nav__link">
-        6.3. &nbsp; 小结
+        6.4. &nbsp; 小结
       </a>
     </li>
   
@@ -2076,24 +2085,17 @@
       
         <li class="md-nav__item">
   <a href="#621" class="md-nav__link">
-    6.2.1. &nbsp; 哈希表扩容
+    6.2.1. &nbsp; 链式地址
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#622" class="md-nav__link">
-    6.2.2. &nbsp; 链式地址
+    6.2.2. &nbsp; 开放寻址
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#623" class="md-nav__link">
-    6.2.3. &nbsp; 开放寻址
-  </a>
-  
-    <nav class="md-nav" aria-label="6.2.3. &nbsp; 开放寻址">
+    <nav class="md-nav" aria-label="6.2.2. &nbsp; 开放寻址">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2139,23 +2141,21 @@
 
 
 <h1 id="62">6.2. &nbsp; 哈希冲突<a class="headerlink" href="#62" title="Permanent link">&para;</a></h1>
-<p>在理想情况下，哈希函数为每个输入生成唯一的输出，实现 key 和数组索引的一一对应。但实际上，<strong>哈希函数的输入空间通常远大于输出空间</strong>，因此多个输入产生相同输出的情况是不可避免的。例如，输入空间为全体整数，输出空间为数组容量大小，则必然有多个整数映射至同一数组索引。</p>
-<p>这种多个输入对应同一输出索引的现象被称为「哈希冲突 Hash Collision」。哈希冲突会导致查询结果错误，严重影响哈希表的可用性。哈希冲突的处理方法主要有两种：</p>
-<ul>
-<li><strong>扩大哈希表容量</strong>：哈希表容量越大，键值对聚集的概率就越低。极端情况下，当输入空间和输出空间大小相等时，哈希表等同于数组，每个 key 都对应唯一的数组索引。</li>
-<li><strong>优化哈希表结构</strong>：常用方法包括链式地址和开放寻址。这类方法的思路是通过改良数据结构，使得哈希表可以在发生哈希冲突时仍然可以正常工作。当然，这些优化往往是以牺牲时间效率为代价的。</li>
-</ul>
-<h2 id="621">6.2.1. &nbsp; 哈希表扩容<a class="headerlink" href="#621" title="Permanent link">&para;</a></h2>
-<p>哈希函数的最后一步通常是对桶数量 <span class="arithmatex">\(n\)</span> 取余，作用是将哈希值映射到桶索引范围，从而将 key 放入对应的桶中。当哈希表容量越大（即 <span class="arithmatex">\(n\)</span> 越大）时，多个 key 被分配到同一个桶中的概率就越低，冲突就越少。因此，<strong>当哈希表内的冲突总体较为严重时，编程语言通常通过扩容哈希表来缓解冲突</strong>。类似于数组扩容，哈希表扩容需将所有键值对从原哈希表迁移至新哈希表，开销较大。</p>
-<p>编程语言通常使用「负载因子 Load Factor」来衡量哈希冲突的严重程度，<strong>定义为哈希表中元素数量除以桶数量</strong>，常作为哈希表扩容的触发条件。在 Java 中，当负载因子超过 <span class="arithmatex">\(0.75\)</span> 时，系统会将 HashMap 容量扩展为原先的 <span class="arithmatex">\(2\)</span> 倍。</p>
-<h2 id="622">6.2.2. &nbsp; 链式地址<a class="headerlink" href="#622" title="Permanent link">&para;</a></h2>
+<p>上节提到，<strong>通常情况下哈希函数的输入空间远大于输出空间</strong>，因此哈希冲突是不可避免的。例如，输入空间为全体整数，输出空间为数组容量大小，则必然有多个整数映射至同一数组索引。</p>
+<p>哈希冲突会导致查询结果错误，严重影响哈希表的可用性。为解决该问题，我们可以每当遇到哈希冲突时就进行哈希表扩容，直至冲突消失为止。此方法简单粗暴且有效，但效率太低，因为哈希表扩容需要进行大量的数据搬运与哈希值计算。为了提升效率，我们换一种思路：</p>
+<ol>
+<li>改良哈希表数据结构，<strong>使得哈希表可以在存在哈希冲突时正常工作</strong>。</li>
+<li>仅在必要时，即当哈希冲突比较严重时，执行扩容操作。</li>
+</ol>
+<p>哈希表的结构改良方法主要包括链式地址和开放寻址。</p>
+<h2 id="621">6.2.1. &nbsp; 链式地址<a class="headerlink" href="#621" title="Permanent link">&para;</a></h2>
 <p>在原始哈希表中，每个桶仅能存储一个键值对。「链式地址 Separate Chaining」将单个元素转换为链表，将键值对作为链表节点，将所有发生冲突的键值对都存储在同一链表中。</p>
 <p><img alt="链式地址哈希表" src="../hash_collision.assets/hash_table_chaining.png" /></p>
 <p align="center"> Fig. 链式地址哈希表 </p>
 
 <p>链式地址下，哈希表的操作方法包括：</p>
 <ul>
-<li><strong>查询元素</strong>：输入 key ，经过哈希函数得到数组索引，即可访问链表头节点，然后遍历链表并对比 key 以查找目标键值对。</li>
+<li><strong>查询元素</strong>：输入 <code>key</code> ，经过哈希函数得到数组索引，即可访问链表头节点，然后遍历链表并对比 <code>key</code> 以查找目标键值对。</li>
 <li><strong>添加元素</strong>：先通过哈希函数访问链表头节点，然后将节点（即键值对）添加到链表中。</li>
 <li><strong>删除元素</strong>：根据哈希函数的结果访问链表头部，接着遍历链表以查找目标节点，并将其删除。</li>
 </ul>
@@ -2549,13 +2549,13 @@
 <p class="admonition-title">Tip</p>
 <p>为了提高效率，<strong>我们可以将链表转换为「AVL 树」或「红黑树」</strong>，从而将查询操作的时间复杂度优化至 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
 </div>
-<h2 id="623">6.2.3. &nbsp; 开放寻址<a class="headerlink" href="#623" title="Permanent link">&para;</a></h2>
+<h2 id="622">6.2.2. &nbsp; 开放寻址<a class="headerlink" href="#622" title="Permanent link">&para;</a></h2>
 <p>「开放寻址 Open Addressing」不引入额外的数据结构，而是通过“多次探测”来处理哈希冲突，探测方式主要包括线性探测、平方探测、多次哈希。</p>
 <h3 id="_1">线性探测<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>线性探测采用固定步长的线性查找来进行探测，对应的哈希表操作方法为：</p>
 <ul>
 <li><strong>插入元素</strong>：通过哈希函数计算数组索引，若发现桶内已有元素，则从冲突位置向后线性遍历（步长通常为 <span class="arithmatex">\(1\)</span> ），直至找到空位，将元素插入其中。</li>
-<li><strong>查找元素</strong>：若发现哈希冲突，则使用相同步长向后线性遍历，直到找到对应元素，返回 value 即可；或者若遇到空位，说明目标键值对不在哈希表中，返回 <span class="arithmatex">\(\text{None}\)</span> 。</li>
+<li><strong>查找元素</strong>：若发现哈希冲突，则使用相同步长向后线性遍历，直到找到对应元素，返回 <code>value</code> 即可；或者若遇到空位，说明目标键值对不在哈希表中，返回 <span class="arithmatex">\(\text{None}\)</span> 。</li>
 </ul>
 <p><img alt="线性探测" src="../hash_collision.assets/hash_table_linear_probing.png" /></p>
 <p align="center"> Fig. 线性探测 </p>
@@ -3077,7 +3077,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../hash_map/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 6.1. &amp;nbsp; 哈希表" rel="prev">
+          <a href="../hash_map/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 6.1. &amp;nbsp; 哈希表（New）" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -3086,20 +3086,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                6.1. &nbsp; 哈希表
+                6.1. &nbsp; 哈希表（New）
               </div>
             </div>
           </a>
         
         
           
-          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: 6.3. &amp;nbsp; 小结" rel="next">
+          <a href="../hash_algorithm/" class="md-footer__link md-footer__link--next" aria-label="下一页: 6.3. &amp;nbsp; 哈希算法（New）" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                6.3. &nbsp; 小结
+                6.3. &nbsp; 哈希算法（New）
               </div>
             </div>
             <div class="md-footer__button md-icon">
