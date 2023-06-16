@@ -308,10 +308,10 @@ comments: true
         let m = {};
         // 单层循环，时间复杂度 O(n)
         for (let i = 0; i < nums.length; i++) {
-            if (m[nums[i]] !== undefined) {
-                return [m[nums[i]], i];
+            if (m[target - nums[i]] !== undefined) {
+                return [m[target-nums[i]], i];
             } else {
-                m[target - nums[i]] = i;
+                m[nums[i]] = i;
             }
         }
         return [];
@@ -327,11 +327,11 @@ comments: true
         let m: Map<number, number> = new Map();
         // 单层循环，时间复杂度 O(n)
         for (let i = 0; i < nums.length; i++) {
-            let index = m.get(nums[i]);
+            let index = m.get(target - nums[i]);
             if (index !== undefined) {
                 return [index, i];
             } else {
-                m.set(target - nums[i], i);
+                m.set(nums[i], i);
             }
         }
         return [];
