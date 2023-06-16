@@ -2435,8 +2435,8 @@
 <h3 id="_2">插入节点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>给定一个待插入元素 <code>num</code> ，为了保持二叉搜索树“左子树 &lt; 根节点 &lt; 右子树”的性质，插入操作分为两步：</p>
 <ol>
-<li><strong>查找插入位置</strong>：与查找操作相似，从根节点出发，根据当前节点值和 <code>num</code> 的大小关系循环向下搜索，直到越过叶节点（遍历至 <span class="arithmatex">\(\text{null}\)</span> ）时跳出循环；</li>
-<li><strong>在该位置插入节点</strong>：初始化节点 <code>num</code> ，将该节点置于 <span class="arithmatex">\(\text{null}\)</span> 的位置；</li>
+<li><strong>查找插入位置</strong>：与查找操作相似，从根节点出发，根据当前节点值和 <code>num</code> 的大小关系循环向下搜索，直到越过叶节点（遍历至 <span class="arithmatex">\(\text{None}\)</span> ）时跳出循环；</li>
+<li><strong>在该位置插入节点</strong>：初始化节点 <code>num</code> ，将该节点置于 <span class="arithmatex">\(\text{None}\)</span> 的位置；</li>
 </ol>
 <p>二叉搜索树不允许存在重复节点，否则将违反其定义。因此，若待插入节点在树中已存在，则不执行插入，直接返回。</p>
 <p><img alt="在二叉搜索树中插入节点" src="../binary_search_tree.assets/bst_insert.png" /></p>
@@ -2754,7 +2754,7 @@
 </div>
 </div>
 </div>
-<p>为了插入节点，我们需要利用辅助节点 <code>pre</code> 保存上一轮循环的节点，这样在遍历至 <span class="arithmatex">\(\text{null}\)</span> 时，我们可以获取到其父节点，从而完成节点插入操作。</p>
+<p>为了插入节点，我们需要利用辅助节点 <code>pre</code> 保存上一轮循环的节点，这样在遍历至 <span class="arithmatex">\(\text{None}\)</span> 时，我们可以获取到其父节点，从而完成节点插入操作。</p>
 <p>与查找节点相同，插入节点使用 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
 <h3 id="_3">删除节点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>与插入节点类似，我们需要在删除操作后维持二叉搜索树的“左子树 &lt; 根节点 &lt; 右子树”的性质。首先，我们需要在二叉树中执行查找操作，获取待删除节点。接下来，根据待删除节点的子节点数量，删除操作需分为三种情况：</p>
