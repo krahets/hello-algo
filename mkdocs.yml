@@ -49,7 +49,7 @@ theme:
         icon: material/weather-sunny
         name: Switch to dark mode
     - scheme: slate
-      # primary: grey
+      primary: grey
       # accent: indigo
       toggle:
         icon: material/weather-night
