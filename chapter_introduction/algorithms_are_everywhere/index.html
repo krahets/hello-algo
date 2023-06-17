@@ -136,7 +136,7 @@
             
             
             
-            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
             
               <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
@@ -2074,6 +2074,14 @@
 </div>
 </div>
 <p>查阅字典这个小学生必备技能，实际上就是著名的「二分查找」。从数据结构的角度，我们可以把字典视为一个已排序的「数组」；从算法的角度，我们可以将上述查字典的一系列操作看作是「二分查找」算法。</p>
+<p><strong>例三：货币找零</strong>。假设我们在超市购买了 <span class="arithmatex">\(69\)</span> 元的商品，给收银员付了 <span class="arithmatex">\(100\)</span> 元，则收银员需要给我们找 <span class="arithmatex">\(31\)</span> 元。他会很自然地完成以下思考：</p>
+<ol>
+<li>可选项是比 <span class="arithmatex">\(31\)</span> 元面值更小的货币，包括 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(5\)</span> , <span class="arithmatex">\(10\)</span> , <span class="arithmatex">\(20\)</span> 元。</li>
+<li>从可选项中拿出最大的 <span class="arithmatex">\(20\)</span> 元，剩余 <span class="arithmatex">\(31 - 20 = 11\)</span> 元。</li>
+<li>从剩余可选项中拿出最大的 <span class="arithmatex">\(10\)</span> 元，剩余 <span class="arithmatex">\(11 - 10 = 1\)</span> 元。</li>
+<li>从剩余可选项中拿出最大的 <span class="arithmatex">\(1\)</span> 元，剩余 <span class="arithmatex">\(1 - 1 = 0\)</span> 元。完成找零。</li>
+</ol>
+<p>在以上步骤中，我们每一步都采取当前看来最好的选择（尽可能用大面额的货币），最终得到了可行的找零方案 <span class="arithmatex">\(20 + 10 + 1 = 31\)</span> 元。从数据结构与算法的角度看，以上方法本质上是「贪心算法」。</p>
 <p>小到烹饪一道菜，大到星际航行，几乎所有问题的解决都离不开算法。计算机的出现使我们能够通过编程将数据结构存储在内存中，同时编写代码调用 CPU 和 GPU 执行算法。这样一来，我们就能把生活中的问题转移到计算机上，以更高效的方式解决各种复杂问题。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
