@@ -5,7 +5,9 @@
  */
 
 include!("../include/include.rs");
-fn selection_sort(nums: &mut [i32]) {
+
+/* 选择排序 */
+pub fn selection_sort(nums: &mut [i32]) {
     let n = nums.len();
     // 外循环：未排序区间为 [i, n-1]
     for i in 0..n - 1 {
@@ -21,6 +23,7 @@ fn selection_sort(nums: &mut [i32]) {
     }
 }
 
+/* Driver Code */
 fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     selection_sort(&mut nums);

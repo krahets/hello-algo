@@ -4,6 +4,7 @@
  * Author: WSL0809 (wslzzy@outlook.com)
  */
 
+/* 二分查找最左一个元素 */
 fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
     let mut i = 0;
     let mut j = nums.len() as i32 - 1; // 初始化双闭区间 [0, n-1]
@@ -23,6 +24,7 @@ fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
     i
 }
 
+/* 二分查找最右一个元素 */
 fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
     let mut i = 0;
     let mut j = nums.len() as i32 - 1; // 初始化双闭区间 [0, n-1]
@@ -43,6 +45,7 @@ fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
 }
 
 pub fn main() {
+    /* Driver Code */
     let target = 6;
     let nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
 
