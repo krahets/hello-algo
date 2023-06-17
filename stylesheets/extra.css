@@ -19,7 +19,7 @@
     --md-accent-fg-color: #999;
 
     --md-typeset-color: #FEFEFE;
-    --md-typeset-a-color: #21C8B8;
+    --md-typeset-a-color: #21C8B8 !important;
 }
 
 /* https://github.com/squidfunk/mkdocs-material/issues/4832#issuecomment-1374891676 */
@@ -60,10 +60,6 @@
 
 .md-typeset h3 {
   font-weight: 500;
-}
-
-.md-typeset a {
-  text-decoration: underline;
 }
 
 /* Image align center */
