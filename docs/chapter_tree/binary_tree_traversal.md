@@ -76,6 +76,12 @@
     [class]{}-[func]{levelOrder}
     ```
 
+=== "Dart"
+
+    ```dart title="binary_tree_bfs.dart"
+    [class]{}-[func]{levelOrder}
+    ```
+
 ### 复杂度分析
 
 **时间复杂度**：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
@@ -195,6 +201,16 @@
 === "Zig"
 
     ```zig title="binary_tree_dfs.zig"
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_tree_dfs.dart"
     [class]{}-[func]{preOrder}
 
     [class]{}-[func]{inOrder}

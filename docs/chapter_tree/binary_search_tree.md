@@ -91,12 +91,18 @@
     [class]{BinarySearchTree}-[func]{search}
     ```
 
+=== "Dart"
+
+    ```dart title="binary_search_tree.dart"
+    [class]{BinarySearchTree}-[func]{search}
+    ```
+
 ### 插入节点
 
 给定一个待插入元素 `num` ，为了保持二叉搜索树“左子树 < 根节点 < 右子树”的性质，插入操作分为两步：
 
-1. **查找插入位置**：与查找操作相似，从根节点出发，根据当前节点值和 `num` 的大小关系循环向下搜索，直到越过叶节点（遍历至 $\text{null}$ ）时跳出循环；
-2. **在该位置插入节点**：初始化节点 `num` ，将该节点置于 $\text{null}$ 的位置；
+1. **查找插入位置**：与查找操作相似，从根节点出发，根据当前节点值和 `num` 的大小关系循环向下搜索，直到越过叶节点（遍历至 $\text{None}$ ）时跳出循环；
+2. **在该位置插入节点**：初始化节点 `num` ，将该节点置于 $\text{None}$ 的位置；
 
 二叉搜索树不允许存在重复节点，否则将违反其定义。因此，若待插入节点在树中已存在，则不执行插入，直接返回。
 
@@ -162,7 +168,13 @@
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
-为了插入节点，我们需要利用辅助节点 `pre` 保存上一轮循环的节点，这样在遍历至 $\text{null}$ 时，我们可以获取到其父节点，从而完成节点插入操作。
+=== "Dart"
+
+    ```dart title="binary_search_tree.dart"
+    [class]{BinarySearchTree}-[func]{insert}
+    ```
+
+为了插入节点，我们需要利用辅助节点 `pre` 保存上一轮循环的节点，这样在遍历至 $\text{None}$ 时，我们可以获取到其父节点，从而完成节点插入操作。
 
 与查找节点相同，插入节点使用 $O(\log n)$ 时间。
 
@@ -255,6 +267,12 @@
 === "Zig"
 
     ```zig title="binary_search_tree.zig"
+    [class]{BinarySearchTree}-[func]{remove}
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_search_tree.dart"
     [class]{BinarySearchTree}-[func]{remove}
     ```
 

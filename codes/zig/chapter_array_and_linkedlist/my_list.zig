@@ -98,7 +98,7 @@ pub fn MyList(comptime T: type) type {
 
         // 列表扩容
         pub fn extendCapacity(self: *Self) !void {
-            // 新建一个长度为 size * extend_ratio 的数组，并将原数组拷贝到新数组
+            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
             var newCapacity = self.capacity() * self.extend_ratio;
             var extend = try self.mem_allocator.alloc(T, newCapacity);
             std.mem.set(T, extend, @as(T, 0));

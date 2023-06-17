@@ -70,6 +70,12 @@
     [class]{}-[func]{preOrder}
     ```
 
+=== "Dart"
+
+    ```dart title="preorder_traversal_i_compact.dart"
+    [class]{}-[func]{preOrder}
+    ```
+
 ![在前序遍历中搜索节点](backtracking_algorithm.assets/preorder_find_nodes.png)
 
 ## 尝试与回退
@@ -146,6 +152,12 @@
     [class]{}-[func]{preOrder}
     ```
 
+=== "Dart"
+
+    ```dart title="preorder_traversal_ii_compact.dart"
+    [class]{}-[func]{preOrder}
+    ```
+
 在每次“尝试”中，我们通过将当前节点添加进 `path` 来记录路径；而在“回退”前，我们需要将该节点从 `path` 中弹出，**以恢复本次尝试之前的状态**。换句话说，**我们可以将尝试和回退理解为“前进”与“撤销”**，两个操作是互为相反的。
 
 === "<1>"
@@ -187,7 +199,7 @@
 
 !!! question "例题三"
 
-   在二叉树中搜索所有值为 $7$ 的节点，返回根节点到这些节点的路径，**路径中不能包含值为 $3$ 的节点**。
+    在二叉树中搜索所有值为 $7$ 的节点，返回根节点到这些节点的路径，**路径中不能包含值为 $3$ 的节点**。
 
 **解题思路**：在例题二的基础上添加剪枝操作，当遇到值为 $3$ 的节点时，则终止继续搜索。
 
@@ -248,6 +260,12 @@
 === "Zig"
 
     ```zig title="preorder_traversal_iii_compact.zig"
+    [class]{}-[func]{preOrder}
+    ```
+
+=== "Dart"
+
+    ```dart title="preorder_traversal_iii_compact.dart"
     [class]{}-[func]{preOrder}
     ```
 
@@ -505,6 +523,31 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title=""
+    /* 回溯算法框架 */
+    void backtrack(State state, List<Choice>, List<State> res) {
+      // 判断是否为解
+      if (isSolution(state)) {
+        // 记录解
+        recordSolution(state, res);
+        return;
+      }
+      // 遍历所有选择
+      for (Choice choice in choices) {
+        // 剪枝：判断选择是否合法
+        if (isValid(state, choice)) {
+          // 尝试：做出选择，更新状态
+          makeChoice(state, choice);
+          backtrack(state, choices, res);
+          // 回退：撤销选择，恢复到之前的状态
+          undoChoice(state, choice);
+        }
+      }
+    }
+    ```
+
 下面，我们尝试基于此框架来解决例题三。在例题三中，状态 `state` 是节点遍历路径，选择 `choices` 是当前节点的左子节点和右子节点，结果 `res` 是路径列表，实现代码如下所示。
 
 === "Java"
@@ -654,6 +697,22 @@
 === "Zig"
 
     ```zig title="preorder_traversal_iii_template.zig"
+    [class]{}-[func]{isSolution}
+
+    [class]{}-[func]{recordSolution}
+
+    [class]{}-[func]{isValid}
+
+    [class]{}-[func]{makeChoice}
+
+    [class]{}-[func]{undoChoice}
+
+    [class]{}-[func]{backtrack}
+    ```
+
+=== "Dart"
+
+    ```dart title="preorder_traversal_iii_template.dart"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}

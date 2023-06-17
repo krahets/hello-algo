@@ -5,7 +5,7 @@
  */
 
 /* 键值对 Number -> String */
-class Entry {
+class Pair {
     public key: number;
     public val: string;
 
@@ -17,7 +17,7 @@ class Entry {
 
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
-    private readonly buckets: (Entry | null)[];
+    private readonly buckets: (Pair | null)[];
 
     constructor() {
         // 初始化数组，包含 100 个桶
@@ -32,15 +32,15 @@ class ArrayHashMap {
     /* 查询操作 */
     public get(key: number): string | null {
         let index = this.hashFunc(key);
-        let entry = this.buckets[index];
-        if (entry === null) return null;
-        return entry.val;
+        let pair = this.buckets[index];
+        if (pair === null) return null;
+        return pair.val;
     }
 
     /* 添加操作 */
     public set(key: number, val: string) {
         let index = this.hashFunc(key);
-        this.buckets[index] = new Entry(key, val);
+        this.buckets[index] = new Pair(key, val);
     }
 
     /* 删除操作 */
@@ -51,8 +51,8 @@ class ArrayHashMap {
     }
 
     /* 获取所有键值对 */
-    public entries(): (Entry | null)[] {
-        let arr: (Entry | null)[] = [];
+    public entries(): (Pair | null)[] {
+        let arr: (Pair | null)[] = [];
         for (let i = 0; i < this.buckets.length; i++) {
             if (this.buckets[i]) {
                 arr.push(this.buckets[i]);
@@ -85,10 +85,10 @@ class ArrayHashMap {
 
     /* 打印哈希表 */
     public print() {
-        let entrySet = this.entries();
-        for (const entry of entrySet) {
-            if (!entry) continue;
-            console.info(`${entry.key} -> ${entry.val}`);
+        let pairSet = this.entries();
+        for (const pair of pairSet) {
+            if (!pair) continue;
+            console.info(`${pair.key} -> ${pair.val}`);
         }
     }
 }
@@ -119,9 +119,9 @@ map.print();
 
 /* 遍历哈希表 */
 console.info('\n遍历键值对 Key->Value');
-for (const entry of map.entries()) {
-    if (!entry) continue;
-    console.info(entry.key + ' -> ' + entry.val);
+for (const pair of map.entries()) {
+    if (!pair) continue;
+    console.info(pair.key + ' -> ' + pair.val);
 }
 console.info('\n单独遍历键 Key');
 for (const key of map.keys()) {

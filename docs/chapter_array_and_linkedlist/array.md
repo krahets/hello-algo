@@ -92,6 +92,14 @@
     var nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
+=== "Dart"
+
+    ```dart title="array.dart"
+    /* 初始化数组 */
+    List<int> arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
+    List<int> nums = [1, 3, 2, 5, 4];
+    ```
+
 ## 数组优点
 
 **在数组中访问元素非常高效**。由于数组元素被存储在连续的内存空间中，因此计算数组元素的内存地址非常容易。给定数组首个元素的地址和某个元素的索引，我们可以使用以下公式计算得到该元素的内存地址，从而直接访问此元素。
@@ -171,6 +179,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{randomAccess}
     ```
 
+=== "Dart"
+
+    ```dart title="array.dart"
+    [class]{}-[func]{randomAccess}
+    ```
+
 ## 数组缺点
 
 **数组在初始化后长度不可变**。由于系统无法保证数组之后的内存空间是可用的，因此数组长度无法扩展。而若希望扩容数组，则需新建一个数组，然后把原数组元素依次拷贝到新数组，在数组很大的情况下，这是非常耗时的。
@@ -235,6 +249,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{extend}
     ```
 
+=== "Dart"
+
+    ```dart title="array.dart"
+    [class]{}-[func]{extend}
+    ```
+
 **数组中插入或删除元素效率低下**。如果我们想要在数组中间插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。
 
 ![数组插入元素](array.assets/array_insert_element.png)
@@ -290,6 +310,18 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Swift"
 
     ```swift title="array.swift"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
     [class]{}-[func]{insert}
     ```
 
@@ -354,6 +386,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Zig"
 
     ```zig title="array.zig"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
     [class]{}-[func]{remove}
     ```
 
@@ -427,6 +465,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{traverse}
     ```
 
+=== "Dart"
+
+    ```dart title="array.dart"
+    [class]{}-[func]{traverse}
+    ```
+
 **数组查找**。通过遍历数组，查找数组内的指定元素，并输出对应索引。
 
 === "Java"
@@ -486,6 +530,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Zig"
 
     ```zig title="array.zig"
+    [class]{}-[func]{find}
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
     [class]{}-[func]{find}
     ```
 

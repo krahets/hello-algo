@@ -47,6 +47,7 @@ bool empty(arrayDeque *deque) {
     return deque->queSize == 0;
 }
 
+/* 计算环形数组索引 */
 int dequeIndex(arrayDeque *deque, int i) {
     // 通过取余操作实现数组首尾相连
     // 当 i 越过数组尾部时，回到头部

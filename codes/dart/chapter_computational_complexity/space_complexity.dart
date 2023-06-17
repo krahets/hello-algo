@@ -89,7 +89,7 @@ TreeNode? buildTree(int n) {
 }
 
 /* Driver Code */
-int main() {
+void main() {
   int n = 5;
   // 常数阶
   constant(n);
@@ -102,5 +102,4 @@ int main() {
   // 指数阶
   TreeNode? root = buildTree(n);
   printTree(root);
-  return 0;
 }

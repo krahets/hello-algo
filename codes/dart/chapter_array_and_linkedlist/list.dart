@@ -5,7 +5,7 @@
  */
 
 /* Driver Code */
-int main() {
+void main() {
   /* 初始化列表 */
   List<int> list = [1, 3, 2, 5, 4];
   print('列表 list = $list');
@@ -57,6 +57,4 @@ int main() {
   /* 排序列表 */
   list.sort();
   print('排序列表后 list = $list');
-
-  return 0;
 }
