@@ -143,6 +143,18 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title=""
+    /* 二叉树节点类 */
+    class TreeNode {
+      int val;         // 节点值
+      TreeNode? left;  // 左子节点指针
+      TreeNode? right; // 右子节点指针
+      TreeNode(this.val, [this.left, this.right]);
+    }
+    ```
+
 节点的两个指针分别指向「左子节点」和「右子节点」，同时该节点被称为这两个子节点的「父节点」。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的「左子树」，同理可得「右子树」。
 
 **在二叉树中，除叶节点外，其他所有节点都包含子节点和非空子树**。例如，在以下示例中，若将“节点 2”视为父节点，则其左子节点和右子节点分别是“节点 4”和“节点 5”，左子树是“节点 4 及其以下节点形成的树”，右子树是“节点 5 及其以下节点形成的树”。
@@ -154,7 +166,7 @@
 二叉树涉及的术语较多，建议尽量理解并记住。
 
 - 「根节点 Root Node」：位于二叉树顶层的节点，没有父节点；
-- 「叶节点 Leaf Node」：没有子节点的节点，其两个指针均指向 $\text{null}$ ；
+- 「叶节点 Leaf Node」：没有子节点的节点，其两个指针均指向 $\text{None}$ ；
 - 节点的「层 Level」：从顶至底递增，根节点所在层为 1 ；
 - 节点的「度 Degree」：节点的子节点的数量。在二叉树中，度的范围是 0, 1, 2 ；
 - 「边 Edge」：连接两个节点的线段，即节点指针；
@@ -329,6 +341,23 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title="binary_tree.dart"
+    /* 初始化二叉树 */
+    // 初始化节点
+    TreeNode n1 = new TreeNode(1);
+    TreeNode n2 = new TreeNode(2);
+    TreeNode n3 = new TreeNode(3);
+    TreeNode n4 = new TreeNode(4);
+    TreeNode n5 = new TreeNode(5);
+    // 构建引用指向（即指针）
+    n1.left = n2;
+    n1.right = n3;
+    n2.left = n4;
+    n2.right = n5;
+    ```
+
 **插入与删除节点**。与链表类似，通过修改指针来实现插入与删除节点。
 
 ![在二叉树中插入与删除节点](binary_tree.assets/binary_tree_add_remove.png)
@@ -445,6 +474,18 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title="binary_tree.dart"
+    /* 插入与删除节点 */
+    TreeNode P = new TreeNode(0);
+    // 在 n1 -> n2 中间插入节点 P
+    n1.left = P;
+    P.left = n2;
+    // 删除节点 P
+    n1.left = n2;
+    ```
+
 !!! note
 
     需要注意的是，插入节点可能会改变二叉树的原有逻辑结构，而删除节点通常意味着删除该节点及其所有子树。因此，在二叉树中，插入与删除操作通常是由一套操作配合完成的，以实现有实际意义的操作。
@@ -486,7 +527,7 @@
 - 完美二叉树是理想情况，可以充分发挥二叉树“分治”的优势；
 - 链表则是另一个极端，各项操作都变为线性操作，时间复杂度退化至 $O(n)$ ；
 
-![二叉树的最佳与最差结构](binary_tree.assets/binary_tree_corner_cases.png)
+![二叉树的最佳与最差结构](binary_tree.assets/binary_tree_best_worst_cases.png)
 
 如下表所示，在最佳和最差结构下，二叉树的叶节点数量、节点总数、高度等达到极大或极小值。
 

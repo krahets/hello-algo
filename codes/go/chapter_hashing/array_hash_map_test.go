@@ -36,7 +36,7 @@ func TestArrayHashMap(t *testing.T) {
 
 	/* 遍历哈希表 */
 	fmt.Println("\n遍历键值对 Key->Value")
-	for _, kv := range mapp.entrySet() {
+	for _, kv := range mapp.pairSet() {
 		fmt.Println(kv.key, " -> ", kv.val)
 	}
 

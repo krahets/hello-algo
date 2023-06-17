@@ -82,7 +82,7 @@ hide:
 
 <h3 align="left"> 作者简介 </h3>
 
-靳宇栋 (Krahets)，大厂高级算法工程师，上海交通大学硕士。力扣（LeetCode）全网阅读量最高博主，其 LeetBook《图解算法数据结构》已被订阅 22 万本。
+靳宇栋 (Krahets)，大厂高级算法工程师，上海交通大学硕士。力扣（LeetCode）全网阅读量最高博主，其 LeetBook《图解算法数据结构》已被订阅 24 万本。
 
 ---
 
@@ -96,12 +96,13 @@ hide:
     </a>
 </p>
 
-本书的代码审阅工作由 Gonglja, justin‐tse, krahets, nuomi1, Reanon, sjinzh 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
+本书的代码审阅工作由 Gonglja, gvenusleo, justin‐tse, krahets, nuomi1, Reanon, sjinzh 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
 
 <div class="center-table">
     <table>
         <tbody>
             <td align="center"><a href="https://github.com/Gonglja"><img src="https://avatars.githubusercontent.com/u/39959756?v=4" width="50px;" alt="Gonglja"/><br /><sub><b>Gonglja</b></sub></a><br /><sub>C / C++</sub></td>
+            <td align="center"><a href="https://github.com/gvenusleo"><img src="https://avatars.githubusercontent.com/u/79075347?v=4" width="50px;" alt="gvenusleo"/><br /><sub><b>gvenusleo</b></sub></a><br /><sub>Dart</sub></td>
             <td align="center"><a href="https://github.com/justin-tse"><img src="https://avatars.githubusercontent.com/u/24556310?v=4" width="50px;" alt="justin-tse"/><br /><sub><b>justin-tse</b></sub></a><br /><sub>JS / TS</sub></td>
             <td align="center"><a href="https://github.com/krahets"><img src="https://avatars.githubusercontent.com/u/26993056?v=4" width="50px;" alt="krahets"/><br /><sub><b>krahets</b></sub></a><br /><sub>Java / Python</sub></td>
             <td align="center"><a href="https://github.com/nuomi1"><img src="https://avatars.githubusercontent.com/u/3739017?v=4" width="50px;" alt="nuomi1"/><br /><sub><b>nuomi1</b></sub></a><br /><sub>Swift</sub></td>

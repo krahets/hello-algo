@@ -39,6 +39,27 @@ static void printArray(int arr[], int size) {
     }
 }
 
+/* Print an Array */
+static void printArrayFloat(float arr[], int size) {
+    printf("[");
+    if (arr != NULL && size != 0) {
+        for (int i = 0; i < size - 1; i++) {
+            if (arr[i] != INT_MAX) {
+                printf("%.2f, ", arr[i]);
+            } else {
+                printf("NULL, ");
+            }
+        }
+        if (arr[size - 1] != INT_MAX) {
+            printf("%.2f]\n", arr[size - 1]);
+        } else {
+            printf("NULL]\n");
+        }
+    } else {
+        printf("]");
+    }
+}
+
 /* Print a linked list */
 static void printLinkedList(ListNode *node) {
     if (node == NULL) {

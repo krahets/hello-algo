@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* 键值对 int->String */
-struct Entry {
+/* 键值对 */
+struct Pair {
   public:
     int key;
     string val;
-    Entry(int key, string val) {
+    Pair(int key, string val) {
         this->key = key;
         this->val = val;
     }
@@ -20,12 +20,12 @@ struct Entry {
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
   private:
-    vector<Entry *> buckets;
+    vector<Pair *> buckets;
 
   public:
     ArrayHashMap() {
         // 初始化数组，包含 100 个桶
-        buckets = vector<Entry *>(100);
+        buckets = vector<Pair *>(100);
     }
 
     ~ArrayHashMap() {
@@ -45,7 +45,7 @@ class ArrayHashMap {
     /* 查询操作 */
     string get(int key) {
         int index = hashFunc(key);
-        Entry *pair = buckets[index];
+        Pair *pair = buckets[index];
         if (pair == nullptr)
             return nullptr;
         return pair->val;
@@ -53,7 +53,7 @@ class ArrayHashMap {
 
     /* 添加操作 */
     void put(int key, string val) {
-        Entry *pair = new Entry(key, val);
+        Pair *pair = new Pair(key, val);
         int index = hashFunc(key);
         buckets[index] = pair;
     }
@@ -67,20 +67,20 @@ class ArrayHashMap {
     }
 
     /* 获取所有键值对 */
-    vector<Entry *> entrySet() {
-        vector<Entry *> entrySet;
-        for (Entry *pair : buckets) {
+    vector<Pair *> pairSet() {
+        vector<Pair *> pairSet;
+        for (Pair *pair : buckets) {
             if (pair != nullptr) {
-                entrySet.push_back(pair);
+                pairSet.push_back(pair);
             }
         }
-        return entrySet;
+        return pairSet;
     }
 
     /* 获取所有键 */
     vector<int> keySet() {
         vector<int> keySet;
-        for (Entry *pair : buckets) {
+        for (Pair *pair : buckets) {
             if (pair != nullptr) {
                 keySet.push_back(pair->key);
             }
@@ -91,7 +91,7 @@ class ArrayHashMap {
     /* 获取所有值 */
     vector<string> valueSet() {
         vector<string> valueSet;
-        for (Entry *pair : buckets) {
+        for (Pair *pair : buckets) {
             if (pair != nullptr) {
                 valueSet.push_back(pair->val);
             }
@@ -101,7 +101,7 @@ class ArrayHashMap {
 
     /* 打印哈希表 */
     void print() {
-        for (Entry *kv : entrySet()) {
+        for (Pair *kv : pairSet()) {
             cout << kv->key << " -> " << kv->val << endl;
         }
     }
@@ -135,7 +135,7 @@ int main() {
 
     /* 遍历哈希表 */
     cout << "\n遍历键值对 Key->Value" << endl;
-    for (auto kv : map.entrySet()) {
+    for (auto kv : map.pairSet()) {
         cout << kv->key << " -> " << kv->val << endl;
     }
 

@@ -93,7 +93,7 @@ class MyList {
 
     /* 列表扩容 */
     void extendCapacity() {
-        // 新建一个长度为 size * extendRatio 的数组，并将原数组拷贝到新数组
+        // 新建一个长度为原数组 extendRatio 倍的新数组
         int newCapacity = capacity() * extendRatio;
         int *tmp = nums;
         nums = new int[newCapacity];

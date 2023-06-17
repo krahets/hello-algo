@@ -82,7 +82,7 @@ class MyList {
 
     /* 列表扩容 */
     extendCapacity() {
-        // 新建一个长度为 size 的数组，并将原数组拷贝到新数组
+        // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
         this.#nums = this.#nums.concat(
             new Array(this.capacity() * (this.#extendRatio - 1))
         );

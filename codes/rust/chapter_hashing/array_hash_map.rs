@@ -5,14 +5,14 @@
  */
 
 #[derive(Debug, Clone)]
-/* 键值对 int->String */
-pub struct Entry {
+/* 键值对 */
+pub struct Pair {
     pub key: i32,
     pub val: String,
 }
 
 /* 基于数组简易实现的哈希表 */
-pub struct ArrayHashMap { buckets: Vec<Option<Entry>> }
+pub struct ArrayHashMap { buckets: Vec<Option<Pair>> }
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
@@ -28,13 +28,13 @@ impl ArrayHashMap {
     /* 查询操作 */
     pub fn get(&self, key: i32) -> Option<&String> {
         let index = self.hash_func(key);
-        self.buckets[index].as_ref().map(|entry| &entry.val)
+        self.buckets[index].as_ref().map(|pair| &pair.val)
     }
 
     /* 添加操作 */
     pub fn put(&mut self, key: i32, val: &str) {
         let index = self.hash_func(key);
-        self.buckets[index] = Some(Entry {
+        self.buckets[index] = Some(Pair {
             key,
             val: val.to_string(),
         });
@@ -47,24 +47,24 @@ impl ArrayHashMap {
     }
 
     /* 获取所有键值对 */
-    pub fn entry_set(&self) -> Vec<&Entry> {
-        self.buckets.iter().filter_map(|entry| entry.as_ref()).collect()
+    pub fn entry_set(&self) -> Vec<&Pair> {
+        self.buckets.iter().filter_map(|pair| pair.as_ref()).collect()
     }
 
     /* 获取所有键 */
     pub fn key_set(&self) -> Vec<&i32> {
-        self.buckets.iter().filter_map(|entry| entry.as_ref().map(|entry| &entry.key)).collect()
+        self.buckets.iter().filter_map(|pair| pair.as_ref().map(|pair| &pair.key)).collect()
     }
 
     /* 获取所有值 */
     pub fn value_set(&self) -> Vec<&String> {
-        self.buckets.iter().filter_map(|entry| entry.as_ref().map(|entry| &entry.val)).collect()
+        self.buckets.iter().filter_map(|pair| pair.as_ref().map(|pair| &pair.val)).collect()
     }
 
     /* 打印哈希表 */
     pub fn print(&self) {
-        for entry in self.entry_set() {
-            println!("{} -> {}", entry.key, entry.val);
+        for pair in self.entry_set() {
+            println!("{} -> {}", pair.key, pair.val);
         }
     }
 }
@@ -95,8 +95,8 @@ fn main() {
 
     /* 遍历哈希表 */
     println!("\n遍历键值对 Key->Value");
-    for entry in map.entry_set() {
-        println!("{} -> {}", entry.key, entry.val);
+    for pair in map.entry_set() {
+        println!("{} -> {}", pair.key, pair.val);
     }
 
     println!("\n单独遍历键 Key");

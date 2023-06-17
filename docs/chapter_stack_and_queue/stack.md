@@ -250,6 +250,33 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title="stack.dart"
+    /* 初始化栈 */
+    // Dart 没有内置的栈类，可以把 List 当作栈来使用
+    List<int> stack = [];
+
+    /* 元素入栈 */
+    stack.add(1);
+    stack.add(3);
+    stack.add(2);
+    stack.add(5);
+    stack.add(4);
+
+    /* 访问栈顶元素 */
+    int peek = stack.last;
+
+    /* 元素出栈 */
+    int pop = stack.removeLast();
+
+    /* 获取栈的长度 */
+    int size = stack.length;
+
+    /* 判断是否为空 */
+    bool isEmpty = stack.isEmpty;
+    ```
+
 ## 栈的实现
 
 为了深入了解栈的运行机制，我们来尝试自己实现一个栈类。
@@ -333,6 +360,12 @@
     [class]{LinkedListStack}-[func]{}
     ```
 
+=== "Dart"
+
+    ```dart title="linkedlist_stack.dart"
+    [class]{LinkedListStack}-[func]{}
+    ```
+
 ### 基于数组的实现
 
 在基于「数组」实现栈时，我们可以将数组的尾部作为栈顶。在这样的设计下，入栈与出栈操作就分别对应在数组尾部添加元素与删除元素，时间复杂度都为 $O(1)$ 。
@@ -405,6 +438,12 @@
 === "Zig"
 
     ```zig title="array_stack.zig"
+    [class]{ArrayStack}-[func]{}
+    ```
+
+=== "Dart"
+
+    ```dart title="array_stack.dart"
     [class]{ArrayStack}-[func]{}
     ```
 

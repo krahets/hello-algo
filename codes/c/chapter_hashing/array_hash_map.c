@@ -10,24 +10,24 @@
 # define HASH_MAP_DEFAULT_SIZE 100
 
 /* 键值对 int->string */
-struct Entry {
+struct pair {
     int key;
     char *val;
 };
 
-typedef struct Entry Entry;
+typedef struct pair pair;
 
 /* 用于表示键值对、键、值的集合 */
-struct MapSet {
+struct mapSet {
     void *set;
     int len;
 };
 
-typedef struct MapSet MapSet;
+typedef struct mapSet mapSet;
 
 /* 基于数组简易实现的哈希表 */
 struct ArrayHashMap {
-    Entry *buckets[HASH_MAP_DEFAULT_SIZE];
+    pair *buckets[HASH_MAP_DEFAULT_SIZE];
 };
 
 typedef struct ArrayHashMap ArrayHashMap;
@@ -47,7 +47,7 @@ int hashFunc(int key) {
 /* 查询操作 */
 const char *get(const ArrayHashMap *d, const int key) {
     int index = hashFunc(key);
-    const Entry *pair = d->buckets[index];
+    const pair *pair = d->buckets[index];
     if (pair == NULL)
         return NULL;
     return pair->val;
@@ -55,7 +55,7 @@ const char *get(const ArrayHashMap *d, const int key) {
 
 /* 添加操作 */
 void put(ArrayHashMap *d, const int key, const char *val) {
-    Entry *pair = malloc(sizeof(Entry));
+    pair *pair = malloc(sizeof(pair));
     pair->key = key;
     pair->val = malloc(strlen(val) + 1);
     strcpy(pair->val, val);
@@ -73,19 +73,19 @@ void removeItem(ArrayHashMap *d, const int key) {
 }
 
 /* 获取所有键值对 */
-void entrySet(ArrayHashMap *d, MapSet *set) {
-    Entry *entries;
+void pairSet(ArrayHashMap *d, mapSet *set) {
+    pair *entries;
     int i = 0, index = 0;
     int total = 0;
 
-    /* 统计有效 entry 数量 */
+    /* 统计有效键值对数量 */
     for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
         if (d->buckets[i] != NULL) {
             total++;
         }
     }
 
-    entries = malloc(sizeof(Entry) * total);
+    entries = malloc(sizeof(pair) * total);
     for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
         if (d->buckets[i] != NULL) {
             entries[index].key = d->buckets[i]->key;
@@ -100,12 +100,12 @@ void entrySet(ArrayHashMap *d, MapSet *set) {
 }
 
 /* 获取所有键 */
-void keySet(ArrayHashMap *d, MapSet *set) {
+void keySet(ArrayHashMap *d, mapSet *set) {
     int *keys;
     int i = 0, index = 0;
     int total = 0;
 
-    /* 统计有效 entry 数量 */
+    /* 统计有效键值对数量 */
     for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
         if (d->buckets[i] != NULL) {
             total++;
@@ -125,12 +125,12 @@ void keySet(ArrayHashMap *d, MapSet *set) {
 }
 
 /* 获取所有值 */
-void valueSet(ArrayHashMap *d, MapSet *set) {
+void valueSet(ArrayHashMap *d, mapSet *set) {
     char **vals;
     int i = 0, index = 0;
     int total = 0;
 
-    /* 统计有效 entry 数量 */
+    /* 统计有效键值对数量 */
     for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
         if (d->buckets[i] != NULL) {
             total++;
@@ -152,9 +152,9 @@ void valueSet(ArrayHashMap *d, MapSet *set) {
 /* 打印哈希表 */
 void print(ArrayHashMap *d) {
     int i;
-    MapSet set;
-    entrySet(d, &set);
-    Entry *entries = (Entry*) set.set;
+    mapSet set;
+    pairSet(d, &set);
+    pair *entries = (pair*) set.set;
     for (i = 0; i < set.len; i++) {
         printf("%d -> %s\n", entries[i].key, entries[i].val);
     }
@@ -193,7 +193,7 @@ int main() {
     printf("\n遍历键值对 Key->Value\n");
     print(map);
 
-    MapSet set;
+    mapSet set;
 
     keySet(map, &set);
     int *keys = (int*) set.set;

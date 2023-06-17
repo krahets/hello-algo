@@ -153,9 +153,20 @@
     }
     ```
 
+=== "Dart"
+
+    ```dart title=""
+    /* 链表节点类 */
+    class ListNode {
+      int val; // 节点值
+      ListNode? next; // 指向下一节点的指针（引用）
+      ListNode(this.val, [this.next]); // 构造函数
+    }
+    ```
+
 !!! question "尾节点指向什么？"
 
-    我们将链表的最后一个节点称为「尾节点」，其指向的是“空”，在 Java, C++, Python 中分别记为 $\text{null}$ , $\text{nullptr}$ , $\text{None}$ 。在不引起歧义的前提下，本书都使用 $\text{null}$ 来表示空。
+    我们将链表的最后一个节点称为「尾节点」，其指向的是“空”，在 Java, C++, Python 中分别记为 $\text{null}$ , $\text{nullptr}$ , $\text{None}$ 。在不引起歧义的前提下，本书都使用 $\text{None}$ 来表示空。
 
 !!! question "如何称呼链表？"
 
@@ -333,6 +344,23 @@
     n3.next = &n4;
     ```
 
+=== "Dart"
+
+    ```dart title="linked_list.dart"
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */\
+    // 初始化各个节点
+    ListNode n0 = ListNode(1);
+    ListNode n1 = ListNode(3);
+    ListNode n2 = ListNode(2);
+    ListNode n3 = ListNode(5);
+    ListNode n4 = ListNode(4);
+    // 构建引用指向
+    n0.next = n1;
+    n1.next = n2;
+    n2.next = n3;
+    n3.next = n4;
+    ```
+
 ## 链表优点
 
 **链表中插入与删除节点的操作效率高**。例如，如果我们想在链表中间的两个节点 `A` , `B` 之间插入一个新节点 `P` ，我们只需要改变两个节点指针即可，时间复杂度为 $O(1)$ ；相比之下，数组的插入操作效率要低得多。
@@ -396,6 +424,12 @@
 === "Zig"
 
     ```zig title="linked_list.zig"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Dart"
+
+    ```dart title="linked_list.dart"
     [class]{}-[func]{insert}
     ```
 
@@ -463,6 +497,12 @@
     [class]{}-[func]{remove}
     ```
 
+=== "Dart"
+
+    ```dart title="linked_list.dart"
+    [class]{}-[func]{remove}
+    ```
+
 ## 链表缺点
 
 **链表访问节点效率较低**。如上节所述，数组可以在 $O(1)$ 时间下访问任意元素。然而，链表无法直接访问任意节点，这是因为系统需要从头节点出发，逐个向后遍历直至找到目标节点。例如，若要访问链表索引为 `index`（即第 `index + 1` 个）的节点，则需要向后遍历 `index` 轮。
@@ -524,6 +564,12 @@
 === "Zig"
 
     ```zig title="linked_list.zig"
+    [class]{}-[func]{access}
+    ```
+
+=== "Dart"
+
+    ```dart title="linked_list.dart"
     [class]{}-[func]{access}
     ```
 
@@ -593,9 +639,15 @@
     [class]{}-[func]{find}
     ```
 
+=== "Dart"
+
+    ```dart title="linked_list.dart"
+    [class]{}-[func]{find}
+    ```
+
 ## 常见链表类型
 
-**单向链表**。即上述介绍的普通链表。单向链表的节点包含值和指向下一节点的指针（引用）两项数据。我们将首个节点称为头节点，将最后一个节点成为尾节点，尾节点指向 $\text{null}$ 。
+**单向链表**。即上述介绍的普通链表。单向链表的节点包含值和指向下一节点的指针（引用）两项数据。我们将首个节点称为头节点，将最后一个节点成为尾节点，尾节点指向空 $\text{None}$ 。
 
 **环形链表**。如果我们令单向链表的尾节点指向头节点（即首尾相接），则得到一个环形链表。在环形链表中，任意节点都可以视作头节点。
 
@@ -757,6 +809,18 @@
                 self.prev = null;
             }
         };
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title=""
+    /* 双向链表节点类 */
+    class ListNode {
+        int val;        // 节点值
+        ListNode next;  // 指向后继节点的指针（引用）
+        ListNode prev;  // 指向前驱节点的指针（引用）
+        ListNode(this.val, [this.next, this.prev]);  // 构造函数
     }
     ```
 

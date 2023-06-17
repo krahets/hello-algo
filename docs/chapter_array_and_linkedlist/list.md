@@ -106,6 +106,16 @@
     try list.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
     ```
 
+=== "Dart"
+
+    ```dart title="list.dart"
+    /* 初始化列表 */
+    // 无初始值
+    List<int> list1 = [];
+    // 有初始值
+    List<int> list = [1, 3, 2, 5, 4];
+    ```
+
 **访问与更新元素**。由于列表的底层数据结构是数组，因此可以在 $O(1)$ 时间内访问和更新元素，效率很高。
 
 === "Java"
@@ -202,6 +212,16 @@
 
     // 更新元素
     list.items[1] = 0; // 将索引 1 处的元素更新为 0  
+    ```
+
+=== "Dart"
+
+    ```dart title="list.dart"
+    /* 访问元素 */
+    int num = list[1];  // 访问索引 1 处的元素
+
+    /* 更新元素 */
+    list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 **在列表中添加、插入、删除元素**。相较于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 $O(1)$ ，但插入和删除元素的效率仍与数组相同，时间复杂度为 $O(N)$ 。
@@ -392,6 +412,26 @@
     _ = list.orderedRemove(3); // 删除索引 3 处的元素
     ```
 
+=== "Dart"
+
+    ```dart title="list.dart"
+    /* 清空列表 */
+    list.clear();
+
+    /* 尾部添加元素 */
+    list.add(1);
+    list.add(3);
+    list.add(2);
+    list.add(5);
+    list.add(4);
+
+    /* 中间插入元素 */
+    list.insert(3, 6); // 在索引 3 处插入数字 6
+
+    /* 删除元素 */
+    list.removeAt(3); // 删除索引 3 处的元素
+    ```
+
 **遍历列表**。与数组一样，列表可以根据索引遍历，也可以直接遍历各元素。
 
 === "Java"
@@ -545,6 +585,22 @@
     }
     ```
 
+=== "Dart"
+
+    ```dart title="list.dart"
+    /* 通过索引遍历列表 */
+    int count = 0;
+    for (int i = 0; i < list.length; i++) {
+        count++;
+    }
+
+    /* 直接遍历列表元素 */
+    count = 0;
+    for (int n in list) {
+        count++;
+    }
+    ```
+
 **拼接两个列表**。给定一个新列表 `list1` ，我们可以将该列表拼接到原列表的尾部。
 
 === "Java"
@@ -628,6 +684,14 @@
     try list.insertSlice(list.items.len, list1.items); // 将列表 list1 拼接到 list 之后
     ```
 
+=== "Dart"
+
+    ```dart title="list.dart"
+    /* 拼接两个列表 */
+    List<int> list1 = [6, 8, 7, 10, 9];
+    list.addAll(list1);  // 将列表 list1 拼接到 list 之后
+    ```
+
 **排序列表**。排序也是常用的方法之一。完成列表排序后，我们便可以使用在数组类算法题中经常考察的「二分查找」和「双指针」算法。
 
 === "Java"
@@ -699,6 +763,13 @@
     std.sort.sort(i32, list.items, {}, comptime std.sort.asc(i32));
     ```
 
+=== "Dart"
+
+    ```dart title="list.dart"
+    /* 排序列表 */
+    list.sort(); // 排序后，列表元素从小到大排列
+    ```
+
 ## 列表实现 *
 
 为了帮助加深对列表的理解，我们在此提供一个简易版列表实现。需要关注三个核心点：
@@ -766,5 +837,11 @@
 === "Zig"
 
     ```zig title="my_list.zig"
+    [class]{MyList}-[func]{}
+    ```
+
+=== "Dart"
+
+    ```dart title="my_list.dart"
     [class]{MyList}-[func]{}
     ```

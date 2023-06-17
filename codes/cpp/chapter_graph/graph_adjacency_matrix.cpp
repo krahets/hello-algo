@@ -36,7 +36,7 @@ class GraphAdjMat {
         // 向顶点列表中添加新顶点的值
         vertices.push_back(val);
         // 在邻接矩阵中添加一行
-        adjMat.emplace_back(n, 0);
+        adjMat.emplace_back(vector<int>(n, 0));
         // 在邻接矩阵中添加一列
         for (vector<int> &row : adjMat) {
             row.push_back(0);

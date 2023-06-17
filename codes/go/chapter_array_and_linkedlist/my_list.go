@@ -96,7 +96,7 @@ func (l *myList) remove(index int) int {
 
 /* 列表扩容 */
 func (l *myList) extendCapacity() {
-	// 新建一个长度为 self.__size 的数组，并将原数组拷贝到新数组
+	// 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
 	l.nums = append(l.nums, make([]int, l.numsCapacity*(l.extendRatio-1))...)
 	// 更新列表容量
 	l.numsCapacity = len(l.nums)
