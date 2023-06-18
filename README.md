@@ -20,8 +20,8 @@
 </p>
 
 <p align="center">
-  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="500">
-  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="500">
+  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="400">
+  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="400">
 </p>
 
 ## 关于本书
