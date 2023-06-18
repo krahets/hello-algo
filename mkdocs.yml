@@ -49,7 +49,7 @@ theme:
         icon: material/weather-sunny
         name: Switch to dark mode
     - scheme: slate
-      # primary: grey
+      primary: grey
       # accent: indigo
       toggle:
         icon: material/weather-night
@@ -161,9 +161,10 @@ nav:
     - 5.4. &nbsp; 小结: chapter_stack_and_queue/summary.md
   - 6. &nbsp; &nbsp; 散列表:
     - chapter_hashing/index.md
-    - 6.1. &nbsp; 哈希表: chapter_hashing/hash_map.md
-    - 6.2. &nbsp; 哈希冲突处理: chapter_hashing/hash_collision.md
-    - 6.3. &nbsp; 小结: chapter_hashing/summary.md
+    - 6.1. &nbsp; 哈希表（New）: chapter_hashing/hash_map.md
+    - 6.2. &nbsp; 哈希冲突（New）: chapter_hashing/hash_collision.md
+    - 6.3. &nbsp; 哈希算法（New）: chapter_hashing/hash_algorithm.md
+    - 6.4. &nbsp; 小结: chapter_hashing/summary.md
   - 7. &nbsp; &nbsp; 树:
     - chapter_tree/index.md
     - 7.1. &nbsp; 二叉树: chapter_tree/binary_tree.md
@@ -175,8 +176,9 @@ nav:
   - 8. &nbsp; &nbsp; 堆:
     - chapter_heap/index.md
     - 8.1. &nbsp; 堆: chapter_heap/heap.md
-    - 8.2. &nbsp; 建堆操作 *: chapter_heap/build_heap.md
-    - 8.3. &nbsp; 小结: chapter_heap/summary.md
+    - 8.2. &nbsp; 建堆操作: chapter_heap/build_heap.md
+    - 8.3. &nbsp; Top-K 问题（New）: chapter_heap/top_k.md
+    - 8.4. &nbsp; 小结: chapter_heap/summary.md
   - 9. &nbsp; &nbsp; 图:
     - chapter_graph/index.md
     - 9.1. &nbsp; 图: chapter_graph/graph.md
