@@ -7,21 +7,22 @@ hide:
 <h1 align="center">  </h1>
 
 <p align="center">
-  <img src="index.assets/conceptual_rendering.png" width="270">
-  &emsp; &emsp;
+  <img src="index.assets/conceptual_rendering.png" width="250">
   <img src="index.assets/hello_algo_knowledge_map_tp.png" width="400">
 </p>
 
 <h2 align="center"> 《 Hello 算法 》</h2>
 
-<p align="center"> 动画图解、能运行、可提问的数据结构与算法教程 </p>
+<p align="center"> 在动画与代码中掌握数据结构与算法 </p>
 
 <p align="center">
   <a href="https://github.com/krahets/hello-algo">
-    <img src="index.assets/btn_download_code.png" width="150">
+    <img src="index.assets/btn_download_code_light.png#only-light" width="150">
+    <img src="index.assets/btn_download_code_dark.png#only-dark" width="150">
   </a>
   <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="index.assets/btn_download_pdf.png" width="150">
+    <img src="index.assets/btn_download_pdf_light.png#only-light" width="150">
+    <img src="index.assets/btn_download_pdf_dark.png#only-dark" width="150">
   </a>
 </p>
 
@@ -92,7 +93,7 @@ hide:
 
 <h3 align="left"> 作者简介 </h3>
 
-靳宇栋 (Krahets)，大厂高级算法工程师，上海交通大学硕士。力扣（LeetCode）全网阅读量最高博主，其 LeetBook《图解算法数据结构》已被订阅 24 万本。
+靳宇栋 ([Krahets](https://leetcode.cn/u/jyd/))，大厂高级算法工程师，上海交通大学硕士。力扣（LeetCode）全网阅读量最高博主，其 LeetBook《图解算法数据结构》已被订阅 24 万本。
 
 ---
 
