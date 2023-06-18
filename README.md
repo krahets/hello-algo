@@ -5,10 +5,8 @@
 </p>
 
 <p align="center">
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&pause=2000&color=21C8B8&center=true&vCenter=true&width=435&height=30&lines=Hello%EF%BC%8C%E7%AE%97%E6%B3%95%EF%BC%81" alt="Typing SVG" /></a>
-</p>
-
-<p align="center">
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&pause=2000&color=21C8B8&center=true&vCenter=true&width=435&height=50&lines=Hello%EF%BC%8C%E7%AE%97%E6%B3%95%EF%BC%81" alt="Typing SVG" /></a>
+  </br>
   在动画与代码中掌握数据结构与算法
 </p>
 
@@ -22,8 +20,8 @@
 </p>
 
 <p align="center">
-  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="49%">
-  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="49%">
+  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="500">
+  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="500">
 </p>
 
 ## 关于本书
