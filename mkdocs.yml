@@ -2,7 +2,7 @@
 site_name: Hello 算法
 site_url: https://www.hello-algo.com/
 site_author: Krahets
-site_description: 一本动画图解、能运行、可提问的数据结构与算法入门书
+site_description: 在动画与代码中掌握数据结构与算法
 docs_dir: build
 # Repository
 repo_name: krahets/hello-algo
@@ -49,7 +49,7 @@ theme:
         icon: material/weather-sunny
         name: Switch to dark mode
     - scheme: slate
-      # primary: grey
+      primary: grey
       # accent: indigo
       toggle:
         icon: material/weather-night
