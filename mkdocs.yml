@@ -187,20 +187,20 @@ nav:
     - 9.4. &nbsp; 小结: chapter_graph/summary.md
   - 10. &nbsp; &nbsp; 搜索:
     - chapter_searching/index.md
-    - 10.1. &nbsp; 二分查找（New）: chapter_searching/binary_search.md
-    - 10.2. &nbsp; 二分查找边界（New）: chapter_searching/binary_search_edge.md 
+    - 10.1. &nbsp; 二分查找: chapter_searching/binary_search.md
+    - 10.2. &nbsp; 二分查找边界: chapter_searching/binary_search_edge.md 
     - 10.3. &nbsp; 哈希优化策略: chapter_searching/replace_linear_by_hashing.md
     - 10.4. &nbsp; 重识搜索算法: chapter_searching/searching_algorithm_revisited.md
     - 10.5. &nbsp; 小结: chapter_searching/summary.md
   - 11. &nbsp; &nbsp; 排序:
     - chapter_sorting/index.md
     - 11.1. &nbsp; 排序算法: chapter_sorting/sorting_algorithm.md
-    - 11.2. &nbsp; 选择排序（New）: chapter_sorting/selection_sort.md
+    - 11.2. &nbsp; 选择排序: chapter_sorting/selection_sort.md
     - 11.3. &nbsp; 冒泡排序: chapter_sorting/bubble_sort.md
     - 11.4. &nbsp; 插入排序: chapter_sorting/insertion_sort.md
     - 11.5. &nbsp; 快速排序: chapter_sorting/quick_sort.md
     - 11.6. &nbsp; 归并排序: chapter_sorting/merge_sort.md
-    - 11.7. &nbsp; 堆排序（New）: chapter_sorting/heap_sort.md
+    - 11.7. &nbsp; 堆排序: chapter_sorting/heap_sort.md
     - 11.8. &nbsp; 桶排序: chapter_sorting/bucket_sort.md
     - 11.9. &nbsp; 计数排序: chapter_sorting/counting_sort.md
     - 11.10. &nbsp; 基数排序: chapter_sorting/radix_sort.md
@@ -209,7 +209,8 @@ nav:
     - chapter_backtracking/index.md
     - 12.1. &nbsp; 回溯算法: chapter_backtracking/backtracking_algorithm.md
     - 12.2. &nbsp; 全排列问题: chapter_backtracking/permutations_problem.md
-    - 12.3. &nbsp; N 皇后问题: chapter_backtracking/n_queens_problem.md
+    - 12.3. &nbsp; 子集和问题（New）: chapter_backtracking/subset_sum_problem.md
+    - 12.4. &nbsp; N 皇后问题: chapter_backtracking/n_queens_problem.md
   - 13. &nbsp; &nbsp; 附录:
     - 13.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
     - 13.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
