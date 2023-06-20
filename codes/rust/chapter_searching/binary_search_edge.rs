@@ -44,8 +44,8 @@ fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
     j
 }
 
+/* Driver Code */
 pub fn main() {
-    /* Driver Code */
     let target = 6;
     let nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
 
