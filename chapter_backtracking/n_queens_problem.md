@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 12.3. &nbsp; N 皇后问题
+# 12.4. &nbsp; N 皇后问题
 
 !!! question
 
@@ -62,8 +62,8 @@ comments: true
             // 计算该格子对应的主对角线和副对角线
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
-            if (!(cols[col] || diags1[diag1] || diags2[diag2])) {
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state.get(row).set(col, "Q");
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
@@ -114,8 +114,8 @@ comments: true
             // 计算该格子对应的主对角线和副对角线
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
-            if (!(cols[col] || diags1[diag1] || diags2[diag2])) {
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state[row][col] = "Q";
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
@@ -165,8 +165,8 @@ comments: true
             # 计算该格子对应的主对角线和副对角线
             diag1 = row - col + n - 1
             diag2 = row + col
-            # 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
-            if not (cols[col] or diags1[diag1] or diags2[diag2]):
+            # 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if not cols[col] and not diags1[diag1] and not diags2[diag2]:
                 # 尝试：将皇后放置在该格子
                 state[row][col] = "Q"
                 cols[col] = diags1[diag1] = diags2[diag2] = True
@@ -209,8 +209,8 @@ comments: true
             // 计算该格子对应的主对角线和副对角线
             diag1 := row - col + n - 1
             diag2 := row + col
-            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
-            if !((*cols)[col] || (*diags1)[diag1] || (*diags2)[diag2]) {
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if !(*cols)[col] && !(*diags1)[diag1] && !(*diags2)[diag2] {
                 // 尝试：将皇后放置在该格子
                 (*state)[row][col] = "Q"
                 (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = true, true, true
@@ -240,8 +240,8 @@ comments: true
             // 计算该格子对应的主对角线和副对角线
             diag1 := row - col + n - 1
             diag2 := row + col
-            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
-            if !((*cols)[col] || (*diags1)[diag1] || (*diags2)[diag2]) {
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if !(*cols)[col] && !(*diags1)[diag1] && !(*diags2)[diag2] {
                 // 尝试：将皇后放置在该格子
                 (*state)[row][col] = "Q"
                 (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = true, true, true
@@ -289,8 +289,8 @@ comments: true
             // 计算该格子对应的主对角线和副对角线
             const diag1 = row - col + n - 1;
             const diag2 = row + col;
-            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
-            if (!(cols[col] || diags1[diag1] || diags2[diag2])) {
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state[row][col] = 'Q';
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
@@ -340,8 +340,8 @@ comments: true
             // 计算该格子对应的主对角线和副对角线
             const diag1 = row - col + n - 1;
             const diag2 = row + col;
-            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
-            if (!(cols[col] || diags1[diag1] || diags2[diag2])) {
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state[row][col] = 'Q';
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
@@ -396,8 +396,8 @@ comments: true
             // 计算该格子对应的主对角线和副对角线
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
-            if (!(cols[col] || diags1[diag1] || diags2[diag2])) {
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
                 // 尝试：将皇后放置在该格子
                 state[row][col] = "Q";
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
@@ -447,8 +447,8 @@ comments: true
             // 计算该格子对应的主对角线和副对角线
             let diag1 = row - col + n - 1
             let diag2 = row + col
-            // 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
-            if !(cols[col] || diags1[diag1] || diags2[diag2]) {
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if !cols[col] && !diags1[diag1] && !diags2[diag2] {
                 // 尝试：将皇后放置在该格子
                 state[row][col] = "Q"
                 cols[col] = true
@@ -496,7 +496,7 @@ comments: true
     [class]{}-[func]{nQueens}
     ```
 
-## 12.3.1. &nbsp; 复杂度分析
+## 12.4.1. &nbsp; 复杂度分析
 
 逐行放置 $n$ 次，考虑列约束，则从第一行到最后一行分别有 $n, n-1, \cdots, 2, 1$ 个选择，**因此时间复杂度为 $O(n!)$** 。实际上，根据对角线约束的剪枝也能够大幅地缩小搜索空间，因而搜索效率往往优于以上时间复杂度。
 
