@@ -13,7 +13,7 @@ hide:
 
 <h2 align="center"> 《 Hello 算法 》</h2>
 
-<p align="center"> 在动画与代码中掌握数据结构与算法 </p>
+<p align="center"> 动画图解、一键运行的数据结构与算法教程 </p>
 
 <p align="center">
   <a href="https://github.com/krahets/hello-algo">
