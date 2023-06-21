@@ -211,6 +211,7 @@ nav:
     - 12.2. &nbsp; 全排列问题: chapter_backtracking/permutations_problem.md
     - 12.3. &nbsp; 子集和问题（New）: chapter_backtracking/subset_sum_problem.md
     - 12.4. &nbsp; N 皇后问题: chapter_backtracking/n_queens_problem.md
+    - 12.5. &nbsp; 小结: chapter_backtracking/summary.md
   - 13. &nbsp; &nbsp; 附录:
     - 13.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
     - 13.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
