@@ -2,7 +2,7 @@
 site_name: Hello 算法
 site_url: https://www.hello-algo.com/
 site_author: Krahets
-site_description: 在动画与代码中掌握数据结构与算法
+site_description: 动画图解、一键运行的数据结构与算法教程
 docs_dir: build
 # Repository
 repo_name: krahets/hello-algo

@@ -1,19 +1,20 @@
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/conceptual_rendering.png" width="150px">
+    <img src="https://www.hello-algo.com/index.assets/conceptual_rendering.png" width="150">
   </a>
 </p>
 
 <p align="center">
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&pause=2000&color=21C8B8&center=true&vCenter=true&width=435&height=50&lines=Hello%EF%BC%8C%E7%AE%97%E6%B3%95%EF%BC%81" alt="Typing SVG" /></a>
+  <img src="https://readme-typing-svg.demolab.com?font=Long+Cang&size=25&pause=2000&color=59CBC1&center=true&vCenter=true&width=435&lines=Hello%EF%BC%8C%E7%AE%97%E6%B3%95%EF%BC%81" alt="Typing SVG" />
   </br>
-  在动画与代码中掌握数据结构与算法
+  动画图解、一键运行的数据结构与算法教程
 </p>
 
 <p align="center">
   <a href="https://www.hello-algo.com/">
     <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.png" width="150">
   </a>
+  &nbsp;
   <a href="https://github.com/krahets/hello-algo/releases">
     <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_dark.png" width="150">
   </a>
