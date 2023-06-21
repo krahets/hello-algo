@@ -66,6 +66,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_backtracking/summary/</loc>
+         <lastmod>2023-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_computational_complexity/</loc>
          <lastmod>2023-06-21</lastmod>
          <changefreq>daily</changefreq>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="在动画与代码中掌握数据结构与算法">
+        <meta name="description" content="动画图解、一键运行的数据结构与算法教程">
       
       
         <meta name="author" content="Krahets">
@@ -1803,6 +1803,8 @@
         
           
         
+          
+        
       
       
         
@@ -1894,7 +1896,7 @@
       
         <li class="md-nav__item">
   <a href="#1231" class="md-nav__link">
-    12.3.1. &nbsp; 参考全排列解法
+    12.3.1. &nbsp; 从全排列引出解法
   </a>
   
 </li>
@@ -1908,7 +1910,7 @@
       
         <li class="md-nav__item">
   <a href="#1233" class="md-nav__link">
-    12.3.3. &nbsp; 考虑相等元素
+    12.3.3. &nbsp; 相等元素剪枝
   </a>
   
 </li>
@@ -1930,6 +1932,20 @@
     <li class="md-nav__item">
       <a href="../n_queens_problem/" class="md-nav__link">
         12.4. &nbsp; N 皇后问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        12.5. &nbsp; 小结
       </a>
     </li>
   
@@ -2088,7 +2104,7 @@
       
         <li class="md-nav__item">
   <a href="#1231" class="md-nav__link">
-    12.3.1. &nbsp; 参考全排列解法
+    12.3.1. &nbsp; 从全排列引出解法
   </a>
   
 </li>
@@ -2102,7 +2118,7 @@
       
         <li class="md-nav__item">
   <a href="#1233" class="md-nav__link">
-    12.3.3. &nbsp; 考虑相等元素
+    12.3.3. &nbsp; 相等元素剪枝
   </a>
   
 </li>
@@ -2136,9 +2152,9 @@
 <p>给定一个正整数数组 <code>nums</code> 和一个目标正整数 <code>target</code> ，请找出所有可能的组合，使得组合中的元素和等于 <code>target</code> 。给定数组无重复元素，每个元素可以被选取多次。请以列表形式返回这些组合，列表中不应包含重复组合。</p>
 </div>
 <p>例如，输入集合 <span class="arithmatex">\(\{3, 4, 5\}\)</span> 和目标整数 <span class="arithmatex">\(9\)</span> ，由于集合中的数字可以被重复选取，因此解为 <span class="arithmatex">\(\{3, 3, 3\}, \{4, 5\}\)</span> 。请注意，子集是不区分元素顺序的，例如 <span class="arithmatex">\(\{4, 5\}\)</span> 和 <span class="arithmatex">\(\{5, 4\}\)</span> 是同一个子集。</p>
-<h2 id="1231">12.3.1. &nbsp; 参考全排列解法<a class="headerlink" href="#1231" title="Permanent link">&para;</a></h2>
-<p>从回溯算法的角度看，我们可以把子集的生成过程想象成一系列选择的结果，并在选择过程中实时更新“元素和”，当元素和等于 <code>target</code> 时，就将子集记录至结果列表。</p>
-<p>与上节全排列问题不同的是，本题允许重复选取同一元素，因此无需借助 <code>selected</code> 布尔列表来记录元素是否已被选择。我们可以对全排列代码进行小幅修改，初步得到解题代码。</p>
+<h2 id="1231">12.3.1. &nbsp; 从全排列引出解法<a class="headerlink" href="#1231" title="Permanent link">&para;</a></h2>
+<p>类似于上节全排列问题的解法，我们可以把子集的生成过程想象成一系列选择的结果，并在选择过程中实时更新“元素和”，当元素和等于 <code>target</code> 时，就将子集记录至结果列表。</p>
+<p>而与全排列问题不同的是，本题允许重复选取同一元素，因此无需借助 <code>selected</code> 布尔列表来记录元素是否已被选择。我们可以对全排列代码进行小幅修改，初步得到解题代码。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2474,7 +2490,7 @@
 <p><img alt="子集和 I 回溯过程" src="../subset_sum_problem.assets/subset_sum_i.png" /></p>
 <p align="center"> Fig. 子集和 I 回溯过程 </p>
 
-<h2 id="1233">12.3.3. &nbsp; 考虑相等元素<a class="headerlink" href="#1233" title="Permanent link">&para;</a></h2>
+<h2 id="1233">12.3.3. &nbsp; 相等元素剪枝<a class="headerlink" href="#1233" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>给定一个正整数数组 <code>nums</code> 和一个目标正整数 <code>target</code> ，请找出所有可能的组合，使得组合中的元素和等于 <code>target</code> 。<strong>给定数组可能包含重复元素，每个元素只可被选择一次</strong>。请以列表形式返回这些组合，列表中不应包含重复组合。</p>
