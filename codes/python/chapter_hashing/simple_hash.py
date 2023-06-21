@@ -43,14 +43,16 @@ def rot_hash(key: str) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    hash = add_hash("Hello 算法")
+    key = "Hello 算法"
+
+    hash = add_hash(key)
     print(f"加法哈希值为 {hash}")
 
-    hash = mul_hash("Hello 算法")
+    hash = mul_hash(key)
     print(f"乘法哈希值为 {hash}")
 
-    hash = xor_hash("Hello 算法")
+    hash = xor_hash(key)
     print(f"异或哈希值为 {hash}")
 
-    hash = rot_hash("Hello 算法")
+    hash = rot_hash(key)
     print(f"旋转哈希值为 {hash}")
