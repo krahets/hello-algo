@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Long+Cang&size=25&pause=2000&color=59CBC1&center=true&vCenter=true&width=435&lines=Hello%EF%BC%8C%E7%AE%97%E6%B3%95%EF%BC%81" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&width=200&lines=Hello%2C+%E7%AE%97%E6%B3%95+!" alt="hello-algo-typing-svg" />
   </br>
   动画图解、一键运行的数据结构与算法教程
 </p>
@@ -14,7 +14,6 @@
   <a href="https://www.hello-algo.com/">
     <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.png" width="150">
   </a>
-  &nbsp;
   <a href="https://github.com/krahets/hello-algo/releases">
     <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_dark.png" width="150">
   </a>
