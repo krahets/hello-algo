@@ -53,4 +53,6 @@ pub fn main() !void {
     res = (try twoSumHashTable(&nums, target)).?;
     std.debug.print("\n方法二 res = ", .{});
     inc.PrintUtil.printArray(i32, &res); 
+
+    _ = try std.io.getStdIn().reader().readByte();
 }

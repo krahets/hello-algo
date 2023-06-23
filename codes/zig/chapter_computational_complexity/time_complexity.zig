@@ -153,7 +153,7 @@ pub fn main() !void {
 
     count = quadratic(n);
     std.debug.print("平方阶的计算操作数量 = {}\n", .{count});
-    for (nums) |*num, i| {
+    for (&nums, 0..) |*num, i| {
         num.* = n - @intCast(i32, i);  // [n,n-1,...,2,1]
     }
     count = bubbleSort(&nums);
@@ -174,5 +174,7 @@ pub fn main() !void {
 
     count = factorialRecur(n);
     std.debug.print("阶乘阶（递归实现）的计算操作数量 = {}\n", .{count});
+
+    _ = try std.io.getStdIn().reader().readByte();
 }
 
