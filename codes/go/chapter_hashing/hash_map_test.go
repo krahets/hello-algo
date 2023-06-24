@@ -6,6 +6,7 @@ package chapter_hashing
 
 import (
 	"fmt"
+	"strconv"
 	"testing"
 
 	. "github.com/krahets/hello-algo/pkg"
@@ -104,4 +105,22 @@ func TestHashMapOpenAddressing(t *testing.T) {
 	hmap.remove(16750)
 	fmt.Println("\n删除 16750 后，哈希表为\nKey -> Value")
 	hmap.print()
+}
+
+func TestSimpleHash(t *testing.T) {
+	var hash int
+
+	key := "Hello 算法"
+
+	hash = addHash(key)
+	fmt.Println("加法哈希值为 " + strconv.Itoa(hash))
+
+	hash = mulHash(key)
+	fmt.Println("乘法哈希值为 " + strconv.Itoa(hash))
+
+	hash = xorHash(key)
+	fmt.Println("异或哈希值为 " + strconv.Itoa(hash))
+
+	hash = rotHash(key)
+	fmt.Println("旋转哈希值为 " + strconv.Itoa(hash))
 }
