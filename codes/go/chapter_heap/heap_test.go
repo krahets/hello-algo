@@ -13,14 +13,14 @@ import (
 )
 
 func testPush(h *intHeap, val int) {
-	// 调用 heap.Interface 的方法，来添加元素
+	// 调用 heap.Interface 的函数，来添加元素
 	heap.Push(h, val)
 	fmt.Printf("\n元素 %d 入堆后 \n", val)
 	PrintHeap(*h)
 }
 
 func testPop(h *intHeap) {
-	// 调用 heap.Interface 的方法，来移除元素
+	// 调用 heap.Interface 的函数，来移除元素
 	val := heap.Pop(h)
 	fmt.Printf("\n堆顶元素 %d 出堆后 \n", val)
 	PrintHeap(*h)

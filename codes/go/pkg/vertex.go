@@ -9,7 +9,7 @@ type Vertex struct {
 	Val int
 }
 
-// NewVertex 构造方法
+// NewVertex 构造函数
 func NewVertex(val int) Vertex {
 	return Vertex{
 		Val: val,

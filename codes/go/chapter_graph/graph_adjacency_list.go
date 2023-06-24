@@ -18,7 +18,7 @@ type graphAdjList struct {
 	adjList map[Vertex][]Vertex
 }
 
-/* 构造方法 */
+/* 构造函数 */
 func newGraphAdjList(edges [][]Vertex) *graphAdjList {
 	g := &graphAdjList{
 		adjList: make(map[Vertex][]Vertex),
