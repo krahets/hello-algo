@@ -31,7 +31,6 @@ func (h *minHeap) Top() any {
 }
 
 func topKHeap(nums []int, k int) *minHeap {
-	// intHeap 为大顶堆
 	h := &minHeap{}
 	heap.Init(h)
 	// 将数组的前 k 个元素入堆

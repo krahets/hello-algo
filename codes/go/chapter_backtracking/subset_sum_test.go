@@ -13,7 +13,6 @@ import (
 )
 
 func TestSubsetSumINaive(t *testing.T) {
-	/* 初始化二叉树 */
 	nums := []int{3, 4, 5}
 	target := 9
 	res := subsetSumINaive(nums, target)
@@ -29,7 +28,6 @@ func TestSubsetSumINaive(t *testing.T) {
 }
 
 func TestSubsetSumI(t *testing.T) {
-	/* 初始化二叉树 */
 	nums := []int{3, 4, 5}
 	target := 9
 	res := subsetSumI(nums, target)
@@ -44,7 +42,6 @@ func TestSubsetSumI(t *testing.T) {
 }
 
 func TestSubsetSumII(t *testing.T) {
-	/* 初始化二叉树 */
 	nums := []int{4, 4, 5}
 	target := 9
 	res := subsetSumII(nums, target)

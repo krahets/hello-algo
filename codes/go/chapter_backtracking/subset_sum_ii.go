@@ -1,4 +1,4 @@
-// File: subset_sum_i.go
+// File: subset_sum_ii.go
 // Created Time: 2023-06-24
 // Author: Reanon (793584285@qq.com)
 
@@ -8,7 +8,7 @@ import "sort"
 
 type subsetII struct{}
 
-/* 回溯算法：子集和 I */
+/* 回溯算法：子集和 II */
 func (s subsetII) backtrack(start, target int, state, choices *[]int, res *[][]int) {
 	// 子集和等于 target 时，记录解
 	if target == 0 {
@@ -38,7 +38,7 @@ func (s subsetII) backtrack(start, target int, state, choices *[]int, res *[][]i
 	}
 }
 
-/* 求解子集和 I */
+/* 求解子集和 II */
 func subsetSumII(nums []int, target int) [][]int {
 	s := subsetII{}
 	state := make([]int, 0) // 状态（子集）
