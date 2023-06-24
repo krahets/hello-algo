@@ -58,7 +58,7 @@ pub fn ArrayQueue(comptime T: type) type {
             // 计算尾指针，指向队尾索引 + 1
             // 通过取余操作，实现 rear 越过数组尾部后回到头部
             var rear = (self.front + self.queSize) % self.capacity();
-            // 尾结点后添加 num
+            // 尾节点后添加 num
             self.nums[rear] = num;
             self.queSize += 1;
         } 

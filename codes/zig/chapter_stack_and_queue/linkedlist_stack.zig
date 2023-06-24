@@ -10,7 +10,7 @@ pub fn LinkedListStack(comptime T: type) type {
     return struct {
         const Self = @This();
 
-        stack_top: ?*inc.ListNode(T) = null,             // 将头结点作为栈顶
+        stack_top: ?*inc.ListNode(T) = null,             // 将头节点作为栈顶
         stk_size: usize = 0,                             // 栈的长度
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,    // 内存分配器

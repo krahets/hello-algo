@@ -10,8 +10,8 @@ pub fn LinkedListQueue(comptime T: type) type {
     return struct {
         const Self = @This();
 
-        front: ?*inc.ListNode(T) = null,                // 头结点 front
-        rear: ?*inc.ListNode(T) = null,                 // 尾结点 rear
+        front: ?*inc.ListNode(T) = null,                // 头节点 front
+        rear: ?*inc.ListNode(T) = null,                 // 尾节点 rear
         que_size: usize = 0,                            // 队列的长度
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
@@ -51,14 +51,14 @@ pub fn LinkedListQueue(comptime T: type) type {
 
         // 入队
         pub fn push(self: *Self, num: T) !void {
-            // 尾结点后添加 num
+            // 尾节点后添加 num
             var node = try self.mem_allocator.create(inc.ListNode(T));
             node.init(num);
-            // 如果队列为空，则令头、尾结点都指向该结点
+            // 如果队列为空，则令头、尾节点都指向该节点
             if (self.front == null) {
                 self.front = node;
                 self.rear = node;
-            // 如果队列不为空，则将该结点添加到尾结点后
+            // 如果队列不为空，则将该节点添加到尾节点后
             } else {
                 self.rear.?.next = node;
                 self.rear = node;
@@ -69,7 +69,7 @@ pub fn LinkedListQueue(comptime T: type) type {
         // 出队
         pub fn pop(self: *Self) T {
             var num = self.peek();
-            // 删除头结点
+            // 删除头节点
             self.front = self.front.?.next;
             self.que_size -= 1;
             return num;

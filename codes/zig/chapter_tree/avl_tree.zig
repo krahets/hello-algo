@@ -107,7 +107,7 @@ pub fn AVLTree(comptime T: type) type {
             return node;
         }
 
-        // 插入结点
+        // 插入节点
         fn insert(self: *Self, val: T) !void {
             self.root = (try self.insertHelper(self.root, val)).?;
         }
