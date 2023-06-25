@@ -2190,7 +2190,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.go</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* 构造方法，根据切片建堆 */</span>
+<div class="highlight"><span class="filename">my_heap.go</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* 构造函数，根据切片建堆 */</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">newMaxHeap</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">maxHeap</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="c1">// 将列表元素原封不动添加进堆</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nx">h</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">maxHeap</span><span class="p">{</span><span class="nx">data</span><span class="p">:</span><span class="w"> </span><span class="nx">nums</span><span class="p">}</span>

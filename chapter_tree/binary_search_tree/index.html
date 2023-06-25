@@ -2790,19 +2790,18 @@
 <p>与查找节点相同，插入节点使用 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
 <h3 id="_3">删除节点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>与插入节点类似，我们需要在删除操作后维持二叉搜索树的“左子树 &lt; 根节点 &lt; 右子树”的性质。首先，我们需要在二叉树中执行查找操作，获取待删除节点。接下来，根据待删除节点的子节点数量，删除操作需分为三种情况：</p>
-<p>当待删除节点的子节点数量 <span class="arithmatex">\(= 0\)</span> 时，表示待删除节点是叶节点，可以直接删除。</p>
+<p>当待删除节点的度为 <span class="arithmatex">\(0\)</span> 时，表示待删除节点是叶节点，可以直接删除。</p>
 <p><img alt="在二叉搜索树中删除节点（度为 0）" src="../binary_search_tree.assets/bst_remove_case1.png" /></p>
 <p align="center"> Fig. 在二叉搜索树中删除节点（度为 0） </p>
 
-<p>当待删除节点的子节点数量 <span class="arithmatex">\(= 1\)</span> 时，将待删除节点替换为其子节点即可。</p>
+<p>当待删除节点的度为 <span class="arithmatex">\(1\)</span> 时，将待删除节点替换为其子节点即可。</p>
 <p><img alt="在二叉搜索树中删除节点（度为 1）" src="../binary_search_tree.assets/bst_remove_case2.png" /></p>
 <p align="center"> Fig. 在二叉搜索树中删除节点（度为 1） </p>
 
-<p>当待删除节点的子节点数量 <span class="arithmatex">\(= 2\)</span> 时，删除操作分为三步：</p>
+<p>当待删除节点的度为 <span class="arithmatex">\(2\)</span> 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左 <span class="arithmatex">\(&lt;\)</span> 根 <span class="arithmatex">\(&lt;\)</span> 右”的性质，因此这个节点可以是右子树的最小节点或左子树的最大节点。假设我们选择右子树的最小节点（或者称为中序遍历的下个节点），则删除操作为：</p>
 <ol>
 <li>找到待删除节点在“中序遍历序列”中的下一个节点，记为 <code>tmp</code> ；</li>
-<li>在树中递归删除节点 <code>tmp</code> ；</li>
-<li>用 <code>tmp</code> 的值覆盖待删除节点的值；</li>
+<li>将 <code>tmp</code> 的值覆盖待删除节点的值，并在树中递归删除节点 <code>tmp</code> ；</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
@@ -3316,7 +3315,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_tree.zig</span><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c1">// 删除节点</span>
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="k">fn</span><span class="w"> </span><span class="n">remove</span><span class="p">(</span><span class="n">self</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="n">Self</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="k">fn</span><span class="w"> </span><span class="n">remove</span><span class="p">(</span><span class="n">self</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="n">Self</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">    </span><span class="c1">// 若树为空，直接提前返回</span>
 <a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">root</span><span class="p">;</span>
@@ -3353,11 +3352,11 @@
 <a id="__codelineno-31-36" name="__codelineno-31-36" href="#__codelineno-31-36"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">tmp</span><span class="p">.</span><span class="o">?</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-31-37" name="__codelineno-31-37" href="#__codelineno-31-37"></a><span class="w">            </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="o">?</span><span class="p">.</span><span class="n">left</span><span class="p">;</span>
 <a id="__codelineno-31-38" name="__codelineno-31-38" href="#__codelineno-31-38"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-31-39" name="__codelineno-31-39" href="#__codelineno-31-39"></a><span class="w">        </span><span class="kr">var</span><span class="w"> </span><span class="n">tmpVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="o">?</span><span class="p">.</span><span class="n">val</span><span class="p">;</span>
+<a id="__codelineno-31-39" name="__codelineno-31-39" href="#__codelineno-31-39"></a><span class="w">        </span><span class="kr">var</span><span class="w"> </span><span class="n">tmp_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="o">?</span><span class="p">.</span><span class="n">val</span><span class="p">;</span>
 <a id="__codelineno-31-40" name="__codelineno-31-40" href="#__codelineno-31-40"></a><span class="w">        </span><span class="c1">// 递归删除节点 tmp</span>
-<a id="__codelineno-31-41" name="__codelineno-31-41" href="#__codelineno-31-41"></a><span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tmp</span><span class="p">.</span><span class="o">?</span><span class="p">.</span><span class="n">val</span><span class="p">);</span>
+<a id="__codelineno-31-41" name="__codelineno-31-41" href="#__codelineno-31-41"></a><span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tmp</span><span class="p">.</span><span class="o">?</span><span class="p">.</span><span class="n">val</span><span class="p">);</span>
 <a id="__codelineno-31-42" name="__codelineno-31-42" href="#__codelineno-31-42"></a><span class="w">        </span><span class="c1">// 用 tmp 覆盖 cur</span>
-<a id="__codelineno-31-43" name="__codelineno-31-43" href="#__codelineno-31-43"></a><span class="w">        </span><span class="n">cur</span><span class="p">.</span><span class="o">?</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmpVal</span><span class="p">;</span>
+<a id="__codelineno-31-43" name="__codelineno-31-43" href="#__codelineno-31-43"></a><span class="w">        </span><span class="n">cur</span><span class="p">.</span><span class="o">?</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp_val</span><span class="p">;</span>
 <a id="__codelineno-31-44" name="__codelineno-31-44" href="#__codelineno-31-44"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-31-45" name="__codelineno-31-45" href="#__codelineno-31-45"></a><span class="p">}</span>
 </code></pre></div>
