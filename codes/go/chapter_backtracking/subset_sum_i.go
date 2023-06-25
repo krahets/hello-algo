@@ -6,10 +6,8 @@ package chapter_backtracking
 
 import "sort"
 
-type subsetI struct{}
-
 /* 回溯算法：子集和 I */
-func (s subsetI) backtrack(start, target int, state, choices *[]int, res *[][]int) {
+func backtrackSubsetSumI(start, target int, state, choices *[]int, res *[][]int) {
 	// 子集和等于 target 时，记录解
 	if target == 0 {
 		newState := append([]int{}, *state...)
@@ -27,7 +25,7 @@ func (s subsetI) backtrack(start, target int, state, choices *[]int, res *[][]in
 		// 尝试：做出选择，更新 target, start
 		*state = append(*state, (*choices)[i])
 		// 进行下一轮选择
-		s.backtrack(i, target-(*choices)[i], state, choices, res)
+		backtrackSubsetSumI(i, target-(*choices)[i], state, choices, res)
 		// 回退：撤销选择，恢复到之前的状态
 		*state = (*state)[:len(*state)-1]
 	}
@@ -35,11 +33,10 @@ func (s subsetI) backtrack(start, target int, state, choices *[]int, res *[][]in
 
 /* 求解子集和 I */
 func subsetSumI(nums []int, target int) [][]int {
-	s := subsetI{}
 	state := make([]int, 0) // 状态（子集）
 	sort.Ints(nums)         // 对 nums 进行排序
 	start := 0              // 遍历起始点
 	res := make([][]int, 0) // 结果列表（子集列表）
-	s.backtrack(start, target, &state, &nums, &res)
+	backtrackSubsetSumI(start, target, &state, &nums, &res)
 	return res
 }

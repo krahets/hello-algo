@@ -4,10 +4,8 @@
 
 package chapter_backtracking
 
-type subset struct{}
-
 /* 回溯算法：子集和 I */
-func (s subset) backtrack(total, target int, state, choices *[]int, res *[][]int) {
+func backtrackSubsetSumINaive(total, target int, state, choices *[]int, res *[][]int) {
 	// 子集和等于 target 时，记录解
 	if target == total {
 		newState := append([]int{}, *state...)
@@ -23,7 +21,7 @@ func (s subset) backtrack(total, target int, state, choices *[]int, res *[][]int
 		// 尝试：做出选择，更新元素和 total
 		*state = append(*state, (*choices)[i])
 		// 进行下一轮选择
-		s.backtrack(total+(*choices)[i], target, state, choices, res)
+		backtrackSubsetSumINaive(total+(*choices)[i], target, state, choices, res)
 		// 回退：撤销选择，恢复到之前的状态
 		*state = (*state)[:len(*state)-1]
 	}
@@ -31,10 +29,9 @@ func (s subset) backtrack(total, target int, state, choices *[]int, res *[][]int
 
 /* 求解子集和 I（包含重复子集） */
 func subsetSumINaive(nums []int, target int) [][]int {
-	s := subset{}
 	state := make([]int, 0) // 状态（子集）
 	total := 0              // 子集和
 	res := make([][]int, 0) // 结果列表（子集列表）
-	s.backtrack(total, target, &state, &nums, &res)
+	backtrackSubsetSumINaive(total, target, &state, &nums, &res)
 	return res
 }

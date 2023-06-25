@@ -39,7 +39,7 @@
 === "Go"
 
     ```go title="subset_sum_i_naive.go"
-    [class]{}-[func]{backtrackINaive}
+    [class]{}-[func]{backtrackSubsetSumINaive}
 
     [class]{}-[func]{subsetSumINaive}
     ```
@@ -152,7 +152,7 @@
 === "Go"
 
     ```go title="subset_sum_i.go"
-    [class]{}-[func]{backtrackI}
+    [class]{}-[func]{backtrackSubsetSumI}
 
     [class]{}-[func]{subsetSumI}
     ```
@@ -258,7 +258,7 @@
 === "Go"
 
     ```go title="subset_sum_ii.go"
-    [class]{}-[func]{backtrackII}
+    [class]{}-[func]{backtrackSubsetSumII}
 
     [class]{}-[func]{subsetSumII}
     ```
