@@ -535,7 +535,7 @@ $$
         // defer mem_arena.deinit();
         const mem_allocator = mem_arena.allocator();
         var counter = try mem_allocator.alloc(usize, 10);
-        std.mem.set(usize, counter, 0);
+        @memset(counter, 0);
         var n = nums.len;
         // 统计 0~9 各数字的出现次数
         for (nums) |num| {

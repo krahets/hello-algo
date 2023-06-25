@@ -298,7 +298,7 @@ comments: true
         adjMat [][]int
     }
 
-    /* 构造方法 */
+    /* 构造函数 */
     func newGraphAdjMat(vertices []int, edges [][]int) *graphAdjMat {
         // 添加顶点
         n := len(vertices)
@@ -1113,7 +1113,7 @@ comments: true
         adjList map[Vertex][]Vertex
     }
 
-    /* 构造方法 */
+    /* 构造函数 */
     func newGraphAdjList(edges [][]Vertex) *graphAdjList {
         g := &graphAdjList{
             adjList: make(map[Vertex][]Vertex),

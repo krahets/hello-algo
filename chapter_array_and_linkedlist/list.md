@@ -1093,7 +1093,7 @@ comments: true
         extendRatio  int
     }
 
-    /* 构造方法 */
+    /* 构造函数 */
     func newMyList() *myList {
         return &myList{
             numsCapacity: 10,              // 列表容量
@@ -1716,23 +1716,23 @@ comments: true
             const Self = @This();
             
             nums: []T = undefined,                        // 数组（存储列表元素）
-            nums_capacity: usize = 10,                     // 列表容量
-            num_size: usize = 0,                           // 列表长度（即当前元素数量）
-            extend_ratio: usize = 2,                       // 每次列表扩容的倍数
+            numsCapacity: usize = 10,                     // 列表容量
+            numSize: usize = 0,                           // 列表长度（即当前元素数量）
+            extendRatio: usize = 2,                       // 每次列表扩容的倍数
             mem_arena: ?std.heap.ArenaAllocator = null,
             mem_allocator: std.mem.Allocator = undefined, // 内存分配器
 
-            // 构造方法（分配内存+初始化列表）
+            // 构造函数（分配内存+初始化列表）
             pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
                 if (self.mem_arena == null) {
                     self.mem_arena = std.heap.ArenaAllocator.init(allocator);
                     self.mem_allocator = self.mem_arena.?.allocator();
                 }
-                self.nums = try self.mem_allocator.alloc(T, self.nums_capacity);
-                std.mem.set(T, self.nums, @as(T, 0));
+                self.nums = try self.mem_allocator.alloc(T, self.numsCapacity);
+                @memset(self.nums, @as(T, 0));
             }
 
-            // 析构方法（释放内存）
+            // 析构函数（释放内存）
             pub fn deinit(self: *Self) void {
                 if (self.mem_arena == null) return;
                 self.mem_arena.?.deinit();
@@ -1740,12 +1740,12 @@ comments: true
 
             // 获取列表长度（即当前元素数量）
             pub fn size(self: *Self) usize {
-                return self.num_size;
+                return self.numSize;
             }
 
             // 获取列表容量
             pub fn capacity(self: *Self) usize {
-                return self.nums_capacity;
+                return self.numsCapacity;
             }
 
             // 访问元素
@@ -1768,7 +1768,7 @@ comments: true
                 if (self.size() == self.capacity()) try self.extendCapacity();
                 self.nums[self.size()] = num;
                 // 更新元素数量
-                self.num_size += 1;
+                self.numSize += 1;
             }  
 
             // 中间插入元素
@@ -1783,7 +1783,7 @@ comments: true
                 }
                 self.nums[index] = num;
                 // 更新元素数量
-                self.num_size += 1;
+                self.numSize += 1;
             }
 
             // 删除元素
@@ -1796,30 +1796,30 @@ comments: true
                     self.nums[j] = self.nums[j + 1];
                 }
                 // 更新元素数量
-                self.num_size -= 1;
+                self.numSize -= 1;
                 // 返回被删除元素
                 return num;
             }
 
             // 列表扩容
             pub fn extendCapacity(self: *Self) !void {
-                // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
-                var newCapacity = self.capacity() * self.extend_ratio;
+                // 新建一个长度为 size * extendRatio 的数组，并将原数组拷贝到新数组
+                var newCapacity = self.capacity() * self.extendRatio;
                 var extend = try self.mem_allocator.alloc(T, newCapacity);
-                std.mem.set(T, extend, @as(T, 0));
+                @memset(extend, @as(T, 0));
                 // 将原数组中的所有元素复制到新数组
                 std.mem.copy(T, extend, self.nums);
                 self.nums = extend;
                 // 更新列表容量
-                self.nums_capacity = newCapacity;
+                self.numsCapacity = newCapacity;
             }
 
             // 将列表转换为数组
             pub fn toArray(self: *Self) ![]T {
                 // 仅转换有效长度范围内的列表元素
                 var nums = try self.mem_allocator.alloc(T, self.size());
-                std.mem.set(T, nums, @as(T, 0));
-                for (nums) |*num, i| {
+               @memset(nums, @as(T, 0));
+                for (nums, 0..) |*num, i| {
                     num.* = self.get(i);
                 }
                 return nums;

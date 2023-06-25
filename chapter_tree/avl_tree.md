@@ -1478,7 +1478,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         t.root = t.insertHelper(t.root, val)
     }
 
-    /* 递归插入节点（辅助方法） */
+    /* 递归插入节点（辅助函数） */
     func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
         if node == nil {
             return NewTreeNode(val)
@@ -1560,7 +1560,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         tree->root = insertHelper(tree->root, val);
     }
 
-    /* 递归插入节点（辅助方法） */
+    /* 递归插入节点（辅助函数） */
     TreeNode *insertHelper(TreeNode *node, int val) {
         if (node == NULL) {
             return newTreeNode(val);
@@ -1644,8 +1644,8 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
     ```zig title="avl_tree.zig"
     // 插入节点
-    fn insert(self: *Self, val: T) void {
-        self.root = try self.insertHelper(self.root, val);
+    fn insert(self: *Self, val: T) !void {
+        self.root = (try self.insertHelper(self.root, val)).?;
     }
 
     // 递归插入节点（辅助方法）
@@ -1841,7 +1841,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         t.root = t.removeHelper(t.root, val)
     }
 
-    /* 递归删除节点（辅助方法） */
+    /* 递归删除节点（辅助函数） */
     func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
         if node == nil {
             return nil
@@ -1976,7 +1976,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
         TreeNode *root = removeHelper(tree->root, val);
     }
 
-    /* 递归删除节点（辅助方法） */
+    /* 递归删除节点（辅助函数） */
     TreeNode *removeHelper(TreeNode *node, int val) {
         TreeNode *child, *grandChild;
         if (node == NULL) {
@@ -2117,7 +2117,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     ```zig title="avl_tree.zig"
     // 删除节点
     fn remove(self: *Self, val: T) void {
-       self.root = self.removeHelper(self.root, val);
+       self.root = self.removeHelper(self.root, val).?;
     }
 
     // 递归删除节点（辅助方法）

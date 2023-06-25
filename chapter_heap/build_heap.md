@@ -59,7 +59,7 @@ comments: true
 === "Go"
 
     ```go title="my_heap.go"
-    /* 构造方法，根据切片建堆 */
+    /* 构造函数，根据切片建堆 */
     func newMaxHeap(nums []any) *maxHeap {
         // 将列表元素原封不动添加进堆
         h := &maxHeap{data: nums}

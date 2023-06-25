@@ -77,7 +77,6 @@ index = hash(key) % capacity
         int hash = 0;
         final int MODULUS = 1000000007;
         for (char c : key.toCharArray()) {
-            System.out.println((int)c);
             hash ^= (int) c;
         }
         return hash & MODULUS;
@@ -178,13 +177,53 @@ index = hash(key) % capacity
 === "Go"
 
     ```go title="simple_hash.go"
-    [class]{}-[func]{addHash}
+    /* 加法哈希 */
+    func addHash(key string) int {
+        var hash int64
+        var modulus int64
 
-    [class]{}-[func]{mulHash}
+        modulus = 1000000007
+        for _, b := range []byte(key) {
+            hash = (hash + int64(b)) % modulus
+        }
+        return int(hash)
+    }
 
-    [class]{}-[func]{xorHash}
+    /* 乘法哈希 */
+    func mulHash(key string) int {
+        var hash int64
+        var modulus int64
 
-    [class]{}-[func]{rotHash}
+        modulus = 1000000007
+        for _, b := range []byte(key) {
+            hash = (31*hash + int64(b)) % modulus
+        }
+        return int(hash)
+    }
+
+    /* 异或哈希 */
+    func xorHash(key string) int {
+        hash := 0
+        modulus := 1000000007
+        for _, b := range []byte(key) {
+            fmt.Println(int(b))
+            hash ^= int(b)
+            hash = (31*hash + int(b)) % modulus
+        }
+        return hash & modulus
+    }
+
+    /* 旋转哈希 */
+    func rotHash(key string) int {
+        var hash int64
+        var modulus int64
+
+        modulus = 1000000007
+        for _, b := range []byte(key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ int64(b)) % modulus
+        }
+        return int(hash)
+    }
     ```
 
 === "JavaScript"
@@ -452,7 +491,29 @@ $$
 === "Dart"
 
     ```dart title="built_in_hash.dart"
-
+    int num = 3;
+    int hashNum = num.hashCode;
+    // 整数 3 的哈希值为 34803
+    
+    bool bol = true;
+    int hashBol = bol.hashCode;
+    // 布尔值 true 的哈希值为 1231
+    
+    double dec = 3.14159;
+    int hashDec = dec.hashCode;
+    // 小数 3.14159 的哈希值为 2570631074981783
+    
+    String str = "Hello 算法";
+    int hashStr = str.hashCode;
+    // 字符串 Hello 算法 的哈希值为 468167534
+    
+    List arr = [12836, "小哈"];
+    int hashArr = arr.hashCode;
+    // 数组 [12836, 小哈] 的哈希值为 976512528
+    
+    ListNode obj = new ListNode(0);
+    int hashObj = obj.hashCode;
+    // 节点对象 Instance of 'ListNode' 的哈希值为 1033450432
     ```
 
 在大多数编程语言中，**只有不可变对象才可作为哈希表的 `key`** 。假如我们将列表（动态数组）作为 `key` ，当列表的内容发生变化时，它的哈希值也随之改变，我们就无法在哈希表中查询到原先的 `value` 了。

@@ -622,23 +622,22 @@ comments: true
 
 与插入节点类似，我们需要在删除操作后维持二叉搜索树的“左子树 < 根节点 < 右子树”的性质。首先，我们需要在二叉树中执行查找操作，获取待删除节点。接下来，根据待删除节点的子节点数量，删除操作需分为三种情况：
 
-当待删除节点的子节点数量 $= 0$ 时，表示待删除节点是叶节点，可以直接删除。
+当待删除节点的度为 $0$ 时，表示待删除节点是叶节点，可以直接删除。
 
 ![在二叉搜索树中删除节点（度为 0）](binary_search_tree.assets/bst_remove_case1.png)
 
 <p align="center"> Fig. 在二叉搜索树中删除节点（度为 0） </p>
 
-当待删除节点的子节点数量 $= 1$ 时，将待删除节点替换为其子节点即可。
+当待删除节点的度为 $1$ 时，将待删除节点替换为其子节点即可。
 
 ![在二叉搜索树中删除节点（度为 1）](binary_search_tree.assets/bst_remove_case2.png)
 
 <p align="center"> Fig. 在二叉搜索树中删除节点（度为 1） </p>
 
-当待删除节点的子节点数量 $= 2$ 时，删除操作分为三步：
+当待删除节点的度为 $2$ 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左 $<$ 根 $<$ 右”的性质，因此这个节点可以是右子树的最小节点或左子树的最大节点。假设我们选择右子树的最小节点（或者称为中序遍历的下个节点），则删除操作为：
 
 1. 找到待删除节点在“中序遍历序列”中的下一个节点，记为 `tmp` ；
-2. 在树中递归删除节点 `tmp` ；
-3. 用 `tmp` 的值覆盖待删除节点的值；
+2. 将 `tmp` 的值覆盖待删除节点的值，并在树中递归删除节点 `tmp` ；
 
 === "<1>"
     ![二叉搜索树删除节点示例](binary_search_tree.assets/bst_remove_case3_step1.png)
@@ -1167,7 +1166,7 @@ comments: true
 
     ```zig title="binary_search_tree.zig"
     // 删除节点
-    fn remove(self: *Self, num: T) !void {
+    fn remove(self: *Self, num: T) void {
         // 若树为空，直接提前返回
         if (self.root == null) return;
         var cur = self.root;
@@ -1204,11 +1203,11 @@ comments: true
             while (tmp.?.left != null) {
                 tmp = tmp.?.left;
             }
-            var tmpVal = tmp.?.val;
+            var tmp_val = tmp.?.val;
             // 递归删除节点 tmp
-            _ = self.remove(tmp.?.val);
+            self.remove(tmp.?.val);
             // 用 tmp 覆盖 cur
-            cur.?.val = tmpVal;
+            cur.?.val = tmp_val;
         }
     }
     ```

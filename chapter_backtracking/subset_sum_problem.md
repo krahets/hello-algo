@@ -127,7 +127,15 @@ comments: true
     ```go title="subset_sum_i_naive.go"
     [class]{}-[func]{backtrackINaive}
 
-    [class]{}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    func subsetSumINaive(nums []int, target int) [][]int {
+        s := subset{}
+        state := make([]int, 0) // 状态（子集）
+        total := 0              // 子集和
+        res := make([][]int, 0) // 结果列表（子集列表）
+        s.backtrack(total, target, &state, &nums, &res)
+        return res
+    }
     ```
 
 === "JavaScript"
@@ -157,9 +165,36 @@ comments: true
 === "C#"
 
     ```csharp title="subset_sum_i_naive.cs"
-    [class]{subset_sum_i_naive}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(List<int> state, int target, int total, int[] choices, List<List<int>> res) {
+        // 子集和等于 target 时，记录解
+        if (total == target) {
+            res.Add(new List<int>(state));
+            return;
+        }
+        // 遍历所有选择
+        for (int i = 0; i < choices.Length; i++) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if (total + choices[i] > target) {
+                continue;
+            }
+            // 尝试：做出选择，更新元素和 total
+            state.Add(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target, total + choices[i], choices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.RemoveAt(state.Count - 1);
+        }
+    }
 
-    [class]{subset_sum_i_naive}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    List<List<int>> subsetSumINaive(int[] nums, int target) {
+        List<int> state = new List<int>(); // 状态（子集）
+        int total = 0; // 子集和
+        List<List<int>> res = new List<List<int>>(); // 结果列表（子集列表）
+        backtrack(state, target, total, nums, res);
+        return res;
+    }
     ```
 
 === "Swift"
@@ -331,7 +366,16 @@ comments: true
     ```go title="subset_sum_i.go"
     [class]{}-[func]{backtrackI}
 
-    [class]{}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    func subsetSumI(nums []int, target int) [][]int {
+        s := subsetI{}
+        state := make([]int, 0) // 状态（子集）
+        sort.Ints(nums)         // 对 nums 进行排序
+        start := 0              // 遍历起始点
+        res := make([][]int, 0) // 结果列表（子集列表）
+        s.backtrack(start, target, &state, &nums, &res)
+        return res
+    }
     ```
 
 === "JavaScript"
@@ -361,9 +405,39 @@ comments: true
 === "C#"
 
     ```csharp title="subset_sum_i.cs"
-    [class]{subset_sum_i}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
+        // 子集和等于 target 时，记录解
+        if (target == 0) {
+            res.Add(new List<int>(state));
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for (int i = start; i < choices.Length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.Add(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.RemoveAt(state.Count - 1);
+        }
+    }
 
-    [class]{subset_sum_i}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    List<List<int>> subsetSumI(int[] nums, int target) {
+        List<int> state = new List<int>(); // 状态（子集）
+        Array.Sort(nums); // 对 nums 进行排序
+        int start = 0; // 遍历起始点
+        List<List<int>> res = new List<List<int>>(); // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "Swift"
@@ -542,7 +616,16 @@ comments: true
     ```go title="subset_sum_ii.go"
     [class]{}-[func]{backtrackII}
 
-    [class]{}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    func subsetSumII(nums []int, target int) [][]int {
+        s := subsetII{}
+        state := make([]int, 0) // 状态（子集）
+        sort.Ints(nums)         // 对 nums 进行排序
+        start := 0              // 遍历起始点
+        res := make([][]int, 0) // 结果列表（子集列表）
+        s.backtrack(start, target, &state, &nums, &res)
+        return res
+    }
     ```
 
 === "JavaScript"
@@ -572,9 +655,44 @@ comments: true
 === "C#"
 
     ```csharp title="subset_sum_ii.cs"
-    [class]{subset_sum_ii}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    void backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
+        // 子集和等于 target 时，记录解
+        if (target == 0) {
+            res.Add(new List<int>(state));
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for (int i = start; i < choices.Length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if (i > start && choices[i] == choices[i - 1]) {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.Add(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i + 1, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.RemoveAt(state.Count - 1);
+        }
+    }
 
-    [class]{subset_sum_ii}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    List<List<int>> subsetSumII(int[] nums, int target) {
+        List<int> state = new List<int>(); // 状态（子集）
+        Array.Sort(nums); // 对 nums 进行排序
+        int start = 0; // 遍历起始点
+        List<List<int>> res = new List<List<int>>(); // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "Swift"

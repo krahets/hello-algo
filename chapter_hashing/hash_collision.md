@@ -372,7 +372,128 @@ comments: true
     ```go title="hash_map_chaining.go"
     [class]{pair}-[func]{}
 
-    [class]{hashMapChaining}-[func]{}
+    /* 链式地址哈希表 */
+    type hashMapChaining struct {
+        size        int      // 键值对数量
+        capacity    int      // 哈希表容量
+        loadThres   float64  // 触发扩容的负载因子阈值
+        extendRatio int      // 扩容倍数
+        buckets     [][]pair // 桶数组
+    }
+
+    /* 构造方法 */
+    func newHashMapChaining() *hashMapChaining {
+        buckets := make([][]pair, 4)
+        for i := 0; i < 4; i++ {
+            buckets[i] = make([]pair, 0)
+        }
+        return &hashMapChaining{
+            size:        0,
+            capacity:    4,
+            loadThres:   2 / 3.0,
+            extendRatio: 2,
+            buckets:     buckets,
+        }
+    }
+
+    /* 哈希函数 */
+    func (m *hashMapChaining) hashFunc(key int) int {
+        return key % m.capacity
+    }
+
+    /* 负载因子 */
+    func (m *hashMapChaining) loadFactor() float64 {
+        return float64(m.size / m.capacity)
+    }
+
+    /* 查询操作 */
+    func (m *hashMapChaining) get(key int) string {
+        idx := m.hashFunc(key)
+        bucket := m.buckets[idx]
+        // 遍历桶，若找到 key 则返回对应 val
+        for _, p := range bucket {
+            if p.key == key {
+                return p.val
+            }
+        }
+        // 若未找到 key 则返回空字符串
+        return ""
+    }
+
+    /* 添加操作 */
+    func (m *hashMapChaining) put(key int, val string) {
+        // 当负载因子超过阈值时，执行扩容
+        if m.loadFactor() > m.loadThres {
+            m.extend()
+        }
+        idx := m.hashFunc(key)
+        // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+        for _, p := range m.buckets[idx] {
+            if p.key == key {
+                p.val = val
+                return
+            }
+        }
+        // 若无该 key ，则将键值对添加至尾部
+        p := pair{
+            key: key,
+            val: val,
+        }
+        m.buckets[idx] = append(m.buckets[idx], p)
+        m.size += 1
+    }
+
+    /* 删除操作 */
+    func (m *hashMapChaining) remove(key int) {
+        idx := m.hashFunc(key)
+        // 遍历桶，从中删除键值对
+        for i, p := range m.buckets[idx] {
+            if p.key == key {
+                // 切片删除
+                m.buckets[idx] = append(m.buckets[idx][:i], m.buckets[idx][i+1:]...)
+                break
+            }
+        }
+        m.size -= 1
+    }
+
+    /* 扩容哈希表 */
+    func (m *hashMapChaining) extend() {
+        // 暂存原哈希表
+        tmpBuckets := make([][]pair, len(m.buckets))
+        for i := 0; i < len(m.buckets); i++ {
+            tmpBuckets[i] = make([]pair, len(m.buckets[i]))
+            copy(tmpBuckets[i], m.buckets[i])
+        }
+        // 初始化扩容后的新哈希表
+        m.capacity *= m.extendRatio
+        m.buckets = make([][]pair, m.capacity)
+        for i := 0; i < m.capacity; i++ {
+            m.buckets[i] = make([]pair, 0)
+        }
+        m.size = 0
+        // 将键值对从原哈希表搬运至新哈希表
+        for _, bucket := range tmpBuckets {
+            for _, p := range bucket {
+                m.put(p.key, p.val)
+            }
+        }
+    }
+
+    /* 打印哈希表 */
+    func (m *hashMapChaining) print() {
+        var builder strings.Builder
+
+        for _, bucket := range m.buckets {
+            builder.WriteString("[")
+            for _, p := range bucket {
+                builder.WriteString(strconv.Itoa(p.key) + " -> " + p.val + " ")
+            }
+            builder.WriteString("]")
+            fmt.Println(builder.String())
+            builder.Reset()
+        }
+    }
     ```
 
 === "JavaScript"
@@ -426,9 +547,111 @@ comments: true
 === "Dart"
 
     ```dart title="hash_map_chaining.dart"
-    [class]{Pair}-[func]{}
+    /* 键值对 */
+    class Pair {
+      int key;
+      String val;
+      Pair(this.key, this.val);
+    }
 
-    [class]{HashMapChaining}-[func]{}
+    /* 链式地址哈希表 */
+    class HashMapChaining {
+      late int size; // 键值对数量
+      late int capacity; // 哈希表容量
+      late double loadThres; // 触发扩容的负载因子阈值
+      late int extendRatio; // 扩容倍数
+      late List<List<Pair>> buckets; // 桶数组
+
+      /* 构造方法 */
+      HashMapChaining() {
+        size = 0;
+        capacity = 4;
+        loadThres = 2 / 3.0;
+        extendRatio = 2;
+        buckets = List.generate(capacity, (_) => []);
+      }
+
+      /* 哈希函数 */
+      int hashFunc(int key) {
+        return key % capacity;
+      }
+
+      /* 负载因子 */
+      double loadFactor() {
+        return size / capacity;
+      }
+
+      /* 查询操作 */
+      String? get(int key) {
+        int index = hashFunc(key);
+        List<Pair> bucket = buckets[index];
+        // 遍历桶，若找到 key 则返回对应 val
+        for (Pair pair in bucket) {
+          if (pair.key == key) {
+            return pair.val;
+          }
+        }
+        // 若未找到 key 则返回 null
+        return null;
+      }
+
+      /* 添加操作 */
+      void put(int key, String val) {
+        // 当负载因子超过阈值时，执行扩容
+        if (loadFactor() > loadThres) {
+          extend();
+        }
+        int index = hashFunc(key);
+        List<Pair> bucket = buckets[index];
+        // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+        for (Pair pair in bucket) {
+          if (pair.key == key) {
+            pair.val = val;
+            return;
+          }
+        }
+        // 若无该 key ，则将键值对添加至尾部
+        Pair pair = Pair(key, val);
+        bucket.add(pair);
+        size++;
+      }
+
+      /* 删除操作 */
+      void remove(int key) {
+        int index = hashFunc(key);
+        List<Pair> bucket = buckets[index];
+        // 遍历桶，从中删除键值对
+        bucket.removeWhere((Pair pair) => pair.key == key);
+        size--;
+      }
+
+      /* 扩容哈希表 */
+      void extend() {
+        // 暂存原哈希表
+        List<List<Pair>> bucketsTmp = buckets;
+        // 初始化扩容后的新哈希表
+        capacity *= extendRatio;
+        buckets = List.generate(capacity, (_) => []);
+        size = 0;
+        // 将键值对从原哈希表搬运至新哈希表
+        for (List<Pair> bucket in bucketsTmp) {
+          for (Pair pair in bucket) {
+            put(pair.key, pair.val);
+          }
+        }
+      }
+
+      /* 打印哈希表 */
+      void printHashMap() {
+        for (List<Pair> bucket in buckets) {
+          List<String> res = [];
+          for (Pair pair in bucket) {
+            res.add("${pair.key} -> ${pair.val}");
+          }
+          print(res);
+        }
+      }
+    }
     ```
 
 !!! tip
@@ -836,7 +1059,137 @@ comments: true
     ```go title="hash_map_open_addressing.go"
     [class]{pair}-[func]{}
 
-    [class]{hashMapOpenAddressing}-[func]{}
+    /* 链式地址哈希表 */
+    type hashMapOpenAddressing struct {
+        size        int     // 键值对数量
+        capacity    int     // 哈希表容量
+        loadThres   float64 // 触发扩容的负载因子阈值
+        extendRatio int     // 扩容倍数
+        buckets     []pair  // 桶数组
+        removed     pair    // 删除标记
+    }
+
+    /* 构造方法 */
+    func newHashMapOpenAddressing() *hashMapOpenAddressing {
+        buckets := make([]pair, 4)
+        return &hashMapOpenAddressing{
+            size:        0,
+            capacity:    4,
+            loadThres:   2 / 3.0,
+            extendRatio: 2,
+            buckets:     buckets,
+            removed: pair{
+                key: -1,
+                val: "-1",
+            },
+        }
+    }
+
+    /* 哈希函数 */
+    func (m *hashMapOpenAddressing) hashFunc(key int) int {
+        return key % m.capacity
+    }
+
+    /* 负载因子 */
+    func (m *hashMapOpenAddressing) loadFactor() float64 {
+        return float64(m.size) / float64(m.capacity)
+    }
+
+    /* 查询操作 */
+    func (m *hashMapOpenAddressing) get(key int) string {
+        idx := m.hashFunc(key)
+        // 线性探测，从 index 开始向后遍历
+        for i := 0; i < m.capacity; i++ {
+            // 计算桶索引，越过尾部返回头部
+            j := (idx + 1) % m.capacity
+            // 若遇到空桶，说明无此 key ，则返回 null
+            if m.buckets[j] == (pair{}) {
+                return ""
+            }
+            // 若遇到指定 key ，则返回对应 val
+            if m.buckets[j].key == key && m.buckets[j] != m.removed {
+                return m.buckets[j].val
+            }
+        }
+        // 若未找到 key 则返回空字符串
+        return ""
+    }
+
+    /* 添加操作 */
+    func (m *hashMapOpenAddressing) put(key int, val string) {
+        // 当负载因子超过阈值时，执行扩容
+        if m.loadFactor() > m.loadThres {
+            m.extend()
+        }
+        idx := m.hashFunc(key)
+        // 线性探测，从 index 开始向后遍历
+        for i := 0; i < m.capacity; i++ {
+            // 计算桶索引，越过尾部返回头部
+            j := (idx + i) % m.capacity
+            // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
+            if m.buckets[j] == (pair{}) || m.buckets[j] == m.removed {
+                m.buckets[j] = pair{
+                    key: key,
+                    val: val,
+                }
+                m.size += 1
+                return
+            }
+            // 若遇到指定 key ，则更新对应 val
+            if m.buckets[j].key == key {
+                m.buckets[j].val = val
+            }
+        }
+    }
+
+    /* 删除操作 */
+    func (m *hashMapOpenAddressing) remove(key int) {
+        idx := m.hashFunc(key)
+        // 遍历桶，从中删除键值对
+        // 线性探测，从 index 开始向后遍历
+        for i := 0; i < m.capacity; i++ {
+            // 计算桶索引，越过尾部返回头部
+            j := (idx + 1) % m.capacity
+            // 若遇到空桶，说明无此 key ，则直接返回
+            if m.buckets[j] == (pair{}) {
+                return
+            }
+            // 若遇到指定 key ，则标记删除并返回
+            if m.buckets[j].key == key {
+                m.buckets[j] = m.removed
+                m.size -= 1
+            }
+        }
+    }
+
+    /* 扩容哈希表 */
+    func (m *hashMapOpenAddressing) extend() {
+        // 暂存原哈希表
+        tmpBuckets := make([]pair, len(m.buckets))
+        copy(tmpBuckets, m.buckets)
+
+        // 初始化扩容后的新哈希表
+        m.capacity *= m.extendRatio
+        m.buckets = make([]pair, m.capacity)
+        m.size = 0
+        // 将键值对从原哈希表搬运至新哈希表
+        for _, p := range tmpBuckets {
+            if p != (pair{}) && p != m.removed {
+                m.put(p.key, p.val)
+            }
+        }
+    }
+
+    /* 打印哈希表 */
+    func (m *hashMapOpenAddressing) print() {
+        for _, p := range m.buckets {
+            if p != (pair{}) {
+                fmt.Println(strconv.Itoa(p.key) + " -> " + p.val)
+            } else {
+                fmt.Println("nil")
+            }
+        }
+    }
     ```
 
 === "JavaScript"
@@ -890,9 +1243,130 @@ comments: true
 === "Dart"
 
     ```dart title="hash_map_open_addressing.dart"
-    [class]{Pair}-[func]{}
+    /* 键值对 */
+    class Pair {
+      int key;
+      String val;
+      Pair(this.key, this.val);
+    }
 
-    [class]{HashMapOpenAddressing}-[func]{}
+    /* 开放寻址哈希表 */
+    class HashMapOpenAddressing {
+      late int _size; // 键值对数量
+      late int _capacity; // 哈希表容量
+      late double _loadThres; // 触发扩容的负载因子阈值
+      late int _extendRatio; // 扩容倍数
+      late List<Pair?> _buckets; // 桶数组
+      late Pair _removed; // 删除标记
+
+      /* 构造方法 */
+      HashMapOpenAddressing() {
+        _size = 0;
+        _capacity = 4;
+        _loadThres = 2.0 / 3.0;
+        _extendRatio = 2;
+        _buckets = List.generate(_capacity, (index) => null);
+        _removed = Pair(-1, "-1");
+      }
+
+      /* 哈希函数 */
+      int hashFunc(int key) {
+        return key % _capacity;
+      }
+
+      /* 负载因子 */
+      double loadFactor() {
+        return _size / _capacity;
+      }
+
+      /* 查询操作 */
+      String? get(int key) {
+        int index = hashFunc(key);
+        // 线性探测，从 index 开始向后遍历
+        for (int i = 0; i < _capacity; i++) {
+          // 计算桶索引，越过尾部返回头部
+          int j = (index + i) % _capacity;
+          // 若遇到空桶，说明无此 key ，则返回 null
+          if (_buckets[j] == null) return null;
+          // 若遇到指定 key ，则返回对应 val
+          if (_buckets[j]!.key == key && _buckets[j] != _removed)
+            return _buckets[j]!.val;
+        }
+        return null;
+      }
+
+      /* 添加操作 */
+      void put(int key, String val) {
+        // 当负载因子超过阈值时，执行扩容
+        if (loadFactor() > _loadThres) {
+          extend();
+        }
+        int index = hashFunc(key);
+        // 线性探测，从 index 开始向后遍历
+        for (int i = 0; i < _capacity; i++) {
+          // 计算桶索引，越过尾部返回头部
+          int j = (index + i) % _capacity;
+          // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
+          if (_buckets[j] == null || _buckets[j] == _removed) {
+            _buckets[j] = new Pair(key, val);
+            _size += 1;
+            return;
+          }
+          // 若遇到指定 key ，则更新对应 val
+          if (_buckets[j]!.key == key) {
+            _buckets[j]!.val = val;
+            return;
+          }
+        }
+      }
+
+      /* 删除操作 */
+      void remove(int key) {
+        int index = hashFunc(key);
+        // 线性探测，从 index 开始向后遍历
+        for (int i = 0; i < _capacity; i++) {
+          // 计算桶索引，越过尾部返回头部
+          int j = (index + i) % _capacity;
+          // 若遇到空桶，说明无此 key ，则直接返回
+          if (_buckets[j] == null) {
+            return;
+          }
+          // 若遇到指定 key ，则标记删除并返回
+          if (_buckets[j]!.key == key) {
+            _buckets[j] = _removed;
+            _size -= 1;
+            return;
+          }
+        }
+      }
+
+      /* 扩容哈希表 */
+      void extend() {
+        // 暂存原哈希表
+        List<Pair?> bucketsTmp = _buckets;
+        // 初始化扩容后的新哈希表
+        _capacity *= _extendRatio;
+        _buckets = List.generate(_capacity, (index) => null);
+        _size = 0;
+        // 将键值对从原哈希表搬运至新哈希表
+        for (Pair? pair in bucketsTmp) {
+          if (pair != null && pair != _removed) {
+            put(pair.key, pair.val);
+          }
+        }
+      }
+
+      /* 打印哈希表 */
+      void printHashMap() {
+        for (Pair? pair in _buckets) {
+          if (pair != null) {
+            print("${pair.key} -> ${pair.val}");
+          } else {
+            print(null);
+          }
+        }
+      }
+    }
     ```
 
 ### 多次哈希
