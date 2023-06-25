@@ -356,7 +356,29 @@ $$
 === "Dart"
 
     ```dart title="built_in_hash.dart"
-
+    int num = 3;
+    int hashNum = num.hashCode;
+    // 整数 3 的哈希值为 34803
+    
+    bool bol = true;
+    int hashBol = bol.hashCode;
+    // 布尔值 true 的哈希值为 1231
+    
+    double dec = 3.14159;
+    int hashDec = dec.hashCode;
+    // 小数 3.14159 的哈希值为 2570631074981783
+    
+    String str = "Hello 算法";
+    int hashStr = str.hashCode;
+    // 字符串 Hello 算法 的哈希值为 468167534
+    
+    List arr = [12836, "小哈"];
+    int hashArr = arr.hashCode;
+    // 数组 [12836, 小哈] 的哈希值为 976512528
+    
+    ListNode obj = new ListNode(0);
+    int hashObj = obj.hashCode;
+    // 节点对象 Instance of 'ListNode' 的哈希值为 1033450432
     ```
 
 在大多数编程语言中，**只有不可变对象才可作为哈希表的 `key`** 。假如我们将列表（动态数组）作为 `key` ，当列表的内容发生变化时，它的哈希值也随之改变，我们就无法在哈希表中查询到原先的 `value` 了。

@@ -1,5 +1,5 @@
 /**
- * File: hash_map_chaining.java
+ * File: hash_map_open_addressing.java
  * Created Time: 2023-06-13
  * Author: Krahets (krahets@163.com)
  */
