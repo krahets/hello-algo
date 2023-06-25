@@ -70,7 +70,7 @@ pub fn main() !void {
     inc.PrintUtil.printList(i32, list);
 
     // 排序列表
-    std.sort.sort(i32, list.items, {}, comptime std.sort.asc(i32));
+    std.mem.sort(i32, list.items, {}, comptime std.sort.asc(i32));
     std.debug.print("\n排序列表后 list = ", .{});
     inc.PrintUtil.printList(i32, list);
 

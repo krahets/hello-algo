@@ -13,11 +13,11 @@ pub fn ArrayQueue(comptime T: type) type {
         nums: []T = undefined,                          // 用于存储队列元素的数组     
         cap: usize = 0,                                 // 队列容量
         front: usize = 0,                               // 队首指针，指向队首元素
-        que_size: usize = 0,                             // 尾指针，指向队尾 + 1
+        queSize: usize = 0,                             // 尾指针，指向队尾 + 1
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
-        // 构造方法（分配内存+初始化数组）
+        // 构造函数（分配内存+初始化数组）
         pub fn init(self: *Self, allocator: std.mem.Allocator, cap: usize) !void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -25,10 +25,10 @@ pub fn ArrayQueue(comptime T: type) type {
             }
             self.cap = cap;
             self.nums = try self.mem_allocator.alloc(T, self.cap);
-            std.mem.set(T, self.nums, @as(T, 0));
+            @memset(self.nums, @as(T, 0));
         }
         
-        // 析构方法（释放内存）
+        // 析构函数（释放内存）
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -41,12 +41,12 @@ pub fn ArrayQueue(comptime T: type) type {
 
         // 获取队列的长度
         pub fn size(self: *Self) usize {
-            return self.que_size;
+            return self.queSize;
         }
 
         // 判断队列是否为空
         pub fn isEmpty(self: *Self) bool {
-            return self.que_size == 0;
+            return self.queSize == 0;
         }
 
         // 入队
@@ -57,10 +57,10 @@ pub fn ArrayQueue(comptime T: type) type {
             }
             // 计算尾指针，指向队尾索引 + 1
             // 通过取余操作，实现 rear 越过数组尾部后回到头部
-            var rear = (self.front + self.que_size) % self.capacity();
-            // 将 num 添加至队尾
+            var rear = (self.front + self.queSize) % self.capacity();
+            // 尾节点后添加 num
             self.nums[rear] = num;
-            self.que_size += 1;
+            self.queSize += 1;
         } 
 
         // 出队
@@ -68,7 +68,7 @@ pub fn ArrayQueue(comptime T: type) type {
             var num = self.peek();
             // 队首指针向后移动一位，若越过尾部则返回到数组头部
             self.front = (self.front + 1) % self.capacity();
-            self.que_size -= 1;
+            self.queSize -= 1;
             return num;
         } 
 
@@ -82,7 +82,7 @@ pub fn ArrayQueue(comptime T: type) type {
         pub fn toArray(self: *Self) ![]T {
             // 仅转换有效长度范围内的列表元素
             var res = try self.mem_allocator.alloc(T, self.size());
-            std.mem.set(T, res, @as(T, 0));
+            @memset(res, @as(T, 0));
             var i: usize = 0;
             var j: usize = self.front;
             while (i < self.size()) : ({ i += 1; j += 1; }) {

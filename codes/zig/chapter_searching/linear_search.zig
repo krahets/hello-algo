@@ -8,7 +8,7 @@ const inc = @import("include");
 // 线性查找（数组）
 fn linearSearchArray(comptime T: type, nums: std.ArrayList(T), target: T) T {
     // 遍历数组
-    for (nums.items) |num, i| {
+    for (nums.items, 0..) |num, i| {
         // 找到目标元素， 返回其索引
         if (num == target) {
             return @intCast(T, i);
@@ -52,4 +52,3 @@ pub fn main() !void {
 
     _ = try std.io.getStdIn().reader().readByte();
 }
-

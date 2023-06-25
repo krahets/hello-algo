@@ -34,7 +34,7 @@ pub fn LinkedListDeque(comptime T: type) type {
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
-        // 构造方法（分配内存+初始化队列）
+        // 构造函数（分配内存+初始化队列）
         pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -45,7 +45,7 @@ pub fn LinkedListDeque(comptime T: type) type {
             self.que_size = 0;
         }
 
-        // 析构方法（释放内存）
+        // 析构函数（释放内存）
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -150,7 +150,7 @@ pub fn LinkedListDeque(comptime T: type) type {
         pub fn toArray(self: *Self) ![]T {
             var node = self.front;
             var res = try self.mem_allocator.alloc(T, self.size());
-            std.mem.set(T, res, @as(T, 0));
+            @memset(res, @as(T, 0));
             var i: usize = 0;
             while (i < res.len) : (i += 1) {
                 res[i] = node.?.val;

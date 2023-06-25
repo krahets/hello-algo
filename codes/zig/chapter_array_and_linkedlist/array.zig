@@ -18,7 +18,7 @@ pub fn randomAccess(nums: []i32) i32 {
 pub fn extend(mem_allocator: std.mem.Allocator, nums: []i32, enlarge: usize) ![]i32 {
     // 初始化一个扩展长度后的数组
     var res = try mem_allocator.alloc(i32, nums.len + enlarge);
-    std.mem.set(i32, res, 0);
+    @memset(res, 0);
     // 将原数组中的所有元素复制到新数组
     std.mem.copy(i32, res, nums);
     // 返回扩展后的新数组
@@ -62,7 +62,7 @@ pub fn traverse(nums: []i32) void {
 
 // 在数组中查找指定元素
 pub fn find(nums: []i32, target: i32) i32 {
-    for (nums) |num, i| {
+    for (nums, 0..) |num, i| {
         if (num == target) return @intCast(i32, i);
     }
     return -1;
