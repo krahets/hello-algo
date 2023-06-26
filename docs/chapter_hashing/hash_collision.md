@@ -34,88 +34,66 @@
 === "Java"
 
     ```java title="hash_map_chaining.java"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
 === "C++"
 
     ```cpp title="hash_map_chaining.cpp"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
 === "Python"
 
     ```python title="hash_map_chaining.py"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
 === "Go"
 
     ```go title="hash_map_chaining.go"
-    [class]{pair}-[func]{}
-
     [class]{hashMapChaining}-[func]{}
     ```
 
 === "JavaScript"
 
     ```javascript title="hash_map_chaining.js"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="hash_map_chaining.ts"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
 === "C"
 
     ```c title="hash_map_chaining.c"
-    [class]{pair}-[func]{}
-
     [class]{hashMapChaining}-[func]{}
     ```
 
 === "C#"
 
     ```csharp title="hash_map_chaining.cs"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
 === "Swift"
 
     ```swift title="hash_map_chaining.swift"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
 === "Zig"
 
     ```zig title="hash_map_chaining.zig"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
 === "Dart"
 
     ```dart title="hash_map_chaining.dart"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
@@ -150,88 +128,66 @@
 === "Java"
 
     ```java title="hash_map_open_addressing.java"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "C++"
 
     ```cpp title="hash_map_open_addressing.cpp"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "Python"
 
     ```python title="hash_map_open_addressing.py"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "Go"
 
     ```go title="hash_map_open_addressing.go"
-    [class]{pair}-[func]{}
-
     [class]{hashMapOpenAddressing}-[func]{}
     ```
 
 === "JavaScript"
 
     ```javascript title="hash_map_open_addressing.js"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="hash_map_open_addressing.ts"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "C"
 
     ```c title="hash_map_open_addressing.c"
-    [class]{pair}-[func]{}
-
     [class]{hashMapOpenAddressing}-[func]{}
     ```
 
 === "C#"
 
     ```csharp title="hash_map_open_addressing.cs"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "Swift"
 
     ```swift title="hash_map_open_addressing.swift"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "Zig"
 
     ```zig title="hash_map_open_addressing.zig"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "Dart"
 
     ```dart title="hash_map_open_addressing.dart"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 

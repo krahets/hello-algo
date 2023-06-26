@@ -4,16 +4,7 @@
  * Author: Krahets (krahets@163.com)
  */
 
-#include "../utils/common.hpp"
-
-/* 键值对 */
-struct Pair {
-    int key;
-    string val;
-
-    Pair(int k, string v) : key(k), val(v) {
-    }
-};
+#include "./array_hash_map.cpp"
 
 /* 开放寻址哈希表 */
 class HashMapOpenAddressing {

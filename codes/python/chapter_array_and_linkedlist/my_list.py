@@ -51,7 +51,7 @@ class MyList:
         # 元素数量超出容量时，触发扩容机制
         if self.__size == self.capacity():
             self.extend_capacity()
-        # 索引 i 以及之后的元素都向后移动一位
+        # 将索引 index 以及之后的元素都向后移动一位
         for j in range(self.__size - 1, index - 1, -1):
             self.__nums[j + 1] = self.__nums[j]
         self.__nums[index] = num

@@ -6,17 +6,6 @@
 
 package chapter_hashing;
 
-/* 键值对 */
-class Pair {
-    public int key;
-    public String val;
-
-    public Pair(int key, String val) {
-        this.key = key;
-        this.val = val;
-    }
-}
-
 /* 开放寻址哈希表 */
 class HashMapOpenAddressing {
     private int size; // 键值对数量
