@@ -265,13 +265,45 @@ index = hash(key) % capacity
 === "C#"
 
     ```csharp title="simple_hash.cs"
-    [class]{simple_hash}-[func]{addHash}
+    /* 加法哈希 */
+    int addHash(string key) {
+        long hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash = (hash + c) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{simple_hash}-[func]{mulHash}
+    /* 乘法哈希 */
+    int mulHash(string key) {
+        long hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash = (31 * hash + c) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{simple_hash}-[func]{xorHash}
+    /* 异或哈希 */
+    int xorHash(string key) {
+        int hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash ^= c;
+        }
+        return hash & MODULUS;
+    }
 
-    [class]{simple_hash}-[func]{rotHash}
+    /* 旋转哈希 */
+    int rotHash(string key) {
+        long hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ c) % MODULUS;
+        }
+        return (int)hash;
+    }
     ```
 
 === "Swift"
@@ -473,7 +505,29 @@ $$
 === "C#"
 
     ```csharp title="built_in_hash.cs"
+    int num = 3;
+    int hashNum = num.GetHashCode();
+    // 整数 3 的哈希值为 3;
 
+    bool bol = true;
+    int hashBol = bol.GetHashCode();
+    // 布尔量 true 的哈希值为 1;
+
+    double dec = 3.14159;
+    int hashDec = dec.GetHashCode();
+    // 小数 3.14159 的哈希值为 -1340954729;
+
+    string str = "Hello 算法";
+    int hashStr = str.GetHashCode();
+    // 字符串 Hello 算法 的哈希值为 -586107568;
+
+    object[] arr = { 12836, "小哈" };
+    int hashTup = arr.GetHashCode();
+    // 数组 [12836, 小哈] 的哈希值为 42931033;
+
+    ListNode obj = new ListNode(0);
+    int hashObj = obj.GetHashCode();
+    // 节点对象 0 的哈希值为 39053774;
     ```
 
 === "Swift"

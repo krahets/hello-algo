@@ -40,17 +40,6 @@ comments: true
 === "Java"
 
     ```java title="hash_map_chaining.java"
-    /* 键值对 */
-    class Pair {
-        public int key;
-        public String val;
-
-        public Pair(int key, String val) {
-            this.key = key;
-            this.val = val;
-        }
-    }
-
     /* 链式地址哈希表 */
     class HashMapChaining {
         int size; // 键值对数量
@@ -163,17 +152,6 @@ comments: true
 === "C++"
 
     ```cpp title="hash_map_chaining.cpp"
-    /* 键值对 */
-    struct Pair {
-      public:
-        int key;
-        string val;
-        Pair(int key, string val) {
-            this->key = key;
-            this->val = val;
-        }
-    };
-
     /* 链式地址哈希表 */
     class HashMapChaining {
       private:
@@ -280,13 +258,6 @@ comments: true
 === "Python"
 
     ```python title="hash_map_chaining.py"
-    class Pair:
-        """键值对"""
-
-        def __init__(self, key: int, val: str):
-            self.key = key
-            self.val = val
-
     class HashMapChaining:
         """链式地址哈希表"""
 
@@ -370,8 +341,6 @@ comments: true
 === "Go"
 
     ```go title="hash_map_chaining.go"
-    [class]{pair}-[func]{}
-
     /* 链式地址哈希表 */
     type hashMapChaining struct {
         size        int      // 键值对数量
@@ -499,61 +468,147 @@ comments: true
 === "JavaScript"
 
     ```javascript title="hash_map_chaining.js"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="hash_map_chaining.ts"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
 === "C"
 
     ```c title="hash_map_chaining.c"
-    [class]{pair}-[func]{}
-
     [class]{hashMapChaining}-[func]{}
     ```
 
 === "C#"
 
     ```csharp title="hash_map_chaining.cs"
-    [class]{Pair}-[func]{}
+    /* 链式地址哈希表 */
+    class HashMapChaining {
+        int size; // 键值对数量
+        int capacity; // 哈希表容量
+        double loadThres; // 触发扩容的负载因子阈值
+        int extendRatio; // 扩容倍数
+        List<List<Pair>> buckets; // 桶数组
 
-    [class]{HashMapChaining}-[func]{}
+        /* 构造方法 */
+        public HashMapChaining() {
+            size = 0;
+            capacity = 4;
+            loadThres = 2 / 3.0;
+            extendRatio = 2;
+            buckets = new List<List<Pair>>(capacity);
+            for (int i = 0; i < capacity; i++) {
+                buckets.Add(new List<Pair>());
+            }
+        }
+
+        /* 哈希函数 */
+        private int hashFunc(int key) {
+            return key % capacity;
+        }
+
+        /* 负载因子 */
+        private double loadFactor() {
+            return (double)size / capacity;
+        }
+
+        /* 查询操作 */
+        public string get(int key) {
+            int index = hashFunc(key);
+            // 遍历桶，若找到 key 则返回对应 val
+            foreach (Pair pair in buckets[index]) {
+                if (pair.key == key) {
+                    return pair.val;
+                }
+            }
+            // 若未找到 key 则返回 null
+            return null;
+        }
+
+        /* 添加操作 */
+        public void put(int key, string val) {
+            // 当负载因子超过阈值时，执行扩容
+            if (loadFactor() > loadThres) {
+                extend();
+            }
+            int index = hashFunc(key);
+            // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+            foreach (Pair pair in buckets[index]) {
+                if (pair.key == key) {
+                    pair.val = val;
+                    return;
+                }
+            }
+            // 若无该 key ，则将键值对添加至尾部
+            buckets[index].Add(new Pair(key, val));
+            size++;
+        }
+
+        /* 删除操作 */
+        public void remove(int key) {
+            int index = hashFunc(key);
+            // 遍历桶，从中删除键值对
+            foreach (Pair pair in buckets[index].ToList()) { 
+                if (pair.key == key) {
+                    buckets[index].Remove(pair);
+                }
+            }
+            size--;   
+        }
+
+        /* 扩容哈希表 */
+        private void extend() {
+            // 暂存原哈希表
+            List<List<Pair>> bucketsTmp = buckets;
+            // 初始化扩容后的新哈希表
+            capacity *= extendRatio;
+            buckets = new List<List<Pair>>(capacity);
+            for (int i = 0; i < capacity; i++) {
+                buckets.Add(new List<Pair>());
+            }
+            size = 0;
+            // 将键值对从原哈希表搬运至新哈希表
+            foreach (List<Pair> bucket in bucketsTmp) {
+                foreach (Pair pair in bucket) {
+                    put(pair.key, pair.val);
+                }
+            }
+        }
+
+        /* 打印哈希表 */
+        public void print() {
+            foreach (List<Pair> bucket in buckets) {
+                List<string> res = new List<string>();
+                foreach (Pair pair in bucket) {
+                    res.Add(pair.key + " -> " + pair.val);
+                }
+                foreach (string kv in res) {
+                    Console.WriteLine(kv);
+                }
+            }
+        }
+    }
     ```
 
 === "Swift"
 
     ```swift title="hash_map_chaining.swift"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
 === "Zig"
 
     ```zig title="hash_map_chaining.zig"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapChaining}-[func]{}
     ```
 
 === "Dart"
 
     ```dart title="hash_map_chaining.dart"
-    /* 键值对 */
-    class Pair {
-      int key;
-      String val;
-      Pair(this.key, this.val);
-    }
-
     /* 链式地址哈希表 */
     class HashMapChaining {
       late int size; // 键值对数量
@@ -687,17 +742,6 @@ comments: true
 === "Java"
 
     ```java title="hash_map_open_addressing.java"
-    /* 键值对 */
-    class Pair {
-        public int key;
-        public String val;
-
-        public Pair(int key, String val) {
-            this.key = key;
-            this.val = val;
-        }
-    }
-
     /* 开放寻址哈希表 */
     class HashMapOpenAddressing {
         private int size; // 键值对数量
@@ -821,15 +865,6 @@ comments: true
 === "C++"
 
     ```cpp title="hash_map_open_addressing.cpp"
-    /* 键值对 */
-    struct Pair {
-        int key;
-        string val;
-
-        Pair(int k, string v) : key(k), val(v) {
-        }
-    };
-
     /* 开放寻址哈希表 */
     class HashMapOpenAddressing {
       private:
@@ -955,13 +990,6 @@ comments: true
 === "Python"
 
     ```python title="hash_map_open_addressing.py"
-    class Pair:
-        """键值对"""
-
-        def __init__(self, key: int, val: str):
-            self.key = key
-            self.val = val
-
     class HashMapOpenAddressing:
         """开放寻址哈希表"""
 
@@ -1057,8 +1085,6 @@ comments: true
 === "Go"
 
     ```go title="hash_map_open_addressing.go"
-    [class]{pair}-[func]{}
-
     /* 链式地址哈希表 */
     type hashMapOpenAddressing struct {
         size        int     // 键值对数量
@@ -1195,61 +1221,159 @@ comments: true
 === "JavaScript"
 
     ```javascript title="hash_map_open_addressing.js"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="hash_map_open_addressing.ts"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "C"
 
     ```c title="hash_map_open_addressing.c"
-    [class]{pair}-[func]{}
-
     [class]{hashMapOpenAddressing}-[func]{}
     ```
 
 === "C#"
 
     ```csharp title="hash_map_open_addressing.cs"
-    [class]{Pair}-[func]{}
+    /* 开放寻址哈希表 */
+    class HashMapOpenAddressing {
+        int size; // 键值对数量
+        int capacity; // 哈希表容量
+        double loadThres; // 触发扩容的负载因子阈值
+        int extendRatio; // 扩容倍数
+        Pair[] buckets; // 桶数组
+        Pair removed; // 删除标记
 
-    [class]{HashMapOpenAddressing}-[func]{}
+        /* 构造方法 */
+        public HashMapOpenAddressing() {
+            size = 0;
+            capacity = 4;
+            loadThres = 2.0 / 3.0;
+            extendRatio = 2;
+            buckets = new Pair[capacity];
+            removed = new Pair(-1, "-1");
+        }
+
+        /* 哈希函数 */
+        private int hashFunc(int key) {
+            return key % capacity;
+        }
+
+        /* 负载因子 */
+        private double loadFactor() {
+            return (double)size / capacity;
+        }
+
+        /* 查询操作 */
+        public string get(int key) {
+            int index = hashFunc(key);
+            // 线性探测，从 index 开始向后遍历
+            for (int i = 0; i < capacity; i++) {
+                // 计算桶索引，越过尾部返回头部
+                int j = (index + i) % capacity;
+                // 若遇到空桶，说明无此 key ，则返回 null
+                if (buckets[j] == null)
+                    return null;
+                // 若遇到指定 key ，则返回对应 val
+                if (buckets[j].key == key && buckets[j] != removed)
+                    return buckets[j].val;
+            }
+            return null;
+        }
+
+        /* 添加操作 */
+        public void put(int key, string val) {
+            // 当负载因子超过阈值时，执行扩容
+            if (loadFactor() > loadThres) {
+                extend();
+            }
+            int index = hashFunc(key);
+            // 线性探测，从 index 开始向后遍历
+            for (int i = 0; i < capacity; i++) {
+                // 计算桶索引，越过尾部返回头部
+                int j = (index + i) % capacity;
+                // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
+                if (buckets[j] == null || buckets[j] == removed) {
+                    buckets[j] = new Pair(key, val);
+                    size += 1;
+                    return;
+                }
+                // 若遇到指定 key ，则更新对应 val
+                if (buckets[j].key == key) {
+                    buckets[j].val = val;
+                    return;
+                }
+            }
+        }
+
+        /* 删除操作 */
+        public void remove(int key) {
+            int index = hashFunc(key);
+            // 线性探测，从 index 开始向后遍历
+            for (int i = 0; i < capacity; i++) {
+                // 计算桶索引，越过尾部返回头部
+                int j = (index + i) % capacity;
+                // 若遇到空桶，说明无此 key ，则直接返回
+                if (buckets[j] == null) {
+                    return;
+                }
+                // 若遇到指定 key ，则标记删除并返回
+                if (buckets[j].key == key) {
+                    buckets[j] = removed;
+                    size -= 1;
+                    return;
+                }
+            }
+        }
+
+        /* 扩容哈希表 */
+        private void extend() {
+            // 暂存原哈希表
+            Pair[] bucketsTmp = buckets;
+            // 初始化扩容后的新哈希表
+            capacity *= extendRatio;
+            buckets = new Pair[capacity];
+            size = 0;
+            // 将键值对从原哈希表搬运至新哈希表
+            foreach (Pair pair in bucketsTmp) {
+                if (pair != null && pair != removed) {
+                    put(pair.key, pair.val);
+                }
+            }
+        }
+
+        /* 打印哈希表 */
+        public void print() {
+            foreach (Pair pair in buckets) {
+                if (pair != null) {
+                    Console.WriteLine(pair.key + " -> " + pair.val);
+                } else {
+                    Console.WriteLine("null");
+                }
+            }
+        }
+    }
     ```
 
 === "Swift"
 
     ```swift title="hash_map_open_addressing.swift"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "Zig"
 
     ```zig title="hash_map_open_addressing.zig"
-    [class]{Pair}-[func]{}
-
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "Dart"
 
     ```dart title="hash_map_open_addressing.dart"
-    /* 键值对 */
-    class Pair {
-      int key;
-      String val;
-      Pair(this.key, this.val);
-    }
-
     /* 开放寻址哈希表 */
     class HashMapOpenAddressing {
       late int _size; // 键值对数量

@@ -950,7 +950,7 @@ comments: true
             // 元素数量超出容量时，触发扩容机制
             if (size() == capacity())
                 extendCapacity();
-            // 索引 i 以及之后的元素都向后移动一位
+            // 将索引 index 以及之后的元素都向后移动一位
             for (int j = size() - 1; j >= index; j--) {
                 nums[j + 1] = nums[j];
             }
@@ -1050,7 +1050,7 @@ comments: true
             # 元素数量超出容量时，触发扩容机制
             if self.__size == self.capacity():
                 self.extend_capacity()
-            # 索引 i 以及之后的元素都向后移动一位
+            # 将索引 index 以及之后的元素都向后移动一位
             for j in range(self.__size - 1, index - 1, -1):
                 self.__nums[j + 1] = self.__nums[j]
             self.__nums[index] = num
@@ -1150,7 +1150,7 @@ comments: true
         if l.numsSize == l.numsCapacity {
             l.extendCapacity()
         }
-        // 索引 i 以及之后的元素都向后移动一位
+        // 将索引 index 以及之后的元素都向后移动一位
         for j := l.numsSize - 1; j >= index; j-- {
             l.nums[j+1] = l.nums[j]
         }
@@ -1776,7 +1776,7 @@ comments: true
                 if (index < 0 or index >= self.size()) @panic("索引越界");
                 // 元素数量超出容量时，触发扩容机制
                 if (self.size() == self.capacity()) try self.extendCapacity();
-                // 索引 i 以及之后的元素都向后移动一位
+                // 将索引 index 以及之后的元素都向后移动一位
                 var j = self.size() - 1;
                 while (j >= index) : (j -= 1) {
                     self.nums[j + 1] = self.nums[j];
