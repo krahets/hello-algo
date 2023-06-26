@@ -12,7 +12,7 @@ class HashMapChaining {
     int capacity; // 哈希表容量
     double loadThres; // 触发扩容的负载因子阈值
     int extendRatio; // 扩容倍数
-    List<LinkedList<Pair>> buckets; // 桶数组
+    List<List<Pair>> buckets; // 桶数组
 
     /* 构造方法 */
     public HashMapChaining() {
@@ -20,9 +20,9 @@ class HashMapChaining {
         capacity = 4;
         loadThres = 2 / 3.0;
         extendRatio = 2;
-        buckets = new List<LinkedList<Pair>>(capacity);
+        buckets = new List<List<Pair>>(capacity);
         for (int i = 0; i < capacity; i++) {
-            buckets.Add(new LinkedList<Pair>());
+            buckets.Add(new List<Pair>());
         }
     }
 
@@ -64,7 +64,7 @@ class HashMapChaining {
             }
         }
         // 若无该 key ，则将键值对添加至尾部
-        buckets[index].AddLast(new Pair(key, val));
+        buckets[index].Add(new Pair(key, val));
         size++;
     }
 
@@ -72,30 +72,27 @@ class HashMapChaining {
     public void remove(int key) {
         int index = hashFunc(key);
         // 遍历桶，从中删除键值对
-        LinkedListNode<Pair> head = buckets[index].First;
-        while (head != null) {
-            if (head.Value.key == key) {
-                buckets[index].Remove(head);
-                size--;
-                break;
+        foreach (Pair pair in buckets[index].ToList()) { 
+            if (pair.key == key) {
+                buckets[index].Remove(pair);
             }
-            head = head.Next;
-        }    
+        }
+        size--;   
     }
 
     /* 扩容哈希表 */
     private void extend() {
         // 暂存原哈希表
-        List<LinkedList<Pair>> bucketsTmp = buckets;
+        List<List<Pair>> bucketsTmp = buckets;
         // 初始化扩容后的新哈希表
         capacity *= extendRatio;
-        buckets = new List<LinkedList<Pair>>(capacity);
+        buckets = new List<List<Pair>>(capacity);
         for (int i = 0; i < capacity; i++) {
-            buckets.Add(new LinkedList<Pair>());
+            buckets.Add(new List<Pair>());
         }
         size = 0;
         // 将键值对从原哈希表搬运至新哈希表
-        foreach (LinkedList<Pair> bucket in bucketsTmp) {
+        foreach (List<Pair> bucket in bucketsTmp) {
             foreach (Pair pair in bucket) {
                 put(pair.key, pair.val);
             }
@@ -104,7 +101,7 @@ class HashMapChaining {
 
     /* 打印哈希表 */
     public void print() {
-        foreach (LinkedList<Pair> bucket in buckets) {
+        foreach (List<Pair> bucket in buckets) {
             List<string> res = new List<string>();
             foreach (Pair pair in bucket) {
                 res.Add(pair.key + " -> " + pair.val);
