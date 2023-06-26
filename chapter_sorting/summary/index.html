@@ -2154,6 +2154,10 @@
 <p>回顾原始的快速排序，我们有可能会连续地递归长度较大的数组，最差情况下为 <span class="arithmatex">\(n, n - 1, n - 2, ..., 2, 1\)</span> ，从而递归深度为 <span class="arithmatex">\(n\)</span> 。尾递归优化可以避免这种情况的出现。</p>
 </div>
 <div class="admonition question">
+<p class="admonition-title">当数组中所有元素都相等时，快速排序的时间复杂度是 <span class="arithmatex">\(O(n^2)\)</span> 吗？该如何处理这种退化情况？</p>
+<p>是的。这种情况可以考虑通过哨兵划分将数组划分为三个部分：小于、等于、大于基准数。仅向下递归小于和大于的两部分。在该方法下，输入元素全部相等的数组，仅一轮哨兵划分即可完成排序。</p>
+</div>
+<div class="admonition question">
 <p class="admonition-title">桶排序的最差时间复杂度为什么是 <span class="arithmatex">\(O(n^2)\)</span> ？</p>
 <p>最差情况下，所有元素被分至同一个桶中。如果我们采用一个 <span class="arithmatex">\(O(n^2)\)</span> 算法来排序这些元素，则时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> 。</p>
 </div>

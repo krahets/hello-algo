@@ -1524,7 +1524,7 @@
       
         <li class="md-nav__item">
   <a href="#1021" class="md-nav__link">
-    10.2.1. &nbsp; 简单方法
+    10.2.1. &nbsp; 线性方法
   </a>
   
 </li>
@@ -2104,7 +2104,7 @@
       
         <li class="md-nav__item">
   <a href="#1021" class="md-nav__link">
-    10.2.1. &nbsp; 简单方法
+    10.2.1. &nbsp; 线性方法
   </a>
   
 </li>
@@ -2152,7 +2152,7 @@
 <p class="admonition-title">Question</p>
 <p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的有序数组 <code>nums</code> ，数组可能包含重复元素。请查找并返回元素 <code>target</code> 在数组中首次出现的索引。若数组中不包含该元素，则返回 <span class="arithmatex">\(-1\)</span> 。</p>
 </div>
-<h2 id="1021">10.2.1. &nbsp; 简单方法<a class="headerlink" href="#1021" title="Permanent link">&para;</a></h2>
+<h2 id="1021">10.2.1. &nbsp; 线性方法<a class="headerlink" href="#1021" title="Permanent link">&para;</a></h2>
 <p>为了查找数组中最左边的 <code>target</code> ，我们可以分为两步：</p>
 <ol>
 <li>进行二分查找，定位到任意一个 <code>target</code> 的索引，记为 <span class="arithmatex">\(k\)</span> ；</li>
@@ -2161,9 +2161,9 @@
 <p><img alt="线性查找最左边的元素" src="../binary_search_edge.assets/binary_search_left_edge_naive.png" /></p>
 <p align="center"> Fig. 线性查找最左边的元素 </p>
 
-<p>这个方法虽然有效，但由于包含线性查找，<strong>其时间复杂度可能会劣化至 <span class="arithmatex">\(O(n)\)</span></strong> 。</p>
+<p>这个方法虽然有效，但由于包含线性查找，时间复杂度为 <span class="arithmatex">\(O(n)\)</span> ，当存在很多重复的 <code>target</code> 时效率较低。</p>
 <h2 id="1022">10.2.2. &nbsp; 二分方法<a class="headerlink" href="#1022" title="Permanent link">&para;</a></h2>
-<p>实际上，我们可以仅通过二分查找解决以上问题。整体算法流程不变，先计算中点索引 <span class="arithmatex">\(m\)</span> ，再判断 <code>target</code> 和 <code>nums[m]</code> 大小关系：</p>
+<p>考虑仅使用二分查找解决该问题。整体算法流程不变，先计算中点索引 <span class="arithmatex">\(m\)</span> ，再判断 <code>target</code> 和 <code>nums[m]</code> 大小关系：</p>
 <ul>
 <li>当 <code>nums[m] &lt; target</code> 或 <code>nums[m] &gt; target</code> 时，说明还没有找到 <code>target</code> ，因此采取与上节代码相同的缩小区间操作，<strong>从而使指针 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 向 <code>target</code> 靠近</strong>。</li>
 <li>当 <code>nums[m] == target</code> 时，说明“小于 <code>target</code> 的元素”在区间 <span class="arithmatex">\([i, m - 1]\)</span> 中，因此采用 <span class="arithmatex">\(j = m - 1\)</span> 来缩小区间，<strong>从而使指针 <span class="arithmatex">\(j\)</span> 向小于 <code>target</code> 的元素靠近</strong>。</li>
