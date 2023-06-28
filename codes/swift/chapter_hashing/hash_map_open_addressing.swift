@@ -4,20 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 键值对 */
-class Pair: Equatable {
-    var key: Int
-    var val: String
-
-    init(key: Int, val: String) {
-        self.key = key
-        self.val = val
-    }
-
-    static func == (lhs: Pair, rhs: Pair) -> Bool {
-        lhs.key == rhs.key && lhs.val == rhs.val
-    }
-}
+import utils
 
 /* 开放寻址哈希表 */
 class HashMapOpenAddressing {
