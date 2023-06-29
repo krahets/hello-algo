@@ -16,7 +16,7 @@ class BinarySearchTree:
     def __init__(self, nums: list[int]) -> None:
         """构造方法"""
         nums.sort()
-        self.__root = self.build_tree(nums, 0, len(nums) - 1)
+        self.root = self.build_tree(nums, 0, len(nums) - 1)
 
     def build_tree(
         self, nums: list[int], start_index: int, end_index: int
@@ -36,10 +36,6 @@ class BinarySearchTree:
             nums=nums, start_index=mid + 1, end_index=end_index
         )
         return root
-
-    @property
-    def root(self) -> TreeNode | None:
-        return self.__root
 
     def search(self, num: int) -> TreeNode | None:
         """查找节点"""
@@ -119,7 +115,7 @@ class BinarySearchTree:
                     pre.right = child
             else:
                 # 若删除节点为根节点，则重新指定根节点
-                self.__root = child
+                self.root = child
         # 子节点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个节点
