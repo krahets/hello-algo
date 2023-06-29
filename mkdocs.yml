@@ -134,13 +134,13 @@ nav:
     - 1.1. &nbsp; 算法无处不在: chapter_introduction/algorithms_are_everywhere.md
     - 1.2. &nbsp; 算法是什么: chapter_introduction/what_is_dsa.md
     - 1.3. &nbsp; 小结: chapter_introduction/summary.md
-  - 2. &nbsp; &nbsp; 复杂度分析:
+  - 2. &nbsp; &nbsp; 复杂度:
     - chapter_computational_complexity/index.md
     - 2.1. &nbsp; 算法效率评估: chapter_computational_complexity/performance_evaluation.md
     - 2.2. &nbsp; 时间复杂度: chapter_computational_complexity/time_complexity.md
     - 2.3. &nbsp; 空间复杂度: chapter_computational_complexity/space_complexity.md
     - 2.4. &nbsp; 小结: chapter_computational_complexity/summary.md
-  - 3. &nbsp; &nbsp; 数据结构简介:
+  - 3. &nbsp; &nbsp; 数据结构:
     - chapter_data_structure/index.md
     - 3.1. &nbsp; 数据结构分类: chapter_data_structure/classification_of_data_structure.md
     - 3.2. &nbsp; 基本数据类型: chapter_data_structure/basic_data_types.md

@@ -119,7 +119,7 @@ class BinarySearchTree:
                     pre.right = child
             else:
                 # 若删除节点为根节点，则重新指定根节点
-                self.__root = cur
+                self.__root = child
         # 子节点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个节点
