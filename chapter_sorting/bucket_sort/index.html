@@ -474,7 +474,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_computational_complexity/">2. &nbsp; &nbsp; 复杂度分析</a>
+          <a href="../../chapter_computational_complexity/">2. &nbsp; &nbsp; 复杂度</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -485,7 +485,7 @@
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          2. &nbsp; &nbsp; 复杂度分析
+          2. &nbsp; &nbsp; 复杂度
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -589,7 +589,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_data_structure/">3. &nbsp; &nbsp; 数据结构简介</a>
+          <a href="../../chapter_data_structure/">3. &nbsp; &nbsp; 数据结构</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -600,7 +600,7 @@
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          3. &nbsp; &nbsp; 数据结构简介
+          3. &nbsp; &nbsp; 数据结构
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2463,7 +2463,7 @@
 <a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="c1">// 1. 将数组元素分配到各个桶中</span>
 <a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="k">for</span> <span class="n">num</span> <span class="k">in</span> <span class="n">nums</span> <span class="p">{</span>
 <a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        <span class="c1">// 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        <span class="kd">let</span> <span class="nv">i</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        <span class="kd">let</span> <span class="nv">i</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="nb">Double</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
 <a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        <span class="c1">// 将 num 添加进桶 i</span>
 <a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        <span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 <a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="p">}</span>

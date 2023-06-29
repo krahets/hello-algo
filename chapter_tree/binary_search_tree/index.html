@@ -474,7 +474,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_computational_complexity/">2. &nbsp; &nbsp; 复杂度分析</a>
+          <a href="../../chapter_computational_complexity/">2. &nbsp; &nbsp; 复杂度</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -485,7 +485,7 @@
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          2. &nbsp; &nbsp; 复杂度分析
+          2. &nbsp; &nbsp; 复杂度
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -589,7 +589,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_data_structure/">3. &nbsp; &nbsp; 数据结构简介</a>
+          <a href="../../chapter_data_structure/">3. &nbsp; &nbsp; 数据结构</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -600,7 +600,7 @@
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          3. &nbsp; &nbsp; 数据结构简介
+          3. &nbsp; &nbsp; 数据结构
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -3002,7 +3002,7 @@
 <a id="__codelineno-24-33" name="__codelineno-24-33" href="#__codelineno-24-33"></a>                <span class="n">pre</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">child</span>
 <a id="__codelineno-24-34" name="__codelineno-24-34" href="#__codelineno-24-34"></a>        <span class="k">else</span><span class="p">:</span>
 <a id="__codelineno-24-35" name="__codelineno-24-35" href="#__codelineno-24-35"></a>            <span class="c1"># 若删除节点为根节点，则重新指定根节点</span>
-<a id="__codelineno-24-36" name="__codelineno-24-36" href="#__codelineno-24-36"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__root</span> <span class="o">=</span> <span class="n">cur</span>
+<a id="__codelineno-24-36" name="__codelineno-24-36" href="#__codelineno-24-36"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__root</span> <span class="o">=</span> <span class="n">child</span>
 <a id="__codelineno-24-37" name="__codelineno-24-37" href="#__codelineno-24-37"></a>    <span class="c1"># 子节点数量 = 2</span>
 <a id="__codelineno-24-38" name="__codelineno-24-38" href="#__codelineno-24-38"></a>    <span class="k">else</span><span class="p">:</span>
 <a id="__codelineno-24-39" name="__codelineno-24-39" href="#__codelineno-24-39"></a>        <span class="c1"># 获取中序遍历中 cur 的下一个节点</span>
@@ -3322,7 +3322,7 @@
 <a id="__codelineno-30-32" name="__codelineno-30-32" href="#__codelineno-30-32"></a>        <span class="c1">// 当子节点数量 = 0 / 1 时， child = null / 该子节点</span>
 <a id="__codelineno-30-33" name="__codelineno-30-33" href="#__codelineno-30-33"></a>        <span class="kd">let</span> <span class="nv">child</span> <span class="p">=</span> <span class="n">cur</span><span class="p">?.</span><span class="kr">left</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">?</span> <span class="n">cur</span><span class="p">?.</span><span class="kr">left</span> <span class="p">:</span> <span class="n">cur</span><span class="p">?.</span><span class="kr">right</span>
 <a id="__codelineno-30-34" name="__codelineno-30-34" href="#__codelineno-30-34"></a>        <span class="c1">// 删除节点 cur</span>
-<a id="__codelineno-30-35" name="__codelineno-30-35" href="#__codelineno-30-35"></a>        <span class="k">if</span> <span class="n">cur</span> <span class="o">!=</span> <span class="n">root</span> <span class="p">{</span>
+<a id="__codelineno-30-35" name="__codelineno-30-35" href="#__codelineno-30-35"></a>        <span class="k">if</span> <span class="n">cur</span> <span class="o">!==</span> <span class="n">root</span> <span class="p">{</span>
 <a id="__codelineno-30-36" name="__codelineno-30-36" href="#__codelineno-30-36"></a>            <span class="k">if</span> <span class="n">pre</span><span class="p">?.</span><span class="kr">left</span> <span class="p">===</span> <span class="n">cur</span> <span class="p">{</span>
 <a id="__codelineno-30-37" name="__codelineno-30-37" href="#__codelineno-30-37"></a>                <span class="n">pre</span><span class="p">?.</span><span class="kr">left</span> <span class="p">=</span> <span class="n">child</span>
 <a id="__codelineno-30-38" name="__codelineno-30-38" href="#__codelineno-30-38"></a>            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -3330,7 +3330,7 @@
 <a id="__codelineno-30-40" name="__codelineno-30-40" href="#__codelineno-30-40"></a>            <span class="p">}</span>
 <a id="__codelineno-30-41" name="__codelineno-30-41" href="#__codelineno-30-41"></a>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 <a id="__codelineno-30-42" name="__codelineno-30-42" href="#__codelineno-30-42"></a>            <span class="c1">// 若删除节点为根节点，则重新指定根节点</span>
-<a id="__codelineno-30-43" name="__codelineno-30-43" href="#__codelineno-30-43"></a>            <span class="n">root</span> <span class="p">=</span> <span class="n">cur</span><span class="p">;</span>
+<a id="__codelineno-30-43" name="__codelineno-30-43" href="#__codelineno-30-43"></a>            <span class="n">root</span> <span class="p">=</span> <span class="n">child</span>
 <a id="__codelineno-30-44" name="__codelineno-30-44" href="#__codelineno-30-44"></a>        <span class="p">}</span>
 <a id="__codelineno-30-45" name="__codelineno-30-45" href="#__codelineno-30-45"></a>    <span class="p">}</span>
 <a id="__codelineno-30-46" name="__codelineno-30-46" href="#__codelineno-30-46"></a>    <span class="c1">// 子节点数量 = 2</span>
