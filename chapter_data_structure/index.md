@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 3. &nbsp; 数据结构简介
+# 3. &nbsp; 数据结构
 
 <div class="center-table" markdown>
 
