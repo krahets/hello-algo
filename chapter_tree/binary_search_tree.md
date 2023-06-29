@@ -804,7 +804,7 @@ comments: true
                     pre.right = child
             else:
                 # 若删除节点为根节点，则重新指定根节点
-                self.__root = cur
+                self.__root = child
         # 子节点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个节点
@@ -1136,7 +1136,7 @@ comments: true
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
             let child = cur?.left != nil ? cur?.left : cur?.right
             // 删除节点 cur
-            if cur != root {
+            if cur !== root {
                 if pre?.left === cur {
                     pre?.left = child
                 } else {
@@ -1144,7 +1144,7 @@ comments: true
                 }
             } else {
                 // 若删除节点为根节点，则重新指定根节点
-                root = cur;
+                root = child
             }
         }
         // 子节点数量 = 2
