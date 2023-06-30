@@ -131,6 +131,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_dynamic_programming/dynamic_programming_solution_framework/</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_dynamic_programming/intro_to_dynamic_programming/</loc>
          <lastmod>2023-06-30</lastmod>
          <changefreq>daily</changefreq>
