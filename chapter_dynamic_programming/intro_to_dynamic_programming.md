@@ -968,10 +968,6 @@ $$
 - 当 $j$ 等于 $1$ ，即上一轮跳了 $1$ 阶时，这一轮只能选择跳 $2$ 阶；
 - 当 $j$ 等于 $2$ ，即上一轮跳了 $2$ 阶时，这一轮可选择跳 $1$ 阶或跳 $2$ 阶；
 
-![考虑约束下的递推关系](intro_to_dynamic_programming.assets/climbing_stairs_constraint_state_transfer.png)
-
-<p align="center"> Fig. 考虑约束下的递推关系 </p>
-
 在该定义下，$dp[i, j]$ 表示状态 $[i, j]$ 对应的方案数。由此，我们便能推导出以下的状态转移方程：
 
 $$
@@ -980,6 +976,10 @@ dp[i, 1] = dp[i-1, 2] \\
 dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
+
+![考虑约束下的递推关系](intro_to_dynamic_programming.assets/climbing_stairs_constraint_state_transfer.png)
+
+<p align="center"> Fig. 考虑约束下的递推关系 </p>
 
 最终，返回 $dp[n, 1] + dp[n, 2]$ 即可，两者之和代表爬到第 $n$ 阶的方案总数。
 
