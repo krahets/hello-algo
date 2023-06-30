@@ -3019,23 +3019,23 @@ dp[i] = \min(dp[i-1], dp[i-2]) + cost[i]
 <p align="center"> Fig. 带约束爬到第 3 阶的方案数量 </p>
 
 <p>在该问题中，<strong>下一步选择不能由当前状态（当前楼梯阶数）独立决定，还和前一个状态（上轮楼梯阶数）有关</strong>。如果上一轮是跳 <span class="arithmatex">\(1\)</span> 阶上来的，那么下一轮就必须跳 <span class="arithmatex">\(2\)</span> 阶。</p>
-<p>不难发现，此问题已不满足无后效性，状态转移方程 <span class="arithmatex">\(dp[i] = dp[i-1] + dp[i-2]\)</span> 也随之失效，因为 <span class="arithmatex">\(dp[i-1]\)</span> 代表本轮跳 <span class="arithmatex">\(1\)</span> 阶，但其中包含了许多“上一轮跳 <span class="arithmatex">\(1\)</span> 阶上来的”方案，而为了满足约束，我们不能将 <span class="arithmatex">\(dp[i-1]\)</span> 直接计入 <span class="arithmatex">\(dp[i]\)</span> 中。</p>
-<p>为了解决该问题，我们需要扩展状态定义：<strong>状态 <span class="arithmatex">\([i, j]\)</span> 表示处在第 <span class="arithmatex">\(i\)</span> 阶、并且上一轮跳了 <span class="arithmatex">\(j\)</span> 阶</strong>，<span class="arithmatex">\(dp[i, j]\)</span> 表示该状态下的方案数量。此状态定义有效地区分了上一轮跳了 <span class="arithmatex">\(1\)</span> 阶还是 <span class="arithmatex">\(2\)</span> 阶，我们可以据此来决定下一步该怎么跳：</p>
+<p>不难发现，此问题已不满足无后效性，状态转移方程 <span class="arithmatex">\(dp[i] = dp[i-1] + dp[i-2]\)</span> 也失效了，因为 <span class="arithmatex">\(dp[i-1]\)</span> 代表本轮跳 <span class="arithmatex">\(1\)</span> 阶，但其中包含了许多“上一轮跳 <span class="arithmatex">\(1\)</span> 阶上来的”方案，而为了满足约束，我们不能将 <span class="arithmatex">\(dp[i-1]\)</span> 直接计入 <span class="arithmatex">\(dp[i]\)</span> 中。</p>
+<p>为了解决该问题，我们需要扩展状态定义：<strong>状态 <span class="arithmatex">\([i, j]\)</span> 表示处在第 <span class="arithmatex">\(i\)</span> 阶、并且上一轮跳了 <span class="arithmatex">\(j\)</span> 阶</strong>，其中 <span class="arithmatex">\(j \in \{1, 2\}\)</span> 。此状态定义有效地区分了上一轮跳了 <span class="arithmatex">\(1\)</span> 阶还是 <span class="arithmatex">\(2\)</span> 阶，我们可以据此来决定下一步该怎么跳：</p>
 <ul>
-<li>当 <span class="arithmatex">\(j\)</span> 等于 <span class="arithmatex">\(1\)</span> ，即上一轮跳了 <span class="arithmatex">\(1\)</span> 阶时，这一轮只可选择跳 <span class="arithmatex">\(2\)</span> 阶；</li>
-<li>当 <span class="arithmatex">\(j\)</span> 等于 <span class="arithmatex">\(2\)</span> ，即上一轮跳了 <span class="arithmatex">\(2\)</span> 阶时，这一步可选择跳 <span class="arithmatex">\(1\)</span> 阶或跳 <span class="arithmatex">\(2\)</span> 阶；</li>
+<li>当 <span class="arithmatex">\(j\)</span> 等于 <span class="arithmatex">\(1\)</span> ，即上一轮跳了 <span class="arithmatex">\(1\)</span> 阶时，这一轮只能选择跳 <span class="arithmatex">\(2\)</span> 阶；</li>
+<li>当 <span class="arithmatex">\(j\)</span> 等于 <span class="arithmatex">\(2\)</span> ，即上一轮跳了 <span class="arithmatex">\(2\)</span> 阶时，这一轮可选择跳 <span class="arithmatex">\(1\)</span> 阶或跳 <span class="arithmatex">\(2\)</span> 阶；</li>
 </ul>
 <p><img alt="考虑约束下的递推关系" src="../intro_to_dynamic_programming.assets/climbing_stairs_constraint_state_transfer.png" /></p>
 <p align="center"> Fig. 考虑约束下的递推关系 </p>
 
-<p>由此，我们便能推导出以下的状态转移方程：</p>
+<p>在该定义下，<span class="arithmatex">\(dp[i, j]\)</span> 表示状态 <span class="arithmatex">\([i, j]\)</span> 对应的方案数。由此，我们便能推导出以下的状态转移方程：</p>
 <div class="arithmatex">\[
 \begin{cases}
-dp[i][1] = dp[i-1][2] \\
-dp[i][2] = dp[i-2][1] + dp[i-2][2]
+dp[i, 1] = dp[i-1, 2] \\
+dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 \]</div>
-<p>最终，返回 <span class="arithmatex">\(dp[n][1] + dp[n][2]\)</span> 即可，两者之和代表爬到第 <span class="arithmatex">\(n\)</span> 阶的方案总数。</p>
+<p>最终，返回 <span class="arithmatex">\(dp[n, 1] + dp[n, 2]\)</span> 即可，两者之和代表爬到第 <span class="arithmatex">\(n\)</span> 阶的方案总数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:11"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><input id="__tabbed_8_5" name="__tabbed_8" type="radio" /><input id="__tabbed_8_6" name="__tabbed_8" type="radio" /><input id="__tabbed_8_7" name="__tabbed_8" type="radio" /><input id="__tabbed_8_8" name="__tabbed_8" type="radio" /><input id="__tabbed_8_9" name="__tabbed_8" type="radio" /><input id="__tabbed_8_10" name="__tabbed_8" type="radio" /><input id="__tabbed_8_11" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Java</label><label for="__tabbed_8_2">C++</label><label for="__tabbed_8_3">Python</label><label for="__tabbed_8_4">Go</label><label for="__tabbed_8_5">JavaScript</label><label for="__tabbed_8_6">TypeScript</label><label for="__tabbed_8_7">C</label><label for="__tabbed_8_8">C#</label><label for="__tabbed_8_9">Swift</label><label for="__tabbed_8_10">Zig</label><label for="__tabbed_8_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
