@@ -2,10 +2,10 @@
 comments: true
 ---
 
-# 1. &nbsp; 引言
+# 1. &nbsp; 初识算法
 
 <div class="center-table" markdown>
 
-![引言](../assets/covers/chapter_introduction.jpg){ width="70%" }
+![初识算法](../assets/covers/chapter_introduction.jpg){ width="70%" }
 
 </div>

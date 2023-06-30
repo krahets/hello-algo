@@ -17,12 +17,11 @@ hide:
 
 <p align="center">
   <a href="https://github.com/krahets/hello-algo">
-    <img src="index.assets/btn_download_code_light.png#only-light" width="140">
-    <img src="index.assets/btn_download_code_dark.png#only-dark" width="140">
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/krahets/hello-algo?style=social&link=https%3A%2F%2Fgithub.com%2Fkrahets%2Fhello-algo">
   </a>
-  <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="index.assets/btn_download_pdf_light.png#only-light" width="140">
-    <img src="index.assets/btn_download_pdf_dark.png#only-dark" width="140">
+  &nbsp;
+  <a href="https://github.com/krahets/hello-algo">
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/krahets/hello-algo?style=social&logo=handshake&logoColor=%23101010">
   </a>
 </p>
 
