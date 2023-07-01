@@ -1941,6 +1941,8 @@
         
           
         
+          
+        
       
       
         
@@ -1970,7 +1972,21 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_dynamic_programming/intro_to_dynamic_programming/" class="md-nav__link">
-        13.1. &nbsp; 初探动态规划
+        13.1. &nbsp; 初探动态规划（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_dynamic_programming/dp_problem_features/" class="md-nav__link">
+        13.2. &nbsp; DP 问题特性（New）
       </a>
     </li>
   
@@ -2187,6 +2203,10 @@
 <div class="admonition question">
 <p class="admonition-title">在 C++ 中，函数被划分到 <code>private</code> 和 <code>public</code> 中，这方面有什么考量吗？为什么要将 <code>height()</code> 函数和 <code>updateHeight()</code> 函数分别放在 <code>public</code> 和 <code>private</code> 中呢？</p>
 <p>主要看方法的使用范围，如果方法只在类内部使用，那么就设计为 <code>private</code> 。例如，用户单独调用 <code>updateHeight()</code> 是没有意义的，它只是插入、删除操作中的一步。而 <code>height()</code> 是访问结点高度，类似于 <code>vector.size()</code> ，因此设置成 <code>public</code> 以便使用。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">请问如何从一组输入数据构建一个二叉搜索树？根节点的选择是不是很重要？</p>
+<p>是的，构建树的方法是 <code>build_tree()</code> ，已在源代码中给出。至于根节点的选择，我们通常会将输入数据排序，然后用中点元素作为根节点，再递归地构建左右子树。这样做可以最大程度保证树的平衡性。</p>
 </div>
 
 

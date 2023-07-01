@@ -1968,6 +1968,8 @@
         
           
         
+          
+        
       
       
         
@@ -1997,7 +1999,21 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_dynamic_programming/intro_to_dynamic_programming/" class="md-nav__link">
-        13.1. &nbsp; 初探动态规划
+        13.1. &nbsp; 初探动态规划（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_dynamic_programming/dp_problem_features/" class="md-nav__link">
+        13.2. &nbsp; DP 问题特性（New）
       </a>
     </li>
   
@@ -2780,7 +2796,105 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hash_map_chaining.swift</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="n">HashMapChaining</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{}</span>
+<div class="highlight"><span class="filename">hash_map_chaining.swift</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* 链式地址哈希表 */</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">class</span> <span class="nc">HashMapChaining</span> <span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="kd">var</span> <span class="nv">size</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 键值对数量</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="kd">var</span> <span class="nv">capacity</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 哈希表容量</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="kd">var</span> <span class="nv">loadThres</span><span class="p">:</span> <span class="nb">Double</span> <span class="c1">// 触发扩容的负载因子阈值</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="kd">var</span> <span class="nv">extendRatio</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 扩容倍数</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="kd">var</span> <span class="nv">buckets</span><span class="p">:</span> <span class="p">[[</span><span class="n">Pair</span><span class="p">]]</span> <span class="c1">// 桶数组</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="cm">/* 构造方法 */</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="kd">init</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        <span class="n">size</span> <span class="p">=</span> <span class="mi">0</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>        <span class="n">capacity</span> <span class="p">=</span> <span class="mi">4</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>        <span class="n">loadThres</span> <span class="p">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>        <span class="n">extendRatio</span> <span class="p">=</span> <span class="mi">2</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>        <span class="n">buckets</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="p">[],</span> <span class="bp">count</span><span class="p">:</span> <span class="n">capacity</span><span class="p">)</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>    <span class="p">}</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    <span class="cm">/* 哈希函数 */</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>    <span class="kd">func</span> <span class="nf">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>        <span class="n">key</span> <span class="o">%</span> <span class="n">capacity</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>    <span class="p">}</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>    <span class="cm">/* 负载因子 */</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>    <span class="kd">func</span> <span class="nf">loadFactor</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Double</span> <span class="p">{</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>        <span class="nb">Double</span><span class="p">(</span><span class="n">size</span> <span class="o">/</span> <span class="n">capacity</span><span class="p">)</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>    <span class="p">}</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>    <span class="cm">/* 查询操作 */</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>    <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span><span class="p">?</span> <span class="p">{</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>        <span class="kd">let</span> <span class="nv">index</span> <span class="p">=</span> <span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>        <span class="kd">let</span> <span class="nv">bucket</span> <span class="p">=</span> <span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>        <span class="c1">// 遍历桶，若找到 key 则返回对应 val</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>        <span class="k">for</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">bucket</span> <span class="p">{</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>            <span class="k">if</span> <span class="n">pair</span><span class="p">.</span><span class="n">key</span> <span class="p">==</span> <span class="n">key</span> <span class="p">{</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>                <span class="k">return</span> <span class="n">pair</span><span class="p">.</span><span class="n">val</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>            <span class="p">}</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>        <span class="p">}</span>
+<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>        <span class="c1">// 若未找到 key 则返回 nil</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>        <span class="k">return</span> <span class="kc">nil</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>    <span class="p">}</span>
+<a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>
+<a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a>    <span class="cm">/* 添加操作 */</span>
+<a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>    <span class="kd">func</span> <span class="nf">put</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a>        <span class="c1">// 当负载因子超过阈值时，执行扩容</span>
+<a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a>        <span class="k">if</span> <span class="n">loadFactor</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">loadThres</span> <span class="p">{</span>
+<a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a>            <span class="bp">extend</span><span class="p">()</span>
+<a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a>        <span class="p">}</span>
+<a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a>        <span class="kd">let</span> <span class="nv">index</span> <span class="p">=</span> <span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a>        <span class="kd">let</span> <span class="nv">bucket</span> <span class="p">=</span> <span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a>        <span class="c1">// 遍历桶，若遇到指定 key ，则更新对应 val 并返回</span>
+<a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a>        <span class="k">for</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">bucket</span> <span class="p">{</span>
+<a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a>            <span class="k">if</span> <span class="n">pair</span><span class="p">.</span><span class="n">key</span> <span class="p">==</span> <span class="n">key</span> <span class="p">{</span>
+<a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a>                <span class="n">pair</span><span class="p">.</span><span class="n">val</span> <span class="p">=</span> <span class="n">val</span>
+<a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a>                <span class="k">return</span>
+<a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a>            <span class="p">}</span>
+<a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a>        <span class="p">}</span>
+<a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a>        <span class="c1">// 若无该 key ，则将键值对添加至尾部</span>
+<a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a>        <span class="kd">let</span> <span class="nv">pair</span> <span class="p">=</span> <span class="n">Pair</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a>        <span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">pair</span><span class="p">)</span>
+<a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a>        <span class="n">size</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a>    <span class="p">}</span>
+<a id="__codelineno-8-62" name="__codelineno-8-62" href="#__codelineno-8-62"></a>
+<a id="__codelineno-8-63" name="__codelineno-8-63" href="#__codelineno-8-63"></a>    <span class="cm">/* 删除操作 */</span>
+<a id="__codelineno-8-64" name="__codelineno-8-64" href="#__codelineno-8-64"></a>    <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-8-65" name="__codelineno-8-65" href="#__codelineno-8-65"></a>        <span class="kd">let</span> <span class="nv">index</span> <span class="p">=</span> <span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-8-66" name="__codelineno-8-66" href="#__codelineno-8-66"></a>        <span class="kd">let</span> <span class="nv">bucket</span> <span class="p">=</span> <span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<a id="__codelineno-8-67" name="__codelineno-8-67" href="#__codelineno-8-67"></a>        <span class="c1">// 遍历桶，从中删除键值对</span>
+<a id="__codelineno-8-68" name="__codelineno-8-68" href="#__codelineno-8-68"></a>        <span class="k">for</span> <span class="p">(</span><span class="n">pairIndex</span><span class="p">,</span> <span class="n">pair</span><span class="p">)</span> <span class="k">in</span> <span class="n">bucket</span><span class="p">.</span><span class="n">enumerated</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-8-69" name="__codelineno-8-69" href="#__codelineno-8-69"></a>            <span class="k">if</span> <span class="n">pair</span><span class="p">.</span><span class="n">key</span> <span class="p">==</span> <span class="n">key</span> <span class="p">{</span>
+<a id="__codelineno-8-70" name="__codelineno-8-70" href="#__codelineno-8-70"></a>                <span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">].</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="n">pairIndex</span><span class="p">)</span>
+<a id="__codelineno-8-71" name="__codelineno-8-71" href="#__codelineno-8-71"></a>            <span class="p">}</span>
+<a id="__codelineno-8-72" name="__codelineno-8-72" href="#__codelineno-8-72"></a>        <span class="p">}</span>
+<a id="__codelineno-8-73" name="__codelineno-8-73" href="#__codelineno-8-73"></a>        <span class="n">size</span> <span class="o">-=</span> <span class="mi">1</span>
+<a id="__codelineno-8-74" name="__codelineno-8-74" href="#__codelineno-8-74"></a>    <span class="p">}</span>
+<a id="__codelineno-8-75" name="__codelineno-8-75" href="#__codelineno-8-75"></a>
+<a id="__codelineno-8-76" name="__codelineno-8-76" href="#__codelineno-8-76"></a>    <span class="cm">/* 扩容哈希表 */</span>
+<a id="__codelineno-8-77" name="__codelineno-8-77" href="#__codelineno-8-77"></a>    <span class="kd">func</span> <span class="nf">extend</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-8-78" name="__codelineno-8-78" href="#__codelineno-8-78"></a>        <span class="c1">// 暂存原哈希表</span>
+<a id="__codelineno-8-79" name="__codelineno-8-79" href="#__codelineno-8-79"></a>        <span class="kd">let</span> <span class="nv">bucketsTmp</span> <span class="p">=</span> <span class="n">buckets</span>
+<a id="__codelineno-8-80" name="__codelineno-8-80" href="#__codelineno-8-80"></a>        <span class="c1">// 初始化扩容后的新哈希表</span>
+<a id="__codelineno-8-81" name="__codelineno-8-81" href="#__codelineno-8-81"></a>        <span class="n">capacity</span> <span class="o">*=</span> <span class="n">extendRatio</span>
+<a id="__codelineno-8-82" name="__codelineno-8-82" href="#__codelineno-8-82"></a>        <span class="n">buckets</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="p">[],</span> <span class="bp">count</span><span class="p">:</span> <span class="n">capacity</span><span class="p">)</span>
+<a id="__codelineno-8-83" name="__codelineno-8-83" href="#__codelineno-8-83"></a>        <span class="n">size</span> <span class="p">=</span> <span class="mi">0</span>
+<a id="__codelineno-8-84" name="__codelineno-8-84" href="#__codelineno-8-84"></a>        <span class="c1">// 将键值对从原哈希表搬运至新哈希表</span>
+<a id="__codelineno-8-85" name="__codelineno-8-85" href="#__codelineno-8-85"></a>        <span class="k">for</span> <span class="n">bucket</span> <span class="k">in</span> <span class="n">bucketsTmp</span> <span class="p">{</span>
+<a id="__codelineno-8-86" name="__codelineno-8-86" href="#__codelineno-8-86"></a>            <span class="k">for</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">bucket</span> <span class="p">{</span>
+<a id="__codelineno-8-87" name="__codelineno-8-87" href="#__codelineno-8-87"></a>                <span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">pair</span><span class="p">.</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="n">pair</span><span class="p">.</span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-8-88" name="__codelineno-8-88" href="#__codelineno-8-88"></a>            <span class="p">}</span>
+<a id="__codelineno-8-89" name="__codelineno-8-89" href="#__codelineno-8-89"></a>        <span class="p">}</span>
+<a id="__codelineno-8-90" name="__codelineno-8-90" href="#__codelineno-8-90"></a>    <span class="p">}</span>
+<a id="__codelineno-8-91" name="__codelineno-8-91" href="#__codelineno-8-91"></a>
+<a id="__codelineno-8-92" name="__codelineno-8-92" href="#__codelineno-8-92"></a>    <span class="cm">/* 打印哈希表 */</span>
+<a id="__codelineno-8-93" name="__codelineno-8-93" href="#__codelineno-8-93"></a>    <span class="kd">func</span> <span class="nf">print</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-8-94" name="__codelineno-8-94" href="#__codelineno-8-94"></a>        <span class="k">for</span> <span class="n">bucket</span> <span class="k">in</span> <span class="n">buckets</span> <span class="p">{</span>
+<a id="__codelineno-8-95" name="__codelineno-8-95" href="#__codelineno-8-95"></a>            <span class="kd">let</span> <span class="nv">res</span> <span class="p">=</span> <span class="n">bucket</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="s">&quot;</span><span class="si">\(</span><span class="nv">$0</span><span class="p">.</span><span class="n">key</span><span class="si">)</span><span class="s"> -&gt; </span><span class="si">\(</span><span class="nv">$0</span><span class="p">.</span><span class="n">val</span><span class="si">)</span><span class="s">&quot;</span> <span class="p">}</span>
+<a id="__codelineno-8-96" name="__codelineno-8-96" href="#__codelineno-8-96"></a>            <span class="n">Swift</span><span class="p">.</span><span class="bp">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-8-97" name="__codelineno-8-97" href="#__codelineno-8-97"></a>        <span class="p">}</span>
+<a id="__codelineno-8-98" name="__codelineno-8-98" href="#__codelineno-8-98"></a>    <span class="p">}</span>
+<a id="__codelineno-8-99" name="__codelineno-8-99" href="#__codelineno-8-99"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3523,7 +3637,126 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hash_map_open_addressing.swift</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="n">HashMapOpenAddressing</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{}</span>
+<div class="highlight"><span class="filename">hash_map_open_addressing.swift</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="cm">/* 开放寻址哈希表 */</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kd">class</span> <span class="nc">HashMapOpenAddressing</span> <span class="p">{</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    <span class="kd">var</span> <span class="nv">size</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 键值对数量</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    <span class="kd">var</span> <span class="nv">capacity</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 哈希表容量</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    <span class="kd">var</span> <span class="nv">loadThres</span><span class="p">:</span> <span class="nb">Double</span> <span class="c1">// 触发扩容的负载因子阈值</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    <span class="kd">var</span> <span class="nv">extendRatio</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 扩容倍数</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    <span class="kd">var</span> <span class="nv">buckets</span><span class="p">:</span> <span class="p">[</span><span class="n">Pair</span><span class="p">?]</span> <span class="c1">// 桶数组</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>    <span class="kd">var</span> <span class="nv">removed</span><span class="p">:</span> <span class="n">Pair</span> <span class="c1">// 删除标记</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    <span class="cm">/* 构造方法 */</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>    <span class="kd">init</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>        <span class="n">size</span> <span class="p">=</span> <span class="mi">0</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>        <span class="n">capacity</span> <span class="p">=</span> <span class="mi">4</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>        <span class="n">loadThres</span> <span class="p">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>        <span class="n">extendRatio</span> <span class="p">=</span> <span class="mi">2</span>
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>        <span class="n">buckets</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">capacity</span><span class="p">)</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>        <span class="n">removed</span> <span class="p">=</span> <span class="n">Pair</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="s">&quot;-1&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>    <span class="p">}</span>
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>
+<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>    <span class="cm">/* 哈希函数 */</span>
+<a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>    <span class="kd">func</span> <span class="nf">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>        <span class="n">key</span> <span class="o">%</span> <span class="n">capacity</span>
+<a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>    <span class="p">}</span>
+<a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>
+<a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>    <span class="cm">/* 负载因子 */</span>
+<a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>    <span class="kd">func</span> <span class="nf">loadFactor</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Double</span> <span class="p">{</span>
+<a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a>        <span class="nb">Double</span><span class="p">(</span><span class="n">size</span> <span class="o">/</span> <span class="n">capacity</span><span class="p">)</span>
+<a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a>    <span class="p">}</span>
+<a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a>
+<a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a>    <span class="cm">/* 查询操作 */</span>
+<a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a>    <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span><span class="p">?</span> <span class="p">{</span>
+<a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a>        <span class="kd">let</span> <span class="nv">index</span> <span class="p">=</span> <span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a>        <span class="c1">// 线性探测，从 index 开始向后遍历</span>
+<a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a>        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="bp">stride</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">by</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a>            <span class="c1">// 计算桶索引，越过尾部返回头部</span>
+<a id="__codelineno-19-36" name="__codelineno-19-36" href="#__codelineno-19-36"></a>            <span class="kd">let</span> <span class="nv">j</span> <span class="p">=</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">capacity</span>
+<a id="__codelineno-19-37" name="__codelineno-19-37" href="#__codelineno-19-37"></a>            <span class="c1">// 若遇到空桶，说明无此 key ，则返回 nil</span>
+<a id="__codelineno-19-38" name="__codelineno-19-38" href="#__codelineno-19-38"></a>            <span class="k">if</span> <span class="n">buckets</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">==</span> <span class="kc">nil</span> <span class="p">{</span>
+<a id="__codelineno-19-39" name="__codelineno-19-39" href="#__codelineno-19-39"></a>                <span class="k">return</span> <span class="kc">nil</span>
+<a id="__codelineno-19-40" name="__codelineno-19-40" href="#__codelineno-19-40"></a>            <span class="p">}</span>
+<a id="__codelineno-19-41" name="__codelineno-19-41" href="#__codelineno-19-41"></a>            <span class="c1">// 若遇到指定 key ，则返回对应 val</span>
+<a id="__codelineno-19-42" name="__codelineno-19-42" href="#__codelineno-19-42"></a>            <span class="k">if</span> <span class="n">buckets</span><span class="p">[</span><span class="n">j</span><span class="p">]?.</span><span class="n">key</span> <span class="p">==</span> <span class="n">key</span><span class="p">,</span> <span class="n">buckets</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">removed</span> <span class="p">{</span>
+<a id="__codelineno-19-43" name="__codelineno-19-43" href="#__codelineno-19-43"></a>                <span class="k">return</span> <span class="n">buckets</span><span class="p">[</span><span class="n">j</span><span class="p">]?.</span><span class="n">val</span>
+<a id="__codelineno-19-44" name="__codelineno-19-44" href="#__codelineno-19-44"></a>            <span class="p">}</span>
+<a id="__codelineno-19-45" name="__codelineno-19-45" href="#__codelineno-19-45"></a>        <span class="p">}</span>
+<a id="__codelineno-19-46" name="__codelineno-19-46" href="#__codelineno-19-46"></a>        <span class="k">return</span> <span class="kc">nil</span>
+<a id="__codelineno-19-47" name="__codelineno-19-47" href="#__codelineno-19-47"></a>    <span class="p">}</span>
+<a id="__codelineno-19-48" name="__codelineno-19-48" href="#__codelineno-19-48"></a>
+<a id="__codelineno-19-49" name="__codelineno-19-49" href="#__codelineno-19-49"></a>    <span class="cm">/* 添加操作 */</span>
+<a id="__codelineno-19-50" name="__codelineno-19-50" href="#__codelineno-19-50"></a>    <span class="kd">func</span> <span class="nf">put</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-19-51" name="__codelineno-19-51" href="#__codelineno-19-51"></a>        <span class="c1">// 当负载因子超过阈值时，执行扩容</span>
+<a id="__codelineno-19-52" name="__codelineno-19-52" href="#__codelineno-19-52"></a>        <span class="k">if</span> <span class="n">loadFactor</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">loadThres</span> <span class="p">{</span>
+<a id="__codelineno-19-53" name="__codelineno-19-53" href="#__codelineno-19-53"></a>            <span class="bp">extend</span><span class="p">()</span>
+<a id="__codelineno-19-54" name="__codelineno-19-54" href="#__codelineno-19-54"></a>        <span class="p">}</span>
+<a id="__codelineno-19-55" name="__codelineno-19-55" href="#__codelineno-19-55"></a>        <span class="kd">let</span> <span class="nv">index</span> <span class="p">=</span> <span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-19-56" name="__codelineno-19-56" href="#__codelineno-19-56"></a>        <span class="c1">// 线性探测，从 index 开始向后遍历</span>
+<a id="__codelineno-19-57" name="__codelineno-19-57" href="#__codelineno-19-57"></a>        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="bp">stride</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">through</span><span class="p">:</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">by</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-19-58" name="__codelineno-19-58" href="#__codelineno-19-58"></a>            <span class="c1">// 计算桶索引，越过尾部返回头部</span>
+<a id="__codelineno-19-59" name="__codelineno-19-59" href="#__codelineno-19-59"></a>            <span class="kd">let</span> <span class="nv">j</span> <span class="p">=</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">capacity</span>
+<a id="__codelineno-19-60" name="__codelineno-19-60" href="#__codelineno-19-60"></a>            <span class="c1">// 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶</span>
+<a id="__codelineno-19-61" name="__codelineno-19-61" href="#__codelineno-19-61"></a>            <span class="k">if</span> <span class="n">buckets</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">==</span> <span class="kc">nil</span> <span class="o">||</span> <span class="n">buckets</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">==</span> <span class="n">removed</span> <span class="p">{</span>
+<a id="__codelineno-19-62" name="__codelineno-19-62" href="#__codelineno-19-62"></a>                <span class="n">buckets</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">=</span> <span class="n">Pair</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-19-63" name="__codelineno-19-63" href="#__codelineno-19-63"></a>                <span class="n">size</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-19-64" name="__codelineno-19-64" href="#__codelineno-19-64"></a>                <span class="k">return</span>
+<a id="__codelineno-19-65" name="__codelineno-19-65" href="#__codelineno-19-65"></a>            <span class="p">}</span>
+<a id="__codelineno-19-66" name="__codelineno-19-66" href="#__codelineno-19-66"></a>            <span class="c1">// 若遇到指定 key ，则更新对应 val</span>
+<a id="__codelineno-19-67" name="__codelineno-19-67" href="#__codelineno-19-67"></a>            <span class="k">if</span> <span class="n">buckets</span><span class="p">[</span><span class="n">j</span><span class="p">]?.</span><span class="n">key</span> <span class="p">==</span> <span class="n">key</span> <span class="p">{</span>
+<a id="__codelineno-19-68" name="__codelineno-19-68" href="#__codelineno-19-68"></a>                <span class="n">buckets</span><span class="p">[</span><span class="n">j</span><span class="p">]?.</span><span class="n">val</span> <span class="p">=</span> <span class="n">val</span>
+<a id="__codelineno-19-69" name="__codelineno-19-69" href="#__codelineno-19-69"></a>                <span class="k">return</span>
+<a id="__codelineno-19-70" name="__codelineno-19-70" href="#__codelineno-19-70"></a>            <span class="p">}</span>
+<a id="__codelineno-19-71" name="__codelineno-19-71" href="#__codelineno-19-71"></a>        <span class="p">}</span>
+<a id="__codelineno-19-72" name="__codelineno-19-72" href="#__codelineno-19-72"></a>    <span class="p">}</span>
+<a id="__codelineno-19-73" name="__codelineno-19-73" href="#__codelineno-19-73"></a>
+<a id="__codelineno-19-74" name="__codelineno-19-74" href="#__codelineno-19-74"></a>    <span class="cm">/* 删除操作 */</span>
+<a id="__codelineno-19-75" name="__codelineno-19-75" href="#__codelineno-19-75"></a>    <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-19-76" name="__codelineno-19-76" href="#__codelineno-19-76"></a>        <span class="kd">let</span> <span class="nv">index</span> <span class="p">=</span> <span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-19-77" name="__codelineno-19-77" href="#__codelineno-19-77"></a>        <span class="c1">// 线性探测，从 index 开始向后遍历</span>
+<a id="__codelineno-19-78" name="__codelineno-19-78" href="#__codelineno-19-78"></a>        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="bp">stride</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">by</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-19-79" name="__codelineno-19-79" href="#__codelineno-19-79"></a>            <span class="c1">// 计算桶索引，越过尾部返回头部</span>
+<a id="__codelineno-19-80" name="__codelineno-19-80" href="#__codelineno-19-80"></a>            <span class="kd">let</span> <span class="nv">j</span> <span class="p">=</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">capacity</span>
+<a id="__codelineno-19-81" name="__codelineno-19-81" href="#__codelineno-19-81"></a>            <span class="c1">// 若遇到空桶，说明无此 key ，则直接返回</span>
+<a id="__codelineno-19-82" name="__codelineno-19-82" href="#__codelineno-19-82"></a>            <span class="k">if</span> <span class="n">buckets</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">==</span> <span class="kc">nil</span> <span class="p">{</span>
+<a id="__codelineno-19-83" name="__codelineno-19-83" href="#__codelineno-19-83"></a>                <span class="k">return</span>
+<a id="__codelineno-19-84" name="__codelineno-19-84" href="#__codelineno-19-84"></a>            <span class="p">}</span>
+<a id="__codelineno-19-85" name="__codelineno-19-85" href="#__codelineno-19-85"></a>            <span class="c1">// 若遇到指定 key ，则标记删除并返回</span>
+<a id="__codelineno-19-86" name="__codelineno-19-86" href="#__codelineno-19-86"></a>            <span class="k">if</span> <span class="n">buckets</span><span class="p">[</span><span class="n">j</span><span class="p">]?.</span><span class="n">key</span> <span class="p">==</span> <span class="n">key</span> <span class="p">{</span>
+<a id="__codelineno-19-87" name="__codelineno-19-87" href="#__codelineno-19-87"></a>                <span class="n">buckets</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">=</span> <span class="n">removed</span>
+<a id="__codelineno-19-88" name="__codelineno-19-88" href="#__codelineno-19-88"></a>                <span class="n">size</span> <span class="o">-=</span> <span class="mi">1</span>
+<a id="__codelineno-19-89" name="__codelineno-19-89" href="#__codelineno-19-89"></a>                <span class="k">return</span>
+<a id="__codelineno-19-90" name="__codelineno-19-90" href="#__codelineno-19-90"></a>            <span class="p">}</span>
+<a id="__codelineno-19-91" name="__codelineno-19-91" href="#__codelineno-19-91"></a>        <span class="p">}</span>
+<a id="__codelineno-19-92" name="__codelineno-19-92" href="#__codelineno-19-92"></a>    <span class="p">}</span>
+<a id="__codelineno-19-93" name="__codelineno-19-93" href="#__codelineno-19-93"></a>
+<a id="__codelineno-19-94" name="__codelineno-19-94" href="#__codelineno-19-94"></a>    <span class="cm">/* 扩容哈希表 */</span>
+<a id="__codelineno-19-95" name="__codelineno-19-95" href="#__codelineno-19-95"></a>    <span class="kd">func</span> <span class="nf">extend</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-19-96" name="__codelineno-19-96" href="#__codelineno-19-96"></a>        <span class="c1">// 暂存原哈希表</span>
+<a id="__codelineno-19-97" name="__codelineno-19-97" href="#__codelineno-19-97"></a>        <span class="kd">let</span> <span class="nv">bucketsTmp</span> <span class="p">=</span> <span class="n">buckets</span>
+<a id="__codelineno-19-98" name="__codelineno-19-98" href="#__codelineno-19-98"></a>        <span class="c1">// 初始化扩容后的新哈希表</span>
+<a id="__codelineno-19-99" name="__codelineno-19-99" href="#__codelineno-19-99"></a>        <span class="n">capacity</span> <span class="o">*=</span> <span class="n">extendRatio</span>
+<a id="__codelineno-19-100" name="__codelineno-19-100" href="#__codelineno-19-100"></a>        <span class="n">buckets</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">capacity</span><span class="p">)</span>
+<a id="__codelineno-19-101" name="__codelineno-19-101" href="#__codelineno-19-101"></a>        <span class="n">size</span> <span class="p">=</span> <span class="mi">0</span>
+<a id="__codelineno-19-102" name="__codelineno-19-102" href="#__codelineno-19-102"></a>        <span class="c1">// 将键值对从原哈希表搬运至新哈希表</span>
+<a id="__codelineno-19-103" name="__codelineno-19-103" href="#__codelineno-19-103"></a>        <span class="k">for</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">bucketsTmp</span> <span class="p">{</span>
+<a id="__codelineno-19-104" name="__codelineno-19-104" href="#__codelineno-19-104"></a>            <span class="k">if</span> <span class="kd">let</span> <span class="nv">pair</span><span class="p">,</span> <span class="n">pair</span> <span class="o">!=</span> <span class="n">removed</span> <span class="p">{</span>
+<a id="__codelineno-19-105" name="__codelineno-19-105" href="#__codelineno-19-105"></a>                <span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">pair</span><span class="p">.</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="n">pair</span><span class="p">.</span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-19-106" name="__codelineno-19-106" href="#__codelineno-19-106"></a>            <span class="p">}</span>
+<a id="__codelineno-19-107" name="__codelineno-19-107" href="#__codelineno-19-107"></a>        <span class="p">}</span>
+<a id="__codelineno-19-108" name="__codelineno-19-108" href="#__codelineno-19-108"></a>    <span class="p">}</span>
+<a id="__codelineno-19-109" name="__codelineno-19-109" href="#__codelineno-19-109"></a>
+<a id="__codelineno-19-110" name="__codelineno-19-110" href="#__codelineno-19-110"></a>    <span class="cm">/* 打印哈希表 */</span>
+<a id="__codelineno-19-111" name="__codelineno-19-111" href="#__codelineno-19-111"></a>    <span class="kd">func</span> <span class="nf">print</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-19-112" name="__codelineno-19-112" href="#__codelineno-19-112"></a>        <span class="k">for</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">buckets</span> <span class="p">{</span>
+<a id="__codelineno-19-113" name="__codelineno-19-113" href="#__codelineno-19-113"></a>            <span class="k">if</span> <span class="kd">let</span> <span class="nv">pair</span> <span class="p">{</span>
+<a id="__codelineno-19-114" name="__codelineno-19-114" href="#__codelineno-19-114"></a>                <span class="n">Swift</span><span class="p">.</span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">\(</span><span class="n">pair</span><span class="p">.</span><span class="n">key</span><span class="si">)</span><span class="s"> -&gt; </span><span class="si">\(</span><span class="n">pair</span><span class="p">.</span><span class="n">val</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-115" name="__codelineno-19-115" href="#__codelineno-19-115"></a>            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a id="__codelineno-19-116" name="__codelineno-19-116" href="#__codelineno-19-116"></a>                <span class="n">Swift</span><span class="p">.</span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;null&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-117" name="__codelineno-19-117" href="#__codelineno-19-117"></a>            <span class="p">}</span>
+<a id="__codelineno-19-118" name="__codelineno-19-118" href="#__codelineno-19-118"></a>        <span class="p">}</span>
+<a id="__codelineno-19-119" name="__codelineno-19-119" href="#__codelineno-19-119"></a>    <span class="p">}</span>
+<a id="__codelineno-19-120" name="__codelineno-19-120" href="#__codelineno-19-120"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
