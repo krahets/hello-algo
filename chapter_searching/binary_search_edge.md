@@ -350,7 +350,7 @@ comments: true
                 j = m - 1  # target 在区间 [i, m-1] 中
             else:
                 i = m + 1  # 首个大于 target 的元素在区间 [m+1, j] 中
-        if j == len(nums) or nums[j] != target:
+        if j < 0 or nums[j] != target:
             return -1  # 未找到目标元素，返回 -1
         return j
     ```
@@ -401,7 +401,7 @@ comments: true
                 i = m + 1; // 首个大于 target 的元素在区间 [m+1, j] 中
             }
         }
-        if (j == nums.length || nums[j] != target) {
+        if (j < 0 || nums[j] != target) {
             return -1; // 未找到目标元素，返回 -1
         }
         return j;
@@ -424,7 +424,7 @@ comments: true
                 i = m + 1;  // 首个大于 target 的元素在区间 [m+1, j] 中
             }
         }
-        if (j == nums.length || nums[j] != target) {
+        if (j < 0 || nums[j] != target) {
             return -1;  // 未找到目标元素，返回 -1
         }
         return j;
