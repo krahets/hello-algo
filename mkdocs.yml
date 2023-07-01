@@ -214,7 +214,8 @@ nav:
     - 12.5. &nbsp; 小结: chapter_backtracking/summary.md
   - 13. &nbsp; &nbsp; 动态规划:
     - chapter_dynamic_programming/index.md
-    - 13.1. &nbsp; 初探动态规划: chapter_dynamic_programming/intro_to_dynamic_programming.md
+    - 13.1. &nbsp; 初探动态规划（New）: chapter_dynamic_programming/intro_to_dynamic_programming.md
+    - 13.2. &nbsp; DP 问题特性（New）: chapter_dynamic_programming/dp_problem_features.md
   - 14. &nbsp; &nbsp; 附录:
     - 14.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
     - 14.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
