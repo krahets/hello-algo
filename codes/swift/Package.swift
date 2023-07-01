@@ -29,6 +29,8 @@ let package = Package(
         .executable(name: "array_hash_map", targets: ["array_hash_map"]),
         .executable(name: "hash_map_chaining", targets: ["hash_map_chaining"]),
         .executable(name: "hash_map_open_addressing", targets: ["hash_map_open_addressing"]),
+        .executable(name: "simple_hash", targets: ["simple_hash"]),
+        .executable(name: "built_in_hash", targets: ["built_in_hash"]),
         // chapter_tree
         .executable(name: "binary_tree", targets: ["binary_tree"]),
         .executable(name: "binary_tree_bfs", targets: ["binary_tree_bfs"]),
@@ -95,6 +97,8 @@ let package = Package(
         .executableTarget(name: "array_hash_map", dependencies: ["utils"], path: "chapter_hashing", sources: ["array_hash_map.swift"]),
         .executableTarget(name: "hash_map_chaining", dependencies: ["utils"], path: "chapter_hashing", sources: ["hash_map_chaining.swift"]),
         .executableTarget(name: "hash_map_open_addressing", dependencies: ["utils"], path: "chapter_hashing", sources: ["hash_map_open_addressing.swift"]),
+        .executableTarget(name: "simple_hash", path: "chapter_hashing", sources: ["simple_hash.swift"]),
+        .executableTarget(name: "built_in_hash", dependencies: ["utils"], path: "chapter_hashing", sources: ["built_in_hash.swift"]),
         // chapter_tree
         .executableTarget(name: "binary_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["binary_tree.swift"]),
         .executableTarget(name: "binary_tree_bfs", dependencies: ["utils"], path: "chapter_tree", sources: ["binary_tree_bfs.swift"]),
