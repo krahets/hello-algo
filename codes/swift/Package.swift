@@ -39,6 +39,7 @@ let package = Package(
         .executable(name: "avl_tree", targets: ["avl_tree"]),
         // chapter_heap
         .executable(name: "my_heap", targets: ["my_heap"]),
+        .executable(name: "top_k", targets: ["top_k"]),
         // chapter_graph
         .executable(name: "graph_adjacency_matrix", targets: ["graph_adjacency_matrix"]),
         .executable(name: "graph_adjacency_list", targets: ["graph_adjacency_list"]),
@@ -107,6 +108,7 @@ let package = Package(
         .executableTarget(name: "avl_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["avl_tree.swift"]),
         // chapter_heap
         .executableTarget(name: "my_heap", dependencies: ["utils"], path: "chapter_heap", sources: ["my_heap.swift"]),
+        .executableTarget(name: "top_k", dependencies: ["utils"], path: "chapter_heap", sources: ["top_k.swift"]),
         // chapter_graph
         .executableTarget(name: "graph_adjacency_matrix", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_matrix.swift"]),
         .executableTarget(name: "graph_adjacency_list", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_list.swift"]),
