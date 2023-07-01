@@ -516,17 +516,13 @@ index = hash(key) % capacity
 
     ```swift title="array_hash_map.swift"
     /* 键值对 */
-    public class Pair: Equatable {
-        public var key: Int
-        public var val: String
-    
-        public init(key: Int, val: String) {
+    class Pair {
+        var key: Int
+        var val: String
+
+        init(key: Int, val: String) {
             self.key = key
             self.val = val
-        }
-    
-        public static func == (lhs: Pair, rhs: Pair) -> Bool {
-            lhs.key == rhs.key && lhs.val == rhs.val
         }
     }
 
