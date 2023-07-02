@@ -68,6 +68,9 @@ let package = Package(
         .executable(name: "preorder_traversal_iii_template", targets: ["preorder_traversal_iii_template"]),
         .executable(name: "permutations_i", targets: ["permutations_i"]),
         .executable(name: "permutations_ii", targets: ["permutations_ii"]),
+        .executable(name: "subset_sum_i_naive", targets: ["subset_sum_i_naive"]),
+        .executable(name: "subset_sum_i", targets: ["subset_sum_i"]),
+        .executable(name: "subset_sum_ii", targets: ["subset_sum_ii"]),
         .executable(name: "n_queens", targets: ["n_queens"]),
     ],
     targets: [
@@ -137,6 +140,9 @@ let package = Package(
         .executableTarget(name: "preorder_traversal_iii_template", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_iii_template.swift"]),
         .executableTarget(name: "permutations_i", path: "chapter_backtracking", sources: ["permutations_i.swift"]),
         .executableTarget(name: "permutations_ii", path: "chapter_backtracking", sources: ["permutations_ii.swift"]),
+        .executableTarget(name: "subset_sum_i_naive", path: "chapter_backtracking", sources: ["subset_sum_i_naive.swift"]),
+        .executableTarget(name: "subset_sum_i", path: "chapter_backtracking", sources: ["subset_sum_i.swift"]),
+        .executableTarget(name: "subset_sum_ii", path: "chapter_backtracking", sources: ["subset_sum_ii.swift"]),
         .executableTarget(name: "n_queens", path: "chapter_backtracking", sources: ["n_queens.swift"]),
     ]
 )
