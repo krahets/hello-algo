@@ -309,13 +309,53 @@ index = hash(key) % capacity
 === "Swift"
 
     ```swift title="simple_hash.swift"
-    [class]{}-[func]{addHash}
+    /* 加法哈希 */
+    func addHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash = (hash + Int(scalar.value)) % MODULUS
+            }
+        }
+        return hash
+    }
 
-    [class]{}-[func]{mulHash}
+    /* 乘法哈希 */
+    func mulHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash = (31 * hash + Int(scalar.value)) % MODULUS
+            }
+        }
+        return hash
+    }
 
-    [class]{}-[func]{xorHash}
+    /* 异或哈希 */
+    func xorHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash ^= Int(scalar.value)
+            }
+        }
+        return hash & MODULUS
+    }
 
-    [class]{}-[func]{rotHash}
+    /* 旋转哈希 */
+    func rotHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash = ((hash << 4) ^ (hash >> 28) ^ Int(scalar.value)) % MODULUS
+            }
+        }
+        return hash
+    }
     ```
 
 === "Zig"
@@ -533,7 +573,29 @@ $$
 === "Swift"
 
     ```swift title="built_in_hash.swift"
+    let num = 3
+    let hashNum = num.hashValue
+    // 整数 3 的哈希值为 9047044699613009734
 
+    let bol = true
+    let hashBol = bol.hashValue
+    // 布尔量 true 的哈希值为 -4431640247352757451
+
+    let dec = 3.14159
+    let hashDec = dec.hashValue
+    // 小数 3.14159 的哈希值为 -2465384235396674631
+
+    let str = "Hello 算法"
+    let hashStr = str.hashValue
+    // 字符串 Hello 算法 的哈希值为 -7850626797806988787
+
+    let arr = [AnyHashable(12836), AnyHashable("小哈")]
+    let hashTup = arr.hashValue
+    // 数组 [AnyHashable(12836), AnyHashable("小哈")] 的哈希值为 -2308633508154532996
+
+    let obj = ListNode(x: 0)
+    let hashObj = obj.hashValue
+    // 节点对象 utils.ListNode 的哈希值为 -2434780518035996159
     ```
 
 === "Zig"
