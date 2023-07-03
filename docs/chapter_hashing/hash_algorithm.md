@@ -366,7 +366,29 @@ $$
 === "Swift"
 
     ```swift title="built_in_hash.swift"
+    let num = 3
+    let hashNum = num.hashValue
+    // 整数 3 的哈希值为 9047044699613009734
 
+    let bol = true
+    let hashBol = bol.hashValue
+    // 布尔量 true 的哈希值为 -4431640247352757451
+
+    let dec = 3.14159
+    let hashDec = dec.hashValue
+    // 小数 3.14159 的哈希值为 -2465384235396674631
+
+    let str = "Hello 算法"
+    let hashStr = str.hashValue
+    // 字符串 Hello 算法 的哈希值为 -7850626797806988787
+
+    let arr = [AnyHashable(12836), AnyHashable("小哈")]
+    let hashTup = arr.hashValue
+    // 数组 [AnyHashable(12836), AnyHashable("小哈")] 的哈希值为 -2308633508154532996
+
+    let obj = ListNode(x: 0)
+    let hashObj = obj.hashValue
+    // 节点对象 utils.ListNode 的哈希值为 -2434780518035996159
     ```
 
 === "Zig"
