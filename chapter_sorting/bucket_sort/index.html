@@ -1957,6 +1957,8 @@
         
           
         
+          
+        
       
       
         
@@ -2001,6 +2003,20 @@
     <li class="md-nav__item">
       <a href="../../chapter_dynamic_programming/dp_problem_features/" class="md-nav__link">
         13.2. &nbsp; DP 问题特性（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_dynamic_programming/knapsack_problem/" class="md-nav__link">
+        13.3. &nbsp; 0-1 背包问题（New）
       </a>
     </li>
   
@@ -2283,7 +2299,7 @@
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="c1"># 将 num 添加进桶 i</span>
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="c1"># 2. 对各个桶执行排序5</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="c1"># 2. 对各个桶执行排序</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">buckets</span><span class="p">:</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="c1"># 使用内置排序函数，也可以替换成其他排序算法</span>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="n">bucket</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>

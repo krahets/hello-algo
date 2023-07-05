@@ -1957,6 +1957,8 @@
         
           
         
+          
+        
       
       
         
@@ -2001,6 +2003,20 @@
     <li class="md-nav__item">
       <a href="../../chapter_dynamic_programming/dp_problem_features/" class="md-nav__link">
         13.2. &nbsp; DP 问题特性（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_dynamic_programming/knapsack_problem/" class="md-nav__link">
+        13.3. &nbsp; 0-1 背包问题（New）
       </a>
     </li>
   
@@ -2203,11 +2219,11 @@
 <p><img alt="哈希表的抽象表示" src="../hash_map.assets/hash_table_lookup.png" /></p>
 <p align="center"> Fig. 哈希表的抽象表示 </p>
 
-<p>除哈希表外，我们还可以使用数组或链表实现查询功能，其中：</p>
+<p>除哈希表外，我们还可以使用数组或链表实现查询功能。若将学生数据看作数组（链表）元素，则有：</p>
 <ul>
-<li>查询元素需要遍历数组（链表）中的所有元素，使用 <span class="arithmatex">\(O(n)\)</span> 时间；</li>
-<li>添加元素仅需添加至数组（链表）的尾部即可，使用 <span class="arithmatex">\(O(1)\)</span> 时间；</li>
-<li>删除元素需要先查询再删除，使用 <span class="arithmatex">\(O(n)\)</span> 时间；</li>
+<li><strong>添加元素</strong>：仅需将元素添加至数组（链表）的尾部即可，使用 <span class="arithmatex">\(O(1)\)</span> 时间；</li>
+<li><strong>查询元素</strong>：由于数组（链表）是乱序的，因此需要遍历数组（链表）中的所有元素，使用 <span class="arithmatex">\(O(n)\)</span> 时间；</li>
+<li><strong>删除元素</strong>：需要先查询到元素，再从数组中删除，使用 <span class="arithmatex">\(O(n)\)</span> 时间；</li>
 </ul>
 <div class="center-table">
 <table>

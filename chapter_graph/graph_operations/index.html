@@ -1957,6 +1957,8 @@
         
           
         
+          
+        
       
       
         
@@ -2001,6 +2003,20 @@
     <li class="md-nav__item">
       <a href="../../chapter_dynamic_programming/dp_problem_features/" class="md-nav__link">
         13.2. &nbsp; DP 问题特性（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_dynamic_programming/knapsack_problem/" class="md-nav__link">
+        13.3. &nbsp; 0-1 背包问题（New）
       </a>
     </li>
   
@@ -3326,8 +3342,8 @@
 <a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a><span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;error&quot;</span><span class="p">)</span>
 <a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a><span class="w">    </span><span class="c1">// 删除边 vet1 - vet2</span>
-<a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a><span class="w">    </span><span class="nx">DeleteSliceElms</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">adjList</span><span class="p">[</span><span class="nx">vet1</span><span class="p">],</span><span class="w"> </span><span class="nx">vet2</span><span class="p">)</span>
-<a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a><span class="w">    </span><span class="nx">DeleteSliceElms</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">adjList</span><span class="p">[</span><span class="nx">vet2</span><span class="p">],</span><span class="w"> </span><span class="nx">vet1</span><span class="p">)</span>
+<a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a><span class="w">    </span><span class="nx">g</span><span class="p">.</span><span class="nx">adjList</span><span class="p">[</span><span class="nx">vet1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">DeleteSliceElms</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">adjList</span><span class="p">[</span><span class="nx">vet1</span><span class="p">],</span><span class="w"> </span><span class="nx">vet2</span><span class="p">)</span>
+<a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a><span class="w">    </span><span class="nx">g</span><span class="p">.</span><span class="nx">adjList</span><span class="p">[</span><span class="nx">vet2</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">DeleteSliceElms</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">adjList</span><span class="p">[</span><span class="nx">vet2</span><span class="p">],</span><span class="w"> </span><span class="nx">vet1</span><span class="p">)</span>
 <a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a><span class="p">}</span>
 <a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a>
 <a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a><span class="cm">/* 添加顶点 */</span>
@@ -3349,8 +3365,8 @@
 <a id="__codelineno-14-66" name="__codelineno-14-66" href="#__codelineno-14-66"></a><span class="w">    </span><span class="c1">// 在邻接表中删除顶点 vet 对应的链表</span>
 <a id="__codelineno-14-67" name="__codelineno-14-67" href="#__codelineno-14-67"></a><span class="w">    </span><span class="nb">delete</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">adjList</span><span class="p">,</span><span class="w"> </span><span class="nx">vet</span><span class="p">)</span>
 <a id="__codelineno-14-68" name="__codelineno-14-68" href="#__codelineno-14-68"></a><span class="w">    </span><span class="c1">// 遍历其他顶点的链表，删除所有包含 vet 的边</span>
-<a id="__codelineno-14-69" name="__codelineno-14-69" href="#__codelineno-14-69"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">g</span><span class="p">.</span><span class="nx">adjList</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-70" name="__codelineno-14-70" href="#__codelineno-14-70"></a><span class="w">        </span><span class="nx">DeleteSliceElms</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="nx">vet</span><span class="p">)</span>
+<a id="__codelineno-14-69" name="__codelineno-14-69" href="#__codelineno-14-69"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">g</span><span class="p">.</span><span class="nx">adjList</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-70" name="__codelineno-14-70" href="#__codelineno-14-70"></a><span class="w">        </span><span class="nx">g</span><span class="p">.</span><span class="nx">adjList</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">DeleteSliceElms</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="nx">vet</span><span class="p">)</span>
 <a id="__codelineno-14-71" name="__codelineno-14-71" href="#__codelineno-14-71"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-14-72" name="__codelineno-14-72" href="#__codelineno-14-72"></a><span class="p">}</span>
 <a id="__codelineno-14-73" name="__codelineno-14-73" href="#__codelineno-14-73"></a>
