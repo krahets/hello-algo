@@ -97,7 +97,7 @@ comments: true
             i = int(num * k)
             # 将 num 添加进桶 i
             buckets[i].append(num)
-        # 2. 对各个桶执行排序5
+        # 2. 对各个桶执行排序
         for bucket in buckets:
             # 使用内置排序函数，也可以替换成其他排序算法
             bucket.sort()
