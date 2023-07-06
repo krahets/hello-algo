@@ -1,0 +1,1 @@
+add_executable(graph_adjacency_matrix graph_adjacency_matrix.c)
