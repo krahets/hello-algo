@@ -25,7 +25,7 @@
     
     
       
-        <title>13.3.   0-1 背包问题（New） - Hello 算法</title>
+        <title>13.4.   0-1 背包问题（New） - Hello 算法</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#133-0-1" class="md-skip">
+        <a href="#134-0-1" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              13.3. &nbsp; 0-1 背包问题（New）
+              13.4. &nbsp; 0-1 背包问题（New）
             
           </span>
         </div>
@@ -1904,6 +1904,8 @@
         
           
         
+          
+        
       
       
         
@@ -1958,6 +1960,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../dp_solution_pipeline.md" class="md-nav__link">
+        13.3. &nbsp; DP 解题步骤（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -1970,12 +1986,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          13.3. &nbsp; 0-1 背包问题（New）
+          13.4. &nbsp; 0-1 背包问题（New）
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        13.3. &nbsp; 0-1 背包问题（New）
+        13.4. &nbsp; 0-1 背包问题（New）
       </a>
       
         
@@ -1994,22 +2010,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1331" class="md-nav__link">
-    13.3.1. &nbsp; 方法一：暴力搜索
+  <a href="#1341" class="md-nav__link">
+    13.4.1. &nbsp; 方法一：暴力搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1332" class="md-nav__link">
-    13.3.2. &nbsp; 方法二：记忆化搜索
+  <a href="#1342" class="md-nav__link">
+    13.4.2. &nbsp; 方法二：记忆化搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1333" class="md-nav__link">
-    13.3.3. &nbsp; 方法三：动态规划
+  <a href="#1343" class="md-nav__link">
+    13.4.3. &nbsp; 方法三：动态规划
   </a>
   
 </li>
@@ -2170,22 +2186,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1331" class="md-nav__link">
-    13.3.1. &nbsp; 方法一：暴力搜索
+  <a href="#1341" class="md-nav__link">
+    13.4.1. &nbsp; 方法一：暴力搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1332" class="md-nav__link">
-    13.3.2. &nbsp; 方法二：记忆化搜索
+  <a href="#1342" class="md-nav__link">
+    13.4.2. &nbsp; 方法二：记忆化搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1333" class="md-nav__link">
-    13.3.3. &nbsp; 方法三：动态规划
+  <a href="#1343" class="md-nav__link">
+    13.4.3. &nbsp; 方法三：动态规划
   </a>
   
 </li>
@@ -2213,7 +2229,7 @@
   
 
 
-<h1 id="133-0-1">13.3. &nbsp; 0-1 背包问题<a class="headerlink" href="#133-0-1" title="Permanent link">&para;</a></h1>
+<h1 id="134-0-1">13.4. &nbsp; 0-1 背包问题<a class="headerlink" href="#134-0-1" title="Permanent link">&para;</a></h1>
 <p>背包问题是一个非常好的动态规划入门题目，是动态规划中最常见的问题形式。其具有很多变种，例如 0-1 背包问题、完全背包问题、多重背包问题等。</p>
 <p>在本节中，我们先来学习基础的的 0-1 背包问题。</p>
 <div class="admonition question">
@@ -2225,27 +2241,29 @@
 <p><img alt="0-1 背包的示例数据" src="../knapsack_problem.assets/knapsack_example.png" /></p>
 <p align="center"> Fig. 0-1 背包的示例数据 </p>
 
-<p>在 0-1 背包问题中，每个物体都有不放入和放入两种决策。不放入背包，背包容量不变；放入背包，背包容量减小。由此可得：</p>
-<ul>
-<li><strong>状态包括物品编号 <span class="arithmatex">\(i\)</span> 和背包容量 <span class="arithmatex">\(c\)</span></strong>，记为 <span class="arithmatex">\([i, c]\)</span> 。</li>
-<li>状态 <span class="arithmatex">\([i, c]\)</span> 对应子问题的解为：<strong>前 <span class="arithmatex">\(i\)</span> 个物品在容量为 <span class="arithmatex">\(c\)</span> 背包中的最大价值</strong>，记为 <span class="arithmatex">\(dp[i, c]\)</span> 。</li>
-</ul>
-<p>我们可以将 0-1 背包求解过程看作是一个由 <span class="arithmatex">\(n\)</span> 轮决策组成的过程。从物品 <span class="arithmatex">\(n\)</span> 开始，当我们做出物品 <span class="arithmatex">\(i\)</span> 的决策后，剩余的是前 <span class="arithmatex">\(i-1\)</span> 个物品的决策。因此，状态转移分为两种情况：</p>
+<p>我们可以将 0-1 背包问题看作是一个由 <span class="arithmatex">\(n\)</span> 轮决策组成的过程，每个物体都有不放入和放入两种决策，因此该问题是满足决策树模型的。此外，该问题的目标是求解“在限定背包容量下的最大价值”，因此较大概率是个动态规划问题。我们接下来尝试求解它。</p>
+<p><strong>第一步：思考每一轮的决策是什么，从而得到状态定义</strong></p>
+<p>在 0-1 背包问题中，不放入背包，背包容量不变；放入背包，背包容量减小。由此可得状态定义：物品编号 <span class="arithmatex">\(i\)</span> 和背包容量 <span class="arithmatex">\(c\)</span> ，记为 <span class="arithmatex">\([i, c]\)</span> 。</p>
+<p><strong>第二步：明确子问题是什么，从而得到 <span class="arithmatex">\(dp\)</span> 列表</strong></p>
+<p>状态 <span class="arithmatex">\([i, c]\)</span> 对应的子问题为：<strong>前 <span class="arithmatex">\(i\)</span> 个物品在容量为 <span class="arithmatex">\(c\)</span> 背包中的最大价值</strong>，记为 <span class="arithmatex">\(dp[i, c]\)</span> 。</p>
+<p>至此，我们得到一个尺寸为 <span class="arithmatex">\(n \times cap\)</span> 的二维 <span class="arithmatex">\(dp\)</span> 矩阵。</p>
+<p><strong>第三步：找出最优子结构，进而推导出状态转移方程</strong></p>
+<p>当我们做出物品 <span class="arithmatex">\(i\)</span> 的决策后，剩余的是前 <span class="arithmatex">\(i-1\)</span> 个物品的决策。因此，状态转移分为两种情况：</p>
 <ul>
 <li><strong>不放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量不变，状态转移至 <span class="arithmatex">\([i-1, c]\)</span> ；</li>
 <li><strong>放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量减小 <span class="arithmatex">\(wgt[i-1]\)</span> ，价值增加 <span class="arithmatex">\(val[i-1]\)</span> ，状态转移至 <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span> ；</li>
 </ul>
-<p>上述的状态转移向我们展示了本题的「最优子结构」：<strong>最大价值 <span class="arithmatex">\(dp[i, c]\)</span> 等于不放入物品 <span class="arithmatex">\(i\)</span> 和放入物品 <span class="arithmatex">\(i\)</span> 两种方案中的价值更大的那一个</strong>。由此可推出状态转移方程：</p>
+<p>上述的状态转移向我们揭示了本题的最优子结构：<strong>最大价值 <span class="arithmatex">\(dp[i, c]\)</span> 等于不放入物品 <span class="arithmatex">\(i\)</span> 和放入物品 <span class="arithmatex">\(i\)</span> 两种方案中的价值更大的那一个</strong>。由此可推出状态转移方程：</p>
 <div class="arithmatex">\[
 dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 \]</div>
 <p>需要注意的是，若当前物品重量 <span class="arithmatex">\(wgt[i - 1]\)</span> 超出剩余背包容量 <span class="arithmatex">\(c\)</span> ，则只能选择不放入背包。</p>
-<h2 id="1331">13.3.1. &nbsp; 方法一：暴力搜索<a class="headerlink" href="#1331" title="Permanent link">&para;</a></h2>
+<h2 id="1341">13.4.1. &nbsp; 方法一：暴力搜索<a class="headerlink" href="#1341" title="Permanent link">&para;</a></h2>
 <p>搜索代码包含以下要素：</p>
 <ul>
 <li><strong>递归参数</strong>：状态 <span class="arithmatex">\([i, c]\)</span> ；<strong>返回值</strong>：子问题的解 <span class="arithmatex">\(dp[i, c]\)</span> 。</li>
 <li><strong>终止条件</strong>：当物品编号越界 <span class="arithmatex">\(i = 0\)</span> 或背包剩余容量为 <span class="arithmatex">\(0\)</span> 时，终止递归并返回价值 <span class="arithmatex">\(0\)</span> 。</li>
-<li><strong>剪枝</strong>：若当前物品重量 <span class="arithmatex">\(wgt[i - 1]\)</span> 超出剩余背包容量 <span class="arithmatex">\(c\)</span> ，则不能放入背包。</li>
+<li><strong>剪枝</strong>：若当前物品重量超出背包剩余容量，则只能不放入背包。</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
 <div class="tabbed-content">
@@ -2308,12 +2326,12 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 <p>如下图所示，由于每个物品都会产生不选和选两条搜索分支，因此最差时间复杂度为 <span class="arithmatex">\(O(2^n)\)</span> 。</p>
-<p>观察递归树，容易发现其中存在一些「重叠子问题」。而当物品较多、背包容量较大，尤其是当相同重量的物品较多时，重叠子问题的数量将会大幅增多。</p>
+<p>观察递归树，容易发现其中存在一些「重叠子问题」，例如 <span class="arithmatex">\(dp[1, 10]\)</span> 等。而当物品较多、背包容量较大，尤其是当相同重量的物品较多时，重叠子问题的数量将会大幅增多。</p>
 <p><img alt="0-1 背包的暴力搜索递归树" src="../knapsack_problem.assets/knapsack_dfs.png" /></p>
 <p align="center"> Fig. 0-1 背包的暴力搜索递归树 </p>
 
-<h2 id="1332">13.3.2. &nbsp; 方法二：记忆化搜索<a class="headerlink" href="#1332" title="Permanent link">&para;</a></h2>
-<p>为了防止重复求解重叠子问题，我们借助一个记忆列表 <code>mem</code> 来记录子问题的解，其中 <code>mem[i][c]</code> 记录解 <span class="arithmatex">\(dp[i, c]\)</span> 。</p>
+<h2 id="1342">13.4.2. &nbsp; 方法二：记忆化搜索<a class="headerlink" href="#1342" title="Permanent link">&para;</a></h2>
+<p>为了防止重复求解重叠子问题，我们借助一个记忆列表 <code>mem</code> 来记录子问题的解，其中 <code>mem[i][c]</code> 对应解 <span class="arithmatex">\(dp[i, c]\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2382,8 +2400,8 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <p><img alt="0-1 背包的记忆化搜索递归树" src="../knapsack_problem.assets/knapsack_dfs_mem.png" /></p>
 <p align="center"> Fig. 0-1 背包的记忆化搜索递归树 </p>
 
-<h2 id="1333">13.3.3. &nbsp; 方法三：动态规划<a class="headerlink" href="#1333" title="Permanent link">&para;</a></h2>
-<p>接下来，我们将“从顶至底”的记忆化搜索代码译写为“从底至顶”的动态规划代码。</p>
+<h2 id="1343">13.4.3. &nbsp; 方法三：动态规划<a class="headerlink" href="#1343" title="Permanent link">&para;</a></h2>
+<p>动态规划解法本质上就是在状态转移中填充 <code>dp</code> 矩阵的过程，代码如下所示。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:11"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2446,7 +2464,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<p>如下图所示，<strong>动态规划本质上就是填充 <span class="arithmatex">\(dp\)</span> 矩阵的过程</strong>，时间复杂度也为 <span class="arithmatex">\(O(n \times cap)\)</span> 。</p>
+<p>如下图所示，时间复杂度由 <code>dp</code> 矩阵大小决定，为 <span class="arithmatex">\(O(n \times cap)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:14"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><input id="__tabbed_4_13" name="__tabbed_4" type="radio" /><input id="__tabbed_4_14" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label><label for="__tabbed_4_10">&lt;10&gt;</label><label for="__tabbed_4_11">&lt;11&gt;</label><label for="__tabbed_4_12">&lt;12&gt;</label><label for="__tabbed_4_13">&lt;13&gt;</label><label for="__tabbed_4_14">&lt;14&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2493,7 +2511,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<p><strong>最后考虑状态压缩</strong>。以上代码中的 <span class="arithmatex">\(dp\)</span> 矩阵占用 <span class="arithmatex">\(O(n \times cap)\)</span> 空间。由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 <span class="arithmatex">\(O(n^2)\)</span> 将低至 <span class="arithmatex">\(O(n)\)</span> 。代码省略，有兴趣的同学可以自行实现。</p>
+<p><strong>最后考虑状态压缩</strong>。以上代码中的 <code>dp</code> 矩阵占用 <span class="arithmatex">\(O(n \times cap)\)</span> 空间。由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 <span class="arithmatex">\(O(n^2)\)</span> 将低至 <span class="arithmatex">\(O(n)\)</span> 。代码省略，有兴趣的同学可以自行实现。</p>
 <p>那么，我们是否可以仅用一个数组实现状态压缩呢？观察可知，每个状态都是由左上方或正上方的格子转移过来的。假设只有一个数组，当遍历到第 <span class="arithmatex">\(i\)</span> 行时，该数组存储的仍然是第 <span class="arithmatex">\(i-1\)</span> 行的状态，为了避免左边区域的格子在状态转移中被覆盖，我们应采取倒序遍历。</p>
 <p>以下动画展示了在单个数组下从第 <span class="arithmatex">\(i=1\)</span> 行转换至第 <span class="arithmatex">\(i=2\)</span> 行的过程。建议你思考一下正序遍历和倒序遍历的区别。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:6"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">&lt;1&gt;</label><label for="__tabbed_5_2">&lt;2&gt;</label><label for="__tabbed_5_3">&lt;3&gt;</label><label for="__tabbed_5_4">&lt;4&gt;</label><label for="__tabbed_5_5">&lt;5&gt;</label><label for="__tabbed_5_6">&lt;6&gt;</label></div>
@@ -2518,7 +2536,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<p>如以下代码所示，我们仅需将 <span class="arithmatex">\(dp\)</span> 列表的第一维 <span class="arithmatex">\(i\)</span> 直接删除，并且将内循环修改为倒序遍历即可。</p>
+<p>如以下代码所示，我们仅需将 <code>dp</code> 矩阵的第一维 <span class="arithmatex">\(i\)</span> 直接删除，并且将内循环修改为倒序遍历即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:11"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Python</label><label for="__tabbed_6_4">Go</label><label for="__tabbed_6_5">JavaScript</label><label for="__tabbed_6_6">TypeScript</label><label for="__tabbed_6_7">C</label><label for="__tabbed_6_8">C#</label><label for="__tabbed_6_9">Swift</label><label for="__tabbed_6_10">Zig</label><label for="__tabbed_6_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

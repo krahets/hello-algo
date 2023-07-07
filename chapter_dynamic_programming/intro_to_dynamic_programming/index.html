@@ -1904,6 +1904,8 @@
         
           
         
+          
+        
       
       
         
@@ -2015,8 +2017,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../dp_solution_pipeline.md" class="md-nav__link">
+        13.3. &nbsp; DP 解题步骤（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../knapsack_problem/" class="md-nav__link">
-        13.3. &nbsp; 0-1 背包问题（New）
+        13.4. &nbsp; 0-1 背包问题（New）
       </a>
     </li>
   
@@ -2391,8 +2407,8 @@ dp[i] = dp[i-1] + dp[i-2]
 <p align="center"> Fig. 方案数量递推关系 </p>
 
 <p>也就是说，在爬楼梯问题中，<strong>各个子问题之间不是相互独立的，原问题的解可以由子问题的解构成</strong>。</p>
-<p>我们可以基于此递推公式写出暴力搜索代码：以 <span class="arithmatex">\(dp[n]\)</span> 为起始点，<strong>从顶至底地将一个较大问题拆解为两个较小问题的和</strong>，直至到达最小子问题 <span class="arithmatex">\(dp[1]\)</span> 和 <span class="arithmatex">\(dp[2]\)</span> 时返回。其中，最小子问题的解是已知的，即爬到第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 阶分别有 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 种方案。</p>
-<p>观察以下代码，它与回溯解法都属于深度优先搜索，但比回溯算法更加简洁。</p>
+<p>我们可以基于此递推公式写出暴力搜索代码：以 <span class="arithmatex">\(dp[n]\)</span> 为起始点，<strong>从顶至底地将一个较大问题拆解为两个较小问题的和</strong>，直至到达最小子问题 <span class="arithmatex">\(dp[1]\)</span> 和 <span class="arithmatex">\(dp[2]\)</span> 时返回。其中，最小子问题的解 <span class="arithmatex">\(dp[1] = 1\)</span> , <span class="arithmatex">\(dp[2] = 2\)</span> 是已知的，代表爬到第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 阶分别有 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 种方案。</p>
+<p>观察以下代码，它和标准回溯代码都属于深度优先搜索，但更加简洁。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2505,7 +2521,7 @@ dp[i] = dp[i-1] + dp[i-2]
 </div>
 </div>
 </div>
-<p>下图展示了该方法形成的递归树。对于问题 <span class="arithmatex">\(dp[n]\)</span> ，递归树的深度为 <span class="arithmatex">\(n\)</span> ，时间复杂度为 <span class="arithmatex">\(O(2^n)\)</span> 。指数阶的运行时间增长地非常快，如果我们输入一个比较大的 <span class="arithmatex">\(n\)</span> ，则会陷入漫长的等待之中。</p>
+<p>下图展示了暴力搜索形成的递归树。对于问题 <span class="arithmatex">\(dp[n]\)</span> ，其递归树的深度为 <span class="arithmatex">\(n\)</span> ，时间复杂度为 <span class="arithmatex">\(O(2^n)\)</span> 。指数阶的运行时间增长地非常快，如果我们输入一个比较大的 <span class="arithmatex">\(n\)</span> ，则会陷入漫长的等待之中。</p>
 <p><img alt="爬楼梯对应递归树" src="../intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png" /></p>
 <p align="center"> Fig. 爬楼梯对应递归树 </p>
 
@@ -2767,10 +2783,10 @@ dp[i] = dp[i-1] + dp[i-2]
 </div>
 </div>
 </div>
-<p>与回溯算法一样，动态规划也使用“状态”概念来表示问题求解的某个特定阶段，每个状态都对应一个子问题以及相应的局部最优解。例如对于爬楼梯问题，状态定义为当前所在楼梯阶数。<strong>动态规划的常用术语包括</strong>：</p>
+<p>与回溯算法一样，动态规划也使用“状态”概念来表示问题求解的某个特定阶段，每个状态都对应一个子问题以及相应的局部最优解。例如对于爬楼梯问题，状态定义为当前所在楼梯阶数 <span class="arithmatex">\(i\)</span> 。<strong>动态规划的常用术语包括</strong>：</p>
 <ul>
 <li>将 <span class="arithmatex">\(dp\)</span> 数组称为「状态列表」，<span class="arithmatex">\(dp[i]\)</span> 代表第 <span class="arithmatex">\(i\)</span> 个状态的解；</li>
-<li>将最简单子问题对应的状态（即第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 阶楼梯）称为「初始状态」；</li>
+<li>将最小子问题对应的状态（即第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 阶楼梯）称为「初始状态」；</li>
 <li>将递推公式 <span class="arithmatex">\(dp[i] = dp[i-1] + dp[i-2]\)</span> 称为「状态转移方程」；</li>
 </ul>
 <p><img alt="爬楼梯的动态规划过程" src="../intro_to_dynamic_programming.assets/climbing_stairs_dp.png" /></p>
