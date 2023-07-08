@@ -6,9 +6,9 @@
 
 #include "../utils/common.h"
 
-void free_Vertex(struct Vertex* v);
+void free_Vertex(struct Vertex* val);
 void free_Link_list(struct Link_list* l);
-struct Link_list* new_Linklist(struct Vertex* v);
+struct Link_list* new_Linklist(struct Vertex* val);
 
 /* 链表节点 */
 struct Node
@@ -43,19 +43,19 @@ typedef struct Vertex Vertex;
 /* 顶点节点构造函数 */
 Vertex* new_Vertex(int val)
 {
-    Vertex* v = (Vertex*)malloc(sizeof(Vertex));
+    Vertex* val = (Vertex*)malloc(sizeof(Vertex));
     // 为新节点赋值并建立该节点的链表
     v->val = val;
-    v->linked = new_Linklist(v);
-    return v;
+    v->linked = new_Linklist(val);
+    return val;
 }
 
 /* 定点节点释放函数 */
-void free_Vertex(Vertex* v)
+void free_Vertex(Vertex* val)
 {
     // 释放该节点和该节点的链表的内存
     free_Link_list(v->linked);
-    free(v);
+    free(val);
 }
 
 /* 链表 */
@@ -185,12 +185,12 @@ void free_Link_list(Link_list* l)
 }
 
 /* 链表构造函数 */
-Link_list* new_Linklist(Vertex* v)
+Link_list* new_Linklist(Vertex* val)
 {
     Link_list* newLinklist = (Link_list*)malloc(sizeof(Link_list));
 
     newLinklist->head = new_node();
-    newLinklist->head->val = v;
+    newLinklist->head->val = val;
     newLinklist->tail = newLinklist->head;
     newLinklist->head->next = 0;
 
