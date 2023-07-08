@@ -257,7 +257,7 @@ void addVertex(graphAdjList* t, int val)
 void removeVertex(graphAdjList* t, unsigned int index)
 {
     // 越界检查
-    if(index >= t->size || index < 0)
+    if(index < 0 || index >= t->size)
     {
         printf("Out of range in %s:%d\n", __FILE__, __LINE__);
         exit(1);
