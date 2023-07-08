@@ -13,12 +13,6 @@ struct graphAdjMat
     unsigned int** adjMat;
     unsigned int size;
     unsigned int capacity;
-   
-    void (*addVertex)(struct graphAdjMat* t, int val);
-    void (*addEdge)(struct graphAdjMat* t, int i, int j);
-    void (*removeVertex)(struct graphAdjMat* t, unsigned int index);
-    void (*removeEdge)(struct graphAdjMat* t, int i, int j);
-    void (*print_graph)(struct graphAdjMat* t);
 };
 
 typedef struct graphAdjMat graphAdjMat;
@@ -127,7 +121,7 @@ void removeVertex(graphAdjMat* t, unsigned int index)
     {
         t->vertices[i] = t->vertices[i + 1];
     }
-    
+
     // 将被前移的最后一个顶点置0
     t->vertices[t->size - 1] = 0;
 
@@ -157,7 +151,7 @@ void removeVertex(graphAdjMat* t, unsigned int index)
 }
 
 /* 打印顶点与邻接矩阵 */
-void print_graph(graphAdjMat* t)
+void printGraph(graphAdjMat* t)
 {
     if(t->size == 0)
     {
@@ -199,15 +193,10 @@ void print_graph(graphAdjMat* t)
 }
 
 /* 构造函数 */
-graphAdjMat* new_graphic(unsigned int number_vertices, int* vertices, unsigned int** adjMat)
+graphAdjMat* newGraphic(unsigned int number_vertices, int* vertices, unsigned int** adjMat)
 {    
     // 函数指针
     graphAdjMat* newGraph = (graphAdjMat*)malloc(sizeof(graphAdjMat)); 
-    newGraph->addVertex = addVertex;
-    newGraph->addEdge = addEdge;
-    newGraph->removeVertex = removeVertex;
-    newGraph->removeEdge = removeEdge;
-    newGraph->print_graph = print_graph;    
 
     // 申请内存
     newGraph->vertices = (int*)malloc(sizeof(int) * number_vertices * 2);
@@ -255,34 +244,34 @@ int main()
     edge[2][4] = edge[4][2] = 1;
     edge[3][4] = edge[4][3] = 1;
 
-    graphAdjMat* graph = new_graphic(5,vertices,edge);
+    graphAdjMat* graph = newGraphic(5,vertices,edge);
     free(edge);
     free(temp);
     printf("初始化后，图为:\n");
-    graph->print_graph(graph);
+    printGraph(graph);
     
     /* 添加边 */
     // 顶点 1, 2 的索引分别为 0, 2
-    graph->addEdge(graph,0,2);
+    addEdge(graph,0,2);
     printf("添加边 1-2 后图为\n");
-    graph->print_graph(graph);
+    printGraph(graph);
 
     /* 删除边 */
     // 顶点 1, 3 的索引分别为 0, 1
-    graph->removeEdge(graph,0,1);
+    removeEdge(graph,0,1);
     printf("删除边 1-3 后，图为\n");
-    graph->print_graph(graph);
+    printGraph(graph);
 
     /* 添加顶点 */
-    graph->addVertex(graph,6);
+    addVertex(graph,6);
     printf("添加顶点 6 后，图为\n");
-    graph->print_graph(graph);
+    printGraph(graph);
 
     /* 删除顶点 */
     // 顶点 3 的索引为 1
-    graph->removeVertex(graph,1);
+    removeVertex(graph,1);
     printf("删除顶点 3 后，图为\n");
-    graph->print_graph(graph);
+    printGraph(graph);
 
     return 0;
 }
