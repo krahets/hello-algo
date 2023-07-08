@@ -43,18 +43,18 @@ typedef struct Vertex Vertex;
 /* 顶点节点构造函数 */
 Vertex* new_Vertex(int val)
 {
-    Vertex* val = (Vertex*)malloc(sizeof(Vertex));
+    Vertex* v = (Vertex*)malloc(sizeof(Vertex));
     // 为新节点赋值并建立该节点的链表
     v->val = val;
     v->linked = new_Linklist(val);
-    return val;
+    return v;
 }
 
 /* 定点节点释放函数 */
 void free_Vertex(Vertex* val)
 {
     // 释放该节点和该节点的链表的内存
-    free_Link_list(v->linked);
+    free_Link_list(val->linked);
     free(val);
 }
 
