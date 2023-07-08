@@ -46,7 +46,7 @@ Vertex* new_Vertex(int val)
     Vertex* v = (Vertex*)malloc(sizeof(Vertex));
     // 为新节点赋值并建立该节点的链表
     v->val = val;
-    v->linked = new_Linklist(val);
+    v->linked = new_Linklist(v);
     return v;
 }
 
