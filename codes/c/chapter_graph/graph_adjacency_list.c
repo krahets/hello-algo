@@ -11,18 +11,18 @@ void free_Link_list(struct Link_list* l);
 struct Link_list* new_Linklist(struct Vertex* v);
 
 /* 链表节点 */
-struct node
+struct Node
 {
     // 链表节点内包含顶点类和下一个节点地址
     struct Vertex* val;
-    struct node* next;
+    struct Node* next;
 };
 
-typedef struct node node;
+typedef struct Node Node;
 
-node* new_node()
+Node* new_node()
 {
-    node* newNode = (node*)malloc(sizeof(node));
+    Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->next = 0;
     newNode->val = 0;
     return newNode;
@@ -47,7 +47,6 @@ Vertex* new_Vertex(int val)
     v->linked = new_Linklist(v);
     return v;
 }
-
 void free_Vertex(Vertex* v)
 {
     // 释放该节点和该节点的链表的内存
@@ -58,21 +57,21 @@ void free_Vertex(Vertex* v)
 /* 链表 */
 struct Link_list
 {
-    node* head;
-    node* tail;
+    Node* head;
+    Node* tail;
     void (*push_front)(struct Link_list* l, Vertex* val);
     void (*push_back)(struct Link_list* l, Vertex* val);
     void (*remove_node)(struct Link_list* l, Vertex* val);
     void (*remove_edge)(struct Link_list* l, Vertex* val);
     void (*free_Link_list)(struct Link_list* l);
-    node* (*find_by_index)(struct Link_list* l, unsigned int index);
+    Node* (*find_by_index)(struct Link_list* l, unsigned int index);
 };
 
 typedef struct Link_list Link_list;  
 
 void push_front(Link_list* l, Vertex* val)
 {
-    node* temp = new_node();
+    Node* temp = new_node();
     temp->val = val;
     temp->next = l->head->next;
     l->head->next = temp;
@@ -81,20 +80,18 @@ void push_front(Link_list* l, Vertex* val)
         l->tail = temp;
     }
 }
-
 void push_back(Link_list* l, Vertex* val)
 {
-    node* temp = new_node();
+    Node* temp = new_node();
     temp->val = val;
     temp->next = 0;
     l->tail->next = temp;
     l->tail = temp;
 }
-
 void remove_edge(Link_list* l, Vertex* val)
 {
-    node* temp = l->head->next;
-    node* front = l->head;
+    Node* temp = l->head->next;
+    Node* front = l->head;
     while(temp != 0)
     {
         if(temp->val == val)
@@ -116,11 +113,10 @@ void remove_edge(Link_list* l, Vertex* val)
         printf("vertex not found!\n");
     }
 }
-
-node* find_by_index(Link_list* l, unsigned int index)
+Node* find_by_index(Link_list* l, unsigned int index)
 {
     unsigned int i = 0;
-    node* temp = l->head->next;
+    Node* temp = l->head->next;
     while(temp != 0)
     {
         if(i == index)
@@ -141,8 +137,8 @@ node* find_by_index(Link_list* l, unsigned int index)
 
 void remove_node(Link_list* l, Vertex* val)
 {
-    node* temp = l->head->next;
-    node* front = l->head;
+    Node* temp = l->head->next;
+    Node* front = l->head;
     while(temp != 0)
     {
         if(temp->val == val)
@@ -166,10 +162,9 @@ void remove_node(Link_list* l, Vertex* val)
     }
 
 }
-
 void free_Link_list(Link_list* l)
 {
-    node* temp = l->head->next;
+    Node* temp = l->head->next;
     while(temp != 0)
     {
         free(l->head);
@@ -180,7 +175,6 @@ void free_Link_list(Link_list* l)
     l->head = 0;
     free(l);
 }
-
 Link_list* new_Linklist(Vertex* v)
 {
     Link_list* l = (Link_list*)malloc(sizeof(Link_list));
@@ -198,6 +192,8 @@ Link_list* new_Linklist(Vertex* v)
 
     return l;
 }
+ 
+
 
 
 /* 基于邻接链表实现的无向图类结构 */
@@ -227,8 +223,8 @@ void addEdge(graphAdjList* t, int i, int j)
         return;
     }
     // 查找待连接的节点
-    node* v1 = t->vertices_list->find_by_index(t->vertices_list, i);
-    node* v2 = t->vertices_list->find_by_index(t->vertices_list, j);
+    Node* v1 = t->vertices_list->find_by_index(t->vertices_list, i);
+    Node* v2 = t->vertices_list->find_by_index(t->vertices_list, j);
     // 连接节点
     v1->val->linked->push_front(v1->val->linked, v2->val);
     v2->val->linked->push_front(v2->val->linked, v1->val);
@@ -246,8 +242,8 @@ void removeEdge(graphAdjList* t, int i, int j)
     }
     
     // 查找待删除边的相关节点
-    node* v1 = t->vertices_list->find_by_index(t->vertices_list, i);
-    node* v2 = t->vertices_list->find_by_index(t->vertices_list, j);
+    Node* v1 = t->vertices_list->find_by_index(t->vertices_list, i);
+    Node* v2 = t->vertices_list->find_by_index(t->vertices_list, j);
     // 移除待删除边
     v1->val->linked->remove_edge(v1->val->linked, v2->val);
     v2->val->linked->remove_edge(v2->val->linked, v1->val);
@@ -273,10 +269,10 @@ void removeVertex(graphAdjList* t, unsigned int index)
     }
     
     // 遍历节点表，寻找待删节点
-    //node* temp = t->vertices_list->head->next;
+    //Node* temp = t->vertices_list->head->next;
 
     // 查找待删节点
-    node* v = t->vertices_list->find_by_index(t->vertices_list, index);
+    Node* v = t->vertices_list->find_by_index(t->vertices_list, index);
     // 若不存在该节点，则返回
     if(v == 0)
     {
@@ -286,7 +282,7 @@ void removeVertex(graphAdjList* t, unsigned int index)
     }
 
     // 遍历待删除节点链表，将所有与待删除结点有关的边删除
-    node* temp = v->val->linked->head->next;
+    Node* temp = v->val->linked->head->next;
     while(temp != 0)
     {
         temp->val->linked->remove_edge(temp->val->linked, v->val);
@@ -301,11 +297,11 @@ void removeVertex(graphAdjList* t, unsigned int index)
 /* 打印顶点与邻接矩阵 */
 void print_graph(graphAdjList* t)
 {
-    node* temp = t->vertices_list->head->next;
+    Node* temp = t->vertices_list->head->next;
     printf("顶点  边\n");
     while(temp != 0)
     {
-        node* t = temp->val->linked->head->next;
+        Node* t = temp->val->linked->head->next;
         printf("%d:    [", temp->val->val);
         while(t != 0)
         {
@@ -338,11 +334,15 @@ graphAdjList* new_graphic()
     t->removeVertex = removeVertex;
     t->removeEdge = removeEdge;
     t->print_graph = print_graph;    
+
+
+
 }
 
 /* Driver Code */
 int main() 
 {
+
     // 构造初始图结构
     graphAdjList* graph = new_graphic();
     graph->addVertex(graph,4);    
