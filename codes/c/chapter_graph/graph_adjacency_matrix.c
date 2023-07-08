@@ -127,6 +127,9 @@ void removeVertex(graphAdjMat* t, unsigned int index)
     {
         t->vertices[i] = t->vertices[i + 1];
     }
+    
+    // 将被前移的最后一个顶点置0
+    t->vertices[t->size - 1] = 0;
 
     // 清除邻接矩阵中删除的列
     for(int i = 0; i < t->size - 1; i++)
