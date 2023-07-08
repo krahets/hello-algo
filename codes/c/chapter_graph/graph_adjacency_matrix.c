@@ -116,7 +116,7 @@ void removeVertex(graphAdjMat* t, unsigned int index)
         exit(1);
     }
     
-    // 清除删除的顶点
+    // 清除删除的顶点，并将其后所有顶点前移
     for(int i = index; i < t->size - 1; i++)
     {
         t->vertices[i] = t->vertices[i + 1];
