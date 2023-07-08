@@ -9,9 +9,7 @@
 /* 基于邻接矩阵实现的无向图类结构 */
 struct graphAdjMat
 {
-    // 顶点表
     int* vertices;
-    // 邻接矩阵
     unsigned int** adjMat;
     unsigned int size;
     unsigned int capacity;
@@ -23,7 +21,7 @@ typedef struct graphAdjMat graphAdjMat;
 void addEdge(graphAdjMat* t, int i, int j)
 {
     // 越界检查
-    if(i >= t->size || j >= t->size || i < 0 || j < 0 || i == j)
+    if(i < 0 || j < 0 || i >= t->size || j >= t->size || i == j)
     {
         printf("Out of range in %s:%d\n", __FILE__, __LINE__);
         exit(1);
@@ -38,7 +36,7 @@ void addEdge(graphAdjMat* t, int i, int j)
 void removeEdge(graphAdjMat* t, int i, int j) 
 {
     // 越界检查
-    if(i >= t->size || j >= t->size || i < 0 || j < 0 || i == j)
+    if(i < 0 || j < 0 || i >= t->size || j >= t->size || i == j)
     {
         printf("Out of range in %s:%d\n", __FILE__, __LINE__);
         exit(1);
@@ -112,7 +110,7 @@ void addVertex(graphAdjMat* t, int val)
 void removeVertex(graphAdjMat* t, unsigned int index)
 {
     // 越界检查
-    if(index >= t->size || index < 0)
+    if(index < 0 || index >= t->size)
     {
         printf("Out of range in %s:%d\n", __FILE__, __LINE__);
         exit(1);
