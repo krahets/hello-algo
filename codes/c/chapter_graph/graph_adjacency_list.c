@@ -20,6 +20,7 @@ struct Node
 
 typedef struct Node Node;
 
+/* 链表节点构造函数 */
 Node* new_node()
 {
     Node* newNode = (Node*)malloc(sizeof(Node));
@@ -28,7 +29,7 @@ Node* new_node()
     return newNode;
 }
 
-/* 节点类 */
+/* 顶点节点类 */
 struct Vertex
 {
     // 节点值
@@ -39,6 +40,7 @@ struct Vertex
 
 typedef struct Vertex Vertex;
 
+/* 顶点节点构造函数 */
 Vertex* new_Vertex(int val)
 {
     Vertex* v = (Vertex*)malloc(sizeof(Vertex));
@@ -47,6 +49,8 @@ Vertex* new_Vertex(int val)
     v->linked = new_Linklist(v);
     return v;
 }
+
+/* 定点节点释放函数 */
 void free_Vertex(Vertex* v)
 {
     // 释放该节点和该节点的链表的内存
@@ -63,6 +67,7 @@ struct Link_list
 
 typedef struct Link_list Link_list;  
 
+/* 头插法 */
 void push_front(Link_list* l, Vertex* val)
 {
     Node* temp = new_node();
@@ -74,6 +79,8 @@ void push_front(Link_list* l, Vertex* val)
         l->tail = temp;
     }
 }
+
+/* 链表尾部插入 */
 void push_back(Link_list* l, Vertex* val)
 {
     Node* temp = new_node();
@@ -82,6 +89,8 @@ void push_back(Link_list* l, Vertex* val)
     l->tail->next = temp;
     l->tail = temp;
 }
+
+/* 根据顶点地址与该顶点连接的删除边 */
 void remove_edge(Link_list* l, Vertex* val)
 {
     Node* temp = l->head->next;
@@ -107,6 +116,8 @@ void remove_edge(Link_list* l, Vertex* val)
         printf("vertex not found!\n");
     }
 }
+
+/* 根据索引查找链表中节点 */
 Node* find_by_index(Link_list* l, unsigned int index)
 {
     unsigned int i = 0;
@@ -129,6 +140,7 @@ Node* find_by_index(Link_list* l, unsigned int index)
     return 0;
 }
 
+/* 根据顶点地址删除顶点 */
 void remove_node(Link_list* l, Vertex* val)
 {
     Node* temp = l->head->next;
@@ -156,6 +168,8 @@ void remove_node(Link_list* l, Vertex* val)
     }
 
 }
+
+/* 释放链表内存 */
 void free_Link_list(Link_list* l)
 {
     Node* temp = l->head->next;
@@ -169,6 +183,8 @@ void free_Link_list(Link_list* l)
     l->head = 0;
     free(l);
 }
+
+/* 链表构造函数 */
 Link_list* new_Linklist(Vertex* v)
 {
     Link_list* newLinklist = (Link_list*)malloc(sizeof(Link_list));
