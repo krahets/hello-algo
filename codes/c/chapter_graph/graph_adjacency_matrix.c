@@ -237,6 +237,8 @@ int main()
     {
         edge[k] = temp + k * 5;
     }
+
+    // 初始化边
     edge[0][1] = edge[1][0] = 1;
     edge[0][3] = edge[3][0] = 1;
     edge[1][2] = edge[2][1] = 1;
@@ -244,6 +246,7 @@ int main()
     edge[2][4] = edge[4][2] = 1;
     edge[3][4] = edge[4][3] = 1;
 
+    // 建立无向图
     graphAdjMat* graph = newGraphic(5,vertices,edge);
     free(edge);
     free(temp);
