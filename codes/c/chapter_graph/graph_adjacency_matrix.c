@@ -9,7 +9,9 @@
 /* 基于邻接矩阵实现的无向图类结构 */
 struct graphAdjMat
 {
+    // 顶点表
     int* vertices;
+    // 邻接矩阵
     unsigned int** adjMat;
     unsigned int size;
     unsigned int capacity;
