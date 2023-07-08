@@ -14,7 +14,7 @@ pub fn BinarySearchTree(comptime T: type) type {
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
-        // 构造方法
+        // 构造函数
         pub fn init(self: *Self, allocator: std.mem.Allocator, nums: []T) !void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -24,7 +24,7 @@ pub fn BinarySearchTree(comptime T: type) type {
             self.root = try self.buildTree(nums, 0, nums.len - 1);  // 构建二叉搜索树
         }
 
-        // 析构方法
+        // 析构函数
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -87,7 +87,7 @@ pub fn BinarySearchTree(comptime T: type) type {
                     cur = cur.?.left;
                 }
             }
-            // 插入节点
+            // 插入节点 val
             var node = try self.mem_allocator.create(inc.TreeNode(T));
             node.init(num);
             if (pre.?.val < num) {
@@ -134,11 +134,11 @@ pub fn BinarySearchTree(comptime T: type) type {
                 var tmp = cur.?.right;
                 while (tmp.?.left != null) {
                     tmp = tmp.?.left;
-                }
+                }                
                 var tmp_val = tmp.?.val;
-                // 递归删除节点 tmp
+                // 递归删除节点 nex
                 self.remove(tmp.?.val);
-                // 用 tmp 覆盖 cur
+                // 将 tmp 的值复制给 cur
                 cur.?.val = tmp_val;
             }
         }

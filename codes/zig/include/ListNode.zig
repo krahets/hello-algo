@@ -9,7 +9,7 @@ pub fn ListNode(comptime T: type) type {
     return struct {
         const Self = @This();
         
-        val: T = 0,
+        val: T = undefined,
         next: ?*Self = null,
 
         // Initialize a list node with specific value

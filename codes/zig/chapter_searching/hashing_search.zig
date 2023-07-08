@@ -6,15 +6,15 @@ const std = @import("std");
 const inc = @import("include");
 
 // 哈希查找（数组）
-fn hashingSearchArray(comptime T: type, map: std.AutoHashMap(T, T), target: T) T {
+fn hashingSearch(comptime T: type, map: std.AutoHashMap(T, T), target: T) T {
     // 哈希表的 key: 目标元素，value: 索引
     // 若哈希表中无此 key ，返回 -1   
     if (map.getKey(target) == null) return -1;
     return map.get(target).?;
 }
 
-// 哈希查找（链表）
-fn hashingSearchLinkedList(comptime T: type, map: std.AutoHashMap(T, *inc.ListNode(T)), target: T) ?*inc.ListNode(T) {
+// 哈希查找（数组）
+fn hashingSearch1(comptime T: type, map: std.AutoHashMap(T, *inc.ListNode(T)), target: T) ?*inc.ListNode(T) {
     // 哈希表的 key: 目标节点值，value: 节点对象
     // 若哈希表中无此 key ，返回 null 
     if (map.getKey(target) == null) return null;
@@ -31,9 +31,9 @@ pub fn main() !void {
     var map = std.AutoHashMap(i32, i32).init(std.heap.page_allocator);
     defer map.deinit();
     for (nums, 0..) |num, i| {
-        try map.put(num, @intCast(i32, i));    // key: 元素，value: 索引
+        try map.put(num, @intCast(i));    // key: 元素，value: 索引
     }
-    var index = hashingSearchArray(i32, map, target);
+    var index = hashingSearch(i32, map, target);
     std.debug.print("目标元素 3 的索引 = {}\n", .{index});
 
     // 哈希查找（链表）
@@ -48,7 +48,7 @@ pub fn main() !void {
         try map1.put(head.?.val, head.?);
         head = head.?.next;
     }
-    var node = hashingSearchLinkedList(i32, map1, target);
+    var node = hashingSearch1(i32, map1, target);
     std.debug.print("目标节点值 3 的对应节点对象为 ", .{});
     try inc.PrintUtil.printLinkedList(i32, node);
 

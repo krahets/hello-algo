@@ -10,7 +10,7 @@ fn constant(n: i32) i32 {
     var count: i32 = 0;
     const size: i32 = 100_000;
     var i: i32 = 0;
-    while(i<size) : (i += 1) {
+    while(i < size) : (i += 1) {
         count += 1;
     }
     return count;
@@ -53,11 +53,11 @@ fn quadratic(n: i32) i32 {
 // 平方阶（冒泡排序）
 fn bubbleSort(nums: []i32) i32 {
     var count: i32 = 0;  // 计数器 
-    // 外循环：未排序区间为 [0, i]
-    var i: i32 = @intCast(i32, nums.len ) - 1;
+    // 外循环：待排序元素数量为 n-1, n-2, ..., 1
+    var i: i32 = @as(i32, @intCast(nums.len)) - 1;
     while (i > 0) : (i -= 1) {
         var j: usize = 0;
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+        // 内循环：冒泡操作
         while (j < i) : (j += 1) {
             if (nums[j] > nums[j + 1]) {
                 // 交换 nums[j] 与 nums[j + 1]
@@ -74,15 +74,15 @@ fn bubbleSort(nums: []i32) i32 {
 // 指数阶（循环实现）
 fn exponential(n: i32) i32 {
     var count: i32 = 0;
-    var bas: i32 = 1;
+    var base: i32 = 1;
     var i: i32 = 0;
     // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
     while (i < n) : (i += 1) {
         var j: i32 = 0;
-        while (j < bas) : (j += 1) {
+        while (j < base) : (j += 1) {
             count += 1;
         }
-        bas *= 2;
+        base *= 2;
     }
     // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
     return count;
@@ -154,7 +154,7 @@ pub fn main() !void {
     count = quadratic(n);
     std.debug.print("平方阶的计算操作数量 = {}\n", .{count});
     for (&nums, 0..) |*num, i| {
-        num.* = n - @intCast(i32, i);  // [n,n-1,...,2,1]
+        num.* = n - @as(i32, @intCast(i));  // [n,n-1,...,2,1]
     }
     count = bubbleSort(&nums);
     std.debug.print("平方阶（冒泡排序）的计算操作数量 = {}\n", .{count});

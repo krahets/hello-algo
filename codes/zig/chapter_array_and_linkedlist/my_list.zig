@@ -71,7 +71,7 @@ pub fn MyList(comptime T: type) type {
             if (index < 0 or index >= self.size()) @panic("索引越界");
             // 元素数量超出容量时，触发扩容机制
             if (self.size() == self.capacity()) try self.extendCapacity();
-            // 将索引 index 以及之后的元素都向后移动一位
+            // 索引 i 以及之后的元素都向后移动一位
             var j = self.size() - 1;
             while (j >= index) : (j -= 1) {
                 self.nums[j + 1] = self.nums[j];
@@ -171,4 +171,3 @@ pub fn main() !void {
 
     _ = try std.io.getStdIn().reader().readByte();
 }
-

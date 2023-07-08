@@ -63,7 +63,7 @@ pub fn traverse(nums: []i32) void {
 // 在数组中查找指定元素
 pub fn find(nums: []i32, target: i32) i32 {
     for (nums, 0..) |num, i| {
-        if (num == target) return @intCast(i32, i);
+        if (num == target) return @intCast(i);
     }
     return -1;
 }
@@ -79,7 +79,7 @@ pub fn main() !void {
     var arr = [_]i32{0} ** 5;
     std.debug.print("数组 arr = ", .{});
     inc.PrintUtil.printArray(i32, &arr);
-
+    
     var array = [_]i32{ 1, 3, 2, 5, 4 };
     var known_at_runtime_zero: usize = 0;
     var nums = array[known_at_runtime_zero..];
@@ -114,4 +114,3 @@ pub fn main() !void {
 
     _ = try std.io.getStdIn().reader().readByte();
 }
-

@@ -11,7 +11,7 @@ fn linearSearchArray(comptime T: type, nums: std.ArrayList(T), target: T) T {
     for (nums.items, 0..) |num, i| {
         // 找到目标元素， 返回其索引
         if (num == target) {
-            return @intCast(T, i);
+            return @intCast(i);
         }
     }
     // 未找到目标元素，返回 -1

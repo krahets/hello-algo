@@ -12,7 +12,7 @@ pub fn MaxHeap(comptime T: type) type {
         
         max_heap: ?std.ArrayList(T) = null,      // 使用列表而非数组，这样无需考虑扩容问题
 
-        // 构造方法，根据输入列表建堆
+        // 构造函数，根据输入列表建堆
         pub fn init(self: *Self, allocator: std.mem.Allocator, nums: []const T) !void {
             if (self.max_heap != null) return;
             self.max_heap = std.ArrayList(T).init(allocator);
@@ -25,7 +25,7 @@ pub fn MaxHeap(comptime T: type) type {
             }
         }
 
-        // 析构方法，释放内存
+        // 析构函数，释放内存
         pub fn deinit(self: *Self) void {
             if (self.max_heap != null) self.max_heap.?.deinit();
         }

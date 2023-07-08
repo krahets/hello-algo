@@ -5,7 +5,7 @@
 const std = @import("std");
 const inc = @import("include");
 
-// AVL 树
+// 平衡二叉树
 pub fn AVLTree(comptime T: type) type {
     return struct {
         const Self = @This();
@@ -14,7 +14,7 @@ pub fn AVLTree(comptime T: type) type {
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
-        // 构造方法
+        // 构造函数
         pub fn init(self: *Self, allocator: std.mem.Allocator) void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -22,7 +22,7 @@ pub fn AVLTree(comptime T: type) type {
             }
         }
 
-        // 析构方法
+        // 析构函数
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -38,7 +38,7 @@ pub fn AVLTree(comptime T: type) type {
         // 更新节点高度
         fn updateHeight(self: *Self, node: ?*inc.TreeNode(T)) void {
             // 节点高度等于最高子树高度 + 1
-            node.?.height = std.math.max(self.height(node.?.left), self.height(node.?.right)) + 1;
+            node.?.height = @max(self.height(node.?.left), self.height(node.?.right)) + 1;
         }
 
         // 获取平衡因子
@@ -112,7 +112,7 @@ pub fn AVLTree(comptime T: type) type {
             self.root = (try self.insertHelper(self.root, val)).?;
         }
 
-        // 递归插入节点（辅助方法）
+        // 递归插入节点（辅助函数）
         fn insertHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) !?*inc.TreeNode(T) {
             var node = node_;
             if (node == null) {
@@ -140,7 +140,7 @@ pub fn AVLTree(comptime T: type) type {
            self.root = self.removeHelper(self.root, val).?;
         }
 
-        // 递归删除节点（辅助方法）
+        // 递归删除节点（辅助函数）
         fn removeHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) ?*inc.TreeNode(T) {
             var node = node_;
             if (node == null) return null;

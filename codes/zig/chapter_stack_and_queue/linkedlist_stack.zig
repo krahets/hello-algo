@@ -98,7 +98,7 @@ pub fn main() !void {
 
     // 访问栈顶元素
     var peek = stack.peek();
-    std.debug.print("\n栈顶元素 top = {}", .{peek});
+    std.debug.print("\n栈顶元素 peek = {}", .{peek});
 
     // 元素出栈
     var pop = stack.pop();
