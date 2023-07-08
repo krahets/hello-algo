@@ -47,6 +47,7 @@ Vertex* new_Vertex(int val)
     v->linked = new_Linklist(v);
     return v;
 }
+
 void free_Vertex(Vertex* v)
 {
     // 释放该节点和该节点的链表的内存
@@ -80,6 +81,7 @@ void push_front(Link_list* l, Vertex* val)
         l->tail = temp;
     }
 }
+
 void push_back(Link_list* l, Vertex* val)
 {
     node* temp = new_node();
@@ -88,6 +90,7 @@ void push_back(Link_list* l, Vertex* val)
     l->tail->next = temp;
     l->tail = temp;
 }
+
 void remove_edge(Link_list* l, Vertex* val)
 {
     node* temp = l->head->next;
@@ -113,6 +116,7 @@ void remove_edge(Link_list* l, Vertex* val)
         printf("vertex not found!\n");
     }
 }
+
 node* find_by_index(Link_list* l, unsigned int index)
 {
     unsigned int i = 0;
@@ -162,6 +166,7 @@ void remove_node(Link_list* l, Vertex* val)
     }
 
 }
+
 void free_Link_list(Link_list* l)
 {
     node* temp = l->head->next;
@@ -175,6 +180,7 @@ void free_Link_list(Link_list* l)
     l->head = 0;
     free(l);
 }
+
 Link_list* new_Linklist(Vertex* v)
 {
     Link_list* l = (Link_list*)malloc(sizeof(Link_list));
@@ -192,8 +198,6 @@ Link_list* new_Linklist(Vertex* v)
 
     return l;
 }
- 
-
 
 
 /* 基于邻接链表实现的无向图类结构 */
@@ -334,15 +338,11 @@ graphAdjList* new_graphic()
     t->removeVertex = removeVertex;
     t->removeEdge = removeEdge;
     t->print_graph = print_graph;    
-
-
-
 }
 
 /* Driver Code */
 int main() 
 {
-
     // 构造初始图结构
     graphAdjList* graph = new_graphic();
     graph->addVertex(graph,4);    
