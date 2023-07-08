@@ -9,17 +9,6 @@ package chapter_hashing;
 import java.util.ArrayList;
 import java.util.List;
 
-/* 键值对 */
-class Pair {
-    public int key;
-    public String val;
-
-    public Pair(int key, String val) {
-        this.key = key;
-        this.val = val;
-    }
-}
-
 /* 链式地址哈希表 */
 class HashMapChaining {
     int size; // 键值对数量

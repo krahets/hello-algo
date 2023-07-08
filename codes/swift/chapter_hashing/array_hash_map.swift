@@ -4,16 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 键值对 */
-class Pair {
-    var key: Int
-    var val: String
-
-    init(key: Int, val: String) {
-        self.key = key
-        self.val = val
-    }
-}
+import utils
 
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {

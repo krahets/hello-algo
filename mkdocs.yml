@@ -30,7 +30,7 @@ theme:
     - navigation.indexes
     # - navigation.instant
     # - navigation.prune
-    - navigation.sections
+    # - navigation.sections
     # - navigation.tabs
     # - navigation.tabs.sticky
     - navigation.top
@@ -124,23 +124,23 @@ extra_css:
 
 # Page tree
 nav:
-  - 0. &nbsp; &nbsp; 写在前面:
+  - 0. &nbsp; &nbsp; 前言:
     - chapter_preface/index.md
     - 0.1. &nbsp; 关于本书: chapter_preface/about_the_book.md
     - 0.2. &nbsp; 如何使用本书: chapter_preface/suggestions.md
     - 0.3. &nbsp; 小结: chapter_preface/summary.md
-  - 1. &nbsp; &nbsp; 引言:
+  - 1. &nbsp; &nbsp; 初识算法:
     - chapter_introduction/index.md
     - 1.1. &nbsp; 算法无处不在: chapter_introduction/algorithms_are_everywhere.md
     - 1.2. &nbsp; 算法是什么: chapter_introduction/what_is_dsa.md
     - 1.3. &nbsp; 小结: chapter_introduction/summary.md
-  - 2. &nbsp; &nbsp; 复杂度分析:
+  - 2. &nbsp; &nbsp; 复杂度:
     - chapter_computational_complexity/index.md
     - 2.1. &nbsp; 算法效率评估: chapter_computational_complexity/performance_evaluation.md
     - 2.2. &nbsp; 时间复杂度: chapter_computational_complexity/time_complexity.md
     - 2.3. &nbsp; 空间复杂度: chapter_computational_complexity/space_complexity.md
     - 2.4. &nbsp; 小结: chapter_computational_complexity/summary.md
-  - 3. &nbsp; &nbsp; 数据结构简介:
+  - 3. &nbsp; &nbsp; 数据结构:
     - chapter_data_structure/index.md
     - 3.1. &nbsp; 数据结构分类: chapter_data_structure/classification_of_data_structure.md
     - 3.2. &nbsp; 基本数据类型: chapter_data_structure/basic_data_types.md
@@ -212,8 +212,13 @@ nav:
     - 12.3. &nbsp; 子集和问题（New）: chapter_backtracking/subset_sum_problem.md
     - 12.4. &nbsp; N 皇后问题: chapter_backtracking/n_queens_problem.md
     - 12.5. &nbsp; 小结: chapter_backtracking/summary.md
-  - 13. &nbsp; &nbsp; 附录:
-    - 13.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
-    - 13.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
+  - 13. &nbsp; &nbsp; 动态规划:
+    - chapter_dynamic_programming/index.md
+    - 13.1. &nbsp; 初探动态规划（New）: chapter_dynamic_programming/intro_to_dynamic_programming.md
+    - 13.2. &nbsp; DP 问题特性（New）: chapter_dynamic_programming/dp_problem_features.md
+    - 13.3. &nbsp; 0-1 背包问题（New）: chapter_dynamic_programming/knapsack_problem.md
+  - 14. &nbsp; &nbsp; 附录:
+    - 14.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
+    - 14.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
   - 参考文献:
     - chapter_reference/index.md

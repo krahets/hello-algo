@@ -5,3 +5,6 @@ add_executable(preorder_traversal_iii_template preorder_traversal_iii_template.c
 add_executable(permutations_i permutations_i.cpp)
 add_executable(permutations_ii permutations_ii.cpp)
 add_executable(n_queens n_queens.cpp)
+add_executable(subset_sum_i_naive subset_sum_i_naive.cpp)
+add_executable(subset_sum_i subset_sum_i.cpp)
+add_executable(subset_sum_ii subset_sum_ii.cpp)

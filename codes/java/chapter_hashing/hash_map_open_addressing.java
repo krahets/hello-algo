@@ -1,21 +1,10 @@
 /**
- * File: hash_map_chaining.java
+ * File: hash_map_open_addressing.java
  * Created Time: 2023-06-13
  * Author: Krahets (krahets@163.com)
  */
 
 package chapter_hashing;
-
-/* 键值对 */
-class Pair {
-    public int key;
-    public String val;
-
-    public Pair(int key, String val) {
-        this.key = key;
-        this.val = val;
-    }
-}
 
 /* 开放寻址哈希表 */
 class HashMapOpenAddressing {

@@ -338,13 +338,57 @@ $$
 === "C#"
 
     ```csharp title="built_in_hash.cs"
+    int num = 3;
+    int hashNum = num.GetHashCode();
+    // 整数 3 的哈希值为 3;
 
+    bool bol = true;
+    int hashBol = bol.GetHashCode();
+    // 布尔量 true 的哈希值为 1;
+
+    double dec = 3.14159;
+    int hashDec = dec.GetHashCode();
+    // 小数 3.14159 的哈希值为 -1340954729;
+
+    string str = "Hello 算法";
+    int hashStr = str.GetHashCode();
+    // 字符串 Hello 算法 的哈希值为 -586107568;
+
+    object[] arr = { 12836, "小哈" };
+    int hashTup = arr.GetHashCode();
+    // 数组 [12836, 小哈] 的哈希值为 42931033;
+
+    ListNode obj = new ListNode(0);
+    int hashObj = obj.GetHashCode();
+    // 节点对象 0 的哈希值为 39053774;
     ```
 
 === "Swift"
 
     ```swift title="built_in_hash.swift"
+    let num = 3
+    let hashNum = num.hashValue
+    // 整数 3 的哈希值为 9047044699613009734
 
+    let bol = true
+    let hashBol = bol.hashValue
+    // 布尔量 true 的哈希值为 -4431640247352757451
+
+    let dec = 3.14159
+    let hashDec = dec.hashValue
+    // 小数 3.14159 的哈希值为 -2465384235396674631
+
+    let str = "Hello 算法"
+    let hashStr = str.hashValue
+    // 字符串 Hello 算法 的哈希值为 -7850626797806988787
+
+    let arr = [AnyHashable(12836), AnyHashable("小哈")]
+    let hashTup = arr.hashValue
+    // 数组 [AnyHashable(12836), AnyHashable("小哈")] 的哈希值为 -2308633508154532996
+
+    let obj = ListNode(x: 0)
+    let hashObj = obj.hashValue
+    // 节点对象 utils.ListNode 的哈希值为 -2434780518035996159
     ```
 
 === "Zig"
@@ -356,7 +400,29 @@ $$
 === "Dart"
 
     ```dart title="built_in_hash.dart"
-
+    int num = 3;
+    int hashNum = num.hashCode;
+    // 整数 3 的哈希值为 34803
+    
+    bool bol = true;
+    int hashBol = bol.hashCode;
+    // 布尔值 true 的哈希值为 1231
+    
+    double dec = 3.14159;
+    int hashDec = dec.hashCode;
+    // 小数 3.14159 的哈希值为 2570631074981783
+    
+    String str = "Hello 算法";
+    int hashStr = str.hashCode;
+    // 字符串 Hello 算法 的哈希值为 468167534
+    
+    List arr = [12836, "小哈"];
+    int hashArr = arr.hashCode;
+    // 数组 [12836, 小哈] 的哈希值为 976512528
+    
+    ListNode obj = new ListNode(0);
+    int hashObj = obj.hashCode;
+    // 节点对象 Instance of 'ListNode' 的哈希值为 1033450432
     ```
 
 在大多数编程语言中，**只有不可变对象才可作为哈希表的 `key`** 。假如我们将列表（动态数组）作为 `key` ，当列表的内容发生变化时，它的哈希值也随之改变，我们就无法在哈希表中查询到原先的 `value` 了。

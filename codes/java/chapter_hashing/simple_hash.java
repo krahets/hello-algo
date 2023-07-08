@@ -32,7 +32,6 @@ public class simple_hash {
         int hash = 0;
         final int MODULUS = 1000000007;
         for (char c : key.toCharArray()) {
-            System.out.println((int)c);
             hash ^= (int) c;
         }
         return hash & MODULUS;

@@ -17,12 +17,11 @@ hide:
 
 <p align="center">
   <a href="https://github.com/krahets/hello-algo">
-    <img src="index.assets/btn_download_code_light.png#only-light" width="140">
-    <img src="index.assets/btn_download_code_dark.png#only-dark" width="140">
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/krahets/hello-algo?style=social&link=https%3A%2F%2Fgithub.com%2Fkrahets%2Fhello-algo">
   </a>
-  <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="index.assets/btn_download_pdf_light.png#only-light" width="140">
-    <img src="index.assets/btn_download_pdf_dark.png#only-dark" width="140">
+  &nbsp;
+  <a href="https://github.com/krahets/hello-algo">
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/krahets/hello-algo?style=social&logo=handshake&logoColor=%23101010">
   </a>
 </p>
 
@@ -114,6 +113,7 @@ hide:
         <tbody>
             <td align="center"><a href="https://github.com/Gonglja"><img src="https://avatars.githubusercontent.com/u/39959756?v=4" width="50px;" alt="Gonglja"/><br /><sub><b>Gonglja</b></sub></a><br /><sub>C / C++</sub></td>
             <td align="center"><a href="https://github.com/gvenusleo"><img src="https://avatars.githubusercontent.com/u/79075347?v=4" width="50px;" alt="gvenusleo"/><br /><sub><b>gvenusleo</b></sub></a><br /><sub>Dart</sub></td>
+            <td align="center"><a href="https://github.com/hpstory"><img src="https://avatars.githubusercontent.com/u/33348162?v=4" width="50px;" alt="hpstory"/><br /><sub><b>hpstory</b></sub></a><br /><sub>C#</sub></td>
             <td align="center"><a href="https://github.com/justin-tse"><img src="https://avatars.githubusercontent.com/u/24556310?v=4" width="50px;" alt="justin-tse"/><br /><sub><b>justin-tse</b></sub></a><br /><sub>JS / TS</sub></td>
             <td align="center"><a href="https://github.com/krahets"><img src="https://avatars.githubusercontent.com/u/26993056?v=4" width="50px;" alt="krahets"/><br /><sub><b>krahets</b></sub></a><br /><sub>Java / Python</sub></td>
             <td align="center"><a href="https://github.com/nuomi1"><img src="https://avatars.githubusercontent.com/u/3739017?v=4" width="50px;" alt="nuomi1"/><br /><sub><b>nuomi1</b></sub></a><br /><sub>Swift</sub></td>

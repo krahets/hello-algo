@@ -1,4 +1,4 @@
-# 数据结构简介
+# 数据结构
 
 <div class="center-table" markdown>
 

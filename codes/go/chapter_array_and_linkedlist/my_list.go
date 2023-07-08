@@ -12,7 +12,7 @@ type myList struct {
 	extendRatio  int
 }
 
-/* 构造方法 */
+/* 构造函数 */
 func newMyList() *myList {
 	return &myList{
 		numsCapacity: 10,              // 列表容量
@@ -69,7 +69,7 @@ func (l *myList) insert(num, index int) {
 	if l.numsSize == l.numsCapacity {
 		l.extendCapacity()
 	}
-	// 索引 i 以及之后的元素都向后移动一位
+	// 将索引 index 以及之后的元素都向后移动一位
 	for j := l.numsSize - 1; j >= index; j-- {
 		l.nums[j+1] = l.nums[j]
 	}

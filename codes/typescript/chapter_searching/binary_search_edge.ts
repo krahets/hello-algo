@@ -36,7 +36,7 @@ function binarySearchRightEdge(nums: number[], target: number): number {
             i = m + 1;  // 首个大于 target 的元素在区间 [m+1, j] 中
         }
     }
-    if (j == nums.length || nums[j] != target) {
+    if (j < 0 || nums[j] != target) {
         return -1;  // 未找到目标元素，返回 -1
     }
     return j;
