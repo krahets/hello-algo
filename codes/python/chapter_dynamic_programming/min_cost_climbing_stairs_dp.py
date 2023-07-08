@@ -10,7 +10,7 @@ def min_cost_climbing_stairs_dp(cost: list[int]) -> int:
     n = len(cost) - 1
     if n == 1 or n == 2:
         return cost[n]
-    # 初始化 dp 列表，用于存储子问题的解
+    # 初始化 dp 表，用于存储子问题的解
     dp = [0] * (n + 1)
     # 初始状态：预设最小子问题的解
     dp[1], dp[2] = cost[1], cost[2]

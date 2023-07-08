@@ -49,7 +49,7 @@ public class knapsack {
     /* 0-1 背包：动态规划 */
     public int knapsack_dp(int[] weight, int[] val, int cap) {
         int n = weight.Length;
-        // 初始化 dp 列表
+        // 初始化 dp 表
         int[,] dp = new int[n + 1, cap + 1];
         // 状态转移
         for (int i = 1; i <= n; i++) {
@@ -69,7 +69,7 @@ public class knapsack {
     /* 0-1 背包：状态压缩后的动态规划 */
     public int knapsack_dp_comp(int[] weight, int[] val, int cap) {
         int n = weight.Length;
-        // 初始化 dp 列表
+        // 初始化 dp 表
         int[] dp = new int[cap + 1];
         // 状态转移
         for (int i = 1; i <= n; i++) {

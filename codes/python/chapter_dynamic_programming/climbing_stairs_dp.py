@@ -9,7 +9,7 @@ def climbing_stairs_dp(n: int) -> int:
     """爬楼梯：动态规划"""
     if n == 1 or n == 2:
         return n
-    # 初始化 dp 列表，用于存储子问题的解
+    # 初始化 dp 表，用于存储子问题的解
     dp = [0] * (n + 1)
     # 初始状态：预设最小子问题的解
     dp[1], dp[2] = 1, 2

@@ -42,7 +42,7 @@ def knapsack_dfs_mem(wgt, val, mem, i, c):
 def knapsack_dp(wgt, val, cap):
     """0-1 背包：动态规划"""
     n = len(wgt)
-    # 初始化 dp 列表
+    # 初始化 dp 表
     dp = [[0] * (cap + 1) for _ in range(n + 1)]
     # 状态转移
     for i in range(1, n + 1):
@@ -59,7 +59,7 @@ def knapsack_dp(wgt, val, cap):
 def knapsack_dp_comp(wgt, val, cap):
     """0-1 背包：状态压缩后的动态规划"""
     n = len(wgt)
-    # 初始化 dp 列表
+    # 初始化 dp 表
     dp = [0] * (cap + 1)
     # 状态转移
     for i in range(1, n + 1):
