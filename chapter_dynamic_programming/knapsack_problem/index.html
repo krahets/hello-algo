@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://www.hello-algo.com/chapter_dynamic_programming/knapsack_problem/">
       
       
-        <link rel="prev" href="../dp_problem_features/">
+        <link rel="prev" href="../dp_solution_pipeline/">
       
       
         <link rel="next" href="../../chapter_appendix/installation/">
@@ -1962,8 +1962,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../dp_solution_pipeline.md" class="md-nav__link">
-        13.3. &nbsp; DP 解题步骤（New）
+      <a href="../dp_solution_pipeline/" class="md-nav__link">
+        13.3. &nbsp; DP 解题思路（New）
       </a>
     </li>
   
@@ -2242,12 +2242,11 @@
 <p align="center"> Fig. 0-1 背包的示例数据 </p>
 
 <p>我们可以将 0-1 背包问题看作是一个由 <span class="arithmatex">\(n\)</span> 轮决策组成的过程，每个物体都有不放入和放入两种决策，因此该问题是满足决策树模型的。此外，该问题的目标是求解“在限定背包容量下的最大价值”，因此较大概率是个动态规划问题。我们接下来尝试求解它。</p>
-<p><strong>第一步：思考每一轮的决策是什么，从而得到状态定义</strong></p>
-<p>在 0-1 背包问题中，不放入背包，背包容量不变；放入背包，背包容量减小。由此可得状态定义：物品编号 <span class="arithmatex">\(i\)</span> 和背包容量 <span class="arithmatex">\(c\)</span> ，记为 <span class="arithmatex">\([i, c]\)</span> 。</p>
-<p><strong>第二步：明确子问题是什么，从而得到 <span class="arithmatex">\(dp\)</span> 列表</strong></p>
-<p>状态 <span class="arithmatex">\([i, c]\)</span> 对应的子问题为：<strong>前 <span class="arithmatex">\(i\)</span> 个物品在容量为 <span class="arithmatex">\(c\)</span> 背包中的最大价值</strong>，记为 <span class="arithmatex">\(dp[i, c]\)</span> 。</p>
+<p><strong>第一步：思考每轮的决策，定义状态，从而得到 <span class="arithmatex">\(dp\)</span> 表</strong></p>
+<p>在 0-1 背包问题中，不放入背包，背包容量不变；放入背包，背包容量减小。由此可得状态定义：当前物品编号 <span class="arithmatex">\(i\)</span> 和剩余背包容量 <span class="arithmatex">\(c\)</span> ，记为 <span class="arithmatex">\([i, c]\)</span> 。</p>
+<p>状态 <span class="arithmatex">\([i, c]\)</span> 对应的子问题为：<strong>前 <span class="arithmatex">\(i\)</span> 个物品在剩余容量为 <span class="arithmatex">\(c\)</span> 的背包中的最大价值</strong>，记为 <span class="arithmatex">\(dp[i, c]\)</span> 。</p>
 <p>至此，我们得到一个尺寸为 <span class="arithmatex">\(n \times cap\)</span> 的二维 <span class="arithmatex">\(dp\)</span> 矩阵。</p>
-<p><strong>第三步：找出最优子结构，进而推导出状态转移方程</strong></p>
+<p><strong>第二步：找出最优子结构，进而推导出状态转移方程</strong></p>
 <p>当我们做出物品 <span class="arithmatex">\(i\)</span> 的决策后，剩余的是前 <span class="arithmatex">\(i-1\)</span> 个物品的决策。因此，状态转移分为两种情况：</p>
 <ul>
 <li><strong>不放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量不变，状态转移至 <span class="arithmatex">\([i-1, c]\)</span> ；</li>
@@ -2258,6 +2257,9 @@
 dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 \]</div>
 <p>需要注意的是，若当前物品重量 <span class="arithmatex">\(wgt[i - 1]\)</span> 超出剩余背包容量 <span class="arithmatex">\(c\)</span> ，则只能选择不放入背包。</p>
+<p><strong>第三步：确定边界条件和状态转移顺序</strong></p>
+<p>当无物品或无剩余背包容量时最大价值为 <span class="arithmatex">\(0\)</span> ，即所有 <span class="arithmatex">\(dp[i, 0]\)</span> 和 <span class="arithmatex">\(dp[0, c]\)</span> 都等于 <span class="arithmatex">\(0\)</span> 。</p>
+<p>当前状态 <span class="arithmatex">\([i, c]\)</span> 从上方的状态 <span class="arithmatex">\([i-1, c]\)</span> 和左上方的状态 <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span> 转移而来，因此通过两层循环正序遍历整个 <span class="arithmatex">\(dp\)</span> 表即可。</p>
 <h2 id="1341">13.4.1. &nbsp; 方法一：暴力搜索<a class="headerlink" href="#1341" title="Permanent link">&para;</a></h2>
 <p>搜索代码包含以下要素：</p>
 <ul>
@@ -2416,7 +2418,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <div class="highlight"><span class="filename">knapsack.py</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">def</span> <span class="nf">knapsack_dp</span><span class="p">(</span><span class="n">wgt</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">cap</span><span class="p">):</span>
 <a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;0-1 背包：动态规划&quot;&quot;&quot;</span>
 <a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">wgt</span><span class="p">)</span>
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    <span class="c1"># 初始化 dp 列表</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    <span class="c1"># 初始化 dp 表</span>
 <a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">cap</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
 <a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    <span class="c1"># 状态转移</span>
 <a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
@@ -2551,7 +2553,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <div class="highlight"><span class="filename">knapsack.py</span><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="k">def</span> <span class="nf">knapsack_dp_comp</span><span class="p">(</span><span class="n">wgt</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">cap</span><span class="p">):</span>
 <a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;0-1 背包：状态压缩后的动态规划&quot;&quot;&quot;</span>
 <a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">wgt</span><span class="p">)</span>
-<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>    <span class="c1"># 初始化 dp 列表</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>    <span class="c1"># 初始化 dp 表</span>
 <a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">cap</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>    <span class="c1"># 状态转移</span>
 <a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
@@ -2677,7 +2679,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../dp_problem_features/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 13.2. &amp;nbsp; DP 问题特性（New）" rel="prev">
+          <a href="../dp_solution_pipeline/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 13.3. &amp;nbsp; DP 解题思路（New）" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2686,7 +2688,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
                 上一页
               </span>
               <div class="md-ellipsis">
-                13.2. &nbsp; DP 问题特性（New）
+                13.3. &nbsp; DP 解题思路（New）
               </div>
             </div>
           </a>
