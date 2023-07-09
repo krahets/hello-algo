@@ -164,5 +164,35 @@ path = "chapter_searching/linear_search.rs"
 name = "hashing_search"
 path = "chapter_searching/hashing_search.rs"
 
+# Run Command: cargo run --bin climbing_stairs_dfs
+[[bin]]
+name = "climbing_stairs_dfs"
+path = "chapter_dynamic_programming/climbing_stairs_dfs.rs"
+
+# Run Command: cargo run --bin climbing_stairs_dfs_mem
+[[bin]]
+name = "climbing_stairs_dfs_mem"
+path = "chapter_dynamic_programming/climbing_stairs_dfs_mem.rs"
+
+# Run Command: cargo run --bin climbing_stairs_dp
+[[bin]]
+name = "climbing_stairs_dp"
+path = "chapter_dynamic_programming/climbing_stairs_dp.rs"
+
+# Run Command: cargo run --bin min_cost_climbing_stairs_dp
+[[bin]]
+name = "min_cost_climbing_stairs_dp"
+path = "chapter_dynamic_programming/min_cost_climbing_stairs_dp.rs"
+
+# Run Command: cargo run --bin climbing_stairs_constraint_dp
+[[bin]]
+name = "climbing_stairs_constraint_dp"
+path = "chapter_dynamic_programming/climbing_stairs_constraint_dp.rs"
+
+# Run Command: cargo run --bin climbing_stairs_backtrack
+[[bin]]
+name = "climbing_stairs_backtrack"
+path = "chapter_dynamic_programming/climbing_stairs_backtrack.rs"
+
 [dependencies]
 rand = "0.8.5"
