@@ -10,7 +10,7 @@ pub fn randomNumbers(comptime n: usize) [n]i32 {
     var nums: [n]i32 = undefined;
     // 生成数组 nums = { 1, 2, 3, ..., n }
     for (&nums, 0..) |*num, i| {
-        num.* = @intCast(i32, i) + 1;
+        num.* = @as(i32, @intCast(i)) + 1;
     }
     // 随机打乱数组元素
     const rand = std.crypto.random;
@@ -23,7 +23,7 @@ pub fn findOne(nums: []i32) i32 {
     for (nums, 0..) |num, i| {
         // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
         // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-        if (num == 1) return @intCast(i32, i);
+        if (num == 1) return @intCast(i);
     }
     return -1;
 }
