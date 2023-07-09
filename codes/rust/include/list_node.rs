@@ -48,7 +48,6 @@ impl<T> ListNode<T> {
         T: std::hash::Hash + Eq + Copy + Clone
     {
         let mut hashmap = HashMap::new();
-    
         if let Some(node) = linked_list {
             let mut current = Some(node.clone());
             while let Some(cur) = current {
