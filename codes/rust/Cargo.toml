@@ -154,5 +154,15 @@ path = "chapter_tree/binary_tree_dfs.rs"
 name = "binary_tree"
 path = "chapter_tree/binary_tree.rs"
 
+# Run Command: cargo run --bin linear_search
+[[bin]]
+name = "linear_search"
+path = "chapter_searching/linear_search.rs"
+
+# Run Command: cargo run --bin hashing_search
+[[bin]]
+name = "hashing_search"
+path = "chapter_searching/hashing_search.rs"
+
 [dependencies]
 rand = "0.8.5"
