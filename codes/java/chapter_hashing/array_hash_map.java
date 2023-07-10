@@ -8,12 +8,12 @@ package chapter_hashing;
 
 import java.util.*;
 
-/* 键值对 int->String */
-class Entry {
+/* 键值对 */
+class Pair {
     public int key;
     public String val;
 
-    public Entry(int key, String val) {
+    public Pair(int key, String val) {
         this.key = key;
         this.val = val;
     }
@@ -21,7 +21,7 @@ class Entry {
 
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
-    private List<Entry> buckets;
+    private List<Pair> buckets;
 
     public ArrayHashMap() {
         // 初始化数组，包含 100 个桶
@@ -40,7 +40,7 @@ class ArrayHashMap {
     /* 查询操作 */
     public String get(int key) {
         int index = hashFunc(key);
-        Entry pair = buckets.get(index);
+        Pair pair = buckets.get(index);
         if (pair == null)
             return null;
         return pair.val;
@@ -48,7 +48,7 @@ class ArrayHashMap {
 
     /* 添加操作 */
     public void put(int key, String val) {
-        Entry pair = new Entry(key, val);
+        Pair pair = new Pair(key, val);
         int index = hashFunc(key);
         buckets.set(index, pair);
     }
@@ -61,19 +61,19 @@ class ArrayHashMap {
     }
 
     /* 获取所有键值对 */
-    public List<Entry> entrySet() {
-        List<Entry> entrySet = new ArrayList<>();
-        for (Entry pair : buckets) {
+    public List<Pair> pairSet() {
+        List<Pair> pairSet = new ArrayList<>();
+        for (Pair pair : buckets) {
             if (pair != null)
-                entrySet.add(pair);
+                pairSet.add(pair);
         }
-        return entrySet;
+        return pairSet;
     }
 
     /* 获取所有键 */
     public List<Integer> keySet() {
         List<Integer> keySet = new ArrayList<>();
-        for (Entry pair : buckets) {
+        for (Pair pair : buckets) {
             if (pair != null)
                 keySet.add(pair.key);
         }
@@ -83,7 +83,7 @@ class ArrayHashMap {
     /* 获取所有值 */
     public List<String> valueSet() {
         List<String> valueSet = new ArrayList<>();
-        for (Entry pair : buckets) {
+        for (Pair pair : buckets) {
             if (pair != null)
                 valueSet.add(pair.val);
         }
@@ -92,7 +92,7 @@ class ArrayHashMap {
 
     /* 打印哈希表 */
     public void print() {
-        for (Entry kv : entrySet()) {
+        for (Pair kv : pairSet()) {
             System.out.println(kv.key + " -> " + kv.val);
         }
     }
@@ -126,7 +126,7 @@ public class array_hash_map {
 
         /* 遍历哈希表 */
         System.out.println("\n遍历键值对 Key->Value");
-        for (Entry kv : map.entrySet()) {
+        for (Pair kv : map.pairSet()) {
             System.out.println(kv.key + " -> " + kv.val);
         }
         System.out.println("\n单独遍历键 Key");

@@ -96,6 +96,12 @@
     [class]{}-[func]{bubbleSort}
     ```
 
+=== "Dart"
+
+    ```dart title="bubble_sort.dart"
+    [class]{}-[func]{bubbleSort}
+    ```
+
 ## 效率优化
 
 我们发现，如果某轮“冒泡”中没有执行任何交换操作，说明数组已经完成排序，可直接返回结果。因此，可以增加一个标志位 `flag` 来监测这种情况，一旦出现就立即返回。
@@ -159,6 +165,12 @@
 === "Zig"
 
     ```zig title="bubble_sort.zig"
+    [class]{}-[func]{bubbleSortWithFlag}
+    ```
+
+=== "Dart"
+
+    ```dart title="bubble_sort.dart"
     [class]{}-[func]{bubbleSortWithFlag}
     ```
 

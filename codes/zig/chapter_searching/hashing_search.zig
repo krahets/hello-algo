@@ -30,8 +30,8 @@ pub fn main() !void {
     // 初始化哈希表
     var map = std.AutoHashMap(i32, i32).init(std.heap.page_allocator);
     defer map.deinit();
-    for (nums) |num, i| {
-        try map.put(num, @intCast(i32, i));    // key: 元素，value: 索引
+    for (nums, 0..) |num, i| {
+        try map.put(num, @as(i32, @intCast(i)));    // key: 元素，value: 索引
     }
     var index = hashingSearchArray(i32, map, target);
     std.debug.print("目标元素 3 的索引 = {}\n", .{index});

@@ -84,6 +84,12 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graphBFS}
     ```
 
+=== "Dart"
+
+    ```dart title="graph_bfs.dart"
+    [class]{}-[func]{graphBFS}
+    ```
+
 代码相对抽象，建议对照以下动画图示来加深理解。
 
 === "<1>"
@@ -214,6 +220,14 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 === "Zig"
 
     ```zig title="graph_dfs.zig"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{graphDFS}
+    ```
+
+=== "Dart"
+
+    ```dart title="graph_dfs.dart"
     [class]{}-[func]{dfs}
 
     [class]{}-[func]{graphDFS}

@@ -111,7 +111,7 @@ TreeNode *rotate(TreeNode *node) {
     return node;
 }
 
-/* 递归插入节点（辅助方法） */
+/* 递归插入节点（辅助函数） */
 TreeNode *insertHelper(TreeNode *node, int val) {
     if (node == NULL) {
         return newTreeNode(val);
@@ -138,7 +138,7 @@ void insert(aVLTree *tree, int val) {
     tree->root = insertHelper(tree->root, val);
 }
 
-/* 递归删除节点（辅助方法） */
+/* 递归删除节点（辅助函数） */
 TreeNode *removeHelper(TreeNode *node, int val) {
     TreeNode *child, *grandChild;
     if (node == NULL) {

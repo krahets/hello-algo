@@ -18,7 +18,7 @@ type graphAdjList struct {
 	adjList map[Vertex][]Vertex
 }
 
-/* 构造方法 */
+/* 构造函数 */
 func newGraphAdjList(edges [][]Vertex) *graphAdjList {
 	g := &graphAdjList{
 		adjList: make(map[Vertex][]Vertex),
@@ -57,8 +57,8 @@ func (g *graphAdjList) removeEdge(vet1 Vertex, vet2 Vertex) {
 		panic("error")
 	}
 	// 删除边 vet1 - vet2
-	DeleteSliceElms(g.adjList[vet1], vet2)
-	DeleteSliceElms(g.adjList[vet2], vet1)
+	g.adjList[vet1] = DeleteSliceElms(g.adjList[vet1], vet2)
+	g.adjList[vet2] = DeleteSliceElms(g.adjList[vet2], vet1)
 }
 
 /* 添加顶点 */
@@ -80,8 +80,8 @@ func (g *graphAdjList) removeVertex(vet Vertex) {
 	// 在邻接表中删除顶点 vet 对应的链表
 	delete(g.adjList, vet)
 	// 遍历其他顶点的链表，删除所有包含 vet 的边
-	for _, list := range g.adjList {
-		DeleteSliceElms(list, vet)
+	for v, list := range g.adjList {
+		g.adjList[v] = DeleteSliceElms(list, vet)
 	}
 }
 

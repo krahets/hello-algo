@@ -6,7 +6,7 @@
 
     给定一个长度为 $n$ 的有序数组 `nums` ，数组可能包含重复元素。请查找并返回元素 `target` 在数组中首次出现的索引。若数组中不包含该元素，则返回 $-1$ 。
 
-## 简单方法
+## 线性方法
 
 为了查找数组中最左边的 `target` ，我们可以分为两步：
 
@@ -15,11 +15,11 @@
 
 ![线性查找最左边的元素](binary_search_edge.assets/binary_search_left_edge_naive.png)
 
-这个方法虽然有效，但由于包含线性查找，**其时间复杂度可能会劣化至 $O(n)$** 。
+这个方法虽然有效，但由于包含线性查找，时间复杂度为 $O(n)$ ，当存在很多重复的 `target` 时效率较低。
 
 ## 二分方法
 
-实际上，我们可以仅通过二分查找解决以上问题。整体算法流程不变，先计算中点索引 $m$ ，再判断 `target` 和 `nums[m]` 大小关系：
+考虑仅使用二分查找解决该问题。整体算法流程不变，先计算中点索引 $m$ ，再判断 `target` 和 `nums[m]` 大小关系：
 
 - 当 `nums[m] < target` 或 `nums[m] > target` 时，说明还没有找到 `target` ，因此采取与上节代码相同的缩小区间操作，**从而使指针 $i$ 和 $j$ 向 `target` 靠近**。
 - 当 `nums[m] == target` 时，说明“小于 `target` 的元素”在区间 $[i, m - 1]$ 中，因此采用 $j = m - 1$ 来缩小区间，**从而使指针 $j$ 向小于 `target` 的元素靠近**。
@@ -112,6 +112,12 @@
     [class]{}-[func]{binarySearchLeftEdge}
     ```
 
+=== "Dart"
+
+    ```dart title="binary_search_edge.dart"
+    [class]{}-[func]{binarySearchLeftEdge}
+    ```
+
 ## 查找右边界
 
 类似地，我们也可以二分查找最右边的 `target` 。当 `nums[m] == target` 时，说明大于 `target` 的元素在区间 $[m + 1, j]$ 中，因此执行 `i = m + 1` ，**使得指针 $i$ 向大于 `target` 的元素靠近**。
@@ -175,6 +181,12 @@
 === "Zig"
 
     ```zig title="binary_search_edge.zig"
+    [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_search_edge.dart"
     [class]{}-[func]{binarySearchRightEdge}
     ```
 

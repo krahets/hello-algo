@@ -283,6 +283,35 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title="deque.dart"
+    /* 初始化双向队列 */
+    // 在 Dart 中，Queue 被定义为双向队列
+    Queue<int> deque = Queue<int>();
+
+    /* 元素入队 */
+    deque.addLast(2);  // 添加至队尾
+    deque.addLast(5);
+    deque.addLast(4);
+    deque.addFirst(3); // 添加至队首
+    deque.addFirst(1);
+
+    /* 访问元素 */
+    int peekFirst = deque.first; // 队首元素
+    int peekLast = deque.last;   // 队尾元素
+
+    /* 元素出队 */
+    int popFirst = deque.removeFirst(); // 队首元素出队
+    int popLast = deque.removeLast();   // 队尾元素出队
+
+    /* 获取双向队列的长度 */
+    int size = deque.length;
+
+    /* 判断双向队列是否为空 */
+    bool isEmpty = deque.isEmpty;W
+    ```
+
 ## 双向队列实现 *
 
 双向队列的实现与队列类似，可以选择链表或数组作为底层数据结构。
@@ -390,6 +419,14 @@
     [class]{LinkedListDeque}-[func]{}
     ```
 
+=== "Dart"
+
+    ```dart title="linkedlist_deque.dart"
+    [class]{ListNode}-[func]{}
+
+    [class]{LinkedListDeque}-[func]{}
+    ```
+
 ### 基于数组的实现
 
 与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法。
@@ -468,6 +505,12 @@
 === "Zig"
 
     ```zig title="array_deque.zig"
+    [class]{ArrayDeque}-[func]{}
+    ```
+
+=== "Dart"
+
+    ```dart title="array_deque.dart"
     [class]{ArrayDeque}-[func]{}
     ```
 

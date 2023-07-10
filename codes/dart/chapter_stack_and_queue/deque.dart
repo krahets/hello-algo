@@ -27,7 +27,6 @@ void main() {
   print("元素 1 队首入队后 deque = $deque");
 
   /* 元素出队 */
-
   final int popLast = deque.removeLast();
   print("队尾出队元素 = $popLast，队尾出队后 deque = $deque");
   final int popFirst = deque.removeFirst();

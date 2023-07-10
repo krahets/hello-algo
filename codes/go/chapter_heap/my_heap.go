@@ -15,14 +15,14 @@ type maxHeap struct {
 	data []any
 }
 
-/* 构造方法，建立空堆 */
+/* 构造函数，建立空堆 */
 func newHeap() *maxHeap {
 	return &maxHeap{
 		data: make([]any, 0),
 	}
 }
 
-/* 构造方法，根据切片建堆 */
+/* 构造函数，根据切片建堆 */
 func newMaxHeap(nums []any) *maxHeap {
 	// 将列表元素原封不动添加进堆
 	h := &maxHeap{data: nums}

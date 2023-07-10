@@ -1,43 +1,38 @@
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/conceptual_rendering.png" width="200">
+    <img src="https://www.hello-algo.com/index.assets/conceptual_rendering.png" width="150">
   </a>
 </p>
 
-<h3 align="center">
-  《 Hello 算法 》
-</h3>
-
-<p align="center"> 
-  动画图解、能运行、可提问的</br>数据结构与算法快速入门教程
-</p>
-
-</br>
-
 <p align="center">
-  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="49%">
-  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="49%">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&width=200&lines=Hello%2C+%E7%AE%97%E6%B3%95+!" alt="hello-algo-typing-svg" />
+  </br>
+  动画图解、一键运行的数据结构与算法教程
 </p>
 
 <p align="center">
-    <a href="https://www.hello-algo.com/">
-    阅读网页版
-    </a>
-  &nbsp; | &nbsp;
-    <a href="https://github.com/krahets/hello-algo/releases">
-    下载 PDF 版
-    </a>
+  <a href="https://www.hello-algo.com/">
+    <img src="https://www.hello-algo.com/index.assets/btn_read_online_dark.png" width="150">
+  </a>
+  <a href="https://github.com/krahets/hello-algo/releases">
+    <img src="https://www.hello-algo.com/index.assets/btn_download_pdf_dark.png" width="150">
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="400">
+  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="400">
 </p>
 
 ## 关于本书
 
 本项目旨在打造一本开源免费、新手友好的数据结构与算法入门教程。
 
-- 全书采用动画图解，内容清晰易懂、学习曲线平滑，引导初学者探索数据结构与算法的“知识地图”；
-- 源代码可一键运行，帮助读者在实践练习中提升编程技能，了解算法工作原理和数据结构底层实现；
-- 鼓励读者互助学习，提问与评论通常可在两日内得到回复；
+- 全书采用动画图解，内容清晰易懂、学习曲线平滑，引导初学者探索数据结构与算法的知识地图。
+- 源代码可一键运行，帮助读者在练习中提升编程技能，了解算法工作原理和数据结构底层实现。
+- 鼓励读者互助学习，提问与评论通常可在两日内得到回复。
 
-若本书对您有所帮助，请点个 Star :star: 支持一下，谢谢！
+若本书对您有所帮助，请在页面右上角点个 Star :star: 支持一下，谢谢！
 
 ## 推荐语
 

@@ -4,16 +4,26 @@ hide:
   - footer
 ---
 
-=== " "
+<h1 align="center">  </h1>
 
-    <div class="result" markdown>
-    ![conceptual_rendering](index.assets/conceptual_rendering.png){ align=left width=330 }
-    </br></br></br></br></br>
-    <h1 align="center"> 《 Hello 算法 》 </h1>
-    <p align="center"> 动画图解、能运行、可提问的</br>数据结构与算法快速入门教程 </p>
-    <p align="center"> [![github-stars](https://img.shields.io/github/stars/krahets/hello-algo?style=social)](https://github.com/krahets/hello-algo)</p>
-    <h6 align="center"> [@Krahets](https://leetcode.cn/u/jyd/) </h6>
-    </div>
+<p align="center">
+  <img src="index.assets/conceptual_rendering.png" width="250">
+  <img src="index.assets/hello_algo_knowledge_map_tp.png" width="400">
+</p>
+
+<h2 align="center"> 《 Hello 算法 》</h2>
+
+<p align="center"> 动画图解、一键运行的数据结构与算法教程 </p>
+
+<p align="center">
+  <a href="https://github.com/krahets/hello-algo">
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/krahets/hello-algo?style=social&link=https%3A%2F%2Fgithub.com%2Fkrahets%2Fhello-algo">
+  </a>
+  &nbsp;
+  <a href="https://github.com/krahets/hello-algo">
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/krahets/hello-algo?style=social&logo=handshake&logoColor=%23101010">
+  </a>
+</p>
 
 ---
 
@@ -33,7 +43,7 @@ hide:
 
 ---
 
-<h3 align="center"> 「全书动画图解」 </h3>
+<h3 align="center"> 全书动画图解 </h3>
 
 <p align="center"> 内容清晰易懂、学习曲线平滑</br>电脑、平板、手机全终端阅读 </p>
 
@@ -46,7 +56,7 @@ hide:
 
 ---
 
-<h3 align="center"> 「代码一键运行」 </h3>
+<h3 align="center"> 代码一键运行 </h3>
 
 <p align="center"> 提供各个算法与数据结构的简洁实现与测试样例，皆可直接运行</br>支持 Java, C++, Python, Go, JS, TS, C#, Swift, Zig 等语言 </p>
 
@@ -59,7 +69,7 @@ hide:
 
 ---
 
-<h3 align="center"> 「可讨论与提问」 </h3>
+<h3 align="center"> 可讨论与提问 </h3>
 
 <p align="center"> 鼓励小伙伴们互帮互助、共同成长</br>提问与评论一般能在两日内得到回复 </p>
 
@@ -82,7 +92,7 @@ hide:
 
 <h3 align="left"> 作者简介 </h3>
 
-靳宇栋 (Krahets)，大厂高级算法工程师，上海交通大学硕士。力扣（LeetCode）全网阅读量最高博主，其 LeetBook《图解算法数据结构》已被订阅 22 万本。
+靳宇栋 ([Krahets](https://leetcode.cn/u/jyd/))，大厂高级算法工程师，上海交通大学硕士。力扣（LeetCode）全网阅读量最高博主，其 LeetBook《图解算法数据结构》已被订阅 24 万本。
 
 ---
 
@@ -96,12 +106,14 @@ hide:
     </a>
 </p>
 
-本书的代码审阅工作由 Gonglja, justin‐tse, krahets, nuomi1, Reanon, sjinzh 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
+本书的代码审阅工作由 Gonglja, gvenusleo, justin‐tse, krahets, nuomi1, Reanon, sjinzh 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
 
 <div class="center-table">
     <table>
         <tbody>
             <td align="center"><a href="https://github.com/Gonglja"><img src="https://avatars.githubusercontent.com/u/39959756?v=4" width="50px;" alt="Gonglja"/><br /><sub><b>Gonglja</b></sub></a><br /><sub>C / C++</sub></td>
+            <td align="center"><a href="https://github.com/gvenusleo"><img src="https://avatars.githubusercontent.com/u/79075347?v=4" width="50px;" alt="gvenusleo"/><br /><sub><b>gvenusleo</b></sub></a><br /><sub>Dart</sub></td>
+            <td align="center"><a href="https://github.com/hpstory"><img src="https://avatars.githubusercontent.com/u/33348162?v=4" width="50px;" alt="hpstory"/><br /><sub><b>hpstory</b></sub></a><br /><sub>C#</sub></td>
             <td align="center"><a href="https://github.com/justin-tse"><img src="https://avatars.githubusercontent.com/u/24556310?v=4" width="50px;" alt="justin-tse"/><br /><sub><b>justin-tse</b></sub></a><br /><sub>JS / TS</sub></td>
             <td align="center"><a href="https://github.com/krahets"><img src="https://avatars.githubusercontent.com/u/26993056?v=4" width="50px;" alt="krahets"/><br /><sub><b>krahets</b></sub></a><br /><sub>Java / Python</sub></td>
             <td align="center"><a href="https://github.com/nuomi1"><img src="https://avatars.githubusercontent.com/u/3739017?v=4" width="50px;" alt="nuomi1"/><br /><sub><b>nuomi1</b></sub></a><br /><sub>Swift</sub></td>

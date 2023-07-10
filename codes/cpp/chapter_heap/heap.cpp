@@ -61,5 +61,6 @@ int main() {
     priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
     cout << "输入列表并建立小顶堆后" << endl;
     printHeap(minHeap);
+
     return 0;
 }

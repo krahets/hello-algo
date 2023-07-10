@@ -111,7 +111,7 @@ func (t *aVLTree) insert(val int) {
 	t.root = t.insertHelper(t.root, val)
 }
 
-/* 递归插入节点（辅助方法） */
+/* 递归插入节点（辅助函数） */
 func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return NewTreeNode(val)
@@ -138,7 +138,7 @@ func (t *aVLTree) remove(val int) {
 	t.root = t.removeHelper(t.root, val)
 }
 
-/* 递归删除节点（辅助方法） */
+/* 递归删除节点（辅助函数） */
 func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return nil

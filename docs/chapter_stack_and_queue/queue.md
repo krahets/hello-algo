@@ -252,6 +252,33 @@
 
     ```
 
+=== "Dart"
+
+    ```dart title="queue.dart"
+    /* 初始化队列 */
+    // 在 Dart 中，队列类 Qeque 是双向队列，也可作为队列使用
+    Queue<int> queue = Queue();
+
+    /* 元素入队 */
+    queue.add(1);
+    queue.add(3);
+    queue.add(2);
+    queue.add(5);
+    queue.add(4);
+
+    /* 访问队首元素 */
+    int peek = queue.first;
+
+    /* 元素出队 */
+    int pop = queue.removeFirst();
+
+    /* 获取队列的长度 */
+    int size = queue.length;
+
+    /* 判断队列是否为空 */
+    bool isEmpty = queue.isEmpty;
+    ```
+
 ## 队列实现
 
 为了实现队列，我们需要一种数据结构，可以在一端添加元素，并在另一端删除元素。因此，链表和数组都可以用来实现队列。
@@ -328,6 +355,12 @@
 === "Zig"
 
     ```zig title="linkedlist_queue.zig"
+    [class]{LinkedListQueue}-[func]{}
+    ```
+
+=== "Dart"
+
+    ```dart title="linkedlist_queue.dart"
     [class]{LinkedListQueue}-[func]{}
     ```
 
@@ -414,6 +447,12 @@
 === "Zig"
 
     ```zig title="array_queue.zig"
+    [class]{ArrayQueue}-[func]{}
+    ```
+
+=== "Dart"
+
+    ```dart title="array_queue.dart"
     [class]{ArrayQueue}-[func]{}
     ```
 

@@ -24,11 +24,12 @@ int findOne(List<int> nums) {
     // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
     if (nums[i] == 1) return i;
   }
+
   return -1;
 }
 
 /* Driver Code */
-int main() {
+void main() {
   for (var i = 0; i < 10; i++) {
     int n = 100;
     final nums = randomNumbers(n);
@@ -36,5 +37,4 @@ int main() {
     print('\n数组 [ 1, 2, ..., n ] 被打乱后 = $nums');
     print('数字 1 的索引为 + $index');
   }
-  return 0;
 }

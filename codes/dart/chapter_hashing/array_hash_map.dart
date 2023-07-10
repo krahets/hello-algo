@@ -4,16 +4,16 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 键值对 int -> String */
-class Entry {
+/* 键值对 */
+class Pair {
   int key;
   String val;
-  Entry(this.key, this.val);
+  Pair(this.key, this.val);
 }
 
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
-  late List<Entry?> _buckets;
+  late List<Pair?> _buckets;
 
   ArrayHashMap() {
     // 初始化数组，包含 100 个桶
@@ -29,7 +29,7 @@ class ArrayHashMap {
   /* 查询操作 */
   String? get(int key) {
     final int index = _hashFunc(key);
-    final Entry? pair = _buckets[index];
+    final Pair? pair = _buckets[index];
     if (pair == null) {
       return null;
     }
@@ -38,7 +38,7 @@ class ArrayHashMap {
 
   /* 添加操作 */
   void put(int key, String val) {
-    final Entry pair = Entry(key, val);
+    final Pair pair = Pair(key, val);
     final int index = _hashFunc(key);
     _buckets[index] = pair;
   }
@@ -50,20 +50,20 @@ class ArrayHashMap {
   }
 
   /* 获取所有键值对 */
-  List<Entry> entrySet() {
-    List<Entry> entrySet = [];
-    for (final Entry? pair in _buckets) {
+  List<Pair> pairSet() {
+    List<Pair> pairSet = [];
+    for (final Pair? pair in _buckets) {
       if (pair != null) {
-        entrySet.add(pair);
+        pairSet.add(pair);
       }
     }
-    return entrySet;
+    return pairSet;
   }
 
   /* 获取所有键 */
   List<int> keySet() {
     List<int> keySet = [];
-    for (final Entry? pair in _buckets) {
+    for (final Pair? pair in _buckets) {
       if (pair != null) {
         keySet.add(pair.key);
       }
@@ -74,7 +74,7 @@ class ArrayHashMap {
   /* 获取所有值 */
   List<String> values() {
     List<String> valueSet = [];
-    for (final Entry? pair in _buckets) {
+    for (final Pair? pair in _buckets) {
       if (pair != null) {
         valueSet.add(pair.val);
       }
@@ -84,7 +84,7 @@ class ArrayHashMap {
 
   /* 打印哈希表 */
   void printHashMap() {
-    for (final Entry kv in entrySet()) {
+    for (final Pair kv in pairSet()) {
       print("${kv.key} -> ${kv.val}");
     }
   }
@@ -118,7 +118,7 @@ void main() {
 
   /* 遍历哈希表 */
   print("\n遍历键值对 Key->Value");
-  map.entrySet().forEach((kv) => print("${kv.key} -> ${kv.val}"));
+  map.pairSet().forEach((kv) => print("${kv.key} -> ${kv.val}"));
   print("\n单独遍历键 Key");
   map.keySet().forEach((key) => print("$key"));
   print("\n单独遍历值 Value");

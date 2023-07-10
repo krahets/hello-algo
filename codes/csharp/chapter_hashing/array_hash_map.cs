@@ -7,10 +7,10 @@
 namespace hello_algo.chapter_hashing;
 
 /* 键值对 int->string */
-class Entry {
+class Pair {
     public int key;
     public string val;
-    public Entry(int key, string val) {
+    public Pair(int key, string val) {
         this.key = key;
         this.val = val;
     }
@@ -18,7 +18,7 @@ class Entry {
 
 /* 基于数组简易实现的哈希表 */
 class ArrayHashMap {
-    private List<Entry?> buckets;
+    private List<Pair?> buckets;
     public ArrayHashMap() {
         // 初始化数组，包含 100 个桶
         buckets = new();
@@ -36,14 +36,14 @@ class ArrayHashMap {
     /* 查询操作 */
     public string? get(int key) {
         int index = hashFunc(key);
-        Entry? pair = buckets[index];
+        Pair? pair = buckets[index];
         if (pair == null) return null;
         return pair.val;
     }
 
     /* 添加操作 */
     public void put(int key, string val) {
-        Entry pair = new Entry(key, val);
+        Pair pair = new Pair(key, val);
         int index = hashFunc(key);
         buckets[index] = pair;
     }
@@ -56,19 +56,19 @@ class ArrayHashMap {
     }
 
     /* 获取所有键值对 */
-    public List<Entry> entrySet() {
-        List<Entry> entrySet = new();
-        foreach (Entry? pair in buckets) {
+    public List<Pair> pairSet() {
+        List<Pair> pairSet = new();
+        foreach (Pair? pair in buckets) {
             if (pair != null)
-                entrySet.Add(pair);
+                pairSet.Add(pair);
         }
-        return entrySet;
+        return pairSet;
     }
 
     /* 获取所有键 */
     public List<int> keySet() {
         List<int> keySet = new();
-        foreach (Entry? pair in buckets) {
+        foreach (Pair? pair in buckets) {
             if (pair != null)
                 keySet.Add(pair.key);
         }
@@ -78,7 +78,7 @@ class ArrayHashMap {
     /* 获取所有值 */
     public List<string> valueSet() {
         List<string> valueSet = new();
-        foreach (Entry? pair in buckets) {
+        foreach (Pair? pair in buckets) {
             if (pair != null)
                 valueSet.Add(pair.val);
         }
@@ -87,7 +87,7 @@ class ArrayHashMap {
 
     /* 打印哈希表 */
     public void print() {
-        foreach (Entry kv in entrySet()) {
+        foreach (Pair kv in pairSet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
         }
     }
@@ -123,7 +123,7 @@ public class array_hash_map {
 
         /* 遍历哈希表 */
         Console.WriteLine("\n遍历键值对 Key->Value");
-        foreach (Entry kv in map.entrySet()) {
+        foreach (Pair kv in map.pairSet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
         }
         Console.WriteLine("\n单独遍历键 Key");
