@@ -11,11 +11,11 @@ comments: true
 
 ## 13.3.1. &nbsp; 问题判断
 
-总的来说，如果一个问题包含重叠子问题、最优子结构，并满足无后效性，那么它通常就适合用动态规划求解。然而，我们很难从问题描述上直接提取出这些特性。因此我们通常会放宽条件，**先观察问题是否适合使用回溯（穷举）解决**。
+总的来说，如果一个问题包含重叠子问题、最优子结构，并满足无后效性，那么它通常就适合用动态规划求解，但我们很难从问题描述上直接提取出这些特性。因此我们通常会放宽条件，**先观察问题是否适合使用回溯（穷举）解决**。
 
-**适合用回溯解决的问题通常满足「决策树模型」**，这种问题可以使用树形结构来描述，其中每一个节点代表一个决策，每一条路径代表一个决策序列。
+**适合用回溯解决的问题通常满足“决策树模型”**，这种问题可以使用树形结构来描述，其中每一个节点代表一个决策，每一条路径代表一个决策序列。
 
-换句话说，**如果问题包含明确的决策概念，并且解是通过一系列决策产生的，那么它就满足决策树模型**，可以使用回溯来解决。
+换句话说，如果问题包含明确的决策概念，并且解是通过一系列决策产生的，那么它就满足决策树模型，通常可以使用回溯来解决。
 
 在此基础上，还有一些判断问题是动态规划问题的“加分项”，包括：
 
@@ -110,19 +110,49 @@ $$
 === "Java"
 
     ```java title="min_path_sum.java"
-    [class]{min_path_sum}-[func]{minPathSumDFS}
+    /* 最小路径和：暴力搜索 */
+    int minPathSumDFS(int[][] grid, int i, int j) {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return Integer.MAX_VALUE;
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        int left = minPathSumDFS(grid, i - 1, j);
+        int up = minPathSumDFS(grid, i, j - 1);
+        // 返回从左上角到 (i, j) 的最小路径代价
+        return Math.min(left, up) + grid[i][j];
+    }
     ```
 
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    [class]{}-[func]{minPathSumDFS}
+    /* 最小路径和：暴力搜索 */
+    int minPathSumDFS(vector<vector<int>> &grid, int i, int j) {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return INT_MAX;
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        int left = minPathSumDFS(grid, i - 1, j);
+        int up = minPathSumDFS(grid, i, j - 1);
+        // 返回从左上角到 (i, j) 的最小路径代价
+        return min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
+    }
     ```
 
 === "Python"
 
     ```python title="min_path_sum.py"
-    def min_path_sum_dfs(grid, i, j):
+    def min_path_sum_dfs(grid: list[list[int]], i: int, j: int) -> int:
         """最小路径和：暴力搜索"""
         # 若为左上角单元格，则终止搜索
         if i == 0 and j == 0:
@@ -164,7 +194,22 @@ $$
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDFS}
+    /* 最小路径和：暴力搜索 */
+    int minPathSumDFS(int[][] grid, int i, int j) {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 && j == 0){
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return int.MaxValue;
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        int left = minPathSumDFS(grid, i - 1, j);
+        int up = minPathSumDFS(grid, i, j - 1);
+        // 返回从左上角到 (i, j) 的最小路径代价
+        return Math.Min(left, up) + grid[i][j];
+    }
     ```
 
 === "Swift"
@@ -202,19 +247,61 @@ $$
 === "Java"
 
     ```java title="min_path_sum.java"
-    [class]{min}-[func]{minPathSumDFSMem}
+    /* 最小路径和：记忆化搜索 */
+    int minPathSumDFSMem(int[][] grid, int[][] mem, int i, int j) {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return Integer.MAX_VALUE;
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][j] != -1) {
+            return mem[i][j];
+        }
+        // 左边和上边单元格的最小路径代价
+        int left = minPathSumDFSMem(grid, mem, i - 1, j);
+        int up = minPathSumDFSMem(grid, mem, i, j - 1);
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i][j] = Math.min(left, up) + grid[i][j];
+        return mem[i][j];
+    }
     ```
 
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    [class]{}-[func]{minPathSumDFSMem}
+    /* 最小路径和：记忆化搜索 */
+    int minPathSumDFSMem(vector<vector<int>> &grid, vector<vector<int>> &mem, int i, int j) {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return INT_MAX;
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][j] != -1) {
+            return mem[i][j];
+        }
+        // 左边和上边单元格的最小路径代价
+        int left = minPathSumDFSMem(grid, mem, i - 1, j);
+        int up = minPathSumDFSMem(grid, mem, i, j - 1);
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i][j] = min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
+        return mem[i][j];
+    }
     ```
 
 === "Python"
 
     ```python title="min_path_sum.py"
-    def min_path_sum_dfs_mem(grid, mem, i, j):
+    def min_path_sum_dfs_mem(
+        grid: list[list[int]], mem: list[list[int]], i: int, j: int
+    ) -> int:
         """最小路径和：记忆化搜索"""
         # 若为左上角单元格，则终止搜索
         if i == 0 and j == 0:
@@ -260,7 +347,27 @@ $$
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDFSMem}
+    /* 最小路径和：记忆化搜索 */
+    int minPathSumDFSMem(int[][] grid, int[][] mem, int i, int j) {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return int.MaxValue;
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][j] != -1) {
+            return mem[i][j];
+        }
+        // 左边和上边单元格的最小路径代价
+        int left = minPathSumDFSMem(grid, mem, i - 1, j);
+        int up = minPathSumDFSMem(grid, mem, i, j - 1);
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i][j] = Math.Min(left, up) + grid[i][j];
+        return mem[i][j];
+    }
     ```
 
 === "Swift"
@@ -300,13 +407,34 @@ $$
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    [class]{}-[func]{minPathSumDP}
+    /* 最小路径和：动态规划 */
+    int minPathSumDP(vector<vector<int>> &grid) {
+        int n = grid.size(), m = grid[0].size();
+        // 初始化 dp 表
+        vector<vector<int>> dp(n, vector<int>(m));
+        dp[0][0] = grid[0][0];
+        // 状态转移：首行
+        for (int j = 1; j < m; j++) {
+            dp[0][j] = dp[0][j - 1] + grid[0][j];
+        }
+        // 状态转移：首列
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = dp[i - 1][0] + grid[i][0];
+        }
+        // 状态转移：其余行列
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+            }
+        }
+        return dp[n - 1][m - 1];
+    }
     ```
 
 === "Python"
 
     ```python title="min_path_sum.py"
-    def min_path_sum_dp(grid):
+    def min_path_sum_dp(grid: list[list[int]]) -> int:
         """最小路径和：动态规划"""
         n, m = len(grid), len(grid[0])
         # 初始化 dp 表
@@ -352,7 +480,28 @@ $$
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDP}
+    /* 最小路径和：动态规划 */
+    int minPathSumDP(int[][] grid) {
+        int n = grid.Length, m = grid[0].Length;
+        // 初始化 dp 表
+        int[,] dp = new int[n, m];
+        dp[0, 0] = grid[0][0];
+        // 状态转移：首行
+        for (int j = 1; j < m; j++) {
+            dp[0, j] = dp[0, j - 1] + grid[0][j];
+        }
+        // 状态转移：首列
+        for (int i = 1; i < n; i++) {
+            dp[i, 0] = dp[i - 1, 0] + grid[i][0];
+        }
+        // 状态转移：其余行列
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                dp[i, j] = Math.Min(dp[i, j - 1], dp[i - 1, j]) + grid[i][j];
+            }
+        }
+        return dp[n - 1, m - 1];
+    }
     ```
 
 === "Swift"
@@ -424,13 +573,33 @@ $$
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    [class]{}-[func]{minPathSumDPComp}
+    /* 最小路径和：状态压缩后的动态规划 */
+    int minPathSumDPComp(vector<vector<int>> &grid) {
+        int n = grid.size(), m = grid[0].size();
+        // 初始化 dp 表
+        vector<int> dp(m);
+        // 状态转移：首行
+        dp[0] = grid[0][0];
+        for (int j = 1; j < m; j++) {
+            dp[j] = dp[j - 1] + grid[0][j];
+        }
+        // 状态转移：其余行
+        for (int i = 1; i < n; i++) {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0];
+            // 状态转移：其余列
+            for (int j = 1; j < m; j++) {
+                dp[j] = min(dp[j - 1], dp[j]) + grid[i][j];
+            }
+        }
+        return dp[m - 1];
+    }
     ```
 
 === "Python"
 
     ```python title="min_path_sum.py"
-    def min_path_sum_dp_comp(grid):
+    def min_path_sum_dp_comp(grid: list[list[int]]) -> int:
         """最小路径和：状态压缩后的动态规划"""
         n, m = len(grid), len(grid[0])
         # 初始化 dp 表
@@ -476,7 +645,27 @@ $$
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDPComp}
+    /* 最小路径和：状态压缩后的动态规划 */
+    int minPathSumDPComp(int[][] grid) {
+        int n = grid.Length, m = grid[0].Length;
+        // 初始化 dp 表
+        int[] dp = new int[m];
+        dp[0] = grid[0][0];
+        // 状态转移：首行
+        for (int j = 1; j < m; j++) {
+            dp[j] = dp[j - 1] + grid[0][j];
+        }
+        // 状态转移：其余行
+        for (int i = 1; i < n; i++) {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0];
+            // 状态转移：其余列
+            for (int j = 1; j < m; j++) {
+                dp[j] = Math.Min(dp[j - 1], dp[j]) + grid[i][j];
+            }
+        }
+        return dp[m - 1];
+    }
     ```
 
 === "Swift"

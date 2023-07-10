@@ -185,7 +185,7 @@ comments: true
             var j = i + 1;
             while (j < size) : (j += 1) {
                 if (nums[i] + nums[j] == target) {
-                    return [_]i32{@intCast(i32, i), @intCast(i32, j)};
+                    return [_]i32{@intCast(i), @intCast(j)};
                 }
             }
         }
@@ -437,9 +437,9 @@ comments: true
         // 单层循环，时间复杂度 O(n)
         while (i < size) : (i += 1) {
             if (dic.contains(target - nums[i])) {
-                return [_]i32{dic.get(target - nums[i]).?, @intCast(i32, i)};
+                return [_]i32{dic.get(target - nums[i]).?, @intCast(i)};
             }
-            try dic.put(nums[i], @intCast(i32, i));
+            try dic.put(nums[i], @intCast(i));
         }
         return null;
     }

@@ -1703,7 +1703,7 @@ $$
     fn bubbleSort(nums: []i32) i32 {
         var count: i32 = 0;  // 计数器 
         // 外循环：未排序区间为 [0, i]
-        var i: i32 = @intCast(i32, nums.len ) - 1;
+        var i: i32 = @as(i32, @intCast(nums.len)) - 1;
         while (i > 0) : (i -= 1) {
             var j: usize = 0;
             // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 

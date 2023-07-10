@@ -369,7 +369,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     // 更新节点高度
     fn updateHeight(self: *Self, node: ?*inc.TreeNode(T)) void {
         // 节点高度等于最高子树高度 + 1
-        node.?.height = std.math.max(self.height(node.?.left), self.height(node.?.right)) + 1;
+        node.?.height = @max(self.height(node.?.left), self.height(node.?.right)) + 1;
     }
     ```
 

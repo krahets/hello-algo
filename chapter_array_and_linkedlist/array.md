@@ -1078,7 +1078,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     // 在数组中查找指定元素
     fn find(nums: []i32, target: i32) i32 {
         for (nums, 0..) |num, i| {
-            if (num == target) return @intCast(i32, i);
+            if (num == target) return @intCast(i);
         }
         return -1;
     }
