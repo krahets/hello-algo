@@ -9,14 +9,13 @@ namespace hello_algo.chapter_dynamic_programming;
 public class min_path_sum {
     /* 最小路径和：暴力搜索 */
     public int minPathSumDFS(int[][] grid, int i, int j) {
-        int INF = 0x3f3f3f3f;
         // 若为左上角单元格，则终止搜索
         if (i == 0 && j == 0){
             return grid[0][0];
         }
         // 若行列索引越界，则返回 +∞ 代价
         if (i < 0 || j < 0) {
-            return INF;
+            return int.MaxValue;
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
         int left = minPathSumDFS(grid, i - 1, j);
@@ -27,14 +26,13 @@ public class min_path_sum {
 
     /* 最小路径和：记忆化搜索 */
     public int minPathSumDFSMem(int[][] grid, int[][] mem, int i, int j) {
-        int INF = 0x3f3f3f3f;
         // 若为左上角单元格，则终止搜索
         if (i == 0 && j == 0) {
             return grid[0][0];
         }
         // 若行列索引越界，则返回 +∞ 代价
         if (i < 0 || j < 0) {
-            return INF;
+            return int.MaxValue;
         }
         // 若已有记录，则直接返回
         if (mem[i][j] != -1) {
