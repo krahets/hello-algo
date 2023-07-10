@@ -159,6 +159,7 @@ void freeLinklist(linkList *l) {
 /* 链表构造函数 */
 linkList *newLinklist(Vertex *val) {
     linkList *newLinklist = (linkList *)malloc(sizeof(linkList));
+
     newLinklist->head = newNode();
     newLinklist->head->val = val;
     newLinklist->tail = newLinklist->head;
@@ -184,7 +185,6 @@ void addEdge(graphAdjList *t, int i, int j) {
         printf("Out of range in %s:%d\n", __FILE__, __LINE__);
         return;
     }
-    
     // 查找待连接的节点
     Node *v1 = findByindex(t->verticesList, i);
     Node *v2 = findByindex(t->verticesList, j);
@@ -200,7 +200,7 @@ void removeEdge(graphAdjList *t, int i, int j) {
         printf("Out of range in %s:%d\n", __FILE__, __LINE__);
         return;
     }
-    
+
     // 查找待删除边的相关节点
     Node *v1 = findByindex(t->verticesList, i);
     Node *v2 = findByindex(t->verticesList, j);
@@ -252,7 +252,7 @@ void printGraph(graphAdjList *t) {
     printf("邻接表  =\n");
     while (temp != 0) {
         Node *t = temp->val->linked->head->next;
-        printf("%d:    [", temp->val->val);
+        printf("%d: [", temp->val->val);
         while (t != 0) {
             if (t->next != 0) {
                 printf("%d, ", t->val->val);
