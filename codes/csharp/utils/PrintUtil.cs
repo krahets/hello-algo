@@ -18,7 +18,7 @@ public class Trunk {
 
 public class PrintUtil {
     /* Print a list */
-    public static void PrintList<T>(List<T> list) {
+    public static void PrintList<T>(IList<T> list) {
         Console.WriteLine("[" + string.Join(", ", list) + "]");
     }
 

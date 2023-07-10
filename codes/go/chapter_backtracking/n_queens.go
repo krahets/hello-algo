@@ -21,8 +21,8 @@ func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, d
 		// 计算该格子对应的主对角线和副对角线
 		diag1 := row - col + n - 1
 		diag2 := row + col
-		// 剪枝：不允许该格子所在 (列 或 主对角线 或 副对角线) 包含皇后
-		if !((*cols)[col] || (*diags1)[diag1] || (*diags2)[diag2]) {
+		// 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+		if !(*cols)[col] && !(*diags1)[diag1] && !(*diags2)[diag2] {
 			// 尝试：将皇后放置在该格子
 			(*state)[row][col] = "Q"
 			(*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = true, true, true

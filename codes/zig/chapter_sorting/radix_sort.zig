@@ -18,11 +18,11 @@ fn countingSortDigit(nums: []i32, exp: i32) !void {
     // defer mem_arena.deinit();
     const mem_allocator = mem_arena.allocator();
     var counter = try mem_allocator.alloc(usize, 10);
-    std.mem.set(usize, counter, 0);
+    @memset(counter, 0);
     var n = nums.len;
     // 统计 0~9 各数字的出现次数
     for (nums) |num| {
-        var d = @bitCast(u32, digit(num, exp)); // 获取 nums[i] 第 k 位，记为 d
+        var d: u32 = @bitCast(digit(num, exp)); // 获取 nums[i] 第 k 位，记为 d
         counter[d] += 1; // 统计数字 d 的出现次数
     }
     // 求前缀和，将“出现个数”转换为“数组索引”
@@ -34,7 +34,7 @@ fn countingSortDigit(nums: []i32, exp: i32) !void {
     var res = try mem_allocator.alloc(i32, n);
     i = n - 1;
     while (i >= 0) : (i -= 1) {
-        var d = @bitCast(u32, digit(nums[i], exp));
+        var d: u32 = @bitCast(digit(nums[i], exp));
         var j = counter[d] - 1; // 获取 d 在数组中的索引 j
         res[j] = nums[i];       // 将当前元素填入索引 j
         counter[d] -= 1;        // 将 d 的数量减 1

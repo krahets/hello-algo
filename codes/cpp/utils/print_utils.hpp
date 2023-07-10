@@ -13,16 +13,6 @@
 #include <sstream>
 #include <string>
 
-/* Expose the underlying storage of the priority_queue container */
-template <typename T, typename S, typename C> S &Container(priority_queue<T, S, C> &pq) {
-    struct HackedQueue : private priority_queue<T, S, C> {
-        static S &Container(priority_queue<T, S, C> &pq) {
-            return pq.*&HackedQueue::c;
-        }
-    };
-    return HackedQueue::Container(pq);
-}
-
 /* Find an element in a vector */
 template <typename T> int vecFind(const vector<T> &vec, T ele) {
     int j = INT_MAX;
@@ -215,6 +205,16 @@ template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, 
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';
     }
+}
+
+/* Expose the underlying storage of the priority_queue container */
+template <typename T, typename S, typename C> S &Container(priority_queue<T, S, C> &pq) {
+    struct HackedQueue : private priority_queue<T, S, C> {
+        static S &Container(priority_queue<T, S, C> &pq) {
+            return pq.*&HackedQueue::c;
+        }
+    };
+    return HackedQueue::Container(pq);
 }
 
 /* Print a Heap (PriorityQueue) */

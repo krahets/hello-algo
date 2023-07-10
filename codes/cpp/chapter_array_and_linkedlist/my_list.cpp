@@ -67,7 +67,7 @@ class MyList {
         // 元素数量超出容量时，触发扩容机制
         if (size() == capacity())
             extendCapacity();
-        // 索引 i 以及之后的元素都向后移动一位
+        // 将索引 index 以及之后的元素都向后移动一位
         for (int j = size() - 1; j >= index; j--) {
             nums[j + 1] = nums[j];
         }
@@ -93,7 +93,7 @@ class MyList {
 
     /* 列表扩容 */
     void extendCapacity() {
-        // 新建一个长度为 size * extendRatio 的数组，并将原数组拷贝到新数组
+        // 新建一个长度为原数组 extendRatio 倍的新数组
         int newCapacity = capacity() * extendRatio;
         int *tmp = nums;
         nums = new int[newCapacity];

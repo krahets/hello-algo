@@ -24,10 +24,10 @@ function twoSumHashTable(nums, target) {
     let m = {};
     // 单层循环，时间复杂度 O(n)
     for (let i = 0; i < nums.length; i++) {
-        if (m[nums[i]] !== undefined) {
-            return [m[nums[i]], i];
+        if (m[target - nums[i]] !== undefined) {
+            return [m[target-nums[i]], i];
         } else {
-            m[target - nums[i]] = i;
+            m[nums[i]] = i;
         }
     }
     return [];

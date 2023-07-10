@@ -104,6 +104,12 @@
     [class]{}-[func]{binarySearch}
     ```
 
+=== "Dart"
+
+    ```dart title="binary_search.dart"
+    [class]{}-[func]{binarySearch}
+    ```
+
 时间复杂度为 $O(\log n)$ 。每轮缩小一半区间，因此二分循环次数为 $\log_2 n$ 。
 
 空间复杂度为 $O(1)$  。指针 `i` , `j` 使用常数大小空间。
@@ -171,6 +177,12 @@
 === "Zig"
 
     ```zig title="binary_search.zig"
+    [class]{}-[func]{binarySearchLCRO}
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_search.dart"
     [class]{}-[func]{binarySearchLCRO}
     ```
 

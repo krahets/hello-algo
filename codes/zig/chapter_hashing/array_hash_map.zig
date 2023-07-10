@@ -5,13 +5,13 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 键值对 int->String
-const Entry = struct {
+// 键值对
+const Pair = struct {
     key: usize = undefined,
     val: []const u8 = undefined,
 
-    pub fn init(key: usize, val: []const u8) Entry {
-        return Entry {
+   pub fn init(key: usize, val: []const u8) Pair {
+        return Pair {
             .key = key,
             .val = val,
         };
@@ -21,25 +21,25 @@ const Entry = struct {
 // 基于数组简易实现的哈希表
 pub fn ArrayHashMap(comptime T: type) type {
     return struct {
-        buckets: ?std.ArrayList(?T) = null,
+        bucket: ?std.ArrayList(?T) = null,
         mem_allocator: std.mem.Allocator = undefined,
 
         const Self = @This();
         
-        // 构造方法
+        // 构造函数
         pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
             self.mem_allocator = allocator;
-            // 初始化数组，包含 100 个桶
-            self.buckets = std.ArrayList(?T).init(self.mem_allocator);
+            // 初始化一个长度为 100 的桶（数组）
+            self.bucket = std.ArrayList(?T).init(self.mem_allocator);
             var i: i32 = 0;
             while (i < 100) : (i += 1) {
-                try self.buckets.?.append(null);
+                try self.bucket.?.append(null);
             }
         }
 
-        // 析构方法
+        // 析构函数
         pub fn deinit(self: *Self) void {
-            if (self.buckets != null) self.buckets.?.deinit();
+            if (self.bucket != null) self.bucket.?.deinit();
         }
 
         // 哈希函数
@@ -51,57 +51,57 @@ pub fn ArrayHashMap(comptime T: type) type {
         // 查询操作
         pub fn get(self: *Self, key: usize) []const u8 {
             var index = hashFunc(key);
-            var pair = self.buckets.?.items[index];
+            var pair = self.bucket.?.items[index];
             return pair.?.val;
         }
 
         // 添加操作
         pub fn put(self: *Self, key: usize, val: []const u8) !void {
-            var pair = Entry.init(key, val);
+            var pair = Pair.init(key, val);
             var index = hashFunc(key);
-            self.buckets.?.items[index] = pair;
+            self.bucket.?.items[index] = pair;
         }
 
         // 删除操作
         pub fn remove(self: *Self, key: usize) !void {
             var index = hashFunc(key);
             // 置为 null ，代表删除
-            self.buckets.?.items[index] = null;
+            self.bucket.?.items[index] = null;
         }       
 
         // 获取所有键值对
-        pub fn entrySet(self: *Self) !*std.ArrayList(T) {
+        pub fn pairSet(self: *Self) !std.ArrayList(T) {
             var entry_set = std.ArrayList(T).init(self.mem_allocator);
-            for (self.buckets.?.items) |item| {
+            for (self.bucket.?.items) |item| {
                 if (item == null) continue;
                 try entry_set.append(item.?);
             }
-            return &entry_set;
+            return entry_set;
         }  
 
         // 获取所有键
-        pub fn keySet(self: *Self) !*std.ArrayList(usize) {
+        pub fn keySet(self: *Self) !std.ArrayList(usize) {
             var key_set = std.ArrayList(usize).init(self.mem_allocator);
-            for (self.buckets.?.items) |item| {
+            for (self.bucket.?.items) |item| {
                 if (item == null) continue;
                 try key_set.append(item.?.key);
             }
-            return &key_set;
+            return key_set;
         }  
 
         // 获取所有值
-        pub fn valueSet(self: *Self) !*std.ArrayList([]const u8) {
+        pub fn valueSet(self: *Self) !std.ArrayList([]const u8) {
             var value_set = std.ArrayList([]const u8).init(self.mem_allocator);
-            for (self.buckets.?.items) |item| {
+            for (self.bucket.?.items) |item| {
                 if (item == null) continue;
                 try value_set.append(item.?.val);
             }
-            return &value_set;
+            return value_set;
         }
 
         // 打印哈希表
         pub fn print(self: *Self) !void {
-            var entry_set = try self.entrySet();
+            var entry_set = try self.pairSet();
             defer entry_set.deinit();
             for (entry_set.items) |item| {
                 std.debug.print("{} -> {s}\n", .{item.key, item.val});
@@ -113,7 +113,7 @@ pub fn ArrayHashMap(comptime T: type) type {
 // Driver Code
 pub fn main() !void {
     // 初始化哈希表
-    var map = ArrayHashMap(Entry){};
+    var map = ArrayHashMap(Pair){};
     try map.init(std.heap.page_allocator);
     defer map.deinit();
 
@@ -140,23 +140,23 @@ pub fn main() !void {
     
     // 遍历哈希表
     std.debug.print("\n遍历键值对 Key->Value\n", .{});
-    var entry_set = try map.entrySet();
+    var entry_set = try map.pairSet();
     for (entry_set.items) |kv| {
         std.debug.print("{} -> {s}\n", .{kv.key, kv.val});
     }
-    entry_set.deinit();
+    defer entry_set.deinit();
     std.debug.print("\n单独遍历键 Key\n", .{});
     var key_set = try map.keySet();
     for (key_set.items) |key| {
         std.debug.print("{}\n", .{key});
     }
-    key_set.deinit();
+    defer key_set.deinit();
     std.debug.print("\n单独遍历值 value\n", .{});
     var value_set = try map.valueSet();
     for (value_set.items) |val| {
         std.debug.print("{s}\n", .{val});
     }
-    value_set.deinit();
+    defer value_set.deinit();
 
     _ = try std.io.getStdIn().reader().readByte();
 }

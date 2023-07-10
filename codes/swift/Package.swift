@@ -27,6 +27,10 @@ let package = Package(
         // chapter_hashing
         .executable(name: "hash_map", targets: ["hash_map"]),
         .executable(name: "array_hash_map", targets: ["array_hash_map"]),
+        .executable(name: "hash_map_chaining", targets: ["hash_map_chaining"]),
+        .executable(name: "hash_map_open_addressing", targets: ["hash_map_open_addressing"]),
+        .executable(name: "simple_hash", targets: ["simple_hash"]),
+        .executable(name: "built_in_hash", targets: ["built_in_hash"]),
         // chapter_tree
         .executable(name: "binary_tree", targets: ["binary_tree"]),
         .executable(name: "binary_tree_bfs", targets: ["binary_tree_bfs"]),
@@ -35,6 +39,7 @@ let package = Package(
         .executable(name: "avl_tree", targets: ["avl_tree"]),
         // chapter_heap
         .executable(name: "my_heap", targets: ["my_heap"]),
+        .executable(name: "top_k", targets: ["top_k"]),
         // chapter_graph
         .executable(name: "graph_adjacency_matrix", targets: ["graph_adjacency_matrix"]),
         .executable(name: "graph_adjacency_list", targets: ["graph_adjacency_list"]),
@@ -63,6 +68,9 @@ let package = Package(
         .executable(name: "preorder_traversal_iii_template", targets: ["preorder_traversal_iii_template"]),
         .executable(name: "permutations_i", targets: ["permutations_i"]),
         .executable(name: "permutations_ii", targets: ["permutations_ii"]),
+        .executable(name: "subset_sum_i_naive", targets: ["subset_sum_i_naive"]),
+        .executable(name: "subset_sum_i", targets: ["subset_sum_i"]),
+        .executable(name: "subset_sum_ii", targets: ["subset_sum_ii"]),
         .executable(name: "n_queens", targets: ["n_queens"]),
     ],
     targets: [
@@ -90,7 +98,11 @@ let package = Package(
         .executableTarget(name: "array_deque", path: "chapter_stack_and_queue", sources: ["array_deque.swift"]),
         // chapter_hashing
         .executableTarget(name: "hash_map", dependencies: ["utils"], path: "chapter_hashing", sources: ["hash_map.swift"]),
-        .executableTarget(name: "array_hash_map", path: "chapter_hashing", sources: ["array_hash_map.swift"]),
+        .executableTarget(name: "array_hash_map", dependencies: ["utils"], path: "chapter_hashing", sources: ["array_hash_map.swift"]),
+        .executableTarget(name: "hash_map_chaining", dependencies: ["utils"], path: "chapter_hashing", sources: ["hash_map_chaining.swift"]),
+        .executableTarget(name: "hash_map_open_addressing", dependencies: ["utils"], path: "chapter_hashing", sources: ["hash_map_open_addressing.swift"]),
+        .executableTarget(name: "simple_hash", path: "chapter_hashing", sources: ["simple_hash.swift"]),
+        .executableTarget(name: "built_in_hash", dependencies: ["utils"], path: "chapter_hashing", sources: ["built_in_hash.swift"]),
         // chapter_tree
         .executableTarget(name: "binary_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["binary_tree.swift"]),
         .executableTarget(name: "binary_tree_bfs", dependencies: ["utils"], path: "chapter_tree", sources: ["binary_tree_bfs.swift"]),
@@ -99,6 +111,7 @@ let package = Package(
         .executableTarget(name: "avl_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["avl_tree.swift"]),
         // chapter_heap
         .executableTarget(name: "my_heap", dependencies: ["utils"], path: "chapter_heap", sources: ["my_heap.swift"]),
+        .executableTarget(name: "top_k", dependencies: ["utils"], path: "chapter_heap", sources: ["top_k.swift"]),
         // chapter_graph
         .executableTarget(name: "graph_adjacency_matrix", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_matrix.swift"]),
         .executableTarget(name: "graph_adjacency_list", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_list.swift"]),
@@ -127,6 +140,9 @@ let package = Package(
         .executableTarget(name: "preorder_traversal_iii_template", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_iii_template.swift"]),
         .executableTarget(name: "permutations_i", path: "chapter_backtracking", sources: ["permutations_i.swift"]),
         .executableTarget(name: "permutations_ii", path: "chapter_backtracking", sources: ["permutations_ii.swift"]),
+        .executableTarget(name: "subset_sum_i_naive", path: "chapter_backtracking", sources: ["subset_sum_i_naive.swift"]),
+        .executableTarget(name: "subset_sum_i", path: "chapter_backtracking", sources: ["subset_sum_i.swift"]),
+        .executableTarget(name: "subset_sum_ii", path: "chapter_backtracking", sources: ["subset_sum_ii.swift"]),
         .executableTarget(name: "n_queens", path: "chapter_backtracking", sources: ["n_queens.swift"]),
     ]
 )

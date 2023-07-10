@@ -68,11 +68,11 @@ public class GraphAdjList {
     /* 打印邻接表 */
     public void print() {
         Console.WriteLine("邻接表 =");
-        foreach (KeyValuePair<Vertex, List<Vertex>> entry in adjList) {
+        foreach (KeyValuePair<Vertex, List<Vertex>> pair in adjList) {
             List<int> tmp = new List<int>();
-            foreach (Vertex vertex in entry.Value)
+            foreach (Vertex vertex in pair.Value)
                 tmp.Add(vertex.val);
-            Console.WriteLine(entry.Key.val + ": [" + string.Join(", ", tmp) + "],");
+            Console.WriteLine(pair.Key.val + ": [" + string.Join(", ", tmp) + "],");
         }
     }
 }

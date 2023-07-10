@@ -2,7 +2,7 @@
 
 !!! tip
 
-    阅读本节前，请确保已完成堆章节的学习。
+    阅读本节前，请确保已学完「堆」章节。
 
 「堆排序 Heap Sort」是一种基于堆数据结构实现的高效排序算法。我们可以利用已经学过的“建堆操作”和“元素出堆操作”实现堆排序：
 
@@ -135,6 +135,14 @@
 === "Zig"
 
     ```zig title="heap_sort.zig"
+    [class]{}-[func]{siftDown}
+
+    [class]{}-[func]{heapSort}
+    ```
+
+=== "Dart"
+
+    ```dart title="heap_sort.dart"
     [class]{}-[func]{siftDown}
 
     [class]{}-[func]{heapSort}

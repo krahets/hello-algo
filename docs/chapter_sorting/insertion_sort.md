@@ -79,6 +79,12 @@
     [class]{}-[func]{insertionSort}
     ```
 
+=== "Dart"
+
+    ```dart title="insertion_sort.dart"
+    [class]{}-[func]{insertionSort}
+    ```
+
 ## 算法特性
 
 - **时间复杂度 $O(n^2)$ 、自适应排序** ：最差情况下，每次插入操作分别需要循环 $n - 1$ , $n-2$ , $\cdots$ , $2$ , $1$ 次，求和得到 $\frac{(n - 1) n}{2}$ ，因此时间复杂度为 $O(n^2)$ 。在遇到有序数据时，插入操作会提前终止。当输入数组完全有序时，插入排序达到最佳时间复杂度 $O(n)$ 。

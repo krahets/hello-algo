@@ -6,21 +6,21 @@ package chapter_hashing
 
 import "fmt"
 
-/* 键值对 int->String */
-type entry struct {
+/* 键值对 */
+type pair struct {
 	key int
 	val string
 }
 
 /* 基于数组简易实现的哈希表 */
 type arrayHashMap struct {
-	buckets []*entry
+	buckets []*pair
 }
 
 /* 初始化哈希表 */
 func newArrayHashMap() *arrayHashMap {
 	// 初始化数组，包含 100 个桶
-	buckets := make([]*entry, 100)
+	buckets := make([]*pair, 100)
 	return &arrayHashMap{buckets: buckets}
 }
 
@@ -42,7 +42,7 @@ func (a *arrayHashMap) get(key int) string {
 
 /* 添加操作 */
 func (a *arrayHashMap) put(key int, val string) {
-	pair := &entry{key: key, val: val}
+	pair := &pair{key: key, val: val}
 	index := a.hashFunc(key)
 	a.buckets[index] = pair
 }
@@ -55,8 +55,8 @@ func (a *arrayHashMap) remove(key int) {
 }
 
 /* 获取所有键对 */
-func (a *arrayHashMap) entrySet() []*entry {
-	var pairs []*entry
+func (a *arrayHashMap) pairSet() []*pair {
+	var pairs []*pair
 	for _, pair := range a.buckets {
 		if pair != nil {
 			pairs = append(pairs, pair)

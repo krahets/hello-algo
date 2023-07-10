@@ -5,7 +5,7 @@
  */
 
 /* 键值对 Number -> String */
-class Entry {
+class Pair {
     constructor(key, val) {
         this.key = key;
         this.val = val;
@@ -28,15 +28,15 @@ class ArrayHashMap {
     /* 查询操作 */
     get(key) {
         let index = this.#hashFunc(key);
-        let entry = this.#buckets[index];
-        if (entry === null) return null;
-        return entry.val;
+        let pair = this.#buckets[index];
+        if (pair === null) return null;
+        return pair.val;
     }
 
     /* 添加操作 */
     set(key, val) {
         let index = this.#hashFunc(key);
-        this.#buckets[index] = new Entry(key, val);
+        this.#buckets[index] = new Pair(key, val);
     }
 
     /* 删除操作 */
@@ -81,10 +81,10 @@ class ArrayHashMap {
 
     /* 打印哈希表 */
     print() {
-        let entrySet = this.entries();
-        for (const entry of entrySet) {
-            if (!entry) continue;
-            console.info(`${entry.key} -> ${entry.val}`);
+        let pairSet = this.entries();
+        for (const pair of pairSet) {
+            if (!pair) continue;
+            console.info(`${pair.key} -> ${pair.val}`);
         }
     }
 }
@@ -115,9 +115,9 @@ map.print();
 
 /* 遍历哈希表 */
 console.info('\n遍历键值对 Key->Value');
-for (const entry of map.entries()) {
-    if (!entry) continue;
-    console.info(entry.key + ' -> ' + entry.val);
+for (const pair of map.entries()) {
+    if (!pair) continue;
+    console.info(pair.key + ' -> ' + pair.val);
 }
 console.info('\n单独遍历键 Key');
 for (const key of map.keys()) {

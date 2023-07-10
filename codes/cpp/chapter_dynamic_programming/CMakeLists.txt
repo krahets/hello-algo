@@ -1,0 +1,5 @@
+add_executable(climbing_stairs_backtrack climbing_stairs_backtrack.cpp)
+add_executable(climbing_stairs_dfs climbing_stairs_dfs.cpp)
+add_executable(climbing_stairs_dfs_mem climbing_stairs_dfs_mem.cpp)
+add_executable(climbing_stairs_dp climbing_stairs_dp.cpp)
+add_executable(min_cost_climbing_stairs_dp min_cost_climbing_stairs_dp.cpp)

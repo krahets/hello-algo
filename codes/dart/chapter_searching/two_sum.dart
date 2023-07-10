@@ -31,7 +31,7 @@ List<int> twoSumHashTable(List<int> nums, int target) {
 }
 
 /* Driver Code */
-int main() {
+void main() {
   // ======= Test Case =======
   List<int> nums = [2, 7, 11, 15];
   int target = 13;
@@ -43,5 +43,4 @@ int main() {
   // 方法二
   res = twoSumHashTable(nums, target);
   print('方法二 res = $res');
-  return 0;
 }

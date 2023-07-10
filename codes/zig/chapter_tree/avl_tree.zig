@@ -38,7 +38,7 @@ pub fn AVLTree(comptime T: type) type {
         // 更新节点高度
         fn updateHeight(self: *Self, node: ?*inc.TreeNode(T)) void {
             // 节点高度等于最高子树高度 + 1
-            node.?.height = std.math.max(self.height(node.?.left), self.height(node.?.right)) + 1;
+            node.?.height = @max(self.height(node.?.left), self.height(node.?.right)) + 1;
         }
 
         // 获取平衡因子
@@ -108,8 +108,8 @@ pub fn AVLTree(comptime T: type) type {
         }
 
         // 插入节点
-        fn insert(self: *Self, val: T) void {
-            self.root = try self.insertHelper(self.root, val);
+        fn insert(self: *Self, val: T) !void {
+            self.root = (try self.insertHelper(self.root, val)).?;
         }
 
         // 递归插入节点（辅助方法）
@@ -137,7 +137,7 @@ pub fn AVLTree(comptime T: type) type {
 
         // 删除节点
         fn remove(self: *Self, val: T) void {
-           self.root = self.removeHelper(self.root, val);
+           self.root = self.removeHelper(self.root, val).?;
         }
 
         // 递归删除节点（辅助方法）
@@ -200,14 +200,14 @@ pub fn AVLTree(comptime T: type) type {
 
 pub fn testInsert(comptime T: type, tree_: *AVLTree(T), val: T) !void {
     var tree = tree_;
-    _ = try tree.insert(val);
+    try tree.insert(val);
     std.debug.print("\n插入节点 {} 后，AVL 树为\n", .{val});
     try inc.PrintUtil.printTree(tree.root, null, false);
 }
 
 pub fn testRemove(comptime T: type, tree_: *AVLTree(T), val: T) void {
     var tree = tree_;
-    _ = tree.remove(val);
+    tree.remove(val);
     std.debug.print("\n删除节点 {} 后，AVL 树为\n", .{val});
     try inc.PrintUtil.printTree(tree.root, null, false);
 }

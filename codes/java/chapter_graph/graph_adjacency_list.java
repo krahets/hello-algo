@@ -71,11 +71,11 @@ class GraphAdjList {
     /* 打印邻接表 */
     public void print() {
         System.out.println("邻接表 =");
-        for (Map.Entry<Vertex, List<Vertex>> entry : adjList.entrySet()) {
+        for (Map.Entry<Vertex, List<Vertex>> pair : adjList.entrySet()) {
             List<Integer> tmp = new ArrayList<>();
-            for (Vertex vertex : entry.getValue())
+            for (Vertex vertex : pair.getValue())
                 tmp.add(vertex.val);
-            System.out.println(entry.getKey().val + ": " + tmp + ",");
+            System.out.println(pair.getKey().val + ": " + tmp + ",");
         }
     }
 }

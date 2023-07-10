@@ -87,4 +87,4 @@ class GraphAdjList {
     }
 };
 
-// GraphAdjList 的测试样例在 graph_adjacency_list_test.cpp 文件中
+// 测试样例请见 graph_adjacency_list_test.cpp

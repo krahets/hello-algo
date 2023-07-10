@@ -50,7 +50,7 @@ int bubbleSort(List<int> nums) {
   int count = 0; // 计数器
   // 外循环：未排序区间为 [0, i]
   for (var i = nums.length - 1; i > 0; i--) {
-    // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+    // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
     for (var j = 0; j < i; j++) {
       if (nums[j] > nums[j + 1]) {
         // 交换 nums[j] 与 nums[j + 1]
@@ -122,7 +122,7 @@ int factorialRecur(int n) {
 }
 
 /* Driver Code */
-int main() {
+void main() {
   // 可以修改 n 运行，体会一下各种复杂度的操作数量变化趋势
   int n = 8;
   print('输入数据大小 n = $n');
@@ -160,5 +160,4 @@ int main() {
 
   count = factorialRecur(n);
   print('阶乘阶（递归实现）的计算操作数量 = $count');
-  return 0;
 }
