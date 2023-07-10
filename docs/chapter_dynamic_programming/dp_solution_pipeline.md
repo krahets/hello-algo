@@ -176,7 +176,7 @@ $$
 === "Java"
 
     ```java title="min_path_sum.java"
-    [class]{min}-[func]{minPathSumDFSMem}
+    [class]{min_path_sum}-[func]{minPathSumDFSMem}
     ```
 
 === "C++"
