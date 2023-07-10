@@ -153,7 +153,6 @@ int main() {
     printVectorMatrix(res);
 
     // 释放内存
-	delVector(iNums);
 	delVector(res);
     return 0;
 }
