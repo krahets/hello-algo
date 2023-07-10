@@ -22,7 +22,7 @@ path = "chapter_computational_complexity/space_complexity.rs"
 # Run Command: cargo run --bin two_sum
 [[bin]]
 name = "two_sum"
-path = "chapter_computational_complexity/two_sum.rs"
+path = "chapter_searching/two_sum.rs"
 
 # Run Command: cargo run --bin array
 [[bin]]
@@ -193,6 +193,21 @@ path = "chapter_dynamic_programming/climbing_stairs_constraint_dp.rs"
 [[bin]]
 name = "climbing_stairs_backtrack"
 path = "chapter_dynamic_programming/climbing_stairs_backtrack.rs"
+
+# Run Command: cargo run --bin subset_sum_i_naive
+[[bin]]
+name = "subset_sum_i_naive"
+path = "chapter_backtracking/subset_sum_i_naive.rs"
+
+# Run Command: cargo run --bin subset_sum_i
+[[bin]]
+name = "subset_sum_i"
+path = "chapter_backtracking/subset_sum_i.rs"
+
+# Run Command: cargo run --bin subset_sum_ii
+[[bin]]
+name = "subset_sum_ii"
+path = "chapter_backtracking/subset_sum_ii.rs"
 
 [dependencies]
 rand = "0.8.5"
