@@ -52,7 +52,7 @@ def knapsack_dp(wgt, val, cap):
                 dp[i][c] = dp[i - 1][c]
             else:
                 # 不选和选物品 i 这两种方案的较大值
-                dp[i][c] = max(dp[i - 1][c - wgt[i - 1]] + val[i - 1], dp[i - 1][c])
+                dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1])
     return dp[n][cap]
 
 
@@ -70,30 +70,30 @@ def knapsack_dp_comp(wgt, val, cap):
                 dp[c] = dp[c]
             else:
                 # 不选和选物品 i 这两种方案的较大值
-                dp[c] = max(dp[c - wgt[i - 1]] + val[i - 1], dp[c])
+                dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
     return dp[cap]
 
 
 """Driver Code"""
 if __name__ == "__main__":
     wgt = [10, 20, 30, 40, 50]
-    val = [60, 100, 120, 160, 200]
+    val = [50, 120, 150, 210, 240]
     cap = 50
     n = len(wgt)
 
     # 暴力搜索
     res = knapsack_dfs(wgt, val, n, cap)
-    print(res)
+    print(f"不超过背包容量的最大物品价值为 {res}")
 
     # 记忆化搜索
     mem = [[-1] * (cap + 1) for _ in range(n + 1)]
     res = knapsack_dfs_mem(wgt, val, mem, n, cap)
-    print(res)
+    print(f"不超过背包容量的最大物品价值为 {res}")
 
     # 动态规划
     res = knapsack_dp(wgt, val, cap)
-    print(res)
+    print(f"不超过背包容量的最大物品价值为 {res}")
 
     # 状态压缩后的动态规划
     res = knapsack_dp_comp(wgt, val, cap)
-    print(res)
+    print(f"不超过背包容量的最大物品价值为 {res}")

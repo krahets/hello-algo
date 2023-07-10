@@ -4,7 +4,7 @@
 * Author: hpstory (hpstory1024@163.com)
 */
 
-namespace hello_algo.chapter_dynamic_programming; 
+namespace hello_algo.chapter_dynamic_programming;
 
 public class knapsack {
     /* 0-1 背包：暴力搜索 */
@@ -80,7 +80,7 @@ public class knapsack {
                     dp[c] = dp[c];
                 } else {
                     // 不选和选物品 i 这两种方案的较大值
-                    dp[c] = Math.Max(dp[c - weight[i - 1]] + val[i - 1], dp[c]);
+                    dp[c] = Math.Max(dp[c], dp[c - weight[i - 1]] + val[i - 1]);
                 }
             }
         }
@@ -90,12 +90,13 @@ public class knapsack {
     [Test]
     public void Test() {
         int[] weight = { 10, 20, 30, 40, 50 };
-        int[] val = { 60, 100, 120, 160, 200 };
+        int[] val = { 50, 120, 150, 210, 240 };
         int cap = 50;
         int n = weight.Length;
 
         // 暴力搜索
-        Console.WriteLine(knapsackDFS(weight, val, n, cap));
+        int res = knapsackDFS(weight, val, n, cap);
+        Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
 
         // 记忆化搜索
         int[][] mem = new int[n + 1][];
@@ -103,13 +104,15 @@ public class knapsack {
             mem[i] = new int[cap + 1];
             Array.Fill(mem[i], -1);
         }
-
-        Console.WriteLine(knapsackDFSMem(weight, val, mem, n, cap));
+        res = knapsackDFSMem(weight, val, mem, n, cap);
+        Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
 
         // 动态规划
-        Console.WriteLine(knapsackDP(weight, val, cap));
+        res = knapsackDP(weight, val, cap);
+        Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
 
         // 状态压缩后的动态规划
-        Console.WriteLine(knapsackDPComp(weight, val, cap));
+        res = knapsackDPComp(weight, val, cap);
+        Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
     }
 }
