@@ -401,7 +401,28 @@ $$
 === "Java"
 
     ```java title="min_path_sum.java"
-    [class]{min}-[func]{minPathSumDP}
+    /* 最小路径和：动态规划 */
+    int minPathSumDP(int[][] grid) {
+        int n = grid.length, m = grid[0].length;
+        // 初始化 dp 表
+        int[][] dp = new int[n][m];
+        dp[0][0] = grid[0][0];
+        // 状态转移：首行
+        for (int j = 1; j < m; j++) {
+            dp[0][j] = dp[0][j - 1] + grid[0][j];
+        }
+        // 状态转移：首列
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = dp[i - 1][0] + grid[i][0];
+        }
+        // 状态转移：其余行列
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                dp[i][j] = Math.min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+            }
+        }
+        return dp[n - 1][m - 1];
+    }
     ```
 
 === "C++"
@@ -567,7 +588,27 @@ $$
 === "Java"
 
     ```java title="min_path_sum.java"
-    [class]{min}-[func]{minPathSumDPComp}
+    /* 最小路径和：状态压缩后的动态规划 */
+    int minPathSumDPComp(int[][] grid) {
+        int n = grid.length, m = grid[0].length;
+        // 初始化 dp 表
+        int[] dp = new int[m];
+        // 状态转移：首行
+        dp[0] = grid[0][0];
+        for (int j = 1; j < m; j++) {
+            dp[j] = dp[j - 1] + grid[0][j];
+        }
+        // 状态转移：其余行
+        for (int i = 1; i < n; i++) {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0];
+            // 状态转移：其余列
+            for (int j = 1; j < m; j++) {
+                dp[j] = Math.min(dp[j - 1], dp[j]) + grid[i][j];
+            }
+        }
+        return dp[m - 1];
+    }
     ```
 
 === "C++"
