@@ -7,10 +7,9 @@
 namespace hello_algo.chapter_dynamic_programming; 
 
 public class min_path_sum {
-    private const int INF = 0x3f3f3f3f;
-
     /* 最小路径和：暴力搜索 */
     public int minPathSumDFS(int[][] grid, int i, int j) {
+        int INF = 0x3f3f3f3f;
         // 若为左上角单元格，则终止搜索
         if (i == 0 && j == 0){
             return grid[0][0];
@@ -28,6 +27,7 @@ public class min_path_sum {
 
     /* 最小路径和：记忆化搜索 */
     public int minPathSumDFSMem(int[][] grid, int[][] mem, int i, int j) {
+        int INF = 0x3f3f3f3f;
         // 若为左上角单元格，则终止搜索
         if (i == 0 && j == 0) {
             return grid[0][0];
