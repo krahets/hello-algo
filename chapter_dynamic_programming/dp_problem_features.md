@@ -18,7 +18,7 @@ comments: true
 
 如下图所示，若第 $1$ , $2$ , $3$ 阶的代价分别为 $1$ , $10$ , $1$ ，则从地面爬到第 $3$ 阶的最小代价为 $2$ 。
 
-![爬到第 3 阶的最小代价](intro_to_dynamic_programming.assets/min_cost_cs_example.png)
+![爬到第 3 阶的最小代价](dp_problem_features.assets/min_cost_cs_example.png)
 
 <p align="center"> Fig. 爬到第 3 阶的最小代价 </p>
 
@@ -159,7 +159,7 @@ $$
     [class]{}-[func]{minCostClimbingStairsDP}
     ```
 
-![爬楼梯最小代价的动态规划过程](intro_to_dynamic_programming.assets/min_cost_cs_dp.png)
+![爬楼梯最小代价的动态规划过程](dp_problem_features.assets/min_cost_cs_dp.png)
 
 <p align="center"> Fig. 爬楼梯最小代价的动态规划过程 </p>
 
@@ -289,7 +289,7 @@ $$
 
 例如，爬上第 $3$ 阶仅剩 $2$ 种可行方案，其中连续三次跳 $1$ 阶的方案不满足约束条件，因此被舍弃。
 
-![带约束爬到第 3 阶的方案数量](intro_to_dynamic_programming.assets/climbing_stairs_constraint_example.png)
+![带约束爬到第 3 阶的方案数量](dp_problem_features.assets/climbing_stairs_constraint_example.png)
 
 <p align="center"> Fig. 带约束爬到第 3 阶的方案数量 </p>
 
@@ -311,7 +311,7 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![考虑约束下的递推关系](intro_to_dynamic_programming.assets/climbing_stairs_constraint_state_transfer.png)
+![考虑约束下的递推关系](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png)
 
 <p align="center"> Fig. 考虑约束下的递推关系 </p>
 
