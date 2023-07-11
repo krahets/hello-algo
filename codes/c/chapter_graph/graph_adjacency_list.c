@@ -229,7 +229,7 @@ void addVertex(graphAdjList *t, int val) {
     // 申请新顶点内存并将新顶点地址存入顶点列表
     Vertex *newV = newVertex(val);
     newV->pos = t->size;
-    newV->linked = newLinklist(t->verticesList[t->size]);
+    newV->linked = newLinklist(newV);
     t->verticesList[t->size] = newV;
     t->size++;
 }
