@@ -124,6 +124,26 @@ path = "chapter_sorting/merge_sort.rs"
 name = "selection_sort"
 path = "chapter_sorting/selection_sort.rs"
 
+# Run Command: cargo run --bin bucket_sort
+[[bin]]
+name = "bucket_sort"
+path = "chapter_sorting/bucket_sort.rs"
+
+# Run Command: cargo run --bin heap_sort
+[[bin]]
+name = "heap_sort"
+path = "chapter_sorting/heap_sort.rs"
+
+# Run Command: cargo run --bin counting_sort
+[[bin]]
+name = "counting_sort"
+path = "chapter_sorting/counting_sort.rs"
+
+# Run Command: cargo run --bin radix_sort
+[[bin]]
+name = "radix_sort"
+path = "chapter_sorting/radix_sort.rs"
+
 # Run Command: cargo run --bin array_stack
 [[bin]]
 name = "array_stack"
