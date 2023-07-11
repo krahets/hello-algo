@@ -153,7 +153,7 @@ $$
 由于当前状态是从左边和上边的状态转移而来，**因此状态压缩后应该对 $dp$ 表中的每一行采取正序遍历**，这个遍历顺序与 0-1 背包正好相反。请通过以下动画来理解为什么要改为正序遍历。
 
 === "<1>"
-    ![unbounded_knapsack_dp_comp_step1](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
+    ![完全背包的状态压缩后的动态规划过程](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
 
 === "<2>"
     ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png)
@@ -469,7 +469,7 @@ $$
 下图展示了零钱兑换的动态规划过程。
 
 === "<1>"
-    ![coin_change_dp_step1](unbounded_knapsack_problem.assets/coin_change_dp_step1.png)
+    ![零钱兑换问题的动态规划过程](unbounded_knapsack_problem.assets/coin_change_dp_step1.png)
 
 === "<2>"
     ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.png)
