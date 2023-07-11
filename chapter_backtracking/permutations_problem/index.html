@@ -1961,6 +1961,8 @@
         
           
         
+          
+        
       
       
         
@@ -2033,6 +2035,20 @@
     <li class="md-nav__item">
       <a href="../../chapter_dynamic_programming/knapsack_problem/" class="md-nav__link">
         13.4. &nbsp; 0-1 背包问题（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_dynamic_programming/unbounded_knapsack_problem/" class="md-nav__link">
+        13.5. &nbsp; 完全背包问题（New）
       </a>
     </li>
   
@@ -2231,7 +2247,7 @@
 
 <h1 id="122">12.2. &nbsp; 全排列问题<a class="headerlink" href="#122" title="Permanent link">&para;</a></h1>
 <p>全排列问题是回溯算法的一个典型应用。它的定义是在给定一个集合（如一个数组或字符串）的情况下，找出这个集合中元素的所有可能的排列。</p>
-<p>如下表所示，列举了几个示例数组和其对应的所有排列。</p>
+<p>下表列举了几个示例数据，包括输入数组和对应的所有排列。</p>
 <div class="center-table">
 <table>
 <thead>
@@ -2559,7 +2575,7 @@
 </div>
 </div>
 <p>需要重点关注的是，我们引入了一个布尔型数组 <code>selected</code> ，它的长度与输入数组长度相等，其中 <code>selected[i]</code> 表示 <code>choices[i]</code> 是否已被选择。我们利用 <code>selected</code> 避免某个元素被重复选择，从而实现剪枝。</p>
-<p>如下图所示，假设我们第一轮选择 1 ，第二轮选择 3 ，第三轮选择 2 ，则需要在第二轮剪掉元素 1 的分支，在第三轮剪掉元素 1, 3 的分支。<strong>从本质上理解，此剪枝操作可将搜索空间大小从 <span class="arithmatex">\(O(n^n)\)</span> 降低至 <span class="arithmatex">\(O(n!)\)</span></strong> 。</p>
+<p>如下图所示，假设我们第一轮选择 1 ，第二轮选择 3 ，第三轮选择 2 ，则需要在第二轮剪掉元素 1 的分支，在第三轮剪掉元素 1, 3 的分支。<strong>此剪枝操作可将搜索空间大小从 <span class="arithmatex">\(O(n^n)\)</span> 降低至 <span class="arithmatex">\(O(n!)\)</span></strong> 。</p>
 <p><img alt="全排列剪枝示例" src="../permutations_problem.assets/permutations_i_pruning.png" /></p>
 <p align="center"> Fig. 全排列剪枝示例 </p>
 
@@ -2572,7 +2588,7 @@
 <p><img alt="重复排列" src="../permutations_problem.assets/permutations_ii.png" /></p>
 <p align="center"> Fig. 重复排列 </p>
 
-<p>那么，如何去除重复的排列呢？最直接地，我们可以借助一个哈希表，直接对排列结果进行去重。然而，这样做不够优雅，因为生成重复排列的搜索分支是没有必要的，应当被提前识别并剪枝，这样可以提升算法效率。</p>
+<p>那么，如何去除重复的排列呢？最直接地，我们可以借助一个哈希表，直接对排列结果进行去重。然而这样做不够优雅，<strong>因为生成重复排列的搜索分支是没有必要的，应当被提前识别并剪枝</strong>，这样可以进一步提升算法效率。</p>
 <p>观察发现，在第一轮中，选择 <span class="arithmatex">\(1\)</span> 或选择 <span class="arithmatex">\(\hat{1}\)</span> 是等价的，因为在这两个选择之下生成的所有排列都是重复的。因此，我们应该把 <span class="arithmatex">\(\hat{1}\)</span> 剪枝掉。同理，在第一轮选择 <span class="arithmatex">\(2\)</span> 后，第二轮选择中的 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(\hat{1}\)</span> 也会产生重复分支，因此也需要将第二轮的 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
 <p><img alt="重复排列剪枝" src="../permutations_problem.assets/permutations_ii_pruning.png" /></p>
 <p align="center"> Fig. 重复排列剪枝 </p>
