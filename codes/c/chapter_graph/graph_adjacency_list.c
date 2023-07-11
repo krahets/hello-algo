@@ -35,6 +35,8 @@ struct Vertex {
     int val;
     // 与其它节点相连接的边的链表
     linkList *linked;
+    // 索引位，标记该顶点在顶点列表中的索引
+    unsigned int pos;
 };
 
 /* 顶点节点构造函数 */
@@ -226,8 +228,9 @@ void addVertex(graphAdjList *t, int val) {
     }
     // 申请新顶点内存并将新顶点地址存入顶点列表
     Vertex *newV = newVertex(val);
+    newV->pos = t->size;
+    newV->linked = newLinklist(t->verticesList[t->size]);
     t->verticesList[t->size] = newV;
-    t->verticesList[t->size]->linked = newLinklist(t->verticesList[t->size]);
     t->size++;
 }
 
@@ -289,57 +292,10 @@ graphAdjList *newGraphic(unsigned int verticesNumber) {
     // 申请内存
     graphAdjList *newGraph = (graphAdjList *)malloc(sizeof(graphAdjList));
     // 建立顶点表并分配内存
-    newGraph->verticesList = (Vertex **)malloc(sizeof(Vertex *) * 5);
+    newGraph->verticesList = (Vertex **)malloc(sizeof(Vertex *) * verticesNumber);
     memset(newGraph->verticesList, 0, sizeof(Vertex *) * verticesNumber);
     // 初始化大小和容量
     newGraph->size = 0;
-    newGraph->capacity = 5;
+    newGraph->capacity = verticesNumber;
     return newGraph;
-}
-
-/* Driver Code */
-int main() {
-
-    /* 初始化无向图 */
-    graphAdjList *graph = newGraphic(5);
-    // 初始化顶点
-    addVertex(graph, 1);
-    addVertex(graph, 3);
-    addVertex(graph, 2);
-    addVertex(graph, 5);
-    addVertex(graph, 4);
-    // 初始化边
-    addEdge(graph, 0, 1);
-    addEdge(graph, 0, 3);
-    addEdge(graph, 1, 2);
-    addEdge(graph, 2, 3);
-    addEdge(graph, 2, 4);
-    addEdge(graph, 3, 4);
-    printf("\n初始化后，图为:\n");
-    printGraph(graph);
-
-    /* 添加边 */
-    // 顶点 1, 2 的索引分别为 0, 2
-    addEdge(graph, 0, 2);
-    printf("\n添加边 1-2 后图为\n");
-    printGraph(graph);
-
-    /* 删除边 */
-    // 顶点 1, 3 的索引分别为 0, 1
-    removeEdge(graph, 0, 1);
-    printf("\n删除边 1-3 后，图为\n");
-    printGraph(graph);
-
-    /* 添加顶点 */
-    addVertex(graph, 6);
-    printf("\n添加顶点 6 后，图为\n");
-    printGraph(graph);
-
-    /* 删除顶点 */
-    // 顶点 3 的索引为 1
-    removeVertex(graph, 1);
-    printf("\n删除顶点 3 后，图为\n");
-    printGraph(graph);
-
-    return 0;
 }
