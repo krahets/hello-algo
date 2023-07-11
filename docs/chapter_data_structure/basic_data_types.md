@@ -44,7 +44,7 @@
 === "Java"
 
     ```java title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     int[] numbers = new int[5];
     float[] decimals = new float[5];
     char[] characters = new char[5];
@@ -54,7 +54,7 @@
 === "C++"
 
     ```cpp title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     int numbers[5];
     float decimals[5];
     char characters[5];
@@ -81,14 +81,14 @@
 === "JavaScript"
 
     ```javascript title=""
-    /* JavaScript 的数组可以自由存储各种基本数据类型和对象 */
+    // JavaScript 的数组可以自由存储各种基本数据类型和对象
     const array = [0, 0.0, 'a', false];
     ```
 
 === "TypeScript"
 
     ```typescript title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     const numbers: number[] = [];
     const characters: string[] = [];
     const booleans: boolean[] = [];
@@ -97,7 +97,7 @@
 === "C"
 
     ```c title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     int numbers[10];
     float decimals[10];
     char characters[10];
@@ -107,7 +107,7 @@
 === "C#"
 
     ```csharp title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     int[] numbers = new int[5];
     float[] decimals = new float[5];
     char[] characters = new char[5];
@@ -117,7 +117,7 @@
 === "Swift"
 
     ```swift title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     let numbers = Array(repeating: Int(), count: 5)
     let decimals = Array(repeating: Double(), count: 5)
     let characters = Array(repeating: Character("a"), count: 5)
@@ -133,7 +133,7 @@
 === "Dart"
 
     ```dart title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     List<int> numbers = List.filled(5, 0);
     List<double> decimals = List.filled(5, 0.0);
     List<String> characters = List.filled(5, 'a');
