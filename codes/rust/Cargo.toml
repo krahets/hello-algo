@@ -22,7 +22,7 @@ path = "chapter_computational_complexity/space_complexity.rs"
 # Run Command: cargo run --bin two_sum
 [[bin]]
 name = "two_sum"
-path = "chapter_computational_complexity/two_sum.rs"
+path = "chapter_searching/two_sum.rs"
 
 # Run Command: cargo run --bin array
 [[bin]]
@@ -124,6 +124,26 @@ path = "chapter_sorting/merge_sort.rs"
 name = "selection_sort"
 path = "chapter_sorting/selection_sort.rs"
 
+# Run Command: cargo run --bin bucket_sort
+[[bin]]
+name = "bucket_sort"
+path = "chapter_sorting/bucket_sort.rs"
+
+# Run Command: cargo run --bin heap_sort
+[[bin]]
+name = "heap_sort"
+path = "chapter_sorting/heap_sort.rs"
+
+# Run Command: cargo run --bin counting_sort
+[[bin]]
+name = "counting_sort"
+path = "chapter_sorting/counting_sort.rs"
+
+# Run Command: cargo run --bin radix_sort
+[[bin]]
+name = "radix_sort"
+path = "chapter_sorting/radix_sort.rs"
+
 # Run Command: cargo run --bin array_stack
 [[bin]]
 name = "array_stack"
@@ -153,6 +173,61 @@ path = "chapter_tree/binary_tree_dfs.rs"
 [[bin]]
 name = "binary_tree"
 path = "chapter_tree/binary_tree.rs"
+
+# Run Command: cargo run --bin linear_search
+[[bin]]
+name = "linear_search"
+path = "chapter_searching/linear_search.rs"
+
+# Run Command: cargo run --bin hashing_search
+[[bin]]
+name = "hashing_search"
+path = "chapter_searching/hashing_search.rs"
+
+# Run Command: cargo run --bin climbing_stairs_dfs
+[[bin]]
+name = "climbing_stairs_dfs"
+path = "chapter_dynamic_programming/climbing_stairs_dfs.rs"
+
+# Run Command: cargo run --bin climbing_stairs_dfs_mem
+[[bin]]
+name = "climbing_stairs_dfs_mem"
+path = "chapter_dynamic_programming/climbing_stairs_dfs_mem.rs"
+
+# Run Command: cargo run --bin climbing_stairs_dp
+[[bin]]
+name = "climbing_stairs_dp"
+path = "chapter_dynamic_programming/climbing_stairs_dp.rs"
+
+# Run Command: cargo run --bin min_cost_climbing_stairs_dp
+[[bin]]
+name = "min_cost_climbing_stairs_dp"
+path = "chapter_dynamic_programming/min_cost_climbing_stairs_dp.rs"
+
+# Run Command: cargo run --bin climbing_stairs_constraint_dp
+[[bin]]
+name = "climbing_stairs_constraint_dp"
+path = "chapter_dynamic_programming/climbing_stairs_constraint_dp.rs"
+
+# Run Command: cargo run --bin climbing_stairs_backtrack
+[[bin]]
+name = "climbing_stairs_backtrack"
+path = "chapter_dynamic_programming/climbing_stairs_backtrack.rs"
+
+# Run Command: cargo run --bin subset_sum_i_naive
+[[bin]]
+name = "subset_sum_i_naive"
+path = "chapter_backtracking/subset_sum_i_naive.rs"
+
+# Run Command: cargo run --bin subset_sum_i
+[[bin]]
+name = "subset_sum_i"
+path = "chapter_backtracking/subset_sum_i.rs"
+
+# Run Command: cargo run --bin subset_sum_ii
+[[bin]]
+name = "subset_sum_ii"
+path = "chapter_backtracking/subset_sum_ii.rs"
 
 [dependencies]
 rand = "0.8.5"

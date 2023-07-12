@@ -18,7 +18,7 @@ fn binarySearch(comptime T: type, nums: std.ArrayList(T), target: T) T {
         } else if (nums.items[m] > target) {    // 此情况说明 target 在区间 [i, m-1] 中
             j = m - 1;
         } else {                                // 找到目标元素，返回其索引
-            return @intCast(T, m);
+            return @intCast(m);
         }
     }
     // 未找到目标元素，返回 -1
@@ -38,7 +38,7 @@ fn binarySearchLCRO(comptime T: type, nums: std.ArrayList(T), target: T) T {
         } else if (nums.items[m] > target) {    // 此情况说明 target 在区间 [i, m) 中
             j = m;
         } else {                                // 找到目标元素，返回其索引
-            return @intCast(T, m);
+            return @intCast(m);
         }
     }
     // 未找到目标元素，返回 -1

@@ -5,7 +5,7 @@ Author: Krahets (krahets@163.com)
 """
 
 
-def knapsack_dfs(wgt, val, i, c):
+def knapsack_dfs(wgt: list[int], val: list[int], i: int, c: int) -> int:
     """0-1 背包：暴力搜索"""
     # 若已选完所有物品或背包无容量，则返回价值 0
     if i == 0 or c == 0:
@@ -20,7 +20,9 @@ def knapsack_dfs(wgt, val, i, c):
     return max(no, yes)
 
 
-def knapsack_dfs_mem(wgt, val, mem, i, c):
+def knapsack_dfs_mem(
+    wgt: list[int], val: list[int], mem: list[list[int]], i: int, c: int
+) -> int:
     """0-1 背包：记忆化搜索"""
     # 若已选完所有物品或背包无容量，则返回价值 0
     if i == 0 or c == 0:
@@ -39,10 +41,10 @@ def knapsack_dfs_mem(wgt, val, mem, i, c):
     return mem[i][c]
 
 
-def knapsack_dp(wgt, val, cap):
+def knapsack_dp(wgt: list[int], val: list[int], cap: int) -> int:
     """0-1 背包：动态规划"""
     n = len(wgt)
-    # 初始化 dp 列表
+    # 初始化 dp 表
     dp = [[0] * (cap + 1) for _ in range(n + 1)]
     # 状态转移
     for i in range(1, n + 1):
@@ -52,14 +54,14 @@ def knapsack_dp(wgt, val, cap):
                 dp[i][c] = dp[i - 1][c]
             else:
                 # 不选和选物品 i 这两种方案的较大值
-                dp[i][c] = max(dp[i - 1][c - wgt[i - 1]] + val[i - 1], dp[i - 1][c])
+                dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1])
     return dp[n][cap]
 
 
-def knapsack_dp_comp(wgt, val, cap):
+def knapsack_dp_comp(wgt: list[int], val: list[int], cap: int) -> int:
     """0-1 背包：状态压缩后的动态规划"""
     n = len(wgt)
-    # 初始化 dp 列表
+    # 初始化 dp 表
     dp = [0] * (cap + 1)
     # 状态转移
     for i in range(1, n + 1):
@@ -70,30 +72,30 @@ def knapsack_dp_comp(wgt, val, cap):
                 dp[c] = dp[c]
             else:
                 # 不选和选物品 i 这两种方案的较大值
-                dp[c] = max(dp[c - wgt[i - 1]] + val[i - 1], dp[c])
+                dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
     return dp[cap]
 
 
 """Driver Code"""
 if __name__ == "__main__":
     wgt = [10, 20, 30, 40, 50]
-    val = [60, 100, 120, 160, 200]
+    val = [50, 120, 150, 210, 240]
     cap = 50
     n = len(wgt)
 
     # 暴力搜索
     res = knapsack_dfs(wgt, val, n, cap)
-    print(res)
+    print(f"不超过背包容量的最大物品价值为 {res}")
 
     # 记忆化搜索
     mem = [[-1] * (cap + 1) for _ in range(n + 1)]
     res = knapsack_dfs_mem(wgt, val, mem, n, cap)
-    print(res)
+    print(f"不超过背包容量的最大物品价值为 {res}")
 
     # 动态规划
     res = knapsack_dp(wgt, val, cap)
-    print(res)
+    print(f"不超过背包容量的最大物品价值为 {res}")
 
     # 状态压缩后的动态规划
     res = knapsack_dp_comp(wgt, val, cap)
-    print(res)
+    print(f"不超过背包容量的最大物品价值为 {res}")

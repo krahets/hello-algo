@@ -12,7 +12,7 @@ public class min_cost_climbing_stairs_dp {
         int n = cost.Length - 1;
         if (n == 1 || n == 2)
             return cost[n];
-        // 初始化 dp 列表，用于存储子问题的解
+        // 初始化 dp 表，用于存储子问题的解
         int[] dp = new int[n + 1];
         // 初始状态：预设最小子问题的解
         dp[1] = cost[1];
