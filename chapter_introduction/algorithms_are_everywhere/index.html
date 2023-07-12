@@ -1918,6 +1918,8 @@
         
           
         
+          
+        
       
       
         
@@ -2004,6 +2006,20 @@
     <li class="md-nav__item">
       <a href="../../chapter_dynamic_programming/unbounded_knapsack_problem/" class="md-nav__link">
         13.5. &nbsp; 完全背包问题（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_dynamic_programming/edit_distance_problem/" class="md-nav__link">
+        13.6. &nbsp; 编辑距离问题（New）
       </a>
     </li>
   
@@ -2200,14 +2216,14 @@
 </div>
 </div>
 <p>查阅字典这个小学生必备技能，实际上就是著名的「二分查找」。从数据结构的角度，我们可以把字典视为一个已排序的「数组」；从算法的角度，我们可以将上述查字典的一系列操作看作是「二分查找」算法。</p>
-<p><strong>例二：整理扑克</strong>。我们在打斗地主时，每局都需要整理扑克牌，使其从小到大排列，实现流程如下：</p>
+<p><strong>例二：整理扑克</strong>。我们在打牌时，每局都需要整理扑克牌，使其从小到大排列，实现流程如下：</p>
 <ol>
 <li>将扑克牌划分为“有序”和“无序”两部分，并假设初始状态下最左 1 张扑克牌已经有序。</li>
 <li>在无序区间抽出一张扑克牌，插入至有序区间的正确位置；完成后最左 2 张扑克已经有序。</li>
 <li>在无序区间抽出一张扑克牌，插入至有序区间的正确位置；完成后最左 3 张扑克已经有序。</li>
 <li>不断循环以上操作，直至所有扑克牌都有序后终止。</li>
 </ol>
-<p>以上整理扑克牌的方法本质上就是「插入排序」，它在处理小型数据集时非常高效，因此插入排序常作为编程语言的排序库函数的重要组成部分。</p>
+<p>以上整理扑克牌的方法本质上就是「插入排序」算法，它在处理小型数据集时非常高效。许多编程语言的排序库函数中都存在插入排序的身影。</p>
 <p><img alt="扑克排序步骤" src="../algorithms_are_everywhere.assets/playing_cards_sorting.png" /></p>
 <p align="center"> Fig. 扑克排序步骤 </p>
 
