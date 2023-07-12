@@ -258,9 +258,11 @@ void removeVertex(graphAdjList *t, unsigned int index) {
         temp = temp->next;
     }
 
-    // 定点列表前移
+    // 顶点列表前移
     for (int i = index; i < t->size - 1; i++) {
         t->verticesList[i] = t->verticesList[i + 1];
+        // 所有前移的顶点索引值减1
+        t->verticesList[i]->pos--;
     }
     t->verticesList[t->size - 1] = 0;
     t->size--;
