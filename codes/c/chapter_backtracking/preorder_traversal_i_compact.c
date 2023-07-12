@@ -32,7 +32,7 @@ void delArray(myArray *array) {
     }
 }
 
-void push_back(myArray *array, TreeNode *newNode) {
+void pushBack(myArray *array, TreeNode *newNode) {
     if (array) {
         if (array->data)
             array->data[array->size] = newNode;
@@ -61,7 +61,7 @@ static void preOrder(TreeNode *root) {
     }
     if (root->val == 7) {
         // 记录解
-        push_back(res, root);
+        pushBack(res, root);
     }
     preOrder(root->left);
     preOrder(root->right);

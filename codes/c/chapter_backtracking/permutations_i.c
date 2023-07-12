@@ -6,75 +6,11 @@
 
 #include "../utils/common.h"
 
-/* 定义向量类型 */
-typedef struct Vector {
-	int size;     // 当前向量的大小
-	int capacity; // 当前向量的容量
-	int depth;    // 当前向量的深度
-	void **data;  // 指向数据的指针数组
-} Vector;
-
-/* 构造向量 */
-Vector* newVector() {
-	Vector *v = malloc (sizeof(Vector));
-	v->size = 0;
-	v->capacity = 4;
-	v->depth = 1;
-	v->data = malloc(v->capacity * sizeof(void *));
-	return v;
-}
-
-/* 析构向量 */
-void delVector(Vector *v) {
-	if (v) {
-		if (v->depth == 0) {
-			return ;
-		} else if (v->depth == 1) {
-			for (int i=0; i<v->size; i++) {
-				free(v->data[i]);
-			}
-			free(v);
-		} else {
-			for (int i=0; i<v->size; i++) {
-				delVector(v->data[i]);
-			}
-			v->depth--;
-		}
-	}
-}
-
-/*  添加元素到向量尾部 */
-void vectorPushback(Vector *v, void *elem) {
-    if (v->size == v->capacity) {
-        v->capacity *= 2;
-        v->data = realloc(v->data, v->capacity * sizeof(void *));
-    }
-    v->data[v->size++] = elem;
-}
-
-/* 从向量尾部弹出元素 */
-void vectorPopback(Vector *v) {
-    if (v->size != 0) {
-        v->size--;
-    }
-}
-
-/* 清空向量 */
-void vectorClear(Vector *v) {
-    for (int i = 0; i < v->size; i++) {
-        free(v->data[i]);
-    }
-    free(v->data);
-    v->size = 0;
-    v->capacity = 4;
-    v->data = malloc(v->capacity * sizeof(void *));
-}
-
 /* 回溯算法：全排列 I */
-void backtrack(Vector *state, Vector *choices, Vector *selected, Vector *res) {
+void backtrack(vector *state, vector *choices, vector *selected, vector *res) {
     // 当状态长度等于元素数量时，记录解
     if (state->size == choices->size) {
-        Vector *newState = newVector();
+        vector *newState = newVector();
         for (int i = 0; i < state->size; i++) {
             vectorPushback(newState, state->data[i]);
         }
@@ -101,10 +37,10 @@ void backtrack(Vector *state, Vector *choices, Vector *selected, Vector *res) {
 }
 
 // 打印二维向量中的元素
-void printVectorMatrix(Vector *vv) {
+void printVectorMatrix(vector *vv) {
     printf("[\n");
     for (int i = 0; i < vv->size; i++) {
-        Vector *v = (Vector *)vv->data[i];
+        vector *v = (vector *)vv->data[i];
         printf("[");
         for (int j = 0; j < v->size; j++) {
             int *val = (int *)v->data[j];
@@ -120,31 +56,31 @@ void printVectorMatrix(Vector *vv) {
 }
 
 /* 全排列 I */
-Vector *permutationsI(Vector *nums) {
-    Vector *iState = newVector();
+vector *permutationsI(vector *nums) {
+    vector *iState = newVector();
 
     int select[3] = {false, false, false};
-    Vector *bSelected = newVector();
+    vector *bSelected = newVector();
     for (int i = 0; i < nums->size; i++) {
         vectorPushback(bSelected, &select[i]);
     }
 
-    Vector *res = newVector();
+    vector *res = newVector();
 
     // 前序遍历
     backtrack(iState, nums, bSelected, res);
     return res;
 }
 
+/* Driver Code */
 int main() {
-
     int nums[] = {1, 2, 3};
-    Vector *iNums = newVector(); // int
+    vector *iNums = newVector(); // int
     for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
         vectorPushback(iNums, &nums[i]);
     }
 
-    Vector *res = permutationsI(iNums);
+    vector *res = permutationsI(iNums);
 
     // 输出结果
     printf("输入数组 nums = ");
@@ -153,6 +89,6 @@ int main() {
     printVectorMatrix(res);
 
     // 释放内存
-	delVector(res);
+    delVector(res);
     return 0;
 }

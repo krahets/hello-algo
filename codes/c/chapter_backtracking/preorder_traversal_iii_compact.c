@@ -6,72 +6,8 @@
 
 #include "../utils/common.h"
 
-/* 定义向量类型 */
-typedef struct Vector {
-	int size;     // 当前向量的大小
-	int capacity; // 当前向量的容量
-	int depth;    // 当前向量的深度
-	void **data;  // 指向数据的指针数组
-} Vector;
-
-/* 构造向量 */
-Vector* newVector() {
-	Vector *v = malloc (sizeof(Vector));
-	v->size = 0;
-	v->capacity = 4;
-	v->depth = 1;
-	v->data = malloc(v->capacity * sizeof(void *));
-	return v;
-}
-
-/* 析构向量 */
-void delVector(Vector *v) {
-	if (v) {
-		if (v->depth == 0) {
-			return ;
-		} else if (v->depth == 1) {
-			for (int i=0; i<v->size; i++) {
-				free(v->data[i]);
-			}
-			free(v);
-		} else {
-			for (int i=0; i<v->size; i++) {
-				delVector(v->data[i]);
-			}
-			v->depth--;
-		}
-	}
-}
-
-/*  添加元素到向量尾部 */
-void vectorPushback(Vector *v, void *elem) {
-    if (v->size == v->capacity) {
-        v->capacity *= 2;
-        v->data = realloc(v->data, v->capacity * sizeof(void *));
-    }
-    v->data[v->size++] = elem;
-}
-
-/* 从向量尾部弹出元素 */
-void vectorPopback(Vector *v) {
-    if (v->size != 0) {
-        v->size--;
-    }
-}
-
-/* 清空向量 */
-void vectorClear(Vector *v) {
-    for (int i = 0; i < v->size; i++) {
-        free(v->data[i]);
-    }
-    free(v->data);
-    v->size = 0;
-    v->capacity = 4;
-    v->data = malloc(v->capacity * sizeof(void *));
-}
-
 /* 前序遍历：例题三 */
-void preOrder(TreeNode *root, Vector *path, Vector *res) {
+void preOrder(TreeNode *root, vector *path, vector *res) {
     // 剪枝
     if (root == NULL || root->val == 3) {
         return;
@@ -80,12 +16,12 @@ void preOrder(TreeNode *root, Vector *path, Vector *res) {
     vectorPushback(path, root);
     if (root->val == 7) {
         // 记录解
-        Vector *newPath = newVector();
+        vector *newPath = newVector();
         for (int i = 0; i < path->size; i++) {
             vectorPushback(newPath, path->data[i]);
         }
         vectorPushback(res, newPath);
-		res->depth++;
+        res->depth++;
     }
 
     preOrder(root->left, path, res);
@@ -96,9 +32,9 @@ void preOrder(TreeNode *root, Vector *path, Vector *res) {
 }
 
 // 打印向量中的元素
-void printResult(Vector *vv) {
+void printResult(vector *vv) {
     for (int i = 0; i < vv->size; i++) {
-        Vector *v = (Vector *)vv->data[i];
+        vector *v = (vector *)vv->data[i];
         for (int j = 0; j < v->size; j++) {
             TreeNode *node = (TreeNode *)v->data[j];
             printf("%d ", node->val);
@@ -107,6 +43,7 @@ void printResult(Vector *vv) {
     }
 }
 
+/* Driver Code */
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     int n = sizeof(arr) / sizeof(arr[0]);
@@ -115,8 +52,8 @@ int main() {
     printTree(root);
 
     // 创建存储路径和结果的向量
-    Vector *path = newVector();
-	Vector *res = newVector();
+    vector *path = newVector();
+    vector *res = newVector();
 
     // 前序遍历
     preOrder(root, path, res);
@@ -126,7 +63,7 @@ int main() {
     printResult(res);
 
     // 释放内存
-	delVector(path);
-	delVector(res);
+    delVector(path);
+    delVector(res);
     return 0;
 }

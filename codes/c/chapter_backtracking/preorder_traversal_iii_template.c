@@ -6,78 +6,14 @@
 
 #include "../utils/common.h"
 
-/* 定义向量类型 */
-typedef struct Vector {
-	int size;     // 当前向量的大小
-	int capacity; // 当前向量的容量
-	int depth;    // 当前向量的深度
-	void **data;  // 指向数据的指针数组
-} Vector;
-
-/* 构造向量 */
-Vector* newVector() {
-	Vector *v = malloc (sizeof(Vector));
-	v->size = 0;
-	v->capacity = 4;
-	v->depth = 1;
-	v->data = malloc(v->capacity * sizeof(void *));
-	return v;
-}
-
-/* 析构向量 */
-void delVector(Vector *v) {
-	if (v) {
-		if (v->depth == 0) {
-			return ;
-		} else if (v->depth == 1) {
-			for (int i=0; i<v->size; i++) {
-				free(v->data[i]);
-			}
-			free(v);
-		} else {
-			for (int i=0; i<v->size; i++) {
-				delVector(v->data[i]);
-			}
-			v->depth--;
-		}
-	}
-}
-
-/*  添加元素到向量尾部 */
-void vectorPushback(Vector *v, void *elem) {
-    if (v->size == v->capacity) {
-        v->capacity *= 2;
-        v->data = realloc(v->data, v->capacity * sizeof(void *));
-    }
-    v->data[v->size++] = elem;
-}
-
-/* 从向量尾部弹出元素 */
-void vectorPopback(Vector *v) {
-    if (v->size != 0) {
-        v->size--;
-    }
-}
-
-/* 清空向量 */
-void vectorClear(Vector *v) {
-    for (int i = 0; i < v->size; i++) {
-        free(v->data[i]);
-    }
-    free(v->data);
-    v->size = 0;
-    v->capacity = 4;
-    v->data = malloc(v->capacity * sizeof(void *));
-}
-
 /* 判断当前状态是否为解 */
-bool isSolution(Vector *state) {
+bool isSolution(vector *state) {
     return state->size != 0 && ((TreeNode *)(state->data[state->size - 1]))->val == 7;
 }
 
 /* 记录解 */
-void recordSolution(Vector *state, Vector *res) {
-    Vector *newPath = newVector();
+void recordSolution(vector *state, vector *res) {
+    vector *newPath = newVector();
     for (int i = 0; i < state->size; i++) {
         vectorPushback(newPath, state->data[i]);
     }
@@ -85,22 +21,22 @@ void recordSolution(Vector *state, Vector *res) {
 }
 
 /* 判断在当前状态下，该选择是否合法 */
-bool isValid(Vector *state, TreeNode *choice) {
+bool isValid(vector *state, TreeNode *choice) {
     return choice != NULL && choice->val != 3;
 }
 
 /* 更新状态 */
-void makeChoice(Vector *state, TreeNode *choice) {
+void makeChoice(vector *state, TreeNode *choice) {
     vectorPushback(state, choice);
 }
 
 /* 恢复状态 */
-void undoChoice(Vector *state, TreeNode *choice) {
+void undoChoice(vector *state, TreeNode *choice) {
     vectorPopback(state);
 }
 
 /* 前序遍历：例题三 */
-void backtrace(Vector *state, Vector *choices, Vector *res) {
+void backtrack(vector *state, vector *choices, vector *res) {
     // 检查是否为解
     if (isSolution(state)) {
         // 记录解
@@ -115,10 +51,10 @@ void backtrace(Vector *state, Vector *choices, Vector *res) {
             // 尝试：做出选择，更新状态
             makeChoice(state, choice);
             // 进行下一轮选择
-            Vector *nextChoices = newVector();
+            vector *nextChoices = newVector();
             vectorPushback(nextChoices, choice->left);
             vectorPushback(nextChoices, choice->right);
-            backtrace(state, nextChoices, res);
+            backtrack(state, nextChoices, res);
             // 回退：撤销选择，恢复到之前的状态
             undoChoice(state, choice);
         }
@@ -126,9 +62,9 @@ void backtrace(Vector *state, Vector *choices, Vector *res) {
 }
 
 // 打印向量中的元素
-void printResult(Vector *vv) {
+void printResult(vector *vv) {
     for (int i = 0; i < vv->size; i++) {
-        Vector *v = (Vector *)vv->data[i];
+        vector *v = (vector *)vv->data[i];
         for (int j = 0; j < v->size; j++) {
             TreeNode *node = (TreeNode *)v->data[j];
             printf("%d ", node->val);
@@ -137,6 +73,7 @@ void printResult(Vector *vv) {
     }
 }
 
+/* Driver Code */
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     int n = sizeof(arr) / sizeof(arr[0]);
@@ -145,21 +82,21 @@ int main() {
     printTree(root);
 
     // 回溯算法
-    Vector *state = newVector();
-	Vector *choices = newVector();
-    Vector *res = newVector();
+    vector *state = newVector();
+    vector *choices = newVector();
+    vector *res = newVector();
     vectorPushback(choices, root);
 
     // 前序遍历
-    backtrace(state, choices, res);
+    backtrack(state, choices, res);
 
     // 输出结果
     printf("输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点:\n");
     printResult(res);
 
     // 释放内存
-	delVector(state);
-	delVector(choices);
-	delVector(res);
+    delVector(state);
+    delVector(choices);
+    delVector(res);
     return 0;
 }

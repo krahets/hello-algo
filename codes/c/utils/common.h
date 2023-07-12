@@ -21,6 +21,8 @@
 // hash table lib
 #include "uthash.h"
 
+#include "vector.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
