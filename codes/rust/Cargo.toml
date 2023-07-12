@@ -229,5 +229,30 @@ path = "chapter_backtracking/subset_sum_i.rs"
 name = "subset_sum_ii"
 path = "chapter_backtracking/subset_sum_ii.rs"
 
+# Run Command: cargo run --bin coin_change
+[[bin]]
+name = "coin_change"
+path = "chapter_dynamic_programming/coin_change.rs"
+
+# Run Command: cargo run --bin coin_change_ii
+[[bin]]
+name = "coin_change_ii"
+path = "chapter_dynamic_programming/coin_change_ii.rs"
+
+# Run Command: cargo run --bin unbounded_knapsack
+[[bin]]
+name = "unbounded_knapsack"
+path = "chapter_dynamic_programming/unbounded_knapsack.rs"
+
+# Run Command: cargo run --bin knapsack
+[[bin]]
+name = "knapsack"
+path = "chapter_dynamic_programming/knapsack.rs"
+
+# Run Command: cargo run --bin min_path_sum
+[[bin]]
+name = "min_path_sum"
+path = "chapter_dynamic_programming/min_path_sum.rs"
+
 [dependencies]
 rand = "0.8.5"
