@@ -108,6 +108,7 @@ void graphDFS(graphAdjList *t) {
     hashMark(visited, t->verticesList[0]->pos);
     printf("\n[%d", staTop(s)->val);
 
+    // 打印深度优先搜索图
     while (s->top > s->bot) {
         // 遍历该顶点的边链表，将所有与该顶点有连接的，并且未被标记的顶点入栈
         Node *n = staTop(s)->linked->head->next;
@@ -129,8 +130,8 @@ void graphDFS(graphAdjList *t) {
     }
     printf("]\n");
 
-    // 释放队列与哈希表内存
-
+    // 释放栈与哈希表内存
+    freeStack(s);
     freeHash(visited);
 }
 
