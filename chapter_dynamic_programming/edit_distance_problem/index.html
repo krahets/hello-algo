@@ -18,7 +18,7 @@
         <link rel="prev" href="../unbounded_knapsack_problem/">
       
       
-        <link rel="next" href="../../chapter_appendix/installation/">
+        <link rel="next" href="../summary/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.11">
@@ -1834,7 +1834,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_backtracking/subset_sum_problem/" class="md-nav__link">
-        12.3. &nbsp; 子集和问题（New）
+        12.3. &nbsp; 子集和问题
       </a>
     </li>
   
@@ -1896,6 +1896,8 @@
         
           
             
+          
+        
           
         
           
@@ -2021,6 +2023,20 @@
         13.6. &nbsp; 编辑距离问题（New）
       </a>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        13.7. &nbsp; 小结（New）
+      </a>
     </li>
   
 
@@ -2210,13 +2226,13 @@
 <li>若 <span class="arithmatex">\(s[n-1]\)</span> 和 <span class="arithmatex">\(t[m-1]\)</span> 相同，我们可以直接跳过它们，接下来考虑 <span class="arithmatex">\(s[n-2]\)</span> 和 <span class="arithmatex">\(t[m-2]\)</span> ;</li>
 <li>若 <span class="arithmatex">\(s[n-1]\)</span> 和 <span class="arithmatex">\(t[m-1]\)</span> 不同，我们需要对 <span class="arithmatex">\(s\)</span> 进行一次编辑（插入、删除、替换），使得两字符串尾部的字符相同，从而可以跳过它们，考虑规模更小的问题；</li>
 </ul>
-<p>也就是说，我们在字符串 <span class="arithmatex">\(s\)</span> 中进行的每一轮决策（编辑操作），都会使得 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 中剩余的待匹配字符发生变化。因此，状态定义为当前在 <span class="arithmatex">\(s\)</span> , <span class="arithmatex">\(t\)</span> 中考虑的第 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> 个字符，记为 <span class="arithmatex">\([i, j]\)</span> 。</p>
+<p>也就是说，我们在字符串 <span class="arithmatex">\(s\)</span> 中进行的每一轮决策（编辑操作），都会使得 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 中剩余的待匹配字符发生变化。因此，状态为当前在 <span class="arithmatex">\(s\)</span> , <span class="arithmatex">\(t\)</span> 中考虑的第 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> 个字符，记为 <span class="arithmatex">\([i, j]\)</span> 。</p>
 <p>状态 <span class="arithmatex">\([i, j]\)</span> 对应的子问题：<strong>将 <span class="arithmatex">\(s\)</span> 的前 <span class="arithmatex">\(i\)</span> 个字符更改为 <span class="arithmatex">\(t\)</span> 的前 <span class="arithmatex">\(j\)</span> 个字符所需的最少编辑步数</strong>。</p>
 <p>至此得到一个尺寸为 <span class="arithmatex">\((i+1) \times (j+1)\)</span> 的二维 <span class="arithmatex">\(dp\)</span> 表。</p>
 <p><strong>第二步：找出最优子结构，进而推导出状态转移方程</strong></p>
 <p>考虑子问题 <span class="arithmatex">\(dp[i, j]\)</span> ，其对应的两个字符串的尾部字符为 <span class="arithmatex">\(s[i-1]\)</span> 和 <span class="arithmatex">\(t[j-1]\)</span> ，可根据不同编辑操作分为三种情况：</p>
 <ol>
-<li>在 <span class="arithmatex">\(s\)</span> 尾部添加 <span class="arithmatex">\(t[j-1]\)</span> ，则剩余子问题 <span class="arithmatex">\(dp[i, j-1]\)</span> ；</li>
+<li>在 <span class="arithmatex">\(s[i-1]\)</span> 之后添加 <span class="arithmatex">\(t[j-1]\)</span> ，则剩余子问题 <span class="arithmatex">\(dp[i, j-1]\)</span> ；</li>
 <li>删除 <span class="arithmatex">\(s[i-1]\)</span> ，则剩余子问题 <span class="arithmatex">\(dp[i-1, j]\)</span> ；</li>
 <li>将 <span class="arithmatex">\(s[i-1]\)</span> 替换为 <span class="arithmatex">\(t[j-1]\)</span> ，则剩余子问题 <span class="arithmatex">\(dp[i-1, j-1]\)</span> ；</li>
 </ol>
@@ -2617,13 +2633,13 @@ dp[i, j] = dp[i-1, j-1]
         
         
           
-          <a href="../../chapter_appendix/installation/" class="md-footer__link md-footer__link--next" aria-label="下一页: 14.1. &amp;nbsp; 编程环境安装" rel="next">
+          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: 13.7. &amp;nbsp; 小结（New）" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                14.1. &nbsp; 编程环境安装
+                13.7. &nbsp; 小结（New）
               </div>
             </div>
             <div class="md-footer__button md-icon">

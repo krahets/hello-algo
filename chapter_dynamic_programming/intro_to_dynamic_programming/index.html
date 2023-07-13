@@ -1834,7 +1834,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_backtracking/subset_sum_problem/" class="md-nav__link">
-        12.3. &nbsp; 子集和问题（New）
+        12.3. &nbsp; 子集和问题
       </a>
     </li>
   
@@ -1896,6 +1896,8 @@
         
           
             
+          
+        
           
         
           
@@ -2065,6 +2067,20 @@
     <li class="md-nav__item">
       <a href="../edit_distance_problem/" class="md-nav__link">
         13.6. &nbsp; 编辑距离问题（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        13.7. &nbsp; 小结（New）
       </a>
     </li>
   
@@ -2439,7 +2455,8 @@ dp[i] = dp[i-1] + dp[i-2]
 <p align="center"> Fig. 方案数量递推关系 </p>
 
 <p>也就是说，在爬楼梯问题中，<strong>各个子问题之间不是相互独立的，原问题的解可以由子问题的解构成</strong>。</p>
-<p>我们可以基于此递推公式写出暴力搜索代码：以 <span class="arithmatex">\(dp[n]\)</span> 为起始点，<strong>从顶至底地将一个较大问题拆解为两个较小问题的和</strong>，直至到达最小子问题 <span class="arithmatex">\(dp[1]\)</span> 和 <span class="arithmatex">\(dp[2]\)</span> 时返回。其中，最小子问题的解 <span class="arithmatex">\(dp[1] = 1\)</span> , <span class="arithmatex">\(dp[2] = 2\)</span> 是已知的，代表爬到第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 阶分别有 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 种方案。</p>
+<p>我们可以基于此递推公式写出暴力搜索代码：以 <span class="arithmatex">\(dp[n]\)</span> 为起始点，<strong>从顶至底地将一个较大问题拆解为两个较小问题的和</strong>，直至到达最小子问题 <span class="arithmatex">\(dp[1]\)</span> 和 <span class="arithmatex">\(dp[2]\)</span> 时返回。</p>
+<p>请注意，最小子问题的解 <span class="arithmatex">\(dp[1] = 1\)</span> , <span class="arithmatex">\(dp[2] = 2\)</span> 是已知的，代表爬到第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 阶分别有 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 种方案。</p>
 <p>观察以下代码，它和标准回溯代码都属于深度优先搜索，但更加简洁。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label></div>
 <div class="tabbed-content">
@@ -2914,7 +2931,7 @@ dp[i] = dp[i-1] + dp[i-2]
 </div>
 </div>
 <p><strong>我们将这种空间优化技巧称为「状态压缩」</strong>。在许多动态规划问题中，当前状态仅与前面有限个状态有关，不必保存所有的历史状态，这时我们可以应用状态压缩，只保留必要的状态，通过“降维”来节省内存空间。</p>
-<p>总的看来，子问题分解是一种通用的算法思路，在分治算法、动态规划、回溯算法中各有特点：</p>
+<p>总的看来，<strong>子问题分解是一种通用的算法思路，在分治、动态规划、回溯中各有特点</strong>：</p>
 <ul>
 <li>分治算法将原问题划分为几个独立的子问题，然后递归解决子问题，最后合并子问题的解得到原问题的解。例如，归并排序将长数组不断划分为两个短子数组，再将排序好的子数组合并为排序好的长数组。</li>
 <li>动态规划也是将原问题分解为多个子问题，但与分治算法的主要区别是，<strong>动态规划中的子问题往往不是相互独立的</strong>，原问题的解依赖于子问题的解，而子问题的解又依赖于更小的子问题的解。因此，动态规划通常会引入记忆化，保存已经解决的子问题的解，避免重复计算。</li>

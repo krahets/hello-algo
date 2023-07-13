@@ -1834,7 +1834,7 @@
   
     <li class="md-nav__item">
       <a href="../../chapter_backtracking/subset_sum_problem/" class="md-nav__link">
-        12.3. &nbsp; 子集和问题（New）
+        12.3. &nbsp; 子集和问题
       </a>
     </li>
   
@@ -1896,6 +1896,8 @@
         
           
             
+          
+        
           
         
           
@@ -2065,6 +2067,20 @@
     <li class="md-nav__item">
       <a href="../edit_distance_problem/" class="md-nav__link">
         13.6. &nbsp; 编辑距离问题（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        13.7. &nbsp; 小结（New）
       </a>
     </li>
   
@@ -2711,7 +2727,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 <p><strong>最后考虑状态压缩</strong>。以上代码中的数组 <code>dp</code> 占用 <span class="arithmatex">\(O(n \times cap)\)</span> 空间。由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 <span class="arithmatex">\(O(n^2)\)</span> 将低至 <span class="arithmatex">\(O(n)\)</span> 。代码省略，有兴趣的同学可以自行实现。</p>
-<p>那么，我们是否可以仅用一个数组实现状态压缩呢？观察可知，每个状态都是由左上方或正上方的格子转移过来的。假设只有一个数组，当遍历到第 <span class="arithmatex">\(i\)</span> 行时，该数组存储的仍然是第 <span class="arithmatex">\(i-1\)</span> 行的状态，<strong>为了避免左方区域的格子在状态转移中被覆盖，应该采取倒序遍历</strong>。</p>
+<p>那么，我们是否可以仅用一个数组实现状态压缩呢？观察可知，每个状态都是由正上方或左上方的格子转移过来的。假设只有一个数组，当遍历到第 <span class="arithmatex">\(i\)</span> 行时，该数组存储的仍然是第 <span class="arithmatex">\(i-1\)</span> 行的状态，<strong>为了避免左方区域的格子在状态转移中被覆盖，应该采取倒序遍历</strong>。</p>
 <p>以下动画展示了在单个数组下从第 <span class="arithmatex">\(i=1\)</span> 行转换至第 <span class="arithmatex">\(i=2\)</span> 行的过程。建议你思考一下正序遍历和倒序遍历的区别。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:6"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">&lt;1&gt;</label><label for="__tabbed_5_2">&lt;2&gt;</label><label for="__tabbed_5_3">&lt;3&gt;</label><label for="__tabbed_5_4">&lt;4&gt;</label><label for="__tabbed_5_5">&lt;5&gt;</label><label for="__tabbed_5_6">&lt;6&gt;</label></div>
 <div class="tabbed-content">
