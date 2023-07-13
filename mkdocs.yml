@@ -219,6 +219,7 @@ nav:
     - 13.3. &nbsp; DP 解题思路（New）: chapter_dynamic_programming/dp_solution_pipeline.md
     - 13.4. &nbsp; 0-1 背包问题（New）: chapter_dynamic_programming/knapsack_problem.md
     - 13.5. &nbsp; 完全背包问题（New）: chapter_dynamic_programming/unbounded_knapsack_problem.md
+    - 13.6. &nbsp; 编辑距离问题（New）: chapter_dynamic_programming/edit_distance_problem.md
   - 14. &nbsp; &nbsp; 附录:
     - 14.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
     - 14.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
