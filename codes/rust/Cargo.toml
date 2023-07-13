@@ -229,5 +229,25 @@ path = "chapter_backtracking/subset_sum_i.rs"
 name = "subset_sum_ii"
 path = "chapter_backtracking/subset_sum_ii.rs"
 
+# Run Command: cargo run --bin graph_adjacency_list
+[[bin]]
+name = "graph_adjacency_list"
+path = "chapter_graph/graph_adjacency_list.rs"
+
+# Run Command: cargo run --bin graph_adjacency_matrix
+[[bin]]
+name = "graph_adjacency_matrix"
+path = "chapter_graph/graph_adjacency_matrix.rs"
+
+# Run Command: cargo run --bin graph_bfs
+[[bin]]
+name = "graph_bfs"
+path = "chapter_graph/graph_bfs.rs"
+
+# Run Command: cargo run --bin graph_dfs
+[[bin]]
+name = "graph_dfs"
+path = "chapter_graph/graph_dfs.rs"
+
 [dependencies]
 rand = "0.8.5"
