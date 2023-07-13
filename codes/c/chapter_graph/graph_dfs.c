@@ -92,7 +92,7 @@ stack *newStack(unsigned int numberVertices) {
     stack *s = (stack *)malloc(sizeof(stack));
     s->size = 0;
     s->capacity = numberVertices;
-    s->bot = (Vertex **)malloc(sizeof(Vertex*) * numberVertices);
+    s->bot = (Vertex **)malloc(sizeof(Vertex *) * numberVertices);
     s->top = s->bot;
 
     return s;
