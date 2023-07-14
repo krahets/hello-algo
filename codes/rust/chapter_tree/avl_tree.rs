@@ -105,7 +105,8 @@ impl AVLTree {
                 Self::right_rotate(Some(node))
             } else {
                 // 先左旋后右旋
-                node.borrow_mut().left = Self::left_rotate(node.borrow().left.clone());
+                let left = node.borrow().left.clone();
+                node.borrow_mut().left = Self::left_rotate(left);
                 Self::right_rotate(Some(node))
             }
         }
