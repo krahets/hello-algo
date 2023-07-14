@@ -9,6 +9,7 @@ use std::collections::VecDeque;
 use std::rc::Rc;
 
 #[allow(dead_code)]
+#[derive(Debug)]
 pub struct TreeNode {
     pub val: i32,
     pub high: i32,
