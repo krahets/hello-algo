@@ -279,5 +279,20 @@ path = "chapter_dynamic_programming/min_path_sum.rs"
 name = "edit_distance"
 path = "chapter_dynamic_programming/edit_distance.rs"
 
+# Run Command: cargo run --bin n_queens
+[[bin]]
+name = "n_queens"
+path = "chapter_backtracking/n_queens.rs"
+
+# Run Command: cargo run --bin permutations_i
+[[bin]]
+name = "permutations_i"
+path = "chapter_backtracking/permutations_i.rs"
+
+# Run Command: cargo run --bin permutations_ii
+[[bin]]
+name = "permutations_ii"
+path = "chapter_backtracking/permutations_ii.rs"
+
 [dependencies]
 rand = "0.8.5"
