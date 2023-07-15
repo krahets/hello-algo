@@ -72,6 +72,11 @@ let package = Package(
         .executable(name: "subset_sum_i", targets: ["subset_sum_i"]),
         .executable(name: "subset_sum_ii", targets: ["subset_sum_ii"]),
         .executable(name: "n_queens", targets: ["n_queens"]),
+        // chapter_dynamic_programming
+        .executable(name: "climbing_stairs_backtrack", targets: ["climbing_stairs_backtrack"]),
+        .executable(name: "climbing_stairs_dfs", targets: ["climbing_stairs_dfs"]),
+        .executable(name: "climbing_stairs_dfs_mem", targets: ["climbing_stairs_dfs_mem"]),
+        .executable(name: "climbing_stairs_dp", targets: ["climbing_stairs_dp"]),
     ],
     targets: [
         // helper
@@ -144,5 +149,10 @@ let package = Package(
         .executableTarget(name: "subset_sum_i", path: "chapter_backtracking", sources: ["subset_sum_i.swift"]),
         .executableTarget(name: "subset_sum_ii", path: "chapter_backtracking", sources: ["subset_sum_ii.swift"]),
         .executableTarget(name: "n_queens", path: "chapter_backtracking", sources: ["n_queens.swift"]),
+        // chapter_dynamic_programming
+        .executableTarget(name: "climbing_stairs_backtrack", path: "chapter_dynamic_programming", sources: ["climbing_stairs_backtrack.swift"]),
+        .executableTarget(name: "climbing_stairs_dfs", path: "chapter_dynamic_programming", sources: ["climbing_stairs_dfs.swift"]),
+        .executableTarget(name: "climbing_stairs_dfs_mem", path: "chapter_dynamic_programming", sources: ["climbing_stairs_dfs_mem.swift"]),
+        .executableTarget(name: "climbing_stairs_dp", path: "chapter_dynamic_programming", sources: ["climbing_stairs_dp.swift"]),
     ]
 )
