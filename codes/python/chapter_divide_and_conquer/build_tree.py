@@ -1,3 +1,9 @@
+"""
+File: build_tree.py
+Created Time: 2023-07-15
+Author: Krahets (krahets@163.com)
+"""
+
 import sys, os.path as osp
 
 sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
