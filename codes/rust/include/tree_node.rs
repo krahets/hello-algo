@@ -12,7 +12,7 @@ use std::rc::Rc;
 #[derive(Debug)]
 pub struct TreeNode {
     pub val: i32,
-    pub high: i32,
+    pub height: i32,
     pub parent: Option<Rc<RefCell<TreeNode>>>,
     pub left: Option<Rc<RefCell<TreeNode>>>,
     pub right: Option<Rc<RefCell<TreeNode>>>,
@@ -22,7 +22,7 @@ impl TreeNode {
     pub fn new(val: i32) -> Rc<RefCell<Self>> {
         Rc::new(RefCell::new(Self {
             val,
-            high: 0,
+            height: 0,
             parent: None,
             left: None,
             right: None

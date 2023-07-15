@@ -28,7 +28,7 @@ impl AVLTree {
     fn height(node: OptionTreeNodeRc) -> i32 {
         // 空节点高度为 -1 ，叶节点高度为 0
         match node {
-            Some(node) => node.borrow().high,
+            Some(node) => node.borrow().height,
             None => -1,
         }
     }
@@ -39,7 +39,7 @@ impl AVLTree {
             let left = node.borrow().left.clone();
             let right = node.borrow().right.clone();
             // 节点高度等于最高子树高度 + 1
-            node.borrow_mut().high = std::cmp::max(Self::height(left), Self::height(right)) + 1;
+            node.borrow_mut().height = std::cmp::max(Self::height(left), Self::height(right)) + 1;
         }
     }
 
@@ -157,7 +157,7 @@ impl AVLTree {
                     }
                 }
                 Self::update_height(Some(node.clone())); // 更新节点高度
-                                                         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+                /* 2. 执行旋转操作，使该子树重新恢复平衡 */
                 node = Self::rotate(Some(node)).unwrap();
                 // 返回子树的根节点
                 Some(node)
@@ -211,7 +211,7 @@ impl AVLTree {
                     node.borrow_mut().val = temp.borrow().val;
                 }
                 Self::update_height(Some(node.clone())); // 更新节点高度
-                                                         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+                /* 2. 执行旋转操作，使该子树重新恢复平衡 */
                 node = Self::rotate(Some(node)).unwrap();
                 // 返回子树的根节点
                 Some(node)
