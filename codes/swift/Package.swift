@@ -77,6 +77,8 @@ let package = Package(
         .executable(name: "climbing_stairs_dfs", targets: ["climbing_stairs_dfs"]),
         .executable(name: "climbing_stairs_dfs_mem", targets: ["climbing_stairs_dfs_mem"]),
         .executable(name: "climbing_stairs_dp", targets: ["climbing_stairs_dp"]),
+        .executable(name: "min_cost_climbing_stairs_dp", targets: ["min_cost_climbing_stairs_dp"]),
+        .executable(name: "climbing_stairs_constraint_dp", targets: ["climbing_stairs_constraint_dp"]),
     ],
     targets: [
         // helper
@@ -154,5 +156,7 @@ let package = Package(
         .executableTarget(name: "climbing_stairs_dfs", path: "chapter_dynamic_programming", sources: ["climbing_stairs_dfs.swift"]),
         .executableTarget(name: "climbing_stairs_dfs_mem", path: "chapter_dynamic_programming", sources: ["climbing_stairs_dfs_mem.swift"]),
         .executableTarget(name: "climbing_stairs_dp", path: "chapter_dynamic_programming", sources: ["climbing_stairs_dp.swift"]),
+        .executableTarget(name: "min_cost_climbing_stairs_dp", path: "chapter_dynamic_programming", sources: ["min_cost_climbing_stairs_dp.swift"]),
+        .executableTarget(name: "climbing_stairs_constraint_dp", path: "chapter_dynamic_programming", sources: ["climbing_stairs_constraint_dp.swift"]),
     ]
 )
