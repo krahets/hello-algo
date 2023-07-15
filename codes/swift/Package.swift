@@ -80,6 +80,7 @@ let package = Package(
         .executable(name: "min_cost_climbing_stairs_dp", targets: ["min_cost_climbing_stairs_dp"]),
         .executable(name: "climbing_stairs_constraint_dp", targets: ["climbing_stairs_constraint_dp"]),
         .executable(name: "min_path_sum", targets: ["min_path_sum"]),
+        .executable(name: "knapsack", targets: ["knapsack"]),
     ],
     targets: [
         // helper
@@ -160,5 +161,6 @@ let package = Package(
         .executableTarget(name: "min_cost_climbing_stairs_dp", path: "chapter_dynamic_programming", sources: ["min_cost_climbing_stairs_dp.swift"]),
         .executableTarget(name: "climbing_stairs_constraint_dp", path: "chapter_dynamic_programming", sources: ["climbing_stairs_constraint_dp.swift"]),
         .executableTarget(name: "min_path_sum", path: "chapter_dynamic_programming", sources: ["min_path_sum.swift"]),
+        .executableTarget(name: "knapsack", path: "chapter_dynamic_programming", sources: ["knapsack.swift"]),
     ]
 )
