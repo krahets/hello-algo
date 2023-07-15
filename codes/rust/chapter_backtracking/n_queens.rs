@@ -55,6 +55,7 @@ fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
 
     res
 }
+
 /* Driver Code */
 pub fn main() {
     let n: usize = 4;
