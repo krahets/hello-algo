@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 13. &nbsp; 动态规划
+# 14. &nbsp; 动态规划
 
 <div class="center-table" markdown>
 
