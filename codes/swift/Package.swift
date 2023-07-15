@@ -84,6 +84,7 @@ let package = Package(
         .executable(name: "unbounded_knapsack", targets: ["unbounded_knapsack"]),
         .executable(name: "coin_change", targets: ["coin_change"]),
         .executable(name: "coin_change_ii", targets: ["coin_change_ii"]),
+        .executable(name: "edit_distance", targets: ["edit_distance"]),
     ],
     targets: [
         // helper
@@ -168,5 +169,6 @@ let package = Package(
         .executableTarget(name: "unbounded_knapsack", path: "chapter_dynamic_programming", sources: ["unbounded_knapsack.swift"]),
         .executableTarget(name: "coin_change", path: "chapter_dynamic_programming", sources: ["coin_change.swift"]),
         .executableTarget(name: "coin_change_ii", path: "chapter_dynamic_programming", sources: ["coin_change_ii.swift"]),
+        .executableTarget(name: "edit_distance", path: "chapter_dynamic_programming", sources: ["edit_distance.swift"]),
     ]
 )
