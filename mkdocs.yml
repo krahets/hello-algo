@@ -205,24 +205,28 @@ nav:
     - 11.9. &nbsp; 计数排序: chapter_sorting/counting_sort.md
     - 11.10. &nbsp; 基数排序: chapter_sorting/radix_sort.md
     - 11.11. &nbsp; 小结: chapter_sorting/summary.md
-  - 12. &nbsp; &nbsp; 回溯:
+  - 12. &nbsp; &nbsp; 分治:
+    - chapter_divide_and_conquer/index.md
+    - 12.1. &nbsp; 分治算法（New）: chapter_divide_and_conquer/divide_and_conquer.md
+    - 12.2. &nbsp; 构建树问题（New）: chapter_divide_and_conquer/build_binary_tree.md
+  - 13. &nbsp; &nbsp; 回溯:
     - chapter_backtracking/index.md
-    - 12.1. &nbsp; 回溯算法: chapter_backtracking/backtracking_algorithm.md
-    - 12.2. &nbsp; 全排列问题: chapter_backtracking/permutations_problem.md
-    - 12.3. &nbsp; 子集和问题: chapter_backtracking/subset_sum_problem.md
-    - 12.4. &nbsp; N 皇后问题: chapter_backtracking/n_queens_problem.md
-    - 12.5. &nbsp; 小结: chapter_backtracking/summary.md
-  - 13. &nbsp; &nbsp; 动态规划:
+    - 13.1. &nbsp; 回溯算法: chapter_backtracking/backtracking_algorithm.md
+    - 13.2. &nbsp; 全排列问题: chapter_backtracking/permutations_problem.md
+    - 13.3. &nbsp; 子集和问题: chapter_backtracking/subset_sum_problem.md
+    - 13.4. &nbsp; N 皇后问题: chapter_backtracking/n_queens_problem.md
+    - 13.5. &nbsp; 小结: chapter_backtracking/summary.md
+  - 14. &nbsp; &nbsp; 动态规划:
     - chapter_dynamic_programming/index.md
-    - 13.1. &nbsp; 初探动态规划（New）: chapter_dynamic_programming/intro_to_dynamic_programming.md
-    - 13.2. &nbsp; DP 问题特性（New）: chapter_dynamic_programming/dp_problem_features.md
-    - 13.3. &nbsp; DP 解题思路（New）: chapter_dynamic_programming/dp_solution_pipeline.md
-    - 13.4. &nbsp; 0-1 背包问题（New）: chapter_dynamic_programming/knapsack_problem.md
-    - 13.5. &nbsp; 完全背包问题（New）: chapter_dynamic_programming/unbounded_knapsack_problem.md
-    - 13.6. &nbsp; 编辑距离问题（New）: chapter_dynamic_programming/edit_distance_problem.md
-    - 13.7. &nbsp; 小结（New）: chapter_dynamic_programming/summary.md
-  - 14. &nbsp; &nbsp; 附录:
-    - 14.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
-    - 14.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
+    - 14.1. &nbsp; 初探动态规划（New）: chapter_dynamic_programming/intro_to_dynamic_programming.md
+    - 14.2. &nbsp; DP 问题特性（New）: chapter_dynamic_programming/dp_problem_features.md
+    - 14.3. &nbsp; DP 解题思路（New）: chapter_dynamic_programming/dp_solution_pipeline.md
+    - 14.4. &nbsp; 0-1 背包问题（New）: chapter_dynamic_programming/knapsack_problem.md
+    - 14.5. &nbsp; 完全背包问题（New）: chapter_dynamic_programming/unbounded_knapsack_problem.md
+    - 14.6. &nbsp; 编辑距离问题（New）: chapter_dynamic_programming/edit_distance_problem.md
+    - 14.7. &nbsp; 小结（New）: chapter_dynamic_programming/summary.md
+  - 15. &nbsp; &nbsp; 附录:
+    - 15.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
+    - 15.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
   - 参考文献:
     - chapter_reference/index.md
