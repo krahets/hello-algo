@@ -81,6 +81,9 @@ let package = Package(
         .executable(name: "climbing_stairs_constraint_dp", targets: ["climbing_stairs_constraint_dp"]),
         .executable(name: "min_path_sum", targets: ["min_path_sum"]),
         .executable(name: "knapsack", targets: ["knapsack"]),
+        .executable(name: "unbounded_knapsack", targets: ["unbounded_knapsack"]),
+        .executable(name: "coin_change", targets: ["coin_change"]),
+        .executable(name: "coin_change_ii", targets: ["coin_change_ii"]),
     ],
     targets: [
         // helper
@@ -162,5 +165,8 @@ let package = Package(
         .executableTarget(name: "climbing_stairs_constraint_dp", path: "chapter_dynamic_programming", sources: ["climbing_stairs_constraint_dp.swift"]),
         .executableTarget(name: "min_path_sum", path: "chapter_dynamic_programming", sources: ["min_path_sum.swift"]),
         .executableTarget(name: "knapsack", path: "chapter_dynamic_programming", sources: ["knapsack.swift"]),
+        .executableTarget(name: "unbounded_knapsack", path: "chapter_dynamic_programming", sources: ["unbounded_knapsack.swift"]),
+        .executableTarget(name: "coin_change", path: "chapter_dynamic_programming", sources: ["coin_change.swift"]),
+        .executableTarget(name: "coin_change_ii", path: "chapter_dynamic_programming", sources: ["coin_change_ii.swift"]),
     ]
 )
