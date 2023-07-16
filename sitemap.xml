@@ -131,6 +131,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_divide_and_conquer/binary_search_recur/</loc>
+         <lastmod>2023-07-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_divide_and_conquer/build_binary_tree_problem/</loc>
          <lastmod>2023-07-16</lastmod>
          <changefreq>daily</changefreq>

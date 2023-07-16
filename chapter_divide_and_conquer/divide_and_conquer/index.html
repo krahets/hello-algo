@@ -18,7 +18,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../build_binary_tree_problem/">
+        <link rel="next" href="../binary_search_recur/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.11">
@@ -1775,6 +1775,8 @@
         
           
         
+          
+        
       
       
         
@@ -1838,10 +1840,17 @@
       
         <li class="md-nav__item">
   <a href="#1211" class="md-nav__link">
-    12.1.1. &nbsp; 通过分治提升效率
+    12.1.1. &nbsp; 如何判断分治问题
   </a>
   
-    <nav class="md-nav" aria-label="12.1.1. &nbsp; 通过分治提升效率">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1212" class="md-nav__link">
+    12.1.2. &nbsp; 通过分治提升效率
+  </a>
+  
+    <nav class="md-nav" aria-label="12.1.2. &nbsp; 通过分治提升效率">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1864,8 +1873,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1212" class="md-nav__link">
-    12.1.2. &nbsp; 分治常见应用
+  <a href="#1213" class="md-nav__link">
+    12.1.3. &nbsp; 分治常见应用
   </a>
   
 </li>
@@ -1885,8 +1894,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../binary_search_recur/" class="md-nav__link">
+        12.2. &nbsp; 分治搜索策略（New）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../build_binary_tree_problem/" class="md-nav__link">
-        12.2. &nbsp; 构建树问题（New）
+        12.3. &nbsp; 构建树问题（New）
       </a>
     </li>
   
@@ -1900,7 +1923,7 @@
   
     <li class="md-nav__item">
       <a href="../hanota_problem/" class="md-nav__link">
-        12.3. &nbsp; 汉诺塔问题（New）
+        12.4. &nbsp; 汉诺塔问题（New）
       </a>
     </li>
   
@@ -2345,10 +2368,17 @@
       
         <li class="md-nav__item">
   <a href="#1211" class="md-nav__link">
-    12.1.1. &nbsp; 通过分治提升效率
+    12.1.1. &nbsp; 如何判断分治问题
   </a>
   
-    <nav class="md-nav" aria-label="12.1.1. &nbsp; 通过分治提升效率">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1212" class="md-nav__link">
+    12.1.2. &nbsp; 通过分治提升效率
+  </a>
+  
+    <nav class="md-nav" aria-label="12.1.2. &nbsp; 通过分治提升效率">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2371,8 +2401,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1212" class="md-nav__link">
-    12.1.2. &nbsp; 分治常见应用
+  <a href="#1213" class="md-nav__link">
+    12.1.3. &nbsp; 分治常见应用
   </a>
   
 </li>
@@ -2414,6 +2444,7 @@
 <p><img alt="归并排序的分治策略" src="../divide_and_conquer.assets/divide_and_conquer_merge_sort.png" /></p>
 <p align="center"> Fig. 归并排序的分治策略 </p>
 
+<h2 id="1211">12.1.1. &nbsp; 如何判断分治问题<a class="headerlink" href="#1211" title="Permanent link">&para;</a></h2>
 <p>一个问题是否适合使用分治解决，通常可以参考以下几个判断依据：</p>
 <ol>
 <li><strong>问题可以被分解</strong>：原问题可以被分解成规模更小、类似的子问题，以及能够以相同方式递归地进行划分。</li>
@@ -2426,7 +2457,7 @@
 <li>每个子数组都可以独立地进行排序，因此子问题是独立的；</li>
 <li>两个有序子数组（子问题的解）可以被合并为一个有序数组（原问题的解）；</li>
 </ol>
-<h2 id="1211">12.1.1. &nbsp; 通过分治提升效率<a class="headerlink" href="#1211" title="Permanent link">&para;</a></h2>
+<h2 id="1212">12.1.2. &nbsp; 通过分治提升效率<a class="headerlink" href="#1212" title="Permanent link">&para;</a></h2>
 <p>分治不仅可以有效地解决算法问题，<strong>往往还可以提升算法效率</strong>。在排序算法中，归并排序相较于选择、冒泡、插入排序更快，就是因为其应用了分治策略。</p>
 <p>那么，我们不禁发问：<strong>为什么分治可以提升算法效率，其底层逻辑是什么</strong>？换句话说，将大问题分解为多个子问题、解决子问题、将子问题的解合并为原问题的解，这三步为什么比直接解决原问题效率更高？这个问题可以从操作数量和并行计算两方面来讨论。</p>
 <h3 id="_1">操作数量优化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
@@ -2455,7 +2486,7 @@ n(n - 4) &amp; &gt; 0
 <p><img alt="桶排序的并行计算" src="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" /></p>
 <p align="center"> Fig. 桶排序的并行计算 </p>
 
-<h2 id="1212">12.1.2. &nbsp; 分治常见应用<a class="headerlink" href="#1212" title="Permanent link">&para;</a></h2>
+<h2 id="1213">12.1.3. &nbsp; 分治常见应用<a class="headerlink" href="#1213" title="Permanent link">&para;</a></h2>
 <p>一方面，分治可以用来解决许多经典算法问题：</p>
 <ul>
 <li><strong>寻找最近点对</strong>：该算法首先将点集分成两部分，然后分别找出两部分中的最近点对，最后再找出跨越两部分的最近点对。</li>
@@ -2568,13 +2599,13 @@ n(n - 4) &amp; &gt; 0
         
         
           
-          <a href="../build_binary_tree_problem/" class="md-footer__link md-footer__link--next" aria-label="下一页: 12.2. &amp;nbsp; 构建树问题（New）" rel="next">
+          <a href="../binary_search_recur/" class="md-footer__link md-footer__link--next" aria-label="下一页: 12.2. &amp;nbsp; 分治搜索策略（New）" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                12.2. &nbsp; 构建树问题（New）
+                12.2. &nbsp; 分治搜索策略（New）
               </div>
             </div>
             <div class="md-footer__button md-icon">

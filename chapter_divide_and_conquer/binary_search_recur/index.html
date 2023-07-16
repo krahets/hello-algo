@@ -12,20 +12,20 @@
         <meta name="author" content="Krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/chapter_sorting/sorting_algorithm/">
+        <link rel="canonical" href="https://www.hello-algo.com/chapter_divide_and_conquer/binary_search_recur/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../divide_and_conquer/">
       
       
-        <link rel="next" href="../selection_sort/">
+        <link rel="next" href="../build_binary_tree_problem/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.11">
     
     
       
-        <title>11.1.   排序算法 - Hello 算法</title>
+        <title>12.2.   分治搜索策略（New） - Hello 算法</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#111" class="md-skip">
+        <a href="#122" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              11.1. &nbsp; 排序算法
+              12.2. &nbsp; 分治搜索策略（New）
             
           </span>
         </div>
@@ -1527,16 +1527,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
       
       
         
@@ -1571,7 +1569,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">11. &nbsp; &nbsp; 排序</a>
+          <a href="../../chapter_sorting/">11. &nbsp; &nbsp; 排序</a>
           
             <label for="__nav_12">
               <span class="md-nav__icon md-icon"></span>
@@ -1579,7 +1577,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
           11. &nbsp; &nbsp; 排序
@@ -1592,59 +1590,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          11.1. &nbsp; 排序算法
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../chapter_sorting/sorting_algorithm/" class="md-nav__link">
         11.1. &nbsp; 排序算法
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1111" class="md-nav__link">
-    11.1.1. &nbsp; 评价维度
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1112" class="md-nav__link">
-    11.1.2. &nbsp; 理想排序算法
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1656,7 +1606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../selection_sort/" class="md-nav__link">
+      <a href="../../chapter_sorting/selection_sort/" class="md-nav__link">
         11.2. &nbsp; 选择排序
       </a>
     </li>
@@ -1670,7 +1620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bubble_sort/" class="md-nav__link">
+      <a href="../../chapter_sorting/bubble_sort/" class="md-nav__link">
         11.3. &nbsp; 冒泡排序
       </a>
     </li>
@@ -1684,7 +1634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../insertion_sort/" class="md-nav__link">
+      <a href="../../chapter_sorting/insertion_sort/" class="md-nav__link">
         11.4. &nbsp; 插入排序
       </a>
     </li>
@@ -1698,7 +1648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quick_sort/" class="md-nav__link">
+      <a href="../../chapter_sorting/quick_sort/" class="md-nav__link">
         11.5. &nbsp; 快速排序
       </a>
     </li>
@@ -1712,7 +1662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../merge_sort/" class="md-nav__link">
+      <a href="../../chapter_sorting/merge_sort/" class="md-nav__link">
         11.6. &nbsp; 归并排序
       </a>
     </li>
@@ -1726,7 +1676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../heap_sort/" class="md-nav__link">
+      <a href="../../chapter_sorting/heap_sort/" class="md-nav__link">
         11.7. &nbsp; 堆排序
       </a>
     </li>
@@ -1740,7 +1690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bucket_sort/" class="md-nav__link">
+      <a href="../../chapter_sorting/bucket_sort/" class="md-nav__link">
         11.8. &nbsp; 桶排序
       </a>
     </li>
@@ -1754,7 +1704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../counting_sort/" class="md-nav__link">
+      <a href="../../chapter_sorting/counting_sort/" class="md-nav__link">
         11.9. &nbsp; 计数排序
       </a>
     </li>
@@ -1768,7 +1718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../radix_sort/" class="md-nav__link">
+      <a href="../../chapter_sorting/radix_sort/" class="md-nav__link">
         11.10. &nbsp; 基数排序
       </a>
     </li>
@@ -1782,7 +1732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../summary/" class="md-nav__link">
+      <a href="../../chapter_sorting/summary/" class="md-nav__link">
         11.11. &nbsp; 小结
       </a>
     </li>
@@ -1802,14 +1752,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
       
       
         
@@ -1830,7 +1782,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_divide_and_conquer/">12. &nbsp; &nbsp; 分治</a>
+          <a href="../">12. &nbsp; &nbsp; 分治</a>
           
             <label for="__nav_13">
               <span class="md-nav__icon md-icon"></span>
@@ -1838,7 +1790,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_13">
           <span class="md-nav__icon md-icon"></span>
           12. &nbsp; &nbsp; 分治
@@ -1853,7 +1805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_divide_and_conquer/divide_and_conquer/" class="md-nav__link">
+      <a href="../divide_and_conquer/" class="md-nav__link">
         12.1. &nbsp; 分治算法（New）
       </a>
     </li>
@@ -1865,11 +1817,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../chapter_divide_and_conquer/binary_search_recur/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          12.2. &nbsp; 分治搜索策略（New）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         12.2. &nbsp; 分治搜索策略（New）
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1221" class="md-nav__link">
+    12.2.1. &nbsp; 基于分治实现二分
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1881,7 +1874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_divide_and_conquer/build_binary_tree_problem/" class="md-nav__link">
+      <a href="../build_binary_tree_problem/" class="md-nav__link">
         12.3. &nbsp; 构建树问题（New）
       </a>
     </li>
@@ -1895,7 +1888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_divide_and_conquer/hanota_problem/" class="md-nav__link">
+      <a href="../hanota_problem/" class="md-nav__link">
         12.4. &nbsp; 汉诺塔问题（New）
       </a>
     </li>
@@ -2340,15 +2333,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1111" class="md-nav__link">
-    11.1.1. &nbsp; 评价维度
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1112" class="md-nav__link">
-    11.1.2. &nbsp; 理想排序算法
+  <a href="#1221" class="md-nav__link">
+    12.2.1. &nbsp; 基于分治实现二分
   </a>
   
 </li>
@@ -2368,7 +2354,7 @@
                   
 
   
-    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_sorting/sorting_algorithm.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_divide_and_conquer/binary_search_recur.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2376,40 +2362,164 @@
   
 
 
-<h1 id="111">11.1. &nbsp; 排序算法<a class="headerlink" href="#111" title="Permanent link">&para;</a></h1>
-<p>「排序算法 Sorting Algorithm」用于对一组数据按照特定顺序进行排列。排序算法有着广泛的应用，因为有序数据通常能够被更有效地查找、分析和处理。</p>
-<p>在排序算法中，数据类型可以是整数、浮点数、字符或字符串等；顺序的判断规则可根据需求设定，如数字大小、字符 ASCII 码顺序或自定义规则。</p>
-<p><img alt="数据类型和判断规则示例" src="../sorting_algorithm.assets/sorting_examples.png" /></p>
-<p align="center"> Fig. 数据类型和判断规则示例 </p>
+<h1 id="122">12.2. &nbsp; 分治搜索策略<a class="headerlink" href="#122" title="Permanent link">&para;</a></h1>
+<p>我们已经学过，搜索算法分为两大类：暴力搜索、自适应搜索。暴力搜索的时间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。自适应搜索利用特有的数据组织形式或先验信息，可达到 <span class="arithmatex">\(O(\log n)\)</span> 甚至 <span class="arithmatex">\(O(1)\)</span> 的时间复杂度。</p>
+<p>实际上，<strong><span class="arithmatex">\(O(\log n)\)</span> 的搜索算法通常都是基于分治策略实现的</strong>，例如：</p>
+<ul>
+<li>二分查找的每一步都将问题（在数组中搜索目标元素）分解为一个小问题（在数组的一半中搜索目标元素），这个过程一直持续到数组为空或找到目标元素为止。</li>
+<li>树是分治关系的代表，在二叉搜索树、AVL 树、堆等数据结构中，各种操作的时间复杂度皆为 <span class="arithmatex">\(O(\log n)\)</span> 。</li>
+</ul>
+<p>分治之所以能够提升搜索效率，是因为暴力搜索每轮只能排除一个选项，<strong>而基于分治的搜索每轮可以排除一半选项</strong>。</p>
+<h2 id="1221">12.2.1. &nbsp; 基于分治实现二分<a class="headerlink" href="#1221" title="Permanent link">&para;</a></h2>
+<p>接下来，我们尝试从分治策略的角度分析二分查找的性质：</p>
+<ul>
+<li><strong>问题可以被分解</strong>：二分查找递归地将原问题（在数组中进行查找）分解为子问题（在数组的一半中进行查找），这是通过比较中间元素和目标元素来实现的。</li>
+<li><strong>子问题是独立的</strong>：在二分查找中，每轮只处理一个子问题，它不受另外子问题的影响。</li>
+<li><strong>子问题的解无需合并</strong>：二分查找旨在查找一个特定元素，因此不需要将子问题的解进行合并。当子问题得到解决时，原问题也会同时得到解决。</li>
+</ul>
+<p>在之前章节中，我们基于递推（迭代）实现二分查找。现在，我们尝试基于递归分治来实现它。</p>
+<p>问题定义为：<strong>在数组 <code>nums</code> 的区间 <span class="arithmatex">\([i, j]\)</span> 内查找元素 <code>target</code></strong> ，记为 <span class="arithmatex">\(f(i, j)\)</span> 。</p>
+<p>设数组长度为 <span class="arithmatex">\(n\)</span> ，则二分查找的流程为：从原问题 <span class="arithmatex">\(f(0, n-1)\)</span> 开始，每轮排除一半索引区间，递归求解规模减小一半的子问题，直至找到 <code>target</code> 或区间为空时返回。</p>
+<p>下图展示了在数组中二分查找目标元素 <span class="arithmatex">\(6\)</span> 的分治过程。</p>
+<p><img alt="二分查找的分治过程" src="../binary_search_recur.assets/binary_search_recur.png" /></p>
+<p align="center"> Fig. 二分查找的分治过程 </p>
 
-<h2 id="1111">11.1.1. &nbsp; 评价维度<a class="headerlink" href="#1111" title="Permanent link">&para;</a></h2>
-<p><strong>运行效率</strong>：我们期望排序算法的时间复杂度尽量低，且总体操作数量较少（即时间复杂度中的常数项降低）。对于大数据量情况，运行效率显得尤为重要。</p>
-<p><strong>就地性</strong>：顾名思义，「原地排序」通过在原数组上直接操作实现排序，无需借助额外的辅助数组，从而节省内存。通常情况下，原地排序的数据搬运操作较少，运行速度也更快。</p>
-<p><strong>稳定性</strong>：「稳定排序」在完成排序后，相等元素在数组中的相对顺序不发生改变。稳定排序是优良特性，也是多级排序场景的必要条件。</p>
-<p>假设我们有一个存储学生信息的表格，第 1, 2 列分别是姓名和年龄。在这种情况下，「非稳定排序」可能导致输入数据的有序性丧失。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 输入数据是按照姓名排序好的</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># (name, age)</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;A&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;C&#39;</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;D&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># 假设使用非稳定排序算法按年龄排序列表，</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># 结果中 (&#39;D&#39;, 19) 和 (&#39;A&#39;, 19) 的相对位置改变，</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># 输入数据按姓名排序的性质丢失</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;D&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;A&#39;</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;C&#39;</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="o">(</span><span class="s1">&#39;E&#39;</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
+<p>如下代码所示，我们声明一个递归函数 <code>dfs()</code> 来求解问题 <span class="arithmatex">\(f(i, j)\)</span> 。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_recur.java</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/* 二分查找：问题 f(i, j) */</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="c1">// 若区间为空，代表无目标元素，则返回 -1</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="c1">// 计算中点索引 m</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="c1">// 递归子问题 f(m+1, j)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="c1">// 递归子问题 f(i, m-1)</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="c1">// 找到目标元素，返回其索引</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="cm">/* 二分查找 */</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearch</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="c1">// 求解问题 f(0, n-1)</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="p">}</span>
 </code></pre></div>
-<p><strong>自适应性</strong>：「自适应排序」的时间复杂度会受输入数据的影响，即最佳、最差、平均时间复杂度并不完全相等。</p>
-<p>自适应性需要根据具体情况来评估。如果最差时间复杂度差于平均时间复杂度，说明排序算法在某些数据下性能可能劣化，因此被视为负面属性；而如果最佳时间复杂度优于平均时间复杂度，则被视为正面属性。</p>
-<p><strong>是否基于比较</strong>：「基于比较的排序」依赖于比较运算符（<span class="arithmatex">\(&lt;\)</span> , <span class="arithmatex">\(=\)</span> , <span class="arithmatex">\(&gt;\)</span>）来判断元素的相对顺序，从而排序整个数组，理论最优时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。而「非比较排序」不使用比较运算符，时间复杂度可达 <span class="arithmatex">\(O(n)\)</span> ，但其通用性相对较差。</p>
-<h2 id="1112">11.1.2. &nbsp; 理想排序算法<a class="headerlink" href="#1112" title="Permanent link">&para;</a></h2>
-<p><strong>运行快、原地、稳定、正向自适应、通用性好</strong>。显然，迄今为止尚未发现兼具以上所有特性的排序算法。因此，在选择排序算法时，需要根据具体的数据特点和问题需求来决定。</p>
-<p>接下来，我们将共同学习各种排序算法，并基于上述评价维度对各个排序算法的优缺点进行分析。</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_recur.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* 二分查找：问题 f(i, j) */</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// 若区间为空，代表无目标元素，则返回 -1</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="c1">// 计算中点索引 m</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="c1">// 递归子问题 f(m+1, j)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="c1">// 递归子问题 f(i, m-1)</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="c1">// 找到目标元素，返回其索引</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="p">}</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="cm">/* 二分查找 */</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="c1">// 求解问题 f(0, n-1)</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_recur.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;二分查找：问题 f(i, j)&quot;&quot;&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="c1"># 若区间为空，代表无目标元素，则返回 -1</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">:</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="c1"># 计算中点索引 m</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="c1"># 递归子问题 f(m+1, j)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="c1"># 递归子问题 f(i, m-1)</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="c1"># 找到目标元素，返回其索引</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="k">return</span> <span class="n">m</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;二分查找&quot;&quot;&quot;</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="c1"># 求解问题 f(0, n-1)</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_recur.go</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">dfs</span><span class="p">}</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_recur.js</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">dfs</span><span class="p">}</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_recur.ts</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">dfs</span><span class="p">}</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_recur.c</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">dfs</span><span class="p">}</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_recur.cs</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">binary_search_recur</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">dfs</span><span class="p">}</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">[class]</span><span class="p">{</span><span class="n">binary_search_recur</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_recur.swift</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">dfs</span><span class="p">}</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_recur.zig</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">dfs</span><span class="p">}</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_recur.dart</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">dfs</span><span class="p">}</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
 
 
@@ -2487,7 +2597,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 11. &amp;nbsp; 排序" rel="prev">
+          <a href="../divide_and_conquer/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 12.1. &amp;nbsp; 分治算法（New）" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2496,20 +2606,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                11. &nbsp; 排序
+                12.1. &nbsp; 分治算法（New）
               </div>
             </div>
           </a>
         
         
           
-          <a href="../selection_sort/" class="md-footer__link md-footer__link--next" aria-label="下一页: 11.2. &amp;nbsp; 选择排序" rel="next">
+          <a href="../build_binary_tree_problem/" class="md-footer__link md-footer__link--next" aria-label="下一页: 12.3. &amp;nbsp; 构建树问题（New）" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                11.2. &nbsp; 选择排序
+                12.3. &nbsp; 构建树问题（New）
               </div>
             </div>
             <div class="md-footer__button md-icon">
