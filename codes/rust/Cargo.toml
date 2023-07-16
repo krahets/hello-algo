@@ -179,6 +179,41 @@ path = "chapter_tree/binary_tree_dfs.rs"
 name = "binary_tree"
 path = "chapter_tree/binary_tree.rs"
 
+# Run Command: cargo run --bin heap
+[[bin]]
+name = "heap"
+path = "chapter_heap/heap.rs"
+
+# Run Command: cargo run --bin my_heap
+[[bin]]
+name = "my_heap"
+path = "chapter_heap/my_heap.rs"
+
+# Run Command: cargo run --bin top_k
+[[bin]]
+name = "top_k"
+path = "chapter_heap/top_k.rs"
+
+# Run Command: cargo run --bin graph_adjacency_list
+[[bin]]
+name = "graph_adjacency_list"
+path = "chapter_graph/graph_adjacency_list.rs"
+
+# Run Command: cargo run --bin graph_adjacency_matrix
+[[bin]]
+name = "graph_adjacency_matrix"
+path = "chapter_graph/graph_adjacency_matrix.rs"
+
+# Run Command: cargo run --bin graph_bfs
+[[bin]]
+name = "graph_bfs"
+path = "chapter_graph/graph_bfs.rs"
+
+# Run Command: cargo run --bin graph_dfs
+[[bin]]
+name = "graph_dfs"
+path = "chapter_graph/graph_dfs.rs"
+
 # Run Command: cargo run --bin linear_search
 [[bin]]
 name = "linear_search"
@@ -234,26 +269,6 @@ path = "chapter_backtracking/subset_sum_i.rs"
 name = "subset_sum_ii"
 path = "chapter_backtracking/subset_sum_ii.rs"
 
-# Run Command: cargo run --bin graph_adjacency_list
-[[bin]]
-name = "graph_adjacency_list"
-path = "chapter_graph/graph_adjacency_list.rs"
-
-# Run Command: cargo run --bin graph_adjacency_matrix
-[[bin]]
-name = "graph_adjacency_matrix"
-path = "chapter_graph/graph_adjacency_matrix.rs"
-
-# Run Command: cargo run --bin graph_bfs
-[[bin]]
-name = "graph_bfs"
-path = "chapter_graph/graph_bfs.rs"
-
-# Run Command: cargo run --bin graph_dfs
-[[bin]]
-name = "graph_dfs"
-path = "chapter_graph/graph_dfs.rs"
-
 # Run Command: cargo run --bin coin_change
 [[bin]]
 name = "coin_change"
@@ -299,20 +314,25 @@ path = "chapter_backtracking/permutations_i.rs"
 name = "permutations_ii"
 path = "chapter_backtracking/permutations_ii.rs"
 
-# Run Command: cargo run --bin heap
+# Run Command: cargo run --bin preorder_traversal_i_compact
 [[bin]]
-name = "heap"
-path = "chapter_heap/heap.rs"
+name = "preorder_traversal_i_compact"
+path = "chapter_backtracking/preorder_traversal_i_compact.rs"
 
-# Run Command: cargo run --bin my_heap
+# Run Command: cargo run --bin preorder_traversal_ii_compact
 [[bin]]
-name = "my_heap"
-path = "chapter_heap/my_heap.rs"
+name = "preorder_traversal_ii_compact"
+path = "chapter_backtracking/preorder_traversal_ii_compact.rs"
 
-# Run Command: cargo run --bin top_k
+# Run Command: cargo run --bin preorder_traversal_iii_compact
 [[bin]]
-name = "top_k"
-path = "chapter_heap/top_k.rs"
+name = "preorder_traversal_iii_compact"
+path = "chapter_backtracking/preorder_traversal_iii_compact.rs"
+
+# Run Command: cargo run --bin preorder_traversal_iii_template
+[[bin]]
+name = "preorder_traversal_iii_template"
+path = "chapter_backtracking/preorder_traversal_iii_template.rs"
 
 [dependencies]
 rand = "0.8.5"
