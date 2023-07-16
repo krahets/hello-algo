@@ -5,7 +5,7 @@
 const std = @import("std");
 
 // 爬楼梯：动态规划
-fn climbing_stairs_dp(comptime n: usize) i32 {
+fn climbingStairsDp(comptime n: usize) i32 {
     // 已知 dp[1] 和 dp[2] ，返回之
     if (n == 1 or n == 2) {
         return @intCast(n);
@@ -23,7 +23,7 @@ fn climbing_stairs_dp(comptime n: usize) i32 {
 }
 
 // 爬楼梯：状态压缩后的动态规划
-fn climbing_stairs_dp_comp(comptime n: usize) i32 {
+fn climbingStairsDpComp(comptime n: usize) i32 {
     if (n == 1 or n == 2) {
         return @intCast(n);
     }
@@ -41,10 +41,10 @@ fn climbing_stairs_dp_comp(comptime n: usize) i32 {
 pub fn main() !void {
     comptime var n: usize = 9;
 
-    var res = climbing_stairs_dp(n);
+    var res = climbingStairsDp(n);
     std.debug.print("爬 {} 阶楼梯共有 {} 种方案\n", .{ n, res });
 
-    res = climbing_stairs_dp_comp(n);
+    res = climbingStairsDpComp(n);
     std.debug.print("爬 {} 阶楼梯共有 {} 种方案\n", .{ n, res });
 
     _ = try std.io.getStdIn().reader().readByte();

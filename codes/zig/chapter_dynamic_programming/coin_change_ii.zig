@@ -5,7 +5,7 @@
 const std = @import("std");
 
 // 零钱兑换 II：动态规划
-fn coin_change_ii_dp(comptime coins: []i32, comptime amt: usize) i32 {
+fn coinChangeIIDp(comptime coins: []i32, comptime amt: usize) i32 {
     comptime var n = coins.len;
     // 初始化 dp 表
     var dp = [_][amt + 1]i32{[_]i32{0} ** (amt + 1)} ** (n + 1);
@@ -29,7 +29,7 @@ fn coin_change_ii_dp(comptime coins: []i32, comptime amt: usize) i32 {
 }
 
 // 零钱兑换 II：状态压缩后的动态规划
-fn coin_change_dp_ii_comp(comptime coins: []i32, comptime amt: usize) i32 {
+fn coinChangeIIDpComp(comptime coins: []i32, comptime amt: usize) i32 {
     comptime var n = coins.len;
     // 初始化 dp 表
     var dp = [_]i32{0} ** (amt + 1);
@@ -55,11 +55,11 @@ pub fn main() !void {
     comptime var amt: usize = 5;
 
     // 动态规划
-    var res = coin_change_ii_dp(&coins, amt);
+    var res = coinChangeIIDp(&coins, amt);
     std.debug.print("凑出目标金额的硬币组合数量为 {}\n", .{res});
 
     // 状态压缩后的动态规划
-    res = coin_change_dp_ii_comp(&coins, amt);
+    res = coinChangeIIDpComp(&coins, amt);
     std.debug.print("凑出目标金额的硬币组合数量为 {}\n", .{res});
 
     _ = try std.io.getStdIn().reader().readByte();

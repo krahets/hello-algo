@@ -23,7 +23,7 @@ fn backtrack(choices: []i32, state: i32, n: i32, res: std.ArrayList(i32)) void {
 }
 
 // 爬楼梯：回溯
-fn climbing_stairs_backtrack(n: usize) !i32 {
+fn climbingStairsBacktrack(n: usize) !i32 {
     var choices = [_]i32{ 1, 2 }; // 可选择向上爬 1 或 2 阶
     var state: i32 = 0; // 从第 0 阶开始爬
     var res = std.ArrayList(i32).init(std.heap.page_allocator);
@@ -37,7 +37,7 @@ fn climbing_stairs_backtrack(n: usize) !i32 {
 pub fn main() !void {
     var n: usize = 9;
 
-    var res = try climbing_stairs_backtrack(n);
+    var res = try climbingStairsBacktrack(n);
     std.debug.print("爬 {} 阶楼梯共有 {} 种方案\n", .{ n, res });
 
     _ = try std.io.getStdIn().reader().readByte();

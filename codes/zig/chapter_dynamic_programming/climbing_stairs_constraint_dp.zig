@@ -5,7 +5,7 @@
 const std = @import("std");
 
 // 带约束爬楼梯：动态规划
-fn climbing_stairs_constraint_dp(comptime n: usize) i32 {
+fn climbingStairsConstraintDp(comptime n: usize) i32 {
     if (n == 1 or n == 2) {
         return @intCast(n);
     }
@@ -28,7 +28,7 @@ fn climbing_stairs_constraint_dp(comptime n: usize) i32 {
 pub fn main() !void {
     comptime var n: usize = 9;
 
-    var res = climbing_stairs_constraint_dp(n);
+    var res = climbingStairsConstraintDp(n);
     std.debug.print("爬 {} 阶楼梯共有 {} 种方案\n", .{ n, res });
 
     _ = try std.io.getStdIn().reader().readByte();

@@ -5,7 +5,7 @@
 const std = @import("std");
 
 // 完全背包：动态规划
-fn unbounded_knapsack_dp(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
+fn unboundedKnapsackDp(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
     comptime var n = wgt.len;
     // 初始化 dp 表
     var dp = [_][cap + 1]i32{[_]i32{0} ** (cap + 1)} ** (n + 1);
@@ -25,7 +25,7 @@ fn unbounded_knapsack_dp(comptime wgt: []i32, val: []i32, comptime cap: usize) i
 }
 
 // 完全背包：状态压缩后的动态规划
-fn unbounded_knapsack_dp_comp(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
+fn unboundedKnapsackDpComp(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
     comptime var n = wgt.len;
     // 初始化 dp 表
     var dp = [_]i32{0} ** (cap + 1);
@@ -51,11 +51,11 @@ pub fn main() !void {
     comptime var cap = 4;
 
     // 动态规划
-    var res = unbounded_knapsack_dp(&wgt, &val, cap);
+    var res = unboundedKnapsackDp(&wgt, &val, cap);
     std.debug.print("不超过背包容量的最大物品价值为 {}\n", .{res});
 
     // 状态压缩后的动态规划
-    res = unbounded_knapsack_dp_comp(&wgt, &val, cap);
+    res = unboundedKnapsackDpComp(&wgt, &val, cap);
     std.debug.print("不超过背包容量的最大物品价值为 {}\n", .{res});
 
     _ = try std.io.getStdIn().reader().readByte();

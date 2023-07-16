@@ -22,7 +22,7 @@ fn dfs(i: usize, mem: []i32) i32 {
 }
 
 // 爬楼梯：记忆化搜索
-fn climbing_stairs_dfs_mem(comptime n: usize) i32 {
+fn climbingStairsDfsMem(comptime n: usize) i32 {
     // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
     var mem = [_]i32{ -1 } ** (n + 1);
     return dfs(n, &mem);
@@ -32,7 +32,7 @@ fn climbing_stairs_dfs_mem(comptime n: usize) i32 {
 pub fn main() !void {
     comptime var n: usize = 9;
 
-    var res = climbing_stairs_dfs_mem(n);
+    var res = climbingStairsDfsMem(n);
     std.debug.print("爬 {} 阶楼梯共有 {} 种方案\n", .{ n, res });
 
     _ = try std.io.getStdIn().reader().readByte();
