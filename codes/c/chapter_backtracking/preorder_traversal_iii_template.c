@@ -62,15 +62,9 @@ void backtrack(vector *state, vector *choices, vector *res) {
 }
 
 // 打印向量中的元素
-void printResult(vector *vv) {
-    for (int i = 0; i < vv->size; i++) {
-        vector *v = (vector *)vv->data[i];
-        for (int j = 0; j < v->size; j++) {
-            TreeNode *node = (TreeNode *)v->data[j];
-            printf("%d ", node->val);
-        }
-        printf("\n");
-    }
+void printFunc(vector *v, void *p) {
+    TreeNode *node = p;
+    printf("%d ", node->val);
 }
 
 /* Driver Code */
@@ -92,7 +86,15 @@ int main() {
 
     // 输出结果
     printf("输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点:\n");
-    printResult(res);
+    for (int i = 0; i < res->size; i++) {
+        vector *path = res->data[i];
+        vector *vals = newVector();
+        for (int j = 0; j < path->size; j++) {
+            TreeNode *node = path->data[j];
+            vectorPushback(vals, &node->val);
+        }
+        printVector(vals, printFunc);
+    }
 
     // 释放内存
     delVector(state);

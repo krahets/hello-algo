@@ -11,7 +11,6 @@
 extern "C" {
 #endif
 
-
 /* 定义向量类型 */
 typedef struct vector {
     int size;     // 当前向量的大小
@@ -87,6 +86,24 @@ void *vectorBack(vector *v) {
 /* 获取向量的头元素 */
 void *vectorFront(vector *v) {
     return v->data[0];
+}
+
+/* 打印函数， 需传递一个打印变量的函数进来 */
+void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
+    if (v) {
+        if (v->depth == 0) {
+            return;
+        } else if (v->depth == 1) {
+            for (int i = 0; i < v->size; i++) {
+                printFunc(v, v->data[i]);
+            }
+        } else {
+            for (int i = 0; i < v->size; i++) {
+                printVector(v->data[i], printFunc);
+            }
+            v->depth--;
+        }
+    }
 }
 
 #ifdef __cplusplus
