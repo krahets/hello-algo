@@ -10,7 +10,7 @@ use std::collections::{HashMap, VecDeque};
 use std::rc::Rc;
 
 use crate::list_node::ListNode;
-use crate::tree_node::TreeNode;
+use crate::tree_node::{TreeNode, vec_to_tree};
 
 struct Trunk<'a, 'b> {
     prev: Option<&'a Trunk<'a, 'b>>,
@@ -89,4 +89,13 @@ fn show_trunks(trunk: Option<&Trunk>) {
         show_trunks(trunk.prev);
         print!("{}", trunk.str.get());
     }
+}
+
+/* Print a heap both in array and tree representations */
+pub fn print_heap(heap: Vec<i32>) {
+    println!("堆的数组表示：{:?}", heap);
+    println!("堆的树状表示：");
+    if let Some(root) = vec_to_tree(heap.into_iter().map(|val| Some(val)).collect()) {
+        print_tree(&root);
+    } 
 }
