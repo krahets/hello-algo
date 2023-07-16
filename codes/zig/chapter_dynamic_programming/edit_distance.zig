@@ -5,7 +5,7 @@
 const std = @import("std");
 
 // 编辑距离：暴力搜索
-fn editDistanceDfs(comptime s: []const u8, comptime t: []const u8, i: usize, j: usize) i32 {
+fn editDistanceDFS(comptime s: []const u8, comptime t: []const u8, i: usize, j: usize) i32 {
     // 若 s 和 t 都为空，则返回 0
     if (i == 0 and j == 0) {
         return 0;
@@ -20,18 +20,18 @@ fn editDistanceDfs(comptime s: []const u8, comptime t: []const u8, i: usize, j: 
     }
     // 若两字符相等，则直接跳过此两字符
     if (s[i - 1] == t[j - 1]) {
-        return editDistanceDfs(s, t, i - 1, j - 1);
+        return editDistanceDFS(s, t, i - 1, j - 1);
     }
     // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-    var insert = editDistanceDfs(s, t, i, j - 1);
-    var delete = editDistanceDfs(s, t, i - 1, j);
-    var replace = editDistanceDfs(s, t, i - 1, j - 1);
+    var insert = editDistanceDFS(s, t, i, j - 1);
+    var delete = editDistanceDFS(s, t, i - 1, j);
+    var replace = editDistanceDFS(s, t, i - 1, j - 1);
     // 返回最少编辑步数
     return @min(@min(insert, delete), replace) + 1;
 }
 
 // 编辑距离：记忆化搜索
-fn editDistanceDfsMem(comptime s: []const u8, comptime t: []const u8, mem: anytype, i: usize, j: usize) i32 {
+fn editDistanceDFSMem(comptime s: []const u8, comptime t: []const u8, mem: anytype, i: usize, j: usize) i32 {
     // 若 s 和 t 都为空，则返回 0
     if (i == 0 and j == 0) {
         return 0;
@@ -50,19 +50,19 @@ fn editDistanceDfsMem(comptime s: []const u8, comptime t: []const u8, mem: anyty
     }
     // 若两字符相等，则直接跳过此两字符
     if (s[i - 1] == t[j - 1]) {
-        return editDistanceDfsMem(s, t, mem, i - 1, j - 1);
+        return editDistanceDFSMem(s, t, mem, i - 1, j - 1);
     }
     // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-    var insert = editDistanceDfsMem(s, t, mem, i, j - 1);
-    var delete = editDistanceDfsMem(s, t, mem, i - 1, j);
-    var replace = editDistanceDfsMem(s, t, mem, i - 1, j - 1);
+    var insert = editDistanceDFSMem(s, t, mem, i, j - 1);
+    var delete = editDistanceDFSMem(s, t, mem, i - 1, j);
+    var replace = editDistanceDFSMem(s, t, mem, i - 1, j - 1);
     // 记录并返回最少编辑步数
     mem[i][j] = @min(@min(insert, delete), replace) + 1;
     return mem[i][j];
 }
 
 // 编辑距离：动态规划
-fn editDistanceDp(comptime s: []const u8, comptime t: []const u8) i32 {
+fn editDistanceDP(comptime s: []const u8, comptime t: []const u8) i32 {
     comptime var n = s.len;
     comptime var m = t.len;
     var dp = [_][m + 1]i32{[_]i32{0} ** (m + 1)} ** (n + 1);
@@ -89,7 +89,7 @@ fn editDistanceDp(comptime s: []const u8, comptime t: []const u8) i32 {
 }
 
 // 编辑距离：状态压缩后的动态规划
-fn editDistanceDpComp(comptime s: []const u8, comptime t: []const u8) i32 {
+fn editDistanceDPComp(comptime s: []const u8, comptime t: []const u8) i32 {
     comptime var n = s.len;
     comptime var m = t.len;
     var dp = [_]i32{0} ** (m + 1);
@@ -126,20 +126,20 @@ pub fn main() !void {
     comptime var m = t.len;
 
     // 暴力搜索
-    var res = editDistanceDfs(s, t, n, m);
+    var res = editDistanceDFS(s, t, n, m);
     std.debug.print("将 {s} 更改为 {s} 最少需要编辑 {} 步\n", .{ s, t, res });
 
     // 记忆搜索
     var mem = [_][m + 1]i32{[_]i32{-1} ** (m + 1)} ** (n + 1);
-    res = editDistanceDfsMem(s, t, @constCast(&mem), n, m);
+    res = editDistanceDFSMem(s, t, @constCast(&mem), n, m);
     std.debug.print("将 {s} 更改为 {s} 最少需要编辑 {} 步\n", .{ s, t, res });
 
     // 动态规划
-    res = editDistanceDp(s, t);
+    res = editDistanceDP(s, t);
     std.debug.print("将 {s} 更改为 {s} 最少需要编辑 {} 步\n", .{ s, t, res });
 
     // 状态压缩后的动态规划
-    res = editDistanceDpComp(s, t);
+    res = editDistanceDPComp(s, t);
     std.debug.print("将 {s} 更改为 {s} 最少需要编辑 {} 步\n", .{ s, t, res });
 
     _ = try std.io.getStdIn().reader().readByte();

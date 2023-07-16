@@ -16,7 +16,7 @@ fn dfs(i: usize) i32 {
 }
 
 // 爬楼梯：搜索
-fn climbingStairsDfs(comptime n: usize) i32 {
+fn climbingStairsDFS(comptime n: usize) i32 {
     return dfs(n);
 }
 
@@ -24,7 +24,7 @@ fn climbingStairsDfs(comptime n: usize) i32 {
 pub fn main() !void {
     comptime var n: usize = 9;
 
-    var res = climbingStairsDfs(n);
+    var res = climbingStairsDFS(n);
     std.debug.print("爬 {} 阶楼梯共有 {} 种方案\n", .{ n, res });
 
     _ = try std.io.getStdIn().reader().readByte();

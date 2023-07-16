@@ -5,7 +5,7 @@
 const std = @import("std");
 
 // 爬楼梯最小代价：动态规划
-fn minCostClimbingStairsDp(comptime cost: []i32) i32 {
+fn minCostClimbingStairsDP(comptime cost: []i32) i32 {
     comptime var n = cost.len - 1;
     if (n == 1 or n == 2) {
         return cost[n];
@@ -23,7 +23,7 @@ fn minCostClimbingStairsDp(comptime cost: []i32) i32 {
 }
 
 // 爬楼梯最小代价：状态压缩后的动态规划
-fn minCostClimbingStairsDpComp(cost: []i32) i32 {
+fn minCostClimbingStairsDPComp(cost: []i32) i32 {
     var n = cost.len - 1;
     if (n == 1 or n == 2) {
         return cost[n];
@@ -44,10 +44,10 @@ pub fn main() !void {
     comptime var cost = [_]i32{ 0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1 };
     std.debug.print("输入楼梯的代价列表为 {any}\n", .{cost});
 
-    var res = minCostClimbingStairsDp(&cost);
+    var res = minCostClimbingStairsDP(&cost);
     std.debug.print("输入楼梯的代价列表为 {}\n", .{res});
 
-    res = minCostClimbingStairsDpComp(&cost);
+    res = minCostClimbingStairsDPComp(&cost);
     std.debug.print("输入楼梯的代价列表为 {}\n", .{res});
 
     _ = try std.io.getStdIn().reader().readByte();

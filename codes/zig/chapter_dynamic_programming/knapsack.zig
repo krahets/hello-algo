@@ -5,24 +5,24 @@
 const std = @import("std");
 
 // 0-1 背包：暴力搜索
-fn knapsackDfs(wgt: []i32, val: []i32, i: usize, c: usize) i32 {
+fn knapsackDFS(wgt: []i32, val: []i32, i: usize, c: usize) i32 {
     // 若已选完所有物品或背包无容量，则返回价值 0
     if (i == 0 or c == 0) {
         return 0;
     }
     // 若超过背包容量，则只能不放入背包
     if (wgt[i - 1] > c) {
-        return knapsackDfs(wgt, val, i - 1, c);
+        return knapsackDFS(wgt, val, i - 1, c);
     }
     // 计算不放入和放入物品 i 的最大价值
-    var no = knapsackDfs(wgt, val, i - 1, c);
-    var yes = knapsackDfs(wgt, val, i - 1, c - @as(usize, @intCast(wgt[i - 1]))) + val[i - 1];
+    var no = knapsackDFS(wgt, val, i - 1, c);
+    var yes = knapsackDFS(wgt, val, i - 1, c - @as(usize, @intCast(wgt[i - 1]))) + val[i - 1];
     // 返回两种方案中价值更大的那一个
     return @max(no, yes);
 }
 
 // 0-1 背包：记忆化搜索
-fn knapsackDfsMem(wgt: []i32, val: []i32, mem: anytype, i: usize, c: usize) i32 {
+fn knapsackDFSMem(wgt: []i32, val: []i32, mem: anytype, i: usize, c: usize) i32 {
     // 若已选完所有物品或背包无容量，则返回价值 0
     if (i == 0 or c == 0) {
         return 0;
@@ -33,18 +33,18 @@ fn knapsackDfsMem(wgt: []i32, val: []i32, mem: anytype, i: usize, c: usize) i32 
     }
     // 若超过背包容量，则只能不放入背包
     if (wgt[i - 1] > c) {
-        return knapsackDfsMem(wgt, val, mem, i - 1, c);
+        return knapsackDFSMem(wgt, val, mem, i - 1, c);
     }
     // 计算不放入和放入物品 i 的最大价值
-    var no = knapsackDfsMem(wgt, val, mem, i - 1, c);
-    var yes = knapsackDfsMem(wgt, val, mem, i - 1, c - @as(usize, @intCast(wgt[i - 1]))) + val[i - 1];
+    var no = knapsackDFSMem(wgt, val, mem, i - 1, c);
+    var yes = knapsackDFSMem(wgt, val, mem, i - 1, c - @as(usize, @intCast(wgt[i - 1]))) + val[i - 1];
     // 记录并返回两种方案中价值更大的那一个
     mem[i][c] = @max(no, yes);
     return mem[i][c];
 }
 
 // 0-1 背包：动态规划
-fn knapsackDp(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
+fn knapsackDP(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
     comptime var n = wgt.len;
     // 初始化 dp 表
     var dp = [_][cap + 1]i32{[_]i32{0} ** (cap + 1)} ** (n + 1);
@@ -64,7 +64,7 @@ fn knapsackDp(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
 }
 
 // 0-1 背包：状态压缩后的动态规划
-fn knapsackDpComp(wgt: []i32, val: []i32, comptime cap: usize) i32 {
+fn knapsackDPComp(wgt: []i32, val: []i32, comptime cap: usize) i32 {
     var n = wgt.len;
     // 初始化 dp 表
     var dp = [_]i32{0} ** (cap + 1);
@@ -90,20 +90,20 @@ pub fn main() !void {
     comptime var n = wgt.len;
 
     // 暴力搜索
-    var res = knapsackDfs(&wgt, &val, n, cap);
+    var res = knapsackDFS(&wgt, &val, n, cap);
     std.debug.print("不超过背包容量的最大物品价值为 {}\n", .{res});
 
     // 记忆搜索
     var mem = [_][cap + 1]i32{[_]i32{-1} ** (cap + 1)} ** (n + 1);
-    res = knapsackDfsMem(&wgt, &val, @constCast(&mem), n, cap);
+    res = knapsackDFSMem(&wgt, &val, @constCast(&mem), n, cap);
     std.debug.print("不超过背包容量的最大物品价值为 {}\n", .{res});
 
     // 动态规划
-    res = knapsackDp(&wgt, &val, cap);
+    res = knapsackDP(&wgt, &val, cap);
     std.debug.print("不超过背包容量的最大物品价值为 {}\n", .{res});
 
     // 状态压缩后的动态规划
-    res = knapsackDpComp(&wgt, &val, cap);
+    res = knapsackDPComp(&wgt, &val, cap);
     std.debug.print("不超过背包容量的最大物品价值为 {}\n", .{res});
 
     _ = try std.io.getStdIn().reader().readByte();
