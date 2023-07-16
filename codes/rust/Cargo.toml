@@ -299,5 +299,20 @@ path = "chapter_backtracking/permutations_i.rs"
 name = "permutations_ii"
 path = "chapter_backtracking/permutations_ii.rs"
 
+# Run Command: cargo run --bin heap
+[[bin]]
+name = "heap"
+path = "chapter_heap/heap.rs"
+
+# Run Command: cargo run --bin my_heap
+[[bin]]
+name = "my_heap"
+path = "chapter_heap/my_heap.rs"
+
+# Run Command: cargo run --bin top_k
+[[bin]]
+name = "top_k"
+path = "chapter_heap/top_k.rs"
+
 [dependencies]
 rand = "0.8.5"
