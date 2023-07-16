@@ -159,7 +159,25 @@ $$
 === "Zig"
 
     ```zig title="unbounded_knapsack.zig"
-    [class]{}-[func]{unboundedKnapsackDP}
+    // 完全背包：动态规划
+    fn unboundedKnapsackDP(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
+        comptime var n = wgt.len;
+        // 初始化 dp 表
+        var dp = [_][cap + 1]i32{[_]i32{0} ** (cap + 1)} ** (n + 1);
+        // 状态转移
+        for (1..n + 1) |i| {
+            for (1..cap + 1) |c| {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = @max(dp[i - 1][c], dp[i][c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
+                }
+            }
+        }
+        return dp[n][cap];
+    }
     ```
 
 === "Dart"
@@ -316,7 +334,25 @@ $$
 === "Zig"
 
     ```zig title="unbounded_knapsack.zig"
-    [class]{}-[func]{unboundedKnapsackDPComp}
+    // 完全背包：状态压缩后的动态规划
+    fn unboundedKnapsackDPComp(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
+        comptime var n = wgt.len;
+        // 初始化 dp 表
+        var dp = [_]i32{0} ** (cap + 1);
+        // 状态转移
+        for (1..n + 1) |i| {
+            for (1..cap + 1) |c| {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = @max(dp[c], dp[c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
+    }
     ```
 
 === "Dart"
@@ -516,7 +552,34 @@ $$
 === "Zig"
 
     ```zig title="coin_change.zig"
-    [class]{}-[func]{coinChangeDP}
+    // 零钱兑换：动态规划
+    fn coinChangeDP(comptime coins: []i32, comptime amt: usize) i32 {
+        comptime var n = coins.len;
+        comptime var max = amt + 1;
+        // 初始化 dp 表
+        var dp = [_][amt + 1]i32{[_]i32{0} ** (amt + 1)} ** (n + 1);
+        // 状态转移：首行首列
+        for (1..amt + 1) |a| {
+            dp[0][a] = max;
+        }
+        // 状态转移：其余行列
+        for (1..n + 1) |i| {
+            for (1..amt + 1) |a| {
+                if (coins[i - 1] > @as(i32, @intCast(a))) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = @min(dp[i - 1][a], dp[i][a - @as(usize, @intCast(coins[i - 1]))] + 1);
+                }
+            }
+        }
+        if (dp[n][amt] != max) {
+            return @intCast(dp[n][amt]);
+        } else {
+            return -1;
+        }
+    }
     ```
 
 === "Dart"
@@ -710,7 +773,32 @@ $$
 === "Zig"
 
     ```zig title="coin_change.zig"
-    [class]{}-[func]{coinChangeDPComp}
+    // 零钱兑换：状态压缩后的动态规划
+    fn coinChangeDPComp(comptime coins: []i32, comptime amt: usize) i32 {
+        comptime var n = coins.len;
+        comptime var max = amt + 1;
+        // 初始化 dp 表
+        var dp = [_]i32{0} ** (amt + 1);
+        @memset(&dp, max);
+        dp[0] = 0;
+        // 状态转移
+        for (1..n + 1) |i| {
+            for (1..amt + 1) |a| {
+                if (coins[i - 1] > @as(i32, @intCast(a))) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = @min(dp[a], dp[a - @as(usize, @intCast(coins[i - 1]))] + 1);
+                }
+            }
+        }
+        if (dp[amt] != max) {
+            return @intCast(dp[amt]);
+        } else {
+            return -1;
+        }
+    }
     ```
 
 === "Dart"
@@ -879,7 +967,29 @@ $$
 === "Zig"
 
     ```zig title="coin_change_ii.zig"
-    [class]{}-[func]{coinChangeIIDP}
+    // 零钱兑换 II：动态规划
+    fn coinChangeIIDP(comptime coins: []i32, comptime amt: usize) i32 {
+        comptime var n = coins.len;
+        // 初始化 dp 表
+        var dp = [_][amt + 1]i32{[_]i32{0} ** (amt + 1)} ** (n + 1);
+        // 初始化首列
+        for (0..n + 1) |i| {
+            dp[i][0] = 1;
+        }
+        // 状态转移
+        for (1..n + 1) |i| {
+            for (1..amt + 1) |a| {
+                if (coins[i - 1] > @as(i32, @intCast(a))) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = dp[i - 1][a] + dp[i][a - @as(usize, @intCast(coins[i - 1]))];
+                }
+            }
+        }
+        return dp[n][amt];
+    }
     ```
 
 === "Dart"
@@ -1020,7 +1130,26 @@ $$
 === "Zig"
 
     ```zig title="coin_change_ii.zig"
-    [class]{}-[func]{coinChangeIIDPComp}
+    // 零钱兑换 II：状态压缩后的动态规划
+    fn coinChangeIIDPComp(comptime coins: []i32, comptime amt: usize) i32 {
+        comptime var n = coins.len;
+        // 初始化 dp 表
+        var dp = [_]i32{0} ** (amt + 1);
+        dp[0] = 1;
+        // 状态转移
+        for (1..n + 1) |i| {
+            for (1..amt + 1) |a| {
+                if (coins[i - 1] > @as(i32, @intCast(a))) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = dp[a] + dp[a - @as(usize, @intCast(coins[i - 1]))];
+                }
+            }
+        }
+        return dp[amt];
+    }
     ```
 
 === "Dart"

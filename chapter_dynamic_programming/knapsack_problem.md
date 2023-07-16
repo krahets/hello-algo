@@ -177,7 +177,22 @@ $$
 === "Zig"
 
     ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDFS}
+    // 0-1 背包：暴力搜索
+    fn knapsackDFS(wgt: []i32, val: []i32, i: usize, c: usize) i32 {
+        // 若已选完所有物品或背包无容量，则返回价值 0
+        if (i == 0 or c == 0) {
+            return 0;
+        }
+        // 若超过背包容量，则只能不放入背包
+        if (wgt[i - 1] > c) {
+            return knapsackDFS(wgt, val, i - 1, c);
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        var no = knapsackDFS(wgt, val, i - 1, c);
+        var yes = knapsackDFS(wgt, val, i - 1, c - @as(usize, @intCast(wgt[i - 1]))) + val[i - 1];
+        // 返回两种方案中价值更大的那一个
+        return @max(no, yes);
+    }
     ```
 
 === "Dart"
@@ -333,7 +348,27 @@ $$
 === "Zig"
 
     ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDFSMem}
+    // 0-1 背包：记忆化搜索
+    fn knapsackDFSMem(wgt: []i32, val: []i32, mem: anytype, i: usize, c: usize) i32 {
+        // 若已选完所有物品或背包无容量，则返回价值 0
+        if (i == 0 or c == 0) {
+            return 0;
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][c] != -1) {
+            return mem[i][c];
+        }
+        // 若超过背包容量，则只能不放入背包
+        if (wgt[i - 1] > c) {
+            return knapsackDFSMem(wgt, val, mem, i - 1, c);
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        var no = knapsackDFSMem(wgt, val, mem, i - 1, c);
+        var yes = knapsackDFSMem(wgt, val, mem, i - 1, c - @as(usize, @intCast(wgt[i - 1]))) + val[i - 1];
+        // 记录并返回两种方案中价值更大的那一个
+        mem[i][c] = @max(no, yes);
+        return mem[i][c];
+    }
     ```
 
 === "Dart"
@@ -477,7 +512,25 @@ $$
 === "Zig"
 
     ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDP}
+    // 0-1 背包：动态规划
+    fn knapsackDP(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
+        comptime var n = wgt.len;
+        // 初始化 dp 表
+        var dp = [_][cap + 1]i32{[_]i32{0} ** (cap + 1)} ** (n + 1);
+        // 状态转移
+        for (1..n + 1) |i| {
+            for (1..cap + 1) |c| {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = @max(dp[i - 1][c], dp[i - 1][c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
+                }
+            }
+        }
+        return dp[n][cap];
+    }
     ```
 
 === "Dart"
@@ -679,7 +732,24 @@ $$
 === "Zig"
 
     ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDPComp}
+    // 0-1 背包：状态压缩后的动态规划
+    fn knapsackDPComp(wgt: []i32, val: []i32, comptime cap: usize) i32 {
+        var n = wgt.len;
+        // 初始化 dp 表
+        var dp = [_]i32{0} ** (cap + 1);
+        // 状态转移
+        for (1..n + 1) |i| {
+            // 倒序遍历
+            var c = cap;
+            while (c > 0) : (c -= 1) {
+                if (wgt[i - 1] < c) {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = @max(dp[c], dp[c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
+    }
     ```
 
 === "Dart"

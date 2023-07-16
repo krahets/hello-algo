@@ -218,7 +218,32 @@ $$
 === "Zig"
 
     ```zig title="edit_distance.zig"
-    [class]{}-[func]{editDistanceDP}
+    // 编辑距离：动态规划
+    fn editDistanceDP(comptime s: []const u8, comptime t: []const u8) i32 {
+        comptime var n = s.len;
+        comptime var m = t.len;
+        var dp = [_][m + 1]i32{[_]i32{0} ** (m + 1)} ** (n + 1);
+        // 状态转移：首行首列
+        for (1..n + 1) |i| {
+            dp[i][0] = @intCast(i);
+        }
+        for (1..m + 1) |j| {
+            dp[0][j] = @intCast(j);
+        }
+        // 状态转移：其余行列
+        for (1..n + 1) |i| {
+            for (1..m + 1) |j| {
+                if (s[i - 1] == t[j - 1]) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] = @min(@min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                }
+            }
+        }
+        return dp[n][m];
+    }
     ```
 
 === "Dart"
@@ -438,7 +463,35 @@ $$
 === "Zig"
 
     ```zig title="edit_distance.zig"
-    [class]{}-[func]{editDistanceDPComp}
+    // 编辑距离：状态压缩后的动态规划
+    fn editDistanceDPComp(comptime s: []const u8, comptime t: []const u8) i32 {
+        comptime var n = s.len;
+        comptime var m = t.len;
+        var dp = [_]i32{0} ** (m + 1);
+        // 状态转移：首行
+        for (1..m + 1) |j| {
+            dp[j] = @intCast(j);
+        }
+        // 状态转移：其余行
+        for (1..n + 1) |i| {
+            // 状态转移：首列
+            var leftup = dp[0]; // 暂存 dp[i-1, j-1]
+            dp[0] = @intCast(i);
+            // 状态转移：其余列
+            for (1..m + 1) |j| {
+                var temp = dp[j];
+                if (s[i - 1] == t[j - 1]) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup;
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = @min(@min(dp[j - 1], dp[j]), leftup) + 1;
+                }
+                leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        return dp[m];
+    }
     ```
 
 === "Dart"

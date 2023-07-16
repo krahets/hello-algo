@@ -195,7 +195,16 @@ comments: true
         }
     }
 
-    [class]{}-[func]{climbingStairsBacktrack}
+    // 爬楼梯：回溯
+    fn climbingStairsBacktrack(n: usize) !i32 {
+        var choices = [_]i32{ 1, 2 }; // 可选择向上爬 1 或 2 阶
+        var state: i32 = 0; // 从第 0 阶开始爬
+        var res = std.ArrayList(i32).init(std.heap.page_allocator);
+        defer res.deinit();
+        try res.append(0); // 使用 res[0] 记录方案数量
+        backtrack(&choices, state, @intCast(n), res);
+        return res.items[0];
+    }
     ```
 
 === "Dart"
@@ -362,7 +371,10 @@ $$
         return count;
     }
 
-    [class]{}-[func]{climbingStairsDFS}
+    // 爬楼梯：搜索
+    fn climbingStairsDFS(comptime n: usize) i32 {
+        return dfs(n);
+    }
     ```
 
 === "Dart"
@@ -552,7 +564,12 @@ $$
         return count;
     }
 
-    [class]{}-[func]{climbingStairsDFSMem}
+    // 爬楼梯：记忆化搜索
+    fn climbingStairsDFSMem(comptime n: usize) i32 {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        var mem = [_]i32{ -1 } ** (n + 1);
+        return dfs(n, &mem);
+    }
     ```
 
 === "Dart"
@@ -687,7 +704,23 @@ $$
 === "Zig"
 
     ```zig title="climbing_stairs_dp.zig"
-    [class]{}-[func]{climbingStairsDP}
+    // 爬楼梯：动态规划
+    fn climbingStairsDP(comptime n: usize) i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (n == 1 or n == 2) {
+            return @intCast(n);
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        var dp = [_]i32{-1} ** (n + 1);
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (3..n + 1) |i| {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
     ```
 
 === "Dart"
@@ -805,7 +838,20 @@ $$
 === "Zig"
 
     ```zig title="climbing_stairs_dp.zig"
-    [class]{}-[func]{climbingStairsDPComp}
+    // 爬楼梯：状态压缩后的动态规划
+    fn climbingStairsDPComp(comptime n: usize) i32 {
+        if (n == 1 or n == 2) {
+            return @intCast(n);
+        }
+        var a: i32 = 1;
+        var b: i32 = 2;
+        for (3..n + 1) |_| {
+            var tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "Dart"

@@ -148,7 +148,23 @@ $$
 === "Zig"
 
     ```zig title="min_cost_climbing_stairs_dp.zig"
-    [class]{}-[func]{minCostClimbingStairsDP}
+    // 爬楼梯最小代价：动态规划
+    fn minCostClimbingStairsDP(comptime cost: []i32) i32 {
+        comptime var n = cost.len - 1;
+        if (n == 1 or n == 2) {
+            return cost[n];
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        var dp = [_]i32{-1} ** (n + 1);
+        // 初始状态：预设最小子问题的解
+        dp[1] = cost[1];
+        dp[2] = cost[2];
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (3..n + 1) |i| {
+            dp[i] = @min(dp[i - 1], dp[i - 2]) + cost[i];
+        }
+        return dp[n];
+    }
     ```
 
 === "Dart"
@@ -264,7 +280,22 @@ $$
 === "Zig"
 
     ```zig title="min_cost_climbing_stairs_dp.zig"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
+    // 爬楼梯最小代价：状态压缩后的动态规划
+    fn minCostClimbingStairsDPComp(cost: []i32) i32 {
+        var n = cost.len - 1;
+        if (n == 1 or n == 2) {
+            return cost[n];
+        }
+        var a = cost[1];
+        var b = cost[2];
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (3..n + 1) |i| {
+            var tmp = b;
+            b = @min(a, tmp) + cost[i];
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "Dart"
@@ -439,7 +470,25 @@ $$
 === "Zig"
 
     ```zig title="climbing_stairs_constraint_dp.zig"
-    [class]{}-[func]{climbingStairsConstraintDP}
+    // 带约束爬楼梯：动态规划
+    fn climbingStairsConstraintDP(comptime n: usize) i32 {
+        if (n == 1 or n == 2) {
+            return @intCast(n);
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        var dp = [_][3]i32{ [_]i32{ -1, -1, -1 } } ** (n + 1);
+        // 初始状态：预设最小子问题的解
+        dp[1][1] = 1;
+        dp[1][2] = 0;
+        dp[2][1] = 0;
+        dp[2][2] = 1;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (3..n + 1) |i| {
+            dp[i][1] = dp[i - 1][2];
+            dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
+        }
+        return dp[n][1] + dp[n][2];
+    }
     ```
 
 === "Dart"
