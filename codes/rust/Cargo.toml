@@ -299,5 +299,25 @@ path = "chapter_backtracking/permutations_i.rs"
 name = "permutations_ii"
 path = "chapter_backtracking/permutations_ii.rs"
 
+# Run Command: cargo run --bin preorder_traversal_i_compact
+[[bin]]
+name = "preorder_traversal_i_compact"
+path = "chapter_backtracking/preorder_traversal_i_compact.rs"
+
+# Run Command: cargo run --bin preorder_traversal_ii_compact
+[[bin]]
+name = "preorder_traversal_ii_compact"
+path = "chapter_backtracking/preorder_traversal_ii_compact.rs"
+
+# Run Command: cargo run --bin preorder_traversal_iii_compact
+[[bin]]
+name = "preorder_traversal_iii_compact"
+path = "chapter_backtracking/preorder_traversal_iii_compact.rs"
+
+# Run Command: cargo run --bin preorder_traversal_iii_template
+[[bin]]
+name = "preorder_traversal_iii_template"
+path = "chapter_backtracking/preorder_traversal_iii_template.rs"
+
 [dependencies]
 rand = "0.8.5"
