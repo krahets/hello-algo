@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 12.2. &nbsp; 构建二叉树问题
+# 12.3. &nbsp; 构建二叉树问题
 
 !!! question
 
@@ -64,17 +64,65 @@ comments: true
 === "Java"
 
     ```java title="build_tree.java"
-    [class]{build_tree}-[func]{dfs}
+    /* 构建二叉树：分治 */
+    TreeNode dfs(int[] preorder, int[] inorder, Map<Integer, Integer> hmap, int i, int l, int r) {
+        // 子树区间为空时终止
+        if (r - l < 0)
+            return null;
+        // 初始化根节点
+        TreeNode root = new TreeNode(preorder[i]);
+        // 查询 m ，从而划分左右子树
+        int m = hmap.get(preorder[i]);
+        // 子问题：构建左子树
+        root.left = dfs(preorder, inorder, hmap, i + 1, l, m - 1);
+        // 子问题：构建右子树
+        root.right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r);
+        // 返回根节点
+        return root;
+    }
 
-    [class]{build_tree}-[func]{buildTree}
+    /* 构建二叉树 */
+    TreeNode buildTree(int[] preorder, int[] inorder) {
+        // 初始化哈希表，存储 inorder 元素到索引的映射
+        Map<Integer, Integer> hmap = new HashMap<>();
+        for (int i = 0; i < inorder.length; i++) {
+            hmap.put(inorder[i], i);
+        }
+        TreeNode root = dfs(preorder, inorder, hmap, 0, 0, inorder.length - 1);
+        return root;
+    }
     ```
 
 === "C++"
 
     ```cpp title="build_tree.cpp"
-    [class]{}-[func]{dfs}
+    /* 构建二叉树：分治 */
+    TreeNode *dfs(vector<int> &preorder, vector<int> &inorder, unordered_map<int, int> &hmap, int i, int l, int r) {
+        // 子树区间为空时终止
+        if (r - l < 0)
+            return NULL;
+        // 初始化根节点
+        TreeNode *root = new TreeNode(preorder[i]);
+        // 查询 m ，从而划分左右子树
+        int m = hmap[preorder[i]];
+        // 子问题：构建左子树
+        root->left = dfs(preorder, inorder, hmap, i + 1, l, m - 1);
+        // 子问题：构建右子树
+        root->right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r);
+        // 返回根节点
+        return root;
+    }
 
-    [class]{}-[func]{buildTree}
+    /* 构建二叉树 */
+    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
+        // 初始化哈希表，存储 inorder 元素到索引的映射
+        unordered_map<int, int> hmap;
+        for (int i = 0; i < inorder.size(); i++) {
+            hmap[inorder[i]] = i;
+        }
+        TreeNode *root = dfs(preorder, inorder, hmap, 0, 0, inorder.size() - 1);
+        return root;
+    }
     ```
 
 === "Python"
