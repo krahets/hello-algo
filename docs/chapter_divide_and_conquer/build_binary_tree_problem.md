@@ -4,7 +4,7 @@
 
     给定一个二叉树的前序遍历 `preorder` 和中序遍历 `inorder` ，请从中构建二叉树，返回二叉树的根节点。
 
-![构建二叉树的示例数据](build_binary_tree.assets/build_tree_example.png)
+![构建二叉树的示例数据](build_binary_tree_problem.assets/build_tree_example.png)
 
 原问题定义为从 `preorder` 和 `inorder` 构建二叉树。我们首先从分治的角度分析这道题：
 
@@ -25,7 +25,7 @@
 2. 查找根节点在 `inorder` 中的索引，基于该索引可将 `inorder` 划分为 `[ 9 | 3 ｜ 1 2 7 ]` ；
 3. 根据 `inorder` 划分结果，可得左子树和右子树分别有 1 个和 3 个节点，从而可将 `preorder` 划分为 `[ 3 | 9 | 2 1 7 ]` ；
 
-![在前序和中序遍历中划分子树](build_binary_tree.assets/build_tree_preorder_inorder_division.png)
+![在前序和中序遍历中划分子树](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
 
 至此，**我们已经推导出根节点、左子树、右子树在 `preorder` 和 `inorder` 中的索引区间**。而为了描述这些索引区间，我们需要借助几个指针变量：
 
@@ -47,7 +47,7 @@
 
 请注意，右子树根节点索引中的 $(m-l)$ 的含义是“左子树的节点数量”，建议配合下图理解。
 
-![根节点和左右子树的索引区间表示](build_binary_tree.assets/build_tree_division_pointers.png)
+![根节点和左右子树的索引区间表示](build_binary_tree_problem.assets/build_tree_division_pointers.png)
 
 接下来就可以实现代码了。为了提升查询 $m$ 的效率，我们借助一个哈希表 `hmap` 来存储 `inorder` 列表元素到索引的映射。
 
@@ -142,34 +142,34 @@
 下图展示了构建二叉树的递归过程，各个节点是在向下“递”的过程中建立的，而各条边是在向上“归”的过程中建立的。
 
 === "<1>"
-    ![built_tree_step1](build_binary_tree.assets/built_tree_step1.png)
+    ![构建二叉树的递归过程](build_binary_tree_problem.assets/built_tree_step1.png)
 
 === "<2>"
-    ![built_tree_step2](build_binary_tree.assets/built_tree_step2.png)
+    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.png)
 
 === "<3>"
-    ![built_tree_step3](build_binary_tree.assets/built_tree_step3.png)
+    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.png)
 
 === "<4>"
-    ![built_tree_step4](build_binary_tree.assets/built_tree_step4.png)
+    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.png)
 
 === "<5>"
-    ![built_tree_step5](build_binary_tree.assets/built_tree_step5.png)
+    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.png)
 
 === "<6>"
-    ![built_tree_step6](build_binary_tree.assets/built_tree_step6.png)
+    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.png)
 
 === "<7>"
-    ![built_tree_step7](build_binary_tree.assets/built_tree_step7.png)
+    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.png)
 
 === "<8>"
-    ![built_tree_step8](build_binary_tree.assets/built_tree_step8.png)
+    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.png)
 
 === "<9>"
-    ![built_tree_step9](build_binary_tree.assets/built_tree_step9.png)
+    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.png)
 
 === "<10>"
-    ![built_tree_step10](build_binary_tree.assets/built_tree_step10.png)
+    ![built_tree_step10](build_binary_tree_problem.assets/built_tree_step10.png)
 
 设树的节点数量为 $n$ ，初始化每一个节点（执行一个递归函数 `dfs()` ）使用 $O(1)$ 时间。**因此总体时间复杂度为 $O(n)$** 。
 

@@ -18,7 +18,7 @@ def dfs(
     l: int,
     r: int,
 ) -> TreeNode | None:
-    """构建二叉树 DFS"""
+    """构建二叉树：分治"""
     # 子树区间为空时终止
     if r - l < 0:
         return None
@@ -26,9 +26,9 @@ def dfs(
     root = TreeNode(preorder[i])
     # 查询 m ，从而划分左右子树
     m = hmap[preorder[i]]
-    # 递归构建左子树
+    # 子问题：构建左子树
     root.left = dfs(preorder, inorder, hmap, i + 1, l, m - 1)
-    # 递归构建右子树
+    # 子问题：构建右子树
     root.right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r)
     # 返回根节点
     return root
