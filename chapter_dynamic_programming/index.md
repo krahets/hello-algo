@@ -1,6 +1,7 @@
 ---
 comments: true
 icon: material/table-pivot
+status: new
 ---
 
 # 14. &nbsp; 动态规划
