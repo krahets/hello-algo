@@ -44,115 +44,83 @@ void freeHash(hashTable *h) {
     free(h);
 }
 
-/* 栈定义 */
-struct stack {
-    Vertex **top;
-    Vertex **bot;
-    unsigned int size;
-    unsigned int capacity;
-};
-
-typedef struct stack stack;
-
-/* 入栈 */
-void staPush(stack *s, Vertex *v) {
-
-    *s->top = v;
-    s->top++;
-    s->size++;
-}
-
-/* 出栈 */
-void staPop(stack *s) {
-    if (s->size <= 0) {
-        printf("stack is empty, pop fail! %s:%d\n", __FILE__, __LINE__);
+/* 深度优先遍历递归函数 */
+int arrayIndex = 0;
+void dfs(Vertex *v, hashTable *visited, Vertex **arrayVertex) {
+    if (v == 0) {
         return;
     }
-    s->top--;
-    s->size--;
-}
+    // 若顶点未被标记
+    if (hashQuery(visited, v->pos) != 0) {
+        // 标记顶点并将顶点存入数组
+        hashMark(visited, v->pos);
+        arrayVertex[arrayIndex] = v;
+        arrayIndex++;
 
-/* 栈顶元素 */
-Vertex *staTop(stack *s) {
-    if (s->top > s->bot) {
-        return *(s->top - 1);
+        // 遍历该顶点链表
+        Node *n = v->linked->head->next;
+
+        while (n != 0) {
+            // 进入递归
+            dfs(n->val, visited, arrayVertex);
+            n = n->next;
+        }
     }
-
-    return 0;
-}
-
-/* 释放栈内存 */
-void freeStack(stack *s) {
-    free(s->bot);
-    free(s);
-}
-
-/* 初始化栈 */
-stack *newStack(unsigned int numberVertices) {
-    stack *s = (stack *)malloc(sizeof(stack));
-    s->size = 0;
-    s->capacity = numberVertices;
-    s->bot = (Vertex **)malloc(sizeof(Vertex *) * numberVertices);
-    s->top = s->bot;
-
-    return s;
+    return;
 }
 
 /* 深度优先遍历 */
-void graphDFS(graphAdjList *t) {
-    // 初始化哈希表与栈
-    stack *s = newStack(t->size);
+Vertex **graphDFS(graphAdjList *t, Vertex *startVet) {
+    // 初始化哈希表与遍历结果顶点数组
+    Vertex **arrayVertex = (Vertex **)malloc(sizeof(Vertex *) * t->size);
     hashTable *visited = newHash(t->size);
-    // 第一个元素入栈并打印
-    staPush(s, t->verticesList[0]);
-    hashMark(visited, t->verticesList[0]->pos);
-    printf("\n[%d", staTop(s)->val);
 
-    // 打印深度优先搜索图
-    while (s->top > s->bot) {
-        // 遍历该顶点的边链表，将所有与该顶点有连接的，并且未被标记的顶点入栈
-        Node *n = staTop(s)->linked->head->next;
-        // 若顶点链表中含有未被标记的其它顶点，则对他进行标记并打印，然后进入该顶点的链表继续遍历
-        while (n != 0) {
-            if (hashQuery(visited, n->val->pos) != 0) {
-                hashMark(visited, n->val->pos);
-                staPush(s, n->val);
-                printf(", %d", staTop(s)->val);
-                // 若存在未被标记的顶点，则进入该顶点的链表
-                n = staTop(s)->linked->head->next;
-                continue;
-            }
-            // 若顶点已被标记，则查看下一个顶点
-            n = n->next;
-        }
-        // 若已经到达最底层，则出栈，继续遍历上层顶点的链表
-        staPop(s);
-    }
-    printf("]\n");
+    // 开始递归遍历
+    dfs(startVet, visited, arrayVertex);
 
-    // 释放栈与哈希表内存
-    freeStack(s);
+    // 释放哈希表内存并将数组索引归零
     freeHash(visited);
+    arrayIndex = 0;
+
+    // 返回遍历数组
+    return arrayVertex;
 }
 
 /* driver code */
 int main() {
     /* 初始化无向图 */
     graphAdjList *graph = newGraphic(10);
-    for (int i = 0; i < 7; i++) {
-        addVertex(graph, i);
-    }
-    addEdge(graph, 0, 1);
-    addEdge(graph, 0, 3);
-    addEdge(graph, 1, 2);
-    addEdge(graph, 2, 5);
-    addEdge(graph, 4, 5);
+    addVertex(graph, 6);
+    addVertex(graph, 4);
+    addVertex(graph, 5);
+    addVertex(graph, 2);
+    addVertex(graph, 3);
+    addVertex(graph, 1);
+    addVertex(graph, 0);
+
     addEdge(graph, 5, 6);
+    addEdge(graph, 4, 6);
+    addEdge(graph, 3, 5);
+    addEdge(graph, 2, 3);
+    addEdge(graph, 1, 2);
+    addEdge(graph, 0, 2);
     printGraph(graph);
 
-    /* 深度优先遍历 DFS */
-    printf("\n深度优先遍历（DFS）顶点序列为");
-    graphDFS(graph);
+    /* 深度优先遍历 DFS ,从值为0的节点开始，即索引为6 */
+    Vertex **v = graphDFS(graph, graph->verticesList[6]);
 
+    /* 输出遍历结果 */
+    printf("\n深度优先遍历（DFS）顶点序列为\n");
+    printf("[");
+    for (int i = 0; i < graph->size; i++) {
+        if (i != graph->size - 1) {
+            printf("%d, ", v[i]->val);
+        } else {
+            printf("%d]\n", v[i]->val);
+        }
+    }
+    
+    // 释放打印的顶点数组内存
+    free(v);
     return 0;
 }
