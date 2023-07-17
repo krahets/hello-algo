@@ -73,6 +73,7 @@ void dfs(Vertex *v, hashTable *visited, Vertex **arrayVertex) {
 Vertex **graphDFS(graphAdjList *t, Vertex *startVet) {
     // 初始化哈希表与遍历结果顶点数组
     Vertex **arrayVertex = (Vertex **)malloc(sizeof(Vertex *) * t->size);
+    memset(arrayVertex, 0, sizeof(Vertex *) * t->size);
     hashTable *visited = newHash(t->size);
 
     // 开始递归遍历
@@ -112,13 +113,11 @@ int main() {
     /* 输出遍历结果 */
     printf("\n深度优先遍历（DFS）顶点序列为\n");
     printf("[");
-    for (int i = 0; i < graph->size; i++) {
-        if (i != graph->size - 1) {
-            printf("%d, ", v[i]->val);
-        } else {
-            printf("%d]\n", v[i]->val);
-        }
+    printf("%d", v[0]->val);
+    for (int i = 1; i < graph->size && v[i] != 0; i++) {
+        printf(", %d", v[i]->val);
     }
+    printf("]\n");
     
     // 释放打印的顶点数组内存
     free(v);
