@@ -143,6 +143,54 @@ pub fn build(b: *std.Build) void {
         // Source File: "chapter_sorting/radix_sort.zig"
         // Run Command: zig build run_radix_sort -Doptimize=ReleaseFast
         .{ .name = "radix_sort", .path = "chapter_sorting/radix_sort.zig" },
+
+        // Source File: "chapter_dynamic_programming/climbing_stairs_backtrack.zig"
+        // Run Command: zig build run_climbing_stairs_backtrack -Doptimize=ReleaseFast
+        .{ .name = "climbing_stairs_backtrack", .path = "chapter_dynamic_programming/climbing_stairs_backtrack.zig" },
+
+        // Source File: "chapter_dynamic_programming/climbing_stairs_constraint_dp.zig"
+        // Run Command: zig build run_climbing_stairs_constraint_dp -Doptimize=ReleaseFast
+        .{ .name = "climbing_stairs_constraint_dp", .path = "chapter_dynamic_programming/climbing_stairs_constraint_dp.zig" },
+
+        // Source File: "chapter_dynamic_programming/climbing_stairs_dfs_mem.zig"
+        // Run Command: zig build run_climbing_stairs_dfs_mem -Doptimize=ReleaseFast
+        .{ .name = "climbing_stairs_dfs_mem", .path = "chapter_dynamic_programming/climbing_stairs_dfs_mem.zig" },
+
+        // Source File: "chapter_dynamic_programming/climbing_stairs_dfs.zig"
+        // Run Command: zig build run_climbing_stairs_dfs -Doptimize=ReleaseFast
+        .{ .name = "climbing_stairs_dfs", .path = "chapter_dynamic_programming/climbing_stairs_dfs.zig" },
+
+        // Source File: "chapter_dynamic_programming/climbing_stairs_dp.zig"
+        // Run Command: zig build run_climbing_stairs_dp -Doptimize=ReleaseFast
+        .{ .name = "climbing_stairs_dp", .path = "chapter_dynamic_programming/climbing_stairs_dp.zig" },
+
+        // Source File: "chapter_dynamic_programming/coin_change_ii.zig"
+        // Run Command: zig build run_coin_change_ii -Doptimize=ReleaseFast
+        .{ .name = "coin_change_ii", .path = "chapter_dynamic_programming/coin_change_ii.zig" },
+
+        // Source File: "chapter_dynamic_programming/coin_change.zig"
+        // Run Command: zig build run_coin_change -Doptimize=ReleaseFast
+        .{ .name = "coin_change", .path = "chapter_dynamic_programming/coin_change.zig" },
+
+        // Source File: "chapter_dynamic_programming/edit_distance.zig"
+        // Run Command: zig build run_edit_distance -Doptimize=ReleaseFast
+        .{ .name = "edit_distance", .path = "chapter_dynamic_programming/edit_distance.zig" },
+
+        // Source File: "chapter_dynamic_programming/knapsack.zig"
+        // Run Command: zig build run_knapsack -Doptimize=ReleaseFast
+        .{ .name = "knapsack", .path = "chapter_dynamic_programming/knapsack.zig" },
+
+        // Source File: "chapter_dynamic_programming/min_cost_climbing_stairs_dp.zig"
+        // Run Command: zig build run_min_cost_climbing_stairs_dp -Doptimize=ReleaseFast
+        .{ .name = "min_cost_climbing_stairs_dp", .path = "chapter_dynamic_programming/min_cost_climbing_stairs_dp.zig" },
+
+        // Source File: "chapter_dynamic_programming/min_path_sum.zig"
+        // Run Command: zig build run_min_path_sum -Doptimize=ReleaseFast
+        .{ .name = "min_path_sum", .path = "chapter_dynamic_programming/min_path_sum.zig" },
+
+        // Source File: "chapter_dynamic_programming/unbounded_knapsack.zig"
+        // Run Command: zig build run_unbounded_knapsack -Doptimize=ReleaseFast
+        .{ .name = "unbounded_knapsack", .path = "chapter_dynamic_programming/unbounded_knapsack.zig" },
     };
 
     inline for (group_name_path) |name_path| {
