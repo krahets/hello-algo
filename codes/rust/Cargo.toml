@@ -334,5 +334,20 @@ path = "chapter_backtracking/preorder_traversal_iii_compact.rs"
 name = "preorder_traversal_iii_template"
 path = "chapter_backtracking/preorder_traversal_iii_template.rs"
 
+# Run Command: cargo run --bin binary_search_recur
+[[bin]]
+name = "binary_search_recur"
+path = "chapter_divide_and_conquer/binary_search_recur.rs"
+
+# Run Command: cargo run --bin hanota
+[[bin]]
+name = "hanota"
+path = "chapter_divide_and_conquer/hanota.rs"
+
+# Run Command: cargo run --bin build_tree
+[[bin]]
+name = "build_tree"
+path = "chapter_divide_and_conquer/build_tree.rs"
+
 [dependencies]
 rand = "0.8.5"
