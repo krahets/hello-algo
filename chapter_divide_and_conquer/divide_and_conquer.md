@@ -1,5 +1,6 @@
 ---
 comments: true
+status: new
 ---
 
 # 12.1. &nbsp; 分治算法

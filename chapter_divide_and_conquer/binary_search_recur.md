@@ -1,5 +1,6 @@
 ---
 comments: true
+status: new
 ---
 
 # 12.2. &nbsp; 分治搜索策略
