@@ -18,3 +18,4 @@ status: new
 - [12.2 &nbsp; 分治搜索策略](https://www.hello-algo.com/chapter_divide_and_conquer/binary_search_recur/)
 - [12.3 &nbsp; 构建树问题](https://www.hello-algo.com/chapter_divide_and_conquer/build_binary_tree_problem/)
 - [12.4 &nbsp; 汉诺塔问题](https://www.hello-algo.com/chapter_divide_and_conquer/hanota_problem/)
+- [12.5 &nbsp; 小结](https://www.hello-algo.com/chapter_divide_and_conquer/summary/)
