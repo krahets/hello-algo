@@ -88,15 +88,17 @@ void freeQueue(queue *q) {
 }
 
 /* 广度优先遍历 */
-void graphBFS(graphAdjList *t) {
+int arrayIndex = 0;
+Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
     // 初始化队列与哈希表
+    Vertex **arrayVertex = (Vertex **)malloc(sizeof(Vertex *) * t->size);
+    memset(arrayVertex, 0, t->size);
     queue *que = newQueue(t->size);
     hashTable *visited = newHash(t->size);
     // 将第一个元素入队
-    queuePush(que, t->verticesList[0]);
-    hashMark(visited, t->verticesList[0]->pos);
+    queuePush(que, startVet);
+    hashMark(visited, startVet->pos);
 
-    printf("\n[");
     while (que->head < que->tail) {
         // 遍历该顶点的边链表，将所有与该顶点有连接的，并且未被标记的顶点入队
         Node *n = queueTop(que)->linked->head->next;
@@ -108,20 +110,18 @@ void graphBFS(graphAdjList *t) {
             }
             n = n->next;
         }
-        // 打印队首元素
-        if (que->head == que->tail - 1) {
-            printf("%d]\n", queueTop(que)->val);
-        } else {
-            printf("%d, ", queueTop(que)->val);
-        }
+        // 队首元素存入数组
+        arrayVertex[arrayIndex] = queueTop(que);
+        arrayIndex++;
         // 队首元素出队
         queuePop(que);
     }
-    printf("\n");
 
     // 释放队列与哈希表内存
     freeQueue(que);
     freeHash(visited);
+    arrayIndex = 0;
+    return arrayVertex;
 }
 
 int main() {
@@ -129,7 +129,7 @@ int main() {
     /* 初始化无向图 */
     graphAdjList *graph = newGraphic(3);
     // 初始化顶点
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 9; i++) {
         addVertex(graph, i);
     }
     // 初始化边
@@ -148,9 +148,18 @@ int main() {
 
     printf("\n初始化后，图为:\n");
     printGraph(graph);
-    
-    printf("\n广度优先遍历（BFS）顶点序列为");
-    graphBFS(graph);
 
+    printf("\n广度优先遍历（BFS）顶点序列为\n");
+    Vertex **v = graphBFS(graph, graph->verticesList[0]);
+
+    // 打印广度优先遍历数组
+    printf("[");
+    printf("%d", v[0]->val);
+    for (int i = 1; i < graph->size && v[i] != 0; i++) {
+        printf(", %d", v[i]->val);
+    }
+    printf("]\n");
+    
+    free(v);
     return 0;
 }
