@@ -28,7 +28,7 @@ theme:
     # - header.autohide
     # - navigation.expand
     - navigation.indexes
-    # - navigation.instant
+    - navigation.instant
     # - navigation.prune
     # - navigation.sections
     # - navigation.tabs
@@ -121,8 +121,13 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  # - javascripts/katex.js 
+  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+
 extra_css:
   - stylesheets/extra.css
+  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 
 # Page tree
 nav:
@@ -220,7 +225,7 @@ nav:
     - 11.10. &nbsp; 基数排序: chapter_sorting/radix_sort.md
     - 11.11. &nbsp; 小结: chapter_sorting/summary.md
   - 12. &nbsp; 分治:
-    # [icon: material/file-tree-outline]
+    # [icon: material/file-tree-outline, status: new]
     - chapter_divide_and_conquer/index.md
     # [status: new]
     - 12.1. &nbsp; 分治算法: chapter_divide_and_conquer/divide_and_conquer.md
@@ -230,6 +235,8 @@ nav:
     - 12.3. &nbsp; 构建树问题: chapter_divide_and_conquer/build_binary_tree_problem.md
     # [status: new]
     - 12.4. &nbsp; 汉诺塔问题: chapter_divide_and_conquer/hanota_problem.md
+    # [status: new]
+    - 12.5. &nbsp; 小结: chapter_divide_and_conquer/summary.md
   - 13. &nbsp; 回溯:
     # [icon: material/map-marker-path]
     - chapter_backtracking/index.md
@@ -239,7 +246,7 @@ nav:
     - 13.4. &nbsp; N 皇后问题: chapter_backtracking/n_queens_problem.md
     - 13.5. &nbsp; 小结: chapter_backtracking/summary.md
   - 14. &nbsp; 动态规划:
-    # [icon: material/table-pivot]
+    # [icon: material/table-pivot, status: new]
     - chapter_dynamic_programming/index.md
     # [status: new]
     - 14.1. &nbsp; 初探动态规划: chapter_dynamic_programming/intro_to_dynamic_programming.md
