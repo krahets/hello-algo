@@ -92,7 +92,7 @@ int arrayIndex = 0;
 Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
     // 初始化队列与哈希表
     Vertex **arrayVertex = (Vertex **)malloc(sizeof(Vertex *) * t->size);
-    memset(arrayVertex, 0, t->size);
+    memset(arrayVertex, 0, sizeof(Vertex *) * t->size);
     queue *que = newQueue(t->size);
     hashTable *visited = newHash(t->size);
     // 将第一个元素入队
