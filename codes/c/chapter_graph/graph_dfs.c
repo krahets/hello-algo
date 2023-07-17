@@ -50,7 +50,7 @@ void dfs(Vertex *v, hashTable *visited, Vertex **arrayVertex) {
     if (v == 0) {
         return;
     }
-    // 若顶点未被标记
+    // 查询哈希表，若该索引的顶点已加入数组，则跳过，否则加入数组并标记
     if (hashQuery(visited, v->pos) != 0) {
         // 标记顶点并将顶点存入数组
         hashMark(visited, v->pos);
