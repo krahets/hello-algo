@@ -30,11 +30,11 @@ void hashMark(hashTable *h, int index) {
 
 /* 查询顶点是否已被标记 */
 int hashQuery(hashTable *h, int index) {
-    // 若顶点已被标记，则返回 0
+    // 若顶点已被标记，则返回 1
     if (h->array[index % h->size] == 1) {
-        return 0;
-    } else {
         return 1;
+    } else {
+        return 0;
     }
 }
 
@@ -88,13 +88,13 @@ void freeQueue(queue *q) {
 }
 
 /* 广度优先遍历 */
-int arrayIndex = 0;
 Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
     // 初始化队列与哈希表
     Vertex **arrayVertex = (Vertex **)malloc(sizeof(Vertex *) * t->size);
     memset(arrayVertex, 0, sizeof(Vertex *) * t->size);
     queue *que = newQueue(t->size);
     hashTable *visited = newHash(t->size);
+    int arrayIndex = 0;
     // 将第一个元素入队
     queuePush(que, startVet);
     hashMark(visited, startVet->pos);
@@ -104,7 +104,7 @@ Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
         Node *n = queueTop(que)->linked->head->next;
         while (n != 0) {
             // 查询哈希表，若该索引的顶点已入队，则跳过，否则入队并标记
-            if (hashQuery(visited, n->val->pos) != 0) {
+            if (hashQuery(visited, n->val->pos) != 1) {
                 queuePush(que, n->val);
                 hashMark(visited, n->val->pos);
             }
@@ -159,7 +159,7 @@ int main() {
         printf(", %d", v[i]->val);
     }
     printf("]\n");
-    
+
     free(v);
     return 0;
 }
