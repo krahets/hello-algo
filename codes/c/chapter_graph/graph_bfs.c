@@ -88,30 +88,33 @@ void freeQueue(queue *q) {
 }
 
 /* 广度优先遍历 */
+// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
-    // 初始化队列与哈希表
+    // 顶点遍历序列
     Vertex **res = (Vertex **)malloc(sizeof(Vertex *) * t->size);
     memset(res, 0, sizeof(Vertex *) * t->size);
+    // 队列用于实现 BFS
     queue *que = newQueue(t->size);
+    // 哈希表，用于记录已被访问过的顶点
     hashTable *visited = newHash(t->size);
     int resIndex = 0;
     // 将第一个元素入队
     queuePush(que, startVet);
     hashMark(visited, startVet->pos);
-
+    // 以顶点 vet 为起点，循环直至访问完所有顶点
     while (que->head < que->tail) {
         // 遍历该顶点的边链表，将所有与该顶点有连接的，并且未被标记的顶点入队
         Node *n = queueTop(que)->linked->head->next;
         while (n != 0) {
             // 查询哈希表，若该索引的顶点已入队，则跳过，否则入队并标记
-            if (hashQuery(visited, n->val->pos) != 1) {
-                queuePush(que, n->val);
-                hashMark(visited, n->val->pos);
+            if (hashQuery(visited, n->val->pos) != 1) { // 查询顶点是否已被访问
+                queuePush(que, n->val);                 // 只入队未访问的顶点
+                hashMark(visited, n->val->pos);         // 标记该顶点已被访问
             }
             n = n->next;
         }
         // 队首元素存入数组
-        res[resIndex] = queueTop(que);
+        res[resIndex] = queueTop(que); // 队首顶点出队
         resIndex++;
         // 队首元素出队
         queuePop(que);
@@ -121,15 +124,19 @@ Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
     freeQueue(que);
     freeHash(visited);
     resIndex = 0;
+    // 返回顶点遍历序列
     return res;
 }
-
 /* Driver Code */
 int main() {
+
+    /* 初始化无向图 */
     graphAdjList *graph = newGraphAdjList(3);
+    // 初始化顶点
     for (int i = 0; i < 10; i++) {
         addVertex(graph, i);
     }
+    // 初始化边
     addEdge(graph, 0, 1);
     addEdge(graph, 0, 3);
     addEdge(graph, 1, 2);
@@ -142,13 +149,14 @@ int main() {
     addEdge(graph, 5, 8);
     addEdge(graph, 6, 7);
     addEdge(graph, 7, 8);
+
     printf("\n初始化后，图为:\n");
     printGraph(graph);
 
-    // 广度优先遍历 BFS
+    printf("\n广度优先遍历（BFS）顶点序列为\n");
     Vertex **v = graphBFS(graph, graph->verticesList[0]);
 
-    printf("\n广度优先遍历（BFS）顶点序列为\n");
+    // 打印广度优先遍历数组
     printf("[");
     printf("%d", v[0]->val);
     for (int i = 1; i < graph->size && v[i] != 0; i++) {
@@ -156,7 +164,6 @@ int main() {
     }
     printf("]\n");
 
-    // 释放内存
     free(v);
     return 0;
 }
