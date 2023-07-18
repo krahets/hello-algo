@@ -39,9 +39,11 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
         // 顶点遍历序列
         List<Vertex> res = new ArrayList<>();
         // 哈希表，用于记录已被访问过的顶点
-        Set<Vertex> visited = new HashSet<>() {{ add(startVet); }};
+        Set<Vertex> visited = new HashSet<>();
+        visited.add(startVet);
         // 队列用于实现 BFS
-        Queue<Vertex> que = new LinkedList<>() {{ offer(startVet); }};
+        Queue<Vertex> que = new LinkedList<>();
+        que.offer(startVet);
         // 以顶点 vet 为起点，循环直至访问完所有顶点
         while (!que.isEmpty()) {
             Vertex vet = que.poll(); // 队首顶点出队
@@ -448,6 +450,7 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 
     def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
         """深度优先遍历 DFS"""
+        # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
         # 顶点遍历序列
         res = []
         # 哈希表，用于记录已被访问过的顶点

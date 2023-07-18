@@ -195,9 +195,33 @@ status: new
 === "C#"
 
     ```csharp title="build_tree.cs"
-    [class]{build_tree}-[func]{dfs}
+    /* 构建二叉树：分治 */
+    TreeNode dfs(int[] preorder, int[] inorder, Dictionary<int, int> hmap, int i, int l, int r) {
+        // 子树区间为空时终止
+        if (r - l < 0)
+            return null;
+        // 初始化根节点
+        TreeNode root = new TreeNode(preorder[i]);
+        // 查询 m ，从而划分左右子树
+        int m = hmap[preorder[i]];
+        // 子问题：构建左子树
+        root.left = dfs(preorder, inorder, hmap, i + 1, l, m - 1);
+        // 子问题：构建右子树
+        root.right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r);
+        // 返回根节点
+        return root;
+    }
 
-    [class]{build_tree}-[func]{buildTree}
+    /* 构建二叉树 */
+    TreeNode buildTree(int[] preorder, int[] inorder) {
+        // 初始化哈希表，存储 inorder 元素到索引的映射
+        Dictionary<int, int> hmap = new Dictionary<int, int>();
+        for (int i = 0; i < inorder.Length; i++) {
+            hmap.TryAdd(inorder[i], i);
+        }
+        TreeNode root = dfs(preorder, inorder, hmap, 0, 0, inorder.Length - 1);
+        return root;
+    }
     ```
 
 === "Swift"

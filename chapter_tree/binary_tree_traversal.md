@@ -28,7 +28,8 @@ comments: true
     /* 层序遍历 */
     List<Integer> levelOrder(TreeNode root) {
         // 初始化队列，加入根节点
-        Queue<TreeNode> queue = new LinkedList<>() {{ add(root); }};
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
         // 初始化一个列表，用于保存遍历序列
         List<Integer> list = new ArrayList<>();
         while (!queue.isEmpty()) {

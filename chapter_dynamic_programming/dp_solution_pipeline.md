@@ -216,7 +216,22 @@ $$
 === "Swift"
 
     ```swift title="min_path_sum.swift"
-    [class]{}-[func]{minPathSumDFS}
+    /* 最小路径和：暴力搜索 */
+    func minPathSumDFS(grid: [[Int]], i: Int, j: Int) -> Int {
+        // 若为左上角单元格，则终止搜索
+        if i == 0, j == 0 {
+            return grid[0][0]
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if i < 0 || j < 0 {
+            return .max
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        let left = minPathSumDFS(grid: grid, i: i - 1, j: j)
+        let up = minPathSumDFS(grid: grid, i: i, j: j - 1)
+        // 返回从左上角到 (i, j) 的最小路径代价
+        return min(left, up) + grid[i][j]
+    }
     ```
 
 === "Zig"
@@ -389,7 +404,27 @@ $$
 === "Swift"
 
     ```swift title="min_path_sum.swift"
-    [class]{}-[func]{minPathSumDFSMem}
+    /* 最小路径和：记忆化搜索 */
+    func minPathSumDFSMem(grid: [[Int]], mem: inout [[Int]], i: Int, j: Int) -> Int {
+        // 若为左上角单元格，则终止搜索
+        if i == 0, j == 0 {
+            return grid[0][0]
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if i < 0 || j < 0 {
+            return .max
+        }
+        // 若已有记录，则直接返回
+        if mem[i][j] != -1 {
+            return mem[i][j]
+        }
+        // 左边和上边单元格的最小路径代价
+        let left = minPathSumDFSMem(grid: grid, mem: &mem, i: i - 1, j: j)
+        let up = minPathSumDFSMem(grid: grid, mem: &mem, i: i, j: j - 1)
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i][j] = min(left, up) + grid[i][j]
+        return mem[i][j]
+    }
     ```
 
 === "Zig"
@@ -565,7 +600,29 @@ $$
 === "Swift"
 
     ```swift title="min_path_sum.swift"
-    [class]{}-[func]{minPathSumDP}
+    /* 最小路径和：动态规划 */
+    func minPathSumDP(grid: [[Int]]) -> Int {
+        let n = grid.count
+        let m = grid[0].count
+        // 初始化 dp 表
+        var dp = Array(repeating: Array(repeating: 0, count: m), count: n)
+        dp[0][0] = grid[0][0]
+        // 状态转移：首行
+        for j in stride(from: 1, to: m, by: 1) {
+            dp[0][j] = dp[0][j - 1] + grid[0][j]
+        }
+        // 状态转移：首列
+        for i in stride(from: 1, to: n, by: 1) {
+            dp[i][0] = dp[i - 1][0] + grid[i][0]
+        }
+        // 状态转移：其余行列
+        for i in stride(from: 1, to: n, by: 1) {
+            for j in stride(from: 1, to: m, by: 1) {
+                dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j]
+            }
+        }
+        return dp[n - 1][m - 1]
+    }
     ```
 
 === "Zig"
@@ -771,7 +828,28 @@ $$
 === "Swift"
 
     ```swift title="min_path_sum.swift"
-    [class]{}-[func]{minPathSumDPComp}
+    /* 最小路径和：状态压缩后的动态规划 */
+    func minPathSumDPComp(grid: [[Int]]) -> Int {
+        let n = grid.count
+        let m = grid[0].count
+        // 初始化 dp 表
+        var dp = Array(repeating: 0, count: m)
+        // 状态转移：首行
+        dp[0] = grid[0][0]
+        for j in stride(from: 1, to: m, by: 1) {
+            dp[j] = dp[j - 1] + grid[0][j]
+        }
+        // 状态转移：其余行
+        for i in stride(from: 1, to: n, by: 1) {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0]
+            // 状态转移：其余列
+            for j in stride(from: 1, to: m, by: 1) {
+                dp[j] = min(dp[j - 1], dp[j]) + grid[i][j]
+            }
+        }
+        return dp[m - 1]
+    }
     ```
 
 === "Zig"

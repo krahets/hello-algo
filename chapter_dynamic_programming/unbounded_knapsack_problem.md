@@ -154,7 +154,25 @@ $$
 === "Swift"
 
     ```swift title="unbounded_knapsack.swift"
-    [class]{}-[func]{unboundedKnapsackDP}
+    /* 完全背包：动态规划 */
+    func unboundedKnapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
+        let n = wgt.count
+        // 初始化 dp 表
+        var dp = Array(repeating: Array(repeating: 0, count: cap + 1), count: n + 1)
+        // 状态转移
+        for i in stride(from: 1, through: n, by: 1) {
+            for c in stride(from: 1, through: cap, by: 1) {
+                if wgt[i - 1] > c {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c]
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1])
+                }
+            }
+        }
+        return dp[n][cap]
+    }
     ```
 
 === "Zig"
@@ -329,7 +347,25 @@ $$
 === "Swift"
 
     ```swift title="unbounded_knapsack.swift"
-    [class]{}-[func]{unboundedKnapsackDPComp}
+    /* 完全背包：状态压缩后的动态规划 */
+    func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
+        let n = wgt.count
+        // 初始化 dp 表
+        var dp = Array(repeating: 0, count: cap + 1)
+        // 状态转移
+        for i in stride(from: 1, through: n, by: 1) {
+            for c in stride(from: 1, through: cap, by: 1) {
+                if wgt[i - 1] > c {
+                    // 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c]
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
+                }
+            }
+        }
+        return dp[cap]
+    }
     ```
 
 === "Zig"
@@ -368,7 +404,7 @@ $$
 
 !!! question
 
-    给定 $n$ 种硬币，第 $i$ 个硬币的面值为 $coins[i - 1]$ ，为目标金额 $amt$ ，**每种硬币可以重复选取**，问能够凑出目标金额的最少硬币个数。如果无法凑出目标金额则返回 $-1$ 。
+    给定 $n$ 种硬币，第 $i$ 个硬币的面值为 $coins[i - 1]$ ，目标金额为 $amt$ ，**每种硬币可以重复选取**，问能够凑出目标金额的最少硬币个数。如果无法凑出目标金额则返回 $-1$ 。
 
 如下图所示，凑出 $11$ 元最少需要 $3$ 枚硬币，方案为 $1 + 2 + 5 = 11$ 。
 
@@ -547,7 +583,30 @@ $$
 === "Swift"
 
     ```swift title="coin_change.swift"
-    [class]{}-[func]{coinChangeDP}
+    /* 零钱兑换：动态规划 */
+    func coinChangeDP(coins: [Int], amt: Int) -> Int {
+        let n = coins.count
+        let MAX = amt + 1
+        // 初始化 dp 表
+        var dp = Array(repeating: Array(repeating: 0, count: amt + 1), count: n + 1)
+        // 状态转移：首行首列
+        for a in stride(from: 1, through: amt, by: 1) {
+            dp[0][a] = MAX
+        }
+        // 状态转移：其余行列
+        for i in stride(from: 1, through: n, by: 1) {
+            for a in stride(from: 1, through: amt, by: 1) {
+                if coins[i - 1] > a {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a]
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
+                }
+            }
+        }
+        return dp[n][amt] != MAX ? dp[n][amt] : -1
+    }
     ```
 
 === "Zig"
@@ -768,7 +827,27 @@ $$
 === "Swift"
 
     ```swift title="coin_change.swift"
-    [class]{}-[func]{coinChangeDPComp}
+    /* 零钱兑换：状态压缩后的动态规划 */
+    func coinChangeDPComp(coins: [Int], amt: Int) -> Int {
+        let n = coins.count
+        let MAX = amt + 1
+        // 初始化 dp 表
+        var dp = Array(repeating: MAX, count: amt + 1)
+        dp[0] = 0
+        // 状态转移
+        for i in stride(from: 1, through: n, by: 1) {
+            for a in stride(from: 1, through: amt, by: 1) {
+                if coins[i - 1] > a {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a]
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
+                }
+            }
+        }
+        return dp[amt] != MAX ? dp[amt] : -1
+    }
     ```
 
 === "Zig"
@@ -962,7 +1041,29 @@ $$
 === "Swift"
 
     ```swift title="coin_change_ii.swift"
-    [class]{}-[func]{coinChangeIIDP}
+    /* 零钱兑换 II：动态规划 */
+    func coinChangeIIDP(coins: [Int], amt: Int) -> Int {
+        let n = coins.count
+        // 初始化 dp 表
+        var dp = Array(repeating: Array(repeating: 0, count: amt + 1), count: n + 1)
+        // 初始化首列
+        for i in stride(from: 0, through: n, by: 1) {
+            dp[i][0] = 1
+        }
+        // 状态转移
+        for i in stride(from: 1, through: n, by: 1) {
+            for a in stride(from: 1, through: amt, by: 1) {
+                if coins[i - 1] > a {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a]
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
+                }
+            }
+        }
+        return dp[n][amt]
+    }
     ```
 
 === "Zig"
@@ -1125,7 +1226,26 @@ $$
 === "Swift"
 
     ```swift title="coin_change_ii.swift"
-    [class]{}-[func]{coinChangeIIDPComp}
+    /* 零钱兑换 II：状态压缩后的动态规划 */
+    func coinChangeIIDPComp(coins: [Int], amt: Int) -> Int {
+        let n = coins.count
+        // 初始化 dp 表
+        var dp = Array(repeating: 0, count: amt + 1)
+        dp[0] = 1
+        // 状态转移
+        for i in stride(from: 1, through: n, by: 1) {
+            for a in stride(from: 1, through: amt, by: 1) {
+                if coins[i - 1] > a {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a]
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[a] = dp[a] + dp[a - coins[i - 1]]
+                }
+            }
+        }
+        return dp[amt]
+    }
     ```
 
 === "Zig"

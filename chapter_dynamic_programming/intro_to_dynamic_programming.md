@@ -170,9 +170,31 @@ status: new
 === "Swift"
 
     ```swift title="climbing_stairs_backtrack.swift"
-    [class]{}-[func]{backtrack}
+    /* 回溯 */
+    func backtrack(choices: [Int], state: Int, n: Int, res: inout [Int]) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if state == n {
+            res[0] += 1
+        }
+        // 遍历所有选择
+        for choice in choices {
+            // 剪枝：不允许越过第 n 阶
+            if state + choice > n {
+                break
+            }
+            backtrack(choices: choices, state: state + choice, n: n, res: &res)
+        }
+    }
 
-    [class]{}-[func]{climbingStairsBacktrack}
+    /* 爬楼梯：回溯 */
+    func climbingStairsBacktrack(n: Int) -> Int {
+        let choices = [1, 2] // 可选择向上爬 1 或 2 阶
+        let state = 0 // 从第 0 阶开始爬
+        var res: [Int] = []
+        res.append(0) // 使用 res[0] 记录方案数量
+        backtrack(choices: choices, state: state, n: n, res: &res)
+        return res[0]
+    }
     ```
 
 === "Zig"
@@ -353,9 +375,21 @@ $$
 === "Swift"
 
     ```swift title="climbing_stairs_dfs.swift"
-    [class]{}-[func]{dfs}
+    /* 搜索 */
+    func dfs(i: Int) -> Int {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 || i == 2 {
+            return i
+        }
+        // dp[i] = dp[i-1] + dp[i-2]
+        let count = dfs(i: i - 1) + dfs(i: i - 2)
+        return count
+    }
 
-    [class]{}-[func]{climbingStairsDFS}
+    /* 爬楼梯：搜索 */
+    func climbingStairsDFS(n: Int) -> Int {
+        dfs(i: n)
+    }
     ```
 
 === "Zig"
@@ -540,9 +574,29 @@ $$
 === "Swift"
 
     ```swift title="climbing_stairs_dfs_mem.swift"
-    [class]{}-[func]{dfs}
+    /* 记忆化搜索 */
+    func dfs(i: Int, mem: inout [Int]) -> Int {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 || i == 2 {
+            return i
+        }
+        // 若存在记录 dp[i] ，则直接返回之
+        if mem[i] != -1 {
+            return mem[i]
+        }
+        // dp[i] = dp[i-1] + dp[i-2]
+        let count = dfs(i: i - 1, mem: &mem) + dfs(i: i - 2, mem: &mem)
+        // 记录 dp[i]
+        mem[i] = count
+        return count
+    }
 
-    [class]{}-[func]{climbingStairsDFSMem}
+    /* 爬楼梯：记忆化搜索 */
+    func climbingStairsDFSMem(n: Int) -> Int {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        var mem = Array(repeating: -1, count: n + 1)
+        return dfs(i: n, mem: &mem)
+    }
     ```
 
 === "Zig"
@@ -699,7 +753,22 @@ $$
 === "Swift"
 
     ```swift title="climbing_stairs_dp.swift"
-    [class]{}-[func]{climbingStairsDP}
+    /* 爬楼梯：动态规划 */
+    func climbingStairsDP(n: Int) -> Int {
+        if n == 1 || n == 2 {
+            return n
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        var dp = Array(repeating: 0, count: n + 1)
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1
+        dp[2] = 2
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i in stride(from: 3, through: n, by: 1) {
+            dp[i] = dp[i - 1] + dp[i - 2]
+        }
+        return dp[n]
+    }
     ```
 
 === "Zig"
@@ -833,7 +902,18 @@ $$
 === "Swift"
 
     ```swift title="climbing_stairs_dp.swift"
-    [class]{}-[func]{climbingStairsDPComp}
+    /* 爬楼梯：状态压缩后的动态规划 */
+    func climbingStairsDPComp(n: Int) -> Int {
+        if n == 1 || n == 2 {
+            return n
+        }
+        var a = 1
+        var b = 2
+        for _ in stride(from: 3, through: n, by: 1) {
+            (a, b) = (b, a + b)
+        }
+        return b
+    }
     ```
 
 === "Zig"
