@@ -73,21 +73,17 @@ Vertex **graphDFS(graphAdjList *graph, Vertex *startVet) {
     Vertex **res = (Vertex **)malloc(sizeof(Vertex *) * graph->size);
     memset(res, 0, sizeof(Vertex *) * graph->size);
     hashTable *visited = newHash(graph->size);
-
     // 开始递归遍历
     dfs(graph, visited, startVet, res);
-
     // 释放哈希表内存并将数组索引归零
     freeHash(visited);
     resIndex = 0;
-
     // 返回遍历数组
     return res;
 }
 
 /* Driver Code */
 int main() {
-    /* 初始化无向图 */
     graphAdjList *graph = newGraphAdjList(10);
     for (int i = 0; i < 7; i++) {
         addVertex(graph, i);
@@ -101,10 +97,10 @@ int main() {
     printf("\n初始化后，图为:\n");
     printGraph(graph);
 
-    /* 深度优先遍历 DFS ,从值为0的节点开始，即索引为0 */
+    // 深度优先遍历 DFS
     Vertex **v = graphDFS(graph, graph->verticesList[0]);
 
-    /* 输出遍历结果 */
+    // 输出遍历结果
     printf("\n深度优先遍历（DFS）顶点序列为\n");
     printf("[");
     printf("%d", v[0]->val);
@@ -113,7 +109,7 @@ int main() {
     }
     printf("]\n");
 
-    // 释放打印的顶点数组内存
+    // 释放内存
     free(v);
     return 0;
 }
