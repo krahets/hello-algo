@@ -83,7 +83,7 @@
 
     [class]{hanota}-[func]{dfs}
 
-    [class]{hanota}-[func]{hanota}
+    [class]{hanota}-[func]{solveHanota}
     ```
 
 === "C++"
