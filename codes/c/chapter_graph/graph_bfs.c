@@ -127,9 +127,9 @@ Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
 int main() {
 
     /* 初始化无向图 */
-    graphAdjList *graph = newGraphic(3);
+    graphAdjList *graph = newGraphAdjList(3);
     // 初始化顶点
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < 10; i++) {
         addVertex(graph, i);
     }
     // 初始化边
