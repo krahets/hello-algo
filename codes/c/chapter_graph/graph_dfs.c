@@ -98,6 +98,7 @@ int main() {
     addEdge(graph, 2, 5);
     addEdge(graph, 5, 4);
     addEdge(graph, 5, 6);
+    printf("\n初始化后，图为:\n");
     printGraph(graph);
 
     /* 深度优先遍历 DFS ,从值为0的节点开始，即索引为0 */
