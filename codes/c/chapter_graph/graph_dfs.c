@@ -85,7 +85,7 @@ Vertex **graphDFS(graphAdjList *graph, Vertex *startVet) {
     return res;
 }
 
-/* driver code */
+/* Driver Code */
 int main() {
     Vertex *initGraph[7] = {newVertex(0), newVertex(1), newVertex(2), newVertex(3),
                             newVertex(4), newVertex(5), newVertex(6)};
