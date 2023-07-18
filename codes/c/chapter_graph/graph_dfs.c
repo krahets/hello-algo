@@ -45,22 +45,22 @@ void freeHash(hashTable *h) {
 }
 
 /* 深度优先遍历递归函数 */
-int arrayIndex = 0;
-void dfs(graphAdjList *graph, hashTable *visited, Vertex *v, Vertex **arrayVertex) {
+int resIndex = 0;
+void dfs(graphAdjList *graph, hashTable *visited, Vertex *v, Vertex **res) {
 
     // 查询哈希表，若该索引的顶点已加入数组，则跳过，否则加入数组并标记
     if (hashQuery(visited, v->pos) != 1) {
         // 标记顶点并将顶点存入数组
         hashMark(visited, v->pos);
-        arrayVertex[arrayIndex] = v;
-        arrayIndex++;
+        res[resIndex] = v;
+        resIndex++;
 
         // 遍历该顶点链表
         Node *n = v->linked->head->next;
 
         while (n != 0) {
             // 进入递归
-            dfs(graph, visited, n->val, arrayVertex);
+            dfs(graph, visited, n->val, res);
             n = n->next;
         }
     }
@@ -70,23 +70,25 @@ void dfs(graphAdjList *graph, hashTable *visited, Vertex *v, Vertex **arrayVerte
 /* 深度优先遍历 */
 Vertex **graphDFS(graphAdjList *graph, Vertex *startVet) {
     // 初始化哈希表与遍历结果顶点数组
-    Vertex **arrayVertex = (Vertex **)malloc(sizeof(Vertex *) * graph->size);
-    memset(arrayVertex, 0, sizeof(Vertex *) * graph->size);
+    Vertex **res = (Vertex **)malloc(sizeof(Vertex *) * graph->size);
+    memset(res, 0, sizeof(Vertex *) * graph->size);
     hashTable *visited = newHash(graph->size);
 
     // 开始递归遍历
-    dfs(graph, visited, startVet, arrayVertex);
+    dfs(graph, visited, startVet, res);
 
     // 释放哈希表内存并将数组索引归零
     freeHash(visited);
-    arrayIndex = 0;
+    resIndex = 0;
 
     // 返回遍历数组
-    return arrayVertex;
+    return res;
 }
 
 /* driver code */
 int main() {
+    Vertex *initGraph[7] = {newVertex(0), newVertex(1), newVertex(2), newVertex(3),
+                            newVertex(4), newVertex(5), newVertex(6)};
     /* 初始化无向图 */
     graphAdjList *graph = newGraphic(10);
     for (int i = 0; i < 7; i++) {
