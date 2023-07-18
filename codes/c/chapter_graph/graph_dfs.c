@@ -87,10 +87,8 @@ Vertex **graphDFS(graphAdjList *graph, Vertex *startVet) {
 
 /* Driver Code */
 int main() {
-    Vertex *initGraph[7] = {newVertex(0), newVertex(1), newVertex(2), newVertex(3),
-                            newVertex(4), newVertex(5), newVertex(6)};
     /* 初始化无向图 */
-    graphAdjList *graph = newGraphic(10);
+    graphAdjList *graph = newGraphAdjList(10);
     for (int i = 0; i < 7; i++) {
         addVertex(graph, i);
     }
