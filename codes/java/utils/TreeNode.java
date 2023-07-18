@@ -26,7 +26,8 @@ public class TreeNode {
             return null;
 
         TreeNode root = new TreeNode(list.get(0));
-        Queue<TreeNode> queue = new LinkedList<TreeNode>() {{ add(root); }};
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
         int i = 0;
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
