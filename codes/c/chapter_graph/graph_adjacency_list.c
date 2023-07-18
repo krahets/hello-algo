@@ -290,7 +290,7 @@ void printGraph(graphAdjList *t) {
 }
 
 /* 构造函数 */
-graphAdjList *newGraphic(unsigned int verticesNumber) {
+graphAdjList *newGraphAdjList(unsigned int verticesNumber) {
     // 申请内存
     graphAdjList *newGraph = (graphAdjList *)malloc(sizeof(graphAdjList));
     // 建立顶点表并分配内存
