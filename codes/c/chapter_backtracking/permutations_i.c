@@ -36,6 +36,23 @@ void backtrack(vector *state, vector *choices, vector *selected, vector *res) {
     }
 }
 
+/* 全排列 I */
+vector *permutationsI(vector *nums) {
+    vector *iState = newVector();
+
+    int select[3] = {false, false, false};
+    vector *bSelected = newVector();
+    for (int i = 0; i < nums->size; i++) {
+        vectorPushback(bSelected, &select[i]);
+    }
+
+    vector *res = newVector();
+
+    // 前序遍历
+    backtrack(iState, nums, bSelected, res);
+    return res;
+}
+
 // 打印二维向量中的元素
 void printVectorMatrix(vector *vv) {
     printf("[\n");
@@ -53,23 +70,6 @@ void printVectorMatrix(vector *vv) {
         printf("\n");
     }
     printf("]\n");
-}
-
-/* 全排列 I */
-vector *permutationsI(vector *nums) {
-    vector *iState = newVector();
-
-    int select[3] = {false, false, false};
-    vector *bSelected = newVector();
-    for (int i = 0; i < nums->size; i++) {
-        vectorPushback(bSelected, &select[i]);
-    }
-
-    vector *res = newVector();
-
-    // 前序遍历
-    backtrack(iState, nums, bSelected, res);
-    return res;
 }
 
 /* Driver Code */
