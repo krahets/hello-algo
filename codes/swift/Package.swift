@@ -72,6 +72,19 @@ let package = Package(
         .executable(name: "subset_sum_i", targets: ["subset_sum_i"]),
         .executable(name: "subset_sum_ii", targets: ["subset_sum_ii"]),
         .executable(name: "n_queens", targets: ["n_queens"]),
+        // chapter_dynamic_programming
+        .executable(name: "climbing_stairs_backtrack", targets: ["climbing_stairs_backtrack"]),
+        .executable(name: "climbing_stairs_dfs", targets: ["climbing_stairs_dfs"]),
+        .executable(name: "climbing_stairs_dfs_mem", targets: ["climbing_stairs_dfs_mem"]),
+        .executable(name: "climbing_stairs_dp", targets: ["climbing_stairs_dp"]),
+        .executable(name: "min_cost_climbing_stairs_dp", targets: ["min_cost_climbing_stairs_dp"]),
+        .executable(name: "climbing_stairs_constraint_dp", targets: ["climbing_stairs_constraint_dp"]),
+        .executable(name: "min_path_sum", targets: ["min_path_sum"]),
+        .executable(name: "knapsack", targets: ["knapsack"]),
+        .executable(name: "unbounded_knapsack", targets: ["unbounded_knapsack"]),
+        .executable(name: "coin_change", targets: ["coin_change"]),
+        .executable(name: "coin_change_ii", targets: ["coin_change_ii"]),
+        .executable(name: "edit_distance", targets: ["edit_distance"]),
     ],
     targets: [
         // helper
@@ -144,5 +157,18 @@ let package = Package(
         .executableTarget(name: "subset_sum_i", path: "chapter_backtracking", sources: ["subset_sum_i.swift"]),
         .executableTarget(name: "subset_sum_ii", path: "chapter_backtracking", sources: ["subset_sum_ii.swift"]),
         .executableTarget(name: "n_queens", path: "chapter_backtracking", sources: ["n_queens.swift"]),
+        // chapter_dynamic_programming
+        .executableTarget(name: "climbing_stairs_backtrack", path: "chapter_dynamic_programming", sources: ["climbing_stairs_backtrack.swift"]),
+        .executableTarget(name: "climbing_stairs_dfs", path: "chapter_dynamic_programming", sources: ["climbing_stairs_dfs.swift"]),
+        .executableTarget(name: "climbing_stairs_dfs_mem", path: "chapter_dynamic_programming", sources: ["climbing_stairs_dfs_mem.swift"]),
+        .executableTarget(name: "climbing_stairs_dp", path: "chapter_dynamic_programming", sources: ["climbing_stairs_dp.swift"]),
+        .executableTarget(name: "min_cost_climbing_stairs_dp", path: "chapter_dynamic_programming", sources: ["min_cost_climbing_stairs_dp.swift"]),
+        .executableTarget(name: "climbing_stairs_constraint_dp", path: "chapter_dynamic_programming", sources: ["climbing_stairs_constraint_dp.swift"]),
+        .executableTarget(name: "min_path_sum", path: "chapter_dynamic_programming", sources: ["min_path_sum.swift"]),
+        .executableTarget(name: "knapsack", path: "chapter_dynamic_programming", sources: ["knapsack.swift"]),
+        .executableTarget(name: "unbounded_knapsack", path: "chapter_dynamic_programming", sources: ["unbounded_knapsack.swift"]),
+        .executableTarget(name: "coin_change", path: "chapter_dynamic_programming", sources: ["coin_change.swift"]),
+        .executableTarget(name: "coin_change_ii", path: "chapter_dynamic_programming", sources: ["coin_change_ii.swift"]),
+        .executableTarget(name: "edit_distance", path: "chapter_dynamic_programming", sources: ["edit_distance.swift"]),
     ]
 )
