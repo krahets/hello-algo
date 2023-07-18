@@ -90,11 +90,11 @@ void freeQueue(queue *q) {
 /* 广度优先遍历 */
 Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
     // 初始化队列与哈希表
-    Vertex **arrayVertex = (Vertex **)malloc(sizeof(Vertex *) * t->size);
-    memset(arrayVertex, 0, sizeof(Vertex *) * t->size);
+    Vertex **res = (Vertex **)malloc(sizeof(Vertex *) * t->size);
+    memset(res, 0, sizeof(Vertex *) * t->size);
     queue *que = newQueue(t->size);
     hashTable *visited = newHash(t->size);
-    int arrayIndex = 0;
+    int resIndex = 0;
     // 将第一个元素入队
     queuePush(que, startVet);
     hashMark(visited, startVet->pos);
@@ -111,8 +111,8 @@ Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
             n = n->next;
         }
         // 队首元素存入数组
-        arrayVertex[arrayIndex] = queueTop(que);
-        arrayIndex++;
+        res[resIndex] = queueTop(que);
+        resIndex++;
         // 队首元素出队
         queuePop(que);
     }
@@ -120,8 +120,8 @@ Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
     // 释放队列与哈希表内存
     freeQueue(que);
     freeHash(visited);
-    arrayIndex = 0;
-    return arrayVertex;
+    resIndex = 0;
+    return res;
 }
 
 int main() {
