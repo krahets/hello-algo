@@ -157,7 +157,7 @@ void printGraph(graphAdjMat *t) {
 }
 
 /* 构造函数 */
-graphAdjMat *newGraphic(unsigned int numberVertices, int *vertices, unsigned int **adjMat) {
+graphAdjMat *newGraphAjdMat(unsigned int numberVertices, int *vertices, unsigned int **adjMat) {
     // 函数指针
     graphAdjMat *newGraph = (graphAdjMat *)malloc(sizeof(graphAdjMat));
 
@@ -205,7 +205,7 @@ int main() {
     edge[3][4] = edge[4][3] = 1;
 
     // 建立无向图
-    graphAdjMat *graph = newGraphic(5, vertices, edge);
+    graphAdjMat *graph = newGraphAjdMat(5, vertices, edge);
     free(edge);
     free(temp);
     printf("\n初始化后，图为:\n");
