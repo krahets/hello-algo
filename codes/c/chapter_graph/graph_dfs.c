@@ -47,19 +47,15 @@ void freeHash(hashTable *h) {
 /* 深度优先遍历递归函数 */
 int resIndex = 0;
 void dfs(graphAdjList *graph, hashTable *visited, Vertex *v, Vertex **res) {
-
-    // 查询哈希表，若该索引的顶点已加入数组，则跳过，否则加入数组并标记
+    // 查询哈希表，若该索引的顶点未加入数组，则加入数组并标记
     if (hashQuery(visited, v->pos) != 1) {
-        // 标记顶点并将顶点存入数组
-        hashMark(visited, v->pos);
-        res[resIndex] = v;
+        hashMark(visited, v->pos); // 标记顶点并将顶点存入数组
+        res[resIndex] = v;         // 将顶点存入数组
         resIndex++;
-
         // 遍历该顶点链表
         Node *n = v->linked->head->next;
-
         while (n != 0) {
-            // 进入递归
+            // 递归访问邻接顶点
             dfs(graph, visited, n->val, res);
             n = n->next;
         }
@@ -69,11 +65,11 @@ void dfs(graphAdjList *graph, hashTable *visited, Vertex *v, Vertex **res) {
 
 /* 深度优先遍历 */
 Vertex **graphDFS(graphAdjList *graph, Vertex *startVet) {
-    // 初始化哈希表与遍历结果顶点数组
+    // 顶点遍历序列
     Vertex **res = (Vertex **)malloc(sizeof(Vertex *) * graph->size);
     memset(res, 0, sizeof(Vertex *) * graph->size);
+    // 哈希表，用于记录已被访问过的顶点
     hashTable *visited = newHash(graph->size);
-    // 开始递归遍历
     dfs(graph, visited, startVet, res);
     // 释放哈希表内存并将数组索引归零
     freeHash(visited);
