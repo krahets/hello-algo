@@ -123,16 +123,13 @@ Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
     resIndex = 0;
     return res;
 }
+
 /* Driver Code */
 int main() {
-
-    /* 初始化无向图 */
     graphAdjList *graph = newGraphAdjList(3);
-    // 初始化顶点
     for (int i = 0; i < 10; i++) {
         addVertex(graph, i);
     }
-    // 初始化边
     addEdge(graph, 0, 1);
     addEdge(graph, 0, 3);
     addEdge(graph, 1, 2);
@@ -145,14 +142,13 @@ int main() {
     addEdge(graph, 5, 8);
     addEdge(graph, 6, 7);
     addEdge(graph, 7, 8);
-
     printf("\n初始化后，图为:\n");
     printGraph(graph);
 
-    printf("\n广度优先遍历（BFS）顶点序列为\n");
+    // 广度优先遍历 BFS
     Vertex **v = graphBFS(graph, graph->verticesList[0]);
 
-    // 打印广度优先遍历数组
+    printf("\n广度优先遍历（BFS）顶点序列为\n");
     printf("[");
     printf("%d", v[0]->val);
     for (int i = 1; i < graph->size && v[i] != 0; i++) {
@@ -160,6 +156,7 @@ int main() {
     }
     printf("]\n");
 
+    // 释放内存
     free(v);
     return 0;
 }
