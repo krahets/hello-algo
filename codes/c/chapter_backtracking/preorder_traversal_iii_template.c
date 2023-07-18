@@ -80,11 +80,8 @@ int main() {
     vector *choices = newVector();
     vector *res = newVector();
     vectorPushback(choices, root);
-
-    // 前序遍历
     backtrack(state, choices, res);
 
-    // 输出结果
     printf("输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点:\n");
     for (int i = 0; i < res->size; i++) {
         vector *path = res->data[i];
