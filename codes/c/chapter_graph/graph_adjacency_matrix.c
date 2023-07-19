@@ -8,32 +8,38 @@
 
 /* 基于邻接矩阵实现的无向图类结构 */
 struct graphAdjMat {
-    int *vertices;
-    unsigned int **adjMat;
-    unsigned int size;
-    unsigned int capacity;
+    int *vertices;         // 顶点列表
+    unsigned int **adjMat; // 邻接矩阵，元素代表“边”，索引代表“顶点索引”
+    unsigned int size;     // 顶点数量
+    unsigned int capacity; // 图容量
 };
 
 typedef struct graphAdjMat graphAdjMat;
 
 /* 添加边 */
+// 参数 i, j 对应 vertices 元素索引
 void addEdge(graphAdjMat *t, int i, int j) {
     // 越界检查
     if (i < 0 || j < 0 || i >= t->size || j >= t->size || i == j) {
         printf("Out of range in %s:%d\n", __FILE__, __LINE__);
         exit(1);
     }
+    // 添加边
+    // 参数 i, j 对应 vertices 元素索引
     t->adjMat[i][j] = 1;
     t->adjMat[j][i] = 1;
 }
 
 /* 删除边 */
+// 参数 i, j 对应 vertices 元素索引
 void removeEdge(graphAdjMat *t, int i, int j) {
     // 越界检查
     if (i < 0 || j < 0 || i >= t->size || j >= t->size || i == j) {
         printf("Out of range in %s:%d\n", __FILE__, __LINE__);
         exit(1);
     }
+    // 删除边
+    // 参数 i, j 对应 vertices 元素索引
     t->adjMat[i][j] = 0;
     t->adjMat[j][i] = 0;
 }

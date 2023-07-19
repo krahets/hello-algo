@@ -41,11 +41,11 @@ struct Vertex {
 
 /* 顶点节点构造函数 */
 Vertex *newVertex(int val) {
-    Vertex *v = (Vertex *)malloc(sizeof(Vertex));
+    Vertex *vet = (Vertex *)malloc(sizeof(Vertex));
     // 为新节点赋值并建立该节点的链表
-    v->val = val;
-    v->linked = newLinklist(v);
-    return v;
+    vet->val = val;
+    vet->linked = newLinklist(vet);
+    return vet;
 }
 
 /* 顶点内存释放函数 */
@@ -241,17 +241,17 @@ void removeVertex(graphAdjList *t, unsigned int index) {
         exit(1);
     }
 
-    Vertex *v = t->verticesList[index]; // 查找待删节点
-    if (v == 0) {                       // 若不存在该节点，则返回
+    Vertex *vet = t->verticesList[index]; // 查找待删节点
+    if (vet == 0) {                       // 若不存在该节点，则返回
         printf("index is:%d\n", index);
         printf("Out of range in %s:%d\n", __FILE__, __LINE__);
         return;
     }
 
     // 遍历待删除顶点的链表，将所有与待删除结点有关的边删除
-    Node *temp = v->linked->head->next;
+    Node *temp = vet->linked->head->next;
     while (temp != 0) {
-        removeLink(temp->val->linked, v); // 删除与该顶点有关的边
+        removeLink(temp->val->linked, vet); // 删除与该顶点有关的边
         temp = temp->next;                
     }
 
@@ -264,7 +264,7 @@ void removeVertex(graphAdjList *t, unsigned int index) {
     t->size--;
 
     //释放被删除顶点的内存
-    freeVertex(v);
+    freeVertex(vet);
 }
 
 /* 打印顶点与邻接矩阵 */
