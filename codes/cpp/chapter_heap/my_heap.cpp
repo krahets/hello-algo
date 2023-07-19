@@ -114,7 +114,7 @@ class MaxHeap {
         cout << "堆的数组表示：";
         printVector(maxHeap);
         cout << "堆的树状表示：" << endl;
-        TreeNode *root = vecToTree(maxHeap);
+        TreeNode *root = vectorToTree(maxHeap);
         printTree(root);
         freeMemoryTree(root);
     }

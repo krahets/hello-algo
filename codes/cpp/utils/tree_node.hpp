@@ -7,8 +7,11 @@
 #pragma once
 
 #include <limits.h>
+#include <vector>
 
-/* Definition for a binary tree node */
+using namespace std;
+
+/* 二叉树节点结构体 */
 struct TreeNode {
     int val{};
     int height = 0;
@@ -20,45 +23,55 @@ struct TreeNode {
     }
 };
 
-/* Generate a binary tree with a vector */
-TreeNode *vecToTree(vector<int> list) {
-    if (list.empty())
+// 序列化编码规则请参考：
+// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
+// 二叉树的数组表示：
+// [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
+// 二叉树的链表表示：
+//             /——— 15
+//         /——— 7
+//     /——— 3
+//    |    \——— 6
+//    |        \——— 12
+// ——— 1
+//     \——— 2
+//        |    /——— 9
+//         \——— 4
+//             \——— 8
+
+/* 将列表反序列化为二叉树：递归 */
+TreeNode *vectorToTreeDFS(vector<int> &arr, int i) {
+    if (i < 0 || i >= arr.size() || arr[i] == INT_MAX) {
         return nullptr;
-
-    auto *root = new TreeNode(list[0]);
-    queue<TreeNode *> que;
-    que.emplace(root);
-    size_t n = list.size(), i = 0;
-    while (!que.empty()) {
-        auto node = que.front();
-        que.pop();
-        if (++i >= n)
-            break;
-        // INT_MAX represent null
-        if (list[i] != INT_MAX) {
-            node->left = new TreeNode(list[i]);
-            que.emplace(node->left);
-        }
-        if (++i >= n)
-            break;
-        if (list[i] != INT_MAX) {
-            node->right = new TreeNode(list[i]);
-            que.emplace(node->right);
-        }
     }
-
+    TreeNode *root = new TreeNode(arr[i]);
+    root->left = vectorToTreeDFS(arr, 2 * i + 1);
+    root->right = vectorToTreeDFS(arr, 2 * i + 2);
     return root;
 }
 
-/* Get a tree node with specific value in a binary tree */
-TreeNode *getTreeNode(TreeNode *root, int val) {
+/* 将列表反序列化为二叉树 */
+TreeNode *vectorToTree(vector<int> arr) {
+    return vectorToTreeDFS(arr, 0);
+}
+
+/* 将二叉树序列化为列表：递归 */
+void treeToVecorDFS(TreeNode *root, int i, vector<int> &res) {
     if (root == nullptr)
-        return nullptr;
-    if (root->val == val)
-        return root;
-    TreeNode *left = getTreeNode(root->left, val);
-    TreeNode *right = getTreeNode(root->right, val);
-    return left != nullptr ? left : right;
+        return;
+    while (i >= res.size()) {
+        res.push_back(INT_MAX);
+    }
+    res[i] = root->val;
+    treeToVecorDFS(root->left, 2 * i + 1, res);
+    treeToVecorDFS(root->right, 2 * i + 2, res);
+}
+
+/* 将二叉树序列化为列表 */
+vector<int> treeToVecor(TreeNode *root) {
+    vector<int> res;
+    treeToVecorDFS(root, 0, res);
+    return res;
 }
 
 /* Free the memory allocated to a tree */

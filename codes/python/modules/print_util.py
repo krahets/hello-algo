@@ -4,8 +4,8 @@ Created Time: 2021-12-11
 Author: Krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
 """
 
-from .binary_tree import TreeNode, list_to_tree
-from .linked_list import ListNode, linked_list_to_list
+from .tree_node import TreeNode, list_to_tree
+from .list_node import ListNode, linked_list_to_list
 
 
 def print_matrix(mat: list[list[int]]) -> None:
