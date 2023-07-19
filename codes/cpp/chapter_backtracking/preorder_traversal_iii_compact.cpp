@@ -10,7 +10,7 @@ vector<TreeNode *> path;
 vector<vector<TreeNode *>> res;
 
 /* 前序遍历：例题三 */
-static void preOrder(TreeNode *root) {
+void preOrder(TreeNode *root) {
     // 剪枝
     if (root == nullptr || root->val == 3) {
         return;
@@ -20,6 +20,7 @@ static void preOrder(TreeNode *root) {
     if (root->val == 7) {
         // 记录解
         res.push_back(path);
+        return;
     }
     preOrder(root->left);
     preOrder(root->right);
