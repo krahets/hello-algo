@@ -46,13 +46,13 @@ theme:
       primary: white
       # accent: indigo
       toggle:
-        icon: material/weather-sunny
+        icon: material/theme-light-dark
         name: Switch to dark mode
     - scheme: slate
       primary: grey
       # accent: indigo
       toggle:
-        icon: material/weather-night
+        icon: material/theme-light-dark
         name: Switch to light mode
   font:
     text: Noto Sans SC
