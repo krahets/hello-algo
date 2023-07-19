@@ -4,7 +4,7 @@
 
 package chapter_divide_and_conquer
 
-// 二分查找：问题 f(i, j)
+/* 二分查找：问题 f(i, j) */
 func dfs(nums []int, target, i, j int) int {
 	// 如果区间为空，代表没有目标元素，则返回 -1
 	if i > j {
@@ -27,7 +27,7 @@ func dfs(nums []int, target, i, j int) int {
 	}
 }
 
-// 二分查找
+/* 二分查找 */
 func binarySearch(nums []int, target int) int {
 	n := len(nums)
 	return dfs(nums, target, 0, n-1)
