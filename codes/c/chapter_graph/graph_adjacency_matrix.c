@@ -155,7 +155,7 @@ graphAdjMat *newGraphAjdMat(unsigned int numberVertices, int *vertices, unsigned
     newGraph->adjMat = (unsigned int **)malloc(sizeof(unsigned int *) * numberVertices * 2);                     // 为邻接矩阵分配二维内存
     unsigned int *temp = (unsigned int *)malloc(sizeof(unsigned int) * numberVertices * 2 * numberVertices * 2); // 为邻接矩阵分配一维内存
     newGraph->size = numberVertices;                                                                             // 初始化顶点数量
-    newGraph->capacity = numberVertices * 2;
+    newGraph->capacity = numberVertices * 2;                                                                     // 初始化图容量
 
     // 配置二维数组
     for (int i = 0; i < numberVertices * 2; i++) {
