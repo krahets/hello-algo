@@ -12,7 +12,7 @@ comments: true
 
     给定一个二叉树，搜索并记录所有值为 $7$ 的节点，返回节点列表。
 
-**解题思路**：前序遍历这颗树，并判断当前节点的值是否为 $7$ ，若是则将该节点的值加入到结果列表 `res` 之中。
+对于此题，我们前序遍历这颗树，并判断当前节点的值是否为 $7$ ，若是则将该节点的值加入到结果列表 `res` 之中。
 
 === "Java"
 
@@ -181,7 +181,7 @@ comments: true
 
     在二叉树中搜索所有值为 $7$ 的节点，**返回根节点到这些节点的路径**。
 
-**解题思路**：在例题一代码的基础上，我们需要借助一个列表 `path` 记录访问过的节点路径。当访问到值为 $7$ 的节点时，则复制 `path` 并添加进结果列表 `res` 。遍历完成后，`res` 中保存的就是所有的解。
+在例题一代码的基础上，我们需要借助一个列表 `path` 记录访问过的节点路径。当访问到值为 $7$ 的节点时，则复制 `path` 并添加进结果列表 `res` 。遍历完成后，`res` 中保存的就是所有的解。
 
 === "Java"
 
@@ -411,9 +411,12 @@ comments: true
 
 !!! question "例题三"
 
-    在二叉树中搜索所有值为 $7$ 的节点，返回根节点到这些节点的路径，**路径中不能包含值为 $3$ 的节点**。
+    在二叉树中搜索所有值为 $7$ 的节点，返回根节点到这些节点的路径，**路径中有且只有一个值为 $7$ 的节点，并且不能包含值为 $3$ 的节点**。
 
-**解题思路**：在例题二的基础上添加剪枝操作，当遇到值为 $3$ 的节点时，则终止继续搜索。
+在例题二的基础上添加剪枝操作，包括：
+
+- 当遇到值为 $7$ 的节点时，记录解并返回，终止搜索。
+- 当遇到值为 $3$ 的节点时，则直接返回，停止继续搜索。
 
 === "Java"
 
@@ -429,6 +432,7 @@ comments: true
         if (root.val == 7) {
             // 记录解
             res.add(new ArrayList<>(path));
+            return;
         }
         preOrder(root.left);
         preOrder(root.right);
@@ -451,6 +455,7 @@ comments: true
         if (root->val == 7) {
             // 记录解
             res.push_back(path);
+            return;
         }
         preOrder(root->left);
         preOrder(root->right);
@@ -472,6 +477,7 @@ comments: true
         if root.val == 7:
             # 记录解
             res.append(list(path))
+            return
         pre_order(root.left)
         pre_order(root.right)
         # 回退
@@ -492,6 +498,7 @@ comments: true
         if int(root.Val) == 7 {
             // 记录解
             *res = append(*res, *path)
+            return
         }
         preOrderIII(root.Left, res, path)
         preOrderIII(root.Right, res, path)
@@ -514,6 +521,7 @@ comments: true
         if (root.val === 7) {
             // 记录解
             res.push([...path]);
+            return;
         }
         preOrder(root.left, path, res);
         preOrder(root.right, path, res);
@@ -540,6 +548,7 @@ comments: true
         if (root.val === 7) {
             // 记录解
             res.push([...path]);
+            return;
         }
         preOrder(root.left, path, res);
         preOrder(root.right, path, res);
@@ -568,6 +577,7 @@ comments: true
         if (root.val == 7) {
             // 记录解
             res.Add(new List<TreeNode>(path));
+            return;
         }
         preOrder(root.left);
         preOrder(root.right);
@@ -590,6 +600,7 @@ comments: true
         if root.val == 7 {
             // 记录解
             res.append(path)
+            return
         }
         preOrder(root: root.left)
         preOrder(root: root.right)
