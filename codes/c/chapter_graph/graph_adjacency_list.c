@@ -154,7 +154,7 @@ linkList *newLinklist(Vertex *val) {
 /* 基于邻接链表实现的无向图类结构 */
 struct graphAdjList {
     Vertex **verticesList; // 邻接表
-    unsigned int size; // 顶点数量
+    unsigned int size;     // 顶点数量
     unsigned int capacity; // 顶点容量
 };
 
