@@ -1,6 +1,6 @@
 ---
 comments: true
-icon: material/view-grid-outline
+icon: material/view-list-outline
 ---
 
 # 4. &nbsp; 数组与链表

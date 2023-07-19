@@ -1,6 +1,6 @@
 ---
 comments: true
-icon: material/code-tags
+icon: material/calculator-variant-outline
 ---
 
 # 1. &nbsp; 初识算法

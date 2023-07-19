@@ -1,6 +1,6 @@
 ---
 comments: true
-icon: material/file-tree-outline
+icon: material/set-split
 status: new
 ---
 

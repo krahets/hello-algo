@@ -1,6 +1,6 @@
 ---
 comments: true
-icon: material/database-outline
+icon: material/shape-outline
 ---
 
 # 3. &nbsp; 数据结构
