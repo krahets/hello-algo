@@ -44,26 +44,27 @@ void freeHash(hashTable *h) {
     free(h);
 }
 
-/* 深度优先遍历递归函数 */
+/* 深度优先遍历 DFS 辅助函数 */
 int resIndex = 0;
-void dfs(graphAdjList *graph, hashTable *visited, Vertex *v, Vertex **res) {
-    // 查询哈希表，若该索引的顶点未加入数组，则加入数组并标记
-    if (hashQuery(visited, v->pos) != 1) {
-        hashMark(visited, v->pos); // 标记顶点并将顶点存入数组
-        res[resIndex] = v;         // 将顶点存入数组
-        resIndex++;
-        // 遍历该顶点链表
-        Node *n = v->linked->head->next;
-        while (n != 0) {
-            // 递归访问邻接顶点
-            dfs(graph, visited, n->val, res);
-            n = n->next;
-        }
+void dfs(graphAdjList *graph, hashTable *visited, Vertex *vet, Vertex **res) {
+    if (hashQuery(visited, vet->pos) == 1) {
+        return; // 跳过已被访问过的顶点
+    }
+    hashMark(visited, vet->pos); // 标记顶点并将顶点存入数组
+    res[resIndex] = vet;         // 将顶点存入数组
+    resIndex++;
+    // 遍历该顶点链表
+    Node *n = vet->linked->head->next;
+    while (n != 0) {
+        // 递归访问邻接顶点
+        dfs(graph, visited, n->val, res);
+        n = n->next;
     }
     return;
 }
 
-/* 深度优先遍历 */
+/* 深度优先遍历 DFS */
+// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 Vertex **graphDFS(graphAdjList *graph, Vertex *startVet) {
     // 顶点遍历序列
     Vertex **res = (Vertex **)malloc(sizeof(Vertex *) * graph->size);
@@ -94,18 +95,18 @@ int main() {
     printGraph(graph);
 
     // 深度优先遍历 DFS
-    Vertex **v = graphDFS(graph, graph->verticesList[0]);
+    Vertex **vet = graphDFS(graph, graph->verticesList[0]);
 
     // 输出遍历结果
     printf("\n深度优先遍历（DFS）顶点序列为\n");
     printf("[");
-    printf("%d", v[0]->val);
-    for (int i = 1; i < graph->size && v[i] != 0; i++) {
-        printf(", %d", v[i]->val);
+    printf("%d", vet[0]->val);
+    for (int i = 1; i < graph->size && vet[i] != 0; i++) {
+        printf(", %d", vet[i]->val);
     }
     printf("]\n");
 
     // 释放内存
-    free(v);
+    free(vet);
     return 0;
 }
