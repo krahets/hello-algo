@@ -103,25 +103,6 @@ void removeLink(linkList *l, Vertex *val) {
     }
 }
 
-/* 根据索引查找链表中节点 */
-Node *findByindex(linkList *l, unsigned int index) {
-    unsigned int i = 0;
-    Node *temp = l->head->next;
-    while (temp != 0) {
-        if (i == index) {
-            return temp;
-        }
-        temp = temp->next;
-        i++;
-    }
-
-    if (temp->next == 0) {
-        printf("vertex not found!\n");
-        return 0;
-    }
-    return 0;
-}
-
 /* 根据顶点地址删除顶点 */
 void removeNode(linkList *l, Vertex *val) {
     Node *temp = l->head->next;
@@ -172,12 +153,9 @@ linkList *newLinklist(Vertex *val) {
 
 /* 基于邻接链表实现的无向图类结构 */
 struct graphAdjList {
-    // 邻接表
-    Vertex **verticesList;
-    // 顶点数量
-    unsigned int size;
-    // 顶点容量
-    unsigned int capacity;
+    Vertex **verticesList; // 邻接表
+    unsigned int size; // 顶点数量
+    unsigned int capacity; // 顶点容量
 };
 
 typedef struct graphAdjList graphAdjList;
