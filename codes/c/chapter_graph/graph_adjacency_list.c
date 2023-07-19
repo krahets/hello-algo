@@ -254,6 +254,7 @@ void removeVertex(graphAdjList *t, unsigned int index) {
         removeLink(temp->val->linked, v); // 删除与该顶点有关的边
         temp = temp->next;                
     }
+
     // 将顶点前移
     for (int i = index; i < t->size - 1; i++) {
         t->verticesList[i] = t->verticesList[i + 1]; // 顶点前移
@@ -285,14 +286,14 @@ void printGraph(graphAdjList *t) {
 }
 
 /* 构造函数 */
-graphAdjList *newGraphAdjList(unsigned int verticesNumber) {
+graphAdjList *newGraphAdjList(unsigned int verticesCapacity) {
     // 申请内存
     graphAdjList *newGraph = (graphAdjList *)malloc(sizeof(graphAdjList));
     // 建立顶点表并分配内存
-    newGraph->verticesList = (Vertex **)malloc(sizeof(Vertex *) * verticesNumber);
-    memset(newGraph->verticesList, 0, sizeof(Vertex *) * verticesNumber);
-    // 初始化大小和容量
-    newGraph->size = 0;
-    newGraph->capacity = verticesNumber;
-    return newGraph;
+    newGraph->verticesList = (Vertex **)malloc(sizeof(Vertex *) * verticesCapacity); // 为顶点列表分配内存
+    memset(newGraph->verticesList, 0, sizeof(Vertex *) * verticesCapacity);          // 顶点列表置 0
+    newGraph->size = 0;                                                              // 初始化顶点数量
+    newGraph->capacity = verticesCapacity;                                           // 初始化顶点容量
+    // 返回图指针
+    return newGraph;                
 }

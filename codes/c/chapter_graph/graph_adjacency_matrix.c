@@ -174,18 +174,15 @@ graphAdjMat *newGraphAjdMat(unsigned int numberVertices, int *vertices, unsigned
 
 /* Driver Code */
 int main() {
-
     /* 初始化无向图 */
     int vertices[5] = {1, 3, 2, 5, 4};
     unsigned int **edge = (unsigned int **)malloc(sizeof(unsigned int *) * 5);
-
     // 用于构建二维数组的一维指针
     unsigned int *temp = (unsigned int *)malloc(sizeof(unsigned int) * 25);
     memset(temp, 0, sizeof(unsigned int) * 25);
     for (int k = 0; k < 5; k++) {
         edge[k] = temp + k * 5;
     }
-
     // 初始化边
     edge[0][1] = edge[1][0] = 1;
     edge[0][3] = edge[3][0] = 1;
@@ -193,7 +190,6 @@ int main() {
     edge[2][3] = edge[3][2] = 1;
     edge[2][4] = edge[4][2] = 1;
     edge[3][4] = edge[4][3] = 1;
-
     // 建立无向图
     graphAdjMat *graph = newGraphAjdMat(5, vertices, edge);
     free(edge);
