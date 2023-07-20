@@ -369,7 +369,7 @@
         int a = 0;               // O(1)
         int b[10000];            // O(1)
         if (n > 10)
-            int nums[n]={0};     // O(n)
+            int nums[n] = {0};   // O(n)
     }
     ```
 
