@@ -21,6 +21,7 @@ fn pre_order(res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>, path: &mut Vec<Rc<RefCel
         if node.borrow().val == 7 {
             // 记录解
             res.push(path.clone());
+            return;
         }
         pre_order(res, path, node.borrow().left.clone());
         pre_order(res, path, node.borrow().right.clone());

@@ -223,7 +223,7 @@ template <typename T, typename S, typename C> void printHeap(priority_queue<T, S
     cout << "堆的数组表示：";
     printVector(vec);
     cout << "堆的树状表示：" << endl;
-    TreeNode *root = vecToTree(vec);
+    TreeNode *root = vectorToTree(vec);
     printTree(root);
     freeMemoryTree(root);
 }

@@ -7,6 +7,7 @@
 #pragma once
 
 #include <vector>
+
 using namespace std;
 
 /* 顶点类 */

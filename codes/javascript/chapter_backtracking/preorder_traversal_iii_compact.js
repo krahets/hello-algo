@@ -18,6 +18,7 @@ function preOrder(root, path, res) {
     if (root.val === 7) {
         // 记录解
         res.push([...path]);
+        return;
     }
     preOrder(root.left, path, res);
     preOrder(root.right, path, res);

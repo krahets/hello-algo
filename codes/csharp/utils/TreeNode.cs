@@ -59,15 +59,4 @@ public class TreeNode {
         }
         return list;
     }
-
-    /* Get a tree node with specific value in a binary tree */
-    public static TreeNode? GetTreeNode(TreeNode? root, int val) {
-        if (root == null)
-            return null;
-        if (root.val == val)
-            return root;
-        TreeNode? left = GetTreeNode(root.left, val);
-        TreeNode? right = GetTreeNode(root.right, val);
-        return left ?? right;
-    }
 }

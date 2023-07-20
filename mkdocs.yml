@@ -138,7 +138,7 @@ nav:
     - 0.2. &nbsp; 如何使用本书: chapter_preface/suggestions.md
     - 0.3. &nbsp; 小结: chapter_preface/summary.md
   - 1. &nbsp; 初识算法:
-    # [icon: material/code-tags]
+    # [icon: material/calculator-variant-outline]
     - chapter_introduction/index.md
     - 1.1. &nbsp; 算法无处不在: chapter_introduction/algorithms_are_everywhere.md
     - 1.2. &nbsp; 算法是什么: chapter_introduction/what_is_dsa.md
@@ -151,7 +151,7 @@ nav:
     - 2.3. &nbsp; 空间复杂度: chapter_computational_complexity/space_complexity.md
     - 2.4. &nbsp; 小结: chapter_computational_complexity/summary.md
   - 3. &nbsp; 数据结构:
-    # [icon: material/database-outline]
+    # [icon: material/shape-outline]
     - chapter_data_structure/index.md
     - 3.1. &nbsp; 数据结构分类: chapter_data_structure/classification_of_data_structure.md
     - 3.2. &nbsp; 基本数据类型: chapter_data_structure/basic_data_types.md
@@ -159,7 +159,7 @@ nav:
     - 3.4. &nbsp; 字符编码 *: chapter_data_structure/character_encoding.md
     - 3.5. &nbsp; 小结: chapter_data_structure/summary.md
   - 4. &nbsp; 数组与链表:
-    # [icon: material/view-grid-outline]
+    # [icon: material/view-list-outline]
     - chapter_array_and_linkedlist/index.md
     - 4.1. &nbsp; 数组: chapter_array_and_linkedlist/array.md
     - 4.2. &nbsp; 链表: chapter_array_and_linkedlist/linked_list.md
@@ -225,7 +225,7 @@ nav:
     - 11.10. &nbsp; 基数排序: chapter_sorting/radix_sort.md
     - 11.11. &nbsp; 小结: chapter_sorting/summary.md
   - 12. &nbsp; 分治:
-    # [icon: material/file-tree-outline, status: new]
+    # [icon: material/set-split, status: new]
     - chapter_divide_and_conquer/index.md
     # [status: new]
     - 12.1. &nbsp; 分治算法: chapter_divide_and_conquer/divide_and_conquer.md

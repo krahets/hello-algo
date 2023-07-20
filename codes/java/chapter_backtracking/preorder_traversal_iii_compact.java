@@ -24,6 +24,7 @@ public class preorder_traversal_iii_compact {
         if (root.val == 7) {
             // 记录解
             res.add(new ArrayList<>(path));
+            return;
         }
         preOrder(root.left);
         preOrder(root.right);
