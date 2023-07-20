@@ -262,10 +262,17 @@ nav:
     - 14.6. &nbsp; 编辑距离问题: chapter_dynamic_programming/edit_distance_problem.md
     # [status: new]
     - 14.7. &nbsp; 小结: chapter_dynamic_programming/summary.md
-  - 15. &nbsp; 附录:
+  - 15. &nbsp; 贪心:
+    # [icon: material/head-heart-outline, status: new]
+    - chapter_greedy/index.md
+    # [status: new]
+    - 15.1. &nbsp; 贪心算法: chapter_greedy/greedy_algorithm.md
+    # [status: new]
+    - 15.2. &nbsp; 分数背包问题: chapter_greedy/fractional_knapsack_problem.md
+  - 16. &nbsp; 附录:
     # [icon: material/help-circle-outline]
     - chapter_appendix/index.md
-    - 15.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
-    - 15.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
+    - 16.1. &nbsp; 编程环境安装: chapter_appendix/installation.md
+    - 16.2. &nbsp; 一起参与创作: chapter_appendix/contribution.md
   - 参考文献:
     - chapter_reference/index.md
