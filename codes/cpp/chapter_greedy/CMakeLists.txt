@@ -1,0 +1,2 @@
+add_executable(coin_change_greedy coin_change_greedy.cpp)
+add_executable(fractional_knapsack fractional_knapsack.cpp)
