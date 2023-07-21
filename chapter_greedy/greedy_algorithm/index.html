@@ -2899,6 +2899,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -3062,6 +3064,34 @@
   
   <span class="md-ellipsis">
     15.2. &nbsp; 分数背包问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../max_capacity_problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.3. &nbsp; 最大容量问题
   </span>
   
     
@@ -3329,7 +3359,7 @@
 <p>我们先通过例题“零钱兑换”来初步了解贪心算法的工作原理。这道题已经在动态规划章节中介绍过，相信你对它并不陌生。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>给定 <span class="arithmatex">\(n\)</span> 种硬币，第 <span class="arithmatex">\(i\)</span> 个硬币的面值为 <span class="arithmatex">\(coins[i - 1]\)</span> ，目标金额为 <span class="arithmatex">\(amt\)</span> ，<strong>每种硬币可以重复选取</strong>，问能够凑出目标金额的最少硬币个数。如果无法凑出目标金额则返回 <span class="arithmatex">\(-1\)</span> 。</p>
+<p>给定 <span class="arithmatex">\(n\)</span> 种硬币，第 <span class="arithmatex">\(i\)</span> 个硬币的面值为 <span class="arithmatex">\(coins[i - 1]\)</span> ，目标金额为 <span class="arithmatex">\(amt\)</span> ，每种硬币可以重复选取，问能够凑出目标金额的最少硬币个数。如果无法凑出目标金额则返回 <span class="arithmatex">\(-1\)</span> 。</p>
 </div>
 <p>贪心算法会迭代地做出一个又一个的贪心选择，每轮都将问题转化成一个规模更小的子问题，直到问题被解决。</p>
 <p>这道题的贪心策略在生活中很常见：给定目标金额，<strong>我们贪心地选择不大于且最接近它的硬币</strong>，不断循环该步骤，直至凑出目标金额为止。</p>
@@ -3471,10 +3501,10 @@
 <li><strong>正确性证明</strong>：通常需要证明问题具有贪心选择性质和最优子结构。这个步骤可能需要使用到数学证明，例如归纳法或反证法等。</li>
 </ol>
 <p>确定贪心策略是求解问题的核心步骤，但实施起来并没有那么容易。主要有两方面原因：</p>
-<ol>
+<ul>
 <li><strong>不同问题的贪心策略的差异较大</strong>。对于许多问题来说，贪心策略都比较浅显，我们通过一些大概的思考与尝试就能得出。而对于一些复杂问题，贪心策略可能非常隐蔽，这种情况就非常考验个人的解题经验与算法能力了。</li>
 <li><strong>某些贪心策略具有较强的迷惑性</strong>。当我们满怀信心设计好贪心策略，写出解题代码并提交运行，很可能发现部分测试样例无法通过。这是因为设计的贪心策略只是“部分正确”的，上文介绍的零钱兑换就是个很好的例子。</li>
-</ol>
+</ul>
 <p>为了保证正确性，我们应该对贪心策略进行严谨的数学证明，<strong>通常需要用到反证法或数学归纳法</strong>。</p>
 <p>然而，正确性证明往往也不是一件易事。如若没有头绪，我们通常会选择面向测试用例进行 Debug ，一步步修改与验证贪心策略。</p>
 <h2 id="1514">15.1.4. &nbsp; 贪心典型例题<a class="headerlink" href="#1514" title="Permanent link">&para;</a></h2>
