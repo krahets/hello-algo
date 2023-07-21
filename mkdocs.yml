@@ -271,6 +271,8 @@ nav:
     - 15.2. &nbsp; 分数背包问题: chapter_greedy/fractional_knapsack_problem.md
     # [status: new]
     - 15.3. &nbsp; 最大容量问题: chapter_greedy/max_capacity_problem.md
+    # [status: new]
+    - 15.4. &nbsp; 最大切分乘积问题: chapter_greedy/max_product_cutting_problem.md
   - 16. &nbsp; 附录:
     # [icon: material/help-circle-outline]
     - chapter_appendix/index.md
