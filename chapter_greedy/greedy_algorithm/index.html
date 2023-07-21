@@ -2903,6 +2903,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -3122,6 +3124,34 @@
   
   <span class="md-ellipsis">
     15.4. &nbsp; 最大切分乘积问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.5. &nbsp; 小结
   </span>
   
     
@@ -3391,7 +3421,6 @@
 <p class="admonition-title">Question</p>
 <p>给定 <span class="arithmatex">\(n\)</span> 种硬币，第 <span class="arithmatex">\(i\)</span> 个硬币的面值为 <span class="arithmatex">\(coins[i - 1]\)</span> ，目标金额为 <span class="arithmatex">\(amt\)</span> ，每种硬币可以重复选取，问能够凑出目标金额的最少硬币个数。如果无法凑出目标金额则返回 <span class="arithmatex">\(-1\)</span> 。</p>
 </div>
-<p>贪心算法会迭代地做出一个又一个的贪心选择，每轮都将问题转化成一个规模更小的子问题，直到问题被解决。</p>
 <p>这道题的贪心策略在生活中很常见：给定目标金额，<strong>我们贪心地选择不大于且最接近它的硬币</strong>，不断循环该步骤，直至凑出目标金额为止。</p>
 <p><img alt="零钱兑换的贪心策略" src="../greedy_algorithm.assets/coin_change_greedy_strategy.png" /></p>
 <p align="center"> Fig. 零钱兑换的贪心策略 </p>
@@ -3512,7 +3541,7 @@
 </ol>
 <h2 id="1512">15.1.2. &nbsp; 贪心算法特性<a class="headerlink" href="#1512" title="Permanent link">&para;</a></h2>
 <p>那么问题来了，什么样的问题适合用贪心算法求解呢？或者说，贪心算法在什么情况下可以保证找到最优解？</p>
-<p>相较于动态规划，贪心算法的使用条件更加苛刻，其主要关心问题的两个性质：</p>
+<p>相较于动态规划，贪心算法的使用条件更加苛刻，其主要关注问题的两个性质：</p>
 <ul>
 <li><strong>贪心选择性质</strong>：只有当局部最优选择始终可以导致全局最优解时，贪心算法才能保证得到最优解。</li>
 <li><strong>最优子结构</strong>：原问题的最优解包含子问题的最优解。值得注意的是，一些问题的最优子结构并不明显，但仍然可使用贪心算法解决。</li>
