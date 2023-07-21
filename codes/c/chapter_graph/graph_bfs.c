@@ -118,7 +118,6 @@ Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
         resIndex++;
         queuePop(que); // 队首元素出队
     }
-
     // 释放内存
     freeQueue(que);
     freeHash(visited);
