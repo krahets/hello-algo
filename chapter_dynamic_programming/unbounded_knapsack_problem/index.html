@@ -2864,6 +2864,26 @@
     14.5.1. &nbsp; 完全背包问题
   </a>
   
+    <nav class="md-nav" aria-label="14.5.1.   完全背包问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    状态压缩
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2871,12 +2891,52 @@
     14.5.2. &nbsp; 零钱兑换问题
   </a>
   
+    <nav class="md-nav" aria-label="14.5.2.   零钱兑换问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    状态压缩
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#1453-ii" class="md-nav__link">
     14.5.3. &nbsp; 零钱兑换问题 II
   </a>
+  
+    <nav class="md-nav" aria-label="14.5.3.   零钱兑换问题 II">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    状态压缩
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2962,6 +3022,8 @@
       
         
           
+        
+      
         
       
         
@@ -3085,6 +3147,34 @@
   
   <span class="md-ellipsis">
     15.3. &nbsp; 最大容量问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.4. &nbsp; 最大切分乘积问题
   </span>
   
     
@@ -3296,6 +3386,26 @@
     14.5.1. &nbsp; 完全背包问题
   </a>
   
+    <nav class="md-nav" aria-label="14.5.1.   完全背包问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    状态压缩
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3303,12 +3413,52 @@
     14.5.2. &nbsp; 零钱兑换问题
   </a>
   
+    <nav class="md-nav" aria-label="14.5.2.   零钱兑换问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    状态压缩
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#1453-ii" class="md-nav__link">
     14.5.3. &nbsp; 零钱兑换问题 II
   </a>
+  
+    <nav class="md-nav" aria-label="14.5.3.   零钱兑换问题 II">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    状态压缩
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3359,6 +3509,7 @@
 <div class="arithmatex">\[
 dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 \]</div>
+<h3 id="_1">代码实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>对比两道题目的动态规划代码，状态转移中有一处从 <span class="arithmatex">\(i-1\)</span> 变为 <span class="arithmatex">\(i\)</span> ，其余完全一致。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
 <div class="tabbed-content">
@@ -3512,6 +3663,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
+<h3 id="_2">状态压缩<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>由于当前状态是从左边和上边的状态转移而来，<strong>因此状态压缩后应该对 <span class="arithmatex">\(dp\)</span> 表中的每一行采取正序遍历</strong>，这个遍历顺序与 0-1 背包正好相反。请通过以下动画来理解为什么要改为正序遍历。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label></div>
 <div class="tabbed-content">
@@ -3719,7 +3871,8 @@ dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
 \]</div>
 <p><strong>第三步：确定边界条件和状态转移顺序</strong></p>
 <p>当目标金额为 <span class="arithmatex">\(0\)</span> 时，凑出它的最少硬币个数为 <span class="arithmatex">\(0\)</span> ，即所有 <span class="arithmatex">\(dp[i, 0]\)</span> 都等于 <span class="arithmatex">\(0\)</span> 。当无硬币时，<strong>无法凑出任意 <span class="arithmatex">\(&gt; 0\)</span> 的目标金额</strong>，即是无效解。为使状态转移方程中的 <span class="arithmatex">\(\min()\)</span> 函数能够识别并过滤无效解，我们考虑使用 <span class="arithmatex">\(+ \infty\)</span> 来表示它们，即令所有 <span class="arithmatex">\(dp[0, a]\)</span> 都等于 <span class="arithmatex">\(+ \infty\)</span> 。</p>
-<p>以上做法仅适用于 Python 语言，因为大多数编程语言并未提供 <span class="arithmatex">\(+ \infty\)</span> 变量，所以只能使用整型 <code>int</code> 的最大值，而这又会导致大数越界：<strong>当 <span class="arithmatex">\(dp[i, a - coins[i-1]]\)</span> 是无效解时，再执行 <span class="arithmatex">\(+ 1\)</span> 操作会发生溢出</strong>。</p>
+<h3 id="_3">代码实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>然而，大多数编程语言并未提供 <span class="arithmatex">\(+ \infty\)</span> 变量，因此只能使用整型 <code>int</code> 的最大值来代替，而这又会导致大数越界：<strong>当 <span class="arithmatex">\(dp[i, a - coins[i-1]]\)</span> 是无效解时，再执行 <span class="arithmatex">\(+ 1\)</span> 操作会发生溢出</strong>。</p>
 <p>为解决该问题，我们采用一个不可能达到的大数字 <span class="arithmatex">\(amt + 1\)</span> 来表示无效解，因为凑出 <span class="arithmatex">\(amt\)</span> 的硬币个数最多为 <span class="arithmatex">\(amt\)</span> 个。</p>
 <p>在最后返回前，判断 <span class="arithmatex">\(dp[n, amt]\)</span> 是否等于 <span class="arithmatex">\(amt + 1\)</span> ，若是则返回 <span class="arithmatex">\(-1\)</span> ，代表无法凑出目标金额。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:11"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JavaScript</label><label for="__tabbed_4_6">TypeScript</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label><label for="__tabbed_4_11">Dart</label></div>
@@ -3957,6 +4110,7 @@ dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
 </div>
 </div>
 </div>
+<h3 id="_4">状态压缩<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>由于零钱兑换和完全背包的状态转移方程如出一辙，因此状态压缩方式也相同。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:11"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Python</label><label for="__tabbed_6_4">Go</label><label for="__tabbed_6_5">JavaScript</label><label for="__tabbed_6_6">TypeScript</label><label for="__tabbed_6_7">C</label><label for="__tabbed_6_8">C#</label><label for="__tabbed_6_9">Swift</label><label for="__tabbed_6_10">Zig</label><label for="__tabbed_6_11">Dart</label></div>
 <div class="tabbed-content">
@@ -4144,6 +4298,7 @@ dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
 dp[i, a] = dp[i-1, a] + dp[i, a - coins[i-1]]
 \]</div>
 <p>当目标金额为 <span class="arithmatex">\(0\)</span> 时，无需选择任何硬币即可凑出目标金额，因此应将所有 <span class="arithmatex">\(dp[i, 0]\)</span> 都初始化为 <span class="arithmatex">\(1\)</span> 。当无硬币时，无法凑出任何 <span class="arithmatex">\(&gt;0\)</span> 的目标金额，因此所有 <span class="arithmatex">\(dp[0, a]\)</span> 都等于 <span class="arithmatex">\(0\)</span> 。</p>
+<h3 id="_5">代码实现<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:11"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><input id="__tabbed_7_5" name="__tabbed_7" type="radio" /><input id="__tabbed_7_6" name="__tabbed_7" type="radio" /><input id="__tabbed_7_7" name="__tabbed_7" type="radio" /><input id="__tabbed_7_8" name="__tabbed_7" type="radio" /><input id="__tabbed_7_9" name="__tabbed_7" type="radio" /><input id="__tabbed_7_10" name="__tabbed_7" type="radio" /><input id="__tabbed_7_11" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Java</label><label for="__tabbed_7_2">C++</label><label for="__tabbed_7_3">Python</label><label for="__tabbed_7_4">Go</label><label for="__tabbed_7_5">JavaScript</label><label for="__tabbed_7_6">TypeScript</label><label for="__tabbed_7_7">C</label><label for="__tabbed_7_8">C#</label><label for="__tabbed_7_9">Swift</label><label for="__tabbed_7_10">Zig</label><label for="__tabbed_7_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4319,6 +4474,7 @@ dp[i, a] = dp[i-1, a] + dp[i, a - coins[i-1]]
 </div>
 </div>
 </div>
+<h3 id="_6">状态压缩<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>状态压缩处理方式相同，删除硬币维度即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:11"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><input id="__tabbed_8_5" name="__tabbed_8" type="radio" /><input id="__tabbed_8_6" name="__tabbed_8" type="radio" /><input id="__tabbed_8_7" name="__tabbed_8" type="radio" /><input id="__tabbed_8_8" name="__tabbed_8" type="radio" /><input id="__tabbed_8_9" name="__tabbed_8" type="radio" /><input id="__tabbed_8_10" name="__tabbed_8" type="radio" /><input id="__tabbed_8_11" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Java</label><label for="__tabbed_8_2">C++</label><label for="__tabbed_8_3">Python</label><label for="__tabbed_8_4">Go</label><label for="__tabbed_8_5">JavaScript</label><label for="__tabbed_8_6">TypeScript</label><label for="__tabbed_8_7">C</label><label for="__tabbed_8_8">C#</label><label for="__tabbed_8_9">Swift</label><label for="__tabbed_8_10">Zig</label><label for="__tabbed_8_11">Dart</label></div>
 <div class="tabbed-content">

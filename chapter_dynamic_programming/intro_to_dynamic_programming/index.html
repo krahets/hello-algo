@@ -2768,6 +2768,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#1414" class="md-nav__link">
+    14.1.4. &nbsp; 状态压缩
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2970,6 +2977,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -3085,6 +3094,34 @@
   
   <span class="md-ellipsis">
     15.3. &nbsp; 最大容量问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.4. &nbsp; 最大切分乘积问题
   </span>
   
     
@@ -3308,6 +3345,13 @@
         <li class="md-nav__item">
   <a href="#1413" class="md-nav__link">
     14.1.3. &nbsp; 方法三：动态规划
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1414" class="md-nav__link">
+    14.1.4. &nbsp; 状态压缩
   </a>
   
 </li>
@@ -4041,6 +4085,7 @@ dp[i] = dp[i-1] + dp[i-2]
 <p><img alt="爬楼梯的动态规划过程" src="../intro_to_dynamic_programming.assets/climbing_stairs_dp.png" /></p>
 <p align="center"> Fig. 爬楼梯的动态规划过程 </p>
 
+<h2 id="1414">14.1.4. &nbsp; 状态压缩<a class="headerlink" href="#1414" title="Permanent link">&para;</a></h2>
 <p>细心的你可能发现，<strong>由于 <span class="arithmatex">\(dp[i]\)</span> 只与 <span class="arithmatex">\(dp[i-1]\)</span> 和 <span class="arithmatex">\(dp[i-2]\)</span> 有关，因此我们无需使用一个数组 <code>dp</code> 来存储所有子问题的解</strong>，而只需两个变量滚动前进即可。如以下代码所示，由于省去了数组 <code>dp</code> 占用的空间，因此空间复杂度从 <span class="arithmatex">\(O(n)\)</span> 降低至 <span class="arithmatex">\(O(1)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:11"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JavaScript</label><label for="__tabbed_5_6">TypeScript</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label></div>
 <div class="tabbed-content">
@@ -4155,12 +4200,6 @@ dp[i] = dp[i-1] + dp[i-2]
 </div>
 </div>
 <p><strong>我们将这种空间优化技巧称为「状态压缩」</strong>。在许多动态规划问题中，当前状态仅与前面有限个状态有关，不必保存所有的历史状态，这时我们可以应用状态压缩，只保留必要的状态，通过“降维”来节省内存空间。</p>
-<p>总的看来，<strong>子问题分解是一种通用的算法思路，在分治、动态规划、回溯中各有特点</strong>：</p>
-<ul>
-<li>分治算法将原问题划分为几个独立的子问题，然后递归解决子问题，最后合并子问题的解得到原问题的解。例如，归并排序将长数组不断划分为两个短子数组，再将排序好的子数组合并为排序好的长数组。</li>
-<li>动态规划也是将原问题分解为多个子问题，但与分治算法的主要区别是，<strong>动态规划中的子问题往往不是相互独立的</strong>，原问题的解依赖于子问题的解，而子问题的解又依赖于更小的子问题的解。</li>
-<li>回溯算法在尝试和回退中穷举所有可能的解，并通过剪枝避免不必要的搜索分支。原问题的解由一系列决策步骤构成，我们可以将每个决策步骤之前的子序列看作为一个子问题。</li>
-</ul>
 
 
 

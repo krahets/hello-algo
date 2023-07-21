@@ -2592,22 +2592,62 @@
       
         <li class="md-nav__item">
   <a href="#1331" class="md-nav__link">
-    13.3.1. &nbsp; 从全排列引出解法
+    13.3.1. &nbsp; 无重复元素的情况
   </a>
+  
+    <nav class="md-nav" aria-label="13.3.1.   无重复元素的情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    从全排列引出解法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    重复子集剪枝
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#1332" class="md-nav__link">
-    13.3.2. &nbsp; 重复子集剪枝
+    13.3.2. &nbsp; 考虑重复元素的情况
+  </a>
+  
+    <nav class="md-nav" aria-label="13.3.2.   考虑重复元素的情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    相等元素剪枝
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#1333" class="md-nav__link">
-    13.3.3. &nbsp; 相等元素剪枝
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    代码实现
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2962,6 +3002,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -3077,6 +3119,34 @@
   
   <span class="md-ellipsis">
     15.3. &nbsp; 最大容量问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.4. &nbsp; 最大切分乘积问题
   </span>
   
     
@@ -3285,22 +3355,62 @@
       
         <li class="md-nav__item">
   <a href="#1331" class="md-nav__link">
-    13.3.1. &nbsp; 从全排列引出解法
+    13.3.1. &nbsp; 无重复元素的情况
   </a>
+  
+    <nav class="md-nav" aria-label="13.3.1.   无重复元素的情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    从全排列引出解法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    重复子集剪枝
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#1332" class="md-nav__link">
-    13.3.2. &nbsp; 重复子集剪枝
+    13.3.2. &nbsp; 考虑重复元素的情况
+  </a>
+  
+    <nav class="md-nav" aria-label="13.3.2.   考虑重复元素的情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    相等元素剪枝
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#1333" class="md-nav__link">
-    13.3.3. &nbsp; 相等元素剪枝
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    代码实现
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3328,12 +3438,13 @@
 
 
 <h1 id="133">13.3. &nbsp; 子集和问题<a class="headerlink" href="#133" title="Permanent link">&para;</a></h1>
+<h2 id="1331">13.3.1. &nbsp; 无重复元素的情况<a class="headerlink" href="#1331" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>给定一个正整数数组 <code>nums</code> 和一个目标正整数 <code>target</code> ，请找出所有可能的组合，使得组合中的元素和等于 <code>target</code> 。给定数组无重复元素，每个元素可以被选取多次。请以列表形式返回这些组合，列表中不应包含重复组合。</p>
 </div>
 <p>例如，输入集合 <span class="arithmatex">\(\{3, 4, 5\}\)</span> 和目标整数 <span class="arithmatex">\(9\)</span> ，由于集合中的数字可以被重复选取，因此解为 <span class="arithmatex">\(\{3, 3, 3\}, \{4, 5\}\)</span> 。请注意，子集是不区分元素顺序的，例如 <span class="arithmatex">\(\{4, 5\}\)</span> 和 <span class="arithmatex">\(\{5, 4\}\)</span> 是同一个子集。</p>
-<h2 id="1331">13.3.1. &nbsp; 从全排列引出解法<a class="headerlink" href="#1331" title="Permanent link">&para;</a></h2>
+<h3 id="_1">从全排列引出解法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>类似于上节全排列问题的解法，我们可以把子集的生成过程想象成一系列选择的结果，并在选择过程中实时更新“元素和”，当元素和等于 <code>target</code> 时，就将子集记录至结果列表。</p>
 <p>而与全排列问题不同的是，本题允许重复选取同一元素，因此无需借助 <code>selected</code> 布尔列表来记录元素是否已被选择。我们可以对全排列代码进行小幅修改，初步得到解题代码。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
@@ -3574,7 +3685,7 @@
 <p><img alt="子集搜索与越界剪枝" src="../subset_sum_problem.assets/subset_sum_i_naive.png" /></p>
 <p align="center"> Fig. 子集搜索与越界剪枝 </p>
 
-<h2 id="1332">13.3.2. &nbsp; 重复子集剪枝<a class="headerlink" href="#1332" title="Permanent link">&para;</a></h2>
+<h3 id="_2">重复子集剪枝<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>为了去除重复子集，<strong>一种直接的思路是对结果列表进行去重</strong>。但这个方法效率很低，因为：</p>
 <ul>
 <li>当数组元素较多，尤其是当 <code>target</code> 较大时，搜索过程会产生大量的重复子集。</li>
@@ -3590,6 +3701,7 @@
 <p align="center"> Fig. 不同选择顺序导致的重复子集 </p>
 
 <p>总结来看，给定输入数组 <span class="arithmatex">\([x_1, x_2, \cdots, x_n]\)</span> ，设搜索过程中的选择序列为 <span class="arithmatex">\([x_{i_1}, x_{i_2}, \cdots , x_{i_m}]\)</span> ，则该选择序列需要满足 <span class="arithmatex">\(i_1 \leq i_2 \leq \cdots \leq i_m\)</span> 。<strong>不满足该条件的选择序列都是重复子集</strong>。</p>
+<h3 id="_3">代码实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>为实现该剪枝，我们初始化变量 <code>start</code> ，用于指示遍历起点。<strong>当做出选择 <span class="arithmatex">\(x_{i}\)</span> 后，设定下一轮从索引 <span class="arithmatex">\(i\)</span> 开始遍历</strong>，从而完成子集去重。</p>
 <p>除此之外，我们还对代码进行了两项优化。首先，我们在开启搜索前将数组 <code>nums</code> 排序，在搜索过程中，<strong>当子集和超过 <code>target</code> 时直接结束循环</strong>，因为后边的元素更大，其子集和都一定会超过 <code>target</code> 。其次，<strong>我们通过在 <code>target</code> 上执行减法来统计元素和</strong>，当 <code>target</code> 等于 <span class="arithmatex">\(0\)</span> 时记录解，省去了元素和变量 <code>total</code> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label></div>
@@ -3844,7 +3956,7 @@
 <p><img alt="子集和 I 回溯过程" src="../subset_sum_problem.assets/subset_sum_i.png" /></p>
 <p align="center"> Fig. 子集和 I 回溯过程 </p>
 
-<h2 id="1333">13.3.3. &nbsp; 相等元素剪枝<a class="headerlink" href="#1333" title="Permanent link">&para;</a></h2>
+<h2 id="1332">13.3.2. &nbsp; 考虑重复元素的情况<a class="headerlink" href="#1332" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>给定一个正整数数组 <code>nums</code> 和一个目标正整数 <code>target</code> ，请找出所有可能的组合，使得组合中的元素和等于 <code>target</code> 。<strong>给定数组可能包含重复元素，每个元素只可被选择一次</strong>。请以列表形式返回这些组合，列表中不应包含重复组合。</p>
@@ -3853,8 +3965,10 @@
 <p><img alt="相等元素导致的重复子集" src="../subset_sum_problem.assets/subset_sum_ii_repeat.png" /></p>
 <p align="center"> Fig. 相等元素导致的重复子集 </p>
 
+<h3 id="_4">相等元素剪枝<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>为解决此问题，<strong>我们需要限制相等元素在每一轮中只被选择一次</strong>。实现方式比较巧妙：由于数组是已排序的，因此相等元素都是相邻的。利用该特性，在某轮选择中，若当前元素与其左边元素相等，则说明它已经被选择过，因此直接跳过当前元素。</p>
 <p>与此同时，<strong>本题规定数组元素只能被选择一次</strong>。幸运的是，我们也可以利用变量 <code>start</code> 来满足该约束：当做出选择 <span class="arithmatex">\(x_{i}\)</span> 后，设定下一轮从索引 <span class="arithmatex">\(i + 1\)</span> 开始向后遍历。这样即能去除重复子集，也能避免重复选择相等元素。</p>
+<h3 id="_5">代码实现<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:11"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

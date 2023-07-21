@@ -18,7 +18,7 @@
         <link rel="prev" href="../fractional_knapsack_problem/">
       
       
-        <link rel="next" href="../../chapter_appendix/">
+        <link rel="next" href="../max_product_cutting_problem/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -2901,6 +2901,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -3020,6 +3022,25 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    15.3. &nbsp; 最大容量问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -3038,6 +3059,81 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    第一步：问题分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    第二步：贪心策略确定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    第三步：正确性证明
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../max_product_cutting_problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.4. &nbsp; 最大切分乘积问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
     </li>
   
 
@@ -3226,6 +3322,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    第一步：问题分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    第二步：贪心策略确定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    第三步：正确性证明
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3256,14 +3388,14 @@
 <p><img alt="最大容量问题的示例数据" src="../max_capacity_problem.assets/max_capacity_example.png" /></p>
 <p align="center"> Fig. 最大容量问题的示例数据 </p>
 
-<p><strong>第一步：问题分析</strong></p>
+<h3 id="_1">第一步：问题分析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>容器由任意两个隔板围成，<strong>因此本题的状态为两个隔板的索引，记为 <span class="arithmatex">\([i, j]\)</span></strong> 。</p>
 <p>根据定义，容量等于高度乘以宽度，其中高度由短板决定，宽度是两隔板的索引之差。设容量为 <span class="arithmatex">\(cap[i, j]\)</span> ，可得计算公式：</p>
 <div class="arithmatex">\[
 cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 \]</div>
 <p>设数组长度为 <span class="arithmatex">\(n\)</span> ，两个隔板的组合数量（即状态总数）为 <span class="arithmatex">\(C_n^2 = \frac{n(n - 1)}{2}\)</span> 个。最直接地，<strong>我们可以穷举所有状态</strong>，从而求得最大容量，时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> 。</p>
-<p><strong>第二步：贪心策略确定</strong></p>
+<h3 id="_2">第二步：贪心策略确定<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>当然，这道题还有更高效率的解法。如下图所示，现选取一个状态 <span class="arithmatex">\([i, j]\)</span> ，其满足索引 <span class="arithmatex">\(i &lt; j\)</span> 且高度 <span class="arithmatex">\(ht[i] &lt; ht[j]\)</span> ，即 <span class="arithmatex">\(i\)</span> 为短板、 <span class="arithmatex">\(j\)</span> 为长板。</p>
 <p><img alt="初始状态" src="../max_capacity_problem.assets/max_capacity_initial_state.png" /></p>
 <p align="center"> Fig. 初始状态 </p>
@@ -3318,7 +3450,8 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 </div>
 </div>
 </div>
-<p>代码实现如下所示。最多循环 <span class="arithmatex">\(n\)</span> 轮，<strong>因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。变量 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> , <span class="arithmatex">\(res\)</span> 使用常数大小额外空间，<strong>因此空间复杂度为 <span class="arithmatex">\(O(1)\)</span></strong> 。</p>
+<h3 id="_3">代码实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>如下代码所示，循环最多 <span class="arithmatex">\(n\)</span> 轮，<strong>因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。变量 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> , <span class="arithmatex">\(res\)</span> 使用常数大小额外空间，<strong>因此空间复杂度为 <span class="arithmatex">\(O(1)\)</span></strong> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3421,7 +3554,7 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 </div>
 </div>
 </div>
-<p><strong>第三步：正确性证明</strong></p>
+<h3 id="_4">第三步：正确性证明<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>之所以贪心比穷举更快，是因为每轮的贪心选择都会“跳过”一些状态。</p>
 <p>比如在状态 <span class="arithmatex">\(cap[i, j]\)</span> 下，<span class="arithmatex">\(i\)</span> 为短板、<span class="arithmatex">\(j\)</span> 为长板。若贪心地将短板 <span class="arithmatex">\(i\)</span> 向内移动一格，会导致以下状态被“跳过”，<strong>意味着之后无法验证这些状态的容量大小</strong>。</p>
 <div class="arithmatex">\[
@@ -3528,13 +3661,13 @@ cap[i, i+1], cap[i, i+2], \cdots, cap[i, j-2], cap[i, j-1]
         
         
           
-          <a href="../../chapter_appendix/" class="md-footer__link md-footer__link--next" aria-label="下一页: 16. &amp;nbsp; 附录" rel="next">
+          <a href="../max_product_cutting_problem/" class="md-footer__link md-footer__link--next" aria-label="下一页: 15.4. &amp;nbsp; 最大切分乘积问题" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                16. &nbsp; 附录
+                15.4. &nbsp; 最大切分乘积问题
               </div>
             </div>
             <div class="md-footer__button md-icon">

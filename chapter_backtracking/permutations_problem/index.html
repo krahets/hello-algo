@@ -2572,22 +2572,62 @@
       
         <li class="md-nav__item">
   <a href="#1321" class="md-nav__link">
-    13.2.1. &nbsp; 无重复的情况
+    13.2.1. &nbsp; 无相等元素的情况
   </a>
+  
+    <nav class="md-nav" aria-label="13.2.1.   无相等元素的情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    重复选择剪枝
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#1322" class="md-nav__link">
-    13.2.2. &nbsp; 考虑重复的情况
+    13.2.2. &nbsp; 考虑相等元素的情况
+  </a>
+  
+    <nav class="md-nav" aria-label="13.2.2.   考虑相等元素的情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    代码实现
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#1323" class="md-nav__link">
-    13.2.3. &nbsp; 复杂度分析
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    两种剪枝对比
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    复杂度分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2962,6 +3002,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -3077,6 +3119,34 @@
   
   <span class="md-ellipsis">
     15.3. &nbsp; 最大容量问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.4. &nbsp; 最大切分乘积问题
   </span>
   
     
@@ -3285,22 +3355,62 @@
       
         <li class="md-nav__item">
   <a href="#1321" class="md-nav__link">
-    13.2.1. &nbsp; 无重复的情况
+    13.2.1. &nbsp; 无相等元素的情况
   </a>
+  
+    <nav class="md-nav" aria-label="13.2.1.   无相等元素的情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    重复选择剪枝
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#1322" class="md-nav__link">
-    13.2.2. &nbsp; 考虑重复的情况
+    13.2.2. &nbsp; 考虑相等元素的情况
+  </a>
+  
+    <nav class="md-nav" aria-label="13.2.2.   考虑相等元素的情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    代码实现
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#1323" class="md-nav__link">
-    13.2.3. &nbsp; 复杂度分析
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    两种剪枝对比
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    复杂度分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3354,7 +3464,7 @@
 </tbody>
 </table>
 </div>
-<h2 id="1321">13.2.1. &nbsp; 无重复的情况<a class="headerlink" href="#1321" title="Permanent link">&para;</a></h2>
+<h2 id="1321">13.2.1. &nbsp; 无相等元素的情况<a class="headerlink" href="#1321" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>输入一个整数数组，数组中不包含重复元素，返回所有可能的排列。</p>
@@ -3365,6 +3475,7 @@
 <p><img alt="全排列的递归树" src="../permutations_problem.assets/permutations_i.png" /></p>
 <p align="center"> Fig. 全排列的递归树 </p>
 
+<h3 id="_1">代码实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>想清楚以上信息之后，我们就可以在框架代码中做“完形填空”了。为了缩短代码行数，我们不单独实现框架代码中的各个函数，而是将他们展开在 <code>backtrack()</code> 函数中。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
 <div class="tabbed-content">
@@ -3656,12 +3767,13 @@
 </div>
 </div>
 </div>
+<h3 id="_2">重复选择剪枝<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>需要重点关注的是，我们引入了一个布尔型数组 <code>selected</code> ，它的长度与输入数组长度相等，其中 <code>selected[i]</code> 表示 <code>choices[i]</code> 是否已被选择。我们利用 <code>selected</code> 避免某个元素被重复选择，从而实现剪枝。</p>
 <p>如下图所示，假设我们第一轮选择 1 ，第二轮选择 3 ，第三轮选择 2 ，则需要在第二轮剪掉元素 1 的分支，在第三轮剪掉元素 1, 3 的分支。<strong>此剪枝操作可将搜索空间大小从 <span class="arithmatex">\(O(n^n)\)</span> 降低至 <span class="arithmatex">\(O(n!)\)</span></strong> 。</p>
 <p><img alt="全排列剪枝示例" src="../permutations_problem.assets/permutations_i_pruning.png" /></p>
 <p align="center"> Fig. 全排列剪枝示例 </p>
 
-<h2 id="1322">13.2.2. &nbsp; 考虑重复的情况<a class="headerlink" href="#1322" title="Permanent link">&para;</a></h2>
+<h2 id="1322">13.2.2. &nbsp; 考虑相等元素的情况<a class="headerlink" href="#1322" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>输入一个整数数组，<strong>数组中可能包含重复元素</strong>，返回所有不重复的排列。</p>
@@ -3672,10 +3784,12 @@
 
 <p>那么，如何去除重复的排列呢？最直接地，我们可以借助一个哈希表，直接对排列结果进行去重。然而这样做不够优雅，<strong>因为生成重复排列的搜索分支是没有必要的，应当被提前识别并剪枝</strong>，这样可以进一步提升算法效率。</p>
 <p>观察发现，在第一轮中，选择 <span class="arithmatex">\(1\)</span> 或选择 <span class="arithmatex">\(\hat{1}\)</span> 是等价的，因为在这两个选择之下生成的所有排列都是重复的。因此，我们应该把 <span class="arithmatex">\(\hat{1}\)</span> 剪枝掉。同理，在第一轮选择 <span class="arithmatex">\(2\)</span> 后，第二轮选择中的 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(\hat{1}\)</span> 也会产生重复分支，因此也需要将第二轮的 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
+<p>本质上看，<strong>我们的目标是实现在某一轮选择中，多个相等的元素仅被选择一次</strong>。</p>
 <p><img alt="重复排列剪枝" src="../permutations_problem.assets/permutations_ii_pruning.png" /></p>
 <p align="center"> Fig. 重复排列剪枝 </p>
 
-<p>本质上看，<strong>我们的目标是实现在某一轮选择中，多个相等的元素仅被选择一次</strong>。因此，在上一题的代码的基础上，我们考虑在每一轮选择中开启一个哈希表 <code>duplicated</code> ，用于记录该轮中已经尝试过的元素，并将重复元素剪枝。</p>
+<h3 id="_3">代码实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>在上一题的代码的基础上，我们考虑在每一轮选择中开启一个哈希表 <code>duplicated</code> ，用于记录该轮中已经尝试过的元素，并将重复元素剪枝。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3983,6 +4097,7 @@
 </div>
 </div>
 </div>
+<h3 id="_4">两种剪枝对比<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>注意，虽然 <code>selected</code> 和 <code>duplicated</code> 都起到剪枝的作用，但他们剪掉的是不同的分支：</p>
 <ul>
 <li><strong>剪枝条件一</strong>：整个搜索过程中只有一个 <code>selected</code> 。它记录的是当前状态中包含哪些元素，作用是避免某个元素在 <code>state</code> 中重复出现。</li>
@@ -3992,7 +4107,7 @@
 <p><img alt="两种剪枝条件的作用范围" src="../permutations_problem.assets/permutations_ii_pruning_summary.png" /></p>
 <p align="center"> Fig. 两种剪枝条件的作用范围 </p>
 
-<h2 id="1323">13.2.3. &nbsp; 复杂度分析<a class="headerlink" href="#1323" title="Permanent link">&para;</a></h2>
+<h3 id="_5">复杂度分析<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>假设元素两两之间互不相同，则 <span class="arithmatex">\(n\)</span> 个元素共有 <span class="arithmatex">\(n!\)</span>  种排列（阶乘）；在记录结果时，需要复制长度为 <span class="arithmatex">\(n\)</span> 的列表，使用 <span class="arithmatex">\(O(n)\)</span> 时间。因此，<strong>时间复杂度为 <span class="arithmatex">\(O(n!n)\)</span></strong> 。</p>
 <p>最大递归深度为 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。<code>selected</code> 使用 <span class="arithmatex">\(O(n)\)</span> 空间。同一时刻最多共有 <span class="arithmatex">\(n\)</span> 个 <code>duplicated</code> ，使用 <span class="arithmatex">\(O(n^2)\)</span> 空间。因此，<strong>全排列 I 的空间复杂度为 <span class="arithmatex">\(O(n)\)</span> ，全排列 II 的空间复杂度为 <span class="arithmatex">\(O(n^2)\)</span></strong> 。</p>
 

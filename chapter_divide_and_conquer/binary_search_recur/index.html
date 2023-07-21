@@ -2386,8 +2386,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1221" class="md-nav__link">
-    12.2.1. &nbsp; 基于分治实现二分
+  <a href="#_1" class="md-nav__link">
+    基于分治的搜索算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基于分治实现二分
   </a>
   
 </li>
@@ -2956,6 +2963,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -3071,6 +3080,34 @@
   
   <span class="md-ellipsis">
     15.3. &nbsp; 最大容量问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.4. &nbsp; 最大切分乘积问题
   </span>
   
     
@@ -3278,8 +3315,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1221" class="md-nav__link">
-    12.2.1. &nbsp; 基于分治实现二分
+  <a href="#_1" class="md-nav__link">
+    基于分治的搜索算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基于分治实现二分
   </a>
   
 </li>
@@ -3309,13 +3353,14 @@
 
 <h1 id="122">12.2. &nbsp; 分治搜索策略<a class="headerlink" href="#122" title="Permanent link">&para;</a></h1>
 <p>我们已经学过，搜索算法分为两大类：暴力搜索、自适应搜索。暴力搜索的时间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。自适应搜索利用特有的数据组织形式或先验信息，可达到 <span class="arithmatex">\(O(\log n)\)</span> 甚至 <span class="arithmatex">\(O(1)\)</span> 的时间复杂度。</p>
+<h3 id="_1">基于分治的搜索算法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>实际上，<strong><span class="arithmatex">\(O(\log n)\)</span> 的搜索算法通常都是基于分治策略实现的</strong>，例如：</p>
 <ul>
 <li>二分查找的每一步都将问题（在数组中搜索目标元素）分解为一个小问题（在数组的一半中搜索目标元素），这个过程一直持续到数组为空或找到目标元素为止。</li>
 <li>树是分治关系的代表，在二叉搜索树、AVL 树、堆等数据结构中，各种操作的时间复杂度皆为 <span class="arithmatex">\(O(\log n)\)</span> 。</li>
 </ul>
 <p>分治之所以能够提升搜索效率，是因为暴力搜索每轮只能排除一个选项，<strong>而基于分治的搜索每轮可以排除一半选项</strong>。</p>
-<h2 id="1221">12.2.1. &nbsp; 基于分治实现二分<a class="headerlink" href="#1221" title="Permanent link">&para;</a></h2>
+<h3 id="_2">基于分治实现二分<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>接下来，我们尝试从分治策略的角度分析二分查找的性质：</p>
 <ul>
 <li><strong>问题可以被分解</strong>：二分查找递归地将原问题（在数组中进行查找）分解为子问题（在数组的一半中进行查找），这是通过比较中间元素和目标元素来实现的。</li>

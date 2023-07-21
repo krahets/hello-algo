@@ -246,6 +246,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_greedy/max_product_cutting_problem/</loc>
+         <lastmod>2023-07-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.hello-algo.com/chapter_greedy/summary/</loc>
+         <lastmod>2023-07-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_hashing/</loc>
          <lastmod>2023-07-21</lastmod>
          <changefreq>daily</changefreq>

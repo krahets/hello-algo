@@ -2832,22 +2832,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1441" class="md-nav__link">
-    14.4.1. &nbsp; 方法一：暴力搜索
+  <a href="#_1" class="md-nav__link">
+    方法一：暴力搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1442" class="md-nav__link">
-    14.4.2. &nbsp; 方法二：记忆化搜索
+  <a href="#_2" class="md-nav__link">
+    方法二：记忆化搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1443" class="md-nav__link">
-    14.4.3. &nbsp; 方法三：动态规划
+  <a href="#_3" class="md-nav__link">
+    方法三：动态规划
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    状态压缩
   </a>
   
 </li>
@@ -2962,6 +2969,8 @@
       
         
           
+        
+      
         
       
         
@@ -3085,6 +3094,34 @@
   
   <span class="md-ellipsis">
     15.3. &nbsp; 最大容量问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.4. &nbsp; 最大切分乘积问题
   </span>
   
     
@@ -3292,22 +3329,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1441" class="md-nav__link">
-    14.4.1. &nbsp; 方法一：暴力搜索
+  <a href="#_1" class="md-nav__link">
+    方法一：暴力搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1442" class="md-nav__link">
-    14.4.2. &nbsp; 方法二：记忆化搜索
+  <a href="#_2" class="md-nav__link">
+    方法二：记忆化搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1443" class="md-nav__link">
-    14.4.3. &nbsp; 方法三：动态规划
+  <a href="#_3" class="md-nav__link">
+    方法三：动态规划
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    状态压缩
   </a>
   
 </li>
@@ -3370,7 +3414,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <p class="admonition-title">Tip</p>
 <p>完成以上三步后，我们可以直接实现从底至顶的动态规划解法。而为了展示本题包含的重叠子问题，本文也同时给出从顶至底的暴力搜索和记忆化搜索解法。</p>
 </div>
-<h2 id="1441">14.4.1. &nbsp; 方法一：暴力搜索<a class="headerlink" href="#1441" title="Permanent link">&para;</a></h2>
+<h3 id="_1">方法一：暴力搜索<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>搜索代码包含以下要素：</p>
 <ul>
 <li><strong>递归参数</strong>：状态 <span class="arithmatex">\([i, c]\)</span> ；<strong>返回值</strong>：子问题的解 <span class="arithmatex">\(dp[i, c]\)</span> 。</li>
@@ -3517,7 +3561,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <p><img alt="0-1 背包的暴力搜索递归树" src="../knapsack_problem.assets/knapsack_dfs.png" /></p>
 <p align="center"> Fig. 0-1 背包的暴力搜索递归树 </p>
 
-<h2 id="1442">14.4.2. &nbsp; 方法二：记忆化搜索<a class="headerlink" href="#1442" title="Permanent link">&para;</a></h2>
+<h3 id="_2">方法二：记忆化搜索<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>为了防止重复求解重叠子问题，我们借助一个记忆列表 <code>mem</code> 来记录子问题的解，其中 <code>mem[i][c]</code> 对应解 <span class="arithmatex">\(dp[i, c]\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label></div>
 <div class="tabbed-content">
@@ -3689,7 +3733,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <p><img alt="0-1 背包的记忆化搜索递归树" src="../knapsack_problem.assets/knapsack_dfs_mem.png" /></p>
 <p align="center"> Fig. 0-1 背包的记忆化搜索递归树 </p>
 
-<h2 id="1443">14.4.3. &nbsp; 方法三：动态规划<a class="headerlink" href="#1443" title="Permanent link">&para;</a></h2>
+<h3 id="_3">方法三：动态规划<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>动态规划解法本质上就是在状态转移中填充 <span class="arithmatex">\(dp\)</span> 表的过程，代码如下所示。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:11"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label></div>
 <div class="tabbed-content">
@@ -3890,7 +3934,8 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<p><strong>最后考虑状态压缩</strong>。以上代码中的数组 <code>dp</code> 占用 <span class="arithmatex">\(O(n \times cap)\)</span> 空间。由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 <span class="arithmatex">\(O(n^2)\)</span> 将低至 <span class="arithmatex">\(O(n)\)</span> 。代码省略，有兴趣的同学可以自行实现。</p>
+<h3 id="_4">状态压缩<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>最后考虑状态压缩。以上代码中的数组 <code>dp</code> 占用 <span class="arithmatex">\(O(n \times cap)\)</span> 空间。由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 <span class="arithmatex">\(O(n^2)\)</span> 将低至 <span class="arithmatex">\(O(n)\)</span> 。代码省略，有兴趣的同学可以自行实现。</p>
 <p>那么，我们是否可以仅用一个数组实现状态压缩呢？观察可知，每个状态都是由正上方或左上方的格子转移过来的。假设只有一个数组，当遍历到第 <span class="arithmatex">\(i\)</span> 行时，该数组存储的仍然是第 <span class="arithmatex">\(i-1\)</span> 行的状态，<strong>为了避免左方区域的格子在状态转移中被覆盖，应该采取倒序遍历</strong>。</p>
 <p>以下动画展示了在单个数组下从第 <span class="arithmatex">\(i=1\)</span> 行转换至第 <span class="arithmatex">\(i=2\)</span> 行的过程。建议你思考一下正序遍历和倒序遍历的区别。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:6"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">&lt;1&gt;</label><label for="__tabbed_5_2">&lt;2&gt;</label><label for="__tabbed_5_3">&lt;3&gt;</label><label for="__tabbed_5_4">&lt;4&gt;</label><label for="__tabbed_5_5">&lt;5&gt;</label><label for="__tabbed_5_6">&lt;6&gt;</label></div>

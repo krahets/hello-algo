@@ -2611,8 +2611,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1341" class="md-nav__link">
-    13.4.1. &nbsp; 复杂度分析
+  <a href="#_1" class="md-nav__link">
+    皇后放置策略
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    列与对角线剪枝
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    复杂度分析
   </a>
   
 </li>
@@ -2948,6 +2969,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -3063,6 +3086,34 @@
   
   <span class="md-ellipsis">
     15.3. &nbsp; 最大容量问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.4. &nbsp; 最大切分乘积问题
   </span>
   
     
@@ -3270,8 +3321,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1341" class="md-nav__link">
-    13.4.1. &nbsp; 复杂度分析
+  <a href="#_1" class="md-nav__link">
+    皇后放置策略
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    列与对角线剪枝
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    复杂度分析
   </a>
   
 </li>
@@ -3312,11 +3384,13 @@
 <p><img alt="n 皇后问题的约束条件" src="../n_queens_problem.assets/n_queens_constraints.png" /></p>
 <p align="center"> Fig. n 皇后问题的约束条件 </p>
 
+<h3 id="_1">皇后放置策略<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>皇后的数量和棋盘的行数都为 <span class="arithmatex">\(n\)</span> ，因此我们容易得到第一个推论：<strong>棋盘每行都允许且只允许放置一个皇后</strong>。这意味着，我们可以采取逐行放置策略：从第一行开始，在每行放置一个皇后，直至最后一行结束。<strong>此策略起到了剪枝的作用</strong>，它避免了同一行出现多个皇后的所有搜索分支。</p>
 <p>下图展示了 <span class="arithmatex">\(4\)</span> 皇后问题的逐行放置过程。受篇幅限制，下图仅展开了第一行的一个搜索分支。在搜索过程中，我们将不满足列约束和对角线约束的方案都剪枝了。</p>
 <p><img alt="逐行放置策略" src="../n_queens_problem.assets/n_queens_placing.png" /></p>
 <p align="center"> Fig. 逐行放置策略 </p>
 
+<h3 id="_2">列与对角线剪枝<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>为了实现根据列约束剪枝，我们可以利用一个长度为 <span class="arithmatex">\(n\)</span> 的布尔型数组 <code>cols</code> 记录每一列是否有皇后。在每次决定放置前，我们通过 <code>cols</code> 将已有皇后的列剪枝，并在回溯中动态更新 <code>cols</code> 的状态。</p>
 <p>那么，如何处理对角线约束呢？设棋盘中某个格子的行列索引为 <code>(row, col)</code> ，观察矩阵的某条主对角线，<strong>我们发现该对角线上所有格子的行索引减列索引相等</strong>，即 <code>row - col</code> 为恒定值。换句话说，若两个格子满足 <code>row1 - col1 == row2 - col2</code> ，则这两个格子一定处在一条主对角线上。</p>
 <p>利用该性质，我们可以借助一个数组 <code>diag1</code> 来记录每条主对角线上是否有皇后。注意，<span class="arithmatex">\(n\)</span> 维方阵 <code>row - col</code> 的范围是 <span class="arithmatex">\([-n + 1, n - 1]\)</span> ，因此共有 <span class="arithmatex">\(2n - 1\)</span> 条主对角线。</p>
@@ -3324,6 +3398,7 @@
 <p align="center"> Fig. 处理列约束和对角线约束 </p>
 
 <p>同理，<strong>次对角线上的所有格子的 <code>row + col</code> 是恒定值</strong>。我们可以使用同样的方法，借助数组 <code>diag2</code> 来处理次对角线约束。</p>
+<h3 id="_3">代码实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>根据以上分析，我们便可以写出 <span class="arithmatex">\(n\)</span> 皇后的解题代码。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
 <div class="tabbed-content">
@@ -3761,7 +3836,7 @@
 </div>
 </div>
 </div>
-<h2 id="1341">13.4.1. &nbsp; 复杂度分析<a class="headerlink" href="#1341" title="Permanent link">&para;</a></h2>
+<h3 id="_4">复杂度分析<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>逐行放置 <span class="arithmatex">\(n\)</span> 次，考虑列约束，则从第一行到最后一行分别有 <span class="arithmatex">\(n, n-1, \cdots, 2, 1\)</span> 个选择，<strong>因此时间复杂度为 <span class="arithmatex">\(O(n!)\)</span></strong> 。实际上，根据对角线约束的剪枝也能够大幅地缩小搜索空间，因而搜索效率往往优于以上时间复杂度。</p>
 <p><code>state</code> 使用 <span class="arithmatex">\(O(n^2)\)</span> 空间，<code>cols</code> , <code>diags1</code> , <code>diags2</code> 皆使用 <span class="arithmatex">\(O(n)\)</span> 空间。最大递归深度为 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。因此，<strong>空间复杂度为 <span class="arithmatex">\(O(n^2)\)</span></strong> 。</p>
 

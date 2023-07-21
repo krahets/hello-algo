@@ -2963,6 +2963,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -3078,6 +3080,34 @@
   
   <span class="md-ellipsis">
     15.3. &nbsp; 最大容量问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.4. &nbsp; 最大切分乘积问题
   </span>
   
     
@@ -3323,7 +3353,13 @@
 
 <h1 id="142">14.2. &nbsp; 动态规划问题特性<a class="headerlink" href="#142" title="Permanent link">&para;</a></h1>
 <p>在上节中，我们学习了动态规划问题的暴力解法，从递归树中观察到海量的重叠子问题，以及了解到动态规划是如何通过记录解来优化时间复杂度的。</p>
-<p>实际上，动态规划最常用来求解最优方案问题，例如寻找最短路径、最大利润、最少时间等。<strong>这类问题不仅包含重叠子问题，往往还具有另外两大特性：最优子结构、无后效性</strong>。</p>
+<p>总的看来，<strong>子问题分解是一种通用的算法思路，在分治、动态规划、回溯中各有特点</strong>：</p>
+<ul>
+<li>分治算法将原问题划分为几个独立的子问题，然后递归解决子问题，最后合并子问题的解得到原问题的解。</li>
+<li>动态规划也是将原问题分解为多个子问题，但与分治算法的主要区别是，<strong>动态规划中的子问题往往不是相互独立的</strong>，原问题的解依赖于子问题的解，而子问题的解又依赖于更小的子问题的解。</li>
+<li>回溯算法在尝试和回退中穷举所有可能的解，并通过剪枝避免不必要的搜索分支。原问题的解由一系列决策步骤构成，我们可以将每个决策步骤之前的子序列看作为一个子问题。</li>
+</ul>
+<p>实际上，动态规划最常用来求解最优化问题。<strong>这类问题不仅包含重叠子问题，还具有另外两大特性：最优子结构、无后效性</strong>。</p>
 <h2 id="1421">14.2.1. &nbsp; 最优子结构<a class="headerlink" href="#1421" title="Permanent link">&para;</a></h2>
 <p>我们对爬楼梯问题稍作改动，使之更加适合展示最优子结构概念。</p>
 <div class="admonition question">

@@ -2389,6 +2389,25 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    12.4. &nbsp; 汉诺塔问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2406,6 +2425,46 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    考虑基本情况
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    子问题分解
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2911,6 +2970,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -3026,6 +3087,34 @@
   
   <span class="md-ellipsis">
     15.3. &nbsp; 最大容量问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.4. &nbsp; 最大切分乘积问题
   </span>
   
     
@@ -3226,6 +3315,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    考虑基本情况
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    子问题分解
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3262,7 +3380,8 @@
 <p align="center"> Fig. 汉诺塔问题示例 </p>
 
 <p>在本文中，<strong>我们将规模为 <span class="arithmatex">\(i\)</span> 的汉诺塔问题记做 <span class="arithmatex">\(f(i)\)</span></strong> 。例如 <span class="arithmatex">\(f(3)\)</span> 代表将 <span class="arithmatex">\(3\)</span> 个圆盘从 <code>A</code> 移动至 <code>C</code> 的汉诺塔问题。</p>
-<p>先考虑最简单的情况：对于问题 <span class="arithmatex">\(f(1)\)</span> ，即当只有一个圆盘时，则将它直接从 <code>A</code> 移动至 <code>C</code> 即可。</p>
+<h3 id="_1">考虑基本情况<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>对于问题 <span class="arithmatex">\(f(1)\)</span> ，即当只有一个圆盘时，则将它直接从 <code>A</code> 移动至 <code>C</code> 即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3296,6 +3415,7 @@
 </div>
 </div>
 </div>
+<h3 id="_2">子问题分解<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>对于问题 <span class="arithmatex">\(f(3)\)</span> ，即当有三个圆盘时，情况变得稍微复杂了一些。由于已知 <span class="arithmatex">\(f(1)\)</span> 和 <span class="arithmatex">\(f(2)\)</span> 的解，我们可以从分治角度思考，<strong>将 <code>A</code> 顶部的两个圆盘看做一个整体</strong>，并执行以下步骤：</p>
 <ol>
 <li>令 <code>B</code> 为目标柱、<code>C</code> 为缓冲柱，将两个圆盘从 <code>A</code> 移动至 <code>B</code> ；</li>
@@ -3330,6 +3450,7 @@
 <p><img alt="汉诺塔问题的分治策略" src="../hanota_problem.assets/hanota_divide_and_conquer.png" /></p>
 <p align="center"> Fig. 汉诺塔问题的分治策略 </p>
 
+<h3 id="_3">代码实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>在代码实现中，我们声明一个递归函数 <code>dfs(i, src, buf, tar)</code> ，它的作用是将柱 <code>src</code> 顶部的 <span class="arithmatex">\(i\)</span> 个圆盘借助缓冲柱 <code>buf</code> 移动至目标柱 <code>tar</code> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:11"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JavaScript</label><label for="__tabbed_4_6">TypeScript</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label><label for="__tabbed_4_11">Dart</label></div>
 <div class="tabbed-content">
@@ -3521,8 +3642,11 @@
 <p><img alt="汉诺塔问题的递归树" src="../hanota_problem.assets/hanota_recursive_tree.png" /></p>
 <p align="center"> Fig. 汉诺塔问题的递归树 </p>
 
-<p>有趣的是，汉诺塔问题源自一种古老的传说故事。在古印度的一个寺庙里，僧侣们有三根高大的钻石柱子，以及 <span class="arithmatex">\(64\)</span> 个大小不一的金圆盘。僧侣们不断地移动原盘，他们相信在最后一个圆盘被正确放置的那一刻，这个世界就会结束。</p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>汉诺塔问题源自一种古老的传说故事。在古印度的一个寺庙里，僧侣们有三根高大的钻石柱子，以及 <span class="arithmatex">\(64\)</span> 个大小不一的金圆盘。僧侣们不断地移动原盘，他们相信在最后一个圆盘被正确放置的那一刻，这个世界就会结束。</p>
 <p>然而根据以上分析，即使僧侣们每秒钟移动一次，总共需要大约 <span class="arithmatex">\(2^{64} \approx 1.84×10^{19}\)</span> 秒，合约 <span class="arithmatex">\(5850\)</span> 亿年，远远超过了现在对宇宙年龄的估计。所以，倘若这个传说是真的，我们应该不需要担心世界末日的到来。</p>
+</div>
 
 
 

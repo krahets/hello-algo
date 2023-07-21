@@ -2361,6 +2361,25 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    12.3. &nbsp; 构建树问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2378,6 +2397,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    判断是否为分治问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    如何划分子树
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    使用指针描述子树区间
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2911,6 +2977,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -3026,6 +3094,34 @@
   
   <span class="md-ellipsis">
     15.3. &nbsp; 最大容量问题
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15.4. &nbsp; 最大切分乘积问题
   </span>
   
     
@@ -3226,6 +3322,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    判断是否为分治问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    如何划分子树
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    使用指针描述子树区间
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    代码实现
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3255,12 +3387,14 @@
 <p><img alt="构建二叉树的示例数据" src="../build_binary_tree_problem.assets/build_tree_example.png" /></p>
 <p align="center"> Fig. 构建二叉树的示例数据 </p>
 
+<h3 id="_1">判断是否为分治问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>原问题定义为从 <code>preorder</code> 和 <code>inorder</code> 构建二叉树。我们首先从分治的角度分析这道题：</p>
 <ul>
 <li><strong>问题可以被分解</strong>：从分治的角度切入，我们可以将原问题划分为两个子问题：构建左子树、构建右子树，加上一步操作：初始化根节点。而对于每个子树（子问题），我们仍然可以复用以上划分方法，将其划分为更小的子树（子问题），直至达到最小子问题（空子树）时终止。</li>
 <li><strong>子问题是独立的</strong>：左子树和右子树是相互独立的，它们之间没有交集。在构建左子树时，我们只需要关注中序遍历和前序遍历或后序遍历中与左子树对应的部分。右子树同理。</li>
 <li><strong>子问题的解可以合并</strong>：一旦我们得到了左子树和右子树，我们可以将它们链接到根节点上，从而得到原问题的解。</li>
 </ul>
+<h3 id="_2">如何划分子树<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>根据以上分析，这道题是可以使用分治来求解的，但问题是：<strong>如何通过前序遍历 <code>preorder</code> 和中序遍历 <code>inorder</code> 来划分左子树和右子树呢</strong>？</p>
 <p>根据定义，<code>preorder</code> 和 <code>inorder</code> 都可以被划分为三个部分：</p>
 <ul>
@@ -3276,6 +3410,7 @@
 <p><img alt="在前序和中序遍历中划分子树" src="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" /></p>
 <p align="center"> Fig. 在前序和中序遍历中划分子树 </p>
 
+<h3 id="_3">使用指针描述子树区间<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>至此，<strong>我们已经推导出根节点、左子树、右子树在 <code>preorder</code> 和 <code>inorder</code> 中的索引区间</strong>。而为了描述这些索引区间，我们需要借助几个指针变量：</p>
 <ul>
 <li>将当前树的根节点在 <code>preorder</code> 中的索引记为 <span class="arithmatex">\(i\)</span> ；</li>
@@ -3315,6 +3450,7 @@
 <p><img alt="根节点和左右子树的索引区间表示" src="../build_binary_tree_problem.assets/build_tree_division_pointers.png" /></p>
 <p align="center"> Fig. 根节点和左右子树的索引区间表示 </p>
 
+<h3 id="_4">代码实现<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>接下来就可以实现代码了。为了提升查询 <span class="arithmatex">\(m\)</span> 的效率，我们借助一个哈希表 <code>hmap</code> 来存储 <code>inorder</code> 列表元素到索引的映射。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
 <div class="tabbed-content">
