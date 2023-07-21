@@ -415,7 +415,93 @@ comments: true
 === "C#"
 
     ```csharp title="array_binary_tree.cs"
-    [class]{ArrayBinaryTree}-[func]{}
+    /* 数组表示下的二叉树类 */
+    class ArrayBinaryTree {
+        private List<int?> tree;
+
+        /* 构造方法 */
+        public ArrayBinaryTree(List<int?> arr) {
+            tree = new List<int?>(arr);
+        }
+
+        /* 节点数量 */
+        public int size() {
+            return tree.Count;
+        }
+
+        /* 获取索引为 i 节点的值 */
+        public int? val(int i) {
+            // 若索引越界，则返回 null ，代表空位
+            if (i < 0 || i >= size())
+                return null;
+            return tree[i];
+        }
+
+        /* 获取索引为 i 节点的左子节点的索引 */
+        public int left(int i) {
+            return 2 * i + 1;
+        }
+
+        /* 获取索引为 i 节点的右子节点的索引 */
+        public int right(int i) {
+            return 2 * i + 2;
+        }
+
+        /* 获取索引为 i 节点的父节点的索引 */
+        public int parent(int i) {
+            return (i - 1) / 2;
+        }
+
+        /* 层序遍历 */
+        public List<int> levelOrder() {
+            List<int> res = new List<int>();
+            // 直接遍历数组
+            for (int i = 0; i < size(); i++) {
+                if (val(i).HasValue)
+                    res.Add(val(i).Value);
+            }
+            return res;
+        }
+
+        /* 深度优先遍历 */
+        private void dfs(int i, string order, List<int> res) {
+            // 若为空位，则返回
+            if (!val(i).HasValue)
+                return;
+            // 前序遍历
+            if (order == "pre")
+                res.Add(val(i).Value);
+            dfs(left(i), order, res);
+            // 中序遍历
+            if (order == "in")
+                res.Add(val(i).Value);
+            dfs(right(i), order, res);
+            // 后序遍历
+            if (order == "post")
+                res.Add(val(i).Value);
+        }
+
+        /* 前序遍历 */
+        public List<int> preOrder() {
+            List<int> res = new List<int>();
+            dfs(0, "pre", res);
+            return res;
+        }
+
+        /* 中序遍历 */
+        public List<int> inOrder() {
+            List<int> res = new List<int>();
+            dfs(0, "in", res);
+            return res;
+        }
+
+        /* 后序遍历 */
+        public List<int> postOrder() {
+            List<int> res = new List<int>();
+            dfs(0, "post", res);
+            return res;
+        }
+    }
     ```
 
 === "Swift"
