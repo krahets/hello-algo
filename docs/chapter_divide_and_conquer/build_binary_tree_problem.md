@@ -86,7 +86,7 @@
 === "Go"
 
     ```go title="build_tree.go"
-    [class]{}-[func]{dfs}
+    [class]{}-[func]{dfsBuildTree}
 
     [class]{}-[func]{buildTree}
     ```

@@ -117,7 +117,7 @@
     ```go title="hanota.go"
     [class]{}-[func]{move}
 
-    [class]{}-[func]{dfs}
+    [class]{}-[func]{dfsHanota}
 
     [class]{}-[func]{hanota}
     ```
