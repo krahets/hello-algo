@@ -34,7 +34,7 @@
 
     ```cpp title=""
     /* 二叉树的数组表示 */
-    // 使用 int 最大值标记空位，因此要求节点值不能为 INT_MAX
+    // 使用 int 最大值 INT_MAX 标记空位
     vector<int> tree = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
@@ -109,6 +109,77 @@
     ```
 
 ![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png)
+
+以下为数组表示下二叉树的实现，包括：
+
+- 获取节点数量、节点值、左（右）子节点、父节点等基础操作；
+- 获取前序遍历、中序遍历、后序遍历、层序遍历的节点值序列；
+
+=== "Java"
+
+    ```java title="array_binary_tree.java"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
+
+=== "C++"
+
+    ```cpp title="array_binary_tree.cpp"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
+
+=== "Python"
+
+    ```python title="array_binary_tree.py"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
+
+=== "Go"
+
+    ```go title="array_binary_tree.go"
+    [class]{arrayBinaryTree}-[func]{}
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="array_binary_tree.js"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="array_binary_tree.ts"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="array_binary_tree.c"
+    [class]{arrayBinaryTree}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="array_binary_tree.cs"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="array_binary_tree.swift"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="array_binary_tree.zig"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
+
+=== "Dart"
+
+    ```dart title="array_binary_tree.dart"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
 
 ## 优势与局限性
 

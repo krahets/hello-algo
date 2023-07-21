@@ -33,7 +33,7 @@ public class hanota {
     }
 
     /* 求解汉诺塔 */
-    static void hanota(List<Integer> A, List<Integer> B, List<Integer> C) {
+    static void solveHanota(List<Integer> A, List<Integer> B, List<Integer> C) {
         int n = A.size();
         // 将 A 顶部 n 个圆盘借助 B 移到 C
         dfs(n, A, B, C);
@@ -49,7 +49,7 @@ public class hanota {
         System.out.println("B = " + B);
         System.out.println("C = " + C);
 
-        hanota(A, B, C);
+        solveHanota(A, B, C);
 
         System.out.println("圆盘移动完成后：");
         System.out.println("A = " + A);

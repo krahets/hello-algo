@@ -117,7 +117,7 @@ $$
 $$
 \begin{aligned}
 T(h) & = 2 \frac{1 - 2^h}{1 - 2} - h \newline
-& = 2^{h+1} - h \newline
+& = 2^{h+1} - h - 2 \newline
 & = O(2^h)
 \end{aligned}
 $$

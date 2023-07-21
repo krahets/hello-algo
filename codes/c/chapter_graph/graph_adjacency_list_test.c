@@ -10,7 +10,7 @@
 int main() {
 
     /* 初始化无向图 */
-    graphAdjList *graph = newGraphic(5);
+    graphAdjList *graph = newGraphAdjList(5);
     // 初始化顶点
     addVertex(graph, 1);
     addVertex(graph, 3);
