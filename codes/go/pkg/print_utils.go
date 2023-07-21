@@ -19,7 +19,7 @@ func PrintSlice[T any](nums []T) {
 
 // PrintList Print a list
 func PrintList(list *list.List) {
-	if list.Len() <= 0 {
+	if list.Len() == 0 {
 		fmt.Print("[]\n")
 		return
 	}
