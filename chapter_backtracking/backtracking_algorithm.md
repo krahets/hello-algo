@@ -432,6 +432,7 @@ comments: true
         if (root.val == 7) {
             // 记录解
             res.add(new ArrayList<>(path));
+            path.remove(path.size() - 1);
             return;
         }
         preOrder(root.left);
@@ -455,6 +456,7 @@ comments: true
         if (root->val == 7) {
             // 记录解
             res.push_back(path);
+            path.pop_back();
             return;
         }
         preOrder(root->left);
@@ -477,6 +479,7 @@ comments: true
         if root.val == 7:
             # 记录解
             res.append(list(path))
+            path.pop()
             return
         pre_order(root.left)
         pre_order(root.right)
@@ -498,6 +501,7 @@ comments: true
         if int(root.Val) == 7 {
             // 记录解
             *res = append(*res, *path)
+            *path = (*path)[:len(*path)-1]
             return
         }
         preOrderIII(root.Left, res, path)
@@ -521,6 +525,7 @@ comments: true
         if (root.val === 7) {
             // 记录解
             res.push([...path]);
+            path.pop();
             return;
         }
         preOrder(root.left, path, res);
@@ -548,6 +553,7 @@ comments: true
         if (root.val === 7) {
             // 记录解
             res.push([...path]);
+            path.pop();
             return;
         }
         preOrder(root.left, path, res);
@@ -577,6 +583,7 @@ comments: true
         if (root.val == 7) {
             // 记录解
             res.Add(new List<TreeNode>(path));
+            path.RemoveAt(path.Count - 1);
             return;
         }
         preOrder(root.left);
@@ -600,6 +607,7 @@ comments: true
         if root.val == 7 {
             // 记录解
             res.append(path)
+            path.removeLast()
             return
         }
         preOrder(root: root.left)
