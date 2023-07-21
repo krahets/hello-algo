@@ -8,7 +8,6 @@
 
 /* Driver Code */
 int main() {
-
     /* 初始化无向图 */
     graphAdjList *graph = newGraphAdjList(5);
     // 初始化顶点
