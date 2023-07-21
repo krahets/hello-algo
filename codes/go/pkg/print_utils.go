@@ -19,6 +19,10 @@ func PrintSlice[T any](nums []T) {
 
 // PrintList Print a list
 func PrintList(list *list.List) {
+	if list.Len() == 0 {
+		fmt.Print("[]\n")
+		return
+	}
 	e := list.Front()
 	// 强转为 string, 会影响效率
 	fmt.Print("[")
