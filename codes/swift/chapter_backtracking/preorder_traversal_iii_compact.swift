@@ -20,6 +20,7 @@ func preOrder(root: TreeNode?) {
     if root.val == 7 {
         // 记录解
         res.append(path)
+        path.removeLast()
         return
     }
     preOrder(root: root.left)
@@ -41,7 +42,7 @@ enum PreorderTraversalIIICompact {
         res = []
         preOrder(root: root)
 
-        print("\n输出所有根节点到节点 7 的路径，且路径中不包含值为 3 的节点")
+        print("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点，仅包含一个值为 7 的节点")
         for path in res {
             var vals: [Int] = []
             for node in path {
