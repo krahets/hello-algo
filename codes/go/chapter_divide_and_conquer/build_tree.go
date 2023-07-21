@@ -28,10 +28,10 @@ func bfs(preorder, inorder []int, hmap map[int]int, i, l, r int) *TreeNode {
 func buildTree(preorder, inorder []int) *TreeNode {
 	// 初始化哈希表，存储 inorder 元素到索引的映射
 	hmap := make(map[int]int, len(inorder))
-
 	for i := 0; i < len(inorder); i++ {
 		hmap[inorder[i]] = i
 	}
+
 	root := bfs(preorder, inorder, hmap, 0, 0, len(inorder)-1)
 	return root
 }
