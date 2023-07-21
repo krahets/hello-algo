@@ -72,6 +72,8 @@ $$
 
 观察状态转移方程，解 $dp[i, j]$ 依赖左方、上方、左上方的解，因此通过两层循环正序遍历整个 $dp$ 表即可。
 
+### 代码实现
+
 === "Java"
 
     ```java title="edit_distance.java"
@@ -324,6 +326,8 @@ $$
 
 === "<15>"
     ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.png)
+
+### 状态压缩
 
 下面考虑状态压缩，将 $dp$ 表的第一维删除。由于 $dp[i,j]$ 是由上方 $dp[i-1, j]$ 、左方 $dp[i, j-1]$ 、左上方状态 $dp[i-1, j-1]$ 转移而来，而正序遍历会丢失左上方 $dp[i-1, j-1]$ ，倒序遍历无法提前构建 $dp[i, j-1]$ ，因此两种遍历顺序都不可取。
 
