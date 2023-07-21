@@ -3104,28 +3104,21 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    第一步：问题分析
+    贪心策略确定
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    第二步：贪心策略确定
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
     代码实现
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    第三步：正确性证明
+  <a href="#_3" class="md-nav__link">
+    正确性证明
   </a>
   
 </li>
@@ -3330,28 +3323,21 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    第一步：问题分析
+    贪心策略确定
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    第二步：贪心策略确定
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
     代码实现
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    第三步：正确性证明
+  <a href="#_3" class="md-nav__link">
+    正确性证明
   </a>
   
 </li>
@@ -3384,7 +3370,6 @@
 <p class="admonition-title">Question</p>
 <p>给定一个正整数 <span class="arithmatex">\(n\)</span> ，将其切分为至少两个正整数的和，求切分后所有整数的乘积最大是多少。</p>
 </div>
-<h3 id="_1">第一步：问题分析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p><img alt="最大切分乘积的问题定义" src="../max_product_cutting_problem.assets/max_product_cutting_definition.png" /></p>
 <p align="center"> Fig. 最大切分乘积的问题定义 </p>
 
@@ -3397,7 +3382,7 @@ n = \sum_{i=1}^{m}n_i
 \max(\prod_{i=1}^{m}n_i)
 \]</div>
 <p>我们需要思考的是：切分数量 <span class="arithmatex">\(m\)</span> 应该多大，每个 <span class="arithmatex">\(n_i\)</span> 应该是多少？</p>
-<h3 id="_2">第二步：贪心策略确定<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_1">贪心策略确定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>根据经验，两个整数的和往往比它们的积更小。假设从 <span class="arithmatex">\(n\)</span> 中分出一个因子 <span class="arithmatex">\(2\)</span> ，则它们的乘积为 <span class="arithmatex">\(2(n-2)\)</span> 。我们将该乘积与 <span class="arithmatex">\(n\)</span> 作比较：</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3424,7 +3409,7 @@ n &amp; \geq 4
 <li>当余数为 <span class="arithmatex">\(2\)</span> 时，不继续划分，保留之。</li>
 <li>当余数为 <span class="arithmatex">\(1\)</span> 时，由于 <span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span> ，因此应将最后一个 <span class="arithmatex">\(3\)</span> 替换为 <span class="arithmatex">\(2\)</span> 。</li>
 </ol>
-<h3 id="_3">代码实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_2">代码实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>在代码中，我们无需开启循环来切分，可以直接利用向下整除得到 <span class="arithmatex">\(3\)</span> 的个数 <span class="arithmatex">\(a\)</span> ，用取模运算得到余数 <span class="arithmatex">\(b\)</span> ，即：</p>
 <div class="arithmatex">\[
 n = 3 a + b
@@ -3539,7 +3524,7 @@ n = 3 a + b
 <li>函数 <code>math.pow()</code> 内部调用 C 语言库的 <code>pow()</code> 函数，其执行浮点取幂，时间复杂度为 <span class="arithmatex">\(O(1)\)</span> 。</li>
 </ul>
 <p>变量 <span class="arithmatex">\(a\)</span> , <span class="arithmatex">\(b\)</span> 使用常数大小的额外空间，<strong>因此空间复杂度为 <span class="arithmatex">\(O(1)\)</span></strong> 。</p>
-<h3 id="_4">第三步：正确性证明<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_3">正确性证明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>使用反证法，只分析 <span class="arithmatex">\(n \geq 3\)</span> 的情况。</p>
 <ol>
 <li><strong>所有因子 <span class="arithmatex">\(\leq 3\)</span></strong> :假设最优切分方案中存在 <span class="arithmatex">\(\geq 4\)</span> 的因子 <span class="arithmatex">\(x\)</span> ，那么一定可以将其继续划分为 <span class="arithmatex">\(2(x-2)\)</span> ，从而获得更大的乘积。这与假设矛盾。</li>
