@@ -35,6 +35,6 @@ public class max_product_cutting {
 
         // 贪心算法
         int res = maxProductCutting(n);
-        System.out.println("最大切分乘积为" + res);
+        System.out.println("最大切分乘积为 " + res);
     }
 }
