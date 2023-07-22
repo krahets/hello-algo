@@ -31,5 +31,5 @@ fn main() {
 
     // 贪心算法
     let res = max_product_cutting(n);
-    println!("最大切分乘积为{}", res);
+    println!("最大切分乘积为 {}", res);
 }
