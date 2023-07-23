@@ -89,7 +89,6 @@ class AVLTree {
     }
 
     /* 插入节点 */
-    @discardableResult
     func insert(val: Int) {
         root = insertHelper(node: root, val: val)
     }
@@ -116,7 +115,6 @@ class AVLTree {
     }
 
     /* 删除节点 */
-    @discardableResult
     func remove(val: Int) {
         root = removeHelper(node: root, val: val)
     }
