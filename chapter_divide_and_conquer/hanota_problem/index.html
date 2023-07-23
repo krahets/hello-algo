@@ -3396,7 +3396,7 @@
 
 
 <h1 id="124">12.4. &nbsp; 汉诺塔问题<a class="headerlink" href="#124" title="Permanent link">&para;</a></h1>
-<p>在归并排序和构建二叉树中，我们将原问题分解为两个规模为原问题一半的子问题。然而，对于即将介绍的汉诺塔问题，我们采用不同的分解策略。</p>
+<p>在归并排序和构建二叉树中，我们都是将原问题分解为两个规模为原问题一半的子问题。然而对于汉诺塔问题，我们采用不同的分解策略。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>给定三根柱子，记为 <code>A</code> , <code>B</code> , <code>C</code> 。起始状态下，柱子 <code>A</code> 上套着 <span class="arithmatex">\(n\)</span> 个圆盘，它们从上到下按照从小到大的顺序排列。我们的任务是要把这 <span class="arithmatex">\(n\)</span> 个圆盘移到柱子 <code>C</code> 上，并保持它们的原有顺序不变。在移动圆盘的过程中，需要遵守以下规则：</p>
@@ -3409,7 +3409,7 @@
 <p><img alt="汉诺塔问题示例" src="../hanota_problem.assets/hanota_example.png" /></p>
 <p align="center"> Fig. 汉诺塔问题示例 </p>
 
-<p>在本文中，<strong>我们将规模为 <span class="arithmatex">\(i\)</span> 的汉诺塔问题记做 <span class="arithmatex">\(f(i)\)</span></strong> 。例如 <span class="arithmatex">\(f(3)\)</span> 代表将 <span class="arithmatex">\(3\)</span> 个圆盘从 <code>A</code> 移动至 <code>C</code> 的汉诺塔问题。</p>
+<p><strong>我们将规模为 <span class="arithmatex">\(i\)</span> 的汉诺塔问题记做 <span class="arithmatex">\(f(i)\)</span></strong> 。例如 <span class="arithmatex">\(f(3)\)</span> 代表将 <span class="arithmatex">\(3\)</span> 个圆盘从 <code>A</code> 移动至 <code>C</code> 的汉诺塔问题。</p>
 <h3 id="_1">考虑基本情况<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>对于问题 <span class="arithmatex">\(f(1)\)</span> ，即当只有一个圆盘时，则将它直接从 <code>A</code> 移动至 <code>C</code> 即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label></div>
@@ -3428,7 +3428,7 @@
 <li>再将大圆盘从 <code>A</code> 移至 <code>C</code> ；</li>
 <li>最后将小圆盘从 <code>B</code> 移至 <code>C</code> ；</li>
 </ol>
-<p>如下图所示，对于小圆盘的移动，<strong>我们称 <code>C</code> 为目标柱、<code>B</code> 为缓冲柱</strong>。</p>
+<p>解决问题 <span class="arithmatex">\(f(2)\)</span> 的过程可总结为：<strong>将两个圆盘借助 <code>B</code> 从 <code>A</code> 移至 <code>C</code></strong> 。其中，<code>C</code> 称为目标柱、<code>B</code> 称为缓冲柱。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3446,10 +3446,10 @@
 </div>
 </div>
 <h3 id="_2">子问题分解<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>对于问题 <span class="arithmatex">\(f(3)\)</span> ，即当有三个圆盘时，情况变得稍微复杂了一些。由于已知 <span class="arithmatex">\(f(1)\)</span> 和 <span class="arithmatex">\(f(2)\)</span> 的解，我们可以从分治角度思考，<strong>将 <code>A</code> 顶部的两个圆盘看做一个整体</strong>，并执行以下步骤：</p>
+<p>对于问题 <span class="arithmatex">\(f(3)\)</span> ，即当有三个圆盘时，情况变得稍微复杂了一些。由于已知 <span class="arithmatex">\(f(1)\)</span> 和 <span class="arithmatex">\(f(2)\)</span> 的解，因此可从分治角度思考，<strong>将 <code>A</code> 顶部的两个圆盘看做一个整体</strong>，执行以下步骤：</p>
 <ol>
 <li>令 <code>B</code> 为目标柱、<code>C</code> 为缓冲柱，将两个圆盘从 <code>A</code> 移动至 <code>B</code> ；</li>
-<li>将 <code>A</code> 中剩余的一个圆盘从 <code>A</code> 移动至 <code>C</code> ；</li>
+<li>将 <code>A</code> 中剩余的一个圆盘从 <code>A</code> 直接移动至 <code>C</code> ；</li>
 <li>令 <code>C</code> 为目标柱、<code>A</code> 为缓冲柱，将两个圆盘从 <code>B</code> 移动至 <code>C</code> ；</li>
 </ol>
 <p>这样三个圆盘就被顺利地从 <code>A</code> 移动至 <code>C</code> 了。</p>
@@ -3469,19 +3469,19 @@
 </div>
 </div>
 </div>
-<p>本质上看，我们将问题 <span class="arithmatex">\(f(3)\)</span> 划分为两个子问题 <span class="arithmatex">\(f(2)\)</span> 和子问题 <span class="arithmatex">\(f(1)\)</span>。按顺序解决这三个子问题之后，原问题随之得到解决。<strong>以上分析说明了子问题的独立性，以及解是可以合并的</strong>。</p>
-<p>至此，我们可总结出汉诺塔问题的分治策略：<strong>将原问题 <span class="arithmatex">\(f(n)\)</span> 划分为两个子问题 <span class="arithmatex">\(f(n-1)\)</span> 和一个子问题 <span class="arithmatex">\(f(1)\)</span></strong> 。子问题的解决顺序为：</p>
+<p>本质上看，<strong>我们将问题 <span class="arithmatex">\(f(3)\)</span> 划分为两个子问题 <span class="arithmatex">\(f(2)\)</span> 和子问题 <span class="arithmatex">\(f(1)\)</span></strong> 。按顺序解决这三个子问题之后，原问题随之得到解决。这说明子问题是独立的，且解是可以合并的。</p>
+<p>至此，我们可总结出汉诺塔问题的分治策略：将原问题 <span class="arithmatex">\(f(n)\)</span> 划分为两个子问题 <span class="arithmatex">\(f(n-1)\)</span> 和一个子问题 <span class="arithmatex">\(f(1)\)</span> 。子问题的解决顺序为：</p>
 <ol>
 <li>将 <span class="arithmatex">\(n-1\)</span> 个圆盘借助 <code>C</code> 从 <code>A</code> 移至 <code>B</code> ；</li>
 <li>将剩余 <span class="arithmatex">\(1\)</span> 个圆盘从 <code>A</code> 直接移至 <code>C</code> ；</li>
 <li>将 <span class="arithmatex">\(n-1\)</span> 个圆盘借助 <code>A</code> 从 <code>B</code> 移至 <code>C</code> ；</li>
 </ol>
-<p>并且，对于这两个子问题 <span class="arithmatex">\(f(n-1)\)</span> ，<strong>可以通过相同的方式进行递归划分</strong>，直至达到最小子问题 <span class="arithmatex">\(f(1)\)</span> 。而 <span class="arithmatex">\(f(1)\)</span> 的解是已知的，只需一次移动操作即可。</p>
+<p>对于这两个子问题 <span class="arithmatex">\(f(n-1)\)</span> ，<strong>可以通过相同的方式进行递归划分</strong>，直至达到最小子问题 <span class="arithmatex">\(f(1)\)</span> 。而 <span class="arithmatex">\(f(1)\)</span> 的解是已知的，只需一次移动操作即可。</p>
 <p><img alt="汉诺塔问题的分治策略" src="../hanota_problem.assets/hanota_divide_and_conquer.png" /></p>
 <p align="center"> Fig. 汉诺塔问题的分治策略 </p>
 
 <h3 id="_3">代码实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>在代码实现中，我们声明一个递归函数 <code>dfs(i, src, buf, tar)</code> ，它的作用是将柱 <code>src</code> 顶部的 <span class="arithmatex">\(i\)</span> 个圆盘借助缓冲柱 <code>buf</code> 移动至目标柱 <code>tar</code> 。</p>
+<p>在代码中，我们声明一个递归函数 <code>dfs(i, src, buf, tar)</code> ，它的作用是将柱 <code>src</code> 顶部的 <span class="arithmatex">\(i\)</span> 个圆盘借助缓冲柱 <code>buf</code> 移动至目标柱 <code>tar</code> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:11"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JavaScript</label><label for="__tabbed_4_6">TypeScript</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label><label for="__tabbed_4_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

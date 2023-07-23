@@ -2387,13 +2387,6 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    基于分治的搜索算法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
     基于分治实现二分
   </a>
   
@@ -3346,13 +3339,6 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    基于分治的搜索算法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
     基于分治实现二分
   </a>
   
@@ -3382,29 +3368,41 @@
 
 
 <h1 id="122">12.2. &nbsp; 分治搜索策略<a class="headerlink" href="#122" title="Permanent link">&para;</a></h1>
-<p>我们已经学过，搜索算法分为两大类：暴力搜索、自适应搜索。暴力搜索的时间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。自适应搜索利用特有的数据组织形式或先验信息，可达到 <span class="arithmatex">\(O(\log n)\)</span> 甚至 <span class="arithmatex">\(O(1)\)</span> 的时间复杂度。</p>
-<h3 id="_1">基于分治的搜索算法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>实际上，<strong><span class="arithmatex">\(O(\log n)\)</span> 的搜索算法通常都是基于分治策略实现的</strong>，例如：</p>
+<p>我们已经学过，搜索算法分为两大类：</p>
+<ul>
+<li><strong>暴力搜索</strong>：它通过遍历数据结构实现，时间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。</li>
+<li><strong>自适应搜索</strong>：它利用特有的数据组织形式或先验信息，可达到 <span class="arithmatex">\(O(\log n)\)</span> 甚至 <span class="arithmatex">\(O(1)\)</span> 的时间复杂度。</li>
+</ul>
+<p>实际上，<strong>时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span> 的搜索算法通常都是基于分治策略实现的</strong>，例如：</p>
 <ul>
 <li>二分查找的每一步都将问题（在数组中搜索目标元素）分解为一个小问题（在数组的一半中搜索目标元素），这个过程一直持续到数组为空或找到目标元素为止。</li>
 <li>树是分治关系的代表，在二叉搜索树、AVL 树、堆等数据结构中，各种操作的时间复杂度皆为 <span class="arithmatex">\(O(\log n)\)</span> 。</li>
 </ul>
-<p>分治之所以能够提升搜索效率，是因为暴力搜索每轮只能排除一个选项，<strong>而基于分治的搜索每轮可以排除一半选项</strong>。</p>
-<h3 id="_2">基于分治实现二分<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>接下来，我们尝试从分治策略的角度分析二分查找的性质：</p>
+<p>以二分查找为例：</p>
 <ul>
 <li><strong>问题可以被分解</strong>：二分查找递归地将原问题（在数组中进行查找）分解为子问题（在数组的一半中进行查找），这是通过比较中间元素和目标元素来实现的。</li>
 <li><strong>子问题是独立的</strong>：在二分查找中，每轮只处理一个子问题，它不受另外子问题的影响。</li>
 <li><strong>子问题的解无需合并</strong>：二分查找旨在查找一个特定元素，因此不需要将子问题的解进行合并。当子问题得到解决时，原问题也会同时得到解决。</li>
 </ul>
-<p>在之前章节中，我们基于递推（迭代）实现二分查找。现在，我们尝试基于递归分治来实现它。</p>
-<p>问题定义为：<strong>在数组 <code>nums</code> 的区间 <span class="arithmatex">\([i, j]\)</span> 内查找元素 <code>target</code></strong> ，记为 <span class="arithmatex">\(f(i, j)\)</span> 。</p>
-<p>设数组长度为 <span class="arithmatex">\(n\)</span> ，则二分查找的流程为：从原问题 <span class="arithmatex">\(f(0, n-1)\)</span> 开始，每轮排除一半索引区间，递归求解规模减小一半的子问题，直至找到 <code>target</code> 或区间为空时返回。</p>
-<p>下图展示了在数组中二分查找目标元素 <span class="arithmatex">\(6\)</span> 的分治过程。</p>
+<p>分治能够提升搜索效率，本质上是因为暴力搜索每轮只能排除一个选项，<strong>而分治搜索每轮可以排除一半选项</strong>。</p>
+<h3 id="_1">基于分治实现二分<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>在之前的章节中，二分查找是基于递推（迭代）实现的。现在我们基于分治（递归）来实现它。</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的有序数组 <code>nums</code> ，数组中所有元素都是唯一的，请查找元素 <code>target</code> 。</p>
+</div>
+<p>从分治角度，我们将搜索区间 <span class="arithmatex">\([i, j]\)</span> 对应的子问题记为 <span class="arithmatex">\(f(i, j)\)</span> 。</p>
+<p>从原问题 <span class="arithmatex">\(f(0, n-1)\)</span> 为起始点，二分查找的分治步骤为：</p>
+<ol>
+<li>计算搜索区间 <span class="arithmatex">\([i, j]\)</span> 的中点 <span class="arithmatex">\(m\)</span> ，根据它排除一半搜索区间；</li>
+<li>递归求解规模减小一半的子问题，可能为 <span class="arithmatex">\(f(i, m-1)\)</span> 或 <span class="arithmatex">\(f(m+1, j)\)</span> ；</li>
+<li>循环第 <code>1.</code> , <code>2.</code> 步，直至找到 <code>target</code> 或区间为空时返回。</li>
+</ol>
+<p>下图展示了在数组中二分查找元素 <span class="arithmatex">\(6\)</span> 的分治过程。</p>
 <p><img alt="二分查找的分治过程" src="../binary_search_recur.assets/binary_search_recur.png" /></p>
 <p align="center"> Fig. 二分查找的分治过程 </p>
 
-<p>如下代码所示，我们声明一个递归函数 <code>dfs()</code> 来求解问题 <span class="arithmatex">\(f(i, j)\)</span> 。</p>
+<p>在实现代码中，我们声明一个递归函数 <code>dfs()</code> 来求解问题 <span class="arithmatex">\(f(i, j)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

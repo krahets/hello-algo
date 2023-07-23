@@ -3431,10 +3431,10 @@
 
 <h1 id="131">13.1. &nbsp; 回溯算法<a class="headerlink" href="#131" title="Permanent link">&para;</a></h1>
 <p>「回溯算法 Backtracking Algorithm」是一种通过穷举来解决问题的方法，它的核心思想是从一个初始状态出发，暴力搜索所有可能的解决方案，当遇到正确的解则将其记录，直到找到解或者尝试了所有可能的选择都无法找到解为止。</p>
-<p>回溯算法通常采用「深度优先搜索」来遍历解空间。在二叉树章节中，我们提到前序、中序和后序遍历都属于深度优先搜索。接下来我们先用前序遍历构造一个回溯问题，逐步了解回溯算法的工作原理。</p>
+<p>回溯算法通常采用「深度优先搜索」来遍历解空间。在二叉树章节中，我们提到前序、中序和后序遍历都属于深度优先搜索。接下来，我们利用前序遍历构造一个回溯问题，逐步了解回溯算法的工作原理。</p>
 <div class="admonition question">
 <p class="admonition-title">例题一</p>
-<p>给定一个二叉树，搜索并记录所有值为 <span class="arithmatex">\(7\)</span> 的节点，返回节点列表。</p>
+<p>给定一个二叉树，搜索并记录所有值为 <span class="arithmatex">\(7\)</span> 的节点，请返回节点列表。</p>
 </div>
 <p>对于此题，我们前序遍历这颗树，并判断当前节点的值是否为 <span class="arithmatex">\(7\)</span> ，若是则将该节点的值加入到结果列表 <code>res</code> 之中。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
@@ -3576,10 +3576,10 @@
 <h2 id="1311">13.1.1. &nbsp; 尝试与回退<a class="headerlink" href="#1311" title="Permanent link">&para;</a></h2>
 <p><strong>之所以称之为回溯算法，是因为该算法在搜索解空间时会采用“尝试”与“回退”的策略</strong>。当算法在搜索过程中遇到某个状态无法继续前进或无法得到满足条件的解时，它会撤销上一步的选择，退回到之前的状态，并尝试其他可能的选择。</p>
 <p>对于例题一，访问每个节点都代表一次“尝试”，而越过叶结点或返回父节点的 <code>return</code> 则表示“回退”。</p>
-<p>值得说明的是，<strong>回退并不等价于函数返回</strong>。为解释这一点，我们对例题一稍作拓展。</p>
+<p>值得说明的是，<strong>回退并不仅仅包括函数返回</strong>。为解释这一点，我们对例题一稍作拓展。</p>
 <div class="admonition question">
 <p class="admonition-title">例题二</p>
-<p>在二叉树中搜索所有值为 <span class="arithmatex">\(7\)</span> 的节点，<strong>返回根节点到这些节点的路径</strong>。</p>
+<p>在二叉树中搜索所有值为 <span class="arithmatex">\(7\)</span> 的节点，<strong>请返回根节点到这些节点的路径</strong>。</p>
 </div>
 <p>在例题一代码的基础上，我们需要借助一个列表 <code>path</code> 记录访问过的节点路径。当访问到值为 <span class="arithmatex">\(7\)</span> 的节点时，则复制 <code>path</code> 并添加进结果列表 <code>res</code> 。遍历完成后，<code>res</code> 中保存的就是所有的解。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label></div>
@@ -3751,7 +3751,8 @@
 </div>
 </div>
 </div>
-<p>在每次“尝试”中，我们通过将当前节点添加进 <code>path</code> 来记录路径；而在“回退”前，我们需要将该节点从 <code>path</code> 中弹出，<strong>以恢复本次尝试之前的状态</strong>。换句话说，<strong>我们可以将尝试和回退理解为“前进”与“撤销”</strong>，两个操作是互为相反的。</p>
+<p>在每次“尝试”中，我们通过将当前节点添加进 <code>path</code> 来记录路径；而在“回退”前，我们需要将该节点从 <code>path</code> 中弹出，<strong>以恢复本次尝试之前的状态</strong>。</p>
+<p>观察该过程，<strong>我们可以将尝试和回退理解为“前进”与“撤销”</strong>，两个操作是互为逆向的。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:11"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label><label for="__tabbed_3_5">&lt;5&gt;</label><label for="__tabbed_3_6">&lt;6&gt;</label><label for="__tabbed_3_7">&lt;7&gt;</label><label for="__tabbed_3_8">&lt;8&gt;</label><label for="__tabbed_3_9">&lt;9&gt;</label><label for="__tabbed_3_10">&lt;10&gt;</label><label for="__tabbed_3_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3793,12 +3794,12 @@
 <p>复杂的回溯问题通常包含一个或多个约束条件，<strong>约束条件通常可用于“剪枝”</strong>。</p>
 <div class="admonition question">
 <p class="admonition-title">例题三</p>
-<p>在二叉树中搜索所有值为 <span class="arithmatex">\(7\)</span> 的节点，返回根节点到这些节点的路径，<strong>要求路径中有且只有一个值为 <span class="arithmatex">\(7\)</span> 的节点，并且不能包含值为 <span class="arithmatex">\(3\)</span> 的节点</strong>。</p>
+<p>在二叉树中搜索所有值为 <span class="arithmatex">\(7\)</span> 的节点，请返回根节点到这些节点的路径，<strong>要求路径中只存在一个值为 <span class="arithmatex">\(7\)</span> 的节点，并且不允许有值为 <span class="arithmatex">\(3\)</span> 的节点</strong>。</p>
 </div>
 <p>在例题二的基础上添加剪枝操作，包括：</p>
 <ul>
-<li>当遇到值为 <span class="arithmatex">\(7\)</span> 的节点时，记录解并返回，终止搜索。</li>
-<li>当遇到值为 <span class="arithmatex">\(3\)</span> 的节点时，则直接返回，停止继续搜索。</li>
+<li>当遇到值为 <span class="arithmatex">\(7\)</span> 的节点时，记录解并返回，停止搜索。</li>
+<li>当遇到值为 <span class="arithmatex">\(3\)</span> 的节点时，则直接返回，停止搜索。</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:11"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JavaScript</label><label for="__tabbed_4_6">TypeScript</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label><label for="__tabbed_4_11">Dart</label></div>
 <div class="tabbed-content">
@@ -4010,8 +4011,13 @@
 <tbody>
 <tr>
 <td>解 Solution</td>
-<td>解是满足问题特定条件的答案。回溯算法的目标是找到一个或多个满足条件的解</td>
-<td>根节点到节点 <span class="arithmatex">\(7\)</span> 的所有路径，且路径中不包含值为 <span class="arithmatex">\(3\)</span> 的节点</td>
+<td>解是满足问题特定条件的答案，可能有一个或多个</td>
+<td>根节点到节点 <span class="arithmatex">\(7\)</span> 的满足约束条件的所有路径</td>
+</tr>
+<tr>
+<td>约束条件 Constraint</td>
+<td>约束条件是问题中限制解的可行性的条件，通常用于剪枝</td>
+<td>路径中不包含节点 <span class="arithmatex">\(3\)</span> ，只包含一个节点 <span class="arithmatex">\(7\)</span></td>
 </tr>
 <tr>
 <td>状态 State</td>
@@ -4019,18 +4025,13 @@
 <td>当前已访问的节点路径，即 <code>path</code> 节点列表</td>
 </tr>
 <tr>
-<td>约束条件 Constraint</td>
-<td>约束条件是问题中限制解的可行性的条件，通常用于剪枝</td>
-<td>要求路径中不能包含值为 <span class="arithmatex">\(3\)</span> 的节点</td>
-</tr>
-<tr>
 <td>尝试 Attempt</td>
-<td>尝试是在搜索过程中，根据当前状态和可用选择来探索解空间的过程。尝试包括做出选择，更新状态，检查是否为解</td>
+<td>尝试是根据可用选择来探索解空间的过程，包括做出选择，更新状态，检查是否为解</td>
 <td>递归访问左（右）子节点，将节点添加进 <code>path</code> ，判断节点的值是否为 <span class="arithmatex">\(7\)</span></td>
 </tr>
 <tr>
 <td>回退 Backtracking</td>
-<td>回退指在搜索中遇到到不满足约束条件或无法继续搜索的状态时，撤销前面做出的选择，回到上一个状态</td>
+<td>回退指遇到不满足约束条件的状态时，撤销前面做出的选择，回到上一个状态</td>
 <td>当越过叶结点、结束结点访问、遇到值为 <span class="arithmatex">\(3\)</span> 的节点时终止搜索，函数返回</td>
 </tr>
 <tr>
@@ -4042,11 +4043,11 @@
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>解、状态、约束条件等术语是通用的，适用于回溯算法、动态规划、贪心算法等。</p>
+<p>问题、解、状态等概念是通用的，在分治、回溯、动态规划、贪心等算法中都有涉及。</p>
 </div>
 <h2 id="1314">13.1.4. &nbsp; 框架代码<a class="headerlink" href="#1314" title="Permanent link">&para;</a></h2>
-<p>回溯算法可用于解决许多搜索问题、约束满足问题和组合优化问题。为提升代码通用性，我们希望将回溯算法的“尝试、回退、剪枝”的主体框架提炼出来。</p>
-<p>设 <code>state</code> 为问题的当前状态，<code>choices</code> 表示当前状态下可以做出的选择，则可得到以下回溯算法的框架代码。</p>
+<p>接下来，我们尝试将回溯的“尝试、回退、剪枝”的主体框架提炼出来，提升代码的通用性。</p>
+<p>在以下框架代码中，<code>state</code> 表示问题的当前状态，<code>choices</code> 表示当前状态下可以做出的选择。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:11"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JavaScript</label><label for="__tabbed_5_6">TypeScript</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4281,7 +4282,7 @@
 </div>
 </div>
 </div>
-<p>下面，我们尝试基于此框架来解决例题三。在例题三中，状态 <code>state</code> 是节点遍历路径，选择 <code>choices</code> 是当前节点的左子节点和右子节点，结果 <code>res</code> 是路径列表，实现代码如下所示。</p>
+<p>下面，我们基于框架代码来解决例题三：状态 <code>state</code> 为节点遍历路径，选择 <code>choices</code> 为当前节点的左子节点和右子节点，结果 <code>res</code> 是路径列表。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:11"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Python</label><label for="__tabbed_6_4">Go</label><label for="__tabbed_6_5">JavaScript</label><label for="__tabbed_6_6">TypeScript</label><label for="__tabbed_6_7">C</label><label for="__tabbed_6_8">C#</label><label for="__tabbed_6_9">Swift</label><label for="__tabbed_6_10">Zig</label><label for="__tabbed_6_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4719,20 +4720,21 @@
 </div>
 </div>
 </div>
-<p>相较于基于前序遍历的实现代码，基于回溯算法框架的实现代码虽然显得啰嗦，但通用性更好。实际上，<strong>所有回溯问题都可以在该框架下解决</strong>。我们需要根据具体问题来定义 <code>state</code> 和 <code>choices</code> ，并实现框架中的各个方法。</p>
+<p>相比基于前序遍历的代码实现，基于回溯算法框架的代码实现虽然显得啰嗦，但通用性更好。实际上，<strong>许多回溯问题都可以在该框架下解决</strong>。我们只需根据具体问题来定义 <code>state</code> 和 <code>choices</code> ，并实现框架中的各个方法。</p>
 <h2 id="1315">13.1.5. &nbsp; 优势与局限性<a class="headerlink" href="#1315" title="Permanent link">&para;</a></h2>
 <p>回溯算法本质上是一种深度优先搜索算法，它尝试所有可能的解决方案直到找到满足条件的解。这种方法的优势在于它能够找到所有可能的解决方案，而且在合理的剪枝操作下，具有很高的效率。</p>
 <p>然而，在处理大规模或者复杂问题时，<strong>回溯算法的运行效率可能难以接受</strong>。</p>
 <ul>
-<li>在最坏的情况下，回溯算法需要遍历解空间的所有可能解，所需时间很长。例如，求解 <span class="arithmatex">\(n\)</span> 皇后问题的时间复杂度可以达到 <span class="arithmatex">\(O(n!)\)</span> 。</li>
-<li>在每一次递归调用时，都需要保存当前的状态（例如选择路径、用于剪枝的辅助变量等），对于深度很大的递归，空间需求可能会变得非常大。</li>
+<li><strong>时间</strong>：回溯算法通常需要遍历状态空间的所有可能，时间复杂度可以达到指数阶或阶乘阶。</li>
+<li><strong>空间</strong>：在递归调用中需要保存当前的状态（例如路径、用于剪枝的辅助变量等），当深度很大时，空间需求可能会变得很大。</li>
 </ul>
-<p>即便如此，<strong>回溯算法仍然是某些搜索问题和约束满足问题的最佳解决方案</strong>。对于这些问题，由于无法预测哪些选择可生成有效的解，因此我们必须对所有可能的选择进行遍历。在这种情况下，<strong>关键是如何进行效率优化</strong>：</p>
+<p>即便如此，<strong>回溯算法仍然是某些搜索问题和约束满足问题的最佳解决方案</strong>。对于这些问题，由于无法预测哪些选择可生成有效的解，因此我们必须对所有可能的选择进行遍历。在这种情况下，<strong>关键是如何进行效率优化</strong>，常见方法有：</p>
 <ul>
-<li>上文介绍过的剪枝是一种常用的优化方法。它可以避免搜索那些肯定不会产生有效解的路径，从而节省时间和空间。</li>
-<li>另一个常用的优化方法是加入「启发式搜索 Heuristic Search」策略，它在搜索过程中引入一些策略或者估计值，从而优先搜索最有可能产生有效解的路径。</li>
+<li><strong>剪枝</strong>：避免搜索那些肯定不会产生解的路径，从而节省时间和空间。</li>
+<li><strong>启发式搜索</strong>：在搜索过程中引入一些策略或者估计值，从而优先搜索最有可能产生有效解的路径。</li>
 </ul>
 <h2 id="1316">13.1.6. &nbsp; 回溯典型例题<a class="headerlink" href="#1316" title="Permanent link">&para;</a></h2>
+<p>回溯算法可用于解决许多搜索问题、约束满足问题和组合优化问题。</p>
 <p><strong>搜索问题</strong>：这类问题的目标是找到满足特定条件的解决方案。</p>
 <ul>
 <li>全排列问题：给定一个集合，求出其所有可能的排列组合。</li>
@@ -4751,7 +4753,12 @@
 <li>旅行商问题：在一个图中，从一个点出发，访问所有其他点恰好一次后返回起点，求最短路径。</li>
 <li>最大团问题：给定一个无向图，找到最大的完全子图，即子图中的任意两个顶点之间都有边相连。</li>
 </ul>
-<p>请注意，回溯算法通常不是解决组合优化问题的最优方法。0-1 背包问题通常使用动态规划解决；旅行商是一个 NP-Hard 问题，常用解决方法有遗传算法和蚁群算法等；最大团问题是图轮中的一个经典 NP-Hard 问题，通常用贪心算法等启发式算法来解决。</p>
+<p>请注意，对于许多组合优化问题，回溯都不是最优解决方案，例如：</p>
+<ul>
+<li>0-1 背包问题通常使用动态规划解决，以达到更高的时间效率；</li>
+<li>旅行商是一个著名的 NP-Hard 问题，常用解法有遗传算法和蚁群算法等；</li>
+<li>最大团问题是图论中的一个经典问题，可用贪心等启发式算法来解决；</li>
+</ul>
 
 
 
