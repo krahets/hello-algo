@@ -79,7 +79,7 @@ public enum PrintUtil {
         print("堆的数组表示：", terminator: "")
         print(queue)
         print("堆的树状表示：")
-        let root = TreeNode.listToTree(list: queue)
+        let root = TreeNode.listToTree(arr: queue)
         printTree(root: root)
     }
 
