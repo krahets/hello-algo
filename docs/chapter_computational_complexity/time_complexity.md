@@ -62,12 +62,12 @@ $$
     ```go title=""
     // 在某运行平台下
     func algorithm(n int) {
-        a := 2      // 1 ns
-        a = a + 1   // 1 ns
-        a = a * 2   // 10 ns
+        a := 2     // 1 ns
+        a = a + 1  // 1 ns
+        a = a * 2  // 10 ns
         // 循环 n 次
-        for i := 0; i < n; i++ {    // 1 ns
-            fmt.Println(a)          // 5 ns
+        for i := 0; i < n; i++ {  // 1 ns
+            fmt.Println(a)        // 5 ns
         }
     }
     ```
@@ -127,7 +127,7 @@ $$
         a = a * 2;  // 10 ns
         // 循环 n 次
         for (int i = 0; i < n; i++) {  // 1 ns ，每轮都要执行 i++
-            Console.WriteLine(0);     // 5 ns
+            Console.WriteLine(0);      // 5 ns
         }
     }
     ```
