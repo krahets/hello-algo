@@ -98,7 +98,7 @@ pub fn vec_to_tree(list: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
         if index >= list.len() {
             break;
         }
-        match node.clone() {
+        match node.as_ref() {
             Some(node) => {
                 if let Some(val) = list[index] {
                     node.borrow_mut().left = Some(TreeNode::new(val));
@@ -106,6 +106,9 @@ pub fn vec_to_tree(list: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
                 que.push_back(node.borrow().left.clone());
             }
             None => {
+                if list[index].is_some() {
+                    panic!("the format of vec is incorrect, can't build a tree")
+                }
                 que.push_back(None);
             }
         }
@@ -114,7 +117,7 @@ pub fn vec_to_tree(list: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
         if index >= list.len() {
             break;
         }
-        match node.clone() {
+        match node.as_ref() {
             Some(node) => {
                 if let Some(val) = list[index] {
                     node.borrow_mut().right = Some(TreeNode::new(val));
@@ -122,6 +125,9 @@ pub fn vec_to_tree(list: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
                 que.push_back(node.borrow().right.clone());
             }
             None => {
+                if list[index].is_some() {
+                    panic!("the format of vec is incorrect, can't build a tree")
+                }
                 que.push_back(None);
             }
         }
