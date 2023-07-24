@@ -23,9 +23,9 @@ def dfs(graph: GraphAdjList, visited: set[Vertex], res: list[Vertex], vet: Verte
         dfs(graph, visited, res, adjVet)
 
 
-# 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
 def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     """深度优先遍历 DFS"""
+    # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
     # 顶点遍历序列
     res = []
     # 哈希表，用于记录已被访问过的顶点

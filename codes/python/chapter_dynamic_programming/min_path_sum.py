@@ -7,7 +7,7 @@ Author: Krahets (krahets@163.com)
 from math import inf
 
 
-def min_path_sum_dfs(grid, i, j):
+def min_path_sum_dfs(grid: list[list[int]], i: int, j: int) -> int:
     """最小路径和：暴力搜索"""
     # 若为左上角单元格，则终止搜索
     if i == 0 and j == 0:
@@ -22,7 +22,9 @@ def min_path_sum_dfs(grid, i, j):
     return min(left, up) + grid[i][j]
 
 
-def min_path_sum_dfs_mem(grid, mem, i, j):
+def min_path_sum_dfs_mem(
+    grid: list[list[int]], mem: list[list[int]], i: int, j: int
+) -> int:
     """最小路径和：记忆化搜索"""
     # 若为左上角单元格，则终止搜索
     if i == 0 and j == 0:
@@ -41,7 +43,7 @@ def min_path_sum_dfs_mem(grid, mem, i, j):
     return mem[i][j]
 
 
-def min_path_sum_dp(grid):
+def min_path_sum_dp(grid: list[list[int]]) -> int:
     """最小路径和：动态规划"""
     n, m = len(grid), len(grid[0])
     # 初始化 dp 表
@@ -60,7 +62,7 @@ def min_path_sum_dp(grid):
     return dp[n - 1][m - 1]
 
 
-def min_path_sum_dp_comp(grid):
+def min_path_sum_dp_comp(grid: list[list[int]]) -> int:
     """最小路径和：状态压缩后的动态规划"""
     n, m = len(grid), len(grid[0])
     # 初始化 dp 表
@@ -86,17 +88,17 @@ if __name__ == "__main__":
 
     # 暴力搜索
     res = min_path_sum_dfs(grid, n - 1, m - 1)
-    print(res)
+    print(f"从左上角到右下角的做小路径和为 {res}")
 
     # 记忆化搜索
     mem = [[-1] * m for _ in range(n)]
     res = min_path_sum_dfs_mem(grid, mem, n - 1, m - 1)
-    print(res)
+    print(f"从左上角到右下角的做小路径和为 {res}")
 
     # 动态规划
     res = min_path_sum_dp(grid)
-    print(res)
+    print(f"从左上角到右下角的做小路径和为 {res}")
 
     # 状态压缩后的动态规划
     res = min_path_sum_dp_comp(grid)
-    print(res)
+    print(f"从左上角到右下角的做小路径和为 {res}")

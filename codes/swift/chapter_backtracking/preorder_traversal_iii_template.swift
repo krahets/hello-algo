@@ -56,7 +56,7 @@ func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNo
 enum PreorderTraversalIIITemplate {
     /* Driver Code */
     static func main() {
-        let root = TreeNode.listToTree(list: [1, 7, 3, 4, 5, 6, 7])
+        let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
         print("\n初始化二叉树")
         PrintUtil.printTree(root: root)
 
@@ -65,7 +65,7 @@ enum PreorderTraversalIIITemplate {
         var res: [[TreeNode]] = []
         backtrack(state: &state, choices: [root].compactMap { $0 }, res: &res)
 
-        print("\n输出所有根节点到节点 7 的路径，且路径中不包含值为 3 的节点")
+        print("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点，仅包含一个值为 7 的节点")
         for path in res {
             var vals: [Int] = []
             for node in path {

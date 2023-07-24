@@ -16,10 +16,14 @@ public class Trunk {
     }
 };
 
-public class PrintUtil {
+public static class PrintUtil {
     /* Print a list */
     public static void PrintList<T>(IList<T> list) {
         Console.WriteLine("[" + string.Join(", ", list) + "]");
+    }
+
+    public static string PrintList<T>(this IEnumerable<T?> list) {
+        return $"[ {string.Join(", ", list.Select(x => x?.ToString() ?? "null"))} ]";
     }
 
     /* Print a matrix (Array) */

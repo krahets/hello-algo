@@ -87,7 +87,7 @@
 === "Go"
 
     ```go title="top_k.go"
-    [class]{maxHeap}-[func]{topKHeap}
+    [class]{}-[func]{topKHeap}
     ```
 
 === "JavaScript"
@@ -105,7 +105,7 @@
 === "C"
 
     ```c title="top_k.c"
-    [class]{maxHeap}-[func]{topKHeap}
+    [class]{}-[func]{topKHeap}
     ```
 
 === "C#"

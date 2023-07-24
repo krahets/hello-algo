@@ -10,7 +10,7 @@ vector<TreeNode *> path;
 vector<vector<TreeNode *>> res;
 
 /* 前序遍历：例题三 */
-static void preOrder(TreeNode *root) {
+void preOrder(TreeNode *root) {
     // 剪枝
     if (root == nullptr || root->val == 3) {
         return;
@@ -20,6 +20,8 @@ static void preOrder(TreeNode *root) {
     if (root->val == 7) {
         // 记录解
         res.push_back(path);
+        path.pop_back();
+        return;
     }
     preOrder(root->left);
     preOrder(root->right);
@@ -29,7 +31,7 @@ static void preOrder(TreeNode *root) {
 
 /* Driver Code */
 int main() {
-    TreeNode *root = vecToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
+    TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
     cout << "\n初始化二叉树" << endl;
     printTree(root);
 

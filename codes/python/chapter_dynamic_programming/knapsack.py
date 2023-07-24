@@ -5,7 +5,7 @@ Author: Krahets (krahets@163.com)
 """
 
 
-def knapsack_dfs(wgt, val, i, c):
+def knapsack_dfs(wgt: list[int], val: list[int], i: int, c: int) -> int:
     """0-1 背包：暴力搜索"""
     # 若已选完所有物品或背包无容量，则返回价值 0
     if i == 0 or c == 0:
@@ -20,7 +20,9 @@ def knapsack_dfs(wgt, val, i, c):
     return max(no, yes)
 
 
-def knapsack_dfs_mem(wgt, val, mem, i, c):
+def knapsack_dfs_mem(
+    wgt: list[int], val: list[int], mem: list[list[int]], i: int, c: int
+) -> int:
     """0-1 背包：记忆化搜索"""
     # 若已选完所有物品或背包无容量，则返回价值 0
     if i == 0 or c == 0:
@@ -39,7 +41,7 @@ def knapsack_dfs_mem(wgt, val, mem, i, c):
     return mem[i][c]
 
 
-def knapsack_dp(wgt, val, cap):
+def knapsack_dp(wgt: list[int], val: list[int], cap: int) -> int:
     """0-1 背包：动态规划"""
     n = len(wgt)
     # 初始化 dp 表
@@ -56,7 +58,7 @@ def knapsack_dp(wgt, val, cap):
     return dp[n][cap]
 
 
-def knapsack_dp_comp(wgt, val, cap):
+def knapsack_dp_comp(wgt: list[int], val: list[int], cap: int) -> int:
     """0-1 背包：状态压缩后的动态规划"""
     n = len(wgt)
     # 初始化 dp 表

@@ -8,60 +8,66 @@ package utils;
 
 import java.util.*;
 
-/* Definition for a binary tree node. */
+/* 二叉树节点类 */
 public class TreeNode {
     public int val; // 节点值
     public int height; // 节点高度
     public TreeNode left; // 左子节点引用
     public TreeNode right; // 右子节点引用
 
+    /* 构造方法 */
     public TreeNode(int x) {
         val = x;
     }
 
-    /* Generate a binary tree given an array */
-    public static TreeNode listToTree(List<Integer> list) {
-        int size = list.size();
-        if (size == 0)
-            return null;
+    // 序列化编码规则请参考：
+    // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
+    // 二叉树的数组表示：
+    // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
+    // 二叉树的链表表示：
+    //             /——— 15
+    //         /——— 7
+    //     /——— 3
+    //    |    \——— 6
+    //    |        \——— 12
+    // ——— 1
+    //     \——— 2
+    //        |    /——— 9
+    //         \——— 4
+    //             \——— 8
 
-        TreeNode root = new TreeNode(list.get(0));
-        Queue<TreeNode> queue = new LinkedList<>() {{ add(root); }};
-        int i = 0;
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();
-            if (++i >= size)
-                break;
-            if (list.get(i) != null) {
-                node.left = new TreeNode(list.get(i));
-                queue.add(node.left);
-            }
-            if (++i >= size)
-                break;
-            if (list.get(i) != null) {
-                node.right = new TreeNode(list.get(i));
-                queue.add(node.right);
-            }
+    /* 将列表反序列化为二叉树：递归 */
+    private static TreeNode listToTreeDFS(List<Integer> arr, int i) {
+        if (i < 0 || i >= arr.size() || arr.get(i) == null) {
+            return null;
         }
+        TreeNode root = new TreeNode(arr.get(i));
+        root.left = listToTreeDFS(arr, 2 * i + 1);
+        root.right = listToTreeDFS(arr, 2 * i + 2);
         return root;
     }
 
-    /* Serialize a binary tree to a list */
-    public static List<Integer> treeToList(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
+    /* 将列表反序列化为二叉树 */
+    public static TreeNode listToTree(List<Integer> arr) {
+        return listToTreeDFS(arr, 0);
+    }
+
+    /* 将二叉树序列化为列表：递归 */
+    private static void treeToListDFS(TreeNode root, int i, List<Integer> res) {
         if (root == null)
-            return list;
-        Queue<TreeNode> queue = new LinkedList<>() {{ add(root); }};
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();
-            if (node != null) {
-                list.add(node.val);
-                queue.add(node.left);
-                queue.add(node.right);
-            } else {
-                list.add(null);
-            }
+            return;
+        while (i >= res.size()) {
+            res.add(null);
         }
-        return list;
+        res.set(i, root.val);
+        treeToListDFS(root.left, 2 * i + 1, res);
+        treeToListDFS(root.right, 2 * i + 2, res);
+    }
+
+    /* 将二叉树序列化为列表 */
+    public static List<Integer> treeToList(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        treeToListDFS(root, 0, res);
+        return res;
     }
 }
