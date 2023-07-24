@@ -30,11 +30,11 @@ public class stack {
         Console.WriteLine("出栈元素 pop = " + pop + "，出栈后 stack = " + string.Join(",", stack));
 
         /* 获取栈的长度 */
-        int size = stack.Count();
+        int size = stack.Count;
         Console.WriteLine("栈的长度 size = " + size);
 
         /* 判断是否为空 */
-        bool isEmpty = stack.Count() == 0;
+        bool isEmpty = stack.Count == 0;
         Console.WriteLine("栈是否为空 = " + isEmpty);
     }
 }

@@ -200,22 +200,19 @@
 
     ```csharp title=""
     /* 类 */
-    class Node
-    {
+    class Node {
         int val;
         Node next;
         Node(int x) { val = x; }
     }
 
     /* 函数 */
-    int function()
-    {
+    int function() {
         // do something...
         return 0;
     }
 
-    int algorithm(int n)          // 输入数据
-    {
+    int algorithm(int n) {        // 输入数据
         const int a = 0;          // 暂存数据（常量）
         int b = 0;                // 暂存数据（变量）
         Node node = new Node(0);  // 暂存数据（对象）
@@ -376,12 +373,10 @@
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n)
-    {
+    void algorithm(int n) {
         int a = 0;                   // O(1)
         int[] b = new int[10000];    // O(1)
-        if (n > 10)
-        {
+        if (n > 10) {
             int[] nums = new int[n]; // O(n)
         }
     }
@@ -564,22 +559,18 @@
 === "C#"
 
     ```csharp title=""
-    int function()
-    {
+    int function() {
         // do something
         return 0;
     }
     /* 循环 O(1) */
-    void loop(int n)
-    {
-        for (int i = 0; i < n; i++)
-        {
+    void loop(int n) {
+        for (int i = 0; i < n; i++) {
             function();
         }
     }
     /* 递归 O(n) */
-    int recur(int n)
-    {
+    int recur(int n) {
         if (n == 1) return 1;
         return recur(n - 1);
     }

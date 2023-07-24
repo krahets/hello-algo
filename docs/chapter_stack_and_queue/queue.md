@@ -212,10 +212,10 @@
     int pop = queue.Dequeue();
     
     /* 获取队列的长度 */
-    int size = queue.Count();
+    int size = queue.Count;
     
     /* 判断队列是否为空 */
-    bool isEmpty = queue.Count() == 0;
+    bool isEmpty = queue.Count == 0;
     ```
 
 === "Swift"
