@@ -12,13 +12,13 @@ from modules import *
 import heapq
 
 
-def test_push(heap: list, val: int, flag: int = 1) -> None:
+def test_push(heap: list, val: int, flag: int = 1):
     heapq.heappush(heap, flag * val)  # 元素入堆
     print(f"\n元素 {val} 入堆后")
     print_heap([flag * val for val in heap])
 
 
-def test_pop(heap: list, flag: int = 1) -> None:
+def test_pop(heap: list, flag: int = 1):
     val = flag * heapq.heappop(heap)  # 堆顶元素出堆
     print(f"\n堆顶元素 {val} 出堆后")
     print_heap([flag * val for val in heap])

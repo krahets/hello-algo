@@ -10,7 +10,7 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
 
-def pre_order(root: TreeNode | None) -> None:
+def pre_order(root: TreeNode | None):
     """前序遍历"""
     if root is None:
         return
@@ -20,7 +20,7 @@ def pre_order(root: TreeNode | None) -> None:
     pre_order(root=root.right)
 
 
-def in_order(root: TreeNode | None) -> None:
+def in_order(root: TreeNode | None):
     """中序遍历"""
     if root is None:
         return
@@ -30,7 +30,7 @@ def in_order(root: TreeNode | None) -> None:
     in_order(root=root.right)
 
 
-def post_order(root: TreeNode | None) -> None:
+def post_order(root: TreeNode | None):
     """后序遍历"""
     if root is None:
         return

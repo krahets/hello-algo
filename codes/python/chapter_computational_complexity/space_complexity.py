@@ -16,7 +16,7 @@ def function() -> int:
     return 0
 
 
-def constant(n: int) -> None:
+def constant(n: int):
     """常数阶"""
     # 常量、变量、对象占用 O(1) 空间
     a = 0
@@ -30,7 +30,7 @@ def constant(n: int) -> None:
         function()
 
 
-def linear(n: int) -> None:
+def linear(n: int):
     """线性阶"""
     # 长度为 n 的列表占用 O(n) 空间
     nums = [0] * n
@@ -40,7 +40,7 @@ def linear(n: int) -> None:
         mapp[i] = str(i)
 
 
-def linear_recur(n: int) -> None:
+def linear_recur(n: int):
     """线性阶（递归实现）"""
     print("递归 n =", n)
     if n == 1:
@@ -48,7 +48,7 @@ def linear_recur(n: int) -> None:
     linear_recur(n - 1)
 
 
-def quadratic(n: int) -> None:
+def quadratic(n: int):
     """平方阶"""
     # 二维列表占用 O(n^2) 空间
     num_matrix = [[0] * n for _ in range(n)]

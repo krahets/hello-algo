@@ -5,7 +5,7 @@ Author: timi (xisunyy@163.com)
 """
 
 
-def insertion_sort(nums: list[int]) -> None:
+def insertion_sort(nums: list[int]):
     """插入排序"""
     # 外循环：已排序区间为 [0, i-1]
     for i in range(1, len(nums)):

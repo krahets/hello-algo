@@ -314,7 +314,7 @@
 === "Python"
 
     ```python title=""
-    def algorithm(n: int) -> None:
+    def algorithm(n: int):
         a = 0               # O(1)
         b = [0] * 10000     # O(1)
         if n > 10:
@@ -461,7 +461,7 @@
         # do something
         return 0
 
-    def loop(n: int) -> None:
+    def loop(n: int):
         """循环 O(1)"""
         for _ in range(n):
             function()

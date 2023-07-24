@@ -8,7 +8,7 @@ Author: Peng Chen (pengchzn@gmail.com)
 class ArrayQueue:
     """基于环形数组实现的队列"""
 
-    def __init__(self, size: int) -> None:
+    def __init__(self, size: int):
         """构造方法"""
         self.__nums: list[int] = [0] * size  # 用于存储队列元素的数组
         self.__front: int = 0  # 队首指针，指向队首元素
@@ -26,7 +26,7 @@ class ArrayQueue:
         """判断队列是否为空"""
         return self.__size == 0
 
-    def push(self, num: int) -> None:
+    def push(self, num: int):
         """入队"""
         if self.__size == self.capacity():
             raise IndexError("队列已满")

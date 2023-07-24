@@ -23,7 +23,7 @@ class QuickSort:
         nums[i], nums[left] = nums[left], nums[i]
         return i  # 返回基准数的索引
 
-    def quick_sort(self, nums: list[int], left: int, right: int) -> None:
+    def quick_sort(self, nums: list[int], left: int, right: int):
         """快速排序"""
         # 子数组长度为 1 时终止递归
         if left >= right:
@@ -67,7 +67,7 @@ class QuickSortMedian:
         nums[i], nums[left] = nums[left], nums[i]
         return i  # 返回基准数的索引
 
-    def quick_sort(self, nums: list[int], left: int, right: int) -> None:
+    def quick_sort(self, nums: list[int], left: int, right: int):
         """快速排序"""
         # 子数组长度为 1 时终止递归
         if left >= right:
@@ -97,7 +97,7 @@ class QuickSortTailCall:
         nums[i], nums[left] = nums[left], nums[i]
         return i  # 返回基准数的索引
 
-    def quick_sort(self, nums: list[int], left: int, right: int) -> None:
+    def quick_sort(self, nums: list[int], left: int, right: int):
         """快速排序（尾递归优化）"""
         # 子数组长度为 1 时终止
         while left < right:
