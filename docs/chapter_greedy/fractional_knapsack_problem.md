@@ -58,7 +58,7 @@
 === "Go"
 
     ```go title="fractional_knapsack.go"
-    [class]{}-[func]{II}
+    [class]{Item}-[func]{}
 
     [class]{}-[func]{fractionalKnapsack}
     ```

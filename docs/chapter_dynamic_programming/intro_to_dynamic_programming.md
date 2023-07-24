@@ -256,7 +256,7 @@ $$
 === "Go"
 
     ```go title="climbing_stairs_dfs_mem.go"
-    [class]{}-[func]{dfs}
+    [class]{}-[func]{dfsMem}
 
     [class]{}-[func]{climbingStairsDFSMem}
     ```
