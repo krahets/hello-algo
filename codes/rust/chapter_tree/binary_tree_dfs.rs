@@ -1,13 +1,14 @@
-/**
+/*
  * File: binary_tree_dfs.rs
  * Created Time: 2023-04-06
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
 
+include!("../include/include.rs");
+
 use std::cell::RefCell;
 use std::rc::Rc;
 use tree_node::{vec_to_tree, TreeNode};
-include!("../include/include.rs");
 
 /* 前序遍历 */
 fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {

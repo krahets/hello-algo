@@ -43,6 +43,7 @@ impl ArrayHashMap {
     /* 删除操作 */
     pub fn remove(&mut self, key: i32) {
         let index = self.hash_func(key);
+        // 置为 None ，代表删除
         self.buckets[index] = None;
     }
 

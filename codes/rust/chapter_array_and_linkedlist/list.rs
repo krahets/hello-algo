@@ -52,11 +52,12 @@
     _count += 1;
     }
  
-    //  直接遍历列表元素
+    // 直接遍历列表元素
     _count = 0;
-    for _ in &list {
+    for _n in &list {
     _count += 1;
-    } // 或者
+    } 
+    // 或者
     // list.iter().for_each(|_| _count += 1);
     // let _count = list.iter().fold(0, |_count, _| _count + 1);
  

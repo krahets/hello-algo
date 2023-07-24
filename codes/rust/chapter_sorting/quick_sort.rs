@@ -30,6 +30,7 @@ impl QuickSort {
         i                        // 返回基准数的索引
     }
 
+    /* 快速排序 */
     pub fn quick_sort(left: i32, right: i32, nums: &mut [i32]) {
         // 子数组长度为 1 时终止递归
         if left >= right {
@@ -78,6 +79,7 @@ impl QuickSortMedian {
          i                        // 返回基准数的索引
     }
 
+    /* 快速排序 */
     pub fn quick_sort(left: i32, right: i32, nums: &mut [i32]) {
         // 子数组长度为 1 时终止递归
         if left >= right {
@@ -111,6 +113,7 @@ impl QuickSortTailCall {
         i                        // 返回基准数的索引
     }
 
+    /* 快速排序（尾递归优化） */
     pub fn quick_sort(mut left: i32, mut right: i32, nums: &mut [i32]) {
         // 子数组长度为 1 时终止
         while left < right {

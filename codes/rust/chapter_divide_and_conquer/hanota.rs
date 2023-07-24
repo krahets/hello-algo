@@ -4,6 +4,8 @@
  * Author: sjinzh (sjinzh@gmail.com)
  */
 
+#![allow(non_snake_case)]
+
 /* 移动一个圆盘 */
 fn move_pan(src: &mut Vec<i32>, tar: &mut Vec<i32>) {
     // 从 src 顶部拿出一个圆盘

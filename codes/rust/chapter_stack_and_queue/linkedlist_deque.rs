@@ -58,34 +58,37 @@ impl<T: Copy> LinkedListDeque<T> {
         let node = ListNode::new(num);
         // 队首入队操作
         if is_front {
-            // 将 node 添加至链表头部
             match self.front.take() {
+                // 若链表为空，则令 front, rear 都指向 node
+                None => {
+                    self.rear = Some(node.clone());
+                    self.front = Some(node);
+                }
+                // 将 node 添加至链表头部
                 Some(old_front) => {
                     old_front.borrow_mut().prev = Some(node.clone());
                     node.borrow_mut().next = Some(old_front);
                     self.front = Some(node); // 更新头节点
                 }
-                None => {
-                    self.rear = Some(node.clone());
-                    self.front = Some(node);
-                }
             }
+        } 
         // 队尾入队操作
-        } else {
-            // 将 node 添加至链表尾部
+        else {
             match self.rear.take() {
+                // 若链表为空，则令 front, rear 都指向 node
+                None => {
+                    self.front = Some(node.clone());
+                    self.rear = Some(node);
+                }
+                // 将 node 添加至链表尾部
                 Some(old_rear) => {
                     old_rear.borrow_mut().next = Some(node.clone());
                     node.borrow_mut().prev = Some(old_rear);
                     self.rear = Some(node); // 更新尾节点
                 }
-                None => {
-                    self.front = Some(node.clone());
-                    self.rear = Some(node);
-                }
             }
         }
-        self.que_size += 1;
+        self.que_size += 1; // 更新队列长度
     }
 
     /* 队首入队 */
@@ -100,7 +103,10 @@ impl<T: Copy> LinkedListDeque<T> {
 
     /* 出队操作 */
     pub fn pop(&mut self, is_front: bool) -> Option<T> {
-        if self.is_empty() {return None};
+        // 若队列为空，直接返回 None
+        if self.is_empty() { 
+            return None 
+        };
         // 队首出队操作
         if is_front {
             self.front.take().map(|old_front| {
@@ -113,11 +119,13 @@ impl<T: Copy> LinkedListDeque<T> {
                         self.rear.take();
                     }
                 }
-                self.que_size -= 1;
+                self.que_size -= 1; // 更新队列长度
                 Rc::try_unwrap(old_front).ok().unwrap().into_inner().val
             })
+        
+        } 
         // 队尾出队操作
-        } else {
+        else {
             self.rear.take().map(|old_rear| {
                 match old_rear.borrow_mut().prev.take() {
                     Some(new_rear) => {
@@ -128,7 +136,7 @@ impl<T: Copy> LinkedListDeque<T> {
                         self.front.take();
                     }
                 }
-                self.que_size -= 1;
+                self.que_size -= 1; // 更新队列长度
                 Rc::try_unwrap(old_rear).ok().unwrap().into_inner().val
             })
         }
