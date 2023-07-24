@@ -29,11 +29,11 @@ public class queue {
         Console.WriteLine("出队元素 pop = " + pop + "，出队后 queue = " + string.Join(",", queue));
 
         /* 获取队列的长度 */
-        int size = queue.Count();
+        int size = queue.Count;
         Console.WriteLine("队列长度 size = " + size);
 
         /* 判断队列是否为空 */
-        bool isEmpty = queue.Count() == 0;
+        bool isEmpty = queue.Count == 0;
         Console.WriteLine("队列是否为空 = " + isEmpty);
     }
 }

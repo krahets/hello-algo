@@ -539,15 +539,13 @@
     ```csharp title="list.cs"
     /* 通过索引遍历列表 */
     int count = 0;
-    for (int i = 0; i < list.Count(); i++)
-    {
+    for (int i = 0; i < list.Count; i++) {
         count++;
     }
 
     /* 直接遍历列表元素 */
     count = 0;
-    foreach (int n in list)
-    {
+    foreach (int n in list) {
         count++;
     }
     ```

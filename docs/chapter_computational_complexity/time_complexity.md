@@ -121,14 +121,12 @@ $$
 
     ```csharp title=""
     // 在某运行平台下
-    void algorithm(int n)
-    {
+    void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
         // 循环 n 次
-        for (int i = 0; i < n; i++)
-        {  // 1 ns ，每轮都要执行 i++
+        for (int i = 0; i < n; i++) {  // 1 ns ，每轮都要执行 i++
             Console.WriteLine(0);     // 5 ns
         }
     }
@@ -329,23 +327,18 @@ $$
 
     ```csharp title=""
     // 算法 A 时间复杂度：常数阶
-    void algorithm_A(int n)
-    {
+    void algorithm_A(int n) {
         Console.WriteLine(0);
     }
     // 算法 B 时间复杂度：线性阶
-    void algorithm_B(int n)
-    {
-        for (int i = 0; i < n; i++)
-        {
+    void algorithm_B(int n) {
+        for (int i = 0; i < n; i++) {
             Console.WriteLine(0);
         }
     }
     // 算法 C 时间复杂度：常数阶
-    void algorithm_C(int n)
-    {
-        for (int i = 0; i < 1000000; i++)
-        {
+    void algorithm_C(int n) {
+        for (int i = 0; i < 1000000; i++) {
             Console.WriteLine(0);
         }
     }
@@ -518,14 +511,12 @@ $$
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n)
-    {
+    void algorithm(int n) {
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
         // 循环 n 次
-        for (int i = 0; i < n; i++) // +1（每轮都执行 i ++）
-        {
+        for (int i = 0; i < n; i++) {   // +1（每轮都执行 i ++）
             Console.WriteLine(0);   // +1
         }
     }
@@ -744,20 +735,16 @@ $$
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n)
-    {
+    void algorithm(int n) {
         int a = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
         // +n（技巧 2）
-        for (int i = 0; i < 5 * n + 1; i++)
-        {
+        for (int i = 0; i < 5 * n + 1; i++) {
             Console.WriteLine(0);
         }
         // +n*n（技巧 3）
-        for (int i = 0; i < 2 * n; i++)
-        {
-            for (int j = 0; j < n + 1; j++)
-            {
+        for (int i = 0; i < 2 * n; i++) {
+            for (int j = 0; j < n + 1; j++) {
                 Console.WriteLine(0);
             }
         }

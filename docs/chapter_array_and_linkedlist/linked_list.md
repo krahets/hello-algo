@@ -111,8 +111,7 @@
 
     ```csharp title=""
     /* 链表节点类 */
-    class ListNode
-    {
+    class ListNode {
         int val;         // 节点值
         ListNode next;   // 指向下一节点的引用
         ListNode(int x) => val = x;  //构造函数

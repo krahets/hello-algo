@@ -211,10 +211,10 @@
     int pop = stack.Pop();
     
     /* 获取栈的长度 */
-    int size = stack.Count();
+    int size = stack.Count;
     
     /* 判断是否为空 */
-    bool isEmpty = stack.Count()==0;
+    bool isEmpty = stack.Count == 0;
     ```
 
 === "Swift"
