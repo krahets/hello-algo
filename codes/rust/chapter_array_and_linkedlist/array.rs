@@ -72,6 +72,7 @@ fn find(nums: &[i32], target: i32) -> Option<usize> {
 
 /* Driver Code */
 fn main() {
+    /* 初始化数组 */
     let arr = [0; 5];
     print!("数组 arr = ");
     print_util::print_array(&arr);

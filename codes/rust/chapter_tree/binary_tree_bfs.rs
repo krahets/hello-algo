@@ -1,14 +1,16 @@
-/**
+/*
  * File: binary_tree_bfs.rs
  * Created Time: 2023-04-07
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
 
+include!("../include/include.rs");
+
 use std::collections::VecDeque;
 use std::{cell::RefCell, rc::Rc};
 use tree_node::{vec_to_tree, TreeNode};
-include!("../include/include.rs");
 
+/* 层序遍历 */
 fn level_order(root: &Rc<RefCell<TreeNode>>) -> Vec<i32> {
     // 初始化队列，加入根结点
     let mut que = VecDeque::new();
@@ -16,13 +18,13 @@ fn level_order(root: &Rc<RefCell<TreeNode>>) -> Vec<i32> {
     // 初始化一个列表，用于保存遍历序列
     let mut vec = Vec::new();
 
-    while let Some(node) = que.pop_front() {                // 队列出队
-        vec.push(node.borrow().val);                        // 保存结点值
+    while let Some(node) = que.pop_front() {                 // 队列出队
+        vec.push(node.borrow().val);                         // 保存结点值
         if let Some(left) = node.borrow().left.as_ref() {
-            que.push_back(Rc::clone(left));                 // 左子结点入队
+            que.push_back(Rc::clone(left));                  // 左子结点入队
         }
         if let Some(right) = node.borrow().right.as_ref() {
-            que.push_back(Rc::clone(right));                // 右子结点入队
+            que.push_back(Rc::clone(right));                 // 右子结点入队
         };
     }
     vec

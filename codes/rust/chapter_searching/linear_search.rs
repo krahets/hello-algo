@@ -14,6 +14,7 @@
 fn linear_search_array(nums: &[i32], target: i32) -> i32 {
     // 遍历数组
     for (i, num) in nums.iter().enumerate() {
+        // 找到目标元素，返回其索引
         if num == &target {
             return i as i32;
         }
@@ -26,6 +27,7 @@ fn linear_search_array(nums: &[i32], target: i32) -> i32 {
 fn linear_search_linked_list(head: Rc<RefCell<ListNode<i32>>>, target: i32) -> Option<Rc<RefCell<ListNode<i32>>>> {
     // 找到目标节点，返回之
     if head.borrow().val == target {return Some(head)};
+    // 找到目标节点，返回之
     if let Some(node) = &head.borrow_mut().next {
         return linear_search_linked_list(node.clone(), target);
     }
