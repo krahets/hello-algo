@@ -56,7 +56,7 @@ func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNo
 enum PreorderTraversalIIITemplate {
     /* Driver Code */
     static func main() {
-        let root = TreeNode.listToTree(list: [1, 7, 3, 4, 5, 6, 7])
+        let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
         print("\n初始化二叉树")
         PrintUtil.printTree(root: root)
 
