@@ -67,15 +67,30 @@ macro_rules! op_vec {
 /// //      2   3
 /// //     / \ / \
 /// //    4   56  7
+/// 
+/// let list = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15];
+/// let root = vec_to_tree(list).unwrap();
+/// 
+/// // The resulting tree looks like:
+/// //             /——— 15
+/// //         /——— 7
+/// //     /——— 3
+/// //    |    \——— 6
+/// //    |        \——— 12
+/// // ——— 1
+/// //     \——— 2
+/// //        |    /——— 9
+/// //         \——— 4
+/// //             \——— 8
 /// ```
 pub fn vec_to_tree(list: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
-    if list.is_empty() {
+    if list.is_empty() || list[0].is_none() {
         return None;
     }
 
     let root = TreeNode::new(list[0].unwrap());
     let mut que = VecDeque::new();
-    que.push_back(Rc::clone(&root));
+    que.push_back(Some(Rc::clone(&root)));
 
     let mut index = 0;
     while let Some(node) = que.pop_front() {
@@ -83,18 +98,32 @@ pub fn vec_to_tree(list: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
         if index >= list.len() {
             break;
         }
-        if let Some(val) = list[index] {
-            node.borrow_mut().left = Some(TreeNode::new(val));
-            que.push_back(Rc::clone(&node.borrow().left.as_ref().unwrap()));
+        match node.clone() {
+            Some(node) => {
+                if let Some(val) = list[index] {
+                    node.borrow_mut().left = Some(TreeNode::new(val));
+                }
+                que.push_back(node.borrow().left.clone());
+            }
+            None => {
+                que.push_back(None);
+            }
         }
 
         index += 1;
         if index >= list.len() {
             break;
         }
-        if let Some(val) = list[index] {
-            node.borrow_mut().right = Some(TreeNode::new(val));
-            que.push_back(Rc::clone(&node.borrow().right.as_ref().unwrap()));
+        match node.clone() {
+            Some(node) => {
+                if let Some(val) = list[index] {
+                    node.borrow_mut().right = Some(TreeNode::new(val));
+                }
+                que.push_back(node.borrow().right.clone());
+            }
+            None => {
+                que.push_back(None);
+            }
         }
     }
     Some(root)
