@@ -1613,7 +1613,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
     ```swift title="avl_tree.swift"
     /* 插入节点 */
-    @discardableResult
     func insert(val: Int) {
         root = insertHelper(node: root, val: val)
     }
@@ -2067,7 +2066,6 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
     ```swift title="avl_tree.swift"
     /* 删除节点 */
-    @discardableResult
     func remove(val: Int) {
         root = removeHelper(node: root, val: val)
     }

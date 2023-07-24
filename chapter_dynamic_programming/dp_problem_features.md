@@ -104,7 +104,23 @@ $$
 === "Go"
 
     ```go title="min_cost_climbing_stairs_dp.go"
-    [class]{}-[func]{minCostClimbingStairsDP}
+    /* 爬楼梯最小代价：动态规划 */
+    func minCostClimbingStairsDP(cost []int) int {
+        n := len(cost) - 1
+        if n == 1 || n == 2 {
+            return cost[n]
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        dp := make([]int, n+1)
+        // 初始状态：预设最小子问题的解
+        dp[1] = cost[1]
+        dp[2] = cost[2]
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i := 3; i <= n; i++ {
+            dp[i] = int(math.Min(float64(dp[i-1]), float64(dp[i-2]+cost[i])))
+        }
+        return dp[n]
+    }
     ```
 
 === "JavaScript"
@@ -255,7 +271,22 @@ $$
 === "Go"
 
     ```go title="min_cost_climbing_stairs_dp.go"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
+    /* 爬楼梯最小代价：状态压缩后的动态规划 */
+    func minCostClimbingStairsDPComp(cost []int) int {
+        n := len(cost) - 1
+        if n == 1 || n == 2 {
+            return cost[n]
+        }
+        // 初始状态：预设最小子问题的解
+        a, b := cost[1], cost[2]
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i := 3; i <= n; i++ {
+            tmp := b
+            b = int(math.Min(float64(a), float64(tmp+cost[i])))
+            a = tmp
+        }
+        return b
+    }
     ```
 
 === "JavaScript"
@@ -450,7 +481,25 @@ $$
 === "Go"
 
     ```go title="climbing_stairs_constraint_dp.go"
-    [class]{}-[func]{climbingStairsConstraintDP}
+    /* 带约束爬楼梯：动态规划 */
+    func climbingStairsConstraintDP(n int) int {
+        if n == 1 || n == 2 {
+            return n
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        dp := make([][3]int, n+1)
+        // 初始状态：预设最小子问题的解
+        dp[1][1] = 1
+        dp[1][2] = 0
+        dp[2][1] = 0
+        dp[2][2] = 1
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i := 3; i <= n; i++ {
+            dp[i][1] = dp[i-1][2]
+            dp[i][2] = dp[i-2][1] + dp[i-2][2]
+        }
+        return dp[n][1] + dp[n][2]
+    }
     ```
 
 === "JavaScript"

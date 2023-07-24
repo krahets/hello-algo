@@ -1103,7 +1103,6 @@ comments: true
 
     ```swift title="binary_search_tree.swift"
     /* 删除节点 */
-    @discardableResult
     func remove(num: Int) {
         // 若树为空，直接提前返回
         if root == nil {
