@@ -218,10 +218,10 @@ comments: true
     int pop = queue.Dequeue();
     
     /* 获取队列的长度 */
-    int size = queue.Count();
+    int size = queue.Count;
     
     /* 判断队列是否为空 */
-    bool isEmpty = queue.Count() == 0;
+    bool isEmpty = queue.Count == 0;
     ```
 
 === "Swift"
@@ -471,7 +471,7 @@ comments: true
             """判断队列是否为空"""
             return not self.__front
 
-        def push(self, num: int) -> None:
+        def push(self, num: int):
             """入队"""
             # 尾节点后添加 num
             node = ListNode(num)
@@ -1272,7 +1272,7 @@ comments: true
     class ArrayQueue:
         """基于环形数组实现的队列"""
 
-        def __init__(self, size: int) -> None:
+        def __init__(self, size: int):
             """构造方法"""
             self.__nums: list[int] = [0] * size  # 用于存储队列元素的数组
             self.__front: int = 0  # 队首指针，指向队首元素
@@ -1290,7 +1290,7 @@ comments: true
             """判断队列是否为空"""
             return self.__size == 0
 
-        def push(self, num: int) -> None:
+        def push(self, num: int):
             """入队"""
             if self.__size == self.capacity():
                 raise IndexError("队列已满")

@@ -51,7 +51,7 @@ comments: true
 === "Python"
 
     ```python title="preorder_traversal_i_compact.py"
-    def pre_order(root: TreeNode) -> None:
+    def pre_order(root: TreeNode):
         """前序遍历：例题一"""
         if root is None:
             return
@@ -228,7 +228,7 @@ comments: true
 === "Python"
 
     ```python title="preorder_traversal_ii_compact.py"
-    def pre_order(root: TreeNode) -> None:
+    def pre_order(root: TreeNode):
         """前序遍历：例题二"""
         if root is None:
             return
@@ -413,12 +413,9 @@ comments: true
 
 !!! question "例题三"
 
-    在二叉树中搜索所有值为 $7$ 的节点，请返回根节点到这些节点的路径，**要求路径中只存在一个值为 $7$ 的节点，并且不允许有值为 $3$ 的节点**。
+    在二叉树中搜索所有值为 $7$ 的节点，请返回根节点到这些节点的路径，**并要求路径中不包含值为 $3$ 的节点**。
 
-在例题二的基础上添加剪枝操作，包括：
-
-- 当遇到值为 $7$ 的节点时，记录解并返回，停止搜索。
-- 当遇到值为 $3$ 的节点时，则直接返回，停止搜索。
+为了满足以上约束条件，**我们需要添加剪枝操作**：在搜索过程中，若遇到值为 $3$ 的节点，则提前返回，停止继续搜索。
 
 === "Java"
 
@@ -471,7 +468,7 @@ comments: true
 === "Python"
 
     ```python title="preorder_traversal_iii_compact.py"
-    def pre_order(root: TreeNode) -> None:
+    def pre_order(root: TreeNode):
         """前序遍历：例题三"""
         # 剪枝
         if root is None or root.val == 3:
@@ -631,30 +628,13 @@ comments: true
     [class]{}-[func]{preOrder}
     ```
 
-剪枝是一个非常形象的名词。在搜索过程中，**我们利用约束条件“剪掉”了不满足约束条件的搜索分支**，避免许多无意义的尝试，从而提升搜索效率。
+剪枝是一个非常形象的名词。在搜索过程中，**我们“剪掉”了不满足约束条件的搜索分支**，避免许多无意义的尝试，从而实现搜索效率的提高。
 
 ![根据约束条件剪枝](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
 
 <p align="center"> Fig. 根据约束条件剪枝 </p>
 
-## 13.1.3. &nbsp; 常用术语
-
-为了更清晰地分析算法问题，我们总结一下回溯算法中常用术语的含义，并对照例题三给出对应示例。
-
-| 名词                | 定义                                                                       | 例题三                                                               |
-| ------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| 解 Solution         | 解是满足问题特定条件的答案，可能有一个或多个                               | 根节点到节点 $7$ 的满足约束条件的所有路径                            |
-| 约束条件 Constraint | 约束条件是问题中限制解的可行性的条件，通常用于剪枝                         | 路径中不包含节点 $3$ ，只包含一个节点 $7$                            |
-| 状态 State          | 状态表示问题在某一时刻的情况，包括已经做出的选择                           | 当前已访问的节点路径，即 `path` 节点列表                             |
-| 尝试 Attempt        | 尝试是根据可用选择来探索解空间的过程，包括做出选择，更新状态，检查是否为解 | 递归访问左（右）子节点，将节点添加进 `path` ，判断节点的值是否为 $7$ |
-| 回退 Backtracking   | 回退指遇到不满足约束条件的状态时，撤销前面做出的选择，回到上一个状态       | 当越过叶结点、结束结点访问、遇到值为 $3$ 的节点时终止搜索，函数返回  |
-| 剪枝 Pruning        | 剪枝是根据问题特性和约束条件避免无意义的搜索路径的方法，可提高搜索效率     | 当遇到值为 $3$ 的节点时，则终止继续搜索                              |
-
-!!! tip
-
-    问题、解、状态等概念是通用的，在分治、回溯、动态规划、贪心等算法中都有涉及。
-
-## 13.1.4. &nbsp; 框架代码
+## 13.1.3. &nbsp; 框架代码
 
 接下来，我们尝试将回溯的“尝试、回退、剪枝”的主体框架提炼出来，提升代码的通用性。
 
@@ -669,6 +649,7 @@ comments: true
         if (isSolution(state)) {
             // 记录解
             recordSolution(state, res);
+            // 停止继续搜索
             return;
         }
         // 遍历所有选择
@@ -694,6 +675,7 @@ comments: true
         if (isSolution(state)) {
             // 记录解
             recordSolution(state, res);
+            // 停止继续搜索
             return;
         }
         // 遍历所有选择
@@ -713,12 +695,13 @@ comments: true
 === "Python"
 
     ```python title=""
-    def backtrack(state: State, choices: list[choice], res: list[state]) -> None:
+    def backtrack(state: State, choices: list[choice], res: list[state]):
         """回溯算法框架"""
         # 判断是否为解
         if is_solution(state):
             # 记录解
             record_solution(state, res)
+            # 停止继续搜索
             return
         # 遍历所有选择
         for choice in choices:
@@ -740,6 +723,7 @@ comments: true
         if isSolution(state) {
             // 记录解
             recordSolution(state, res)
+            // 停止继续搜索
             return
         }
         // 遍历所有选择
@@ -765,6 +749,7 @@ comments: true
         if (isSolution(state)) {
             // 记录解
             recordSolution(state, res);
+            // 停止继续搜索
             return;
         }
         // 遍历所有选择
@@ -790,6 +775,7 @@ comments: true
         if (isSolution(state)) {
             // 记录解
             recordSolution(state, res);
+            // 停止继续搜索
             return;
         }
         // 遍历所有选择
@@ -815,6 +801,7 @@ comments: true
         if (isSolution(state)) {
             // 记录解
             recordSolution(state, res, numRes);
+            // 停止继续搜索
             return;
         }
         // 遍历所有选择
@@ -840,6 +827,7 @@ comments: true
         if (isSolution(state)) {
             // 记录解
             recordSolution(state, res);
+            // 停止继续搜索
             return;
         }
         // 遍历所有选择
@@ -865,6 +853,7 @@ comments: true
         if isSolution(state: state) {
             // 记录解
             recordSolution(state: state, res: &res)
+            // 停止继续搜索
             return
         }
         // 遍历所有选择
@@ -896,6 +885,7 @@ comments: true
       if (isSolution(state)) {
         // 记录解
         recordSolution(state, res);
+        // 停止继续搜索
         return;
       }
       // 遍历所有选择
@@ -912,7 +902,7 @@ comments: true
     }
     ```
 
-下面，我们基于框架代码来解决例题三：状态 `state` 为节点遍历路径，选择 `choices` 为当前节点的左子节点和右子节点，结果 `res` 是路径列表。
+接下来，我们基于框架代码来解决例题三。状态 `state` 为节点遍历路径，选择 `choices` 为当前节点的左子节点和右子节点，结果 `res` 是路径列表。
 
 === "Java"
 
@@ -948,7 +938,6 @@ comments: true
         if (isSolution(state)) {
             // 记录解
             recordSolution(state, res);
-            return;
         }
         // 遍历所有选择
         for (TreeNode choice : choices) {
@@ -999,7 +988,6 @@ comments: true
         if (isSolution(state)) {
             // 记录解
             recordSolution(state, res);
-            return;
         }
         // 遍历所有选择
         for (TreeNode *choice : choices) {
@@ -1048,7 +1036,6 @@ comments: true
         if is_solution(state):
             # 记录解
             record_solution(state, res)
-            return
         # 遍历所有选择
         for choice in choices:
             # 剪枝：检查选择是否合法
@@ -1148,7 +1135,6 @@ comments: true
         if (isSolution(state)) {
             // 记录解
             recordSolution(state, res);
-            return;
         }
         // 遍历所有选择
         for (const choice of choices) {
@@ -1203,7 +1189,6 @@ comments: true
         if (isSolution(state)) {
             // 记录解
             recordSolution(state, res);
-            return;
         }
         // 遍历所有选择
         for (const choice of choices) {
@@ -1270,7 +1255,6 @@ comments: true
         if (isSolution(state)) {
             // 记录解
             recordSolution(state, res);
-            return;
         }
         // 遍历所有选择
         foreach (TreeNode choice in choices) {
@@ -1320,7 +1304,6 @@ comments: true
         // 检查是否为解
         if isSolution(state: state) {
             recordSolution(state: state, res: &res)
-            return
         }
         // 遍历所有选择
         for choice in choices {
@@ -1369,7 +1352,30 @@ comments: true
     [class]{}-[func]{backtrack}
     ```
 
-相比基于前序遍历的代码实现，基于回溯算法框架的代码实现虽然显得啰嗦，但通用性更好。实际上，**许多回溯问题都可以在该框架下解决**。我们只需根据具体问题来定义 `state` 和 `choices` ，并实现框架中的各个方法。
+根据题意，当找到值为 7 的节点后应该继续搜索，**因此我们需要将记录解之后的 `return` 语句删除**。下图对比了保留或删除 `return` 语句的搜索过程。
+
+![保留与删除 return 的搜索过程对比](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
+
+<p align="center"> Fig. 保留与删除 return 的搜索过程对比 </p>
+
+相比基于前序遍历的代码实现，基于回溯算法框架的代码实现虽然显得啰嗦，但通用性更好。实际上，**许多回溯问题都可以在该框架下解决**。我们只需根据具体问题来定义 `state` 和 `choices` ，并实现框架中的各个方法即可。
+
+## 13.1.4. &nbsp; 常用术语
+
+为了更清晰地分析算法问题，我们总结一下回溯算法中常用术语的含义，并对照例题三给出对应示例。
+
+| 名词                | 定义                                                                       | 例题三                                                               |
+| ------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| 解 Solution         | 解是满足问题特定条件的答案，可能有一个或多个                               | 根节点到节点 $7$ 的满足约束条件的所有路径                            |
+| 约束条件 Constraint | 约束条件是问题中限制解的可行性的条件，通常用于剪枝                         | 路径中不包含节点 $3$ ，只包含一个节点 $7$                            |
+| 状态 State          | 状态表示问题在某一时刻的情况，包括已经做出的选择                           | 当前已访问的节点路径，即 `path` 节点列表                             |
+| 尝试 Attempt        | 尝试是根据可用选择来探索解空间的过程，包括做出选择，更新状态，检查是否为解 | 递归访问左（右）子节点，将节点添加进 `path` ，判断节点的值是否为 $7$ |
+| 回退 Backtracking   | 回退指遇到不满足约束条件的状态时，撤销前面做出的选择，回到上一个状态       | 当越过叶结点、结束结点访问、遇到值为 $3$ 的节点时终止搜索，函数返回  |
+| 剪枝 Pruning        | 剪枝是根据问题特性和约束条件避免无意义的搜索路径的方法，可提高搜索效率     | 当遇到值为 $3$ 的节点时，则终止继续搜索                              |
+
+!!! tip
+
+    问题、解、状态等概念是通用的，在分治、回溯、动态规划、贪心等算法中都有涉及。
 
 ## 13.1.5. &nbsp; 优势与局限性
 

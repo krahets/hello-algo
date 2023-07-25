@@ -75,7 +75,7 @@ comments: true
 === "Python"
 
     ```python title="counting_sort.py"
-    def counting_sort_naive(nums: list[int]) -> None:
+    def counting_sort_naive(nums: list[int]):
         """计数排序"""
         # 简单实现，无法用于排序对象
         # 1. 统计数组最大元素 m
@@ -416,7 +416,7 @@ $$
 === "Python"
 
     ```python title="counting_sort.py"
-    def counting_sort(nums: list[int]) -> None:
+    def counting_sort(nums: list[int]):
         """计数排序"""
         # 完整实现，可排序对象，并且是稳定排序
         # 1. 统计数组最大元素 m

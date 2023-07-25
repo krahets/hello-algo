@@ -217,10 +217,10 @@ comments: true
     int pop = stack.Pop();
     
     /* 获取栈的长度 */
-    int size = stack.Count();
+    int size = stack.Count;
     
     /* 判断是否为空 */
-    bool isEmpty = stack.Count()==0;
+    bool isEmpty = stack.Count == 0;
     ```
 
 === "Swift"
@@ -451,7 +451,7 @@ comments: true
             """判断栈是否为空"""
             return not self.__peek
 
-        def push(self, val: int) -> None:
+        def push(self, val: int):
             """入栈"""
             node = ListNode(val)
             node.next = self.__peek
@@ -1102,7 +1102,7 @@ comments: true
     class ArrayStack:
         """基于数组实现的栈"""
 
-        def __init__(self) -> None:
+        def __init__(self):
             """构造方法"""
             self.__stack: list[int] = []
 
@@ -1114,7 +1114,7 @@ comments: true
             """判断栈是否为空"""
             return self.__stack == []
 
-        def push(self, item: int) -> None:
+        def push(self, item: int):
             """入栈"""
             self.__stack.append(item)
 

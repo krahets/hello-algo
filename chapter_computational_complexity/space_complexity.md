@@ -206,22 +206,19 @@ comments: true
 
     ```csharp title=""
     /* 类 */
-    class Node
-    {
+    class Node {
         int val;
         Node next;
         Node(int x) { val = x; }
     }
 
     /* 函数 */
-    int function()
-    {
+    int function() {
         // do something...
         return 0;
     }
 
-    int algorithm(int n)          // 输入数据
-    {
+    int algorithm(int n) {        // 输入数据
         const int a = 0;          // 暂存数据（常量）
         int b = 0;                // 暂存数据（变量）
         Node node = new Node(0);  // 暂存数据（对象）
@@ -323,7 +320,7 @@ comments: true
 === "Python"
 
     ```python title=""
-    def algorithm(n: int) -> None:
+    def algorithm(n: int):
         a = 0               # O(1)
         b = [0] * 10000     # O(1)
         if n > 10:
@@ -382,12 +379,10 @@ comments: true
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n)
-    {
+    void algorithm(int n) {
         int a = 0;                   // O(1)
         int[] b = new int[10000];    // O(1)
-        if (n > 10)
-        {
+        if (n > 10) {
             int[] nums = new int[n]; // O(n)
         }
     }
@@ -472,7 +467,7 @@ comments: true
         # do something
         return 0
 
-    def loop(n: int) -> None:
+    def loop(n: int):
         """循环 O(1)"""
         for _ in range(n):
             function()
@@ -570,22 +565,18 @@ comments: true
 === "C#"
 
     ```csharp title=""
-    int function()
-    {
+    int function() {
         // do something
         return 0;
     }
     /* 循环 O(1) */
-    void loop(int n)
-    {
-        for (int i = 0; i < n; i++)
-        {
+    void loop(int n) {
+        for (int i = 0; i < n; i++) {
             function();
         }
     }
     /* 递归 O(n) */
-    int recur(int n)
-    {
+    int recur(int n) {
         if (n == 1) return 1;
         return recur(n - 1);
     }
@@ -712,7 +703,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    def constant(n: int) -> None:
+    def constant(n: int):
         """常数阶"""
         # 常量、变量、对象占用 O(1) 空间
         a = 0
@@ -951,7 +942,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    def linear(n: int) -> None:
+    def linear(n: int):
         """线性阶"""
         # 长度为 n 的列表占用 O(n) 空间
         nums = [0] * n
@@ -1178,7 +1169,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    def linear_recur(n: int) -> None:
+    def linear_recur(n: int):
         """线性阶（递归实现）"""
         print("递归 n =", n)
         if n == 1:
@@ -1326,7 +1317,7 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    def quadratic(n: int) -> None:
+    def quadratic(n: int):
         """平方阶"""
         # 二维列表占用 O(n^2) 空间
         num_matrix = [[0] * n for _ in range(n)]
@@ -1568,8 +1559,9 @@ $$
             return 0;
         int *nums = malloc(sizeof(int) * n);
         printf("递归 n = %d 中的 nums 长度 = %d\r\n", n, n);
+        int res = quadraticRecur(n - 1)
         free(nums);
-        return quadraticRecur(n - 1);
+        return res;
     }
     ```
 

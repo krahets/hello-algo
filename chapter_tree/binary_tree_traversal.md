@@ -385,7 +385,7 @@ comments: true
 === "Python"
 
     ```python title="binary_tree_dfs.py"
-    def pre_order(root: TreeNode | None) -> None:
+    def pre_order(root: TreeNode | None):
         """前序遍历"""
         if root is None:
             return
@@ -394,7 +394,7 @@ comments: true
         pre_order(root=root.left)
         pre_order(root=root.right)
 
-    def in_order(root: TreeNode | None) -> None:
+    def in_order(root: TreeNode | None):
         """中序遍历"""
         if root is None:
             return
@@ -403,7 +403,7 @@ comments: true
         res.append(root.val)
         in_order(root=root.right)
 
-    def post_order(root: TreeNode | None) -> None:
+    def post_order(root: TreeNode | None):
         """后序遍历"""
         if root is None:
             return

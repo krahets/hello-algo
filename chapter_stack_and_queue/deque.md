@@ -625,7 +625,7 @@ comments: true
     class ListNode:
         """双向链表节点"""
 
-        def __init__(self, val: int) -> None:
+        def __init__(self, val: int):
             """构造方法"""
             self.val: int = val
             self.next: ListNode | None = None  # 后继节点引用（指针）
@@ -634,7 +634,7 @@ comments: true
     class LinkedListDeque:
         """基于双向链表实现的双向队列"""
 
-        def __init__(self) -> None:
+        def __init__(self):
             """构造方法"""
             self.front: ListNode | None = None  # 头节点 front
             self.rear: ListNode | None = None  # 尾节点 rear
@@ -648,7 +648,7 @@ comments: true
             """判断双向队列是否为空"""
             return self.size() == 0
 
-        def push(self, num: int, is_front: bool) -> None:
+        def push(self, num: int, is_front: bool):
             """入队操作"""
             node = ListNode(num)
             # 若链表为空，则令 front, rear 都指向 node
@@ -668,11 +668,11 @@ comments: true
                 self.rear = node  # 更新尾节点
             self.__size += 1  # 更新队列长度
 
-        def push_first(self, num: int) -> None:
+        def push_first(self, num: int):
             """队首入队"""
             self.push(num, True)
 
-        def push_last(self, num: int) -> None:
+        def push_last(self, num: int):
             """队尾入队"""
             self.push(num, False)
 
@@ -2042,7 +2042,7 @@ comments: true
     class ArrayDeque:
         """基于环形数组实现的双向队列"""
 
-        def __init__(self, capacity: int) -> None:
+        def __init__(self, capacity: int):
             """构造方法"""
             self.__nums: list[int] = [0] * capacity
             self.__front: int = 0
@@ -2067,7 +2067,7 @@ comments: true
             # 当 i 越过数组头部后，回到尾部
             return (i + self.capacity()) % self.capacity()
 
-        def push_first(self, num: int) -> None:
+        def push_first(self, num: int):
             """队首入队"""
             if self.__size == self.capacity():
                 print("双向队列已满")
@@ -2079,7 +2079,7 @@ comments: true
             self.__nums[self.__front] = num
             self.__size += 1
 
-        def push_last(self, num: int) -> None:
+        def push_last(self, num: int):
             """队尾入队"""
             if self.__size == self.capacity():
                 print("双向队列已满")

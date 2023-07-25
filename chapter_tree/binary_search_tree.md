@@ -349,7 +349,7 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
-    def insert(self, num: int) -> None:
+    def insert(self, num: int):
         """插入节点"""
         # 若树为空，直接提前返回
         if self.root is None:
@@ -769,7 +769,7 @@ comments: true
 === "Python"
 
     ```python title="binary_search_tree.py"
-    def remove(self, num: int) -> None:
+    def remove(self, num: int):
         """删除节点"""
         # 若树为空，直接提前返回
         if self.root is None:

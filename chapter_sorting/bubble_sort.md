@@ -84,7 +84,7 @@ comments: true
 === "Python"
 
     ```python title="bubble_sort.py"
-    def bubble_sort(nums: list[int]) -> None:
+    def bubble_sort(nums: list[int]):
         """冒泡排序"""
         n = len(nums)
         # 外循环：未排序区间为 [0, i]
@@ -311,7 +311,7 @@ comments: true
 === "Python"
 
     ```python title="bubble_sort.py"
-    def bubble_sort_with_flag(nums: list[int]) -> None:
+    def bubble_sort_with_flag(nums: list[int]):
         """冒泡排序（标志优化）"""
         n = len(nums)
         # 外循环：未排序区间为 [0, i]

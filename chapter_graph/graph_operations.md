@@ -221,7 +221,7 @@ comments: true
         # 邻接矩阵，行列索引对应“顶点索引”
         adj_mat: list[list[int]] = []
 
-        def __init__(self, vertices: list[int], edges: list[list[int]]) -> None:
+        def __init__(self, vertices: list[int], edges: list[list[int]]):
             """构造方法"""
             self.vertices: list[int] = []
             self.adj_mat: list[list[int]] = []
@@ -237,7 +237,7 @@ comments: true
             """获取顶点数量"""
             return len(self.vertices)
 
-        def add_vertex(self, val: int) -> None:
+        def add_vertex(self, val: int):
             """添加顶点"""
             n = self.size()
             # 向顶点列表中添加新顶点的值
@@ -249,7 +249,7 @@ comments: true
             for row in self.adj_mat:
                 row.append(0)
 
-        def remove_vertex(self, index: int) -> None:
+        def remove_vertex(self, index: int):
             """删除顶点"""
             if index >= self.size():
                 raise IndexError()
@@ -261,7 +261,7 @@ comments: true
             for row in self.adj_mat:
                 row.pop(index)
 
-        def add_edge(self, i: int, j: int) -> None:
+        def add_edge(self, i: int, j: int):
             """添加边"""
             # 参数 i, j 对应 vertices 元素索引
             # 索引越界与相等处理
@@ -271,7 +271,7 @@ comments: true
             self.adj_mat[i][j] = 1
             self.adj_mat[j][i] = 1
 
-        def remove_edge(self, i: int, j: int) -> None:
+        def remove_edge(self, i: int, j: int):
             """删除边"""
             # 参数 i, j 对应 vertices 元素索引
             # 索引越界与相等处理
@@ -280,7 +280,7 @@ comments: true
             self.adj_mat[i][j] = 0
             self.adj_mat[j][i] = 0
 
-        def print(self) -> None:
+        def print(self):
             """打印邻接矩阵"""
             print("顶点列表 =", self.vertices)
             print("邻接矩阵 =")
@@ -1218,7 +1218,7 @@ comments: true
     class GraphAdjList:
         """基于邻接表实现的无向图类"""
 
-        def __init__(self, edges: list[list[Vertex]]) -> None:
+        def __init__(self, edges: list[list[Vertex]]):
             """构造方法"""
             # 邻接表，key: 顶点，value：该顶点的所有邻接顶点
             self.adj_list = dict[Vertex, Vertex]()
@@ -1232,7 +1232,7 @@ comments: true
             """获取顶点数量"""
             return len(self.adj_list)
 
-        def add_edge(self, vet1: Vertex, vet2: Vertex) -> None:
+        def add_edge(self, vet1: Vertex, vet2: Vertex):
             """添加边"""
             if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
                 raise ValueError()
@@ -1240,7 +1240,7 @@ comments: true
             self.adj_list[vet1].append(vet2)
             self.adj_list[vet2].append(vet1)
 
-        def remove_edge(self, vet1: Vertex, vet2: Vertex) -> None:
+        def remove_edge(self, vet1: Vertex, vet2: Vertex):
             """删除边"""
             if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
                 raise ValueError()
@@ -1248,14 +1248,14 @@ comments: true
             self.adj_list[vet1].remove(vet2)
             self.adj_list[vet2].remove(vet1)
 
-        def add_vertex(self, vet: Vertex) -> None:
+        def add_vertex(self, vet: Vertex):
             """添加顶点"""
             if vet in self.adj_list:
                 return
             # 在邻接表中添加一个新链表
             self.adj_list[vet] = []
 
-        def remove_vertex(self, vet: Vertex) -> None:
+        def remove_vertex(self, vet: Vertex):
             """删除顶点"""
             if vet not in self.adj_list:
                 raise ValueError()
@@ -1266,7 +1266,7 @@ comments: true
                 if vet in self.adj_list[vertex]:
                     self.adj_list[vertex].remove(vet)
 
-        def print(self) -> None:
+        def print(self):
             """打印邻接表"""
             print("邻接表 =")
             for vertex in self.adj_list:

@@ -52,7 +52,7 @@ $$
 
     ```python title=""
     # 在某运行平台下
-    def algorithm(n: int) -> None:
+    def algorithm(n: int):
         a = 2      # 1 ns
         a = a + 1  # 1 ns
         a = a * 2  # 10 ns
@@ -66,12 +66,12 @@ $$
     ```go title=""
     // 在某运行平台下
     func algorithm(n int) {
-        a := 2      // 1 ns
-        a = a + 1   // 1 ns
-        a = a * 2   // 10 ns
+        a := 2     // 1 ns
+        a = a + 1  // 1 ns
+        a = a * 2  // 10 ns
         // 循环 n 次
-        for i := 0; i < n; i++ {    // 1 ns
-            fmt.Println(a)          // 5 ns
+        for i := 0; i < n; i++ {  // 1 ns
+            fmt.Println(a)        // 5 ns
         }
     }
     ```
@@ -125,15 +125,13 @@ $$
 
     ```csharp title=""
     // 在某运行平台下
-    void algorithm(int n)
-    {
+    void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
         // 循环 n 次
-        for (int i = 0; i < n; i++)
-        {  // 1 ns ，每轮都要执行 i++
-            Console.WriteLine(0);     // 5 ns
+        for (int i = 0; i < n; i++) {  // 1 ns ，每轮都要执行 i++
+            Console.WriteLine(0);      // 5 ns
         }
     }
     ```
@@ -232,14 +230,14 @@ $$
 
     ```python title=""
     # 算法 A 时间复杂度：常数阶
-    def algorithm_A(n: int) -> None:
+    def algorithm_A(n: int):
         print(0)
     # 算法 B 时间复杂度：线性阶
-    def algorithm_B(n: int) -> None:
+    def algorithm_B(n: int):
         for _ in range(n):
             print(0)
     # 算法 C 时间复杂度：常数阶
-    def algorithm_C(n: int) -> None:
+    def algorithm_C(n: int):
         for _ in range(1000000):
             print(0)
     ```
@@ -333,23 +331,18 @@ $$
 
     ```csharp title=""
     // 算法 A 时间复杂度：常数阶
-    void algorithm_A(int n)
-    {
+    void algorithm_A(int n) {
         Console.WriteLine(0);
     }
     // 算法 B 时间复杂度：线性阶
-    void algorithm_B(int n)
-    {
-        for (int i = 0; i < n; i++)
-        {
+    void algorithm_B(int n) {
+        for (int i = 0; i < n; i++) {
             Console.WriteLine(0);
         }
     }
     // 算法 C 时间复杂度：常数阶
-    void algorithm_C(int n)
-    {
-        for (int i = 0; i < 1000000; i++)
-        {
+    void algorithm_C(int n) {
+        for (int i = 0; i < 1000000; i++) {
             Console.WriteLine(0);
         }
     }
@@ -456,7 +449,7 @@ $$
 === "Python"
 
     ```python title=""
-    def algorithm(n: int) -> None:
+    def algorithm(n: int):
         a = 1      # +1
         a = a + 1  # +1
         a = a * 2  # +1
@@ -524,14 +517,12 @@ $$
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n)
-    {
+    void algorithm(int n) {
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
         // 循环 n 次
-        for (int i = 0; i < n; i++) // +1（每轮都执行 i ++）
-        {
+        for (int i = 0; i < n; i++) {   // +1（每轮都执行 i ++）
             Console.WriteLine(0);   // +1
         }
     }
@@ -661,7 +652,7 @@ $$
 === "Python"
 
     ```python title=""
-    def algorithm(n: int) -> None:
+    def algorithm(n: int):
         a = 1      # +0（技巧 1）
         a = a + n  # +0（技巧 1）
         # +n（技巧 2）
@@ -752,20 +743,16 @@ $$
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n)
-    {
+    void algorithm(int n) {
         int a = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
         // +n（技巧 2）
-        for (int i = 0; i < 5 * n + 1; i++)
-        {
+        for (int i = 0; i < 5 * n + 1; i++) {
             Console.WriteLine(0);
         }
         // +n*n（技巧 3）
-        for (int i = 0; i < 2 * n; i++)
-        {
-            for (int j = 0; j < n + 1; j++)
-            {
+        for (int i = 0; i < 2 * n; i++) {
+            for (int j = 0; j < n + 1; j++) {
                 Console.WriteLine(0);
             }
         }
@@ -1662,9 +1649,7 @@ $$
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
+                    (nums[j + 1], nums[j]) = (nums[j], nums[j + 1]);
                     count += 3;  // 元素交换包含 3 个单元操作
                 }
             }

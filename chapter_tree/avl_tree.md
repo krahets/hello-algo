@@ -1448,7 +1448,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 === "Python"
 
     ```python title="avl_tree.py"
-    def insert(self, val) -> None:
+    def insert(self, val):
         """插入节点"""
         self.root = self.__insert_helper(self.root, val)
 
@@ -1797,7 +1797,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 === "Python"
 
     ```python title="avl_tree.py"
-    def remove(self, val: int) -> None:
+    def remove(self, val: int):
         """删除节点"""
         self.root = self.__remove_helper(self.root, val)
 

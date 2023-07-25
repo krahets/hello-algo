@@ -152,7 +152,7 @@ comments: true
                     return new int[] { i, j };
             }
         }
-        return new int[0];
+        return Array.Empty<int>();
     }
     ```
 
@@ -402,7 +402,7 @@ comments: true
             }
             dic.Add(nums[i], i);
         }
-        return new int[0];
+        return Array.Empty<int>();
     }
     ```
 

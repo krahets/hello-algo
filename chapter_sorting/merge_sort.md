@@ -146,7 +146,7 @@ comments: true
 === "Python"
 
     ```python title="merge_sort.py"
-    def merge(nums: list[int], left: int, mid: int, right: int) -> None:
+    def merge(nums: list[int], left: int, mid: int, right: int):
         """合并左子数组和右子数组"""
         # 左子数组区间 [left, mid]
         # 右子数组区间 [mid + 1, right]
@@ -176,7 +176,7 @@ comments: true
                 nums[k] = tmp[j]
                 j += 1
 
-    def merge_sort(nums: list[int], left: int, right: int) -> None:
+    def merge_sort(nums: list[int], left: int, right: int):
         """归并排序"""
         # 终止条件
         if left >= right:

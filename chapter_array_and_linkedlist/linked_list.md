@@ -117,8 +117,7 @@ comments: true
 
     ```csharp title=""
     /* 链表节点类 */
-    class ListNode
-    {
+    class ListNode {
         int val;         // 节点值
         ListNode next;   // 指向下一节点的引用
         ListNode(int x) => val = x;  //构造函数
@@ -400,7 +399,7 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    def insert(n0: ListNode, P: ListNode) -> None:
+    def insert(n0: ListNode, P: ListNode):
         """在链表的节点 n0 之后插入节点 P"""
         n1 = n0.next
         P.next = n1
@@ -534,7 +533,7 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    def remove(n0: ListNode) -> None:
+    def remove(n0: ListNode):
         """删除链表的节点 n0 之后的首个节点"""
         if not n0.next:
             return

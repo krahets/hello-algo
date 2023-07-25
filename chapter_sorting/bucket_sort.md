@@ -86,7 +86,7 @@ comments: true
 === "Python"
 
     ```python title="bucket_sort.py"
-    def bucket_sort(nums: list[float]) -> None:
+    def bucket_sort(nums: list[float]):
         """桶排序"""
         # 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
         k = len(nums) // 2
