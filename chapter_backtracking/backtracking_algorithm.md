@@ -1082,7 +1082,6 @@ comments: true
         if isSolution(state) {
             // 记录解
             recordSolution(state, res)
-            return
         }
         // 遍历所有选择
         for _, choice := range *choices {
