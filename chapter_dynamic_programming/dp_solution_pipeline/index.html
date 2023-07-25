@@ -3456,22 +3456,22 @@
 <li>求解动态规划问题该从何处入手，完整步骤是什么？</li>
 </ol>
 <h2 id="1431">14.3.1. &nbsp; 问题判断<a class="headerlink" href="#1431" title="Permanent link">&para;</a></h2>
-<p>总的来说，如果一个问题包含重叠子问题、最优子结构，并满足无后效性，那么它通常就适合用动态规划求解，但我们很难从问题描述上直接提取出这些特性。因此我们通常会放宽条件，<strong>先观察问题是否适合使用回溯（穷举）解决</strong>。</p>
+<p>总的来说，如果一个问题包含重叠子问题、最优子结构，并满足无后效性，那么它通常就适合用动态规划求解。然而，我们很难从问题描述上直接提取出这些特性。因此我们通常会放宽条件，<strong>先观察问题是否适合使用回溯（穷举）解决</strong>。</p>
 <p><strong>适合用回溯解决的问题通常满足“决策树模型”</strong>，这种问题可以使用树形结构来描述，其中每一个节点代表一个决策，每一条路径代表一个决策序列。</p>
 <p>换句话说，如果问题包含明确的决策概念，并且解是通过一系列决策产生的，那么它就满足决策树模型，通常可以使用回溯来解决。</p>
-<p>在此基础上，还有一些判断问题是动态规划问题的“加分项”，包括：</p>
+<p>在此基础上，还有一些动态规划问题的“加分项”，包括：</p>
 <ul>
-<li>问题包含最大（小）或最多（少）等最优化描述；</li>
-<li>问题的状态能够使用一个列表、多维矩阵或树来表示，并且一个状态与其周围的状态存在某种递推关系；</li>
+<li>问题包含最大（小）或最多（少）等最优化描述。</li>
+<li>问题的状态能够使用一个列表、多维矩阵或树来表示，并且一个状态与其周围的状态存在递推关系。</li>
 </ul>
 <p>而相应的“减分项”包括：</p>
 <ul>
 <li>问题的目标是找出所有可能的解决方案，而不是找出最优解。</li>
 <li>问题描述中有明显的排列组合的特征，需要返回具体的多个方案。</li>
 </ul>
-<p>如果一个问题满足决策树模型，并具有较为明显的“加分项“，我们就可以假设它是一个动态规划问题，并尝试求解它。</p>
+<p>如果一个问题满足决策树模型，并具有较为明显的“加分项“，我们就可以假设它是一个动态规划问题，并在求解过程中验证它。</p>
 <h2 id="1432">14.3.2. &nbsp; 问题求解步骤<a class="headerlink" href="#1432" title="Permanent link">&para;</a></h2>
-<p>动态规划的解题流程可能会因问题的性质和难度而有所不同，但通常遵循以下步骤：描述决策，定义状态，建立 <span class="arithmatex">\(dp\)</span> 表，推导状态转移方程，确定边界条件等。</p>
+<p>动态规划的解题流程会因问题的性质和难度而有所不同，但通常遵循以下步骤：描述决策，定义状态，建立 <span class="arithmatex">\(dp\)</span> 表，推导状态转移方程，确定边界条件等。</p>
 <p>为了更形象地展示解题步骤，我们使用一个经典问题「最小路径和」来举例。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
@@ -3490,8 +3490,8 @@
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>动态规划和回溯通常都会被描述为一个决策序列，而状态通常由所有决策变量构成。它应当包含描述解题进度的所有变量，其包含了足够的信息，能够用来推导出下一个状态。</p>
-<p>每个状态都对应一个子问题，我们会定义一个 <span class="arithmatex">\(dp\)</span> 表来存储所有子问题的解，状态的每个独立变量都是 <span class="arithmatex">\(dp\)</span> 表的一个维度。本质上看，<span class="arithmatex">\(dp\)</span> 表是子问题的解和状态之间的映射。</p>
+<p>动态规划和回溯过程可以被描述为一个决策序列，而状态由所有决策变量构成。它应当包含描述解题进度的所有变量，其包含了足够的信息，能够用来推导出下一个状态。</p>
+<p>每个状态都对应一个子问题，我们会定义一个 <span class="arithmatex">\(dp\)</span> 表来存储所有子问题的解，状态的每个独立变量都是 <span class="arithmatex">\(dp\)</span> 表的一个维度。本质上看，<span class="arithmatex">\(dp\)</span> 表是状态和子问题的解之间的映射。</p>
 </div>
 <p><strong>第二步：找出最优子结构，进而推导出状态转移方程</strong></p>
 <p>对于状态 <span class="arithmatex">\([i, j]\)</span> ，它只能从上边格子 <span class="arithmatex">\([i-1, j]\)</span> 和左边格子 <span class="arithmatex">\([i, j-1]\)</span> 转移而来。因此最优子结构为：到达 <span class="arithmatex">\([i, j]\)</span> 的最小路径和由 <span class="arithmatex">\([i, j-1]\)</span> 的最小路径和与 <span class="arithmatex">\([i-1, j]\)</span> 的最小路径和，这两者较小的那一个决定。</p>
@@ -3504,24 +3504,26 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>基于定义好的 <span class="arithmatex">\(dp\)</span> 表，我们思考原问题和子问题的关系，找出如何通过子问题的解来构造原问题的解。</p>
-<p>最优子结构揭示了原问题和子问题的递推关系，一旦我们找到了最优子结构，就可以使用它来构建出状态转移方程。</p>
+<p>根据定义好的 <span class="arithmatex">\(dp\)</span> 表，思考原问题和子问题的关系，找出通过子问题的最优解来构造原问题的最优解的方法，即最优子结构。</p>
+<p>一旦我们找到了最优子结构，就可以使用它来构建出状态转移方程。</p>
 </div>
 <p><strong>第三步：确定边界条件和状态转移顺序</strong></p>
-<p>在本题中，当 <span class="arithmatex">\(i=0\)</span> 或 <span class="arithmatex">\(j=0\)</span> 时只有一种可能的路径，即只能向右移动或只能向下移动，因此首行和首列是边界条件。</p>
-<p>每个格子是由其左方格子和上方格子转移而来，因此我们使用两层循环来遍历矩阵即可，即外循环正序遍历各行、内循环正序遍历各列。</p>
+<p>在本题中，处在首行的状态只能向右转移，首列状态只能向下转移，因此首行 <span class="arithmatex">\(i = 0\)</span> 和首列 <span class="arithmatex">\(j = 0\)</span> 是边界条件。</p>
+<p>每个格子是由其左方格子和上方格子转移而来，因此我们使用采用循环来遍历矩阵，外循环遍历各行、内循环遍历各列。</p>
 <p><img alt="边界条件与状态转移顺序" src="../dp_solution_pipeline.assets/min_path_sum_solution_step3.png" /></p>
 <p align="center"> Fig. 边界条件与状态转移顺序 </p>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>边界条件即初始状态，在搜索中用于剪枝，在动态规划中用于初始化 <span class="arithmatex">\(dp\)</span> 表。状态转移顺序的核心是要保证在计算当前问题时，所有它依赖的更小子问题都已经被正确地计算出来。</p>
+<p>边界条件在动态规划中用于初始化 <span class="arithmatex">\(dp\)</span> 表，在搜索中用于剪枝。</p>
+<p>状态转移顺序的核心是要保证在计算当前问题的解时，所有它依赖的更小子问题的解都已经被正确地计算出来。</p>
 </div>
-<p>接下来，我们就可以实现动态规划代码了。然而，由于子问题分解是一种从顶至底的思想，因此按照“暴力搜索 <span class="arithmatex">\(\rightarrow\)</span> 记忆化搜索 <span class="arithmatex">\(\rightarrow\)</span> 动态规划”的顺序实现更加符合思维习惯。</p>
+<p>根据以上分析，我们已经可以直接写出动态规划代码。然而子问题分解是一种从顶至底的思想，因此按照“暴力搜索 <span class="arithmatex">\(\rightarrow\)</span> 记忆化搜索 <span class="arithmatex">\(\rightarrow\)</span> 动态规划”的顺序实现更加符合思维习惯。</p>
 <h3 id="_1">方法一：暴力搜索<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>从状态 <span class="arithmatex">\([i, j]\)</span> 开始搜索，不断分解为更小的状态 <span class="arithmatex">\([i-1, j]\)</span> 和 <span class="arithmatex">\([i, j-1]\)</span> ，包括以下递归要素：</p>
 <ul>
-<li><strong>递归参数</strong>：状态 <span class="arithmatex">\([i, j]\)</span> ；<strong>返回值</strong>：从 <span class="arithmatex">\([0, 0]\)</span> 到 <span class="arithmatex">\([i, j]\)</span> 的最小路径和 <span class="arithmatex">\(dp[i, j]\)</span> ；</li>
+<li><strong>递归参数</strong>：状态 <span class="arithmatex">\([i, j]\)</span> ；</li>
+<li><strong>返回值</strong>：从 <span class="arithmatex">\([0, 0]\)</span> 到 <span class="arithmatex">\([i, j]\)</span> 的最小路径和 <span class="arithmatex">\(dp[i, j]\)</span> ；</li>
 <li><strong>终止条件</strong>：当 <span class="arithmatex">\(i = 0\)</span> 且 <span class="arithmatex">\(j = 0\)</span> 时，返回代价 <span class="arithmatex">\(grid[0, 0]\)</span> ；</li>
 <li><strong>剪枝</strong>：当 <span class="arithmatex">\(i &lt; 0\)</span> 时或 <span class="arithmatex">\(j &lt; 0\)</span> 时索引越界，此时返回代价 <span class="arithmatex">\(+\infty\)</span> ，代表不可行；</li>
 </ul>
@@ -3675,14 +3677,14 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 </div>
 </div>
-<p>我们尝试画出以 <span class="arithmatex">\(dp[2, 1]\)</span> 为根节点的递归树。观察下图，递归树包含一些重叠子问题，其数量会随着网格 <code>grid</code> 的尺寸变大而急剧增多。</p>
-<p>直观上看，<strong>存在多条路径可以从左上角到达同一单元格</strong>，这便是该问题存在重叠子问题的内在原因。</p>
+<p>下图给出了以 <span class="arithmatex">\(dp[2, 1]\)</span> 为根节点的递归树，其中包含一些重叠子问题，其数量会随着网格 <code>grid</code> 的尺寸变大而急剧增多。</p>
+<p>本质上看，造成重叠子问题的原因为：<strong>存在多条路径可以从左上角到达某一单元格</strong>。</p>
 <p><img alt="暴力搜索递归树" src="../dp_solution_pipeline.assets/min_path_sum_dfs.png" /></p>
 <p align="center"> Fig. 暴力搜索递归树 </p>
 
 <p>每个状态都有向下和向右两种选择，从左上角走到右下角总共需要 <span class="arithmatex">\(m + n - 2\)</span> 步，所以最差时间复杂度为 <span class="arithmatex">\(O(2^{m + n})\)</span> 。请注意，这种计算方式未考虑临近网格边界的情况，当到达网络边界时只剩下一种选择。因此实际的路径数量会少一些。</p>
 <h3 id="_2">方法二：记忆化搜索<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>为了避免重复计算重叠子问题，我们引入一个和网格 <code>grid</code> 相同尺寸的记忆列表 <code>mem</code> ，用于记录各个子问题的解，提升搜索效率。</p>
+<p>我们引入一个和网格 <code>grid</code> 相同尺寸的记忆列表 <code>mem</code> ，用于记录各个子问题的解，并将重叠子问题进行剪枝。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3870,12 +3872,12 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 </div>
 </div>
-<p>如下图所示，引入记忆化可以消除所有重复计算，时间复杂度取决于状态总数，即网格尺寸 <span class="arithmatex">\(O(nm)\)</span> 。</p>
+<p>引入记忆化后，所有子问题的解只需计算一次，因此时间复杂度取决于状态总数，即网格尺寸 <span class="arithmatex">\(O(nm)\)</span> 。</p>
 <p><img alt="记忆化搜索递归树" src="../dp_solution_pipeline.assets/min_path_sum_dfs_mem.png" /></p>
 <p align="center"> Fig. 记忆化搜索递归树 </p>
 
 <h3 id="_3">方法三：动态规划<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>动态规划代码是从底至顶的，仅需循环即可实现。</p>
+<p>基于迭代实现动态规划解法。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:11"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4071,7 +4073,8 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 </div>
 </div>
-<p>下图展示了最小路径和的状态转移过程。该过程遍历了整个网格，因此时间复杂度为 <span class="arithmatex">\(O(nm)\)</span> ；数组 <code>dp</code> 使用 <span class="arithmatex">\(O(nm)\)</span> 空间。</p>
+<p>下图展示了最小路径和的状态转移过程，其遍历了整个网格，<strong>因此时间复杂度为 <span class="arithmatex">\(O(nm)\)</span></strong> 。</p>
+<p>数组 <code>dp</code> 大小为 <span class="arithmatex">\(n \times m\)</span> ，<strong>因此空间复杂度为 <span class="arithmatex">\(O(nm)\)</span></strong> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:12"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label><label for="__tabbed_4_10">&lt;10&gt;</label><label for="__tabbed_4_11">&lt;11&gt;</label><label for="__tabbed_4_12">&lt;12&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4113,8 +4116,8 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 </div>
 <h3 id="_4">状态压缩<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>如果希望进一步节省空间使用，可以考虑进行状态压缩。每个格子只与左边和上边的格子有关，因此我们可以只用一个单行数组来实现 <span class="arithmatex">\(dp\)</span> 表。</p>
-<p>由于数组 <code>dp</code> 只能表示一行的状态，因此我们无法提前初始化首列状态，而是在遍历每行中更新它。</p>
+<p>由于每个格子只与其左边和上边的格子有关，因此我们可以只用一个单行数组来实现 <span class="arithmatex">\(dp\)</span> 表。</p>
+<p>请注意，因为数组 <code>dp</code> 只能表示一行的状态，所以我们无法提前初始化首列状态，而是在遍历每行中更新它。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:11"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JavaScript</label><label for="__tabbed_5_6">TypeScript</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

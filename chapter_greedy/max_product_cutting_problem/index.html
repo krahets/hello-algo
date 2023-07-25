@@ -3413,7 +3413,7 @@ n = \sum_{i=1}^{m}n_i
 \]</div>
 <p>我们需要思考的是：切分数量 <span class="arithmatex">\(m\)</span> 应该多大，每个 <span class="arithmatex">\(n_i\)</span> 应该是多少？</p>
 <h3 id="_1">贪心策略确定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>根据经验，两个整数的和往往比它们的积更小。假设从 <span class="arithmatex">\(n\)</span> 中分出一个因子 <span class="arithmatex">\(2\)</span> ，则它们的乘积为 <span class="arithmatex">\(2(n-2)\)</span> 。我们将该乘积与 <span class="arithmatex">\(n\)</span> 作比较：</p>
+<p>根据经验，两个整数的乘积往往比它们的加和更大。假设从 <span class="arithmatex">\(n\)</span> 中分出一个因子 <span class="arithmatex">\(2\)</span> ，则它们的乘积为 <span class="arithmatex">\(2(n-2)\)</span> 。我们将该乘积与 <span class="arithmatex">\(n\)</span> 作比较：</p>
 <div class="arithmatex">\[
 \begin{aligned}
 2(n-2) &amp; \geq n \newline
@@ -3421,14 +3421,14 @@ n = \sum_{i=1}^{m}n_i
 n &amp; \geq 4
 \end{aligned}
 \]</div>
-<p>当 <span class="arithmatex">\(n \geq 4\)</span> 时，切分出一个 <span class="arithmatex">\(2\)</span> 后乘积会变大，这说明大于等于 <span class="arithmatex">\(4\)</span> 的整数都应该被切分。</p>
+<p>我们发现当 <span class="arithmatex">\(n \geq 4\)</span> 时，切分出一个 <span class="arithmatex">\(2\)</span> 后乘积会变大，<strong>这说明大于等于 <span class="arithmatex">\(4\)</span> 的整数都应该被切分</strong>。</p>
 <p><strong>贪心策略一</strong>：如果切分方案中包含 <span class="arithmatex">\(\geq 4\)</span> 的因子，那么它就应该被继续切分。最终的切分方案只应出现 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(3\)</span> 这三种因子。</p>
 <p><img alt="切分导致乘积变大" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png" /></p>
 <p align="center"> Fig. 切分导致乘积变大 </p>
 
-<p>接下来思考哪个因子是最优的。在 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(3\)</span> 这三个因子中，显然 <span class="arithmatex">\(1\)</span> 是最差的，因为 <span class="arithmatex">\(1 \times (n-1) &lt; n\)</span> 恒成立，切分出 <span class="arithmatex">\(1\)</span> 会导致乘积减小。</p>
+<p>接下来思考哪个因子是最优的。在 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(3\)</span> 这三个因子中，显然 <span class="arithmatex">\(1\)</span> 是最差的，因为 <span class="arithmatex">\(1 \times (n-1) &lt; n\)</span> 恒成立，即切分出 <span class="arithmatex">\(1\)</span> 反而会导致乘积减小。</p>
 <p>我们发现，当 <span class="arithmatex">\(n = 6\)</span> 时，有 <span class="arithmatex">\(3 \times 3 &gt; 2 \times 2 \times 2\)</span> 。<strong>这意味着切分出 <span class="arithmatex">\(3\)</span> 比切分出 <span class="arithmatex">\(2\)</span> 更优</strong>。</p>
-<p><strong>贪心策略二</strong>：在切分方案中，最多只应存在两个 <span class="arithmatex">\(2\)</span> 。因为三个 <span class="arithmatex">\(2\)</span> 可以被替换为两个 <span class="arithmatex">\(3\)</span> ，从而获得更大的乘积。</p>
+<p><strong>贪心策略二</strong>：在切分方案中，最多只应存在两个 <span class="arithmatex">\(2\)</span> 。因为三个 <span class="arithmatex">\(2\)</span> 总是可以被替换为两个 <span class="arithmatex">\(3\)</span> ，从而获得更大乘积。</p>
 <p><img alt="最优切分因子" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer3.png" /></p>
 <p align="center"> Fig. 最优切分因子 </p>
 
@@ -3440,11 +3440,11 @@ n &amp; \geq 4
 <li>当余数为 <span class="arithmatex">\(1\)</span> 时，由于 <span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span> ，因此应将最后一个 <span class="arithmatex">\(3\)</span> 替换为 <span class="arithmatex">\(2\)</span> 。</li>
 </ol>
 <h3 id="_2">代码实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>在代码中，我们无需开启循环来切分，可以直接利用向下整除得到 <span class="arithmatex">\(3\)</span> 的个数 <span class="arithmatex">\(a\)</span> ，用取模运算得到余数 <span class="arithmatex">\(b\)</span> ，即：</p>
+<p>在代码中，我们无需通过循环来切分整数，而可以利用向下整除运算得到 <span class="arithmatex">\(3\)</span> 的个数 <span class="arithmatex">\(a\)</span> ，用取模运算得到余数 <span class="arithmatex">\(b\)</span> ，此时有：</p>
 <div class="arithmatex">\[
 n = 3 a + b
 \]</div>
-<p>需要单独处理边界情况：当 <span class="arithmatex">\(n \leq 3\)</span> 时，必须拆分出一个 <span class="arithmatex">\(1\)</span> ，乘积为 <span class="arithmatex">\(1 \times (n - 1)\)</span> 。</p>
+<p>请注意，对于 <span class="arithmatex">\(n \leq 3\)</span> 的边界情况，必须拆分出一个 <span class="arithmatex">\(1\)</span> ，乘积为 <span class="arithmatex">\(1 \times (n - 1)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

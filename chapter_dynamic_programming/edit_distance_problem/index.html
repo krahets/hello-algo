@@ -3382,7 +3382,7 @@
 
 
 <h1 id="146">14.6. &nbsp; 编辑距离问题<a class="headerlink" href="#146" title="Permanent link">&para;</a></h1>
-<p>编辑距离，也被称为 Levenshtein 距离，是两个字符串之间互相转换的最小修改次数，通常用于在信息检索和自然语言处理中度量两个序列的相似度。</p>
+<p>编辑距离，也被称为 Levenshtein 距离，指两个字符串之间互相转换的最小修改次数，通常用于在信息检索和自然语言处理中度量两个序列的相似度。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>输入两个字符串 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> ，返回将 <span class="arithmatex">\(s\)</span> 转换为 <span class="arithmatex">\(t\)</span> 所需的最少编辑步数。</p>
@@ -3393,7 +3393,8 @@
 <p align="center"> Fig. 编辑距离的示例数据 </p>
 
 <p><strong>编辑距离问题可以很自然地用决策树模型来解释</strong>。字符串对应树节点，一轮决策（一次编辑操作）对应树的一条边。</p>
-<p>如下图所示，在不限制操作的情况下，每个节点都可以派生出许多条边，每条边对应一种操作。实际上，从 <code>hello</code> 转换到 <code>algo</code> 有许多种可能的路径，下图展示的是最短路径。从决策树的角度看，本题目标是求解节点 <code>hello</code> 和节点 <code>algo</code> 之间的最短路径。</p>
+<p>如下图所示，在不限制操作的情况下，每个节点都可以派生出许多条边，每条边对应一种操作，这意味着从 <code>hello</code> 转换到 <code>algo</code> 有许多种可能的路径。</p>
+<p>从决策树的角度看，本题的目标是求解节点 <code>hello</code> 和节点 <code>algo</code> 之间的最短路径。</p>
 <p><img alt="基于决策树模型表示编辑距离问题" src="../edit_distance_problem.assets/edit_distance_decision_tree.png" /></p>
 <p align="center"> Fig. 基于决策树模型表示编辑距离问题 </p>
 
@@ -3401,12 +3402,12 @@
 <p>每一轮的决策是对字符串 <span class="arithmatex">\(s\)</span> 进行一次编辑操作。</p>
 <p>我们希望在编辑操作的过程中，问题的规模逐渐缩小，这样才能构建子问题。设字符串 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 的长度分别为 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(m\)</span> ，我们先考虑两字符串尾部的字符 <span class="arithmatex">\(s[n-1]\)</span> 和 <span class="arithmatex">\(t[m-1]\)</span> ：</p>
 <ul>
-<li>若 <span class="arithmatex">\(s[n-1]\)</span> 和 <span class="arithmatex">\(t[m-1]\)</span> 相同，我们可以直接跳过它们，接下来考虑 <span class="arithmatex">\(s[n-2]\)</span> 和 <span class="arithmatex">\(t[m-2]\)</span> ;</li>
+<li>若 <span class="arithmatex">\(s[n-1]\)</span> 和 <span class="arithmatex">\(t[m-1]\)</span> 相同，我们可以跳过它们，直接考虑 <span class="arithmatex">\(s[n-2]\)</span> 和 <span class="arithmatex">\(t[m-2]\)</span> ;</li>
 <li>若 <span class="arithmatex">\(s[n-1]\)</span> 和 <span class="arithmatex">\(t[m-1]\)</span> 不同，我们需要对 <span class="arithmatex">\(s\)</span> 进行一次编辑（插入、删除、替换），使得两字符串尾部的字符相同，从而可以跳过它们，考虑规模更小的问题；</li>
 </ul>
 <p>也就是说，我们在字符串 <span class="arithmatex">\(s\)</span> 中进行的每一轮决策（编辑操作），都会使得 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 中剩余的待匹配字符发生变化。因此，状态为当前在 <span class="arithmatex">\(s\)</span> , <span class="arithmatex">\(t\)</span> 中考虑的第 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> 个字符，记为 <span class="arithmatex">\([i, j]\)</span> 。</p>
 <p>状态 <span class="arithmatex">\([i, j]\)</span> 对应的子问题：<strong>将 <span class="arithmatex">\(s\)</span> 的前 <span class="arithmatex">\(i\)</span> 个字符更改为 <span class="arithmatex">\(t\)</span> 的前 <span class="arithmatex">\(j\)</span> 个字符所需的最少编辑步数</strong>。</p>
-<p>至此得到一个尺寸为 <span class="arithmatex">\((i+1) \times (j+1)\)</span> 的二维 <span class="arithmatex">\(dp\)</span> 表。</p>
+<p>至此，得到一个尺寸为 <span class="arithmatex">\((i+1) \times (j+1)\)</span> 的二维 <span class="arithmatex">\(dp\)</span> 表。</p>
 <p><strong>第二步：找出最优子结构，进而推导出状态转移方程</strong></p>
 <p>考虑子问题 <span class="arithmatex">\(dp[i, j]\)</span> ，其对应的两个字符串的尾部字符为 <span class="arithmatex">\(s[i-1]\)</span> 和 <span class="arithmatex">\(t[j-1]\)</span> ，可根据不同编辑操作分为三种情况：</p>
 <ol>
@@ -3417,16 +3418,16 @@
 <p><img alt="编辑距离的状态转移" src="../edit_distance_problem.assets/edit_distance_state_transfer.png" /></p>
 <p align="center"> Fig. 编辑距离的状态转移 </p>
 
-<p>根据以上分析，可得最优子结构：<span class="arithmatex">\(dp[i, j]\)</span> 的最少编辑步数等于 <span class="arithmatex">\(dp[i, j-1]\)</span> , <span class="arithmatex">\(dp[i-1, j]\)</span> , <span class="arithmatex">\(dp[i-1, j-1]\)</span> 三者中的最少编辑步数，再加上本次编辑的步数 <span class="arithmatex">\(1\)</span> 。对应的状态转移方程为：</p>
+<p>根据以上分析，可得最优子结构：<span class="arithmatex">\(dp[i, j]\)</span> 的最少编辑步数等于 <span class="arithmatex">\(dp[i, j-1]\)</span> , <span class="arithmatex">\(dp[i-1, j]\)</span> , <span class="arithmatex">\(dp[i-1, j-1]\)</span> 三者中的最少编辑步数，再加上本次的编辑步数 <span class="arithmatex">\(1\)</span> 。对应的状态转移方程为：</p>
 <div class="arithmatex">\[
 dp[i, j] = \min(dp[i, j-1], dp[i-1, j], dp[i-1, j-1]) + 1
 \]</div>
-<p>请注意，<strong>当 <span class="arithmatex">\(s[i-1]\)</span> 和 <span class="arithmatex">\(t[j-1]\)</span> 相同时，无需编辑当前字符</strong>，此时状态转移方程为：</p>
+<p>请注意，<strong>当 <span class="arithmatex">\(s[i-1]\)</span> 和 <span class="arithmatex">\(t[j-1]\)</span> 相同时，无需编辑当前字符</strong>，这种情况下的状态转移方程为：</p>
 <div class="arithmatex">\[
 dp[i, j] = dp[i-1, j-1]
 \]</div>
 <p><strong>第三步：确定边界条件和状态转移顺序</strong></p>
-<p>当两字符串都为空时，编辑步数为 <span class="arithmatex">\(0\)</span> ，即 <span class="arithmatex">\(dp[0, 0] = 0\)</span> 。当 <span class="arithmatex">\(s\)</span> 为空但 <span class="arithmatex">\(t\)</span> 不为空时，最少编辑步数等于 <span class="arithmatex">\(t\)</span> 的长度，即 <span class="arithmatex">\(dp[0, j] = j\)</span> 。当 <span class="arithmatex">\(s\)</span> 不为空但 <span class="arithmatex">\(t\)</span> 为空时，等于 <span class="arithmatex">\(s\)</span> 的长度，即 <span class="arithmatex">\(dp[i, 0] = i\)</span> 。</p>
+<p>当两字符串都为空时，编辑步数为 <span class="arithmatex">\(0\)</span> ，即 <span class="arithmatex">\(dp[0, 0] = 0\)</span> 。当 <span class="arithmatex">\(s\)</span> 为空但 <span class="arithmatex">\(t\)</span> 不为空时，最少编辑步数等于 <span class="arithmatex">\(t\)</span> 的长度，即首行 <span class="arithmatex">\(dp[0, j] = j\)</span> 。当 <span class="arithmatex">\(s\)</span> 不为空但 <span class="arithmatex">\(t\)</span> 为空时，等于 <span class="arithmatex">\(s\)</span> 的长度，即首列 <span class="arithmatex">\(dp[i, 0] = i\)</span> 。</p>
 <p>观察状态转移方程，解 <span class="arithmatex">\(dp[i, j]\)</span> 依赖左方、上方、左上方的解，因此通过两层循环正序遍历整个 <span class="arithmatex">\(dp\)</span> 表即可。</p>
 <h3 id="_1">代码实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
@@ -3696,8 +3697,8 @@ dp[i, j] = dp[i-1, j-1]
 </div>
 </div>
 <h3 id="_2">状态压缩<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>下面考虑状态压缩，将 <span class="arithmatex">\(dp\)</span> 表的第一维删除。由于 <span class="arithmatex">\(dp[i,j]\)</span> 是由上方 <span class="arithmatex">\(dp[i-1, j]\)</span> 、左方 <span class="arithmatex">\(dp[i, j-1]\)</span> 、左上方状态 <span class="arithmatex">\(dp[i-1, j-1]\)</span> 转移而来，而正序遍历会丢失左上方 <span class="arithmatex">\(dp[i-1, j-1]\)</span> ，倒序遍历无法提前构建 <span class="arithmatex">\(dp[i, j-1]\)</span> ，因此两种遍历顺序都不可取。</p>
-<p>为解决此问题，我们可以使用一个变量 <code>leftup</code> 来暂存左上方的解 <span class="arithmatex">\(dp[i-1, j-1]\)</span> ，这样便只用考虑左方和上方的解，与完全背包问题的情况相同，可使用正序遍历。</p>
+<p>由于 <span class="arithmatex">\(dp[i,j]\)</span> 是由上方 <span class="arithmatex">\(dp[i-1, j]\)</span> 、左方 <span class="arithmatex">\(dp[i, j-1]\)</span> 、左上方状态 <span class="arithmatex">\(dp[i-1, j-1]\)</span> 转移而来，而正序遍历会丢失左上方 <span class="arithmatex">\(dp[i-1, j-1]\)</span> ，倒序遍历无法提前构建 <span class="arithmatex">\(dp[i, j-1]\)</span> ，因此两种遍历顺序都不可取。</p>
+<p>为此，我们可以使用一个变量 <code>leftup</code> 来暂存左上方的解 <span class="arithmatex">\(dp[i-1, j-1]\)</span> ，从而只需考虑左方和上方的解。此时的情况与完全背包问题相同，可使用正序遍历。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:11"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

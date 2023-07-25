@@ -3398,24 +3398,25 @@
 <h1 id="153">15.3. &nbsp; 最大容量问题<a class="headerlink" href="#153" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>输入一个数组 <span class="arithmatex">\(ht\)</span> ，数组中的每个元素代表一个垂直隔板的高度。数组中的任意两个隔板，以及它们之间的空间可以组成一个容器。容器的容量等于高度和宽度的乘积（即面积），其中高度由较短的隔板决定，宽度是两个隔板的数组索引之差。</p>
+<p>输入一个数组 <span class="arithmatex">\(ht\)</span> ，数组中的每个元素代表一个垂直隔板的高度。数组中的任意两个隔板，以及它们之间的空间可以组成一个容器。</p>
+<p>容器的容量等于高度和宽度的乘积（即面积），其中高度由较短的隔板决定，宽度是两个隔板的数组索引之差。</p>
 <p>请在数组中选择两个隔板，使得组成的容器的容量最大，返回最大容量。</p>
 </div>
 <p><img alt="最大容量问题的示例数据" src="../max_capacity_problem.assets/max_capacity_example.png" /></p>
 <p align="center"> Fig. 最大容量问题的示例数据 </p>
 
 <p>容器由任意两个隔板围成，<strong>因此本题的状态为两个隔板的索引，记为 <span class="arithmatex">\([i, j]\)</span></strong> 。</p>
-<p>根据定义，容量等于高度乘以宽度，其中高度由短板决定，宽度是两隔板的索引之差。设容量为 <span class="arithmatex">\(cap[i, j]\)</span> ，可得计算公式：</p>
+<p>根据题意，容量等于高度乘以宽度，其中高度由短板决定，宽度是两隔板的索引之差。设容量为 <span class="arithmatex">\(cap[i, j]\)</span> ，则可得计算公式：</p>
 <div class="arithmatex">\[
 cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 \]</div>
 <p>设数组长度为 <span class="arithmatex">\(n\)</span> ，两个隔板的组合数量（即状态总数）为 <span class="arithmatex">\(C_n^2 = \frac{n(n - 1)}{2}\)</span> 个。最直接地，<strong>我们可以穷举所有状态</strong>，从而求得最大容量，时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> 。</p>
 <h3 id="_1">贪心策略确定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>当然，这道题还有更高效率的解法。如下图所示，现选取一个状态 <span class="arithmatex">\([i, j]\)</span> ，其满足索引 <span class="arithmatex">\(i &lt; j\)</span> 且高度 <span class="arithmatex">\(ht[i] &lt; ht[j]\)</span> ，即 <span class="arithmatex">\(i\)</span> 为短板、 <span class="arithmatex">\(j\)</span> 为长板。</p>
+<p>这道题还有更高效率的解法。如下图所示，现选取一个状态 <span class="arithmatex">\([i, j]\)</span> ，其满足索引 <span class="arithmatex">\(i &lt; j\)</span> 且高度 <span class="arithmatex">\(ht[i] &lt; ht[j]\)</span> ，即 <span class="arithmatex">\(i\)</span> 为短板、 <span class="arithmatex">\(j\)</span> 为长板。</p>
 <p><img alt="初始状态" src="../max_capacity_problem.assets/max_capacity_initial_state.png" /></p>
 <p align="center"> Fig. 初始状态 </p>
 
-<p>我们发现，<strong>如果将长板 <span class="arithmatex">\(j\)</span> 向短板 <span class="arithmatex">\(i\)</span> 靠近，则容量一定变小</strong>。这是因为在移动长板 <span class="arithmatex">\(j\)</span> 后：</p>
+<p>我们发现，<strong>如果此时将长板 <span class="arithmatex">\(j\)</span> 向短板 <span class="arithmatex">\(i\)</span> 靠近，则容量一定变小</strong>。这是因为在移动长板 <span class="arithmatex">\(j\)</span> 后：</p>
 <ul>
 <li>宽度 <span class="arithmatex">\(j-i\)</span> 肯定变小；</li>
 <li>高度由短板决定，因此高度只可能不变（ <span class="arithmatex">\(i\)</span> 仍为短板）或变小（移动后的 <span class="arithmatex">\(j\)</span> 成为短板）；</li>
@@ -3423,7 +3424,7 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <p><img alt="向内移动长板后的状态" src="../max_capacity_problem.assets/max_capacity_moving_long_board.png" /></p>
 <p align="center"> Fig. 向内移动长板后的状态 </p>
 
-<p>反向思考，<strong>我们只有向内收缩短板 <span class="arithmatex">\(i\)</span> ，才有可能使容量变大</strong>。因为虽然宽度一定变小，<strong>但高度可能会变大</strong>（移动后的短板 <span class="arithmatex">\(i\)</span> 变长了）。</p>
+<p>反向思考，<strong>我们只有向内收缩短板 <span class="arithmatex">\(i\)</span> ，才有可能使容量变大</strong>。因为虽然宽度一定变小，<strong>但高度可能会变大</strong>（移动后的短板 <span class="arithmatex">\(i\)</span> 可能会变长）。</p>
 <p><img alt="向内移动长板后的状态" src="../max_capacity_problem.assets/max_capacity_moving_short_board.png" /></p>
 <p align="center"> Fig. 向内移动长板后的状态 </p>
 
@@ -3466,7 +3467,8 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 </div>
 </div>
 <h3 id="_2">代码实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>如下代码所示，循环最多 <span class="arithmatex">\(n\)</span> 轮，<strong>因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。变量 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> , <span class="arithmatex">\(res\)</span> 使用常数大小额外空间，<strong>因此空间复杂度为 <span class="arithmatex">\(O(1)\)</span></strong> 。</p>
+<p>代码循环最多 <span class="arithmatex">\(n\)</span> 轮，<strong>因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。</p>
+<p>变量 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> , <span class="arithmatex">\(res\)</span> 使用常数大小额外空间，<strong>因此空间复杂度为 <span class="arithmatex">\(O(1)\)</span></strong> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3609,15 +3611,14 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 </div>
 <h3 id="_3">正确性证明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>之所以贪心比穷举更快，是因为每轮的贪心选择都会“跳过”一些状态。</p>
-<p>比如在状态 <span class="arithmatex">\(cap[i, j]\)</span> 下，<span class="arithmatex">\(i\)</span> 为短板、<span class="arithmatex">\(j\)</span> 为长板。若贪心地将短板 <span class="arithmatex">\(i\)</span> 向内移动一格，会导致以下状态被“跳过”，<strong>意味着之后无法验证这些状态的容量大小</strong>。</p>
+<p>比如在状态 <span class="arithmatex">\(cap[i, j]\)</span> 下，<span class="arithmatex">\(i\)</span> 为短板、<span class="arithmatex">\(j\)</span> 为长板。若贪心地将短板 <span class="arithmatex">\(i\)</span> 向内移动一格，会导致以下状态被“跳过”。<strong>这意味着之后无法验证这些状态的容量大小</strong>。</p>
 <div class="arithmatex">\[
 cap[i, i+1], cap[i, i+2], \cdots, cap[i, j-2], cap[i, j-1]
 \]</div>
 <p><img alt="移动短板导致被跳过的状态" src="../max_capacity_problem.assets/max_capacity_skipped_states.png" /></p>
 <p align="center"> Fig. 移动短板导致被跳过的状态 </p>
 
-<p>观察发现，<strong>这些被跳过的状态实际上就是将长板 <span class="arithmatex">\(j\)</span> 向内移动的所有状态</strong>。而在第二步中，我们已经证明内移长板一定会导致容量变小，也就是说这些被跳过的状态的容量一定更小。</p>
-<p>也就是说，被跳过的状态都不可能是最优解，<strong>跳过它们不会导致错过最优解</strong>。</p>
+<p>观察发现，<strong>这些被跳过的状态实际上就是将长板 <span class="arithmatex">\(j\)</span> 向内移动的所有状态</strong>。而在第二步中，我们已经证明内移长板一定会导致容量变小。也就是说，被跳过的状态都不可能是最优解，<strong>跳过它们不会导致错过最优解</strong>。</p>
 <p>以上的分析说明，<strong>移动短板的操作是“安全”的</strong>，贪心策略是有效的。</p>
 
 
