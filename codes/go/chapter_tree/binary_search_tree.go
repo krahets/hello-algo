@@ -47,10 +47,10 @@ func (bst *binarySearchTree) search(num int) *TreeNode {
 	node := bst.root
 	// 循环查找，越过叶节点后跳出
 	for node != nil {
-		if node.Val < num {
+		if node.Val.(int) < num {
 			// 目标节点在 cur 的右子树中
 			node = node.Right
-		} else if node.Val > num {
+		} else if node.Val.(int) > num {
 			// 目标节点在 cur 的左子树中
 			node = node.Left
 		} else {
@@ -77,7 +77,7 @@ func (bst *binarySearchTree) insert(num int) {
 			return
 		}
 		pre = cur
-		if cur.Val < num {
+		if cur.Val.(int) < num {
 			cur = cur.Right
 		} else {
 			cur = cur.Left
@@ -85,7 +85,7 @@ func (bst *binarySearchTree) insert(num int) {
 	}
 	// 插入节点
 	node := NewTreeNode(num)
-	if pre.Val < num {
+	if pre.Val.(int) < num {
 		pre.Right = node
 	} else {
 		pre.Left = node
@@ -107,7 +107,7 @@ func (bst *binarySearchTree) remove(num int) {
 			break
 		}
 		pre = cur
-		if cur.Val < num {
+		if cur.Val.(int) < num {
 			// 待删除节点在右子树中
 			cur = cur.Right
 		} else {
@@ -147,7 +147,7 @@ func (bst *binarySearchTree) remove(num int) {
 			tmp = tmp.Left
 		}
 		// 递归删除节点 tmp
-		bst.remove(tmp.Val)
+		bst.remove(tmp.Val.(int))
 		// 用 tmp 覆盖 cur
 		cur.Val = tmp.Val
 	}

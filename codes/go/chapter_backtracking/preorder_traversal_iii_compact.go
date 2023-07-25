@@ -16,7 +16,7 @@ func preOrderIII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
 	}
 	// 尝试
 	*path = append(*path, root)
-	if int(root.Val) == 7 {
+	if root.Val.(int) == 7 {
 		// 记录解
 		*res = append(*res, *path)
 		*path = (*path)[:len(*path)-1]

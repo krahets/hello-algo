@@ -8,7 +8,7 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-var nums []int
+var nums []any
 
 /* 前序遍历 */
 func preOrder(node *TreeNode) {
