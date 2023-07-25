@@ -60,7 +60,7 @@ fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>
     if i >= arr.len() || arr[i].is_none() {
         return None;
     }
-    let root = TreeNode::new(arr[i as usize].unwrap());
+    let root = TreeNode::new(arr[i].unwrap());
     root.borrow_mut().left = vec_to_tree_dfs(arr, 2 * i + 1);
     root.borrow_mut().right = vec_to_tree_dfs(arr, 2 * i + 2);
     Some(root)
