@@ -43,7 +43,7 @@ public class preorder_traversal_iii_compact {
         res = new ArrayList<>();
         preOrder(root);
 
-        System.out.println("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点，仅包含一个值为 7 的节点");
+        System.out.println("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点");
         for (List<TreeNode> path : res) {
             List<Integer> vals = new ArrayList<>();
             for (TreeNode node : path) {

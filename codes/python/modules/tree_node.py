@@ -67,14 +67,3 @@ def tree_to_list(root: TreeNode | None) -> list[int]:
     res = []
     tree_to_list_dfs(root, 0, res)
     return res
-
-
-def get_tree_node(root: TreeNode | None, val: int) -> TreeNode | None:
-    """Get a tree node with specific value in a binary tree"""
-    if not root:
-        return
-    if root.val == val:
-        return root
-    left: TreeNode | None = get_tree_node(root.left, val)
-    right: TreeNode | None = get_tree_node(root.right, val)
-    return left if left else right

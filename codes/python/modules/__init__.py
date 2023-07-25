@@ -9,7 +9,7 @@ from .list_node import (
     linked_list_to_list,
     get_list_node,
 )
-from .tree_node import TreeNode, list_to_tree, tree_to_list, get_tree_node
+from .tree_node import TreeNode, list_to_tree, tree_to_list
 from .vertex import Vertex, vals_to_vets, vets_to_vals
 from .print_util import (
     print_matrix,

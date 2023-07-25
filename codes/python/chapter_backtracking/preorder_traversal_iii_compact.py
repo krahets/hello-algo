@@ -39,6 +39,6 @@ if __name__ == "__main__":
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点，仅包含一个值为 7 的节点")
+    print("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点")
     for path in res:
         print([node.val for node in path])
