@@ -305,6 +305,30 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="binary_search.rs"
+    /* 二分查找（双闭区间） */
+    fn binary_search(nums: &[i32], target: i32) -> i32 {
+        // 初始化双闭区间 [0, n-1] ，即 i, j 分别指向数组首元素、尾元素
+        let mut i = 0;
+        let mut j = nums.len() - 1;
+        // 循环，当搜索区间为空时跳出（当 i > j 时为空）
+        while i <= j {
+            let m = i + (j - i) / 2;      // 计算中点索引 m
+            if nums[m] < target {         // 此情况说明 target 在区间 [m+1, j] 中
+                i = m + 1;
+            } else if nums[m] > target {  // 此情况说明 target 在区间 [i, m-1] 中
+                j = m - 1;
+            } else {                      // 找到目标元素，返回其索引
+                return m as i32;
+            }                       
+        }
+        // 未找到目标元素，返回 -1
+        return -1;
+    }
+    ```
+
 时间复杂度为 $O(\log n)$ 。每轮缩小一半区间，因此二分循环次数为 $\log_2 n$ 。
 
 空间复杂度为 $O(1)$  。指针 `i` , `j` 使用常数大小空间。
@@ -569,6 +593,30 @@ comments: true
       }
       // 未找到目标元素，返回 -1
       return -1;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search.rs"
+    /* 二分查找（左闭右开） */
+    fn binary_search_lcro(nums: &[i32], target: i32) -> i32 {
+        // 初始化左闭右开 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
+        let mut i = 0;
+        let mut j = nums.len();
+        // 循环，当搜索区间为空时跳出（当 i = j 时为空）
+        while i < j {
+            let m = i + (j - i) / 2;      // 计算中点索引 m
+            if nums[m] < target {         // 此情况说明 target 在区间 [m+1, j) 中
+                i = m + 1;
+            } else if nums[m] > target {  // 此情况说明 target 在区间 [i, m) 中
+                j = m - 1;
+            } else {                      // 找到目标元素，返回其索引
+                return m as i32;
+            }                       
+        }
+        // 未找到目标元素，返回 -1
+        return -1;
     }
     ```
 

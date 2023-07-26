@@ -172,6 +172,12 @@ $$
     }
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 然而实际上，**统计算法的运行时间既不合理也不现实**。首先，我们不希望预估时间和运行平台绑定，因为算法需要在各种不同的平台上运行。其次，我们很难获知每种操作的运行时间，这给预估过程带来了极大的难度。
 
 ## 2.2.2. &nbsp; 统计时间增长趋势
@@ -398,6 +404,12 @@ $$
     }
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 ![算法 A, B, C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.png)
 
 <p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
@@ -560,6 +572,12 @@ $$
         print(0); // +1
       }
     }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
     ```
 
 $T(n)$ 是一次函数，说明时间增长趋势是线性的，因此可以得出时间复杂度是线性阶。
@@ -803,6 +821,12 @@ $$
     }
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 ### 第二步：判断渐近上界
 
 **时间复杂度由多项式 $T(n)$ 中最高阶的项来决定**。这是因为在 $n$ 趋于无穷大时，最高阶的项将发挥主导作用，其他项的影响都可以被忽略。
@@ -994,6 +1018,21 @@ $$
     }
     ```
 
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    /* 常数阶 */
+    fn constant(n: i32) -> i32 {
+        _ = n;
+        let mut count = 0;
+        let size = 100_000;
+        for _ in 0..size {
+            count += 1;
+        }
+        count
+    }
+    ```
+
 ### 线性阶 $O(n)$
 
 线性阶的操作数量相对于输入数据大小以线性级别增长。线性阶通常出现在单层循环中。
@@ -1130,6 +1169,19 @@ $$
         count++;
       }
       return count;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    /* 线性阶 */
+    fn linear(n: i32) -> i32 {
+        let mut count = 0;
+        for _ in 0..n {
+            count += 1;
+        }
+        count
     }
     ```
 
@@ -1288,6 +1340,20 @@ $$
         count++;
       }
       return count;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    /* 线性阶（遍历数组） */
+    fn array_traversal(nums: &[i32]) -> i32 {
+        let mut count = 0;
+        // 循环次数与数组长度成正比
+        for _ in nums {
+            count += 1;
+        }
+        count
     }
     ```
 
@@ -1467,6 +1533,22 @@ $$
         }
       }
       return count;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    /* 平方阶 */
+    fn quadratic(n: i32) -> i32 {
+        let mut count = 0;
+        // 循环次数与数组长度成平方关系
+        for _ in 0..n {
+            for _ in 0..n {
+                count += 1;
+            }
+        }
+        count
     }
     ```
 
@@ -1729,6 +1811,29 @@ $$
     }
     ```
 
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    /* 平方阶（冒泡排序） */
+    fn bubble_sort(nums: &mut [i32]) -> i32 {
+        let mut count = 0; // 计数器
+        // 外循环：未排序区间为 [0, i]
+        for i in (1..nums.len()).rev() {
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            for j in 0..i {
+                if nums[j] > nums[j + 1] {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    let tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    count += 3; // 元素交换包含 3 个单元操作
+                }
+            }
+        }
+        count
+    }
+    ```
+
 ### 指数阶 $O(2^n)$
 
 !!! note
@@ -1940,6 +2045,25 @@ $$
     }
     ```
 
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    /* 指数阶（循环实现） */
+    fn exponential(n: i32) -> i32 {
+        let mut count = 0;
+        let mut base = 1;
+        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+        for _ in 0..n {
+            for _ in 0..base {
+                count += 1
+            }
+            base *= 2;
+        }
+        // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
+        count
+    }
+    ```
+
 ![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.png)
 
 <p align="center"> Fig. 指数阶的时间复杂度 </p>
@@ -2060,6 +2184,18 @@ $$
     int expRecur(int n) {
       if (n == 1) return 1;
       return expRecur(n - 1) + expRecur(n - 1) + 1;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    /* 指数阶（递归实现） */
+    fn exp_recur(n: i32) -> i32 {
+        if n == 1 {
+            return 1;
+        }
+        exp_recur(n - 1) + exp_recur(n - 1) + 1
     }
     ```
 
@@ -2226,6 +2362,20 @@ $$
     }
     ```
 
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    /* 对数阶（循环实现） */
+    fn logarithmic(mut n: f32) -> i32 {
+        let mut count = 0;
+        while n > 1.0 {
+            n = n / 2.0;
+            count += 1;
+        }
+        count
+    }
+    ```
+
 ![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png)
 
 <p align="center"> Fig. 对数阶的时间复杂度 </p>
@@ -2346,6 +2496,18 @@ $$
     int logRecur(num n) {
       if (n <= 1) return 0;
       return logRecur(n / 2) + 1;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    /* 对数阶（递归实现） */
+    fn log_recur(n: f32) -> i32 {
+        if n <= 1.0 {
+            return 0;
+        }
+        log_recur(n / 2.0) + 1
     }
     ```
 
@@ -2517,6 +2679,23 @@ $$
         count++;
       }
       return count;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    /* 线性对数阶 */
+    fn linear_log_recur(n: f32) -> i32 {
+        if n <= 1.0 {
+            return 1;
+        }
+        let mut count = linear_log_recur(n / 2.0) + 
+                        linear_log_recur(n / 2.0);
+        for _ in 0 ..n as i32 {
+            count += 1;
+        }
+        return count
     }
     ```
 
@@ -2702,6 +2881,23 @@ $$
         count += factorialRecur(n - 1);
       }
       return count;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    /* 阶乘阶（递归实现） */
+    fn factorial_recur(n: i32) -> i32 {
+        if n == 0 {
+            return 1;
+        }
+        let mut count = 0;
+        // 从 1 个分裂出 n 个
+        for _ in 0..n {
+            count += factorial_recur(n - 1);
+        }
+        count
     }
     ```
 
@@ -3040,6 +3236,31 @@ $$
       }
 
       return -1;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="worst_best_time_complexity.rs"
+    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
+    fn random_numbers(n: i32) -> Vec<i32> {
+        // 生成数组 nums = { 1, 2, 3, ..., n }
+        let mut nums = (1..=n).collect::<Vec<i32>>();
+        // 随机打乱数组元素
+        nums.shuffle(&mut thread_rng());
+        nums
+    }
+
+    /* 查找数组 nums 中数字 1 所在索引 */
+    fn find_one(nums: &[i32]) -> Option<usize> {
+        for i in 0..nums.len() {
+            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
+            if nums[i] == 1 {
+                return Some(i);
+            }
+        }
+        None
     }
     ```
 

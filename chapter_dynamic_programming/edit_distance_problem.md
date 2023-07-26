@@ -310,6 +310,36 @@ $$
     [class]{}-[func]{editDistanceDP}
     ```
 
+=== "Rust"
+
+    ```rust title="edit_distance.rs"
+    /* 编辑距离：动态规划 */
+    fn edit_distance_dp(s: &str, t: &str) -> i32 {
+        let (n, m) = (s.len(), t.len());
+        let mut dp = vec![vec![0; m + 1]; n + 1];
+        // 状态转移：首行首列
+        for i in 1..= n {
+            dp[i][0] = i as i32;
+        }
+        for j in 1..m {
+            dp[0][j] = j as i32;
+        }
+        // 状态转移：其余行列
+        for i in 1..=n {
+            for j in 1..=m {
+                if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] = std::cmp::min(std::cmp::min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                }
+            }
+        }
+        dp[n][m]
+    }
+    ```
+
 如下图所示，编辑距离问题的状态转移过程与背包问题非常类似，都可以看作是填写一个二维网格的过程。
 
 === "<1>"
@@ -614,4 +644,37 @@ $$
 
     ```dart title="edit_distance.dart"
     [class]{}-[func]{editDistanceDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="edit_distance.rs"
+    /* 编辑距离：状态压缩后的动态规划 */
+    fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
+        let (n, m) = (s.len(), t.len());
+        let mut dp = vec![0; m + 1];
+        // 状态转移：首行
+        for j in 1..m {
+            dp[j] = j as i32;
+        }
+        // 状态转移：其余行
+        for i in 1..=n {
+            // 状态转移：首列
+            let mut leftup = dp[0]; // 暂存 dp[i-1, j-1]
+            dp[0] = i as i32;
+            // 状态转移：其余列
+            for j in 1..=m {
+                let temp = dp[j];
+                if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup;
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = std::cmp::min(std::cmp::min(dp[j - 1], dp[j]), leftup) + 1;
+                }
+                leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        dp[m]
+    }
     ```

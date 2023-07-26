@@ -283,6 +283,12 @@ comments: true
     bool isEmpty = stack.isEmpty;
     ```
 
+=== "Rust"
+
+    ```rust title="stack.rs"
+
+    ```
+
 ## 5.1.2. &nbsp; 栈的实现
 
 为了深入了解栈的运行机制，我们来尝试自己实现一个栈类。
@@ -989,6 +995,75 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="linkedlist_stack.rs"
+    /* 基于链表实现的栈 */
+    #[allow(dead_code)]
+    pub struct LinkedListStack<T> {
+        stack_peek: Option<Rc<RefCell<ListNode<T>>>>,   // 将头节点作为栈顶
+        stk_size: usize,                                // 栈的长度
+    }
+
+    impl<T: Copy> LinkedListStack<T> {
+        pub fn new() -> Self {
+            Self {
+                stack_peek: None,
+                stk_size: 0,
+            }
+        }
+
+        /* 获取栈的长度 */
+        pub fn size(&self) -> usize {
+            return self.stk_size;
+        }
+
+        /* 判断栈是否为空 */
+        pub fn is_empty(&self) -> bool {
+            return self.size() == 0;
+        }
+
+        /* 入栈 */
+        pub fn push(&mut self, num: T) {
+            let node = ListNode::new(num);
+            node.borrow_mut().next = self.stack_peek.take();
+            self.stack_peek = Some(node);
+            self.stk_size += 1;
+        }
+
+        /* 出栈 */
+        pub fn pop(&mut self) -> Option<T> {
+            self.stack_peek.take().map(|old_head| {
+                match old_head.borrow_mut().next.take() {
+                    Some(new_head) => {
+                        self.stack_peek = Some(new_head);
+                    }
+                    None => {
+                        self.stack_peek = None;
+                    }
+                }
+                self.stk_size -= 1;
+                Rc::try_unwrap(old_head).ok().unwrap().into_inner().val
+            })
+        }
+
+        /* 访问栈顶元素 */
+        pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
+            self.stack_peek.as_ref()
+        }
+
+        /* 将 List 转化为 Array 并返回 */
+        pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
+            if let Some(node) = head {
+                let mut nums = self.to_array(node.borrow().next.as_ref());
+                nums.push(node.borrow().val);
+                return nums;
+            }
+            return Vec::new();
+        }
+    }
+    ```
+
 ### 基于数组的实现
 
 在基于「数组」实现栈时，我们可以将数组的尾部作为栈顶。在这样的设计下，入栈与出栈操作就分别对应在数组尾部添加元素与删除元素，时间复杂度都为 $O(1)$ 。
@@ -1539,6 +1614,56 @@ comments: true
 
       /* 将栈转化为 Array 并返回 */
       List<int> toArray() => _stack;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="array_stack.rs"
+    /* 基于数组实现的栈 */
+    struct ArrayStack<T> {
+        stack: Vec<T>,
+    }
+
+    impl<T> ArrayStack<T> {
+        /* 初始化栈 */
+        fn new() -> ArrayStack<T> {
+            ArrayStack::<T> { stack: Vec::<T>::new() }
+        }
+
+        /* 获取栈的长度 */
+        fn size(&self) -> usize {
+            self.stack.len()
+        }
+
+        /* 判断栈是否为空 */
+        fn is_empty(&self) -> bool {
+            self.size() == 0
+        }
+
+        /* 入栈 */
+        fn push(&mut self, num: T) {
+            self.stack.push(num);
+        }
+
+        /* 出栈 */
+        fn pop(&mut self) -> Option<T> {
+            match self.stack.pop() {
+                Some(num) => Some(num),
+                None => None,
+            }
+        }
+
+        /* 访问栈顶元素 */
+        fn peek(&self) -> Option<&T> {
+            if self.is_empty() { panic!("栈为空") };
+            self.stack.last()
+        }
+
+        /* 返回 &Vec */
+        fn to_array(&self) -> &Vec<T> {
+            &self.stack
+        }
     }
     ```
 

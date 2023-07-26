@@ -143,3 +143,9 @@ comments: true
     List<String> characters = List.filled(5, 'a');
     List<bool> booleans = List.filled(5, false);
     ```
+
+=== "Rust"
+
+    ```rust title=""
+
+    ```

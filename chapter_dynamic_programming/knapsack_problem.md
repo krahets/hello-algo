@@ -231,6 +231,27 @@ $$
     [class]{}-[func]{knapsackDFS}
     ```
 
+=== "Rust"
+
+    ```rust title="knapsack.rs"
+    /* 0-1 背包：暴力搜索 */
+    fn knapsack_dfs(wgt: &[i32], val: &[i32], i: usize, c: usize) -> i32 {
+        // 若已选完所有物品或背包无容量，则返回价值 0
+        if i == 0 || c == 0 {
+            return 0;
+        }
+        // 若超过背包容量，则只能不放入背包
+        if wgt[i - 1] > c as i32 {
+            return knapsack_dfs(wgt, val, i - 1, c);
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        let no = knapsack_dfs(wgt, val, i - 1, c);
+        let yes = knapsack_dfs(wgt, val, i - 1, c - wgt[i - 1] as usize) + val[i - 1];
+        // 返回两种方案中价值更大的那一个
+        std::cmp::max(no, yes)
+    }
+    ```
+
 如下图所示，由于每个物品都会产生不选和选两条搜索分支，因此时间复杂度为 $O(2^n)$ 。
 
 观察递归树，容易发现其中存在重叠子问题，例如 $dp[1, 10]$ 等。而当物品较多、背包容量较大，尤其是相同重量的物品较多时，重叠子问题的数量将会大幅增多。
@@ -449,6 +470,32 @@ $$
     [class]{}-[func]{knapsackDFSMem}
     ```
 
+=== "Rust"
+
+    ```rust title="knapsack.rs"
+    /* 0-1 背包：记忆化搜索 */
+    fn knapsack_dfs_mem(wgt: &[i32], val: &[i32], mem: &mut Vec<Vec<i32>>, i: usize, c: usize) -> i32 {
+        // 若已选完所有物品或背包无容量，则返回价值 0
+        if i == 0 || c == 0 {
+            return 0;
+        }
+        // 若已有记录，则直接返回
+        if mem[i][c] != -1 {
+            return mem[i][c];
+        }
+        // 若超过背包容量，则只能不放入背包
+        if wgt[i - 1] > c as i32 {
+            return knapsack_dfs_mem(wgt, val, mem, i - 1, c);
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        let no = knapsack_dfs_mem(wgt, val, mem, i - 1, c);
+        let yes = knapsack_dfs_mem(wgt, val, mem, i - 1, c - wgt[i - 1] as usize) + val[i - 1];
+        // 记录并返回两种方案中价值更大的那一个
+        mem[i][c] = std::cmp::max(no, yes);
+        mem[i][c]
+    }
+    ```
+
 ![0-1 背包的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.png)
 
 <p align="center"> Fig. 0-1 背包的记忆化搜索递归树 </p>
@@ -646,6 +693,30 @@ $$
 
     ```dart title="knapsack.dart"
     [class]{}-[func]{knapsackDP}
+    ```
+
+=== "Rust"
+
+    ```rust title="knapsack.rs"
+    /* 0-1 背包：动态规划 */
+    fn knapsack_dp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
+        let n = wgt.len();
+        // 初始化 dp 表
+        let mut dp = vec![vec![0; cap + 1]; n + 1];
+        // 状态转移
+        for i in 1..=n {
+            for c in 1..=cap {
+                if wgt[i - 1] > c as i32 {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = std::cmp::max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1] as usize] + val[i - 1]);
+                }
+            }
+        }
+        dp[n][cap]
+    }
     ```
 
 如下图所示，时间复杂度和空间复杂度都由数组 `dp` 大小决定，即 $O(n \times cap)$ 。
@@ -902,4 +973,26 @@ $$
 
     ```dart title="knapsack.dart"
     [class]{}-[func]{knapsackDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="knapsack.rs"
+    /* 0-1 背包：状态压缩后的动态规划 */
+    fn knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
+        let n = wgt.len();
+        // 初始化 dp 表
+        let mut dp = vec![0; cap + 1];
+        // 状态转移
+        for i in 1..=n {
+            // 倒序遍历
+            for c in (1..=cap).rev() {
+                if wgt[i - 1] <= c as i32 {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = std::cmp::max(dp[c], dp[c - wgt[i - 1] as usize] + val[i - 1]);
+                }
+            }
+        }
+        dp[cap]
+    }
     ```

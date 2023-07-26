@@ -313,6 +313,12 @@ comments: true
     // Dart 未提供内置 Heap 类
     ```
 
+=== "Rust"
+
+    ```rust title="heap.rs"
+
+    ```
+
 ## 8.1.2. &nbsp; 堆的实现
 
 下文实现的是大顶堆。若要将其转换为小顶堆，只需将所有大小逻辑判断取逆（例如，将 $\geq$ 替换为 $\leq$ ）。感兴趣的读者可以自行实现。
@@ -539,6 +545,25 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    /* 获取左子节点索引 */
+    fn left(i: usize) -> usize {
+        2 * i + 1
+    }
+
+    /* 获取右子节点索引 */
+    fn right(i: usize) -> usize {
+        2 * i + 2
+    }
+
+    /* 获取父节点索引 */
+    fn parent(i: usize) -> usize {
+        (i - 1) / 2 // 向下整除
+    }
+    ```
+
 ### 访问堆顶元素
 
 堆顶元素即为二叉树的根节点，也就是列表的首个元素。
@@ -638,6 +663,15 @@ comments: true
     /* 访问堆顶元素 */
     int peek() {
       return _maxHeap[0];
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    /* 访问堆顶元素 */
+    fn peek(&self) -> Option<i32> {
+        self.max_heap.first().copied()
     }
     ```
 
@@ -964,6 +998,38 @@ comments: true
     }
 
     [class]{MaxHeap}-[func]{siftUp}
+    ```
+
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    /* 元素入堆 */
+    fn push(&mut self, val: i32) {
+        // 添加节点
+        self.max_heap.push(val);
+        // 从底至顶堆化
+        self.sift_up(self.size() - 1);
+    }
+
+    /* 从节点 i 开始，从底至顶堆化 */
+    fn sift_up(&mut self, mut i: usize) {
+        loop {
+            // 节点 i 已经是堆顶节点了，结束堆化
+            if i == 0 {
+                break;
+            }
+            // 获取节点 i 的父节点
+            let p = Self::parent(i);
+            // 当“节点无需修复”时，结束堆化
+            if self.max_heap[i] <= self.max_heap[p] {
+                break;
+            }
+            // 交换两节点
+            self.swap(i, p);
+            // 循环向上堆化
+            i = p;
+        }
+    }
     ```
 
 ### 堆顶元素出堆
@@ -1420,6 +1486,48 @@ comments: true
     }
 
     [class]{MaxHeap}-[func]{siftDown}
+    ```
+
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    /* 元素出堆 */
+    fn pop(&mut self) -> i32 {
+        // 判空处理
+        if self.is_empty() {
+            panic!("index out of bounds");
+        }
+        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        self.swap(0, self.size() - 1);
+        // 删除节点
+        let val = self.max_heap.remove(self.size() - 1);
+        // 从顶至底堆化
+        self.sift_down(0);
+        // 返回堆顶元素
+        val
+    }
+
+    /* 从节点 i 开始，从顶至底堆化 */
+    fn sift_down(&mut self, mut i: usize) {
+        loop {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            let (l, r, mut ma) = (Self::left(i), Self::right(i), i);
+            if l < self.size() && self.max_heap[l] > self.max_heap[ma] {
+                ma = l;
+            }
+            if r < self.size() && self.max_heap[r] > self.max_heap[ma] {
+                ma = r;
+            }
+            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            if ma == i {
+                break;
+            }
+            // 交换两节点
+            self.swap(i, ma);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
     ```
 
 ## 8.1.3. &nbsp; 堆常见应用

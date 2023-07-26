@@ -265,6 +265,34 @@ status: new
     [class]{}-[func]{climbingStairsBacktrack}
     ```
 
+=== "Rust"
+
+    ```rust title="climbing_stairs_backtrack.rs"
+    /* 回溯 */
+    fn backtrack(choices: &[i32], state: i32, n: i32, res: &mut [i32]) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if state == n { res[0] = res[0] + 1; }
+        // 遍历所有选择
+        for &choice in choices {
+            // 剪枝：不允许越过第 n 阶
+            if state + choice > n { break; }
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res);
+            // 回退
+        }
+    }
+
+    /* 爬楼梯：回溯 */
+    fn climbing_stairs_backtrack(n: usize) -> i32 {
+        let choices = vec![ 1, 2 ]; // 可选择向上爬 1 或 2 阶
+        let state = 0; // 从第 0 阶开始爬
+        let mut res = Vec::new();
+        res.push(0); // 使用 res[0] 记录方案数量
+        backtrack(&choices, state, n as i32, &mut res);
+        res[0]
+    }
+    ```
+
 ## 14.1.1. &nbsp; 方法一：暴力搜索
 
 回溯算法通常并不显式地对问题进行拆解，而是将问题看作一系列决策步骤，通过试探和剪枝，搜索所有可能的解。
@@ -460,6 +488,24 @@ $$
     [class]{}-[func]{dfs}
 
     [class]{}-[func]{climbingStairsDFS}
+    ```
+
+=== "Rust"
+
+    ```rust title="climbing_stairs_dfs.rs"
+    /* 搜索 */
+    fn dfs(i: usize) -> i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 || i == 2 { return i as i32; }
+        // dp[i] = dp[i-1] + dp[i-2]
+        let count = dfs(i - 1) + dfs(i - 2);
+        count
+    }
+
+    /* 爬楼梯：搜索 */
+    fn climbing_stairs_dfs(n: usize) -> i32 {
+        dfs(n) 
+    }
     ```
 
 下图展示了暴力搜索形成的递归树。对于问题 $dp[n]$ ，其递归树的深度为 $n$ ，时间复杂度为 $O(2^n)$ 。指数阶属于爆炸式增长，如果我们输入一个比较大的 $n$ ，则会陷入漫长的等待之中。
@@ -702,6 +748,30 @@ $$
     [class]{}-[func]{climbingStairsDFSMem}
     ```
 
+=== "Rust"
+
+    ```rust title="climbing_stairs_dfs_mem.rs"
+    /* 记忆化搜索 */
+    fn dfs(i: usize, mem: &mut [i32]) -> i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 || i == 2 { return i as i32; }
+        // 若存在记录 dp[i] ，则直接返回之
+        if mem[i] != -1 { return mem[i]; }
+        // dp[i] = dp[i-1] + dp[i-2]
+        let count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // 记录 dp[i]
+        mem[i] = count;
+        count
+    }
+
+    /* 爬楼梯：记忆化搜索 */
+    fn climbing_stairs_dfs_mem(n: usize) -> i32 {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        let mut mem = vec![-1; n + 1];
+        dfs(n, &mut mem)
+    }
+    ```
+
 观察下图，**经过记忆化处理后，所有重叠子问题都只需被计算一次，时间复杂度被优化至 $O(n)$** ，这是一个巨大的飞跃。
 
 ![记忆化搜索对应递归树](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png)
@@ -881,6 +951,26 @@ $$
     [class]{}-[func]{climbingStairsDP}
     ```
 
+=== "Rust"
+
+    ```rust title="climbing_stairs_dp.rs"
+    /* 爬楼梯：动态规划 */
+    fn climbing_stairs_dp(n: usize) -> i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if n == 1 || n == 2 { return n as i32; }
+        // 初始化 dp 表，用于存储子问题的解
+        let mut dp = vec![-1; n + 1];
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i in 3..=n {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        dp[n]
+    }
+    ```
+
 与回溯算法一样，动态规划也使用“状态”概念来表示问题求解的某个特定阶段，每个状态都对应一个子问题以及相应的局部最优解。例如，爬楼梯问题的状态定义为当前所在楼梯阶数 $i$ 。
 
 总结以上，动态规划的常用术语包括：
@@ -1036,6 +1126,22 @@ $$
 
     ```dart title="climbing_stairs_dp.dart"
     [class]{}-[func]{climbingStairsDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="climbing_stairs_dp.rs"
+    /* 爬楼梯：状态压缩后的动态规划 */
+    fn climbing_stairs_dp_comp(n: usize) -> i32 {
+        if n == 1 || n == 2 { return n as i32; }
+        let (mut a, mut b) = (1, 2);
+        for _ in 3..=n {
+            let tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        b
+    }
     ```
 
 观察以上代码，由于省去了数组 `dp` 占用的空间，因此空间复杂度从 $O(n)$ 降低至 $O(1)$ 。

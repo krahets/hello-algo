@@ -106,6 +106,12 @@ comments: true
     List<int> nums = [1, 3, 2, 5, 4];
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+
+    ```
+
 ## 4.1.1. &nbsp; 数组优点
 
 **在数组中访问元素非常高效**。由于数组元素被存储在连续的内存空间中，因此计算数组元素的内存地址非常容易。给定数组首个元素的地址和某个元素的索引，我们可以使用以下公式计算得到该元素的内存地址，从而直接访问此元素。
@@ -267,6 +273,19 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
       // 获取并返回随机元素
       int randomNum = nums[randomIndex];
       return randomNum;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
+    /* 随机返回一个数组元素 */
+    fn random_access(nums: &[i32]) -> i32 {
+        // 在区间 [0, nums.len()) 中随机抽取一个数字
+        let random_index = rand::thread_rng().gen_range(0..nums.len());
+        // 获取并返回随机元素
+        let random_num = nums[random_index];
+        random_num
     }
     ```
 
@@ -457,6 +476,22 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+    /* 扩展数组长度 */
+    fn extend(nums: Vec<i32>, enlarge: usize) -> Vec<i32> {
+        // 初始化一个扩展长度后的数组
+        let mut res: Vec<i32> = vec![0; nums.len() + enlarge];
+        // 将原数组中的所有元素复制到新
+        for i in 0..nums.len() {
+            res[i] = nums[i];
+        }
+        // 返回扩展后的新数组
+        res
+    }
+    ```
+
 **数组中插入或删除元素效率低下**。如果我们想要在数组中间插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。
 
 ![数组插入元素](array.assets/array_insert_element.png)
@@ -616,6 +651,20 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+    /* 在数组的索引 index 处插入元素 num */
+    fn insert(nums: &mut Vec<i32>, num: i32, index: usize) {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        for i in (index + 1..nums.len()).rev() {
+            nums[i] = nums[i - 1];
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num;
+    }
+    ```
+
 删除元素也类似，如果我们想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，我们无需特意去修改它。
 
 ![数组删除元素](array.assets/array_remove_element.png)
@@ -752,6 +801,18 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
       for (var i = index; i < nums.length - 1; i++) {
         nums[i] = nums[i + 1];
       }
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
+    /* 删除索引 index 处元素 */
+    fn remove(nums: &mut Vec<i32>, index: usize) {
+        // 把索引 index 之后的所有元素向前移动一位
+        for i in index..nums.len() - 1 {
+            nums[i] = nums[i + 1];
+        }
     }
     ```
 
@@ -951,6 +1012,23 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+    /* 遍历数组 */
+    fn traverse(nums: &[i32]) {
+        let mut _count = 0;
+        // 通过索引遍历数组
+        for _ in 0..nums.len() {
+            _count += 1;
+        }
+        // 直接遍历数组
+        for _ in nums {
+            _count += 1;
+        }
+    }
+    ```
+
 **数组查找**。通过遍历数组，查找数组内的指定元素，并输出对应索引。
 
 === "Java"
@@ -1093,6 +1171,20 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
         if (nums[i] == target) return i;
       }
       return -1;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
+    /* 在数组中查找指定元素 */
+    fn find(nums: &[i32], target: i32) -> Option<usize> {
+        for i in 0..nums.len() {
+            if nums[i] == target {
+                return Some(i);
+            }
+        }
+        None
     }
     ```
 

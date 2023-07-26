@@ -120,6 +120,12 @@ comments: true
     List<int> list = [1, 3, 2, 5, 4];
     ```
 
+=== "Rust"
+
+    ```rust title="list.rs"
+
+    ```
+
 **访问与更新元素**。由于列表的底层数据结构是数组，因此可以在 $O(1)$ 时间内访问和更新元素，效率很高。
 
 === "Java"
@@ -226,6 +232,12 @@ comments: true
 
     /* 更新元素 */
     list[1] = 0;  // 将索引 1 处的元素更新为 0
+    ```
+
+=== "Rust"
+
+    ```rust title="list.rs"
+
     ```
 
 **在列表中添加、插入、删除元素**。相较于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 $O(1)$ ，但插入和删除元素的效率仍与数组相同，时间复杂度为 $O(N)$ 。
@@ -436,6 +448,12 @@ comments: true
     list.removeAt(3); // 删除索引 3 处的元素
     ```
 
+=== "Rust"
+
+    ```rust title="list.rs"
+
+    ```
+
 **遍历列表**。与数组一样，列表可以根据索引遍历，也可以直接遍历各元素。
 
 === "Java"
@@ -603,6 +621,12 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="list.rs"
+
+    ```
+
 **拼接两个列表**。给定一个新列表 `list1` ，我们可以将该列表拼接到原列表的尾部。
 
 === "Java"
@@ -694,6 +718,12 @@ comments: true
     list.addAll(list1);  // 将列表 list1 拼接到 list 之后
     ```
 
+=== "Rust"
+
+    ```rust title="list.rs"
+
+    ```
+
 **排序列表**。排序也是常用的方法之一。完成列表排序后，我们便可以使用在数组类算法题中经常考察的「二分查找」和「双指针」算法。
 
 === "Java"
@@ -770,6 +800,12 @@ comments: true
     ```dart title="list.dart"
     /* 排序列表 */
     list.sort(); // 排序后，列表元素从小到大排列
+    ```
+
+=== "Rust"
+
+    ```rust title="list.rs"
+
     ```
 
 ## 4.3.2. &nbsp; 列表实现 *
@@ -1916,5 +1952,116 @@ comments: true
         }
         return nums;
       }
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="my_list.rs"
+    /* 列表类简易实现 */
+    #[allow(dead_code)]
+    struct MyList {
+        nums: Vec<i32>,       // 数组（存储列表元素）
+        capacity: usize,      // 列表容量
+        size: usize,          // 列表长度（即当前元素数量）
+        extend_ratio: usize,  // 每次列表扩容的倍数
+    }
+
+    #[allow(unused,unused_comparisons)]
+    impl MyList {
+        /* 构造方法 */
+        pub fn new(capacity: usize) -> Self {
+            let mut vec = Vec::new(); 
+            vec.resize(capacity, 0);
+            Self {
+                nums: vec,
+                capacity,
+                size: 0,
+                extend_ratio: 2,
+            }
+        }
+
+        /* 获取列表长度（即当前元素数量）*/
+        pub fn size(&self) -> usize {
+            return self.size;
+        }
+
+        /* 获取列表容量 */
+        pub fn capacity(&self) -> usize {
+            return self.capacity;
+        }
+
+        /* 访问元素 */
+        pub fn get(&self, index: usize) -> i32 {
+            // 索引如果越界则抛出异常，下同
+            if index < 0 || index >= self.size {panic!("索引越界")};
+            return self.nums[index];
+        }
+
+        /* 更新元素 */
+        pub fn set(&mut self, index: usize, num: i32) {
+            if index < 0 || index >= self.size {panic!("索引越界")};
+            self.nums[index] = num;
+        }
+
+        /* 尾部添加元素 */
+        pub fn add(&mut self, num: i32) {
+            // 元素数量超出容量时，触发扩容机制
+            if self.size == self.capacity() {
+                self.extend_capacity();
+            }
+            self.nums[self.size] = num;
+            // 更新元素数量
+            self.size += 1;
+        }
+
+        /* 中间插入元素 */
+        pub fn insert(&mut self, index: usize, num: i32) {
+            if index < 0 || index >= self.size() {panic!("索引越界")};
+            // 元素数量超出容量时，触发扩容机制
+            if self.size == self.capacity() {
+                self.extend_capacity();
+            }
+            // 将索引 index 以及之后的元素都向后移动一位
+            for j in (index..self.size).rev() {
+                self.nums[j + 1] = self.nums[j];
+            }
+            self.nums[index] = num;
+            // 更新元素数量
+            self.size += 1;
+        }
+
+        /* 删除元素 */
+        pub fn remove(&mut self, index: usize) -> i32 {
+            if index < 0 || index >= self.size() {panic!("索引越界")};
+            let num = self.nums[index];
+            // 将索引 index 之后的元素都向前移动一位
+            for j in (index..self.size - 1) {
+                self.nums[j] = self.nums[j + 1];
+            }
+            // 更新元素数量
+            self.size -= 1;
+            // 返回被删除元素
+            return num;
+        }
+
+        /* 列表扩容 */
+        pub fn extend_capacity(&mut self) {
+            // 新建一个长度为原数组 extend_ratio 倍的新数组，并将原数组拷贝到新数组
+            let new_capacity = self.capacity * self.extend_ratio;
+            self.nums.resize(new_capacity, 0);
+            // 更新列表容量
+            self.capacity = new_capacity;
+        }
+
+        /* 将列表转换为数组 */
+        pub fn to_array(&mut self) -> Vec<i32> {
+            // 仅转换有效长度范围内的列表元素
+            let mut nums = Vec::new();
+            for i in 0..self.size {
+                nums.push(self.get(i));
+            }
+            nums
+        }
     }
     ```

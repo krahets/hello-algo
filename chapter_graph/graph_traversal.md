@@ -358,6 +358,40 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     }
     ```
 
+=== "Rust"
+
+    ```rust title="graph_bfs.rs"
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
+        // 顶点遍历序列
+        let mut res = vec![];
+        // 哈希表，用于记录已被访问过的顶点
+        let mut visited = HashSet::new();
+        visited.insert(start_vet);
+        // 队列用于实现 BFS
+        let mut que = VecDeque::new();
+        que.push_back(start_vet);
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while !que.is_empty() {
+            let vet = que.pop_front().unwrap(); // 队首顶点出队
+            res.push(vet); // 记录访问顶点
+                        // 遍历该顶点的所有邻接顶点
+            if let Some(adj_vets) = graph.adj_list.get(&vet) {
+                for &adj_vet in adj_vets {
+                    if visited.contains(&adj_vet) {
+                        continue; // 跳过已被访问过的顶点
+                    }
+                    que.push_back(adj_vet); // 只入队未访问的顶点
+                    visited.insert(adj_vet); // 标记该顶点已被访问
+                }
+            }
+        }
+        // 返回顶点遍历序列
+        res
+    }
+    ```
+
 代码相对抽象，建议对照以下动画图示来加深理解。
 
 === "<1>"
@@ -726,6 +760,38 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
       Set<Vertex> visited = {};
       dfs(graph, visited, res, startVet);
       return res;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="graph_dfs.rs"
+    /* 深度优先遍历 DFS 辅助函数 */
+    fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex>, vet: Vertex) {
+        res.push(vet); // 记录访问顶点
+        visited.insert(vet); // 标记该顶点已被访问
+                             // 遍历该顶点的所有邻接顶点
+        if let Some(adj_vets) = graph.adj_list.get(&vet) {
+            for &adj_vet in adj_vets {
+                if visited.contains(&adj_vet) {
+                    continue; // 跳过已被访问过的顶点
+                }
+                // 递归访问邻接顶点
+                dfs(graph, visited, res, adj_vet);
+            }
+        }
+    }
+
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
+        // 顶点遍历序列
+        let mut res = vec![];
+        // 哈希表，用于记录已被访问过的顶点
+        let mut visited = HashSet::new();
+        dfs(&graph, &mut visited, &mut res, start_vet);
+
+        res
     }
     ```
 

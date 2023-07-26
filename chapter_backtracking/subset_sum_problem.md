@@ -273,6 +273,41 @@ comments: true
     [class]{}-[func]{subsetSumINaive}
     ```
 
+=== "Rust"
+
+    ```rust title="subset_sum_i_naive.rs"
+    /* 回溯算法：子集和 I */
+    fn backtrack(mut state: Vec<i32>, target: i32, total: i32, choices: &[i32], res: &mut Vec<Vec<i32>>) {
+        // 子集和等于 target 时，记录解
+        if total == target {
+            res.push(state);
+            return;
+        }
+        // 遍历所有选择
+        for i in 0..choices.len() {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if total + choices[i] > target {
+                continue;
+            }
+            // 尝试：做出选择，更新元素和 total
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state.clone(), target, total + choices[i], choices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
+
+    /* 求解子集和 I（包含重复子集） */
+    fn subset_sum_i_naive(nums: &[i32], target: i32) -> Vec<Vec<i32>> {
+        let state = Vec::new(); // 状态（子集）
+        let total = 0; // 子集和
+        let mut res = Vec::new(); // 结果列表（子集列表）
+        backtrack(state, target, total, nums, &mut res);
+        res
+    }
+    ```
+
 向以上代码输入数组 $[3, 4, 5]$ 和目标元素 $9$ ，输出结果为 $[3, 3, 3], [4, 5], [5, 4]$ 。**虽然成功找出了所有和为 $9$ 的子集，但其中存在重复的子集 $[4, 5]$ 和 $[5, 4]$** 。
 
 这是因为搜索过程是区分选择顺序的，然而子集不区分选择顺序。如下图所示，先选 $4$ 后选 $5$ 与先选 $5$ 后选 $4$ 是两个不同的分支，但两者对应同一个子集。
@@ -578,6 +613,44 @@ comments: true
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subsetSumI}
+    ```
+
+=== "Rust"
+
+    ```rust title="subset_sum_i.rs"
+    /* 回溯算法：子集和 I */
+    fn backtrack(mut state: Vec<i32>, target: i32, choices: &[i32], start: usize, res: &mut Vec<Vec<i32>>) {
+        // 子集和等于 target 时，记录解
+        if target == 0 {
+            res.push(state);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for i in start..choices.len() {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if target - choices[i] < 0 {
+                break;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state.clone(), target - choices[i], choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
+
+    /* 求解子集和 I */
+    fn subset_sum_i(nums: &mut [i32], target: i32) -> Vec<Vec<i32>> {
+        let state = Vec::new(); // 状态（子集）
+        nums.sort(); // 对 nums 进行排序
+        let start = 0; // 遍历起始点
+        let mut res = Vec::new(); // 结果列表（子集列表）
+        backtrack(state, target, nums, start, &mut res);
+        res
+    }
     ```
 
 如下图所示，为将数组 $[3, 4, 5]$ 和目标元素 $9$ 输入到以上代码后的整体回溯过程。
@@ -901,6 +974,49 @@ comments: true
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subsetSumII}
+    ```
+
+=== "Rust"
+
+    ```rust title="subset_sum_ii.rs"
+    /* 回溯算法：子集和 II */
+    fn backtrack(mut state: Vec<i32>, target: i32, choices: &[i32], start: usize, res: &mut Vec<Vec<i32>>) {
+        // 子集和等于 target 时，记录解
+        if target == 0 {
+            res.push(state);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for i in start..choices.len() {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if target - choices[i] < 0 {
+                break;
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if i > start && choices[i] == choices[i - 1] {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state.clone(), target - choices[i], choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
+
+    /* 求解子集和 II */
+    fn subset_sum_ii(nums: &mut [i32], target: i32) -> Vec<Vec<i32>> {
+        let state = Vec::new(); // 状态（子集）
+        nums.sort(); // 对 nums 进行排序
+        let start = 0; // 遍历起始点
+        let mut res = Vec::new(); // 结果列表（子集列表）
+        backtrack(state, target, nums, start, &mut res);
+        res
+    }
     ```
 
 下图展示了数组 $[4, 4, 5]$ 和目标元素 $9$ 的回溯过程，共包含四种剪枝操作。请你将图示与代码注释相结合，理解整个搜索过程，以及每种剪枝操作是如何工作的。

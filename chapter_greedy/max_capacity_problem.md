@@ -248,6 +248,32 @@ $$
     [class]{}-[func]{maxCapacity}
     ```
 
+=== "Rust"
+
+    ```rust title="max_capacity.rs"
+    /* 最大容量：贪心 */
+    fn max_capacity(ht: &[i32]) -> i32 {
+        // 初始化 i, j 分列数组两端
+        let mut i = 0;
+        let mut j = ht.len() - 1;
+        // 初始最大容量为 0
+        let mut res = 0;
+        // 循环贪心选择，直至两板相遇
+        while i < j {
+            // 更新最大容量
+            let cap = std::cmp::min(ht[i], ht[j]) * (j - i) as i32;
+            res = std::cmp::max(res, cap);
+            // 向内移动短板
+            if ht[i] < ht[j] {
+                i += 1;
+            } else {
+                j -= 1;
+            }
+        }
+        res
+    }
+    ```
+
 ### 正确性证明
 
 之所以贪心比穷举更快，是因为每轮的贪心选择都会“跳过”一些状态。

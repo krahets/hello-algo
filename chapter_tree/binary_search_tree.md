@@ -271,6 +271,33 @@ comments: true
     [class]{BinarySearchTree}-[func]{search}
     ```
 
+=== "Rust"
+
+    ```rust title="binary_search_tree.rs"
+    /* 查找节点 */
+    pub fn search(&self, num: i32) -> Option<TreeNodeRc> {
+        let mut cur = self.root.clone();
+
+        // 循环查找，越过叶节点后跳出
+        while let Some(node) = cur.clone() {
+            // 目标节点在 cur 的右子树中
+            if node.borrow().val < num {
+                cur = node.borrow().right.clone();
+            }
+            // 目标节点在 cur 的左子树中
+            else if node.borrow().val > num {
+                cur = node.borrow().left.clone();
+            }
+            // 找到目标节点，跳出循环
+            else {
+                break;
+            }
+        }
+        // 返回目标节点
+        cur
+    }
+    ```
+
 ### 插入节点
 
 给定一个待插入元素 `num` ，为了保持二叉搜索树“左子树 < 根节点 < 右子树”的性质，插入操作分为两步：
@@ -612,6 +639,44 @@ comments: true
 
     ```dart title="binary_search_tree.dart"
     [class]{BinarySearchTree}-[func]{insert}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search_tree.rs"
+    /* 插入节点 */
+    pub fn insert(&mut self, num: i32) {
+        // 若树为空，直接提前返回
+        if self.root.is_none() {
+            return;
+        }
+        let mut cur = self.root.clone();
+        let mut pre = None;
+        // 循环查找，越过叶节点后跳出
+        while let Some(node) = cur.clone() {
+            // 找到重复节点，直接返回
+            if node.borrow().val == num {
+                return;
+            }
+            // 插入位置在 cur 的右子树中
+            pre = cur.clone();
+            if node.borrow().val < num {
+                cur = node.borrow().right.clone();
+            }
+            // 插入位置在 cur 的左子树中
+            else {
+                cur = node.borrow().left.clone();
+            }
+        }
+        // 插入节点
+        let node = TreeNode::new(num);
+        let pre = pre.unwrap();
+        if pre.borrow().val < num {
+            pre.borrow_mut().right = Some(Rc::clone(&node));
+        } else {
+            pre.borrow_mut().left = Some(Rc::clone(&node));
+        }
+    }
     ```
 
 为了插入节点，我们需要利用辅助节点 `pre` 保存上一轮循环的节点，这样在遍历至 $\text{None}$ 时，我们可以获取到其父节点，从而完成节点插入操作。
@@ -1215,6 +1280,76 @@ comments: true
 
     ```dart title="binary_search_tree.dart"
     [class]{BinarySearchTree}-[func]{remove}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search_tree.rs"
+    /* 删除节点 */
+    pub fn remove(&mut self, num: i32) {
+        // 若树为空，直接提前返回
+        if self.root.is_none() { 
+            return; 
+        }
+        let mut cur = self.root.clone();
+        let mut pre = None;
+        // 循环查找，越过叶节点后跳出
+        while let Some(node) = cur.clone() {
+            // 找到待删除节点，跳出循环
+            if node.borrow().val == num {
+                break;
+            }
+            // 待删除节点在 cur 的右子树中
+            pre = cur.clone();
+            if node.borrow().val < num {
+                cur = node.borrow().right.clone();
+            }
+            // 待删除节点在 cur 的左子树中
+            else {
+                cur = node.borrow().left.clone();
+            }
+        }
+        // 若无待删除节点，则直接返回
+        if cur.is_none() {
+            return;
+        }
+        let cur = cur.unwrap();
+        // 子节点数量 = 0 or 1
+        if cur.borrow().left.is_none() || cur.borrow().right.is_none() {
+            // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
+            let child = cur.borrow().left.clone().or_else(|| cur.borrow().right.clone());
+            let pre = pre.unwrap();
+            let left = pre.borrow().left.clone().unwrap();
+            // 删除节点 cur
+            if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
+                if Rc::ptr_eq(&left, &cur) {
+                    pre.borrow_mut().left = child;
+                } else {
+                    pre.borrow_mut().right = child;
+                }
+            } else {
+                // 若删除节点为根节点，则重新指定根节点
+                self.root = child;
+            }
+        }
+        // 子节点数量 = 2
+        else {
+            // 获取中序遍历中 cur 的下一个节点
+            let mut tmp = cur.borrow().right.clone();
+            while let Some(node) = tmp.clone() {
+                if node.borrow().left.is_some() {
+                    tmp = node.borrow().left.clone();
+                } else {
+                    break;
+                }
+            }
+            let tmpval = tmp.unwrap().borrow().val;
+            // 递归删除节点 tmp
+            self.remove(tmpval);
+            // 用 tmp 覆盖 cur
+            cur.borrow_mut().val = tmpval;
+        }
+    }
     ```
 
 ### 排序

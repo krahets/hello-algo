@@ -318,6 +318,12 @@ comments: true
     bool isEmpty = deque.isEmpty;W
     ```
 
+=== "Rust"
+
+    ```rust title="deque.rs"
+
+    ```
+
 ## 5.3.2. &nbsp; 双向队列实现 *
 
 双向队列的实现与队列类似，可以选择链表或数组作为底层数据结构。
@@ -1795,6 +1801,174 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="linkedlist_deque.rs"
+    /* 双向链表节点 */
+    pub struct ListNode<T> {
+        pub val: T,                                 // 节点值
+        pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点引用（指针）
+        pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱节点引用（指针）
+    }
+
+    impl<T> ListNode<T> {
+        pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
+            Rc::new(RefCell::new(ListNode {
+                val,
+                next: None,
+                prev: None,
+            }))
+        }
+    }
+
+    /* 基于双向链表实现的双向队列 */
+    #[allow(dead_code)]
+    pub struct LinkedListDeque<T> {
+        front: Option<Rc<RefCell<ListNode<T>>>>,    // 头节点 front
+        rear: Option<Rc<RefCell<ListNode<T>>>>,     // 尾节点 rear 
+        que_size: usize,                            // 双向队列的长度
+    }
+
+    impl<T: Copy> LinkedListDeque<T> {
+        pub fn new() -> Self {
+            Self {
+                front: None,
+                rear: None,
+                que_size: 0, 
+            }
+        }
+
+        /* 获取双向队列的长度 */
+        pub fn size(&self) -> usize {
+            return self.que_size;
+        }
+
+        /* 判断双向队列是否为空 */
+        pub fn is_empty(&self) -> bool {
+            return self.size() == 0;
+        }
+
+        /* 入队操作 */
+        pub fn push(&mut self, num: T, is_front: bool) {
+            let node = ListNode::new(num);
+            // 队首入队操作
+            if is_front {
+                match self.front.take() {
+                    // 若链表为空，则令 front, rear 都指向 node
+                    None => {
+                        self.rear = Some(node.clone());
+                        self.front = Some(node);
+                    }
+                    // 将 node 添加至链表头部
+                    Some(old_front) => {
+                        old_front.borrow_mut().prev = Some(node.clone());
+                        node.borrow_mut().next = Some(old_front);
+                        self.front = Some(node); // 更新头节点
+                    }
+                }
+            } 
+            // 队尾入队操作
+            else {
+                match self.rear.take() {
+                    // 若链表为空，则令 front, rear 都指向 node
+                    None => {
+                        self.front = Some(node.clone());
+                        self.rear = Some(node);
+                    }
+                    // 将 node 添加至链表尾部
+                    Some(old_rear) => {
+                        old_rear.borrow_mut().next = Some(node.clone());
+                        node.borrow_mut().prev = Some(old_rear);
+                        self.rear = Some(node); // 更新尾节点
+                    }
+                }
+            }
+            self.que_size += 1; // 更新队列长度
+        }
+
+        /* 队首入队 */
+        pub fn push_first(&mut self, num: T) {
+            self.push(num, true);
+        }
+
+        /* 队尾入队 */
+        pub fn push_last(&mut self, num: T) {
+            self.push(num, false);
+        }
+
+        /* 出队操作 */
+        pub fn pop(&mut self, is_front: bool) -> Option<T> {
+            // 若队列为空，直接返回 None
+            if self.is_empty() { 
+                return None 
+            };
+            // 队首出队操作
+            if is_front {
+                self.front.take().map(|old_front| {
+                    match old_front.borrow_mut().next.take() {
+                        Some(new_front) => {
+                            new_front.borrow_mut().prev.take();
+                            self.front = Some(new_front);   // 更新头节点
+                        }
+                        None => {
+                            self.rear.take();
+                        }
+                    }
+                    self.que_size -= 1; // 更新队列长度
+                    Rc::try_unwrap(old_front).ok().unwrap().into_inner().val
+                })
+            
+            } 
+            // 队尾出队操作
+            else {
+                self.rear.take().map(|old_rear| {
+                    match old_rear.borrow_mut().prev.take() {
+                        Some(new_rear) => {
+                            new_rear.borrow_mut().next.take();
+                            self.rear = Some(new_rear);     // 更新尾节点
+                        }
+                        None => {
+                            self.front.take();
+                        }
+                    }
+                    self.que_size -= 1; // 更新队列长度
+                    Rc::try_unwrap(old_rear).ok().unwrap().into_inner().val
+                })
+            }
+        }
+
+        /* 队首出队 */
+        pub fn pop_first(&mut self) -> Option<T> {
+            return self.pop(true);
+        }
+
+        /* 队尾出队 */
+        pub fn pop_last(&mut self) -> Option<T> {
+            return self.pop(false);
+        }
+
+        /* 访问队首元素 */
+        pub fn peek_first(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
+            self.front.as_ref()
+        }
+
+        /* 访问队尾元素 */
+        pub fn peek_last(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
+            self.rear.as_ref()
+        }
+
+        /* 返回数组用于打印 */
+        pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
+            if let Some(node) = head {
+                let mut nums = self.to_array(node.borrow().next.as_ref());
+                nums.insert(0, node.borrow().val);
+                return nums;
+            }
+            return Vec::new();
+        }
+    }
+    ```
+
 ### 基于数组的实现
 
 与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法。
@@ -2911,6 +3085,120 @@ comments: true
         }
         return res;
       }
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="array_deque.rs"
+    /* 基于环形数组实现的双向队列 */
+    struct ArrayDeque {
+        nums: Vec<i32>,     // 用于存储双向队列元素的数组
+        front: usize,       // 队首指针，指向队首元素
+        que_size: usize,    // 双向队列长度
+    }
+
+    impl ArrayDeque {
+        /* 构造方法 */
+        pub fn new(capacity: usize) -> Self {
+            Self {
+                nums: vec![0; capacity],
+                front: 0,
+                que_size: 0,
+            }
+        }
+
+        /* 获取双向队列的容量 */
+        pub fn capacity(&self) -> usize {
+            self.nums.len()
+        }
+
+        /* 获取双向队列的长度 */
+        pub fn size(&self) -> usize {
+            self.que_size
+        }
+
+        /* 判断双向队列是否为空 */
+        pub fn is_empty(&self) -> bool {
+            self.que_size == 0
+        }
+
+        /* 计算环形数组索引 */
+        fn index(&self, i: i32) -> usize {
+            // 通过取余操作实现数组首尾相连
+            // 当 i 越过数组尾部后，回到头部
+            // 当 i 越过数组头部后，回到尾部
+            return ((i + self.capacity() as i32) % self.capacity() as i32) as usize;
+        }
+
+        /* 队首入队 */
+        pub fn push_first(&mut self, num: i32) {
+            if self.que_size == self.capacity() {
+                println!("双向队列已满");
+                return
+            }
+            // 队首指针向左移动一位
+            // 通过取余操作，实现 front 越过数组头部后回到尾部
+            self.front = self.index(self.front as i32 - 1);
+            // 将 num 添加至队首
+            self.nums[self.front] = num;
+            self.que_size += 1;
+        }
+
+        /* 队尾入队 */
+        pub fn push_last(&mut self, num: i32) {
+            if self.que_size == self.capacity() {
+                println!("双向队列已满");
+                return
+            }
+            // 计算尾指针，指向队尾索引 + 1
+            let rear = self.index(self.front as i32 + self.que_size as i32);
+            // 将 num 添加至队尾
+            self.nums[rear] = num;
+            self.que_size += 1;
+        }
+
+        /* 队首出队 */
+        fn pop_first(&mut self) -> i32 {
+            let num = self.peek_first();
+            // 队首指针向后移动一位
+            self.front = self.index(self.front as i32 + 1);
+            self.que_size -= 1;
+            num
+        }
+
+        /* 队尾出队 */
+        fn pop_last(&mut self) -> i32 {
+            let num = self.peek_last();
+            self.que_size -= 1;
+            num
+        }
+
+        /* 访问队首元素 */
+        fn peek_first(&self) -> i32 {
+            if self.is_empty() { panic!("双向队列为空") };
+            self.nums[self.front]
+        }
+
+        /* 访问队尾元素 */
+        fn peek_last(&self) -> i32 {
+            if self.is_empty() { panic!("双向队列为空") };
+            // 计算尾元素索引
+            let last = self.index(self.front as i32 + self.que_size as i32 - 1);
+            self.nums[last]
+        }
+        
+        /* 返回数组用于打印 */
+        fn to_array(&self) -> Vec<i32> {
+            // 仅转换有效长度范围内的列表元素
+            let mut res = vec![0; self.que_size];
+            let mut j = self.front;
+            for i in 0..self.que_size {
+                res[i] = self.nums[self.index(j as i32)];
+                j += 1;
+            }
+            res
+        }
     }
     ```
 

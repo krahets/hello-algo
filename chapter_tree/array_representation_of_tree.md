@@ -116,6 +116,12 @@ comments: true
     List<int?> tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 ![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png)
 
 <p align="center"> Fig. 任意类型二叉树的数组表示 </p>
@@ -618,6 +624,107 @@ comments: true
 
     ```dart title="array_binary_tree.dart"
     [class]{ArrayBinaryTree}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="array_binary_tree.rs"
+    /* 数组表示下的二叉树类 */
+    struct ArrayBinaryTree {
+        tree: Vec<Option<i32>>,
+    }
+
+    impl ArrayBinaryTree {
+        /* 构造方法 */
+        fn new(arr: Vec<Option<i32>>) -> Self {
+            Self { tree: arr }
+        }
+
+        /* 节点数量 */
+        fn size(&self) -> i32 {
+            self.tree.len() as i32
+        }
+
+        /* 获取索引为 i 节点的值 */
+        fn val(&self, i: i32) -> Option<i32> {
+            // 若索引越界，则返回 None ，代表空位
+            if i < 0 || i >= self.size() {
+                None
+            } else {
+                self.tree[i as usize]
+            }
+        }
+
+        /* 获取索引为 i 节点的左子节点的索引 */
+        fn left(&self, i: i32) -> i32 {
+            2 * i + 1
+        }
+
+        /* 获取索引为 i 节点的右子节点的索引 */
+        fn right(&self, i: i32) -> i32 {
+            2 * i + 2
+        }
+
+        /* 获取索引为 i 节点的父节点的索引 */
+        fn parent(&self, i: i32) -> i32 {
+            (i - 1) / 2
+        }
+
+        /* 层序遍历 */
+        fn level_order(&self) -> Vec<i32> {
+            let mut res = vec![];
+            // 直接遍历数组
+            for i in 0..self.size() {
+                if let Some(val) = self.val(i) {
+                    res.push(val)
+                }
+            }
+            res
+        }
+
+        /* 深度优先遍历 */
+        fn dfs(&self, i: i32, order: &str, res: &mut Vec<i32>) {
+            if self.val(i).is_none() {
+                return;
+            }
+            let val = self.val(i).unwrap();
+            // 前序遍历
+            if order == "pre" {
+                res.push(val);
+            }
+            self.dfs(self.left(i), order, res);
+            // 中序遍历
+            if order == "in" {
+                res.push(val);
+            }
+            self.dfs(self.right(i), order, res);
+            // 后序遍历
+            if order == "post" {
+                res.push(val);
+            }
+        }
+
+        /* 前序遍历 */
+        fn pre_order(&self) -> Vec<i32> {
+            let mut res = vec![];
+            self.dfs(0, "pre", &mut res);
+            res
+        }
+
+        /* 中序遍历 */
+        fn in_order(&self) -> Vec<i32> {
+            let mut res = vec![];
+            self.dfs(0, "in", &mut res);
+            res
+        }
+
+        /* 后序遍历 */
+        fn post_order(&self) -> Vec<i32> {
+            let mut res = vec![];
+            self.dfs(0, "post", &mut res);
+            res
+        }
+    }
     ```
 
 ## 7.3.3. &nbsp; 优势与局限性

@@ -337,6 +337,27 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    /* 哨兵划分 */
+    fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
+        // 以 nums[left] 作为基准数
+        let (mut i, mut j) = (left, right);
+        while i < j {
+            while i < j && nums[j] >= nums[left] {
+                j -= 1;      // 从右向左找首个小于基准数的元素
+            }
+            while i < j && nums[i] <= nums[left] {
+                i += 1;      // 从左向右找首个大于基准数的元素
+            }
+            nums.swap(i, j); // 交换这两个元素
+        }
+        nums.swap(i, left);  // 将基准数交换至两子数组的分界线
+        i                    // 返回基准数的索引
+    }
+    ```
+
 ## 11.5.1. &nbsp; 算法流程
 
 1. 首先，对原数组执行一次「哨兵划分」，得到未排序的左子数组和右子数组。
@@ -543,6 +564,23 @@ comments: true
       // 递归左子数组、右子数组
       quickSort(nums, left, pivot - 1);
       quickSort(nums, pivot + 1, right);
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    /* 快速排序 */
+    pub fn quick_sort(left: i32, right: i32, nums: &mut [i32]) {
+        // 子数组长度为 1 时终止递归
+        if left >= right {
+            return;
+        }
+        // 哨兵划分
+        let pivot = Self::partition(nums, left as usize, right as usize) as i32;
+        // 递归左子数组、右子数组
+        Self::quick_sort(left, pivot - 1, nums);
+        Self::quick_sort(pivot + 1, right, nums);
     }
     ```
 
@@ -976,6 +1014,43 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    /* 选取三个元素的中位数 */
+    fn median_three(nums: &mut [i32], left: usize, mid: usize, right: usize) -> usize {
+        // 此处使用异或运算来简化代码
+        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
+        if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]) {
+            return left;
+        } else if (nums[mid] < nums[left]) ^ (nums[mid] < nums[right]) {
+            return mid;
+        } 
+        right
+    }
+
+    /* 哨兵划分（三数取中值） */
+    fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
+        // 选取三个候选元素的中位数
+        let med = Self::median_three(nums, left, (left + right) / 2, right);
+        // 将中位数交换至数组最左端
+        nums.swap(left, med);
+        // 以 nums[left] 作为基准数
+        let (mut i, mut j) = (left, right);
+        while i < j {
+            while i < j && nums[j] >= nums[left] {
+                j -= 1;      // 从右向左找首个小于基准数的元素
+            }
+            while i < j && nums[i] <= nums[left] {
+                i += 1;      // 从左向右找首个大于基准数的元素
+            }
+            nums.swap(i, j); // 交换这两个元素
+        }
+         nums.swap(i, left);  // 将基准数交换至两子数组的分界线
+         i                    // 返回基准数的索引
+    }
+    ```
+
 ## 11.5.5. &nbsp; 尾递归优化
 
 **在某些输入下，快速排序可能占用空间较多**。以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 $0$ ，递归树的高度会达到 $n - 1$ ，此时需要占用 $O(n)$ 大小的栈帧空间。
@@ -1212,5 +1287,26 @@ comments: true
           right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
         }
       }
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    /* 快速排序（尾递归优化） */
+    pub fn quick_sort(mut left: i32, mut right: i32, nums: &mut [i32]) {
+        // 子数组长度为 1 时终止
+        while left < right {
+            // 哨兵划分操作
+            let pivot = Self::partition(nums, left as usize, right as usize) as i32;
+            // 对两个子数组中较短的那个执行快排
+            if  pivot - left < right - pivot {
+                Self::quick_sort(left, pivot - 1, nums);  // 递归排序左子数组
+                left = pivot + 1;  // 剩余未排序区间为 [pivot + 1, right]
+            } else {
+                Self::quick_sort(pivot + 1, right, nums); // 递归排序右子数组
+                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
+            }
+        }
     }
     ```

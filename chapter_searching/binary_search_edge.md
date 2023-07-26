@@ -288,6 +288,30 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="binary_search_edge.rs"
+    /* 二分查找最左一个元素 */
+    fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
+        let mut i = 0;
+        let mut j = nums.len() as i32 - 1; // 初始化双闭区间 [0, n-1]
+        while i <= j {
+            let m = i + (j - i) / 2; // 计算中点索引 m
+            if nums[m as usize] < target {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if nums[m as usize] > target {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        if i == nums.len() as i32 || nums[i as usize] != target {
+            return -1; // 未找到目标元素，返回 -1
+        }
+        i
+    }
+    ```
+
 ## 10.2.3. &nbsp; 查找右边界
 
 类似地，我们也可以二分查找最右边的 `target` 。当 `nums[m] == target` 时，说明大于 `target` 的元素在区间 $[m + 1, j]$ 中，因此执行 `i = m + 1` ，**使得指针 $i$ 向大于 `target` 的元素靠近**。
@@ -521,6 +545,30 @@ comments: true
       }
       if (j < 0 || nums[j] != target) return -1; // 未找到目标元素，返回 -1
       return j;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search_edge.rs"
+    /* 二分查找最右一个元素 */
+    fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
+        let mut i = 0;
+        let mut j = nums.len() as i32 - 1; // 初始化双闭区间 [0, n-1]
+        while i <= j {
+            let m = i + (j - i) / 2; // 计算中点索引 m
+            if nums[m as usize] < target {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if nums[m as usize] > target {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                i = m + 1; // 首个大于 target 的元素在区间 [m+1, j] 中
+            }
+        }
+        if j < 0 || nums[j as usize] != target {
+            return -1; // 未找到目标元素，返回 -1
+        }
+        j
     }
     ```
 

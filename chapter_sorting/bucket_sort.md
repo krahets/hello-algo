@@ -361,6 +361,37 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="bucket_sort.rs"
+    /* 桶排序 */
+    fn bucket_sort(nums: &mut [f64]) {
+        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+        let k = nums.len() / 2;
+        let mut buckets = vec![vec![]; k];
+        // 1. 将数组元素分配到各个桶中
+        for &mut num in &mut *nums {
+            // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+            let i = (num * k as f64) as usize;
+            // 将 num 添加进桶 i
+            buckets[i].push(num);
+        }
+        // 2. 对各个桶执行排序
+        for bucket in &mut buckets {
+            // 使用内置排序函数，也可以替换成其他排序算法
+            bucket.sort_by(|a, b| a.partial_cmp(b).unwrap());
+        }
+        // 3. 遍历桶合并结果
+        let mut i = 0;
+        for bucket in &mut buckets {
+            for &mut num in bucket {
+                nums[i] = num;
+                i += 1;
+            }
+        }
+    }
+    ```
+
 !!! question "桶排序的适用场景是什么？"
 
     桶排序适用于处理体量很大的数据。例如，输入数据包含 100 万个元素，由于空间限制，系统内存无法一次性加载所有数据。此时，可以将数据分成 1000 个桶，然后分别对每个桶进行排序，最后将结果合并。

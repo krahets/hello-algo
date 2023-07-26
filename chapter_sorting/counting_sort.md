@@ -292,6 +292,31 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="counting_sort.rs"
+    /* 计数排序 */
+    // 简单实现，无法用于排序对象
+    fn counting_sort_naive(nums: &mut [i32]) {
+        // 1. 统计数组最大元素 m
+        let m = *nums.into_iter().max().unwrap();
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        let mut counter = vec![0; m as usize + 1];
+        for &num in &*nums {
+            counter[num as usize] += 1;
+        }
+        // 3. 遍历 counter ，将各元素填入原数组 nums
+        let mut i = 0;
+        for num in 0..m + 1 {
+            for _ in 0..counter[num as usize] {
+                nums[i] = num;
+                i += 1;
+            }
+        }
+    }
+    ```
+
 !!! note "计数排序与桶排序的联系"
 
     从桶排序的角度看，我们可以将计数排序中的计数数组 `counter` 的每个索引视为一个桶，将统计数量的过程看作是将各个元素分配到对应的桶中。本质上，计数排序是桶排序在整型数据下的一个特例。
@@ -707,6 +732,41 @@ $$
       }
       // 使用结果数组 res 覆盖原数组 nums
       nums.setAll(0, res);
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="counting_sort.rs"
+    /* 计数排序 */
+    // 完整实现，可排序对象，并且是稳定排序
+    fn counting_sort(nums: &mut [i32]) {
+        // 1. 统计数组最大元素 m
+        let m = *nums.into_iter().max().unwrap();
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        let mut counter = vec![0; m as usize + 1];
+        for &num in &*nums {
+            counter[num as usize] += 1;
+        }
+        // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
+        // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+        for i in 0..m as usize {
+            counter[i + 1] += counter[i];
+        }
+        // 4. 倒序遍历 nums ，将各元素填入结果数组 res
+        // 初始化数组 res 用于记录结果
+        let n = nums.len();
+        let mut res = vec![0; n];
+        for i in (0..n).rev() {
+            let num = nums[i];
+            res[counter[num as usize] - 1] = num; // 将 num 放置到对应索引处
+            counter[num as usize] -= 1; // 令前缀和自减 1 ，得到下次放置 num 的索引
+        }
+        // 使用结果数组 res 覆盖原数组 nums
+        for i in 0..n {
+            nums[i] = res[i];
+        }
     }
     ```
 

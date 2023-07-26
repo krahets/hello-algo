@@ -321,6 +321,40 @@ status: new
     [class]{}-[func]{hanota}
     ```
 
+=== "Rust"
+
+    ```rust title="hanota.rs"
+    /* 移动一个圆盘 */
+    fn move_pan(src: &mut Vec<i32>, tar: &mut Vec<i32>) {
+        // 从 src 顶部拿出一个圆盘
+        let pan = src.remove(src.len() - 1);
+        // 将圆盘放入 tar 顶部
+        tar.push(pan);
+    }
+
+    /* 求解汉诺塔：问题 f(i) */
+    fn dfs(i: i32, src: &mut Vec<i32>, buf: &mut Vec<i32>, tar: &mut Vec<i32>) {
+        // 若 src 只剩下一个圆盘，则直接将其移到 tar
+        if i == 1 {
+            move_pan(src, tar);
+            return;
+        }
+        // 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
+        dfs(i - 1, src, tar, buf);
+        // 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
+        move_pan(src, tar);
+        // 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
+        dfs(i - 1, buf, src, tar);
+    }
+
+    /* 求解汉诺塔 */
+    fn hanota(A: &mut Vec<i32>, B: &mut Vec<i32>, C: &mut Vec<i32>) {
+        let n = A.len() as i32;
+        // 将 A 顶部 n 个圆盘借助 B 移到 C
+        dfs(n, A, B, C);
+    }
+    ```
+
 如下图所示，汉诺塔问题形成一个高度为 $n$ 的递归树，每个节点代表一个子问题、对应一个开启的 `dfs()` 函数，**因此时间复杂度为 $O(2^n)$ ，空间复杂度为 $O(n)$** 。
 
 ![汉诺塔问题的递归树](hanota_problem.assets/hanota_recursive_tree.png)

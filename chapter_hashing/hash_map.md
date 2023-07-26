@@ -256,6 +256,12 @@ comments: true
     map.remove(10583);
     ```
 
+=== "Rust"
+
+    ```rust title="hash_map.rs"
+
+    ```
+
 哈希表有三种常用遍历方式：遍历键值对、遍历键和遍历值。
 
 === "Java"
@@ -429,6 +435,12 @@ comments: true
     map.values.forEach((value) {
       print(value);
     });
+    ```
+
+=== "Rust"
+
+    ```rust title="hash_map.rs"
+
     ```
 
 ## 6.1.2. &nbsp; 哈希表简单实现
@@ -1400,6 +1412,77 @@ index = hash(key) % capacity
           print("${kv.key} -> ${kv.val}");
         }
       }
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="array_hash_map.rs"
+    /* 键值对 */
+    pub struct Pair {
+        pub key: i32,
+        pub val: String,
+    }
+
+    /* 基于数组简易实现的哈希表 */
+    pub struct ArrayHashMap {
+        buckets: Vec<Option<Pair>>
+    }
+
+    impl ArrayHashMap {
+        pub fn new() -> ArrayHashMap {
+            // 初始化数组，包含 100 个桶
+            Self { buckets: vec![None; 100] }
+        }
+
+        /* 哈希函数 */
+        fn hash_func(&self, key: i32) -> usize {
+            key as usize % 100
+        }
+
+        /* 查询操作 */
+        pub fn get(&self, key: i32) -> Option<&String> {
+            let index = self.hash_func(key);
+            self.buckets[index].as_ref().map(|pair| &pair.val)
+        }
+
+        /* 添加操作 */
+        pub fn put(&mut self, key: i32, val: &str) {
+            let index = self.hash_func(key);
+            self.buckets[index] = Some(Pair {
+                key,
+                val: val.to_string(),
+            });
+        }
+
+        /* 删除操作 */
+        pub fn remove(&mut self, key: i32) {
+            let index = self.hash_func(key);
+            // 置为 None ，代表删除
+            self.buckets[index] = None;
+        }
+
+        /* 获取所有键值对 */
+        pub fn entry_set(&self) -> Vec<&Pair> {
+            self.buckets.iter().filter_map(|pair| pair.as_ref()).collect()
+        }
+
+        /* 获取所有键 */
+        pub fn key_set(&self) -> Vec<&i32> {
+            self.buckets.iter().filter_map(|pair| pair.as_ref().map(|pair| &pair.key)).collect()
+        }
+
+        /* 获取所有值 */
+        pub fn value_set(&self) -> Vec<&String> {
+            self.buckets.iter().filter_map(|pair| pair.as_ref().map(|pair| &pair.val)).collect()
+        }
+
+        /* 打印哈希表 */
+        pub fn print(&self) {
+            for pair in self.entry_set() {
+                println!("{} -> {}", pair.key, pair.val);
+            }
+        }
     }
     ```
 

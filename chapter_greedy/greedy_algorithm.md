@@ -177,6 +177,33 @@ status: new
     [class]{}-[func]{coinChangeGreedy}
     ```
 
+=== "Rust"
+
+    ```rust title="coin_change_greedy.rs"
+    /* 零钱兑换：贪心 */
+    fn coin_change_greedy(coins: &[i32], mut amt: i32) -> i32 {
+        // 假设 coins 列表有序
+        let mut i = coins.len() - 1;
+        let mut count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while amt > 0 {
+            // 找到小于且最接近剩余金额的硬币
+            while coins[i] > amt {
+                i -= 1;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count += 1;
+        }
+        // 若未找到可行方案，则返回 -1
+        if amt == 0 {
+            count
+        } else {
+            -1
+        }
+    }
+    ```
+
 ## 15.1.1. &nbsp; 贪心优点与局限性
 
 **贪心算法不仅操作直接、实现简单，而且通常效率也很高**。在以上代码中，记硬币最小面值为 $\min(coins)$ ，则贪心选择最多循环 $amt / \min(coins)$ 次，时间复杂度为 $O(amt / \min(coins))$ 。这比动态规划解法的时间复杂度 $O(n \times amt)$ 提升了一个数量级。

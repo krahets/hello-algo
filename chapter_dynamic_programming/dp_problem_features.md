@@ -212,6 +212,26 @@ $$
     [class]{}-[func]{minCostClimbingStairsDP}
     ```
 
+=== "Rust"
+
+    ```rust title="min_cost_climbing_stairs_dp.rs"
+    /* 爬楼梯最小代价：动态规划 */
+    fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
+        let n = cost.len() - 1;
+        if n == 1 || n == 2 { return cost[n]; }
+        // 初始化 dp 表，用于存储子问题的解
+        let mut dp = vec![-1; n + 1];
+        // 初始状态：预设最小子问题的解
+        dp[1] = cost[1];
+        dp[2] = cost[2];
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i in 3..=n {
+            dp[i] = cmp::min(dp[i - 1], dp[i - 2]) + cost[i];
+        }
+        dp[n]
+    }
+    ```
+
 ![爬楼梯最小代价的动态规划过程](dp_problem_features.assets/min_cost_cs_dp.png)
 
 <p align="center"> Fig. 爬楼梯最小代价的动态规划过程 </p>
@@ -367,6 +387,23 @@ $$
 
     ```dart title="min_cost_climbing_stairs_dp.dart"
     [class]{}-[func]{minCostClimbingStairsDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="min_cost_climbing_stairs_dp.rs"
+    /* 爬楼梯最小代价：状态压缩后的动态规划 */
+    fn min_cost_climbing_stairs_dp_comp(cost: &[i32]) -> i32 {
+        let n = cost.len() - 1;
+        if n == 1 || n == 2 { return cost[n] };
+        let (mut a, mut b) = (cost[1], cost[2]);
+        for i in 3..=n {
+            let tmp = b;
+            b = cmp::min(a, tmp) + cost[i];
+            a = tmp;
+        }
+        b
+    }
     ```
 
 ## 14.2.2. &nbsp; 无后效性
@@ -596,6 +633,28 @@ $$
 
     ```dart title="climbing_stairs_constraint_dp.dart"
     [class]{}-[func]{climbingStairsConstraintDP}
+    ```
+
+=== "Rust"
+
+    ```rust title="climbing_stairs_constraint_dp.rs"
+    /* 带约束爬楼梯：动态规划 */
+    fn climbing_stairs_constraint_dp(n: usize) -> i32 {
+        if n == 1 || n == 2 { return n as i32 };
+        // 初始化 dp 表，用于存储子问题的解
+        let mut dp = vec![vec![-1; 3]; n + 1];
+        // 初始状态：预设最小子问题的解
+        dp[1][1] = 1;
+        dp[1][2] = 0;
+        dp[2][1] = 0;
+        dp[2][2] = 1;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i in 3..=n {
+            dp[i][1] = dp[i - 1][2];
+            dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
+        }
+        dp[n][1] + dp[n][2]
+    }
     ```
 
 在上面的案例中，由于仅需多考虑前面一个状态，我们仍然可以通过扩展状态定义，使得问题恢复无后效性。然而，许多问题具有非常严重的“有后效性”，例如：

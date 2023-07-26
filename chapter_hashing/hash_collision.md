@@ -807,6 +807,12 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="hash_map_chaining.rs"
+    [class]{HashMapChaining}-[func]{}
+    ```
+
 !!! tip
 
     当链表很长时，查询效率 $O(n)$ 很差，**此时可以将链表转换为「AVL 树」或「红黑树」**，从而将查询操作的时间复杂度优化至 $O(\log n)$ 。
@@ -1707,6 +1713,12 @@ comments: true
         }
       }
     }
+    ```
+
+=== "Rust"
+
+    ```rust title="hash_map_open_addressing.rs"
+    [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 ### 多次哈希

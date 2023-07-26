@@ -190,6 +190,12 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     }
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 「节点高度」是指从该节点到最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 0 ，而空节点的高度为 -1 。我们将创建两个工具函数，分别用于获取和更新节点的高度。
 
 === "Java"
@@ -388,6 +394,29 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     }
     ```
 
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    /* 获取节点高度 */
+    fn height(node: OptionTreeNodeRc) -> i32 {
+        // 空节点高度为 -1 ，叶节点高度为 0
+        match node {
+            Some(node) => node.borrow().height,
+            None => -1,
+        }
+    }
+
+    /* 更新节点高度 */
+    fn update_height(node: OptionTreeNodeRc) {
+        if let Some(node) = node {
+            let left = node.borrow().left.clone();
+            let right = node.borrow().right.clone();
+            // 节点高度等于最高子树高度 + 1
+            node.borrow_mut().height = std::cmp::max(Self::height(left), Self::height(right)) + 1;
+        }
+    }
+    ```
+
 ### 节点平衡因子
 
 节点的「平衡因子 Balance Factor」定义为节点左子树的高度减去右子树的高度，同时规定空节点的平衡因子为 0 。我们同样将获取节点平衡因子的功能封装成函数，方便后续使用。
@@ -527,6 +556,22 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
       if (node == null) return 0;
       // 节点平衡因子 = 左子树高度 - 右子树高度
       return height(node.left) - height(node.right);
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    /* 获取平衡因子 */
+    fn balance_factor(node: OptionTreeNodeRc) -> i32 {
+        match node {
+            // 空节点平衡因子为 0
+            None => 0,
+            // 节点平衡因子 = 左子树高度 - 右子树高度
+            Some(node) => {
+                Self::height(node.borrow().left.clone()) - Self::height(node.borrow().right.clone())
+            }
+        }
     }
     ```
 
@@ -762,6 +807,29 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     }
     ```
 
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    /* 右旋操作 */
+    fn right_rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
+        match node {
+            Some(node) => {
+                let child = node.borrow().left.clone().unwrap();
+                let grand_child = child.borrow().right.clone();
+                // 以 child 为原点，将 node 向右旋转
+                child.borrow_mut().right = Some(node.clone());
+                node.borrow_mut().left = grand_child;
+                // 更新节点高度
+                Self::update_height(Some(node));
+                Self::update_height(Some(child.clone()));
+                // 返回旋转后子树的根节点
+                Some(child)
+            }
+            None => None,
+        }
+    }
+    ```
+
 ### 左旋
 
 相应的，如果考虑上述失衡二叉树的“镜像”，则需要执行「左旋」操作。
@@ -973,6 +1041,29 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
       updateHeight(child);
       // 返回旋转后子树的根节点
       return child;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    /* 左旋操作 */
+    fn left_rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
+        match node {
+            Some(node) => {
+                let child = node.borrow().right.clone().unwrap();
+                let grand_child = child.borrow().left.clone();
+                // 以 child 为原点，将 node 向左旋转
+                child.borrow_mut().left = Some(node.clone());
+                node.borrow_mut().right = grand_child;
+                // 更新节点高度
+                Self::update_height(Some(node));
+                Self::update_height(Some(child.clone()));
+                // 返回旋转后子树的根节点
+                Some(child)
+            }
+            None => None,
+        }
     }
     ```
 
@@ -1385,6 +1476,45 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     }
     ```
 
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    /* 执行旋转操作，使该子树重新恢复平衡 */
+    fn rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
+        // 获取节点 node 的平衡因子
+        let balance_factor = Self::balance_factor(node.clone());
+        // 左偏树
+        if balance_factor > 1 {
+            let node = node.unwrap();
+            if Self::balance_factor(node.borrow().left.clone()) >= 0 {
+                // 右旋
+                Self::right_rotate(Some(node))
+            } else {
+                // 先左旋后右旋
+                let left = node.borrow().left.clone();
+                node.borrow_mut().left = Self::left_rotate(left);
+                Self::right_rotate(Some(node))
+            }
+        }
+        // 右偏树
+        else if balance_factor < -1 {
+            let node = node.unwrap();
+            if Self::balance_factor(node.borrow().right.clone()) <= 0 {
+                // 左旋
+                Self::left_rotate(Some(node))
+            } else {
+                // 先右旋后左旋
+                let right = node.borrow().right.clone();
+                node.borrow_mut().right = Self::right_rotate(right);
+                Self::left_rotate(Some(node))
+            }
+        } else {
+            // 平衡树，无需旋转，直接返回
+            node
+        }
+    }
+    ```
+
 ## 7.5.3. &nbsp; AVL 树常用操作
 
 ### 插入节点
@@ -1694,6 +1824,48 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
       node = rotate(node);
       // 返回子树的根节点
       return node;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    /* 插入节点 */
+    fn insert(&mut self, val: i32) {
+        self.root = Self::insert_helper(self.root.clone(), val);
+    }
+
+    /* 递归插入节点（辅助方法） */
+    fn insert_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
+        match node {
+            Some(mut node) => {
+                /* 1. 查找插入位置，并插入节点 */
+                match {
+                    let node_val = node.borrow().val;
+                    node_val
+                }
+                .cmp(&val)
+                {
+                    Ordering::Greater => {
+                        let left = node.borrow().left.clone();
+                        node.borrow_mut().left = Self::insert_helper(left, val);
+                    }
+                    Ordering::Less => {
+                        let right = node.borrow().right.clone();
+                        node.borrow_mut().right = Self::insert_helper(right, val);
+                    }
+                    Ordering::Equal => {
+                        return Some(node); // 重复节点不插入，直接返回
+                    }
+                }
+                Self::update_height(Some(node.clone())); // 更新节点高度
+                /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+                node = Self::rotate(Some(node)).unwrap();
+                // 返回子树的根节点
+                Some(node)
+            }
+            None => Some(TreeNode::new(val)),
+        }
     }
     ```
 
@@ -2195,6 +2367,64 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
       node = rotate(node);
       // 返回子树的根节点
       return node;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    /* 删除节点 */
+    fn remove(&self, val: i32) {
+        Self::remove_helper(self.root.clone(), val);
+    }
+
+    /* 递归删除节点（辅助方法） */
+    fn remove_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
+        match node {
+            Some(mut node) => {
+                /* 1. 查找节点，并删除之 */
+                if val < node.borrow().val {
+                    let left = node.borrow().left.clone();
+                    node.borrow_mut().left = Self::remove_helper(left, val);
+                } else if val > node.borrow().val {
+                    let right = node.borrow().right.clone();
+                    node.borrow_mut().right = Self::remove_helper(right, val);
+                } else if node.borrow().left.is_none() || node.borrow().right.is_none() {
+                    let child = if node.borrow().left.is_some() {
+                        node.borrow().left.clone()
+                    } else {
+                        node.borrow().right.clone()
+                    };
+                    match child {
+                        // 子节点数量 = 0 ，直接删除 node 并返回
+                        None => {
+                            return None;
+                        }
+                        // 子节点数量 = 1 ，直接删除 node
+                        Some(child) => node = child,
+                    }
+                } else {
+                    // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+                    let mut temp = node.borrow().right.clone().unwrap();
+                    loop {
+                        let temp_left = temp.borrow().left.clone();
+                        if temp_left.is_none() {
+                            break;
+                        }
+                        temp = temp_left.unwrap();
+                    }
+                    let right = node.borrow().right.clone();
+                    node.borrow_mut().right = Self::remove_helper(right, temp.borrow().val);
+                    node.borrow_mut().val = temp.borrow().val;
+                }
+                Self::update_height(Some(node.clone())); // 更新节点高度
+                /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+                node = Self::rotate(Some(node)).unwrap();
+                // 返回子树的根节点
+                Some(node)
+            }
+            None => None,
+        }
     }
     ```
 

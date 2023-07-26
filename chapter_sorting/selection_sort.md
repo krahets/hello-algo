@@ -261,6 +261,27 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="selection_sort.rs"
+    /* 选择排序 */
+    fn selection_sort(nums: &mut [i32]) {
+        let n = nums.len();
+        // 外循环：未排序区间为 [i, n-1]
+        for i in 0..n-1 {
+            // 内循环：找到未排序区间内的最小元素
+            let mut k = i;
+            for j in i+1..n {
+                if nums[j] < nums[k] {
+                    k = j; // 记录最小元素的索引
+                }
+            }
+            // 将该最小元素与未排序区间的首个元素交换
+            nums.swap(i, k);
+        }
+    }
+    ```
+
 ## 11.2.1. &nbsp; 算法特性
 
 - **时间复杂度为 $O(n^2)$ 、非自适应排序**：外循环共 $n - 1$ 轮，第一轮的未排序区间长度为 $n$ ，最后一轮的未排序区间长度为 $2$ ，即各轮外循环分别包含 $n$ , $n - 1$ , $\cdots$ , $2$ 轮内循环，求和为 $\frac{(n - 1)(n + 2)}{2}$ 。

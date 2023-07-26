@@ -165,6 +165,25 @@ comments: true
     [class]{}-[func]{preOrder}
     ```
 
+=== "Rust"
+
+    ```rust title="preorder_traversal_i_compact.rs"
+    /* 前序遍历：例题一 */
+    fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<Rc<RefCell<TreeNode>>>) {
+        if root.is_none() {
+            return;
+        }
+        if let Some(node) = root {
+            if node.borrow().val == 7 {
+                // 记录解
+                res.push(node.clone());
+            }
+            pre_order(res, node.borrow().left.clone());
+            pre_order(res, node.borrow().right.clone());
+        }
+    }
+    ```
+
 ![在前序遍历中搜索节点](backtracking_algorithm.assets/preorder_find_nodes.png)
 
 <p align="center"> Fig. 在前序遍历中搜索节点 </p>
@@ -368,6 +387,29 @@ comments: true
 
     ```dart title="preorder_traversal_ii_compact.dart"
     [class]{}-[func]{preOrder}
+    ```
+
+=== "Rust"
+
+    ```rust title="preorder_traversal_ii_compact.rs"
+    /* 前序遍历：例题二 */
+    fn pre_order(res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>, path: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<Rc<RefCell<TreeNode>>>) {
+        if root.is_none() {
+            return;
+        }
+        if let Some(node) = root {
+            // 尝试
+            path.push(node.clone());
+            if node.borrow().val == 7 {
+                // 记录解
+                res.push(path.clone());
+            }
+            pre_order(res, path, node.borrow().left.clone());
+            pre_order(res, path, node.borrow().right.clone());
+            // 回退
+            path.remove(path.len() -  1);
+        }
+    }
     ```
 
 在每次“尝试”中，我们通过将当前节点添加进 `path` 来记录路径；而在“回退”前，我们需要将该节点从 `path` 中弹出，**以恢复本次尝试之前的状态**。
@@ -626,6 +668,32 @@ comments: true
 
     ```dart title="preorder_traversal_iii_compact.dart"
     [class]{}-[func]{preOrder}
+    ```
+
+=== "Rust"
+
+    ```rust title="preorder_traversal_iii_compact.rs"
+    /* 前序遍历：例题三 */
+    fn pre_order(res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>, path: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<Rc<RefCell<TreeNode>>>) {
+        // 剪枝
+        if root.is_none() || root.as_ref().unwrap().borrow().val == 3 {
+            return;
+        }
+        if let Some(node) = root {
+            // 尝试
+            path.push(node.clone());
+            if node.borrow().val == 7 {
+                // 记录解
+                res.push(path.clone());
+                path.remove(path.len() -  1);
+                return;
+            }
+            pre_order(res, path, node.borrow().left.clone());
+            pre_order(res, path, node.borrow().right.clone());
+            // 回退
+            path.remove(path.len() -  1);
+        }
+    }
     ```
 
 剪枝是一个非常形象的名词。在搜索过程中，**我们“剪掉”了不满足约束条件的搜索分支**，避免许多无意义的尝试，从而实现搜索效率的提高。
@@ -900,6 +968,12 @@ comments: true
         }
       }
     }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
     ```
 
 接下来，我们基于框架代码来解决例题三。状态 `state` 为节点遍历路径，选择 `choices` 为当前节点的左子节点和右子节点，结果 `res` 是路径列表。
@@ -1349,6 +1423,56 @@ comments: true
     [class]{}-[func]{undoChoice}
 
     [class]{}-[func]{backtrack}
+    ```
+
+=== "Rust"
+
+    ```rust title="preorder_traversal_iii_template.rs"
+    /* 判断当前状态是否为解 */
+    fn is_solution(state: &mut Vec<Rc<RefCell<TreeNode>>>) -> bool {
+        return !state.is_empty() && state.get(state.len() - 1).unwrap().borrow().val == 7;
+    }
+
+    /* 记录解 */
+    fn record_solution(state: &mut Vec<Rc<RefCell<TreeNode>>>, res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>) {
+        res.push(state.clone());
+    }
+
+    /* 判断在当前状态下，该选择是否合法 */
+    fn is_valid(_: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Rc<RefCell<TreeNode>>) -> bool {
+        return choice.borrow().val != 3;
+    }
+
+    /* 更新状态 */
+    fn make_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Rc<RefCell<TreeNode>>) {
+        state.push(choice);
+    }
+
+    /* 恢复状态 */
+    fn undo_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, _: Rc<RefCell<TreeNode>>) {
+        state.remove(state.len() - 1);
+    }
+
+    /* 回溯算法：例题三 */
+    fn backtrack(state: &mut Vec<Rc<RefCell<TreeNode>>>, choices: &mut Vec<Rc<RefCell<TreeNode>>>, res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>) {
+        // 检查是否为解
+        if is_solution(state) {
+            // 记录解
+            record_solution(state, res);
+        }
+        // 遍历所有选择
+        for choice in choices {
+            // 剪枝：检查选择是否合法
+            if is_valid(state, choice.clone()) {
+                // 尝试：做出选择，更新状态
+                make_choice(state, choice.clone());
+                // 进行下一轮选择
+                backtrack(state, &mut vec![choice.borrow().left.clone().unwrap(), choice.borrow().right.clone().unwrap()], res);
+                // 回退：撤销选择，恢复到之前的状态
+                undo_choice(state, choice.clone());
+            }
+        }
+    }
     ```
 
 根据题意，当找到值为 7 的节点后应该继续搜索，**因此我们需要将记录解之后的 `return` 语句删除**。下图对比了保留或删除 `return` 语句的搜索过程。

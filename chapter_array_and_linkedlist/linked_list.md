@@ -169,6 +169,12 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 !!! question "尾节点指向什么？"
 
     我们将链表的最后一个节点称为「尾节点」，其指向的是“空”，在 Java, C++, Python 中分别记为 $\text{null}$ , $\text{nullptr}$ , $\text{None}$ 。在不引起歧义的前提下，本书都使用 $\text{None}$ 来表示空。
@@ -366,6 +372,12 @@ comments: true
     n3.next = n4;
     ```
 
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+
+    ```
+
 ## 4.2.1. &nbsp; 链表优点
 
 **链表中插入与删除节点的操作效率高**。例如，如果我们想在链表中间的两个节点 `A` , `B` 之间插入一个新节点 `P` ，我们只需要改变两个节点指针即可，时间复杂度为 $O(1)$ ；相比之下，数组的插入操作效率要低得多。
@@ -491,6 +503,18 @@ comments: true
       ListNode? n1 = n0.next;
       P.next = n1;
       n0.next = P;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+    /* 在链表的节点 n0 之后插入节点 P */
+    #[allow(non_snake_case)]
+    pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
+        let n1 =  n0.borrow_mut().next.take();
+        P.borrow_mut().next = n1;
+        n0.borrow_mut().next = Some(P);
     }
     ```
 
@@ -659,6 +683,22 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+    /* 删除链表的节点 n0 之后的首个节点 */
+    #[allow(non_snake_case)]
+    pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
+        if n0.borrow().next.is_none() {return};
+        // n0 -> P -> n1
+        let P = n0.borrow_mut().next.take();
+        if let Some(node) = P {
+            let n1 = node.borrow_mut().next.take();
+            n0.borrow_mut().next = n1;
+        }
+    }
+    ```
+
 ## 4.2.2. &nbsp; 链表缺点
 
 **链表访问节点效率较低**。如上节所述，数组可以在 $O(1)$ 时间下访问任意元素。然而，链表无法直接访问任意节点，这是因为系统需要从头节点出发，逐个向后遍历直至找到目标节点。例如，若要访问链表索引为 `index`（即第 `index + 1` 个）的节点，则需要向后遍历 `index` 轮。
@@ -816,6 +856,19 @@ comments: true
         head = head.next;
       }
       return head;
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+    /* 访问链表中索引为 index 的节点 */
+    pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Rc<RefCell<ListNode<T>>> {
+        if index <= 0 {return head};
+        if let Some(node) = &head.borrow_mut().next {
+            return access(node.clone(), index - 1);
+        }
+        return head;
     }
     ```
 
@@ -1005,6 +1058,19 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+    /* 在链表中查找值为 target 的首个节点 */
+    pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T, index: i32) -> i32 {
+        if head.borrow().val == target {return index};
+        if let Some(node) = &head.borrow_mut().next {
+            return find(node.clone(), target, index + 1);
+        }
+        return -1;
+    }
+    ```
+
 ## 4.2.4. &nbsp; 常见链表类型
 
 **单向链表**。即上述介绍的普通链表。单向链表的节点包含值和指向下一节点的指针（引用）两项数据。我们将首个节点称为头节点，将最后一个节点成为尾节点，尾节点指向空 $\text{None}$ 。
@@ -1182,6 +1248,12 @@ comments: true
         ListNode prev;  // 指向前驱节点的指针（引用）
         ListNode(this.val, [this.next, this.prev]);  // 构造函数
     }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
     ```
 
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)

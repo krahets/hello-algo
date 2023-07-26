@@ -228,6 +228,30 @@ $$
     [class]{}-[func]{unboundedKnapsackDP}
     ```
 
+=== "Rust"
+
+    ```rust title="unbounded_knapsack.rs"
+    /* 完全背包：动态规划 */
+    fn unbounded_knapsack_dp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
+        let n = wgt.len();
+        // 初始化 dp 表
+        let mut dp = vec![vec![0; cap + 1]; n + 1];
+        // 状态转移
+        for i in 1..=n {
+            for c in 1..=cap {
+                if wgt[i - 1] > c as i32 {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = std::cmp::max(dp[i - 1][c], dp[i][c - wgt[i - 1] as usize] + val[i - 1]);
+                }
+            }
+        }
+        return dp[n][cap];
+    }
+    ```
+
 ### 状态压缩
 
 由于当前状态是从左边和上边的状态转移而来，**因此状态压缩后应该对 $dp$ 表中的每一行采取正序遍历**。
@@ -441,6 +465,30 @@ $$
 
     ```dart title="unbounded_knapsack.dart"
     [class]{}-[func]{unboundedKnapsackDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="unbounded_knapsack.rs"
+    /* 完全背包：状态压缩后的动态规划 */
+    fn unbounded_knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
+        let n = wgt.len();
+        // 初始化 dp 表
+        let mut dp = vec![0; cap + 1];
+        // 状态转移
+        for i in 1..=n {
+            for c in 1..=cap {
+                if wgt[i - 1] > c as i32 {
+                    // 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = std::cmp::max(dp[c], dp[c - wgt[i - 1] as usize] + val[i - 1]);
+                }
+            }
+        }
+        dp[cap]
+    }
     ```
 
 ## 14.5.2. &nbsp; 零钱兑换问题
@@ -724,6 +772,35 @@ $$
     [class]{}-[func]{coinChangeDP}
     ```
 
+=== "Rust"
+
+    ```rust title="coin_change.rs"
+    /* 零钱兑换：动态规划 */
+    fn coin_change_dp(coins: &[i32], amt: usize) -> i32 {
+        let n = coins.len();
+        let max = amt + 1;
+        // 初始化 dp 表
+        let mut dp = vec![vec![0; amt + 1]; n + 1];
+        // 状态转移：首行首列
+        for a in 1..= amt {
+            dp[0][a] = max;
+        }
+        // 状态转移：其余行列
+        for i in 1..=n {
+            for a in 1..=amt {
+                if coins[i - 1] > a as i32 {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = std::cmp::min(dp[i - 1][a], dp[i][a - coins[i - 1] as usize] + 1);
+                }
+            }
+        }
+        if dp[n][amt] != max { return dp[n][amt] as i32; } else { -1 }
+    }
+    ```
+
 下图展示了零钱兑换的动态规划过程，和完全背包非常相似。
 
 === "<1>"
@@ -991,6 +1068,33 @@ $$
     [class]{}-[func]{coinChangeDPComp}
     ```
 
+=== "Rust"
+
+    ```rust title="coin_change.rs"
+    /* 零钱兑换：状态压缩后的动态规划 */
+    fn coin_change_dp_comp(coins: &[i32], amt: usize) -> i32 {
+        let n = coins.len();
+        let max = amt + 1;
+        // 初始化 dp 表
+        let mut dp = vec![0; amt + 1];
+        dp.fill(max);
+        dp[0] = 0;
+        // 状态转移
+        for i in 1..=n {
+            for a in 1..=amt {
+                if coins[i - 1] > a as i32 {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = std::cmp::min(dp[a], dp[a - coins[i - 1] as usize] + 1);
+                }
+            }
+        }
+        if dp[amt] != max { return dp[amt] as i32; } else { -1 }
+    }
+    ```
+
 ## 14.5.3. &nbsp; 零钱兑换问题 II
 
 !!! question
@@ -1231,6 +1335,34 @@ $$
     [class]{}-[func]{coinChangeIIDP}
     ```
 
+=== "Rust"
+
+    ```rust title="coin_change_ii.rs"
+    /* 零钱兑换 II：动态规划 */
+    fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
+        let n = coins.len();
+        // 初始化 dp 表
+        let mut dp = vec![vec![0; amt + 1]; n + 1];
+        // 初始化首列
+        for i in 0..= n {
+            dp[i][0] = 1;
+        }
+        // 状态转移
+        for i in 1..=n {
+            for a in 1..=amt {
+                if coins[i - 1] > a as i32 {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1] as usize];
+                }
+            }
+        }
+        dp[n][amt]
+    }
+    ```
+
 ### 状态压缩
 
 状态压缩处理方式相同，删除硬币维度即可。
@@ -1430,4 +1562,29 @@ $$
 
     ```dart title="coin_change_ii.dart"
     [class]{}-[func]{coinChangeIIDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="coin_change_ii.rs"
+    /* 零钱兑换 II：状态压缩后的动态规划 */
+    fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
+        let n = coins.len();
+        // 初始化 dp 表
+        let mut dp = vec![0; amt + 1];
+        dp[0] = 1;
+        // 状态转移
+        for i in 1..=n {
+            for a in 1..=amt {
+                if coins[i - 1] > a as i32 {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = dp[a] + dp[a - coins[i - 1] as usize];
+                }
+            }
+        }
+        dp[amt]
+    }
     ```

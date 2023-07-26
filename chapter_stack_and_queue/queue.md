@@ -285,6 +285,12 @@ comments: true
     bool isEmpty = queue.isEmpty;
     ```
 
+=== "Rust"
+
+    ```rust title="queue.rs"
+
+    ```
+
 ## 5.2.2. &nbsp; 队列实现
 
 为了实现队列，我们需要一种数据结构，可以在一端添加元素，并在另一端删除元素。因此，链表和数组都可以用来实现队列。
@@ -1087,6 +1093,88 @@ comments: true
         }
         return queue;
       }
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="linkedlist_queue.rs"
+    /* 基于链表实现的队列 */
+    #[allow(dead_code)]
+    pub struct LinkedListQueue<T> {
+        front: Option<Rc<RefCell<ListNode<T>>>>,    // 头节点 front
+        rear: Option<Rc<RefCell<ListNode<T>>>>,     // 尾节点 rear 
+        que_size: usize,                            // 队列的长度
+    }
+
+    impl<T: Copy> LinkedListQueue<T> {
+        pub fn new() -> Self {
+            Self {
+                front: None,
+                rear: None,
+                que_size: 0, 
+            }
+        }
+
+        /* 获取队列的长度 */
+        pub fn size(&self) -> usize {
+            return self.que_size;
+        }
+
+        /* 判断队列是否为空 */
+        pub fn is_empty(&self) -> bool {
+            return self.size() == 0;
+        }
+
+        /* 入队 */
+        pub fn push(&mut self, num: T) {
+            // 尾节点后添加 num
+            let new_rear = ListNode::new(num);
+            match self.rear.take() {
+                // 如果队列不为空，则将该节点添加到尾节点后
+                Some(old_rear) => {
+                    old_rear.borrow_mut().next = Some(new_rear.clone());
+                    self.rear = Some(new_rear);
+                }
+                // 如果队列为空，则令头、尾节点都指向该节点
+                None => {
+                    self.front = Some(new_rear.clone());
+                    self.rear = Some(new_rear);
+                }
+            }
+            self.que_size += 1;
+        }
+
+        /* 出队 */
+        pub fn pop(&mut self) -> Option<T> {
+            self.front.take().map(|old_front| {
+                match old_front.borrow_mut().next.take() {
+                    Some(new_front) => {
+                        self.front = Some(new_front);
+                    }
+                    None => {
+                        self.rear.take();
+                    }
+                }
+                self.que_size -= 1;
+                Rc::try_unwrap(old_front).ok().unwrap().into_inner().val
+            })
+        }
+
+        /* 访问队首元素 */
+        pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
+            self.front.as_ref()
+        }
+
+        /* 将链表转化为 Array 并返回 */
+        pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
+            if let Some(node) = head {
+                let mut nums = self.to_array(node.borrow().next.as_ref());
+                nums.insert(0, node.borrow().val);
+                return nums;
+            }
+            return Vec::new();
+        }
     }
     ```
 
@@ -1924,6 +2012,88 @@ comments: true
         }
         return res;
       }
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="array_queue.rs"
+    /* 基于环形数组实现的队列 */
+    struct ArrayQueue {
+        nums: Vec<i32>,     // 用于存储队列元素的数组
+        front: i32,         // 队首指针，指向队首元素
+        que_size: i32,      // 队列长度
+        que_capacity: i32,  // 队列容量
+    }
+
+    impl ArrayQueue {
+        /* 构造方法 */
+        fn new(capacity: i32) -> ArrayQueue {
+            ArrayQueue {
+                nums: vec![0; capacity as usize],
+                front: 0,
+                que_size: 0,
+                que_capacity: capacity,
+            }
+        }
+
+        /* 获取队列的容量 */
+        fn capacity(&self) -> i32 {
+            self.que_capacity
+        }
+
+        /* 获取队列的长度 */
+        fn size(&self) -> i32 {
+            self.que_size
+        }
+
+        /* 判断队列是否为空 */
+        fn is_empty(&self) -> bool {
+            self.que_size == 0
+        }
+
+        /* 入队 */
+        fn push(&mut self, num: i32) {
+            if self.que_size == self.capacity() {
+                println!("队列已满");
+                return;
+            }
+            // 计算尾指针，指向队尾索引 + 1
+            // 通过取余操作，实现 rear 越过数组尾部后回到头部
+            let rear = (self.front + self.que_size) % self.que_capacity;
+            // 将 num 添加至队尾
+            self.nums[rear as usize] = num;
+            self.que_size += 1;
+        }
+
+        /* 出队 */
+        fn pop(&mut self) -> i32 {
+            let num = self.peek();
+            // 队首指针向后移动一位，若越过尾部则返回到数组头部
+            self.front = (self.front + 1) % self.que_capacity;
+            self.que_size -= 1;
+            num
+        }
+
+        /* 访问队首元素 */
+        fn peek(&self) -> i32 {
+            if self.is_empty() {
+                panic!("index out of bounds");
+            }
+            self.nums[self.front as usize]
+        }
+
+        /* 返回数组 */
+        fn to_vector(&self) -> Vec<i32> {
+            let cap = self.que_capacity;
+            let mut j = self.front;
+            let mut arr = vec![0; self.que_size as usize];
+            for i in 0..self.que_size {
+                arr[i as usize] = self.nums[(j % cap) as usize];
+                j += 1;
+            }
+            arr
+        }
     }
     ```
 

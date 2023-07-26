@@ -298,6 +298,30 @@ comments: true
     }
     ```
 
+=== "Rust"
+
+    ```rust title="binary_tree_bfs.rs"
+    /* 层序遍历 */
+    fn level_order(root: &Rc<RefCell<TreeNode>>) -> Vec<i32> {
+        // 初始化队列，加入根结点
+        let mut que = VecDeque::new();
+        que.push_back(Rc::clone(&root));
+        // 初始化一个列表，用于保存遍历序列
+        let mut vec = Vec::new();
+
+        while let Some(node) = que.pop_front() {                 // 队列出队
+            vec.push(node.borrow().val);                         // 保存结点值
+            if let Some(left) = node.borrow().left.as_ref() {
+                que.push_back(Rc::clone(left));                  // 左子结点入队
+            }
+            if let Some(right) = node.borrow().right.as_ref() {
+                que.push_back(Rc::clone(right));                 // 右子结点入队
+            };
+        }
+        vec
+    }
+    ```
+
 **时间复杂度**：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
 
 **空间复杂度**：在最差情况下，即满二叉树时，遍历到最底层之前，队列中最多同时存在 $\frac{n + 1}{2}$ 个节点，占用 $O(n)$ 空间。
@@ -679,6 +703,49 @@ comments: true
       postOrder(node.left);
       postOrder(node.right);
       list.add(node.val);
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_tree_dfs.rs"
+    /* 前序遍历 */
+    fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut result = vec![];
+
+        if let Some(node) = root {
+            // 访问优先级：根结点 -> 左子树 -> 右子树
+            result.push(node.borrow().val);
+            result.append(&mut pre_order(node.borrow().left.as_ref()));
+            result.append(&mut pre_order(node.borrow().right.as_ref()));
+        }
+        result
+    }
+
+    /* 中序遍历 */
+    fn in_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut result = vec![];
+
+        if let Some(node) = root {
+            // 访问优先级：左子树 -> 根结点 -> 右子树
+            result.append(&mut in_order(node.borrow().left.as_ref()));
+            result.push(node.borrow().val);
+            result.append(&mut in_order(node.borrow().right.as_ref()));
+        }
+        result
+    }
+
+    /* 后序遍历 */
+    fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut result = vec![];
+
+        if let Some(node) = root {
+            // 访问优先级：左子树 -> 右子树 -> 根结点
+            result.append(&mut post_order(node.borrow().left.as_ref()));
+            result.append(&mut post_order(node.borrow().right.as_ref()));
+            result.push(node.borrow().val);
+        }
+        result
     }
     ```
 
