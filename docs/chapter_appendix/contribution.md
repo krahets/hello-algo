@@ -30,7 +30,7 @@
 
 ## Docker 部署
 
-我们可以通过 Docker 来部署本项目。执行以下脚本，稍等片刻后，即可使用浏览器打开 `http://localhost:8000` 来访问本项目。
+执行以下 Docker 脚本，稍等片刻，即可在网页 `http://localhost:8000` 访问本项目。
 
 ```shell
 git clone https://github.com/krahets/hello-algo.git
