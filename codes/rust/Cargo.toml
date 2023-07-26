@@ -154,6 +154,11 @@ path = "chapter_stack_and_queue/array_stack.rs"
 name = "array_queue"
 path = "chapter_stack_and_queue/array_queue.rs"
 
+# Run Command: cargo run --bin array_binary_tree
+[[bin]]
+name = "array_binary_tree"
+path = "chapter_tree/array_binary_tree.rs"
+
 # Run Command: cargo run --bin avl_tree
 [[bin]]
 name = "avl_tree"
