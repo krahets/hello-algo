@@ -129,6 +129,12 @@ $$
     [class]{}-[func]{maxProductCutting}
     ```
 
+=== "Rust"
+
+    ```rust title="max_product_cutting.rs"
+    [class]{}-[func]{max_product_cutting}
+    ```
+
 ![最大切分乘积的计算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png)
 
 **时间复杂度取决于编程语言的幂运算的实现方法**。以 Python 为例，常用的幂计算函数有三种：

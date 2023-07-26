@@ -85,6 +85,12 @@
     [class]{}-[func]{coinChangeGreedy}
     ```
 
+=== "Rust"
+
+    ```rust title="coin_change_greedy.rs"
+    [class]{}-[func]{coin_change_greedy}
+    ```
+
 ## 贪心优点与局限性
 
 **贪心算法不仅操作直接、实现简单，而且通常效率也很高**。在以上代码中，记硬币最小面值为 $\min(coins)$ ，则贪心选择最多循环 $amt / \min(coins)$ 次，时间复杂度为 $O(amt / \min(coins))$ 。这比动态规划解法的时间复杂度 $O(n \times amt)$ 提升了一个数量级。

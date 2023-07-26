@@ -78,6 +78,12 @@
     [class]{}-[func]{countingSortNaive}
     ```
 
+=== "Rust"
+
+    ```rust title="counting_sort.rs"
+    [class]{}-[func]{counting_sort_naive}
+    ```
+
 !!! note "计数排序与桶排序的联系"
 
     从桶排序的角度看，我们可以将计数排序中的计数数组 `counter` 的每个索引视为一个桶，将统计数量的过程看作是将各个元素分配到对应的桶中。本质上，计数排序是桶排序在整型数据下的一个特例。
@@ -189,6 +195,12 @@ $$
 
     ```dart title="counting_sort.dart"
     [class]{}-[func]{countingSort}
+    ```
+
+=== "Rust"
+
+    ```rust title="counting_sort.rs"
+    [class]{}-[func]{counting_sort}
     ```
 
 ## 算法特性

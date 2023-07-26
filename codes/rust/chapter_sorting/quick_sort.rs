@@ -4,14 +4,10 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
 
-// 快速排序
-struct QuickSort;
-// 快速排序（中位基准数优化）
-struct QuickSortMedian;
-// 快速排序（尾递归优化）
-struct QuickSortTailCall;
 
 /* 快速排序 */
+struct QuickSort;
+
 impl QuickSort {
     /* 哨兵划分 */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
@@ -19,15 +15,15 @@ impl QuickSort {
         let (mut i, mut j) = (left, right);
         while i < j {
             while i < j && nums[j] >= nums[left] {
-                j -= 1;           // 从右向左找首个小于基准数的元素
+                j -= 1;      // 从右向左找首个小于基准数的元素
             }
             while i < j && nums[i] <= nums[left] {
-                i += 1;           // 从左向右找首个大于基准数的元素
+                i += 1;      // 从左向右找首个大于基准数的元素
             }
             nums.swap(i, j); // 交换这两个元素
         }
-        nums.swap(i, left); // 将基准数交换至两子数组的分界线
-        i                        // 返回基准数的索引
+        nums.swap(i, left);  // 将基准数交换至两子数组的分界线
+        i                    // 返回基准数的索引
     }
 
     /* 快速排序 */
@@ -45,6 +41,8 @@ impl QuickSort {
 }
 
 /* 快速排序（中位基准数优化） */
+struct QuickSortMedian;
+
 impl QuickSortMedian {
     /* 选取三个元素的中位数 */
     fn median_three(nums: &mut [i32], left: usize, mid: usize, right: usize) -> usize {
@@ -66,17 +64,17 @@ impl QuickSortMedian {
         nums.swap(left, med);
         // 以 nums[left] 作为基准数
         let (mut i, mut j) = (left, right);
-         while i < j {
-             while i < j && nums[j] >= nums[left] {
-                 j -= 1;           // 从右向左找首个小于基准数的元素
-             }
-             while i < j && nums[i] <= nums[left] {
-                 i += 1;           // 从左向右找首个大于基准数的元素
-             }
-             nums.swap(i, j); // 交换这两个元素
-         }
-         nums.swap(i, left); // 将基准数交换至两子数组的分界线
-         i                        // 返回基准数的索引
+        while i < j {
+            while i < j && nums[j] >= nums[left] {
+                j -= 1;      // 从右向左找首个小于基准数的元素
+            }
+            while i < j && nums[i] <= nums[left] {
+                i += 1;      // 从左向右找首个大于基准数的元素
+            }
+            nums.swap(i, j); // 交换这两个元素
+        }
+         nums.swap(i, left);  // 将基准数交换至两子数组的分界线
+         i                    // 返回基准数的索引
     }
 
     /* 快速排序 */
@@ -94,23 +92,24 @@ impl QuickSortMedian {
 }
 
 /* 快速排序（尾递归优化） */
+struct QuickSortTailCall;
+
 impl QuickSortTailCall {
     /* 哨兵划分 */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
         // 以 nums[left] 作为基准数
         let (mut i, mut j) = (left, right);
-
         while i < j {
             while i < j && nums[j] >= nums[left] {
-                j -= 1;           // 从右向左找首个小于基准数的元素
+                j -= 1;      // 从右向左找首个小于基准数的元素
             }
             while i < j && nums[i] <= nums[left] {
-                i += 1;           // 从左向右找首个大于基准数的元素
+                i += 1;      // 从左向右找首个大于基准数的元素
             }
             nums.swap(i, j); // 交换这两个元素
         }
-        nums.swap(i, left); // 将基准数交换至两子数组的分界线
-        i                        // 返回基准数的索引
+        nums.swap(i, left);  // 将基准数交换至两子数组的分界线
+        i                    // 返回基准数的索引
     }
 
     /* 快速排序（尾递归优化） */
@@ -131,6 +130,7 @@ impl QuickSortTailCall {
     }
 }
 
+/* Driver Code */
 fn main() {
     /* 快速排序 */
     let mut nums = [2, 4, 1, 0, 3, 5];

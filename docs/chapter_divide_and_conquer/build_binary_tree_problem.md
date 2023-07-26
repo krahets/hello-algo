@@ -147,6 +147,14 @@
     [class]{}-[func]{buildTree}
     ```
 
+=== "Rust"
+
+    ```rust title="build_tree.rs"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{build_tree}
+    ```
+
 下图展示了构建二叉树的递归过程，各个节点是在向下“递”的过程中建立的，而各条边（即引用）是在向上“归”的过程中建立的。
 
 === "<1>"

@@ -277,6 +277,12 @@
     bool isEmpty = stack.isEmpty;
     ```
 
+=== "Rust"
+
+    ```rust title="stack.rs"
+
+    ```
+
 ## 栈的实现
 
 为了深入了解栈的运行机制，我们来尝试自己实现一个栈类。
@@ -366,6 +372,12 @@
     [class]{LinkedListStack}-[func]{}
     ```
 
+=== "Rust"
+
+    ```rust title="linkedlist_stack.rs"
+    [class]{LinkedListStack}-[func]{}
+    ```
+
 ### 基于数组的实现
 
 在基于「数组」实现栈时，我们可以将数组的尾部作为栈顶。在这样的设计下，入栈与出栈操作就分别对应在数组尾部添加元素与删除元素，时间复杂度都为 $O(1)$ 。
@@ -444,6 +456,12 @@
 === "Dart"
 
     ```dart title="array_stack.dart"
+    [class]{ArrayStack}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="array_stack.rs"
     [class]{ArrayStack}-[func]{}
     ```
 

@@ -139,6 +139,14 @@
     [class]{}-[func]{mergeSort}
     ```
 
+=== "Rust"
+
+    ```rust title="merge_sort.rs"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{merge_sort}
+    ```
+
 合并方法 `merge()` 代码中的难点包括：
 
 - **在阅读代码时，需要特别注意各个变量的含义**。`nums` 的待合并区间为 `[left, right]` ，但由于 `tmp` 仅复制了 `nums` 该区间的元素，因此 `tmp` 对应区间为 `[0, right - left]` 。

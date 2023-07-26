@@ -312,6 +312,12 @@
     bool isEmpty = deque.isEmpty;W
     ```
 
+=== "Rust"
+
+    ```rust title="deque.rs"
+
+    ```
+
 ## 双向队列实现 *
 
 双向队列的实现与队列类似，可以选择链表或数组作为底层数据结构。
@@ -427,6 +433,14 @@
     [class]{LinkedListDeque}-[func]{}
     ```
 
+=== "Rust"
+
+    ```rust title="linkedlist_deque.rs"
+    [class]{ListNode}-[func]{}
+
+    [class]{LinkedListDeque}-[func]{}
+    ```
+
 ### 基于数组的实现
 
 与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法。
@@ -511,6 +525,12 @@
 === "Dart"
 
     ```dart title="array_deque.dart"
+    [class]{ArrayDeque}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="array_deque.rs"
     [class]{ArrayDeque}-[func]{}
     ```
 

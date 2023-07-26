@@ -118,6 +118,12 @@
     [class]{}-[func]{binarySearchLeftEdge}
     ```
 
+=== "Rust"
+
+    ```rust title="binary_search_edge.rs"
+    [class]{}-[func]{binary_search_left_edge}
+    ```
+
 ## 查找右边界
 
 类似地，我们也可以二分查找最右边的 `target` 。当 `nums[m] == target` 时，说明大于 `target` 的元素在区间 $[m + 1, j]$ 中，因此执行 `i = m + 1` ，**使得指针 $i$ 向大于 `target` 的元素靠近**。
@@ -188,6 +194,12 @@
 
     ```dart title="binary_search_edge.dart"
     [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search_edge.rs"
+    [class]{}-[func]{binary_search_right_edge}
     ```
 
 观察下图，搜索最右边元素时指针 $j$ 的作用与搜索最左边元素时指针 $i$ 的作用一致，反之亦然。也就是说，**搜索最左边元素和最右边元素的实现是镜像对称的**。

@@ -94,6 +94,12 @@
     [class]{GraphAdjMat}-[func]{}
     ```
 
+=== "Rust"
+
+    ```rust title="graph_adjacency_matrix.rs"
+    [class]{GraphAdjMat}-[func]{}
+    ```
+
 ## 基于邻接表的实现
 
 设无向图的顶点总数为 $n$ 、边总数为 $m$ ，则有：
@@ -188,6 +194,12 @@
 === "Dart"
 
     ```dart title="graph_adjacency_list.dart"
+    [class]{GraphAdjList}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="graph_adjacency_list.rs"
     [class]{GraphAdjList}-[func]{}
     ```
 

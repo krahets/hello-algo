@@ -163,6 +163,12 @@
     }
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 !!! question "尾节点指向什么？"
 
     我们将链表的最后一个节点称为「尾节点」，其指向的是“空”，在 Java, C++, Python 中分别记为 $\text{null}$ , $\text{nullptr}$ , $\text{None}$ 。在不引起歧义的前提下，本书都使用 $\text{None}$ 来表示空。
@@ -360,6 +366,12 @@
     n3.next = n4;
     ```
 
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+
+    ```
+
 ## 链表优点
 
 **链表中插入与删除节点的操作效率高**。例如，如果我们想在链表中间的两个节点 `A` , `B` 之间插入一个新节点 `P` ，我们只需要改变两个节点指针即可，时间复杂度为 $O(1)$ ；相比之下，数组的插入操作效率要低得多。
@@ -429,6 +441,12 @@
 === "Dart"
 
     ```dart title="linked_list.dart"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
     [class]{}-[func]{insert}
     ```
 
@@ -502,6 +520,12 @@
     [class]{}-[func]{remove}
     ```
 
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+    [class]{}-[func]{remove}
+    ```
+
 ## 链表缺点
 
 **链表访问节点效率较低**。如上节所述，数组可以在 $O(1)$ 时间下访问任意元素。然而，链表无法直接访问任意节点，这是因为系统需要从头节点出发，逐个向后遍历直至找到目标节点。例如，若要访问链表索引为 `index`（即第 `index + 1` 个）的节点，则需要向后遍历 `index` 轮。
@@ -569,6 +593,12 @@
 === "Dart"
 
     ```dart title="linked_list.dart"
+    [class]{}-[func]{access}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
     [class]{}-[func]{access}
     ```
 
@@ -641,6 +671,12 @@
 === "Dart"
 
     ```dart title="linked_list.dart"
+    [class]{}-[func]{find}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
     [class]{}-[func]{find}
     ```
 
@@ -821,6 +857,12 @@
         ListNode prev;  // 指向前驱节点的指针（引用）
         ListNode(this.val, [this.next, this.prev]);  // 构造函数
     }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
     ```
 
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)

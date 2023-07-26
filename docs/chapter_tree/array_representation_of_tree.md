@@ -108,6 +108,12 @@
     List<int?> tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 ![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png)
 
 值得说明的是，**完全二叉树非常适合使用数组来表示**。回顾完全二叉树的定义，$\text{None}$ 只出现在最底层且靠右的位置，**因此所有 $\text{None}$ 一定出现在层序遍历序列的末尾**。这意味着使用数组表示完全二叉树时，可以省略存储所有 $\text{None}$ ，非常方便。
@@ -182,6 +188,12 @@
 === "Dart"
 
     ```dart title="array_binary_tree.dart"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="array_binary_tree.rs"
     [class]{ArrayBinaryTree}-[func]{}
     ```
 

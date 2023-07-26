@@ -78,6 +78,12 @@
     [class]{}-[func]{twoSumBruteForce}
     ```
 
+=== "Rust"
+
+    ```rust title="two_sum.rs"
+    [class]{}-[func]{two_sum_brute_force}
+    ```
+
 此方法的时间复杂度为 $O(n^2)$ ，空间复杂度为 $O(1)$ ，在大数据量下非常耗时。
 
 ## 哈希查找：以空间换时间
@@ -164,6 +170,12 @@
 
     ```dart title="two_sum.dart"
     [class]{}-[func]{twoSumHashTable}
+    ```
+
+=== "Rust"
+
+    ```rust title="two_sum.rs"
+    [class]{}-[func]{two_sum_hash_table}
     ```
 
 此方法通过哈希查找将时间复杂度从 $O(n^2)$ 降低至 $O(n)$ ，大幅提升运行效率。

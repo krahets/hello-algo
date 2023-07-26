@@ -76,6 +76,12 @@
     [class]{}-[func]{preOrder}
     ```
 
+=== "Rust"
+
+    ```rust title="preorder_traversal_i_compact.rs"
+    [class]{}-[func]{pre_order}
+    ```
+
 ![在前序遍历中搜索节点](backtracking_algorithm.assets/preorder_find_nodes.png)
 
 ## 尝试与回退
@@ -156,6 +162,12 @@
 
     ```dart title="preorder_traversal_ii_compact.dart"
     [class]{}-[func]{preOrder}
+    ```
+
+=== "Rust"
+
+    ```rust title="preorder_traversal_ii_compact.rs"
+    [class]{}-[func]{pre_order}
     ```
 
 在每次“尝试”中，我们通过将当前节点添加进 `path` 来记录路径；而在“回退”前，我们需要将该节点从 `path` 中弹出，**以恢复本次尝试之前的状态**。
@@ -269,6 +281,12 @@
 
     ```dart title="preorder_traversal_iii_compact.dart"
     [class]{}-[func]{preOrder}
+    ```
+
+=== "Rust"
+
+    ```rust title="preorder_traversal_iii_compact.rs"
+    [class]{}-[func]{pre_order}
     ```
 
 剪枝是一个非常形象的名词。在搜索过程中，**我们“剪掉”了不满足约束条件的搜索分支**，避免许多无意义的尝试，从而实现搜索效率的提高。
@@ -543,6 +561,12 @@
     }
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 接下来，我们基于框架代码来解决例题三。状态 `state` 为节点遍历路径，选择 `choices` 为当前节点的左子节点和右子节点，结果 `res` 是路径列表。
 
 === "Java"
@@ -717,6 +741,22 @@
     [class]{}-[func]{makeChoice}
 
     [class]{}-[func]{undoChoice}
+
+    [class]{}-[func]{backtrack}
+    ```
+
+=== "Rust"
+
+    ```rust title="preorder_traversal_iii_template.rs"
+    [class]{}-[func]{is_solution}
+
+    [class]{}-[func]{record_solution}
+
+    [class]{}-[func]{is_valid}
+
+    [class]{}-[func]{make_choice}
+
+    [class]{}-[func]{undo_choice}
 
     [class]{}-[func]{backtrack}
     ```

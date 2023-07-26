@@ -134,6 +134,16 @@ $$
     [class]{}-[func]{radixSort}
     ```
 
+=== "Rust"
+
+    ```rust title="radix_sort.rs"
+    [class]{}-[func]{digit}
+
+    [class]{}-[func]{counting_sort_digit}
+
+    [class]{}-[func]{radix_sort}
+    ```
+
 !!! question "为什么从最低位开始排序？"
 
     在连续的排序轮次中，后一轮排序会覆盖前一轮排序的结果。举例来说，如果第一轮排序结果 $a < b$ ，而第二轮排序结果 $a > b$ ，那么第二轮的结果将取代第一轮的结果。由于数字的高位优先级高于低位，我们应该先排序低位再排序高位。

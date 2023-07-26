@@ -177,6 +177,18 @@ index = hash(key) % capacity
     [class]{}-[func]{rot_hash}
     ```
 
+=== "Rust"
+
+    ```rust title="simple_hash.rs"
+    [class]{}-[func]{add_hash}
+
+    [class]{}-[func]{mul_hash}
+
+    [class]{}-[func]{xor_hash}
+
+    [class]{}-[func]{rot_hash}
+    ```
+
 观察发现，每种哈希算法的最后一步都是对大质数 $1000000007$ 取模，以确保哈希值在合适的范围内。值得思考的是，为什么要强调对质数取模，或者说对合数取模的弊端是什么？这是一个有趣的问题。
 
 先抛出结论：**当我们使用大质数作为模数时，可以最大化地保证哈希值的均匀分布**。因为质数不会与其他数字存在公约数，可以减少因取模操作而产生的周期性模式，从而避免哈希冲突。
@@ -429,6 +441,12 @@ $$
     ListNode obj = new ListNode(0);
     int hashObj = obj.hashCode;
     // 节点对象 Instance of 'ListNode' 的哈希值为 1033450432
+    ```
+
+=== "Rust"
+
+    ```rust title="built_in_hash.rs"
+
     ```
 
 在许多编程语言中，**只有不可变对象才可作为哈希表的 `key`** 。假如我们将列表（动态数组）作为 `key` ，当列表的内容发生变化时，它的哈希值也随之改变，我们就无法在哈希表中查询到原先的 `value` 了。

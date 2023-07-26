@@ -280,6 +280,12 @@
     }
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 ## 推算方法
 
 空间复杂度的推算方法与时间复杂度大致相同，只是将统计对象从“计算操作数量”转为“使用空间大小”。与时间复杂度不同的是，**我们通常只关注「最差空间复杂度」**，这是因为内存空间是一项硬性要求，我们必须确保在所有输入数据下都有足够的内存空间预留。
@@ -410,6 +416,12 @@
         List<int> nums = List.filled(n, 0); // O(n)
       }
     }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
     ```
 
 **在递归函数中，需要注意统计栈帧空间**。例如，函数 `loop()` 在循环中调用了 $n$ 次 `function()` ，每轮中的 `function()` 都返回并释放了栈帧空间，因此空间复杂度仍为 $O(1)$ 。而递归函数 `recur()` 在运行过程中会同时存在 $n$ 个未返回的 `recur()` ，从而占用 $O(n)$ 的栈帧空间。
@@ -627,6 +639,12 @@
     }
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 ## 常见类型
 
 设输入数据大小为 $n$ ，常见的空间复杂度类型有（从低到高排列）
@@ -716,6 +734,12 @@ $$
     [class]{}-[func]{constant}
     ```
 
+=== "Rust"
+
+    ```rust title="space_complexity.rs"
+    [class]{}-[func]{constant}
+    ```
+
 ### 线性阶 $O(n)$
 
 线性阶常见于元素数量与 $n$ 成正比的数组、链表、栈、队列等。
@@ -788,6 +812,12 @@ $$
     [class]{}-[func]{linear}
     ```
 
+=== "Rust"
+
+    ```rust title="space_complexity.rs"
+    [class]{}-[func]{linear}
+    ```
+
 以下递归函数会同时存在 $n$ 个未返回的 `algorithm()` 函数，使用 $O(n)$ 大小的栈帧空间。
 
 === "Java"
@@ -854,6 +884,12 @@ $$
 
     ```dart title="space_complexity.dart"
     [class]{}-[func]{linearRecur}
+    ```
+
+=== "Rust"
+
+    ```rust title="space_complexity.rs"
+    [class]{}-[func]{linear_recur}
     ```
 
 ![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png)
@@ -928,6 +964,12 @@ $$
     [class]{}-[func]{quadratic}
     ```
 
+=== "Rust"
+
+    ```rust title="space_complexity.rs"
+    [class]{}-[func]{quadratic}
+    ```
+
 在以下递归函数中，同时存在 $n$ 个未返回的 `algorithm()` ，并且每个函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $\frac{n}{2}$ ，因此总体占用 $O(n^2)$ 空间。
 
 === "Java"
@@ -994,6 +1036,12 @@ $$
 
     ```dart title="space_complexity.dart"
     [class]{}-[func]{quadraticRecur}
+    ```
+
+=== "Rust"
+
+    ```rust title="space_complexity.rs"
+    [class]{}-[func]{quadratic_recur}
     ```
 
 ![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png)
@@ -1066,6 +1114,12 @@ $$
 
     ```dart title="space_complexity.dart"
     [class]{}-[func]{buildTree}
+    ```
+
+=== "Rust"
+
+    ```rust title="space_complexity.rs"
+    [class]{}-[func]{build_tree}
     ```
 
 ![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.png)

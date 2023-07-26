@@ -96,6 +96,12 @@ $$
     [class]{}-[func]{unboundedKnapsackDP}
     ```
 
+=== "Rust"
+
+    ```rust title="unbounded_knapsack.rs"
+    [class]{}-[func]{unbounded_knapsack_dp}
+    ```
+
 ### 状态压缩
 
 由于当前状态是从左边和上边的状态转移而来，**因此状态压缩后应该对 $dp$ 表中的每一行采取正序遍历**。
@@ -186,6 +192,12 @@ $$
 
     ```dart title="unbounded_knapsack.dart"
     [class]{}-[func]{unboundedKnapsackDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="unbounded_knapsack.rs"
+    [class]{}-[func]{unbounded_knapsack_dp_comp}
     ```
 
 ## 零钱兑换问题
@@ -299,6 +311,12 @@ $$
 
     ```dart title="coin_change.dart"
     [class]{}-[func]{coinChangeDP}
+    ```
+
+=== "Rust"
+
+    ```rust title="coin_change.rs"
+    [class]{}-[func]{coin_change_dp}
     ```
 
 下图展示了零钱兑换的动态规划过程，和完全背包非常相似。
@@ -418,6 +436,12 @@ $$
     [class]{}-[func]{coinChangeDPComp}
     ```
 
+=== "Rust"
+
+    ```rust title="coin_change.rs"
+    [class]{}-[func]{coin_change_dp_comp}
+    ```
+
 ## 零钱兑换问题 II
 
 !!! question
@@ -504,6 +528,12 @@ $$
     [class]{}-[func]{coinChangeIIDP}
     ```
 
+=== "Rust"
+
+    ```rust title="coin_change_ii.rs"
+    [class]{}-[func]{coin_change_ii_dp}
+    ```
+
 ### 状态压缩
 
 状态压缩处理方式相同，删除硬币维度即可。
@@ -572,4 +602,10 @@ $$
 
     ```dart title="coin_change_ii.dart"
     [class]{}-[func]{coinChangeIIDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="coin_change_ii.rs"
+    [class]{}-[func]{coin_change_ii_dp_comp}
     ```
