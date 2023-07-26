@@ -10,7 +10,7 @@
 
 为了查找数组中最左边的 `target` ，我们可以分为两步：
 
-1. 进行二分查找，定位到任意一个 `target` 的索引，记为 $k$ ；
+1. 进行二分查找，定位到任意一个 `target` 的索引，记为 $k$ 。
 2. 以索引 $k$ 为起始点，向左进行线性遍历，找到最左边的 `target` 返回即可。
 
 ![线性查找最左边的元素](binary_search_edge.assets/binary_search_left_edge_naive.png)
