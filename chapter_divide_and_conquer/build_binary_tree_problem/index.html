@@ -3428,14 +3428,14 @@
 <p>根据以上分析，这道题是可以使用分治来求解的，但问题是：<strong>如何通过前序遍历 <code>preorder</code> 和中序遍历 <code>inorder</code> 来划分左子树和右子树呢</strong>？</p>
 <p>根据定义，<code>preorder</code> 和 <code>inorder</code> 都可以被划分为三个部分：</p>
 <ul>
-<li>前序遍历：<code>[ 根节点 | 左子树 | 右子树 ]</code> ，例如上图 <code>[ 3 | 9 | 2 1 7 ]</code> ；</li>
-<li>中序遍历：<code>[ 左子树 | 根节点 ｜ 右子树 ]</code> ，例如上图 <code>[ 9 | 3 | 1 2 7 ]</code> ；</li>
+<li>前序遍历：<code>[ 根节点 | 左子树 | 右子树 ]</code> ，例如上图 <code>[ 3 | 9 | 2 1 7 ]</code> 。</li>
+<li>中序遍历：<code>[ 左子树 | 根节点 ｜ 右子树 ]</code> ，例如上图 <code>[ 9 | 3 | 1 2 7 ]</code> 。</li>
 </ul>
 <p>以上图数据为例，我们可以通过以下步骤得到上述的划分结果：</p>
 <ol>
-<li>前序遍历的首元素 3 是根节点的值；</li>
-<li>查找根节点 3 在 <code>inorder</code> 中的索引，利用该索引可将 <code>inorder</code> 划分为 <code>[ 9 | 3 ｜ 1 2 7 ]</code> ；</li>
-<li>根据 <code>inorder</code> 划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 <code>preorder</code> 划分为 <code>[ 3 | 9 | 2 1 7 ]</code> ；</li>
+<li>前序遍历的首元素 3 是根节点的值。</li>
+<li>查找根节点 3 在 <code>inorder</code> 中的索引，利用该索引可将 <code>inorder</code> 划分为 <code>[ 9 | 3 ｜ 1 2 7 ]</code> 。</li>
+<li>根据 <code>inorder</code> 划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 <code>preorder</code> 划分为 <code>[ 3 | 9 | 2 1 7 ]</code> 。</li>
 </ol>
 <p><img alt="在前序和中序遍历中划分子树" src="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" /></p>
 <p align="center"> Fig. 在前序和中序遍历中划分子树 </p>
@@ -3443,9 +3443,9 @@
 <h3 id="_3">基于变量描述子树区间<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>根据以上划分方法，<strong>我们已经得到根节点、左子树、右子树在 <code>preorder</code> 和 <code>inorder</code> 中的索引区间</strong>。而为了描述这些索引区间，我们需要借助几个指针变量：</p>
 <ul>
-<li>将当前树的根节点在 <code>preorder</code> 中的索引记为 <span class="arithmatex">\(i\)</span> ；</li>
-<li>将当前树的根节点在 <code>inorder</code> 中的索引记为 <span class="arithmatex">\(m\)</span> ；</li>
-<li>将当前树在 <code>inorder</code> 中的索引区间记为 <span class="arithmatex">\([l, r]\)</span> ；</li>
+<li>将当前树的根节点在 <code>preorder</code> 中的索引记为 <span class="arithmatex">\(i\)</span> 。</li>
+<li>将当前树的根节点在 <code>inorder</code> 中的索引记为 <span class="arithmatex">\(m\)</span> 。</li>
+<li>将当前树在 <code>inorder</code> 中的索引区间记为 <span class="arithmatex">\([l, r]\)</span> 。</li>
 </ul>
 <p>如下表所示，通过以上变量即可表示根节点在 <code>preorder</code> 中的索引，以及子树在 <code>inorder</code> 中的索引区间。</p>
 <div class="center-table">

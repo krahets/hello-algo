@@ -3406,7 +3406,7 @@
 <h2 id="1191">11.9.1. &nbsp; 简单实现<a class="headerlink" href="#1191" title="Permanent link">&para;</a></h2>
 <p>先来看一个简单的例子。给定一个长度为 <span class="arithmatex">\(n\)</span> 的数组 <code>nums</code> ，其中的元素都是“非负整数”。计数排序的整体流程如下：</p>
 <ol>
-<li>遍历数组，找出数组中的最大数字，记为 <span class="arithmatex">\(m\)</span> ，然后创建一个长度为 <span class="arithmatex">\(m + 1\)</span> 的辅助数组 <code>counter</code> ；</li>
+<li>遍历数组，找出数组中的最大数字，记为 <span class="arithmatex">\(m\)</span> ，然后创建一个长度为 <span class="arithmatex">\(m + 1\)</span> 的辅助数组 <code>counter</code> 。</li>
 <li><strong>借助 <code>counter</code> 统计 <code>nums</code> 中各数字的出现次数</strong>，其中 <code>counter[num]</code> 对应数字 <code>num</code> 的出现次数。统计方法很简单，只需遍历 <code>nums</code>（设当前数字为 <code>num</code>），每轮将 <code>counter[num]</code> 增加 <span class="arithmatex">\(1\)</span> 即可。</li>
 <li><strong>由于 <code>counter</code> 的各个索引天然有序，因此相当于所有数字已经被排序好了</strong>。接下来，我们遍历 <code>counter</code> ，根据各数字的出现次数，将它们按从小到大的顺序填入 <code>nums</code> 即可。</li>
 </ol>
@@ -3681,8 +3681,8 @@
 \]</div>
 <p><strong>前缀和具有明确的意义，<code>prefix[num] - 1</code> 代表元素 <code>num</code> 在结果数组 <code>res</code> 中最后一次出现的索引</strong>。这个信息非常关键，因为它告诉我们各个元素应该出现在结果数组的哪个位置。接下来，我们倒序遍历原数组 <code>nums</code> 的每个元素 <code>num</code> ，在每轮迭代中执行：</p>
 <ol>
-<li>将 <code>num</code> 填入数组 <code>res</code> 的索引 <code>prefix[num] - 1</code> 处；</li>
-<li>令前缀和 <code>prefix[num]</code> 减小 <span class="arithmatex">\(1\)</span> ，从而得到下次放置 <code>num</code> 的索引；</li>
+<li>将 <code>num</code> 填入数组 <code>res</code> 的索引 <code>prefix[num] - 1</code> 处。</li>
+<li>令前缀和 <code>prefix[num]</code> 减小 <span class="arithmatex">\(1\)</span> ，从而得到下次放置 <code>num</code> 的索引。</li>
 </ol>
 <p>遍历完成后，数组 <code>res</code> 中就是排序好的结果，最后使用 <code>res</code> 覆盖原数组 <code>nums</code> 即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:8"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label></div>

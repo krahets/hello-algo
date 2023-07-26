@@ -3384,9 +3384,9 @@
 <ol>
 <li>计算中点索引 <span class="arithmatex">\(m = \lfloor {(i + j) / 2} \rfloor\)</span> ，其中 <span class="arithmatex">\(\lfloor \space \rfloor\)</span> 表示向下取整操作。</li>
 <li>判断 <code>nums[m]</code> 和 <code>target</code> 的大小关系，分为三种情况：<ol>
-<li>当 <code>nums[m] &lt; target</code> 时，说明 <code>target</code> 在区间 <span class="arithmatex">\([m + 1, j]\)</span> 中，因此执行 <span class="arithmatex">\(i = m + 1\)</span> ；</li>
-<li>当 <code>nums[m] &gt; target</code> 时，说明 <code>target</code> 在区间 <span class="arithmatex">\([i, m - 1]\)</span> 中，因此执行 <span class="arithmatex">\(j = m - 1\)</span> ；</li>
-<li>当 <code>nums[m] = target</code> 时，说明找到 <code>target</code> ，因此返回索引 <span class="arithmatex">\(m\)</span> ；</li>
+<li>当 <code>nums[m] &lt; target</code> 时，说明 <code>target</code> 在区间 <span class="arithmatex">\([m + 1, j]\)</span> 中，因此执行 <span class="arithmatex">\(i = m + 1\)</span> 。</li>
+<li>当 <code>nums[m] &gt; target</code> 时，说明 <code>target</code> 在区间 <span class="arithmatex">\([i, m - 1]\)</span> 中，因此执行 <span class="arithmatex">\(j = m - 1\)</span> 。</li>
+<li>当 <code>nums[m] = target</code> 时，说明找到 <code>target</code> ，因此返回索引 <span class="arithmatex">\(m\)</span> 。</li>
 </ol>
 </li>
 </ol>

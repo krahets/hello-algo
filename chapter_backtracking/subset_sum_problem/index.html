@@ -3733,8 +3733,8 @@
 </ol>
 <p>分支越靠右，需要排除的分支也越多，例如：</p>
 <ol>
-<li>前两轮选择 <span class="arithmatex">\(3\)</span> , <span class="arithmatex">\(5\)</span> ，生成子集 <span class="arithmatex">\([3, 5, \cdots]\)</span> ；</li>
-<li>前两轮选择 <span class="arithmatex">\(4\)</span> , <span class="arithmatex">\(5\)</span> ，生成子集 <span class="arithmatex">\([4, 5, \cdots]\)</span> ；</li>
+<li>前两轮选择 <span class="arithmatex">\(3\)</span> , <span class="arithmatex">\(5\)</span> ，生成子集 <span class="arithmatex">\([3, 5, \cdots]\)</span> 。</li>
+<li>前两轮选择 <span class="arithmatex">\(4\)</span> , <span class="arithmatex">\(5\)</span> ，生成子集 <span class="arithmatex">\([4, 5, \cdots]\)</span> 。</li>
 <li>若第一轮选择 <span class="arithmatex">\(5\)</span> ，<strong>则第二轮应该跳过 <span class="arithmatex">\(3\)</span> 和 <span class="arithmatex">\(4\)</span></strong> ，因为子集 <span class="arithmatex">\([5, 3, \cdots]\)</span> 和子集 <span class="arithmatex">\([5, 4, \cdots]\)</span> 和 <code>1.</code> , <code>2.</code> 中生成的子集完全重复。</li>
 </ol>
 <p><img alt="不同选择顺序导致的重复子集" src="../subset_sum_problem.assets/subset_sum_i_pruning.png" /></p>

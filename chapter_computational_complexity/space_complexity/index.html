@@ -3488,9 +3488,9 @@
 <h2 id="231">2.3.1. &nbsp; 算法相关空间<a class="headerlink" href="#231" title="Permanent link">&para;</a></h2>
 <p>算法运行过程中使用的内存空间主要包括以下几种：</p>
 <ul>
-<li>「输入空间」用于存储算法的输入数据；</li>
-<li>「暂存空间」用于存储算法运行过程中的变量、对象、函数上下文等数据；</li>
-<li>「输出空间」用于存储算法的输出数据；</li>
+<li>「输入空间」用于存储算法的输入数据。</li>
+<li>「暂存空间」用于存储算法运行过程中的变量、对象、函数上下文等数据。</li>
+<li>「输出空间」用于存储算法的输出数据。</li>
 </ul>
 <p>通常情况下，空间复杂度统计范围是「暂存空间」+「输出空间」。</p>
 <p>暂存空间可以进一步划分为三个部分：</p>
@@ -3747,8 +3747,8 @@
 <p>空间复杂度的推算方法与时间复杂度大致相同，只是将统计对象从“计算操作数量”转为“使用空间大小”。与时间复杂度不同的是，<strong>我们通常只关注「最差空间复杂度」</strong>，这是因为内存空间是一项硬性要求，我们必须确保在所有输入数据下都有足够的内存空间预留。</p>
 <p><strong>最差空间复杂度中的“最差”有两层含义</strong>，分别是输入数据的最差分布和算法运行过程中的最差时间点。</p>
 <ul>
-<li><strong>以最差输入数据为准</strong>。当 <span class="arithmatex">\(n &lt; 10\)</span> 时，空间复杂度为 <span class="arithmatex">\(O(1)\)</span> ；但当 <span class="arithmatex">\(n &gt; 10\)</span> 时，初始化的数组 <code>nums</code> 占用 <span class="arithmatex">\(O(n)\)</span> 空间；因此最差空间复杂度为 <span class="arithmatex">\(O(n)\)</span> ；</li>
-<li><strong>以算法运行过程中的峰值内存为准</strong>。例如，程序在执行最后一行之前，占用 <span class="arithmatex">\(O(1)\)</span> 空间；当初始化数组 <code>nums</code> 时，程序占用 <span class="arithmatex">\(O(n)\)</span> 空间；因此最差空间复杂度为 <span class="arithmatex">\(O(n)\)</span> ；</li>
+<li><strong>以最差输入数据为准</strong>。当 <span class="arithmatex">\(n &lt; 10\)</span> 时，空间复杂度为 <span class="arithmatex">\(O(1)\)</span> ；但当 <span class="arithmatex">\(n &gt; 10\)</span> 时，初始化的数组 <code>nums</code> 占用 <span class="arithmatex">\(O(n)\)</span> 空间；因此最差空间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。</li>
+<li><strong>以算法运行过程中的峰值内存为准</strong>。例如，程序在执行最后一行之前，占用 <span class="arithmatex">\(O(1)\)</span> 空间；当初始化数组 <code>nums</code> 时，程序占用 <span class="arithmatex">\(O(n)\)</span> 空间；因此最差空间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">TypeScript</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label></div>
 <div class="tabbed-content">

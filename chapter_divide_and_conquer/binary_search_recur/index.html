@@ -3394,8 +3394,8 @@
 <p>从分治角度，我们将搜索区间 <span class="arithmatex">\([i, j]\)</span> 对应的子问题记为 <span class="arithmatex">\(f(i, j)\)</span> 。</p>
 <p>从原问题 <span class="arithmatex">\(f(0, n-1)\)</span> 为起始点，二分查找的分治步骤为：</p>
 <ol>
-<li>计算搜索区间 <span class="arithmatex">\([i, j]\)</span> 的中点 <span class="arithmatex">\(m\)</span> ，根据它排除一半搜索区间；</li>
-<li>递归求解规模减小一半的子问题，可能为 <span class="arithmatex">\(f(i, m-1)\)</span> 或 <span class="arithmatex">\(f(m+1, j)\)</span> ；</li>
+<li>计算搜索区间 <span class="arithmatex">\([i, j]\)</span> 的中点 <span class="arithmatex">\(m\)</span> ，根据它排除一半搜索区间。</li>
+<li>递归求解规模减小一半的子问题，可能为 <span class="arithmatex">\(f(i, m-1)\)</span> 或 <span class="arithmatex">\(f(m+1, j)\)</span> 。</li>
 <li>循环第 <code>1.</code> , <code>2.</code> 步，直至找到 <code>target</code> 或区间为空时返回。</li>
 </ol>
 <p>下图展示了在数组中二分查找元素 <span class="arithmatex">\(6\)</span> 的分治过程。</p>

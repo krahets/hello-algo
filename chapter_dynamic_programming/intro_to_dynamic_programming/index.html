@@ -3825,8 +3825,8 @@ dp[i] = dp[i-1] + dp[i-2]
 <h2 id="1412">14.1.2. &nbsp; 方法二：记忆化搜索<a class="headerlink" href="#1412" title="Permanent link">&para;</a></h2>
 <p>为了提升算法效率，<strong>我们希望所有的重叠子问题都只被计算一次</strong>。为此，我们声明一个数组 <code>mem</code> 来记录每个子问题的解，并在搜索过程中这样做：</p>
 <ol>
-<li>当首次计算 <span class="arithmatex">\(dp[i]\)</span> 时，我们将其记录至 <code>mem[i]</code> ，以便之后使用；</li>
-<li>当再次需要计算 <span class="arithmatex">\(dp[i]\)</span> 时，我们便可直接从 <code>mem[i]</code> 中获取结果，从而将重叠子问题剪枝；</li>
+<li>当首次计算 <span class="arithmatex">\(dp[i]\)</span> 时，我们将其记录至 <code>mem[i]</code> ，以便之后使用。</li>
+<li>当再次需要计算 <span class="arithmatex">\(dp[i]\)</span> 时，我们便可直接从 <code>mem[i]</code> 中获取结果，从而将重叠子问题剪枝。</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:11"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JavaScript</label><label for="__tabbed_3_6">TypeScript</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label></div>
 <div class="tabbed-content">
@@ -4191,9 +4191,9 @@ dp[i] = dp[i-1] + dp[i-2]
 <p>与回溯算法一样，动态规划也使用“状态”概念来表示问题求解的某个特定阶段，每个状态都对应一个子问题以及相应的局部最优解。例如，爬楼梯问题的状态定义为当前所在楼梯阶数 <span class="arithmatex">\(i\)</span> 。</p>
 <p>总结以上，动态规划的常用术语包括：</p>
 <ul>
-<li>将数组 <code>dp</code> 称为「<span class="arithmatex">\(dp\)</span> 表」，<span class="arithmatex">\(dp[i]\)</span> 表示状态 <span class="arithmatex">\(i\)</span> 对应子问题的解；</li>
-<li>将最小子问题对应的状态（即第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 阶楼梯）称为「初始状态」；</li>
-<li>将递推公式 <span class="arithmatex">\(dp[i] = dp[i-1] + dp[i-2]\)</span> 称为「状态转移方程」；</li>
+<li>将数组 <code>dp</code> 称为「<span class="arithmatex">\(dp\)</span> 表」，<span class="arithmatex">\(dp[i]\)</span> 表示状态 <span class="arithmatex">\(i\)</span> 对应子问题的解。</li>
+<li>将最小子问题对应的状态（即第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 阶楼梯）称为「初始状态」。</li>
+<li>将递推公式 <span class="arithmatex">\(dp[i] = dp[i-1] + dp[i-2]\)</span> 称为「状态转移方程」。</li>
 </ul>
 <p><img alt="爬楼梯的动态规划过程" src="../intro_to_dynamic_programming.assets/climbing_stairs_dp.png" /></p>
 <p align="center"> Fig. 爬楼梯的动态规划过程 </p>

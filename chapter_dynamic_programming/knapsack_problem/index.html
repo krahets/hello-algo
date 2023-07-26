@@ -3429,8 +3429,8 @@
 <p><strong>第二步：找出最优子结构，进而推导出状态转移方程</strong></p>
 <p>当我们做出物品 <span class="arithmatex">\(i\)</span> 的决策后，剩余的是前 <span class="arithmatex">\(i-1\)</span> 个物品的决策。因此，状态转移分为两种情况：</p>
 <ul>
-<li><strong>不放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量不变，状态转移至 <span class="arithmatex">\([i-1, c]\)</span> ；</li>
-<li><strong>放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量减小 <span class="arithmatex">\(wgt[i-1]\)</span> ，价值增加 <span class="arithmatex">\(val[i-1]\)</span> ，状态转移至 <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span> ；</li>
+<li><strong>不放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量不变，状态转移至 <span class="arithmatex">\([i-1, c]\)</span> 。</li>
+<li><strong>放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量减小 <span class="arithmatex">\(wgt[i-1]\)</span> ，价值增加 <span class="arithmatex">\(val[i-1]\)</span> ，状态转移至 <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span> 。</li>
 </ul>
 <p>上述的状态转移向我们揭示了本题的最优子结构：<strong>最大价值 <span class="arithmatex">\(dp[i, c]\)</span> 等于不放入物品 <span class="arithmatex">\(i\)</span> 和放入物品 <span class="arithmatex">\(i\)</span> 两种方案中的价值更大的那一个</strong>。由此可推出状态转移方程：</p>
 <div class="arithmatex">\[
@@ -3444,10 +3444,10 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <h3 id="_1">方法一：暴力搜索<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>搜索代码包含以下要素：</p>
 <ul>
-<li><strong>递归参数</strong>：状态 <span class="arithmatex">\([i, c]\)</span> ；</li>
-<li><strong>返回值</strong>：子问题的解 <span class="arithmatex">\(dp[i, c]\)</span> ；</li>
-<li><strong>终止条件</strong>：当物品编号越界 <span class="arithmatex">\(i = 0\)</span> 或背包剩余容量为 <span class="arithmatex">\(0\)</span> 时，终止递归并返回价值 <span class="arithmatex">\(0\)</span> ；</li>
-<li><strong>剪枝</strong>：若当前物品重量超出背包剩余容量，则只能不放入背包；</li>
+<li><strong>递归参数</strong>：状态 <span class="arithmatex">\([i, c]\)</span> 。</li>
+<li><strong>返回值</strong>：子问题的解 <span class="arithmatex">\(dp[i, c]\)</span> 。</li>
+<li><strong>终止条件</strong>：当物品编号越界 <span class="arithmatex">\(i = 0\)</span> 或背包剩余容量为 <span class="arithmatex">\(0\)</span> 时，终止递归并返回价值 <span class="arithmatex">\(0\)</span> 。</li>
+<li><strong>剪枝</strong>：若当前物品重量超出背包剩余容量，则只能不放入背包。</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
 <div class="tabbed-content">

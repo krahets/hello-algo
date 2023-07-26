@@ -3395,9 +3395,9 @@
 
 <p>除哈希表外，我们还可以使用数组或链表实现查询功能。若将学生数据看作数组（链表）元素，则有：</p>
 <ul>
-<li><strong>添加元素</strong>：仅需将元素添加至数组（链表）的尾部即可，使用 <span class="arithmatex">\(O(1)\)</span> 时间；</li>
-<li><strong>查询元素</strong>：由于数组（链表）是乱序的，因此需要遍历其中的所有元素，使用 <span class="arithmatex">\(O(n)\)</span> 时间；</li>
-<li><strong>删除元素</strong>：需要先查询到元素，再从数组中删除，使用 <span class="arithmatex">\(O(n)\)</span> 时间；</li>
+<li><strong>添加元素</strong>：仅需将元素添加至数组（链表）的尾部即可，使用 <span class="arithmatex">\(O(1)\)</span> 时间。</li>
+<li><strong>查询元素</strong>：由于数组（链表）是乱序的，因此需要遍历其中的所有元素，使用 <span class="arithmatex">\(O(n)\)</span> 时间。</li>
+<li><strong>删除元素</strong>：需要先查询到元素，再从数组中删除，使用 <span class="arithmatex">\(O(n)\)</span> 时间。</li>
 </ul>
 <div class="center-table">
 <table>
@@ -3799,8 +3799,8 @@
 <p>那么，如何基于 <code>key</code> 来定位对应的桶呢？这是通过「哈希函数 Hash Function」实现的。哈希函数的作用是将一个较大的输入空间映射到一个较小的输出空间。在哈希表中，输入空间是所有 <code>key</code> ，输出空间是所有桶（数组索引）。换句话说，输入一个 <code>key</code> ，<strong>我们可以通过哈希函数得到该 <code>key</code> 对应的键值对在数组中的存储位置</strong>。</p>
 <p>输入一个 <code>key</code> ，哈希函数的计算过程分为两步：</p>
 <ol>
-<li>通过某种哈希算法 <code>hash()</code> 计算得到哈希值；</li>
-<li>将哈希值对桶数量（数组长度）<code>capacity</code> 取模，从而获取该 <code>key</code> 对应的数组索引 <code>index</code> ；</li>
+<li>通过某种哈希算法 <code>hash()</code> 计算得到哈希值。</li>
+<li>将哈希值对桶数量（数组长度）<code>capacity</code> 取模，从而获取该 <code>key</code> 对应的数组索引 <code>index</code> 。</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
 </code></pre></div>

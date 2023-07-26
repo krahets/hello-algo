@@ -4494,8 +4494,8 @@
 <p>我们可以使用一个变量 <code>front</code> 指向队首元素的索引，并维护一个变量 <code>queSize</code> 用于记录队列长度。定义 <code>rear = front + queSize</code> ，这个公式计算出的 <code>rear</code> 指向队尾元素之后的下一个位置。</p>
 <p>基于此设计，<strong>数组中包含元素的有效区间为 [front, rear - 1]</strong>，进而：</p>
 <ul>
-<li>对于入队操作，将输入元素赋值给 <code>rear</code> 索引处，并将 <code>queSize</code> 增加 1 ；</li>
-<li>对于出队操作，只需将 <code>front</code> 增加 1 ，并将 <code>queSize</code> 减少 1 ；</li>
+<li>对于入队操作，将输入元素赋值给 <code>rear</code> 索引处，并将 <code>queSize</code> 增加 1 。</li>
+<li>对于出队操作，只需将 <code>front</code> 增加 1 ，并将 <code>queSize</code> 减少 1 。</li>
 </ul>
 <p>可以看到，入队和出队操作都只需进行一次操作，时间复杂度均为 <span class="arithmatex">\(O(1)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ArrayQueue</label><label for="__tabbed_4_2">push()</label><label for="__tabbed_4_3">pop()</label></div>

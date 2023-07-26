@@ -3713,8 +3713,8 @@ dp[i] = \min(dp[i-1], dp[i-2]) + cost[i]
 <p>不难发现，此问题已不满足无后效性，状态转移方程 <span class="arithmatex">\(dp[i] = dp[i-1] + dp[i-2]\)</span> 也失效了，因为 <span class="arithmatex">\(dp[i-1]\)</span> 代表本轮跳 <span class="arithmatex">\(1\)</span> 阶，但其中包含了许多“上一轮跳 <span class="arithmatex">\(1\)</span> 阶上来的”方案，而为了满足约束，我们就不能将 <span class="arithmatex">\(dp[i-1]\)</span> 直接计入 <span class="arithmatex">\(dp[i]\)</span> 中。</p>
 <p>为此，我们需要扩展状态定义：<strong>状态 <span class="arithmatex">\([i, j]\)</span> 表示处在第 <span class="arithmatex">\(i\)</span> 阶、并且上一轮跳了 <span class="arithmatex">\(j\)</span> 阶</strong>，其中 <span class="arithmatex">\(j \in \{1, 2\}\)</span> 。此状态定义有效地区分了上一轮跳了 <span class="arithmatex">\(1\)</span> 阶还是 <span class="arithmatex">\(2\)</span> 阶，我们可以据此来决定下一步该怎么跳：</p>
 <ul>
-<li>当 <span class="arithmatex">\(j\)</span> 等于 <span class="arithmatex">\(1\)</span> ，即上一轮跳了 <span class="arithmatex">\(1\)</span> 阶时，这一轮只能选择跳 <span class="arithmatex">\(2\)</span> 阶；</li>
-<li>当 <span class="arithmatex">\(j\)</span> 等于 <span class="arithmatex">\(2\)</span> ，即上一轮跳了 <span class="arithmatex">\(2\)</span> 阶时，这一轮可选择跳 <span class="arithmatex">\(1\)</span> 阶或跳 <span class="arithmatex">\(2\)</span> 阶；</li>
+<li>当 <span class="arithmatex">\(j\)</span> 等于 <span class="arithmatex">\(1\)</span> ，即上一轮跳了 <span class="arithmatex">\(1\)</span> 阶时，这一轮只能选择跳 <span class="arithmatex">\(2\)</span> 阶。</li>
+<li>当 <span class="arithmatex">\(j\)</span> 等于 <span class="arithmatex">\(2\)</span> ，即上一轮跳了 <span class="arithmatex">\(2\)</span> 阶时，这一轮可选择跳 <span class="arithmatex">\(1\)</span> 阶或跳 <span class="arithmatex">\(2\)</span> 阶。</li>
 </ul>
 <p>在该定义下，<span class="arithmatex">\(dp[i, j]\)</span> 表示状态 <span class="arithmatex">\([i, j]\)</span> 对应的方案数。在该定义下的状态转移方程为：</p>
 <div class="arithmatex">\[

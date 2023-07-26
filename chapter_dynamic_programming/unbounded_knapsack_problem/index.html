@@ -3527,13 +3527,13 @@
 
 <p>完全背包和 0-1 背包问题非常相似，<strong>区别仅在于不限制物品的选择次数</strong>。</p>
 <ul>
-<li>在 0-1 背包中，每个物品只有一个，因此将物品 <span class="arithmatex">\(i\)</span> 放入背包后，只能从前 <span class="arithmatex">\(i-1\)</span> 个物品中选择；</li>
-<li>在完全背包中，每个物品有无数个，因此将物品 <span class="arithmatex">\(i\)</span> 放入背包后，<strong>仍可以从前 <span class="arithmatex">\(i\)</span> 个物品中选择</strong>；</li>
+<li>在 0-1 背包中，每个物品只有一个，因此将物品 <span class="arithmatex">\(i\)</span> 放入背包后，只能从前 <span class="arithmatex">\(i-1\)</span> 个物品中选择。</li>
+<li>在完全背包中，每个物品有无数个，因此将物品 <span class="arithmatex">\(i\)</span> 放入背包后，<strong>仍可以从前 <span class="arithmatex">\(i\)</span> 个物品中选择</strong>。</li>
 </ul>
 <p>这就导致了状态转移的变化，对于状态 <span class="arithmatex">\([i, c]\)</span> 有：</p>
 <ul>
-<li><strong>不放入物品 <span class="arithmatex">\(i\)</span></strong> ：与 0-1 背包相同，转移至 <span class="arithmatex">\([i-1, c]\)</span> ；</li>
-<li><strong>放入物品 <span class="arithmatex">\(i\)</span></strong> ：与 0-1 背包不同，转移至 <span class="arithmatex">\([i, c-wgt[i-1]]\)</span> ；</li>
+<li><strong>不放入物品 <span class="arithmatex">\(i\)</span></strong> ：与 0-1 背包相同，转移至 <span class="arithmatex">\([i-1, c]\)</span> 。</li>
+<li><strong>放入物品 <span class="arithmatex">\(i\)</span></strong> ：与 0-1 背包不同，转移至 <span class="arithmatex">\([i, c-wgt[i-1]]\)</span> 。</li>
 </ul>
 <p>从而状态转移方程变为：</p>
 <div class="arithmatex">\[
@@ -3922,9 +3922,9 @@ dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 
 <p><strong>零钱兑换可以看作是完全背包的一种特殊情况</strong>，两者具有以下联系与不同点：</p>
 <ul>
-<li>两道题可以相互转换，“物品”对应于“硬币”、“物品重量”对应于“硬币面值”、“背包容量”对应于“目标金额”；</li>
-<li>优化目标相反，背包问题是要最大化物品价值，零钱兑换问题是要最小化硬币数量；</li>
-<li>背包问题是求“不超过”背包容量下的解，零钱兑换是求“恰好”凑到目标金额的解；</li>
+<li>两道题可以相互转换，“物品”对应于“硬币”、“物品重量”对应于“硬币面值”、“背包容量”对应于“目标金额”。</li>
+<li>优化目标相反，背包问题是要最大化物品价值，零钱兑换问题是要最小化硬币数量。</li>
+<li>背包问题是求“不超过”背包容量下的解，零钱兑换是求“恰好”凑到目标金额的解。</li>
 </ul>
 <p><strong>第一步：思考每轮的决策，定义状态，从而得到 <span class="arithmatex">\(dp\)</span> 表</strong></p>
 <p>状态 <span class="arithmatex">\([i, a]\)</span> 对应的子问题为：<strong>前 <span class="arithmatex">\(i\)</span> 个硬币能够凑出金额 <span class="arithmatex">\(a\)</span> 的最少硬币个数</strong>，记为 <span class="arithmatex">\(dp[i, a]\)</span> 。</p>
@@ -3932,8 +3932,8 @@ dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 <p><strong>第二步：找出最优子结构，进而推导出状态转移方程</strong></p>
 <p>与完全背包的状态转移方程基本相同，不同点在于：</p>
 <ul>
-<li>本题要求最小值，因此需将运算符 <span class="arithmatex">\(\max()\)</span> 更改为 <span class="arithmatex">\(\min()\)</span> ；</li>
-<li>优化主体是硬币数量而非商品价值，因此在选中硬币时执行 <span class="arithmatex">\(+1\)</span> 即可；</li>
+<li>本题要求最小值，因此需将运算符 <span class="arithmatex">\(\max()\)</span> 更改为 <span class="arithmatex">\(\min()\)</span> 。</li>
+<li>优化主体是硬币数量而非商品价值，因此在选中硬币时执行 <span class="arithmatex">\(+1\)</span> 即可。</li>
 </ul>
 <div class="arithmatex">\[
 dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)

@@ -3522,10 +3522,10 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 <h3 id="_1">方法一：暴力搜索<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>从状态 <span class="arithmatex">\([i, j]\)</span> 开始搜索，不断分解为更小的状态 <span class="arithmatex">\([i-1, j]\)</span> 和 <span class="arithmatex">\([i, j-1]\)</span> ，包括以下递归要素：</p>
 <ul>
-<li><strong>递归参数</strong>：状态 <span class="arithmatex">\([i, j]\)</span> ；</li>
-<li><strong>返回值</strong>：从 <span class="arithmatex">\([0, 0]\)</span> 到 <span class="arithmatex">\([i, j]\)</span> 的最小路径和 <span class="arithmatex">\(dp[i, j]\)</span> ；</li>
-<li><strong>终止条件</strong>：当 <span class="arithmatex">\(i = 0\)</span> 且 <span class="arithmatex">\(j = 0\)</span> 时，返回代价 <span class="arithmatex">\(grid[0, 0]\)</span> ；</li>
-<li><strong>剪枝</strong>：当 <span class="arithmatex">\(i &lt; 0\)</span> 时或 <span class="arithmatex">\(j &lt; 0\)</span> 时索引越界，此时返回代价 <span class="arithmatex">\(+\infty\)</span> ，代表不可行；</li>
+<li><strong>递归参数</strong>：状态 <span class="arithmatex">\([i, j]\)</span> 。</li>
+<li><strong>返回值</strong>：从 <span class="arithmatex">\([0, 0]\)</span> 到 <span class="arithmatex">\([i, j]\)</span> 的最小路径和 <span class="arithmatex">\(dp[i, j]\)</span> 。</li>
+<li><strong>终止条件</strong>：当 <span class="arithmatex">\(i = 0\)</span> 且 <span class="arithmatex">\(j = 0\)</span> 时，返回代价 <span class="arithmatex">\(grid[0, 0]\)</span> 。</li>
+<li><strong>剪枝</strong>：当 <span class="arithmatex">\(i &lt; 0\)</span> 时或 <span class="arithmatex">\(j &lt; 0\)</span> 时索引越界，此时返回代价 <span class="arithmatex">\(+\infty\)</span> ，代表不可行。</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label></div>
 <div class="tabbed-content">

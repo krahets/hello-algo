@@ -3445,9 +3445,9 @@
 <p>细心的你可能会发现：<code>int</code> 和 <code>float</code> 长度相同，都是 4 bytes，但为什么 <code>float</code> 的取值范围远大于 <code>int</code> ？这非常反直觉，因为按理说 <code>float</code> 需要表示小数，取值范围应该变小才对。</p>
 <p>实际上，这是因为浮点数 <code>float</code> 采用了不同的表示方式。根据 IEEE 754 标准，32-bit 长度的 <code>float</code> 由以下部分构成：</p>
 <ul>
-<li>符号位 <span class="arithmatex">\(\mathrm{S}\)</span> ：占 1 bit ；</li>
-<li>指数位 <span class="arithmatex">\(\mathrm{E}\)</span> ：占 8 bits ；</li>
-<li>分数位 <span class="arithmatex">\(\mathrm{N}\)</span> ：占 24 bits ，其中 23 位显式存储；</li>
+<li>符号位 <span class="arithmatex">\(\mathrm{S}\)</span> ：占 1 bit 。</li>
+<li>指数位 <span class="arithmatex">\(\mathrm{E}\)</span> ：占 8 bits 。</li>
+<li>分数位 <span class="arithmatex">\(\mathrm{N}\)</span> ：占 24 bits ，其中 23 位显式存储。</li>
 </ul>
 <p>设 32-bit 二进制数的第 <span class="arithmatex">\(i\)</span> 位为 <span class="arithmatex">\(b_i\)</span> ，则 <code>float</code> 值的计算方法定义为：</p>
 <div class="arithmatex">\[
@@ -3508,8 +3508,8 @@
 </div>
 <p>特别地，次正规数显著提升了浮点数的精度，这是因为：</p>
 <ul>
-<li>最小正正规数为 <span class="arithmatex">\(2^{-126} \approx 1.18 \times 10^{-38}\)</span> ；</li>
-<li>最小正次正规数为 <span class="arithmatex">\(2^{-126} \times 2^{-23} \approx 1.4 \times 10^{-45}\)</span> ；</li>
+<li>最小正正规数为 <span class="arithmatex">\(2^{-126} \approx 1.18 \times 10^{-38}\)</span> 。</li>
+<li>最小正次正规数为 <span class="arithmatex">\(2^{-126} \times 2^{-23} \approx 1.4 \times 10^{-45}\)</span> 。</li>
 </ul>
 <p>双精度 <code>double</code> 也采用类似 <code>float</code> 的表示方法，此处不再详述。</p>
 

@@ -3401,9 +3401,9 @@
 <p class="admonition-title">Question</p>
 <p>给定三根柱子，记为 <code>A</code> , <code>B</code> , <code>C</code> 。起始状态下，柱子 <code>A</code> 上套着 <span class="arithmatex">\(n\)</span> 个圆盘，它们从上到下按照从小到大的顺序排列。我们的任务是要把这 <span class="arithmatex">\(n\)</span> 个圆盘移到柱子 <code>C</code> 上，并保持它们的原有顺序不变。在移动圆盘的过程中，需要遵守以下规则：</p>
 <ol>
-<li>圆盘只能从一个柱子顶部拿出，从另一个柱子顶部放入；</li>
-<li>每次只能移动一个圆盘；</li>
-<li>小圆盘必须时刻位于大圆盘之上；</li>
+<li>圆盘只能从一个柱子顶部拿出，从另一个柱子顶部放入。</li>
+<li>每次只能移动一个圆盘。</li>
+<li>小圆盘必须时刻位于大圆盘之上。</li>
 </ol>
 </div>
 <p><img alt="汉诺塔问题示例" src="../hanota_problem.assets/hanota_example.png" /></p>
@@ -3424,9 +3424,9 @@
 </div>
 <p>对于问题 <span class="arithmatex">\(f(2)\)</span> ，即当有两个圆盘时，<strong>由于要时刻满足小圆盘在大圆盘之上，因此需要借助 <code>B</code> 来完成移动</strong>，包括三步：</p>
 <ol>
-<li>先将上面的小圆盘从 <code>A</code> 移至 <code>B</code> ；</li>
-<li>再将大圆盘从 <code>A</code> 移至 <code>C</code> ；</li>
-<li>最后将小圆盘从 <code>B</code> 移至 <code>C</code> ；</li>
+<li>先将上面的小圆盘从 <code>A</code> 移至 <code>B</code> 。</li>
+<li>再将大圆盘从 <code>A</code> 移至 <code>C</code> 。</li>
+<li>最后将小圆盘从 <code>B</code> 移至 <code>C</code> 。</li>
 </ol>
 <p>解决问题 <span class="arithmatex">\(f(2)\)</span> 的过程可总结为：<strong>将两个圆盘借助 <code>B</code> 从 <code>A</code> 移至 <code>C</code></strong> 。其中，<code>C</code> 称为目标柱、<code>B</code> 称为缓冲柱。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label></div>
@@ -3448,9 +3448,9 @@
 <h3 id="_2">子问题分解<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>对于问题 <span class="arithmatex">\(f(3)\)</span> ，即当有三个圆盘时，情况变得稍微复杂了一些。由于已知 <span class="arithmatex">\(f(1)\)</span> 和 <span class="arithmatex">\(f(2)\)</span> 的解，因此可从分治角度思考，<strong>将 <code>A</code> 顶部的两个圆盘看做一个整体</strong>，执行以下步骤：</p>
 <ol>
-<li>令 <code>B</code> 为目标柱、<code>C</code> 为缓冲柱，将两个圆盘从 <code>A</code> 移动至 <code>B</code> ；</li>
-<li>将 <code>A</code> 中剩余的一个圆盘从 <code>A</code> 直接移动至 <code>C</code> ；</li>
-<li>令 <code>C</code> 为目标柱、<code>A</code> 为缓冲柱，将两个圆盘从 <code>B</code> 移动至 <code>C</code> ；</li>
+<li>令 <code>B</code> 为目标柱、<code>C</code> 为缓冲柱，将两个圆盘从 <code>A</code> 移动至 <code>B</code> 。</li>
+<li>将 <code>A</code> 中剩余的一个圆盘从 <code>A</code> 直接移动至 <code>C</code> 。</li>
+<li>令 <code>C</code> 为目标柱、<code>A</code> 为缓冲柱，将两个圆盘从 <code>B</code> 移动至 <code>C</code> 。</li>
 </ol>
 <p>这样三个圆盘就被顺利地从 <code>A</code> 移动至 <code>C</code> 了。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label></div>
@@ -3472,9 +3472,9 @@
 <p>本质上看，<strong>我们将问题 <span class="arithmatex">\(f(3)\)</span> 划分为两个子问题 <span class="arithmatex">\(f(2)\)</span> 和子问题 <span class="arithmatex">\(f(1)\)</span></strong> 。按顺序解决这三个子问题之后，原问题随之得到解决。这说明子问题是独立的，且解是可以合并的。</p>
 <p>至此，我们可总结出汉诺塔问题的分治策略：将原问题 <span class="arithmatex">\(f(n)\)</span> 划分为两个子问题 <span class="arithmatex">\(f(n-1)\)</span> 和一个子问题 <span class="arithmatex">\(f(1)\)</span> 。子问题的解决顺序为：</p>
 <ol>
-<li>将 <span class="arithmatex">\(n-1\)</span> 个圆盘借助 <code>C</code> 从 <code>A</code> 移至 <code>B</code> ；</li>
-<li>将剩余 <span class="arithmatex">\(1\)</span> 个圆盘从 <code>A</code> 直接移至 <code>C</code> ；</li>
-<li>将 <span class="arithmatex">\(n-1\)</span> 个圆盘借助 <code>A</code> 从 <code>B</code> 移至 <code>C</code> ；</li>
+<li>将 <span class="arithmatex">\(n-1\)</span> 个圆盘借助 <code>C</code> 从 <code>A</code> 移至 <code>B</code> 。</li>
+<li>将剩余 <span class="arithmatex">\(1\)</span> 个圆盘从 <code>A</code> 直接移至 <code>C</code> 。</li>
+<li>将 <span class="arithmatex">\(n-1\)</span> 个圆盘借助 <code>A</code> 从 <code>B</code> 移至 <code>C</code> 。</li>
 </ol>
 <p>对于这两个子问题 <span class="arithmatex">\(f(n-1)\)</span> ，<strong>可以通过相同的方式进行递归划分</strong>，直至达到最小子问题 <span class="arithmatex">\(f(1)\)</span> 。而 <span class="arithmatex">\(f(1)\)</span> 的解是已知的，只需一次移动操作即可。</p>
 <p><img alt="汉诺塔问题的分治策略" src="../hanota_problem.assets/hanota_divide_and_conquer.png" /></p>

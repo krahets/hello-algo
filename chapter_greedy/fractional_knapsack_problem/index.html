@@ -3407,8 +3407,8 @@
 <p>本题和 0-1 背包整体上非常相似，状态包含当前物品 <span class="arithmatex">\(i\)</span> 和容量 <span class="arithmatex">\(c\)</span> ，目标是求不超过背包容量下的最大价值。</p>
 <p>不同点在于，本题允许只选择物品的一部分，<strong>这意味着可以对物品任意地进行切分，并按照重量比例来计算物品价值</strong>，因此有：</p>
 <ol>
-<li>对于物品 <span class="arithmatex">\(i\)</span> ，它在单位重量下的价值为 <span class="arithmatex">\(val[i-1] / wgt[i-1]\)</span> ，简称为单位价值；</li>
-<li>假设放入一部分物品 <span class="arithmatex">\(i\)</span> ，重量为 <span class="arithmatex">\(w\)</span> ，则背包增加的价值为 <span class="arithmatex">\(w \times val[i-1] / wgt[i-1]\)</span> ；</li>
+<li>对于物品 <span class="arithmatex">\(i\)</span> ，它在单位重量下的价值为 <span class="arithmatex">\(val[i-1] / wgt[i-1]\)</span> ，简称为单位价值。</li>
+<li>假设放入一部分物品 <span class="arithmatex">\(i\)</span> ，重量为 <span class="arithmatex">\(w\)</span> ，则背包增加的价值为 <span class="arithmatex">\(w \times val[i-1] / wgt[i-1]\)</span> 。</li>
 </ol>
 <p><img alt="物品在单位重量下的价值" src="../fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" /></p>
 <p align="center"> Fig. 物品在单位重量下的价值 </p>

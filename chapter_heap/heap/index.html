@@ -3458,8 +3458,8 @@
 <h1 id="81">8.1. &nbsp; 堆<a class="headerlink" href="#81" title="Permanent link">&para;</a></h1>
 <p>「堆 Heap」是一种满足特定条件的完全二叉树，可分为两种类型：</p>
 <ul>
-<li>「大顶堆 Max Heap」，任意节点的值 <span class="arithmatex">\(\geq\)</span> 其子节点的值；</li>
-<li>「小顶堆 Min Heap」，任意节点的值 <span class="arithmatex">\(\leq\)</span> 其子节点的值；</li>
+<li>「大顶堆 Max Heap」，任意节点的值 <span class="arithmatex">\(\geq\)</span> 其子节点的值。</li>
+<li>「小顶堆 Min Heap」，任意节点的值 <span class="arithmatex">\(\leq\)</span> 其子节点的值。</li>
 </ul>
 <p><img alt="小顶堆与大顶堆" src="../heap.assets/min_heap_and_max_heap.png" /></p>
 <p align="center"> Fig. 小顶堆与大顶堆 </p>
@@ -4359,9 +4359,9 @@
 <h3 id="_4">堆顶元素出堆<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>堆顶元素是二叉树的根节点，即列表首元素。如果我们直接从列表中删除首元素，那么二叉树中所有节点的索引都会发生变化，这将使得后续使用堆化修复变得困难。为了尽量减少元素索引的变动，我们采取以下操作步骤：</p>
 <ol>
-<li>交换堆顶元素与堆底元素（即交换根节点与最右叶节点）；</li>
-<li>交换完成后，将堆底从列表中删除（注意，由于已经交换，实际上删除的是原来的堆顶元素）；</li>
-<li>从根节点开始，<strong>从顶至底执行堆化</strong>；</li>
+<li>交换堆顶元素与堆底元素（即交换根节点与最右叶节点）。</li>
+<li>交换完成后，将堆底从列表中删除（注意，由于已经交换，实际上删除的是原来的堆顶元素）。</li>
+<li>从根节点开始，<strong>从顶至底执行堆化</strong>。</li>
 </ol>
 <p>顾名思义，<strong>从顶至底堆化的操作方向与从底至顶堆化相反</strong>，我们将根节点的值与其两个子节点的值进行比较，将最大的子节点与根节点交换；然后循环执行此操作，直到越过叶节点或遇到无需交换的节点时结束。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:10"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">&lt;1&gt;</label><label for="__tabbed_6_2">&lt;2&gt;</label><label for="__tabbed_6_3">&lt;3&gt;</label><label for="__tabbed_6_4">&lt;4&gt;</label><label for="__tabbed_6_5">&lt;5&gt;</label><label for="__tabbed_6_6">&lt;6&gt;</label><label for="__tabbed_6_7">&lt;7&gt;</label><label for="__tabbed_6_8">&lt;8&gt;</label><label for="__tabbed_6_9">&lt;9&gt;</label><label for="__tabbed_6_10">&lt;10&gt;</label></div>
