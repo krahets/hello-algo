@@ -36,13 +36,13 @@
     [class]{maxHeap}-[func]{newMaxHeap}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{constructor}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     [class]{MaxHeap}-[func]{constructor}

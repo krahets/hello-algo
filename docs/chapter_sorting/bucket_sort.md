@@ -38,13 +38,13 @@
     [class]{}-[func]{bucketSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="bucket_sort.js"
     [class]{}-[func]{bucketSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="bucket_sort.ts"
     [class]{}-[func]{bucketSort}

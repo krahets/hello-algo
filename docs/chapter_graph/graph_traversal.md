@@ -48,13 +48,13 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graphBFS}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="graph_bfs.js"
     [class]{}-[func]{graphBFS}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="graph_bfs.ts"
     [class]{}-[func]{graphBFS}
@@ -183,7 +183,7 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graphDFS}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="graph_dfs.js"
     [class]{}-[func]{dfs}
@@ -191,7 +191,7 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graphDFS}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="graph_dfs.ts"
     [class]{}-[func]{dfs}

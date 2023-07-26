@@ -136,7 +136,7 @@
     isEmpty := deque.Len() == 0
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="deque.js"
     /* 初始化双向队列 */
@@ -174,7 +174,7 @@
     console.log("双向队列是否为空 = " + isEmpty);
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="deque.ts"
     /* 初始化双向队列 */
@@ -377,7 +377,7 @@
     [class]{linkedListDeque}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linkedlist_deque.js"
     [class]{ListNode}-[func]{}
@@ -385,7 +385,7 @@
     [class]{LinkedListDeque}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linkedlist_deque.ts"
     [class]{ListNode}-[func]{}
@@ -486,13 +486,13 @@
     [class]{arrayDeque}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_deque.js"
     [class]{ArrayDeque}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_deque.ts"
     [class]{ArrayDeque}-[func]{}

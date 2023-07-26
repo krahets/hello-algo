@@ -69,7 +69,7 @@
     [class]{quickSort}-[func]{partition}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="quick_sort.js"
     [class]{QuickSort}-[func]{swap}
@@ -77,7 +77,7 @@
     [class]{QuickSort}-[func]{partition}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="quick_sort.ts"
     [class]{QuickSort}-[func]{swap}
@@ -163,13 +163,13 @@
     [class]{quickSort}-[func]{quickSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="quick_sort.js"
     [class]{QuickSort}-[func]{quickSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="quick_sort.ts"
     [class]{QuickSort}-[func]{quickSort}
@@ -267,7 +267,7 @@
     [class]{quickSortMedian}-[func]{partition}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="quick_sort.js"
     [class]{QuickSortMedian}-[func]{medianThree}
@@ -275,7 +275,7 @@
     [class]{QuickSortMedian}-[func]{partition}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="quick_sort.ts"
     [class]{QuickSortMedian}-[func]{medianThree}
@@ -361,13 +361,13 @@
     [class]{quickSortTailCall}-[func]{quickSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="quick_sort.js"
     [class]{QuickSortTailCall}-[func]{quickSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="quick_sort.ts"
     [class]{QuickSortTailCall}-[func]{quickSort}

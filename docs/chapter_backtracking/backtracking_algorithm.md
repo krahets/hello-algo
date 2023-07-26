@@ -34,13 +34,13 @@
     [class]{}-[func]{preOrderI}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="preorder_traversal_i_compact.js"
     [class]{}-[func]{preOrder}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="preorder_traversal_i_compact.ts"
     [class]{}-[func]{preOrder}
@@ -122,13 +122,13 @@
     [class]{}-[func]{preOrderII}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="preorder_traversal_ii_compact.js"
     [class]{}-[func]{preOrder}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="preorder_traversal_ii_compact.ts"
     [class]{}-[func]{preOrder}
@@ -241,13 +241,13 @@
     [class]{}-[func]{preOrderIII}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="preorder_traversal_iii_compact.js"
     [class]{}-[func]{preOrder}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="preorder_traversal_iii_compact.ts"
     [class]{}-[func]{preOrder}
@@ -399,7 +399,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 回溯算法框架 */
@@ -425,7 +425,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 回溯算法框架 */
@@ -633,7 +633,7 @@
     [class]{}-[func]{backtrackIII}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="preorder_traversal_iii_template.js"
     [class]{}-[func]{isSolution}
@@ -649,7 +649,7 @@
     [class]{}-[func]{backtrack}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="preorder_traversal_iii_template.ts"
     [class]{}-[func]{isSolution}

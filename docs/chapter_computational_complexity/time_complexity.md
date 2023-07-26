@@ -72,7 +72,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     // 在某运行平台下
@@ -87,7 +87,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     // 在某运行平台下
@@ -265,7 +265,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     // 算法 A 时间复杂度：常数阶
@@ -287,7 +287,7 @@ $$
 
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     // 算法 A 时间复杂度：常数阶
@@ -478,7 +478,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     function algorithm(n) {
@@ -492,7 +492,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     function algorithm(n: number): void{
@@ -693,7 +693,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     function algorithm(n) {
@@ -712,7 +712,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     function algorithm(n: number): void {
@@ -884,13 +884,13 @@ $$
     [class]{}-[func]{constant}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{constant}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{constant}
@@ -960,13 +960,13 @@ $$
     [class]{}-[func]{linear}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{linear}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{linear}
@@ -1038,13 +1038,13 @@ $$
     [class]{}-[func]{arrayTraversal}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{arrayTraversal}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{arrayTraversal}
@@ -1114,13 +1114,13 @@ $$
     [class]{}-[func]{quadratic}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{quadratic}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{quadratic}
@@ -1194,13 +1194,13 @@ $$
     [class]{}-[func]{bubbleSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{bubbleSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{bubbleSort}
@@ -1274,13 +1274,13 @@ $$
     [class]{}-[func]{exponential}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{exponential}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{exponential}
@@ -1350,13 +1350,13 @@ $$
     [class]{}-[func]{expRecur}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{expRecur}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{expRecur}
@@ -1430,13 +1430,13 @@ $$
     [class]{}-[func]{logarithmic}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{logarithmic}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{logarithmic}
@@ -1506,13 +1506,13 @@ $$
     [class]{}-[func]{logRecur}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{logRecur}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{logRecur}
@@ -1584,13 +1584,13 @@ $$
     [class]{}-[func]{linearLogRecur}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{linearLogRecur}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{linearLogRecur}
@@ -1668,13 +1668,13 @@ $$
     [class]{}-[func]{factorialRecur}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{factorialRecur}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{factorialRecur}
@@ -1759,7 +1759,7 @@ $$
     [class]{}-[func]{findOne}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="worst_best_time_complexity.js"
     [class]{}-[func]{randomNumbers}
@@ -1767,7 +1767,7 @@ $$
     [class]{}-[func]{findOne}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="worst_best_time_complexity.ts"
     [class]{}-[func]{randomNumbers}

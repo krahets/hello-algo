@@ -43,13 +43,13 @@
     [class]{}-[func]{insertionSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="insertion_sort.js"
     [class]{}-[func]{insertionSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="insertion_sort.ts"
     [class]{}-[func]{insertionSort}

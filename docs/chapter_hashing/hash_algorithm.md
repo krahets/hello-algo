@@ -93,7 +93,7 @@ index = hash(key) % capacity
     [class]{}-[func]{rotHash}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="simple_hash.js"
     [class]{}-[func]{addHash}
@@ -105,7 +105,7 @@ index = hash(key) % capacity
     [class]{}-[func]{rotHash}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="simple_hash.ts"
     [class]{}-[func]{addHash}
@@ -335,13 +335,13 @@ $$
 
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="built_in_hash.js"
 
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="built_in_hash.ts"
 

@@ -72,7 +72,7 @@
     [class]{}-[func]{nQueens}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="n_queens.js"
     [class]{}-[func]{backtrack}
@@ -80,7 +80,7 @@
     [class]{}-[func]{nQueens}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="n_queens.ts"
     [class]{}-[func]{backtrack}

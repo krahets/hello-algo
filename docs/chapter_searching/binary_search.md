@@ -68,13 +68,13 @@
     [class]{}-[func]{binarySearch}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search.js"
     [class]{}-[func]{binarySearch}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search.ts"
     [class]{}-[func]{binarySearch}
@@ -150,13 +150,13 @@
     [class]{}-[func]{binarySearchLCRO}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search.js"
     [class]{}-[func]{binarySearchLCRO}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search.ts"
     [class]{}-[func]{binarySearchLCRO}

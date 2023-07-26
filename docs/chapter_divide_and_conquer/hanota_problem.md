@@ -122,7 +122,7 @@
     [class]{}-[func]{hanota}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hanota.js"
     [class]{}-[func]{move}
@@ -132,7 +132,7 @@
     [class]{}-[func]{hanota}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hanota.ts"
     [class]{}-[func]{move}

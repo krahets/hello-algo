@@ -91,7 +91,7 @@
     [class]{}-[func]{buildTree}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="build_tree.js"
     [class]{}-[func]{dfs}
@@ -99,7 +99,7 @@
     [class]{}-[func]{buildTree}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="build_tree.ts"
     [class]{}-[func]{dfs}

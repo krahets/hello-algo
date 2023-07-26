@@ -80,13 +80,13 @@ $$
     [class]{}-[func]{knapsackDFS}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="knapsack.js"
     [class]{}-[func]{knapsackDFS}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="knapsack.ts"
     [class]{}-[func]{knapsackDFS}
@@ -164,13 +164,13 @@ $$
     [class]{}-[func]{knapsackDFSMem}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="knapsack.js"
     [class]{}-[func]{knapsackDFSMem}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="knapsack.ts"
     [class]{}-[func]{knapsackDFSMem}
@@ -242,13 +242,13 @@ $$
     [class]{}-[func]{knapsackDP}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="knapsack.js"
     [class]{}-[func]{knapsackDP}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="knapsack.ts"
     [class]{}-[func]{knapsackDP}
@@ -389,13 +389,13 @@ $$
     [class]{}-[func]{knapsackDPComp}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="knapsack.js"
     [class]{}-[func]{knapsackDPComp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="knapsack.ts"
     [class]{}-[func]{knapsackDPComp}

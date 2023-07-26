@@ -36,13 +36,13 @@
     [class]{}-[func]{twoSumBruteForce}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="two_sum.js"
     [class]{}-[func]{twoSumBruteForce}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="two_sum.ts"
     [class]{}-[func]{twoSumBruteForce}
@@ -128,13 +128,13 @@
     [class]{}-[func]{twoSumHashTable}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="two_sum.js"
     [class]{}-[func]{twoSumHashTable}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="two_sum.ts"
     [class]{}-[func]{twoSumHashTable}

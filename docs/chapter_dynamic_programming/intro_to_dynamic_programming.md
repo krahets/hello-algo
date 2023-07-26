@@ -46,7 +46,7 @@
     [class]{}-[func]{climbingStairsBacktrack}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="climbing_stairs_backtrack.js"
     [class]{}-[func]{backtrack}
@@ -54,7 +54,7 @@
     [class]{}-[func]{climbingStairsBacktrack}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="climbing_stairs_backtrack.ts"
     [class]{}-[func]{backtrack}
@@ -171,7 +171,7 @@ $$
     [class]{}-[func]{climbingStairsDFS}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="climbing_stairs_dfs.js"
     [class]{}-[func]{dfs}
@@ -179,7 +179,7 @@ $$
     [class]{}-[func]{climbingStairsDFS}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="climbing_stairs_dfs.ts"
     [class]{}-[func]{dfs}
@@ -282,7 +282,7 @@ $$
     [class]{}-[func]{climbingStairsDFSMem}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="climbing_stairs_dfs_mem.js"
     [class]{}-[func]{dfs}
@@ -290,7 +290,7 @@ $$
     [class]{}-[func]{climbingStairsDFSMem}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="climbing_stairs_dfs_mem.ts"
     [class]{}-[func]{dfs}
@@ -382,13 +382,13 @@ $$
     [class]{}-[func]{climbingStairsDP}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="climbing_stairs_dp.js"
     [class]{}-[func]{climbingStairsDP}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="climbing_stairs_dp.ts"
     [class]{}-[func]{climbingStairsDP}
@@ -468,13 +468,13 @@ $$
     [class]{}-[func]{climbingStairsDPComp}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="climbing_stairs_dp.js"
     [class]{}-[func]{climbingStairsDPComp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="climbing_stairs_dp.ts"
     [class]{}-[func]{climbingStairsDPComp}

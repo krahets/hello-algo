@@ -123,7 +123,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 类 */
@@ -151,7 +151,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 类 */
@@ -341,7 +341,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     function algorithm(n) {
@@ -353,7 +353,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     function algorithm(n: number): void {
@@ -508,7 +508,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     function constFunc() {
@@ -528,7 +528,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     function constFunc(): number {
@@ -692,13 +692,13 @@ $$
     [class]{}-[func]{spaceConstant}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="space_complexity.js"
     [class]{}-[func]{constant}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="space_complexity.ts"
     [class]{}-[func]{constant}
@@ -768,13 +768,13 @@ $$
     [class]{}-[func]{spaceLinear}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="space_complexity.js"
     [class]{}-[func]{linear}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="space_complexity.ts"
     [class]{}-[func]{linear}
@@ -844,13 +844,13 @@ $$
     [class]{}-[func]{spaceLinearRecur}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="space_complexity.js"
     [class]{}-[func]{linearRecur}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="space_complexity.ts"
     [class]{}-[func]{linearRecur}
@@ -922,13 +922,13 @@ $$
     [class]{}-[func]{spaceQuadratic}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="space_complexity.js"
     [class]{}-[func]{quadratic}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="space_complexity.ts"
     [class]{}-[func]{quadratic}
@@ -996,13 +996,13 @@ $$
     [class]{}-[func]{spaceQuadraticRecur}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="space_complexity.js"
     [class]{}-[func]{quadraticRecur}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="space_complexity.ts"
     [class]{}-[func]{quadraticRecur}
@@ -1074,13 +1074,13 @@ $$
     [class]{}-[func]{buildTree}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="space_complexity.js"
     [class]{}-[func]{buildTree}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="space_complexity.ts"
     [class]{}-[func]{buildTree}

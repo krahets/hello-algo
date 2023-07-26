@@ -54,7 +54,7 @@
     tree := []any{1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 二叉树的数组表示 */
@@ -62,7 +62,7 @@
     let tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 二叉树的数组表示 */
@@ -149,13 +149,13 @@
     [class]{arrayBinaryTree}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_binary_tree.js"
     [class]{ArrayBinaryTree}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_binary_tree.ts"
     [class]{ArrayBinaryTree}-[func]{}

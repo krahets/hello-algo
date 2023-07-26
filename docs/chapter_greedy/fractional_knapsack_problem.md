@@ -63,7 +63,7 @@
     [class]{}-[func]{fractionalKnapsack}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="fractional_knapsack.js"
     [class]{Item}-[func]{}
@@ -71,7 +71,7 @@
     [class]{}-[func]{fractionalKnapsack}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="fractional_knapsack.ts"
     [class]{Item}-[func]{}

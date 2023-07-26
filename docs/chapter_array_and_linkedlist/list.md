@@ -50,7 +50,7 @@
     list := []int{1, 3, 2, 5, 4}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="list.js"
     /* 初始化列表 */
@@ -60,7 +60,7 @@
     const list = [1, 3, 2, 5, 4];
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="list.ts"
     /* 初始化列表 */
@@ -164,7 +164,7 @@
     list[1] = 0     // 将索引 1 处的元素更新为 0
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="list.js"
     /* 访问元素 */
@@ -174,7 +174,7 @@
     list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="list.ts"
     /* 访问元素 */
@@ -318,7 +318,7 @@
     list = append(list[:3], list[4:]...) // 删除索引 3 处的元素
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="list.js"
     /* 清空列表 */
@@ -338,7 +338,7 @@
     list.splice(3, 1);
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="list.ts"
     /* 清空列表 */
@@ -514,7 +514,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="list.js"
     /* 通过索引遍历列表 */
@@ -530,7 +530,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="list.ts"
     /* 通过索引遍历列表 */
@@ -658,7 +658,7 @@
     list = append(list, list1...)  // 将列表 list1 拼接到 list 之后
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="list.js"
     /* 拼接两个列表 */
@@ -666,7 +666,7 @@
     list.push(...list1);  // 将列表 list1 拼接到 list 之后
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="list.ts"
     /* 拼接两个列表 */
@@ -750,14 +750,14 @@
     sort.Ints(list)  // 排序后，列表元素从小到大排列
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="list.js"
     /* 排序列表 */  
     list.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="list.ts"
     /* 排序列表 */
@@ -838,13 +838,13 @@
     [class]{myList}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_list.js"
     [class]{MyList}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_list.ts"
     [class]{MyList}-[func]{}

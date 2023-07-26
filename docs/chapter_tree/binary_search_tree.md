@@ -55,13 +55,13 @@
     [class]{binarySearchTree}-[func]{search}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search_tree.js"
     [class]{}-[func]{search}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search_tree.ts"
     [class]{}-[func]{search}
@@ -138,13 +138,13 @@
     [class]{binarySearchTree}-[func]{insert}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search_tree.js"
     [class]{}-[func]{insert}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search_tree.ts"
     [class]{}-[func]{insert}
@@ -245,13 +245,13 @@
     [class]{binarySearchTree}-[func]{remove}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search_tree.js"
     [class]{}-[func]{remove}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search_tree.ts"
     [class]{}-[func]{remove}

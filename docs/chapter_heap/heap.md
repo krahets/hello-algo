@@ -234,13 +234,13 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="heap.js"
     // JavaScript 未提供内置 Heap 类
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="heap.ts"
     // TypeScript 未提供内置 Heap 类
@@ -369,7 +369,7 @@
     [class]{maxHeap}-[func]{parent}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{#left}
@@ -379,7 +379,7 @@
     [class]{MaxHeap}-[func]{#parent}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     [class]{MaxHeap}-[func]{left}
@@ -477,13 +477,13 @@
     [class]{maxHeap}-[func]{peek}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{peek}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     [class]{MaxHeap}-[func]{peek}
@@ -592,7 +592,7 @@
     [class]{maxHeap}-[func]{siftUp}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{push}
@@ -600,7 +600,7 @@
     [class]{MaxHeap}-[func]{#siftUp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     [class]{MaxHeap}-[func]{push}
@@ -730,7 +730,7 @@
     [class]{maxHeap}-[func]{siftDown}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{pop}
@@ -738,7 +738,7 @@
     [class]{MaxHeap}-[func]{#siftDown}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     [class]{MaxHeap}-[func]{pop}

@@ -130,7 +130,7 @@
     isEmpty := queue.Len() == 0
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="queue.js"
     /* 初始化队列 */
@@ -158,7 +158,7 @@
     const empty = queue.length === 0;
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="queue.ts"
     /* 初始化队列 */
@@ -328,13 +328,13 @@
     [class]{linkedListQueue}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linkedlist_queue.js"
     [class]{LinkedListQueue}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linkedlist_queue.ts"
     [class]{LinkedListQueue}-[func]{}
@@ -426,13 +426,13 @@
     [class]{arrayQueue}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_queue.js"
     [class]{ArrayQueue}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_queue.ts"
     [class]{ArrayQueue}-[func]{}

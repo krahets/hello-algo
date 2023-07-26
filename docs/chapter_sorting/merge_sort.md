@@ -83,7 +83,7 @@
     [class]{}-[func]{mergeSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="merge_sort.js"
     [class]{}-[func]{merge}
@@ -91,7 +91,7 @@
     [class]{}-[func]{mergeSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="merge_sort.ts"
     [class]{}-[func]{merge}

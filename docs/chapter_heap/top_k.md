@@ -90,13 +90,13 @@
     [class]{}-[func]{topKHeap}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="top_k.js"
     [class]{}-[func]{topKHeap}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="top_k.ts"
     [class]{}-[func]{topKHeap}

@@ -56,7 +56,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 二叉树节点类 */
@@ -67,7 +67,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 二叉树节点类 */
@@ -257,7 +257,7 @@
     n2.Right = n5
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_tree.js"
     /* 初始化二叉树 */
@@ -274,7 +274,7 @@
     n2.right = n5;
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_tree.ts"
     /* 初始化二叉树 */
@@ -421,7 +421,7 @@
     n1.Left = n2
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_tree.js"
     /* 插入与删除节点 */
@@ -433,7 +433,7 @@
     n1.left = n2;
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_tree.ts"
     /* 插入与删除节点 */

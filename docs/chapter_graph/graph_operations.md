@@ -52,13 +52,13 @@
     [class]{graphAdjMat}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="graph_adjacency_matrix.js"
     [class]{GraphAdjMat}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="graph_adjacency_matrix.ts"
     [class]{GraphAdjMat}-[func]{}
@@ -155,13 +155,13 @@
     [class]{graphAdjList}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="graph_adjacency_list.js"
     [class]{GraphAdjList}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="graph_adjacency_list.ts"
     [class]{GraphAdjList}-[func]{}

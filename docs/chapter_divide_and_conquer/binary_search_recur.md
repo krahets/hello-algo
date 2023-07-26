@@ -72,7 +72,7 @@
     [class]{}-[func]{binarySearch}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search_recur.js"
     [class]{}-[func]{dfs}
@@ -80,7 +80,7 @@
     [class]{}-[func]{binarySearch}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search_recur.ts"
     [class]{}-[func]{dfs}

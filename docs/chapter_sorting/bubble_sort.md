@@ -60,13 +60,13 @@
     [class]{}-[func]{bubbleSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="bubble_sort.js"
     [class]{}-[func]{bubbleSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="bubble_sort.ts"
     [class]{}-[func]{bubbleSort}
@@ -138,13 +138,13 @@
     [class]{}-[func]{bubbleSortWithFlag}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="bubble_sort.js"
     [class]{}-[func]{bubbleSortWithFlag}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="bubble_sort.ts"
     [class]{}-[func]{bubbleSortWithFlag}

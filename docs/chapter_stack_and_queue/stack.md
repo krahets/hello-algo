@@ -131,7 +131,7 @@
     isEmpty := len(stack) == 0
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="stack.js"
     /* 初始化栈 */
@@ -158,7 +158,7 @@
     const is_empty = stack.length === 0;
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="stack.ts"
     /* 初始化栈 */
@@ -330,13 +330,13 @@
     [class]{linkedListStack}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linkedlist_stack.js"
     [class]{LinkedListStack}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linkedlist_stack.ts"
     [class]{LinkedListStack}-[func]{}
@@ -417,13 +417,13 @@
     [class]{arrayStack}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_stack.js"
     [class]{ArrayStack}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_stack.ts"
     [class]{ArrayStack}-[func]{}

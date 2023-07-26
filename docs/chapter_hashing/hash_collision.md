@@ -55,13 +55,13 @@
     [class]{hashMapChaining}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hash_map_chaining.js"
     [class]{HashMapChaining}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hash_map_chaining.ts"
     [class]{HashMapChaining}-[func]{}
@@ -154,13 +154,13 @@
     [class]{hashMapOpenAddressing}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hash_map_open_addressing.js"
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hash_map_open_addressing.ts"
     [class]{HashMapOpenAddressing}-[func]{}

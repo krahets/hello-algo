@@ -77,7 +77,7 @@
     [class]{}-[func]{permutationsI}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="permutations_i.js"
     [class]{}-[func]{backtrack}
@@ -85,7 +85,7 @@
     [class]{}-[func]{permutationsI}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="permutations_i.ts"
     [class]{}-[func]{backtrack}
@@ -201,7 +201,7 @@
     [class]{}-[func]{permutationsII}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="permutations_ii.js"
     [class]{}-[func]{backtrack}
@@ -209,7 +209,7 @@
     [class]{}-[func]{permutationsII}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="permutations_ii.ts"
     [class]{}-[func]{backtrack}

@@ -38,13 +38,13 @@
     [class]{}-[func]{levelOrder}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_tree_bfs.js"
     [class]{}-[func]{levelOrder}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_tree_bfs.ts"
     [class]{}-[func]{levelOrder}
@@ -140,7 +140,7 @@
     [class]{}-[func]{postOrder}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_tree_dfs.js"
     [class]{}-[func]{preOrder}
@@ -150,7 +150,7 @@
     [class]{}-[func]{postOrder}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_tree_dfs.ts"
     [class]{}-[func]{preOrder}

@@ -36,13 +36,13 @@
     [class]{}-[func]{countingSortNaive}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="counting_sort.js"
     [class]{}-[func]{countingSortNaive}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="counting_sort.ts"
     [class]{}-[func]{countingSortNaive}
@@ -155,13 +155,13 @@ $$
     [class]{}-[func]{countingSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="counting_sort.js"
     [class]{}-[func]{countingSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="counting_sort.ts"
     [class]{}-[func]{countingSort}

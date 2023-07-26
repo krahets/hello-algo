@@ -58,7 +58,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 链表节点类 */
@@ -72,7 +72,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 链表节点类 */
@@ -247,7 +247,7 @@
     n3.Next = n4
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
@@ -264,7 +264,7 @@
     n3.next = n4;
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
@@ -402,13 +402,13 @@
     [class]{}-[func]{insertNode}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{insert}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{insert}
@@ -478,13 +478,13 @@
     [class]{}-[func]{removeNode}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{remove}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{remove}
@@ -554,13 +554,13 @@
     [class]{}-[func]{access}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{access}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{access}
@@ -632,13 +632,13 @@
     [class]{}-[func]{findNode}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{find}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{find}
@@ -743,7 +743,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 双向链表节点类 */
@@ -759,7 +759,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 双向链表节点类 */

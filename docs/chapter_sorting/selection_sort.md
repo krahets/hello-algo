@@ -69,13 +69,13 @@
     [class]{}-[func]{selectionSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="selection_sort.js"
     [class]{}-[func]{selectionSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="selection_sort.ts"
     [class]{}-[func]{selectionSort}

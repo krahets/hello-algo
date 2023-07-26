@@ -92,7 +92,7 @@
     [class]{}-[func]{heapSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="heap_sort.js"
     [class]{}-[func]{siftDown}
@@ -100,7 +100,7 @@
     [class]{}-[func]{heapSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="heap_sort.ts"
     [class]{}-[func]{siftDown}

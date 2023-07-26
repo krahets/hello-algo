@@ -43,13 +43,13 @@
     [class]{}-[func]{coinChangeGreedy}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="coin_change_greedy.js"
     [class]{}-[func]{coinChangeGreedy}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="coin_change_greedy.ts"
     [class]{}-[func]{coinChangeGreedy}

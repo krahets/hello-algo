@@ -78,14 +78,14 @@
     var booleans = [5]bool{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     // JavaScript 的数组可以自由存储各种基本数据类型和对象
     const array = [0, 0.0, 'a', false];
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     // 使用多种基本数据类型来初始化数组

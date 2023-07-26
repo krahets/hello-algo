@@ -120,7 +120,7 @@
     delete(mapp, 10583)
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hash_map.js"
     /* 初始化哈希表 */
@@ -142,7 +142,7 @@
     map.delete(10583);
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hash_map.ts"
     /* 初始化哈希表 */
@@ -327,7 +327,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hash_map.js"
     /* 遍历哈希表 */
@@ -345,7 +345,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hash_map.ts"
     /* 遍历哈希表 */
@@ -492,7 +492,7 @@ index = hash(key) % capacity
     [class]{arrayHashMap}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_hash_map.js"
     [class]{Pair}-[func]{}
@@ -500,7 +500,7 @@ index = hash(key) % capacity
     [class]{ArrayHashMap}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_hash_map.ts"
     [class]{Pair}-[func]{}

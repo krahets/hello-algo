@@ -76,13 +76,13 @@
     [class]{}-[func]{binarySearchLeftEdge}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search_edge.js"
     [class]{}-[func]{binarySearchLeftEdge}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search_edge.ts"
     [class]{}-[func]{binarySearchLeftEdge}
@@ -154,13 +154,13 @@
     [class]{}-[func]{binarySearchRightEdge}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search_edge.js"
     [class]{}-[func]{binarySearchRightEdge}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search_edge.ts"
     [class]{}-[func]{binarySearchRightEdge}

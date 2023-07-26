@@ -64,7 +64,7 @@ $$
     [class]{}-[func]{radixSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="radix_sort.js"
     [class]{}-[func]{digit}
@@ -74,7 +74,7 @@ $$
     [class]{}-[func]{radixSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="radix_sort.ts"
     [class]{}-[func]{digit}

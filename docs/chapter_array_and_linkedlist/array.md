@@ -45,7 +45,7 @@
     nums := []int{1, 3, 2, 5, 4}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     /* 初始化数组 */
@@ -53,7 +53,7 @@
     var nums = [1, 3, 2, 5, 4];
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     /* 初始化数组 */
@@ -149,13 +149,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{randomAccess}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     [class]{}-[func]{randomAccess}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     [class]{}-[func]{randomAccess}
@@ -225,13 +225,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{extend}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     [class]{}-[func]{extend}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     [class]{}-[func]{extend}
@@ -301,13 +301,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{insert}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     [class]{}-[func]{insert}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     [class]{}-[func]{insert}
@@ -377,13 +377,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{remove}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     [class]{}-[func]{remove}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     [class]{}-[func]{remove}
@@ -459,13 +459,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{traverse}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     [class]{}-[func]{traverse}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     [class]{}-[func]{traverse}
@@ -533,13 +533,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{find}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     [class]{}-[func]{find}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     [class]{}-[func]{find}
