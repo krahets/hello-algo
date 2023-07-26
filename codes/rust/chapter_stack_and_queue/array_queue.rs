@@ -82,6 +82,7 @@ impl ArrayQueue {
     }
 }
 
+/* Driver Code */
 fn main() {
     /* 初始化队列 */
     let capacity = 10;

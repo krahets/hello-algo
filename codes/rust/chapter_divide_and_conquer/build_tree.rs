@@ -4,11 +4,11 @@
  * Author: sjinzh (sjinzh@gmail.com)
  */
 
- use std::{cell::RefCell, rc::Rc};
- use std::collections::HashMap;
- include!("../include/include.rs");
- use tree_node::TreeNode;
- 
+use std::{cell::RefCell, rc::Rc};
+use std::collections::HashMap;
+include!("../include/include.rs");
+use tree_node::TreeNode;
+
 /* 构建二叉树：分治 */
 fn dfs(preorder: &[i32], inorder: &[i32], hmap: &HashMap<i32, i32>, i: i32, l: i32, r: i32) -> Option<Rc<RefCell<TreeNode>>> {
     // 子树区间为空时终止
@@ -26,7 +26,7 @@ fn dfs(preorder: &[i32], inorder: &[i32], hmap: &HashMap<i32, i32>, i: i32, l: i
 }
 
 /* 构建二叉树 */
- fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
+fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
     // 初始化哈希表，存储 inorder 元素到索引的映射
     let mut hmap: HashMap<i32, i32> = HashMap::new();
     for i in 0..inorder.len() {
@@ -36,8 +36,8 @@ fn dfs(preorder: &[i32], inorder: &[i32], hmap: &HashMap<i32, i32>, i: i32, l: i
     root
 }
 
- /* Driver Code */
- fn main() {
+/* Driver Code */
+fn main() {
     let preorder = [ 3, 9, 2, 1, 7 ];
     let inorder = [ 9, 3, 1, 2, 7 ];
     println!("中序遍历 = {:?}", preorder);
@@ -46,5 +46,4 @@ fn dfs(preorder: &[i32], inorder: &[i32], hmap: &HashMap<i32, i32>, i: i32, l: i
     let root = build_tree(&preorder, &inorder);
     println!("构建的二叉树为：");
     print_util::print_tree(root.as_ref().unwrap());
- }
- 
+}

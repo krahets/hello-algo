@@ -7,6 +7,7 @@
 include!("../include/include.rs");
 
 #[allow(dead_code)]
+/* 列表类简易实现 */
 struct MyList {
     nums: Vec<i32>,       // 数组（存储列表元素）
     capacity: usize,      // 列表容量

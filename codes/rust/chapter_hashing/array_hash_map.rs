@@ -12,7 +12,9 @@ pub struct Pair {
 }
 
 /* 基于数组简易实现的哈希表 */
-pub struct ArrayHashMap { buckets: Vec<Option<Pair>> }
+pub struct ArrayHashMap {
+    buckets: Vec<Option<Pair>>
+}
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
