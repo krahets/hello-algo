@@ -594,13 +594,16 @@ $$
 === "Rust"
 
     ```rust title=""
-    def algorithm(n: int):
-        a = 1      # +1
-        a = a + 1  # +1
-        a = a * 2  # +1
-        # 循环 n 次
-        for i in range(n):  # +1
-            print(0)        # +1
+    fn algorithm(n: i32) {
+        let mut a = 1;   // +1
+        a = a + 1;      // +1
+        a = a * 2;      // +1
+
+        // 循环 n 次
+        for _ in 0..n { // +1
+            println!("{}", 0); // +1
+        }
+    }
     ```
 
 $T(n)$ 是一次函数，说明时间增长趋势是线性的，因此可以得出时间复杂度是线性阶。
@@ -846,21 +849,21 @@ $$
 
     ```rust title=""
     fn algorithm(n: i32) {
-    let mut a = 1;     // +0（技巧 1）
-    a = a + n;        // +0（技巧 1）
+        let mut a = 1;     // +0（技巧 1）
+        a = a + n;        // +0（技巧 1）
 
-    // +n（技巧 2）
-    for i in 0..(5 * n + 1) {
-        println!("{}", 0);
-    }
-
-    // +n*n（技巧 3）
-    for i in 0..(2 * n) {
-        for j in 0..(n + 1) {
+        // +n（技巧 2）
+        for i in 0..(5 * n + 1) {
             println!("{}", 0);
         }
+
+        // +n*n（技巧 3）
+        for i in 0..(2 * n) {
+            for j in 0..(n + 1) {
+                println!("{}", 0);
+            }
+        }
     }
-}
     ```
 
 ### 第二步：判断渐近上界
