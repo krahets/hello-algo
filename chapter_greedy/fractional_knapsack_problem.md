@@ -19,8 +19,8 @@ status: new
 
 不同点在于，本题允许只选择物品的一部分，**这意味着可以对物品任意地进行切分，并按照重量比例来计算物品价值**，因此有：
 
-1. 对于物品 $i$ ，它在单位重量下的价值为 $val[i-1] / wgt[i-1]$ ，简称为单位价值；
-2. 假设放入一部分物品 $i$ ，重量为 $w$ ，则背包增加的价值为 $w \times val[i-1] / wgt[i-1]$ ；
+1. 对于物品 $i$ ，它在单位重量下的价值为 $val[i-1] / wgt[i-1]$ ，简称为单位价值。
+2. 假设放入一部分物品 $i$ ，重量为 $w$ ，则背包增加的价值为 $w \times val[i-1] / wgt[i-1]$ 。
 
 ![物品在单位重量下的价值](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png)
 
