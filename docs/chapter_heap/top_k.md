@@ -131,3 +131,9 @@
     ```dart title="top_k.dart"
     [class]{}-[func]{top_k_heap}
     ```
+
+=== "Rust"
+
+    ```rust title="top_k.rs"
+    [class]{}-[func]{top_k_heap}
+    ```

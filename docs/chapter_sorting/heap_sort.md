@@ -148,6 +148,14 @@
     [class]{}-[func]{heapSort}
     ```
 
+=== "Rust"
+
+    ```rust title="heap_sort.rs"
+    [class]{}-[func]{sift_down}
+
+    [class]{}-[func]{heap_sort}
+    ```
+
 ## 算法特性
 
 - **时间复杂度 $O(n \log n)$ 、非自适应排序** ：建堆操作使用 $O(n)$ 时间。从堆中提取最大元素的时间复杂度为 $O(\log n)$ ，共循环 $n - 1$ 轮。

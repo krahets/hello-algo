@@ -78,6 +78,12 @@
     [class]{MaxHeap}-[func]{MaxHeap}
     ```
 
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    [class]{MaxHeap}-[func]{new}
+    ```
+
 ## 复杂度分析
 
 为什么第二种建堆方法的时间复杂度是 $O(n)$ ？我们来展开推算一下。

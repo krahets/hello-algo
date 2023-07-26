@@ -279,6 +279,12 @@
     bool isEmpty = queue.isEmpty;
     ```
 
+=== "Rust"
+
+    ```rust title="queue.rs"
+
+    ```
+
 ## 队列实现
 
 为了实现队列，我们需要一种数据结构，可以在一端添加元素，并在另一端删除元素。因此，链表和数组都可以用来实现队列。
@@ -361,6 +367,12 @@
 === "Dart"
 
     ```dart title="linkedlist_queue.dart"
+    [class]{LinkedListQueue}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="linkedlist_queue.rs"
     [class]{LinkedListQueue}-[func]{}
     ```
 
@@ -453,6 +465,12 @@
 === "Dart"
 
     ```dart title="array_queue.dart"
+    [class]{ArrayQueue}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="array_queue.rs"
     [class]{ArrayQueue}-[func]{}
     ```
 

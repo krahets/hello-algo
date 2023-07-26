@@ -6,7 +6,7 @@
 
 include!("../include/include.rs");
 
-/*插入排序 */
+/* 插入排序 */
 fn insertion_sort(nums: &mut [i32]) {
     // 外循环：已排序元素数量为 1, 2, ..., n
     for i in 1..nums.len() {

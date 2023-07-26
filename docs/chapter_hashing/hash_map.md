@@ -250,6 +250,12 @@
     map.remove(10583);
     ```
 
+=== "Rust"
+
+    ```rust title="hash_map.rs"
+
+    ```
+
 哈希表有三种常用遍历方式：遍历键值对、遍历键和遍历值。
 
 === "Java"
@@ -425,6 +431,12 @@
     });
     ```
 
+=== "Rust"
+
+    ```rust title="hash_map.rs"
+
+    ```
+
 ## 哈希表简单实现
 
 我们先考虑最简单的情况，**仅用一个数组来实现哈希表**。在哈希表中，我们将数组中的每个空位称为「桶 Bucket」，每个桶可存储一个键值对。因此，查询操作就是找到 `key` 对应的桶，并在桶中获取 `value` 。
@@ -540,6 +552,14 @@ index = hash(key) % capacity
 === "Dart"
 
     ```dart title="array_hash_map.dart"
+    [class]{Pair}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="array_hash_map.rs"
     [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}

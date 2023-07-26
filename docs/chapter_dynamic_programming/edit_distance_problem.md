@@ -131,6 +131,12 @@ $$
     [class]{}-[func]{editDistanceDP}
     ```
 
+=== "Rust"
+
+    ```rust title="edit_distance.rs"
+    [class]{}-[func]{edit_distance_dp}
+    ```
+
 如下图所示，编辑距离问题的状态转移过程与背包问题非常类似，都可以看作是填写一个二维网格的过程。
 
 === "<1>"
@@ -248,4 +254,10 @@ $$
 
     ```dart title="edit_distance.dart"
     [class]{}-[func]{editDistanceDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="edit_distance.rs"
+    [class]{}-[func]{edit_distance_dp_comp}
     ```

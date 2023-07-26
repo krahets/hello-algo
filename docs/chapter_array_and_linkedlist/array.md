@@ -100,6 +100,12 @@
     List<int> nums = [1, 3, 2, 5, 4];
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+
+    ```
+
 ## 数组优点
 
 **在数组中访问元素非常高效**。由于数组元素被存储在连续的内存空间中，因此计算数组元素的内存地址非常容易。给定数组首个元素的地址和某个元素的索引，我们可以使用以下公式计算得到该元素的内存地址，从而直接访问此元素。
@@ -185,6 +191,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{randomAccess}
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{random_access}
+    ```
+
 ## 数组缺点
 
 **数组在初始化后长度不可变**。由于系统无法保证数组之后的内存空间是可用的，因此数组长度无法扩展。而若希望扩容数组，则需新建一个数组，然后把原数组元素依次拷贝到新数组，在数组很大的情况下，这是非常耗时的。
@@ -252,6 +264,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Dart"
 
     ```dart title="array.dart"
+    [class]{}-[func]{extend}
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
     [class]{}-[func]{extend}
     ```
 
@@ -325,6 +343,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{insert}
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{insert}
+    ```
+
 删除元素也类似，如果我们想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，我们无需特意去修改它。
 
 ![数组删除元素](array.assets/array_remove_element.png)
@@ -392,6 +416,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Dart"
 
     ```dart title="array.dart"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
     [class]{}-[func]{remove}
     ```
 
@@ -471,6 +501,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{traverse}
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{traverse}
+    ```
+
 **数组查找**。通过遍历数组，查找数组内的指定元素，并输出对应索引。
 
 === "Java"
@@ -536,6 +572,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Dart"
 
     ```dart title="array.dart"
+    [class]{}-[func]{find}
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
     [class]{}-[func]{find}
     ```
 

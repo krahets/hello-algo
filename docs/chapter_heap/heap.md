@@ -307,6 +307,12 @@
     // Dart 未提供内置 Heap 类
     ```
 
+=== "Rust"
+
+    ```rust title="heap.rs"
+
+    ```
+
 ## 堆的实现
 
 下文实现的是大顶堆。若要将其转换为小顶堆，只需将所有大小逻辑判断取逆（例如，将 $\geq$ 替换为 $\leq$ ）。感兴趣的读者可以自行实现。
@@ -433,6 +439,16 @@
     [class]{MaxHeap}-[func]{_parent}
     ```
 
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    [class]{MaxHeap}-[func]{left}
+
+    [class]{MaxHeap}-[func]{right}
+
+    [class]{MaxHeap}-[func]{parent}
+    ```
+
 ### 访问堆顶元素
 
 堆顶元素即为二叉树的根节点，也就是列表的首个元素。
@@ -500,6 +516,12 @@
 === "Dart"
 
     ```dart title="my_heap.dart"
+    [class]{MaxHeap}-[func]{peek}
+    ```
+
+=== "Rust"
+
+    ```rust title="my_heap.rs"
     [class]{MaxHeap}-[func]{peek}
     ```
 
@@ -624,6 +646,14 @@
     [class]{MaxHeap}-[func]{push}
 
     [class]{MaxHeap}-[func]{siftUp}
+    ```
+
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    [class]{MaxHeap}-[func]{push}
+
+    [class]{MaxHeap}-[func]{sift_up}
     ```
 
 ### 堆顶元素出堆
@@ -754,6 +784,14 @@
     [class]{MaxHeap}-[func]{pop}
 
     [class]{MaxHeap}-[func]{siftDown}
+    ```
+
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    [class]{MaxHeap}-[func]{pop}
+
+    [class]{MaxHeap}-[func]{sift_down}
     ```
 
 ## 堆常见应用

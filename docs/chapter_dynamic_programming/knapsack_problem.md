@@ -122,6 +122,12 @@ $$
     [class]{}-[func]{knapsackDFS}
     ```
 
+=== "Rust"
+
+    ```rust title="knapsack.rs"
+    [class]{}-[func]{knapsack_dfs}
+    ```
+
 如下图所示，由于每个物品都会产生不选和选两条搜索分支，因此时间复杂度为 $O(2^n)$ 。
 
 观察递归树，容易发现其中存在重叠子问题，例如 $dp[1, 10]$ 等。而当物品较多、背包容量较大，尤其是相同重量的物品较多时，重叠子问题的数量将会大幅增多。
@@ -200,6 +206,12 @@ $$
     [class]{}-[func]{knapsackDFSMem}
     ```
 
+=== "Rust"
+
+    ```rust title="knapsack.rs"
+    [class]{}-[func]{knapsack_dfs_mem}
+    ```
+
 ![0-1 背包的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.png)
 
 ### 方法三：动态规划
@@ -270,6 +282,12 @@ $$
 
     ```dart title="knapsack.dart"
     [class]{}-[func]{knapsackDP}
+    ```
+
+=== "Rust"
+
+    ```rust title="knapsack.rs"
+    [class]{}-[func]{knapsack_dp}
     ```
 
 如下图所示，时间复杂度和空间复杂度都由数组 `dp` 大小决定，即 $O(n \times cap)$ 。
@@ -411,4 +429,10 @@ $$
 
     ```dart title="knapsack.dart"
     [class]{}-[func]{knapsackDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="knapsack.rs"
+    [class]{}-[func]{knapsack_dp_comp}
     ```

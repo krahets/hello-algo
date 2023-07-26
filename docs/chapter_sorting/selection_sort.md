@@ -111,6 +111,12 @@
     [class]{}-[func]{selectionSort}
     ```
 
+=== "Rust"
+
+    ```rust title="selection_sort.rs"
+    [class]{}-[func]{selection_sort}
+    ```
+
 ## 算法特性
 
 - **时间复杂度为 $O(n^2)$ 、非自适应排序**：外循环共 $n - 1$ 轮，第一轮的未排序区间长度为 $n$ ，最后一轮的未排序区间长度为 $2$ ，即各轮外循环分别包含 $n$ , $n - 1$ , $\cdots$ , $2$ 轮内循环，求和为 $\frac{(n - 1)(n + 2)}{2}$ 。

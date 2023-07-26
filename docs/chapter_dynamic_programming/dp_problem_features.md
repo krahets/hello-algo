@@ -100,6 +100,12 @@ $$
     [class]{}-[func]{minCostClimbingStairsDP}
     ```
 
+=== "Rust"
+
+    ```rust title="min_cost_climbing_stairs_dp.rs"
+    [class]{}-[func]{min_cost_climbing_stairs_dp}
+    ```
+
 ![爬楼梯最小代价的动态规划过程](dp_problem_features.assets/min_cost_cs_dp.png)
 
 本题也可以进行状态压缩，将一维压缩至零维，使得空间复杂度从 $O(n)$ 降低至 $O(1)$ 。
@@ -168,6 +174,12 @@ $$
 
     ```dart title="min_cost_climbing_stairs_dp.dart"
     [class]{}-[func]{minCostClimbingStairsDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="min_cost_climbing_stairs_dp.rs"
+    [class]{}-[func]{min_cost_climbing_stairs_dp_comp}
     ```
 
 ## 无后效性
@@ -272,6 +284,12 @@ $$
 
     ```dart title="climbing_stairs_constraint_dp.dart"
     [class]{}-[func]{climbingStairsConstraintDP}
+    ```
+
+=== "Rust"
+
+    ```rust title="climbing_stairs_constraint_dp.rs"
+    [class]{}-[func]{climbing_stairs_constraint_dp}
     ```
 
 在上面的案例中，由于仅需多考虑前面一个状态，我们仍然可以通过扩展状态定义，使得问题恢复无后效性。然而，许多问题具有非常严重的“有后效性”，例如：

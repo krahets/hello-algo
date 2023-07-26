@@ -110,6 +110,12 @@
     [class]{}-[func]{binarySearch}
     ```
 
+=== "Rust"
+
+    ```rust title="binary_search.rs"
+    [class]{}-[func]{binary_search}
+    ```
+
 时间复杂度为 $O(\log n)$ 。每轮缩小一半区间，因此二分循环次数为 $\log_2 n$ 。
 
 空间复杂度为 $O(1)$  。指针 `i` , `j` 使用常数大小空间。
@@ -184,6 +190,12 @@
 
     ```dart title="binary_search.dart"
     [class]{}-[func]{binarySearchLCRO}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search.rs"
+    [class]{}-[func]{binary_search_lcro}
     ```
 
 如下图所示，在两种区间表示下，二分查找算法的初始化、循环条件和缩小区间操作皆有所不同。

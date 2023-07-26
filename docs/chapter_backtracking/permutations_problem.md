@@ -133,6 +133,14 @@
     [class]{}-[func]{permutationsI}
     ```
 
+=== "Rust"
+
+    ```rust title="permutations_i.rs"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutations_i}
+    ```
+
 ## 考虑相等元素的情况
 
 !!! question
@@ -247,6 +255,14 @@
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{permutationsII}
+    ```
+
+=== "Rust"
+
+    ```rust title="permutations_ii.rs"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutations_ii}
     ```
 
 假设元素两两之间互不相同，则 $n$ 个元素共有 $n!$  种排列（阶乘）；在记录结果时，需要复制长度为 $n$ 的列表，使用 $O(n)$ 时间。因此，**时间复杂度为 $O(n!n)$** 。

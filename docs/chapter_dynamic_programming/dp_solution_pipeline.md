@@ -164,6 +164,12 @@ $$
     [class]{}-[func]{minPathSumDFS}
     ```
 
+=== "Rust"
+
+    ```rust title="min_path_sum.rs"
+    [class]{}-[func]{min_path_sum_dfs}
+    ```
+
 下图给出了以 $dp[2, 1]$ 为根节点的递归树，其中包含一些重叠子问题，其数量会随着网格 `grid` 的尺寸变大而急剧增多。
 
 本质上看，造成重叠子问题的原因为：**存在多条路径可以从左上角到达某一单元格**。
@@ -242,6 +248,12 @@ $$
     [class]{}-[func]{minPathSumDFSMem}
     ```
 
+=== "Rust"
+
+    ```rust title="min_path_sum.rs"
+    [class]{}-[func]{min_path_sum_dfs_mem}
+    ```
+
 引入记忆化后，所有子问题的解只需计算一次，因此时间复杂度取决于状态总数，即网格尺寸 $O(nm)$ 。
 
 ![记忆化搜索递归树](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png)
@@ -314,6 +326,12 @@ $$
 
     ```dart title="min_path_sum.dart"
     [class]{}-[func]{minPathSumDP}
+    ```
+
+=== "Rust"
+
+    ```rust title="min_path_sum.rs"
+    [class]{}-[func]{min_path_sum_dp}
     ```
 
 下图展示了最小路径和的状态转移过程，其遍历了整个网格，**因此时间复杂度为 $O(nm)$** 。
@@ -426,4 +444,10 @@ $$
 
     ```dart title="min_path_sum.dart"
     [class]{}-[func]{minPathSumDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="min_path_sum.rs"
+    [class]{}-[func]{min_path_sum_dp_comp}
     ```

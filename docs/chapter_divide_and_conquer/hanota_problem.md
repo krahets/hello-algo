@@ -192,6 +192,16 @@
     [class]{}-[func]{hanota}
     ```
 
+=== "Rust"
+
+    ```rust title="hanota.rs"
+    [class]{}-[func]{move_pan}
+
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{hanota}
+    ```
+
 如下图所示，汉诺塔问题形成一个高度为 $n$ 的递归树，每个节点代表一个子问题、对应一个开启的 `dfs()` 函数，**因此时间复杂度为 $O(2^n)$ ，空间复杂度为 $O(n)$** 。
 
 ![汉诺塔问题的递归树](hanota_problem.assets/hanota_recursive_tree.png)

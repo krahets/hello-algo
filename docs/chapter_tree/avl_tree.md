@@ -182,6 +182,12 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     }
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 「节点高度」是指从该节点到最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 0 ，而空节点的高度为 -1 。我们将创建两个工具函数，分别用于获取和更新节点的高度。
 
 === "Java"
@@ -272,6 +278,14 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     [class]{AVLTree}-[func]{updateHeight}
     ```
 
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    [class]{AVLTree}-[func]{height}
+
+    [class]{AVLTree}-[func]{update_height}
+    ```
+
 ### 节点平衡因子
 
 节点的「平衡因子 Balance Factor」定义为节点左子树的高度减去右子树的高度，同时规定空节点的平衡因子为 0 。我们同样将获取节点平衡因子的功能封装成函数，方便后续使用。
@@ -340,6 +354,12 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
 
     ```dart title="avl_tree.dart"
     [class]{AVLTree}-[func]{balanceFactor}
+    ```
+
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    [class]{AVLTree}-[func]{balance_factor}
     ```
 
 !!! note
@@ -440,6 +460,12 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{AVLTree}-[func]{rightRotate}
     ```
 
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    [class]{AVLTree}-[func]{right_rotate}
+    ```
+
 ### 左旋
 
 相应的，如果考虑上述失衡二叉树的“镜像”，则需要执行「左旋」操作。
@@ -516,6 +542,12 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
     ```dart title="avl_tree.dart"
     [class]{AVLTree}-[func]{leftRotate}
+    ```
+
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    [class]{AVLTree}-[func]{left_rotate}
     ```
 
 ### 先左旋后右旋
@@ -617,6 +649,12 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{AVLTree}-[func]{rotate}
     ```
 
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    [class]{AVLTree}-[func]{rotate}
+    ```
+
 ## AVL 树常用操作
 
 ### 插入节点
@@ -711,6 +749,14 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{AVLTree}-[func]{insertHelper}
     ```
 
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    [class]{AVLTree}-[func]{insert}
+
+    [class]{AVLTree}-[func]{insert_helper}
+    ```
+
 ### 删除节点
 
 类似地，在二叉搜索树的删除节点方法的基础上，需要从底至顶地执行旋转操作，使所有失衡节点恢复平衡。
@@ -801,6 +847,14 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     [class]{AVLTree}-[func]{remove}
 
     [class]{AVLTree}-[func]{removeHelper}
+    ```
+
+=== "Rust"
+
+    ```rust title="avl_tree.rs"
+    [class]{AVLTree}-[func]{remove}
+
+    [class]{AVLTree}-[func]{remove_helper}
     ```
 
 ### 查找节点

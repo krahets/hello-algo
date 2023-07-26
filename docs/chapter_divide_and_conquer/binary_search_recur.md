@@ -127,3 +127,11 @@
 
     [class]{}-[func]{binarySearch}
     ```
+
+=== "Rust"
+
+    ```rust title="binary_search_recur.rs"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{binary_search}
+    ```

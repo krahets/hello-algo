@@ -105,6 +105,14 @@
     [class]{}-[func]{subsetSumINaive}
     ```
 
+=== "Rust"
+
+    ```rust title="subset_sum_i_naive.rs"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subset_sum_i_naive}
+    ```
+
 向以上代码输入数组 $[3, 4, 5]$ 和目标元素 $9$ ，输出结果为 $[3, 3, 3], [4, 5], [5, 4]$ 。**虽然成功找出了所有和为 $9$ 的子集，但其中存在重复的子集 $[4, 5]$ 和 $[5, 4]$** 。
 
 这是因为搜索过程是区分选择顺序的，然而子集不区分选择顺序。如下图所示，先选 $4$ 后选 $5$ 与先选 $5$ 后选 $4$ 是两个不同的分支，但两者对应同一个子集。
@@ -230,6 +238,14 @@
     [class]{}-[func]{subsetSumI}
     ```
 
+=== "Rust"
+
+    ```rust title="subset_sum_i.rs"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subset_sum_i}
+    ```
+
 如下图所示，为将数组 $[3, 4, 5]$ 和目标元素 $9$ 输入到以上代码后的整体回溯过程。
 
 ![子集和 I 回溯过程](subset_sum_problem.assets/subset_sum_i.png)
@@ -340,6 +356,14 @@
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subsetSumII}
+    ```
+
+=== "Rust"
+
+    ```rust title="subset_sum_ii.rs"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subset_sum_ii}
     ```
 
 下图展示了数组 $[4, 4, 5]$ 和目标元素 $9$ 的回溯过程，共包含四种剪枝操作。请你将图示与代码注释相结合，理解整个搜索过程，以及每种剪枝操作是如何工作的。

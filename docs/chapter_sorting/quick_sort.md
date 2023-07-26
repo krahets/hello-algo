@@ -125,6 +125,12 @@
     [class]{QuickSort}-[func]{_partition}
     ```
 
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    [class]{QuickSort}-[func]{partition}
+    ```
+
 ## 算法流程
 
 1. 首先，对原数组执行一次「哨兵划分」，得到未排序的左子数组和右子数组。
@@ -197,6 +203,12 @@
 
     ```dart title="quick_sort.dart"
     [class]{QuickSort}-[func]{quickSort}
+    ```
+
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    [class]{QuickSort}-[func]{quick_sort}
     ```
 
 ## 算法特性
@@ -311,6 +323,14 @@
     [class]{QuickSortMedian}-[func]{_partition}
     ```
 
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    [class]{QuickSortMedian}-[func]{median_three}
+
+    [class]{QuickSortMedian}-[func]{partition}
+    ```
+
 ## 尾递归优化
 
 **在某些输入下，快速排序可能占用空间较多**。以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 $0$ ，递归树的高度会达到 $n - 1$ ，此时需要占用 $O(n)$ 大小的栈帧空间。
@@ -381,4 +401,10 @@
 
     ```dart title="quick_sort.dart"
     [class]{QuickSortTailCall}-[func]{quickSort}
+    ```
+
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    [class]{QuickSortTailCall}-[func]{quick_sort}
     ```

@@ -143,6 +143,12 @@ $$
     [class]{}-[func]{maxCapacity}
     ```
 
+=== "Rust"
+
+    ```rust title="max_capacity.rs"
+    [class]{}-[func]{max_capacity}
+    ```
+
 ### 正确性证明
 
 之所以贪心比穷举更快，是因为每轮的贪心选择都会“跳过”一些状态。
