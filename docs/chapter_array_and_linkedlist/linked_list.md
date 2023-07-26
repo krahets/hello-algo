@@ -166,7 +166,14 @@
 === "Rust"
 
     ```rust title=""
+    use std::rc::Rc;
+    use std::cell::RefCell;
 
+    #[derive(Debug)]
+    struct ListNode {
+        val: i32,
+        next: Option<Rc<RefCell<ListNode>>>,
+    }
     ```
 
 !!! question "尾节点指向什么？"
@@ -369,7 +376,27 @@
 === "Rust"
 
     ```rust title="linked_list.rs"
+    use std::rc::Rc;
+    use std::cell::RefCell;
 
+    #[derive(Debug)]
+    struct ListNode {
+        val: i32,
+        next: Option<Rc<RefCell<ListNode>>>,
+    }
+
+    // 初始化链表节点
+    let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
+    let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
+    let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
+    let n3 = Rc::new(RefCell::new(ListNode { val: 5, next: None }));
+    let n4 = Rc::new(RefCell::new(ListNode { val: 4, next: None }));
+
+    // 构建引用指向
+    n0.borrow_mut().next = Some(n1.clone());
+    n1.borrow_mut().next = Some(n2.clone());
+    n2.borrow_mut().next = Some(n3.clone());
+    n3.borrow_mut().next = Some(n4.clone());
     ```
 
 ## 链表优点
@@ -862,7 +889,25 @@
 === "Rust"
 
     ```rust title=""
+    use std::rc::Rc;
+    use std::cell::RefCell;
 
+    #[derive(Debug)]
+    struct ListNode {
+        val: i32,
+        next: Option<Rc<RefCell<ListNode>>>,
+        prev: Option<Rc<RefCell<ListNode>>>,
+    }
+
+    impl ListNode {
+        fn new(val: i32) -> Self {
+            ListNode {
+                val,
+                next: None,
+                prev: None,
+            }
+        }
+    }
     ```
 
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)
