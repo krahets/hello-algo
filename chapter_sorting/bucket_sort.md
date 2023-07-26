@@ -143,7 +143,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="bucket_sort.js"
     /* 桶排序 */
@@ -176,7 +176,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="bucket_sort.ts"
     /* 桶排序 */

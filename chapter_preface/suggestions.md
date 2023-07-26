@@ -69,7 +69,7 @@ comments: true
      */
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 标题注释，用于标注函数、类、测试样例等 */
@@ -82,7 +82,7 @@ comments: true
      */
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 标题注释，用于标注函数、类、测试样例等 */

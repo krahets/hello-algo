@@ -136,7 +136,7 @@ comments: true
     isEmpty := queue.Len() == 0
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="queue.js"
     /* 初始化队列 */
@@ -164,7 +164,7 @@ comments: true
     const empty = queue.length === 0;
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="queue.ts"
     /* 初始化队列 */
@@ -572,7 +572,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linkedlist_queue.js"
     /* 基于链表实现的队列 */
@@ -640,7 +640,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linkedlist_queue.ts"
     /* 基于链表实现的队列 */
@@ -1486,7 +1486,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_queue.js"
     /* 基于环形数组实现的队列 */
@@ -1555,7 +1555,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_queue.ts"
     /* 基于环形数组实现的队列 */

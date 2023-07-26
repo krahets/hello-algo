@@ -64,7 +64,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 链表节点类 */
@@ -78,7 +78,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 链表节点类 */
@@ -253,7 +253,7 @@ comments: true
     n3.Next = n4
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
@@ -270,7 +270,7 @@ comments: true
     n3.next = n4;
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
@@ -429,7 +429,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     /* 在链表的节点 n0 之后插入节点 P */
@@ -440,7 +440,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     /* 在链表的节点 n0 之后插入节点 P */
@@ -582,7 +582,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     /* 删除链表的节点 n0 之后的首个节点 */
@@ -595,7 +595,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     /* 删除链表的节点 n0 之后的首个节点 */
@@ -758,7 +758,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     /* 访问链表中索引为 index 的节点 */
@@ -773,7 +773,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     /* 访问链表中索引为 index 的节点 */
@@ -941,7 +941,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     /* 在链表中查找值为 target 的首个节点 */
@@ -958,7 +958,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     /* 在链表中查找值为 target 的首个节点 */
@@ -1134,7 +1134,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 双向链表节点类 */
@@ -1150,7 +1150,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 双向链表节点类 */

@@ -123,13 +123,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="min_cost_climbing_stairs_dp.js"
     [class]{}-[func]{minCostClimbingStairsDP}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="min_cost_climbing_stairs_dp.ts"
     [class]{}-[func]{minCostClimbingStairsDP}
@@ -309,13 +309,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="min_cost_climbing_stairs_dp.js"
     [class]{}-[func]{minCostClimbingStairsDPComp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="min_cost_climbing_stairs_dp.ts"
     [class]{}-[func]{minCostClimbingStairsDPComp}
@@ -539,13 +539,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="climbing_stairs_constraint_dp.js"
     [class]{}-[func]{climbingStairsConstraintDP}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="climbing_stairs_constraint_dp.ts"
     [class]{}-[func]{climbingStairsConstraintDP}

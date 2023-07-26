@@ -194,13 +194,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="edit_distance.js"
     [class]{}-[func]{editDistanceDP}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="edit_distance.ts"
     [class]{}-[func]{editDistanceDP}
@@ -521,13 +521,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="edit_distance.js"
     [class]{}-[func]{editDistanceDPComp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="edit_distance.ts"
     [class]{}-[func]{editDistanceDPComp}

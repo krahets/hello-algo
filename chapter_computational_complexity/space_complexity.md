@@ -129,7 +129,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 类 */
@@ -157,7 +157,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 类 */
@@ -347,7 +347,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     function algorithm(n) {
@@ -359,7 +359,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     function algorithm(n: number): void {
@@ -514,7 +514,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     function constFunc() {
@@ -534,7 +534,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     function constFunc(): number {
@@ -758,7 +758,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="space_complexity.js"
     /* 常数阶 */
@@ -779,7 +779,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="space_complexity.ts"
     /* 常数阶 */
@@ -1012,7 +1012,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="space_complexity.js"
     /* 线性阶 */
@@ -1032,7 +1032,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="space_complexity.ts"
     /* 线性阶 */
@@ -1251,7 +1251,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="space_complexity.js"
     /* 线性阶（递归实现） */
@@ -1262,7 +1262,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="space_complexity.ts"
     /* 线性阶（递归实现） */
@@ -1408,7 +1408,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="space_complexity.js"
     /* 平方阶 */
@@ -1429,7 +1429,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="space_complexity.ts"
     /* 平方阶 */
@@ -1618,7 +1618,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="space_complexity.js"
     /* 平方阶（递归实现） */
@@ -1630,7 +1630,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="space_complexity.ts"
     /* 平方阶（递归实现） */
@@ -1786,7 +1786,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="space_complexity.js"
     /* 指数阶（建立满二叉树） */
@@ -1799,7 +1799,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="space_complexity.ts"
     /* 指数阶（建立满二叉树） */

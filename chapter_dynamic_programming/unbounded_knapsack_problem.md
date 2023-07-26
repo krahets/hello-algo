@@ -132,13 +132,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="unbounded_knapsack.js"
     [class]{}-[func]{unboundedKnapsackDP}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="unbounded_knapsack.ts"
     [class]{}-[func]{unboundedKnapsackDP}
@@ -371,13 +371,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="unbounded_knapsack.js"
     [class]{}-[func]{unboundedKnapsackDPComp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="unbounded_knapsack.ts"
     [class]{}-[func]{unboundedKnapsackDPComp}
@@ -657,13 +657,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="coin_change.js"
     [class]{}-[func]{coinChangeDP}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="coin_change.ts"
     [class]{}-[func]{coinChangeDP}
@@ -960,13 +960,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="coin_change.js"
     [class]{}-[func]{coinChangeDPComp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="coin_change.ts"
     [class]{}-[func]{coinChangeDPComp}
@@ -1227,13 +1227,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="coin_change_ii.js"
     [class]{}-[func]{coinChangeIIDP}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="coin_change_ii.ts"
     [class]{}-[func]{coinChangeIIDP}
@@ -1465,13 +1465,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="coin_change_ii.js"
     [class]{}-[func]{coinChangeIIDPComp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="coin_change_ii.ts"
     [class]{}-[func]{coinChangeIIDPComp}

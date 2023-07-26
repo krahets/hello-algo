@@ -236,7 +236,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="radix_sort.js"
     /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */
@@ -293,7 +293,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="radix_sort.ts"
     /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */

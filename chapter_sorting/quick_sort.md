@@ -139,7 +139,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="quick_sort.js"
     /* 元素交换 */
@@ -169,7 +169,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="quick_sort.ts"
     /* 元素交换 */
@@ -432,7 +432,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="quick_sort.js"
     /* 快速排序 */
@@ -447,7 +447,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="quick_sort.ts"
     /* 快速排序 */
@@ -750,7 +750,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="quick_sort.js"
     /* 选取三个元素的中位数 */
@@ -787,7 +787,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="quick_sort.ts"
     /* 选取三个元素的中位数 */
@@ -1138,7 +1138,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="quick_sort.js"
     /* 快速排序（尾递归优化） */
@@ -1159,7 +1159,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="quick_sort.ts"
     /* 快速排序（尾递归优化） */

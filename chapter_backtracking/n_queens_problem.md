@@ -284,7 +284,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="n_queens.js"
     /* 回溯算法：N 皇后 */
@@ -327,7 +327,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="n_queens.ts"
     /* 回溯算法：N 皇后 */

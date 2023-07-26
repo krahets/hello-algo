@@ -83,7 +83,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="two_sum.js"
     /* 方法一：暴力枚举 */
@@ -101,7 +101,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="two_sum.ts"
     /* 方法一：暴力枚举 */
@@ -317,7 +317,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="two_sum.js"
     /* 方法二：辅助哈希表 */
@@ -336,7 +336,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="two_sum.ts"
     /* 方法二：辅助哈希表 */

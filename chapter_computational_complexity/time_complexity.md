@@ -76,7 +76,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     // 在某运行平台下
@@ -91,7 +91,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     // 在某运行平台下
@@ -269,7 +269,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     // 算法 A 时间复杂度：常数阶
@@ -291,7 +291,7 @@ $$
 
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     // 算法 A 时间复杂度：常数阶
@@ -484,7 +484,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     function algorithm(n) {
@@ -498,7 +498,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     function algorithm(n: number): void{
@@ -701,7 +701,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     function algorithm(n) {
@@ -720,7 +720,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     function algorithm(n: number): void {
@@ -922,7 +922,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     /* 常数阶 */
@@ -934,7 +934,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     /* 常数阶 */
@@ -1085,7 +1085,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     /* 线性阶 */
@@ -1096,7 +1096,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     /* 线性阶 */
@@ -1245,7 +1245,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     /* 线性阶（遍历数组） */
@@ -1259,7 +1259,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     /* 线性阶（遍历数组） */
@@ -1422,7 +1422,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     /* 平方阶 */
@@ -1438,7 +1438,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     /* 平方阶 */
@@ -1650,7 +1650,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     /* 平方阶（冒泡排序） */
@@ -1673,7 +1673,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     /* 平方阶（冒泡排序） */
@@ -1912,7 +1912,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     /* 指数阶（循环实现） */
@@ -1931,7 +1931,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     /* 指数阶（循环实现） */
@@ -2114,7 +2114,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     /* 指数阶（递归实现） */
@@ -2124,7 +2124,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     /* 指数阶（递归实现） */
@@ -2261,7 +2261,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     /* 对数阶（循环实现） */
@@ -2275,7 +2275,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     /* 对数阶（循环实现） */
@@ -2426,7 +2426,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     /* 对数阶（递归实现） */
@@ -2436,7 +2436,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     /* 对数阶（递归实现） */
@@ -2578,7 +2578,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     /* 线性对数阶 */
@@ -2592,7 +2592,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     /* 线性对数阶 */
@@ -2776,7 +2776,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     /* 阶乘阶（递归实现） */
@@ -2791,7 +2791,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     /* 阶乘阶（递归实现） */
@@ -3026,7 +3026,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="worst_best_time_complexity.js"
     /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
@@ -3059,7 +3059,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="worst_best_time_complexity.ts"
     /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */

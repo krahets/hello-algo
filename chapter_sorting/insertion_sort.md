@@ -98,7 +98,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="insertion_sort.js"
     /* 插入排序 */
@@ -117,7 +117,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="insertion_sort.ts"
     /* 插入排序 */

@@ -126,7 +126,7 @@ comments: true
     delete(mapp, 10583)
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hash_map.js"
     /* 初始化哈希表 */
@@ -148,7 +148,7 @@ comments: true
     map.delete(10583);
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hash_map.ts"
     /* 初始化哈希表 */
@@ -333,7 +333,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hash_map.js"
     /* 遍历哈希表 */
@@ -351,7 +351,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hash_map.ts"
     /* 遍历哈希表 */
@@ -835,7 +835,7 @@ index = hash(key) % capacity
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_hash_map.js"
     /* 键值对 Number -> String */
@@ -924,7 +924,7 @@ index = hash(key) % capacity
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_hash_map.ts"
     /* 键值对 Number -> String */

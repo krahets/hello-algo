@@ -135,7 +135,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search.js"
     /* 二分查找（双闭区间） */
@@ -160,7 +160,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search.ts"
     /* 二分查找（双闭区间） */
@@ -425,7 +425,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search.js"
     /* 二分查找（左闭右开） */
@@ -451,7 +451,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search.ts"
     /* 二分查找（左闭右开） */

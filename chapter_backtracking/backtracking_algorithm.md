@@ -70,7 +70,7 @@ comments: true
         if root == nil {
             return
         }
-        if int(root.Val) == 7 {
+        if (root.Val).(int) == 7 {
             // 记录解
             *res = append(*res, root)
         }
@@ -79,7 +79,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="preorder_traversal_i_compact.js"
     /* 前序遍历：例题一 */
@@ -96,7 +96,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="preorder_traversal_i_compact.ts"
     /* 前序遍历：例题一 */
@@ -272,7 +272,7 @@ comments: true
         }
         // 尝试
         *path = append(*path, root)
-        if int(root.Val) == 7 {
+        if root.Val.(int) == 7 {
             // 记录解
             *res = append(*res, *path)
         }
@@ -283,7 +283,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="preorder_traversal_ii_compact.js"
     /* 前序遍历：例题二 */
@@ -304,7 +304,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="preorder_traversal_ii_compact.ts"
     /* 前序遍历：例题二 */
@@ -539,7 +539,7 @@ comments: true
         }
         // 尝试
         *path = append(*path, root)
-        if int(root.Val) == 7 {
+        if root.Val.(int) == 7 {
             // 记录解
             *res = append(*res, *path)
             *path = (*path)[:len(*path)-1]
@@ -552,7 +552,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="preorder_traversal_iii_compact.js"
     /* 前序遍历：例题三 */
@@ -576,7 +576,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="preorder_traversal_iii_compact.ts"
     /* 前序遍历：例题三 */
@@ -808,7 +808,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 回溯算法框架 */
@@ -834,7 +834,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 回溯算法框架 */
@@ -1174,7 +1174,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="preorder_traversal_iii_template.js"
     /* 判断当前状态是否为解 */
@@ -1224,7 +1224,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="preorder_traversal_iii_template.ts"
     /* 判断当前状态是否为解 */

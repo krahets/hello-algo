@@ -169,13 +169,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="max_product_cutting.js"
     [class]{}-[func]{maxProductCutting}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="max_product_cutting.ts"
     [class]{}-[func]{maxProductCutting}

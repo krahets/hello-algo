@@ -163,7 +163,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="subset_sum_i_naive.js"
     [class]{}-[func]{backtrack}
@@ -171,7 +171,7 @@ comments: true
     [class]{}-[func]{subsetSumINaive}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="subset_sum_i_naive.ts"
     [class]{}-[func]{backtrack}
@@ -499,7 +499,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="subset_sum_i.js"
     [class]{}-[func]{backtrack}
@@ -507,7 +507,7 @@ comments: true
     [class]{}-[func]{subsetSumI}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="subset_sum_i.ts"
     [class]{}-[func]{backtrack}
@@ -850,7 +850,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="subset_sum_ii.js"
     [class]{}-[func]{backtrack}
@@ -858,7 +858,7 @@ comments: true
     [class]{}-[func]{subsetSumII}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="subset_sum_ii.ts"
     [class]{}-[func]{backtrack}

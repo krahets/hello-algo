@@ -124,7 +124,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="counting_sort.js"
     /* 计数排序 */
@@ -151,7 +151,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="counting_sort.ts"
     /* 计数排序 */
@@ -508,7 +508,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="counting_sort.js"
     /* 计数排序 */
@@ -546,7 +546,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="counting_sort.ts"
     /* 计数排序 */

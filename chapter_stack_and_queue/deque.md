@@ -142,7 +142,7 @@ comments: true
     isEmpty := deque.Len() == 0
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="deque.js"
     /* 初始化双向队列 */
@@ -180,7 +180,7 @@ comments: true
     console.log("双向队列是否为空 = " + isEmpty);
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="deque.ts"
     /* 初始化双向队列 */
@@ -814,7 +814,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linkedlist_deque.js"
     /* 双向链表节点 */
@@ -941,7 +941,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linkedlist_deque.ts"
     /* 双向链表节点 */
@@ -2413,7 +2413,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_deque.js"
     /* 基于环形数组实现的双向队列 */
@@ -2521,7 +2521,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_deque.ts"
     /* 基于环形数组实现的双向队列 */

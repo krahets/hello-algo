@@ -89,12 +89,12 @@ comments: true
 
     ```go title="binary_tree_bfs.go"
     /* 层序遍历 */
-    func levelOrder(root *TreeNode) []int {
+    func levelOrder(root *TreeNode) []any {
         // 初始化队列，加入根节点
         queue := list.New()
         queue.PushBack(root)
         // 初始化一个切片，用于保存遍历序列
-        nums := make([]int, 0)
+        nums := make([]any, 0)
         for queue.Len() > 0 {
             // 队列出队
             node := queue.Remove(queue.Front()).(*TreeNode)
@@ -113,7 +113,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_tree_bfs.js"
     /* 层序遍历 */
@@ -132,7 +132,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_tree_bfs.ts"
     /* 层序遍历 */
@@ -474,7 +474,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_tree_dfs.js"
     /* 前序遍历 */
@@ -505,7 +505,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_tree_dfs.ts"
     /* 前序遍历 */

@@ -131,7 +131,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="selection_sort.js"
     /* 选择排序 */
@@ -152,7 +152,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="selection_sort.ts"
     /* 选择排序 */

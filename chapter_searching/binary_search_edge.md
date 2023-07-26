@@ -148,7 +148,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search_edge.js"
     /* 二分查找最左一个元素 */
@@ -172,7 +172,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search_edge.ts"
     /* 二分查找最左一个元素 */
@@ -408,7 +408,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search_edge.js"
     /* 二分查找最右一个元素 */
@@ -432,7 +432,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search_edge.ts"
     /* 二分查找最右一个元素 */

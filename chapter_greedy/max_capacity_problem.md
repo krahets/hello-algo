@@ -187,13 +187,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="max_capacity.js"
     [class]{}-[func]{maxCapacity}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="max_capacity.ts"
     [class]{}-[func]{maxCapacity}

@@ -240,7 +240,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="merge_sort.js"
     /* 合并左子数组和右子数组 */
@@ -286,7 +286,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="merge_sort.ts"
     /* 合并左子数组和右子数组 */

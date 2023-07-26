@@ -240,13 +240,13 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="heap.js"
     // JavaScript 未提供内置 Heap 类
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="heap.ts"
     // TypeScript 未提供内置 Heap 类
@@ -411,7 +411,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     /* 获取左子节点索引 */
@@ -430,7 +430,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     /* 获取左子节点索引 */
@@ -603,7 +603,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     /* 访问堆顶元素 */
@@ -612,7 +612,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     /* 访问堆顶元素 */
@@ -816,7 +816,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     /* 元素入堆 */
@@ -842,7 +842,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     /* 元素入堆 */
@@ -1229,7 +1229,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     /* 元素出堆 */
@@ -1265,7 +1265,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     /* 元素出堆 */

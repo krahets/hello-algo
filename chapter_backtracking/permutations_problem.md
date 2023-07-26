@@ -193,7 +193,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="permutations_i.js"
     /* 回溯算法：全排列 I */
@@ -227,7 +227,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="permutations_i.ts"
     /* 回溯算法：全排列 I */
@@ -577,7 +577,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="permutations_ii.js"
     /* 回溯算法：全排列 II */
@@ -613,7 +613,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="permutations_ii.ts"
     /* 回溯算法：全排列 II */

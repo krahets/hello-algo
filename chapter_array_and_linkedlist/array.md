@@ -51,7 +51,7 @@ comments: true
     nums := []int{1, 3, 2, 5, 4}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     /* 初始化数组 */
@@ -59,7 +59,7 @@ comments: true
     var nums = [1, 3, 2, 5, 4];
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     /* 初始化数组 */
@@ -184,7 +184,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     /* 随机返回一个数组元素 */
@@ -197,7 +197,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     /* 随机返回一个数组元素 */
@@ -357,7 +357,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     /* 扩展数组长度 */
@@ -375,7 +375,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     /* 扩展数组长度 */
@@ -552,7 +552,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     /* 在数组的索引 index 处插入元素 num */
@@ -566,7 +566,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     /* 在数组的索引 index 处插入元素 num */
@@ -717,7 +717,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     /* 删除索引 index 处元素 */
@@ -729,7 +729,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     /* 删除索引 index 处元素 */
@@ -891,7 +891,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     /* 遍历数组 */
@@ -908,7 +908,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     /* 遍历数组 */
@@ -1084,7 +1084,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     /* 在数组中查找指定元素 */
@@ -1096,7 +1096,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     /* 在数组中查找指定元素 */

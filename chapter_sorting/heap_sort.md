@@ -227,7 +227,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="heap_sort.js"
     /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
@@ -270,7 +270,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="heap_sort.ts"
     /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */

@@ -137,7 +137,7 @@ comments: true
     isEmpty := len(stack) == 0
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="stack.js"
     /* 初始化栈 */
@@ -164,7 +164,7 @@ comments: true
     const is_empty = stack.length === 0;
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="stack.ts"
     /* 初始化栈 */
@@ -545,7 +545,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linkedlist_stack.js"
     /* 基于链表实现的栈 */
@@ -602,7 +602,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linkedlist_stack.ts"
     /* 基于链表实现的栈 */
@@ -1264,7 +1264,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_stack.js"
     /* 基于数组实现的栈 */
@@ -1308,7 +1308,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_stack.ts"
     /* 基于数组实现的栈 */

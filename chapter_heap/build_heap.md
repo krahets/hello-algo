@@ -71,7 +71,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     /* 构造方法，建立空堆或根据输入列表建堆 */
@@ -85,7 +85,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     /* 构造方法，建立空堆或根据输入列表建堆 */

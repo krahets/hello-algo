@@ -192,13 +192,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="min_path_sum.js"
     [class]{}-[func]{minPathSumDFS}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="min_path_sum.ts"
     [class]{}-[func]{minPathSumDFS}
@@ -416,13 +416,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="min_path_sum.js"
     [class]{}-[func]{minPathSumDFSMem}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="min_path_sum.ts"
     [class]{}-[func]{minPathSumDFSMem}
@@ -661,13 +661,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="min_path_sum.js"
     [class]{}-[func]{minPathSumDP}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="min_path_sum.ts"
     [class]{}-[func]{minPathSumDP}
@@ -941,13 +941,13 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="min_path_sum.js"
     [class]{}-[func]{minPathSumDPComp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="min_path_sum.ts"
     [class]{}-[func]{minPathSumDPComp}

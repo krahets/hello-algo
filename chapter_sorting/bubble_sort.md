@@ -114,7 +114,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="bubble_sort.js"
     /* 冒泡排序 */
@@ -134,7 +134,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="bubble_sort.ts"
     /* 冒泡排序 */
@@ -370,7 +370,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="bubble_sort.js"
     /* 冒泡排序（标志优化）*/
@@ -393,7 +393,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="bubble_sort.ts"
     /* 冒泡排序（标志优化）*/

@@ -226,7 +226,7 @@ status: new
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hanota.js"
     [class]{}-[func]{move}
@@ -236,7 +236,7 @@ status: new
     [class]{}-[func]{hanota}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hanota.ts"
     [class]{}-[func]{move}

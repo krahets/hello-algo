@@ -154,7 +154,7 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="graph_bfs.js"
     /* 广度优先遍历 BFS */
@@ -185,7 +185,7 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="graph_bfs.ts"
     /* 广度优先遍历 BFS */
@@ -561,7 +561,7 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="graph_dfs.js"
     /* 深度优先遍历 DFS */
@@ -591,7 +591,7 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="graph_dfs.ts"
     /* 深度优先遍历 DFS 辅助函数 */

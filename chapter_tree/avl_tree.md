@@ -79,7 +79,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* AVL 树节点类 */
@@ -97,7 +97,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* AVL 树节点类 */
@@ -271,7 +271,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="avl_tree.js"
     /* 获取节点高度 */
@@ -288,7 +288,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="avl_tree.ts"
     /* 获取节点高度 */
@@ -473,7 +473,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="avl_tree.js"
     /* 获取平衡因子 */
@@ -485,7 +485,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="avl_tree.ts"
     /* 获取平衡因子 */
@@ -680,7 +680,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="avl_tree.js"
     /* 右旋操作 */
@@ -698,7 +698,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="avl_tree.ts"
     /* 右旋操作 */
@@ -917,7 +917,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="avl_tree.js"
     /* 左旋操作 */
@@ -935,7 +935,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="avl_tree.ts"
     /* 左旋操作 */
@@ -1238,7 +1238,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="avl_tree.js"
     /* 执行旋转操作，使该子树重新恢复平衡 */
@@ -1272,7 +1272,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="avl_tree.ts"
     /* 执行旋转操作，使该子树重新恢复平衡 */
@@ -1614,9 +1614,9 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
             return NewTreeNode(val)
         }
         /* 1. 查找插入位置，并插入节点 */
-        if val < node.Val {
+        if val < node.Val.(int) {
             node.Left = t.insertHelper(node.Left, val)
-        } else if val > node.Val {
+        } else if val > node.Val.(int) {
             node.Right = t.insertHelper(node.Right, val)
         } else {
             // 重复节点不插入，直接返回
@@ -1631,7 +1631,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="avl_tree.js"
     /* 插入节点 */
@@ -1655,7 +1655,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="avl_tree.ts"
     /* 插入节点 */
@@ -2018,9 +2018,9 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
             return nil
         }
         /* 1. 查找节点，并删除之 */
-        if val < node.Val {
+        if val < node.Val.(int) {
             node.Left = t.removeHelper(node.Left, val)
-        } else if val > node.Val {
+        } else if val > node.Val.(int) {
             node.Right = t.removeHelper(node.Right, val)
         } else {
             if node.Left == nil || node.Right == nil {
@@ -2041,7 +2041,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 for temp.Left != nil {
                     temp = temp.Left
                 }
-                node.Right = t.removeHelper(node.Right, temp.Val)
+                node.Right = t.removeHelper(node.Right, temp.Val.(int))
                 node.Val = temp.Val
             }
         }
@@ -2054,7 +2054,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="avl_tree.js"
     /* 删除节点 */
@@ -2094,7 +2094,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="avl_tree.ts"
     /* 删除节点 */

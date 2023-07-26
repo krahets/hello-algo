@@ -386,7 +386,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="graph_adjacency_matrix.js"
     /* 基于邻接矩阵实现的无向图类 */
@@ -478,7 +478,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="graph_adjacency_matrix.ts"
     /* 基于邻接矩阵实现的无向图类 */
@@ -1466,7 +1466,7 @@ comments: true
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="graph_adjacency_list.js"
     /* 基于邻接表实现的无向图类 */
@@ -1555,7 +1555,7 @@ comments: true
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="graph_adjacency_list.ts"
     /* 基于邻接表实现的无向图类 */
