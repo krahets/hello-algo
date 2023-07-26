@@ -11,12 +11,12 @@ import (
 )
 
 /* 层序遍历 */
-func levelOrder(root *TreeNode) []int {
+func levelOrder(root *TreeNode) []any {
 	// 初始化队列，加入根节点
 	queue := list.New()
 	queue.PushBack(root)
 	// 初始化一个切片，用于保存遍历序列
-	nums := make([]int, 0)
+	nums := make([]any, 0)
 	for queue.Len() > 0 {
 		// 队列出队
 		node := queue.Remove(queue.Front()).(*TreeNode)
