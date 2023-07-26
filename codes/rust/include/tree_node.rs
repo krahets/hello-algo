@@ -1,7 +1,7 @@
 /*
  * File: tree_node.rs
  * Created Time: 2023-02-27
- * Author: xBLACKICEx (xBLACKICE@outlook.com)  night-cruise (2586447362@qq.com)
+ * Author: xBLACKICEx (xBLACKICE@outlook.com), night-cruise (2586447362@qq.com)
  */
 
 use std::cell::RefCell;
