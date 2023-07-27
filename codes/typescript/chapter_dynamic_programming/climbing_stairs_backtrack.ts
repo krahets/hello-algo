@@ -33,12 +33,12 @@ function climbingStairsBacktrack(n: number) {
     return res.get(0);
 }
 
+/* Driver Code */
 function main() {
     const n = 9;
     const res = climbingStairsBacktrack(n);
     console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
 }
-
 main();
 
 export {};

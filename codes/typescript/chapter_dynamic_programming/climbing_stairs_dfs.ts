@@ -18,12 +18,12 @@ function climbingStairsDFS(n: number) {
     return dfs(n);
 }
 
+/* Driver Code */
 function main() {
     const n = 9;
     const res = climbingStairsDFS(n);
     console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
 }
-
 main();
 
 export {};
