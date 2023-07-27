@@ -376,15 +376,6 @@
 === "Rust"
 
     ```rust title="linked_list.rs"
-    use std::rc::Rc;
-    use std::cell::RefCell;
-
-    #[derive(Debug)]
-    struct ListNode {
-        val: i32,
-        next: Option<Rc<RefCell<ListNode>>>,
-    }
-
     // 初始化链表节点
     let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
     let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
