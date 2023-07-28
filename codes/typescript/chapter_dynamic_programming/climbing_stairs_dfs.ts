@@ -14,16 +14,13 @@ function dfs(i: number): number {
 }
 
 /* 爬楼梯：搜索 */
-function climbingStairsDFS(n: number) {
+function climbingStairsDFS(n: number): number {
     return dfs(n);
 }
 
 /* Driver Code */
-function main() {
-    const n = 9;
-    const res = climbingStairsDFS(n);
-    console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
-}
-main();
+const n = 9;
+const res = climbingStairsDFS(n);
+console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
 
 export {};

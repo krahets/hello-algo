@@ -33,13 +33,10 @@ function climbingStairsDPComp(n: number): number {
 }
 
 /* Driver Code */
-function main() {
-    const n = 9;
-    let res = climbingStairsDP(n);
-    console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
-    res = climbingStairsDPComp(n);
-    console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
-}
-main();
+const n = 9;
+let res = climbingStairsDP(n);
+console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
+res = climbingStairsDPComp(n);
+console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
 
 export {};

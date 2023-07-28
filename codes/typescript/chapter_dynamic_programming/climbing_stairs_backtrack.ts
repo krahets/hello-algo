@@ -10,7 +10,7 @@ function backtrack(
     state: number,
     n: number,
     res: Map<0, any>
-) {
+): void {
     // 当爬到第 n 阶时，方案数量加 1
     if (state === n) res.set(0, res.get(0) + 1);
     // 遍历所有选择
@@ -24,7 +24,7 @@ function backtrack(
 }
 
 /* 爬楼梯：回溯 */
-function climbingStairsBacktrack(n: number) {
+function climbingStairsBacktrack(n: number): number {
     const choices = [1, 2]; // 可选择向上爬 1 或 2 阶
     const state = 0; // 从第 0 阶开始爬
     const res = new Map();
@@ -34,11 +34,8 @@ function climbingStairsBacktrack(n: number) {
 }
 
 /* Driver Code */
-function main() {
-    const n = 9;
-    const res = climbingStairsBacktrack(n);
-    console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
-}
-main();
+const n = 9;
+const res = climbingStairsBacktrack(n);
+console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
 
 export {};

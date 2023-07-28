@@ -18,18 +18,15 @@ function dfs(i: number, mem: number[]): number {
 }
 
 /* 爬楼梯：记忆化搜索 */
-function climbingStairsDFSMem(n: number) {
+function climbingStairsDFSMem(n: number): number {
     // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
     const mem = new Array(n + 1).fill(-1);
     return dfs(n, mem);
 }
 
 /* Driver Code */
-function main() {
-    const n = 9;
-    const res = climbingStairsDFSMem(n);
-    console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
-}
-main();
+const n = 9;
+const res = climbingStairsDFSMem(n);
+console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
 
 export {};

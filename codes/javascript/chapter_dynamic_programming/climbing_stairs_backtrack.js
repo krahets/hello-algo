@@ -29,9 +29,7 @@ function climbingStairsBacktrack(n) {
 }
 
 /* Driver Code */
-function main() {
-    const n = 9;
-    const res = climbingStairsBacktrack(n);
-    console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
-}
-main();
+const n = 9;
+const res = climbingStairsBacktrack(n);
+console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
+
