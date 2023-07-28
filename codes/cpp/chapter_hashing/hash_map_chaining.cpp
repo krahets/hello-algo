@@ -92,6 +92,7 @@ class HashMapChaining {
         for (auto &bucket : bucketsTmp) {
             for (Pair *pair : bucket) {
                 put(pair->key, pair->val);
+                // 释放内存
                 delete pair;
             }
         }
