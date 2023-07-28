@@ -238,6 +238,8 @@ comments: true
             for (auto &bucket : bucketsTmp) {
                 for (Pair *pair : bucket) {
                     put(pair->key, pair->val);
+                    // 释放内存
+                    delete pair;
                 }
             }
         }
@@ -810,7 +812,128 @@ comments: true
 === "Rust"
 
     ```rust title="hash_map_chaining.rs"
-    [class]{HashMapChaining}-[func]{}
+    /* 链式地址哈希表 */
+    struct HashMapChaining {
+        size: i32,
+        capacity: i32,
+        load_thres: f32,
+        extend_ratio: i32,
+        buckets: Vec<Vec<Pair>>,
+    }
+
+    impl HashMapChaining {
+        /* 构造方法 */
+        fn new() -> Self {
+            Self {
+                size: 0,
+                capacity: 4,
+                load_thres: 2.0 / 3.0,
+                extend_ratio: 2,
+                buckets: vec![vec![]; 4],
+            }
+        }
+
+        /* 哈希函数 */
+        fn hash_func(&self, key: i32) -> usize {
+            key as usize % self.capacity as usize
+        }
+
+        /* 负载因子 */
+        fn load_factor(&self) -> f32 {
+            self.size as f32 / self.capacity as f32
+        }
+
+        /* 删除操作 */
+        fn remove(&mut self, key: i32) -> Option<String> {
+            let index = self.hash_func(key);
+            let bucket = &mut self.buckets[index];
+
+            // 遍历桶，从中删除键值对
+            for i in 0..bucket.len() {
+                if bucket[i].key == key {
+                    let pair = bucket.remove(i);
+                    self.size -= 1;
+                    return Some(pair.val);
+                }
+            }
+
+            // 若未找到 key 则返回 None
+            None
+        }
+
+        /* 扩容哈希表 */
+        fn extend(&mut self) {
+            // 暂存原哈希表
+            let buckets_tmp = std::mem::replace(&mut self.buckets, vec![]);
+
+            // 初始化扩容后的新哈希表
+            self.capacity *= self.extend_ratio;
+            self.buckets = vec![Vec::new(); self.capacity as usize];
+            self.size = 0;
+
+            // 将键值对从原哈希表搬运至新哈希表
+            for bucket in buckets_tmp {
+                for pair in bucket {
+                    self.put(pair.key, pair.val);
+                }
+            }
+        }
+
+        /* 打印哈希表 */
+        fn print(&self) {
+            for bucket in &self.buckets {
+                let mut res = Vec::new();
+                for pair in bucket {
+                    res.push(format!("{} -> {}", pair.key, pair.val));
+                }
+                println!("{:?}", res);
+            }
+        }
+
+        /* 添加操作 */
+        fn put(&mut self, key: i32, val: String) {
+            // 当负载因子超过阈值时，执行扩容
+            if self.load_factor() > self.load_thres {
+                self.extend();
+            }
+
+            let index = self.hash_func(key);
+            let bucket = &mut self.buckets[index];
+
+            // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+            for pair in bucket {
+                if pair.key == key {
+                    pair.val = val.clone();
+                    return;
+                }
+            }
+            let bucket = &mut self.buckets[index];
+
+            // 若无该 key ，则将键值对添加至尾部
+            let pair = Pair {
+                key,
+                val: val.clone(),
+            };
+            bucket.push(pair);
+            self.size += 1;
+        }
+
+        /* 查询操作 */
+        fn get(&self, key: i32) -> Option<&str> {
+            let index = self.hash_func(key);
+            let bucket = &self.buckets[index];
+
+            // 遍历桶，若找到 key 则返回对应 val
+            for pair in bucket {
+                if pair.key == key {
+                    return Some(&pair.val);
+                }
+            }
+
+            // 若未找到 key 则返回 None
+            None
+        }
+    }
     ```
 
 !!! tip
@@ -1718,7 +1841,146 @@ comments: true
 === "Rust"
 
     ```rust title="hash_map_open_addressing.rs"
-    [class]{HashMapOpenAddressing}-[func]{}
+    /* 开放寻址哈希表 */
+    struct HashMapOpenAddressing {
+        size: usize,
+        capacity: usize,
+        load_thres: f32,
+        extend_ratio: usize,
+        buckets: Vec<Option<Pair>>,
+        removed: Pair,
+    }
+
+
+    impl HashMapOpenAddressing {
+        /* 构造方法 */
+        fn new() -> Self {
+            Self {
+                size: 0,
+                capacity: 4,
+                load_thres: 2.0 / 3.0,
+                extend_ratio: 2,
+                buckets: vec![None; 4],
+                removed: Pair {
+                    key: -1,
+                    val: "-1".to_string(),
+                },
+            }
+        }
+
+        /* 哈希函数 */
+        fn hash_func(&self, key: i32) -> usize {
+            (key % self.capacity as i32) as usize
+        }
+
+        /* 负载因子 */
+        fn load_factor(&self) -> f32 {
+            self.size as f32 / self.capacity as f32
+        }
+
+        /* 查询操作 */
+        fn get(&self, key: i32) -> Option<&str> {
+            let mut index = self.hash_func(key);
+            let capacity = self.capacity;
+            // 线性探测，从 index 开始向后遍历
+            for _ in 0..capacity {
+                // 计算桶索引，越过尾部返回头部
+                let j = (index + 1) % capacity;
+                match &self.buckets[j] {
+                    // 若遇到空桶，说明无此 key ，则返回 None
+                    None => return None,
+                    // 若遇到指定 key ，则返回对应 val
+                    Some(pair) if pair.key == key && pair != &self.removed => return Some(&pair.val),
+                    _ => index = j,
+                }
+            }
+
+            None
+        }
+
+        /* 添加操作 */
+        fn put(&mut self, key: i32, val: String) {
+            // 当负载因子超过阈值时，执行扩容
+            if self.load_factor() > self.load_thres {
+                self.extend();
+            }
+
+            let mut index = self.hash_func(key);
+            let capacity = self.capacity;
+
+            // 线性探测，从 index 开始向后遍历
+            for _ in 0..capacity {
+                //计算桶索引，越过尾部返回头部
+                let j = (index + 1) % capacity;
+                // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
+                match &mut self.buckets[j] {
+                    bucket @ &mut None | bucket @ &mut Some(Pair { key: -1, .. }) => {
+                        *bucket = Some(Pair { key, val });
+                        self.size += 1;
+                        return;
+                    }
+                    // 若遇到指定 key ，则更新对应 val
+                    Some(pair) if pair.key == key => {
+                        pair.val = val;
+                        return;
+                    }
+                    _ => index = j,
+                }
+            }
+        }
+
+        /* 删除操作 */
+        fn remove(&mut self, key: i32) {
+            let mut index = self.hash_func(key);
+            let capacity = self.capacity;
+
+            // 遍历桶，从中删除键值对
+            for _ in 0..capacity {
+                let j = (index + 1) % capacity;
+                match &mut self.buckets[j] {
+                    // 若遇到空桶，说明无此 key ，则直接返回
+                    None => return,
+                    // 若遇到指定 key ，则标记删除并返回
+                    Some(pair) if pair.key == key => {
+                        *pair = Pair {
+                            key: -1,
+                            val: "-1".to_string(),
+                        };
+                        self.size -= 1;
+                        return;
+                    }
+                    _ => index = j,
+                }
+            }
+        }
+
+
+        /* 扩容哈希表 */
+        fn extend(&mut self) {
+            // 暂存原哈希表
+            let buckets_tmp = self.buckets.clone();
+            // 初始化扩容后的新哈希表
+            self.capacity *= self.extend_ratio;
+            self.buckets = vec![None; self.capacity];
+            self.size = 0;
+
+            // 将键值对从原哈希表搬运至新哈希表
+            for pair in buckets_tmp {
+                if let Some(pair) = pair {
+                    self.put(pair.key, pair.val);
+                }
+            }
+        }
+        /* 打印哈希表 */
+        fn print(&self) {
+            for pair in &self.buckets {
+                match pair {
+                    Some(pair) => println!("{} -> {}", pair.key, pair.val),
+                    None => println!("None"),
+                }
+            }
+        }
+    }
     ```
 
 ### 多次哈希
