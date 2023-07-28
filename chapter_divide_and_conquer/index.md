@@ -8,7 +8,7 @@ status: new
 
 <div class="center-table" markdown>
 
-![分治](../assets/covers/chapter_divide_and_conquer.jpg){ width="70%" }
+![分治](../assets/covers/chapter_divide_and_conquer.jpg){ width="600" }
 
 </div>
 

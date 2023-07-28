@@ -8,7 +8,7 @@ status: new
 
 <div class="center-table" markdown>
 
-![动态规划](../assets/covers/chapter_dynamic_programming.jpg){ width="70%" }
+![动态规划](../assets/covers/chapter_dynamic_programming.jpg){ width="600" }
 
 </div>
 

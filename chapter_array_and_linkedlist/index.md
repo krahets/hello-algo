@@ -7,7 +7,7 @@ icon: material/view-list-outline
 
 <div class="center-table" markdown>
 
-![数组与链表](../assets/covers/chapter_array_and_linkedlist.jpg){ width="70%" }
+![数组与链表](../assets/covers/chapter_array_and_linkedlist.jpg){ width="600" }
 
 </div>
 

@@ -7,7 +7,7 @@ icon: material/family-tree
 
 <div class="center-table" markdown>
 
-![堆](../assets/covers/chapter_heap.jpg){ width="70%" }
+![堆](../assets/covers/chapter_heap.jpg){ width="600" }
 
 </div>
 
