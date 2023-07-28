@@ -89,13 +89,22 @@ void *vectorFront(vector *v) {
 }
 
 /* 打印函数， 需传递一个打印变量的函数进来 */
+/* 当前仅支持打印深度为 1 的 vector*/
 void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     if (v) {
         if (v->depth == 0) {
             return;
         } else if (v->depth == 1) {
             for (int i = 0; i < v->size; i++) {
-                printFunc(v, v->data[i]);
+				if (i == 0) {
+					printf("[");
+				} else if (i == v->size-1) {
+					printFunc(v, v->data[i]);
+					printf("]\r\n");
+					break;
+				}
+				printFunc(v, v->data[i]);
+				printf(",");
             }
         } else {
             for (int i = 0; i < v->size; i++) {
@@ -104,6 +113,23 @@ void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
             v->depth--;
         }
     }
+}
+
+/* 当前仅支持打印深度为 2 的 vector */
+void printVectorMatrix(vector *vv, void (*printFunc)(vector *v, void *p)) {
+	printf("[\n");
+	for (int i = 0; i < vv->size; i++) {
+		vector *v = (vector *)vv->data[i];
+		printf("  [");
+		for (int j = 0; j < v->size; j++) {
+			printFunc(v, v->data[j]);
+			if (j != v->size -1)
+				printf(",");
+		}
+		printf("],");
+		printf("\n");
+	}
+	printf("]\n");
 }
 
 #ifdef __cplusplus

@@ -53,23 +53,10 @@ vector *permutationsI(vector *nums) {
     return res;
 }
 
-// 打印二维向量中的元素
-void printVectorMatrix(vector *vv) {
-    printf("[\n");
-    for (int i = 0; i < vv->size; i++) {
-        vector *v = (vector *)vv->data[i];
-        printf("[");
-        for (int j = 0; j < v->size; j++) {
-            int *val = (int *)v->data[j];
-            if (j == v->size - 1)
-                printf("%d", *val);
-            else
-                printf("%d, ", *val);
-        }
-        printf("],");
-        printf("\n");
-    }
-    printf("]\n");
+/* 打印向量中的元素 */
+void printFunc(vector *v, void *p) {
+	TreeNode *node = p;
+	printf("%d", node->val);
 }
 
 /* Driver Code */
@@ -86,7 +73,7 @@ int main() {
     printf("输入数组 nums = ");
     printArray(nums, sizeof(nums) / sizeof(nums[0]));
     printf("所有排列 res = ");
-    printVectorMatrix(res);
+    printVectorMatrix(res, printFunc);
 
     // 释放内存
     delVector(res);
