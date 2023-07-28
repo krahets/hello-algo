@@ -3396,7 +3396,16 @@
 </div>
 <div class="admonition question">
 <p class="admonition-title">请问如何从一组输入数据构建一个二叉搜索树？根节点的选择是不是很重要？</p>
-<p>是的，构建树的方法是 <code>build_tree()</code> ，已在源代码中给出。至于根节点的选择，我们通常会将输入数据排序，然后用中点元素作为根节点，再递归地构建左右子树。这样做可以最大程度保证树的平衡性。</p>
+<p>是的，构建树的方法已在二叉搜索树代码中的 <code>build_tree()</code> 方法中给出。至于根节点的选择，我们通常会将输入数据排序，然后用中点元素作为根节点，再递归地构建左右子树。这样做可以最大程度保证树的平衡性。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">在 Java 中，字符串对比是否一定要用 <code>equals()</code> 方法？</p>
+<p>在 Java 中，对于基本数据类型，<code>==</code> 用于对比两个变量的值是否相等。对于引用类型，两种符号的工作原理不同：</p>
+<ul>
+<li><code>==</code> ：用来比较两个变量是否指向同一个对象，即它们在内存中的位置是否相同。</li>
+<li><code>equals()</code>：用来对比两个对象的值是否相等。</li>
+</ul>
+<p>因此如果要对比值，我们通常会用 <code>equals()</code> 。然而，通过 <code>String a = "hi"; String b = "hi";</code> 初始化的字符串都存储在字符串常量池中，它们指向同一个对象，因此也可以用 <code>a == b</code> 来比较两个字符串的内容。</p>
 </div>
 
 

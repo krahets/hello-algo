@@ -3588,9 +3588,9 @@
 <p><strong>贪心算法不仅操作直接、实现简单，而且通常效率也很高</strong>。在以上代码中，记硬币最小面值为 <span class="arithmatex">\(\min(coins)\)</span> ，则贪心选择最多循环 <span class="arithmatex">\(amt / \min(coins)\)</span> 次，时间复杂度为 <span class="arithmatex">\(O(amt / \min(coins))\)</span> 。这比动态规划解法的时间复杂度 <span class="arithmatex">\(O(n \times amt)\)</span> 提升了一个数量级。</p>
 <p>然而，<strong>对于某些硬币面值组合，贪心算法并不能找到最优解</strong>。我们来看几个例子：</p>
 <ul>
-<li><strong>正例 <span class="arithmatex">\(coins = [1, 5, 10, 20, 50, 100]\)</span></strong>：在该硬币组合下，给定任意 <span class="arithmatex">\(amt\)</span> ，贪心算法都可以找出最优解。 </li>
+<li><strong>正例 <span class="arithmatex">\(coins = [1, 5, 10, 20, 50, 100]\)</span></strong>：在该硬币组合下，给定任意 <span class="arithmatex">\(amt\)</span> ，贪心算法都可以找出最优解。</li>
 <li><strong>反例 <span class="arithmatex">\(coins = [1, 20, 50]\)</span></strong>：假设 <span class="arithmatex">\(amt = 60\)</span> ，贪心算法只能找到 <span class="arithmatex">\(50 + 1 \times 10\)</span> 的兑换组合，共计 <span class="arithmatex">\(11\)</span> 枚硬币，但动态规划可以找到最优解 <span class="arithmatex">\(20 + 20 + 20\)</span> ，仅需 <span class="arithmatex">\(3\)</span> 枚硬币。</li>
-<li><strong>反例 <span class="arithmatex">\(coins = [1, 49, 50]\)</span></strong>：假设 <span class="arithmatex">\(amt = 98\)</span> ，贪心算法只能找到 <span class="arithmatex">\(50 + 1 \times 48\)</span> 的兑换组合，共计 <span class="arithmatex">\(48\)</span> 枚硬币，但动态规划可以找到最优解 <span class="arithmatex">\(49 + 49\)</span> ，仅需 <span class="arithmatex">\(2\)</span> 枚硬币。</li>
+<li><strong>反例 <span class="arithmatex">\(coins = [1, 49, 50]\)</span></strong>：假设 <span class="arithmatex">\(amt = 98\)</span> ，贪心算法只能找到 <span class="arithmatex">\(50 + 1 \times 48\)</span> 的兑换组合，共计 <span class="arithmatex">\(49\)</span> 枚硬币，但动态规划可以找到最优解 <span class="arithmatex">\(49 + 49\)</span> ，仅需 <span class="arithmatex">\(2\)</span> 枚硬币。</li>
 </ul>
 <p><img alt="贪心无法找出最优解的示例" src="../greedy_algorithm.assets/coin_change_greedy_vs_dp.png" /></p>
 <p align="center"> Fig. 贪心无法找出最优解的示例 </p>
