@@ -1,15 +1,15 @@
 /**
- * File: subset_sum_i_naive.c
- * Created Time: 2023-07-28
+ * File: subset_sum_i.c
+ * Created Time: 2023-07-29
  * Author: Gonglja (glj0@outlook.com)
  */
 
 #include "../utils/common.h"
 
 /* 回溯算法：子集和 I */
-void backtrack(vector *state, int target, int total, vector *choices, vector *res) {
+void backtrack(vector *state, int target, vector *choices, int start, vector *res) {
     // 子集和等于 target 时，记录解
-    if (total == target) {
+    if (target == 0) {
         vector *tmpVector = newVector();
         for (int i = 0; i < state->size; i++) {
             vectorPushback(tmpVector, state->data[i]);
@@ -18,26 +18,33 @@ void backtrack(vector *state, int target, int total, vector *choices, vector *re
         return;
     }
     // 遍历所有选择
-    for (size_t i = 0; i < choices->size; i++) {
+    // 剪枝二：从 start 开始遍历，避免生成重复子集
+    for (int i = start; i < choices->size; i++) {
         // 剪枝：若子集和超过 target ，则跳过该选择
-        if (total + *(int *)(choices->data[i]) > target) {
+        if (target - *(int *)(choices->data[i]) < 0) {
             continue;
         }
-        // 尝试：做出选择，更新元素和 total
+        // 尝试：做出选择，更新 target, start
         vectorPushback(state, choices->data[i]);
         // 进行下一轮选择
-        backtrack(state, target, total + *(int *)(choices->data[i]), choices, res);
+        backtrack(state, target - *(int *)(choices->data[i]), choices, i, res);
         // 回退：撤销选择，恢复到之前的状态
         vectorPopback(state);
     }
 }
 
-/* 求解子集和 I（包含重复子集） */
+/* 用来做比较的函数 */
+int comp(const void *a, const void *b) {
+    return *(int *)a - *(int *)b;
+}
+
+/* 求解子集和 I */
 vector *subsetSumINaive(vector *nums, int target) {
-    vector *state = newVector(); // 状态（子集）
-    int total = 0;               // 子集和
-    vector *res = newVector();   // 结果列表（子集列表）
-    backtrack(state, target, total, nums, res);
+    vector *state = newVector();                         // 状态（子集）
+    qsort(nums->data[0], nums->size, sizeof(int), comp); // 对 nums 进行排序
+    int start = 0;                                       // 子集和
+    vector *res = newVector();                           // 结果列表（子集列表）
+    backtrack(state, target, nums, start, res);
     return res;
 }
 
