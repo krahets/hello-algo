@@ -48,7 +48,7 @@ $$
 
     ```python title=""
     # 在某运行平台下
-    def algorithm(n: int) -> None:
+    def algorithm(n: int):
         a = 2      # 1 ns
         a = a + 1  # 1 ns
         a = a * 2  # 10 ns
@@ -62,17 +62,17 @@ $$
     ```go title=""
     // 在某运行平台下
     func algorithm(n int) {
-        a := 2      // 1 ns
-        a = a + 1   // 1 ns
-        a = a * 2   // 10 ns
+        a := 2     // 1 ns
+        a = a + 1  // 1 ns
+        a = a * 2  // 10 ns
         // 循环 n 次
-        for i := 0; i < n; i++ {    // 1 ns
-            fmt.Println(a)          // 5 ns
+        for i := 0; i < n; i++ {  // 1 ns
+            fmt.Println(a)        // 5 ns
         }
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     // 在某运行平台下
@@ -87,7 +87,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     // 在某运行平台下
@@ -121,15 +121,13 @@ $$
 
     ```csharp title=""
     // 在某运行平台下
-    void algorithm(int n)
-    {
+    void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
         // 循环 n 次
-        for (int i = 0; i < n; i++)
-        {  // 1 ns ，每轮都要执行 i++
-            Console.WriteLine(0);     // 5 ns
+        for (int i = 0; i < n; i++) {  // 1 ns ，每轮都要执行 i++
+            Console.WriteLine(0);      // 5 ns
         }
     }
     ```
@@ -168,6 +166,12 @@ $$
         print(0); // 5 ns
       }
     }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
     ```
 
 然而实际上，**统计算法的运行时间既不合理也不现实**。首先，我们不希望预估时间和运行平台绑定，因为算法需要在各种不同的平台上运行。其次，我们很难获知每种操作的运行时间，这给预估过程带来了极大的难度。
@@ -228,14 +232,14 @@ $$
 
     ```python title=""
     # 算法 A 时间复杂度：常数阶
-    def algorithm_A(n: int) -> None:
+    def algorithm_A(n: int):
         print(0)
     # 算法 B 时间复杂度：线性阶
-    def algorithm_B(n: int) -> None:
+    def algorithm_B(n: int):
         for _ in range(n):
             print(0)
     # 算法 C 时间复杂度：常数阶
-    def algorithm_C(n: int) -> None:
+    def algorithm_C(n: int):
         for _ in range(1000000):
             print(0)
     ```
@@ -261,7 +265,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     // 算法 A 时间复杂度：常数阶
@@ -283,7 +287,7 @@ $$
 
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     // 算法 A 时间复杂度：常数阶
@@ -329,23 +333,18 @@ $$
 
     ```csharp title=""
     // 算法 A 时间复杂度：常数阶
-    void algorithm_A(int n)
-    {
+    void algorithm_A(int n) {
         Console.WriteLine(0);
     }
     // 算法 B 时间复杂度：线性阶
-    void algorithm_B(int n)
-    {
-        for (int i = 0; i < n; i++)
-        {
+    void algorithm_B(int n) {
+        for (int i = 0; i < n; i++) {
             Console.WriteLine(0);
         }
     }
     // 算法 C 时间复杂度：常数阶
-    void algorithm_C(int n)
-    {
-        for (int i = 0; i < 1000000; i++)
-        {
+    void algorithm_C(int n) {
+        for (int i = 0; i < 1000000; i++) {
             Console.WriteLine(0);
         }
     }
@@ -401,6 +400,12 @@ $$
     }
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 ![算法 A, B, C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.png)
 
 相较于直接统计算法运行时间，时间复杂度分析有哪些优势和局限性呢？
@@ -450,7 +455,7 @@ $$
 === "Python"
 
     ```python title=""
-    def algorithm(n: int) -> None:
+    def algorithm(n: int):
         a = 1      # +1
         a = a + 1  # +1
         a = a * 2  # +1
@@ -473,7 +478,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     function algorithm(n) {
@@ -487,7 +492,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     function algorithm(n: number): void{
@@ -518,14 +523,12 @@ $$
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n)
-    {
+    void algorithm(int n) {
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
         // 循环 n 次
-        for (int i = 0; i < n; i++) // +1（每轮都执行 i ++）
-        {
+        for (int i = 0; i < n; i++) {   // +1（每轮都执行 i ++）
             Console.WriteLine(0);   // +1
         }
     }
@@ -563,6 +566,12 @@ $$
         print(0); // +1
       }
     }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
     ```
 
 $T(n)$ 是一次函数，说明时间增长趋势是线性的，因此可以得出时间复杂度是线性阶。
@@ -653,7 +662,7 @@ $$
 === "Python"
 
     ```python title=""
-    def algorithm(n: int) -> None:
+    def algorithm(n: int):
         a = 1      # +0（技巧 1）
         a = a + n  # +0（技巧 1）
         # +n（技巧 2）
@@ -684,7 +693,7 @@ $$
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     function algorithm(n) {
@@ -703,7 +712,7 @@ $$
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     function algorithm(n: number): void {
@@ -744,20 +753,16 @@ $$
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n)
-    {
+    void algorithm(int n) {
         int a = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
         // +n（技巧 2）
-        for (int i = 0; i < 5 * n + 1; i++)
-        {
+        for (int i = 0; i < 5 * n + 1; i++) {
             Console.WriteLine(0);
         }
         // +n*n（技巧 3）
-        for (int i = 0; i < 2 * n; i++)
-        {
-            for (int j = 0; j < n + 1; j++)
-            {
+        for (int i = 0; i < 2 * n; i++) {
+            for (int j = 0; j < n + 1; j++) {
                 Console.WriteLine(0);
             }
         }
@@ -806,6 +811,12 @@ $$
         }
       }
     }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
     ```
 
 ### 第二步：判断渐近上界
@@ -873,13 +884,13 @@ $$
     [class]{}-[func]{constant}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{constant}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{constant}
@@ -915,6 +926,12 @@ $$
     [class]{}-[func]{constant}
     ```
 
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    [class]{}-[func]{constant}
+    ```
+
 ### 线性阶 $O(n)$
 
 线性阶的操作数量相对于输入数据大小以线性级别增长。线性阶通常出现在单层循环中。
@@ -943,13 +960,13 @@ $$
     [class]{}-[func]{linear}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{linear}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{linear}
@@ -982,6 +999,12 @@ $$
 === "Dart"
 
     ```dart title="time_complexity.dart"
+    [class]{}-[func]{linear}
+    ```
+
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
     [class]{}-[func]{linear}
     ```
 
@@ -1015,13 +1038,13 @@ $$
     [class]{}-[func]{arrayTraversal}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{arrayTraversal}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{arrayTraversal}
@@ -1057,6 +1080,12 @@ $$
     [class]{}-[func]{arrayTraversal}
     ```
 
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    [class]{}-[func]{array_traversal}
+    ```
+
 ### 平方阶 $O(n^2)$
 
 平方阶的操作数量相对于输入数据大小以平方级别增长。平方阶通常出现在嵌套循环中，外层循环和内层循环都为 $O(n)$ ，因此总体为 $O(n^2)$ 。
@@ -1085,13 +1114,13 @@ $$
     [class]{}-[func]{quadratic}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{quadratic}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{quadratic}
@@ -1124,6 +1153,12 @@ $$
 === "Dart"
 
     ```dart title="time_complexity.dart"
+    [class]{}-[func]{quadratic}
+    ```
+
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
     [class]{}-[func]{quadratic}
     ```
 
@@ -1159,13 +1194,13 @@ $$
     [class]{}-[func]{bubbleSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{bubbleSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{bubbleSort}
@@ -1201,6 +1236,12 @@ $$
     [class]{}-[func]{bubbleSort}
     ```
 
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    [class]{}-[func]{bubble_sort}
+    ```
+
 ### 指数阶 $O(2^n)$
 
 !!! note
@@ -1233,13 +1274,13 @@ $$
     [class]{}-[func]{exponential}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{exponential}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{exponential}
@@ -1275,6 +1316,12 @@ $$
     [class]{}-[func]{exponential}
     ```
 
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    [class]{}-[func]{exponential}
+    ```
+
 ![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.png)
 
 在实际算法中，指数阶常出现于递归函数。例如以下代码，不断地一分为二，经过 $n$ 次分裂后停止。
@@ -1303,13 +1350,13 @@ $$
     [class]{}-[func]{expRecur}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{expRecur}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{expRecur}
@@ -1343,6 +1390,12 @@ $$
 
     ```dart title="time_complexity.dart"
     [class]{}-[func]{expRecur}
+    ```
+
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    [class]{}-[func]{exp_recur}
     ```
 
 ### 对数阶 $O(\log n)$
@@ -1377,13 +1430,13 @@ $$
     [class]{}-[func]{logarithmic}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{logarithmic}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{logarithmic}
@@ -1419,6 +1472,12 @@ $$
     [class]{}-[func]{logarithmic}
     ```
 
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    [class]{}-[func]{logarithmic}
+    ```
+
 ![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png)
 
 与指数阶类似，对数阶也常出现于递归函数。以下代码形成了一个高度为 $\log_2 n$ 的递归树。
@@ -1447,13 +1506,13 @@ $$
     [class]{}-[func]{logRecur}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{logRecur}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{logRecur}
@@ -1487,6 +1546,12 @@ $$
 
     ```dart title="time_complexity.dart"
     [class]{}-[func]{logRecur}
+    ```
+
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    [class]{}-[func]{log_recur}
     ```
 
 ### 线性对数阶 $O(n \log n)$
@@ -1519,13 +1584,13 @@ $$
     [class]{}-[func]{linearLogRecur}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{linearLogRecur}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{linearLogRecur}
@@ -1559,6 +1624,12 @@ $$
 
     ```dart title="time_complexity.dart"
     [class]{}-[func]{linearLogRecur}
+    ```
+
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    [class]{}-[func]{linear_log_recur}
     ```
 
 ![线性对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic_linear.png)
@@ -1597,13 +1668,13 @@ $$
     [class]{}-[func]{factorialRecur}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="time_complexity.js"
     [class]{}-[func]{factorialRecur}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="time_complexity.ts"
     [class]{}-[func]{factorialRecur}
@@ -1639,14 +1710,20 @@ $$
     [class]{}-[func]{factorialRecur}
     ```
 
+=== "Rust"
+
+    ```rust title="time_complexity.rs"
+    [class]{}-[func]{factorial_recur}
+    ```
+
 ![阶乘阶的时间复杂度](time_complexity.assets/time_complexity_factorial.png)
 
 ## 最差、最佳、平均时间复杂度
 
 **某些算法的时间复杂度不是固定的，而是与输入数据的分布有关**。例如，假设输入一个长度为 $n$ 的数组 `nums` ，其中 `nums` 由从 $1$ 至 $n$ 的数字组成，但元素顺序是随机打乱的；算法的任务是返回元素 $1$ 的索引。我们可以得出以下结论：
 
-- 当 `nums = [?, ?, ..., 1]` ，即当末尾元素是 $1$ 时，需要完整遍历数组，此时达到 **最差时间复杂度 $O(n)$**；
-- 当 `nums = [1, ?, ?, ...]` ，即当首个数字为 $1$ 时，无论数组多长都不需要继续遍历，此时达到 **最佳时间复杂度 $\Omega(1)$**；
+- 当 `nums = [?, ?, ..., 1]` ，即当末尾元素是 $1$ 时，需要完整遍历数组，此时达到 **最差时间复杂度 $O(n)$** 。
+- 当 `nums = [1, ?, ?, ...]` ，即当首个数字为 $1$ 时，无论数组多长都不需要继续遍历，此时达到 **最佳时间复杂度 $\Omega(1)$** 。
 
 “函数渐近上界”使用大 $O$ 记号表示，代表「最差时间复杂度」。相应地，“函数渐近下界”用 $\Omega$ 记号来表示，代表「最佳时间复杂度」。
 
@@ -1682,7 +1759,7 @@ $$
     [class]{}-[func]{findOne}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="worst_best_time_complexity.js"
     [class]{}-[func]{randomNumbers}
@@ -1690,7 +1767,7 @@ $$
     [class]{}-[func]{findOne}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="worst_best_time_complexity.ts"
     [class]{}-[func]{randomNumbers}
@@ -1755,6 +1832,14 @@ $$
     [class]{}-[func]{randomNumbers}
 
     [class]{}-[func]{findOne}
+    ```
+
+=== "Rust"
+
+    ```rust title="worst_best_time_complexity.rs"
+    [class]{}-[func]{random_numbers}
+
+    [class]{}-[func]{find_one}
     ```
 
 !!! tip

@@ -45,7 +45,7 @@
     nums := []int{1, 3, 2, 5, 4}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     /* 初始化数组 */
@@ -53,7 +53,7 @@
     var nums = [1, 3, 2, 5, 4];
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     /* 初始化数组 */
@@ -100,6 +100,12 @@
     List<int> nums = [1, 3, 2, 5, 4];
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+
+    ```
+
 ## 数组优点
 
 **在数组中访问元素非常高效**。由于数组元素被存储在连续的内存空间中，因此计算数组元素的内存地址非常容易。给定数组首个元素的地址和某个元素的索引，我们可以使用以下公式计算得到该元素的内存地址，从而直接访问此元素。
@@ -143,13 +149,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{randomAccess}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     [class]{}-[func]{randomAccess}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     [class]{}-[func]{randomAccess}
@@ -185,6 +191,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{randomAccess}
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{random_access}
+    ```
+
 ## 数组缺点
 
 **数组在初始化后长度不可变**。由于系统无法保证数组之后的内存空间是可用的，因此数组长度无法扩展。而若希望扩容数组，则需新建一个数组，然后把原数组元素依次拷贝到新数组，在数组很大的情况下，这是非常耗时的。
@@ -213,13 +225,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{extend}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     [class]{}-[func]{extend}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     [class]{}-[func]{extend}
@@ -252,6 +264,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Dart"
 
     ```dart title="array.dart"
+    [class]{}-[func]{extend}
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
     [class]{}-[func]{extend}
     ```
 
@@ -283,13 +301,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{insert}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     [class]{}-[func]{insert}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     [class]{}-[func]{insert}
@@ -325,6 +343,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{insert}
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{insert}
+    ```
+
 删除元素也类似，如果我们想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，我们无需特意去修改它。
 
 ![数组删除元素](array.assets/array_remove_element.png)
@@ -353,13 +377,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{remove}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     [class]{}-[func]{remove}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     [class]{}-[func]{remove}
@@ -392,6 +416,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 === "Dart"
 
     ```dart title="array.dart"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
     [class]{}-[func]{remove}
     ```
 
@@ -429,13 +459,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{traverse}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     [class]{}-[func]{traverse}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     [class]{}-[func]{traverse}
@@ -471,6 +501,12 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{traverse}
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{traverse}
+    ```
+
 **数组查找**。通过遍历数组，查找数组内的指定元素，并输出对应索引。
 
 === "Java"
@@ -497,13 +533,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{find}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array.js"
     [class]{}-[func]{find}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array.ts"
     [class]{}-[func]{find}
@@ -539,10 +575,18 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     [class]{}-[func]{find}
     ```
 
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{find}
+    ```
+
 ## 数组典型应用
 
-**随机访问**。如果我们想要随机抽取一些样本，那么可以用数组存储，并生成一个随机序列，根据索引实现样本的随机抽取。
+数组是最基础的数据结构，在各类数据结构和算法中都有广泛应用。
 
-**二分查找**。例如前文查字典的例子，我们可以将字典中的所有字按照拼音顺序存储在数组中，然后使用与日常查纸质字典相同的“翻开中间，排除一半”的方式，来实现一个查电子字典的算法。
-
-**深度学习**。神经网络中大量使用了向量、矩阵、张量之间的线性代数运算，这些数据都是以数组的形式构建的。数组是神经网络编程中最常使用的数据结构。
+- **随机访问**：如果我们想要随机抽取一些样本，那么可以用数组存储，并生成一个随机序列，根据索引实现样本的随机抽取。
+- **排序和搜索**：数组是排序和搜索算法最常用的数据结构。例如，快速排序、归并排序、二分查找等都需要在数组上进行。
+- **查找表**：当我们需要快速查找一个元素或者需要查找一个元素的对应关系时，可以使用数组作为查找表。例如，我们有一个字符到其 ASCII 码的映射，可以将字符的 ASCII 码值作为索引，对应的元素存放在数组中的对应位置。
+- **机器学习**：神经网络中大量使用了向量、矩阵、张量之间的线性代数运算，这些数据都是以数组的形式构建的。数组是神经网络编程中最常使用的数据结构。
+- **数据结构实现**：数组可以用于实现栈、队列、哈希表、堆、图等数据结构。例如，邻接矩阵是图的常见表示之一，它实质上是一个二维数组。

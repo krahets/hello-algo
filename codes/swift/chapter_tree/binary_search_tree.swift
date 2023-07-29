@@ -90,7 +90,6 @@ class BinarySearchTree {
     }
 
     /* 删除节点 */
-    @discardableResult
     func remove(num: Int) {
         // 若树为空，直接提前返回
         if root == nil {
@@ -160,7 +159,7 @@ enum _BinarySearchTree {
         PrintUtil.printTree(root: bst.getRoot())
 
         /* 查找节点 */
-        var node = bst.search(num: 7)
+        let node = bst.search(num: 7)
         print("\n查找到的节点对象为 \(node!)，节点值 = \(node!.val)")
 
         /* 插入节点 */

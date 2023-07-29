@@ -104,7 +104,8 @@ public class min_path_sum {
         int n = grid.Length, m = grid[0].Length;
 
         // 暴力搜索
-        Console.WriteLine(minPathSumDFS(grid, n - 1, m - 1));
+        int res = minPathSumDFS(grid, n - 1, m - 1);
+        Console.WriteLine("从左上角到右下角的做小路径和为 " + res);
 
         // 记忆化搜索
         int[][] mem = new int[n][];
@@ -112,13 +113,15 @@ public class min_path_sum {
             mem[i] = new int[m];
             Array.Fill(mem[i], -1);
         }
-
-        Console.WriteLine(minPathSumDFSMem(grid, mem, n - 1, m - 1));
+        res = minPathSumDFSMem(grid, mem, n - 1, m - 1);
+        Console.WriteLine("从左上角到右下角的做小路径和为 " + res);
 
         // 动态规划
-        Console.WriteLine(minPathSumDP(grid));
+        res = minPathSumDP(grid);
+        Console.WriteLine("从左上角到右下角的做小路径和为 " + res);
 
         // 状态压缩后的动态规划
-        Console.WriteLine(minPathSumDPComp(grid));
+        res = minPathSumDPComp(grid);
+        Console.WriteLine("从左上角到右下角的做小路径和为 " + res);
     }
 }

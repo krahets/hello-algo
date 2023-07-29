@@ -45,7 +45,7 @@ public class list {
 
         /* 通过索引遍历列表 */
         int count = 0;
-        for (int i = 0; i < list.Count(); i++) {
+        for (int i = 0; i < list.Count; i++) {
             count++;
         }
 

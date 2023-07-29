@@ -30,10 +30,10 @@
 
 我们可以基于堆更加高效地解决 Top-K 问题，流程如下：
 
-1. 初始化一个小顶堆，其堆顶元素最小；
-2. 先将数组的前 $k$ 个元素依次入堆；
-3. 从第 $k + 1$ 个元素开始，若当前元素大于堆顶元素，则将堆顶元素出堆，并将当前元素入堆；
-4. 遍历完成后，堆中保存的就是最大的 $k$ 个元素；
+1. 初始化一个小顶堆，其堆顶元素最小。
+2. 先将数组的前 $k$ 个元素依次入堆。
+3. 从第 $k + 1$ 个元素开始，若当前元素大于堆顶元素，则将堆顶元素出堆，并将当前元素入堆。
+4. 遍历完成后，堆中保存的就是最大的 $k$ 个元素。
 
 === "<1>"
     ![基于堆寻找最大的 k 个元素](top_k.assets/top_k_heap_step1.png)
@@ -87,16 +87,16 @@
 === "Go"
 
     ```go title="top_k.go"
-    [class]{maxHeap}-[func]{topKHeap}
+    [class]{}-[func]{topKHeap}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="top_k.js"
     [class]{}-[func]{topKHeap}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="top_k.ts"
     [class]{}-[func]{topKHeap}
@@ -105,7 +105,7 @@
 === "C"
 
     ```c title="top_k.c"
-    [class]{maxHeap}-[func]{topKHeap}
+    [class]{}-[func]{topKHeap}
     ```
 
 === "C#"
@@ -129,5 +129,11 @@
 === "Dart"
 
     ```dart title="top_k.dart"
+    [class]{}-[func]{top_k_heap}
+    ```
+
+=== "Rust"
+
+    ```rust title="top_k.rs"
     [class]{}-[func]{top_k_heap}
     ```

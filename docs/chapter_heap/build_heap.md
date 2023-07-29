@@ -36,13 +36,13 @@
     [class]{maxHeap}-[func]{newMaxHeap}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{constructor}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     [class]{MaxHeap}-[func]{constructor}
@@ -78,12 +78,18 @@
     [class]{MaxHeap}-[func]{MaxHeap}
     ```
 
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    [class]{MaxHeap}-[func]{new}
+    ```
+
 ## 复杂度分析
 
 为什么第二种建堆方法的时间复杂度是 $O(n)$ ？我们来展开推算一下。
 
-- 完全二叉树中，设节点总数为 $n$ ，则叶节点数量为 $(n + 1) / 2$ ，其中 $/$ 为向下整除。因此，在排除叶节点后，需要堆化的节点数量为 $(n - 1)/2$ ，复杂度为 $O(n)$ ；
-- 在从顶至底堆化的过程中，每个节点最多堆化到叶节点，因此最大迭代次数为二叉树高度 $O(\log n)$ ；
+- 完全二叉树中，设节点总数为 $n$ ，则叶节点数量为 $(n + 1) / 2$ ，其中 $/$ 为向下整除。因此，在排除叶节点后，需要堆化的节点数量为 $(n - 1)/2$ ，复杂度为 $O(n)$ 。
+- 在从顶至底堆化的过程中，每个节点最多堆化到叶节点，因此最大迭代次数为二叉树高度 $O(\log n)$ 。
 
 将上述两者相乘，可得到建堆过程的时间复杂度为 $O(n \log n)$ 。**然而，这个估算结果并不准确，因为我们没有考虑到二叉树底层节点数量远多于顶层节点的特性**。
 
@@ -117,7 +123,7 @@ $$
 $$
 \begin{aligned}
 T(h) & = 2 \frac{1 - 2^h}{1 - 2} - h \newline
-& = 2^{h+1} - h \newline
+& = 2^{h+1} - h - 2 \newline
 & = O(2^h)
 \end{aligned}
 $$

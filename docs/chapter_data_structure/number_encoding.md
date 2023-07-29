@@ -88,25 +88,31 @@ $$
 
 细心的你可能会发现：`int` 和 `float` 长度相同，都是 4 bytes，但为什么 `float` 的取值范围远大于 `int` ？这非常反直觉，因为按理说 `float` 需要表示小数，取值范围应该变小才对。
 
-实际上，这是因为浮点数 `float` 采用了不同的表示方式。根据 IEEE 754 标准，32-bit 长度的 `float` 由以下部分构成：
-
-- 符号位 $\mathrm{S}$ ：占 1 bit ；
-- 指数位 $\mathrm{E}$ ：占 8 bits ；
-- 分数位 $\mathrm{N}$ ：占 24 bits ，其中 23 位显式存储；
-
-设 32-bit 二进制数的第 $i$ 位为 $b_i$ ，则 `float` 值的计算方法定义为：
+实际上，**这是因为浮点数 `float` 采用了不同的表示方式**。记一个 32-bit 长度的二进制数为：
 
 $$
-\text { val } = (-1)^{b_{31}} \times 2^{\left(b_{30} b_{29} \ldots b_{23}\right)_2-127} \times\left(1 . b_{22} b_{21} \ldots b_0\right)_2
+b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 $$
 
-转化到十进制下的计算公式为
+根据 IEEE 754 标准，32-bit 长度的 `float` 由以下部分构成：
+
+- 符号位 $\mathrm{S}$ ：占 1 bit ，对应 $b_{31}$ 。
+- 指数位 $\mathrm{E}$ ：占 8 bits ，对应 $b_{30} b_{29} \ldots b_{23}$ 。
+- 分数位 $\mathrm{N}$ ：占 23 bits ，对应 $b_{22} b_{21} \ldots b_0$ 。
+
+二进制数 `float` 对应的值的计算方法：
 
 $$
-\text { val }=(-1)^{\mathrm{S}} \times 2^{\mathrm{E} -127} \times (1 + \mathrm{N})
+\text {val} = (-1)^{b_{31}} \times 2^{\left(b_{30} b_{29} \ldots b_{23}\right)_2-127} \times\left(1 . b_{22} b_{21} \ldots b_0\right)_2
 $$
 
-其中各项的取值范围为
+转化到十进制下的计算公式：
+
+$$
+\text {val}=(-1)^{\mathrm{S}} \times 2^{\mathrm{E} -127} \times (1 + \mathrm{N})
+$$
+
+其中各项的取值范围：
 
 $$
 \begin{aligned}
@@ -141,7 +147,7 @@ $$
 
 特别地，次正规数显著提升了浮点数的精度，这是因为：
 
-- 最小正正规数为 $2^{-126} \approx 1.18 \times 10^{-38}$ ；
-- 最小正次正规数为 $2^{-126} \times 2^{-23} \approx 1.4 \times 10^{-45}$ ；
+- 最小正正规数为 $2^{-126} \approx 1.18 \times 10^{-38}$ 。
+- 最小正次正规数为 $2^{-126} \times 2^{-23} \approx 1.4 \times 10^{-45}$ 。
 
 双精度 `double` 也采用类似 `float` 的表示方法，此处不再详述。

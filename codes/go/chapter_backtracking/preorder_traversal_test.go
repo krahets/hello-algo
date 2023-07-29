@@ -13,7 +13,7 @@ import (
 
 func TestPreorderTraversalICompact(t *testing.T) {
 	/* 初始化二叉树 */
-	root := ArrToTree([]any{1, 7, 3, 4, 5, 6, 7})
+	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
 	fmt.Println("\n初始化二叉树")
 	PrintTree(root)
 
@@ -30,7 +30,7 @@ func TestPreorderTraversalICompact(t *testing.T) {
 
 func TestPreorderTraversalIICompact(t *testing.T) {
 	/* 初始化二叉树 */
-	root := ArrToTree([]any{1, 7, 3, 4, 5, 6, 7})
+	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
 	fmt.Println("\n初始化二叉树")
 	PrintTree(root)
 
@@ -50,7 +50,7 @@ func TestPreorderTraversalIICompact(t *testing.T) {
 
 func TestPreorderTraversalIIICompact(t *testing.T) {
 	/* 初始化二叉树 */
-	root := ArrToTree([]any{1, 7, 3, 4, 5, 6, 7})
+	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
 	fmt.Println("\n初始化二叉树")
 	PrintTree(root)
 
@@ -59,7 +59,7 @@ func TestPreorderTraversalIIICompact(t *testing.T) {
 	res := make([][]*TreeNode, 0)
 	preOrderIII(root, &res, &path)
 
-	fmt.Println("\n输出所有根节点到节点 7 的路径，且路径中不包含值为 3 的节点")
+	fmt.Println("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -70,7 +70,7 @@ func TestPreorderTraversalIIICompact(t *testing.T) {
 
 func TestPreorderTraversalIIITemplate(t *testing.T) {
 	/* 初始化二叉树 */
-	root := ArrToTree([]any{1, 7, 3, 4, 5, 6, 7})
+	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
 	fmt.Println("\n初始化二叉树")
 	PrintTree(root)
 
@@ -81,7 +81,7 @@ func TestPreorderTraversalIIITemplate(t *testing.T) {
 	choices = append(choices, root)
 	backtrackIII(&state, &choices, &res)
 
-	fmt.Println("\n输出所有根节点到节点 7 的路径，且路径中不包含值为 3 的节点")
+	fmt.Println("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)

@@ -131,7 +131,7 @@
     isEmpty := len(stack) == 0
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="stack.js"
     /* 初始化栈 */
@@ -158,7 +158,7 @@
     const is_empty = stack.length === 0;
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="stack.ts"
     /* 初始化栈 */
@@ -211,10 +211,10 @@
     int pop = stack.Pop();
     
     /* 获取栈的长度 */
-    int size = stack.Count();
+    int size = stack.Count;
     
     /* 判断是否为空 */
-    bool isEmpty = stack.Count()==0;
+    bool isEmpty = stack.Count == 0;
     ```
 
 === "Swift"
@@ -277,6 +277,12 @@
     bool isEmpty = stack.isEmpty;
     ```
 
+=== "Rust"
+
+    ```rust title="stack.rs"
+
+    ```
+
 ## 栈的实现
 
 为了深入了解栈的运行机制，我们来尝试自己实现一个栈类。
@@ -324,13 +330,13 @@
     [class]{linkedListStack}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linkedlist_stack.js"
     [class]{LinkedListStack}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linkedlist_stack.ts"
     [class]{LinkedListStack}-[func]{}
@@ -363,6 +369,12 @@
 === "Dart"
 
     ```dart title="linkedlist_stack.dart"
+    [class]{LinkedListStack}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="linkedlist_stack.rs"
     [class]{LinkedListStack}-[func]{}
     ```
 
@@ -405,13 +417,13 @@
     [class]{arrayStack}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_stack.js"
     [class]{ArrayStack}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_stack.ts"
     [class]{ArrayStack}-[func]{}
@@ -447,6 +459,12 @@
     [class]{ArrayStack}-[func]{}
     ```
 
+=== "Rust"
+
+    ```rust title="array_stack.rs"
+    [class]{ArrayStack}-[func]{}
+    ```
+
 ## 两种实现对比
 
 ### 支持操作
@@ -461,8 +479,8 @@
 
 综上所述，当入栈与出栈操作的元素是基本数据类型（如 `int` , `double` ）时，我们可以得出以下结论：
 
-- 基于数组实现的栈在触发扩容时效率会降低，但由于扩容是低频操作，因此平均效率更高；
-- 基于链表实现的栈可以提供更加稳定的效率表现；
+- 基于数组实现的栈在触发扩容时效率会降低，但由于扩容是低频操作，因此平均效率更高。
+- 基于链表实现的栈可以提供更加稳定的效率表现。
 
 ### 空间效率
 

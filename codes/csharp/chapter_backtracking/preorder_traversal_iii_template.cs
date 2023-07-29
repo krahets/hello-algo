@@ -38,7 +38,6 @@ public class preorder_traversal_iii_template {
         if (isSolution(state)) {
             // 记录解
             recordSolution(state, res);
-            return;
         }
         // 遍历所有选择
         foreach (TreeNode choice in choices) {

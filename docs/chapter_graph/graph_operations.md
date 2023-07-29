@@ -52,13 +52,13 @@
     [class]{graphAdjMat}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="graph_adjacency_matrix.js"
     [class]{GraphAdjMat}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="graph_adjacency_matrix.ts"
     [class]{GraphAdjMat}-[func]{}
@@ -91,6 +91,12 @@
 === "Dart"
 
     ```dart title="graph_adjacency_matrix.dart"
+    [class]{GraphAdjMat}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="graph_adjacency_matrix.rs"
     [class]{GraphAdjMat}-[func]{}
     ```
 
@@ -149,13 +155,13 @@
     [class]{graphAdjList}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="graph_adjacency_list.js"
     [class]{GraphAdjList}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="graph_adjacency_list.ts"
     [class]{GraphAdjList}-[func]{}
@@ -188,6 +194,12 @@
 === "Dart"
 
     ```dart title="graph_adjacency_list.dart"
+    [class]{GraphAdjList}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="graph_adjacency_list.rs"
     [class]{GraphAdjList}-[func]{}
     ```
 

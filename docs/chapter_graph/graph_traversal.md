@@ -18,9 +18,9 @@
 
 BFS 通常借助「队列」来实现。队列具有“先入先出”的性质，这与 BFS 的“由近及远”的思想异曲同工。
 
-1. 将遍历起始顶点 `startVet` 加入队列，并开启循环；
-2. 在循环的每轮迭代中，弹出队首顶点并记录访问，然后将该顶点的所有邻接顶点加入到队列尾部；
-3. 循环步骤 `2.` ，直到所有顶点被访问完成后结束；
+1. 将遍历起始顶点 `startVet` 加入队列，并开启循环。
+2. 在循环的每轮迭代中，弹出队首顶点并记录访问，然后将该顶点的所有邻接顶点加入到队列尾部。
+3. 循环步骤 `2.` ，直到所有顶点被访问完成后结束。
 
 为了防止重复遍历顶点，我们需要借助一个哈希表 `visited` 来记录哪些节点已被访问。
 
@@ -48,13 +48,13 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graphBFS}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="graph_bfs.js"
     [class]{}-[func]{graphBFS}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="graph_bfs.ts"
     [class]{}-[func]{graphBFS}
@@ -88,6 +88,12 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 
     ```dart title="graph_bfs.dart"
     [class]{}-[func]{graphBFS}
+    ```
+
+=== "Rust"
+
+    ```rust title="graph_bfs.rs"
+    [class]{}-[func]{graph_bfs}
     ```
 
 代码相对抽象，建议对照以下动画图示来加深理解。
@@ -177,7 +183,7 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graphDFS}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="graph_dfs.js"
     [class]{}-[func]{dfs}
@@ -185,7 +191,7 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graphDFS}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="graph_dfs.ts"
     [class]{}-[func]{dfs}
@@ -233,10 +239,18 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graphDFS}
     ```
 
+=== "Rust"
+
+    ```rust title="graph_dfs.rs"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{graph_dfs}
+    ```
+
 深度优先遍历的算法流程如下图所示，其中：
 
-- **直虚线代表向下递推**，表示开启了一个新的递归方法来访问新顶点；
-- **曲虚线代表向上回溯**，表示此递归方法已经返回，回溯到了开启此递归方法的位置；
+- **直虚线代表向下递推**，表示开启了一个新的递归方法来访问新顶点。
+- **曲虚线代表向上回溯**，表示此递归方法已经返回，回溯到了开启此递归方法的位置。
 
 为了加深理解，建议将图示与代码结合起来，在脑中（或者用笔画下来）模拟整个 DFS 过程，包括每个递归方法何时开启、何时返回。
 

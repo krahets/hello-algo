@@ -19,6 +19,10 @@ func PrintSlice[T any](nums []T) {
 
 // PrintList Print a list
 func PrintList(list *list.List) {
+	if list.Len() == 0 {
+		fmt.Print("[]\n")
+		return
+	}
 	e := list.Front()
 	// 强转为 string, 会影响效率
 	fmt.Print("[")
@@ -41,7 +45,7 @@ func PrintHeap(h []any) {
 	fmt.Printf("堆的数组表示：")
 	fmt.Printf("%v", h)
 	fmt.Printf("\n堆的树状表示：\n")
-	root := ArrToTree(h)
+	root := SliceToTree(h)
 	PrintTree(root)
 }
 

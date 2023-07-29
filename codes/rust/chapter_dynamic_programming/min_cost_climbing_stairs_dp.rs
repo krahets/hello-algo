@@ -9,7 +9,7 @@
 /* 爬楼梯最小代价：动态规划 */
 fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
     let n = cost.len() - 1;
-    if n == 1 || n == 2 { return cost[n] };
+    if n == 1 || n == 2 { return cost[n]; }
     // 初始化 dp 表，用于存储子问题的解
     let mut dp = vec![-1; n + 1];
     // 初始状态：预设最小子问题的解

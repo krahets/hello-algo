@@ -1,4 +1,4 @@
-// File: preorder_traversal_i_compact.go
+// File: preorder_traversal_iii_compact.go
 // Created Time: 2023-05-09
 // Author: Reanon (793584285@qq.com)
 
@@ -16,9 +16,11 @@ func preOrderIII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
 	}
 	// 尝试
 	*path = append(*path, root)
-	if int(root.Val) == 7 {
+	if root.Val.(int) == 7 {
 		// 记录解
 		*res = append(*res, *path)
+		*path = (*path)[:len(*path)-1]
+		return
 	}
 	preOrderIII(root.Left, res, path)
 	preOrderIII(root.Right, res, path)

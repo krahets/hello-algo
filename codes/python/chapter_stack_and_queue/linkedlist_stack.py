@@ -26,7 +26,7 @@ class LinkedListStack:
         """判断栈是否为空"""
         return not self.__peek
 
-    def push(self, val: int) -> None:
+    def push(self, val: int):
         """入栈"""
         node = ListNode(val)
         node.next = self.__peek

@@ -23,6 +23,8 @@ function preOrder(
     if (root.val === 7) {
         // 记录解
         res.push([...path]);
+        path.pop();
+        return;
     }
     preOrder(root.left, path, res);
     preOrder(root.right, path, res);
@@ -40,7 +42,7 @@ const path: TreeNode[] = [];
 const res: TreeNode[][] = [];
 preOrder(root, path, res);
 
-console.log('\n输出所有根节点到节点 7 的路径，且路径中不包含值为 3 的节点');
+console.log('\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

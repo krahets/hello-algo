@@ -58,7 +58,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 链表节点类 */
@@ -72,7 +72,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 链表节点类 */
@@ -111,8 +111,7 @@
 
     ```csharp title=""
     /* 链表节点类 */
-    class ListNode
-    {
+    class ListNode {
         int val;         // 节点值
         ListNode next;   // 指向下一节点的引用
         ListNode(int x) => val = x;  //构造函数
@@ -162,6 +161,12 @@
       ListNode? next; // 指向下一节点的指针（引用）
       ListNode(this.val, [this.next]); // 构造函数
     }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
     ```
 
 !!! question "尾节点指向什么？"
@@ -242,7 +247,7 @@
     n3.Next = n4
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
@@ -259,7 +264,7 @@
     n3.next = n4;
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
@@ -361,6 +366,12 @@
     n3.next = n4;
     ```
 
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+
+    ```
+
 ## 链表优点
 
 **链表中插入与删除节点的操作效率高**。例如，如果我们想在链表中间的两个节点 `A` , `B` 之间插入一个新节点 `P` ，我们只需要改变两个节点指针即可，时间复杂度为 $O(1)$ ；相比之下，数组的插入操作效率要低得多。
@@ -391,13 +402,13 @@
     [class]{}-[func]{insertNode}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{insert}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{insert}
@@ -430,6 +441,12 @@
 === "Dart"
 
     ```dart title="linked_list.dart"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
     [class]{}-[func]{insert}
     ```
 
@@ -461,13 +478,13 @@
     [class]{}-[func]{removeNode}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{remove}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{remove}
@@ -503,6 +520,12 @@
     [class]{}-[func]{remove}
     ```
 
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+    [class]{}-[func]{remove}
+    ```
+
 ## 链表缺点
 
 **链表访问节点效率较低**。如上节所述，数组可以在 $O(1)$ 时间下访问任意元素。然而，链表无法直接访问任意节点，这是因为系统需要从头节点出发，逐个向后遍历直至找到目标节点。例如，若要访问链表索引为 `index`（即第 `index + 1` 个）的节点，则需要向后遍历 `index` 轮。
@@ -531,13 +554,13 @@
     [class]{}-[func]{access}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{access}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{access}
@@ -570,6 +593,12 @@
 === "Dart"
 
     ```dart title="linked_list.dart"
+    [class]{}-[func]{access}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
     [class]{}-[func]{access}
     ```
 
@@ -603,13 +632,13 @@
     [class]{}-[func]{findNode}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{find}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{find}
@@ -642,6 +671,12 @@
 === "Dart"
 
     ```dart title="linked_list.dart"
+    [class]{}-[func]{find}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
     [class]{}-[func]{find}
     ```
 
@@ -708,7 +743,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 双向链表节点类 */
@@ -724,7 +759,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 双向链表节点类 */
@@ -824,4 +859,29 @@
     }
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)
+
+## 链表典型应用
+
+单向链表通常用于实现栈、队列、散列表和图等数据结构。
+
+- **栈与队列**：当插入和删除操作都在链表的一端进行时，它表现出先进后出的的特性，对应栈；当插入操作在链表的一端进行，删除操作在链表的另一端进行，它表现出先进先出的特性，对应队列。
+- **散列表**：链地址法是解决哈希冲突的主流方案之一，在该方案中，所有冲突的元素都会被放到一个链表中。
+- **图**：邻接表是表示图的一种常用方式，在其中，图的每个顶点都与一个链表相关联，链表中的每个元素都代表与该顶点相连的其他顶点。
+
+双向链表常被用于需要快速查找前一个和下一个元素的场景。
+
+- **高级数据结构**：比如在红黑树、B 树中，我们需要知道一个节点的父节点，这可以通过在节点中保存一个指向父节点的指针来实现，类似于双向链表。
+- **浏览器历史**：在网页浏览器中，当用户点击前进或后退按钮时，浏览器需要知道用户访问过的前一个和后一个网页。双向链表的特性使得这种操作变得简单。
+- **LRU 算法**：在缓存淘汰算法（LRU）中，我们需要快速找到最近最少使用的数据，以及支持快速地添加和删除节点。这时候使用双向链表就非常合适。
+
+循环链表常被用于需要周期性操作的场景，比如操作系统的资源调度。
+
+- **时间片轮转调度算法**：在操作系统中，时间片轮转调度算法是一种常见的 CPU 调度算法，它需要对一组进程进行循环。每个进程被赋予一个时间片，当时间片用完时，CPU 将切换到下一个进程。这种循环的操作就可以通过循环链表来实现。
+- **数据缓冲区**：在某些数据缓冲区的实现中，也可能会使用到循环链表。比如在音频、视频播放器中，数据流可能会被分成多个缓冲块并放入一个循环链表，以便实现无缝播放。

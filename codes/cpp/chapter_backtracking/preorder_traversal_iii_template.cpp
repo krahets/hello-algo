@@ -37,7 +37,6 @@ void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<ve
     if (isSolution(state)) {
         // 记录解
         recordSolution(state, res);
-        return;
     }
     // 遍历所有选择
     for (TreeNode *choice : choices) {
@@ -56,7 +55,7 @@ void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<ve
 
 /* Driver Code */
 int main() {
-    TreeNode *root = vecToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
+    TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
     cout << "\n初始化二叉树" << endl;
     printTree(root);
 

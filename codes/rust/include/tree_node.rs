@@ -1,27 +1,28 @@
-/**
+/*
  * File: tree_node.rs
  * Created Time: 2023-02-27
- * Author: xBLACKICEx (xBLACKICE@outlook.com)
+ * Author: xBLACKICEx (xBLACKICE@outlook.com), night-cruise (2586447362@qq.com)
  */
 
 use std::cell::RefCell;
-use std::collections::VecDeque;
 use std::rc::Rc;
 
-#[allow(dead_code)]
+/* 二叉树节点类型 */
+#[derive(Debug)]
 pub struct TreeNode {
     pub val: i32,
-    pub high: i32,
+    pub height: i32,
     pub parent: Option<Rc<RefCell<TreeNode>>>,
     pub left: Option<Rc<RefCell<TreeNode>>>,
     pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl TreeNode {
+    /* 构造方法 */
     pub fn new(val: i32) -> Rc<RefCell<Self>> {
         Rc::new(RefCell::new(Self {
             val,
-            high: 0,
+            height: 0,
             parent: None,
             left: None,
             right: None
@@ -38,63 +39,55 @@ macro_rules! op_vec {
     };
 }
 
-/// This function takes a vector of integers and generates a binary tree from it in a level order traversal manner.
-/// The first element of the vector is used as the root node of the tree. Each node in the tree is represented by a `TreeNode` struct that has a value and pointers to its left and right children.
-///
-/// # Arguments
-///
-/// * `list` - A vector of integers to be used to generate the binary tree.
-///
-/// # Returns
-///
-/// An `Option<Rc<RefCell<TreeNode>>>` where the `Option` is `None` if the vector is empty, and `Some` containing the root node of the tree otherwise.
-///
-/// # Examples
-///
-/// ```
-/// use std::rc::Rc;
-/// use std::cell::RefCell;
-/// use std::collections::VecDeque;
-///
-/// let list = vec![1, 2, 3, 4, 5, 6, 7];
-/// let root = vec_to_tree(list).unwrap();
-///
-/// // The resulting tree looks like:
-/// //
-/// //        1
-/// //       / \
-/// //      2   3
-/// //     / \ / \
-/// //    4   56  7
-/// ```
-pub fn vec_to_tree(list: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
-    if list.is_empty() {
+// 序列化编码规则请参考：
+// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
+// 二叉树的数组表示：
+// [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
+// 二叉树的链表表示：
+//             /——— 15
+//         /——— 7
+//     /——— 3
+//    |    \——— 6
+//    |        \——— 12
+// ——— 1
+//     \——— 2
+//        |    /——— 9
+//         \——— 4
+//             \——— 8
+
+/* 将列表反序列化为二叉树：递归 */
+fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>>> {
+    if i >= arr.len() || arr[i].is_none() {
         return None;
     }
-
-    let root = TreeNode::new(list[0].unwrap());
-    let mut que = VecDeque::new();
-    que.push_back(Rc::clone(&root));
-
-    let mut index = 0;
-    while let Some(node) = que.pop_front() {
-        index += 1;
-        if index >= list.len() {
-            break;
-        }
-        if let Some(val) = list[index] {
-            node.borrow_mut().left = Some(TreeNode::new(val));
-            que.push_back(Rc::clone(&node.borrow().left.as_ref().unwrap()));
-        }
-
-        index += 1;
-        if index >= list.len() {
-            break;
-        }
-        if let Some(val) = list[index] {
-            node.borrow_mut().right = Some(TreeNode::new(val));
-            que.push_back(Rc::clone(&node.borrow().right.as_ref().unwrap()));
-        }
-    }
+    let root = TreeNode::new(arr[i].unwrap());
+    root.borrow_mut().left = vec_to_tree_dfs(arr, 2 * i + 1);
+    root.borrow_mut().right = vec_to_tree_dfs(arr, 2 * i + 2);
     Some(root)
+}
+
+/* 将列表反序列化为二叉树 */
+pub fn vec_to_tree(arr: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
+    vec_to_tree_dfs(&arr, 0)
+}
+
+/* 将二叉树序列化为列表：递归 */
+fn tree_to_vec_dfs(root: Option<Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
+    if root.is_none() {
+        return;
+    }    
+    let root = root.unwrap();
+    while i >= res.len() {
+        res.push(None);
+    }
+    res[i] = Some(root.borrow().val);
+    tree_to_vec_dfs(root.borrow().left.clone(), 2 * i + 1, res);
+    tree_to_vec_dfs(root.borrow().right.clone(), 2 * i + 2, res);
+}
+
+/* 将二叉树序列化为列表 */
+pub fn tree_to_vec(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
+    let mut res = vec![];
+    tree_to_vec_dfs(root, 0, &mut res);
+    res
 }

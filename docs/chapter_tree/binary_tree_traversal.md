@@ -12,8 +12,6 @@
 
 ![二叉树的层序遍历](binary_tree_traversal.assets/binary_tree_bfs.png)
 
-### 算法实现
-
 广度优先遍历通常借助「队列」来实现。队列遵循“先进先出”的规则，而广度优先遍历则遵循“逐层推进”的规则，两者背后的思想是一致的。
 
 === "Java"
@@ -40,13 +38,13 @@
     [class]{}-[func]{levelOrder}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_tree_bfs.js"
     [class]{}-[func]{levelOrder}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_tree_bfs.ts"
     [class]{}-[func]{levelOrder}
@@ -82,7 +80,11 @@
     [class]{}-[func]{levelOrder}
     ```
 
-### 复杂度分析
+=== "Rust"
+
+    ```rust title="binary_tree_bfs.rs"
+    [class]{}-[func]{level_order}
+    ```
 
 **时间复杂度**：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
 
@@ -92,21 +94,11 @@
 
 相应地，前序、中序和后序遍历都属于「深度优先遍历 Depth-First Traversal」，它体现了一种“先走到尽头，再回溯继续”的遍历方式。
 
-如下图所示，左侧是深度优先遍历的示意图，右上方是对应的递归实现代码。深度优先遍历就像是绕着整个二叉树的外围“走”一圈，在这个过程中，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。
+如下图所示，左侧是深度优先遍历的示意图，右上方是对应的递归代码。深度优先遍历就像是绕着整个二叉树的外围“走”一圈，在这个过程中，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。
 
 ![二叉搜索树的前、中、后序遍历](binary_tree_traversal.assets/binary_tree_dfs.png)
 
-<div class="center-table" markdown>
-
-| 位置       | 含义                                 | 此处访问节点时对应            |
-| ---------- | ------------------------------------ | ----------------------------- |
-| 橙色圆圈处 | 刚进入此节点，即将访问该节点的左子树 | 前序遍历 Pre-Order Traversal  |
-| 蓝色圆圈处 | 已访问完左子树，即将访问右子树       | 中序遍历 In-Order Traversal   |
-| 紫色圆圈处 | 已访问完左子树和右子树，即将返回     | 后序遍历 Post-Order Traversal |
-
-</div>
-
-### 算法实现
+以下给出了实现代码，请配合上图理解深度优先遍历的递归过程。
 
 === "Java"
 
@@ -148,7 +140,7 @@
     [class]{}-[func]{postOrder}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_tree_dfs.js"
     [class]{}-[func]{preOrder}
@@ -158,7 +150,7 @@
     [class]{}-[func]{postOrder}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_tree_dfs.ts"
     [class]{}-[func]{preOrder}
@@ -218,11 +210,28 @@
     [class]{}-[func]{postOrder}
     ```
 
+=== "Rust"
+
+    ```rust title="binary_tree_dfs.rs"
+    [class]{}-[func]{pre_order}
+
+    [class]{}-[func]{in_order}
+
+    [class]{}-[func]{post_order}
+    ```
+
+**时间复杂度**：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
+
+**空间复杂度**：在最差情况下，即树退化为链表时，递归深度达到 $n$ ，系统占用 $O(n)$ 栈帧空间。
+
 !!! note
 
-    我们也可以仅基于循环实现前、中、后序遍历，有兴趣的同学可以自行实现。
+    我们也可以不使用递归，仅基于迭代实现前、中、后序遍历，有兴趣的同学可以自行研究。
 
-递归过程可分为“递”和“归”两个相反的部分。“递”表示开启新方法，程序在此过程中访问下一个节点；“归”表示函数返回，代表该节点已经访问完毕。如下图所示，为前序遍历二叉树的递归过程。
+下图展示了前序遍历二叉树的递归过程，其可分为“递”和“归”两个逆向的部分：
+
+1. “递”表示开启新方法，程序在此过程中访问下一个节点。
+2. “归”表示函数返回，代表当前节点已经访问完毕。
 
 === "<1>"
     ![前序遍历的递归过程](binary_tree_traversal.assets/preorder_step1.png)
@@ -256,9 +265,3 @@
 
 === "<11>"
     ![preorder_step11](binary_tree_traversal.assets/preorder_step11.png)
-
-### 复杂度分析
-
-**时间复杂度**：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
-
-**空间复杂度**：在最差情况下，即树退化为链表时，递归深度达到 $n$ ，系统占用 $O(n)$ 栈帧空间。

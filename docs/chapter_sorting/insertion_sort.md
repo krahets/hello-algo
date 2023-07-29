@@ -43,13 +43,13 @@
     [class]{}-[func]{insertionSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="insertion_sort.js"
     [class]{}-[func]{insertionSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="insertion_sort.ts"
     [class]{}-[func]{insertionSort}
@@ -83,6 +83,12 @@
 
     ```dart title="insertion_sort.dart"
     [class]{}-[func]{insertionSort}
+    ```
+
+=== "Rust"
+
+    ```rust title="insertion_sort.rs"
+    [class]{}-[func]{insertion_sort}
     ```
 
 ## 算法特性

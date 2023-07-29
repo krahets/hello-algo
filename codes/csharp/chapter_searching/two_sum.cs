@@ -17,7 +17,7 @@ public class two_sum {
                     return new int[] { i, j };
             }
         }
-        return new int[0];
+        return Array.Empty<int>();
     }
 
     /* 方法二：辅助哈希表 */
@@ -32,7 +32,7 @@ public class two_sum {
             }
             dic.Add(nums[i], i);
         }
-        return new int[0];
+        return Array.Empty<int>();
     }
 
     [Test]

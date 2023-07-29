@@ -18,7 +18,7 @@ class GraphAdjMat:
     # 邻接矩阵，行列索引对应“顶点索引”
     adj_mat: list[list[int]] = []
 
-    def __init__(self, vertices: list[int], edges: list[list[int]]) -> None:
+    def __init__(self, vertices: list[int], edges: list[list[int]]):
         """构造方法"""
         self.vertices: list[int] = []
         self.adj_mat: list[list[int]] = []
@@ -34,7 +34,7 @@ class GraphAdjMat:
         """获取顶点数量"""
         return len(self.vertices)
 
-    def add_vertex(self, val: int) -> None:
+    def add_vertex(self, val: int):
         """添加顶点"""
         n = self.size()
         # 向顶点列表中添加新顶点的值
@@ -46,7 +46,7 @@ class GraphAdjMat:
         for row in self.adj_mat:
             row.append(0)
 
-    def remove_vertex(self, index: int) -> None:
+    def remove_vertex(self, index: int):
         """删除顶点"""
         if index >= self.size():
             raise IndexError()
@@ -58,7 +58,7 @@ class GraphAdjMat:
         for row in self.adj_mat:
             row.pop(index)
 
-    def add_edge(self, i: int, j: int) -> None:
+    def add_edge(self, i: int, j: int):
         """添加边"""
         # 参数 i, j 对应 vertices 元素索引
         # 索引越界与相等处理
@@ -68,7 +68,7 @@ class GraphAdjMat:
         self.adj_mat[i][j] = 1
         self.adj_mat[j][i] = 1
 
-    def remove_edge(self, i: int, j: int) -> None:
+    def remove_edge(self, i: int, j: int):
         """删除边"""
         # 参数 i, j 对应 vertices 元素索引
         # 索引越界与相等处理
@@ -77,7 +77,7 @@ class GraphAdjMat:
         self.adj_mat[i][j] = 0
         self.adj_mat[j][i] = 0
 
-    def print(self) -> None:
+    def print(self):
         """打印邻接矩阵"""
         print("顶点列表 =", self.vertices)
         print("邻接矩阵 =")

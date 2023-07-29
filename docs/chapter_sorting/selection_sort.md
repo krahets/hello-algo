@@ -69,13 +69,13 @@
     [class]{}-[func]{selectionSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="selection_sort.js"
     [class]{}-[func]{selectionSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="selection_sort.ts"
     [class]{}-[func]{selectionSort}
@@ -109,6 +109,12 @@
 
     ```dart title="selection_sort.dart"
     [class]{}-[func]{selectionSort}
+    ```
+
+=== "Rust"
+
+    ```rust title="selection_sort.rs"
+    [class]{}-[func]{selection_sort}
     ```
 
 ## 算法特性

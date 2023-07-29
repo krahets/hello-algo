@@ -34,7 +34,7 @@ pub fn main() {
     // 初始化哈希表
     let mut map = HashMap::new();
     for (i, num) in nums.iter().enumerate() {
-        map.insert(*num, i);
+        map.insert(*num, i); // key: 元素，value: 索引
     }
     let index = hashing_search_array(&map, target);
     println!("目标元素 3 的索引 = {}", index.unwrap());

@@ -4,15 +4,15 @@
 
 **基本数据类型是 CPU 可以直接进行运算的类型，在算法中直接被使用**。它包括：
 
-- 整数类型 `byte` , `short` , `int` , `long` ；
-- 浮点数类型 `float` , `double` ，用于表示小数；
-- 字符类型 `char` ，用于表示各种语言的字母、标点符号、甚至表情符号等；
-- 布尔类型 `bool` ，用于表示“是”与“否”判断；
+- 整数类型 `byte` , `short` , `int` , `long` 。
+- 浮点数类型 `float` , `double` ，用于表示小数。
+- 字符类型 `char` ，用于表示各种语言的字母、标点符号、甚至表情符号等。
+- 布尔类型 `bool` ，用于表示“是”与“否”判断。
 
 **所有基本数据类型都以二进制的形式存储在计算机中**。在计算机中，我们将 $1$ 个二进制位称为 $1$ 比特，并规定 $1$ 字节（byte）由 $8$ 比特（bits）组成。基本数据类型的取值范围取决于其占用的空间大小，例如：
 
-- 整数类型 `byte` 占用 $1$ byte = $8$ bits ，可以表示 $2^{8}$ 个不同的数字；
-- 整数类型 `int` 占用 $4$ bytes = $32$ bits ，可以表示 $2^{32}$ 个数字；
+- 整数类型 `byte` 占用 $1$ byte = $8$ bits ，可以表示 $2^{8}$ 个不同的数字。
+- 整数类型 `int` 占用 $4$ bytes = $32$ bits ，可以表示 $2^{32}$ 个数字。
 
 下表列举了各种基本数据类型的占用空间、取值范围和默认值。此表格无需硬背，大致理解即可，需要时可以通过查表来回忆。
 
@@ -44,7 +44,7 @@
 === "Java"
 
     ```java title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     int[] numbers = new int[5];
     float[] decimals = new float[5];
     char[] characters = new char[5];
@@ -54,7 +54,7 @@
 === "C++"
 
     ```cpp title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     int numbers[5];
     float decimals[5];
     char characters[5];
@@ -78,17 +78,17 @@
     var booleans = [5]bool{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
-    /* JavaScript 的数组可以自由存储各种基本数据类型和对象 */
+    // JavaScript 的数组可以自由存储各种基本数据类型和对象
     const array = [0, 0.0, 'a', false];
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     const numbers: number[] = [];
     const characters: string[] = [];
     const booleans: boolean[] = [];
@@ -97,7 +97,7 @@
 === "C"
 
     ```c title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     int numbers[10];
     float decimals[10];
     char characters[10];
@@ -107,7 +107,7 @@
 === "C#"
 
     ```csharp title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     int[] numbers = new int[5];
     float[] decimals = new float[5];
     char[] characters = new char[5];
@@ -117,7 +117,7 @@
 === "Swift"
 
     ```swift title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     let numbers = Array(repeating: Int(), count: 5)
     let decimals = Array(repeating: Double(), count: 5)
     let characters = Array(repeating: Character("a"), count: 5)
@@ -133,9 +133,15 @@
 === "Dart"
 
     ```dart title=""
-    /* 使用多种「基本数据类型」来初始化「数组」 */
+    // 使用多种基本数据类型来初始化数组
     List<int> numbers = List.filled(5, 0);
     List<double> decimals = List.filled(5, 0.0);
     List<String> characters = List.filled(5, 'a');
     List<bool> booleans = List.filled(5, false);
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
     ```

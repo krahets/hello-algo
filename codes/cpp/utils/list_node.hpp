@@ -7,6 +7,8 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
 /* Definition for a singly-linked list node */

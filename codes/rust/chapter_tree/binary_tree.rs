@@ -10,7 +10,8 @@ use tree_node::TreeNode;
 
 /* Driver Code */
 fn main() {
-    // 初始化二叉树
+    /* 初始化二叉树 */
+    // 初始化节点
     let n1 = TreeNode::new(1);
     let n2 = TreeNode::new(2);
     let n3 = TreeNode::new(3);

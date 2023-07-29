@@ -10,14 +10,14 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
 
-def insert(n0: ListNode, P: ListNode) -> None:
+def insert(n0: ListNode, P: ListNode):
     """在链表的节点 n0 之后插入节点 P"""
     n1 = n0.next
     P.next = n1
     n0.next = P
 
 
-def remove(n0: ListNode) -> None:
+def remove(n0: ListNode):
     """删除链表的节点 n0 之后的首个节点"""
     if not n0.next:
         return

@@ -8,9 +8,9 @@
 
 除哈希表外，我们还可以使用数组或链表实现查询功能。若将学生数据看作数组（链表）元素，则有：
 
-- **添加元素**：仅需将元素添加至数组（链表）的尾部即可，使用 $O(1)$ 时间；
-- **查询元素**：由于数组（链表）是乱序的，因此需要遍历数组（链表）中的所有元素，使用 $O(n)$ 时间；
-- **删除元素**：需要先查询到元素，再从数组中删除，使用 $O(n)$ 时间；
+- **添加元素**：仅需将元素添加至数组（链表）的尾部即可，使用 $O(1)$ 时间。
+- **查询元素**：由于数组（链表）是乱序的，因此需要遍历其中的所有元素，使用 $O(n)$ 时间。
+- **删除元素**：需要先查询到元素，再从数组中删除，使用 $O(n)$ 时间。
 
 <div class="center-table" markdown>
 
@@ -22,7 +22,7 @@
 
 </div>
 
-观察发现，**在哈希表中进行增删查改的时间复杂度都是 $O(1)$** ，非常高效。因此，哈希表常用于对查找效率要求较高的场景。
+观察发现，**在哈希表中进行增删查改的时间复杂度都是 $O(1)$** ，非常高效。
 
 ## 哈希表常用操作
 
@@ -120,7 +120,7 @@
     delete(mapp, 10583)
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hash_map.js"
     /* 初始化哈希表 */
@@ -142,7 +142,7 @@
     map.delete(10583);
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hash_map.ts"
     /* 初始化哈希表 */
@@ -250,6 +250,12 @@
     map.remove(10583);
     ```
 
+=== "Rust"
+
+    ```rust title="hash_map.rs"
+
+    ```
+
 哈希表有三种常用遍历方式：遍历键值对、遍历键和遍历值。
 
 === "Java"
@@ -321,7 +327,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hash_map.js"
     /* 遍历哈希表 */
@@ -339,7 +345,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hash_map.ts"
     /* 遍历哈希表 */
@@ -368,18 +374,15 @@
     ```csharp title="hash_map.cs"
     /* 遍历哈希表 */
     // 遍历键值对 Key->Value
-    foreach (var kv in map)
-    {
+    foreach (var kv in map) {
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
     // 单独遍历键 key
-    foreach (int key in map.Keys)
-    {
+    foreach (int key in map.Keys) {
         Console.WriteLine(key);
     }
     // 单独遍历值 value
-    foreach (String val in map.Values)
-    {
+    foreach (String val in map.Values) {
         Console.WriteLine(val);
     }
     ```
@@ -428,13 +431,22 @@
     });
     ```
 
+=== "Rust"
+
+    ```rust title="hash_map.rs"
+
+    ```
+
 ## 哈希表简单实现
 
 我们先考虑最简单的情况，**仅用一个数组来实现哈希表**。在哈希表中，我们将数组中的每个空位称为「桶 Bucket」，每个桶可存储一个键值对。因此，查询操作就是找到 `key` 对应的桶，并在桶中获取 `value` 。
 
 那么，如何基于 `key` 来定位对应的桶呢？这是通过「哈希函数 Hash Function」实现的。哈希函数的作用是将一个较大的输入空间映射到一个较小的输出空间。在哈希表中，输入空间是所有 `key` ，输出空间是所有桶（数组索引）。换句话说，输入一个 `key` ，**我们可以通过哈希函数得到该 `key` 对应的键值对在数组中的存储位置**。
 
-输入一个 `key` ，哈希函数的计算过程分为两步：首先，通过哈希算法 `hash()` 计算得到哈希值；接下来，将哈希值对桶数量（数组长度）`capacity` 取模，从而获取该 `key` 对应的数组索引 `index` 。
+输入一个 `key` ，哈希函数的计算过程分为两步：
+
+1. 通过某种哈希算法 `hash()` 计算得到哈希值。
+2. 将哈希值对桶数量（数组长度）`capacity` 取模，从而获取该 `key` 对应的数组索引 `index` 。
 
 ```shell
 index = hash(key) % capacity
@@ -446,7 +458,7 @@ index = hash(key) % capacity
 
 ![哈希函数工作原理](hash_map.assets/hash_function.png)
 
-以下代码给出了一个简单哈希表实现。其中，我们将 `key` 和 `value` 封装成一个类 `Pair` ，以表示键值对。
+以下代码实现了一个简单哈希表。其中，我们将 `key` 和 `value` 封装成一个类 `Pair` ，以表示键值对。
 
 === "Java"
 
@@ -480,7 +492,7 @@ index = hash(key) % capacity
     [class]{arrayHashMap}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_hash_map.js"
     [class]{Pair}-[func]{}
@@ -488,7 +500,7 @@ index = hash(key) % capacity
     [class]{ArrayHashMap}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_hash_map.ts"
     [class]{Pair}-[func]{}
@@ -545,15 +557,23 @@ index = hash(key) % capacity
     [class]{ArrayHashMap}-[func]{}
     ```
 
+=== "Rust"
+
+    ```rust title="array_hash_map.rs"
+    [class]{Pair}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
+    ```
+
 ## 哈希冲突与扩容
 
-本质上看，哈希函数的作用是将输入空间（`key` 范围）映射到输出空间（数组索引范围），而输入空间往往远大于输出空间。因此，**理论上一定存在“多个输入对应相同输出”的情况**。
+本质上看，哈希函数的作用是将所有 `key` 构成的输入空间映射到数组所有索引构成的输出空间，而输入空间往往远大于输出空间。因此，**理论上一定存在“多个输入对应相同输出”的情况**。
 
 对于上述示例中的哈希函数，当输入的 `key` 后两位相同时，哈希函数的输出结果也相同。例如，查询学号为 12836 和 20336 的两个学生时，我们得到：
 
 ```shell
-12386 % 100 = 36
-20386 % 100 = 36
+12836 % 100 = 36
+20336 % 100 = 36
 ```
 
 如下图所示，两个学号指向了同一个姓名，这显然是不对的。我们将这种多个输入对应同一输出的情况称为「哈希冲突 Hash Collision」。
@@ -564,6 +584,6 @@ index = hash(key) % capacity
 
 ![哈希表扩容](hash_map.assets/hash_table_reshash.png)
 
-类似于数组扩容，哈希表扩容需将所有键值对从原哈希表迁移至新哈希表，非常耗时。并且由于哈希表容量 `capacity` 改变，我们需要重新计算所有键值对的存储位置，进一步提高了扩容过程的计算开销。因此，编程语言通常会预留足够大的哈希表容量，防止频繁扩容。
+类似于数组扩容，哈希表扩容需将所有键值对从原哈希表迁移至新哈希表，非常耗时。并且由于哈希表容量 `capacity` 改变，我们需要通过哈希函数来重新计算所有键值对的存储位置，这进一步提高了扩容过程的计算开销。为此，编程语言通常会预留足够大的哈希表容量，防止频繁扩容。
 
-在哈希表中，「负载因子 Load Factor」是一个重要概念，其定义为哈希表的元素数量除以桶数量，为了衡量哈希冲突的严重程度，**也常被作为哈希表扩容的触发条件**。例如在 Java 中，当负载因子超过 $0.75$ 时，系统会将哈希表容量扩展为原先的 $2$ 倍。
+「负载因子 Load Factor」是哈希表的一个重要概念，其定义为哈希表的元素数量除以桶数量，用于衡量哈希冲突的严重程度，**也常被作为哈希表扩容的触发条件**。例如在 Java 中，当负载因子超过 $0.75$ 时，系统会将哈希表容量扩展为原先的 $2$ 倍。

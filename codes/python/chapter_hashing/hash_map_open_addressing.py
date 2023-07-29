@@ -93,7 +93,7 @@ class HashMapOpenAddressing:
             if pair not in [None, self.removed]:
                 self.put(pair.key, pair.val)
 
-    def print(self) -> None:
+    def print(self):
         """打印哈希表"""
         for pair in self.buckets:
             if pair is not None:
