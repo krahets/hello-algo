@@ -1,0 +1,8 @@
+add_executable(permutations_i permutations_i.c)
+add_executable(preorder_traversal_i_compact preorder_traversal_i_compact.c)
+add_executable(preorder_traversal_ii_compact preorder_traversal_ii_compact.c)
+add_executable(preorder_traversal_iii_compact preorder_traversal_iii_compact.c)
+add_executable(preorder_traversal_iii_template preorder_traversal_iii_template.c)
+add_executable(subset_sum_i_naive subset_sum_i_naive.c)
+add_executable(subset_sum_i subset_sum_i.c)
+add_executable(subset_sum_ii subset_sum_ii.c)
