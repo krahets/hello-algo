@@ -12,9 +12,9 @@ void backtrack(vector *state, vector *choices, vector *selected, vector *res) {
     if (state->size == choices->size) {
         vector *newState = newVector();
         for (int i = 0; i < state->size; i++) {
-            vectorPushback(newState, state->data[i]);
+            vectorPushback(newState, state->data[i], sizeof(int));
         }
-        vectorPushback(res, newState);
+        vectorPushback(res, newState, sizeof(vector));
         return;
     }
     // 遍历所有选择
@@ -26,7 +26,7 @@ void backtrack(vector *state, vector *choices, vector *selected, vector *res) {
         if (!select) {
             // 尝试：做出选择，更新状态
             *((bool *)selected->data[i]) = true;
-            vectorPushback(state, choice);
+            vectorPushback(state, choice, sizeof(int));
             // 进行下一轮选择
             backtrack(state, choices, selected, res);
             // 回退：撤销选择，恢复到之前的状态
@@ -43,7 +43,7 @@ vector *permutationsI(vector *nums) {
     int select[3] = {false, false, false};
     vector *bSelected = newVector();
     for (int i = 0; i < nums->size; i++) {
-        vectorPushback(bSelected, &select[i]);
+        vectorPushback(bSelected, &select[i], sizeof(int));
     }
 
     vector *res = newVector();
@@ -55,8 +55,8 @@ vector *permutationsI(vector *nums) {
 
 /* 打印向量中的元素 */
 void printFunc(vector *v, void *p) {
-	TreeNode *node = p;
-	printf("%d", node->val);
+    int *node = p;
+    printf("%d", *node);
 }
 
 /* Driver Code */
@@ -64,7 +64,7 @@ int main() {
     int nums[] = {1, 2, 3};
     vector *iNums = newVector(); // int
     for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
-        vectorPushback(iNums, &nums[i]);
+        vectorPushback(iNums, &nums[i], sizeof(int));
     }
 
     vector *res = permutationsI(iNums);
@@ -76,6 +76,7 @@ int main() {
     printVectorMatrix(res, printFunc);
 
     // 释放内存
+    delVector(iNums);
     delVector(res);
     return 0;
 }

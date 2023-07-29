@@ -12,9 +12,9 @@ void backtrack(vector *state, int target, int total, vector *choices, vector *re
     if (total == target) {
         vector *tmpVector = newVector();
         for (int i = 0; i < state->size; i++) {
-            vectorPushback(tmpVector, state->data[i]);
+            vectorPushback(tmpVector, state->data[i], sizeof(int));
         }
-        vectorPushback(res, tmpVector);
+        vectorPushback(res, tmpVector, sizeof(vector));
         return;
     }
     // 遍历所有选择
@@ -24,7 +24,7 @@ void backtrack(vector *state, int target, int total, vector *choices, vector *re
             continue;
         }
         // 尝试：做出选择，更新元素和 total
-        vectorPushback(state, choices->data[i]);
+        vectorPushback(state, choices->data[i], sizeof(int));
         // 进行下一轮选择
         backtrack(state, target, total + *(int *)(choices->data[i]), choices, res);
         // 回退：撤销选择，恢复到之前的状态
@@ -43,27 +43,28 @@ vector *subsetSumINaive(vector *nums, int target) {
 
 /* 打印向量中的元素 */
 void printFunc(vector *v, void *p) {
-    TreeNode *node = p;
-    printf("%d", node->val);
+    int *node = p;
+    printf("%d", *node);
 }
 
 /* Driver Code */
 int main() {
     int nums[] = {3, 4, 5};
-    vector *vNums = newVector();
+    vector *iNums = newVector();
     for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
-        vectorPushback(vNums, &nums[i]);
+        vectorPushback(iNums, &nums[i], sizeof(int));
     }
     int target = 9;
 
-    vector *res = subsetSumINaive(vNums, target);
+    vector *res = subsetSumINaive(iNums, target);
 
     printf("输入数组 nums = ");
-    printVector(vNums, printFunc);
+    printVector(iNums, printFunc);
     printf("target = %d\n", target);
     printf("所有和等于 %d 的子集 res = \r\n", target);
     printVectorMatrix(res, printFunc);
 
+    delVector(iNums);
     delVector(res);
     return 0;
 }

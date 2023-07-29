@@ -48,18 +48,21 @@ void delVector(vector *v) {
     }
 }
 
-/*  添加元素到向量尾部 */
-void vectorPushback(vector *v, void *elem) {
+/*  添加元素(拷贝方式）到向量尾部 */
+void vectorPushback(vector *v, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         v->capacity *= 2;
         v->data = realloc(v->data, v->capacity * sizeof(void *));
     }
-    v->data[v->size++] = elem;
+    void *tmp = malloc(sizeof(char) * elemSize);
+    memcpy(tmp, elem, elemSize);
+    v->data[v->size++] = tmp;
 }
 
 /* 从向量尾部弹出元素 */
 void vectorPopback(vector *v) {
     if (v->size != 0) {
+        free(v->data[v->size - 1]);
         v->size--;
     }
 }
@@ -96,15 +99,15 @@ void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
             return;
         } else if (v->depth == 1) {
             for (int i = 0; i < v->size; i++) {
-				if (i == 0) {
-					printf("[");
-				} else if (i == v->size-1) {
-					printFunc(v, v->data[i]);
-					printf("]\r\n");
-					break;
-				}
-				printFunc(v, v->data[i]);
-				printf(",");
+                if (i == 0) {
+                    printf("[");
+                } else if (i == v->size - 1) {
+                    printFunc(v, v->data[i]);
+                    printf("]\r\n");
+                    break;
+                }
+                printFunc(v, v->data[i]);
+                printf(",");
             }
         } else {
             for (int i = 0; i < v->size; i++) {
@@ -117,19 +120,19 @@ void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
 
 /* 当前仅支持打印深度为 2 的 vector */
 void printVectorMatrix(vector *vv, void (*printFunc)(vector *v, void *p)) {
-	printf("[\n");
-	for (int i = 0; i < vv->size; i++) {
-		vector *v = (vector *)vv->data[i];
-		printf("  [");
-		for (int j = 0; j < v->size; j++) {
-			printFunc(v, v->data[j]);
-			if (j != v->size -1)
-				printf(",");
-		}
-		printf("],");
-		printf("\n");
-	}
-	printf("]\n");
+    printf("[\n");
+    for (int i = 0; i < vv->size; i++) {
+        vector *v = (vector *)vv->data[i];
+        printf("  [");
+        for (int j = 0; j < v->size; j++) {
+            printFunc(v, v->data[j]);
+            if (j != v->size - 1)
+                printf(",");
+        }
+        printf("],");
+        printf("\n");
+    }
+    printf("]\n");
 }
 
 #ifdef __cplusplus
