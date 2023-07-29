@@ -8,9 +8,9 @@
 
 除哈希表外，我们还可以使用数组或链表实现查询功能。若将学生数据看作数组（链表）元素，则有：
 
-- **添加元素**：仅需将元素添加至数组（链表）的尾部即可，使用 $O(1)$ 时间；
-- **查询元素**：由于数组（链表）是乱序的，因此需要遍历其中的所有元素，使用 $O(n)$ 时间；
-- **删除元素**：需要先查询到元素，再从数组中删除，使用 $O(n)$ 时间；
+- **添加元素**：仅需将元素添加至数组（链表）的尾部即可，使用 $O(1)$ 时间。
+- **查询元素**：由于数组（链表）是乱序的，因此需要遍历其中的所有元素，使用 $O(n)$ 时间。
+- **删除元素**：需要先查询到元素，再从数组中删除，使用 $O(n)$ 时间。
 
 <div class="center-table" markdown>
 
@@ -120,7 +120,7 @@
     delete(mapp, 10583)
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hash_map.js"
     /* 初始化哈希表 */
@@ -142,7 +142,7 @@
     map.delete(10583);
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hash_map.ts"
     /* 初始化哈希表 */
@@ -250,6 +250,12 @@
     map.remove(10583);
     ```
 
+=== "Rust"
+
+    ```rust title="hash_map.rs"
+
+    ```
+
 哈希表有三种常用遍历方式：遍历键值对、遍历键和遍历值。
 
 === "Java"
@@ -321,7 +327,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hash_map.js"
     /* 遍历哈希表 */
@@ -339,7 +345,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hash_map.ts"
     /* 遍历哈希表 */
@@ -368,18 +374,15 @@
     ```csharp title="hash_map.cs"
     /* 遍历哈希表 */
     // 遍历键值对 Key->Value
-    foreach (var kv in map)
-    {
+    foreach (var kv in map) {
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
     // 单独遍历键 key
-    foreach (int key in map.Keys)
-    {
+    foreach (int key in map.Keys) {
         Console.WriteLine(key);
     }
     // 单独遍历值 value
-    foreach (String val in map.Values)
-    {
+    foreach (String val in map.Values) {
         Console.WriteLine(val);
     }
     ```
@@ -428,6 +431,12 @@
     });
     ```
 
+=== "Rust"
+
+    ```rust title="hash_map.rs"
+
+    ```
+
 ## 哈希表简单实现
 
 我们先考虑最简单的情况，**仅用一个数组来实现哈希表**。在哈希表中，我们将数组中的每个空位称为「桶 Bucket」，每个桶可存储一个键值对。因此，查询操作就是找到 `key` 对应的桶，并在桶中获取 `value` 。
@@ -436,8 +445,8 @@
 
 输入一个 `key` ，哈希函数的计算过程分为两步：
 
-1. 通过某种哈希算法 `hash()` 计算得到哈希值；
-2. 将哈希值对桶数量（数组长度）`capacity` 取模，从而获取该 `key` 对应的数组索引 `index` ；
+1. 通过某种哈希算法 `hash()` 计算得到哈希值。
+2. 将哈希值对桶数量（数组长度）`capacity` 取模，从而获取该 `key` 对应的数组索引 `index` 。
 
 ```shell
 index = hash(key) % capacity
@@ -483,7 +492,7 @@ index = hash(key) % capacity
     [class]{arrayHashMap}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_hash_map.js"
     [class]{Pair}-[func]{}
@@ -491,7 +500,7 @@ index = hash(key) % capacity
     [class]{ArrayHashMap}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_hash_map.ts"
     [class]{Pair}-[func]{}
@@ -543,6 +552,14 @@ index = hash(key) % capacity
 === "Dart"
 
     ```dart title="array_hash_map.dart"
+    [class]{Pair}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="array_hash_map.rs"
     [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}

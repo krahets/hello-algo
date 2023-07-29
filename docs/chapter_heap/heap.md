@@ -2,8 +2,8 @@
 
 「堆 Heap」是一种满足特定条件的完全二叉树，可分为两种类型：
 
-- 「大顶堆 Max Heap」，任意节点的值 $\geq$ 其子节点的值；
-- 「小顶堆 Min Heap」，任意节点的值 $\leq$ 其子节点的值；
+- 「大顶堆 Max Heap」，任意节点的值 $\geq$ 其子节点的值。
+- 「小顶堆 Min Heap」，任意节点的值 $\leq$ 其子节点的值。
 
 ![小顶堆与大顶堆](heap.assets/min_heap_and_max_heap.png)
 
@@ -234,13 +234,13 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="heap.js"
     // JavaScript 未提供内置 Heap 类
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="heap.ts"
     // TypeScript 未提供内置 Heap 类
@@ -307,6 +307,12 @@
     // Dart 未提供内置 Heap 类
     ```
 
+=== "Rust"
+
+    ```rust title="heap.rs"
+
+    ```
+
 ## 堆的实现
 
 下文实现的是大顶堆。若要将其转换为小顶堆，只需将所有大小逻辑判断取逆（例如，将 $\geq$ 替换为 $\leq$ ）。感兴趣的读者可以自行实现。
@@ -363,7 +369,7 @@
     [class]{maxHeap}-[func]{parent}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{#left}
@@ -373,7 +379,7 @@
     [class]{MaxHeap}-[func]{#parent}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     [class]{MaxHeap}-[func]{left}
@@ -433,6 +439,16 @@
     [class]{MaxHeap}-[func]{_parent}
     ```
 
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    [class]{MaxHeap}-[func]{left}
+
+    [class]{MaxHeap}-[func]{right}
+
+    [class]{MaxHeap}-[func]{parent}
+    ```
+
 ### 访问堆顶元素
 
 堆顶元素即为二叉树的根节点，也就是列表的首个元素。
@@ -461,13 +477,13 @@
     [class]{maxHeap}-[func]{peek}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{peek}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     [class]{MaxHeap}-[func]{peek}
@@ -500,6 +516,12 @@
 === "Dart"
 
     ```dart title="my_heap.dart"
+    [class]{MaxHeap}-[func]{peek}
+    ```
+
+=== "Rust"
+
+    ```rust title="my_heap.rs"
     [class]{MaxHeap}-[func]{peek}
     ```
 
@@ -570,7 +592,7 @@
     [class]{maxHeap}-[func]{siftUp}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{push}
@@ -578,7 +600,7 @@
     [class]{MaxHeap}-[func]{#siftUp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     [class]{MaxHeap}-[func]{push}
@@ -626,13 +648,21 @@
     [class]{MaxHeap}-[func]{siftUp}
     ```
 
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    [class]{MaxHeap}-[func]{push}
+
+    [class]{MaxHeap}-[func]{sift_up}
+    ```
+
 ### 堆顶元素出堆
 
 堆顶元素是二叉树的根节点，即列表首元素。如果我们直接从列表中删除首元素，那么二叉树中所有节点的索引都会发生变化，这将使得后续使用堆化修复变得困难。为了尽量减少元素索引的变动，我们采取以下操作步骤：
 
-1. 交换堆顶元素与堆底元素（即交换根节点与最右叶节点）；
-2. 交换完成后，将堆底从列表中删除（注意，由于已经交换，实际上删除的是原来的堆顶元素）；
-3. 从根节点开始，**从顶至底执行堆化**；
+1. 交换堆顶元素与堆底元素（即交换根节点与最右叶节点）。
+2. 交换完成后，将堆底从列表中删除（注意，由于已经交换，实际上删除的是原来的堆顶元素）。
+3. 从根节点开始，**从顶至底执行堆化**。
 
 顾名思义，**从顶至底堆化的操作方向与从底至顶堆化相反**，我们将根节点的值与其两个子节点的值进行比较，将最大的子节点与根节点交换；然后循环执行此操作，直到越过叶节点或遇到无需交换的节点时结束。
 
@@ -700,7 +730,7 @@
     [class]{maxHeap}-[func]{siftDown}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{pop}
@@ -708,7 +738,7 @@
     [class]{MaxHeap}-[func]{#siftDown}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="my_heap.ts"
     [class]{MaxHeap}-[func]{pop}
@@ -754,6 +784,14 @@
     [class]{MaxHeap}-[func]{pop}
 
     [class]{MaxHeap}-[func]{siftDown}
+    ```
+
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    [class]{MaxHeap}-[func]{pop}
+
+    [class]{MaxHeap}-[func]{sift_down}
     ```
 
 ## 堆常见应用

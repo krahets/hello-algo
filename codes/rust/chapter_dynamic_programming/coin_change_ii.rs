@@ -29,7 +29,7 @@ fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
 }
 
 /* 零钱兑换 II：状态压缩后的动态规划 */
-fn coin_change_dp_ii_comp(coins: &[i32], amt: usize) -> i32 {
+fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
     let n = coins.len();
     // 初始化 dp 表
     let mut dp = vec![0; amt + 1];

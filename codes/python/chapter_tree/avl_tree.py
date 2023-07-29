@@ -88,7 +88,7 @@ class AVLTree:
         # 平衡树，无需旋转，直接返回
         return node
 
-    def insert(self, val) -> None:
+    def insert(self, val):
         """插入节点"""
         self.root = self.__insert_helper(self.root, val)
 
@@ -109,7 +109,7 @@ class AVLTree:
         # 2. 执行旋转操作，使该子树重新恢复平衡
         return self.__rotate(node)
 
-    def remove(self, val: int) -> None:
+    def remove(self, val: int):
         """删除节点"""
         self.root = self.__remove_helper(self.root, val)
 

@@ -20,14 +20,14 @@
 
 根据定义，`preorder` 和 `inorder` 都可以被划分为三个部分：
 
-- 前序遍历：`[ 根节点 | 左子树 | 右子树 ]` ，例如上图 `[ 3 | 9 | 2 1 7 ]` ；
-- 中序遍历：`[ 左子树 | 根节点 ｜ 右子树 ]` ，例如上图 `[ 9 | 3 | 1 2 7 ]` ；
+- 前序遍历：`[ 根节点 | 左子树 | 右子树 ]` ，例如上图 `[ 3 | 9 | 2 1 7 ]` 。
+- 中序遍历：`[ 左子树 | 根节点 ｜ 右子树 ]` ，例如上图 `[ 9 | 3 | 1 2 7 ]` 。
 
 以上图数据为例，我们可以通过以下步骤得到上述的划分结果：
 
-1. 前序遍历的首元素 3 是根节点的值；
-2. 查找根节点 3 在 `inorder` 中的索引，利用该索引可将 `inorder` 划分为 `[ 9 | 3 ｜ 1 2 7 ]` ；
-3. 根据 `inorder` 划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 `preorder` 划分为 `[ 3 | 9 | 2 1 7 ]` ；
+1. 前序遍历的首元素 3 是根节点的值。
+2. 查找根节点 3 在 `inorder` 中的索引，利用该索引可将 `inorder` 划分为 `[ 9 | 3 ｜ 1 2 7 ]` 。
+3. 根据 `inorder` 划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 `preorder` 划分为 `[ 3 | 9 | 2 1 7 ]` 。
 
 ![在前序和中序遍历中划分子树](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
 
@@ -35,9 +35,9 @@
 
 根据以上划分方法，**我们已经得到根节点、左子树、右子树在 `preorder` 和 `inorder` 中的索引区间**。而为了描述这些索引区间，我们需要借助几个指针变量：
 
-- 将当前树的根节点在 `preorder` 中的索引记为 $i$ ；
-- 将当前树的根节点在 `inorder` 中的索引记为 $m$ ；
-- 将当前树在 `inorder` 中的索引区间记为 $[l, r]$ ；
+- 将当前树的根节点在 `preorder` 中的索引记为 $i$ 。
+- 将当前树的根节点在 `inorder` 中的索引记为 $m$ 。
+- 将当前树在 `inorder` 中的索引区间记为 $[l, r]$ 。
 
 如下表所示，通过以上变量即可表示根节点在 `preorder` 中的索引，以及子树在 `inorder` 中的索引区间。
 
@@ -91,7 +91,7 @@
     [class]{}-[func]{buildTree}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="build_tree.js"
     [class]{}-[func]{dfs}
@@ -99,7 +99,7 @@
     [class]{}-[func]{buildTree}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="build_tree.ts"
     [class]{}-[func]{dfs}
@@ -145,6 +145,14 @@
     [class]{}-[func]{dfs}
 
     [class]{}-[func]{buildTree}
+    ```
+
+=== "Rust"
+
+    ```rust title="build_tree.rs"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{build_tree}
     ```
 
 下图展示了构建二叉树的递归过程，各个节点是在向下“递”的过程中建立的，而各条边（即引用）是在向上“归”的过程中建立的。

@@ -55,13 +55,13 @@
     [class]{hashMapChaining}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hash_map_chaining.js"
     [class]{HashMapChaining}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hash_map_chaining.ts"
     [class]{HashMapChaining}-[func]{}
@@ -94,6 +94,12 @@
 === "Dart"
 
     ```dart title="hash_map_chaining.dart"
+    [class]{HashMapChaining}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="hash_map_chaining.rs"
     [class]{HashMapChaining}-[func]{}
     ```
 
@@ -148,13 +154,13 @@
     [class]{hashMapOpenAddressing}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="hash_map_open_addressing.js"
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="hash_map_open_addressing.ts"
     [class]{HashMapOpenAddressing}-[func]{}
@@ -187,6 +193,12 @@
 === "Dart"
 
     ```dart title="hash_map_open_addressing.dart"
+    [class]{HashMapOpenAddressing}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="hash_map_open_addressing.rs"
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 

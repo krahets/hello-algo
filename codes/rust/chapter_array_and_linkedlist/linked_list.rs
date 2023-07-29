@@ -13,9 +13,9 @@ use list_node::ListNode;
 /* 在链表的节点 n0 之后插入节点 P */
 #[allow(non_snake_case)]
 pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
-   let n1 =  n0.borrow_mut().next.take();
-   P.borrow_mut().next = n1;
-   n0.borrow_mut().next = Some(P);
+    let n1 =  n0.borrow_mut().next.take();
+    P.borrow_mut().next = n1;
+    n0.borrow_mut().next = Some(P);
 }
 
 /* 删除链表的节点 n0 之后的首个节点 */
@@ -28,7 +28,7 @@ pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
         let n1 = node.borrow_mut().next.take();
         n0.borrow_mut().next = n1;
     }
- }
+}
 
 /* 访问链表中索引为 index 的节点 */
 pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Rc<RefCell<ListNode<T>>> {
@@ -37,7 +37,7 @@ pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Rc<RefCell<ListN
         return access(node.clone(), index - 1);
     }
     return head;
- }
+}
 
 /* 在链表中查找值为 target 的首个节点 */
 pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T, index: i32) -> i32 {
@@ -46,7 +46,7 @@ pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T, index: i32)
         return find(node.clone(), target, index + 1);
     }
     return -1;
- }
+}
 
 /* Driver Code */
 fn main() {
@@ -74,7 +74,7 @@ fn main() {
     remove(&n0);
     print!("删除节点后的链表为 ");
     print_util::print_linked_list(&n0);
-   
+
     /* 访问节点 */
     let node = access(n0.clone(), 3);
     println!("链表中索引 3 处的节点的值 = {}", node.borrow().val);

@@ -45,7 +45,7 @@ func PrintHeap(h []any) {
 	fmt.Printf("堆的数组表示：")
 	fmt.Printf("%v", h)
 	fmt.Printf("\n堆的树状表示：\n")
-	root := ArrToTree(h)
+	root := SliceToTree(h)
 	PrintTree(root)
 }
 

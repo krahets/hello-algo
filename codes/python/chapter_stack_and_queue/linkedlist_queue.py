@@ -27,7 +27,7 @@ class LinkedListQueue:
         """判断队列是否为空"""
         return not self.__front
 
-    def push(self, num: int) -> None:
+    def push(self, num: int):
         """入队"""
         # 尾节点后添加 num
         node = ListNode(num)

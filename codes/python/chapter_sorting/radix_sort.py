@@ -11,7 +11,7 @@ def digit(num: int, exp: int) -> int:
     return (num // exp) % 10
 
 
-def counting_sort_digit(nums: list[int], exp: int) -> None:
+def counting_sort_digit(nums: list[int], exp: int):
     """计数排序（根据 nums 第 k 位排序）"""
     # 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
     counter = [0] * 10
@@ -35,7 +35,7 @@ def counting_sort_digit(nums: list[int], exp: int) -> None:
         nums[i] = res[i]
 
 
-def radix_sort(nums: list[int]) -> None:
+def radix_sort(nums: list[int]):
     """基数排序"""
     # 获取数组的最大元素，用于判断最大位数
     m = max(nums)

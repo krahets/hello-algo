@@ -8,9 +8,9 @@
 
 以学号数据为例，假设数字的最低位是第 $1$ 位，最高位是第 $8$ 位，基数排序的步骤如下：
 
-1. 初始化位数 $k = 1$ ；
-2. 对学号的第 $k$ 位执行「计数排序」。完成后，数据会根据第 $k$ 位从小到大排序；
-3. 将 $k$ 增加 $1$ ，然后返回步骤 `2.` 继续迭代，直到所有位都排序完成后结束；
+1. 初始化位数 $k = 1$ 。
+2. 对学号的第 $k$ 位执行「计数排序」。完成后，数据会根据第 $k$ 位从小到大排序。
+3. 将 $k$ 增加 $1$ ，然后返回步骤 `2.` 继续迭代，直到所有位都排序完成后结束。
 
 ![基数排序算法流程](radix_sort.assets/radix_sort_overview.png)
 
@@ -64,7 +64,7 @@ $$
     [class]{}-[func]{radixSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="radix_sort.js"
     [class]{}-[func]{digit}
@@ -74,7 +74,7 @@ $$
     [class]{}-[func]{radixSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="radix_sort.ts"
     [class]{}-[func]{digit}
@@ -132,6 +132,16 @@ $$
     [class]{}-[func]{countingSortDigit}
 
     [class]{}-[func]{radixSort}
+    ```
+
+=== "Rust"
+
+    ```rust title="radix_sort.rs"
+    [class]{}-[func]{digit}
+
+    [class]{}-[func]{counting_sort_digit}
+
+    [class]{}-[func]{radix_sort}
     ```
 
 !!! question "为什么从最低位开始排序？"

@@ -136,7 +136,7 @@
     isEmpty := deque.Len() == 0
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="deque.js"
     /* 初始化双向队列 */
@@ -174,7 +174,7 @@
     console.log("双向队列是否为空 = " + isEmpty);
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="deque.ts"
     /* 初始化双向队列 */
@@ -312,6 +312,12 @@
     bool isEmpty = deque.isEmpty;W
     ```
 
+=== "Rust"
+
+    ```rust title="deque.rs"
+
+    ```
+
 ## 双向队列实现 *
 
 双向队列的实现与队列类似，可以选择链表或数组作为底层数据结构。
@@ -371,7 +377,7 @@
     [class]{linkedListDeque}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linkedlist_deque.js"
     [class]{ListNode}-[func]{}
@@ -379,7 +385,7 @@
     [class]{LinkedListDeque}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linkedlist_deque.ts"
     [class]{ListNode}-[func]{}
@@ -422,6 +428,14 @@
 === "Dart"
 
     ```dart title="linkedlist_deque.dart"
+    [class]{ListNode}-[func]{}
+
+    [class]{LinkedListDeque}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="linkedlist_deque.rs"
     [class]{ListNode}-[func]{}
 
     [class]{LinkedListDeque}-[func]{}
@@ -472,13 +486,13 @@
     [class]{arrayDeque}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_deque.js"
     [class]{ArrayDeque}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_deque.ts"
     [class]{ArrayDeque}-[func]{}
@@ -511,6 +525,12 @@
 === "Dart"
 
     ```dart title="array_deque.dart"
+    [class]{ArrayDeque}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="array_deque.rs"
     [class]{ArrayDeque}-[func]{}
     ```
 

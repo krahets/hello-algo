@@ -4,18 +4,14 @@
 
 package pkg
 
-import (
-	"container/list"
-)
-
 type TreeNode struct {
-	Val    int       // 节点值
+	Val    any       // 节点值
 	Height int       // 节点高度
 	Left   *TreeNode // 左子节点引用
 	Right  *TreeNode // 右子节点引用
 }
 
-func NewTreeNode(v int) *TreeNode {
+func NewTreeNode(v any) *TreeNode {
 	return &TreeNode{
 		Val:    v,
 		Height: 0,
@@ -24,56 +20,57 @@ func NewTreeNode(v int) *TreeNode {
 	}
 }
 
-// ArrToTree Generate a binary tree given an array
-func ArrToTree(arr []any) *TreeNode {
-	if len(arr) <= 0 {
+// 序列化编码规则请参考：
+// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
+// 二叉树的数组表示：
+// [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
+// 二叉树的链表表示：
+//
+//	         /——— 15
+//	     /——— 7
+//	 /——— 3
+//	|    \——— 6
+//	|        \——— 12
+//
+// ——— 1
+//
+//	\——— 2
+//	   |    /——— 9
+//	    \——— 4
+//	        \——— 8
+
+// SliceToTreeDFS 将列表反序列化为二叉树：递归
+func SliceToTreeDFS(arr []any, i int) *TreeNode {
+	if i < 0 || i >= len(arr) || arr[i] == nil {
 		return nil
 	}
-	// TreeNode only accept integer value for now.
-	root := NewTreeNode(arr[0].(int))
-	// Let container.list as queue
-	queue := list.New()
-	queue.PushBack(root)
-	i := 0
-	for queue.Len() > 0 {
-		// 队首元素出队
-		node := queue.Remove(queue.Front()).(*TreeNode)
-		i++
-		if i < len(arr) {
-			if arr[i] != nil {
-				node.Left = NewTreeNode(arr[i].(int))
-				queue.PushBack(node.Left)
-			}
-		}
-		i++
-		if i < len(arr) {
-			if arr[i] != nil {
-				node.Right = NewTreeNode(arr[i].(int))
-				queue.PushBack(node.Right)
-			}
-		}
-	}
+	root := NewTreeNode(arr[i])
+	root.Left = SliceToTreeDFS(arr, 2*i+1)
+	root.Right = SliceToTreeDFS(arr, 2*i+2)
 	return root
 }
 
-// TreeToArray Serialize a binary tree to a list
-func TreeToArray(root *TreeNode) []any {
+// SliceToTree 将切片反序列化为二叉树
+func SliceToTree(arr []any) *TreeNode {
+	return SliceToTreeDFS(arr, 0)
+}
+
+// TreeToSliceDFS 将二叉树序列化为切片：递归
+func TreeToSliceDFS(root *TreeNode, i int, res *[]any) {
 	if root == nil {
-		return []any{}
+		return
 	}
-	arr := make([]any, 0)
-	queue := list.New()
-	queue.PushBack(root)
-	for queue.Len() > 0 {
-		node := queue.Remove(queue.Front()).(*TreeNode)
-		if node != nil {
-			arr = append(arr, node.Val)
-			queue.PushBack(node.Left)
-			queue.PushBack(node.Right)
-		} else {
-			// node don't exist.
-			arr = append(arr, nil)
-		}
+	for i >= len(*res) {
+		*res = append(*res, nil)
 	}
-	return arr
+	(*res)[i] = root.Val
+	TreeToSliceDFS(root.Left, 2*i+1, res)
+	TreeToSliceDFS(root.Right, 2*i+2, res)
+}
+
+// TreeToSlice 将二叉树序列化为切片
+func TreeToSlice(root *TreeNode) []any {
+	var res []any
+	TreeToSliceDFS(root, 0, &res)
+	return res
 }

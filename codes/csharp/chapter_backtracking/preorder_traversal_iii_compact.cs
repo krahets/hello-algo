@@ -41,7 +41,7 @@ public class preorder_traversal_iii_compact {
         res = new List<List<TreeNode>>();
         preOrder(root);
 
-        Console.WriteLine("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点，仅包含一个值为 7 的节点");
+        Console.WriteLine("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

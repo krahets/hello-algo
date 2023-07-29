@@ -8,7 +8,7 @@ Author: Peng Chen (pengchzn@gmail.com)
 class ArrayStack:
     """基于数组实现的栈"""
 
-    def __init__(self) -> None:
+    def __init__(self):
         """构造方法"""
         self.__stack: list[int] = []
 
@@ -20,7 +20,7 @@ class ArrayStack:
         """判断栈是否为空"""
         return self.__stack == []
 
-    def push(self, item: int) -> None:
+    def push(self, item: int):
         """入栈"""
         self.__stack.append(item)
 

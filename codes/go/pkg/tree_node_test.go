@@ -11,11 +11,11 @@ import (
 
 func TestTreeNode(t *testing.T) {
 	arr := []any{1, 2, 3, nil, 5, 6, nil}
-	node := ArrToTree(arr)
+	node := SliceToTree(arr)
 
 	// print tree
 	PrintTree(node)
 
 	// tree to arr
-	fmt.Println(TreeToArray(node))
+	fmt.Println(TreeToSlice(node))
 }

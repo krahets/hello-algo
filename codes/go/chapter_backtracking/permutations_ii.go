@@ -1,8 +1,4 @@
-// File: permutations_i.go
-// Created Time: 2023-05-14
-// Author: Reanon (793584285@qq.com)
-
-// File: permutations_i.go
+// File: permutations_ii.go
 // Created Time: 2023-05-14
 // Author: Reanon (793584285@qq.com)
 

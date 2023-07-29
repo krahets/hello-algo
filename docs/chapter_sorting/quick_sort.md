@@ -4,9 +4,9 @@
 
 快速排序的核心操作是「哨兵划分」，其目标是：选择数组中的某个元素作为“基准数”，将所有小于基准数的元素移到其左侧，而大于基准数的元素移到其右侧。具体来说，哨兵划分的流程为：
 
-1. 选取数组最左端元素作为基准数，初始化两个指针 `i` 和 `j` 分别指向数组的两端；
-2. 设置一个循环，在每轮中使用 `i`（`j`）分别寻找第一个比基准数大（小）的元素，然后交换这两个元素；
-3. 循环执行步骤 `2.` ，直到 `i` 和 `j` 相遇时停止，最后将基准数交换至两个子数组的分界线；
+1. 选取数组最左端元素作为基准数，初始化两个指针 `i` 和 `j` 分别指向数组的两端。
+2. 设置一个循环，在每轮中使用 `i`（`j`）分别寻找第一个比基准数大（小）的元素，然后交换这两个元素。
+3. 循环执行步骤 `2.` ，直到 `i` 和 `j` 相遇时停止，最后将基准数交换至两个子数组的分界线。
 
 哨兵划分完成后，原数组被划分成三部分：左子数组、基准数、右子数组，且满足“左子数组任意元素 $\leq$ 基准数 $\leq$ 右子数组任意元素”。因此，我们接下来只需对这两个子数组进行排序。
 
@@ -69,7 +69,7 @@
     [class]{quickSort}-[func]{partition}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="quick_sort.js"
     [class]{QuickSort}-[func]{swap}
@@ -77,7 +77,7 @@
     [class]{QuickSort}-[func]{partition}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="quick_sort.ts"
     [class]{QuickSort}-[func]{swap}
@@ -125,11 +125,17 @@
     [class]{QuickSort}-[func]{_partition}
     ```
 
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    [class]{QuickSort}-[func]{partition}
+    ```
+
 ## 算法流程
 
-1. 首先，对原数组执行一次「哨兵划分」，得到未排序的左子数组和右子数组；
-2. 然后，对左子数组和右子数组分别递归执行「哨兵划分」；
-3. 持续递归，直至子数组长度为 1 时终止，从而完成整个数组的排序；
+1. 首先，对原数组执行一次「哨兵划分」，得到未排序的左子数组和右子数组。
+2. 然后，对左子数组和右子数组分别递归执行「哨兵划分」。
+3. 持续递归，直至子数组长度为 1 时终止，从而完成整个数组的排序。
 
 ![快速排序流程](quick_sort.assets/quick_sort_overview.png)
 
@@ -157,13 +163,13 @@
     [class]{quickSort}-[func]{quickSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="quick_sort.js"
     [class]{QuickSort}-[func]{quickSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="quick_sort.ts"
     [class]{QuickSort}-[func]{quickSort}
@@ -197,6 +203,12 @@
 
     ```dart title="quick_sort.dart"
     [class]{QuickSort}-[func]{quickSort}
+    ```
+
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    [class]{QuickSort}-[func]{quick_sort}
     ```
 
 ## 算法特性
@@ -255,7 +267,7 @@
     [class]{quickSortMedian}-[func]{partition}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="quick_sort.js"
     [class]{QuickSortMedian}-[func]{medianThree}
@@ -263,7 +275,7 @@
     [class]{QuickSortMedian}-[func]{partition}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="quick_sort.ts"
     [class]{QuickSortMedian}-[func]{medianThree}
@@ -311,6 +323,14 @@
     [class]{QuickSortMedian}-[func]{_partition}
     ```
 
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    [class]{QuickSortMedian}-[func]{median_three}
+
+    [class]{QuickSortMedian}-[func]{partition}
+    ```
+
 ## 尾递归优化
 
 **在某些输入下，快速排序可能占用空间较多**。以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 $0$ ，递归树的高度会达到 $n - 1$ ，此时需要占用 $O(n)$ 大小的栈帧空间。
@@ -341,13 +361,13 @@
     [class]{quickSortTailCall}-[func]{quickSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="quick_sort.js"
     [class]{QuickSortTailCall}-[func]{quickSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="quick_sort.ts"
     [class]{QuickSortTailCall}-[func]{quickSort}
@@ -381,4 +401,10 @@
 
     ```dart title="quick_sort.dart"
     [class]{QuickSortTailCall}-[func]{quickSort}
+    ```
+
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    [class]{QuickSortTailCall}-[func]{quick_sort}
     ```

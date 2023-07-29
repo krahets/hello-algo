@@ -8,7 +8,7 @@ Author: Krahets (krahets@163.com)
 class ArrayDeque:
     """基于环形数组实现的双向队列"""
 
-    def __init__(self, capacity: int) -> None:
+    def __init__(self, capacity: int):
         """构造方法"""
         self.__nums: list[int] = [0] * capacity
         self.__front: int = 0
@@ -33,7 +33,7 @@ class ArrayDeque:
         # 当 i 越过数组头部后，回到尾部
         return (i + self.capacity()) % self.capacity()
 
-    def push_first(self, num: int) -> None:
+    def push_first(self, num: int):
         """队首入队"""
         if self.__size == self.capacity():
             print("双向队列已满")
@@ -45,7 +45,7 @@ class ArrayDeque:
         self.__nums[self.__front] = num
         self.__size += 1
 
-    def push_last(self, num: int) -> None:
+    def push_last(self, num: int):
         """队尾入队"""
         if self.__size == self.capacity():
             print("双向队列已满")

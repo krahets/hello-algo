@@ -49,7 +49,7 @@
     [class]{}-[func]{subsetSumINaive}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="subset_sum_i_naive.js"
     [class]{}-[func]{backtrack}
@@ -57,7 +57,7 @@
     [class]{}-[func]{subsetSumINaive}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="subset_sum_i_naive.ts"
     [class]{}-[func]{backtrack}
@@ -105,6 +105,14 @@
     [class]{}-[func]{subsetSumINaive}
     ```
 
+=== "Rust"
+
+    ```rust title="subset_sum_i_naive.rs"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subset_sum_i_naive}
+    ```
+
 向以上代码输入数组 $[3, 4, 5]$ 和目标元素 $9$ ，输出结果为 $[3, 3, 3], [4, 5], [5, 4]$ 。**虽然成功找出了所有和为 $9$ 的子集，但其中存在重复的子集 $[4, 5]$ 和 $[5, 4]$** 。
 
 这是因为搜索过程是区分选择顺序的，然而子集不区分选择顺序。如下图所示，先选 $4$ 后选 $5$ 与先选 $5$ 后选 $4$ 是两个不同的分支，但两者对应同一个子集。
@@ -125,8 +133,8 @@
 
 分支越靠右，需要排除的分支也越多，例如：
 
-1. 前两轮选择 $3$ , $5$ ，生成子集 $[3, 5, \cdots]$ ；
-2. 前两轮选择 $4$ , $5$ ，生成子集 $[4, 5, \cdots]$ ；
+1. 前两轮选择 $3$ , $5$ ，生成子集 $[3, 5, \cdots]$ 。
+2. 前两轮选择 $4$ , $5$ ，生成子集 $[4, 5, \cdots]$ 。
 3. 若第一轮选择 $5$ ，**则第二轮应该跳过 $3$ 和 $4$** ，因为子集 $[5, 3, \cdots]$ 和子集 $[5, 4, \cdots]$ 和 `1.` , `2.` 中生成的子集完全重复。
 
 ![不同选择顺序导致的重复子集](subset_sum_problem.assets/subset_sum_i_pruning.png)
@@ -174,7 +182,7 @@
     [class]{}-[func]{subsetSumI}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="subset_sum_i.js"
     [class]{}-[func]{backtrack}
@@ -182,7 +190,7 @@
     [class]{}-[func]{subsetSumI}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="subset_sum_i.ts"
     [class]{}-[func]{backtrack}
@@ -228,6 +236,14 @@
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subsetSumI}
+    ```
+
+=== "Rust"
+
+    ```rust title="subset_sum_i.rs"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subset_sum_i}
     ```
 
 如下图所示，为将数组 $[3, 4, 5]$ 和目标元素 $9$ 输入到以上代码后的整体回溯过程。
@@ -286,7 +302,7 @@
     [class]{}-[func]{subsetSumII}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="subset_sum_ii.js"
     [class]{}-[func]{backtrack}
@@ -294,7 +310,7 @@
     [class]{}-[func]{subsetSumII}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="subset_sum_ii.ts"
     [class]{}-[func]{backtrack}
@@ -340,6 +356,14 @@
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subsetSumII}
+    ```
+
+=== "Rust"
+
+    ```rust title="subset_sum_ii.rs"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subset_sum_ii}
     ```
 
 下图展示了数组 $[4, 4, 5]$ 和目标元素 $9$ 的回溯过程，共包含四种剪枝操作。请你将图示与代码注释相结合，理解整个搜索过程，以及每种剪枝操作是如何工作的。

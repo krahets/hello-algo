@@ -30,8 +30,8 @@
 
 从原问题 $f(0, n-1)$ 为起始点，二分查找的分治步骤为：
 
-1. 计算搜索区间 $[i, j]$ 的中点 $m$ ，根据它排除一半搜索区间；
-2. 递归求解规模减小一半的子问题，可能为 $f(i, m-1)$ 或 $f(m+1, j)$ ；
+1. 计算搜索区间 $[i, j]$ 的中点 $m$ ，根据它排除一半搜索区间。
+2. 递归求解规模减小一半的子问题，可能为 $f(i, m-1)$ 或 $f(m+1, j)$ 。
 3. 循环第 `1.` , `2.` 步，直至找到 `target` 或区间为空时返回。
 
 下图展示了在数组中二分查找元素 $6$ 的分治过程。
@@ -72,7 +72,7 @@
     [class]{}-[func]{binarySearch}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search_recur.js"
     [class]{}-[func]{dfs}
@@ -80,7 +80,7 @@
     [class]{}-[func]{binarySearch}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search_recur.ts"
     [class]{}-[func]{dfs}
@@ -126,4 +126,12 @@
     [class]{}-[func]{dfs}
 
     [class]{}-[func]{binarySearch}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search_recur.rs"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{binary_search}
     ```

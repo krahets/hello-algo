@@ -38,13 +38,13 @@
     [class]{}-[func]{levelOrder}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_tree_bfs.js"
     [class]{}-[func]{levelOrder}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_tree_bfs.ts"
     [class]{}-[func]{levelOrder}
@@ -78,6 +78,12 @@
 
     ```dart title="binary_tree_bfs.dart"
     [class]{}-[func]{levelOrder}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_tree_bfs.rs"
+    [class]{}-[func]{level_order}
     ```
 
 **时间复杂度**：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
@@ -134,7 +140,7 @@
     [class]{}-[func]{postOrder}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_tree_dfs.js"
     [class]{}-[func]{preOrder}
@@ -144,7 +150,7 @@
     [class]{}-[func]{postOrder}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_tree_dfs.ts"
     [class]{}-[func]{preOrder}
@@ -202,6 +208,16 @@
     [class]{}-[func]{inOrder}
 
     [class]{}-[func]{postOrder}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_tree_dfs.rs"
+    [class]{}-[func]{pre_order}
+
+    [class]{}-[func]{in_order}
+
+    [class]{}-[func]{post_order}
     ```
 
 **时间复杂度**：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。

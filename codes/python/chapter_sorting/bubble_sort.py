@@ -5,7 +5,7 @@ Author: timi (xisunyy@163.com)
 """
 
 
-def bubble_sort(nums: list[int]) -> None:
+def bubble_sort(nums: list[int]):
     """冒泡排序"""
     n = len(nums)
     # 外循环：未排序区间为 [0, i]
@@ -17,7 +17,7 @@ def bubble_sort(nums: list[int]) -> None:
                 nums[j], nums[j + 1] = nums[j + 1], nums[j]
 
 
-def bubble_sort_with_flag(nums: list[int]) -> None:
+def bubble_sort_with_flag(nums: list[int]):
     """冒泡排序（标志优化）"""
     n = len(nums)
     # 外循环：未排序区间为 [0, i]

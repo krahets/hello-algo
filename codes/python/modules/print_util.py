@@ -8,7 +8,7 @@ from .tree_node import TreeNode, list_to_tree
 from .list_node import ListNode, linked_list_to_list
 
 
-def print_matrix(mat: list[list[int]]) -> None:
+def print_matrix(mat: list[list[int]]):
     """Print a matrix"""
     s = []
     for arr in mat:
@@ -16,19 +16,19 @@ def print_matrix(mat: list[list[int]]) -> None:
     print("[\n" + ",\n".join(s) + "\n]")
 
 
-def print_linked_list(head: ListNode | None) -> None:
+def print_linked_list(head: ListNode | None):
     """Print a linked list"""
     arr: list[int] = linked_list_to_list(head)
     print(" -> ".join([str(a) for a in arr]))
 
 
 class Trunk:
-    def __init__(self, prev, string: str | None = None) -> None:
+    def __init__(self, prev, string: str | None = None):
         self.prev = prev
         self.str = string
 
 
-def show_trunks(p: Trunk | None) -> None:
+def show_trunks(p: Trunk | None):
     if p is None:
         return
     show_trunks(p.prev)
@@ -37,7 +37,7 @@ def show_trunks(p: Trunk | None) -> None:
 
 def print_tree(
     root: TreeNode | None, prev: Trunk | None = None, is_left: bool = False
-) -> None:
+):
     """
     Print a binary tree
     This tree printer is borrowed from TECHIE DELIGHT
@@ -67,13 +67,13 @@ def print_tree(
     print_tree(root.left, trunk, False)
 
 
-def print_dict(mapp: dict) -> None:
+def print_dict(mapp: dict):
     """Print a dict"""
     for key, value in mapp.items():
         print(key, "->", value)
 
 
-def print_heap(heap: list[int]) -> None:
+def print_heap(heap: list[int]):
     """Print a heap both in array and tree representations"""
     print("堆的数组表示：", heap)
     print("堆的树状表示：")

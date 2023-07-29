@@ -10,7 +10,7 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
 
-def pre_order(root: TreeNode) -> None:
+def pre_order(root: TreeNode):
     """前序遍历：例题三"""
     # 剪枝
     if root is None or root.val == 3:
@@ -39,6 +39,6 @@ if __name__ == "__main__":
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点，仅包含一个值为 7 的节点")
+    print("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点")
     for path in res:
         print([node.val for node in path])

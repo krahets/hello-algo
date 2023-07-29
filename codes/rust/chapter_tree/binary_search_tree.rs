@@ -1,12 +1,14 @@
-/**
+/*
  * File: binary_search_tree.rs
  * Created Time: 2023-04-20
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
 
+include!("../include/include.rs");
+
 use std::{cell::RefCell, rc::Rc};
 use tree_node::TreeNode;
-include!("../include/include.rs");
+
 type TreeNodeRc = Rc<RefCell<TreeNode>>;
 
 /* 二叉搜索树 */
@@ -15,16 +17,15 @@ pub struct BinarySearchTree {
 }
 
 impl BinarySearchTree {
+    /* 构造方法 */
     pub fn new(mut nums: Vec<i32>) -> Self {
         // 排序数组
         nums.sort();
+        // 构建二叉搜索树
         if nums.is_empty() {
             Self { root: None }
-        } else {
-            // 构建二叉搜索树
-            Self {
-                root: Some(Self::build_tree(&nums)),
-            }
+        } else {  
+            Self { root: Some(Self::build_tree(&nums)) }
         }
     }
 
@@ -72,10 +73,10 @@ impl BinarySearchTree {
     }
 
     /* 插入节点 */
-    pub fn insert(&mut self, num: i32) -> Option<TreeNodeRc> {
+    pub fn insert(&mut self, num: i32) {
         // 若树为空，直接提前返回
         if self.root.is_none() {
-            return None;
+            return;
         }
         let mut cur = self.root.clone();
         let mut pre = None;
@@ -83,7 +84,7 @@ impl BinarySearchTree {
         while let Some(node) = cur.clone() {
             // 找到重复节点，直接返回
             if node.borrow().val == num {
-                return None;
+                return;
             }
             // 插入位置在 cur 的右子树中
             pre = cur.clone();
@@ -103,13 +104,14 @@ impl BinarySearchTree {
         } else {
             pre.borrow_mut().left = Some(Rc::clone(&node));
         }
-        Some(node)
     }
 
     /* 删除节点 */
-    pub fn remove(&self, num: i32) {
+    pub fn remove(&mut self, num: i32) {
         // 若树为空，直接提前返回
-        if self.root.is_none() { return }
+        if self.root.is_none() { 
+            return; 
+        }
         let mut cur = self.root.clone();
         let mut pre = None;
         // 循环查找，越过叶节点后跳出
@@ -129,50 +131,57 @@ impl BinarySearchTree {
             }
         }
         // 若无待删除节点，则直接返回
-        if let Some(cur) = cur.clone() {
-            // 子节点数量 = 0 or 1
-            if cur.borrow().left.is_none() || cur.borrow().right.is_none() {
-                // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
-                let child = cur.borrow().left.clone()
-                .or_else(|| cur.borrow().right.clone()).clone();
-                let pre = pre.unwrap();
-                let left = pre.borrow().left.clone().unwrap();
+        if cur.is_none() {
+            return;
+        }
+        let cur = cur.unwrap();
+        // 子节点数量 = 0 or 1
+        if cur.borrow().left.is_none() || cur.borrow().right.is_none() {
+            // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
+            let child = cur.borrow().left.clone().or_else(|| cur.borrow().right.clone());
+            let pre = pre.unwrap();
+            let left = pre.borrow().left.clone().unwrap();
+            // 删除节点 cur
+            if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
                 if Rc::ptr_eq(&left, &cur) {
                     pre.borrow_mut().left = child;
                 } else {
                     pre.borrow_mut().right = child;
                 }
+            } else {
+                // 若删除节点为根节点，则重新指定根节点
+                self.root = child;
             }
-            // 子节点数量 = 2
-            else {
-                // 获取中序遍历中 cur 的下一个节点
-                let mut tmp = cur.borrow().right.clone();
-                while let Some(node) = tmp.clone() {
-                    if node.borrow().left.is_some() {
-                        tmp = node.borrow().left.clone();
-                    } else {
-                        break;
-                    }
+        }
+        // 子节点数量 = 2
+        else {
+            // 获取中序遍历中 cur 的下一个节点
+            let mut tmp = cur.borrow().right.clone();
+            while let Some(node) = tmp.clone() {
+                if node.borrow().left.is_some() {
+                    tmp = node.borrow().left.clone();
+                } else {
+                    break;
                 }
-                let tmpval = tmp.unwrap().borrow().val;
-                // 递归删除节点 tmp
-                self.remove(tmpval);
-                // 将 tmp 的值复制给 cur
-                cur.borrow_mut().val = tmpval;
             }
+            let tmpval = tmp.unwrap().borrow().val;
+            // 递归删除节点 tmp
+            self.remove(tmpval);
+            // 用 tmp 覆盖 cur
+            cur.borrow_mut().val = tmpval;
         }
     }
 }
 
 /* Driver Code */
 fn main() {
-    // 初始化二叉搜索树
+    /* 初始化二叉搜索树 */
     let nums = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
     let mut bst = BinarySearchTree::new(nums);
     println!("初始化的二叉树为\n");
     print_util::print_tree(&bst.get_root().unwrap());
 
-    // 查找节点
+    /* 查找节点 */
     let node = bst.search(7).unwrap();
     println!(
         "\n查找到的节点对象为: {:p} 节点值 = {}\n",
@@ -180,12 +189,12 @@ fn main() {
         node.borrow().val
     );
 
-    // 插入节点
-    let node = bst.insert(16).unwrap();
-    println!("插入节点 {} 后，二叉树为\n", node.borrow().val);
+    /* 插入节点 */
+    bst.insert(16);
+    println!("插入节点 16 后，二叉树为\n");
     print_util::print_tree(&bst.get_root().unwrap());
 
-    // 删除节点
+    /* 删除节点 */
     bst.remove(1);
     println!("\n删除节点 1 后，二叉树为\n");
     print_util::print_tree(&bst.get_root().unwrap());

@@ -6,12 +6,13 @@
 
 include!("../include/include.rs");
 
+/* 列表类简易实现 */
 #[allow(dead_code)]
 struct MyList {
-    nums: Vec<i32>,
-    capacity: usize,
-    size: usize,
-    extend_ratio: usize,
+    nums: Vec<i32>,       // 数组（存储列表元素）
+    capacity: usize,      // 列表容量
+    size: usize,          // 列表长度（即当前元素数量）
+    extend_ratio: usize,  // 每次列表扩容的倍数
 }
 
 #[allow(unused,unused_comparisons)]
@@ -94,6 +95,7 @@ impl MyList {
 
     /* 列表扩容 */
     pub fn extend_capacity(&mut self) {
+        // 新建一个长度为原数组 extend_ratio 倍的新数组，并将原数组拷贝到新数组
         let new_capacity = self.capacity * self.extend_ratio;
         self.nums.resize(new_capacity, 0);
         // 更新列表容量
@@ -102,6 +104,7 @@ impl MyList {
 
     /* 将列表转换为数组 */
     pub fn to_array(&mut self) -> Vec<i32> {
+        // 仅转换有效长度范围内的列表元素
         let mut nums = Vec::new();
         for i in 0..self.size {
             nums.push(self.get(i));

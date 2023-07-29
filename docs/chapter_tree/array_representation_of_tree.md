@@ -54,7 +54,7 @@
     tree := []any{1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 二叉树的数组表示 */
@@ -62,7 +62,7 @@
     let tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 二叉树的数组表示 */
@@ -108,6 +108,12 @@
     List<int?> tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 ![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png)
 
 值得说明的是，**完全二叉树非常适合使用数组来表示**。回顾完全二叉树的定义，$\text{None}$ 只出现在最底层且靠右的位置，**因此所有 $\text{None}$ 一定出现在层序遍历序列的末尾**。这意味着使用数组表示完全二叉树时，可以省略存储所有 $\text{None}$ ，非常方便。
@@ -116,8 +122,8 @@
 
 如下代码给出了数组表示下的二叉树的简单实现，包括以下操作：
 
-- 给定某节点，获取它的值、左（右）子节点、父节点；
-- 获取前序遍历、中序遍历、后序遍历、层序遍历序列；
+- 给定某节点，获取它的值、左（右）子节点、父节点。
+- 获取前序遍历、中序遍历、后序遍历、层序遍历序列。
 
 === "Java"
 
@@ -143,13 +149,13 @@
     [class]{arrayBinaryTree}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_binary_tree.js"
     [class]{ArrayBinaryTree}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_binary_tree.ts"
     [class]{ArrayBinaryTree}-[func]{}
@@ -185,16 +191,22 @@
     [class]{ArrayBinaryTree}-[func]{}
     ```
 
+=== "Rust"
+
+    ```rust title="array_binary_tree.rs"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
+
 ## 优势与局限性
 
 二叉树的数组表示的优点包括：
 
-- 数组存储在连续的内存空间中，对缓存友好，访问与遍历速度较快；
-- 不需要存储指针，比较节省空间；
-- 允许随机访问节点；
+- 数组存储在连续的内存空间中，对缓存友好，访问与遍历速度较快。
+- 不需要存储指针，比较节省空间。
+- 允许随机访问节点。
 
 然而，数组表示也具有一些局限性：
 
-- 数组存储需要连续内存空间，因此不适合存储数据量过大的树；
-- 增删节点需要通过数组插入与删除操作实现，效率较低；
-- 当二叉树中存在大量 $\text{None}$ 时，数组中包含的节点数据比重较低，空间利用率较低；
+- 数组存储需要连续内存空间，因此不适合存储数据量过大的树。
+- 增删节点需要通过数组插入与删除操作实现，效率较低。
+- 当二叉树中存在大量 $\text{None}$ 时，数组中包含的节点数据比重较低，空间利用率较低。

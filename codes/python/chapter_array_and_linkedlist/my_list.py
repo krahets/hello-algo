@@ -30,13 +30,13 @@ class MyList:
             raise IndexError("索引越界")
         return self.__nums[index]
 
-    def set(self, num: int, index: int) -> None:
+    def set(self, num: int, index: int):
         """更新元素"""
         if index < 0 or index >= self.__size:
             raise IndexError("索引越界")
         self.__nums[index] = num
 
-    def add(self, num: int) -> None:
+    def add(self, num: int):
         """尾部添加元素"""
         # 元素数量超出容量时，触发扩容机制
         if self.size() == self.capacity():
@@ -44,7 +44,7 @@ class MyList:
         self.__nums[self.__size] = num
         self.__size += 1
 
-    def insert(self, num: int, index: int) -> None:
+    def insert(self, num: int, index: int):
         """中间插入元素"""
         if index < 0 or index >= self.__size:
             raise IndexError("索引越界")
@@ -71,7 +71,7 @@ class MyList:
         # 返回被删除元素
         return num
 
-    def extend_capacity(self) -> None:
+    def extend_capacity(self):
         """列表扩容"""
         # 新建一个长度为原数组 __extend_ratio 倍的新数组，并将原数组拷贝到新数组
         self.__nums = self.__nums + [0] * self.capacity() * (self.__extend_ratio - 1)

@@ -8,9 +8,9 @@
 
 考虑一个长度为 $n$ 的数组，元素是范围 $[0, 1)$ 的浮点数。桶排序的流程如下：
 
-1. 初始化 $k$ 个桶，将 $n$ 个元素分配到 $k$ 个桶中；
-2. 对每个桶分别执行排序（本文采用编程语言的内置排序函数）；
-3. 按照桶的从小到大的顺序，合并结果；
+1. 初始化 $k$ 个桶，将 $n$ 个元素分配到 $k$ 个桶中。
+2. 对每个桶分别执行排序（本文采用编程语言的内置排序函数）。
+3. 按照桶的从小到大的顺序，合并结果。
 
 ![桶排序算法流程](bucket_sort.assets/bucket_sort_overview.png)
 
@@ -38,13 +38,13 @@
     [class]{}-[func]{bucketSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="bucket_sort.js"
     [class]{}-[func]{bucketSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="bucket_sort.ts"
     [class]{}-[func]{bucketSort}
@@ -78,6 +78,12 @@
 
     ```dart title="bucket_sort.dart"
     [class]{}-[func]{bucketSort}
+    ```
+
+=== "Rust"
+
+    ```rust title="bucket_sort.rs"
+    [class]{}-[func]{bucket_sort}
     ```
 
 !!! question "桶排序的适用场景是什么？"

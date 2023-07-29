@@ -93,7 +93,7 @@ index = hash(key) % capacity
     [class]{}-[func]{rotHash}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="simple_hash.js"
     [class]{}-[func]{addHash}
@@ -105,7 +105,7 @@ index = hash(key) % capacity
     [class]{}-[func]{rotHash}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="simple_hash.ts"
     [class]{}-[func]{addHash}
@@ -168,6 +168,18 @@ index = hash(key) % capacity
 === "Dart"
 
     ```dart title="simple_hash.dart"
+    [class]{}-[func]{add_hash}
+
+    [class]{}-[func]{mul_hash}
+
+    [class]{}-[func]{xor_hash}
+
+    [class]{}-[func]{rot_hash}
+    ```
+
+=== "Rust"
+
+    ```rust title="simple_hash.rs"
     [class]{}-[func]{add_hash}
 
     [class]{}-[func]{mul_hash}
@@ -323,13 +335,13 @@ $$
 
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="built_in_hash.js"
 
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="built_in_hash.ts"
 
@@ -429,6 +441,12 @@ $$
     ListNode obj = new ListNode(0);
     int hashObj = obj.hashCode;
     // 节点对象 Instance of 'ListNode' 的哈希值为 1033450432
+    ```
+
+=== "Rust"
+
+    ```rust title="built_in_hash.rs"
+
     ```
 
 在许多编程语言中，**只有不可变对象才可作为哈希表的 `key`** 。假如我们将列表（动态数组）作为 `key` ，当列表的内容发生变化时，它的哈希值也随之改变，我们就无法在哈希表中查询到原先的 `value` 了。

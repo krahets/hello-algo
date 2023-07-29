@@ -40,7 +40,6 @@ fn backtrack(state: &mut Vec<Rc<RefCell<TreeNode>>>, choices: &mut Vec<Rc<RefCel
     if is_solution(state) {
         // 记录解
         record_solution(state, res);
-        return;
     }
     // 遍历所有选择
     for choice in choices {

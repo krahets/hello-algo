@@ -87,9 +87,7 @@ public class time_complexity {
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
+                    (nums[j + 1], nums[j]) = (nums[j], nums[j + 1]);
                     count += 3;  // 元素交换包含 3 个单元操作
                 }
             }
