@@ -130,7 +130,7 @@
     isEmpty := queue.Len() == 0
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="queue.js"
     /* 初始化队列 */
@@ -158,7 +158,7 @@
     const empty = queue.length === 0;
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="queue.ts"
     /* 初始化队列 */
@@ -212,10 +212,10 @@
     int pop = queue.Dequeue();
     
     /* 获取队列的长度 */
-    int size = queue.Count();
+    int size = queue.Count;
     
     /* 判断队列是否为空 */
-    bool isEmpty = queue.Count() == 0;
+    bool isEmpty = queue.Count == 0;
     ```
 
 === "Swift"
@@ -279,6 +279,12 @@
     bool isEmpty = queue.isEmpty;
     ```
 
+=== "Rust"
+
+    ```rust title="queue.rs"
+
+    ```
+
 ## 队列实现
 
 为了实现队列，我们需要一种数据结构，可以在一端添加元素，并在另一端删除元素。因此，链表和数组都可以用来实现队列。
@@ -322,13 +328,13 @@
     [class]{linkedListQueue}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linkedlist_queue.js"
     [class]{LinkedListQueue}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linkedlist_queue.ts"
     [class]{LinkedListQueue}-[func]{}
@@ -364,6 +370,12 @@
     [class]{LinkedListQueue}-[func]{}
     ```
 
+=== "Rust"
+
+    ```rust title="linkedlist_queue.rs"
+    [class]{LinkedListQueue}-[func]{}
+    ```
+
 ### 基于数组的实现
 
 由于数组删除首元素的时间复杂度为 $O(n)$ ，这会导致出队操作效率较低。然而，我们可以采用以下巧妙方法来避免这个问题。
@@ -372,8 +384,8 @@
 
 基于此设计，**数组中包含元素的有效区间为 [front, rear - 1]**，进而：
 
-- 对于入队操作，将输入元素赋值给 `rear` 索引处，并将 `queSize` 增加 1 ；
-- 对于出队操作，只需将 `front` 增加 1 ，并将 `queSize` 减少 1 ；
+- 对于入队操作，将输入元素赋值给 `rear` 索引处，并将 `queSize` 增加 1 。
+- 对于出队操作，只需将 `front` 增加 1 ，并将 `queSize` 减少 1 。
 
 可以看到，入队和出队操作都只需进行一次操作，时间复杂度均为 $O(1)$ 。
 
@@ -414,13 +426,13 @@
     [class]{arrayQueue}-[func]{}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="array_queue.js"
     [class]{ArrayQueue}-[func]{}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="array_queue.ts"
     [class]{ArrayQueue}-[func]{}
@@ -453,6 +465,12 @@
 === "Dart"
 
     ```dart title="array_queue.dart"
+    [class]{ArrayQueue}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="array_queue.rs"
     [class]{ArrayQueue}-[func]{}
     ```
 

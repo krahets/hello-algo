@@ -8,6 +8,7 @@ docs_dir: build
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
 edit_uri: https://github.com/krahets/hello-algo/tree/main/docs/
+version: 1.0.0b4
 
 # Copyright
 copyright: Copyright &copy; 2023 Krahets
@@ -271,6 +272,10 @@ nav:
     - 15.2. &nbsp; 分数背包问题: chapter_greedy/fractional_knapsack_problem.md
     # [status: new]
     - 15.3. &nbsp; 最大容量问题: chapter_greedy/max_capacity_problem.md
+    # [status: new]
+    - 15.4. &nbsp; 最大切分乘积问题: chapter_greedy/max_product_cutting_problem.md
+    # [status: new]
+    - 15.5. &nbsp; 小结: chapter_greedy/summary.md
   - 16. &nbsp; 附录:
     # [icon: material/help-circle-outline]
     - chapter_appendix/index.md

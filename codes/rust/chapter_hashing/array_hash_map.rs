@@ -12,7 +12,9 @@ pub struct Pair {
 }
 
 /* 基于数组简易实现的哈希表 */
-pub struct ArrayHashMap { buckets: Vec<Option<Pair>> }
+pub struct ArrayHashMap {
+    buckets: Vec<Option<Pair>>
+}
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
@@ -43,6 +45,7 @@ impl ArrayHashMap {
     /* 删除操作 */
     pub fn remove(&mut self, key: i32) {
         let index = self.hash_func(key);
+        // 置为 None ，代表删除
         self.buckets[index] = None;
     }
 

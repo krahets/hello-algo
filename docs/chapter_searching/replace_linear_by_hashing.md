@@ -36,13 +36,13 @@
     [class]{}-[func]{twoSumBruteForce}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="two_sum.js"
     [class]{}-[func]{twoSumBruteForce}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="two_sum.ts"
     [class]{}-[func]{twoSumBruteForce}
@@ -78,14 +78,20 @@
     [class]{}-[func]{twoSumBruteForce}
     ```
 
+=== "Rust"
+
+    ```rust title="two_sum.rs"
+    [class]{}-[func]{two_sum_brute_force}
+    ```
+
 此方法的时间复杂度为 $O(n^2)$ ，空间复杂度为 $O(1)$ ，在大数据量下非常耗时。
 
 ## 哈希查找：以空间换时间
 
 考虑借助一个哈希表，键值对分别为数组元素和元素索引。循环遍历数组，每轮执行：
 
-1. 判断数字 `target - nums[i]` 是否在哈希表中，若是则直接返回这两个元素的索引；
-2. 将键值对 `nums[i]` 和索引 `i` 添加进哈希表；
+1. 判断数字 `target - nums[i]` 是否在哈希表中，若是则直接返回这两个元素的索引。
+2. 将键值对 `nums[i]` 和索引 `i` 添加进哈希表。
 
 === "<1>"
     ![辅助哈希表求解两数之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
@@ -122,13 +128,13 @@
     [class]{}-[func]{twoSumHashTable}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="two_sum.js"
     [class]{}-[func]{twoSumHashTable}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="two_sum.ts"
     [class]{}-[func]{twoSumHashTable}
@@ -164,6 +170,12 @@
 
     ```dart title="two_sum.dart"
     [class]{}-[func]{twoSumHashTable}
+    ```
+
+=== "Rust"
+
+    ```rust title="two_sum.rs"
+    [class]{}-[func]{two_sum_hash_table}
     ```
 
 此方法通过哈希查找将时间复杂度从 $O(n^2)$ 降低至 $O(n)$ ，大幅提升运行效率。

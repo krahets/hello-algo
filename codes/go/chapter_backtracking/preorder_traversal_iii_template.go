@@ -1,4 +1,4 @@
-// File: preorder_traversal_i_compact.go
+// File: preorder_traversal_iii_template.go
 // Created Time: 2023-05-09
 // Author: Reanon (793584285@qq.com)
 
@@ -39,7 +39,6 @@ func backtrackIII(state *[]*TreeNode, choices *[]*TreeNode, res *[][]*TreeNode) 
 	if isSolution(state) {
 		// 记录解
 		recordSolution(state, res)
-		return
 	}
 	// 遍历所有选择
 	for _, choice := range *choices {

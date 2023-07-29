@@ -60,13 +60,13 @@
     [class]{}-[func]{bubbleSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="bubble_sort.js"
     [class]{}-[func]{bubbleSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="bubble_sort.ts"
     [class]{}-[func]{bubbleSort}
@@ -102,6 +102,12 @@
     [class]{}-[func]{bubbleSort}
     ```
 
+=== "Rust"
+
+    ```rust title="bubble_sort.rs"
+    [class]{}-[func]{bubble_sort}
+    ```
+
 ## 效率优化
 
 我们发现，如果某轮“冒泡”中没有执行任何交换操作，说明数组已经完成排序，可直接返回结果。因此，可以增加一个标志位 `flag` 来监测这种情况，一旦出现就立即返回。
@@ -132,13 +138,13 @@
     [class]{}-[func]{bubbleSortWithFlag}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="bubble_sort.js"
     [class]{}-[func]{bubbleSortWithFlag}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="bubble_sort.ts"
     [class]{}-[func]{bubbleSortWithFlag}
@@ -172,6 +178,12 @@
 
     ```dart title="bubble_sort.dart"
     [class]{}-[func]{bubbleSortWithFlag}
+    ```
+
+=== "Rust"
+
+    ```rust title="bubble_sort.rs"
+    [class]{}-[func]{bubble_sort_with_flag}
     ```
 
 ## 算法特性

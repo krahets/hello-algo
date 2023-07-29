@@ -20,6 +20,7 @@ void preOrder(TreeNode *root) {
     if (root->val == 7) {
         // 记录解
         res.push_back(path);
+        path.pop_back();
         return;
     }
     preOrder(root->left);

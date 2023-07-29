@@ -43,7 +43,6 @@ def backtrack(
     if is_solution(state):
         # 记录解
         record_solution(state, res)
-        return
     # 遍历所有选择
     for choice in choices:
         # 剪枝：检查选择是否合法

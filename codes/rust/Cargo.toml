@@ -89,6 +89,21 @@ path = "chapter_hashing/hash_map.rs"
 name = "array_hash_map"
 path = "chapter_hashing/array_hash_map.rs"
 
+# Run Command: cargo run --bin build_in_hash
+[[bin]]
+name = "build_in_hash"
+path = "chapter_hashing/build_in_hash.rs"
+
+# Run Command: cargo run --bin hash_map_chaining
+[[bin]]
+name = "hash_map_chaining"
+path = "chapter_hashing/hash_map_chaining.rs"
+
+# Run Command: cargo run --bin hash_map_open_addressing
+[[bin]]
+name = "hash_map_open_addressing"
+path = "chapter_hashing/hash_map_open_addressing.rs"
+
 # Run Command: cargo run --bin binary_search
 [[bin]]
 name = "binary_search"
@@ -153,6 +168,11 @@ path = "chapter_stack_and_queue/array_stack.rs"
 [[bin]]
 name = "array_queue"
 path = "chapter_stack_and_queue/array_queue.rs"
+
+# Run Command: cargo run --bin array_binary_tree
+[[bin]]
+name = "array_binary_tree"
+path = "chapter_tree/array_binary_tree.rs"
 
 # Run Command: cargo run --bin avl_tree
 [[bin]]
@@ -348,6 +368,26 @@ path = "chapter_divide_and_conquer/hanota.rs"
 [[bin]]
 name = "build_tree"
 path = "chapter_divide_and_conquer/build_tree.rs"
+
+# Run Command: cargo run --bin coin_change_greedy
+[[bin]]
+name = "coin_change_greedy"
+path = "chapter_greedy/coin_change_greedy.rs"
+
+# Run Command: cargo run --bin fractional_knapsack
+[[bin]]
+name = "fractional_knapsack"
+path = "chapter_greedy/fractional_knapsack.rs"
+
+# Run Command: cargo run --bin max_capacity
+[[bin]]
+name = "max_capacity"
+path = "chapter_greedy/max_capacity.rs"
+
+# Run Command: cargo run --bin max_product_cutting
+[[bin]]
+name = "max_product_cutting"
+path = "chapter_greedy/max_product_cutting.rs"
 
 [dependencies]
 rand = "0.8.5"

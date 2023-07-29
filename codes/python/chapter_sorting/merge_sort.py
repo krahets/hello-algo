@@ -5,7 +5,7 @@ Author: timi (xisunyy@163.com)
 """
 
 
-def merge(nums: list[int], left: int, mid: int, right: int) -> None:
+def merge(nums: list[int], left: int, mid: int, right: int):
     """合并左子数组和右子数组"""
     # 左子数组区间 [left, mid]
     # 右子数组区间 [mid + 1, right]
@@ -36,7 +36,7 @@ def merge(nums: list[int], left: int, mid: int, right: int) -> None:
             j += 1
 
 
-def merge_sort(nums: list[int], left: int, right: int) -> None:
+def merge_sort(nums: list[int], left: int, right: int):
     """归并排序"""
     # 终止条件
     if left >= right:

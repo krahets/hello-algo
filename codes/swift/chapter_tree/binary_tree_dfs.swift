@@ -48,7 +48,7 @@ enum BinaryTreeDFS {
     static func main() {
         /* 初始化二叉树 */
         // 这里借助了一个从数组直接生成二叉树的函数
-        let root = TreeNode.listToTree(list: [1, 2, 3, 4, 5, 6, 7])!
+        let root = TreeNode.listToTree(arr: [1, 2, 3, 4, 5, 6, 7])!
         print("\n初始化二叉树\n")
         PrintUtil.printTree(root: root)
 

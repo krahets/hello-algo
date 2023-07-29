@@ -21,6 +21,7 @@ fn pre_order(res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>, path: &mut Vec<Rc<RefCel
         if node.borrow().val == 7 {
             // 记录解
             res.push(path.clone());
+            path.remove(path.len() -  1);
             return;
         }
         pre_order(res, path, node.borrow().left.clone());
@@ -41,7 +42,7 @@ pub fn main() {
     let mut res = Vec::new();
     pre_order(&mut res, &mut path, root);
 
-    println!("\n输出所有根节点到节点 7 的路径，且路径中不包含值为 3 的节点");
+    println!("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点");
     for path in res {
         let mut vals = Vec::new();
         for node in path {

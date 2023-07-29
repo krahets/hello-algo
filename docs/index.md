@@ -8,7 +8,7 @@ hide:
 
 <p align="center">
   <img src="index.assets/conceptual_rendering.png" width="250">
-  <img src="index.assets/hello_algo_knowledge_map_tp.png" width="400">
+  <img src="index.assets/hello_algo_mindmap_tp.png" width="400">
 </p>
 
 <h2 align="center"> 《 Hello 算法 》</h2>
@@ -98,7 +98,7 @@ hide:
 
 <h2 align="center"> 致谢 </h2>
 
-本书在开源社区众多贡献者的共同努力下不断成长。感谢每一位投入时间与精力的撰稿人，是他们无私奉献使这本书越变越好，他们是（按照 GitHub 自动生成的顺序排列）：
+本书在开源社区众多贡献者的共同努力下不断成长。感谢每一位投入时间与精力的撰稿人，是他们的无私奉献使这本书变得更好，他们是（按照 GitHub 自动生成的顺序）：
 
 <p align="center">
     <a href="https://github.com/krahets/hello-algo/graphs/contributors">

@@ -1,32 +1,34 @@
 # 完全背包问题
 
-在本节，我们先求解 0-1 背包的一个变种问题：完全背包问题；再了解完全背包的一种特例问题：零钱兑换。
+在本节中，我们先求解另一个常见的背包问题：完全背包，再了解它的一种特例：零钱兑换。
 
-## 完全背包问题
+## 完全背包
 
 !!! question
 
-    给定 $n$ 种物品，第 $i$ 个物品的重量为 $wgt[i-1]$ 、价值为 $val[i-1]$ ，现在有个容量为 $cap$ 的背包，**每种物品可以重复选取**，问在不超过背包容量下背包中物品的最大价值。
+    给定 $n$ 个物品，第 $i$ 个物品的重量为 $wgt[i-1]$ 、价值为 $val[i-1]$ ，和一个容量为 $cap$ 的背包。**每个物品可以重复选取**，问在不超过背包容量下能放入物品的最大价值。
 
 ![完全背包问题的示例数据](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png)
 
 完全背包和 0-1 背包问题非常相似，**区别仅在于不限制物品的选择次数**。
 
-- 在 0-1 背包中，每个物品只有一个，因此将物品 $i$ 放入背包后，只能从前 $i-1$ 个物品中选择；
-- 在完全背包中，每个物品有无数个，因此将物品 $i$ 放入背包后，**仍可以从前 $i$ 个物品中选择**；
+- 在 0-1 背包中，每个物品只有一个，因此将物品 $i$ 放入背包后，只能从前 $i-1$ 个物品中选择。
+- 在完全背包中，每个物品有无数个，因此将物品 $i$ 放入背包后，**仍可以从前 $i$ 个物品中选择**。
 
 这就导致了状态转移的变化，对于状态 $[i, c]$ 有：
 
-- **不放入物品 $i$** ：与 0-1 背包相同，转移至 $[i-1, c]$ ；
-- **放入物品 $i$** ：状态转移至 $[i, c-wgt[i-1]]$ 而非 0-1 背包的 $[i-1, c-wgt[i-1]]$ ；
+- **不放入物品 $i$** ：与 0-1 背包相同，转移至 $[i-1, c]$ 。
+- **放入物品 $i$** ：与 0-1 背包不同，转移至 $[i, c-wgt[i-1]]$ 。
 
-因此状态转移方程变为：
+从而状态转移方程变为：
 
 $$
 dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 $$
 
-对比两道题目的动态规划代码，状态转移中有一处从 $i-1$ 变为 $i$ ，其余完全一致。
+### 代码实现
+
+对比两道题目的代码，状态转移中有一处从 $i-1$ 变为 $i$ ，其余完全一致。
 
 === "Java"
 
@@ -52,13 +54,13 @@ $$
     [class]{}-[func]{unboundedKnapsackDP}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="unbounded_knapsack.js"
     [class]{}-[func]{unboundedKnapsackDP}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="unbounded_knapsack.ts"
     [class]{}-[func]{unboundedKnapsackDP}
@@ -94,7 +96,17 @@ $$
     [class]{}-[func]{unboundedKnapsackDP}
     ```
 
-由于当前状态是从左边和上边的状态转移而来，**因此状态压缩后应该对 $dp$ 表中的每一行采取正序遍历**，这个遍历顺序与 0-1 背包正好相反。请通过以下动画来理解为什么要改为正序遍历。
+=== "Rust"
+
+    ```rust title="unbounded_knapsack.rs"
+    [class]{}-[func]{unbounded_knapsack_dp}
+    ```
+
+### 状态压缩
+
+由于当前状态是从左边和上边的状态转移而来，**因此状态压缩后应该对 $dp$ 表中的每一行采取正序遍历**。
+
+这个遍历顺序与 0-1 背包正好相反。请通过以下动画来理解两者的区别。
 
 === "<1>"
     ![完全背包的状态压缩后的动态规划过程](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
@@ -140,13 +152,13 @@ $$
     [class]{}-[func]{unboundedKnapsackDPComp}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="unbounded_knapsack.js"
     [class]{}-[func]{unboundedKnapsackDPComp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="unbounded_knapsack.ts"
     [class]{}-[func]{unboundedKnapsackDPComp}
@@ -182,6 +194,12 @@ $$
     [class]{}-[func]{unboundedKnapsackDPComp}
     ```
 
+=== "Rust"
+
+    ```rust title="unbounded_knapsack.rs"
+    [class]{}-[func]{unbounded_knapsack_dp_comp}
+    ```
+
 ## 零钱兑换问题
 
 背包问题是一大类动态规划问题的代表，其拥有很多的变种，例如零钱兑换问题。
@@ -190,15 +208,13 @@ $$
 
     给定 $n$ 种硬币，第 $i$ 个硬币的面值为 $coins[i - 1]$ ，目标金额为 $amt$ ，**每种硬币可以重复选取**，问能够凑出目标金额的最少硬币个数。如果无法凑出目标金额则返回 $-1$ 。
 
-如下图所示，凑出 $11$ 元最少需要 $3$ 枚硬币，方案为 $1 + 2 + 5 = 11$ 。
-
 ![零钱兑换问题的示例数据](unbounded_knapsack_problem.assets/coin_change_example.png)
 
-**零钱兑换问题可以看作是完全背包问题的一种特殊情况**，两者具有以下联系与不同点：
+**零钱兑换可以看作是完全背包的一种特殊情况**，两者具有以下联系与不同点：
 
-- 两道题可以相互转换，“物品”对应于“硬币”、“物品重量”对应于“硬币面值”、“背包容量”对应于“目标金额”；
-- 目标不同，背包问题是要最大化物品价值，零钱兑换问题是要最小化硬币数量；
-- 背包问题是求“不超过”背包容量下的解，零钱兑换是求“恰好”凑到目标金额的解；
+- 两道题可以相互转换，“物品”对应于“硬币”、“物品重量”对应于“硬币面值”、“背包容量”对应于“目标金额”。
+- 优化目标相反，背包问题是要最大化物品价值，零钱兑换问题是要最小化硬币数量。
+- 背包问题是求“不超过”背包容量下的解，零钱兑换是求“恰好”凑到目标金额的解。
 
 **第一步：思考每轮的决策，定义状态，从而得到 $dp$ 表**
 
@@ -210,8 +226,8 @@ $$
 
 与完全背包的状态转移方程基本相同，不同点在于：
 
-- 本题要求最小值，因此需将运算符 $\max()$ 更改为 $\min()$ ；
-- 优化主体是“硬币数量”而非”商品价值“，因此在选中硬币时执行 $+1$ 即可；
+- 本题要求最小值，因此需将运算符 $\max()$ 更改为 $\min()$ 。
+- 优化主体是硬币数量而非商品价值，因此在选中硬币时执行 $+1$ 即可。
 
 $$
 dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
@@ -219,13 +235,17 @@ $$
 
 **第三步：确定边界条件和状态转移顺序**
 
-当目标金额为 $0$ 时，凑出它的最少硬币个数为 $0$ ，即所有 $dp[i, 0]$ 都等于 $0$ 。当无硬币时，**无法凑出任意 $> 0$ 的目标金额**，即是无效解。为使状态转移方程中的 $\min()$ 函数能够识别并过滤无效解，我们考虑使用 $+ \infty$ 来表示它们，即令所有 $dp[0, a]$ 都等于 $+ \infty$ 。
+当目标金额为 $0$ 时，凑出它的最少硬币个数为 $0$ ，即首列所有 $dp[i, 0]$ 都等于 $0$ 。
 
-以上做法仅适用于 Python 语言，因为大多数编程语言并未提供 $+ \infty$ 变量，所以只能使用整型 `int` 的最大值，而这又会导致大数越界：**当 $dp[i, a - coins[i-1]]$ 是无效解时，再执行 $+ 1$ 操作会发生溢出**。
+当无硬币时，**无法凑出任意 $> 0$ 的目标金额**，即是无效解。为使状态转移方程中的 $\min()$ 函数能够识别并过滤无效解，我们考虑使用 $+ \infty$ 来表示它们，即令首行所有 $dp[0, a]$ 都等于 $+ \infty$ 。
 
-为解决该问题，我们采用一个不可能达到的大数字 $amt + 1$ 来表示无效解，因为凑出 $amt$ 的硬币个数最多为 $amt$ 个。
+### 代码实现
 
-在最后返回前，判断 $dp[n, amt]$ 是否等于 $amt + 1$ ，若是则返回 $-1$ ，代表无法凑出目标金额。
+大多数编程语言并未提供 $+ \infty$ 变量，只能使用整型 `int` 的最大值来代替。而这又会导致大数越界：状态转移方程中的 $+ 1$ 操作可能发生溢出。
+
+为此，我们采用数字 $amt + 1$ 来表示无效解，因为凑出 $amt$ 的硬币个数最多为 $amt$ 个。
+
+最后返回前，判断 $dp[n, amt]$ 是否等于 $amt + 1$ ，若是则返回 $-1$ ，代表无法凑出目标金额。
 
 === "Java"
 
@@ -251,13 +271,13 @@ $$
     [class]{}-[func]{coinChangeDP}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="coin_change.js"
     [class]{}-[func]{coinChangeDP}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="coin_change.ts"
     [class]{}-[func]{coinChangeDP}
@@ -293,7 +313,13 @@ $$
     [class]{}-[func]{coinChangeDP}
     ```
 
-下图展示了零钱兑换的动态规划过程。
+=== "Rust"
+
+    ```rust title="coin_change.rs"
+    [class]{}-[func]{coin_change_dp}
+    ```
+
+下图展示了零钱兑换的动态规划过程，和完全背包非常相似。
 
 === "<1>"
     ![零钱兑换问题的动态规划过程](unbounded_knapsack_problem.assets/coin_change_dp_step1.png)
@@ -340,7 +366,9 @@ $$
 === "<15>"
     ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.png)
 
-由于零钱兑换和完全背包的状态转移方程如出一辙，因此状态压缩方式也相同。
+### 状态压缩
+
+零钱兑换的状态压缩的处理方式和完全背包一致。
 
 === "Java"
 
@@ -366,13 +394,13 @@ $$
     [class]{}-[func]{coinChangeDPComp}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="coin_change.js"
     [class]{}-[func]{coinChangeDPComp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="coin_change.ts"
     [class]{}-[func]{coinChangeDPComp}
@@ -408,6 +436,12 @@ $$
     [class]{}-[func]{coinChangeDPComp}
     ```
 
+=== "Rust"
+
+    ```rust title="coin_change.rs"
+    [class]{}-[func]{coin_change_dp_comp}
+    ```
+
 ## 零钱兑换问题 II
 
 !!! question
@@ -424,7 +458,9 @@ $$
 dp[i, a] = dp[i-1, a] + dp[i, a - coins[i-1]]
 $$
 
-当目标金额为 $0$ 时，无需选择任何硬币即可凑出目标金额，因此应将所有 $dp[i, 0]$ 都初始化为 $1$ 。当无硬币时，无法凑出任何 $>0$ 的目标金额，因此所有 $dp[0, a]$ 都等于 $0$ 。
+当目标金额为 $0$ 时，无需选择任何硬币即可凑出目标金额，因此应将首列所有 $dp[i, 0]$ 都初始化为 $1$ 。当无硬币时，无法凑出任何 $>0$ 的目标金额，因此首行所有 $dp[0, a]$ 都等于 $0$ 。
+
+### 代码实现
 
 === "Java"
 
@@ -450,13 +486,13 @@ $$
     [class]{}-[func]{coinChangeIIDP}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="coin_change_ii.js"
     [class]{}-[func]{coinChangeIIDP}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="coin_change_ii.ts"
     [class]{}-[func]{coinChangeIIDP}
@@ -491,6 +527,14 @@ $$
     ```dart title="coin_change_ii.dart"
     [class]{}-[func]{coinChangeIIDP}
     ```
+
+=== "Rust"
+
+    ```rust title="coin_change_ii.rs"
+    [class]{}-[func]{coin_change_ii_dp}
+    ```
+
+### 状态压缩
 
 状态压缩处理方式相同，删除硬币维度即可。
 
@@ -518,13 +562,13 @@ $$
     [class]{}-[func]{coinChangeIIDPComp}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="coin_change_ii.js"
     [class]{}-[func]{coinChangeIIDPComp}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="coin_change_ii.ts"
     [class]{}-[func]{coinChangeIIDPComp}
@@ -558,4 +602,10 @@ $$
 
     ```dart title="coin_change_ii.dart"
     [class]{}-[func]{coinChangeIIDPComp}
+    ```
+
+=== "Rust"
+
+    ```rust title="coin_change_ii.rs"
+    [class]{}-[func]{coin_change_ii_dp_comp}
     ```

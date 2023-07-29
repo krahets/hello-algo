@@ -6,7 +6,7 @@
 
 先来看一个简单的例子。给定一个长度为 $n$ 的数组 `nums` ，其中的元素都是“非负整数”。计数排序的整体流程如下：
 
-1. 遍历数组，找出数组中的最大数字，记为 $m$ ，然后创建一个长度为 $m + 1$ 的辅助数组 `counter` ；
+1. 遍历数组，找出数组中的最大数字，记为 $m$ ，然后创建一个长度为 $m + 1$ 的辅助数组 `counter` 。
 2. **借助 `counter` 统计 `nums` 中各数字的出现次数**，其中 `counter[num]` 对应数字 `num` 的出现次数。统计方法很简单，只需遍历 `nums`（设当前数字为 `num`），每轮将 `counter[num]` 增加 $1$ 即可。
 3. **由于 `counter` 的各个索引天然有序，因此相当于所有数字已经被排序好了**。接下来，我们遍历 `counter` ，根据各数字的出现次数，将它们按从小到大的顺序填入 `nums` 即可。
 
@@ -36,13 +36,13 @@
     [class]{}-[func]{countingSortNaive}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="counting_sort.js"
     [class]{}-[func]{countingSortNaive}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="counting_sort.ts"
     [class]{}-[func]{countingSortNaive}
@@ -78,6 +78,12 @@
     [class]{}-[func]{countingSortNaive}
     ```
 
+=== "Rust"
+
+    ```rust title="counting_sort.rs"
+    [class]{}-[func]{counting_sort_naive}
+    ```
+
 !!! note "计数排序与桶排序的联系"
 
     从桶排序的角度看，我们可以将计数排序中的计数数组 `counter` 的每个索引视为一个桶，将统计数量的过程看作是将各个元素分配到对应的桶中。本质上，计数排序是桶排序在整型数据下的一个特例。
@@ -94,8 +100,8 @@ $$
 
 **前缀和具有明确的意义，`prefix[num] - 1` 代表元素 `num` 在结果数组 `res` 中最后一次出现的索引**。这个信息非常关键，因为它告诉我们各个元素应该出现在结果数组的哪个位置。接下来，我们倒序遍历原数组 `nums` 的每个元素 `num` ，在每轮迭代中执行：
 
-1. 将 `num` 填入数组 `res` 的索引 `prefix[num] - 1` 处；
-2. 令前缀和 `prefix[num]` 减小 $1$ ，从而得到下次放置 `num` 的索引；
+1. 将 `num` 填入数组 `res` 的索引 `prefix[num] - 1` 处。
+2. 令前缀和 `prefix[num]` 减小 $1$ ，从而得到下次放置 `num` 的索引。
 
 遍历完成后，数组 `res` 中就是排序好的结果，最后使用 `res` 覆盖原数组 `nums` 即可。
 
@@ -149,13 +155,13 @@ $$
     [class]{}-[func]{countingSort}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="counting_sort.js"
     [class]{}-[func]{countingSort}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="counting_sort.ts"
     [class]{}-[func]{countingSort}
@@ -189,6 +195,12 @@ $$
 
     ```dart title="counting_sort.dart"
     [class]{}-[func]{countingSort}
+    ```
+
+=== "Rust"
+
+    ```rust title="counting_sort.rs"
+    [class]{}-[func]{counting_sort}
     ```
 
 ## 算法特性

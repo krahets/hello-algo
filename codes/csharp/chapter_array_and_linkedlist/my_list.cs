@@ -87,7 +87,7 @@ class MyList {
     /* 列表扩容 */
     public void extendCapacity() {
         // 新建一个长度为 numsCapacity * extendRatio 的数组，并将原数组拷贝到新数组
-        System.Array.Resize(ref nums, numsCapacity * extendRatio);
+        Array.Resize(ref nums, numsCapacity * extendRatio);
         // 更新列表容量
         numsCapacity = nums.Length;
     }

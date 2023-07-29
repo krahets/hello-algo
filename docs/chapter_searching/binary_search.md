@@ -12,9 +12,9 @@
 
 1. 计算中点索引 $m = \lfloor {(i + j) / 2} \rfloor$ ，其中 $\lfloor \space \rfloor$ 表示向下取整操作。
 2. 判断 `nums[m]` 和 `target` 的大小关系，分为三种情况：
-    1. 当 `nums[m] < target` 时，说明 `target` 在区间 $[m + 1, j]$ 中，因此执行 $i = m + 1$ ；
-    2. 当 `nums[m] > target` 时，说明 `target` 在区间 $[i, m - 1]$ 中，因此执行 $j = m - 1$ ；
-    3. 当 `nums[m] = target` 时，说明找到 `target` ，因此返回索引 $m$ ；
+    1. 当 `nums[m] < target` 时，说明 `target` 在区间 $[m + 1, j]$ 中，因此执行 $i = m + 1$ 。
+    2. 当 `nums[m] > target` 时，说明 `target` 在区间 $[i, m - 1]$ 中，因此执行 $j = m - 1$ 。
+    3. 当 `nums[m] = target` 时，说明找到 `target` ，因此返回索引 $m$ 。
 
 若数组不包含目标元素，搜索区间最终会缩小为空。此时返回 $-1$ 。
 
@@ -68,13 +68,13 @@
     [class]{}-[func]{binarySearch}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search.js"
     [class]{}-[func]{binarySearch}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search.ts"
     [class]{}-[func]{binarySearch}
@@ -108,6 +108,12 @@
 
     ```dart title="binary_search.dart"
     [class]{}-[func]{binarySearch}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search.rs"
+    [class]{}-[func]{binary_search}
     ```
 
 时间复杂度为 $O(\log n)$ 。每轮缩小一半区间，因此二分循环次数为 $\log_2 n$ 。
@@ -144,13 +150,13 @@
     [class]{}-[func]{binarySearchLCRO}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search.js"
     [class]{}-[func]{binarySearchLCRO}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search.ts"
     [class]{}-[func]{binarySearchLCRO}
@@ -184,6 +190,12 @@
 
     ```dart title="binary_search.dart"
     [class]{}-[func]{binarySearchLCRO}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search.rs"
+    [class]{}-[func]{binary_search_lcro}
     ```
 
 如下图所示，在两种区间表示下，二分查找算法的初始化、循环条件和缩小区间操作皆有所不同。

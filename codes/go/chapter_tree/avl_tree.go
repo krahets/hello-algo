@@ -117,9 +117,9 @@ func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 		return NewTreeNode(val)
 	}
 	/* 1. 查找插入位置，并插入节点 */
-	if val < node.Val {
+	if val < node.Val.(int) {
 		node.Left = t.insertHelper(node.Left, val)
-	} else if val > node.Val {
+	} else if val > node.Val.(int) {
 		node.Right = t.insertHelper(node.Right, val)
 	} else {
 		// 重复节点不插入，直接返回
@@ -144,9 +144,9 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 		return nil
 	}
 	/* 1. 查找节点，并删除之 */
-	if val < node.Val {
+	if val < node.Val.(int) {
 		node.Left = t.removeHelper(node.Left, val)
-	} else if val > node.Val {
+	} else if val > node.Val.(int) {
 		node.Right = t.removeHelper(node.Right, val)
 	} else {
 		if node.Left == nil || node.Right == nil {
@@ -167,7 +167,7 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 			for temp.Left != nil {
 				temp = temp.Left
 			}
-			node.Right = t.removeHelper(node.Right, temp.Val)
+			node.Right = t.removeHelper(node.Right, temp.Val.(int))
 			node.Val = temp.Val
 		}
 	}
@@ -184,10 +184,10 @@ func (t *aVLTree) search(val int) *TreeNode {
 	cur := t.root
 	// 循环查找，越过叶节点后跳出
 	for cur != nil {
-		if cur.Val < val {
+		if cur.Val.(int) < val {
 			// 目标节点在 cur 的右子树中
 			cur = cur.Right
-		} else if cur.Val > val {
+		} else if cur.Val.(int) > val {
 			// 目标节点在 cur 的左子树中
 			cur = cur.Left
 		} else {

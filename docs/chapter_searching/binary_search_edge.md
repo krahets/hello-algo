@@ -10,7 +10,7 @@
 
 为了查找数组中最左边的 `target` ，我们可以分为两步：
 
-1. 进行二分查找，定位到任意一个 `target` 的索引，记为 $k$ ；
+1. 进行二分查找，定位到任意一个 `target` 的索引，记为 $k$ 。
 2. 以索引 $k$ 为起始点，向左进行线性遍历，找到最左边的 `target` 返回即可。
 
 ![线性查找最左边的元素](binary_search_edge.assets/binary_search_left_edge_naive.png)
@@ -76,13 +76,13 @@
     [class]{}-[func]{binarySearchLeftEdge}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search_edge.js"
     [class]{}-[func]{binarySearchLeftEdge}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search_edge.ts"
     [class]{}-[func]{binarySearchLeftEdge}
@@ -118,6 +118,12 @@
     [class]{}-[func]{binarySearchLeftEdge}
     ```
 
+=== "Rust"
+
+    ```rust title="binary_search_edge.rs"
+    [class]{}-[func]{binary_search_left_edge}
+    ```
+
 ## 查找右边界
 
 类似地，我们也可以二分查找最右边的 `target` 。当 `nums[m] == target` 时，说明大于 `target` 的元素在区间 $[m + 1, j]$ 中，因此执行 `i = m + 1` ，**使得指针 $i$ 向大于 `target` 的元素靠近**。
@@ -148,13 +154,13 @@
     [class]{}-[func]{binarySearchRightEdge}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="binary_search_edge.js"
     [class]{}-[func]{binarySearchRightEdge}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="binary_search_edge.ts"
     [class]{}-[func]{binarySearchRightEdge}
@@ -188,6 +194,12 @@
 
     ```dart title="binary_search_edge.dart"
     [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search_edge.rs"
+    [class]{}-[func]{binary_search_right_edge}
     ```
 
 观察下图，搜索最右边元素时指针 $j$ 的作用与搜索最左边元素时指针 $i$ 的作用一致，反之亦然。也就是说，**搜索最左边元素和最右边元素的实现是镜像对称的**。

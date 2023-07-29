@@ -10,7 +10,7 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
 
-def pre_order(root: TreeNode) -> None:
+def pre_order(root: TreeNode):
     """前序遍历：例题二"""
     if root is None:
         return

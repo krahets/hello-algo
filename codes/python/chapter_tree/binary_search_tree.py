@@ -13,7 +13,7 @@ from modules import *
 class BinarySearchTree:
     """二叉搜索树"""
 
-    def __init__(self, nums: list[int]) -> None:
+    def __init__(self, nums: list[int]):
         """构造方法"""
         nums.sort()
         self.root = self.build_tree(nums, 0, len(nums) - 1)
@@ -53,7 +53,7 @@ class BinarySearchTree:
                 break
         return cur
 
-    def insert(self, num: int) -> None:
+    def insert(self, num: int):
         """插入节点"""
         # 若树为空，直接提前返回
         if self.root is None:
@@ -80,7 +80,7 @@ class BinarySearchTree:
         else:
             pre.left = node
 
-    def remove(self, num: int) -> None:
+    def remove(self, num: int):
         """删除节点"""
         # 若树为空，直接提前返回
         if self.root is None:

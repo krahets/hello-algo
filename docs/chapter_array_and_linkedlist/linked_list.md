@@ -58,7 +58,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 链表节点类 */
@@ -72,7 +72,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 链表节点类 */
@@ -111,8 +111,7 @@
 
     ```csharp title=""
     /* 链表节点类 */
-    class ListNode
-    {
+    class ListNode {
         int val;         // 节点值
         ListNode next;   // 指向下一节点的引用
         ListNode(int x) => val = x;  //构造函数
@@ -162,6 +161,12 @@
       ListNode? next; // 指向下一节点的指针（引用）
       ListNode(this.val, [this.next]); // 构造函数
     }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
     ```
 
 !!! question "尾节点指向什么？"
@@ -242,7 +247,7 @@
     n3.Next = n4
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
@@ -259,7 +264,7 @@
     n3.next = n4;
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
@@ -361,6 +366,12 @@
     n3.next = n4;
     ```
 
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+
+    ```
+
 ## 链表优点
 
 **链表中插入与删除节点的操作效率高**。例如，如果我们想在链表中间的两个节点 `A` , `B` 之间插入一个新节点 `P` ，我们只需要改变两个节点指针即可，时间复杂度为 $O(1)$ ；相比之下，数组的插入操作效率要低得多。
@@ -391,13 +402,13 @@
     [class]{}-[func]{insertNode}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{insert}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{insert}
@@ -430,6 +441,12 @@
 === "Dart"
 
     ```dart title="linked_list.dart"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
     [class]{}-[func]{insert}
     ```
 
@@ -461,13 +478,13 @@
     [class]{}-[func]{removeNode}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{remove}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{remove}
@@ -503,6 +520,12 @@
     [class]{}-[func]{remove}
     ```
 
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+    [class]{}-[func]{remove}
+    ```
+
 ## 链表缺点
 
 **链表访问节点效率较低**。如上节所述，数组可以在 $O(1)$ 时间下访问任意元素。然而，链表无法直接访问任意节点，这是因为系统需要从头节点出发，逐个向后遍历直至找到目标节点。例如，若要访问链表索引为 `index`（即第 `index + 1` 个）的节点，则需要向后遍历 `index` 轮。
@@ -531,13 +554,13 @@
     [class]{}-[func]{access}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{access}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{access}
@@ -570,6 +593,12 @@
 === "Dart"
 
     ```dart title="linked_list.dart"
+    [class]{}-[func]{access}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
     [class]{}-[func]{access}
     ```
 
@@ -603,13 +632,13 @@
     [class]{}-[func]{findNode}
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{find}
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{find}
@@ -642,6 +671,12 @@
 === "Dart"
 
     ```dart title="linked_list.dart"
+    [class]{}-[func]{find}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
     [class]{}-[func]{find}
     ```
 
@@ -708,7 +743,7 @@
     }
     ```
 
-=== "JavaScript"
+=== "JS"
 
     ```javascript title=""
     /* 双向链表节点类 */
@@ -724,7 +759,7 @@
     }
     ```
 
-=== "TypeScript"
+=== "TS"
 
     ```typescript title=""
     /* 双向链表节点类 */
@@ -822,6 +857,12 @@
         ListNode prev;  // 指向前驱节点的指针（引用）
         ListNode(this.val, [this.next, this.prev]);  // 构造函数
     }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
     ```
 
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)

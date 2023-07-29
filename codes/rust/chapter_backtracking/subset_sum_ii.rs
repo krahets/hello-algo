@@ -38,7 +38,7 @@ fn subset_sum_ii(nums: &mut [i32], target: i32) -> Vec<Vec<i32>> {
     let state = Vec::new(); // 状态（子集）
     nums.sort(); // 对 nums 进行排序
     let start = 0; // 遍历起始点
-    let mut res = Vec::new();
+    let mut res = Vec::new(); // 结果列表（子集列表）
     backtrack(state, target, nums, start, &mut res);
     res
 }

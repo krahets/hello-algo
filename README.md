@@ -48,9 +48,9 @@
 
 我们正在加速更新本书，欢迎您通过提交 Pull Request 来[参与本项目](https://www.hello-algo.com/chapter_appendix/contribution/)，以帮助其他读者获取更优质的学习内容。
 
-- 若您发现语法错误、内容缺失、文字歧义、无效链接、解释不清晰等问题，请协助修正或在评论区指出；
-- 期待您参与 C++, Python, Go, JavaScript, TypeScript, C, C#, Swift, Zig, Rust, Dart 等语言的[代码翻译](https://github.com/krahets/hello-algo/issues/15)；
-- 欢迎您为本书内容提出宝贵意见和建议，如有任何问题请提交 Issues 或微信联系 krahets-jyd ；
+- 若您发现语法错误、内容缺失、文字歧义、无效链接、解释不清晰等问题，请协助修正或在评论区指出。
+- 期待您参与 C++, Python, Go, JavaScript, TypeScript, C, C#, Swift, Zig, Rust, Dart 等语言的[代码翻译](https://github.com/krahets/hello-algo/issues/15)。
+- 欢迎您为本书内容提出宝贵意见和建议，如有任何问题请提交 Issues 或微信联系 krahets-jyd 。
 
 感谢本开源书的每一位撰稿人，是他们的无私奉献让这本书变得更好，他们是：
 
