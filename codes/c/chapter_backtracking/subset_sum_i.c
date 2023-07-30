@@ -39,7 +39,7 @@ int comp(const void *a, const void *b) {
 }
 
 /* 求解子集和 I */
-vector *subsetSumINaive(vector *nums, int target) {
+vector *subsetSumI(vector *nums, int target) {
     vector *state = newVector();                         // 状态（子集）
     qsort(nums->data[0], nums->size, sizeof(int), comp); // 对 nums 进行排序
     int start = 0;                                       // 子集和
@@ -63,7 +63,7 @@ int main() {
     }
     int target = 9;
 
-    vector *res = subsetSumINaive(vNums, target);
+    vector *res = subsetSumI(vNums, target);
 
     printf("输入数组 nums = ");
     printVector(vNums, printFunc);

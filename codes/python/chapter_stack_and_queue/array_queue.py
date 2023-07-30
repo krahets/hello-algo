@@ -31,7 +31,7 @@ class ArrayQueue:
         if self.__size == self.capacity():
             raise IndexError("队列已满")
         # 计算尾指针，指向队尾索引 + 1
-        # 通过取余操作，实现 rear 越过数组尾部后回到头部F
+        # 通过取余操作，实现 rear 越过数组尾部后回到头部
         rear: int = (self.__front + self.__size) % self.capacity()
         # 将 num 添加至队尾
         self.__nums[rear] = num
