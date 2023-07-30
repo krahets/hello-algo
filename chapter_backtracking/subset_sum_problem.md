@@ -182,9 +182,40 @@ comments: true
 === "C"
 
     ```c title="subset_sum_i_naive.c"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(vector *state, int target, int total, vector *choices, vector *res) {
+        // 子集和等于 target 时，记录解
+        if (total == target) {
+            vector *tmpVector = newVector();
+            for (int i = 0; i < state->size; i++) {
+                vectorPushback(tmpVector, state->data[i]);
+            }
+            vectorPushback(res, tmpVector);
+            return;
+        }
+        // 遍历所有选择
+        for (size_t i = 0; i < choices->size; i++) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if (total + *(int *)(choices->data[i]) > target) {
+                continue;
+            }
+            // 尝试：做出选择，更新元素和 total
+            vectorPushback(state, choices->data[i]);
+            // 进行下一轮选择
+            backtrack(state, target, total + *(int *)(choices->data[i]), choices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            vectorPopback(state);
+        }
+    }
 
-    [class]{}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    vector *subsetSumINaive(vector *nums, int target) {
+        vector *state = newVector(); // 状态（子集）
+        int total = 0;               // 子集和
+        vector *res = newVector();   // 结果列表（子集列表）
+        backtrack(state, target, total, nums, res);
+        return res;
+    }
     ```
 
 === "C#"
@@ -518,9 +549,42 @@ comments: true
 === "C"
 
     ```c title="subset_sum_i.c"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(vector *state, int target, vector *choices, int start, vector *res) {
+        // 子集和等于 target 时，记录解
+        if (target == 0) {
+            vector *tmpVector = newVector();
+            for (int i = 0; i < state->size; i++) {
+                vectorPushback(tmpVector, state->data[i]);
+            }
+            vectorPushback(res, tmpVector);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for (int i = start; i < choices->size; i++) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if (target - *(int *)(choices->data[i]) < 0) {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            vectorPushback(state, choices->data[i]);
+            // 进行下一轮选择
+            backtrack(state, target - *(int *)(choices->data[i]), choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            vectorPopback(state);
+        }
+    }
 
-    [class]{}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    vector *subsetSumI(vector *nums, int target) {
+        vector *state = newVector();                         // 状态（子集）
+        qsort(nums->data[0], nums->size, sizeof(int), comp); // 对 nums 进行排序
+        int start = 0;                                       // 子集和
+        vector *res = newVector();                           // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "C#"
@@ -869,9 +933,48 @@ comments: true
 === "C"
 
     ```c title="subset_sum_ii.c"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    void backtrack(vector *state, int target, vector *choices, int start, vector *res) {
+        // 子集和等于 target 时，记录解
+        if (target == 0) {
+            vector *tmpVector = newVector();
+            for (int i = 0; i < state->size; i++) {
+                vectorPushback(tmpVector, state->data[i]);
+            }
+            vectorPushback(res, tmpVector);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for (int i = start; i < choices->size; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - *(int *)(choices->data[i]) < 0) {
+                continue;
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if (i > start && *(int *)(choices->data[i]) == *(int *)(choices->data[i - 1])) {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            vectorPushback(state, choices->data[i]);
+            // 进行下一轮选择
+            backtrack(state, target - *(int *)(choices->data[i]), choices, i + 1, res);
+            // 回退：撤销选择，恢复到之前的状态
+            vectorPopback(state);
+        }
+    }
 
-    [class]{}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    vector *subsetSumII(vector *nums, int target) {
+        vector *state = newVector();                         // 状态（子集）
+        qsort(nums->data[0], nums->size, sizeof(int), comp); // 对 nums 进行排序
+        int start = 0;                                       // 子集和
+        vector *res = newVector();                           // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "C#"

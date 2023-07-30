@@ -269,9 +269,52 @@ comments: true
 === "C"
 
     ```c title="permutations_i.c"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：全排列 I */
+    void backtrack(vector *state, vector *choices, vector *selected, vector *res) {
+        // 当状态长度等于元素数量时，记录解
+        if (state->size == choices->size) {
+            vector *newState = newVector();
+            for (int i = 0; i < state->size; i++) {
+                vectorPushback(newState, state->data[i]);
+            }
+            vectorPushback(res, newState);
+            return;
+        }
+        // 遍历所有选择
+        for (int i = 0; i < choices->size; i++) {
+            int *choice = malloc(sizeof(int));
+            *choice = *((int *)(choices->data[i]));
+            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            bool select = *((bool *)(selected->data[i]));
+            if (!select) {
+                // 尝试：做出选择，更新状态
+                *((bool *)selected->data[i]) = true;
+                vectorPushback(state, choice);
+                // 进行下一轮选择
+                backtrack(state, choices, selected, res);
+                // 回退：撤销选择，恢复到之前的状态
+                *((bool *)selected->data[i]) = false;
+                vectorPopback(state);
+            }
+        }
+    }
 
-    [class]{}-[func]{permutationsI}
+    /* 全排列 I */
+    vector *permutationsI(vector *nums) {
+        vector *iState = newVector();
+
+        int select[3] = {false, false, false};
+        vector *bSelected = newVector();
+        for (int i = 0; i < nums->size; i++) {
+            vectorPushback(bSelected, &select[i]);
+        }
+
+        vector *res = newVector();
+
+        // 前序遍历
+        backtrack(iState, nums, bSelected, res);
+        return res;
+    }
     ```
 
 === "C#"

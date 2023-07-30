@@ -332,7 +332,28 @@ comments: true
 === "C"
 
     ```c title="preorder_traversal_ii_compact.c"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    void preOrder(TreeNode *root, vector *path, vector *res) {
+        if (root == NULL) {
+            return;
+        }
+        // 尝试
+        vectorPushback(path, root);
+        if (root->val == 7) {
+            // 记录解
+            vector *newPath = newVector();
+            for (int i = 0; i < path->size; i++) {
+                vectorPushback(newPath, path->data[i]);
+            }
+            vectorPushback(res, newPath);
+        }
+
+        preOrder(root->left, path, res);
+        preOrder(root->right, path, res);
+
+        // 回退
+        vectorPopback(path);
+    }
     ```
 
 === "C#"
@@ -607,7 +628,30 @@ comments: true
 === "C"
 
     ```c title="preorder_traversal_iii_compact.c"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    void preOrder(TreeNode *root, vector *path, vector *res) {
+        // 剪枝
+        if (root == NULL || root->val == 3) {
+            return;
+        }
+        // 尝试
+        vectorPushback(path, root);
+        if (root->val == 7) {
+            // 记录解
+            vector *newPath = newVector();
+            for (int i = 0; i < path->size; i++) {
+                vectorPushback(newPath, path->data[i]);
+            }
+            vectorPushback(res, newPath);
+            res->depth++;
+        }
+
+        preOrder(root->left, path, res);
+        preOrder(root->right, path, res);
+
+        // 回退
+        vectorPopback(path);
+    }
     ```
 
 === "C#"
@@ -1281,17 +1325,60 @@ comments: true
 === "C"
 
     ```c title="preorder_traversal_iii_template.c"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    bool isSolution(vector *state) {
+        return state->size != 0 && ((TreeNode *)(state->data[state->size - 1]))->val == 7;
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    void recordSolution(vector *state, vector *res) {
+        vector *newPath = newVector();
+        for (int i = 0; i < state->size; i++) {
+            vectorPushback(newPath, state->data[i]);
+        }
+        vectorPushback(res, newPath);
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    bool isValid(vector *state, TreeNode *choice) {
+        return choice != NULL && choice->val != 3;
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    void makeChoice(vector *state, TreeNode *choice) {
+        vectorPushback(state, choice);
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    void undoChoice(vector *state, TreeNode *choice) {
+        vectorPopback(state);
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 前序遍历：例题三 */
+    void backtrack(vector *state, vector *choices, vector *res) {
+        // 检查是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+            return;
+        }
+        // 遍历所有选择
+        for (int i = 0; i < choices->size; i++) {
+            TreeNode *choice = choices->data[i];
+            // 剪枝：检查选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                // 进行下一轮选择
+                vector *nextChoices = newVector();
+                vectorPushback(nextChoices, choice->left);
+                vectorPushback(nextChoices, choice->right);
+                backtrack(state, nextChoices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
     ```
 
 === "C#"
