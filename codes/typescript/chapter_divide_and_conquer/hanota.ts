@@ -1,5 +1,5 @@
 /**
- * File: hanota.js
+ * File: hanota.ts
  * Created Time: 2023-07-30
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
