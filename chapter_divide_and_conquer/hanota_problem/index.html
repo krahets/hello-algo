@@ -3469,7 +3469,7 @@
 </div>
 </div>
 </div>
-<p>本质上看，<strong>我们将问题 <span class="arithmatex">\(f(3)\)</span> 划分为两个子问题 <span class="arithmatex">\(f(2)\)</span> 和子问题 <span class="arithmatex">\(f(1)\)</span></strong> 。按顺序解决这三个子问题之后，原问题随之得到解决。这说明子问题是独立的，且解是可以合并的。</p>
+<p>本质上看，<strong>我们将问题 <span class="arithmatex">\(f(3)\)</span> 划分为两个子问题 <span class="arithmatex">\(f(2)\)</span> 和子问题 <span class="arithmatex">\(f(1)\)</span></strong> 。按顺序解决这三个子问题之后，原问题随之得到解决。这说明子问题是独立的，而且解是可以合并的。</p>
 <p>至此，我们可总结出汉诺塔问题的分治策略：将原问题 <span class="arithmatex">\(f(n)\)</span> 划分为两个子问题 <span class="arithmatex">\(f(n-1)\)</span> 和一个子问题 <span class="arithmatex">\(f(1)\)</span> 。子问题的解决顺序为：</p>
 <ol>
 <li>将 <span class="arithmatex">\(n-1\)</span> 个圆盘借助 <code>C</code> 从 <code>A</code> 移至 <code>B</code> 。</li>
