@@ -48,7 +48,7 @@ void delVector(vector *v) {
     }
 }
 
-/*  添加元素(拷贝方式）到向量尾部 */
+/*  添加元素（拷贝方式）到向量尾部 */
 void vectorPushback(vector *v, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         v->capacity *= 2;

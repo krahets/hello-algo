@@ -133,27 +133,9 @@ int main() {
     int i = 1;
     int l = left(i), r = right(i), p = parent(i);
     printf("\n当前节点的索引为 %d，值为 %d\n", i, val(abt, i));
-    char tmpArray[20];
-    if (l != INT_MAX) {
-        sprintf(tmpArray, "%d", val(abt, l));
-    } else {
-        sprintf(tmpArray, "%s", "None");
-    }
-    printf("其左子节点的索引为 %d，值为 %s\r\n", l, tmpArray);
-
-    if (r != INT_MAX) {
-        sprintf(tmpArray, "%d", val(abt, r));
-    } else {
-        sprintf(tmpArray, "%s", "None");
-    }
-    printf("其右子节点的索引为 %d，值为 %s\r\n", r, tmpArray);
-
-    if (p != INT_MAX) {
-        sprintf(tmpArray, "%d", val(abt, p));
-    } else {
-        sprintf(tmpArray, "%s", "None");
-    }
-    printf("其父节点的索引为 %d，值为 %s\r\n", p, tmpArray);
+    printf("其左子节点的索引为 %d，值为 %d\r\n", l, val(abt, l));
+    printf("其右子节点的索引为 %d，值为 %d\r\n", r, val(abt, r));
+    printf("其父节点的索引为 %d，值为 %d\r\n", p, val(abt, p));
 
     // 遍历树
     vector *res = levelOrder(abt);
