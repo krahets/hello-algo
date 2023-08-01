@@ -111,10 +111,12 @@ comments: true
             List<Pair> bucket = buckets.get(index);
             // 遍历桶，从中删除键值对
             for (Pair pair : bucket) {
-                if (pair.key == key)
+                if (pair.key == key) {
                     bucket.remove(pair);
+                    size--;
+                    break;
+                }
             }
-            size--;
         }
 
         /* 扩容哈希表 */
@@ -316,7 +318,7 @@ comments: true
                 if pair.key == key:
                     bucket.remove(pair)
                     self.size -= 1
-                    return
+                    break
 
         def extend(self):
             """扩容哈希表"""
@@ -422,10 +424,10 @@ comments: true
             if p.key == key {
                 // 切片删除
                 m.buckets[idx] = append(m.buckets[idx][:i], m.buckets[idx][i+1:]...)
+                m.size -= 1
                 break
             }
         }
-        m.size -= 1
     }
 
     /* 扩容哈希表 */
@@ -554,12 +556,13 @@ comments: true
         public void remove(int key) {
             int index = hashFunc(key);
             // 遍历桶，从中删除键值对
-            foreach (Pair pair in buckets[index].ToList()) { 
+            foreach (Pair pair in buckets[index].ToList()) {
                 if (pair.key == key) {
                     buckets[index].Remove(pair);
+                    size--;
+                    break;
                 }
             }
-            size--;   
         }
 
         /* 扩容哈希表 */
@@ -776,8 +779,13 @@ comments: true
         int index = hashFunc(key);
         List<Pair> bucket = buckets[index];
         // 遍历桶，从中删除键值对
-        bucket.removeWhere((Pair pair) => pair.key == key);
-        size--;
+        for (Pair pair in bucket) {
+          if (pair.key == key) {
+            bucket.remove(pair);
+            size--;
+            break;
+          }
+        }
       }
 
       /* 扩容哈希表 */

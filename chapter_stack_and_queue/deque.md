@@ -1384,7 +1384,7 @@ comments: true
     class ListNode {
         var val: Int // 节点值
         var next: ListNode? // 后继节点引用（指针）
-        var prev: ListNode? // 前驱节点引用（指针）
+        weak var prev: ListNode? // 前驱节点引用（指针）
 
         init(val: Int) {
             self.val = val
