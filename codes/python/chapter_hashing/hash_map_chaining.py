@@ -66,7 +66,7 @@ class HashMapChaining:
             if pair.key == key:
                 bucket.remove(pair)
                 self.size -= 1
-                return
+                break
 
     def extend(self):
         """扩容哈希表"""
