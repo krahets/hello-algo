@@ -4794,7 +4794,7 @@
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kd">class</span> <span class="nc">ListNode</span> <span class="p">{</span>
 <a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="kd">var</span> <span class="nv">val</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 节点值</span>
 <a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    <span class="kd">var</span> <span class="nv">next</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">?</span> <span class="c1">// 后继节点引用（指针）</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>    <span class="kd">var</span> <span class="nv">prev</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">?</span> <span class="c1">// 前驱节点引用（指针）</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>    <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">prev</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">?</span> <span class="c1">// 前驱节点引用（指针）</span>
 <a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
 <a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>    <span class="kd">init</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
 <a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>        <span class="kc">self</span><span class="p">.</span><span class="n">val</span> <span class="p">=</span> <span class="n">val</span>
