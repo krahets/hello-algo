@@ -11,6 +11,12 @@ icon: material/table-search
 
 </div>
 
+!!! abstract
+
+    在计算机世界中，散列表如同一位智能的图书管理员。
+    
+    他知道如何有序地组织数据，从而可以通过索书号快速找到目标书籍。
+
 ## 本章内容
 
 - [6.1 &nbsp; 哈希表](https://www.hello-algo.com/chapter_hashing/hash_map/)

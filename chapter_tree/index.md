@@ -11,6 +11,12 @@ icon: material/graph-outline
 
 </div>
 
+!!! abstract
+
+    参天大树充满生命力，其根深叶茂，分枝扶疏。
+    
+    它为我们展现了数据分治的生动形态。
+
 ## 本章内容
 
 - [7.1 &nbsp; 二叉树](https://www.hello-algo.com/chapter_tree/binary_tree/)

@@ -12,6 +12,12 @@ status: new
 
 </div>
 
+!!! abstract
+
+    向日葵朝着太阳转动，时刻都在追求自身成长的最大可能。
+
+    这便是贪心的智慧，一种简单且高效的问题求解策略。
+
 ## 本章内容
 
 - [15.1 &nbsp; 贪心算法](https://www.hello-algo.com/chapter_greedy/greedy_algorithm/)

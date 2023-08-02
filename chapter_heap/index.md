@@ -11,6 +11,12 @@ icon: material/family-tree
 
 </div>
 
+!!! abstract
+
+    堆就像是山川的峰峦，它们层叠起伏、形态各异。
+    
+    每一座山峰都有其高低之分，而最高的山峰总是最先映入眼帘。
+
 ## 本章内容
 
 - [8.1 &nbsp; 堆](https://www.hello-algo.com/chapter_heap/heap/)

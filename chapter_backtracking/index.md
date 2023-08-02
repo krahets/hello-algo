@@ -11,6 +11,12 @@ icon: material/map-marker-path
 
 </div>
 
+!!! abstract
+
+    我们如同迷宫中的探索者，在寻找出口的道路上可能会遇到困难。
+    
+    回溯的力量让我们能够重新开始，最终寻找到正确的道路。
+
 ## 本章内容
 
 - [13.1 &nbsp; 回溯算法](https://www.hello-algo.com/chapter_backtracking/backtracking_algorithm/)

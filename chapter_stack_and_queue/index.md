@@ -11,6 +11,12 @@ icon: material/stack-overflow
 
 </div>
 
+!!! abstract
+
+    栈如同叠猫猫，而队列就像猫猫排队。
+    
+    两者分别代表着先入后出和先入先出的逻辑关系。
+
 ## 本章内容
 
 - [5.1 &nbsp; 栈](https://www.hello-algo.com/chapter_stack_and_queue/stack/)

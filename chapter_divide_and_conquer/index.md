@@ -12,6 +12,12 @@ status: new
 
 </div>
 
+!!! abstract
+
+    分治一次又一次地拆解难题，每一次的拆解都让问题变得更为简单。
+    
+    从简单做起，一切都不再复杂。
+
 ## 本章内容
 
 - [12.1 &nbsp; 分治算法](https://www.hello-algo.com/chapter_divide_and_conquer/divide_and_conquer/)

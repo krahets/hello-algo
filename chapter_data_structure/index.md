@@ -11,6 +11,12 @@ icon: material/shape-outline
 
 </div>
 
+!!! abstract
+
+    数据结构如同一副稳固而多样的框架。
+    
+    它为数据的有序组织提供了蓝图，使算法得以在此基础上生动起来。
+
 ## 本章内容
 
 - [3.1 &nbsp; 数据结构分类](https://www.hello-algo.com/chapter_data_structure/classification_of_data_structure/)
