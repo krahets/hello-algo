@@ -4100,7 +4100,8 @@
 <p><img alt="在二叉搜索树中删除节点（度为 1）" src="../binary_search_tree.assets/bst_remove_case2.png" /></p>
 <p align="center"> Fig. 在二叉搜索树中删除节点（度为 1） </p>
 
-<p>当待删除节点的度为 <span class="arithmatex">\(2\)</span> 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左 <span class="arithmatex">\(&lt;\)</span> 根 <span class="arithmatex">\(&lt;\)</span> 右”的性质，因此这个节点可以是右子树的最小节点或左子树的最大节点。假设我们选择右子树的最小节点（或者称为中序遍历的下个节点），则删除操作为：</p>
+<p>当待删除节点的度为 <span class="arithmatex">\(2\)</span> 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左 <span class="arithmatex">\(&lt;\)</span> 根 <span class="arithmatex">\(&lt;\)</span> 右”的性质，因此这个节点可以是右子树的最小节点或左子树的最大节点。</p>
+<p>假设我们选择右子树的最小节点（即中序遍历的下一个节点），则删除操作为：</p>
 <ol>
 <li>找到待删除节点在“中序遍历序列”中的下一个节点，记为 <code>tmp</code> 。</li>
 <li>将 <code>tmp</code> 的值覆盖待删除节点的值，并在树中递归删除节点 <code>tmp</code> 。</li>
