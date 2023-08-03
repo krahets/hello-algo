@@ -166,17 +166,77 @@ comments: true
 === "JS"
 
     ```javascript title="subset_sum_i_naive.js"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    function backtrack(state, target, total, choices, res) {
+        // 子集和等于 target 时，记录解
+        if (total === target) {
+            res.push([...state]);
+            return;
+        }
+        // 遍历所有选择
+        for (let i = 0; i < choices.length; i++) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if (total + choices[i] > target) {
+                continue;
+            }
+            // 尝试：做出选择，更新元素和 total
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target, total + choices[i], choices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    function subsetSumINaive(nums, target) {
+        const state = []; // 状态（子集）
+        const total = 0; // 子集和
+        const res = []; // 结果列表（子集列表）
+        backtrack(state, target, total, nums, res);
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="subset_sum_i_naive.ts"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    function backtrack(
+        state: number[],
+        target: number,
+        total: number,
+        choices: number[],
+        res: number[][]
+    ): void {
+        // 子集和等于 target 时，记录解
+        if (total === target) {
+            res.push([...state]);
+            return;
+        }
+        // 遍历所有选择
+        for (let i = 0; i < choices.length; i++) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if (total + choices[i] > target) {
+                continue;
+            }
+            // 尝试：做出选择，更新元素和 total
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target, total + choices[i], choices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    function subsetSumINaive(nums: number[], target: number): number[][] {
+        const state = []; // 状态（子集）
+        const total = 0; // 子集和
+        const res = []; // 结果列表（子集列表）
+        backtrack(state, target, total, nums, res);
+        return res;
+    }
     ```
 
 === "C"
@@ -188,9 +248,9 @@ comments: true
         if (total == target) {
             vector *tmpVector = newVector();
             for (int i = 0; i < state->size; i++) {
-                vectorPushback(tmpVector, state->data[i]);
+                vectorPushback(tmpVector, state->data[i], sizeof(int));
             }
-            vectorPushback(res, tmpVector);
+            vectorPushback(res, tmpVector, sizeof(vector));
             return;
         }
         // 遍历所有选择
@@ -200,7 +260,7 @@ comments: true
                 continue;
             }
             // 尝试：做出选择，更新元素和 total
-            vectorPushback(state, choices->data[i]);
+            vectorPushback(state, choices->data[i], sizeof(int));
             // 进行下一轮选择
             backtrack(state, target, total + *(int *)(choices->data[i]), choices, res);
             // 回退：撤销选择，恢复到之前的状态
@@ -533,17 +593,83 @@ comments: true
 === "JS"
 
     ```javascript title="subset_sum_i.js"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    function backtrack(state, target, choices, start, res) {
+        // 子集和等于 target 时，记录解
+        if (target === 0) {
+            res.push([...state]);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for (let i = start; i < choices.length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    function subsetSumI(nums, target) {
+        const state = []; // 状态（子集）
+        nums.sort(); // 对 nums 进行排序
+        const start = 0; // 遍历起始点
+        const res = []; // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="subset_sum_i.ts"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    function backtrack(
+        state: number[],
+        target: number,
+        choices: number[],
+        start: number,
+        res: number[][]
+    ): void {
+        // 子集和等于 target 时，记录解
+        if (target === 0) {
+            res.push([...state]);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for (let i = start; i < choices.length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    function subsetSumI(nums: number[], target: number): number[][] {
+        const state = []; // 状态（子集）
+        nums.sort(); // 对 nums 进行排序
+        const start = 0; // 遍历起始点
+        const res = []; // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "C"
@@ -555,9 +681,9 @@ comments: true
         if (target == 0) {
             vector *tmpVector = newVector();
             for (int i = 0; i < state->size; i++) {
-                vectorPushback(tmpVector, state->data[i]);
+                vectorPushback(tmpVector, state->data[i], sizeof(int));
             }
-            vectorPushback(res, tmpVector);
+            vectorPushback(res, tmpVector, sizeof(vector));
             return;
         }
         // 遍历所有选择
@@ -565,10 +691,10 @@ comments: true
         for (int i = start; i < choices->size; i++) {
             // 剪枝：若子集和超过 target ，则跳过该选择
             if (target - *(int *)(choices->data[i]) < 0) {
-                continue;
+                break;
             }
             // 尝试：做出选择，更新 target, start
-            vectorPushback(state, choices->data[i]);
+            vectorPushback(state, choices->data[i], sizeof(int));
             // 进行下一轮选择
             backtrack(state, target - *(int *)(choices->data[i]), choices, i, res);
             // 回退：撤销选择，恢复到之前的状态
@@ -578,10 +704,10 @@ comments: true
 
     /* 求解子集和 I */
     vector *subsetSumI(vector *nums, int target) {
-        vector *state = newVector();                         // 状态（子集）
-        qsort(nums->data[0], nums->size, sizeof(int), comp); // 对 nums 进行排序
-        int start = 0;                                       // 子集和
-        vector *res = newVector();                           // 结果列表（子集列表）
+        vector *state = newVector();                        // 状态（子集）
+        qsort(nums->data, nums->size, sizeof(int *), comp); // 对 nums 进行排序
+        int start = 0;                                      // 子集和
+        vector *res = newVector();                          // 结果列表（子集列表）
         backtrack(state, target, nums, start, res);
         return res;
     }
@@ -917,17 +1043,93 @@ comments: true
 === "JS"
 
     ```javascript title="subset_sum_ii.js"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    function backtrack(state, target, choices, start, res) {
+        // 子集和等于 target 时，记录解
+        if (target === 0) {
+            res.push([...state]);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for (let i = start; i < choices.length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if (i > start && choices[i] === choices[i - 1]) {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i + 1, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    function subsetSumII(nums, target) {
+        const state = []; // 状态（子集）
+        nums.sort(); // 对 nums 进行排序
+        const start = 0; // 遍历起始点
+        const res = []; // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="subset_sum_ii.ts"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    function backtrack(
+        state: number[],
+        target: number,
+        choices: number[],
+        start: number,
+        res: number[][]
+    ): void {
+        // 子集和等于 target 时，记录解
+        if (target === 0) {
+            res.push([...state]);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for (let i = start; i < choices.length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if (i > start && choices[i] === choices[i - 1]) {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i + 1, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    function subsetSumII(nums: number[], target: number): number[][] {
+        const state = []; // 状态（子集）
+        nums.sort(); // 对 nums 进行排序
+        const start = 0; // 遍历起始点
+        const res = []; // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "C"
@@ -939,9 +1141,9 @@ comments: true
         if (target == 0) {
             vector *tmpVector = newVector();
             for (int i = 0; i < state->size; i++) {
-                vectorPushback(tmpVector, state->data[i]);
+                vectorPushback(tmpVector, state->data[i], sizeof(int));
             }
-            vectorPushback(res, tmpVector);
+            vectorPushback(res, tmpVector, sizeof(vector));
             return;
         }
         // 遍历所有选择
@@ -958,7 +1160,7 @@ comments: true
                 continue;
             }
             // 尝试：做出选择，更新 target, start
-            vectorPushback(state, choices->data[i]);
+            vectorPushback(state, choices->data[i], sizeof(int));
             // 进行下一轮选择
             backtrack(state, target - *(int *)(choices->data[i]), choices, i + 1, res);
             // 回退：撤销选择，恢复到之前的状态
@@ -969,7 +1171,7 @@ comments: true
     /* 求解子集和 II */
     vector *subsetSumII(vector *nums, int target) {
         vector *state = newVector();                         // 状态（子集）
-        qsort(nums->data[0], nums->size, sizeof(int), comp); // 对 nums 进行排序
+        qsort(nums->data, nums->size, sizeof(int *), comp); // 对 nums 进行排序
         int start = 0;                                       // 子集和
         vector *res = newVector();                           // 结果列表（子集列表）
         backtrack(state, target, nums, start, res);

@@ -229,21 +229,69 @@ status: new
 === "JS"
 
     ```javascript title="hanota.js"
-    [class]{}-[func]{move}
+    /* 移动一个圆盘 */
+    function move(src, tar) {
+        // 从 src 顶部拿出一个圆盘
+        const pan = src.pop();
+        // 将圆盘放入 tar 顶部
+        tar.push(pan);
+    }
 
-    [class]{}-[func]{dfs}
+    /* 求解汉诺塔：问题 f(i) */
+    function dfs(i, src, buf, tar) {
+        // 若 src 只剩下一个圆盘，则直接将其移到 tar
+        if (i === 1) {
+            move(src, tar);
+            return;
+        }
+        // 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
+        dfs(i - 1, src, tar, buf);
+        // 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
+        move(src, tar);
+        // 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
+        dfs(i - 1, buf, src, tar);
+    }
 
-    [class]{}-[func]{hanota}
+    /* 求解汉诺塔 */
+    function hanota(A, B, C) {
+        const n = A.length;
+        // 将 A 顶部 n 个圆盘借助 B 移到 C
+        dfs(n, A, B, C);
+    }
     ```
 
 === "TS"
 
     ```typescript title="hanota.ts"
-    [class]{}-[func]{move}
+    /* 移动一个圆盘 */
+    function move(src: number[], tar: number[]): void {
+        // 从 src 顶部拿出一个圆盘
+        const pan = src.pop();
+        // 将圆盘放入 tar 顶部
+        tar.push(pan);
+    }
 
-    [class]{}-[func]{dfs}
+    /* 求解汉诺塔：问题 f(i) */
+    function dfs(i: number, src: number[], buf: number[], tar: number[]): void {
+        // 若 src 只剩下一个圆盘，则直接将其移到 tar
+        if (i === 1) {
+            move(src, tar);
+            return;
+        }
+        // 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
+        dfs(i - 1, src, tar, buf);
+        // 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
+        move(src, tar);
+        // 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
+        dfs(i - 1, buf, src, tar);
+    }
 
-    [class]{}-[func]{hanota}
+    /* 求解汉诺塔 */
+    function hanota(A: number[], B: number[], C: number[]): void {
+        const n = A.length;
+        // 将 A 顶部 n 个圆盘借助 B 移到 C
+        dfs(n, A, B, C);
+    }
     ```
 
 === "C"

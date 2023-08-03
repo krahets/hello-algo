@@ -450,7 +450,7 @@ $$
     /* 搜索 */
     function dfs(i) {
         // 已知 dp[1] 和 dp[2] ，返回之
-        if (i == 1 || i == 2) return i;
+        if (i === 1 || i === 2) return i;
         // dp[i] = dp[i-1] + dp[i-2]
         const count = dfs(i - 1) + dfs(i - 2);
         return count;
@@ -468,7 +468,7 @@ $$
     /* 搜索 */
     function dfs(i: number): number {
         // 已知 dp[1] 和 dp[2] ，返回之
-        if (i == 1 || i == 2) return i;
+        if (i === 1 || i === 2) return i;
         // dp[i] = dp[i-1] + dp[i-2]
         const count = dfs(i - 1) + dfs(i - 2);
         return count;
@@ -704,7 +704,7 @@ $$
     /* 记忆化搜索 */
     function dfs(i, mem) {
         // 已知 dp[1] 和 dp[2] ，返回之
-        if (i == 1 || i == 2) return i;
+        if (i === 1 || i === 2) return i;
         // 若存在记录 dp[i] ，则直接返回之
         if (mem[i] != -1) return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
@@ -728,7 +728,7 @@ $$
     /* 记忆化搜索 */
     function dfs(i: number, mem: number[]): number {
         // 已知 dp[1] 和 dp[2] ，返回之
-        if (i == 1 || i == 2) return i;
+        if (i === 1 || i === 2) return i;
         // 若存在记录 dp[i] ，则直接返回之
         if (mem[i] != -1) return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
@@ -966,7 +966,7 @@ $$
     ```javascript title="climbing_stairs_dp.js"
     /* 爬楼梯：动态规划 */
     function climbingStairsDP(n) {
-        if (n == 1 || n == 2) return n;
+        if (n === 1 || n === 2) return n;
         // 初始化 dp 表，用于存储子问题的解
         const dp = new Array(n + 1).fill(-1);
         // 初始状态：预设最小子问题的解
@@ -985,7 +985,7 @@ $$
     ```typescript title="climbing_stairs_dp.ts"
     /* 爬楼梯：动态规划 */
     function climbingStairsDP(n: number): number {
-        if (n == 1 || n == 2) return n;
+        if (n === 1 || n === 2) return n;
         // 初始化 dp 表，用于存储子问题的解
         const dp = new Array(n + 1).fill(-1);
         // 初始状态：预设最小子问题的解
@@ -1179,7 +1179,7 @@ $$
     ```javascript title="climbing_stairs_dp.js"
     /* 爬楼梯：状态压缩后的动态规划 */
     function climbingStairsDPComp(n) {
-        if (n == 1 || n == 2) return n;
+        if (n === 1 || n === 2) return n;
         let a = 1,
             b = 2;
         for (let i = 3; i <= n; i++) {
@@ -1196,7 +1196,7 @@ $$
     ```typescript title="climbing_stairs_dp.ts"
     /* 爬楼梯：状态压缩后的动态规划 */
     function climbingStairsDPComp(n: number): number {
-        if (n == 1 || n == 2) return n;
+        if (n === 1 || n === 2) return n;
         let a = 1,
             b = 2;
         for (let i = 3; i <= n; i++) {

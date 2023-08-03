@@ -1511,12 +1511,12 @@ comments: true
 
         /* 判断队列是否为空 */
         empty() {
-            return this.#queSize == 0;
+            return this.#queSize === 0;
         }
 
         /* 入队 */
         push(num) {
-            if (this.size == this.capacity) {
+            if (this.size === this.capacity) {
                 console.log('队列已满');
                 return;
             }
@@ -1581,12 +1581,12 @@ comments: true
 
         /* 判断队列是否为空 */
         empty(): boolean {
-            return this.queSize == 0;
+            return this.queSize === 0;
         }
 
         /* 入队 */
         push(num: number): void {
-            if (this.size == this.capacity) {
+            if (this.size === this.capacity) {
                 console.log('队列已满');
                 return;
             }

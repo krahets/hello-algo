@@ -275,9 +275,9 @@ comments: true
         if (state->size == choices->size) {
             vector *newState = newVector();
             for (int i = 0; i < state->size; i++) {
-                vectorPushback(newState, state->data[i]);
+                vectorPushback(newState, state->data[i], sizeof(int));
             }
-            vectorPushback(res, newState);
+            vectorPushback(res, newState, sizeof(vector));
             return;
         }
         // 遍历所有选择
@@ -289,7 +289,7 @@ comments: true
             if (!select) {
                 // 尝试：做出选择，更新状态
                 *((bool *)selected->data[i]) = true;
-                vectorPushback(state, choice);
+                vectorPushback(state, choice, sizeof(int));
                 // 进行下一轮选择
                 backtrack(state, choices, selected, res);
                 // 回退：撤销选择，恢复到之前的状态
@@ -306,7 +306,7 @@ comments: true
         int select[3] = {false, false, false};
         vector *bSelected = newVector();
         for (int i = 0; i < nums->size; i++) {
-            vectorPushback(bSelected, &select[i]);
+            vectorPushback(bSelected, &select[i], sizeof(int));
         }
 
         vector *res = newVector();

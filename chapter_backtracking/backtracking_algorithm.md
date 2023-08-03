@@ -338,14 +338,14 @@ comments: true
             return;
         }
         // 尝试
-        vectorPushback(path, root);
+        vectorPushback(path, root, sizeof(TreeNode));
         if (root->val == 7) {
             // 记录解
             vector *newPath = newVector();
             for (int i = 0; i < path->size; i++) {
-                vectorPushback(newPath, path->data[i]);
+                vectorPushback(newPath, path->data[i], sizeof(int));
             }
-            vectorPushback(res, newPath);
+            vectorPushback(res, newPath, sizeof(vector));
         }
 
         preOrder(root->left, path, res);
@@ -635,14 +635,14 @@ comments: true
             return;
         }
         // 尝试
-        vectorPushback(path, root);
+        vectorPushback(path, root, sizeof(TreeNode));
         if (root->val == 7) {
             // 记录解
             vector *newPath = newVector();
             for (int i = 0; i < path->size; i++) {
-                vectorPushback(newPath, path->data[i]);
+                vectorPushback(newPath, path->data[i], sizeof(int));
             }
-            vectorPushback(res, newPath);
+            vectorPushback(res, newPath, sizeof(vector));
             res->depth++;
         }
 
@@ -1334,9 +1334,9 @@ comments: true
     void recordSolution(vector *state, vector *res) {
         vector *newPath = newVector();
         for (int i = 0; i < state->size; i++) {
-            vectorPushback(newPath, state->data[i]);
+            vectorPushback(newPath, state->data[i], sizeof(int));
         }
-        vectorPushback(res, newPath);
+        vectorPushback(res, newPath, sizeof(vector));
     }
 
     /* 判断在当前状态下，该选择是否合法 */
@@ -1346,7 +1346,7 @@ comments: true
 
     /* 更新状态 */
     void makeChoice(vector *state, TreeNode *choice) {
-        vectorPushback(state, choice);
+        vectorPushback(state, choice, sizeof(TreeNode));
     }
 
     /* 恢复状态 */
@@ -1371,8 +1371,8 @@ comments: true
                 makeChoice(state, choice);
                 // 进行下一轮选择
                 vector *nextChoices = newVector();
-                vectorPushback(nextChoices, choice->left);
-                vectorPushback(nextChoices, choice->right);
+                vectorPushback(nextChoices, choice->left, sizeof(TreeNode));
+                vectorPushback(nextChoices, choice->right, sizeof(TreeNode));
                 backtrack(state, nextChoices, res);
                 // 回退：撤销选择，恢复到之前的状态
                 undoChoice(state, choice);

@@ -564,7 +564,7 @@ comments: true
 
         /* 判断栈是否为空 */
         isEmpty() {
-            return this.size == 0;
+            return this.size === 0;
         }
 
         /* 入栈 */
@@ -621,7 +621,7 @@ comments: true
 
         /* 判断栈是否为空 */
         isEmpty(): boolean {
-            return this.size == 0;
+            return this.size === 0;
         }
 
         /* 入栈 */

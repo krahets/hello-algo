@@ -10,7 +10,11 @@ comments: true
 
     给定一个长度为 $n$ 的数组 `nums` ，元素按从小到大的顺序排列，数组不包含重复元素。请查找并返回元素 `target` 在该数组中的索引。若数组不包含该元素，则返回 $-1$ 。
 
-对于上述问题，我们先初始化指针 $i = 0$ 和 $j = n - 1$ ，分别指向数组首元素和尾元素，代表搜索区间 $[0, n - 1]$ 。其中，中括号表示“闭区间”，即包含边界值本身。
+![二分查找示例数据](binary_search.assets/binary_search_example.png)
+
+<p align="center"> Fig. 二分查找示例数据 </p>
+
+对于上述问题，我们先初始化指针 $i = 0$ 和 $j = n - 1$ ，分别指向数组首元素和尾元素，代表搜索区间 $[0, n - 1]$ 。请注意，中括号表示闭区间，其包含边界值本身。
 
 接下来，循环执行以下两个步骤：
 
@@ -21,9 +25,6 @@ comments: true
     3. 当 `nums[m] = target` 时，说明找到 `target` ，因此返回索引 $m$ 。
 
 若数组不包含目标元素，搜索区间最终会缩小为空。此时返回 $-1$ 。
-
-=== "<0>"
-    ![二分查找步骤](binary_search.assets/binary_search_step0.png)
 
 === "<1>"
     ![binary_search_step1](binary_search.assets/binary_search_step1.png)

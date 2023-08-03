@@ -1090,7 +1090,7 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
     /* 在数组中查找指定元素 */
     function find(nums, target) {
         for (let i = 0; i < nums.length; i++) {
-            if (nums[i] == target) return i;
+            if (nums[i] === target) return i;
         }
         return -1;
     }
