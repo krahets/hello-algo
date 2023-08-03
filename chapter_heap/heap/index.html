@@ -1867,6 +1867,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1933,12 +1935,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../../chapter_searching/binary_search_insertion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10.2. &nbsp; 二分查找插入点
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../chapter_searching/binary_search_edge/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    10.2. &nbsp; 二分查找边界
+    10.3. &nbsp; 二分查找边界
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
   
 
       </a>
@@ -1957,7 +1995,7 @@
         
   
   <span class="md-ellipsis">
-    10.3. &nbsp; 哈希优化策略
+    10.4. &nbsp; 哈希优化策略
   </span>
   
 
@@ -1977,7 +2015,7 @@
         
   
   <span class="md-ellipsis">
-    10.4. &nbsp; 重识搜索算法
+    10.5. &nbsp; 重识搜索算法
   </span>
   
 
@@ -1997,7 +2035,7 @@
         
   
   <span class="md-ellipsis">
-    10.5. &nbsp; 小结
+    10.6. &nbsp; 小结
   </span>
   
 
@@ -4631,7 +4669,7 @@
 <a id="__codelineno-52-22" name="__codelineno-52-22" href="#__codelineno-52-22"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">size</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">maxHeap</span><span class="p">[</span><span class="nx">l</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">maxHeap</span><span class="p">[</span><span class="nx">ma</span><span class="p">])</span><span class="w"> </span><span class="nx">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">l</span><span class="p">;</span>
 <a id="__codelineno-52-23" name="__codelineno-52-23" href="#__codelineno-52-23"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">size</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">maxHeap</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">maxHeap</span><span class="p">[</span><span class="nx">ma</span><span class="p">])</span><span class="w"> </span><span class="nx">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">r</span><span class="p">;</span>
 <a id="__codelineno-52-24" name="__codelineno-52-24" href="#__codelineno-52-24"></a><span class="w">        </span><span class="c1">// 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出</span>
-<a id="__codelineno-52-25" name="__codelineno-52-25" href="#__codelineno-52-25"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ma</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-52-25" name="__codelineno-52-25" href="#__codelineno-52-25"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ma</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
 <a id="__codelineno-52-26" name="__codelineno-52-26" href="#__codelineno-52-26"></a><span class="w">        </span><span class="c1">// 交换两节点</span>
 <a id="__codelineno-52-27" name="__codelineno-52-27" href="#__codelineno-52-27"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">ma</span><span class="p">);</span>
 <a id="__codelineno-52-28" name="__codelineno-52-28" href="#__codelineno-52-28"></a><span class="w">        </span><span class="c1">// 循环向下堆化</span>
@@ -4665,7 +4703,7 @@
 <a id="__codelineno-53-22" name="__codelineno-53-22" href="#__codelineno-53-22"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">size</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">maxHeap</span><span class="p">[</span><span class="nx">l</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">maxHeap</span><span class="p">[</span><span class="nx">ma</span><span class="p">])</span><span class="w"> </span><span class="nx">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">l</span><span class="p">;</span>
 <a id="__codelineno-53-23" name="__codelineno-53-23" href="#__codelineno-53-23"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">size</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">maxHeap</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">maxHeap</span><span class="p">[</span><span class="nx">ma</span><span class="p">])</span><span class="w"> </span><span class="nx">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">r</span><span class="p">;</span>
 <a id="__codelineno-53-24" name="__codelineno-53-24" href="#__codelineno-53-24"></a><span class="w">        </span><span class="c1">// 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出</span>
-<a id="__codelineno-53-25" name="__codelineno-53-25" href="#__codelineno-53-25"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ma</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-53-25" name="__codelineno-53-25" href="#__codelineno-53-25"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ma</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
 <a id="__codelineno-53-26" name="__codelineno-53-26" href="#__codelineno-53-26"></a><span class="w">        </span><span class="c1">// 交换两节点</span>
 <a id="__codelineno-53-27" name="__codelineno-53-27" href="#__codelineno-53-27"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">ma</span><span class="p">);</span>
 <a id="__codelineno-53-28" name="__codelineno-53-28" href="#__codelineno-53-28"></a><span class="w">        </span><span class="c1">// 循环向下堆化</span>

@@ -26,7 +26,7 @@
     
     
       
-        <title>10.3.   哈希优化策略 - Hello 算法</title>
+        <title>10.4.   哈希优化策略 - Hello 算法</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#103" class="md-skip">
+        <a href="#104" class="md-skip">
           跳转至
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10.3. &nbsp; 哈希优化策略
+              10.4. &nbsp; 哈希优化策略
             
           </span>
         </div>
@@ -1772,6 +1772,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -1838,12 +1840,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../binary_search_insertion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10.2. &nbsp; 二分查找插入点
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../binary_search_edge/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    10.2. &nbsp; 二分查找边界
+    10.3. &nbsp; 二分查找边界
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
   
 
       </a>
@@ -1871,7 +1909,7 @@
           
   
   <span class="md-ellipsis">
-    10.3. &nbsp; 哈希优化策略
+    10.4. &nbsp; 哈希优化策略
   </span>
   
 
@@ -1882,7 +1920,7 @@
         
   
   <span class="md-ellipsis">
-    10.3. &nbsp; 哈希优化策略
+    10.4. &nbsp; 哈希优化策略
   </span>
   
 
@@ -1904,15 +1942,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1031" class="md-nav__link">
-    10.3.1. &nbsp; 线性查找：以时间换空间
+  <a href="#1041" class="md-nav__link">
+    10.4.1. &nbsp; 线性查找：以时间换空间
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1032" class="md-nav__link">
-    10.3.2. &nbsp; 哈希查找：以空间换时间
+  <a href="#1042" class="md-nav__link">
+    10.4.2. &nbsp; 哈希查找：以空间换时间
   </a>
   
 </li>
@@ -1936,7 +1974,7 @@
         
   
   <span class="md-ellipsis">
-    10.4. &nbsp; 重识搜索算法
+    10.5. &nbsp; 重识搜索算法
   </span>
   
 
@@ -1956,7 +1994,7 @@
         
   
   <span class="md-ellipsis">
-    10.5. &nbsp; 小结
+    10.6. &nbsp; 小结
   </span>
   
 
@@ -3337,15 +3375,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1031" class="md-nav__link">
-    10.3.1. &nbsp; 线性查找：以时间换空间
+  <a href="#1041" class="md-nav__link">
+    10.4.1. &nbsp; 线性查找：以时间换空间
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1032" class="md-nav__link">
-    10.3.2. &nbsp; 哈希查找：以空间换时间
+  <a href="#1042" class="md-nav__link">
+    10.4.2. &nbsp; 哈希查找：以空间换时间
   </a>
   
 </li>
@@ -3373,13 +3411,13 @@
   
 
 
-<h1 id="103">10.3. &nbsp; 哈希优化策略<a class="headerlink" href="#103" title="Permanent link">&para;</a></h1>
+<h1 id="104">10.4. &nbsp; 哈希优化策略<a class="headerlink" href="#104" title="Permanent link">&para;</a></h1>
 <p>在算法题中，<strong>我们常通过将线性查找替换为哈希查找来降低算法的时间复杂度</strong>。我们借助一个算法题来加深理解。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>给定一个整数数组 <code>nums</code> 和一个目标元素 <code>target</code> ，请在数组中搜索“和”为 <code>target</code> 的两个元素，并返回它们的数组索引。返回任意一个解即可。</p>
 </div>
-<h2 id="1031">10.3.1. &nbsp; 线性查找：以时间换空间<a class="headerlink" href="#1031" title="Permanent link">&para;</a></h2>
+<h2 id="1041">10.4.1. &nbsp; 线性查找：以时间换空间<a class="headerlink" href="#1041" title="Permanent link">&para;</a></h2>
 <p>考虑直接遍历所有可能的组合。开启一个两层循环，在每轮中判断两个整数的和是否为 <code>target</code> ，若是，则返回它们的索引。</p>
 <p><img alt="线性查找求解两数之和" src="../replace_linear_by_hashing.assets/two_sum_brute_force.png" /></p>
 <p align="center"> Fig. 线性查找求解两数之和 </p>
@@ -3573,7 +3611,7 @@
 </div>
 </div>
 <p>此方法的时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ，空间复杂度为 <span class="arithmatex">\(O(1)\)</span> ，在大数据量下非常耗时。</p>
-<h2 id="1032">10.3.2. &nbsp; 哈希查找：以空间换时间<a class="headerlink" href="#1032" title="Permanent link">&para;</a></h2>
+<h2 id="1042">10.4.2. &nbsp; 哈希查找：以空间换时间<a class="headerlink" href="#1042" title="Permanent link">&para;</a></h2>
 <p>考虑借助一个哈希表，键值对分别为数组元素和元素索引。循环遍历数组，每轮执行：</p>
 <ol>
 <li>判断数字 <code>target - nums[i]</code> 是否在哈希表中，若是则直接返回这两个元素的索引。</li>
@@ -3905,7 +3943,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../binary_search_edge/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 10.2. &amp;nbsp; 二分查找边界" rel="prev">
+          <a href="../binary_search_edge/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 10.3. &amp;nbsp; 二分查找边界" rel="prev">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -3915,20 +3953,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                10.2. &nbsp; 二分查找边界
+                10.3. &nbsp; 二分查找边界
               </div>
             </div>
           </a>
         
         
           
-          <a href="../searching_algorithm_revisited/" class="md-footer__link md-footer__link--next" aria-label="下一页: 10.4. &amp;nbsp; 重识搜索算法" rel="next">
+          <a href="../searching_algorithm_revisited/" class="md-footer__link md-footer__link--next" aria-label="下一页: 10.5. &amp;nbsp; 重识搜索算法" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                10.4. &nbsp; 重识搜索算法
+                10.5. &nbsp; 重识搜索算法
               </div>
             </div>
             <div class="md-footer__button md-icon">

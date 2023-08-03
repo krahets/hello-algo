@@ -26,7 +26,7 @@
     
     
       
-        <title>10.4.   重识搜索算法 - Hello 算法</title>
+        <title>10.5.   重识搜索算法 - Hello 算法</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#104" class="md-skip">
+        <a href="#105" class="md-skip">
           跳转至
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10.4. &nbsp; 重识搜索算法
+              10.5. &nbsp; 重识搜索算法
             
           </span>
         </div>
@@ -1772,6 +1772,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -1838,12 +1840,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../binary_search_insertion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10.2. &nbsp; 二分查找插入点
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../binary_search_edge/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    10.2. &nbsp; 二分查找边界
+    10.3. &nbsp; 二分查找边界
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
   
 
       </a>
@@ -1862,7 +1900,7 @@
         
   
   <span class="md-ellipsis">
-    10.3. &nbsp; 哈希优化策略
+    10.4. &nbsp; 哈希优化策略
   </span>
   
 
@@ -1891,7 +1929,7 @@
           
   
   <span class="md-ellipsis">
-    10.4. &nbsp; 重识搜索算法
+    10.5. &nbsp; 重识搜索算法
   </span>
   
 
@@ -1902,7 +1940,7 @@
         
   
   <span class="md-ellipsis">
-    10.4. &nbsp; 重识搜索算法
+    10.5. &nbsp; 重识搜索算法
   </span>
   
 
@@ -1924,22 +1962,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1041" class="md-nav__link">
-    10.4.1. &nbsp; 暴力搜索
+  <a href="#1051" class="md-nav__link">
+    10.5.1. &nbsp; 暴力搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1042" class="md-nav__link">
-    10.4.2. &nbsp; 自适应搜索
+  <a href="#1052" class="md-nav__link">
+    10.5.2. &nbsp; 自适应搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1043" class="md-nav__link">
-    10.4.3. &nbsp; 搜索方法选取
+  <a href="#1053" class="md-nav__link">
+    10.5.3. &nbsp; 搜索方法选取
   </a>
   
 </li>
@@ -1963,7 +2001,7 @@
         
   
   <span class="md-ellipsis">
-    10.5. &nbsp; 小结
+    10.6. &nbsp; 小结
   </span>
   
 
@@ -3344,22 +3382,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1041" class="md-nav__link">
-    10.4.1. &nbsp; 暴力搜索
+  <a href="#1051" class="md-nav__link">
+    10.5.1. &nbsp; 暴力搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1042" class="md-nav__link">
-    10.4.2. &nbsp; 自适应搜索
+  <a href="#1052" class="md-nav__link">
+    10.5.2. &nbsp; 自适应搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1043" class="md-nav__link">
-    10.4.3. &nbsp; 搜索方法选取
+  <a href="#1053" class="md-nav__link">
+    10.5.3. &nbsp; 搜索方法选取
   </a>
   
 </li>
@@ -3387,7 +3425,7 @@
   
 
 
-<h1 id="104">10.4. &nbsp; 重识搜索算法<a class="headerlink" href="#104" title="Permanent link">&para;</a></h1>
+<h1 id="105">10.5. &nbsp; 重识搜索算法<a class="headerlink" href="#105" title="Permanent link">&para;</a></h1>
 <p>「搜索算法 Searching Algorithm」用于在数据结构（例如数组、链表、树或图）中搜索一个或一组满足特定条件的元素。</p>
 <p>根据实现思路，搜索算法总体可分为两种：</p>
 <ul>
@@ -3395,7 +3433,7 @@
 <li><strong>利用数据组织结构或数据包含的先验信息，实现高效元素查找</strong>，例如二分查找、哈希查找和二叉搜索树查找等。</li>
 </ul>
 <p>不难发现，这些知识点都已在前面的章节中介绍过，因此搜索算法对于我们来说并不陌生。在本节中，我们将从更加系统的视角切入，重新审视搜索算法。</p>
-<h2 id="1041">10.4.1. &nbsp; 暴力搜索<a class="headerlink" href="#1041" title="Permanent link">&para;</a></h2>
+<h2 id="1051">10.5.1. &nbsp; 暴力搜索<a class="headerlink" href="#1051" title="Permanent link">&para;</a></h2>
 <p>暴力搜索通过遍历数据结构的每个元素来定位目标元素。</p>
 <ul>
 <li>「线性搜索」适用于数组和链表等线性数据结构。它从数据结构的一端开始，逐个访问元素，直到找到目标元素或到达另一端仍没有找到目标元素为止。</li>
@@ -3403,7 +3441,7 @@
 </ul>
 <p>暴力搜索的优点是简单且通用性好，<strong>无需对数据做预处理和借助额外的数据结构</strong>。</p>
 <p>然而，<strong>此类算法的时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> ，其中 <span class="arithmatex">\(n\)</span> 为元素数量，因此在数据量较大的情况下性能较差。</p>
-<h2 id="1042">10.4.2. &nbsp; 自适应搜索<a class="headerlink" href="#1042" title="Permanent link">&para;</a></h2>
+<h2 id="1052">10.5.2. &nbsp; 自适应搜索<a class="headerlink" href="#1052" title="Permanent link">&para;</a></h2>
 <p>自适应搜索利用数据的特有属性（例如有序性）来优化搜索过程，从而更高效地定位目标元素。</p>
 <ul>
 <li>「二分查找」利用数据的有序性实现高效查找，仅适用于数组。</li>
@@ -3416,7 +3454,7 @@
 <p class="admonition-title">Note</p>
 <p>自适应搜索算法常被称为查找算法，<strong>主要关注在特定数据结构中快速检索目标元素</strong>。</p>
 </div>
-<h2 id="1043">10.4.3. &nbsp; 搜索方法选取<a class="headerlink" href="#1043" title="Permanent link">&para;</a></h2>
+<h2 id="1053">10.5.3. &nbsp; 搜索方法选取<a class="headerlink" href="#1053" title="Permanent link">&para;</a></h2>
 <p>给定大小为 <span class="arithmatex">\(n\)</span> 的一组数据，我们可以使用线性搜索、二分查找、树查找、哈希查找等多种方法在该数据中搜索目标元素。各个方法的工作原理如下图所示。</p>
 <p><img alt="多种搜索策略" src="../searching_algorithm_revisited.assets/searching_algorithms.png" /></p>
 <p align="center"> Fig. 多种搜索策略 </p>
@@ -3584,7 +3622,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../replace_linear_by_hashing/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 10.3. &amp;nbsp; 哈希优化策略" rel="prev">
+          <a href="../replace_linear_by_hashing/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 10.4. &amp;nbsp; 哈希优化策略" rel="prev">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -3594,20 +3632,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                10.3. &nbsp; 哈希优化策略
+                10.4. &nbsp; 哈希优化策略
               </div>
             </div>
           </a>
         
         
           
-          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: 10.5. &amp;nbsp; 小结" rel="next">
+          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: 10.6. &amp;nbsp; 小结" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                10.5. &nbsp; 小结
+                10.6. &nbsp; 小结
               </div>
             </div>
             <div class="md-footer__button md-icon">
