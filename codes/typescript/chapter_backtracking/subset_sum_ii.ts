@@ -13,7 +13,7 @@ function backtrack(
     res: number[][]
 ): void {
     // 子集和等于 target 时，记录解
-    if (target == 0) {
+    if (target === 0) {
         res.push([...state]);
         return;
     }
@@ -27,7 +27,7 @@ function backtrack(
             break;
         }
         // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
-        if (i > start && choices[i] == choices[i - 1]) {
+        if (i > start && choices[i] === choices[i - 1]) {
             continue;
         }
         // 尝试：做出选择，更新 target, start

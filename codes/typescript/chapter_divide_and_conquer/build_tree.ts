@@ -31,20 +31,13 @@ function dfs(
 }
 
 /* 构建二叉树 */
-function buildTree(preorder: number[], inorder: number[]) {
+function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     // 初始化哈希表，存储 inorder 元素到索引的映射
     let hmap = new Map<number, number>();
     for (let i = 0; i < inorder.length; i++) {
         hmap.set(inorder[i], i);
     }
-    const root = dfs(
-        preorder,
-        inorder,
-        hmap,
-        0,
-        0,
-        inorder.length - 1
-    ) as TreeNode;
+    const root = dfs(preorder, inorder, hmap, 0, 0, inorder.length - 1);
     return root;
 }
 

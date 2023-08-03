@@ -103,7 +103,7 @@ class MaxHeap {
             if (l < this.size() && this.#maxHeap[l] > this.#maxHeap[ma]) ma = l;
             if (r < this.size() && this.#maxHeap[r] > this.#maxHeap[ma]) ma = r;
             // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
-            if (ma == i) break;
+            if (ma === i) break;
             // 交换两节点
             this.#swap(i, ma);
             // 循环向下堆化

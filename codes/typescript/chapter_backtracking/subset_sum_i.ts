@@ -13,7 +13,7 @@ function backtrack(
     res: number[][]
 ): void {
     // 子集和等于 target 时，记录解
-    if (target == 0) {
+    if (target === 0) {
         res.push([...state]);
         return;
     }

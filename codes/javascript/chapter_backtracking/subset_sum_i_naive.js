@@ -7,7 +7,7 @@
 /* 回溯算法：子集和 I */
 function backtrack(state, target, total, choices, res) {
     // 子集和等于 target 时，记录解
-    if (total == target) {
+    if (total === target) {
         res.push([...state]);
         return;
     }

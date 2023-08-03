@@ -15,7 +15,7 @@ function move(src: number[], tar: number[]): void {
 /* 求解汉诺塔：问题 f(i) */
 function dfs(i: number, src: number[], buf: number[], tar: number[]): void {
     // 若 src 只剩下一个圆盘，则直接将其移到 tar
-    if (i == 1) {
+    if (i === 1) {
         move(src, tar);
         return;
     }
@@ -43,7 +43,9 @@ console.log('初始状态下：');
 console.log(`A = ${JSON.stringify(A)}`);
 console.log(`B = ${JSON.stringify(B)}`);
 console.log(`C = ${JSON.stringify(C)}`);
+
 solveHanota(A, B, C);
+
 console.log('圆盘移动完成后：');
 console.log(`A = ${JSON.stringify(A)}`);
 console.log(`B = ${JSON.stringify(B)}`);
