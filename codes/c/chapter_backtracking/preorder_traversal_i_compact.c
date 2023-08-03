@@ -21,7 +21,7 @@ static void preOrder(TreeNode *root) {
     }
     if (root->val == 7) {
         // 记录解
-        vectorPushback(res, root);
+        vectorPushback(res, root, sizeof(int));
     }
     preOrder(root->left);
     preOrder(root->right);

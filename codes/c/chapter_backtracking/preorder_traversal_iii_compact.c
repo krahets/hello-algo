@@ -13,14 +13,14 @@ void preOrder(TreeNode *root, vector *path, vector *res) {
         return;
     }
     // 尝试
-    vectorPushback(path, root);
+    vectorPushback(path, root, sizeof(TreeNode));
     if (root->val == 7) {
         // 记录解
         vector *newPath = newVector();
         for (int i = 0; i < path->size; i++) {
-            vectorPushback(newPath, path->data[i]);
+            vectorPushback(newPath, path->data[i], sizeof(int));
         }
-        vectorPushback(res, newPath);
+        vectorPushback(res, newPath, sizeof(vector));
         res->depth++;
     }
 

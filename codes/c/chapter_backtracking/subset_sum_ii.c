@@ -12,9 +12,9 @@ void backtrack(vector *state, int target, vector *choices, int start, vector *re
     if (target == 0) {
         vector *tmpVector = newVector();
         for (int i = 0; i < state->size; i++) {
-            vectorPushback(tmpVector, state->data[i]);
+            vectorPushback(tmpVector, state->data[i], sizeof(int));
         }
-        vectorPushback(res, tmpVector);
+        vectorPushback(res, tmpVector, sizeof(vector));
         return;
     }
     // 遍历所有选择
@@ -31,7 +31,7 @@ void backtrack(vector *state, int target, vector *choices, int start, vector *re
             continue;
         }
         // 尝试：做出选择，更新 target, start
-        vectorPushback(state, choices->data[i]);
+        vectorPushback(state, choices->data[i], sizeof(int));
         // 进行下一轮选择
         backtrack(state, target - *(int *)(choices->data[i]), choices, i + 1, res);
         // 回退：撤销选择，恢复到之前的状态
@@ -47,7 +47,7 @@ int comp(const void *a, const void *b) {
 /* 求解子集和 II */
 vector *subsetSumII(vector *nums, int target) {
     vector *state = newVector();                         // 状态（子集）
-    qsort(nums->data[0], nums->size, sizeof(int), comp); // 对 nums 进行排序
+    qsort(nums->data, nums->size, sizeof(int *), comp); // 对 nums 进行排序
     int start = 0;                                       // 子集和
     vector *res = newVector();                           // 结果列表（子集列表）
     backtrack(state, target, nums, start, res);
@@ -56,27 +56,28 @@ vector *subsetSumII(vector *nums, int target) {
 
 /* 打印向量中的元素 */
 void printFunc(vector *v, void *p) {
-    TreeNode *node = p;
-    printf("%d", node->val);
+    int *node = p;
+    printf("%d", *node);
 }
 
 /* Driver Code */
 int main() {
     int nums[] = {4, 4, 5};
-    vector *vNums = newVector();
+    vector *iNums = newVector();
     for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
-        vectorPushback(vNums, &nums[i]);
+        vectorPushback(iNums, &nums[i], sizeof(int));
     }
     int target = 9;
 
-    vector *res = subsetSumII(vNums, target);
+    vector *res = subsetSumII(iNums, target);
 
     printf("输入数组 nums = ");
-    printVector(vNums, printFunc);
+    printVector(iNums, printFunc);
     printf("target = %d\n", target);
     printf("所有和等于 %d 的子集 res = \r\n", target);
     printVectorMatrix(res, printFunc);
 
+    delVector(iNums);
     delVector(res);
     return 0;
 }

@@ -15,9 +15,9 @@ bool isSolution(vector *state) {
 void recordSolution(vector *state, vector *res) {
     vector *newPath = newVector();
     for (int i = 0; i < state->size; i++) {
-        vectorPushback(newPath, state->data[i]);
+        vectorPushback(newPath, state->data[i], sizeof(int));
     }
-    vectorPushback(res, newPath);
+    vectorPushback(res, newPath, sizeof(vector));
 }
 
 /* 判断在当前状态下，该选择是否合法 */
@@ -27,7 +27,7 @@ bool isValid(vector *state, TreeNode *choice) {
 
 /* 更新状态 */
 void makeChoice(vector *state, TreeNode *choice) {
-    vectorPushback(state, choice);
+    vectorPushback(state, choice, sizeof(TreeNode));
 }
 
 /* 恢复状态 */
@@ -52,8 +52,8 @@ void backtrack(vector *state, vector *choices, vector *res) {
             makeChoice(state, choice);
             // 进行下一轮选择
             vector *nextChoices = newVector();
-            vectorPushback(nextChoices, choice->left);
-            vectorPushback(nextChoices, choice->right);
+            vectorPushback(nextChoices, choice->left, sizeof(TreeNode));
+            vectorPushback(nextChoices, choice->right, sizeof(TreeNode));
             backtrack(state, nextChoices, res);
             // 回退：撤销选择，恢复到之前的状态
             undoChoice(state, choice);
@@ -79,7 +79,7 @@ int main() {
     vector *state = newVector();
     vector *choices = newVector();
     vector *res = newVector();
-    vectorPushback(choices, root);
+    vectorPushback(choices, root, sizeof(TreeNode));
     backtrack(state, choices, res);
 
     printf("输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点:\n");
@@ -88,7 +88,7 @@ int main() {
         vector *vals = newVector();
         for (int j = 0; j < path->size; j++) {
             TreeNode *node = path->data[j];
-            vectorPushback(vals, &node->val);
+            vectorPushback(vals, &node->val, sizeof(int));
         }
         printVector(vals, printFunc);
     }
