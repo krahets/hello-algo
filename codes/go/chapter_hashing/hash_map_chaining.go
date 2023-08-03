@@ -89,10 +89,10 @@ func (m *hashMapChaining) remove(key int) {
 		if p.key == key {
 			// 切片删除
 			m.buckets[idx] = append(m.buckets[idx][:i], m.buckets[idx][i+1:]...)
+			m.size -= 1
 			break
 		}
 	}
-	m.size -= 1
 }
 
 /* 扩容哈希表 */

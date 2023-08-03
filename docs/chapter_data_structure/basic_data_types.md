@@ -2,16 +2,18 @@
 
 谈及计算机中的数据，我们会想到文本、图片、视频、语音、3D 模型等各种形式。尽管这些数据的组织形式各异，但它们都由各种基本数据类型构成。
 
-**基本数据类型是 CPU 可以直接进行运算的类型，在算法中直接被使用**。它包括：
+**基本数据类型是 CPU 可以直接进行运算的类型**，在算法中直接被使用。它包括：
 
 - 整数类型 `byte` , `short` , `int` , `long` 。
 - 浮点数类型 `float` , `double` ，用于表示小数。
 - 字符类型 `char` ，用于表示各种语言的字母、标点符号、甚至表情符号等。
 - 布尔类型 `bool` ，用于表示“是”与“否”判断。
 
-**所有基本数据类型都以二进制的形式存储在计算机中**。在计算机中，我们将 $1$ 个二进制位称为 $1$ 比特，并规定 $1$ 字节（byte）由 $8$ 比特（bits）组成。基本数据类型的取值范围取决于其占用的空间大小，例如：
+**基本数据类型以二进制的形式存储在计算机中**。一个二进制位即为 $1$ 比特。在绝大多数现代系统中，$1$ 字节（byte）由 $8$ 比特（bits）组成。
 
-- 整数类型 `byte` 占用 $1$ byte = $8$ bits ，可以表示 $2^{8}$ 个不同的数字。
+基本数据类型的取值范围取决于其占用的空间大小，例如 Java 规定：
+
+- 整数类型 `byte` 占用 $1$ byte = $8$ bits ，可以表示 $2^{8}$ 个数字。
 - 整数类型 `int` 占用 $4$ bytes = $32$ bits ，可以表示 $2^{32}$ 个数字。
 
 下表列举了各种基本数据类型的占用空间、取值范围和默认值。此表格无需硬背，大致理解即可，需要时可以通过查表来回忆。
@@ -31,15 +33,17 @@
 
 </div>
 
-!!! tip
+对于上表，需要注意以下几点：
 
-    字符的占用空间大小取决于编程语言采用的字符编码方法，详见「字符编码」章节。
-    
-    现代计算机 CPU 通常将 1 字节作为最小寻址内存单元。因此，即使表示布尔量仅需 1 位（$0$ 或 $1$），它在内存中通常被存储为 1 字节。
+- C, C++ 未明确规定基本数据类型大小，而因实现和平台各异。上表遵循 LP64 [数据模型](https://en.cppreference.com/w/cpp/language/types#Properties)，其用于 Unix 64 位操作系统（例如 Linux , macOS）。
+- 字符 `char` 的大小在 C, C++ 中为 1 字节，在大多数编程语言中取决于特定的字符编码方法，详见「字符编码」章节。
+- 现代计算机 CPU 通常将 1 字节作为最小寻址内存单元。因此即使表示布尔量仅需 1 位（$0$ 或 $1$），它在内存中通常被存储为 1 字节。
 
-那么，基本数据类型与数据结构之间有什么联系与区别呢？我们知道，数据结构是在计算机中组织与存储数据的方式。它的主语是“结构”，而非“数据”。如果想要表示“一排数字”，我们自然会想到使用数组。这是因为数组的线性结构可以表示数字的相邻关系和顺序关系，但至于存储的内容是整数 `int` 、小数 `float` 、还是字符 `char` ，则与“数据结构”无关。
+那么，基本数据类型与数据结构之间有什么联系呢？我们知道，数据结构是在计算机中组织与存储数据的方式。它的主语是“结构”，而非“数据”。
 
-换句话说，**基本数据类型提供了数据的“内容类型”，而数据结构提供了数据的“组织方式”**。如以下代码所示，我们可以使用不同基本数据类型来初始化数组。
+如果想要表示“一排数字”，我们自然会想到使用数组。这是因为数组的线性结构可以表示数字的相邻关系和顺序关系，但至于存储的内容是整数 `int` 、小数 `float` 、还是字符 `char` ，则与“数据结构”无关。
+
+换句话说，**基本数据类型提供了数据的“内容类型”，而数据结构提供了数据的“组织方式”**。例如在以下代码中，我们用相同的数据结构（数组）来记录与表示不同的基本数据类型（`int` , `float` , `chat`, `bool`）。
 
 === "Java"
 
@@ -48,7 +52,7 @@
     int[] numbers = new int[5];
     float[] decimals = new float[5];
     char[] characters = new char[5];
-    boolean[] booleans = new boolean[5];
+    boolean[] bools = new boolean[5];
     ```
 
 === "C++"
@@ -58,14 +62,20 @@
     int numbers[5];
     float decimals[5];
     char characters[5];
-    bool booleans[5];
+    bool bools[5];
     ```
 
 === "Python"
 
     ```python title=""
-    # Python 的 list 可以自由存储各种基本数据类型和对象
-    list = [0, 0.0, 'a', False]
+    # 使用多种基本数据类型来初始化数组
+    numbers: list[int] = [0] * 5
+    decimals: list[float] = [0.0] * 5
+    # Python 的字符应被看作长度为一的字符串
+    characters: list[str] = ['0'] * 5
+    bools: list[bool] = [False] * 5
+    # Python 的列表可以自由存储各种基本数据类型和对象引用
+    data = [0, 0.0, 'a', False, ListNode(0)]
     ```
 
 === "Go"
@@ -75,7 +85,7 @@
     var numbers = [5]int{}
     var decimals = [5]float64{}
     var characters = [5]byte{}
-    var booleans = [5]bool{}
+    var bools = [5]bool{}
     ```
 
 === "JS"
@@ -91,7 +101,7 @@
     // 使用多种基本数据类型来初始化数组
     const numbers: number[] = [];
     const characters: string[] = [];
-    const booleans: boolean[] = [];
+    const bools: boolean[] = [];
     ```
 
 === "C"
@@ -101,7 +111,7 @@
     int numbers[10];
     float decimals[10];
     char characters[10];
-    bool booleans[10];
+    bool bools[10];
     ```
 
 === "C#"
@@ -111,7 +121,7 @@
     int[] numbers = new int[5];
     float[] decimals = new float[5];
     char[] characters = new char[5];
-    bool[] booleans = new bool[5];
+    bool[] bools = new bool[5];
     ```
 
 === "Swift"
@@ -121,7 +131,7 @@
     let numbers = Array(repeating: Int(), count: 5)
     let decimals = Array(repeating: Double(), count: 5)
     let characters = Array(repeating: Character("a"), count: 5)
-    let booleans = Array(repeating: Bool(), count: 5)
+    let bools = Array(repeating: Bool(), count: 5)
     ```
 
 === "Zig"
@@ -137,7 +147,7 @@
     List<int> numbers = List.filled(5, 0);
     List<double> decimals = List.filled(5, 0.0);
     List<String> characters = List.filled(5, 'a');
-    List<bool> booleans = List.filled(5, false);
+    List<bool> bools = List.filled(5, false);
     ```
 
 === "Rust"

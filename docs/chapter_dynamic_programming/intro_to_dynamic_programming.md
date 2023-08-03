@@ -128,7 +128,7 @@ $$
 dp[i] = dp[i-1] + dp[i-2]
 $$
 
-这意味着在爬楼梯问题中，**各个子问题之间不是相互独立的，原问题的解可以从子问题的解构建得来**。
+这意味着在爬楼梯问题中，各个子问题之间存在递推关系，**原问题的解可以由子问题的解构建得来**。
 
 ![方案数量递推关系](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png)
 

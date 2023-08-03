@@ -106,7 +106,7 @@ int quadraticRecur(int n) {
         return 0;
     int *nums = malloc(sizeof(int) * n);
     printf("递归 n = %d 中的 nums 长度 = %d\r\n", n, n);
-    int res = quadraticRecur(n - 1)
+    int res = quadraticRecur(n - 1);
     free(nums);
     return res;
 }

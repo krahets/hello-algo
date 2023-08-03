@@ -80,10 +80,12 @@ class HashMapChaining {
         List<Pair> bucket = buckets.get(index);
         // 遍历桶，从中删除键值对
         for (Pair pair : bucket) {
-            if (pair.key == key)
+            if (pair.key == key) {
                 bucket.remove(pair);
+                size--;
+                break;
+            }
         }
-        size--;
     }
 
     /* 扩容哈希表 */
