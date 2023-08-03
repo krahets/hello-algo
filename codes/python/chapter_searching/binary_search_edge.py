@@ -1,51 +1,48 @@
 """
 File: binary_search_edge.py
-Created Time: 2023-05-18
+Created Time: 2023-08-04
 Author: Krahets (krahets@163.com)
 """
 
+import sys, os.path as osp
+
+sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
+from binary_search_insertion import binary_search_insertion
+
 
 def binary_search_left_edge(nums: list[int], target: int) -> int:
-    """二分查找最左一个元素"""
-    i, j = 0, len(nums) - 1  # 初始化双闭区间 [0, n-1]
-    while i <= j:
-        m = (i + j) // 2  # 计算中点索引 m
-        if nums[m] < target:
-            i = m + 1  # target 在区间 [m+1, j] 中
-        elif nums[m] > target:
-            j = m - 1  # target 在区间 [i, m-1] 中
-        else:
-            j = m - 1  # 首个小于 target 的元素在区间 [i, m-1] 中
+    """二分查找最左一个 target"""
+    # 等价于查找 target 的插入点
+    i = binary_search_insertion(nums, target)
+    # 未找到 target ，返回 -1
     if i == len(nums) or nums[i] != target:
-        return -1  # 未找到目标元素，返回 -1
+        return -1
+    # 找到 target ，返回索引 i
     return i
 
 
 def binary_search_right_edge(nums: list[int], target: int) -> int:
-    """二分查找最右一个元素"""
-    i, j = 0, len(nums) - 1  # 初始化双闭区间 [0, n-1]
-    while i <= j:
-        m = (i + j) // 2  # 计算中点索引 m
-        if nums[m] < target:
-            i = m + 1  # target 在区间 [m+1, j] 中
-        elif nums[m] > target:
-            j = m - 1  # target 在区间 [i, m-1] 中
-        else:
-            i = m + 1  # 首个大于 target 的元素在区间 [m+1, j] 中
-    if j < 0 or nums[j] != target:
-        return -1  # 未找到目标元素，返回 -1
+    """二分查找最右一个 target"""
+    # 转化为查找最左一个 target + 1
+    i = binary_search_insertion(nums, target + 1)
+    # j 指向最右一个 target ，i 指向首个大于 target 的元素
+    j = i - 1
+    # 未找到 target ，返回 -1
+    if j == -1 or nums[j] != target:
+        return -1
+    # 找到 target ，返回索引 j
     return j
 
 
 """Driver Code"""
 if __name__ == "__main__":
-    target = 6
+    # 包含重复元素的数组
     nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
+    print(f"\n数组 nums = {nums}")
 
-    # 二分查找最左一个元素
-    index_left = binary_search_left_edge(nums, target)
-    print("数组中最左一个元素 6 的索引 = ", index_left)
-
-    # 二分查找最右一个元素
-    index_right = binary_search_right_edge(nums, target)
-    print("数组中最右一个元素 6 的索引 = ", index_right)
+    # 二分查找左边界和右边界
+    for target in [6, 7]:
+        index = binary_search_left_edge(nums, target)
+        print(f"最左一个元素 {target} 的索引为 {index}")
+        index = binary_search_right_edge(nums, target)
+        print(f"最右一个元素 {target} 的索引为 {index}")

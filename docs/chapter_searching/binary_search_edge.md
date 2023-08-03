@@ -1,56 +1,19 @@
 # 二分查找边界
 
-在上一节中，题目规定数组中所有元素都是唯一的。如果目标元素在数组中多次出现，上节介绍的方法只能保证返回其中一个目标元素的索引，**而无法确定该索引的左边和右边还有多少目标元素**。
+## 查找左边界
 
 !!! question
 
-    给定一个长度为 $n$ 的有序数组 `nums` ，数组可能包含重复元素。请查找并返回元素 `target` 在数组中首次出现的索引。若数组中不包含该元素，则返回 $-1$ 。
+    给定一个长度为 $n$ 的有序数组 `nums` ，数组可能包含重复元素。请返回数组中最左一个元素 `target` 的索引。若数组中不包含该元素，则返回 $-1$ 。
 
-## 线性方法
+回忆二分查找插入点的方法，搜索完成后，$i$ 指向最左一个 `target` ，**因此查找插入点本质上是在查找最左一个 `target` 的索引**。
 
-为了查找数组中最左边的 `target` ，我们可以分为两步：
+考虑通过查找插入点的函数实现查找左边界。请注意，数组中可能不包含 `target` ，此时有两种可能：
 
-1. 进行二分查找，定位到任意一个 `target` 的索引，记为 $k$ 。
-2. 以索引 $k$ 为起始点，向左进行线性遍历，找到最左边的 `target` 返回即可。
+1. 插入点的索引 $i$ 越界；
+2. 元素 `nums[i]` 与 `target` 不相等；
 
-![线性查找最左边的元素](binary_search_edge.assets/binary_search_left_edge_naive.png)
-
-这个方法虽然有效，但由于包含线性查找，时间复杂度为 $O(n)$ ，当存在很多重复的 `target` 时效率较低。
-
-## 二分方法
-
-考虑仅使用二分查找解决该问题。整体算法流程不变，先计算中点索引 $m$ ，再判断 `target` 和 `nums[m]` 大小关系：
-
-- 当 `nums[m] < target` 或 `nums[m] > target` 时，说明还没有找到 `target` ，因此采取与上节代码相同的缩小区间操作，**从而使指针 $i$ 和 $j$ 向 `target` 靠近**。
-- 当 `nums[m] == target` 时，说明“小于 `target` 的元素”在区间 $[i, m - 1]$ 中，因此采用 $j = m - 1$ 来缩小区间，**从而使指针 $j$ 向小于 `target` 的元素靠近**。
-
-二分查找完成后，**$i$ 指向最左边的 `target` ，$j$ 指向首个小于 `target` 的元素**，因此返回索引 $i$ 即可。
-
-=== "<1>"
-    ![二分查找最左边元素的步骤](binary_search_edge.assets/binary_search_left_edge_step1.png)
-
-=== "<2>"
-    ![binary_search_left_edge_step2](binary_search_edge.assets/binary_search_left_edge_step2.png)
-
-=== "<3>"
-    ![binary_search_left_edge_step3](binary_search_edge.assets/binary_search_left_edge_step3.png)
-
-=== "<4>"
-    ![binary_search_left_edge_step4](binary_search_edge.assets/binary_search_left_edge_step4.png)
-
-=== "<5>"
-    ![binary_search_left_edge_step5](binary_search_edge.assets/binary_search_left_edge_step5.png)
-
-=== "<6>"
-    ![binary_search_left_edge_step6](binary_search_edge.assets/binary_search_left_edge_step6.png)
-
-=== "<7>"
-    ![binary_search_left_edge_step7](binary_search_edge.assets/binary_search_left_edge_step7.png)
-
-=== "<8>"
-    ![binary_search_left_edge_step8](binary_search_edge.assets/binary_search_left_edge_step8.png)
-
-注意，数组可能不包含目标元素 `target` 。因此在函数返回前，我们需要先判断 `nums[i]` 与 `target` 是否相等，以及索引 $i$ 是否越界。
+当遇到以上两种情况时，直接返回 $-1$ 即可。
 
 === "Java"
 
@@ -126,9 +89,19 @@
 
 ## 查找右边界
 
-类似地，我们也可以二分查找最右边的 `target` 。当 `nums[m] == target` 时，说明大于 `target` 的元素在区间 $[m + 1, j]$ 中，因此执行 `i = m + 1` ，**使得指针 $i$ 向大于 `target` 的元素靠近**。
+那么如何查找最右一个 `target` 呢？最直接的方式是修改代码，替换在 `nums[m] == target` 情况下的指针收缩操作。代码在此省略，有兴趣的同学可以自行实现。
 
-完成二分后，**$i$ 指向首个大于 `target` 的元素，$j$ 指向最右边的 `target`** ，因此返回索引 $j$ 即可。
+下面我们介绍两种更加取巧的方法。
+
+### 复用查找左边界
+
+实际上，我们可以利用查找最左元素的函数来查找最右元素，具体方法为：**将查找最右一个 `target` 转化为查找最左一个 `target + 1`**。
+
+查找完成后，指针 $i$ 指向最左一个 `target + 1`（如果存在），而 $j$ 指向最右一个 `target` ，**因此返回 $j$ 即可**。
+
+![将查找右边界转化为查找左边界](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png)
+
+请注意，返回的插入点是 $i$ ，因此需要将其减 $1$ ，从而获得 $j$ 。
 
 === "Java"
 
@@ -202,10 +175,18 @@
     [class]{}-[func]{binary_search_right_edge}
     ```
 
-观察下图，搜索最右边元素时指针 $j$ 的作用与搜索最左边元素时指针 $i$ 的作用一致，反之亦然。也就是说，**搜索最左边元素和最右边元素的实现是镜像对称的**。
+### 转化为查找元素
 
-![查找最左边和最右边元素的对称性](binary_search_edge.assets/binary_search_left_right_edge.png)
+我们知道，当数组不包含 `target` 时，最后 $i$ , $j$ 会分别指向首个大于、小于 `target` 的元素。
 
-!!! tip
+根据上述结论，我们可以构造一个数组中不存在的元素，用于查找左右边界：
 
-    以上代码采取的都是“双闭区间”写法。有兴趣的读者可以自行实现“左闭右开”写法。
+- 查找最左一个 `target` ：可以转化为查找 `target - 0.5` ，并返回指针 $i$ 。
+- 查找最右一个 `target` ：可以转化为查找 `target + 0.5` ，并返回指针 $j$ 。
+
+![将查找边界转化为查找元素](binary_search_edge.assets/binary_search_edge_by_element.png)
+
+代码在此省略，值得注意的有：
+
+- 给定数组不包含小数，这意味着我们无需关心如何处理相等的情况。
+- 因为该方法引入了小数，所以需要将函数中的变量 `target` 改为浮点数类型。
