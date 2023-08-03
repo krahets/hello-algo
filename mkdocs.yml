@@ -207,10 +207,13 @@ nav:
     # [icon: material/text-search]
     - chapter_searching/index.md
     - 10.1. &nbsp; 二分查找: chapter_searching/binary_search.md
-    - 10.2. &nbsp; 二分查找边界: chapter_searching/binary_search_edge.md 
-    - 10.3. &nbsp; 哈希优化策略: chapter_searching/replace_linear_by_hashing.md
-    - 10.4. &nbsp; 重识搜索算法: chapter_searching/searching_algorithm_revisited.md
-    - 10.5. &nbsp; 小结: chapter_searching/summary.md
+    # [status: new]
+    - 10.2. &nbsp; 二分查找插入点: chapter_searching/binary_search_insertion.md
+    # [status: new]
+    - 10.3. &nbsp; 二分查找边界: chapter_searching/binary_search_edge.md
+    - 10.4. &nbsp; 哈希优化策略: chapter_searching/replace_linear_by_hashing.md
+    - 10.5. &nbsp; 重识搜索算法: chapter_searching/searching_algorithm_revisited.md
+    - 10.6. &nbsp; 小结: chapter_searching/summary.md
   - 11. &nbsp; 排序:
     # [icon: material/sort-ascending]
     - chapter_sorting/index.md
