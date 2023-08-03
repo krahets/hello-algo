@@ -6,12 +6,14 @@
 
 #include "../utils/common.h"
 
+/* 数组表示下的二叉树类 */
 struct arrayBinaryTree {
     vector *tree;
 };
 
 typedef struct arrayBinaryTree arrayBinaryTree;
 
+/* 构造函数 */
 arrayBinaryTree *newArrayBinaryTree(vector *arr) {
     arrayBinaryTree *newABT = malloc(sizeof(arrayBinaryTree));
     newABT->tree = arr;
