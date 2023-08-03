@@ -72,12 +72,13 @@ class HashMapChaining {
     public void remove(int key) {
         int index = hashFunc(key);
         // 遍历桶，从中删除键值对
-        foreach (Pair pair in buckets[index].ToList()) { 
+        foreach (Pair pair in buckets[index].ToList()) {
             if (pair.key == key) {
                 buckets[index].Remove(pair);
+                size--;
+                break;
             }
         }
-        size--;   
     }
 
     /* 扩容哈希表 */

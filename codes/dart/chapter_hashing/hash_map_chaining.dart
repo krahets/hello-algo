@@ -78,8 +78,13 @@ class HashMapChaining {
     int index = hashFunc(key);
     List<Pair> bucket = buckets[index];
     // 遍历桶，从中删除键值对
-    bucket.removeWhere((Pair pair) => pair.key == key);
-    size--;
+    for (Pair pair in bucket) {
+      if (pair.key == key) {
+        bucket.remove(pair);
+        size--;
+        break;
+      }
+    }
   }
 
   /* 扩容哈希表 */

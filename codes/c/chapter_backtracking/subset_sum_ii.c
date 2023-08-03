@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 回溯算法：子集和 I */
+/* 回溯算法：子集和 II */
 void backtrack(vector *state, int target, vector *choices, int start, vector *res) {
     // 子集和等于 target 时，记录解
     if (target == 0) {
@@ -26,7 +26,6 @@ void backtrack(vector *state, int target, vector *choices, int start, vector *re
         if (target - *(int *)(choices->data[i]) < 0) {
             continue;
         }
-
         // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
         if (i > start && *(int *)(choices->data[i]) == *(int *)(choices->data[i - 1])) {
             continue;
@@ -40,13 +39,13 @@ void backtrack(vector *state, int target, vector *choices, int start, vector *re
     }
 }
 
-/* 用来做比较的函数 */
+/* 比较规则 */
 int comp(const void *a, const void *b) {
     return *(int *)a - *(int *)b;
 }
 
-/* 求解子集和 I */
-vector *subsetSumINaive(vector *nums, int target) {
+/* 求解子集和 II */
+vector *subsetSumII(vector *nums, int target) {
     vector *state = newVector();                         // 状态（子集）
     qsort(nums->data, nums->size, sizeof(int *), comp); // 对 nums 进行排序
     int start = 0;                                       // 子集和
@@ -70,7 +69,7 @@ int main() {
     }
     int target = 9;
 
-    vector *res = subsetSumINaive(iNums, target);
+    vector *res = subsetSumII(iNums, target);
 
     printf("输入数组 nums = ");
     printVector(iNums, printFunc);

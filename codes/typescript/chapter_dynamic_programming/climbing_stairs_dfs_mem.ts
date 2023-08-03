@@ -7,7 +7,7 @@
 /* 记忆化搜索 */
 function dfs(i: number, mem: number[]): number {
     // 已知 dp[1] 和 dp[2] ，返回之
-    if (i == 1 || i == 2) return i;
+    if (i === 1 || i === 2) return i;
     // 若存在记录 dp[i] ，则直接返回之
     if (mem[i] != -1) return mem[i];
     // dp[i] = dp[i-1] + dp[i-2]
