@@ -6,7 +6,7 @@
 
 /* 爬楼梯：动态规划 */
 function climbingStairsDP(n) {
-    if (n == 1 || n == 2) return n;
+    if (n === 1 || n === 2) return n;
     // 初始化 dp 表，用于存储子问题的解
     const dp = new Array(n + 1).fill(-1);
     // 初始状态：预设最小子问题的解
@@ -21,7 +21,7 @@ function climbingStairsDP(n) {
 
 /* 爬楼梯：状态压缩后的动态规划 */
 function climbingStairsDPComp(n) {
-    if (n == 1 || n == 2) return n;
+    if (n === 1 || n === 2) return n;
     let a = 1,
         b = 2;
     for (let i = 3; i <= n; i++) {

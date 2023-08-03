@@ -77,7 +77,7 @@ function exponential(n) {
 
 /* 指数阶（递归实现） */
 function expRecur(n) {
-    if (n == 1) return 1;
+    if (n === 1) return 1;
     return expRecur(n - 1) + expRecur(n - 1) + 1;
 }
 
@@ -109,7 +109,7 @@ function linearLogRecur(n) {
 
 /* 阶乘阶（递归实现） */
 function factorialRecur(n) {
-    if (n == 0) return 1;
+    if (n === 0) return 1;
     let count = 0;
     // 从 1 个分裂出 n 个
     for (let i = 0; i < n; i++) {

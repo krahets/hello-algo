@@ -17,7 +17,7 @@ function binarySearchLeftEdge(nums: number[], target: number): number {
             j = m - 1;  // 首个小于 target 的元素在区间 [i, m-1] 中
         }
     }
-    if (i == nums.length || nums[i] != target) {
+    if (i === nums.length || nums[i] != target) {
         return -1;  // 未找到目标元素，返回 -1
     }
     return i;
