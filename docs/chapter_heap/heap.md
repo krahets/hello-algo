@@ -151,7 +151,7 @@
     is_empty: bool = not max_heap
 
     # 输入列表并建堆
-    min_heap: List[int] = [1, 3, 2, 5, 4]
+    min_heap: list[int] = [1, 3, 2, 5, 4]
     heapq.heapify(min_heap)
     ```
 

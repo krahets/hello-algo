@@ -30,8 +30,8 @@
 
     ```python title="array.py"
     # 初始化数组
-    arr: List[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums: List[int] = [1, 3, 2, 5, 4]  
+    arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
+    nums: list[int] = [1, 3, 2, 5, 4]  
     ```
 
 === "Go"

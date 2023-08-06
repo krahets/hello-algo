@@ -81,7 +81,7 @@
     ```python title="stack.py"
     # 初始化栈
     # Python 没有内置的栈类，可以把 List 当作栈来使用 
-    stack: List[int] = []
+    stack: list[int] = []
     
     # 元素入栈
     stack.append(1)

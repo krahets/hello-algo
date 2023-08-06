@@ -35,9 +35,9 @@
     ```python title="list.py"
     # 初始化列表
     # 无初始值
-    list1: List[int] = []
+    list1: list[int] = []
     # 有初始值
-    list: List[int] = [1, 3, 2, 5, 4]
+    list: list[int] = [1, 3, 2, 5, 4]
     ```
 
 === "Go"
@@ -646,7 +646,7 @@
 
     ```python title="list.py"
     # 拼接两个列表
-    list1: List[int] = [6, 8, 7, 10, 9]
+    list1: list[int] = [6, 8, 7, 10, 9]
     list += list1  # 将列表 list1 拼接到 list 之后
     ```
 
