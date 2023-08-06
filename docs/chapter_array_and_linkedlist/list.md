@@ -119,7 +119,7 @@
 === "Rust"
 
     ```rust title="list.rs"
-    // 初始化列表
+    /* 初始化列表 */
     // 无初始值
     let list1: Vec<i32> = Vec::new();
     // 有初始值
@@ -237,9 +237,9 @@
 === "Rust"
 
     ```rust title="list.rs"
-    // 访问元素
+    /* 访问元素 */
     let num: i32 = list[1];    // 访问索引 1 处的元素
-    // 更新元素
+    /* 更新元素 */
     list[1] = 0;               // 将索引 1 处的元素更新为 0
     ```
 
@@ -641,13 +641,13 @@
 === "Rust"
 
     ```rust title="list.rs"
-    // 通过索引遍历列表
+    /* 通过索引遍历列表 */
     let mut count = 0;
     for (index, value) in list.iter().enumerate() {
         count += 1;
     }
 
-    // 直接遍历列表元素
+    /* 直接遍历列表元素 */
     let mut count = 0;
     for value in list.iter() {
         count += 1;
@@ -748,7 +748,7 @@
 === "Rust"
 
     ```rust title="list.rs"
-    // 拼接两个列表
+    /* 拼接两个列表 */
     let list1: Vec<i32> = vec![6, 8, 7, 10, 9];
     list.extend(list1);
     ```
@@ -834,7 +834,7 @@
 === "Rust"
 
     ```rust title="list.rs"
-    // 排序列表
+    /* 排序列表 */
     list.sort();
     ```
 

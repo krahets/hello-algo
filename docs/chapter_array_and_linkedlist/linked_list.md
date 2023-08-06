@@ -168,7 +168,7 @@
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-    // 链表节点类
+    /* 链表节点类 */
     #[derive(Debug)]
     struct ListNode {
         val: i32,
@@ -376,7 +376,8 @@
 === "Rust"
 
     ```rust title="linked_list.rs"
-    // 初始化链表节点
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个节点
     let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
     let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
     let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
