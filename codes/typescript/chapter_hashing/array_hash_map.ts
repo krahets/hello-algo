@@ -66,7 +66,7 @@ class ArrayHashMap {
         let arr: (number | undefined)[] = [];
         for (let i = 0; i < this.buckets.length; i++) {
             if (this.buckets[i]) {
-                arr.push(this.buckets[i]?.key);
+                arr.push(this.buckets[i].key);
             }
         }
         return arr;
@@ -77,7 +77,7 @@ class ArrayHashMap {
         let arr: (string | undefined)[] = [];
         for (let i = 0; i < this.buckets.length; i++) {
             if (this.buckets[i]) {
-                arr.push(this.buckets[i]?.val);
+                arr.push(this.buckets[i].val);
             }
         }
         return arr;
