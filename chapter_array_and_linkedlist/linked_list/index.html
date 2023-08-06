@@ -3454,9 +3454,9 @@
 
 
 <h1 id="42">4.2. &nbsp; 链表<a class="headerlink" href="#42" title="Permanent link">&para;</a></h1>
-<p>内存空间是所有程序的公共资源，排除已被占用的内存空间，空闲内存空间通常散落在内存各处。在上一节中，我们提到存储数组的内存空间必须是连续的，而当我们需要申请一个非常大的数组时，空闲内存中可能没有这么大的连续空间。与数组相比，链表更具灵活性，它可以被存储在非连续的内存空间中。</p>
+<p>内存空间是所有程序的公共资源，排除已被占用的内存空间，空闲内存空间通常散落在内存各处。在上一节中，我们提到存储数组的内存空间必须是连续的，而当需要申请一个非常大的数组时，空闲内存中可能没有这么大的连续空间。与数组相比，链表更具灵活性，它可以被存储在非连续的内存空间中。</p>
 <p>「链表 Linked List」是一种线性数据结构，其每个元素都是一个节点对象，各个节点之间通过指针连接，从当前节点通过指针可以访问到下一个节点。<strong>由于指针记录了下个节点的内存地址，因此无需保证内存地址的连续性</strong>，从而可以将各个节点分散存储在内存各处。</p>
-<p>链表「节点 Node」包含两项数据，一是节点「值 Value」，二是指向下一节点的「指针 Pointer」，或称「引用 Reference」。</p>
+<p>链表中的「节点 Node」包含两项数据，一是节点「值 Value」，二是指向下一节点的「指针 Pointer」，或称「引用 Reference」。</p>
 <p><img alt="链表定义与存储方式" src="../linked_list.assets/linkedlist_definition.png" /></p>
 <p align="center"> Fig. 链表定义与存储方式 </p>
 
@@ -3601,14 +3601,7 @@
 </div>
 </div>
 </div>
-<div class="admonition question">
-<p class="admonition-title">尾节点指向什么？</p>
-<p>我们将链表的最后一个节点称为「尾节点」，其指向的是“空”，在 Java, C++, Python 中分别记为 <span class="arithmatex">\(\text{null}\)</span> , <span class="arithmatex">\(\text{nullptr}\)</span> , <span class="arithmatex">\(\text{None}\)</span> 。在不引起歧义的前提下，本书都使用 <span class="arithmatex">\(\text{None}\)</span> 来表示空。</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">如何称呼链表？</p>
-<p>在编程语言中，数组整体就是一个变量，例如数组 <code>nums</code> ，包含各个元素 <code>nums[0]</code> , <code>nums[1]</code> 等等。而链表是由多个节点对象组成，我们通常将头节点当作链表的代称，例如头节点 <code>head</code> 和链表 <code>head</code> 实际上是同义的。</p>
-</div>
+<p>我们将链表的首个节点称为「头节点」，最后一个节点称为「尾节点」。尾节点指向的是“空”，在 Java, C++, Python 中分别记为 <span class="arithmatex">\(\text{null}\)</span> , <span class="arithmatex">\(\text{nullptr}\)</span> , <span class="arithmatex">\(\text{None}\)</span> 。在不引起歧义的前提下，本书都使用 <span class="arithmatex">\(\text{None}\)</span> 来表示空。</p>
 <p><strong>链表初始化方法</strong>。建立链表分为两步，第一步是初始化各个节点对象，第二步是构建引用指向关系。完成后，即可以从链表的头节点（即首个节点）出发，通过指针 <code>next</code> 依次访问所有节点。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
 <div class="tabbed-content">
@@ -3783,8 +3776,9 @@
 </div>
 </div>
 </div>
+<p>在编程语言中，数组整体是一个变量，比如数组 <code>nums</code> 包含元素 <code>nums[0]</code> , <code>nums[1]</code> 等。而链表是由多个分散的节点对象组成，<strong>我们通常将头节点当作链表的代称</strong>，比如以上代码中的链表可被记做链表 <code>n0</code> 。</p>
 <h2 id="421">4.2.1. &nbsp; 链表优点<a class="headerlink" href="#421" title="Permanent link">&para;</a></h2>
-<p><strong>链表中插入与删除节点的操作效率高</strong>。例如，如果我们想在链表中间的两个节点 <code>A</code> , <code>B</code> 之间插入一个新节点 <code>P</code> ，我们只需要改变两个节点指针即可，时间复杂度为 <span class="arithmatex">\(O(1)\)</span> ；相比之下，数组的插入操作效率要低得多。</p>
+<p><strong>链表中插入与删除节点的操作效率高</strong>。如果我们想在链表中间的两个节点 <code>A</code> , <code>B</code> 之间插入一个新节点 <code>P</code> ，我们只需要改变两个节点指针即可，时间复杂度为 <span class="arithmatex">\(O(1)\)</span> ；相比之下，数组的插入操作效率要低得多。</p>
 <p><img alt="链表插入节点" src="../linked_list.assets/linkedlist_insert_node.png" /></p>
 <p align="center"> Fig. 链表插入节点 </p>
 
@@ -4060,7 +4054,7 @@
 </div>
 </div>
 <h2 id="422">4.2.2. &nbsp; 链表缺点<a class="headerlink" href="#422" title="Permanent link">&para;</a></h2>
-<p><strong>链表访问节点效率较低</strong>。如上节所述，数组可以在 <span class="arithmatex">\(O(1)\)</span> 时间下访问任意元素。然而，链表无法直接访问任意节点，这是因为系统需要从头节点出发，逐个向后遍历直至找到目标节点。例如，若要访问链表索引为 <code>index</code>（即第 <code>index + 1</code> 个）的节点，则需要向后遍历 <code>index</code> 轮。</p>
+<p><strong>链表访问节点效率较低</strong>。如上节所述，数组可以在 <span class="arithmatex">\(O(1)\)</span> 时间下访问任意元素。然而链表无法直接访问任意节点，因为程序需要从头节点出发，逐个向后遍历，直至找到目标节点。也就是说，如果想要访问链表中第 <span class="arithmatex">\(i\)</span> 个节点，则需要向后遍历 <span class="arithmatex">\(i - 1\)</span> 轮。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label><label for="__tabbed_5_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4210,7 +4204,7 @@
 </div>
 </div>
 </div>
-<p><strong>链表的内存占用较大</strong>。链表以节点为单位，每个节点除了保存值之外，还需额外保存指针（引用）。这意味着在相同数据量的情况下，链表比数组需要占用更多的内存空间。</p>
+<p><strong>链表的内存占用较大</strong>。链表以节点为单位，每个节点除了包含值，还需额外保存下一节点的引用（指针）。这意味着在相同数据量的情况下，链表比数组需要占用更多的内存空间。</p>
 <h2 id="423">4.2.3. &nbsp; 链表常用操作<a class="headerlink" href="#423" title="Permanent link">&para;</a></h2>
 <p><strong>遍历链表查找</strong>。遍历链表，查找链表内值为 <code>target</code> 的节点，输出节点在链表中的索引。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Python</label><label for="__tabbed_6_4">Go</label><label for="__tabbed_6_5">JS</label><label for="__tabbed_6_6">TS</label><label for="__tabbed_6_7">C</label><label for="__tabbed_6_8">C#</label><label for="__tabbed_6_9">Swift</label><label for="__tabbed_6_10">Zig</label><label for="__tabbed_6_11">Dart</label><label for="__tabbed_6_12">Rust</label></div>
