@@ -48,6 +48,7 @@ let package = Package(
         .executable(name: "graph_dfs", targets: ["graph_dfs"]),
         // chapter_searching
         .executable(name: "binary_search", targets: ["binary_search"]),
+        .executable(name: "binary_search_insertion", targets: ["binary_search_insertion"]),
         .executable(name: "binary_search_edge", targets: ["binary_search_edge"]),
         .executable(name: "two_sum", targets: ["two_sum"]),
         .executable(name: "linear_search", targets: ["linear_search"]),
@@ -91,6 +92,7 @@ let package = Package(
         // helper
         .target(name: "utils", path: "utils"),
         .target(name: "graph_adjacency_list_target", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_list_target.swift"], swiftSettings: [.define("TARGET")]),
+        .target(name: "binary_search_insertion_target", path: "chapter_searching", sources: ["binary_search_insertion_target.swift"], swiftSettings: [.define("TARGET")]),
         // chapter_computational_complexity
         .executableTarget(name: "time_complexity", path: "chapter_computational_complexity", sources: ["time_complexity.swift"]),
         .executableTarget(name: "worst_best_time_complexity", path: "chapter_computational_complexity", sources: ["worst_best_time_complexity.swift"]),
@@ -134,7 +136,8 @@ let package = Package(
         .executableTarget(name: "graph_dfs", dependencies: ["utils", "graph_adjacency_list_target"], path: "chapter_graph", sources: ["graph_dfs.swift"]),
         // chapter_searching
         .executableTarget(name: "binary_search", path: "chapter_searching", sources: ["binary_search.swift"]),
-        .executableTarget(name: "binary_search_edge", path: "chapter_searching", sources: ["binary_search_edge.swift"]),
+        .executableTarget(name: "binary_search_insertion", path: "chapter_searching", sources: ["binary_search_insertion.swift"]),
+        .executableTarget(name: "binary_search_edge", dependencies: ["binary_search_insertion_target"], path: "chapter_searching", sources: ["binary_search_edge.swift"]),
         .executableTarget(name: "two_sum", path: "chapter_searching", sources: ["two_sum.swift"]),
         .executableTarget(name: "linear_search", dependencies: ["utils"], path: "chapter_searching", sources: ["linear_search.swift"]),
         .executableTarget(name: "hashing_search", dependencies: ["utils"], path: "chapter_searching", sources: ["hashing_search.swift"]),
