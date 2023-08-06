@@ -22,7 +22,7 @@ func binarySearchInsertionSimple(nums: [Int], target: Int) -> Int {
 }
 
 /* 二分查找插入点（存在重复元素） */
-func binarySearchInsertion(nums: [Int], target: Int) -> Int {
+public func binarySearchInsertion(nums: [Int], target: Int) -> Int {
     var i = 0, j = nums.count - 1 // 初始化双闭区间 [0, n-1]
     while i <= j {
         let m = i + (j - i) / 2 // 计算中点索引 m
@@ -37,6 +37,8 @@ func binarySearchInsertion(nums: [Int], target: Int) -> Int {
     // 返回插入点 i
     return i
 }
+
+#if !TARGET
 
 @main
 enum BinarySearchInsertion {
@@ -61,3 +63,5 @@ enum BinarySearchInsertion {
         }
     }
 }
+
+#endif
