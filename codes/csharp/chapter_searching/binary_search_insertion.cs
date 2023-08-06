@@ -1,15 +1,15 @@
-/**
- * File: binary_search_insertion.java
- * Created Time: 2023-08-04
- * Author: Krahets (krahets@163.com)
- */
+﻿/**
+* File: binary_search_insertion.cs
+* Created Time: 2023-08-06
+* Author: hpstory (hpstory1024@163.com)
+*/
 
-package chapter_searching;
+namespace hello_algo.chapter_searching;
 
-class binary_search_insertion {
+public class binary_search_insertion {
     /* 二分查找插入点（无重复元素） */
-    static int binarySearchInsertionSimple(int[] nums, int target) {
-        int i = 0, j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+    public int binarySearchInsertionSimple(int[] nums, int target) {
+        int i = 0, j = nums.Length - 1; // 初始化双闭区间 [0, n-1]
         while (i <= j) {
             int m = i + (j - i) / 2; // 计算中点索引 m
             if (nums[m] < target) {
@@ -25,8 +25,8 @@ class binary_search_insertion {
     }
 
     /* 二分查找插入点（存在重复元素） */
-    static int binarySearchInsertion(int[] nums, int target) {
-        int i = 0, j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+    public static int binarySearchInsertion(int[] nums, int target) {
+        int i = 0, j = nums.Length - 1; // 初始化双闭区间 [0, n-1]
         while (i <= j) {
             int m = i + (j - i) / 2; // 计算中点索引 m
             if (nums[m] < target) {
@@ -41,23 +41,24 @@ class binary_search_insertion {
         return i;
     }
 
-    public static void main(String[] args) {
+    [Test]
+    public void Test() {
         // 无重复元素的数组
         int[] nums = { 1, 3, 6, 8, 12, 15, 23, 26, 31, 35 };
-        System.out.println("\n数组 nums = " + java.util.Arrays.toString(nums));
+        Console.WriteLine("\n数组 nums = " + nums.PrintList());
         // 二分查找插入点
-        for (int target : new int[] { 6, 9 }) {
+        foreach (int target in new int[] { 6, 9 }) {
             int index = binarySearchInsertionSimple(nums, target);
-            System.out.println("元素 " + target + " 的插入点的索引为 " + index);
+            Console.WriteLine("元素 " + target + " 的插入点的索引为 " + index);
         }
 
         // 包含重复元素的数组
         nums = new int[] { 1, 3, 6, 6, 6, 6, 6, 10, 12, 15 };
-        System.out.println("\n数组 nums = " + java.util.Arrays.toString(nums));
+        Console.WriteLine("\n数组 nums = " + nums.PrintList());
         // 二分查找插入点
-        for (int target : new int[] { 2, 6, 20 }) {
+        foreach (int target in new int[] { 2, 6, 20 }) {
             int index = binarySearchInsertion(nums, target);
-            System.out.println("元素 " + target + " 的插入点的索引为 " + index);
+            Console.WriteLine("元素 " + target + " 的插入点的索引为 " + index);
         }
     }
 }
