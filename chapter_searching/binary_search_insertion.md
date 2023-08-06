@@ -116,13 +116,43 @@ status: new
 === "C#"
 
     ```csharp title="binary_search_insertion.cs"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}
+    /* 二分查找插入点（无重复元素） */
+    int binarySearchInsertionSimple(int[] nums, int target) {
+        int i = 0, j = nums.Length - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                return m; // 找到 target ，返回插入点 m
+            }
+        }
+        // 未找到 target ，返回插入点 i
+        return i;
+    }
     ```
 
 === "Swift"
 
     ```swift title="binary_search_insertion.swift"
-    [class]{}-[func]{binarySearchInsertionSimple}
+    /* 二分查找插入点（无重复元素） */
+    func binarySearchInsertionSimple(nums: [Int], target: Int) -> Int {
+        var i = 0, j = nums.count - 1 // 初始化双闭区间 [0, n-1]
+        while i <= j {
+            let m = i + (j - i) / 2 // 计算中点索引 m
+            if nums[m] < target {
+                i = m + 1 // target 在区间 [m+1, j] 中
+            } else if nums[m] > target {
+                j = m - 1 // target 在区间 [i, m-1] 中
+            } else {
+                return m // 找到 target ，返回插入点 m
+            }
+        }
+        // 未找到 target ，返回插入点 i
+        return i
+    }
     ```
 
 === "Zig"
@@ -284,13 +314,43 @@ status: new
 === "C#"
 
     ```csharp title="binary_search_insertion.cs"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertion}
+    /* 二分查找插入点（存在重复元素） */
+    int binarySearchInsertion(int[] nums, int target) {
+        int i = 0, j = nums.Length - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        return i;
+    }
     ```
 
 === "Swift"
 
     ```swift title="binary_search_insertion.swift"
-    [class]{}-[func]{binarySearchInsertion}
+    /* 二分查找插入点（存在重复元素） */
+    func binarySearchInsertion(nums: [Int], target: Int) -> Int {
+        var i = 0, j = nums.count - 1 // 初始化双闭区间 [0, n-1]
+        while i <= j {
+            let m = i + (j - i) / 2 // 计算中点索引 m
+            if nums[m] < target {
+                i = m + 1 // target 在区间 [m+1, j] 中
+            } else if nums[m] > target {
+                j = m - 1 // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1 // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        return i
+    }
     ```
 
 === "Zig"
