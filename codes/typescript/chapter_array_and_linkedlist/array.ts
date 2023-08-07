@@ -53,7 +53,7 @@ function traverse(nums: number[]): void {
         count++;
     }
     // 直接遍历数组
-    for (let num of nums) {
+    for (const num of nums) {
         count += 1;
     }
 }
@@ -98,4 +98,4 @@ traverse(nums);
 let index = find(nums, 3);
 console.log('在 nums 中查找元素 3 ，得到索引 =', index);
 
-export {};
+export { };
