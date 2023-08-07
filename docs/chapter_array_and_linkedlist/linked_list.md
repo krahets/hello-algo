@@ -171,8 +171,8 @@
     /* 链表节点类 */
     #[derive(Debug)]
     struct ListNode {
-        val: i32,
-        next: Option<Rc<RefCell<ListNode>>>,
+        val: i32, // 节点值
+        next: Option<Rc<RefCell<ListNode>>>, // 指向下一节点的指针（引用）
     }
     ```
 
@@ -884,13 +884,15 @@
     use std::rc::Rc;
     use std::cell::RefCell;
 
+    /* 双向链表节点类型 */
     #[derive(Debug)]
     struct ListNode {
-        val: i32,
-        next: Option<Rc<RefCell<ListNode>>>,
-        prev: Option<Rc<RefCell<ListNode>>>,
+        val: i32, // 节点值
+        next: Option<Rc<RefCell<ListNode>>>, // 指向后继节点的指针（引用）
+        prev: Option<Rc<RefCell<ListNode>>>, // 指向前驱节点的指针（引用）
     }
-
+    
+    /* 构造函数 */
     impl ListNode {
         fn new(val: i32) -> Self {
             ListNode {
