@@ -454,20 +454,20 @@
 === "Rust"
 
     ```rust title="list.rs"
-    // 清空列表
+    /* 清空列表 */
     list.clear();
 
-    // 尾部添加元素
+    /* 尾部添加元素 */
     list.push(1);
     list.push(3);
     list.push(2);
     list.push(5);
     list.push(4);
 
-    // 中间插入元素
+    /* 中间插入元素 */
     list.insert(3, 6);  // 在索引 3 处插入数字 6
 
-    // 删除元素
+    /* 删除元素 */
     list.remove(3);    // 删除索引 3 处的元素
     ```
 
@@ -835,7 +835,7 @@
 
     ```rust title="list.rs"
     /* 排序列表 */
-    list.sort();
+    list.sort(); // 排序后，列表元素从小到大排列
     ```
 
 ## 列表实现 *

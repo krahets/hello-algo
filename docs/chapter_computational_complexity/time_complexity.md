@@ -171,6 +171,7 @@ $$
 === "Rust"
 
     ```rust title=""
+    // 在某运行平台下
     fn algorithm(n: i32) {
         let mut a = 2;      // 1 ns
         a = a + 1;          // 1 ns
