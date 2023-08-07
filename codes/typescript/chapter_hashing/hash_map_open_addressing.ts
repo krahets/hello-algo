@@ -127,7 +127,7 @@ class HashMapOpenAddressing {
     }
 
     /* 打印哈希表 */
-    print() {
+    print(): void {
         for (let pair of this.#buckets) {
             if (pair !== null) {
                 console.log(pair.key + ' -> ' + pair.val);

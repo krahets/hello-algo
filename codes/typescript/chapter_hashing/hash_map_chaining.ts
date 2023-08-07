@@ -46,7 +46,7 @@ class HashMapChaining {
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
         // 遍历桶，若找到 key 则返回对应 val
-        for (let pair of bucket) {
+        for (const pair of bucket) {
             if (pair.key === key) {
                 return pair.val;
             }
@@ -64,7 +64,7 @@ class HashMapChaining {
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
         // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
-        for (let pair of bucket) {
+        for (const pair of bucket) {
             if (pair.key === key) {
                 pair.val = val;
                 return;
@@ -81,11 +81,9 @@ class HashMapChaining {
         const index = this.#hashFunc(key);
         let bucket = this.#buckets[index];
         // 遍历桶，从中删除键值对
-        for (let pair of bucket) {
-            if (pair.key === key) {
-                this.#buckets[index] = bucket.filter(
-                    (pair) => pair.key !== key
-                );
+        for (let i = 0; i < bucket.length; i++) {
+            if (bucket[i].key === key) {
+                bucket.splice(i, 1);
                 this.#size--;
                 break;
             }
@@ -101,18 +99,18 @@ class HashMapChaining {
         this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
         this.#size = 0;
         // 将键值对从原哈希表搬运至新哈希表
-        for (let bucket of bucketsTmp) {
-            for (let pair of bucket) {
+        for (const bucket of bucketsTmp) {
+            for (const pair of bucket) {
                 this.put(pair.key, pair.val);
             }
         }
     }
 
     /* 打印哈希表 */
-    print() {
-        for (let bucket of this.#buckets) {
+    print(): void {
+        for (const bucket of this.#buckets) {
             let res = [];
-            for (let pair of bucket) {
+            for (const pair of bucket) {
                 res.push(pair.key + ' -> ' + pair.val);
             }
             console.log(res);
