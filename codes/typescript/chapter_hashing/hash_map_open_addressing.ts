@@ -54,8 +54,8 @@ class HashMapOpenAddressing {
             if (this.#buckets[j] === null) return null;
             // 若遇到指定 key ，则返回对应 val
             if (
-                this.#buckets[j]?.key === key &&
-                this.#buckets[j]?.[key] !== this.#removed.key
+                this.#buckets[j].key === key &&
+                this.#buckets[j][key] !== this.#removed.key
             )
                 return this.#buckets[j].val;
         }
@@ -83,7 +83,7 @@ class HashMapOpenAddressing {
                 return;
             }
             // 若遇到指定 key ，则更新对应 val
-            if (this.#buckets[j]?.key === key) {
+            if (this.#buckets[j].key === key) {
                 this.#buckets[j].val = val;
                 return;
             }
@@ -102,7 +102,7 @@ class HashMapOpenAddressing {
                 return;
             }
             // 若遇到指定 key ，则标记删除并返回
-            if (this.#buckets[j]?.key === key) {
+            if (this.#buckets[j].key === key) {
                 this.#buckets[j] = this.#removed;
                 this.#size -= 1;
                 return;
