@@ -68,7 +68,7 @@ func bubbleSort(nums: inout [Int]) -> Int {
 func exponential(n: Int) -> Int {
     var count = 0
     var base = 1
-    // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+    // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
     for _ in 0 ..< n {
         for _ in 0 ..< base {
             count += 1

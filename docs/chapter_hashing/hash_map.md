@@ -1,6 +1,6 @@
 # 哈希表
 
-「哈希表 Hash Table」通过建立键 `key` 与值 `value` 之间的映射，实现高效的元素查询。具体而言，我们向哈希表输入一个 `key` ，则可以在 $O(1)$ 时间内获取对应的 `value` 。
+散列表，又称「哈希表 Hash Table」，其通过建立键 `key` 与值 `value` 之间的映射，实现高效的元素查询。具体而言，我们向哈希表输入一个键 `key` ，则可以在 $O(1)$ 时间内获取对应的值 `value` 。
 
 以一个包含 $n$ 个学生的数据库为例，每个学生都有“姓名”和“学号”两项数据。假如我们希望实现“输入一个学号，返回对应的姓名”的查询功能，则可以采用哈希表来实现。
 
@@ -78,46 +78,46 @@
 
     ```python title="hash_map.py"
     # 初始化哈希表
-    mapp: Dict = {}
+    hmap: Dict = {}
     
     # 添加操作
     # 在哈希表中添加键值对 (key, value)
-    mapp[12836] = "小哈"
-    mapp[15937] = "小啰"
-    mapp[16750] = "小算"
-    mapp[13276] = "小法"
-    mapp[10583] = "小鸭"
+    hmap[12836] = "小哈"
+    hmap[15937] = "小啰"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鸭"
     
     # 查询操作
     # 向哈希表输入键 key ，得到值 value
-    name: str = mapp[15937]
+    name: str = hmap[15937]
     
     # 删除操作
     # 在哈希表中删除键值对 (key, value)
-    mapp.pop(10583)
+    hmap.pop(10583)
     ```
 
 === "Go"
 
     ```go title="hash_map.go"
     /* 初始化哈希表 */
-    mapp := make(map[int]string)
+    hmap := make(map[int]string)
     
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
-    mapp[12836] = "小哈"
-    mapp[15937] = "小啰"
-    mapp[16750] = "小算"
-    mapp[13276] = "小法"
-    mapp[10583] = "小鸭"
+    hmap[12836] = "小哈"
+    hmap[15937] = "小啰"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鸭"
     
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
-    name := mapp[15937]
+    name := hmap[15937]
     
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
-    delete(mapp, 10583)
+    delete(hmap, 10583)
     ```
 
 === "JS"
@@ -299,13 +299,13 @@
     ```python title="hash_map.py"
     # 遍历哈希表
     # 遍历键值对 key->value
-    for key, value in mapp.items():
+    for key, value in hmap.items():
         print(key, "->", value)
     # 单独遍历键 key
-    for key in mapp.keys():
+    for key in hmap.keys():
         print(key)
     # 单独遍历值 value
-    for value in mapp.values():
+    for value in hmap.values():
         print(value)
     ```
 
@@ -314,15 +314,15 @@
     ```go title="hash_map_test.go"
     /* 遍历哈希表 */
     // 遍历键值对 key->value
-    for key, value := range mapp {
+    for key, value := range hmap {
         fmt.Println(key, "->", value)
     }
     // 单独遍历键 key
-    for key := range mapp {
+    for key := range hmap {
         fmt.Println(key)
     }
     // 单独遍历值 value
-    for _, value := range mapp {
+    for _, value := range hmap {
         fmt.Println(value)
     }
     ```

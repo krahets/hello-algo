@@ -61,7 +61,7 @@ def exponential(n: int) -> int:
     """指数阶（循环实现）"""
     count = 0
     base = 1
-    # cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+    # 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
     for _ in range(n):
         for _ in range(base):
             count += 1
