@@ -109,7 +109,9 @@ comments: true
 === "Rust"
 
     ```rust title="array.rs"
-
+    /* 初始化数组 */
+    let arr: Vec<i32> = vec![0; 5]; // [0, 0, 0, 0, 0]
+    let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
 ## 4.1.1. &nbsp; 数组优点

@@ -172,7 +172,14 @@ comments: true
 === "Rust"
 
     ```rust title=""
-
+    use std::rc::Rc;
+    use std::cell::RefCell;
+    /* 链表节点类 */
+    #[derive(Debug)]
+    struct ListNode {
+        val: i32, // 节点值
+        next: Option<Rc<RefCell<ListNode>>>, // 指向下一节点的指针（引用）
+    }
     ```
 
 我们将链表的首个节点称为「头节点」，最后一个节点称为「尾节点」。尾节点指向的是“空”，在 Java, C++, Python 中分别记为 $\text{null}$ , $\text{nullptr}$ , $\text{None}$ 。在不引起歧义的前提下，本书都使用 $\text{None}$ 来表示空。
@@ -369,7 +376,19 @@ comments: true
 === "Rust"
 
     ```rust title="linked_list.rs"
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个节点
+    let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
+    let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
+    let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
+    let n3 = Rc::new(RefCell::new(ListNode { val: 5, next: None }));
+    let n4 = Rc::new(RefCell::new(ListNode { val: 4, next: None }));
 
+    // 构建引用指向
+    n0.borrow_mut().next = Some(n1.clone());
+    n1.borrow_mut().next = Some(n2.clone());
+    n2.borrow_mut().next = Some(n3.clone());
+    n3.borrow_mut().next = Some(n4.clone());
     ```
 
 在编程语言中，数组整体是一个变量，比如数组 `nums` 包含元素 `nums[0]` , `nums[1]` 等。而链表是由多个分散的节点对象组成，**我们通常将头节点当作链表的代称**，比如以上代码中的链表可被记做链表 `n0` 。
@@ -1249,7 +1268,27 @@ comments: true
 === "Rust"
 
     ```rust title=""
+    use std::rc::Rc;
+    use std::cell::RefCell;
 
+    /* 双向链表节点类型 */
+    #[derive(Debug)]
+    struct ListNode {
+        val: i32, // 节点值
+        next: Option<Rc<RefCell<ListNode>>>, // 指向后继节点的指针（引用）
+        prev: Option<Rc<RefCell<ListNode>>>, // 指向前驱节点的指针（引用）
+    }
+    
+    /* 构造函数 */
+    impl ListNode {
+        fn new(val: i32) -> Self {
+            ListNode {
+                val,
+                next: None,
+                prev: None,
+            }
+        }
+    }
     ```
 
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)
