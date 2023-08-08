@@ -117,7 +117,7 @@ class HashMapOpenAddressing {
         this.#buckets = new Array(this.#capacity).fill(null);
         this.#size = 0;
         // 将键值对从原哈希表搬运至新哈希表
-        for (let pair of bucketsTmp) {
+        for (const pair of bucketsTmp) {
             if (pair !== null && pair.key !== this.#removed.key) {
                 this.put(pair.key, pair.val);
             }
@@ -126,7 +126,7 @@ class HashMapOpenAddressing {
 
     /* 打印哈希表 */
     print() {
-        for (let pair of this.#buckets) {
+        for (const pair of this.#buckets) {
             if (pair !== null) {
                 console.log(pair.key + ' -> ' + pair.val);
             } else {
