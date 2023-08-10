@@ -621,35 +621,15 @@
       
         <li class="md-nav__item">
   <a href="#211" class="md-nav__link">
-    2.1.1. &nbsp; 算法评价维度
+    2.1.1. &nbsp; 实际测试
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#212" class="md-nav__link">
-    2.1.2. &nbsp; 效率评估方法
+    2.1.2. &nbsp; 理论估算
   </a>
-  
-    <nav class="md-nav" aria-label="2.1.2.   效率评估方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    实际测试
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    理论估算
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3403,35 +3383,15 @@
       
         <li class="md-nav__item">
   <a href="#211" class="md-nav__link">
-    2.1.1. &nbsp; 算法评价维度
+    2.1.1. &nbsp; 实际测试
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#212" class="md-nav__link">
-    2.1.2. &nbsp; 效率评估方法
+    2.1.2. &nbsp; 理论估算
   </a>
-  
-    <nav class="md-nav" aria-label="2.1.2.   效率评估方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    实际测试
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    理论估算
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3466,7 +3426,6 @@
 
 
 <h1 id="21">2.1. &nbsp; 算法效率评估<a class="headerlink" href="#21" title="Permanent link">&para;</a></h1>
-<h2 id="211">2.1.1. &nbsp; 算法评价维度<a class="headerlink" href="#211" title="Permanent link">&para;</a></h2>
 <p>在算法设计中，我们先后追求以下两个层面的目标：</p>
 <ol>
 <li><strong>找到问题解法</strong>：算法需要在规定的输入范围内，可靠地求得问题的正确解。</li>
@@ -3478,12 +3437,12 @@
 <li><strong>空间效率</strong>，即算法占用内存空间的大小。</li>
 </ul>
 <p>简而言之，<strong>我们的目标是设计“既快又省”的数据结构与算法</strong>。而有效地评估算法效率至关重要，因为只有了解评价标准，我们才能对比分析各种算法，从而指导算法设计与优化过程。</p>
-<h2 id="212">2.1.2. &nbsp; 效率评估方法<a class="headerlink" href="#212" title="Permanent link">&para;</a></h2>
-<h3 id="_1">实际测试<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>效率评估方法主要分为两种：实际测试和理论估算。</p>
+<h2 id="211">2.1.1. &nbsp; 实际测试<a class="headerlink" href="#211" title="Permanent link">&para;</a></h2>
 <p>假设我们现在有算法 <code>A</code> 和算法 <code>B</code> ，它们都能解决同一问题，现在需要对比这两个算法的效率。最直接的方法是找一台计算机，运行这两个算法，并监控记录它们的运行时间和内存占用情况。这种评估方式能够反映真实情况，但也存在较大局限性。</p>
 <p><strong>难以排除测试环境的干扰因素</strong>。硬件配置会影响算法的性能表现。比如在某台计算机中，算法 <code>A</code> 的运行时间比算法 <code>B</code> 短；但在另一台配置不同的计算机中，我们可能得到相反的测试结果。这意味着我们需要在各种机器上进行测试，统计平均效率，而这是不现实的。</p>
 <p><strong>展开完整测试非常耗费资源</strong>。随着输入数据量的变化，算法会表现出不同的效率。例如，在输入数据量较小时，算法 <code>A</code> 的运行时间比算法 <code>B</code> 更少；而输入数据量较大时，测试结果可能恰恰相反。因此，为了得到有说服力的结论，我们需要测试各种规模的输入数据，而这样需要耗费大量的计算资源。</p>
-<h3 id="_2">理论估算<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h2 id="212">2.1.2. &nbsp; 理论估算<a class="headerlink" href="#212" title="Permanent link">&para;</a></h2>
 <p>由于实际测试具有较大的局限性，我们可以考虑仅通过一些计算来评估算法的效率。这种估算方法被称为「渐近复杂度分析 Asymptotic Complexity Analysis」，简称为「复杂度分析」。</p>
 <p><strong>复杂度分析评估的是算法运行效率随着输入数据量增多时的增长趋势</strong>。这个定义有些拗口，我们可以将其分为三个重点来理解：</p>
 <ul>
