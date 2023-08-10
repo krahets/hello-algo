@@ -25,23 +25,24 @@ class TreeNode {
  * @param arr
  * @return
  */
+// https://github.com/krahets/hello-algo/issues/678
 function arrToTree(arr) {
     if (arr.length === 0) return null;
 
-    let root = new TreeNode(arr[0]);
+    const root = new TreeNode(arr[0]);
     let queue = [root];
     let i = 0;
     while (queue.length) {
-        let node = queue.shift();
-        if (++i >= arr.length) break;
-        if (arr[i] !== null) {
-            node.left = new TreeNode(arr[i]);
-            queue.push(node.left);
-        }
-        if (++i >= arr.length) break;
-        if (arr[i] !== null) {
-            node.right = new TreeNode(arr[i]);
-            queue.push(node.right);
+        const node = queue.shift();
+        if (node) {
+            if (++i >= arr.length) break;
+            if (arr[i] !== null) node.left = new TreeNode(arr[i]);
+            if (++i >= arr.length) break;
+            if (arr[i] !== null) node.right = new TreeNode(arr[i]);
+            queue.push(node.left, node.right);
+        } else {
+            i += 2;
+            queue.push(null, null);
         }
     }
 
