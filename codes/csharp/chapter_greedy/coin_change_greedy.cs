@@ -15,7 +15,7 @@ public class coin_change_greedy {
         // 循环进行贪心选择，直到无剩余金额
         while (amt > 0) {
             // 找到小于且最接近剩余金额的硬币
-            while (coins[i] > amt) {
+            while (i > 0 && coins[i] > amt) {
                 i--;
             }
             // 选择 coins[i]
