@@ -40,7 +40,7 @@ void countingSortDigit(List<int> nums, int exp) {
 void radixSort(List<int> nums) {
   // 获取数组的最大元素，用于判断最大位数
   // dart 中 int 的长度是 64 位的
-  int m = -1 << 63; 
+  int m = -1 << 63;
   for (int num in nums) if (num > m) m = num;
   // 按照从低位到高位的顺序遍历
   for (int exp = 1; exp <= m; exp *= 10)
@@ -54,8 +54,18 @@ void radixSort(List<int> nums) {
 /* Driver Code */
 void main() {
   // 基数排序
-  List<int> nums = [10546151, 35663510, 42865989, 34862445, 81883077, 
-                    88906420, 72429244, 30524779, 82060337, 63832996];
+  List<int> nums = [
+    10546151,
+    35663510,
+    42865989,
+    34862445,
+    81883077,
+    88906420,
+    72429244,
+    30524779,
+    82060337,
+    63832996
+  ];
   radixSort(nums);
   print("基数排序完成后 nums = $nums");
 }
