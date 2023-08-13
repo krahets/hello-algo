@@ -30,27 +30,13 @@ class TreeNode {
  * @param arr
  * @return
  */
-function arrToTree(arr: (number | null)[]): TreeNode | null {
-    if (arr.length === 0) {
+function arrToTree(arr: (number | null)[], i: number = 0): TreeNode | null {
+    if (i < 0 || i >= arr.length || arr[i] === null) {
         return null;
     }
-
-    const root = new TreeNode(arr[0] as number);
-    const queue = [root];
-    let i = 0;
-    while (queue.length) {
-        const node = queue.shift() as TreeNode;
-        if (++i >= arr.length) break;
-        if (arr[i] !== null) {
-            node.left = new TreeNode(arr[i] as number);
-            queue.push(node.left);
-        }
-        if (++i >= arr.length) break;
-        if (arr[i] !== null) {
-            node.right = new TreeNode(arr[i] as number);
-            queue.push(node.right);
-        }
-    }
+    let root = new TreeNode(arr[i]);
+    root.left = arrToTree(arr, 2 * i + 1);
+    root.right = arrToTree(arr, 2 * i + 2);
     return root;
 }
 
