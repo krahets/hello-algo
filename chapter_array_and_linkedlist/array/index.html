@@ -3444,7 +3444,7 @@
 <p><img alt="数组定义与存储方式" src="../array.assets/array_definition.png" /></p>
 <p align="center"> Fig. 数组定义与存储方式 </p>
 
-<p><strong>数组初始化</strong>。通常有无初始值和给定初始值两种方式，我们可根据需求选择合适的方法。在未给定初始值的情况下，数组的所有元素通常会被初始化为默认值 <span class="arithmatex">\(0\)</span> 。</p>
+<p><strong>数组初始化</strong>。通常有无初始值和给定初始值两种方式，我们可根据需求选择合适的方法。在大多数编程语言中，若未指定初始值，数组的所有元素通常会被默认初始化为 <span class="arithmatex">\(0\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3538,7 +3538,7 @@
 <div class="admonition question">
 <p class="admonition-title">为什么数组元素的索引要从 <span class="arithmatex">\(0\)</span> 开始编号呢？</p>
 <p>观察上图，我们发现数组首个元素的索引为 <span class="arithmatex">\(0\)</span> ，这似乎有些反直觉，因为从 <span class="arithmatex">\(1\)</span> 开始计数会更自然。</p>
-<p>然而，从地址计算公式的角度看，<strong>索引本质上表示的是内存地址的偏移量</strong>。首个元素的地址偏移量是 <span class="arithmatex">\(0\)</span> ，因此索引为 <span class="arithmatex">\(0\)</span> 也是合理的。</p>
+<p>然而从地址计算公式的角度看，<strong>索引本质上表示的是内存地址的偏移量</strong>。首个元素的地址偏移量是 <span class="arithmatex">\(0\)</span> ，因此索引为 <span class="arithmatex">\(0\)</span> 也是合理的。</p>
 </div>
 <p>访问元素的高效性带来了诸多便利。例如，我们可以在 <span class="arithmatex">\(O(1)\)</span> 时间内随机获取数组中的任意一个元素。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
@@ -3678,7 +3678,7 @@
 </div>
 </div>
 <h2 id="412">4.1.2. &nbsp; 数组缺点<a class="headerlink" href="#412" title="Permanent link">&para;</a></h2>
-<p><strong>数组在初始化后长度不可变</strong>。由于系统无法保证数组之后的内存空间是可用的，因此数组长度无法扩展。而若希望扩容数组，则需新建一个数组，然后把原数组元素依次拷贝到新数组，在数组很大的情况下，这是非常耗时的。</p>
+<p><strong>数组在初始化后长度不可变</strong>。系统无法保证数组之后的内存空间是可用的，因此数组长度无法扩展。而若希望扩容数组，则需新建一个数组，然后把原数组元素依次拷贝到新数组。在数组很大的情况下，这是非常耗时的。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3858,7 +3858,7 @@
 </div>
 </div>
 </div>
-<p><strong>数组中插入或删除元素效率低下</strong>。如果我们想要在数组中间插入一个元素，由于数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。因此，我们不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。</p>
+<p><strong>数组中插入或删除元素效率低下</strong>。数组元素在内存中是“紧挨着的”，它们之间没有空间再放任何数据。这意味着如果我们想要在数组中间插入一个元素，就不得不将此索引之后的所有元素都向后移动一位，然后再把元素赋值给该索引。</p>
 <p><img alt="数组插入元素" src="../array.assets/array_insert_element.png" /></p>
 <p align="center"> Fig. 数组插入元素 </p>
 
@@ -4009,7 +4009,7 @@
 </div>
 </div>
 </div>
-<p>删除元素也类似，如果我们想要删除索引 <span class="arithmatex">\(i\)</span> 处的元素，则需要把索引 <span class="arithmatex">\(i\)</span> 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，我们无需特意去修改它。</p>
+<p>删除元素也类似，如果我们想要删除索引 <span class="arithmatex">\(i\)</span> 处的元素，则需要把索引 <span class="arithmatex">\(i\)</span> 之后的元素都向前移动一位。值得注意的是，删除元素后，原先末尾的元素变得“无意义”了，所以我们无需特意去修改它。</p>
 <p><img alt="数组删除元素" src="../array.assets/array_remove_element.png" /></p>
 <p align="center"> Fig. 数组删除元素 </p>
 
@@ -4472,9 +4472,9 @@
 <ul>
 <li><strong>随机访问</strong>：如果我们想要随机抽取一些样本，那么可以用数组存储，并生成一个随机序列，根据索引实现样本的随机抽取。</li>
 <li><strong>排序和搜索</strong>：数组是排序和搜索算法最常用的数据结构。例如，快速排序、归并排序、二分查找等都需要在数组上进行。</li>
-<li><strong>查找表</strong>：当我们需要快速查找一个元素或者需要查找一个元素的对应关系时，可以使用数组作为查找表。例如，我们有一个字符到其 ASCII 码的映射，可以将字符的 ASCII 码值作为索引，对应的元素存放在数组中的对应位置。</li>
+<li><strong>查找表</strong>：当我们需要快速查找一个元素或者需要查找一个元素的对应关系时，可以使用数组作为查找表。假如我们想要实现字符到 ASCII 码的映射，则可以将字符的 ASCII 码值作为索引，对应的元素存放在数组中的对应位置。</li>
 <li><strong>机器学习</strong>：神经网络中大量使用了向量、矩阵、张量之间的线性代数运算，这些数据都是以数组的形式构建的。数组是神经网络编程中最常使用的数据结构。</li>
-<li><strong>数据结构实现</strong>：数组可以用于实现栈、队列、哈希表、堆、图等数据结构。例如，邻接矩阵是图的常见表示之一，它实质上是一个二维数组。</li>
+<li><strong>数据结构实现</strong>：数组可以用于实现栈、队列、哈希表、堆、图等数据结构。例如，图的邻接矩阵表示实际上是一个二维数组。</li>
 </ul>
 
 

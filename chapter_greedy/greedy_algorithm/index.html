@@ -3457,7 +3457,7 @@
 <p>我们先通过例题“零钱兑换”了解贪心算法的工作原理。这道题已经在动态规划章节中介绍过，相信你对它并不陌生。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>给定 <span class="arithmatex">\(n\)</span> 种硬币，第 <span class="arithmatex">\(i\)</span> 个硬币的面值为 <span class="arithmatex">\(coins[i - 1]\)</span> ，目标金额为 <span class="arithmatex">\(amt\)</span> ，每种硬币可以重复选取，问能够凑出目标金额的最少硬币个数。如果无法凑出目标金额则返回 <span class="arithmatex">\(-1\)</span> 。</p>
+<p>给定 <span class="arithmatex">\(n\)</span> 种硬币，第 <span class="arithmatex">\(i\)</span> 种硬币的面值为 <span class="arithmatex">\(coins[i - 1]\)</span> ，目标金额为 <span class="arithmatex">\(amt\)</span> ，每种硬币可以重复选取，问能够凑出目标金额的最少硬币个数。如果无法凑出目标金额则返回 <span class="arithmatex">\(-1\)</span> 。</p>
 </div>
 <p>这道题的贪心策略在生活中很常见：给定目标金额，<strong>我们贪心地选择不大于且最接近它的硬币</strong>，不断循环该步骤，直至凑出目标金额为止。</p>
 <p><img alt="零钱兑换的贪心策略" src="../greedy_algorithm.assets/coin_change_greedy_strategy.png" /></p>
@@ -3592,7 +3592,24 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">coin_change_greedy.dart</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">coinChangeGreedy</span><span class="p">}</span>
+<div class="highlight"><span class="filename">coin_change_greedy.dart</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* 零钱兑换：贪心 */</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">coinChangeGreedy</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="c1">// 假设 coins 列表有序</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="c1">// 循环进行贪心选择，直到无剩余金额</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="c1">// 找到小于且最接近剩余金额的硬币</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">      </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="c1">// 选择 coins[i]</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">  </span><span class="c1">// 若未找到可行方案，则返回 -1</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">;</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
