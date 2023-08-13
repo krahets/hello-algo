@@ -622,7 +622,7 @@ $$
     void radixSort(List<int> nums) {
       // 获取数组的最大元素，用于判断最大位数
       // dart 中 int 的长度是 64 位的
-      int m = -1 << 63; 
+      int m = -1 << 63;
       for (int num in nums) if (num > m) m = num;
       // 按照从低位到高位的顺序遍历
       for (int exp = 1; exp <= m; exp *= 10)

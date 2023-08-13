@@ -162,7 +162,18 @@ comments: true
 === "Dart"
 
     ```dart title="preorder_traversal_i_compact.dart"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    void preOrder(TreeNode? root, List<TreeNode> res) {
+      if (root == null) {
+        return;
+      }
+      if (root.val == 7) {
+        // 记录解
+        res.add(root);
+      }
+      preOrder(root.left, res);
+      preOrder(root.right, res);
+    }
     ```
 
 === "Rust"
@@ -407,7 +418,27 @@ comments: true
 === "Dart"
 
     ```dart title="preorder_traversal_ii_compact.dart"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    void preOrder(
+      TreeNode? root,
+      List<TreeNode> path,
+      List<List<TreeNode>> res,
+    ) {
+      if (root == null) {
+        return;
+      }
+
+      // 尝试
+      path.add(root);
+      if (root.val == 7) {
+        // 记录解
+        res.add(List.from(path));
+      }
+      preOrder(root.left, path, res);
+      preOrder(root.right, path, res);
+      // 回退
+      path.removeLast();
+    }
     ```
 
 === "Rust"
@@ -711,7 +742,29 @@ comments: true
 === "Dart"
 
     ```dart title="preorder_traversal_iii_compact.dart"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    void preOrder(
+      TreeNode? root,
+      List<TreeNode> path,
+      List<List<TreeNode>> res,
+    ) {
+      if (root == null || root.val == 3) {
+        return;
+      }
+
+      // 尝试
+      path.add(root);
+      if (root.val == 7) {
+        // 记录解
+        res.add(List.from(path));
+        path.removeLast();
+        return;
+      }
+      preOrder(root.left, path, res);
+      preOrder(root.right, path, res);
+      // 回退
+      path.removeLast();
+    }
     ```
 
 === "Rust"
@@ -1499,17 +1552,55 @@ comments: true
 === "Dart"
 
     ```dart title="preorder_traversal_iii_template.dart"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    bool isSolution(List<TreeNode> state) {
+      return state.isNotEmpty && state.last.val == 7;
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    void recordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
+      res.add(List.from(state));
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    bool isValid(List<TreeNode> state, TreeNode? choice) {
+      return choice != null && choice.val != 3;
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    void makeChoice(List<TreeNode> state, TreeNode? choice) {
+      state.add(choice!);
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    void undoChoice(List<TreeNode> state, TreeNode? choice) {
+      state.removeLast();
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    void backtrack(
+      List<TreeNode> state,
+      List<TreeNode?> choices,
+      List<List<TreeNode>> res,
+    ) {
+      // 检查是否为解
+      if (isSolution(state)) {
+        // 记录解
+        recordSolution(state, res);
+      }
+      // 遍历所有选择
+      for (TreeNode? choice in choices) {
+        // 剪枝：检查选择是否合法
+        if (isValid(state, choice)) {
+          // 尝试：做出选择，更新状态
+          makeChoice(state, choice);
+          // 进行下一轮选择
+          backtrack(state, [choice!.left, choice.right], res);
+          // 回退：撤销选择，恢复到之前的状态
+          undoChoice(state, choice);
+        }
+      }
+    }
     ```
 
 === "Rust"

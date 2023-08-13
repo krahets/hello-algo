@@ -225,7 +225,25 @@ $$
 === "Dart"
 
     ```dart title="unbounded_knapsack.dart"
-    [class]{}-[func]{unboundedKnapsackDP}
+    /* 完全背包：动态规划 */
+    int unboundedKnapsackDP(List<int> wgt, List<int> val, int cap) {
+      int n = wgt.length;
+      // 初始化 dp 表
+      List<List<int>> dp = List.generate(n + 1, (index) => List.filled(cap + 1, 0));
+      // 状态转移
+      for (int i = 1; i <= n; i++) {
+        for (int c = 1; c <= cap; c++) {
+          if (wgt[i - 1] > c) {
+            // 若超过背包容量，则不选物品 i
+            dp[i][c] = dp[i - 1][c];
+          } else {
+            // 不选和选物品 i 这两种方案的较大值
+            dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
+          }
+        }
+      }
+      return dp[n][cap];
+    }
     ```
 
 === "Rust"
@@ -464,7 +482,25 @@ $$
 === "Dart"
 
     ```dart title="unbounded_knapsack.dart"
-    [class]{}-[func]{unboundedKnapsackDPComp}
+    /* 完全背包：状态压缩后的动态规划 */
+    int unboundedKnapsackDPComp(List<int> wgt, List<int> val, int cap) {
+      int n = wgt.length;
+      // 初始化 dp 表
+      List<int> dp = List.filled(cap + 1, 0);
+      // 状态转移
+      for (int i = 1; i <= n; i++) {
+        for (int c = 1; c <= cap; c++) {
+          if (wgt[i - 1] > c) {
+            // 若超过背包容量，则不选物品 i
+            dp[c] = dp[c];
+          } else {
+            // 不选和选物品 i 这两种方案的较大值
+            dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+          }
+        }
+      }
+      return dp[cap];
+    }
     ```
 
 === "Rust"
@@ -497,7 +533,7 @@ $$
 
 !!! question
 
-    给定 $n$ 种硬币，第 $i$ 个硬币的面值为 $coins[i - 1]$ ，目标金额为 $amt$ ，**每种硬币可以重复选取**，问能够凑出目标金额的最少硬币个数。如果无法凑出目标金额则返回 $-1$ 。
+    给定 $n$ 种硬币，第 $i$ 种硬币的面值为 $coins[i - 1]$ ，目标金额为 $amt$ ，**每种硬币可以重复选取**，问能够凑出目标金额的最少硬币个数。如果无法凑出目标金额则返回 $-1$ 。
 
 ![零钱兑换问题的示例数据](unbounded_knapsack_problem.assets/coin_change_example.png)
 
@@ -511,7 +547,7 @@ $$
 
 **第一步：思考每轮的决策，定义状态，从而得到 $dp$ 表**
 
-状态 $[i, a]$ 对应的子问题为：**前 $i$ 个硬币能够凑出金额 $a$ 的最少硬币个数**，记为 $dp[i, a]$ 。
+状态 $[i, a]$ 对应的子问题为：**前 $i$ 种硬币能够凑出金额 $a$ 的最少硬币个数**，记为 $dp[i, a]$ 。
 
 二维 $dp$ 表的尺寸为 $(n+1) \times (amt+1)$ 。
 
@@ -769,7 +805,30 @@ $$
 === "Dart"
 
     ```dart title="coin_change.dart"
-    [class]{}-[func]{coinChangeDP}
+    /* 零钱兑换：动态规划 */
+    int coinChangeDP(List<int> coins, int amt) {
+      int n = coins.length;
+      int MAX = amt + 1;
+      // 初始化 dp 表
+      List<List<int>> dp = List.generate(n + 1, (index) => List.filled(amt + 1, 0));
+      // 状态转移：首行首列
+      for (int a = 1; a <= amt; a++) {
+        dp[0][a] = MAX;
+      }
+      // 状态转移：其余行列
+      for (int i = 1; i <= n; i++) {
+        for (int a = 1; a <= amt; a++) {
+          if (coins[i - 1] > a) {
+            // 若超过背包容量，则不选硬币 i
+            dp[i][a] = dp[i - 1][a];
+          } else {
+            // 不选和选硬币 i 这两种方案的较小值
+            dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
+          }
+        }
+      }
+      return dp[n][amt] != MAX ? dp[n][amt] : -1;
+    }
     ```
 
 === "Rust"
@@ -1065,7 +1124,27 @@ $$
 === "Dart"
 
     ```dart title="coin_change.dart"
-    [class]{}-[func]{coinChangeDPComp}
+    /* 零钱兑换：状态压缩后的动态规划 */
+    int coinChangeDPComp(List<int> coins, int amt) {
+      int n = coins.length;
+      int MAX = amt + 1;
+      // 初始化 dp 表
+      List<int> dp = List.filled(amt + 1, MAX);
+      dp[0] = 0;
+      // 状态转移
+      for (int i = 1; i <= n; i++) {
+        for (int a = 1; a <= amt; a++) {
+          if (coins[i - 1] > a) {
+            // 若超过背包容量，则不选硬币 i
+            dp[a] = dp[a];
+          } else {
+            // 不选和选硬币 i 这两种方案的较小值
+            dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1);
+          }
+        }
+      }
+      return dp[amt] != MAX ? dp[amt] : -1;
+    }
     ```
 
 === "Rust"
@@ -1099,13 +1178,13 @@ $$
 
 !!! question
 
-    给定 $n$ 种硬币，第 $i$ 个硬币的面值为 $coins[i - 1]$ ，目标金额为 $amt$ ，每种硬币可以重复选取，**问在凑出目标金额的硬币组合数量**。
+    给定 $n$ 种硬币，第 $i$ 种硬币的面值为 $coins[i - 1]$ ，目标金额为 $amt$ ，每种硬币可以重复选取，**问在凑出目标金额的硬币组合数量**。
 
 ![零钱兑换问题 II 的示例数据](unbounded_knapsack_problem.assets/coin_change_ii_example.png)
 
 <p align="center"> Fig. 零钱兑换问题 II 的示例数据 </p>
 
-相比于上一题，本题目标是组合数量，因此子问题变为：**前 $i$ 个硬币能够凑出金额 $a$ 的组合数量**。而 $dp$ 表仍然是尺寸为 $(n+1) \times (amt + 1)$ 的二维矩阵。
+相比于上一题，本题目标是组合数量，因此子问题变为：**前 $i$ 种硬币能够凑出金额 $a$ 的组合数量**。而 $dp$ 表仍然是尺寸为 $(n+1) \times (amt + 1)$ 的二维矩阵。
 
 当前状态的组合数量等于不选当前硬币与选当前硬币这两种决策的组合数量之和。状态转移方程为：
 
@@ -1332,7 +1411,29 @@ $$
 === "Dart"
 
     ```dart title="coin_change_ii.dart"
-    [class]{}-[func]{coinChangeIIDP}
+    /* 零钱兑换 II：动态规划 */
+    int coinChangeIIDP(List<int> coins, int amt) {
+      int n = coins.length;
+      // 初始化 dp 表
+      List<List<int>> dp = List.generate(n + 1, (index) => List.filled(amt + 1, 0));
+      // 初始化首列
+      for (int i = 0; i <= n; i++) {
+        dp[i][0] = 1;
+      }
+      // 状态转移
+      for (int i = 1; i <= n; i++) {
+        for (int a = 1; a <= amt; a++) {
+          if (coins[i - 1] > a) {
+            // 若超过背包容量，则不选硬币 i
+            dp[i][a] = dp[i - 1][a];
+          } else {
+            // 不选和选硬币 i 这两种方案之和
+            dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
+          }
+        }
+      }
+      return dp[n][amt];
+    }
     ```
 
 === "Rust"
@@ -1561,7 +1662,26 @@ $$
 === "Dart"
 
     ```dart title="coin_change_ii.dart"
-    [class]{}-[func]{coinChangeIIDPComp}
+    /* 零钱兑换 II：状态压缩后的动态规划 */
+    int coinChangeIIDPComp(List<int> coins, int amt) {
+      int n = coins.length;
+      // 初始化 dp 表
+      List<int> dp = List.filled(amt + 1, 0);
+      dp[0] = 1;
+      // 状态转移
+      for (int i = 1; i <= n; i++) {
+        for (int a = 1; a <= amt; a++) {
+          if (coins[i - 1] > a) {
+            // 若超过背包容量，则不选硬币 i
+            dp[a] = dp[a];
+          } else {
+            // 不选和选硬币 i 这两种方案之和
+            dp[a] = dp[a] + dp[a - coins[i - 1]];
+          }
+        }
+      }
+      return dp[amt];
+    }
     ```
 
 === "Rust"
