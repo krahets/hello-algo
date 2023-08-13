@@ -70,7 +70,7 @@ class GraphAdjList {
         // 在邻接表中删除顶点 vet 对应的链表
         this.adjList.delete(vet);
         // 遍历其他顶点的链表，删除所有包含 vet 的边
-        for (let set of this.adjList.values()) {
+        for (const set of this.adjList.values()) {
             const index: number = set.indexOf(vet);
             if (index > -1) {
                 set.splice(index, 1);
