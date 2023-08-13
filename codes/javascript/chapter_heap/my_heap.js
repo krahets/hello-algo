@@ -115,6 +115,11 @@ class MaxHeap {
     print() {
         printHeap(this.#maxHeap);
     }
+
+    /* 对堆取相反数 */
+    invertedNums() {
+        return this.#maxHeap.map(num => -num);
+    }
 }
 
 /* Driver Code */
@@ -145,3 +150,8 @@ console.log(`\n堆元素数量为 ${size}`);
 /* 判断堆是否为空 */
 let isEmpty = maxHeap.isEmpty();
 console.log(`\n堆是否为空 ${isEmpty}`);
+
+
+module.exports = {
+    MaxHeap,
+};
