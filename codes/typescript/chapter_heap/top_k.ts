@@ -8,7 +8,7 @@ import { MaxHeap } from './my_heap';
 
 /* 基于堆查找数组中最大的 k 个元素 */
 function top_k_heap(nums: number[], k: number): number[] {
-    // 使用大顶堆 MaxHeap，对数组 nums 取相反数
+    // 将堆中所有元素取反，从而用大顶堆来模拟小顶堆
     const invertedNums = nums.map(num => -num);
     // 将数组的前 k 个元素入堆
     const heap = new MaxHeap(invertedNums.slice(0, k));
@@ -20,8 +20,7 @@ function top_k_heap(nums: number[], k: number): number[] {
             heap.push(invertedNums[i]);
         }
     }
-
-    // 对堆取相反数
+    // 将堆中所有元素取反
     return heap.invertedNums();
 }
 
