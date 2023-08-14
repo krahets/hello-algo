@@ -21,7 +21,7 @@ function top_k_heap(nums: number[], k: number): number[] {
         }
     }
     // 将堆中所有元素取反
-    return heap.invertedNums();
+    return heap.getMaxHeap();
 }
 
 /* Driver Code */

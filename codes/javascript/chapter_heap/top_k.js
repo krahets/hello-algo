@@ -22,7 +22,7 @@ function top_k_heap(nums, k) {
     }
 
     // 对堆取相反数
-    return heap.invertedNums();
+    return heap.getMaxHeap();
 }
 
 /* Driver Code */

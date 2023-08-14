@@ -116,7 +116,7 @@ class MaxHeap {
     }
 
     /* 对堆取相反数 */
-    public invertedNums(): number[] {
+    public getMaxHeap(): number[] {
         return this.maxHeap.map(num => -num);
     }
 }
