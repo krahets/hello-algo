@@ -4,63 +4,47 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-import 'dart:collection';
-
+/* 二叉树节点类 */
 class TreeNode {
   int val; // 节点值
   int height; // 节点高度
   TreeNode? left; // 左子节点引用
   TreeNode? right; // 右子节点引用
 
+  /* 构造方法 */
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
 
-/**
-     * Generate a binary tree given an array
-     * @param list
-     * @return
-     */
-TreeNode? listToTree(List<int> list) {
-  int size = list.length;
-  if (size == 0) return null;
-
-  TreeNode root = TreeNode(list[0]);
-  Queue<TreeNode?> queue = Queue();
-  queue.add(root);
-  int i = 0;
-  while (queue.isNotEmpty) {
-    TreeNode? node = queue.removeFirst();
-    if (++i >= size) break;
-    node?.left = TreeNode(list[i]);
-    queue.add(node?.left);
-    if (++i >= size) break;
-    node?.right = TreeNode(list[i]);
-    queue.add(node?.right);
+/* 将列表反序列化为二叉树：递归 */
+TreeNode? listToTreeDFS(List<int?> arr, int i) {
+  if (i < 0 || i >= arr.length || arr[i] == null) {
+    return null;
   }
+  TreeNode? root = TreeNode(arr[i]!);
+  root.left = listToTreeDFS(arr, 2 * i + 1);
+  root.right = listToTreeDFS(arr, 2 * i + 2);
   return root;
 }
 
-/**
-     * Serialize a binary tree to a list
-     * @param root
-     * @return
-     */
-List<int?> treeToList(TreeNode? root) {
-  List<int?> list = [];
-  if (root == null) return list;
-  Queue<TreeNode?> queue = Queue();
-  queue.add(root);
+/* 将列表反序列化为二叉树 */
+TreeNode? listToTree(List<int?> arr) {
+  return listToTreeDFS(arr, 0);
+}
 
-  while (!queue.isEmpty) {
-    TreeNode? node = queue.first;
-    queue.removeFirst();
-    if (node != null) {
-      list.add(node.val);
-      queue.add(node.left);
-      queue.add(node.right);
-    } else {
-      list.add(null);
-    }
+/* 将二叉树序列化为列表：递归 */
+void treeToListDFS(TreeNode? root, int i, List<int?> res) {
+  if (root == null) return;
+  while (i >= res.length) {
+    res.add(null);
   }
-  return list;
+  res[i] = root.val;
+  treeToListDFS(root.left, 2 * i + 1, res);
+  treeToListDFS(root.right, 2 * i + 2, res);
+}
+
+/* 将二叉树序列化为列表 */
+List<int?> treeToList(TreeNode? root) {
+  List<int?> res = [];
+  treeToListDFS(root, 0, res);
+  return res;
 }

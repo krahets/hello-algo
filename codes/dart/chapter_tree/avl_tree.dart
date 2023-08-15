@@ -18,6 +18,7 @@ class AVLTree {
 
   /* 获取节点高度 */
   int height(TreeNode? node) {
+    // 空节点高度为 -1 ，叶节点高度为 0
     return node == null ? -1 : node.height;
   }
 

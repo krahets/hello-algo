@@ -48,7 +48,7 @@
         Val  int       // 节点值
         Next *ListNode // 指向下一节点的指针（引用）
     }
-    
+
     // NewListNode 构造函数，创建一个新的链表
     func NewListNode(val int) *ListNode {
         return &ListNode{
@@ -139,7 +139,7 @@
     pub fn ListNode(comptime T: type) type {
         return struct {
             const Self = @This();
-            
+
             val: T = 0, // 节点值
             next: ?*Self = null, // 指向下一节点的指针（引用）
 
@@ -184,7 +184,7 @@
 
     ```java title="linked_list.java"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点 
+    // 初始化各个节点
     ListNode n0 = new ListNode(1);
     ListNode n1 = new ListNode(3);
     ListNode n2 = new ListNode(2);
@@ -201,7 +201,7 @@
 
     ```cpp title="linked_list.cpp"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点 
+    // 初始化各个节点
     ListNode* n0 = new ListNode(1);
     ListNode* n1 = new ListNode(3);
     ListNode* n2 = new ListNode(2);
@@ -218,7 +218,7 @@
 
     ```python title="linked_list.py"
     # 初始化链表 1 -> 3 -> 2 -> 5 -> 4
-    # 初始化各个节点 
+    # 初始化各个节点
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)
@@ -286,7 +286,7 @@
 
     ```c title="linked_list.c"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点 
+    // 初始化各个节点
     ListNode* n0 = newListNode(1);
     ListNode* n1 = newListNode(3);
     ListNode* n2 = newListNode(2);
@@ -303,7 +303,7 @@
 
     ```csharp title="linked_list.cs"
     /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点 
+    // 初始化各个节点
     ListNode n0 = new ListNode(1);
     ListNode n1 = new ListNode(3);
     ListNode n2 = new ListNode(2);
@@ -337,7 +337,7 @@
 
     ```zig title="linked_list.zig"
     // 初始化链表
-    // 初始化各个节点 
+    // 初始化各个节点
     var n0 = inc.ListNode(i32){.val = 1};
     var n1 = inc.ListNode(i32){.val = 3};
     var n2 = inc.ListNode(i32){.val = 2};
@@ -747,7 +747,7 @@
         Next *DoublyListNode // 指向后继节点的指针（引用）
         Prev *DoublyListNode // 指向前驱节点的指针（引用）
     }
-    
+
     // NewDoublyListNode 初始化
     func NewDoublyListNode(val int) *DoublyListNode {
         return &DoublyListNode{
@@ -847,7 +847,7 @@
     pub fn ListNode(comptime T: type) type {
         return struct {
             const Self = @This();
-            
+
             val: T = 0, // 节点值
             next: ?*Self = null, // 指向后继节点的指针（引用）
             prev: ?*Self = null, // 指向前驱节点的指针（引用）
@@ -867,10 +867,10 @@
     ```dart title=""
     /* 双向链表节点类 */
     class ListNode {
-        int val;        // 节点值
-        ListNode next;  // 指向后继节点的指针（引用）
-        ListNode prev;  // 指向前驱节点的指针（引用）
-        ListNode(this.val, [this.next, this.prev]);  // 构造函数
+      int val;        // 节点值
+      ListNode next;  // 指向后继节点的指针（引用）
+      ListNode prev;  // 指向前驱节点的指针（引用）
+      ListNode(this.val, [this.next, this.prev]);  // 构造函数
     }
     ```
 
@@ -887,7 +887,7 @@
         next: Option<Rc<RefCell<ListNode>>>, // 指向后继节点的指针（引用）
         prev: Option<Rc<RefCell<ListNode>>>, // 指向前驱节点的指针（引用）
     }
-    
+
     /* 构造函数 */
     impl ListNode {
         fn new(val: i32) -> Self {

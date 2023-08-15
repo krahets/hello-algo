@@ -44,6 +44,11 @@
 1. 下载并安装 [Swift](https://www.swift.org/download/)。
 2. 在 VSCode 的插件市场中搜索 `swift` ，安装 [Swift for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang)。
 
+## Dart 环境
+
+1. 下载并安装 [Dart](https://dart.dev/get-dart) 。
+2. 在 VSCode 的插件市场中搜索 `dart` ，安装 [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code) 。
+
 ## Rust 环境
 
 1. 下载并安装 [Rust](https://www.rust-lang.org/tools/install)。

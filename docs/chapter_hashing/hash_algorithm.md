@@ -168,13 +168,13 @@ index = hash(key) % capacity
 === "Dart"
 
     ```dart title="simple_hash.dart"
-    [class]{}-[func]{add_hash}
+    [class]{}-[func]{addHash}
 
-    [class]{}-[func]{mul_hash}
+    [class]{}-[func]{mulHash}
 
-    [class]{}-[func]{xor_hash}
+    [class]{}-[func]{xorHash}
 
-    [class]{}-[func]{rot_hash}
+    [class]{}-[func]{rotHash}
     ```
 
 === "Rust"
@@ -313,7 +313,7 @@ $$
     # 布尔量 True 的哈希值为 1
 
     dec = 3.14159
-    hash_dec = hash(dec) 
+    hash_dec = hash(dec)
     # 小数 3.14159 的哈希值为 326484311674566659
 
     str = "Hello 算法"
@@ -421,23 +421,23 @@ $$
     int num = 3;
     int hashNum = num.hashCode;
     // 整数 3 的哈希值为 34803
-    
+
     bool bol = true;
     int hashBol = bol.hashCode;
     // 布尔值 true 的哈希值为 1231
-    
+
     double dec = 3.14159;
     int hashDec = dec.hashCode;
     // 小数 3.14159 的哈希值为 2570631074981783
-    
+
     String str = "Hello 算法";
     int hashStr = str.hashCode;
     // 字符串 Hello 算法 的哈希值为 468167534
-    
+
     List arr = [12836, "小哈"];
     int hashArr = arr.hashCode;
     // 数组 [12836, 小哈] 的哈希值为 976512528
-    
+
     ListNode obj = new ListNode(0);
     int hashObj = obj.hashCode;
     // 节点对象 Instance of 'ListNode' 的哈希值为 1033450432
