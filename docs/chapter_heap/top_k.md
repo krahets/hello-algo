@@ -16,7 +16,7 @@
 
 !!! tip
 
-    当 $k = n$ 时，我们可以得到从大到小的序列，等价于「选择排序」算法。 
+    当 $k = n$ 时，我们可以得到从大到小的序列，等价于「选择排序」算法。
 
 ## 方法二：排序
 
@@ -129,7 +129,7 @@
 === "Dart"
 
     ```dart title="top_k.dart"
-    [class]{}-[func]{top_k_heap}
+    [class]{}-[func]{topKHeap}
     ```
 
 === "Rust"
