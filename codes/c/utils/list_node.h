@@ -14,7 +14,7 @@ extern "C" {
 /* 链表节点结构体 */
 struct ListNode {
     int val;               // 节点值
-    struct ListNode *next; // 指向下一节点的指针（引用）
+    struct ListNode *next; // 指向下一节点的引用
 };
 
 // typedef 作用是为一种数据类型定义一个新名字

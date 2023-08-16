@@ -1,6 +1,6 @@
 # 二叉树
 
-「二叉树 Binary Tree」是一种非线性数据结构，代表着祖先与后代之间的派生关系，体现着“一分为二”的分治逻辑。与链表类似，二叉树的基本单元是节点，每个节点包含一个「值」和两个「指针」。
+「二叉树 Binary Tree」是一种非线性数据结构，代表着祖先与后代之间的派生关系，体现着“一分为二”的分治逻辑。与链表类似，二叉树的基本单元是节点，每个节点包含：值、左子节点引用、右子节点引用。
 
 === "Java"
 
@@ -8,8 +8,8 @@
     /* 二叉树节点类 */
     class TreeNode {
         int val;         // 节点值
-        TreeNode left;   // 左子节点指针
-        TreeNode right;  // 右子节点指针
+        TreeNode left;   // 左子节点引用
+        TreeNode right;  // 右子节点引用
         TreeNode(int x) { val = x; }
     }
     ```
@@ -33,8 +33,8 @@
         """二叉树节点类"""
         def __init__(self, val: int):
             self.val: int = val                   # 节点值
-            self.left: Optional[TreeNode] = None  # 左子节点指针
-            self.right: Optional[TreeNode] = None # 右子节点指针
+            self.left: Optional[TreeNode] = None  # 左子节点引用
+            self.right: Optional[TreeNode] = None # 右子节点引用
     ```
 
 === "Go"
@@ -49,9 +49,9 @@
     /* 节点初始化方法 */
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
-            Left:  nil,
-            Right: nil,
-            Val:   v,
+            Left:  nil, // 左子节点指针
+            Right: nil, // 右子节点指针
+            Val:   v,   // 节点值
         }
     }
     ```
@@ -62,8 +62,8 @@
     /* 二叉树节点类 */
     function TreeNode(val, left, right) {
         this.val = (val === undefined ? 0 : val); // 节点值
-        this.left = (left === undefined ? null : left); // 左子节点指针
-        this.right = (right === undefined ? null : right); // 右子节点指针
+        this.left = (left === undefined ? null : left); // 左子节点引用
+        this.right = (right === undefined ? null : right); // 右子节点引用
     }
     ```
 
@@ -78,8 +78,8 @@
     
         constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val; // 节点值
-            this.left = left === undefined ? null : left; // 左子节点指针
-            this.right = right === undefined ? null : right; // 右子节点指针
+            this.left = left === undefined ? null : left; // 左子节点引用
+            this.right = right === undefined ? null : right; // 右子节点引用
         }
     }
     ```
@@ -116,8 +116,8 @@
     /* 二叉树节点类 */
     class TreeNode {
         int val;          // 节点值
-        TreeNode? left;   // 左子节点指针
-        TreeNode? right;  // 右子节点指针
+        TreeNode? left;   // 左子节点引用
+        TreeNode? right;  // 右子节点引用
         TreeNode(int x) { val = x; }
     }
     ```
@@ -128,8 +128,8 @@
     /* 二叉树节点类 */
     class TreeNode {
         var val: Int // 节点值
-        var left: TreeNode? // 左子节点指针
-        var right: TreeNode? // 右子节点指针
+        var left: TreeNode? // 左子节点引用
+        var right: TreeNode? // 右子节点引用
 
         init(x: Int) {
             val = x
@@ -149,8 +149,8 @@
     /* 二叉树节点类 */
     class TreeNode {
       int val;         // 节点值
-      TreeNode? left;  // 左子节点指针
-      TreeNode? right; // 右子节点指针
+      TreeNode? left;  // 左子节点引用
+      TreeNode? right; // 右子节点引用
       TreeNode(this.val, [this.left, this.right]);
     }
     ```

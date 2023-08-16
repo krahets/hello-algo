@@ -79,7 +79,7 @@
         """类"""
         def __init__(self, x: int):
             self.val: int = x                 # 节点值
-            self.next: Optional[Node] = None  # 指向下一节点的指针（引用）
+            self.next: Optional[Node] = None  # 指向下一节点的引用
 
     def function() -> int:
         """函数"""

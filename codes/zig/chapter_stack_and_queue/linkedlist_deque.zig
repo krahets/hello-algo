@@ -11,8 +11,8 @@ pub fn ListNode(comptime T: type) type {
         const Self = @This();
         
         val: T = undefined,     // 节点值
-        next: ?*Self = null,    // 后继节点引用（指针）
-        prev: ?*Self = null,    // 前驱节点引用（指针）
+        next: ?*Self = null,    // 后继节点指针
+        prev: ?*Self = null,    // 前驱节点指针
 
         // Initialize a list node with specific value
         pub fn init(self: *Self, x: i32) void {

@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 随机返回一个数组元素 */
+/* 随机访问元素 */
 func randomAccess(nums: [Int]) -> Int {
     // 在区间 [0, nums.count) 中随机抽取一个数字
     let randomIndex = nums.indices.randomElement()!

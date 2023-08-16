@@ -9,8 +9,8 @@ namespace hello_algo.chapter_stack_and_queue;
 /* 双向链表节点 */
 public class ListNode {
     public int val;       // 节点值
-    public ListNode? next; // 后继节点引用（指针）
-    public ListNode? prev; // 前驱节点引用（指针）
+    public ListNode? next; // 后继节点引用
+    public ListNode? prev; // 前驱节点引用
 
     public ListNode(int val) {
         this.val = val;
