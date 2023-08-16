@@ -114,6 +114,11 @@ class MaxHeap {
     public print(): void {
         printHeap(this.maxHeap);
     }
+
+    /* 取出堆中元素 */
+    public getMaxHeap(): number[] {
+        return this.maxHeap;
+    }
 }
 
 /* Driver Code */
@@ -144,3 +149,5 @@ console.log(`\n堆元素数量为 ${size}`);
 /* 判断堆是否为空 */
 const isEmpty = maxHeap.isEmpty();
 console.log(`\n堆是否为空 ${isEmpty}`);
+
+export { MaxHeap };
