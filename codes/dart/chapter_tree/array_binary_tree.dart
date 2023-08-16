@@ -140,7 +140,7 @@ void main() {
   print("其右子节点的索引为 $r ，值为 ${(r == null ? "null" : abt.val(r))}");
   print("其父节点的索引为 $p ，值为 ${(p == null ? "null" : abt.val(p))}");
 
-// 遍历树
+  // 遍历树
   List<int?> res = abt.levelOrder();
   print("\n层序遍历为：$res");
   res = abt.preOrder();
