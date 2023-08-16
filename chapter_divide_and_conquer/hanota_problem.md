@@ -17,7 +17,7 @@ status: new
 
 ![汉诺塔问题示例](hanota_problem.assets/hanota_example.png)
 
-<p align="center"> Fig. 汉诺塔问题示例 </p>
+<p align="center"> 图：汉诺塔问题示例 </p>
 
 **我们将规模为 $i$ 的汉诺塔问题记做 $f(i)$** 。例如 $f(3)$ 代表将 $3$ 个圆盘从 `A` 移动至 `C` 的汉诺塔问题。
 
@@ -30,6 +30,8 @@ status: new
 
 === "<2>"
     ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.png)
+
+<p align="center"> 图：规模为 1 问题的解 </p>
 
 对于问题 $f(2)$ ，即当有两个圆盘时，**由于要时刻满足小圆盘在大圆盘之上，因此需要借助 `B` 来完成移动**，包括三步：
 
@@ -50,6 +52,8 @@ status: new
 
 === "<4>"
     ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.png)
+
+<p align="center"> 图：规模为 2 问题的解 </p>
 
 ### 子问题分解
 
@@ -73,6 +77,8 @@ status: new
 === "<4>"
     ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.png)
 
+<p align="center"> 图：规模为 3 问题的解 </p>
+
 本质上看，**我们将问题 $f(3)$ 划分为两个子问题 $f(2)$ 和子问题 $f(1)$** 。按顺序解决这三个子问题之后，原问题随之得到解决。这说明子问题是独立的，而且解是可以合并的。
 
 至此，我们可总结出汉诺塔问题的分治策略：将原问题 $f(n)$ 划分为两个子问题 $f(n-1)$ 和一个子问题 $f(1)$ 。子问题的解决顺序为：
@@ -85,7 +91,7 @@ status: new
 
 ![汉诺塔问题的分治策略](hanota_problem.assets/hanota_divide_and_conquer.png)
 
-<p align="center"> Fig. 汉诺塔问题的分治策略 </p>
+<p align="center"> 图：汉诺塔问题的分治策略 </p>
 
 ### 代码实现
 
@@ -431,7 +437,7 @@ status: new
 
 ![汉诺塔问题的递归树](hanota_problem.assets/hanota_recursive_tree.png)
 
-<p align="center"> Fig. 汉诺塔问题的递归树 </p>
+<p align="center"> 图：汉诺塔问题的递归树 </p>
 
 !!! quote
 

@@ -29,6 +29,8 @@ comments: true
 === "<7>"
     ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.png)
 
+<p align="center"> 图：利用元素交换操作模拟冒泡 </p>
+
 ## 11.3.1. &nbsp; 算法流程
 
 设数组的长度为 $n$ ，冒泡排序的步骤为：
@@ -40,7 +42,7 @@ comments: true
 
 ![冒泡排序流程](bubble_sort.assets/bubble_sort_overview.png)
 
-<p align="center"> Fig. 冒泡排序流程 </p>
+<p align="center"> 图：冒泡排序流程 </p>
 
 === "Java"
 

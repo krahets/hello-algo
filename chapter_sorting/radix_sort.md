@@ -18,7 +18,7 @@ comments: true
 
 ![基数排序算法流程](radix_sort.assets/radix_sort_overview.png)
 
-<p align="center"> Fig. 基数排序算法流程 </p>
+<p align="center"> 图：基数排序算法流程 </p>
 
 下面来剖析代码实现。对于一个 $d$ 进制的数字 $x$ ，要获取其第 $k$ 位 $x_k$ ，可以使用以下计算公式：
 

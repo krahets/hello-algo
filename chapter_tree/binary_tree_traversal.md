@@ -16,7 +16,7 @@ comments: true
 
 ![二叉树的层序遍历](binary_tree_traversal.assets/binary_tree_bfs.png)
 
-<p align="center"> Fig. 二叉树的层序遍历 </p>
+<p align="center"> 图：二叉树的层序遍历 </p>
 
 广度优先遍历通常借助「队列」来实现。队列遵循“先进先出”的规则，而广度优先遍历则遵循“逐层推进”的规则，两者背后的思想是一致的。
 
@@ -334,7 +334,7 @@ comments: true
 
 ![二叉搜索树的前、中、后序遍历](binary_tree_traversal.assets/binary_tree_dfs.png)
 
-<p align="center"> Fig. 二叉搜索树的前、中、后序遍历 </p>
+<p align="center"> 图：二叉搜索树的前、中、后序遍历 </p>
 
 以下给出了实现代码，请配合上图理解深度优先遍历的递归过程。
 
@@ -794,3 +794,5 @@ comments: true
 
 === "<11>"
     ![preorder_step11](binary_tree_traversal.assets/preorder_step11.png)
+
+<p align="center"> 图：前序遍历的递归过程 </p>

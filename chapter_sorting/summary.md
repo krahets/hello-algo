@@ -15,7 +15,7 @@ comments: true
 
 ![排序算法对比](summary.assets/sorting_algorithms_comparison.png)
 
-<p align="center"> Fig. 排序算法对比 </p>
+<p align="center"> 图：排序算法对比 </p>
 
 ## 11.11.1. &nbsp; Q & A
 

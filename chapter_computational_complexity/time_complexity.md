@@ -436,7 +436,7 @@ $$
 
 ![算法 A, B, C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.png)
 
-<p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
+<p align="center"> 图：算法 A, B, C 的时间增长趋势 </p>
 
 相较于直接统计算法运行时间，时间复杂度分析有哪些特点呢？
 
@@ -634,7 +634,7 @@ $T(n)$ 是一次函数，说明时间的增长趋势是线性的，因此其时�
 
 ![函数的渐近上界](time_complexity.assets/asymptotic_upper_bound.png)
 
-<p align="center"> Fig. 函数的渐近上界 </p>
+<p align="center"> 图：函数的渐近上界 </p>
 
 也就是说，计算渐近上界就是寻找一个函数 $f(n)$ ，使得当 $n$ 趋向于无穷大时，$T(n)$ 和 $f(n)$ 处于相同的增长级别，仅相差一个常数项 $c$ 的倍数。
 
@@ -906,7 +906,7 @@ $$
 
 ![时间复杂度的常见类型](time_complexity.assets/time_complexity_common_types.png)
 
-<p align="center"> Fig. 时间复杂度的常见类型 </p>
+<p align="center"> 图：时间复杂度的常见类型 </p>
 
 !!! tip
 
@@ -1600,7 +1600,7 @@ $$
 
 ![常数阶、线性阶、平方阶的时间复杂度](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
 
-<p align="center"> Fig. 常数阶、线性阶、平方阶的时间复杂度 </p>
+<p align="center"> 图：常数阶、线性阶、平方阶的时间复杂度 </p>
 
 以「冒泡排序」为例，外层循环执行 $n - 1$ 次，内层循环执行 $n-1, n-2, \cdots, 2, 1$ 次，平均为 $\frac{n}{2}$ 次，因此时间复杂度为 $O(n^2)$ 。
 
@@ -2110,7 +2110,7 @@ $$
 
 ![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.png)
 
-<p align="center"> Fig. 指数阶的时间复杂度 </p>
+<p align="center"> 图：指数阶的时间复杂度 </p>
 
 在实际算法中，指数阶常出现于递归函数。例如以下代码，其递归地一分为二，经过 $n$ 次分裂后停止。
 
@@ -2420,7 +2420,7 @@ $$
 
 ![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png)
 
-<p align="center"> Fig. 对数阶的时间复杂度 </p>
+<p align="center"> 图：对数阶的时间复杂度 </p>
 
 与指数阶类似，对数阶也常出现于递归函数。以下代码形成了一个高度为 $\log_2 n$ 的递归树。
 
@@ -2745,7 +2745,7 @@ $$
 
 ![线性对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic_linear.png)
 
-<p align="center"> Fig. 线性对数阶的时间复杂度 </p>
+<p align="center"> 图：线性对数阶的时间复杂度 </p>
 
 ### 阶乘阶 $O(n!)$
 
@@ -2947,7 +2947,7 @@ $$
 
 ![阶乘阶的时间复杂度](time_complexity.assets/time_complexity_factorial.png)
 
-<p align="center"> Fig. 阶乘阶的时间复杂度 </p>
+<p align="center"> 图：阶乘阶的时间复杂度 </p>
 
 请注意，因为 $n! > 2^n$ ，所以阶乘阶比指数阶增长地更快，在 $n$ 较大时也是不可接受的。
 

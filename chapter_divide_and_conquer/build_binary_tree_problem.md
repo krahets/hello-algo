@@ -11,7 +11,7 @@ status: new
 
 ![构建二叉树的示例数据](build_binary_tree_problem.assets/build_tree_example.png)
 
-<p align="center"> Fig. 构建二叉树的示例数据 </p>
+<p align="center"> 图：构建二叉树的示例数据 </p>
 
 ### 判断是否为分治问题
 
@@ -38,7 +38,7 @@ status: new
 
 ![在前序和中序遍历中划分子树](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
 
-<p align="center"> Fig. 在前序和中序遍历中划分子树 </p>
+<p align="center"> 图：在前序和中序遍历中划分子树 </p>
 
 ### 基于变量描述子树区间
 
@@ -64,7 +64,7 @@ status: new
 
 ![根节点和左右子树的索引区间表示](build_binary_tree_problem.assets/build_tree_division_pointers.png)
 
-<p align="center"> Fig. 根节点和左右子树的索引区间表示 </p>
+<p align="center"> 图：根节点和左右子树的索引区间表示 </p>
 
 ### 代码实现
 
@@ -429,6 +429,8 @@ status: new
 
 === "<10>"
     ![built_tree_step10](build_binary_tree_problem.assets/built_tree_step10.png)
+
+<p align="center"> 图：构建二叉树的递归过程 </p>
 
 设树的节点数量为 $n$ ，初始化每一个节点（执行一个递归函数 `dfs()` ）使用 $O(1)$ 时间。**因此总体时间复杂度为 $O(n)$** 。
 

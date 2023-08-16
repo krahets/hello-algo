@@ -172,7 +172,7 @@ comments: true
 
 ![动画图解示例](../index.assets/animation.gif)
 
-<p align="center"> Fig. 动画图解示例 </p>
+<p align="center"> 图：动画图解示例 </p>
 
 ## 0.2.3. &nbsp; 在代码实践中加深理解
 
@@ -184,7 +184,7 @@ comments: true
 
 ![运行代码示例](../index.assets/running_code.gif)
 
-<p align="center"> Fig. 运行代码示例 </p>
+<p align="center"> 图：运行代码示例 </p>
 
 **第一步：安装本地编程环境**。请参照[附录教程](https://www.hello-algo.com/chapter_appendix/installation/)进行安装，如果已安装则可跳过此步骤。
 
@@ -198,13 +198,13 @@ git clone https://github.com/krahets/hello-algo.git
 
 ![克隆仓库与下载代码](suggestions.assets/download_code.png)
 
-<p align="center"> Fig. 克隆仓库与下载代码 </p>
+<p align="center"> 图：克隆仓库与下载代码 </p>
 
 **第三步：运行源代码**。如果代码块顶部标有文件名称，则可以在仓库的 `codes` 文件夹中找到相应的源代码文件。源代码文件将帮助你节省不必要的调试时间，让你能够专注于学习内容。
 
 ![代码块与对应的源代码文件](suggestions.assets/code_md_to_repo.png)
 
-<p align="center"> Fig. 代码块与对应的源代码文件 </p>
+<p align="center"> 图：代码块与对应的源代码文件 </p>
 
 ## 0.2.4. &nbsp; 在提问讨论中共同成长
 
@@ -214,7 +214,7 @@ git clone https://github.com/krahets/hello-algo.git
 
 ![评论区示例](../index.assets/comment.gif)
 
-<p align="center"> Fig. 评论区示例 </p>
+<p align="center"> 图：评论区示例 </p>
 
 ## 0.2.5. &nbsp; 算法学习路线
 
@@ -228,4 +228,4 @@ git clone https://github.com/krahets/hello-algo.git
 
 ![算法学习路线](suggestions.assets/learning_route.png)
 
-<p align="center"> Fig. 算法学习路线 </p>
+<p align="center"> 图：算法学习路线 </p>

@@ -17,7 +17,7 @@ status: new
 
 ![爬到第 3 阶的方案数量](intro_to_dynamic_programming.assets/climbing_stairs_example.png)
 
-<p align="center"> Fig. 爬到第 3 阶的方案数量 </p>
+<p align="center"> 图：爬到第 3 阶的方案数量 </p>
 
 本题的目标是求解方案数量，**我们可以考虑通过回溯来穷举所有可能性**。具体来说，将爬楼梯想象为一个多轮选择的过程：从地面出发，每轮选择上 $1$ 阶或 $2$ 阶，每当到达楼梯顶部时就将方案数量加 $1$ ，当越过楼梯顶部时就将其剪枝。
 
@@ -149,7 +149,7 @@ status: new
         // 当爬到第 n 阶时，方案数量加 1
         if (state === n) res.set(0, res.get(0) + 1);
         // 遍历所有选择
-        for (choice of choices) {
+        for (const choice of choices) {
             // 剪枝：不允许越过第 n 阶
             if (state + choice > n) break;
             // 尝试：做出选择，更新状态
@@ -182,7 +182,7 @@ status: new
         // 当爬到第 n 阶时，方案数量加 1
         if (state === n) res.set(0, res.get(0) + 1);
         // 遍历所有选择
-        for (let choice of choices) {
+        for (const choice of choices) {
             // 剪枝：不允许越过第 n 阶
             if (state + choice > n) break;
             // 尝试：做出选择，更新状态
@@ -382,7 +382,7 @@ $$
 
 ![方案数量递推关系](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png)
 
-<p align="center"> Fig. 方案数量递推关系 </p>
+<p align="center"> 图：方案数量递推关系 </p>
 
 我们可以根据递推公式得到暴力搜索解法：
 
@@ -609,7 +609,7 @@ $$
 
 ![爬楼梯对应递归树](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png)
 
-<p align="center"> Fig. 爬楼梯对应递归树 </p>
+<p align="center"> 图：爬楼梯对应递归树 </p>
 
 观察上图发现，**指数阶的时间复杂度是由于「重叠子问题」导致的**。例如：$dp[9]$ 被分解为 $dp[8]$ 和 $dp[7]$ ，$dp[8]$ 被分解为 $dp[7]$ 和 $dp[6]$ ，两者都包含子问题 $dp[7]$ 。
 
@@ -921,7 +921,7 @@ $$
 
 ![记忆化搜索对应递归树](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png)
 
-<p align="center"> Fig. 记忆化搜索对应递归树 </p>
+<p align="center"> 图：记忆化搜索对应递归树 </p>
 
 ## 14.1.3. &nbsp; 方法三：动态规划
 
@@ -1165,7 +1165,7 @@ $$
 
 ![爬楼梯的动态规划过程](intro_to_dynamic_programming.assets/climbing_stairs_dp.png)
 
-<p align="center"> Fig. 爬楼梯的动态规划过程 </p>
+<p align="center"> 图：爬楼梯的动态规划过程 </p>
 
 ## 14.1.4. &nbsp; 状态压缩
 

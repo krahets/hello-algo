@@ -43,7 +43,7 @@ status: new
 
 ![二分查找的分治过程](binary_search_recur.assets/binary_search_recur.png)
 
-<p align="center"> Fig. 二分查找的分治过程 </p>
+<p align="center"> 图：二分查找的分治过程 </p>
 
 在实现代码中，我们声明一个递归函数 `dfs()` 来求解问题 $f(i, j)$ 。
 

@@ -10,7 +10,7 @@ comments: true
 
 ![队列的先入先出规则](queue.assets/queue_operations.png)
 
-<p align="center"> Fig. 队列的先入先出规则 </p>
+<p align="center"> 图：队列的先入先出规则 </p>
 
 ## 5.2.1. &nbsp; 队列常用操作
 
@@ -307,6 +307,8 @@ comments: true
 
 === "pop()"
     ![linkedlist_queue_pop](queue.assets/linkedlist_queue_pop.png)
+
+<p align="center"> 图：基于链表实现队列的入队出队操作 </p>
 
 以下是用链表实现队列的示例代码。
 
@@ -1199,6 +1201,8 @@ comments: true
 
 === "pop()"
     ![array_queue_pop](queue.assets/array_queue_pop.png)
+
+<p align="center"> 图：基于数组实现队列的入队出队操作 </p>
 
 你可能会发现一个问题：在不断进行入队和出队的过程中，`front` 和 `rear` 都在向右移动，**当它们到达数组尾部时就无法继续移动了**。为解决此问题，我们可以将数组视为首尾相接的「环形数组」。
 

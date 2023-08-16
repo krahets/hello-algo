@@ -47,6 +47,8 @@ comments: true
 === "<11>"
     ![selection_sort_step11](selection_sort.assets/selection_sort_step11.png)
 
+<p align="center"> 图：选择排序步骤 </p>
+
 在代码中，我们用 $k$ 来记录未排序区间内的最小元素。
 
 === "Java"
@@ -290,4 +292,4 @@ comments: true
 
 ![选择排序非稳定示例](selection_sort.assets/selection_sort_instability.png)
 
-<p align="center"> Fig. 选择排序非稳定示例 </p>
+<p align="center"> 图：选择排序非稳定示例 </p>

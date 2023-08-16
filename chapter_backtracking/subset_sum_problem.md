@@ -438,7 +438,7 @@ comments: true
 
 ![子集搜索与越界剪枝](subset_sum_problem.assets/subset_sum_i_naive.png)
 
-<p align="center"> Fig. 子集搜索与越界剪枝 </p>
+<p align="center"> 图：子集搜索与越界剪枝 </p>
 
 为了去除重复子集，**一种直接的思路是对结果列表进行去重**。但这个方法效率很低，因为：
 
@@ -460,7 +460,7 @@ comments: true
 
 ![不同选择顺序导致的重复子集](subset_sum_problem.assets/subset_sum_i_pruning.png)
 
-<p align="center"> Fig. 不同选择顺序导致的重复子集 </p>
+<p align="center"> 图：不同选择顺序导致的重复子集 </p>
 
 总结来看，给定输入数组 $[x_1, x_2, \cdots, x_n]$ ，设搜索过程中的选择序列为 $[x_{i_1}, x_{i_2}, \cdots , x_{i_m}]$ ，则该选择序列需要满足 $i_1 \leq i_2 \leq \cdots \leq i_m$ ，**不满足该条件的选择序列都会造成重复，应当剪枝**。
 
@@ -916,7 +916,7 @@ comments: true
 
 ![子集和 I 回溯过程](subset_sum_problem.assets/subset_sum_i.png)
 
-<p align="center"> Fig. 子集和 I 回溯过程 </p>
+<p align="center"> 图：子集和 I 回溯过程 </p>
 
 ## 13.3.2. &nbsp; 考虑重复元素的情况
 
@@ -930,7 +930,7 @@ comments: true
 
 ![相等元素导致的重复子集](subset_sum_problem.assets/subset_sum_ii_repeat.png)
 
-<p align="center"> Fig. 相等元素导致的重复子集 </p>
+<p align="center"> 图：相等元素导致的重复子集 </p>
 
 ### 相等元素剪枝
 
@@ -1438,4 +1438,4 @@ comments: true
 
 ![子集和 II 回溯过程](subset_sum_problem.assets/subset_sum_ii.png)
 
-<p align="center"> Fig. 子集和 II 回溯过程 </p>
+<p align="center"> 图：子集和 II 回溯过程 </p>

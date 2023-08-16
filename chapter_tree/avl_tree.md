@@ -10,13 +10,13 @@ comments: true
 
 ![AVL 树在删除节点后发生退化](avl_tree.assets/avltree_degradation_from_removing_node.png)
 
-<p align="center"> Fig. AVL 树在删除节点后发生退化 </p>
+<p align="center"> 图：AVL 树在删除节点后发生退化 </p>
 
 再例如，在以下完美二叉树中插入两个节点后，树将严重向左倾斜，查找操作的时间复杂度也随之恶化。
 
 ![AVL 树在插入节点后发生退化](avl_tree.assets/avltree_degradation_from_inserting_node.png)
 
-<p align="center"> Fig. AVL 树在插入节点后发生退化 </p>
+<p align="center"> 图：AVL 树在插入节点后发生退化 </p>
 
 G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorithm for the organization of information" 中提出了「AVL 树」。论文中详细描述了一系列操作，确保在持续添加和删除节点后，AVL 树不会退化，从而使得各种操作的时间复杂度保持在 $O(\log n)$ 级别。换句话说，在需要频繁进行增删查改操作的场景中，AVL 树能始终保持高效的数据操作性能，具有很好的应用价值。
 
@@ -384,6 +384,7 @@ G. M. Adelson-Velsky 和 E. M. Landis 在其 1962 年发表的论文 "An algorit
     ```dart title="avl_tree.dart"
     /* 获取节点高度 */
     int height(TreeNode? node) {
+      // 空节点高度为 -1 ，叶节点高度为 0
       return node == null ? -1 : node.height;
     }
 
@@ -601,11 +602,13 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 === "<4>"
     ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.png)
 
+<p align="center"> 图：右旋操作步骤 </p>
+
 此外，如果节点 `child` 本身有右子节点（记为 `grandChild` ），则需要在「右旋」中添加一步：将 `grandChild` 作为 `node` 的左子节点。
 
 ![有 grandChild 的右旋操作](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
 
-<p align="center"> Fig. 有 grandChild 的右旋操作 </p>
+<p align="center"> 图：有 grandChild 的右旋操作 </p>
 
 “向右旋转”是一种形象化的说法，实际上需要通过修改节点指针来实现，代码如下所示。
 
@@ -836,13 +839,13 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
 ![左旋操作](avl_tree.assets/avltree_left_rotate.png)
 
-<p align="center"> Fig. 左旋操作 </p>
+<p align="center"> 图：左旋操作 </p>
 
 同理，若节点 `child` 本身有左子节点（记为 `grandChild` ），则需要在「左旋」中添加一步：将 `grandChild` 作为 `node` 的右子节点。
 
 ![有 grandChild 的左旋操作](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
 
-<p align="center"> Fig. 有 grandChild 的左旋操作 </p>
+<p align="center"> 图：有 grandChild 的左旋操作 </p>
 
 可以观察到，**右旋和左旋操作在逻辑上是镜像对称的，它们分别解决的两种失衡情况也是对称的**。基于对称性，我们可以轻松地从右旋的代码推导出左旋的代码。具体地，只需将「右旋」代码中的把所有的 `left` 替换为 `right` ，将所有的 `right` 替换为 `left` ，即可得到「左旋」代码。
 
@@ -1073,7 +1076,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
 ![先左旋后右旋](avl_tree.assets/avltree_left_right_rotate.png)
 
-<p align="center"> Fig. 先左旋后右旋 </p>
+<p align="center"> 图：先左旋后右旋 </p>
 
 ### 先右旋后左旋
 
@@ -1081,7 +1084,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
 ![先右旋后左旋](avl_tree.assets/avltree_right_left_rotate.png)
 
-<p align="center"> Fig. 先右旋后左旋 </p>
+<p align="center"> 图：先右旋后左旋 </p>
 
 ### 旋转的选择
 
@@ -1089,7 +1092,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
 
 ![AVL 树的四种旋转情况](avl_tree.assets/avltree_rotation_cases.png)
 
-<p align="center"> Fig. AVL 树的四种旋转情况 </p>
+<p align="center"> 图：AVL 树的四种旋转情况 </p>
 
 在代码中，我们通过判断失衡节点的平衡因子以及较高一侧子节点的平衡因子的正负号，来确定失衡节点属于上图中的哪种情况。
 

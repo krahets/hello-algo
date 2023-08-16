@@ -29,6 +29,8 @@ comments: true
 === "<5>"
     ![binary_search_dictionary_step_5](algorithms_are_everywhere.assets/binary_search_dictionary_step_5.png)
 
+<p align="center"> 图：查字典步骤 </p>
+
 查阅字典这个小学生必备技能，实际上就是著名的「二分查找」。从数据结构的角度，我们可以把字典视为一个已排序的「数组」；从算法的角度，我们可以将上述查字典的一系列操作看作是「二分查找」算法。
 
 **例二：整理扑克**。我们在打牌时，每局都需要整理扑克牌，使其从小到大排列，实现流程如下：
@@ -39,7 +41,7 @@ comments: true
 
 ![扑克排序步骤](algorithms_are_everywhere.assets/playing_cards_sorting.png)
 
-<p align="center"> Fig. 扑克排序步骤 </p>
+<p align="center"> 图：扑克排序步骤 </p>
 
 上述整理扑克牌的方法本质上是「插入排序」算法，它在处理小型数据集时非常高效。许多编程语言的排序库函数中都存在插入排序的身影。
 
@@ -53,7 +55,7 @@ comments: true
 
 ![货币找零过程](algorithms_are_everywhere.assets/greedy_change.png)
 
-<p align="center"> Fig. 货币找零过程 </p>
+<p align="center"> 图：货币找零过程 </p>
 
 在以上步骤中，我们每一步都采取当前看来最好的选择（尽可能用大面额的货币），最终得到了可行的找零方案。从数据结构与算法的角度看，这种方法本质上是「贪心算法」。
 

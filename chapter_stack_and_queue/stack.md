@@ -12,7 +12,7 @@ comments: true
 
 ![栈的先入后出规则](stack.assets/stack_operations.png)
 
-<p align="center"> Fig. 栈的先入后出规则 </p>
+<p align="center"> 图：栈的先入后出规则 </p>
 
 ## 5.1.1. &nbsp; 栈常用操作
 
@@ -309,6 +309,8 @@ comments: true
 
 === "pop()"
     ![linkedlist_stack_pop](stack.assets/linkedlist_stack_pop.png)
+
+<p align="center"> 图：基于链表实现栈的入栈出栈操作 </p>
 
 以下是基于链表实现栈的示例代码。
 
@@ -1076,6 +1078,8 @@ comments: true
 
 === "pop()"
     ![array_stack_pop](stack.assets/array_stack_pop.png)
+
+<p align="center"> 图：基于数组实现栈的入栈出栈操作 </p>
 
 由于入栈的元素可能会源源不断地增加，因此我们可以使用动态数组，这样就无需自行处理数组扩容问题。以下为示例代码。
 

@@ -20,7 +20,7 @@ comments: true
 
 ![原码、反码与补码之间的相互转换](number_encoding.assets/1s_2s_complement.png)
 
-<p align="center"> Fig. 原码、反码与补码之间的相互转换 </p>
+<p align="center"> 图：原码、反码与补码之间的相互转换 </p>
 
 显然「原码」最为直观。但实际上，**数字是以「补码」的形式存储在计算机中的**。这是因为原码存在一些局限性。
 
@@ -131,7 +131,7 @@ $$
 
 ![IEEE 754 标准下的 float 表示方式](number_encoding.assets/ieee_754_float.png)
 
-<p align="center"> Fig. IEEE 754 标准下的 float 表示方式 </p>
+<p align="center"> 图：IEEE 754 标准下的 float 表示方式 </p>
 
 给定一个示例数据 $\mathrm{S} = 0$ ， $\mathrm{E} = 124$ ，$\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$ ，则有：
 

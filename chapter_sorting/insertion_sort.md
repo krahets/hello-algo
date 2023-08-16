@@ -12,7 +12,7 @@ comments: true
 
 ![单次插入操作](insertion_sort.assets/insertion_operation.png)
 
-<p align="center"> Fig. 单次插入操作 </p>
+<p align="center"> 图：单次插入操作 </p>
 
 ## 11.4.1. &nbsp; 算法流程
 
@@ -25,7 +25,7 @@ comments: true
 
 ![插入排序流程](insertion_sort.assets/insertion_sort_overview.png)
 
-<p align="center"> Fig. 插入排序流程 </p>
+<p align="center"> 图：插入排序流程 </p>
 
 === "Java"
 

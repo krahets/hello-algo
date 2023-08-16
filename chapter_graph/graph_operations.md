@@ -30,6 +30,8 @@ comments: true
 === "删除顶点"
     ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_remove_vertex.png)
 
+<p align="center"> 图：邻接矩阵的初始化、增删边、增删顶点 </p>
+
 以下是基于邻接矩阵表示图的实现代码。
 
 === "Java"
@@ -1147,6 +1149,8 @@ comments: true
 === "删除顶点"
     ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_remove_vertex.png)
 
+<p align="center"> 图：邻接表的初始化、增删边、增删顶点 </p>
+
 以下是基于邻接表实现图的代码示例。细心的同学可能注意到，**我们在邻接表中使用 `Vertex` 节点类来表示顶点**，这样做的原因有：
 
 - 如果我们选择通过顶点值来区分不同顶点，那么值重复的顶点将无法被区分。
@@ -1533,7 +1537,7 @@ comments: true
             // 在邻接表中删除顶点 vet 对应的链表
             this.adjList.delete(vet);
             // 遍历其他顶点的链表，删除所有包含 vet 的边
-            for (let set of this.adjList.values()) {
+            for (const set of this.adjList.values()) {
                 const index = set.indexOf(vet);
                 if (index > -1) {
                     set.splice(index, 1);
@@ -1622,7 +1626,7 @@ comments: true
             // 在邻接表中删除顶点 vet 对应的链表
             this.adjList.delete(vet);
             // 遍历其他顶点的链表，删除所有包含 vet 的边
-            for (let set of this.adjList.values()) {
+            for (const set of this.adjList.values()) {
                 const index: number = set.indexOf(vet);
                 if (index > -1) {
                     set.splice(index, 1);

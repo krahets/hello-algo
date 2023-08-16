@@ -15,7 +15,7 @@ status: new
 
 ![最大容量问题的示例数据](max_capacity_problem.assets/max_capacity_example.png)
 
-<p align="center"> Fig. 最大容量问题的示例数据 </p>
+<p align="center"> 图：最大容量问题的示例数据 </p>
 
 容器由任意两个隔板围成，**因此本题的状态为两个隔板的索引，记为 $[i, j]$** 。
 
@@ -33,7 +33,7 @@ $$
 
 ![初始状态](max_capacity_problem.assets/max_capacity_initial_state.png)
 
-<p align="center"> Fig. 初始状态 </p>
+<p align="center"> 图：初始状态 </p>
 
 我们发现，**如果此时将长板 $j$ 向短板 $i$ 靠近，则容量一定变小**。这是因为在移动长板 $j$ 后：
 
@@ -42,13 +42,13 @@ $$
 
 ![向内移动长板后的状态](max_capacity_problem.assets/max_capacity_moving_long_board.png)
 
-<p align="center"> Fig. 向内移动长板后的状态 </p>
+<p align="center"> 图：向内移动长板后的状态 </p>
 
 反向思考，**我们只有向内收缩短板 $i$ ，才有可能使容量变大**。因为虽然宽度一定变小，**但高度可能会变大**（移动后的短板 $i$ 可能会变长）。
 
 ![向内移动长板后的状态](max_capacity_problem.assets/max_capacity_moving_short_board.png)
 
-<p align="center"> Fig. 向内移动长板后的状态 </p>
+<p align="center"> 图：向内移动长板后的状态 </p>
 
 由此便可推出本题的贪心策略：
 
@@ -83,6 +83,8 @@ $$
 
 === "<9>"
     ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png)
+
+<p align="center"> 图：最大容量问题的贪心过程 </p>
 
 ### 代码实现
 
@@ -305,7 +307,7 @@ $$
 
 ![移动短板导致被跳过的状态](max_capacity_problem.assets/max_capacity_skipped_states.png)
 
-<p align="center"> Fig. 移动短板导致被跳过的状态 </p>
+<p align="center"> 图：移动短板导致被跳过的状态 </p>
 
 观察发现，**这些被跳过的状态实际上就是将长板 $j$ 向内移动的所有状态**。而在第二步中，我们已经证明内移长板一定会导致容量变小。也就是说，被跳过的状态都不可能是最优解，**跳过它们不会导致错过最优解**。
 

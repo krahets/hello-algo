@@ -11,7 +11,7 @@ comments: true
 
 ![归并排序的划分与合并阶段](merge_sort.assets/merge_sort_overview.png)
 
-<p align="center"> Fig. 归并排序的划分与合并阶段 </p>
+<p align="center"> 图：归并排序的划分与合并阶段 </p>
 
 ## 11.6.1. &nbsp; 算法流程
 
@@ -51,6 +51,8 @@ comments: true
 
 === "<10>"
     ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png)
+
+<p align="center"> 图：归并排序步骤 </p>
 
 观察发现，归并排序的递归顺序与二叉树的后序遍历相同，具体来看：
 

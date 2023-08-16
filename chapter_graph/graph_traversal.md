@@ -18,7 +18,7 @@ comments: true
 
 ![图的广度优先遍历](graph_traversal.assets/graph_bfs.png)
 
-<p align="center"> Fig. 图的广度优先遍历 </p>
+<p align="center"> 图：图的广度优先遍历 </p>
 
 ### 算法实现
 
@@ -427,6 +427,8 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 === "<11>"
     ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.png)
 
+<p align="center"> 图：图的广度优先遍历步骤 </p>
+
 !!! question "广度优先遍历的序列是否唯一？"
 
     不唯一。广度优先遍历只要求按“由近及远”的顺序遍历，**而多个相同距离的顶点的遍历顺序是允许被任意打乱的**。以上图为例，顶点 $1$ , $3$ 的访问顺序可以交换、顶点 $2$ , $4$ , $6$ 的访问顺序也可以任意交换。
@@ -443,7 +445,7 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 
 ![图的深度优先遍历](graph_traversal.assets/graph_dfs.png)
 
-<p align="center"> Fig. 图的深度优先遍历 </p>
+<p align="center"> 图：图的深度优先遍历 </p>
 
 ### 算法实现
 
@@ -834,6 +836,8 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 
 === "<11>"
     ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.png)
+
+<p align="center"> 图：图的深度优先遍历步骤 </p>
 
 !!! question "深度优先遍历的序列是否唯一？"
 

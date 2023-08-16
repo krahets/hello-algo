@@ -15,7 +15,7 @@ status: new
 
 ![完全背包问题的示例数据](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png)
 
-<p align="center"> Fig. 完全背包问题的示例数据 </p>
+<p align="center"> 图：完全背包问题的示例数据 </p>
 
 完全背包和 0-1 背包问题非常相似，**区别仅在于不限制物品的选择次数**。
 
@@ -294,6 +294,8 @@ $$
 === "<6>"
     ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png)
 
+<p align="center"> 图：完全背包的状态压缩后的动态规划过程 </p>
+
 代码实现比较简单，仅需将数组 `dp` 的第一维删除。
 
 === "Java"
@@ -537,7 +539,7 @@ $$
 
 ![零钱兑换问题的示例数据](unbounded_knapsack_problem.assets/coin_change_example.png)
 
-<p align="center"> Fig. 零钱兑换问题的示例数据 </p>
+<p align="center"> 图：零钱兑换问题的示例数据 </p>
 
 **零钱兑换可以看作是完全背包的一种特殊情况**，两者具有以下联系与不同点：
 
@@ -907,6 +909,8 @@ $$
 === "<15>"
     ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.png)
 
+<p align="center"> 图：零钱兑换问题的动态规划过程 </p>
+
 ### 状态压缩
 
 零钱兑换的状态压缩的处理方式和完全背包一致。
@@ -1182,7 +1186,7 @@ $$
 
 ![零钱兑换问题 II 的示例数据](unbounded_knapsack_problem.assets/coin_change_ii_example.png)
 
-<p align="center"> Fig. 零钱兑换问题 II 的示例数据 </p>
+<p align="center"> 图：零钱兑换问题 II 的示例数据 </p>
 
 相比于上一题，本题目标是组合数量，因此子问题变为：**前 $i$ 种硬币能够凑出金额 $a$ 的组合数量**。而 $dp$ 表仍然是尺寸为 $(n+1) \times (amt + 1)$ 的二维矩阵。
 

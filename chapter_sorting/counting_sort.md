@@ -16,7 +16,7 @@ comments: true
 
 ![计数排序流程](counting_sort.assets/counting_sort_overview.png)
 
-<p align="center"> Fig. 计数排序流程 </p>
+<p align="center"> 图：计数排序流程 </p>
 
 === "Java"
 
@@ -361,6 +361,8 @@ $$
 
 === "<8>"
     ![counting_sort_step8](counting_sort.assets/counting_sort_step8.png)
+
+<p align="center"> 图：计数排序步骤 </p>
 
 计数排序的实现代码如下所示。
 

@@ -13,7 +13,7 @@ status: new
 
 ![分数背包问题的示例数据](fractional_knapsack_problem.assets/fractional_knapsack_example.png)
 
-<p align="center"> Fig. 分数背包问题的示例数据 </p>
+<p align="center"> 图：分数背包问题的示例数据 </p>
 
 本题和 0-1 背包整体上非常相似，状态包含当前物品 $i$ 和容量 $c$ ，目标是求不超过背包容量下的最大价值。
 
@@ -24,7 +24,7 @@ status: new
 
 ![物品在单位重量下的价值](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png)
 
-<p align="center"> Fig. 物品在单位重量下的价值 </p>
+<p align="center"> 图：物品在单位重量下的价值 </p>
 
 ### 贪心策略确定
 
@@ -36,7 +36,7 @@ status: new
 
 ![分数背包的贪心策略](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png)
 
-<p align="center"> Fig. 分数背包的贪心策略 </p>
+<p align="center"> 图：分数背包的贪心策略 </p>
 
 ### 代码实现
 
@@ -373,4 +373,4 @@ status: new
 
 ![分数背包问题的几何表示](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png)
 
-<p align="center"> Fig. 分数背包问题的几何表示 </p>
+<p align="center"> 图：分数背包问题的几何表示 </p>

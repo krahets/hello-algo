@@ -8,7 +8,7 @@ comments: true
 
 ![双向队列的操作](deque.assets/deque_operations.png)
 
-<p align="center"> Fig. 双向队列的操作 </p>
+<p align="center"> 图：双向队列的操作 </p>
 
 ## 5.3.1. &nbsp; 双向队列常用操作
 
@@ -351,6 +351,8 @@ comments: true
 === "popFirst()"
     ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_pop_first.png)
 
+<p align="center"> 图：基于链表实现双向队列的入队出队操作 </p>
+
 以下是具体实现代码。
 
 === "Java"
@@ -359,8 +361,8 @@ comments: true
     /* 双向链表节点 */
     class ListNode {
         int val; // 节点值
-        ListNode next; // 后继节点引用（指针）
-        ListNode prev; // 前驱节点引用（指针）
+        ListNode next; // 后继节点引用
+        ListNode prev; // 前驱节点引用
 
         ListNode(int val) {
             this.val = val;
@@ -634,8 +636,8 @@ comments: true
         def __init__(self, val: int):
             """构造方法"""
             self.val: int = val
-            self.next: ListNode | None = None  # 后继节点引用（指针）
-            self.prev: ListNode | None = None  # 前驱节点引用（指针）
+            self.next: ListNode | None = None  # 后继节点引用
+            self.prev: ListNode | None = None  # 前驱节点引用
 
     class LinkedListDeque:
         """基于双向链表实现的双向队列"""
@@ -1240,8 +1242,8 @@ comments: true
     /* 双向链表节点 */
     class ListNode {
         public int val;       // 节点值
-        public ListNode? next; // 后继节点引用（指针）
-        public ListNode? prev; // 前驱节点引用（指针）
+        public ListNode? next; // 后继节点引用
+        public ListNode? prev; // 前驱节点引用
 
         public ListNode(int val) {
             this.val = val;
@@ -1383,8 +1385,8 @@ comments: true
     /* 双向链表节点 */
     class ListNode {
         var val: Int // 节点值
-        var next: ListNode? // 后继节点引用（指针）
-        weak var prev: ListNode? // 前驱节点引用（指针）
+        var next: ListNode? // 后继节点引用
+        weak var prev: ListNode? // 前驱节点引用
 
         init(val: Int) {
             self.val = val
@@ -1520,8 +1522,8 @@ comments: true
             const Self = @This();
             
             val: T = undefined,     // 节点值
-            next: ?*Self = null,    // 后继节点引用（指针）
-            prev: ?*Self = null,    // 前驱节点引用（指针）
+            next: ?*Self = null,    // 后继节点指针
+            prev: ?*Self = null,    // 前驱节点指针
 
             // Initialize a list node with specific value
             pub fn init(self: *Self, x: i32) void {
@@ -1677,8 +1679,8 @@ comments: true
     /* 双向链表节点 */
     class ListNode {
       int val; // 节点值
-      ListNode? next; // 后继节点引用（指针）
-      ListNode? prev; // 前驱节点引用（指针）
+      ListNode? next; // 后继节点引用
+      ListNode? prev; // 前驱节点引用
 
       ListNode(this.val, {this.next, this.prev});
     }
@@ -1807,8 +1809,8 @@ comments: true
     /* 双向链表节点 */
     pub struct ListNode<T> {
         pub val: T,                                 // 节点值
-        pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点引用（指针）
-        pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱节点引用（指针）
+        pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点指针
+        pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱节点指针
     }
 
     impl<T> ListNode<T> {
@@ -1987,6 +1989,8 @@ comments: true
 
 === "popFirst()"
     ![array_deque_pop_first](deque.assets/array_deque_pop_first.png)
+
+<p align="center"> 图：基于数组实现双向队列的入队出队操作 </p>
 
 以下是具体实现代码。
 

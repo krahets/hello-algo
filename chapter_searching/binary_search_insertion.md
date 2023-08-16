@@ -15,7 +15,7 @@ status: new
 
 ![二分查找插入点示例数据](binary_search_insertion.assets/binary_search_insertion_example.png)
 
-<p align="center"> Fig. 二分查找插入点示例数据 </p>
+<p align="center"> 图：二分查找插入点示例数据 </p>
 
 如果想要复用上节的二分查找代码，则需要回答以下两个问题。
 
@@ -203,7 +203,7 @@ status: new
 
 ![线性查找重复元素的插入点](binary_search_insertion.assets/binary_search_insertion_naive.png)
 
-<p align="center"> Fig. 线性查找重复元素的插入点 </p>
+<p align="center"> 图：线性查找重复元素的插入点 </p>
 
 此方法虽然可用，但其包含线性查找，因此时间复杂度为 $O(n)$ 。当数组中存在很多重复的 `target` 时，该方法效率很低。
 
@@ -237,6 +237,8 @@ status: new
 
 === "<8>"
     ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.png)
+
+<p align="center"> 图：二分查找重复元素的插入点的步骤 </p>
 
 观察以下代码，判断分支 `nums[m] > target` 和 `nums[m] == target` 的操作相同，因此两者可以合并。
 

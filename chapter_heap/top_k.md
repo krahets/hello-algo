@@ -18,11 +18,11 @@ comments: true
 
 ![遍历寻找最大的 k 个元素](top_k.assets/top_k_traversal.png)
 
-<p align="center"> Fig. 遍历寻找最大的 k 个元素 </p>
+<p align="center"> 图：遍历寻找最大的 k 个元素 </p>
 
 !!! tip
 
-    当 $k = n$ 时，我们可以得到从大到小的序列，等价于「选择排序」算法。 
+    当 $k = n$ 时，我们可以得到从大到小的序列，等价于「选择排序」算法。
 
 ## 8.3.2. &nbsp; 方法二：排序
 
@@ -32,7 +32,7 @@ comments: true
 
 ![排序寻找最大的 k 个元素](top_k.assets/top_k_sorting.png)
 
-<p align="center"> Fig. 排序寻找最大的 k 个元素 </p>
+<p align="center"> 图：排序寻找最大的 k 个元素 </p>
 
 ## 8.3.3. &nbsp; 方法三：堆
 
@@ -69,6 +69,8 @@ comments: true
 
 === "<9>"
     ![top_k_heap_step9](top_k.assets/top_k_heap_step9.png)
+
+<p align="center"> 图：基于堆寻找最大的 k 个元素 </p>
 
 总共执行了 $n$ 轮入堆和出堆，堆的最大长度为 $k$ ，因此时间复杂度为 $O(n \log k)$ 。该方法的效率很高，当 $k$ 较小时，时间复杂度趋向 $O(n)$ ；当 $k$ 较大时，时间复杂度不会超过 $O(n \log n)$ 。
 
@@ -227,7 +229,20 @@ comments: true
 === "Dart"
 
     ```dart title="top_k.dart"
-    [class]{}-[func]{top_k_heap}
+    /* 基于堆查找数组中最大的 k 个元素 */
+    MinHeap topKHeap(List<int> nums, int k) {
+      // 将数组的前 k 个元素入堆
+      MinHeap heap = MinHeap(nums.sublist(0, k));
+      // 从第 k+1 个元素开始，保持堆的长度为 k
+      for (int i = k; i < nums.length; i++) {
+        // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+        if (nums[i] > heap.peek()) {
+          heap.pop();
+          heap.push(nums[i]);
+        }
+      }
+      return heap;
+    }
     ```
 
 === "Rust"

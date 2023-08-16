@@ -19,7 +19,7 @@ comments: true
 
 ![链式地址哈希表](hash_collision.assets/hash_table_chaining.png)
 
-<p align="center"> Fig. 链式地址哈希表 </p>
+<p align="center"> 图：链式地址哈希表 </p>
 
 链式地址下，哈希表的操作方法包括：
 
@@ -542,7 +542,7 @@ comments: true
             for (let i = 0; i < bucket.length; i++) {
                 if (bucket[i].key === key) {
                     bucket.splice(i, 1);
-                    this.size--;
+                    this.#size--;
                     break;
                 }
             }
@@ -1165,7 +1165,7 @@ comments: true
 
 ![线性探测](hash_collision.assets/hash_table_linear_probing.png)
 
-<p align="center"> Fig. 线性探测 </p>
+<p align="center"> 图：线性探测 </p>
 
 然而，线性探测存在以下缺陷：
 

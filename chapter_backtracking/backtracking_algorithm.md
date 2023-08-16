@@ -197,7 +197,7 @@ comments: true
 
 ![在前序遍历中搜索节点](backtracking_algorithm.assets/preorder_find_nodes.png)
 
-<p align="center"> Fig. 在前序遍历中搜索节点 </p>
+<p align="center"> 图：在前序遍历中搜索节点 </p>
 
 ## 13.1.1. &nbsp; 尝试与回退
 
@@ -501,6 +501,8 @@ comments: true
 === "<11>"
     ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
 
+<p align="center"> 图：尝试与回退 </p>
+
 ## 13.1.2. &nbsp; 剪枝
 
 复杂的回溯问题通常包含一个或多个约束条件，**约束条件通常可用于“剪枝”**。
@@ -797,7 +799,7 @@ comments: true
 
 ![根据约束条件剪枝](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
 
-<p align="center"> Fig. 根据约束条件剪枝 </p>
+<p align="center"> 图：根据约束条件剪枝 </p>
 
 ## 13.1.3. &nbsp; 框架代码
 
@@ -1657,7 +1659,7 @@ comments: true
 
 ![保留与删除 return 的搜索过程对比](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
 
-<p align="center"> Fig. 保留与删除 return 的搜索过程对比 </p>
+<p align="center"> 图：保留与删除 return 的搜索过程对比 </p>
 
 相比基于前序遍历的代码实现，基于回溯算法框架的代码实现虽然显得啰嗦，但通用性更好。实际上，**许多回溯问题都可以在该框架下解决**。我们只需根据具体问题来定义 `state` 和 `choices` ，并实现框架中的各个方法即可。
 

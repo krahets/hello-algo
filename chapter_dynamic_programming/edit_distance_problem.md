@@ -17,7 +17,7 @@ status: new
 
 ![编辑距离的示例数据](edit_distance_problem.assets/edit_distance_example.png)
 
-<p align="center"> Fig. 编辑距离的示例数据 </p>
+<p align="center"> 图：编辑距离的示例数据 </p>
 
 **编辑距离问题可以很自然地用决策树模型来解释**。字符串对应树节点，一轮决策（一次编辑操作）对应树的一条边。
 
@@ -27,7 +27,7 @@ status: new
 
 ![基于决策树模型表示编辑距离问题](edit_distance_problem.assets/edit_distance_decision_tree.png)
 
-<p align="center"> Fig. 基于决策树模型表示编辑距离问题 </p>
+<p align="center"> 图：基于决策树模型表示编辑距离问题 </p>
 
 **第一步：思考每轮的决策，定义状态，从而得到 $dp$ 表**
 
@@ -54,7 +54,7 @@ status: new
 
 ![编辑距离的状态转移](edit_distance_problem.assets/edit_distance_state_transfer.png)
 
-<p align="center"> Fig. 编辑距离的状态转移 </p>
+<p align="center"> 图：编辑距离的状态转移 </p>
 
 根据以上分析，可得最优子结构：$dp[i, j]$ 的最少编辑步数等于 $dp[i, j-1]$ , $dp[i-1, j]$ , $dp[i-1, j-1]$ 三者中的最少编辑步数，再加上本次的编辑步数 $1$ 。对应的状态转移方程为：
 
@@ -410,6 +410,8 @@ $$
 
 === "<15>"
     ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.png)
+
+<p align="center"> 图：编辑距离的动态规划过程 </p>
 
 ### 状态压缩
 

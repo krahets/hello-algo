@@ -22,7 +22,7 @@ status: new
 
 ![零钱兑换的贪心策略](greedy_algorithm.assets/coin_change_greedy_strategy.png)
 
-<p align="center"> Fig. 零钱兑换的贪心策略 </p>
+<p align="center"> 图：零钱兑换的贪心策略 </p>
 
 实现代码如下所示。你可能会不由地发出感叹：So Clean ！贪心算法仅用十行代码就解决了零钱兑换问题。
 
@@ -233,7 +233,7 @@ status: new
 
 ![贪心无法找出最优解的示例](greedy_algorithm.assets/coin_change_greedy_vs_dp.png)
 
-<p align="center"> Fig. 贪心无法找出最优解的示例 </p>
+<p align="center"> 图：贪心无法找出最优解的示例 </p>
 
 也就是说，对于零钱兑换问题，贪心算法无法保证找到全局最优解，并且有可能找到非常差的解。它更适合用动态规划解决。
 

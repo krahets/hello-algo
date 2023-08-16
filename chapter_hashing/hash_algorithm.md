@@ -10,7 +10,7 @@ comments: true
 
 ![哈希冲突的最佳与最差情况](hash_algorithm.assets/hash_collision_best_worst_condition.png)
 
-<p align="center"> Fig. 哈希冲突的最佳与最差情况 </p>
+<p align="center"> 图：哈希冲突的最佳与最差情况 </p>
 
 **键值对的分布情况由哈希函数决定**。回忆哈希函数的计算步骤，先计算哈希值，再对数组长度取模：
 
@@ -439,13 +439,45 @@ index = hash(key) % capacity
 === "Dart"
 
     ```dart title="simple_hash.dart"
-    [class]{}-[func]{add_hash}
+    /* 加法哈希 */
+    int addHash(String key) {
+      int hash = 0;
+      final int MODULUS = 1000000007;
+      for (int i = 0; i < key.length; i++) {
+        hash = (hash + key.codeUnitAt(i)) % MODULUS;
+      }
+      return hash;
+    }
 
-    [class]{}-[func]{mul_hash}
+    /* 乘法哈希 */
+    int mulHash(String key) {
+      int hash = 0;
+      final int MODULUS = 1000000007;
+      for (int i = 0; i < key.length; i++) {
+        hash = (31 * hash + key.codeUnitAt(i)) % MODULUS;
+      }
+      return hash;
+    }
 
-    [class]{}-[func]{xor_hash}
+    /* 异或哈希 */
+    int xorHash(String key) {
+      int hash = 0;
+      final int MODULUS = 1000000007;
+      for (int i = 0; i < key.length; i++) {
+        hash ^= key.codeUnitAt(i);
+      }
+      return hash & MODULUS;
+    }
 
-    [class]{}-[func]{rot_hash}
+    /* 旋转哈希 */
+    int rotHash(String key) {
+      int hash = 0;
+      final int MODULUS = 1000000007;
+      for (int i = 0; i < key.length; i++) {
+        hash = ((hash << 4) ^ (hash >> 28) ^ key.codeUnitAt(i)) % MODULUS;
+      }
+      return hash;
+    }
     ```
 
 === "Rust"
@@ -584,7 +616,7 @@ $$
     # 布尔量 True 的哈希值为 1
 
     dec = 3.14159
-    hash_dec = hash(dec) 
+    hash_dec = hash(dec)
     # 小数 3.14159 的哈希值为 326484311674566659
 
     str = "Hello 算法"
@@ -692,23 +724,23 @@ $$
     int num = 3;
     int hashNum = num.hashCode;
     // 整数 3 的哈希值为 34803
-    
+
     bool bol = true;
     int hashBol = bol.hashCode;
     // 布尔值 true 的哈希值为 1231
-    
+
     double dec = 3.14159;
     int hashDec = dec.hashCode;
     // 小数 3.14159 的哈希值为 2570631074981783
-    
+
     String str = "Hello 算法";
     int hashStr = str.hashCode;
     // 字符串 Hello 算法 的哈希值为 468167534
-    
+
     List arr = [12836, "小哈"];
     int hashArr = arr.hashCode;
     // 数组 [12836, 小哈] 的哈希值为 976512528
-    
+
     ListNode obj = new ListNode(0);
     int hashObj = obj.hashCode;
     // 节点对象 Instance of 'ListNode' 的哈希值为 1033450432

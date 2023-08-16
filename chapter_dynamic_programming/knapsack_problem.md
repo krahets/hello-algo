@@ -17,7 +17,7 @@ status: new
 
 ![0-1 背包的示例数据](knapsack_problem.assets/knapsack_example.png)
 
-<p align="center"> Fig. 0-1 背包的示例数据 </p>
+<p align="center"> 图：0-1 背包的示例数据 </p>
 
 我们可以将 0-1 背包问题看作是一个由 $n$ 轮决策组成的过程，每个物体都有不放入和放入两种决策，因此该问题是满足决策树模型的。
 
@@ -273,7 +273,7 @@ $$
 
 ![0-1 背包的暴力搜索递归树](knapsack_problem.assets/knapsack_dfs.png)
 
-<p align="center"> Fig. 0-1 背包的暴力搜索递归树 </p>
+<p align="center"> 图：0-1 背包的暴力搜索递归树 </p>
 
 ### 方法二：记忆化搜索
 
@@ -539,7 +539,7 @@ $$
 
 ![0-1 背包的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.png)
 
-<p align="center"> Fig. 0-1 背包的记忆化搜索递归树 </p>
+<p align="center"> 图：0-1 背包的记忆化搜索递归树 </p>
 
 ### 方法三：动态规划
 
@@ -822,6 +822,8 @@ $$
 === "<14>"
     ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.png)
 
+<p align="center"> 图：0-1 背包的动态规划过程 </p>
+
 ### 状态压缩
 
 由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 $O(n^2)$ 将低至 $O(n)$ 。
@@ -850,6 +852,8 @@ $$
 
 === "<6>"
     ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.png)
+
+<p align="center"> 图：0-1 背包的状态压缩后的动态规划过程 </p>
 
 在代码实现中，我们仅需将数组 `dp` 的第一维 $i$ 直接删除，并且把内循环更改为倒序遍历即可。
 

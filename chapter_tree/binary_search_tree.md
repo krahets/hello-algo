@@ -11,7 +11,7 @@ comments: true
 
 ![二叉搜索树](binary_search_tree.assets/binary_search_tree.png)
 
-<p align="center"> Fig. 二叉搜索树 </p>
+<p align="center"> 图：二叉搜索树 </p>
 
 ## 7.4.1. &nbsp; 二叉搜索树的操作
 
@@ -36,6 +36,8 @@ comments: true
 
 === "<4>"
     ![bst_search_step4](binary_search_tree.assets/bst_search_step4.png)
+
+<p align="center"> 图：二叉搜索树查找节点示例 </p>
 
 二叉搜索树的查找操作与二分查找算法的工作原理一致，都是每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 $O(\log n)$ 时间。
 
@@ -270,7 +272,24 @@ comments: true
 === "Dart"
 
     ```dart title="binary_search_tree.dart"
-    [class]{BinarySearchTree}-[func]{search}
+    /* 查找节点 */
+    TreeNode? search(int num) {
+      TreeNode? cur = _root;
+      // 循环查找，越过叶节点后跳出
+      while (cur != null) {
+        // 目标节点在 cur 的右子树中
+        if (cur.val < num)
+          cur = cur.right;
+        // 目标节点在 cur 的左子树中
+        else if (cur.val > num)
+          cur = cur.left;
+        // 找到目标节点，跳出循环
+        else
+          break;
+      }
+      // 返回目标节点
+      return cur;
+    }
     ```
 
 === "Rust"
@@ -311,7 +330,7 @@ comments: true
 
 ![在二叉搜索树中插入节点](binary_search_tree.assets/bst_insert.png)
 
-<p align="center"> Fig. 在二叉搜索树中插入节点 </p>
+<p align="center"> 图：在二叉搜索树中插入节点 </p>
 
 === "Java"
 
@@ -640,7 +659,31 @@ comments: true
 === "Dart"
 
     ```dart title="binary_search_tree.dart"
-    [class]{BinarySearchTree}-[func]{insert}
+    /* 插入节点 */
+    void insert(int num) {
+      // 若树为空，直接提前返回
+      if (_root == null) return;
+      TreeNode? cur = _root;
+      TreeNode? pre = null;
+      // 循环查找，越过叶节点后跳出
+      while (cur != null) {
+        // 找到重复节点，直接返回
+        if (cur.val == num) return;
+        pre = cur;
+        // 插入位置在 cur 的右子树中
+        if (cur.val < num)
+          cur = cur.right;
+        // 插入位置在 cur 的左子树中
+        else
+          cur = cur.left;
+      }
+      // 插入节点
+      TreeNode? node = TreeNode(num);
+      if (pre!.val < num)
+        pre.right = node;
+      else
+        pre.left = node;
+    }
     ```
 
 === "Rust"
@@ -693,13 +736,13 @@ comments: true
 
 ![在二叉搜索树中删除节点（度为 0）](binary_search_tree.assets/bst_remove_case1.png)
 
-<p align="center"> Fig. 在二叉搜索树中删除节点（度为 0） </p>
+<p align="center"> 图：在二叉搜索树中删除节点（度为 0） </p>
 
 当待删除节点的度为 $1$ 时，将待删除节点替换为其子节点即可。
 
 ![在二叉搜索树中删除节点（度为 1）](binary_search_tree.assets/bst_remove_case2.png)
 
-<p align="center"> Fig. 在二叉搜索树中删除节点（度为 1） </p>
+<p align="center"> 图：在二叉搜索树中删除节点（度为 1） </p>
 
 当待删除节点的度为 $2$ 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左 $<$ 根 $<$ 右”的性质，因此这个节点可以是右子树的最小节点或左子树的最大节点。
 
@@ -719,6 +762,8 @@ comments: true
 
 === "<4>"
     ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.png)
+
+<p align="center"> 图：二叉搜索树删除节点示例 </p>
 
 删除节点操作同样使用 $O(\log n)$ 时间，其中查找待删除节点需要 $O(\log n)$ 时间，获取中序遍历后继节点需要 $O(\log n)$ 时间。
 
@@ -1283,7 +1328,80 @@ comments: true
 === "Dart"
 
     ```dart title="binary_search_tree.dart"
-    [class]{BinarySearchTree}-[func]{remove}
+    /* 插入节点 */
+    void insert(int num) {
+      // 若树为空，直接提前返回
+      if (_root == null) return;
+      TreeNode? cur = _root;
+      TreeNode? pre = null;
+      // 循环查找，越过叶节点后跳出
+      while (cur != null) {
+        // 找到重复节点，直接返回
+        if (cur.val == num) return;
+        pre = cur;
+        // 插入位置在 cur 的右子树中
+        if (cur.val < num)
+          cur = cur.right;
+        // 插入位置在 cur 的左子树中
+        else
+          cur = cur.left;
+      }
+      // 插入节点
+      TreeNode? node = TreeNode(num);
+      if (pre!.val < num)
+        pre.right = node;
+      else
+        pre.left = node;
+    }
+
+  /* 删除节点 */
+    void remove(int num) {
+      // 若树为空，直接提前返回
+      if (_root == null) return;
+
+      TreeNode? cur = _root;
+      TreeNode? pre = null;
+      // 循环查找，越过叶节点后跳出
+      while (cur != null) {
+        // 找到待删除节点，跳出循环
+        if (cur.val == num) break;
+        pre = cur;
+        // 待删除节点在 cur 的右子树中
+        if (cur.val < num)
+          cur = cur.right;
+        // 待删除节点在 cur 的左子树中
+        else
+          cur = cur.left;
+      }
+      // 若无待删除节点，直接返回
+      if (cur == null) return;
+      // 子节点数量 = 0 or 1
+      if (cur.left == null || cur.right == null) {
+        // 当子节点数量 = 0 / 1 时， child = null / 该子节点
+        TreeNode? child = cur.left ?? cur.right;
+        // 删除节点 cur
+        if (cur != _root) {
+          if (pre!.left == cur)
+            pre.left = child;
+          else
+            pre.right = child;
+        } else {
+          // 若删除节点为根节点，则重新指定根节点
+          _root = child;
+        }
+      } else {
+        // 子节点数量 = 2
+        // 获取中序遍历中 cur 的下一个节点
+        TreeNode? tmp = cur.right;
+        while (tmp!.left != null) {
+          tmp = tmp.left;
+        }
+        // 递归删除节点 tmp
+        remove(tmp.val);
+        // 用 tmp 覆盖 cur
+        cur.val = tmp.val;
+      }
+    }
     ```
 
 === "Rust"
@@ -1364,7 +1482,7 @@ comments: true
 
 ![二叉搜索树的中序遍历序列](binary_search_tree.assets/bst_inorder_traversal.png)
 
-<p align="center"> Fig. 二叉搜索树的中序遍历序列 </p>
+<p align="center"> 图：二叉搜索树的中序遍历序列 </p>
 
 ## 7.4.2. &nbsp; 二叉搜索树的效率
 
@@ -1388,7 +1506,7 @@ comments: true
 
 ![二叉搜索树的平衡与退化](binary_search_tree.assets/bst_degradation.png)
 
-<p align="center"> Fig. 二叉搜索树的平衡与退化 </p>
+<p align="center"> 图：二叉搜索树的平衡与退化 </p>
 
 ## 7.4.3. &nbsp; 二叉搜索树常见应用
 

@@ -18,7 +18,7 @@ comments: true
 
 ![桶排序算法流程](bucket_sort.assets/bucket_sort_overview.png)
 
-<p align="center"> Fig. 桶排序算法流程 </p>
+<p align="center"> 图：桶排序算法流程 </p>
 
 === "Java"
 
@@ -411,10 +411,10 @@ comments: true
 
 ![递归划分桶](bucket_sort.assets/scatter_in_buckets_recursively.png)
 
-<p align="center"> Fig. 递归划分桶 </p>
+<p align="center"> 图：递归划分桶 </p>
 
 如果我们提前知道商品价格的概率分布，**则可以根据数据概率分布设置每个桶的价格分界线**。值得注意的是，数据分布并不一定需要特意统计，也可以根据数据特点采用某种概率模型进行近似。如下图所示，我们假设商品价格服从正态分布，这样就可以合理地设定价格区间，从而将商品平均分配到各个桶中。
 
 ![根据概率分布划分桶](bucket_sort.assets/scatter_in_buckets_distribution.png)
 
-<p align="center"> Fig. 根据概率分布划分桶 </p>
+<p align="center"> 图：根据概率分布划分桶 </p>

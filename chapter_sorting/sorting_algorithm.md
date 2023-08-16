@@ -10,7 +10,7 @@ comments: true
 
 ![数据类型和判断规则示例](sorting_algorithm.assets/sorting_examples.png)
 
-<p align="center"> Fig. 数据类型和判断规则示例 </p>
+<p align="center"> 图：数据类型和判断规则示例 </p>
 
 ## 11.1.1. &nbsp; 评价维度
 

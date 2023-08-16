@@ -12,7 +12,7 @@ comments: true
 
 ![ASCII 码](character_encoding.assets/ascii_table.png)
 
-<p align="center"> Fig. ASCII 码 </p>
+<p align="center"> 图：ASCII 码 </p>
 
 然而，**ASCII 码仅能够表示英文**。随着计算机的全球化，诞生了一种能够表示更多语言的字符集「EASCII」。它在 ASCII 的 7 位基础上扩展到 8 位，能够表示 256 个不同的字符。
 
@@ -40,7 +40,7 @@ Unicode 是一种字符集标准，本质上是给每个字符分配一个编号
 
 ![Unicode 编码示例](character_encoding.assets/unicode_hello_algo.png)
 
-<p align="center"> Fig. Unicode 编码示例 </p>
+<p align="center"> 图：Unicode 编码示例 </p>
 
 然而 ASCII 码已经向我们证明，编码英文只需要 1 字节。若采用上述方案，英文文本占用空间的大小将会是 ASCII 编码下大小的两倍，非常浪费内存空间。因此，我们需要一种更加高效的 Unicode 编码方法。
 
@@ -61,7 +61,7 @@ UTF-8 的编码规则并不复杂，分为两种情况：
 
 ![UTF-8 编码示例](character_encoding.assets/utf-8_hello_algo.png)
 
-<p align="center"> Fig. UTF-8 编码示例 </p>
+<p align="center"> 图：UTF-8 编码示例 </p>
 
 除了 UTF-8 之外，常见的编码方式还包括：
 

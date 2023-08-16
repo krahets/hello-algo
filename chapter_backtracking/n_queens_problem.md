@@ -12,13 +12,13 @@ comments: true
 
 ![4 皇后问题的解](n_queens_problem.assets/solution_4_queens.png)
 
-<p align="center"> Fig. 4 皇后问题的解 </p>
+<p align="center"> 图：4 皇后问题的解 </p>
 
 本题共包含三个约束条件：**多个皇后不能在同一行、同一列、同一对角线**。值得注意的是，对角线分为主对角线 `\` 和次对角线 `/` 两种。
 
 ![n 皇后问题的约束条件](n_queens_problem.assets/n_queens_constraints.png)
 
-<p align="center"> Fig. n 皇后问题的约束条件 </p>
+<p align="center"> 图：n 皇后问题的约束条件 </p>
 
 ### 逐行放置策略
 
@@ -30,7 +30,7 @@ comments: true
 
 ![逐行放置策略](n_queens_problem.assets/n_queens_placing.png)
 
-<p align="center"> Fig. 逐行放置策略 </p>
+<p align="center"> 图：逐行放置策略 </p>
 
 本质上看，**逐行放置策略起到了剪枝的作用**，它避免了同一行出现多个皇后的所有搜索分支。
 
@@ -46,7 +46,7 @@ comments: true
 
 ![处理列约束和对角线约束](n_queens_problem.assets/n_queens_cols_diagonals.png)
 
-<p align="center"> Fig. 处理列约束和对角线约束 </p>
+<p align="center"> 图：处理列约束和对角线约束 </p>
 
 ### 代码实现
 

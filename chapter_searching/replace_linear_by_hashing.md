@@ -16,7 +16,7 @@ comments: true
 
 ![线性查找求解两数之和](replace_linear_by_hashing.assets/two_sum_brute_force.png)
 
-<p align="center"> Fig. 线性查找求解两数之和 </p>
+<p align="center"> 图：线性查找求解两数之和 </p>
 
 === "Java"
 
@@ -199,6 +199,7 @@ comments: true
     /* 方法一： 暴力枚举 */
     List<int> twoSumBruteForce(List<int> nums, int target) {
       int size = nums.length;
+      // 两层循环，时间复杂度 O(n^2)
       for (var i = 0; i < size - 1; i++) {
         for (var j = i + 1; j < size; j++) {
           if (nums[i] + nums[j] == target) return [i, j];
@@ -243,6 +244,8 @@ comments: true
 
 === "<3>"
     ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png)
+
+<p align="center"> 图：辅助哈希表求解两数之和 </p>
 
 实现代码如下所示，仅需单层循环即可。
 
@@ -469,7 +472,9 @@ comments: true
     /* 方法二： 辅助哈希表 */
     List<int> twoSumHashTable(List<int> nums, int target) {
       int size = nums.length;
+      // 辅助哈希表，空间复杂度 O(n)
       Map<int, int> dic = HashMap();
+      // 单层循环，时间复杂度 O(n)
       for (var i = 0; i < size; i++) {
         if (dic.containsKey(target - nums[i])) {
           return [dic[target - nums[i]]!, i];

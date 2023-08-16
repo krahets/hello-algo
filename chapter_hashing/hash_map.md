@@ -10,7 +10,7 @@ comments: true
 
 ![哈希表的抽象表示](hash_map.assets/hash_table_lookup.png)
 
-<p align="center"> Fig. 哈希表的抽象表示 </p>
+<p align="center"> 图：哈希表的抽象表示 </p>
 
 除哈希表外，我们还可以使用数组或链表实现查询功能。若将学生数据看作数组（链表）元素，则有：
 
@@ -464,7 +464,7 @@ index = hash(key) % capacity
 
 ![哈希函数工作原理](hash_map.assets/hash_function.png)
 
-<p align="center"> Fig. 哈希函数工作原理 </p>
+<p align="center"> 图：哈希函数工作原理 </p>
 
 以下代码实现了一个简单哈希表。其中，我们将 `key` 和 `value` 封装成一个类 `Pair` ，以表示键值对。
 
@@ -1501,13 +1501,13 @@ index = hash(key) % capacity
 
 ![哈希冲突示例](hash_map.assets/hash_collision.png)
 
-<p align="center"> Fig. 哈希冲突示例 </p>
+<p align="center"> 图：哈希冲突示例 </p>
 
 容易想到，哈希表容量 $n$ 越大，多个 `key` 被分配到同一个桶中的概率就越低，冲突就越少。因此，**我们可以通过扩容哈希表来减少哈希冲突**。如下图所示，扩容前键值对 `(136, A)` 和 `(236, D)` 发生冲突，扩容后冲突消失。
 
 ![哈希表扩容](hash_map.assets/hash_table_reshash.png)
 
-<p align="center"> Fig. 哈希表扩容 </p>
+<p align="center"> 图：哈希表扩容 </p>
 
 类似于数组扩容，哈希表扩容需将所有键值对从原哈希表迁移至新哈希表，非常耗时。并且由于哈希表容量 `capacity` 改变，我们需要通过哈希函数来重新计算所有键值对的存储位置，这进一步提高了扩容过程的计算开销。为此，编程语言通常会预留足够大的哈希表容量，防止频繁扩容。
 

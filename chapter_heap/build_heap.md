@@ -171,7 +171,7 @@ comments: true
       _maxHeap = nums;
       // 堆化除叶节点以外的其他所有节点
       for (int i = _parent(size() - 1); i >= 0; i--) {
-        _siftDown(i);
+        siftDown(i);
       }
     }
     ```
@@ -204,7 +204,7 @@ comments: true
 
 ![完美二叉树的各层节点数量](build_heap.assets/heapify_operations_count.png)
 
-<p align="center"> Fig. 完美二叉树的各层节点数量 </p>
+<p align="center"> 图：完美二叉树的各层节点数量 </p>
 
 因此，我们可以将各层的“节点数量 $\times$ 节点高度”求和，**从而得到所有节点的堆化迭代次数的总和**。
 

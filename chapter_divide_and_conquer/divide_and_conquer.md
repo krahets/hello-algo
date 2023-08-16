@@ -17,7 +17,7 @@ status: new
 
 ![归并排序的分治策略](divide_and_conquer.assets/divide_and_conquer_merge_sort.png)
 
-<p align="center"> Fig. 归并排序的分治策略 </p>
+<p align="center"> 图：归并排序的分治策略 </p>
 
 ## 12.1.1. &nbsp; 如何判断分治问题
 
@@ -49,7 +49,7 @@ $$
 
 ![划分数组前后的冒泡排序](divide_and_conquer.assets/divide_and_conquer_bubble_sort.png)
 
-<p align="center"> Fig. 划分数组前后的冒泡排序 </p>
+<p align="center"> 图：划分数组前后的冒泡排序 </p>
 
 接下来，我们计算以下不等式，其左边和右边分别为划分前和划分后的操作总数：
 
@@ -77,7 +77,7 @@ $$
 
 ![桶排序的并行计算](divide_and_conquer.assets/divide_and_conquer_parallel_computing.png)
 
-<p align="center"> Fig. 桶排序的并行计算 </p>
+<p align="center"> 图：桶排序的并行计算 </p>
 
 ## 12.1.3. &nbsp; 分治常见应用
 

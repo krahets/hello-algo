@@ -16,7 +16,7 @@ $$
 
 ![链表、树、图之间的关系](graph.assets/linkedlist_tree_graph.png)
 
-<p align="center"> Fig. 链表、树、图之间的关系 </p>
+<p align="center"> 图：链表、树、图之间的关系 </p>
 
 那么，图与其他数据结构的关系是什么？如果我们把「顶点」看作节点，把「边」看作连接各个节点的指针，则可将「图」看作是一种从「链表」拓展而来的数据结构。**相较于线性关系（链表）和分治关系（树），网络关系（图）的自由度更高，从而更为复杂**。
 
@@ -29,7 +29,7 @@ $$
 
 ![有向图与无向图](graph.assets/directed_graph.png)
 
-<p align="center"> Fig. 有向图与无向图 </p>
+<p align="center"> 图：有向图与无向图 </p>
 
 根据所有顶点是否连通，可分为「连通图 Connected Graph」和「非连通图 Disconnected Graph」。
 
@@ -38,13 +38,13 @@ $$
 
 ![连通图与非连通图](graph.assets/connected_graph.png)
 
-<p align="center"> Fig. 连通图与非连通图 </p>
+<p align="center"> 图：连通图与非连通图 </p>
 
 我们还可以为边添加“权重”变量，从而得到「有权图 Weighted Graph」。例如，在王者荣耀等手游中，系统会根据共同游戏时间来计算玩家之间的“亲密度”，这种亲密度网络就可以用有权图来表示。
 
 ![有权图与无权图](graph.assets/weighted_graph.png)
 
-<p align="center"> Fig. 有权图与无权图 </p>
+<p align="center"> 图：有权图与无权图 </p>
 
 ## 9.1.2. &nbsp; 图常用术语
 
@@ -64,7 +64,7 @@ $$
 
 ![图的邻接矩阵表示](graph.assets/adjacency_matrix.png)
 
-<p align="center"> Fig. 图的邻接矩阵表示 </p>
+<p align="center"> 图：图的邻接矩阵表示 </p>
 
 邻接矩阵具有以下特性：
 
@@ -80,7 +80,7 @@ $$
 
 ![图的邻接表表示](graph.assets/adjacency_list.png)
 
-<p align="center"> Fig. 图的邻接表表示 </p>
+<p align="center"> 图：图的邻接表表示 </p>
 
 邻接表仅存储实际存在的边，而边的总数通常远小于 $n^2$ ，因此它更加节省空间。然而，在邻接表中需要通过遍历链表来查找边，因此其时间效率不如邻接矩阵。
 

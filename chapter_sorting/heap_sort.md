@@ -62,6 +62,8 @@ comments: true
 === "<12>"
     ![heap_sort_step12](heap_sort.assets/heap_sort_step12.png)
 
+<p align="center"> 图：堆排序步骤 </p>
+
 在代码实现中，我们使用了与堆章节相同的从顶至底堆化（Sift Down）的函数。值得注意的是，由于堆的长度会随着提取最大元素而减小，因此我们需要给 Sift Down 函数添加一个长度参数 $n$ ，用于指定堆的当前有效长度。
 
 === "Java"

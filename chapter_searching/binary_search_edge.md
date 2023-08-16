@@ -164,7 +164,7 @@ status: new
 
 ![将查找右边界转化为查找左边界](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png)
 
-<p align="center"> Fig. 将查找右边界转化为查找左边界 </p>
+<p align="center"> 图：将查找右边界转化为查找左边界 </p>
 
 请注意，返回的插入点是 $i$ ，因此需要将其减 $1$ ，从而获得 $j$ 。
 
@@ -321,7 +321,7 @@ status: new
 
 ![将查找边界转化为查找元素](binary_search_edge.assets/binary_search_edge_by_element.png)
 
-<p align="center"> Fig. 将查找边界转化为查找元素 </p>
+<p align="center"> 图：将查找边界转化为查找元素 </p>
 
 代码在此省略，值得注意的有：
 

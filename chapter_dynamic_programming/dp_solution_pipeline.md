@@ -44,7 +44,7 @@ status: new
 
 ![最小路径和示例数据](dp_solution_pipeline.assets/min_path_sum_example.png)
 
-<p align="center"> Fig. 最小路径和示例数据 </p>
+<p align="center"> 图：最小路径和示例数据 </p>
 
 **第一步：思考每轮的决策，定义状态，从而得到 $dp$ 表**
 
@@ -56,7 +56,7 @@ status: new
 
 ![状态定义与 dp 表](dp_solution_pipeline.assets/min_path_sum_solution_step1.png)
 
-<p align="center"> Fig. 状态定义与 dp 表 </p>
+<p align="center"> 图：状态定义与 dp 表 </p>
 
 !!! note
 
@@ -76,7 +76,7 @@ $$
 
 ![最优子结构与状态转移方程](dp_solution_pipeline.assets/min_path_sum_solution_step2.png)
 
-<p align="center"> Fig. 最优子结构与状态转移方程 </p>
+<p align="center"> 图：最优子结构与状态转移方程 </p>
 
 !!! note
 
@@ -92,7 +92,7 @@ $$
 
 ![边界条件与状态转移顺序](dp_solution_pipeline.assets/min_path_sum_solution_step3.png)
 
-<p align="center"> Fig. 边界条件与状态转移顺序 </p>
+<p align="center"> 图：边界条件与状态转移顺序 </p>
 
 !!! note
 
@@ -322,7 +322,7 @@ $$
 
 ![暴力搜索递归树](dp_solution_pipeline.assets/min_path_sum_dfs.png)
 
-<p align="center"> Fig. 暴力搜索递归树 </p>
+<p align="center"> 图：暴力搜索递归树 </p>
 
 每个状态都有向下和向右两种选择，从左上角走到右下角总共需要 $m + n - 2$ 步，所以最差时间复杂度为 $O(2^{m + n})$ 。请注意，这种计算方式未考虑临近网格边界的情况，当到达网络边界时只剩下一种选择。因此实际的路径数量会少一些。
 
@@ -586,7 +586,7 @@ $$
 
 ![记忆化搜索递归树](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png)
 
-<p align="center"> Fig. 记忆化搜索递归树 </p>
+<p align="center"> 图：记忆化搜索递归树 </p>
 
 ### 方法三：动态规划
 
@@ -892,6 +892,8 @@ $$
 
 === "<12>"
     ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png)
+
+<p align="center"> 图：最小路径和的动态规划过程 </p>
 
 ### 状态压缩
 

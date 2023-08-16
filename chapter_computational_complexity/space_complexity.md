@@ -26,7 +26,7 @@ comments: true
 
 ![算法使用的相关空间](space_complexity.assets/space_types.png)
 
-<p align="center"> Fig. 算法使用的相关空间 </p>
+<p align="center"> 图：算法使用的相关空间 </p>
 
 === "Java"
 
@@ -85,7 +85,7 @@ comments: true
         """类"""
         def __init__(self, x: int):
             self.val: int = x                 # 节点值
-            self.next: Optional[Node] = None  # 指向下一节点的指针（引用）
+            self.next: Optional[Node] = None  # 指向下一节点的引用
 
     def function() -> int:
         """函数"""
@@ -669,7 +669,7 @@ $$
 
 ![空间复杂度的常见类型](space_complexity.assets/space_complexity_common_types.png)
 
-<p align="center"> Fig. 空间复杂度的常见类型 </p>
+<p align="center"> 图：空间复杂度的常见类型 </p>
 
 !!! tip
 
@@ -967,8 +967,8 @@ $$
       // 常量、变量、对象占用 O(1) 空间
       final int a = 0;
       int b = 0;
-
       List<int> nums = List.filled(10000, 0);
+      ListNode node = ListNode(0);
       // 循环中的变量占用 O(1) 空间
       for (var i = 0; i < n; i++) {
         int c = 0;
@@ -1417,7 +1417,7 @@ $$
 
 ![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png)
 
-<p align="center"> Fig. 递归函数产生的线性阶空间复杂度 </p>
+<p align="center"> 图：递归函数产生的线性阶空间复杂度 </p>
 
 ### 平方阶 $O(n^2)$
 
@@ -1605,7 +1605,6 @@ $$
       List<List<int>> numMatrix = List.generate(n, (_) => List.filled(n, 0));
       // 二维列表占用 O(n^2) 空间
       List<List<int>> numList = [];
-
       for (var i = 0; i < n; i++) {
         List<int> tmp = [];
         for (int j = 0; j < n; j++) {
@@ -1797,7 +1796,7 @@ $$
 
 ![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
-<p align="center"> Fig. 递归函数产生的平方阶空间复杂度 </p>
+<p align="center"> 图：递归函数产生的平方阶空间复杂度 </p>
 
 ### 指数阶 $O(2^n)$
 
@@ -1969,7 +1968,7 @@ $$
 
 ![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.png)
 
-<p align="center"> Fig. 满二叉树产生的指数阶空间复杂度 </p>
+<p align="center"> 图：满二叉树产生的指数阶空间复杂度 </p>
 
 ### 对数阶 $O(\log n)$
 

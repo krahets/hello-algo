@@ -16,7 +16,7 @@ comments: true
 
 ![完美二叉树的数组表示](array_representation_of_tree.assets/array_representation_binary_tree.png)
 
-<p align="center"> Fig. 完美二叉树的数组表示 </p>
+<p align="center"> 图：完美二叉树的数组表示 </p>
 
 **映射公式的角色相当于链表中的指针**。给定数组中的任意一个节点，我们都可以通过映射公式来访问它的左（右）子节点。
 
@@ -26,7 +26,7 @@ comments: true
 
 ![层序遍历序列对应多种二叉树可能性](array_representation_of_tree.assets/array_representation_without_empty.png)
 
-<p align="center"> Fig. 层序遍历序列对应多种二叉树可能性 </p>
+<p align="center"> 图：层序遍历序列对应多种二叉树可能性 </p>
 
 为了解决此问题，**我们可以考虑在层序遍历序列中显式地写出所有 $\text{None}$** 。如下图所示，这样处理后，层序遍历序列就可以唯一表示二叉树了。
 
@@ -124,13 +124,13 @@ comments: true
 
 ![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png)
 
-<p align="center"> Fig. 任意类型二叉树的数组表示 </p>
+<p align="center"> 图：任意类型二叉树的数组表示 </p>
 
 值得说明的是，**完全二叉树非常适合使用数组来表示**。回顾完全二叉树的定义，$\text{None}$ 只出现在最底层且靠右的位置，**因此所有 $\text{None}$ 一定出现在层序遍历序列的末尾**。这意味着使用数组表示完全二叉树时，可以省略存储所有 $\text{None}$ ，非常方便。
 
 ![完全二叉树的数组表示](array_representation_of_tree.assets/array_representation_complete_binary_tree.png)
 
-<p align="center"> Fig. 完全二叉树的数组表示 </p>
+<p align="center"> 图：完全二叉树的数组表示 </p>
 
 如下代码给出了数组表示下的二叉树的简单实现，包括以下操作：
 
@@ -960,7 +960,96 @@ comments: true
 === "Dart"
 
     ```dart title="array_binary_tree.dart"
-    [class]{ArrayBinaryTree}-[func]{}
+    /* 数组表示下的二叉树类 */
+    class ArrayBinaryTree {
+      late List<int?> _tree;
+
+      /* 构造方法 */
+      ArrayBinaryTree(this._tree);
+
+      /* 节点数量 */
+      int size() {
+        return _tree.length;
+      }
+
+      /* 获取索引为 i 节点的值 */
+      int? val(int i) {
+        // 若索引越界，则返回 null ，代表空位
+        if (i < 0 || i >= size()) {
+          return null;
+        }
+        return _tree[i];
+      }
+
+      /* 获取索引为 i 节点的左子节点的索引 */
+      int? left(int i) {
+        return 2 * i + 1;
+      }
+
+      /* 获取索引为 i 节点的右子节点的索引 */
+      int? right(int i) {
+        return 2 * i + 2;
+      }
+
+      /* 获取索引为 i 节点的父节点的索引 */
+      int? parent(int i) {
+        return (i - 1) ~/ 2;
+      }
+
+      /* 层序遍历 */
+      List<int> levelOrder() {
+        List<int> res = [];
+        for (int i = 0; i < size(); i++) {
+          if (val(i) != null) {
+            res.add(val(i)!);
+          }
+        }
+        return res;
+      }
+
+      /* 深度优先遍历 */
+      void dfs(int i, String order, List<int?> res) {
+        // 若为空位，则返回
+        if (val(i) == null) {
+          return;
+        }
+        // 前序遍历
+        if (order == 'pre') {
+          res.add(val(i));
+        }
+        dfs(left(i)!, order, res);
+        // 中序遍历
+        if (order == 'in') {
+          res.add(val(i));
+        }
+        dfs(right(i)!, order, res);
+        // 后序遍历
+        if (order == 'post') {
+          res.add(val(i));
+        }
+      }
+
+      /* 前序遍历 */
+      List<int?> preOrder() {
+        List<int?> res = [];
+        dfs(0, 'pre', res);
+        return res;
+      }
+
+      /* 中序遍历 */
+      List<int?> inOrder() {
+        List<int?> res = [];
+        dfs(0, 'in', res);
+        return res;
+      }
+
+      /* 后序遍历 */
+      List<int?> postOrder() {
+        List<int?> res = [];
+        dfs(0, 'post', res);
+        return res;
+      }
+    }
     ```
 
 === "Rust"

@@ -32,7 +32,7 @@ comments: true
 
 ![全排列的递归树](permutations_problem.assets/permutations_i.png)
 
-<p align="center"> Fig. 全排列的递归树 </p>
+<p align="center"> 图：全排列的递归树 </p>
 
 ### 重复选择剪枝
 
@@ -45,7 +45,7 @@ comments: true
 
 ![全排列剪枝示例](permutations_problem.assets/permutations_i_pruning.png)
 
-<p align="center"> Fig. 全排列剪枝示例 </p>
+<p align="center"> 图：全排列剪枝示例 </p>
 
 观察上图发现，该剪枝操作将搜索空间大小从 $O(n^n)$ 降低至 $O(n!)$ 。
 
@@ -483,7 +483,7 @@ comments: true
 
 ![重复排列](permutations_problem.assets/permutations_ii.png)
 
-<p align="center"> Fig. 重复排列 </p>
+<p align="center"> 图：重复排列 </p>
 
 那么如何去除重复的排列呢？最直接地，考虑借助一个哈希表，直接对排列结果进行去重。然而这样做不够优雅，**因为生成重复排列的搜索分支是没有必要的，应当被提前识别并剪枝**，这样可以进一步提升算法效率。
 
@@ -497,7 +497,7 @@ comments: true
 
 ![重复排列剪枝](permutations_problem.assets/permutations_ii_pruning.png)
 
-<p align="center"> Fig. 重复排列剪枝 </p>
+<p align="center"> 图：重复排列剪枝 </p>
 
 ### 代码实现
 
@@ -914,4 +914,4 @@ comments: true
 
 ![两种剪枝条件的作用范围](permutations_problem.assets/permutations_ii_pruning_summary.png)
 
-<p align="center"> Fig. 两种剪枝条件的作用范围 </p>
+<p align="center"> 图：两种剪枝条件的作用范围 </p>

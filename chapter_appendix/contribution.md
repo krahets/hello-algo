@@ -24,7 +24,7 @@ comments: true
 
 ![页面编辑按键](contribution.assets/edit_markdown.png)
 
-<p align="center"> Fig. 页面编辑按键 </p>
+<p align="center"> 图：页面编辑按键 </p>
 
 图片无法直接修改，需要通过新建 [Issue](https://github.com/krahets/hello-algo/issues) 或评论留言来描述问题，我们会尽快重新绘制并替换图片。
 

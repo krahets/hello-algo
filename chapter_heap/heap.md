@@ -11,7 +11,7 @@ comments: true
 
 ![小顶堆与大顶堆](heap.assets/min_heap_and_max_heap.png)
 
-<p align="center"> Fig. 小顶堆与大顶堆 </p>
+<p align="center"> 图：小顶堆与大顶堆 </p>
 
 堆作为完全二叉树的一个特例，具有以下特性：
 
@@ -333,7 +333,7 @@ comments: true
 
 ![堆的表示与存储](heap.assets/representation_of_heap.png)
 
-<p align="center"> Fig. 堆的表示与存储 </p>
+<p align="center"> 图：堆的表示与存储 </p>
 
 我们可以将索引映射公式封装成函数，方便后续使用。
 
@@ -708,6 +708,8 @@ comments: true
 === "<9>"
     ![heap_push_step9](heap.assets/heap_push_step9.png)
 
+<p align="center"> 图：元素入堆步骤 </p>
+
 设节点总数为 $n$ ，则树的高度为 $O(\log n)$ 。由此可知，堆化操作的循环轮数最多为 $O(\log n)$ ，**元素入堆操作的时间复杂度为 $O(\log n)$** 。
 
 === "Java"
@@ -994,10 +996,24 @@ comments: true
       // 添加节点
       _maxHeap.add(val);
       // 从底至顶堆化
-      _siftUp(size() - 1);
+      siftUp(size() - 1);
     }
 
-    [class]{MaxHeap}-[func]{siftUp}
+    /* 从节点 i 开始，从底至顶堆化 */
+    void siftUp(int i) {
+      while (true) {
+        // 获取节点 i 的父节点
+        int p = _parent(i);
+        // 当“越过根节点”或“节点无需修复”时，结束堆化
+        if (p < 0 || _maxHeap[i] <= _maxHeap[p]) {
+          break;
+        }
+        // 交换两节点
+        _swap(i, p);
+        // 循环向上堆化
+        i = p;
+      }
+    }
     ```
 
 === "Rust"
@@ -1071,6 +1087,8 @@ comments: true
 
 === "<10>"
     ![heap_pop_step10](heap.assets/heap_pop_step10.png)
+
+<p align="center"> 图：堆顶元素出堆步骤 </p>
 
 与元素入堆操作相似，堆顶元素出堆操作的时间复杂度也为 $O(\log n)$ 。
 
@@ -1480,12 +1498,28 @@ comments: true
       // 删除节点
       int val = _maxHeap.removeLast();
       // 从顶至底堆化
-      _siftDown(0);
+      siftDown(0);
       // 返回堆顶元素
       return val;
     }
 
-    [class]{MaxHeap}-[func]{siftDown}
+    /* 从节点 i 开始，从顶至底堆化 */
+    void siftDown(int i) {
+      while (true) {
+        // 判断节点 i, l, r 中值最大的节点，记为 ma
+        int l = _left(i);
+        int r = _right(i);
+        int ma = i;
+        if (l < size() && _maxHeap[l] > _maxHeap[ma]) ma = l;
+        if (r < size() && _maxHeap[r] > _maxHeap[ma]) ma = r;
+        // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+        if (ma == i) break;
+        // 交换两节点
+        _swap(i, ma);
+        // 循环向下堆化
+        i = ma;
+      }
+    }
     ```
 
 === "Rust"

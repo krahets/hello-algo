@@ -4,7 +4,7 @@ comments: true
 
 # 7.1. &nbsp; 二叉树
 
-「二叉树 Binary Tree」是一种非线性数据结构，代表着祖先与后代之间的派生关系，体现着“一分为二”的分治逻辑。与链表类似，二叉树的基本单元是节点，每个节点包含一个「值」和两个「指针」。
+「二叉树 Binary Tree」是一种非线性数据结构，代表着祖先与后代之间的派生关系，体现着“一分为二”的分治逻辑。与链表类似，二叉树的基本单元是节点，每个节点包含：值、左子节点引用、右子节点引用。
 
 === "Java"
 
@@ -12,8 +12,8 @@ comments: true
     /* 二叉树节点类 */
     class TreeNode {
         int val;         // 节点值
-        TreeNode left;   // 左子节点指针
-        TreeNode right;  // 右子节点指针
+        TreeNode left;   // 左子节点引用
+        TreeNode right;  // 右子节点引用
         TreeNode(int x) { val = x; }
     }
     ```
@@ -37,8 +37,8 @@ comments: true
         """二叉树节点类"""
         def __init__(self, val: int):
             self.val: int = val                   # 节点值
-            self.left: Optional[TreeNode] = None  # 左子节点指针
-            self.right: Optional[TreeNode] = None # 右子节点指针
+            self.left: Optional[TreeNode] = None  # 左子节点引用
+            self.right: Optional[TreeNode] = None # 右子节点引用
     ```
 
 === "Go"
@@ -53,9 +53,9 @@ comments: true
     /* 节点初始化方法 */
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
-            Left:  nil,
-            Right: nil,
-            Val:   v,
+            Left:  nil, // 左子节点指针
+            Right: nil, // 右子节点指针
+            Val:   v,   // 节点值
         }
     }
     ```
@@ -66,8 +66,8 @@ comments: true
     /* 二叉树节点类 */
     function TreeNode(val, left, right) {
         this.val = (val === undefined ? 0 : val); // 节点值
-        this.left = (left === undefined ? null : left); // 左子节点指针
-        this.right = (right === undefined ? null : right); // 右子节点指针
+        this.left = (left === undefined ? null : left); // 左子节点引用
+        this.right = (right === undefined ? null : right); // 右子节点引用
     }
     ```
 
@@ -82,8 +82,8 @@ comments: true
     
         constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val; // 节点值
-            this.left = left === undefined ? null : left; // 左子节点指针
-            this.right = right === undefined ? null : right; // 右子节点指针
+            this.left = left === undefined ? null : left; // 左子节点引用
+            this.right = right === undefined ? null : right; // 右子节点引用
         }
     }
     ```
@@ -120,8 +120,8 @@ comments: true
     /* 二叉树节点类 */
     class TreeNode {
         int val;          // 节点值
-        TreeNode? left;   // 左子节点指针
-        TreeNode? right;  // 右子节点指针
+        TreeNode? left;   // 左子节点引用
+        TreeNode? right;  // 右子节点引用
         TreeNode(int x) { val = x; }
     }
     ```
@@ -132,8 +132,8 @@ comments: true
     /* 二叉树节点类 */
     class TreeNode {
         var val: Int // 节点值
-        var left: TreeNode? // 左子节点指针
-        var right: TreeNode? // 右子节点指针
+        var left: TreeNode? // 左子节点引用
+        var right: TreeNode? // 右子节点引用
 
         init(x: Int) {
             val = x
@@ -153,8 +153,8 @@ comments: true
     /* 二叉树节点类 */
     class TreeNode {
       int val;         // 节点值
-      TreeNode? left;  // 左子节点指针
-      TreeNode? right; // 右子节点指针
+      TreeNode? left;  // 左子节点引用
+      TreeNode? right; // 右子节点引用
       TreeNode(this.val, [this.left, this.right]);
     }
     ```
@@ -171,7 +171,7 @@ comments: true
 
 ![父节点、子节点、子树](binary_tree.assets/binary_tree_definition.png)
 
-<p align="center"> Fig. 父节点、子节点、子树 </p>
+<p align="center"> 图：父节点、子节点、子树 </p>
 
 ## 7.1.1. &nbsp; 二叉树常见术语
 
@@ -188,7 +188,7 @@ comments: true
 
 ![二叉树的常用术语](binary_tree.assets/binary_tree_terminology.png)
 
-<p align="center"> Fig. 二叉树的常用术语 </p>
+<p align="center"> 图：二叉树的常用术语 </p>
 
 !!! tip "高度与深度的定义"
 
@@ -382,7 +382,7 @@ comments: true
 
 ![在二叉树中插入与删除节点](binary_tree.assets/binary_tree_add_remove.png)
 
-<p align="center"> Fig. 在二叉树中插入与删除节点 </p>
+<p align="center"> 图：在二叉树中插入与删除节点 </p>
 
 === "Java"
 
@@ -530,7 +530,7 @@ comments: true
 
 ![完美二叉树](binary_tree.assets/perfect_binary_tree.png)
 
-<p align="center"> Fig. 完美二叉树 </p>
+<p align="center"> 图：完美二叉树 </p>
 
 ### 完全二叉树
 
@@ -538,7 +538,7 @@ comments: true
 
 ![完全二叉树](binary_tree.assets/complete_binary_tree.png)
 
-<p align="center"> Fig. 完全二叉树 </p>
+<p align="center"> 图：完全二叉树 </p>
 
 ### 完满二叉树
 
@@ -546,7 +546,7 @@ comments: true
 
 ![完满二叉树](binary_tree.assets/full_binary_tree.png)
 
-<p align="center"> Fig. 完满二叉树 </p>
+<p align="center"> 图：完满二叉树 </p>
 
 ### 平衡二叉树
 
@@ -554,7 +554,7 @@ comments: true
 
 ![平衡二叉树](binary_tree.assets/balanced_binary_tree.png)
 
-<p align="center"> Fig. 平衡二叉树 </p>
+<p align="center"> 图：平衡二叉树 </p>
 
 ## 7.1.4. &nbsp; 二叉树的退化
 
@@ -565,7 +565,7 @@ comments: true
 
 ![二叉树的最佳与最差结构](binary_tree.assets/binary_tree_best_worst_cases.png)
 
-<p align="center"> Fig. 二叉树的最佳与最差结构 </p>
+<p align="center"> 图：二叉树的最佳与最差结构 </p>
 
 如下表所示，在最佳和最差结构下，二叉树的叶节点数量、节点总数、高度等达到极大或极小值。
 

@@ -17,7 +17,7 @@ comments: true
 
 ![线性与非线性数据结构](classification_of_data_structure.assets/classification_logic_structure.png)
 
-<p align="center"> Fig. 线性与非线性数据结构 </p>
+<p align="center"> 图：线性与非线性数据结构 </p>
 
 非线性数据结构可以进一步被划分为树形结构和网状结构。
 
@@ -35,7 +35,7 @@ comments: true
 
 ![内存条、内存空间、内存地址](classification_of_data_structure.assets/computer_memory_location.png)
 
-<p align="center"> Fig. 内存条、内存空间、内存地址 </p>
+<p align="center"> 图：内存条、内存空间、内存地址 </p>
 
 内存是所有程序的共享资源，当某块内存被某个程序占用时，则无法被其他程序同时使用了。**因此在数据结构与算法的设计中，内存资源是一个重要的考虑因素**。比如，算法所占用的内存峰值不应超过系统剩余空闲内存；如果缺少连续大块的内存空间，那么所选用的数据结构必须能够存储在离散的内存空间内。
 
@@ -43,7 +43,7 @@ comments: true
 
 ![连续空间存储与离散空间存储](classification_of_data_structure.assets/classification_phisical_structure.png)
 
-<p align="center"> Fig. 连续空间存储与离散空间存储 </p>
+<p align="center"> 图：连续空间存储与离散空间存储 </p>
 
 值得说明的是，**所有数据结构都是基于数组、链表或二者的组合实现的**。例如，栈和队列既可以使用数组实现，也可以使用链表实现；而哈希表的实现可能同时包含数组和链表。
 

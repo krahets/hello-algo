@@ -32,7 +32,7 @@ comments: true
 
 ![Hello 算法内容结构](about_the_book.assets/hello_algo_mindmap.png)
 
-<p align="center"> Fig. Hello 算法内容结构 </p>
+<p align="center"> 图：Hello 算法内容结构 </p>
 
 ## 0.1.3. &nbsp; 致谢
 
