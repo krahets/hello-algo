@@ -116,9 +116,9 @@ class MaxHeap {
         printHeap(this.#maxHeap);
     }
 
-    /* 对堆取相反数 */
+    /* 取出堆中元素 */
     getMaxHeap() {
-        return this.#maxHeap.map(num => -num);
+        return this.#maxHeap;
     }
 }
 

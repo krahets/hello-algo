@@ -20,9 +20,11 @@ function top_k_heap(nums, k) {
             heap.push(invertedNums[i]);
         }
     }
-
-    // 对堆取相反数
-    return heap.getMaxHeap();
+    // 取出堆中元素
+    const maxHeap = heap.getMaxHeap();
+    // 对堆中元素取相反数
+    const invertedMaxHeap = maxHeap.map(num => -num);
+    return invertedMaxHeap;
 }
 
 /* Driver Code */
