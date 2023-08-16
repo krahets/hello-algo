@@ -3500,7 +3500,7 @@
 <li>「小顶堆 Min Heap」，任意节点的值 <span class="arithmatex">\(\leq\)</span> 其子节点的值。</li>
 </ul>
 <p><img alt="小顶堆与大顶堆" src="../heap.assets/min_heap_and_max_heap.png" /></p>
-<p align="center"> Fig. 小顶堆与大顶堆 </p>
+<p align="center"> 图：小顶堆与大顶堆 </p>
 
 <p>堆作为完全二叉树的一个特例，具有以下特性：</p>
 <ul>
@@ -3816,7 +3816,7 @@
 <p>当使用数组表示二叉树时，元素代表节点值，索引代表节点在二叉树中的位置。<strong>节点指针通过索引映射公式来实现</strong>。</p>
 <p>具体而言，给定索引 <span class="arithmatex">\(i\)</span> ，其左子节点索引为 <span class="arithmatex">\(2i + 1\)</span> ，右子节点索引为 <span class="arithmatex">\(2i + 2\)</span> ，父节点索引为 <span class="arithmatex">\((i - 1) / 2\)</span>（向下取整）。当索引越界时，表示空节点或节点不存在。</p>
 <p><img alt="堆的表示与存储" src="../heap.assets/representation_of_heap.png" /></p>
-<p align="center"> Fig. 堆的表示与存储 </p>
+<p align="center"> 图：堆的表示与存储 </p>
 
 <p>我们可以将索引映射公式封装成函数，方便后续使用。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
@@ -4149,6 +4149,8 @@
 </div>
 </div>
 </div>
+<p align="center"> 图：元素入堆步骤 </p>
+
 <p>设节点总数为 <span class="arithmatex">\(n\)</span> ，则树的高度为 <span class="arithmatex">\(O(\log n)\)</span> 。由此可知，堆化操作的循环轮数最多为 <span class="arithmatex">\(O(\log n)\)</span> ，<strong>元素入堆操作的时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span></strong> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label><label for="__tabbed_5_12">Rust</label></div>
 <div class="tabbed-content">
@@ -4414,10 +4416,24 @@
 <a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">  </span><span class="c1">// 添加节点</span>
 <a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="w">  </span><span class="n">_maxHeap</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
 <a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="w">  </span><span class="c1">// 从底至顶堆化</span>
-<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="w">  </span><span class="n">_siftUp</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="w">  </span><span class="n">siftUp</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
 <a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a><span class="p">}</span>
 <a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a>
-<a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">MaxHeap</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">siftUp</span><span class="p">}</span>
+<a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a><span class="cm">/* 从节点 i 开始，从底至顶堆化 */</span>
+<a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a><span class="kt">void</span><span class="w"> </span><span class="n">siftUp</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-46-11" name="__codelineno-46-11" href="#__codelineno-46-11"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-46-12" name="__codelineno-46-12" href="#__codelineno-46-12"></a><span class="w">    </span><span class="c1">// 获取节点 i 的父节点</span>
+<a id="__codelineno-46-13" name="__codelineno-46-13" href="#__codelineno-46-13"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_parent</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-46-14" name="__codelineno-46-14" href="#__codelineno-46-14"></a><span class="w">    </span><span class="c1">// 当“越过根节点”或“节点无需修复”时，结束堆化</span>
+<a id="__codelineno-46-15" name="__codelineno-46-15" href="#__codelineno-46-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">_maxHeap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">_maxHeap</span><span class="p">[</span><span class="n">p</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-46-16" name="__codelineno-46-16" href="#__codelineno-46-16"></a><span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-46-17" name="__codelineno-46-17" href="#__codelineno-46-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-46-18" name="__codelineno-46-18" href="#__codelineno-46-18"></a><span class="w">    </span><span class="c1">// 交换两节点</span>
+<a id="__codelineno-46-19" name="__codelineno-46-19" href="#__codelineno-46-19"></a><span class="w">    </span><span class="n">_swap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
+<a id="__codelineno-46-20" name="__codelineno-46-20" href="#__codelineno-46-20"></a><span class="w">    </span><span class="c1">// 循环向上堆化</span>
+<a id="__codelineno-46-21" name="__codelineno-46-21" href="#__codelineno-46-21"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<a id="__codelineno-46-22" name="__codelineno-46-22" href="#__codelineno-46-22"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-46-23" name="__codelineno-46-23" href="#__codelineno-46-23"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4494,6 +4510,8 @@
 </div>
 </div>
 </div>
+<p align="center"> 图：堆顶元素出堆步骤 </p>
+
 <p>与元素入堆操作相似，堆顶元素出堆操作的时间复杂度也为 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:12"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><input id="__tabbed_7_5" name="__tabbed_7" type="radio" /><input id="__tabbed_7_6" name="__tabbed_7" type="radio" /><input id="__tabbed_7_7" name="__tabbed_7" type="radio" /><input id="__tabbed_7_8" name="__tabbed_7" type="radio" /><input id="__tabbed_7_9" name="__tabbed_7" type="radio" /><input id="__tabbed_7_10" name="__tabbed_7" type="radio" /><input id="__tabbed_7_11" name="__tabbed_7" type="radio" /><input id="__tabbed_7_12" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Java</label><label for="__tabbed_7_2">C++</label><label for="__tabbed_7_3">Python</label><label for="__tabbed_7_4">Go</label><label for="__tabbed_7_5">JS</label><label for="__tabbed_7_6">TS</label><label for="__tabbed_7_7">C</label><label for="__tabbed_7_8">C#</label><label for="__tabbed_7_9">Swift</label><label for="__tabbed_7_10">Zig</label><label for="__tabbed_7_11">Dart</label><label for="__tabbed_7_12">Rust</label></div>
 <div class="tabbed-content">
@@ -4881,12 +4899,28 @@
 <a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a><span class="w">  </span><span class="c1">// 删除节点</span>
 <a id="__codelineno-58-8" name="__codelineno-58-8" href="#__codelineno-58-8"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_maxHeap</span><span class="p">.</span><span class="n">removeLast</span><span class="p">();</span>
 <a id="__codelineno-58-9" name="__codelineno-58-9" href="#__codelineno-58-9"></a><span class="w">  </span><span class="c1">// 从顶至底堆化</span>
-<a id="__codelineno-58-10" name="__codelineno-58-10" href="#__codelineno-58-10"></a><span class="w">  </span><span class="n">_siftDown</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+<a id="__codelineno-58-10" name="__codelineno-58-10" href="#__codelineno-58-10"></a><span class="w">  </span><span class="n">siftDown</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 <a id="__codelineno-58-11" name="__codelineno-58-11" href="#__codelineno-58-11"></a><span class="w">  </span><span class="c1">// 返回堆顶元素</span>
 <a id="__codelineno-58-12" name="__codelineno-58-12" href="#__codelineno-58-12"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
 <a id="__codelineno-58-13" name="__codelineno-58-13" href="#__codelineno-58-13"></a><span class="p">}</span>
 <a id="__codelineno-58-14" name="__codelineno-58-14" href="#__codelineno-58-14"></a>
-<a id="__codelineno-58-15" name="__codelineno-58-15" href="#__codelineno-58-15"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">MaxHeap</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">siftDown</span><span class="p">}</span>
+<a id="__codelineno-58-15" name="__codelineno-58-15" href="#__codelineno-58-15"></a><span class="cm">/* 从节点 i 开始，从顶至底堆化 */</span>
+<a id="__codelineno-58-16" name="__codelineno-58-16" href="#__codelineno-58-16"></a><span class="kt">void</span><span class="w"> </span><span class="n">siftDown</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-58-17" name="__codelineno-58-17" href="#__codelineno-58-17"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-58-18" name="__codelineno-58-18" href="#__codelineno-58-18"></a><span class="w">    </span><span class="c1">// 判断节点 i, l, r 中值最大的节点，记为 ma</span>
+<a id="__codelineno-58-19" name="__codelineno-58-19" href="#__codelineno-58-19"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_left</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-58-20" name="__codelineno-58-20" href="#__codelineno-58-20"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_right</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-58-21" name="__codelineno-58-21" href="#__codelineno-58-21"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-58-22" name="__codelineno-58-22" href="#__codelineno-58-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">_maxHeap</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">_maxHeap</span><span class="p">[</span><span class="n">ma</span><span class="p">])</span><span class="w"> </span><span class="n">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
+<a id="__codelineno-58-23" name="__codelineno-58-23" href="#__codelineno-58-23"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">_maxHeap</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">_maxHeap</span><span class="p">[</span><span class="n">ma</span><span class="p">])</span><span class="w"> </span><span class="n">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<a id="__codelineno-58-24" name="__codelineno-58-24" href="#__codelineno-58-24"></a><span class="w">    </span><span class="c1">// 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出</span>
+<a id="__codelineno-58-25" name="__codelineno-58-25" href="#__codelineno-58-25"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ma</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-58-26" name="__codelineno-58-26" href="#__codelineno-58-26"></a><span class="w">    </span><span class="c1">// 交换两节点</span>
+<a id="__codelineno-58-27" name="__codelineno-58-27" href="#__codelineno-58-27"></a><span class="w">    </span><span class="n">_swap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">ma</span><span class="p">);</span>
+<a id="__codelineno-58-28" name="__codelineno-58-28" href="#__codelineno-58-28"></a><span class="w">    </span><span class="c1">// 循环向下堆化</span>
+<a id="__codelineno-58-29" name="__codelineno-58-29" href="#__codelineno-58-29"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ma</span><span class="p">;</span>
+<a id="__codelineno-58-30" name="__codelineno-58-30" href="#__codelineno-58-30"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-58-31" name="__codelineno-58-31" href="#__codelineno-58-31"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">

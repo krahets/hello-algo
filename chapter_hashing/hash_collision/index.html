@@ -3476,7 +3476,7 @@
 <h2 id="621">6.2.1. &nbsp; 链式地址<a class="headerlink" href="#621" title="Permanent link">&para;</a></h2>
 <p>在原始哈希表中，每个桶仅能存储一个键值对。「链式地址 Separate Chaining」将单个元素转换为链表，将键值对作为链表节点，将所有发生冲突的键值对都存储在同一链表中。</p>
 <p><img alt="链式地址哈希表" src="../hash_collision.assets/hash_table_chaining.png" /></p>
-<p align="center"> Fig. 链式地址哈希表 </p>
+<p align="center"> 图：链式地址哈希表 </p>
 
 <p>链式地址下，哈希表的操作方法包括：</p>
 <ul>
@@ -3991,7 +3991,7 @@
 <a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">bucket</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">bucket</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a><span class="w">                </span><span class="nx">bucket</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
-<a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a><span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">size</span><span class="o">--</span><span class="p">;</span>
+<a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a><span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="err">#</span><span class="nx">size</span><span class="o">--</span><span class="p">;</span>
 <a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a><span class="w">                </span><span class="k">break</span><span class="p">;</span>
 <a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a><span class="w">            </span><span class="p">}</span>
 <a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a><span class="w">        </span><span class="p">}</span>
@@ -4598,7 +4598,7 @@
 <li><strong>查找元素</strong>：若发现哈希冲突，则使用相同步长向后线性遍历，直到找到对应元素，返回 <code>value</code> 即可；如果遇到空位，说明目标键值对不在哈希表中，返回 <span class="arithmatex">\(\text{None}\)</span> 。</li>
 </ul>
 <p><img alt="线性探测" src="../hash_collision.assets/hash_table_linear_probing.png" /></p>
-<p align="center"> Fig. 线性探测 </p>
+<p align="center"> 图：线性探测 </p>
 
 <p>然而，线性探测存在以下缺陷：</p>
 <ul>

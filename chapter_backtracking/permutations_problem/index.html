@@ -3541,7 +3541,7 @@
 <p>从回溯代码的角度看，候选集合 <code>choices</code> 是输入数组中的所有元素，状态 <code>state</code> 是直至目前已被选择的元素。请注意，每个元素只允许被选择一次，<strong>因此 <code>state</code> 中的所有元素都应该是唯一的</strong>。</p>
 <p>如下图所示，我们可以将搜索过程展开成一个递归树，树中的每个节点代表当前状态 <code>state</code> 。从根节点开始，经过三轮选择后到达叶节点，每个叶节点都对应一个排列。</p>
 <p><img alt="全排列的递归树" src="../permutations_problem.assets/permutations_i.png" /></p>
-<p align="center"> Fig. 全排列的递归树 </p>
+<p align="center"> 图：全排列的递归树 </p>
 
 <h3 id="_1">重复选择剪枝<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>为了实现每个元素只被选择一次，我们考虑引入一个布尔型数组 <code>selected</code> ，其中 <code>selected[i]</code> 表示 <code>choices[i]</code> 是否已被选择。剪枝的实现原理为：</p>
@@ -3551,7 +3551,7 @@
 </ul>
 <p>如下图所示，假设我们第一轮选择 1 ，第二轮选择 3 ，第三轮选择 2 ，则需要在第二轮剪掉元素 1 的分支，在第三轮剪掉元素 1, 3 的分支。</p>
 <p><img alt="全排列剪枝示例" src="../permutations_problem.assets/permutations_i_pruning.png" /></p>
-<p align="center"> Fig. 全排列剪枝示例 </p>
+<p align="center"> 图：全排列剪枝示例 </p>
 
 <p>观察上图发现，该剪枝操作将搜索空间大小从 <span class="arithmatex">\(O(n^n)\)</span> 降低至 <span class="arithmatex">\(O(n!)\)</span> 。</p>
 <h3 id="_2">代码实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
@@ -3962,7 +3962,7 @@
 <p>假设输入数组为 <span class="arithmatex">\([1, 1, 2]\)</span> 。为了方便区分两个重复元素 <span class="arithmatex">\(1\)</span> ，我们将第二个 <span class="arithmatex">\(1\)</span> 记为 <span class="arithmatex">\(\hat{1}\)</span> 。</p>
 <p>如下图所示，上述方法生成的排列有一半都是重复的。</p>
 <p><img alt="重复排列" src="../permutations_problem.assets/permutations_ii.png" /></p>
-<p align="center"> Fig. 重复排列 </p>
+<p align="center"> 图：重复排列 </p>
 
 <p>那么如何去除重复的排列呢？最直接地，考虑借助一个哈希表，直接对排列结果进行去重。然而这样做不够优雅，<strong>因为生成重复排列的搜索分支是没有必要的，应当被提前识别并剪枝</strong>，这样可以进一步提升算法效率。</p>
 <h3 id="_3">相等元素剪枝<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
@@ -3970,7 +3970,7 @@
 <p>同理，在第一轮选择 <span class="arithmatex">\(2\)</span> 后，第二轮选择中的 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(\hat{1}\)</span> 也会产生重复分支，因此也应将第二轮的 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
 <p>本质上看，<strong>我们的目标是在某一轮选择中，保证多个相等的元素仅被选择一次</strong>。</p>
 <p><img alt="重复排列剪枝" src="../permutations_problem.assets/permutations_ii_pruning.png" /></p>
-<p align="center"> Fig. 重复排列剪枝 </p>
+<p align="center"> 图：重复排列剪枝 </p>
 
 <h3 id="_4">代码实现<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>在上一题的代码的基础上，我们考虑在每一轮选择中开启一个哈希表 <code>duplicated</code> ，用于记录该轮中已经尝试过的元素，并将重复元素剪枝。</p>
@@ -4360,7 +4360,7 @@
 </ul>
 <p>下图展示了两个剪枝条件的生效范围。注意，树中的每个节点代表一个选择，从根节点到叶节点的路径上的各个节点构成一个排列。</p>
 <p><img alt="两种剪枝条件的作用范围" src="../permutations_problem.assets/permutations_ii_pruning_summary.png" /></p>
-<p align="center"> Fig. 两种剪枝条件的作用范围 </p>
+<p align="center"> 图：两种剪枝条件的作用范围 </p>
 
 
 

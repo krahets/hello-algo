@@ -3469,7 +3469,7 @@
 <p>「队列 Queue」是一种遵循先入先出（First In, First Out）规则的线性数据结构。顾名思义，队列模拟了排队现象，即新来的人不断加入队列的尾部，而位于队列头部的人逐个离开。</p>
 <p>我们把队列的头部称为「队首」，尾部称为「队尾」，把将元素加入队尾的操作称为「入队」，删除队首元素的操作称为「出队」。</p>
 <p><img alt="队列的先入先出规则" src="../queue.assets/queue_operations.png" /></p>
-<p align="center"> Fig. 队列的先入先出规则 </p>
+<p align="center"> 图：队列的先入先出规则 </p>
 
 <h2 id="521">5.2.1. &nbsp; 队列常用操作<a class="headerlink" href="#521" title="Permanent link">&para;</a></h2>
 <p>队列的常见操作如下表所示。需要注意的是，不同编程语言的方法名称可能会有所不同。我们在此采用与栈相同的方法命名。</p>
@@ -3762,6 +3762,8 @@
 </div>
 </div>
 </div>
+<p align="center"> 图：基于链表实现队列的入队出队操作 </p>
+
 <p>以下是用链表实现队列的示例代码。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
@@ -4633,6 +4635,8 @@
 </div>
 </div>
 </div>
+<p align="center"> 图：基于数组实现队列的入队出队操作 </p>
+
 <p>你可能会发现一个问题：在不断进行入队和出队的过程中，<code>front</code> 和 <code>rear</code> 都在向右移动，<strong>当它们到达数组尾部时就无法继续移动了</strong>。为解决此问题，我们可以将数组视为首尾相接的「环形数组」。</p>
 <p>对于环形数组，我们需要让 <code>front</code> 或 <code>rear</code> 在越过数组尾部时，直接回到数组头部继续遍历。这种周期性规律可以通过“取余操作”来实现，代码如下所示。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label><label for="__tabbed_5_12">Rust</label></div>

@@ -3500,7 +3500,7 @@
 <li>任意节点的左、右子树也是二叉搜索树，即同样满足条件 <code>1.</code> 。</li>
 </ol>
 <p><img alt="二叉搜索树" src="../binary_search_tree.assets/binary_search_tree.png" /></p>
-<p align="center"> Fig. 二叉搜索树 </p>
+<p align="center"> 图：二叉搜索树 </p>
 
 <h2 id="741">7.4.1. &nbsp; 二叉搜索树的操作<a class="headerlink" href="#741" title="Permanent link">&para;</a></h2>
 <p>我们将二叉搜索树封装为一个类 <code>ArrayBinaryTree</code> ，并声明一个成员变量 <code>root</code> ，指向树的根节点。</p>
@@ -3527,6 +3527,8 @@
 </div>
 </div>
 </div>
+<p align="center"> 图：二叉搜索树查找节点示例 </p>
+
 <p>二叉搜索树的查找操作与二分查找算法的工作原理一致，都是每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
 <div class="tabbed-content">
@@ -3739,7 +3741,24 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_tree.dart</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">search</span><span class="p">}</span>
+<div class="highlight"><span class="filename">binary_search_tree.dart</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* 查找节点 */</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">search</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="kt">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_root</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="c1">// 循环查找，越过叶节点后跳出</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="c1">// 目标节点在 cur 的右子树中</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="kt">num</span><span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">      </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">right</span><span class="p">;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="c1">// 目标节点在 cur 的左子树中</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="kt">num</span><span class="p">)</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">      </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">left</span><span class="p">;</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="c1">// 找到目标节点，跳出循环</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">  </span><span class="c1">// 返回目标节点</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">cur</span><span class="p">;</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3777,7 +3796,7 @@
 </ol>
 <p>二叉搜索树不允许存在重复节点，否则将违反其定义。因此，若待插入节点在树中已存在，则不执行插入，直接返回。</p>
 <p><img alt="在二叉搜索树中插入节点" src="../binary_search_tree.assets/bst_insert.png" /></p>
-<p align="center"> Fig. 在二叉搜索树中插入节点 </p>
+<p align="center"> 图：在二叉搜索树中插入节点 </p>
 
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
@@ -4086,7 +4105,31 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_tree.dart</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insert</span><span class="p">}</span>
+<div class="highlight"><span class="filename">binary_search_tree.dart</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="cm">/* 插入节点 */</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="kt">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="c1">// 若树为空，直接提前返回</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">  </span><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_root</span><span class="p">;</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">  </span><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">  </span><span class="c1">// 循环查找，越过叶节点后跳出</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">    </span><span class="c1">// 找到重复节点，直接返回</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">num</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">    </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">;</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">    </span><span class="c1">// 插入位置在 cur 的右子树中</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="kt">num</span><span class="p">)</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="w">      </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">right</span><span class="p">;</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">    </span><span class="c1">// 插入位置在 cur 的左子树中</span>
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="w">      </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">left</span><span class="p">;</span>
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="w">  </span><span class="c1">// 插入节点</span>
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="w">  </span><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="kt">num</span><span class="p">);</span>
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pre</span><span class="o">!</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="kt">num</span><span class="p">)</span>
+<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="w">    </span><span class="n">pre</span><span class="p">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="w">  </span><span class="k">else</span>
+<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="w">    </span><span class="n">pre</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4133,11 +4176,11 @@
 <p>与插入节点类似，我们需要在删除操作后维持二叉搜索树的“左子树 &lt; 根节点 &lt; 右子树”的性质。首先，我们需要在二叉树中执行查找操作，获取待删除节点。接下来，根据待删除节点的子节点数量，删除操作需分为三种情况：</p>
 <p>当待删除节点的度为 <span class="arithmatex">\(0\)</span> 时，表示待删除节点是叶节点，可以直接删除。</p>
 <p><img alt="在二叉搜索树中删除节点（度为 0）" src="../binary_search_tree.assets/bst_remove_case1.png" /></p>
-<p align="center"> Fig. 在二叉搜索树中删除节点（度为 0） </p>
+<p align="center"> 图：在二叉搜索树中删除节点（度为 0） </p>
 
 <p>当待删除节点的度为 <span class="arithmatex">\(1\)</span> 时，将待删除节点替换为其子节点即可。</p>
 <p><img alt="在二叉搜索树中删除节点（度为 1）" src="../binary_search_tree.assets/bst_remove_case2.png" /></p>
-<p align="center"> Fig. 在二叉搜索树中删除节点（度为 1） </p>
+<p align="center"> 图：在二叉搜索树中删除节点（度为 1） </p>
 
 <p>当待删除节点的度为 <span class="arithmatex">\(2\)</span> 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左 <span class="arithmatex">\(&lt;\)</span> 根 <span class="arithmatex">\(&lt;\)</span> 右”的性质，因此这个节点可以是右子树的最小节点或左子树的最大节点。</p>
 <p>假设我们选择右子树的最小节点（即中序遍历的下一个节点），则删除操作为：</p>
@@ -4161,8 +4204,10 @@
 </div>
 </div>
 </div>
+<p align="center"> 图：二叉搜索树删除节点示例 </p>
+
 <p>删除节点操作同样使用 <span class="arithmatex">\(O(\log n)\)</span> 时间，其中查找待删除节点需要 <span class="arithmatex">\(O(\log n)\)</span> 时间，获取中序遍历后继节点需要 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label><label for="__tabbed_5_12">Rust</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:11"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_tree.java</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="cm">/* 删除节点 */</span>
@@ -4703,75 +4748,152 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_tree.dart</span><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">remove</span><span class="p">}</span>
-</code></pre></div>
+<p>```dart title="binary_search_tree.dart"
+/* 插入节点 */
+void insert(int num) {
+  // 若树为空，直接提前返回
+  if (_root == null) return;
+  TreeNode? cur = _root;
+  TreeNode? pre = null;
+  // 循环查找，越过叶节点后跳出
+  while (cur != null) {
+    // 找到重复节点，直接返回
+    if (cur.val == num) return;
+    pre = cur;
+    // 插入位置在 cur 的右子树中
+    if (cur.val &lt; num)
+      cur = cur.right;
+    // 插入位置在 cur 的左子树中
+    else
+      cur = cur.left;
+  }
+  // 插入节点
+  TreeNode? node = TreeNode(num);
+  if (pre!.val &lt; num)
+    pre.right = node;
+  else
+    pre.left = node;
+}</p>
 </div>
+</div>
+</div>
+<p>/* 删除节点 */
+    void remove(int num) {
+      // 若树为空，直接提前返回
+      if (_root == null) return;</p>
+<div class="highlight"><pre><span></span><code>  TreeNode? cur = _root;
+  TreeNode? pre = null;
+  // 循环查找，越过叶节点后跳出
+  while (cur != null) {
+    // 找到待删除节点，跳出循环
+    if (cur.val == num) break;
+    pre = cur;
+    // 待删除节点在 cur 的右子树中
+    if (cur.val &lt; num)
+      cur = cur.right;
+    // 待删除节点在 cur 的左子树中
+    else
+      cur = cur.left;
+  }
+  // 若无待删除节点，直接返回
+  if (cur == null) return;
+  // 子节点数量 = 0 or 1
+  if (cur.left == null || cur.right == null) {
+    // 当子节点数量 = 0 / 1 时， child = null / 该子节点
+    TreeNode? child = cur.left ?? cur.right;
+    // 删除节点 cur
+    if (cur != _root) {
+      if (pre!.left == cur)
+        pre.left = child;
+      else
+        pre.right = child;
+    } else {
+      // 若删除节点为根节点，则重新指定根节点
+      _root = child;
+    }
+  } else {
+    // 子节点数量 = 2
+    // 获取中序遍历中 cur 的下一个节点
+    TreeNode? tmp = cur.right;
+    while (tmp!.left != null) {
+      tmp = tmp.left;
+    }
+    // 递归删除节点 tmp
+    remove(tmp.val);
+    // 用 tmp 覆盖 cur
+    cur.val = tmp.val;
+  }
+}
+```
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Rust</label></div>
+<div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_tree.rs</span><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="cm">/* 删除节点 */</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">remove</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">num</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">    </span><span class="c1">// 若树为空，直接提前返回</span>
-<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">root</span><span class="p">.</span><span class="n">is_none</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">root</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
-<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">None</span><span class="p">;</span>
-<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="w">    </span><span class="c1">// 循环查找，越过叶节点后跳出</span>
-<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">clone</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="w">        </span><span class="c1">// 找到待删除节点，跳出循环</span>
-<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
-<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a><span class="w">        </span><span class="c1">// 待删除节点在 cur 的右子树中</span>
-<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a><span class="w">        </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
-<a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">right</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
-<a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a><span class="w">        </span><span class="c1">// 待删除节点在 cur 的左子树中</span>
-<a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">left</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
-<a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-35-25" name="__codelineno-35-25" href="#__codelineno-35-25"></a><span class="w">    </span><span class="c1">// 若无待删除节点，则直接返回</span>
-<a id="__codelineno-35-26" name="__codelineno-35-26" href="#__codelineno-35-26"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">is_none</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-27" name="__codelineno-35-27" href="#__codelineno-35-27"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
-<a id="__codelineno-35-28" name="__codelineno-35-28" href="#__codelineno-35-28"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-35-29" name="__codelineno-35-29" href="#__codelineno-35-29"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
-<a id="__codelineno-35-30" name="__codelineno-35-30" href="#__codelineno-35-30"></a><span class="w">    </span><span class="c1">// 子节点数量 = 0 or 1</span>
-<a id="__codelineno-35-31" name="__codelineno-35-31" href="#__codelineno-35-31"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">left</span><span class="p">.</span><span class="n">is_none</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">right</span><span class="p">.</span><span class="n">is_none</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-32" name="__codelineno-35-32" href="#__codelineno-35-32"></a><span class="w">        </span><span class="c1">// 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点</span>
-<a id="__codelineno-35-33" name="__codelineno-35-33" href="#__codelineno-35-33"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">left</span><span class="p">.</span><span class="n">clone</span><span class="p">().</span><span class="n">or_else</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">right</span><span class="p">.</span><span class="n">clone</span><span class="p">());</span>
-<a id="__codelineno-35-34" name="__codelineno-35-34" href="#__codelineno-35-34"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pre</span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
-<a id="__codelineno-35-35" name="__codelineno-35-35" href="#__codelineno-35-35"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pre</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">left</span><span class="p">.</span><span class="n">clone</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span>
-<a id="__codelineno-35-36" name="__codelineno-35-36" href="#__codelineno-35-36"></a><span class="w">        </span><span class="c1">// 删除节点 cur</span>
-<a id="__codelineno-35-37" name="__codelineno-35-37" href="#__codelineno-35-37"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="n">Rc</span>::<span class="n">ptr_eq</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cur</span><span class="p">,</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">root</span><span class="p">.</span><span class="n">as_ref</span><span class="p">().</span><span class="n">unwrap</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-38" name="__codelineno-35-38" href="#__codelineno-35-38"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">Rc</span>::<span class="n">ptr_eq</span><span class="p">(</span><span class="o">&amp;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cur</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-39" name="__codelineno-35-39" href="#__codelineno-35-39"></a><span class="w">                </span><span class="n">pre</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
-<a id="__codelineno-35-40" name="__codelineno-35-40" href="#__codelineno-35-40"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-41" name="__codelineno-35-41" href="#__codelineno-35-41"></a><span class="w">                </span><span class="n">pre</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
-<a id="__codelineno-35-42" name="__codelineno-35-42" href="#__codelineno-35-42"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-35-43" name="__codelineno-35-43" href="#__codelineno-35-43"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-44" name="__codelineno-35-44" href="#__codelineno-35-44"></a><span class="w">            </span><span class="c1">// 若删除节点为根节点，则重新指定根节点</span>
-<a id="__codelineno-35-45" name="__codelineno-35-45" href="#__codelineno-35-45"></a><span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
-<a id="__codelineno-35-46" name="__codelineno-35-46" href="#__codelineno-35-46"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-35-47" name="__codelineno-35-47" href="#__codelineno-35-47"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-35-48" name="__codelineno-35-48" href="#__codelineno-35-48"></a><span class="w">    </span><span class="c1">// 子节点数量 = 2</span>
-<a id="__codelineno-35-49" name="__codelineno-35-49" href="#__codelineno-35-49"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-50" name="__codelineno-35-50" href="#__codelineno-35-50"></a><span class="w">        </span><span class="c1">// 获取中序遍历中 cur 的下一个节点</span>
-<a id="__codelineno-35-51" name="__codelineno-35-51" href="#__codelineno-35-51"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">right</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
-<a id="__codelineno-35-52" name="__codelineno-35-52" href="#__codelineno-35-52"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="n">clone</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-53" name="__codelineno-35-53" href="#__codelineno-35-53"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">left</span><span class="p">.</span><span class="n">is_some</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-54" name="__codelineno-35-54" href="#__codelineno-35-54"></a><span class="w">                </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">left</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
-<a id="__codelineno-35-55" name="__codelineno-35-55" href="#__codelineno-35-55"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-56" name="__codelineno-35-56" href="#__codelineno-35-56"></a><span class="w">                </span><span class="k">break</span><span class="p">;</span>
-<a id="__codelineno-35-57" name="__codelineno-35-57" href="#__codelineno-35-57"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-35-58" name="__codelineno-35-58" href="#__codelineno-35-58"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-35-59" name="__codelineno-35-59" href="#__codelineno-35-59"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">tmpval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="n">unwrap</span><span class="p">().</span><span class="n">borrow</span><span class="p">().</span><span class="n">val</span><span class="p">;</span>
-<a id="__codelineno-35-60" name="__codelineno-35-60" href="#__codelineno-35-60"></a><span class="w">        </span><span class="c1">// 递归删除节点 tmp</span>
-<a id="__codelineno-35-61" name="__codelineno-35-61" href="#__codelineno-35-61"></a><span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tmpval</span><span class="p">);</span>
-<a id="__codelineno-35-62" name="__codelineno-35-62" href="#__codelineno-35-62"></a><span class="w">        </span><span class="c1">// 用 tmp 覆盖 cur</span>
-<a id="__codelineno-35-63" name="__codelineno-35-63" href="#__codelineno-35-63"></a><span class="w">        </span><span class="n">cur</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmpval</span><span class="p">;</span>
-<a id="__codelineno-35-64" name="__codelineno-35-64" href="#__codelineno-35-64"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-35-65" name="__codelineno-35-65" href="#__codelineno-35-65"></a><span class="p">}</span>
+<div class="highlight"><span class="filename">binary_search_tree.rs</span><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="cm">/* 删除节点 */</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">remove</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">num</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">    </span><span class="c1">// 若树为空，直接提前返回</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">root</span><span class="p">.</span><span class="n">is_none</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">root</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">None</span><span class="p">;</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="w">    </span><span class="c1">// 循环查找，越过叶节点后跳出</span>
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">clone</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a><span class="w">        </span><span class="c1">// 找到待删除节点，跳出循环</span>
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a><span class="w">        </span><span class="c1">// 待删除节点在 cur 的右子树中</span>
+<a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a><span class="w">        </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
+<a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">right</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
+<a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-34-20" name="__codelineno-34-20" href="#__codelineno-34-20"></a><span class="w">        </span><span class="c1">// 待删除节点在 cur 的左子树中</span>
+<a id="__codelineno-34-21" name="__codelineno-34-21" href="#__codelineno-34-21"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-22" name="__codelineno-34-22" href="#__codelineno-34-22"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">left</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
+<a id="__codelineno-34-23" name="__codelineno-34-23" href="#__codelineno-34-23"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-34-24" name="__codelineno-34-24" href="#__codelineno-34-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-34-25" name="__codelineno-34-25" href="#__codelineno-34-25"></a><span class="w">    </span><span class="c1">// 若无待删除节点，则直接返回</span>
+<a id="__codelineno-34-26" name="__codelineno-34-26" href="#__codelineno-34-26"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">is_none</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-27" name="__codelineno-34-27" href="#__codelineno-34-27"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-34-28" name="__codelineno-34-28" href="#__codelineno-34-28"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-34-29" name="__codelineno-34-29" href="#__codelineno-34-29"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
+<a id="__codelineno-34-30" name="__codelineno-34-30" href="#__codelineno-34-30"></a><span class="w">    </span><span class="c1">// 子节点数量 = 0 or 1</span>
+<a id="__codelineno-34-31" name="__codelineno-34-31" href="#__codelineno-34-31"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">left</span><span class="p">.</span><span class="n">is_none</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">right</span><span class="p">.</span><span class="n">is_none</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-32" name="__codelineno-34-32" href="#__codelineno-34-32"></a><span class="w">        </span><span class="c1">// 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点</span>
+<a id="__codelineno-34-33" name="__codelineno-34-33" href="#__codelineno-34-33"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">left</span><span class="p">.</span><span class="n">clone</span><span class="p">().</span><span class="n">or_else</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">right</span><span class="p">.</span><span class="n">clone</span><span class="p">());</span>
+<a id="__codelineno-34-34" name="__codelineno-34-34" href="#__codelineno-34-34"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pre</span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
+<a id="__codelineno-34-35" name="__codelineno-34-35" href="#__codelineno-34-35"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pre</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">left</span><span class="p">.</span><span class="n">clone</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span>
+<a id="__codelineno-34-36" name="__codelineno-34-36" href="#__codelineno-34-36"></a><span class="w">        </span><span class="c1">// 删除节点 cur</span>
+<a id="__codelineno-34-37" name="__codelineno-34-37" href="#__codelineno-34-37"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="n">Rc</span>::<span class="n">ptr_eq</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cur</span><span class="p">,</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">root</span><span class="p">.</span><span class="n">as_ref</span><span class="p">().</span><span class="n">unwrap</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-38" name="__codelineno-34-38" href="#__codelineno-34-38"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">Rc</span>::<span class="n">ptr_eq</span><span class="p">(</span><span class="o">&amp;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cur</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-39" name="__codelineno-34-39" href="#__codelineno-34-39"></a><span class="w">                </span><span class="n">pre</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<a id="__codelineno-34-40" name="__codelineno-34-40" href="#__codelineno-34-40"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-41" name="__codelineno-34-41" href="#__codelineno-34-41"></a><span class="w">                </span><span class="n">pre</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<a id="__codelineno-34-42" name="__codelineno-34-42" href="#__codelineno-34-42"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-34-43" name="__codelineno-34-43" href="#__codelineno-34-43"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-44" name="__codelineno-34-44" href="#__codelineno-34-44"></a><span class="w">            </span><span class="c1">// 若删除节点为根节点，则重新指定根节点</span>
+<a id="__codelineno-34-45" name="__codelineno-34-45" href="#__codelineno-34-45"></a><span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<a id="__codelineno-34-46" name="__codelineno-34-46" href="#__codelineno-34-46"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-34-47" name="__codelineno-34-47" href="#__codelineno-34-47"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-34-48" name="__codelineno-34-48" href="#__codelineno-34-48"></a><span class="w">    </span><span class="c1">// 子节点数量 = 2</span>
+<a id="__codelineno-34-49" name="__codelineno-34-49" href="#__codelineno-34-49"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-50" name="__codelineno-34-50" href="#__codelineno-34-50"></a><span class="w">        </span><span class="c1">// 获取中序遍历中 cur 的下一个节点</span>
+<a id="__codelineno-34-51" name="__codelineno-34-51" href="#__codelineno-34-51"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">right</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
+<a id="__codelineno-34-52" name="__codelineno-34-52" href="#__codelineno-34-52"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="n">clone</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-53" name="__codelineno-34-53" href="#__codelineno-34-53"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">left</span><span class="p">.</span><span class="n">is_some</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-54" name="__codelineno-34-54" href="#__codelineno-34-54"></a><span class="w">                </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">left</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
+<a id="__codelineno-34-55" name="__codelineno-34-55" href="#__codelineno-34-55"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-56" name="__codelineno-34-56" href="#__codelineno-34-56"></a><span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-34-57" name="__codelineno-34-57" href="#__codelineno-34-57"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-34-58" name="__codelineno-34-58" href="#__codelineno-34-58"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-34-59" name="__codelineno-34-59" href="#__codelineno-34-59"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">tmpval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="n">unwrap</span><span class="p">().</span><span class="n">borrow</span><span class="p">().</span><span class="n">val</span><span class="p">;</span>
+<a id="__codelineno-34-60" name="__codelineno-34-60" href="#__codelineno-34-60"></a><span class="w">        </span><span class="c1">// 递归删除节点 tmp</span>
+<a id="__codelineno-34-61" name="__codelineno-34-61" href="#__codelineno-34-61"></a><span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tmpval</span><span class="p">);</span>
+<a id="__codelineno-34-62" name="__codelineno-34-62" href="#__codelineno-34-62"></a><span class="w">        </span><span class="c1">// 用 tmp 覆盖 cur</span>
+<a id="__codelineno-34-63" name="__codelineno-34-63" href="#__codelineno-34-63"></a><span class="w">        </span><span class="n">cur</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmpval</span><span class="p">;</span>
+<a id="__codelineno-34-64" name="__codelineno-34-64" href="#__codelineno-34-64"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-34-65" name="__codelineno-34-65" href="#__codelineno-34-65"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -4780,7 +4902,7 @@
 <p>我们知道，二叉树的中序遍历遵循“左 <span class="arithmatex">\(\rightarrow\)</span> 根 <span class="arithmatex">\(\rightarrow\)</span> 右”的遍历顺序，而二叉搜索树满足“左子节点 <span class="arithmatex">\(&lt;\)</span> 根节点 <span class="arithmatex">\(&lt;\)</span> 右子节点”的大小关系。因此，在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小节点，从而得出一个重要性质：<strong>二叉搜索树的中序遍历序列是升序的</strong>。</p>
 <p>利用中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 <span class="arithmatex">\(O(n)\)</span> 时间，无需额外排序，非常高效。</p>
 <p><img alt="二叉搜索树的中序遍历序列" src="../binary_search_tree.assets/bst_inorder_traversal.png" /></p>
-<p align="center"> Fig. 二叉搜索树的中序遍历序列 </p>
+<p align="center"> 图：二叉搜索树的中序遍历序列 </p>
 
 <h2 id="742">7.4.2. &nbsp; 二叉搜索树的效率<a class="headerlink" href="#742" title="Permanent link">&para;</a></h2>
 <p>给定一组数据，我们考虑使用数组或二叉搜索树存储。</p>
@@ -4816,7 +4938,7 @@
 <p>在理想情况下，二叉搜索树是“平衡”的，这样就可以在 <span class="arithmatex">\(\log n\)</span> 轮循环内查找任意节点。</p>
 <p>然而，如果我们在二叉搜索树中不断地插入和删除节点，可能导致二叉树退化为链表，这时各种操作的时间复杂度也会退化为 <span class="arithmatex">\(O(n)\)</span> 。</p>
 <p><img alt="二叉搜索树的平衡与退化" src="../binary_search_tree.assets/bst_degradation.png" /></p>
-<p align="center"> Fig. 二叉搜索树的平衡与退化 </p>
+<p align="center"> 图：二叉搜索树的平衡与退化 </p>
 
 <h2 id="743">7.4.3. &nbsp; 二叉搜索树常见应用<a class="headerlink" href="#743" title="Permanent link">&para;</a></h2>
 <ul>

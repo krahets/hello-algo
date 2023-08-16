@@ -3436,7 +3436,7 @@
 <li>按照桶的从小到大的顺序，合并结果。</li>
 </ol>
 <p><img alt="桶排序算法流程" src="../bucket_sort.assets/bucket_sort_overview.png" /></p>
-<p align="center"> Fig. 桶排序算法流程 </p>
+<p align="center"> 图：桶排序算法流程 </p>
 
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
@@ -3805,11 +3805,11 @@
 <p>桶排序的时间复杂度理论上可以达到 <span class="arithmatex">\(O(n)\)</span> ，<strong>关键在于将元素均匀分配到各个桶中</strong>，因为实际数据往往不是均匀分布的。例如，我们想要将淘宝上的所有商品按价格范围平均分配到 10 个桶中，但商品价格分布不均，低于 100 元的非常多，高于 1000 元的非常少。若将价格区间平均划分为 10 份，各个桶中的商品数量差距会非常大。</p>
 <p>为实现平均分配，我们可以先设定一个大致的分界线，将数据粗略地分到 3 个桶中。<strong>分配完毕后，再将商品较多的桶继续划分为 3 个桶，直至所有桶中的元素数量大致相等</strong>。这种方法本质上是创建一个递归树，使叶节点的值尽可能平均。当然，不一定要每轮将数据划分为 3 个桶，具体划分方式可根据数据特点灵活选择。</p>
 <p><img alt="递归划分桶" src="../bucket_sort.assets/scatter_in_buckets_recursively.png" /></p>
-<p align="center"> Fig. 递归划分桶 </p>
+<p align="center"> 图：递归划分桶 </p>
 
 <p>如果我们提前知道商品价格的概率分布，<strong>则可以根据数据概率分布设置每个桶的价格分界线</strong>。值得注意的是，数据分布并不一定需要特意统计，也可以根据数据特点采用某种概率模型进行近似。如下图所示，我们假设商品价格服从正态分布，这样就可以合理地设定价格区间，从而将商品平均分配到各个桶中。</p>
 <p><img alt="根据概率分布划分桶" src="../bucket_sort.assets/scatter_in_buckets_distribution.png" /></p>
-<p align="center"> Fig. 根据概率分布划分桶 </p>
+<p align="center"> 图：根据概率分布划分桶 </p>
 
 
 

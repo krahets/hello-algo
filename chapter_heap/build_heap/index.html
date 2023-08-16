@@ -3567,7 +3567,7 @@
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="n">_maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">;</span>
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="c1">// 堆化除叶节点以外的其他所有节点</span>
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_parent</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="n">_siftDown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="n">siftDown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">}</span>
 </code></pre></div>
@@ -3596,7 +3596,7 @@
 <p>将上述两者相乘，可得到建堆过程的时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。<strong>然而，这个估算结果并不准确，因为我们没有考虑到二叉树底层节点数量远多于顶层节点的特性</strong>。</p>
 <p>接下来我们来进行更为详细的计算。为了减小计算难度，我们假设树是一个“完美二叉树”，该假设不会影响计算结果的正确性。设二叉树（即堆）节点数量为 <span class="arithmatex">\(n\)</span> ，树高度为 <span class="arithmatex">\(h\)</span> 。上文提到，<strong>节点堆化最大迭代次数等于该节点到叶节点的距离，而该距离正是“节点高度”</strong>。</p>
 <p><img alt="完美二叉树的各层节点数量" src="../build_heap.assets/heapify_operations_count.png" /></p>
-<p align="center"> Fig. 完美二叉树的各层节点数量 </p>
+<p align="center"> 图：完美二叉树的各层节点数量 </p>
 
 <p>因此，我们可以将各层的“节点数量 <span class="arithmatex">\(\times\)</span> 节点高度”求和，<strong>从而得到所有节点的堆化迭代次数的总和</strong>。</p>
 <div class="arithmatex">\[

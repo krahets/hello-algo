@@ -3453,7 +3453,7 @@
 <p>给定一个二叉树的前序遍历 <code>preorder</code> 和中序遍历 <code>inorder</code> ，请从中构建二叉树，返回二叉树的根节点。</p>
 </div>
 <p><img alt="构建二叉树的示例数据" src="../build_binary_tree_problem.assets/build_tree_example.png" /></p>
-<p align="center"> Fig. 构建二叉树的示例数据 </p>
+<p align="center"> 图：构建二叉树的示例数据 </p>
 
 <h3 id="_1">判断是否为分治问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>原问题定义为从 <code>preorder</code> 和 <code>inorder</code> 构建二叉树。我们首先从分治的角度分析这道题：</p>
@@ -3476,7 +3476,7 @@
 <li>根据 <code>inorder</code> 划分结果，易得左子树和右子树的节点数量分别为 1 和 3 ，从而可将 <code>preorder</code> 划分为 <code>[ 3 | 9 | 2 1 7 ]</code> 。</li>
 </ol>
 <p><img alt="在前序和中序遍历中划分子树" src="../build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png" /></p>
-<p align="center"> Fig. 在前序和中序遍历中划分子树 </p>
+<p align="center"> 图：在前序和中序遍历中划分子树 </p>
 
 <h3 id="_3">基于变量描述子树区间<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>根据以上划分方法，<strong>我们已经得到根节点、左子树、右子树在 <code>preorder</code> 和 <code>inorder</code> 中的索引区间</strong>。而为了描述这些索引区间，我们需要借助几个指针变量：</p>
@@ -3516,7 +3516,7 @@
 </div>
 <p>请注意，右子树根节点索引中的 <span class="arithmatex">\((m-l)\)</span> 的含义是“左子树的节点数量”，建议配合下图理解。</p>
 <p><img alt="根节点和左右子树的索引区间表示" src="../build_binary_tree_problem.assets/build_tree_division_pointers.png" /></p>
-<p align="center"> Fig. 根节点和左右子树的索引区间表示 </p>
+<p align="center"> 图：根节点和左右子树的索引区间表示 </p>
 
 <h3 id="_4">代码实现<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>为了提升查询 <span class="arithmatex">\(m\)</span> 的效率，我们借助一个哈希表 <code>hmap</code> 来存储数组 <code>inorder</code> 中元素到索引的映射。</p>
@@ -3863,6 +3863,8 @@
 </div>
 </div>
 </div>
+<p align="center"> 图：构建二叉树的递归过程 </p>
+
 <p>设树的节点数量为 <span class="arithmatex">\(n\)</span> ，初始化每一个节点（执行一个递归函数 <code>dfs()</code> ）使用 <span class="arithmatex">\(O(1)\)</span> 时间。<strong>因此总体时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。</p>
 <p>哈希表存储 <code>inorder</code> 元素到索引的映射，空间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。最差情况下，即二叉树退化为链表时，递归深度达到 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 的栈帧空间。<strong>因此总体空间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。</p>
 

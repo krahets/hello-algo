@@ -3561,7 +3561,7 @@
 <p>给定 <span class="arithmatex">\(n\)</span> 个物品，第 <span class="arithmatex">\(i\)</span> 个物品的重量为 <span class="arithmatex">\(wgt[i-1]\)</span> 、价值为 <span class="arithmatex">\(val[i-1]\)</span> ，和一个容量为 <span class="arithmatex">\(cap\)</span> 的背包。<strong>每个物品可以重复选取</strong>，问在不超过背包容量下能放入物品的最大价值。</p>
 </div>
 <p><img alt="完全背包问题的示例数据" src="../unbounded_knapsack_problem.assets/unbounded_knapsack_example.png" /></p>
-<p align="center"> Fig. 完全背包问题的示例数据 </p>
+<p align="center"> 图：完全背包问题的示例数据 </p>
 
 <p>完全背包和 0-1 背包问题非常相似，<strong>区别仅在于不限制物品的选择次数</strong>。</p>
 <ul>
@@ -3817,6 +3817,8 @@ dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
+<p align="center"> 图：完全背包的状态压缩后的动态规划过程 </p>
+
 <p>代码实现比较简单，仅需将数组 <code>dp</code> 的第一维删除。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
@@ -4036,7 +4038,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 <p>给定 <span class="arithmatex">\(n\)</span> 种硬币，第 <span class="arithmatex">\(i\)</span> 种硬币的面值为 <span class="arithmatex">\(coins[i - 1]\)</span> ，目标金额为 <span class="arithmatex">\(amt\)</span> ，<strong>每种硬币可以重复选取</strong>，问能够凑出目标金额的最少硬币个数。如果无法凑出目标金额则返回 <span class="arithmatex">\(-1\)</span> 。</p>
 </div>
 <p><img alt="零钱兑换问题的示例数据" src="../unbounded_knapsack_problem.assets/coin_change_example.png" /></p>
-<p align="center"> Fig. 零钱兑换问题的示例数据 </p>
+<p align="center"> 图：零钱兑换问题的示例数据 </p>
 
 <p><strong>零钱兑换可以看作是完全背包的一种特殊情况</strong>，两者具有以下联系与不同点：</p>
 <ul>
@@ -4377,6 +4379,8 @@ dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
 </div>
 </div>
 </div>
+<p align="center"> 图：零钱兑换问题的动态规划过程 </p>
+
 <h3 id="_4">状态压缩<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>零钱兑换的状态压缩的处理方式和完全背包一致。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Python</label><label for="__tabbed_6_4">Go</label><label for="__tabbed_6_5">JS</label><label for="__tabbed_6_6">TS</label><label for="__tabbed_6_7">C</label><label for="__tabbed_6_8">C#</label><label for="__tabbed_6_9">Swift</label><label for="__tabbed_6_10">Zig</label><label for="__tabbed_6_11">Dart</label><label for="__tabbed_6_12">Rust</label></div>
@@ -4628,7 +4632,7 @@ dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
 <p>给定 <span class="arithmatex">\(n\)</span> 种硬币，第 <span class="arithmatex">\(i\)</span> 种硬币的面值为 <span class="arithmatex">\(coins[i - 1]\)</span> ，目标金额为 <span class="arithmatex">\(amt\)</span> ，每种硬币可以重复选取，<strong>问在凑出目标金额的硬币组合数量</strong>。</p>
 </div>
 <p><img alt="零钱兑换问题 II 的示例数据" src="../unbounded_knapsack_problem.assets/coin_change_ii_example.png" /></p>
-<p align="center"> Fig. 零钱兑换问题 II 的示例数据 </p>
+<p align="center"> 图：零钱兑换问题 II 的示例数据 </p>
 
 <p>相比于上一题，本题目标是组合数量，因此子问题变为：<strong>前 <span class="arithmatex">\(i\)</span> 种硬币能够凑出金额 <span class="arithmatex">\(a\)</span> 的组合数量</strong>。而 <span class="arithmatex">\(dp\)</span> 表仍然是尺寸为 <span class="arithmatex">\((n+1) \times (amt + 1)\)</span> 的二维矩阵。</p>
 <p>当前状态的组合数量等于不选当前硬币与选当前硬币这两种决策的组合数量之和。状态转移方程为：</p>

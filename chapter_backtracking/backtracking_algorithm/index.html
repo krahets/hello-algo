@@ -3637,7 +3637,7 @@
 </div>
 </div>
 <p><img alt="在前序遍历中搜索节点" src="../backtracking_algorithm.assets/preorder_find_nodes.png" /></p>
-<p align="center"> Fig. 在前序遍历中搜索节点 </p>
+<p align="center"> 图：在前序遍历中搜索节点 </p>
 
 <h2 id="1311">13.1.1. &nbsp; 尝试与回退<a class="headerlink" href="#1311" title="Permanent link">&para;</a></h2>
 <p><strong>之所以称之为回溯算法，是因为该算法在搜索解空间时会采用“尝试”与“回退”的策略</strong>。当算法在搜索过程中遇到某个状态无法继续前进或无法得到满足条件的解时，它会撤销上一步的选择，退回到之前的状态，并尝试其他可能的选择。</p>
@@ -3918,6 +3918,8 @@
 </div>
 </div>
 </div>
+<p align="center"> 图：尝试与回退 </p>
+
 <h2 id="1312">13.1.2. &nbsp; 剪枝<a class="headerlink" href="#1312" title="Permanent link">&para;</a></h2>
 <p>复杂的回溯问题通常包含一个或多个约束条件，<strong>约束条件通常可用于“剪枝”</strong>。</p>
 <div class="admonition question">
@@ -4189,7 +4191,7 @@
 </div>
 <p>剪枝是一个非常形象的名词。在搜索过程中，<strong>我们“剪掉”了不满足约束条件的搜索分支</strong>，避免许多无意义的尝试，从而实现搜索效率的提高。</p>
 <p><img alt="根据约束条件剪枝" src="../backtracking_algorithm.assets/preorder_find_constrained_paths.png" /></p>
-<p align="center"> Fig. 根据约束条件剪枝 </p>
+<p align="center"> 图：根据约束条件剪枝 </p>
 
 <h2 id="1313">13.1.3. &nbsp; 框架代码<a class="headerlink" href="#1313" title="Permanent link">&para;</a></h2>
 <p>接下来，我们尝试将回溯的“尝试、回退、剪枝”的主体框架提炼出来，提升代码的通用性。</p>
@@ -5003,7 +5005,7 @@
 </div>
 <p>根据题意，当找到值为 7 的节点后应该继续搜索，<strong>因此我们需要将记录解之后的 <code>return</code> 语句删除</strong>。下图对比了保留或删除 <code>return</code> 语句的搜索过程。</p>
 <p><img alt="保留与删除 return 的搜索过程对比" src="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png" /></p>
-<p align="center"> Fig. 保留与删除 return 的搜索过程对比 </p>
+<p align="center"> 图：保留与删除 return 的搜索过程对比 </p>
 
 <p>相比基于前序遍历的代码实现，基于回溯算法框架的代码实现虽然显得啰嗦，但通用性更好。实际上，<strong>许多回溯问题都可以在该框架下解决</strong>。我们只需根据具体问题来定义 <code>state</code> 和 <code>choices</code> ，并实现框架中的各个方法即可。</p>
 <h2 id="1314">13.1.4. &nbsp; 常用术语<a class="headerlink" href="#1314" title="Permanent link">&para;</a></h2>

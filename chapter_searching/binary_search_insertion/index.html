@@ -3427,7 +3427,7 @@
 <p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的有序数组 <code>nums</code> 和一个元素 <code>target</code> ，数组不存在重复元素。现将 <code>target</code> 插入到数组 <code>nums</code> 中，并保持其有序性。若数组中已存在元素 <code>target</code> ，则插入到其左方。请返回插入后 <code>target</code> 在数组中的索引。</p>
 </div>
 <p><img alt="二分查找插入点示例数据" src="../binary_search_insertion.assets/binary_search_insertion_example.png" /></p>
-<p align="center"> Fig. 二分查找插入点示例数据 </p>
+<p align="center"> 图：二分查找插入点示例数据 </p>
 
 <p>如果想要复用上节的二分查找代码，则需要回答以下两个问题。</p>
 <p><strong>问题一</strong>：当数组中包含 <code>target</code> 时，插入点的索引是否是该元素的索引？</p>
@@ -3586,7 +3586,7 @@
 <li>从索引 <span class="arithmatex">\(k\)</span> 开始，向左进行线性遍历，当找到最左边的 <code>target</code> 时返回。</li>
 </ol>
 <p><img alt="线性查找重复元素的插入点" src="../binary_search_insertion.assets/binary_search_insertion_naive.png" /></p>
-<p align="center"> Fig. 线性查找重复元素的插入点 </p>
+<p align="center"> 图：线性查找重复元素的插入点 </p>
 
 <p>此方法虽然可用，但其包含线性查找，因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。当数组中存在很多重复的 <code>target</code> 时，该方法效率很低。</p>
 <p>现考虑修改二分查找代码。整体流程不变，每轮先计算中点索引 <span class="arithmatex">\(m\)</span> ，再判断 <code>target</code> 和 <code>nums[m]</code> 大小关系：</p>
@@ -3623,6 +3623,8 @@
 </div>
 </div>
 </div>
+<p align="center"> 图：二分查找重复元素的插入点的步骤 </p>
+
 <p>观察以下代码，判断分支 <code>nums[m] &gt; target</code> 和 <code>nums[m] == target</code> 的操作相同，因此两者可以合并。</p>
 <p>即便如此，我们仍然可以将判断条件保持展开，因为其逻辑更加清晰、可读性更好。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>

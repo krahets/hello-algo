@@ -3440,7 +3440,7 @@
 <p>给定 <span class="arithmatex">\(n\)</span> 个物品，第 <span class="arithmatex">\(i\)</span> 个物品的重量为 <span class="arithmatex">\(wgt[i-1]\)</span> 、价值为 <span class="arithmatex">\(val[i-1]\)</span> ，和一个容量为 <span class="arithmatex">\(cap\)</span> 的背包。每个物品只能选择一次，<strong>但可以选择物品的一部分，价值根据选择的重量比例计算</strong>，问在不超过背包容量下背包中物品的最大价值。</p>
 </div>
 <p><img alt="分数背包问题的示例数据" src="../fractional_knapsack_problem.assets/fractional_knapsack_example.png" /></p>
-<p align="center"> Fig. 分数背包问题的示例数据 </p>
+<p align="center"> 图：分数背包问题的示例数据 </p>
 
 <p>本题和 0-1 背包整体上非常相似，状态包含当前物品 <span class="arithmatex">\(i\)</span> 和容量 <span class="arithmatex">\(c\)</span> ，目标是求不超过背包容量下的最大价值。</p>
 <p>不同点在于，本题允许只选择物品的一部分，<strong>这意味着可以对物品任意地进行切分，并按照重量比例来计算物品价值</strong>，因此有：</p>
@@ -3449,7 +3449,7 @@
 <li>假设放入一部分物品 <span class="arithmatex">\(i\)</span> ，重量为 <span class="arithmatex">\(w\)</span> ，则背包增加的价值为 <span class="arithmatex">\(w \times val[i-1] / wgt[i-1]\)</span> 。</li>
 </ol>
 <p><img alt="物品在单位重量下的价值" src="../fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" /></p>
-<p align="center"> Fig. 物品在单位重量下的价值 </p>
+<p align="center"> 图：物品在单位重量下的价值 </p>
 
 <h3 id="_1">贪心策略确定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>最大化背包内物品总价值，<strong>本质上是要最大化单位重量下的物品价值</strong>。由此便可推出本题的贪心策略：</p>
@@ -3459,7 +3459,7 @@
 <li>若剩余背包容量不足，则使用当前物品的一部分填满背包即可。</li>
 </ol>
 <p><img alt="分数背包的贪心策略" src="../fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" /></p>
-<p align="center"> Fig. 分数背包的贪心策略 </p>
+<p align="center"> 图：分数背包的贪心策略 </p>
 
 <h3 id="_2">代码实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>我们建立了一个物品类 <code>Item</code> ，以便将物品按照单位价值进行排序。循环进行贪心选择，当背包已满时跳出并返回解。</p>
@@ -3765,7 +3765,7 @@
 <p>如下图所示，如果将物品重量和物品单位价值分别看作一个 2D 图表的横轴和纵轴，则分数背包问题可被转化为“求在有限横轴区间下的最大围成面积”。</p>
 <p>通过这个类比，我们可以从几何角度理解贪心策略的有效性。</p>
 <p><img alt="分数背包问题的几何表示" src="../fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png" /></p>
-<p align="center"> Fig. 分数背包问题的几何表示 </p>
+<p align="center"> 图：分数背包问题的几何表示 </p>
 
 
 

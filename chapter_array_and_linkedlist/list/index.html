@@ -980,11 +980,59 @@
     4.3.1. &nbsp; 列表常用操作
   </a>
   
+    <nav class="md-nav" aria-label="4.3.1.   列表常用操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    初始化列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    访问元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    插入与删除元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    遍历列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    拼接列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    排序列表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#432" class="md-nav__link">
-    4.3.2. &nbsp; 列表实现 *
+    4.3.2. &nbsp; 列表实现
   </a>
   
 </li>
@@ -3379,11 +3427,59 @@
     4.3.1. &nbsp; 列表常用操作
   </a>
   
+    <nav class="md-nav" aria-label="4.3.1.   列表常用操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    初始化列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    访问元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    插入与删除元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    遍历列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    拼接列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    排序列表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#432" class="md-nav__link">
-    4.3.2. &nbsp; 列表实现 *
+    4.3.2. &nbsp; 列表实现
   </a>
   
 </li>
@@ -3412,10 +3508,11 @@
 
 
 <h1 id="43">4.3. &nbsp; 列表<a class="headerlink" href="#43" title="Permanent link">&para;</a></h1>
-<p><strong>数组长度不可变导致实用性降低</strong>。在许多情况下，我们事先无法确定需要存储多少数据，这使数组长度的选择变得困难。若长度过小，需要在持续添加数据时频繁扩容数组；若长度过大，则会造成内存空间的浪费。</p>
-<p>为解决此问题，出现了一种被称为「动态数组 Dynamic Array」的数据结构，即长度可变的数组，也常被称为「列表 List」。列表基于数组实现，继承了数组的优点，并且可以在程序运行过程中动态扩容。在列表中，我们可以自由添加元素，而无需担心超过容量限制。</p>
+<p><strong>数组长度不可变导致实用性降低</strong>。在实际中，我们可能事先无法确定需要存储多少数据，这使数组长度的选择变得困难。若长度过小，需要在持续添加数据时频繁扩容数组；若长度过大，则会造成内存空间的浪费。</p>
+<p>为解决此问题，出现了一种被称为「动态数组 Dynamic Array」的数据结构，即长度可变的数组，也常被称为「列表 List」。列表基于数组实现，继承了数组的优点，并且可以在程序运行过程中动态扩容。我们可以在列表中自由地添加元素，而无需担心超过容量限制。</p>
 <h2 id="431">4.3.1. &nbsp; 列表常用操作<a class="headerlink" href="#431" title="Permanent link">&para;</a></h2>
-<p><strong>初始化列表</strong>。通常我们会使用“无初始值”和“有初始值”的两种初始化方法。</p>
+<h3 id="_1">初始化列表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>我们通常使用“无初始值”和“有初始值”这两种初始化方法。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3514,7 +3611,8 @@
 </div>
 </div>
 </div>
-<p><strong>访问与更新元素</strong>。由于列表的底层数据结构是数组，因此可以在 <span class="arithmatex">\(O(1)\)</span> 时间内访问和更新元素，效率很高。</p>
+<h3 id="_2">访问元素<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>列表本质上是数组，因此可以在 <span class="arithmatex">\(O(1)\)</span> 时间内访问和更新元素，效率很高。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3610,7 +3708,8 @@
 </div>
 </div>
 </div>
-<p><strong>在列表中添加、插入、删除元素</strong>。相较于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 <span class="arithmatex">\(O(1)\)</span> ，但插入和删除元素的效率仍与数组相同，时间复杂度为 <span class="arithmatex">\(O(N)\)</span> 。</p>
+<h3 id="_3">插入与删除元素<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>相较于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 <span class="arithmatex">\(O(1)\)</span> ，但插入和删除元素的效率仍与数组相同，时间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3817,7 +3916,8 @@
 </div>
 </div>
 </div>
-<p><strong>遍历列表</strong>。与数组一样，列表可以根据索引遍历，也可以直接遍历各元素。</p>
+<h3 id="_4">遍历列表<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>与数组一样，列表可以根据索引遍历，也可以直接遍历各元素。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:12"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JS</label><label for="__tabbed_4_6">TS</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label><label for="__tabbed_4_11">Dart</label><label for="__tabbed_4_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3979,7 +4079,8 @@
 </div>
 </div>
 </div>
-<p><strong>拼接两个列表</strong>。给定一个新列表 <code>list1</code> ，我们可以将该列表拼接到原列表的尾部。</p>
+<h3 id="_5">拼接列表<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>给定一个新列表 <code>list1</code> ，我们可以将该列表拼接到原列表的尾部。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label><label for="__tabbed_5_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4057,7 +4158,8 @@
 </div>
 </div>
 </div>
-<p><strong>排序列表</strong>。排序也是常用的方法之一。完成列表排序后，我们便可以使用在数组类算法题中经常考察的「二分查找」和「双指针」算法。</p>
+<h3 id="_6">排序列表<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>完成列表排序后，我们便可以使用在数组类算法题中经常考察的“二分查找”和“双指针”算法。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Python</label><label for="__tabbed_6_4">Go</label><label for="__tabbed_6_5">JS</label><label for="__tabbed_6_6">TS</label><label for="__tabbed_6_7">C</label><label for="__tabbed_6_8">C#</label><label for="__tabbed_6_9">Swift</label><label for="__tabbed_6_10">Zig</label><label for="__tabbed_6_11">Dart</label><label for="__tabbed_6_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4121,14 +4223,14 @@
 </div>
 </div>
 </div>
-<h2 id="432">4.3.2. &nbsp; 列表实现 *<a class="headerlink" href="#432" title="Permanent link">&para;</a></h2>
-<p>为了帮助加深对列表的理解，我们在此提供一个简易版列表实现。需要关注三个核心点：</p>
+<h2 id="432">4.3.2. &nbsp; 列表实现<a class="headerlink" href="#432" title="Permanent link">&para;</a></h2>
+<p>许多编程语言都提供内置的列表，例如 Java, C++, Python 等。它们的实现比较复杂，各个参数的设定也非常有考究，例如初始容量、扩容倍数等。感兴趣的读者可以查阅源码进行学习。</p>
+<p>为了帮助你理解列表的工作原理，我们在此提供一个简易版列表实现，重点包括：</p>
 <ul>
 <li><strong>初始容量</strong>：选取一个合理的数组初始容量。在本示例中，我们选择 10 作为初始容量。</li>
 <li><strong>数量记录</strong>：声明一个变量 size，用于记录列表当前元素数量，并随着元素插入和删除实时更新。根据此变量，我们可以定位列表尾部，以及判断是否需要扩容。</li>
-<li><strong>扩容机制</strong>：插入元素时可能超出列表容量，此时需要扩容列表。扩容方法是根据扩容倍数创建一个更大的数组，并将当前数组的所有元素依次移动至新数组。在本示例中，我们规定每次将数组扩容至之前的 2 倍。</li>
+<li><strong>扩容机制</strong>：若插入元素时列表容量已满，则需要进行扩容。首先根据扩容倍数创建一个更大的数组，再将当前数组的所有元素依次移动至新数组。在本示例中，我们规定每次将数组扩容至之前的 2 倍。</li>
 </ul>
-<p>本示例旨在帮助读者直观理解列表的工作机制。实际编程语言中，列表实现更加标准和复杂，各个参数的设定也非常有考究，例如初始容量、扩容倍数等。感兴趣的读者可以查阅源码进行学习。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:12"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><input id="__tabbed_7_5" name="__tabbed_7" type="radio" /><input id="__tabbed_7_6" name="__tabbed_7" type="radio" /><input id="__tabbed_7_7" name="__tabbed_7" type="radio" /><input id="__tabbed_7_8" name="__tabbed_7" type="radio" /><input id="__tabbed_7_9" name="__tabbed_7" type="radio" /><input id="__tabbed_7_10" name="__tabbed_7" type="radio" /><input id="__tabbed_7_11" name="__tabbed_7" type="radio" /><input id="__tabbed_7_12" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Java</label><label for="__tabbed_7_2">C++</label><label for="__tabbed_7_3">Python</label><label for="__tabbed_7_4">Go</label><label for="__tabbed_7_5">JS</label><label for="__tabbed_7_6">TS</label><label for="__tabbed_7_7">C</label><label for="__tabbed_7_8">C#</label><label for="__tabbed_7_9">Swift</label><label for="__tabbed_7_10">Zig</label><label for="__tabbed_7_11">Dart</label><label for="__tabbed_7_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

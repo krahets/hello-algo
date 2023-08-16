@@ -3508,15 +3508,15 @@
 
 
 <h1 id="71">7.1. &nbsp; 二叉树<a class="headerlink" href="#71" title="Permanent link">&para;</a></h1>
-<p>「二叉树 Binary Tree」是一种非线性数据结构，代表着祖先与后代之间的派生关系，体现着“一分为二”的分治逻辑。与链表类似，二叉树的基本单元是节点，每个节点包含一个「值」和两个「指针」。</p>
+<p>「二叉树 Binary Tree」是一种非线性数据结构，代表着祖先与后代之间的派生关系，体现着“一分为二”的分治逻辑。与链表类似，二叉树的基本单元是节点，每个节点包含：值、左子节点引用、右子节点引用。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/* 二叉树节点类 */</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">class</span> <span class="nc">TreeNode</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w">         </span><span class="c1">// 节点值</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w">   </span><span class="c1">// 左子节点指针</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w">  </span><span class="c1">// 右子节点指针</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w">   </span><span class="c1">// 左子节点引用</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w">  </span><span class="c1">// 右子节点引用</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">TreeNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
@@ -3536,8 +3536,8 @@
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;二叉树节点类&quot;&quot;&quot;</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">val</span>                   <span class="c1"># 节点值</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># 左子节点指针</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># 右子节点指针</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># 左子节点引用</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># 右子节点引用</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3550,9 +3550,9 @@
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="cm">/* 节点初始化方法 */</span>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kd">func</span><span class="w"> </span><span class="nx">NewTreeNode</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">TreeNode</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">TreeNode</span><span class="p">{</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="nx">Left</span><span class="p">:</span><span class="w">  </span><span class="kc">nil</span><span class="p">,</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="nx">Right</span><span class="p">:</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="nx">Val</span><span class="p">:</span><span class="w">   </span><span class="nx">v</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="nx">Left</span><span class="p">:</span><span class="w">  </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="c1">// 左子节点指针</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="nx">Right</span><span class="p">:</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="c1">// 右子节点指针</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="nx">Val</span><span class="p">:</span><span class="w">   </span><span class="nx">v</span><span class="p">,</span><span class="w">   </span><span class="c1">// 节点值</span>
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
 </code></pre></div>
@@ -3561,8 +3561,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* 二叉树节点类 */</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">left</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">val</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">val</span><span class="p">);</span><span class="w"> </span><span class="c1">// 节点值</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">left</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">left</span><span class="p">);</span><span class="w"> </span><span class="c1">// 左子节点指针</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">right</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">right</span><span class="p">);</span><span class="w"> </span><span class="c1">// 右子节点指针</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">left</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">left</span><span class="p">);</span><span class="w"> </span><span class="c1">// 左子节点引用</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">right</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">right</span><span class="p">);</span><span class="w"> </span><span class="c1">// 右子节点引用</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
 </code></pre></div>
 </div>
@@ -3575,8 +3575,8 @@
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">val?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">left?</span><span class="o">:</span><span class="w"> </span><span class="kt">TreeNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">right?</span><span class="o">:</span><span class="w"> </span><span class="kt">TreeNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">val</span><span class="p">;</span><span class="w"> </span><span class="c1">// 节点值</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">left</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">left</span><span class="p">;</span><span class="w"> </span><span class="c1">// 左子节点指针</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">right</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">right</span><span class="p">;</span><span class="w"> </span><span class="c1">// 右子节点指针</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">left</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">left</span><span class="p">;</span><span class="w"> </span><span class="c1">// 左子节点引用</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">right</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">right</span><span class="p">;</span><span class="w"> </span><span class="c1">// 右子节点引用</span>
 <a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
 </code></pre></div>
@@ -3609,8 +3609,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* 二叉树节点类 */</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">TreeNode</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w">          </span><span class="c1">// 节点值</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w">   </span><span class="c1">// 左子节点指针</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w">  </span><span class="c1">// 右子节点指针</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w">   </span><span class="c1">// 左子节点引用</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w">  </span><span class="c1">// 右子节点引用</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="n">TreeNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">}</span>
 </code></pre></div>
@@ -3619,8 +3619,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* 二叉树节点类 */</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">class</span> <span class="nc">TreeNode</span> <span class="p">{</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="kd">var</span> <span class="nv">val</span><span class="p">:</span> <span class="nb">Int</span> <span class="c1">// 节点值</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="kd">var</span> <span class="nv">left</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">?</span> <span class="c1">// 左子节点指针</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="kd">var</span> <span class="nv">right</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">?</span> <span class="c1">// 右子节点指针</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="kd">var</span> <span class="nv">left</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">?</span> <span class="c1">// 左子节点引用</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="kd">var</span> <span class="nv">right</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">?</span> <span class="c1">// 右子节点引用</span>
 <a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
 <a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="kd">init</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
 <a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        <span class="n">val</span> <span class="p">=</span> <span class="n">x</span>
@@ -3636,8 +3636,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* 二叉树节点类 */</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">TreeNode</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w">         </span><span class="c1">// 节点值</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w">  </span><span class="c1">// 左子节点指针</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"> </span><span class="c1">// 右子节点指针</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w">  </span><span class="c1">// 左子节点引用</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="n">TreeNode</span><span class="o">?</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"> </span><span class="c1">// 右子节点引用</span>
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="n">TreeNode</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">right</span><span class="p">]);</span>
 <a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="p">}</span>
 </code></pre></div>
@@ -3651,7 +3651,7 @@
 <p>节点的两个指针分别指向「左子节点」和「右子节点」，同时该节点被称为这两个子节点的「父节点」。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的「左子树」，同理可得「右子树」。</p>
 <p><strong>在二叉树中，除叶节点外，其他所有节点都包含子节点和非空子树</strong>。例如，在以下示例中，若将“节点 2”视为父节点，则其左子节点和右子节点分别是“节点 4”和“节点 5”，左子树是“节点 4 及其以下节点形成的树”，右子树是“节点 5 及其以下节点形成的树”。</p>
 <p><img alt="父节点、子节点、子树" src="../binary_tree.assets/binary_tree_definition.png" /></p>
-<p align="center"> Fig. 父节点、子节点、子树 </p>
+<p align="center"> 图：父节点、子节点、子树 </p>
 
 <h2 id="711">7.1.1. &nbsp; 二叉树常见术语<a class="headerlink" href="#711" title="Permanent link">&para;</a></h2>
 <p>二叉树涉及的术语较多，建议尽量理解并记住。</p>
@@ -3666,7 +3666,7 @@
 <li>节点的「高度 Height」：从最远叶节点到该节点所经过的边的数量。</li>
 </ul>
 <p><img alt="二叉树的常用术语" src="../binary_tree.assets/binary_tree_terminology.png" /></p>
-<p align="center"> Fig. 二叉树的常用术语 </p>
+<p align="center"> 图：二叉树的常用术语 </p>
 
 <div class="admonition tip">
 <p class="admonition-title">高度与深度的定义</p>
@@ -3836,7 +3836,7 @@
 </div>
 <p><strong>插入与删除节点</strong>。与链表类似，通过修改指针来实现插入与删除节点。</p>
 <p><img alt="在二叉树中插入与删除节点" src="../binary_tree.assets/binary_tree_add_remove.png" /></p>
-<p align="center"> Fig. 在二叉树中插入与删除节点 </p>
+<p align="center"> 图：在二叉树中插入与删除节点 </p>
 
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
@@ -3960,22 +3960,22 @@
 <p>在中文社区中，完美二叉树常被称为「满二叉树」，请注意区分。</p>
 </div>
 <p><img alt="完美二叉树" src="../binary_tree.assets/perfect_binary_tree.png" /></p>
-<p align="center"> Fig. 完美二叉树 </p>
+<p align="center"> 图：完美二叉树 </p>
 
 <h3 id="_2">完全二叉树<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>「完全二叉树 Complete Binary Tree」只有最底层的节点未被填满，且最底层节点尽量靠左填充。</p>
 <p><img alt="完全二叉树" src="../binary_tree.assets/complete_binary_tree.png" /></p>
-<p align="center"> Fig. 完全二叉树 </p>
+<p align="center"> 图：完全二叉树 </p>
 
 <h3 id="_3">完满二叉树<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>「完满二叉树 Full Binary Tree」除了叶节点之外，其余所有节点都有两个子节点。</p>
 <p><img alt="完满二叉树" src="../binary_tree.assets/full_binary_tree.png" /></p>
-<p align="center"> Fig. 完满二叉树 </p>
+<p align="center"> 图：完满二叉树 </p>
 
 <h3 id="_4">平衡二叉树<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>「平衡二叉树 Balanced Binary Tree」中任意节点的左子树和右子树的高度之差的绝对值不超过 1 。</p>
 <p><img alt="平衡二叉树" src="../binary_tree.assets/balanced_binary_tree.png" /></p>
-<p align="center"> Fig. 平衡二叉树 </p>
+<p align="center"> 图：平衡二叉树 </p>
 
 <h2 id="714">7.1.4. &nbsp; 二叉树的退化<a class="headerlink" href="#714" title="Permanent link">&para;</a></h2>
 <p>当二叉树的每层节点都被填满时，达到「完美二叉树」；而当所有节点都偏向一侧时，二叉树退化为「链表」。</p>
@@ -3984,7 +3984,7 @@
 <li>链表则是另一个极端，各项操作都变为线性操作，时间复杂度退化至 <span class="arithmatex">\(O(n)\)</span> 。</li>
 </ul>
 <p><img alt="二叉树的最佳与最差结构" src="../binary_tree.assets/binary_tree_best_worst_cases.png" /></p>
-<p align="center"> Fig. 二叉树的最佳与最差结构 </p>
+<p align="center"> 图：二叉树的最佳与最差结构 </p>
 
 <p>如下表所示，在最佳和最差结构下，二叉树的叶节点数量、节点总数、高度等达到极大或极小值。</p>
 <div class="center-table">

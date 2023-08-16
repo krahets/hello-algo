@@ -3985,7 +3985,7 @@
 <p>算法 <code>B</code> 中的打印操作需要循环 <span class="arithmatex">\(n\)</span> 次，算法运行时间随着 <span class="arithmatex">\(n\)</span> 增大呈线性增长。此算法的时间复杂度被称为「线性阶」。</p>
 <p>算法 <code>C</code> 中的打印操作需要循环 <span class="arithmatex">\(1000000\)</span> 次，虽然运行时间很长，但它与输入数据大小 <span class="arithmatex">\(n\)</span> 无关。因此 <code>C</code> 的时间复杂度和 <code>A</code> 相同，仍为「常数阶」。</p>
 <p><img alt="算法 A, B, C 的时间增长趋势" src="../time_complexity.assets/time_complexity_simple_example.png" /></p>
-<p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
+<p align="center"> 图：算法 A, B, C 的时间增长趋势 </p>
 
 <p>相较于直接统计算法运行时间，时间复杂度分析有哪些特点呢？</p>
 <p><strong>时间复杂度能够有效评估算法效率</strong>。例如，算法 <code>B</code> 的运行时间呈线性增长，在 <span class="arithmatex">\(n &gt; 1\)</span> 时比算法 <code>A</code> 更慢，在 <span class="arithmatex">\(n &gt; 1000000\)</span> 时比算法 <code>C</code> 更慢。事实上，只要输入数据大小 <span class="arithmatex">\(n\)</span> 足够大，复杂度为“常数阶”的算法一定优于“线性阶”的算法，这正是时间增长趋势所表达的含义。</p>
@@ -4151,7 +4151,7 @@ T(n) = O(f(n))
 $$</p>
 </div>
 <p><img alt="函数的渐近上界" src="../time_complexity.assets/asymptotic_upper_bound.png" /></p>
-<p align="center"> Fig. 函数的渐近上界 </p>
+<p align="center"> 图：函数的渐近上界 </p>
 
 <p>也就是说，计算渐近上界就是寻找一个函数 <span class="arithmatex">\(f(n)\)</span> ，使得当 <span class="arithmatex">\(n\)</span> 趋向于无穷大时，<span class="arithmatex">\(T(n)\)</span> 和 <span class="arithmatex">\(f(n)\)</span> 处于相同的增长级别，仅相差一个常数项 <span class="arithmatex">\(c\)</span> 的倍数。</p>
 <h2 id="223">2.2.3. &nbsp; 推算方法<a class="headerlink" href="#223" title="Permanent link">&para;</a></h2>
@@ -4409,7 +4409,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 \end{aligned}
 \]</div>
 <p><img alt="时间复杂度的常见类型" src="../time_complexity.assets/time_complexity_common_types.png" /></p>
-<p align="center"> Fig. 时间复杂度的常见类型 </p>
+<p align="center"> 图：时间复杂度的常见类型 </p>
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -5013,7 +5013,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </div>
 </div>
 <p><img alt="常数阶、线性阶、平方阶的时间复杂度" src="../time_complexity.assets/time_complexity_constant_linear_quadratic.png" /></p>
-<p align="center"> Fig. 常数阶、线性阶、平方阶的时间复杂度 </p>
+<p align="center"> 图：常数阶、线性阶、平方阶的时间复杂度 </p>
 
 <p>以「冒泡排序」为例，外层循环执行 <span class="arithmatex">\(n - 1\)</span> 次，内层循环执行 <span class="arithmatex">\(n-1, n-2, \cdots, 2, 1\)</span> 次，平均为 <span class="arithmatex">\(\frac{n}{2}\)</span> 次，因此时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> 。</p>
 <div class="arithmatex">\[
@@ -5477,7 +5477,7 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 </div>
 </div>
 <p><img alt="指数阶的时间复杂度" src="../time_complexity.assets/time_complexity_exponential.png" /></p>
-<p align="center"> Fig. 指数阶的时间复杂度 </p>
+<p align="center"> 图：指数阶的时间复杂度 </p>
 
 <p>在实际算法中，指数阶常出现于递归函数。例如以下代码，其递归地一分为二，经过 <span class="arithmatex">\(n\)</span> 次分裂后停止。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="11:12"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><input id="__tabbed_11_4" name="__tabbed_11" type="radio" /><input id="__tabbed_11_5" name="__tabbed_11" type="radio" /><input id="__tabbed_11_6" name="__tabbed_11" type="radio" /><input id="__tabbed_11_7" name="__tabbed_11" type="radio" /><input id="__tabbed_11_8" name="__tabbed_11" type="radio" /><input id="__tabbed_11_9" name="__tabbed_11" type="radio" /><input id="__tabbed_11_10" name="__tabbed_11" type="radio" /><input id="__tabbed_11_11" name="__tabbed_11" type="radio" /><input id="__tabbed_11_12" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Java</label><label for="__tabbed_11_2">C++</label><label for="__tabbed_11_3">Python</label><label for="__tabbed_11_4">Go</label><label for="__tabbed_11_5">JS</label><label for="__tabbed_11_6">TS</label><label for="__tabbed_11_7">C</label><label for="__tabbed_11_8">C#</label><label for="__tabbed_11_9">Swift</label><label for="__tabbed_11_10">Zig</label><label for="__tabbed_11_11">Dart</label><label for="__tabbed_11_12">Rust</label></div>
@@ -5742,7 +5742,7 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 </div>
 </div>
 <p><img alt="对数阶的时间复杂度" src="../time_complexity.assets/time_complexity_logarithmic.png" /></p>
-<p align="center"> Fig. 对数阶的时间复杂度 </p>
+<p align="center"> 图：对数阶的时间复杂度 </p>
 
 <p>与指数阶类似，对数阶也常出现于递归函数。以下代码形成了一个高度为 <span class="arithmatex">\(\log_2 n\)</span> 的递归树。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="13:12"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><input id="__tabbed_13_4" name="__tabbed_13" type="radio" /><input id="__tabbed_13_5" name="__tabbed_13" type="radio" /><input id="__tabbed_13_6" name="__tabbed_13" type="radio" /><input id="__tabbed_13_7" name="__tabbed_13" type="radio" /><input id="__tabbed_13_8" name="__tabbed_13" type="radio" /><input id="__tabbed_13_9" name="__tabbed_13" type="radio" /><input id="__tabbed_13_10" name="__tabbed_13" type="radio" /><input id="__tabbed_13_11" name="__tabbed_13" type="radio" /><input id="__tabbed_13_12" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Java</label><label for="__tabbed_13_2">C++</label><label for="__tabbed_13_3">Python</label><label for="__tabbed_13_4">Go</label><label for="__tabbed_13_5">JS</label><label for="__tabbed_13_6">TS</label><label for="__tabbed_13_7">C</label><label for="__tabbed_13_8">C#</label><label for="__tabbed_13_9">Swift</label><label for="__tabbed_13_10">Zig</label><label for="__tabbed_13_11">Dart</label><label for="__tabbed_13_12">Rust</label></div>
@@ -6021,7 +6021,7 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 </div>
 </div>
 <p><img alt="线性对数阶的时间复杂度" src="../time_complexity.assets/time_complexity_logarithmic_linear.png" /></p>
-<p align="center"> Fig. 线性对数阶的时间复杂度 </p>
+<p align="center"> 图：线性对数阶的时间复杂度 </p>
 
 <h3 id="on_1">阶乘阶 <span class="arithmatex">\(O(n!)\)</span><a class="headerlink" href="#on_1" title="Permanent link">&para;</a></h3>
 <p>阶乘阶对应数学上的“全排列”问题。给定 <span class="arithmatex">\(n\)</span> 个互不重复的元素，求其所有可能的排列方案，方案数量为：</p>
@@ -6198,7 +6198,7 @@ n! = n \times (n - 1) \times (n - 2) \times \cdots \times 2 \times 1
 </div>
 </div>
 <p><img alt="阶乘阶的时间复杂度" src="../time_complexity.assets/time_complexity_factorial.png" /></p>
-<p align="center"> Fig. 阶乘阶的时间复杂度 </p>
+<p align="center"> 图：阶乘阶的时间复杂度 </p>
 
 <p>请注意，因为 <span class="arithmatex">\(n! &gt; 2^n\)</span> ，所以阶乘阶比指数阶增长地更快，在 <span class="arithmatex">\(n\)</span> 较大时也是不可接受的。</p>
 <h2 id="225">2.2.5. &nbsp; 最差、最佳、平均时间复杂度<a class="headerlink" href="#225" title="Permanent link">&para;</a></h2>

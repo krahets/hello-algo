@@ -3432,18 +3432,18 @@
 </div>
 <p>如下图所示，当 <span class="arithmatex">\(n = 4\)</span> 时，共可以找到两个解。从回溯算法的角度看，<span class="arithmatex">\(n \times n\)</span> 大小的棋盘共有 <span class="arithmatex">\(n^2\)</span> 个格子，给出了所有的选择 <code>choices</code> 。在逐个放置皇后的过程中，棋盘状态在不断地变化，每个时刻的棋盘就是状态 <code>state</code> 。</p>
 <p><img alt="4 皇后问题的解" src="../n_queens_problem.assets/solution_4_queens.png" /></p>
-<p align="center"> Fig. 4 皇后问题的解 </p>
+<p align="center"> 图：4 皇后问题的解 </p>
 
 <p>本题共包含三个约束条件：<strong>多个皇后不能在同一行、同一列、同一对角线</strong>。值得注意的是，对角线分为主对角线 <code>\</code> 和次对角线 <code>/</code> 两种。</p>
 <p><img alt="n 皇后问题的约束条件" src="../n_queens_problem.assets/n_queens_constraints.png" /></p>
-<p align="center"> Fig. n 皇后问题的约束条件 </p>
+<p align="center"> 图：n 皇后问题的约束条件 </p>
 
 <h3 id="_1">逐行放置策略<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>皇后的数量和棋盘的行数都为 <span class="arithmatex">\(n\)</span> ，因此我们容易得到一个推论：<strong>棋盘每行都允许且只允许放置一个皇后</strong>。</p>
 <p>也就是说，我们可以采取逐行放置策略：从第一行开始，在每行放置一个皇后，直至最后一行结束。</p>
 <p>如下图所示，为 <span class="arithmatex">\(4\)</span> 皇后问题的逐行放置过程。受画幅限制，下图仅展开了第一行的其中一个搜索分支，并且将不满足列约束和对角线约束的方案都进行了剪枝。</p>
 <p><img alt="逐行放置策略" src="../n_queens_problem.assets/n_queens_placing.png" /></p>
-<p align="center"> Fig. 逐行放置策略 </p>
+<p align="center"> 图：逐行放置策略 </p>
 
 <p>本质上看，<strong>逐行放置策略起到了剪枝的作用</strong>，它避免了同一行出现多个皇后的所有搜索分支。</p>
 <h3 id="_2">列与对角线剪枝<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
@@ -3452,7 +3452,7 @@
 <p>也就是说，如果两个格子满足 <span class="arithmatex">\(row_1 - col_1 = row_2 - col_2\)</span> ，则它们一定处在同一条主对角线上。利用该规律，我们可以借助一个数组 <code>diag1</code> 来记录每条主对角线上是否有皇后。</p>
 <p>同理，<strong>次对角线上的所有格子的 <span class="arithmatex">\(row + col\)</span> 是恒定值</strong>。我们可以使用相同方法，借助数组 <code>diag2</code> 来处理次对角线约束。</p>
 <p><img alt="处理列约束和对角线约束" src="../n_queens_problem.assets/n_queens_cols_diagonals.png" /></p>
-<p align="center"> Fig. 处理列约束和对角线约束 </p>
+<p align="center"> 图：处理列约束和对角线约束 </p>
 
 <h3 id="_3">代码实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>请注意，<span class="arithmatex">\(n\)</span> 维方阵中 <span class="arithmatex">\(row - col\)</span> 的范围是 <span class="arithmatex">\([-n + 1, n - 1]\)</span> ，<span class="arithmatex">\(row + col\)</span> 的范围是 <span class="arithmatex">\([0, 2n - 2]\)</span> ，所以主对角线和次对角线的数量都为 <span class="arithmatex">\(2n - 1\)</span> ，即数组 <code>diag1</code> 和 <code>diag2</code> 的长度都为 <span class="arithmatex">\(2n - 1\)</span> 。</p>

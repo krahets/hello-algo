@@ -3485,7 +3485,7 @@
 <li><strong>治</strong>：从底至顶地将有序的子数组（子问题的解）进行合并，从而得到有序的原数组（原问题的解）。</li>
 </ol>
 <p><img alt="归并排序的分治策略" src="../divide_and_conquer.assets/divide_and_conquer_merge_sort.png" /></p>
-<p align="center"> Fig. 归并排序的分治策略 </p>
+<p align="center"> 图：归并排序的分治策略 </p>
 
 <h2 id="1211">12.1.1. &nbsp; 如何判断分治问题<a class="headerlink" href="#1211" title="Permanent link">&para;</a></h2>
 <p>一个问题是否适合使用分治解决，通常可以参考以下几个判断依据：</p>
@@ -3509,7 +3509,7 @@
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 \]</div>
 <p><img alt="划分数组前后的冒泡排序" src="../divide_and_conquer.assets/divide_and_conquer_bubble_sort.png" /></p>
-<p align="center"> Fig. 划分数组前后的冒泡排序 </p>
+<p align="center"> 图：划分数组前后的冒泡排序 </p>
 
 <p>接下来，我们计算以下不等式，其左边和右边分别为划分前和划分后的操作总数：</p>
 <div class="arithmatex">\[
@@ -3527,7 +3527,7 @@ n(n - 4) &amp; &gt; 0
 <p>并行优化在多核或多处理器的环境中尤其有效，因为系统可以同时处理多个子问题，更加充分地利用计算资源，从而显著减少总体的运行时间。</p>
 <p>比如在桶排序中，我们将海量的数据平均分配到各个桶中，则可所有桶的排序任务分散到各个计算单元，完成后再进行结果合并。</p>
 <p><img alt="桶排序的并行计算" src="../divide_and_conquer.assets/divide_and_conquer_parallel_computing.png" /></p>
-<p align="center"> Fig. 桶排序的并行计算 </p>
+<p align="center"> 图：桶排序的并行计算 </p>
 
 <h2 id="1213">12.1.3. &nbsp; 分治常见应用<a class="headerlink" href="#1213" title="Permanent link">&para;</a></h2>
 <p>一方面，分治可以用来解决许多经典算法问题：</p>

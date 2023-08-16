@@ -3399,64 +3399,11 @@
 
 <h1 id="44">4.4. &nbsp; 小结<a class="headerlink" href="#44" title="Permanent link">&para;</a></h1>
 <ul>
-<li>数组和链表是两种基本数据结构，分别代表数据在计算机内存中的连续空间存储和离散空间存储方式。两者的优缺点呈现出互补的特性。</li>
+<li>数组和链表是两种基本的数据结构，分别代表数据在计算机内存中的两种存储方式：连续空间存储和离散空间存储。两者的特点呈现出互补的特性。</li>
 <li>数组支持随机访问、占用内存较少；但插入和删除元素效率低，且初始化后长度不可变。</li>
 <li>链表通过更改引用（指针）实现高效的节点插入与删除，且可以灵活调整长度；但节点访问效率低、占用内存较多。常见的链表类型包括单向链表、循环链表、双向链表。</li>
 <li>动态数组，又称列表，是基于数组实现的一种数据结构。它保留了数组的优势，同时可以灵活调整长度。列表的出现极大地提高了数组的易用性，但可能导致部分内存空间浪费。</li>
-<li>下表总结并对比了数组与链表的各项特性与操作效率。</li>
 </ul>
-<div class="center-table">
-<table>
-<thead>
-<tr>
-<th></th>
-<th>数组</th>
-<th>链表</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>存储方式</td>
-<td>连续内存空间</td>
-<td>离散内存空间</td>
-</tr>
-<tr>
-<td>数据结构长度</td>
-<td>长度不可变</td>
-<td>长度可变</td>
-</tr>
-<tr>
-<td>内存使用率</td>
-<td>占用内存少、缓存局部性好</td>
-<td>占用内存多</td>
-</tr>
-<tr>
-<td>优势操作</td>
-<td>随机访问</td>
-<td>插入、删除</td>
-</tr>
-<tr>
-<td>访问元素</td>
-<td><span class="arithmatex">\(O(1)\)</span></td>
-<td><span class="arithmatex">\(O(N)\)</span></td>
-</tr>
-<tr>
-<td>添加元素</td>
-<td><span class="arithmatex">\(O(N)\)</span></td>
-<td><span class="arithmatex">\(O(1)\)</span></td>
-</tr>
-<tr>
-<td>删除元素</td>
-<td><span class="arithmatex">\(O(N)\)</span></td>
-<td><span class="arithmatex">\(O(1)\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="admonition note">
-<p class="admonition-title">缓存局部性</p>
-<p>在计算机中，数据读写速度排序是“硬盘 &lt; 内存 &lt; CPU 缓存”。当我们访问数组元素时，计算机不仅会加载它，还会缓存其周围的其他数据，从而借助高速缓存来提升后续操作的执行速度。链表则不然，计算机只能挨个地缓存各个节点，这样的多次“搬运”降低了整体效率。</p>
-</div>
 <h2 id="441-q-a">4.4.1. &nbsp; Q &amp; A<a class="headerlink" href="#441-q-a" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">数组存储在栈上和存储在堆上，对时间效率和空间效率是否有影响？</p>
@@ -3468,7 +3415,7 @@
 </ol>
 </div>
 <div class="admonition question">
-<p class="admonition-title">为什么数组会强调要求相同类型的元素，而在链表中却没有强调同类型呢？</p>
+<p class="admonition-title">为什么数组要求相同类型的元素，而在链表中却没有强调同类型呢？</p>
 <p>链表由结点组成，结点之间通过引用（指针）连接，各个结点可以存储不同类型的数据，例如 int, double, string, object 等。</p>
 <p>相对地，数组元素则必须是相同类型的，这样才能通过计算偏移量来获取对应元素位置。例如，如果数组同时包含 int 和 long 两种类型，单个元素分别占用 4 bytes 和 8 bytes ，那么此时就不能用以下公式计算偏移量了，因为数组中包含了两种 <code>elementLength</code> 。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引

@@ -3458,7 +3458,7 @@
 <h2 id="341-ascii">3.4.1. &nbsp; ASCII 字符集<a class="headerlink" href="#341-ascii" title="Permanent link">&para;</a></h2>
 <p>「ASCII 码」是最早出现的字符集，全称为“美国标准信息交换代码”。它使用 7 位二进制数（即一个字节的低 7 位）表示一个字符，最多能够表示 128 个不同的字符。这包括英文字母的大小写、数字 0-9 、一些标点符号，以及一些控制字符（如换行符和制表符）。</p>
 <p><img alt="ASCII 码" src="../character_encoding.assets/ascii_table.png" /></p>
-<p align="center"> Fig. ASCII 码 </p>
+<p align="center"> 图：ASCII 码 </p>
 
 <p>然而，<strong>ASCII 码仅能够表示英文</strong>。随着计算机的全球化，诞生了一种能够表示更多语言的字符集「EASCII」。它在 ASCII 的 7 位基础上扩展到 8 位，能够表示 256 个不同的字符。</p>
 <p>在世界范围内，陆续出现了一批适用于不同地区的 EASCII 字符集。这些字符集的前 128 个字符统一为 ASCII 码，后 128 个字符定义不同，以适应不同语言的需求。</p>
@@ -3473,7 +3473,7 @@
 <p>Unicode 是一种字符集标准，本质上是给每个字符分配一个编号（称为“码点”），<strong>但它并没有规定在计算机中如何存储这些字符码点</strong>。我们不禁会问：当多种长度的 Unicode 码点同时出现在同一个文本中时，系统如何解析字符？例如给定一个长度为 2 字节的编码，系统如何确认它是一个 2 字节的字符还是两个 1 字节的字符？</p>
 <p>对于以上问题，<strong>一种直接的解决方案是将所有字符存储为等长的编码</strong>。如下图所示，“Hello”中的每个字符占用 1 字节，“算法”中的每个字符占用 2 字节。我们可以通过高位填 0 ，将“Hello 算法”中的所有字符都编码为 2 字节长度。这样系统就可以每隔 2 字节解析一个字符，恢复出这个短语的内容了。</p>
 <p><img alt="Unicode 编码示例" src="../character_encoding.assets/unicode_hello_algo.png" /></p>
-<p align="center"> Fig. Unicode 编码示例 </p>
+<p align="center"> 图：Unicode 编码示例 </p>
 
 <p>然而 ASCII 码已经向我们证明，编码英文只需要 1 字节。若采用上述方案，英文文本占用空间的大小将会是 ASCII 编码下大小的两倍，非常浪费内存空间。因此，我们需要一种更加高效的 Unicode 编码方法。</p>
 <h2 id="344-utf-8">3.4.4. &nbsp; UTF-8 编码<a class="headerlink" href="#344-utf-8" title="Permanent link">&para;</a></h2>
@@ -3487,7 +3487,7 @@
 <p>但为什么要将其余所有字节的高 2 位都设置为 <span class="arithmatex">\(10\)</span> 呢？实际上，这个 <span class="arithmatex">\(10\)</span> 能够起到校验符的作用。假设系统从一个错误的字节开始解析文本，字节头部的 <span class="arithmatex">\(10\)</span> 能够帮助系统快速的判断出异常。</p>
 <p>之所以将 <span class="arithmatex">\(10\)</span> 当作校验符，是因为在 UTF-8 编码规则下，不可能有字符的最高两位是 <span class="arithmatex">\(10\)</span> 。这个结论可以用反证法来证明：假设一个字符的最高两位是 <span class="arithmatex">\(10\)</span> ，说明该字符的长度为 <span class="arithmatex">\(1\)</span> ，对应 ASCII 码。而 ASCII 码的最高位应该是 <span class="arithmatex">\(0\)</span> ，与假设矛盾。</p>
 <p><img alt="UTF-8 编码示例" src="../character_encoding.assets/utf-8_hello_algo.png" /></p>
-<p align="center"> Fig. UTF-8 编码示例 </p>
+<p align="center"> 图：UTF-8 编码示例 </p>
 
 <p>除了 UTF-8 之外，常见的编码方式还包括：</p>
 <ul>
