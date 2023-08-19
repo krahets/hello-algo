@@ -4575,6 +4575,8 @@
 <p align="center"> 图：AVL 树的四种旋转情况 </p>
 
 <p>在代码中，我们通过判断失衡节点的平衡因子以及较高一侧子节点的平衡因子的正负号，来确定失衡节点属于上图中的哪种情况。</p>
+<p align="center"> 表：四种旋转情况的选择条件 </p>
+
 <div class="center-table">
 <table>
 <thead>
@@ -4586,22 +4588,22 @@
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(&gt;1\)</span> （即左偏树）</td>
+<td><span class="arithmatex">\(&gt; 1\)</span> （即左偏树）</td>
 <td><span class="arithmatex">\(\geq 0\)</span></td>
 <td>右旋</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(&gt;1\)</span> （即左偏树）</td>
+<td><span class="arithmatex">\(&gt; 1\)</span> （即左偏树）</td>
 <td><span class="arithmatex">\(&lt;0\)</span></td>
 <td>先左旋后右旋</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(&lt;-1\)</span> （即右偏树）</td>
+<td><span class="arithmatex">\(&lt; -1\)</span> （即右偏树）</td>
 <td><span class="arithmatex">\(\leq 0\)</span></td>
 <td>左旋</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(&lt;-1\)</span> （即右偏树）</td>
+<td><span class="arithmatex">\(&lt; -1\)</span> （即右偏树）</td>
 <td><span class="arithmatex">\(&gt;0\)</span></td>
 <td>先右旋后左旋</td>
 </tr>

@@ -3517,6 +3517,8 @@ b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 <p>现在我们可以回答最初的问题：<strong><code>float</code> 的表示方式包含指数位，导致其取值范围远大于 <code>int</code></strong> 。根据以上计算，<code>float</code> 可表示的最大正数为 <span class="arithmatex">\(2^{254 - 127} \times (2 - 2^{-23}) \approx 3.4 \times 10^{38}\)</span> ，切换符号位便可得到最小负数。</p>
 <p><strong>尽管浮点数 <code>float</code> 扩展了取值范围，但其副作用是牺牲了精度</strong>。整数类型 <code>int</code> 将全部 32 位用于表示数字，数字是均匀分布的；而由于指数位的存在，浮点数 <code>float</code> 的数值越大，相邻两个数字之间的差值就会趋向越大。</p>
 <p>进一步地，指数位 <span class="arithmatex">\(E = 0\)</span> 和 <span class="arithmatex">\(E = 255\)</span> 具有特殊含义，<strong>用于表示零、无穷大、<span class="arithmatex">\(\mathrm{NaN}\)</span> 等</strong>。</p>
+<p align="center"> 表：指数位含义 </p>
+
 <div class="center-table">
 <table>
 <thead>
