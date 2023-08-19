@@ -15,6 +15,7 @@ comments: true
 ## 5.2.1. &nbsp; 队列常用操作
 
 队列的常见操作如下表所示。需要注意的是，不同编程语言的方法名称可能会有所不同。我们在此采用与栈相同的方法命名。
+<p align="center"> 表：队列操作效率 </p>
 
 <div class="center-table" markdown>
 

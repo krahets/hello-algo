@@ -49,6 +49,7 @@ status: new
 - 将当前树在 `inorder` 中的索引区间记为 $[l, r]$ 。
 
 如下表所示，通过以上变量即可表示根节点在 `preorder` 中的索引，以及子树在 `inorder` 中的索引区间。
+<p align="center"> 表：根节点和子树在前序和中序遍历中的索引 </p>
 
 <div class="center-table" markdown>
 

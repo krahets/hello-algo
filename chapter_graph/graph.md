@@ -89,6 +89,7 @@ $$
 ## 9.1.4. &nbsp; 图常见应用
 
 实际应用中，许多系统都可以用图来建模，相应的待求解问题也可以约化为图计算问题。
+<p align="center"> 表：现实生活中常见的图 </p>
 
 <div class="center-table" markdown>
 

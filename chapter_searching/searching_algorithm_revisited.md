@@ -49,6 +49,7 @@ comments: true
 <p align="center"> 图：多种搜索策略 </p>
 
 上述几种方法的操作效率与特性如下表所示。
+<p align="center"> 表：查找算法效率对比 </p>
 
 <div class="center-table" markdown>
 

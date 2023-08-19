@@ -1102,6 +1102,8 @@ comments: true
 
 下表总结对比了数组和链表的各项特点与操作效率。由于它们采用两种相反的存储策略，因此各种性质和操作效率也呈现对立的特点。
 
+<p align="center"> 表：数组与链表的效率对比 </p>
+
 <div class="center-table" markdown>
 
 |            | 数组                     | 链表         |

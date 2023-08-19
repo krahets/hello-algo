@@ -17,6 +17,7 @@ comments: true
 ## 5.1.1. &nbsp; 栈常用操作
 
 栈的常用操作如下表所示，具体的方法名需要根据所使用的编程语言来确定。在此，我们以常见的 `push()` , `pop()` , `peek()` 命名为例。
+<p align="center"> 表：栈的操作效率 </p>
 
 <div class="center-table" markdown>
 

@@ -2115,6 +2115,7 @@ comments: true
 ## 9.2.3. &nbsp; 效率对比
 
 设图中共有 $n$ 个顶点和 $m$ 条边，下表为邻接矩阵和邻接表的时间和空间效率对比。
+<p align="center"> 表：邻接矩阵与邻接表对比 </p>
 
 <div class="center-table" markdown>
 

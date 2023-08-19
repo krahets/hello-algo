@@ -13,6 +13,7 @@ comments: true
 ## 5.3.1. &nbsp; 双向队列常用操作
 
 双向队列的常用操作如下表所示，具体的方法名称需要根据所使用的编程语言来确定。
+<p align="center"> 表：双向队列操作效率 </p>
 
 <div class="center-table" markdown>
 

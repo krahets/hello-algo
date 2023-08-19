@@ -8,6 +8,8 @@ comments: true
 
 下表列举了几个示例数据，包括输入数组和对应的所有排列。
 
+<p align="center"> 表：数组与链表的效率对比 </p>
+
 <div class="center-table" markdown>
 
 | 输入数组    | 所有排列                                                           |
