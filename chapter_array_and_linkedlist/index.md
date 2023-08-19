@@ -3,7 +3,7 @@ comments: true
 icon: material/view-list-outline
 ---
 
-# 4. &nbsp; 数组与链表
+# 第 4 章 &nbsp; 数组与链表
 
 <div class="center-table" markdown>
 

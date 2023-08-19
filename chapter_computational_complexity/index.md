@@ -3,7 +3,7 @@ comments: true
 icon: material/timer-sand
 ---
 
-# 2. &nbsp; 复杂度
+# 第 2 章 &nbsp; 复杂度
 
 <div class="center-table" markdown>
 

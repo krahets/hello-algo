@@ -3,7 +3,7 @@ comments: true
 icon: material/table-search
 ---
 
-# 6. &nbsp; 散列表
+# 第 6 章 &nbsp; 散列表
 
 <div class="center-table" markdown>
 

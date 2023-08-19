@@ -3,7 +3,7 @@ comments: true
 icon: material/graphql
 ---
 
-# 9. &nbsp; 图
+# 第 9 章 &nbsp; 图
 
 <div class="center-table" markdown>
 

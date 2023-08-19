@@ -3,7 +3,7 @@ comments: true
 status: new
 ---
 
-# 12.2. &nbsp; 分治搜索策略
+# 12.2 &nbsp; 分治搜索策略
 
 我们已经学过，搜索算法分为两大类：
 

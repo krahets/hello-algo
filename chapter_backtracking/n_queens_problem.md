@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 13.4. &nbsp; N 皇后问题
+# 13.4 &nbsp; N 皇后问题
 
 !!! question
 

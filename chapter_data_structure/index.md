@@ -3,7 +3,7 @@ comments: true
 icon: material/shape-outline
 ---
 
-# 3. &nbsp; 数据结构
+# 第 3 章 &nbsp; 数据结构
 
 <div class="center-table" markdown>
 

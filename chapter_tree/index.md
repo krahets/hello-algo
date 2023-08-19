@@ -3,7 +3,7 @@ comments: true
 icon: material/graph-outline
 ---
 
-# 7. &nbsp; 树
+# 第 7 章 &nbsp; 树
 
 <div class="center-table" markdown>
 

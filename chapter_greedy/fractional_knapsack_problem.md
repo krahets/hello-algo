@@ -3,7 +3,7 @@ comments: true
 status: new
 ---
 
-# 15.2. &nbsp; 分数背包问题
+# 15.2 &nbsp; 分数背包问题
 
 分数背包是 0-1 背包的一个变种问题。
 

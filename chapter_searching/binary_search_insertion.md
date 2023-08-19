@@ -3,11 +3,11 @@ comments: true
 status: new
 ---
 
-# 10.2. &nbsp; 二分查找插入点
+# 10.2 &nbsp; 二分查找插入点
 
 二分查找不仅可用于搜索目标元素，还具有许多变种问题，比如搜索目标元素的插入位置。
 
-## 10.2.1. &nbsp; 无重复元素的情况
+## 10.2.1 &nbsp; 无重复元素的情况
 
 !!! question
 
@@ -188,7 +188,7 @@ status: new
     [class]{}-[func]{binary_search_insertion}
     ```
 
-## 10.2.2. &nbsp; 存在重复元素的情况
+## 10.2.2 &nbsp; 存在重复元素的情况
 
 !!! question
 

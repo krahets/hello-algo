@@ -2,9 +2,9 @@
 comments: true
 ---
 
-# 13.3. &nbsp; 子集和问题
+# 13.3 &nbsp; 子集和问题
 
-## 13.3.1. &nbsp; 无重复元素的情况
+## 13.3.1 &nbsp; 无重复元素的情况
 
 !!! question
 
@@ -918,7 +918,7 @@ comments: true
 
 <p align="center"> 图：子集和 I 回溯过程 </p>
 
-## 13.3.2. &nbsp; 考虑重复元素的情况
+## 13.3.2 &nbsp; 考虑重复元素的情况
 
 !!! question
 

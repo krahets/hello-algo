@@ -3,7 +3,7 @@ comments: true
 status: new
 ---
 
-# 15.4. &nbsp; 最大切分乘积问题
+# 15.4 &nbsp; 最大切分乘积问题
 
 !!! question
 

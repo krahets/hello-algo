@@ -4,7 +4,7 @@ icon: material/table-pivot
 status: new
 ---
 
-# 14. &nbsp; 动态规划
+# 第 14 章 &nbsp; 动态规划
 
 <div class="center-table" markdown>
 

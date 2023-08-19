@@ -3,7 +3,7 @@ comments: true
 icon: material/stack-overflow
 ---
 
-# 5. &nbsp; 栈与队列
+# 第 5 章 &nbsp; 栈与队列
 
 <div class="center-table" markdown>
 

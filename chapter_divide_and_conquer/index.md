@@ -4,7 +4,7 @@ icon: material/set-split
 status: new
 ---
 
-# 12. &nbsp; 分治
+# 第 12 章 &nbsp; 分治
 
 <div class="center-table" markdown>
 

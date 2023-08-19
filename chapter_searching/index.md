@@ -3,7 +3,7 @@ comments: true
 icon: material/text-search
 ---
 
-# 10. &nbsp; 搜索
+# 第 10 章 &nbsp; 搜索
 
 <div class="center-table" markdown>
 

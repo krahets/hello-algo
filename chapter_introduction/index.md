@@ -3,7 +3,7 @@ comments: true
 icon: material/calculator-variant-outline
 ---
 
-# 1. &nbsp; 初识算法
+# 第 1 章 &nbsp; 初识算法
 
 <div class="center-table" markdown>
 

@@ -3,9 +3,9 @@ comments: true
 status: new
 ---
 
-# 10.3. &nbsp; 二分查找边界
+# 10.3 &nbsp; 二分查找边界
 
-## 10.3.1. &nbsp; 查找左边界
+## 10.3.1 &nbsp; 查找左边界
 
 !!! question
 
@@ -150,7 +150,7 @@ status: new
     [class]{}-[func]{binary_search_left_edge}
     ```
 
-## 10.3.2. &nbsp; 查找右边界
+## 10.3.2 &nbsp; 查找右边界
 
 那么如何查找最右一个 `target` 呢？最直接的方式是修改代码，替换在 `nums[m] == target` 情况下的指针收缩操作。代码在此省略，有兴趣的同学可以自行实现。
 
