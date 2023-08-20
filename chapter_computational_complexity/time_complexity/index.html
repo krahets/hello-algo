@@ -3607,13 +3607,10 @@
 <p>运行时间可以直观且准确地反映算法的效率。如果我们想要准确预估一段代码的运行时间，应该如何操作呢？</p>
 <ol>
 <li><strong>确定运行平台</strong>，包括硬件配置、编程语言、系统环境等，这些因素都会影响代码的运行效率。</li>
-<li><strong>评估各种计算操作所需的运行时间</strong>，例如加法操作 <code>+</code> 需要 1 ns，乘法操作 <code>*</code> 需要 10 ns，打印操作需要 5 ns 等。</li>
+<li><strong>评估各种计算操作所需的运行时间</strong>，例如加法操作 <code>+</code> 需要 1 ns，乘法操作 <code>*</code> 需要 10 ns，打印操作 <code>print()</code> 需要 5 ns 等。</li>
 <li><strong>统计代码中所有的计算操作</strong>，并将所有操作的执行时间求和，从而得到运行时间。</li>
 </ol>
-<p>例如以下代码，输入数据大小为 <span class="arithmatex">\(n\)</span> 。根据以上方法，可以得到算法运行时间为 <span class="arithmatex">\(6n + 12\)</span> ns 。</p>
-<div class="arithmatex">\[
-1 + 1 + 10 + (1 + 5) \times n = 6n + 12
-\]</div>
+<p>例如在以下代码中，输入数据大小为 <span class="arithmatex">\(n\)</span> ：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3763,24 +3760,28 @@
 </div>
 </div>
 </div>
-<p>但实际上，<strong>统计算法的运行时间既不合理也不现实</strong>。首先，我们不希望预估时间和运行平台绑定，因为算法需要在各种不同的平台上运行。其次，我们很难获知每种操作的运行时间，这给预估过程带来了极大的难度。</p>
+<p>根据以上方法，可以得到算法运行时间为 <span class="arithmatex">\(6n + 12\)</span> ns ：</p>
+<div class="arithmatex">\[
+1 + 1 + 10 + (1 + 5) \times n = 6n + 12
+\]</div>
+<p>但实际上，<strong>统计算法的运行时间既不合理也不现实</strong>。首先，我们不希望将预估时间和运行平台绑定，因为算法需要在各种不同的平台上运行。其次，我们很难获知每种操作的运行时间，这给预估过程带来了极大的难度。</p>
 <h2 id="221">2.2.1 &nbsp; 统计时间增长趋势<a class="headerlink" href="#221" title="Permanent link">&para;</a></h2>
 <p>「时间复杂度分析」采取了一种不同的方法，其统计的不是算法运行时间，<strong>而是算法运行时间随着数据量变大时的增长趋势</strong>。</p>
-<p>“时间增长趋势”这个概念比较抽象，我们通过一个例子来加以理解。假设输入数据大小为 <span class="arithmatex">\(n\)</span> ，给定三个算法函数 <code>A</code> , <code>B</code> , <code>C</code> 。</p>
+<p>“时间增长趋势”这个概念比较抽象，我们通过一个例子来加以理解。假设输入数据大小为 <span class="arithmatex">\(n\)</span> ，给定三个算法函数 <code>A</code> 、 <code>B</code> 和 <code>C</code> ：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// 算法 A 时间复杂度：常数阶</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// 算法 A 的时间复杂度：常数阶</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">algorithm_A</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">}</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1">// 算法 B 时间复杂度：线性阶</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1">// 算法 B 的时间复杂度：线性阶</span>
 <a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">algorithm_B</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="p">}</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c1">// 算法 C 时间复杂度：常数阶</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c1">// 算法 C 的时间复杂度：常数阶</span>
 <a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="kt">void</span><span class="w"> </span><span class="nf">algorithm_C</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
@@ -3789,17 +3790,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// 算法 A 时间复杂度：常数阶</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// 算法 A 的时间复杂度：常数阶</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">algorithm_A</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">}</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1">// 算法 B 时间复杂度：线性阶</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1">// 算法 B 的时间复杂度：线性阶</span>
 <a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">algorithm_B</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
 <a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="p">}</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="c1">// 算法 C 时间复杂度：常数阶</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="c1">// 算法 C 的时间复杂度：常数阶</span>
 <a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="kt">void</span><span class="w"> </span><span class="nf">algorithm_C</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
@@ -3808,31 +3809,31 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># 算法 A 时间复杂度：常数阶</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># 算法 A 的时间复杂度：常数阶</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">def</span> <span class="nf">algorithm_A</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># 算法 B 时间复杂度：线性阶</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># 算法 B 的时间复杂度：线性阶</span>
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="k">def</span> <span class="nf">algorithm_B</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1"># 算法 C 时间复杂度：常数阶</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1"># 算法 C 的时间复杂度：常数阶</span>
 <a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="k">def</span> <span class="nf">algorithm_C</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
 <a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>        <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// 算法 A 时间复杂度：常数阶</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// 算法 A 的时间复杂度：常数阶</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">algorithm_A</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="p">}</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1">// 算法 B 时间复杂度：线性阶</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1">// 算法 B 的时间复杂度：线性阶</span>
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="kd">func</span><span class="w"> </span><span class="nx">algorithm_B</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="p">}</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1">// 算法 C 时间复杂度：常数阶</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1">// 算法 C 的时间复杂度：常数阶</span>
 <a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="kd">func</span><span class="w"> </span><span class="nx">algorithm_C</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -3841,17 +3842,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">// 算法 A 时间复杂度：常数阶</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">// 算法 A 的时间复杂度：常数阶</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">algorithm_A</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">}</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1">// 算法 B 时间复杂度：线性阶</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1">// 算法 B 的时间复杂度：线性阶</span>
 <a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="kd">function</span><span class="w"> </span><span class="nx">algorithm_B</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
 <a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="p">}</span>
-<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1">// 算法 C 时间复杂度：常数阶</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1">// 算法 C 的时间复杂度：常数阶</span>
 <a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="kd">function</span><span class="w"> </span><span class="nx">algorithm_C</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1000000</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
@@ -3860,17 +3861,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// 算法 A 时间复杂度：常数阶</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// 算法 A 的时间复杂度：常数阶</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">algorithm_A</span><span class="p">(</span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="p">}</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="c1">// 算法 B 时间复杂度：线性阶</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="c1">// 算法 B 的时间复杂度：线性阶</span>
 <a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="kd">function</span><span class="w"> </span><span class="nx">algorithm_B</span><span class="p">(</span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
 <a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="p">}</span>
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="c1">// 算法 C 时间复杂度：常数阶</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="c1">// 算法 C 的时间复杂度：常数阶</span>
 <a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="kd">function</span><span class="w"> </span><span class="nx">algorithm_C</span><span class="p">(</span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1000000</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
@@ -3879,17 +3880,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// 算法 A 时间复杂度：常数阶</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// 算法 A 的时间复杂度：常数阶</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">algorithm_A</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="p">}</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="c1">// 算法 B 时间复杂度：线性阶</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="c1">// 算法 B 的时间复杂度：线性阶</span>
 <a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">algorithm_B</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="p">}</span>
-<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="c1">// 算法 C 时间复杂度：常数阶</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="c1">// 算法 C 的时间复杂度：常数阶</span>
 <a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="kt">void</span><span class="w"> </span><span class="nf">algorithm_C</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
@@ -3898,17 +3899,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">// 算法 A 时间复杂度：常数阶</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">// 算法 A 的时间复杂度：常数阶</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">void</span><span class="w"> </span><span class="nf">algorithm_A</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 <a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="p">}</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="c1">// 算法 B 时间复杂度：线性阶</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="c1">// 算法 B 的时间复杂度：线性阶</span>
 <a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="k">void</span><span class="w"> </span><span class="nf">algorithm_B</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 <a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="p">}</span>
-<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="c1">// 算法 C 时间复杂度：常数阶</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="c1">// 算法 C 的时间复杂度：常数阶</span>
 <a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="k">void</span><span class="w"> </span><span class="nf">algorithm_C</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1000000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
@@ -3917,19 +3918,19 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// 算法 A 时间复杂度：常数阶</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// 算法 A 的时间复杂度：常数阶</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kd">func</span> <span class="nf">algorithmA</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
 <a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="bp">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="p">}</span>
 <a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="c1">// 算法 B 时间复杂度：线性阶</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="c1">// 算法 B 的时间复杂度：线性阶</span>
 <a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="kd">func</span> <span class="nf">algorithmB</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
 <a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>    <span class="k">for</span> <span class="kc">_</span> <span class="k">in</span> <span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">n</span> <span class="p">{</span>
 <a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>        <span class="bp">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>    <span class="p">}</span>
 <a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="p">}</span>
 <a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>
-<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="c1">// 算法 C 时间复杂度：常数阶</span>
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="c1">// 算法 C 的时间复杂度：常数阶</span>
 <a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="kd">func</span> <span class="nf">algorithmC</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
 <a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>    <span class="k">for</span> <span class="kc">_</span> <span class="k">in</span> <span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="mi">1000000</span> <span class="p">{</span>
 <a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>        <span class="bp">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -3942,17 +3943,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1">// 算法 A 时间复杂度：常数阶</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1">// 算法 A 的时间复杂度：常数阶</span>
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">algorithmA</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 <a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="p">}</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="c1">// 算法 B 时间复杂度：线性阶</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="c1">// 算法 B 的时间复杂度：线性阶</span>
 <a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="kt">void</span><span class="w"> </span><span class="n">algorithmB</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 <a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="p">}</span>
-<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="c1">// 算法 C 时间复杂度：常数阶</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="c1">// 算法 C 的时间复杂度：常数阶</span>
 <a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="kt">void</span><span class="w"> </span><span class="n">algorithmC</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1000000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
@@ -3961,17 +3962,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1">// 算法 A 时间复杂度：常数阶</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1">// 算法 A 的时间复杂度：常数阶</span>
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="k">fn</span> <span class="nf">algorithm_A</span><span class="p">(</span><span class="n">n</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="p">}</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="c1">// 算法 B 时间复杂度：线性阶</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="c1">// 算法 B 的时间复杂度：线性阶</span>
 <a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="k">fn</span> <span class="nf">algorithm_B</span><span class="p">(</span><span class="n">n</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">n</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="p">}</span>
-<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="c1">// 算法 C 时间复杂度：常数阶</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="c1">// 算法 C 的时间复杂度：常数阶</span>
 <a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="k">fn</span> <span class="nf">algorithm_C</span><span class="p">(</span><span class="n">n</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="mi">1000000</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
@@ -3984,15 +3985,17 @@
 <p>算法 <code>A</code> 只有 <span class="arithmatex">\(1\)</span> 个打印操作，算法运行时间不随着 <span class="arithmatex">\(n\)</span> 增大而增长。我们称此算法的时间复杂度为「常数阶」。</p>
 <p>算法 <code>B</code> 中的打印操作需要循环 <span class="arithmatex">\(n\)</span> 次，算法运行时间随着 <span class="arithmatex">\(n\)</span> 增大呈线性增长。此算法的时间复杂度被称为「线性阶」。</p>
 <p>算法 <code>C</code> 中的打印操作需要循环 <span class="arithmatex">\(1000000\)</span> 次，虽然运行时间很长，但它与输入数据大小 <span class="arithmatex">\(n\)</span> 无关。因此 <code>C</code> 的时间复杂度和 <code>A</code> 相同，仍为「常数阶」。</p>
-<p><img alt="算法 A, B, C 的时间增长趋势" src="../time_complexity.assets/time_complexity_simple_example.png" /></p>
-<p align="center"> 图：算法 A, B, C 的时间增长趋势 </p>
+<p><img alt="算法 A 、B 和 C 的时间增长趋势" src="../time_complexity.assets/time_complexity_simple_example.png" /></p>
+<p align="center"> 图：算法 A 、B 和 C 的时间增长趋势 </p>
 
 <p>相较于直接统计算法运行时间，时间复杂度分析有哪些特点呢？</p>
-<p><strong>时间复杂度能够有效评估算法效率</strong>。例如，算法 <code>B</code> 的运行时间呈线性增长，在 <span class="arithmatex">\(n &gt; 1\)</span> 时比算法 <code>A</code> 更慢，在 <span class="arithmatex">\(n &gt; 1000000\)</span> 时比算法 <code>C</code> 更慢。事实上，只要输入数据大小 <span class="arithmatex">\(n\)</span> 足够大，复杂度为“常数阶”的算法一定优于“线性阶”的算法，这正是时间增长趋势所表达的含义。</p>
-<p><strong>时间复杂度的推算方法更简便</strong>。显然，运行平台和计算操作类型都与算法运行时间的增长趋势无关。因此在时间复杂度分析中，我们可以简单地将所有计算操作的执行时间视为相同的“单位时间”，从而将“计算操作的运行时间的统计”简化为“计算操作的数量的统计”，这样以来估算难度就大大降低了。</p>
-<p><strong>时间复杂度也存在一定的局限性</strong>。例如，尽管算法 <code>A</code> 和 <code>C</code> 的时间复杂度相同，但实际运行时间差别很大。同样，尽管算法 <code>B</code> 的时间复杂度比 <code>C</code> 高，但在输入数据大小 <span class="arithmatex">\(n\)</span> 较小时，算法 <code>B</code> 明显优于算法 <code>C</code> 。在这些情况下，我们很难仅凭时间复杂度判断算法效率高低。当然，尽管存在上述问题，复杂度分析仍然是评判算法效率最有效且常用的方法。</p>
+<ul>
+<li><strong>时间复杂度能够有效评估算法效率</strong>。例如，算法 <code>B</code> 的运行时间呈线性增长，在 <span class="arithmatex">\(n &gt; 1\)</span> 时比算法 <code>A</code> 更慢，在 <span class="arithmatex">\(n &gt; 1000000\)</span> 时比算法 <code>C</code> 更慢。事实上，只要输入数据大小 <span class="arithmatex">\(n\)</span> 足够大，复杂度为“常数阶”的算法一定优于“线性阶”的算法，这正是时间增长趋势所表达的含义。</li>
+<li><strong>时间复杂度的推算方法更简便</strong>。显然，运行平台和计算操作类型都与算法运行时间的增长趋势无关。因此在时间复杂度分析中，我们可以简单地将所有计算操作的执行时间视为相同的“单位时间”，从而将“计算操作的运行时间的统计”简化为“计算操作的数量的统计”，这样以来估算难度就大大降低了。</li>
+<li><strong>时间复杂度也存在一定的局限性</strong>。例如，尽管算法 <code>A</code> 和 <code>C</code> 的时间复杂度相同，但实际运行时间差别很大。同样，尽管算法 <code>B</code> 的时间复杂度比 <code>C</code> 高，但在输入数据大小 <span class="arithmatex">\(n\)</span> 较小时，算法 <code>B</code> 明显优于算法 <code>C</code> 。在这些情况下，我们很难仅凭时间复杂度判断算法效率的高低。当然，尽管存在上述问题，复杂度分析仍然是评判算法效率最有效且常用的方法。</li>
+</ul>
 <h2 id="222">2.2.2 &nbsp; 函数渐近上界<a class="headerlink" href="#222" title="Permanent link">&para;</a></h2>
-<p>给定一个函数 <code>algorithm()</code> ：</p>
+<p>给定一个输入大小为 <span class="arithmatex">\(n\)</span> 的函数：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4132,12 +4135,12 @@
 </div>
 </div>
 </div>
-<p>设算法的计算操作数量是一个关于输入数据大小 <span class="arithmatex">\(n\)</span> 的函数，记为 <span class="arithmatex">\(T(n)\)</span> ，则以上函数的的操作数量为：</p>
+<p>设算法的操作数量是一个关于输入数据大小 <span class="arithmatex">\(n\)</span> 的函数，记为 <span class="arithmatex">\(T(n)\)</span> ，则以上函数的的操作数量为：</p>
 <div class="arithmatex">\[
 T(n) = 3 + 2n
 \]</div>
-<p><span class="arithmatex">\(T(n)\)</span> 是一次函数，说明时间的增长趋势是线性的，因此其时间复杂度是线性阶。</p>
-<p>我们将线性阶的时间复杂度记为 <span class="arithmatex">\(O(n)\)</span> ，这个数学符号称为「大 <span class="arithmatex">\(O\)</span> 记号 Big-<span class="arithmatex">\(O\)</span> Notation」，表示函数 <span class="arithmatex">\(T(n)\)</span> 的「渐近上界 Asymptotic Upper Bound」。</p>
+<p><span class="arithmatex">\(T(n)\)</span> 是一次函数，说明其运行时间的增长趋势是线性的，因此它的时间复杂度是线性阶。</p>
+<p>我们将线性阶的时间复杂度记为 <span class="arithmatex">\(O(n)\)</span> ，这个数学符号称为「大 <span class="arithmatex">\(O\)</span> 记号 big-<span class="arithmatex">\(O\)</span> notation」，表示函数 <span class="arithmatex">\(T(n)\)</span> 的「渐近上界 asymptotic upper bound」。</p>
 <p>时间复杂度分析本质上是计算“操作数量函数 <span class="arithmatex">\(T(n)\)</span>”的渐近上界。接下来，我们来看函数渐近上界的数学定义。</p>
 <div class="admonition abstract">
 <p class="admonition-title">函数渐近上界</p>
@@ -4150,21 +4153,21 @@ $$
 T(n) = O(f(n))
 $$</p>
 </div>
+<p>如下图所示，计算渐近上界就是寻找一个函数 <span class="arithmatex">\(f(n)\)</span> ，使得当 <span class="arithmatex">\(n\)</span> 趋向于无穷大时，<span class="arithmatex">\(T(n)\)</span> 和 <span class="arithmatex">\(f(n)\)</span> 处于相同的增长级别，仅相差一个常数项 <span class="arithmatex">\(c\)</span> 的倍数。</p>
 <p><img alt="函数的渐近上界" src="../time_complexity.assets/asymptotic_upper_bound.png" /></p>
 <p align="center"> 图：函数的渐近上界 </p>
 
-<p>也就是说，计算渐近上界就是寻找一个函数 <span class="arithmatex">\(f(n)\)</span> ，使得当 <span class="arithmatex">\(n\)</span> 趋向于无穷大时，<span class="arithmatex">\(T(n)\)</span> 和 <span class="arithmatex">\(f(n)\)</span> 处于相同的增长级别，仅相差一个常数项 <span class="arithmatex">\(c\)</span> 的倍数。</p>
 <h2 id="223">2.2.3 &nbsp; 推算方法<a class="headerlink" href="#223" title="Permanent link">&para;</a></h2>
-<p>渐近上界的数学味儿有点重，如果你感觉没有完全理解，也无需担心。因为在实际使用中，我们只需要掌握推算方法，数学意义可以逐渐领悟。</p>
+<p>渐近上界的数学味儿有点重，如果你感觉没有完全理解，也无须担心。因为在实际使用中，我们只需要掌握推算方法，数学意义就可以逐渐领悟。</p>
 <p>根据定义，确定 <span class="arithmatex">\(f(n)\)</span> 之后，我们便可得到时间复杂度 <span class="arithmatex">\(O(f(n))\)</span> 。那么如何确定渐近上界 <span class="arithmatex">\(f(n)\)</span> 呢？总体分为两步：首先统计操作数量，然后判断渐近上界。</p>
 <h3 id="1">1. &nbsp; 第一步：统计操作数量<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>针对代码，逐行从上到下计算即可。然而，由于上述 <span class="arithmatex">\(c \cdot f(n)\)</span> 中的常数项 <span class="arithmatex">\(c\)</span> 可以取任意大小，<strong>因此操作数量 <span class="arithmatex">\(T(n)\)</span> 中的各种系数、常数项都可以被忽略</strong>。根据此原则，可以总结出以下计数简化技巧：</p>
+<p>针对代码，逐行从上到下计算即可。然而，由于上述 <span class="arithmatex">\(c \cdot f(n)\)</span> 中的常数项 <span class="arithmatex">\(c\)</span> 可以取任意大小，<strong>因此操作数量 <span class="arithmatex">\(T(n)\)</span> 中的各种系数、常数项都可以被忽略</strong>。根据此原则，可以总结出以下计数简化技巧。</p>
 <ol>
 <li><strong>忽略 <span class="arithmatex">\(T(n)\)</span> 中的常数项</strong>。因为它们都与 <span class="arithmatex">\(n\)</span> 无关，所以对时间复杂度不产生影响。</li>
 <li><strong>省略所有系数</strong>。例如，循环 <span class="arithmatex">\(2n\)</span> 次、<span class="arithmatex">\(5n + 1\)</span> 次等，都可以简化记为 <span class="arithmatex">\(n\)</span> 次，因为 <span class="arithmatex">\(n\)</span> 前面的系数对时间复杂度没有影响。</li>
 <li><strong>循环嵌套时使用乘法</strong>。总操作数量等于外层循环和内层循环操作数量之积，每一层循环依然可以分别套用上述 <code>1.</code> 和 <code>2.</code> 技巧。</li>
 </ol>
-<p>以下示例展示了使用上述技巧前、后的统计结果。两者推出的时间复杂度相同，即为 <span class="arithmatex">\(O(n^2)\)</span> 。</p>
+<p>以下代码与公式分别展示了使用上述技巧前后的统计结果。两者推出的时间复杂度相同，都为 <span class="arithmatex">\(O(n^2)\)</span> 。</p>
 <div class="arithmatex">\[
 \begin{aligned}
 T(n) &amp; = 2n(n + 1) + (5n + 1) + 2 &amp; \text{完整统计 (-.-|||)} \newline
@@ -4368,7 +4371,7 @@ T(n) &amp; = n^2 + n &amp; \text{偷懒统计 (o.O)}
 <h3 id="2">2. &nbsp; 第二步：判断渐近上界<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p><strong>时间复杂度由多项式 <span class="arithmatex">\(T(n)\)</span> 中最高阶的项来决定</strong>。这是因为在 <span class="arithmatex">\(n\)</span> 趋于无穷大时，最高阶的项将发挥主导作用，其他项的影响都可以被忽略。</p>
 <p>以下表格展示了一些例子，其中一些夸张的值是为了强调“系数无法撼动阶数”这一结论。当 <span class="arithmatex">\(n\)</span> 趋于无穷大时，这些常数变得无足轻重。</p>
-<p align="center"> 表：多项式时间复杂度示例 </p>
+<p align="center"> 表：不同操作数量对应的时间复杂度 </p>
 
 <div class="center-table">
 <table>
@@ -4410,16 +4413,16 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 \text{常数阶} &lt; \text{对数阶} &lt; \text{线性阶} &lt; \text{线性对数阶} &lt; \text{平方阶} &lt; \text{指数阶} &lt; \text{阶乘阶}
 \end{aligned}
 \]</div>
-<p><img alt="时间复杂度的常见类型" src="../time_complexity.assets/time_complexity_common_types.png" /></p>
-<p align="center"> 图：时间复杂度的常见类型 </p>
+<p><img alt="常见的时间复杂度类型" src="../time_complexity.assets/time_complexity_common_types.png" /></p>
+<p align="center"> 图：常见的时间复杂度类型 </p>
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>部分示例代码需要一些预备知识，包括数组、递归等。如果你遇到不理解的部分，可以在学习完后面章节后再回顾。现阶段，请先专注于理解时间复杂度的含义和推算方法。</p>
+<p>部分示例代码需要一些预备知识，包括数组、递归等。如果你遇到不理解的部分，可以在学完后面章节后再回顾。现阶段，请先专注于理解时间复杂度的含义和推算方法。</p>
 </div>
 <h3 id="1-o1">1. &nbsp; 常数阶 <span class="arithmatex">\(O(1)\)</span><a class="headerlink" href="#1-o1" title="Permanent link">&para;</a></h3>
 <p>常数阶的操作数量与输入数据大小 <span class="arithmatex">\(n\)</span> 无关，即不随着 <span class="arithmatex">\(n\)</span> 的变化而变化。</p>
-<p>对于以下算法，尽管操作数量 <code>size</code> 可能很大，但由于其与数据大小 <span class="arithmatex">\(n\)</span> 无关，因此时间复杂度仍为 <span class="arithmatex">\(O(1)\)</span> 。</p>
+<p>对于以下算法，尽管操作数量 <code>size</code> 可能很大，但由于其与输入数据大小 <span class="arithmatex">\(n\)</span> 无关，因此时间复杂度仍为 <span class="arithmatex">\(O(1)\)</span> ：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label><label for="__tabbed_5_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4564,7 +4567,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </div>
 </div>
 <h3 id="2-on">2. &nbsp; 线性阶 <span class="arithmatex">\(O(n)\)</span><a class="headerlink" href="#2-on" title="Permanent link">&para;</a></h3>
-<p>线性阶的操作数量相对于输入数据大小以线性级别增长。线性阶通常出现在单层循环中。</p>
+<p>线性阶的操作数量相对于输入数据大小 <span class="arithmatex">\(n\)</span> 以线性级别增长。线性阶通常出现在单层循环中：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Python</label><label for="__tabbed_6_4">Go</label><label for="__tabbed_6_5">JS</label><label for="__tabbed_6_6">TS</label><label for="__tabbed_6_7">C</label><label for="__tabbed_6_8">C#</label><label for="__tabbed_6_9">Swift</label><label for="__tabbed_6_10">Zig</label><label for="__tabbed_6_11">Dart</label><label for="__tabbed_6_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4693,7 +4696,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </div>
 </div>
 </div>
-<p>遍历数组和遍历链表等操作的时间复杂度均为 <span class="arithmatex">\(O(n)\)</span> ，其中 <span class="arithmatex">\(n\)</span> 为数组或链表的长度。</p>
+<p>遍历数组和遍历链表等操作的时间复杂度均为 <span class="arithmatex">\(O(n)\)</span> ，其中 <span class="arithmatex">\(n\)</span> 为数组或链表的长度：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:12"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><input id="__tabbed_7_5" name="__tabbed_7" type="radio" /><input id="__tabbed_7_6" name="__tabbed_7" type="radio" /><input id="__tabbed_7_7" name="__tabbed_7" type="radio" /><input id="__tabbed_7_8" name="__tabbed_7" type="radio" /><input id="__tabbed_7_9" name="__tabbed_7" type="radio" /><input id="__tabbed_7_10" name="__tabbed_7" type="radio" /><input id="__tabbed_7_11" name="__tabbed_7" type="radio" /><input id="__tabbed_7_12" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Java</label><label for="__tabbed_7_2">C++</label><label for="__tabbed_7_3">Python</label><label for="__tabbed_7_4">Go</label><label for="__tabbed_7_5">JS</label><label for="__tabbed_7_6">TS</label><label for="__tabbed_7_7">C</label><label for="__tabbed_7_8">C#</label><label for="__tabbed_7_9">Swift</label><label for="__tabbed_7_10">Zig</label><label for="__tabbed_7_11">Dart</label><label for="__tabbed_7_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4840,9 +4843,9 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </div>
 </div>
 </div>
-<p>值得注意的是，<strong>数据大小 <span class="arithmatex">\(n\)</span> 需根据输入数据的类型来具体确定</strong>。比如在第一个示例中，变量 <span class="arithmatex">\(n\)</span> 为输入数据大小；在第二个示例中，数组长度 <span class="arithmatex">\(n\)</span> 为数据大小。</p>
+<p>值得注意的是，<strong>输入数据大小 <span class="arithmatex">\(n\)</span> 需根据输入数据的类型来具体确定</strong>。比如在第一个示例中，变量 <span class="arithmatex">\(n\)</span> 为输入数据大小；在第二个示例中，数组长度 <span class="arithmatex">\(n\)</span> 为数据大小。</p>
 <h3 id="3-on2">3. &nbsp; 平方阶 <span class="arithmatex">\(O(n^2)\)</span><a class="headerlink" href="#3-on2" title="Permanent link">&para;</a></h3>
-<p>平方阶的操作数量相对于输入数据大小以平方级别增长。平方阶通常出现在嵌套循环中，外层循环和内层循环都为 <span class="arithmatex">\(O(n)\)</span> ，因此总体为 <span class="arithmatex">\(O(n^2)\)</span> 。</p>
+<p>平方阶的操作数量相对于输入数据大小以平方级别增长。平方阶通常出现在嵌套循环中，外层循环和内层循环都为 <span class="arithmatex">\(O(n)\)</span> ，因此总体为 <span class="arithmatex">\(O(n^2)\)</span> ：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:12"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><input id="__tabbed_8_5" name="__tabbed_8" type="radio" /><input id="__tabbed_8_6" name="__tabbed_8" type="radio" /><input id="__tabbed_8_7" name="__tabbed_8" type="radio" /><input id="__tabbed_8_8" name="__tabbed_8" type="radio" /><input id="__tabbed_8_9" name="__tabbed_8" type="radio" /><input id="__tabbed_8_10" name="__tabbed_8" type="radio" /><input id="__tabbed_8_11" name="__tabbed_8" type="radio" /><input id="__tabbed_8_12" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Java</label><label for="__tabbed_8_2">C++</label><label for="__tabbed_8_3">Python</label><label for="__tabbed_8_4">Go</label><label for="__tabbed_8_5">JS</label><label for="__tabbed_8_6">TS</label><label for="__tabbed_8_7">C</label><label for="__tabbed_8_8">C#</label><label for="__tabbed_8_9">Swift</label><label for="__tabbed_8_10">Zig</label><label for="__tabbed_8_11">Dart</label><label for="__tabbed_8_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5014,10 +5017,11 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </div>
 </div>
 </div>
-<p><img alt="常数阶、线性阶、平方阶的时间复杂度" src="../time_complexity.assets/time_complexity_constant_linear_quadratic.png" /></p>
-<p align="center"> 图：常数阶、线性阶、平方阶的时间复杂度 </p>
+<p>下图对比了常数阶、线性阶和平方阶三种时间复杂度。</p>
+<p><img alt="常数阶、线性阶和平方阶的时间复杂度" src="../time_complexity.assets/time_complexity_constant_linear_quadratic.png" /></p>
+<p align="center"> 图：常数阶、线性阶和平方阶的时间复杂度 </p>
 
-<p>以「冒泡排序」为例，外层循环执行 <span class="arithmatex">\(n - 1\)</span> 次，内层循环执行 <span class="arithmatex">\(n-1, n-2, \cdots, 2, 1\)</span> 次，平均为 <span class="arithmatex">\(\frac{n}{2}\)</span> 次，因此时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> 。</p>
+<p>以冒泡排序为例，外层循环执行 <span class="arithmatex">\(n - 1\)</span> 次，内层循环执行 <span class="arithmatex">\(n-1, n-2, \cdots, 2, 1\)</span> 次，平均为 <span class="arithmatex">\(\frac{n}{2}\)</span> 次，因此时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ：</p>
 <div class="arithmatex">\[
 O((n - 1) \frac{n}{2}) = O(n^2)
 \]</div>
@@ -5274,8 +5278,7 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 </div>
 </div>
 <h3 id="4-o2n">4. &nbsp; 指数阶 <span class="arithmatex">\(O(2^n)\)</span><a class="headerlink" href="#4-o2n" title="Permanent link">&para;</a></h3>
-<p>生物学的“细胞分裂”是指数阶增长的典型例子：初始状态为 <span class="arithmatex">\(1\)</span> 个细胞，分裂一轮后变为 <span class="arithmatex">\(2\)</span> 个，分裂两轮后变为 <span class="arithmatex">\(4\)</span> 个，以此类推，分裂 <span class="arithmatex">\(n\)</span> 轮后有 <span class="arithmatex">\(2^n\)</span> 个细胞。</p>
-<p>以下代码模拟了细胞分裂的过程。</p>
+<p>生物学的“细胞分裂”是指数阶增长的典型例子：初始状态为 <span class="arithmatex">\(1\)</span> 个细胞，分裂一轮后变为 <span class="arithmatex">\(2\)</span> 个，分裂两轮后变为 <span class="arithmatex">\(4\)</span> 个，以此类推，分裂 <span class="arithmatex">\(n\)</span> 轮后有 <span class="arithmatex">\(2^n\)</span> 个细胞。相关代码如下：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="10:12"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><input id="__tabbed_10_4" name="__tabbed_10" type="radio" /><input id="__tabbed_10_5" name="__tabbed_10" type="radio" /><input id="__tabbed_10_6" name="__tabbed_10" type="radio" /><input id="__tabbed_10_7" name="__tabbed_10" type="radio" /><input id="__tabbed_10_8" name="__tabbed_10" type="radio" /><input id="__tabbed_10_9" name="__tabbed_10" type="radio" /><input id="__tabbed_10_10" name="__tabbed_10" type="radio" /><input id="__tabbed_10_11" name="__tabbed_10" type="radio" /><input id="__tabbed_10_12" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Java</label><label for="__tabbed_10_2">C++</label><label for="__tabbed_10_3">Python</label><label for="__tabbed_10_4">Go</label><label for="__tabbed_10_5">JS</label><label for="__tabbed_10_6">TS</label><label for="__tabbed_10_7">C</label><label for="__tabbed_10_8">C#</label><label for="__tabbed_10_9">Swift</label><label for="__tabbed_10_10">Zig</label><label for="__tabbed_10_11">Dart</label><label for="__tabbed_10_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5478,10 +5481,11 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 </div>
 </div>
 </div>
+<p>下图展示了细胞分裂的过程。</p>
 <p><img alt="指数阶的时间复杂度" src="../time_complexity.assets/time_complexity_exponential.png" /></p>
 <p align="center"> 图：指数阶的时间复杂度 </p>
 
-<p>在实际算法中，指数阶常出现于递归函数。例如以下代码，其递归地一分为二，经过 <span class="arithmatex">\(n\)</span> 次分裂后停止。</p>
+<p>在实际算法中，指数阶常出现于递归函数中。例如以下代码，其递归地一分为二，经过 <span class="arithmatex">\(n\)</span> 次分裂后停止：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="11:12"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><input id="__tabbed_11_4" name="__tabbed_11" type="radio" /><input id="__tabbed_11_5" name="__tabbed_11" type="radio" /><input id="__tabbed_11_6" name="__tabbed_11" type="radio" /><input id="__tabbed_11_7" name="__tabbed_11" type="radio" /><input id="__tabbed_11_8" name="__tabbed_11" type="radio" /><input id="__tabbed_11_9" name="__tabbed_11" type="radio" /><input id="__tabbed_11_10" name="__tabbed_11" type="radio" /><input id="__tabbed_11_11" name="__tabbed_11" type="radio" /><input id="__tabbed_11_12" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Java</label><label for="__tabbed_11_2">C++</label><label for="__tabbed_11_3">Python</label><label for="__tabbed_11_4">Go</label><label for="__tabbed_11_5">JS</label><label for="__tabbed_11_6">TS</label><label for="__tabbed_11_7">C</label><label for="__tabbed_11_8">C#</label><label for="__tabbed_11_9">Swift</label><label for="__tabbed_11_10">Zig</label><label for="__tabbed_11_11">Dart</label><label for="__tabbed_11_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5593,7 +5597,7 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 </div>
 <p>指数阶增长非常迅速，在穷举法（暴力搜索、回溯等）中比较常见。对于数据规模较大的问题，指数阶是不可接受的，通常需要使用「动态规划」或「贪心」等算法来解决。</p>
 <h3 id="5-olog-n">5. &nbsp; 对数阶 <span class="arithmatex">\(O(\log n)\)</span><a class="headerlink" href="#5-olog-n" title="Permanent link">&para;</a></h3>
-<p>与指数阶相反，对数阶反映了“每轮缩减到一半”的情况。设输入数据大小为 <span class="arithmatex">\(n\)</span> ，由于每轮缩减到一半，因此循环次数是 <span class="arithmatex">\(\log_2 n\)</span> ，即 <span class="arithmatex">\(2^n\)</span> 的反函数。</p>
+<p>与指数阶相反，对数阶反映了“每轮缩减到一半”的情况。设输入数据大小为 <span class="arithmatex">\(n\)</span> ，由于每轮缩减到一半，因此循环次数是 <span class="arithmatex">\(\log_2 n\)</span> ，即 <span class="arithmatex">\(2^n\)</span> 的反函数。相关代码如下：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:12"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><input id="__tabbed_12_4" name="__tabbed_12" type="radio" /><input id="__tabbed_12_5" name="__tabbed_12" type="radio" /><input id="__tabbed_12_6" name="__tabbed_12" type="radio" /><input id="__tabbed_12_7" name="__tabbed_12" type="radio" /><input id="__tabbed_12_8" name="__tabbed_12" type="radio" /><input id="__tabbed_12_9" name="__tabbed_12" type="radio" /><input id="__tabbed_12_10" name="__tabbed_12" type="radio" /><input id="__tabbed_12_11" name="__tabbed_12" type="radio" /><input id="__tabbed_12_12" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Java</label><label for="__tabbed_12_2">C++</label><label for="__tabbed_12_3">Python</label><label for="__tabbed_12_4">Go</label><label for="__tabbed_12_5">JS</label><label for="__tabbed_12_6">TS</label><label for="__tabbed_12_7">C</label><label for="__tabbed_12_8">C#</label><label for="__tabbed_12_9">Swift</label><label for="__tabbed_12_10">Zig</label><label for="__tabbed_12_11">Dart</label><label for="__tabbed_12_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5746,7 +5750,7 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 <p><img alt="对数阶的时间复杂度" src="../time_complexity.assets/time_complexity_logarithmic.png" /></p>
 <p align="center"> 图：对数阶的时间复杂度 </p>
 
-<p>与指数阶类似，对数阶也常出现于递归函数。以下代码形成了一个高度为 <span class="arithmatex">\(\log_2 n\)</span> 的递归树。</p>
+<p>与指数阶类似，对数阶也常出现于递归函数中。以下代码形成了一个高度为 <span class="arithmatex">\(\log_2 n\)</span> 的递归树：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="13:12"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><input id="__tabbed_13_4" name="__tabbed_13" type="radio" /><input id="__tabbed_13_5" name="__tabbed_13" type="radio" /><input id="__tabbed_13_6" name="__tabbed_13" type="radio" /><input id="__tabbed_13_7" name="__tabbed_13" type="radio" /><input id="__tabbed_13_8" name="__tabbed_13" type="radio" /><input id="__tabbed_13_9" name="__tabbed_13" type="radio" /><input id="__tabbed_13_10" name="__tabbed_13" type="radio" /><input id="__tabbed_13_11" name="__tabbed_13" type="radio" /><input id="__tabbed_13_12" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Java</label><label for="__tabbed_13_2">C++</label><label for="__tabbed_13_3">Python</label><label for="__tabbed_13_4">Go</label><label for="__tabbed_13_5">JS</label><label for="__tabbed_13_6">TS</label><label for="__tabbed_13_7">C</label><label for="__tabbed_13_8">C#</label><label for="__tabbed_13_9">Swift</label><label for="__tabbed_13_10">Zig</label><label for="__tabbed_13_11">Dart</label><label for="__tabbed_13_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5856,10 +5860,9 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 </div>
 </div>
 </div>
-<p>对数阶常出现于基于「分治」的算法中，体现了“一分为多”和“化繁为简”的算法思想。它增长缓慢，是理想的时间复杂度，仅次于常数阶。</p>
+<p>对数阶常出现于基于分治策略的算法中，体现了“一分为多”和“化繁为简”的算法思想。它增长缓慢，是理想的时间复杂度，仅次于常数阶。</p>
 <h3 id="6-on-log-n">6. &nbsp; 线性对数阶 <span class="arithmatex">\(O(n \log n)\)</span><a class="headerlink" href="#6-on-log-n" title="Permanent link">&para;</a></h3>
-<p>线性对数阶常出现于嵌套循环中，两层循环的时间复杂度分别为 <span class="arithmatex">\(O(\log n)\)</span> 和 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<p>主流排序算法的时间复杂度通常为 <span class="arithmatex">\(O(n \log n)\)</span> ，例如快速排序、归并排序、堆排序等。</p>
+<p>线性对数阶常出现于嵌套循环中，两层循环的时间复杂度分别为 <span class="arithmatex">\(O(\log n)\)</span> 和 <span class="arithmatex">\(O(n)\)</span> 。相关代码如下：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="14:12"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><input id="__tabbed_14_4" name="__tabbed_14" type="radio" /><input id="__tabbed_14_5" name="__tabbed_14" type="radio" /><input id="__tabbed_14_6" name="__tabbed_14" type="radio" /><input id="__tabbed_14_7" name="__tabbed_14" type="radio" /><input id="__tabbed_14_8" name="__tabbed_14" type="radio" /><input id="__tabbed_14_9" name="__tabbed_14" type="radio" /><input id="__tabbed_14_10" name="__tabbed_14" type="radio" /><input id="__tabbed_14_11" name="__tabbed_14" type="radio" /><input id="__tabbed_14_12" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">Java</label><label for="__tabbed_14_2">C++</label><label for="__tabbed_14_3">Python</label><label for="__tabbed_14_4">Go</label><label for="__tabbed_14_5">JS</label><label for="__tabbed_14_6">TS</label><label for="__tabbed_14_7">C</label><label for="__tabbed_14_8">C#</label><label for="__tabbed_14_9">Swift</label><label for="__tabbed_14_10">Zig</label><label for="__tabbed_14_11">Dart</label><label for="__tabbed_14_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6025,12 +6028,13 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 <p><img alt="线性对数阶的时间复杂度" src="../time_complexity.assets/time_complexity_logarithmic_linear.png" /></p>
 <p align="center"> 图：线性对数阶的时间复杂度 </p>
 
+<p>主流排序算法的时间复杂度通常为 <span class="arithmatex">\(O(n \log n)\)</span> ，例如快速排序、归并排序、堆排序等。</p>
 <h3 id="7-on">7. &nbsp; 阶乘阶 <span class="arithmatex">\(O(n!)\)</span><a class="headerlink" href="#7-on" title="Permanent link">&para;</a></h3>
 <p>阶乘阶对应数学上的“全排列”问题。给定 <span class="arithmatex">\(n\)</span> 个互不重复的元素，求其所有可能的排列方案，方案数量为：</p>
 <div class="arithmatex">\[
 n! = n \times (n - 1) \times (n - 2) \times \cdots \times 2 \times 1
 \]</div>
-<p>阶乘通常使用递归实现。例如以下代码，第一层分裂出 <span class="arithmatex">\(n\)</span> 个，第二层分裂出 <span class="arithmatex">\(n - 1\)</span> 个，以此类推，直至第 <span class="arithmatex">\(n\)</span> 层时终止分裂。</p>
+<p>阶乘通常使用递归实现。例如在以下代码中，第一层分裂出 <span class="arithmatex">\(n\)</span> 个，第二层分裂出 <span class="arithmatex">\(n - 1\)</span> 个，以此类推，直至第 <span class="arithmatex">\(n\)</span> 层时停止分裂：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="15:12"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><input id="__tabbed_15_4" name="__tabbed_15" type="radio" /><input id="__tabbed_15_5" name="__tabbed_15" type="radio" /><input id="__tabbed_15_6" name="__tabbed_15" type="radio" /><input id="__tabbed_15_7" name="__tabbed_15" type="radio" /><input id="__tabbed_15_8" name="__tabbed_15" type="radio" /><input id="__tabbed_15_9" name="__tabbed_15" type="radio" /><input id="__tabbed_15_10" name="__tabbed_15" type="radio" /><input id="__tabbed_15_11" name="__tabbed_15" type="radio" /><input id="__tabbed_15_12" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">Java</label><label for="__tabbed_15_2">C++</label><label for="__tabbed_15_3">Python</label><label for="__tabbed_15_4">Go</label><label for="__tabbed_15_5">JS</label><label for="__tabbed_15_6">TS</label><label for="__tabbed_15_7">C</label><label for="__tabbed_15_8">C#</label><label for="__tabbed_15_9">Swift</label><label for="__tabbed_15_10">Zig</label><label for="__tabbed_15_11">Dart</label><label for="__tabbed_15_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6202,14 +6206,14 @@ n! = n \times (n - 1) \times (n - 2) \times \cdots \times 2 \times 1
 <p><img alt="阶乘阶的时间复杂度" src="../time_complexity.assets/time_complexity_factorial.png" /></p>
 <p align="center"> 图：阶乘阶的时间复杂度 </p>
 
-<p>请注意，因为 <span class="arithmatex">\(n! &gt; 2^n\)</span> ，所以阶乘阶比指数阶增长地更快，在 <span class="arithmatex">\(n\)</span> 较大时也是不可接受的。</p>
+<p>请注意，因为 <span class="arithmatex">\(n! &gt; 2^n\)</span> ，所以阶乘阶比指数阶增长得更快，在 <span class="arithmatex">\(n\)</span> 较大时也是不可接受的。</p>
 <h2 id="225">2.2.5 &nbsp; 最差、最佳、平均时间复杂度<a class="headerlink" href="#225" title="Permanent link">&para;</a></h2>
-<p><strong>算法的时间效率往往不是固定的，而是与输入数据的分布有关</strong>。假设输入一个长度为 <span class="arithmatex">\(n\)</span> 的数组 <code>nums</code> ，其中 <code>nums</code> 由从 <span class="arithmatex">\(1\)</span> 至 <span class="arithmatex">\(n\)</span> 的数字组成，但元素顺序是随机打乱的，任务目标是返回元素 <span class="arithmatex">\(1\)</span> 的索引。我们可以得出以下结论：</p>
+<p><strong>算法的时间效率往往不是固定的，而是与输入数据的分布有关</strong>。假设输入一个长度为 <span class="arithmatex">\(n\)</span> 的数组 <code>nums</code> ，其中 <code>nums</code> 由从 <span class="arithmatex">\(1\)</span> 至 <span class="arithmatex">\(n\)</span> 的数字组成，每个数字只出现一次，但元素顺序是随机打乱的，任务目标是返回元素 <span class="arithmatex">\(1\)</span> 的索引。我们可以得出以下结论。</p>
 <ul>
 <li>当 <code>nums = [?, ?, ..., 1]</code> ，即当末尾元素是 <span class="arithmatex">\(1\)</span> 时，需要完整遍历数组，<strong>达到最差时间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> 。</li>
-<li>当 <code>nums = [1, ?, ?, ...]</code> ，即当首个数字为 <span class="arithmatex">\(1\)</span> 时，无论数组多长都不需要继续遍历，<strong>达到最佳时间复杂度 <span class="arithmatex">\(\Omega(1)\)</span></strong> 。</li>
+<li>当 <code>nums = [1, ?, ?, ...]</code> ，即当首个元素为 <span class="arithmatex">\(1\)</span> 时，无论数组多长都不需要继续遍历，<strong>达到最佳时间复杂度 <span class="arithmatex">\(\Omega(1)\)</span></strong> 。</li>
 </ul>
-<p>「最差时间复杂度」对应函数渐近上界，使用大 <span class="arithmatex">\(O\)</span> 记号表示。相应地，「最佳时间复杂度」对应函数渐近下界，用 <span class="arithmatex">\(\Omega\)</span> 记号表示。</p>
+<p>「最差时间复杂度」对应函数渐近上界，使用大 <span class="arithmatex">\(O\)</span> 记号表示。相应地，「最佳时间复杂度」对应函数渐近下界，用 <span class="arithmatex">\(\Omega\)</span> 记号表示：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="16:12"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><input id="__tabbed_16_3" name="__tabbed_16" type="radio" /><input id="__tabbed_16_4" name="__tabbed_16" type="radio" /><input id="__tabbed_16_5" name="__tabbed_16" type="radio" /><input id="__tabbed_16_6" name="__tabbed_16" type="radio" /><input id="__tabbed_16_7" name="__tabbed_16" type="radio" /><input id="__tabbed_16_8" name="__tabbed_16" type="radio" /><input id="__tabbed_16_9" name="__tabbed_16" type="radio" /><input id="__tabbed_16_10" name="__tabbed_16" type="radio" /><input id="__tabbed_16_11" name="__tabbed_16" type="radio" /><input id="__tabbed_16_12" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">Java</label><label for="__tabbed_16_2">C++</label><label for="__tabbed_16_3">Python</label><label for="__tabbed_16_4">Go</label><label for="__tabbed_16_5">JS</label><label for="__tabbed_16_6">TS</label><label for="__tabbed_16_7">C</label><label for="__tabbed_16_8">C#</label><label for="__tabbed_16_9">Swift</label><label for="__tabbed_16_10">Zig</label><label for="__tabbed_16_11">Dart</label><label for="__tabbed_16_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6542,11 +6546,11 @@ n! = n \times (n - 1) \times (n - 2) \times \cdots \times 2 \times 1
 </div>
 <p>值得说明的是，我们在实际中很少使用「最佳时间复杂度」，因为通常只有在很小概率下才能达到，可能会带来一定的误导性。<strong>而「最差时间复杂度」更为实用，因为它给出了一个效率安全值</strong>，让我们可以放心地使用算法。</p>
 <p>从上述示例可以看出，最差或最佳时间复杂度只出现于“特殊的数据分布”，这些情况的出现概率可能很小，并不能真实地反映算法运行效率。相比之下，<strong>「平均时间复杂度」可以体现算法在随机输入数据下的运行效率</strong>，用 <span class="arithmatex">\(\Theta\)</span> 记号来表示。</p>
-<p>对于部分算法，我们可以简单地推算出随机数据分布下的平均情况。比如上述示例，由于输入数组是被打乱的，因此元素 <span class="arithmatex">\(1\)</span> 出现在任意索引的概率都是相等的，那么算法的平均循环次数则是数组长度的一半 <span class="arithmatex">\(\frac{n}{2}\)</span> ，平均时间复杂度为 <span class="arithmatex">\(\Theta(\frac{n}{2}) = \Theta(n)\)</span> 。</p>
+<p>对于部分算法，我们可以简单地推算出随机数据分布下的平均情况。比如上述示例，由于输入数组是被打乱的，因此元素 <span class="arithmatex">\(1\)</span> 出现在任意索引的概率都是相等的，那么算法的平均循环次数就是数组长度的一半 <span class="arithmatex">\(\frac{n}{2}\)</span> ，平均时间复杂度为 <span class="arithmatex">\(\Theta(\frac{n}{2}) = \Theta(n)\)</span> 。</p>
 <p>但对于较为复杂的算法，计算平均时间复杂度往往是比较困难的，因为很难分析出在数据分布下的整体数学期望。在这种情况下，我们通常使用最差时间复杂度作为算法效率的评判标准。</p>
 <div class="admonition question">
 <p class="admonition-title">为什么很少看到 <span class="arithmatex">\(\Theta\)</span> 符号？</p>
-<p>可能由于 <span class="arithmatex">\(O\)</span> 符号过于朗朗上口，我们常常使用它来表示「平均复杂度」，但从严格意义上看，这种做法并不规范。在本书和其他资料中，若遇到类似“平均时间复杂度 <span class="arithmatex">\(O(n)\)</span>”的表述，请将其直接理解为 <span class="arithmatex">\(\Theta(n)\)</span> 。</p>
+<p>可能由于 <span class="arithmatex">\(O\)</span> 符号过于朗朗上口，我们常常使用它来表示平均时间复杂度。但从严格意义上看，这种做法并不规范。在本书和其他资料中，若遇到类似“平均时间复杂度 <span class="arithmatex">\(O(n)\)</span>”的表述，请将其直接理解为 <span class="arithmatex">\(\Theta(n)\)</span> 。</p>
 </div>
 
 
