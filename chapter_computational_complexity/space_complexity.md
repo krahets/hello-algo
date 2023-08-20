@@ -40,7 +40,7 @@ comments: true
     
     /* 函数 */
     int function() {
-        // do something...
+        // 执行某些操作...
         return 0;
     }
     
@@ -65,7 +65,7 @@ comments: true
 
     /* 函数 */
     int func() {
-        // do something...
+        // 执行某些操作...
         return 0;
     }
 
@@ -89,7 +89,7 @@ comments: true
 
     def function() -> int:
         """函数"""
-        # do something...
+        # 执行某些操作...
         return 0
 
     def algorithm(n) -> int:  # 输入数据
@@ -116,7 +116,7 @@ comments: true
     
     /* 函数 */
     func function() int {
-        // do something...
+        // 执行某些操作...
         return 0
     }
 
@@ -144,7 +144,7 @@ comments: true
 
     /* 函数 */
     function constFunc() {
-        // do something
+        // 执行某些操作
         return 0;
     }
 
@@ -172,7 +172,7 @@ comments: true
 
     /* 函数 */
     function constFunc(): number {
-        // do something
+        // 执行某些操作
         return 0;
     }
 
@@ -190,7 +190,7 @@ comments: true
     ```c title=""
     /* 函数 */
     int func() {
-        // do something...
+        // 执行某些操作...
         return 0;
     }
 
@@ -214,7 +214,7 @@ comments: true
 
     /* 函数 */
     int function() {
-        // do something...
+        // 执行某些操作...
         return 0;
     }
 
@@ -242,7 +242,7 @@ comments: true
 
     /* 函数 */
     func function() -> Int {
-        // do something...
+        // 执行某些操作...
         return 0
     }
 
@@ -273,7 +273,7 @@ comments: true
 
     /* 函数 */
     int function() {
-      // do something...
+      // 执行某些操作...
       return 0;
     }
 
@@ -441,7 +441,7 @@ comments: true
 
     ```java title=""
     int function() {
-        // do something
+        // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
@@ -461,7 +461,7 @@ comments: true
 
     ```cpp title=""
     int func() {
-        // do something
+        // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
@@ -481,7 +481,7 @@ comments: true
 
     ```python title=""
     def function() -> int:
-        # do something
+        # 执行某些操作
         return 0
 
     def loop(n: int):
@@ -499,7 +499,7 @@ comments: true
 
     ```go title=""
     func function() int {
-        // do something
+        // 执行某些操作
         return 0
     }
     
@@ -523,7 +523,7 @@ comments: true
 
     ```javascript title=""
     function constFunc() {
-        // do something
+        // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
@@ -543,7 +543,7 @@ comments: true
 
     ```typescript title=""
     function constFunc(): number {
-        // do something
+        // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
@@ -563,7 +563,7 @@ comments: true
 
     ```c title=""
     int func() {
-        // do something
+        // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
@@ -583,7 +583,7 @@ comments: true
 
     ```csharp title=""
     int function() {
-        // do something
+        // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
@@ -604,7 +604,7 @@ comments: true
     ```swift title=""
     @discardableResult
     func function() -> Int {
-        // do something
+        // 执行某些操作
         return 0
     }
 
@@ -634,7 +634,7 @@ comments: true
 
     ```dart title=""
     int function() {
-      // do something
+      // 执行某些操作
       return 0;
     }
     /* 循环 O(1) */
@@ -686,7 +686,7 @@ $$
     ```java title="space_complexity.java"
     /* 函数 */
     int function() {
-        // do something
+        // 执行某些操作
         return 0;
     }
 
@@ -713,7 +713,7 @@ $$
     ```cpp title="space_complexity.cpp"
     /* 函数 */
     int func() {
-        // do something
+        // 执行某些操作
         return 0;
     }
 
@@ -740,7 +740,7 @@ $$
     ```python title="space_complexity.py"
     def function() -> int:
         """函数"""
-        # do something
+        # 执行某些操作
         return 0
 
     def constant(n: int):
@@ -762,7 +762,7 @@ $$
     ```go title="space_complexity.go"
     /* 函数 */
     func function() int {
-        // do something...
+        // 执行某些操作...
         return 0
     }
 
@@ -791,7 +791,7 @@ $$
     ```javascript title="space_complexity.js"
     /* 函数 */
     function constFunc() {
-        // do something
+        // 执行某些操作
         return 0;
     }
 
@@ -818,7 +818,7 @@ $$
     ```typescript title="space_complexity.ts"
     /* 函数 */
     function constFunc(): number {
-        // do something
+        // 执行某些操作
         return 0;
     }
 
@@ -845,7 +845,7 @@ $$
     ```c title="space_complexity.c"
     /* 函数 */
     int func() {
-        // do something
+        // 执行某些操作
         return 0;
     }
 
@@ -873,7 +873,7 @@ $$
     ```csharp title="space_complexity.cs"
     /* 函数 */
     int function() {
-        // do something
+        // 执行某些操作
         return 0;
     }
 
@@ -901,7 +901,7 @@ $$
     /* 函数 */
     @discardableResult
     func function() -> Int {
-        // do something
+        // 执行某些操作
         return 0
     }
 
@@ -958,7 +958,7 @@ $$
     ```dart title="space_complexity.dart"
     /* 函数 */
     int function() {
-      // do something
+      // 执行某些操作
       return 0;
     }
 
@@ -985,7 +985,7 @@ $$
     ```rust title="space_complexity.rs"
     /* 函数 */
     fn function() ->i32 {
-        // do something
+        // 执行某些操作
         return 0;
     }
 
@@ -1274,7 +1274,7 @@ $$
     }
     ```
 
-以下递归函数会同时存在 $n$ 个未返回的 `algorithm()` 函数，使用 $O(n)$ 大小的栈帧空间：
+以下函数的递归深度为 $n$ ，即同时存在 $n$ 个未返回的 `linear_recur()` 函数，使用 $O(n)$ 大小的栈帧空间：
 
 === "Java"
 
@@ -1635,7 +1635,7 @@ $$
     }
     ```
 
-在以下递归函数中，同时存在 $n$ 个未返回的 `algorithm()` ，并且每个函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $\frac{n}{2}$ ，因此总体占用 $O(n^2)$ 空间。
+以下函数的递归深度为 $n$ ，在每个递归函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $n / 2$ ，因此总体占用 $O(n^2)$ 空间。
 
 === "Java"
 
@@ -1972,11 +1972,9 @@ $$
 
 ### 5. &nbsp; 对数阶 $O(\log n)$
 
-对数阶常见于分治算法和数据类型转换等。
+对数阶常见于分治算法。例如归并排序，输入长度为 $n$ 的数组，每轮递归将数组从中点划分为两半，形成高度为 $\log n$ 的递归树，使用 $O(\log n)$ 栈帧空间。
 
-例如归并排序算法，输入长度为 $n$ 的数组，每轮递归将数组从中点划分为两半，形成高度为 $\log n$ 的递归树，使用 $O(\log n)$ 栈帧空间。
-
-再例如将数字转化为字符串，输入任意正整数 $n$ ，它的位数为 $\log_{10} n + 1$ ，即对应字符串长度为 $\log_{10} n + 1$ ，因此空间复杂度为 $O(\log_{10} n + 1) = O(\log n)$ 。
+再例如将数字转化为字符串，输入一个正整数 $n$ ，它的位数为 $\log_{10} n + 1$ ，即对应字符串长度为 $\log_{10} n + 1$ ，因此空间复杂度为 $O(\log_{10} n + 1) = O(\log n)$ 。
 
 ## 2.3.4 &nbsp; 权衡时间与空间
 
