@@ -12,7 +12,7 @@ from modules import *
 
 def function() -> int:
     """函数"""
-    # do something
+    # 执行某些操作
     return 0
 
 

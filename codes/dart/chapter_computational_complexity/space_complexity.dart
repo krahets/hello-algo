@@ -11,7 +11,7 @@ import '../utils/tree_node.dart';
 
 /* 函数 */
 int function() {
-  // do something
+  // 执行某些操作
   return 0;
 }
 

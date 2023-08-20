@@ -8,7 +8,7 @@
 
 /* 函数 */
 int func() {
-    // do something
+    // 执行某些操作
     return 0;
 }
 

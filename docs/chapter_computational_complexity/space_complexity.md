@@ -34,7 +34,7 @@
     
     /* 函数 */
     int function() {
-        // do something...
+        // 执行某些操作...
         return 0;
     }
     
@@ -59,7 +59,7 @@
 
     /* 函数 */
     int func() {
-        // do something...
+        // 执行某些操作...
         return 0;
     }
 
@@ -83,7 +83,7 @@
 
     def function() -> int:
         """函数"""
-        # do something...
+        # 执行某些操作...
         return 0
 
     def algorithm(n) -> int:  # 输入数据
@@ -110,7 +110,7 @@
     
     /* 函数 */
     func function() int {
-        // do something...
+        // 执行某些操作...
         return 0
     }
 
@@ -138,7 +138,7 @@
 
     /* 函数 */
     function constFunc() {
-        // do something
+        // 执行某些操作
         return 0;
     }
 
@@ -166,7 +166,7 @@
 
     /* 函数 */
     function constFunc(): number {
-        // do something
+        // 执行某些操作
         return 0;
     }
 
@@ -184,7 +184,7 @@
     ```c title=""
     /* 函数 */
     int func() {
-        // do something...
+        // 执行某些操作...
         return 0;
     }
 
@@ -208,7 +208,7 @@
 
     /* 函数 */
     int function() {
-        // do something...
+        // 执行某些操作...
         return 0;
     }
 
@@ -236,7 +236,7 @@
 
     /* 函数 */
     func function() -> Int {
-        // do something...
+        // 执行某些操作...
         return 0
     }
 
@@ -267,7 +267,7 @@
 
     /* 函数 */
     int function() {
-      // do something...
+      // 执行某些操作...
       return 0;
     }
 
@@ -435,7 +435,7 @@
 
     ```java title=""
     int function() {
-        // do something
+        // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
@@ -455,7 +455,7 @@
 
     ```cpp title=""
     int func() {
-        // do something
+        // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
@@ -475,7 +475,7 @@
 
     ```python title=""
     def function() -> int:
-        # do something
+        # 执行某些操作
         return 0
 
     def loop(n: int):
@@ -493,7 +493,7 @@
 
     ```go title=""
     func function() int {
-        // do something
+        // 执行某些操作
         return 0
     }
     
@@ -517,7 +517,7 @@
 
     ```javascript title=""
     function constFunc() {
-        // do something
+        // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
@@ -537,7 +537,7 @@
 
     ```typescript title=""
     function constFunc(): number {
-        // do something
+        // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
@@ -557,7 +557,7 @@
 
     ```c title=""
     int func() {
-        // do something
+        // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
@@ -577,7 +577,7 @@
 
     ```csharp title=""
     int function() {
-        // do something
+        // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
@@ -598,7 +598,7 @@
     ```swift title=""
     @discardableResult
     func function() -> Int {
-        // do something
+        // 执行某些操作
         return 0
     }
 
@@ -628,7 +628,7 @@
 
     ```dart title=""
     int function() {
-      // do something
+      // 执行某些操作
       return 0;
     }
     /* 循环 O(1) */
@@ -847,7 +847,7 @@ $$
     [class]{}-[func]{linear}
     ```
 
-以下递归函数会同时存在 $n$ 个未返回的 `algorithm()` 函数，使用 $O(n)$ 大小的栈帧空间：
+以下函数的递归深度为 $n$ ，即同时存在 $n$ 个未返回的 `linear_recur()` 函数，使用 $O(n)$ 大小的栈帧空间：
 
 === "Java"
 
@@ -999,7 +999,7 @@ $$
     [class]{}-[func]{quadratic}
     ```
 
-在以下递归函数中，同时存在 $n$ 个未返回的 `algorithm()` ，并且每个函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $\frac{n}{2}$ ，因此总体占用 $O(n^2)$ 空间。
+以下函数的递归深度为 $n$ ，在每个递归函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $n / 2$ ，因此总体占用 $O(n^2)$ 空间。
 
 === "Java"
 
@@ -1155,11 +1155,9 @@ $$
 
 ### 对数阶 $O(\log n)$
 
-对数阶常见于分治算法和数据类型转换等。
+对数阶常见于分治算法。例如归并排序，输入长度为 $n$ 的数组，每轮递归将数组从中点划分为两半，形成高度为 $\log n$ 的递归树，使用 $O(\log n)$ 栈帧空间。
 
-例如归并排序算法，输入长度为 $n$ 的数组，每轮递归将数组从中点划分为两半，形成高度为 $\log n$ 的递归树，使用 $O(\log n)$ 栈帧空间。
-
-再例如将数字转化为字符串，输入任意正整数 $n$ ，它的位数为 $\log_{10} n + 1$ ，即对应字符串长度为 $\log_{10} n + 1$ ，因此空间复杂度为 $O(\log_{10} n + 1) = O(\log n)$ 。
+再例如将数字转化为字符串，输入一个正整数 $n$ ，它的位数为 $\log_{10} n + 1$ ，即对应字符串长度为 $\log_{10} n + 1$ ，因此空间复杂度为 $O(\log_{10} n + 1) = O(\log n)$ 。
 
 ## 权衡时间与空间
 

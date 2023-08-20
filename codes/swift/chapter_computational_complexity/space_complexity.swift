@@ -9,7 +9,7 @@ import utils
 /* 函数 */
 @discardableResult
 func function() -> Int {
-    // do something
+    // 执行某些操作
     return 0
 }
 

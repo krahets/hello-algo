@@ -9,7 +9,7 @@ namespace hello_algo.chapter_computational_complexity;
 public class space_complexity {
     /* 函数 */
     static int function() {
-        // do something
+        // 执行某些操作
         return 0;
     }
 
