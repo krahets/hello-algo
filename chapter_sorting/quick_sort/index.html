@@ -545,7 +545,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"/></svg>
   
   <span class="md-ellipsis">
-    第 2 章 &nbsp; 复杂度
+    第 2 章 &nbsp; 时空复杂度
   </span>
   
 
@@ -560,7 +560,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            第 2 章 &nbsp; 复杂度
+            第 2 章 &nbsp; 时空复杂度
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1155,7 +1155,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"/></svg>
   
   <span class="md-ellipsis">
-    第 6 章 &nbsp; 散列表
+    第 6 章 &nbsp; 哈希表
   </span>
   
 
@@ -1170,7 +1170,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            第 6 章 &nbsp; 散列表
+            第 6 章 &nbsp; 哈希表
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4440,7 +4440,7 @@
 </div>
 <h2 id="1155">11.5.5 &nbsp; 尾递归优化<a class="headerlink" href="#1155" title="Permanent link">&para;</a></h2>
 <p><strong>在某些输入下，快速排序可能占用空间较多</strong>。以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 <span class="arithmatex">\(0\)</span> ，递归树的高度会达到 <span class="arithmatex">\(n - 1\)</span> ，此时需要占用 <span class="arithmatex">\(O(n)\)</span> 大小的栈帧空间。</p>
-<p>为了防止栈帧空间的累积，我们可以在每轮哨兵排序完成后，比较两个子数组的长度，<strong>仅对较短的子数组进行递归</strong>。由于较短子数组的长度不会超过 <span class="arithmatex">\(\frac{n}{2}\)</span> ，因此这种方法能确保递归深度不超过 <span class="arithmatex">\(\log n\)</span> ，从而将最差空间复杂度优化至 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
+<p>为了防止栈帧空间的累积，我们可以在每轮哨兵排序完成后，比较两个子数组的长度，<strong>仅对较短的子数组进行递归</strong>。由于较短子数组的长度不会超过 <span class="arithmatex">\(n / 2\)</span> ，因此这种方法能确保递归深度不超过 <span class="arithmatex">\(\log n\)</span> ，从而将最差空间复杂度优化至 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label><label for="__tabbed_5_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

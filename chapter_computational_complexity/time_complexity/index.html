@@ -547,7 +547,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"/></svg>
   
   <span class="md-ellipsis">
-    第 2 章 &nbsp; 复杂度
+    第 2 章 &nbsp; 时空复杂度
   </span>
   
 
@@ -562,7 +562,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            第 2 章 &nbsp; 复杂度
+            第 2 章 &nbsp; 时空复杂度
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1307,7 +1307,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"/></svg>
   
   <span class="md-ellipsis">
-    第 6 章 &nbsp; 散列表
+    第 6 章 &nbsp; 哈希表
   </span>
   
 
@@ -1322,7 +1322,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            第 6 章 &nbsp; 散列表
+            第 6 章 &nbsp; 哈希表
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5021,10 +5021,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 <p><img alt="常数阶、线性阶和平方阶的时间复杂度" src="../time_complexity.assets/time_complexity_constant_linear_quadratic.png" /></p>
 <p align="center"> 图：常数阶、线性阶和平方阶的时间复杂度 </p>
 
-<p>以冒泡排序为例，外层循环执行 <span class="arithmatex">\(n - 1\)</span> 次，内层循环执行 <span class="arithmatex">\(n-1, n-2, \cdots, 2, 1\)</span> 次，平均为 <span class="arithmatex">\(\frac{n}{2}\)</span> 次，因此时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ：</p>
-<div class="arithmatex">\[
-O((n - 1) \frac{n}{2}) = O(n^2)
-\]</div>
+<p>以冒泡排序为例，外层循环执行 <span class="arithmatex">\(n - 1\)</span> 次，内层循环执行 <span class="arithmatex">\(n-1, n-2, \dots, 2, 1\)</span> 次，平均为 <span class="arithmatex">\(n / 2\)</span> 次，因此时间复杂度为 <span class="arithmatex">\(O((n - 1) n / 2) = O(n^2)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:12"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><input id="__tabbed_9_5" name="__tabbed_9" type="radio" /><input id="__tabbed_9_6" name="__tabbed_9" type="radio" /><input id="__tabbed_9_7" name="__tabbed_9" type="radio" /><input id="__tabbed_9_8" name="__tabbed_9" type="radio" /><input id="__tabbed_9_9" name="__tabbed_9" type="radio" /><input id="__tabbed_9_10" name="__tabbed_9" type="radio" /><input id="__tabbed_9_11" name="__tabbed_9" type="radio" /><input id="__tabbed_9_12" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Java</label><label for="__tabbed_9_2">C++</label><label for="__tabbed_9_3">Python</label><label for="__tabbed_9_4">Go</label><label for="__tabbed_9_5">JS</label><label for="__tabbed_9_6">TS</label><label for="__tabbed_9_7">C</label><label for="__tabbed_9_8">C#</label><label for="__tabbed_9_9">Swift</label><label for="__tabbed_9_10">Zig</label><label for="__tabbed_9_11">Dart</label><label for="__tabbed_9_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5860,7 +5857,15 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 </div>
 </div>
 </div>
-<p>对数阶常出现于基于分治策略的算法中，体现了“一分为多”和“化繁为简”的算法思想。它增长缓慢，是理想的时间复杂度，仅次于常数阶。</p>
+<p>对数阶常出现于基于分治策略的算法中，体现了“一分为多”和“化繁为简”的算法思想。它增长缓慢，是仅次于常数阶的理想的时间复杂度。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>准确来说，“一分为 <span class="arithmatex">\(m\)</span>”对应的时间复杂度是 <span class="arithmatex">\(O(\log_m n)\)</span> 。而通过对数换底公式，我们可以得到具有不同底数的、相等的时间复杂度：</p>
+<div class="arithmatex">\[
+O(\log_m n) = O(\log_k n / \log_k m) = O(\log_k n)
+\]</div>
+<p>因此我们通常会省略底数 <span class="arithmatex">\(m\)</span> ，将对数阶直接记为 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
+</div>
 <h3 id="6-on-log-n">6. &nbsp; 线性对数阶 <span class="arithmatex">\(O(n \log n)\)</span><a class="headerlink" href="#6-on-log-n" title="Permanent link">&para;</a></h3>
 <p>线性对数阶常出现于嵌套循环中，两层循环的时间复杂度分别为 <span class="arithmatex">\(O(\log n)\)</span> 和 <span class="arithmatex">\(O(n)\)</span> 。相关代码如下：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="14:12"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><input id="__tabbed_14_4" name="__tabbed_14" type="radio" /><input id="__tabbed_14_5" name="__tabbed_14" type="radio" /><input id="__tabbed_14_6" name="__tabbed_14" type="radio" /><input id="__tabbed_14_7" name="__tabbed_14" type="radio" /><input id="__tabbed_14_8" name="__tabbed_14" type="radio" /><input id="__tabbed_14_9" name="__tabbed_14" type="radio" /><input id="__tabbed_14_10" name="__tabbed_14" type="radio" /><input id="__tabbed_14_11" name="__tabbed_14" type="radio" /><input id="__tabbed_14_12" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">Java</label><label for="__tabbed_14_2">C++</label><label for="__tabbed_14_3">Python</label><label for="__tabbed_14_4">Go</label><label for="__tabbed_14_5">JS</label><label for="__tabbed_14_6">TS</label><label for="__tabbed_14_7">C</label><label for="__tabbed_14_8">C#</label><label for="__tabbed_14_9">Swift</label><label for="__tabbed_14_10">Zig</label><label for="__tabbed_14_11">Dart</label><label for="__tabbed_14_12">Rust</label></div>
@@ -6032,7 +6037,7 @@ O((n - 1) \frac{n}{2}) = O(n^2)
 <h3 id="7-on">7. &nbsp; 阶乘阶 <span class="arithmatex">\(O(n!)\)</span><a class="headerlink" href="#7-on" title="Permanent link">&para;</a></h3>
 <p>阶乘阶对应数学上的“全排列”问题。给定 <span class="arithmatex">\(n\)</span> 个互不重复的元素，求其所有可能的排列方案，方案数量为：</p>
 <div class="arithmatex">\[
-n! = n \times (n - 1) \times (n - 2) \times \cdots \times 2 \times 1
+n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 \]</div>
 <p>阶乘通常使用递归实现。例如在以下代码中，第一层分裂出 <span class="arithmatex">\(n\)</span> 个，第二层分裂出 <span class="arithmatex">\(n - 1\)</span> 个，以此类推，直至第 <span class="arithmatex">\(n\)</span> 层时停止分裂：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="15:12"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><input id="__tabbed_15_4" name="__tabbed_15" type="radio" /><input id="__tabbed_15_5" name="__tabbed_15" type="radio" /><input id="__tabbed_15_6" name="__tabbed_15" type="radio" /><input id="__tabbed_15_7" name="__tabbed_15" type="radio" /><input id="__tabbed_15_8" name="__tabbed_15" type="radio" /><input id="__tabbed_15_9" name="__tabbed_15" type="radio" /><input id="__tabbed_15_10" name="__tabbed_15" type="radio" /><input id="__tabbed_15_11" name="__tabbed_15" type="radio" /><input id="__tabbed_15_12" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">Java</label><label for="__tabbed_15_2">C++</label><label for="__tabbed_15_3">Python</label><label for="__tabbed_15_4">Go</label><label for="__tabbed_15_5">JS</label><label for="__tabbed_15_6">TS</label><label for="__tabbed_15_7">C</label><label for="__tabbed_15_8">C#</label><label for="__tabbed_15_9">Swift</label><label for="__tabbed_15_10">Zig</label><label for="__tabbed_15_11">Dart</label><label for="__tabbed_15_12">Rust</label></div>
@@ -6206,7 +6211,7 @@ n! = n \times (n - 1) \times (n - 2) \times \cdots \times 2 \times 1
 <p><img alt="阶乘阶的时间复杂度" src="../time_complexity.assets/time_complexity_factorial.png" /></p>
 <p align="center"> 图：阶乘阶的时间复杂度 </p>
 
-<p>请注意，因为 <span class="arithmatex">\(n! &gt; 2^n\)</span> ，所以阶乘阶比指数阶增长得更快，在 <span class="arithmatex">\(n\)</span> 较大时也是不可接受的。</p>
+<p>请注意，因为当 <span class="arithmatex">\(n \geq 4\)</span> 时恒有 <span class="arithmatex">\(n! &gt; 2^n\)</span> ，所以阶乘阶比指数阶增长得更快，在 <span class="arithmatex">\(n\)</span> 较大时也是不可接受的。</p>
 <h2 id="225">2.2.5 &nbsp; 最差、最佳、平均时间复杂度<a class="headerlink" href="#225" title="Permanent link">&para;</a></h2>
 <p><strong>算法的时间效率往往不是固定的，而是与输入数据的分布有关</strong>。假设输入一个长度为 <span class="arithmatex">\(n\)</span> 的数组 <code>nums</code> ，其中 <code>nums</code> 由从 <span class="arithmatex">\(1\)</span> 至 <span class="arithmatex">\(n\)</span> 的数字组成，每个数字只出现一次，但元素顺序是随机打乱的，任务目标是返回元素 <span class="arithmatex">\(1\)</span> 的索引。我们可以得出以下结论。</p>
 <ul>
@@ -6546,7 +6551,7 @@ n! = n \times (n - 1) \times (n - 2) \times \cdots \times 2 \times 1
 </div>
 <p>值得说明的是，我们在实际中很少使用最佳时间复杂度，因为通常只有在很小概率下才能达到，可能会带来一定的误导性。<strong>而最差时间复杂度更为实用，因为它给出了一个效率安全值</strong>，让我们可以放心地使用算法。</p>
 <p>从上述示例可以看出，最差或最佳时间复杂度只出现于“特殊的数据分布”，这些情况的出现概率可能很小，并不能真实地反映算法运行效率。相比之下，<strong>平均时间复杂度可以体现算法在随机输入数据下的运行效率</strong>，用 <span class="arithmatex">\(\Theta\)</span> 记号来表示。</p>
-<p>对于部分算法，我们可以简单地推算出随机数据分布下的平均情况。比如上述示例，由于输入数组是被打乱的，因此元素 <span class="arithmatex">\(1\)</span> 出现在任意索引的概率都是相等的，那么算法的平均循环次数就是数组长度的一半 <span class="arithmatex">\(\frac{n}{2}\)</span> ，平均时间复杂度为 <span class="arithmatex">\(\Theta(\frac{n}{2}) = \Theta(n)\)</span> 。</p>
+<p>对于部分算法，我们可以简单地推算出随机数据分布下的平均情况。比如上述示例，由于输入数组是被打乱的，因此元素 <span class="arithmatex">\(1\)</span> 出现在任意索引的概率都是相等的，那么算法的平均循环次数就是数组长度的一半 <span class="arithmatex">\(n / 2\)</span> ，平均时间复杂度为 <span class="arithmatex">\(\Theta(n / 2) = \Theta(n)\)</span> 。</p>
 <p>但对于较为复杂的算法，计算平均时间复杂度往往是比较困难的，因为很难分析出在数据分布下的整体数学期望。在这种情况下，我们通常使用最差时间复杂度作为算法效率的评判标准。</p>
 <div class="admonition question">
 <p class="admonition-title">为什么很少看到 <span class="arithmatex">\(\Theta\)</span> 符号？</p>

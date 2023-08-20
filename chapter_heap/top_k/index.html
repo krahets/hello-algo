@@ -545,7 +545,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"/></svg>
   
   <span class="md-ellipsis">
-    第 2 章 &nbsp; 复杂度
+    第 2 章 &nbsp; 时空复杂度
   </span>
   
 
@@ -560,7 +560,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            第 2 章 &nbsp; 复杂度
+            第 2 章 &nbsp; 时空复杂度
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1155,7 +1155,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"/></svg>
   
   <span class="md-ellipsis">
-    第 6 章 &nbsp; 散列表
+    第 6 章 &nbsp; 哈希表
   </span>
   
 
@@ -1170,7 +1170,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            第 6 章 &nbsp; 散列表
+            第 6 章 &nbsp; 哈希表
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3432,7 +3432,7 @@
 </div>
 <p>对于该问题，我们先介绍两种思路比较直接的解法，再介绍效率更高的堆解法。</p>
 <h2 id="831">8.3.1 &nbsp; 方法一：遍历选择<a class="headerlink" href="#831" title="Permanent link">&para;</a></h2>
-<p>我们可以进行 <span class="arithmatex">\(k\)</span> 轮遍历，分别在每轮中提取第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(\cdots\)</span> , <span class="arithmatex">\(k\)</span> 大的元素，时间复杂度为 <span class="arithmatex">\(O(nk)\)</span> 。</p>
+<p>我们可以进行 <span class="arithmatex">\(k\)</span> 轮遍历，分别在每轮中提取第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(\dots\)</span> , <span class="arithmatex">\(k\)</span> 大的元素，时间复杂度为 <span class="arithmatex">\(O(nk)\)</span> 。</p>
 <p>该方法只适用于 <span class="arithmatex">\(k \ll n\)</span> 的情况，因为当 <span class="arithmatex">\(k\)</span> 与 <span class="arithmatex">\(n\)</span> 比较接近时，其时间复杂度趋向于 <span class="arithmatex">\(O(n^2)\)</span> ，非常耗时。</p>
 <p><img alt="遍历寻找最大的 k 个元素" src="../top_k.assets/top_k_traversal.png" /></p>
 <p align="center"> 图：遍历寻找最大的 k 个元素 </p>

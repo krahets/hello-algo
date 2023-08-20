@@ -545,7 +545,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"/></svg>
   
   <span class="md-ellipsis">
-    第 2 章 &nbsp; 复杂度
+    第 2 章 &nbsp; 时空复杂度
   </span>
   
 
@@ -560,7 +560,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            第 2 章 &nbsp; 复杂度
+            第 2 章 &nbsp; 时空复杂度
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1155,7 +1155,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"/></svg>
   
   <span class="md-ellipsis">
-    第 6 章 &nbsp; 散列表
+    第 6 章 &nbsp; 哈希表
   </span>
   
 
@@ -1170,7 +1170,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            第 6 章 &nbsp; 散列表
+            第 6 章 &nbsp; 哈希表
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3923,21 +3923,21 @@
 <h3 id="2">2. &nbsp; 重复子集剪枝<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p><strong>我们考虑在搜索过程中通过剪枝进行去重</strong>。观察下图，重复子集是在以不同顺序选择数组元素时产生的，具体来看：</p>
 <ol>
-<li>第一轮和第二轮分别选择 <span class="arithmatex">\(3\)</span> , <span class="arithmatex">\(4\)</span> ，会生成包含这两个元素的所有子集，记为 <span class="arithmatex">\([3, 4, \cdots]\)</span> 。</li>
-<li>若第一轮选择 <span class="arithmatex">\(4\)</span> ，<strong>则第二轮应该跳过 <span class="arithmatex">\(3\)</span></strong> ，因为该选择产生的子集 <span class="arithmatex">\([4, 3, \cdots]\)</span> 和 <code>1.</code> 中生成的子集完全重复。</li>
+<li>第一轮和第二轮分别选择 <span class="arithmatex">\(3\)</span> , <span class="arithmatex">\(4\)</span> ，会生成包含这两个元素的所有子集，记为 <span class="arithmatex">\([3, 4, \dots]\)</span> 。</li>
+<li>若第一轮选择 <span class="arithmatex">\(4\)</span> ，<strong>则第二轮应该跳过 <span class="arithmatex">\(3\)</span></strong> ，因为该选择产生的子集 <span class="arithmatex">\([4, 3, \dots]\)</span> 和 <code>1.</code> 中生成的子集完全重复。</li>
 </ol>
 <p>分支越靠右，需要排除的分支也越多，例如：</p>
 <ol>
-<li>前两轮选择 <span class="arithmatex">\(3\)</span> , <span class="arithmatex">\(5\)</span> ，生成子集 <span class="arithmatex">\([3, 5, \cdots]\)</span> 。</li>
-<li>前两轮选择 <span class="arithmatex">\(4\)</span> , <span class="arithmatex">\(5\)</span> ，生成子集 <span class="arithmatex">\([4, 5, \cdots]\)</span> 。</li>
-<li>若第一轮选择 <span class="arithmatex">\(5\)</span> ，<strong>则第二轮应该跳过 <span class="arithmatex">\(3\)</span> 和 <span class="arithmatex">\(4\)</span></strong> ，因为子集 <span class="arithmatex">\([5, 3, \cdots]\)</span> 和子集 <span class="arithmatex">\([5, 4, \cdots]\)</span> 和 <code>1.</code> , <code>2.</code> 中生成的子集完全重复。</li>
+<li>前两轮选择 <span class="arithmatex">\(3\)</span> , <span class="arithmatex">\(5\)</span> ，生成子集 <span class="arithmatex">\([3, 5, \dots]\)</span> 。</li>
+<li>前两轮选择 <span class="arithmatex">\(4\)</span> , <span class="arithmatex">\(5\)</span> ，生成子集 <span class="arithmatex">\([4, 5, \dots]\)</span> 。</li>
+<li>若第一轮选择 <span class="arithmatex">\(5\)</span> ，<strong>则第二轮应该跳过 <span class="arithmatex">\(3\)</span> 和 <span class="arithmatex">\(4\)</span></strong> ，因为子集 <span class="arithmatex">\([5, 3, \dots]\)</span> 和子集 <span class="arithmatex">\([5, 4, \dots]\)</span> 和 <code>1.</code> , <code>2.</code> 中生成的子集完全重复。</li>
 </ol>
 <p><img alt="不同选择顺序导致的重复子集" src="../subset_sum_problem.assets/subset_sum_i_pruning.png" /></p>
 <p align="center"> 图：不同选择顺序导致的重复子集 </p>
 
-<p>总结来看，给定输入数组 <span class="arithmatex">\([x_1, x_2, \cdots, x_n]\)</span> ，设搜索过程中的选择序列为 <span class="arithmatex">\([x_{i_1}, x_{i_2}, \cdots , x_{i_m}]\)</span> ，则该选择序列需要满足 <span class="arithmatex">\(i_1 \leq i_2 \leq \cdots \leq i_m\)</span> ，<strong>不满足该条件的选择序列都会造成重复，应当剪枝</strong>。</p>
+<p>总结来看，给定输入数组 <span class="arithmatex">\([x_1, x_2, \dots, x_n]\)</span> ，设搜索过程中的选择序列为 <span class="arithmatex">\([x_{i_1}, x_{i_2}, \dots , x_{i_m}]\)</span> ，则该选择序列需要满足 <span class="arithmatex">\(i_1 \leq i_2 \leq \dots \leq i_m\)</span> ，<strong>不满足该条件的选择序列都会造成重复，应当剪枝</strong>。</p>
 <h3 id="3">3. &nbsp; 代码实现<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>为实现该剪枝，我们初始化变量 <code>start</code> ，用于指示遍历起点。<strong>当做出选择 <span class="arithmatex">\(x_{i}\)</span> 后，设定下一轮从索引 <span class="arithmatex">\(i\)</span> 开始遍历</strong>。这样做就可以让选择序列满足 <span class="arithmatex">\(i_1 \leq i_2 \leq \cdots \leq i_m\)</span> ，从而保证子集唯一。</p>
+<p>为实现该剪枝，我们初始化变量 <code>start</code> ，用于指示遍历起点。<strong>当做出选择 <span class="arithmatex">\(x_{i}\)</span> 后，设定下一轮从索引 <span class="arithmatex">\(i\)</span> 开始遍历</strong>。这样做就可以让选择序列满足 <span class="arithmatex">\(i_1 \leq i_2 \leq \dots \leq i_m\)</span> ，从而保证子集唯一。</p>
 <p>除此之外，我们还对代码进行了两项优化：</p>
 <ul>
 <li>在开启搜索前，先将数组 <code>nums</code> 排序。在遍历所有选择时，<strong>当子集和超过 <code>target</code> 时直接结束循环</strong>，因为后边的元素更大，其子集和都一定会超过 <code>target</code> 。</li>
