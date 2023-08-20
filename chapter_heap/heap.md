@@ -680,7 +680,7 @@ comments: true
 
 给定元素 `val` ，我们首先将其添加到堆底。添加之后，由于 val 可能大于堆中其他元素，堆的成立条件可能已被破坏。因此，**需要修复从插入节点到根节点的路径上的各个节点**，这个操作被称为「堆化 Heapify」。
 
-考虑从入堆节点开始，**从底至顶执行堆化**。具体来说，我们比较插入节点与其父节点的值，如果插入节点更大，则将它们交换。然后继续执行此操作，从底至顶修复堆中的各个节点，直至越过根节点或遇到无需交换的节点时结束。
+考虑从入堆节点开始，**从底至顶执行堆化**。具体来说，我们比较插入节点与其父节点的值，如果插入节点更大，则将它们交换。然后继续执行此操作，从底至顶修复堆中的各个节点，直至越过根节点或遇到无须交换的节点时结束。
 
 === "<1>"
     ![元素入堆步骤](heap.assets/heap_push_step1.png)
@@ -729,7 +729,7 @@ comments: true
         while (true) {
             // 获取节点 i 的父节点
             int p = parent(i);
-            // 当“越过根节点”或“节点无需修复”时，结束堆化
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
             if (p < 0 || maxHeap.get(i) <= maxHeap.get(p))
                 break;
             // 交换两节点
@@ -756,7 +756,7 @@ comments: true
         while (true) {
             // 获取节点 i 的父节点
             int p = parent(i);
-            // 当“越过根节点”或“节点无需修复”时，结束堆化
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
             if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
             // 交换两节点
@@ -782,7 +782,7 @@ comments: true
         while True:
             # 获取节点 i 的父节点
             p = self.parent(i)
-            # 当“越过根节点”或“节点无需修复”时，结束堆化
+            # 当“越过根节点”或“节点无须修复”时，结束堆化
             if p < 0 or self.max_heap[i] <= self.max_heap[p]:
                 break
             # 交换两节点
@@ -807,7 +807,7 @@ comments: true
         for true {
             // 获取节点 i 的父节点
             p := h.parent(i)
-            // 当“越过根节点”或“节点无需修复”时，结束堆化
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
             if p < 0 || h.data[i].(int) <= h.data[p].(int) {
                 break
             }
@@ -835,7 +835,7 @@ comments: true
         while (true) {
             // 获取节点 i 的父节点
             const p = this.#parent(i);
-            // 当“越过根节点”或“节点无需修复”时，结束堆化
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
             if (p < 0 || this.#maxHeap[i] <= this.#maxHeap[p]) break;
             // 交换两节点
             this.#swap(i, p);
@@ -861,7 +861,7 @@ comments: true
         while (true) {
             // 获取节点 i 的父节点
             const p = this.parent(i);
-            // 当“越过根节点”或“节点无需修复”时，结束堆化
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
             if (p < 0 || this.maxHeap[i] <= this.maxHeap[p]) break;
             // 交换两节点
             this.swap(i, p);
@@ -894,7 +894,7 @@ comments: true
         while (true) {
             // 获取节点 i 的父节点
             int p = parent(h, i);
-            // 当“越过根节点”或“节点无需修复”时，结束堆化
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
             if (p < 0 || h->data[i] <= h->data[p]) {
                 break;
             }
@@ -922,7 +922,7 @@ comments: true
         while (true) {
             // 获取节点 i 的父节点
             int p = parent(i);
-            // 若“越过根节点”或“节点无需修复”，则结束堆化
+            // 若“越过根节点”或“节点无须修复”，则结束堆化
             if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
             // 交换两节点
@@ -950,7 +950,7 @@ comments: true
         while true {
             // 获取节点 i 的父节点
             let p = parent(i: i)
-            // 当“越过根节点”或“节点无需修复”时，结束堆化
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
             if p < 0 || maxHeap[i] <= maxHeap[p] {
                 break
             }
@@ -979,7 +979,7 @@ comments: true
         while (true) {
             // 获取节点 i 的父节点
             var p = parent(i);
-            // 当“越过根节点”或“节点无需修复”时，结束堆化
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
             if (p < 0 or self.max_heap.?.items[i] <= self.max_heap.?.items[p]) break;
             // 交换两节点
             try self.swap(i, p);
@@ -1005,7 +1005,7 @@ comments: true
       while (true) {
         // 获取节点 i 的父节点
         int p = _parent(i);
-        // 当“越过根节点”或“节点无需修复”时，结束堆化
+        // 当“越过根节点”或“节点无须修复”时，结束堆化
         if (p < 0 || _maxHeap[i] <= _maxHeap[p]) {
           break;
         }
@@ -1037,7 +1037,7 @@ comments: true
             }
             // 获取节点 i 的父节点
             let p = Self::parent(i);
-            // 当“节点无需修复”时，结束堆化
+            // 当“节点无须修复”时，结束堆化
             if self.max_heap[i] <= self.max_heap[p] {
                 break;
             }
@@ -1057,7 +1057,7 @@ comments: true
 2. 交换完成后，将堆底从列表中删除（注意，由于已经交换，实际上删除的是原来的堆顶元素）。
 3. 从根节点开始，**从顶至底执行堆化**。
 
-顾名思义，**从顶至底堆化的操作方向与从底至顶堆化相反**，我们将根节点的值与其两个子节点的值进行比较，将最大的子节点与根节点交换；然后循环执行此操作，直到越过叶节点或遇到无需交换的节点时结束。
+顾名思义，**从顶至底堆化的操作方向与从底至顶堆化相反**，我们将根节点的值与其两个子节点的值进行比较，将最大的子节点与根节点交换；然后循环执行此操作，直到越过叶节点或遇到无须交换的节点时结束。
 
 === "<1>"
     ![堆顶元素出堆步骤](heap.assets/heap_pop_step1.png)
@@ -1120,7 +1120,7 @@ comments: true
                 ma = l;
             if (r < size() && maxHeap.get(r) > maxHeap.get(ma))
                 ma = r;
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if (ma == i)
                 break;
             // 交换两节点
@@ -1153,12 +1153,12 @@ comments: true
         while (true) {
             // 判断节点 i, l, r 中值最大的节点，记为 ma
             int l = left(i), r = right(i), ma = i;
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if (l < size() && maxHeap[l] > maxHeap[ma])
                 ma = l;
             if (r < size() && maxHeap[r] > maxHeap[ma])
                 ma = r;
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if (ma == i)
                 break;
             swap(maxHeap[i], maxHeap[ma]);
@@ -1194,7 +1194,7 @@ comments: true
                 ma = l
             if r < self.size() and self.max_heap[r] > self.max_heap[ma]:
                 ma = r
-            # 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            # 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if ma == i:
                 break
             # 交换两节点
@@ -1236,7 +1236,7 @@ comments: true
             if r < h.size() && h.data[r].(int) > h.data[max].(int) {
                 max = r
             }
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if max == i {
                 break
             }
@@ -1274,7 +1274,7 @@ comments: true
             let ma = i;
             if (l < this.size() && this.#maxHeap[l] > this.#maxHeap[ma]) ma = l;
             if (r < this.size() && this.#maxHeap[r] > this.#maxHeap[ma]) ma = r;
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if (ma === i) break;
             // 交换两节点
             this.#swap(i, ma);
@@ -1310,7 +1310,7 @@ comments: true
             let ma = i;
             if (l < this.size() && this.maxHeap[l] > this.maxHeap[ma]) ma = l;
             if (r < this.size() && this.maxHeap[r] > this.maxHeap[ma]) ma = r;
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if (ma === i) break;
             // 交换两节点
             this.swap(i, ma);
@@ -1355,7 +1355,7 @@ comments: true
             if (r < size(h) && h->data[r] > h->data[max]) {
                 max = r;
             }
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if (max == i) {
                 break;
             }
@@ -1438,7 +1438,7 @@ comments: true
             if r < size(), maxHeap[r] > maxHeap[ma] {
                 ma = r
             }
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if ma == i {
                 break
             }
@@ -1477,7 +1477,7 @@ comments: true
             var ma = i;
             if (l < self.size() and self.max_heap.?.items[l] > self.max_heap.?.items[ma]) ma = l;
             if (r < self.size() and self.max_heap.?.items[r] > self.max_heap.?.items[ma]) ma = r;
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if (ma == i) break;
             // 交换两节点
             try self.swap(i, ma);
@@ -1513,7 +1513,7 @@ comments: true
         int ma = i;
         if (l < size() && _maxHeap[l] > _maxHeap[ma]) ma = l;
         if (r < size() && _maxHeap[r] > _maxHeap[ma]) ma = r;
-        // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+        // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
         if (ma == i) break;
         // 交换两节点
         _swap(i, ma);
@@ -1553,7 +1553,7 @@ comments: true
             if r < self.size() && self.max_heap[r] > self.max_heap[ma] {
                 ma = r;
             }
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if ma == i {
                 break;
             }

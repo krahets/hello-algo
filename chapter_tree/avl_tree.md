@@ -1139,7 +1139,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 return leftRotate(node);
             }
         }
-        // 平衡树，无需旋转，直接返回
+        // 平衡树，无须旋转，直接返回
         return node;
     }
     ```
@@ -1173,7 +1173,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 return leftRotate(node);
             }
         }
-        // 平衡树，无需旋转，直接返回
+        // 平衡树，无须旋转，直接返回
         return node;
     }
     ```
@@ -1203,7 +1203,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 # 先右旋后左旋
                 node.right = self.__right_rotate(node.right)
                 return self.__left_rotate(node)
-        # 平衡树，无需旋转，直接返回
+        # 平衡树，无须旋转，直接返回
         return node
     ```
 
@@ -1237,7 +1237,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 return t.leftRotate(node)
             }
         }
-        // 平衡树，无需旋转，直接返回
+        // 平衡树，无须旋转，直接返回
         return node
     }
     ```
@@ -1271,7 +1271,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 return this.#leftRotate(node);
             }
         }
-        // 平衡树，无需旋转，直接返回
+        // 平衡树，无须旋转，直接返回
         return node;
     }
     ```
@@ -1305,7 +1305,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 return this.leftRotate(node);
             }
         }
-        // 平衡树，无需旋转，直接返回
+        // 平衡树，无须旋转，直接返回
         return node;
     }
     ```
@@ -1339,7 +1339,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 return leftRotate(node);
             }
         }
-        // 平衡树，无需旋转，直接返回
+        // 平衡树，无须旋转，直接返回
         return node;
     }
     ```
@@ -1373,7 +1373,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 return leftRotate(node);
             }
         }
-        // 平衡树，无需旋转，直接返回
+        // 平衡树，无须旋转，直接返回
         return node;
     }
     ```
@@ -1407,7 +1407,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 return leftRotate(node: node)
             }
         }
-        // 平衡树，无需旋转，直接返回
+        // 平衡树，无须旋转，直接返回
         return node
     }
     ```
@@ -1441,7 +1441,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 return self.leftRotate(node);
             }
         }
-        // 平衡树，无需旋转，直接返回
+        // 平衡树，无须旋转，直接返回
         return node;
     }
     ```
@@ -1475,7 +1475,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
           return leftRotate(node);
         }
       }
-      // 平衡树，无需旋转，直接返回
+      // 平衡树，无须旋转，直接返回
       return node;
     }
     ```
@@ -1513,7 +1513,7 @@ AVL 树的特点在于「旋转 Rotation」操作，它能够在不影响二叉�
                 Self::left_rotate(Some(node))
             }
         } else {
-            // 平衡树，无需旋转，直接返回
+            // 平衡树，无须旋转，直接返回
             node
         }
     }
