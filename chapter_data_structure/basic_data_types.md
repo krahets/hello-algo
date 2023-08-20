@@ -21,6 +21,7 @@ comments: true
 - 整数类型 `int` 占用 $4$ bytes = $32$ bits ，可以表示 $2^{32}$ 个数字。
 
 下表列举了各种基本数据类型的占用空间、取值范围和默认值。此表格无须硬背，大致理解即可，需要时可以通过查表来回忆。
+
 <p align="center"> 表：基本数据类型的占用空间和取值范围 </p>
 
 <div class="center-table" markdown>
@@ -86,7 +87,7 @@ comments: true
 === "Go"
 
     ```go title=""
-    // 使用多种「基本数据类型」来初始化「数组」
+    // 使用多种基本数据类型来初始化数组
     var numbers = [5]int{}
     var decimals = [5]float64{}
     var characters = [5]byte{}
