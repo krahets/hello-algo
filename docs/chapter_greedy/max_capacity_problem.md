@@ -156,7 +156,7 @@ $$
 比如在状态 $cap[i, j]$ 下，$i$ 为短板、$j$ 为长板。若贪心地将短板 $i$ 向内移动一格，会导致以下状态被“跳过”。**这意味着之后无法验证这些状态的容量大小**。
 
 $$
-cap[i, i+1], cap[i, i+2], \cdots, cap[i, j-2], cap[i, j-1]
+cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
 ![移动短板导致被跳过的状态](max_capacity_problem.assets/max_capacity_skipped_states.png)
