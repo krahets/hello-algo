@@ -20,6 +20,8 @@
 
 ![基于决策树模型表示编辑距离问题](edit_distance_problem.assets/edit_distance_decision_tree.png)
 
+### 动态规划思路
+
 **第一步：思考每轮的决策，定义状态，从而得到 $dp$ 表**
 
 每一轮的决策是对字符串 $s$ 进行一次编辑操作。
