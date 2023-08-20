@@ -2926,15 +2926,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    代码实现
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 动态规划思路
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    状态压缩
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 代码实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 状态压缩
   </a>
   
 </li>
@@ -3383,15 +3390,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    代码实现
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 动态规划思路
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    状态压缩
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 代码实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 状态压缩
   </a>
   
 </li>
@@ -3436,6 +3450,7 @@
 <p><img alt="基于决策树模型表示编辑距离问题" src="../edit_distance_problem.assets/edit_distance_decision_tree.png" /></p>
 <p align="center"> 图：基于决策树模型表示编辑距离问题 </p>
 
+<h3 id="1">1. &nbsp; 动态规划思路<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p><strong>第一步：思考每轮的决策，定义状态，从而得到 <span class="arithmatex">\(dp\)</span> 表</strong></p>
 <p>每一轮的决策是对字符串 <span class="arithmatex">\(s\)</span> 进行一次编辑操作。</p>
 <p>我们希望在编辑操作的过程中，问题的规模逐渐缩小，这样才能构建子问题。设字符串 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 的长度分别为 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(m\)</span> ，我们先考虑两字符串尾部的字符 <span class="arithmatex">\(s[n-1]\)</span> 和 <span class="arithmatex">\(t[m-1]\)</span> ：</p>
@@ -3467,7 +3482,7 @@ dp[i, j] = dp[i-1, j-1]
 <p><strong>第三步：确定边界条件和状态转移顺序</strong></p>
 <p>当两字符串都为空时，编辑步数为 <span class="arithmatex">\(0\)</span> ，即 <span class="arithmatex">\(dp[0, 0] = 0\)</span> 。当 <span class="arithmatex">\(s\)</span> 为空但 <span class="arithmatex">\(t\)</span> 不为空时，最少编辑步数等于 <span class="arithmatex">\(t\)</span> 的长度，即首行 <span class="arithmatex">\(dp[0, j] = j\)</span> 。当 <span class="arithmatex">\(s\)</span> 不为空但 <span class="arithmatex">\(t\)</span> 为空时，等于 <span class="arithmatex">\(s\)</span> 的长度，即首列 <span class="arithmatex">\(dp[i, 0] = i\)</span> 。</p>
 <p>观察状态转移方程，解 <span class="arithmatex">\(dp[i, j]\)</span> 依赖左方、上方、左上方的解，因此通过两层循环正序遍历整个 <span class="arithmatex">\(dp\)</span> 表即可。</p>
-<h3 id="_1">代码实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 代码实现<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3788,7 +3803,7 @@ dp[i, j] = dp[i-1, j-1]
 </div>
 <p align="center"> 图：编辑距离的动态规划过程 </p>
 
-<h3 id="_2">状态压缩<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. &nbsp; 状态压缩<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>由于 <span class="arithmatex">\(dp[i,j]\)</span> 是由上方 <span class="arithmatex">\(dp[i-1, j]\)</span> 、左方 <span class="arithmatex">\(dp[i, j-1]\)</span> 、左上方状态 <span class="arithmatex">\(dp[i-1, j-1]\)</span> 转移而来，而正序遍历会丢失左上方 <span class="arithmatex">\(dp[i-1, j-1]\)</span> ，倒序遍历无法提前构建 <span class="arithmatex">\(dp[i, j-1]\)</span> ，因此两种遍历顺序都不可取。</p>
 <p>为此，我们可以使用一个变量 <code>leftup</code> 来暂存左上方的解 <span class="arithmatex">\(dp[i-1, j-1]\)</span> ，从而只需考虑左方和上方的解。此时的情况与完全背包问题相同，可使用正序遍历。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>

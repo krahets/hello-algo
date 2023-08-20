@@ -2480,22 +2480,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    考虑基本情况
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 考虑基本情况
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    子问题分解
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 子问题分解
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    代码实现
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 代码实现
   </a>
   
 </li>
@@ -3390,22 +3390,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    考虑基本情况
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 考虑基本情况
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    子问题分解
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 子问题分解
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    代码实现
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 代码实现
   </a>
   
 </li>
@@ -3448,7 +3448,7 @@
 <p align="center"> 图：汉诺塔问题示例 </p>
 
 <p><strong>我们将规模为 <span class="arithmatex">\(i\)</span> 的汉诺塔问题记做 <span class="arithmatex">\(f(i)\)</span></strong> 。例如 <span class="arithmatex">\(f(3)\)</span> 代表将 <span class="arithmatex">\(3\)</span> 个圆盘从 <code>A</code> 移动至 <code>C</code> 的汉诺塔问题。</p>
-<h3 id="_1">考虑基本情况<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1. &nbsp; 考虑基本情况<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>对于问题 <span class="arithmatex">\(f(1)\)</span> ，即当只有一个圆盘时，则将它直接从 <code>A</code> 移动至 <code>C</code> 即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label></div>
 <div class="tabbed-content">
@@ -3487,7 +3487,7 @@
 </div>
 <p align="center"> 图：规模为 2 问题的解 </p>
 
-<h3 id="_2">子问题分解<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 子问题分解<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>对于问题 <span class="arithmatex">\(f(3)\)</span> ，即当有三个圆盘时，情况变得稍微复杂了一些。由于已知 <span class="arithmatex">\(f(1)\)</span> 和 <span class="arithmatex">\(f(2)\)</span> 的解，因此可从分治角度思考，<strong>将 <code>A</code> 顶部的两个圆盘看做一个整体</strong>，执行以下步骤：</p>
 <ol>
 <li>令 <code>B</code> 为目标柱、<code>C</code> 为缓冲柱，将两个圆盘从 <code>A</code> 移动至 <code>B</code> 。</li>
@@ -3524,7 +3524,7 @@
 <p><img alt="汉诺塔问题的分治策略" src="../hanota_problem.assets/hanota_divide_and_conquer.png" /></p>
 <p align="center"> 图：汉诺塔问题的分治策略 </p>
 
-<h3 id="_3">代码实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. &nbsp; 代码实现<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>在代码中，我们声明一个递归函数 <code>dfs(i, src, buf, tar)</code> ，它的作用是将柱 <code>src</code> 顶部的 <span class="arithmatex">\(i\)</span> 个圆盘借助缓冲柱 <code>buf</code> 移动至目标柱 <code>tar</code> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:12"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JS</label><label for="__tabbed_4_6">TS</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label><label for="__tabbed_4_11">Dart</label><label for="__tabbed_4_12">Rust</label></div>
 <div class="tabbed-content">

@@ -1945,15 +1945,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    复用查找左边界
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 复用查找左边界
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    转化为查找元素
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 转化为查找元素
   </a>
   
 </li>
@@ -3418,15 +3418,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    复用查找左边界
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 复用查找左边界
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    转化为查找元素
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 转化为查找元素
   </a>
   
 </li>
@@ -3585,7 +3585,7 @@
 <h2 id="1032">10.3.2 &nbsp; 查找右边界<a class="headerlink" href="#1032" title="Permanent link">&para;</a></h2>
 <p>那么如何查找最右一个 <code>target</code> 呢？最直接的方式是修改代码，替换在 <code>nums[m] == target</code> 情况下的指针收缩操作。代码在此省略，有兴趣的同学可以自行实现。</p>
 <p>下面我们介绍两种更加取巧的方法。</p>
-<h3 id="_1">复用查找左边界<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1. &nbsp; 复用查找左边界<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>实际上，我们可以利用查找最左元素的函数来查找最右元素，具体方法为：<strong>将查找最右一个 <code>target</code> 转化为查找最左一个 <code>target + 1</code></strong>。</p>
 <p>查找完成后，指针 <span class="arithmatex">\(i\)</span> 指向最左一个 <code>target + 1</code>（如果存在），而 <span class="arithmatex">\(j\)</span> 指向最右一个 <code>target</code> ，<strong>因此返回 <span class="arithmatex">\(j\)</span> 即可</strong>。</p>
 <p><img alt="将查找右边界转化为查找左边界" src="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" /></p>
@@ -3714,7 +3714,7 @@
 </div>
 </div>
 </div>
-<h3 id="_2">转化为查找元素<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 转化为查找元素<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>我们知道，当数组不包含 <code>target</code> 时，最后 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> 会分别指向首个大于、小于 <code>target</code> 的元素。</p>
 <p>根据上述结论，我们可以构造一个数组中不存在的元素，用于查找左右边界：</p>
 <ul>

@@ -3426,12 +3426,13 @@
 
 
 <h1 id="82">8.2 &nbsp; 建堆操作<a class="headerlink" href="#82" title="Permanent link">&para;</a></h1>
-<p>如果我们想要根据输入列表生成一个堆，这个过程被称为「建堆」。</p>
+<p>在某些情况下，我们希望使用一个列表的所有元素来构建一个堆，这个过程被称为「建堆」。</p>
 <h2 id="821">8.2.1 &nbsp; 借助入堆方法实现<a class="headerlink" href="#821" title="Permanent link">&para;</a></h2>
-<p>最直接的方法是借助“元素入堆操作”实现，首先创建一个空堆，然后将列表元素依次添加到堆中。</p>
-<p>设元素数量为 <span class="arithmatex">\(n\)</span> ，则最后一个元素入堆的时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span> 。在依次添加元素时，堆的平均长度为 <span class="arithmatex">\(\frac{n}{2}\)</span> ，因此该方法的总体时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。</p>
+<p>最直接的方法是借助“元素入堆操作”实现。我们首先创建一个空堆，然后将列表元素依次执行“入堆”。</p>
+<p>设元素数量为 <span class="arithmatex">\(n\)</span> ，入堆操作使用 <span class="arithmatex">\(O(\log{n})\)</span> 时间，因此将所有元素入堆的时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。</p>
 <h2 id="822">8.2.2 &nbsp; 基于堆化操作实现<a class="headerlink" href="#822" title="Permanent link">&para;</a></h2>
-<p>有趣的是，存在一种更高效的建堆方法，其时间复杂度仅为 <span class="arithmatex">\(O(n)\)</span> 。我们先将列表所有元素原封不动添加到堆中，<strong>然后迭代地对各个节点执行“从顶至底堆化”</strong>。当然，<strong>我们不需要对叶节点执行堆化操作</strong>，因为它们没有子节点。</p>
+<p>有趣的是，存在一种更高效的建堆方法，其时间复杂度可以达到 <span class="arithmatex">\(O(n)\)</span> 。我们先将列表所有元素原封不动添加到堆中，然后倒序遍历该堆，依次对每个节点执行“从顶至底堆化”。</p>
+<p>请注意，因为叶节点没有子节点，所以无需堆化。在代码实现中，我们从最后一个节点的父节点开始进行堆化。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3590,7 +3591,7 @@
 <h2 id="823">8.2.3 &nbsp; 复杂度分析<a class="headerlink" href="#823" title="Permanent link">&para;</a></h2>
 <p>为什么第二种建堆方法的时间复杂度是 <span class="arithmatex">\(O(n)\)</span> ？我们来展开推算一下。</p>
 <ul>
-<li>完全二叉树中，设节点总数为 <span class="arithmatex">\(n\)</span> ，则叶节点数量为 <span class="arithmatex">\((n + 1) / 2\)</span> ，其中 <span class="arithmatex">\(/\)</span> 为向下整除。因此，在排除叶节点后，需要堆化的节点数量为 <span class="arithmatex">\((n - 1)/2\)</span> ，复杂度为 <span class="arithmatex">\(O(n)\)</span> 。</li>
+<li>在完全二叉树中，设节点总数为 <span class="arithmatex">\(n\)</span> ，则叶节点数量为 <span class="arithmatex">\((n + 1) / 2\)</span> ，其中 <span class="arithmatex">\(/\)</span> 为向下整除。因此，在排除叶节点后，需要堆化的节点数量为 <span class="arithmatex">\((n - 1)/2\)</span> ，复杂度为 <span class="arithmatex">\(O(n)\)</span> 。</li>
 <li>在从顶至底堆化的过程中，每个节点最多堆化到叶节点，因此最大迭代次数为二叉树高度 <span class="arithmatex">\(O(\log n)\)</span> 。</li>
 </ul>
 <p>将上述两者相乘，可得到建堆过程的时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。<strong>然而，这个估算结果并不准确，因为我们没有考虑到二叉树底层节点数量远多于顶层节点的特性</strong>。</p>
@@ -3609,7 +3610,7 @@ T(h) &amp; = 2^0h + 2^1(h-1) + 2^2(h-2) + \cdots + 2^{h-1}\times1 \newline
 2 T(h) &amp; = 2^1h + 2^2(h-1) + 2^3(h-2) + \cdots + 2^{h}\times1 \newline
 \end{aligned}
 \]</div>
-<p><strong>使用错位相减法</strong>，令下式 <span class="arithmatex">\(2 T(h)\)</span> 减去上式 <span class="arithmatex">\(T(h)\)</span> ，可得</p>
+<p>使用错位相减法，用下式 <span class="arithmatex">\(2 T(h)\)</span> 减去上式 <span class="arithmatex">\(T(h)\)</span> ，可得</p>
 <div class="arithmatex">\[
 2T(h) - T(h) = T(h) = -2^0h + 2^1 + 2^2 + \cdots + 2^{h-1} + 2^h
 \]</div>

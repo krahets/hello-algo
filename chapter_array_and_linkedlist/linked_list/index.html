@@ -964,36 +964,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    初始化链表
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 初始化链表
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    插入节点
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 插入节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    删除节点
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 删除节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    访问节点
+  <a href="#4" class="md-nav__link">
+    4. &nbsp; 访问节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    查找节点
+  <a href="#5" class="md-nav__link">
+    5. &nbsp; 查找节点
   </a>
   
 </li>
@@ -3438,36 +3438,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    初始化链表
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 初始化链表
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    插入节点
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 插入节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    删除节点
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 删除节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    访问节点
+  <a href="#4" class="md-nav__link">
+    4. &nbsp; 访问节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    查找节点
+  <a href="#5" class="md-nav__link">
+    5. &nbsp; 查找节点
   </a>
   
 </li>
@@ -3683,7 +3683,7 @@
 </div>
 </div>
 <h2 id="421">4.2.1 &nbsp; 链表常用操作<a class="headerlink" href="#421" title="Permanent link">&para;</a></h2>
-<h3 id="_1">初始化链表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1. &nbsp; 初始化链表<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>建立链表分为两步，第一步是初始化各个节点对象，第二步是构建引用指向关系。初始化完成后，我们就可以从链表的头节点出发，通过引用指向 <code>next</code> 依次访问所有节点。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
 <div class="tabbed-content">
@@ -3871,7 +3871,7 @@
 </div>
 </div>
 <p>数组整体是一个变量，比如数组 <code>nums</code> 包含元素 <code>nums[0]</code> , <code>nums[1]</code> 等，而链表是由多个独立的节点对象组成的。<strong>我们通常将头节点当作链表的代称</strong>，比如以上代码中的链表可被记做链表 <code>n0</code> 。</p>
-<h3 id="_2">插入节点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 插入节点<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p><strong>在链表中插入节点非常容易</strong>。假设我们想在相邻的两个节点 <code>n0</code> , <code>n1</code> 之间插入一个新节点 <code>P</code> ，则只需要改变两个节点引用（指针）即可，时间复杂度为 <span class="arithmatex">\(O(1)\)</span> 。</p>
 <p>相比之下，在数组中插入元素的时间复杂度为 <span class="arithmatex">\(O(n)\)</span> ，在大数据量下的效率较低。</p>
 <p><img alt="链表插入节点" src="../linked_list.assets/linkedlist_insert_node.png" /></p>
@@ -3989,7 +3989,7 @@
 </div>
 </div>
 </div>
-<h3 id="_3">删除节点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. &nbsp; 删除节点<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>在链表中删除节点也非常简便，只需改变一个节点的引用（指针）即可。</p>
 <p>请注意，尽管在删除操作完成后节点 <code>P</code> 仍然指向 <code>n1</code> ，但实际上遍历此链表已经无法访问到 <code>P</code> ，这意味着 <code>P</code> 已经不再属于该链表了。</p>
 <p><img alt="链表删除节点" src="../linked_list.assets/linkedlist_remove_node.png" /></p>
@@ -4150,7 +4150,7 @@
 </div>
 </div>
 </div>
-<h3 id="_4">访问节点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="4">4. &nbsp; 访问节点<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p><strong>在链表访问节点的效率较低</strong>。如上节所述，我们可以在 <span class="arithmatex">\(O(1)\)</span> 时间下访问数组中的任意元素。链表则不然，程序需要从头节点出发，逐个向后遍历，直至找到目标节点。也就是说，访问链表的第 <span class="arithmatex">\(i\)</span> 个节点需要循环 <span class="arithmatex">\(i - 1\)</span> 轮，时间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label><label for="__tabbed_5_12">Rust</label></div>
 <div class="tabbed-content">
@@ -4301,7 +4301,7 @@
 </div>
 </div>
 </div>
-<h3 id="_5">查找节点<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="5">5. &nbsp; 查找节点<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
 <p>遍历链表，查找链表内值为 <code>target</code> 的节点，输出节点在链表中的索引。此过程也属于「线性查找」。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Python</label><label for="__tabbed_6_4">Go</label><label for="__tabbed_6_5">JS</label><label for="__tabbed_6_6">TS</label><label for="__tabbed_6_7">C</label><label for="__tabbed_6_8">C#</label><label for="__tabbed_6_9">Swift</label><label for="__tabbed_6_10">Zig</label><label for="__tabbed_6_11">Dart</label><label for="__tabbed_6_12">Rust</label></div>
 <div class="tabbed-content">

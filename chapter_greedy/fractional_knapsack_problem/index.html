@@ -3087,22 +3087,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    贪心策略确定
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 贪心策略确定
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    代码实现
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 代码实现
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    正确性证明
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 正确性证明
   </a>
   
 </li>
@@ -3390,22 +3390,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    贪心策略确定
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 贪心策略确定
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    代码实现
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 代码实现
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    正确性证明
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 正确性证明
   </a>
   
 </li>
@@ -3451,7 +3451,7 @@
 <p><img alt="物品在单位重量下的价值" src="../fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png" /></p>
 <p align="center"> 图：物品在单位重量下的价值 </p>
 
-<h3 id="_1">贪心策略确定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1. &nbsp; 贪心策略确定<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>最大化背包内物品总价值，<strong>本质上是要最大化单位重量下的物品价值</strong>。由此便可推出本题的贪心策略：</p>
 <ol>
 <li>将物品按照单位价值从高到低进行排序。</li>
@@ -3461,7 +3461,7 @@
 <p><img alt="分数背包的贪心策略" src="../fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png" /></p>
 <p align="center"> 图：分数背包的贪心策略 </p>
 
-<h3 id="_2">代码实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 代码实现<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>我们建立了一个物品类 <code>Item</code> ，以便将物品按照单位价值进行排序。循环进行贪心选择，当背包已满时跳出并返回解。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
@@ -3758,7 +3758,7 @@
 </div>
 <p>最差情况下，需要遍历整个物品列表，<strong>因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> ，其中 <span class="arithmatex">\(n\)</span> 为物品数量。</p>
 <p>由于初始化了一个 <code>Item</code> 对象列表，<strong>因此空间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。</p>
-<h3 id="_3">正确性证明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. &nbsp; 正确性证明<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>采用反证法。假设物品 <span class="arithmatex">\(x\)</span> 是单位价值最高的物品，使用某算法求得最大价值为 <code>res</code> ，但该解中不包含物品 <span class="arithmatex">\(x\)</span> 。</p>
 <p>现在从背包中拿出单位重量的任意物品，并替换为单位重量的物品 <span class="arithmatex">\(x\)</span> 。由于物品 <span class="arithmatex">\(x\)</span> 的单位价值最高，因此替换后的总价值一定大于 <code>res</code> 。<strong>这与 <code>res</code> 是最优解矛盾，说明最优解中必须包含物品 <span class="arithmatex">\(x\)</span></strong> 。</p>
 <p>对于该解中的其他物品，我们也可以构建出上述矛盾。总而言之，<strong>单位价值更大的物品总是更优选择</strong>，这说明贪心策略是有效的。</p>

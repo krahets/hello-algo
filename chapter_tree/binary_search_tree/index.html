@@ -1449,29 +1449,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    查找节点
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 查找节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    插入节点
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 插入节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    删除节点
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 删除节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    排序
+  <a href="#4" class="md-nav__link">
+    4. &nbsp; 排序
   </a>
   
 </li>
@@ -3424,29 +3424,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    查找节点
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 查找节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    插入节点
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 插入节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    删除节点
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 删除节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    排序
+  <a href="#4" class="md-nav__link">
+    4. &nbsp; 排序
   </a>
   
 </li>
@@ -3504,7 +3504,7 @@
 
 <h2 id="741">7.4.1 &nbsp; 二叉搜索树的操作<a class="headerlink" href="#741" title="Permanent link">&para;</a></h2>
 <p>我们将二叉搜索树封装为一个类 <code>ArrayBinaryTree</code> ，并声明一个成员变量 <code>root</code> ，指向树的根节点。</p>
-<h3 id="_1">查找节点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1. &nbsp; 查找节点<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>给定目标节点值 <code>num</code> ，可以根据二叉搜索树的性质来查找。我们声明一个节点 <code>cur</code> ，从二叉树的根节点 <code>root</code> 出发，循环比较节点值 <code>cur.val</code> 和 <code>num</code> 之间的大小关系</p>
 <ul>
 <li>若 <code>cur.val &lt; num</code> ，说明目标节点在 <code>cur</code> 的右子树中，因此执行 <code>cur = cur.right</code> 。</li>
@@ -3788,7 +3788,7 @@
 </div>
 </div>
 </div>
-<h3 id="_2">插入节点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 插入节点<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>给定一个待插入元素 <code>num</code> ，为了保持二叉搜索树“左子树 &lt; 根节点 &lt; 右子树”的性质，插入操作分为两步：</p>
 <ol>
 <li><strong>查找插入位置</strong>：与查找操作相似，从根节点出发，根据当前节点值和 <code>num</code> 的大小关系循环向下搜索，直到越过叶节点（遍历至 <span class="arithmatex">\(\text{None}\)</span> ）时跳出循环。</li>
@@ -4172,7 +4172,7 @@
 </div>
 <p>为了插入节点，我们需要利用辅助节点 <code>pre</code> 保存上一轮循环的节点，这样在遍历至 <span class="arithmatex">\(\text{None}\)</span> 时，我们可以获取到其父节点，从而完成节点插入操作。</p>
 <p>与查找节点相同，插入节点使用 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
-<h3 id="_3">删除节点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. &nbsp; 删除节点<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>与插入节点类似，我们需要在删除操作后维持二叉搜索树的“左子树 &lt; 根节点 &lt; 右子树”的性质。首先，我们需要在二叉树中执行查找操作，获取待删除节点。接下来，根据待删除节点的子节点数量，删除操作需分为三种情况：</p>
 <p>当待删除节点的度为 <span class="arithmatex">\(0\)</span> 时，表示待删除节点是叶节点，可以直接删除。</p>
 <p><img alt="在二叉搜索树中删除节点（度为 0）" src="../binary_search_tree.assets/bst_remove_case1.png" /></p>
@@ -4898,7 +4898,7 @@ void insert(int num) {
 </div>
 </div>
 </div>
-<h3 id="_4">排序<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="4">4. &nbsp; 排序<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>我们知道，二叉树的中序遍历遵循“左 <span class="arithmatex">\(\rightarrow\)</span> 根 <span class="arithmatex">\(\rightarrow\)</span> 右”的遍历顺序，而二叉搜索树满足“左子节点 <span class="arithmatex">\(&lt;\)</span> 根节点 <span class="arithmatex">\(&lt;\)</span> 右子节点”的大小关系。因此，在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小节点，从而得出一个重要性质：<strong>二叉搜索树的中序遍历序列是升序的</strong>。</p>
 <p>利用中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 <span class="arithmatex">\(O(n)\)</span> 时间，无需额外排序，非常高效。</p>
 <p><img alt="二叉搜索树的中序遍历序列" src="../binary_search_tree.assets/bst_inorder_traversal.png" /></p>

@@ -1583,29 +1583,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    堆的存储与表示
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 堆的存储与表示
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    访问堆顶元素
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 访问堆顶元素
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    元素入堆
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 元素入堆
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    堆顶元素出堆
+  <a href="#4" class="md-nav__link">
+    4. &nbsp; 堆顶元素出堆
   </a>
   
 </li>
@@ -3431,29 +3431,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    堆的存储与表示
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 堆的存储与表示
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    访问堆顶元素
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 访问堆顶元素
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    元素入堆
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 元素入堆
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    堆顶元素出堆
+  <a href="#4" class="md-nav__link">
+    4. &nbsp; 堆顶元素出堆
   </a>
   
 </li>
@@ -3813,7 +3813,7 @@
 </div>
 <h2 id="812">8.1.2 &nbsp; 堆的实现<a class="headerlink" href="#812" title="Permanent link">&para;</a></h2>
 <p>下文实现的是大顶堆。若要将其转换为小顶堆，只需将所有大小逻辑判断取逆（例如，将 <span class="arithmatex">\(\geq\)</span> 替换为 <span class="arithmatex">\(\leq\)</span> ）。感兴趣的读者可以自行实现。</p>
-<h3 id="_1">堆的存储与表示<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1. &nbsp; 堆的存储与表示<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>我们在二叉树章节中学习到，完全二叉树非常适合用数组来表示。由于堆正是一种完全二叉树，<strong>我们将采用数组来存储堆</strong>。</p>
 <p>当使用数组表示二叉树时，元素代表节点值，索引代表节点在二叉树中的位置。<strong>节点指针通过索引映射公式来实现</strong>。</p>
 <p>具体而言，给定索引 <span class="arithmatex">\(i\)</span> ，其左子节点索引为 <span class="arithmatex">\(2i + 1\)</span> ，右子节点索引为 <span class="arithmatex">\(2i + 2\)</span> ，父节点索引为 <span class="arithmatex">\((i - 1) / 2\)</span>（向下取整）。当索引越界时，表示空节点或节点不存在。</p>
@@ -4028,7 +4028,7 @@
 </div>
 </div>
 </div>
-<h3 id="_2">访问堆顶元素<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 访问堆顶元素<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>堆顶元素即为二叉树的根节点，也就是列表的首个元素。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
@@ -4117,7 +4117,7 @@
 </div>
 </div>
 </div>
-<h3 id="_3">元素入堆<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. &nbsp; 元素入堆<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>给定元素 <code>val</code> ，我们首先将其添加到堆底。添加之后，由于 val 可能大于堆中其他元素，堆的成立条件可能已被破坏。因此，<strong>需要修复从插入节点到根节点的路径上的各个节点</strong>，这个操作被称为「堆化 Heapify」。</p>
 <p>考虑从入堆节点开始，<strong>从底至顶执行堆化</strong>。具体来说，我们比较插入节点与其父节点的值，如果插入节点更大，则将它们交换。然后继续执行此操作，从底至顶修复堆中的各个节点，直至越过根节点或遇到无需交换的节点时结束。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:9"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label></div>
@@ -4470,7 +4470,7 @@
 </div>
 </div>
 </div>
-<h3 id="_4">堆顶元素出堆<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="4">4. &nbsp; 堆顶元素出堆<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>堆顶元素是二叉树的根节点，即列表首元素。如果我们直接从列表中删除首元素，那么二叉树中所有节点的索引都会发生变化，这将使得后续使用堆化修复变得困难。为了尽量减少元素索引的变动，我们采取以下操作步骤：</p>
 <ol>
 <li>交换堆顶元素与堆底元素（即交换根节点与最右叶节点）。</li>

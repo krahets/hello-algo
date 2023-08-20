@@ -2870,29 +2870,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    方法一：暴力搜索
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 方法一：暴力搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    方法二：记忆化搜索
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 方法二：记忆化搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    方法三：动态规划
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 方法三：动态规划
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    状态压缩
+  <a href="#4" class="md-nav__link">
+    4. &nbsp; 状态压缩
   </a>
   
 </li>
@@ -3397,29 +3397,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    方法一：暴力搜索
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 方法一：暴力搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    方法二：记忆化搜索
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 方法二：记忆化搜索
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    方法三：动态规划
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 方法三：动态规划
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    状态压缩
+  <a href="#4" class="md-nav__link">
+    4. &nbsp; 状态压缩
   </a>
   
 </li>
@@ -3479,7 +3479,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <p>当无物品或无剩余背包容量时最大价值为 <span class="arithmatex">\(0\)</span> ，即首列 <span class="arithmatex">\(dp[i, 0]\)</span> 和首行 <span class="arithmatex">\(dp[0, c]\)</span> 都等于 <span class="arithmatex">\(0\)</span> 。</p>
 <p>当前状态 <span class="arithmatex">\([i, c]\)</span> 从上方的状态 <span class="arithmatex">\([i-1, c]\)</span> 和左上方的状态 <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span> 转移而来，因此通过两层循环正序遍历整个 <span class="arithmatex">\(dp\)</span> 表即可。</p>
 <p>根据以上分析，我们接下来按顺序实现暴力搜索、记忆化搜索、动态规划解法。</p>
-<h3 id="_1">方法一：暴力搜索<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1. &nbsp; 方法一：暴力搜索<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>搜索代码包含以下要素：</p>
 <ul>
 <li><strong>递归参数</strong>：状态 <span class="arithmatex">\([i, c]\)</span> 。</li>
@@ -3676,7 +3676,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <p><img alt="0-1 背包的暴力搜索递归树" src="../knapsack_problem.assets/knapsack_dfs.png" /></p>
 <p align="center"> 图：0-1 背包的暴力搜索递归树 </p>
 
-<h3 id="_2">方法二：记忆化搜索<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 方法二：记忆化搜索<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>为了保证重叠子问题只被计算一次，我们借助记忆列表 <code>mem</code> 来记录子问题的解，其中 <code>mem[i][c]</code> 对应 <span class="arithmatex">\(dp[i, c]\)</span> 。</p>
 <p>引入记忆化之后，<strong>时间复杂度取决于子问题数量</strong>，也就是 <span class="arithmatex">\(O(n \times cap)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
@@ -3918,7 +3918,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <p><img alt="0-1 背包的记忆化搜索递归树" src="../knapsack_problem.assets/knapsack_dfs_mem.png" /></p>
 <p align="center"> 图：0-1 背包的记忆化搜索递归树 </p>
 
-<h3 id="_3">方法三：动态规划<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. &nbsp; 方法三：动态规划<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>动态规划实质上就是在状态转移中填充 <span class="arithmatex">\(dp\)</span> 表的过程，代码如下所示。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
@@ -4182,7 +4182,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 <p align="center"> 图：0-1 背包的动态规划过程 </p>
 
-<h3 id="_4">状态压缩<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="4">4. &nbsp; 状态压缩<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 <span class="arithmatex">\(O(n^2)\)</span> 将低至 <span class="arithmatex">\(O(n)\)</span> 。</p>
 <p>进一步思考，我们是否可以仅用一个数组实现状态压缩呢？观察可知，每个状态都是由正上方或左上方的格子转移过来的。假设只有一个数组，当开始遍历第 <span class="arithmatex">\(i\)</span> 行时，该数组存储的仍然是第 <span class="arithmatex">\(i-1\)</span> 行的状态。</p>
 <ul>

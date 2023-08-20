@@ -1265,15 +1265,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    线性探测
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 线性探测
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    多次哈希
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 多次哈希
   </a>
   
 </li>
@@ -3417,15 +3417,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    线性探测
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 线性探测
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    多次哈希
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 多次哈希
   </a>
   
 </li>
@@ -4591,7 +4591,7 @@
 </div>
 <h2 id="622">6.2.2 &nbsp; 开放寻址<a class="headerlink" href="#622" title="Permanent link">&para;</a></h2>
 <p>「开放寻址 Open Addressing」不引入额外的数据结构，而是通过“多次探测”来处理哈希冲突，探测方式主要包括线性探测、平方探测、多次哈希等。</p>
-<h3 id="_1">线性探测<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1. &nbsp; 线性探测<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>线性探测采用固定步长的线性查找来进行探测，对应的哈希表操作方法为：</p>
 <ul>
 <li><strong>插入元素</strong>：通过哈希函数计算数组索引，若发现桶内已有元素，则从冲突位置向后线性遍历（步长通常为 <span class="arithmatex">\(1\)</span> ），直至找到空位，将元素插入其中。</li>
@@ -5852,7 +5852,7 @@
 </div>
 </div>
 </div>
-<h3 id="_2">多次哈希<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 多次哈希<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>顾名思义，多次哈希方法是使用多个哈希函数 <span class="arithmatex">\(f_1(x)\)</span> , <span class="arithmatex">\(f_2(x)\)</span> , <span class="arithmatex">\(f_3(x)\)</span> , <span class="arithmatex">\(\cdots\)</span> 进行探测。</p>
 <ul>
 <li><strong>插入元素</strong>：若哈希函数 <span class="arithmatex">\(f_1(x)\)</span> 出现冲突，则尝试 <span class="arithmatex">\(f_2(x)\)</span> ，以此类推，直到找到空位后插入元素。</li>

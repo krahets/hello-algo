@@ -2649,22 +2649,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    逐行放置策略
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 逐行放置策略
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    列与对角线剪枝
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 列与对角线剪枝
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    代码实现
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 代码实现
   </a>
   
 </li>
@@ -3382,22 +3382,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    逐行放置策略
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 逐行放置策略
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    列与对角线剪枝
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 列与对角线剪枝
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    代码实现
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 代码实现
   </a>
   
 </li>
@@ -3438,7 +3438,7 @@
 <p><img alt="n 皇后问题的约束条件" src="../n_queens_problem.assets/n_queens_constraints.png" /></p>
 <p align="center"> 图：n 皇后问题的约束条件 </p>
 
-<h3 id="_1">逐行放置策略<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1. &nbsp; 逐行放置策略<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>皇后的数量和棋盘的行数都为 <span class="arithmatex">\(n\)</span> ，因此我们容易得到一个推论：<strong>棋盘每行都允许且只允许放置一个皇后</strong>。</p>
 <p>也就是说，我们可以采取逐行放置策略：从第一行开始，在每行放置一个皇后，直至最后一行结束。</p>
 <p>如下图所示，为 <span class="arithmatex">\(4\)</span> 皇后问题的逐行放置过程。受画幅限制，下图仅展开了第一行的其中一个搜索分支，并且将不满足列约束和对角线约束的方案都进行了剪枝。</p>
@@ -3446,7 +3446,7 @@
 <p align="center"> 图：逐行放置策略 </p>
 
 <p>本质上看，<strong>逐行放置策略起到了剪枝的作用</strong>，它避免了同一行出现多个皇后的所有搜索分支。</p>
-<h3 id="_2">列与对角线剪枝<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 列与对角线剪枝<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>为了满足列约束，我们可以利用一个长度为 <span class="arithmatex">\(n\)</span> 的布尔型数组 <code>cols</code> 记录每一列是否有皇后。在每次决定放置前，我们通过 <code>cols</code> 将已有皇后的列进行剪枝，并在回溯中动态更新 <code>cols</code> 的状态。</p>
 <p>那么，如何处理对角线约束呢？设棋盘中某个格子的行列索引为 <span class="arithmatex">\((row, col)\)</span> ，选定矩阵中的某条主对角线，我们发现该对角线上所有格子的行索引减列索引都相等，<strong>即对角线上所有格子的 <span class="arithmatex">\(row - col\)</span> 为恒定值</strong>。</p>
 <p>也就是说，如果两个格子满足 <span class="arithmatex">\(row_1 - col_1 = row_2 - col_2\)</span> ，则它们一定处在同一条主对角线上。利用该规律，我们可以借助一个数组 <code>diag1</code> 来记录每条主对角线上是否有皇后。</p>
@@ -3454,7 +3454,7 @@
 <p><img alt="处理列约束和对角线约束" src="../n_queens_problem.assets/n_queens_cols_diagonals.png" /></p>
 <p align="center"> 图：处理列约束和对角线约束 </p>
 
-<h3 id="_3">代码实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. &nbsp; 代码实现<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>请注意，<span class="arithmatex">\(n\)</span> 维方阵中 <span class="arithmatex">\(row - col\)</span> 的范围是 <span class="arithmatex">\([-n + 1, n - 1]\)</span> ，<span class="arithmatex">\(row + col\)</span> 的范围是 <span class="arithmatex">\([0, 2n - 2]\)</span> ，所以主对角线和次对角线的数量都为 <span class="arithmatex">\(2n - 1\)</span> ，即数组 <code>diag1</code> 和 <code>diag2</code> 的长度都为 <span class="arithmatex">\(2n - 1\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">

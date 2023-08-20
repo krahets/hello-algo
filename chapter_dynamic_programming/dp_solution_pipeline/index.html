@@ -2857,29 +2857,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    方法一：暴力搜索
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 方法一：暴力搜索
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    方法二：记忆化搜索
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 方法二：记忆化搜索
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    方法三：动态规划
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 方法三：动态规划
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    状态压缩
+  <a href="#4" class="md-nav__link">
+    4. &nbsp; 状态压缩
   </a>
   
 </li>
@@ -3432,29 +3432,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    方法一：暴力搜索
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 方法一：暴力搜索
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    方法二：记忆化搜索
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 方法二：记忆化搜索
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    方法三：动态规划
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 方法三：动态规划
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    状态压缩
+  <a href="#4" class="md-nav__link">
+    4. &nbsp; 状态压缩
   </a>
   
 </li>
@@ -3557,7 +3557,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 <p>状态转移顺序的核心是要保证在计算当前问题的解时，所有它依赖的更小子问题的解都已经被正确地计算出来。</p>
 </div>
 <p>根据以上分析，我们已经可以直接写出动态规划代码。然而子问题分解是一种从顶至底的思想，因此按照“暴力搜索 <span class="arithmatex">\(\rightarrow\)</span> 记忆化搜索 <span class="arithmatex">\(\rightarrow\)</span> 动态规划”的顺序实现更加符合思维习惯。</p>
-<h3 id="_1">方法一：暴力搜索<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1. &nbsp; 方法一：暴力搜索<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>从状态 <span class="arithmatex">\([i, j]\)</span> 开始搜索，不断分解为更小的状态 <span class="arithmatex">\([i-1, j]\)</span> 和 <span class="arithmatex">\([i, j-1]\)</span> ，包括以下递归要素：</p>
 <ul>
 <li><strong>递归参数</strong>：状态 <span class="arithmatex">\([i, j]\)</span> 。</li>
@@ -3756,7 +3756,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 <p align="center"> 图：暴力搜索递归树 </p>
 
 <p>每个状态都有向下和向右两种选择，从左上角走到右下角总共需要 <span class="arithmatex">\(m + n - 2\)</span> 步，所以最差时间复杂度为 <span class="arithmatex">\(O(2^{m + n})\)</span> 。请注意，这种计算方式未考虑临近网格边界的情况，当到达网络边界时只剩下一种选择。因此实际的路径数量会少一些。</p>
-<h3 id="_2">方法二：记忆化搜索<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 方法二：记忆化搜索<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>我们引入一个和网格 <code>grid</code> 相同尺寸的记忆列表 <code>mem</code> ，用于记录各个子问题的解，并将重叠子问题进行剪枝。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
 <div class="tabbed-content">
@@ -3994,7 +3994,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 <p><img alt="记忆化搜索递归树" src="../dp_solution_pipeline.assets/min_path_sum_dfs_mem.png" /></p>
 <p align="center"> 图：记忆化搜索递归树 </p>
 
-<h3 id="_3">方法三：动态规划<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. &nbsp; 方法三：动态规划<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>基于迭代实现动态规划解法。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
@@ -4281,7 +4281,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 <p align="center"> 图：最小路径和的动态规划过程 </p>
 
-<h3 id="_4">状态压缩<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="4">4. &nbsp; 状态压缩<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>由于每个格子只与其左边和上边的格子有关，因此我们可以只用一个单行数组来实现 <span class="arithmatex">\(dp\)</span> 表。</p>
 <p>请注意，因为数组 <code>dp</code> 只能表示一行的状态，所以我们无法提前初始化首列状态，而是在遍历每行中更新它。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label><label for="__tabbed_5_12">Rust</label></div>

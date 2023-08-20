@@ -1098,15 +1098,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    基于链表的实现
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 基于链表的实现
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    基于数组的实现
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 基于数组的实现
   </a>
   
 </li>
@@ -1125,22 +1125,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    支持操作
+  <a href="#1_1" class="md-nav__link">
+    1. &nbsp; 支持操作
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    时间效率
+  <a href="#2_1" class="md-nav__link">
+    2. &nbsp; 时间效率
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    空间效率
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 空间效率
   </a>
   
 </li>
@@ -3451,15 +3451,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    基于链表的实现
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 基于链表的实现
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    基于数组的实现
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 基于数组的实现
   </a>
   
 </li>
@@ -3478,22 +3478,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    支持操作
+  <a href="#1_1" class="md-nav__link">
+    1. &nbsp; 支持操作
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    时间效率
+  <a href="#2_1" class="md-nav__link">
+    2. &nbsp; 时间效率
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    空间效率
+  <a href="#3" class="md-nav__link">
+    3. &nbsp; 空间效率
   </a>
   
 </li>
@@ -3815,7 +3815,7 @@
 <h2 id="512">5.1.2 &nbsp; 栈的实现<a class="headerlink" href="#512" title="Permanent link">&para;</a></h2>
 <p>为了深入了解栈的运行机制，我们来尝试自己实现一个栈类。</p>
 <p>栈遵循先入后出的原则，因此我们只能在栈顶添加或删除元素。然而，数组和链表都可以在任意位置添加和删除元素，<strong>因此栈可以被视为一种受限制的数组或链表</strong>。换句话说，我们可以“屏蔽”数组或链表的部分无关操作，使其对外表现的逻辑符合栈的特性。</p>
-<h3 id="_1">基于链表的实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1. &nbsp; 基于链表的实现<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>使用链表来实现栈时，我们可以将链表的头节点视为栈顶，尾节点视为栈底。</p>
 <p>对于入栈操作，我们只需将元素插入链表头部，这种节点插入方法被称为“头插法”。而对于出栈操作，只需将头节点从链表中删除即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListStack</label><label for="__tabbed_2_2">push()</label><label for="__tabbed_2_3">pop()</label></div>
@@ -4566,7 +4566,7 @@
 </div>
 </div>
 </div>
-<h3 id="_2">基于数组的实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 基于数组的实现<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>在基于「数组」实现栈时，我们可以将数组的尾部作为栈顶。在这样的设计下，入栈与出栈操作就分别对应在数组尾部添加元素与删除元素，时间复杂度都为 <span class="arithmatex">\(O(1)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ArrayStack</label><label for="__tabbed_4_2">push()</label><label for="__tabbed_4_3">pop()</label></div>
 <div class="tabbed-content">
@@ -5153,9 +5153,9 @@
 </div>
 </div>
 <h2 id="513">5.1.3 &nbsp; 两种实现对比<a class="headerlink" href="#513" title="Permanent link">&para;</a></h2>
-<h3 id="_3">支持操作<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="1_1">1. &nbsp; 支持操作<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
 <p>两种实现都支持栈定义中的各项操作。数组实现额外支持随机访问，但这已超出了栈的定义范畴，因此一般不会用到。</p>
-<h3 id="_4">时间效率<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="2_1">2. &nbsp; 时间效率<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
 <p>在基于数组的实现中，入栈和出栈操作都是在预先分配好的连续内存中进行，具有很好的缓存本地性，因此效率较高。然而，如果入栈时超出数组容量，会触发扩容机制，导致该次入栈操作的时间复杂度变为 <span class="arithmatex">\(O(n)\)</span> 。</p>
 <p>在链表实现中，链表的扩容非常灵活，不存在上述数组扩容时效率降低的问题。但是，入栈操作需要初始化节点对象并修改指针，因此效率相对较低。不过，如果入栈元素本身就是节点对象，那么可以省去初始化步骤，从而提高效率。</p>
 <p>综上所述，当入栈与出栈操作的元素是基本数据类型（如 <code>int</code> , <code>double</code> ）时，我们可以得出以下结论：</p>
@@ -5163,7 +5163,7 @@
 <li>基于数组实现的栈在触发扩容时效率会降低，但由于扩容是低频操作，因此平均效率更高。</li>
 <li>基于链表实现的栈可以提供更加稳定的效率表现。</li>
 </ul>
-<h3 id="_5">空间效率<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. &nbsp; 空间效率<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>在初始化列表时，系统会为列表分配“初始容量”，该容量可能超过实际需求。并且，扩容机制通常是按照特定倍率（例如 2 倍）进行扩容，扩容后的容量也可能超出实际需求。因此，<strong>基于数组实现的栈可能造成一定的空间浪费</strong>。</p>
 <p>然而，由于链表节点需要额外存储指针，<strong>因此链表节点占用的空间相对较大</strong>。</p>
 <p>综上，我们不能简单地确定哪种实现更加节省内存，需要针对具体情况进行分析。</p>

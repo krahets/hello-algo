@@ -1118,15 +1118,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    基于链表的实现
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 基于链表的实现
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    基于数组的实现
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 基于数组的实现
   </a>
   
 </li>
@@ -3417,15 +3417,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    基于链表的实现
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 基于链表的实现
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    基于数组的实现
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 基于数组的实现
   </a>
   
 </li>
@@ -3749,7 +3749,7 @@
 </div>
 <h2 id="522">5.2.2 &nbsp; 队列实现<a class="headerlink" href="#522" title="Permanent link">&para;</a></h2>
 <p>为了实现队列，我们需要一种数据结构，可以在一端添加元素，并在另一端删除元素。因此，链表和数组都可以用来实现队列。</p>
-<h3 id="_1">基于链表的实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1. &nbsp; 基于链表的实现<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>对于链表实现，我们可以将链表的「头节点」和「尾节点」分别视为队首和队尾，规定队尾仅可添加节点，而队首仅可删除节点。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListQueue</label><label for="__tabbed_2_2">push()</label><label for="__tabbed_2_3">pop()</label></div>
 <div class="tabbed-content">
@@ -4615,7 +4615,7 @@
 </div>
 </div>
 </div>
-<h3 id="_2">基于数组的实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2">2. &nbsp; 基于数组的实现<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>由于数组删除首元素的时间复杂度为 <span class="arithmatex">\(O(n)\)</span> ，这会导致出队操作效率较低。然而，我们可以采用以下巧妙方法来避免这个问题。</p>
 <p>我们可以使用一个变量 <code>front</code> 指向队首元素的索引，并维护一个变量 <code>queSize</code> 用于记录队列长度。定义 <code>rear = front + queSize</code> ，这个公式计算出的 <code>rear</code> 指向队尾元素之后的下一个位置。</p>
 <p>基于此设计，<strong>数组中包含元素的有效区间为 [front, rear - 1]</strong>，进而：</p>
