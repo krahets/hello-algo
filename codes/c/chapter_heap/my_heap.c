@@ -119,7 +119,7 @@ void siftDown(maxHeap *h, int i) {
         if (r < size(h) && h->data[r] > h->data[max]) {
             max = r;
         }
-        // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+        // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
         if (max == i) {
             break;
         }
@@ -135,7 +135,7 @@ void siftUp(maxHeap *h, int i) {
     while (true) {
         // 获取节点 i 的父节点
         int p = parent(h, i);
-        // 当“越过根节点”或“节点无需修复”时，结束堆化
+        // 当“越过根节点”或“节点无须修复”时，结束堆化
         if (p < 0 || h->data[i] <= h->data[p]) {
             break;
         }

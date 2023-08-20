@@ -139,32 +139,32 @@ fn main() {
     println!("输入数据大小 n = {}", n);
 
     let mut count = constant(n);
-    println!("常数阶的计算操作数量 = {}", count);
+    println!("常数阶的操作数量 = {}", count);
 
     count = linear(n);
-    println!("线性阶的计算操作数量 = {}", count);
+    println!("线性阶的操作数量 = {}", count);
     count = array_traversal(&vec![0; n as usize]);
-    println!("线性阶（遍历数组）的计算操作数量 = {}", count);
+    println!("线性阶（遍历数组）的操作数量 = {}", count);
 
     count = quadratic(n);
-    println!("平方阶的计算操作数量 = {}", count);
+    println!("平方阶的操作数量 = {}", count);
     let mut nums = (1..=n).rev().collect::<Vec<_>>(); // [n,n-1,...,2,1]
     count = bubble_sort(&mut nums);
-    println!("平方阶（冒泡排序）的计算操作数量 = {}", count);
+    println!("平方阶（冒泡排序）的操作数量 = {}", count);
 
     count = exponential(n);
-    println!("指数阶（循环实现）的计算操作数量 = {}", count);
+    println!("指数阶（循环实现）的操作数量 = {}", count);
     count = exp_recur(n);
-    println!("指数阶（递归实现）的计算操作数量 = {}", count);
+    println!("指数阶（递归实现）的操作数量 = {}", count);
 
     count = logarithmic(n as f32);
-    println!("对数阶（循环实现）的计算操作数量 = {}", count);
+    println!("对数阶（循环实现）的操作数量 = {}", count);
     count = log_recur(n as f32);
-    println!("对数阶（递归实现）的计算操作数量 = {}", count);
+    println!("对数阶（递归实现）的操作数量 = {}", count);
 
     count = linear_log_recur(n as f32);
-    println!("线性对数阶（递归实现）的计算操作数量 = {}", count);
+    println!("线性对数阶（递归实现）的操作数量 = {}", count);
 
     count = factorial_recur(n);
-    println!("阶乘阶（递归实现）的计算操作数量 = {}", count);
+    println!("阶乘阶（递归实现）的操作数量 = {}", count);
 }

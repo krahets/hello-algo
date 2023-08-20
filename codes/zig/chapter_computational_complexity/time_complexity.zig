@@ -143,37 +143,37 @@ pub fn main() !void {
     std.debug.print("输入数据大小 n = {}\n", .{n});
 
     var count = constant(n);
-    std.debug.print("常数阶的计算操作数量 = {}\n", .{count});
+    std.debug.print("常数阶的操作数量 = {}\n", .{count});
 
     count = linear(n);
-    std.debug.print("线性阶的计算操作数量 = {}\n", .{count});
+    std.debug.print("线性阶的操作数量 = {}\n", .{count});
     var nums = [_]i32{0}**n;
     count = arrayTraversal(&nums);
-    std.debug.print("线性阶（遍历数组）的计算操作数量 = {}\n", .{count});
+    std.debug.print("线性阶（遍历数组）的操作数量 = {}\n", .{count});
 
     count = quadratic(n);
-    std.debug.print("平方阶的计算操作数量 = {}\n", .{count});
+    std.debug.print("平方阶的操作数量 = {}\n", .{count});
     for (&nums, 0..) |*num, i| {
         num.* = n - @as(i32, @intCast(i));  // [n,n-1,...,2,1]
     }
     count = bubbleSort(&nums);
-    std.debug.print("平方阶（冒泡排序）的计算操作数量 = {}\n", .{count});
+    std.debug.print("平方阶（冒泡排序）的操作数量 = {}\n", .{count});
 
     count = exponential(n);
-    std.debug.print("指数阶（循环实现）的计算操作数量 = {}\n", .{count});
+    std.debug.print("指数阶（循环实现）的操作数量 = {}\n", .{count});
     count = expRecur(n);
-    std.debug.print("指数阶（递归实现）的计算操作数量 = {}\n", .{count});
+    std.debug.print("指数阶（递归实现）的操作数量 = {}\n", .{count});
 
     count = logarithmic(@as(f32, n));
-    std.debug.print("对数阶（循环实现）的计算操作数量 = {}\n", .{count});
+    std.debug.print("对数阶（循环实现）的操作数量 = {}\n", .{count});
     count = logRecur(@as(f32, n));
-    std.debug.print("对数阶（递归实现）的计算操作数量 = {}\n", .{count});
+    std.debug.print("对数阶（递归实现）的操作数量 = {}\n", .{count});
 
     count = linearLogRecur(@as(f32, n));
-    std.debug.print("线性对数阶（递归实现）的计算操作数量 = {}\n", .{count});
+    std.debug.print("线性对数阶（递归实现）的操作数量 = {}\n", .{count});
 
     count = factorialRecur(n);
-    std.debug.print("阶乘阶（递归实现）的计算操作数量 = {}\n", .{count});
+    std.debug.print("阶乘阶（递归实现）的操作数量 = {}\n", .{count});
 
     _ = try std.io.getStdIn().reader().readByte();
 }

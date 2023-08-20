@@ -134,35 +134,35 @@ public class time_complexity {
         System.out.println("输入数据大小 n = " + n);
 
         int count = constant(n);
-        System.out.println("常数阶的计算操作数量 = " + count);
+        System.out.println("常数阶的操作数量 = " + count);
 
         count = linear(n);
-        System.out.println("线性阶的计算操作数量 = " + count);
+        System.out.println("线性阶的操作数量 = " + count);
         count = arrayTraversal(new int[n]);
-        System.out.println("线性阶（遍历数组）的计算操作数量 = " + count);
+        System.out.println("线性阶（遍历数组）的操作数量 = " + count);
 
         count = quadratic(n);
-        System.out.println("平方阶的计算操作数量 = " + count);
+        System.out.println("平方阶的操作数量 = " + count);
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
             nums[i] = n - i; // [n,n-1,...,2,1]
         count = bubbleSort(nums);
-        System.out.println("平方阶（冒泡排序）的计算操作数量 = " + count);
+        System.out.println("平方阶（冒泡排序）的操作数量 = " + count);
 
         count = exponential(n);
-        System.out.println("指数阶（循环实现）的计算操作数量 = " + count);
+        System.out.println("指数阶（循环实现）的操作数量 = " + count);
         count = expRecur(n);
-        System.out.println("指数阶（递归实现）的计算操作数量 = " + count);
+        System.out.println("指数阶（递归实现）的操作数量 = " + count);
 
         count = logarithmic((float) n);
-        System.out.println("对数阶（循环实现）的计算操作数量 = " + count);
+        System.out.println("对数阶（循环实现）的操作数量 = " + count);
         count = logRecur((float) n);
-        System.out.println("对数阶（递归实现）的计算操作数量 = " + count);
+        System.out.println("对数阶（递归实现）的操作数量 = " + count);
 
         count = linearLogRecur((float) n);
-        System.out.println("线性对数阶（递归实现）的计算操作数量 = " + count);
+        System.out.println("线性对数阶（递归实现）的操作数量 = " + count);
 
         count = factorialRecur(n);
-        System.out.println("阶乘阶（递归实现）的计算操作数量 = " + count);
+        System.out.println("阶乘阶（递归实现）的操作数量 = " + count);
     }
 }

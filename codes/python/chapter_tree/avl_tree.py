@@ -85,7 +85,7 @@ class AVLTree:
                 # 先右旋后左旋
                 node.right = self.__right_rotate(node.right)
                 return self.__left_rotate(node)
-        # 平衡树，无需旋转，直接返回
+        # 平衡树，无须旋转，直接返回
         return node
 
     def insert(self, val):

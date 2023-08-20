@@ -11,7 +11,7 @@ import (
 )
 
 type maxHeap struct {
-	// 使用切片而非数组，这样无需考虑扩容问题
+	// 使用切片而非数组，这样无须考虑扩容问题
 	data []any
 }
 
@@ -82,7 +82,7 @@ func (h *maxHeap) siftUp(i int) {
 	for true {
 		// 获取节点 i 的父节点
 		p := h.parent(i)
-		// 当“越过根节点”或“节点无需修复”时，结束堆化
+		// 当“越过根节点”或“节点无须修复”时，结束堆化
 		if p < 0 || h.data[i].(int) <= h.data[p].(int) {
 			break
 		}
@@ -123,7 +123,7 @@ func (h *maxHeap) siftDown(i int) {
 		if r < h.size() && h.data[r].(int) > h.data[max].(int) {
 			max = r
 		}
-		// 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+		// 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
 		if max == i {
 			break
 		}

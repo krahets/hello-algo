@@ -8,7 +8,7 @@ namespace hello_algo.chapter_heap;
 
 /* 大顶堆 */
 class MaxHeap {
-    // 使用列表而非数组，这样无需考虑扩容问题
+    // 使用列表而非数组，这样无须考虑扩容问题
     private readonly List<int> maxHeap;
 
     /* 构造函数，建立空堆 */
@@ -70,7 +70,7 @@ class MaxHeap {
         while (true) {
             // 获取节点 i 的父节点
             int p = parent(i);
-            // 若“越过根节点”或“节点无需修复”，则结束堆化
+            // 若“越过根节点”或“节点无须修复”，则结束堆化
             if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
             // 交换两节点

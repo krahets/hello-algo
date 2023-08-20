@@ -9,7 +9,7 @@
 /* 大顶堆 */
 class MaxHeap {
   private:
-    // 使用动态数组，这样无需考虑扩容问题
+    // 使用动态数组，这样无须考虑扩容问题
     vector<int> maxHeap;
 
     /* 获取左子节点索引 */
@@ -32,7 +32,7 @@ class MaxHeap {
         while (true) {
             // 获取节点 i 的父节点
             int p = parent(i);
-            // 当“越过根节点”或“节点无需修复”时，结束堆化
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
             if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
             // 交换两节点
@@ -47,12 +47,12 @@ class MaxHeap {
         while (true) {
             // 判断节点 i, l, r 中值最大的节点，记为 ma
             int l = left(i), r = right(i), ma = i;
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if (l < size() && maxHeap[l] > maxHeap[ma])
                 ma = l;
             if (r < size() && maxHeap[r] > maxHeap[ma])
                 ma = r;
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if (ma == i)
                 break;
             swap(maxHeap[i], maxHeap[ma]);

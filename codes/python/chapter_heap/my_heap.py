@@ -61,7 +61,7 @@ class MaxHeap:
         while True:
             # 获取节点 i 的父节点
             p = self.parent(i)
-            # 当“越过根节点”或“节点无需修复”时，结束堆化
+            # 当“越过根节点”或“节点无须修复”时，结束堆化
             if p < 0 or self.max_heap[i] <= self.max_heap[p]:
                 break
             # 交换两节点
@@ -92,7 +92,7 @@ class MaxHeap:
                 ma = l
             if r < self.size() and self.max_heap[r] > self.max_heap[ma]:
                 ma = r
-            # 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            # 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if ma == i:
                 break
             # 交换两节点
