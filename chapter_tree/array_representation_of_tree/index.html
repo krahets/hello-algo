@@ -3427,7 +3427,7 @@
 
 <h1 id="73">7.3 &nbsp; 二叉树数组表示<a class="headerlink" href="#73" title="Permanent link">&para;</a></h1>
 <p>在链表表示下，二叉树的存储单元为节点 <code>TreeNode</code> ，节点之间通过指针相连接。在上节中，我们学习了在链表表示下的二叉树的各项基本操作。</p>
-<p>那么，能否用「数组」来表示二叉树呢？答案是肯定的。</p>
+<p>那么，我们能否用数组来表示二叉树呢？答案是肯定的。</p>
 <h2 id="731">7.3.1 &nbsp; 表示完美二叉树<a class="headerlink" href="#731" title="Permanent link">&para;</a></h2>
 <p>先分析一个简单案例。给定一个完美二叉树，我们将所有节点按照层序遍历的顺序存储在一个数组中，则每个节点都对应唯一的数组索引。</p>
 <p>根据层序遍历的特性，我们可以推导出父节点索引与子节点索引之间的“映射公式”：<strong>若节点的索引为 <span class="arithmatex">\(i\)</span> ，则该节点的左子节点索引为 <span class="arithmatex">\(2i + 1\)</span> ，右子节点索引为 <span class="arithmatex">\(2i + 2\)</span></strong> 。</p>

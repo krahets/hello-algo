@@ -3474,7 +3474,7 @@
 </ol>
 <p>哈希表的结构改良方法主要包括链式地址和开放寻址。</p>
 <h2 id="621">6.2.1 &nbsp; 链式地址<a class="headerlink" href="#621" title="Permanent link">&para;</a></h2>
-<p>在原始哈希表中，每个桶仅能存储一个键值对。「链式地址 Separate Chaining」将单个元素转换为链表，将键值对作为链表节点，将所有发生冲突的键值对都存储在同一链表中。</p>
+<p>在原始哈希表中，每个桶仅能存储一个键值对。「链式地址 separate chaining」将单个元素转换为链表，将键值对作为链表节点，将所有发生冲突的键值对都存储在同一链表中。</p>
 <p><img alt="链式地址哈希表" src="../hash_collision.assets/hash_table_chaining.png" /></p>
 <p align="center"> 图：链式地址哈希表 </p>
 
@@ -4587,10 +4587,10 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>当链表很长时，查询效率 <span class="arithmatex">\(O(n)\)</span> 很差，<strong>此时可以将链表转换为「AVL 树」或「红黑树」</strong>，从而将查询操作的时间复杂度优化至 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
+<p>当链表很长时，查询效率 <span class="arithmatex">\(O(n)\)</span> 很差，<strong>此时可以将链表转换为“AVL 树”或“红黑树”</strong>，从而将查询操作的时间复杂度优化至 <span class="arithmatex">\(O(\log n)\)</span> 。</p>
 </div>
 <h2 id="622">6.2.2 &nbsp; 开放寻址<a class="headerlink" href="#622" title="Permanent link">&para;</a></h2>
-<p>「开放寻址 Open Addressing」不引入额外的数据结构，而是通过“多次探测”来处理哈希冲突，探测方式主要包括线性探测、平方探测、多次哈希等。</p>
+<p>「开放寻址 open addressing」不引入额外的数据结构，而是通过“多次探测”来处理哈希冲突，探测方式主要包括线性探测、平方探测、多次哈希等。</p>
 <h3 id="1">1. &nbsp; 线性探测<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>线性探测采用固定步长的线性查找来进行探测，对应的哈希表操作方法为：</p>
 <ul>

@@ -3508,7 +3508,7 @@
 
 
 <h1 id="71">7.1 &nbsp; 二叉树<a class="headerlink" href="#71" title="Permanent link">&para;</a></h1>
-<p>「二叉树 Binary Tree」是一种非线性数据结构，代表着祖先与后代之间的派生关系，体现着“一分为二”的分治逻辑。与链表类似，二叉树的基本单元是节点，每个节点包含：值、左子节点引用、右子节点引用。</p>
+<p>「二叉树 binary tree」是一种非线性数据结构，代表着祖先与后代之间的派生关系，体现着“一分为二”的分治逻辑。与链表类似，二叉树的基本单元是节点，每个节点包含：值、左子节点引用、右子节点引用。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3648,29 +3648,29 @@
 </div>
 </div>
 </div>
-<p>节点的两个指针分别指向「左子节点」和「右子节点」，同时该节点被称为这两个子节点的「父节点」。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的「左子树」，同理可得「右子树」。</p>
-<p><strong>在二叉树中，除叶节点外，其他所有节点都包含子节点和非空子树</strong>。例如，在以下示例中，若将“节点 2”视为父节点，则其左子节点和右子节点分别是“节点 4”和“节点 5”，左子树是“节点 4 及其以下节点形成的树”，右子树是“节点 5 及其以下节点形成的树”。</p>
+<p>每个节点都有两个引用（指针），分别指向「左子节点 left-child node」和「右子节点 right-child node」，该节点被称为这两个子节点的「父节点 parent node」。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的「左子树 left subtree」，同理可得「右子树 right subtree」。</p>
+<p><strong>在二叉树中，除叶节点外，其他所有节点都包含子节点和非空子树</strong>。在以下示例中，若将“节点 2”视为父节点，则其左子节点和右子节点分别是“节点 4”和“节点 5”，左子树是“节点 4 及其以下节点形成的树”，右子树是“节点 5 及其以下节点形成的树”。</p>
 <p><img alt="父节点、子节点、子树" src="../binary_tree.assets/binary_tree_definition.png" /></p>
 <p align="center"> 图：父节点、子节点、子树 </p>
 
 <h2 id="711">7.1.1 &nbsp; 二叉树常见术语<a class="headerlink" href="#711" title="Permanent link">&para;</a></h2>
 <p>二叉树涉及的术语较多，建议尽量理解并记住。</p>
 <ul>
-<li>「根节点 Root Node」：位于二叉树顶层的节点，没有父节点。</li>
-<li>「叶节点 Leaf Node」：没有子节点的节点，其两个指针均指向 <span class="arithmatex">\(\text{None}\)</span> 。</li>
-<li>节点的「层 Level」：从顶至底递增，根节点所在层为 1 。</li>
-<li>节点的「度 Degree」：节点的子节点的数量。在二叉树中，度的范围是 0, 1, 2 。</li>
-<li>「边 Edge」：连接两个节点的线段，即节点指针。</li>
-<li>二叉树的「高度」：从根节点到最远叶节点所经过的边的数量。</li>
-<li>节点的「深度 Depth」 ：从根节点到该节点所经过的边的数量。</li>
-<li>节点的「高度 Height」：从最远叶节点到该节点所经过的边的数量。</li>
+<li>「根节点 root node」：位于二叉树顶层的节点，没有父节点。</li>
+<li>「叶节点 leaf node」：没有子节点的节点，其两个指针均指向 <span class="arithmatex">\(\text{None}\)</span> 。</li>
+<li>「边 edge」：连接两个节点的线段，即节点引用（指针）。</li>
+<li>节点所在的「层 level」：从顶至底递增，根节点所在层为 1 。</li>
+<li>节点的「度 degree」：节点的子节点的数量。在二叉树中，度的取值范围是 0, 1, 2 。</li>
+<li>二叉树的「高度 height」：从根节点到最远叶节点所经过的边的数量。</li>
+<li>节点的「深度 depth」 ：从根节点到该节点所经过的边的数量。</li>
+<li>节点的「高度 height」：从最远叶节点到该节点所经过的边的数量。</li>
 </ul>
 <p><img alt="二叉树的常用术语" src="../binary_tree.assets/binary_tree_terminology.png" /></p>
 <p align="center"> 图：二叉树的常用术语 </p>
 
 <div class="admonition tip">
 <p class="admonition-title">高度与深度的定义</p>
-<p>请注意，我们通常将「高度」和「深度」定义为“走过边的数量”，但有些题目或教材可能会将其定义为“走过节点的数量”。在这种情况下，高度和深度都需要加 1 。</p>
+<p>请注意，我们通常将“高度”和“深度”定义为“走过边的数量”，但有些题目或教材可能会将其定义为“走过节点的数量”。在这种情况下，高度和深度都需要加 1 。</p>
 </div>
 <h2 id="712">7.1.2 &nbsp; 二叉树基本操作<a class="headerlink" href="#712" title="Permanent link">&para;</a></h2>
 <p><strong>初始化二叉树</strong>。与链表类似，首先初始化节点，然后构建引用指向（即指针）。</p>
@@ -3954,31 +3954,31 @@
 </div>
 <h2 id="713">7.1.3 &nbsp; 常见二叉树类型<a class="headerlink" href="#713" title="Permanent link">&para;</a></h2>
 <h3 id="1">1. &nbsp; 完美二叉树<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>「完美二叉树 Perfect Binary Tree」除了最底层外，其余所有层的节点都被完全填满。在完美二叉树中，叶节点的度为 <span class="arithmatex">\(0\)</span> ，其余所有节点的度都为 <span class="arithmatex">\(2\)</span> ；若树高度为 <span class="arithmatex">\(h\)</span> ，则节点总数为 <span class="arithmatex">\(2^{h+1} - 1\)</span> ，呈现标准的指数级关系，反映了自然界中常见的细胞分裂现象。</p>
+<p>「完美二叉树 perfect binary tree」除了最底层外，其余所有层的节点都被完全填满。在完美二叉树中，叶节点的度为 <span class="arithmatex">\(0\)</span> ，其余所有节点的度都为 <span class="arithmatex">\(2\)</span> ；若树高度为 <span class="arithmatex">\(h\)</span> ，则节点总数为 <span class="arithmatex">\(2^{h+1} - 1\)</span> ，呈现标准的指数级关系，反映了自然界中常见的细胞分裂现象。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>在中文社区中，完美二叉树常被称为「满二叉树」，请注意区分。</p>
+<p>请注意，在中文社区中，完美二叉树常被称为「满二叉树」。</p>
 </div>
 <p><img alt="完美二叉树" src="../binary_tree.assets/perfect_binary_tree.png" /></p>
 <p align="center"> 图：完美二叉树 </p>
 
 <h3 id="2">2. &nbsp; 完全二叉树<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>「完全二叉树 Complete Binary Tree」只有最底层的节点未被填满，且最底层节点尽量靠左填充。</p>
+<p>「完全二叉树 complete binary tree」只有最底层的节点未被填满，且最底层节点尽量靠左填充。</p>
 <p><img alt="完全二叉树" src="../binary_tree.assets/complete_binary_tree.png" /></p>
 <p align="center"> 图：完全二叉树 </p>
 
 <h3 id="3">3. &nbsp; 完满二叉树<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>「完满二叉树 Full Binary Tree」除了叶节点之外，其余所有节点都有两个子节点。</p>
+<p>「完满二叉树 full binary tree」除了叶节点之外，其余所有节点都有两个子节点。</p>
 <p><img alt="完满二叉树" src="../binary_tree.assets/full_binary_tree.png" /></p>
 <p align="center"> 图：完满二叉树 </p>
 
 <h3 id="4">4. &nbsp; 平衡二叉树<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>「平衡二叉树 Balanced Binary Tree」中任意节点的左子树和右子树的高度之差的绝对值不超过 1 。</p>
+<p>「平衡二叉树 balanced binary tree」中任意节点的左子树和右子树的高度之差的绝对值不超过 1 。</p>
 <p><img alt="平衡二叉树" src="../binary_tree.assets/balanced_binary_tree.png" /></p>
 <p align="center"> 图：平衡二叉树 </p>
 
 <h2 id="714">7.1.4 &nbsp; 二叉树的退化<a class="headerlink" href="#714" title="Permanent link">&para;</a></h2>
-<p>当二叉树的每层节点都被填满时，达到「完美二叉树」；而当所有节点都偏向一侧时，二叉树退化为「链表」。</p>
+<p>当二叉树的每层节点都被填满时，达到“完美二叉树”；而当所有节点都偏向一侧时，二叉树退化为“链表”。</p>
 <ul>
 <li>完美二叉树是理想情况，可以充分发挥二叉树“分治”的优势。</li>
 <li>链表则是另一个极端，各项操作都变为线性操作，时间复杂度退化至 <span class="arithmatex">\(O(n)\)</span> 。</li>

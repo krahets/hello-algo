@@ -3494,10 +3494,10 @@
 
 
 <h1 id="81">8.1 &nbsp; 堆<a class="headerlink" href="#81" title="Permanent link">&para;</a></h1>
-<p>「堆 Heap」是一种满足特定条件的完全二叉树，可分为两种类型：</p>
+<p>「堆 heap」是一种满足特定条件的完全二叉树，可分为两种类型：</p>
 <ul>
-<li>「大顶堆 Max Heap」，任意节点的值 <span class="arithmatex">\(\geq\)</span> 其子节点的值。</li>
-<li>「小顶堆 Min Heap」，任意节点的值 <span class="arithmatex">\(\leq\)</span> 其子节点的值。</li>
+<li>「大顶堆 max heap」：任意节点的值 <span class="arithmatex">\(\geq\)</span> 其子节点的值。</li>
+<li>「小顶堆 min heap」：任意节点的值 <span class="arithmatex">\(\leq\)</span> 其子节点的值。</li>
 </ul>
 <p><img alt="小顶堆与大顶堆" src="../heap.assets/min_heap_and_max_heap.png" /></p>
 <p align="center"> 图：小顶堆与大顶堆 </p>
@@ -3505,12 +3505,12 @@
 <p>堆作为完全二叉树的一个特例，具有以下特性：</p>
 <ul>
 <li>最底层节点靠左填充，其他层的节点都被填满。</li>
-<li>我们将二叉树的根节点称为「堆顶」，将底层最靠右的节点称为「堆底」。</li>
+<li>我们将二叉树的根节点称为“堆顶”，将底层最靠右的节点称为“堆底”。</li>
 <li>对于大顶堆（小顶堆），堆顶元素（即根节点）的值分别是最大（最小）的。</li>
 </ul>
 <h2 id="811">8.1.1 &nbsp; 堆常用操作<a class="headerlink" href="#811" title="Permanent link">&para;</a></h2>
-<p>需要指出的是，许多编程语言提供的是「优先队列 Priority Queue」，这是一种抽象数据结构，定义为具有优先级排序的队列。</p>
-<p>实际上，<strong>堆通常用作实现优先队列，大顶堆相当于元素按从大到小顺序出队的优先队列</strong>。从使用角度来看，我们可以将「优先队列」和「堆」看作等价的数据结构。因此，本书对两者不做特别区分，统一使用「堆」来命名。</p>
+<p>需要指出的是，许多编程语言提供的是「优先队列 priority queue」，这是一种抽象数据结构，定义为具有优先级排序的队列。</p>
+<p>实际上，<strong>堆通常用作实现优先队列，大顶堆相当于元素按从大到小顺序出队的优先队列</strong>。从使用角度来看，我们可以将“优先队列”和“堆”看作等价的数据结构。因此，本书对两者不做特别区分，统一使用“堆“来命名。</p>
 <p>堆的常用操作见下表，方法名需要根据编程语言来确定。</p>
 <p align="center"> 表：堆的操作效率 </p>
 
@@ -4118,7 +4118,7 @@
 </div>
 </div>
 <h3 id="3">3. &nbsp; 元素入堆<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>给定元素 <code>val</code> ，我们首先将其添加到堆底。添加之后，由于 val 可能大于堆中其他元素，堆的成立条件可能已被破坏。因此，<strong>需要修复从插入节点到根节点的路径上的各个节点</strong>，这个操作被称为「堆化 Heapify」。</p>
+<p>给定元素 <code>val</code> ，我们首先将其添加到堆底。添加之后，由于 val 可能大于堆中其他元素，堆的成立条件可能已被破坏。因此，<strong>需要修复从插入节点到根节点的路径上的各个节点</strong>，这个操作被称为「堆化 heapify」。</p>
 <p>考虑从入堆节点开始，<strong>从底至顶执行堆化</strong>。具体来说，我们比较插入节点与其父节点的值，如果插入节点更大，则将它们交换。然后继续执行此操作，从底至顶修复堆中的各个节点，直至越过根节点或遇到无须交换的节点时结束。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:9"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">

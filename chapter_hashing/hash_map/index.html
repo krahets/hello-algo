@@ -3426,7 +3426,7 @@
 
 
 <h1 id="61">6.1 &nbsp; 哈希表<a class="headerlink" href="#61" title="Permanent link">&para;</a></h1>
-<p>散列表，又称「哈希表 Hash Table」，其通过建立键 <code>key</code> 与值 <code>value</code> 之间的映射，实现高效的元素查询。具体而言，我们向哈希表输入一个键 <code>key</code> ，则可以在 <span class="arithmatex">\(O(1)\)</span> 时间内获取对应的值 <code>value</code> 。</p>
+<p>「哈希表 hash table」，又称「散列表」，其通过建立键 <code>key</code> 与值 <code>value</code> 之间的映射，实现高效的元素查询。具体而言，我们向哈希表输入一个键 <code>key</code> ，则可以在 <span class="arithmatex">\(O(1)\)</span> 时间内获取对应的值 <code>value</code> 。</p>
 <p>以一个包含 <span class="arithmatex">\(n\)</span> 个学生的数据库为例，每个学生都有“姓名”和“学号”两项数据。假如我们希望实现“输入一个学号，返回对应的姓名”的查询功能，则可以采用哈希表来实现。</p>
 <p><img alt="哈希表的抽象表示" src="../hash_map.assets/hash_table_lookup.png" /></p>
 <p align="center"> 图：哈希表的抽象表示 </p>
@@ -3843,8 +3843,8 @@
 </div>
 </div>
 <h2 id="612">6.1.2 &nbsp; 哈希表简单实现<a class="headerlink" href="#612" title="Permanent link">&para;</a></h2>
-<p>我们先考虑最简单的情况，<strong>仅用一个数组来实现哈希表</strong>。在哈希表中，我们将数组中的每个空位称为「桶 Bucket」，每个桶可存储一个键值对。因此，查询操作就是找到 <code>key</code> 对应的桶，并在桶中获取 <code>value</code> 。</p>
-<p>那么，如何基于 <code>key</code> 来定位对应的桶呢？这是通过「哈希函数 Hash Function」实现的。哈希函数的作用是将一个较大的输入空间映射到一个较小的输出空间。在哈希表中，输入空间是所有 <code>key</code> ，输出空间是所有桶（数组索引）。换句话说，输入一个 <code>key</code> ，<strong>我们可以通过哈希函数得到该 <code>key</code> 对应的键值对在数组中的存储位置</strong>。</p>
+<p>我们先考虑最简单的情况，<strong>仅用一个数组来实现哈希表</strong>。在哈希表中，我们将数组中的每个空位称为「桶 bucket」，每个桶可存储一个键值对。因此，查询操作就是找到 <code>key</code> 对应的桶，并在桶中获取 <code>value</code> 。</p>
+<p>那么，如何基于 <code>key</code> 来定位对应的桶呢？这是通过「哈希函数 hash function」实现的。哈希函数的作用是将一个较大的输入空间映射到一个较小的输出空间。在哈希表中，输入空间是所有 <code>key</code> ，输出空间是所有桶（数组索引）。换句话说，输入一个 <code>key</code> ，<strong>我们可以通过哈希函数得到该 <code>key</code> 对应的键值对在数组中的存储位置</strong>。</p>
 <p>输入一个 <code>key</code> ，哈希函数的计算过程分为两步：</p>
 <ol>
 <li>通过某种哈希算法 <code>hash()</code> 计算得到哈希值。</li>
@@ -4862,7 +4862,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="m">12836</span><span class="w"> </span>%<span class="w"> </span><span class="nv">100</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
 <a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="m">20336</span><span class="w"> </span>%<span class="w"> </span><span class="nv">100</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
 </code></pre></div>
-<p>如下图所示，两个学号指向了同一个姓名，这显然是不对的。我们将这种多个输入对应同一输出的情况称为「哈希冲突 Hash Collision」。</p>
+<p>如下图所示，两个学号指向了同一个姓名，这显然是不对的。我们将这种多个输入对应同一输出的情况称为「哈希冲突 hash collision」。</p>
 <p><img alt="哈希冲突示例" src="../hash_map.assets/hash_collision.png" /></p>
 <p align="center"> 图：哈希冲突示例 </p>
 
@@ -4871,7 +4871,7 @@
 <p align="center"> 图：哈希表扩容 </p>
 
 <p>类似于数组扩容，哈希表扩容需将所有键值对从原哈希表迁移至新哈希表，非常耗时。并且由于哈希表容量 <code>capacity</code> 改变，我们需要通过哈希函数来重新计算所有键值对的存储位置，这进一步提高了扩容过程的计算开销。为此，编程语言通常会预留足够大的哈希表容量，防止频繁扩容。</p>
-<p>「负载因子 Load Factor」是哈希表的一个重要概念，其定义为哈希表的元素数量除以桶数量，用于衡量哈希冲突的严重程度，<strong>也常被作为哈希表扩容的触发条件</strong>。例如在 Java 中，当负载因子超过 <span class="arithmatex">\(0.75\)</span> 时，系统会将哈希表容量扩展为原先的 <span class="arithmatex">\(2\)</span> 倍。</p>
+<p>「负载因子 load factor」是哈希表的一个重要概念，其定义为哈希表的元素数量除以桶数量，用于衡量哈希冲突的严重程度，<strong>也常被作为哈希表扩容的触发条件</strong>。例如在 Java 中，当负载因子超过 <span class="arithmatex">\(0.75\)</span> 时，系统会将哈希表容量扩展为原先的 <span class="arithmatex">\(2\)</span> 倍。</p>
 
 
 

@@ -3427,7 +3427,7 @@
 
 <h1 id="118">11.8 &nbsp; 桶排序<a class="headerlink" href="#118" title="Permanent link">&para;</a></h1>
 <p>前述的几种排序算法都属于“基于比较的排序算法”，它们通过比较元素间的大小来实现排序。此类排序算法的时间复杂度无法超越 <span class="arithmatex">\(O(n \log n)\)</span> 。接下来，我们将探讨几种“非比较排序算法”，它们的时间复杂度可以达到线性阶。</p>
-<p>「桶排序 Bucket Sort」是分治思想的一个典型应用。它通过设置一些具有大小顺序的桶，每个桶对应一个数据范围，将数据平均分配到各个桶中；然后，在每个桶内部分别执行排序；最终按照桶的顺序将所有数据合并。</p>
+<p>「桶排序 bucket sort」是分治思想的一个典型应用。它通过设置一些具有大小顺序的桶，每个桶对应一个数据范围，将数据平均分配到各个桶中；然后，在每个桶内部分别执行排序；最终按照桶的顺序将所有数据合并。</p>
 <h2 id="1181">11.8.1 &nbsp; 算法流程<a class="headerlink" href="#1181" title="Permanent link">&para;</a></h2>
 <p>考虑一个长度为 <span class="arithmatex">\(n\)</span> 的数组，元素是范围 <span class="arithmatex">\([0, 1)\)</span> 的浮点数。桶排序的流程如下：</p>
 <ol>

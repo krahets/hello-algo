@@ -3440,7 +3440,7 @@
 
 
 <h1 id="119">11.9 &nbsp; 计数排序<a class="headerlink" href="#119" title="Permanent link">&para;</a></h1>
-<p>「计数排序 Counting Sort」通过统计元素数量来实现排序，通常应用于整数数组。</p>
+<p>「计数排序 counting sort」通过统计元素数量来实现排序，通常应用于整数数组。</p>
 <h2 id="1191">11.9.1 &nbsp; 简单实现<a class="headerlink" href="#1191" title="Permanent link">&para;</a></h2>
 <p>先来看一个简单的例子。给定一个长度为 <span class="arithmatex">\(n\)</span> 的数组 <code>nums</code> ，其中的元素都是“非负整数”。计数排序的整体流程如下：</p>
 <ol>
@@ -3736,7 +3736,7 @@
 </div>
 <h2 id="1192">11.9.2 &nbsp; 完整实现<a class="headerlink" href="#1192" title="Permanent link">&para;</a></h2>
 <p>细心的同学可能发现，<strong>如果输入数据是对象，上述步骤 <code>3.</code> 就失效了</strong>。例如，输入数据是商品对象，我们想要按照商品价格（类的成员变量）对商品进行排序，而上述算法只能给出价格的排序结果。</p>
-<p>那么如何才能得到原数据的排序结果呢？我们首先计算 <code>counter</code> 的「前缀和」。顾名思义，索引 <code>i</code> 处的前缀和 <code>prefix[i]</code> 等于数组前 <code>i</code> 个元素之和，即</p>
+<p>那么如何才能得到原数据的排序结果呢？我们首先计算 <code>counter</code> 的“前缀和”。顾名思义，索引 <code>i</code> 处的前缀和 <code>prefix[i]</code> 等于数组前 <code>i</code> 个元素之和，即：</p>
 <div class="arithmatex">\[
 \text{prefix}[i] = \sum_{j=0}^i \text{counter[j]}
 \]</div>

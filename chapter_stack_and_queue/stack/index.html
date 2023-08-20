@@ -3534,9 +3534,9 @@
 
 
 <h1 id="51">5.1 &nbsp; 栈<a class="headerlink" href="#51" title="Permanent link">&para;</a></h1>
-<p>「栈 Stack」是一种遵循先入后出（First In, Last Out）原则的线性数据结构。</p>
+<p>「栈 stack」是一种遵循先入后出的逻辑的线性数据结构。</p>
 <p>我们可以将栈类比为桌面上的一摞盘子，如果需要拿出底部的盘子，则需要先将上面的盘子依次取出。我们将盘子替换为各种类型的元素（如整数、字符、对象等），就得到了栈数据结构。</p>
-<p>在栈中，我们把堆叠元素的顶部称为「栈顶」，底部称为「栈底」。将把元素添加到栈顶的操作叫做「入栈」，而删除栈顶元素的操作叫做「出栈」。</p>
+<p>在栈中，我们把堆叠元素的顶部称为“栈顶”，底部称为“栈底”。将把元素添加到栈顶的操作叫做“入栈”，而删除栈顶元素的操作叫做“出栈”。</p>
 <p><img alt="栈的先入后出规则" src="../stack.assets/stack_operations.png" /></p>
 <p align="center"> 图：栈的先入后出规则 </p>
 
@@ -3572,7 +3572,7 @@
 </tbody>
 </table>
 </div>
-<p>通常情况下，我们可以直接使用编程语言内置的栈类。然而，某些语言可能没有专门提供栈类，这时我们可以将该语言的「数组」或「链表」视作栈来使用，并通过“脑补”来忽略与栈无关的操作。</p>
+<p>通常情况下，我们可以直接使用编程语言内置的栈类。然而，某些语言可能没有专门提供栈类，这时我们可以将该语言的“数组”或“链表”视作栈来使用，并在程序逻辑上忽略与栈无关的操作。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4567,7 +4567,7 @@
 </div>
 </div>
 <h3 id="2">2. &nbsp; 基于数组的实现<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>在基于「数组」实现栈时，我们可以将数组的尾部作为栈顶。在这样的设计下，入栈与出栈操作就分别对应在数组尾部添加元素与删除元素，时间复杂度都为 <span class="arithmatex">\(O(1)\)</span> 。</p>
+<p>使用数组实现栈时，我们可以将数组的尾部作为栈顶。在这样的设计下，入栈与出栈操作就分别对应在数组尾部添加元素与删除元素，时间复杂度都为 <span class="arithmatex">\(O(1)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ArrayStack</label><label for="__tabbed_4_2">push()</label><label for="__tabbed_4_3">pop()</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5169,7 +5169,7 @@
 <p>综上，我们不能简单地确定哪种实现更加节省内存，需要针对具体情况进行分析。</p>
 <h2 id="514">5.1.4 &nbsp; 栈典型应用<a class="headerlink" href="#514" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>浏览器中的后退与前进、软件中的撤销与反撤销</strong>。每当我们打开新的网页，浏览器就会将上一个网页执行入栈，这样我们就可以通过「后退」操作回到上一页面。后退操作实际上是在执行出栈。如果要同时支持后退和前进，那么需要两个栈来配合实现。</li>
+<li><strong>浏览器中的后退与前进、软件中的撤销与反撤销</strong>。每当我们打开新的网页，浏览器就会将上一个网页执行入栈，这样我们就可以通过后退操作回到上一页面。后退操作实际上是在执行出栈。如果要同时支持后退和前进，那么需要两个栈来配合实现。</li>
 <li><strong>程序内存管理</strong>。每次调用函数时，系统都会在栈顶添加一个栈帧，用于记录函数的上下文信息。在递归函数中，向下递推阶段会不断执行入栈操作，而向上回溯阶段则会执行出栈操作。</li>
 </ul>
 
