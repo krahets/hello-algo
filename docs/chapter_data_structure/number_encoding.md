@@ -8,11 +8,13 @@
 
 在上一节的表格中我们发现，所有整数类型能够表示的负数都比正数多一个，例如 `byte` 的取值范围是 $[-128, 127]$ 。这个现象比较反直觉，它的内在原因涉及到原码、反码、补码的相关知识。
 
-实际上，**数字是以“补码”的形式存储在计算机中的**。在分析这样做的原因之前，我们首先给出三者的定义：
+首先需要指出，**数字是以“补码”的形式存储在计算机中的**。在分析这样做的原因之前，我们首先给出三者的定义：
 
 - **原码**：我们将数字的二进制表示的最高位视为符号位，其中 $0$ 表示正数，$1$ 表示负数，其余位表示数字的值。
 - **反码**：正数的反码与其原码相同，负数的反码是对其原码除符号位外的所有位取反。
 - **补码**：正数的补码与其原码相同，负数的补码是在其反码的基础上加 $1$ 。
+
+下图展示了原吗、反码和补码之间的转换方法。
 
 ![原码、反码与补码之间的相互转换](number_encoding.assets/1s_2s_complement.png)
 
@@ -21,9 +23,9 @@
 $$
 \begin{aligned}
 & 1 + (-2) \newline
-& = 0000 \space 0001 + 1000 \space 0010 \newline
+& \rightarrow 0000 \space 0001 + 1000 \space 0010 \newline
 & = 1000 \space 0011 \newline
-& = -3
+& \rightarrow -3
 \end{aligned}
 $$
 
@@ -44,8 +46,8 @@ $$
 
 $$
 \begin{aligned}
-+0 & = 0000 \space 0000 \newline
--0 & = 1000 \space 0000
++0 & \rightarrow 0000 \space 0000 \newline
+-0 & \rightarrow 1000 \space 0000
 \end{aligned}
 $$
 
@@ -53,7 +55,7 @@ $$
 
 $$
 \begin{aligned}
--0 = \space & 1000 \space 0000 \space \text{(原码)} \newline
+-0 \rightarrow \space & 1000 \space 0000 \space \text{(原码)} \newline
 = \space & 1111 \space 1111 \space \text{(反码)} \newline
 = 1 \space & 0000 \space 0000 \space \text{(补码)} \newline
 \end{aligned}
@@ -121,9 +123,9 @@ $$
 \end{aligned}
 $$
 
-![IEEE 754 标准下的 float 表示方式](number_encoding.assets/ieee_754_float.png)
+![IEEE 754 标准下的 float 的计算示例](number_encoding.assets/ieee_754_float.png)
 
-给定一个示例数据 $\mathrm{S} = 0$ ， $\mathrm{E} = 124$ ，$\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$ ，则有：
+观察上图，给定一个示例数据 $\mathrm{S} = 0$ ， $\mathrm{E} = 124$ ，$\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$ ，则有：
 
 $$
 \text { val } = (-1)^0 \times 2^{124 - 127} \times (1 + 0.375) = 0.171875
@@ -133,7 +135,7 @@ $$
 
 **尽管浮点数 `float` 扩展了取值范围，但其副作用是牺牲了精度**。整数类型 `int` 将全部 32 位用于表示数字，数字是均匀分布的；而由于指数位的存在，浮点数 `float` 的数值越大，相邻两个数字之间的差值就会趋向越大。
 
-进一步地，指数位 $E = 0$ 和 $E = 255$ 具有特殊含义，**用于表示零、无穷大、$\mathrm{NaN}$ 等**。
+如下表所示，指数位 $E = 0$ 和 $E = 255$ 具有特殊含义，**用于表示零、无穷大、$\mathrm{NaN}$ 等**。
 
 <p align="center"> 表：指数位含义 </p>
 

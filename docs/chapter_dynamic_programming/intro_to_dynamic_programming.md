@@ -128,7 +128,7 @@ $$
 dp[i] = dp[i-1] + dp[i-2]
 $$
 
-这意味着在爬楼梯问题中，各个子问题之间存在递推关系，**原问题的解可以由子问题的解构建得来**。
+这意味着在爬楼梯问题中，各个子问题之间存在递推关系，**原问题的解可以由子问题的解构建得来**。下图展示了该递推关系。
 
 ![方案数量递推关系](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png)
 
@@ -430,6 +430,10 @@ $$
     [class]{}-[func]{climbing_stairs_dp}
     ```
 
+下图模拟了以上代码的执行过程。
+
+![爬楼梯的动态规划过程](intro_to_dynamic_programming.assets/climbing_stairs_dp.png)
+
 与回溯算法一样，动态规划也使用“状态”概念来表示问题求解的某个特定阶段，每个状态都对应一个子问题以及相应的局部最优解。例如，爬楼梯问题的状态定义为当前所在楼梯阶数 $i$ 。
 
 总结以上，动态规划的常用术语包括：
@@ -437,8 +441,6 @@ $$
 - 将数组 `dp` 称为「$dp$ 表」，$dp[i]$ 表示状态 $i$ 对应子问题的解。
 - 将最小子问题对应的状态（即第 $1$ , $2$ 阶楼梯）称为「初始状态」。
 - 将递推公式 $dp[i] = dp[i-1] + dp[i-2]$ 称为「状态转移方程」。
-
-![爬楼梯的动态规划过程](intro_to_dynamic_programming.assets/climbing_stairs_dp.png)
 
 ## 状态压缩
 

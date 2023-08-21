@@ -6,7 +6,7 @@
 
 ![AVL 树在删除节点后发生退化](avl_tree.assets/avltree_degradation_from_removing_node.png)
 
-再例如，在以下完美二叉树中插入两个节点后，树将严重向左倾斜，查找操作的时间复杂度也随之恶化。
+再例如，在下图的完美二叉树中插入两个节点后，树将严重向左倾斜，查找操作的时间复杂度也随之恶化。
 
 ![AVL 树在插入节点后发生退化](avl_tree.assets/avltree_degradation_from_inserting_node.png)
 
@@ -388,7 +388,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "<4>"
     ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.png)
 
-此外，如果节点 `child` 本身有右子节点（记为 `grandChild` ），则需要在右旋中添加一步：将 `grandChild` 作为 `node` 的左子节点。
+如下图所示，当节点 `child` 有右子节点（记为 `grandChild` ）时，需要在右旋中添加一步：将 `grandChild` 作为 `node` 的左子节点。
 
 ![有 grandChild 的右旋操作](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
 
@@ -468,11 +468,11 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 ### 左旋
 
-相应的，如果考虑上述失衡二叉树的“镜像”，则需要执行“左旋”操作。
+相应的，如果考虑上述失衡二叉树的“镜像”，则需要执行下图所示的“左旋”操作。
 
 ![左旋操作](avl_tree.assets/avltree_left_rotate.png)
 
-同理，若节点 `child` 本身有左子节点（记为 `grandChild` ），则需要在左旋中添加一步：将 `grandChild` 作为 `node` 的右子节点。
+同理，如下图所示，当节点 `child` 有左子节点（记为 `grandChild` ）时，需要在左旋中添加一步：将 `grandChild` 作为 `node` 的右子节点。
 
 ![有 grandChild 的左旋操作](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
 
@@ -552,13 +552,13 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 ### 先左旋后右旋
 
-对于下图中的失衡节点 3，仅使用左旋或右旋都无法使子树恢复平衡。此时需要先左旋后右旋，即先对 `child` 执行“左旋”，再对 `node` 执行“右旋”。
+对于下图中的失衡节点 3 ，仅使用左旋或右旋都无法使子树恢复平衡。此时需要先对 `child` 执行“左旋”，再对 `node` 执行“右旋”。
 
 ![先左旋后右旋](avl_tree.assets/avltree_left_right_rotate.png)
 
 ### 先右旋后左旋
 
-同理，对于上述失衡二叉树的镜像情况，需要先右旋后左旋，即先对 `child` 执行“右旋”，然后对 `node` 执行“左旋”。
+如下图所示，对于上述失衡二叉树的镜像情况，需要先对 `child` 执行“右旋”，然后对 `node` 执行“左旋”。
 
 ![先右旋后左旋](avl_tree.assets/avltree_right_left_rotate.png)
 
@@ -568,7 +568,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 ![AVL 树的四种旋转情况](avl_tree.assets/avltree_rotation_cases.png)
 
-在代码中，我们通过判断失衡节点的平衡因子以及较高一侧子节点的平衡因子的正负号，来确定失衡节点属于上图中的哪种情况。
+如下表所示，我们通过判断失衡节点的平衡因子以及较高一侧子节点的平衡因子的正负号，来确定失衡节点属于上图中的哪种情况。
 
 <p align="center"> 表：四种旋转情况的选择条件 </p>
 
