@@ -4,7 +4,7 @@ comments: true
 
 # 4.1 &nbsp; 数组
 
-「数组 array」是一种线性数据结构，其将相同类型元素存储在连续的内存空间中。我们将某个元素在数组中的位置称为该元素的「索引 index」。
+「数组 array」是一种线性数据结构，其将相同类型元素存储在连续的内存空间中。我们将元素在数组中的位置称为该元素的「索引 index」。下图展示了数组的主要术语和概念。
 
 ![数组定义与存储方式](array.assets/array_definition.png)
 
@@ -293,13 +293,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
 ### 3. &nbsp; 插入元素
 
-数组元素在内存中是“紧挨着的”，它们之间没有空间再存放任何数据。这意味着如果想要在数组中间插入一个元素，则需要将该元素之后的所有元素都向后移动一位，之后再把元素赋值给该索引。
+数组元素在内存中是“紧挨着的”，它们之间没有空间再存放任何数据。如下图所示，如果想要在数组中间插入一个元素，则需要将该元素之后的所有元素都向后移动一位，之后再把元素赋值给该索引。
+
+![数组插入元素示例](array.assets/array_insert_element.png)
+
+<p align="center"> 图：数组插入元素示例 </p>
 
 值得注意的是，由于数组的长度是固定的，因此插入一个元素必定会导致数组尾部元素的“丢失”。我们将这个问题的解决方案留在列表章节中讨论。
-
-![数组插入元素](array.assets/array_insert_element.png)
-
-<p align="center"> 图：数组插入元素 </p>
 
 === "Java"
 
@@ -470,13 +470,13 @@ elementAddr = firtstElementAddr + elementLength * elementIndex
 
 ### 4. &nbsp; 删除元素
 
-同理，如果我们想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。
+同理，如下图所示，若想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。
+
+![数组删除元素示例](array.assets/array_remove_element.png)
+
+<p align="center"> 图：数组删除元素示例 </p>
 
 请注意，删除元素完成后，原先末尾的元素变得“无意义”了，所以我们无须特意去修改它。
-
-![数组删除元素](array.assets/array_remove_element.png)
-
-<p align="center"> 图：数组删除元素 </p>
 
 === "Java"
 

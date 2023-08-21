@@ -15,7 +15,7 @@ comments: true
 
 ## 6.2.1 &nbsp; 链式地址
 
-在原始哈希表中，每个桶仅能存储一个键值对。「链式地址 separate chaining」将单个元素转换为链表，将键值对作为链表节点，将所有发生冲突的键值对都存储在同一链表中。
+在原始哈希表中，每个桶仅能存储一个键值对。「链式地址 separate chaining」将单个元素转换为链表，将键值对作为链表节点，将所有发生冲突的键值对都存储在同一链表中。下图展示了一个链式地址哈希表的例子。
 
 ![链式地址哈希表](hash_collision.assets/hash_table_chaining.png)
 
@@ -1163,9 +1163,11 @@ comments: true
 - **插入元素**：通过哈希函数计算数组索引，若发现桶内已有元素，则从冲突位置向后线性遍历（步长通常为 $1$ ），直至找到空位，将元素插入其中。
 - **查找元素**：若发现哈希冲突，则使用相同步长向后线性遍历，直到找到对应元素，返回 `value` 即可；如果遇到空位，说明目标键值对不在哈希表中，返回 $\text{None}$ 。
 
-![线性探测](hash_collision.assets/hash_table_linear_probing.png)
+下图展示了一个在开放寻址（线性探测）下工作的哈希表。
 
-<p align="center"> 图：线性探测 </p>
+![开放寻址和线性探测](hash_collision.assets/hash_table_linear_probing.png)
+
+<p align="center"> 图：开放寻址和线性探测 </p>
 
 然而，线性探测存在以下缺陷：
 
