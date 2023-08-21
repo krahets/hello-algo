@@ -3415,7 +3415,7 @@
 <p>上一节我们介绍了计数排序，它适用于数据量 <span class="arithmatex">\(n\)</span> 较大但数据范围 <span class="arithmatex">\(m\)</span> 较小的情况。假设我们需要对 <span class="arithmatex">\(n = 10^6\)</span> 个学号进行排序，而学号是一个 <span class="arithmatex">\(8\)</span> 位数字，这意味着数据范围 <span class="arithmatex">\(m = 10^8\)</span> 非常大，使用计数排序需要分配大量内存空间，而基数排序可以避免这种情况。</p>
 <p>「基数排序 radix sort」的核心思想与计数排序一致，也通过统计个数来实现排序。在此基础上，基数排序利用数字各位之间的递进关系，依次对每一位进行排序，从而得到最终的排序结果。</p>
 <h2 id="11101">11.10.1 &nbsp; 算法流程<a class="headerlink" href="#11101" title="Permanent link">&para;</a></h2>
-<p>以学号数据为例，假设数字的最低位是第 <span class="arithmatex">\(1\)</span> 位，最高位是第 <span class="arithmatex">\(8\)</span> 位，基数排序的步骤如下：</p>
+<p>以学号数据为例，假设数字的最低位是第 <span class="arithmatex">\(1\)</span> 位，最高位是第 <span class="arithmatex">\(8\)</span> 位，基数排序的流程如下图所示。</p>
 <ol>
 <li>初始化位数 <span class="arithmatex">\(k = 1\)</span> 。</li>
 <li>对学号的第 <span class="arithmatex">\(k\)</span> 位执行“计数排序”。完成后，数据会根据第 <span class="arithmatex">\(k\)</span> 位从小到大排序。</li>

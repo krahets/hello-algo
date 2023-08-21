@@ -3434,7 +3434,7 @@
 <p><img alt="4 皇后问题的解" src="../n_queens_problem.assets/solution_4_queens.png" /></p>
 <p align="center"> 图：4 皇后问题的解 </p>
 
-<p>本题共包含三个约束条件：<strong>多个皇后不能在同一行、同一列、同一对角线</strong>。值得注意的是，对角线分为主对角线 <code>\</code> 和次对角线 <code>/</code> 两种。</p>
+<p>下图展示了本题的三个约束条件：<strong>多个皇后不能在同一行、同一列、同一对角线</strong>。值得注意的是，对角线分为主对角线 <code>\</code> 和次对角线 <code>/</code> 两种。</p>
 <p><img alt="n 皇后问题的约束条件" src="../n_queens_problem.assets/n_queens_constraints.png" /></p>
 <p align="center"> 图：n 皇后问题的约束条件 </p>
 
@@ -3449,8 +3449,8 @@
 <h3 id="2">2. &nbsp; 列与对角线剪枝<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>为了满足列约束，我们可以利用一个长度为 <span class="arithmatex">\(n\)</span> 的布尔型数组 <code>cols</code> 记录每一列是否有皇后。在每次决定放置前，我们通过 <code>cols</code> 将已有皇后的列进行剪枝，并在回溯中动态更新 <code>cols</code> 的状态。</p>
 <p>那么，如何处理对角线约束呢？设棋盘中某个格子的行列索引为 <span class="arithmatex">\((row, col)\)</span> ，选定矩阵中的某条主对角线，我们发现该对角线上所有格子的行索引减列索引都相等，<strong>即对角线上所有格子的 <span class="arithmatex">\(row - col\)</span> 为恒定值</strong>。</p>
-<p>也就是说，如果两个格子满足 <span class="arithmatex">\(row_1 - col_1 = row_2 - col_2\)</span> ，则它们一定处在同一条主对角线上。利用该规律，我们可以借助一个数组 <code>diag1</code> 来记录每条主对角线上是否有皇后。</p>
-<p>同理，<strong>次对角线上的所有格子的 <span class="arithmatex">\(row + col\)</span> 是恒定值</strong>。我们可以使用相同方法，借助数组 <code>diag2</code> 来处理次对角线约束。</p>
+<p>也就是说，如果两个格子满足 <span class="arithmatex">\(row_1 - col_1 = row_2 - col_2\)</span> ，则它们一定处在同一条主对角线上。利用该规律，我们可以借助下图所示的数组 <code>diag1</code> ，记录每条主对角线上是否有皇后。</p>
+<p>同理，<strong>次对角线上的所有格子的 <span class="arithmatex">\(row + col\)</span> 是恒定值</strong>。我们同样也可以借助数组 <code>diag2</code> 来处理次对角线约束。</p>
 <p><img alt="处理列约束和对角线约束" src="../n_queens_problem.assets/n_queens_cols_diagonals.png" /></p>
 <p align="center"> 图：处理列约束和对角线约束 </p>
 

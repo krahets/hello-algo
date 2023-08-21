@@ -3968,8 +3968,8 @@
 
 <p>那么如何去除重复的排列呢？最直接地，考虑借助一个哈希表，直接对排列结果进行去重。然而这样做不够优雅，<strong>因为生成重复排列的搜索分支是没有必要的，应当被提前识别并剪枝</strong>，这样可以进一步提升算法效率。</p>
 <h3 id="1_1">1. &nbsp; 相等元素剪枝<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
-<p>观察发现，在第一轮中，选择 <span class="arithmatex">\(1\)</span> 或选择 <span class="arithmatex">\(\hat{1}\)</span> 是等价的，在这两个选择之下生成的所有排列都是重复的。因此应该把 <span class="arithmatex">\(\hat{1}\)</span> 剪枝掉。</p>
-<p>同理，在第一轮选择 <span class="arithmatex">\(2\)</span> 后，第二轮选择中的 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(\hat{1}\)</span> 也会产生重复分支，因此也应将第二轮的 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
+<p>观察下图，在第一轮中，选择 <span class="arithmatex">\(1\)</span> 或选择 <span class="arithmatex">\(\hat{1}\)</span> 是等价的，在这两个选择之下生成的所有排列都是重复的。因此应该把 <span class="arithmatex">\(\hat{1}\)</span> 剪枝掉。</p>
+<p>同理，在第一轮选择 <span class="arithmatex">\(2\)</span> 之后，第二轮选择中的 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(\hat{1}\)</span> 也会产生重复分支，因此也应将第二轮的 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
 <p>本质上看，<strong>我们的目标是在某一轮选择中，保证多个相等的元素仅被选择一次</strong>。</p>
 <p><img alt="重复排列剪枝" src="../permutations_problem.assets/permutations_ii_pruning.png" /></p>
 <p align="center"> 图：重复排列剪枝 </p>

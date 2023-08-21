@@ -3926,11 +3926,11 @@
 <li>第一轮和第二轮分别选择 <span class="arithmatex">\(3\)</span> , <span class="arithmatex">\(4\)</span> ，会生成包含这两个元素的所有子集，记为 <span class="arithmatex">\([3, 4, \dots]\)</span> 。</li>
 <li>若第一轮选择 <span class="arithmatex">\(4\)</span> ，<strong>则第二轮应该跳过 <span class="arithmatex">\(3\)</span></strong> ，因为该选择产生的子集 <span class="arithmatex">\([4, 3, \dots]\)</span> 和 <code>1.</code> 中生成的子集完全重复。</li>
 </ol>
-<p>分支越靠右，需要排除的分支也越多，例如：</p>
+<p>如下图所示，每一层的选择都是从左到右被逐个尝试的，因此越靠右剪枝越多。</p>
 <ol>
 <li>前两轮选择 <span class="arithmatex">\(3\)</span> , <span class="arithmatex">\(5\)</span> ，生成子集 <span class="arithmatex">\([3, 5, \dots]\)</span> 。</li>
 <li>前两轮选择 <span class="arithmatex">\(4\)</span> , <span class="arithmatex">\(5\)</span> ，生成子集 <span class="arithmatex">\([4, 5, \dots]\)</span> 。</li>
-<li>若第一轮选择 <span class="arithmatex">\(5\)</span> ，<strong>则第二轮应该跳过 <span class="arithmatex">\(3\)</span> 和 <span class="arithmatex">\(4\)</span></strong> ，因为子集 <span class="arithmatex">\([5, 3, \dots]\)</span> 和子集 <span class="arithmatex">\([5, 4, \dots]\)</span> 和 <code>1.</code> , <code>2.</code> 中生成的子集完全重复。</li>
+<li>若第一轮选择 <span class="arithmatex">\(5\)</span> ，<strong>则第二轮应该跳过 <span class="arithmatex">\(3\)</span> 和 <span class="arithmatex">\(4\)</span></strong> ，因为子集 <span class="arithmatex">\([5, 3, \dots]\)</span> 和子集 <span class="arithmatex">\([5, 4, \dots]\)</span> 和 <code>1.</code> , <code>2.</code> 中描述的子集完全重复。</li>
 </ol>
 <p><img alt="不同选择顺序导致的重复子集" src="../subset_sum_problem.assets/subset_sum_i_pruning.png" /></p>
 <p align="center"> 图：不同选择顺序导致的重复子集 </p>
@@ -4372,7 +4372,7 @@
 <p>给定一个正整数数组 <code>nums</code> 和一个目标正整数 <code>target</code> ，请找出所有可能的组合，使得组合中的元素和等于 <code>target</code> 。<strong>给定数组可能包含重复元素，每个元素只可被选择一次</strong>。请以列表形式返回这些组合，列表中不应包含重复组合。</p>
 </div>
 <p>相比于上题，<strong>本题的输入数组可能包含重复元素</strong>，这引入了新的问题。例如，给定数组 <span class="arithmatex">\([4, \hat{4}, 5]\)</span> 和目标元素 <span class="arithmatex">\(9\)</span> ，则现有代码的输出结果为 <span class="arithmatex">\([4, 5], [\hat{4}, 5]\)</span> ，出现了重复子集。</p>
-<p><strong>造成这种重复的原因是相等元素在某轮中被多次选择</strong>。如下图所示，第一轮共有三个选择，其中两个都为 <span class="arithmatex">\(4\)</span> ，会产生两个重复的搜索分支，从而输出重复子集；同理，第二轮的两个 <span class="arithmatex">\(4\)</span> 也会产生重复子集。</p>
+<p><strong>造成这种重复的原因是相等元素在某轮中被多次选择</strong>。在下图中，第一轮共有三个选择，其中两个都为 <span class="arithmatex">\(4\)</span> ，会产生两个重复的搜索分支，从而输出重复子集；同理，第二轮的两个 <span class="arithmatex">\(4\)</span> 也会产生重复子集。</p>
 <p><img alt="相等元素导致的重复子集" src="../subset_sum_problem.assets/subset_sum_ii_repeat.png" /></p>
 <p align="center"> 图：相等元素导致的重复子集 </p>
 

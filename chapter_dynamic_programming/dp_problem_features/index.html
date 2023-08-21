@@ -3444,7 +3444,7 @@ dp[i] = \min(dp[i-1], dp[i-2]) + cost[i]
 <p>这便可以引出最优子结构的含义：<strong>原问题的最优解是从子问题的最优解构建得来的</strong>。</p>
 <p>本题显然具有最优子结构：我们从两个子问题最优解 <span class="arithmatex">\(dp[i-1]\)</span> , <span class="arithmatex">\(dp[i-2]\)</span> 中挑选出较优的那一个，并用它构建出原问题 <span class="arithmatex">\(dp[i]\)</span> 的最优解。</p>
 <p>那么，上节的爬楼梯题目有没有最优子结构呢？它的目标是求解方案数量，看似是一个计数问题，但如果换一种问法：“求解最大方案数量”。我们意外地发现，<strong>虽然题目修改前后是等价的，但最优子结构浮现出来了</strong>：第 <span class="arithmatex">\(n\)</span> 阶最大方案数量等于第 <span class="arithmatex">\(n-1\)</span> 阶和第 <span class="arithmatex">\(n-2\)</span> 阶最大方案数量之和。所以说，最优子结构的解释方式比较灵活，在不同问题中会有不同的含义。</p>
-<p>根据状态转移方程，以及初始状态 <span class="arithmatex">\(dp[1] = cost[1]\)</span> , <span class="arithmatex">\(dp[2] = cost[2]\)</span> ，可以得出动态规划代码。</p>
+<p>根据状态转移方程，以及初始状态 <span class="arithmatex">\(dp[1] = cost[1]\)</span> , <span class="arithmatex">\(dp[2] = cost[2]\)</span> ，我们就可以得到动态规划代码。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3630,6 +3630,7 @@ dp[i] = \min(dp[i-1], dp[i-2]) + cost[i]
 </div>
 </div>
 </div>
+<p>下图展示了以上代码的动态规划过程。</p>
 <p><img alt="爬楼梯最小代价的动态规划过程" src="../dp_problem_features.assets/min_cost_cs_dp.png" /></p>
 <p align="center"> 图：爬楼梯最小代价的动态规划过程 </p>
 
@@ -3801,7 +3802,7 @@ dp[i] = \min(dp[i-1], dp[i-2]) + cost[i]
 <p class="admonition-title">带约束爬楼梯</p>
 <p>给定一个共有 <span class="arithmatex">\(n\)</span> 阶的楼梯，你每步可以上 <span class="arithmatex">\(1\)</span> 阶或者 <span class="arithmatex">\(2\)</span> 阶，<strong>但不能连续两轮跳 <span class="arithmatex">\(1\)</span> 阶</strong>，请问有多少种方案可以爬到楼顶。</p>
 </div>
-<p>例如，爬上第 <span class="arithmatex">\(3\)</span> 阶仅剩 <span class="arithmatex">\(2\)</span> 种可行方案，其中连续三次跳 <span class="arithmatex">\(1\)</span> 阶的方案不满足约束条件，因此被舍弃。</p>
+<p>例如下图，爬上第 <span class="arithmatex">\(3\)</span> 阶仅剩 <span class="arithmatex">\(2\)</span> 种可行方案，其中连续三次跳 <span class="arithmatex">\(1\)</span> 阶的方案不满足约束条件，因此被舍弃。</p>
 <p><img alt="带约束爬到第 3 阶的方案数量" src="../dp_problem_features.assets/climbing_stairs_constraint_example.png" /></p>
 <p align="center"> 图：带约束爬到第 3 阶的方案数量 </p>
 
@@ -3812,7 +3813,7 @@ dp[i] = \min(dp[i-1], dp[i-2]) + cost[i]
 <li>当 <span class="arithmatex">\(j\)</span> 等于 <span class="arithmatex">\(1\)</span> ，即上一轮跳了 <span class="arithmatex">\(1\)</span> 阶时，这一轮只能选择跳 <span class="arithmatex">\(2\)</span> 阶。</li>
 <li>当 <span class="arithmatex">\(j\)</span> 等于 <span class="arithmatex">\(2\)</span> ，即上一轮跳了 <span class="arithmatex">\(2\)</span> 阶时，这一轮可选择跳 <span class="arithmatex">\(1\)</span> 阶或跳 <span class="arithmatex">\(2\)</span> 阶。</li>
 </ul>
-<p>在该定义下，<span class="arithmatex">\(dp[i, j]\)</span> 表示状态 <span class="arithmatex">\([i, j]\)</span> 对应的方案数。在该定义下的状态转移方程为：</p>
+<p>如下图所示，在该定义下，<span class="arithmatex">\(dp[i, j]\)</span> 表示状态 <span class="arithmatex">\([i, j]\)</span> 对应的方案数。此时状态转移方程为：</p>
 <div class="arithmatex">\[
 \begin{cases}
 dp[i, 1] = dp[i-1, 2] \\

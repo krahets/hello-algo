@@ -3467,7 +3467,7 @@
 
 <h1 id="52">5.2 &nbsp; 队列<a class="headerlink" href="#52" title="Permanent link">&para;</a></h1>
 <p>「队列 queue」是一种遵循先入先出规则的线性数据结构。顾名思义，队列模拟了排队现象，即新来的人不断加入队列的尾部，而位于队列头部的人逐个离开。</p>
-<p>我们把队列的头部称为“队首”，尾部称为“队尾”，把将元素加入队尾的操作称为“入队”，删除队首元素的操作称为“出队”。</p>
+<p>如下图所示，我们将队列的头部称为“队首”，尾部称为“队尾”，将把元素加入队尾的操作称为“入队”，删除队首元素的操作称为“出队”。</p>
 <p><img alt="队列的先入先出规则" src="../queue.assets/queue_operations.png" /></p>
 <p align="center"> 图：队列的先入先出规则 </p>
 
@@ -3750,7 +3750,7 @@
 <h2 id="522">5.2.2 &nbsp; 队列实现<a class="headerlink" href="#522" title="Permanent link">&para;</a></h2>
 <p>为了实现队列，我们需要一种数据结构，可以在一端添加元素，并在另一端删除元素。因此，链表和数组都可以用来实现队列。</p>
 <h3 id="1">1. &nbsp; 基于链表的实现<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>对于链表实现，我们可以将链表的“头节点”和“尾节点”分别视为“队首”和“队尾”，规定队尾仅可添加节点，队首仅可删除节点。</p>
+<p>如下图所示，我们可以将链表的“头节点”和“尾节点”分别视为“队首”和“队尾”，规定队尾仅可添加节点，队首仅可删除节点。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListQueue</label><label for="__tabbed_2_2">push()</label><label for="__tabbed_2_3">pop()</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3766,7 +3766,7 @@
 </div>
 <p align="center"> 图：基于链表实现队列的入队出队操作 </p>
 
-<p>以下是用链表实现队列的示例代码。</p>
+<p>以下是用链表实现队列的代码。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4618,10 +4618,10 @@
 <h3 id="2">2. &nbsp; 基于数组的实现<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>由于数组删除首元素的时间复杂度为 <span class="arithmatex">\(O(n)\)</span> ，这会导致出队操作效率较低。然而，我们可以采用以下巧妙方法来避免这个问题。</p>
 <p>我们可以使用一个变量 <code>front</code> 指向队首元素的索引，并维护一个变量 <code>queSize</code> 用于记录队列长度。定义 <code>rear = front + queSize</code> ，这个公式计算出的 <code>rear</code> 指向队尾元素之后的下一个位置。</p>
-<p>基于此设计，<strong>数组中包含元素的有效区间为 [front, rear - 1]</strong>，进而：</p>
+<p>基于此设计，<strong>数组中包含元素的有效区间为 <code>[front, rear - 1]</code></strong>，各种操作的实现方法如下图所示。</p>
 <ul>
-<li>对于入队操作，将输入元素赋值给 <code>rear</code> 索引处，并将 <code>queSize</code> 增加 1 。</li>
-<li>对于出队操作，只需将 <code>front</code> 增加 1 ，并将 <code>queSize</code> 减少 1 。</li>
+<li>入队操作：将输入元素赋值给 <code>rear</code> 索引处，并将 <code>queSize</code> 增加 1 。</li>
+<li>出队操作：只需将 <code>front</code> 增加 1 ，并将 <code>queSize</code> 减少 1 。</li>
 </ul>
 <p>可以看到，入队和出队操作都只需进行一次操作，时间复杂度均为 <span class="arithmatex">\(O(1)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ArrayQueue</label><label for="__tabbed_4_2">push()</label><label for="__tabbed_4_3">pop()</label></div>

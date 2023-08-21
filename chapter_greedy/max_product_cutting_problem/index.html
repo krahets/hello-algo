@@ -3459,13 +3459,13 @@ n = \sum_{i=1}^{m}n_i
 n &amp; \geq 4
 \end{aligned}
 \]</div>
-<p>我们发现当 <span class="arithmatex">\(n \geq 4\)</span> 时，切分出一个 <span class="arithmatex">\(2\)</span> 后乘积会变大，<strong>这说明大于等于 <span class="arithmatex">\(4\)</span> 的整数都应该被切分</strong>。</p>
+<p>如下图所示，当 <span class="arithmatex">\(n \geq 4\)</span> 时，切分出一个 <span class="arithmatex">\(2\)</span> 后乘积会变大，<strong>这说明大于等于 <span class="arithmatex">\(4\)</span> 的整数都应该被切分</strong>。</p>
 <p><strong>贪心策略一</strong>：如果切分方案中包含 <span class="arithmatex">\(\geq 4\)</span> 的因子，那么它就应该被继续切分。最终的切分方案只应出现 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(3\)</span> 这三种因子。</p>
 <p><img alt="切分导致乘积变大" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png" /></p>
 <p align="center"> 图：切分导致乘积变大 </p>
 
 <p>接下来思考哪个因子是最优的。在 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(3\)</span> 这三个因子中，显然 <span class="arithmatex">\(1\)</span> 是最差的，因为 <span class="arithmatex">\(1 \times (n-1) &lt; n\)</span> 恒成立，即切分出 <span class="arithmatex">\(1\)</span> 反而会导致乘积减小。</p>
-<p>我们发现，当 <span class="arithmatex">\(n = 6\)</span> 时，有 <span class="arithmatex">\(3 \times 3 &gt; 2 \times 2 \times 2\)</span> 。<strong>这意味着切分出 <span class="arithmatex">\(3\)</span> 比切分出 <span class="arithmatex">\(2\)</span> 更优</strong>。</p>
+<p>如下图所示，当 <span class="arithmatex">\(n = 6\)</span> 时，有 <span class="arithmatex">\(3 \times 3 &gt; 2 \times 2 \times 2\)</span> 。<strong>这意味着切分出 <span class="arithmatex">\(3\)</span> 比切分出 <span class="arithmatex">\(2\)</span> 更优</strong>。</p>
 <p><strong>贪心策略二</strong>：在切分方案中，最多只应存在两个 <span class="arithmatex">\(2\)</span> 。因为三个 <span class="arithmatex">\(2\)</span> 总是可以被替换为两个 <span class="arithmatex">\(3\)</span> ，从而获得更大乘积。</p>
 <p><img alt="最优切分因子" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer3.png" /></p>
 <p align="center"> 图：最优切分因子 </p>
@@ -3478,7 +3478,7 @@ n &amp; \geq 4
 <li>当余数为 <span class="arithmatex">\(1\)</span> 时，由于 <span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span> ，因此应将最后一个 <span class="arithmatex">\(3\)</span> 替换为 <span class="arithmatex">\(2\)</span> 。</li>
 </ol>
 <h3 id="2">2. &nbsp; 代码实现<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>在代码中，我们无须通过循环来切分整数，而可以利用向下整除运算得到 <span class="arithmatex">\(3\)</span> 的个数 <span class="arithmatex">\(a\)</span> ，用取模运算得到余数 <span class="arithmatex">\(b\)</span> ，此时有：</p>
+<p>如下图所示，我们无须通过循环来切分整数，而可以利用向下整除运算得到 <span class="arithmatex">\(3\)</span> 的个数 <span class="arithmatex">\(a\)</span> ，用取模运算得到余数 <span class="arithmatex">\(b\)</span> ，此时有：</p>
 <div class="arithmatex">\[
 n = 3 a + b
 \]</div>
@@ -3666,7 +3666,7 @@ n = 3 a + b
 <p><img alt="最大切分乘积的计算方法" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png" /></p>
 <p align="center"> 图：最大切分乘积的计算方法 </p>
 
-<p><strong>时间复杂度取决于编程语言的幂运算的实现方法</strong>。以 Python 为例，常用的幂计算函数有三种：</p>
+<p><strong>时间复杂度取决于编程语言的幂运算的实现方法</strong>。以 Python 为例，常用的幂计算函数有：</p>
 <ul>
 <li>运算符 <code>**</code> 和函数 <code>pow()</code> 的时间复杂度均为 <span class="arithmatex">\(O(\log⁡ a)\)</span> 。</li>
 <li>函数 <code>math.pow()</code> 内部调用 C 语言库的 <code>pow()</code> 函数，其执行浮点取幂，时间复杂度为 <span class="arithmatex">\(O(1)\)</span> 。</li>

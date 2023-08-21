@@ -3427,15 +3427,15 @@
 
 <h1 id="61">6.1 &nbsp; 哈希表<a class="headerlink" href="#61" title="Permanent link">&para;</a></h1>
 <p>「哈希表 hash table」，又称「散列表」，其通过建立键 <code>key</code> 与值 <code>value</code> 之间的映射，实现高效的元素查询。具体而言，我们向哈希表输入一个键 <code>key</code> ，则可以在 <span class="arithmatex">\(O(1)\)</span> 时间内获取对应的值 <code>value</code> 。</p>
-<p>以一个包含 <span class="arithmatex">\(n\)</span> 个学生的数据库为例，每个学生都有“姓名”和“学号”两项数据。假如我们希望实现“输入一个学号，返回对应的姓名”的查询功能，则可以采用哈希表来实现。</p>
+<p>如下图所示，给定 <span class="arithmatex">\(n\)</span> 个学生，每个学生都有“姓名”和“学号”两项数据。假如我们希望实现“输入一个学号，返回对应的姓名”的查询功能，则可以采用哈希表来实现。</p>
 <p><img alt="哈希表的抽象表示" src="../hash_map.assets/hash_table_lookup.png" /></p>
 <p align="center"> 图：哈希表的抽象表示 </p>
 
-<p>除哈希表外，我们还可以使用数组或链表实现查询功能。若将学生数据看作数组（链表）元素，则有：</p>
+<p>除哈希表外，数组和链表也可以实现查询功能，它们的效率对比如下表所示。</p>
 <ul>
 <li><strong>添加元素</strong>：仅需将元素添加至数组（链表）的尾部即可，使用 <span class="arithmatex">\(O(1)\)</span> 时间。</li>
 <li><strong>查询元素</strong>：由于数组（链表）是乱序的，因此需要遍历其中的所有元素，使用 <span class="arithmatex">\(O(n)\)</span> 时间。</li>
-<li><strong>删除元素</strong>：需要先查询到元素，再从数组中删除，使用 <span class="arithmatex">\(O(n)\)</span> 时间。</li>
+<li><strong>删除元素</strong>：需要先查询到元素，再从数组（链表）中删除，使用 <span class="arithmatex">\(O(n)\)</span> 时间。</li>
 </ul>
 <p align="center"> 表：元素查询效率对比 </p>
 
@@ -4866,7 +4866,8 @@
 <p><img alt="哈希冲突示例" src="../hash_map.assets/hash_collision.png" /></p>
 <p align="center"> 图：哈希冲突示例 </p>
 
-<p>容易想到，哈希表容量 <span class="arithmatex">\(n\)</span> 越大，多个 <code>key</code> 被分配到同一个桶中的概率就越低，冲突就越少。因此，<strong>我们可以通过扩容哈希表来减少哈希冲突</strong>。如下图所示，扩容前键值对 <code>(136, A)</code> 和 <code>(236, D)</code> 发生冲突，扩容后冲突消失。</p>
+<p>容易想到，哈希表容量 <span class="arithmatex">\(n\)</span> 越大，多个 <code>key</code> 被分配到同一个桶中的概率就越低，冲突就越少。因此，<strong>我们可以通过扩容哈希表来减少哈希冲突</strong>。</p>
+<p>如下图所示，扩容前键值对 <code>(136, A)</code> 和 <code>(236, D)</code> 发生冲突，扩容后冲突消失。</p>
 <p><img alt="哈希表扩容" src="../hash_map.assets/hash_table_reshash.png" /></p>
 <p align="center"> 图：哈希表扩容 </p>
 

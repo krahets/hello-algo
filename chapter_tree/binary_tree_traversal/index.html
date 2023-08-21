@@ -3415,7 +3415,7 @@
 <p>从物理结构的角度来看，树是一种基于链表的数据结构，因此其遍历方式是通过指针逐个访问节点。然而，树是一种非线性数据结构，这使得遍历树比遍历链表更加复杂，需要借助搜索算法来实现。</p>
 <p>二叉树常见的遍历方式包括层序遍历、前序遍历、中序遍历和后序遍历等。</p>
 <h2 id="721">7.2.1 &nbsp; 层序遍历<a class="headerlink" href="#721" title="Permanent link">&para;</a></h2>
-<p>「层序遍历 level-order traversal」从顶部到底部逐层遍历二叉树，并在每一层按照从左到右的顺序访问节点。</p>
+<p>如下图所示，「层序遍历 level-order traversal」从顶部到底部逐层遍历二叉树，并在每一层按照从左到右的顺序访问节点。</p>
 <p>层序遍历本质上属于「广度优先遍历 breadth-first traversal」，它体现了一种“一圈一圈向外扩展”的逐层遍历方式。</p>
 <p><img alt="二叉树的层序遍历" src="../binary_tree_traversal.assets/binary_tree_bfs.png" /></p>
 <p align="center"> 图：二叉树的层序遍历 </p>
@@ -3707,11 +3707,10 @@
 <p><strong>空间复杂度</strong>：在最差情况下，即满二叉树时，遍历到最底层之前，队列中最多同时存在 <span class="arithmatex">\((n + 1) / 2\)</span> 个节点，占用 <span class="arithmatex">\(O(n)\)</span> 空间。</p>
 <h2 id="722">7.2.2 &nbsp; 前序、中序、后序遍历<a class="headerlink" href="#722" title="Permanent link">&para;</a></h2>
 <p>相应地，前序、中序和后序遍历都属于「深度优先遍历 depth-first traversal」，它体现了一种“先走到尽头，再回溯继续”的遍历方式。</p>
-<p>如下图所示，左侧是深度优先遍历的示意图，右上方是对应的递归代码。深度优先遍历就像是绕着整个二叉树的外围“走”一圈，在这个过程中，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。</p>
+<p>下图展示了对二叉树进行深度优先遍历的工作原理。<strong>深度优先遍历就像是绕着整个二叉树的外围“走”一圈</strong>，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。</p>
 <p><img alt="二叉搜索树的前、中、后序遍历" src="../binary_tree_traversal.assets/binary_tree_dfs.png" /></p>
 <p align="center"> 图：二叉搜索树的前、中、后序遍历 </p>
 
-<p>以下给出了实现代码，请配合上图理解深度优先遍历的递归过程。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4107,7 +4106,7 @@
 <p><strong>空间复杂度</strong>：在最差情况下，即树退化为链表时，递归深度达到 <span class="arithmatex">\(n\)</span> ，系统占用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>我们也可以不使用递归，仅基于迭代实现前、中、后序遍历，有兴趣的同学可以自行研究。</p>
+<p>我们也可以不使用递归，仅基于迭代实现前、中、后序遍历，有兴趣的同学可以自行实现。</p>
 </div>
 <p>下图展示了前序遍历二叉树的递归过程，其可分为“递”和“归”两个逆向的部分：</p>
 <ol>

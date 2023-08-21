@@ -3418,7 +3418,7 @@
 <p>给定一个整数数组 <code>nums</code> 和一个目标元素 <code>target</code> ，请在数组中搜索“和”为 <code>target</code> 的两个元素，并返回它们的数组索引。返回任意一个解即可。</p>
 </div>
 <h2 id="1041">10.4.1 &nbsp; 线性查找：以时间换空间<a class="headerlink" href="#1041" title="Permanent link">&para;</a></h2>
-<p>考虑直接遍历所有可能的组合。开启一个两层循环，在每轮中判断两个整数的和是否为 <code>target</code> ，若是，则返回它们的索引。</p>
+<p>考虑直接遍历所有可能的组合。如下图所示，我们开启一个两层循环，在每轮中判断两个整数的和是否为 <code>target</code> ，若是则返回它们的索引。</p>
 <p><img alt="线性查找求解两数之和" src="../replace_linear_by_hashing.assets/two_sum_brute_force.png" /></p>
 <p align="center"> 图：线性查找求解两数之和 </p>
 
@@ -3613,7 +3613,7 @@
 </div>
 <p>此方法的时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ，空间复杂度为 <span class="arithmatex">\(O(1)\)</span> ，在大数据量下非常耗时。</p>
 <h2 id="1042">10.4.2 &nbsp; 哈希查找：以空间换时间<a class="headerlink" href="#1042" title="Permanent link">&para;</a></h2>
-<p>考虑借助一个哈希表，键值对分别为数组元素和元素索引。循环遍历数组，每轮执行：</p>
+<p>考虑借助一个哈希表，键值对分别为数组元素和元素索引。循环遍历数组，每轮执行下图所示的步骤。</p>
 <ol>
 <li>判断数字 <code>target - nums[i]</code> 是否在哈希表中，若是则直接返回这两个元素的索引。</li>
 <li>将键值对 <code>nums[i]</code> 和索引 <code>i</code> 添加进哈希表。</li>

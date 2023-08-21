@@ -3428,12 +3428,12 @@
 <h1 id="114">11.4 &nbsp; 插入排序<a class="headerlink" href="#114" title="Permanent link">&para;</a></h1>
 <p>「插入排序 insertion sort」是一种简单的排序算法，它的工作原理与手动整理一副牌的过程非常相似。</p>
 <p>具体来说，我们在未排序区间选择一个基准元素，将该元素与其左侧已排序区间的元素逐一比较大小，并将该元素插入到正确的位置。</p>
-<p>回忆数组的元素插入操作，设基准元素为 <code>base</code> ，我们需要将从目标索引到 <code>base</code> 之间的所有元素向右移动一位，然后再将 <code>base</code> 赋值给目标索引。</p>
+<p>下图展示了数组插入元素的操作流程。设基准元素为 <code>base</code> ，我们需要将从目标索引到 <code>base</code> 之间的所有元素向右移动一位，然后再将 <code>base</code> 赋值给目标索引。</p>
 <p><img alt="单次插入操作" src="../insertion_sort.assets/insertion_operation.png" /></p>
 <p align="center"> 图：单次插入操作 </p>
 
 <h2 id="1141">11.4.1 &nbsp; 算法流程<a class="headerlink" href="#1141" title="Permanent link">&para;</a></h2>
-<p>插入排序的整体流程如下：</p>
+<p>插入排序的整体流程如下图所示。</p>
 <ol>
 <li>初始状态下，数组的第 1 个元素已完成排序。</li>
 <li>选取数组的第 2 个元素作为 <code>base</code> ，将其插入到正确位置后，<strong>数组的前 2 个元素已排序</strong>。</li>

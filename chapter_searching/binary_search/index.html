@@ -3412,7 +3412,7 @@
 
 
 <h1 id="101">10.1 &nbsp; 二分查找<a class="headerlink" href="#101" title="Permanent link">&para;</a></h1>
-<p>「二分查找 binary search」是一种基于分治思想的高效搜索算法。它利用数据的有序性，每轮减少一半搜索范围，直至找到目标元素或搜索区间为空为止。</p>
+<p>「二分查找 binary search」是一种基于分治策略的高效搜索算法。它利用数据的有序性，每轮减少一半搜索范围，直至找到目标元素或搜索区间为空为止。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的数组 <code>nums</code> ，元素按从小到大的顺序排列，数组不包含重复元素。请查找并返回元素 <code>target</code> 在该数组中的索引。若数组不包含该元素，则返回 <span class="arithmatex">\(-1\)</span> 。</p>
@@ -3420,7 +3420,7 @@
 <p><img alt="二分查找示例数据" src="../binary_search.assets/binary_search_example.png" /></p>
 <p align="center"> 图：二分查找示例数据 </p>
 
-<p>对于上述问题，我们先初始化指针 <span class="arithmatex">\(i = 0\)</span> 和 <span class="arithmatex">\(j = n - 1\)</span> ，分别指向数组首元素和尾元素，代表搜索区间 <span class="arithmatex">\([0, n - 1]\)</span> 。请注意，中括号表示闭区间，其包含边界值本身。</p>
+<p>如下图所示，我们先初始化指针 <span class="arithmatex">\(i = 0\)</span> 和 <span class="arithmatex">\(j = n - 1\)</span> ，分别指向数组首元素和尾元素，代表搜索区间 <span class="arithmatex">\([0, n - 1]\)</span> 。请注意，中括号表示闭区间，其包含边界值本身。</p>
 <p>接下来，循环执行以下两个步骤：</p>
 <ol>
 <li>计算中点索引 <span class="arithmatex">\(m = \lfloor {(i + j) / 2} \rfloor\)</span> ，其中 <span class="arithmatex">\(\lfloor \space \rfloor\)</span> 表示向下取整操作。</li>
@@ -3988,7 +3988,7 @@
 </div>
 </div>
 <p>如下图所示，在两种区间表示下，二分查找算法的初始化、循环条件和缩小区间操作皆有所不同。</p>
-<p>在“双闭区间”表示法中，由于左右边界都被定义为闭区间，因此指针 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 缩小区间操作也是对称的。这样更不容易出错。因此，<strong>我们通常采用“双闭区间”的写法</strong>。</p>
+<p>由于“双闭区间”表示中的左右边界都被定义为闭区间，因此指针 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 缩小区间操作也是对称的。这样更不容易出错，<strong>因此一般建议采用“双闭区间”的写法</strong>。</p>
 <p><img alt="两种区间定义" src="../binary_search.assets/binary_search_ranges.png" /></p>
 <p align="center"> 图：两种区间定义 </p>
 

@@ -3580,7 +3580,7 @@
 <p>在上一题的基础上，规定数组可能包含重复元素，其余不变。</p>
 </div>
 <p>假设数组中存在多个 <code>target</code> ，则普通二分查找只能返回其中一个 <code>target</code> 的索引，<strong>而无法确定该元素的左边和右边还有多少 <code>target</code></strong>。</p>
-<p>题目要求将目标元素插入到最左边，<strong>所以我们需要查找数组中最左一个 <code>target</code> 的索引</strong>。初步考虑通过以下两步实现：</p>
+<p>题目要求将目标元素插入到最左边，<strong>所以我们需要查找数组中最左一个 <code>target</code> 的索引</strong>。初步考虑通过下图所示的步骤实现。</p>
 <ol>
 <li>执行二分查找，得到任意一个 <code>target</code> 的索引，记为 <span class="arithmatex">\(k\)</span> 。</li>
 <li>从索引 <span class="arithmatex">\(k\)</span> 开始，向左进行线性遍历，当找到最左边的 <code>target</code> 时返回。</li>
@@ -3589,7 +3589,7 @@
 <p align="center"> 图：线性查找重复元素的插入点 </p>
 
 <p>此方法虽然可用，但其包含线性查找，因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。当数组中存在很多重复的 <code>target</code> 时，该方法效率很低。</p>
-<p>现考虑修改二分查找代码。整体流程不变，每轮先计算中点索引 <span class="arithmatex">\(m\)</span> ，再判断 <code>target</code> 和 <code>nums[m]</code> 大小关系：</p>
+<p>现考虑拓展二分查找代码。如下图所示，整体流程保持不变，每轮先计算中点索引 <span class="arithmatex">\(m\)</span> ，再判断 <code>target</code> 和 <code>nums[m]</code> 大小关系：</p>
 <ol>
 <li>当 <code>nums[m] &lt; target</code> 或 <code>nums[m] &gt; target</code> 时，说明还没有找到 <code>target</code> ，因此采用普通二分查找的缩小区间操作，<strong>从而使指针 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 向 <code>target</code> 靠近</strong>。</li>
 <li>当 <code>nums[m] == target</code> 时，说明小于 <code>target</code> 的元素在区间 <span class="arithmatex">\([i, m - 1]\)</span> 中，因此采用 <span class="arithmatex">\(j = m - 1\)</span> 来缩小区间，<strong>从而使指针 <span class="arithmatex">\(j\)</span> 向小于 <code>target</code> 的元素靠近</strong>。</li>

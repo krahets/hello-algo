@@ -3430,13 +3430,14 @@
 <p>那么，我们能否用数组来表示二叉树呢？答案是肯定的。</p>
 <h2 id="731">7.3.1 &nbsp; 表示完美二叉树<a class="headerlink" href="#731" title="Permanent link">&para;</a></h2>
 <p>先分析一个简单案例。给定一个完美二叉树，我们将所有节点按照层序遍历的顺序存储在一个数组中，则每个节点都对应唯一的数组索引。</p>
-<p>根据层序遍历的特性，我们可以推导出父节点索引与子节点索引之间的“映射公式”：<strong>若节点的索引为 <span class="arithmatex">\(i\)</span> ，则该节点的左子节点索引为 <span class="arithmatex">\(2i + 1\)</span> ，右子节点索引为 <span class="arithmatex">\(2i + 2\)</span></strong> 。</p>
+<p>根据层序遍历的特性，我们可以推导出父节点索引与子节点索引之间的“映射公式”：<strong>若节点的索引为 <span class="arithmatex">\(i\)</span> ，则该节点的左子节点索引为 <span class="arithmatex">\(2i + 1\)</span> ，右子节点索引为 <span class="arithmatex">\(2i + 2\)</span></strong> 。下图展示了各个节点索引之间的映射关系。</p>
 <p><img alt="完美二叉树的数组表示" src="../array_representation_of_tree.assets/array_representation_binary_tree.png" /></p>
 <p align="center"> 图：完美二叉树的数组表示 </p>
 
 <p><strong>映射公式的角色相当于链表中的指针</strong>。给定数组中的任意一个节点，我们都可以通过映射公式来访问它的左（右）子节点。</p>
 <h2 id="732">7.3.2 &nbsp; 表示任意二叉树<a class="headerlink" href="#732" title="Permanent link">&para;</a></h2>
-<p>然而完美二叉树是一个特例，在二叉树的中间层，通常存在许多 <span class="arithmatex">\(\text{None}\)</span> 。由于层序遍历序列并不包含这些 <span class="arithmatex">\(\text{None}\)</span> ，因此我们无法仅凭该序列来推测 <span class="arithmatex">\(\text{None}\)</span> 的数量和分布位置。<strong>这意味着存在多种二叉树结构都符合该层序遍历序列</strong>。显然在这种情况下，上述的数组表示方法已经失效。</p>
+<p>完美二叉树是一个特例，在二叉树的中间层通常存在许多 <span class="arithmatex">\(\text{None}\)</span> 。由于层序遍历序列并不包含这些 <span class="arithmatex">\(\text{None}\)</span> ，因此我们无法仅凭该序列来推测 <span class="arithmatex">\(\text{None}\)</span> 的数量和分布位置。<strong>这意味着存在多种二叉树结构都符合该层序遍历序列</strong>。</p>
+<p>如下图所示，给定一个非完美二叉树，上述的数组表示方法已经失效。</p>
 <p><img alt="层序遍历序列对应多种二叉树可能性" src="../array_representation_of_tree.assets/array_representation_without_empty.png" /></p>
 <p align="center"> 图：层序遍历序列对应多种二叉树可能性 </p>
 
@@ -3516,7 +3517,8 @@
 <p><img alt="任意类型二叉树的数组表示" src="../array_representation_of_tree.assets/array_representation_with_empty.png" /></p>
 <p align="center"> 图：任意类型二叉树的数组表示 </p>
 
-<p>值得说明的是，<strong>完全二叉树非常适合使用数组来表示</strong>。回顾完全二叉树的定义，<span class="arithmatex">\(\text{None}\)</span> 只出现在最底层且靠右的位置，<strong>因此所有 <span class="arithmatex">\(\text{None}\)</span> 一定出现在层序遍历序列的末尾</strong>。这意味着使用数组表示完全二叉树时，可以省略存储所有 <span class="arithmatex">\(\text{None}\)</span> ，非常方便。</p>
+<p>值得说明的是，<strong>完全二叉树非常适合使用数组来表示</strong>。回顾完全二叉树的定义，<span class="arithmatex">\(\text{None}\)</span> 只出现在最底层且靠右的位置，<strong>因此所有 <span class="arithmatex">\(\text{None}\)</span> 一定出现在层序遍历序列的末尾</strong>。</p>
+<p>这意味着使用数组表示完全二叉树时，可以省略存储所有 <span class="arithmatex">\(\text{None}\)</span> ，非常方便。下图给出了一个例子。</p>
 <p><img alt="完全二叉树的数组表示" src="../array_representation_of_tree.assets/array_representation_complete_binary_tree.png" /></p>
 <p align="center"> 图：完全二叉树的数组表示 </p>
 

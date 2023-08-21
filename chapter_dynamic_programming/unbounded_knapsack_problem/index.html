@@ -3837,7 +3837,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 </div>
 <h3 id="3">3. &nbsp; 状态压缩<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>由于当前状态是从左边和上边的状态转移而来，<strong>因此状态压缩后应该对 <span class="arithmatex">\(dp\)</span> 表中的每一行采取正序遍历</strong>。</p>
-<p>这个遍历顺序与 0-1 背包正好相反。请通过以下动画来理解两者的区别。</p>
+<p>这个遍历顺序与 0-1 背包正好相反。请借助下图来理解两者的区别。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

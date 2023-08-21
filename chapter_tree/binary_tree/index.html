@@ -1392,18 +1392,38 @@
     7.1.2 &nbsp; 二叉树基本操作
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#713" class="md-nav__link">
-    7.1.3 &nbsp; 常见二叉树类型
-  </a>
-  
-    <nav class="md-nav" aria-label="7.1.3   常见二叉树类型">
+    <nav class="md-nav" aria-label="7.1.2   二叉树基本操作">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
+    1. &nbsp; 初始化二叉树
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#713" class="md-nav__link">
+    7.1.3 &nbsp; 插入与删除节点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#714" class="md-nav__link">
+    7.1.4 &nbsp; 常见二叉树类型
+  </a>
+  
+    <nav class="md-nav" aria-label="7.1.4   常见二叉树类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
     1. &nbsp; 完美二叉树
   </a>
   
@@ -1436,8 +1456,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#714" class="md-nav__link">
-    7.1.4 &nbsp; 二叉树的退化
+  <a href="#715" class="md-nav__link">
+    7.1.5 &nbsp; 二叉树的退化
   </a>
   
 </li>
@@ -3434,18 +3454,38 @@
     7.1.2 &nbsp; 二叉树基本操作
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#713" class="md-nav__link">
-    7.1.3 &nbsp; 常见二叉树类型
-  </a>
-  
-    <nav class="md-nav" aria-label="7.1.3   常见二叉树类型">
+    <nav class="md-nav" aria-label="7.1.2   二叉树基本操作">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
+    1. &nbsp; 初始化二叉树
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#713" class="md-nav__link">
+    7.1.3 &nbsp; 插入与删除节点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#714" class="md-nav__link">
+    7.1.4 &nbsp; 常见二叉树类型
+  </a>
+  
+    <nav class="md-nav" aria-label="7.1.4   常见二叉树类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
     1. &nbsp; 完美二叉树
   </a>
   
@@ -3478,8 +3518,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#714" class="md-nav__link">
-    7.1.4 &nbsp; 二叉树的退化
+  <a href="#715" class="md-nav__link">
+    7.1.5 &nbsp; 二叉树的退化
   </a>
   
 </li>
@@ -3649,12 +3689,12 @@
 </div>
 </div>
 <p>每个节点都有两个引用（指针），分别指向「左子节点 left-child node」和「右子节点 right-child node」，该节点被称为这两个子节点的「父节点 parent node」。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的「左子树 left subtree」，同理可得「右子树 right subtree」。</p>
-<p><strong>在二叉树中，除叶节点外，其他所有节点都包含子节点和非空子树</strong>。在以下示例中，若将“节点 2”视为父节点，则其左子节点和右子节点分别是“节点 4”和“节点 5”，左子树是“节点 4 及其以下节点形成的树”，右子树是“节点 5 及其以下节点形成的树”。</p>
+<p><strong>在二叉树中，除叶节点外，其他所有节点都包含子节点和非空子树</strong>。如下图所示，如果将“节点 2”视为父节点，则其左子节点和右子节点分别是“节点 4”和“节点 5”，左子树是“节点 4 及其以下节点形成的树”，右子树是“节点 5 及其以下节点形成的树”。</p>
 <p><img alt="父节点、子节点、子树" src="../binary_tree.assets/binary_tree_definition.png" /></p>
 <p align="center"> 图：父节点、子节点、子树 </p>
 
 <h2 id="711">7.1.1 &nbsp; 二叉树常见术语<a class="headerlink" href="#711" title="Permanent link">&para;</a></h2>
-<p>二叉树涉及的术语较多，建议尽量理解并记住。</p>
+<p>二叉树的常用术语如下图所示。</p>
 <ul>
 <li>「根节点 root node」：位于二叉树顶层的节点，没有父节点。</li>
 <li>「叶节点 leaf node」：没有子节点的节点，其两个指针均指向 <span class="arithmatex">\(\text{None}\)</span> 。</li>
@@ -3673,7 +3713,8 @@
 <p>请注意，我们通常将“高度”和“深度”定义为“走过边的数量”，但有些题目或教材可能会将其定义为“走过节点的数量”。在这种情况下，高度和深度都需要加 1 。</p>
 </div>
 <h2 id="712">7.1.2 &nbsp; 二叉树基本操作<a class="headerlink" href="#712" title="Permanent link">&para;</a></h2>
-<p><strong>初始化二叉树</strong>。与链表类似，首先初始化节点，然后构建引用指向（即指针）。</p>
+<h3 id="1">1. &nbsp; 初始化二叉树<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>与链表类似，首先初始化节点，然后构建引用（指针）。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3834,7 +3875,8 @@
 </div>
 </div>
 </div>
-<p><strong>插入与删除节点</strong>。与链表类似，通过修改指针来实现插入与删除节点。</p>
+<h2 id="713">7.1.3 &nbsp; 插入与删除节点<a class="headerlink" href="#713" title="Permanent link">&para;</a></h2>
+<p>与链表类似，在二叉树中插入与删除节点可以通过修改指针来实现。下图给出了一个示例。</p>
 <p><img alt="在二叉树中插入与删除节点" src="../binary_tree.assets/binary_tree_add_remove.png" /></p>
 <p align="center"> 图：在二叉树中插入与删除节点 </p>
 
@@ -3952,8 +3994,8 @@
 <p class="admonition-title">Note</p>
 <p>需要注意的是，插入节点可能会改变二叉树的原有逻辑结构，而删除节点通常意味着删除该节点及其所有子树。因此，在二叉树中，插入与删除操作通常是由一套操作配合完成的，以实现有实际意义的操作。</p>
 </div>
-<h2 id="713">7.1.3 &nbsp; 常见二叉树类型<a class="headerlink" href="#713" title="Permanent link">&para;</a></h2>
-<h3 id="1">1. &nbsp; 完美二叉树<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h2 id="714">7.1.4 &nbsp; 常见二叉树类型<a class="headerlink" href="#714" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">1. &nbsp; 完美二叉树<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
 <p>「完美二叉树 perfect binary tree」除了最底层外，其余所有层的节点都被完全填满。在完美二叉树中，叶节点的度为 <span class="arithmatex">\(0\)</span> ，其余所有节点的度都为 <span class="arithmatex">\(2\)</span> ；若树高度为 <span class="arithmatex">\(h\)</span> ，则节点总数为 <span class="arithmatex">\(2^{h+1} - 1\)</span> ，呈现标准的指数级关系，反映了自然界中常见的细胞分裂现象。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -3963,21 +4005,21 @@
 <p align="center"> 图：完美二叉树 </p>
 
 <h3 id="2">2. &nbsp; 完全二叉树<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>「完全二叉树 complete binary tree」只有最底层的节点未被填满，且最底层节点尽量靠左填充。</p>
+<p>如下图所示，「完全二叉树 complete binary tree」只有最底层的节点未被填满，且最底层节点尽量靠左填充。</p>
 <p><img alt="完全二叉树" src="../binary_tree.assets/complete_binary_tree.png" /></p>
 <p align="center"> 图：完全二叉树 </p>
 
 <h3 id="3">3. &nbsp; 完满二叉树<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>「完满二叉树 full binary tree」除了叶节点之外，其余所有节点都有两个子节点。</p>
+<p>如下图所示，「完满二叉树 full binary tree」除了叶节点之外，其余所有节点都有两个子节点。</p>
 <p><img alt="完满二叉树" src="../binary_tree.assets/full_binary_tree.png" /></p>
 <p align="center"> 图：完满二叉树 </p>
 
 <h3 id="4">4. &nbsp; 平衡二叉树<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>「平衡二叉树 balanced binary tree」中任意节点的左子树和右子树的高度之差的绝对值不超过 1 。</p>
+<p>如下图所示，「平衡二叉树 balanced binary tree」中任意节点的左子树和右子树的高度之差的绝对值不超过 1 。</p>
 <p><img alt="平衡二叉树" src="../binary_tree.assets/balanced_binary_tree.png" /></p>
 <p align="center"> 图：平衡二叉树 </p>
 
-<h2 id="714">7.1.4 &nbsp; 二叉树的退化<a class="headerlink" href="#714" title="Permanent link">&para;</a></h2>
+<h2 id="715">7.1.5 &nbsp; 二叉树的退化<a class="headerlink" href="#715" title="Permanent link">&para;</a></h2>
 <p>当二叉树的每层节点都被填满时，达到“完美二叉树”；而当所有节点都偏向一侧时，二叉树退化为“链表”。</p>
 <ul>
 <li>完美二叉树是理想情况，可以充分发挥二叉树“分治”的优势。</li>

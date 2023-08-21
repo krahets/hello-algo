@@ -3466,7 +3466,7 @@
 
 
 <h1 id="53">5.3 &nbsp; 双向队列<a class="headerlink" href="#53" title="Permanent link">&para;</a></h1>
-<p>对于队列，我们仅能在头部删除或在尾部添加元素。然而，「双向队列 deque」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。</p>
+<p>在队列中，我们仅能在头部删除或在尾部添加元素。如下图所示，「双向队列 deque」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。</p>
 <p><img alt="双向队列的操作" src="../deque.assets/deque_operations.png" /></p>
 <p align="center"> 图：双向队列的操作 </p>
 
@@ -3798,7 +3798,7 @@
 <h3 id="1">1. &nbsp; 基于双向链表的实现<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>回顾上一节内容，我们使用普通单向链表来实现队列，因为它可以方便地删除头节点（对应出队操作）和在尾节点后添加新节点（对应入队操作）。</p>
 <p>对于双向队列而言，头部和尾部都可以执行入队和出队操作。换句话说，双向队列需要实现另一个对称方向的操作。为此，我们采用“双向链表”作为双向队列的底层数据结构。</p>
-<p>我们将双向链表的头节点和尾节点视为双向队列的队首和队尾，同时实现在两端添加和删除节点的功能。</p>
+<p>如下图所示，我们将双向链表的头节点和尾节点视为双向队列的队首和队尾，同时实现在两端添加和删除节点的功能。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListDeque</label><label for="__tabbed_2_2">pushLast()</label><label for="__tabbed_2_3">pushFirst()</label><label for="__tabbed_2_4">popLast()</label><label for="__tabbed_2_5">popFirst()</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3820,7 +3820,7 @@
 </div>
 <p align="center"> 图：基于链表实现双向队列的入队出队操作 </p>
 
-<p>以下是具体实现代码。</p>
+<p>实现代码如下所示。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5418,7 +5418,7 @@
 </div>
 </div>
 <h3 id="2">2. &nbsp; 基于数组的实现<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法。</p>
+<p>如下图所示，与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:5"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ArrayDeque</label><label for="__tabbed_4_2">pushLast()</label><label for="__tabbed_4_3">pushFirst()</label><label for="__tabbed_4_4">popLast()</label><label for="__tabbed_4_5">popFirst()</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5440,7 +5440,7 @@
 </div>
 <p align="center"> 图：基于数组实现双向队列的入队出队操作 </p>
 
-<p>以下是具体实现代码。</p>
+<p>在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label><label for="__tabbed_5_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

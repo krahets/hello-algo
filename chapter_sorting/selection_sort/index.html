@@ -3399,7 +3399,7 @@
 
 <h1 id="112">11.2 &nbsp; 选择排序<a class="headerlink" href="#112" title="Permanent link">&para;</a></h1>
 <p>「选择排序 selection sort」的工作原理非常直接：开启一个循环，每轮从未排序区间选择最小的元素，将其放到已排序区间的末尾。</p>
-<p>设数组的长度为 <span class="arithmatex">\(n\)</span> ，选择排序的算法流程如下：</p>
+<p>设数组的长度为 <span class="arithmatex">\(n\)</span> ，选择排序的算法流程如下图所示。</p>
 <ol>
 <li>初始状态下，所有元素未排序，即未排序（索引）区间为 <span class="arithmatex">\([0, n-1]\)</span> 。</li>
 <li>选取区间 <span class="arithmatex">\([0, n-1]\)</span> 中的最小元素，将其与索引 <span class="arithmatex">\(0\)</span> 处元素交换。完成后，数组前 1 个元素已排序。</li>
@@ -3664,7 +3664,7 @@
 <ul>
 <li><strong>时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> 、非自适应排序</strong>：外循环共 <span class="arithmatex">\(n - 1\)</span> 轮，第一轮的未排序区间长度为 <span class="arithmatex">\(n\)</span> ，最后一轮的未排序区间长度为 <span class="arithmatex">\(2\)</span> ，即各轮外循环分别包含 <span class="arithmatex">\(n\)</span> , <span class="arithmatex">\(n - 1\)</span> , <span class="arithmatex">\(\dots\)</span> , <span class="arithmatex">\(2\)</span> 轮内循环，求和为 <span class="arithmatex">\(\frac{(n - 1)(n + 2)}{2}\)</span> 。</li>
 <li><strong>空间复杂度 <span class="arithmatex">\(O(1)\)</span> 、原地排序</strong>：指针 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> 使用常数大小的额外空间。</li>
-<li><strong>非稳定排序</strong>：在交换元素时，有可能将 <code>nums[i]</code> 交换至其相等元素的右边，导致两者的相对顺序发生改变。</li>
+<li><strong>非稳定排序</strong>：如下图所示，元素 <code>nums[i]</code> 有可能被交换至与其相等的元素的右边，导致两者相对顺序发生改变。</li>
 </ul>
 <p><img alt="选择排序非稳定示例" src="../selection_sort.assets/selection_sort_instability.png" /></p>
 <p align="center"> 图：选择排序非稳定示例 </p>

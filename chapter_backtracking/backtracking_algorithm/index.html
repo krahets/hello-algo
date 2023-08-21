@@ -3474,7 +3474,7 @@
 <p class="admonition-title">例题一</p>
 <p>给定一个二叉树，搜索并记录所有值为 <span class="arithmatex">\(7\)</span> 的节点，请返回节点列表。</p>
 </div>
-<p>对于此题，我们前序遍历这颗树，并判断当前节点的值是否为 <span class="arithmatex">\(7\)</span> ，若是则将该节点的值加入到结果列表 <code>res</code> 之中。</p>
+<p>对于此题，我们前序遍历这颗树，并判断当前节点的值是否为 <span class="arithmatex">\(7\)</span> ，若是则将该节点的值加入到结果列表 <code>res</code> 之中。相关过程实现如下图和以下代码所示。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3880,7 +3880,7 @@
 </div>
 </div>
 <p>在每次“尝试”中，我们通过将当前节点添加进 <code>path</code> 来记录路径；而在“回退”前，我们需要将该节点从 <code>path</code> 中弹出，<strong>以恢复本次尝试之前的状态</strong>。</p>
-<p>观察该过程，<strong>我们可以将尝试和回退理解为“前进”与“撤销”</strong>，两个操作是互为逆向的。</p>
+<p>观察下图所示的过程，<strong>我们可以将尝试和回退理解为“前进”与“撤销”</strong>，两个操作是互为逆向的。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:11"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label><label for="__tabbed_3_5">&lt;5&gt;</label><label for="__tabbed_3_6">&lt;6&gt;</label><label for="__tabbed_3_7">&lt;7&gt;</label><label for="__tabbed_3_8">&lt;8&gt;</label><label for="__tabbed_3_9">&lt;9&gt;</label><label for="__tabbed_3_10">&lt;10&gt;</label><label for="__tabbed_3_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4189,7 +4189,7 @@
 </div>
 </div>
 </div>
-<p>剪枝是一个非常形象的名词。在搜索过程中，<strong>我们“剪掉”了不满足约束条件的搜索分支</strong>，避免许多无意义的尝试，从而实现搜索效率的提高。</p>
+<p>剪枝是一个非常形象的名词。如下图所示，在搜索过程中，<strong>我们“剪掉”了不满足约束条件的搜索分支</strong>，避免许多无意义的尝试，从而提高了搜索效率。</p>
 <p><img alt="根据约束条件剪枝" src="../backtracking_algorithm.assets/preorder_find_constrained_paths.png" /></p>
 <p align="center"> 图：根据约束条件剪枝 </p>
 
@@ -5003,7 +5003,7 @@
 </div>
 </div>
 </div>
-<p>根据题意，当找到值为 7 的节点后应该继续搜索，<strong>因此我们需要将记录解之后的 <code>return</code> 语句删除</strong>。下图对比了保留或删除 <code>return</code> 语句的搜索过程。</p>
+<p>根据题意，我们在找到值为 7 的节点后应该继续搜索，<strong>因此需要将记录解之后的 <code>return</code> 语句删除</strong>。下图对比了保留或删除 <code>return</code> 语句的搜索过程。</p>
 <p><img alt="保留与删除 return 的搜索过程对比" src="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png" /></p>
 <p align="center"> 图：保留与删除 return 的搜索过程对比 </p>
 

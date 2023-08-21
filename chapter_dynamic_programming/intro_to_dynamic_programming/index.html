@@ -3789,7 +3789,7 @@ dp[i-1] , dp[i-2] , \dots , dp[2] , dp[1]
 <div class="arithmatex">\[
 dp[i] = dp[i-1] + dp[i-2]
 \]</div>
-<p>这意味着在爬楼梯问题中，各个子问题之间存在递推关系，<strong>原问题的解可以由子问题的解构建得来</strong>。</p>
+<p>这意味着在爬楼梯问题中，各个子问题之间存在递推关系，<strong>原问题的解可以由子问题的解构建得来</strong>。下图展示了该递推关系。</p>
 <p><img alt="方案数量递推关系" src="../intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png" /></p>
 <p align="center"> 图：方案数量递推关系 </p>
 
@@ -4492,6 +4492,10 @@ dp[i] = dp[i-1] + dp[i-2]
 </div>
 </div>
 </div>
+<p>下图模拟了以上代码的执行过程。</p>
+<p><img alt="爬楼梯的动态规划过程" src="../intro_to_dynamic_programming.assets/climbing_stairs_dp.png" /></p>
+<p align="center"> 图：爬楼梯的动态规划过程 </p>
+
 <p>与回溯算法一样，动态规划也使用“状态”概念来表示问题求解的某个特定阶段，每个状态都对应一个子问题以及相应的局部最优解。例如，爬楼梯问题的状态定义为当前所在楼梯阶数 <span class="arithmatex">\(i\)</span> 。</p>
 <p>总结以上，动态规划的常用术语包括：</p>
 <ul>
@@ -4499,9 +4503,6 @@ dp[i] = dp[i-1] + dp[i-2]
 <li>将最小子问题对应的状态（即第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 阶楼梯）称为「初始状态」。</li>
 <li>将递推公式 <span class="arithmatex">\(dp[i] = dp[i-1] + dp[i-2]\)</span> 称为「状态转移方程」。</li>
 </ul>
-<p><img alt="爬楼梯的动态规划过程" src="../intro_to_dynamic_programming.assets/climbing_stairs_dp.png" /></p>
-<p align="center"> 图：爬楼梯的动态规划过程 </p>
-
 <h2 id="1414">14.1.4 &nbsp; 状态压缩<a class="headerlink" href="#1414" title="Permanent link">&para;</a></h2>
 <p>细心的你可能发现，<strong>由于 <span class="arithmatex">\(dp[i]\)</span> 只与 <span class="arithmatex">\(dp[i-1]\)</span> 和 <span class="arithmatex">\(dp[i-2]\)</span> 有关，因此我们无须使用一个数组 <code>dp</code> 来存储所有子问题的解</strong>，而只需两个变量滚动前进即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:12"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><input id="__tabbed_5_12" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label><label for="__tabbed_5_12">Rust</label></div>

@@ -3515,14 +3515,14 @@
 <p class="admonition-title">Question</p>
 <p>给定一个 <span class="arithmatex">\(n \times m\)</span> 的二维网格 <code>grid</code> ，网格中的每个单元格包含一个非负整数，表示该单元格的代价。机器人以左上角单元格为起始点，每次只能向下或者向右移动一步，直至到达右下角单元格。请返回从左上角到右下角的最小路径和。</p>
 </div>
-<p>例如以下示例数据，给定网格的最小路径和为 <span class="arithmatex">\(13\)</span> 。</p>
+<p>下图展示了一个例子，给定网格的最小路径和为 <span class="arithmatex">\(13\)</span> 。</p>
 <p><img alt="最小路径和示例数据" src="../dp_solution_pipeline.assets/min_path_sum_example.png" /></p>
 <p align="center"> 图：最小路径和示例数据 </p>
 
 <p><strong>第一步：思考每轮的决策，定义状态，从而得到 <span class="arithmatex">\(dp\)</span> 表</strong></p>
 <p>本题的每一轮的决策就是从当前格子向下或向右一步。设当前格子的行列索引为 <span class="arithmatex">\([i, j]\)</span> ，则向下或向右走一步后，索引变为 <span class="arithmatex">\([i+1, j]\)</span> 或 <span class="arithmatex">\([i, j+1]\)</span> 。因此，状态应包含行索引和列索引两个变量，记为 <span class="arithmatex">\([i, j]\)</span> 。</p>
 <p>状态 <span class="arithmatex">\([i, j]\)</span> 对应的子问题为：从起始点 <span class="arithmatex">\([0, 0]\)</span> 走到 <span class="arithmatex">\([i, j]\)</span> 的最小路径和，解记为 <span class="arithmatex">\(dp[i, j]\)</span> 。</p>
-<p>至此，我们就得到了一个二维 <span class="arithmatex">\(dp\)</span> 矩阵，其尺寸与输入网格 <span class="arithmatex">\(grid\)</span> 相同。</p>
+<p>至此，我们就得到了下图所示的二维 <span class="arithmatex">\(dp\)</span> 矩阵，其尺寸与输入网格 <span class="arithmatex">\(grid\)</span> 相同。</p>
 <p><img alt="状态定义与 dp 表" src="../dp_solution_pipeline.assets/min_path_sum_solution_step1.png" /></p>
 <p align="center"> 图：状态定义与 dp 表 </p>
 
@@ -3533,7 +3533,7 @@
 </div>
 <p><strong>第二步：找出最优子结构，进而推导出状态转移方程</strong></p>
 <p>对于状态 <span class="arithmatex">\([i, j]\)</span> ，它只能从上边格子 <span class="arithmatex">\([i-1, j]\)</span> 和左边格子 <span class="arithmatex">\([i, j-1]\)</span> 转移而来。因此最优子结构为：到达 <span class="arithmatex">\([i, j]\)</span> 的最小路径和由 <span class="arithmatex">\([i, j-1]\)</span> 的最小路径和与 <span class="arithmatex">\([i-1, j]\)</span> 的最小路径和，这两者较小的那一个决定。</p>
-<p>根据以上分析，可推出以下状态转移方程：</p>
+<p>根据以上分析，可推出下图所示的状态转移方程：</p>
 <div class="arithmatex">\[
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 \]</div>
@@ -3547,7 +3547,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 <p><strong>第三步：确定边界条件和状态转移顺序</strong></p>
 <p>在本题中，处在首行的状态只能向右转移，首列状态只能向下转移，因此首行 <span class="arithmatex">\(i = 0\)</span> 和首列 <span class="arithmatex">\(j = 0\)</span> 是边界条件。</p>
-<p>每个格子是由其左方格子和上方格子转移而来，因此我们使用采用循环来遍历矩阵，外循环遍历各行、内循环遍历各列。</p>
+<p>如下图所示，由于每个格子是由其左方格子和上方格子转移而来，因此我们使用采用循环来遍历矩阵，外循环遍历各行、内循环遍历各列。</p>
 <p><img alt="边界条件与状态转移顺序" src="../dp_solution_pipeline.assets/min_path_sum_solution_step3.png" /></p>
 <p align="center"> 图：边界条件与状态转移顺序 </p>
 
@@ -3990,7 +3990,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 </div>
 </div>
-<p>引入记忆化后，所有子问题的解只需计算一次，因此时间复杂度取决于状态总数，即网格尺寸 <span class="arithmatex">\(O(nm)\)</span> 。</p>
+<p>如下图所示，在引入记忆化后，所有子问题的解只需计算一次，因此时间复杂度取决于状态总数，即网格尺寸 <span class="arithmatex">\(O(nm)\)</span> 。</p>
 <p><img alt="记忆化搜索递归树" src="../dp_solution_pipeline.assets/min_path_sum_dfs_mem.png" /></p>
 <p align="center"> 图：记忆化搜索递归树 </p>
 

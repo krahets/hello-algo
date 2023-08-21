@@ -3442,7 +3442,7 @@
 <h1 id="119">11.9 &nbsp; 计数排序<a class="headerlink" href="#119" title="Permanent link">&para;</a></h1>
 <p>「计数排序 counting sort」通过统计元素数量来实现排序，通常应用于整数数组。</p>
 <h2 id="1191">11.9.1 &nbsp; 简单实现<a class="headerlink" href="#1191" title="Permanent link">&para;</a></h2>
-<p>先来看一个简单的例子。给定一个长度为 <span class="arithmatex">\(n\)</span> 的数组 <code>nums</code> ，其中的元素都是“非负整数”。计数排序的整体流程如下：</p>
+<p>先来看一个简单的例子。给定一个长度为 <span class="arithmatex">\(n\)</span> 的数组 <code>nums</code> ，其中的元素都是“非负整数”，计数排序的整体流程如下图所示。</p>
 <ol>
 <li>遍历数组，找出数组中的最大数字，记为 <span class="arithmatex">\(m\)</span> ，然后创建一个长度为 <span class="arithmatex">\(m + 1\)</span> 的辅助数组 <code>counter</code> 。</li>
 <li><strong>借助 <code>counter</code> 统计 <code>nums</code> 中各数字的出现次数</strong>，其中 <code>counter[num]</code> 对应数字 <code>num</code> 的出现次数。统计方法很简单，只需遍历 <code>nums</code>（设当前数字为 <code>num</code>），每轮将 <code>counter[num]</code> 增加 <span class="arithmatex">\(1\)</span> 即可。</li>
@@ -3735,7 +3735,7 @@
 <p>从桶排序的角度看，我们可以将计数排序中的计数数组 <code>counter</code> 的每个索引视为一个桶，将统计数量的过程看作是将各个元素分配到对应的桶中。本质上，计数排序是桶排序在整型数据下的一个特例。</p>
 </div>
 <h2 id="1192">11.9.2 &nbsp; 完整实现<a class="headerlink" href="#1192" title="Permanent link">&para;</a></h2>
-<p>细心的同学可能发现，<strong>如果输入数据是对象，上述步骤 <code>3.</code> 就失效了</strong>。例如，输入数据是商品对象，我们想要按照商品价格（类的成员变量）对商品进行排序，而上述算法只能给出价格的排序结果。</p>
+<p>细心的同学可能发现，<strong>如果输入数据是对象，上述步骤 <code>3.</code> 就失效了</strong>。假设输入数据是商品对象，我们想要按照商品价格（类的成员变量）对商品进行排序，而上述算法只能给出价格的排序结果。</p>
 <p>那么如何才能得到原数据的排序结果呢？我们首先计算 <code>counter</code> 的“前缀和”。顾名思义，索引 <code>i</code> 处的前缀和 <code>prefix[i]</code> 等于数组前 <code>i</code> 个元素之和，即：</p>
 <div class="arithmatex">\[
 \text{prefix}[i] = \sum_{j=0}^i \text{counter[j]}
@@ -3745,7 +3745,7 @@
 <li>将 <code>num</code> 填入数组 <code>res</code> 的索引 <code>prefix[num] - 1</code> 处。</li>
 <li>令前缀和 <code>prefix[num]</code> 减小 <span class="arithmatex">\(1\)</span> ，从而得到下次放置 <code>num</code> 的索引。</li>
 </ol>
-<p>遍历完成后，数组 <code>res</code> 中就是排序好的结果，最后使用 <code>res</code> 覆盖原数组 <code>nums</code> 即可。</p>
+<p>遍历完成后，数组 <code>res</code> 中就是排序好的结果，最后使用 <code>res</code> 覆盖原数组 <code>nums</code> 即可。下图展示了完整的计数排序流程。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:8"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

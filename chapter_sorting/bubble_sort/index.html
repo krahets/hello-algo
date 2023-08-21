@@ -3427,7 +3427,7 @@
 
 <h1 id="113">11.3 &nbsp; 冒泡排序<a class="headerlink" href="#113" title="Permanent link">&para;</a></h1>
 <p>「冒泡排序 bubble sort」通过连续地比较与交换相邻元素实现排序。这个过程就像气泡从底部升到顶部一样，因此得名冒泡排序。</p>
-<p>我们可以利用元素交换操作模拟上述过程：从数组最左端开始向右遍历，依次比较相邻元素大小，如果“左元素 &gt; 右元素”就交换它俩。遍历完成后，最大的元素会被移动到数组的最右端。</p>
+<p>如下图所示，冒泡过程可以利用元素交换操作来模拟：从数组最左端开始向右遍历，依次比较相邻元素大小，如果“左元素 &gt; 右元素”就交换它俩。遍历完成后，最大的元素会被移动到数组的最右端。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3456,7 +3456,7 @@
 <p align="center"> 图：利用元素交换操作模拟冒泡 </p>
 
 <h2 id="1131">11.3.1 &nbsp; 算法流程<a class="headerlink" href="#1131" title="Permanent link">&para;</a></h2>
-<p>设数组的长度为 <span class="arithmatex">\(n\)</span> ，冒泡排序的步骤为：</p>
+<p>设数组的长度为 <span class="arithmatex">\(n\)</span> ，冒泡排序的步骤如下图所示。</p>
 <ol>
 <li>首先，对 <span class="arithmatex">\(n\)</span> 个元素执行“冒泡”，<strong>将数组的最大元素交换至正确位置</strong>，</li>
 <li>接下来，对剩余 <span class="arithmatex">\(n - 1\)</span> 个元素执行“冒泡”，<strong>将第二大元素交换至正确位置</strong>。</li>

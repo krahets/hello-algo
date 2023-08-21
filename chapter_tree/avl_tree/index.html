@@ -3621,7 +3621,7 @@
 <p><img alt="AVL 树在删除节点后发生退化" src="../avl_tree.assets/avltree_degradation_from_removing_node.png" /></p>
 <p align="center"> 图：AVL 树在删除节点后发生退化 </p>
 
-<p>再例如，在以下完美二叉树中插入两个节点后，树将严重向左倾斜，查找操作的时间复杂度也随之恶化。</p>
+<p>再例如，在下图的完美二叉树中插入两个节点后，树将严重向左倾斜，查找操作的时间复杂度也随之恶化。</p>
 <p><img alt="AVL 树在插入节点后发生退化" src="../avl_tree.assets/avltree_degradation_from_inserting_node.png" /></p>
 <p align="center"> 图：AVL 树在插入节点后发生退化 </p>
 
@@ -4142,7 +4142,7 @@
 </div>
 <p align="center"> 图：右旋操作步骤 </p>
 
-<p>此外，如果节点 <code>child</code> 本身有右子节点（记为 <code>grandChild</code> ），则需要在右旋中添加一步：将 <code>grandChild</code> 作为 <code>node</code> 的左子节点。</p>
+<p>如下图所示，当节点 <code>child</code> 有右子节点（记为 <code>grandChild</code> ）时，需要在右旋中添加一步：将 <code>grandChild</code> 作为 <code>node</code> 的左子节点。</p>
 <p><img alt="有 grandChild 的右旋操作" src="../avl_tree.assets/avltree_right_rotate_with_grandchild.png" /></p>
 <p align="center"> 图：有 grandChild 的右旋操作 </p>
 
@@ -4349,11 +4349,11 @@
 </div>
 </div>
 <h3 id="2_1">2. &nbsp; 左旋<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
-<p>相应的，如果考虑上述失衡二叉树的“镜像”，则需要执行“左旋”操作。</p>
+<p>相应的，如果考虑上述失衡二叉树的“镜像”，则需要执行下图所示的“左旋”操作。</p>
 <p><img alt="左旋操作" src="../avl_tree.assets/avltree_left_rotate.png" /></p>
 <p align="center"> 图：左旋操作 </p>
 
-<p>同理，若节点 <code>child</code> 本身有左子节点（记为 <code>grandChild</code> ），则需要在左旋中添加一步：将 <code>grandChild</code> 作为 <code>node</code> 的右子节点。</p>
+<p>同理，如下图所示，当节点 <code>child</code> 有左子节点（记为 <code>grandChild</code> ）时，需要在左旋中添加一步：将 <code>grandChild</code> 作为 <code>node</code> 的右子节点。</p>
 <p><img alt="有 grandChild 的左旋操作" src="../avl_tree.assets/avltree_left_rotate_with_grandchild.png" /></p>
 <p align="center"> 图：有 grandChild 的左旋操作 </p>
 
@@ -4560,12 +4560,12 @@
 </div>
 </div>
 <h3 id="3">3. &nbsp; 先左旋后右旋<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>对于下图中的失衡节点 3，仅使用左旋或右旋都无法使子树恢复平衡。此时需要先左旋后右旋，即先对 <code>child</code> 执行“左旋”，再对 <code>node</code> 执行“右旋”。</p>
+<p>对于下图中的失衡节点 3 ，仅使用左旋或右旋都无法使子树恢复平衡。此时需要先对 <code>child</code> 执行“左旋”，再对 <code>node</code> 执行“右旋”。</p>
 <p><img alt="先左旋后右旋" src="../avl_tree.assets/avltree_left_right_rotate.png" /></p>
 <p align="center"> 图：先左旋后右旋 </p>
 
 <h3 id="4">4. &nbsp; 先右旋后左旋<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>同理，对于上述失衡二叉树的镜像情况，需要先右旋后左旋，即先对 <code>child</code> 执行“右旋”，然后对 <code>node</code> 执行“左旋”。</p>
+<p>如下图所示，对于上述失衡二叉树的镜像情况，需要先对 <code>child</code> 执行“右旋”，然后对 <code>node</code> 执行“左旋”。</p>
 <p><img alt="先右旋后左旋" src="../avl_tree.assets/avltree_right_left_rotate.png" /></p>
 <p align="center"> 图：先右旋后左旋 </p>
 
@@ -4574,7 +4574,7 @@
 <p><img alt="AVL 树的四种旋转情况" src="../avl_tree.assets/avltree_rotation_cases.png" /></p>
 <p align="center"> 图：AVL 树的四种旋转情况 </p>
 
-<p>在代码中，我们通过判断失衡节点的平衡因子以及较高一侧子节点的平衡因子的正负号，来确定失衡节点属于上图中的哪种情况。</p>
+<p>如下表所示，我们通过判断失衡节点的平衡因子以及较高一侧子节点的平衡因子的正负号，来确定失衡节点属于上图中的哪种情况。</p>
 <p align="center"> 表：四种旋转情况的选择条件 </p>
 
 <div class="center-table">
