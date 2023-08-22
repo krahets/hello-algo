@@ -3515,16 +3515,16 @@
 <p class="admonition-title">Question</p>
 <p>给定一个 <span class="arithmatex">\(n \times m\)</span> 的二维网格 <code>grid</code> ，网格中的每个单元格包含一个非负整数，表示该单元格的代价。机器人以左上角单元格为起始点，每次只能向下或者向右移动一步，直至到达右下角单元格。请返回从左上角到右下角的最小路径和。</p>
 </div>
-<p>下图展示了一个例子，给定网格的最小路径和为 <span class="arithmatex">\(13\)</span> 。</p>
+<p>图 14-10 展示了一个例子，给定网格的最小路径和为 <span class="arithmatex">\(13\)</span> 。</p>
 <p><img alt="最小路径和示例数据" src="../dp_solution_pipeline.assets/min_path_sum_example.png" /></p>
-<p align="center"> 图：最小路径和示例数据 </p>
+<p align="center"> 图 14-10 &nbsp; 最小路径和示例数据 </p>
 
 <p><strong>第一步：思考每轮的决策，定义状态，从而得到 <span class="arithmatex">\(dp\)</span> 表</strong></p>
 <p>本题的每一轮的决策就是从当前格子向下或向右一步。设当前格子的行列索引为 <span class="arithmatex">\([i, j]\)</span> ，则向下或向右走一步后，索引变为 <span class="arithmatex">\([i+1, j]\)</span> 或 <span class="arithmatex">\([i, j+1]\)</span> 。因此，状态应包含行索引和列索引两个变量，记为 <span class="arithmatex">\([i, j]\)</span> 。</p>
 <p>状态 <span class="arithmatex">\([i, j]\)</span> 对应的子问题为：从起始点 <span class="arithmatex">\([0, 0]\)</span> 走到 <span class="arithmatex">\([i, j]\)</span> 的最小路径和，解记为 <span class="arithmatex">\(dp[i, j]\)</span> 。</p>
-<p>至此，我们就得到了下图所示的二维 <span class="arithmatex">\(dp\)</span> 矩阵，其尺寸与输入网格 <span class="arithmatex">\(grid\)</span> 相同。</p>
+<p>至此，我们就得到了图 14-11 所示的二维 <span class="arithmatex">\(dp\)</span> 矩阵，其尺寸与输入网格 <span class="arithmatex">\(grid\)</span> 相同。</p>
 <p><img alt="状态定义与 dp 表" src="../dp_solution_pipeline.assets/min_path_sum_solution_step1.png" /></p>
-<p align="center"> 图：状态定义与 dp 表 </p>
+<p align="center"> 图 14-11 &nbsp; 状态定义与 dp 表 </p>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3533,12 +3533,12 @@
 </div>
 <p><strong>第二步：找出最优子结构，进而推导出状态转移方程</strong></p>
 <p>对于状态 <span class="arithmatex">\([i, j]\)</span> ，它只能从上边格子 <span class="arithmatex">\([i-1, j]\)</span> 和左边格子 <span class="arithmatex">\([i, j-1]\)</span> 转移而来。因此最优子结构为：到达 <span class="arithmatex">\([i, j]\)</span> 的最小路径和由 <span class="arithmatex">\([i, j-1]\)</span> 的最小路径和与 <span class="arithmatex">\([i-1, j]\)</span> 的最小路径和，这两者较小的那一个决定。</p>
-<p>根据以上分析，可推出下图所示的状态转移方程：</p>
+<p>根据以上分析，可推出图 14-12 所示的状态转移方程：</p>
 <div class="arithmatex">\[
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 \]</div>
 <p><img alt="最优子结构与状态转移方程" src="../dp_solution_pipeline.assets/min_path_sum_solution_step2.png" /></p>
-<p align="center"> 图：最优子结构与状态转移方程 </p>
+<p align="center"> 图 14-12 &nbsp; 最优子结构与状态转移方程 </p>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3547,9 +3547,9 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 <p><strong>第三步：确定边界条件和状态转移顺序</strong></p>
 <p>在本题中，处在首行的状态只能向右转移，首列状态只能向下转移，因此首行 <span class="arithmatex">\(i = 0\)</span> 和首列 <span class="arithmatex">\(j = 0\)</span> 是边界条件。</p>
-<p>如下图所示，由于每个格子是由其左方格子和上方格子转移而来，因此我们使用采用循环来遍历矩阵，外循环遍历各行、内循环遍历各列。</p>
+<p>如图 14-13 所示，由于每个格子是由其左方格子和上方格子转移而来，因此我们使用采用循环来遍历矩阵，外循环遍历各行、内循环遍历各列。</p>
 <p><img alt="边界条件与状态转移顺序" src="../dp_solution_pipeline.assets/min_path_sum_solution_step3.png" /></p>
-<p align="center"> 图：边界条件与状态转移顺序 </p>
+<p align="center"> 图 14-13 &nbsp; 边界条件与状态转移顺序 </p>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3750,10 +3750,10 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 </div>
 </div>
-<p>下图给出了以 <span class="arithmatex">\(dp[2, 1]\)</span> 为根节点的递归树，其中包含一些重叠子问题，其数量会随着网格 <code>grid</code> 的尺寸变大而急剧增多。</p>
+<p>图 14-14 给出了以 <span class="arithmatex">\(dp[2, 1]\)</span> 为根节点的递归树，其中包含一些重叠子问题，其数量会随着网格 <code>grid</code> 的尺寸变大而急剧增多。</p>
 <p>本质上看，造成重叠子问题的原因为：<strong>存在多条路径可以从左上角到达某一单元格</strong>。</p>
 <p><img alt="暴力搜索递归树" src="../dp_solution_pipeline.assets/min_path_sum_dfs.png" /></p>
-<p align="center"> 图：暴力搜索递归树 </p>
+<p align="center"> 图 14-14 &nbsp; 暴力搜索递归树 </p>
 
 <p>每个状态都有向下和向右两种选择，从左上角走到右下角总共需要 <span class="arithmatex">\(m + n - 2\)</span> 步，所以最差时间复杂度为 <span class="arithmatex">\(O(2^{m + n})\)</span> 。请注意，这种计算方式未考虑临近网格边界的情况，当到达网络边界时只剩下一种选择。因此实际的路径数量会少一些。</p>
 <h3 id="2">2. &nbsp; 方法二：记忆化搜索<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
@@ -3990,9 +3990,9 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 </div>
 </div>
-<p>如下图所示，在引入记忆化后，所有子问题的解只需计算一次，因此时间复杂度取决于状态总数，即网格尺寸 <span class="arithmatex">\(O(nm)\)</span> 。</p>
+<p>如图 14-15 所示，在引入记忆化后，所有子问题的解只需计算一次，因此时间复杂度取决于状态总数，即网格尺寸 <span class="arithmatex">\(O(nm)\)</span> 。</p>
 <p><img alt="记忆化搜索递归树" src="../dp_solution_pipeline.assets/min_path_sum_dfs_mem.png" /></p>
-<p align="center"> 图：记忆化搜索递归树 </p>
+<p align="center"> 图 14-15 &nbsp; 记忆化搜索递归树 </p>
 
 <h3 id="3">3. &nbsp; 方法三：动态规划<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>基于迭代实现动态规划解法。</p>
@@ -4237,7 +4237,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 </div>
 </div>
-<p>下图展示了最小路径和的状态转移过程，其遍历了整个网格，<strong>因此时间复杂度为 <span class="arithmatex">\(O(nm)\)</span></strong> 。</p>
+<p>图 14-16 展示了最小路径和的状态转移过程，其遍历了整个网格，<strong>因此时间复杂度为 <span class="arithmatex">\(O(nm)\)</span></strong> 。</p>
 <p>数组 <code>dp</code> 大小为 <span class="arithmatex">\(n \times m\)</span> ，<strong>因此空间复杂度为 <span class="arithmatex">\(O(nm)\)</span></strong> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:12"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label><label for="__tabbed_4_10">&lt;10&gt;</label><label for="__tabbed_4_11">&lt;11&gt;</label><label for="__tabbed_4_12">&lt;12&gt;</label></div>
 <div class="tabbed-content">
@@ -4279,7 +4279,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 </div>
 </div>
-<p align="center"> 图：最小路径和的动态规划过程 </p>
+<p align="center"> 图 14-16 &nbsp; 最小路径和的动态规划过程 </p>
 
 <h3 id="4">4. &nbsp; 状态压缩<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>由于每个格子只与其左边和上边的格子有关，因此我们可以只用一个单行数组来实现 <span class="arithmatex">\(dp\)</span> 表。</p>

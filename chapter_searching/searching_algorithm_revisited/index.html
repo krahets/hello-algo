@@ -3455,12 +3455,12 @@
 <p>自适应搜索算法常被称为查找算法，<strong>主要关注在特定数据结构中快速检索目标元素</strong>。</p>
 </div>
 <h2 id="1053">10.5.3 &nbsp; 搜索方法选取<a class="headerlink" href="#1053" title="Permanent link">&para;</a></h2>
-<p>给定大小为 <span class="arithmatex">\(n\)</span> 的一组数据，我们可以使用线性搜索、二分查找、树查找、哈希查找等多种方法在该数据中搜索目标元素。各个方法的工作原理如下图所示。</p>
+<p>给定大小为 <span class="arithmatex">\(n\)</span> 的一组数据，我们可以使用线性搜索、二分查找、树查找、哈希查找等多种方法在该数据中搜索目标元素。各个方法的工作原理如图 10-11 所示。</p>
 <p><img alt="多种搜索策略" src="../searching_algorithm_revisited.assets/searching_algorithms.png" /></p>
-<p align="center"> 图：多种搜索策略 </p>
+<p align="center"> 图 10-11 &nbsp; 多种搜索策略 </p>
 
-<p>上述几种方法的操作效率与特性如下表所示。</p>
-<p align="center"> 表：查找算法效率对比 </p>
+<p>上述几种方法的操作效率与特性如表 10-1 所示。</p>
+<p align="center"> 表 10-1 &nbsp; 查找算法效率对比 </p>
 
 <div class="center-table">
 <table>
@@ -3519,7 +3519,7 @@
 </tbody>
 </table>
 </div>
-<p>除了以上表格内容，搜索算法的选择还取决于数据体量、搜索性能要求、数据查询与更新频率等。</p>
+<p>搜索算法的选择还取决于数据体量、搜索性能要求、数据查询与更新频率等。</p>
 <p><strong>线性搜索</strong></p>
 <ul>
 <li>通用性较好，无须任何数据预处理操作。假如我们仅需查询一次数据，那么其他三种方法的数据预处理的时间比线性搜索的时间还要更长。</li>

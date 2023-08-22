@@ -3427,17 +3427,17 @@
 
 <h1 id="61">6.1 &nbsp; 哈希表<a class="headerlink" href="#61" title="Permanent link">&para;</a></h1>
 <p>「哈希表 hash table」，又称「散列表」，其通过建立键 <code>key</code> 与值 <code>value</code> 之间的映射，实现高效的元素查询。具体而言，我们向哈希表输入一个键 <code>key</code> ，则可以在 <span class="arithmatex">\(O(1)\)</span> 时间内获取对应的值 <code>value</code> 。</p>
-<p>如下图所示，给定 <span class="arithmatex">\(n\)</span> 个学生，每个学生都有“姓名”和“学号”两项数据。假如我们希望实现“输入一个学号，返回对应的姓名”的查询功能，则可以采用哈希表来实现。</p>
+<p>如图 6-1 所示，给定 <span class="arithmatex">\(n\)</span> 个学生，每个学生都有“姓名”和“学号”两项数据。假如我们希望实现“输入一个学号，返回对应的姓名”的查询功能，则可以采用图 6-1 所示的哈希表来实现。</p>
 <p><img alt="哈希表的抽象表示" src="../hash_map.assets/hash_table_lookup.png" /></p>
-<p align="center"> 图：哈希表的抽象表示 </p>
+<p align="center"> 图 6-1 &nbsp; 哈希表的抽象表示 </p>
 
-<p>除哈希表外，数组和链表也可以实现查询功能，它们的效率对比如下表所示。</p>
+<p>除哈希表外，数组和链表也可以实现查询功能，它们的效率对比如表 6-1 所示。</p>
 <ul>
 <li><strong>添加元素</strong>：仅需将元素添加至数组（链表）的尾部即可，使用 <span class="arithmatex">\(O(1)\)</span> 时间。</li>
 <li><strong>查询元素</strong>：由于数组（链表）是乱序的，因此需要遍历其中的所有元素，使用 <span class="arithmatex">\(O(n)\)</span> 时间。</li>
 <li><strong>删除元素</strong>：需要先查询到元素，再从数组（链表）中删除，使用 <span class="arithmatex">\(O(n)\)</span> 时间。</li>
 </ul>
-<p align="center"> 表：元素查询效率对比 </p>
+<p align="center"> 表 6-1 &nbsp; 元素查询效率对比 </p>
 
 <div class="center-table">
 <table>
@@ -3853,9 +3853,9 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
 </code></pre></div>
 <p>随后，我们就可以利用 <code>index</code> 在哈希表中访问对应的桶，从而获取 <code>value</code> 。</p>
-<p>设数组长度 <code>capacity = 100</code> 、哈希算法 <code>hash(key) = key</code> ，易得哈希函数为 <code>key % 100</code> 。下图以 <code>key</code> 学号和 <code>value</code> 姓名为例，展示了哈希函数的工作原理。</p>
+<p>设数组长度 <code>capacity = 100</code> 、哈希算法 <code>hash(key) = key</code> ，易得哈希函数为 <code>key % 100</code> 。图 6-2 以 <code>key</code> 学号和 <code>value</code> 姓名为例，展示了哈希函数的工作原理。</p>
 <p><img alt="哈希函数工作原理" src="../hash_map.assets/hash_function.png" /></p>
-<p align="center"> 图：哈希函数工作原理 </p>
+<p align="center"> 图 6-2 &nbsp; 哈希函数工作原理 </p>
 
 <p>以下代码实现了一个简单哈希表。其中，我们将 <code>key</code> 和 <code>value</code> 封装成一个类 <code>Pair</code> ，以表示键值对。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
@@ -4862,14 +4862,14 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="m">12836</span><span class="w"> </span>%<span class="w"> </span><span class="nv">100</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
 <a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="m">20336</span><span class="w"> </span>%<span class="w"> </span><span class="nv">100</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
 </code></pre></div>
-<p>如下图所示，两个学号指向了同一个姓名，这显然是不对的。我们将这种多个输入对应同一输出的情况称为「哈希冲突 hash collision」。</p>
+<p>如图 6-3 所示，两个学号指向了同一个姓名，这显然是不对的。我们将这种多个输入对应同一输出的情况称为「哈希冲突 hash collision」。</p>
 <p><img alt="哈希冲突示例" src="../hash_map.assets/hash_collision.png" /></p>
-<p align="center"> 图：哈希冲突示例 </p>
+<p align="center"> 图 6-3 &nbsp; 哈希冲突示例 </p>
 
 <p>容易想到，哈希表容量 <span class="arithmatex">\(n\)</span> 越大，多个 <code>key</code> 被分配到同一个桶中的概率就越低，冲突就越少。因此，<strong>我们可以通过扩容哈希表来减少哈希冲突</strong>。</p>
-<p>如下图所示，扩容前键值对 <code>(136, A)</code> 和 <code>(236, D)</code> 发生冲突，扩容后冲突消失。</p>
+<p>如图 6-4 所示，扩容前键值对 <code>(136, A)</code> 和 <code>(236, D)</code> 发生冲突，扩容后冲突消失。</p>
 <p><img alt="哈希表扩容" src="../hash_map.assets/hash_table_reshash.png" /></p>
-<p align="center"> 图：哈希表扩容 </p>
+<p align="center"> 图 6-4 &nbsp; 哈希表扩容 </p>
 
 <p>类似于数组扩容，哈希表扩容需将所有键值对从原哈希表迁移至新哈希表，非常耗时。并且由于哈希表容量 <code>capacity</code> 改变，我们需要通过哈希函数来重新计算所有键值对的存储位置，这进一步提高了扩容过程的计算开销。为此，编程语言通常会预留足够大的哈希表容量，防止频繁扩容。</p>
 <p>「负载因子 load factor」是哈希表的一个重要概念，其定义为哈希表的元素数量除以桶数量，用于衡量哈希冲突的严重程度，<strong>也常被作为哈希表扩容的触发条件</strong>。例如在 Java 中，当负载因子超过 <span class="arithmatex">\(0.75\)</span> 时，系统会将哈希表容量扩展为原先的 <span class="arithmatex">\(2\)</span> 倍。</p>

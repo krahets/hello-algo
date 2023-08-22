@@ -3441,9 +3441,9 @@
 
 <h1 id="63">6.3 &nbsp; 哈希算法<a class="headerlink" href="#63" title="Permanent link">&para;</a></h1>
 <p>在上两节中，我们了解了哈希表的工作原理和哈希冲突的处理方法。然而无论是开放寻址还是链地址法，<strong>它们只能保证哈希表可以在发生冲突时正常工作，但无法减少哈希冲突的发生</strong>。</p>
-<p>如果哈希冲突过于频繁，哈希表的性能则会急剧劣化。如下图所示，对于链地址哈希表，理想情况下键值对平均分布在各个桶中，达到最佳查询效率；最差情况下所有键值对都被存储到同一个桶中，时间复杂度退化至 <span class="arithmatex">\(O(n)\)</span> 。</p>
+<p>如果哈希冲突过于频繁，哈希表的性能则会急剧劣化。如图 6-7 所示，对于链地址哈希表，理想情况下键值对平均分布在各个桶中，达到最佳查询效率；最差情况下所有键值对都被存储到同一个桶中，时间复杂度退化至 <span class="arithmatex">\(O(n)\)</span> 。</p>
 <p><img alt="哈希冲突的最佳与最差情况" src="../hash_algorithm.assets/hash_collision_best_worst_condition.png" /></p>
-<p align="center"> 图：哈希冲突的最佳与最差情况 </p>
+<p align="center"> 图 6-7 &nbsp; 哈希冲突的最佳与最差情况 </p>
 
 <p><strong>键值对的分布情况由哈希函数决定</strong>。回忆哈希函数的计算步骤，先计算哈希值，再对数组长度取模：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity

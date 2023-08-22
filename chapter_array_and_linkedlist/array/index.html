@@ -3536,9 +3536,9 @@
 
 
 <h1 id="41">4.1 &nbsp; 数组<a class="headerlink" href="#41" title="Permanent link">&para;</a></h1>
-<p>「数组 array」是一种线性数据结构，其将相同类型元素存储在连续的内存空间中。我们将元素在数组中的位置称为该元素的「索引 index」。下图展示了数组的主要术语和概念。</p>
+<p>「数组 array」是一种线性数据结构，其将相同类型元素存储在连续的内存空间中。我们将元素在数组中的位置称为该元素的「索引 index」。图 4-1 展示了数组的主要术语和概念。</p>
 <p><img alt="数组定义与存储方式" src="../array.assets/array_definition.png" /></p>
-<p align="center"> 图：数组定义与存储方式 </p>
+<p align="center"> 图 4-1 &nbsp; 数组定义与存储方式 </p>
 
 <h2 id="411">4.1.1 &nbsp; 数组常用操作<a class="headerlink" href="#411" title="Permanent link">&para;</a></h2>
 <h3 id="1">1. &nbsp; 初始化数组<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
@@ -3631,9 +3631,9 @@
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nv">elementAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>firtstElementAddr<span class="w"> </span>+<span class="w"> </span>elementLength<span class="w"> </span>*<span class="w"> </span>elementIndex
 </code></pre></div>
 <p><img alt="数组元素的内存地址计算" src="../array.assets/array_memory_location_calculation.png" /></p>
-<p align="center"> 图：数组元素的内存地址计算 </p>
+<p align="center"> 图 4-2 &nbsp; 数组元素的内存地址计算 </p>
 
-<p>观察上图，我们发现数组首个元素的索引为 <span class="arithmatex">\(0\)</span> ，这似乎有些反直觉，因为从 <span class="arithmatex">\(1\)</span> 开始计数会更自然。但从地址计算公式的角度看，<strong>索引的含义本质上是内存地址的偏移量</strong>。首个元素的地址偏移量是 <span class="arithmatex">\(0\)</span> ，因此它的索引为 <span class="arithmatex">\(0\)</span> 也是合理的。</p>
+<p>观察图 4-2 ，我们发现数组首个元素的索引为 <span class="arithmatex">\(0\)</span> ，这似乎有些反直觉，因为从 <span class="arithmatex">\(1\)</span> 开始计数会更自然。但从地址计算公式的角度看，<strong>索引的含义本质上是内存地址的偏移量</strong>。首个元素的地址偏移量是 <span class="arithmatex">\(0\)</span> ，因此它的索引为 <span class="arithmatex">\(0\)</span> 也是合理的。</p>
 <p>在数组中访问元素是非常高效的，我们可以在 <span class="arithmatex">\(O(1)\)</span> 时间内随机访问数组中的任意一个元素。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
 <div class="tabbed-content">
@@ -3772,9 +3772,9 @@
 </div>
 </div>
 <h3 id="3">3. &nbsp; 插入元素<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>数组元素在内存中是“紧挨着的”，它们之间没有空间再存放任何数据。如下图所示，如果想要在数组中间插入一个元素，则需要将该元素之后的所有元素都向后移动一位，之后再把元素赋值给该索引。</p>
+<p>数组元素在内存中是“紧挨着的”，它们之间没有空间再存放任何数据。如图 4-3 所示，如果想要在数组中间插入一个元素，则需要将该元素之后的所有元素都向后移动一位，之后再把元素赋值给该索引。</p>
 <p><img alt="数组插入元素示例" src="../array.assets/array_insert_element.png" /></p>
-<p align="center"> 图：数组插入元素示例 </p>
+<p align="center"> 图 4-3 &nbsp; 数组插入元素示例 </p>
 
 <p>值得注意的是，由于数组的长度是固定的，因此插入一个元素必定会导致数组尾部元素的“丢失”。我们将这个问题的解决方案留在列表章节中讨论。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
@@ -3925,9 +3925,9 @@
 </div>
 </div>
 <h3 id="4">4. &nbsp; 删除元素<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>同理，如下图所示，若想要删除索引 <span class="arithmatex">\(i\)</span> 处的元素，则需要把索引 <span class="arithmatex">\(i\)</span> 之后的元素都向前移动一位。</p>
+<p>同理，如图 4-4 所示，若想要删除索引 <span class="arithmatex">\(i\)</span> 处的元素，则需要把索引 <span class="arithmatex">\(i\)</span> 之后的元素都向前移动一位。</p>
 <p><img alt="数组删除元素示例" src="../array.assets/array_remove_element.png" /></p>
-<p align="center"> 图：数组删除元素示例 </p>
+<p align="center"> 图 4-4 &nbsp; 数组删除元素示例 </p>
 
 <p>请注意，删除元素完成后，原先末尾的元素变得“无意义”了，所以我们无须特意去修改它。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:12"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JS</label><label for="__tabbed_4_6">TS</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label><label for="__tabbed_4_11">Dart</label><label for="__tabbed_4_12">Rust</label></div>

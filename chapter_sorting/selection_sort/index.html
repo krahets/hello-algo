@@ -3399,7 +3399,7 @@
 
 <h1 id="112">11.2 &nbsp; 选择排序<a class="headerlink" href="#112" title="Permanent link">&para;</a></h1>
 <p>「选择排序 selection sort」的工作原理非常直接：开启一个循环，每轮从未排序区间选择最小的元素，将其放到已排序区间的末尾。</p>
-<p>设数组的长度为 <span class="arithmatex">\(n\)</span> ，选择排序的算法流程如下图所示。</p>
+<p>设数组的长度为 <span class="arithmatex">\(n\)</span> ，选择排序的算法流程如图 11-2 所示。</p>
 <ol>
 <li>初始状态下，所有元素未排序，即未排序（索引）区间为 <span class="arithmatex">\([0, n-1]\)</span> 。</li>
 <li>选取区间 <span class="arithmatex">\([0, n-1]\)</span> 中的最小元素，将其与索引 <span class="arithmatex">\(0\)</span> 处元素交换。完成后，数组前 1 个元素已排序。</li>
@@ -3444,7 +3444,7 @@
 </div>
 </div>
 </div>
-<p align="center"> 图：选择排序步骤 </p>
+<p align="center"> 图 11-2 &nbsp; 选择排序步骤 </p>
 
 <p>在代码中，我们用 <span class="arithmatex">\(k\)</span> 来记录未排序区间内的最小元素。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
@@ -3664,10 +3664,10 @@
 <ul>
 <li><strong>时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> 、非自适应排序</strong>：外循环共 <span class="arithmatex">\(n - 1\)</span> 轮，第一轮的未排序区间长度为 <span class="arithmatex">\(n\)</span> ，最后一轮的未排序区间长度为 <span class="arithmatex">\(2\)</span> ，即各轮外循环分别包含 <span class="arithmatex">\(n\)</span> , <span class="arithmatex">\(n - 1\)</span> , <span class="arithmatex">\(\dots\)</span> , <span class="arithmatex">\(2\)</span> 轮内循环，求和为 <span class="arithmatex">\(\frac{(n - 1)(n + 2)}{2}\)</span> 。</li>
 <li><strong>空间复杂度 <span class="arithmatex">\(O(1)\)</span> 、原地排序</strong>：指针 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> 使用常数大小的额外空间。</li>
-<li><strong>非稳定排序</strong>：如下图所示，元素 <code>nums[i]</code> 有可能被交换至与其相等的元素的右边，导致两者相对顺序发生改变。</li>
+<li><strong>非稳定排序</strong>：如图 11-3 所示，元素 <code>nums[i]</code> 有可能被交换至与其相等的元素的右边，导致两者相对顺序发生改变。</li>
 </ul>
 <p><img alt="选择排序非稳定示例" src="../selection_sort.assets/selection_sort_instability.png" /></p>
-<p align="center"> 图：选择排序非稳定示例 </p>
+<p align="center"> 图 11-3 &nbsp; 选择排序非稳定示例 </p>
 
 
 

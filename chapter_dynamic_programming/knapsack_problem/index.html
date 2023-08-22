@@ -3454,9 +3454,9 @@
 <p class="admonition-title">Question</p>
 <p>给定 <span class="arithmatex">\(n\)</span> 个物品，第 <span class="arithmatex">\(i\)</span> 个物品的重量为 <span class="arithmatex">\(wgt[i-1]\)</span> 、价值为 <span class="arithmatex">\(val[i-1]\)</span> ，和一个容量为 <span class="arithmatex">\(cap\)</span> 的背包。每个物品只能选择一次，问在不超过背包容量下能放入物品的最大价值。</p>
 </div>
-<p>观察下图，由于物品编号 <span class="arithmatex">\(i\)</span> 从 <span class="arithmatex">\(1\)</span> 开始计数，数组索引从 <span class="arithmatex">\(0\)</span> 开始计数，因此物品 <span class="arithmatex">\(i\)</span> 对应重量 <span class="arithmatex">\(wgt[i-1]\)</span> 和价值 <span class="arithmatex">\(val[i-1]\)</span> 。</p>
+<p>观察图 14-17 ，由于物品编号 <span class="arithmatex">\(i\)</span> 从 <span class="arithmatex">\(1\)</span> 开始计数，数组索引从 <span class="arithmatex">\(0\)</span> 开始计数，因此物品 <span class="arithmatex">\(i\)</span> 对应重量 <span class="arithmatex">\(wgt[i-1]\)</span> 和价值 <span class="arithmatex">\(val[i-1]\)</span> 。</p>
 <p><img alt="0-1 背包的示例数据" src="../knapsack_problem.assets/knapsack_example.png" /></p>
-<p align="center"> 图：0-1 背包的示例数据 </p>
+<p align="center"> 图 14-17 &nbsp; 0-1 背包的示例数据 </p>
 
 <p>我们可以将 0-1 背包问题看作是一个由 <span class="arithmatex">\(n\)</span> 轮决策组成的过程，每个物体都有不放入和放入两种决策，因此该问题是满足决策树模型的。</p>
 <p>该问题的目标是求解“在限定背包容量下的最大价值”，因此较大概率是个动态规划问题。</p>
@@ -3671,10 +3671,10 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<p>如下图所示，由于每个物品都会产生不选和选两条搜索分支，因此时间复杂度为 <span class="arithmatex">\(O(2^n)\)</span> 。</p>
+<p>如图 14-18 所示，由于每个物品都会产生不选和选两条搜索分支，因此时间复杂度为 <span class="arithmatex">\(O(2^n)\)</span> 。</p>
 <p>观察递归树，容易发现其中存在重叠子问题，例如 <span class="arithmatex">\(dp[1, 10]\)</span> 等。而当物品较多、背包容量较大，尤其是相同重量的物品较多时，重叠子问题的数量将会大幅增多。</p>
 <p><img alt="0-1 背包的暴力搜索递归树" src="../knapsack_problem.assets/knapsack_dfs.png" /></p>
-<p align="center"> 图：0-1 背包的暴力搜索递归树 </p>
+<p align="center"> 图 14-18 &nbsp; 0-1 背包的暴力搜索递归树 </p>
 
 <h3 id="2">2. &nbsp; 方法二：记忆化搜索<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>为了保证重叠子问题只被计算一次，我们借助记忆列表 <code>mem</code> 来记录子问题的解，其中 <code>mem[i][c]</code> 对应 <span class="arithmatex">\(dp[i, c]\)</span> 。</p>
@@ -3915,9 +3915,9 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<p>下图展示了在记忆化递归中被剪掉的搜索分支。</p>
+<p>图 14-19 展示了在记忆化递归中被剪掉的搜索分支。</p>
 <p><img alt="0-1 背包的记忆化搜索递归树" src="../knapsack_problem.assets/knapsack_dfs_mem.png" /></p>
-<p align="center"> 图：0-1 背包的记忆化搜索递归树 </p>
+<p align="center"> 图 14-19 &nbsp; 0-1 背包的记忆化搜索递归树 </p>
 
 <h3 id="3">3. &nbsp; 方法三：动态规划<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>动态规划实质上就是在状态转移中填充 <span class="arithmatex">\(dp\)</span> 表的过程，代码如下所示。</p>
@@ -4134,7 +4134,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<p>如下图所示，时间复杂度和空间复杂度都由数组 <code>dp</code> 大小决定，即 <span class="arithmatex">\(O(n \times cap)\)</span> 。</p>
+<p>如图 14-20 所示，时间复杂度和空间复杂度都由数组 <code>dp</code> 大小决定，即 <span class="arithmatex">\(O(n \times cap)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:14"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><input id="__tabbed_4_13" name="__tabbed_4" type="radio" /><input id="__tabbed_4_14" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label><label for="__tabbed_4_5">&lt;5&gt;</label><label for="__tabbed_4_6">&lt;6&gt;</label><label for="__tabbed_4_7">&lt;7&gt;</label><label for="__tabbed_4_8">&lt;8&gt;</label><label for="__tabbed_4_9">&lt;9&gt;</label><label for="__tabbed_4_10">&lt;10&gt;</label><label for="__tabbed_4_11">&lt;11&gt;</label><label for="__tabbed_4_12">&lt;12&gt;</label><label for="__tabbed_4_13">&lt;13&gt;</label><label for="__tabbed_4_14">&lt;14&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4181,7 +4181,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<p align="center"> 图：0-1 背包的动态规划过程 </p>
+<p align="center"> 图 14-20 &nbsp; 0-1 背包的动态规划过程 </p>
 
 <h3 id="4">4. &nbsp; 状态压缩<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 <span class="arithmatex">\(O(n^2)\)</span> 将低至 <span class="arithmatex">\(O(n)\)</span> 。</p>
@@ -4190,7 +4190,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <li>如果采取正序遍历，那么遍历到 <span class="arithmatex">\(dp[i, j]\)</span> 时，左上方 <span class="arithmatex">\(dp[i-1, 1]\)</span> ~ <span class="arithmatex">\(dp[i-1, j-1]\)</span> 值可能已经被覆盖，此时就无法得到正确的状态转移结果。</li>
 <li>如果采取倒序遍历，则不会发生覆盖问题，状态转移可以正确进行。</li>
 </ul>
-<p>下图展示了在单个数组下从第 <span class="arithmatex">\(i = 1\)</span> 行转换至第 <span class="arithmatex">\(i = 2\)</span> 行的过程。请思考正序遍历和倒序遍历的区别。</p>
+<p>图 14-21 展示了在单个数组下从第 <span class="arithmatex">\(i = 1\)</span> 行转换至第 <span class="arithmatex">\(i = 2\)</span> 行的过程。请思考正序遍历和倒序遍历的区别。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:6"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">&lt;1&gt;</label><label for="__tabbed_5_2">&lt;2&gt;</label><label for="__tabbed_5_3">&lt;3&gt;</label><label for="__tabbed_5_4">&lt;4&gt;</label><label for="__tabbed_5_5">&lt;5&gt;</label><label for="__tabbed_5_6">&lt;6&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4213,7 +4213,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<p align="center"> 图：0-1 背包的状态压缩后的动态规划过程 </p>
+<p align="center"> 图 14-21 &nbsp; 0-1 背包的状态压缩后的动态规划过程 </p>
 
 <p>在代码实现中，我们仅需将数组 <code>dp</code> 的第一维 <span class="arithmatex">\(i\)</span> 直接删除，并且把内循环更改为倒序遍历即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Python</label><label for="__tabbed_6_4">Go</label><label for="__tabbed_6_5">JS</label><label for="__tabbed_6_6">TS</label><label for="__tabbed_6_7">C</label><label for="__tabbed_6_8">C#</label><label for="__tabbed_6_9">Swift</label><label for="__tabbed_6_10">Zig</label><label for="__tabbed_6_11">Dart</label><label for="__tabbed_6_12">Rust</label></div>

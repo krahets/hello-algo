@@ -3360,8 +3360,8 @@
 <li>整数类型 <code>byte</code> 占用 <span class="arithmatex">\(1\)</span> byte = <span class="arithmatex">\(8\)</span> bits ，可以表示 <span class="arithmatex">\(2^{8}\)</span> 个数字。</li>
 <li>整数类型 <code>int</code> 占用 <span class="arithmatex">\(4\)</span> bytes = <span class="arithmatex">\(32\)</span> bits ，可以表示 <span class="arithmatex">\(2^{32}\)</span> 个数字。</li>
 </ul>
-<p>下表列举了各种基本数据类型的占用空间、取值范围和默认值。此表格无须硬背，大致理解即可，需要时可以通过查表来回忆。</p>
-<p align="center"> 表：基本数据类型的占用空间和取值范围 </p>
+<p>表 3-1 列举了各种基本数据类型的占用空间、取值范围和默认值。此表格无须硬背，大致理解即可，需要时可以通过查表来回忆。</p>
+<p align="center"> 表 3-1 &nbsp; 基本数据类型的占用空间和取值范围 </p>
 
 <div class="center-table">
 <table>
@@ -3443,9 +3443,9 @@
 </tbody>
 </table>
 </div>
-<p>对于上表，需要注意以下几点：</p>
+<p>对于表 3-1 ，需要注意以下几点：</p>
 <ul>
-<li>C, C++ 未明确规定基本数据类型大小，而因实现和平台各异。上表遵循 LP64 <a href="https://en.cppreference.com/w/cpp/language/types#Properties">数据模型</a>，其用于 Unix 64 位操作系统（例如 Linux , macOS）。</li>
+<li>C, C++ 未明确规定基本数据类型大小，而因实现和平台各异。表 3-1 遵循 LP64 <a href="https://en.cppreference.com/w/cpp/language/types#Properties">数据模型</a>，其用于 Unix 64 位操作系统（例如 Linux , macOS）。</li>
 <li>字符 <code>char</code> 的大小在 C, C++ 中为 1 字节，在大多数编程语言中取决于特定的字符编码方法，详见“字符编码”章节。</li>
 <li>即使表示布尔量仅需 1 位（<span class="arithmatex">\(0\)</span> 或 <span class="arithmatex">\(1\)</span>），它在内存中通常被存储为 1 字节。这是因为现代计算机 CPU 通常将 1 字节作为最小寻址内存单元。</li>
 </ul>

@@ -3474,7 +3474,7 @@
 <p class="admonition-title">例题一</p>
 <p>给定一个二叉树，搜索并记录所有值为 <span class="arithmatex">\(7\)</span> 的节点，请返回节点列表。</p>
 </div>
-<p>对于此题，我们前序遍历这颗树，并判断当前节点的值是否为 <span class="arithmatex">\(7\)</span> ，若是则将该节点的值加入到结果列表 <code>res</code> 之中。相关过程实现如下图和以下代码所示。</p>
+<p>对于此题，我们前序遍历这颗树，并判断当前节点的值是否为 <span class="arithmatex">\(7\)</span> ，若是则将该节点的值加入到结果列表 <code>res</code> 之中。相关过程实现如图 13-1 和以下代码所示。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3637,7 +3637,7 @@
 </div>
 </div>
 <p><img alt="在前序遍历中搜索节点" src="../backtracking_algorithm.assets/preorder_find_nodes.png" /></p>
-<p align="center"> 图：在前序遍历中搜索节点 </p>
+<p align="center"> 图 13-1 &nbsp; 在前序遍历中搜索节点 </p>
 
 <h2 id="1311">13.1.1 &nbsp; 尝试与回退<a class="headerlink" href="#1311" title="Permanent link">&para;</a></h2>
 <p><strong>之所以称之为回溯算法，是因为该算法在搜索解空间时会采用“尝试”与“回退”的策略</strong>。当算法在搜索过程中遇到某个状态无法继续前进或无法得到满足条件的解时，它会撤销上一步的选择，退回到之前的状态，并尝试其他可能的选择。</p>
@@ -3880,7 +3880,7 @@
 </div>
 </div>
 <p>在每次“尝试”中，我们通过将当前节点添加进 <code>path</code> 来记录路径；而在“回退”前，我们需要将该节点从 <code>path</code> 中弹出，<strong>以恢复本次尝试之前的状态</strong>。</p>
-<p>观察下图所示的过程，<strong>我们可以将尝试和回退理解为“前进”与“撤销”</strong>，两个操作是互为逆向的。</p>
+<p>观察图 13-2 所示的过程，<strong>我们可以将尝试和回退理解为“前进”与“撤销”</strong>，两个操作是互为逆向的。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:11"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label><label for="__tabbed_3_5">&lt;5&gt;</label><label for="__tabbed_3_6">&lt;6&gt;</label><label for="__tabbed_3_7">&lt;7&gt;</label><label for="__tabbed_3_8">&lt;8&gt;</label><label for="__tabbed_3_9">&lt;9&gt;</label><label for="__tabbed_3_10">&lt;10&gt;</label><label for="__tabbed_3_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3918,7 +3918,7 @@
 </div>
 </div>
 </div>
-<p align="center"> 图：尝试与回退 </p>
+<p align="center"> 图 13-2 &nbsp; 尝试与回退 </p>
 
 <h2 id="1312">13.1.2 &nbsp; 剪枝<a class="headerlink" href="#1312" title="Permanent link">&para;</a></h2>
 <p>复杂的回溯问题通常包含一个或多个约束条件，<strong>约束条件通常可用于“剪枝”</strong>。</p>
@@ -4189,9 +4189,9 @@
 </div>
 </div>
 </div>
-<p>剪枝是一个非常形象的名词。如下图所示，在搜索过程中，<strong>我们“剪掉”了不满足约束条件的搜索分支</strong>，避免许多无意义的尝试，从而提高了搜索效率。</p>
+<p>剪枝是一个非常形象的名词。如图 13-3 所示，在搜索过程中，<strong>我们“剪掉”了不满足约束条件的搜索分支</strong>，避免许多无意义的尝试，从而提高了搜索效率。</p>
 <p><img alt="根据约束条件剪枝" src="../backtracking_algorithm.assets/preorder_find_constrained_paths.png" /></p>
-<p align="center"> 图：根据约束条件剪枝 </p>
+<p align="center"> 图 13-3 &nbsp; 根据约束条件剪枝 </p>
 
 <h2 id="1313">13.1.3 &nbsp; 框架代码<a class="headerlink" href="#1313" title="Permanent link">&para;</a></h2>
 <p>接下来，我们尝试将回溯的“尝试、回退、剪枝”的主体框架提炼出来，提升代码的通用性。</p>
@@ -5003,9 +5003,9 @@
 </div>
 </div>
 </div>
-<p>根据题意，我们在找到值为 7 的节点后应该继续搜索，<strong>因此需要将记录解之后的 <code>return</code> 语句删除</strong>。下图对比了保留或删除 <code>return</code> 语句的搜索过程。</p>
+<p>根据题意，我们在找到值为 7 的节点后应该继续搜索，<strong>因此需要将记录解之后的 <code>return</code> 语句删除</strong>。图 13-4 对比了保留或删除 <code>return</code> 语句的搜索过程。</p>
 <p><img alt="保留与删除 return 的搜索过程对比" src="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png" /></p>
-<p align="center"> 图：保留与删除 return 的搜索过程对比 </p>
+<p align="center"> 图 13-4 &nbsp; 保留与删除 return 的搜索过程对比 </p>
 
 <p>相比基于前序遍历的代码实现，基于回溯算法框架的代码实现虽然显得啰嗦，但通用性更好。实际上，<strong>许多回溯问题都可以在该框架下解决</strong>。我们只需根据具体问题来定义 <code>state</code> 和 <code>choices</code> ，并实现框架中的各个方法即可。</p>
 <h2 id="1314">13.1.4 &nbsp; 常用术语<a class="headerlink" href="#1314" title="Permanent link">&para;</a></h2>

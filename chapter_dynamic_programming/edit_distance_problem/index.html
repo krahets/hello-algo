@@ -3440,15 +3440,15 @@
 <p>输入两个字符串 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> ，返回将 <span class="arithmatex">\(s\)</span> 转换为 <span class="arithmatex">\(t\)</span> 所需的最少编辑步数。</p>
 <p>你可以在一个字符串中进行三种编辑操作：插入一个字符、删除一个字符、替换字符为任意一个字符。</p>
 </div>
-<p>如下图所示，将 <code>kitten</code> 转换为 <code>sitting</code> 需要编辑 3 步，包括 2 次替换操作与 1 次添加操作；将 <code>hello</code> 转换为 <code>algo</code> 需要 3 步，包括 2 次替换操作和 1 次删除操作。</p>
+<p>如图 14-27 所示，将 <code>kitten</code> 转换为 <code>sitting</code> 需要编辑 3 步，包括 2 次替换操作与 1 次添加操作；将 <code>hello</code> 转换为 <code>algo</code> 需要 3 步，包括 2 次替换操作和 1 次删除操作。</p>
 <p><img alt="编辑距离的示例数据" src="../edit_distance_problem.assets/edit_distance_example.png" /></p>
-<p align="center"> 图：编辑距离的示例数据 </p>
+<p align="center"> 图 14-27 &nbsp; 编辑距离的示例数据 </p>
 
 <p><strong>编辑距离问题可以很自然地用决策树模型来解释</strong>。字符串对应树节点，一轮决策（一次编辑操作）对应树的一条边。</p>
-<p>如下图所示，在不限制操作的情况下，每个节点都可以派生出许多条边，每条边对应一种操作，这意味着从 <code>hello</code> 转换到 <code>algo</code> 有许多种可能的路径。</p>
+<p>如图 14-28 所示，在不限制操作的情况下，每个节点都可以派生出许多条边，每条边对应一种操作，这意味着从 <code>hello</code> 转换到 <code>algo</code> 有许多种可能的路径。</p>
 <p>从决策树的角度看，本题的目标是求解节点 <code>hello</code> 和节点 <code>algo</code> 之间的最短路径。</p>
 <p><img alt="基于决策树模型表示编辑距离问题" src="../edit_distance_problem.assets/edit_distance_decision_tree.png" /></p>
-<p align="center"> 图：基于决策树模型表示编辑距离问题 </p>
+<p align="center"> 图 14-28 &nbsp; 基于决策树模型表示编辑距离问题 </p>
 
 <h3 id="1">1. &nbsp; 动态规划思路<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p><strong>第一步：思考每轮的决策，定义状态，从而得到 <span class="arithmatex">\(dp\)</span> 表</strong></p>
@@ -3462,14 +3462,14 @@
 <p>状态 <span class="arithmatex">\([i, j]\)</span> 对应的子问题：<strong>将 <span class="arithmatex">\(s\)</span> 的前 <span class="arithmatex">\(i\)</span> 个字符更改为 <span class="arithmatex">\(t\)</span> 的前 <span class="arithmatex">\(j\)</span> 个字符所需的最少编辑步数</strong>。</p>
 <p>至此，得到一个尺寸为 <span class="arithmatex">\((i+1) \times (j+1)\)</span> 的二维 <span class="arithmatex">\(dp\)</span> 表。</p>
 <p><strong>第二步：找出最优子结构，进而推导出状态转移方程</strong></p>
-<p>考虑子问题 <span class="arithmatex">\(dp[i, j]\)</span> ，其对应的两个字符串的尾部字符为 <span class="arithmatex">\(s[i-1]\)</span> 和 <span class="arithmatex">\(t[j-1]\)</span> ，可根据不同编辑操作分为下图所示的三种情况：</p>
+<p>考虑子问题 <span class="arithmatex">\(dp[i, j]\)</span> ，其对应的两个字符串的尾部字符为 <span class="arithmatex">\(s[i-1]\)</span> 和 <span class="arithmatex">\(t[j-1]\)</span> ，可根据不同编辑操作分为图 14-29 所示的三种情况：</p>
 <ol>
 <li>在 <span class="arithmatex">\(s[i-1]\)</span> 之后添加 <span class="arithmatex">\(t[j-1]\)</span> ，则剩余子问题 <span class="arithmatex">\(dp[i, j-1]\)</span> 。</li>
 <li>删除 <span class="arithmatex">\(s[i-1]\)</span> ，则剩余子问题 <span class="arithmatex">\(dp[i-1, j]\)</span> 。</li>
 <li>将 <span class="arithmatex">\(s[i-1]\)</span> 替换为 <span class="arithmatex">\(t[j-1]\)</span> ，则剩余子问题 <span class="arithmatex">\(dp[i-1, j-1]\)</span> 。</li>
 </ol>
 <p><img alt="编辑距离的状态转移" src="../edit_distance_problem.assets/edit_distance_state_transfer.png" /></p>
-<p align="center"> 图：编辑距离的状态转移 </p>
+<p align="center"> 图 14-29 &nbsp; 编辑距离的状态转移 </p>
 
 <p>根据以上分析，可得最优子结构：<span class="arithmatex">\(dp[i, j]\)</span> 的最少编辑步数等于 <span class="arithmatex">\(dp[i, j-1]\)</span> , <span class="arithmatex">\(dp[i-1, j]\)</span> , <span class="arithmatex">\(dp[i-1, j-1]\)</span> 三者中的最少编辑步数，再加上本次的编辑步数 <span class="arithmatex">\(1\)</span> 。对应的状态转移方程为：</p>
 <div class="arithmatex">\[
@@ -3751,7 +3751,7 @@ dp[i, j] = dp[i-1, j-1]
 </div>
 </div>
 </div>
-<p>如下图所示，编辑距离问题的状态转移过程与背包问题非常类似，都可以看作是填写一个二维网格的过程。</p>
+<p>如图 14-30 所示，编辑距离问题的状态转移过程与背包问题非常类似，都可以看作是填写一个二维网格的过程。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:15"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><input id="__tabbed_2_13" name="__tabbed_2" type="radio" /><input id="__tabbed_2_14" name="__tabbed_2" type="radio" /><input id="__tabbed_2_15" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label><label for="__tabbed_2_9">&lt;9&gt;</label><label for="__tabbed_2_10">&lt;10&gt;</label><label for="__tabbed_2_11">&lt;11&gt;</label><label for="__tabbed_2_12">&lt;12&gt;</label><label for="__tabbed_2_13">&lt;13&gt;</label><label for="__tabbed_2_14">&lt;14&gt;</label><label for="__tabbed_2_15">&lt;15&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3801,7 +3801,7 @@ dp[i, j] = dp[i-1, j-1]
 </div>
 </div>
 </div>
-<p align="center"> 图：编辑距离的动态规划过程 </p>
+<p align="center"> 图 14-30 &nbsp; 编辑距离的动态规划过程 </p>
 
 <h3 id="3">3. &nbsp; 状态压缩<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>由于 <span class="arithmatex">\(dp[i,j]\)</span> 是由上方 <span class="arithmatex">\(dp[i-1, j]\)</span> 、左方 <span class="arithmatex">\(dp[i, j-1]\)</span> 、左上方状态 <span class="arithmatex">\(dp[i-1, j-1]\)</span> 转移而来，而正序遍历会丢失左上方 <span class="arithmatex">\(dp[i-1, j-1]\)</span> ，倒序遍历无法提前构建 <span class="arithmatex">\(dp[i, j-1]\)</span> ，因此两种遍历顺序都不可取。</p>

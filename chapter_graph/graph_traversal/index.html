@@ -3499,9 +3499,9 @@
 <p>图和树都是非线性数据结构，都需要使用搜索算法来实现遍历操作。</p>
 <p>与树类似，图的遍历方式也可分为两种，即「广度优先遍历 breadth-first traversal」和「深度优先遍历 depth-first traversal」。它们也被称为「广度优先搜索 breadth-first search」和「深度优先搜索 depth-first search」，简称 BFS 和 DFS 。</p>
 <h2 id="931">9.3.1 &nbsp; 广度优先遍历<a class="headerlink" href="#931" title="Permanent link">&para;</a></h2>
-<p><strong>广度优先遍历是一种由近及远的遍历方式，从某个节点出发，始终优先访问距离最近的顶点，并一层层向外扩张</strong>。如下图所示，从左上角顶点出发，先遍历该顶点的所有邻接顶点，然后遍历下一个顶点的所有邻接顶点，以此类推，直至所有顶点访问完毕。</p>
+<p><strong>广度优先遍历是一种由近及远的遍历方式，从某个节点出发，始终优先访问距离最近的顶点，并一层层向外扩张</strong>。如图 9-9 所示，从左上角顶点出发，先遍历该顶点的所有邻接顶点，然后遍历下一个顶点的所有邻接顶点，以此类推，直至所有顶点访问完毕。</p>
 <p><img alt="图的广度优先遍历" src="../graph_traversal.assets/graph_bfs.png" /></p>
-<p align="center"> 图：图的广度优先遍历 </p>
+<p align="center"> 图 9-9 &nbsp; 图的广度优先遍历 </p>
 
 <h3 id="1">1. &nbsp; 算法实现<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>BFS 通常借助队列来实现。队列具有“先入先出”的性质，这与 BFS 的“由近及远”的思想异曲同工。</p>
@@ -3853,7 +3853,7 @@
 </div>
 </div>
 </div>
-<p>代码相对抽象，建议对照下图来加深理解。</p>
+<p>代码相对抽象，建议对照图 9-10 来加深理解。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:11"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label><label for="__tabbed_2_9">&lt;9&gt;</label><label for="__tabbed_2_10">&lt;10&gt;</label><label for="__tabbed_2_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3891,19 +3891,19 @@
 </div>
 </div>
 </div>
-<p align="center"> 图：图的广度优先遍历步骤 </p>
+<p align="center"> 图 9-10 &nbsp; 图的广度优先遍历步骤 </p>
 
 <div class="admonition question">
 <p class="admonition-title">广度优先遍历的序列是否唯一？</p>
-<p>不唯一。广度优先遍历只要求按“由近及远”的顺序遍历，<strong>而多个相同距离的顶点的遍历顺序是允许被任意打乱的</strong>。以上图为例，顶点 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(3\)</span> 的访问顺序可以交换、顶点 <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(4\)</span> , <span class="arithmatex">\(6\)</span> 的访问顺序也可以任意交换。</p>
+<p>不唯一。广度优先遍历只要求按“由近及远”的顺序遍历，<strong>而多个相同距离的顶点的遍历顺序是允许被任意打乱的</strong>。以图 9-10 为例，顶点 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(3\)</span> 的访问顺序可以交换、顶点 <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(4\)</span> , <span class="arithmatex">\(6\)</span> 的访问顺序也可以任意交换。</p>
 </div>
 <h3 id="2">2. &nbsp; 复杂度分析<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p><strong>时间复杂度：</strong> 所有顶点都会入队并出队一次，使用 <span class="arithmatex">\(O(|V|)\)</span> 时间；在遍历邻接顶点的过程中，由于是无向图，因此所有边都会被访问 <span class="arithmatex">\(2\)</span> 次，使用 <span class="arithmatex">\(O(2|E|)\)</span> 时间；总体使用 <span class="arithmatex">\(O(|V| + |E|)\)</span> 时间。</p>
 <p><strong>空间复杂度：</strong> 列表 <code>res</code> ，哈希表 <code>visited</code> ，队列 <code>que</code> 中的顶点数量最多为 <span class="arithmatex">\(|V|\)</span> ，使用 <span class="arithmatex">\(O(|V|)\)</span> 空间。</p>
 <h2 id="932">9.3.2 &nbsp; 深度优先遍历<a class="headerlink" href="#932" title="Permanent link">&para;</a></h2>
-<p><strong>深度优先遍历是一种优先走到底、无路可走再回头的遍历方式</strong>。如下图所示，从左上角顶点出发，访问当前顶点的某个邻接顶点，直到走到尽头时返回，再继续走到尽头并返回，以此类推，直至所有顶点遍历完成。</p>
+<p><strong>深度优先遍历是一种优先走到底、无路可走再回头的遍历方式</strong>。如图 9-11 所示，从左上角顶点出发，访问当前顶点的某个邻接顶点，直到走到尽头时返回，再继续走到尽头并返回，以此类推，直至所有顶点遍历完成。</p>
 <p><img alt="图的深度优先遍历" src="../graph_traversal.assets/graph_dfs.png" /></p>
-<p align="center"> 图：图的深度优先遍历 </p>
+<p align="center"> 图 9-11 &nbsp; 图的深度优先遍历 </p>
 
 <h3 id="1_1">1. &nbsp; 算法实现<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
 <p>这种“走到尽头再返回”的算法范式通常基于递归来实现。与广度优先遍历类似，在深度优先遍历中我们也需要借助一个哈希表 <code>visited</code> 来记录已被访问的顶点，以避免重复访问顶点。</p>
@@ -4233,7 +4233,7 @@
 </div>
 </div>
 </div>
-<p>深度优先遍历的算法流程如下图所示，其中：</p>
+<p>深度优先遍历的算法流程如图 9-12 所示，其中：</p>
 <ul>
 <li><strong>直虚线代表向下递推</strong>，表示开启了一个新的递归方法来访问新顶点。</li>
 <li><strong>曲虚线代表向上回溯</strong>，表示此递归方法已经返回，回溯到了开启此递归方法的位置。</li>
@@ -4276,7 +4276,7 @@
 </div>
 </div>
 </div>
-<p align="center"> 图：图的深度优先遍历步骤 </p>
+<p align="center"> 图 9-12 &nbsp; 图的深度优先遍历步骤 </p>
 
 <div class="admonition question">
 <p class="admonition-title">深度优先遍历的序列是否唯一？</p>

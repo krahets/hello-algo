@@ -3587,9 +3587,9 @@
 <p>下面我们介绍两种更加取巧的方法。</p>
 <h3 id="1">1. &nbsp; 复用查找左边界<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>实际上，我们可以利用查找最左元素的函数来查找最右元素，具体方法为：<strong>将查找最右一个 <code>target</code> 转化为查找最左一个 <code>target + 1</code></strong>。</p>
-<p>如下图所示，查找完成后，指针 <span class="arithmatex">\(i\)</span> 指向最左一个 <code>target + 1</code>（如果存在），而 <span class="arithmatex">\(j\)</span> 指向最右一个 <code>target</code> ，<strong>因此返回 <span class="arithmatex">\(j\)</span> 即可</strong>。</p>
+<p>如图 10-7 所示，查找完成后，指针 <span class="arithmatex">\(i\)</span> 指向最左一个 <code>target + 1</code>（如果存在），而 <span class="arithmatex">\(j\)</span> 指向最右一个 <code>target</code> ，<strong>因此返回 <span class="arithmatex">\(j\)</span> 即可</strong>。</p>
 <p><img alt="将查找右边界转化为查找左边界" src="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" /></p>
-<p align="center"> 图：将查找右边界转化为查找左边界 </p>
+<p align="center"> 图 10-7 &nbsp; 将查找右边界转化为查找左边界 </p>
 
 <p>请注意，返回的插入点是 <span class="arithmatex">\(i\)</span> ，因此需要将其减 <span class="arithmatex">\(1\)</span> ，从而获得 <span class="arithmatex">\(j\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
@@ -3716,13 +3716,13 @@
 </div>
 <h3 id="2">2. &nbsp; 转化为查找元素<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>我们知道，当数组不包含 <code>target</code> 时，最后 <span class="arithmatex">\(i\)</span> , <span class="arithmatex">\(j\)</span> 会分别指向首个大于、小于 <code>target</code> 的元素。</p>
-<p>根据上述结论，我们可以构造一个数组中不存在的元素，用于查找左右边界，如下图所示。</p>
+<p>根据上述结论，我们可以构造一个数组中不存在的元素，用于查找左右边界，如图 10-8 所示。</p>
 <ul>
 <li>查找最左一个 <code>target</code> ：可以转化为查找 <code>target - 0.5</code> ，并返回指针 <span class="arithmatex">\(i\)</span> 。</li>
 <li>查找最右一个 <code>target</code> ：可以转化为查找 <code>target + 0.5</code> ，并返回指针 <span class="arithmatex">\(j\)</span> 。</li>
 </ul>
 <p><img alt="将查找边界转化为查找元素" src="../binary_search_edge.assets/binary_search_edge_by_element.png" /></p>
-<p align="center"> 图：将查找边界转化为查找元素 </p>
+<p align="center"> 图 10-8 &nbsp; 将查找边界转化为查找元素 </p>
 
 <p>代码在此省略，值得注意的有：</p>
 <ul>
