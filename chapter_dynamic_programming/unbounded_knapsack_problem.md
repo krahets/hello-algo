@@ -15,7 +15,7 @@ status: new
 
 ![完全背包问题的示例数据](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png)
 
-<p align="center"> 图：完全背包问题的示例数据 </p>
+<p align="center"> 图 14-22 &nbsp; 完全背包问题的示例数据 </p>
 
 ### 1. &nbsp; 动态规划思路
 
@@ -276,7 +276,7 @@ $$
 
 由于当前状态是从左边和上边的状态转移而来，**因此状态压缩后应该对 $dp$ 表中的每一行采取正序遍历**。
 
-这个遍历顺序与 0-1 背包正好相反。请借助下图来理解两者的区别。
+这个遍历顺序与 0-1 背包正好相反。请借助图 14-23 来理解两者的区别。
 
 === "<1>"
     ![完全背包的状态压缩后的动态规划过程](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
@@ -296,7 +296,7 @@ $$
 === "<6>"
     ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png)
 
-<p align="center"> 图：完全背包的状态压缩后的动态规划过程 </p>
+<p align="center"> 图 14-23 &nbsp; 完全背包的状态压缩后的动态规划过程 </p>
 
 代码实现比较简单，仅需将数组 `dp` 的第一维删除。
 
@@ -541,7 +541,7 @@ $$
 
 ![零钱兑换问题的示例数据](unbounded_knapsack_problem.assets/coin_change_example.png)
 
-<p align="center"> 图：零钱兑换问题的示例数据 </p>
+<p align="center"> 图 14-24 &nbsp; 零钱兑换问题的示例数据 </p>
 
 ### 1. &nbsp; 动态规划思路
 
@@ -866,7 +866,7 @@ $$
     }
     ```
 
-下图展示了零钱兑换的动态规划过程，和完全背包非常相似。
+图 14-25 展示了零钱兑换的动态规划过程，和完全背包非常相似。
 
 === "<1>"
     ![零钱兑换问题的动态规划过程](unbounded_knapsack_problem.assets/coin_change_dp_step1.png)
@@ -913,7 +913,7 @@ $$
 === "<15>"
     ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.png)
 
-<p align="center"> 图：零钱兑换问题的动态规划过程 </p>
+<p align="center"> 图 14-25 &nbsp; 零钱兑换问题的动态规划过程 </p>
 
 ### 3. &nbsp; 状态压缩
 
@@ -1190,7 +1190,7 @@ $$
 
 ![零钱兑换问题 II 的示例数据](unbounded_knapsack_problem.assets/coin_change_ii_example.png)
 
-<p align="center"> 图：零钱兑换问题 II 的示例数据 </p>
+<p align="center"> 图 14-26 &nbsp; 零钱兑换问题 II 的示例数据 </p>
 
 ### 1. &nbsp; 动态规划思路
 

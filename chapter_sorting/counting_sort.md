@@ -8,7 +8,7 @@ comments: true
 
 ## 11.9.1 &nbsp; 简单实现
 
-先来看一个简单的例子。给定一个长度为 $n$ 的数组 `nums` ，其中的元素都是“非负整数”，计数排序的整体流程如下图所示。
+先来看一个简单的例子。给定一个长度为 $n$ 的数组 `nums` ，其中的元素都是“非负整数”，计数排序的整体流程如图 11-16 所示。
 
 1. 遍历数组，找出数组中的最大数字，记为 $m$ ，然后创建一个长度为 $m + 1$ 的辅助数组 `counter` 。
 2. **借助 `counter` 统计 `nums` 中各数字的出现次数**，其中 `counter[num]` 对应数字 `num` 的出现次数。统计方法很简单，只需遍历 `nums`（设当前数字为 `num`），每轮将 `counter[num]` 增加 $1$ 即可。
@@ -16,7 +16,7 @@ comments: true
 
 ![计数排序流程](counting_sort.assets/counting_sort_overview.png)
 
-<p align="center"> 图：计数排序流程 </p>
+<p align="center"> 图 11-16 &nbsp; 计数排序流程 </p>
 
 === "Java"
 
@@ -336,7 +336,7 @@ $$
 1. 将 `num` 填入数组 `res` 的索引 `prefix[num] - 1` 处。
 2. 令前缀和 `prefix[num]` 减小 $1$ ，从而得到下次放置 `num` 的索引。
 
-遍历完成后，数组 `res` 中就是排序好的结果，最后使用 `res` 覆盖原数组 `nums` 即可。下图展示了完整的计数排序流程。
+遍历完成后，数组 `res` 中就是排序好的结果，最后使用 `res` 覆盖原数组 `nums` 即可。图 11-17 展示了完整的计数排序流程。
 
 === "<1>"
     ![计数排序步骤](counting_sort.assets/counting_sort_step1.png)
@@ -362,7 +362,7 @@ $$
 === "<8>"
     ![counting_sort_step8](counting_sort.assets/counting_sort_step8.png)
 
-<p align="center"> 图：计数排序步骤 </p>
+<p align="center"> 图 11-17 &nbsp; 计数排序步骤 </p>
 
 计数排序的实现代码如下所示。
 

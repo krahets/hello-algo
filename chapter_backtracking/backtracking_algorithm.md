@@ -12,7 +12,7 @@ comments: true
 
     给定一个二叉树，搜索并记录所有值为 $7$ 的节点，请返回节点列表。
 
-对于此题，我们前序遍历这颗树，并判断当前节点的值是否为 $7$ ，若是则将该节点的值加入到结果列表 `res` 之中。相关过程实现如下图和以下代码所示。
+对于此题，我们前序遍历这颗树，并判断当前节点的值是否为 $7$ ，若是则将该节点的值加入到结果列表 `res` 之中。相关过程实现如图 13-1 和以下代码所示。
 
 === "Java"
 
@@ -197,7 +197,7 @@ comments: true
 
 ![在前序遍历中搜索节点](backtracking_algorithm.assets/preorder_find_nodes.png)
 
-<p align="center"> 图：在前序遍历中搜索节点 </p>
+<p align="center"> 图 13-1 &nbsp; 在前序遍历中搜索节点 </p>
 
 ## 13.1.1 &nbsp; 尝试与回退
 
@@ -466,7 +466,7 @@ comments: true
 
 在每次“尝试”中，我们通过将当前节点添加进 `path` 来记录路径；而在“回退”前，我们需要将该节点从 `path` 中弹出，**以恢复本次尝试之前的状态**。
 
-观察下图所示的过程，**我们可以将尝试和回退理解为“前进”与“撤销”**，两个操作是互为逆向的。
+观察图 13-2 所示的过程，**我们可以将尝试和回退理解为“前进”与“撤销”**，两个操作是互为逆向的。
 
 === "<1>"
     ![尝试与回退](backtracking_algorithm.assets/preorder_find_paths_step1.png)
@@ -501,7 +501,7 @@ comments: true
 === "<11>"
     ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
 
-<p align="center"> 图：尝试与回退 </p>
+<p align="center"> 图 13-2 &nbsp; 尝试与回退 </p>
 
 ## 13.1.2 &nbsp; 剪枝
 
@@ -795,11 +795,11 @@ comments: true
     }
     ```
 
-剪枝是一个非常形象的名词。如下图所示，在搜索过程中，**我们“剪掉”了不满足约束条件的搜索分支**，避免许多无意义的尝试，从而提高了搜索效率。
+剪枝是一个非常形象的名词。如图 13-3 所示，在搜索过程中，**我们“剪掉”了不满足约束条件的搜索分支**，避免许多无意义的尝试，从而提高了搜索效率。
 
 ![根据约束条件剪枝](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
 
-<p align="center"> 图：根据约束条件剪枝 </p>
+<p align="center"> 图 13-3 &nbsp; 根据约束条件剪枝 </p>
 
 ## 13.1.3 &nbsp; 框架代码
 
@@ -1655,11 +1655,11 @@ comments: true
     }
     ```
 
-根据题意，我们在找到值为 7 的节点后应该继续搜索，**因此需要将记录解之后的 `return` 语句删除**。下图对比了保留或删除 `return` 语句的搜索过程。
+根据题意，我们在找到值为 7 的节点后应该继续搜索，**因此需要将记录解之后的 `return` 语句删除**。图 13-4 对比了保留或删除 `return` 语句的搜索过程。
 
 ![保留与删除 return 的搜索过程对比](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
 
-<p align="center"> 图：保留与删除 return 的搜索过程对比 </p>
+<p align="center"> 图 13-4 &nbsp; 保留与删除 return 的搜索过程对比 </p>
 
 相比基于前序遍历的代码实现，基于回溯算法框架的代码实现虽然显得啰嗦，但通用性更好。实际上，**许多回溯问题都可以在该框架下解决**。我们只需根据具体问题来定义 `state` 和 `choices` ，并实现框架中的各个方法即可。
 

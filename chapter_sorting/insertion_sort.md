@@ -8,15 +8,15 @@ comments: true
 
 具体来说，我们在未排序区间选择一个基准元素，将该元素与其左侧已排序区间的元素逐一比较大小，并将该元素插入到正确的位置。
 
-下图展示了数组插入元素的操作流程。设基准元素为 `base` ，我们需要将从目标索引到 `base` 之间的所有元素向右移动一位，然后再将 `base` 赋值给目标索引。
+图 11-6 展示了数组插入元素的操作流程。设基准元素为 `base` ，我们需要将从目标索引到 `base` 之间的所有元素向右移动一位，然后再将 `base` 赋值给目标索引。
 
 ![单次插入操作](insertion_sort.assets/insertion_operation.png)
 
-<p align="center"> 图：单次插入操作 </p>
+<p align="center"> 图 11-6 &nbsp; 单次插入操作 </p>
 
 ## 11.4.1 &nbsp; 算法流程
 
-插入排序的整体流程如下图所示。
+插入排序的整体流程如图 11-7 所示。
 
 1. 初始状态下，数组的第 1 个元素已完成排序。
 2. 选取数组的第 2 个元素作为 `base` ，将其插入到正确位置后，**数组的前 2 个元素已排序**。
@@ -25,7 +25,7 @@ comments: true
 
 ![插入排序流程](insertion_sort.assets/insertion_sort_overview.png)
 
-<p align="center"> 图：插入排序流程 </p>
+<p align="center"> 图 11-7 &nbsp; 插入排序流程 </p>
 
 === "Java"
 

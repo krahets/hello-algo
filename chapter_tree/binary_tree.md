@@ -167,15 +167,15 @@ comments: true
 
 每个节点都有两个引用（指针），分别指向「左子节点 left-child node」和「右子节点 right-child node」，该节点被称为这两个子节点的「父节点 parent node」。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的「左子树 left subtree」，同理可得「右子树 right subtree」。
 
-**在二叉树中，除叶节点外，其他所有节点都包含子节点和非空子树**。如下图所示，如果将“节点 2”视为父节点，则其左子节点和右子节点分别是“节点 4”和“节点 5”，左子树是“节点 4 及其以下节点形成的树”，右子树是“节点 5 及其以下节点形成的树”。
+**在二叉树中，除叶节点外，其他所有节点都包含子节点和非空子树**。如图 7-1 所示，如果将“节点 2”视为父节点，则其左子节点和右子节点分别是“节点 4”和“节点 5”，左子树是“节点 4 及其以下节点形成的树”，右子树是“节点 5 及其以下节点形成的树”。
 
 ![父节点、子节点、子树](binary_tree.assets/binary_tree_definition.png)
 
-<p align="center"> 图：父节点、子节点、子树 </p>
+<p align="center"> 图 7-1 &nbsp; 父节点、子节点、子树 </p>
 
 ## 7.1.1 &nbsp; 二叉树常见术语
 
-二叉树的常用术语如下图所示。
+二叉树的常用术语如图 7-2 所示。
 
 - 「根节点 root node」：位于二叉树顶层的节点，没有父节点。
 - 「叶节点 leaf node」：没有子节点的节点，其两个指针均指向 $\text{None}$ 。
@@ -188,7 +188,7 @@ comments: true
 
 ![二叉树的常用术语](binary_tree.assets/binary_tree_terminology.png)
 
-<p align="center"> 图：二叉树的常用术语 </p>
+<p align="center"> 图 7-2 &nbsp; 二叉树的常用术语 </p>
 
 !!! tip "高度与深度的定义"
 
@@ -382,11 +382,11 @@ comments: true
 
 ### 2. &nbsp; 插入与删除节点
 
-与链表类似，在二叉树中插入与删除节点可以通过修改指针来实现。下图给出了一个示例。
+与链表类似，在二叉树中插入与删除节点可以通过修改指针来实现。图 7-3 给出了一个示例。
 
 ![在二叉树中插入与删除节点](binary_tree.assets/binary_tree_add_remove.png)
 
-<p align="center"> 图：在二叉树中插入与删除节点 </p>
+<p align="center"> 图 7-3 &nbsp; 在二叉树中插入与删除节点 </p>
 
 === "Java"
 
@@ -534,31 +534,31 @@ comments: true
 
 ![完美二叉树](binary_tree.assets/perfect_binary_tree.png)
 
-<p align="center"> 图：完美二叉树 </p>
+<p align="center"> 图 7-4 &nbsp; 完美二叉树 </p>
 
 ### 2. &nbsp; 完全二叉树
 
-如下图所示，「完全二叉树 complete binary tree」只有最底层的节点未被填满，且最底层节点尽量靠左填充。
+如图 7-5 所示，「完全二叉树 complete binary tree」只有最底层的节点未被填满，且最底层节点尽量靠左填充。
 
 ![完全二叉树](binary_tree.assets/complete_binary_tree.png)
 
-<p align="center"> 图：完全二叉树 </p>
+<p align="center"> 图 7-5 &nbsp; 完全二叉树 </p>
 
 ### 3. &nbsp; 完满二叉树
 
-如下图所示，「完满二叉树 full binary tree」除了叶节点之外，其余所有节点都有两个子节点。
+如图 7-6 所示，「完满二叉树 full binary tree」除了叶节点之外，其余所有节点都有两个子节点。
 
 ![完满二叉树](binary_tree.assets/full_binary_tree.png)
 
-<p align="center"> 图：完满二叉树 </p>
+<p align="center"> 图 7-6 &nbsp; 完满二叉树 </p>
 
 ### 4. &nbsp; 平衡二叉树
 
-如下图所示，「平衡二叉树 balanced binary tree」中任意节点的左子树和右子树的高度之差的绝对值不超过 1 。
+如图 7-7 所示，「平衡二叉树 balanced binary tree」中任意节点的左子树和右子树的高度之差的绝对值不超过 1 。
 
 ![平衡二叉树](binary_tree.assets/balanced_binary_tree.png)
 
-<p align="center"> 图：平衡二叉树 </p>
+<p align="center"> 图 7-7 &nbsp; 平衡二叉树 </p>
 
 ## 7.1.4 &nbsp; 二叉树的退化
 
@@ -569,11 +569,11 @@ comments: true
 
 ![二叉树的最佳与最差结构](binary_tree.assets/binary_tree_best_worst_cases.png)
 
-<p align="center"> 图：二叉树的最佳与最差结构 </p>
+<p align="center"> 图 7-8 &nbsp; 二叉树的最佳与最差结构 </p>
 
-如下表所示，在最佳和最差结构下，二叉树的叶节点数量、节点总数、高度等达到极大或极小值。
+如表 7-1 所示，在最佳和最差结构下，二叉树的叶节点数量、节点总数、高度等达到极大或极小值。
 
-<p align="center"> 表：二叉树的最佳与最差情况 </p>
+<p align="center"> 表 7-1 &nbsp; 二叉树的最佳与最差情况 </p>
 
 <div class="center-table" markdown>
 

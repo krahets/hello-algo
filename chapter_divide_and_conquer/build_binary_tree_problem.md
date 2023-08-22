@@ -11,7 +11,7 @@ status: new
 
 ![构建二叉树的示例数据](build_binary_tree_problem.assets/build_tree_example.png)
 
-<p align="center"> 图：构建二叉树的示例数据 </p>
+<p align="center"> 图 12-5 &nbsp; 构建二叉树的示例数据 </p>
 
 ### 1. &nbsp; 判断是否为分治问题
 
@@ -27,10 +27,10 @@ status: new
 
 根据定义，`preorder` 和 `inorder` 都可以被划分为三个部分：
 
-- 前序遍历：`[ 根节点 | 左子树 | 右子树 ]` ，例如上图 `[ 3 | 9 | 2 1 7 ]` 。
-- 中序遍历：`[ 左子树 | 根节点 ｜ 右子树 ]` ，例如上图 `[ 9 | 3 | 1 2 7 ]` 。
+- 前序遍历：`[ 根节点 | 左子树 | 右子树 ]` ，例如图 12-5 的树对应 `[ 3 | 9 | 2 1 7 ]` 。
+- 中序遍历：`[ 左子树 | 根节点 ｜ 右子树 ]` ，例如图 12-5 的树对应 `[ 9 | 3 | 1 2 7 ]` 。
 
-以上图数据为例，我们可以通过下图所示的步骤得到划分结果：
+以上图数据为例，我们可以通过图 12-6 所示的步骤得到划分结果：
 
 1. 前序遍历的首元素 3 是根节点的值。
 2. 查找根节点 3 在 `inorder` 中的索引，利用该索引可将 `inorder` 划分为 `[ 9 | 3 ｜ 1 2 7 ]` 。
@@ -38,7 +38,7 @@ status: new
 
 ![在前序和中序遍历中划分子树](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
 
-<p align="center"> 图：在前序和中序遍历中划分子树 </p>
+<p align="center"> 图 12-6 &nbsp; 在前序和中序遍历中划分子树 </p>
 
 ### 3. &nbsp; 基于变量描述子树区间
 
@@ -48,9 +48,9 @@ status: new
 - 将当前树的根节点在 `inorder` 中的索引记为 $m$ 。
 - 将当前树在 `inorder` 中的索引区间记为 $[l, r]$ 。
 
-如下表所示，通过以上变量即可表示根节点在 `preorder` 中的索引，以及子树在 `inorder` 中的索引区间。
+如表 12-1 所示，通过以上变量即可表示根节点在 `preorder` 中的索引，以及子树在 `inorder` 中的索引区间。
 
-<p align="center"> 表：根节点和子树在前序和中序遍历中的索引 </p>
+<p align="center"> 表 12-1 &nbsp; 根节点和子树在前序和中序遍历中的索引 </p>
 
 <div class="center-table" markdown>
 
@@ -62,11 +62,11 @@ status: new
 
 </div>
 
-请注意，右子树根节点索引中的 $(m-l)$ 的含义是“左子树的节点数量”，建议配合下图理解。
+请注意，右子树根节点索引中的 $(m-l)$ 的含义是“左子树的节点数量”，建议配合图 12-7 理解。
 
 ![根节点和左右子树的索引区间表示](build_binary_tree_problem.assets/build_tree_division_pointers.png)
 
-<p align="center"> 图：根节点和左右子树的索引区间表示 </p>
+<p align="center"> 图 12-7 &nbsp; 根节点和左右子树的索引区间表示 </p>
 
 ### 4. &nbsp; 代码实现
 
@@ -400,7 +400,7 @@ status: new
     }
     ```
 
-下图展示了构建二叉树的递归过程，各个节点是在向下“递”的过程中建立的，而各条边（即引用）是在向上“归”的过程中建立的。
+图 12-8 展示了构建二叉树的递归过程，各个节点是在向下“递”的过程中建立的，而各条边（即引用）是在向上“归”的过程中建立的。
 
 === "<1>"
     ![构建二叉树的递归过程](build_binary_tree_problem.assets/built_tree_step1.png)
@@ -432,7 +432,7 @@ status: new
 === "<10>"
     ![built_tree_step10](build_binary_tree_problem.assets/built_tree_step10.png)
 
-<p align="center"> 图：构建二叉树的递归过程 </p>
+<p align="center"> 图 12-8 &nbsp; 构建二叉树的递归过程 </p>
 
 设树的节点数量为 $n$ ，初始化每一个节点（执行一个递归函数 `dfs()` ）使用 $O(1)$ 时间。**因此总体时间复杂度为 $O(n)$** 。
 

@@ -4,17 +4,17 @@ comments: true
 
 # 5.3 &nbsp; 双向队列
 
-在队列中，我们仅能在头部删除或在尾部添加元素。如下图所示，「双向队列 deque」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
+在队列中，我们仅能在头部删除或在尾部添加元素。如图 5-7 所示，「双向队列 deque」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
 
 ![双向队列的操作](deque.assets/deque_operations.png)
 
-<p align="center"> 图：双向队列的操作 </p>
+<p align="center"> 图 5-7 &nbsp; 双向队列的操作 </p>
 
 ## 5.3.1 &nbsp; 双向队列常用操作
 
-双向队列的常用操作如下表所示，具体的方法名称需要根据所使用的编程语言来确定。
+双向队列的常用操作如表 5-3 所示，具体的方法名称需要根据所使用的编程语言来确定。
 
-<p align="center"> 表：双向队列操作效率 </p>
+<p align="center"> 表 5-3 &nbsp; 双向队列操作效率 </p>
 
 <div class="center-table" markdown>
 
@@ -336,7 +336,7 @@ comments: true
 
 对于双向队列而言，头部和尾部都可以执行入队和出队操作。换句话说，双向队列需要实现另一个对称方向的操作。为此，我们采用“双向链表”作为双向队列的底层数据结构。
 
-如下图所示，我们将双向链表的头节点和尾节点视为双向队列的队首和队尾，同时实现在两端添加和删除节点的功能。
+如图 5-8 所示，我们将双向链表的头节点和尾节点视为双向队列的队首和队尾，同时实现在两端添加和删除节点的功能。
 
 === "LinkedListDeque"
     ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque.png)
@@ -353,7 +353,7 @@ comments: true
 === "popFirst()"
     ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_pop_first.png)
 
-<p align="center"> 图：基于链表实现双向队列的入队出队操作 </p>
+<p align="center"> 图 5-8 &nbsp; 基于链表实现双向队列的入队出队操作 </p>
 
 实现代码如下所示。
 
@@ -1975,7 +1975,7 @@ comments: true
 
 ### 2. &nbsp; 基于数组的实现
 
-如下图所示，与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。
+如图 5-9 所示，与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。
 
 === "ArrayDeque"
     ![基于数组实现双向队列的入队出队操作](deque.assets/array_deque.png)
@@ -1992,7 +1992,7 @@ comments: true
 === "popFirst()"
     ![array_deque_pop_first](deque.assets/array_deque_pop_first.png)
 
-<p align="center"> 图：基于数组实现双向队列的入队出队操作 </p>
+<p align="center"> 图 5-9 &nbsp; 基于数组实现双向队列的入队出队操作 </p>
 
 在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法。
 

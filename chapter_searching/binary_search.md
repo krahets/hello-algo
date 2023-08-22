@@ -12,9 +12,9 @@ comments: true
 
 ![二分查找示例数据](binary_search.assets/binary_search_example.png)
 
-<p align="center"> 图：二分查找示例数据 </p>
+<p align="center"> 图 10-1 &nbsp; 二分查找示例数据 </p>
 
-如下图所示，我们先初始化指针 $i = 0$ 和 $j = n - 1$ ，分别指向数组首元素和尾元素，代表搜索区间 $[0, n - 1]$ 。请注意，中括号表示闭区间，其包含边界值本身。
+如图 10-2 所示，我们先初始化指针 $i = 0$ 和 $j = n - 1$ ，分别指向数组首元素和尾元素，代表搜索区间 $[0, n - 1]$ 。请注意，中括号表示闭区间，其包含边界值本身。
 
 接下来，循环执行以下两个步骤：
 
@@ -47,7 +47,7 @@ comments: true
 === "<7>"
     ![binary_search_step7](binary_search.assets/binary_search_step7.png)
 
-<p align="center"> 图：binary_search_step1 </p>
+<p align="center"> 图 10-2 &nbsp; binary_search_step1 </p>
 
 值得注意的是，由于 $i$ 和 $j$ 都是 `int` 类型，**因此 $i + j$ 可能会超出 `int` 类型的取值范围**。为了避免大数越界，我们通常采用公式 $m = \lfloor {i + (j - i) / 2} \rfloor$ 来计算中点。
 
@@ -623,13 +623,13 @@ comments: true
     }
     ```
 
-如下图所示，在两种区间表示下，二分查找算法的初始化、循环条件和缩小区间操作皆有所不同。
+如图 10-3 所示，在两种区间表示下，二分查找算法的初始化、循环条件和缩小区间操作皆有所不同。
 
 由于“双闭区间”表示中的左右边界都被定义为闭区间，因此指针 $i$ 和 $j$ 缩小区间操作也是对称的。这样更不容易出错，**因此一般建议采用“双闭区间”的写法**。
 
 ![两种区间定义](binary_search.assets/binary_search_ranges.png)
 
-<p align="center"> 图：两种区间定义 </p>
+<p align="center"> 图 10-3 &nbsp; 两种区间定义 </p>
 
 ## 10.1.2 &nbsp; 优点与局限性
 

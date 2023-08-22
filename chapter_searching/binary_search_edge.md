@@ -160,11 +160,11 @@ status: new
 
 实际上，我们可以利用查找最左元素的函数来查找最右元素，具体方法为：**将查找最右一个 `target` 转化为查找最左一个 `target + 1`**。
 
-如下图所示，查找完成后，指针 $i$ 指向最左一个 `target + 1`（如果存在），而 $j$ 指向最右一个 `target` ，**因此返回 $j$ 即可**。
+如图 10-7 所示，查找完成后，指针 $i$ 指向最左一个 `target + 1`（如果存在），而 $j$ 指向最右一个 `target` ，**因此返回 $j$ 即可**。
 
 ![将查找右边界转化为查找左边界](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png)
 
-<p align="center"> 图：将查找右边界转化为查找左边界 </p>
+<p align="center"> 图 10-7 &nbsp; 将查找右边界转化为查找左边界 </p>
 
 请注意，返回的插入点是 $i$ ，因此需要将其减 $1$ ，从而获得 $j$ 。
 
@@ -314,14 +314,14 @@ status: new
 
 我们知道，当数组不包含 `target` 时，最后 $i$ , $j$ 会分别指向首个大于、小于 `target` 的元素。
 
-根据上述结论，我们可以构造一个数组中不存在的元素，用于查找左右边界，如下图所示。
+根据上述结论，我们可以构造一个数组中不存在的元素，用于查找左右边界，如图 10-8 所示。
 
 - 查找最左一个 `target` ：可以转化为查找 `target - 0.5` ，并返回指针 $i$ 。
 - 查找最右一个 `target` ：可以转化为查找 `target + 0.5` ，并返回指针 $j$ 。
 
 ![将查找边界转化为查找元素](binary_search_edge.assets/binary_search_edge_by_element.png)
 
-<p align="center"> 图：将查找边界转化为查找元素 </p>
+<p align="center"> 图 10-8 &nbsp; 将查找边界转化为查找元素 </p>
 
 代码在此省略，值得注意的有：
 

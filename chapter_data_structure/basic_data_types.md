@@ -20,9 +20,9 @@ comments: true
 - 整数类型 `byte` 占用 $1$ byte = $8$ bits ，可以表示 $2^{8}$ 个数字。
 - 整数类型 `int` 占用 $4$ bytes = $32$ bits ，可以表示 $2^{32}$ 个数字。
 
-下表列举了各种基本数据类型的占用空间、取值范围和默认值。此表格无须硬背，大致理解即可，需要时可以通过查表来回忆。
+表 3-1 列举了各种基本数据类型的占用空间、取值范围和默认值。此表格无须硬背，大致理解即可，需要时可以通过查表来回忆。
 
-<p align="center"> 表：基本数据类型的占用空间和取值范围 </p>
+<p align="center"> 表 3-1 &nbsp; 基本数据类型的占用空间和取值范围 </p>
 
 <div class="center-table" markdown>
 
@@ -39,9 +39,9 @@ comments: true
 
 </div>
 
-对于上表，需要注意以下几点：
+对于表 3-1 ，需要注意以下几点：
 
-- C, C++ 未明确规定基本数据类型大小，而因实现和平台各异。上表遵循 LP64 [数据模型](https://en.cppreference.com/w/cpp/language/types#Properties)，其用于 Unix 64 位操作系统（例如 Linux , macOS）。
+- C, C++ 未明确规定基本数据类型大小，而因实现和平台各异。表 3-1 遵循 LP64 [数据模型](https://en.cppreference.com/w/cpp/language/types#Properties)，其用于 Unix 64 位操作系统（例如 Linux , macOS）。
 - 字符 `char` 的大小在 C, C++ 中为 1 字节，在大多数编程语言中取决于特定的字符编码方法，详见“字符编码”章节。
 - 即使表示布尔量仅需 1 位（$0$ 或 $1$），它在内存中通常被存储为 1 字节。这是因为现代计算机 CPU 通常将 1 字节作为最小寻址内存单元。
 

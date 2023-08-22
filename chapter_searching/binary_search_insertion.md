@@ -15,7 +15,7 @@ status: new
 
 ![二分查找插入点示例数据](binary_search_insertion.assets/binary_search_insertion_example.png)
 
-<p align="center"> 图：二分查找插入点示例数据 </p>
+<p align="center"> 图 10-4 &nbsp; 二分查找插入点示例数据 </p>
 
 如果想要复用上节的二分查找代码，则需要回答以下两个问题。
 
@@ -196,18 +196,18 @@ status: new
 
 假设数组中存在多个 `target` ，则普通二分查找只能返回其中一个 `target` 的索引，**而无法确定该元素的左边和右边还有多少 `target`**。
 
-题目要求将目标元素插入到最左边，**所以我们需要查找数组中最左一个 `target` 的索引**。初步考虑通过下图所示的步骤实现。
+题目要求将目标元素插入到最左边，**所以我们需要查找数组中最左一个 `target` 的索引**。初步考虑通过图 10-5 所示的步骤实现。
 
 1. 执行二分查找，得到任意一个 `target` 的索引，记为 $k$ 。
 2. 从索引 $k$ 开始，向左进行线性遍历，当找到最左边的 `target` 时返回。
 
 ![线性查找重复元素的插入点](binary_search_insertion.assets/binary_search_insertion_naive.png)
 
-<p align="center"> 图：线性查找重复元素的插入点 </p>
+<p align="center"> 图 10-5 &nbsp; 线性查找重复元素的插入点 </p>
 
 此方法虽然可用，但其包含线性查找，因此时间复杂度为 $O(n)$ 。当数组中存在很多重复的 `target` 时，该方法效率很低。
 
-现考虑拓展二分查找代码。如下图所示，整体流程保持不变，每轮先计算中点索引 $m$ ，再判断 `target` 和 `nums[m]` 大小关系：
+现考虑拓展二分查找代码。如图 10-6 所示，整体流程保持不变，每轮先计算中点索引 $m$ ，再判断 `target` 和 `nums[m]` 大小关系：
 
 1. 当 `nums[m] < target` 或 `nums[m] > target` 时，说明还没有找到 `target` ，因此采用普通二分查找的缩小区间操作，**从而使指针 $i$ 和 $j$ 向 `target` 靠近**。
 2. 当 `nums[m] == target` 时，说明小于 `target` 的元素在区间 $[i, m - 1]$ 中，因此采用 $j = m - 1$ 来缩小区间，**从而使指针 $j$ 向小于 `target` 的元素靠近**。
@@ -238,7 +238,7 @@ status: new
 === "<8>"
     ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.png)
 
-<p align="center"> 图：二分查找重复元素的插入点的步骤 </p>
+<p align="center"> 图 10-6 &nbsp; 二分查找重复元素的插入点的步骤 </p>
 
 观察以下代码，判断分支 `nums[m] > target` 和 `nums[m] == target` 的操作相同，因此两者可以合并。
 

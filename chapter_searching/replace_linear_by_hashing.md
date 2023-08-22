@@ -12,11 +12,11 @@ comments: true
 
 ## 10.4.1 &nbsp; 线性查找：以时间换空间
 
-考虑直接遍历所有可能的组合。如下图所示，我们开启一个两层循环，在每轮中判断两个整数的和是否为 `target` ，若是则返回它们的索引。
+考虑直接遍历所有可能的组合。如图 10-9 所示，我们开启一个两层循环，在每轮中判断两个整数的和是否为 `target` ，若是则返回它们的索引。
 
 ![线性查找求解两数之和](replace_linear_by_hashing.assets/two_sum_brute_force.png)
 
-<p align="center"> 图：线性查找求解两数之和 </p>
+<p align="center"> 图 10-9 &nbsp; 线性查找求解两数之和 </p>
 
 === "Java"
 
@@ -231,7 +231,7 @@ comments: true
 
 ## 10.4.2 &nbsp; 哈希查找：以空间换时间
 
-考虑借助一个哈希表，键值对分别为数组元素和元素索引。循环遍历数组，每轮执行下图所示的步骤。
+考虑借助一个哈希表，键值对分别为数组元素和元素索引。循环遍历数组，每轮执行图 10-10 所示的步骤。
 
 1. 判断数字 `target - nums[i]` 是否在哈希表中，若是则直接返回这两个元素的索引。
 2. 将键值对 `nums[i]` 和索引 `i` 添加进哈希表。
@@ -245,7 +245,7 @@ comments: true
 === "<3>"
     ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png)
 
-<p align="center"> 图：辅助哈希表求解两数之和 </p>
+<p align="center"> 图 10-10 &nbsp; 辅助哈希表求解两数之和 </p>
 
 实现代码如下所示，仅需单层循环即可。
 

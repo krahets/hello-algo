@@ -11,7 +11,7 @@ status: new
 
 ![最大切分乘积的问题定义](max_product_cutting_problem.assets/max_product_cutting_definition.png)
 
-<p align="center"> 图：最大切分乘积的问题定义 </p>
+<p align="center"> 图 15-13 &nbsp; 最大切分乘积的问题定义 </p>
 
 假设我们将 $n$ 切分为 $m$ 个整数因子，其中第 $i$ 个因子记为 $n_i$ ，即
 
@@ -39,23 +39,23 @@ n & \geq 4
 \end{aligned}
 $$
 
-如下图所示，当 $n \geq 4$ 时，切分出一个 $2$ 后乘积会变大，**这说明大于等于 $4$ 的整数都应该被切分**。
+如图 15-14 所示，当 $n \geq 4$ 时，切分出一个 $2$ 后乘积会变大，**这说明大于等于 $4$ 的整数都应该被切分**。
 
 **贪心策略一**：如果切分方案中包含 $\geq 4$ 的因子，那么它就应该被继续切分。最终的切分方案只应出现 $1$ , $2$ , $3$ 这三种因子。
 
 ![切分导致乘积变大](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png)
 
-<p align="center"> 图：切分导致乘积变大 </p>
+<p align="center"> 图 15-14 &nbsp; 切分导致乘积变大 </p>
 
 接下来思考哪个因子是最优的。在 $1$ , $2$ , $3$ 这三个因子中，显然 $1$ 是最差的，因为 $1 \times (n-1) < n$ 恒成立，即切分出 $1$ 反而会导致乘积减小。
 
-如下图所示，当 $n = 6$ 时，有 $3 \times 3 > 2 \times 2 \times 2$ 。**这意味着切分出 $3$ 比切分出 $2$ 更优**。
+如图 15-15 所示，当 $n = 6$ 时，有 $3 \times 3 > 2 \times 2 \times 2$ 。**这意味着切分出 $3$ 比切分出 $2$ 更优**。
 
 **贪心策略二**：在切分方案中，最多只应存在两个 $2$ 。因为三个 $2$ 总是可以被替换为两个 $3$ ，从而获得更大乘积。
 
 ![最优切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer3.png)
 
-<p align="center"> 图：最优切分因子 </p>
+<p align="center"> 图 15-15 &nbsp; 最优切分因子 </p>
 
 总结以上，可推出贪心策略：
 
@@ -66,7 +66,7 @@ $$
 
 ### 2. &nbsp; 代码实现
 
-如下图所示，我们无须通过循环来切分整数，而可以利用向下整除运算得到 $3$ 的个数 $a$ ，用取模运算得到余数 $b$ ，此时有：
+如图 15-16 所示，我们无须通过循环来切分整数，而可以利用向下整除运算得到 $3$ 的个数 $a$ ，用取模运算得到余数 $b$ ，此时有：
 
 $$
 n = 3 a + b
@@ -276,7 +276,7 @@ $$
 
 ![最大切分乘积的计算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png)
 
-<p align="center"> 图：最大切分乘积的计算方法 </p>
+<p align="center"> 图 15-16 &nbsp; 最大切分乘积的计算方法 </p>
 
 **时间复杂度取决于编程语言的幂运算的实现方法**。以 Python 为例，常用的幂计算函数有：
 

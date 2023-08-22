@@ -26,7 +26,7 @@ comments: true
 
 ![算法使用的相关空间](space_complexity.assets/space_types.png)
 
-<p align="center"> 图：算法使用的相关空间 </p>
+<p align="center"> 图 2-9 &nbsp; 算法使用的相关空间 </p>
 
 === "Java"
 
@@ -658,7 +658,7 @@ comments: true
 
 ## 2.3.3 &nbsp; 常见类型
 
-设输入数据大小为 $n$ ，下图展示了常见的空间复杂度类型（从低到高排列）。
+设输入数据大小为 $n$ ，图 2-10 展示了常见的空间复杂度类型（从低到高排列）。
 
 $$
 \begin{aligned}
@@ -669,7 +669,7 @@ $$
 
 ![常见的空间复杂度类型](space_complexity.assets/space_complexity_common_types.png)
 
-<p align="center"> 图：常见的空间复杂度类型 </p>
+<p align="center"> 图 2-10 &nbsp; 常见的空间复杂度类型 </p>
 
 !!! tip
 
@@ -1274,7 +1274,7 @@ $$
     }
     ```
 
-如下图所示，此函数的递归深度为 $n$ ，即同时存在 $n$ 个未返回的 `linear_recur()` 函数，使用 $O(n)$ 大小的栈帧空间：
+如图 2-11 所示，此函数的递归深度为 $n$ ，即同时存在 $n$ 个未返回的 `linear_recur()` 函数，使用 $O(n)$ 大小的栈帧空间：
 
 === "Java"
 
@@ -1417,7 +1417,7 @@ $$
 
 ![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png)
 
-<p align="center"> 图：递归函数产生的线性阶空间复杂度 </p>
+<p align="center"> 图 2-11 &nbsp; 递归函数产生的线性阶空间复杂度 </p>
 
 ### 3. &nbsp; 平方阶 $O(n^2)$
 
@@ -1635,7 +1635,7 @@ $$
     }
     ```
 
-如下图所示，该函数的递归深度为 $n$ ，在每个递归函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $n / 2$ ，因此总体占用 $O(n^2)$ 空间：
+如图 2-12 所示，该函数的递归深度为 $n$ ，在每个递归函数中都初始化了一个数组，长度分别为 $n, n-1, n-2, ..., 2, 1$ ，平均长度为 $n / 2$ ，因此总体占用 $O(n^2)$ 空间：
 
 === "Java"
 
@@ -1796,11 +1796,11 @@ $$
 
 ![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
-<p align="center"> 图：递归函数产生的平方阶空间复杂度 </p>
+<p align="center"> 图 2-12 &nbsp; 递归函数产生的平方阶空间复杂度 </p>
 
 ### 4. &nbsp; 指数阶 $O(2^n)$
 
-指数阶常见于二叉树。观察下图，高度为 $n$ 的“满二叉树”的节点数量为 $2^n - 1$ ，占用 $O(2^n)$ 空间：
+指数阶常见于二叉树。观察图 2-13 ，高度为 $n$ 的“满二叉树”的节点数量为 $2^n - 1$ ，占用 $O(2^n)$ 空间：
 
 === "Java"
 
@@ -1968,7 +1968,7 @@ $$
 
 ![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.png)
 
-<p align="center"> 图：满二叉树产生的指数阶空间复杂度 </p>
+<p align="center"> 图 2-13 &nbsp; 满二叉树产生的指数阶空间复杂度 </p>
 
 ### 5. &nbsp; 对数阶 $O(\log n)$
 
