@@ -21,7 +21,7 @@
 
 堆的常用操作见下表，方法名需要根据编程语言来确定。
 
-<p align="center"> 表：堆的操作效率 </p>
+<p align="center"> 表 <id> &nbsp; 堆的操作效率 </p>
 
 | 方法名     | 描述                                         | 时间复杂度  |
 | --------- | ------------------------------------------ | ----------- |
@@ -58,11 +58,11 @@
     
     /* 堆顶元素出堆 */
     // 出堆元素会形成一个从大到小的序列
-    peek = heap.poll();  // 5
-    peek = heap.poll();  // 4
-    peek = heap.poll();  // 3
-    peek = heap.poll();  // 2
-    peek = heap.poll();  // 1
+    peek = maxHeap.poll(); // 5
+    peek = maxHeap.poll(); // 4
+    peek = maxHeap.poll(); // 3
+    peek = maxHeap.poll(); // 2
+    peek = maxHeap.poll(); // 1
     
     /* 获取堆大小 */
     int size = maxHeap.size();
