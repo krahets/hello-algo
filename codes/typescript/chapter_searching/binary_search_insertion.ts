@@ -45,7 +45,7 @@ function binarySearchInsertion(nums: number[], target: number): number {
 let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
 console.log('\n数组 nums = ' + nums);
 // 二分查找插入点
-for (let target of [6, 9]) {
+for (const target of [6, 9]) {
     let index = binarySearchInsertionSimple(nums, target);
     console.log('元素 ' + target + ' 的插入点的索引为 ' + index);
 }
@@ -54,8 +54,8 @@ for (let target of [6, 9]) {
 nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
 console.log('\n数组 nums = ' + nums);
 // 二分查找插入点
-for (let target of [2, 6, 20]) {
+for (const target of [2, 6, 20]) {
     let index = binarySearchInsertion(nums, target);
     console.log('元素 ' + target + ' 的插入点的索引为 ' + index);
 }
-export {binarySearchInsertion};
+export { binarySearchInsertion };

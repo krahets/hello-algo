@@ -35,7 +35,7 @@ function binarySearchRightEdge(nums, target) {
 let nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
 console.log('\n数组 nums = ' + nums);
 // 二分查找左边界和右边界
-for (let target of [6, 7]) {
+for (const target of [6, 7]) {
     let index = binarySearchLeftEdge(nums, target);
     console.log('最左一个元素 ' + target + ' 的索引为 ' + index);
     index = binarySearchRightEdge(nums, target);
