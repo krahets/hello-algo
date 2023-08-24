@@ -20,6 +20,7 @@ icon: material/timer-sand
 ## 本章内容
 
 - [2.1 &nbsp; 算法效率评估](https://www.hello-algo.com/chapter_computational_complexity/performance_evaluation/)
-- [2.2 &nbsp; 时间复杂度](https://www.hello-algo.com/chapter_computational_complexity/time_complexity/)
-- [2.3 &nbsp; 空间复杂度](https://www.hello-algo.com/chapter_computational_complexity/space_complexity/)
-- [2.4 &nbsp; 小结](https://www.hello-algo.com/chapter_computational_complexity/summary/)
+- [2.2 &nbsp; 迭代与递归](https://www.hello-algo.com/chapter_computational_complexity/iteration_and_recursion/)
+- [2.3 &nbsp; 时间复杂度](https://www.hello-algo.com/chapter_computational_complexity/time_complexity/)
+- [2.4 &nbsp; 空间复杂度](https://www.hello-algo.com/chapter_computational_complexity/space_complexity/)
+- [2.5 &nbsp; 小结](https://www.hello-algo.com/chapter_computational_complexity/summary/)
