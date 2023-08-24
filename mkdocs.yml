@@ -148,9 +148,10 @@ nav:
     # [icon: material/timer-sand]
     - chapter_computational_complexity/index.md
     - 2.1 &nbsp; 算法效率评估: chapter_computational_complexity/performance_evaluation.md
-    - 2.2 &nbsp; 时间复杂度: chapter_computational_complexity/time_complexity.md
-    - 2.3 &nbsp; 空间复杂度: chapter_computational_complexity/space_complexity.md
-    - 2.4 &nbsp; 小结: chapter_computational_complexity/summary.md
+    - 2.2 &nbsp; 迭代与递归: chapter_computational_complexity/iteration_and_recursion.md
+    - 2.3 &nbsp; 时间复杂度: chapter_computational_complexity/time_complexity.md
+    - 2.4 &nbsp; 空间复杂度: chapter_computational_complexity/space_complexity.md
+    - 2.5 &nbsp; 小结: chapter_computational_complexity/summary.md
   - 第 3 章 &nbsp; 数据结构:
     # [icon: material/shape-outline]
     - chapter_data_structure/index.md
