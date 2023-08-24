@@ -1,5 +1,6 @@
 ---
 comments: true
+status: new
 ---
 
 # 2.2 &nbsp; 迭代与递归
@@ -134,7 +135,7 @@ comments: true
         // 循环求和 1, 2, ..., n-1, n
         while (i <= n) {
             res += i;
-            i += 1; // 更新条件变量
+            i++; // 更新条件变量
         }
         return res;
     }
@@ -150,7 +151,7 @@ comments: true
         // 循环求和 1, 2, ..., n-1, n
         while (i <= n) {
             res += i;
-            i += 1; // 更新条件变量
+            i++; // 更新条件变量
         }
         return res;
     }
@@ -235,12 +236,12 @@ comments: true
     int whileLoopII(int n) {
         int res = 0;
         int i = 1; // 初始化条件变量
-        // 循环求和 1, 2, 4, 5...
+        // 循环求和 1, 4, ...
         while (i <= n) {
             res += i;
-            i += 1; // 更新条件变量
-            res += i;
-            i *= 2; // 更新条件变量
+            // 更新条件变量
+            i++;
+            i *= 2;
         }
         return res;
     }
@@ -253,12 +254,12 @@ comments: true
     int whileLoopII(int n) {
         int res = 0;
         int i = 1; // 初始化条件变量
-        // 循环求和 1, 2, 4, 5...
+        // 循环求和 1, 4, ...
         while (i <= n) {
             res += i;
-            i += 1; // 更新条件变量
-            res += i;
-            i *= 2; // 更新条件变量
+            // 更新条件变量
+            i++;
+            i *= 2;
         }
         return res;
     }
@@ -271,12 +272,12 @@ comments: true
         """while 循环（两次更新）"""
         res = 0
         i = 1  # 初始化条件变量
-        # 循环求和 1, 2, 4, 5...
+        # 循环求和 1, 4, ...
         while i <= n:
             res += i
-            i += 1  # 更新条件变量
-            res += i
-            i *= 2  # 更新条件变量
+            # 更新条件变量
+            i += 1
+            i *= 2
         return res
     ```
 
