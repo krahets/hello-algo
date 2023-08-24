@@ -4,7 +4,7 @@
 
 package chapter_searching
 
-// 二分查找插入点（无重复元素）
+/* 二分查找插入点（无重复元素） */
 func binarySearchInsertionSimple(nums []int, target int) int {
 	// 初始化双闭区间 [0, n-1]
 	i, j := 0, len(nums)-1
@@ -26,7 +26,7 @@ func binarySearchInsertionSimple(nums []int, target int) int {
 	return i
 }
 
-// 二分查找插入点（存在重复元素）
+/* 二分查找插入点（存在重复元素） */
 func binarySearchInsertion(nums []int, target int) int {
 	// 初始化双闭区间 [0, n-1]
 	i, j := 0, len(nums)-1
