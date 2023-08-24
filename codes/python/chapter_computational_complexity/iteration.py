@@ -29,12 +29,12 @@ def while_loop_ii(n: int) -> int:
     """while 循环（两次更新）"""
     res = 0
     i = 1  # 初始化条件变量
-    # 循环求和 1, 2, 4, 5...
+    # 循环求和 1, 4, ...
     while i <= n:
         res += i
-        i += 1  # 更新条件变量
-        res += i
-        i *= 2  # 更新条件变量
+        # 更新条件变量
+        i += 1
+        i *= 2
     return res
 
 

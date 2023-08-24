@@ -23,7 +23,7 @@ int whileLoop(int n) {
     // 循环求和 1, 2, ..., n-1, n
     while (i <= n) {
         res += i;
-        i += 1; // 更新条件变量
+        i++; // 更新条件变量
     }
     return res;
 }
@@ -32,12 +32,12 @@ int whileLoop(int n) {
 int whileLoopII(int n) {
     int res = 0;
     int i = 1; // 初始化条件变量
-    // 循环求和 1, 2, 4, 5...
+    // 循环求和 1, 4, ...
     while (i <= n) {
         res += i;
-        i += 1; // 更新条件变量
-        res += i;
-        i *= 2; // 更新条件变量
+        // 更新条件变量
+        i++;
+        i *= 2;
     }
     return res;
 }
