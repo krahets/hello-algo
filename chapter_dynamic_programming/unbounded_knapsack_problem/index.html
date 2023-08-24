@@ -526,6 +526,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -592,11 +594,31 @@
   
   
     <li class="md-nav__item">
+      <a href="../../chapter_computational_complexity/iteration_and_recursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 &nbsp; 迭代与递归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../chapter_computational_complexity/time_complexity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2.2 &nbsp; 时间复杂度
+    2.3 &nbsp; 时间复杂度
   </span>
   
 
@@ -616,7 +638,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 &nbsp; 空间复杂度
+    2.4 &nbsp; 空间复杂度
   </span>
   
 
@@ -636,7 +658,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 &nbsp; 小结
+    2.5 &nbsp; 小结
   </span>
   
 
@@ -4781,7 +4803,7 @@ dp[i, a] = dp[i-1, a] + dp[i, a - coins[i-1]]
 <a id="__codelineno-51-17" name="__codelineno-51-17" href="#__codelineno-51-17"></a><span class="w">                </span><span class="c1">// 若超过背包容量，则不选硬币 i</span>
 <a id="__codelineno-51-18" name="__codelineno-51-18" href="#__codelineno-51-18"></a><span class="w">                </span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">a</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="nx">a</span><span class="p">]</span>
 <a id="__codelineno-51-19" name="__codelineno-51-19" href="#__codelineno-51-19"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-51-20" name="__codelineno-51-20" href="#__codelineno-51-20"></a><span class="w">                </span><span class="c1">// 不选和选硬币 i 这两种方案的较小值</span>
+<a id="__codelineno-51-20" name="__codelineno-51-20" href="#__codelineno-51-20"></a><span class="w">                </span><span class="c1">// 不选和选硬币 i 这两种方案之和</span>
 <a id="__codelineno-51-21" name="__codelineno-51-21" href="#__codelineno-51-21"></a><span class="w">                </span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">a</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="nx">a</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">a</span><span class="o">-</span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
 <a id="__codelineno-51-22" name="__codelineno-51-22" href="#__codelineno-51-22"></a><span class="w">            </span><span class="p">}</span>
 <a id="__codelineno-51-23" name="__codelineno-51-23" href="#__codelineno-51-23"></a><span class="w">        </span><span class="p">}</span>

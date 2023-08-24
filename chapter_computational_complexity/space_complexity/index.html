@@ -26,7 +26,7 @@
     
     
       
-        <title>2.3   空间复杂度 - Hello 算法</title>
+        <title>2.4   空间复杂度 - Hello 算法</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#23" class="md-skip">
+        <a href="#24" class="md-skip">
           跳转至
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2.3 &nbsp; 空间复杂度
+              2.4 &nbsp; 空间复杂度
             
           </span>
         </div>
@@ -528,6 +528,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -594,11 +596,31 @@
   
   
     <li class="md-nav__item">
+      <a href="../iteration_and_recursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 &nbsp; 迭代与递归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../time_complexity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2.2 &nbsp; 时间复杂度
+    2.3 &nbsp; 时间复杂度
   </span>
   
 
@@ -627,7 +649,7 @@
           
   
   <span class="md-ellipsis">
-    2.3 &nbsp; 空间复杂度
+    2.4 &nbsp; 空间复杂度
   </span>
   
 
@@ -638,7 +660,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 &nbsp; 空间复杂度
+    2.4 &nbsp; 空间复杂度
   </span>
   
 
@@ -660,25 +682,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#231" class="md-nav__link">
-    2.3.1 &nbsp; 算法相关空间
+  <a href="#241" class="md-nav__link">
+    2.4.1 &nbsp; 算法相关空间
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#232" class="md-nav__link">
-    2.3.2 &nbsp; 推算方法
+  <a href="#242" class="md-nav__link">
+    2.4.2 &nbsp; 推算方法
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#233" class="md-nav__link">
-    2.3.3 &nbsp; 常见类型
+  <a href="#243" class="md-nav__link">
+    2.4.3 &nbsp; 常见类型
   </a>
   
-    <nav class="md-nav" aria-label="2.3.3   常见类型">
+    <nav class="md-nav" aria-label="2.4.3   常见类型">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -722,8 +744,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#234" class="md-nav__link">
-    2.3.4 &nbsp; 权衡时间与空间
+  <a href="#244" class="md-nav__link">
+    2.4.4 &nbsp; 权衡时间与空间
   </a>
   
 </li>
@@ -747,7 +769,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 &nbsp; 小结
+    2.5 &nbsp; 小结
   </span>
   
 
@@ -3430,25 +3452,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#231" class="md-nav__link">
-    2.3.1 &nbsp; 算法相关空间
+  <a href="#241" class="md-nav__link">
+    2.4.1 &nbsp; 算法相关空间
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#232" class="md-nav__link">
-    2.3.2 &nbsp; 推算方法
+  <a href="#242" class="md-nav__link">
+    2.4.2 &nbsp; 推算方法
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#233" class="md-nav__link">
-    2.3.3 &nbsp; 常见类型
+  <a href="#243" class="md-nav__link">
+    2.4.3 &nbsp; 常见类型
   </a>
   
-    <nav class="md-nav" aria-label="2.3.3   常见类型">
+    <nav class="md-nav" aria-label="2.4.3   常见类型">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3492,8 +3514,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#234" class="md-nav__link">
-    2.3.4 &nbsp; 权衡时间与空间
+  <a href="#244" class="md-nav__link">
+    2.4.4 &nbsp; 权衡时间与空间
   </a>
   
 </li>
@@ -3521,9 +3543,9 @@
   
 
 
-<h1 id="23">2.3 &nbsp; 空间复杂度<a class="headerlink" href="#23" title="Permanent link">&para;</a></h1>
+<h1 id="24">2.4 &nbsp; 空间复杂度<a class="headerlink" href="#24" title="Permanent link">&para;</a></h1>
 <p>「空间复杂度 space complexity」用于衡量算法占用内存空间随着数据量变大时的增长趋势。这个概念与时间复杂度非常类似，只需将“运行时间”替换为“占用内存空间”。</p>
-<h2 id="231">2.3.1 &nbsp; 算法相关空间<a class="headerlink" href="#231" title="Permanent link">&para;</a></h2>
+<h2 id="241">2.4.1 &nbsp; 算法相关空间<a class="headerlink" href="#241" title="Permanent link">&para;</a></h2>
 <p>算法在运行过程中使用的内存空间主要包括以下几种。</p>
 <ul>
 <li><strong>输入空间</strong>：用于存储算法的输入数据。</li>
@@ -3539,7 +3561,7 @@
 </ul>
 <p>在分析一段程序的空间复杂度时，<strong>我们通常统计暂存数据、栈帧空间和输出数据三部分</strong>。</p>
 <p><img alt="算法使用的相关空间" src="../space_complexity.assets/space_types.png" /></p>
-<p align="center"> 图 2-9 &nbsp; 算法使用的相关空间 </p>
+<p align="center"> 图 2-15 &nbsp; 算法使用的相关空间 </p>
 
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
@@ -3785,7 +3807,7 @@
 </div>
 </div>
 </div>
-<h2 id="232">2.3.2 &nbsp; 推算方法<a class="headerlink" href="#232" title="Permanent link">&para;</a></h2>
+<h2 id="242">2.4.2 &nbsp; 推算方法<a class="headerlink" href="#242" title="Permanent link">&para;</a></h2>
 <p>空间复杂度的推算方法与时间复杂度大致相同，只需将统计对象从“操作数量”转为“使用空间大小”。</p>
 <p>而与时间复杂度不同的是，<strong>我们通常只关注最差空间复杂度</strong>。这是因为内存空间是一项硬性要求，我们必须确保在所有输入数据下都有足够的内存空间预留。</p>
 <p>观察以下代码，最差空间复杂度中的“最差”有两层含义。</p>
@@ -4106,8 +4128,8 @@
 </div>
 </div>
 </div>
-<h2 id="233">2.3.3 &nbsp; 常见类型<a class="headerlink" href="#233" title="Permanent link">&para;</a></h2>
-<p>设输入数据大小为 <span class="arithmatex">\(n\)</span> ，图 2-10 展示了常见的空间复杂度类型（从低到高排列）。</p>
+<h2 id="243">2.4.3 &nbsp; 常见类型<a class="headerlink" href="#243" title="Permanent link">&para;</a></h2>
+<p>设输入数据大小为 <span class="arithmatex">\(n\)</span> ，图 2-16 展示了常见的空间复杂度类型（从低到高排列）。</p>
 <div class="arithmatex">\[
 \begin{aligned}
 O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
@@ -4115,7 +4137,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 \end{aligned}
 \]</div>
 <p><img alt="常见的空间复杂度类型" src="../space_complexity.assets/space_complexity_common_types.png" /></p>
-<p align="center"> 图 2-10 &nbsp; 常见的空间复杂度类型 </p>
+<p align="center"> 图 2-16 &nbsp; 常见的空间复杂度类型 </p>
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -4675,7 +4697,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 </div>
 </div>
 </div>
-<p>如图 2-11 所示，此函数的递归深度为 <span class="arithmatex">\(n\)</span> ，即同时存在 <span class="arithmatex">\(n\)</span> 个未返回的 <code>linear_recur()</code> 函数，使用 <span class="arithmatex">\(O(n)\)</span> 大小的栈帧空间：</p>
+<p>如图 2-17 所示，此函数的递归深度为 <span class="arithmatex">\(n\)</span> ，即同时存在 <span class="arithmatex">\(n\)</span> 个未返回的 <code>linear_recur()</code> 函数，使用 <span class="arithmatex">\(O(n)\)</span> 大小的栈帧空间：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Python</label><label for="__tabbed_6_4">Go</label><label for="__tabbed_6_5">JS</label><label for="__tabbed_6_6">TS</label><label for="__tabbed_6_7">C</label><label for="__tabbed_6_8">C#</label><label for="__tabbed_6_9">Swift</label><label for="__tabbed_6_10">Zig</label><label for="__tabbed_6_11">Dart</label><label for="__tabbed_6_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4796,7 +4818,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 </div>
 </div>
 <p><img alt="递归函数产生的线性阶空间复杂度" src="../space_complexity.assets/space_complexity_recursive_linear.png" /></p>
-<p align="center"> 图 2-11 &nbsp; 递归函数产生的线性阶空间复杂度 </p>
+<p align="center"> 图 2-17 &nbsp; 递归函数产生的线性阶空间复杂度 </p>
 
 <h3 id="3-on2">3. &nbsp; 平方阶 <span class="arithmatex">\(O(n^2)\)</span><a class="headerlink" href="#3-on2" title="Permanent link">&para;</a></h3>
 <p>平方阶常见于矩阵和图，元素数量与 <span class="arithmatex">\(n\)</span> 成平方关系：</p>
@@ -4992,7 +5014,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 </div>
 </div>
 </div>
-<p>如图 2-12 所示，该函数的递归深度为 <span class="arithmatex">\(n\)</span> ，在每个递归函数中都初始化了一个数组，长度分别为 <span class="arithmatex">\(n, n-1, n-2, ..., 2, 1\)</span> ，平均长度为 <span class="arithmatex">\(n / 2\)</span> ，因此总体占用 <span class="arithmatex">\(O(n^2)\)</span> 空间：</p>
+<p>如图 2-18 所示，该函数的递归深度为 <span class="arithmatex">\(n\)</span> ，在每个递归函数中都初始化了一个数组，长度分别为 <span class="arithmatex">\(n, n-1, n-2, ..., 2, 1\)</span> ，平均长度为 <span class="arithmatex">\(n / 2\)</span> ，因此总体占用 <span class="arithmatex">\(O(n^2)\)</span> 空间：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:12"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><input id="__tabbed_8_5" name="__tabbed_8" type="radio" /><input id="__tabbed_8_6" name="__tabbed_8" type="radio" /><input id="__tabbed_8_7" name="__tabbed_8" type="radio" /><input id="__tabbed_8_8" name="__tabbed_8" type="radio" /><input id="__tabbed_8_9" name="__tabbed_8" type="radio" /><input id="__tabbed_8_10" name="__tabbed_8" type="radio" /><input id="__tabbed_8_11" name="__tabbed_8" type="radio" /><input id="__tabbed_8_12" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Java</label><label for="__tabbed_8_2">C++</label><label for="__tabbed_8_3">Python</label><label for="__tabbed_8_4">Go</label><label for="__tabbed_8_5">JS</label><label for="__tabbed_8_6">TS</label><label for="__tabbed_8_7">C</label><label for="__tabbed_8_8">C#</label><label for="__tabbed_8_9">Swift</label><label for="__tabbed_8_10">Zig</label><label for="__tabbed_8_11">Dart</label><label for="__tabbed_8_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5131,10 +5153,10 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 </div>
 </div>
 <p><img alt="递归函数产生的平方阶空间复杂度" src="../space_complexity.assets/space_complexity_recursive_quadratic.png" /></p>
-<p align="center"> 图 2-12 &nbsp; 递归函数产生的平方阶空间复杂度 </p>
+<p align="center"> 图 2-18 &nbsp; 递归函数产生的平方阶空间复杂度 </p>
 
 <h3 id="4-o2n">4. &nbsp; 指数阶 <span class="arithmatex">\(O(2^n)\)</span><a class="headerlink" href="#4-o2n" title="Permanent link">&para;</a></h3>
-<p>指数阶常见于二叉树。观察图 2-13 ，高度为 <span class="arithmatex">\(n\)</span> 的“满二叉树”的节点数量为 <span class="arithmatex">\(2^n - 1\)</span> ，占用 <span class="arithmatex">\(O(2^n)\)</span> 空间：</p>
+<p>指数阶常见于二叉树。观察图 2-19 ，高度为 <span class="arithmatex">\(n\)</span> 的“满二叉树”的节点数量为 <span class="arithmatex">\(2^n - 1\)</span> ，占用 <span class="arithmatex">\(O(2^n)\)</span> 空间：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:12"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><input id="__tabbed_9_5" name="__tabbed_9" type="radio" /><input id="__tabbed_9_6" name="__tabbed_9" type="radio" /><input id="__tabbed_9_7" name="__tabbed_9" type="radio" /><input id="__tabbed_9_8" name="__tabbed_9" type="radio" /><input id="__tabbed_9_9" name="__tabbed_9" type="radio" /><input id="__tabbed_9_10" name="__tabbed_9" type="radio" /><input id="__tabbed_9_11" name="__tabbed_9" type="radio" /><input id="__tabbed_9_12" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Java</label><label for="__tabbed_9_2">C++</label><label for="__tabbed_9_3">Python</label><label for="__tabbed_9_4">Go</label><label for="__tabbed_9_5">JS</label><label for="__tabbed_9_6">TS</label><label for="__tabbed_9_7">C</label><label for="__tabbed_9_8">C#</label><label for="__tabbed_9_9">Swift</label><label for="__tabbed_9_10">Zig</label><label for="__tabbed_9_11">Dart</label><label for="__tabbed_9_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5280,12 +5302,12 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 </div>
 </div>
 <p><img alt="满二叉树产生的指数阶空间复杂度" src="../space_complexity.assets/space_complexity_exponential.png" /></p>
-<p align="center"> 图 2-13 &nbsp; 满二叉树产生的指数阶空间复杂度 </p>
+<p align="center"> 图 2-19 &nbsp; 满二叉树产生的指数阶空间复杂度 </p>
 
 <h3 id="5-olog-n">5. &nbsp; 对数阶 <span class="arithmatex">\(O(\log n)\)</span><a class="headerlink" href="#5-olog-n" title="Permanent link">&para;</a></h3>
 <p>对数阶常见于分治算法。例如归并排序，输入长度为 <span class="arithmatex">\(n\)</span> 的数组，每轮递归将数组从中点划分为两半，形成高度为 <span class="arithmatex">\(\log n\)</span> 的递归树，使用 <span class="arithmatex">\(O(\log n)\)</span> 栈帧空间。</p>
 <p>再例如将数字转化为字符串，输入一个正整数 <span class="arithmatex">\(n\)</span> ，它的位数为 <span class="arithmatex">\(\log_{10} n + 1\)</span> ，即对应字符串长度为 <span class="arithmatex">\(\log_{10} n + 1\)</span> ，因此空间复杂度为 <span class="arithmatex">\(O(\log_{10} n + 1) = O(\log n)\)</span> 。</p>
-<h2 id="234">2.3.4 &nbsp; 权衡时间与空间<a class="headerlink" href="#234" title="Permanent link">&para;</a></h2>
+<h2 id="244">2.4.4 &nbsp; 权衡时间与空间<a class="headerlink" href="#244" title="Permanent link">&para;</a></h2>
 <p>理想情况下，我们希望算法的时间复杂度和空间复杂度都能达到最优。然而在实际情况中，同时优化时间复杂度和空间复杂度通常是非常困难的。</p>
 <p><strong>降低时间复杂度通常需要以提升空间复杂度为代价，反之亦然</strong>。我们将牺牲内存空间来提升算法运行速度的思路称为“以空间换时间”；反之，则称为“以时间换空间”。</p>
 <p>选择哪种思路取决于我们更看重哪个方面。在大多数情况下，时间比空间更宝贵，因此“以空间换时间”通常是更常用的策略。当然，在数据量很大的情况下，控制空间复杂度也是非常重要的。</p>
@@ -5367,7 +5389,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../time_complexity/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.2 &amp;nbsp; 时间复杂度" rel="prev">
+          <a href="../time_complexity/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.3 &amp;nbsp; 时间复杂度" rel="prev">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -5377,20 +5399,20 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
                 上一页
               </span>
               <div class="md-ellipsis">
-                2.2 &nbsp; 时间复杂度
+                2.3 &nbsp; 时间复杂度
               </div>
             </div>
           </a>
         
         
           
-          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.4 &amp;nbsp; 小结" rel="next">
+          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.5 &amp;nbsp; 小结" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                2.4 &nbsp; 小结
+                2.5 &nbsp; 小结
               </div>
             </div>
             <div class="md-footer__button md-icon">
