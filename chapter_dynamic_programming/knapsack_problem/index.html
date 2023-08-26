@@ -2922,7 +2922,7 @@
       
         <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
-    4. &nbsp; 状态压缩
+    4. &nbsp; 空间优化
   </a>
   
 </li>
@@ -3449,7 +3449,7 @@
       
         <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
-    4. &nbsp; 状态压缩
+    4. &nbsp; 空间优化
   </a>
   
 </li>
@@ -4213,9 +4213,9 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 <p align="center"> 图 14-20 &nbsp; 0-1 背包的动态规划过程 </p>
 
-<h3 id="4">4. &nbsp; 状态压缩<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h3 id="4">4. &nbsp; 空间优化<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 <span class="arithmatex">\(O(n^2)\)</span> 将低至 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<p>进一步思考，我们是否可以仅用一个数组实现状态压缩呢？观察可知，每个状态都是由正上方或左上方的格子转移过来的。假设只有一个数组，当开始遍历第 <span class="arithmatex">\(i\)</span> 行时，该数组存储的仍然是第 <span class="arithmatex">\(i-1\)</span> 行的状态。</p>
+<p>进一步思考，我们是否可以仅用一个数组实现空间优化呢？观察可知，每个状态都是由正上方或左上方的格子转移过来的。假设只有一个数组，当开始遍历第 <span class="arithmatex">\(i\)</span> 行时，该数组存储的仍然是第 <span class="arithmatex">\(i-1\)</span> 行的状态。</p>
 <ul>
 <li>如果采取正序遍历，那么遍历到 <span class="arithmatex">\(dp[i, j]\)</span> 时，左上方 <span class="arithmatex">\(dp[i-1, 1]\)</span> ~ <span class="arithmatex">\(dp[i-1, j-1]\)</span> 值可能已经被覆盖，此时就无法得到正确的状态转移结果。</li>
 <li>如果采取倒序遍历，则不会发生覆盖问题，状态转移可以正确进行。</li>
@@ -4224,7 +4224,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <div class="tabbed-set tabbed-alternate" data-tabs="5:6"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">&lt;1&gt;</label><label for="__tabbed_5_2">&lt;2&gt;</label><label for="__tabbed_5_3">&lt;3&gt;</label><label for="__tabbed_5_4">&lt;4&gt;</label><label for="__tabbed_5_5">&lt;5&gt;</label><label for="__tabbed_5_6">&lt;6&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><img alt="0-1 背包的状态压缩后的动态规划过程" src="../knapsack_problem.assets/knapsack_dp_comp_step1.png" /></p>
+<p><img alt="0-1 背包的空间优化后的动态规划过程" src="../knapsack_problem.assets/knapsack_dp_comp_step1.png" /></p>
 </div>
 <div class="tabbed-block">
 <p><img alt="knapsack_dp_comp_step2" src="../knapsack_problem.assets/knapsack_dp_comp_step2.png" /></p>
@@ -4243,13 +4243,13 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<p align="center"> 图 14-21 &nbsp; 0-1 背包的状态压缩后的动态规划过程 </p>
+<p align="center"> 图 14-21 &nbsp; 0-1 背包的空间优化后的动态规划过程 </p>
 
 <p>在代码实现中，我们仅需将数组 <code>dp</code> 的第一维 <span class="arithmatex">\(i\)</span> 直接删除，并且把内循环更改为倒序遍历即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:12"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><input id="__tabbed_6_7" name="__tabbed_6" type="radio" /><input id="__tabbed_6_8" name="__tabbed_6" type="radio" /><input id="__tabbed_6_9" name="__tabbed_6" type="radio" /><input id="__tabbed_6_10" name="__tabbed_6" type="radio" /><input id="__tabbed_6_11" name="__tabbed_6" type="radio" /><input id="__tabbed_6_12" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Python</label><label for="__tabbed_6_4">Go</label><label for="__tabbed_6_5">JS</label><label for="__tabbed_6_6">TS</label><label for="__tabbed_6_7">C</label><label for="__tabbed_6_8">C#</label><label for="__tabbed_6_9">Swift</label><label for="__tabbed_6_10">Zig</label><label for="__tabbed_6_11">Dart</label><label for="__tabbed_6_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">knapsack.java</span><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="cm">/* 0-1 背包：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">knapsack.java</span><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="cm">/* 0-1 背包：空间优化后的动态规划 */</span>
 <a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">knapsackDPComp</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">wgt</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wgt</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
 <a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">    </span><span class="c1">// 初始化 dp 表</span>
@@ -4269,7 +4269,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">knapsack.cpp</span><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="cm">/* 0-1 背包：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">knapsack.cpp</span><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="cm">/* 0-1 背包：空间优化后的动态规划 */</span>
 <a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">knapsackDPComp</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">wgt</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wgt</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 <a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">    </span><span class="c1">// 初始化 dp 表</span>
@@ -4290,7 +4290,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">knapsack.py</span><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="k">def</span> <span class="nf">knapsack_dp_comp</span><span class="p">(</span><span class="n">wgt</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">val</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">cap</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;0-1 背包：状态压缩后的动态规划&quot;&quot;&quot;</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;0-1 背包：空间优化后的动态规划&quot;&quot;&quot;</span>
 <a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">wgt</span><span class="p">)</span>
 <a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>    <span class="c1"># 初始化 dp 表</span>
 <a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">cap</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -4308,7 +4308,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">knapsack.go</span><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="cm">/* 0-1 背包：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">knapsack.go</span><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="cm">/* 0-1 背包：空间优化后的动态规划 */</span>
 <a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">knapsackDPComp</span><span class="p">(</span><span class="nx">wgt</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">cap</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">    </span><span class="nx">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">wgt</span><span class="p">)</span>
 <a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">    </span><span class="c1">// 初始化 dp 表</span>
@@ -4340,7 +4340,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">knapsack.cs</span><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="cm">/* 0-1 背包：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">knapsack.cs</span><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="cm">/* 0-1 背包：空间优化后的动态规划 */</span>
 <a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">knapsackDPComp</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">weight</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
 <a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">    </span><span class="c1">// 初始化 dp 表</span>
@@ -4363,7 +4363,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">knapsack.swift</span><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="cm">/* 0-1 背包：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">knapsack.swift</span><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="cm">/* 0-1 背包：空间优化后的动态规划 */</span>
 <a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="kd">func</span> <span class="nf">knapsackDPComp</span><span class="p">(</span><span class="n">wgt</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">],</span> <span class="n">val</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">],</span> <span class="n">cap</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
 <a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>    <span class="kd">let</span> <span class="nv">n</span> <span class="p">=</span> <span class="n">wgt</span><span class="p">.</span><span class="bp">count</span>
 <a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>    <span class="c1">// 初始化 dp 表</span>
@@ -4383,7 +4383,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">knapsack.zig</span><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1">// 0-1 背包：状态压缩后的动态规划</span>
+<div class="highlight"><span class="filename">knapsack.zig</span><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1">// 0-1 背包：空间优化后的动态规划</span>
 <a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="k">fn</span><span class="w"> </span><span class="n">knapsackDPComp</span><span class="p">(</span><span class="n">wgt</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kr">comptime</span><span class="w"> </span><span class="n">cap</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="p">)</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wgt</span><span class="p">.</span><span class="n">len</span><span class="p">;</span>
 <a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="w">    </span><span class="c1">// 初始化 dp 表</span>
@@ -4404,7 +4404,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">knapsack.dart</span><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="cm">/* 0-1 背包：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">knapsack.dart</span><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="cm">/* 0-1 背包：空间优化后的动态规划 */</span>
 <a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">knapsackDPComp</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wgt</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wgt</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
 <a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="w">  </span><span class="c1">// 初始化 dp 表</span>
@@ -4424,7 +4424,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">knapsack.rs</span><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="cm">/* 0-1 背包：状态压缩后的动态规划 */</span>
+<div class="highlight"><span class="filename">knapsack.rs</span><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="cm">/* 0-1 背包：空间优化后的动态规划 */</span>
 <a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="k">fn</span> <span class="nf">knapsack_dp_comp</span><span class="p">(</span><span class="n">wgt</span>: <span class="kp">&amp;</span><span class="p">[</span><span class="kt">i32</span><span class="p">],</span><span class="w"> </span><span class="n">val</span>: <span class="kp">&amp;</span><span class="p">[</span><span class="kt">i32</span><span class="p">],</span><span class="w"> </span><span class="n">cap</span>: <span class="kt">usize</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span>
 <a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wgt</span><span class="p">.</span><span class="n">len</span><span class="p">();</span>
 <a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="w">    </span><span class="c1">// 初始化 dp 表</span>
