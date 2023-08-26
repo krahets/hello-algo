@@ -5,7 +5,7 @@
  */
 
 /* 二分查找插入点（无重复元素） */
-function binarySearchInsertionSimple(nums: number[], target: number): number {
+function binarySearchInsertionSimple(nums: Array<number>, target: number): number {
     let i = 0,
         j = nums.length - 1; // 初始化双闭区间 [0, n-1]
     while (i <= j) {
@@ -23,7 +23,7 @@ function binarySearchInsertionSimple(nums: number[], target: number): number {
 }
 
 /* 二分查找插入点（存在重复元素） */
-function binarySearchInsertion(nums: number[], target: number): number {
+function binarySearchInsertion(nums: Array<number>, target: number): number {
     let i = 0,
         j = nums.length - 1; // 初始化双闭区间 [0, n-1]
     while (i <= j) {
@@ -42,11 +42,11 @@ function binarySearchInsertion(nums: number[], target: number): number {
 
 /* Driver Code */
 // 无重复元素的数组
-let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
+let nums: Array<number> = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
 console.log('\n数组 nums = ' + nums);
 // 二分查找插入点
 for (const target of [6, 9]) {
-    let index = binarySearchInsertionSimple(nums, target);
+    const index: number = binarySearchInsertionSimple(nums, target);
     console.log('元素 ' + target + ' 的插入点的索引为 ' + index);
 }
 
@@ -55,7 +55,8 @@ nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
 console.log('\n数组 nums = ' + nums);
 // 二分查找插入点
 for (const target of [2, 6, 20]) {
-    let index = binarySearchInsertion(nums, target);
+    const index: number = binarySearchInsertion(nums, target);
     console.log('元素 ' + target + ' 的插入点的索引为 ' + index);
 }
+
 export { binarySearchInsertion };
