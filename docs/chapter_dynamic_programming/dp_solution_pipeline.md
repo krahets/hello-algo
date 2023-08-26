@@ -374,7 +374,7 @@ $$
 === "<12>"
     ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png)
 
-### 状态压缩
+### 空间优化
 
 由于每个格子只与其左边和上边的格子有关，因此我们可以只用一个单行数组来实现 $dp$ 表。
 

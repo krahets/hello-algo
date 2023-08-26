@@ -31,7 +31,7 @@ int coinChangeDP(vector<int> &coins, int amt) {
     return dp[n][amt] != MAX ? dp[n][amt] : -1;
 }
 
-/* 零钱兑换：状态压缩后的动态规划 */
+/* 零钱兑换：空间优化后的动态规划 */
 int coinChangeDPComp(vector<int> &coins, int amt) {
     int n = coins.size();
     int MAX = amt + 1;
@@ -62,7 +62,7 @@ int main() {
     int res = coinChangeDP(coins, amt);
     cout << "凑到目标金额所需的最少硬币数量为 " << res << endl;
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     res = coinChangeDPComp(coins, amt);
     cout << "凑到目标金额所需的最少硬币数量为 " << res << endl;
 

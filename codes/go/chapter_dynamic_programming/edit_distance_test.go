@@ -34,7 +34,7 @@ func TestEditDistanceDFS(test *testing.T) {
 	res = editDistanceDP(s, t)
 	fmt.Printf("将 %s 更改为 %s 最少需要编辑 %d 步\n", s, t, res)
 
-	// 状态压缩后的动态规划
+	// 空间优化后的动态规划
 	res = editDistanceDPComp(s, t)
 	fmt.Printf("将 %s 更改为 %s 最少需要编辑 %d 步\n", s, t, res)
 }

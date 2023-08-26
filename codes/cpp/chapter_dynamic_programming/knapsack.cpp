@@ -63,7 +63,7 @@ int knapsackDP(vector<int> &wgt, vector<int> &val, int cap) {
     return dp[n][cap];
 }
 
-/* 0-1 背包：状态压缩后的动态规划 */
+/* 0-1 背包：空间优化后的动态规划 */
 int knapsackDPComp(vector<int> &wgt, vector<int> &val, int cap) {
     int n = wgt.size();
     // 初始化 dp 表
@@ -101,7 +101,7 @@ int main() {
     res = knapsackDP(wgt, val, cap);
     cout << "不超过背包容量的最大物品价值为 " << res << endl;
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     res = knapsackDPComp(wgt, val, cap);
     cout << "不超过背包容量的最大物品价值为 " << res << endl;
 

@@ -69,7 +69,7 @@ public class knapsack {
         return dp[n][cap];
     }
 
-    /* 0-1 背包：状态压缩后的动态规划 */
+    /* 0-1 背包：空间优化后的动态规划 */
     static int knapsackDPComp(int[] wgt, int[] val, int cap) {
         int n = wgt.length;
         // 初始化 dp 表
@@ -109,7 +109,7 @@ public class knapsack {
         res = knapsackDP(wgt, val, cap);
         System.out.println("不超过背包容量的最大物品价值为 " + res);
 
-        // 状态压缩后的动态规划
+        // 空间优化后的动态规划
         res = knapsackDPComp(wgt, val, cap);
         System.out.println("不超过背包容量的最大物品价值为 " + res);
     }

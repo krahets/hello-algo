@@ -104,14 +104,14 @@ $$
     [class]{}-[func]{unbounded_knapsack_dp}
     ```
 
-### 状态压缩
+### 空间优化
 
-由于当前状态是从左边和上边的状态转移而来，**因此状态压缩后应该对 $dp$ 表中的每一行采取正序遍历**。
+由于当前状态是从左边和上边的状态转移而来，**因此空间优化后应该对 $dp$ 表中的每一行采取正序遍历**。
 
 这个遍历顺序与 0-1 背包正好相反。请借助下图来理解两者的区别。
 
 === "<1>"
-    ![完全背包的状态压缩后的动态规划过程](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
+    ![完全背包的空间优化后的动态规划过程](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
 
 === "<2>"
     ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png)
@@ -370,9 +370,9 @@ $$
 === "<15>"
     ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.png)
 
-### 状态压缩
+### 空间优化
 
-零钱兑换的状态压缩的处理方式和完全背包一致。
+零钱兑换的空间优化的处理方式和完全背包一致。
 
 === "Java"
 
@@ -540,9 +540,9 @@ $$
     [class]{}-[func]{coin_change_ii_dp}
     ```
 
-### 状态压缩
+### 空间优化
 
-状态压缩处理方式相同，删除硬币维度即可。
+空间优化处理方式相同，删除硬币维度即可。
 
 === "Java"
 

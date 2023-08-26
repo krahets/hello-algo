@@ -71,7 +71,7 @@ public class min_path_sum {
         return dp[n - 1][m - 1];
     }
 
-    /* 最小路径和：状态压缩后的动态规划 */
+    /* 最小路径和：空间优化后的动态规划 */
     static int minPathSumDPComp(int[][] grid) {
         int n = grid.length, m = grid[0].length;
         // 初始化 dp 表
@@ -118,7 +118,7 @@ public class min_path_sum {
         res = minPathSumDP(grid);
         System.out.println("从左上角到右下角的做小路径和为 " + res);
 
-        // 状态压缩后的动态规划
+        // 空间优化后的动态规划
         res = minPathSumDPComp(grid);
         System.out.println("从左上角到右下角的做小路径和为 " + res);
     }

@@ -20,7 +20,7 @@ def climbing_stairs_dp(n: int) -> int:
 
 
 def climbing_stairs_dp_comp(n: int) -> int:
-    """爬楼梯：状态压缩后的动态规划"""
+    """爬楼梯：空间优化后的动态规划"""
     if n == 1 or n == 2:
         return n
     a, b = 1, 2

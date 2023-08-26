@@ -29,7 +29,7 @@ fn coin_change_dp(coins: &[i32], amt: usize) -> i32 {
     if dp[n][amt] != max { return dp[n][amt] as i32; } else { -1 }
 }
 
-/* 零钱兑换：状态压缩后的动态规划 */
+/* 零钱兑换：空间优化后的动态规划 */
 fn coin_change_dp_comp(coins: &[i32], amt: usize) -> i32 {
     let n = coins.len();
     let max = amt + 1;
@@ -61,7 +61,7 @@ pub fn main() {
     let res = coin_change_dp(&coins, amt);
     println!("凑到目标金额所需的最少硬币数量为 {res}");
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     let res = coin_change_dp_comp(&coins, amt);
     println!("凑到目标金额所需的最少硬币数量为 {res}");
 }
