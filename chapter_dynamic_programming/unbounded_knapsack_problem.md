@@ -272,14 +272,14 @@ $$
     }
     ```
 
-### 3. &nbsp; 状态压缩
+### 3. &nbsp; 空间优化
 
-由于当前状态是从左边和上边的状态转移而来，**因此状态压缩后应该对 $dp$ 表中的每一行采取正序遍历**。
+由于当前状态是从左边和上边的状态转移而来，**因此空间优化后应该对 $dp$ 表中的每一行采取正序遍历**。
 
 这个遍历顺序与 0-1 背包正好相反。请借助图 14-23 来理解两者的区别。
 
 === "<1>"
-    ![完全背包的状态压缩后的动态规划过程](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
+    ![完全背包的空间优化后的动态规划过程](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
 
 === "<2>"
     ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png)
@@ -296,14 +296,14 @@ $$
 === "<6>"
     ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png)
 
-<p align="center"> 图 14-23 &nbsp; 完全背包的状态压缩后的动态规划过程 </p>
+<p align="center"> 图 14-23 &nbsp; 完全背包的空间优化后的动态规划过程 </p>
 
 代码实现比较简单，仅需将数组 `dp` 的第一维删除。
 
 === "Java"
 
     ```java title="unbounded_knapsack.java"
-    /* 完全背包：状态压缩后的动态规划 */
+    /* 完全背包：空间优化后的动态规划 */
     int unboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
         int n = wgt.length;
         // 初始化 dp 表
@@ -327,7 +327,7 @@ $$
 === "C++"
 
     ```cpp title="unbounded_knapsack.cpp"
-    /* 完全背包：状态压缩后的动态规划 */
+    /* 完全背包：空间优化后的动态规划 */
     int unboundedKnapsackDPComp(vector<int> &wgt, vector<int> &val, int cap) {
         int n = wgt.size();
         // 初始化 dp 表
@@ -352,7 +352,7 @@ $$
 
     ```python title="unbounded_knapsack.py"
     def unbounded_knapsack_dp_comp(wgt: list[int], val: list[int], cap: int) -> int:
-        """完全背包：状态压缩后的动态规划"""
+        """完全背包：空间优化后的动态规划"""
         n = len(wgt)
         # 初始化 dp 表
         dp = [0] * (cap + 1)
@@ -372,7 +372,7 @@ $$
 === "Go"
 
     ```go title="unbounded_knapsack.go"
-    /* 完全背包：状态压缩后的动态规划 */
+    /* 完全背包：空间优化后的动态规划 */
     func unboundedKnapsackDPComp(wgt, val []int, cap int) int {
         n := len(wgt)
         // 初始化 dp 表
@@ -414,7 +414,7 @@ $$
 === "C#"
 
     ```csharp title="unbounded_knapsack.cs"
-    /* 完全背包：状态压缩后的动态规划 */
+    /* 完全背包：空间优化后的动态规划 */
     int unboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
         int n = wgt.Length;
         // 初始化 dp 表
@@ -438,7 +438,7 @@ $$
 === "Swift"
 
     ```swift title="unbounded_knapsack.swift"
-    /* 完全背包：状态压缩后的动态规划 */
+    /* 完全背包：空间优化后的动态规划 */
     func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
         let n = wgt.count
         // 初始化 dp 表
@@ -462,7 +462,7 @@ $$
 === "Zig"
 
     ```zig title="unbounded_knapsack.zig"
-    // 完全背包：状态压缩后的动态规划
+    // 完全背包：空间优化后的动态规划
     fn unboundedKnapsackDPComp(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
         comptime var n = wgt.len;
         // 初始化 dp 表
@@ -486,7 +486,7 @@ $$
 === "Dart"
 
     ```dart title="unbounded_knapsack.dart"
-    /* 完全背包：状态压缩后的动态规划 */
+    /* 完全背包：空间优化后的动态规划 */
     int unboundedKnapsackDPComp(List<int> wgt, List<int> val, int cap) {
       int n = wgt.length;
       // 初始化 dp 表
@@ -510,7 +510,7 @@ $$
 === "Rust"
 
     ```rust title="unbounded_knapsack.rs"
-    /* 完全背包：状态压缩后的动态规划 */
+    /* 完全背包：空间优化后的动态规划 */
     fn unbounded_knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
         let n = wgt.len();
         // 初始化 dp 表
@@ -915,14 +915,14 @@ $$
 
 <p align="center"> 图 14-25 &nbsp; 零钱兑换问题的动态规划过程 </p>
 
-### 3. &nbsp; 状态压缩
+### 3. &nbsp; 空间优化
 
-零钱兑换的状态压缩的处理方式和完全背包一致。
+零钱兑换的空间优化的处理方式和完全背包一致。
 
 === "Java"
 
     ```java title="coin_change.java"
-    /* 零钱兑换：状态压缩后的动态规划 */
+    /* 零钱兑换：空间优化后的动态规划 */
     int coinChangeDPComp(int[] coins, int amt) {
         int n = coins.length;
         int MAX = amt + 1;
@@ -949,7 +949,7 @@ $$
 === "C++"
 
     ```cpp title="coin_change.cpp"
-    /* 零钱兑换：状态压缩后的动态规划 */
+    /* 零钱兑换：空间优化后的动态规划 */
     int coinChangeDPComp(vector<int> &coins, int amt) {
         int n = coins.size();
         int MAX = amt + 1;
@@ -976,7 +976,7 @@ $$
 
     ```python title="coin_change.py"
     def coin_change_dp_comp(coins: list[int], amt: int) -> int:
-        """零钱兑换：状态压缩后的动态规划"""
+        """零钱兑换：空间优化后的动态规划"""
         n = len(coins)
         MAX = amt + 1
         # 初始化 dp 表
@@ -1048,7 +1048,7 @@ $$
 === "C#"
 
     ```csharp title="coin_change.cs"
-    /* 零钱兑换：状态压缩后的动态规划 */
+    /* 零钱兑换：空间优化后的动态规划 */
     int coinChangeDPComp(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
@@ -1075,7 +1075,7 @@ $$
 === "Swift"
 
     ```swift title="coin_change.swift"
-    /* 零钱兑换：状态压缩后的动态规划 */
+    /* 零钱兑换：空间优化后的动态规划 */
     func coinChangeDPComp(coins: [Int], amt: Int) -> Int {
         let n = coins.count
         let MAX = amt + 1
@@ -1101,7 +1101,7 @@ $$
 === "Zig"
 
     ```zig title="coin_change.zig"
-    // 零钱兑换：状态压缩后的动态规划
+    // 零钱兑换：空间优化后的动态规划
     fn coinChangeDPComp(comptime coins: []i32, comptime amt: usize) i32 {
         comptime var n = coins.len;
         comptime var max = amt + 1;
@@ -1132,7 +1132,7 @@ $$
 === "Dart"
 
     ```dart title="coin_change.dart"
-    /* 零钱兑换：状态压缩后的动态规划 */
+    /* 零钱兑换：空间优化后的动态规划 */
     int coinChangeDPComp(List<int> coins, int amt) {
       int n = coins.length;
       int MAX = amt + 1;
@@ -1158,7 +1158,7 @@ $$
 === "Rust"
 
     ```rust title="coin_change.rs"
-    /* 零钱兑换：状态压缩后的动态规划 */
+    /* 零钱兑换：空间优化后的动态规划 */
     fn coin_change_dp_comp(coins: &[i32], amt: usize) -> i32 {
         let n = coins.len();
         let max = amt + 1;
@@ -1474,14 +1474,14 @@ $$
     }
     ```
 
-### 3. &nbsp; 状态压缩
+### 3. &nbsp; 空间优化
 
-状态压缩处理方式相同，删除硬币维度即可。
+空间优化处理方式相同，删除硬币维度即可。
 
 === "Java"
 
     ```java title="coin_change_ii.java"
-    /* 零钱兑换 II：状态压缩后的动态规划 */
+    /* 零钱兑换 II：空间优化后的动态规划 */
     int coinChangeIIDPComp(int[] coins, int amt) {
         int n = coins.length;
         // 初始化 dp 表
@@ -1506,7 +1506,7 @@ $$
 === "C++"
 
     ```cpp title="coin_change_ii.cpp"
-    /* 零钱兑换 II：状态压缩后的动态规划 */
+    /* 零钱兑换 II：空间优化后的动态规划 */
     int coinChangeIIDPComp(vector<int> &coins, int amt) {
         int n = coins.size();
         // 初始化 dp 表
@@ -1532,7 +1532,7 @@ $$
 
     ```python title="coin_change_ii.py"
     def coin_change_ii_dp_comp(coins: list[int], amt: int) -> int:
-        """零钱兑换 II：状态压缩后的动态规划"""
+        """零钱兑换 II：空间优化后的动态规划"""
         n = len(coins)
         # 初始化 dp 表
         dp = [0] * (amt + 1)
@@ -1553,7 +1553,7 @@ $$
 === "Go"
 
     ```go title="coin_change_ii.go"
-    /* 零钱兑换 II：状态压缩后的动态规划 */
+    /* 零钱兑换 II：空间优化后的动态规划 */
     func coinChangeIIDPComp(coins []int, amt int) int {
         n := len(coins)
         // 初始化 dp 表
@@ -1597,7 +1597,7 @@ $$
 === "C#"
 
     ```csharp title="coin_change_ii.cs"
-    /* 零钱兑换 II：状态压缩后的动态规划 */
+    /* 零钱兑换 II：空间优化后的动态规划 */
     int coinChangeIIDPComp(int[] coins, int amt) {
         int n = coins.Length;
         // 初始化 dp 表
@@ -1622,7 +1622,7 @@ $$
 === "Swift"
 
     ```swift title="coin_change_ii.swift"
-    /* 零钱兑换 II：状态压缩后的动态规划 */
+    /* 零钱兑换 II：空间优化后的动态规划 */
     func coinChangeIIDPComp(coins: [Int], amt: Int) -> Int {
         let n = coins.count
         // 初始化 dp 表
@@ -1647,7 +1647,7 @@ $$
 === "Zig"
 
     ```zig title="coin_change_ii.zig"
-    // 零钱兑换 II：状态压缩后的动态规划
+    // 零钱兑换 II：空间优化后的动态规划
     fn coinChangeIIDPComp(comptime coins: []i32, comptime amt: usize) i32 {
         comptime var n = coins.len;
         // 初始化 dp 表
@@ -1672,7 +1672,7 @@ $$
 === "Dart"
 
     ```dart title="coin_change_ii.dart"
-    /* 零钱兑换 II：状态压缩后的动态规划 */
+    /* 零钱兑换 II：空间优化后的动态规划 */
     int coinChangeIIDPComp(List<int> coins, int amt) {
       int n = coins.length;
       // 初始化 dp 表
@@ -1697,7 +1697,7 @@ $$
 === "Rust"
 
     ```rust title="coin_change_ii.rs"
-    /* 零钱兑换 II：状态压缩后的动态规划 */
+    /* 零钱兑换 II：空间优化后的动态规划 */
     fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
         let n = coins.len();
         // 初始化 dp 表

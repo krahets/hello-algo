@@ -415,7 +415,7 @@ $$
 
 <p align="center"> 图 14-30 &nbsp; 编辑距离的动态规划过程 </p>
 
-### 3. &nbsp; 状态压缩
+### 3. &nbsp; 空间优化
 
 由于 $dp[i,j]$ 是由上方 $dp[i-1, j]$ 、左方 $dp[i, j-1]$ 、左上方状态 $dp[i-1, j-1]$ 转移而来，而正序遍历会丢失左上方 $dp[i-1, j-1]$ ，倒序遍历无法提前构建 $dp[i, j-1]$ ，因此两种遍历顺序都不可取。
 
@@ -424,7 +424,7 @@ $$
 === "Java"
 
     ```java title="edit_distance.java"
-    /* 编辑距离：状态压缩后的动态规划 */
+    /* 编辑距离：空间优化后的动态规划 */
     int editDistanceDPComp(String s, String t) {
         int n = s.length(), m = t.length();
         int[] dp = new int[m + 1];
@@ -457,7 +457,7 @@ $$
 === "C++"
 
     ```cpp title="edit_distance.cpp"
-    /* 编辑距离：状态压缩后的动态规划 */
+    /* 编辑距离：空间优化后的动态规划 */
     int editDistanceDPComp(string s, string t) {
         int n = s.length(), m = t.length();
         vector<int> dp(m + 1, 0);
@@ -491,7 +491,7 @@ $$
 
     ```python title="edit_distance.py"
     def edit_distance_dp_comp(s: str, t: str) -> int:
-        """编辑距离：状态压缩后的动态规划"""
+        """编辑距离：空间优化后的动态规划"""
         n, m = len(s), len(t)
         dp = [0] * (m + 1)
         # 状态转移：首行
@@ -518,7 +518,7 @@ $$
 === "Go"
 
     ```go title="edit_distance.go"
-    /* 编辑距离：状态压缩后的动态规划 */
+    /* 编辑距离：空间优化后的动态规划 */
     func editDistanceDPComp(s string, t string) int {
         n := len(s)
         m := len(t)
@@ -570,7 +570,7 @@ $$
 === "C#"
 
     ```csharp title="edit_distance.cs"
-    /* 编辑距离：状态压缩后的动态规划 */
+    /* 编辑距离：空间优化后的动态规划 */
     int editDistanceDPComp(string s, string t) {
         int n = s.Length, m = t.Length;
         int[] dp = new int[m + 1];
@@ -603,7 +603,7 @@ $$
 === "Swift"
 
     ```swift title="edit_distance.swift"
-    /* 编辑距离：状态压缩后的动态规划 */
+    /* 编辑距离：空间优化后的动态规划 */
     func editDistanceDPComp(s: String, t: String) -> Int {
         let n = s.utf8CString.count
         let m = t.utf8CString.count
@@ -637,7 +637,7 @@ $$
 === "Zig"
 
     ```zig title="edit_distance.zig"
-    // 编辑距离：状态压缩后的动态规划
+    // 编辑距离：空间优化后的动态规划
     fn editDistanceDPComp(comptime s: []const u8, comptime t: []const u8) i32 {
         comptime var n = s.len;
         comptime var m = t.len;
@@ -671,7 +671,7 @@ $$
 === "Dart"
 
     ```dart title="edit_distance.dart"
-    /* 编辑距离：状态压缩后的动态规划 */
+    /* 编辑距离：空间优化后的动态规划 */
     int editDistanceDPComp(String s, String t) {
       int n = s.length, m = t.length;
       List<int> dp = List.filled(m + 1, 0);
@@ -704,7 +704,7 @@ $$
 === "Rust"
 
     ```rust title="edit_distance.rs"
-    /* 编辑距离：状态压缩后的动态规划 */
+    /* 编辑距离：空间优化后的动态规划 */
     fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
         let (n, m) = (s.len(), t.len());
         let mut dp = vec![0; m + 1];

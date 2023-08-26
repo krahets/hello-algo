@@ -895,7 +895,7 @@ $$
 
 <p align="center"> 图 14-16 &nbsp; 最小路径和的动态规划过程 </p>
 
-### 4. &nbsp; 状态压缩
+### 4. &nbsp; 空间优化
 
 由于每个格子只与其左边和上边的格子有关，因此我们可以只用一个单行数组来实现 $dp$ 表。
 
@@ -904,7 +904,7 @@ $$
 === "Java"
 
     ```java title="min_path_sum.java"
-    /* 最小路径和：状态压缩后的动态规划 */
+    /* 最小路径和：空间优化后的动态规划 */
     int minPathSumDPComp(int[][] grid) {
         int n = grid.length, m = grid[0].length;
         // 初始化 dp 表
@@ -930,7 +930,7 @@ $$
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    /* 最小路径和：状态压缩后的动态规划 */
+    /* 最小路径和：空间优化后的动态规划 */
     int minPathSumDPComp(vector<vector<int>> &grid) {
         int n = grid.size(), m = grid[0].size();
         // 初始化 dp 表
@@ -957,7 +957,7 @@ $$
 
     ```python title="min_path_sum.py"
     def min_path_sum_dp_comp(grid: list[list[int]]) -> int:
-        """最小路径和：状态压缩后的动态规划"""
+        """最小路径和：空间优化后的动态规划"""
         n, m = len(grid), len(grid[0])
         # 初始化 dp 表
         dp = [0] * m
@@ -978,7 +978,7 @@ $$
 === "Go"
 
     ```go title="min_path_sum.go"
-    /* 最小路径和：状态压缩后的动态规划 */
+    /* 最小路径和：空间优化后的动态规划 */
     func minPathSumDPComp(grid [][]int) int {
         n, m := len(grid), len(grid[0])
         // 初始化 dp 表
@@ -1022,7 +1022,7 @@ $$
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    /* 最小路径和：状态压缩后的动态规划 */
+    /* 最小路径和：空间优化后的动态规划 */
     int minPathSumDPComp(int[][] grid) {
         int n = grid.Length, m = grid[0].Length;
         // 初始化 dp 表
@@ -1048,7 +1048,7 @@ $$
 === "Swift"
 
     ```swift title="min_path_sum.swift"
-    /* 最小路径和：状态压缩后的动态规划 */
+    /* 最小路径和：空间优化后的动态规划 */
     func minPathSumDPComp(grid: [[Int]]) -> Int {
         let n = grid.count
         let m = grid[0].count
@@ -1075,7 +1075,7 @@ $$
 === "Zig"
 
     ```zig title="min_path_sum.zig"
-    // 最小路径和：状态压缩后的动态规划
+    // 最小路径和：空间优化后的动态规划
     fn minPathSumDPComp(comptime grid: anytype) i32 {
         comptime var n = grid.len;
         comptime var m = grid[0].len;
@@ -1101,7 +1101,7 @@ $$
 === "Dart"
 
     ```dart title="min_path_sum.dart"
-    /* 最小路径和：状态压缩后的动态规划 */
+    /* 最小路径和：空间优化后的动态规划 */
     int minPathSumDPComp(List<List<int>> grid) {
       int n = grid.length, m = grid[0].length;
       // 初始化 dp 表
@@ -1126,7 +1126,7 @@ $$
 === "Rust"
 
     ```rust title="min_path_sum.rs"
-    /* 最小路径和：状态压缩后的动态规划 */
+    /* 最小路径和：空间优化后的动态规划 */
     fn min_path_sum_dp_comp(grid: &Vec<Vec<i32>>) -> i32 {
         let (n, m) = (grid.len(), grid[0].len());
         // 初始化 dp 表

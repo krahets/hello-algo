@@ -252,12 +252,12 @@ $$
 
 <p align="center"> 图 14-7 &nbsp; 爬楼梯最小代价的动态规划过程 </p>
 
-本题也可以进行状态压缩，将一维压缩至零维，使得空间复杂度从 $O(n)$ 降低至 $O(1)$ 。
+本题也可以进行空间优化，将一维压缩至零维，使得空间复杂度从 $O(n)$ 降低至 $O(1)$ 。
 
 === "Java"
 
     ```java title="min_cost_climbing_stairs_dp.java"
-    /* 爬楼梯最小代价：状态压缩后的动态规划 */
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
     int minCostClimbingStairsDPComp(int[] cost) {
         int n = cost.length - 1;
         if (n == 1 || n == 2)
@@ -275,7 +275,7 @@ $$
 === "C++"
 
     ```cpp title="min_cost_climbing_stairs_dp.cpp"
-    /* 爬楼梯最小代价：状态压缩后的动态规划 */
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
     int minCostClimbingStairsDPComp(vector<int> &cost) {
         int n = cost.size() - 1;
         if (n == 1 || n == 2)
@@ -294,7 +294,7 @@ $$
 
     ```python title="min_cost_climbing_stairs_dp.py"
     def min_cost_climbing_stairs_dp_comp(cost: list[int]) -> int:
-        """爬楼梯最小代价：状态压缩后的动态规划"""
+        """爬楼梯最小代价：空间优化后的动态规划"""
         n = len(cost) - 1
         if n == 1 or n == 2:
             return cost[n]
@@ -307,7 +307,7 @@ $$
 === "Go"
 
     ```go title="min_cost_climbing_stairs_dp.go"
-    /* 爬楼梯最小代价：状态压缩后的动态规划 */
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
     func minCostClimbingStairsDPComp(cost []int) int {
         n := len(cost) - 1
         if n == 1 || n == 2 {
@@ -346,7 +346,7 @@ $$
 === "C#"
 
     ```csharp title="min_cost_climbing_stairs_dp.cs"
-    /* 爬楼梯最小代价：状态压缩后的动态规划 */
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
     int minCostClimbingStairsDPComp(int[] cost) {
         int n = cost.Length - 1;
         if (n == 1 || n == 2)
@@ -364,7 +364,7 @@ $$
 === "Swift"
 
     ```swift title="min_cost_climbing_stairs_dp.swift"
-    /* 爬楼梯最小代价：状态压缩后的动态规划 */
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
     func minCostClimbingStairsDPComp(cost: [Int]) -> Int {
         let n = cost.count - 1
         if n == 1 || n == 2 {
@@ -381,7 +381,7 @@ $$
 === "Zig"
 
     ```zig title="min_cost_climbing_stairs_dp.zig"
-    // 爬楼梯最小代价：状态压缩后的动态规划
+    // 爬楼梯最小代价：空间优化后的动态规划
     fn minCostClimbingStairsDPComp(cost: []i32) i32 {
         var n = cost.len - 1;
         if (n == 1 or n == 2) {
@@ -402,7 +402,7 @@ $$
 === "Dart"
 
     ```dart title="min_cost_climbing_stairs_dp.dart"
-    /* 爬楼梯最小代价：状态压缩后的动态规划 */
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
     int minCostClimbingStairsDPComp(List<int> cost) {
       int n = cost.length - 1;
       if (n == 1 || n == 2) return cost[n];
@@ -419,7 +419,7 @@ $$
 === "Rust"
 
     ```rust title="min_cost_climbing_stairs_dp.rs"
-    /* 爬楼梯最小代价：状态压缩后的动态规划 */
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
     fn min_cost_climbing_stairs_dp_comp(cost: &[i32]) -> i32 {
         let n = cost.len() - 1;
         if n == 1 || n == 2 { return cost[n] };

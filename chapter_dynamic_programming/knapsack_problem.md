@@ -826,11 +826,11 @@ $$
 
 <p align="center"> 图 14-20 &nbsp; 0-1 背包的动态规划过程 </p>
 
-### 4. &nbsp; 状态压缩
+### 4. &nbsp; 空间优化
 
 由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 $O(n^2)$ 将低至 $O(n)$ 。
 
-进一步思考，我们是否可以仅用一个数组实现状态压缩呢？观察可知，每个状态都是由正上方或左上方的格子转移过来的。假设只有一个数组，当开始遍历第 $i$ 行时，该数组存储的仍然是第 $i-1$ 行的状态。
+进一步思考，我们是否可以仅用一个数组实现空间优化呢？观察可知，每个状态都是由正上方或左上方的格子转移过来的。假设只有一个数组，当开始遍历第 $i$ 行时，该数组存储的仍然是第 $i-1$ 行的状态。
 
 - 如果采取正序遍历，那么遍历到 $dp[i, j]$ 时，左上方 $dp[i-1, 1]$ ~ $dp[i-1, j-1]$ 值可能已经被覆盖，此时就无法得到正确的状态转移结果。
 - 如果采取倒序遍历，则不会发生覆盖问题，状态转移可以正确进行。
@@ -838,7 +838,7 @@ $$
 图 14-21 展示了在单个数组下从第 $i = 1$ 行转换至第 $i = 2$ 行的过程。请思考正序遍历和倒序遍历的区别。
 
 === "<1>"
-    ![0-1 背包的状态压缩后的动态规划过程](knapsack_problem.assets/knapsack_dp_comp_step1.png)
+    ![0-1 背包的空间优化后的动态规划过程](knapsack_problem.assets/knapsack_dp_comp_step1.png)
 
 === "<2>"
     ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.png)
@@ -855,14 +855,14 @@ $$
 === "<6>"
     ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.png)
 
-<p align="center"> 图 14-21 &nbsp; 0-1 背包的状态压缩后的动态规划过程 </p>
+<p align="center"> 图 14-21 &nbsp; 0-1 背包的空间优化后的动态规划过程 </p>
 
 在代码实现中，我们仅需将数组 `dp` 的第一维 $i$ 直接删除，并且把内循环更改为倒序遍历即可。
 
 === "Java"
 
     ```java title="knapsack.java"
-    /* 0-1 背包：状态压缩后的动态规划 */
+    /* 0-1 背包：空间优化后的动态规划 */
     int knapsackDPComp(int[] wgt, int[] val, int cap) {
         int n = wgt.length;
         // 初始化 dp 表
@@ -884,7 +884,7 @@ $$
 === "C++"
 
     ```cpp title="knapsack.cpp"
-    /* 0-1 背包：状态压缩后的动态规划 */
+    /* 0-1 背包：空间优化后的动态规划 */
     int knapsackDPComp(vector<int> &wgt, vector<int> &val, int cap) {
         int n = wgt.size();
         // 初始化 dp 表
@@ -907,7 +907,7 @@ $$
 
     ```python title="knapsack.py"
     def knapsack_dp_comp(wgt: list[int], val: list[int], cap: int) -> int:
-        """0-1 背包：状态压缩后的动态规划"""
+        """0-1 背包：空间优化后的动态规划"""
         n = len(wgt)
         # 初始化 dp 表
         dp = [0] * (cap + 1)
@@ -927,7 +927,7 @@ $$
 === "Go"
 
     ```go title="knapsack.go"
-    /* 0-1 背包：状态压缩后的动态规划 */
+    /* 0-1 背包：空间优化后的动态规划 */
     func knapsackDPComp(wgt, val []int, cap int) int {
         n := len(wgt)
         // 初始化 dp 表
@@ -967,7 +967,7 @@ $$
 === "C#"
 
     ```csharp title="knapsack.cs"
-    /* 0-1 背包：状态压缩后的动态规划 */
+    /* 0-1 背包：空间优化后的动态规划 */
     int knapsackDPComp(int[] weight, int[] val, int cap) {
         int n = weight.Length;
         // 初始化 dp 表
@@ -992,7 +992,7 @@ $$
 === "Swift"
 
     ```swift title="knapsack.swift"
-    /* 0-1 背包：状态压缩后的动态规划 */
+    /* 0-1 背包：空间优化后的动态规划 */
     func knapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
         let n = wgt.count
         // 初始化 dp 表
@@ -1014,7 +1014,7 @@ $$
 === "Zig"
 
     ```zig title="knapsack.zig"
-    // 0-1 背包：状态压缩后的动态规划
+    // 0-1 背包：空间优化后的动态规划
     fn knapsackDPComp(wgt: []i32, val: []i32, comptime cap: usize) i32 {
         var n = wgt.len;
         // 初始化 dp 表
@@ -1037,7 +1037,7 @@ $$
 === "Dart"
 
     ```dart title="knapsack.dart"
-    /* 0-1 背包：状态压缩后的动态规划 */
+    /* 0-1 背包：空间优化后的动态规划 */
     int knapsackDPComp(List<int> wgt, List<int> val, int cap) {
       int n = wgt.length;
       // 初始化 dp 表
@@ -1059,7 +1059,7 @@ $$
 === "Rust"
 
     ```rust title="knapsack.rs"
-    /* 0-1 背包：状态压缩后的动态规划 */
+    /* 0-1 背包：空间优化后的动态规划 */
     fn knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
         let n = wgt.len();
         // 初始化 dp 表

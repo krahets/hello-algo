@@ -1169,14 +1169,14 @@ $$
 - 将最小子问题对应的状态（即第 $1$ , $2$ 阶楼梯）称为「初始状态」。
 - 将递推公式 $dp[i] = dp[i-1] + dp[i-2]$ 称为「状态转移方程」。
 
-## 14.1.4 &nbsp; 状态压缩
+## 14.1.4 &nbsp; 空间优化
 
 细心的你可能发现，**由于 $dp[i]$ 只与 $dp[i-1]$ 和 $dp[i-2]$ 有关，因此我们无须使用一个数组 `dp` 来存储所有子问题的解**，而只需两个变量滚动前进即可。
 
 === "Java"
 
     ```java title="climbing_stairs_dp.java"
-    /* 爬楼梯：状态压缩后的动态规划 */
+    /* 爬楼梯：空间优化后的动态规划 */
     int climbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;
@@ -1193,7 +1193,7 @@ $$
 === "C++"
 
     ```cpp title="climbing_stairs_dp.cpp"
-    /* 爬楼梯：状态压缩后的动态规划 */
+    /* 爬楼梯：空间优化后的动态规划 */
     int climbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;
@@ -1211,7 +1211,7 @@ $$
 
     ```python title="climbing_stairs_dp.py"
     def climbing_stairs_dp_comp(n: int) -> int:
-        """爬楼梯：状态压缩后的动态规划"""
+        """爬楼梯：空间优化后的动态规划"""
         if n == 1 or n == 2:
             return n
         a, b = 1, 2
@@ -1223,7 +1223,7 @@ $$
 === "Go"
 
     ```go title="climbing_stairs_dp.go"
-    /* 爬楼梯：状态压缩后的动态规划 */
+    /* 爬楼梯：空间优化后的动态规划 */
     func climbingStairsDPComp(n int) int {
         if n == 1 || n == 2 {
             return n
@@ -1240,7 +1240,7 @@ $$
 === "JS"
 
     ```javascript title="climbing_stairs_dp.js"
-    /* 爬楼梯：状态压缩后的动态规划 */
+    /* 爬楼梯：空间优化后的动态规划 */
     function climbingStairsDPComp(n) {
         if (n === 1 || n === 2) return n;
         let a = 1,
@@ -1257,7 +1257,7 @@ $$
 === "TS"
 
     ```typescript title="climbing_stairs_dp.ts"
-    /* 爬楼梯：状态压缩后的动态规划 */
+    /* 爬楼梯：空间优化后的动态规划 */
     function climbingStairsDPComp(n: number): number {
         if (n === 1 || n === 2) return n;
         let a = 1,
@@ -1280,7 +1280,7 @@ $$
 === "C#"
 
     ```csharp title="climbing_stairs_dp.cs"
-    /* 爬楼梯：状态压缩后的动态规划 */
+    /* 爬楼梯：空间优化后的动态规划 */
     int climbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;
@@ -1297,7 +1297,7 @@ $$
 === "Swift"
 
     ```swift title="climbing_stairs_dp.swift"
-    /* 爬楼梯：状态压缩后的动态规划 */
+    /* 爬楼梯：空间优化后的动态规划 */
     func climbingStairsDPComp(n: Int) -> Int {
         if n == 1 || n == 2 {
             return n
@@ -1314,7 +1314,7 @@ $$
 === "Zig"
 
     ```zig title="climbing_stairs_dp.zig"
-    // 爬楼梯：状态压缩后的动态规划
+    // 爬楼梯：空间优化后的动态规划
     fn climbingStairsDPComp(comptime n: usize) i32 {
         if (n == 1 or n == 2) {
             return @intCast(n);
@@ -1333,7 +1333,7 @@ $$
 === "Dart"
 
     ```dart title="climbing_stairs_dp.dart"
-    /* 爬楼梯：状态压缩后的动态规划 */
+    /* 爬楼梯：空间优化后的动态规划 */
     int climbingStairsDPComp(int n) {
       if (n == 1 || n == 2) return n;
       int a = 1, b = 2;
@@ -1349,7 +1349,7 @@ $$
 === "Rust"
 
     ```rust title="climbing_stairs_dp.rs"
-    /* 爬楼梯：状态压缩后的动态规划 */
+    /* 爬楼梯：空间优化后的动态规划 */
     fn climbing_stairs_dp_comp(n: usize) -> i32 {
         if n == 1 || n == 2 { return n as i32; }
         let (mut a, mut b) = (1, 2);
@@ -1364,4 +1364,4 @@ $$
 
 观察以上代码，由于省去了数组 `dp` 占用的空间，因此空间复杂度从 $O(n)$ 降低至 $O(1)$ 。
 
-**这种空间优化技巧被称为「状态压缩」**。在常见的动态规划问题中，当前状态仅与前面有限个状态有关，这时我们可以应用状态压缩，只保留必要的状态，通过“降维”来节省内存空间。
+在动态规划问题中，当前状态往往仅与前面有限个状态有关，这时我们可以只保留必要的状态，通过“降维”来节省内存空间。**这种空间优化技巧被称为“滚动变量”或“滚动数组”**。
