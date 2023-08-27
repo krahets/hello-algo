@@ -3,11 +3,11 @@ comments: true
 icon: material/timer-sand
 ---
 
-# 第 2 章 &nbsp; 时空复杂度
+# 第 2 章 &nbsp; 复杂度分析
 
 <div class="center-table" markdown>
 
-![时空复杂度](../assets/covers/chapter_complexity_analysis.jpg){ width="600" }
+![复杂度分析](../assets/covers/chapter_complexity_analysis.jpg){ width="600" }
 
 </div>
 
