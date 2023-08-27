@@ -549,7 +549,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"/></svg>
   
   <span class="md-ellipsis">
-    第 2 章 &nbsp; 时空复杂度
+    第 2 章 &nbsp; 复杂度分析
   </span>
   
 
@@ -564,7 +564,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            第 2 章 &nbsp; 时空复杂度
+            第 2 章 &nbsp; 复杂度分析
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3439,7 +3439,7 @@
 <li>时间复杂度用于衡量算法运行时间随数据量增长的趋势，可以有效评估算法效率，但在某些情况下可能失效，如在输入的数据量较小或时间复杂度相同时，无法精确对比算法效率的优劣。</li>
 <li>最差时间复杂度使用大 <span class="arithmatex">\(O\)</span> 符号表示，对应函数渐近上界，反映当 <span class="arithmatex">\(n\)</span> 趋向正无穷时，操作数量 <span class="arithmatex">\(T(n)\)</span> 的增长级别。</li>
 <li>推算时间复杂度分为两步，首先统计操作数量，然后判断渐近上界。</li>
-<li>常见时间复杂度从小到大排列有 <span class="arithmatex">\(O(1)\)</span>、<span class="arithmatex">\(O(\log n)\)</span>、<span class="arithmatex">\(O(n)\)</span>、<span class="arithmatex">\(O(n \log n)\)</span>、<span class="arithmatex">\(O(n^2)\)</span>、<span class="arithmatex">\(O(2^n)\)</span>、<span class="arithmatex">\(O(n!)\)</span> 等。</li>
+<li>常见时间复杂度从小到大排列有 <span class="arithmatex">\(O(1)\)</span>、<span class="arithmatex">\(O(\log n)\)</span>、<span class="arithmatex">\(O(n)\)</span>、<span class="arithmatex">\(O(n \log n)\)</span>、<span class="arithmatex">\(O(n^2)\)</span>、<span class="arithmatex">\(O(2^n)\)</span> 和 <span class="arithmatex">\(O(n!)\)</span> 等。</li>
 <li>某些算法的时间复杂度非固定，而是与输入数据的分布有关。时间复杂度分为最差、最佳、平均时间复杂度，最佳时间复杂度几乎不用，因为输入数据一般需要满足严格条件才能达到最佳情况。</li>
 <li>平均时间复杂度反映算法在随机数据输入下的运行效率，最接近实际应用中的算法性能。计算平均时间复杂度需要统计输入数据分布以及综合后的数学期望。</li>
 </ul>
@@ -3448,7 +3448,7 @@
 <li>空间复杂度的作用类似于时间复杂度，用于衡量算法占用空间随数据量增长的趋势。</li>
 <li>算法运行过程中的相关内存空间可分为输入空间、暂存空间、输出空间。通常情况下，输入空间不计入空间复杂度计算。暂存空间可分为指令空间、数据空间、栈帧空间，其中栈帧空间通常仅在递归函数中影响空间复杂度。</li>
 <li>我们通常只关注最差空间复杂度，即统计算法在最差输入数据和最差运行时间点下的空间复杂度。</li>
-<li>常见空间复杂度从小到大排列有 <span class="arithmatex">\(O(1)\)</span>、<span class="arithmatex">\(O(\log n)\)</span>、<span class="arithmatex">\(O(n)\)</span>、<span class="arithmatex">\(O(n^2)\)</span>、<span class="arithmatex">\(O(2^n)\)</span> 等。</li>
+<li>常见空间复杂度从小到大排列有 <span class="arithmatex">\(O(1)\)</span>、<span class="arithmatex">\(O(\log n)\)</span>、<span class="arithmatex">\(O(n)\)</span>、<span class="arithmatex">\(O(n^2)\)</span> 和 <span class="arithmatex">\(O(2^n)\)</span> 等。</li>
 </ul>
 <h2 id="251-q-a">2.5.1 &nbsp; Q &amp; A<a class="headerlink" href="#251-q-a" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
@@ -3466,7 +3466,7 @@
 </ul>
 </div>
 <div class="admonition question">
-<p class="admonition-title">图“空间复杂度的常见类型”反映的是否是占用空间的绝对大小？</p>
+<p class="admonition-title">图“常见的空间复杂度类型”反映的是否是占用空间的绝对大小？</p>
 <p>不是，该图片展示的是空间复杂度，其反映的是增长趋势，而不是占用空间的绝对大小。</p>
 <p>假设取 <span class="arithmatex">\(n = 8\)</span> ，你可能会发现每条曲线的值与函数对应不上。这是因为每条曲线都包含一个常数项，用于将取值范围压缩到一个视觉舒适的范围内。</p>
 <p>在实际中，因为我们通常不知道每个方法的“常数项”复杂度是多少，所以一般无法仅凭复杂度来选择 <span class="arithmatex">\(n = 8\)</span> 之下的最优解法。但对于 <span class="arithmatex">\(n = 8^5\)</span> 就很好选了，这时增长趋势已经占主导了。</p>

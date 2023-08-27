@@ -549,7 +549,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"/></svg>
   
   <span class="md-ellipsis">
-    第 2 章 &nbsp; 时空复杂度
+    第 2 章 &nbsp; 复杂度分析
   </span>
   
 
@@ -564,7 +564,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            第 2 章 &nbsp; 时空复杂度
+            第 2 章 &nbsp; 复杂度分析
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4147,10 +4147,6 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n^2) &lt; O(2^n) \newline
 <p><img alt="常见的空间复杂度类型" src="../space_complexity.assets/space_complexity_common_types.png" /></p>
 <p align="center"> 图 2-16 &nbsp; 常见的空间复杂度类型 </p>
 
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>部分示例代码需要一些前置知识，包括数组、链表、二叉树、递归算法等。如果你遇到看不懂的地方，可以在学完后面章节后再来复习。</p>
-</div>
 <h3 id="1-o1">1. &nbsp; 常数阶 <span class="arithmatex">\(O(1)\)</span><a class="headerlink" href="#1-o1" title="Permanent link">&para;</a></h3>
 <p>常数阶常见于数量与输入数据大小 <span class="arithmatex">\(n\)</span> 无关的常量、变量、对象。</p>
 <p>需要注意的是，在循环中初始化变量或调用函数而占用的内存，在进入下一循环后就会被释放，因此不会累积占用空间，空间复杂度仍为 <span class="arithmatex">\(O(1)\)</span> ：</p>
