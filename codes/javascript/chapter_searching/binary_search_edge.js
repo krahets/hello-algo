@@ -4,7 +4,7 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
-import binarySearchInsertion from './binary_search_insertion.js';
+const { binarySearchInsertion } = require('./binary_search_insertion.js');
 
 /* 二分查找最左一个 target */
 function binarySearchLeftEdge(nums, target) {
