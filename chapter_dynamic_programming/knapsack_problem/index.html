@@ -3495,12 +3495,12 @@
 <p>状态 <span class="arithmatex">\([i, c]\)</span> 对应的子问题为：<strong>前 <span class="arithmatex">\(i\)</span> 个物品在剩余容量为 <span class="arithmatex">\(c\)</span> 的背包中的最大价值</strong>，记为 <span class="arithmatex">\(dp[i, c]\)</span> 。</p>
 <p>待求解的是 <span class="arithmatex">\(dp[n, cap]\)</span> ，因此需要一个尺寸为 <span class="arithmatex">\((n+1) \times (cap+1)\)</span> 的二维 <span class="arithmatex">\(dp\)</span> 表。</p>
 <p><strong>第二步：找出最优子结构，进而推导出状态转移方程</strong></p>
-<p>当我们做出物品 <span class="arithmatex">\(i\)</span> 的决策后，剩余的是前 <span class="arithmatex">\(i-1\)</span> 个物品的决策。因此，状态转移分为两种情况：</p>
+<p>当我们做出物品 <span class="arithmatex">\(i\)</span> 的决策后，剩余的是前 <span class="arithmatex">\(i-1\)</span> 个物品的决策，可分为以下两种情况。</p>
 <ul>
-<li><strong>不放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量不变，状态转移至 <span class="arithmatex">\([i-1, c]\)</span> 。</li>
-<li><strong>放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量减小 <span class="arithmatex">\(wgt[i-1]\)</span> ，价值增加 <span class="arithmatex">\(val[i-1]\)</span> ，状态转移至 <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span> 。</li>
+<li><strong>不放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量不变，状态变化为 <span class="arithmatex">\([i-1, c]\)</span> 。</li>
+<li><strong>放入物品 <span class="arithmatex">\(i\)</span></strong> ：背包容量减小 <span class="arithmatex">\(wgt[i-1]\)</span> ，价值增加 <span class="arithmatex">\(val[i-1]\)</span> ，状态变化为 <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span> 。</li>
 </ul>
-<p>上述的状态转移向我们揭示了本题的最优子结构：<strong>最大价值 <span class="arithmatex">\(dp[i, c]\)</span> 等于不放入物品 <span class="arithmatex">\(i\)</span> 和放入物品 <span class="arithmatex">\(i\)</span> 两种方案中的价值更大的那一个</strong>。由此可推出状态转移方程：</p>
+<p>上述分析向我们揭示了本题的最优子结构：<strong>最大价值 <span class="arithmatex">\(dp[i, c]\)</span> 等于不放入物品 <span class="arithmatex">\(i\)</span> 和放入物品 <span class="arithmatex">\(i\)</span> 两种方案中的价值更大的那一个</strong>。由此可推出状态转移方程：</p>
 <div class="arithmatex">\[
 dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 \]</div>
