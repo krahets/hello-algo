@@ -46,7 +46,7 @@ $$
 
 ![最优切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer3.png)
 
-总结以上，可推出贪心策略：
+总结以上，可推出以下贪心策略。
 
 1. 输入整数 $n$ ，从其不断地切分出因子 $3$ ，直至余数为 $0$ , $1$ , $2$ 。
 2. 当余数为 $0$ 时，代表 $n$ 是 $3$ 的倍数，因此不做任何处理。
@@ -137,7 +137,7 @@ $$
 
 ![最大切分乘积的计算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png)
 
-**时间复杂度取决于编程语言的幂运算的实现方法**。以 Python 为例，常用的幂计算函数有：
+**时间复杂度取决于编程语言的幂运算的实现方法**。以 Python 为例，常用的幂计算函数有三种。
 
 - 运算符 `**` 和函数 `pow()` 的时间复杂度均为 $O(\log⁡ a)$ 。
 - 函数 `math.pow()` 内部调用 C 语言库的 `pow()` 函数，其执行浮点取幂，时间复杂度为 $O(1)$ 。

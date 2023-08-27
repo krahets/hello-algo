@@ -26,10 +26,9 @@ $$
 
 ![初始状态](max_capacity_problem.assets/max_capacity_initial_state.png)
 
-如下图所示，**若此时将长板 $j$ 向短板 $i$ 靠近，则容量一定变小**。这是因为在移动长板 $j$ 后：
+如下图所示，**若此时将长板 $j$ 向短板 $i$ 靠近，则容量一定变小**。
 
-- 宽度 $j-i$ 肯定变小。
-- 高度由短板决定，因此高度只可能不变（ $i$ 仍为短板）或变小（移动后的 $j$ 成为短板）。
+这是因为在移动长板 $j$ 后，宽度 $j-i$ 肯定变小；而高度由短板决定，因此高度只可能不变（ $i$ 仍为短板）或变小（移动后的 $j$ 成为短板）。
 
 ![向内移动长板后的状态](max_capacity_problem.assets/max_capacity_moving_long_board.png)
 
