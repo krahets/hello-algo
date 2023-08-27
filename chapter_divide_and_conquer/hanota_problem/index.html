@@ -3467,7 +3467,7 @@
 <p>在归并排序和构建二叉树中，我们都是将原问题分解为两个规模为原问题一半的子问题。然而对于汉诺塔问题，我们采用不同的分解策略。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>给定三根柱子，记为 <code>A</code> , <code>B</code> , <code>C</code> 。起始状态下，柱子 <code>A</code> 上套着 <span class="arithmatex">\(n\)</span> 个圆盘，它们从上到下按照从小到大的顺序排列。我们的任务是要把这 <span class="arithmatex">\(n\)</span> 个圆盘移到柱子 <code>C</code> 上，并保持它们的原有顺序不变。在移动圆盘的过程中，需要遵守以下规则：</p>
+<p>给定三根柱子，记为 <code>A</code>、<code>B</code> 和 <code>C</code> 。起始状态下，柱子 <code>A</code> 上套着 <span class="arithmatex">\(n\)</span> 个圆盘，它们从上到下按照从小到大的顺序排列。我们的任务是要把这 <span class="arithmatex">\(n\)</span> 个圆盘移到柱子 <code>C</code> 上，并保持它们的原有顺序不变。在移动圆盘的过程中，需要遵守以下规则。</p>
 <ol>
 <li>圆盘只能从一个柱子顶部拿出，从另一个柱子顶部放入。</li>
 <li>每次只能移动一个圆盘。</li>
@@ -3544,7 +3544,7 @@
 <p align="center"> 图 12-12 &nbsp; 规模为 3 问题的解 </p>
 
 <p>本质上看，<strong>我们将问题 <span class="arithmatex">\(f(3)\)</span> 划分为两个子问题 <span class="arithmatex">\(f(2)\)</span> 和子问题 <span class="arithmatex">\(f(1)\)</span></strong> 。按顺序解决这三个子问题之后，原问题随之得到解决。这说明子问题是独立的，而且解是可以合并的。</p>
-<p>至此，我们可总结出图 12-13 所示的汉诺塔问题的分治策略：将原问题 <span class="arithmatex">\(f(n)\)</span> 划分为两个子问题 <span class="arithmatex">\(f(n-1)\)</span> 和一个子问题 <span class="arithmatex">\(f(1)\)</span> 。子问题的解决顺序为：</p>
+<p>至此，我们可总结出图 12-13 所示的汉诺塔问题的分治策略：将原问题 <span class="arithmatex">\(f(n)\)</span> 划分为两个子问题 <span class="arithmatex">\(f(n-1)\)</span> 和一个子问题 <span class="arithmatex">\(f(1)\)</span> ，并按照以下顺序解决这三个子问题。</p>
 <ol>
 <li>将 <span class="arithmatex">\(n-1\)</span> 个圆盘借助 <code>C</code> 从 <code>A</code> 移至 <code>B</code> 。</li>
 <li>将剩余 <span class="arithmatex">\(1\)</span> 个圆盘从 <code>A</code> 直接移至 <code>C</code> 。</li>

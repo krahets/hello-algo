@@ -3486,20 +3486,20 @@
 <p align="center"> 图 12-5 &nbsp; 构建二叉树的示例数据 </p>
 
 <h3 id="1">1. &nbsp; 判断是否为分治问题<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>原问题定义为从 <code>preorder</code> 和 <code>inorder</code> 构建二叉树。我们首先从分治的角度分析这道题：</p>
+<p>原问题定义为从 <code>preorder</code> 和 <code>inorder</code> 构建二叉树，其是一个典型的分治问题。</p>
 <ul>
 <li><strong>问题可以被分解</strong>：从分治的角度切入，我们可以将原问题划分为两个子问题：构建左子树、构建右子树，加上一步操作：初始化根节点。而对于每个子树（子问题），我们仍然可以复用以上划分方法，将其划分为更小的子树（子问题），直至达到最小子问题（空子树）时终止。</li>
 <li><strong>子问题是独立的</strong>：左子树和右子树是相互独立的，它们之间没有交集。在构建左子树时，我们只需要关注中序遍历和前序遍历中与左子树对应的部分。右子树同理。</li>
 <li><strong>子问题的解可以合并</strong>：一旦得到了左子树和右子树（子问题的解），我们就可以将它们链接到根节点上，得到原问题的解。</li>
 </ul>
 <h3 id="2">2. &nbsp; 如何划分子树<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>根据以上分析，这道题是可以使用分治来求解的，但问题是：<strong>如何通过前序遍历 <code>preorder</code> 和中序遍历 <code>inorder</code> 来划分左子树和右子树呢</strong>？</p>
-<p>根据定义，<code>preorder</code> 和 <code>inorder</code> 都可以被划分为三个部分：</p>
+<p>根据以上分析，这道题是可以使用分治来求解的，<strong>但如何通过前序遍历 <code>preorder</code> 和中序遍历 <code>inorder</code> 来划分左子树和右子树呢</strong>？</p>
+<p>根据定义，<code>preorder</code> 和 <code>inorder</code> 都可以被划分为三个部分。</p>
 <ul>
 <li>前序遍历：<code>[ 根节点 | 左子树 | 右子树 ]</code> ，例如图 12-5 的树对应 <code>[ 3 | 9 | 2 1 7 ]</code> 。</li>
 <li>中序遍历：<code>[ 左子树 | 根节点 ｜ 右子树 ]</code> ，例如图 12-5 的树对应 <code>[ 9 | 3 | 1 2 7 ]</code> 。</li>
 </ul>
-<p>以上图数据为例，我们可以通过图 12-6 所示的步骤得到划分结果：</p>
+<p>以上图数据为例，我们可以通过图 12-6 所示的步骤得到划分结果。</p>
 <ol>
 <li>前序遍历的首元素 3 是根节点的值。</li>
 <li>查找根节点 3 在 <code>inorder</code> 中的索引，利用该索引可将 <code>inorder</code> 划分为 <code>[ 9 | 3 ｜ 1 2 7 ]</code> 。</li>
@@ -3509,7 +3509,7 @@
 <p align="center"> 图 12-6 &nbsp; 在前序和中序遍历中划分子树 </p>
 
 <h3 id="3">3. &nbsp; 基于变量描述子树区间<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>根据以上划分方法，<strong>我们已经得到根节点、左子树、右子树在 <code>preorder</code> 和 <code>inorder</code> 中的索引区间</strong>。而为了描述这些索引区间，我们需要借助几个指针变量：</p>
+<p>根据以上划分方法，<strong>我们已经得到根节点、左子树、右子树在 <code>preorder</code> 和 <code>inorder</code> 中的索引区间</strong>。而为了描述这些索引区间，我们需要借助几个指针变量。</p>
 <ul>
 <li>将当前树的根节点在 <code>preorder</code> 中的索引记为 <span class="arithmatex">\(i\)</span> 。</li>
 <li>将当前树的根节点在 <code>inorder</code> 中的索引记为 <span class="arithmatex">\(m\)</span> 。</li>

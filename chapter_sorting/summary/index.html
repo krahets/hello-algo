@@ -3459,7 +3459,7 @@
 <div class="admonition question">
 <p class="admonition-title">关于尾递归优化，为什么选短的数组能保证递归深度不超过 <span class="arithmatex">\(\log n\)</span> ？</p>
 <p>递归深度就是当前未返回的递归方法的数量。每轮哨兵划分我们将原数组划分为两个子数组。在尾递归优化后，向下递归的子数组长度最大为原数组的一半长度。假设最差情况，一直为一半长度，那么最终的递归深度就是 <span class="arithmatex">\(\log n\)</span> 。</p>
-<p>回顾原始的快速排序，我们有可能会连续地递归长度较大的数组，最差情况下为 <span class="arithmatex">\(n, n - 1, n - 2, ..., 2, 1\)</span> ，从而递归深度为 <span class="arithmatex">\(n\)</span> 。尾递归优化可以避免这种情况的出现。</p>
+<p>回顾原始的快速排序，我们有可能会连续地递归长度较大的数组，最差情况下为 <span class="arithmatex">\(n\)</span>、<span class="arithmatex">\(n - 1\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(1\)</span> ，递归深度为 <span class="arithmatex">\(n\)</span> 。尾递归优化可以避免这种情况的出现。</p>
 </div>
 <div class="admonition question">
 <p class="admonition-title">当数组中所有元素都相等时，快速排序的时间复杂度是 <span class="arithmatex">\(O(n^2)\)</span> 吗？该如何处理这种退化情况？</p>

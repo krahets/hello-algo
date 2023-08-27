@@ -3797,7 +3797,7 @@
 <p>但实际上，<strong>统计算法的运行时间既不合理也不现实</strong>。首先，我们不希望将预估时间和运行平台绑定，因为算法需要在各种不同的平台上运行。其次，我们很难获知每种操作的运行时间，这给预估过程带来了极大的难度。</p>
 <h2 id="231">2.3.1 &nbsp; 统计时间增长趋势<a class="headerlink" href="#231" title="Permanent link">&para;</a></h2>
 <p>时间复杂度分析统计的不是算法运行时间，<strong>而是算法运行时间随着数据量变大时的增长趋势</strong>。</p>
-<p>“时间增长趋势”这个概念比较抽象，我们通过一个例子来加以理解。假设输入数据大小为 <span class="arithmatex">\(n\)</span> ，给定三个算法函数 <code>A</code> 、 <code>B</code> 和 <code>C</code> ：</p>
+<p>“时间增长趋势”这个概念比较抽象，我们通过一个例子来加以理解。假设输入数据大小为 <span class="arithmatex">\(n\)</span> ，给定三个算法函数 <code>A</code>、<code>B</code> 和 <code>C</code> ：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4018,8 +4018,8 @@
 <li>算法 <code>B</code> 中的打印操作需要循环 <span class="arithmatex">\(n\)</span> 次，算法运行时间随着 <span class="arithmatex">\(n\)</span> 增大呈线性增长。此算法的时间复杂度被称为“线性阶”。</li>
 <li>算法 <code>C</code> 中的打印操作需要循环 <span class="arithmatex">\(1000000\)</span> 次，虽然运行时间很长，但它与输入数据大小 <span class="arithmatex">\(n\)</span> 无关。因此 <code>C</code> 的时间复杂度和 <code>A</code> 相同，仍为“常数阶”。</li>
 </ul>
-<p><img alt="算法 A 、B 和 C 的时间增长趋势" src="../time_complexity.assets/time_complexity_simple_example.png" /></p>
-<p align="center"> 图 2-7 &nbsp; 算法 A 、B 和 C 的时间增长趋势 </p>
+<p><img alt="算法 A、B 和 C 的时间增长趋势" src="../time_complexity.assets/time_complexity_simple_example.png" /></p>
+<p align="center"> 图 2-7 &nbsp; 算法 A、B 和 C 的时间增长趋势 </p>
 
 <p>相较于直接统计算法运行时间，时间复杂度分析有哪些特点呢？</p>
 <ul>
@@ -5054,7 +5054,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 <p><img alt="常数阶、线性阶和平方阶的时间复杂度" src="../time_complexity.assets/time_complexity_constant_linear_quadratic.png" /></p>
 <p align="center"> 图 2-10 &nbsp; 常数阶、线性阶和平方阶的时间复杂度 </p>
 
-<p>以冒泡排序为例，外层循环执行 <span class="arithmatex">\(n - 1\)</span> 次，内层循环执行 <span class="arithmatex">\(n-1, n-2, \dots, 2, 1\)</span> 次，平均为 <span class="arithmatex">\(n / 2\)</span> 次，因此时间复杂度为 <span class="arithmatex">\(O((n - 1) n / 2) = O(n^2)\)</span> 。</p>
+<p>以冒泡排序为例，外层循环执行 <span class="arithmatex">\(n - 1\)</span> 次，内层循环执行 <span class="arithmatex">\(n-1\)</span>、<span class="arithmatex">\(n-2\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(1\)</span> 次，平均为 <span class="arithmatex">\(n / 2\)</span> 次，因此时间复杂度为 <span class="arithmatex">\(O((n - 1) n / 2) = O(n^2)\)</span> 。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:12"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><input id="__tabbed_9_5" name="__tabbed_9" type="radio" /><input id="__tabbed_9_6" name="__tabbed_9" type="radio" /><input id="__tabbed_9_7" name="__tabbed_9" type="radio" /><input id="__tabbed_9_8" name="__tabbed_9" type="radio" /><input id="__tabbed_9_9" name="__tabbed_9" type="radio" /><input id="__tabbed_9_10" name="__tabbed_9" type="radio" /><input id="__tabbed_9_11" name="__tabbed_9" type="radio" /><input id="__tabbed_9_12" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Java</label><label for="__tabbed_9_2">C++</label><label for="__tabbed_9_3">Python</label><label for="__tabbed_9_4">Go</label><label for="__tabbed_9_5">JS</label><label for="__tabbed_9_6">TS</label><label for="__tabbed_9_7">C</label><label for="__tabbed_9_8">C#</label><label for="__tabbed_9_9">Swift</label><label for="__tabbed_9_10">Zig</label><label for="__tabbed_9_11">Dart</label><label for="__tabbed_9_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

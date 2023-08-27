@@ -3766,11 +3766,11 @@
 </div>
 <h2 id="1192">11.9.2 &nbsp; 完整实现<a class="headerlink" href="#1192" title="Permanent link">&para;</a></h2>
 <p>细心的同学可能发现，<strong>如果输入数据是对象，上述步骤 <code>3.</code> 就失效了</strong>。假设输入数据是商品对象，我们想要按照商品价格（类的成员变量）对商品进行排序，而上述算法只能给出价格的排序结果。</p>
-<p>那么如何才能得到原数据的排序结果呢？我们首先计算 <code>counter</code> 的“前缀和”。顾名思义，索引 <code>i</code> 处的前缀和 <code>prefix[i]</code> 等于数组前 <code>i</code> 个元素之和，即：</p>
+<p>那么如何才能得到原数据的排序结果呢？我们首先计算 <code>counter</code> 的“前缀和”。顾名思义，索引 <code>i</code> 处的前缀和 <code>prefix[i]</code> 等于数组前 <code>i</code> 个元素之和：</p>
 <div class="arithmatex">\[
 \text{prefix}[i] = \sum_{j=0}^i \text{counter[j]}
 \]</div>
-<p><strong>前缀和具有明确的意义，<code>prefix[num] - 1</code> 代表元素 <code>num</code> 在结果数组 <code>res</code> 中最后一次出现的索引</strong>。这个信息非常关键，因为它告诉我们各个元素应该出现在结果数组的哪个位置。接下来，我们倒序遍历原数组 <code>nums</code> 的每个元素 <code>num</code> ，在每轮迭代中执行：</p>
+<p><strong>前缀和具有明确的意义，<code>prefix[num] - 1</code> 代表元素 <code>num</code> 在结果数组 <code>res</code> 中最后一次出现的索引</strong>。这个信息非常关键，因为它告诉我们各个元素应该出现在结果数组的哪个位置。接下来，我们倒序遍历原数组 <code>nums</code> 的每个元素 <code>num</code> ，在每轮迭代中执行以下两步。</p>
 <ol>
 <li>将 <code>num</code> 填入数组 <code>res</code> 的索引 <code>prefix[num] - 1</code> 处。</li>
 <li>令前缀和 <code>prefix[num]</code> 减小 <span class="arithmatex">\(1\)</span> ，从而得到下次放置 <code>num</code> 的索引。</li>
@@ -4196,7 +4196,7 @@
 <h2 id="1193">11.9.3 &nbsp; 算法特性<a class="headerlink" href="#1193" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>时间复杂度 <span class="arithmatex">\(O(n + m)\)</span></strong> ：涉及遍历 <code>nums</code> 和遍历 <code>counter</code> ，都使用线性时间。一般情况下 <span class="arithmatex">\(n \gg m\)</span> ，时间复杂度趋于 <span class="arithmatex">\(O(n)\)</span> 。</li>
-<li><strong>空间复杂度 <span class="arithmatex">\(O(n + m)\)</span> 、非原地排序</strong> ：借助了长度分别为 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(m\)</span> 的数组 <code>res</code> 和 <code>counter</code> 。</li>
+<li><strong>空间复杂度 <span class="arithmatex">\(O(n + m)\)</span>、非原地排序</strong>：借助了长度分别为 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(m\)</span> 的数组 <code>res</code> 和 <code>counter</code> 。</li>
 <li><strong>稳定排序</strong>：由于向 <code>res</code> 中填充元素的顺序是“从右向左”的，因此倒序遍历 <code>nums</code> 可以避免改变相等元素之间的相对位置，从而实现稳定排序。实际上，正序遍历 <code>nums</code> 也可以得到正确的排序结果，但结果是非稳定的。</li>
 </ul>
 <h2 id="1194">11.9.4 &nbsp; 局限性<a class="headerlink" href="#1194" title="Permanent link">&para;</a></h2>

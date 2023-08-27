@@ -3497,32 +3497,32 @@
 
 <h1 id="62">6.2 &nbsp; 哈希冲突<a class="headerlink" href="#62" title="Permanent link">&para;</a></h1>
 <p>上节提到，<strong>通常情况下哈希函数的输入空间远大于输出空间</strong>，因此理论上哈希冲突是不可避免的。比如，输入空间为全体整数，输出空间为数组容量大小，则必然有多个整数映射至同一数组索引。</p>
-<p>哈希冲突会导致查询结果错误，严重影响哈希表的可用性。为解决该问题，我们可以每当遇到哈希冲突时就进行哈希表扩容，直至冲突消失为止。此方法简单粗暴且有效，但效率太低，因为哈希表扩容需要进行大量的数据搬运与哈希值计算。为了提升效率，我们切换一下思路：</p>
+<p>哈希冲突会导致查询结果错误，严重影响哈希表的可用性。为解决该问题，我们可以每当遇到哈希冲突时就进行哈希表扩容，直至冲突消失为止。此方法简单粗暴且有效，但效率太低，因为哈希表扩容需要进行大量的数据搬运与哈希值计算。为了提升效率，我们可以采用以下思路。</p>
 <ol>
 <li>改良哈希表数据结构，<strong>使得哈希表可以在存在哈希冲突时正常工作</strong>。</li>
 <li>仅在必要时，即当哈希冲突比较严重时，才执行扩容操作。</li>
 </ol>
-<p>哈希表的结构改良方法主要包括链式地址和开放寻址。</p>
+<p>哈希表的结构改良方法主要包括“链式地址”和“开放寻址”。</p>
 <h2 id="621">6.2.1 &nbsp; 链式地址<a class="headerlink" href="#621" title="Permanent link">&para;</a></h2>
 <p>在原始哈希表中，每个桶仅能存储一个键值对。「链式地址 separate chaining」将单个元素转换为链表，将键值对作为链表节点，将所有发生冲突的键值对都存储在同一链表中。图 6-5 展示了一个链式地址哈希表的例子。</p>
 <p><img alt="链式地址哈希表" src="../hash_collision.assets/hash_table_chaining.png" /></p>
 <p align="center"> 图 6-5 &nbsp; 链式地址哈希表 </p>
 
-<p>链式地址下，哈希表的操作方法包括：</p>
+<p>哈希表在链式地址下的操作方法发生了一些变化。</p>
 <ul>
 <li><strong>查询元素</strong>：输入 <code>key</code> ，经过哈希函数得到数组索引，即可访问链表头节点，然后遍历链表并对比 <code>key</code> 以查找目标键值对。</li>
 <li><strong>添加元素</strong>：先通过哈希函数访问链表头节点，然后将节点（即键值对）添加到链表中。</li>
 <li><strong>删除元素</strong>：根据哈希函数的结果访问链表头部，接着遍历链表以查找目标节点，并将其删除。</li>
 </ul>
-<p>该方法存在一些局限性，包括：</p>
+<p>链式地址存在以下局限性。</p>
 <ul>
 <li><strong>占用空间增大</strong>，链表包含节点指针，它相比数组更加耗费内存空间。</li>
 <li><strong>查询效率降低</strong>，因为需要线性遍历链表来查找对应元素。</li>
 </ul>
-<p>以下给出了链式地址哈希表的简单实现，需要注意：</p>
+<p>以下代码给出了链式地址哈希表的简单实现，需要注意两点。</p>
 <ul>
-<li>为了使得代码尽量简短，我们使用列表（动态数组）代替链表。在这种设定下，哈希表（数组）包含多个桶，每个桶都是一个列表。</li>
-<li>以下代码实现了哈希表扩容方法。具体来看，当负载因子超过 <span class="arithmatex">\(0.75\)</span> 时，我们将哈希表扩容至 <span class="arithmatex">\(2\)</span> 倍。</li>
+<li>使用列表（动态数组）代替链表，从而简化代码。在这种设定下，哈希表（数组）包含多个桶，每个桶都是一个列表。</li>
+<li>以下实现包含哈希表扩容方法。当负载因子超过 <span class="arithmatex">\(0.75\)</span> 时，我们将哈希表扩容至 <span class="arithmatex">\(2\)</span> 倍。</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
@@ -4622,7 +4622,7 @@
 <h2 id="622">6.2.2 &nbsp; 开放寻址<a class="headerlink" href="#622" title="Permanent link">&para;</a></h2>
 <p>「开放寻址 open addressing」不引入额外的数据结构，而是通过“多次探测”来处理哈希冲突，探测方式主要包括线性探测、平方探测、多次哈希等。</p>
 <h3 id="1">1. &nbsp; 线性探测<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>线性探测采用固定步长的线性查找来进行探测，对应的哈希表操作方法为：</p>
+<p>线性探测采用固定步长的线性搜索来进行探测，其操作方法与普通哈希表有所不同。</p>
 <ul>
 <li><strong>插入元素</strong>：通过哈希函数计算数组索引，若发现桶内已有元素，则从冲突位置向后线性遍历（步长通常为 <span class="arithmatex">\(1\)</span> ），直至找到空位，将元素插入其中。</li>
 <li><strong>查找元素</strong>：若发现哈希冲突，则使用相同步长向后线性遍历，直到找到对应元素，返回 <code>value</code> 即可；如果遇到空位，说明目标键值对不在哈希表中，返回 <span class="arithmatex">\(\text{None}\)</span> 。</li>
@@ -4631,12 +4631,12 @@
 <p><img alt="开放寻址和线性探测" src="../hash_collision.assets/hash_table_linear_probing.png" /></p>
 <p align="center"> 图 6-6 &nbsp; 开放寻址和线性探测 </p>
 
-<p>然而，线性探测存在以下缺陷：</p>
+<p>然而，线性探测存在以下缺陷。</p>
 <ul>
 <li><strong>不能直接删除元素</strong>。删除元素会在数组内产生一个空位，当查找该空位之后的元素时，该空位可能导致程序误判元素不存在。为此，通常需要借助一个标志位来标记已删除元素。</li>
 <li><strong>容易产生聚集</strong>。数组内连续被占用位置越长，这些连续位置发生哈希冲突的可能性越大，进一步促使这一位置的聚堆生长，形成恶性循环，最终导致增删查改操作效率劣化。</li>
 </ul>
-<p>以下代码实现了一个简单的开放寻址（线性探测）哈希表。值得注意两点：</p>
+<p>以下代码实现了一个简单的开放寻址（线性探测）哈希表。</p>
 <ul>
 <li>我们使用一个固定的键值对实例 <code>removed</code> 来标记已删除元素。也就是说，当一个桶内的元素为 <span class="arithmatex">\(\text{None}\)</span> 或 <code>removed</code> 时，说明这个桶是空的，可用于放置键值对。</li>
 <li>在线性探测时，我们从当前索引 <code>index</code> 向后遍历；而当越过数组尾部时，需要回到头部继续遍历。</li>
@@ -5884,7 +5884,7 @@
 </div>
 </div>
 <h3 id="2">2. &nbsp; 多次哈希<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>顾名思义，多次哈希方法是使用多个哈希函数 <span class="arithmatex">\(f_1(x)\)</span> , <span class="arithmatex">\(f_2(x)\)</span> , <span class="arithmatex">\(f_3(x)\)</span> , <span class="arithmatex">\(\dots\)</span> 进行探测。</p>
+<p>顾名思义，多次哈希方法是使用多个哈希函数 <span class="arithmatex">\(f_1(x)\)</span>、<span class="arithmatex">\(f_2(x)\)</span>、<span class="arithmatex">\(f_3(x)\)</span>、<span class="arithmatex">\(\dots\)</span> 进行探测。</p>
 <ul>
 <li><strong>插入元素</strong>：若哈希函数 <span class="arithmatex">\(f_1(x)\)</span> 出现冲突，则尝试 <span class="arithmatex">\(f_2(x)\)</span> ，以此类推，直到找到空位后插入元素。</li>
 <li><strong>查找元素</strong>：在相同的哈希函数顺序下进行查找，直到找到目标元素时返回；或遇到空位或已尝试所有哈希函数，说明哈希表中不存在该元素，则返回 <span class="arithmatex">\(\text{None}\)</span> 。</li>

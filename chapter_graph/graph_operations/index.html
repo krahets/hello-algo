@@ -4558,7 +4558,7 @@
 </div>
 </div>
 <h2 id="922">9.2.2 &nbsp; 基于邻接表的实现<a class="headerlink" href="#922" title="Permanent link">&para;</a></h2>
-<p>设无向图的顶点总数为 <span class="arithmatex">\(n\)</span> 、边总数为 <span class="arithmatex">\(m\)</span> ，则可根据图 9-8 所示的方法实现各种操作。</p>
+<p>设无向图的顶点总数为 <span class="arithmatex">\(n\)</span>、边总数为 <span class="arithmatex">\(m\)</span> ，则可根据图 9-8 所示的方法实现各种操作。</p>
 <ul>
 <li><strong>添加边</strong>：在顶点对应链表的末尾添加边即可，使用 <span class="arithmatex">\(O(1)\)</span> 时间。因为是无向图，所以需要同时添加两个方向的边。</li>
 <li><strong>删除边</strong>：在顶点对应链表中查找并删除指定边，使用 <span class="arithmatex">\(O(m)\)</span> 时间。在无向图中，需要同时删除两个方向的边。</li>
@@ -4587,12 +4587,12 @@
 </div>
 <p align="center"> 图 9-8 &nbsp; 邻接表的初始化、增删边、增删顶点 </p>
 
-<p>以下是基于邻接表实现图的代码示例。细心的同学可能注意到，<strong>我们在邻接表中使用 <code>Vertex</code> 节点类来表示顶点</strong>，这样做的原因有：</p>
-<ul>
+<p>以下是基于邻接表实现图的代码示例。细心的同学可能注意到，<strong>我们在邻接表中使用 <code>Vertex</code> 节点类来表示顶点</strong>，而这样做是有原因的。</p>
+<ol>
 <li>如果我们选择通过顶点值来区分不同顶点，那么值重复的顶点将无法被区分。</li>
 <li>如果类似邻接矩阵那样，使用顶点列表索引来区分不同顶点。那么，假设我们想要删除索引为 <span class="arithmatex">\(i\)</span> 的顶点，则需要遍历整个邻接表，将其中 <span class="arithmatex">\(&gt; i\)</span> 的索引全部减 <span class="arithmatex">\(1\)</span> ，这样操作效率较低。</li>
 <li>因此我们考虑引入顶点类 <code>Vertex</code> ，使得每个顶点都是唯一的对象，此时删除顶点时就无须改动其余顶点了。</li>
-</ul>
+</ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:12"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Go</label><label for="__tabbed_4_5">JS</label><label for="__tabbed_4_6">TS</label><label for="__tabbed_4_7">C</label><label for="__tabbed_4_8">C#</label><label for="__tabbed_4_9">Swift</label><label for="__tabbed_4_10">Zig</label><label for="__tabbed_4_11">Dart</label><label for="__tabbed_4_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

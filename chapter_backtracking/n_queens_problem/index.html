@@ -4028,8 +4028,8 @@
 </div>
 </div>
 </div>
-<p>逐行放置 <span class="arithmatex">\(n\)</span> 次，考虑列约束，则从第一行到最后一行分别有 <span class="arithmatex">\(n, n-1, \dots, 2, 1\)</span> 个选择，<strong>因此时间复杂度为 <span class="arithmatex">\(O(n!)\)</span></strong> 。实际上，根据对角线约束的剪枝也能够大幅地缩小搜索空间，因而搜索效率往往优于以上时间复杂度。</p>
-<p>数组 <code>state</code> 使用 <span class="arithmatex">\(O(n^2)\)</span> 空间，数组 <code>cols</code> , <code>diags1</code> , <code>diags2</code> 皆使用 <span class="arithmatex">\(O(n)\)</span> 空间。最大递归深度为 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。因此，<strong>空间复杂度为 <span class="arithmatex">\(O(n^2)\)</span></strong> 。</p>
+<p>逐行放置 <span class="arithmatex">\(n\)</span> 次，考虑列约束，则从第一行到最后一行分别有 <span class="arithmatex">\(n\)</span>、<span class="arithmatex">\(n-1\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(1\)</span> 个选择，<strong>因此时间复杂度为 <span class="arithmatex">\(O(n!)\)</span></strong> 。实际上，根据对角线约束的剪枝也能够大幅地缩小搜索空间，因而搜索效率往往优于以上时间复杂度。</p>
+<p>数组 <code>state</code> 使用 <span class="arithmatex">\(O(n^2)\)</span> 空间，数组 <code>cols</code>、<code>diags1</code> 和 <code>diags2</code> 皆使用 <span class="arithmatex">\(O(n)\)</span> 空间。最大递归深度为 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。因此，<strong>空间复杂度为 <span class="arithmatex">\(O(n^2)\)</span></strong> 。</p>
 
 
 

@@ -3529,7 +3529,7 @@ G &amp; = \{ V, E \} \newline
 <p><img alt="有权图与无权图" src="../graph.assets/weighted_graph.png" /></p>
 <p align="center"> 图 9-4 &nbsp; 有权图与无权图 </p>
 
-<p>图的常用术语包括：</p>
+<p>图数据结构包含以下常用术语。</p>
 <ul>
 <li>「邻接 adjacency」：当两顶点之间存在边相连时，称这两顶点“邻接”。在图 9-4 中，顶点 1 的邻接顶点为顶点 2、3、5。</li>
 <li>「路径 path」：从顶点 A 到顶点 B 经过的边构成的序列被称为从 A 到 B 的“路径”。在图 9-4 中，边序列 1-5-2-4 是顶点 1 到顶点 4 的一条路径。</li>
@@ -3539,15 +3539,15 @@ G &amp; = \{ V, E \} \newline
 <p>图的常用表示方式包括“邻接矩阵”和“邻接表”。以下使用无向图进行举例。</p>
 <h3 id="1">1. &nbsp; 邻接矩阵<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>设图的顶点数量为 <span class="arithmatex">\(n\)</span> ，「邻接矩阵 adjacency matrix」使用一个 <span class="arithmatex">\(n \times n\)</span> 大小的矩阵来表示图，每一行（列）代表一个顶点，矩阵元素代表边，用 <span class="arithmatex">\(1\)</span> 或 <span class="arithmatex">\(0\)</span> 表示两个顶点之间是否存在边。</p>
-<p>如图 9-5 所示，设邻接矩阵为 <span class="arithmatex">\(M\)</span> 、顶点列表为 <span class="arithmatex">\(V\)</span> ，那么矩阵元素 <span class="arithmatex">\(M[i, j] = 1\)</span> 表示顶点 <span class="arithmatex">\(V[i]\)</span> 到顶点 <span class="arithmatex">\(V[j]\)</span> 之间存在边，反之 <span class="arithmatex">\(M[i, j] = 0\)</span> 表示两顶点之间无边。</p>
+<p>如图 9-5 所示，设邻接矩阵为 <span class="arithmatex">\(M\)</span>、顶点列表为 <span class="arithmatex">\(V\)</span> ，那么矩阵元素 <span class="arithmatex">\(M[i, j] = 1\)</span> 表示顶点 <span class="arithmatex">\(V[i]\)</span> 到顶点 <span class="arithmatex">\(V[j]\)</span> 之间存在边，反之 <span class="arithmatex">\(M[i, j] = 0\)</span> 表示两顶点之间无边。</p>
 <p><img alt="图的邻接矩阵表示" src="../graph.assets/adjacency_matrix.png" /></p>
 <p align="center"> 图 9-5 &nbsp; 图的邻接矩阵表示 </p>
 
-<p>邻接矩阵具有以下特性：</p>
+<p>邻接矩阵具有以下特性。</p>
 <ul>
 <li>顶点不能与自身相连，因此邻接矩阵主对角线元素没有意义。</li>
 <li>对于无向图，两个方向的边等价，此时邻接矩阵关于主对角线对称。</li>
-<li>将邻接矩阵的元素从 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(0\)</span> 替换为权重，则可表示有权图。</li>
+<li>将邻接矩阵的元素从 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(0\)</span> 替换为权重，则可表示有权图。</li>
 </ul>
 <p>使用邻接矩阵表示图时，我们可以直接访问矩阵元素以获取边，因此增删查操作的效率很高，时间复杂度均为 <span class="arithmatex">\(O(1)\)</span> 。然而，矩阵的空间复杂度为 <span class="arithmatex">\(O(n^2)\)</span> ，内存占用较多。</p>
 <h3 id="2">2. &nbsp; 邻接表<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>

@@ -1501,7 +1501,7 @@
         
           <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
-    4. &nbsp; 中序遍历性质
+    4. &nbsp; 中序遍历有序
   </a>
   
 </li>
@@ -3476,7 +3476,7 @@
         
           <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
-    4. &nbsp; 中序遍历性质
+    4. &nbsp; 中序遍历有序
   </a>
   
 </li>
@@ -3524,7 +3524,7 @@
 
 
 <h1 id="74">7.4 &nbsp; 二叉搜索树<a class="headerlink" href="#74" title="Permanent link">&para;</a></h1>
-<p>如图 7-16 所示，「二叉搜索树 binary search tree」满足以下条件：</p>
+<p>如图 7-16 所示，「二叉搜索树 binary search tree」满足以下条件。</p>
 <ol>
 <li>对于根节点，左子树中所有节点的值 <span class="arithmatex">\(&lt;\)</span> 根节点的值 <span class="arithmatex">\(&lt;\)</span> 右子树中所有节点的值。</li>
 <li>任意节点的左、右子树也是二叉搜索树，即同样满足条件 <code>1.</code> 。</li>
@@ -3535,7 +3535,7 @@
 <h2 id="741">7.4.1 &nbsp; 二叉搜索树的操作<a class="headerlink" href="#741" title="Permanent link">&para;</a></h2>
 <p>我们将二叉搜索树封装为一个类 <code>ArrayBinaryTree</code> ，并声明一个成员变量 <code>root</code> ，指向树的根节点。</p>
 <h3 id="1">1. &nbsp; 查找节点<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>给定目标节点值 <code>num</code> ，可以根据二叉搜索树的性质来查找。如图 7-17 所示，我们声明一个节点 <code>cur</code> ，从二叉树的根节点 <code>root</code> 出发，循环比较节点值 <code>cur.val</code> 和 <code>num</code> 之间的大小关系：</p>
+<p>给定目标节点值 <code>num</code> ，可以根据二叉搜索树的性质来查找。如图 7-17 所示，我们声明一个节点 <code>cur</code> ，从二叉树的根节点 <code>root</code> 出发，循环比较节点值 <code>cur.val</code> 和 <code>num</code> 之间的大小关系。</p>
 <ul>
 <li>若 <code>cur.val &lt; num</code> ，说明目标节点在 <code>cur</code> 的右子树中，因此执行 <code>cur = cur.right</code> 。</li>
 <li>若 <code>cur.val &gt; num</code> ，说明目标节点在 <code>cur</code> 的左子树中，因此执行 <code>cur = cur.left</code> 。</li>
@@ -3827,7 +3827,7 @@
 <p><img alt="在二叉搜索树中插入节点" src="../binary_search_tree.assets/bst_insert.png" /></p>
 <p align="center"> 图 7-18 &nbsp; 在二叉搜索树中插入节点 </p>
 
-<p>在代码实现中，需要注意以下两点：</p>
+<p>在代码实现中，需要注意以下两点。</p>
 <ul>
 <li>二叉搜索树不允许存在重复节点，否则将违反其定义。因此，若待插入节点在树中已存在，则不执行插入，直接返回。</li>
 <li>为了实现插入节点，我们需要借助节点 <code>pre</code> 保存上一轮循环的节点。这样在遍历至 <span class="arithmatex">\(\text{None}\)</span> 时，我们可以获取到其父节点，从而完成节点插入操作。</li>
@@ -4206,8 +4206,12 @@
 </div>
 <p>与查找节点相同，插入节点使用 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
 <h3 id="3">3. &nbsp; 删除节点<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>与插入节点类似，我们需要在删除操作后维持二叉搜索树的“左子树 &lt; 根节点 &lt; 右子树”的性质。首先，我们需要在二叉树中执行查找操作，获取待删除节点。接下来，根据待删除节点的子节点数量，删除操作需分为三种情况：</p>
-<p>如图 7-19 所示，当待删除节点的度为 <span class="arithmatex">\(0\)</span> 时，表示待删除节点是叶节点，可以直接删除。</p>
+<p>与插入节点类似，我们需要保证在删除操作完成后，二叉搜索树的“左子树 &lt; 根节点 &lt; 右子树”的性质仍然满足。</p>
+<ol>
+<li>在二叉树中执行查找操作，获取待删除节点。</li>
+<li>根据待删除节点的子节点数量（三种情况），执行对应的删除节点操作。</li>
+</ol>
+<p>如图 7-19 所示，当待删除节点的度为 <span class="arithmatex">\(0\)</span> 时，表示该节点是叶节点，可以直接删除。</p>
 <p><img alt="在二叉搜索树中删除节点（度为 0）" src="../binary_search_tree.assets/bst_remove_case1.png" /></p>
 <p align="center"> 图 7-19 &nbsp; 在二叉搜索树中删除节点（度为 0） </p>
 
@@ -4216,7 +4220,7 @@
 <p align="center"> 图 7-20 &nbsp; 在二叉搜索树中删除节点（度为 1） </p>
 
 <p>当待删除节点的度为 <span class="arithmatex">\(2\)</span> 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左 <span class="arithmatex">\(&lt;\)</span> 根 <span class="arithmatex">\(&lt;\)</span> 右”的性质，<strong>因此这个节点可以是右子树的最小节点或左子树的最大节点</strong>。</p>
-<p>假设我们选择右子树的最小节点（即中序遍历的下一个节点），则删除操作如图 7-21 所示。</p>
+<p>假设我们选择右子树的最小节点（即中序遍历的下一个节点），则删除操作流程如图 7-21 所示。</p>
 <ol>
 <li>找到待删除节点在“中序遍历序列”中的下一个节点，记为 <code>tmp</code> 。</li>
 <li>将 <code>tmp</code> 的值覆盖待删除节点的值，并在树中递归删除节点 <code>tmp</code> 。</li>
@@ -4931,16 +4935,15 @@ void insert(int num) {
 </div>
 </div>
 </div>
-<h3 id="4">4. &nbsp; 中序遍历性质<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h3 id="4">4. &nbsp; 中序遍历有序<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>如图 7-22 所示，二叉树的中序遍历遵循“左 <span class="arithmatex">\(\rightarrow\)</span> 根 <span class="arithmatex">\(\rightarrow\)</span> 右”的遍历顺序，而二叉搜索树满足“左子节点 <span class="arithmatex">\(&lt;\)</span> 根节点 <span class="arithmatex">\(&lt;\)</span> 右子节点”的大小关系。</p>
 <p>这意味着在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小节点，从而得出一个重要性质：<strong>二叉搜索树的中序遍历序列是升序的</strong>。</p>
-<p>利用中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 <span class="arithmatex">\(O(n)\)</span> 时间，无须额外排序，非常高效。</p>
+<p>利用中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 <span class="arithmatex">\(O(n)\)</span> 时间，无须进行额外的排序操作，非常高效。</p>
 <p><img alt="二叉搜索树的中序遍历序列" src="../binary_search_tree.assets/bst_inorder_traversal.png" /></p>
 <p align="center"> 图 7-22 &nbsp; 二叉搜索树的中序遍历序列 </p>
 
 <h2 id="742">7.4.2 &nbsp; 二叉搜索树的效率<a class="headerlink" href="#742" title="Permanent link">&para;</a></h2>
-<p>给定一组数据，我们考虑使用数组或二叉搜索树存储。</p>
-<p>观察表 7-2 ，二叉搜索树的各项操作的时间复杂度都是对数阶，具有稳定且高效的性能表现。只有在高频添加、低频查找删除的数据适用场景下，数组比二叉搜索树的效率更高。</p>
+<p>给定一组数据，我们考虑使用数组或二叉搜索树存储。观察表 7-2 ，二叉搜索树的各项操作的时间复杂度都是对数阶，具有稳定且高效的性能表现。只有在高频添加、低频查找删除的数据适用场景下，数组比二叉搜索树的效率更高。</p>
 <p align="center"> 表 7-2 &nbsp; 数组与搜索树的效率对比 </p>
 
 <div class="center-table">
@@ -4973,8 +4976,8 @@ void insert(int num) {
 </div>
 <p>在理想情况下，二叉搜索树是“平衡”的，这样就可以在 <span class="arithmatex">\(\log n\)</span> 轮循环内查找任意节点。</p>
 <p>然而，如果我们在二叉搜索树中不断地插入和删除节点，可能导致二叉树退化为图 7-23 所示的链表，这时各种操作的时间复杂度也会退化为 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<p><img alt="二叉搜索树的平衡与退化" src="../binary_search_tree.assets/bst_degradation.png" /></p>
-<p align="center"> 图 7-23 &nbsp; 二叉搜索树的平衡与退化 </p>
+<p><img alt="二叉搜索树的退化" src="../binary_search_tree.assets/bst_degradation.png" /></p>
+<p align="center"> 图 7-23 &nbsp; 二叉搜索树的退化 </p>
 
 <h2 id="743">7.4.3 &nbsp; 二叉搜索树常见应用<a class="headerlink" href="#743" title="Permanent link">&para;</a></h2>
 <ul>

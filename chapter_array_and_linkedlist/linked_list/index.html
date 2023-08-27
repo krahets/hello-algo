@@ -3561,8 +3561,8 @@
 <p>观察图 4-5 ，链表的组成单位是「节点 node」对象。每个节点都包含两项数据：节点的“值”和指向下一节点的“引用”。</p>
 <ul>
 <li>链表的首个节点被称为“头节点”，最后一个节点被称为“尾节点”。</li>
-<li>尾节点指向的是“空”，它在 Java, C++, Python 中分别被记为 <span class="arithmatex">\(\text{null}\)</span> , <span class="arithmatex">\(\text{nullptr}\)</span> , <span class="arithmatex">\(\text{None}\)</span> 。</li>
-<li>在 C, C++, Go, Rust 等支持指针的语言中，上述的“引用”应被替换为“指针”。</li>
+<li>尾节点指向的是“空”，它在 Java、C++ 和 Python 中分别被记为 <span class="arithmatex">\(\text{null}\)</span>、<span class="arithmatex">\(\text{nullptr}\)</span> 和 <span class="arithmatex">\(\text{None}\)</span> 。</li>
+<li>在 C、C++、Go 和 Rust 等支持指针的语言中，上述的“引用”应被替换为“指针”。</li>
 </ul>
 <p>如以下代码所示，链表节点 <code>ListNode</code> 除了包含值，还需额外保存一个引用（指针）。因此在相同数据量下，<strong>链表比数组占用更多的内存空间</strong>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
@@ -3901,9 +3901,9 @@
 </div>
 </div>
 </div>
-<p>数组整体是一个变量，比如数组 <code>nums</code> 包含元素 <code>nums[0]</code> , <code>nums[1]</code> 等，而链表是由多个独立的节点对象组成的。<strong>我们通常将头节点当作链表的代称</strong>，比如以上代码中的链表可被记做链表 <code>n0</code> 。</p>
+<p>数组整体是一个变量，比如数组 <code>nums</code> 包含元素 <code>nums[0]</code> 和 <code>nums[1]</code> 等，而链表是由多个独立的节点对象组成的。<strong>我们通常将头节点当作链表的代称</strong>，比如以上代码中的链表可被记做链表 <code>n0</code> 。</p>
 <h3 id="2">2. &nbsp; 插入节点<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>在链表中插入节点非常容易。如图 4-6 所示，假设我们想在相邻的两个节点 <code>n0</code> , <code>n1</code> 之间插入一个新节点 <code>P</code> ，<strong>则只需要改变两个节点引用（指针）即可</strong>，时间复杂度为 <span class="arithmatex">\(O(1)\)</span> 。</p>
+<p>在链表中插入节点非常容易。如图 4-6 所示，假设我们想在相邻的两个节点 <code>n0</code> 和 <code>n1</code> 之间插入一个新节点 <code>P</code> ，<strong>则只需要改变两个节点引用（指针）即可</strong>，时间复杂度为 <span class="arithmatex">\(O(1)\)</span> 。</p>
 <p>相比之下，在数组中插入元素的时间复杂度为 <span class="arithmatex">\(O(n)\)</span> ，在大数据量下的效率较低。</p>
 <p><img alt="链表插入节点示例" src="../linked_list.assets/linkedlist_insert_node.png" /></p>
 <p align="center"> 图 4-6 &nbsp; 链表插入节点示例 </p>

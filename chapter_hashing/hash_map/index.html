@@ -3875,7 +3875,7 @@
 <h2 id="612">6.1.2 &nbsp; 哈希表简单实现<a class="headerlink" href="#612" title="Permanent link">&para;</a></h2>
 <p>我们先考虑最简单的情况，<strong>仅用一个数组来实现哈希表</strong>。在哈希表中，我们将数组中的每个空位称为「桶 bucket」，每个桶可存储一个键值对。因此，查询操作就是找到 <code>key</code> 对应的桶，并在桶中获取 <code>value</code> 。</p>
 <p>那么，如何基于 <code>key</code> 来定位对应的桶呢？这是通过「哈希函数 hash function」实现的。哈希函数的作用是将一个较大的输入空间映射到一个较小的输出空间。在哈希表中，输入空间是所有 <code>key</code> ，输出空间是所有桶（数组索引）。换句话说，输入一个 <code>key</code> ，<strong>我们可以通过哈希函数得到该 <code>key</code> 对应的键值对在数组中的存储位置</strong>。</p>
-<p>输入一个 <code>key</code> ，哈希函数的计算过程分为两步：</p>
+<p>输入一个 <code>key</code> ，哈希函数的计算过程分为以下两步。</p>
 <ol>
 <li>通过某种哈希算法 <code>hash()</code> 计算得到哈希值。</li>
 <li>将哈希值对桶数量（数组长度）<code>capacity</code> 取模，从而获取该 <code>key</code> 对应的数组索引 <code>index</code> 。</li>
@@ -3883,7 +3883,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
 </code></pre></div>
 <p>随后，我们就可以利用 <code>index</code> 在哈希表中访问对应的桶，从而获取 <code>value</code> 。</p>
-<p>设数组长度 <code>capacity = 100</code> 、哈希算法 <code>hash(key) = key</code> ，易得哈希函数为 <code>key % 100</code> 。图 6-2 以 <code>key</code> 学号和 <code>value</code> 姓名为例，展示了哈希函数的工作原理。</p>
+<p>设数组长度 <code>capacity = 100</code>、哈希算法 <code>hash(key) = key</code> ，易得哈希函数为 <code>key % 100</code> 。图 6-2 以 <code>key</code> 学号和 <code>value</code> 姓名为例，展示了哈希函数的工作原理。</p>
 <p><img alt="哈希函数工作原理" src="../hash_map.assets/hash_function.png" /></p>
 <p align="center"> 图 6-2 &nbsp; 哈希函数工作原理 </p>
 

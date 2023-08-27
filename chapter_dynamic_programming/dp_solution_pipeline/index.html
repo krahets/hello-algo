@@ -3518,7 +3518,7 @@
 
 
 <h1 id="143">14.3 &nbsp; 动态规划解题思路<a class="headerlink" href="#143" title="Permanent link">&para;</a></h1>
-<p>上两节介绍了动态规划问题的主要特征，接下来我们一起探究两个更加实用的问题：</p>
+<p>上两节介绍了动态规划问题的主要特征，接下来我们一起探究两个更加实用的问题。</p>
 <ol>
 <li>如何判断一个问题是不是动态规划问题？</li>
 <li>求解动态规划问题该从何处入手，完整步骤是什么？</li>
@@ -3527,12 +3527,12 @@
 <p>总的来说，如果一个问题包含重叠子问题、最优子结构，并满足无后效性，那么它通常就适合用动态规划求解。然而，我们很难从问题描述上直接提取出这些特性。因此我们通常会放宽条件，<strong>先观察问题是否适合使用回溯（穷举）解决</strong>。</p>
 <p><strong>适合用回溯解决的问题通常满足“决策树模型”</strong>，这种问题可以使用树形结构来描述，其中每一个节点代表一个决策，每一条路径代表一个决策序列。</p>
 <p>换句话说，如果问题包含明确的决策概念，并且解是通过一系列决策产生的，那么它就满足决策树模型，通常可以使用回溯来解决。</p>
-<p>在此基础上，还有一些动态规划问题的“加分项”，包括：</p>
+<p>在此基础上，动态规划问题还有一些判断的“加分项”。</p>
 <ul>
 <li>问题包含最大（小）或最多（少）等最优化描述。</li>
 <li>问题的状态能够使用一个列表、多维矩阵或树来表示，并且一个状态与其周围的状态存在递推关系。</li>
 </ul>
-<p>而相应的“减分项”包括：</p>
+<p>相应地，也存在一些“减分项”。</p>
 <ul>
 <li>问题的目标是找出所有可能的解决方案，而不是找出最优解。</li>
 <li>问题描述中有明显的排列组合的特征，需要返回具体的多个方案。</li>
@@ -3588,7 +3588,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 </div>
 <p>根据以上分析，我们已经可以直接写出动态规划代码。然而子问题分解是一种从顶至底的思想，因此按照“暴力搜索 <span class="arithmatex">\(\rightarrow\)</span> 记忆化搜索 <span class="arithmatex">\(\rightarrow\)</span> 动态规划”的顺序实现更加符合思维习惯。</p>
 <h3 id="1">1. &nbsp; 方法一：暴力搜索<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>从状态 <span class="arithmatex">\([i, j]\)</span> 开始搜索，不断分解为更小的状态 <span class="arithmatex">\([i-1, j]\)</span> 和 <span class="arithmatex">\([i, j-1]\)</span> ，包括以下递归要素：</p>
+<p>从状态 <span class="arithmatex">\([i, j]\)</span> 开始搜索，不断分解为更小的状态 <span class="arithmatex">\([i-1, j]\)</span> 和 <span class="arithmatex">\([i, j-1]\)</span> ，递归函数包括以下要素。</p>
 <ul>
 <li><strong>递归参数</strong>：状态 <span class="arithmatex">\([i, j]\)</span> 。</li>
 <li><strong>返回值</strong>：从 <span class="arithmatex">\([0, 0]\)</span> 到 <span class="arithmatex">\([i, j]\)</span> 的最小路径和 <span class="arithmatex">\(dp[i, j]\)</span> 。</li>

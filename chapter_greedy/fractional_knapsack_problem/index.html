@@ -3466,7 +3466,7 @@
 <h1 id="152">15.2 &nbsp; 分数背包问题<a class="headerlink" href="#152" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>给定 <span class="arithmatex">\(n\)</span> 个物品，第 <span class="arithmatex">\(i\)</span> 个物品的重量为 <span class="arithmatex">\(wgt[i-1]\)</span> 、价值为 <span class="arithmatex">\(val[i-1]\)</span> ，和一个容量为 <span class="arithmatex">\(cap\)</span> 的背包。每个物品只能选择一次，<strong>但可以选择物品的一部分，价值根据选择的重量比例计算</strong>，问在不超过背包容量下背包中物品的最大价值。</p>
+<p>给定 <span class="arithmatex">\(n\)</span> 个物品，第 <span class="arithmatex">\(i\)</span> 个物品的重量为 <span class="arithmatex">\(wgt[i-1]\)</span>、价值为 <span class="arithmatex">\(val[i-1]\)</span> ，和一个容量为 <span class="arithmatex">\(cap\)</span> 的背包。每个物品只能选择一次，<strong>但可以选择物品的一部分，价值根据选择的重量比例计算</strong>，问在不超过背包容量下背包中物品的最大价值。</p>
 </div>
 <p><img alt="分数背包问题的示例数据" src="../fractional_knapsack_problem.assets/fractional_knapsack_example.png" /></p>
 <p align="center"> 图 15-3 &nbsp; 分数背包问题的示例数据 </p>
@@ -3481,7 +3481,7 @@
 <p align="center"> 图 15-4 &nbsp; 物品在单位重量下的价值 </p>
 
 <h3 id="1">1. &nbsp; 贪心策略确定<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>最大化背包内物品总价值，<strong>本质上是要最大化单位重量下的物品价值</strong>。由此便可推出图 15-5 所示的贪心策略：</p>
+<p>最大化背包内物品总价值，<strong>本质上是要最大化单位重量下的物品价值</strong>。由此便可推出图 15-5 所示的贪心策略。</p>
 <ol>
 <li>将物品按照单位价值从高到低进行排序。</li>
 <li>遍历所有物品，<strong>每轮贪心地选择单位价值最高的物品</strong>。</li>

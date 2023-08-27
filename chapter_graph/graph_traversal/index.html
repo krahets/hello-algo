@@ -3925,7 +3925,7 @@
 
 <div class="admonition question">
 <p class="admonition-title">广度优先遍历的序列是否唯一？</p>
-<p>不唯一。广度优先遍历只要求按“由近及远”的顺序遍历，<strong>而多个相同距离的顶点的遍历顺序是允许被任意打乱的</strong>。以图 9-10 为例，顶点 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(3\)</span> 的访问顺序可以交换、顶点 <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(4\)</span> , <span class="arithmatex">\(6\)</span> 的访问顺序也可以任意交换。</p>
+<p>不唯一。广度优先遍历只要求按“由近及远”的顺序遍历，<strong>而多个相同距离的顶点的遍历顺序是允许被任意打乱的</strong>。以图 9-10 为例，顶点 <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(3\)</span> 的访问顺序可以交换、顶点 <span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(4\)</span>、<span class="arithmatex">\(6\)</span> 的访问顺序也可以任意交换。</p>
 </div>
 <h3 id="2">2. &nbsp; 复杂度分析<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p><strong>时间复杂度：</strong> 所有顶点都会入队并出队一次，使用 <span class="arithmatex">\(O(|V|)\)</span> 时间；在遍历邻接顶点的过程中，由于是无向图，因此所有边都会被访问 <span class="arithmatex">\(2\)</span> 次，使用 <span class="arithmatex">\(O(2|E|)\)</span> 时间；总体使用 <span class="arithmatex">\(O(|V| + |E|)\)</span> 时间。</p>
@@ -4263,7 +4263,7 @@
 </div>
 </div>
 </div>
-<p>深度优先遍历的算法流程如图 9-12 所示，其中：</p>
+<p>深度优先遍历的算法流程如图 9-12 所示。</p>
 <ul>
 <li><strong>直虚线代表向下递推</strong>，表示开启了一个新的递归方法来访问新顶点。</li>
 <li><strong>曲虚线代表向上回溯</strong>，表示此递归方法已经返回，回溯到了开启此递归方法的位置。</li>

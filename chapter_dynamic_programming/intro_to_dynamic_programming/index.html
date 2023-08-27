@@ -3812,7 +3812,7 @@
 <p>回溯算法通常并不显式地对问题进行拆解，而是将问题看作一系列决策步骤，通过试探和剪枝，搜索所有可能的解。</p>
 <p>我们可以尝试从问题分解的角度分析这道题。设爬到第 <span class="arithmatex">\(i\)</span> 阶共有 <span class="arithmatex">\(dp[i]\)</span> 种方案，那么 <span class="arithmatex">\(dp[i]\)</span> 就是原问题，其子问题包括:</p>
 <div class="arithmatex">\[
-dp[i-1] , dp[i-2] , \dots , dp[2] , dp[1]
+dp[i-1], dp[i-2], \dots, dp[2], dp[1]
 \]</div>
 <p>由于每轮只能上 <span class="arithmatex">\(1\)</span> 阶或 <span class="arithmatex">\(2\)</span> 阶，因此当我们站在第 <span class="arithmatex">\(i\)</span> 阶楼梯上时，上一轮只可能站在第 <span class="arithmatex">\(i - 1\)</span> 阶或第 <span class="arithmatex">\(i - 2\)</span> 阶上。换句话说，我们只能从第 <span class="arithmatex">\(i -1\)</span> 阶或第 <span class="arithmatex">\(i - 2\)</span> 阶前往第 <span class="arithmatex">\(i\)</span> 阶。</p>
 <p>由此便可得出一个重要推论：<strong>爬到第 <span class="arithmatex">\(i - 1\)</span> 阶的方案数加上爬到第 <span class="arithmatex">\(i - 2\)</span> 阶的方案数就等于爬到第 <span class="arithmatex">\(i\)</span> 阶的方案数</strong>。公式如下：</p>
@@ -3823,11 +3823,7 @@ dp[i] = dp[i-1] + dp[i-2]
 <p><img alt="方案数量递推关系" src="../intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png" /></p>
 <p align="center"> 图 14-2 &nbsp; 方案数量递推关系 </p>
 
-<p>我们可以根据递推公式得到暴力搜索解法：</p>
-<ul>
-<li>以 <span class="arithmatex">\(dp[n]\)</span> 为起始点，<strong>递归地将一个较大问题拆解为两个较小问题的和</strong>，直至到达最小子问题 <span class="arithmatex">\(dp[1]\)</span> 和 <span class="arithmatex">\(dp[2]\)</span> 时返回。</li>
-<li>最小子问题的解 <span class="arithmatex">\(dp[1] = 1\)</span> , <span class="arithmatex">\(dp[2] = 2\)</span> 是已知的，代表爬到第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 阶分别有 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 种方案。</li>
-</ul>
+<p>我们可以根据递推公式得到暴力搜索解法。以 <span class="arithmatex">\(dp[n]\)</span> 为起始点，<strong>递归地将一个较大问题拆解为两个较小问题的和</strong>，直至到达最小子问题 <span class="arithmatex">\(dp[1]\)</span> 和 <span class="arithmatex">\(dp[2]\)</span> 时返回。其中，最小子问题的解是已知的，即 <span class="arithmatex">\(dp[1] = 1\)</span>、<span class="arithmatex">\(dp[2] = 2\)</span> ，表示爬到第 <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span> 阶分别有 <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span> 种方案。</p>
 <p>观察以下代码，它和标准回溯代码都属于深度优先搜索，但更加简洁。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
 <div class="tabbed-content">
@@ -4030,10 +4026,10 @@ dp[i] = dp[i-1] + dp[i-2]
 <p>观察图 14-3 ，<strong>指数阶的时间复杂度是由于“重叠子问题”导致的</strong>。例如 <span class="arithmatex">\(dp[9]\)</span> 被分解为 <span class="arithmatex">\(dp[8]\)</span> 和 <span class="arithmatex">\(dp[7]\)</span> ，<span class="arithmatex">\(dp[8]\)</span> 被分解为 <span class="arithmatex">\(dp[7]\)</span> 和 <span class="arithmatex">\(dp[6]\)</span> ，两者都包含子问题 <span class="arithmatex">\(dp[7]\)</span> 。</p>
 <p>以此类推，子问题中包含更小的重叠子问题，子子孙孙无穷尽也。绝大部分计算资源都浪费在这些重叠的问题上。</p>
 <h2 id="1412">14.1.2 &nbsp; 方法二：记忆化搜索<a class="headerlink" href="#1412" title="Permanent link">&para;</a></h2>
-<p>为了提升算法效率，<strong>我们希望所有的重叠子问题都只被计算一次</strong>。为此，我们声明一个数组 <code>mem</code> 来记录每个子问题的解，并在搜索过程中这样做：</p>
+<p>为了提升算法效率，<strong>我们希望所有的重叠子问题都只被计算一次</strong>。为此，我们声明一个数组 <code>mem</code> 来记录每个子问题的解，并在搜索过程中将重叠子问题剪枝。</p>
 <ol>
 <li>当首次计算 <span class="arithmatex">\(dp[i]\)</span> 时，我们将其记录至 <code>mem[i]</code> ，以便之后使用。</li>
-<li>当再次需要计算 <span class="arithmatex">\(dp[i]\)</span> 时，我们便可直接从 <code>mem[i]</code> 中获取结果，从而将重叠子问题剪枝。</li>
+<li>当再次需要计算 <span class="arithmatex">\(dp[i]\)</span> 时，我们便可直接从 <code>mem[i]</code> 中获取结果，从而避免重复计算该子问题。</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">JS</label><label for="__tabbed_3_6">TS</label><label for="__tabbed_3_7">C</label><label for="__tabbed_3_8">C#</label><label for="__tabbed_3_9">Swift</label><label for="__tabbed_3_10">Zig</label><label for="__tabbed_3_11">Dart</label><label for="__tabbed_3_12">Rust</label></div>
 <div class="tabbed-content">
@@ -4527,10 +4523,10 @@ dp[i] = dp[i-1] + dp[i-2]
 <p align="center"> 图 14-5 &nbsp; 爬楼梯的动态规划过程 </p>
 
 <p>与回溯算法一样，动态规划也使用“状态”概念来表示问题求解的某个特定阶段，每个状态都对应一个子问题以及相应的局部最优解。例如，爬楼梯问题的状态定义为当前所在楼梯阶数 <span class="arithmatex">\(i\)</span> 。</p>
-<p>总结以上，动态规划的常用术语包括：</p>
+<p>根据以上内容，我们可以总结出动态规划的常用术语。</p>
 <ul>
 <li>将数组 <code>dp</code> 称为「<span class="arithmatex">\(dp\)</span> 表」，<span class="arithmatex">\(dp[i]\)</span> 表示状态 <span class="arithmatex">\(i\)</span> 对应子问题的解。</li>
-<li>将最小子问题对应的状态（即第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 阶楼梯）称为「初始状态」。</li>
+<li>将最小子问题对应的状态（即第 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(2\)</span> 阶楼梯）称为「初始状态」。</li>
 <li>将递推公式 <span class="arithmatex">\(dp[i] = dp[i-1] + dp[i-2]\)</span> 称为「状态转移方程」。</li>
 </ul>
 <h2 id="1414">14.1.4 &nbsp; 空间优化<a class="headerlink" href="#1414" title="Permanent link">&para;</a></h2>

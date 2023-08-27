@@ -3450,7 +3450,7 @@
 
 
 <h1 id="142">14.2 &nbsp; 动态规划问题特性<a class="headerlink" href="#142" title="Permanent link">&para;</a></h1>
-<p>在上节中，我们学习了动态规划是如何通过子问题分解来求解问题的。实际上，子问题分解是一种通用的算法思路，在分治、动态规划、回溯中的侧重点不同：</p>
+<p>在上节中，我们学习了动态规划是如何通过子问题分解来求解问题的。实际上，子问题分解是一种通用的算法思路，在分治、动态规划、回溯中的侧重点不同。</p>
 <ul>
 <li>分治算法递归地将原问题划分为多个相互独立的子问题，直至最小子问题，并在回溯中合并子问题的解，最终得到原问题的解。</li>
 <li>动态规划也对问题进行递归分解，但与分治算法的主要区别是，动态规划中的子问题是相互依赖的，在分解过程中会出现许多重叠子问题。</li>
@@ -3463,18 +3463,18 @@
 <p class="admonition-title">爬楼梯最小代价</p>
 <p>给定一个楼梯，你每步可以上 <span class="arithmatex">\(1\)</span> 阶或者 <span class="arithmatex">\(2\)</span> 阶，每一阶楼梯上都贴有一个非负整数，表示你在该台阶所需要付出的代价。给定一个非负整数数组 <span class="arithmatex">\(cost\)</span> ，其中 <span class="arithmatex">\(cost[i]\)</span> 表示在第 <span class="arithmatex">\(i\)</span> 个台阶需要付出的代价，<span class="arithmatex">\(cost[0]\)</span> 为地面起始点。请计算最少需要付出多少代价才能到达顶部？</p>
 </div>
-<p>如图 14-6 所示，若第 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> , <span class="arithmatex">\(3\)</span> 阶的代价分别为 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(10\)</span> , <span class="arithmatex">\(1\)</span> ，则从地面爬到第 <span class="arithmatex">\(3\)</span> 阶的最小代价为 <span class="arithmatex">\(2\)</span> 。</p>
+<p>如图 14-6 所示，若第 <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(3\)</span> 阶的代价分别为 <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(10\)</span>、<span class="arithmatex">\(1\)</span> ，则从地面爬到第 <span class="arithmatex">\(3\)</span> 阶的最小代价为 <span class="arithmatex">\(2\)</span> 。</p>
 <p><img alt="爬到第 3 阶的最小代价" src="../dp_problem_features.assets/min_cost_cs_example.png" /></p>
 <p align="center"> 图 14-6 &nbsp; 爬到第 3 阶的最小代价 </p>
 
-<p>设 <span class="arithmatex">\(dp[i]\)</span> 为爬到第 <span class="arithmatex">\(i\)</span> 阶累计付出的代价，由于第 <span class="arithmatex">\(i\)</span> 阶只可能从 <span class="arithmatex">\(i - 1\)</span> 阶或 <span class="arithmatex">\(i - 2\)</span> 阶走来，因此 <span class="arithmatex">\(dp[i]\)</span> 只可能等于 <span class="arithmatex">\(dp[i - 1] + cost[i]\)</span> 或 <span class="arithmatex">\(dp[i - 2] + cost[i]\)</span> 。为了尽可能减少代价，我们应该选择两者中较小的那一个，即：</p>
+<p>设 <span class="arithmatex">\(dp[i]\)</span> 为爬到第 <span class="arithmatex">\(i\)</span> 阶累计付出的代价，由于第 <span class="arithmatex">\(i\)</span> 阶只可能从 <span class="arithmatex">\(i - 1\)</span> 阶或 <span class="arithmatex">\(i - 2\)</span> 阶走来，因此 <span class="arithmatex">\(dp[i]\)</span> 只可能等于 <span class="arithmatex">\(dp[i - 1] + cost[i]\)</span> 或 <span class="arithmatex">\(dp[i - 2] + cost[i]\)</span> 。为了尽可能减少代价，我们应该选择两者中较小的那一个：</p>
 <div class="arithmatex">\[
 dp[i] = \min(dp[i-1], dp[i-2]) + cost[i]
 \]</div>
 <p>这便可以引出最优子结构的含义：<strong>原问题的最优解是从子问题的最优解构建得来的</strong>。</p>
-<p>本题显然具有最优子结构：我们从两个子问题最优解 <span class="arithmatex">\(dp[i-1]\)</span> , <span class="arithmatex">\(dp[i-2]\)</span> 中挑选出较优的那一个，并用它构建出原问题 <span class="arithmatex">\(dp[i]\)</span> 的最优解。</p>
+<p>本题显然具有最优子结构：我们从两个子问题最优解 <span class="arithmatex">\(dp[i-1]\)</span> 和 <span class="arithmatex">\(dp[i-2]\)</span> 中挑选出较优的那一个，并用它构建出原问题 <span class="arithmatex">\(dp[i]\)</span> 的最优解。</p>
 <p>那么，上节的爬楼梯题目有没有最优子结构呢？它的目标是求解方案数量，看似是一个计数问题，但如果换一种问法：“求解最大方案数量”。我们意外地发现，<strong>虽然题目修改前后是等价的，但最优子结构浮现出来了</strong>：第 <span class="arithmatex">\(n\)</span> 阶最大方案数量等于第 <span class="arithmatex">\(n-1\)</span> 阶和第 <span class="arithmatex">\(n-2\)</span> 阶最大方案数量之和。所以说，最优子结构的解释方式比较灵活，在不同问题中会有不同的含义。</p>
-<p>根据状态转移方程，以及初始状态 <span class="arithmatex">\(dp[1] = cost[1]\)</span> , <span class="arithmatex">\(dp[2] = cost[2]\)</span> ，我们就可以得到动态规划代码。</p>
+<p>根据状态转移方程，以及初始状态 <span class="arithmatex">\(dp[1] = cost[1]\)</span> 和 <span class="arithmatex">\(dp[2] = cost[2]\)</span> ，我们就可以得到动态规划代码。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3838,7 +3838,7 @@ dp[i] = \min(dp[i-1], dp[i-2]) + cost[i]
 
 <p>在该问题中，如果上一轮是跳 <span class="arithmatex">\(1\)</span> 阶上来的，那么下一轮就必须跳 <span class="arithmatex">\(2\)</span> 阶。这意味着，<strong>下一步选择不能由当前状态（当前楼梯阶数）独立决定，还和前一个状态（上轮楼梯阶数）有关</strong>。</p>
 <p>不难发现，此问题已不满足无后效性，状态转移方程 <span class="arithmatex">\(dp[i] = dp[i-1] + dp[i-2]\)</span> 也失效了，因为 <span class="arithmatex">\(dp[i-1]\)</span> 代表本轮跳 <span class="arithmatex">\(1\)</span> 阶，但其中包含了许多“上一轮跳 <span class="arithmatex">\(1\)</span> 阶上来的”方案，而为了满足约束，我们就不能将 <span class="arithmatex">\(dp[i-1]\)</span> 直接计入 <span class="arithmatex">\(dp[i]\)</span> 中。</p>
-<p>为此，我们需要扩展状态定义：<strong>状态 <span class="arithmatex">\([i, j]\)</span> 表示处在第 <span class="arithmatex">\(i\)</span> 阶、并且上一轮跳了 <span class="arithmatex">\(j\)</span> 阶</strong>，其中 <span class="arithmatex">\(j \in \{1, 2\}\)</span> 。此状态定义有效地区分了上一轮跳了 <span class="arithmatex">\(1\)</span> 阶还是 <span class="arithmatex">\(2\)</span> 阶，我们可以据此来决定下一步该怎么跳：</p>
+<p>为此，我们需要扩展状态定义：<strong>状态 <span class="arithmatex">\([i, j]\)</span> 表示处在第 <span class="arithmatex">\(i\)</span> 阶、并且上一轮跳了 <span class="arithmatex">\(j\)</span> 阶</strong>，其中 <span class="arithmatex">\(j \in \{1, 2\}\)</span> 。此状态定义有效地区分了上一轮跳了 <span class="arithmatex">\(1\)</span> 阶还是 <span class="arithmatex">\(2\)</span> 阶，我们可以据此来决定下一步该怎么跳。</p>
 <ul>
 <li>当 <span class="arithmatex">\(j\)</span> 等于 <span class="arithmatex">\(1\)</span> ，即上一轮跳了 <span class="arithmatex">\(1\)</span> 阶时，这一轮只能选择跳 <span class="arithmatex">\(2\)</span> 阶。</li>
 <li>当 <span class="arithmatex">\(j\)</span> 等于 <span class="arithmatex">\(2\)</span> ，即上一轮跳了 <span class="arithmatex">\(2\)</span> 阶时，这一轮可选择跳 <span class="arithmatex">\(1\)</span> 阶或跳 <span class="arithmatex">\(2\)</span> 阶。</li>
@@ -4061,10 +4061,10 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 </div>
 </div>
 </div>
-<p>在上面的案例中，由于仅需多考虑前面一个状态，我们仍然可以通过扩展状态定义，使得问题恢复无后效性。然而，许多问题具有非常严重的“有后效性”，例如：</p>
+<p>在上面的案例中，由于仅需多考虑前面一个状态，我们仍然可以通过扩展状态定义，使得问题重新满足无后效性。然而，某些问题具有非常严重的“有后效性”。</p>
 <div class="admonition question">
 <p class="admonition-title">爬楼梯与障碍生成</p>
-<p>给定一个共有 <span class="arithmatex">\(n\)</span> 阶的楼梯，你每步可以上 <span class="arithmatex">\(1\)</span> 阶或者 <span class="arithmatex">\(2\)</span> 阶。<strong>规定当爬到第 <span class="arithmatex">\(i\)</span> 阶时，系统自动会给第 <span class="arithmatex">\(2i\)</span> 阶上放上障碍物，之后所有轮都不允许跳到第 <span class="arithmatex">\(2i\)</span> 阶上</strong>。例如，前两轮分别跳到了第 <span class="arithmatex">\(2, 3\)</span> 阶上，则之后就不能跳到第 <span class="arithmatex">\(4, 6\)</span> 阶上。请问有多少种方案可以爬到楼顶。</p>
+<p>给定一个共有 <span class="arithmatex">\(n\)</span> 阶的楼梯，你每步可以上 <span class="arithmatex">\(1\)</span> 阶或者 <span class="arithmatex">\(2\)</span> 阶。<strong>规定当爬到第 <span class="arithmatex">\(i\)</span> 阶时，系统自动会给第 <span class="arithmatex">\(2i\)</span> 阶上放上障碍物，之后所有轮都不允许跳到第 <span class="arithmatex">\(2i\)</span> 阶上</strong>。例如，前两轮分别跳到了第 <span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(3\)</span> 阶上，则之后就不能跳到第 <span class="arithmatex">\(4\)</span>、<span class="arithmatex">\(6\)</span> 阶上。请问有多少种方案可以爬到楼顶。</p>
 </div>
 <p>在这个问题中，下次跳跃依赖于过去所有的状态，因为每一次跳跃都会在更高的阶梯上设置障碍，并影响未来的跳跃。对于这类问题，动态规划往往难以解决。</p>
 <p>实际上，许多复杂的组合优化问题（例如旅行商问题）都不满足无后效性。对于这类问题，我们通常会选择使用其他方法，例如启发式搜索、遗传算法、强化学习等，从而在有限时间内得到可用的局部最优解。</p>

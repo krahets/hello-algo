@@ -3436,17 +3436,17 @@
 
 
 <h1 id="122">12.2 &nbsp; 分治搜索策略<a class="headerlink" href="#122" title="Permanent link">&para;</a></h1>
-<p>我们已经学过，搜索算法分为两大类：</p>
+<p>我们已经学过，搜索算法分为两大类。</p>
 <ul>
 <li><strong>暴力搜索</strong>：它通过遍历数据结构实现，时间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。</li>
 <li><strong>自适应搜索</strong>：它利用特有的数据组织形式或先验信息，可达到 <span class="arithmatex">\(O(\log n)\)</span> 甚至 <span class="arithmatex">\(O(1)\)</span> 的时间复杂度。</li>
 </ul>
-<p>实际上，<strong>时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span> 的搜索算法通常都是基于分治策略实现的</strong>，例如：</p>
+<p>实际上，<strong>时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span> 的搜索算法通常都是基于分治策略实现的</strong>，例如二分查找和树。</p>
 <ul>
 <li>二分查找的每一步都将问题（在数组中搜索目标元素）分解为一个小问题（在数组的一半中搜索目标元素），这个过程一直持续到数组为空或找到目标元素为止。</li>
 <li>树是分治关系的代表，在二叉搜索树、AVL 树、堆等数据结构中，各种操作的时间复杂度皆为 <span class="arithmatex">\(O(\log n)\)</span> 。</li>
 </ul>
-<p>以二分查找为例：</p>
+<p>二分查找的分治策略如下所示。</p>
 <ul>
 <li><strong>问题可以被分解</strong>：二分查找递归地将原问题（在数组中进行查找）分解为子问题（在数组的一半中进行查找），这是通过比较中间元素和目标元素来实现的。</li>
 <li><strong>子问题是独立的</strong>：在二分查找中，每轮只处理一个子问题，它不受另外子问题的影响。</li>
@@ -3460,11 +3460,11 @@
 <p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的有序数组 <code>nums</code> ，数组中所有元素都是唯一的，请查找元素 <code>target</code> 。</p>
 </div>
 <p>从分治角度，我们将搜索区间 <span class="arithmatex">\([i, j]\)</span> 对应的子问题记为 <span class="arithmatex">\(f(i, j)\)</span> 。</p>
-<p>从原问题 <span class="arithmatex">\(f(0, n-1)\)</span> 为起始点，二分查找的分治步骤为：</p>
+<p>从原问题 <span class="arithmatex">\(f(0, n-1)\)</span> 为起始点，通过以下步骤进行二分查找。</p>
 <ol>
 <li>计算搜索区间 <span class="arithmatex">\([i, j]\)</span> 的中点 <span class="arithmatex">\(m\)</span> ，根据它排除一半搜索区间。</li>
 <li>递归求解规模减小一半的子问题，可能为 <span class="arithmatex">\(f(i, m-1)\)</span> 或 <span class="arithmatex">\(f(m+1, j)\)</span> 。</li>
-<li>循环第 <code>1.</code> , <code>2.</code> 步，直至找到 <code>target</code> 或区间为空时返回。</li>
+<li>循环第 <code>1.</code> 和 <code>2.</code> 步，直至找到 <code>target</code> 或区间为空时返回。</li>
 </ol>
 <p>图 12-4 展示了在数组中二分查找元素 <span class="arithmatex">\(6\)</span> 的分治过程。</p>
 <p><img alt="二分查找的分治过程" src="../binary_search_recur.assets/binary_search_recur.png" /></p>

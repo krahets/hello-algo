@@ -3482,7 +3482,7 @@
 <p>在本节中，我们先来求解最常见的 0-1 背包问题。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>给定 <span class="arithmatex">\(n\)</span> 个物品，第 <span class="arithmatex">\(i\)</span> 个物品的重量为 <span class="arithmatex">\(wgt[i-1]\)</span> 、价值为 <span class="arithmatex">\(val[i-1]\)</span> ，和一个容量为 <span class="arithmatex">\(cap\)</span> 的背包。每个物品只能选择一次，问在不超过背包容量下能放入物品的最大价值。</p>
+<p>给定 <span class="arithmatex">\(n\)</span> 个物品，第 <span class="arithmatex">\(i\)</span> 个物品的重量为 <span class="arithmatex">\(wgt[i-1]\)</span>、价值为 <span class="arithmatex">\(val[i-1]\)</span> ，和一个容量为 <span class="arithmatex">\(cap\)</span> 的背包。每个物品只能选择一次，问在不超过背包容量下能放入物品的最大价值。</p>
 </div>
 <p>观察图 14-17 ，由于物品编号 <span class="arithmatex">\(i\)</span> 从 <span class="arithmatex">\(1\)</span> 开始计数，数组索引从 <span class="arithmatex">\(0\)</span> 开始计数，因此物品 <span class="arithmatex">\(i\)</span> 对应重量 <span class="arithmatex">\(wgt[i-1]\)</span> 和价值 <span class="arithmatex">\(val[i-1]\)</span> 。</p>
 <p><img alt="0-1 背包的示例数据" src="../knapsack_problem.assets/knapsack_example.png" /></p>
@@ -3510,7 +3510,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <p>当前状态 <span class="arithmatex">\([i, c]\)</span> 从上方的状态 <span class="arithmatex">\([i-1, c]\)</span> 和左上方的状态 <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span> 转移而来，因此通过两层循环正序遍历整个 <span class="arithmatex">\(dp\)</span> 表即可。</p>
 <p>根据以上分析，我们接下来按顺序实现暴力搜索、记忆化搜索、动态规划解法。</p>
 <h3 id="1">1. &nbsp; 方法一：暴力搜索<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>搜索代码包含以下要素：</p>
+<p>搜索代码包含以下要素。</p>
 <ul>
 <li><strong>递归参数</strong>：状态 <span class="arithmatex">\([i, c]\)</span> 。</li>
 <li><strong>返回值</strong>：子问题的解 <span class="arithmatex">\(dp[i, c]\)</span> 。</li>

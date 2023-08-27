@@ -3451,10 +3451,10 @@
 <p align="center"> 图 10-1 &nbsp; 二分查找示例数据 </p>
 
 <p>如图 10-2 所示，我们先初始化指针 <span class="arithmatex">\(i = 0\)</span> 和 <span class="arithmatex">\(j = n - 1\)</span> ，分别指向数组首元素和尾元素，代表搜索区间 <span class="arithmatex">\([0, n - 1]\)</span> 。请注意，中括号表示闭区间，其包含边界值本身。</p>
-<p>接下来，循环执行以下两个步骤：</p>
+<p>接下来，循环执行以下两步。</p>
 <ol>
 <li>计算中点索引 <span class="arithmatex">\(m = \lfloor {(i + j) / 2} \rfloor\)</span> ，其中 <span class="arithmatex">\(\lfloor \space \rfloor\)</span> 表示向下取整操作。</li>
-<li>判断 <code>nums[m]</code> 和 <code>target</code> 的大小关系，分为三种情况：<ol>
+<li>判断 <code>nums[m]</code> 和 <code>target</code> 的大小关系，分为以下三种情况。<ol>
 <li>当 <code>nums[m] &lt; target</code> 时，说明 <code>target</code> 在区间 <span class="arithmatex">\([m + 1, j]\)</span> 中，因此执行 <span class="arithmatex">\(i = m + 1\)</span> 。</li>
 <li>当 <code>nums[m] &gt; target</code> 时，说明 <code>target</code> 在区间 <span class="arithmatex">\([i, m - 1]\)</span> 中，因此执行 <span class="arithmatex">\(j = m - 1\)</span> 。</li>
 <li>当 <code>nums[m] = target</code> 时，说明找到 <code>target</code> ，因此返回索引 <span class="arithmatex">\(m\)</span> 。</li>
@@ -3752,7 +3752,7 @@
 </div>
 </div>
 <p>时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span> 。每轮缩小一半区间，因此二分循环次数为 <span class="arithmatex">\(\log_2 n\)</span> 。</p>
-<p>空间复杂度为 <span class="arithmatex">\(O(1)\)</span>  。指针 <code>i</code> , <code>j</code> 使用常数大小空间。</p>
+<p>空间复杂度为 <span class="arithmatex">\(O(1)\)</span>  。指针 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 使用常数大小空间。</p>
 <h2 id="1011">10.1.1 &nbsp; 区间表示方法<a class="headerlink" href="#1011" title="Permanent link">&para;</a></h2>
 <p>除了上述的双闭区间外，常见的区间表示还有“左闭右开”区间，定义为 <span class="arithmatex">\([0, n)\)</span> ，即左边界包含自身，右边界不包含自身。在该表示下，区间 <span class="arithmatex">\([i, j]\)</span> 在 <span class="arithmatex">\(i = j\)</span> 时为空。</p>
 <p>我们可以基于该表示实现具有相同功能的二分查找算法。</p>
@@ -4023,12 +4023,12 @@
 <p align="center"> 图 10-3 &nbsp; 两种区间定义 </p>
 
 <h2 id="1012">10.1.2 &nbsp; 优点与局限性<a class="headerlink" href="#1012" title="Permanent link">&para;</a></h2>
-<p>二分查找在时间和空间方面都有较好的性能：</p>
+<p>二分查找在时间和空间方面都有较好的性能。</p>
 <ul>
 <li>二分查找的时间效率高。在大数据量下，对数阶的时间复杂度具有显著优势。例如，当数据大小 <span class="arithmatex">\(n = 2^{20}\)</span> 时，线性查找需要 <span class="arithmatex">\(2^{20} = 1048576\)</span> 轮循环，而二分查找仅需 <span class="arithmatex">\(\log_2 2^{20} = 20\)</span> 轮循环。</li>
 <li>二分查找无须额外空间。相较于需要借助额外空间的搜索算法（例如哈希查找），二分查找更加节省空间。</li>
 </ul>
-<p>然而，二分查找并非适用于所有情况，原因如下：</p>
+<p>然而，二分查找并非适用于所有情况，主要有以下原因。</p>
 <ul>
 <li>二分查找仅适用于有序数据。若输入数据无序，为了使用二分查找而专门进行排序，得不偿失。因为排序算法的时间复杂度通常为 <span class="arithmatex">\(O(n \log n)\)</span> ，比线性查找和二分查找都更高。对于频繁插入元素的场景，为保持数组有序性，需要将元素插入到特定位置，时间复杂度为 <span class="arithmatex">\(O(n)\)</span> ，也是非常昂贵的。</li>
 <li>二分查找仅适用于数组。二分查找需要跳跃式（非连续地）访问元素，而在链表中执行跳跃式访问的效率较低，因此不适合应用在链表或基于链表实现的数据结构。</li>
