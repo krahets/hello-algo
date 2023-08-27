@@ -118,7 +118,7 @@ $$
 
 $$
 \begin{aligned}
-\mathrm{S} \in & \{ 0, 1\} , \quad \mathrm{E} \in \{ 1, 2, \dots, 254 \} \newline
+\mathrm{S} \in & \{ 0, 1\}, \quad \mathrm{E} \in \{ 1, 2, \dots, 254 \} \newline
 (1 + \mathrm{N}) = & (1 + \sum_{i=1}^{23} b_{23-i} 2^{-i}) \subset [1, 2 - 2^{-23}]
 \end{aligned}
 $$

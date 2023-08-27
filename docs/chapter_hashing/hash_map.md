@@ -452,7 +452,7 @@ index = hash(key) % capacity
 
 随后，我们就可以利用 `index` 在哈希表中访问对应的桶，从而获取 `value` 。
 
-设数组长度 `capacity = 100` 、哈希算法 `hash(key) = key` ，易得哈希函数为 `key % 100` 。下图以 `key` 学号和 `value` 姓名为例，展示了哈希函数的工作原理。
+设数组长度 `capacity = 100`、哈希算法 `hash(key) = key` ，易得哈希函数为 `key % 100` 。下图以 `key` 学号和 `value` 姓名为例，展示了哈希函数的工作原理。
 
 ![哈希函数工作原理](hash_map.assets/hash_function.png)
 
