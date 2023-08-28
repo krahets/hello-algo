@@ -17,7 +17,7 @@ func TestCoinChange(t *testing.T) {
 	res := coinChangeDP(coins, amt)
 	fmt.Printf("凑到目标金额所需的最少硬币数量为 %d\n", res)
 
-	// 状态压缩后的动态规划
+	// 空间优化后的动态规划
 	res = coinChangeDPComp(coins, amt)
 	fmt.Printf("凑到目标金额所需的最少硬币数量为 %d\n", res)
 }

@@ -28,7 +28,7 @@ func coinChangeIIDP(coins: [Int], amt: Int) -> Int {
     return dp[n][amt]
 }
 
-/* 零钱兑换 II：状态压缩后的动态规划 */
+/* 零钱兑换 II：空间优化后的动态规划 */
 func coinChangeIIDPComp(coins: [Int], amt: Int) -> Int {
     let n = coins.count
     // 初始化 dp 表
@@ -60,7 +60,7 @@ enum CoinChangeII {
         var res = coinChangeIIDP(coins: coins, amt: amt)
         print("凑出目标金额的硬币组合数量为 \(res)")
 
-        // 状态压缩后的动态规划
+        // 空间优化后的动态规划
         res = coinChangeIIDPComp(coins: coins, amt: amt)
         print("凑出目标金额的硬币组合数量为 \(res)")
     }

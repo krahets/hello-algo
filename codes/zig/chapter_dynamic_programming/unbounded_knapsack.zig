@@ -24,7 +24,7 @@ fn unboundedKnapsackDP(comptime wgt: []i32, val: []i32, comptime cap: usize) i32
     return dp[n][cap];
 }
 
-// 完全背包：状态压缩后的动态规划
+// 完全背包：空间优化后的动态规划
 fn unboundedKnapsackDPComp(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
     comptime var n = wgt.len;
     // 初始化 dp 表
@@ -54,7 +54,7 @@ pub fn main() !void {
     var res = unboundedKnapsackDP(&wgt, &val, cap);
     std.debug.print("不超过背包容量的最大物品价值为 {}\n", .{res});
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     res = unboundedKnapsackDPComp(&wgt, &val, cap);
     std.debug.print("不超过背包容量的最大物品价值为 {}\n", .{res});
 

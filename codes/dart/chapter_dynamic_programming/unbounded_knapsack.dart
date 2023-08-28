@@ -26,7 +26,7 @@ int unboundedKnapsackDP(List<int> wgt, List<int> val, int cap) {
   return dp[n][cap];
 }
 
-/* 完全背包：状态压缩后的动态规划 */
+/* 完全背包：空间优化后的动态规划 */
 int unboundedKnapsackDPComp(List<int> wgt, List<int> val, int cap) {
   int n = wgt.length;
   // 初始化 dp 表
@@ -56,7 +56,7 @@ void main() {
   int res = unboundedKnapsackDP(wgt, val, cap);
   print("不超过背包容量的最大物品价值为 $res");
 
-  // 状态压缩后的动态规划
+  // 空间优化后的动态规划
   int resComp = unboundedKnapsackDPComp(wgt, val, cap);
   print("不超过背包容量的最大物品价值为 $resComp");
 }

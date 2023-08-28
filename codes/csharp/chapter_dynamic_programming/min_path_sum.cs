@@ -69,7 +69,7 @@ public class min_path_sum {
         return dp[n - 1, m - 1];
     }
 
-    /* 最小路径和：状态压缩后的动态规划 */
+    /* 最小路径和：空间优化后的动态规划 */
     public int minPathSumDPComp(int[][] grid) {
         int n = grid.Length, m = grid[0].Length;
         // 初始化 dp 表
@@ -120,7 +120,7 @@ public class min_path_sum {
         res = minPathSumDP(grid);
         Console.WriteLine("从左上角到右下角的做小路径和为 " + res);
 
-        // 状态压缩后的动态规划
+        // 空间优化后的动态规划
         res = minPathSumDPComp(grid);
         Console.WriteLine("从左上角到右下角的做小路径和为 " + res);
     }

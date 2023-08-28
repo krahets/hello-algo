@@ -28,7 +28,7 @@ int coinChangeIIDP(List<int> coins, int amt) {
   return dp[n][amt];
 }
 
-/* 零钱兑换 II：状态压缩后的动态规划 */
+/* 零钱兑换 II：空间优化后的动态规划 */
 int coinChangeIIDPComp(List<int> coins, int amt) {
   int n = coins.length;
   // 初始化 dp 表
@@ -58,7 +58,7 @@ void main() {
   int res = coinChangeIIDP(coins, amt);
   print("凑出目标金额的硬币组合数量为 $res");
 
-  // 状态压缩后的动态规划
+  // 空间优化后的动态规划
   res = coinChangeIIDPComp(coins, amt);
   print("凑出目标金额的硬币组合数量为 $res");
 }

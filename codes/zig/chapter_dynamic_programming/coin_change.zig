@@ -33,7 +33,7 @@ fn coinChangeDP(comptime coins: []i32, comptime amt: usize) i32 {
     }
 }
 
-// 零钱兑换：状态压缩后的动态规划
+// 零钱兑换：空间优化后的动态规划
 fn coinChangeDPComp(comptime coins: []i32, comptime amt: usize) i32 {
     comptime var n = coins.len;
     comptime var max = amt + 1;
@@ -69,7 +69,7 @@ pub fn main() !void {
     var res = coinChangeDP(&coins, amt);
     std.debug.print("凑到目标金额所需的最少硬币数量为 {}\n", .{res});
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     res = coinChangeDPComp(&coins, amt);
     std.debug.print("凑到目标金额所需的最少硬币数量为 {}\n", .{res});
 

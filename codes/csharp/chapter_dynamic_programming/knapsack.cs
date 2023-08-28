@@ -66,7 +66,7 @@ public class knapsack {
         return dp[n, cap];
     }
 
-    /* 0-1 背包：状态压缩后的动态规划 */
+    /* 0-1 背包：空间优化后的动态规划 */
     public int knapsackDPComp(int[] weight, int[] val, int cap) {
         int n = weight.Length;
         // 初始化 dp 表
@@ -111,7 +111,7 @@ public class knapsack {
         res = knapsackDP(weight, val, cap);
         Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
 
-        // 状态压缩后的动态规划
+        // 空间优化后的动态规划
         res = knapsackDPComp(weight, val, cap);
         Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
     }

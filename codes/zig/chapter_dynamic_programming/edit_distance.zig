@@ -88,7 +88,7 @@ fn editDistanceDP(comptime s: []const u8, comptime t: []const u8) i32 {
     return dp[n][m];
 }
 
-// 编辑距离：状态压缩后的动态规划
+// 编辑距离：空间优化后的动态规划
 fn editDistanceDPComp(comptime s: []const u8, comptime t: []const u8) i32 {
     comptime var n = s.len;
     comptime var m = t.len;
@@ -138,7 +138,7 @@ pub fn main() !void {
     res = editDistanceDP(s, t);
     std.debug.print("将 {s} 更改为 {s} 最少需要编辑 {} 步\n", .{ s, t, res });
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     res = editDistanceDPComp(s, t);
     std.debug.print("将 {s} 更改为 {s} 最少需要编辑 {} 步\n", .{ s, t, res });
 
