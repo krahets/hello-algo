@@ -20,8 +20,8 @@ function knapsackDFS(
         return knapsackDFS(wgt, val, i - 1, c);
     }
     // 计算不放入和放入物品 i 的最大价值
-    const no: number = knapsackDFS(wgt, val, i - 1, c);
-    const yes: number =
+    const no = knapsackDFS(wgt, val, i - 1, c);
+    const yes =
         knapsackDFS(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1];
     // 返回两种方案中价值更大的那一个
     return Math.max(no, yes);
@@ -48,8 +48,8 @@ function knapsackDFSMem(
         return knapsackDFSMem(wgt, val, mem, i - 1, c);
     }
     // 计算不放入和放入物品 i 的最大价值
-    const no: number = knapsackDFSMem(wgt, val, mem, i - 1, c);
-    const yes: number =
+    const no = knapsackDFSMem(wgt, val, mem, i - 1, c);
+    const yes =
         knapsackDFSMem(wgt, val, mem, i - 1, c - wgt[i - 1]) + val[i - 1];
     // 记录并返回两种方案中价值更大的那一个
     mem[i][c] = Math.max(no, yes);
@@ -62,14 +62,14 @@ function knapsackDP(
     val: Array<number>,
     cap: number
 ): number {
-    const n: number = wgt.length;
+    const n = wgt.length;
     // 初始化 dp 表
-    const dp: Array<Array<number>> = Array.from({ length: n + 1 }, () =>
+    const dp = Array.from({ length: n + 1 }, () =>
         Array.from({ length: cap + 1 }, () => 0)
     );
     // 状态转移
-    for (let i: number = 1; i <= n; i++) {
-        for (let c: number = 1; c <= cap; c++) {
+    for (let i = 1; i <= n; i++) {
+        for (let c = 1; c <= cap; c++) {
             if (wgt[i - 1] > c) {
                 // 若超过背包容量，则不选物品 i
                 dp[i][c] = dp[i - 1][c];
@@ -91,13 +91,13 @@ function knapsackDPComp(
     val: Array<number>,
     cap: number
 ): number {
-    const n: number = wgt.length;
+    const n = wgt.length;
     // 初始化 dp 表
-    const dp: Array<number> = Array(cap + 1).fill(0);
+    const dp = Array(cap + 1).fill(0);
     // 状态转移
-    for (let i: number = 1; i <= n; i++) {
+    for (let i = 1; i <= n; i++) {
         // 倒序遍历
-        for (let c: number = cap; c >= 1; c--) {
+        for (let c = cap; c >= 1; c--) {
             if (wgt[i - 1] <= c) {
                 // 不选和选物品 i 这两种方案的较大值
                 dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
@@ -108,17 +108,17 @@ function knapsackDPComp(
 }
 
 /* Driver Code */
-const wgt: Array<number> = [10, 20, 30, 40, 50];
-const val: Array<number> = [50, 120, 150, 210, 240];
-const cap: number = 50;
-const n: number = wgt.length;
+const wgt = [10, 20, 30, 40, 50];
+const val = [50, 120, 150, 210, 240];
+const cap = 50;
+const n = wgt.length;
 
 // 暴力搜索
-let res: number = knapsackDFS(wgt, val, n, cap);
+let res = knapsackDFS(wgt, val, n, cap);
 console.log(`不超过背包容量的最大物品价值为 ${res}`);
 
 // 记忆化搜索
-const mem: Array<Array<number>> = Array.from({ length: n + 1 }, () =>
+const mem = Array.from({ length: n + 1 }, () =>
     Array.from({ length: cap + 1 }, () => -1)
 );
 res = knapsackDFSMem(wgt, val, mem, n, cap);

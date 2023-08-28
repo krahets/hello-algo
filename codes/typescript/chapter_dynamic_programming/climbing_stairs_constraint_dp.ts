@@ -10,7 +10,7 @@ function climbingStairsConstraintDP(n: number): number {
         return n;
     }
     // 初始化 dp 表，用于存储子问题的解
-    const dp: Array<Array<number>> = Array.from(
+    const dp = Array.from(
         { length: n + 1 },
         () => new Array(3)
     );
@@ -20,7 +20,7 @@ function climbingStairsConstraintDP(n: number): number {
     dp[2][1] = 0;
     dp[2][2] = 1;
     // 状态转移：从较小子问题逐步求解较大子问题
-    for (let i: number = 3; i <= n; i++) {
+    for (let i = 3; i <= n; i++) {
         dp[i][1] = dp[i - 1][2];
         dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
     }
@@ -28,8 +28,8 @@ function climbingStairsConstraintDP(n: number): number {
 }
 
 /* Driver Code */
-const n: number = 9;
-const res: number = climbingStairsConstraintDP(n);
+const n = 9;
+const res = climbingStairsConstraintDP(n);
 console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
 
 export {};
