@@ -31,7 +31,7 @@ int coinChangeDP(List<int> coins, int amt) {
   return dp[n][amt] != MAX ? dp[n][amt] : -1;
 }
 
-/* 零钱兑换：状态压缩后的动态规划 */
+/* 零钱兑换：空间优化后的动态规划 */
 int coinChangeDPComp(List<int> coins, int amt) {
   int n = coins.length;
   int MAX = amt + 1;
@@ -62,7 +62,7 @@ void main() {
   int res = coinChangeDP(coins, amt);
   print("凑到目标金额所需的最少硬币数量为 $res");
 
-  // 状态压缩后的动态规划
+  // 空间优化后的动态规划
   res = coinChangeDPComp(coins, amt);
   print("凑到目标金额所需的最少硬币数量为 $res");
 }

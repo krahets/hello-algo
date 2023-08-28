@@ -24,7 +24,7 @@ func unboundedKnapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
     return dp[n][cap]
 }
 
-/* 完全背包：状态压缩后的动态规划 */
+/* 完全背包：空间优化后的动态规划 */
 func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
     let n = wgt.count
     // 初始化 dp 表
@@ -56,7 +56,7 @@ enum UnboundedKnapsack {
         var res = unboundedKnapsackDP(wgt: wgt, val: val, cap: cap)
         print("不超过背包容量的最大物品价值为 \(res)")
 
-        // 状态压缩后的动态规划
+        // 空间优化后的动态规划
         res = unboundedKnapsackDPComp(wgt: wgt, val: val, cap: cap)
         print("不超过背包容量的最大物品价值为 \(res)")
     }

@@ -34,7 +34,7 @@ public class coin_change {
         return dp[n][amt] != MAX ? dp[n][amt] : -1;
     }
 
-    /* 零钱兑换：状态压缩后的动态规划 */
+    /* 零钱兑换：空间优化后的动态规划 */
     static int coinChangeDPComp(int[] coins, int amt) {
         int n = coins.length;
         int MAX = amt + 1;
@@ -65,7 +65,7 @@ public class coin_change {
         int res = coinChangeDP(coins, amt);
         System.out.println("凑到目标金额所需的最少硬币数量为 " + res);
 
-        // 状态压缩后的动态规划
+        // 空间优化后的动态规划
         res = coinChangeDPComp(coins, amt);
         System.out.println("凑到目标金额所需的最少硬币数量为 " + res);
     }

@@ -21,7 +21,7 @@ func climbingStairsDP(n int) int {
 	return dp[n]
 }
 
-/* 爬楼梯：状态压缩后的动态规划 */
+/* 爬楼梯：空间优化后的动态规划 */
 func climbingStairsDPComp(n int) int {
 	if n == 1 || n == 2 {
 		return n

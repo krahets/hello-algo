@@ -23,7 +23,7 @@ int minCostClimbingStairsDP(vector<int> &cost) {
     return dp[n];
 }
 
-/* 爬楼梯最小代价：状态压缩后的动态规划 */
+/* 爬楼梯最小代价：空间优化后的动态规划 */
 int minCostClimbingStairsDPComp(vector<int> &cost) {
     int n = cost.size() - 1;
     if (n == 1 || n == 2)

@@ -31,7 +31,7 @@ func coinChangeIIDP(coins []int, amt int) int {
 	return dp[n][amt]
 }
 
-/* 零钱兑换 II：状态压缩后的动态规划 */
+/* 零钱兑换 II：空间优化后的动态规划 */
 func coinChangeIIDPComp(coins []int, amt int) int {
 	n := len(coins)
 	// 初始化 dp 表

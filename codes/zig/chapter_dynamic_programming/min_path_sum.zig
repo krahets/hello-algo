@@ -68,7 +68,7 @@ fn minPathSumDP(comptime grid: anytype) i32 {
     return dp[n - 1][m - 1];
 }
 
-// 最小路径和：状态压缩后的动态规划
+// 最小路径和：空间优化后的动态规划
 fn minPathSumDPComp(comptime grid: anytype) i32 {
     comptime var n = grid.len;
     comptime var m = grid[0].len;
@@ -114,7 +114,7 @@ pub fn main() !void {
     res = minPathSumDP(&grid);
     std.debug.print("从左上角到右下角的最小路径和为 {}\n", .{res});
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     res = minPathSumDPComp(&grid);
     std.debug.print("从左上角到右下角的最小路径和为 {}\n", .{res});
 
