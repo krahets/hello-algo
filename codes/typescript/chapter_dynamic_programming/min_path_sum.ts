@@ -11,7 +11,7 @@ function minPathSumDFS(
     j: number
 ): number {
     // 若为左上角单元格，则终止搜索
-    if (i == 0 && j == 0) {
+    if (i === 0 && j == 0) {
         return grid[0][0];
     }
     // 若行列索引越界，则返回 +∞ 代价
@@ -33,7 +33,7 @@ function minPathSumDFSMem(
     j: number
 ): number {
     // 若为左上角单元格，则终止搜索
-    if (i == 0 && j == 0) {
+    if (i === 0 && j === 0) {
         return grid[0][0];
     }
     // 若行列索引越界，则返回 +∞ 代价
@@ -80,7 +80,7 @@ function minPathSumDP(grid: Array<Array<number>>): number {
 
 /* 最小路径和：状态压缩后的动态规划 */
 function minPathSumDPComp(grid: Array<Array<number>>): number {
-    let n: number = grid.length,
+    const n: number = grid.length,
         m: number = grid[0].length;
     // 初始化 dp 表
     const dp: Array<number> = new Array(m);
@@ -112,21 +112,21 @@ const n: number = grid.length,
     m: number = grid[0].length;
 // 暴力搜索
 let res: number = minPathSumDFS(grid, n - 1, m - 1);
-console.log('从左上角到右下角的最小路径和为 ' + res);
+console.log(`从左上角到右下角的最小路径和为 ${res}`);
 
 // 记忆化搜索
-let mem: Array<Array<number>> = Array.from({ length: n }, () =>
+const mem: Array<Array<number>> = Array.from({ length: n }, () =>
     Array.from({ length: m }, () => -1)
 );
 res = minPathSumDFSMem(grid, mem, n - 1, m - 1);
-console.log('从左上角到右下角的最小路径和为 ' + res);
+console.log(`从左上角到右下角的最小路径和为 ${res}`);
 
 // 动态规划
 res = minPathSumDP(grid);
-console.log('从左上角到右下角的最小路径和为 ' + res);
+console.log(`从左上角到右下角的最小路径和为 ${res}`);
 
 // 状态压缩后的动态规划
 res = minPathSumDPComp(grid);
-console.log('从左上角到右下角的最小路径和为 ' + res);
+console.log(`从左上角到右下角的最小路径和为 ${res}`);
 
 export {};

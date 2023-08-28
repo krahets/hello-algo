@@ -6,9 +6,9 @@
 
 /* 完全背包：动态规划 */
 function unboundedKnapsackDP(wgt, val, cap) {
-    let n = wgt.length;
+    const n = wgt.length;
     // 初始化 dp 表
-    let dp = Array.from({ length: n + 1 }, () =>
+    const dp = Array.from({ length: n + 1 }, () =>
         Array.from({ length: cap + 1 }, () => 0)
     );
     // 状态转移
@@ -31,9 +31,9 @@ function unboundedKnapsackDP(wgt, val, cap) {
 
 /* 完全背包：状态压缩后的动态规划 */
 function unboundedKnapsackDPComp(wgt, val, cap) {
-    let n = wgt.length;
+    const n = wgt.length;
     // 初始化 dp 表
-    let dp = Array.from({ length: cap + 1 }, () => 0);
+    const dp = Array.from({ length: cap + 1 }, () => 0);
     // 状态转移
     for (let i = 1; i <= n; i++) {
         for (let c = 1; c <= cap; c++) {
@@ -50,14 +50,14 @@ function unboundedKnapsackDPComp(wgt, val, cap) {
 }
 
 /* Driver Code */
-let wgt = [1, 2, 3];
-let val = [5, 11, 15];
-let cap = 4;
+const wgt = [1, 2, 3];
+const val = [5, 11, 15];
+const cap = 4;
 
 // 动态规划
 let res = unboundedKnapsackDP(wgt, val, cap);
-console.log('不超过背包容量的最大物品价值为 ' + res);
+console.log(`不超过背包容量的最大物品价值为 ${res}`);
 
 // 状态压缩后的动态规划
 res = unboundedKnapsackDPComp(wgt, val, cap);
-console.log('不超过背包容量的最大物品价值为 ' + res);
+console.log(`不超过背包容量的最大物品价值为 ${res}`);

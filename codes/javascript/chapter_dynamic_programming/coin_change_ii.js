@@ -6,9 +6,9 @@
 
 /* 零钱兑换 II：动态规划 */
 function coinChangeIIDP(coins, amt) {
-    let n = coins.length;
+    const n = coins.length;
     // 初始化 dp 表
-    let dp = Array.from({ length: n + 1 }, () =>
+    const dp = Array.from({ length: n + 1 }, () =>
         Array.from({ length: amt + 1 }, () => 0)
     );
     // 初始化首列
@@ -32,9 +32,9 @@ function coinChangeIIDP(coins, amt) {
 
 /* 零钱兑换 II：状态压缩后的动态规划 */
 function coinChangeIIDPComp(coins, amt) {
-    let n = coins.length;
+    const n = coins.length;
     // 初始化 dp 表
-    let dp = Array.from({ length: amt + 1 }, () => 0);
+    const dp = Array.from({ length: amt + 1 }, () => 0);
     dp[0] = 1;
     // 状态转移
     for (let i = 1; i <= n; i++) {
@@ -52,13 +52,13 @@ function coinChangeIIDPComp(coins, amt) {
 }
 
 /* Driver Code */
-let coins = [1, 2, 5];
-let amt = 5;
+const coins = [1, 2, 5];
+const amt = 5;
 
 // 动态规划
 let res = coinChangeIIDP(coins, amt);
-console.log('凑出目标金额的硬币组合数量为 ' + res);
+console.log(`凑出目标金额的硬币组合数量为 ${res}`);
 
 // 状态压缩后的动态规划
 res = coinChangeIIDPComp(coins, amt);
-console.log('凑出目标金额的硬币组合数量为 ' + res);
+console.log(`凑出目标金额的硬币组合数量为 ${res}`);

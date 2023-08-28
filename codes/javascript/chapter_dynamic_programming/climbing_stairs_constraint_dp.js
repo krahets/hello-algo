@@ -6,11 +6,11 @@
 
 /* 带约束爬楼梯：动态规划 */
 function climbingStairsConstraintDP(n) {
-    if (n == 1 || n == 2) {
+    if (n === 1 || n === 2) {
         return n;
     }
     // 初始化 dp 表，用于存储子问题的解
-    let dp = Array.from(new Array(n + 1), () => new Array(3));
+    const dp = Array.from(new Array(n + 1), () => new Array(3));
     // 初始状态：预设最小子问题的解
     dp[1][1] = 1;
     dp[1][2] = 0;
@@ -26,5 +26,5 @@ function climbingStairsConstraintDP(n) {
 
 /* Driver Code */
 const n = 9;
-let res = climbingStairsConstraintDP(n);
+const res = climbingStairsConstraintDP(n);
 console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);

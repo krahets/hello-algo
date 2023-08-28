@@ -7,22 +7,22 @@
 /* 编辑距离：暴力搜索 */
 function editDistanceDFS(s: string, t: string, i: number, j: number): number {
     // 若 s 和 t 都为空，则返回 0
-    if (i == 0 && j == 0) return 0;
+    if (i === 0 && j === 0) return 0;
 
     // 若 s 为空，则返回 t 长度
-    if (i == 0) return j;
+    if (i === 0) return j;
 
     // 若 t 为空，则返回 s 长度
-    if (j == 0) return i;
+    if (j === 0) return i;
 
     // 若两字符相等，则直接跳过此两字符
-    if (s.charAt(i - 1) == t.charAt(j - 1))
+    if (s.charAt(i - 1) === t.charAt(j - 1))
         return editDistanceDFS(s, t, i - 1, j - 1);
 
     // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-    let insert: number = editDistanceDFS(s, t, i, j - 1);
-    let del: number = editDistanceDFS(s, t, i - 1, j);
-    let replace: number = editDistanceDFS(s, t, i - 1, j - 1);
+    const insert: number = editDistanceDFS(s, t, i, j - 1);
+    const del: number = editDistanceDFS(s, t, i - 1, j);
+    const replace: number = editDistanceDFS(s, t, i - 1, j - 1);
     // 返回最少编辑步数
     return Math.min(Math.min(insert, del), replace) + 1;
 }
@@ -36,25 +36,25 @@ function editDistanceDFSMem(
     j: number
 ): number {
     // 若 s 和 t 都为空，则返回 0
-    if (i == 0 && j == 0) return 0;
+    if (i === 0 && j === 0) return 0;
 
     // 若 s 为空，则返回 t 长度
-    if (i == 0) return j;
+    if (i === 0) return j;
 
     // 若 t 为空，则返回 s 长度
-    if (j == 0) return i;
+    if (j === 0) return i;
 
     // 若已有记录，则直接返回之
-    if (mem[i][j] != -1) return mem[i][j];
+    if (mem[i][j] !== -1) return mem[i][j];
 
     // 若两字符相等，则直接跳过此两字符
-    if (s.charAt(i - 1) == t.charAt(j - 1))
+    if (s.charAt(i - 1) === t.charAt(j - 1))
         return editDistanceDFSMem(s, t, mem, i - 1, j - 1);
 
     // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-    let insert: number = editDistanceDFSMem(s, t, mem, i, j - 1);
-    let del: number = editDistanceDFSMem(s, t, mem, i - 1, j);
-    let replace: number = editDistanceDFSMem(s, t, mem, i - 1, j - 1);
+    const insert: number = editDistanceDFSMem(s, t, mem, i, j - 1);
+    const del: number = editDistanceDFSMem(s, t, mem, i - 1, j);
+    const replace: number = editDistanceDFSMem(s, t, mem, i - 1, j - 1);
     // 记录并返回最少编辑步数
     mem[i][j] = Math.min(Math.min(insert, del), replace) + 1;
     return mem[i][j];
@@ -62,10 +62,10 @@ function editDistanceDFSMem(
 
 /* 编辑距离：动态规划 */
 function editDistanceDP(s: string, t: string): number {
-    let n: number = s.length,
+    const n: number = s.length,
         m: number = t.length;
-    let dp: Array<Array<number>> = Array.from(new Array(n + 1), () =>
-        new Array(m + 1).fill(0)
+    const dp: Array<Array<number>> = Array.from({ length: n + 1 }, () =>
+        Array.from({ length: m + 1 }, () => 0)
     );
     // 状态转移：首行首列
     for (let i: number = 1; i <= n; i++) {
@@ -77,7 +77,7 @@ function editDistanceDP(s: string, t: string): number {
     // 状态转移：其余行列
     for (let i: number = 1; i <= n; i++) {
         for (let j: number = 1; j <= m; j++) {
-            if (s.charAt(i - 1) == t.charAt(j - 1)) {
+            if (s.charAt(i - 1) === t.charAt(j - 1)) {
                 // 若两字符相等，则直接跳过此两字符
                 dp[i][j] = dp[i - 1][j - 1];
             } else {
@@ -95,9 +95,9 @@ function editDistanceDP(s: string, t: string): number {
 
 /* 编辑距离：状态压缩后的动态规划 */
 function editDistanceDPComp(s: string, t: string): number {
-    let n: number = s.length,
+    const n: number = s.length,
         m: number = t.length;
-    let dp: Array<number> = new Array(m + 1).fill(0);
+    const dp: Array<number> = new Array(m + 1).fill(0);
     // 状态转移：首行
     for (let j: number = 1; j <= m; j++) {
         dp[j] = j;
@@ -109,8 +109,8 @@ function editDistanceDPComp(s: string, t: string): number {
         dp[0] = i;
         // 状态转移：其余列
         for (let j: number = 1; j <= m; j++) {
-            let temp = dp[j];
-            if (s.charAt(i - 1) == t.charAt(j - 1)) {
+            const temp = dp[j];
+            if (s.charAt(i - 1) === t.charAt(j - 1)) {
                 // 若两字符相等，则直接跳过此两字符
                 dp[j] = leftup;
             } else {
@@ -123,28 +123,28 @@ function editDistanceDPComp(s: string, t: string): number {
     return dp[m];
 }
 
-let s: string = 'bag';
-let t: string = 'pack';
-let n: number = s.length,
+const s: string = 'bag';
+const t: string = 'pack';
+const n: number = s.length,
     m: number = t.length;
 
 // 暴力搜索
 let res: number = editDistanceDFS(s, t, n, m);
-console.log('将 ' + s + ' 更改为 ' + t + ' 最少需要编辑 ' + res + ' 步');
+console.log(`将 ${s} 更改为 ${t} 最少需要编辑 ${res} 步`);
 
 // 记忆化搜索
-let mem: Array<Array<number>> = Array.from(new Array(n + 1), () =>
-    new Array(m + 1).fill(-1)
+const mem: Array<Array<number>> = Array.from({ length: n + 1 }, () =>
+    Array.from({ length: m + 1 }, () => -1)
 );
 res = editDistanceDFSMem(s, t, mem, n, m);
-console.log('将 ' + s + ' 更改为 ' + t + ' 最少需要编辑 ' + res + ' 步');
+console.log(`将 ${s} 更改为 ${t} 最少需要编辑 ${res} 步`);
 
 // 动态规划
 res = editDistanceDP(s, t);
-console.log('将 ' + s + ' 更改为 ' + t + ' 最少需要编辑 ' + res + ' 步');
+console.log(`将 ${s} 更改为 ${t} 最少需要编辑 ${res} 步`);
 
 // 状态压缩后的动态规划
 res = editDistanceDPComp(s, t);
-console.log('将 ' + s + ' 更改为 ' + t + ' 最少需要编辑 ' + res + ' 步');
+console.log(`将 ${s} 更改为 ${t} 最少需要编辑 ${res} 步`);
 
 export {};
