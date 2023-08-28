@@ -60,7 +60,15 @@ status: new
 === "Go"
 
     ```go title="iteration.go"
-    [class]{}-[func]{forLoop}
+    /* for 循环 */
+    func forLoop(n int) int {
+        res := 0
+        // 循环求和 1, 2, ..., n-1, n
+        for i := 1; i <= n; i++ {
+            res += i
+        }
+        return res
+    }
     ```
 
 === "JS"
@@ -84,7 +92,15 @@ status: new
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{forLoop}
+    /* for 循环 */
+    int forLoop(int n) {
+        int res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
     ```
 
 === "Swift"
@@ -182,7 +198,19 @@ status: new
 === "Go"
 
     ```go title="iteration.go"
-    [class]{}-[func]{whileLoop}
+    /* while 循环 */
+    func whileLoop(n int) int {
+        res := 0
+        // 初始化条件变量
+        i := 1
+        // 循环求和 1, 2, ..., n-1, n
+        for i <= n {
+            res += i
+            // 更新条件变量
+            i++
+        }
+        return res
+    }
     ```
 
 === "JS"
@@ -206,7 +234,17 @@ status: new
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{whileLoop}
+    /* while 循环 */
+    int whileLoop(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i;
+            i += 1; // 更新条件变量
+        }
+        return res;
+    }
     ```
 
 === "Swift"
@@ -302,7 +340,20 @@ status: new
 === "Go"
 
     ```go title="iteration.go"
-    [class]{}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    func whileLoopII(n int) int {
+        res := 0
+        // 初始化条件变量
+        i := 1
+        // 循环求和 1, 4, ...
+        for i <= n {
+            res += i
+            // 更新条件变量
+            i++
+            i *= 2
+        }
+        return res
+    }
     ```
 
 === "JS"
@@ -326,7 +377,19 @@ status: new
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    int whileLoopII(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 2, 4, 5...
+        while (i <= n) {
+            res += i;
+            i += 1; // 更新条件变量
+            res += i;
+            i *= 2; // 更新条件变量
+        }
+        return res;
+    }
     ```
 
 === "Swift"
@@ -422,7 +485,18 @@ status: new
 === "Go"
 
     ```go title="iteration.go"
-    [class]{}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    func nestedForLoop(n int) string {
+        res := ""
+        // 循环 i = 1, 2, ..., n-1, n
+        for i := 1; i <= n; i++ {
+            for j := 1; j <= n; j++ {
+                // 循环 j = 1, 2, ..., n-1, n
+                res += fmt.Sprintf("(%d, %d), ", i, j)
+            }
+        }
+        return res
+    }
     ```
 
 === "JS"
@@ -446,7 +520,18 @@ status: new
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    string nestedForLoop(int n) {
+        StringBuilder res = new StringBuilder();
+        // 循环 i = 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; i++) {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (int j = 1; j <= n; j++) {
+                res.Append($"({i}, {j}), ");
+            }
+        }
+        return res.ToString();
+    }
     ```
 
 === "Swift"
@@ -556,7 +641,17 @@ status: new
 === "Go"
 
     ```go title="recursion.go"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    func recur(n int) int {
+        // 终止条件
+        if n == 1 {
+            return 1
+        }
+        // 递：递归调用
+        res := recur(n - 1)
+        // 归：返回结果
+        return n + res
+    }
     ```
 
 === "JS"
@@ -580,7 +675,16 @@ status: new
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{recur}
+    /* 递归 */
+    int recur(int n) {
+        // 终止条件
+        if (n == 1)
+            return 1;
+        // 递：递归调用
+        int res = recur(n - 1);
+        // 归：返回结果
+        return n + res;
+    }
     ```
 
 === "Swift"
@@ -696,7 +800,15 @@ status: new
 === "Go"
 
     ```go title="recursion.go"
-    [class]{}-[func]{tailRecur}
+    /* 尾递归 */
+    func tailRecur(n int, res int) int {
+        // 终止条件
+        if n == 0 {
+            return res
+        }
+        // 尾递归调用
+        return tailRecur(n-1, res+n)
+    }
     ```
 
 === "JS"
@@ -720,7 +832,14 @@ status: new
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{tailRecur}
+    /* 尾递归 */
+    int tailRecur(int n, int res) {
+        // 终止条件
+        if (n == 0)
+            return res;
+        // 尾递归调用
+        return tailRecur(n - 1, res + n);
+    }
     ```
 
 === "Swift"
@@ -826,7 +945,17 @@ status: new
 === "Go"
 
     ```go title="recursion.go"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    func fib(n int) int {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if n == 1 || n == 2 {
+            return n - 1
+        }
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        res := fib(n-1) + fib(n-2)
+        // 返回结果 f(n)
+        return res
+    }
     ```
 
 === "JS"
@@ -850,7 +979,16 @@ status: new
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    int fib(int n) {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n == 1 || n == 2)
+            return n - 1;
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        int res = fib(n - 1) + fib(n - 2);
+        // 返回结果 f(n)
+        return res;
+    }
     ```
 
 === "Swift"

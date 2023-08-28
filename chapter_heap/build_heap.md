@@ -73,7 +73,7 @@ comments: true
     func newMaxHeap(nums []any) *maxHeap {
         // 将列表元素原封不动添加进堆
         h := &maxHeap{data: nums}
-        for i := len(h.data) - 1; i >= 0; i-- {
+        for i := h.parent(len(h.data) - 1); i >= 0; i-- {
             // 堆化除叶节点以外的其他所有节点
             h.siftDown(i)
         }
@@ -118,7 +118,7 @@ comments: true
         maxHeap *h = (maxHeap *)malloc(sizeof(maxHeap));
         h->size = size;
         memcpy(h->data, nums, size * sizeof(int));
-        for (int i = size - 1; i >= 0; i--) {
+        for (int i = parent(size - 1); i >= 0; i--) {
             // 堆化除叶节点以外的其他所有节点
             siftDown(h, i);
         }
