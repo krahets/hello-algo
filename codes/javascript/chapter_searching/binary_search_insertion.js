@@ -58,3 +58,7 @@ for (const target of [2, 6, 20]) {
     const index = binarySearchInsertion(nums, target);
     console.log('元素 ' + target + ' 的插入点的索引为 ' + index);
 }
+
+module.exports = {
+    binarySearchInsertion
+};

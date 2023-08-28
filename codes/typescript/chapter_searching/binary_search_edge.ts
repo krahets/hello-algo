@@ -5,6 +5,7 @@
  */
 import { binarySearchInsertion } from './binary_search_insertion';
 
+
 /* 二分查找最左一个 target */
 function binarySearchLeftEdge(nums: Array<number>, target: number): number {
     // 等价于查找 target 的插入点
@@ -33,11 +34,11 @@ function binarySearchRightEdge(nums: Array<number>, target: number): number {
 
 /* Driver Code */
 // 包含重复元素的数组
-let nums: Array<number> = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
+let nums= [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
 console.log('\n数组 nums = ' + nums);
 // 二分查找左边界和右边界
 for (const target of [6, 7]) {
-    let index: number = binarySearchLeftEdge(nums, target);
+    let index = binarySearchLeftEdge(nums, target);
     console.log('最左一个元素 ' + target + ' 的索引为 ' + index);
     index = binarySearchRightEdge(nums, target);
     console.log('最右一个元素 ' + target + ' 的索引为 ' + index);
