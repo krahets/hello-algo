@@ -21,7 +21,7 @@
 若数组不包含目标元素，搜索区间最终会缩小为空。此时返回 $-1$ 。
 
 === "<1>"
-    ![binary_search_step1](binary_search.assets/binary_search_step1.png)
+    ![二分查找流程](binary_search.assets/binary_search_step1.png)
 
 === "<2>"
     ![binary_search_step2](binary_search.assets/binary_search_step2.png)
