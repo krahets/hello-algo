@@ -4212,12 +4212,12 @@
 <li>根据待删除节点的子节点数量（三种情况），执行对应的删除节点操作。</li>
 </ol>
 <p>如图 7-19 所示，当待删除节点的度为 <span class="arithmatex">\(0\)</span> 时，表示该节点是叶节点，可以直接删除。</p>
-<p><img alt="在二叉搜索树中删除节点（度为 0）" src="../binary_search_tree.assets/bst_remove_case1.png" /></p>
-<p align="center"> 图 7-19 &nbsp; 在二叉搜索树中删除节点（度为 0） </p>
+<p><img alt="在二叉搜索树中删除节点（度为 0 ）" src="../binary_search_tree.assets/bst_remove_case1.png" /></p>
+<p align="center"> 图 7-19 &nbsp; 在二叉搜索树中删除节点（度为 0 ） </p>
 
 <p>如图 7-20 所示，当待删除节点的度为 <span class="arithmatex">\(1\)</span> 时，将待删除节点替换为其子节点即可。</p>
-<p><img alt="在二叉搜索树中删除节点（度为 1）" src="../binary_search_tree.assets/bst_remove_case2.png" /></p>
-<p align="center"> 图 7-20 &nbsp; 在二叉搜索树中删除节点（度为 1） </p>
+<p><img alt="在二叉搜索树中删除节点（度为 1 ）" src="../binary_search_tree.assets/bst_remove_case2.png" /></p>
+<p align="center"> 图 7-20 &nbsp; 在二叉搜索树中删除节点（度为 1 ） </p>
 
 <p>当待删除节点的度为 <span class="arithmatex">\(2\)</span> 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左 <span class="arithmatex">\(&lt;\)</span> 根 <span class="arithmatex">\(&lt;\)</span> 右”的性质，<strong>因此这个节点可以是右子树的最小节点或左子树的最大节点</strong>。</p>
 <p>假设我们选择右子树的最小节点（即中序遍历的下一个节点），则删除操作流程如图 7-21 所示。</p>
@@ -4228,7 +4228,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><img alt="二叉搜索树删除节点示例" src="../binary_search_tree.assets/bst_remove_case3_step1.png" /></p>
+<p><img alt="在二叉搜索树中删除节点（度为 2 ）" src="../binary_search_tree.assets/bst_remove_case3_step1.png" /></p>
 </div>
 <div class="tabbed-block">
 <p><img alt="bst_remove_case3_step2" src="../binary_search_tree.assets/bst_remove_case3_step2.png" /></p>
@@ -4241,7 +4241,7 @@
 </div>
 </div>
 </div>
-<p align="center"> 图 7-21 &nbsp; 二叉搜索树删除节点示例 </p>
+<p align="center"> 图 7-21 &nbsp; 在二叉搜索树中删除节点（度为 2 ） </p>
 
 <p>删除节点操作同样使用 <span class="arithmatex">\(O(\log n)\)</span> 时间，其中查找待删除节点需要 <span class="arithmatex">\(O(\log n)\)</span> 时间，获取中序遍历后继节点需要 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:11"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><input id="__tabbed_5_6" name="__tabbed_5" type="radio" /><input id="__tabbed_5_7" name="__tabbed_5" type="radio" /><input id="__tabbed_5_8" name="__tabbed_5" type="radio" /><input id="__tabbed_5_9" name="__tabbed_5" type="radio" /><input id="__tabbed_5_10" name="__tabbed_5" type="radio" /><input id="__tabbed_5_11" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Go</label><label for="__tabbed_5_5">JS</label><label for="__tabbed_5_6">TS</label><label for="__tabbed_5_7">C</label><label for="__tabbed_5_8">C#</label><label for="__tabbed_5_9">Swift</label><label for="__tabbed_5_10">Zig</label><label for="__tabbed_5_11">Dart</label></div>
