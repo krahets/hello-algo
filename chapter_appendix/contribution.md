@@ -14,7 +14,7 @@ comments: true
     
     然而在本开源书中，内容更迭的时间被缩短至数日甚至几个小时。
 
-## 16.2.1 &nbsp; 内容微调
+### 1. &nbsp; 内容微调
 
 如图 16-1 所示，每个页面的右上角都有“编辑图标”。您可以按照以下步骤修改文本或代码。
 
@@ -28,7 +28,7 @@ comments: true
 
 图片无法直接修改，需要通过新建 [Issue](https://github.com/krahets/hello-algo/issues) 或评论留言来描述问题，我们会尽快重新绘制并替换图片。
 
-## 16.2.2 &nbsp; 内容创作
+### 2. &nbsp; 内容创作
 
 如果您有兴趣参与此开源项目，包括将代码翻译成其他编程语言、扩展文章内容等，那么需要实施以下 Pull Request 工作流程。
 
@@ -38,7 +38,7 @@ comments: true
 4. 将本地所做更改 Commit ，然后 Push 至远程仓库。
 5. 刷新仓库网页，点击“Create pull request”按钮即可发起拉取请求。
 
-## 16.2.3 &nbsp; Docker 部署
+### 3. &nbsp; Docker 部署
 
 执行以下 Docker 脚本，稍等片刻，即可在网页 `http://localhost:8000` 访问本项目。
 

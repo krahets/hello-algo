@@ -738,15 +738,15 @@ comments: true
 
 如图 7-19 所示，当待删除节点的度为 $0$ 时，表示该节点是叶节点，可以直接删除。
 
-![在二叉搜索树中删除节点（度为 0）](binary_search_tree.assets/bst_remove_case1.png)
+![在二叉搜索树中删除节点（度为 0 ）](binary_search_tree.assets/bst_remove_case1.png)
 
-<p align="center"> 图 7-19 &nbsp; 在二叉搜索树中删除节点（度为 0） </p>
+<p align="center"> 图 7-19 &nbsp; 在二叉搜索树中删除节点（度为 0 ） </p>
 
 如图 7-20 所示，当待删除节点的度为 $1$ 时，将待删除节点替换为其子节点即可。
 
-![在二叉搜索树中删除节点（度为 1）](binary_search_tree.assets/bst_remove_case2.png)
+![在二叉搜索树中删除节点（度为 1 ）](binary_search_tree.assets/bst_remove_case2.png)
 
-<p align="center"> 图 7-20 &nbsp; 在二叉搜索树中删除节点（度为 1） </p>
+<p align="center"> 图 7-20 &nbsp; 在二叉搜索树中删除节点（度为 1 ） </p>
 
 当待删除节点的度为 $2$ 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左 $<$ 根 $<$ 右”的性质，**因此这个节点可以是右子树的最小节点或左子树的最大节点**。
 
@@ -756,7 +756,7 @@ comments: true
 2. 将 `tmp` 的值覆盖待删除节点的值，并在树中递归删除节点 `tmp` 。
 
 === "<1>"
-    ![二叉搜索树删除节点示例](binary_search_tree.assets/bst_remove_case3_step1.png)
+    ![在二叉搜索树中删除节点（度为 2 ）](binary_search_tree.assets/bst_remove_case3_step1.png)
 
 === "<2>"
     ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.png)
@@ -767,7 +767,7 @@ comments: true
 === "<4>"
     ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.png)
 
-<p align="center"> 图 7-21 &nbsp; 二叉搜索树删除节点示例 </p>
+<p align="center"> 图 7-21 &nbsp; 在二叉搜索树中删除节点（度为 2 ） </p>
 
 删除节点操作同样使用 $O(\log n)$ 时间，其中查找待删除节点需要 $O(\log n)$ 时间，获取中序遍历后继节点需要 $O(\log n)$ 时间。
 

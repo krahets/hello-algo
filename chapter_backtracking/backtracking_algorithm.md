@@ -1667,6 +1667,8 @@ comments: true
 
 为了更清晰地分析算法问题，我们总结一下回溯算法中常用术语的含义，并对照例题三给出对应示例。
 
+<p align="center"> 表 13-1 &nbsp; 常见的回溯算法术语 </p>
+
 <div class="center-table" markdown>
 
 | 名词                | 定义                                                                       | 例题三                                                               |

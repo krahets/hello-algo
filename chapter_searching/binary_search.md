@@ -27,7 +27,7 @@ comments: true
 若数组不包含目标元素，搜索区间最终会缩小为空。此时返回 $-1$ 。
 
 === "<1>"
-    ![binary_search_step1](binary_search.assets/binary_search_step1.png)
+    ![二分查找流程](binary_search.assets/binary_search_step1.png)
 
 === "<2>"
     ![binary_search_step2](binary_search.assets/binary_search_step2.png)
@@ -47,7 +47,7 @@ comments: true
 === "<7>"
     ![binary_search_step7](binary_search.assets/binary_search_step7.png)
 
-<p align="center"> 图 10-2 &nbsp; binary_search_step1 </p>
+<p align="center"> 图 10-2 &nbsp; 二分查找流程 </p>
 
 值得注意的是，由于 $i$ 和 $j$ 都是 `int` 类型，**因此 $i + j$ 可能会超出 `int` 类型的取值范围**。为了避免大数越界，我们通常采用公式 $m = \lfloor {i + (j - i) / 2} \rfloor$ 来计算中点。
 
@@ -332,9 +332,9 @@ comments: true
     }
     ```
 
-时间复杂度为 $O(\log n)$ 。每轮缩小一半区间，因此二分循环次数为 $\log_2 n$ 。
+**时间复杂度 $O(\log n)$** ：在二分循环中，区间每轮缩小一半，循环次数为 $\log_2 n$ 。
 
-空间复杂度为 $O(1)$  。指针 $i$ 和 $j$ 使用常数大小空间。
+**空间复杂度 $O(1)$** ：指针 $i$ 和 $j$ 使用常数大小空间。
 
 ## 10.1.1 &nbsp; 区间表示方法
 
