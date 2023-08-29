@@ -4206,11 +4206,9 @@
 </div>
 <p>与查找节点相同，插入节点使用 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
 <h3 id="3">3. &nbsp; 删除节点<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>先在二叉树中查找到目标节点，再将其从二叉树中删除。</p>
 <p>与插入节点类似，我们需要保证在删除操作完成后，二叉搜索树的“左子树 &lt; 根节点 &lt; 右子树”的性质仍然满足。</p>
-<ol>
-<li>在二叉树中执行查找操作，获取待删除节点。</li>
-<li>根据待删除节点的子节点数量（三种情况），执行对应的删除节点操作。</li>
-</ol>
+<p>因此，我们需要根据目标节点的子节点数量，共分为 0、1 和 2 这三种情况，执行对应的删除节点操作。</p>
 <p>如图 7-19 所示，当待删除节点的度为 <span class="arithmatex">\(0\)</span> 时，表示该节点是叶节点，可以直接删除。</p>
 <p><img alt="在二叉搜索树中删除节点（度为 0 ）" src="../binary_search_tree.assets/bst_remove_case1.png" /></p>
 <p align="center"> 图 7-19 &nbsp; 在二叉搜索树中删除节点（度为 0 ） </p>

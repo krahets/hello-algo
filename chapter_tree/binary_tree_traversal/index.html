@@ -1435,12 +1435,52 @@
     7.2.1 &nbsp; 层序遍历
   </a>
   
+    <nav class="md-nav" aria-label="7.2.1   层序遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 代码实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 复杂度分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#722" class="md-nav__link">
     7.2.2 &nbsp; 前序、中序、后序遍历
   </a>
+  
+    <nav class="md-nav" aria-label="7.2.2   前序、中序、后序遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1. &nbsp; 代码实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2. &nbsp; 复杂度分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3409,12 +3449,52 @@
     7.2.1 &nbsp; 层序遍历
   </a>
   
+    <nav class="md-nav" aria-label="7.2.1   层序遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. &nbsp; 代码实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. &nbsp; 复杂度分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#722" class="md-nav__link">
     7.2.2 &nbsp; 前序、中序、后序遍历
   </a>
+  
+    <nav class="md-nav" aria-label="7.2.2   前序、中序、后序遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1. &nbsp; 代码实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2. &nbsp; 复杂度分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3450,6 +3530,7 @@
 <p><img alt="二叉树的层序遍历" src="../binary_tree_traversal.assets/binary_tree_bfs.png" /></p>
 <p align="center"> 图 7-9 &nbsp; 二叉树的层序遍历 </p>
 
+<h3 id="1">1. &nbsp; 代码实现<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>广度优先遍历通常借助“队列”来实现。队列遵循“先进先出”的规则，而广度优先遍历则遵循“逐层推进”的规则，两者背后的思想是一致的。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JS</label><label for="__tabbed_1_6">TS</label><label for="__tabbed_1_7">C</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">Swift</label><label for="__tabbed_1_10">Zig</label><label for="__tabbed_1_11">Dart</label><label for="__tabbed_1_12">Rust</label></div>
 <div class="tabbed-content">
@@ -3733,14 +3814,19 @@
 </div>
 </div>
 </div>
-<p><strong>时间复杂度</strong>：所有节点被访问一次，使用 <span class="arithmatex">\(O(n)\)</span> 时间，其中 <span class="arithmatex">\(n\)</span> 为节点数量。</p>
-<p><strong>空间复杂度</strong>：在最差情况下，即满二叉树时，遍历到最底层之前，队列中最多同时存在 <span class="arithmatex">\((n + 1) / 2\)</span> 个节点，占用 <span class="arithmatex">\(O(n)\)</span> 空间。</p>
+<h3 id="2">2. &nbsp; 复杂度分析<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>时间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：所有节点被访问一次，使用 <span class="arithmatex">\(O(n)\)</span> 时间，其中 <span class="arithmatex">\(n\)</span> 为节点数量。</li>
+<li><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：在最差情况下，即满二叉树时，遍历到最底层之前，队列中最多同时存在 <span class="arithmatex">\((n + 1) / 2\)</span> 个节点，占用 <span class="arithmatex">\(O(n)\)</span> 空间。</li>
+</ul>
 <h2 id="722">7.2.2 &nbsp; 前序、中序、后序遍历<a class="headerlink" href="#722" title="Permanent link">&para;</a></h2>
 <p>相应地，前序、中序和后序遍历都属于「深度优先遍历 depth-first traversal」，它体现了一种“先走到尽头，再回溯继续”的遍历方式。</p>
 <p>图 7-10 展示了对二叉树进行深度优先遍历的工作原理。<strong>深度优先遍历就像是绕着整个二叉树的外围“走”一圈</strong>，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。</p>
 <p><img alt="二叉搜索树的前、中、后序遍历" src="../binary_tree_traversal.assets/binary_tree_dfs.png" /></p>
 <p align="center"> 图 7-10 &nbsp; 二叉搜索树的前、中、后序遍历 </p>
 
+<h3 id="1_1">1. &nbsp; 代码实现<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>深度优先搜索通常基于递归实现：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:12"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><input id="__tabbed_2_11" name="__tabbed_2" type="radio" /><input id="__tabbed_2_12" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JS</label><label for="__tabbed_2_6">TS</label><label for="__tabbed_2_7">C</label><label for="__tabbed_2_8">C#</label><label for="__tabbed_2_9">Swift</label><label for="__tabbed_2_10">Zig</label><label for="__tabbed_2_11">Dart</label><label for="__tabbed_2_12">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4132,11 +4218,9 @@
 </div>
 </div>
 </div>
-<p><strong>时间复杂度</strong>：所有节点被访问一次，使用 <span class="arithmatex">\(O(n)\)</span> 时间，其中 <span class="arithmatex">\(n\)</span> 为节点数量。</p>
-<p><strong>空间复杂度</strong>：在最差情况下，即树退化为链表时，递归深度达到 <span class="arithmatex">\(n\)</span> ，系统占用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>我们也可以不使用递归，仅基于迭代实现前、中、后序遍历，有兴趣的同学可以自行实现。</p>
+<p>深度优先搜索也可以基于迭代实现，有兴趣的同学可以自行研究。</p>
 </div>
 <p>图 7-11 展示了前序遍历二叉树的递归过程，其可分为“递”和“归”两个逆向的部分。</p>
 <ol>
@@ -4181,6 +4265,12 @@
 </div>
 </div>
 <p align="center"> 图 7-11 &nbsp; 前序遍历的递归过程 </p>
+
+<h3 id="2_1">2. &nbsp; 复杂度分析<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>时间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：所有节点被访问一次，使用 <span class="arithmatex">\(O(n)\)</span> 时间。</li>
+<li><strong>空间复杂度 <span class="arithmatex">\(O(n)\)</span></strong> ：在最差情况下，即树退化为链表时，递归深度达到 <span class="arithmatex">\(n\)</span> ，系统占用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。</li>
+</ul>
 
 
 

@@ -3639,11 +3639,11 @@
 <p align="center"> 图 10-5 &nbsp; 线性查找重复元素的插入点 </p>
 
 <p>此方法虽然可用，但其包含线性查找，因此时间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。当数组中存在很多重复的 <code>target</code> 时，该方法效率很低。</p>
-<p>现考虑拓展二分查找代码。如图 10-6 所示，整体流程保持不变，每轮先计算中点索引 <span class="arithmatex">\(m\)</span> ，再判断 <code>target</code> 和 <code>nums[m]</code> 大小关系。</p>
-<ol>
+<p>现考虑拓展二分查找代码。如图 10-6 所示，整体流程保持不变，每轮先计算中点索引 <span class="arithmatex">\(m\)</span> ，再判断 <code>target</code> 和 <code>nums[m]</code> 大小关系，分为以下几种情况。</p>
+<ul>
 <li>当 <code>nums[m] &lt; target</code> 或 <code>nums[m] &gt; target</code> 时，说明还没有找到 <code>target</code> ，因此采用普通二分查找的缩小区间操作，<strong>从而使指针 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 向 <code>target</code> 靠近</strong>。</li>
 <li>当 <code>nums[m] == target</code> 时，说明小于 <code>target</code> 的元素在区间 <span class="arithmatex">\([i, m - 1]\)</span> 中，因此采用 <span class="arithmatex">\(j = m - 1\)</span> 来缩小区间，<strong>从而使指针 <span class="arithmatex">\(j\)</span> 向小于 <code>target</code> 的元素靠近</strong>。</li>
-</ol>
+</ul>
 <p>循环完成后，<span class="arithmatex">\(i\)</span> 指向最左边的 <code>target</code> ，<span class="arithmatex">\(j\)</span> 指向首个小于 <code>target</code> 的元素，<strong>因此索引 <span class="arithmatex">\(i\)</span> 就是插入点</strong>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:8"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label></div>
 <div class="tabbed-content">
