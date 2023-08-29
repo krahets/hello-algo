@@ -3861,7 +3861,7 @@
 </div>
 </div>
 <p>图 12-8 展示了构建二叉树的递归过程，各个节点是在向下“递”的过程中建立的，而各条边（即引用）是在向上“归”的过程中建立的。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label><label for="__tabbed_2_9">&lt;9&gt;</label><label for="__tabbed_2_10">&lt;10&gt;</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:9"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label><label for="__tabbed_2_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="构建二叉树的递归过程" src="../build_binary_tree_problem.assets/built_tree_step1.png" /></p>
@@ -3890,12 +3890,13 @@
 <div class="tabbed-block">
 <p><img alt="built_tree_step9" src="../build_binary_tree_problem.assets/built_tree_step9.png" /></p>
 </div>
-<div class="tabbed-block">
-<p><img alt="built_tree_step10" src="../build_binary_tree_problem.assets/built_tree_step10.png" /></p>
-</div>
 </div>
 </div>
 <p align="center"> 图 12-8 &nbsp; 构建二叉树的递归过程 </p>
+
+<p>每个递归函数内的前序遍历 <code>preorder</code> 和中序遍历 <code>inorder</code> 的划分结果如图 12-9 所示。</p>
+<p><img alt="built_tree_overall" src="../build_binary_tree_problem.assets/built_tree_overall.png" /></p>
+<p align="center"> 图 12-9 &nbsp; built_tree_overall </p>
 
 <p>设树的节点数量为 <span class="arithmatex">\(n\)</span> ，初始化每一个节点（执行一个递归函数 <code>dfs()</code> ）使用 <span class="arithmatex">\(O(1)\)</span> 时间。<strong>因此总体时间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。</p>
 <p>哈希表存储 <code>inorder</code> 元素到索引的映射，空间复杂度为 <span class="arithmatex">\(O(n)\)</span> 。最差情况下，即二叉树退化为链表时，递归深度达到 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 的栈帧空间。<strong>因此总体空间复杂度为 <span class="arithmatex">\(O(n)\)</span></strong> 。</p>

@@ -3497,7 +3497,7 @@ n &amp; \geq 4
 <p>接下来思考哪个因子是最优的。在 <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(3\)</span> 这三个因子中，显然 <span class="arithmatex">\(1\)</span> 是最差的，因为 <span class="arithmatex">\(1 \times (n-1) &lt; n\)</span> 恒成立，即切分出 <span class="arithmatex">\(1\)</span> 反而会导致乘积减小。</p>
 <p>如图 15-15 所示，当 <span class="arithmatex">\(n = 6\)</span> 时，有 <span class="arithmatex">\(3 \times 3 &gt; 2 \times 2 \times 2\)</span> 。<strong>这意味着切分出 <span class="arithmatex">\(3\)</span> 比切分出 <span class="arithmatex">\(2\)</span> 更优</strong>。</p>
 <p><strong>贪心策略二</strong>：在切分方案中，最多只应存在两个 <span class="arithmatex">\(2\)</span> 。因为三个 <span class="arithmatex">\(2\)</span> 总是可以被替换为两个 <span class="arithmatex">\(3\)</span> ，从而获得更大乘积。</p>
-<p><img alt="最优切分因子" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer3.png" /></p>
+<p><img alt="最优切分因子" src="../max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png" /></p>
 <p align="center"> 图 15-15 &nbsp; 最优切分因子 </p>
 
 <p>总结以上，可推出以下贪心策略。</p>
