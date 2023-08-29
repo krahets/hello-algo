@@ -21,7 +21,7 @@ class HashMapChaining {
         buckets.resize(capacity);
     }
     
-    /* 虚构方法 */
+    /* 析构方法 */
     ~HashMapChaining() {
         for (auto &bucket : buckets) {
             for (Pair *pair : bucket) {
