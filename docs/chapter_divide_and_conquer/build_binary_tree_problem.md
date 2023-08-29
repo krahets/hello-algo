@@ -182,8 +182,9 @@
 === "<9>"
     ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.png)
 
-=== "<10>"
-    ![built_tree_step10](build_binary_tree_problem.assets/built_tree_step10.png)
+每个递归函数内的前序遍历 `preorder` 和中序遍历 `inorder` 的划分结果如下图所示。
+
+![每个递归函数中的划分结果](build_binary_tree_problem.assets/built_tree_overall.png)
 
 设树的节点数量为 $n$ ，初始化每一个节点（执行一个递归函数 `dfs()` ）使用 $O(1)$ 时间。**因此总体时间复杂度为 $O(n)$** 。
 

@@ -11,19 +11,19 @@
 3. 不断重复步骤 `1.` 和 步骤 `2.` ，直至找到拼音首字母为 $r$ 的页码为止。
 
 === "<1>"
-    ![查字典步骤](algorithms_are_everywhere.assets/binary_search_dictionary_step_1.png)
+    ![查字典步骤](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
 
 === "<2>"
-    ![binary_search_dictionary_step_2](algorithms_are_everywhere.assets/binary_search_dictionary_step_2.png)
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
 
 === "<3>"
-    ![binary_search_dictionary_step_3](algorithms_are_everywhere.assets/binary_search_dictionary_step_3.png)
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
 
 === "<4>"
-    ![binary_search_dictionary_step_4](algorithms_are_everywhere.assets/binary_search_dictionary_step_4.png)
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
 
 === "<5>"
-    ![binary_search_dictionary_step_5](algorithms_are_everywhere.assets/binary_search_dictionary_step_5.png)
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
 
 查阅字典这个小学生必备技能，实际上就是著名的二分查找算法。从数据结构的角度，我们可以把字典视为一个已排序的“数组”；从算法的角度，我们可以将上述查字典的一系列操作看作是“二分查找”。
 
