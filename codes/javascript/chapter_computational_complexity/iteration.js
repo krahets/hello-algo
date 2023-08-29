@@ -61,7 +61,7 @@ res = forLoop(n);
 console.log(`for 循环的求和结果 res = ${res}`);
 
 res = whileLoop(n);
-console.log(`fwhile 循环的求和结果 res = ${res}`);
+console.log(`while 循环的求和结果 res = ${res}`);
 
 res = whileLoopII(n);
 console.log(`while 循环（两次更新）求和结果 res = ${res}`);
