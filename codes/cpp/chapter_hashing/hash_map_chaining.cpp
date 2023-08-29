@@ -33,10 +33,7 @@ class HashMapChaining {
 
     /* 哈希函数 */
     int hashFunc(int key) {
-        if(key == 0) {
-            return 0;
-        }
-        return capacity % key;
+        return key % capacity;
     }
 
     /* 负载因子 */
