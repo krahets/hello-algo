@@ -53,7 +53,7 @@ $$
 
 **贪心策略二**：在切分方案中，最多只应存在两个 $2$ 。因为三个 $2$ 总是可以被替换为两个 $3$ ，从而获得更大乘积。
 
-![最优切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer3.png)
+![最优切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png)
 
 <p align="center"> 图 15-15 &nbsp; 最优切分因子 </p>
 

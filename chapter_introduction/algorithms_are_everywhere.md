@@ -15,19 +15,19 @@ comments: true
 3. 不断重复步骤 `1.` 和 步骤 `2.` ，直至找到拼音首字母为 $r$ 的页码为止。
 
 === "<1>"
-    ![查字典步骤](algorithms_are_everywhere.assets/binary_search_dictionary_step_1.png)
+    ![查字典步骤](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
 
 === "<2>"
-    ![binary_search_dictionary_step_2](algorithms_are_everywhere.assets/binary_search_dictionary_step_2.png)
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
 
 === "<3>"
-    ![binary_search_dictionary_step_3](algorithms_are_everywhere.assets/binary_search_dictionary_step_3.png)
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
 
 === "<4>"
-    ![binary_search_dictionary_step_4](algorithms_are_everywhere.assets/binary_search_dictionary_step_4.png)
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
 
 === "<5>"
-    ![binary_search_dictionary_step_5](algorithms_are_everywhere.assets/binary_search_dictionary_step_5.png)
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
 
 <p align="center"> 图 1-1 &nbsp; 查字典步骤 </p>
 
