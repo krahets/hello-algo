@@ -85,13 +85,33 @@ status: new
 === "JS"
 
     ```javascript title="binary_search_edge.js"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个 target */
+    function binarySearchLeftEdge(nums, target) {
+        // 等价于查找 target 的插入点
+        const i = binarySearchInsertion(nums, target);
+        // 未找到 target ，返回 -1
+        if (i === nums.length || nums[i] !== target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 i
+        return i;
+    }
     ```
 
 === "TS"
 
     ```typescript title="binary_search_edge.ts"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个 target */
+    function binarySearchLeftEdge(nums: Array<number>, target: number): number {
+        // 等价于查找 target 的插入点
+        const i = binarySearchInsertion(nums, target);
+        // 未找到 target ，返回 -1
+        if (i === nums.length || nums[i] !== target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 i
+        return i;
+    }
     ```
 
 === "C"
@@ -251,13 +271,37 @@ status: new
 === "JS"
 
     ```javascript title="binary_search_edge.js"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个 target */
+    function binarySearchRightEdge(nums, target) {
+        // 转化为查找最左一个 target + 1
+        const i = binarySearchInsertion(nums, target + 1);
+        // j 指向最右一个 target ，i 指向首个大于 target 的元素
+        const j = i - 1;
+        // 未找到 target ，返回 -1
+        if (j === -1 || nums[j] !== target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 j
+        return j;
+    }
     ```
 
 === "TS"
 
     ```typescript title="binary_search_edge.ts"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个 target */
+    function binarySearchRightEdge(nums: Array<number>, target: number): number {
+        // 转化为查找最左一个 target + 1
+        const i = binarySearchInsertion(nums, target + 1);
+        // j 指向最右一个 target ，i 指向首个大于 target 的元素
+        const j = i - 1;
+        // 未找到 target ，返回 -1
+        if (j === -1 || nums[j] !== target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 j
+        return j;
+    }
     ```
 
 === "C"

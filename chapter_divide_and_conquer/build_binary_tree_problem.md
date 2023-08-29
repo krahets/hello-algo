@@ -433,9 +433,9 @@ status: new
 
 每个递归函数内的前序遍历 `preorder` 和中序遍历 `inorder` 的划分结果如图 12-9 所示。
 
-![built_tree_overall](build_binary_tree_problem.assets/built_tree_overall.png)
+![每个递归函数中的划分结果](build_binary_tree_problem.assets/built_tree_overall.png)
 
-<p align="center"> 图 12-9 &nbsp; built_tree_overall </p>
+<p align="center"> 图 12-9 &nbsp; 每个递归函数中的划分结果 </p>
 
 设树的节点数量为 $n$ ，初始化每一个节点（执行一个递归函数 `dfs()` ）使用 $O(1)$ 时间。**因此总体时间复杂度为 $O(n)$** 。
 
