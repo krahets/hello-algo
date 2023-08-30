@@ -5883,7 +5883,7 @@ O(1) &lt; O(\log n) &lt; O(n) &lt; O(n \log n) &lt; O(n^2) &lt; O(2^n) &lt; O(n!
 </div>
 <p>对数阶常出现于基于分治策略的算法中，体现了“一分为多”和“化繁为简”的算法思想。它增长缓慢，是仅次于常数阶的理想的时间复杂度。</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<p class="admonition-title"><span class="arithmatex">\(O(\log n)\)</span> 的底数是多少？</p>
 <p>准确来说，“一分为 <span class="arithmatex">\(m\)</span>”对应的时间复杂度是 <span class="arithmatex">\(O(\log_m n)\)</span> 。而通过对数换底公式，我们可以得到具有不同底数的、相等的时间复杂度：</p>
 <div class="arithmatex">\[
 O(\log_m n) = O(\log_k n / \log_k m) = O(\log_k n)
