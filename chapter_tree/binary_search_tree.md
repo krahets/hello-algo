@@ -92,7 +92,7 @@ comments: true
     ```python title="binary_search_tree.py"
     def search(self, num: int) -> TreeNode | None:
         """查找节点"""
-        cur: TreeNode | None = self.root
+        cur = self.__root
         # 循环查找，越过叶节点后跳出
         while cur is not None:
             # 目标节点在 cur 的右子树中
@@ -135,8 +135,8 @@ comments: true
 
     ```javascript title="binary_search_tree.js"
     /* 查找节点 */
-    function search(num) {
-        let cur = root;
+    search(num) {
+        let cur = this.root;
         // 循环查找，越过叶节点后跳出
         while (cur !== null) {
             // 目标节点在 cur 的右子树中
@@ -340,9 +340,11 @@ comments: true
     ```java title="binary_search_tree.java"
     /* 插入节点 */
     void insert(int num) {
-        // 若树为空，直接提前返回
-        if (root == null)
+        // 若树为空，则初始化根节点
+        if (root == null) {
+            root = new TreeNode(num);
             return;
+        }
         TreeNode cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
@@ -371,9 +373,11 @@ comments: true
     ```cpp title="binary_search_tree.cpp"
     /* 插入节点 */
     void insert(int num) {
-        // 若树为空，直接提前返回
-        if (root == nullptr)
+        // 若树为空，则初始化根节点
+        if (root == nullptr) {
+            root = new TreeNode(num);
             return;
+        }
         TreeNode *cur = root, *pre = nullptr;
         // 循环查找，越过叶节点后跳出
         while (cur != nullptr) {
@@ -402,12 +406,12 @@ comments: true
     ```python title="binary_search_tree.py"
     def insert(self, num: int):
         """插入节点"""
-        # 若树为空，直接提前返回
-        if self.root is None:
+        # 若树为空，则初始化根节点
+        if self.__root is None:
+            self.__root = TreeNode(num)
             return
-
         # 循环查找，越过叶节点后跳出
-        cur, pre = self.root, None
+        cur, pre = self.__root, None
         while cur is not None:
             # 找到重复节点，直接返回
             if cur.val == num:
@@ -419,7 +423,6 @@ comments: true
             # 插入位置在 cur 的左子树中
             else:
                 cur = cur.left
-
         # 插入节点
         node = TreeNode(num)
         if pre.val < num:
@@ -434,8 +437,9 @@ comments: true
     /* 插入节点 */
     func (bst *binarySearchTree) insert(num int) {
         cur := bst.root
-        // 若树为空，直接提前返回
+        // 若树为空，则初始化根节点
         if cur == nil {
+            bst.root = NewTreeNode(num)
             return
         }
         // 待插入节点之前的节点位置
@@ -466,10 +470,13 @@ comments: true
 
     ```javascript title="binary_search_tree.js"
     /* 插入节点 */
-    function insert(num) {
-        // 若树为空，直接提前返回
-        if (root === null) return;
-        let cur = root,
+    insert(num) {
+        // 若树为空，则初始化根节点
+        if (this.root === null) {
+            this.root = new TreeNode(num);
+            return;
+        }
+        let cur = this.root,
             pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur !== null) {
@@ -493,8 +500,9 @@ comments: true
     ```typescript title="binary_search_tree.ts"
     /* 插入节点 */
     function insert(num: number): void {
-        // 若树为空，直接提前返回
+        // 若树为空，则初始化根节点
         if (root === null) {
+            root = new TreeNode(num);
             return;
         }
         let cur = root,
@@ -526,9 +534,11 @@ comments: true
     ```c title="binary_search_tree.c"
     /* 插入节点 */
     void insert(binarySearchTree *bst, int num) {
-        // 若树为空，直接提前返回
-        if (bst->root == NULL)
+        // 若树为空，则初始化根节点
+        if (bst->root == NULL) {
+            bst->root = newTreeNode(num);
             return;
+        }
         TreeNode *cur = bst->root, *pre = NULL;
         // 循环查找，越过叶节点后跳出
         while (cur != NULL) {
@@ -560,9 +570,11 @@ comments: true
     ```csharp title="binary_search_tree.cs"
     /* 插入节点 */
     void insert(int num) {
-        // 若树为空，直接提前返回
-        if (root == null)
+        // 若树为空，则初始化根节点
+        if (root == null) {
+            root = new TreeNode(num);
             return;
+        }
         TreeNode? cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
@@ -594,8 +606,9 @@ comments: true
     ```swift title="binary_search_tree.swift"
     /* 插入节点 */
     func insert(num: Int) {
-        // 若树为空，直接提前返回
+        // 若树为空，则初始化根节点
         if root == nil {
+            root = TreeNode(x: num)
             return
         }
         var cur = root
@@ -631,8 +644,11 @@ comments: true
     ```zig title="binary_search_tree.zig"
     // 插入节点
     fn insert(self: *Self, num: T) !void {
-        // 若树为空，直接提前返回
-        if (self.root == null) return;
+        // 若树为空，则初始化根节点
+        if (self.root == null) {
+            self.root = try self.mem_allocator.create(inc.TreeNode(T));
+            return;
+        }
         var cur = self.root;
         var pre: ?*inc.TreeNode(T) = null;
         // 循环查找，越过叶节点后跳出
@@ -664,8 +680,11 @@ comments: true
     ```dart title="binary_search_tree.dart"
     /* 插入节点 */
     void insert(int num) {
-      // 若树为空，直接提前返回
-      if (_root == null) return;
+      // 若树为空，则初始化根节点
+      if (_root == null) {
+        _root = TreeNode(num);
+        return;
+      }
       TreeNode? cur = _root;
       TreeNode? pre = null;
       // 循环查找，越过叶节点后跳出
@@ -694,8 +713,9 @@ comments: true
     ```rust title="binary_search_tree.rs"
     /* 插入节点 */
     pub fn insert(&mut self, num: i32) {
-        // 若树为空，直接提前返回
+        // 若树为空，则初始化根节点
         if self.root.is_none() {
+            self.root = TreeNode::new(num);
             return;
         }
         let mut cur = self.root.clone();
@@ -891,11 +911,10 @@ comments: true
     def remove(self, num: int):
         """删除节点"""
         # 若树为空，直接提前返回
-        if self.root is None:
+        if self.__root is None:
             return
-
         # 循环查找，越过叶节点后跳出
-        cur, pre = self.root, None
+        cur, pre = self.__root, None
         while cur is not None:
             # 找到待删除节点，跳出循环
             if cur.val == num:
@@ -916,14 +935,14 @@ comments: true
             # 当子节点数量 = 0 / 1 时， child = null / 该子节点
             child = cur.left or cur.right
             # 删除节点 cur
-            if cur != self.root:
+            if cur != self.__root:
                 if pre.left == cur:
                     pre.left = child
                 else:
                     pre.right = child
             else:
                 # 若删除节点为根节点，则重新指定根节点
-                self.root = child
+                self.__root = child
         # 子节点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个节点
@@ -1005,10 +1024,10 @@ comments: true
 
     ```javascript title="binary_search_tree.js"
     /* 删除节点 */
-    function remove(num) {
+    remove(num) {
         // 若树为空，直接提前返回
-        if (root === null) return;
-        let cur = root,
+        if (this.root === null) return;
+        let cur = this.root,
             pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur !== null) {
@@ -1027,12 +1046,12 @@ comments: true
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
             let child = cur.left !== null ? cur.left : cur.right;
             // 删除节点 cur
-            if (cur != root) {
+            if (cur !== this.root) {
                 if (pre.left === cur) pre.left = child;
                 else pre.right = child;
             } else {
                 // 若删除节点为根节点，则重新指定根节点
-                root = child;
+                this.root = child;
             }
         }
         // 子节点数量 = 2
@@ -1043,7 +1062,7 @@ comments: true
                 tmp = tmp.left;
             }
             // 递归删除节点 tmp
-            remove(tmp.val);
+            this.remove(tmp.val);
             // 用 tmp 覆盖 cur
             cur.val = tmp.val;
         }

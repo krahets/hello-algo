@@ -541,7 +541,7 @@ $$
     /* 带约束爬楼梯：动态规划 */
     int climbingStairsConstraintDP(int n) {
         if (n == 1 || n == 2) {
-            return n;
+            return 1;
         }
         // 初始化 dp 表，用于存储子问题的解
         int[][] dp = new int[n + 1][3];
@@ -565,7 +565,7 @@ $$
     /* 带约束爬楼梯：动态规划 */
     int climbingStairsConstraintDP(int n) {
         if (n == 1 || n == 2) {
-            return n;
+            return 1;
         }
         // 初始化 dp 表，用于存储子问题的解
         vector<vector<int>> dp(n + 1, vector<int>(3, 0));
@@ -589,7 +589,7 @@ $$
     def climbing_stairs_constraint_dp(n: int) -> int:
         """带约束爬楼梯：动态规划"""
         if n == 1 or n == 2:
-            return n
+            return 1
         # 初始化 dp 表，用于存储子问题的解
         dp = [[0] * 3 for _ in range(n + 1)]
         # 初始状态：预设最小子问题的解
@@ -608,7 +608,7 @@ $$
     /* 带约束爬楼梯：动态规划 */
     func climbingStairsConstraintDP(n int) int {
         if n == 1 || n == 2 {
-            return n
+            return 1
         }
         // 初始化 dp 表，用于存储子问题的解
         dp := make([][3]int, n+1)
@@ -632,7 +632,7 @@ $$
     /* 带约束爬楼梯：动态规划 */
     function climbingStairsConstraintDP(n) {
         if (n === 1 || n === 2) {
-            return n;
+            return 1;
         }
         // 初始化 dp 表，用于存储子问题的解
         const dp = Array.from(new Array(n + 1), () => new Array(3));
@@ -656,7 +656,7 @@ $$
     /* 带约束爬楼梯：动态规划 */
     function climbingStairsConstraintDP(n: number): number {
         if (n === 1 || n === 2) {
-            return n;
+            return 1;
         }
         // 初始化 dp 表，用于存储子问题的解
         const dp = Array.from(
@@ -689,7 +689,7 @@ $$
     /* 带约束爬楼梯：动态规划 */
     int climbingStairsConstraintDP(int n) {
         if (n == 1 || n == 2) {
-            return n;
+            return 1;
         }
         // 初始化 dp 表，用于存储子问题的解
         int[,] dp = new int[n + 1, 3];
@@ -713,7 +713,7 @@ $$
     /* 带约束爬楼梯：动态规划 */
     func climbingStairsConstraintDP(n: Int) -> Int {
         if n == 1 || n == 2 {
-            return n
+            return 1
         }
         // 初始化 dp 表，用于存储子问题的解
         var dp = Array(repeating: Array(repeating: 0, count: 3), count: n + 1)
@@ -737,7 +737,7 @@ $$
     // 带约束爬楼梯：动态规划
     fn climbingStairsConstraintDP(comptime n: usize) i32 {
         if (n == 1 or n == 2) {
-            return @intCast(n);
+            return 1;
         }
         // 初始化 dp 表，用于存储子问题的解
         var dp = [_][3]i32{ [_]i32{ -1, -1, -1 } } ** (n + 1);
@@ -761,7 +761,7 @@ $$
     /* 带约束爬楼梯：动态规划 */
     int climbingStairsConstraintDP(int n) {
       if (n == 1 || n == 2) {
-        return n;
+        return 1;
       }
       // 初始化 dp 表，用于存储子问题的解
       List<List<int>> dp = List.generate(n + 1, (index) => List.filled(3, 0));
@@ -784,7 +784,7 @@ $$
     ```rust title="climbing_stairs_constraint_dp.rs"
     /* 带约束爬楼梯：动态规划 */
     fn climbing_stairs_constraint_dp(n: usize) -> i32 {
-        if n == 1 || n == 2 { return n as i32 };
+        if n == 1 || n == 2 { return 1 };
         // 初始化 dp 表，用于存储子问题的解
         let mut dp = vec![vec![-1; 3]; n + 1];
         // 初始状态：预设最小子问题的解
