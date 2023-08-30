@@ -58,8 +58,9 @@ class BinarySearchTree {
 
     /* 插入节点 */
     func insert(num: Int) {
-        // 若树为空，直接提前返回
+        // 若树为空，则初始化根节点
         if root == nil {
+            root = TreeNode(x: num)
             return
         }
         var cur = root
