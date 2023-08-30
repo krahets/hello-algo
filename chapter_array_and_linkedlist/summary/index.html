@@ -3462,9 +3462,8 @@
 <div class="admonition question">
 <p class="admonition-title">为什么数组要求相同类型的元素，而在链表中却没有强调同类型呢？</p>
 <p>链表由结点组成，结点之间通过引用（指针）连接，各个结点可以存储不同类型的数据，例如 int、double、string、object 等。</p>
-<p>相对地，数组元素则必须是相同类型的，这样才能通过计算偏移量来获取对应元素位置。例如，如果数组同时包含 int 和 long 两种类型，单个元素分别占用 4 bytes 和 8 bytes ，那么此时就不能用以下公式计算偏移量了，因为数组中包含了两种 <code>elementLength</code> 。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>elementAddr = firtstElementAddr + elementLength * elementIndex
+<p>相对地，数组元素则必须是相同类型的，这样才能通过计算偏移量来获取对应元素位置。例如，如果数组同时包含 int 和 long 两种类型，单个元素分别占用 4 bytes 和 8 bytes ，那么此时就不能用以下公式计算偏移量了，因为数组中包含了两种长度的元素。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 元素内存地址 = 数组内存地址 + 元素长度 * 元素索引</span>
 </code></pre></div>
 </div>
 <div class="admonition question">
