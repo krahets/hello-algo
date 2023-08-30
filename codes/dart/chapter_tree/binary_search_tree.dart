@@ -80,7 +80,7 @@ class BinarySearchTree {
       pre.left = node;
   }
 
-/* 删除节点 */
+  /* 删除节点 */
   void remove(int num) {
     // 若树为空，直接提前返回
     if (_root == null) return;
