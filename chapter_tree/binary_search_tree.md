@@ -1333,33 +1333,7 @@ comments: true
 === "Dart"
 
     ```dart title="binary_search_tree.dart"
-    /* 插入节点 */
-    void insert(int num) {
-      // 若树为空，直接提前返回
-      if (_root == null) return;
-      TreeNode? cur = _root;
-      TreeNode? pre = null;
-      // 循环查找，越过叶节点后跳出
-      while (cur != null) {
-        // 找到重复节点，直接返回
-        if (cur.val == num) return;
-        pre = cur;
-        // 插入位置在 cur 的右子树中
-        if (cur.val < num)
-          cur = cur.right;
-        // 插入位置在 cur 的左子树中
-        else
-          cur = cur.left;
-      }
-      // 插入节点
-      TreeNode? node = TreeNode(num);
-      if (pre!.val < num)
-        pre.right = node;
-      else
-        pre.left = node;
-    }
-
-  /* 删除节点 */
+    /* 删除节点 */
     void remove(int num) {
       // 若树为空，直接提前返回
       if (_root == null) return;
