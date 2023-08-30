@@ -166,7 +166,7 @@ void extend(ArrayHashMap* hashmap) {
     hashmap->size = 0;
 
     // 将原哈希表中的键值对重新哈希到新的哈希表中
-    for (int i = 0; i < oldCapacity; i++) {
+    for(int i = 0; i < oldCapacity; i++) {
         Node* node = oldBuckets[i].node;
         while (node != NULL) {
             put(hashmap, node->key, node->val);
@@ -175,7 +175,7 @@ void extend(ArrayHashMap* hashmap) {
     }
 
     // 释放原哈希表的内存
-    for (int i = 0; i < oldCapacity; i++) {
+    for(int i = 0; i < oldCapacity; i++) {
         Node* node = oldBuckets[i].node;
         while (node != NULL) {
             Node* temp = node;
