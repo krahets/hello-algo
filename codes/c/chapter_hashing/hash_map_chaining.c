@@ -26,9 +26,10 @@ typedef struct ArrayHashMap  {
     double loadThres;               // 触发扩容的负载因子阈值
 } ArrayHashMap;
 
+// 函数声明
 void extend(ArrayHashMap* hashmap);
 
-/* 初始化数组，包含 4 个桶 */
+/* 初始化桶数组 */
 ArrayHashMap* InitArrayHashMap(int tableSize) {
     // 为哈希表分配空间
     ArrayHashMap* hashmap = (ArrayHashMap*)malloc(sizeof(ArrayHashMap));
@@ -46,7 +47,7 @@ ArrayHashMap* InitArrayHashMap(int tableSize) {
 }
 
 /* 销毁哈希表 */
-void FreeArrayHashMap(ArrayHashMap* hashmap) {
+void freeArrayHashMap(ArrayHashMap* hashmap) {
     for(int i = 0; i < hashmap->capacity; i++) {
         Pair* pair = &hashmap->buckets[i];
         Node* node = pair->node;
@@ -229,6 +230,6 @@ int main() {
     printf("\n删除 10583 后，哈希表为\nKey -> Value\n");
     print(map);
 
-    FreeArrayHashMap(map);
+    freeArrayHashMap(map);
     return 0;
 }
