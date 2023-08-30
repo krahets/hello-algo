@@ -137,13 +137,63 @@ $$
 === "JS"
 
     ```javascript title="unbounded_knapsack.js"
-    [class]{}-[func]{unboundedKnapsackDP}
+    /* 完全背包：动态规划 */
+    function unboundedKnapsackDP(wgt, val, cap) {
+        const n = wgt.length;
+        // 初始化 dp 表
+        const dp = Array.from({ length: n + 1 }, () =>
+            Array.from({ length: cap + 1 }, () => 0)
+        );
+        // 状态转移
+        for (let i = 1; i <= n; i++) {
+            for (let c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = Math.max(
+                        dp[i - 1][c],
+                        dp[i][c - wgt[i - 1]] + val[i - 1]
+                    );
+                }
+            }
+        }
+        return dp[n][cap];
+    }
     ```
 
 === "TS"
 
     ```typescript title="unbounded_knapsack.ts"
-    [class]{}-[func]{unboundedKnapsackDP}
+    /* 完全背包：动态规划 */
+    function unboundedKnapsackDP(
+        wgt: Array<number>,
+        val: Array<number>,
+        cap: number
+    ): number {
+        const n = wgt.length;
+        // 初始化 dp 表
+        const dp = Array.from({ length: n + 1 }, () =>
+            Array.from({ length: cap + 1 }, () => 0)
+        );
+        // 状态转移
+        for (let i = 1; i <= n; i++) {
+            for (let c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = Math.max(
+                        dp[i - 1][c],
+                        dp[i][c - wgt[i - 1]] + val[i - 1]
+                    );
+                }
+            }
+        }
+        return dp[n][cap];
+    }
     ```
 
 === "C"
@@ -396,13 +446,53 @@ $$
 === "JS"
 
     ```javascript title="unbounded_knapsack.js"
-    [class]{}-[func]{unboundedKnapsackDPComp}
+    /* 完全背包：状态压缩后的动态规划 */
+    function unboundedKnapsackDPComp(wgt, val, cap) {
+        const n = wgt.length;
+        // 初始化 dp 表
+        const dp = Array.from({ length: cap + 1 }, () => 0);
+        // 状态转移
+        for (let i = 1; i <= n; i++) {
+            for (let c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
+    }
     ```
 
 === "TS"
 
     ```typescript title="unbounded_knapsack.ts"
-    [class]{}-[func]{unboundedKnapsackDPComp}
+    /* 完全背包：状态压缩后的动态规划 */
+    function unboundedKnapsackDPComp(
+        wgt: Array<number>,
+        val: Array<number>,
+        cap: number
+    ): number {
+        const n = wgt.length;
+        // 初始化 dp 表
+        const dp = Array.from({ length: cap + 1 }, () => 0);
+        // 状态转移
+        for (let i = 1; i <= n; i++) {
+            for (let c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
+    }
     ```
 
 === "C"
@@ -702,13 +792,63 @@ $$
 === "JS"
 
     ```javascript title="coin_change.js"
-    [class]{}-[func]{coinChangeDP}
+    /* 零钱兑换：动态规划 */
+    function coinChangeDP(coins, amt) {
+        const n = coins.length;
+        const MAX = amt + 1;
+        // 初始化 dp 表
+        const dp = Array.from({ length: n + 1 }, () =>
+            Array.from({ length: amt + 1 }, () => 0)
+        );
+        // 状态转移：首行首列
+        for (let a = 1; a <= amt; a++) {
+            dp[0][a] = MAX;
+        }
+        // 状态转移：其余行列
+        for (let i = 1; i <= n; i++) {
+            for (let a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = Math.min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[n][amt] !== MAX ? dp[n][amt] : -1;
+    }
     ```
 
 === "TS"
 
     ```typescript title="coin_change.ts"
-    [class]{}-[func]{coinChangeDP}
+    /* 零钱兑换：动态规划 */
+    function coinChangeDP(coins: Array<number>, amt: number): number {
+        const n = coins.length;
+        const MAX = amt + 1;
+        // 初始化 dp 表
+        const dp = Array.from({ length: n + 1 }, () =>
+            Array.from({ length: amt + 1 }, () => 0)
+        );
+        // 状态转移：首行首列
+        for (let a = 1; a <= amt; a++) {
+            dp[0][a] = MAX;
+        }
+        // 状态转移：其余行列
+        for (let i = 1; i <= n; i++) {
+            for (let a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = Math.min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[n][amt] !== MAX ? dp[n][amt] : -1;
+    }
     ```
 
 === "C"
@@ -1030,13 +1170,53 @@ $$
 === "JS"
 
     ```javascript title="coin_change.js"
-    [class]{}-[func]{coinChangeDPComp}
+    /* 零钱兑换：状态压缩后的动态规划 */
+    function coinChangeDPComp(coins, amt) {
+        const n = coins.length;
+        const MAX = amt + 1;
+        // 初始化 dp 表
+        const dp = Array.from({ length: amt + 1 }, () => MAX);
+        dp[0] = 0;
+        // 状态转移
+        for (let i = 1; i <= n; i++) {
+            for (let a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = Math.min(dp[a], dp[a - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[amt] !== MAX ? dp[amt] : -1;
+    }
     ```
 
 === "TS"
 
     ```typescript title="coin_change.ts"
-    [class]{}-[func]{coinChangeDPComp}
+    /* 零钱兑换：状态压缩后的动态规划 */
+    function coinChangeDPComp(coins: Array<number>, amt: number): number {
+        const n = coins.length;
+        const MAX = amt + 1;
+        // 初始化 dp 表
+        const dp = Array.from({ length: amt + 1 }, () => MAX);
+        dp[0] = 0;
+        // 状态转移
+        for (let i = 1; i <= n; i++) {
+            for (let a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = Math.min(dp[a], dp[a - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[amt] !== MAX ? dp[amt] : -1;
+    }
     ```
 
 === "C"
@@ -1319,13 +1499,61 @@ $$
 === "JS"
 
     ```javascript title="coin_change_ii.js"
-    [class]{}-[func]{coinChangeIIDP}
+    /* 零钱兑换 II：动态规划 */
+    function coinChangeIIDP(coins, amt) {
+        const n = coins.length;
+        // 初始化 dp 表
+        const dp = Array.from({ length: n + 1 }, () =>
+            Array.from({ length: amt + 1 }, () => 0)
+        );
+        // 初始化首列
+        for (let i = 0; i <= n; i++) {
+            dp[i][0] = 1;
+        }
+        // 状态转移
+        for (let i = 1; i <= n; i++) {
+            for (let a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
+                }
+            }
+        }
+        return dp[n][amt];
+    }
     ```
 
 === "TS"
 
     ```typescript title="coin_change_ii.ts"
-    [class]{}-[func]{coinChangeIIDP}
+    /* 零钱兑换 II：动态规划 */
+    function coinChangeIIDP(coins: Array<number>, amt: number): number {
+        const n = coins.length;
+        // 初始化 dp 表
+        const dp = Array.from({ length: n + 1 }, () =>
+            Array.from({ length: amt + 1 }, () => 0)
+        );
+        // 初始化首列
+        for (let i = 0; i <= n; i++) {
+            dp[i][0] = 1;
+        }
+        // 状态转移
+        for (let i = 1; i <= n; i++) {
+            for (let a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
+                }
+            }
+        }
+        return dp[n][amt];
+    }
     ```
 
 === "C"
@@ -1579,13 +1807,51 @@ $$
 === "JS"
 
     ```javascript title="coin_change_ii.js"
-    [class]{}-[func]{coinChangeIIDPComp}
+    /* 零钱兑换 II：状态压缩后的动态规划 */
+    function coinChangeIIDPComp(coins, amt) {
+        const n = coins.length;
+        // 初始化 dp 表
+        const dp = Array.from({ length: amt + 1 }, () => 0);
+        dp[0] = 1;
+        // 状态转移
+        for (let i = 1; i <= n; i++) {
+            for (let a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[a] = dp[a] + dp[a - coins[i - 1]];
+                }
+            }
+        }
+        return dp[amt];
+    }
     ```
 
 === "TS"
 
     ```typescript title="coin_change_ii.ts"
-    [class]{}-[func]{coinChangeIIDPComp}
+    /* 零钱兑换 II：状态压缩后的动态规划 */
+    function coinChangeIIDPComp(coins: Array<number>, amt: number): number {
+        const n = coins.length;
+        // 初始化 dp 表
+        const dp = Array.from({ length: amt + 1 }, () => 0);
+        dp[0] = 1;
+        // 状态转移
+        for (let i = 1; i <= n; i++) {
+            for (let a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[a] = dp[a] + dp[a - coins[i - 1]];
+                }
+            }
+        }
+        return dp[amt];
+    }
     ```
 
 === "C"

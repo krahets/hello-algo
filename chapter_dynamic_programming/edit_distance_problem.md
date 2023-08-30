@@ -199,13 +199,73 @@ $$
 === "JS"
 
     ```javascript title="edit_distance.js"
-    [class]{}-[func]{editDistanceDP}
+    /* 编辑距离：动态规划 */
+    function editDistanceDP(s, t) {
+        const n = s.length,
+            m = t.length;
+        const dp = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
+        // 状态转移：首行首列
+        for (let i = 1; i <= n; i++) {
+            dp[i][0] = i;
+        }
+        for (let j = 1; j <= m; j++) {
+            dp[0][j] = j;
+        }
+        // 状态转移：其余行列
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= m; j++) {
+                if (s.charAt(i - 1) === t.charAt(j - 1)) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] =
+                        Math.min(
+                            Math.min(dp[i][j - 1], dp[i - 1][j]),
+                            dp[i - 1][j - 1]
+                        ) + 1;
+                }
+            }
+        }
+        return dp[n][m];
+    }
     ```
 
 === "TS"
 
     ```typescript title="edit_distance.ts"
-    [class]{}-[func]{editDistanceDP}
+    /* 编辑距离：动态规划 */
+    function editDistanceDP(s: string, t: string): number {
+        const n = s.length,
+            m = t.length;
+        const dp = Array.from({ length: n + 1 }, () =>
+            Array.from({ length: m + 1 }, () => 0)
+        );
+        // 状态转移：首行首列
+        for (let i = 1; i <= n; i++) {
+            dp[i][0] = i;
+        }
+        for (let j = 1; j <= m; j++) {
+            dp[0][j] = j;
+        }
+        // 状态转移：其余行列
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= m; j++) {
+                if (s.charAt(i - 1) === t.charAt(j - 1)) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] =
+                        Math.min(
+                            Math.min(dp[i][j - 1], dp[i - 1][j]),
+                            dp[i - 1][j - 1]
+                        ) + 1;
+                }
+            }
+        }
+        return dp[n][m];
+    }
     ```
 
 === "C"
@@ -552,13 +612,69 @@ $$
 === "JS"
 
     ```javascript title="edit_distance.js"
-    [class]{}-[func]{editDistanceDPComp}
+    /* 编辑距离：状态压缩后的动态规划 */
+    function editDistanceDPComp(s, t) {
+        const n = s.length,
+            m = t.length;
+        const dp = new Array(m + 1).fill(0);
+        // 状态转移：首行
+        for (let j = 1; j <= m; j++) {
+            dp[j] = j;
+        }
+        // 状态转移：其余行
+        for (let i = 1; i <= n; i++) {
+            // 状态转移：首列
+            let leftup = dp[0]; // 暂存 dp[i-1, j-1]
+            dp[0] = i;
+            // 状态转移：其余列
+            for (let j = 1; j <= m; j++) {
+                const temp = dp[j];
+                if (s.charAt(i - 1) === t.charAt(j - 1)) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup;
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = Math.min(Math.min(dp[j - 1], dp[j]), leftup) + 1;
+                }
+                leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        return dp[m];
+    }
     ```
 
 === "TS"
 
     ```typescript title="edit_distance.ts"
-    [class]{}-[func]{editDistanceDPComp}
+    /* 编辑距离：状态压缩后的动态规划 */
+    function editDistanceDPComp(s: string, t: string): number {
+        const n = s.length,
+            m = t.length;
+        const dp = new Array(m + 1).fill(0);
+        // 状态转移：首行
+        for (let j = 1; j <= m; j++) {
+            dp[j] = j;
+        }
+        // 状态转移：其余行
+        for (let i = 1; i <= n; i++) {
+            // 状态转移：首列
+            let leftup = dp[0]; // 暂存 dp[i-1, j-1]
+            dp[0] = i;
+            // 状态转移：其余列
+            for (let j = 1; j <= m; j++) {
+                const temp = dp[j];
+                if (s.charAt(i - 1) === t.charAt(j - 1)) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup;
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = Math.min(Math.min(dp[j - 1], dp[j]), leftup) + 1;
+                }
+                leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        return dp[m];
+    }
     ```
 
 === "C"

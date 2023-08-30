@@ -26,7 +26,7 @@ $$
 x_k = \lfloor\frac{x}{d^{k-1}}\rfloor \bmod d
 $$
 
-其中 $\lfloor a \rfloor$ 表示对浮点数 $a$ 向下取整，而 $\bmod \space d$ 表示对 $d$ 取余。对于学号数据，$d = 10$ 且 $k \in [1, 8]$ 。
+其中 $\lfloor a \rfloor$ 表示对浮点数 $a$ 向下取整，而 $\bmod \: d$ 表示对 $d$ 取余。对于学号数据，$d = 10$ 且 $k \in [1, 8]$ 。
 
 此外，我们需要小幅改动计数排序代码，使之可以根据数字的第 $k$ 位进行排序。
 

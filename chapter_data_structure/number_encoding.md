@@ -29,8 +29,8 @@ comments: true
 $$
 \begin{aligned}
 & 1 + (-2) \newline
-& \rightarrow 0000 \space 0001 + 1000 \space 0010 \newline
-& = 1000 \space 0011 \newline
+& \rightarrow 0000 \; 0001 + 1000 \; 0010 \newline
+& = 1000 \; 0011 \newline
 & \rightarrow -3
 \end{aligned}
 $$
@@ -40,10 +40,10 @@ $$
 $$
 \begin{aligned}
 & 1 + (-2) \newline
-& \rightarrow 0000 \space 0001 \space \text{(原码)} + 1000 \space 0010 \space \text{(原码)} \newline
-& = 0000 \space 0001 \space \text{(反码)} + 1111  \space 1101 \space \text{(反码)} \newline
-& = 1111 \space 1110 \space \text{(反码)} \newline
-& = 1000 \space 0001 \space \text{(原码)} \newline
+& \rightarrow 0000 \; 0001 \; \text{(原码)} + 1000 \; 0010 \; \text{(原码)} \newline
+& = 0000 \; 0001 \; \text{(反码)} + 1111  \; 1101 \; \text{(反码)} \newline
+& = 1111 \; 1110 \; \text{(反码)} \newline
+& = 1000 \; 0001 \; \text{(原码)} \newline
 & \rightarrow -1
 \end{aligned}
 $$
@@ -52,8 +52,8 @@ $$
 
 $$
 \begin{aligned}
-+0 & \rightarrow 0000 \space 0000 \newline
--0 & \rightarrow 1000 \space 0000
++0 & \rightarrow 0000 \; 0000 \newline
+-0 & \rightarrow 1000 \; 0000
 \end{aligned}
 $$
 
@@ -61,25 +61,25 @@ $$
 
 $$
 \begin{aligned}
--0 \rightarrow \space & 1000 \space 0000 \space \text{(原码)} \newline
-= \space & 1111 \space 1111 \space \text{(反码)} \newline
-= 1 \space & 0000 \space 0000 \space \text{(补码)} \newline
+-0 \rightarrow \; & 1000 \; 0000 \; \text{(原码)} \newline
+= \; & 1111 \; 1111 \; \text{(反码)} \newline
+= 1 \; & 0000 \; 0000 \; \text{(补码)} \newline
 \end{aligned}
 $$
 
-在负零的反码基础上加 $1$ 会产生进位，但 `byte` 类型的长度只有 8 位，因此溢出到第 9 位的 $1$ 会被舍弃。也就是说，**负零的补码为 $0000 \space 0000$ ，与正零的补码相同**。这意味着在补码表示中只存在一个零，正负零歧义从而得到解决。
+在负零的反码基础上加 $1$ 会产生进位，但 `byte` 类型的长度只有 8 位，因此溢出到第 9 位的 $1$ 会被舍弃。也就是说，**负零的补码为 $0000 \; 0000$ ，与正零的补码相同**。这意味着在补码表示中只存在一个零，正负零歧义从而得到解决。
 
 还剩余最后一个疑惑：`byte` 类型的取值范围是 $[-128, 127]$ ，多出来的一个负数 $-128$ 是如何得到的呢？我们注意到，区间 $[-127, +127]$ 内的所有整数都有对应的原码、反码和补码，并且原码和补码之间是可以互相转换的。
 
-然而，**补码 $1000 \space 0000$ 是一个例外，它并没有对应的原码**。根据转换方法，我们得到该补码的原码为 $0000 \space 0000$ 。这显然是矛盾的，因为该原码表示数字 $0$ ，它的补码应该是自身。计算机规定这个特殊的补码 $1000 \space 0000$ 代表 $-128$ 。实际上，$(-1) + (-127)$ 在补码下的计算结果就是 $-128$ 。
+然而，**补码 $1000 \; 0000$ 是一个例外，它并没有对应的原码**。根据转换方法，我们得到该补码的原码为 $0000 \; 0000$ 。这显然是矛盾的，因为该原码表示数字 $0$ ，它的补码应该是自身。计算机规定这个特殊的补码 $1000 \; 0000$ 代表 $-128$ 。实际上，$(-1) + (-127)$ 在补码下的计算结果就是 $-128$ 。
 
 $$
 \begin{aligned}
 & (-127) + (-1) \newline
-& \rightarrow 1111 \space 1111 \space \text{(原码)} + 1000 \space 0001 \space \text{(原码)} \newline
-& = 1000 \space 0000 \space \text{(反码)} + 1111  \space 1110 \space \text{(反码)} \newline
-& = 1000 \space 0001 \space \text{(补码)} + 1111  \space 1111 \space \text{(补码)} \newline
-& = 1000 \space 0000 \space \text{(补码)} \newline
+& \rightarrow 1111 \; 1111 \; \text{(原码)} + 1000 \; 0001 \; \text{(原码)} \newline
+& = 1000 \; 0000 \; \text{(反码)} + 1111  \; 1110 \; \text{(反码)} \newline
+& = 1000 \; 0001 \; \text{(补码)} + 1111  \; 1111 \; \text{(补码)} \newline
+& = 1000 \; 0000 \; \text{(补码)} \newline
 & \rightarrow -128
 \end{aligned}
 $$
