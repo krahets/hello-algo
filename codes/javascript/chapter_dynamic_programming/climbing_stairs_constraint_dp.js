@@ -7,7 +7,7 @@
 /* 带约束爬楼梯：动态规划 */
 function climbingStairsConstraintDP(n) {
     if (n === 1 || n === 2) {
-        return n;
+        return 1;
     }
     // 初始化 dp 表，用于存储子问题的解
     const dp = Array.from(new Array(n + 1), () => new Array(3));
