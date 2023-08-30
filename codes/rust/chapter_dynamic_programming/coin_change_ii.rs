@@ -59,6 +59,6 @@ pub fn main() {
     println!("凑出目标金额的硬币组合数量为 {res}");
 
     // 空间优化后的动态规划
-    let res = coin_change_dp_ii_comp(&coins, amt);
+    let res = coin_change_ii_dp_comp(&coins, amt);
     println!("凑出目标金额的硬币组合数量为 {res}");
 }
