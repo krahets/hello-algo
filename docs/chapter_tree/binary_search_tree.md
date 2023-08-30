@@ -60,7 +60,7 @@
 === "JS"
 
     ```javascript title="binary_search_tree.js"
-    [class]{}-[func]{search}
+    [class]{BinarySearchTree}-[func]{search}
     ```
 
 === "TS"
@@ -146,7 +146,7 @@
 === "JS"
 
     ```javascript title="binary_search_tree.js"
-    [class]{}-[func]{insert}
+    [class]{BinarySearchTree}-[func]{insert}
     ```
 
 === "TS"
@@ -257,7 +257,7 @@
 === "JS"
 
     ```javascript title="binary_search_tree.js"
-    [class]{}-[func]{remove}
+    [class]{BinarySearchTree}-[func]{remove}
     ```
 
 === "TS"
