@@ -3462,8 +3462,8 @@
 <div class="arithmatex">\[
 \begin{aligned}
 &amp; 1 + (-2) \newline
-&amp; \rightarrow 0000 \space 0001 + 1000 \space 0010 \newline
-&amp; = 1000 \space 0011 \newline
+&amp; \rightarrow 0000 \; 0001 + 1000 \; 0010 \newline
+&amp; = 1000 \; 0011 \newline
 &amp; \rightarrow -3
 \end{aligned}
 \]</div>
@@ -3471,38 +3471,38 @@
 <div class="arithmatex">\[
 \begin{aligned}
 &amp; 1 + (-2) \newline
-&amp; \rightarrow 0000 \space 0001 \space \text{(原码)} + 1000 \space 0010 \space \text{(原码)} \newline
-&amp; = 0000 \space 0001 \space \text{(反码)} + 1111  \space 1101 \space \text{(反码)} \newline
-&amp; = 1111 \space 1110 \space \text{(反码)} \newline
-&amp; = 1000 \space 0001 \space \text{(原码)} \newline
+&amp; \rightarrow 0000 \; 0001 \; \text{(原码)} + 1000 \; 0010 \; \text{(原码)} \newline
+&amp; = 0000 \; 0001 \; \text{(反码)} + 1111  \; 1101 \; \text{(反码)} \newline
+&amp; = 1111 \; 1110 \; \text{(反码)} \newline
+&amp; = 1000 \; 0001 \; \text{(原码)} \newline
 &amp; \rightarrow -1
 \end{aligned}
 \]</div>
 <p>另一方面，<strong>数字零的原码有 <span class="arithmatex">\(+0\)</span> 和 <span class="arithmatex">\(-0\)</span> 两种表示方式</strong>。这意味着数字零对应着两个不同的二进制编码，其可能会带来歧义。比如在条件判断中，如果没有区分正零和负零，则可能会导致判断结果出错。而如果我们想要处理正零和负零歧义，则需要引入额外的判断操作，其可能会降低计算机的运算效率。</p>
 <div class="arithmatex">\[
 \begin{aligned}
-+0 &amp; \rightarrow 0000 \space 0000 \newline
--0 &amp; \rightarrow 1000 \space 0000
++0 &amp; \rightarrow 0000 \; 0000 \newline
+-0 &amp; \rightarrow 1000 \; 0000
 \end{aligned}
 \]</div>
 <p>与原码一样，反码也存在正负零歧义问题，因此计算机进一步引入了「补码 2's complement code」。我们先来观察一下负零的原码、反码、补码的转换过程：</p>
 <div class="arithmatex">\[
 \begin{aligned}
--0 \rightarrow \space &amp; 1000 \space 0000 \space \text{(原码)} \newline
-= \space &amp; 1111 \space 1111 \space \text{(反码)} \newline
-= 1 \space &amp; 0000 \space 0000 \space \text{(补码)} \newline
+-0 \rightarrow \; &amp; 1000 \; 0000 \; \text{(原码)} \newline
+= \; &amp; 1111 \; 1111 \; \text{(反码)} \newline
+= 1 \; &amp; 0000 \; 0000 \; \text{(补码)} \newline
 \end{aligned}
 \]</div>
-<p>在负零的反码基础上加 <span class="arithmatex">\(1\)</span> 会产生进位，但 <code>byte</code> 类型的长度只有 8 位，因此溢出到第 9 位的 <span class="arithmatex">\(1\)</span> 会被舍弃。也就是说，<strong>负零的补码为 <span class="arithmatex">\(0000 \space 0000\)</span> ，与正零的补码相同</strong>。这意味着在补码表示中只存在一个零，正负零歧义从而得到解决。</p>
+<p>在负零的反码基础上加 <span class="arithmatex">\(1\)</span> 会产生进位，但 <code>byte</code> 类型的长度只有 8 位，因此溢出到第 9 位的 <span class="arithmatex">\(1\)</span> 会被舍弃。也就是说，<strong>负零的补码为 <span class="arithmatex">\(0000 \; 0000\)</span> ，与正零的补码相同</strong>。这意味着在补码表示中只存在一个零，正负零歧义从而得到解决。</p>
 <p>还剩余最后一个疑惑：<code>byte</code> 类型的取值范围是 <span class="arithmatex">\([-128, 127]\)</span> ，多出来的一个负数 <span class="arithmatex">\(-128\)</span> 是如何得到的呢？我们注意到，区间 <span class="arithmatex">\([-127, +127]\)</span> 内的所有整数都有对应的原码、反码和补码，并且原码和补码之间是可以互相转换的。</p>
-<p>然而，<strong>补码 <span class="arithmatex">\(1000 \space 0000\)</span> 是一个例外，它并没有对应的原码</strong>。根据转换方法，我们得到该补码的原码为 <span class="arithmatex">\(0000 \space 0000\)</span> 。这显然是矛盾的，因为该原码表示数字 <span class="arithmatex">\(0\)</span> ，它的补码应该是自身。计算机规定这个特殊的补码 <span class="arithmatex">\(1000 \space 0000\)</span> 代表 <span class="arithmatex">\(-128\)</span> 。实际上，<span class="arithmatex">\((-1) + (-127)\)</span> 在补码下的计算结果就是 <span class="arithmatex">\(-128\)</span> 。</p>
+<p>然而，<strong>补码 <span class="arithmatex">\(1000 \; 0000\)</span> 是一个例外，它并没有对应的原码</strong>。根据转换方法，我们得到该补码的原码为 <span class="arithmatex">\(0000 \; 0000\)</span> 。这显然是矛盾的，因为该原码表示数字 <span class="arithmatex">\(0\)</span> ，它的补码应该是自身。计算机规定这个特殊的补码 <span class="arithmatex">\(1000 \; 0000\)</span> 代表 <span class="arithmatex">\(-128\)</span> 。实际上，<span class="arithmatex">\((-1) + (-127)\)</span> 在补码下的计算结果就是 <span class="arithmatex">\(-128\)</span> 。</p>
 <div class="arithmatex">\[
 \begin{aligned}
 &amp; (-127) + (-1) \newline
-&amp; \rightarrow 1111 \space 1111 \space \text{(原码)} + 1000 \space 0001 \space \text{(原码)} \newline
-&amp; = 1000 \space 0000 \space \text{(反码)} + 1111  \space 1110 \space \text{(反码)} \newline
-&amp; = 1000 \space 0001 \space \text{(补码)} + 1111  \space 1111 \space \text{(补码)} \newline
-&amp; = 1000 \space 0000 \space \text{(补码)} \newline
+&amp; \rightarrow 1111 \; 1111 \; \text{(原码)} + 1000 \; 0001 \; \text{(原码)} \newline
+&amp; = 1000 \; 0000 \; \text{(反码)} + 1111  \; 1110 \; \text{(反码)} \newline
+&amp; = 1000 \; 0001 \; \text{(补码)} + 1111  \; 1111 \; \text{(补码)} \newline
+&amp; = 1000 \; 0000 \; \text{(补码)} \newline
 &amp; \rightarrow -128
 \end{aligned}
 \]</div>

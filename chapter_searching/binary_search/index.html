@@ -3453,7 +3453,7 @@
 <p>如图 10-2 所示，我们先初始化指针 <span class="arithmatex">\(i = 0\)</span> 和 <span class="arithmatex">\(j = n - 1\)</span> ，分别指向数组首元素和尾元素，代表搜索区间 <span class="arithmatex">\([0, n - 1]\)</span> 。请注意，中括号表示闭区间，其包含边界值本身。</p>
 <p>接下来，循环执行以下两步。</p>
 <ol>
-<li>计算中点索引 <span class="arithmatex">\(m = \lfloor {(i + j) / 2} \rfloor\)</span> ，其中 <span class="arithmatex">\(\lfloor \space \rfloor\)</span> 表示向下取整操作。</li>
+<li>计算中点索引 <span class="arithmatex">\(m = \lfloor {(i + j) / 2} \rfloor\)</span> ，其中 <span class="arithmatex">\(\lfloor \: \rfloor\)</span> 表示向下取整操作。</li>
 <li>判断 <code>nums[m]</code> 和 <code>target</code> 的大小关系，分为以下三种情况。<ol>
 <li>当 <code>nums[m] &lt; target</code> 时，说明 <code>target</code> 在区间 <span class="arithmatex">\([m + 1, j]\)</span> 中，因此执行 <span class="arithmatex">\(i = m + 1\)</span> 。</li>
 <li>当 <code>nums[m] &gt; target</code> 时，说明 <code>target</code> 在区间 <span class="arithmatex">\([i, m - 1]\)</span> 中，因此执行 <span class="arithmatex">\(j = m - 1\)</span> 。</li>
