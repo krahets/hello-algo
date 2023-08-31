@@ -19,20 +19,6 @@ class BinarySearchTree {
         return root;
     }
 
-    /* 构建二叉搜索树 */
-    public TreeNode? buildTree(int[] nums, int i, int j) {
-        if (i > j)
-            return null;
-        // 将数组中间节点作为根节点
-        int mid = (i + j) / 2;
-        TreeNode root = new TreeNode(nums[mid]);
-        // 递归建立左子树和右子树
-        root.left = buildTree(nums, i, mid - 1);
-        root.right = buildTree(nums, mid + 1, j);
-
-        return root;
-    }
-
     /* 查找节点 */
     public TreeNode? search(int num) {
         TreeNode? cur = root;
