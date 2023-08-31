@@ -9,9 +9,9 @@ namespace hello_algo.chapter_tree;
 class BinarySearchTree {
     TreeNode? root;
 
-    public BinarySearchTree(int[] nums) {
-        Array.Sort(nums); // 排序数组
-        root = buildTree(nums, 0, nums.Length - 1);  // 构建二叉搜索树
+    public BinarySearchTree() {
+        // 初始化空树
+        root = null;
     }
 
     /* 获取二叉树根节点 */
@@ -141,8 +141,13 @@ public class binary_search_tree {
     [Test]
     public void Test() {
         /* 初始化二叉搜索树 */
-        int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
-        BinarySearchTree bst = new BinarySearchTree(nums);
+        BinarySearchTree bst = new BinarySearchTree();
+        // 请注意，不同的插入顺序会生成不同的二叉树，该序列可以生成一个完美二叉树
+        int[] nums = { 8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15 };
+        foreach (int num in nums) {
+            bst.insert(num);
+        }
+
         Console.WriteLine("\n初始化的二叉树为\n");
         PrintUtil.PrintTree(bst.getRoot());
 
