@@ -24,13 +24,38 @@ func TestBinarySearch(t *testing.T) {
 }
 
 func TestBinarySearchEdge(t *testing.T) {
-	target := 6
-	nums := []int{1, 3, 6, 6, 6, 6, 6, 10, 12, 15}
-	// 二分查找最左一个元素
-	indexLeft := binarySearchLeftEdge(nums, target)
-	fmt.Println("数组中最左一个元素 6 的索引 = ", indexLeft)
+	// 包含重复元素的数组
+	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
+	fmt.Println("\n数组 nums = ", nums)
 
-	// 二分查找最右一个元素
-	indexRight := binarySearchRightEdge(nums, target)
-	fmt.Println("数组中最右一个元素 6 的索引 = ", indexRight)
+	// 二分查找左边界和右边界
+	for _, target := range []int{6, 7} {
+		index := binarySearchLeftEdge(nums, target)
+		fmt.Println("最左一个元素", target, "的索引为", index)
+
+		index = binarySearchRightEdge(nums, target)
+		fmt.Println("最右一个元素", target, "的索引为", index)
+	}
+}
+
+func TestBinarySearchInsertion(t *testing.T) {
+	// 无重复元素的数组
+	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
+	fmt.Println("数组 nums =", nums)
+
+	// 二分查找插入点
+	for _, target := range []int{6, 9} {
+		index := binarySearchInsertionSimple(nums, target)
+		fmt.Println("元素", target, "的插入点的索引为", index)
+	}
+
+	// 包含重复元素的数组
+	nums = []int{1, 3, 6, 6, 6, 6, 6, 10, 12, 15}
+	fmt.Println("\n数组 nums =", nums)
+
+	// 二分查找插入点
+	for _, target := range []int{2, 6, 20} {
+		index := binarySearchInsertion(nums, target)
+		fmt.Println("元素", target, "的插入点的索引为", index)
+	}
 }

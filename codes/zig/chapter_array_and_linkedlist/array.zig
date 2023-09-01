@@ -5,7 +5,7 @@
 const std = @import("std");
 const inc = @import("include");
 
-// 随机返回一个数组元素
+// 随机访问元素
 pub fn randomAccess(nums: []i32) i32 {
     // 在区间 [0, nums.len) 中随机抽取一个整数
     var randomIndex = std.crypto.random.intRangeLessThan(usize, 0, nums.len);

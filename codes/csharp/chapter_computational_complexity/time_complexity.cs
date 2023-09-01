@@ -98,7 +98,7 @@ public class time_complexity {
     /* 指数阶（循环实现） */
     static int exponential(int n) {
         int count = 0, bas = 1;
-        // cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+        // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < bas; j++) {
                 count++;
@@ -160,35 +160,35 @@ public class time_complexity {
         Console.WriteLine("输入数据大小 n = " + n);
 
         int count = constant(n);
-        Console.WriteLine("常数阶的计算操作数量 = " + count);
+        Console.WriteLine("常数阶的操作数量 = " + count);
 
         count = linear(n);
-        Console.WriteLine("线性阶的计算操作数量 = " + count);
+        Console.WriteLine("线性阶的操作数量 = " + count);
         count = arrayTraversal(new int[n]);
-        Console.WriteLine("线性阶（遍历数组）的计算操作数量 = " + count);
+        Console.WriteLine("线性阶（遍历数组）的操作数量 = " + count);
 
         count = quadratic(n);
-        Console.WriteLine("平方阶的计算操作数量 = " + count);
+        Console.WriteLine("平方阶的操作数量 = " + count);
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
             nums[i] = n - i;  // [n,n-1,...,2,1]
         count = bubbleSort(nums);
-        Console.WriteLine("平方阶（冒泡排序）的计算操作数量 = " + count);
+        Console.WriteLine("平方阶（冒泡排序）的操作数量 = " + count);
 
         count = exponential(n);
-        Console.WriteLine("指数阶（循环实现）的计算操作数量 = " + count);
+        Console.WriteLine("指数阶（循环实现）的操作数量 = " + count);
         count = expRecur(n);
-        Console.WriteLine("指数阶（递归实现）的计算操作数量 = " + count);
+        Console.WriteLine("指数阶（递归实现）的操作数量 = " + count);
 
         count = logarithmic((float)n);
-        Console.WriteLine("对数阶（循环实现）的计算操作数量 = " + count);
+        Console.WriteLine("对数阶（循环实现）的操作数量 = " + count);
         count = logRecur((float)n);
-        Console.WriteLine("对数阶（递归实现）的计算操作数量 = " + count);
+        Console.WriteLine("对数阶（递归实现）的操作数量 = " + count);
 
         count = linearLogRecur((float)n);
-        Console.WriteLine("线性对数阶（递归实现）的计算操作数量 = " + count);
+        Console.WriteLine("线性对数阶（递归实现）的操作数量 = " + count);
 
         count = factorialRecur(n);
-        Console.WriteLine("阶乘阶（递归实现）的计算操作数量 = " + count);
+        Console.WriteLine("阶乘阶（递归实现）的操作数量 = " + count);
     }
 }

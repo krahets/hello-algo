@@ -11,8 +11,8 @@ class ListNode:
     def __init__(self, val: int):
         """构造方法"""
         self.val: int = val
-        self.next: ListNode | None = None  # 后继节点引用（指针）
-        self.prev: ListNode | None = None  # 前驱节点引用（指针）
+        self.next: ListNode | None = None  # 后继节点引用
+        self.prev: ListNode | None = None  # 前驱节点引用
 
 
 class LinkedListDeque:

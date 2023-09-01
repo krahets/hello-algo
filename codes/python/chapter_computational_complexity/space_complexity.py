@@ -12,7 +12,7 @@ from modules import *
 
 def function() -> int:
     """函数"""
-    # do something
+    # 执行某些操作
     return 0
 
 
@@ -35,9 +35,9 @@ def linear(n: int):
     # 长度为 n 的列表占用 O(n) 空间
     nums = [0] * n
     # 长度为 n 的哈希表占用 O(n) 空间
-    mapp = dict[int, str]()
+    hmap = dict[int, str]()
     for i in range(n):
-        mapp[i] = str(i)
+        hmap[i] = str(i)
 
 
 def linear_recur(n: int):

@@ -10,7 +10,7 @@ public class climbing_stairs_constraint_dp {
     /* 带约束爬楼梯：动态规划 */
     static int climbingStairsConstraintDP(int n) {
         if (n == 1 || n == 2) {
-            return n;
+            return 1;
         }
         // 初始化 dp 表，用于存储子问题的解
         int[][] dp = new int[n + 1][3];

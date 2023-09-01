@@ -10,7 +10,7 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class array {
-    /* 随机返回一个数组元素 */
+    /* 随机访问元素 */
     static int randomAccess(int[] nums) {
         // 在区间 [0, nums.length) 中随机抽取一个数字
         int randomIndex = ThreadLocalRandom.current().nextInt(0, nums.length);

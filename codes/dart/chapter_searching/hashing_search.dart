@@ -18,7 +18,7 @@ int hashingSearchArray(Map<int, int> map, int target) {
 }
 
 /* 哈希查找（链表） */
-ListNode? hashingSearchLinkedList(Map<int,ListNode> map, int target) {
+ListNode? hashingSearchLinkedList(Map<int, ListNode> map, int target) {
   // 哈希表的 key: 目标节点值，value: 节点对象
   // 若哈希表中无此 key ，返回 null
   if (!map.containsKey(target)) {
@@ -28,15 +28,15 @@ ListNode? hashingSearchLinkedList(Map<int,ListNode> map, int target) {
 }
 
 /* Driver Code */
-void main(){
+void main() {
   int target = 3;
 
   /* 哈希查找（数组） */
   List<int> nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
   // 初始化哈希表
-  Map<int,int> map = HashMap();
+  Map<int, int> map = HashMap();
   for (int i = 0; i < nums.length; i++) {
-    map.putIfAbsent(nums[i], () => i);// key: 元素，value: 索引
+    map.putIfAbsent(nums[i], () => i); // key: 元素，value: 索引
   }
   int index = hashingSearchArray(map, target);
   print('目标元素 3 的索引 = $index');
@@ -44,7 +44,7 @@ void main(){
   /* 哈希查找（链表） */
   ListNode? head = listToLinkedList(nums);
   // 初始化哈希表
-  Map<int,ListNode> map1 = HashMap();
+  Map<int, ListNode> map1 = HashMap();
   while (head != null) {
     map1.putIfAbsent(head.val, () => head!); // key: 节点值，value: 节点
     head = head.next;

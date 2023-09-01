@@ -19,7 +19,7 @@ function climbingStairsDP(n: number): number {
     return dp[n];
 }
 
-/* 爬楼梯：状态压缩后的动态规划 */
+/* 爬楼梯：空间优化后的动态规划 */
 function climbingStairsDPComp(n: number): number {
     if (n === 1 || n === 2) return n;
     let a = 1,

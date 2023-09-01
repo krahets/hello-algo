@@ -10,20 +10,20 @@ sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
 from modules import *
 
 
-def hashing_search_array(mapp: dict[int, int], target: int) -> int:
+def hashing_search_array(hmap: dict[int, int], target: int) -> int:
     """哈希查找（数组）"""
     # 哈希表的 key: 目标元素，value: 索引
     # 若哈希表中无此 key ，返回 -1
-    return mapp.get(target, -1)
+    return hmap.get(target, -1)
 
 
 def hashing_search_linkedlist(
-    mapp: dict[int, ListNode], target: int
+    hmap: dict[int, ListNode], target: int
 ) -> ListNode | None:
     """哈希查找（链表）"""
     # 哈希表的 key: 目标元素，value: 节点对象
     # 若哈希表中无此 key ，返回 None
-    return mapp.get(target, None)
+    return hmap.get(target, None)
 
 
 """Driver Code"""

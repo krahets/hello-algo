@@ -23,7 +23,7 @@ public class climbing_stairs_dp {
         return dp[n];
     }
 
-    /* 爬楼梯：状态压缩后的动态规划 */
+    /* 爬楼梯：空间优化后的动态规划 */
     public static int climbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;

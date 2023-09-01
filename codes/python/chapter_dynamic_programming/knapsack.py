@@ -59,7 +59,7 @@ def knapsack_dp(wgt: list[int], val: list[int], cap: int) -> int:
 
 
 def knapsack_dp_comp(wgt: list[int], val: list[int], cap: int) -> int:
-    """0-1 背包：状态压缩后的动态规划"""
+    """0-1 背包：空间优化后的动态规划"""
     n = len(wgt)
     # 初始化 dp 表
     dp = [0] * (cap + 1)
@@ -96,6 +96,6 @@ if __name__ == "__main__":
     res = knapsack_dp(wgt, val, cap)
     print(f"不超过背包容量的最大物品价值为 {res}")
 
-    # 状态压缩后的动态规划
+    # 空间优化后的动态规划
     res = knapsack_dp_comp(wgt, val, cap)
     print(f"不超过背包容量的最大物品价值为 {res}")

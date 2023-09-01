@@ -7,8 +7,8 @@
 /* 双向链表节点 */
 class ListNode {
     var val: Int // 节点值
-    var next: ListNode? // 后继节点引用（指针）
-    weak var prev: ListNode? // 前驱节点引用（指针）
+    var next: ListNode? // 后继节点引用
+    weak var prev: ListNode? // 前驱节点引用
 
     init(val: Int) {
         self.val = val

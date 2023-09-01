@@ -73,7 +73,7 @@ fn edit_distance_dp(s: &str, t: &str) -> i32 {
     dp[n][m]
 }
 
-/* 编辑距离：状态压缩后的动态规划 */
+/* 编辑距离：空间优化后的动态规划 */
 fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
     let (n, m) = (s.len(), t.len());
     let mut dp = vec![0; m + 1];
@@ -124,7 +124,7 @@ pub fn main() {
     let res = edit_distance_dp(s, t);
     println!("将 {s} 更改为 {t} 最少需要编辑 {res} 步");
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     let res = edit_distance_dp_comp(s, t);
     println!("将 {s} 更改为 {t} 最少需要编辑 {res} 步");
 }

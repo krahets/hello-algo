@@ -23,7 +23,7 @@ func coinChangeIIDP(coins []int, amt int) int {
 				// 若超过背包容量，则不选硬币 i
 				dp[i][a] = dp[i-1][a]
 			} else {
-				// 不选和选硬币 i 这两种方案的较小值
+				// 不选和选硬币 i 这两种方案之和
 				dp[i][a] = dp[i-1][a] + dp[i][a-coins[i-1]]
 			}
 		}
@@ -31,7 +31,7 @@ func coinChangeIIDP(coins []int, amt int) int {
 	return dp[n][amt]
 }
 
-/* 零钱兑换 II：状态压缩后的动态规划 */
+/* 零钱兑换 II：空间优化后的动态规划 */
 func coinChangeIIDPComp(coins []int, amt int) int {
 	n := len(coins)
 	// 初始化 dp 表

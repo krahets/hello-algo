@@ -88,7 +88,7 @@ func editDistanceDP(s: String, t: String) -> Int {
     return dp[n][m]
 }
 
-/* 编辑距离：状态压缩后的动态规划 */
+/* 编辑距离：空间优化后的动态规划 */
 func editDistanceDPComp(s: String, t: String) -> Int {
     let n = s.utf8CString.count
     let m = t.utf8CString.count
@@ -140,7 +140,7 @@ enum EditDistance {
         res = editDistanceDP(s: s, t: t)
         print("将 \(s) 更改为 \(t) 最少需要编辑 \(res) 步")
 
-        // 状态压缩后的动态规划
+        // 空间优化后的动态规划
         res = editDistanceDPComp(s: s, t: t)
         print("将 \(s) 更改为 \(t) 最少需要编辑 \(res) 步")
     }

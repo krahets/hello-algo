@@ -13,7 +13,7 @@ void countingSortNaive(List<int> nums) {
   for (int num in nums) {
     m = max(m, num);
   }
- // 2. 统计各数字的出现次数
+  // 2. 统计各数字的出现次数
   // counter[num] 代表 num 的出现次数
   List<int> counter = List.filled(m + 1, 0);
   for (int num in nums) {
@@ -54,7 +54,7 @@ void countingSort(List<int> nums) {
   for (int i = n - 1; i >= 0; i--) {
     int num = nums[i];
     res[counter[num] - 1] = num; // 将 num 放置到对应索引处
-    counter[num]--;              // 令前缀和自减 1 ，得到下次放置 num 的索引
+    counter[num]--; // 令前缀和自减 1 ，得到下次放置 num 的索引
   }
   // 使用结果数组 res 覆盖原数组 nums
   nums.setAll(0, res);

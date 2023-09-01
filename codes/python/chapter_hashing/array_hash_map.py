@@ -80,38 +80,38 @@ class ArrayHashMap:
 """Driver Code"""
 if __name__ == "__main__":
     # 初始化哈希表
-    mapp = ArrayHashMap()
+    hmap = ArrayHashMap()
 
     # 添加操作
     # 在哈希表中添加键值对 (key, value)
-    mapp.put(12836, "小哈")
-    mapp.put(15937, "小啰")
-    mapp.put(16750, "小算")
-    mapp.put(13276, "小法")
-    mapp.put(10583, "小鸭")
+    hmap.put(12836, "小哈")
+    hmap.put(15937, "小啰")
+    hmap.put(16750, "小算")
+    hmap.put(13276, "小法")
+    hmap.put(10583, "小鸭")
     print("\n添加完成后，哈希表为\nKey -> Value")
-    mapp.print()
+    hmap.print()
 
     # 查询操作
     # 向哈希表输入键 key ，得到值 value
-    name = mapp.get(15937)
+    name = hmap.get(15937)
     print("\n输入学号 15937 ，查询到姓名 " + name)
 
     # 删除操作
     # 在哈希表中删除键值对 (key, value)
-    mapp.remove(10583)
+    hmap.remove(10583)
     print("\n删除 10583 后，哈希表为\nKey -> Value")
-    mapp.print()
+    hmap.print()
 
     # 遍历哈希表
     print("\n遍历键值对 Key->Value")
-    for pair in mapp.entry_set():
+    for pair in hmap.entry_set():
         print(pair.key, "->", pair.val)
 
     print("\n单独遍历键 Key")
-    for key in mapp.key_set():
+    for key in hmap.key_set():
         print(key)
 
     print("\n单独遍历值 Value")
-    for val in mapp.value_set():
+    for val in hmap.value_set():
         print(val)

@@ -8,7 +8,7 @@ import (
 	"math/rand"
 )
 
-/* 随机返回一个数组元素 */
+/* 随机访问元素 */
 func randomAccess(nums []int) (randomNum int) {
 	// 在区间 [0, nums.length) 中随机抽取一个数字
 	randomIndex := rand.Intn(len(nums))

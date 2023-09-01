@@ -70,9 +70,11 @@ TreeNode *search(binarySearchTree *bst, int num) {
 
 /* 插入节点 */
 void insert(binarySearchTree *bst, int num) {
-    // 若树为空，直接提前返回
-    if (bst->root == NULL)
+    // 若树为空，则初始化根节点
+    if (bst->root == NULL) {
+        bst->root = newTreeNode(num);
         return;
+    }
     TreeNode *cur = bst->root, *pre = NULL;
     // 循环查找，越过叶节点后跳出
     while (cur != NULL) {

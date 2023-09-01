@@ -61,7 +61,7 @@ def exponential(n: int) -> int:
     """指数阶（循环实现）"""
     count = 0
     base = 1
-    # cell 每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+    # 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
     for _ in range(n):
         for _ in range(base):
             count += 1
@@ -121,31 +121,31 @@ if __name__ == "__main__":
     print("输入数据大小 n =", n)
 
     count: int = constant(n)
-    print("常数阶的计算操作数量 =", count)
+    print("常数阶的操作数量 =", count)
 
     count: int = linear(n)
-    print("线性阶的计算操作数量 =", count)
+    print("线性阶的操作数量 =", count)
     count: int = array_traversal([0] * n)
-    print("线性阶（遍历数组）的计算操作数量 =", count)
+    print("线性阶（遍历数组）的操作数量 =", count)
 
     count: int = quadratic(n)
-    print("平方阶的计算操作数量 =", count)
+    print("平方阶的操作数量 =", count)
     nums = [i for i in range(n, 0, -1)]  # [n, n-1, ..., 2, 1]
     count: int = bubble_sort(nums)
-    print("平方阶（冒泡排序）的计算操作数量 =", count)
+    print("平方阶（冒泡排序）的操作数量 =", count)
 
     count: int = exponential(n)
-    print("指数阶（循环实现）的计算操作数量 =", count)
+    print("指数阶（循环实现）的操作数量 =", count)
     count: int = exp_recur(n)
-    print("指数阶（递归实现）的计算操作数量 =", count)
+    print("指数阶（递归实现）的操作数量 =", count)
 
     count: int = logarithmic(n)
-    print("对数阶（循环实现）的计算操作数量 =", count)
+    print("对数阶（循环实现）的操作数量 =", count)
     count: int = log_recur(n)
-    print("对数阶（递归实现）的计算操作数量 =", count)
+    print("对数阶（递归实现）的操作数量 =", count)
 
     count: int = linear_log_recur(n)
-    print("线性对数阶（递归实现）的计算操作数量 =", count)
+    print("线性对数阶（递归实现）的操作数量 =", count)
 
     count: int = factorial_recur(n)
-    print("阶乘阶（递归实现）的计算操作数量 =", count)
+    print("阶乘阶（递归实现）的操作数量 =", count)

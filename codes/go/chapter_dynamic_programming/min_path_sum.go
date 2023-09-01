@@ -71,7 +71,7 @@ func minPathSumDP(grid [][]int) int {
 	return dp[n-1][m-1]
 }
 
-/* 最小路径和：状态压缩后的动态规划 */
+/* 最小路径和：空间优化后的动态规划 */
 func minPathSumDPComp(grid [][]int) int {
 	n, m := len(grid), len(grid[0])
 	// 初始化 dp 表

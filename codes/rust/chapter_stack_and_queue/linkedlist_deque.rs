@@ -12,8 +12,8 @@ use std::cell::RefCell;
 /* 双向链表节点 */
 pub struct ListNode<T> {
     pub val: T,                                 // 节点值
-    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点引用（指针）
-    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱节点引用（指针）
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点指针
+    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱节点指针
 }
 
 impl<T> ListNode<T> {

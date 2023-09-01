@@ -1,57 +1,45 @@
 /**
  * File: binary_search_edge.js
- * Created Time: 2023-06-04
- * Author: Justin (xiefahit@gmail.com)
+ * Created Time: 2023-08-22
+ * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
-/* 二分查找最左一个元素 */
+const { binarySearchInsertion } = require('./binary_search_insertion.js');
+
+/* 二分查找最左一个 target */
 function binarySearchLeftEdge(nums, target) {
-    let i = 0,
-        j = nums.length - 1; // 初始化双闭区间 [0, n-1]
-    while (i <= j) {
-        let m = Math.floor((i + j) / 2); // 计算中点索引 m
-        if (nums[m] < target) {
-            i = m + 1; // target 在区间 [m+1, j] 中
-        } else if (nums[m] > target) {
-            j = m - 1; // target 在区间 [i, m-1] 中
-        } else {
-            j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
-        }
+    // 等价于查找 target 的插入点
+    const i = binarySearchInsertion(nums, target);
+    // 未找到 target ，返回 -1
+    if (i === nums.length || nums[i] !== target) {
+        return -1;
     }
-    if (i === nums.length || nums[i] != target) {
-        return -1; // 未找到目标元素，返回 -1
-    }
+    // 找到 target ，返回索引 i
     return i;
 }
 
-/* 二分查找最右一个元素 */
+/* 二分查找最右一个 target */
 function binarySearchRightEdge(nums, target) {
-    let i = 0,
-        j = nums.length - 1; // 初始化双闭区间 [0, n-1]
-    while (i <= j) {
-        let m = Math.floor((i + j) / 2); // 计算中点索引 m
-        if (nums[m] < target) {
-            i = m + 1; // target 在区间 [m+1, j] 中
-        } else if (nums[m] > target) {
-            j = m - 1; // target 在区间 [i, m-1] 中
-        } else {
-            i = m + 1; // 首个大于 target 的元素在区间 [m+1, j] 中
-        }
+    // 转化为查找最左一个 target + 1
+    const i = binarySearchInsertion(nums, target + 1);
+    // j 指向最右一个 target ，i 指向首个大于 target 的元素
+    const j = i - 1;
+    // 未找到 target ，返回 -1
+    if (j === -1 || nums[j] !== target) {
+        return -1;
     }
-    if (j < 0 || nums[j] != target) {
-        return -1; // 未找到目标元素，返回 -1
-    }
+    // 找到 target ，返回索引 j
     return j;
 }
 
 /* Driver Code */
-let target = 6;
+// 包含重复元素的数组
 const nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
-
-// 二分查找最左一个元素
-let index_left = binarySearchLeftEdge(nums, target);
-console.log('数组中最左一个元素 6 的索引 = ', index_left);
-
-// 二分查找最右一个元素
-let index_right = binarySearchRightEdge(nums, target);
-console.log('数组中最右一个元素 6 的索引 = ', index_right);
+console.log('\n数组 nums = ' + nums);
+// 二分查找左边界和右边界
+for (const target of [6, 7]) {
+    let index = binarySearchLeftEdge(nums, target);
+    console.log('最左一个元素 ' + target + ' 的索引为 ' + index);
+    index = binarySearchRightEdge(nums, target);
+    console.log('最右一个元素 ' + target + ' 的索引为 ' + index);
+}

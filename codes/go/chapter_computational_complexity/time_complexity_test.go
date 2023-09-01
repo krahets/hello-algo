@@ -14,35 +14,35 @@ func TestTimeComplexity(t *testing.T) {
 	fmt.Println("输入数据大小 n =", n)
 
 	count := constant(n)
-	fmt.Println("常数阶的计算操作数量 =", count)
+	fmt.Println("常数阶的操作数量 =", count)
 
 	count = linear(n)
-	fmt.Println("线性阶的计算操作数量 =", count)
+	fmt.Println("线性阶的操作数量 =", count)
 	count = arrayTraversal(make([]int, n))
-	fmt.Println("线性阶（遍历数组）的计算操作数量 =", count)
+	fmt.Println("线性阶（遍历数组）的操作数量 =", count)
 
 	count = quadratic(n)
-	fmt.Println("平方阶的计算操作数量 =", count)
+	fmt.Println("平方阶的操作数量 =", count)
 	nums := make([]int, n)
 	for i := 0; i < n; i++ {
 		nums[i] = n - i
 	}
 	count = bubbleSort(nums)
-	fmt.Println("平方阶（冒泡排序）的计算操作数量 =", count)
+	fmt.Println("平方阶（冒泡排序）的操作数量 =", count)
 
 	count = exponential(n)
-	fmt.Println("指数阶（循环实现）的计算操作数量 =", count)
+	fmt.Println("指数阶（循环实现）的操作数量 =", count)
 	count = expRecur(n)
-	fmt.Println("指数阶（递归实现）的计算操作数量 =", count)
+	fmt.Println("指数阶（递归实现）的操作数量 =", count)
 
 	count = logarithmic(float64(n))
-	fmt.Println("对数阶（循环实现）的计算操作数量 =", count)
+	fmt.Println("对数阶（循环实现）的操作数量 =", count)
 	count = logRecur(float64(n))
-	fmt.Println("对数阶（递归实现）的计算操作数量 =", count)
+	fmt.Println("对数阶（递归实现）的操作数量 =", count)
 
 	count = linearLogRecur(float64(n))
-	fmt.Println("线性对数阶（递归实现）的计算操作数量 =", count)
+	fmt.Println("线性对数阶（递归实现）的操作数量 =", count)
 
 	count = factorialRecur(n)
-	fmt.Println("阶乘阶（递归实现）的计算操作数量 =", count)
+	fmt.Println("阶乘阶（递归实现）的操作数量 =", count)
 }

@@ -20,6 +20,16 @@ class HashMapChaining {
     HashMapChaining() : size(0), capacity(4), loadThres(2.0 / 3), extendRatio(2) {
         buckets.resize(capacity);
     }
+    
+    /* 析构方法 */
+    ~HashMapChaining() {
+        for (auto &bucket : buckets) {
+            for (Pair *pair : bucket) {
+                // 释放内存
+                delete pair;
+            }
+        }
+    }
 
     /* 哈希函数 */
     int hashFunc(int key) {

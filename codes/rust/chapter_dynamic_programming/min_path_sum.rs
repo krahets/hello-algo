@@ -66,7 +66,7 @@ fn min_path_sum_dp(grid: &Vec<Vec<i32>>) -> i32 {
     dp[n - 1][m - 1]
 }
 
-/* 最小路径和：状态压缩后的动态规划 */
+/* 最小路径和：空间优化后的动态规划 */
 fn min_path_sum_dp_comp(grid: &Vec<Vec<i32>>) -> i32 {
     let (n, m) = (grid.len(), grid[0].len());
     // 初始化 dp 表
@@ -113,7 +113,7 @@ pub fn main() {
     let res = min_path_sum_dp(&grid);
     println!("从左上角到右下角的最小路径和为 {res}");
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     let res = min_path_sum_dp_comp(&grid);
     println!("从左上角到右下角的最小路径和为 {res}");
 }

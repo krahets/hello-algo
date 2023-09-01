@@ -14,7 +14,7 @@ use tree_node::TreeNode;
 
 /* 函数 */
 fn function() ->i32 {
-    // do something
+    // 执行某些操作
     return 0;
 }
 

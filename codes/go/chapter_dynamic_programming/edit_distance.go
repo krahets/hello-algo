@@ -91,7 +91,7 @@ func editDistanceDP(s string, t string) int {
 	return dp[n][m]
 }
 
-/* 编辑距离：状态压缩后的动态规划 */
+/* 编辑距离：空间优化后的动态规划 */
 func editDistanceDPComp(s string, t string) int {
 	n := len(s)
 	m := len(t)

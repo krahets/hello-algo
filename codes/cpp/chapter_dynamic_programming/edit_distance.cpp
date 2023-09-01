@@ -80,7 +80,7 @@ int editDistanceDP(string s, string t) {
     return dp[n][m];
 }
 
-/* 编辑距离：状态压缩后的动态规划 */
+/* 编辑距离：空间优化后的动态规划 */
 int editDistanceDPComp(string s, string t) {
     int n = s.length(), m = t.length();
     vector<int> dp(m + 1, 0);
@@ -128,7 +128,7 @@ int main() {
     res = editDistanceDP(s, t);
     cout << "将 " << s << " 更改为 " << t << " 最少需要编辑 " << res << " 步\n";
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     res = editDistanceDPComp(s, t);
     cout << "将 " << s << " 更改为 " << t << " 最少需要编辑 " << res << " 步\n";
 

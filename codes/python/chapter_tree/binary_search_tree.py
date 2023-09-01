@@ -13,33 +13,18 @@ from modules import *
 class BinarySearchTree:
     """二叉搜索树"""
 
-    def __init__(self, nums: list[int]):
+    def __init__(self):
         """构造方法"""
-        nums.sort()
-        self.root = self.build_tree(nums, 0, len(nums) - 1)
+        # 初始化空树
+        self.__root = None
 
-    def build_tree(
-        self, nums: list[int], start_index: int, end_index: int
-    ) -> TreeNode | None:
-        """构建二叉搜索树"""
-        if start_index > end_index:
-            return None
-
-        # 将数组中间节点作为根节点
-        mid = (start_index + end_index) // 2
-        root = TreeNode(nums[mid])
-        # 递归建立左子树和右子树
-        root.left = self.build_tree(
-            nums=nums, start_index=start_index, end_index=mid - 1
-        )
-        root.right = self.build_tree(
-            nums=nums, start_index=mid + 1, end_index=end_index
-        )
-        return root
+    def get_root(self) -> TreeNode | None:
+        """获取二叉树根节点"""
+        return self.__root
 
     def search(self, num: int) -> TreeNode | None:
         """查找节点"""
-        cur: TreeNode | None = self.root
+        cur = self.__root
         # 循环查找，越过叶节点后跳出
         while cur is not None:
             # 目标节点在 cur 的右子树中
@@ -55,12 +40,12 @@ class BinarySearchTree:
 
     def insert(self, num: int):
         """插入节点"""
-        # 若树为空，直接提前返回
-        if self.root is None:
+        # 若树为空，则初始化根节点
+        if self.__root is None:
+            self.__root = TreeNode(num)
             return
-
         # 循环查找，越过叶节点后跳出
-        cur, pre = self.root, None
+        cur, pre = self.__root, None
         while cur is not None:
             # 找到重复节点，直接返回
             if cur.val == num:
@@ -72,7 +57,6 @@ class BinarySearchTree:
             # 插入位置在 cur 的左子树中
             else:
                 cur = cur.left
-
         # 插入节点
         node = TreeNode(num)
         if pre.val < num:
@@ -83,11 +67,10 @@ class BinarySearchTree:
     def remove(self, num: int):
         """删除节点"""
         # 若树为空，直接提前返回
-        if self.root is None:
+        if self.__root is None:
             return
-
         # 循环查找，越过叶节点后跳出
-        cur, pre = self.root, None
+        cur, pre = self.__root, None
         while cur is not None:
             # 找到待删除节点，跳出循环
             if cur.val == num:
@@ -108,14 +91,14 @@ class BinarySearchTree:
             # 当子节点数量 = 0 / 1 时， child = null / 该子节点
             child = cur.left or cur.right
             # 删除节点 cur
-            if cur != self.root:
+            if cur != self.__root:
                 if pre.left == cur:
                     pre.left = child
                 else:
                     pre.right = child
             else:
                 # 若删除节点为根节点，则重新指定根节点
-                self.root = child
+                self.__root = child
         # 子节点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个节点
@@ -131,10 +114,13 @@ class BinarySearchTree:
 """Driver Code"""
 if __name__ == "__main__":
     # 初始化二叉搜索树
-    nums = list(range(1, 16))  # [1, 2, ..., 15]
-    bst = BinarySearchTree(nums=nums)
+    bst = BinarySearchTree()
+    nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15]
+    # 请注意，不同的插入顺序会生成不同的二叉树，该序列可以生成一个完美二叉树
+    for num in nums:
+        bst.insert(num)
     print("\n初始化的二叉树为\n")
-    print_tree(bst.root)
+    print_tree(bst.get_root())
 
     # 查找节点
     node = bst.search(7)
@@ -143,17 +129,17 @@ if __name__ == "__main__":
     # 插入节点
     bst.insert(16)
     print("\n插入节点 16 后，二叉树为\n")
-    print_tree(bst.root)
+    print_tree(bst.get_root())
 
     # 删除节点
     bst.remove(1)
     print("\n删除节点 1 后，二叉树为\n")
-    print_tree(bst.root)
+    print_tree(bst.get_root())
 
     bst.remove(2)
     print("\n删除节点 2 后，二叉树为\n")
-    print_tree(bst.root)
+    print_tree(bst.get_root())
 
     bst.remove(4)
     print("\n删除节点 4 后，二叉树为\n")
-    print_tree(bst.root)
+    print_tree(bst.get_root())

@@ -44,7 +44,7 @@ func printTree(root *treeNode) {
 
 /* 函数 */
 func function() int {
-	// do something...
+	// 执行某些操作...
 	return 0
 }
 

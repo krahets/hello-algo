@@ -27,7 +27,7 @@ def coin_change_dp(coins: list[int], amt: int) -> int:
 
 
 def coin_change_dp_comp(coins: list[int], amt: int) -> int:
-    """零钱兑换：状态压缩后的动态规划"""
+    """零钱兑换：空间优化后的动态规划"""
     n = len(coins)
     MAX = amt + 1
     # 初始化 dp 表
@@ -55,6 +55,6 @@ if __name__ == "__main__":
     res = coin_change_dp(coins, amt)
     print(f"凑到目标金额所需的最少硬币数量为 {res}")
 
-    # 状态压缩后的动态规划
+    # 空间优化后的动态规划
     res = coin_change_dp_comp(coins, amt)
     print(f"凑到目标金额所需的最少硬币数量为 {res}")

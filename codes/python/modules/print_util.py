@@ -67,9 +67,9 @@ def print_tree(
     print_tree(root.left, trunk, False)
 
 
-def print_dict(mapp: dict):
+def print_dict(hmap: dict):
     """Print a dict"""
-    for key, value in mapp.items():
+    for key, value in hmap.items():
         print(key, "->", value)
 
 

@@ -28,7 +28,7 @@ fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
     dp[n][amt]
 }
 
-/* 零钱兑换 II：状态压缩后的动态规划 */
+/* 零钱兑换 II：空间优化后的动态规划 */
 fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
     let n = coins.len();
     // 初始化 dp 表
@@ -58,7 +58,7 @@ pub fn main() {
     let res = coin_change_ii_dp(&coins, amt);
     println!("凑出目标金额的硬币组合数量为 {res}");
 
-    // 状态压缩后的动态规划
-    let res = coin_change_dp_ii_comp(&coins, amt);
+    // 空间优化后的动态规划
+    let res = coin_change_ii_dp_comp(&coins, amt);
     println!("凑出目标金额的硬币组合数量为 {res}");
 }

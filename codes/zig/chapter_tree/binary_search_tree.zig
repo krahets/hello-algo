@@ -70,8 +70,11 @@ pub fn BinarySearchTree(comptime T: type) type {
 
         // 插入节点
         fn insert(self: *Self, num: T) !void {
-            // 若树为空，直接提前返回
-            if (self.root == null) return;
+            // 若树为空，则初始化根节点
+            if (self.root == null) {
+                self.root = try self.mem_allocator.create(inc.TreeNode(T));
+                return;
+            }
             var cur = self.root;
             var pre: ?*inc.TreeNode(T) = null;
             // 循环查找，越过叶节点后跳出

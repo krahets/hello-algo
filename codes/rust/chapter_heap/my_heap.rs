@@ -8,7 +8,7 @@ include!("../include/include.rs");
 
 /* 大顶堆 */
 struct MaxHeap {
-    // 使用 vector 而非数组，这样无需考虑扩容问题
+    // 使用 vector 而非数组，这样无须考虑扩容问题
     max_heap: Vec<i32>,
 }
 
@@ -76,7 +76,7 @@ impl MaxHeap {
             }
             // 获取节点 i 的父节点
             let p = Self::parent(i);
-            // 当“节点无需修复”时，结束堆化
+            // 当“节点无须修复”时，结束堆化
             if self.max_heap[i] <= self.max_heap[p] {
                 break;
             }
@@ -114,7 +114,7 @@ impl MaxHeap {
             if r < self.size() && self.max_heap[r] > self.max_heap[ma] {
                 ma = r;
             }
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if ma == i {
                 break;
             }

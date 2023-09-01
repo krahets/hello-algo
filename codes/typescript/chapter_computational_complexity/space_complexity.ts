@@ -10,7 +10,7 @@ import { printTree } from '../modules/PrintUtil';
 
 /* 函数 */
 function constFunc(): number {
-    // do something
+    // 执行某些操作
     return 0;
 }
 
