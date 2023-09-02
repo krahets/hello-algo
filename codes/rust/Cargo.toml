@@ -19,6 +19,16 @@ path = "chapter_computational_complexity/worst_best_time_complexity.rs"
 name = "space_complexity"
 path = "chapter_computational_complexity/space_complexity.rs"
 
+# Run Command: cargo run --bin iteration
+[[bin]]
+name = "iteration"
+path = "chapter_computational_complexity/iteration.rs"
+
+# Run Command: cargo run --bin recursion
+[[bin]]
+name = "recursion"
+path = "chapter_computational_complexity/recursion.rs"
+
 # Run Command: cargo run --bin two_sum
 [[bin]]
 name = "two_sum"
