@@ -9,9 +9,9 @@ import { printTree } from '../modules/PrintUtil';
 
 /* 二叉搜索树 */
 class BinarySearchTree {
-    /* 构造方法 */
     private root: TreeNode | null;
 
+    /* 构造方法 */
     constructor() {
         // 初始化空树
         this.root = null;
