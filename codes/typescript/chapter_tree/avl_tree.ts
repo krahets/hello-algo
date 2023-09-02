@@ -10,7 +10,7 @@ import { printTree } from '../modules/PrintUtil';
 /* AVL 树*/
 class AVLTree {
     root: TreeNode;
-    /*构造方法*/
+    /* 构造方法 */
     constructor() {
         this.root = null; //根节点
     }
@@ -218,3 +218,5 @@ testRemove(avlTree, 4); // 删除度为 2 的节点
 /* 查询节点 */
 const node = avlTree.search(7);
 console.log('\n查找到的节点对象为', node, '，节点值 = ' + node.val);
+
+export {};
