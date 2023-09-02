@@ -316,9 +316,30 @@ status: new
 === "Swift"
 
     ```swift title="build_tree.swift"
-    [class]{}-[func]{dfs}
+    /* 构建二叉树：分治 */
+    func dfs(preorder: [Int], inorder: [Int], hmap: [Int: Int], i: Int, l: Int, r: Int) -> TreeNode? {
+        // 子树区间为空时终止
+        if r - l < 0 {
+            return nil
+        }
+        // 初始化根节点
+        let root = TreeNode(x: preorder[i])
+        // 查询 m ，从而划分左右子树
+        let m = hmap[preorder[i]]!
+        // 子问题：构建左子树
+        root.left = dfs(preorder: preorder, inorder: inorder, hmap: hmap, i: i + 1, l: l, r: m - 1)
+        // 子问题：构建右子树
+        root.right = dfs(preorder: preorder, inorder: inorder, hmap: hmap, i: i + 1 + m - l, l: m + 1, r: r)
+        // 返回根节点
+        return root
+    }
 
-    [class]{}-[func]{buildTree}
+    /* 构建二叉树 */
+    func buildTree(preorder: [Int], inorder: [Int]) -> TreeNode? {
+        // 初始化哈希表，存储 inorder 元素到索引的映射
+        let hmap = inorder.enumerated().reduce(into: [:]) { $0[$1.element] = $1.offset }
+        return dfs(preorder: preorder, inorder: inorder, hmap: hmap, i: 0, l: 0, r: inorder.count - 1)
+    }
     ```
 
 === "Zig"

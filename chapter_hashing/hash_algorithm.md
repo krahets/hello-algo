@@ -123,7 +123,7 @@ index = hash(key) % capacity
         int hash = 0;
         const int MODULUS = 1000000007;
         for (unsigned char c : key) {
-            cout<<(int)c<<endl;
+            cout << (int)c << endl;
             hash ^= (int)c;
         }
         return hash & MODULUS;
@@ -647,13 +647,13 @@ $$
 === "JS"
 
     ```javascript title="built_in_hash.js"
-
+    // JavaScript 未提供内置 hash code 函数
     ```
 
 === "TS"
 
     ```typescript title="built_in_hash.ts"
-
+    // TypeScript 未提供内置 hash code 函数
     ```
 
 === "C"

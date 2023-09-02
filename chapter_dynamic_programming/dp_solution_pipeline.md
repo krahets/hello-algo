@@ -250,7 +250,7 @@ $$
     /* 最小路径和：暴力搜索 */
     int minPathSumDFS(int[][] grid, int i, int j) {
         // 若为左上角单元格，则终止搜索
-        if (i == 0 && j == 0){
+        if (i == 0 && j == 0) {
             return grid[0][0];
         }
         // 若行列索引越界，则返回 +∞ 代价

@@ -159,7 +159,7 @@ status: new
     }
 
     /* 求解汉诺塔 */
-    void hanota(vector<int> &A, vector<int> &B, vector<int> &C) {
+    void solveHanota(vector<int> &A, vector<int> &B, vector<int> &C) {
         int n = A.size();
         // 将 A 顶部 n 个圆盘借助 B 移到 C
         dfs(n, A, B, C);
@@ -189,7 +189,7 @@ status: new
         # 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
         dfs(i - 1, buf, src, tar)
 
-    def hanota(A: list[int], B: list[int], C: list[int]):
+    def solve_hanota(A: list[int], B: list[int], C: list[int]):
         """求解汉诺塔"""
         n = len(A)
         # 将 A 顶部 n 个圆盘借助 B 移到 C
@@ -225,7 +225,7 @@ status: new
     }
 
     /* 求解汉诺塔 */
-    func hanota(A, B, C *list.List) {
+    func solveHanota(A, B, C *list.List) {
         n := A.Len()
         // 将 A 顶部 n 个圆盘借助 B 移到 C
         dfsHanota(n, A, B, C)
@@ -259,7 +259,7 @@ status: new
     }
 
     /* 求解汉诺塔 */
-    function hanota(A, B, C) {
+    function solveHanota(A, B, C) {
         const n = A.length;
         // 将 A 顶部 n 个圆盘借助 B 移到 C
         dfs(n, A, B, C);
@@ -293,7 +293,7 @@ status: new
     }
 
     /* 求解汉诺塔 */
-    function hanota(A: number[], B: number[], C: number[]): void {
+    function solveHanota(A: number[], B: number[], C: number[]): void {
         const n = A.length;
         // 将 A 顶部 n 个圆盘借助 B 移到 C
         dfs(n, A, B, C);
@@ -307,7 +307,7 @@ status: new
 
     [class]{}-[func]{dfs}
 
-    [class]{}-[func]{hanota}
+    [class]{}-[func]{solveHanota}
     ```
 
 === "C#"
@@ -348,11 +348,36 @@ status: new
 === "Swift"
 
     ```swift title="hanota.swift"
-    [class]{}-[func]{move}
+    /* 移动一个圆盘 */
+    func move(src: inout [Int], tar: inout [Int]) {
+        // 从 src 顶部拿出一个圆盘
+        let pan = src.popLast()!
+        // 将圆盘放入 tar 顶部
+        tar.append(pan)
+    }
 
-    [class]{}-[func]{dfs}
+    /* 求解汉诺塔：问题 f(i) */
+    func dfs(i: Int, src: inout [Int], buf: inout [Int], tar: inout [Int]) {
+        // 若 src 只剩下一个圆盘，则直接将其移到 tar
+        if i == 1 {
+            move(src: &src, tar: &tar)
+            return
+        }
+        // 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
+        dfs(i: i - 1, src: &src, buf: &tar, tar: &buf)
+        // 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
+        move(src: &src, tar: &tar)
+        // 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
+        dfs(i: i - 1, src: &buf, buf: &src, tar: &tar)
+    }
 
-    [class]{}-[func]{hanota}
+    /* 求解汉诺塔 */
+    func solveHanota(A: inout [Int], B: inout [Int], C: inout [Int]) {
+        let n = A.count
+        // 列表尾部是柱子顶部
+        // 将 src 顶部 n 个圆盘借助 B 移到 C
+        dfs(i: n, src: &A, buf: &B, tar: &C)
+    }
     ```
 
 === "Zig"
@@ -362,7 +387,7 @@ status: new
 
     [class]{}-[func]{dfs}
 
-    [class]{}-[func]{hanota}
+    [class]{}-[func]{solveHanota}
     ```
 
 === "Dart"
@@ -392,7 +417,7 @@ status: new
     }
 
     /* 求解汉诺塔 */
-    void hanota(List<int> A, List<int> B, List<int> C) {
+    void solveHanota(List<int> A, List<int> B, List<int> C) {
       int n = A.length;
       // 将 A 顶部 n 个圆盘借助 B 移到 C
       dfs(n, A, B, C);
@@ -426,7 +451,7 @@ status: new
     }
 
     /* 求解汉诺塔 */
-    fn hanota(A: &mut Vec<i32>, B: &mut Vec<i32>, C: &mut Vec<i32>) {
+    fn solve_hanota(A: &mut Vec<i32>, B: &mut Vec<i32>, C: &mut Vec<i32>) {
         let n = A.len() as i32;
         // 将 A 顶部 n 个圆盘借助 B 移到 C
         dfs(n, A, B, C);
