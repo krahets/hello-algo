@@ -6,6 +6,8 @@ let package = Package(
     name: "HelloAlgo",
     products: [
         // chapter_computational_complexity
+        .executable(name: "iteration", targets: ["iteration"]),
+        .executable(name: "recursion", targets: ["recursion"]),
         .executable(name: "time_complexity", targets: ["time_complexity"]),
         .executable(name: "worst_best_time_complexity", targets: ["worst_best_time_complexity"]),
         .executable(name: "space_complexity", targets: ["space_complexity"]),
@@ -94,6 +96,8 @@ let package = Package(
         .target(name: "graph_adjacency_list_target", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_list_target.swift"], swiftSettings: [.define("TARGET")]),
         .target(name: "binary_search_insertion_target", path: "chapter_searching", sources: ["binary_search_insertion_target.swift"], swiftSettings: [.define("TARGET")]),
         // chapter_computational_complexity
+        .executableTarget(name: "iteration", path: "chapter_computational_complexity", sources: ["iteration.swift"]),
+        .executableTarget(name: "recursion", path: "chapter_computational_complexity", sources: ["recursion.swift"]),
         .executableTarget(name: "time_complexity", path: "chapter_computational_complexity", sources: ["time_complexity.swift"]),
         .executableTarget(name: "worst_best_time_complexity", path: "chapter_computational_complexity", sources: ["worst_best_time_complexity.swift"]),
         .executableTarget(name: "space_complexity", dependencies: ["utils"], path: "chapter_computational_complexity", sources: ["space_complexity.swift"]),

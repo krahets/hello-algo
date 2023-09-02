@@ -9,9 +9,9 @@ import { printTree } from '../modules/PrintUtil';
 
 /* 二叉搜索树 */
 class BinarySearchTree {
-    /* 构造方法 */
     private root: TreeNode | null;
 
+    /* 构造方法 */
     constructor() {
         // 初始化空树
         this.root = null;
@@ -139,3 +139,5 @@ printTree(bst.getRoot());
 bst.remove(4);
 console.log('\n删除节点 4 后，二叉树为\n');
 printTree(bst.getRoot());
+
+export {};
