@@ -4,7 +4,7 @@
  * Author: sjinzh (sjinzh@gmail.com)
  */
 
- use std::cmp;
+use std::cmp;
 
 /* 爬楼梯最小代价：动态规划 */
 fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {

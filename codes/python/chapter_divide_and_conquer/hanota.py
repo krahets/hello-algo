@@ -27,7 +27,7 @@ def dfs(i: int, src: list[int], buf: list[int], tar: list[int]):
     dfs(i - 1, buf, src, tar)
 
 
-def hanota(A: list[int], B: list[int], C: list[int]):
+def solve_hanota(A: list[int], B: list[int], C: list[int]):
     """求解汉诺塔"""
     n = len(A)
     # 将 A 顶部 n 个圆盘借助 B 移到 C
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     print(f"B = {B}")
     print(f"C = {C}")
 
-    hanota(A, B, C)
+    solve_hanota(A, B, C)
 
     print("圆盘移动完成后：")
     print(f"A = {A}")

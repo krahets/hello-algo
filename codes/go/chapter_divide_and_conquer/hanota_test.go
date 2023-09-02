@@ -7,8 +7,9 @@ package chapter_divide_and_conquer
 import (
 	"container/list"
 	"fmt"
-	. "github.com/krahets/hello-algo/pkg"
 	"testing"
+
+	. "github.com/krahets/hello-algo/pkg"
 )
 
 func TestHanota(t *testing.T) {
@@ -27,7 +28,7 @@ func TestHanota(t *testing.T) {
 	fmt.Print("C = ")
 	PrintList(C)
 
-	hanota(A, B, C)
+	solveHanota(A, B, C)
 
 	fmt.Println("圆盘移动完成后：")
 	fmt.Print("A = ")

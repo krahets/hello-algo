@@ -4,7 +4,7 @@
 * Author: hpstory (hpstory1024@163.com)
 */
 
-namespace hello_algo.chapter_backtracking; 
+namespace hello_algo.chapter_backtracking;
 
 public class subset_sum_ii {
     /* 回溯算法：子集和 II */

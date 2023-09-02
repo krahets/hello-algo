@@ -20,7 +20,7 @@ class HashMapChaining {
     HashMapChaining() : size(0), capacity(4), loadThres(2.0 / 3), extendRatio(2) {
         buckets.resize(capacity);
     }
-    
+
     /* 析构方法 */
     ~HashMapChaining() {
         for (auto &bucket : buckets) {

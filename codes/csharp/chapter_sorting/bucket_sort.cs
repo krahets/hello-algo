@@ -18,7 +18,7 @@ public class bucket_sort {
         // 1. 将数组元素分配到各个桶中
         foreach (float num in nums) {
             // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-            int i = (int) (num * k);
+            int i = (int)(num * k);
             // 将 num 添加进桶 i
             buckets[i].Add(num);
         }

@@ -4,7 +4,7 @@
 * Author: hpstory (hpstory1024@163.com)
 */
 
-namespace hello_algo.chapter_sorting; 
+namespace hello_algo.chapter_sorting;
 
 public class heap_sort {
     /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */

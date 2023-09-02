@@ -36,7 +36,7 @@ def heap_sort(nums: list[int]):
         nums[0], nums[i] = nums[i], nums[0]
         # 以根节点为起点，从顶至底进行堆化
         sift_down(nums, i, 0)
-        
+
 
 """Driver Code"""
 if __name__ == "__main__":

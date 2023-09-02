@@ -49,8 +49,6 @@ void addVertex(graphAdjMat *t, int val) {
     // 如果实际使用不大于预设空间，则直接初始化新空间
     if (t->size < t->capacity) {
         t->vertices[t->size] = val; // 初始化新顶点值
-
-        
         for (int i = 0; i < t->size; i++) {
             t->adjMat[i][t->size] = 0; // 邻接矩新列阵置0
         }
@@ -90,7 +88,7 @@ void addVertex(graphAdjMat *t, int val) {
     free(t->adjMat);
 
     // 扩容后，指向新地址
-    t->adjMat = tempMat;  // 指向新的邻接矩阵地址
+    t->adjMat = tempMat; // 指向新的邻接矩阵地址
     t->capacity = t->size * 2;
     t->size++;
 }
@@ -113,7 +111,7 @@ void removeVertex(graphAdjMat *t, unsigned int index) {
             for (int j = index; j < t->size - 1; j++) {
                 t->adjMat[i][j] = t->adjMat[i][j + 1]; // 被删除列后的所有列前移
             }
-        } else { 
+        } else {
             memcpy(t->adjMat[i], t->adjMat[i + 1], sizeof(unsigned int) * t->size); // 被删除行的下方所有行上移
             for (int j = index; j < t->size; j++) {
                 t->adjMat[i][j] = t->adjMat[i][j + 1]; // 被删除列后的所有列前移
@@ -156,12 +154,12 @@ void printGraph(graphAdjMat *t) {
 /* 构造函数 */
 graphAdjMat *newGraphAjdMat(unsigned int numberVertices, int *vertices, unsigned int **adjMat) {
     // 申请内存
-    graphAdjMat *newGraph = (graphAdjMat *)malloc(sizeof(graphAdjMat));                                          // 为图分配内存
-    newGraph->vertices = (int *)malloc(sizeof(int) * numberVertices * 2);                                        // 为顶点列表分配内存
-    newGraph->adjMat = (unsigned int **)malloc(sizeof(unsigned int *) * numberVertices * 2);                     // 为邻接矩阵分配二维内存
+    graphAdjMat *newGraph = (graphAdjMat *)malloc(sizeof(graphAdjMat));   // 为图分配内存
+    newGraph->vertices = (int *)malloc(sizeof(int) * numberVertices * 2); // 为顶点列表分配内存
+    newGraph->adjMat = (unsigned int **)malloc(sizeof(unsigned int *) * numberVertices * 2); // 为邻接矩阵分配二维内存
     unsigned int *temp = (unsigned int *)malloc(sizeof(unsigned int) * numberVertices * 2 * numberVertices * 2); // 为邻接矩阵分配一维内存
-    newGraph->size = numberVertices;                                                                             // 初始化顶点数量
-    newGraph->capacity = numberVertices * 2;                                                                     // 初始化图容量
+    newGraph->size = numberVertices;                // 初始化顶点数量
+    newGraph->capacity = numberVertices * 2;        // 初始化图容量
 
     // 配置二维数组
     for (int i = 0; i < numberVertices * 2; i++) {

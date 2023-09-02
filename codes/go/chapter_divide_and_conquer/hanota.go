@@ -32,7 +32,7 @@ func dfsHanota(i int, src, buf, tar *list.List) {
 }
 
 /* 求解汉诺塔 */
-func hanota(A, B, C *list.List) {
+func solveHanota(A, B, C *list.List) {
 	n := A.Len()
 	// 将 A 顶部 n 个圆盘借助 B 移到 C
 	dfsHanota(n, A, B, C)
