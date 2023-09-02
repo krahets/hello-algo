@@ -715,7 +715,7 @@ comments: true
     pub fn insert(&mut self, num: i32) {
         // 若树为空，则初始化根节点
         if self.root.is_none() {
-            self.root = TreeNode::new(num);
+            self.root = Some(TreeNode::new(num));
             return;
         }
         let mut cur = self.root.clone();
@@ -1356,7 +1356,6 @@ comments: true
     void remove(int num) {
       // 若树为空，直接提前返回
       if (_root == null) return;
-
       TreeNode? cur = _root;
       TreeNode? pre = null;
       // 循环查找，越过叶节点后跳出

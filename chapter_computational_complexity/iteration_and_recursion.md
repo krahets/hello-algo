@@ -74,13 +74,29 @@ status: new
 === "JS"
 
     ```javascript title="iteration.js"
-    [class]{}-[func]{forLoop}
+    /* for 循环 */
+    function forLoop(n) {
+        let res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for (let i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="iteration.ts"
-    [class]{}-[func]{forLoop}
+    /* for 循环 */
+    function forLoop(n: number): number {
+        let res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for (let i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
     ```
 
 === "C"
@@ -132,7 +148,15 @@ status: new
 === "Rust"
 
     ```rust title="iteration.rs"
-    [class]{}-[func]{for_loop}
+    /*  for 循环 */
+    fn for_loop(n: i32) -> i32 {
+        let mut res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for i in 1..=n {
+            res += i;
+        }
+        res
+    } 
     ```
 
 图 2-1 展示了该求和函数的流程框图。
@@ -216,13 +240,33 @@ status: new
 === "JS"
 
     ```javascript title="iteration.js"
-    [class]{}-[func]{whileLoop}
+    /* while 循环 */
+    function whileLoop(n) {
+        let res = 0;
+        let i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i;
+            i++; // 更新条件变量
+        }
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="iteration.ts"
-    [class]{}-[func]{whileLoop}
+    /* while 循环 */
+    function whileLoop(n: number): number {
+        let res = 0;
+        let i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i;
+            i++; // 更新条件变量
+        }
+        return res;
+    }
     ```
 
 === "C"
@@ -278,7 +322,17 @@ status: new
 === "Rust"
 
     ```rust title="iteration.rs"
-    [class]{}-[func]{while_loop}
+    /* while 循环 */
+    fn while_loop(n: i32) -> i32 {
+        let mut res = 0;
+        let mut i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while i <= n {
+            res += i;
+            i += 1; // 更新条件变量
+        }
+        res
+    }
     ```
 
 在 `while` 循环中，由于初始化和更新条件变量的步骤是独立在循环结构之外的，**因此它比 `for` 循环的自由度更高**。
@@ -359,13 +413,37 @@ status: new
 === "JS"
 
     ```javascript title="iteration.js"
-    [class]{}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    function whileLoopII(n) {
+        let res = 0;
+        let i = 1; // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while (i <= n) {
+            res += i;
+            // 更新条件变量
+            i++;
+            i *= 2;
+        }
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="iteration.ts"
-    [class]{}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    function whileLoopII(n: number): number {
+        let res = 0;
+        let i = 1; // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while (i <= n) {
+            res += i;
+            // 更新条件变量
+            i++;
+            i *= 2;
+        }
+        return res;
+    }
     ```
 
 === "C"
@@ -425,7 +503,19 @@ status: new
 === "Rust"
 
     ```rust title="iteration.rs"
-    [class]{}-[func]{while_loop_ii}
+    /* while 循环（两次更新） */
+    fn while_loop_ii(n: i32) -> i32 {
+        let mut res = 0;
+        let mut i = 1; // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while i <= n {
+            res += i;
+            // 更新条件变量
+            i += 1;
+            i *= 2;
+        }
+        res
+    }
     ```
 
 总的来说，**`for` 循环的代码更加紧凑，`while` 循环更加灵活**，两者都可以实现迭代结构。选择使用哪一个应该根据特定问题的需求来决定。
@@ -502,13 +592,35 @@ status: new
 === "JS"
 
     ```javascript title="iteration.js"
-    [class]{}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    function nestedForLoop(n) {
+        let res = '';
+        // 循环 i = 1, 2, ..., n-1, n
+        for (let i = 1; i <= n; i++) {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (let j = 1; j <= n; j++) {
+                res += `(${i}, ${j}), `;
+            }
+        }
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="iteration.ts"
-    [class]{}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    function nestedForLoop(n: number): string {
+        let res = '';
+        // 循环 i = 1, 2, ..., n-1, n
+        for (let i = 1; i <= n; i++) {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (let j = 1; j <= n; j++) {
+                res += `(${i}, ${j}), `;
+            }
+        }
+        return res;
+    }
     ```
 
 === "C"
@@ -566,7 +678,18 @@ status: new
 === "Rust"
 
     ```rust title="iteration.rs"
-    [class]{}-[func]{nested_for_loop}
+    /* 双层 for 循环 */
+    fn nested_for_loop(n: i32) -> String {
+        let mut res = vec![];
+        // 循环 i = 1, 2, ..., n-1, n
+        for i in 1..=n {
+            // 循环 j = 1, 2, ..., n-1, n
+            for j in 1..=n {
+                res.push(format!("({}, {}), ", i, j));
+            }
+        }
+        res.join("")
+    }
     ```
 
 图 2-2 给出了该嵌套循环的流程框图。
@@ -657,13 +780,29 @@ status: new
 === "JS"
 
     ```javascript title="recursion.js"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    function recur(n) {
+        // 终止条件
+        if (n === 1) return 1;
+        // 递：递归调用
+        const res = recur(n - 1);
+        // 归：返回结果
+        return n + res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="recursion.ts"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    function recur(n: number): number {
+        // 终止条件
+        if (n === 1) return 1;
+        // 递：递归调用
+        const res = recur(n - 1);
+        // 归：返回结果
+        return n + res;
+    }
     ```
 
 === "C"
@@ -716,7 +855,17 @@ status: new
 === "Rust"
 
     ```rust title="recursion.rs"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    fn recur(n: i32) -> i32 {
+        // 终止条件
+        if n == 1 {
+            return 1;
+        }
+        // 递：递归调用
+        let res = recur(n - 1);
+        // 归：返回结果
+        n + res
+    }
     ```
 
 图 2-3 展示了该函数的递归过程。
@@ -814,13 +963,25 @@ status: new
 === "JS"
 
     ```javascript title="recursion.js"
-    [class]{}-[func]{tailRecur}
+    /* 尾递归 */
+    function tailRecur(n, res) {
+        // 终止条件
+        if (n === 0) return res;
+        // 尾递归调用
+        return tailRecur(n - 1, res + n);
+    }
     ```
 
 === "TS"
 
     ```typescript title="recursion.ts"
-    [class]{}-[func]{tailRecur}
+    /* 尾递归 */
+    function tailRecur(n: number, res: number): number {
+        // 终止条件
+        if (n === 0) return res;
+        // 尾递归调用
+        return tailRecur(n - 1, res + n);
+    }
     ```
 
 === "C"
@@ -869,7 +1030,15 @@ status: new
 === "Rust"
 
     ```rust title="recursion.rs"
-    [class]{}-[func]{tail_recur}
+    /* 尾递归 */
+    fn tail_recur(n: i32, res: i32) -> i32 {
+        // 终止条件
+        if n == 0 {
+            return res;
+        }
+        // 尾递归调用
+        tail_recur(n - 1, res + n)
+    }
     ```
 
 两种递归的过程对比如图 2-5 所示。
@@ -961,13 +1130,29 @@ status: new
 === "JS"
 
     ```javascript title="recursion.js"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    function fib(n) {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n === 1 || n === 2) return n - 1;
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        const res = fib(n - 1) + fib(n - 2);
+        // 返回结果 f(n)
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="recursion.ts"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    function fib(n: number): number {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n === 1 || n === 2) return n - 1;
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        const res = fib(n - 1) + fib(n - 2);
+        // 返回结果 f(n)
+        return res;
+    }
     ```
 
 === "C"
@@ -1020,7 +1205,17 @@ status: new
 === "Rust"
 
     ```rust title="recursion.rs"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    fn fib(n: i32) -> i32 {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if n == 1 || n == 2 {
+            return n - 1;
+        }
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        let res = fib(n - 1) + fib(n - 2);
+        // 返回结果
+        res
+    }
     ```
 
 观察以上代码，我们在函数内递归调用了两个函数，**这意味着从一个调用产生了两个调用分支**。如图 2-6 所示，这样不断递归调用下去，最终将产生一个层数为 $n$ 的「递归树 recursion tree」。

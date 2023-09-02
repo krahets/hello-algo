@@ -237,7 +237,22 @@ status: new
 === "Rust"
 
     ```rust title="binary_search_insertion.rs"
-    [class]{}-[func]{binary_search_insertion}
+    /* 二分查找插入点（存在重复元素） */
+    pub fn binary_search_insertion(nums: &[i32], target: i32) -> i32 {
+        let (mut i, mut j) = (0, nums.len() as i32 - 1);    // 初始化双闭区间 [0, n-1]
+        while i <= j {
+            let m = i + (j - i) / 2;    // 计算中点索引 m
+            if nums[m as usize] < target {
+                i = m + 1;  // target 在区间 [m+1, j] 中
+            } else if nums[m as usize] > target {
+                j = m - 1;  // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1;  // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        i
+    }
     ```
 
 ## 10.2.2 &nbsp; 存在重复元素的情况
@@ -504,7 +519,22 @@ status: new
 === "Rust"
 
     ```rust title="binary_search_insertion.rs"
-    [class]{}-[func]{binary_search_insertion}
+    /* 二分查找插入点（存在重复元素） */
+    pub fn binary_search_insertion(nums: &[i32], target: i32) -> i32 {
+        let (mut i, mut j) = (0, nums.len() as i32 - 1);    // 初始化双闭区间 [0, n-1]
+        while i <= j {
+            let m = i + (j - i) / 2;    // 计算中点索引 m
+            if nums[m as usize] < target {
+                i = m + 1;  // target 在区间 [m+1, j] 中
+            } else if nums[m as usize] > target {
+                j = m - 1;  // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1;  // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        i
+    }
     ```
 
 !!! tip

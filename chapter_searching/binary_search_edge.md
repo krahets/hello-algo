@@ -177,7 +177,17 @@ status: new
 === "Rust"
 
     ```rust title="binary_search_edge.rs"
-    [class]{}-[func]{binary_search_left_edge}
+    /* 二分查找最左一个 target */
+    fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
+        // 等价于查找 target 的插入点
+        let i = binary_search_insertion(nums, target);
+        // 未找到 target ，返回 -1
+        if i == nums.len() as i32 || nums[i as usize] != target {
+            return -1;
+        }
+        // 找到 target ，返回索引 i
+        i
+    }
     ```
 
 ## 10.3.2 &nbsp; 查找右边界
@@ -373,7 +383,19 @@ status: new
 === "Rust"
 
     ```rust title="binary_search_edge.rs"
-    [class]{}-[func]{binary_search_right_edge}
+    /* 二分查找最右一个 target */
+    fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
+        // 转化为查找最左一个 target + 1
+        let i = binary_search_insertion(nums, target + 1);
+        // j 指向最右一个 target ，i 指向首个大于 target 的元素
+        let j = i - 1;
+        // 未找到 target ，返回 -1
+        if j == -1 || nums[j as usize] != target {
+            return -1;
+        }
+        // 找到 target ，返回索引 j
+        j
+    }
     ```
 
 ### 2. &nbsp; 转化为查找元素
