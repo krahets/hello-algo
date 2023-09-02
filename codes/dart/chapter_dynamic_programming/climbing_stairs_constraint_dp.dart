@@ -7,7 +7,7 @@
 /* 带约束爬楼梯：动态规划 */
 int climbingStairsConstraintDP(int n) {
   if (n == 1 || n == 2) {
-    return n;
+    return 1;
   }
   // 初始化 dp 表，用于存储子问题的解
   List<List<int>> dp = List.generate(n + 1, (index) => List.filled(3, 0));

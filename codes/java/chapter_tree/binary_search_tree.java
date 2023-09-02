@@ -6,33 +6,20 @@
 
 package chapter_tree;
 
-import java.util.*;
 import utils.*;
 
 /* 二叉搜索树 */
 class BinarySearchTree {
     private TreeNode root;
 
-    public BinarySearchTree(int[] nums) {
-        Arrays.sort(nums); // 排序数组
-        root = buildTree(nums, 0, nums.length - 1); // 构建二叉搜索树
+    /* 构造方法 */
+    public BinarySearchTree() {
+        // 初始化空树
+        root = null;
     }
 
     /* 获取二叉树根节点 */
     public TreeNode getRoot() {
-        return root;
-    }
-
-    /* 构建二叉搜索树 */
-    public TreeNode buildTree(int[] nums, int i, int j) {
-        if (i > j)
-            return null;
-        // 将数组中间节点作为根节点
-        int mid = (i + j) / 2;
-        TreeNode root = new TreeNode(nums[mid]);
-        // 递归建立左子树和右子树
-        root.left = buildTree(nums, i, mid - 1);
-        root.right = buildTree(nums, mid + 1, j);
         return root;
     }
 
@@ -57,9 +44,11 @@ class BinarySearchTree {
 
     /* 插入节点 */
     public void insert(int num) {
-        // 若树为空，直接提前返回
-        if (root == null)
+        // 若树为空，则初始化根节点
+        if (root == null) {
+            root = new TreeNode(num);
             return;
+        }
         TreeNode cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
@@ -137,8 +126,12 @@ class BinarySearchTree {
 public class binary_search_tree {
     public static void main(String[] args) {
         /* 初始化二叉搜索树 */
-        int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
-        BinarySearchTree bst = new BinarySearchTree(nums);
+        BinarySearchTree bst = new BinarySearchTree();
+        // 请注意，不同的插入顺序会生成不同的二叉树，该序列可以生成一个完美二叉树
+        int[] nums = { 8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15 };
+        for (int num : nums) {
+            bst.insert(num);
+        }
         System.out.println("\n初始化的二叉树为\n");
         PrintUtil.printTree(bst.getRoot());
 

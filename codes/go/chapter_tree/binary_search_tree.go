@@ -5,8 +5,6 @@
 package chapter_tree
 
 import (
-	"sort"
-
 	. "github.com/krahets/hello-algo/pkg"
 )
 
@@ -14,27 +12,11 @@ type binarySearchTree struct {
 	root *TreeNode
 }
 
-func newBinarySearchTree(nums []int) *binarySearchTree {
-	// 排序数组
-	sort.Ints(nums)
-	// 构建二叉搜索树
+func newBinarySearchTree() *binarySearchTree {
 	bst := &binarySearchTree{}
-	bst.root = bst.buildTree(nums, 0, len(nums)-1)
+	// 初始化空树
+	bst.root = nil
 	return bst
-}
-
-/* 构建二叉搜索树 */
-func (bst *binarySearchTree) buildTree(nums []int, left, right int) *TreeNode {
-	if left > right {
-		return nil
-	}
-	// 将数组中间节点作为根节点
-	middle := left + (right-left)>>1
-	root := NewTreeNode(nums[middle])
-	// 递归构建左子树和右子树
-	root.Left = bst.buildTree(nums, left, middle-1)
-	root.Right = bst.buildTree(nums, middle+1, right)
-	return root
 }
 
 /* 获取根节点 */
@@ -65,8 +47,9 @@ func (bst *binarySearchTree) search(num int) *TreeNode {
 /* 插入节点 */
 func (bst *binarySearchTree) insert(num int) {
 	cur := bst.root
-	// 若树为空，直接提前返回
+	// 若树为空，则初始化根节点
 	if cur == nil {
+		bst.root = NewTreeNode(num)
 		return
 	}
 	// 待插入节点之前的节点位置

@@ -7,7 +7,7 @@ const std = @import("std");
 // 带约束爬楼梯：动态规划
 fn climbingStairsConstraintDP(comptime n: usize) i32 {
     if (n == 1 or n == 2) {
-        return @intCast(n);
+        return 1;
     }
     // 初始化 dp 表，用于存储子问题的解
     var dp = [_][3]i32{ [_]i32{ -1, -1, -1 } } ** (n + 1);

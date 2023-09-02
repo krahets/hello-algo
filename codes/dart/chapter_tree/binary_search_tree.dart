@@ -12,27 +12,14 @@ class BinarySearchTree {
   late TreeNode? _root;
 
   /* 构造方法 */
-  BinarySearchTree(List<int> nums) {
-    nums.sort(); // 排序数组
-    _root = buildTree(nums, 0, nums.length - 1); // 构建二叉搜索树
+  BinarySearchTree() {
+    // 初始化空树
+    _root = null;
   }
 
   /* 获取二叉树的根节点 */
   TreeNode? getRoot() {
     return _root;
-  }
-
-  /* 构建二叉上搜索树 */
-  TreeNode? buildTree(List<int> nums, int i, int j) {
-    if (i > j) {
-      return null;
-    }
-    // 将数组中间节点作为根节点
-    int mid = (i + j) ~/ 2;
-    TreeNode? root = TreeNode(nums[mid]);
-    root.left = buildTree(nums, i, mid - 1);
-    root.right = buildTree(nums, mid + 1, j);
-    return root;
   }
 
   /* 查找节点 */
@@ -56,8 +43,11 @@ class BinarySearchTree {
 
   /* 插入节点 */
   void insert(int num) {
-    // 若树为空，直接提前返回
-    if (_root == null) return;
+    // 若树为空，则初始化根节点
+    if (_root == null) {
+      _root = TreeNode(num);
+      return;
+    }
     TreeNode? cur = _root;
     TreeNode? pre = null;
     // 循环查找，越过叶节点后跳出
@@ -80,11 +70,10 @@ class BinarySearchTree {
       pre.left = node;
   }
 
-/* 删除节点 */
+  /* 删除节点 */
   void remove(int num) {
     // 若树为空，直接提前返回
     if (_root == null) return;
-
     TreeNode? cur = _root;
     TreeNode? pre = null;
     // 循环查找，越过叶节点后跳出
@@ -133,8 +122,12 @@ class BinarySearchTree {
 /* Driver Code */
 void main() {
   /* 初始化二叉搜索树 */
-  List<int> nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-  BinarySearchTree bst = BinarySearchTree(nums);
+  BinarySearchTree bst = BinarySearchTree();
+  // 请注意，不同的插入顺序会生成不同的二叉树，该序列可以生成一个完美二叉树
+  List<int> nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];
+  for (int num in nums) {
+    bst.insert(num);
+  }
   print("\n初始化的二叉树为\n");
   printTree(bst.getRoot());
 

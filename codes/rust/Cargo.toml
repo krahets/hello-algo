@@ -114,6 +114,11 @@ path = "chapter_searching/binary_search.rs"
 name = "binary_search_edge"
 path = "chapter_searching/binary_search_edge.rs"
 
+# Run Command: cargo run --bin binary_search_insertion
+[[bin]]
+name = "binary_search_insertion"
+path = "chapter_searching/binary_search_insertion.rs"
+
 # Run Command: cargo run --bin bubble_sort
 [[bin]]
 name = "bubble_sort"

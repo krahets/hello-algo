@@ -53,8 +53,9 @@ function search(num: number): TreeNode | null {
 
 /* 插入节点 */
 function insert(num: number): void {
-    // 若树为空，直接提前返回
+    // 若树为空，则初始化根节点
     if (root === null) {
+        root = new TreeNode(num);
         return;
     }
     let cur = root,
