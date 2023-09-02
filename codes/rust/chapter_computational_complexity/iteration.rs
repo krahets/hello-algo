@@ -5,7 +5,7 @@
  */
 
  
-/*  for 循环 */
+/* for 循环 */
 fn for_loop(n: i32) -> i32 {
     let mut res = 0;
     // 循环求和 1, 2, ..., n-1, n

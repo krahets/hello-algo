@@ -5,7 +5,7 @@
  */
 
 /* 零钱兑换：贪心 */
-function coin_change_greedy(coins: number[], amt: number): number {
+function coinChangeGreedy(coins: number[], amt: number): number {
     // 假设 coins 数组有序
     let i = coins.length - 1;
     let count = 0;
@@ -27,24 +27,24 @@ function coin_change_greedy(coins: number[], amt: number): number {
 // 贪心：能够保证找到全局最优解
 let coins: number[] = [1, 5, 10, 20, 50, 100];
 let amt: number = 186;
-let res: number = coin_change_greedy(coins, amt);
+let res: number = coinChangeGreedy(coins, amt);
 console.log(`\ncoins = ${coins}, amt = ${amt}`);
 console.log(`凑到 ${amt} 所需的最少硬币数量为 ${res}`);
 
 // 贪心：无法保证找到全局最优解
 coins = [1, 20, 50];
 amt = 60;
-res = coin_change_greedy(coins, amt);
+res = coinChangeGreedy(coins, amt);
 console.log(`\ncoins = ${coins}, amt = ${amt}`);
 console.log(`凑到 ${amt} 所需的最少硬币数量为 ${res}`);
-console.log("实际上需要的最少数量为 3 ，即 20 + 20 + 20");
+console.log('实际上需要的最少数量为 3 ，即 20 + 20 + 20');
 
 // 贪心：无法保证找到全局最优解
 coins = [1, 49, 50];
 amt = 98;
-res = coin_change_greedy(coins, amt);
+res = coinChangeGreedy(coins, amt);
 console.log(`\ncoins = ${coins}, amt = ${amt}`);
 console.log(`凑到 ${amt} 所需的最少硬币数量为 ${res}`);
-console.log("实际上需要的最少数量为 2 ，即 49 + 49");
+console.log('实际上需要的最少数量为 2 ，即 49 + 49');
 
-export { };
+export {};

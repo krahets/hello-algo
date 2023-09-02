@@ -5,9 +5,10 @@
  */
 
 /* 最大容量：贪心 */
-function max_capacity(ht) {
+function maxCapacity(ht) {
     // 初始化 i, j 分列数组两端
-    let i = 0, j = ht.length - 1;
+    let i = 0,
+        j = ht.length - 1;
     // 初始最大容量为 0
     let res = 0;
     // 循环贪心选择，直至两板相遇
@@ -29,5 +30,5 @@ function max_capacity(ht) {
 const ht = [3, 8, 5, 2, 7, 7, 3, 4];
 
 // 贪心算法
-const res = max_capacity(ht);
+const res = maxCapacity(ht);
 console.log(`最大容量为 ${res}`);

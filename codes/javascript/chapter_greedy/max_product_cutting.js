@@ -5,7 +5,7 @@
  */
 
 /* 最大切分乘积：贪心 */
-function max_product_cutting(n) {
+function maxProductCutting(n) {
     // 当 n <= 3 时，必须切分出一个 1
     if (n <= 3) {
         return 1 * (n - 1);
@@ -29,5 +29,5 @@ function max_product_cutting(n) {
 let n = 58;
 
 // 贪心算法
-let res = max_product_cutting(n);
+let res = maxProductCutting(n);
 console.log(`最大切分乘积为 ${res}`);

@@ -13,11 +13,11 @@ class Item {
 }
 
 /* 分数背包：贪心 */
-function fractional_knapsack(wgt, val, cap) {
+function fractionalKnapsack(wgt, val, cap) {
     // 创建物品列表，包含两个属性：重量、价值
     const items = wgt.map((w, i) => new Item(w, val[i]));
     // 按照单位价值 item.v / item.w 从高到低进行排序
-    items.sort((a, b) => (b.v / b.w) - (a.v / a.w));
+    items.sort((a, b) => b.v / b.w - a.v / a.w);
     // 循环贪心选择
     let res = 0;
     for (const item of items) {
@@ -42,5 +42,5 @@ const cap = 50;
 const n = wgt.length;
 
 // 贪心算法
-const res = fractional_knapsack(wgt, val, cap);
+const res = fractionalKnapsack(wgt, val, cap);
 console.log(`不超过背包容量的最大物品价值为 ${res}`);

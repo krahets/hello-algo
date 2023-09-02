@@ -151,7 +151,6 @@ console.log(`\n堆元素数量为 ${size}`);
 let isEmpty = maxHeap.isEmpty();
 console.log(`\n堆是否为空 ${isEmpty}`);
 
-
 module.exports = {
     MaxHeap,
 };

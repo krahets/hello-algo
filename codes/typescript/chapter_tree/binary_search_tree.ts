@@ -84,7 +84,8 @@ class BinarySearchTree {
         // 子节点数量 = 0 or 1
         if (cur.left === null || cur.right === null) {
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
-            const child: TreeNode | null = cur.left !== null ? cur.left : cur.right;
+            const child: TreeNode | null =
+                cur.left !== null ? cur.left : cur.right;
             // 删除节点 cur
             if (cur !== this.root) {
                 if (pre!.left === cur) pre!.left = child;
@@ -122,7 +123,9 @@ printTree(bst.getRoot());
 
 /* 查找节点 */
 const node = bst.search(7);
-console.log('\n查找到的节点对象为 ' + node + '，节点值 = ' + (node ? node.val : 'null'));
+console.log(
+    '\n查找到的节点对象为 ' + node + '，节点值 = ' + (node ? node.val : 'null')
+);
 
 /* 插入节点 */
 bst.insert(16);

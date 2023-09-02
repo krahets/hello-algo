@@ -340,13 +340,13 @@ $$
 === "JS"
 
     ```javascript title="built_in_hash.js"
-
+    // JavaScript 未提供内置 hash code 函数
     ```
 
 === "TS"
 
     ```typescript title="built_in_hash.ts"
-
+    // TypeScript 未提供内置 hash code 函数
     ```
 
 === "C"
