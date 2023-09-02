@@ -139,3 +139,5 @@ printTree(bst.getRoot());
 bst.remove(4);
 console.log('\n删除节点 4 后，二叉树为\n');
 printTree(bst.getRoot());
+
+export {};
