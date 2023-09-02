@@ -4382,7 +4382,7 @@
 </div>
 </div>
 </div>
-<p>假设元素两两之间互不相同，则 <span class="arithmatex">\(n\)</span> 个元素共有 <span class="arithmatex">\(n!\)</span>  种排列（阶乘）；在记录结果时，需要复制长度为 <span class="arithmatex">\(n\)</span> 的列表，使用 <span class="arithmatex">\(O(n)\)</span> 时间。因此，<strong>时间复杂度为 <span class="arithmatex">\(O(n!n)\)</span></strong> 。</p>
+<p>假设元素两两之间互不相同，则 <span class="arithmatex">\(n\)</span> 个元素共有 <span class="arithmatex">\(n!\)</span>  种排列（阶乘）；在记录结果时，需要复制长度为 <span class="arithmatex">\(n\)</span> 的列表，使用 <span class="arithmatex">\(O(n)\)</span> 时间。<strong>因此时间复杂度为 <span class="arithmatex">\(O(n!n)\)</span></strong> 。</p>
 <p>最大递归深度为 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。<code>selected</code> 使用 <span class="arithmatex">\(O(n)\)</span> 空间。同一时刻最多共有 <span class="arithmatex">\(n\)</span> 个 <code>duplicated</code> ，使用 <span class="arithmatex">\(O(n^2)\)</span> 空间。<strong>因此空间复杂度为 <span class="arithmatex">\(O(n^2)\)</span></strong> 。</p>
 <h3 id="3">3. &nbsp; 两种剪枝对比<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>请注意，虽然 <code>selected</code> 和 <code>duplicated</code> 都用作剪枝，但两者的目标是不同的。</p>
