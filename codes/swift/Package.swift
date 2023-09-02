@@ -65,6 +65,8 @@ let package = Package(
         .executable(name: "bucket_sort", targets: ["bucket_sort"]),
         .executable(name: "counting_sort", targets: ["counting_sort"]),
         .executable(name: "radix_sort", targets: ["radix_sort"]),
+        // chapter_divide_and_conquer
+        .executable(name: "binary_search_recur", targets: ["binary_search_recur"]),
         // chapter_backtracking
         .executable(name: "preorder_traversal_i_compact", targets: ["preorder_traversal_i_compact"]),
         .executable(name: "preorder_traversal_ii_compact", targets: ["preorder_traversal_ii_compact"]),
@@ -155,6 +157,8 @@ let package = Package(
         .executableTarget(name: "bucket_sort", path: "chapter_sorting", sources: ["bucket_sort.swift"]),
         .executableTarget(name: "counting_sort", path: "chapter_sorting", sources: ["counting_sort.swift"]),
         .executableTarget(name: "radix_sort", path: "chapter_sorting", sources: ["radix_sort.swift"]),
+        // chapter_divide_and_conquer
+        .executableTarget(name: "binary_search_recur", path: "chapter_divide_and_conquer", sources: ["binary_search_recur.swift"]),
         // chapter_backtracking
         .executableTarget(name: "preorder_traversal_i_compact", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_i_compact.swift"]),
         .executableTarget(name: "preorder_traversal_ii_compact", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_ii_compact.swift"]),
