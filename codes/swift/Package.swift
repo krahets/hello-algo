@@ -68,6 +68,7 @@ let package = Package(
         // chapter_divide_and_conquer
         .executable(name: "binary_search_recur", targets: ["binary_search_recur"]),
         .executable(name: "build_tree", targets: ["build_tree"]),
+        .executable(name: "hanota", targets: ["hanota"]),
         // chapter_backtracking
         .executable(name: "preorder_traversal_i_compact", targets: ["preorder_traversal_i_compact"]),
         .executable(name: "preorder_traversal_ii_compact", targets: ["preorder_traversal_ii_compact"]),
@@ -161,6 +162,7 @@ let package = Package(
         // chapter_divide_and_conquer
         .executableTarget(name: "binary_search_recur", path: "chapter_divide_and_conquer", sources: ["binary_search_recur.swift"]),
         .executableTarget(name: "build_tree", dependencies: ["utils"], path: "chapter_divide_and_conquer", sources: ["build_tree.swift"]),
+        .executableTarget(name: "hanota", path: "chapter_divide_and_conquer", sources: ["hanota.swift"]),
         // chapter_backtracking
         .executableTarget(name: "preorder_traversal_i_compact", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_i_compact.swift"]),
         .executableTarget(name: "preorder_traversal_ii_compact", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_ii_compact.swift"]),
