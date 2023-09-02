@@ -56,7 +56,7 @@ class BinarySearchTree {
             else cur = cur.left;
         }
         // 插入节点
-        let node = new TreeNode(num);
+        const node = new TreeNode(num);
         if (pre.val < num) pre.right = node;
         else pre.left = node;
     }
@@ -82,7 +82,7 @@ class BinarySearchTree {
         // 子节点数量 = 0 or 1
         if (cur.left === null || cur.right === null) {
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
-            let child = cur.left !== null ? cur.left : cur.right;
+            const child = cur.left !== null ? cur.left : cur.right;
             // 删除节点 cur
             if (cur !== this.root) {
                 if (pre.left === cur) pre.left = child;
@@ -119,7 +119,7 @@ console.log('\n初始化的二叉树为\n');
 printTree(bst.getRoot());
 
 /* 查找节点 */
-let node = bst.search(7);
+const node = bst.search(7);
 console.log('\n查找到的节点对象为 ' + node + '，节点值 = ' + node.val);
 
 /* 插入节点 */
