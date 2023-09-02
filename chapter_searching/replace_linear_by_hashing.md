@@ -330,7 +330,7 @@ comments: true
         // 单层循环，时间复杂度 O(n)
         for (let i = 0; i < nums.length; i++) {
             if (m[target - nums[i]] !== undefined) {
-                return [m[target-nums[i]], i];
+                return [m[target - nums[i]], i];
             } else {
                 m[nums[i]] = i;
             }

@@ -141,7 +141,10 @@ status: new
 
     ```typescript title="binary_search_insertion.ts"
     /* 二分查找插入点（无重复元素） */
-    function binarySearchInsertionSimple(nums: Array<number>, target: number): number {
+    function binarySearchInsertionSimple(
+        nums: Array<number>,
+        target: number
+    ): number {
         let i = 0,
             j = nums.length - 1; // 初始化双闭区间 [0, n-1]
         while (i <= j) {

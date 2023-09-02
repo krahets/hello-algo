@@ -185,8 +185,7 @@ $$
         }
         // 计算不放入和放入物品 i 的最大价值
         const no = knapsackDFS(wgt, val, i - 1, c);
-        const yes =
-            knapsackDFS(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1];
+        const yes = knapsackDFS(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1];
         // 返回两种方案中价值更大的那一个
         return Math.max(no, yes);
     }
@@ -438,7 +437,8 @@ $$
         }
         // 计算不放入和放入物品 i 的最大价值
         const no = knapsackDFSMem(wgt, val, mem, i - 1, c);
-        const yes = knapsackDFSMem(wgt, val, mem, i - 1, c - wgt[i - 1]) + val[i - 1];
+        const yes =
+            knapsackDFSMem(wgt, val, mem, i - 1, c - wgt[i - 1]) + val[i - 1];
         // 记录并返回两种方案中价值更大的那一个
         mem[i][c] = Math.max(no, yes);
         return mem[i][c];

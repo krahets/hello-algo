@@ -122,7 +122,15 @@ status: new
 === "Swift"
 
     ```swift title="iteration.swift"
-    [class]{}-[func]{forLoop}
+    /* for 循环 */
+    func forLoop(n: Int) -> Int {
+        var res = 0
+        // 循环求和 1, 2, ..., n-1, n
+        for i in 1 ... n {
+            res += i
+        }
+        return res
+    }
     ```
 
 === "Zig"
@@ -148,7 +156,7 @@ status: new
 === "Rust"
 
     ```rust title="iteration.rs"
-    /*  for 循环 */
+    /* for 循环 */
     fn for_loop(n: i32) -> i32 {
         let mut res = 0;
         // 循环求和 1, 2, ..., n-1, n
@@ -294,7 +302,17 @@ status: new
 === "Swift"
 
     ```swift title="iteration.swift"
-    [class]{}-[func]{whileLoop}
+    /* while 循环 */
+    func whileLoop(n: Int) -> Int {
+        var res = 0
+        var i = 1 // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while i <= n {
+            res += i
+            i += 1 // 更新条件变量
+        }
+        return res
+    }
     ```
 
 === "Zig"
@@ -473,7 +491,19 @@ status: new
 === "Swift"
 
     ```swift title="iteration.swift"
-    [class]{}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    func whileLoopII(n: Int) -> Int {
+        var res = 0
+        var i = 1 // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while i <= n {
+            res += i
+            // 更新条件变量
+            i += 1
+            i *= 2
+        }
+        return res
+    }
     ```
 
 === "Zig"
@@ -649,7 +679,18 @@ status: new
 === "Swift"
 
     ```swift title="iteration.swift"
-    [class]{}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    func nestedForLoop(n: Int) -> String {
+        var res = ""
+        // 循环 i = 1, 2, ..., n-1, n
+        for i in 1 ... n {
+            // 循环 j = 1, 2, ..., n-1, n
+            for j in 1 ... n {
+                res.append("(\(i), \(j)), ")
+            }
+        }
+        return res
+    }
     ```
 
 === "Zig"
@@ -829,7 +870,17 @@ status: new
 === "Swift"
 
     ```swift title="recursion.swift"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    func recur(n: Int) -> Int {
+        // 终止条件
+        if n == 1 {
+            return 1
+        }
+        // 递：递归调用
+        let res = recur(n: n - 1)
+        // 归：返回结果
+        return n + res
+    }
     ```
 
 === "Zig"
@@ -1006,7 +1057,15 @@ status: new
 === "Swift"
 
     ```swift title="recursion.swift"
-    [class]{}-[func]{tailRecur}
+    /* 尾递归 */
+    func tailRecur(n: Int, res: Int) -> Int {
+        // 终止条件
+        if n == 0 {
+            return res
+        }
+        // 尾递归调用
+        return tailRecur(n: n - 1, res: res + n)
+    }
     ```
 
 === "Zig"
@@ -1179,7 +1238,17 @@ status: new
 === "Swift"
 
     ```swift title="recursion.swift"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    func fib(n: Int) -> Int {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if n == 1 || n == 2 {
+            return n - 1
+        }
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        let res = fib(n: n - 1) + fib(n: n - 2)
+        // 返回结果 f(n)
+        return res
+    }
     ```
 
 === "Zig"
