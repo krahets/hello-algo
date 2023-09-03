@@ -315,9 +315,40 @@ status: new
 === "Swift"
 
     ```swift title="fractional_knapsack.swift"
-    [class]{Item}-[func]{}
+    /* 物品 */
+    class Item {
+        var w: Int // 物品重量
+        var v: Int // 物品价值
 
-    [class]{}-[func]{fractionalKnapsack}
+        init(w: Int, v: Int) {
+            self.w = w
+            self.v = v
+        }
+    }
+
+    /* 分数背包：贪心 */
+    func fractionalKnapsack(wgt: [Int], val: [Int], cap: Int) -> Double {
+        // 创建物品列表，包含两个属性：重量、价值
+        var items = zip(wgt, val).map { Item(w: $0, v: $1) }
+        // 按照单位价值 item.v / item.w 从高到低进行排序
+        items.sort(by: { -(Double($0.v) / Double($0.w)) < -(Double($1.v) / Double($1.w)) })
+        // 循环贪心选择
+        var res = 0.0
+        var cap = cap
+        for item in items {
+            if item.w <= cap {
+                // 若剩余容量充足，则将当前物品整个装进背包
+                res += Double(item.v)
+                cap -= item.w
+            } else {
+                // 若剩余容量不足，则将当前物品的一部分装进背包
+                res += Double(item.v) / Double(item.w) * Double(cap)
+                // 已无剩余容量，因此跳出循环
+                break
+            }
+        }
+        return res
+    }
     ```
 
 === "Zig"

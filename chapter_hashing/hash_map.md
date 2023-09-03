@@ -86,7 +86,7 @@ comments: true
 
     ```python title="hash_map.py"
     # 初始化哈希表
-    hmap: Dict = {}
+    hmap: dict = {}
     
     # 添加操作
     # 在哈希表中添加键值对 (key, value)

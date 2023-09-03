@@ -91,7 +91,7 @@ comments: true
 
     ```python title="deque.py"
     # 初始化双向队列
-    deque: Deque[int] = collections.deque()
+    deque: deque[int] = collections.deque()
     
     # 元素入队
     deque.append(2)      # 添加至队尾
