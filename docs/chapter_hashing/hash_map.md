@@ -26,27 +26,27 @@
 
 哈希表的常见操作包括：初始化、查询操作、添加键值对和删除键值对等。
 
-=== "Java"
+=== "Python"
 
-    ```java title="hash_map.java"
-    /* 初始化哈希表 */
-    Map<Integer, String> map = new HashMap<>();
+    ```python title="hash_map.py"
+    # 初始化哈希表
+    hmap: dict = {}
     
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
-    map.put(12836, "小哈");   
-    map.put(15937, "小啰");   
-    map.put(16750, "小算");   
-    map.put(13276, "小法");
-    map.put(10583, "小鸭");
+    # 添加操作
+    # 在哈希表中添加键值对 (key, value)
+    hmap[12836] = "小哈"
+    hmap[15937] = "小啰"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鸭"
     
-    /* 查询操作 */
-    // 向哈希表输入键 key ，得到值 value
-    String name = map.get(15937);
+    # 查询操作
+    # 向哈希表输入键 key ，得到值 value
+    name: str = hmap[15937]
     
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)
-    map.remove(10583);
+    # 删除操作
+    # 在哈希表中删除键值对 (key, value)
+    hmap.pop(10583)
     ```
 
 === "C++"
@@ -72,27 +72,50 @@
     map.erase(10583);
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="hash_map.py"
-    # 初始化哈希表
-    hmap: Dict = {}
+    ```java title="hash_map.java"
+    /* 初始化哈希表 */
+    Map<Integer, String> map = new HashMap<>();
     
-    # 添加操作
-    # 在哈希表中添加键值对 (key, value)
-    hmap[12836] = "小哈"
-    hmap[15937] = "小啰"
-    hmap[16750] = "小算"
-    hmap[13276] = "小法"
-    hmap[10583] = "小鸭"
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map.put(12836, "小哈");   
+    map.put(15937, "小啰");   
+    map.put(16750, "小算");   
+    map.put(13276, "小法");
+    map.put(10583, "小鸭");
     
-    # 查询操作
-    # 向哈希表输入键 key ，得到值 value
-    name: str = hmap[15937]
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    String name = map.get(15937);
     
-    # 删除操作
-    # 在哈希表中删除键值对 (key, value)
-    hmap.pop(10583)
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.remove(10583);
+    ```
+
+=== "C#"
+
+    ```csharp title="hash_map.cs"
+    /* 初始化哈希表 */
+    Dictionary<int, String> map = new ();
+    
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map.Add(12836, "小哈");
+    map.Add(15937, "小啰");
+    map.Add(16750, "小算");
+    map.Add(13276, "小法");
+    map.Add(10583, "小鸭");
+    
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    String name = map[15937];
+    
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.Remove(10583);
     ```
 
 === "Go"
@@ -116,6 +139,29 @@
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     delete(hmap, 10583)
+    ```
+
+=== "Swift"
+
+    ```swift title="hash_map.swift"
+    /* 初始化哈希表 */
+    var map: [Int: String] = [:]
+    
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map[12836] = "小哈"
+    map[15937] = "小啰"
+    map[16750] = "小算"
+    map[13276] = "小法"
+    map[10583] = "小鸭"
+    
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    let name = map[15937]!
+    
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.removeValue(forKey: 10583)
     ```
 
 === "JS"
@@ -167,64 +213,6 @@
     console.info(map);
     ```
 
-=== "C"
-
-    ```c title="hash_map.c"
-    // C 未提供内置哈希表
-    ```
-
-=== "C#"
-
-    ```csharp title="hash_map.cs"
-    /* 初始化哈希表 */
-    Dictionary<int, String> map = new ();
-    
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
-    map.Add(12836, "小哈");
-    map.Add(15937, "小啰");
-    map.Add(16750, "小算");
-    map.Add(13276, "小法");
-    map.Add(10583, "小鸭");
-    
-    /* 查询操作 */
-    // 向哈希表输入键 key ，得到值 value
-    String name = map[15937];
-    
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)
-    map.Remove(10583);
-    ```
-
-=== "Swift"
-
-    ```swift title="hash_map.swift"
-    /* 初始化哈希表 */
-    var map: [Int: String] = [:]
-    
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
-    map[12836] = "小哈"
-    map[15937] = "小啰"
-    map[16750] = "小算"
-    map[13276] = "小法"
-    map[10583] = "小鸭"
-    
-    /* 查询操作 */
-    // 向哈希表输入键 key ，得到值 value
-    let name = map[15937]!
-    
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)
-    map.removeValue(forKey: 10583)
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map.zig"
-
-    ```
-
 === "Dart"
 
     ```dart title="hash_map.dart"
@@ -254,24 +242,33 @@
 
     ```
 
+=== "C"
+
+    ```c title="hash_map.c"
+    // C 未提供内置哈希表
+    ```
+
+=== "Zig"
+
+    ```zig title="hash_map.zig"
+
+    ```
+
 哈希表有三种常用遍历方式：遍历键值对、遍历键和遍历值。
 
-=== "Java"
+=== "Python"
 
-    ```java title="hash_map.java"
-    /* 遍历哈希表 */
-    // 遍历键值对 key->value
-    for (Map.Entry <Integer, String> kv: map.entrySet()) {
-        System.out.println(kv.getKey() + " -> " + kv.getValue());
-    }
-    // 单独遍历键 key
-    for (int key: map.keySet()) {
-        System.out.println(key);
-    }
-    // 单独遍历值 value
-    for (String val: map.values()) {
-        System.out.println(val);
-    }
+    ```python title="hash_map.py"
+    # 遍历哈希表
+    # 遍历键值对 key->value
+    for key, value in hmap.items():
+        print(key, "->", value)
+    # 单独遍历键 key
+    for key in hmap.keys():
+        print(key)
+    # 单独遍历值 value
+    for value in hmap.values():
+        print(value)
     ```
 
 === "C++"
@@ -292,19 +289,40 @@
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="hash_map.py"
-    # 遍历哈希表
-    # 遍历键值对 key->value
-    for key, value in hmap.items():
-        print(key, "->", value)
-    # 单独遍历键 key
-    for key in hmap.keys():
-        print(key)
-    # 单独遍历值 value
-    for value in hmap.values():
-        print(value)
+    ```java title="hash_map.java"
+    /* 遍历哈希表 */
+    // 遍历键值对 key->value
+    for (Map.Entry <Integer, String> kv: map.entrySet()) {
+        System.out.println(kv.getKey() + " -> " + kv.getValue());
+    }
+    // 单独遍历键 key
+    for (int key: map.keySet()) {
+        System.out.println(key);
+    }
+    // 单独遍历值 value
+    for (String val: map.values()) {
+        System.out.println(val);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="hash_map.cs"
+    /* 遍历哈希表 */
+    // 遍历键值对 Key->Value
+    foreach (var kv in map) {
+        Console.WriteLine(kv.Key + " -> " + kv.Value);
+    }
+    // 单独遍历键 key
+    foreach (int key in map.Keys) {
+        Console.WriteLine(key);
+    }
+    // 单独遍历值 value
+    foreach (String val in map.Values) {
+        Console.WriteLine(val);
+    }
     ```
 
 === "Go"
@@ -322,6 +340,24 @@
     // 单独遍历值 value
     for _, value := range hmap {
         fmt.Println(value)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="hash_map.swift"
+    /* 遍历哈希表 */
+    // 遍历键值对 Key->Value
+    for (key, value) in map {
+        print("\(key) -> \(value)")
+    }
+    // 单独遍历键 Key
+    for key in map.keys {
+        print(key)
+    }
+    // 单独遍历值 Value
+    for value in map.values {
+        print(value)
     }
     ```
 
@@ -361,54 +397,6 @@
     }
     ```
 
-=== "C"
-
-    ```c title="hash_map.c"
-    // C 未提供内置哈希表
-    ```
-
-=== "C#"
-
-    ```csharp title="hash_map.cs"
-    /* 遍历哈希表 */
-    // 遍历键值对 Key->Value
-    foreach (var kv in map) {
-        Console.WriteLine(kv.Key + " -> " + kv.Value);
-    }
-    // 单独遍历键 key
-    foreach (int key in map.Keys) {
-        Console.WriteLine(key);
-    }
-    // 单独遍历值 value
-    foreach (String val in map.Values) {
-        Console.WriteLine(val);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="hash_map.swift"
-    /* 遍历哈希表 */
-    // 遍历键值对 Key->Value
-    for (key, value) in map {
-        print("\(key) -> \(value)")
-    }
-    // 单独遍历键 Key
-    for key in map.keys {
-        print(key)
-    }
-    // 单独遍历值 Value
-    for value in map.values {
-        print(value)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map.zig"
-
-    ```
-
 === "Dart"
 
     ```dart title="hash_map.dart"
@@ -435,6 +423,18 @@
 
     ```
 
+=== "C"
+
+    ```c title="hash_map.c"
+    // C 未提供内置哈希表
+    ```
+
+=== "Zig"
+
+    ```zig title="hash_map.zig"
+
+    ```
+
 ## 哈希表简单实现
 
 我们先考虑最简单的情况，**仅用一个数组来实现哈希表**。在哈希表中，我们将数组中的每个空位称为「桶 bucket」，每个桶可存储一个键值对。因此，查询操作就是找到 `key` 对应的桶，并在桶中获取 `value` 。
@@ -458,9 +458,9 @@ index = hash(key) % capacity
 
 以下代码实现了一个简单哈希表。其中，我们将 `key` 和 `value` 封装成一个类 `Pair` ，以表示键值对。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array_hash_map.java"
+    ```python title="array_hash_map.py"
     [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
@@ -474,9 +474,17 @@ index = hash(key) % capacity
     [class]{ArrayHashMap}-[func]{}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array_hash_map.py"
+    ```java title="array_hash_map.java"
+    [class]{Pair}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="array_hash_map.cs"
     [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
@@ -488,38 +496,6 @@ index = hash(key) % capacity
     [class]{pair}-[func]{}
 
     [class]{arrayHashMap}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="array_hash_map.js"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="array_hash_map.ts"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="array_hash_map.c"
-    [class]{pair}-[func]{}
-
-    [class]{arrayHashMap}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="array_hash_map.cs"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
     ```
 
 === "Swift"
@@ -539,9 +515,17 @@ index = hash(key) % capacity
     [class]{ArrayHashMap}-[func]{}
     ```
 
-=== "Zig"
+=== "JS"
 
-    ```zig title="array_hash_map.zig"
+    ```javascript title="array_hash_map.js"
+    [class]{Pair}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
+    ```
+
+=== "TS"
+
+    ```typescript title="array_hash_map.ts"
     [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}
@@ -558,6 +542,22 @@ index = hash(key) % capacity
 === "Rust"
 
     ```rust title="array_hash_map.rs"
+    [class]{Pair}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="array_hash_map.c"
+    [class]{pair}-[func]{}
+
+    [class]{arrayHashMap}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="array_hash_map.zig"
     [class]{Pair}-[func]{}
 
     [class]{ArrayHashMap}-[func]{}

@@ -40,12 +40,12 @@
 
 在实现代码中，我们声明一个递归函数 `dfs()` 来求解问题 $f(i, j)$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_recur.java"
-    [class]{binary_search_recur}-[func]{dfs}
+    ```python title="binary_search_recur.py"
+    [class]{}-[func]{dfs}
 
-    [class]{binary_search_recur}-[func]{binarySearch}
+    [class]{}-[func]{binary_search}
     ```
 
 === "C++"
@@ -56,17 +56,33 @@
     [class]{}-[func]{binarySearch}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_recur.py"
-    [class]{}-[func]{dfs}
+    ```java title="binary_search_recur.java"
+    [class]{binary_search_recur}-[func]{dfs}
 
-    [class]{}-[func]{binary_search}
+    [class]{binary_search_recur}-[func]{binarySearch}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_recur.cs"
+    [class]{binary_search_recur}-[func]{dfs}
+
+    [class]{binary_search_recur}-[func]{binarySearch}
     ```
 
 === "Go"
 
     ```go title="binary_search_recur.go"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{binarySearch}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_recur.swift"
     [class]{}-[func]{dfs}
 
     [class]{}-[func]{binarySearch}
@@ -88,38 +104,6 @@
     [class]{}-[func]{binarySearch}
     ```
 
-=== "C"
-
-    ```c title="binary_search_recur.c"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{binarySearch}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_recur.cs"
-    [class]{binary_search_recur}-[func]{dfs}
-
-    [class]{binary_search_recur}-[func]{binarySearch}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_recur.swift"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{binarySearch}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_recur.zig"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{binarySearch}
-    ```
-
 === "Dart"
 
     ```dart title="binary_search_recur.dart"
@@ -134,4 +118,20 @@
     [class]{}-[func]{dfs}
 
     [class]{}-[func]{binary_search}
+    ```
+
+=== "C"
+
+    ```c title="binary_search_recur.c"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{binarySearch}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_recur.zig"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{binarySearch}
     ```

@@ -24,12 +24,12 @@
 
 为了解决此问题，**我们可以考虑在层序遍历序列中显式地写出所有 $\text{None}$** 。如下图所示，这样处理后，层序遍历序列就可以唯一表示二叉树了。
 
-=== "Java"
+=== "Python"
 
-    ```java title=""
-    /* 二叉树的数组表示 */
-    // 使用 int 的包装类 Integer ，就可以使用 null 来标记空位
-    Integer[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
+    ```python title=""
+    # 二叉树的数组表示
+    # 使用 None 来表示空位
+    tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     ```
 
 === "C++"
@@ -40,12 +40,20 @@
     vector<int> tree = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title=""
-    # 二叉树的数组表示
-    # 使用 None 来表示空位
-    tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
+    ```java title=""
+    /* 二叉树的数组表示 */
+    // 使用 int 的包装类 Integer ，就可以使用 null 来标记空位
+    Integer[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+    /* 二叉树的数组表示 */
+    // 使用 int? 可空类型 ，就可以使用 null 来标记空位
+    int?[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
     ```
 
 === "Go"
@@ -54,6 +62,14 @@
     /* 二叉树的数组表示 */
     // 使用 any 类型的切片, 就可以使用 nil 来标记空位
     tree := []any{1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15}
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    /* 二叉树的数组表示 */
+    // 使用 Int? 可空类型 ，就可以使用 nil 来标记空位
+    let tree: [Int?] = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
 === "JS"
@@ -72,36 +88,6 @@
     let tree: (number | null)[] = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
-=== "C"
-
-    ```c title=""
-    /* 二叉树的数组表示 */
-    // 使用 int 最大值标记空位，因此要求节点值不能为 INT_MAX
-    int tree[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* 二叉树的数组表示 */
-    // 使用 int? 可空类型 ，就可以使用 null 来标记空位
-    int?[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* 二叉树的数组表示 */
-    // 使用 Int? 可空类型 ，就可以使用 nil 来标记空位
-    let tree: [Int?] = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 === "Dart"
 
     ```dart title=""
@@ -113,6 +99,20 @@
 === "Rust"
 
     ```rust title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+    /* 二叉树的数组表示 */
+    // 使用 int 最大值标记空位，因此要求节点值不能为 INT_MAX
+    int tree[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
+    ```
+
+=== "Zig"
+
+    ```zig title=""
 
     ```
 
@@ -129,9 +129,9 @@
 - 给定某节点，获取它的值、左（右）子节点、父节点。
 - 获取前序遍历、中序遍历、后序遍历、层序遍历序列。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array_binary_tree.java"
+    ```python title="array_binary_tree.py"
     [class]{ArrayBinaryTree}-[func]{}
     ```
 
@@ -141,9 +141,15 @@
     [class]{ArrayBinaryTree}-[func]{}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array_binary_tree.py"
+    ```java title="array_binary_tree.java"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="array_binary_tree.cs"
     [class]{ArrayBinaryTree}-[func]{}
     ```
 
@@ -151,6 +157,12 @@
 
     ```go title="array_binary_tree.go"
     [class]{arrayBinaryTree}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="array_binary_tree.swift"
+    [class]{ArrayBinaryTree}-[func]{}
     ```
 
 === "JS"
@@ -165,30 +177,6 @@
     [class]{ArrayBinaryTree}-[func]{}
     ```
 
-=== "C"
-
-    ```c title="array_binary_tree.c"
-    [class]{arrayBinaryTree}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="array_binary_tree.cs"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="array_binary_tree.swift"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_binary_tree.zig"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
 === "Dart"
 
     ```dart title="array_binary_tree.dart"
@@ -198,6 +186,18 @@
 === "Rust"
 
     ```rust title="array_binary_tree.rs"
+    [class]{ArrayBinaryTree}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="array_binary_tree.c"
+    [class]{arrayBinaryTree}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="array_binary_tree.zig"
     [class]{ArrayBinaryTree}-[func]{}
     ```
 

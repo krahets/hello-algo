@@ -10,12 +10,12 @@
 
 我们可以根据需求选用数组的两种初始化方式：无初始值、给定初始值。在未指定初始值的情况下，大多数编程语言会将数组元素初始化为 $0$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    /* 初始化数组 */
-    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
-    int[] nums = { 1, 3, 2, 5, 4 };
+    ```python title="array.py"
+    # 初始化数组
+    arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
+    nums: list[int] = [1, 3, 2, 5, 4]  
     ```
 
 === "C++"
@@ -30,12 +30,20 @@
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    # 初始化数组
-    arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums: list[int] = [1, 3, 2, 5, 4]  
+    ```java title="array.java"
+    /* 初始化数组 */
+    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
+    int[] nums = { 1, 3, 2, 5, 4 };
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    /* 初始化数组 */
+    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
+    int[] nums = { 1, 3, 2, 5, 4 };
     ```
 
 === "Go"
@@ -47,6 +55,14 @@
     // 由于 Go 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
     // 为了方便实现扩容 extend() 方法，以下将切片（Slice）看作数组（Array）
     nums := []int{1, 3, 2, 5, 4}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    /* 初始化数组 */
+    let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
+    let nums = [1, 3, 2, 5, 4]
     ```
 
 === "JS"
@@ -65,37 +81,6 @@
     let nums: number[] = [1, 3, 2, 5, 4];
     ```
 
-=== "C"
-
-    ```c title="array.c"
-    int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
-    int nums[5] = { 1, 3, 2, 5, 4 };
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    /* 初始化数组 */
-    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
-    int[] nums = { 1, 3, 2, 5, 4 };
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    /* 初始化数组 */
-    let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
-    let nums = [1, 3, 2, 5, 4]
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 初始化数组
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
-    ```
-
 === "Dart"
 
     ```dart title="array.dart"
@@ -112,6 +97,21 @@
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
+=== "C"
+
+    ```c title="array.c"
+    int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
+    int nums[5] = { 1, 3, 2, 5, 4 };
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    // 初始化数组
+    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
+    var nums = [_]i32{ 1, 3, 2, 5, 4 };
+    ```
+
 ### 访问元素
 
 数组元素被存储在连续的内存空间中，这意味着计算数组元素的内存地址非常容易。给定数组内存地址（即首元素内存地址）和某个元素的索引，我们可以使用下图所示的公式计算得到该元素的内存地址，从而直接访问此元素。
@@ -122,10 +122,10 @@
 
 在数组中访问元素是非常高效的，我们可以在 $O(1)$ 时间内随机访问数组中的任意一个元素。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    [class]{array}-[func]{randomAccess}
+    ```python title="array.py"
+    [class]{}-[func]{random_access}
     ```
 
 === "C++"
@@ -134,15 +134,27 @@
     [class]{}-[func]{randomAccess}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    [class]{}-[func]{random_access}
+    ```java title="array.java"
+    [class]{array}-[func]{randomAccess}
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{randomAccess}
     ```
 
 === "Go"
 
     ```go title="array.go"
+    [class]{}-[func]{randomAccess}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
     [class]{}-[func]{randomAccess}
     ```
 
@@ -158,30 +170,6 @@
     [class]{}-[func]{randomAccess}
     ```
 
-=== "C"
-
-    ```c title="array.c"
-    [class]{}-[func]{randomAccess}
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    [class]{array}-[func]{randomAccess}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    [class]{}-[func]{randomAccess}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{randomAccess}
-    ```
-
 === "Dart"
 
     ```dart title="array.dart"
@@ -192,6 +180,18 @@
 
     ```rust title="array.rs"
     [class]{}-[func]{random_access}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{randomAccess}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    [class]{}-[func]{randomAccess}
     ```
 
 ### 插入元素
@@ -202,10 +202,10 @@
 
 值得注意的是，由于数组的长度是固定的，因此插入一个元素必定会导致数组尾部元素的“丢失”。我们将这个问题的解决方案留在列表章节中讨论。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    [class]{array}-[func]{insert}
+    ```python title="array.py"
+    [class]{}-[func]{insert}
     ```
 
 === "C++"
@@ -214,15 +214,27 @@
     [class]{}-[func]{insert}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    [class]{}-[func]{insert}
+    ```java title="array.java"
+    [class]{array}-[func]{insert}
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{insert}
     ```
 
 === "Go"
 
     ```go title="array.go"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
     [class]{}-[func]{insert}
     ```
 
@@ -238,30 +250,6 @@
     [class]{}-[func]{insert}
     ```
 
-=== "C"
-
-    ```c title="array.c"
-    [class]{}-[func]{insert}
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    [class]{array}-[func]{insert}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    [class]{}-[func]{insert}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{insert}
-    ```
-
 === "Dart"
 
     ```dart title="array.dart"
@@ -271,6 +259,18 @@
 === "Rust"
 
     ```rust title="array.rs"
+    [class]{}-[func]{insert}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
     [class]{}-[func]{insert}
     ```
 
@@ -282,10 +282,10 @@
 
 请注意，删除元素完成后，原先末尾的元素变得“无意义”了，所以我们无须特意去修改它。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    [class]{array}-[func]{remove}
+    ```python title="array.py"
+    [class]{}-[func]{remove}
     ```
 
 === "C++"
@@ -294,15 +294,27 @@
     [class]{}-[func]{remove}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    [class]{}-[func]{remove}
+    ```java title="array.java"
+    [class]{array}-[func]{remove}
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{remove}
     ```
 
 === "Go"
 
     ```go title="array.go"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
     [class]{}-[func]{remove}
     ```
 
@@ -318,30 +330,6 @@
     [class]{}-[func]{remove}
     ```
 
-=== "C"
-
-    ```c title="array.c"
-    [class]{}-[func]{removeItem}
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    [class]{array}-[func]{remove}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    [class]{}-[func]{remove}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{remove}
-    ```
-
 === "Dart"
 
     ```dart title="array.dart"
@@ -351,6 +339,18 @@
 === "Rust"
 
     ```rust title="array.rs"
+    [class]{}-[func]{remove}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{removeItem}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
     [class]{}-[func]{remove}
     ```
 
@@ -364,10 +364,10 @@
 
 在大多数编程语言中，我们既可以通过索引遍历数组，也可以直接遍历获取数组中的每个元素。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    [class]{array}-[func]{traverse}
+    ```python title="array.py"
+    [class]{}-[func]{traverse}
     ```
 
 === "C++"
@@ -376,15 +376,27 @@
     [class]{}-[func]{traverse}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    [class]{}-[func]{traverse}
+    ```java title="array.java"
+    [class]{array}-[func]{traverse}
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{traverse}
     ```
 
 === "Go"
 
     ```go title="array.go"
+    [class]{}-[func]{traverse}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
     [class]{}-[func]{traverse}
     ```
 
@@ -400,30 +412,6 @@
     [class]{}-[func]{traverse}
     ```
 
-=== "C"
-
-    ```c title="array.c"
-    [class]{}-[func]{traverse}
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    [class]{array}-[func]{traverse}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    [class]{}-[func]{traverse}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{traverse}
-    ```
-
 === "Dart"
 
     ```dart title="array.dart"
@@ -433,6 +421,18 @@
 === "Rust"
 
     ```rust title="array.rs"
+    [class]{}-[func]{traverse}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{traverse}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
     [class]{}-[func]{traverse}
     ```
 
@@ -442,10 +442,10 @@
 
 因为数组是线性数据结构，所以上述查找操作被称为“线性查找”。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    [class]{array}-[func]{find}
+    ```python title="array.py"
+    [class]{}-[func]{find}
     ```
 
 === "C++"
@@ -454,15 +454,27 @@
     [class]{}-[func]{find}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    [class]{}-[func]{find}
+    ```java title="array.java"
+    [class]{array}-[func]{find}
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{find}
     ```
 
 === "Go"
 
     ```go title="array.go"
+    [class]{}-[func]{find}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
     [class]{}-[func]{find}
     ```
 
@@ -478,30 +490,6 @@
     [class]{}-[func]{find}
     ```
 
-=== "C"
-
-    ```c title="array.c"
-    [class]{}-[func]{find}
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    [class]{array}-[func]{find}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    [class]{}-[func]{find}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{find}
-    ```
-
 === "Dart"
 
     ```dart title="array.dart"
@@ -511,6 +499,18 @@
 === "Rust"
 
     ```rust title="array.rs"
+    [class]{}-[func]{find}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{find}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
     [class]{}-[func]{find}
     ```
 
@@ -520,10 +520,10 @@
 
 如果我们希望扩容数组，则需重新建立一个更大的数组，然后把原数组元素依次拷贝到新数组。这是一个 $O(n)$ 的操作，在数组很大的情况下是非常耗时的。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    [class]{array}-[func]{extend}
+    ```python title="array.py"
+    [class]{}-[func]{extend}
     ```
 
 === "C++"
@@ -532,15 +532,27 @@
     [class]{}-[func]{extend}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    [class]{}-[func]{extend}
+    ```java title="array.java"
+    [class]{array}-[func]{extend}
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{extend}
     ```
 
 === "Go"
 
     ```go title="array.go"
+    [class]{}-[func]{extend}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
     [class]{}-[func]{extend}
     ```
 
@@ -556,30 +568,6 @@
     [class]{}-[func]{extend}
     ```
 
-=== "C"
-
-    ```c title="array.c"
-    [class]{}-[func]{extend}
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    [class]{array}-[func]{extend}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    [class]{}-[func]{extend}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{extend}
-    ```
-
 === "Dart"
 
     ```dart title="array.dart"
@@ -589,6 +577,18 @@
 === "Rust"
 
     ```rust title="array.rs"
+    [class]{}-[func]{extend}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{extend}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
     [class]{}-[func]{extend}
     ```
 

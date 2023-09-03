@@ -43,10 +43,10 @@
 
 值得注意的是，由于 $i$ 和 $j$ 都是 `int` 类型，**因此 $i + j$ 可能会超出 `int` 类型的取值范围**。为了避免大数越界，我们通常采用公式 $m = \lfloor {i + (j - i) / 2} \rfloor$ 来计算中点。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search.java"
-    [class]{binary_search}-[func]{binarySearch}
+    ```python title="binary_search.py"
+    [class]{}-[func]{binary_search}
     ```
 
 === "C++"
@@ -55,15 +55,27 @@
     [class]{}-[func]{binarySearch}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search.py"
-    [class]{}-[func]{binary_search}
+    ```java title="binary_search.java"
+    [class]{binary_search}-[func]{binarySearch}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search.cs"
+    [class]{binary_search}-[func]{binarySearch}
     ```
 
 === "Go"
 
     ```go title="binary_search.go"
+    [class]{}-[func]{binarySearch}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search.swift"
     [class]{}-[func]{binarySearch}
     ```
 
@@ -79,30 +91,6 @@
     [class]{}-[func]{binarySearch}
     ```
 
-=== "C"
-
-    ```c title="binary_search.c"
-    [class]{}-[func]{binarySearch}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search.cs"
-    [class]{binary_search}-[func]{binarySearch}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search.swift"
-    [class]{}-[func]{binarySearch}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search.zig"
-    [class]{}-[func]{binarySearch}
-    ```
-
 === "Dart"
 
     ```dart title="binary_search.dart"
@@ -113,6 +101,18 @@
 
     ```rust title="binary_search.rs"
     [class]{}-[func]{binary_search}
+    ```
+
+=== "C"
+
+    ```c title="binary_search.c"
+    [class]{}-[func]{binarySearch}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search.zig"
+    [class]{}-[func]{binarySearch}
     ```
 
 **时间复杂度 $O(\log n)$** ：在二分循环中，区间每轮缩小一半，循环次数为 $\log_2 n$ 。
@@ -125,10 +125,10 @@
 
 我们可以基于该表示实现具有相同功能的二分查找算法。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search.java"
-    [class]{binary_search}-[func]{binarySearchLCRO}
+    ```python title="binary_search.py"
+    [class]{}-[func]{binary_search_lcro}
     ```
 
 === "C++"
@@ -137,15 +137,27 @@
     [class]{}-[func]{binarySearchLCRO}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search.py"
-    [class]{}-[func]{binary_search_lcro}
+    ```java title="binary_search.java"
+    [class]{binary_search}-[func]{binarySearchLCRO}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search.cs"
+    [class]{binary_search}-[func]{binarySearchLCRO}
     ```
 
 === "Go"
 
     ```go title="binary_search.go"
+    [class]{}-[func]{binarySearchLCRO}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search.swift"
     [class]{}-[func]{binarySearchLCRO}
     ```
 
@@ -161,30 +173,6 @@
     [class]{}-[func]{binarySearchLCRO}
     ```
 
-=== "C"
-
-    ```c title="binary_search.c"
-    [class]{}-[func]{binarySearchLCRO}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search.cs"
-    [class]{binary_search}-[func]{binarySearchLCRO}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search.swift"
-    [class]{}-[func]{binarySearchLCRO}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search.zig"
-    [class]{}-[func]{binarySearchLCRO}
-    ```
-
 === "Dart"
 
     ```dart title="binary_search.dart"
@@ -195,6 +183,18 @@
 
     ```rust title="binary_search.rs"
     [class]{}-[func]{binary_search_lcro}
+    ```
+
+=== "C"
+
+    ```c title="binary_search.c"
+    [class]{}-[func]{binarySearchLCRO}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search.zig"
+    [class]{}-[func]{binarySearchLCRO}
     ```
 
 如下图所示，在两种区间表示下，二分查找算法的初始化、循环条件和缩小区间操作皆有所不同。

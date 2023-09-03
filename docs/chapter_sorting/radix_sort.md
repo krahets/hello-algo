@@ -24,14 +24,14 @@ $$
 
 此外，我们需要小幅改动计数排序代码，使之可以根据数字的第 $k$ 位进行排序。
 
-=== "Java"
+=== "Python"
 
-    ```java title="radix_sort.java"
-    [class]{radix_sort}-[func]{digit}
+    ```python title="radix_sort.py"
+    [class]{}-[func]{digit}
 
-    [class]{radix_sort}-[func]{countingSortDigit}
+    [class]{}-[func]{counting_sort_digit}
 
-    [class]{radix_sort}-[func]{radixSort}
+    [class]{}-[func]{radix_sort}
     ```
 
 === "C++"
@@ -44,19 +44,39 @@ $$
     [class]{}-[func]{radixSort}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="radix_sort.py"
-    [class]{}-[func]{digit}
+    ```java title="radix_sort.java"
+    [class]{radix_sort}-[func]{digit}
 
-    [class]{}-[func]{counting_sort_digit}
+    [class]{radix_sort}-[func]{countingSortDigit}
 
-    [class]{}-[func]{radix_sort}
+    [class]{radix_sort}-[func]{radixSort}
+    ```
+
+=== "C#"
+
+    ```csharp title="radix_sort.cs"
+    [class]{radix_sort}-[func]{digit}
+
+    [class]{radix_sort}-[func]{countingSortDigit}
+
+    [class]{radix_sort}-[func]{radixSort}
     ```
 
 === "Go"
 
     ```go title="radix_sort.go"
+    [class]{}-[func]{digit}
+
+    [class]{}-[func]{countingSortDigit}
+
+    [class]{}-[func]{radixSort}
+    ```
+
+=== "Swift"
+
+    ```swift title="radix_sort.swift"
     [class]{}-[func]{digit}
 
     [class]{}-[func]{countingSortDigit}
@@ -84,46 +104,6 @@ $$
     [class]{}-[func]{radixSort}
     ```
 
-=== "C"
-
-    ```c title="radix_sort.c"
-    [class]{}-[func]{digit}
-
-    [class]{}-[func]{countingSortDigit}
-
-    [class]{}-[func]{radixSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="radix_sort.cs"
-    [class]{radix_sort}-[func]{digit}
-
-    [class]{radix_sort}-[func]{countingSortDigit}
-
-    [class]{radix_sort}-[func]{radixSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="radix_sort.swift"
-    [class]{}-[func]{digit}
-
-    [class]{}-[func]{countingSortDigit}
-
-    [class]{}-[func]{radixSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="radix_sort.zig"
-    [class]{}-[func]{digit}
-
-    [class]{}-[func]{countingSortDigit}
-
-    [class]{}-[func]{radixSort}
-    ```
-
 === "Dart"
 
     ```dart title="radix_sort.dart"
@@ -142,6 +122,26 @@ $$
     [class]{}-[func]{counting_sort_digit}
 
     [class]{}-[func]{radix_sort}
+    ```
+
+=== "C"
+
+    ```c title="radix_sort.c"
+    [class]{}-[func]{digit}
+
+    [class]{}-[func]{countingSortDigit}
+
+    [class]{}-[func]{radixSort}
+    ```
+
+=== "Zig"
+
+    ```zig title="radix_sort.zig"
+    [class]{}-[func]{digit}
+
+    [class]{}-[func]{countingSortDigit}
+
+    [class]{}-[func]{radixSort}
     ```
 
 !!! question "为什么从最低位开始排序？"

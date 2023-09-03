@@ -16,10 +16,10 @@
 
 广度优先遍历通常借助“队列”来实现。队列遵循“先进先出”的规则，而广度优先遍历则遵循“逐层推进”的规则，两者背后的思想是一致的。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_tree_bfs.java"
-    [class]{binary_tree_bfs}-[func]{levelOrder}
+    ```python title="binary_tree_bfs.py"
+    [class]{}-[func]{level_order}
     ```
 
 === "C++"
@@ -28,15 +28,27 @@
     [class]{}-[func]{levelOrder}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_tree_bfs.py"
-    [class]{}-[func]{level_order}
+    ```java title="binary_tree_bfs.java"
+    [class]{binary_tree_bfs}-[func]{levelOrder}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_tree_bfs.cs"
+    [class]{binary_tree_bfs}-[func]{levelOrder}
     ```
 
 === "Go"
 
     ```go title="binary_tree_bfs.go"
+    [class]{}-[func]{levelOrder}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_tree_bfs.swift"
     [class]{}-[func]{levelOrder}
     ```
 
@@ -52,30 +64,6 @@
     [class]{}-[func]{levelOrder}
     ```
 
-=== "C"
-
-    ```c title="binary_tree_bfs.c"
-    [class]{}-[func]{levelOrder}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_tree_bfs.cs"
-    [class]{binary_tree_bfs}-[func]{levelOrder}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_tree_bfs.swift"
-    [class]{}-[func]{levelOrder}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_tree_bfs.zig"
-    [class]{}-[func]{levelOrder}
-    ```
-
 === "Dart"
 
     ```dart title="binary_tree_bfs.dart"
@@ -86,6 +74,18 @@
 
     ```rust title="binary_tree_bfs.rs"
     [class]{}-[func]{level_order}
+    ```
+
+=== "C"
+
+    ```c title="binary_tree_bfs.c"
+    [class]{}-[func]{levelOrder}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_tree_bfs.zig"
+    [class]{}-[func]{levelOrder}
     ```
 
 ### 复杂度分析
@@ -105,14 +105,14 @@
 
 深度优先搜索通常基于递归实现：
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_tree_dfs.java"
-    [class]{binary_tree_dfs}-[func]{preOrder}
+    ```python title="binary_tree_dfs.py"
+    [class]{}-[func]{pre_order}
 
-    [class]{binary_tree_dfs}-[func]{inOrder}
+    [class]{}-[func]{in_order}
 
-    [class]{binary_tree_dfs}-[func]{postOrder}
+    [class]{}-[func]{post_order}
     ```
 
 === "C++"
@@ -125,19 +125,39 @@
     [class]{}-[func]{postOrder}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_tree_dfs.py"
-    [class]{}-[func]{pre_order}
+    ```java title="binary_tree_dfs.java"
+    [class]{binary_tree_dfs}-[func]{preOrder}
 
-    [class]{}-[func]{in_order}
+    [class]{binary_tree_dfs}-[func]{inOrder}
 
-    [class]{}-[func]{post_order}
+    [class]{binary_tree_dfs}-[func]{postOrder}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_tree_dfs.cs"
+    [class]{binary_tree_dfs}-[func]{preOrder}
+
+    [class]{binary_tree_dfs}-[func]{inOrder}
+
+    [class]{binary_tree_dfs}-[func]{postOrder}
     ```
 
 === "Go"
 
     ```go title="binary_tree_dfs.go"
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_tree_dfs.swift"
     [class]{}-[func]{preOrder}
 
     [class]{}-[func]{inOrder}
@@ -165,46 +185,6 @@
     [class]{}-[func]{postOrder}
     ```
 
-=== "C"
-
-    ```c title="binary_tree_dfs.c"
-    [class]{}-[func]{preOrder}
-
-    [class]{}-[func]{inOrder}
-
-    [class]{}-[func]{postOrder}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_tree_dfs.cs"
-    [class]{binary_tree_dfs}-[func]{preOrder}
-
-    [class]{binary_tree_dfs}-[func]{inOrder}
-
-    [class]{binary_tree_dfs}-[func]{postOrder}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_tree_dfs.swift"
-    [class]{}-[func]{preOrder}
-
-    [class]{}-[func]{inOrder}
-
-    [class]{}-[func]{postOrder}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_tree_dfs.zig"
-    [class]{}-[func]{preOrder}
-
-    [class]{}-[func]{inOrder}
-
-    [class]{}-[func]{postOrder}
-    ```
-
 === "Dart"
 
     ```dart title="binary_tree_dfs.dart"
@@ -223,6 +203,26 @@
     [class]{}-[func]{in_order}
 
     [class]{}-[func]{post_order}
+    ```
+
+=== "C"
+
+    ```c title="binary_tree_dfs.c"
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_tree_dfs.zig"
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
     ```
 
 !!! note

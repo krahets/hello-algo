@@ -21,32 +21,32 @@
 
 同样地，我们可以直接使用编程语言中已实现的双向队列类。
 
-=== "Java"
+=== "Python"
 
-    ```java title="deque.java"
-    /* 初始化双向队列 */
-    Deque<Integer> deque = new LinkedList<>();
+    ```python title="deque.py"
+    # 初始化双向队列
+    deque: deque[int] = collections.deque()
     
-    /* 元素入队 */
-    deque.offerLast(2);   // 添加至队尾
-    deque.offerLast(5);
-    deque.offerLast(4);
-    deque.offerFirst(3);  // 添加至队首
-    deque.offerFirst(1);
+    # 元素入队
+    deque.append(2)      # 添加至队尾
+    deque.append(5)
+    deque.append(4)
+    deque.appendleft(3)  # 添加至队首
+    deque.appendleft(1)
     
-    /* 访问元素 */
-    int peekFirst = deque.peekFirst();  // 队首元素
-    int peekLast = deque.peekLast();    // 队尾元素
+    # 访问元素
+    front: int = deque[0]  # 队首元素
+    rear: int = deque[-1]  # 队尾元素
     
-    /* 元素出队 */
-    int popFirst = deque.pollFirst();  // 队首元素出队
-    int popLast = deque.pollLast();    // 队尾元素出队
+    # 元素出队
+    pop_front: int = deque.popleft()  # 队首元素出队
+    pop_rear: int = deque.pop()       # 队尾元素出队
     
-    /* 获取双向队列的长度 */
-    int size = deque.size();
+    # 获取双向队列的长度
+    size: int = len(deque)
     
-    /* 判断双向队列是否为空 */
-    boolean isEmpty = deque.isEmpty();
+    # 判断双向队列是否为空
+    is_empty: bool = len(deque) == 0
     ```
 
 === "C++"
@@ -77,32 +77,61 @@
     bool empty = deque.empty();
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="deque.py"
-    # 初始化双向队列
-    deque: Deque[int] = collections.deque()
+    ```java title="deque.java"
+    /* 初始化双向队列 */
+    Deque<Integer> deque = new LinkedList<>();
     
-    # 元素入队
-    deque.append(2)      # 添加至队尾
-    deque.append(5)
-    deque.append(4)
-    deque.appendleft(3)  # 添加至队首
-    deque.appendleft(1)
+    /* 元素入队 */
+    deque.offerLast(2);   // 添加至队尾
+    deque.offerLast(5);
+    deque.offerLast(4);
+    deque.offerFirst(3);  // 添加至队首
+    deque.offerFirst(1);
     
-    # 访问元素
-    front: int = deque[0]  # 队首元素
-    rear: int = deque[-1]  # 队尾元素
+    /* 访问元素 */
+    int peekFirst = deque.peekFirst();  // 队首元素
+    int peekLast = deque.peekLast();    // 队尾元素
     
-    # 元素出队
-    pop_front: int = deque.popleft()  # 队首元素出队
-    pop_rear: int = deque.pop()       # 队尾元素出队
+    /* 元素出队 */
+    int popFirst = deque.pollFirst();  // 队首元素出队
+    int popLast = deque.pollLast();    // 队尾元素出队
     
-    # 获取双向队列的长度
-    size: int = len(deque)
+    /* 获取双向队列的长度 */
+    int size = deque.size();
     
-    # 判断双向队列是否为空
-    is_empty: bool = len(deque) == 0
+    /* 判断双向队列是否为空 */
+    boolean isEmpty = deque.isEmpty();
+    ```
+
+=== "C#"
+
+    ```csharp title="deque.cs"
+    /* 初始化双向队列 */
+    // 在 C# 中，将链表 LinkedList 看作双向队列来使用
+    LinkedList<int> deque = new LinkedList<int>();
+    
+    /* 元素入队 */
+    deque.AddLast(2);   // 添加至队尾
+    deque.AddLast(5);
+    deque.AddLast(4);
+    deque.AddFirst(3);  // 添加至队首
+    deque.AddFirst(1);
+    
+    /* 访问元素 */
+    int peekFirst = deque.First.Value;  // 队首元素
+    int peekLast = deque.Last.Value;    // 队尾元素
+    
+    /* 元素出队 */
+    deque.RemoveFirst();  // 队首元素出队
+    deque.RemoveLast();   // 队尾元素出队
+    
+    /* 获取双向队列的长度 */
+    int size = deque.Count;
+    
+    /* 判断双向队列是否为空 */
+    bool isEmpty = deque.Count == 0;
     ```
 
 === "Go"
@@ -132,6 +161,36 @@
     
     /* 判断双向队列是否为空 */
     isEmpty := deque.Len() == 0
+    ```
+
+=== "Swift"
+
+    ```swift title="deque.swift"
+    /* 初始化双向队列 */
+    // Swift 没有内置的双向队列类，可以把 Array 当作双向队列来使用
+    var deque: [Int] = []
+
+    /* 元素入队 */
+    deque.append(2) // 添加至队尾
+    deque.append(5)
+    deque.append(4)
+    deque.insert(3, at: 0) // 添加至队首
+    deque.insert(1, at: 0)
+
+    /* 访问元素 */
+    let peekFirst = deque.first! // 队首元素
+    let peekLast = deque.last! // 队尾元素
+
+    /* 元素出队 */
+    // 使用 Array 模拟时 popFirst 的复杂度为 O(n)
+    let popFirst = deque.removeFirst() // 队首元素出队
+    let popLast = deque.removeLast() // 队尾元素出队
+
+    /* 获取双向队列的长度 */
+    let size = deque.count
+
+    /* 判断双向队列是否为空 */
+    let isEmpty = deque.isEmpty
     ```
 
 === "JS"
@@ -210,77 +269,6 @@
     console.log("双向队列是否为空 = " + isEmpty);
     ```
 
-=== "C"
-
-    ```c title="deque.c"
-    // C 未提供内置双向队列
-    ```
-
-=== "C#"
-
-    ```csharp title="deque.cs"
-    /* 初始化双向队列 */
-    // 在 C# 中，将链表 LinkedList 看作双向队列来使用
-    LinkedList<int> deque = new LinkedList<int>();
-    
-    /* 元素入队 */
-    deque.AddLast(2);   // 添加至队尾
-    deque.AddLast(5);
-    deque.AddLast(4);
-    deque.AddFirst(3);  // 添加至队首
-    deque.AddFirst(1);
-    
-    /* 访问元素 */
-    int peekFirst = deque.First.Value;  // 队首元素
-    int peekLast = deque.Last.Value;    // 队尾元素
-    
-    /* 元素出队 */
-    deque.RemoveFirst();  // 队首元素出队
-    deque.RemoveLast();   // 队尾元素出队
-    
-    /* 获取双向队列的长度 */
-    int size = deque.Count;
-    
-    /* 判断双向队列是否为空 */
-    bool isEmpty = deque.Count == 0;
-    ```
-
-=== "Swift"
-
-    ```swift title="deque.swift"
-    /* 初始化双向队列 */
-    // Swift 没有内置的双向队列类，可以把 Array 当作双向队列来使用
-    var deque: [Int] = []
-
-    /* 元素入队 */
-    deque.append(2) // 添加至队尾
-    deque.append(5)
-    deque.append(4)
-    deque.insert(3, at: 0) // 添加至队首
-    deque.insert(1, at: 0)
-
-    /* 访问元素 */
-    let peekFirst = deque.first! // 队首元素
-    let peekLast = deque.last! // 队尾元素
-
-    /* 元素出队 */
-    // 使用 Array 模拟时 popFirst 的复杂度为 O(n)
-    let popFirst = deque.removeFirst() // 队首元素出队
-    let popLast = deque.removeLast() // 队尾元素出队
-
-    /* 获取双向队列的长度 */
-    let size = deque.count
-
-    /* 判断双向队列是否为空 */
-    let isEmpty = deque.isEmpty
-    ```
-
-=== "Zig"
-
-    ```zig title="deque.zig"
-
-    ```
-
 === "Dart"
 
     ```dart title="deque.dart"
@@ -316,6 +304,18 @@
 
     ```
 
+=== "C"
+
+    ```c title="deque.c"
+    // C 未提供内置双向队列
+    ```
+
+=== "Zig"
+
+    ```zig title="deque.zig"
+
+    ```
+
 ## 双向队列实现 *
 
 双向队列的实现与队列类似，可以选择链表或数组作为底层数据结构。
@@ -345,9 +345,9 @@
 
 实现代码如下所示。
 
-=== "Java"
+=== "Python"
 
-    ```java title="linkedlist_deque.java"
+    ```python title="linkedlist_deque.py"
     [class]{ListNode}-[func]{}
 
     [class]{LinkedListDeque}-[func]{}
@@ -361,9 +361,17 @@
     [class]{LinkedListDeque}-[func]{}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="linkedlist_deque.py"
+    ```java title="linkedlist_deque.java"
+    [class]{ListNode}-[func]{}
+
+    [class]{LinkedListDeque}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="linkedlist_deque.cs"
     [class]{ListNode}-[func]{}
 
     [class]{LinkedListDeque}-[func]{}
@@ -373,6 +381,14 @@
 
     ```go title="linkedlist_deque.go"
     [class]{linkedListDeque}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="linkedlist_deque.swift"
+    [class]{ListNode}-[func]{}
+
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "JS"
@@ -391,38 +407,6 @@
     [class]{LinkedListDeque}-[func]{}
     ```
 
-=== "C"
-
-    ```c title="linkedlist_deque.c"
-    [class]{doublyListNode}-[func]{}
-
-    [class]{linkedListDeque}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="linkedlist_deque.cs"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="linkedlist_deque.swift"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="linkedlist_deque.zig"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
 === "Dart"
 
     ```dart title="linkedlist_deque.dart"
@@ -434,6 +418,22 @@
 === "Rust"
 
     ```rust title="linkedlist_deque.rs"
+    [class]{ListNode}-[func]{}
+
+    [class]{LinkedListDeque}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="linkedlist_deque.c"
+    [class]{doublyListNode}-[func]{}
+
+    [class]{linkedListDeque}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="linkedlist_deque.zig"
     [class]{ListNode}-[func]{}
 
     [class]{LinkedListDeque}-[func]{}
@@ -460,9 +460,9 @@
 
 在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array_deque.java"
+    ```python title="array_deque.py"
     [class]{ArrayDeque}-[func]{}
     ```
 
@@ -472,9 +472,15 @@
     [class]{ArrayDeque}-[func]{}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array_deque.py"
+    ```java title="array_deque.java"
+    [class]{ArrayDeque}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="array_deque.cs"
     [class]{ArrayDeque}-[func]{}
     ```
 
@@ -482,6 +488,12 @@
 
     ```go title="array_deque.go"
     [class]{arrayDeque}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="array_deque.swift"
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "JS"
@@ -496,30 +508,6 @@
     [class]{ArrayDeque}-[func]{}
     ```
 
-=== "C"
-
-    ```c title="array_deque.c"
-    [class]{arrayDeque}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="array_deque.cs"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="array_deque.swift"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_deque.zig"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
 === "Dart"
 
     ```dart title="array_deque.dart"
@@ -529,6 +517,18 @@
 === "Rust"
 
     ```rust title="array_deque.rs"
+    [class]{ArrayDeque}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="array_deque.c"
+    [class]{arrayDeque}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="array_deque.zig"
     [class]{ArrayDeque}-[func]{}
     ```
 
