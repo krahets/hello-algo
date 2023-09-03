@@ -222,13 +222,13 @@ int main() {
 
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
-    const char *name = get(map, 15937);
-    printf("\n输入学号 15937 ，查询到姓名 %s\n", name);
+    const char *name = get(map, 13276);
+    printf("\n输入学号 13276 ，查询到姓名 %s\n", name);
 
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
-    removeItem(map, 10583);
-    printf("\n删除 10583 后，哈希表为\nKey -> Value\n");
+    removeItem(map, 12836);
+    printf("\n删除 12836 后，哈希表为\nKey -> Value\n");
     print(map);
 
     delHashMapChaining(map);
