@@ -95,6 +95,7 @@ let package = Package(
         .executable(name: "edit_distance", targets: ["edit_distance"]),
         // chapter_greedy
         .executable(name: "coin_change_greedy", targets: ["coin_change_greedy"]),
+        .executable(name: "fractional_knapsack", targets: ["fractional_knapsack"]),
     ],
     targets: [
         // helper
@@ -191,5 +192,6 @@ let package = Package(
         .executableTarget(name: "edit_distance", path: "chapter_dynamic_programming", sources: ["edit_distance.swift"]),
         // chapter_greedy
         .executableTarget(name: "coin_change_greedy", path: "chapter_greedy", sources: ["coin_change_greedy.swift"]),
+        .executableTarget(name: "fractional_knapsack", path: "chapter_greedy", sources: ["fractional_knapsack.swift"]),
     ]
 )
