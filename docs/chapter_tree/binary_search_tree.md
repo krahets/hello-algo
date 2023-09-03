@@ -66,7 +66,7 @@
 === "TS"
 
     ```typescript title="binary_search_tree.ts"
-    [class]{}-[func]{search}
+    [class]{BinarySearchTree}-[func]{search}
     ```
 
 === "C"
@@ -152,7 +152,7 @@
 === "TS"
 
     ```typescript title="binary_search_tree.ts"
-    [class]{}-[func]{insert}
+    [class]{BinarySearchTree}-[func]{insert}
     ```
 
 === "C"
@@ -263,7 +263,7 @@
 === "TS"
 
     ```typescript title="binary_search_tree.ts"
-    [class]{}-[func]{remove}
+    [class]{BinarySearchTree}-[func]{remove}
     ```
 
 === "C"

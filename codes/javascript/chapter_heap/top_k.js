@@ -9,7 +9,7 @@ const { MaxHeap } = require('./my_heap');
 /* 基于堆查找数组中最大的 k 个元素 */
 function top_k_heap(nums, k) {
     // 使用大顶堆 MaxHeap，对数组 nums 取相反数
-    const invertedNums = nums.map(num => -num);
+    const invertedNums = nums.map((num) => -num);
     // 将数组的前 k 个元素入堆
     const heap = new MaxHeap(invertedNums.slice(0, k));
     // 从第 k+1 个元素开始，保持堆的长度为 k
@@ -23,7 +23,7 @@ function top_k_heap(nums, k) {
     // 取出堆中元素
     const maxHeap = heap.getMaxHeap();
     // 对堆中元素取相反数
-    const invertedMaxHeap = maxHeap.map(num => -num);
+    const invertedMaxHeap = maxHeap.map((num) => -num);
     return invertedMaxHeap;
 }
 

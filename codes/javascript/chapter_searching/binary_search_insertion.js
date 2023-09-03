@@ -60,5 +60,5 @@ for (const target of [2, 6, 20]) {
 }
 
 module.exports = {
-    binarySearchInsertion
+    binarySearchInsertion,
 };

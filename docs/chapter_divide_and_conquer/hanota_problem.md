@@ -99,7 +99,7 @@
 
     [class]{}-[func]{dfs}
 
-    [class]{}-[func]{hanota}
+    [class]{}-[func]{solveHanota}
     ```
 
 === "Python"
@@ -109,7 +109,7 @@
 
     [class]{}-[func]{dfs}
 
-    [class]{}-[func]{hanota}
+    [class]{}-[func]{solve_hanota}
     ```
 
 === "Go"
@@ -119,7 +119,7 @@
 
     [class]{}-[func]{dfsHanota}
 
-    [class]{}-[func]{hanota}
+    [class]{}-[func]{solveHanota}
     ```
 
 === "JS"
@@ -129,7 +129,7 @@
 
     [class]{}-[func]{dfs}
 
-    [class]{}-[func]{hanota}
+    [class]{}-[func]{solveHanota}
     ```
 
 === "TS"
@@ -139,7 +139,7 @@
 
     [class]{}-[func]{dfs}
 
-    [class]{}-[func]{hanota}
+    [class]{}-[func]{solveHanota}
     ```
 
 === "C"
@@ -149,7 +149,7 @@
 
     [class]{}-[func]{dfs}
 
-    [class]{}-[func]{hanota}
+    [class]{}-[func]{solveHanota}
     ```
 
 === "C#"
@@ -169,7 +169,7 @@
 
     [class]{}-[func]{dfs}
 
-    [class]{}-[func]{hanota}
+    [class]{}-[func]{solveHanota}
     ```
 
 === "Zig"
@@ -179,7 +179,7 @@
 
     [class]{}-[func]{dfs}
 
-    [class]{}-[func]{hanota}
+    [class]{}-[func]{solveHanota}
     ```
 
 === "Dart"
@@ -189,7 +189,7 @@
 
     [class]{}-[func]{dfs}
 
-    [class]{}-[func]{hanota}
+    [class]{}-[func]{solveHanota}
     ```
 
 === "Rust"
@@ -199,7 +199,7 @@
 
     [class]{}-[func]{dfs}
 
-    [class]{}-[func]{hanota}
+    [class]{}-[func]{solve_hanota}
     ```
 
 如下图所示，汉诺塔问题形成一个高度为 $n$ 的递归树，每个节点代表一个子问题、对应一个开启的 `dfs()` 函数，**因此时间复杂度为 $O(2^n)$ ，空间复杂度为 $O(n)$** 。

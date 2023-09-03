@@ -28,7 +28,7 @@ void dfs(int i, List<int> src, List<int> buf, List<int> tar) {
 }
 
 /* 求解汉诺塔 */
-void hanota(List<int> A, List<int> B, List<int> C) {
+void solveHanota(List<int> A, List<int> B, List<int> C) {
   int n = A.length;
   // 将 A 顶部 n 个圆盘借助 B 移到 C
   dfs(n, A, B, C);
@@ -45,7 +45,7 @@ void main() {
   print("B = $B");
   print("C = $C");
 
-  hanota(A, B, C);
+  solveHanota(A, B, C);
 
   print("圆盘移动完成后：");
   print("A = $A");

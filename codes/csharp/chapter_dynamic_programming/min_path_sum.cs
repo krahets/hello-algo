@@ -4,13 +4,13 @@
 * Author: hpstory (hpstory1024@163.com)
 */
 
-namespace hello_algo.chapter_dynamic_programming; 
+namespace hello_algo.chapter_dynamic_programming;
 
 public class min_path_sum {
     /* 最小路径和：暴力搜索 */
     public int minPathSumDFS(int[][] grid, int i, int j) {
         // 若为左上角单元格，则终止搜索
-        if (i == 0 && j == 0){
+        if (i == 0 && j == 0) {
             return grid[0][0];
         }
         // 若行列索引越界，则返回 +∞ 代价

@@ -46,10 +46,10 @@ int comp(const void *a, const void *b) {
 
 /* 求解子集和 II */
 vector *subsetSumII(vector *nums, int target) {
-    vector *state = newVector();                         // 状态（子集）
+    vector *state = newVector();                        // 状态（子集）
     qsort(nums->data, nums->size, sizeof(int *), comp); // 对 nums 进行排序
-    int start = 0;                                       // 子集和
-    vector *res = newVector();                           // 结果列表（子集列表）
+    int start = 0;                                      // 子集和
+    vector *res = newVector();                          // 结果列表（子集列表）
     backtrack(state, target, nums, start, res);
     return res;
 }

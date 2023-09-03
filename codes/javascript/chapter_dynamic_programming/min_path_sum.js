@@ -98,7 +98,7 @@ const grid = [
     [2, 2, 4, 2],
     [5, 3, 2, 1],
     [4, 3, 5, 2],
-]
+];
 const n = grid.length,
     m = grid[0].length;
 // 暴力搜索

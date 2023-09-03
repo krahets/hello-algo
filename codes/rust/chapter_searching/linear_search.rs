@@ -4,11 +4,11 @@
  * Author: sjinzh (sjinzh@gmail.com)
  */
 
- include!("../include/include.rs");
+include!("../include/include.rs");
 
- use std::rc::Rc;
- use std::cell::RefCell;
- use list_node::ListNode;
+use std::rc::Rc;
+use std::cell::RefCell;
+use list_node::ListNode;
 
 /* 线性查找（数组） */
 fn linear_search_array(nums: &[i32], target: i32) -> i32 {

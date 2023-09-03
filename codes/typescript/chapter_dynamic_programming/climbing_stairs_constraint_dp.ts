@@ -10,10 +10,7 @@ function climbingStairsConstraintDP(n: number): number {
         return 1;
     }
     // 初始化 dp 表，用于存储子问题的解
-    const dp = Array.from(
-        { length: n + 1 },
-        () => new Array(3)
-    );
+    const dp = Array.from({ length: n + 1 }, () => new Array(3));
     // 初始状态：预设最小子问题的解
     dp[1][1] = 1;
     dp[1][2] = 0;

@@ -4,7 +4,7 @@
 * Author: hpstory (hpstory1024@163.com)
 */
 
-namespace hello_algo.chapter_hashing; 
+namespace hello_algo.chapter_hashing;
 
 public class built_in_hash {
     [Test]
