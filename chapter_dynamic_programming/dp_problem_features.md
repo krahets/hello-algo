@@ -41,25 +41,22 @@ $$
 
 根据状态转移方程，以及初始状态 $dp[1] = cost[1]$ 和 $dp[2] = cost[2]$ ，我们就可以得到动态规划代码。
 
-=== "Java"
+=== "Python"
 
-    ```java title="min_cost_climbing_stairs_dp.java"
-    /* 爬楼梯最小代价：动态规划 */
-    int minCostClimbingStairsDP(int[] cost) {
-        int n = cost.length - 1;
-        if (n == 1 || n == 2)
-            return cost[n];
-        // 初始化 dp 表，用于存储子问题的解
-        int[] dp = new int[n + 1];
-        // 初始状态：预设最小子问题的解
-        dp[1] = cost[1];
-        dp[2] = cost[2];
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for (int i = 3; i <= n; i++) {
-            dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];
-        }
-        return dp[n];
-    }
+    ```python title="min_cost_climbing_stairs_dp.py"
+    def min_cost_climbing_stairs_dp(cost: list[int]) -> int:
+        """爬楼梯最小代价：动态规划"""
+        n = len(cost) - 1
+        if n == 1 or n == 2:
+            return cost[n]
+        # 初始化 dp 表，用于存储子问题的解
+        dp = [0] * (n + 1)
+        # 初始状态：预设最小子问题的解
+        dp[1], dp[2] = cost[1], cost[2]
+        # 状态转移：从较小子问题逐步求解较大子问题
+        for i in range(3, n + 1):
+            dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
+        return dp[n]
     ```
 
 === "C++"
@@ -83,22 +80,46 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="min_cost_climbing_stairs_dp.py"
-    def min_cost_climbing_stairs_dp(cost: list[int]) -> int:
-        """爬楼梯最小代价：动态规划"""
-        n = len(cost) - 1
-        if n == 1 or n == 2:
-            return cost[n]
-        # 初始化 dp 表，用于存储子问题的解
-        dp = [0] * (n + 1)
-        # 初始状态：预设最小子问题的解
-        dp[1], dp[2] = cost[1], cost[2]
-        # 状态转移：从较小子问题逐步求解较大子问题
-        for i in range(3, n + 1):
-            dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
-        return dp[n]
+    ```java title="min_cost_climbing_stairs_dp.java"
+    /* 爬楼梯最小代价：动态规划 */
+    int minCostClimbingStairsDP(int[] cost) {
+        int n = cost.length - 1;
+        if (n == 1 || n == 2)
+            return cost[n];
+        // 初始化 dp 表，用于存储子问题的解
+        int[] dp = new int[n + 1];
+        // 初始状态：预设最小子问题的解
+        dp[1] = cost[1];
+        dp[2] = cost[2];
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (int i = 3; i <= n; i++) {
+            dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];
+        }
+        return dp[n];
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="min_cost_climbing_stairs_dp.cs"
+    /* 爬楼梯最小代价：动态规划 */
+    int minCostClimbingStairsDP(int[] cost) {
+        int n = cost.Length - 1;
+        if (n == 1 || n == 2)
+            return cost[n];
+        // 初始化 dp 表，用于存储子问题的解
+        int[] dp = new int[n + 1];
+        // 初始状态：预设最小子问题的解
+        dp[1] = cost[1];
+        dp[2] = cost[2];
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (int i = 3; i <= n; i++) {
+            dp[i] = Math.Min(dp[i - 1], dp[i - 2]) + cost[i];
+        }
+        return dp[n];
+    }
     ```
 
 === "Go"
@@ -118,6 +139,28 @@ $$
         // 状态转移：从较小子问题逐步求解较大子问题
         for i := 3; i <= n; i++ {
             dp[i] = int(math.Min(float64(dp[i-1]), float64(dp[i-2]+cost[i])))
+        }
+        return dp[n]
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="min_cost_climbing_stairs_dp.swift"
+    /* 爬楼梯最小代价：动态规划 */
+    func minCostClimbingStairsDP(cost: [Int]) -> Int {
+        let n = cost.count - 1
+        if n == 1 || n == 2 {
+            return cost[n]
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        var dp = Array(repeating: 0, count: n + 1)
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1
+        dp[2] = 2
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i in stride(from: 3, through: n, by: 1) {
+            dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
         }
         return dp[n]
     }
@@ -167,77 +210,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="min_cost_climbing_stairs_dp.c"
-    [class]{}-[func]{minCostClimbingStairsDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="min_cost_climbing_stairs_dp.cs"
-    /* 爬楼梯最小代价：动态规划 */
-    int minCostClimbingStairsDP(int[] cost) {
-        int n = cost.Length - 1;
-        if (n == 1 || n == 2)
-            return cost[n];
-        // 初始化 dp 表，用于存储子问题的解
-        int[] dp = new int[n + 1];
-        // 初始状态：预设最小子问题的解
-        dp[1] = cost[1];
-        dp[2] = cost[2];
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for (int i = 3; i <= n; i++) {
-            dp[i] = Math.Min(dp[i - 1], dp[i - 2]) + cost[i];
-        }
-        return dp[n];
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="min_cost_climbing_stairs_dp.swift"
-    /* 爬楼梯最小代价：动态规划 */
-    func minCostClimbingStairsDP(cost: [Int]) -> Int {
-        let n = cost.count - 1
-        if n == 1 || n == 2 {
-            return cost[n]
-        }
-        // 初始化 dp 表，用于存储子问题的解
-        var dp = Array(repeating: 0, count: n + 1)
-        // 初始状态：预设最小子问题的解
-        dp[1] = 1
-        dp[2] = 2
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for i in stride(from: 3, through: n, by: 1) {
-            dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
-        }
-        return dp[n]
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="min_cost_climbing_stairs_dp.zig"
-    // 爬楼梯最小代价：动态规划
-    fn minCostClimbingStairsDP(comptime cost: []i32) i32 {
-        comptime var n = cost.len - 1;
-        if (n == 1 or n == 2) {
-            return cost[n];
-        }
-        // 初始化 dp 表，用于存储子问题的解
-        var dp = [_]i32{-1} ** (n + 1);
-        // 初始状态：预设最小子问题的解
-        dp[1] = cost[1];
-        dp[2] = cost[2];
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for (3..n + 1) |i| {
-            dp[i] = @min(dp[i - 1], dp[i - 2]) + cost[i];
-        }
-        return dp[n];
-    }
-    ```
-
 === "Dart"
 
     ```dart title="min_cost_climbing_stairs_dp.dart"
@@ -278,6 +250,34 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="min_cost_climbing_stairs_dp.c"
+    [class]{}-[func]{minCostClimbingStairsDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="min_cost_climbing_stairs_dp.zig"
+    // 爬楼梯最小代价：动态规划
+    fn minCostClimbingStairsDP(comptime cost: []i32) i32 {
+        comptime var n = cost.len - 1;
+        if (n == 1 or n == 2) {
+            return cost[n];
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        var dp = [_]i32{-1} ** (n + 1);
+        // 初始状态：预设最小子问题的解
+        dp[1] = cost[1];
+        dp[2] = cost[2];
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (3..n + 1) |i| {
+            dp[i] = @min(dp[i - 1], dp[i - 2]) + cost[i];
+        }
+        return dp[n];
+    }
+    ```
+
 图 14-7 展示了以上代码的动态规划过程。
 
 ![爬楼梯最小代价的动态规划过程](dp_problem_features.assets/min_cost_cs_dp.png)
@@ -286,22 +286,18 @@ $$
 
 本题也可以进行空间优化，将一维压缩至零维，使得空间复杂度从 $O(n)$ 降低至 $O(1)$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="min_cost_climbing_stairs_dp.java"
-    /* 爬楼梯最小代价：空间优化后的动态规划 */
-    int minCostClimbingStairsDPComp(int[] cost) {
-        int n = cost.length - 1;
-        if (n == 1 || n == 2)
-            return cost[n];
-        int a = cost[1], b = cost[2];
-        for (int i = 3; i <= n; i++) {
-            int tmp = b;
-            b = Math.min(a, tmp) + cost[i];
-            a = tmp;
-        }
-        return b;
-    }
+    ```python title="min_cost_climbing_stairs_dp.py"
+    def min_cost_climbing_stairs_dp_comp(cost: list[int]) -> int:
+        """爬楼梯最小代价：空间优化后的动态规划"""
+        n = len(cost) - 1
+        if n == 1 or n == 2:
+            return cost[n]
+        a, b = cost[1], cost[2]
+        for i in range(3, n + 1):
+            a, b = b, min(a, b) + cost[i]
+        return b
     ```
 
 === "C++"
@@ -322,18 +318,40 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="min_cost_climbing_stairs_dp.py"
-    def min_cost_climbing_stairs_dp_comp(cost: list[int]) -> int:
-        """爬楼梯最小代价：空间优化后的动态规划"""
-        n = len(cost) - 1
-        if n == 1 or n == 2:
-            return cost[n]
-        a, b = cost[1], cost[2]
-        for i in range(3, n + 1):
-            a, b = b, min(a, b) + cost[i]
-        return b
+    ```java title="min_cost_climbing_stairs_dp.java"
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
+    int minCostClimbingStairsDPComp(int[] cost) {
+        int n = cost.length - 1;
+        if (n == 1 || n == 2)
+            return cost[n];
+        int a = cost[1], b = cost[2];
+        for (int i = 3; i <= n; i++) {
+            int tmp = b;
+            b = Math.min(a, tmp) + cost[i];
+            a = tmp;
+        }
+        return b;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="min_cost_climbing_stairs_dp.cs"
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
+    int minCostClimbingStairsDPComp(int[] cost) {
+        int n = cost.Length - 1;
+        if (n == 1 || n == 2)
+            return cost[n];
+        int a = cost[1], b = cost[2];
+        for (int i = 3; i <= n; i++) {
+            int tmp = b;
+            b = Math.Min(a, tmp) + cost[i];
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "Go"
@@ -352,6 +370,23 @@ $$
             tmp := b
             b = int(math.Min(float64(a), float64(tmp+cost[i])))
             a = tmp
+        }
+        return b
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="min_cost_climbing_stairs_dp.swift"
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
+    func minCostClimbingStairsDPComp(cost: [Int]) -> Int {
+        let n = cost.count - 1
+        if n == 1 || n == 2 {
+            return cost[n]
+        }
+        var (a, b) = (cost[1], cost[2])
+        for i in stride(from: 3, through: n, by: 1) {
+            (a, b) = (b, min(a, b) + cost[i])
         }
         return b
     }
@@ -397,68 +432,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="min_cost_climbing_stairs_dp.c"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="min_cost_climbing_stairs_dp.cs"
-    /* 爬楼梯最小代价：空间优化后的动态规划 */
-    int minCostClimbingStairsDPComp(int[] cost) {
-        int n = cost.Length - 1;
-        if (n == 1 || n == 2)
-            return cost[n];
-        int a = cost[1], b = cost[2];
-        for (int i = 3; i <= n; i++) {
-            int tmp = b;
-            b = Math.Min(a, tmp) + cost[i];
-            a = tmp;
-        }
-        return b;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="min_cost_climbing_stairs_dp.swift"
-    /* 爬楼梯最小代价：空间优化后的动态规划 */
-    func minCostClimbingStairsDPComp(cost: [Int]) -> Int {
-        let n = cost.count - 1
-        if n == 1 || n == 2 {
-            return cost[n]
-        }
-        var (a, b) = (cost[1], cost[2])
-        for i in stride(from: 3, through: n, by: 1) {
-            (a, b) = (b, min(a, b) + cost[i])
-        }
-        return b
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="min_cost_climbing_stairs_dp.zig"
-    // 爬楼梯最小代价：空间优化后的动态规划
-    fn minCostClimbingStairsDPComp(cost: []i32) i32 {
-        var n = cost.len - 1;
-        if (n == 1 or n == 2) {
-            return cost[n];
-        }
-        var a = cost[1];
-        var b = cost[2];
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for (3..n + 1) |i| {
-            var tmp = b;
-            b = @min(a, tmp) + cost[i];
-            a = tmp;
-        }
-        return b;
-    }
-    ```
-
 === "Dart"
 
     ```dart title="min_cost_climbing_stairs_dp.dart"
@@ -490,6 +463,33 @@ $$
             a = tmp;
         }
         b
+    }
+    ```
+
+=== "C"
+
+    ```c title="min_cost_climbing_stairs_dp.c"
+    [class]{}-[func]{minCostClimbingStairsDPComp}
+    ```
+
+=== "Zig"
+
+    ```zig title="min_cost_climbing_stairs_dp.zig"
+    // 爬楼梯最小代价：空间优化后的动态规划
+    fn minCostClimbingStairsDPComp(cost: []i32) i32 {
+        var n = cost.len - 1;
+        if (n == 1 or n == 2) {
+            return cost[n];
+        }
+        var a = cost[1];
+        var b = cost[2];
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (3..n + 1) |i| {
+            var tmp = b;
+            b = @min(a, tmp) + cost[i];
+            a = tmp;
+        }
+        return b;
     }
     ```
 
@@ -535,28 +535,23 @@ $$
 
 最终，返回 $dp[n, 1] + dp[n, 2]$ 即可，两者之和代表爬到第 $n$ 阶的方案总数。
 
-=== "Java"
+=== "Python"
 
-    ```java title="climbing_stairs_constraint_dp.java"
-    /* 带约束爬楼梯：动态规划 */
-    int climbingStairsConstraintDP(int n) {
-        if (n == 1 || n == 2) {
-            return 1;
-        }
-        // 初始化 dp 表，用于存储子问题的解
-        int[][] dp = new int[n + 1][3];
-        // 初始状态：预设最小子问题的解
-        dp[1][1] = 1;
-        dp[1][2] = 0;
-        dp[2][1] = 0;
-        dp[2][2] = 1;
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for (int i = 3; i <= n; i++) {
-            dp[i][1] = dp[i - 1][2];
-            dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
-        }
-        return dp[n][1] + dp[n][2];
-    }
+    ```python title="climbing_stairs_constraint_dp.py"
+    def climbing_stairs_constraint_dp(n: int) -> int:
+        """带约束爬楼梯：动态规划"""
+        if n == 1 or n == 2:
+            return 1
+        # 初始化 dp 表，用于存储子问题的解
+        dp = [[0] * 3 for _ in range(n + 1)]
+        # 初始状态：预设最小子问题的解
+        dp[1][1], dp[1][2] = 1, 0
+        dp[2][1], dp[2][2] = 0, 1
+        # 状态转移：从较小子问题逐步求解较大子问题
+        for i in range(3, n + 1):
+            dp[i][1] = dp[i - 1][2]
+            dp[i][2] = dp[i - 2][1] + dp[i - 2][2]
+        return dp[n][1] + dp[n][2]
     ```
 
 === "C++"
@@ -583,23 +578,52 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="climbing_stairs_constraint_dp.py"
-    def climbing_stairs_constraint_dp(n: int) -> int:
-        """带约束爬楼梯：动态规划"""
-        if n == 1 or n == 2:
-            return 1
-        # 初始化 dp 表，用于存储子问题的解
-        dp = [[0] * 3 for _ in range(n + 1)]
-        # 初始状态：预设最小子问题的解
-        dp[1][1], dp[1][2] = 1, 0
-        dp[2][1], dp[2][2] = 0, 1
-        # 状态转移：从较小子问题逐步求解较大子问题
-        for i in range(3, n + 1):
-            dp[i][1] = dp[i - 1][2]
-            dp[i][2] = dp[i - 2][1] + dp[i - 2][2]
-        return dp[n][1] + dp[n][2]
+    ```java title="climbing_stairs_constraint_dp.java"
+    /* 带约束爬楼梯：动态规划 */
+    int climbingStairsConstraintDP(int n) {
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        int[][] dp = new int[n + 1][3];
+        // 初始状态：预设最小子问题的解
+        dp[1][1] = 1;
+        dp[1][2] = 0;
+        dp[2][1] = 0;
+        dp[2][2] = 1;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (int i = 3; i <= n; i++) {
+            dp[i][1] = dp[i - 1][2];
+            dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
+        }
+        return dp[n][1] + dp[n][2];
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="climbing_stairs_constraint_dp.cs"
+    /* 带约束爬楼梯：动态规划 */
+    int climbingStairsConstraintDP(int n) {
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        int[,] dp = new int[n + 1, 3];
+        // 初始状态：预设最小子问题的解
+        dp[1, 1] = 1;
+        dp[1, 2] = 0;
+        dp[2, 1] = 0;
+        dp[2, 2] = 1;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (int i = 3; i <= n; i++) {
+            dp[i, 1] = dp[i - 1, 2];
+            dp[i, 2] = dp[i - 2, 1] + dp[i - 2, 2];
+        }
+        return dp[n, 1] + dp[n, 2];
+    }
     ```
 
 === "Go"
@@ -621,6 +645,30 @@ $$
         for i := 3; i <= n; i++ {
             dp[i][1] = dp[i-1][2]
             dp[i][2] = dp[i-2][1] + dp[i-2][2]
+        }
+        return dp[n][1] + dp[n][2]
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="climbing_stairs_constraint_dp.swift"
+    /* 带约束爬楼梯：动态规划 */
+    func climbingStairsConstraintDP(n: Int) -> Int {
+        if n == 1 || n == 2 {
+            return 1
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        var dp = Array(repeating: Array(repeating: 0, count: 3), count: n + 1)
+        // 初始状态：预设最小子问题的解
+        dp[1][1] = 1
+        dp[1][2] = 0
+        dp[2][1] = 0
+        dp[2][2] = 1
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i in stride(from: 3, through: n, by: 1) {
+            dp[i][1] = dp[i - 1][2]
+            dp[i][2] = dp[i - 2][1] + dp[i - 2][2]
         }
         return dp[n][1] + dp[n][2]
     }
@@ -674,84 +722,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="climbing_stairs_constraint_dp.c"
-    [class]{}-[func]{climbingStairsConstraintDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="climbing_stairs_constraint_dp.cs"
-    /* 带约束爬楼梯：动态规划 */
-    int climbingStairsConstraintDP(int n) {
-        if (n == 1 || n == 2) {
-            return 1;
-        }
-        // 初始化 dp 表，用于存储子问题的解
-        int[,] dp = new int[n + 1, 3];
-        // 初始状态：预设最小子问题的解
-        dp[1, 1] = 1;
-        dp[1, 2] = 0;
-        dp[2, 1] = 0;
-        dp[2, 2] = 1;
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for (int i = 3; i <= n; i++) {
-            dp[i, 1] = dp[i - 1, 2];
-            dp[i, 2] = dp[i - 2, 1] + dp[i - 2, 2];
-        }
-        return dp[n, 1] + dp[n, 2];
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="climbing_stairs_constraint_dp.swift"
-    /* 带约束爬楼梯：动态规划 */
-    func climbingStairsConstraintDP(n: Int) -> Int {
-        if n == 1 || n == 2 {
-            return 1
-        }
-        // 初始化 dp 表，用于存储子问题的解
-        var dp = Array(repeating: Array(repeating: 0, count: 3), count: n + 1)
-        // 初始状态：预设最小子问题的解
-        dp[1][1] = 1
-        dp[1][2] = 0
-        dp[2][1] = 0
-        dp[2][2] = 1
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for i in stride(from: 3, through: n, by: 1) {
-            dp[i][1] = dp[i - 1][2]
-            dp[i][2] = dp[i - 2][1] + dp[i - 2][2]
-        }
-        return dp[n][1] + dp[n][2]
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_constraint_dp.zig"
-    // 带约束爬楼梯：动态规划
-    fn climbingStairsConstraintDP(comptime n: usize) i32 {
-        if (n == 1 or n == 2) {
-            return 1;
-        }
-        // 初始化 dp 表，用于存储子问题的解
-        var dp = [_][3]i32{ [_]i32{ -1, -1, -1 } } ** (n + 1);
-        // 初始状态：预设最小子问题的解
-        dp[1][1] = 1;
-        dp[1][2] = 0;
-        dp[2][1] = 0;
-        dp[2][2] = 1;
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for (3..n + 1) |i| {
-            dp[i][1] = dp[i - 1][2];
-            dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
-        }
-        return dp[n][1] + dp[n][2];
-    }
-    ```
-
 === "Dart"
 
     ```dart title="climbing_stairs_constraint_dp.dart"
@@ -795,6 +765,36 @@ $$
             dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
         }
         dp[n][1] + dp[n][2]
+    }
+    ```
+
+=== "C"
+
+    ```c title="climbing_stairs_constraint_dp.c"
+    [class]{}-[func]{climbingStairsConstraintDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="climbing_stairs_constraint_dp.zig"
+    // 带约束爬楼梯：动态规划
+    fn climbingStairsConstraintDP(comptime n: usize) i32 {
+        if (n == 1 or n == 2) {
+            return 1;
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        var dp = [_][3]i32{ [_]i32{ -1, -1, -1 } } ** (n + 1);
+        // 初始状态：预设最小子问题的解
+        dp[1][1] = 1;
+        dp[1][2] = 0;
+        dp[2][1] = 0;
+        dp[2][2] = 1;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (3..n + 1) |i| {
+            dp[i][1] = dp[i - 1][2];
+            dp[i][2] = dp[i - 2][1] + dp[i - 2][2];
+        }
+        return dp[n][1] + dp[n][2];
     }
     ```
 

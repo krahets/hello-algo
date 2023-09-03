@@ -47,35 +47,31 @@ status: new
 
 在实现代码中，我们声明一个递归函数 `dfs()` 来求解问题 $f(i, j)$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_recur.java"
-    /* 二分查找：问题 f(i, j) */
-    int dfs(int[] nums, int target, int i, int j) {
-        // 若区间为空，代表无目标元素，则返回 -1
-        if (i > j) {
-            return -1;
-        }
-        // 计算中点索引 m
-        int m = (i + j) / 2;
-        if (nums[m] < target) {
-            // 递归子问题 f(m+1, j)
-            return dfs(nums, target, m + 1, j);
-        } else if (nums[m] > target) {
-            // 递归子问题 f(i, m-1)
-            return dfs(nums, target, i, m - 1);
-        } else {
-            // 找到目标元素，返回其索引
-            return m;
-        }
-    }
+    ```python title="binary_search_recur.py"
+    def dfs(nums: list[int], target: int, i: int, j: int) -> int:
+        """二分查找：问题 f(i, j)"""
+        # 若区间为空，代表无目标元素，则返回 -1
+        if i > j:
+            return -1
+        # 计算中点索引 m
+        m = (i + j) // 2
+        if nums[m] < target:
+            # 递归子问题 f(m+1, j)
+            return dfs(nums, target, m + 1, j)
+        elif nums[m] > target:
+            # 递归子问题 f(i, m-1)
+            return dfs(nums, target, i, m - 1)
+        else:
+            # 找到目标元素，返回其索引
+            return m
 
-    /* 二分查找 */
-    int binarySearch(int[] nums, int target) {
-        int n = nums.length;
-        // 求解问题 f(0, n-1)
-        return dfs(nums, target, 0, n - 1);
-    }
+    def binary_search(nums: list[int], target: int) -> int:
+        """二分查找"""
+        n = len(nums)
+        # 求解问题 f(0, n-1)
+        return dfs(nums, target, 0, n - 1)
     ```
 
 === "C++"
@@ -109,31 +105,66 @@ status: new
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_recur.py"
-    def dfs(nums: list[int], target: int, i: int, j: int) -> int:
-        """二分查找：问题 f(i, j)"""
-        # 若区间为空，代表无目标元素，则返回 -1
-        if i > j:
-            return -1
-        # 计算中点索引 m
-        m = (i + j) // 2
-        if nums[m] < target:
-            # 递归子问题 f(m+1, j)
-            return dfs(nums, target, m + 1, j)
-        elif nums[m] > target:
-            # 递归子问题 f(i, m-1)
-            return dfs(nums, target, i, m - 1)
-        else:
-            # 找到目标元素，返回其索引
-            return m
+    ```java title="binary_search_recur.java"
+    /* 二分查找：问题 f(i, j) */
+    int dfs(int[] nums, int target, int i, int j) {
+        // 若区间为空，代表无目标元素，则返回 -1
+        if (i > j) {
+            return -1;
+        }
+        // 计算中点索引 m
+        int m = (i + j) / 2;
+        if (nums[m] < target) {
+            // 递归子问题 f(m+1, j)
+            return dfs(nums, target, m + 1, j);
+        } else if (nums[m] > target) {
+            // 递归子问题 f(i, m-1)
+            return dfs(nums, target, i, m - 1);
+        } else {
+            // 找到目标元素，返回其索引
+            return m;
+        }
+    }
 
-    def binary_search(nums: list[int], target: int) -> int:
-        """二分查找"""
-        n = len(nums)
-        # 求解问题 f(0, n-1)
-        return dfs(nums, target, 0, n - 1)
+    /* 二分查找 */
+    int binarySearch(int[] nums, int target) {
+        int n = nums.length;
+        // 求解问题 f(0, n-1)
+        return dfs(nums, target, 0, n - 1);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_recur.cs"
+    /* 二分查找：问题 f(i, j) */
+    int dfs(int[] nums, int target, int i, int j) {
+        // 若区间为空，代表无目标元素，则返回 -1
+        if (i > j) {
+            return -1;
+        }
+        // 计算中点索引 m
+        int m = (i + j) / 2;
+        if (nums[m] < target) {
+            // 递归子问题 f(m+1, j)
+            return dfs(nums, target, m + 1, j);
+        } else if (nums[m] > target) {
+            // 递归子问题 f(i, m-1)
+            return dfs(nums, target, i, m - 1);
+        } else {
+            // 找到目标元素，返回其索引
+            return m;
+        }
+    }
+
+    /* 二分查找 */
+    int binarySearch(int[] nums, int target) {
+        int n = nums.Length;
+        // 求解问题 f(0, n-1)
+        return dfs(nums, target, 0, n - 1);
+    }
     ```
 
 === "Go"
@@ -166,6 +197,37 @@ status: new
     func binarySearch(nums []int, target int) int {
         n := len(nums)
         return dfs(nums, target, 0, n-1)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_recur.swift"
+    /* 二分查找：问题 f(i, j) */
+    func dfs(nums: [Int], target: Int, i: Int, j: Int) -> Int {
+        // 若区间为空，代表无目标元素，则返回 -1
+        if i > j {
+            return -1
+        }
+        // 计算中点索引 m
+        let m = (i + j) / 2
+        if nums[m] < target {
+            // 递归子问题 f(m+1, j)
+            return dfs(nums: nums, target: target, i: m + 1, j: j)
+        } else if nums[m] > target {
+            // 递归子问题 f(i, m-1)
+            return dfs(nums: nums, target: target, i: i, j: m - 1)
+        } else {
+            // 找到目标元素，返回其索引
+            return m
+        }
+    }
+
+    /* 二分查找 */
+    func binarySearch(nums: [Int], target: Int) -> Int {
+        let n = nums.count
+        // 求解问题 f(0, n-1)
+        return dfs(nums: nums, target: target, i: 0, j: n - 1)
     }
     ```
 
@@ -231,84 +293,6 @@ status: new
     }
     ```
 
-=== "C"
-
-    ```c title="binary_search_recur.c"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{binarySearch}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_recur.cs"
-    /* 二分查找：问题 f(i, j) */
-    int dfs(int[] nums, int target, int i, int j) {
-        // 若区间为空，代表无目标元素，则返回 -1
-        if (i > j) {
-            return -1;
-        }
-        // 计算中点索引 m
-        int m = (i + j) / 2;
-        if (nums[m] < target) {
-            // 递归子问题 f(m+1, j)
-            return dfs(nums, target, m + 1, j);
-        } else if (nums[m] > target) {
-            // 递归子问题 f(i, m-1)
-            return dfs(nums, target, i, m - 1);
-        } else {
-            // 找到目标元素，返回其索引
-            return m;
-        }
-    }
-
-    /* 二分查找 */
-    int binarySearch(int[] nums, int target) {
-        int n = nums.Length;
-        // 求解问题 f(0, n-1)
-        return dfs(nums, target, 0, n - 1);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_recur.swift"
-    /* 二分查找：问题 f(i, j) */
-    func dfs(nums: [Int], target: Int, i: Int, j: Int) -> Int {
-        // 若区间为空，代表无目标元素，则返回 -1
-        if i > j {
-            return -1
-        }
-        // 计算中点索引 m
-        let m = (i + j) / 2
-        if nums[m] < target {
-            // 递归子问题 f(m+1, j)
-            return dfs(nums: nums, target: target, i: m + 1, j: j)
-        } else if nums[m] > target {
-            // 递归子问题 f(i, m-1)
-            return dfs(nums: nums, target: target, i: i, j: m - 1)
-        } else {
-            // 找到目标元素，返回其索引
-            return m
-        }
-    }
-
-    /* 二分查找 */
-    func binarySearch(nums: [Int], target: Int) -> Int {
-        let n = nums.count
-        // 求解问题 f(0, n-1)
-        return dfs(nums: nums, target: target, i: 0, j: n - 1)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_recur.zig"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{binarySearch}
-    ```
-
 === "Dart"
 
     ```dart title="binary_search_recur.dart"
@@ -366,4 +350,20 @@ status: new
         // 求解问题 f(0, n-1)
         dfs(nums, target, 0, n - 1)
     }
+    ```
+
+=== "C"
+
+    ```c title="binary_search_recur.c"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{binarySearch}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_recur.zig"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{binarySearch}
     ```

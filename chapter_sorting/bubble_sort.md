@@ -44,24 +44,19 @@ comments: true
 
 <p align="center"> 图 11-5 &nbsp; 冒泡排序流程 </p>
 
-=== "Java"
+=== "Python"
 
-    ```java title="bubble_sort.java"
-    /* 冒泡排序 */
-    void bubbleSort(int[] nums) {
-        // 外循环：未排序区间为 [0, i]
-        for (int i = nums.length - 1; i > 0; i--) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                }
-            }
-        }
-    }
+    ```python title="bubble_sort.py"
+    def bubble_sort(nums: list[int]):
+        """冒泡排序"""
+        n = len(nums)
+        # 外循环：未排序区间为 [0, i]
+        for i in range(n - 1, 0, -1):
+            # 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+            for j in range(i):
+                if nums[j] > nums[j + 1]:
+                    # 交换 nums[j] 与 nums[j + 1]
+                    nums[j], nums[j + 1] = nums[j + 1], nums[j]
     ```
 
 === "C++"
@@ -83,19 +78,44 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="bubble_sort.py"
-    def bubble_sort(nums: list[int]):
-        """冒泡排序"""
-        n = len(nums)
-        # 外循环：未排序区间为 [0, i]
-        for i in range(n - 1, 0, -1):
-            # 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for j in range(i):
-                if nums[j] > nums[j + 1]:
-                    # 交换 nums[j] 与 nums[j + 1]
-                    nums[j], nums[j + 1] = nums[j + 1], nums[j]
+    ```java title="bubble_sort.java"
+    /* 冒泡排序 */
+    void bubbleSort(int[] nums) {
+        // 外循环：未排序区间为 [0, i]
+        for (int i = nums.length - 1; i > 0; i--) {
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+            for (int j = 0; j < i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    int tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                }
+            }
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="bubble_sort.cs"
+    /* 冒泡排序 */
+    void bubbleSort(int[] nums) {
+        // 外循环：未排序区间为 [0, i]
+        for (int i = nums.Length - 1; i > 0; i--) {
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            for (int j = 0; j < i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    int tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                }
+            }
+        }
+    }
     ```
 
 === "Go"
@@ -110,6 +130,26 @@ comments: true
                 if nums[j] > nums[j+1] {
                     // 交换 nums[j] 与 nums[j + 1]
                     nums[j], nums[j+1] = nums[j+1], nums[j]
+                }
+            }
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="bubble_sort.swift"
+    /* 冒泡排序 */
+    func bubbleSort(nums: inout [Int]) {
+        // 外循环：未排序区间为 [0, i]
+        for i in stride(from: nums.count - 1, to: 0, by: -1) {
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            for j in stride(from: 0, to: i, by: 1) {
+                if nums[j] > nums[j + 1] {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    let tmp = nums[j]
+                    nums[j] = nums[j + 1]
+                    nums[j + 1] = tmp
                 }
             }
         }
@@ -148,87 +188,6 @@ comments: true
                 if (nums[j] > nums[j + 1]) {
                     // 交换 nums[j] 与 nums[j + 1]
                     let tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                }
-            }
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title="bubble_sort.c"
-    /* 冒泡排序 */
-    void bubbleSort(int nums[], int size) {
-        // 外循环：未排序区间为 [0, i]
-        for (int i = 0; i < size - 1; i++) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for (int j = 0; j < size - 1 - i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    int temp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = temp;
-                }
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="bubble_sort.cs"
-    /* 冒泡排序 */
-    void bubbleSort(int[] nums) {
-        // 外循环：未排序区间为 [0, i]
-        for (int i = nums.Length - 1; i > 0; i--) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                }
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="bubble_sort.swift"
-    /* 冒泡排序 */
-    func bubbleSort(nums: inout [Int]) {
-        // 外循环：未排序区间为 [0, i]
-        for i in stride(from: nums.count - 1, to: 0, by: -1) {
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
-            for j in stride(from: 0, to: i, by: 1) {
-                if nums[j] > nums[j + 1] {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j]
-                    nums[j] = nums[j + 1]
-                    nums[j + 1] = tmp
-                }
-            }
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="bubble_sort.zig"
-    // 冒泡排序
-    fn bubbleSort(nums: []i32) void {
-        // 外循环：未排序区间为 [0, i]
-        var i: usize = nums.len - 1;
-        while (i > 0) : (i -= 1) {
-            var j: usize = 0;
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
-            while (j < i) : (j += 1) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    var tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
                 }
@@ -277,34 +236,70 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="bubble_sort.c"
+    /* 冒泡排序 */
+    void bubbleSort(int nums[], int size) {
+        // 外循环：未排序区间为 [0, i]
+        for (int i = 0; i < size - 1; i++) {
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+            for (int j = 0; j < size - 1 - i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="bubble_sort.zig"
+    // 冒泡排序
+    fn bubbleSort(nums: []i32) void {
+        // 外循环：未排序区间为 [0, i]
+        var i: usize = nums.len - 1;
+        while (i > 0) : (i -= 1) {
+            var j: usize = 0;
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            while (j < i) : (j += 1) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    var tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                }
+            }
+        }
+    }
+    ```
+
 ## 11.3.2 &nbsp; 效率优化
 
 我们发现，如果某轮“冒泡”中没有执行任何交换操作，说明数组已经完成排序，可直接返回结果。因此，可以增加一个标志位 `flag` 来监测这种情况，一旦出现就立即返回。
 
 经过优化，冒泡排序的最差和平均时间复杂度仍为 $O(n^2)$ ；但当输入数组完全有序时，可达到最佳时间复杂度 $O(n)$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="bubble_sort.java"
-    /* 冒泡排序（标志优化） */
-    void bubbleSortWithFlag(int[] nums) {
-        // 外循环：未排序区间为 [0, i]
-        for (int i = nums.length - 1; i > 0; i--) {
-            boolean flag = false; // 初始化标志位
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    flag = true; // 记录交换元素
-                }
-            }
-            if (!flag)
-                break; // 此轮冒泡未交换任何元素，直接跳出
-        }
-    }
+    ```python title="bubble_sort.py"
+    def bubble_sort_with_flag(nums: list[int]):
+        """冒泡排序（标志优化）"""
+        n = len(nums)
+        # 外循环：未排序区间为 [0, i]
+        for i in range(n - 1, 0, -1):
+            flag = False  # 初始化标志位
+            # 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+            for j in range(i):
+                if nums[j] > nums[j + 1]:
+                    # 交换 nums[j] 与 nums[j + 1]
+                    nums[j], nums[j + 1] = nums[j + 1], nums[j]
+                    flag = True  # 记录交换元素
+            if not flag:
+                break  # 此轮冒泡未交换任何元素，直接跳出
     ```
 
 === "C++"
@@ -330,23 +325,51 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="bubble_sort.py"
-    def bubble_sort_with_flag(nums: list[int]):
-        """冒泡排序（标志优化）"""
-        n = len(nums)
-        # 外循环：未排序区间为 [0, i]
-        for i in range(n - 1, 0, -1):
-            flag = False  # 初始化标志位
-            # 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for j in range(i):
-                if nums[j] > nums[j + 1]:
-                    # 交换 nums[j] 与 nums[j + 1]
-                    nums[j], nums[j + 1] = nums[j + 1], nums[j]
-                    flag = True  # 记录交换元素
-            if not flag:
-                break  # 此轮冒泡未交换任何元素，直接跳出
+    ```java title="bubble_sort.java"
+    /* 冒泡排序（标志优化） */
+    void bubbleSortWithFlag(int[] nums) {
+        // 外循环：未排序区间为 [0, i]
+        for (int i = nums.length - 1; i > 0; i--) {
+            boolean flag = false; // 初始化标志位
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+            for (int j = 0; j < i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    int tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    flag = true; // 记录交换元素
+                }
+            }
+            if (!flag)
+                break; // 此轮冒泡未交换任何元素，直接跳出
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="bubble_sort.cs"
+    /* 冒泡排序（标志优化）*/
+    void bubbleSortWithFlag(int[] nums) {
+        // 外循环：未排序区间为 [0, i]
+        for (int i = nums.Length - 1; i > 0; i--) {
+            bool flag = false; // 初始化标志位
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            for (int j = 0; j < i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    int tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    flag = true;  // 记录交换元素
+                }
+            }
+            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
+        }
+    }
     ```
 
 === "Go"
@@ -366,6 +389,30 @@ comments: true
                 }
             }
             if flag == false { // 此轮冒泡未交换任何元素，直接跳出
+                break
+            }
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="bubble_sort.swift"
+    /* 冒泡排序（标志优化）*/
+    func bubbleSortWithFlag(nums: inout [Int]) {
+        // 外循环：未排序区间为 [0, i]
+        for i in stride(from: nums.count - 1, to: 0, by: -1) {
+            var flag = false // 初始化标志位
+            for j in stride(from: 0, to: i, by: 1) {
+                if nums[j] > nums[j + 1] {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    let tmp = nums[j]
+                    nums[j] = nums[j + 1]
+                    nums[j + 1] = tmp
+                    flag = true // 记录交换元素
+                }
+            }
+            if !flag { // 此轮冒泡未交换任何元素，直接跳出
                 break
             }
         }
@@ -418,101 +465,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="bubble_sort.c"
-    /* 冒泡排序（标志优化）*/
-    void bubbleSortWithFlag(int nums[], int size) {
-        // 外循环：未排序区间为 [0, i]
-        for (int i = 0; i < size - 1; i++) {
-            bool flag = false;
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
-            for (int j = 0; j < size - 1 - i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    int temp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = temp;
-                    flag = true;
-                }
-            }
-            if (!flag)
-                break;
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="bubble_sort.cs"
-    /* 冒泡排序（标志优化）*/
-    void bubbleSortWithFlag(int[] nums) {
-        // 外循环：未排序区间为 [0, i]
-        for (int i = nums.Length - 1; i > 0; i--) {
-            bool flag = false; // 初始化标志位
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    int tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    flag = true;  // 记录交换元素
-                }
-            }
-            if (!flag) break;     // 此轮冒泡未交换任何元素，直接跳出
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="bubble_sort.swift"
-    /* 冒泡排序（标志优化）*/
-    func bubbleSortWithFlag(nums: inout [Int]) {
-        // 外循环：未排序区间为 [0, i]
-        for i in stride(from: nums.count - 1, to: 0, by: -1) {
-            var flag = false // 初始化标志位
-            for j in stride(from: 0, to: i, by: 1) {
-                if nums[j] > nums[j + 1] {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    let tmp = nums[j]
-                    nums[j] = nums[j + 1]
-                    nums[j + 1] = tmp
-                    flag = true // 记录交换元素
-                }
-            }
-            if !flag { // 此轮冒泡未交换任何元素，直接跳出
-                break
-            }
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="bubble_sort.zig"
-    // 冒泡排序（标志优化）
-    fn bubbleSortWithFlag(nums: []i32) void {
-        // 外循环：未排序区间为 [0, i]
-        var i: usize = nums.len - 1;
-        while (i > 0) : (i -= 1) {
-            var flag = false;   // 初始化标志位
-            var j: usize = 0;
-            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
-            while (j < i) : (j += 1) {
-                if (nums[j] > nums[j + 1]) {
-                    // 交换 nums[j] 与 nums[j + 1]
-                    var tmp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = tmp;
-                    flag = true;
-                }
-            }
-            if (!flag) break;   // 此轮冒泡未交换任何元素，直接跳出
-        }
-    }
-    ```
-
 === "Dart"
 
     ```dart title="bubble_sort.dart"
@@ -555,6 +507,54 @@ comments: true
                 }
             }
             if !flag {break};  // 此轮冒泡未交换任何元素，直接跳出
+        }
+    }
+    ```
+
+=== "C"
+
+    ```c title="bubble_sort.c"
+    /* 冒泡排序（标志优化）*/
+    void bubbleSortWithFlag(int nums[], int size) {
+        // 外循环：未排序区间为 [0, i]
+        for (int i = 0; i < size - 1; i++) {
+            bool flag = false;
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+            for (int j = 0; j < size - 1 - i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                    flag = true;
+                }
+            }
+            if (!flag)
+                break;
+        }
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="bubble_sort.zig"
+    // 冒泡排序（标志优化）
+    fn bubbleSortWithFlag(nums: []i32) void {
+        // 外循环：未排序区间为 [0, i]
+        var i: usize = nums.len - 1;
+        while (i > 0) : (i -= 1) {
+            var flag = false;   // 初始化标志位
+            var j: usize = 0;
+            // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+            while (j < i) : (j += 1) {
+                if (nums[j] > nums[j + 1]) {
+                    // 交换 nums[j] 与 nums[j + 1]
+                    var tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
+                    flag = true;
+                }
+            }
+            if (!flag) break;   // 此轮冒泡未交换任何元素，直接跳出
         }
     }
     ```

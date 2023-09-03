@@ -32,12 +32,12 @@ comments: true
 
 为了解决此问题，**我们可以考虑在层序遍历序列中显式地写出所有 $\text{None}$** 。如图 7-14 所示，这样处理后，层序遍历序列就可以唯一表示二叉树了。
 
-=== "Java"
+=== "Python"
 
-    ```java title=""
-    /* 二叉树的数组表示 */
-    // 使用 int 的包装类 Integer ，就可以使用 null 来标记空位
-    Integer[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
+    ```python title=""
+    # 二叉树的数组表示
+    # 使用 None 来表示空位
+    tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     ```
 
 === "C++"
@@ -48,12 +48,20 @@ comments: true
     vector<int> tree = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title=""
-    # 二叉树的数组表示
-    # 使用 None 来表示空位
-    tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
+    ```java title=""
+    /* 二叉树的数组表示 */
+    // 使用 int 的包装类 Integer ，就可以使用 null 来标记空位
+    Integer[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+    /* 二叉树的数组表示 */
+    // 使用 int? 可空类型 ，就可以使用 null 来标记空位
+    int?[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
     ```
 
 === "Go"
@@ -62,6 +70,14 @@ comments: true
     /* 二叉树的数组表示 */
     // 使用 any 类型的切片, 就可以使用 nil 来标记空位
     tree := []any{1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15}
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    /* 二叉树的数组表示 */
+    // 使用 Int? 可空类型 ，就可以使用 nil 来标记空位
+    let tree: [Int?] = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
 === "JS"
@@ -80,36 +96,6 @@ comments: true
     let tree: (number | null)[] = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
-=== "C"
-
-    ```c title=""
-    /* 二叉树的数组表示 */
-    // 使用 int 最大值标记空位，因此要求节点值不能为 INT_MAX
-    int tree[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* 二叉树的数组表示 */
-    // 使用 int? 可空类型 ，就可以使用 null 来标记空位
-    int?[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* 二叉树的数组表示 */
-    // 使用 Int? 可空类型 ，就可以使用 nil 来标记空位
-    let tree: [Int?] = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 === "Dart"
 
     ```dart title=""
@@ -121,6 +107,20 @@ comments: true
 === "Rust"
 
     ```rust title=""
+
+    ```
+
+=== "C"
+
+    ```c title=""
+    /* 二叉树的数组表示 */
+    // 使用 int 最大值标记空位，因此要求节点值不能为 INT_MAX
+    int tree[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
+    ```
+
+=== "Zig"
+
+    ```zig title=""
 
     ```
 
@@ -141,96 +141,81 @@ comments: true
 - 给定某节点，获取它的值、左（右）子节点、父节点。
 - 获取前序遍历、中序遍历、后序遍历、层序遍历序列。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array_binary_tree.java"
-    /* 数组表示下的二叉树类 */
-    class ArrayBinaryTree {
-        private List<Integer> tree;
+    ```python title="array_binary_tree.py"
+    class ArrayBinaryTree:
+        """数组表示下的二叉树类"""
 
-        /* 构造方法 */
-        public ArrayBinaryTree(List<Integer> arr) {
-            tree = new ArrayList<>(arr);
-        }
+        def __init__(self, arr: list[int | None]):
+            """构造方法"""
+            self.__tree = list(arr)
 
-        /* 节点数量 */
-        public int size() {
-            return tree.size();
-        }
+        def size(self):
+            """节点数量"""
+            return len(self.__tree)
 
-        /* 获取索引为 i 节点的值 */
-        public Integer val(int i) {
-            // 若索引越界，则返回 null ，代表空位
-            if (i < 0 || i >= size())
-                return null;
-            return tree.get(i);
-        }
+        def val(self, i: int) -> int:
+            """获取索引为 i 节点的值"""
+            # 若索引越界，则返回 None ，代表空位
+            if i < 0 or i >= self.size():
+                return None
+            return self.__tree[i]
 
-        /* 获取索引为 i 节点的左子节点的索引 */
-        public Integer left(int i) {
-            return 2 * i + 1;
-        }
+        def left(self, i: int) -> int | None:
+            """获取索引为 i 节点的左子节点的索引"""
+            return 2 * i + 1
 
-        /* 获取索引为 i 节点的右子节点的索引 */
-        public Integer right(int i) {
-            return 2 * i + 2;
-        }
+        def right(self, i: int) -> int | None:
+            """获取索引为 i 节点的右子节点的索引"""
+            return 2 * i + 2
 
-        /* 获取索引为 i 节点的父节点的索引 */
-        public Integer parent(int i) {
-            return (i - 1) / 2;
-        }
+        def parent(self, i: int) -> int | None:
+            """获取索引为 i 节点的父节点的索引"""
+            return (i - 1) // 2
 
-        /* 层序遍历 */
-        public List<Integer> levelOrder() {
-            List<Integer> res = new ArrayList<>();
-            // 直接遍历数组
-            for (int i = 0; i < size(); i++) {
-                if (val(i) != null)
-                    res.add(val(i));
-            }
-            return res;
-        }
+        def level_order(self) -> list[int]:
+            """层序遍历"""
+            self.res = []
+            # 直接遍历数组
+            for i in range(self.size()):
+                if self.val(i) is not None:
+                    self.res.append(self.val(i))
+            return self.res
 
-        /* 深度优先遍历 */
-        private void dfs(Integer i, String order, List<Integer> res) {
-            // 若为空位，则返回
-            if (val(i) == null)
-                return;
-            // 前序遍历
-            if (order == "pre")
-                res.add(val(i));
-            dfs(left(i), order, res);
-            // 中序遍历
-            if (order == "in")
-                res.add(val(i));
-            dfs(right(i), order, res);
-            // 后序遍历
-            if (order == "post")
-                res.add(val(i));
-        }
+        def __dfs(self, i: int, order: str):
+            """深度优先遍历"""
+            if self.val(i) is None:
+                return
+            # 前序遍历
+            if order == "pre":
+                self.res.append(self.val(i))
+            self.__dfs(self.left(i), order)
+            # 中序遍历
+            if order == "in":
+                self.res.append(self.val(i))
+            self.__dfs(self.right(i), order)
+            # 后序遍历
+            if order == "post":
+                self.res.append(self.val(i))
 
-        /* 前序遍历 */
-        public List<Integer> preOrder() {
-            List<Integer> res = new ArrayList<>();
-            dfs(0, "pre", res);
-            return res;
-        }
+        def pre_order(self) -> list[int]:
+            """前序遍历"""
+            self.res = []
+            self.__dfs(0, order="pre")
+            return self.res
 
-        /* 中序遍历 */
-        public List<Integer> inOrder() {
-            List<Integer> res = new ArrayList<>();
-            dfs(0, "in", res);
-            return res;
-        }
+        def in_order(self) -> list[int]:
+            """中序遍历"""
+            self.res = []
+            self.__dfs(0, order="in")
+            return self.res
 
-        /* 后序遍历 */
-        public List<Integer> postOrder() {
-            List<Integer> res = new ArrayList<>();
-            dfs(0, "post", res);
-            return res;
-        }
-    }
+        def post_order(self) -> list[int]:
+            """后序遍历"""
+            self.res = []
+            self.__dfs(0, order="post")
+            return self.res
     ```
 
 === "C++"
@@ -327,81 +312,188 @@ comments: true
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array_binary_tree.py"
-    class ArrayBinaryTree:
-        """数组表示下的二叉树类"""
+    ```java title="array_binary_tree.java"
+    /* 数组表示下的二叉树类 */
+    class ArrayBinaryTree {
+        private List<Integer> tree;
 
-        def __init__(self, arr: list[int | None]):
-            """构造方法"""
-            self.__tree = list(arr)
+        /* 构造方法 */
+        public ArrayBinaryTree(List<Integer> arr) {
+            tree = new ArrayList<>(arr);
+        }
 
-        def size(self):
-            """节点数量"""
-            return len(self.__tree)
+        /* 节点数量 */
+        public int size() {
+            return tree.size();
+        }
 
-        def val(self, i: int) -> int:
-            """获取索引为 i 节点的值"""
-            # 若索引越界，则返回 None ，代表空位
-            if i < 0 or i >= self.size():
-                return None
-            return self.__tree[i]
+        /* 获取索引为 i 节点的值 */
+        public Integer val(int i) {
+            // 若索引越界，则返回 null ，代表空位
+            if (i < 0 || i >= size())
+                return null;
+            return tree.get(i);
+        }
 
-        def left(self, i: int) -> int | None:
-            """获取索引为 i 节点的左子节点的索引"""
-            return 2 * i + 1
+        /* 获取索引为 i 节点的左子节点的索引 */
+        public Integer left(int i) {
+            return 2 * i + 1;
+        }
 
-        def right(self, i: int) -> int | None:
-            """获取索引为 i 节点的右子节点的索引"""
-            return 2 * i + 2
+        /* 获取索引为 i 节点的右子节点的索引 */
+        public Integer right(int i) {
+            return 2 * i + 2;
+        }
 
-        def parent(self, i: int) -> int | None:
-            """获取索引为 i 节点的父节点的索引"""
-            return (i - 1) // 2
+        /* 获取索引为 i 节点的父节点的索引 */
+        public Integer parent(int i) {
+            return (i - 1) / 2;
+        }
 
-        def level_order(self) -> list[int]:
-            """层序遍历"""
-            self.res = []
-            # 直接遍历数组
-            for i in range(self.size()):
-                if self.val(i) is not None:
-                    self.res.append(self.val(i))
-            return self.res
+        /* 层序遍历 */
+        public List<Integer> levelOrder() {
+            List<Integer> res = new ArrayList<>();
+            // 直接遍历数组
+            for (int i = 0; i < size(); i++) {
+                if (val(i) != null)
+                    res.add(val(i));
+            }
+            return res;
+        }
 
-        def __dfs(self, i: int, order: str):
-            """深度优先遍历"""
-            if self.val(i) is None:
-                return
-            # 前序遍历
-            if order == "pre":
-                self.res.append(self.val(i))
-            self.__dfs(self.left(i), order)
-            # 中序遍历
-            if order == "in":
-                self.res.append(self.val(i))
-            self.__dfs(self.right(i), order)
-            # 后序遍历
-            if order == "post":
-                self.res.append(self.val(i))
+        /* 深度优先遍历 */
+        private void dfs(Integer i, String order, List<Integer> res) {
+            // 若为空位，则返回
+            if (val(i) == null)
+                return;
+            // 前序遍历
+            if (order == "pre")
+                res.add(val(i));
+            dfs(left(i), order, res);
+            // 中序遍历
+            if (order == "in")
+                res.add(val(i));
+            dfs(right(i), order, res);
+            // 后序遍历
+            if (order == "post")
+                res.add(val(i));
+        }
 
-        def pre_order(self) -> list[int]:
-            """前序遍历"""
-            self.res = []
-            self.__dfs(0, order="pre")
-            return self.res
+        /* 前序遍历 */
+        public List<Integer> preOrder() {
+            List<Integer> res = new ArrayList<>();
+            dfs(0, "pre", res);
+            return res;
+        }
 
-        def in_order(self) -> list[int]:
-            """中序遍历"""
-            self.res = []
-            self.__dfs(0, order="in")
-            return self.res
+        /* 中序遍历 */
+        public List<Integer> inOrder() {
+            List<Integer> res = new ArrayList<>();
+            dfs(0, "in", res);
+            return res;
+        }
 
-        def post_order(self) -> list[int]:
-            """后序遍历"""
-            self.res = []
-            self.__dfs(0, order="post")
-            return self.res
+        /* 后序遍历 */
+        public List<Integer> postOrder() {
+            List<Integer> res = new ArrayList<>();
+            dfs(0, "post", res);
+            return res;
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array_binary_tree.cs"
+    /* 数组表示下的二叉树类 */
+    class ArrayBinaryTree {
+        private List<int?> tree;
+
+        /* 构造方法 */
+        public ArrayBinaryTree(List<int?> arr) {
+            tree = new List<int?>(arr);
+        }
+
+        /* 节点数量 */
+        public int size() {
+            return tree.Count;
+        }
+
+        /* 获取索引为 i 节点的值 */
+        public int? val(int i) {
+            // 若索引越界，则返回 null ，代表空位
+            if (i < 0 || i >= size())
+                return null;
+            return tree[i];
+        }
+
+        /* 获取索引为 i 节点的左子节点的索引 */
+        public int left(int i) {
+            return 2 * i + 1;
+        }
+
+        /* 获取索引为 i 节点的右子节点的索引 */
+        public int right(int i) {
+            return 2 * i + 2;
+        }
+
+        /* 获取索引为 i 节点的父节点的索引 */
+        public int parent(int i) {
+            return (i - 1) / 2;
+        }
+
+        /* 层序遍历 */
+        public List<int> levelOrder() {
+            List<int> res = new List<int>();
+            // 直接遍历数组
+            for (int i = 0; i < size(); i++) {
+                if (val(i).HasValue)
+                    res.Add(val(i).Value);
+            }
+            return res;
+        }
+
+        /* 深度优先遍历 */
+        private void dfs(int i, string order, List<int> res) {
+            // 若为空位，则返回
+            if (!val(i).HasValue)
+                return;
+            // 前序遍历
+            if (order == "pre")
+                res.Add(val(i).Value);
+            dfs(left(i), order, res);
+            // 中序遍历
+            if (order == "in")
+                res.Add(val(i).Value);
+            dfs(right(i), order, res);
+            // 后序遍历
+            if (order == "post")
+                res.Add(val(i).Value);
+        }
+
+        /* 前序遍历 */
+        public List<int> preOrder() {
+            List<int> res = new List<int>();
+            dfs(0, "pre", res);
+            return res;
+        }
+
+        /* 中序遍历 */
+        public List<int> inOrder() {
+            List<int> res = new List<int>();
+            dfs(0, "in", res);
+            return res;
+        }
+
+        /* 后序遍历 */
+        public List<int> postOrder() {
+            List<int> res = new List<int>();
+            dfs(0, "post", res);
+            return res;
+        }
+    }
     ```
 
 === "Go"
@@ -501,6 +593,104 @@ comments: true
         var res []any
         abt.dfs(0, "post", &res)
         return res
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array_binary_tree.swift"
+    /* 数组表示下的二叉树类 */
+    class ArrayBinaryTree {
+        private var tree: [Int?]
+
+        /* 构造方法 */
+        init(arr: [Int?]) {
+            tree = arr
+        }
+
+        /* 节点数量 */
+        func size() -> Int {
+            tree.count
+        }
+
+        /* 获取索引为 i 节点的值 */
+        func val(i: Int) -> Int? {
+            // 若索引越界，则返回 null ，代表空位
+            if i < 0 || i >= size() {
+                return nil
+            }
+            return tree[i]
+        }
+
+        /* 获取索引为 i 节点的左子节点的索引 */
+        func left(i: Int) -> Int {
+            2 * i + 1
+        }
+
+        /* 获取索引为 i 节点的右子节点的索引 */
+        func right(i: Int) -> Int {
+            2 * i + 2
+        }
+
+        /* 获取索引为 i 节点的父节点的索引 */
+        func parent(i: Int) -> Int {
+            (i - 1) / 2
+        }
+
+        /* 层序遍历 */
+        func levelOrder() -> [Int] {
+            var res: [Int] = []
+            // 直接遍历数组
+            for i in stride(from: 0, to: size(), by: 1) {
+                if let val = val(i: i) {
+                    res.append(val)
+                }
+            }
+            return res
+        }
+
+        /* 深度优先遍历 */
+        private func dfs(i: Int, order: String, res: inout [Int]) {
+            // 若为空位，则返回
+            guard let val = val(i: i) else {
+                return
+            }
+            // 前序遍历
+            if order == "pre" {
+                res.append(val)
+            }
+            dfs(i: left(i: i), order: order, res: &res)
+            // 中序遍历
+            if order == "in" {
+                res.append(val)
+            }
+            dfs(i: right(i: i), order: order, res: &res)
+            // 后序遍历
+            if order == "post" {
+                res.append(val)
+            }
+        }
+
+        /* 前序遍历 */
+        func preOrder() -> [Int] {
+            var res: [Int] = []
+            dfs(i: 0, order: "pre", res: &res)
+            return res
+        }
+
+        /* 中序遍历 */
+        func inOrder() -> [Int] {
+            var res: [Int] = []
+            dfs(i: 0, order: "in", res: &res)
+            return res
+        }
+
+        /* 后序遍历 */
+        func postOrder() -> [Int] {
+            var res: [Int] = []
+            dfs(i: 0, order: "post", res: &res)
+            return res
+        }
     }
     ```
 
@@ -674,291 +864,6 @@ comments: true
             return res;
         }
     }
-    ```
-
-=== "C"
-
-    ```c title="array_binary_tree.c"
-    /* 数组表示下的二叉树类 */
-    struct arrayBinaryTree {
-        vector *tree;
-    };
-
-    typedef struct arrayBinaryTree arrayBinaryTree;
-
-    /* 构造函数 */
-    arrayBinaryTree *newArrayBinaryTree(vector *arr) {
-        arrayBinaryTree *newABT = malloc(sizeof(arrayBinaryTree));
-        newABT->tree = arr;
-        return newABT;
-    }
-
-    /* 节点数量 */
-    int size(arrayBinaryTree *abt) {
-        return abt->tree->size;
-    }
-
-    /* 获取索引为 i 节点的值 */
-    int val(arrayBinaryTree *abt, int i) {
-        // 若索引越界，则返回 INT_MAX ，代表空位
-        if (i < 0 || i >= size(abt))
-            return INT_MAX;
-        return *(int *)abt->tree->data[i];
-    }
-
-    /* 深度优先遍历 */
-    void dfs(arrayBinaryTree *abt, int i, const char *order, vector *res) {
-        // 若为空位，则返回
-        if (val(abt, i) == INT_MAX)
-            return;
-        // 前序遍历
-        if (strcmp(order, "pre") == 0) {
-            int tmp = val(abt, i);
-            vectorPushback(res, &tmp, sizeof(tmp));
-        }
-        dfs(abt, left(i), order, res);
-        // 中序遍历
-        if (strcmp(order, "in") == 0) {
-            int tmp = val(abt, i);
-            vectorPushback(res, &tmp, sizeof(tmp));
-        }
-        dfs(abt, right(i), order, res);
-        // 后序遍历
-        if (strcmp(order, "post") == 0) {
-            int tmp = val(abt, i);
-            vectorPushback(res, &tmp, sizeof(tmp));
-        }
-    }
-
-    /* 层序遍历 */
-    vector *levelOrder(arrayBinaryTree *abt) {
-        vector *res = newVector();
-        // 直接遍历数组
-        for (int i = 0; i < size(abt); i++) {
-            if (val(abt, i) != INT_MAX) {
-                int tmp = val(abt, i);
-                vectorPushback(res, &tmp, sizeof(int));
-            }
-        }
-        return res;
-    }
-
-    /* 前序遍历 */
-    vector *preOrder(arrayBinaryTree *abt) {
-        vector *res = newVector();
-        dfs(abt, 0, "pre", res);
-        return res;
-    }
-
-    /* 中序遍历 */
-    vector *inOrder(arrayBinaryTree *abt) {
-        vector *res = newVector();
-        dfs(abt, 0, "in", res);
-        return res;
-    }
-
-    /* 后序遍历 */
-    vector *postOrder(arrayBinaryTree *abt) {
-        vector *res = newVector();
-        dfs(abt, 0, "post", res);
-        return res;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="array_binary_tree.cs"
-    /* 数组表示下的二叉树类 */
-    class ArrayBinaryTree {
-        private List<int?> tree;
-
-        /* 构造方法 */
-        public ArrayBinaryTree(List<int?> arr) {
-            tree = new List<int?>(arr);
-        }
-
-        /* 节点数量 */
-        public int size() {
-            return tree.Count;
-        }
-
-        /* 获取索引为 i 节点的值 */
-        public int? val(int i) {
-            // 若索引越界，则返回 null ，代表空位
-            if (i < 0 || i >= size())
-                return null;
-            return tree[i];
-        }
-
-        /* 获取索引为 i 节点的左子节点的索引 */
-        public int left(int i) {
-            return 2 * i + 1;
-        }
-
-        /* 获取索引为 i 节点的右子节点的索引 */
-        public int right(int i) {
-            return 2 * i + 2;
-        }
-
-        /* 获取索引为 i 节点的父节点的索引 */
-        public int parent(int i) {
-            return (i - 1) / 2;
-        }
-
-        /* 层序遍历 */
-        public List<int> levelOrder() {
-            List<int> res = new List<int>();
-            // 直接遍历数组
-            for (int i = 0; i < size(); i++) {
-                if (val(i).HasValue)
-                    res.Add(val(i).Value);
-            }
-            return res;
-        }
-
-        /* 深度优先遍历 */
-        private void dfs(int i, string order, List<int> res) {
-            // 若为空位，则返回
-            if (!val(i).HasValue)
-                return;
-            // 前序遍历
-            if (order == "pre")
-                res.Add(val(i).Value);
-            dfs(left(i), order, res);
-            // 中序遍历
-            if (order == "in")
-                res.Add(val(i).Value);
-            dfs(right(i), order, res);
-            // 后序遍历
-            if (order == "post")
-                res.Add(val(i).Value);
-        }
-
-        /* 前序遍历 */
-        public List<int> preOrder() {
-            List<int> res = new List<int>();
-            dfs(0, "pre", res);
-            return res;
-        }
-
-        /* 中序遍历 */
-        public List<int> inOrder() {
-            List<int> res = new List<int>();
-            dfs(0, "in", res);
-            return res;
-        }
-
-        /* 后序遍历 */
-        public List<int> postOrder() {
-            List<int> res = new List<int>();
-            dfs(0, "post", res);
-            return res;
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="array_binary_tree.swift"
-    /* 数组表示下的二叉树类 */
-    class ArrayBinaryTree {
-        private var tree: [Int?]
-
-        /* 构造方法 */
-        init(arr: [Int?]) {
-            tree = arr
-        }
-
-        /* 节点数量 */
-        func size() -> Int {
-            tree.count
-        }
-
-        /* 获取索引为 i 节点的值 */
-        func val(i: Int) -> Int? {
-            // 若索引越界，则返回 null ，代表空位
-            if i < 0 || i >= size() {
-                return nil
-            }
-            return tree[i]
-        }
-
-        /* 获取索引为 i 节点的左子节点的索引 */
-        func left(i: Int) -> Int {
-            2 * i + 1
-        }
-
-        /* 获取索引为 i 节点的右子节点的索引 */
-        func right(i: Int) -> Int {
-            2 * i + 2
-        }
-
-        /* 获取索引为 i 节点的父节点的索引 */
-        func parent(i: Int) -> Int {
-            (i - 1) / 2
-        }
-
-        /* 层序遍历 */
-        func levelOrder() -> [Int] {
-            var res: [Int] = []
-            // 直接遍历数组
-            for i in stride(from: 0, to: size(), by: 1) {
-                if let val = val(i: i) {
-                    res.append(val)
-                }
-            }
-            return res
-        }
-
-        /* 深度优先遍历 */
-        private func dfs(i: Int, order: String, res: inout [Int]) {
-            // 若为空位，则返回
-            guard let val = val(i: i) else {
-                return
-            }
-            // 前序遍历
-            if order == "pre" {
-                res.append(val)
-            }
-            dfs(i: left(i: i), order: order, res: &res)
-            // 中序遍历
-            if order == "in" {
-                res.append(val)
-            }
-            dfs(i: right(i: i), order: order, res: &res)
-            // 后序遍历
-            if order == "post" {
-                res.append(val)
-            }
-        }
-
-        /* 前序遍历 */
-        func preOrder() -> [Int] {
-            var res: [Int] = []
-            dfs(i: 0, order: "pre", res: &res)
-            return res
-        }
-
-        /* 中序遍历 */
-        func inOrder() -> [Int] {
-            var res: [Int] = []
-            dfs(i: 0, order: "in", res: &res)
-            return res
-        }
-
-        /* 后序遍历 */
-        func postOrder() -> [Int] {
-            var res: [Int] = []
-            dfs(i: 0, order: "post", res: &res)
-            return res
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="array_binary_tree.zig"
-    [class]{ArrayBinaryTree}-[func]{}
     ```
 
 === "Dart"
@@ -1155,6 +1060,101 @@ comments: true
             res
         }
     }
+    ```
+
+=== "C"
+
+    ```c title="array_binary_tree.c"
+    /* 数组表示下的二叉树类 */
+    struct arrayBinaryTree {
+        vector *tree;
+    };
+
+    typedef struct arrayBinaryTree arrayBinaryTree;
+
+    /* 构造函数 */
+    arrayBinaryTree *newArrayBinaryTree(vector *arr) {
+        arrayBinaryTree *newABT = malloc(sizeof(arrayBinaryTree));
+        newABT->tree = arr;
+        return newABT;
+    }
+
+    /* 节点数量 */
+    int size(arrayBinaryTree *abt) {
+        return abt->tree->size;
+    }
+
+    /* 获取索引为 i 节点的值 */
+    int val(arrayBinaryTree *abt, int i) {
+        // 若索引越界，则返回 INT_MAX ，代表空位
+        if (i < 0 || i >= size(abt))
+            return INT_MAX;
+        return *(int *)abt->tree->data[i];
+    }
+
+    /* 深度优先遍历 */
+    void dfs(arrayBinaryTree *abt, int i, const char *order, vector *res) {
+        // 若为空位，则返回
+        if (val(abt, i) == INT_MAX)
+            return;
+        // 前序遍历
+        if (strcmp(order, "pre") == 0) {
+            int tmp = val(abt, i);
+            vectorPushback(res, &tmp, sizeof(tmp));
+        }
+        dfs(abt, left(i), order, res);
+        // 中序遍历
+        if (strcmp(order, "in") == 0) {
+            int tmp = val(abt, i);
+            vectorPushback(res, &tmp, sizeof(tmp));
+        }
+        dfs(abt, right(i), order, res);
+        // 后序遍历
+        if (strcmp(order, "post") == 0) {
+            int tmp = val(abt, i);
+            vectorPushback(res, &tmp, sizeof(tmp));
+        }
+    }
+
+    /* 层序遍历 */
+    vector *levelOrder(arrayBinaryTree *abt) {
+        vector *res = newVector();
+        // 直接遍历数组
+        for (int i = 0; i < size(abt); i++) {
+            if (val(abt, i) != INT_MAX) {
+                int tmp = val(abt, i);
+                vectorPushback(res, &tmp, sizeof(int));
+            }
+        }
+        return res;
+    }
+
+    /* 前序遍历 */
+    vector *preOrder(arrayBinaryTree *abt) {
+        vector *res = newVector();
+        dfs(abt, 0, "pre", res);
+        return res;
+    }
+
+    /* 中序遍历 */
+    vector *inOrder(arrayBinaryTree *abt) {
+        vector *res = newVector();
+        dfs(abt, 0, "in", res);
+        return res;
+    }
+
+    /* 后序遍历 */
+    vector *postOrder(arrayBinaryTree *abt) {
+        vector *res = newVector();
+        dfs(abt, 0, "post", res);
+        return res;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="array_binary_tree.zig"
+    [class]{ArrayBinaryTree}-[func]{}
     ```
 
 ## 7.3.3 &nbsp; 优势与局限性

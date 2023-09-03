@@ -20,6 +20,62 @@ comments: true
 
 <p align="center"> 图 11-13 &nbsp; 桶排序算法流程 </p>
 
+=== "Python"
+
+    ```python title="bucket_sort.py"
+    def bucket_sort(nums: list[float]):
+        """桶排序"""
+        # 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+        k = len(nums) // 2
+        buckets = [[] for _ in range(k)]
+        # 1. 将数组元素分配到各个桶中
+        for num in nums:
+            # 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+            i = int(num * k)
+            # 将 num 添加进桶 i
+            buckets[i].append(num)
+        # 2. 对各个桶执行排序
+        for bucket in buckets:
+            # 使用内置排序函数，也可以替换成其他排序算法
+            bucket.sort()
+        # 3. 遍历桶合并结果
+        i = 0
+        for bucket in buckets:
+            for num in bucket:
+                nums[i] = num
+                i += 1
+    ```
+
+=== "C++"
+
+    ```cpp title="bucket_sort.cpp"
+    /* 桶排序 */
+    void bucketSort(vector<float> &nums) {
+        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+        int k = nums.size() / 2;
+        vector<vector<float>> buckets(k);
+        // 1. 将数组元素分配到各个桶中
+        for (float num : nums) {
+            // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+            int i = num * k;
+            // 将 num 添加进桶 bucket_idx
+            buckets[i].push_back(num);
+        }
+        // 2. 对各个桶执行排序
+        for (vector<float> &bucket : buckets) {
+            // 使用内置排序函数，也可以替换成其他排序算法
+            sort(bucket.begin(), bucket.end());
+        }
+        // 3. 遍历桶合并结果
+        int i = 0;
+        for (vector<float> &bucket : buckets) {
+            for (float num : bucket) {
+                nums[i++] = num;
+            }
+        }
+    }
+    ```
+
 === "Java"
 
     ```java title="bucket_sort.java"
@@ -53,60 +109,37 @@ comments: true
     }
     ```
 
-=== "C++"
+=== "C#"
 
-    ```cpp title="bucket_sort.cpp"
+    ```csharp title="bucket_sort.cs"
     /* 桶排序 */
-    void bucketSort(vector<float> &nums) {
+    void bucketSort(float[] nums) {
         // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
-        int k = nums.size() / 2;
-        vector<vector<float>> buckets(k);
+        int k = nums.Length / 2;
+        List<List<float>> buckets = new List<List<float>>();
+        for (int i = 0; i < k; i++) {
+            buckets.Add(new List<float>());
+        }
         // 1. 将数组元素分配到各个桶中
-        for (float num : nums) {
+        foreach (float num in nums) {
             // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-            int i = num * k;
-            // 将 num 添加进桶 bucket_idx
-            buckets[i].push_back(num);
+            int i = (int)(num * k);
+            // 将 num 添加进桶 i
+            buckets[i].Add(num);
         }
         // 2. 对各个桶执行排序
-        for (vector<float> &bucket : buckets) {
+        foreach (List<float> bucket in buckets) {
             // 使用内置排序函数，也可以替换成其他排序算法
-            sort(bucket.begin(), bucket.end());
+            bucket.Sort();
         }
         // 3. 遍历桶合并结果
-        int i = 0;
-        for (vector<float> &bucket : buckets) {
-            for (float num : bucket) {
-                nums[i++] = num;
+        int j = 0;
+        foreach (List<float> bucket in buckets) {
+            foreach (float num in bucket) {
+                nums[j++] = num;
             }
         }
     }
-    ```
-
-=== "Python"
-
-    ```python title="bucket_sort.py"
-    def bucket_sort(nums: list[float]):
-        """桶排序"""
-        # 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
-        k = len(nums) // 2
-        buckets = [[] for _ in range(k)]
-        # 1. 将数组元素分配到各个桶中
-        for num in nums:
-            # 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-            i = int(num * k)
-            # 将 num 添加进桶 i
-            buckets[i].append(num)
-        # 2. 对各个桶执行排序
-        for bucket in buckets:
-            # 使用内置排序函数，也可以替换成其他排序算法
-            bucket.sort()
-        # 3. 遍历桶合并结果
-        i = 0
-        for bucket in buckets:
-            for num in bucket:
-                nums[i] = num
-                i += 1
     ```
 
 === "Go"
@@ -138,6 +171,37 @@ comments: true
             for _, num := range bucket {
                 nums[i] = num
                 i++
+            }
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="bucket_sort.swift"
+    /* 桶排序 */
+    func bucketSort(nums: inout [Double]) {
+        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+        let k = nums.count / 2
+        var buckets = (0 ..< k).map { _ in [Double]() }
+        // 1. 将数组元素分配到各个桶中
+        for num in nums {
+            // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+            let i = Int(num * Double(k))
+            // 将 num 添加进桶 i
+            buckets[i].append(num)
+        }
+        // 2. 对各个桶执行排序
+        for i in buckets.indices {
+            // 使用内置排序函数，也可以替换成其他排序算法
+            buckets[i].sort()
+        }
+        // 3. 遍历桶合并结果
+        var i = nums.startIndex
+        for bucket in buckets {
+            for num in bucket {
+                nums[i] = num
+                nums.formIndex(after: &i)
             }
         }
     }
@@ -209,128 +273,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="bucket_sort.c"
-    /* 桶排序 */
-    void bucketSort(float nums[], int size) {
-        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
-        int k = size / 2;
-        float **buckets = calloc(k, sizeof(float *));
-        for (int i = 0; i < k; i++) {
-            // 每个桶最多可以分配 k 个元素
-            buckets[i] = calloc(ARRAY_SIZE, sizeof(float));
-        }
-
-        // 1. 将数组元素分配到各个桶中
-        for (int i = 0; i < size; i++) {
-            // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-            int bucket_idx = nums[i] * k;
-            int j = 0;
-            // 如果桶中有数据且数据小于当前值 nums[i], 要将其放到当前桶的后面，相当于 cpp 中的 push_back
-            while (buckets[bucket_idx][j] > 0 && buckets[bucket_idx][j] < nums[i]) {
-                j++;
-            }
-            float temp = nums[i];
-            while (j < ARRAY_SIZE && buckets[bucket_idx][j] > 0) {
-                swap(&temp, &buckets[bucket_idx][j]);
-                j++;
-            }
-            buckets[bucket_idx][j] = temp;
-        }
-
-        // 2. 对各个桶执行排序
-        for (int i = 0; i < k; i++) {
-            qsort(buckets[i], ARRAY_SIZE, sizeof(float), compare_float);
-        }
-
-        // 3. 遍历桶合并结果
-        for (int i = 0, j = 0; j < k; j++) {
-            for (int l = 0; l < ARRAY_SIZE; l++) {
-                if (buckets[j][l] > 0) {
-                    nums[i++] = buckets[j][l];
-                }
-            }
-        }
-
-        // 释放上述分配的内存
-        for (int i = 0; i < k; i++) {
-            free(buckets[i]);
-        }
-        free(buckets);
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="bucket_sort.cs"
-    /* 桶排序 */
-    void bucketSort(float[] nums) {
-        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
-        int k = nums.Length / 2;
-        List<List<float>> buckets = new List<List<float>>();
-        for (int i = 0; i < k; i++) {
-            buckets.Add(new List<float>());
-        }
-        // 1. 将数组元素分配到各个桶中
-        foreach (float num in nums) {
-            // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-            int i = (int)(num * k);
-            // 将 num 添加进桶 i
-            buckets[i].Add(num);
-        }
-        // 2. 对各个桶执行排序
-        foreach (List<float> bucket in buckets) {
-            // 使用内置排序函数，也可以替换成其他排序算法
-            bucket.Sort();
-        }
-        // 3. 遍历桶合并结果
-        int j = 0;
-        foreach (List<float> bucket in buckets) {
-            foreach (float num in bucket) {
-                nums[j++] = num;
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="bucket_sort.swift"
-    /* 桶排序 */
-    func bucketSort(nums: inout [Double]) {
-        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
-        let k = nums.count / 2
-        var buckets = (0 ..< k).map { _ in [Double]() }
-        // 1. 将数组元素分配到各个桶中
-        for num in nums {
-            // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-            let i = Int(num * Double(k))
-            // 将 num 添加进桶 i
-            buckets[i].append(num)
-        }
-        // 2. 对各个桶执行排序
-        for i in buckets.indices {
-            // 使用内置排序函数，也可以替换成其他排序算法
-            buckets[i].sort()
-        }
-        // 3. 遍历桶合并结果
-        var i = nums.startIndex
-        for bucket in buckets {
-            for num in bucket {
-                nums[i] = num
-                nums.formIndex(after: &i)
-            }
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="bucket_sort.zig"
-    [class]{}-[func]{bucketSort}
-    ```
-
 === "Dart"
 
     ```dart title="bucket_sort.dart"
@@ -390,6 +332,64 @@ comments: true
             }
         }
     }
+    ```
+
+=== "C"
+
+    ```c title="bucket_sort.c"
+    /* 桶排序 */
+    void bucketSort(float nums[], int size) {
+        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+        int k = size / 2;
+        float **buckets = calloc(k, sizeof(float *));
+        for (int i = 0; i < k; i++) {
+            // 每个桶最多可以分配 k 个元素
+            buckets[i] = calloc(ARRAY_SIZE, sizeof(float));
+        }
+
+        // 1. 将数组元素分配到各个桶中
+        for (int i = 0; i < size; i++) {
+            // 输入数据范围 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+            int bucket_idx = nums[i] * k;
+            int j = 0;
+            // 如果桶中有数据且数据小于当前值 nums[i], 要将其放到当前桶的后面，相当于 cpp 中的 push_back
+            while (buckets[bucket_idx][j] > 0 && buckets[bucket_idx][j] < nums[i]) {
+                j++;
+            }
+            float temp = nums[i];
+            while (j < ARRAY_SIZE && buckets[bucket_idx][j] > 0) {
+                swap(&temp, &buckets[bucket_idx][j]);
+                j++;
+            }
+            buckets[bucket_idx][j] = temp;
+        }
+
+        // 2. 对各个桶执行排序
+        for (int i = 0; i < k; i++) {
+            qsort(buckets[i], ARRAY_SIZE, sizeof(float), compare_float);
+        }
+
+        // 3. 遍历桶合并结果
+        for (int i = 0, j = 0; j < k; j++) {
+            for (int l = 0; l < ARRAY_SIZE; l++) {
+                if (buckets[j][l] > 0) {
+                    nums[i++] = buckets[j][l];
+                }
+            }
+        }
+
+        // 释放上述分配的内存
+        for (int i = 0; i < k; i++) {
+            free(buckets[i]);
+        }
+        free(buckets);
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="bucket_sort.zig"
+    [class]{}-[func]{bucketSort}
     ```
 
 ## 11.8.2 &nbsp; 算法特性

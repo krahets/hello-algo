@@ -55,39 +55,35 @@ comments: true
 
 想清楚以上信息之后，我们就可以在框架代码中做“完形填空”了。为了缩短代码行数，我们不单独实现框架代码中的各个函数，而是将他们展开在 `backtrack()` 函数中。
 
-=== "Java"
+=== "Python"
 
-    ```java title="permutations_i.java"
-    /* 回溯算法：全排列 I */
-    void backtrack(List<Integer> state, int[] choices, boolean[] selected, List<List<Integer>> res) {
-        // 当状态长度等于元素数量时，记录解
-        if (state.size() == choices.length) {
-            res.add(new ArrayList<Integer>(state));
-            return;
-        }
-        // 遍历所有选择
-        for (int i = 0; i < choices.length; i++) {
-            int choice = choices[i];
-            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
-            if (!selected[i]) {
-                // 尝试：做出选择，更新状态
-                selected[i] = true;
-                state.add(choice);
-                // 进行下一轮选择
-                backtrack(state, choices, selected, res);
-                // 回退：撤销选择，恢复到之前的状态
-                selected[i] = false;
-                state.remove(state.size() - 1);
-            }
-        }
-    }
+    ```python title="permutations_i.py"
+    def backtrack(
+        state: list[int], choices: list[int], selected: list[bool], res: list[list[int]]
+    ):
+        """回溯算法：全排列 I"""
+        # 当状态长度等于元素数量时，记录解
+        if len(state) == len(choices):
+            res.append(list(state))
+            return
+        # 遍历所有选择
+        for i, choice in enumerate(choices):
+            # 剪枝：不允许重复选择元素
+            if not selected[i]:
+                # 尝试：做出选择，更新状态
+                selected[i] = True
+                state.append(choice)
+                # 进行下一轮选择
+                backtrack(state, choices, selected, res)
+                # 回退：撤销选择，恢复到之前的状态
+                selected[i] = False
+                state.pop()
 
-    /* 全排列 I */
-    List<List<Integer>> permutationsI(int[] nums) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        backtrack(new ArrayList<Integer>(), nums, new boolean[nums.length], res);
-        return res;
-    }
+    def permutations_i(nums: list[int]) -> list[list[int]]:
+        """全排列 I"""
+        res = []
+        backtrack(state=[], choices=nums, selected=[False] * len(nums), res=res)
+        return res
     ```
 
 === "C++"
@@ -127,35 +123,74 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="permutations_i.py"
-    def backtrack(
-        state: list[int], choices: list[int], selected: list[bool], res: list[list[int]]
-    ):
-        """回溯算法：全排列 I"""
-        # 当状态长度等于元素数量时，记录解
-        if len(state) == len(choices):
-            res.append(list(state))
-            return
-        # 遍历所有选择
-        for i, choice in enumerate(choices):
-            # 剪枝：不允许重复选择元素
-            if not selected[i]:
-                # 尝试：做出选择，更新状态
-                selected[i] = True
-                state.append(choice)
-                # 进行下一轮选择
-                backtrack(state, choices, selected, res)
-                # 回退：撤销选择，恢复到之前的状态
-                selected[i] = False
-                state.pop()
+    ```java title="permutations_i.java"
+    /* 回溯算法：全排列 I */
+    void backtrack(List<Integer> state, int[] choices, boolean[] selected, List<List<Integer>> res) {
+        // 当状态长度等于元素数量时，记录解
+        if (state.size() == choices.length) {
+            res.add(new ArrayList<Integer>(state));
+            return;
+        }
+        // 遍历所有选择
+        for (int i = 0; i < choices.length; i++) {
+            int choice = choices[i];
+            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            if (!selected[i]) {
+                // 尝试：做出选择，更新状态
+                selected[i] = true;
+                state.add(choice);
+                // 进行下一轮选择
+                backtrack(state, choices, selected, res);
+                // 回退：撤销选择，恢复到之前的状态
+                selected[i] = false;
+                state.remove(state.size() - 1);
+            }
+        }
+    }
 
-    def permutations_i(nums: list[int]) -> list[list[int]]:
-        """全排列 I"""
-        res = []
-        backtrack(state=[], choices=nums, selected=[False] * len(nums), res=res)
-        return res
+    /* 全排列 I */
+    List<List<Integer>> permutationsI(int[] nums) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        backtrack(new ArrayList<Integer>(), nums, new boolean[nums.length], res);
+        return res;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="permutations_i.cs"
+    /* 回溯算法：全排列 I */
+    void backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
+        // 当状态长度等于元素数量时，记录解
+        if (state.Count == choices.Length) {
+            res.Add(new List<int>(state));
+            return;
+        }
+        // 遍历所有选择
+        for (int i = 0; i < choices.Length; i++) {
+            int choice = choices[i];
+            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            if (!selected[i]) {
+                // 尝试：做出选择，更新状态
+                selected[i] = true;
+                state.Add(choice);
+                // 进行下一轮选择
+                backtrack(state, choices, selected, res);
+                // 回退：撤销选择，恢复到之前的状态
+                selected[i] = false;
+                state.RemoveAt(state.Count - 1);
+            }
+        }
+    }
+
+    /* 全排列 I */
+    List<List<int>> permutationsI(int[] nums) {
+        List<List<int>> res = new List<List<int>>();
+        backtrack(new List<int>(), nums, new bool[nums.Length], res);
+        return res;
+    }
     ```
 
 === "Go"
@@ -191,6 +226,42 @@ comments: true
         state := make([]int, 0)
         selected := make([]bool, len(nums))
         backtrackI(&state, &nums, &selected, &res)
+        return res
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="permutations_i.swift"
+    /* 回溯算法：全排列 I */
+    func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
+        // 当状态长度等于元素数量时，记录解
+        if state.count == choices.count {
+            res.append(state)
+            return
+        }
+        // 遍历所有选择
+        for (i, choice) in choices.enumerated() {
+            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            if !selected[i] {
+                // 尝试：做出选择，更新状态
+                selected[i] = true
+                state.append(choice)
+                // 进行下一轮选择
+                backtrack(state: &state, choices: choices, selected: &selected, res: &res)
+                // 回退：撤销选择，恢复到之前的状态
+                selected[i] = false
+                state.removeLast()
+            }
+        }
+    }
+
+    /* 全排列 I */
+    func permutationsI(nums: [Int]) -> [[Int]] {
+        var state: [Int] = []
+        var selected = Array(repeating: false, count: nums.count)
+        var res: [[Int]] = []
+        backtrack(state: &state, choices: nums, selected: &selected, res: &res)
         return res
     }
     ```
@@ -268,136 +339,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="permutations_i.c"
-    /* 回溯算法：全排列 I */
-    void backtrack(vector *state, vector *choices, vector *selected, vector *res) {
-        // 当状态长度等于元素数量时，记录解
-        if (state->size == choices->size) {
-            vector *newState = newVector();
-            for (int i = 0; i < state->size; i++) {
-                vectorPushback(newState, state->data[i], sizeof(int));
-            }
-            vectorPushback(res, newState, sizeof(vector));
-            return;
-        }
-        // 遍历所有选择
-        for (int i = 0; i < choices->size; i++) {
-            int *choice = malloc(sizeof(int));
-            *choice = *((int *)(choices->data[i]));
-            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
-            bool select = *((bool *)(selected->data[i]));
-            if (!select) {
-                // 尝试：做出选择，更新状态
-                *((bool *)selected->data[i]) = true;
-                vectorPushback(state, choice, sizeof(int));
-                // 进行下一轮选择
-                backtrack(state, choices, selected, res);
-                // 回退：撤销选择，恢复到之前的状态
-                *((bool *)selected->data[i]) = false;
-                vectorPopback(state);
-            }
-        }
-    }
-
-    /* 全排列 I */
-    vector *permutationsI(vector *nums) {
-        vector *iState = newVector();
-
-        int select[3] = {false, false, false};
-        vector *bSelected = newVector();
-        for (int i = 0; i < nums->size; i++) {
-            vectorPushback(bSelected, &select[i], sizeof(int));
-        }
-
-        vector *res = newVector();
-
-        // 前序遍历
-        backtrack(iState, nums, bSelected, res);
-        return res;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="permutations_i.cs"
-    /* 回溯算法：全排列 I */
-    void backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
-        // 当状态长度等于元素数量时，记录解
-        if (state.Count == choices.Length) {
-            res.Add(new List<int>(state));
-            return;
-        }
-        // 遍历所有选择
-        for (int i = 0; i < choices.Length; i++) {
-            int choice = choices[i];
-            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
-            if (!selected[i]) {
-                // 尝试：做出选择，更新状态
-                selected[i] = true;
-                state.Add(choice);
-                // 进行下一轮选择
-                backtrack(state, choices, selected, res);
-                // 回退：撤销选择，恢复到之前的状态
-                selected[i] = false;
-                state.RemoveAt(state.Count - 1);
-            }
-        }
-    }
-
-    /* 全排列 I */
-    List<List<int>> permutationsI(int[] nums) {
-        List<List<int>> res = new List<List<int>>();
-        backtrack(new List<int>(), nums, new bool[nums.Length], res);
-        return res;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="permutations_i.swift"
-    /* 回溯算法：全排列 I */
-    func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
-        // 当状态长度等于元素数量时，记录解
-        if state.count == choices.count {
-            res.append(state)
-            return
-        }
-        // 遍历所有选择
-        for (i, choice) in choices.enumerated() {
-            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
-            if !selected[i] {
-                // 尝试：做出选择，更新状态
-                selected[i] = true
-                state.append(choice)
-                // 进行下一轮选择
-                backtrack(state: &state, choices: choices, selected: &selected, res: &res)
-                // 回退：撤销选择，恢复到之前的状态
-                selected[i] = false
-                state.removeLast()
-            }
-        }
-    }
-
-    /* 全排列 I */
-    func permutationsI(nums: [Int]) -> [[Int]] {
-        var state: [Int] = []
-        var selected = Array(repeating: false, count: nums.count)
-        var res: [[Int]] = []
-        backtrack(state: &state, choices: nums, selected: &selected, res: &res)
-        return res
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="permutations_i.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
 === "Dart"
 
     ```dart title="permutations_i.dart"
@@ -473,6 +414,65 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="permutations_i.c"
+    /* 回溯算法：全排列 I */
+    void backtrack(vector *state, vector *choices, vector *selected, vector *res) {
+        // 当状态长度等于元素数量时，记录解
+        if (state->size == choices->size) {
+            vector *newState = newVector();
+            for (int i = 0; i < state->size; i++) {
+                vectorPushback(newState, state->data[i], sizeof(int));
+            }
+            vectorPushback(res, newState, sizeof(vector));
+            return;
+        }
+        // 遍历所有选择
+        for (int i = 0; i < choices->size; i++) {
+            int *choice = malloc(sizeof(int));
+            *choice = *((int *)(choices->data[i]));
+            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            bool select = *((bool *)(selected->data[i]));
+            if (!select) {
+                // 尝试：做出选择，更新状态
+                *((bool *)selected->data[i]) = true;
+                vectorPushback(state, choice, sizeof(int));
+                // 进行下一轮选择
+                backtrack(state, choices, selected, res);
+                // 回退：撤销选择，恢复到之前的状态
+                *((bool *)selected->data[i]) = false;
+                vectorPopback(state);
+            }
+        }
+    }
+
+    /* 全排列 I */
+    vector *permutationsI(vector *nums) {
+        vector *iState = newVector();
+
+        int select[3] = {false, false, false};
+        vector *bSelected = newVector();
+        for (int i = 0; i < nums->size; i++) {
+            vectorPushback(bSelected, &select[i], sizeof(int));
+        }
+
+        vector *res = newVector();
+
+        // 前序遍历
+        backtrack(iState, nums, bSelected, res);
+        return res;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="permutations_i.zig"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsI}
+    ```
+
 ## 13.2.2 &nbsp; 考虑相等元素的情况
 
 !!! question
@@ -505,41 +505,37 @@ comments: true
 
 在上一题的代码的基础上，我们考虑在每一轮选择中开启一个哈希表 `duplicated` ，用于记录该轮中已经尝试过的元素，并将重复元素剪枝。
 
-=== "Java"
+=== "Python"
 
-    ```java title="permutations_ii.java"
-    /* 回溯算法：全排列 II */
-    void backtrack(List<Integer> state, int[] choices, boolean[] selected, List<List<Integer>> res) {
-        // 当状态长度等于元素数量时，记录解
-        if (state.size() == choices.length) {
-            res.add(new ArrayList<Integer>(state));
-            return;
-        }
-        // 遍历所有选择
-        Set<Integer> duplicated = new HashSet<Integer>();
-        for (int i = 0; i < choices.length; i++) {
-            int choice = choices[i];
-            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
-            if (!selected[i] && !duplicated.contains(choice)) {
-                // 尝试：做出选择，更新状态
-                duplicated.add(choice); // 记录选择过的元素值
-                selected[i] = true;
-                state.add(choice);
-                // 进行下一轮选择
-                backtrack(state, choices, selected, res);
-                // 回退：撤销选择，恢复到之前的状态
-                selected[i] = false;
-                state.remove(state.size() - 1);
-            }
-        }
-    }
+    ```python title="permutations_ii.py"
+    def backtrack(
+        state: list[int], choices: list[int], selected: list[bool], res: list[list[int]]
+    ):
+        """回溯算法：全排列 II"""
+        # 当状态长度等于元素数量时，记录解
+        if len(state) == len(choices):
+            res.append(list(state))
+            return
+        # 遍历所有选择
+        duplicated = set[int]()
+        for i, choice in enumerate(choices):
+            # 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            if not selected[i] and choice not in duplicated:
+                # 尝试：做出选择，更新状态
+                duplicated.add(choice)  # 记录选择过的元素值
+                selected[i] = True
+                state.append(choice)
+                # 进行下一轮选择
+                backtrack(state, choices, selected, res)
+                # 回退：撤销选择，恢复到之前的状态
+                selected[i] = False
+                state.pop()
 
-    /* 全排列 II */
-    List<List<Integer>> permutationsII(int[] nums) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        backtrack(new ArrayList<Integer>(), nums, new boolean[nums.length], res);
-        return res;
-    }
+    def permutations_ii(nums: list[int]) -> list[list[int]]:
+        """全排列 II"""
+        res = []
+        backtrack(state=[], choices=nums, selected=[False] * len(nums), res=res)
+        return res
     ```
 
 === "C++"
@@ -581,37 +577,78 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="permutations_ii.py"
-    def backtrack(
-        state: list[int], choices: list[int], selected: list[bool], res: list[list[int]]
-    ):
-        """回溯算法：全排列 II"""
-        # 当状态长度等于元素数量时，记录解
-        if len(state) == len(choices):
-            res.append(list(state))
-            return
-        # 遍历所有选择
-        duplicated = set[int]()
-        for i, choice in enumerate(choices):
-            # 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
-            if not selected[i] and choice not in duplicated:
-                # 尝试：做出选择，更新状态
-                duplicated.add(choice)  # 记录选择过的元素值
-                selected[i] = True
-                state.append(choice)
-                # 进行下一轮选择
-                backtrack(state, choices, selected, res)
-                # 回退：撤销选择，恢复到之前的状态
-                selected[i] = False
-                state.pop()
+    ```java title="permutations_ii.java"
+    /* 回溯算法：全排列 II */
+    void backtrack(List<Integer> state, int[] choices, boolean[] selected, List<List<Integer>> res) {
+        // 当状态长度等于元素数量时，记录解
+        if (state.size() == choices.length) {
+            res.add(new ArrayList<Integer>(state));
+            return;
+        }
+        // 遍历所有选择
+        Set<Integer> duplicated = new HashSet<Integer>();
+        for (int i = 0; i < choices.length; i++) {
+            int choice = choices[i];
+            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            if (!selected[i] && !duplicated.contains(choice)) {
+                // 尝试：做出选择，更新状态
+                duplicated.add(choice); // 记录选择过的元素值
+                selected[i] = true;
+                state.add(choice);
+                // 进行下一轮选择
+                backtrack(state, choices, selected, res);
+                // 回退：撤销选择，恢复到之前的状态
+                selected[i] = false;
+                state.remove(state.size() - 1);
+            }
+        }
+    }
 
-    def permutations_ii(nums: list[int]) -> list[list[int]]:
-        """全排列 II"""
-        res = []
-        backtrack(state=[], choices=nums, selected=[False] * len(nums), res=res)
-        return res
+    /* 全排列 II */
+    List<List<Integer>> permutationsII(int[] nums) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        backtrack(new ArrayList<Integer>(), nums, new boolean[nums.length], res);
+        return res;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="permutations_ii.cs"
+    /* 回溯算法：全排列 II */
+    void backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
+        // 当状态长度等于元素数量时，记录解
+        if (state.Count == choices.Length) {
+            res.Add(new List<int>(state));
+            return;
+        }
+        // 遍历所有选择
+        ISet<int> duplicated = new HashSet<int>();
+        for (int i = 0; i < choices.Length; i++) {
+            int choice = choices[i];
+            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            if (!selected[i] && !duplicated.Contains(choice)) {
+                // 尝试：做出选择，更新状态
+                duplicated.Add(choice); // 记录选择过的元素值
+                selected[i] = true;
+                state.Add(choice);
+                // 进行下一轮选择
+                backtrack(state, choices, selected, res);
+                // 回退：撤销选择，恢复到之前的状态
+                selected[i] = false;
+                state.RemoveAt(state.Count - 1);
+            }
+        }
+    }
+
+    /* 全排列 II */
+    List<List<int>> permutationsII(int[] nums) {
+        List<List<int>> res = new List<List<int>>();
+        backtrack(new List<int>(), nums, new bool[nums.Length], res);
+        return res;
+    }
     ```
 
 === "Go"
@@ -650,6 +687,44 @@ comments: true
         state := make([]int, 0)
         selected := make([]bool, len(nums))
         backtrackII(&state, &nums, &selected, &res)
+        return res
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="permutations_ii.swift"
+    /* 回溯算法：全排列 II */
+    func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
+        // 当状态长度等于元素数量时，记录解
+        if state.count == choices.count {
+            res.append(state)
+            return
+        }
+        // 遍历所有选择
+        var duplicated: Set<Int> = []
+        for (i, choice) in choices.enumerated() {
+            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            if !selected[i], !duplicated.contains(choice) {
+                // 尝试：做出选择，更新状态
+                duplicated.insert(choice) // 记录选择过的元素值
+                selected[i] = true
+                state.append(choice)
+                // 进行下一轮选择
+                backtrack(state: &state, choices: choices, selected: &selected, res: &res)
+                // 回退：撤销选择，恢复到之前的状态
+                selected[i] = false
+                state.removeLast()
+            }
+        }
+    }
+
+    /* 全排列 II */
+    func permutationsII(nums: [Int]) -> [[Int]] {
+        var state: [Int] = []
+        var selected = Array(repeating: false, count: nums.count)
+        var res: [[Int]] = []
+        backtrack(state: &state, choices: nums, selected: &selected, res: &res)
         return res
     }
     ```
@@ -731,97 +806,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="permutations_ii.c"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
-    ```
-
-=== "C#"
-
-    ```csharp title="permutations_ii.cs"
-    /* 回溯算法：全排列 II */
-    void backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
-        // 当状态长度等于元素数量时，记录解
-        if (state.Count == choices.Length) {
-            res.Add(new List<int>(state));
-            return;
-        }
-        // 遍历所有选择
-        ISet<int> duplicated = new HashSet<int>();
-        for (int i = 0; i < choices.Length; i++) {
-            int choice = choices[i];
-            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
-            if (!selected[i] && !duplicated.Contains(choice)) {
-                // 尝试：做出选择，更新状态
-                duplicated.Add(choice); // 记录选择过的元素值
-                selected[i] = true;
-                state.Add(choice);
-                // 进行下一轮选择
-                backtrack(state, choices, selected, res);
-                // 回退：撤销选择，恢复到之前的状态
-                selected[i] = false;
-                state.RemoveAt(state.Count - 1);
-            }
-        }
-    }
-
-    /* 全排列 II */
-    List<List<int>> permutationsII(int[] nums) {
-        List<List<int>> res = new List<List<int>>();
-        backtrack(new List<int>(), nums, new bool[nums.Length], res);
-        return res;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="permutations_ii.swift"
-    /* 回溯算法：全排列 II */
-    func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
-        // 当状态长度等于元素数量时，记录解
-        if state.count == choices.count {
-            res.append(state)
-            return
-        }
-        // 遍历所有选择
-        var duplicated: Set<Int> = []
-        for (i, choice) in choices.enumerated() {
-            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
-            if !selected[i], !duplicated.contains(choice) {
-                // 尝试：做出选择，更新状态
-                duplicated.insert(choice) // 记录选择过的元素值
-                selected[i] = true
-                state.append(choice)
-                // 进行下一轮选择
-                backtrack(state: &state, choices: choices, selected: &selected, res: &res)
-                // 回退：撤销选择，恢复到之前的状态
-                selected[i] = false
-                state.removeLast()
-            }
-        }
-    }
-
-    /* 全排列 II */
-    func permutationsII(nums: [Int]) -> [[Int]] {
-        var state: [Int] = []
-        var selected = Array(repeating: false, count: nums.count)
-        var res: [[Int]] = []
-        backtrack(state: &state, choices: nums, selected: &selected, res: &res)
-        return res
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="permutations_ii.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
-    ```
-
 === "Dart"
 
     ```dart title="permutations_ii.dart"
@@ -899,6 +883,22 @@ comments: true
         backtrack(Vec::new(), nums, &mut vec![false; nums.len()], &mut res);
         res
     }
+    ```
+
+=== "C"
+
+    ```c title="permutations_ii.c"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsII}
+    ```
+
+=== "Zig"
+
+    ```zig title="permutations_ii.zig"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsII}
     ```
 
 假设元素两两之间互不相同，则 $n$ 个元素共有 $n!$  种排列（阶乘）；在记录结果时，需要复制长度为 $n$ 的列表，使用 $O(n)$ 时间。**因此时间复杂度为 $O(n!n)$** 。

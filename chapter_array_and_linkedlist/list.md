@@ -14,15 +14,14 @@ comments: true
 
 我们通常使用“无初始值”和“有初始值”这两种初始化方法。
 
-=== "Java"
+=== "Python"
 
-    ```java title="list.java"
-    /* 初始化列表 */
-    // 无初始值
-    List<Integer> list1 = new ArrayList<>();
-    // 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）
-    Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
-    List<Integer> list = new ArrayList<>(Arrays.asList(numbers));
+    ```python title="list.py"
+    # 初始化列表
+    # 无初始值
+    list1: list[int] = []
+    # 有初始值
+    list: list[int] = [1, 3, 2, 5, 4]
     ```
 
 === "C++"
@@ -36,14 +35,26 @@ comments: true
     vector<int> list = { 1, 3, 2, 5, 4 };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="list.py"
-    # 初始化列表
-    # 无初始值
-    list1: list[int] = []
-    # 有初始值
-    list: list[int] = [1, 3, 2, 5, 4]
+    ```java title="list.java"
+    /* 初始化列表 */
+    // 无初始值
+    List<Integer> list1 = new ArrayList<>();
+    // 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）
+    Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
+    List<Integer> list = new ArrayList<>(Arrays.asList(numbers));
+    ```
+
+=== "C#"
+
+    ```csharp title="list.cs"
+    /* 初始化列表 */
+    // 无初始值
+    List<int> list1 = new ();
+    // 有初始值
+    int[] numbers = new int[] { 1, 3, 2, 5, 4 };
+    List<int> list = numbers.ToList();
     ```
 
 === "Go"
@@ -54,6 +65,16 @@ comments: true
     list1 := []int
     // 有初始值
     list := []int{1, 3, 2, 5, 4}
+    ```
+
+=== "Swift"
+
+    ```swift title="list.swift"
+    /* 初始化列表 */
+    // 无初始值
+    let list1: [Int] = []
+    // 有初始值
+    var list = [1, 3, 2, 5, 4]
     ```
 
 === "JS"
@@ -76,42 +97,6 @@ comments: true
     const list: number[] = [1, 3, 2, 5, 4];
     ```
 
-=== "C"
-
-    ```c title="list.c"
-    // C 未提供内置动态数组
-    ```
-
-=== "C#"
-
-    ```csharp title="list.cs"
-    /* 初始化列表 */
-    // 无初始值
-    List<int> list1 = new ();
-    // 有初始值
-    int[] numbers = new int[] { 1, 3, 2, 5, 4 };
-    List<int> list = numbers.ToList();
-    ```
-
-=== "Swift"
-
-    ```swift title="list.swift"
-    /* 初始化列表 */
-    // 无初始值
-    let list1: [Int] = []
-    // 有初始值
-    var list = [1, 3, 2, 5, 4]
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 初始化列表
-    var list = std.ArrayList(i32).init(std.heap.page_allocator);
-    defer list.deinit();
-    try list.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
-    ```
-
 === "Dart"
 
     ```dart title="list.dart"
@@ -132,18 +117,33 @@ comments: true
     let list2: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
+=== "C"
+
+    ```c title="list.c"
+    // C 未提供内置动态数组
+    ```
+
+=== "Zig"
+
+    ```zig title="list.zig"
+    // 初始化列表
+    var list = std.ArrayList(i32).init(std.heap.page_allocator);
+    defer list.deinit();
+    try list.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
+    ```
+
 ### 2. &nbsp; 访问元素
 
 列表本质上是数组，因此可以在 $O(1)$ 时间内访问和更新元素，效率很高。
 
-=== "Java"
+=== "Python"
 
-    ```java title="list.java"
-    /* 访问元素 */
-    int num = list.get(1);  // 访问索引 1 处的元素
+    ```python title="list.py"
+    # 访问元素
+    num: int = list[1]  # 访问索引 1 处的元素
 
-    /* 更新元素 */
-    list.set(1, 0);  // 将索引 1 处的元素更新为 0
+    # 更新元素
+    list[1] = 0    # 将索引 1 处的元素更新为 0
     ```
 
 === "C++"
@@ -156,14 +156,24 @@ comments: true
     list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="list.py"
-    # 访问元素
-    num: int = list[1]  # 访问索引 1 处的元素
+    ```java title="list.java"
+    /* 访问元素 */
+    int num = list.get(1);  // 访问索引 1 处的元素
 
-    # 更新元素
-    list[1] = 0    # 将索引 1 处的元素更新为 0
+    /* 更新元素 */
+    list.set(1, 0);  // 将索引 1 处的元素更新为 0
+    ```
+
+=== "C#"
+
+    ```csharp title="list.cs"
+    /* 访问元素 */
+    int num = list[1];  // 访问索引 1 处的元素
+
+    /* 更新元素 */
+    list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
 === "Go"
@@ -174,6 +184,16 @@ comments: true
 
     /* 更新元素 */
     list[1] = 0     // 将索引 1 处的元素更新为 0
+    ```
+
+=== "Swift"
+
+    ```swift title="list.swift"
+    /* 访问元素 */
+    let num = list[1] // 访问索引 1 处的元素
+
+    /* 更新元素 */
+    list[1] = 0 // 将索引 1 处的元素更新为 0
     ```
 
 === "JS"
@@ -196,42 +216,6 @@ comments: true
     list[1] = 0;  // 将索引 1 处的元素更新为 0
     ```
 
-=== "C"
-
-    ```c title="list.c"
-    // C 未提供内置动态数组
-    ```
-
-=== "C#"
-
-    ```csharp title="list.cs"
-    /* 访问元素 */
-    int num = list[1];  // 访问索引 1 处的元素
-
-    /* 更新元素 */
-    list[1] = 0;  // 将索引 1 处的元素更新为 0
-    ```
-
-=== "Swift"
-
-    ```swift title="list.swift"
-    /* 访问元素 */
-    let num = list[1] // 访问索引 1 处的元素
-
-    /* 更新元素 */
-    list[1] = 0 // 将索引 1 处的元素更新为 0
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 访问元素
-    var num = list.items[1]; // 访问索引 1 处的元素
-
-    // 更新元素
-    list.items[1] = 0; // 将索引 1 处的元素更新为 0  
-    ```
-
 === "Dart"
 
     ```dart title="list.dart"
@@ -251,28 +235,44 @@ comments: true
     list[1] = 0;               // 将索引 1 处的元素更新为 0
     ```
 
+=== "C"
+
+    ```c title="list.c"
+    // C 未提供内置动态数组
+    ```
+
+=== "Zig"
+
+    ```zig title="list.zig"
+    // 访问元素
+    var num = list.items[1]; // 访问索引 1 处的元素
+
+    // 更新元素
+    list.items[1] = 0; // 将索引 1 处的元素更新为 0  
+    ```
+
 ### 3. &nbsp; 插入与删除元素
 
 相较于数组，列表可以自由地添加与删除元素。在列表尾部添加元素的时间复杂度为 $O(1)$ ，但插入和删除元素的效率仍与数组相同，时间复杂度为 $O(n)$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="list.java"
-    /* 清空列表 */
-    list.clear();
+    ```python title="list.py"
+    # 清空列表
+    list.clear()
 
-    /* 尾部添加元素 */
-    list.add(1);
-    list.add(3);
-    list.add(2);
-    list.add(5);
-    list.add(4);
+    # 尾部添加元素
+    list.append(1)
+    list.append(3)
+    list.append(2)
+    list.append(5)
+    list.append(4)
 
-    /* 中间插入元素 */
-    list.add(3, 6);  // 在索引 3 处插入数字 6
+    # 中间插入元素
+    list.insert(3, 6)  # 在索引 3 处插入数字 6
 
-    /* 删除元素 */
-    list.remove(3);  // 删除索引 3 处的元素
+    # 删除元素
+    list.pop(3)        # 删除索引 3 处的元素
     ```
 
 === "C++"
@@ -295,24 +295,44 @@ comments: true
     list.erase(list.begin() + 3);      // 删除索引 3 处的元素
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="list.py"
-    # 清空列表
-    list.clear()
+    ```java title="list.java"
+    /* 清空列表 */
+    list.clear();
 
-    # 尾部添加元素
-    list.append(1)
-    list.append(3)
-    list.append(2)
-    list.append(5)
-    list.append(4)
+    /* 尾部添加元素 */
+    list.add(1);
+    list.add(3);
+    list.add(2);
+    list.add(5);
+    list.add(4);
 
-    # 中间插入元素
-    list.insert(3, 6)  # 在索引 3 处插入数字 6
+    /* 中间插入元素 */
+    list.add(3, 6);  // 在索引 3 处插入数字 6
 
-    # 删除元素
-    list.pop(3)        # 删除索引 3 处的元素
+    /* 删除元素 */
+    list.remove(3);  // 删除索引 3 处的元素
+    ```
+
+=== "C#"
+
+    ```csharp title="list.cs"
+    /* 清空列表 */
+    list.Clear();
+
+    /* 尾部添加元素 */
+    list.Add(1);
+    list.Add(3);
+    list.Add(2);
+    list.Add(5);
+    list.Add(4);
+
+    /* 中间插入元素 */
+    list.Insert(3, 6);
+
+    /* 删除元素 */
+    list.RemoveAt(3);
     ```
 
 === "Go"
@@ -333,6 +353,26 @@ comments: true
 
     /* 删除元素 */
     list = append(list[:3], list[4:]...) // 删除索引 3 处的元素
+    ```
+
+=== "Swift"
+
+    ```swift title="list.swift"
+    /* 清空列表 */
+    list.removeAll()
+
+    /* 尾部添加元素 */
+    list.append(1)
+    list.append(3)
+    list.append(2)
+    list.append(5)
+    list.append(4)
+
+    /* 中间插入元素 */
+    list.insert(6, at: 3) // 在索引 3 处插入数字 6
+
+    /* 删除元素 */
+    list.remove(at: 3) // 删除索引 3 处的元素
     ```
 
 === "JS"
@@ -373,72 +413,6 @@ comments: true
 
     /* 删除元素 */
     list.splice(3, 1);
-    ```
-
-=== "C"
-
-    ```c title="list.c"
-    // C 未提供内置动态数组
-    ```
-
-=== "C#"
-
-    ```csharp title="list.cs"
-    /* 清空列表 */
-    list.Clear();
-
-    /* 尾部添加元素 */
-    list.Add(1);
-    list.Add(3);
-    list.Add(2);
-    list.Add(5);
-    list.Add(4);
-
-    /* 中间插入元素 */
-    list.Insert(3, 6);
-
-    /* 删除元素 */
-    list.RemoveAt(3);
-    ```
-
-=== "Swift"
-
-    ```swift title="list.swift"
-    /* 清空列表 */
-    list.removeAll()
-
-    /* 尾部添加元素 */
-    list.append(1)
-    list.append(3)
-    list.append(2)
-    list.append(5)
-    list.append(4)
-
-    /* 中间插入元素 */
-    list.insert(6, at: 3) // 在索引 3 处插入数字 6
-
-    /* 删除元素 */
-    list.remove(at: 3) // 删除索引 3 处的元素
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 清空列表
-    list.clearRetainingCapacity();
-
-    // 尾部添加元素
-    try list.append(1);
-    try list.append(3);
-    try list.append(2);
-    try list.append(5);
-    try list.append(4);
-
-    // 中间插入元素
-    try list.insert(3, 6); // 在索引 3 处插入数字 6
-
-    // 删除元素
-    _ = list.orderedRemove(3); // 删除索引 3 处的元素
     ```
 
 === "Dart"
@@ -481,24 +455,48 @@ comments: true
     list.remove(3);    // 删除索引 3 处的元素
     ```
 
+=== "C"
+
+    ```c title="list.c"
+    // C 未提供内置动态数组
+    ```
+
+=== "Zig"
+
+    ```zig title="list.zig"
+    // 清空列表
+    list.clearRetainingCapacity();
+
+    // 尾部添加元素
+    try list.append(1);
+    try list.append(3);
+    try list.append(2);
+    try list.append(5);
+    try list.append(4);
+
+    // 中间插入元素
+    try list.insert(3, 6); // 在索引 3 处插入数字 6
+
+    // 删除元素
+    _ = list.orderedRemove(3); // 删除索引 3 处的元素
+    ```
+
 ### 4. &nbsp; 遍历列表
 
 与数组一样，列表可以根据索引遍历，也可以直接遍历各元素。
 
-=== "Java"
+=== "Python"
 
-    ```java title="list.java"
-    /* 通过索引遍历列表 */
-    int count = 0;
-    for (int i = 0; i < list.size(); i++) {
-        count++;
-    }
+    ```python title="list.py"
+    # 通过索引遍历列表
+    count = 0
+    for i in range(len(list)):
+        count += 1
 
-    /* 直接遍历列表元素 */
-    count = 0;
-    for (int n : list) {
-        count++;
-    }
+    # 直接遍历列表元素
+    count = 0
+    for n in list:
+        count += 1
     ```
 
 === "C++"
@@ -517,18 +515,36 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="list.py"
-    # 通过索引遍历列表
-    count = 0
-    for i in range(len(list)):
-        count += 1
+    ```java title="list.java"
+    /* 通过索引遍历列表 */
+    int count = 0;
+    for (int i = 0; i < list.size(); i++) {
+        count++;
+    }
 
-    # 直接遍历列表元素
-    count = 0
-    for n in list:
-        count += 1
+    /* 直接遍历列表元素 */
+    count = 0;
+    for (int n : list) {
+        count++;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="list.cs"
+    /* 通过索引遍历列表 */
+    int count = 0;
+    for (int i = 0; i < list.Count; i++) {
+        count++;
+    }
+
+    /* 直接遍历列表元素 */
+    count = 0;
+    foreach (int n in list) {
+        count++;
+    }
     ```
 
 === "Go"
@@ -544,6 +560,22 @@ comments: true
     count = 0
     for range list {
         count++
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="list.swift"
+    /* 通过索引遍历列表 */
+    var count = 0
+    for _ in list.indices {
+        count += 1
+    }
+
+    /* 直接遍历列表元素 */
+    count = 0
+    for _ in list {
+        count += 1
     }
     ```
 
@@ -576,61 +608,6 @@ comments: true
     count = 0;
     for (const n of list) {
         count++;
-    }
-    ```
-
-=== "C"
-
-    ```c title="list.c"
-    // C 未提供内置动态数组
-    ```
-
-=== "C#"
-
-    ```csharp title="list.cs"
-    /* 通过索引遍历列表 */
-    int count = 0;
-    for (int i = 0; i < list.Count; i++) {
-        count++;
-    }
-
-    /* 直接遍历列表元素 */
-    count = 0;
-    foreach (int n in list) {
-        count++;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="list.swift"
-    /* 通过索引遍历列表 */
-    var count = 0
-    for _ in list.indices {
-        count += 1
-    }
-
-    /* 直接遍历列表元素 */
-    count = 0
-    for _ in list {
-        count += 1
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 通过索引遍历列表
-    var count: i32 = 0;
-    var i: i32 = 0;
-    while (i < list.items.len) : (i += 1) {
-        count += 1;
-    }
-
-    // 直接遍历列表元素
-    count = 0;
-    for (list.items) |_| {
-        count += 1;
     }
     ```
 
@@ -666,16 +643,39 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="list.c"
+    // C 未提供内置动态数组
+    ```
+
+=== "Zig"
+
+    ```zig title="list.zig"
+    // 通过索引遍历列表
+    var count: i32 = 0;
+    var i: i32 = 0;
+    while (i < list.items.len) : (i += 1) {
+        count += 1;
+    }
+
+    // 直接遍历列表元素
+    count = 0;
+    for (list.items) |_| {
+        count += 1;
+    }
+    ```
+
 ### 5. &nbsp; 拼接列表
 
 给定一个新列表 `list1` ，我们可以将该列表拼接到原列表的尾部。
 
-=== "Java"
+=== "Python"
 
-    ```java title="list.java"
-    /* 拼接两个列表 */
-    List<Integer> list1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-    list.addAll(list1);  // 将列表 list1 拼接到 list 之后
+    ```python title="list.py"
+    # 拼接两个列表
+    list1: list[int] = [6, 8, 7, 10, 9]
+    list += list1  # 将列表 list1 拼接到 list 之后
     ```
 
 === "C++"
@@ -687,12 +687,20 @@ comments: true
     list.insert(list.end(), list1.begin(), list1.end());
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="list.py"
-    # 拼接两个列表
-    list1: list[int] = [6, 8, 7, 10, 9]
-    list += list1  # 将列表 list1 拼接到 list 之后
+    ```java title="list.java"
+    /* 拼接两个列表 */
+    List<Integer> list1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
+    list.addAll(list1);  // 将列表 list1 拼接到 list 之后
+    ```
+
+=== "C#"
+
+    ```csharp title="list.cs"
+    /* 拼接两个列表 */
+    List<int> list1 = new() { 6, 8, 7, 10, 9 };
+    list.AddRange(list1);  // 将列表 list1 拼接到 list 之后
     ```
 
 === "Go"
@@ -701,6 +709,14 @@ comments: true
     /* 拼接两个列表 */
     list1 := []int{6, 8, 7, 10, 9}
     list = append(list, list1...)  // 将列表 list1 拼接到 list 之后
+    ```
+
+=== "Swift"
+
+    ```swift title="list.swift"
+    /* 拼接两个列表 */
+    let list1 = [6, 8, 7, 10, 9]
+    list.append(contentsOf: list1) // 将列表 list1 拼接到 list 之后
     ```
 
 === "JS"
@@ -719,38 +735,6 @@ comments: true
     list.push(...list1);  // 将列表 list1 拼接到 list 之后
     ```
 
-=== "C"
-
-    ```c title="list.c"
-    // C 未提供内置动态数组
-    ```
-
-=== "C#"
-
-    ```csharp title="list.cs"
-    /* 拼接两个列表 */
-    List<int> list1 = new() { 6, 8, 7, 10, 9 };
-    list.AddRange(list1);  // 将列表 list1 拼接到 list 之后
-    ```
-
-=== "Swift"
-
-    ```swift title="list.swift"
-    /* 拼接两个列表 */
-    let list1 = [6, 8, 7, 10, 9]
-    list.append(contentsOf: list1) // 将列表 list1 拼接到 list 之后
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 拼接两个列表
-    var list1 = std.ArrayList(i32).init(std.heap.page_allocator);
-    defer list1.deinit();
-    try list1.appendSlice(&[_]i32{ 6, 8, 7, 10, 9 });
-    try list.insertSlice(list.items.len, list1.items); // 将列表 list1 拼接到 list 之后
-    ```
-
 === "Dart"
 
     ```dart title="list.dart"
@@ -767,15 +751,31 @@ comments: true
     list.extend(list1);
     ```
 
+=== "C"
+
+    ```c title="list.c"
+    // C 未提供内置动态数组
+    ```
+
+=== "Zig"
+
+    ```zig title="list.zig"
+    // 拼接两个列表
+    var list1 = std.ArrayList(i32).init(std.heap.page_allocator);
+    defer list1.deinit();
+    try list1.appendSlice(&[_]i32{ 6, 8, 7, 10, 9 });
+    try list.insertSlice(list.items.len, list1.items); // 将列表 list1 拼接到 list 之后
+    ```
+
 ### 6. &nbsp; 排序列表
 
 完成列表排序后，我们便可以使用在数组类算法题中经常考察的“二分查找”和“双指针”算法。
 
-=== "Java"
+=== "Python"
 
-    ```java title="list.java"
-    /* 排序列表 */
-    Collections.sort(list);  // 排序后，列表元素从小到大排列
+    ```python title="list.py"
+    # 排序列表
+    list.sort()  # 排序后，列表元素从小到大排列
     ```
 
 === "C++"
@@ -785,11 +785,18 @@ comments: true
     sort(list.begin(), list.end());  // 排序后，列表元素从小到大排列
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="list.py"
-    # 排序列表
-    list.sort()  # 排序后，列表元素从小到大排列
+    ```java title="list.java"
+    /* 排序列表 */
+    Collections.sort(list);  // 排序后，列表元素从小到大排列
+    ```
+
+=== "C#"
+
+    ```csharp title="list.cs"
+    /* 排序列表 */
+    list.Sort(); // 排序后，列表元素从小到大排列
     ```
 
 === "Go"
@@ -797,6 +804,13 @@ comments: true
     ```go title="list_test.go"
     /* 排序列表 */
     sort.Ints(list)  // 排序后，列表元素从小到大排列
+    ```
+
+=== "Swift"
+
+    ```swift title="list.swift"
+    /* 排序列表 */
+    list.sort() // 排序后，列表元素从小到大排列
     ```
 
 === "JS"
@@ -813,33 +827,6 @@ comments: true
     list.sort((a, b) => a - b);  // 排序后，列表元素从小到大排列
     ```
 
-=== "C"
-
-    ```c title="list.c"
-    // C 未提供内置动态数组
-    ```
-
-=== "C#"
-
-    ```csharp title="list.cs"
-    /* 排序列表 */
-    list.Sort(); // 排序后，列表元素从小到大排列
-    ```
-
-=== "Swift"
-
-    ```swift title="list.swift"
-    /* 排序列表 */
-    list.sort() // 排序后，列表元素从小到大排列
-    ```
-
-=== "Zig"
-
-    ```zig title="list.zig"
-    // 排序列表
-    std.sort.sort(i32, list.items, {}, comptime std.sort.asc(i32));
-    ```
-
 === "Dart"
 
     ```dart title="list.dart"
@@ -854,6 +841,19 @@ comments: true
     list.sort(); // 排序后，列表元素从小到大排列
     ```
 
+=== "C"
+
+    ```c title="list.c"
+    // C 未提供内置动态数组
+    ```
+
+=== "Zig"
+
+    ```zig title="list.zig"
+    // 排序列表
+    std.sort.sort(i32, list.items, {}, comptime std.sort.asc(i32));
+    ```
+
 ## 4.3.2 &nbsp; 列表实现
 
 许多编程语言都提供内置的列表，例如 Java、C++、Python 等。它们的实现比较复杂，各个参数的设定也非常有考究，例如初始容量、扩容倍数等。感兴趣的读者可以查阅源码进行学习。
@@ -864,106 +864,85 @@ comments: true
 - **数量记录**：声明一个变量 size，用于记录列表当前元素数量，并随着元素插入和删除实时更新。根据此变量，我们可以定位列表尾部，以及判断是否需要扩容。
 - **扩容机制**：若插入元素时列表容量已满，则需要进行扩容。首先根据扩容倍数创建一个更大的数组，再将当前数组的所有元素依次移动至新数组。在本示例中，我们规定每次将数组扩容至之前的 2 倍。
 
-=== "Java"
+=== "Python"
 
-    ```java title="my_list.java"
-    /* 列表类简易实现 */
-    class MyList {
-        private int[] nums; // 数组（存储列表元素）
-        private int capacity = 10; // 列表容量
-        private int size = 0; // 列表长度（即当前元素数量）
-        private int extendRatio = 2; // 每次列表扩容的倍数
+    ```python title="my_list.py"
+    class MyList:
+        """列表类简易实现"""
 
-        /* 构造方法 */
-        public MyList() {
-            nums = new int[capacity];
-        }
+        def __init__(self):
+            """构造方法"""
+            self.__capacity: int = 10  # 列表容量
+            self.__nums: list[int] = [0] * self.__capacity  # 数组（存储列表元素）
+            self.__size: int = 0  # 列表长度（即当前元素数量）
+            self.__extend_ratio: int = 2  # 每次列表扩容的倍数
 
-        /* 获取列表长度（即当前元素数量） */
-        public int size() {
-            return size;
-        }
+        def size(self) -> int:
+            """获取列表长度（即当前元素数量）"""
+            return self.__size
 
-        /* 获取列表容量 */
-        public int capacity() {
-            return capacity;
-        }
+        def capacity(self) -> int:
+            """获取列表容量"""
+            return self.__capacity
 
-        /* 访问元素 */
-        public int get(int index) {
-            // 索引如果越界则抛出异常，下同
-            if (index < 0 || index >= size)
-                throw new IndexOutOfBoundsException("索引越界");
-            return nums[index];
-        }
+        def get(self, index: int) -> int:
+            """访问元素"""
+            # 索引如果越界则抛出异常，下同
+            if index < 0 or index >= self.__size:
+                raise IndexError("索引越界")
+            return self.__nums[index]
 
-        /* 更新元素 */
-        public void set(int index, int num) {
-            if (index < 0 || index >= size)
-                throw new IndexOutOfBoundsException("索引越界");
-            nums[index] = num;
-        }
+        def set(self, num: int, index: int):
+            """更新元素"""
+            if index < 0 or index >= self.__size:
+                raise IndexError("索引越界")
+            self.__nums[index] = num
 
-        /* 尾部添加元素 */
-        public void add(int num) {
-            // 元素数量超出容量时，触发扩容机制
-            if (size == capacity())
-                extendCapacity();
-            nums[size] = num;
-            // 更新元素数量
-            size++;
-        }
+        def add(self, num: int):
+            """尾部添加元素"""
+            # 元素数量超出容量时，触发扩容机制
+            if self.size() == self.capacity():
+                self.extend_capacity()
+            self.__nums[self.__size] = num
+            self.__size += 1
 
-        /* 中间插入元素 */
-        public void insert(int index, int num) {
-            if (index < 0 || index >= size)
-                throw new IndexOutOfBoundsException("索引越界");
-            // 元素数量超出容量时，触发扩容机制
-            if (size == capacity())
-                extendCapacity();
-            // 将索引 index 以及之后的元素都向后移动一位
-            for (int j = size - 1; j >= index; j--) {
-                nums[j + 1] = nums[j];
-            }
-            nums[index] = num;
-            // 更新元素数量
-            size++;
-        }
+        def insert(self, num: int, index: int):
+            """中间插入元素"""
+            if index < 0 or index >= self.__size:
+                raise IndexError("索引越界")
+            # 元素数量超出容量时，触发扩容机制
+            if self.__size == self.capacity():
+                self.extend_capacity()
+            # 将索引 index 以及之后的元素都向后移动一位
+            for j in range(self.__size - 1, index - 1, -1):
+                self.__nums[j + 1] = self.__nums[j]
+            self.__nums[index] = num
+            # 更新元素数量
+            self.__size += 1
 
-        /* 删除元素 */
-        public int remove(int index) {
-            if (index < 0 || index >= size)
-                throw new IndexOutOfBoundsException("索引越界");
-            int num = nums[index];
-            // 将索引 index 之后的元素都向前移动一位
-            for (int j = index; j < size - 1; j++) {
-                nums[j] = nums[j + 1];
-            }
-            // 更新元素数量
-            size--;
-            // 返回被删除元素
-            return num;
-        }
+        def remove(self, index: int) -> int:
+            """删除元素"""
+            if index < 0 or index >= self.__size:
+                raise IndexError("索引越界")
+            num = self.__nums[index]
+            # 索引 i 之后的元素都向前移动一位
+            for j in range(index, self.__size - 1):
+                self.__nums[j] = self.__nums[j + 1]
+            # 更新元素数量
+            self.__size -= 1
+            # 返回被删除元素
+            return num
 
-        /* 列表扩容 */
-        public void extendCapacity() {
-            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
-            nums = Arrays.copyOf(nums, capacity() * extendRatio);
-            // 更新列表容量
-            capacity = nums.length;
-        }
+        def extend_capacity(self):
+            """列表扩容"""
+            # 新建一个长度为原数组 __extend_ratio 倍的新数组，并将原数组拷贝到新数组
+            self.__nums = self.__nums + [0] * self.capacity() * (self.__extend_ratio - 1)
+            # 更新列表容量
+            self.__capacity = len(self.__nums)
 
-        /* 将列表转换为数组 */
-        public int[] toArray() {
-            int size = size();
-            // 仅转换有效长度范围内的列表元素
-            int[] nums = new int[size];
-            for (int i = 0; i < size; i++) {
-                nums[i] = get(i);
-            }
-            return nums;
-        }
-    }
+        def to_array(self) -> list[int]:
+            """返回有效长度的列表"""
+            return self.__nums[: self.__size]
     ```
 
 === "C++"
@@ -1081,85 +1060,207 @@ comments: true
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="my_list.py"
-    class MyList:
-        """列表类简易实现"""
+    ```java title="my_list.java"
+    /* 列表类简易实现 */
+    class MyList {
+        private int[] nums; // 数组（存储列表元素）
+        private int capacity = 10; // 列表容量
+        private int size = 0; // 列表长度（即当前元素数量）
+        private int extendRatio = 2; // 每次列表扩容的倍数
 
-        def __init__(self):
-            """构造方法"""
-            self.__capacity: int = 10  # 列表容量
-            self.__nums: list[int] = [0] * self.__capacity  # 数组（存储列表元素）
-            self.__size: int = 0  # 列表长度（即当前元素数量）
-            self.__extend_ratio: int = 2  # 每次列表扩容的倍数
+        /* 构造方法 */
+        public MyList() {
+            nums = new int[capacity];
+        }
 
-        def size(self) -> int:
-            """获取列表长度（即当前元素数量）"""
-            return self.__size
+        /* 获取列表长度（即当前元素数量） */
+        public int size() {
+            return size;
+        }
 
-        def capacity(self) -> int:
-            """获取列表容量"""
-            return self.__capacity
+        /* 获取列表容量 */
+        public int capacity() {
+            return capacity;
+        }
 
-        def get(self, index: int) -> int:
-            """访问元素"""
-            # 索引如果越界则抛出异常，下同
-            if index < 0 or index >= self.__size:
-                raise IndexError("索引越界")
-            return self.__nums[index]
+        /* 访问元素 */
+        public int get(int index) {
+            // 索引如果越界则抛出异常，下同
+            if (index < 0 || index >= size)
+                throw new IndexOutOfBoundsException("索引越界");
+            return nums[index];
+        }
 
-        def set(self, num: int, index: int):
-            """更新元素"""
-            if index < 0 or index >= self.__size:
-                raise IndexError("索引越界")
-            self.__nums[index] = num
+        /* 更新元素 */
+        public void set(int index, int num) {
+            if (index < 0 || index >= size)
+                throw new IndexOutOfBoundsException("索引越界");
+            nums[index] = num;
+        }
 
-        def add(self, num: int):
-            """尾部添加元素"""
-            # 元素数量超出容量时，触发扩容机制
-            if self.size() == self.capacity():
-                self.extend_capacity()
-            self.__nums[self.__size] = num
-            self.__size += 1
+        /* 尾部添加元素 */
+        public void add(int num) {
+            // 元素数量超出容量时，触发扩容机制
+            if (size == capacity())
+                extendCapacity();
+            nums[size] = num;
+            // 更新元素数量
+            size++;
+        }
 
-        def insert(self, num: int, index: int):
-            """中间插入元素"""
-            if index < 0 or index >= self.__size:
-                raise IndexError("索引越界")
-            # 元素数量超出容量时，触发扩容机制
-            if self.__size == self.capacity():
-                self.extend_capacity()
-            # 将索引 index 以及之后的元素都向后移动一位
-            for j in range(self.__size - 1, index - 1, -1):
-                self.__nums[j + 1] = self.__nums[j]
-            self.__nums[index] = num
-            # 更新元素数量
-            self.__size += 1
+        /* 中间插入元素 */
+        public void insert(int index, int num) {
+            if (index < 0 || index >= size)
+                throw new IndexOutOfBoundsException("索引越界");
+            // 元素数量超出容量时，触发扩容机制
+            if (size == capacity())
+                extendCapacity();
+            // 将索引 index 以及之后的元素都向后移动一位
+            for (int j = size - 1; j >= index; j--) {
+                nums[j + 1] = nums[j];
+            }
+            nums[index] = num;
+            // 更新元素数量
+            size++;
+        }
 
-        def remove(self, index: int) -> int:
-            """删除元素"""
-            if index < 0 or index >= self.__size:
-                raise IndexError("索引越界")
-            num = self.__nums[index]
-            # 索引 i 之后的元素都向前移动一位
-            for j in range(index, self.__size - 1):
-                self.__nums[j] = self.__nums[j + 1]
-            # 更新元素数量
-            self.__size -= 1
-            # 返回被删除元素
-            return num
+        /* 删除元素 */
+        public int remove(int index) {
+            if (index < 0 || index >= size)
+                throw new IndexOutOfBoundsException("索引越界");
+            int num = nums[index];
+            // 将索引 index 之后的元素都向前移动一位
+            for (int j = index; j < size - 1; j++) {
+                nums[j] = nums[j + 1];
+            }
+            // 更新元素数量
+            size--;
+            // 返回被删除元素
+            return num;
+        }
 
-        def extend_capacity(self):
-            """列表扩容"""
-            # 新建一个长度为原数组 __extend_ratio 倍的新数组，并将原数组拷贝到新数组
-            self.__nums = self.__nums + [0] * self.capacity() * (self.__extend_ratio - 1)
-            # 更新列表容量
-            self.__capacity = len(self.__nums)
+        /* 列表扩容 */
+        public void extendCapacity() {
+            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
+            nums = Arrays.copyOf(nums, capacity() * extendRatio);
+            // 更新列表容量
+            capacity = nums.length;
+        }
 
-        def to_array(self) -> list[int]:
-            """返回有效长度的列表"""
-            return self.__nums[: self.__size]
+        /* 将列表转换为数组 */
+        public int[] toArray() {
+            int size = size();
+            // 仅转换有效长度范围内的列表元素
+            int[] nums = new int[size];
+            for (int i = 0; i < size; i++) {
+                nums[i] = get(i);
+            }
+            return nums;
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="my_list.cs"
+    /* 列表类简易实现 */
+    class MyList {
+        private int[] nums;           // 数组（存储列表元素）
+        private int numsCapacity = 10;    // 列表容量
+        private int numsSize = 0;         // 列表长度（即当前元素数量）
+        private int extendRatio = 2;  // 每次列表扩容的倍数
+
+        /* 构造方法 */
+        public MyList() {
+            nums = new int[numsCapacity];
+        }
+
+        /* 获取列表长度（即当前元素数量）*/
+        public int size() {
+            return numsSize;
+        }
+
+        /* 获取列表容量 */
+        public int capacity() {
+            return numsCapacity;
+        }
+
+        /* 访问元素 */
+        public int get(int index) {
+            // 索引如果越界则抛出异常，下同
+            if (index < 0 || index >= numsSize)
+                throw new IndexOutOfRangeException("索引越界");
+            return nums[index];
+        }
+
+        /* 更新元素 */
+        public void set(int index, int num) {
+            if (index < 0 || index >= numsSize)
+                throw new IndexOutOfRangeException("索引越界");
+            nums[index] = num;
+        }
+
+        /* 尾部添加元素 */
+        public void add(int num) {
+            // 元素数量超出容量时，触发扩容机制
+            if (numsSize == numsCapacity)
+                extendCapacity();
+            nums[numsSize] = num;
+            // 更新元素数量
+            numsSize++;
+        }
+
+        /* 中间插入元素 */
+        public void insert(int index, int num) {
+            if (index < 0 || index >= numsSize)
+                throw new IndexOutOfRangeException("索引越界");
+            // 元素数量超出容量时，触发扩容机制
+            if (numsSize == numsCapacity)
+                extendCapacity();
+            // 将索引 index 以及之后的元素都向后移动一位
+            for (int j = numsSize - 1; j >= index; j--) {
+                nums[j + 1] = nums[j];
+            }
+            nums[index] = num;
+            // 更新元素数量
+            numsSize++;
+        }
+
+        /* 删除元素 */
+        public int remove(int index) {
+            if (index < 0 || index >= numsSize)
+                throw new IndexOutOfRangeException("索引越界");
+            int num = nums[index];
+            // 将索引 index 之后的元素都向前移动一位
+            for (int j = index; j < numsSize - 1; j++) {
+                nums[j] = nums[j + 1];
+            }
+            // 更新元素数量
+            numsSize--;
+            // 返回被删除元素
+            return num;
+        }
+
+        /* 列表扩容 */
+        public void extendCapacity() {
+            // 新建一个长度为 numsCapacity * extendRatio 的数组，并将原数组拷贝到新数组
+            Array.Resize(ref nums, numsCapacity * extendRatio);
+            // 更新列表容量
+            numsCapacity = nums.Length;
+        }
+
+        /* 将列表转换为数组 */
+        public int[] toArray() {
+            // 仅转换有效长度范围内的列表元素
+            int[] nums = new int[numsSize];
+            for (int i = 0; i < numsSize; i++) {
+                nums[i] = get(i);
+            }
+            return nums;
+        }
+    }
     ```
 
 === "Go"
@@ -1267,6 +1368,113 @@ comments: true
     func (l *myList) toArray() []int {
         // 仅转换有效长度范围内的列表元素
         return l.nums[:l.numsSize]
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="my_list.swift"
+    /* 列表类简易实现 */
+    class MyList {
+        private var nums: [Int] // 数组（存储列表元素）
+        private var _capacity = 10 // 列表容量
+        private var _size = 0 // 列表长度（即当前元素数量）
+        private let extendRatio = 2 // 每次列表扩容的倍数
+
+        /* 构造方法 */
+        init() {
+            nums = Array(repeating: 0, count: _capacity)
+        }
+
+        /* 获取列表长度（即当前元素数量）*/
+        func size() -> Int {
+            _size
+        }
+
+        /* 获取列表容量 */
+        func capacity() -> Int {
+            _capacity
+        }
+
+        /* 访问元素 */
+        func get(index: Int) -> Int {
+            // 索引如果越界则抛出错误，下同
+            if index < 0 || index >= _size {
+                fatalError("索引越界")
+            }
+            return nums[index]
+        }
+
+        /* 更新元素 */
+        func set(index: Int, num: Int) {
+            if index < 0 || index >= _size {
+                fatalError("索引越界")
+            }
+            nums[index] = num
+        }
+
+        /* 尾部添加元素 */
+        func add(num: Int) {
+            // 元素数量超出容量时，触发扩容机制
+            if _size == _capacity {
+                extendCapacity()
+            }
+            nums[_size] = num
+            // 更新元素数量
+            _size += 1
+        }
+
+        /* 中间插入元素 */
+        func insert(index: Int, num: Int) {
+            if index < 0 || index >= _size {
+                fatalError("索引越界")
+            }
+            // 元素数量超出容量时，触发扩容机制
+            if _size == _capacity {
+                extendCapacity()
+            }
+            // 将索引 index 以及之后的元素都向后移动一位
+            for j in sequence(first: _size - 1, next: { $0 >= index + 1 ? $0 - 1 : nil }) {
+                nums[j + 1] = nums[j]
+            }
+            nums[index] = num
+            // 更新元素数量
+            _size += 1
+        }
+
+        /* 删除元素 */
+        @discardableResult
+        func remove(index: Int) -> Int {
+            if index < 0 || index >= _size {
+                fatalError("索引越界")
+            }
+            let num = nums[index]
+            // 将索引 index 之后的元素都向前移动一位
+            for j in index ..< (_size - 1) {
+                nums[j] = nums[j + 1]
+            }
+            // 更新元素数量
+            _size -= 1
+            // 返回被删除元素
+            return num
+        }
+
+        /* 列表扩容 */
+        func extendCapacity() {
+            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
+            nums = nums + Array(repeating: 0, count: _capacity * (extendRatio - 1))
+            // 更新列表容量
+            _capacity = nums.count
+        }
+
+        /* 将列表转换为数组 */
+        func toArray() -> [Int] {
+            var nums = Array(repeating: 0, count: _size)
+            for i in 0 ..< _size {
+                nums[i] = get(index: i)
+            }
+            return nums
+        }
     }
     ```
 
@@ -1472,442 +1680,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="my_list.c"
-    /* 列表类简易实现 */
-    struct myList {
-        int *nums;       // 数组（存储列表元素）
-        int capacity;    // 列表容量
-        int size;        // 列表大小
-        int extendRatio; // 列表每次扩容的倍数
-    };
-
-    typedef struct myList myList;
-
-    /* 构造函数 */
-    myList *newMyList() {
-        myList *list = malloc(sizeof(myList));
-        list->capacity = 10;
-        list->nums = malloc(sizeof(int) * list->capacity);
-        list->size = 0;
-        list->extendRatio = 2;
-        return list;
-    }
-
-    /* 析构函数 */
-    void delMyList(myList *list) {
-        free(list->nums);
-        free(list);
-    }
-
-    /* 获取列表长度 */
-    int size(myList *list) {
-        return list->size;
-    }
-
-    /* 获取列表容量 */
-    int capacity(myList *list) {
-        return list->capacity;
-    }
-
-    /* 访问元素 */
-    int get(myList *list, int index) {
-        assert(index >= 0 && index < list->size);
-        return list->nums[index];
-    }
-
-    /* 更新元素 */
-    void set(myList *list, int index, int num) {
-        assert(index >= 0 && index < list->size);
-        list->nums[index] = num;
-    }
-
-    /* 尾部添加元素 */
-    void add(myList *list, int num) {
-        if (size(list) == capacity(list)) {
-            extendCapacity(list); // 扩容
-        }
-        list->nums[size(list)] = num;
-        list->size++;
-    }
-
-    /* 中间插入元素 */
-    void insert(myList *list, int index, int num) {
-        assert(index >= 0 && index < size(list));
-        for (int i = size(list); i > index; --i) {
-            list->nums[i] = list->nums[i - 1];
-        }
-        list->nums[index] = num;
-        list->size++;
-    }
-
-    /* 删除元素 */
-    // 注意：stdio.h 占用了 remove 关键词
-    int removeNum(myList *list, int index) {
-        assert(index >= 0 && index < size(list));
-        int num = list->nums[index];
-        for (int i = index; i < size(list) - 1; i++) {
-            list->nums[i] = list->nums[i + 1];
-        }
-        list->size--;
-        return num;
-    }
-
-    /* 列表扩容 */
-    void extendCapacity(myList *list) {
-        // 先分配空间
-        int newCapacity = capacity(list) * list->extendRatio;
-        int *extend = (int *)malloc(sizeof(int) * newCapacity);
-        int *temp = list->nums;
-
-        // 拷贝旧数据到新数据
-        for (int i = 0; i < size(list); i++)
-            extend[i] = list->nums[i];
-
-        // 释放旧数据
-        free(temp);
-
-        // 更新新数据
-        list->nums = extend;
-        list->capacity = newCapacity;
-    }
-
-    /* 将列表转换为 Array 用于打印 */
-    int *toArray(myList *list) {
-        return list->nums;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="my_list.cs"
-    /* 列表类简易实现 */
-    class MyList {
-        private int[] nums;           // 数组（存储列表元素）
-        private int numsCapacity = 10;    // 列表容量
-        private int numsSize = 0;         // 列表长度（即当前元素数量）
-        private int extendRatio = 2;  // 每次列表扩容的倍数
-
-        /* 构造方法 */
-        public MyList() {
-            nums = new int[numsCapacity];
-        }
-
-        /* 获取列表长度（即当前元素数量）*/
-        public int size() {
-            return numsSize;
-        }
-
-        /* 获取列表容量 */
-        public int capacity() {
-            return numsCapacity;
-        }
-
-        /* 访问元素 */
-        public int get(int index) {
-            // 索引如果越界则抛出异常，下同
-            if (index < 0 || index >= numsSize)
-                throw new IndexOutOfRangeException("索引越界");
-            return nums[index];
-        }
-
-        /* 更新元素 */
-        public void set(int index, int num) {
-            if (index < 0 || index >= numsSize)
-                throw new IndexOutOfRangeException("索引越界");
-            nums[index] = num;
-        }
-
-        /* 尾部添加元素 */
-        public void add(int num) {
-            // 元素数量超出容量时，触发扩容机制
-            if (numsSize == numsCapacity)
-                extendCapacity();
-            nums[numsSize] = num;
-            // 更新元素数量
-            numsSize++;
-        }
-
-        /* 中间插入元素 */
-        public void insert(int index, int num) {
-            if (index < 0 || index >= numsSize)
-                throw new IndexOutOfRangeException("索引越界");
-            // 元素数量超出容量时，触发扩容机制
-            if (numsSize == numsCapacity)
-                extendCapacity();
-            // 将索引 index 以及之后的元素都向后移动一位
-            for (int j = numsSize - 1; j >= index; j--) {
-                nums[j + 1] = nums[j];
-            }
-            nums[index] = num;
-            // 更新元素数量
-            numsSize++;
-        }
-
-        /* 删除元素 */
-        public int remove(int index) {
-            if (index < 0 || index >= numsSize)
-                throw new IndexOutOfRangeException("索引越界");
-            int num = nums[index];
-            // 将索引 index 之后的元素都向前移动一位
-            for (int j = index; j < numsSize - 1; j++) {
-                nums[j] = nums[j + 1];
-            }
-            // 更新元素数量
-            numsSize--;
-            // 返回被删除元素
-            return num;
-        }
-
-        /* 列表扩容 */
-        public void extendCapacity() {
-            // 新建一个长度为 numsCapacity * extendRatio 的数组，并将原数组拷贝到新数组
-            Array.Resize(ref nums, numsCapacity * extendRatio);
-            // 更新列表容量
-            numsCapacity = nums.Length;
-        }
-
-        /* 将列表转换为数组 */
-        public int[] toArray() {
-            // 仅转换有效长度范围内的列表元素
-            int[] nums = new int[numsSize];
-            for (int i = 0; i < numsSize; i++) {
-                nums[i] = get(i);
-            }
-            return nums;
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="my_list.swift"
-    /* 列表类简易实现 */
-    class MyList {
-        private var nums: [Int] // 数组（存储列表元素）
-        private var _capacity = 10 // 列表容量
-        private var _size = 0 // 列表长度（即当前元素数量）
-        private let extendRatio = 2 // 每次列表扩容的倍数
-
-        /* 构造方法 */
-        init() {
-            nums = Array(repeating: 0, count: _capacity)
-        }
-
-        /* 获取列表长度（即当前元素数量）*/
-        func size() -> Int {
-            _size
-        }
-
-        /* 获取列表容量 */
-        func capacity() -> Int {
-            _capacity
-        }
-
-        /* 访问元素 */
-        func get(index: Int) -> Int {
-            // 索引如果越界则抛出错误，下同
-            if index < 0 || index >= _size {
-                fatalError("索引越界")
-            }
-            return nums[index]
-        }
-
-        /* 更新元素 */
-        func set(index: Int, num: Int) {
-            if index < 0 || index >= _size {
-                fatalError("索引越界")
-            }
-            nums[index] = num
-        }
-
-        /* 尾部添加元素 */
-        func add(num: Int) {
-            // 元素数量超出容量时，触发扩容机制
-            if _size == _capacity {
-                extendCapacity()
-            }
-            nums[_size] = num
-            // 更新元素数量
-            _size += 1
-        }
-
-        /* 中间插入元素 */
-        func insert(index: Int, num: Int) {
-            if index < 0 || index >= _size {
-                fatalError("索引越界")
-            }
-            // 元素数量超出容量时，触发扩容机制
-            if _size == _capacity {
-                extendCapacity()
-            }
-            // 将索引 index 以及之后的元素都向后移动一位
-            for j in sequence(first: _size - 1, next: { $0 >= index + 1 ? $0 - 1 : nil }) {
-                nums[j + 1] = nums[j]
-            }
-            nums[index] = num
-            // 更新元素数量
-            _size += 1
-        }
-
-        /* 删除元素 */
-        @discardableResult
-        func remove(index: Int) -> Int {
-            if index < 0 || index >= _size {
-                fatalError("索引越界")
-            }
-            let num = nums[index]
-            // 将索引 index 之后的元素都向前移动一位
-            for j in index ..< (_size - 1) {
-                nums[j] = nums[j + 1]
-            }
-            // 更新元素数量
-            _size -= 1
-            // 返回被删除元素
-            return num
-        }
-
-        /* 列表扩容 */
-        func extendCapacity() {
-            // 新建一个长度为原数组 extendRatio 倍的新数组，并将原数组拷贝到新数组
-            nums = nums + Array(repeating: 0, count: _capacity * (extendRatio - 1))
-            // 更新列表容量
-            _capacity = nums.count
-        }
-
-        /* 将列表转换为数组 */
-        func toArray() -> [Int] {
-            var nums = Array(repeating: 0, count: _size)
-            for i in 0 ..< _size {
-                nums[i] = get(index: i)
-            }
-            return nums
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="my_list.zig"
-    // 列表类简易实现
-    fn MyList(comptime T: type) type {
-        return struct {
-            const Self = @This();
-            
-            nums: []T = undefined,                        // 数组（存储列表元素）
-            numsCapacity: usize = 10,                     // 列表容量
-            numSize: usize = 0,                           // 列表长度（即当前元素数量）
-            extendRatio: usize = 2,                       // 每次列表扩容的倍数
-            mem_arena: ?std.heap.ArenaAllocator = null,
-            mem_allocator: std.mem.Allocator = undefined, // 内存分配器
-
-            // 构造函数（分配内存+初始化列表）
-            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
-                if (self.mem_arena == null) {
-                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
-                    self.mem_allocator = self.mem_arena.?.allocator();
-                }
-                self.nums = try self.mem_allocator.alloc(T, self.numsCapacity);
-                @memset(self.nums, @as(T, 0));
-            }
-
-            // 析构函数（释放内存）
-            pub fn deinit(self: *Self) void {
-                if (self.mem_arena == null) return;
-                self.mem_arena.?.deinit();
-            }
-
-            // 获取列表长度（即当前元素数量）
-            pub fn size(self: *Self) usize {
-                return self.numSize;
-            }
-
-            // 获取列表容量
-            pub fn capacity(self: *Self) usize {
-                return self.numsCapacity;
-            }
-
-            // 访问元素
-            pub fn get(self: *Self, index: usize) T {
-                // 索引如果越界则抛出异常，下同
-                if (index < 0 or index >= self.size()) @panic("索引越界");
-                return self.nums[index];
-            }  
-
-            // 更新元素
-            pub fn set(self: *Self, index: usize, num: T) void {
-                // 索引如果越界则抛出异常，下同
-                if (index < 0 or index >= self.size()) @panic("索引越界");
-                self.nums[index] = num;
-            }  
-
-            // 尾部添加元素
-            pub fn add(self: *Self, num: T) !void {
-                // 元素数量超出容量时，触发扩容机制
-                if (self.size() == self.capacity()) try self.extendCapacity();
-                self.nums[self.size()] = num;
-                // 更新元素数量
-                self.numSize += 1;
-            }  
-
-            // 中间插入元素
-            pub fn insert(self: *Self, index: usize, num: T) !void {
-                if (index < 0 or index >= self.size()) @panic("索引越界");
-                // 元素数量超出容量时，触发扩容机制
-                if (self.size() == self.capacity()) try self.extendCapacity();
-                // 将索引 index 以及之后的元素都向后移动一位
-                var j = self.size() - 1;
-                while (j >= index) : (j -= 1) {
-                    self.nums[j + 1] = self.nums[j];
-                }
-                self.nums[index] = num;
-                // 更新元素数量
-                self.numSize += 1;
-            }
-
-            // 删除元素
-            pub fn remove(self: *Self, index: usize) T {
-                if (index < 0 or index >= self.size()) @panic("索引越界");
-                var num = self.nums[index];
-                // 索引 i 之后的元素都向前移动一位
-                var j = index;
-                while (j < self.size() - 1) : (j += 1) {
-                    self.nums[j] = self.nums[j + 1];
-                }
-                // 更新元素数量
-                self.numSize -= 1;
-                // 返回被删除元素
-                return num;
-            }
-
-            // 列表扩容
-            pub fn extendCapacity(self: *Self) !void {
-                // 新建一个长度为 size * extendRatio 的数组，并将原数组拷贝到新数组
-                var newCapacity = self.capacity() * self.extendRatio;
-                var extend = try self.mem_allocator.alloc(T, newCapacity);
-                @memset(extend, @as(T, 0));
-                // 将原数组中的所有元素复制到新数组
-                std.mem.copy(T, extend, self.nums);
-                self.nums = extend;
-                // 更新列表容量
-                self.numsCapacity = newCapacity;
-            }
-
-            // 将列表转换为数组
-            pub fn toArray(self: *Self) ![]T {
-                // 仅转换有效长度范围内的列表元素
-                var nums = try self.mem_allocator.alloc(T, self.size());
-               @memset(nums, @as(T, 0));
-                for (nums, 0..) |*num, i| {
-                    num.* = self.get(i);
-                }
-                return nums;
-            }
-        };
-    }
-    ```
-
 === "Dart"
 
     ```dart title="my_list.dart"
@@ -2109,5 +1881,233 @@ comments: true
             }
             nums
         }
+    }
+    ```
+
+=== "C"
+
+    ```c title="my_list.c"
+    /* 列表类简易实现 */
+    struct myList {
+        int *nums;       // 数组（存储列表元素）
+        int capacity;    // 列表容量
+        int size;        // 列表大小
+        int extendRatio; // 列表每次扩容的倍数
+    };
+
+    typedef struct myList myList;
+
+    /* 构造函数 */
+    myList *newMyList() {
+        myList *list = malloc(sizeof(myList));
+        list->capacity = 10;
+        list->nums = malloc(sizeof(int) * list->capacity);
+        list->size = 0;
+        list->extendRatio = 2;
+        return list;
+    }
+
+    /* 析构函数 */
+    void delMyList(myList *list) {
+        free(list->nums);
+        free(list);
+    }
+
+    /* 获取列表长度 */
+    int size(myList *list) {
+        return list->size;
+    }
+
+    /* 获取列表容量 */
+    int capacity(myList *list) {
+        return list->capacity;
+    }
+
+    /* 访问元素 */
+    int get(myList *list, int index) {
+        assert(index >= 0 && index < list->size);
+        return list->nums[index];
+    }
+
+    /* 更新元素 */
+    void set(myList *list, int index, int num) {
+        assert(index >= 0 && index < list->size);
+        list->nums[index] = num;
+    }
+
+    /* 尾部添加元素 */
+    void add(myList *list, int num) {
+        if (size(list) == capacity(list)) {
+            extendCapacity(list); // 扩容
+        }
+        list->nums[size(list)] = num;
+        list->size++;
+    }
+
+    /* 中间插入元素 */
+    void insert(myList *list, int index, int num) {
+        assert(index >= 0 && index < size(list));
+        for (int i = size(list); i > index; --i) {
+            list->nums[i] = list->nums[i - 1];
+        }
+        list->nums[index] = num;
+        list->size++;
+    }
+
+    /* 删除元素 */
+    // 注意：stdio.h 占用了 remove 关键词
+    int removeNum(myList *list, int index) {
+        assert(index >= 0 && index < size(list));
+        int num = list->nums[index];
+        for (int i = index; i < size(list) - 1; i++) {
+            list->nums[i] = list->nums[i + 1];
+        }
+        list->size--;
+        return num;
+    }
+
+    /* 列表扩容 */
+    void extendCapacity(myList *list) {
+        // 先分配空间
+        int newCapacity = capacity(list) * list->extendRatio;
+        int *extend = (int *)malloc(sizeof(int) * newCapacity);
+        int *temp = list->nums;
+
+        // 拷贝旧数据到新数据
+        for (int i = 0; i < size(list); i++)
+            extend[i] = list->nums[i];
+
+        // 释放旧数据
+        free(temp);
+
+        // 更新新数据
+        list->nums = extend;
+        list->capacity = newCapacity;
+    }
+
+    /* 将列表转换为 Array 用于打印 */
+    int *toArray(myList *list) {
+        return list->nums;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="my_list.zig"
+    // 列表类简易实现
+    fn MyList(comptime T: type) type {
+        return struct {
+            const Self = @This();
+            
+            nums: []T = undefined,                        // 数组（存储列表元素）
+            numsCapacity: usize = 10,                     // 列表容量
+            numSize: usize = 0,                           // 列表长度（即当前元素数量）
+            extendRatio: usize = 2,                       // 每次列表扩容的倍数
+            mem_arena: ?std.heap.ArenaAllocator = null,
+            mem_allocator: std.mem.Allocator = undefined, // 内存分配器
+
+            // 构造函数（分配内存+初始化列表）
+            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
+                if (self.mem_arena == null) {
+                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
+                    self.mem_allocator = self.mem_arena.?.allocator();
+                }
+                self.nums = try self.mem_allocator.alloc(T, self.numsCapacity);
+                @memset(self.nums, @as(T, 0));
+            }
+
+            // 析构函数（释放内存）
+            pub fn deinit(self: *Self) void {
+                if (self.mem_arena == null) return;
+                self.mem_arena.?.deinit();
+            }
+
+            // 获取列表长度（即当前元素数量）
+            pub fn size(self: *Self) usize {
+                return self.numSize;
+            }
+
+            // 获取列表容量
+            pub fn capacity(self: *Self) usize {
+                return self.numsCapacity;
+            }
+
+            // 访问元素
+            pub fn get(self: *Self, index: usize) T {
+                // 索引如果越界则抛出异常，下同
+                if (index < 0 or index >= self.size()) @panic("索引越界");
+                return self.nums[index];
+            }  
+
+            // 更新元素
+            pub fn set(self: *Self, index: usize, num: T) void {
+                // 索引如果越界则抛出异常，下同
+                if (index < 0 or index >= self.size()) @panic("索引越界");
+                self.nums[index] = num;
+            }  
+
+            // 尾部添加元素
+            pub fn add(self: *Self, num: T) !void {
+                // 元素数量超出容量时，触发扩容机制
+                if (self.size() == self.capacity()) try self.extendCapacity();
+                self.nums[self.size()] = num;
+                // 更新元素数量
+                self.numSize += 1;
+            }  
+
+            // 中间插入元素
+            pub fn insert(self: *Self, index: usize, num: T) !void {
+                if (index < 0 or index >= self.size()) @panic("索引越界");
+                // 元素数量超出容量时，触发扩容机制
+                if (self.size() == self.capacity()) try self.extendCapacity();
+                // 将索引 index 以及之后的元素都向后移动一位
+                var j = self.size() - 1;
+                while (j >= index) : (j -= 1) {
+                    self.nums[j + 1] = self.nums[j];
+                }
+                self.nums[index] = num;
+                // 更新元素数量
+                self.numSize += 1;
+            }
+
+            // 删除元素
+            pub fn remove(self: *Self, index: usize) T {
+                if (index < 0 or index >= self.size()) @panic("索引越界");
+                var num = self.nums[index];
+                // 索引 i 之后的元素都向前移动一位
+                var j = index;
+                while (j < self.size() - 1) : (j += 1) {
+                    self.nums[j] = self.nums[j + 1];
+                }
+                // 更新元素数量
+                self.numSize -= 1;
+                // 返回被删除元素
+                return num;
+            }
+
+            // 列表扩容
+            pub fn extendCapacity(self: *Self) !void {
+                // 新建一个长度为 size * extendRatio 的数组，并将原数组拷贝到新数组
+                var newCapacity = self.capacity() * self.extendRatio;
+                var extend = try self.mem_allocator.alloc(T, newCapacity);
+                @memset(extend, @as(T, 0));
+                // 将原数组中的所有元素复制到新数组
+                std.mem.copy(T, extend, self.nums);
+                self.nums = extend;
+                // 更新列表容量
+                self.numsCapacity = newCapacity;
+            }
+
+            // 将列表转换为数组
+            pub fn toArray(self: *Self) ![]T {
+                // 仅转换有效长度范围内的列表元素
+                var nums = try self.mem_allocator.alloc(T, self.size());
+               @memset(nums, @as(T, 0));
+                for (nums, 0..) |*num, i| {
+                    num.* = self.get(i);
+                }
+                return nums;
+            }
+        };
     }
     ```

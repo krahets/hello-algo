@@ -39,28 +39,24 @@ $$
 
 对比两道题目的代码，状态转移中有一处从 $i-1$ 变为 $i$ ，其余完全一致。
 
-=== "Java"
+=== "Python"
 
-    ```java title="unbounded_knapsack.java"
-    /* 完全背包：动态规划 */
-    int unboundedKnapsackDP(int[] wgt, int[] val, int cap) {
-        int n = wgt.length;
-        // 初始化 dp 表
-        int[][] dp = new int[n + 1][cap + 1];
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            for (int c = 1; c <= cap; c++) {
-                if (wgt[i - 1] > c) {
-                    // 若超过背包容量，则不选物品 i
-                    dp[i][c] = dp[i - 1][c];
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = Math.max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
-                }
-            }
-        }
-        return dp[n][cap];
-    }
+    ```python title="unbounded_knapsack.py"
+    def unbounded_knapsack_dp(wgt: list[int], val: list[int], cap: int) -> int:
+        """完全背包：动态规划"""
+        n = len(wgt)
+        # 初始化 dp 表
+        dp = [[0] * (cap + 1) for _ in range(n + 1)]
+        # 状态转移
+        for i in range(1, n + 1):
+            for c in range(1, cap + 1):
+                if wgt[i - 1] > c:
+                    # 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c]
+                else:
+                    # 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1])
+        return dp[n][cap]
     ```
 
 === "C++"
@@ -87,24 +83,52 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="unbounded_knapsack.py"
-    def unbounded_knapsack_dp(wgt: list[int], val: list[int], cap: int) -> int:
-        """完全背包：动态规划"""
-        n = len(wgt)
-        # 初始化 dp 表
-        dp = [[0] * (cap + 1) for _ in range(n + 1)]
-        # 状态转移
-        for i in range(1, n + 1):
-            for c in range(1, cap + 1):
-                if wgt[i - 1] > c:
-                    # 若超过背包容量，则不选物品 i
-                    dp[i][c] = dp[i - 1][c]
-                else:
-                    # 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1])
-        return dp[n][cap]
+    ```java title="unbounded_knapsack.java"
+    /* 完全背包：动态规划 */
+    int unboundedKnapsackDP(int[] wgt, int[] val, int cap) {
+        int n = wgt.length;
+        // 初始化 dp 表
+        int[][] dp = new int[n + 1][cap + 1];
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = Math.max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[n][cap];
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="unbounded_knapsack.cs"
+    /* 完全背包：动态规划 */
+    int unboundedKnapsackDP(int[] wgt, int[] val, int cap) {
+        int n = wgt.Length;
+        // 初始化 dp 表
+        int[,] dp = new int[n + 1, cap + 1];
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i, c] = dp[i - 1, c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i, c] = Math.Max(dp[i - 1, c], dp[i, c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[n, cap];
+    }
     ```
 
 === "Go"
@@ -127,6 +151,30 @@ $$
                 } else {
                     // 不选和选物品 i 这两种方案的较大值
                     dp[i][c] = int(math.Max(float64(dp[i-1][c]), float64(dp[i][c-wgt[i-1]]+val[i-1])))
+                }
+            }
+        }
+        return dp[n][cap]
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="unbounded_knapsack.swift"
+    /* 完全背包：动态规划 */
+    func unboundedKnapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
+        let n = wgt.count
+        // 初始化 dp 表
+        var dp = Array(repeating: Array(repeating: 0, count: cap + 1), count: n + 1)
+        // 状态转移
+        for i in stride(from: 1, through: n, by: 1) {
+            for c in stride(from: 1, through: cap, by: 1) {
+                if wgt[i - 1] > c {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c]
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1])
                 }
             }
         }
@@ -196,84 +244,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="unbounded_knapsack.c"
-    [class]{}-[func]{unboundedKnapsackDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="unbounded_knapsack.cs"
-    /* 完全背包：动态规划 */
-    int unboundedKnapsackDP(int[] wgt, int[] val, int cap) {
-        int n = wgt.Length;
-        // 初始化 dp 表
-        int[,] dp = new int[n + 1, cap + 1];
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            for (int c = 1; c <= cap; c++) {
-                if (wgt[i - 1] > c) {
-                    // 若超过背包容量，则不选物品 i
-                    dp[i, c] = dp[i - 1, c];
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[i, c] = Math.Max(dp[i - 1, c], dp[i, c - wgt[i - 1]] + val[i - 1]);
-                }
-            }
-        }
-        return dp[n, cap];
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="unbounded_knapsack.swift"
-    /* 完全背包：动态规划 */
-    func unboundedKnapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
-        let n = wgt.count
-        // 初始化 dp 表
-        var dp = Array(repeating: Array(repeating: 0, count: cap + 1), count: n + 1)
-        // 状态转移
-        for i in stride(from: 1, through: n, by: 1) {
-            for c in stride(from: 1, through: cap, by: 1) {
-                if wgt[i - 1] > c {
-                    // 若超过背包容量，则不选物品 i
-                    dp[i][c] = dp[i - 1][c]
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1])
-                }
-            }
-        }
-        return dp[n][cap]
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="unbounded_knapsack.zig"
-    // 完全背包：动态规划
-    fn unboundedKnapsackDP(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
-        comptime var n = wgt.len;
-        // 初始化 dp 表
-        var dp = [_][cap + 1]i32{[_]i32{0} ** (cap + 1)} ** (n + 1);
-        // 状态转移
-        for (1..n + 1) |i| {
-            for (1..cap + 1) |c| {
-                if (wgt[i - 1] > c) {
-                    // 若超过背包容量，则不选物品 i
-                    dp[i][c] = dp[i - 1][c];
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = @max(dp[i - 1][c], dp[i][c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
-                }
-            }
-        }
-        return dp[n][cap];
-    }
-    ```
-
 === "Dart"
 
     ```dart title="unbounded_knapsack.dart"
@@ -322,6 +292,36 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="unbounded_knapsack.c"
+    [class]{}-[func]{unboundedKnapsackDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="unbounded_knapsack.zig"
+    // 完全背包：动态规划
+    fn unboundedKnapsackDP(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
+        comptime var n = wgt.len;
+        // 初始化 dp 表
+        var dp = [_][cap + 1]i32{[_]i32{0} ** (cap + 1)} ** (n + 1);
+        // 状态转移
+        for (1..n + 1) |i| {
+            for (1..cap + 1) |c| {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = @max(dp[i - 1][c], dp[i][c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
+                }
+            }
+        }
+        return dp[n][cap];
+    }
+    ```
+
 ### 3. &nbsp; 空间优化
 
 由于当前状态是从左边和上边的状态转移而来，**因此空间优化后应该对 $dp$ 表中的每一行采取正序遍历**。
@@ -350,28 +350,25 @@ $$
 
 代码实现比较简单，仅需将数组 `dp` 的第一维删除。
 
-=== "Java"
+=== "Python"
 
-    ```java title="unbounded_knapsack.java"
-    /* 完全背包：空间优化后的动态规划 */
-    int unboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
-        int n = wgt.length;
-        // 初始化 dp 表
-        int[] dp = new int[cap + 1];
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            for (int c = 1; c <= cap; c++) {
-                if (wgt[i - 1] > c) {
-                    // 若超过背包容量，则不选物品 i
-                    dp[c] = dp[c];
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
-                }
-            }
-        }
-        return dp[cap];
-    }
+    ```python title="unbounded_knapsack.py"
+    def unbounded_knapsack_dp_comp(wgt: list[int], val: list[int], cap: int) -> int:
+        """完全背包：空间优化后的动态规划"""
+        n = len(wgt)
+        # 初始化 dp 表
+        dp = [0] * (cap + 1)
+        # 状态转移
+        for i in range(1, n + 1):
+            # 正序遍历
+            for c in range(1, cap + 1):
+                if wgt[i - 1] > c:
+                    # 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c]
+                else:
+                    # 不选和选物品 i 这两种方案的较大值
+                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
+        return dp[cap]
     ```
 
 === "C++"
@@ -398,25 +395,52 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="unbounded_knapsack.py"
-    def unbounded_knapsack_dp_comp(wgt: list[int], val: list[int], cap: int) -> int:
-        """完全背包：空间优化后的动态规划"""
-        n = len(wgt)
-        # 初始化 dp 表
-        dp = [0] * (cap + 1)
-        # 状态转移
-        for i in range(1, n + 1):
-            # 正序遍历
-            for c in range(1, cap + 1):
-                if wgt[i - 1] > c:
-                    # 若超过背包容量，则不选物品 i
-                    dp[c] = dp[c]
-                else:
-                    # 不选和选物品 i 这两种方案的较大值
-                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
-        return dp[cap]
+    ```java title="unbounded_knapsack.java"
+    /* 完全背包：空间优化后的动态规划 */
+    int unboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
+        int n = wgt.length;
+        // 初始化 dp 表
+        int[] dp = new int[cap + 1];
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="unbounded_knapsack.cs"
+    /* 完全背包：空间优化后的动态规划 */
+    int unboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
+        int n = wgt.Length;
+        // 初始化 dp 表
+        int[] dp = new int[cap + 1];
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = Math.Max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
+    }
     ```
 
 === "Go"
@@ -436,6 +460,30 @@ $$
                 } else {
                     // 不选和选物品 i 这两种方案的较大值
                     dp[c] = int(math.Max(float64(dp[c]), float64(dp[c-wgt[i-1]]+val[i-1])))
+                }
+            }
+        }
+        return dp[cap]
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="unbounded_knapsack.swift"
+    /* 完全背包：空间优化后的动态规划 */
+    func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
+        let n = wgt.count
+        // 初始化 dp 表
+        var dp = Array(repeating: 0, count: cap + 1)
+        // 状态转移
+        for i in stride(from: 1, through: n, by: 1) {
+            for c in stride(from: 1, through: cap, by: 1) {
+                if wgt[i - 1] > c {
+                    // 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c]
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
                 }
             }
         }
@@ -495,84 +543,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="unbounded_knapsack.c"
-    [class]{}-[func]{unboundedKnapsackDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="unbounded_knapsack.cs"
-    /* 完全背包：空间优化后的动态规划 */
-    int unboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
-        int n = wgt.Length;
-        // 初始化 dp 表
-        int[] dp = new int[cap + 1];
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            for (int c = 1; c <= cap; c++) {
-                if (wgt[i - 1] > c) {
-                    // 若超过背包容量，则不选物品 i
-                    dp[c] = dp[c];
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[c] = Math.Max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
-                }
-            }
-        }
-        return dp[cap];
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="unbounded_knapsack.swift"
-    /* 完全背包：空间优化后的动态规划 */
-    func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
-        let n = wgt.count
-        // 初始化 dp 表
-        var dp = Array(repeating: 0, count: cap + 1)
-        // 状态转移
-        for i in stride(from: 1, through: n, by: 1) {
-            for c in stride(from: 1, through: cap, by: 1) {
-                if wgt[i - 1] > c {
-                    // 若超过背包容量，则不选物品 i
-                    dp[c] = dp[c]
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
-                }
-            }
-        }
-        return dp[cap]
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="unbounded_knapsack.zig"
-    // 完全背包：空间优化后的动态规划
-    fn unboundedKnapsackDPComp(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
-        comptime var n = wgt.len;
-        // 初始化 dp 表
-        var dp = [_]i32{0} ** (cap + 1);
-        // 状态转移
-        for (1..n + 1) |i| {
-            for (1..cap + 1) |c| {
-                if (wgt[i - 1] > c) {
-                    // 若超过背包容量，则不选物品 i
-                    dp[c] = dp[c];
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[c] = @max(dp[c], dp[c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
-                }
-            }
-        }
-        return dp[cap];
-    }
-    ```
-
 === "Dart"
 
     ```dart title="unbounded_knapsack.dart"
@@ -618,6 +588,36 @@ $$
             }
         }
         dp[cap]
+    }
+    ```
+
+=== "C"
+
+    ```c title="unbounded_knapsack.c"
+    [class]{}-[func]{unboundedKnapsackDPComp}
+    ```
+
+=== "Zig"
+
+    ```zig title="unbounded_knapsack.zig"
+    // 完全背包：空间优化后的动态规划
+    fn unboundedKnapsackDPComp(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
+        comptime var n = wgt.len;
+        // 初始化 dp 表
+        var dp = [_]i32{0} ** (cap + 1);
+        // 状态转移
+        for (1..n + 1) |i| {
+            for (1..cap + 1) |c| {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = @max(dp[c], dp[c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
     }
     ```
 
@@ -672,33 +672,28 @@ $$
 
 最后返回前，判断 $dp[n, amt]$ 是否等于 $amt + 1$ ，若是则返回 $-1$ ，代表无法凑出目标金额。
 
-=== "Java"
+=== "Python"
 
-    ```java title="coin_change.java"
-    /* 零钱兑换：动态规划 */
-    int coinChangeDP(int[] coins, int amt) {
-        int n = coins.length;
-        int MAX = amt + 1;
-        // 初始化 dp 表
-        int[][] dp = new int[n + 1][amt + 1];
-        // 状态转移：首行首列
-        for (int a = 1; a <= amt; a++) {
-            dp[0][a] = MAX;
-        }
-        // 状态转移：其余行列
-        for (int i = 1; i <= n; i++) {
-            for (int a = 1; a <= amt; a++) {
-                if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[i][a] = dp[i - 1][a];
-                } else {
-                    // 不选和选硬币 i 这两种方案的较小值
-                    dp[i][a] = Math.min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
-                }
-            }
-        }
-        return dp[n][amt] != MAX ? dp[n][amt] : -1;
-    }
+    ```python title="coin_change.py"
+    def coin_change_dp(coins: list[int], amt: int) -> int:
+        """零钱兑换：动态规划"""
+        n = len(coins)
+        MAX = amt + 1
+        # 初始化 dp 表
+        dp = [[0] * (amt + 1) for _ in range(n + 1)]
+        # 状态转移：首行首列
+        for a in range(1, amt + 1):
+            dp[0][a] = MAX
+        # 状态转移：其余行列
+        for i in range(1, n + 1):
+            for a in range(1, amt + 1):
+                if coins[i - 1] > a:
+                    # 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a]
+                else:
+                    # 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
+        return dp[n][amt] if dp[n][amt] != MAX else -1
     ```
 
 === "C++"
@@ -730,28 +725,62 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="coin_change.py"
-    def coin_change_dp(coins: list[int], amt: int) -> int:
-        """零钱兑换：动态规划"""
-        n = len(coins)
-        MAX = amt + 1
-        # 初始化 dp 表
-        dp = [[0] * (amt + 1) for _ in range(n + 1)]
-        # 状态转移：首行首列
-        for a in range(1, amt + 1):
-            dp[0][a] = MAX
-        # 状态转移：其余行列
-        for i in range(1, n + 1):
-            for a in range(1, amt + 1):
-                if coins[i - 1] > a:
-                    # 若超过背包容量，则不选硬币 i
-                    dp[i][a] = dp[i - 1][a]
-                else:
-                    # 不选和选硬币 i 这两种方案的较小值
-                    dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
-        return dp[n][amt] if dp[n][amt] != MAX else -1
+    ```java title="coin_change.java"
+    /* 零钱兑换：动态规划 */
+    int coinChangeDP(int[] coins, int amt) {
+        int n = coins.length;
+        int MAX = amt + 1;
+        // 初始化 dp 表
+        int[][] dp = new int[n + 1][amt + 1];
+        // 状态转移：首行首列
+        for (int a = 1; a <= amt; a++) {
+            dp[0][a] = MAX;
+        }
+        // 状态转移：其余行列
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = Math.min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[n][amt] != MAX ? dp[n][amt] : -1;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="coin_change.cs"
+    /* 零钱兑换：动态规划 */
+    int coinChangeDP(int[] coins, int amt) {
+        int n = coins.Length;
+        int MAX = amt + 1;
+        // 初始化 dp 表
+        int[,] dp = new int[n + 1, amt + 1];
+        // 状态转移：首行首列
+        for (int a = 1; a <= amt; a++) {
+            dp[0, a] = MAX;
+        }
+        // 状态转移：其余行列
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i, a] = dp[i - 1, a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i, a] = Math.Min(dp[i - 1, a], dp[i, a - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[n, amt] != MAX ? dp[n, amt] : -1;
+    }
     ```
 
 === "Go"
@@ -786,6 +815,35 @@ $$
             return dp[n][amt]
         }
         return -1
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="coin_change.swift"
+    /* 零钱兑换：动态规划 */
+    func coinChangeDP(coins: [Int], amt: Int) -> Int {
+        let n = coins.count
+        let MAX = amt + 1
+        // 初始化 dp 表
+        var dp = Array(repeating: Array(repeating: 0, count: amt + 1), count: n + 1)
+        // 状态转移：首行首列
+        for a in stride(from: 1, through: amt, by: 1) {
+            dp[0][a] = MAX
+        }
+        // 状态转移：其余行列
+        for i in stride(from: 1, through: n, by: 1) {
+            for a in stride(from: 1, through: amt, by: 1) {
+                if coins[i - 1] > a {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a]
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
+                }
+            }
+        }
+        return dp[n][amt] != MAX ? dp[n][amt] : -1
     }
     ```
 
@@ -851,103 +909,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="coin_change.c"
-    [class]{}-[func]{coinChangeDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="coin_change.cs"
-    /* 零钱兑换：动态规划 */
-    int coinChangeDP(int[] coins, int amt) {
-        int n = coins.Length;
-        int MAX = amt + 1;
-        // 初始化 dp 表
-        int[,] dp = new int[n + 1, amt + 1];
-        // 状态转移：首行首列
-        for (int a = 1; a <= amt; a++) {
-            dp[0, a] = MAX;
-        }
-        // 状态转移：其余行列
-        for (int i = 1; i <= n; i++) {
-            for (int a = 1; a <= amt; a++) {
-                if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[i, a] = dp[i - 1, a];
-                } else {
-                    // 不选和选硬币 i 这两种方案的较小值
-                    dp[i, a] = Math.Min(dp[i - 1, a], dp[i, a - coins[i - 1]] + 1);
-                }
-            }
-        }
-        return dp[n, amt] != MAX ? dp[n, amt] : -1;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="coin_change.swift"
-    /* 零钱兑换：动态规划 */
-    func coinChangeDP(coins: [Int], amt: Int) -> Int {
-        let n = coins.count
-        let MAX = amt + 1
-        // 初始化 dp 表
-        var dp = Array(repeating: Array(repeating: 0, count: amt + 1), count: n + 1)
-        // 状态转移：首行首列
-        for a in stride(from: 1, through: amt, by: 1) {
-            dp[0][a] = MAX
-        }
-        // 状态转移：其余行列
-        for i in stride(from: 1, through: n, by: 1) {
-            for a in stride(from: 1, through: amt, by: 1) {
-                if coins[i - 1] > a {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[i][a] = dp[i - 1][a]
-                } else {
-                    // 不选和选硬币 i 这两种方案的较小值
-                    dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
-                }
-            }
-        }
-        return dp[n][amt] != MAX ? dp[n][amt] : -1
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="coin_change.zig"
-    // 零钱兑换：动态规划
-    fn coinChangeDP(comptime coins: []i32, comptime amt: usize) i32 {
-        comptime var n = coins.len;
-        comptime var max = amt + 1;
-        // 初始化 dp 表
-        var dp = [_][amt + 1]i32{[_]i32{0} ** (amt + 1)} ** (n + 1);
-        // 状态转移：首行首列
-        for (1..amt + 1) |a| {
-            dp[0][a] = max;
-        }
-        // 状态转移：其余行列
-        for (1..n + 1) |i| {
-            for (1..amt + 1) |a| {
-                if (coins[i - 1] > @as(i32, @intCast(a))) {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[i][a] = dp[i - 1][a];
-                } else {
-                    // 不选和选硬币 i 这两种方案的较小值
-                    dp[i][a] = @min(dp[i - 1][a], dp[i][a - @as(usize, @intCast(coins[i - 1]))] + 1);
-                }
-            }
-        }
-        if (dp[n][amt] != max) {
-            return @intCast(dp[n][amt]);
-        } else {
-            return -1;
-        }
-    }
-    ```
-
 === "Dart"
 
     ```dart title="coin_change.dart"
@@ -1006,6 +967,45 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="coin_change.c"
+    [class]{}-[func]{coinChangeDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="coin_change.zig"
+    // 零钱兑换：动态规划
+    fn coinChangeDP(comptime coins: []i32, comptime amt: usize) i32 {
+        comptime var n = coins.len;
+        comptime var max = amt + 1;
+        // 初始化 dp 表
+        var dp = [_][amt + 1]i32{[_]i32{0} ** (amt + 1)} ** (n + 1);
+        // 状态转移：首行首列
+        for (1..amt + 1) |a| {
+            dp[0][a] = max;
+        }
+        // 状态转移：其余行列
+        for (1..n + 1) |i| {
+            for (1..amt + 1) |a| {
+                if (coins[i - 1] > @as(i32, @intCast(a))) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = @min(dp[i - 1][a], dp[i][a - @as(usize, @intCast(coins[i - 1]))] + 1);
+                }
+            }
+        }
+        if (dp[n][amt] != max) {
+            return @intCast(dp[n][amt]);
+        } else {
+            return -1;
+        }
+    }
+    ```
+
 图 14-25 展示了零钱兑换的动态规划过程，和完全背包非常相似。
 
 === "<1>"
@@ -1059,31 +1059,27 @@ $$
 
 零钱兑换的空间优化的处理方式和完全背包一致。
 
-=== "Java"
+=== "Python"
 
-    ```java title="coin_change.java"
-    /* 零钱兑换：空间优化后的动态规划 */
-    int coinChangeDPComp(int[] coins, int amt) {
-        int n = coins.length;
-        int MAX = amt + 1;
-        // 初始化 dp 表
-        int[] dp = new int[amt + 1];
-        Arrays.fill(dp, MAX);
-        dp[0] = 0;
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            for (int a = 1; a <= amt; a++) {
-                if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[a] = dp[a];
-                } else {
-                    // 不选和选硬币 i 这两种方案的较小值
-                    dp[a] = Math.min(dp[a], dp[a - coins[i - 1]] + 1);
-                }
-            }
-        }
-        return dp[amt] != MAX ? dp[amt] : -1;
-    }
+    ```python title="coin_change.py"
+    def coin_change_dp_comp(coins: list[int], amt: int) -> int:
+        """零钱兑换：空间优化后的动态规划"""
+        n = len(coins)
+        MAX = amt + 1
+        # 初始化 dp 表
+        dp = [MAX] * (amt + 1)
+        dp[0] = 0
+        # 状态转移
+        for i in range(1, n + 1):
+            # 正序遍历
+            for a in range(1, amt + 1):
+                if coins[i - 1] > a:
+                    # 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a]
+                else:
+                    # 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
+        return dp[amt] if dp[amt] != MAX else -1
     ```
 
 === "C++"
@@ -1112,27 +1108,58 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="coin_change.py"
-    def coin_change_dp_comp(coins: list[int], amt: int) -> int:
-        """零钱兑换：空间优化后的动态规划"""
-        n = len(coins)
-        MAX = amt + 1
-        # 初始化 dp 表
-        dp = [MAX] * (amt + 1)
-        dp[0] = 0
-        # 状态转移
-        for i in range(1, n + 1):
-            # 正序遍历
-            for a in range(1, amt + 1):
-                if coins[i - 1] > a:
-                    # 若超过背包容量，则不选硬币 i
-                    dp[a] = dp[a]
-                else:
-                    # 不选和选硬币 i 这两种方案的较小值
-                    dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
-        return dp[amt] if dp[amt] != MAX else -1
+    ```java title="coin_change.java"
+    /* 零钱兑换：空间优化后的动态规划 */
+    int coinChangeDPComp(int[] coins, int amt) {
+        int n = coins.length;
+        int MAX = amt + 1;
+        // 初始化 dp 表
+        int[] dp = new int[amt + 1];
+        Arrays.fill(dp, MAX);
+        dp[0] = 0;
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = Math.min(dp[a], dp[a - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[amt] != MAX ? dp[amt] : -1;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="coin_change.cs"
+    /* 零钱兑换：空间优化后的动态规划 */
+    int coinChangeDPComp(int[] coins, int amt) {
+        int n = coins.Length;
+        int MAX = amt + 1;
+        // 初始化 dp 表
+        int[] dp = new int[amt + 1];
+        Array.Fill(dp, MAX);
+        dp[0] = 0;
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = Math.Min(dp[a], dp[a - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[amt] != MAX ? dp[amt] : -1;
+    }
     ```
 
 === "Go"
@@ -1164,6 +1191,32 @@ $$
             return dp[amt]
         }
         return -1
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="coin_change.swift"
+    /* 零钱兑换：空间优化后的动态规划 */
+    func coinChangeDPComp(coins: [Int], amt: Int) -> Int {
+        let n = coins.count
+        let MAX = amt + 1
+        // 初始化 dp 表
+        var dp = Array(repeating: MAX, count: amt + 1)
+        dp[0] = 0
+        // 状态转移
+        for i in stride(from: 1, through: n, by: 1) {
+            for a in stride(from: 1, through: amt, by: 1) {
+                if coins[i - 1] > a {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a]
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
+                }
+            }
+        }
+        return dp[amt] != MAX ? dp[amt] : -1
     }
     ```
 
@@ -1216,96 +1269,6 @@ $$
             }
         }
         return dp[amt] !== MAX ? dp[amt] : -1;
-    }
-    ```
-
-=== "C"
-
-    ```c title="coin_change.c"
-    [class]{}-[func]{coinChangeDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="coin_change.cs"
-    /* 零钱兑换：空间优化后的动态规划 */
-    int coinChangeDPComp(int[] coins, int amt) {
-        int n = coins.Length;
-        int MAX = amt + 1;
-        // 初始化 dp 表
-        int[] dp = new int[amt + 1];
-        Array.Fill(dp, MAX);
-        dp[0] = 0;
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            for (int a = 1; a <= amt; a++) {
-                if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[a] = dp[a];
-                } else {
-                    // 不选和选硬币 i 这两种方案的较小值
-                    dp[a] = Math.Min(dp[a], dp[a - coins[i - 1]] + 1);
-                }
-            }
-        }
-        return dp[amt] != MAX ? dp[amt] : -1;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="coin_change.swift"
-    /* 零钱兑换：空间优化后的动态规划 */
-    func coinChangeDPComp(coins: [Int], amt: Int) -> Int {
-        let n = coins.count
-        let MAX = amt + 1
-        // 初始化 dp 表
-        var dp = Array(repeating: MAX, count: amt + 1)
-        dp[0] = 0
-        // 状态转移
-        for i in stride(from: 1, through: n, by: 1) {
-            for a in stride(from: 1, through: amt, by: 1) {
-                if coins[i - 1] > a {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[a] = dp[a]
-                } else {
-                    // 不选和选硬币 i 这两种方案的较小值
-                    dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
-                }
-            }
-        }
-        return dp[amt] != MAX ? dp[amt] : -1
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="coin_change.zig"
-    // 零钱兑换：空间优化后的动态规划
-    fn coinChangeDPComp(comptime coins: []i32, comptime amt: usize) i32 {
-        comptime var n = coins.len;
-        comptime var max = amt + 1;
-        // 初始化 dp 表
-        var dp = [_]i32{0} ** (amt + 1);
-        @memset(&dp, max);
-        dp[0] = 0;
-        // 状态转移
-        for (1..n + 1) |i| {
-            for (1..amt + 1) |a| {
-                if (coins[i - 1] > @as(i32, @intCast(a))) {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[a] = dp[a];
-                } else {
-                    // 不选和选硬币 i 这两种方案的较小值
-                    dp[a] = @min(dp[a], dp[a - @as(usize, @intCast(coins[i - 1]))] + 1);
-                }
-            }
-        }
-        if (dp[amt] != max) {
-            return @intCast(dp[amt]);
-        } else {
-            return -1;
-        }
     }
     ```
 
@@ -1362,6 +1325,43 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="coin_change.c"
+    [class]{}-[func]{coinChangeDPComp}
+    ```
+
+=== "Zig"
+
+    ```zig title="coin_change.zig"
+    // 零钱兑换：空间优化后的动态规划
+    fn coinChangeDPComp(comptime coins: []i32, comptime amt: usize) i32 {
+        comptime var n = coins.len;
+        comptime var max = amt + 1;
+        // 初始化 dp 表
+        var dp = [_]i32{0} ** (amt + 1);
+        @memset(&dp, max);
+        dp[0] = 0;
+        // 状态转移
+        for (1..n + 1) |i| {
+            for (1..amt + 1) |a| {
+                if (coins[i - 1] > @as(i32, @intCast(a))) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = @min(dp[a], dp[a - @as(usize, @intCast(coins[i - 1]))] + 1);
+                }
+            }
+        }
+        if (dp[amt] != max) {
+            return @intCast(dp[amt]);
+        } else {
+            return -1;
+        }
+    }
+    ```
+
 ## 14.5.3 &nbsp; 零钱兑换问题 II
 
 !!! question
@@ -1386,32 +1386,27 @@ $$
 
 ### 2. &nbsp; 代码实现
 
-=== "Java"
+=== "Python"
 
-    ```java title="coin_change_ii.java"
-    /* 零钱兑换 II：动态规划 */
-    int coinChangeIIDP(int[] coins, int amt) {
-        int n = coins.length;
-        // 初始化 dp 表
-        int[][] dp = new int[n + 1][amt + 1];
-        // 初始化首列
-        for (int i = 0; i <= n; i++) {
-            dp[i][0] = 1;
-        }
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            for (int a = 1; a <= amt; a++) {
-                if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[i][a] = dp[i - 1][a];
-                } else {
-                    // 不选和选硬币 i 这两种方案之和
-                    dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
-                }
-            }
-        }
-        return dp[n][amt];
-    }
+    ```python title="coin_change_ii.py"
+    def coin_change_ii_dp(coins: list[int], amt: int) -> int:
+        """零钱兑换 II：动态规划"""
+        n = len(coins)
+        # 初始化 dp 表
+        dp = [[0] * (amt + 1) for _ in range(n + 1)]
+        # 初始化首列
+        for i in range(n + 1):
+            dp[i][0] = 1
+        # 状态转移
+        for i in range(1, n + 1):
+            for a in range(1, amt + 1):
+                if coins[i - 1] > a:
+                    # 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a]
+                else:
+                    # 不选和选硬币 i 这两种方案之和
+                    dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
+        return dp[n][amt]
     ```
 
 === "C++"
@@ -1442,27 +1437,60 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="coin_change_ii.py"
-    def coin_change_ii_dp(coins: list[int], amt: int) -> int:
-        """零钱兑换 II：动态规划"""
-        n = len(coins)
-        # 初始化 dp 表
-        dp = [[0] * (amt + 1) for _ in range(n + 1)]
-        # 初始化首列
-        for i in range(n + 1):
-            dp[i][0] = 1
-        # 状态转移
-        for i in range(1, n + 1):
-            for a in range(1, amt + 1):
-                if coins[i - 1] > a:
-                    # 若超过背包容量，则不选硬币 i
-                    dp[i][a] = dp[i - 1][a]
-                else:
-                    # 不选和选硬币 i 这两种方案之和
-                    dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
-        return dp[n][amt]
+    ```java title="coin_change_ii.java"
+    /* 零钱兑换 II：动态规划 */
+    int coinChangeIIDP(int[] coins, int amt) {
+        int n = coins.length;
+        // 初始化 dp 表
+        int[][] dp = new int[n + 1][amt + 1];
+        // 初始化首列
+        for (int i = 0; i <= n; i++) {
+            dp[i][0] = 1;
+        }
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
+                }
+            }
+        }
+        return dp[n][amt];
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="coin_change_ii.cs"
+    /* 零钱兑换 II：动态规划 */
+    int coinChangeIIDP(int[] coins, int amt) {
+        int n = coins.Length;
+        // 初始化 dp 表
+        int[,] dp = new int[n + 1, amt + 1];
+        // 初始化首列
+        for (int i = 0; i <= n; i++) {
+            dp[i, 0] = 1;
+        }
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i, a] = dp[i - 1, a];
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[i, a] = dp[i - 1, a] + dp[i, a - coins[i - 1]];
+                }
+            }
+        }
+        return dp[n, amt];
+    }
     ```
 
 === "Go"
@@ -1489,6 +1517,34 @@ $$
                 } else {
                     // 不选和选硬币 i 这两种方案之和
                     dp[i][a] = dp[i-1][a] + dp[i][a-coins[i-1]]
+                }
+            }
+        }
+        return dp[n][amt]
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="coin_change_ii.swift"
+    /* 零钱兑换 II：动态规划 */
+    func coinChangeIIDP(coins: [Int], amt: Int) -> Int {
+        let n = coins.count
+        // 初始化 dp 表
+        var dp = Array(repeating: Array(repeating: 0, count: amt + 1), count: n + 1)
+        // 初始化首列
+        for i in stride(from: 0, through: n, by: 1) {
+            dp[i][0] = 1
+        }
+        // 状态转移
+        for i in stride(from: 1, through: n, by: 1) {
+            for a in stride(from: 1, through: amt, by: 1) {
+                if coins[i - 1] > a {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a]
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
                 }
             }
         }
@@ -1556,96 +1612,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="coin_change_ii.c"
-    [class]{}-[func]{coinChangeIIDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="coin_change_ii.cs"
-    /* 零钱兑换 II：动态规划 */
-    int coinChangeIIDP(int[] coins, int amt) {
-        int n = coins.Length;
-        // 初始化 dp 表
-        int[,] dp = new int[n + 1, amt + 1];
-        // 初始化首列
-        for (int i = 0; i <= n; i++) {
-            dp[i, 0] = 1;
-        }
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            for (int a = 1; a <= amt; a++) {
-                if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[i, a] = dp[i - 1, a];
-                } else {
-                    // 不选和选硬币 i 这两种方案之和
-                    dp[i, a] = dp[i - 1, a] + dp[i, a - coins[i - 1]];
-                }
-            }
-        }
-        return dp[n, amt];
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="coin_change_ii.swift"
-    /* 零钱兑换 II：动态规划 */
-    func coinChangeIIDP(coins: [Int], amt: Int) -> Int {
-        let n = coins.count
-        // 初始化 dp 表
-        var dp = Array(repeating: Array(repeating: 0, count: amt + 1), count: n + 1)
-        // 初始化首列
-        for i in stride(from: 0, through: n, by: 1) {
-            dp[i][0] = 1
-        }
-        // 状态转移
-        for i in stride(from: 1, through: n, by: 1) {
-            for a in stride(from: 1, through: amt, by: 1) {
-                if coins[i - 1] > a {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[i][a] = dp[i - 1][a]
-                } else {
-                    // 不选和选硬币 i 这两种方案之和
-                    dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
-                }
-            }
-        }
-        return dp[n][amt]
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="coin_change_ii.zig"
-    // 零钱兑换 II：动态规划
-    fn coinChangeIIDP(comptime coins: []i32, comptime amt: usize) i32 {
-        comptime var n = coins.len;
-        // 初始化 dp 表
-        var dp = [_][amt + 1]i32{[_]i32{0} ** (amt + 1)} ** (n + 1);
-        // 初始化首列
-        for (0..n + 1) |i| {
-            dp[i][0] = 1;
-        }
-        // 状态转移
-        for (1..n + 1) |i| {
-            for (1..amt + 1) |a| {
-                if (coins[i - 1] > @as(i32, @intCast(a))) {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[i][a] = dp[i - 1][a];
-                } else {
-                    // 不选和选硬币 i 这两种方案的较小值
-                    dp[i][a] = dp[i - 1][a] + dp[i][a - @as(usize, @intCast(coins[i - 1]))];
-                }
-            }
-        }
-        return dp[n][amt];
-    }
-    ```
-
 === "Dart"
 
     ```dart title="coin_change_ii.dart"
@@ -1702,33 +1668,64 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="coin_change_ii.c"
+    [class]{}-[func]{coinChangeIIDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="coin_change_ii.zig"
+    // 零钱兑换 II：动态规划
+    fn coinChangeIIDP(comptime coins: []i32, comptime amt: usize) i32 {
+        comptime var n = coins.len;
+        // 初始化 dp 表
+        var dp = [_][amt + 1]i32{[_]i32{0} ** (amt + 1)} ** (n + 1);
+        // 初始化首列
+        for (0..n + 1) |i| {
+            dp[i][0] = 1;
+        }
+        // 状态转移
+        for (1..n + 1) |i| {
+            for (1..amt + 1) |a| {
+                if (coins[i - 1] > @as(i32, @intCast(a))) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = dp[i - 1][a] + dp[i][a - @as(usize, @intCast(coins[i - 1]))];
+                }
+            }
+        }
+        return dp[n][amt];
+    }
+    ```
+
 ### 3. &nbsp; 空间优化
 
 空间优化处理方式相同，删除硬币维度即可。
 
-=== "Java"
+=== "Python"
 
-    ```java title="coin_change_ii.java"
-    /* 零钱兑换 II：空间优化后的动态规划 */
-    int coinChangeIIDPComp(int[] coins, int amt) {
-        int n = coins.length;
-        // 初始化 dp 表
-        int[] dp = new int[amt + 1];
-        dp[0] = 1;
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            for (int a = 1; a <= amt; a++) {
-                if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[a] = dp[a];
-                } else {
-                    // 不选和选硬币 i 这两种方案之和
-                    dp[a] = dp[a] + dp[a - coins[i - 1]];
-                }
-            }
-        }
-        return dp[amt];
-    }
+    ```python title="coin_change_ii.py"
+    def coin_change_ii_dp_comp(coins: list[int], amt: int) -> int:
+        """零钱兑换 II：空间优化后的动态规划"""
+        n = len(coins)
+        # 初始化 dp 表
+        dp = [0] * (amt + 1)
+        dp[0] = 1
+        # 状态转移
+        for i in range(1, n + 1):
+            # 正序遍历
+            for a in range(1, amt + 1):
+                if coins[i - 1] > a:
+                    # 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a]
+                else:
+                    # 不选和选硬币 i 这两种方案之和
+                    dp[a] = dp[a] + dp[a - coins[i - 1]]
+        return dp[amt]
     ```
 
 === "C++"
@@ -1756,26 +1753,54 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="coin_change_ii.py"
-    def coin_change_ii_dp_comp(coins: list[int], amt: int) -> int:
-        """零钱兑换 II：空间优化后的动态规划"""
-        n = len(coins)
-        # 初始化 dp 表
-        dp = [0] * (amt + 1)
-        dp[0] = 1
-        # 状态转移
-        for i in range(1, n + 1):
-            # 正序遍历
-            for a in range(1, amt + 1):
-                if coins[i - 1] > a:
-                    # 若超过背包容量，则不选硬币 i
-                    dp[a] = dp[a]
-                else:
-                    # 不选和选硬币 i 这两种方案之和
-                    dp[a] = dp[a] + dp[a - coins[i - 1]]
-        return dp[amt]
+    ```java title="coin_change_ii.java"
+    /* 零钱兑换 II：空间优化后的动态规划 */
+    int coinChangeIIDPComp(int[] coins, int amt) {
+        int n = coins.length;
+        // 初始化 dp 表
+        int[] dp = new int[amt + 1];
+        dp[0] = 1;
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[a] = dp[a] + dp[a - coins[i - 1]];
+                }
+            }
+        }
+        return dp[amt];
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="coin_change_ii.cs"
+    /* 零钱兑换 II：空间优化后的动态规划 */
+    int coinChangeIIDPComp(int[] coins, int amt) {
+        int n = coins.Length;
+        // 初始化 dp 表
+        int[] dp = new int[amt + 1];
+        dp[0] = 1;
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[a] = dp[a] + dp[a - coins[i - 1]];
+                }
+            }
+        }
+        return dp[amt];
+    }
     ```
 
 === "Go"
@@ -1797,6 +1822,31 @@ $$
                 } else {
                     // 不选和选硬币 i 这两种方案之和
                     dp[a] = dp[a] + dp[a-coins[i-1]]
+                }
+            }
+        }
+        return dp[amt]
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="coin_change_ii.swift"
+    /* 零钱兑换 II：空间优化后的动态规划 */
+    func coinChangeIIDPComp(coins: [Int], amt: Int) -> Int {
+        let n = coins.count
+        // 初始化 dp 表
+        var dp = Array(repeating: 0, count: amt + 1)
+        dp[0] = 1
+        // 状态转移
+        for i in stride(from: 1, through: n, by: 1) {
+            for a in stride(from: 1, through: amt, by: 1) {
+                if coins[i - 1] > a {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a]
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[a] = dp[a] + dp[a - coins[i - 1]]
                 }
             }
         }
@@ -1854,87 +1904,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="coin_change_ii.c"
-    [class]{}-[func]{coinChangeIIDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="coin_change_ii.cs"
-    /* 零钱兑换 II：空间优化后的动态规划 */
-    int coinChangeIIDPComp(int[] coins, int amt) {
-        int n = coins.Length;
-        // 初始化 dp 表
-        int[] dp = new int[amt + 1];
-        dp[0] = 1;
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            for (int a = 1; a <= amt; a++) {
-                if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[a] = dp[a];
-                } else {
-                    // 不选和选硬币 i 这两种方案之和
-                    dp[a] = dp[a] + dp[a - coins[i - 1]];
-                }
-            }
-        }
-        return dp[amt];
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="coin_change_ii.swift"
-    /* 零钱兑换 II：空间优化后的动态规划 */
-    func coinChangeIIDPComp(coins: [Int], amt: Int) -> Int {
-        let n = coins.count
-        // 初始化 dp 表
-        var dp = Array(repeating: 0, count: amt + 1)
-        dp[0] = 1
-        // 状态转移
-        for i in stride(from: 1, through: n, by: 1) {
-            for a in stride(from: 1, through: amt, by: 1) {
-                if coins[i - 1] > a {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[a] = dp[a]
-                } else {
-                    // 不选和选硬币 i 这两种方案之和
-                    dp[a] = dp[a] + dp[a - coins[i - 1]]
-                }
-            }
-        }
-        return dp[amt]
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="coin_change_ii.zig"
-    // 零钱兑换 II：空间优化后的动态规划
-    fn coinChangeIIDPComp(comptime coins: []i32, comptime amt: usize) i32 {
-        comptime var n = coins.len;
-        // 初始化 dp 表
-        var dp = [_]i32{0} ** (amt + 1);
-        dp[0] = 1;
-        // 状态转移
-        for (1..n + 1) |i| {
-            for (1..amt + 1) |a| {
-                if (coins[i - 1] > @as(i32, @intCast(a))) {
-                    // 若超过背包容量，则不选硬币 i
-                    dp[a] = dp[a];
-                } else {
-                    // 不选和选硬币 i 这两种方案的较小值
-                    dp[a] = dp[a] + dp[a - @as(usize, @intCast(coins[i - 1]))];
-                }
-            }
-        }
-        return dp[amt];
-    }
-    ```
-
 === "Dart"
 
     ```dart title="coin_change_ii.dart"
@@ -1982,5 +1951,36 @@ $$
             }
         }
         dp[amt]
+    }
+    ```
+
+=== "C"
+
+    ```c title="coin_change_ii.c"
+    [class]{}-[func]{coinChangeIIDPComp}
+    ```
+
+=== "Zig"
+
+    ```zig title="coin_change_ii.zig"
+    // 零钱兑换 II：空间优化后的动态规划
+    fn coinChangeIIDPComp(comptime coins: []i32, comptime amt: usize) i32 {
+        comptime var n = coins.len;
+        // 初始化 dp 表
+        var dp = [_]i32{0} ** (amt + 1);
+        dp[0] = 1;
+        // 状态转移
+        for (1..n + 1) |i| {
+            for (1..amt + 1) |a| {
+                if (coins[i - 1] > @as(i32, @intCast(a))) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = dp[a] + dp[a - @as(usize, @intCast(coins[i - 1]))];
+                }
+            }
+        }
+        return dp[amt];
     }
     ```

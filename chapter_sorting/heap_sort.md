@@ -68,6 +68,82 @@ comments: true
 
 在代码实现中，我们使用了与堆章节相同的从顶至底堆化 `sift_down()` 函数。值得注意的是，由于堆的长度会随着提取最大元素而减小，因此我们需要给 `sift_down()` 函数添加一个长度参数 $n$ ，用于指定堆的当前有效长度。
 
+=== "Python"
+
+    ```python title="heap_sort.py"
+    def sift_down(nums: list[int], n: int, i: int):
+        """堆的长度为 n ，从节点 i 开始，从顶至底堆化"""
+        while True:
+            # 判断节点 i, l, r 中值最大的节点，记为 ma
+            l = 2 * i + 1
+            r = 2 * i + 2
+            ma = i
+            if l < n and nums[l] > nums[ma]:
+                ma = l
+            if r < n and nums[r] > nums[ma]:
+                ma = r
+            # 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if ma == i:
+                break
+            # 交换两节点
+            nums[i], nums[ma] = nums[ma], nums[i]
+            # 循环向下堆化
+            i = ma
+
+    def heap_sort(nums: list[int]):
+        """堆排序"""
+        # 建堆操作：堆化除叶节点以外的其他所有节点
+        for i in range(len(nums) // 2 - 1, -1, -1):
+            sift_down(nums, len(nums), i)
+        # 从堆中提取最大元素，循环 n-1 轮
+        for i in range(len(nums) - 1, 0, -1):
+            # 交换根节点与最右叶节点（即交换首元素与尾元素）
+            nums[0], nums[i] = nums[i], nums[0]
+            # 以根节点为起点，从顶至底进行堆化
+            sift_down(nums, i, 0)
+    ```
+
+=== "C++"
+
+    ```cpp title="heap_sort.cpp"
+    /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
+    void siftDown(vector<int> &nums, int n, int i) {
+        while (true) {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            int l = 2 * i + 1;
+            int r = 2 * i + 2;
+            int ma = i;
+            if (l < n && nums[l] > nums[ma])
+                ma = l;
+            if (r < n && nums[r] > nums[ma])
+                ma = r;
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if (ma == i) {
+                break;
+            }
+            // 交换两节点
+            swap(nums[i], nums[ma]);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
+
+    /* 堆排序 */
+    void heapSort(vector<int> &nums) {
+        // 建堆操作：堆化除叶节点以外的其他所有节点
+        for (int i = nums.size() / 2 - 1; i >= 0; --i) {
+            siftDown(nums, nums.size(), i);
+        }
+        // 从堆中提取最大元素，循环 n-1 轮
+        for (int i = nums.size() - 1; i > 0; --i) {
+            // 交换根节点与最右叶节点（即交换首元素与尾元素）
+            swap(nums[0], nums[i]);
+            // 以根节点为起点，从顶至底进行堆化
+            siftDown(nums, i, 0);
+        }
+    }
+    ```
+
 === "Java"
 
     ```java title="heap_sort.java"
@@ -112,11 +188,11 @@ comments: true
     }
     ```
 
-=== "C++"
+=== "C#"
 
-    ```cpp title="heap_sort.cpp"
+    ```csharp title="heap_sort.cs"
     /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
-    void siftDown(vector<int> &nums, int n, int i) {
+    void siftDown(int[] nums, int n, int i) {
         while (true) {
             // 判断节点 i, l, r 中值最大的节点，记为 ma
             int l = 2 * i + 1;
@@ -127,65 +203,29 @@ comments: true
             if (r < n && nums[r] > nums[ma])
                 ma = r;
             // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
-            if (ma == i) {
+            if (ma == i)
                 break;
-            }
             // 交换两节点
-            swap(nums[i], nums[ma]);
+            (nums[ma], nums[i]) = (nums[i], nums[ma]);
             // 循环向下堆化
             i = ma;
         }
     }
 
     /* 堆排序 */
-    void heapSort(vector<int> &nums) {
+    void heapSort(int[] nums) {
         // 建堆操作：堆化除叶节点以外的其他所有节点
-        for (int i = nums.size() / 2 - 1; i >= 0; --i) {
-            siftDown(nums, nums.size(), i);
+        for (int i = nums.Length / 2 - 1; i >= 0; i--) {
+            siftDown(nums, nums.Length, i);
         }
         // 从堆中提取最大元素，循环 n-1 轮
-        for (int i = nums.size() - 1; i > 0; --i) {
+        for (int i = nums.Length - 1; i > 0; i--) {
             // 交换根节点与最右叶节点（即交换首元素与尾元素）
-            swap(nums[0], nums[i]);
+            (nums[i], nums[0]) = (nums[0], nums[i]);
             // 以根节点为起点，从顶至底进行堆化
             siftDown(nums, i, 0);
         }
     }
-    ```
-
-=== "Python"
-
-    ```python title="heap_sort.py"
-    def sift_down(nums: list[int], n: int, i: int):
-        """堆的长度为 n ，从节点 i 开始，从顶至底堆化"""
-        while True:
-            # 判断节点 i, l, r 中值最大的节点，记为 ma
-            l = 2 * i + 1
-            r = 2 * i + 2
-            ma = i
-            if l < n and nums[l] > nums[ma]:
-                ma = l
-            if r < n and nums[r] > nums[ma]:
-                ma = r
-            # 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
-            if ma == i:
-                break
-            # 交换两节点
-            nums[i], nums[ma] = nums[ma], nums[i]
-            # 循环向下堆化
-            i = ma
-
-    def heap_sort(nums: list[int]):
-        """堆排序"""
-        # 建堆操作：堆化除叶节点以外的其他所有节点
-        for i in range(len(nums) // 2 - 1, -1, -1):
-            sift_down(nums, len(nums), i)
-        # 从堆中提取最大元素，循环 n-1 轮
-        for i in range(len(nums) - 1, 0, -1):
-            # 交换根节点与最右叶节点（即交换首元素与尾元素）
-            nums[0], nums[i] = nums[i], nums[0]
-            # 以根节点为起点，从顶至底进行堆化
-            sift_down(nums, i, 0)
     ```
 
 === "Go"
@@ -227,6 +267,50 @@ comments: true
             (*nums)[0], (*nums)[i] = (*nums)[i], (*nums)[0]
             // 以根节点为起点，从顶至底进行堆化
             siftDown(nums, i, 0)
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="heap_sort.swift"
+    /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
+    func siftDown(nums: inout [Int], n: Int, i: Int) {
+        var i = i
+        while true {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            let l = 2 * i + 1
+            let r = 2 * i + 2
+            var ma = i
+            if l < n, nums[l] > nums[ma] {
+                ma = l
+            }
+            if r < n, nums[r] > nums[ma] {
+                ma = r
+            }
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if ma == i {
+                break
+            }
+            // 交换两节点
+            nums.swapAt(i, ma)
+            // 循环向下堆化
+            i = ma
+        }
+    }
+
+    /* 堆排序 */
+    func heapSort(nums: inout [Int]) {
+        // 建堆操作：堆化除叶节点以外的其他所有节点
+        for i in stride(from: nums.count / 2 - 1, through: 0, by: -1) {
+            siftDown(nums: &nums, n: nums.count, i: i)
+        }
+        // 从堆中提取最大元素，循环 n-1 轮
+        for i in stride(from: nums.count - 1, to: 0, by: -1) {
+            // 交换根节点与最右叶节点（即交换首元素与尾元素）
+            nums.swapAt(0, i)
+            // 以根节点为起点，从顶至底进行堆化
+            siftDown(nums: &nums, n: i, i: 0)
         }
     }
     ```
@@ -317,143 +401,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="heap_sort.c"
-    /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
-    void siftDown(int nums[], int n, int i) {
-        while (1) {
-            // 判断节点 i, l, r 中值最大的节点，记为 ma
-            int l = 2 * i + 1;
-            int r = 2 * i + 2;
-            int ma = i;
-            if (l < n && nums[l] > nums[ma])
-                ma = l;
-            if (r < n && nums[r] > nums[ma])
-                ma = r;
-            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
-            if (ma == i) {
-                break;
-            }
-            // 交换两节点
-            int temp = nums[i];
-            nums[i] = nums[ma];
-            nums[ma] = temp;
-            // 循环向下堆化
-            i = ma;
-        }
-    }
-
-    /* 堆排序 */
-    void heapSort(int nums[], int n) {
-        // 建堆操作：堆化除叶节点以外的其他所有节点
-        for (int i = n / 2 - 1; i >= 0; --i) {
-            siftDown(nums, n, i);
-        }
-        // 从堆中提取最大元素，循环 n-1 轮
-        for (int i = n - 1; i > 0; --i) {
-            // 交换根节点与最右叶节点（即交换首元素与尾元素）
-            int tmp = nums[0];
-            nums[0] = nums[i];
-            nums[i] = tmp;
-            // 以根节点为起点，从顶至底进行堆化
-            siftDown(nums, i, 0);
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="heap_sort.cs"
-    /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
-    void siftDown(int[] nums, int n, int i) {
-        while (true) {
-            // 判断节点 i, l, r 中值最大的节点，记为 ma
-            int l = 2 * i + 1;
-            int r = 2 * i + 2;
-            int ma = i;
-            if (l < n && nums[l] > nums[ma])
-                ma = l;
-            if (r < n && nums[r] > nums[ma])
-                ma = r;
-            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
-            if (ma == i)
-                break;
-            // 交换两节点
-            (nums[ma], nums[i]) = (nums[i], nums[ma]);
-            // 循环向下堆化
-            i = ma;
-        }
-    }
-
-    /* 堆排序 */
-    void heapSort(int[] nums) {
-        // 建堆操作：堆化除叶节点以外的其他所有节点
-        for (int i = nums.Length / 2 - 1; i >= 0; i--) {
-            siftDown(nums, nums.Length, i);
-        }
-        // 从堆中提取最大元素，循环 n-1 轮
-        for (int i = nums.Length - 1; i > 0; i--) {
-            // 交换根节点与最右叶节点（即交换首元素与尾元素）
-            (nums[i], nums[0]) = (nums[0], nums[i]);
-            // 以根节点为起点，从顶至底进行堆化
-            siftDown(nums, i, 0);
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="heap_sort.swift"
-    /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
-    func siftDown(nums: inout [Int], n: Int, i: Int) {
-        var i = i
-        while true {
-            // 判断节点 i, l, r 中值最大的节点，记为 ma
-            let l = 2 * i + 1
-            let r = 2 * i + 2
-            var ma = i
-            if l < n, nums[l] > nums[ma] {
-                ma = l
-            }
-            if r < n, nums[r] > nums[ma] {
-                ma = r
-            }
-            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
-            if ma == i {
-                break
-            }
-            // 交换两节点
-            nums.swapAt(i, ma)
-            // 循环向下堆化
-            i = ma
-        }
-    }
-
-    /* 堆排序 */
-    func heapSort(nums: inout [Int]) {
-        // 建堆操作：堆化除叶节点以外的其他所有节点
-        for i in stride(from: nums.count / 2 - 1, through: 0, by: -1) {
-            siftDown(nums: &nums, n: nums.count, i: i)
-        }
-        // 从堆中提取最大元素，循环 n-1 轮
-        for i in stride(from: nums.count - 1, to: 0, by: -1) {
-            // 交换根节点与最右叶节点（即交换首元素与尾元素）
-            nums.swapAt(0, i)
-            // 以根节点为起点，从顶至底进行堆化
-            siftDown(nums: &nums, n: i, i: 0)
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="heap_sort.zig"
-    [class]{}-[func]{siftDown}
-
-    [class]{}-[func]{heapSort}
-    ```
-
 === "Dart"
 
     ```dart title="heap_sort.dart"
@@ -540,6 +487,59 @@ comments: true
             sift_down(nums, i, 0);
         }
     }
+    ```
+
+=== "C"
+
+    ```c title="heap_sort.c"
+    /* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
+    void siftDown(int nums[], int n, int i) {
+        while (1) {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            int l = 2 * i + 1;
+            int r = 2 * i + 2;
+            int ma = i;
+            if (l < n && nums[l] > nums[ma])
+                ma = l;
+            if (r < n && nums[r] > nums[ma])
+                ma = r;
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if (ma == i) {
+                break;
+            }
+            // 交换两节点
+            int temp = nums[i];
+            nums[i] = nums[ma];
+            nums[ma] = temp;
+            // 循环向下堆化
+            i = ma;
+        }
+    }
+
+    /* 堆排序 */
+    void heapSort(int nums[], int n) {
+        // 建堆操作：堆化除叶节点以外的其他所有节点
+        for (int i = n / 2 - 1; i >= 0; --i) {
+            siftDown(nums, n, i);
+        }
+        // 从堆中提取最大元素，循环 n-1 轮
+        for (int i = n - 1; i > 0; --i) {
+            // 交换根节点与最右叶节点（即交换首元素与尾元素）
+            int tmp = nums[0];
+            nums[0] = nums[i];
+            nums[i] = tmp;
+            // 以根节点为起点，从顶至底进行堆化
+            siftDown(nums, i, 0);
+        }
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="heap_sort.zig"
+    [class]{}-[func]{siftDown}
+
+    [class]{}-[func]{heapSort}
     ```
 
 ## 11.7.2 &nbsp; 算法特性

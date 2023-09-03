@@ -31,32 +31,32 @@ comments: true
 
 同样地，我们可以直接使用编程语言中已实现的双向队列类。
 
-=== "Java"
+=== "Python"
 
-    ```java title="deque.java"
-    /* 初始化双向队列 */
-    Deque<Integer> deque = new LinkedList<>();
+    ```python title="deque.py"
+    # 初始化双向队列
+    deque: deque[int] = collections.deque()
     
-    /* 元素入队 */
-    deque.offerLast(2);   // 添加至队尾
-    deque.offerLast(5);
-    deque.offerLast(4);
-    deque.offerFirst(3);  // 添加至队首
-    deque.offerFirst(1);
+    # 元素入队
+    deque.append(2)      # 添加至队尾
+    deque.append(5)
+    deque.append(4)
+    deque.appendleft(3)  # 添加至队首
+    deque.appendleft(1)
     
-    /* 访问元素 */
-    int peekFirst = deque.peekFirst();  // 队首元素
-    int peekLast = deque.peekLast();    // 队尾元素
+    # 访问元素
+    front: int = deque[0]  # 队首元素
+    rear: int = deque[-1]  # 队尾元素
     
-    /* 元素出队 */
-    int popFirst = deque.pollFirst();  // 队首元素出队
-    int popLast = deque.pollLast();    // 队尾元素出队
+    # 元素出队
+    pop_front: int = deque.popleft()  # 队首元素出队
+    pop_rear: int = deque.pop()       # 队尾元素出队
     
-    /* 获取双向队列的长度 */
-    int size = deque.size();
+    # 获取双向队列的长度
+    size: int = len(deque)
     
-    /* 判断双向队列是否为空 */
-    boolean isEmpty = deque.isEmpty();
+    # 判断双向队列是否为空
+    is_empty: bool = len(deque) == 0
     ```
 
 === "C++"
@@ -87,32 +87,61 @@ comments: true
     bool empty = deque.empty();
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="deque.py"
-    # 初始化双向队列
-    deque: deque[int] = collections.deque()
+    ```java title="deque.java"
+    /* 初始化双向队列 */
+    Deque<Integer> deque = new LinkedList<>();
     
-    # 元素入队
-    deque.append(2)      # 添加至队尾
-    deque.append(5)
-    deque.append(4)
-    deque.appendleft(3)  # 添加至队首
-    deque.appendleft(1)
+    /* 元素入队 */
+    deque.offerLast(2);   // 添加至队尾
+    deque.offerLast(5);
+    deque.offerLast(4);
+    deque.offerFirst(3);  // 添加至队首
+    deque.offerFirst(1);
     
-    # 访问元素
-    front: int = deque[0]  # 队首元素
-    rear: int = deque[-1]  # 队尾元素
+    /* 访问元素 */
+    int peekFirst = deque.peekFirst();  // 队首元素
+    int peekLast = deque.peekLast();    // 队尾元素
     
-    # 元素出队
-    pop_front: int = deque.popleft()  # 队首元素出队
-    pop_rear: int = deque.pop()       # 队尾元素出队
+    /* 元素出队 */
+    int popFirst = deque.pollFirst();  // 队首元素出队
+    int popLast = deque.pollLast();    // 队尾元素出队
     
-    # 获取双向队列的长度
-    size: int = len(deque)
+    /* 获取双向队列的长度 */
+    int size = deque.size();
     
-    # 判断双向队列是否为空
-    is_empty: bool = len(deque) == 0
+    /* 判断双向队列是否为空 */
+    boolean isEmpty = deque.isEmpty();
+    ```
+
+=== "C#"
+
+    ```csharp title="deque.cs"
+    /* 初始化双向队列 */
+    // 在 C# 中，将链表 LinkedList 看作双向队列来使用
+    LinkedList<int> deque = new LinkedList<int>();
+    
+    /* 元素入队 */
+    deque.AddLast(2);   // 添加至队尾
+    deque.AddLast(5);
+    deque.AddLast(4);
+    deque.AddFirst(3);  // 添加至队首
+    deque.AddFirst(1);
+    
+    /* 访问元素 */
+    int peekFirst = deque.First.Value;  // 队首元素
+    int peekLast = deque.Last.Value;    // 队尾元素
+    
+    /* 元素出队 */
+    deque.RemoveFirst();  // 队首元素出队
+    deque.RemoveLast();   // 队尾元素出队
+    
+    /* 获取双向队列的长度 */
+    int size = deque.Count;
+    
+    /* 判断双向队列是否为空 */
+    bool isEmpty = deque.Count == 0;
     ```
 
 === "Go"
@@ -142,6 +171,36 @@ comments: true
     
     /* 判断双向队列是否为空 */
     isEmpty := deque.Len() == 0
+    ```
+
+=== "Swift"
+
+    ```swift title="deque.swift"
+    /* 初始化双向队列 */
+    // Swift 没有内置的双向队列类，可以把 Array 当作双向队列来使用
+    var deque: [Int] = []
+
+    /* 元素入队 */
+    deque.append(2) // 添加至队尾
+    deque.append(5)
+    deque.append(4)
+    deque.insert(3, at: 0) // 添加至队首
+    deque.insert(1, at: 0)
+
+    /* 访问元素 */
+    let peekFirst = deque.first! // 队首元素
+    let peekLast = deque.last! // 队尾元素
+
+    /* 元素出队 */
+    // 使用 Array 模拟时 popFirst 的复杂度为 O(n)
+    let popFirst = deque.removeFirst() // 队首元素出队
+    let popLast = deque.removeLast() // 队尾元素出队
+
+    /* 获取双向队列的长度 */
+    let size = deque.count
+
+    /* 判断双向队列是否为空 */
+    let isEmpty = deque.isEmpty
     ```
 
 === "JS"
@@ -220,77 +279,6 @@ comments: true
     console.log("双向队列是否为空 = " + isEmpty);
     ```
 
-=== "C"
-
-    ```c title="deque.c"
-    // C 未提供内置双向队列
-    ```
-
-=== "C#"
-
-    ```csharp title="deque.cs"
-    /* 初始化双向队列 */
-    // 在 C# 中，将链表 LinkedList 看作双向队列来使用
-    LinkedList<int> deque = new LinkedList<int>();
-    
-    /* 元素入队 */
-    deque.AddLast(2);   // 添加至队尾
-    deque.AddLast(5);
-    deque.AddLast(4);
-    deque.AddFirst(3);  // 添加至队首
-    deque.AddFirst(1);
-    
-    /* 访问元素 */
-    int peekFirst = deque.First.Value;  // 队首元素
-    int peekLast = deque.Last.Value;    // 队尾元素
-    
-    /* 元素出队 */
-    deque.RemoveFirst();  // 队首元素出队
-    deque.RemoveLast();   // 队尾元素出队
-    
-    /* 获取双向队列的长度 */
-    int size = deque.Count;
-    
-    /* 判断双向队列是否为空 */
-    bool isEmpty = deque.Count == 0;
-    ```
-
-=== "Swift"
-
-    ```swift title="deque.swift"
-    /* 初始化双向队列 */
-    // Swift 没有内置的双向队列类，可以把 Array 当作双向队列来使用
-    var deque: [Int] = []
-
-    /* 元素入队 */
-    deque.append(2) // 添加至队尾
-    deque.append(5)
-    deque.append(4)
-    deque.insert(3, at: 0) // 添加至队首
-    deque.insert(1, at: 0)
-
-    /* 访问元素 */
-    let peekFirst = deque.first! // 队首元素
-    let peekLast = deque.last! // 队尾元素
-
-    /* 元素出队 */
-    // 使用 Array 模拟时 popFirst 的复杂度为 O(n)
-    let popFirst = deque.removeFirst() // 队首元素出队
-    let popLast = deque.removeLast() // 队尾元素出队
-
-    /* 获取双向队列的长度 */
-    let size = deque.count
-
-    /* 判断双向队列是否为空 */
-    let isEmpty = deque.isEmpty
-    ```
-
-=== "Zig"
-
-    ```zig title="deque.zig"
-
-    ```
-
 === "Dart"
 
     ```dart title="deque.dart"
@@ -326,6 +314,18 @@ comments: true
 
     ```
 
+=== "C"
+
+    ```c title="deque.c"
+    // C 未提供内置双向队列
+    ```
+
+=== "Zig"
+
+    ```zig title="deque.zig"
+
+    ```
+
 ## 5.3.2 &nbsp; 双向队列实现 *
 
 双向队列的实现与队列类似，可以选择链表或数组作为底层数据结构。
@@ -357,134 +357,113 @@ comments: true
 
 实现代码如下所示。
 
-=== "Java"
+=== "Python"
 
-    ```java title="linkedlist_deque.java"
-    /* 双向链表节点 */
-    class ListNode {
-        int val; // 节点值
-        ListNode next; // 后继节点引用
-        ListNode prev; // 前驱节点引用
+    ```python title="linkedlist_deque.py"
+    class ListNode:
+        """双向链表节点"""
 
-        ListNode(int val) {
-            this.val = val;
-            prev = next = null;
-        }
-    }
+        def __init__(self, val: int):
+            """构造方法"""
+            self.val: int = val
+            self.next: ListNode | None = None  # 后继节点引用
+            self.prev: ListNode | None = None  # 前驱节点引用
 
-    /* 基于双向链表实现的双向队列 */
-    class LinkedListDeque {
-        private ListNode front, rear; // 头节点 front ，尾节点 rear
-        private int queSize = 0; // 双向队列的长度
+    class LinkedListDeque:
+        """基于双向链表实现的双向队列"""
 
-        public LinkedListDeque() {
-            front = rear = null;
-        }
+        def __init__(self):
+            """构造方法"""
+            self.front: ListNode | None = None  # 头节点 front
+            self.rear: ListNode | None = None  # 尾节点 rear
+            self.__size: int = 0  # 双向队列的长度
 
-        /* 获取双向队列的长度 */
-        public int size() {
-            return queSize;
-        }
+        def size(self) -> int:
+            """获取双向队列的长度"""
+            return self.__size
 
-        /* 判断双向队列是否为空 */
-        public boolean isEmpty() {
-            return size() == 0;
-        }
+        def is_empty(self) -> bool:
+            """判断双向队列是否为空"""
+            return self.size() == 0
 
-        /* 入队操作 */
-        private void push(int num, boolean isFront) {
-            ListNode node = new ListNode(num);
-            // 若链表为空，则令 front, rear 都指向 node
-            if (isEmpty())
-                front = rear = node;
-            // 队首入队操作
-            else if (isFront) {
-                // 将 node 添加至链表头部
-                front.prev = node;
-                node.next = front;
-                front = node; // 更新头节点
-            // 队尾入队操作
-            } else {
-                // 将 node 添加至链表尾部
-                rear.next = node;
-                node.prev = rear;
-                rear = node; // 更新尾节点
-            }
-            queSize++; // 更新队列长度
-        }
+        def push(self, num: int, is_front: bool):
+            """入队操作"""
+            node = ListNode(num)
+            # 若链表为空，则令 front, rear 都指向 node
+            if self.is_empty():
+                self.front = self.rear = node
+            # 队首入队操作
+            elif is_front:
+                # 将 node 添加至链表头部
+                self.front.prev = node
+                node.next = self.front
+                self.front = node  # 更新头节点
+            # 队尾入队操作
+            else:
+                # 将 node 添加至链表尾部
+                self.rear.next = node
+                node.prev = self.rear
+                self.rear = node  # 更新尾节点
+            self.__size += 1  # 更新队列长度
 
-        /* 队首入队 */
-        public void pushFirst(int num) {
-            push(num, true);
-        }
+        def push_first(self, num: int):
+            """队首入队"""
+            self.push(num, True)
 
-        /* 队尾入队 */
-        public void pushLast(int num) {
-            push(num, false);
-        }
+        def push_last(self, num: int):
+            """队尾入队"""
+            self.push(num, False)
 
-        /* 出队操作 */
-        private Integer pop(boolean isFront) {
-            // 若队列为空，直接返回 null
-            if (isEmpty())
-                return null;
-            int val;
-            // 队首出队操作
-            if (isFront) {
-                val = front.val; // 暂存头节点值
-                // 删除头节点
-                ListNode fNext = front.next;
-                if (fNext != null) {
-                    fNext.prev = null;
-                    front.next = null;
-                }
-                front = fNext; // 更新头节点
-            // 队尾出队操作
-            } else {
-                val = rear.val; // 暂存尾节点值
-                // 删除尾节点
-                ListNode rPrev = rear.prev;
-                if (rPrev != null) {
-                    rPrev.next = null;
-                    rear.prev = null;
-                }
-                rear = rPrev; // 更新尾节点
-            }
-            queSize--; // 更新队列长度
-            return val;
-        }
+        def pop(self, is_front: bool) -> int:
+            """出队操作"""
+            # 若队列为空，直接返回 None
+            if self.is_empty():
+                return None
+            # 队首出队操作
+            if is_front:
+                val: int = self.front.val  # 暂存头节点值
+                # 删除头节点
+                fnext: ListNode | None = self.front.next
+                if fnext != None:
+                    fnext.prev = None
+                    self.front.next = None
+                self.front = fnext  # 更新头节点
+            # 队尾出队操作
+            else:
+                val: int = self.rear.val  # 暂存尾节点值
+                # 删除尾节点
+                rprev: ListNode | None = self.rear.prev
+                if rprev != None:
+                    rprev.next = None
+                    self.rear.prev = None
+                self.rear = rprev  # 更新尾节点
+            self.__size -= 1  # 更新队列长度
+            return val
 
-        /* 队首出队 */
-        public Integer popFirst() {
-            return pop(true);
-        }
+        def pop_first(self) -> int:
+            """队首出队"""
+            return self.pop(True)
 
-        /* 队尾出队 */
-        public Integer popLast() {
-            return pop(false);
-        }
+        def pop_last(self) -> int:
+            """队尾出队"""
+            return self.pop(False)
 
-        /* 访问队首元素 */
-        public Integer peekFirst() {
-            return isEmpty() ? null : front.val;
-        }
+        def peek_first(self) -> int:
+            """访问队首元素"""
+            return None if self.is_empty() else self.front.val
 
-        /* 访问队尾元素 */
-        public Integer peekLast() {
-            return isEmpty() ? null : rear.val;
-        }
+        def peek_last(self) -> int:
+            """访问队尾元素"""
+            return None if self.is_empty() else self.rear.val
 
-        /* 返回数组用于打印 */
-        public int[] toArray() {
-            ListNode node = front;
-            int[] res = new int[size()];
-            for (int i = 0; i < res.length; i++) {
-                res[i] = node.val;
-                node = node.next;
-            }
-            return res;
-        }
-    }
+        def to_array(self) -> list[int]:
+            """返回数组用于打印"""
+            node = self.front
+            res = [0] * self.size()
+            for i in range(self.size()):
+                res[i] = node.val
+                node = node.next
+            return res
     ```
 
 === "C++"
@@ -629,113 +608,277 @@ comments: true
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="linkedlist_deque.py"
-    class ListNode:
-        """双向链表节点"""
+    ```java title="linkedlist_deque.java"
+    /* 双向链表节点 */
+    class ListNode {
+        int val; // 节点值
+        ListNode next; // 后继节点引用
+        ListNode prev; // 前驱节点引用
 
-        def __init__(self, val: int):
-            """构造方法"""
-            self.val: int = val
-            self.next: ListNode | None = None  # 后继节点引用
-            self.prev: ListNode | None = None  # 前驱节点引用
+        ListNode(int val) {
+            this.val = val;
+            prev = next = null;
+        }
+    }
 
-    class LinkedListDeque:
-        """基于双向链表实现的双向队列"""
+    /* 基于双向链表实现的双向队列 */
+    class LinkedListDeque {
+        private ListNode front, rear; // 头节点 front ，尾节点 rear
+        private int queSize = 0; // 双向队列的长度
 
-        def __init__(self):
-            """构造方法"""
-            self.front: ListNode | None = None  # 头节点 front
-            self.rear: ListNode | None = None  # 尾节点 rear
-            self.__size: int = 0  # 双向队列的长度
+        public LinkedListDeque() {
+            front = rear = null;
+        }
 
-        def size(self) -> int:
-            """获取双向队列的长度"""
-            return self.__size
+        /* 获取双向队列的长度 */
+        public int size() {
+            return queSize;
+        }
 
-        def is_empty(self) -> bool:
-            """判断双向队列是否为空"""
-            return self.size() == 0
+        /* 判断双向队列是否为空 */
+        public boolean isEmpty() {
+            return size() == 0;
+        }
 
-        def push(self, num: int, is_front: bool):
-            """入队操作"""
-            node = ListNode(num)
-            # 若链表为空，则令 front, rear 都指向 node
-            if self.is_empty():
-                self.front = self.rear = node
-            # 队首入队操作
-            elif is_front:
-                # 将 node 添加至链表头部
-                self.front.prev = node
-                node.next = self.front
-                self.front = node  # 更新头节点
-            # 队尾入队操作
-            else:
-                # 将 node 添加至链表尾部
-                self.rear.next = node
-                node.prev = self.rear
-                self.rear = node  # 更新尾节点
-            self.__size += 1  # 更新队列长度
+        /* 入队操作 */
+        private void push(int num, boolean isFront) {
+            ListNode node = new ListNode(num);
+            // 若链表为空，则令 front, rear 都指向 node
+            if (isEmpty())
+                front = rear = node;
+            // 队首入队操作
+            else if (isFront) {
+                // 将 node 添加至链表头部
+                front.prev = node;
+                node.next = front;
+                front = node; // 更新头节点
+            // 队尾入队操作
+            } else {
+                // 将 node 添加至链表尾部
+                rear.next = node;
+                node.prev = rear;
+                rear = node; // 更新尾节点
+            }
+            queSize++; // 更新队列长度
+        }
 
-        def push_first(self, num: int):
-            """队首入队"""
-            self.push(num, True)
+        /* 队首入队 */
+        public void pushFirst(int num) {
+            push(num, true);
+        }
 
-        def push_last(self, num: int):
-            """队尾入队"""
-            self.push(num, False)
+        /* 队尾入队 */
+        public void pushLast(int num) {
+            push(num, false);
+        }
 
-        def pop(self, is_front: bool) -> int:
-            """出队操作"""
-            # 若队列为空，直接返回 None
-            if self.is_empty():
-                return None
-            # 队首出队操作
-            if is_front:
-                val: int = self.front.val  # 暂存头节点值
-                # 删除头节点
-                fnext: ListNode | None = self.front.next
-                if fnext != None:
-                    fnext.prev = None
-                    self.front.next = None
-                self.front = fnext  # 更新头节点
-            # 队尾出队操作
-            else:
-                val: int = self.rear.val  # 暂存尾节点值
-                # 删除尾节点
-                rprev: ListNode | None = self.rear.prev
-                if rprev != None:
-                    rprev.next = None
-                    self.rear.prev = None
-                self.rear = rprev  # 更新尾节点
-            self.__size -= 1  # 更新队列长度
-            return val
+        /* 出队操作 */
+        private Integer pop(boolean isFront) {
+            // 若队列为空，直接返回 null
+            if (isEmpty())
+                return null;
+            int val;
+            // 队首出队操作
+            if (isFront) {
+                val = front.val; // 暂存头节点值
+                // 删除头节点
+                ListNode fNext = front.next;
+                if (fNext != null) {
+                    fNext.prev = null;
+                    front.next = null;
+                }
+                front = fNext; // 更新头节点
+            // 队尾出队操作
+            } else {
+                val = rear.val; // 暂存尾节点值
+                // 删除尾节点
+                ListNode rPrev = rear.prev;
+                if (rPrev != null) {
+                    rPrev.next = null;
+                    rear.prev = null;
+                }
+                rear = rPrev; // 更新尾节点
+            }
+            queSize--; // 更新队列长度
+            return val;
+        }
 
-        def pop_first(self) -> int:
-            """队首出队"""
-            return self.pop(True)
+        /* 队首出队 */
+        public Integer popFirst() {
+            return pop(true);
+        }
 
-        def pop_last(self) -> int:
-            """队尾出队"""
-            return self.pop(False)
+        /* 队尾出队 */
+        public Integer popLast() {
+            return pop(false);
+        }
 
-        def peek_first(self) -> int:
-            """访问队首元素"""
-            return None if self.is_empty() else self.front.val
+        /* 访问队首元素 */
+        public Integer peekFirst() {
+            return isEmpty() ? null : front.val;
+        }
 
-        def peek_last(self) -> int:
-            """访问队尾元素"""
-            return None if self.is_empty() else self.rear.val
+        /* 访问队尾元素 */
+        public Integer peekLast() {
+            return isEmpty() ? null : rear.val;
+        }
 
-        def to_array(self) -> list[int]:
-            """返回数组用于打印"""
-            node = self.front
-            res = [0] * self.size()
-            for i in range(self.size()):
-                res[i] = node.val
-                node = node.next
-            return res
+        /* 返回数组用于打印 */
+        public int[] toArray() {
+            ListNode node = front;
+            int[] res = new int[size()];
+            for (int i = 0; i < res.length; i++) {
+                res[i] = node.val;
+                node = node.next;
+            }
+            return res;
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="linkedlist_deque.cs"
+    /* 双向链表节点 */
+    class ListNode {
+        public int val;       // 节点值
+        public ListNode? next; // 后继节点引用
+        public ListNode? prev; // 前驱节点引用
+
+        public ListNode(int val) {
+            this.val = val;
+            prev = null;
+            next = null;
+        }
+    }
+
+    /* 基于双向链表实现的双向队列 */
+    class LinkedListDeque {
+        private ListNode? front, rear; // 头节点 front, 尾节点 rear
+        private int queSize = 0;      // 双向队列的长度
+
+        public LinkedListDeque() {
+            front = null;
+            rear = null;
+        }
+
+        /* 获取双向队列的长度 */
+        public int size() {
+            return queSize;
+        }
+
+        /* 判断双向队列是否为空 */
+        public bool isEmpty() {
+            return size() == 0;
+        }
+
+        /* 入队操作 */
+        private void push(int num, bool isFront) {
+            ListNode node = new ListNode(num);
+            // 若链表为空，则令 front, rear 都指向 node
+            if (isEmpty()) {
+                front = node;
+                rear = node;
+            }
+            // 队首入队操作
+            else if (isFront) {
+                // 将 node 添加至链表头部
+                front.prev = node;
+                node.next = front;
+                front = node; // 更新头节点                           
+            }
+            // 队尾入队操作
+            else {
+                // 将 node 添加至链表尾部
+                rear.next = node;
+                node.prev = rear;
+                rear = node;  // 更新尾节点
+            }
+
+            queSize++; // 更新队列长度
+        }
+
+        /* 队首入队 */
+        public void pushFirst(int num) {
+            push(num, true);
+        }
+
+        /* 队尾入队 */
+        public void pushLast(int num) {
+            push(num, false);
+        }
+
+        /* 出队操作 */
+        private int? pop(bool isFront) {
+            // 若队列为空，直接返回 null
+            if (isEmpty()) {
+                return null;
+            }
+
+            int val;
+            // 队首出队操作
+            if (isFront) {
+                val = front.val; // 暂存头节点值
+                                 // 删除头节点
+                ListNode fNext = front.next;
+                if (fNext != null) {
+                    fNext.prev = null;
+                    front.next = null;
+                }
+
+                front = fNext;   // 更新头节点
+            }
+            // 队尾出队操作
+            else {
+                val = rear.val;  // 暂存尾节点值
+                                 // 删除尾节点
+                ListNode rPrev = rear.prev;
+                if (rPrev != null) {
+                    rPrev.next = null;
+                    rear.prev = null;
+                }
+
+                rear = rPrev;    // 更新尾节点
+            }
+
+            queSize--; // 更新队列长度
+            return val;
+        }
+
+        /* 队首出队 */
+        public int? popFirst() {
+            return pop(true);
+        }
+
+        /* 队尾出队 */
+        public int? popLast() {
+            return pop(false);
+        }
+
+        /* 访问队首元素 */
+        public int? peekFirst() {
+            return isEmpty() ? null : front.val;
+        }
+
+        /* 访问队尾元素 */
+        public int? peekLast() {
+            return isEmpty() ? null : rear.val;
+        }
+
+        /* 返回数组用于打印 */
+        public int[] toArray() {
+            ListNode node = front;
+            int[] res = new int[size()];
+            for (int i = 0; i < res.Length; i++) {
+                res[i] = node.val;
+                node = node.next;
+            }
+
+            return res;
+        }
+    }
     ```
 
 === "Go"
@@ -815,6 +958,140 @@ comments: true
     /* 获取 List 用于打印 */
     func (s *linkedListDeque) toList() *list.List {
         return s.data
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="linkedlist_deque.swift"
+    /* 双向链表节点 */
+    class ListNode {
+        var val: Int // 节点值
+        var next: ListNode? // 后继节点引用
+        weak var prev: ListNode? // 前驱节点引用
+
+        init(val: Int) {
+            self.val = val
+        }
+    }
+
+    /* 基于双向链表实现的双向队列 */
+    class LinkedListDeque {
+        private var front: ListNode? // 头节点 front
+        private var rear: ListNode? // 尾节点 rear
+        private var queSize: Int // 双向队列的长度
+
+        init() {
+            queSize = 0
+        }
+
+        /* 获取双向队列的长度 */
+        func size() -> Int {
+            queSize
+        }
+
+        /* 判断双向队列是否为空 */
+        func isEmpty() -> Bool {
+            size() == 0
+        }
+
+        /* 入队操作 */
+        private func push(num: Int, isFront: Bool) {
+            let node = ListNode(val: num)
+            // 若链表为空，则令 front, rear 都指向 node
+            if isEmpty() {
+                front = node
+                rear = node
+            }
+            // 队首入队操作
+            else if isFront {
+                // 将 node 添加至链表头部
+                front?.prev = node
+                node.next = front
+                front = node // 更新头节点
+            }
+            // 队尾入队操作
+            else {
+                // 将 node 添加至链表尾部
+                rear?.next = node
+                node.prev = rear
+                rear = node // 更新尾节点
+            }
+            queSize += 1 // 更新队列长度
+        }
+
+        /* 队首入队 */
+        func pushFirst(num: Int) {
+            push(num: num, isFront: true)
+        }
+
+        /* 队尾入队 */
+        func pushLast(num: Int) {
+            push(num: num, isFront: false)
+        }
+
+        /* 出队操作 */
+        private func pop(isFront: Bool) -> Int {
+            if isEmpty() {
+                fatalError("双向队列为空")
+            }
+            let val: Int
+            // 队首出队操作
+            if isFront {
+                val = front!.val // 暂存头节点值
+                // 删除头节点
+                let fNext = front?.next
+                if fNext != nil {
+                    fNext?.prev = nil
+                    front?.next = nil
+                }
+                front = fNext // 更新头节点
+            }
+            // 队尾出队操作
+            else {
+                val = rear!.val // 暂存尾节点值
+                // 删除尾节点
+                let rPrev = rear?.prev
+                if rPrev != nil {
+                    rPrev?.next = nil
+                    rear?.prev = nil
+                }
+                rear = rPrev // 更新尾节点
+            }
+            queSize -= 1 // 更新队列长度
+            return val
+        }
+
+        /* 队首出队 */
+        func popFirst() -> Int {
+            pop(isFront: true)
+        }
+
+        /* 队尾出队 */
+        func popLast() -> Int {
+            pop(isFront: false)
+        }
+
+        /* 访问队首元素 */
+        func peekFirst() -> Int? {
+            isEmpty() ? nil : front?.val
+        }
+
+        /* 访问队尾元素 */
+        func peekLast() -> Int? {
+            isEmpty() ? nil : rear?.val
+        }
+
+        /* 返回数组用于打印 */
+        func toArray() -> [Int] {
+            var node = front
+            var res = Array(repeating: 0, count: size())
+            for i in res.indices {
+                res[i] = node!.val
+                node = node?.next
+            }
+            return res
+        }
     }
     ```
 
@@ -1069,609 +1346,6 @@ comments: true
             }
             console.log('[' + arr.join(', ') + ']');
         }
-    }
-    ```
-
-=== "C"
-
-    ```c title="linkedlist_deque.c"
-    /* 双向链表节点 */
-    struct doublyListNode {
-        int val;                     // 节点值
-        struct doublyListNode *next; // 后继节点
-        struct doublyListNode *prev; // 前驱节点
-    };
-
-    typedef struct doublyListNode doublyListNode;
-
-    /* 构造函数 */
-    doublyListNode *newDoublyListNode(int num) {
-        doublyListNode *new = (doublyListNode *)malloc(sizeof(doublyListNode));
-        new->val = num;
-        new->next = NULL;
-        new->prev = NULL;
-        return new;
-    }
-
-    /* 析构函数 */
-    void delDoublyListNode(doublyListNode *node) {
-        free(node);
-    }
-
-    /* 基于双向链表实现的双向队列 */
-    struct linkedListDeque {
-        doublyListNode *front, *rear; // 头节点 front ，尾节点 rear
-        int queSize;                  // 双向队列的长度
-    };
-
-    typedef struct linkedListDeque linkedListDeque;
-
-    /* 构造函数 */
-    linkedListDeque *newLinkedListDeque() {
-        linkedListDeque *deque = (linkedListDeque *)malloc(sizeof(linkedListDeque));
-        deque->front = NULL;
-        deque->rear = NULL;
-        deque->queSize = 0;
-        return deque;
-    }
-
-    /* 析构函数 */
-    void delLinkedListdeque(linkedListDeque *deque) {
-        // 释放所有节点
-        for (int i = 0; i < deque->queSize && deque->front != NULL; i++) {
-            doublyListNode *tmp = deque->front;
-            deque->front = deque->front->next;
-            free(tmp);
-        }
-        // 释放 deque 结构体
-        free(deque);
-    }
-
-    /* 获取队列的长度 */
-    int size(linkedListDeque *deque) {
-        return deque->queSize;
-    }
-
-    /* 判断队列是否为空 */
-    bool empty(linkedListDeque *deque) {
-        return (size(deque) == 0);
-    }
-
-    /* 入队 */
-    void push(linkedListDeque *deque, int num, bool isFront) {
-        doublyListNode *node = newDoublyListNode(num);
-        // 若链表为空，则令 front, rear 都指向node
-        if (empty(deque)) {
-            deque->front = deque->rear = node;
-        }
-        // 队首入队操作
-        else if (isFront) {
-            // 将 node 添加至链表头部
-            deque->front->prev = node;
-            node->next = deque->front;
-            deque->front = node; // 更新头节点
-        }
-        // 对尾入队操作
-        else {
-            // 将 node 添加至链表尾部
-            deque->rear->next = node;
-            node->prev = deque->rear;
-            deque->rear = node;
-        }
-        deque->queSize++; // 更新队列长度
-    }
-
-    /* 队首入队 */
-    void pushFirst(linkedListDeque *deque, int num) {
-        push(deque, num, true);
-    }
-
-    /* 队尾入队 */
-    void pushLast(linkedListDeque *deque, int num) {
-        push(deque, num, false);
-    }
-
-    /* 访问队首元素 */
-    int peekFirst(linkedListDeque *deque) {
-        assert(size(deque) && deque->front);
-        return deque->front->val;
-    }
-
-    /* 访问队尾元素 */
-    int peekLast(linkedListDeque *deque) {
-        assert(size(deque) && deque->rear);
-        return deque->rear->val;
-    }
-
-    /* 出队 */
-    int pop(linkedListDeque *deque, bool isFront) {
-        if (empty(deque))
-            return -1;
-        int val;
-        // 队首出队操作
-        if (isFront) {
-            val = peekFirst(deque); // 暂存头节点值
-            doublyListNode *fNext = deque->front->next;
-            if (fNext) {
-                fNext->prev = NULL;
-                deque->front->next = NULL;
-                delDoublyListNode(deque->front);
-            }
-            deque->front = fNext; // 更新头节点
-        }
-        // 队尾出队操作
-        else {
-            val = peekLast(deque); // 暂存尾节点值
-            doublyListNode *rPrev = deque->rear->prev;
-            if (rPrev) {
-                rPrev->next = NULL;
-                deque->rear->prev = NULL;
-                delDoublyListNode(deque->rear);
-            }
-            deque->rear = rPrev; // 更新尾节点
-        }
-        deque->queSize--; // 更新队列长度
-        return val;
-    }
-
-    /* 队首出队 */
-    int popFirst(linkedListDeque *deque) {
-        return pop(deque, true);
-    }
-
-    /* 队尾出队 */
-    int popLast(linkedListDeque *deque) {
-        return pop(deque, false);
-    }
-
-    /* 打印队列 */
-    void printLinkedListDeque(linkedListDeque *deque) {
-        int arr[deque->queSize];
-        // 拷贝链表中的数据到数组
-        int i;
-        doublyListNode *node;
-        for (i = 0, node = deque->front; i < deque->queSize; i++) {
-            arr[i] = node->val;
-            node = node->next;
-        }
-        printArray(arr, deque->queSize);
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="linkedlist_deque.cs"
-    /* 双向链表节点 */
-    class ListNode {
-        public int val;       // 节点值
-        public ListNode? next; // 后继节点引用
-        public ListNode? prev; // 前驱节点引用
-
-        public ListNode(int val) {
-            this.val = val;
-            prev = null;
-            next = null;
-        }
-    }
-
-    /* 基于双向链表实现的双向队列 */
-    class LinkedListDeque {
-        private ListNode? front, rear; // 头节点 front, 尾节点 rear
-        private int queSize = 0;      // 双向队列的长度
-
-        public LinkedListDeque() {
-            front = null;
-            rear = null;
-        }
-
-        /* 获取双向队列的长度 */
-        public int size() {
-            return queSize;
-        }
-
-        /* 判断双向队列是否为空 */
-        public bool isEmpty() {
-            return size() == 0;
-        }
-
-        /* 入队操作 */
-        private void push(int num, bool isFront) {
-            ListNode node = new ListNode(num);
-            // 若链表为空，则令 front, rear 都指向 node
-            if (isEmpty()) {
-                front = node;
-                rear = node;
-            }
-            // 队首入队操作
-            else if (isFront) {
-                // 将 node 添加至链表头部
-                front.prev = node;
-                node.next = front;
-                front = node; // 更新头节点                           
-            }
-            // 队尾入队操作
-            else {
-                // 将 node 添加至链表尾部
-                rear.next = node;
-                node.prev = rear;
-                rear = node;  // 更新尾节点
-            }
-
-            queSize++; // 更新队列长度
-        }
-
-        /* 队首入队 */
-        public void pushFirst(int num) {
-            push(num, true);
-        }
-
-        /* 队尾入队 */
-        public void pushLast(int num) {
-            push(num, false);
-        }
-
-        /* 出队操作 */
-        private int? pop(bool isFront) {
-            // 若队列为空，直接返回 null
-            if (isEmpty()) {
-                return null;
-            }
-
-            int val;
-            // 队首出队操作
-            if (isFront) {
-                val = front.val; // 暂存头节点值
-                                 // 删除头节点
-                ListNode fNext = front.next;
-                if (fNext != null) {
-                    fNext.prev = null;
-                    front.next = null;
-                }
-
-                front = fNext;   // 更新头节点
-            }
-            // 队尾出队操作
-            else {
-                val = rear.val;  // 暂存尾节点值
-                                 // 删除尾节点
-                ListNode rPrev = rear.prev;
-                if (rPrev != null) {
-                    rPrev.next = null;
-                    rear.prev = null;
-                }
-
-                rear = rPrev;    // 更新尾节点
-            }
-
-            queSize--; // 更新队列长度
-            return val;
-        }
-
-        /* 队首出队 */
-        public int? popFirst() {
-            return pop(true);
-        }
-
-        /* 队尾出队 */
-        public int? popLast() {
-            return pop(false);
-        }
-
-        /* 访问队首元素 */
-        public int? peekFirst() {
-            return isEmpty() ? null : front.val;
-        }
-
-        /* 访问队尾元素 */
-        public int? peekLast() {
-            return isEmpty() ? null : rear.val;
-        }
-
-        /* 返回数组用于打印 */
-        public int[] toArray() {
-            ListNode node = front;
-            int[] res = new int[size()];
-            for (int i = 0; i < res.Length; i++) {
-                res[i] = node.val;
-                node = node.next;
-            }
-
-            return res;
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="linkedlist_deque.swift"
-    /* 双向链表节点 */
-    class ListNode {
-        var val: Int // 节点值
-        var next: ListNode? // 后继节点引用
-        weak var prev: ListNode? // 前驱节点引用
-
-        init(val: Int) {
-            self.val = val
-        }
-    }
-
-    /* 基于双向链表实现的双向队列 */
-    class LinkedListDeque {
-        private var front: ListNode? // 头节点 front
-        private var rear: ListNode? // 尾节点 rear
-        private var queSize: Int // 双向队列的长度
-
-        init() {
-            queSize = 0
-        }
-
-        /* 获取双向队列的长度 */
-        func size() -> Int {
-            queSize
-        }
-
-        /* 判断双向队列是否为空 */
-        func isEmpty() -> Bool {
-            size() == 0
-        }
-
-        /* 入队操作 */
-        private func push(num: Int, isFront: Bool) {
-            let node = ListNode(val: num)
-            // 若链表为空，则令 front, rear 都指向 node
-            if isEmpty() {
-                front = node
-                rear = node
-            }
-            // 队首入队操作
-            else if isFront {
-                // 将 node 添加至链表头部
-                front?.prev = node
-                node.next = front
-                front = node // 更新头节点
-            }
-            // 队尾入队操作
-            else {
-                // 将 node 添加至链表尾部
-                rear?.next = node
-                node.prev = rear
-                rear = node // 更新尾节点
-            }
-            queSize += 1 // 更新队列长度
-        }
-
-        /* 队首入队 */
-        func pushFirst(num: Int) {
-            push(num: num, isFront: true)
-        }
-
-        /* 队尾入队 */
-        func pushLast(num: Int) {
-            push(num: num, isFront: false)
-        }
-
-        /* 出队操作 */
-        private func pop(isFront: Bool) -> Int {
-            if isEmpty() {
-                fatalError("双向队列为空")
-            }
-            let val: Int
-            // 队首出队操作
-            if isFront {
-                val = front!.val // 暂存头节点值
-                // 删除头节点
-                let fNext = front?.next
-                if fNext != nil {
-                    fNext?.prev = nil
-                    front?.next = nil
-                }
-                front = fNext // 更新头节点
-            }
-            // 队尾出队操作
-            else {
-                val = rear!.val // 暂存尾节点值
-                // 删除尾节点
-                let rPrev = rear?.prev
-                if rPrev != nil {
-                    rPrev?.next = nil
-                    rear?.prev = nil
-                }
-                rear = rPrev // 更新尾节点
-            }
-            queSize -= 1 // 更新队列长度
-            return val
-        }
-
-        /* 队首出队 */
-        func popFirst() -> Int {
-            pop(isFront: true)
-        }
-
-        /* 队尾出队 */
-        func popLast() -> Int {
-            pop(isFront: false)
-        }
-
-        /* 访问队首元素 */
-        func peekFirst() -> Int? {
-            isEmpty() ? nil : front?.val
-        }
-
-        /* 访问队尾元素 */
-        func peekLast() -> Int? {
-            isEmpty() ? nil : rear?.val
-        }
-
-        /* 返回数组用于打印 */
-        func toArray() -> [Int] {
-            var node = front
-            var res = Array(repeating: 0, count: size())
-            for i in res.indices {
-                res[i] = node!.val
-                node = node?.next
-            }
-            return res
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="linkedlist_deque.zig"
-    // 双向链表节点
-    fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-            
-            val: T = undefined,     // 节点值
-            next: ?*Self = null,    // 后继节点指针
-            prev: ?*Self = null,    // 前驱节点指针
-
-            // Initialize a list node with specific value
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-                self.prev = null;
-            }
-        };
-    }
-
-    // 基于双向链表实现的双向队列
-    fn LinkedListDeque(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            front: ?*ListNode(T) = null,                    // 头节点 front
-            rear: ?*ListNode(T) = null,                     // 尾节点 rear
-            que_size: usize = 0,                             // 双向队列的长度
-            mem_arena: ?std.heap.ArenaAllocator = null,
-            mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
-
-            // 构造函数（分配内存+初始化队列）
-            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
-                if (self.mem_arena == null) {
-                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
-                    self.mem_allocator = self.mem_arena.?.allocator();
-                }
-                self.front = null;
-                self.rear = null;
-                self.que_size = 0;
-            }
-
-            // 析构函数（释放内存）
-            pub fn deinit(self: *Self) void {
-                if (self.mem_arena == null) return;
-                self.mem_arena.?.deinit();
-            }
-
-            // 获取双向队列的长度
-            pub fn size(self: *Self) usize {
-                return self.que_size;
-            }
-
-            // 判断双向队列是否为空
-            pub fn isEmpty(self: *Self) bool {
-                return self.size() == 0;
-            }
-
-            // 入队操作
-            pub fn push(self: *Self, num: T, is_front: bool) !void {
-                var node = try self.mem_allocator.create(ListNode(T));
-                node.init(num);
-                // 若链表为空，则令 front, rear 都指向 node
-                if (self.isEmpty()) {
-                    self.front = node;
-                    self.rear = node;
-                // 队首入队操作
-                } else if (is_front) {
-                    // 将 node 添加至链表头部
-                    self.front.?.prev = node;
-                    node.next = self.front;
-                    self.front = node;  // 更新头节点
-                // 队尾入队操作
-                } else {
-                    // 将 node 添加至链表尾部
-                    self.rear.?.next = node;
-                    node.prev = self.rear;
-                    self.rear = node;   // 更新尾节点
-                }
-                self.que_size += 1;      // 更新队列长度
-            } 
-
-            // 队首入队
-            pub fn pushFirst(self: *Self, num: T) !void {
-                try self.push(num, true);
-            } 
-
-            // 队尾入队
-            pub fn pushLast(self: *Self, num: T) !void {
-                try self.push(num, false);
-            } 
-            
-            // 出队操作
-            pub fn pop(self: *Self, is_front: bool) T {
-                if (self.isEmpty()) @panic("双向队列为空");
-                var val: T = undefined;
-                // 队首出队操作
-                if (is_front) {
-                    val = self.front.?.val;     // 暂存头节点值
-                    // 删除头节点
-                    var fNext = self.front.?.next;
-                    if (fNext != null) {
-                        fNext.?.prev = null;
-                        self.front.?.next = null;
-                    }
-                    self.front = fNext;         // 更新头节点
-                // 队尾出队操作
-                } else {
-                    val = self.rear.?.val;      // 暂存尾节点值
-                    // 删除尾节点
-                    var rPrev = self.rear.?.prev;
-                    if (rPrev != null) {
-                        rPrev.?.next = null;
-                        self.rear.?.prev = null;
-                    }
-                    self.rear = rPrev;          // 更新尾节点
-                }
-                self.que_size -= 1;              // 更新队列长度
-                return val;
-            } 
-
-            // 队首出队
-            pub fn popFirst(self: *Self) T {
-                return self.pop(true);
-            } 
-
-            // 队尾出队
-            pub fn popLast(self: *Self) T {
-                return self.pop(false);
-            } 
-
-            // 访问队首元素
-            pub fn peekFirst(self: *Self) T {
-                if (self.isEmpty()) @panic("双向队列为空");
-                return self.front.?.val;
-            }  
-
-            // 访问队尾元素
-            pub fn peekLast(self: *Self) T {
-                if (self.isEmpty()) @panic("双向队列为空");
-                return self.rear.?.val;
-            }
-
-            // 返回数组用于打印
-            pub fn toArray(self: *Self) ![]T {
-                var node = self.front;
-                var res = try self.mem_allocator.alloc(T, self.size());
-                @memset(res, @as(T, 0));
-                var i: usize = 0;
-                while (i < res.len) : (i += 1) {
-                    res[i] = node.?.val;
-                    node = node.?.next;
-                }
-                return res;
-            }
-        };
     }
     ```
 
@@ -1973,6 +1647,332 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="linkedlist_deque.c"
+    /* 双向链表节点 */
+    struct doublyListNode {
+        int val;                     // 节点值
+        struct doublyListNode *next; // 后继节点
+        struct doublyListNode *prev; // 前驱节点
+    };
+
+    typedef struct doublyListNode doublyListNode;
+
+    /* 构造函数 */
+    doublyListNode *newDoublyListNode(int num) {
+        doublyListNode *new = (doublyListNode *)malloc(sizeof(doublyListNode));
+        new->val = num;
+        new->next = NULL;
+        new->prev = NULL;
+        return new;
+    }
+
+    /* 析构函数 */
+    void delDoublyListNode(doublyListNode *node) {
+        free(node);
+    }
+
+    /* 基于双向链表实现的双向队列 */
+    struct linkedListDeque {
+        doublyListNode *front, *rear; // 头节点 front ，尾节点 rear
+        int queSize;                  // 双向队列的长度
+    };
+
+    typedef struct linkedListDeque linkedListDeque;
+
+    /* 构造函数 */
+    linkedListDeque *newLinkedListDeque() {
+        linkedListDeque *deque = (linkedListDeque *)malloc(sizeof(linkedListDeque));
+        deque->front = NULL;
+        deque->rear = NULL;
+        deque->queSize = 0;
+        return deque;
+    }
+
+    /* 析构函数 */
+    void delLinkedListdeque(linkedListDeque *deque) {
+        // 释放所有节点
+        for (int i = 0; i < deque->queSize && deque->front != NULL; i++) {
+            doublyListNode *tmp = deque->front;
+            deque->front = deque->front->next;
+            free(tmp);
+        }
+        // 释放 deque 结构体
+        free(deque);
+    }
+
+    /* 获取队列的长度 */
+    int size(linkedListDeque *deque) {
+        return deque->queSize;
+    }
+
+    /* 判断队列是否为空 */
+    bool empty(linkedListDeque *deque) {
+        return (size(deque) == 0);
+    }
+
+    /* 入队 */
+    void push(linkedListDeque *deque, int num, bool isFront) {
+        doublyListNode *node = newDoublyListNode(num);
+        // 若链表为空，则令 front, rear 都指向node
+        if (empty(deque)) {
+            deque->front = deque->rear = node;
+        }
+        // 队首入队操作
+        else if (isFront) {
+            // 将 node 添加至链表头部
+            deque->front->prev = node;
+            node->next = deque->front;
+            deque->front = node; // 更新头节点
+        }
+        // 对尾入队操作
+        else {
+            // 将 node 添加至链表尾部
+            deque->rear->next = node;
+            node->prev = deque->rear;
+            deque->rear = node;
+        }
+        deque->queSize++; // 更新队列长度
+    }
+
+    /* 队首入队 */
+    void pushFirst(linkedListDeque *deque, int num) {
+        push(deque, num, true);
+    }
+
+    /* 队尾入队 */
+    void pushLast(linkedListDeque *deque, int num) {
+        push(deque, num, false);
+    }
+
+    /* 访问队首元素 */
+    int peekFirst(linkedListDeque *deque) {
+        assert(size(deque) && deque->front);
+        return deque->front->val;
+    }
+
+    /* 访问队尾元素 */
+    int peekLast(linkedListDeque *deque) {
+        assert(size(deque) && deque->rear);
+        return deque->rear->val;
+    }
+
+    /* 出队 */
+    int pop(linkedListDeque *deque, bool isFront) {
+        if (empty(deque))
+            return -1;
+        int val;
+        // 队首出队操作
+        if (isFront) {
+            val = peekFirst(deque); // 暂存头节点值
+            doublyListNode *fNext = deque->front->next;
+            if (fNext) {
+                fNext->prev = NULL;
+                deque->front->next = NULL;
+                delDoublyListNode(deque->front);
+            }
+            deque->front = fNext; // 更新头节点
+        }
+        // 队尾出队操作
+        else {
+            val = peekLast(deque); // 暂存尾节点值
+            doublyListNode *rPrev = deque->rear->prev;
+            if (rPrev) {
+                rPrev->next = NULL;
+                deque->rear->prev = NULL;
+                delDoublyListNode(deque->rear);
+            }
+            deque->rear = rPrev; // 更新尾节点
+        }
+        deque->queSize--; // 更新队列长度
+        return val;
+    }
+
+    /* 队首出队 */
+    int popFirst(linkedListDeque *deque) {
+        return pop(deque, true);
+    }
+
+    /* 队尾出队 */
+    int popLast(linkedListDeque *deque) {
+        return pop(deque, false);
+    }
+
+    /* 打印队列 */
+    void printLinkedListDeque(linkedListDeque *deque) {
+        int arr[deque->queSize];
+        // 拷贝链表中的数据到数组
+        int i;
+        doublyListNode *node;
+        for (i = 0, node = deque->front; i < deque->queSize; i++) {
+            arr[i] = node->val;
+            node = node->next;
+        }
+        printArray(arr, deque->queSize);
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="linkedlist_deque.zig"
+    // 双向链表节点
+    fn ListNode(comptime T: type) type {
+        return struct {
+            const Self = @This();
+            
+            val: T = undefined,     // 节点值
+            next: ?*Self = null,    // 后继节点指针
+            prev: ?*Self = null,    // 前驱节点指针
+
+            // Initialize a list node with specific value
+            pub fn init(self: *Self, x: i32) void {
+                self.val = x;
+                self.next = null;
+                self.prev = null;
+            }
+        };
+    }
+
+    // 基于双向链表实现的双向队列
+    fn LinkedListDeque(comptime T: type) type {
+        return struct {
+            const Self = @This();
+
+            front: ?*ListNode(T) = null,                    // 头节点 front
+            rear: ?*ListNode(T) = null,                     // 尾节点 rear
+            que_size: usize = 0,                             // 双向队列的长度
+            mem_arena: ?std.heap.ArenaAllocator = null,
+            mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
+
+            // 构造函数（分配内存+初始化队列）
+            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
+                if (self.mem_arena == null) {
+                    self.mem_arena = std.heap.ArenaAllocator.init(allocator);
+                    self.mem_allocator = self.mem_arena.?.allocator();
+                }
+                self.front = null;
+                self.rear = null;
+                self.que_size = 0;
+            }
+
+            // 析构函数（释放内存）
+            pub fn deinit(self: *Self) void {
+                if (self.mem_arena == null) return;
+                self.mem_arena.?.deinit();
+            }
+
+            // 获取双向队列的长度
+            pub fn size(self: *Self) usize {
+                return self.que_size;
+            }
+
+            // 判断双向队列是否为空
+            pub fn isEmpty(self: *Self) bool {
+                return self.size() == 0;
+            }
+
+            // 入队操作
+            pub fn push(self: *Self, num: T, is_front: bool) !void {
+                var node = try self.mem_allocator.create(ListNode(T));
+                node.init(num);
+                // 若链表为空，则令 front, rear 都指向 node
+                if (self.isEmpty()) {
+                    self.front = node;
+                    self.rear = node;
+                // 队首入队操作
+                } else if (is_front) {
+                    // 将 node 添加至链表头部
+                    self.front.?.prev = node;
+                    node.next = self.front;
+                    self.front = node;  // 更新头节点
+                // 队尾入队操作
+                } else {
+                    // 将 node 添加至链表尾部
+                    self.rear.?.next = node;
+                    node.prev = self.rear;
+                    self.rear = node;   // 更新尾节点
+                }
+                self.que_size += 1;      // 更新队列长度
+            } 
+
+            // 队首入队
+            pub fn pushFirst(self: *Self, num: T) !void {
+                try self.push(num, true);
+            } 
+
+            // 队尾入队
+            pub fn pushLast(self: *Self, num: T) !void {
+                try self.push(num, false);
+            } 
+            
+            // 出队操作
+            pub fn pop(self: *Self, is_front: bool) T {
+                if (self.isEmpty()) @panic("双向队列为空");
+                var val: T = undefined;
+                // 队首出队操作
+                if (is_front) {
+                    val = self.front.?.val;     // 暂存头节点值
+                    // 删除头节点
+                    var fNext = self.front.?.next;
+                    if (fNext != null) {
+                        fNext.?.prev = null;
+                        self.front.?.next = null;
+                    }
+                    self.front = fNext;         // 更新头节点
+                // 队尾出队操作
+                } else {
+                    val = self.rear.?.val;      // 暂存尾节点值
+                    // 删除尾节点
+                    var rPrev = self.rear.?.prev;
+                    if (rPrev != null) {
+                        rPrev.?.next = null;
+                        self.rear.?.prev = null;
+                    }
+                    self.rear = rPrev;          // 更新尾节点
+                }
+                self.que_size -= 1;              // 更新队列长度
+                return val;
+            } 
+
+            // 队首出队
+            pub fn popFirst(self: *Self) T {
+                return self.pop(true);
+            } 
+
+            // 队尾出队
+            pub fn popLast(self: *Self) T {
+                return self.pop(false);
+            } 
+
+            // 访问队首元素
+            pub fn peekFirst(self: *Self) T {
+                if (self.isEmpty()) @panic("双向队列为空");
+                return self.front.?.val;
+            }  
+
+            // 访问队尾元素
+            pub fn peekLast(self: *Self) T {
+                if (self.isEmpty()) @panic("双向队列为空");
+                return self.rear.?.val;
+            }
+
+            // 返回数组用于打印
+            pub fn toArray(self: *Self) ![]T {
+                var node = self.front;
+                var res = try self.mem_allocator.alloc(T, self.size());
+                @memset(res, @as(T, 0));
+                var i: usize = 0;
+                while (i < res.len) : (i += 1) {
+                    res[i] = node.?.val;
+                    node = node.?.next;
+                }
+                return res;
+            }
+        };
+    }
+    ```
+
 ### 2. &nbsp; 基于数组的实现
 
 如图 5-9 所示，与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。
@@ -1996,113 +1996,95 @@ comments: true
 
 在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array_deque.java"
-    /* 基于环形数组实现的双向队列 */
-    class ArrayDeque {
-        private int[] nums; // 用于存储双向队列元素的数组
-        private int front; // 队首指针，指向队首元素
-        private int queSize; // 双向队列长度
+    ```python title="array_deque.py"
+    class ArrayDeque:
+        """基于环形数组实现的双向队列"""
 
-        /* 构造方法 */
-        public ArrayDeque(int capacity) {
-            this.nums = new int[capacity];
-            front = queSize = 0;
-        }
+        def __init__(self, capacity: int):
+            """构造方法"""
+            self.__nums: list[int] = [0] * capacity
+            self.__front: int = 0
+            self.__size: int = 0
 
-        /* 获取双向队列的容量 */
-        public int capacity() {
-            return nums.length;
-        }
+        def capacity(self) -> int:
+            """获取双向队列的容量"""
+            return len(self.__nums)
 
-        /* 获取双向队列的长度 */
-        public int size() {
-            return queSize;
-        }
+        def size(self) -> int:
+            """获取双向队列的长度"""
+            return self.__size
 
-        /* 判断双向队列是否为空 */
-        public boolean isEmpty() {
-            return queSize == 0;
-        }
+        def is_empty(self) -> bool:
+            """判断双向队列是否为空"""
+            return self.__size == 0
 
-        /* 计算环形数组索引 */
-        private int index(int i) {
-            // 通过取余操作实现数组首尾相连
-            // 当 i 越过数组尾部后，回到头部
-            // 当 i 越过数组头部后，回到尾部
-            return (i + capacity()) % capacity();
-        }
+        def index(self, i: int) -> int:
+            """计算环形数组索引"""
+            # 通过取余操作实现数组首尾相连
+            # 当 i 越过数组尾部后，回到头部
+            # 当 i 越过数组头部后，回到尾部
+            return (i + self.capacity()) % self.capacity()
 
-        /* 队首入队 */
-        public void pushFirst(int num) {
-            if (queSize == capacity()) {
-                System.out.println("双向队列已满");
-                return;
-            }
-            // 队首指针向左移动一位
-            // 通过取余操作，实现 front 越过数组头部后回到尾部
-            front = index(front - 1);
-            // 将 num 添加至队首
-            nums[front] = num;
-            queSize++;
-        }
+        def push_first(self, num: int):
+            """队首入队"""
+            if self.__size == self.capacity():
+                print("双向队列已满")
+                return
+            # 队首指针向左移动一位
+            # 通过取余操作，实现 front 越过数组头部后回到尾部
+            self.__front = self.index(self.__front - 1)
+            # 将 num 添加至队首
+            self.__nums[self.__front] = num
+            self.__size += 1
 
-        /* 队尾入队 */
-        public void pushLast(int num) {
-            if (queSize == capacity()) {
-                System.out.println("双向队列已满");
-                return;
-            }
-            // 计算尾指针，指向队尾索引 + 1
-            int rear = index(front + queSize);
-            // 将 num 添加至队尾
-            nums[rear] = num;
-            queSize++;
-        }
+        def push_last(self, num: int):
+            """队尾入队"""
+            if self.__size == self.capacity():
+                print("双向队列已满")
+                return
+            # 计算尾指针，指向队尾索引 + 1
+            rear = self.index(self.__front + self.__size)
+            # 将 num 添加至队尾
+            self.__nums[rear] = num
+            self.__size += 1
 
-        /* 队首出队 */
-        public int popFirst() {
-            int num = peekFirst();
-            // 队首指针向后移动一位
-            front = index(front + 1);
-            queSize--;
-            return num;
-        }
+        def pop_first(self) -> int:
+            """队首出队"""
+            num = self.peek_first()
+            # 队首指针向后移动一位
+            self.__front = self.index(self.__front + 1)
+            self.__size -= 1
+            return num
 
-        /* 队尾出队 */
-        public int popLast() {
-            int num = peekLast();
-            queSize--;
-            return num;
-        }
+        def pop_last(self) -> int:
+            """队尾出队"""
+            num = self.peek_last()
+            self.__size -= 1
+            return num
 
-        /* 访问队首元素 */
-        public int peekFirst() {
-            if (isEmpty())
-                throw new IndexOutOfBoundsException();
-            return nums[front];
-        }
+        def peek_first(self) -> int:
+            """访问队首元素"""
+            if self.is_empty():
+                raise IndexError("双向队列为空")
+            return self.__nums[self.__front]
 
-        /* 访问队尾元素 */
-        public int peekLast() {
-            if (isEmpty())
-                throw new IndexOutOfBoundsException();
-            // 计算尾元素索引
-            int last = index(front + queSize - 1);
-            return nums[last];
-        }
+        def peek_last(self) -> int:
+            """访问队尾元素"""
+            if self.is_empty():
+                raise IndexError("双向队列为空")
+            # 计算尾元素索引
+            last = self.index(self.__front + self.__size - 1)
+            return self.__nums[last]
 
-        /* 返回数组用于打印 */
-        public int[] toArray() {
-            // 仅转换有效长度范围内的列表元素
-            int[] res = new int[queSize];
-            for (int i = 0, j = front; i < queSize; i++, j++) {
-                res[i] = nums[index(j)];
-            }
-            return res;
-        }
-    }
+        def to_array(self) -> list[int]:
+            """返回数组用于打印"""
+            # 仅转换有效长度范围内的列表元素
+            res = []
+            for i in range(self.__size):
+                res.append(self.__nums[self.index(self.__front + i)])
+            return res
     ```
 
 === "C++"
@@ -2216,95 +2198,224 @@ comments: true
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array_deque.py"
-    class ArrayDeque:
-        """基于环形数组实现的双向队列"""
+    ```java title="array_deque.java"
+    /* 基于环形数组实现的双向队列 */
+    class ArrayDeque {
+        private int[] nums; // 用于存储双向队列元素的数组
+        private int front; // 队首指针，指向队首元素
+        private int queSize; // 双向队列长度
 
-        def __init__(self, capacity: int):
-            """构造方法"""
-            self.__nums: list[int] = [0] * capacity
-            self.__front: int = 0
-            self.__size: int = 0
+        /* 构造方法 */
+        public ArrayDeque(int capacity) {
+            this.nums = new int[capacity];
+            front = queSize = 0;
+        }
 
-        def capacity(self) -> int:
-            """获取双向队列的容量"""
-            return len(self.__nums)
+        /* 获取双向队列的容量 */
+        public int capacity() {
+            return nums.length;
+        }
 
-        def size(self) -> int:
-            """获取双向队列的长度"""
-            return self.__size
+        /* 获取双向队列的长度 */
+        public int size() {
+            return queSize;
+        }
 
-        def is_empty(self) -> bool:
-            """判断双向队列是否为空"""
-            return self.__size == 0
+        /* 判断双向队列是否为空 */
+        public boolean isEmpty() {
+            return queSize == 0;
+        }
 
-        def index(self, i: int) -> int:
-            """计算环形数组索引"""
-            # 通过取余操作实现数组首尾相连
-            # 当 i 越过数组尾部后，回到头部
-            # 当 i 越过数组头部后，回到尾部
-            return (i + self.capacity()) % self.capacity()
+        /* 计算环形数组索引 */
+        private int index(int i) {
+            // 通过取余操作实现数组首尾相连
+            // 当 i 越过数组尾部后，回到头部
+            // 当 i 越过数组头部后，回到尾部
+            return (i + capacity()) % capacity();
+        }
 
-        def push_first(self, num: int):
-            """队首入队"""
-            if self.__size == self.capacity():
-                print("双向队列已满")
-                return
-            # 队首指针向左移动一位
-            # 通过取余操作，实现 front 越过数组头部后回到尾部
-            self.__front = self.index(self.__front - 1)
-            # 将 num 添加至队首
-            self.__nums[self.__front] = num
-            self.__size += 1
+        /* 队首入队 */
+        public void pushFirst(int num) {
+            if (queSize == capacity()) {
+                System.out.println("双向队列已满");
+                return;
+            }
+            // 队首指针向左移动一位
+            // 通过取余操作，实现 front 越过数组头部后回到尾部
+            front = index(front - 1);
+            // 将 num 添加至队首
+            nums[front] = num;
+            queSize++;
+        }
 
-        def push_last(self, num: int):
-            """队尾入队"""
-            if self.__size == self.capacity():
-                print("双向队列已满")
-                return
-            # 计算尾指针，指向队尾索引 + 1
-            rear = self.index(self.__front + self.__size)
-            # 将 num 添加至队尾
-            self.__nums[rear] = num
-            self.__size += 1
+        /* 队尾入队 */
+        public void pushLast(int num) {
+            if (queSize == capacity()) {
+                System.out.println("双向队列已满");
+                return;
+            }
+            // 计算尾指针，指向队尾索引 + 1
+            int rear = index(front + queSize);
+            // 将 num 添加至队尾
+            nums[rear] = num;
+            queSize++;
+        }
 
-        def pop_first(self) -> int:
-            """队首出队"""
-            num = self.peek_first()
-            # 队首指针向后移动一位
-            self.__front = self.index(self.__front + 1)
-            self.__size -= 1
-            return num
+        /* 队首出队 */
+        public int popFirst() {
+            int num = peekFirst();
+            // 队首指针向后移动一位
+            front = index(front + 1);
+            queSize--;
+            return num;
+        }
 
-        def pop_last(self) -> int:
-            """队尾出队"""
-            num = self.peek_last()
-            self.__size -= 1
-            return num
+        /* 队尾出队 */
+        public int popLast() {
+            int num = peekLast();
+            queSize--;
+            return num;
+        }
 
-        def peek_first(self) -> int:
-            """访问队首元素"""
-            if self.is_empty():
-                raise IndexError("双向队列为空")
-            return self.__nums[self.__front]
+        /* 访问队首元素 */
+        public int peekFirst() {
+            if (isEmpty())
+                throw new IndexOutOfBoundsException();
+            return nums[front];
+        }
 
-        def peek_last(self) -> int:
-            """访问队尾元素"""
-            if self.is_empty():
-                raise IndexError("双向队列为空")
-            # 计算尾元素索引
-            last = self.index(self.__front + self.__size - 1)
-            return self.__nums[last]
+        /* 访问队尾元素 */
+        public int peekLast() {
+            if (isEmpty())
+                throw new IndexOutOfBoundsException();
+            // 计算尾元素索引
+            int last = index(front + queSize - 1);
+            return nums[last];
+        }
 
-        def to_array(self) -> list[int]:
-            """返回数组用于打印"""
-            # 仅转换有效长度范围内的列表元素
-            res = []
-            for i in range(self.__size):
-                res.append(self.__nums[self.index(self.__front + i)])
-            return res
+        /* 返回数组用于打印 */
+        public int[] toArray() {
+            // 仅转换有效长度范围内的列表元素
+            int[] res = new int[queSize];
+            for (int i = 0, j = front; i < queSize; i++, j++) {
+                res[i] = nums[index(j)];
+            }
+            return res;
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array_deque.cs"
+    /* 基于环形数组实现的双向队列 */
+    class ArrayDeque {
+        private readonly int[] nums;  // 用于存储双向队列元素的数组
+        private int front;   // 队首指针，指向队首元素
+        private int queSize; // 双向队列长度
+
+        /* 构造方法 */
+        public ArrayDeque(int capacity) {
+            this.nums = new int[capacity];
+            front = queSize = 0;
+        }
+
+        /* 获取双向队列的容量 */
+        public int capacity() {
+            return nums.Length;
+        }
+
+        /* 获取双向队列的长度 */
+        public int size() {
+            return queSize;
+        }
+
+        /* 判断双向队列是否为空 */
+        public bool isEmpty() {
+            return queSize == 0;
+        }
+
+        /* 计算环形数组索引 */
+        private int index(int i) {
+            // 通过取余操作实现数组首尾相连
+            // 当 i 越过数组尾部后，回到头部
+            // 当 i 越过数组头部后，回到尾部
+            return (i + capacity()) % capacity();
+        }
+
+        /* 队首入队 */
+        public void pushFirst(int num) {
+            if (queSize == capacity()) {
+                Console.WriteLine("双向队列已满");
+                return;
+            }
+            // 队首指针向左移动一位
+            // 通过取余操作，实现 front 越过数组头部后回到尾部
+            front = index(front - 1);
+            // 将 num 添加至队首
+            nums[front] = num;
+            queSize++;
+        }
+
+        /* 队尾入队 */
+        public void pushLast(int num) {
+            if (queSize == capacity()) {
+                Console.WriteLine("双向队列已满");
+                return;
+            }
+            // 计算尾指针，指向队尾索引 + 1
+            int rear = index(front + queSize);
+            // 将 num 添加至队尾
+            nums[rear] = num;
+            queSize++;
+        }
+
+        /* 队首出队 */
+        public int popFirst() {
+            int num = peekFirst();
+            // 队首指针向后移动一位
+            front = index(front + 1);
+            queSize--;
+            return num;
+        }
+
+        /* 队尾出队 */
+        public int popLast() {
+            int num = peekLast();
+            queSize--;
+            return num;
+        }
+
+        /* 访问队首元素 */
+        public int peekFirst() {
+            if (isEmpty()) {
+                throw new InvalidOperationException();
+            }
+            return nums[front];
+        }
+
+        /* 访问队尾元素 */
+        public int peekLast() {
+            if (isEmpty()) {
+                throw new InvalidOperationException();
+            }
+            // 计算尾元素索引
+            int last = index(front + queSize - 1);
+            return nums[last];
+        }
+
+        /* 返回数组用于打印 */
+        public int[] toArray() {
+            // 仅转换有效长度范围内的列表元素
+            int[] res = new int[queSize];
+            for (int i = 0, j = front; i < queSize; i++, j++) {
+                res[i] = nums[index(j)];
+            }
+            return res;
+        }
+    }
     ```
 
 === "Go"
@@ -2416,6 +2527,118 @@ comments: true
             j++
         }
         return res
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array_deque.swift"
+    /* 基于环形数组实现的双向队列 */
+    class ArrayDeque {
+        private var nums: [Int] // 用于存储双向队列元素的数组
+        private var front: Int // 队首指针，指向队首元素
+        private var queSize: Int // 双向队列长度
+
+        /* 构造方法 */
+        init(capacity: Int) {
+            nums = Array(repeating: 0, count: capacity)
+            front = 0
+            queSize = 0
+        }
+
+        /* 获取双向队列的容量 */
+        func capacity() -> Int {
+            nums.count
+        }
+
+        /* 获取双向队列的长度 */
+        func size() -> Int {
+            queSize
+        }
+
+        /* 判断双向队列是否为空 */
+        func isEmpty() -> Bool {
+            size() == 0
+        }
+
+        /* 计算环形数组索引 */
+        private func index(i: Int) -> Int {
+            // 通过取余操作实现数组首尾相连
+            // 当 i 越过数组尾部后，回到头部
+            // 当 i 越过数组头部后，回到尾部
+            (i + capacity()) % capacity()
+        }
+
+        /* 队首入队 */
+        func pushFirst(num: Int) {
+            if size() == capacity() {
+                print("双向队列已满")
+                return
+            }
+            // 队首指针向左移动一位
+            // 通过取余操作，实现 front 越过数组头部后回到尾部
+            front = index(i: front - 1)
+            // 将 num 添加至队首
+            nums[front] = num
+            queSize += 1
+        }
+
+        /* 队尾入队 */
+        func pushLast(num: Int) {
+            if size() == capacity() {
+                print("双向队列已满")
+                return
+            }
+            // 计算尾指针，指向队尾索引 + 1
+            let rear = index(i: front + size())
+            // 将 num 添加至队尾
+            nums[rear] = num
+            queSize += 1
+        }
+
+        /* 队首出队 */
+        func popFirst() -> Int {
+            let num = peekFirst()
+            // 队首指针向后移动一位
+            front = index(i: front + 1)
+            queSize -= 1
+            return num
+        }
+
+        /* 队尾出队 */
+        func popLast() -> Int {
+            let num = peekLast()
+            queSize -= 1
+            return num
+        }
+
+        /* 访问队首元素 */
+        func peekFirst() -> Int {
+            if isEmpty() {
+                fatalError("双向队列为空")
+            }
+            return nums[front]
+        }
+
+        /* 访问队尾元素 */
+        func peekLast() -> Int {
+            if isEmpty() {
+                fatalError("双向队列为空")
+            }
+            // 计算尾元素索引
+            let last = index(i: front + size() - 1)
+            return nums[last]
+        }
+
+        /* 返回数组用于打印 */
+        func toArray() -> [Int] {
+            // 仅转换有效长度范围内的列表元素
+            var res = Array(repeating: 0, count: size())
+            for (i, j) in sequence(first: (0, front), next: { $0 < self.size() - 1 ? ($0 + 1, $1 + 1) : nil }) {
+                res[i] = nums[index(i: j)]
+            }
+            return res
+        }
     }
     ```
 
@@ -2633,356 +2856,6 @@ comments: true
             return res;
         }
     }
-    ```
-
-=== "C"
-
-    ```c title="array_deque.c"
-    /* 基于环形数组实现的双向队列 */
-    struct arrayDeque {
-        int *nums;       // 用于存储队列元素的数组
-        int front;       // 队首指针，指向队首元素
-        int queSize;     // 尾指针，指向队尾 + 1
-        int queCapacity; // 队列容量
-    };
-
-    typedef struct arrayDeque arrayDeque;
-
-    /* 构造函数 */
-    arrayDeque *newArrayDeque(int capacity) {
-        arrayDeque *deque = (arrayDeque *)malloc(sizeof(arrayDeque));
-        // 初始化数组
-        deque->queCapacity = capacity;
-        deque->nums = (int *)malloc(sizeof(int) * deque->queCapacity);
-        deque->front = deque->queSize = 0;
-        return deque;
-    }
-
-    /* 析构函数 */
-    void delArrayDeque(arrayDeque *deque) {
-        free(deque->nums);
-        deque->queCapacity = 0;
-    }
-
-    /* 获取双向队列的容量 */
-    int capacity(arrayDeque *deque) {
-        return deque->queCapacity;
-    }
-
-    /* 获取双向队列的长度 */
-    int size(arrayDeque *deque) {
-        return deque->queSize;
-    }
-
-    /* 判断双向队列是否为空 */
-    bool empty(arrayDeque *deque) {
-        return deque->queSize == 0;
-    }
-
-    /* 计算环形数组索引 */
-    int dequeIndex(arrayDeque *deque, int i) {
-        // 通过取余操作实现数组首尾相连
-        // 当 i 越过数组尾部时，回到头部
-        // 当 i 越过数组头部后，回到尾部
-        return ((i + capacity(deque)) % capacity(deque));
-    }
-
-    /* 队首入队 */
-    void pushFirst(arrayDeque *deque, int num) {
-        if (deque->queSize == capacity(deque)) {
-            printf("双向队列已满\r\n");
-            return;
-        }
-        // 队首指针向左移动一位
-        // 通过取余操作，实现 front 越过数组头部回到尾部
-        deque->front = dequeIndex(deque, deque->front - 1);
-        // 将 num 添加到队首
-        deque->nums[deque->front] = num;
-        deque->queSize++;
-    }
-
-    /* 队尾入队 */
-    void pushLast(arrayDeque *deque, int num) {
-        if (deque->queSize == capacity(deque)) {
-            printf("双向队列已满\r\n");
-            return;
-        }
-        // 计算尾指针，指向队尾索引 + 1
-        int rear = dequeIndex(deque, deque->front + deque->queSize);
-        // 将 num 添加至队尾
-        deque->nums[rear] = num;
-        deque->queSize++;
-    }
-
-    /* 访问队首元素 */
-    int peekFirst(arrayDeque *deque) {
-        // 访问异常：双向队列为空
-        assert(empty(deque) == 0);
-        return deque->nums[deque->front];
-    }
-
-    /* 访问队尾元素 */
-    int peekLast(arrayDeque *deque) {
-        // 访问异常：双向队列为空
-        assert(empty(deque) == 0);
-        int last = dequeIndex(deque, deque->front + deque->queSize - 1);
-        return deque->nums[last];
-    }
-
-    /* 队首出队 */
-    int popFirst(arrayDeque *deque) {
-        int num = peekFirst(deque);
-        // 队首指针向后移动一位
-        deque->front = dequeIndex(deque, deque->front + 1);
-        deque->queSize--;
-        return num;
-    }
-
-    /* 队尾出队 */
-    int popLast(arrayDeque *deque) {
-        int num = peekLast(deque);
-        deque->queSize--;
-        return num;
-    }
-
-    /* 打印队列 */
-    void printArrayDeque(arrayDeque *deque) {
-        int arr[deque->queSize];
-        // 拷贝
-        for (int i = 0, j = deque->front; i < deque->queSize; i++, j++) {
-            arr[i] = deque->nums[j % deque->queCapacity];
-        }
-        printArray(arr, deque->queSize);
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="array_deque.cs"
-    /* 基于环形数组实现的双向队列 */
-    class ArrayDeque {
-        private readonly int[] nums;  // 用于存储双向队列元素的数组
-        private int front;   // 队首指针，指向队首元素
-        private int queSize; // 双向队列长度
-
-        /* 构造方法 */
-        public ArrayDeque(int capacity) {
-            this.nums = new int[capacity];
-            front = queSize = 0;
-        }
-
-        /* 获取双向队列的容量 */
-        public int capacity() {
-            return nums.Length;
-        }
-
-        /* 获取双向队列的长度 */
-        public int size() {
-            return queSize;
-        }
-
-        /* 判断双向队列是否为空 */
-        public bool isEmpty() {
-            return queSize == 0;
-        }
-
-        /* 计算环形数组索引 */
-        private int index(int i) {
-            // 通过取余操作实现数组首尾相连
-            // 当 i 越过数组尾部后，回到头部
-            // 当 i 越过数组头部后，回到尾部
-            return (i + capacity()) % capacity();
-        }
-
-        /* 队首入队 */
-        public void pushFirst(int num) {
-            if (queSize == capacity()) {
-                Console.WriteLine("双向队列已满");
-                return;
-            }
-            // 队首指针向左移动一位
-            // 通过取余操作，实现 front 越过数组头部后回到尾部
-            front = index(front - 1);
-            // 将 num 添加至队首
-            nums[front] = num;
-            queSize++;
-        }
-
-        /* 队尾入队 */
-        public void pushLast(int num) {
-            if (queSize == capacity()) {
-                Console.WriteLine("双向队列已满");
-                return;
-            }
-            // 计算尾指针，指向队尾索引 + 1
-            int rear = index(front + queSize);
-            // 将 num 添加至队尾
-            nums[rear] = num;
-            queSize++;
-        }
-
-        /* 队首出队 */
-        public int popFirst() {
-            int num = peekFirst();
-            // 队首指针向后移动一位
-            front = index(front + 1);
-            queSize--;
-            return num;
-        }
-
-        /* 队尾出队 */
-        public int popLast() {
-            int num = peekLast();
-            queSize--;
-            return num;
-        }
-
-        /* 访问队首元素 */
-        public int peekFirst() {
-            if (isEmpty()) {
-                throw new InvalidOperationException();
-            }
-            return nums[front];
-        }
-
-        /* 访问队尾元素 */
-        public int peekLast() {
-            if (isEmpty()) {
-                throw new InvalidOperationException();
-            }
-            // 计算尾元素索引
-            int last = index(front + queSize - 1);
-            return nums[last];
-        }
-
-        /* 返回数组用于打印 */
-        public int[] toArray() {
-            // 仅转换有效长度范围内的列表元素
-            int[] res = new int[queSize];
-            for (int i = 0, j = front; i < queSize; i++, j++) {
-                res[i] = nums[index(j)];
-            }
-            return res;
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="array_deque.swift"
-    /* 基于环形数组实现的双向队列 */
-    class ArrayDeque {
-        private var nums: [Int] // 用于存储双向队列元素的数组
-        private var front: Int // 队首指针，指向队首元素
-        private var queSize: Int // 双向队列长度
-
-        /* 构造方法 */
-        init(capacity: Int) {
-            nums = Array(repeating: 0, count: capacity)
-            front = 0
-            queSize = 0
-        }
-
-        /* 获取双向队列的容量 */
-        func capacity() -> Int {
-            nums.count
-        }
-
-        /* 获取双向队列的长度 */
-        func size() -> Int {
-            queSize
-        }
-
-        /* 判断双向队列是否为空 */
-        func isEmpty() -> Bool {
-            size() == 0
-        }
-
-        /* 计算环形数组索引 */
-        private func index(i: Int) -> Int {
-            // 通过取余操作实现数组首尾相连
-            // 当 i 越过数组尾部后，回到头部
-            // 当 i 越过数组头部后，回到尾部
-            (i + capacity()) % capacity()
-        }
-
-        /* 队首入队 */
-        func pushFirst(num: Int) {
-            if size() == capacity() {
-                print("双向队列已满")
-                return
-            }
-            // 队首指针向左移动一位
-            // 通过取余操作，实现 front 越过数组头部后回到尾部
-            front = index(i: front - 1)
-            // 将 num 添加至队首
-            nums[front] = num
-            queSize += 1
-        }
-
-        /* 队尾入队 */
-        func pushLast(num: Int) {
-            if size() == capacity() {
-                print("双向队列已满")
-                return
-            }
-            // 计算尾指针，指向队尾索引 + 1
-            let rear = index(i: front + size())
-            // 将 num 添加至队尾
-            nums[rear] = num
-            queSize += 1
-        }
-
-        /* 队首出队 */
-        func popFirst() -> Int {
-            let num = peekFirst()
-            // 队首指针向后移动一位
-            front = index(i: front + 1)
-            queSize -= 1
-            return num
-        }
-
-        /* 队尾出队 */
-        func popLast() -> Int {
-            let num = peekLast()
-            queSize -= 1
-            return num
-        }
-
-        /* 访问队首元素 */
-        func peekFirst() -> Int {
-            if isEmpty() {
-                fatalError("双向队列为空")
-            }
-            return nums[front]
-        }
-
-        /* 访问队尾元素 */
-        func peekLast() -> Int {
-            if isEmpty() {
-                fatalError("双向队列为空")
-            }
-            // 计算尾元素索引
-            let last = index(i: front + size() - 1)
-            return nums[last]
-        }
-
-        /* 返回数组用于打印 */
-        func toArray() -> [Int] {
-            // 仅转换有效长度范围内的列表元素
-            var res = Array(repeating: 0, count: size())
-            for (i, j) in sequence(first: (0, front), next: { $0 < self.size() - 1 ? ($0 + 1, $1 + 1) : nil }) {
-                res[i] = nums[index(i: j)]
-            }
-            return res
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="array_deque.zig"
-    [class]{ArrayDeque}-[func]{}
     ```
 
 === "Dart"
@@ -3206,6 +3079,133 @@ comments: true
             res
         }
     }
+    ```
+
+=== "C"
+
+    ```c title="array_deque.c"
+    /* 基于环形数组实现的双向队列 */
+    struct arrayDeque {
+        int *nums;       // 用于存储队列元素的数组
+        int front;       // 队首指针，指向队首元素
+        int queSize;     // 尾指针，指向队尾 + 1
+        int queCapacity; // 队列容量
+    };
+
+    typedef struct arrayDeque arrayDeque;
+
+    /* 构造函数 */
+    arrayDeque *newArrayDeque(int capacity) {
+        arrayDeque *deque = (arrayDeque *)malloc(sizeof(arrayDeque));
+        // 初始化数组
+        deque->queCapacity = capacity;
+        deque->nums = (int *)malloc(sizeof(int) * deque->queCapacity);
+        deque->front = deque->queSize = 0;
+        return deque;
+    }
+
+    /* 析构函数 */
+    void delArrayDeque(arrayDeque *deque) {
+        free(deque->nums);
+        deque->queCapacity = 0;
+    }
+
+    /* 获取双向队列的容量 */
+    int capacity(arrayDeque *deque) {
+        return deque->queCapacity;
+    }
+
+    /* 获取双向队列的长度 */
+    int size(arrayDeque *deque) {
+        return deque->queSize;
+    }
+
+    /* 判断双向队列是否为空 */
+    bool empty(arrayDeque *deque) {
+        return deque->queSize == 0;
+    }
+
+    /* 计算环形数组索引 */
+    int dequeIndex(arrayDeque *deque, int i) {
+        // 通过取余操作实现数组首尾相连
+        // 当 i 越过数组尾部时，回到头部
+        // 当 i 越过数组头部后，回到尾部
+        return ((i + capacity(deque)) % capacity(deque));
+    }
+
+    /* 队首入队 */
+    void pushFirst(arrayDeque *deque, int num) {
+        if (deque->queSize == capacity(deque)) {
+            printf("双向队列已满\r\n");
+            return;
+        }
+        // 队首指针向左移动一位
+        // 通过取余操作，实现 front 越过数组头部回到尾部
+        deque->front = dequeIndex(deque, deque->front - 1);
+        // 将 num 添加到队首
+        deque->nums[deque->front] = num;
+        deque->queSize++;
+    }
+
+    /* 队尾入队 */
+    void pushLast(arrayDeque *deque, int num) {
+        if (deque->queSize == capacity(deque)) {
+            printf("双向队列已满\r\n");
+            return;
+        }
+        // 计算尾指针，指向队尾索引 + 1
+        int rear = dequeIndex(deque, deque->front + deque->queSize);
+        // 将 num 添加至队尾
+        deque->nums[rear] = num;
+        deque->queSize++;
+    }
+
+    /* 访问队首元素 */
+    int peekFirst(arrayDeque *deque) {
+        // 访问异常：双向队列为空
+        assert(empty(deque) == 0);
+        return deque->nums[deque->front];
+    }
+
+    /* 访问队尾元素 */
+    int peekLast(arrayDeque *deque) {
+        // 访问异常：双向队列为空
+        assert(empty(deque) == 0);
+        int last = dequeIndex(deque, deque->front + deque->queSize - 1);
+        return deque->nums[last];
+    }
+
+    /* 队首出队 */
+    int popFirst(arrayDeque *deque) {
+        int num = peekFirst(deque);
+        // 队首指针向后移动一位
+        deque->front = dequeIndex(deque, deque->front + 1);
+        deque->queSize--;
+        return num;
+    }
+
+    /* 队尾出队 */
+    int popLast(arrayDeque *deque) {
+        int num = peekLast(deque);
+        deque->queSize--;
+        return num;
+    }
+
+    /* 打印队列 */
+    void printArrayDeque(arrayDeque *deque) {
+        int arr[deque->queSize];
+        // 拷贝
+        for (int i = 0, j = deque->front; i < deque->queSize; i++, j++) {
+            arr[i] = deque->nums[j % deque->queCapacity];
+        }
+        printArray(arr, deque->queSize);
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="array_deque.zig"
+    [class]{ArrayDeque}-[func]{}
     ```
 
 ## 5.3.3 &nbsp; 双向队列应用

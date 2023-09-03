@@ -97,38 +97,34 @@ status: new
 
 在代码中，我们声明一个递归函数 `dfs(i, src, buf, tar)` ，它的作用是将柱 `src` 顶部的 $i$ 个圆盘借助缓冲柱 `buf` 移动至目标柱 `tar` 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="hanota.java"
-    /* 移动一个圆盘 */
-    void move(List<Integer> src, List<Integer> tar) {
-        // 从 src 顶部拿出一个圆盘
-        Integer pan = src.remove(src.size() - 1);
-        // 将圆盘放入 tar 顶部
-        tar.add(pan);
-    }
+    ```python title="hanota.py"
+    def move(src: list[int], tar: list[int]):
+        """移动一个圆盘"""
+        # 从 src 顶部拿出一个圆盘
+        pan = src.pop()
+        # 将圆盘放入 tar 顶部
+        tar.append(pan)
 
-    /* 求解汉诺塔：问题 f(i) */
-    void dfs(int i, List<Integer> src, List<Integer> buf, List<Integer> tar) {
-        // 若 src 只剩下一个圆盘，则直接将其移到 tar
-        if (i == 1) {
-            move(src, tar);
-            return;
-        }
-        // 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
-        dfs(i - 1, src, tar, buf);
-        // 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
-        move(src, tar);
-        // 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
-        dfs(i - 1, buf, src, tar);
-    }
+    def dfs(i: int, src: list[int], buf: list[int], tar: list[int]):
+        """求解汉诺塔：问题 f(i)"""
+        # 若 src 只剩下一个圆盘，则直接将其移到 tar
+        if i == 1:
+            move(src, tar)
+            return
+        # 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
+        dfs(i - 1, src, tar, buf)
+        # 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
+        move(src, tar)
+        # 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
+        dfs(i - 1, buf, src, tar)
 
-    /* 求解汉诺塔 */
-    void solveHanota(List<Integer> A, List<Integer> B, List<Integer> C) {
-        int n = A.size();
-        // 将 A 顶部 n 个圆盘借助 B 移到 C
-        dfs(n, A, B, C);
-    }
+    def solve_hanota(A: list[int], B: list[int], C: list[int]):
+        """求解汉诺塔"""
+        n = len(A)
+        # 将 A 顶部 n 个圆盘借助 B 移到 C
+        dfs(n, A, B, C)
     ```
 
 === "C++"
@@ -166,34 +162,73 @@ status: new
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="hanota.py"
-    def move(src: list[int], tar: list[int]):
-        """移动一个圆盘"""
-        # 从 src 顶部拿出一个圆盘
-        pan = src.pop()
-        # 将圆盘放入 tar 顶部
-        tar.append(pan)
+    ```java title="hanota.java"
+    /* 移动一个圆盘 */
+    void move(List<Integer> src, List<Integer> tar) {
+        // 从 src 顶部拿出一个圆盘
+        Integer pan = src.remove(src.size() - 1);
+        // 将圆盘放入 tar 顶部
+        tar.add(pan);
+    }
 
-    def dfs(i: int, src: list[int], buf: list[int], tar: list[int]):
-        """求解汉诺塔：问题 f(i)"""
-        # 若 src 只剩下一个圆盘，则直接将其移到 tar
-        if i == 1:
-            move(src, tar)
-            return
-        # 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
-        dfs(i - 1, src, tar, buf)
-        # 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
-        move(src, tar)
-        # 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
-        dfs(i - 1, buf, src, tar)
+    /* 求解汉诺塔：问题 f(i) */
+    void dfs(int i, List<Integer> src, List<Integer> buf, List<Integer> tar) {
+        // 若 src 只剩下一个圆盘，则直接将其移到 tar
+        if (i == 1) {
+            move(src, tar);
+            return;
+        }
+        // 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
+        dfs(i - 1, src, tar, buf);
+        // 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
+        move(src, tar);
+        // 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
+        dfs(i - 1, buf, src, tar);
+    }
 
-    def solve_hanota(A: list[int], B: list[int], C: list[int]):
-        """求解汉诺塔"""
-        n = len(A)
-        # 将 A 顶部 n 个圆盘借助 B 移到 C
-        dfs(n, A, B, C)
+    /* 求解汉诺塔 */
+    void solveHanota(List<Integer> A, List<Integer> B, List<Integer> C) {
+        int n = A.size();
+        // 将 A 顶部 n 个圆盘借助 B 移到 C
+        dfs(n, A, B, C);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="hanota.cs"
+    /* 移动一个圆盘 */
+    void move(List<int> src, List<int> tar) {
+        // 从 src 顶部拿出一个圆盘
+        int pan = src[^1];
+        src.RemoveAt(src.Count - 1);
+        // 将圆盘放入 tar 顶部
+        tar.Add(pan);
+    }
+
+    /* 求解汉诺塔：问题 f(i) */
+    void dfs(int i, List<int> src, List<int> buf, List<int> tar) {
+        // 若 src 只剩下一个圆盘，则直接将其移到 tar
+        if (i == 1) {
+            move(src, tar);
+            return;
+        }
+        // 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
+        dfs(i - 1, src, tar, buf);
+        // 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
+        move(src, tar);
+        // 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
+        dfs(i - 1, buf, src, tar);
+    }
+
+    /* 求解汉诺塔 */
+    void solveHanota(List<int> A, List<int> B, List<int> C) {
+        int n = A.Count;
+        // 将 A 顶部 n 个圆盘借助 B 移到 C
+        dfs(n, A, B, C);
+    }
     ```
 
 === "Go"
@@ -229,6 +264,41 @@ status: new
         n := A.Len()
         // 将 A 顶部 n 个圆盘借助 B 移到 C
         dfsHanota(n, A, B, C)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="hanota.swift"
+    /* 移动一个圆盘 */
+    func move(src: inout [Int], tar: inout [Int]) {
+        // 从 src 顶部拿出一个圆盘
+        let pan = src.popLast()!
+        // 将圆盘放入 tar 顶部
+        tar.append(pan)
+    }
+
+    /* 求解汉诺塔：问题 f(i) */
+    func dfs(i: Int, src: inout [Int], buf: inout [Int], tar: inout [Int]) {
+        // 若 src 只剩下一个圆盘，则直接将其移到 tar
+        if i == 1 {
+            move(src: &src, tar: &tar)
+            return
+        }
+        // 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
+        dfs(i: i - 1, src: &src, buf: &tar, tar: &buf)
+        // 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
+        move(src: &src, tar: &tar)
+        // 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
+        dfs(i: i - 1, src: &buf, buf: &src, tar: &tar)
+    }
+
+    /* 求解汉诺塔 */
+    func solveHanota(A: inout [Int], B: inout [Int], C: inout [Int]) {
+        let n = A.count
+        // 列表尾部是柱子顶部
+        // 将 src 顶部 n 个圆盘借助 B 移到 C
+        dfs(i: n, src: &A, buf: &B, tar: &C)
     }
     ```
 
@@ -300,96 +370,6 @@ status: new
     }
     ```
 
-=== "C"
-
-    ```c title="hanota.c"
-    [class]{}-[func]{move}
-
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{solveHanota}
-    ```
-
-=== "C#"
-
-    ```csharp title="hanota.cs"
-    /* 移动一个圆盘 */
-    void move(List<int> src, List<int> tar) {
-        // 从 src 顶部拿出一个圆盘
-        int pan = src[^1];
-        src.RemoveAt(src.Count - 1);
-        // 将圆盘放入 tar 顶部
-        tar.Add(pan);
-    }
-
-    /* 求解汉诺塔：问题 f(i) */
-    void dfs(int i, List<int> src, List<int> buf, List<int> tar) {
-        // 若 src 只剩下一个圆盘，则直接将其移到 tar
-        if (i == 1) {
-            move(src, tar);
-            return;
-        }
-        // 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
-        dfs(i - 1, src, tar, buf);
-        // 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
-        move(src, tar);
-        // 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
-        dfs(i - 1, buf, src, tar);
-    }
-
-    /* 求解汉诺塔 */
-    void solveHanota(List<int> A, List<int> B, List<int> C) {
-        int n = A.Count;
-        // 将 A 顶部 n 个圆盘借助 B 移到 C
-        dfs(n, A, B, C);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="hanota.swift"
-    /* 移动一个圆盘 */
-    func move(src: inout [Int], tar: inout [Int]) {
-        // 从 src 顶部拿出一个圆盘
-        let pan = src.popLast()!
-        // 将圆盘放入 tar 顶部
-        tar.append(pan)
-    }
-
-    /* 求解汉诺塔：问题 f(i) */
-    func dfs(i: Int, src: inout [Int], buf: inout [Int], tar: inout [Int]) {
-        // 若 src 只剩下一个圆盘，则直接将其移到 tar
-        if i == 1 {
-            move(src: &src, tar: &tar)
-            return
-        }
-        // 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
-        dfs(i: i - 1, src: &src, buf: &tar, tar: &buf)
-        // 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
-        move(src: &src, tar: &tar)
-        // 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
-        dfs(i: i - 1, src: &buf, buf: &src, tar: &tar)
-    }
-
-    /* 求解汉诺塔 */
-    func solveHanota(A: inout [Int], B: inout [Int], C: inout [Int]) {
-        let n = A.count
-        // 列表尾部是柱子顶部
-        // 将 src 顶部 n 个圆盘借助 B 移到 C
-        dfs(i: n, src: &A, buf: &B, tar: &C)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="hanota.zig"
-    [class]{}-[func]{move}
-
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{solveHanota}
-    ```
-
 === "Dart"
 
     ```dart title="hanota.dart"
@@ -456,6 +436,26 @@ status: new
         // 将 A 顶部 n 个圆盘借助 B 移到 C
         dfs(n, A, B, C);
     }
+    ```
+
+=== "C"
+
+    ```c title="hanota.c"
+    [class]{}-[func]{move}
+
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{solveHanota}
+    ```
+
+=== "Zig"
+
+    ```zig title="hanota.zig"
+    [class]{}-[func]{move}
+
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{solveHanota}
     ```
 
 如图 12-15 所示，汉诺塔问题形成一个高度为 $n$ 的递归树，每个节点代表一个子问题、对应一个开启的 `dfs()` 函数，**因此时间复杂度为 $O(2^n)$ ，空间复杂度为 $O(n)$** 。

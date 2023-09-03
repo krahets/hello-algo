@@ -30,6 +30,102 @@ $$
 
 此外，我们需要小幅改动计数排序代码，使之可以根据数字的第 $k$ 位进行排序。
 
+=== "Python"
+
+    ```python title="radix_sort.py"
+    def digit(num: int, exp: int) -> int:
+        """获取元素 num 的第 k 位，其中 exp = 10^(k-1)"""
+        # 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
+        return (num // exp) % 10
+
+    def counting_sort_digit(nums: list[int], exp: int):
+        """计数排序（根据 nums 第 k 位排序）"""
+        # 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        counter = [0] * 10
+        n = len(nums)
+        # 统计 0~9 各数字的出现次数
+        for i in range(n):
+            d = digit(nums[i], exp)  # 获取 nums[i] 第 k 位，记为 d
+            counter[d] += 1  # 统计数字 d 的出现次数
+        # 求前缀和，将“出现个数”转换为“数组索引”
+        for i in range(1, 10):
+            counter[i] += counter[i - 1]
+        # 倒序遍历，根据桶内统计结果，将各元素填入 res
+        res = [0] * n
+        for i in range(n - 1, -1, -1):
+            d = digit(nums[i], exp)
+            j = counter[d] - 1  # 获取 d 在数组中的索引 j
+            res[j] = nums[i]  # 将当前元素填入索引 j
+            counter[d] -= 1  # 将 d 的数量减 1
+        # 使用结果覆盖原数组 nums
+        for i in range(n):
+            nums[i] = res[i]
+
+    def radix_sort(nums: list[int]):
+        """基数排序"""
+        # 获取数组的最大元素，用于判断最大位数
+        m = max(nums)
+        # 按照从低位到高位的顺序遍历
+        exp = 1
+        while exp <= m:
+            # 对数组元素的第 k 位执行计数排序
+            # k = 1 -> exp = 1
+            # k = 2 -> exp = 10
+            # 即 exp = 10^(k-1)
+            counting_sort_digit(nums, exp)
+            exp *= 10
+    ```
+
+=== "C++"
+
+    ```cpp title="radix_sort.cpp"
+    /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */
+    int digit(int num, int exp) {
+        // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
+        return (num / exp) % 10;
+    }
+
+    /* 计数排序（根据 nums 第 k 位排序） */
+    void countingSortDigit(vector<int> &nums, int exp) {
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        vector<int> counter(10, 0);
+        int n = nums.size();
+        // 统计 0~9 各数字的出现次数
+        for (int i = 0; i < n; i++) {
+            int d = digit(nums[i], exp); // 获取 nums[i] 第 k 位，记为 d
+            counter[d]++;                // 统计数字 d 的出现次数
+        }
+        // 求前缀和，将“出现个数”转换为“数组索引”
+        for (int i = 1; i < 10; i++) {
+            counter[i] += counter[i - 1];
+        }
+        // 倒序遍历，根据桶内统计结果，将各元素填入 res
+        vector<int> res(n, 0);
+        for (int i = n - 1; i >= 0; i--) {
+            int d = digit(nums[i], exp);
+            int j = counter[d] - 1; // 获取 d 在数组中的索引 j
+            res[j] = nums[i];       // 将当前元素填入索引 j
+            counter[d]--;           // 将 d 的数量减 1
+        }
+        // 使用结果覆盖原数组 nums
+        for (int i = 0; i < n; i++)
+            nums[i] = res[i];
+    }
+
+    /* 基数排序 */
+    void radixSort(vector<int> &nums) {
+        // 获取数组的最大元素，用于判断最大位数
+        int m = *max_element(nums.begin(), nums.end());
+        // 按照从低位到高位的顺序遍历
+        for (int exp = 1; exp <= m; exp *= 10)
+            // 对数组元素的第 k 位执行计数排序
+            // k = 1 -> exp = 1
+            // k = 2 -> exp = 10
+            // 即 exp = 10^(k-1)
+            countingSortDigit(nums, exp);
+    }
+    ```
+
 === "Java"
 
     ```java title="radix_sort.java"
@@ -83,9 +179,9 @@ $$
     }
     ```
 
-=== "C++"
+=== "C#"
 
-    ```cpp title="radix_sort.cpp"
+    ```csharp title="radix_sort.cs"
     /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */
     int digit(int num, int exp) {
         // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
@@ -93,10 +189,10 @@ $$
     }
 
     /* 计数排序（根据 nums 第 k 位排序） */
-    void countingSortDigit(vector<int> &nums, int exp) {
+    void countingSortDigit(int[] nums, int exp) {
         // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
-        vector<int> counter(10, 0);
-        int n = nums.size();
+        int[] counter = new int[10];
+        int n = nums.Length;
         // 统计 0~9 各数字的出现次数
         for (int i = 0; i < n; i++) {
             int d = digit(nums[i], exp); // 获取 nums[i] 第 k 位，记为 d
@@ -107,7 +203,7 @@ $$
             counter[i] += counter[i - 1];
         }
         // 倒序遍历，根据桶内统计结果，将各元素填入 res
-        vector<int> res(n, 0);
+        int[] res = new int[n];
         for (int i = n - 1; i >= 0; i--) {
             int d = digit(nums[i], exp);
             int j = counter[d] - 1; // 获取 d 在数组中的索引 j
@@ -115,68 +211,27 @@ $$
             counter[d]--;           // 将 d 的数量减 1
         }
         // 使用结果覆盖原数组 nums
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             nums[i] = res[i];
+        }
     }
 
     /* 基数排序 */
-    void radixSort(vector<int> &nums) {
+    void radixSort(int[] nums) {
         // 获取数组的最大元素，用于判断最大位数
-        int m = *max_element(nums.begin(), nums.end());
+        int m = int.MinValue;
+        foreach (int num in nums) {
+            if (num > m) m = num;
+        }
         // 按照从低位到高位的顺序遍历
-        for (int exp = 1; exp <= m; exp *= 10)
+        for (int exp = 1; exp <= m; exp *= 10) {
             // 对数组元素的第 k 位执行计数排序
             // k = 1 -> exp = 1
             // k = 2 -> exp = 10
             // 即 exp = 10^(k-1)
             countingSortDigit(nums, exp);
+        }
     }
-    ```
-
-=== "Python"
-
-    ```python title="radix_sort.py"
-    def digit(num: int, exp: int) -> int:
-        """获取元素 num 的第 k 位，其中 exp = 10^(k-1)"""
-        # 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
-        return (num // exp) % 10
-
-    def counting_sort_digit(nums: list[int], exp: int):
-        """计数排序（根据 nums 第 k 位排序）"""
-        # 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
-        counter = [0] * 10
-        n = len(nums)
-        # 统计 0~9 各数字的出现次数
-        for i in range(n):
-            d = digit(nums[i], exp)  # 获取 nums[i] 第 k 位，记为 d
-            counter[d] += 1  # 统计数字 d 的出现次数
-        # 求前缀和，将“出现个数”转换为“数组索引”
-        for i in range(1, 10):
-            counter[i] += counter[i - 1]
-        # 倒序遍历，根据桶内统计结果，将各元素填入 res
-        res = [0] * n
-        for i in range(n - 1, -1, -1):
-            d = digit(nums[i], exp)
-            j = counter[d] - 1  # 获取 d 在数组中的索引 j
-            res[j] = nums[i]  # 将当前元素填入索引 j
-            counter[d] -= 1  # 将 d 的数量减 1
-        # 使用结果覆盖原数组 nums
-        for i in range(n):
-            nums[i] = res[i]
-
-    def radix_sort(nums: list[int]):
-        """基数排序"""
-        # 获取数组的最大元素，用于判断最大位数
-        m = max(nums)
-        # 按照从低位到高位的顺序遍历
-        exp = 1
-        while exp <= m:
-            # 对数组元素的第 k 位执行计数排序
-            # k = 1 -> exp = 1
-            # k = 2 -> exp = 10
-            # 即 exp = 10^(k-1)
-            counting_sort_digit(nums, exp)
-            exp *= 10
     ```
 
 === "Go"
@@ -232,6 +287,63 @@ $$
             // k = 2 -> exp = 10
             // 即 exp = 10^(k-1)
             countingSortDigit(nums, exp)
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="radix_sort.swift"
+    /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */
+    func digit(num: Int, exp: Int) -> Int {
+        // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
+        (num / exp) % 10
+    }
+
+    /* 计数排序（根据 nums 第 k 位排序） */
+    func countingSortDigit(nums: inout [Int], exp: Int) {
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        var counter = Array(repeating: 0, count: 10)
+        let n = nums.count
+        // 统计 0~9 各数字的出现次数
+        for i in nums.indices {
+            let d = digit(num: nums[i], exp: exp) // 获取 nums[i] 第 k 位，记为 d
+            counter[d] += 1 // 统计数字 d 的出现次数
+        }
+        // 求前缀和，将“出现个数”转换为“数组索引”
+        for i in 1 ..< 10 {
+            counter[i] += counter[i - 1]
+        }
+        // 倒序遍历，根据桶内统计结果，将各元素填入 res
+        var res = Array(repeating: 0, count: n)
+        for i in stride(from: n - 1, through: 0, by: -1) {
+            let d = digit(num: nums[i], exp: exp)
+            let j = counter[d] - 1 // 获取 d 在数组中的索引 j
+            res[j] = nums[i] // 将当前元素填入索引 j
+            counter[d] -= 1 // 将 d 的数量减 1
+        }
+        // 使用结果覆盖原数组 nums
+        for i in nums.indices {
+            nums[i] = res[i]
+        }
+    }
+
+    /* 基数排序 */
+    func radixSort(nums: inout [Int]) {
+        // 获取数组的最大元素，用于判断最大位数
+        var m = Int.min
+        for num in nums {
+            if num > m {
+                m = num
+            }
+        }
+        // 按照从低位到高位的顺序遍历
+        for exp in sequence(first: 1, next: { m >= ($0 * 10) ? $0 * 10 : nil }) {
+            // 对数组元素的第 k 位执行计数排序
+            // k = 1 -> exp = 1
+            // k = 2 -> exp = 10
+            // 即 exp = 10^(k-1)
+            countingSortDigit(nums: &nums, exp: exp)
         }
     }
     ```
@@ -350,239 +462,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="radix_sort.c"
-    /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */
-    int digit(int num, int exp) {
-        // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
-        return (num / exp) % 10;
-    }
-
-    /* 计数排序（根据 nums 第 k 位排序） */
-    void countingSortDigit(int nums[], int size, int exp) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
-        int *counter = (int *)malloc((sizeof(int) * 10));
-        // 统计 0~9 各数字的出现次数
-        for (int i = 0; i < size; i++) {
-            // 获取 nums[i] 第 k 位，记为 d
-            int d = digit(nums[i], exp);
-            // 统计数字 d 的出现次数
-            counter[d]++;
-        }
-        // 求前缀和，将“出现个数”转换为“数组索引”
-        for (int i = 1; i < 10; i++) {
-            counter[i] += counter[i - 1];
-        }
-        // 倒序遍历，根据桶内统计结果，将各元素填入 res
-        int *res = (int *)malloc(sizeof(int) * size);
-        for (int i = size - 1; i >= 0; i--) {
-            int d = digit(nums[i], exp);
-            int j = counter[d] - 1; // 获取 d 在数组中的索引 j
-            res[j] = nums[i];       // 将当前元素填入索引 j
-            counter[d]--;           // 将 d 的数量减 1
-        }
-        // 使用结果覆盖原数组 nums
-        for (int i = 0; i < size; i++) {
-            nums[i] = res[i];
-        }
-    }
-
-    /* 基数排序 */
-    void radixSort(int nums[], int size) {
-        // 获取数组的最大元素，用于判断最大位数
-        int max = INT32_MIN;
-        for (size_t i = 0; i < size - 1; i++) {
-            if (nums[i] > max) {
-                max = nums[i];
-            }
-        }
-        // 按照从低位到高位的顺序遍历
-        for (int exp = 1; max >= exp; exp *= 10)
-            // 对数组元素的第 k 位执行计数排序
-            // k = 1 -> exp = 1
-            // k = 2 -> exp = 10
-            // 即 exp = 10^(k-1)
-            countingSortDigit(nums, size, exp);
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="radix_sort.cs"
-    /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */
-    int digit(int num, int exp) {
-        // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
-        return (num / exp) % 10;
-    }
-
-    /* 计数排序（根据 nums 第 k 位排序） */
-    void countingSortDigit(int[] nums, int exp) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
-        int[] counter = new int[10];
-        int n = nums.Length;
-        // 统计 0~9 各数字的出现次数
-        for (int i = 0; i < n; i++) {
-            int d = digit(nums[i], exp); // 获取 nums[i] 第 k 位，记为 d
-            counter[d]++;                // 统计数字 d 的出现次数
-        }
-        // 求前缀和，将“出现个数”转换为“数组索引”
-        for (int i = 1; i < 10; i++) {
-            counter[i] += counter[i - 1];
-        }
-        // 倒序遍历，根据桶内统计结果，将各元素填入 res
-        int[] res = new int[n];
-        for (int i = n - 1; i >= 0; i--) {
-            int d = digit(nums[i], exp);
-            int j = counter[d] - 1; // 获取 d 在数组中的索引 j
-            res[j] = nums[i];       // 将当前元素填入索引 j
-            counter[d]--;           // 将 d 的数量减 1
-        }
-        // 使用结果覆盖原数组 nums
-        for (int i = 0; i < n; i++) {
-            nums[i] = res[i];
-        }
-    }
-
-    /* 基数排序 */
-    void radixSort(int[] nums) {
-        // 获取数组的最大元素，用于判断最大位数
-        int m = int.MinValue;
-        foreach (int num in nums) {
-            if (num > m) m = num;
-        }
-        // 按照从低位到高位的顺序遍历
-        for (int exp = 1; exp <= m; exp *= 10) {
-            // 对数组元素的第 k 位执行计数排序
-            // k = 1 -> exp = 1
-            // k = 2 -> exp = 10
-            // 即 exp = 10^(k-1)
-            countingSortDigit(nums, exp);
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="radix_sort.swift"
-    /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */
-    func digit(num: Int, exp: Int) -> Int {
-        // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
-        (num / exp) % 10
-    }
-
-    /* 计数排序（根据 nums 第 k 位排序） */
-    func countingSortDigit(nums: inout [Int], exp: Int) {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
-        var counter = Array(repeating: 0, count: 10)
-        let n = nums.count
-        // 统计 0~9 各数字的出现次数
-        for i in nums.indices {
-            let d = digit(num: nums[i], exp: exp) // 获取 nums[i] 第 k 位，记为 d
-            counter[d] += 1 // 统计数字 d 的出现次数
-        }
-        // 求前缀和，将“出现个数”转换为“数组索引”
-        for i in 1 ..< 10 {
-            counter[i] += counter[i - 1]
-        }
-        // 倒序遍历，根据桶内统计结果，将各元素填入 res
-        var res = Array(repeating: 0, count: n)
-        for i in stride(from: n - 1, through: 0, by: -1) {
-            let d = digit(num: nums[i], exp: exp)
-            let j = counter[d] - 1 // 获取 d 在数组中的索引 j
-            res[j] = nums[i] // 将当前元素填入索引 j
-            counter[d] -= 1 // 将 d 的数量减 1
-        }
-        // 使用结果覆盖原数组 nums
-        for i in nums.indices {
-            nums[i] = res[i]
-        }
-    }
-
-    /* 基数排序 */
-    func radixSort(nums: inout [Int]) {
-        // 获取数组的最大元素，用于判断最大位数
-        var m = Int.min
-        for num in nums {
-            if num > m {
-                m = num
-            }
-        }
-        // 按照从低位到高位的顺序遍历
-        for exp in sequence(first: 1, next: { m >= ($0 * 10) ? $0 * 10 : nil }) {
-            // 对数组元素的第 k 位执行计数排序
-            // k = 1 -> exp = 1
-            // k = 2 -> exp = 10
-            // 即 exp = 10^(k-1)
-            countingSortDigit(nums: &nums, exp: exp)
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="radix_sort.zig"
-    // 获取元素 num 的第 k 位，其中 exp = 10^(k-1)
-    fn digit(num: i32, exp: i32) i32 {
-        // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
-        return @mod(@divFloor(num, exp), 10);
-    }
-
-    // 计数排序（根据 nums 第 k 位排序）
-    fn countingSortDigit(nums: []i32, exp: i32) !void {
-        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
-        var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
-        // defer mem_arena.deinit();
-        const mem_allocator = mem_arena.allocator();
-        var counter = try mem_allocator.alloc(usize, 10);
-        @memset(counter, 0);
-        var n = nums.len;
-        // 统计 0~9 各数字的出现次数
-        for (nums) |num| {
-            var d: u32 = @bitCast(digit(num, exp)); // 获取 nums[i] 第 k 位，记为 d
-            counter[d] += 1; // 统计数字 d 的出现次数
-        }
-        // 求前缀和，将“出现个数”转换为“数组索引”
-        var i: usize = 1;
-        while (i < 10) : (i += 1) {
-            counter[i] += counter[i - 1];
-        }
-        // 倒序遍历，根据桶内统计结果，将各元素填入 res
-        var res = try mem_allocator.alloc(i32, n);
-        i = n - 1;
-        while (i >= 0) : (i -= 1) {
-            var d: u32 = @bitCast(digit(nums[i], exp));
-            var j = counter[d] - 1; // 获取 d 在数组中的索引 j
-            res[j] = nums[i];       // 将当前元素填入索引 j
-            counter[d] -= 1;        // 将 d 的数量减 1
-            if (i == 0) break;
-        }
-        // 使用结果覆盖原数组 nums
-        i = 0;
-        while (i < n) : (i += 1) {
-            nums[i] = res[i];
-        }
-    }
-
-    // 基数排序
-    fn radixSort(nums: []i32) !void {
-        // 获取数组的最大元素，用于判断最大位数
-        var m: i32 = std.math.minInt(i32);
-        for (nums) |num| {
-            if (num > m) m = num;
-        }
-        // 按照从低位到高位的顺序遍历
-        var exp: i32 = 1;
-        while (exp <= m) : (exp *= 10) {
-            // 对数组元素的第 k 位执行计数排序
-            // k = 1 -> exp = 1
-            // k = 2 -> exp = 10
-            // 即 exp = 10^(k-1)
-            try countingSortDigit(nums, exp);    
-        }
-    } 
-    ```
-
 === "Dart"
 
     ```dart title="radix_sort.dart"
@@ -682,6 +561,127 @@ $$
             exp *= 10;
         }
     }
+    ```
+
+=== "C"
+
+    ```c title="radix_sort.c"
+    /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */
+    int digit(int num, int exp) {
+        // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
+        return (num / exp) % 10;
+    }
+
+    /* 计数排序（根据 nums 第 k 位排序） */
+    void countingSortDigit(int nums[], int size, int exp) {
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        int *counter = (int *)malloc((sizeof(int) * 10));
+        // 统计 0~9 各数字的出现次数
+        for (int i = 0; i < size; i++) {
+            // 获取 nums[i] 第 k 位，记为 d
+            int d = digit(nums[i], exp);
+            // 统计数字 d 的出现次数
+            counter[d]++;
+        }
+        // 求前缀和，将“出现个数”转换为“数组索引”
+        for (int i = 1; i < 10; i++) {
+            counter[i] += counter[i - 1];
+        }
+        // 倒序遍历，根据桶内统计结果，将各元素填入 res
+        int *res = (int *)malloc(sizeof(int) * size);
+        for (int i = size - 1; i >= 0; i--) {
+            int d = digit(nums[i], exp);
+            int j = counter[d] - 1; // 获取 d 在数组中的索引 j
+            res[j] = nums[i];       // 将当前元素填入索引 j
+            counter[d]--;           // 将 d 的数量减 1
+        }
+        // 使用结果覆盖原数组 nums
+        for (int i = 0; i < size; i++) {
+            nums[i] = res[i];
+        }
+    }
+
+    /* 基数排序 */
+    void radixSort(int nums[], int size) {
+        // 获取数组的最大元素，用于判断最大位数
+        int max = INT32_MIN;
+        for (size_t i = 0; i < size - 1; i++) {
+            if (nums[i] > max) {
+                max = nums[i];
+            }
+        }
+        // 按照从低位到高位的顺序遍历
+        for (int exp = 1; max >= exp; exp *= 10)
+            // 对数组元素的第 k 位执行计数排序
+            // k = 1 -> exp = 1
+            // k = 2 -> exp = 10
+            // 即 exp = 10^(k-1)
+            countingSortDigit(nums, size, exp);
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="radix_sort.zig"
+    // 获取元素 num 的第 k 位，其中 exp = 10^(k-1)
+    fn digit(num: i32, exp: i32) i32 {
+        // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
+        return @mod(@divFloor(num, exp), 10);
+    }
+
+    // 计数排序（根据 nums 第 k 位排序）
+    fn countingSortDigit(nums: []i32, exp: i32) !void {
+        // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
+        var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
+        // defer mem_arena.deinit();
+        const mem_allocator = mem_arena.allocator();
+        var counter = try mem_allocator.alloc(usize, 10);
+        @memset(counter, 0);
+        var n = nums.len;
+        // 统计 0~9 各数字的出现次数
+        for (nums) |num| {
+            var d: u32 = @bitCast(digit(num, exp)); // 获取 nums[i] 第 k 位，记为 d
+            counter[d] += 1; // 统计数字 d 的出现次数
+        }
+        // 求前缀和，将“出现个数”转换为“数组索引”
+        var i: usize = 1;
+        while (i < 10) : (i += 1) {
+            counter[i] += counter[i - 1];
+        }
+        // 倒序遍历，根据桶内统计结果，将各元素填入 res
+        var res = try mem_allocator.alloc(i32, n);
+        i = n - 1;
+        while (i >= 0) : (i -= 1) {
+            var d: u32 = @bitCast(digit(nums[i], exp));
+            var j = counter[d] - 1; // 获取 d 在数组中的索引 j
+            res[j] = nums[i];       // 将当前元素填入索引 j
+            counter[d] -= 1;        // 将 d 的数量减 1
+            if (i == 0) break;
+        }
+        // 使用结果覆盖原数组 nums
+        i = 0;
+        while (i < n) : (i += 1) {
+            nums[i] = res[i];
+        }
+    }
+
+    // 基数排序
+    fn radixSort(nums: []i32) !void {
+        // 获取数组的最大元素，用于判断最大位数
+        var m: i32 = std.math.minInt(i32);
+        for (nums) |num| {
+            if (num > m) m = num;
+        }
+        // 按照从低位到高位的顺序遍历
+        var exp: i32 = 1;
+        while (exp <= m) : (exp *= 10) {
+            // 对数组元素的第 k 位执行计数排序
+            // k = 1 -> exp = 1
+            // k = 2 -> exp = 10
+            // 即 exp = 10^(k-1)
+            try countingSortDigit(nums, exp);    
+        }
+    } 
     ```
 
 !!! question "为什么从最低位开始排序？"

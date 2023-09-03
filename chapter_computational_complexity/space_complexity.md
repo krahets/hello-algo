@@ -28,29 +28,26 @@ comments: true
 
 <p align="center"> 图 2-15 &nbsp; 算法使用的相关空间 </p>
 
-=== "Java"
+=== "Python"
 
-    ```java title=""
-    /* 类 */
-    class Node {
-        int val;
-        Node next;
-        Node(int x) { val = x; }
-    }
-    
-    /* 函数 */
-    int function() {
-        // 执行某些操作...
-        return 0;
-    }
-    
-    int algorithm(int n) {        // 输入数据
-        final int a = 0;          // 暂存数据（常量）
-        int b = 0;                // 暂存数据（变量）
-        Node node = new Node(0);  // 暂存数据（对象）
-        int c = function();       // 栈帧空间（调用函数）
-        return a + b + c;         // 输出数据
-    }
+    ```python title=""
+    class Node:
+        """类"""
+        def __init__(self, x: int):
+            self.val: int = x                 # 节点值
+            self.next: Optional[Node] = None  # 指向下一节点的引用
+
+    def function() -> int:
+        """函数"""
+        # 执行某些操作...
+        return 0
+
+    def algorithm(n) -> int:  # 输入数据
+        A = 0                 # 暂存数据（常量，一般用大写字母表示）
+        b = 0                 # 暂存数据（变量）
+        node = Node(0)        # 暂存数据（对象）
+        c = function()        # 栈帧空间（调用函数）
+        return A + b + c      # 输出数据
     ```
 
 === "C++"
@@ -78,26 +75,54 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title=""
-    class Node:
-        """类"""
-        def __init__(self, x: int):
-            self.val: int = x                 # 节点值
-            self.next: Optional[Node] = None  # 指向下一节点的引用
+    ```java title=""
+    /* 类 */
+    class Node {
+        int val;
+        Node next;
+        Node(int x) { val = x; }
+    }
+    
+    /* 函数 */
+    int function() {
+        // 执行某些操作...
+        return 0;
+    }
+    
+    int algorithm(int n) {        // 输入数据
+        final int a = 0;          // 暂存数据（常量）
+        int b = 0;                // 暂存数据（变量）
+        Node node = new Node(0);  // 暂存数据（对象）
+        int c = function();       // 栈帧空间（调用函数）
+        return a + b + c;         // 输出数据
+    }
+    ```
 
-    def function() -> int:
-        """函数"""
-        # 执行某些操作...
-        return 0
+=== "C#"
 
-    def algorithm(n) -> int:  # 输入数据
-        A = 0                 # 暂存数据（常量，一般用大写字母表示）
-        b = 0                 # 暂存数据（变量）
-        node = Node(0)        # 暂存数据（对象）
-        c = function()        # 栈帧空间（调用函数）
-        return A + b + c      # 输出数据
+    ```csharp title=""
+    /* 类 */
+    class Node {
+        int val;
+        Node next;
+        Node(int x) { val = x; }
+    }
+
+    /* 函数 */
+    int function() {
+        // 执行某些操作...
+        return 0;
+    }
+
+    int algorithm(int n) {        // 输入数据
+        const int a = 0;          // 暂存数据（常量）
+        int b = 0;                // 暂存数据（变量）
+        Node node = new Node(0);  // 暂存数据（对象）
+        int c = function();       // 栈帧空间（调用函数）
+        return a + b + c;         // 输出数据
+    }
     ```
 
 === "Go"
@@ -126,6 +151,34 @@ comments: true
         newNode(0)              // 暂存数据（对象）
         c := function()         // 栈帧空间（调用函数）
         return a + b + c        // 输出数据
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    /* 类 */
+    class Node {
+        var val: Int
+        var next: Node?
+
+        init(x: Int) {
+            val = x
+        }
+    }
+
+    /* 函数 */
+    func function() -> Int {
+        // 执行某些操作...
+        return 0
+    }
+
+    func algorithm(n: Int) -> Int { // 输入数据
+        let a = 0             // 暂存数据（常量）
+        var b = 0             // 暂存数据（变量）
+        let node = Node(x: 0) // 暂存数据（对象）
+        let c = function()    // 栈帧空间（调用函数）
+        return a + b + c      // 输出数据
     }
     ```
 
@@ -185,82 +238,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title=""
-    /* 函数 */
-    int func() {
-        // 执行某些操作...
-        return 0;
-    }
-
-    int algorithm(int n) { // 输入数据
-        const int a = 0;   // 暂存数据（常量）
-        int b = 0;         // 暂存数据（变量）
-        int c = func();    // 栈帧空间（调用函数）
-        return a + b + c;  // 输出数据
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* 类 */
-    class Node {
-        int val;
-        Node next;
-        Node(int x) { val = x; }
-    }
-
-    /* 函数 */
-    int function() {
-        // 执行某些操作...
-        return 0;
-    }
-
-    int algorithm(int n) {        // 输入数据
-        const int a = 0;          // 暂存数据（常量）
-        int b = 0;                // 暂存数据（变量）
-        Node node = new Node(0);  // 暂存数据（对象）
-        int c = function();       // 栈帧空间（调用函数）
-        return a + b + c;         // 输出数据
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* 类 */
-    class Node {
-        var val: Int
-        var next: Node?
-
-        init(x: Int) {
-            val = x
-        }
-    }
-
-    /* 函数 */
-    func function() -> Int {
-        // 执行某些操作...
-        return 0
-    }
-
-    func algorithm(n: Int) -> Int { // 输入数据
-        let a = 0             // 暂存数据（常量）
-        var b = 0             // 暂存数据（变量）
-        let node = Node(x: 0) // 暂存数据（对象）
-        let c = function()    // 栈帧空间（调用函数）
-        return a + b + c      // 输出数据
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 === "Dart"
 
     ```dart title=""
@@ -292,6 +269,29 @@ comments: true
 
     ```
 
+=== "C"
+
+    ```c title=""
+    /* 函数 */
+    int func() {
+        // 执行某些操作...
+        return 0;
+    }
+
+    int algorithm(int n) { // 输入数据
+        const int a = 0;   // 暂存数据（常量）
+        int b = 0;         // 暂存数据（变量）
+        int c = func();    // 栈帧空间（调用函数）
+        return a + b + c;  // 输出数据
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+
+    ```
+
 ## 2.4.2 &nbsp; 推算方法
 
 空间复杂度的推算方法与时间复杂度大致相同，只需将统计对象从“操作数量”转为“使用空间大小”。
@@ -303,15 +303,14 @@ comments: true
 1. **以最差输入数据为准**：当 $n < 10$ 时，空间复杂度为 $O(1)$ ；但当 $n > 10$ 时，初始化的数组 `nums` 占用 $O(n)$ 空间；因此最差空间复杂度为 $O(n)$ 。
 2. **以算法运行中的峰值内存为准**：例如，程序在执行最后一行之前，占用 $O(1)$ 空间；当初始化数组 `nums` 时，程序占用 $O(n)$ 空间；因此最差空间复杂度为 $O(n)$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title=""
-    void algorithm(int n) {
-        int a = 0;                   // O(1)
-        int[] b = new int[10000];    // O(1)
-        if (n > 10)
-            int[] nums = new int[n]; // O(n)
-    }
+    ```python title=""
+    def algorithm(n: int):
+        a = 0               # O(1)
+        b = [0] * 10000     # O(1)
+        if n > 10:
+            nums = [0] * n  # O(n)
     ```
 
 === "C++"
@@ -325,14 +324,27 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title=""
-    def algorithm(n: int):
-        a = 0               # O(1)
-        b = [0] * 10000     # O(1)
-        if n > 10:
-            nums = [0] * n  # O(n)
+    ```java title=""
+    void algorithm(int n) {
+        int a = 0;                   // O(1)
+        int[] b = new int[10000];    // O(1)
+        if (n > 10)
+            int[] nums = new int[n]; // O(n)
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+    void algorithm(int n) {
+        int a = 0;                   // O(1)
+        int[] b = new int[10000];    // O(1)
+        if (n > 10) {
+            int[] nums = new int[n]; // O(n)
+        }
+    }
     ```
 
 === "Go"
@@ -346,6 +358,18 @@ comments: true
             nums := make([]int, n)  // O(n)
         }
         fmt.Println(a, b, nums)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    func algorithm(n: Int) {
+        let a = 0 // O(1)
+        let b = Array(repeating: 0, count: 10000) // O(1)
+        if n > 10 {
+            let nums = Array(repeating: 0, count: n) // O(n)
+        }
     }
     ```
 
@@ -373,47 +397,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title=""
-    void algorithm(int n) {
-        int a = 0;               // O(1)
-        int b[10000];            // O(1)
-        if (n > 10)
-            int nums[n] = {0};   // O(n)
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    void algorithm(int n) {
-        int a = 0;                   // O(1)
-        int[] b = new int[10000];    // O(1)
-        if (n > 10) {
-            int[] nums = new int[n]; // O(n)
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    func algorithm(n: Int) {
-        let a = 0 // O(1)
-        let b = Array(repeating: 0, count: 10000) // O(1)
-        if n > 10 {
-            let nums = Array(repeating: 0, count: n) // O(n)
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 === "Dart"
 
     ```dart title=""
@@ -432,29 +415,44 @@ comments: true
 
     ```
 
+=== "C"
+
+    ```c title=""
+    void algorithm(int n) {
+        int a = 0;               // O(1)
+        int b[10000];            // O(1)
+        if (n > 10)
+            int nums[n] = {0};   // O(n)
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+
+    ```
+
 **在递归函数中，需要注意统计栈帧空间**。例如在以下代码中：
 
 - 函数 `loop()` 在循环中调用了 $n$ 次 `function()` ，每轮中的 `function()` 都返回并释放了栈帧空间，因此空间复杂度仍为 $O(1)$ 。
 - 递归函数 `recur()` 在运行过程中会同时存在 $n$ 个未返回的 `recur()` ，从而占用 $O(n)$ 的栈帧空间。
 
-=== "Java"
+=== "Python"
 
-    ```java title=""
-    int function() {
-        // 执行某些操作
-        return 0;
-    }
-    /* 循环 O(1) */
-    void loop(int n) {
-        for (int i = 0; i < n; i++) {
-            function();
-        }
-    }
-    /* 递归 O(n) */
-    void recur(int n) {
-        if (n == 1) return;
-        return recur(n - 1);
-    }
+    ```python title=""
+    def function() -> int:
+        # 执行某些操作
+        return 0
+
+    def loop(n: int):
+        """循环 O(1)"""
+        for _ in range(n):
+            function()
+
+    def recur(n: int) -> int:
+        """递归 O(n)"""
+        if n == 1: return
+        return recur(n - 1)
     ```
 
 === "C++"
@@ -477,22 +475,44 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title=""
-    def function() -> int:
-        # 执行某些操作
-        return 0
+    ```java title=""
+    int function() {
+        // 执行某些操作
+        return 0;
+    }
+    /* 循环 O(1) */
+    void loop(int n) {
+        for (int i = 0; i < n; i++) {
+            function();
+        }
+    }
+    /* 递归 O(n) */
+    void recur(int n) {
+        if (n == 1) return;
+        return recur(n - 1);
+    }
+    ```
 
-    def loop(n: int):
-        """循环 O(1)"""
-        for _ in range(n):
-            function()
+=== "C#"
 
-    def recur(n: int) -> int:
-        """递归 O(n)"""
-        if n == 1: return
-        return recur(n - 1)
+    ```csharp title=""
+    int function() {
+        // 执行某些操作
+        return 0;
+    }
+    /* 循环 O(1) */
+    void loop(int n) {
+        for (int i = 0; i < n; i++) {
+            function();
+        }
+    }
+    /* 递归 O(n) */
+    int recur(int n) {
+        if (n == 1) return 1;
+        return recur(n - 1);
+    }
     ```
 
 === "Go"
@@ -516,6 +536,31 @@ comments: true
             return
         }
         recur(n - 1)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    @discardableResult
+    func function() -> Int {
+        // 执行某些操作
+        return 0
+    }
+
+    /* 循环 O(1) */
+    func loop(n: Int) {
+        for _ in 0 ..< n {
+            function()
+        }
+    }
+
+    /* 递归 O(n) */
+    func recur(n: Int) {
+        if n == 1 {
+            return
+        }
+        recur(n: n - 1)
     }
     ```
 
@@ -559,77 +604,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title=""
-    int func() {
-        // 执行某些操作
-        return 0;
-    }
-    /* 循环 O(1) */
-    void loop(int n) {
-        for (int i = 0; i < n; i++) {
-            func();
-        }
-    }
-    /* 递归 O(n) */
-    void recur(int n) {
-        if (n == 1) return;
-        return recur(n - 1);
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    int function() {
-        // 执行某些操作
-        return 0;
-    }
-    /* 循环 O(1) */
-    void loop(int n) {
-        for (int i = 0; i < n; i++) {
-            function();
-        }
-    }
-    /* 递归 O(n) */
-    int recur(int n) {
-        if (n == 1) return 1;
-        return recur(n - 1);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    @discardableResult
-    func function() -> Int {
-        // 执行某些操作
-        return 0
-    }
-
-    /* 循环 O(1) */
-    func loop(n: Int) {
-        for _ in 0 ..< n {
-            function()
-        }
-    }
-
-    /* 递归 O(n) */
-    func recur(n: Int) {
-        if n == 1 {
-            return
-        }
-        recur(n: n - 1)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 === "Dart"
 
     ```dart title=""
@@ -656,6 +630,32 @@ comments: true
 
     ```
 
+=== "C"
+
+    ```c title=""
+    int func() {
+        // 执行某些操作
+        return 0;
+    }
+    /* 循环 O(1) */
+    void loop(int n) {
+        for (int i = 0; i < n; i++) {
+            func();
+        }
+    }
+    /* 递归 O(n) */
+    void recur(int n) {
+        if (n == 1) return;
+        return recur(n - 1);
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+
+    ```
+
 ## 2.4.3 &nbsp; 常见类型
 
 设输入数据大小为 $n$ ，图 2-16 展示了常见的空间复杂度类型（从低到高排列）。
@@ -677,31 +677,26 @@ $$
 
 需要注意的是，在循环中初始化变量或调用函数而占用的内存，在进入下一循环后就会被释放，因此不会累积占用空间，空间复杂度仍为 $O(1)$ ：
 
-=== "Java"
+=== "Python"
 
-    ```java title="space_complexity.java"
-    /* 函数 */
-    int function() {
-        // 执行某些操作
-        return 0;
-    }
+    ```python title="space_complexity.py"
+    def function() -> int:
+        """函数"""
+        # 执行某些操作
+        return 0
 
-    /* 常数阶 */
-    void constant(int n) {
-        // 常量、变量、对象占用 O(1) 空间
-        final int a = 0;
-        int b = 0;
-        int[] nums = new int[10000];
-        ListNode node = new ListNode(0);
-        // 循环中的变量占用 O(1) 空间
-        for (int i = 0; i < n; i++) {
-            int c = 0;
-        }
-        // 循环中的函数占用 O(1) 空间
-        for (int i = 0; i < n; i++) {
-            function();
-        }
-    }
+    def constant(n: int):
+        """常数阶"""
+        # 常量、变量、对象占用 O(1) 空间
+        a = 0
+        nums = [0] * 10000
+        node = ListNode(0)
+        # 循环中的变量占用 O(1) 空间
+        for _ in range(n):
+            c = 0
+        # 循环中的函数占用 O(1) 空间
+        for _ in range(n):
+            function()
     ```
 
 === "C++"
@@ -731,26 +726,58 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="space_complexity.py"
-    def function() -> int:
-        """函数"""
-        # 执行某些操作
-        return 0
+    ```java title="space_complexity.java"
+    /* 函数 */
+    int function() {
+        // 执行某些操作
+        return 0;
+    }
 
-    def constant(n: int):
-        """常数阶"""
-        # 常量、变量、对象占用 O(1) 空间
-        a = 0
-        nums = [0] * 10000
-        node = ListNode(0)
-        # 循环中的变量占用 O(1) 空间
-        for _ in range(n):
-            c = 0
-        # 循环中的函数占用 O(1) 空间
-        for _ in range(n):
-            function()
+    /* 常数阶 */
+    void constant(int n) {
+        // 常量、变量、对象占用 O(1) 空间
+        final int a = 0;
+        int b = 0;
+        int[] nums = new int[10000];
+        ListNode node = new ListNode(0);
+        // 循环中的变量占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            int c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            function();
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="space_complexity.cs"
+    /* 函数 */
+    int function() {
+        // 执行某些操作
+        return 0;
+    }
+
+    /* 常数阶 */
+    void constant(int n) {
+        // 常量、变量、对象占用 O(1) 空间
+        int a = 0;
+        int b = 0;
+        int[] nums = new int[10000];
+        ListNode node = new ListNode(0);
+        // 循环中的变量占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            int c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            function();
+        }
+    }
     ```
 
 === "Go"
@@ -779,6 +806,34 @@ $$
             function()
         }
         fmt.Println(a, b, nums, c, ListNode)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    /* 函数 */
+    @discardableResult
+    func function() -> Int {
+        // 执行某些操作
+        return 0
+    }
+
+    /* 常数阶 */
+    func constant(n: Int) {
+        // 常量、变量、对象占用 O(1) 空间
+        let a = 0
+        var b = 0
+        let nums = Array(repeating: 0, count: 10000)
+        let node = ListNode(x: 0)
+        // 循环中的变量占用 O(1) 空间
+        for _ in 0 ..< n {
+            let c = 0
+        }
+        // 循环中的函数占用 O(1) 空间
+        for _ in 0 ..< n {
+            function()
+        }
     }
     ```
 
@@ -833,119 +888,6 @@ $$
         for (let i = 0; i < n; i++) {
             constFunc();
         }
-    }
-    ```
-
-=== "C"
-
-    ```c title="space_complexity.c"
-    /* 函数 */
-    int func() {
-        // 执行某些操作
-        return 0;
-    }
-
-    /* 常数阶 */
-    void constant(int n) {
-        // 常量、变量、对象占用 O(1) 空间
-        const int a = 0;
-        int b = 0;
-        int nums[1000];
-        ListNode *node = newListNode(0);
-        free(node);
-        // 循环中的变量占用 O(1) 空间
-        for (int i = 0; i < n; i++) {
-            int c = 0;
-        }
-        // 循环中的函数占用 O(1) 空间
-        for (int i = 0; i < n; i++) {
-            func();
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="space_complexity.cs"
-    /* 函数 */
-    int function() {
-        // 执行某些操作
-        return 0;
-    }
-
-    /* 常数阶 */
-    void constant(int n) {
-        // 常量、变量、对象占用 O(1) 空间
-        int a = 0;
-        int b = 0;
-        int[] nums = new int[10000];
-        ListNode node = new ListNode(0);
-        // 循环中的变量占用 O(1) 空间
-        for (int i = 0; i < n; i++) {
-            int c = 0;
-        }
-        // 循环中的函数占用 O(1) 空间
-        for (int i = 0; i < n; i++) {
-            function();
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="space_complexity.swift"
-    /* 函数 */
-    @discardableResult
-    func function() -> Int {
-        // 执行某些操作
-        return 0
-    }
-
-    /* 常数阶 */
-    func constant(n: Int) {
-        // 常量、变量、对象占用 O(1) 空间
-        let a = 0
-        var b = 0
-        let nums = Array(repeating: 0, count: 10000)
-        let node = ListNode(x: 0)
-        // 循环中的变量占用 O(1) 空间
-        for _ in 0 ..< n {
-            let c = 0
-        }
-        // 循环中的函数占用 O(1) 空间
-        for _ in 0 ..< n {
-            function()
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{function}
-
-    // 常数阶
-    fn constant(n: i32) void {
-        // 常量、变量、对象占用 O(1) 空间
-        const a: i32 = 0;
-        var b: i32 = 0;
-        var nums = [_]i32{0}**10000;
-        var node = inc.ListNode(i32){.val = 0};
-        var i: i32 = 0;
-        // 循环中的变量占用 O(1) 空间
-        while (i < n) : (i += 1) {
-            var c: i32 = 0;
-            _ = c;
-        }
-        // 循环中的函数占用 O(1) 空间
-        i = 0;
-        while (i < n) : (i += 1) {
-            _ = function();
-        }
-        _ = a;
-        _ = b;
-        _ = nums;
-        _ = node;
     }
     ```
 
@@ -1004,28 +946,79 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="space_complexity.c"
+    /* 函数 */
+    int func() {
+        // 执行某些操作
+        return 0;
+    }
+
+    /* 常数阶 */
+    void constant(int n) {
+        // 常量、变量、对象占用 O(1) 空间
+        const int a = 0;
+        int b = 0;
+        int nums[1000];
+        ListNode *node = newListNode(0);
+        free(node);
+        // 循环中的变量占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            int c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            func();
+        }
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="space_complexity.zig"
+    [class]{}-[func]{function}
+
+    // 常数阶
+    fn constant(n: i32) void {
+        // 常量、变量、对象占用 O(1) 空间
+        const a: i32 = 0;
+        var b: i32 = 0;
+        var nums = [_]i32{0}**10000;
+        var node = inc.ListNode(i32){.val = 0};
+        var i: i32 = 0;
+        // 循环中的变量占用 O(1) 空间
+        while (i < n) : (i += 1) {
+            var c: i32 = 0;
+            _ = c;
+        }
+        // 循环中的函数占用 O(1) 空间
+        i = 0;
+        while (i < n) : (i += 1) {
+            _ = function();
+        }
+        _ = a;
+        _ = b;
+        _ = nums;
+        _ = node;
+    }
+    ```
+
 ### 2. &nbsp; 线性阶 $O(n)$
 
 线性阶常见于元素数量与 $n$ 成正比的数组、链表、栈、队列等：
 
-=== "Java"
+=== "Python"
 
-    ```java title="space_complexity.java"
-    /* 线性阶 */
-    void linear(int n) {
-        // 长度为 n 的数组占用 O(n) 空间
-        int[] nums = new int[n];
-        // 长度为 n 的列表占用 O(n) 空间
-        List<ListNode> nodes = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            nodes.add(new ListNode(i));
-        }
-        // 长度为 n 的哈希表占用 O(n) 空间
-        Map<Integer, String> map = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            map.put(i, String.valueOf(i));
-        }
-    }
+    ```python title="space_complexity.py"
+    def linear(n: int):
+        """线性阶"""
+        # 长度为 n 的列表占用 O(n) 空间
+        nums = [0] * n
+        # 长度为 n 的哈希表占用 O(n) 空间
+        hmap = dict[int, str]()
+        for i in range(n):
+            hmap[i] = str(i)
     ```
 
 === "C++"
@@ -1048,17 +1041,44 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="space_complexity.py"
-    def linear(n: int):
-        """线性阶"""
-        # 长度为 n 的列表占用 O(n) 空间
-        nums = [0] * n
-        # 长度为 n 的哈希表占用 O(n) 空间
-        hmap = dict[int, str]()
-        for i in range(n):
-            hmap[i] = str(i)
+    ```java title="space_complexity.java"
+    /* 线性阶 */
+    void linear(int n) {
+        // 长度为 n 的数组占用 O(n) 空间
+        int[] nums = new int[n];
+        // 长度为 n 的列表占用 O(n) 空间
+        List<ListNode> nodes = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            nodes.add(new ListNode(i));
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        Map<Integer, String> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            map.put(i, String.valueOf(i));
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="space_complexity.cs"
+    /* 线性阶 */
+    void linear(int n) {
+        // 长度为 n 的数组占用 O(n) 空间
+        int[] nums = new int[n];
+        // 长度为 n 的列表占用 O(n) 空间
+        List<ListNode> nodes = new();
+        for (int i = 0; i < n; i++) {
+            nodes.Add(new ListNode(i));
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        Dictionary<int, string> map = new();
+        for (int i = 0; i < n; i++) {
+            map.Add(i, i.ToString());
+        }
+    }
     ```
 
 === "Go"
@@ -1078,6 +1098,20 @@ $$
         for i := 0; i < n; i++ {
             m[i] = strconv.Itoa(i)
         }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    /* 线性阶 */
+    func linear(n: Int) {
+        // 长度为 n 的数组占用 O(n) 空间
+        let nums = Array(repeating: 0, count: n)
+        // 长度为 n 的列表占用 O(n) 空间
+        let nodes = (0 ..< n).map { ListNode(x: $0) }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
     }
     ```
 
@@ -1117,6 +1151,47 @@ $$
         const map = new Map();
         for (let i = 0; i < n; i++) {
             map.set(i, i.toString());
+        }
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="space_complexity.dart"
+    /* 线性阶 */
+    void linear(int n) {
+      // 长度为 n 的数组占用 O(n) 空间
+      List<int> nums = List.filled(n, 0);
+      // 长度为 n 的列表占用 O(n) 空间
+      List<ListNode> nodes = [];
+      for (var i = 0; i < n; i++) {
+        nodes.add(ListNode(i));
+      }
+      // 长度为 n 的哈希表占用 O(n) 空间
+      Map<int, String> map = HashMap();
+      for (var i = 0; i < n; i++) {
+        map.putIfAbsent(i, () => i.toString());
+      }
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="space_complexity.rs"
+    /* 线性阶 */
+    #[allow(unused)]
+    fn linear(n: i32) {
+        // 长度为 n 的数组占用 O(n) 空间
+        let mut nums = vec![0; n as usize];
+        // 长度为 n 的列表占用 O(n) 空间
+        let mut nodes = Vec::new();
+        for i in 0..n {
+            nodes.push(ListNode::new(i))
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        let mut map = HashMap::new();
+        for i in 0..n {
+            map.insert(i, i.to_string());
         }
     }
     ```
@@ -1168,40 +1243,6 @@ $$
     }
     ```
 
-=== "C#"
-
-    ```csharp title="space_complexity.cs"
-    /* 线性阶 */
-    void linear(int n) {
-        // 长度为 n 的数组占用 O(n) 空间
-        int[] nums = new int[n];
-        // 长度为 n 的列表占用 O(n) 空间
-        List<ListNode> nodes = new();
-        for (int i = 0; i < n; i++) {
-            nodes.Add(new ListNode(i));
-        }
-        // 长度为 n 的哈希表占用 O(n) 空间
-        Dictionary<int, string> map = new();
-        for (int i = 0; i < n; i++) {
-            map.Add(i, i.ToString());
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="space_complexity.swift"
-    /* 线性阶 */
-    func linear(n: Int) {
-        // 长度为 n 的数组占用 O(n) 空间
-        let nums = Array(repeating: 0, count: n)
-        // 长度为 n 的列表占用 O(n) 空间
-        let nodes = (0 ..< n).map { ListNode(x: $0) }
-        // 长度为 n 的哈希表占用 O(n) 空间
-        let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
-    }
-    ```
-
 === "Zig"
 
     ```zig title="space_complexity.zig"
@@ -1229,59 +1270,17 @@ $$
     }
     ```
 
-=== "Dart"
-
-    ```dart title="space_complexity.dart"
-    /* 线性阶 */
-    void linear(int n) {
-      // 长度为 n 的数组占用 O(n) 空间
-      List<int> nums = List.filled(n, 0);
-      // 长度为 n 的列表占用 O(n) 空间
-      List<ListNode> nodes = [];
-      for (var i = 0; i < n; i++) {
-        nodes.add(ListNode(i));
-      }
-      // 长度为 n 的哈希表占用 O(n) 空间
-      Map<int, String> map = HashMap();
-      for (var i = 0; i < n; i++) {
-        map.putIfAbsent(i, () => i.toString());
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title="space_complexity.rs"
-    /* 线性阶 */
-    #[allow(unused)]
-    fn linear(n: i32) {
-        // 长度为 n 的数组占用 O(n) 空间
-        let mut nums = vec![0; n as usize];
-        // 长度为 n 的列表占用 O(n) 空间
-        let mut nodes = Vec::new();
-        for i in 0..n {
-            nodes.push(ListNode::new(i))
-        }
-        // 长度为 n 的哈希表占用 O(n) 空间
-        let mut map = HashMap::new();
-        for i in 0..n {
-            map.insert(i, i.to_string());
-        }
-    }
-    ```
-
 如图 2-17 所示，此函数的递归深度为 $n$ ，即同时存在 $n$ 个未返回的 `linear_recur()` 函数，使用 $O(n)$ 大小的栈帧空间：
 
-=== "Java"
+=== "Python"
 
-    ```java title="space_complexity.java"
-    /* 线性阶（递归实现） */
-    void linearRecur(int n) {
-        System.out.println("递归 n = " + n);
-        if (n == 1)
-            return;
-        linearRecur(n - 1);
-    }
+    ```python title="space_complexity.py"
+    def linear_recur(n: int):
+        """线性阶（递归实现）"""
+        print("递归 n =", n)
+        if n == 1:
+            return
+        linear_recur(n - 1)
     ```
 
 === "C++"
@@ -1296,15 +1295,27 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="space_complexity.py"
-    def linear_recur(n: int):
-        """线性阶（递归实现）"""
-        print("递归 n =", n)
-        if n == 1:
-            return
-        linear_recur(n - 1)
+    ```java title="space_complexity.java"
+    /* 线性阶（递归实现） */
+    void linearRecur(int n) {
+        System.out.println("递归 n = " + n);
+        if (n == 1)
+            return;
+        linearRecur(n - 1);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="space_complexity.cs"
+    /* 线性阶（递归实现） */
+    void linearRecur(int n) {
+        Console.WriteLine("递归 n = " + n);
+        if (n == 1) return;
+        linearRecur(n - 1);
+    }
     ```
 
 === "Go"
@@ -1317,6 +1328,19 @@ $$
             return
         }
         spaceLinearRecur(n - 1)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    /* 线性阶（递归实现） */
+    func linearRecur(n: Int) {
+        print("递归 n = \(n)")
+        if n == 1 {
+            return
+        }
+        linearRecur(n: n - 1)
     }
     ```
 
@@ -1338,53 +1362,6 @@ $$
     function linearRecur(n: number): void {
         console.log(`递归 n = ${n}`);
         if (n === 1) return;
-        linearRecur(n - 1);
-    }
-    ```
-
-=== "C"
-
-    ```c title="space_complexity.c"
-    /* 线性阶（递归实现） */
-    void linearRecur(int n) {
-        printf("递归 n = %d\r\n", n);
-        if (n == 1)
-            return;
-        linearRecur(n - 1);
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="space_complexity.cs"
-    /* 线性阶（递归实现） */
-    void linearRecur(int n) {
-        Console.WriteLine("递归 n = " + n);
-        if (n == 1) return;
-        linearRecur(n - 1);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="space_complexity.swift"
-    /* 线性阶（递归实现） */
-    func linearRecur(n: Int) {
-        print("递归 n = \(n)")
-        if n == 1 {
-            return
-        }
-        linearRecur(n: n - 1)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    // 线性阶（递归实现）
-    fn linearRecur(comptime n: i32) void {
-        std.debug.print("递归 n = {}\n", .{n});
-        if (n == 1) return;
         linearRecur(n - 1);
     }
     ```
@@ -1411,6 +1388,29 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="space_complexity.c"
+    /* 线性阶（递归实现） */
+    void linearRecur(int n) {
+        printf("递归 n = %d\r\n", n);
+        if (n == 1)
+            return;
+        linearRecur(n - 1);
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="space_complexity.zig"
+    // 线性阶（递归实现）
+    fn linearRecur(comptime n: i32) void {
+        std.debug.print("递归 n = {}\n", .{n});
+        if (n == 1) return;
+        linearRecur(n - 1);
+    }
+    ```
+
 ![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png)
 
 <p align="center"> 图 2-17 &nbsp; 递归函数产生的线性阶空间复杂度 </p>
@@ -1418,6 +1418,32 @@ $$
 ### 3. &nbsp; 平方阶 $O(n^2)$
 
 平方阶常见于矩阵和图，元素数量与 $n$ 成平方关系：
+
+=== "Python"
+
+    ```python title="space_complexity.py"
+    def quadratic(n: int):
+        """平方阶"""
+        # 二维列表占用 O(n^2) 空间
+        num_matrix = [[0] * n for _ in range(n)]
+    ```
+
+=== "C++"
+
+    ```cpp title="space_complexity.cpp"
+    /* 平方阶 */
+    void quadratic(int n) {
+        // 二维列表占用 O(n^2) 空间
+        vector<vector<int>> numMatrix;
+        for (int i = 0; i < n; i++) {
+            vector<int> tmp;
+            for (int j = 0; j < n; j++) {
+                tmp.push_back(0);
+            }
+            numMatrix.push_back(tmp);
+        }
+    }
+    ```
 
 === "Java"
 
@@ -1438,30 +1464,23 @@ $$
     }
     ```
 
-=== "C++"
+=== "C#"
 
-    ```cpp title="space_complexity.cpp"
+    ```csharp title="space_complexity.cs"
     /* 平方阶 */
     void quadratic(int n) {
+        // 矩阵占用 O(n^2) 空间
+        int[,] numMatrix = new int[n, n];
         // 二维列表占用 O(n^2) 空间
-        vector<vector<int>> numMatrix;
+        List<List<int>> numList = new();
         for (int i = 0; i < n; i++) {
-            vector<int> tmp;
+            List<int> tmp = new();
             for (int j = 0; j < n; j++) {
-                tmp.push_back(0);
+                tmp.Add(0);
             }
-            numMatrix.push_back(tmp);
+            numList.Add(tmp);
         }
     }
-    ```
-
-=== "Python"
-
-    ```python title="space_complexity.py"
-    def quadratic(n: int):
-        """平方阶"""
-        # 二维列表占用 O(n^2) 空间
-        num_matrix = [[0] * n for _ in range(n)]
     ```
 
 === "Go"
@@ -1474,6 +1493,16 @@ $$
         for i := 0; i < n; i++ {
             numMatrix[i] = make([]int, n)
         }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    /* 平方阶 */
+    func quadratic(n: Int) {
+        // 二维列表占用 O(n^2) 空间
+        let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
     }
     ```
 
@@ -1519,79 +1548,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="space_complexity.c"
-    /* 平方阶 */
-    void quadratic(int n) {
-        // 二维列表占用 O(n^2) 空间
-        int **numMatrix = malloc(sizeof(int *) * n);
-        for (int i = 0; i < n; i++) {
-            int *tmp = malloc(sizeof(int) * n);
-            for (int j = 0; j < n; j++) {
-                tmp[j] = 0;
-            }
-            numMatrix[i] = tmp;
-        }
-
-        // 内存释放
-        for (int i = 0; i < n; i++) {
-            free(numMatrix[i]);
-        }
-        free(numMatrix);
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="space_complexity.cs"
-    /* 平方阶 */
-    void quadratic(int n) {
-        // 矩阵占用 O(n^2) 空间
-        int[,] numMatrix = new int[n, n];
-        // 二维列表占用 O(n^2) 空间
-        List<List<int>> numList = new();
-        for (int i = 0; i < n; i++) {
-            List<int> tmp = new();
-            for (int j = 0; j < n; j++) {
-                tmp.Add(0);
-            }
-            numList.Add(tmp);
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="space_complexity.swift"
-    /* 平方阶 */
-    func quadratic(n: Int) {
-        // 二维列表占用 O(n^2) 空间
-        let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    // 平方阶
-    fn quadratic(n: i32) !void {
-        // 二维列表占用 O(n^2) 空间
-        var nodes = std.ArrayList(std.ArrayList(i32)).init(std.heap.page_allocator);
-        defer nodes.deinit();
-        var i: i32 = 0;
-        while (i < n) : (i += 1) {
-            var tmp = std.ArrayList(i32).init(std.heap.page_allocator);
-            defer tmp.deinit();
-            var j: i32 = 0;
-            while (j < n) : (j += 1) {
-                try tmp.append(0);
-            }
-            try nodes.append(tmp);
-        }
-    }
-    ```
-
 === "Dart"
 
     ```dart title="space_complexity.dart"
@@ -1631,20 +1587,62 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="space_complexity.c"
+    /* 平方阶 */
+    void quadratic(int n) {
+        // 二维列表占用 O(n^2) 空间
+        int **numMatrix = malloc(sizeof(int *) * n);
+        for (int i = 0; i < n; i++) {
+            int *tmp = malloc(sizeof(int) * n);
+            for (int j = 0; j < n; j++) {
+                tmp[j] = 0;
+            }
+            numMatrix[i] = tmp;
+        }
+
+        // 内存释放
+        for (int i = 0; i < n; i++) {
+            free(numMatrix[i]);
+        }
+        free(numMatrix);
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="space_complexity.zig"
+    // 平方阶
+    fn quadratic(n: i32) !void {
+        // 二维列表占用 O(n^2) 空间
+        var nodes = std.ArrayList(std.ArrayList(i32)).init(std.heap.page_allocator);
+        defer nodes.deinit();
+        var i: i32 = 0;
+        while (i < n) : (i += 1) {
+            var tmp = std.ArrayList(i32).init(std.heap.page_allocator);
+            defer tmp.deinit();
+            var j: i32 = 0;
+            while (j < n) : (j += 1) {
+                try tmp.append(0);
+            }
+            try nodes.append(tmp);
+        }
+    }
+    ```
+
 如图 2-18 所示，该函数的递归深度为 $n$ ，在每个递归函数中都初始化了一个数组，长度分别为 $n$、$n-1$、$\dots$、$2$、$1$ ，平均长度为 $n / 2$ ，因此总体占用 $O(n^2)$ 空间：
 
-=== "Java"
+=== "Python"
 
-    ```java title="space_complexity.java"
-    /* 平方阶（递归实现） */
-    int quadraticRecur(int n) {
-        if (n <= 0)
-            return 0;
-        // 数组 nums 长度为 n, n-1, ..., 2, 1
-        int[] nums = new int[n];
-        System.out.println("递归 n = " + n + " 中的 nums 长度 = " + nums.length);
-        return quadraticRecur(n - 1);
-    }
+    ```python title="space_complexity.py"
+    def quadratic_recur(n: int) -> int:
+        """平方阶（递归实现）"""
+        if n <= 0:
+            return 0
+        # 数组 nums 长度为 n, n-1, ..., 2, 1
+        nums = [0] * n
+        return quadratic_recur(n - 1)
     ```
 
 === "C++"
@@ -1660,16 +1658,30 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="space_complexity.py"
-    def quadratic_recur(n: int) -> int:
-        """平方阶（递归实现）"""
-        if n <= 0:
-            return 0
-        # 数组 nums 长度为 n, n-1, ..., 2, 1
-        nums = [0] * n
-        return quadratic_recur(n - 1)
+    ```java title="space_complexity.java"
+    /* 平方阶（递归实现） */
+    int quadraticRecur(int n) {
+        if (n <= 0)
+            return 0;
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
+        int[] nums = new int[n];
+        System.out.println("递归 n = " + n + " 中的 nums 长度 = " + nums.length);
+        return quadraticRecur(n - 1);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="space_complexity.cs"
+    /* 平方阶（递归实现） */
+    int quadraticRecur(int n) {
+        if (n <= 0) return 0;
+        int[] nums = new int[n];
+        Console.WriteLine("递归 n = " + n + " 中的 nums 长度 = " + nums.Length);
+        return quadraticRecur(n - 1);
+    }
     ```
 
 === "Go"
@@ -1683,6 +1695,22 @@ $$
         nums := make([]int, n)
         fmt.Printf("递归 n = %d 中的 nums 长度 = %d \n", n, len(nums))
         return spaceQuadraticRecur(n - 1)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    /* 平方阶（递归实现） */
+    @discardableResult
+    func quadraticRecur(n: Int) -> Int {
+        if n <= 0 {
+            return 0
+        }
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
+        let nums = Array(repeating: 0, count: n)
+        print("递归 n = \(n) 中的 nums 长度 = \(nums.count)")
+        return quadraticRecur(n: n - 1)
     }
     ```
 
@@ -1706,61 +1734,6 @@ $$
         if (n <= 0) return 0;
         const nums = new Array(n);
         console.log(`递归 n = ${n} 中的 nums 长度 = ${nums.length}`);
-        return quadraticRecur(n - 1);
-    }
-    ```
-
-=== "C"
-
-    ```c title="space_complexity.c"
-    /* 平方阶（递归实现） */
-    int quadraticRecur(int n) {
-        if (n <= 0)
-            return 0;
-        int *nums = malloc(sizeof(int) * n);
-        printf("递归 n = %d 中的 nums 长度 = %d\r\n", n, n);
-        int res = quadraticRecur(n - 1);
-        free(nums);
-        return res;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="space_complexity.cs"
-    /* 平方阶（递归实现） */
-    int quadraticRecur(int n) {
-        if (n <= 0) return 0;
-        int[] nums = new int[n];
-        Console.WriteLine("递归 n = " + n + " 中的 nums 长度 = " + nums.Length);
-        return quadraticRecur(n - 1);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="space_complexity.swift"
-    /* 平方阶（递归实现） */
-    @discardableResult
-    func quadraticRecur(n: Int) -> Int {
-        if n <= 0 {
-            return 0
-        }
-        // 数组 nums 长度为 n, n-1, ..., 2, 1
-        let nums = Array(repeating: 0, count: n)
-        print("递归 n = \(n) 中的 nums 长度 = \(nums.count)")
-        return quadraticRecur(n: n - 1)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    // 平方阶（递归实现）
-    fn quadraticRecur(comptime n: i32) i32 {
-        if (n <= 0) return 0;
-        var nums = [_]i32{0}**n;
-        std.debug.print("递归 n = {} 中的 nums 长度 = {}\n", .{n, nums.len});
         return quadraticRecur(n - 1);
     }
     ```
@@ -1790,6 +1763,33 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="space_complexity.c"
+    /* 平方阶（递归实现） */
+    int quadraticRecur(int n) {
+        if (n <= 0)
+            return 0;
+        int *nums = malloc(sizeof(int) * n);
+        printf("递归 n = %d 中的 nums 长度 = %d\r\n", n, n);
+        int res = quadraticRecur(n - 1);
+        free(nums);
+        return res;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="space_complexity.zig"
+    // 平方阶（递归实现）
+    fn quadraticRecur(comptime n: i32) i32 {
+        if (n <= 0) return 0;
+        var nums = [_]i32{0}**n;
+        std.debug.print("递归 n = {} 中的 nums 长度 = {}\n", .{n, nums.len});
+        return quadraticRecur(n - 1);
+    }
+    ```
+
 ![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
 <p align="center"> 图 2-18 &nbsp; 递归函数产生的平方阶空间复杂度 </p>
@@ -1798,18 +1798,17 @@ $$
 
 指数阶常见于二叉树。观察图 2-19 ，高度为 $n$ 的“满二叉树”的节点数量为 $2^n - 1$ ，占用 $O(2^n)$ 空间：
 
-=== "Java"
+=== "Python"
 
-    ```java title="space_complexity.java"
-    /* 指数阶（建立满二叉树） */
-    TreeNode buildTree(int n) {
-        if (n == 0)
-            return null;
-        TreeNode root = new TreeNode(0);
-        root.left = buildTree(n - 1);
-        root.right = buildTree(n - 1);
-        return root;
-    }
+    ```python title="space_complexity.py"
+    def build_tree(n: int) -> TreeNode | None:
+        """指数阶（建立满二叉树）"""
+        if n == 0:
+            return None
+        root = TreeNode(0)
+        root.left = build_tree(n - 1)
+        root.right = build_tree(n - 1)
+        return root
     ```
 
 === "C++"
@@ -1826,17 +1825,31 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="space_complexity.py"
-    def build_tree(n: int) -> TreeNode | None:
-        """指数阶（建立满二叉树）"""
-        if n == 0:
-            return None
-        root = TreeNode(0)
-        root.left = build_tree(n - 1)
-        root.right = build_tree(n - 1)
-        return root
+    ```java title="space_complexity.java"
+    /* 指数阶（建立满二叉树） */
+    TreeNode buildTree(int n) {
+        if (n == 0)
+            return null;
+        TreeNode root = new TreeNode(0);
+        root.left = buildTree(n - 1);
+        root.right = buildTree(n - 1);
+        return root;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="space_complexity.cs"
+    /* 指数阶（建立满二叉树） */
+    TreeNode? buildTree(int n) {
+        if (n == 0) return null;
+        TreeNode root = new TreeNode(0);
+        root.left = buildTree(n - 1);
+        root.right = buildTree(n - 1);
+        return root;
+    }
     ```
 
 === "Go"
@@ -1850,6 +1863,21 @@ $$
         root := newTreeNode(0)
         root.left = buildTree(n - 1)
         root.right = buildTree(n - 1)
+        return root
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="space_complexity.swift"
+    /* 指数阶（建立满二叉树） */
+    func buildTree(n: Int) -> TreeNode? {
+        if n == 0 {
+            return nil
+        }
+        let root = TreeNode(x: 0)
+        root.left = buildTree(n: n - 1)
+        root.right = buildTree(n: n - 1)
         return root
     }
     ```
@@ -1880,62 +1908,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="space_complexity.c"
-    /* 指数阶（建立满二叉树） */
-    TreeNode *buildTree(int n) {
-        if (n == 0)
-            return NULL;
-        TreeNode *root = newTreeNode(0);
-        root->left = buildTree(n - 1);
-        root->right = buildTree(n - 1);
-        return root;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="space_complexity.cs"
-    /* 指数阶（建立满二叉树） */
-    TreeNode? buildTree(int n) {
-        if (n == 0) return null;
-        TreeNode root = new TreeNode(0);
-        root.left = buildTree(n - 1);
-        root.right = buildTree(n - 1);
-        return root;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="space_complexity.swift"
-    /* 指数阶（建立满二叉树） */
-    func buildTree(n: Int) -> TreeNode? {
-        if n == 0 {
-            return nil
-        }
-        let root = TreeNode(x: 0)
-        root.left = buildTree(n: n - 1)
-        root.right = buildTree(n: n - 1)
-        return root
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    // 指数阶（建立满二叉树）
-    fn buildTree(mem_allocator: std.mem.Allocator, n: i32) !?*inc.TreeNode(i32) {
-        if (n == 0) return null;
-        const root = try mem_allocator.create(inc.TreeNode(i32));
-        root.init(0);
-        root.left = try buildTree(mem_allocator, n - 1);
-        root.right = try buildTree(mem_allocator, n - 1);
-        return root;
-    }
-    ```
-
 === "Dart"
 
     ```dart title="space_complexity.dart"
@@ -1959,6 +1931,34 @@ $$
         root.borrow_mut().left = build_tree(n - 1);
         root.borrow_mut().right = build_tree(n - 1);
         return Some(root);
+    }
+    ```
+
+=== "C"
+
+    ```c title="space_complexity.c"
+    /* 指数阶（建立满二叉树） */
+    TreeNode *buildTree(int n) {
+        if (n == 0)
+            return NULL;
+        TreeNode *root = newTreeNode(0);
+        root->left = buildTree(n - 1);
+        root->right = buildTree(n - 1);
+        return root;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="space_complexity.zig"
+    // 指数阶（建立满二叉树）
+    fn buildTree(mem_allocator: std.mem.Allocator, n: i32) !?*inc.TreeNode(i32) {
+        if (n == 0) return null;
+        const root = try mem_allocator.create(inc.TreeNode(i32));
+        root.init(0);
+        root.left = try buildTree(mem_allocator, n - 1);
+        root.right = try buildTree(mem_allocator, n - 1);
+        return root;
     }
     ```
 

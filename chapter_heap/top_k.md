@@ -76,26 +76,22 @@ comments: true
 
 另外，该方法适用于动态数据流的使用场景。在不断加入数据时，我们可以持续维护堆内的元素，从而实现最大 $k$ 个元素的动态更新。
 
-=== "Java"
+=== "Python"
 
-    ```java title="top_k.java"
-    /* 基于堆查找数组中最大的 k 个元素 */
-    Queue<Integer> topKHeap(int[] nums, int k) {
-        Queue<Integer> heap = new PriorityQueue<Integer>();
-        // 将数组的前 k 个元素入堆
-        for (int i = 0; i < k; i++) {
-            heap.offer(nums[i]);
-        }
-        // 从第 k+1 个元素开始，保持堆的长度为 k
-        for (int i = k; i < nums.length; i++) {
-            // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
-            if (nums[i] > heap.peek()) {
-                heap.poll();
-                heap.offer(nums[i]);
-            }
-        }
-        return heap;
-    }
+    ```python title="top_k.py"
+    def top_k_heap(nums: list[int], k: int) -> list[int]:
+        """基于堆查找数组中最大的 k 个元素"""
+        heap = []
+        # 将数组的前 k 个元素入堆
+        for i in range(k):
+            heapq.heappush(heap, nums[i])
+        # 从第 k+1 个元素开始，保持堆的长度为 k
+        for i in range(k, len(nums)):
+            # 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+            if nums[i] > heap[0]:
+                heapq.heappop(heap)
+                heapq.heappush(heap, nums[i])
+        return heap
     ```
 
 === "C++"
@@ -120,22 +116,48 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="top_k.py"
-    def top_k_heap(nums: list[int], k: int) -> list[int]:
-        """基于堆查找数组中最大的 k 个元素"""
-        heap = []
-        # 将数组的前 k 个元素入堆
-        for i in range(k):
-            heapq.heappush(heap, nums[i])
-        # 从第 k+1 个元素开始，保持堆的长度为 k
-        for i in range(k, len(nums)):
-            # 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
-            if nums[i] > heap[0]:
-                heapq.heappop(heap)
-                heapq.heappush(heap, nums[i])
-        return heap
+    ```java title="top_k.java"
+    /* 基于堆查找数组中最大的 k 个元素 */
+    Queue<Integer> topKHeap(int[] nums, int k) {
+        Queue<Integer> heap = new PriorityQueue<Integer>();
+        // 将数组的前 k 个元素入堆
+        for (int i = 0; i < k; i++) {
+            heap.offer(nums[i]);
+        }
+        // 从第 k+1 个元素开始，保持堆的长度为 k
+        for (int i = k; i < nums.length; i++) {
+            // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+            if (nums[i] > heap.peek()) {
+                heap.poll();
+                heap.offer(nums[i]);
+            }
+        }
+        return heap;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="top_k.cs"
+    /* 基于堆查找数组中最大的 k 个元素 */
+    PriorityQueue<int, int> topKHeap(int[] nums, int k) {
+        PriorityQueue<int, int> heap = new PriorityQueue<int, int>();
+        // 将数组的前 k 个元素入堆
+        for (int i = 0; i < k; i++) {
+            heap.Enqueue(nums[i], nums[i]);
+        }
+        // 从第 k+1 个元素开始，保持堆的长度为 k
+        for (int i = k; i < nums.Length; i++) {
+            // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+            if (nums[i] > heap.Peek()) {
+                heap.Dequeue();
+                heap.Enqueue(nums[i], nums[i]);
+            }
+        }
+        return heap;
+    }
     ```
 
 === "Go"
@@ -161,46 +183,6 @@ comments: true
     }
     ```
 
-=== "JS"
-
-    ```javascript title="top_k.js"
-    [class]{}-[func]{topKHeap}
-    ```
-
-=== "TS"
-
-    ```typescript title="top_k.ts"
-    [class]{}-[func]{topKHeap}
-    ```
-
-=== "C"
-
-    ```c title="top_k.c"
-    [class]{}-[func]{topKHeap}
-    ```
-
-=== "C#"
-
-    ```csharp title="top_k.cs"
-    /* 基于堆查找数组中最大的 k 个元素 */
-    PriorityQueue<int, int> topKHeap(int[] nums, int k) {
-        PriorityQueue<int, int> heap = new PriorityQueue<int, int>();
-        // 将数组的前 k 个元素入堆
-        for (int i = 0; i < k; i++) {
-            heap.Enqueue(nums[i], nums[i]);
-        }
-        // 从第 k+1 个元素开始，保持堆的长度为 k
-        for (int i = k; i < nums.Length; i++) {
-            // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
-            if (nums[i] > heap.Peek()) {
-                heap.Dequeue();
-                heap.Enqueue(nums[i], nums[i]);
-            }
-        }
-        return heap;
-    }
-    ```
-
 === "Swift"
 
     ```swift title="top_k.swift"
@@ -220,9 +202,15 @@ comments: true
     }
     ```
 
-=== "Zig"
+=== "JS"
 
-    ```zig title="top_k.zig"
+    ```javascript title="top_k.js"
+    [class]{}-[func]{topKHeap}
+    ```
+
+=== "TS"
+
+    ```typescript title="top_k.ts"
     [class]{}-[func]{topKHeap}
     ```
 
@@ -266,4 +254,16 @@ comments: true
         }
         heap
     }
+    ```
+
+=== "C"
+
+    ```c title="top_k.c"
+    [class]{}-[func]{topKHeap}
+    ```
+
+=== "Zig"
+
+    ```zig title="top_k.zig"
+    [class]{}-[func]{topKHeap}
     ```

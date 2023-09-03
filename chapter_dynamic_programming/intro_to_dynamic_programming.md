@@ -21,34 +21,30 @@ status: new
 
 本题的目标是求解方案数量，**我们可以考虑通过回溯来穷举所有可能性**。具体来说，将爬楼梯想象为一个多轮选择的过程：从地面出发，每轮选择上 $1$ 阶或 $2$ 阶，每当到达楼梯顶部时就将方案数量加 $1$ ，当越过楼梯顶部时就将其剪枝。
 
-=== "Java"
+=== "Python"
 
-    ```java title="climbing_stairs_backtrack.java"
-    /* 回溯 */
-    void backtrack(List<Integer> choices, int state, int n, List<Integer> res) {
-        // 当爬到第 n 阶时，方案数量加 1
-        if (state == n)
-            res.set(0, res.get(0) + 1);
-        // 遍历所有选择
-        for (Integer choice : choices) {
-            // 剪枝：不允许越过第 n 阶
-            if (state + choice > n)
-                break;
-            // 尝试：做出选择，更新状态
-            backtrack(choices, state + choice, n, res);
-            // 回退
-        }
-    }
+    ```python title="climbing_stairs_backtrack.py"
+    def backtrack(choices: list[int], state: int, n: int, res: list[int]) -> int:
+        """回溯"""
+        # 当爬到第 n 阶时，方案数量加 1
+        if state == n:
+            res[0] += 1
+        # 遍历所有选择
+        for choice in choices:
+            # 剪枝：不允许越过第 n 阶
+            if state + choice > n:
+                break
+            # 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res)
+            # 回退
 
-    /* 爬楼梯：回溯 */
-    int climbingStairsBacktrack(int n) {
-        List<Integer> choices = Arrays.asList(1, 2); // 可选择向上爬 1 或 2 阶
-        int state = 0; // 从第 0 阶开始爬
-        List<Integer> res = new ArrayList<>();
-        res.add(0); // 使用 res[0] 记录方案数量
-        backtrack(choices, state, n, res);
-        return res.get(0);
-    }
+    def climbing_stairs_backtrack(n: int) -> int:
+        """爬楼梯：回溯"""
+        choices = [1, 2]  # 可选择向上爬 1 或 2 阶
+        state = 0  # 从第 0 阶开始爬
+        res = [0]  # 使用 res[0] 记录方案数量
+        backtrack(choices, state, n, res)
+        return res[0]
     ```
 
 === "C++"
@@ -80,30 +76,63 @@ status: new
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="climbing_stairs_backtrack.py"
-    def backtrack(choices: list[int], state: int, n: int, res: list[int]) -> int:
-        """回溯"""
-        # 当爬到第 n 阶时，方案数量加 1
-        if state == n:
-            res[0] += 1
-        # 遍历所有选择
-        for choice in choices:
-            # 剪枝：不允许越过第 n 阶
-            if state + choice > n:
-                break
-            # 尝试：做出选择，更新状态
-            backtrack(choices, state + choice, n, res)
-            # 回退
+    ```java title="climbing_stairs_backtrack.java"
+    /* 回溯 */
+    void backtrack(List<Integer> choices, int state, int n, List<Integer> res) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if (state == n)
+            res.set(0, res.get(0) + 1);
+        // 遍历所有选择
+        for (Integer choice : choices) {
+            // 剪枝：不允许越过第 n 阶
+            if (state + choice > n)
+                break;
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res);
+            // 回退
+        }
+    }
 
-    def climbing_stairs_backtrack(n: int) -> int:
-        """爬楼梯：回溯"""
-        choices = [1, 2]  # 可选择向上爬 1 或 2 阶
-        state = 0  # 从第 0 阶开始爬
-        res = [0]  # 使用 res[0] 记录方案数量
-        backtrack(choices, state, n, res)
-        return res[0]
+    /* 爬楼梯：回溯 */
+    int climbingStairsBacktrack(int n) {
+        List<Integer> choices = Arrays.asList(1, 2); // 可选择向上爬 1 或 2 阶
+        int state = 0; // 从第 0 阶开始爬
+        List<Integer> res = new ArrayList<>();
+        res.add(0); // 使用 res[0] 记录方案数量
+        backtrack(choices, state, n, res);
+        return res.get(0);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="climbing_stairs_backtrack.cs"
+    /* 回溯 */
+    void backtrack(List<int> choices, int state, int n, List<int> res) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if (state == n)
+            res[0]++;
+        // 遍历所有选择
+        foreach (int choice in choices) {
+            // 剪枝：不允许越过第 n 阶
+            if (state + choice > n)
+                break;
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res);
+            // 回退
+        }
+    }
+
+    /* 爬楼梯：回溯 */
+    int climbingStairsBacktrack(int n) {
+        List<int> choices = new List<int> { 1, 2 }; // 可选择向上爬 1 或 2 阶
+        int state = 0; // 从第 0 阶开始爬
+        List<int> res = new List<int> { 0 }; // 使用 res[0] 记录方案数量
+        backtrack(choices, state, n, res);
+        return res[0];
+    }
     ```
 
 === "Go"
@@ -137,6 +166,36 @@ status: new
         // 使用 res[0] 记录方案数量
         res[0] = 0
         backtrack(choices, state, n, res)
+        return res[0]
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="climbing_stairs_backtrack.swift"
+    /* 回溯 */
+    func backtrack(choices: [Int], state: Int, n: Int, res: inout [Int]) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if state == n {
+            res[0] += 1
+        }
+        // 遍历所有选择
+        for choice in choices {
+            // 剪枝：不允许越过第 n 阶
+            if state + choice > n {
+                break
+            }
+            backtrack(choices: choices, state: state + choice, n: n, res: &res)
+        }
+    }
+
+    /* 爬楼梯：回溯 */
+    func climbingStairsBacktrack(n: Int) -> Int {
+        let choices = [1, 2] // 可选择向上爬 1 或 2 阶
+        let state = 0 // 从第 0 阶开始爬
+        var res: [Int] = []
+        res.append(0) // 使用 res[0] 记录方案数量
+        backtrack(choices: choices, state: state, n: n, res: &res)
         return res[0]
     }
     ```
@@ -202,106 +261,6 @@ status: new
     }
     ```
 
-=== "C"
-
-    ```c title="climbing_stairs_backtrack.c"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{climbingStairsBacktrack}
-    ```
-
-=== "C#"
-
-    ```csharp title="climbing_stairs_backtrack.cs"
-    /* 回溯 */
-    void backtrack(List<int> choices, int state, int n, List<int> res) {
-        // 当爬到第 n 阶时，方案数量加 1
-        if (state == n)
-            res[0]++;
-        // 遍历所有选择
-        foreach (int choice in choices) {
-            // 剪枝：不允许越过第 n 阶
-            if (state + choice > n)
-                break;
-            // 尝试：做出选择，更新状态
-            backtrack(choices, state + choice, n, res);
-            // 回退
-        }
-    }
-
-    /* 爬楼梯：回溯 */
-    int climbingStairsBacktrack(int n) {
-        List<int> choices = new List<int> { 1, 2 }; // 可选择向上爬 1 或 2 阶
-        int state = 0; // 从第 0 阶开始爬
-        List<int> res = new List<int> { 0 }; // 使用 res[0] 记录方案数量
-        backtrack(choices, state, n, res);
-        return res[0];
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="climbing_stairs_backtrack.swift"
-    /* 回溯 */
-    func backtrack(choices: [Int], state: Int, n: Int, res: inout [Int]) {
-        // 当爬到第 n 阶时，方案数量加 1
-        if state == n {
-            res[0] += 1
-        }
-        // 遍历所有选择
-        for choice in choices {
-            // 剪枝：不允许越过第 n 阶
-            if state + choice > n {
-                break
-            }
-            backtrack(choices: choices, state: state + choice, n: n, res: &res)
-        }
-    }
-
-    /* 爬楼梯：回溯 */
-    func climbingStairsBacktrack(n: Int) -> Int {
-        let choices = [1, 2] // 可选择向上爬 1 或 2 阶
-        let state = 0 // 从第 0 阶开始爬
-        var res: [Int] = []
-        res.append(0) // 使用 res[0] 记录方案数量
-        backtrack(choices: choices, state: state, n: n, res: &res)
-        return res[0]
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_backtrack.zig"
-    // 回溯
-    fn backtrack(choices: []i32, state: i32, n: i32, res: std.ArrayList(i32)) void {
-        // 当爬到第 n 阶时，方案数量加 1
-        if (state == n) {
-            res.items[0] = res.items[0] + 1;
-        }
-        // 遍历所有选择
-        for (choices) |choice| {
-            // 剪枝：不允许越过第 n 阶
-            if (state + choice > n) {
-                break;
-            }
-            // 尝试：做出选择，更新状态
-            backtrack(choices, state + choice, n, res);
-            // 回退
-        }
-    }
-
-    // 爬楼梯：回溯
-    fn climbingStairsBacktrack(n: usize) !i32 {
-        var choices = [_]i32{ 1, 2 }; // 可选择向上爬 1 或 2 阶
-        var state: i32 = 0; // 从第 0 阶开始爬
-        var res = std.ArrayList(i32).init(std.heap.page_allocator);
-        defer res.deinit();
-        try res.append(0); // 使用 res[0] 记录方案数量
-        backtrack(&choices, state, @intCast(n), res);
-        return res.items[0];
-    }
-    ```
-
 === "Dart"
 
     ```dart title="climbing_stairs_backtrack.dart"
@@ -360,6 +319,47 @@ status: new
     }
     ```
 
+=== "C"
+
+    ```c title="climbing_stairs_backtrack.c"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{climbingStairsBacktrack}
+    ```
+
+=== "Zig"
+
+    ```zig title="climbing_stairs_backtrack.zig"
+    // 回溯
+    fn backtrack(choices: []i32, state: i32, n: i32, res: std.ArrayList(i32)) void {
+        // 当爬到第 n 阶时，方案数量加 1
+        if (state == n) {
+            res.items[0] = res.items[0] + 1;
+        }
+        // 遍历所有选择
+        for (choices) |choice| {
+            // 剪枝：不允许越过第 n 阶
+            if (state + choice > n) {
+                break;
+            }
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res);
+            // 回退
+        }
+    }
+
+    // 爬楼梯：回溯
+    fn climbingStairsBacktrack(n: usize) !i32 {
+        var choices = [_]i32{ 1, 2 }; // 可选择向上爬 1 或 2 阶
+        var state: i32 = 0; // 从第 0 阶开始爬
+        var res = std.ArrayList(i32).init(std.heap.page_allocator);
+        defer res.deinit();
+        try res.append(0); // 使用 res[0] 记录方案数量
+        backtrack(&choices, state, @intCast(n), res);
+        return res.items[0];
+    }
+    ```
+
 ## 14.1.1 &nbsp; 方法一：暴力搜索
 
 回溯算法通常并不显式地对问题进行拆解，而是将问题看作一系列决策步骤，通过试探和剪枝，搜索所有可能的解。
@@ -388,23 +388,21 @@ $$
 
 观察以下代码，它和标准回溯代码都属于深度优先搜索，但更加简洁。
 
-=== "Java"
+=== "Python"
 
-    ```java title="climbing_stairs_dfs.java"
-    /* 搜索 */
-    int dfs(int i) {
-        // 已知 dp[1] 和 dp[2] ，返回之
-        if (i == 1 || i == 2)
-            return i;
-        // dp[i] = dp[i-1] + dp[i-2]
-        int count = dfs(i - 1) + dfs(i - 2);
-        return count;
-    }
+    ```python title="climbing_stairs_dfs.py"
+    def dfs(i: int) -> int:
+        """搜索"""
+        # 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 or i == 2:
+            return i
+        # dp[i] = dp[i-1] + dp[i-2]
+        count = dfs(i - 1) + dfs(i - 2)
+        return count
 
-    /* 爬楼梯：搜索 */
-    int climbingStairsDFS(int n) {
-        return dfs(n);
-    }
+    def climbing_stairs_dfs(n: int) -> int:
+        """爬楼梯：搜索"""
+        return dfs(n)
     ```
 
 === "C++"
@@ -426,21 +424,42 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="climbing_stairs_dfs.py"
-    def dfs(i: int) -> int:
-        """搜索"""
-        # 已知 dp[1] 和 dp[2] ，返回之
-        if i == 1 or i == 2:
-            return i
-        # dp[i] = dp[i-1] + dp[i-2]
-        count = dfs(i - 1) + dfs(i - 2)
-        return count
+    ```java title="climbing_stairs_dfs.java"
+    /* 搜索 */
+    int dfs(int i) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2)
+            return i;
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1) + dfs(i - 2);
+        return count;
+    }
 
-    def climbing_stairs_dfs(n: int) -> int:
-        """爬楼梯：搜索"""
-        return dfs(n)
+    /* 爬楼梯：搜索 */
+    int climbingStairsDFS(int n) {
+        return dfs(n);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="climbing_stairs_dfs.cs"
+    /* 搜索 */
+    int dfs(int i) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2)
+            return i;
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1) + dfs(i - 2);
+        return count;
+    }
+
+    /* 爬楼梯：搜索 */
+    int climbingStairsDFS(int n) {
+        return dfs(n);
+    }
     ```
 
 === "Go"
@@ -460,6 +479,26 @@ $$
     /* 爬楼梯：搜索 */
     func climbingStairsDFS(n int) int {
         return dfs(n)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="climbing_stairs_dfs.swift"
+    /* 搜索 */
+    func dfs(i: Int) -> Int {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 || i == 2 {
+            return i
+        }
+        // dp[i] = dp[i-1] + dp[i-2]
+        let count = dfs(i: i - 1) + dfs(i: i - 2)
+        return count
+    }
+
+    /* 爬楼梯：搜索 */
+    func climbingStairsDFS(n: Int) -> Int {
+        dfs(i: n)
     }
     ```
 
@@ -495,73 +534,6 @@ $$
 
     /* 爬楼梯：搜索 */
     function climbingStairsDFS(n: number): number {
-        return dfs(n);
-    }
-    ```
-
-=== "C"
-
-    ```c title="climbing_stairs_dfs.c"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFS}
-    ```
-
-=== "C#"
-
-    ```csharp title="climbing_stairs_dfs.cs"
-    /* 搜索 */
-    int dfs(int i) {
-        // 已知 dp[1] 和 dp[2] ，返回之
-        if (i == 1 || i == 2)
-            return i;
-        // dp[i] = dp[i-1] + dp[i-2]
-        int count = dfs(i - 1) + dfs(i - 2);
-        return count;
-    }
-
-    /* 爬楼梯：搜索 */
-    int climbingStairsDFS(int n) {
-        return dfs(n);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="climbing_stairs_dfs.swift"
-    /* 搜索 */
-    func dfs(i: Int) -> Int {
-        // 已知 dp[1] 和 dp[2] ，返回之
-        if i == 1 || i == 2 {
-            return i
-        }
-        // dp[i] = dp[i-1] + dp[i-2]
-        let count = dfs(i: i - 1) + dfs(i: i - 2)
-        return count
-    }
-
-    /* 爬楼梯：搜索 */
-    func climbingStairsDFS(n: Int) -> Int {
-        dfs(i: n)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_dfs.zig"
-    // 搜索
-    fn dfs(i: usize) i32 {
-        // 已知 dp[1] 和 dp[2] ，返回之
-        if (i == 1 or i == 2) {
-            return @intCast(i);
-        }
-        // dp[i] = dp[i-1] + dp[i-2]
-        var count = dfs(i - 1) + dfs(i - 2);
-        return count;
-    }
-
-    // 爬楼梯：搜索
-    fn climbingStairsDFS(comptime n: usize) i32 {
         return dfs(n);
     }
     ```
@@ -602,6 +574,34 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="climbing_stairs_dfs.c"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{climbingStairsDFS}
+    ```
+
+=== "Zig"
+
+    ```zig title="climbing_stairs_dfs.zig"
+    // 搜索
+    fn dfs(i: usize) i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 or i == 2) {
+            return @intCast(i);
+        }
+        // dp[i] = dp[i-1] + dp[i-2]
+        var count = dfs(i - 1) + dfs(i - 2);
+        return count;
+    }
+
+    // 爬楼梯：搜索
+    fn climbingStairsDFS(comptime n: usize) i32 {
+        return dfs(n);
+    }
+    ```
+
 图 14-3 展示了暴力搜索形成的递归树。对于问题 $dp[n]$ ，其递归树的深度为 $n$ ，时间复杂度为 $O(2^n)$ 。指数阶属于爆炸式增长，如果我们输入一个比较大的 $n$ ，则会陷入漫长的等待之中。
 
 ![爬楼梯对应递归树](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png)
@@ -619,31 +619,28 @@ $$
 1. 当首次计算 $dp[i]$ 时，我们将其记录至 `mem[i]` ，以便之后使用。
 2. 当再次需要计算 $dp[i]$ 时，我们便可直接从 `mem[i]` 中获取结果，从而避免重复计算该子问题。
 
-=== "Java"
+=== "Python"
 
-    ```java title="climbing_stairs_dfs_mem.java"
-    /* 记忆化搜索 */
-    int dfs(int i, int[] mem) {
-        // 已知 dp[1] 和 dp[2] ，返回之
-        if (i == 1 || i == 2)
-            return i;
-        // 若存在记录 dp[i] ，则直接返回之
-        if (mem[i] != -1)
-            return mem[i];
-        // dp[i] = dp[i-1] + dp[i-2]
-        int count = dfs(i - 1, mem) + dfs(i - 2, mem);
-        // 记录 dp[i]
-        mem[i] = count;
-        return count;
-    }
+    ```python title="climbing_stairs_dfs_mem.py"
+    def dfs(i: int, mem: list[int]) -> int:
+        """记忆化搜索"""
+        # 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 or i == 2:
+            return i
+        # 若存在记录 dp[i] ，则直接返回之
+        if mem[i] != -1:
+            return mem[i]
+        # dp[i] = dp[i-1] + dp[i-2]
+        count = dfs(i - 1, mem) + dfs(i - 2, mem)
+        # 记录 dp[i]
+        mem[i] = count
+        return count
 
-    /* 爬楼梯：记忆化搜索 */
-    int climbingStairsDFSMem(int n) {
-        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
-        int[] mem = new int[n + 1];
-        Arrays.fill(mem, -1);
-        return dfs(n, mem);
-    }
+    def climbing_stairs_dfs_mem(n: int) -> int:
+        """爬楼梯：记忆化搜索"""
+        # mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        mem = [-1] * (n + 1)
+        return dfs(n, mem)
     ```
 
 === "C++"
@@ -672,28 +669,58 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="climbing_stairs_dfs_mem.py"
-    def dfs(i: int, mem: list[int]) -> int:
-        """记忆化搜索"""
-        # 已知 dp[1] 和 dp[2] ，返回之
-        if i == 1 or i == 2:
-            return i
-        # 若存在记录 dp[i] ，则直接返回之
-        if mem[i] != -1:
-            return mem[i]
-        # dp[i] = dp[i-1] + dp[i-2]
-        count = dfs(i - 1, mem) + dfs(i - 2, mem)
-        # 记录 dp[i]
-        mem[i] = count
-        return count
+    ```java title="climbing_stairs_dfs_mem.java"
+    /* 记忆化搜索 */
+    int dfs(int i, int[] mem) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2)
+            return i;
+        // 若存在记录 dp[i] ，则直接返回之
+        if (mem[i] != -1)
+            return mem[i];
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // 记录 dp[i]
+        mem[i] = count;
+        return count;
+    }
 
-    def climbing_stairs_dfs_mem(n: int) -> int:
-        """爬楼梯：记忆化搜索"""
-        # mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
-        mem = [-1] * (n + 1)
-        return dfs(n, mem)
+    /* 爬楼梯：记忆化搜索 */
+    int climbingStairsDFSMem(int n) {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        int[] mem = new int[n + 1];
+        Arrays.fill(mem, -1);
+        return dfs(n, mem);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="climbing_stairs_dfs_mem.cs"
+    /* 记忆化搜索 */
+    int dfs(int i, int[] mem) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2)
+            return i;
+        // 若存在记录 dp[i] ，则直接返回之
+        if (mem[i] != -1)
+            return mem[i];
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // 记录 dp[i]
+        mem[i] = count;
+        return count;
+    }
+
+    /* 爬楼梯：记忆化搜索 */
+    int climbingStairsDFSMem(int n) {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        int[] mem = new int[n + 1];
+        Array.Fill(mem, -1);
+        return dfs(n, mem);
+    }
     ```
 
 === "Go"
@@ -724,6 +751,34 @@ $$
             mem[i] = -1
         }
         return dfsMem(n, mem)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="climbing_stairs_dfs_mem.swift"
+    /* 记忆化搜索 */
+    func dfs(i: Int, mem: inout [Int]) -> Int {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 || i == 2 {
+            return i
+        }
+        // 若存在记录 dp[i] ，则直接返回之
+        if mem[i] != -1 {
+            return mem[i]
+        }
+        // dp[i] = dp[i-1] + dp[i-2]
+        let count = dfs(i: i - 1, mem: &mem) + dfs(i: i - 2, mem: &mem)
+        // 记录 dp[i]
+        mem[i] = count
+        return count
+    }
+
+    /* 爬楼梯：记忆化搜索 */
+    func climbingStairsDFSMem(n: Int) -> Int {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        var mem = Array(repeating: -1, count: n + 1)
+        return dfs(i: n, mem: &mem)
     }
     ```
 
@@ -775,97 +830,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="climbing_stairs_dfs_mem.c"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFSMem}
-    ```
-
-=== "C#"
-
-    ```csharp title="climbing_stairs_dfs_mem.cs"
-    /* 记忆化搜索 */
-    int dfs(int i, int[] mem) {
-        // 已知 dp[1] 和 dp[2] ，返回之
-        if (i == 1 || i == 2)
-            return i;
-        // 若存在记录 dp[i] ，则直接返回之
-        if (mem[i] != -1)
-            return mem[i];
-        // dp[i] = dp[i-1] + dp[i-2]
-        int count = dfs(i - 1, mem) + dfs(i - 2, mem);
-        // 记录 dp[i]
-        mem[i] = count;
-        return count;
-    }
-
-    /* 爬楼梯：记忆化搜索 */
-    int climbingStairsDFSMem(int n) {
-        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
-        int[] mem = new int[n + 1];
-        Array.Fill(mem, -1);
-        return dfs(n, mem);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="climbing_stairs_dfs_mem.swift"
-    /* 记忆化搜索 */
-    func dfs(i: Int, mem: inout [Int]) -> Int {
-        // 已知 dp[1] 和 dp[2] ，返回之
-        if i == 1 || i == 2 {
-            return i
-        }
-        // 若存在记录 dp[i] ，则直接返回之
-        if mem[i] != -1 {
-            return mem[i]
-        }
-        // dp[i] = dp[i-1] + dp[i-2]
-        let count = dfs(i: i - 1, mem: &mem) + dfs(i: i - 2, mem: &mem)
-        // 记录 dp[i]
-        mem[i] = count
-        return count
-    }
-
-    /* 爬楼梯：记忆化搜索 */
-    func climbingStairsDFSMem(n: Int) -> Int {
-        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
-        var mem = Array(repeating: -1, count: n + 1)
-        return dfs(i: n, mem: &mem)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_dfs_mem.zig"
-    // 记忆化搜索
-    fn dfs(i: usize, mem: []i32) i32 {
-        // 已知 dp[1] 和 dp[2] ，返回之
-        if (i == 1 or i == 2) {
-            return @intCast(i);
-        }
-        // 若存在记录 dp[i] ，则直接返回之
-        if (mem[i] != -1) {
-            return mem[i];
-        }
-        // dp[i] = dp[i-1] + dp[i-2]
-        var count = dfs(i - 1, mem) + dfs(i - 2, mem);
-        // 记录 dp[i]
-        mem[i] = count;
-        return count;
-    }
-
-    // 爬楼梯：记忆化搜索
-    fn climbingStairsDFSMem(comptime n: usize) i32 {
-        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
-        var mem = [_]i32{ -1 } ** (n + 1);
-        return dfs(n, &mem);
-    }
-    ```
-
 === "Dart"
 
     ```dart title="climbing_stairs_dfs_mem.dart"
@@ -914,6 +878,42 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="climbing_stairs_dfs_mem.c"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{climbingStairsDFSMem}
+    ```
+
+=== "Zig"
+
+    ```zig title="climbing_stairs_dfs_mem.zig"
+    // 记忆化搜索
+    fn dfs(i: usize, mem: []i32) i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 or i == 2) {
+            return @intCast(i);
+        }
+        // 若存在记录 dp[i] ，则直接返回之
+        if (mem[i] != -1) {
+            return mem[i];
+        }
+        // dp[i] = dp[i-1] + dp[i-2]
+        var count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // 记录 dp[i]
+        mem[i] = count;
+        return count;
+    }
+
+    // 爬楼梯：记忆化搜索
+    fn climbingStairsDFSMem(comptime n: usize) i32 {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        var mem = [_]i32{ -1 } ** (n + 1);
+        return dfs(n, &mem);
+    }
+    ```
+
 观察图 14-4 ，**经过记忆化处理后，所有重叠子问题都只需被计算一次，时间复杂度被优化至 $O(n)$** ，这是一个巨大的飞跃。
 
 ![记忆化搜索对应递归树](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png)
@@ -928,24 +928,21 @@ $$
 
 由于动态规划不包含回溯过程，因此只需使用循环迭代实现，无须使用递归。在以下代码中，我们初始化一个数组 `dp` 来存储子问题的解，它起到了记忆化搜索中数组 `mem` 相同的记录作用。
 
-=== "Java"
+=== "Python"
 
-    ```java title="climbing_stairs_dp.java"
-    /* 爬楼梯：动态规划 */
-    int climbingStairsDP(int n) {
-        if (n == 1 || n == 2)
-            return n;
-        // 初始化 dp 表，用于存储子问题的解
-        int[] dp = new int[n + 1];
-        // 初始状态：预设最小子问题的解
-        dp[1] = 1;
-        dp[2] = 2;
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for (int i = 3; i <= n; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2];
-        }
-        return dp[n];
-    }
+    ```python title="climbing_stairs_dp.py"
+    def climbing_stairs_dp(n: int) -> int:
+        """爬楼梯：动态规划"""
+        if n == 1 or n == 2:
+            return n
+        # 初始化 dp 表，用于存储子问题的解
+        dp = [0] * (n + 1)
+        # 初始状态：预设最小子问题的解
+        dp[1], dp[2] = 1, 2
+        # 状态转移：从较小子问题逐步求解较大子问题
+        for i in range(3, n + 1):
+            dp[i] = dp[i - 1] + dp[i - 2]
+        return dp[n]
     ```
 
 === "C++"
@@ -968,21 +965,44 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="climbing_stairs_dp.py"
-    def climbing_stairs_dp(n: int) -> int:
-        """爬楼梯：动态规划"""
-        if n == 1 or n == 2:
-            return n
-        # 初始化 dp 表，用于存储子问题的解
-        dp = [0] * (n + 1)
-        # 初始状态：预设最小子问题的解
-        dp[1], dp[2] = 1, 2
-        # 状态转移：从较小子问题逐步求解较大子问题
-        for i in range(3, n + 1):
-            dp[i] = dp[i - 1] + dp[i - 2]
-        return dp[n]
+    ```java title="climbing_stairs_dp.java"
+    /* 爬楼梯：动态规划 */
+    int climbingStairsDP(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        // 初始化 dp 表，用于存储子问题的解
+        int[] dp = new int[n + 1];
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="climbing_stairs_dp.cs"
+    /* 爬楼梯：动态规划 */
+    int climbingStairsDP(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        // 初始化 dp 表，用于存储子问题的解
+        int[] dp = new int[n + 1];
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
     ```
 
 === "Go"
@@ -1001,6 +1021,27 @@ $$
         // 状态转移：从较小子问题逐步求解较大子问题
         for i := 3; i <= n; i++ {
             dp[i] = dp[i-1] + dp[i-2]
+        }
+        return dp[n]
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="climbing_stairs_dp.swift"
+    /* 爬楼梯：动态规划 */
+    func climbingStairsDP(n: Int) -> Int {
+        if n == 1 || n == 2 {
+            return n
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        var dp = Array(repeating: 0, count: n + 1)
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1
+        dp[2] = 2
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i in stride(from: 3, through: n, by: 1) {
+            dp[i] = dp[i - 1] + dp[i - 2]
         }
         return dp[n]
     }
@@ -1038,75 +1079,6 @@ $$
         dp[2] = 2;
         // 状态转移：从较小子问题逐步求解较大子问题
         for (let i = 3; i <= n; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2];
-        }
-        return dp[n];
-    }
-    ```
-
-=== "C"
-
-    ```c title="climbing_stairs_dp.c"
-    [class]{}-[func]{climbingStairsDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="climbing_stairs_dp.cs"
-    /* 爬楼梯：动态规划 */
-    int climbingStairsDP(int n) {
-        if (n == 1 || n == 2)
-            return n;
-        // 初始化 dp 表，用于存储子问题的解
-        int[] dp = new int[n + 1];
-        // 初始状态：预设最小子问题的解
-        dp[1] = 1;
-        dp[2] = 2;
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for (int i = 3; i <= n; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2];
-        }
-        return dp[n];
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="climbing_stairs_dp.swift"
-    /* 爬楼梯：动态规划 */
-    func climbingStairsDP(n: Int) -> Int {
-        if n == 1 || n == 2 {
-            return n
-        }
-        // 初始化 dp 表，用于存储子问题的解
-        var dp = Array(repeating: 0, count: n + 1)
-        // 初始状态：预设最小子问题的解
-        dp[1] = 1
-        dp[2] = 2
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for i in stride(from: 3, through: n, by: 1) {
-            dp[i] = dp[i - 1] + dp[i - 2]
-        }
-        return dp[n]
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_dp.zig"
-    // 爬楼梯：动态规划
-    fn climbingStairsDP(comptime n: usize) i32 {
-        // 已知 dp[1] 和 dp[2] ，返回之
-        if (n == 1 or n == 2) {
-            return @intCast(n);
-        }
-        // 初始化 dp 表，用于存储子问题的解
-        var dp = [_]i32{-1} ** (n + 1);
-        // 初始状态：预设最小子问题的解
-        dp[1] = 1;
-        dp[2] = 2;
-        // 状态转移：从较小子问题逐步求解较大子问题
-        for (3..n + 1) |i| {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
         return dp[n];
@@ -1152,6 +1124,34 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="climbing_stairs_dp.c"
+    [class]{}-[func]{climbingStairsDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="climbing_stairs_dp.zig"
+    // 爬楼梯：动态规划
+    fn climbingStairsDP(comptime n: usize) i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (n == 1 or n == 2) {
+            return @intCast(n);
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        var dp = [_]i32{-1} ** (n + 1);
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (3..n + 1) |i| {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
+    ```
+
 图 14-5 模拟了以上代码的执行过程。
 
 ![爬楼梯的动态规划过程](intro_to_dynamic_programming.assets/climbing_stairs_dp.png)
@@ -1170,21 +1170,17 @@ $$
 
 细心的你可能发现，**由于 $dp[i]$ 只与 $dp[i-1]$ 和 $dp[i-2]$ 有关，因此我们无须使用一个数组 `dp` 来存储所有子问题的解**，而只需两个变量滚动前进即可。
 
-=== "Java"
+=== "Python"
 
-    ```java title="climbing_stairs_dp.java"
-    /* 爬楼梯：空间优化后的动态规划 */
-    int climbingStairsDPComp(int n) {
-        if (n == 1 || n == 2)
-            return n;
-        int a = 1, b = 2;
-        for (int i = 3; i <= n; i++) {
-            int tmp = b;
-            b = a + b;
-            a = tmp;
-        }
-        return b;
-    }
+    ```python title="climbing_stairs_dp.py"
+    def climbing_stairs_dp_comp(n: int) -> int:
+        """爬楼梯：空间优化后的动态规划"""
+        if n == 1 or n == 2:
+            return n
+        a, b = 1, 2
+        for _ in range(3, n + 1):
+            a, b = b, a + b
+        return b
     ```
 
 === "C++"
@@ -1204,17 +1200,38 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="climbing_stairs_dp.py"
-    def climbing_stairs_dp_comp(n: int) -> int:
-        """爬楼梯：空间优化后的动态规划"""
-        if n == 1 or n == 2:
-            return n
-        a, b = 1, 2
-        for _ in range(3, n + 1):
-            a, b = b, a + b
-        return b
+    ```java title="climbing_stairs_dp.java"
+    /* 爬楼梯：空间优化后的动态规划 */
+    int climbingStairsDPComp(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        int a = 1, b = 2;
+        for (int i = 3; i <= n; i++) {
+            int tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        return b;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="climbing_stairs_dp.cs"
+    /* 爬楼梯：空间优化后的动态规划 */
+    int climbingStairsDPComp(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        int a = 1, b = 2;
+        for (int i = 3; i <= n; i++) {
+            int tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "Go"
@@ -1229,6 +1246,23 @@ $$
         // 状态转移：从较小子问题逐步求解较大子问题
         for i := 3; i <= n; i++ {
             a, b = b, a+b
+        }
+        return b
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="climbing_stairs_dp.swift"
+    /* 爬楼梯：空间优化后的动态规划 */
+    func climbingStairsDPComp(n: Int) -> Int {
+        if n == 1 || n == 2 {
+            return n
+        }
+        var a = 1
+        var b = 2
+        for _ in stride(from: 3, through: n, by: 1) {
+            (a, b) = (b, a + b)
         }
         return b
     }
@@ -1268,65 +1302,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="climbing_stairs_dp.c"
-    [class]{}-[func]{climbingStairsDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="climbing_stairs_dp.cs"
-    /* 爬楼梯：空间优化后的动态规划 */
-    int climbingStairsDPComp(int n) {
-        if (n == 1 || n == 2)
-            return n;
-        int a = 1, b = 2;
-        for (int i = 3; i <= n; i++) {
-            int tmp = b;
-            b = a + b;
-            a = tmp;
-        }
-        return b;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="climbing_stairs_dp.swift"
-    /* 爬楼梯：空间优化后的动态规划 */
-    func climbingStairsDPComp(n: Int) -> Int {
-        if n == 1 || n == 2 {
-            return n
-        }
-        var a = 1
-        var b = 2
-        for _ in stride(from: 3, through: n, by: 1) {
-            (a, b) = (b, a + b)
-        }
-        return b
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_dp.zig"
-    // 爬楼梯：空间优化后的动态规划
-    fn climbingStairsDPComp(comptime n: usize) i32 {
-        if (n == 1 or n == 2) {
-            return @intCast(n);
-        }
-        var a: i32 = 1;
-        var b: i32 = 2;
-        for (3..n + 1) |_| {
-            var tmp = b;
-            b = a + b;
-            a = tmp;
-        }
-        return b;
-    }
-    ```
-
 === "Dart"
 
     ```dart title="climbing_stairs_dp.dart"
@@ -1356,6 +1331,31 @@ $$
             a = tmp;
         }
         b
+    }
+    ```
+
+=== "C"
+
+    ```c title="climbing_stairs_dp.c"
+    [class]{}-[func]{climbingStairsDPComp}
+    ```
+
+=== "Zig"
+
+    ```zig title="climbing_stairs_dp.zig"
+    // 爬楼梯：空间优化后的动态规划
+    fn climbingStairsDPComp(comptime n: usize) i32 {
+        if (n == 1 or n == 2) {
+            return @intCast(n);
+        }
+        var a: i32 = 1;
+        var b: i32 = 2;
+        for (3..n + 1) |_| {
+            var tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        return b;
     }
     ```
 

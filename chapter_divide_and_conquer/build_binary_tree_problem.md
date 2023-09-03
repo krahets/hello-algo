@@ -72,70 +72,6 @@ status: new
 
 为了提升查询 $m$ 的效率，我们借助一个哈希表 `hmap` 来存储数组 `inorder` 中元素到索引的映射。
 
-=== "Java"
-
-    ```java title="build_tree.java"
-    /* 构建二叉树：分治 */
-    TreeNode dfs(int[] preorder, int[] inorder, Map<Integer, Integer> hmap, int i, int l, int r) {
-        // 子树区间为空时终止
-        if (r - l < 0)
-            return null;
-        // 初始化根节点
-        TreeNode root = new TreeNode(preorder[i]);
-        // 查询 m ，从而划分左右子树
-        int m = hmap.get(preorder[i]);
-        // 子问题：构建左子树
-        root.left = dfs(preorder, inorder, hmap, i + 1, l, m - 1);
-        // 子问题：构建右子树
-        root.right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r);
-        // 返回根节点
-        return root;
-    }
-
-    /* 构建二叉树 */
-    TreeNode buildTree(int[] preorder, int[] inorder) {
-        // 初始化哈希表，存储 inorder 元素到索引的映射
-        Map<Integer, Integer> hmap = new HashMap<>();
-        for (int i = 0; i < inorder.length; i++) {
-            hmap.put(inorder[i], i);
-        }
-        TreeNode root = dfs(preorder, inorder, hmap, 0, 0, inorder.length - 1);
-        return root;
-    }
-    ```
-
-=== "C++"
-
-    ```cpp title="build_tree.cpp"
-    /* 构建二叉树：分治 */
-    TreeNode *dfs(vector<int> &preorder, vector<int> &inorder, unordered_map<int, int> &hmap, int i, int l, int r) {
-        // 子树区间为空时终止
-        if (r - l < 0)
-            return NULL;
-        // 初始化根节点
-        TreeNode *root = new TreeNode(preorder[i]);
-        // 查询 m ，从而划分左右子树
-        int m = hmap[preorder[i]];
-        // 子问题：构建左子树
-        root->left = dfs(preorder, inorder, hmap, i + 1, l, m - 1);
-        // 子问题：构建右子树
-        root->right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r);
-        // 返回根节点
-        return root;
-    }
-
-    /* 构建二叉树 */
-    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
-        // 初始化哈希表，存储 inorder 元素到索引的映射
-        unordered_map<int, int> hmap;
-        for (int i = 0; i < inorder.size(); i++) {
-            hmap[inorder[i]] = i;
-        }
-        TreeNode *root = dfs(preorder, inorder, hmap, 0, 0, inorder.size() - 1);
-        return root;
-    }
-    ```
-
 === "Python"
 
     ```python title="build_tree.py"
@@ -170,6 +106,102 @@ status: new
         return root
     ```
 
+=== "C++"
+
+    ```cpp title="build_tree.cpp"
+    /* 构建二叉树：分治 */
+    TreeNode *dfs(vector<int> &preorder, vector<int> &inorder, unordered_map<int, int> &hmap, int i, int l, int r) {
+        // 子树区间为空时终止
+        if (r - l < 0)
+            return NULL;
+        // 初始化根节点
+        TreeNode *root = new TreeNode(preorder[i]);
+        // 查询 m ，从而划分左右子树
+        int m = hmap[preorder[i]];
+        // 子问题：构建左子树
+        root->left = dfs(preorder, inorder, hmap, i + 1, l, m - 1);
+        // 子问题：构建右子树
+        root->right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r);
+        // 返回根节点
+        return root;
+    }
+
+    /* 构建二叉树 */
+    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
+        // 初始化哈希表，存储 inorder 元素到索引的映射
+        unordered_map<int, int> hmap;
+        for (int i = 0; i < inorder.size(); i++) {
+            hmap[inorder[i]] = i;
+        }
+        TreeNode *root = dfs(preorder, inorder, hmap, 0, 0, inorder.size() - 1);
+        return root;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="build_tree.java"
+    /* 构建二叉树：分治 */
+    TreeNode dfs(int[] preorder, int[] inorder, Map<Integer, Integer> hmap, int i, int l, int r) {
+        // 子树区间为空时终止
+        if (r - l < 0)
+            return null;
+        // 初始化根节点
+        TreeNode root = new TreeNode(preorder[i]);
+        // 查询 m ，从而划分左右子树
+        int m = hmap.get(preorder[i]);
+        // 子问题：构建左子树
+        root.left = dfs(preorder, inorder, hmap, i + 1, l, m - 1);
+        // 子问题：构建右子树
+        root.right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r);
+        // 返回根节点
+        return root;
+    }
+
+    /* 构建二叉树 */
+    TreeNode buildTree(int[] preorder, int[] inorder) {
+        // 初始化哈希表，存储 inorder 元素到索引的映射
+        Map<Integer, Integer> hmap = new HashMap<>();
+        for (int i = 0; i < inorder.length; i++) {
+            hmap.put(inorder[i], i);
+        }
+        TreeNode root = dfs(preorder, inorder, hmap, 0, 0, inorder.length - 1);
+        return root;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="build_tree.cs"
+    /* 构建二叉树：分治 */
+    TreeNode dfs(int[] preorder, int[] inorder, Dictionary<int, int> hmap, int i, int l, int r) {
+        // 子树区间为空时终止
+        if (r - l < 0)
+            return null;
+        // 初始化根节点
+        TreeNode root = new TreeNode(preorder[i]);
+        // 查询 m ，从而划分左右子树
+        int m = hmap[preorder[i]];
+        // 子问题：构建左子树
+        root.left = dfs(preorder, inorder, hmap, i + 1, l, m - 1);
+        // 子问题：构建右子树
+        root.right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r);
+        // 返回根节点
+        return root;
+    }
+
+    /* 构建二叉树 */
+    TreeNode buildTree(int[] preorder, int[] inorder) {
+        // 初始化哈希表，存储 inorder 元素到索引的映射
+        Dictionary<int, int> hmap = new Dictionary<int, int>();
+        for (int i = 0; i < inorder.Length; i++) {
+            hmap.TryAdd(inorder[i], i);
+        }
+        TreeNode root = dfs(preorder, inorder, hmap, 0, 0, inorder.Length - 1);
+        return root;
+    }
+    ```
+
 === "Go"
 
     ```go title="build_tree.go"
@@ -201,6 +233,35 @@ status: new
 
         root := dfsBuildTree(preorder, inorder, hmap, 0, 0, len(inorder)-1)
         return root
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="build_tree.swift"
+    /* 构建二叉树：分治 */
+    func dfs(preorder: [Int], inorder: [Int], hmap: [Int: Int], i: Int, l: Int, r: Int) -> TreeNode? {
+        // 子树区间为空时终止
+        if r - l < 0 {
+            return nil
+        }
+        // 初始化根节点
+        let root = TreeNode(x: preorder[i])
+        // 查询 m ，从而划分左右子树
+        let m = hmap[preorder[i]]!
+        // 子问题：构建左子树
+        root.left = dfs(preorder: preorder, inorder: inorder, hmap: hmap, i: i + 1, l: l, r: m - 1)
+        // 子问题：构建右子树
+        root.right = dfs(preorder: preorder, inorder: inorder, hmap: hmap, i: i + 1 + m - l, l: m + 1, r: r)
+        // 返回根节点
+        return root
+    }
+
+    /* 构建二叉树 */
+    func buildTree(preorder: [Int], inorder: [Int]) -> TreeNode? {
+        // 初始化哈希表，存储 inorder 元素到索引的映射
+        let hmap = inorder.enumerated().reduce(into: [:]) { $0[$1.element] = $1.offset }
+        return dfs(preorder: preorder, inorder: inorder, hmap: hmap, i: 0, l: 0, r: inorder.count - 1)
     }
     ```
 
@@ -273,83 +334,6 @@ status: new
     }
     ```
 
-=== "C"
-
-    ```c title="build_tree.c"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{buildTree}
-    ```
-
-=== "C#"
-
-    ```csharp title="build_tree.cs"
-    /* 构建二叉树：分治 */
-    TreeNode dfs(int[] preorder, int[] inorder, Dictionary<int, int> hmap, int i, int l, int r) {
-        // 子树区间为空时终止
-        if (r - l < 0)
-            return null;
-        // 初始化根节点
-        TreeNode root = new TreeNode(preorder[i]);
-        // 查询 m ，从而划分左右子树
-        int m = hmap[preorder[i]];
-        // 子问题：构建左子树
-        root.left = dfs(preorder, inorder, hmap, i + 1, l, m - 1);
-        // 子问题：构建右子树
-        root.right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r);
-        // 返回根节点
-        return root;
-    }
-
-    /* 构建二叉树 */
-    TreeNode buildTree(int[] preorder, int[] inorder) {
-        // 初始化哈希表，存储 inorder 元素到索引的映射
-        Dictionary<int, int> hmap = new Dictionary<int, int>();
-        for (int i = 0; i < inorder.Length; i++) {
-            hmap.TryAdd(inorder[i], i);
-        }
-        TreeNode root = dfs(preorder, inorder, hmap, 0, 0, inorder.Length - 1);
-        return root;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="build_tree.swift"
-    /* 构建二叉树：分治 */
-    func dfs(preorder: [Int], inorder: [Int], hmap: [Int: Int], i: Int, l: Int, r: Int) -> TreeNode? {
-        // 子树区间为空时终止
-        if r - l < 0 {
-            return nil
-        }
-        // 初始化根节点
-        let root = TreeNode(x: preorder[i])
-        // 查询 m ，从而划分左右子树
-        let m = hmap[preorder[i]]!
-        // 子问题：构建左子树
-        root.left = dfs(preorder: preorder, inorder: inorder, hmap: hmap, i: i + 1, l: l, r: m - 1)
-        // 子问题：构建右子树
-        root.right = dfs(preorder: preorder, inorder: inorder, hmap: hmap, i: i + 1 + m - l, l: m + 1, r: r)
-        // 返回根节点
-        return root
-    }
-
-    /* 构建二叉树 */
-    func buildTree(preorder: [Int], inorder: [Int]) -> TreeNode? {
-        // 初始化哈希表，存储 inorder 元素到索引的映射
-        let hmap = inorder.enumerated().reduce(into: [:]) { $0[$1.element] = $1.offset }
-        return dfs(preorder: preorder, inorder: inorder, hmap: hmap, i: 0, l: 0, r: inorder.count - 1)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="build_tree.zig"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{buildTree}
-    ```
-
 === "Dart"
 
     ```dart title="build_tree.dart"
@@ -419,6 +403,22 @@ status: new
         let root = dfs(preorder, inorder, &hmap, 0, 0, inorder.len() as i32 - 1);
         root
     }
+    ```
+
+=== "C"
+
+    ```c title="build_tree.c"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{buildTree}
+    ```
+
+=== "Zig"
+
+    ```zig title="build_tree.zig"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{buildTree}
     ```
 
 图 12-8 展示了构建二叉树的递归过程，各个节点是在向下“递”的过程中建立的，而各条边（即引用）是在向上“归”的过程中建立的。

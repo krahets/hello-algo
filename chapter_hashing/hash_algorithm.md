@@ -51,48 +51,40 @@ index = hash(key) % capacity
 - **异或哈希**：将输入数据的每个元素通过异或操作累积到一个哈希值中。
 - **旋转哈希**：将每个字符的 ASCII 码累积到一个哈希值中，每次累积之前都会对哈希值进行旋转操作。
 
-=== "Java"
+=== "Python"
 
-    ```java title="simple_hash.java"
-    /* 加法哈希 */
-    int addHash(String key) {
-        long hash = 0;
-        final int MODULUS = 1000000007;
-        for (char c : key.toCharArray()) {
-            hash = (hash + (int) c) % MODULUS;
-        }
-        return (int) hash;
-    }
+    ```python title="simple_hash.py"
+    def add_hash(key: str) -> int:
+        """加法哈希"""
+        hash = 0
+        modulus = 1000000007
+        for c in key:
+            hash += ord(c)
+        return hash % modulus
 
-    /* 乘法哈希 */
-    int mulHash(String key) {
-        long hash = 0;
-        final int MODULUS = 1000000007;
-        for (char c : key.toCharArray()) {
-            hash = (31 * hash + (int) c) % MODULUS;
-        }
-        return (int) hash;
-    }
+    def mul_hash(key: str) -> int:
+        """乘法哈希"""
+        hash = 0
+        modulus = 1000000007
+        for c in key:
+            hash = 31 * hash + ord(c)
+        return hash % modulus
 
-    /* 异或哈希 */
-    int xorHash(String key) {
-        int hash = 0;
-        final int MODULUS = 1000000007;
-        for (char c : key.toCharArray()) {
-            hash ^= (int) c;
-        }
-        return hash & MODULUS;
-    }
+    def xor_hash(key: str) -> int:
+        """异或哈希"""
+        hash = 0
+        modulus = 1000000007
+        for c in key:
+            hash ^= ord(c)
+        return hash % modulus
 
-    /* 旋转哈希 */
-    int rotHash(String key) {
-        long hash = 0;
-        final int MODULUS = 1000000007;
-        for (char c : key.toCharArray()) {
-            hash = ((hash << 4) ^ (hash >> 28) ^ (int) c) % MODULUS;
-        }
-        return (int) hash;
-    }
+    def rot_hash(key: str) -> int:
+        """旋转哈希"""
+        hash = 0
+        modulus = 1000000007
+        for c in key:
+            hash = (hash << 4) ^ (hash >> 28) ^ ord(c)
+        return hash % modulus
     ```
 
 === "C++"
@@ -140,40 +132,92 @@ index = hash(key) % capacity
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="simple_hash.py"
-    def add_hash(key: str) -> int:
-        """加法哈希"""
-        hash = 0
-        modulus = 1000000007
-        for c in key:
-            hash += ord(c)
-        return hash % modulus
+    ```java title="simple_hash.java"
+    /* 加法哈希 */
+    int addHash(String key) {
+        long hash = 0;
+        final int MODULUS = 1000000007;
+        for (char c : key.toCharArray()) {
+            hash = (hash + (int) c) % MODULUS;
+        }
+        return (int) hash;
+    }
 
-    def mul_hash(key: str) -> int:
-        """乘法哈希"""
-        hash = 0
-        modulus = 1000000007
-        for c in key:
-            hash = 31 * hash + ord(c)
-        return hash % modulus
+    /* 乘法哈希 */
+    int mulHash(String key) {
+        long hash = 0;
+        final int MODULUS = 1000000007;
+        for (char c : key.toCharArray()) {
+            hash = (31 * hash + (int) c) % MODULUS;
+        }
+        return (int) hash;
+    }
 
-    def xor_hash(key: str) -> int:
-        """异或哈希"""
-        hash = 0
-        modulus = 1000000007
-        for c in key:
-            hash ^= ord(c)
-        return hash % modulus
+    /* 异或哈希 */
+    int xorHash(String key) {
+        int hash = 0;
+        final int MODULUS = 1000000007;
+        for (char c : key.toCharArray()) {
+            hash ^= (int) c;
+        }
+        return hash & MODULUS;
+    }
 
-    def rot_hash(key: str) -> int:
-        """旋转哈希"""
-        hash = 0
-        modulus = 1000000007
-        for c in key:
-            hash = (hash << 4) ^ (hash >> 28) ^ ord(c)
-        return hash % modulus
+    /* 旋转哈希 */
+    int rotHash(String key) {
+        long hash = 0;
+        final int MODULUS = 1000000007;
+        for (char c : key.toCharArray()) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ (int) c) % MODULUS;
+        }
+        return (int) hash;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="simple_hash.cs"
+    /* 加法哈希 */
+    int addHash(string key) {
+        long hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash = (hash + c) % MODULUS;
+        }
+        return (int)hash;
+    }
+
+    /* 乘法哈希 */
+    int mulHash(string key) {
+        long hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash = (31 * hash + c) % MODULUS;
+        }
+        return (int)hash;
+    }
+
+    /* 异或哈希 */
+    int xorHash(string key) {
+        int hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash ^= c;
+        }
+        return hash & MODULUS;
+    }
+
+    /* 旋转哈希 */
+    int rotHash(string key) {
+        long hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ c) % MODULUS;
+        }
+        return (int)hash;
+    }
     ```
 
 === "Go"
@@ -225,6 +269,58 @@ index = hash(key) % capacity
             hash = ((hash << 4) ^ (hash >> 28) ^ int64(b)) % modulus
         }
         return int(hash)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="simple_hash.swift"
+    /* 加法哈希 */
+    func addHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash = (hash + Int(scalar.value)) % MODULUS
+            }
+        }
+        return hash
+    }
+
+    /* 乘法哈希 */
+    func mulHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash = (31 * hash + Int(scalar.value)) % MODULUS
+            }
+        }
+        return hash
+    }
+
+    /* 异或哈希 */
+    func xorHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash ^= Int(scalar.value)
+            }
+        }
+        return hash & MODULUS
+    }
+
+    /* 旋转哈希 */
+    func rotHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash = ((hash << 4) ^ (hash >> 28) ^ Int(scalar.value)) % MODULUS
+            }
+        }
+        return hash
     }
     ```
 
@@ -316,126 +412,6 @@ index = hash(key) % capacity
     }
     ```
 
-=== "C"
-
-    ```c title="simple_hash.c"
-    [class]{}-[func]{addHash}
-
-    [class]{}-[func]{mulHash}
-
-    [class]{}-[func]{xorHash}
-
-    [class]{}-[func]{rotHash}
-    ```
-
-=== "C#"
-
-    ```csharp title="simple_hash.cs"
-    /* 加法哈希 */
-    int addHash(string key) {
-        long hash = 0;
-        const int MODULUS = 1000000007;
-        foreach (char c in key) {
-            hash = (hash + c) % MODULUS;
-        }
-        return (int)hash;
-    }
-
-    /* 乘法哈希 */
-    int mulHash(string key) {
-        long hash = 0;
-        const int MODULUS = 1000000007;
-        foreach (char c in key) {
-            hash = (31 * hash + c) % MODULUS;
-        }
-        return (int)hash;
-    }
-
-    /* 异或哈希 */
-    int xorHash(string key) {
-        int hash = 0;
-        const int MODULUS = 1000000007;
-        foreach (char c in key) {
-            hash ^= c;
-        }
-        return hash & MODULUS;
-    }
-
-    /* 旋转哈希 */
-    int rotHash(string key) {
-        long hash = 0;
-        const int MODULUS = 1000000007;
-        foreach (char c in key) {
-            hash = ((hash << 4) ^ (hash >> 28) ^ c) % MODULUS;
-        }
-        return (int)hash;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="simple_hash.swift"
-    /* 加法哈希 */
-    func addHash(key: String) -> Int {
-        var hash = 0
-        let MODULUS = 1_000_000_007
-        for c in key {
-            for scalar in c.unicodeScalars {
-                hash = (hash + Int(scalar.value)) % MODULUS
-            }
-        }
-        return hash
-    }
-
-    /* 乘法哈希 */
-    func mulHash(key: String) -> Int {
-        var hash = 0
-        let MODULUS = 1_000_000_007
-        for c in key {
-            for scalar in c.unicodeScalars {
-                hash = (31 * hash + Int(scalar.value)) % MODULUS
-            }
-        }
-        return hash
-    }
-
-    /* 异或哈希 */
-    func xorHash(key: String) -> Int {
-        var hash = 0
-        let MODULUS = 1_000_000_007
-        for c in key {
-            for scalar in c.unicodeScalars {
-                hash ^= Int(scalar.value)
-            }
-        }
-        return hash & MODULUS
-    }
-
-    /* 旋转哈希 */
-    func rotHash(key: String) -> Int {
-        var hash = 0
-        let MODULUS = 1_000_000_007
-        for c in key {
-            for scalar in c.unicodeScalars {
-                hash = ((hash << 4) ^ (hash >> 28) ^ Int(scalar.value)) % MODULUS
-            }
-        }
-        return hash
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="simple_hash.zig"
-    [class]{}-[func]{addHash}
-
-    [class]{}-[func]{mulHash}
-
-    [class]{}-[func]{xorHash}
-
-    [class]{}-[func]{rotHash}
-    ```
-
 === "Dart"
 
     ```dart title="simple_hash.dart"
@@ -490,6 +466,30 @@ index = hash(key) % capacity
     [class]{}-[func]{xor_hash}
 
     [class]{}-[func]{rot_hash}
+    ```
+
+=== "C"
+
+    ```c title="simple_hash.c"
+    [class]{}-[func]{addHash}
+
+    [class]{}-[func]{mulHash}
+
+    [class]{}-[func]{xorHash}
+
+    [class]{}-[func]{rotHash}
+    ```
+
+=== "Zig"
+
+    ```zig title="simple_hash.zig"
+    [class]{}-[func]{addHash}
+
+    [class]{}-[func]{mulHash}
+
+    [class]{}-[func]{xorHash}
+
+    [class]{}-[func]{rotHash}
     ```
 
 观察发现，每种哈希算法的最后一步都是对大质数 $1000000007$ 取模，以确保哈希值在合适的范围内。值得思考的是，为什么要强调对质数取模，或者说对合数取模的弊端是什么？这是一个有趣的问题。
@@ -559,57 +559,6 @@ $$
 
     请注意，不同编程语言的内置哈希值计算函数的定义和方法不同。
 
-=== "Java"
-
-    ```java title="built_in_hash.java"
-    int num = 3;
-    int hashNum = Integer.hashCode(num);
-    // 整数 3 的哈希值为 3
-
-    boolean bol = true;
-    int hashBol = Boolean.hashCode(bol);
-    // 布尔量 true 的哈希值为 1231
-
-    double dec = 3.14159;
-    int hashDec = Double.hashCode(dec);
-    // 小数 3.14159 的哈希值为 -1340954729
-
-    String str = "Hello 算法";
-    int hashStr = str.hashCode();
-    // 字符串 Hello 算法 的哈希值为 -727081396
-
-    Object[] arr = { 12836, "小哈" };
-    int hashTup = Arrays.hashCode(arr);
-    // 数组 [12836, 小哈] 的哈希值为 1151158
-
-    ListNode obj = new ListNode(0);
-    int hashObj = obj.hashCode();
-    // 节点对象 utils.ListNode@7dc5e7b4 的哈希值为 2110121908
-    ```
-
-=== "C++"
-
-    ```cpp title="built_in_hash.cpp"
-    int num = 3;
-    size_t hashNum = hash<int>()(num);
-    // 整数 3 的哈希值为 3
-
-    bool bol = true;
-    size_t hashBol = hash<bool>()(bol);
-    // 布尔量 1 的哈希值为 1
-
-    double dec = 3.14159;
-    size_t hashDec = hash<double>()(dec);
-    // 小数 3.14159 的哈希值为 4614256650576692846
-
-    string str = "Hello 算法";
-    size_t hashStr = hash<string>()(str);
-    // 字符串 Hello 算法 的哈希值为 15466937326284535026
-
-    // 在 C++ 中，内置 std:hash() 仅提供基本数据类型的哈希值计算
-    // 数组、对象的哈希值计算需要自行实现
-    ```
-
 === "Python"
 
     ```python title="built_in_hash.py"
@@ -638,28 +587,55 @@ $$
     # 节点对象 <ListNode object at 0x1058fd810> 的哈希值为 274267521
     ```
 
-=== "Go"
+=== "C++"
 
-    ```go title="built_in_hash.go"
+    ```cpp title="built_in_hash.cpp"
+    int num = 3;
+    size_t hashNum = hash<int>()(num);
+    // 整数 3 的哈希值为 3
 
+    bool bol = true;
+    size_t hashBol = hash<bool>()(bol);
+    // 布尔量 1 的哈希值为 1
+
+    double dec = 3.14159;
+    size_t hashDec = hash<double>()(dec);
+    // 小数 3.14159 的哈希值为 4614256650576692846
+
+    string str = "Hello 算法";
+    size_t hashStr = hash<string>()(str);
+    // 字符串 Hello 算法 的哈希值为 15466937326284535026
+
+    // 在 C++ 中，内置 std:hash() 仅提供基本数据类型的哈希值计算
+    // 数组、对象的哈希值计算需要自行实现
     ```
 
-=== "JS"
+=== "Java"
 
-    ```javascript title="built_in_hash.js"
-    // JavaScript 未提供内置 hash code 函数
-    ```
+    ```java title="built_in_hash.java"
+    int num = 3;
+    int hashNum = Integer.hashCode(num);
+    // 整数 3 的哈希值为 3
 
-=== "TS"
+    boolean bol = true;
+    int hashBol = Boolean.hashCode(bol);
+    // 布尔量 true 的哈希值为 1231
 
-    ```typescript title="built_in_hash.ts"
-    // TypeScript 未提供内置 hash code 函数
-    ```
+    double dec = 3.14159;
+    int hashDec = Double.hashCode(dec);
+    // 小数 3.14159 的哈希值为 -1340954729
 
-=== "C"
+    String str = "Hello 算法";
+    int hashStr = str.hashCode();
+    // 字符串 Hello 算法 的哈希值为 -727081396
 
-    ```c title="built_in_hash.c"
+    Object[] arr = { 12836, "小哈" };
+    int hashTup = Arrays.hashCode(arr);
+    // 数组 [12836, 小哈] 的哈希值为 1151158
 
+    ListNode obj = new ListNode(0);
+    int hashObj = obj.hashCode();
+    // 节点对象 utils.ListNode@7dc5e7b4 的哈希值为 2110121908
     ```
 
 === "C#"
@@ -690,6 +666,12 @@ $$
     // 节点对象 0 的哈希值为 39053774;
     ```
 
+=== "Go"
+
+    ```go title="built_in_hash.go"
+
+    ```
+
 === "Swift"
 
     ```swift title="built_in_hash.swift"
@@ -718,10 +700,16 @@ $$
     // 节点对象 utils.ListNode 的哈希值为 -2434780518035996159
     ```
 
-=== "Zig"
+=== "JS"
 
-    ```zig title="built_in_hash.zig"
+    ```javascript title="built_in_hash.js"
+    // JavaScript 未提供内置 hash code 函数
+    ```
 
+=== "TS"
+
+    ```typescript title="built_in_hash.ts"
+    // TypeScript 未提供内置 hash code 函数
     ```
 
 === "Dart"
@@ -755,6 +743,18 @@ $$
 === "Rust"
 
     ```rust title="built_in_hash.rs"
+
+    ```
+
+=== "C"
+
+    ```c title="built_in_hash.c"
+
+    ```
+
+=== "Zig"
+
+    ```zig title="built_in_hash.zig"
 
     ```
 

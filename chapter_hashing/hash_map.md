@@ -36,27 +36,27 @@ comments: true
 
 哈希表的常见操作包括：初始化、查询操作、添加键值对和删除键值对等。
 
-=== "Java"
+=== "Python"
 
-    ```java title="hash_map.java"
-    /* 初始化哈希表 */
-    Map<Integer, String> map = new HashMap<>();
+    ```python title="hash_map.py"
+    # 初始化哈希表
+    hmap: dict = {}
     
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
-    map.put(12836, "小哈");   
-    map.put(15937, "小啰");   
-    map.put(16750, "小算");   
-    map.put(13276, "小法");
-    map.put(10583, "小鸭");
+    # 添加操作
+    # 在哈希表中添加键值对 (key, value)
+    hmap[12836] = "小哈"
+    hmap[15937] = "小啰"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鸭"
     
-    /* 查询操作 */
-    // 向哈希表输入键 key ，得到值 value
-    String name = map.get(15937);
+    # 查询操作
+    # 向哈希表输入键 key ，得到值 value
+    name: str = hmap[15937]
     
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)
-    map.remove(10583);
+    # 删除操作
+    # 在哈希表中删除键值对 (key, value)
+    hmap.pop(10583)
     ```
 
 === "C++"
@@ -82,27 +82,50 @@ comments: true
     map.erase(10583);
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="hash_map.py"
-    # 初始化哈希表
-    hmap: dict = {}
+    ```java title="hash_map.java"
+    /* 初始化哈希表 */
+    Map<Integer, String> map = new HashMap<>();
     
-    # 添加操作
-    # 在哈希表中添加键值对 (key, value)
-    hmap[12836] = "小哈"
-    hmap[15937] = "小啰"
-    hmap[16750] = "小算"
-    hmap[13276] = "小法"
-    hmap[10583] = "小鸭"
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map.put(12836, "小哈");   
+    map.put(15937, "小啰");   
+    map.put(16750, "小算");   
+    map.put(13276, "小法");
+    map.put(10583, "小鸭");
     
-    # 查询操作
-    # 向哈希表输入键 key ，得到值 value
-    name: str = hmap[15937]
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    String name = map.get(15937);
     
-    # 删除操作
-    # 在哈希表中删除键值对 (key, value)
-    hmap.pop(10583)
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.remove(10583);
+    ```
+
+=== "C#"
+
+    ```csharp title="hash_map.cs"
+    /* 初始化哈希表 */
+    Dictionary<int, String> map = new ();
+    
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map.Add(12836, "小哈");
+    map.Add(15937, "小啰");
+    map.Add(16750, "小算");
+    map.Add(13276, "小法");
+    map.Add(10583, "小鸭");
+    
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    String name = map[15937];
+    
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.Remove(10583);
     ```
 
 === "Go"
@@ -126,6 +149,29 @@ comments: true
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     delete(hmap, 10583)
+    ```
+
+=== "Swift"
+
+    ```swift title="hash_map.swift"
+    /* 初始化哈希表 */
+    var map: [Int: String] = [:]
+    
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map[12836] = "小哈"
+    map[15937] = "小啰"
+    map[16750] = "小算"
+    map[13276] = "小法"
+    map[10583] = "小鸭"
+    
+    /* 查询操作 */
+    // 向哈希表输入键 key ，得到值 value
+    let name = map[15937]!
+    
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    map.removeValue(forKey: 10583)
     ```
 
 === "JS"
@@ -177,64 +223,6 @@ comments: true
     console.info(map);
     ```
 
-=== "C"
-
-    ```c title="hash_map.c"
-    // C 未提供内置哈希表
-    ```
-
-=== "C#"
-
-    ```csharp title="hash_map.cs"
-    /* 初始化哈希表 */
-    Dictionary<int, String> map = new ();
-    
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
-    map.Add(12836, "小哈");
-    map.Add(15937, "小啰");
-    map.Add(16750, "小算");
-    map.Add(13276, "小法");
-    map.Add(10583, "小鸭");
-    
-    /* 查询操作 */
-    // 向哈希表输入键 key ，得到值 value
-    String name = map[15937];
-    
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)
-    map.Remove(10583);
-    ```
-
-=== "Swift"
-
-    ```swift title="hash_map.swift"
-    /* 初始化哈希表 */
-    var map: [Int: String] = [:]
-    
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
-    map[12836] = "小哈"
-    map[15937] = "小啰"
-    map[16750] = "小算"
-    map[13276] = "小法"
-    map[10583] = "小鸭"
-    
-    /* 查询操作 */
-    // 向哈希表输入键 key ，得到值 value
-    let name = map[15937]!
-    
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)
-    map.removeValue(forKey: 10583)
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map.zig"
-
-    ```
-
 === "Dart"
 
     ```dart title="hash_map.dart"
@@ -264,24 +252,33 @@ comments: true
 
     ```
 
+=== "C"
+
+    ```c title="hash_map.c"
+    // C 未提供内置哈希表
+    ```
+
+=== "Zig"
+
+    ```zig title="hash_map.zig"
+
+    ```
+
 哈希表有三种常用遍历方式：遍历键值对、遍历键和遍历值。
 
-=== "Java"
+=== "Python"
 
-    ```java title="hash_map.java"
-    /* 遍历哈希表 */
-    // 遍历键值对 key->value
-    for (Map.Entry <Integer, String> kv: map.entrySet()) {
-        System.out.println(kv.getKey() + " -> " + kv.getValue());
-    }
-    // 单独遍历键 key
-    for (int key: map.keySet()) {
-        System.out.println(key);
-    }
-    // 单独遍历值 value
-    for (String val: map.values()) {
-        System.out.println(val);
-    }
+    ```python title="hash_map.py"
+    # 遍历哈希表
+    # 遍历键值对 key->value
+    for key, value in hmap.items():
+        print(key, "->", value)
+    # 单独遍历键 key
+    for key in hmap.keys():
+        print(key)
+    # 单独遍历值 value
+    for value in hmap.values():
+        print(value)
     ```
 
 === "C++"
@@ -302,19 +299,40 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="hash_map.py"
-    # 遍历哈希表
-    # 遍历键值对 key->value
-    for key, value in hmap.items():
-        print(key, "->", value)
-    # 单独遍历键 key
-    for key in hmap.keys():
-        print(key)
-    # 单独遍历值 value
-    for value in hmap.values():
-        print(value)
+    ```java title="hash_map.java"
+    /* 遍历哈希表 */
+    // 遍历键值对 key->value
+    for (Map.Entry <Integer, String> kv: map.entrySet()) {
+        System.out.println(kv.getKey() + " -> " + kv.getValue());
+    }
+    // 单独遍历键 key
+    for (int key: map.keySet()) {
+        System.out.println(key);
+    }
+    // 单独遍历值 value
+    for (String val: map.values()) {
+        System.out.println(val);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="hash_map.cs"
+    /* 遍历哈希表 */
+    // 遍历键值对 Key->Value
+    foreach (var kv in map) {
+        Console.WriteLine(kv.Key + " -> " + kv.Value);
+    }
+    // 单独遍历键 key
+    foreach (int key in map.Keys) {
+        Console.WriteLine(key);
+    }
+    // 单独遍历值 value
+    foreach (String val in map.Values) {
+        Console.WriteLine(val);
+    }
     ```
 
 === "Go"
@@ -332,6 +350,24 @@ comments: true
     // 单独遍历值 value
     for _, value := range hmap {
         fmt.Println(value)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="hash_map.swift"
+    /* 遍历哈希表 */
+    // 遍历键值对 Key->Value
+    for (key, value) in map {
+        print("\(key) -> \(value)")
+    }
+    // 单独遍历键 Key
+    for key in map.keys {
+        print(key)
+    }
+    // 单独遍历值 Value
+    for value in map.values {
+        print(value)
     }
     ```
 
@@ -371,54 +407,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="hash_map.c"
-    // C 未提供内置哈希表
-    ```
-
-=== "C#"
-
-    ```csharp title="hash_map.cs"
-    /* 遍历哈希表 */
-    // 遍历键值对 Key->Value
-    foreach (var kv in map) {
-        Console.WriteLine(kv.Key + " -> " + kv.Value);
-    }
-    // 单独遍历键 key
-    foreach (int key in map.Keys) {
-        Console.WriteLine(key);
-    }
-    // 单独遍历值 value
-    foreach (String val in map.Values) {
-        Console.WriteLine(val);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="hash_map.swift"
-    /* 遍历哈希表 */
-    // 遍历键值对 Key->Value
-    for (key, value) in map {
-        print("\(key) -> \(value)")
-    }
-    // 单独遍历键 Key
-    for key in map.keys {
-        print(key)
-    }
-    // 单独遍历值 Value
-    for value in map.values {
-        print(value)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map.zig"
-
-    ```
-
 === "Dart"
 
     ```dart title="hash_map.dart"
@@ -442,6 +430,18 @@ comments: true
 === "Rust"
 
     ```rust title="hash_map.rs"
+
+    ```
+
+=== "C"
+
+    ```c title="hash_map.c"
+    // C 未提供内置哈希表
+    ```
+
+=== "Zig"
+
+    ```zig title="hash_map.zig"
 
     ```
 
@@ -470,98 +470,78 @@ index = hash(key) % capacity
 
 以下代码实现了一个简单哈希表。其中，我们将 `key` 和 `value` 封装成一个类 `Pair` ，以表示键值对。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array_hash_map.java"
-    /* 键值对 */
-    class Pair {
-        public int key;
-        public String val;
+    ```python title="array_hash_map.py"
+    class Pair:
+        """键值对"""
 
-        public Pair(int key, String val) {
-            this.key = key;
-            this.val = val;
-        }
-    }
+        def __init__(self, key: int, val: str):
+            self.key = key
+            self.val = val
 
-    /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap {
-        private List<Pair> buckets;
+    class ArrayHashMap:
+        """基于数组简易实现的哈希表"""
 
-        public ArrayHashMap() {
-            // 初始化数组，包含 100 个桶
-            buckets = new ArrayList<>();
-            for (int i = 0; i < 100; i++) {
-                buckets.add(null);
-            }
-        }
+        def __init__(self):
+            """构造方法"""
+            # 初始化数组，包含 100 个桶
+            self.buckets: list[Pair | None] = [None] * 100
 
-        /* 哈希函数 */
-        private int hashFunc(int key) {
-            int index = key % 100;
-            return index;
-        }
+        def hash_func(self, key: int) -> int:
+            """哈希函数"""
+            index = key % 100
+            return index
 
-        /* 查询操作 */
-        public String get(int key) {
-            int index = hashFunc(key);
-            Pair pair = buckets.get(index);
-            if (pair == null)
-                return null;
-            return pair.val;
-        }
+        def get(self, key: int) -> str:
+            """查询操作"""
+            index: int = self.hash_func(key)
+            pair: Pair = self.buckets[index]
+            if pair is None:
+                return None
+            return pair.val
 
-        /* 添加操作 */
-        public void put(int key, String val) {
-            Pair pair = new Pair(key, val);
-            int index = hashFunc(key);
-            buckets.set(index, pair);
-        }
+        def put(self, key: int, val: str):
+            """添加操作"""
+            pair = Pair(key, val)
+            index: int = self.hash_func(key)
+            self.buckets[index] = pair
 
-        /* 删除操作 */
-        public void remove(int key) {
-            int index = hashFunc(key);
-            // 置为 null ，代表删除
-            buckets.set(index, null);
-        }
+        def remove(self, key: int):
+            """删除操作"""
+            index: int = self.hash_func(key)
+            # 置为 None ，代表删除
+            self.buckets[index] = None
 
-        /* 获取所有键值对 */
-        public List<Pair> pairSet() {
-            List<Pair> pairSet = new ArrayList<>();
-            for (Pair pair : buckets) {
-                if (pair != null)
-                    pairSet.add(pair);
-            }
-            return pairSet;
-        }
+        def entry_set(self) -> list[Pair]:
+            """获取所有键值对"""
+            result: list[Pair] = []
+            for pair in self.buckets:
+                if pair is not None:
+                    result.append(pair)
+            return result
 
-        /* 获取所有键 */
-        public List<Integer> keySet() {
-            List<Integer> keySet = new ArrayList<>();
-            for (Pair pair : buckets) {
-                if (pair != null)
-                    keySet.add(pair.key);
-            }
-            return keySet;
-        }
+        def key_set(self) -> list[int]:
+            """获取所有键"""
+            result = []
+            for pair in self.buckets:
+                if pair is not None:
+                    result.append(pair.key)
+            return result
 
-        /* 获取所有值 */
-        public List<String> valueSet() {
-            List<String> valueSet = new ArrayList<>();
-            for (Pair pair : buckets) {
-                if (pair != null)
-                    valueSet.add(pair.val);
-            }
-            return valueSet;
-        }
+        def value_set(self) -> list[str]:
+            """获取所有值"""
+            result = []
+            for pair in self.buckets:
+                if pair is not None:
+                    result.append(pair.val)
+            return result
 
-        /* 打印哈希表 */
-        public void print() {
-            for (Pair kv : pairSet()) {
-                System.out.println(kv.key + " -> " + kv.val);
-            }
-        }
-    }
+        def print(self):
+            """打印哈希表"""
+            for pair in self.buckets:
+                if pair is not None:
+                    print(pair.key, "->", pair.val)
     ```
 
 === "C++"
@@ -669,78 +649,189 @@ index = hash(key) % capacity
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array_hash_map.py"
-    class Pair:
-        """键值对"""
+    ```java title="array_hash_map.java"
+    /* 键值对 */
+    class Pair {
+        public int key;
+        public String val;
 
-        def __init__(self, key: int, val: str):
-            self.key = key
-            self.val = val
+        public Pair(int key, String val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
 
-    class ArrayHashMap:
-        """基于数组简易实现的哈希表"""
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+        private List<Pair> buckets;
 
-        def __init__(self):
-            """构造方法"""
-            # 初始化数组，包含 100 个桶
-            self.buckets: list[Pair | None] = [None] * 100
+        public ArrayHashMap() {
+            // 初始化数组，包含 100 个桶
+            buckets = new ArrayList<>();
+            for (int i = 0; i < 100; i++) {
+                buckets.add(null);
+            }
+        }
 
-        def hash_func(self, key: int) -> int:
-            """哈希函数"""
-            index = key % 100
-            return index
+        /* 哈希函数 */
+        private int hashFunc(int key) {
+            int index = key % 100;
+            return index;
+        }
 
-        def get(self, key: int) -> str:
-            """查询操作"""
-            index: int = self.hash_func(key)
-            pair: Pair = self.buckets[index]
-            if pair is None:
-                return None
-            return pair.val
+        /* 查询操作 */
+        public String get(int key) {
+            int index = hashFunc(key);
+            Pair pair = buckets.get(index);
+            if (pair == null)
+                return null;
+            return pair.val;
+        }
 
-        def put(self, key: int, val: str):
-            """添加操作"""
-            pair = Pair(key, val)
-            index: int = self.hash_func(key)
-            self.buckets[index] = pair
+        /* 添加操作 */
+        public void put(int key, String val) {
+            Pair pair = new Pair(key, val);
+            int index = hashFunc(key);
+            buckets.set(index, pair);
+        }
 
-        def remove(self, key: int):
-            """删除操作"""
-            index: int = self.hash_func(key)
-            # 置为 None ，代表删除
-            self.buckets[index] = None
+        /* 删除操作 */
+        public void remove(int key) {
+            int index = hashFunc(key);
+            // 置为 null ，代表删除
+            buckets.set(index, null);
+        }
 
-        def entry_set(self) -> list[Pair]:
-            """获取所有键值对"""
-            result: list[Pair] = []
-            for pair in self.buckets:
-                if pair is not None:
-                    result.append(pair)
-            return result
+        /* 获取所有键值对 */
+        public List<Pair> pairSet() {
+            List<Pair> pairSet = new ArrayList<>();
+            for (Pair pair : buckets) {
+                if (pair != null)
+                    pairSet.add(pair);
+            }
+            return pairSet;
+        }
 
-        def key_set(self) -> list[int]:
-            """获取所有键"""
-            result = []
-            for pair in self.buckets:
-                if pair is not None:
-                    result.append(pair.key)
-            return result
+        /* 获取所有键 */
+        public List<Integer> keySet() {
+            List<Integer> keySet = new ArrayList<>();
+            for (Pair pair : buckets) {
+                if (pair != null)
+                    keySet.add(pair.key);
+            }
+            return keySet;
+        }
 
-        def value_set(self) -> list[str]:
-            """获取所有值"""
-            result = []
-            for pair in self.buckets:
-                if pair is not None:
-                    result.append(pair.val)
-            return result
+        /* 获取所有值 */
+        public List<String> valueSet() {
+            List<String> valueSet = new ArrayList<>();
+            for (Pair pair : buckets) {
+                if (pair != null)
+                    valueSet.add(pair.val);
+            }
+            return valueSet;
+        }
 
-        def print(self):
-            """打印哈希表"""
-            for pair in self.buckets:
-                if pair is not None:
-                    print(pair.key, "->", pair.val)
+        /* 打印哈希表 */
+        public void print() {
+            for (Pair kv : pairSet()) {
+                System.out.println(kv.key + " -> " + kv.val);
+            }
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array_hash_map.cs"
+    /* 键值对 int->string */
+    class Pair {
+        public int key;
+        public string val;
+        public Pair(int key, string val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
+
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+        private List<Pair?> buckets;
+        public ArrayHashMap() {
+            // 初始化数组，包含 100 个桶
+            buckets = new();
+            for (int i = 0; i < 100; i++) {
+                buckets.Add(null);
+            }
+        }
+
+        /* 哈希函数 */
+        private int hashFunc(int key) {
+            int index = key % 100;
+            return index;
+        }
+
+        /* 查询操作 */
+        public string? get(int key) {
+            int index = hashFunc(key);
+            Pair? pair = buckets[index];
+            if (pair == null) return null;
+            return pair.val;
+        }
+
+        /* 添加操作 */
+        public void put(int key, string val) {
+            Pair pair = new Pair(key, val);
+            int index = hashFunc(key);
+            buckets[index] = pair;
+        }
+
+        /* 删除操作 */
+        public void remove(int key) {
+            int index = hashFunc(key);
+            // 置为 null ，代表删除
+            buckets[index] = null;
+        }
+
+        /* 获取所有键值对 */
+        public List<Pair> pairSet() {
+            List<Pair> pairSet = new();
+            foreach (Pair? pair in buckets) {
+                if (pair != null)
+                    pairSet.Add(pair);
+            }
+            return pairSet;
+        }
+
+        /* 获取所有键 */
+        public List<int> keySet() {
+            List<int> keySet = new();
+            foreach (Pair? pair in buckets) {
+                if (pair != null)
+                    keySet.Add(pair.key);
+            }
+            return keySet;
+        }
+
+        /* 获取所有值 */
+        public List<string> valueSet() {
+            List<string> valueSet = new();
+            foreach (Pair? pair in buckets) {
+                if (pair != null)
+                    valueSet.Add(pair.val);
+            }
+            return valueSet;
+        }
+
+        /* 打印哈希表 */
+        public void print() {
+            foreach (Pair kv in pairSet()) {
+                Console.WriteLine(kv.key + " -> " + kv.val);
+            }
+        }
+    }
     ```
 
 === "Go"
@@ -832,6 +923,100 @@ index = hash(key) % capacity
         for _, pair := range a.buckets {
             if pair != nil {
                 fmt.Println(pair.key, "->", pair.val)
+            }
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array_hash_map.swift"
+    /* 键值对 */
+    class Pair {
+        var key: Int
+        var val: String
+
+        init(key: Int, val: String) {
+            self.key = key
+            self.val = val
+        }
+    }
+
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+        private var buckets: [Pair?] = []
+
+        init() {
+            // 初始化数组，包含 100 个桶
+            for _ in 0 ..< 100 {
+                buckets.append(nil)
+            }
+        }
+
+        /* 哈希函数 */
+        private func hashFunc(key: Int) -> Int {
+            let index = key % 100
+            return index
+        }
+
+        /* 查询操作 */
+        func get(key: Int) -> String? {
+            let index = hashFunc(key: key)
+            let pair = buckets[index]
+            return pair?.val
+        }
+
+        /* 添加操作 */
+        func put(key: Int, val: String) {
+            let pair = Pair(key: key, val: val)
+            let index = hashFunc(key: key)
+            buckets[index] = pair
+        }
+
+        /* 删除操作 */
+        func remove(key: Int) {
+            let index = hashFunc(key: key)
+            // 置为 nil ，代表删除
+            buckets[index] = nil
+        }
+
+        /* 获取所有键值对 */
+        func pairSet() -> [Pair] {
+            var pairSet: [Pair] = []
+            for pair in buckets {
+                if let pair = pair {
+                    pairSet.append(pair)
+                }
+            }
+            return pairSet
+        }
+
+        /* 获取所有键 */
+        func keySet() -> [Int] {
+            var keySet: [Int] = []
+            for pair in buckets {
+                if let pair = pair {
+                    keySet.append(pair.key)
+                }
+            }
+            return keySet
+        }
+
+        /* 获取所有值 */
+        func valueSet() -> [String] {
+            var valueSet: [String] = []
+            for pair in buckets {
+                if let pair = pair {
+                    valueSet.append(pair.val)
+                }
+            }
+            return valueSet
+        }
+
+        /* 打印哈希表 */
+        func print() {
+            for pair in pairSet() {
+                Swift.print("\(pair.key) -> \(pair.val)")
             }
         }
     }
@@ -1019,314 +1204,6 @@ index = hash(key) % capacity
     }
     ```
 
-=== "C"
-
-    ```c title="array_hash_map.c"
-    /* 键值对 int->string */
-    struct pair {
-        int key;
-        char *val;
-    };
-
-    typedef struct pair pair;
-
-    [class]{arrayHashMap}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="array_hash_map.cs"
-    /* 键值对 int->string */
-    class Pair {
-        public int key;
-        public string val;
-        public Pair(int key, string val) {
-            this.key = key;
-            this.val = val;
-        }
-    }
-
-    /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap {
-        private List<Pair?> buckets;
-        public ArrayHashMap() {
-            // 初始化数组，包含 100 个桶
-            buckets = new();
-            for (int i = 0; i < 100; i++) {
-                buckets.Add(null);
-            }
-        }
-
-        /* 哈希函数 */
-        private int hashFunc(int key) {
-            int index = key % 100;
-            return index;
-        }
-
-        /* 查询操作 */
-        public string? get(int key) {
-            int index = hashFunc(key);
-            Pair? pair = buckets[index];
-            if (pair == null) return null;
-            return pair.val;
-        }
-
-        /* 添加操作 */
-        public void put(int key, string val) {
-            Pair pair = new Pair(key, val);
-            int index = hashFunc(key);
-            buckets[index] = pair;
-        }
-
-        /* 删除操作 */
-        public void remove(int key) {
-            int index = hashFunc(key);
-            // 置为 null ，代表删除
-            buckets[index] = null;
-        }
-
-        /* 获取所有键值对 */
-        public List<Pair> pairSet() {
-            List<Pair> pairSet = new();
-            foreach (Pair? pair in buckets) {
-                if (pair != null)
-                    pairSet.Add(pair);
-            }
-            return pairSet;
-        }
-
-        /* 获取所有键 */
-        public List<int> keySet() {
-            List<int> keySet = new();
-            foreach (Pair? pair in buckets) {
-                if (pair != null)
-                    keySet.Add(pair.key);
-            }
-            return keySet;
-        }
-
-        /* 获取所有值 */
-        public List<string> valueSet() {
-            List<string> valueSet = new();
-            foreach (Pair? pair in buckets) {
-                if (pair != null)
-                    valueSet.Add(pair.val);
-            }
-            return valueSet;
-        }
-
-        /* 打印哈希表 */
-        public void print() {
-            foreach (Pair kv in pairSet()) {
-                Console.WriteLine(kv.key + " -> " + kv.val);
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="array_hash_map.swift"
-    /* 键值对 */
-    class Pair {
-        var key: Int
-        var val: String
-
-        init(key: Int, val: String) {
-            self.key = key
-            self.val = val
-        }
-    }
-
-    /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap {
-        private var buckets: [Pair?] = []
-
-        init() {
-            // 初始化数组，包含 100 个桶
-            for _ in 0 ..< 100 {
-                buckets.append(nil)
-            }
-        }
-
-        /* 哈希函数 */
-        private func hashFunc(key: Int) -> Int {
-            let index = key % 100
-            return index
-        }
-
-        /* 查询操作 */
-        func get(key: Int) -> String? {
-            let index = hashFunc(key: key)
-            let pair = buckets[index]
-            return pair?.val
-        }
-
-        /* 添加操作 */
-        func put(key: Int, val: String) {
-            let pair = Pair(key: key, val: val)
-            let index = hashFunc(key: key)
-            buckets[index] = pair
-        }
-
-        /* 删除操作 */
-        func remove(key: Int) {
-            let index = hashFunc(key: key)
-            // 置为 nil ，代表删除
-            buckets[index] = nil
-        }
-
-        /* 获取所有键值对 */
-        func pairSet() -> [Pair] {
-            var pairSet: [Pair] = []
-            for pair in buckets {
-                if let pair = pair {
-                    pairSet.append(pair)
-                }
-            }
-            return pairSet
-        }
-
-        /* 获取所有键 */
-        func keySet() -> [Int] {
-            var keySet: [Int] = []
-            for pair in buckets {
-                if let pair = pair {
-                    keySet.append(pair.key)
-                }
-            }
-            return keySet
-        }
-
-        /* 获取所有值 */
-        func valueSet() -> [String] {
-            var valueSet: [String] = []
-            for pair in buckets {
-                if let pair = pair {
-                    valueSet.append(pair.val)
-                }
-            }
-            return valueSet
-        }
-
-        /* 打印哈希表 */
-        func print() {
-            for pair in pairSet() {
-                Swift.print("\(pair.key) -> \(pair.val)")
-            }
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="array_hash_map.zig"
-    // 键值对
-    const Pair = struct {
-        key: usize = undefined,
-        val: []const u8 = undefined,
-
-       pub fn init(key: usize, val: []const u8) Pair {
-            return Pair {
-                .key = key,
-                .val = val,
-            };
-        }
-    };
-
-    // 基于数组简易实现的哈希表
-    fn ArrayHashMap(comptime T: type) type {
-        return struct {
-            bucket: ?std.ArrayList(?T) = null,
-            mem_allocator: std.mem.Allocator = undefined,
-
-            const Self = @This();
-            
-            // 构造函数
-            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
-                self.mem_allocator = allocator;
-                // 初始化一个长度为 100 的桶（数组）
-                self.bucket = std.ArrayList(?T).init(self.mem_allocator);
-                var i: i32 = 0;
-                while (i < 100) : (i += 1) {
-                    try self.bucket.?.append(null);
-                }
-            }
-
-            // 析构函数
-            pub fn deinit(self: *Self) void {
-                if (self.bucket != null) self.bucket.?.deinit();
-            }
-
-            // 哈希函数
-            fn hashFunc(key: usize) usize {
-                var index = key % 100;
-                return index;
-            }
-
-            // 查询操作
-            pub fn get(self: *Self, key: usize) []const u8 {
-                var index = hashFunc(key);
-                var pair = self.bucket.?.items[index];
-                return pair.?.val;
-            }
-
-            // 添加操作
-            pub fn put(self: *Self, key: usize, val: []const u8) !void {
-                var pair = Pair.init(key, val);
-                var index = hashFunc(key);
-                self.bucket.?.items[index] = pair;
-            }
-
-            // 删除操作
-            pub fn remove(self: *Self, key: usize) !void {
-                var index = hashFunc(key);
-                // 置为 null ，代表删除
-                self.bucket.?.items[index] = null;
-            }       
-
-            // 获取所有键值对
-            pub fn pairSet(self: *Self) !std.ArrayList(T) {
-                var entry_set = std.ArrayList(T).init(self.mem_allocator);
-                for (self.bucket.?.items) |item| {
-                    if (item == null) continue;
-                    try entry_set.append(item.?);
-                }
-                return entry_set;
-            }  
-
-            // 获取所有键
-            pub fn keySet(self: *Self) !std.ArrayList(usize) {
-                var key_set = std.ArrayList(usize).init(self.mem_allocator);
-                for (self.bucket.?.items) |item| {
-                    if (item == null) continue;
-                    try key_set.append(item.?.key);
-                }
-                return key_set;
-            }  
-
-            // 获取所有值
-            pub fn valueSet(self: *Self) !std.ArrayList([]const u8) {
-                var value_set = std.ArrayList([]const u8).init(self.mem_allocator);
-                for (self.bucket.?.items) |item| {
-                    if (item == null) continue;
-                    try value_set.append(item.?.val);
-                }
-                return value_set;
-            }
-
-            // 打印哈希表
-            pub fn print(self: *Self) !void {
-                var entry_set = try self.pairSet();
-                defer entry_set.deinit();
-                for (entry_set.items) |item| {
-                    std.debug.print("{} -> {s}\n", .{item.key, item.val});
-                }
-            }
-        };
-    }
-    ```
-
 === "Dart"
 
     ```dart title="array_hash_map.dart"
@@ -1485,6 +1362,129 @@ index = hash(key) % capacity
                 println!("{} -> {}", pair.key, pair.val);
             }
         }
+    }
+    ```
+
+=== "C"
+
+    ```c title="array_hash_map.c"
+    /* 键值对 int->string */
+    struct pair {
+        int key;
+        char *val;
+    };
+
+    typedef struct pair pair;
+
+    [class]{arrayHashMap}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="array_hash_map.zig"
+    // 键值对
+    const Pair = struct {
+        key: usize = undefined,
+        val: []const u8 = undefined,
+
+       pub fn init(key: usize, val: []const u8) Pair {
+            return Pair {
+                .key = key,
+                .val = val,
+            };
+        }
+    };
+
+    // 基于数组简易实现的哈希表
+    fn ArrayHashMap(comptime T: type) type {
+        return struct {
+            bucket: ?std.ArrayList(?T) = null,
+            mem_allocator: std.mem.Allocator = undefined,
+
+            const Self = @This();
+            
+            // 构造函数
+            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
+                self.mem_allocator = allocator;
+                // 初始化一个长度为 100 的桶（数组）
+                self.bucket = std.ArrayList(?T).init(self.mem_allocator);
+                var i: i32 = 0;
+                while (i < 100) : (i += 1) {
+                    try self.bucket.?.append(null);
+                }
+            }
+
+            // 析构函数
+            pub fn deinit(self: *Self) void {
+                if (self.bucket != null) self.bucket.?.deinit();
+            }
+
+            // 哈希函数
+            fn hashFunc(key: usize) usize {
+                var index = key % 100;
+                return index;
+            }
+
+            // 查询操作
+            pub fn get(self: *Self, key: usize) []const u8 {
+                var index = hashFunc(key);
+                var pair = self.bucket.?.items[index];
+                return pair.?.val;
+            }
+
+            // 添加操作
+            pub fn put(self: *Self, key: usize, val: []const u8) !void {
+                var pair = Pair.init(key, val);
+                var index = hashFunc(key);
+                self.bucket.?.items[index] = pair;
+            }
+
+            // 删除操作
+            pub fn remove(self: *Self, key: usize) !void {
+                var index = hashFunc(key);
+                // 置为 null ，代表删除
+                self.bucket.?.items[index] = null;
+            }       
+
+            // 获取所有键值对
+            pub fn pairSet(self: *Self) !std.ArrayList(T) {
+                var entry_set = std.ArrayList(T).init(self.mem_allocator);
+                for (self.bucket.?.items) |item| {
+                    if (item == null) continue;
+                    try entry_set.append(item.?);
+                }
+                return entry_set;
+            }  
+
+            // 获取所有键
+            pub fn keySet(self: *Self) !std.ArrayList(usize) {
+                var key_set = std.ArrayList(usize).init(self.mem_allocator);
+                for (self.bucket.?.items) |item| {
+                    if (item == null) continue;
+                    try key_set.append(item.?.key);
+                }
+                return key_set;
+            }  
+
+            // 获取所有值
+            pub fn valueSet(self: *Self) !std.ArrayList([]const u8) {
+                var value_set = std.ArrayList([]const u8).init(self.mem_allocator);
+                for (self.bucket.?.items) |item| {
+                    if (item == null) continue;
+                    try value_set.append(item.?.val);
+                }
+                return value_set;
+            }
+
+            // 打印哈希表
+            pub fn print(self: *Self) !void {
+                var entry_set = try self.pairSet();
+                defer entry_set.deinit();
+                for (entry_set.items) |item| {
+                    std.debug.print("{} -> {s}\n", .{item.key, item.val});
+                }
+            }
+        };
     }
     ```
 

@@ -37,118 +37,87 @@ comments: true
 - 使用列表（动态数组）代替链表，从而简化代码。在这种设定下，哈希表（数组）包含多个桶，每个桶都是一个列表。
 - 以下实现包含哈希表扩容方法。当负载因子超过 $0.75$ 时，我们将哈希表扩容至 $2$ 倍。
 
-=== "Java"
+=== "Python"
 
-    ```java title="hash_map_chaining.java"
-    /* 链式地址哈希表 */
-    class HashMapChaining {
-        int size; // 键值对数量
-        int capacity; // 哈希表容量
-        double loadThres; // 触发扩容的负载因子阈值
-        int extendRatio; // 扩容倍数
-        List<List<Pair>> buckets; // 桶数组
+    ```python title="hash_map_chaining.py"
+    class HashMapChaining:
+        """链式地址哈希表"""
 
-        /* 构造方法 */
-        public HashMapChaining() {
-            size = 0;
-            capacity = 4;
-            loadThres = 2 / 3.0;
-            extendRatio = 2;
-            buckets = new ArrayList<>(capacity);
-            for (int i = 0; i < capacity; i++) {
-                buckets.add(new ArrayList<>());
-            }
-        }
+        def __init__(self):
+            """构造方法"""
+            self.size = 0  # 键值对数量
+            self.capacity = 4  # 哈希表容量
+            self.load_thres = 2 / 3  # 触发扩容的负载因子阈值
+            self.extend_ratio = 2  # 扩容倍数
+            self.buckets = [[] for _ in range(self.capacity)]  # 桶数组
 
-        /* 哈希函数 */
-        int hashFunc(int key) {
-            return key % capacity;
-        }
+        def hash_func(self, key: int) -> int:
+            """哈希函数"""
+            return key % self.capacity
 
-        /* 负载因子 */
-        double loadFactor() {
-            return (double) size / capacity;
-        }
+        def load_factor(self) -> float:
+            """负载因子"""
+            return self.size / self.capacity
 
-        /* 查询操作 */
-        String get(int key) {
-            int index = hashFunc(key);
-            List<Pair> bucket = buckets.get(index);
-            // 遍历桶，若找到 key 则返回对应 val
-            for (Pair pair : bucket) {
-                if (pair.key == key) {
-                    return pair.val;
-                }
-            }
-            // 若未找到 key 则返回 null
-            return null;
-        }
+        def get(self, key: int) -> str:
+            """查询操作"""
+            index = self.hash_func(key)
+            bucket = self.buckets[index]
+            # 遍历桶，若找到 key 则返回对应 val
+            for pair in bucket:
+                if pair.key == key:
+                    return pair.val
+            # 若未找到 key 则返回 None
+            return None
 
-        /* 添加操作 */
-        void put(int key, String val) {
-            // 当负载因子超过阈值时，执行扩容
-            if (loadFactor() > loadThres) {
-                extend();
-            }
-            int index = hashFunc(key);
-            List<Pair> bucket = buckets.get(index);
-            // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
-            for (Pair pair : bucket) {
-                if (pair.key == key) {
-                    pair.val = val;
-                    return;
-                }
-            }
-            // 若无该 key ，则将键值对添加至尾部
-            Pair pair = new Pair(key, val);
-            bucket.add(pair);
-            size++;
-        }
+        def put(self, key: int, val: str):
+            """添加操作"""
+            # 当负载因子超过阈值时，执行扩容
+            if self.load_factor() > self.load_thres:
+                self.extend()
+            index = self.hash_func(key)
+            bucket = self.buckets[index]
+            # 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+            for pair in bucket:
+                if pair.key == key:
+                    pair.val = val
+                    return
+            # 若无该 key ，则将键值对添加至尾部
+            pair = Pair(key, val)
+            bucket.append(pair)
+            self.size += 1
 
-        /* 删除操作 */
-        void remove(int key) {
-            int index = hashFunc(key);
-            List<Pair> bucket = buckets.get(index);
-            // 遍历桶，从中删除键值对
-            for (Pair pair : bucket) {
-                if (pair.key == key) {
-                    bucket.remove(pair);
-                    size--;
-                    break;
-                }
-            }
-        }
+        def remove(self, key: int):
+            """删除操作"""
+            index = self.hash_func(key)
+            bucket = self.buckets[index]
+            # 遍历桶，从中删除键值对
+            for pair in bucket:
+                if pair.key == key:
+                    bucket.remove(pair)
+                    self.size -= 1
+                    break
 
-        /* 扩容哈希表 */
-        void extend() {
-            // 暂存原哈希表
-            List<List<Pair>> bucketsTmp = buckets;
-            // 初始化扩容后的新哈希表
-            capacity *= extendRatio;
-            buckets = new ArrayList<>(capacity);
-            for (int i = 0; i < capacity; i++) {
-                buckets.add(new ArrayList<>());
-            }
-            size = 0;
-            // 将键值对从原哈希表搬运至新哈希表
-            for (List<Pair> bucket : bucketsTmp) {
-                for (Pair pair : bucket) {
-                    put(pair.key, pair.val);
-                }
-            }
-        }
+        def extend(self):
+            """扩容哈希表"""
+            # 暂存原哈希表
+            buckets = self.buckets
+            # 初始化扩容后的新哈希表
+            self.capacity *= self.extend_ratio
+            self.buckets = [[] for _ in range(self.capacity)]
+            self.size = 0
+            # 将键值对从原哈希表搬运至新哈希表
+            for bucket in buckets:
+                for pair in bucket:
+                    self.put(pair.key, pair.val)
 
-        /* 打印哈希表 */
-        void print() {
-            for (List<Pair> bucket : buckets) {
-                List<String> res = new ArrayList<>();
-                for (Pair pair : bucket) {
-                    res.add(pair.key + " -> " + pair.val);
-                }
-                System.out.println(res);
-            }
-        }
-    }
+        def print(self):
+            """打印哈希表"""
+            for bucket in self.buckets:
+                res = []
+                for pair in bucket:
+                    res.append(str(pair.key) + " -> " + pair.val)
+                print(res)
     ```
 
 === "C++"
@@ -269,87 +238,230 @@ comments: true
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="hash_map_chaining.py"
-    class HashMapChaining:
-        """链式地址哈希表"""
+    ```java title="hash_map_chaining.java"
+    /* 链式地址哈希表 */
+    class HashMapChaining {
+        int size; // 键值对数量
+        int capacity; // 哈希表容量
+        double loadThres; // 触发扩容的负载因子阈值
+        int extendRatio; // 扩容倍数
+        List<List<Pair>> buckets; // 桶数组
 
-        def __init__(self):
-            """构造方法"""
-            self.size = 0  # 键值对数量
-            self.capacity = 4  # 哈希表容量
-            self.load_thres = 2 / 3  # 触发扩容的负载因子阈值
-            self.extend_ratio = 2  # 扩容倍数
-            self.buckets = [[] for _ in range(self.capacity)]  # 桶数组
+        /* 构造方法 */
+        public HashMapChaining() {
+            size = 0;
+            capacity = 4;
+            loadThres = 2 / 3.0;
+            extendRatio = 2;
+            buckets = new ArrayList<>(capacity);
+            for (int i = 0; i < capacity; i++) {
+                buckets.add(new ArrayList<>());
+            }
+        }
 
-        def hash_func(self, key: int) -> int:
-            """哈希函数"""
-            return key % self.capacity
+        /* 哈希函数 */
+        int hashFunc(int key) {
+            return key % capacity;
+        }
 
-        def load_factor(self) -> float:
-            """负载因子"""
-            return self.size / self.capacity
+        /* 负载因子 */
+        double loadFactor() {
+            return (double) size / capacity;
+        }
 
-        def get(self, key: int) -> str:
-            """查询操作"""
-            index = self.hash_func(key)
-            bucket = self.buckets[index]
-            # 遍历桶，若找到 key 则返回对应 val
-            for pair in bucket:
-                if pair.key == key:
-                    return pair.val
-            # 若未找到 key 则返回 None
-            return None
+        /* 查询操作 */
+        String get(int key) {
+            int index = hashFunc(key);
+            List<Pair> bucket = buckets.get(index);
+            // 遍历桶，若找到 key 则返回对应 val
+            for (Pair pair : bucket) {
+                if (pair.key == key) {
+                    return pair.val;
+                }
+            }
+            // 若未找到 key 则返回 null
+            return null;
+        }
 
-        def put(self, key: int, val: str):
-            """添加操作"""
-            # 当负载因子超过阈值时，执行扩容
-            if self.load_factor() > self.load_thres:
-                self.extend()
-            index = self.hash_func(key)
-            bucket = self.buckets[index]
-            # 遍历桶，若遇到指定 key ，则更新对应 val 并返回
-            for pair in bucket:
-                if pair.key == key:
-                    pair.val = val
-                    return
-            # 若无该 key ，则将键值对添加至尾部
-            pair = Pair(key, val)
-            bucket.append(pair)
-            self.size += 1
+        /* 添加操作 */
+        void put(int key, String val) {
+            // 当负载因子超过阈值时，执行扩容
+            if (loadFactor() > loadThres) {
+                extend();
+            }
+            int index = hashFunc(key);
+            List<Pair> bucket = buckets.get(index);
+            // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+            for (Pair pair : bucket) {
+                if (pair.key == key) {
+                    pair.val = val;
+                    return;
+                }
+            }
+            // 若无该 key ，则将键值对添加至尾部
+            Pair pair = new Pair(key, val);
+            bucket.add(pair);
+            size++;
+        }
 
-        def remove(self, key: int):
-            """删除操作"""
-            index = self.hash_func(key)
-            bucket = self.buckets[index]
-            # 遍历桶，从中删除键值对
-            for pair in bucket:
-                if pair.key == key:
-                    bucket.remove(pair)
-                    self.size -= 1
-                    break
+        /* 删除操作 */
+        void remove(int key) {
+            int index = hashFunc(key);
+            List<Pair> bucket = buckets.get(index);
+            // 遍历桶，从中删除键值对
+            for (Pair pair : bucket) {
+                if (pair.key == key) {
+                    bucket.remove(pair);
+                    size--;
+                    break;
+                }
+            }
+        }
 
-        def extend(self):
-            """扩容哈希表"""
-            # 暂存原哈希表
-            buckets = self.buckets
-            # 初始化扩容后的新哈希表
-            self.capacity *= self.extend_ratio
-            self.buckets = [[] for _ in range(self.capacity)]
-            self.size = 0
-            # 将键值对从原哈希表搬运至新哈希表
-            for bucket in buckets:
-                for pair in bucket:
-                    self.put(pair.key, pair.val)
+        /* 扩容哈希表 */
+        void extend() {
+            // 暂存原哈希表
+            List<List<Pair>> bucketsTmp = buckets;
+            // 初始化扩容后的新哈希表
+            capacity *= extendRatio;
+            buckets = new ArrayList<>(capacity);
+            for (int i = 0; i < capacity; i++) {
+                buckets.add(new ArrayList<>());
+            }
+            size = 0;
+            // 将键值对从原哈希表搬运至新哈希表
+            for (List<Pair> bucket : bucketsTmp) {
+                for (Pair pair : bucket) {
+                    put(pair.key, pair.val);
+                }
+            }
+        }
 
-        def print(self):
-            """打印哈希表"""
-            for bucket in self.buckets:
-                res = []
-                for pair in bucket:
-                    res.append(str(pair.key) + " -> " + pair.val)
-                print(res)
+        /* 打印哈希表 */
+        void print() {
+            for (List<Pair> bucket : buckets) {
+                List<String> res = new ArrayList<>();
+                for (Pair pair : bucket) {
+                    res.add(pair.key + " -> " + pair.val);
+                }
+                System.out.println(res);
+            }
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="hash_map_chaining.cs"
+    /* 链式地址哈希表 */
+    class HashMapChaining {
+        int size; // 键值对数量
+        int capacity; // 哈希表容量
+        double loadThres; // 触发扩容的负载因子阈值
+        int extendRatio; // 扩容倍数
+        List<List<Pair>> buckets; // 桶数组
+
+        /* 构造方法 */
+        public HashMapChaining() {
+            size = 0;
+            capacity = 4;
+            loadThres = 2 / 3.0;
+            extendRatio = 2;
+            buckets = new List<List<Pair>>(capacity);
+            for (int i = 0; i < capacity; i++) {
+                buckets.Add(new List<Pair>());
+            }
+        }
+
+        /* 哈希函数 */
+        private int hashFunc(int key) {
+            return key % capacity;
+        }
+
+        /* 负载因子 */
+        private double loadFactor() {
+            return (double)size / capacity;
+        }
+
+        /* 查询操作 */
+        public string get(int key) {
+            int index = hashFunc(key);
+            // 遍历桶，若找到 key 则返回对应 val
+            foreach (Pair pair in buckets[index]) {
+                if (pair.key == key) {
+                    return pair.val;
+                }
+            }
+            // 若未找到 key 则返回 null
+            return null;
+        }
+
+        /* 添加操作 */
+        public void put(int key, string val) {
+            // 当负载因子超过阈值时，执行扩容
+            if (loadFactor() > loadThres) {
+                extend();
+            }
+            int index = hashFunc(key);
+            // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+            foreach (Pair pair in buckets[index]) {
+                if (pair.key == key) {
+                    pair.val = val;
+                    return;
+                }
+            }
+            // 若无该 key ，则将键值对添加至尾部
+            buckets[index].Add(new Pair(key, val));
+            size++;
+        }
+
+        /* 删除操作 */
+        public void remove(int key) {
+            int index = hashFunc(key);
+            // 遍历桶，从中删除键值对
+            foreach (Pair pair in buckets[index].ToList()) {
+                if (pair.key == key) {
+                    buckets[index].Remove(pair);
+                    size--;
+                    break;
+                }
+            }
+        }
+
+        /* 扩容哈希表 */
+        private void extend() {
+            // 暂存原哈希表
+            List<List<Pair>> bucketsTmp = buckets;
+            // 初始化扩容后的新哈希表
+            capacity *= extendRatio;
+            buckets = new List<List<Pair>>(capacity);
+            for (int i = 0; i < capacity; i++) {
+                buckets.Add(new List<Pair>());
+            }
+            size = 0;
+            // 将键值对从原哈希表搬运至新哈希表
+            foreach (List<Pair> bucket in bucketsTmp) {
+                foreach (Pair pair in bucket) {
+                    put(pair.key, pair.val);
+                }
+            }
+        }
+
+        /* 打印哈希表 */
+        public void print() {
+            foreach (List<Pair> bucket in buckets) {
+                List<string> res = new List<string>();
+                foreach (Pair pair in bucket) {
+                    res.Add(pair.key + " -> " + pair.val);
+                }
+                foreach (string kv in res) {
+                    Console.WriteLine(kv);
+                }
+            }
+        }
+    }
     ```
 
 === "Go"
@@ -475,6 +587,110 @@ comments: true
             builder.WriteString("]")
             fmt.Println(builder.String())
             builder.Reset()
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="hash_map_chaining.swift"
+    /* 链式地址哈希表 */
+    class HashMapChaining {
+        var size: Int // 键值对数量
+        var capacity: Int // 哈希表容量
+        var loadThres: Double // 触发扩容的负载因子阈值
+        var extendRatio: Int // 扩容倍数
+        var buckets: [[Pair]] // 桶数组
+
+        /* 构造方法 */
+        init() {
+            size = 0
+            capacity = 4
+            loadThres = 2 / 3
+            extendRatio = 2
+            buckets = Array(repeating: [], count: capacity)
+        }
+
+        /* 哈希函数 */
+        func hashFunc(key: Int) -> Int {
+            key % capacity
+        }
+
+        /* 负载因子 */
+        func loadFactor() -> Double {
+            Double(size / capacity)
+        }
+
+        /* 查询操作 */
+        func get(key: Int) -> String? {
+            let index = hashFunc(key: key)
+            let bucket = buckets[index]
+            // 遍历桶，若找到 key 则返回对应 val
+            for pair in bucket {
+                if pair.key == key {
+                    return pair.val
+                }
+            }
+            // 若未找到 key 则返回 nil
+            return nil
+        }
+
+        /* 添加操作 */
+        func put(key: Int, val: String) {
+            // 当负载因子超过阈值时，执行扩容
+            if loadFactor() > loadThres {
+                extend()
+            }
+            let index = hashFunc(key: key)
+            let bucket = buckets[index]
+            // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+            for pair in bucket {
+                if pair.key == key {
+                    pair.val = val
+                    return
+                }
+            }
+            // 若无该 key ，则将键值对添加至尾部
+            let pair = Pair(key: key, val: val)
+            buckets[index].append(pair)
+            size += 1
+        }
+
+        /* 删除操作 */
+        func remove(key: Int) {
+            let index = hashFunc(key: key)
+            let bucket = buckets[index]
+            // 遍历桶，从中删除键值对
+            for (pairIndex, pair) in bucket.enumerated() {
+                if pair.key == key {
+                    buckets[index].remove(at: pairIndex)
+                }
+            }
+            size -= 1
+        }
+
+        /* 扩容哈希表 */
+        func extend() {
+            // 暂存原哈希表
+            let bucketsTmp = buckets
+            // 初始化扩容后的新哈希表
+            capacity *= extendRatio
+            buckets = Array(repeating: [], count: capacity)
+            size = 0
+            // 将键值对从原哈希表搬运至新哈希表
+            for bucket in bucketsTmp {
+                for pair in bucket {
+                    put(key: pair.key, val: pair.val)
+                }
+            }
+        }
+
+        /* 打印哈希表 */
+        func print() {
+            for bucket in buckets {
+                let res = bucket.map { "\($0.key) -> \($0.val)" }
+                Swift.print(res)
+            }
         }
     }
     ```
@@ -693,234 +909,6 @@ comments: true
             }
         }
     }
-    ```
-
-=== "C"
-
-    ```c title="hash_map_chaining.c"
-    [class]{hashMapChaining}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="hash_map_chaining.cs"
-    /* 链式地址哈希表 */
-    class HashMapChaining {
-        int size; // 键值对数量
-        int capacity; // 哈希表容量
-        double loadThres; // 触发扩容的负载因子阈值
-        int extendRatio; // 扩容倍数
-        List<List<Pair>> buckets; // 桶数组
-
-        /* 构造方法 */
-        public HashMapChaining() {
-            size = 0;
-            capacity = 4;
-            loadThres = 2 / 3.0;
-            extendRatio = 2;
-            buckets = new List<List<Pair>>(capacity);
-            for (int i = 0; i < capacity; i++) {
-                buckets.Add(new List<Pair>());
-            }
-        }
-
-        /* 哈希函数 */
-        private int hashFunc(int key) {
-            return key % capacity;
-        }
-
-        /* 负载因子 */
-        private double loadFactor() {
-            return (double)size / capacity;
-        }
-
-        /* 查询操作 */
-        public string get(int key) {
-            int index = hashFunc(key);
-            // 遍历桶，若找到 key 则返回对应 val
-            foreach (Pair pair in buckets[index]) {
-                if (pair.key == key) {
-                    return pair.val;
-                }
-            }
-            // 若未找到 key 则返回 null
-            return null;
-        }
-
-        /* 添加操作 */
-        public void put(int key, string val) {
-            // 当负载因子超过阈值时，执行扩容
-            if (loadFactor() > loadThres) {
-                extend();
-            }
-            int index = hashFunc(key);
-            // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
-            foreach (Pair pair in buckets[index]) {
-                if (pair.key == key) {
-                    pair.val = val;
-                    return;
-                }
-            }
-            // 若无该 key ，则将键值对添加至尾部
-            buckets[index].Add(new Pair(key, val));
-            size++;
-        }
-
-        /* 删除操作 */
-        public void remove(int key) {
-            int index = hashFunc(key);
-            // 遍历桶，从中删除键值对
-            foreach (Pair pair in buckets[index].ToList()) {
-                if (pair.key == key) {
-                    buckets[index].Remove(pair);
-                    size--;
-                    break;
-                }
-            }
-        }
-
-        /* 扩容哈希表 */
-        private void extend() {
-            // 暂存原哈希表
-            List<List<Pair>> bucketsTmp = buckets;
-            // 初始化扩容后的新哈希表
-            capacity *= extendRatio;
-            buckets = new List<List<Pair>>(capacity);
-            for (int i = 0; i < capacity; i++) {
-                buckets.Add(new List<Pair>());
-            }
-            size = 0;
-            // 将键值对从原哈希表搬运至新哈希表
-            foreach (List<Pair> bucket in bucketsTmp) {
-                foreach (Pair pair in bucket) {
-                    put(pair.key, pair.val);
-                }
-            }
-        }
-
-        /* 打印哈希表 */
-        public void print() {
-            foreach (List<Pair> bucket in buckets) {
-                List<string> res = new List<string>();
-                foreach (Pair pair in bucket) {
-                    res.Add(pair.key + " -> " + pair.val);
-                }
-                foreach (string kv in res) {
-                    Console.WriteLine(kv);
-                }
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="hash_map_chaining.swift"
-    /* 链式地址哈希表 */
-    class HashMapChaining {
-        var size: Int // 键值对数量
-        var capacity: Int // 哈希表容量
-        var loadThres: Double // 触发扩容的负载因子阈值
-        var extendRatio: Int // 扩容倍数
-        var buckets: [[Pair]] // 桶数组
-
-        /* 构造方法 */
-        init() {
-            size = 0
-            capacity = 4
-            loadThres = 2 / 3
-            extendRatio = 2
-            buckets = Array(repeating: [], count: capacity)
-        }
-
-        /* 哈希函数 */
-        func hashFunc(key: Int) -> Int {
-            key % capacity
-        }
-
-        /* 负载因子 */
-        func loadFactor() -> Double {
-            Double(size / capacity)
-        }
-
-        /* 查询操作 */
-        func get(key: Int) -> String? {
-            let index = hashFunc(key: key)
-            let bucket = buckets[index]
-            // 遍历桶，若找到 key 则返回对应 val
-            for pair in bucket {
-                if pair.key == key {
-                    return pair.val
-                }
-            }
-            // 若未找到 key 则返回 nil
-            return nil
-        }
-
-        /* 添加操作 */
-        func put(key: Int, val: String) {
-            // 当负载因子超过阈值时，执行扩容
-            if loadFactor() > loadThres {
-                extend()
-            }
-            let index = hashFunc(key: key)
-            let bucket = buckets[index]
-            // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
-            for pair in bucket {
-                if pair.key == key {
-                    pair.val = val
-                    return
-                }
-            }
-            // 若无该 key ，则将键值对添加至尾部
-            let pair = Pair(key: key, val: val)
-            buckets[index].append(pair)
-            size += 1
-        }
-
-        /* 删除操作 */
-        func remove(key: Int) {
-            let index = hashFunc(key: key)
-            let bucket = buckets[index]
-            // 遍历桶，从中删除键值对
-            for (pairIndex, pair) in bucket.enumerated() {
-                if pair.key == key {
-                    buckets[index].remove(at: pairIndex)
-                }
-            }
-            size -= 1
-        }
-
-        /* 扩容哈希表 */
-        func extend() {
-            // 暂存原哈希表
-            let bucketsTmp = buckets
-            // 初始化扩容后的新哈希表
-            capacity *= extendRatio
-            buckets = Array(repeating: [], count: capacity)
-            size = 0
-            // 将键值对从原哈希表搬运至新哈希表
-            for bucket in bucketsTmp {
-                for pair in bucket {
-                    put(key: pair.key, val: pair.val)
-                }
-            }
-        }
-
-        /* 打印哈希表 */
-        func print() {
-            for bucket in buckets {
-                let res = bucket.map { "\($0.key) -> \($0.val)" }
-                Swift.print(res)
-            }
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map_chaining.zig"
-    [class]{HashMapChaining}-[func]{}
     ```
 
 === "Dart"
@@ -1158,6 +1146,18 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="hash_map_chaining.c"
+    [class]{hashMapChaining}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="hash_map_chaining.zig"
+    [class]{HashMapChaining}-[func]{}
+    ```
+
 值得注意的是，当链表很长时，查询效率 $O(n)$ 很差。**此时可以将链表转换为“AVL 树”或“红黑树”**，从而将查询操作的时间复杂度优化至 $O(\log n)$ 。
 
 ## 6.2.2 &nbsp; 开放寻址
@@ -1187,127 +1187,99 @@ comments: true
 - 我们使用一个固定的键值对实例 `removed` 来标记已删除元素。也就是说，当一个桶内的元素为 $\text{None}$ 或 `removed` 时，说明这个桶是空的，可用于放置键值对。
 - 在线性探测时，我们从当前索引 `index` 向后遍历；而当越过数组尾部时，需要回到头部继续遍历。
 
-=== "Java"
+=== "Python"
 
-    ```java title="hash_map_open_addressing.java"
-    /* 开放寻址哈希表 */
-    class HashMapOpenAddressing {
-        private int size; // 键值对数量
-        private int capacity; // 哈希表容量
-        private double loadThres; // 触发扩容的负载因子阈值
-        private int extendRatio; // 扩容倍数
-        private Pair[] buckets; // 桶数组
-        private Pair removed; // 删除标记
+    ```python title="hash_map_open_addressing.py"
+    class HashMapOpenAddressing:
+        """开放寻址哈希表"""
 
-        /* 构造方法 */
-        public HashMapOpenAddressing() {
-            size = 0;
-            capacity = 4;
-            loadThres = 2.0 / 3.0;
-            extendRatio = 2;
-            buckets = new Pair[capacity];
-            removed = new Pair(-1, "-1");
-        }
+        def __init__(self):
+            """构造方法"""
+            self.size = 0  # 键值对数量
+            self.capacity = 4  # 哈希表容量
+            self.load_thres = 2 / 3  # 触发扩容的负载因子阈值
+            self.extend_ratio = 2  # 扩容倍数
+            self.buckets: list[Pair | None] = [None] * self.capacity  # 桶数组
+            self.removed = Pair(-1, "-1")  # 删除标记
 
-        /* 哈希函数 */
-        public int hashFunc(int key) {
-            return key % capacity;
-        }
+        def hash_func(self, key: int) -> int:
+            """哈希函数"""
+            return key % self.capacity
 
-        /* 负载因子 */
-        public double loadFactor() {
-            return (double) size / capacity;
-        }
+        def load_factor(self) -> float:
+            """负载因子"""
+            return self.size / self.capacity
 
-        /* 查询操作 */
-        public String get(int key) {
-            int index = hashFunc(key);
-            // 线性探测，从 index 开始向后遍历
-            for (int i = 0; i < capacity; i++) {
-                // 计算桶索引，越过尾部返回头部
-                int j = (index + i) % capacity;
-                // 若遇到空桶，说明无此 key ，则返回 null
-                if (buckets[j] == null)
-                    return null;
-                // 若遇到指定 key ，则返回对应 val
-                if (buckets[j].key == key && buckets[j] != removed)
-                    return buckets[j].val;
-            }
-            return null;
-        }
+        def get(self, key: int) -> str:
+            """查询操作"""
+            index = self.hash_func(key)
+            # 线性探测，从 index 开始向后遍历
+            for i in range(self.capacity):
+                # 计算桶索引，越过尾部返回头部
+                j = (index + i) % self.capacity
+                # 若遇到空桶，说明无此 key ，则返回 None
+                if self.buckets[j] is None:
+                    return None
+                # 若遇到指定 key ，则返回对应 val
+                if self.buckets[j].key == key and self.buckets[j] != self.removed:
+                    return self.buckets[j].val
 
-        /* 添加操作 */
-        public void put(int key, String val) {
-            // 当负载因子超过阈值时，执行扩容
-            if (loadFactor() > loadThres) {
-                extend();
-            }
-            int index = hashFunc(key);
-            // 线性探测，从 index 开始向后遍历
-            for (int i = 0; i < capacity; i++) {
-                // 计算桶索引，越过尾部返回头部
-                int j = (index + i) % capacity;
-                // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
-                if (buckets[j] == null || buckets[j] == removed) {
-                    buckets[j] = new Pair(key, val);
-                    size += 1;
-                    return;
-                }
-                // 若遇到指定 key ，则更新对应 val
-                if (buckets[j].key == key) {
-                    buckets[j].val = val;
-                    return;
-                }
-            }
-        }
+        def put(self, key: int, val: str):
+            """添加操作"""
+            # 当负载因子超过阈值时，执行扩容
+            if self.load_factor() > self.load_thres:
+                self.extend()
+            index = self.hash_func(key)
+            # 线性探测，从 index 开始向后遍历
+            for i in range(self.capacity):
+                # 计算桶索引，越过尾部返回头部
+                j = (index + i) % self.capacity
+                # 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
+                if self.buckets[j] in [None, self.removed]:
+                    self.buckets[j] = Pair(key, val)
+                    self.size += 1
+                    return
+                # 若遇到指定 key ，则更新对应 val
+                if self.buckets[j].key == key:
+                    self.buckets[j].val = val
+                    return
 
-        /* 删除操作 */
-        public void remove(int key) {
-            int index = hashFunc(key);
-            // 线性探测，从 index 开始向后遍历
-            for (int i = 0; i < capacity; i++) {
-                // 计算桶索引，越过尾部返回头部
-                int j = (index + i) % capacity;
-                // 若遇到空桶，说明无此 key ，则直接返回
-                if (buckets[j] == null) {
-                    return;
-                }
-                // 若遇到指定 key ，则标记删除并返回
-                if (buckets[j].key == key) {
-                    buckets[j] = removed;
-                    size -= 1;
-                    return;
-                }
-            }
-        }
+        def remove(self, key: int):
+            """删除操作"""
+            index = self.hash_func(key)
+            # 线性探测，从 index 开始向后遍历
+            for i in range(self.capacity):
+                # 计算桶索引，越过尾部返回头部
+                j = (index + i) % self.capacity
+                # 若遇到空桶，说明无此 key ，则直接返回
+                if self.buckets[j] is None:
+                    return
+                # 若遇到指定 key ，则标记删除并返回
+                if self.buckets[j].key == key:
+                    self.buckets[j] = self.removed
+                    self.size -= 1
+                    return
 
-        /* 扩容哈希表 */
-        public void extend() {
-            // 暂存原哈希表
-            Pair[] bucketsTmp = buckets;
-            // 初始化扩容后的新哈希表
-            capacity *= extendRatio;
-            buckets = new Pair[capacity];
-            size = 0;
-            // 将键值对从原哈希表搬运至新哈希表
-            for (Pair pair : bucketsTmp) {
-                if (pair != null && pair != removed) {
-                    put(pair.key, pair.val);
-                }
-            }
-        }
+        def extend(self):
+            """扩容哈希表"""
+            # 暂存原哈希表
+            buckets_tmp = self.buckets
+            # 初始化扩容后的新哈希表
+            self.capacity *= self.extend_ratio
+            self.buckets = [None] * self.capacity
+            self.size = 0
+            # 将键值对从原哈希表搬运至新哈希表
+            for pair in buckets_tmp:
+                if pair not in [None, self.removed]:
+                    self.put(pair.key, pair.val)
 
-        /* 打印哈希表 */
-        public void print() {
-            for (Pair pair : buckets) {
-                if (pair != null) {
-                    System.out.println(pair.key + " -> " + pair.val);
-                } else {
-                    System.out.println("null");
-                }
-            }
-        }
-    }
+        def print(self):
+            """打印哈希表"""
+            for pair in self.buckets:
+                if pair is not None:
+                    print(pair.key, "->", pair.val)
+                else:
+                    print("None")
     ```
 
 === "C++"
@@ -1435,99 +1407,250 @@ comments: true
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="hash_map_open_addressing.py"
-    class HashMapOpenAddressing:
-        """开放寻址哈希表"""
+    ```java title="hash_map_open_addressing.java"
+    /* 开放寻址哈希表 */
+    class HashMapOpenAddressing {
+        private int size; // 键值对数量
+        private int capacity; // 哈希表容量
+        private double loadThres; // 触发扩容的负载因子阈值
+        private int extendRatio; // 扩容倍数
+        private Pair[] buckets; // 桶数组
+        private Pair removed; // 删除标记
 
-        def __init__(self):
-            """构造方法"""
-            self.size = 0  # 键值对数量
-            self.capacity = 4  # 哈希表容量
-            self.load_thres = 2 / 3  # 触发扩容的负载因子阈值
-            self.extend_ratio = 2  # 扩容倍数
-            self.buckets: list[Pair | None] = [None] * self.capacity  # 桶数组
-            self.removed = Pair(-1, "-1")  # 删除标记
+        /* 构造方法 */
+        public HashMapOpenAddressing() {
+            size = 0;
+            capacity = 4;
+            loadThres = 2.0 / 3.0;
+            extendRatio = 2;
+            buckets = new Pair[capacity];
+            removed = new Pair(-1, "-1");
+        }
 
-        def hash_func(self, key: int) -> int:
-            """哈希函数"""
-            return key % self.capacity
+        /* 哈希函数 */
+        public int hashFunc(int key) {
+            return key % capacity;
+        }
 
-        def load_factor(self) -> float:
-            """负载因子"""
-            return self.size / self.capacity
+        /* 负载因子 */
+        public double loadFactor() {
+            return (double) size / capacity;
+        }
 
-        def get(self, key: int) -> str:
-            """查询操作"""
-            index = self.hash_func(key)
-            # 线性探测，从 index 开始向后遍历
-            for i in range(self.capacity):
-                # 计算桶索引，越过尾部返回头部
-                j = (index + i) % self.capacity
-                # 若遇到空桶，说明无此 key ，则返回 None
-                if self.buckets[j] is None:
-                    return None
-                # 若遇到指定 key ，则返回对应 val
-                if self.buckets[j].key == key and self.buckets[j] != self.removed:
-                    return self.buckets[j].val
+        /* 查询操作 */
+        public String get(int key) {
+            int index = hashFunc(key);
+            // 线性探测，从 index 开始向后遍历
+            for (int i = 0; i < capacity; i++) {
+                // 计算桶索引，越过尾部返回头部
+                int j = (index + i) % capacity;
+                // 若遇到空桶，说明无此 key ，则返回 null
+                if (buckets[j] == null)
+                    return null;
+                // 若遇到指定 key ，则返回对应 val
+                if (buckets[j].key == key && buckets[j] != removed)
+                    return buckets[j].val;
+            }
+            return null;
+        }
 
-        def put(self, key: int, val: str):
-            """添加操作"""
-            # 当负载因子超过阈值时，执行扩容
-            if self.load_factor() > self.load_thres:
-                self.extend()
-            index = self.hash_func(key)
-            # 线性探测，从 index 开始向后遍历
-            for i in range(self.capacity):
-                # 计算桶索引，越过尾部返回头部
-                j = (index + i) % self.capacity
-                # 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
-                if self.buckets[j] in [None, self.removed]:
-                    self.buckets[j] = Pair(key, val)
-                    self.size += 1
-                    return
-                # 若遇到指定 key ，则更新对应 val
-                if self.buckets[j].key == key:
-                    self.buckets[j].val = val
-                    return
+        /* 添加操作 */
+        public void put(int key, String val) {
+            // 当负载因子超过阈值时，执行扩容
+            if (loadFactor() > loadThres) {
+                extend();
+            }
+            int index = hashFunc(key);
+            // 线性探测，从 index 开始向后遍历
+            for (int i = 0; i < capacity; i++) {
+                // 计算桶索引，越过尾部返回头部
+                int j = (index + i) % capacity;
+                // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
+                if (buckets[j] == null || buckets[j] == removed) {
+                    buckets[j] = new Pair(key, val);
+                    size += 1;
+                    return;
+                }
+                // 若遇到指定 key ，则更新对应 val
+                if (buckets[j].key == key) {
+                    buckets[j].val = val;
+                    return;
+                }
+            }
+        }
 
-        def remove(self, key: int):
-            """删除操作"""
-            index = self.hash_func(key)
-            # 线性探测，从 index 开始向后遍历
-            for i in range(self.capacity):
-                # 计算桶索引，越过尾部返回头部
-                j = (index + i) % self.capacity
-                # 若遇到空桶，说明无此 key ，则直接返回
-                if self.buckets[j] is None:
-                    return
-                # 若遇到指定 key ，则标记删除并返回
-                if self.buckets[j].key == key:
-                    self.buckets[j] = self.removed
-                    self.size -= 1
-                    return
+        /* 删除操作 */
+        public void remove(int key) {
+            int index = hashFunc(key);
+            // 线性探测，从 index 开始向后遍历
+            for (int i = 0; i < capacity; i++) {
+                // 计算桶索引，越过尾部返回头部
+                int j = (index + i) % capacity;
+                // 若遇到空桶，说明无此 key ，则直接返回
+                if (buckets[j] == null) {
+                    return;
+                }
+                // 若遇到指定 key ，则标记删除并返回
+                if (buckets[j].key == key) {
+                    buckets[j] = removed;
+                    size -= 1;
+                    return;
+                }
+            }
+        }
 
-        def extend(self):
-            """扩容哈希表"""
-            # 暂存原哈希表
-            buckets_tmp = self.buckets
-            # 初始化扩容后的新哈希表
-            self.capacity *= self.extend_ratio
-            self.buckets = [None] * self.capacity
-            self.size = 0
-            # 将键值对从原哈希表搬运至新哈希表
-            for pair in buckets_tmp:
-                if pair not in [None, self.removed]:
-                    self.put(pair.key, pair.val)
+        /* 扩容哈希表 */
+        public void extend() {
+            // 暂存原哈希表
+            Pair[] bucketsTmp = buckets;
+            // 初始化扩容后的新哈希表
+            capacity *= extendRatio;
+            buckets = new Pair[capacity];
+            size = 0;
+            // 将键值对从原哈希表搬运至新哈希表
+            for (Pair pair : bucketsTmp) {
+                if (pair != null && pair != removed) {
+                    put(pair.key, pair.val);
+                }
+            }
+        }
 
-        def print(self):
-            """打印哈希表"""
-            for pair in self.buckets:
-                if pair is not None:
-                    print(pair.key, "->", pair.val)
-                else:
-                    print("None")
+        /* 打印哈希表 */
+        public void print() {
+            for (Pair pair : buckets) {
+                if (pair != null) {
+                    System.out.println(pair.key + " -> " + pair.val);
+                } else {
+                    System.out.println("null");
+                }
+            }
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="hash_map_open_addressing.cs"
+    /* 开放寻址哈希表 */
+    class HashMapOpenAddressing {
+        int size; // 键值对数量
+        int capacity; // 哈希表容量
+        double loadThres; // 触发扩容的负载因子阈值
+        int extendRatio; // 扩容倍数
+        Pair[] buckets; // 桶数组
+        Pair removed; // 删除标记
+
+        /* 构造方法 */
+        public HashMapOpenAddressing() {
+            size = 0;
+            capacity = 4;
+            loadThres = 2.0 / 3.0;
+            extendRatio = 2;
+            buckets = new Pair[capacity];
+            removed = new Pair(-1, "-1");
+        }
+
+        /* 哈希函数 */
+        private int hashFunc(int key) {
+            return key % capacity;
+        }
+
+        /* 负载因子 */
+        private double loadFactor() {
+            return (double)size / capacity;
+        }
+
+        /* 查询操作 */
+        public string get(int key) {
+            int index = hashFunc(key);
+            // 线性探测，从 index 开始向后遍历
+            for (int i = 0; i < capacity; i++) {
+                // 计算桶索引，越过尾部返回头部
+                int j = (index + i) % capacity;
+                // 若遇到空桶，说明无此 key ，则返回 null
+                if (buckets[j] == null)
+                    return null;
+                // 若遇到指定 key ，则返回对应 val
+                if (buckets[j].key == key && buckets[j] != removed)
+                    return buckets[j].val;
+            }
+            return null;
+        }
+
+        /* 添加操作 */
+        public void put(int key, string val) {
+            // 当负载因子超过阈值时，执行扩容
+            if (loadFactor() > loadThres) {
+                extend();
+            }
+            int index = hashFunc(key);
+            // 线性探测，从 index 开始向后遍历
+            for (int i = 0; i < capacity; i++) {
+                // 计算桶索引，越过尾部返回头部
+                int j = (index + i) % capacity;
+                // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
+                if (buckets[j] == null || buckets[j] == removed) {
+                    buckets[j] = new Pair(key, val);
+                    size += 1;
+                    return;
+                }
+                // 若遇到指定 key ，则更新对应 val
+                if (buckets[j].key == key) {
+                    buckets[j].val = val;
+                    return;
+                }
+            }
+        }
+
+        /* 删除操作 */
+        public void remove(int key) {
+            int index = hashFunc(key);
+            // 线性探测，从 index 开始向后遍历
+            for (int i = 0; i < capacity; i++) {
+                // 计算桶索引，越过尾部返回头部
+                int j = (index + i) % capacity;
+                // 若遇到空桶，说明无此 key ，则直接返回
+                if (buckets[j] == null) {
+                    return;
+                }
+                // 若遇到指定 key ，则标记删除并返回
+                if (buckets[j].key == key) {
+                    buckets[j] = removed;
+                    size -= 1;
+                    return;
+                }
+            }
+        }
+
+        /* 扩容哈希表 */
+        private void extend() {
+            // 暂存原哈希表
+            Pair[] bucketsTmp = buckets;
+            // 初始化扩容后的新哈希表
+            capacity *= extendRatio;
+            buckets = new Pair[capacity];
+            size = 0;
+            // 将键值对从原哈希表搬运至新哈希表
+            foreach (Pair pair in bucketsTmp) {
+                if (pair != null && pair != removed) {
+                    put(pair.key, pair.val);
+                }
+            }
+        }
+
+        /* 打印哈希表 */
+        public void print() {
+            foreach (Pair pair in buckets) {
+                if (pair != null) {
+                    Console.WriteLine(pair.key + " -> " + pair.val);
+                } else {
+                    Console.WriteLine("null");
+                }
+            }
+        }
+    }
     ```
 
 === "Go"
@@ -1661,6 +1784,131 @@ comments: true
                 fmt.Println(strconv.Itoa(p.key) + " -> " + p.val)
             } else {
                 fmt.Println("nil")
+            }
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="hash_map_open_addressing.swift"
+    /* 开放寻址哈希表 */
+    class HashMapOpenAddressing {
+        var size: Int // 键值对数量
+        var capacity: Int // 哈希表容量
+        var loadThres: Double // 触发扩容的负载因子阈值
+        var extendRatio: Int // 扩容倍数
+        var buckets: [Pair?] // 桶数组
+        var removed: Pair // 删除标记
+
+        /* 构造方法 */
+        init() {
+            size = 0
+            capacity = 4
+            loadThres = 2 / 3
+            extendRatio = 2
+            buckets = Array(repeating: nil, count: capacity)
+            removed = Pair(key: -1, val: "-1")
+        }
+
+        /* 哈希函数 */
+        func hashFunc(key: Int) -> Int {
+            key % capacity
+        }
+
+        /* 负载因子 */
+        func loadFactor() -> Double {
+            Double(size / capacity)
+        }
+
+        /* 查询操作 */
+        func get(key: Int) -> String? {
+            let index = hashFunc(key: key)
+            // 线性探测，从 index 开始向后遍历
+            for i in stride(from: 0, to: capacity, by: 1) {
+                // 计算桶索引，越过尾部返回头部
+                let j = (index + i) % capacity
+                // 若遇到空桶，说明无此 key ，则返回 nil
+                if buckets[j] == nil {
+                    return nil
+                }
+                // 若遇到指定 key ，则返回对应 val
+                if buckets[j]?.key == key, buckets[j] != removed {
+                    return buckets[j]?.val
+                }
+            }
+            return nil
+        }
+
+        /* 添加操作 */
+        func put(key: Int, val: String) {
+            // 当负载因子超过阈值时，执行扩容
+            if loadFactor() > loadThres {
+                extend()
+            }
+            let index = hashFunc(key: key)
+            // 线性探测，从 index 开始向后遍历
+            for i in stride(from: 0, through: capacity, by: 1) {
+                // 计算桶索引，越过尾部返回头部
+                let j = (index + i) % capacity
+                // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
+                if buckets[j] == nil || buckets[j] == removed {
+                    buckets[j] = Pair(key: key, val: val)
+                    size += 1
+                    return
+                }
+                // 若遇到指定 key ，则更新对应 val
+                if buckets[j]?.key == key {
+                    buckets[j]?.val = val
+                    return
+                }
+            }
+        }
+
+        /* 删除操作 */
+        func remove(key: Int) {
+            let index = hashFunc(key: key)
+            // 线性探测，从 index 开始向后遍历
+            for i in stride(from: 0, to: capacity, by: 1) {
+                // 计算桶索引，越过尾部返回头部
+                let j = (index + i) % capacity
+                // 若遇到空桶，说明无此 key ，则直接返回
+                if buckets[j] == nil {
+                    return
+                }
+                // 若遇到指定 key ，则标记删除并返回
+                if buckets[j]?.key == key {
+                    buckets[j] = removed
+                    size -= 1
+                    return
+                }
+            }
+        }
+
+        /* 扩容哈希表 */
+        func extend() {
+            // 暂存原哈希表
+            let bucketsTmp = buckets
+            // 初始化扩容后的新哈希表
+            capacity *= extendRatio
+            buckets = Array(repeating: nil, count: capacity)
+            size = 0
+            // 将键值对从原哈希表搬运至新哈希表
+            for pair in bucketsTmp {
+                if let pair, pair != removed {
+                    put(key: pair.key, val: pair.val)
+                }
+            }
+        }
+
+        /* 打印哈希表 */
+        func print() {
+            for pair in buckets {
+                if let pair {
+                    Swift.print("\(pair.key) -> \(pair.val)")
+                } else {
+                    Swift.print("null")
+                }
             }
         }
     }
@@ -1920,266 +2168,6 @@ comments: true
             }
         }
     }
-    ```
-
-=== "C"
-
-    ```c title="hash_map_open_addressing.c"
-    [class]{hashMapOpenAddressing}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="hash_map_open_addressing.cs"
-    /* 开放寻址哈希表 */
-    class HashMapOpenAddressing {
-        int size; // 键值对数量
-        int capacity; // 哈希表容量
-        double loadThres; // 触发扩容的负载因子阈值
-        int extendRatio; // 扩容倍数
-        Pair[] buckets; // 桶数组
-        Pair removed; // 删除标记
-
-        /* 构造方法 */
-        public HashMapOpenAddressing() {
-            size = 0;
-            capacity = 4;
-            loadThres = 2.0 / 3.0;
-            extendRatio = 2;
-            buckets = new Pair[capacity];
-            removed = new Pair(-1, "-1");
-        }
-
-        /* 哈希函数 */
-        private int hashFunc(int key) {
-            return key % capacity;
-        }
-
-        /* 负载因子 */
-        private double loadFactor() {
-            return (double)size / capacity;
-        }
-
-        /* 查询操作 */
-        public string get(int key) {
-            int index = hashFunc(key);
-            // 线性探测，从 index 开始向后遍历
-            for (int i = 0; i < capacity; i++) {
-                // 计算桶索引，越过尾部返回头部
-                int j = (index + i) % capacity;
-                // 若遇到空桶，说明无此 key ，则返回 null
-                if (buckets[j] == null)
-                    return null;
-                // 若遇到指定 key ，则返回对应 val
-                if (buckets[j].key == key && buckets[j] != removed)
-                    return buckets[j].val;
-            }
-            return null;
-        }
-
-        /* 添加操作 */
-        public void put(int key, string val) {
-            // 当负载因子超过阈值时，执行扩容
-            if (loadFactor() > loadThres) {
-                extend();
-            }
-            int index = hashFunc(key);
-            // 线性探测，从 index 开始向后遍历
-            for (int i = 0; i < capacity; i++) {
-                // 计算桶索引，越过尾部返回头部
-                int j = (index + i) % capacity;
-                // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
-                if (buckets[j] == null || buckets[j] == removed) {
-                    buckets[j] = new Pair(key, val);
-                    size += 1;
-                    return;
-                }
-                // 若遇到指定 key ，则更新对应 val
-                if (buckets[j].key == key) {
-                    buckets[j].val = val;
-                    return;
-                }
-            }
-        }
-
-        /* 删除操作 */
-        public void remove(int key) {
-            int index = hashFunc(key);
-            // 线性探测，从 index 开始向后遍历
-            for (int i = 0; i < capacity; i++) {
-                // 计算桶索引，越过尾部返回头部
-                int j = (index + i) % capacity;
-                // 若遇到空桶，说明无此 key ，则直接返回
-                if (buckets[j] == null) {
-                    return;
-                }
-                // 若遇到指定 key ，则标记删除并返回
-                if (buckets[j].key == key) {
-                    buckets[j] = removed;
-                    size -= 1;
-                    return;
-                }
-            }
-        }
-
-        /* 扩容哈希表 */
-        private void extend() {
-            // 暂存原哈希表
-            Pair[] bucketsTmp = buckets;
-            // 初始化扩容后的新哈希表
-            capacity *= extendRatio;
-            buckets = new Pair[capacity];
-            size = 0;
-            // 将键值对从原哈希表搬运至新哈希表
-            foreach (Pair pair in bucketsTmp) {
-                if (pair != null && pair != removed) {
-                    put(pair.key, pair.val);
-                }
-            }
-        }
-
-        /* 打印哈希表 */
-        public void print() {
-            foreach (Pair pair in buckets) {
-                if (pair != null) {
-                    Console.WriteLine(pair.key + " -> " + pair.val);
-                } else {
-                    Console.WriteLine("null");
-                }
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="hash_map_open_addressing.swift"
-    /* 开放寻址哈希表 */
-    class HashMapOpenAddressing {
-        var size: Int // 键值对数量
-        var capacity: Int // 哈希表容量
-        var loadThres: Double // 触发扩容的负载因子阈值
-        var extendRatio: Int // 扩容倍数
-        var buckets: [Pair?] // 桶数组
-        var removed: Pair // 删除标记
-
-        /* 构造方法 */
-        init() {
-            size = 0
-            capacity = 4
-            loadThres = 2 / 3
-            extendRatio = 2
-            buckets = Array(repeating: nil, count: capacity)
-            removed = Pair(key: -1, val: "-1")
-        }
-
-        /* 哈希函数 */
-        func hashFunc(key: Int) -> Int {
-            key % capacity
-        }
-
-        /* 负载因子 */
-        func loadFactor() -> Double {
-            Double(size / capacity)
-        }
-
-        /* 查询操作 */
-        func get(key: Int) -> String? {
-            let index = hashFunc(key: key)
-            // 线性探测，从 index 开始向后遍历
-            for i in stride(from: 0, to: capacity, by: 1) {
-                // 计算桶索引，越过尾部返回头部
-                let j = (index + i) % capacity
-                // 若遇到空桶，说明无此 key ，则返回 nil
-                if buckets[j] == nil {
-                    return nil
-                }
-                // 若遇到指定 key ，则返回对应 val
-                if buckets[j]?.key == key, buckets[j] != removed {
-                    return buckets[j]?.val
-                }
-            }
-            return nil
-        }
-
-        /* 添加操作 */
-        func put(key: Int, val: String) {
-            // 当负载因子超过阈值时，执行扩容
-            if loadFactor() > loadThres {
-                extend()
-            }
-            let index = hashFunc(key: key)
-            // 线性探测，从 index 开始向后遍历
-            for i in stride(from: 0, through: capacity, by: 1) {
-                // 计算桶索引，越过尾部返回头部
-                let j = (index + i) % capacity
-                // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
-                if buckets[j] == nil || buckets[j] == removed {
-                    buckets[j] = Pair(key: key, val: val)
-                    size += 1
-                    return
-                }
-                // 若遇到指定 key ，则更新对应 val
-                if buckets[j]?.key == key {
-                    buckets[j]?.val = val
-                    return
-                }
-            }
-        }
-
-        /* 删除操作 */
-        func remove(key: Int) {
-            let index = hashFunc(key: key)
-            // 线性探测，从 index 开始向后遍历
-            for i in stride(from: 0, to: capacity, by: 1) {
-                // 计算桶索引，越过尾部返回头部
-                let j = (index + i) % capacity
-                // 若遇到空桶，说明无此 key ，则直接返回
-                if buckets[j] == nil {
-                    return
-                }
-                // 若遇到指定 key ，则标记删除并返回
-                if buckets[j]?.key == key {
-                    buckets[j] = removed
-                    size -= 1
-                    return
-                }
-            }
-        }
-
-        /* 扩容哈希表 */
-        func extend() {
-            // 暂存原哈希表
-            let bucketsTmp = buckets
-            // 初始化扩容后的新哈希表
-            capacity *= extendRatio
-            buckets = Array(repeating: nil, count: capacity)
-            size = 0
-            // 将键值对从原哈希表搬运至新哈希表
-            for pair in bucketsTmp {
-                if let pair, pair != removed {
-                    put(key: pair.key, val: pair.val)
-                }
-            }
-        }
-
-        /* 打印哈希表 */
-        func print() {
-            for pair in buckets {
-                if let pair {
-                    Swift.print("\(pair.key) -> \(pair.val)")
-                } else {
-                    Swift.print("null")
-                }
-            }
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map_open_addressing.zig"
-    [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "Dart"
@@ -2447,6 +2435,18 @@ comments: true
             }
         }
     }
+    ```
+
+=== "C"
+
+    ```c title="hash_map_open_addressing.c"
+    [class]{hashMapOpenAddressing}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="hash_map_open_addressing.zig"
+    [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 ### 2. &nbsp; 多次哈希

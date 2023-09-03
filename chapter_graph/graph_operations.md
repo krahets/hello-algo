@@ -34,94 +34,81 @@ comments: true
 
 以下是基于邻接矩阵表示图的实现代码。
 
-=== "Java"
+=== "Python"
 
-    ```java title="graph_adjacency_matrix.java"
-    /* 基于邻接矩阵实现的无向图类 */
-    class GraphAdjMat {
-        List<Integer> vertices; // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-        List<List<Integer>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
+    ```python title="graph_adjacency_matrix.py"
+    class GraphAdjMat:
+        """基于邻接矩阵实现的无向图类"""
 
-        /* 构造方法 */
-        public GraphAdjMat(int[] vertices, int[][] edges) {
-            this.vertices = new ArrayList<>();
-            this.adjMat = new ArrayList<>();
-            // 添加顶点
-            for (int val : vertices) {
-                addVertex(val);
-            }
-            // 添加边
-            // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-            for (int[] e : edges) {
-                addEdge(e[0], e[1]);
-            }
-        }
+        # 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        vertices: list[int] = []
+        # 邻接矩阵，行列索引对应“顶点索引”
+        adj_mat: list[list[int]] = []
 
-        /* 获取顶点数量 */
-        public int size() {
-            return vertices.size();
-        }
+        def __init__(self, vertices: list[int], edges: list[list[int]]):
+            """构造方法"""
+            self.vertices: list[int] = []
+            self.adj_mat: list[list[int]] = []
+            # 添加顶点
+            for val in vertices:
+                self.add_vertex(val)
+            # 添加边
+            # 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+            for e in edges:
+                self.add_edge(e[0], e[1])
 
-        /* 添加顶点 */
-        public void addVertex(int val) {
-            int n = size();
-            // 向顶点列表中添加新顶点的值
-            vertices.add(val);
-            // 在邻接矩阵中添加一行
-            List<Integer> newRow = new ArrayList<>(n);
-            for (int j = 0; j < n; j++) {
-                newRow.add(0);
-            }
-            adjMat.add(newRow);
-            // 在邻接矩阵中添加一列
-            for (List<Integer> row : adjMat) {
-                row.add(0);
-            }
-        }
+        def size(self) -> int:
+            """获取顶点数量"""
+            return len(self.vertices)
 
-        /* 删除顶点 */
-        public void removeVertex(int index) {
-            if (index >= size())
-                throw new IndexOutOfBoundsException();
-            // 在顶点列表中移除索引 index 的顶点
-            vertices.remove(index);
-            // 在邻接矩阵中删除索引 index 的行
-            adjMat.remove(index);
-            // 在邻接矩阵中删除索引 index 的列
-            for (List<Integer> row : adjMat) {
-                row.remove(index);
-            }
-        }
+        def add_vertex(self, val: int):
+            """添加顶点"""
+            n = self.size()
+            # 向顶点列表中添加新顶点的值
+            self.vertices.append(val)
+            # 在邻接矩阵中添加一行
+            new_row = [0] * n
+            self.adj_mat.append(new_row)
+            # 在邻接矩阵中添加一列
+            for row in self.adj_mat:
+                row.append(0)
 
-        /* 添加边 */
-        // 参数 i, j 对应 vertices 元素索引
-        public void addEdge(int i, int j) {
-            // 索引越界与相等处理
-            if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
-                throw new IndexOutOfBoundsException();
-            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
-            adjMat.get(i).set(j, 1);
-            adjMat.get(j).set(i, 1);
-        }
+        def remove_vertex(self, index: int):
+            """删除顶点"""
+            if index >= self.size():
+                raise IndexError()
+            # 在顶点列表中移除索引 index 的顶点
+            self.vertices.pop(index)
+            # 在邻接矩阵中删除索引 index 的行
+            self.adj_mat.pop(index)
+            # 在邻接矩阵中删除索引 index 的列
+            for row in self.adj_mat:
+                row.pop(index)
 
-        /* 删除边 */
-        // 参数 i, j 对应 vertices 元素索引
-        public void removeEdge(int i, int j) {
-            // 索引越界与相等处理
-            if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
-                throw new IndexOutOfBoundsException();
-            adjMat.get(i).set(j, 0);
-            adjMat.get(j).set(i, 0);
-        }
+        def add_edge(self, i: int, j: int):
+            """添加边"""
+            # 参数 i, j 对应 vertices 元素索引
+            # 索引越界与相等处理
+            if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
+                raise IndexError()
+            # 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            self.adj_mat[i][j] = 1
+            self.adj_mat[j][i] = 1
 
-        /* 打印邻接矩阵 */
-        public void print() {
-            System.out.print("顶点列表 = ");
-            System.out.println(vertices);
-            System.out.println("邻接矩阵 =");
-            PrintUtil.printMatrix(adjMat);
-        }
-    }
+        def remove_edge(self, i: int, j: int):
+            """删除边"""
+            # 参数 i, j 对应 vertices 元素索引
+            # 索引越界与相等处理
+            if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
+                raise IndexError()
+            self.adj_mat[i][j] = 0
+            self.adj_mat[j][i] = 0
+
+        def print(self):
+            """打印邻接矩阵"""
+            print("顶点列表 =", self.vertices)
+            print("邻接矩阵 =")
+            print_matrix(self.adj_mat)
     ```
 
 === "C++"
@@ -212,81 +199,184 @@ comments: true
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="graph_adjacency_matrix.py"
-    class GraphAdjMat:
-        """基于邻接矩阵实现的无向图类"""
+    ```java title="graph_adjacency_matrix.java"
+    /* 基于邻接矩阵实现的无向图类 */
+    class GraphAdjMat {
+        List<Integer> vertices; // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        List<List<Integer>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
-        # 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-        vertices: list[int] = []
-        # 邻接矩阵，行列索引对应“顶点索引”
-        adj_mat: list[list[int]] = []
+        /* 构造方法 */
+        public GraphAdjMat(int[] vertices, int[][] edges) {
+            this.vertices = new ArrayList<>();
+            this.adjMat = new ArrayList<>();
+            // 添加顶点
+            for (int val : vertices) {
+                addVertex(val);
+            }
+            // 添加边
+            // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+            for (int[] e : edges) {
+                addEdge(e[0], e[1]);
+            }
+        }
 
-        def __init__(self, vertices: list[int], edges: list[list[int]]):
-            """构造方法"""
-            self.vertices: list[int] = []
-            self.adj_mat: list[list[int]] = []
-            # 添加顶点
-            for val in vertices:
-                self.add_vertex(val)
-            # 添加边
-            # 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-            for e in edges:
-                self.add_edge(e[0], e[1])
+        /* 获取顶点数量 */
+        public int size() {
+            return vertices.size();
+        }
 
-        def size(self) -> int:
-            """获取顶点数量"""
-            return len(self.vertices)
+        /* 添加顶点 */
+        public void addVertex(int val) {
+            int n = size();
+            // 向顶点列表中添加新顶点的值
+            vertices.add(val);
+            // 在邻接矩阵中添加一行
+            List<Integer> newRow = new ArrayList<>(n);
+            for (int j = 0; j < n; j++) {
+                newRow.add(0);
+            }
+            adjMat.add(newRow);
+            // 在邻接矩阵中添加一列
+            for (List<Integer> row : adjMat) {
+                row.add(0);
+            }
+        }
 
-        def add_vertex(self, val: int):
-            """添加顶点"""
-            n = self.size()
-            # 向顶点列表中添加新顶点的值
-            self.vertices.append(val)
-            # 在邻接矩阵中添加一行
-            new_row = [0] * n
-            self.adj_mat.append(new_row)
-            # 在邻接矩阵中添加一列
-            for row in self.adj_mat:
-                row.append(0)
+        /* 删除顶点 */
+        public void removeVertex(int index) {
+            if (index >= size())
+                throw new IndexOutOfBoundsException();
+            // 在顶点列表中移除索引 index 的顶点
+            vertices.remove(index);
+            // 在邻接矩阵中删除索引 index 的行
+            adjMat.remove(index);
+            // 在邻接矩阵中删除索引 index 的列
+            for (List<Integer> row : adjMat) {
+                row.remove(index);
+            }
+        }
 
-        def remove_vertex(self, index: int):
-            """删除顶点"""
-            if index >= self.size():
-                raise IndexError()
-            # 在顶点列表中移除索引 index 的顶点
-            self.vertices.pop(index)
-            # 在邻接矩阵中删除索引 index 的行
-            self.adj_mat.pop(index)
-            # 在邻接矩阵中删除索引 index 的列
-            for row in self.adj_mat:
-                row.pop(index)
+        /* 添加边 */
+        // 参数 i, j 对应 vertices 元素索引
+        public void addEdge(int i, int j) {
+            // 索引越界与相等处理
+            if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
+                throw new IndexOutOfBoundsException();
+            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            adjMat.get(i).set(j, 1);
+            adjMat.get(j).set(i, 1);
+        }
 
-        def add_edge(self, i: int, j: int):
-            """添加边"""
-            # 参数 i, j 对应 vertices 元素索引
-            # 索引越界与相等处理
-            if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
-                raise IndexError()
-            # 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
-            self.adj_mat[i][j] = 1
-            self.adj_mat[j][i] = 1
+        /* 删除边 */
+        // 参数 i, j 对应 vertices 元素索引
+        public void removeEdge(int i, int j) {
+            // 索引越界与相等处理
+            if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
+                throw new IndexOutOfBoundsException();
+            adjMat.get(i).set(j, 0);
+            adjMat.get(j).set(i, 0);
+        }
 
-        def remove_edge(self, i: int, j: int):
-            """删除边"""
-            # 参数 i, j 对应 vertices 元素索引
-            # 索引越界与相等处理
-            if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
-                raise IndexError()
-            self.adj_mat[i][j] = 0
-            self.adj_mat[j][i] = 0
+        /* 打印邻接矩阵 */
+        public void print() {
+            System.out.print("顶点列表 = ");
+            System.out.println(vertices);
+            System.out.println("邻接矩阵 =");
+            PrintUtil.printMatrix(adjMat);
+        }
+    }
+    ```
 
-        def print(self):
-            """打印邻接矩阵"""
-            print("顶点列表 =", self.vertices)
-            print("邻接矩阵 =")
-            print_matrix(self.adj_mat)
+=== "C#"
+
+    ```csharp title="graph_adjacency_matrix.cs"
+    /* 基于邻接矩阵实现的无向图类 */
+    class GraphAdjMat {
+        List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        List<List<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
+
+        /* 构造函数 */
+        public GraphAdjMat(int[] vertices, int[][] edges) {
+            this.vertices = new List<int>();
+            this.adjMat = new List<List<int>>();
+            // 添加顶点
+            foreach (int val in vertices) {
+                addVertex(val);
+            }
+            // 添加边
+            // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+            foreach (int[] e in edges) {
+                addEdge(e[0], e[1]);
+            }
+        }
+
+        /* 获取顶点数量 */
+        public int size() {
+            return vertices.Count;
+        }
+
+        /* 添加顶点 */
+        public void addVertex(int val) {
+            int n = size();
+            // 向顶点列表中添加新顶点的值
+            vertices.Add(val);
+            // 在邻接矩阵中添加一行
+            List<int> newRow = new List<int>(n);
+            for (int j = 0; j < n; j++) {
+                newRow.Add(0);
+            }
+            adjMat.Add(newRow);
+            // 在邻接矩阵中添加一列
+            foreach (List<int> row in adjMat) {
+                row.Add(0);
+            }
+        }
+
+        /* 删除顶点 */
+        public void removeVertex(int index) {
+            if (index >= size())
+                throw new IndexOutOfRangeException();
+            // 在顶点列表中移除索引 index 的顶点
+            vertices.RemoveAt(index);
+            // 在邻接矩阵中删除索引 index 的行
+            adjMat.RemoveAt(index);
+            // 在邻接矩阵中删除索引 index 的列
+            foreach (List<int> row in adjMat) {
+                row.RemoveAt(index);
+            }
+        }
+
+        /* 添加边 */
+        // 参数 i, j 对应 vertices 元素索引
+        public void addEdge(int i, int j) {
+            // 索引越界与相等处理
+            if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
+                throw new IndexOutOfRangeException();
+            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            adjMat[i][j] = 1;
+            adjMat[j][i] = 1;
+        }
+
+        /* 删除边 */
+        // 参数 i, j 对应 vertices 元素索引
+        public void removeEdge(int i, int j) {
+            // 索引越界与相等处理
+            if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
+                throw new IndexOutOfRangeException();
+            adjMat[i][j] = 0;
+            adjMat[j][i] = 0;
+        }
+
+        /* 打印邻接矩阵 */
+        public void print() {
+            Console.Write("顶点列表 = ");
+            PrintUtil.PrintList(vertices);
+            Console.WriteLine("邻接矩阵 =");
+            PrintUtil.PrintMatrix(adjMat);
+        }
+    }
     ```
 
 === "Go"
@@ -384,6 +474,96 @@ comments: true
         fmt.Printf("\t邻接矩阵 = \n")
         for i := range g.adjMat {
             fmt.Printf("\t\t\t%v\n", g.adjMat[i])
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="graph_adjacency_matrix.swift"
+    /* 基于邻接矩阵实现的无向图类 */
+    class GraphAdjMat {
+        private var vertices: [Int] // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        private var adjMat: [[Int]] // 邻接矩阵，行列索引对应“顶点索引”
+
+        /* 构造方法 */
+        init(vertices: [Int], edges: [[Int]]) {
+            self.vertices = []
+            adjMat = []
+            // 添加顶点
+            for val in vertices {
+                addVertex(val: val)
+            }
+            // 添加边
+            // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
+            for e in edges {
+                addEdge(i: e[0], j: e[1])
+            }
+        }
+
+        /* 获取顶点数量 */
+        func size() -> Int {
+            vertices.count
+        }
+
+        /* 添加顶点 */
+        func addVertex(val: Int) {
+            let n = size()
+            // 向顶点列表中添加新顶点的值
+            vertices.append(val)
+            // 在邻接矩阵中添加一行
+            let newRow = Array(repeating: 0, count: n)
+            adjMat.append(newRow)
+            // 在邻接矩阵中添加一列
+            for i in adjMat.indices {
+                adjMat[i].append(0)
+            }
+        }
+
+        /* 删除顶点 */
+        func removeVertex(index: Int) {
+            if index >= size() {
+                fatalError("越界")
+            }
+            // 在顶点列表中移除索引 index 的顶点
+            vertices.remove(at: index)
+            // 在邻接矩阵中删除索引 index 的行
+            adjMat.remove(at: index)
+            // 在邻接矩阵中删除索引 index 的列
+            for i in adjMat.indices {
+                adjMat[i].remove(at: index)
+            }
+        }
+
+        /* 添加边 */
+        // 参数 i, j 对应 vertices 元素索引
+        func addEdge(i: Int, j: Int) {
+            // 索引越界与相等处理
+            if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
+                fatalError("越界")
+            }
+            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
+            adjMat[i][j] = 1
+            adjMat[j][i] = 1
+        }
+
+        /* 删除边 */
+        // 参数 i, j 对应 vertices 元素索引
+        func removeEdge(i: Int, j: Int) {
+            // 索引越界与相等处理
+            if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
+                fatalError("越界")
+            }
+            adjMat[i][j] = 0
+            adjMat[j][i] = 0
+        }
+
+        /* 打印邻接矩阵 */
+        func print() {
+            Swift.print("顶点列表 = ", terminator: "")
+            Swift.print(vertices)
+            Swift.print("邻接矩阵 =")
+            PrintUtil.printMatrix(matrix: adjMat)
         }
     }
     ```
@@ -570,366 +750,6 @@ comments: true
             console.log('邻接矩阵 =', this.adjMat);
         }
     }
-    ```
-
-=== "C"
-
-    ```c title="graph_adjacency_matrix.c"
-    /* 基于邻接矩阵实现的无向图类结构 */
-    struct graphAdjMat {
-        int *vertices;         // 顶点列表
-        unsigned int **adjMat; // 邻接矩阵，元素代表“边”，索引代表“顶点索引”
-        unsigned int size;     // 顶点数量
-        unsigned int capacity; // 图容量
-    };
-
-    typedef struct graphAdjMat graphAdjMat;
-
-    /* 添加边 */
-    // 参数 i, j 对应 vertices 元素索引
-    void addEdge(graphAdjMat *t, int i, int j) {
-        // 越界检查
-        if (i < 0 || j < 0 || i >= t->size || j >= t->size || i == j) {
-            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
-            exit(1);
-        }
-        // 添加边
-        // 参数 i, j 对应 vertices 元素索引
-        t->adjMat[i][j] = 1;
-        t->adjMat[j][i] = 1;
-    }
-
-    /* 删除边 */
-    // 参数 i, j 对应 vertices 元素索引
-    void removeEdge(graphAdjMat *t, int i, int j) {
-        // 越界检查
-        if (i < 0 || j < 0 || i >= t->size || j >= t->size || i == j) {
-            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
-            exit(1);
-        }
-        // 删除边
-        // 参数 i, j 对应 vertices 元素索引
-        t->adjMat[i][j] = 0;
-        t->adjMat[j][i] = 0;
-    }
-
-    /* 添加顶点 */
-    void addVertex(graphAdjMat *t, int val) {
-        // 如果实际使用不大于预设空间，则直接初始化新空间
-        if (t->size < t->capacity) {
-            t->vertices[t->size] = val; // 初始化新顶点值
-            for (int i = 0; i < t->size; i++) {
-                t->adjMat[i][t->size] = 0; // 邻接矩新列阵置0
-            }
-            memset(t->adjMat[t->size], 0, sizeof(unsigned int) * (t->size + 1)); // 将新增行置 0
-            t->size++;
-            return;
-        }
-
-        // 扩容，申请新的顶点数组
-        int *temp = (int *)malloc(sizeof(int) * (t->size * 2));
-        memcpy(temp, t->vertices, sizeof(int) * t->size);
-        temp[t->size] = val;
-
-        // 释放原数组
-        free(t->vertices);
-        t->vertices = temp;
-
-        // 扩容，申请新的二维数组
-        unsigned int **tempMat = (unsigned int **)malloc(sizeof(unsigned int *) * t->size * 2);
-        unsigned int *tempMatLine = (unsigned int *)malloc(sizeof(unsigned int) * (t->size * 2) * (t->size * 2));
-        memset(tempMatLine, 0, sizeof(unsigned int) * (t->size * 2) * (t->size * 2));
-        for (int k = 0; k < t->size * 2; k++) {
-            tempMat[k] = tempMatLine + k * (t->size * 2);
-        }
-
-        for (int i = 0; i < t->size; i++) {
-            memcpy(tempMat[i], t->adjMat[i], sizeof(unsigned int) * t->size); // 原数据复制到新数组
-        }
-
-        for (int i = 0; i < t->size; i++) {
-            tempMat[i][t->size] = 0; // 将新增列置 0
-        }
-        memset(tempMat[t->size], 0, sizeof(unsigned int) * (t->size + 1)); // 将新增行置 0
-
-        // 释放原数组
-        free(t->adjMat[0]);
-        free(t->adjMat);
-
-        // 扩容后，指向新地址
-        t->adjMat = tempMat; // 指向新的邻接矩阵地址
-        t->capacity = t->size * 2;
-        t->size++;
-    }
-
-    /* 删除顶点 */
-    void removeVertex(graphAdjMat *t, unsigned int index) {
-        // 越界检查
-        if (index < 0 || index >= t->size) {
-            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
-            exit(1);
-        }
-        for (int i = index; i < t->size - 1; i++) {
-            t->vertices[i] = t->vertices[i + 1]; // 清除删除的顶点，并将其后所有顶点前移
-        }
-        t->vertices[t->size - 1] = 0; // 将被前移的最后一个顶点置 0
-
-        // 清除邻接矩阵中删除的列
-        for (int i = 0; i < t->size - 1; i++) {
-            if (i < index) {
-                for (int j = index; j < t->size - 1; j++) {
-                    t->adjMat[i][j] = t->adjMat[i][j + 1]; // 被删除列后的所有列前移
-                }
-            } else {
-                memcpy(t->adjMat[i], t->adjMat[i + 1], sizeof(unsigned int) * t->size); // 被删除行的下方所有行上移
-                for (int j = index; j < t->size; j++) {
-                    t->adjMat[i][j] = t->adjMat[i][j + 1]; // 被删除列后的所有列前移
-                }
-            }
-        }
-        t->size--;
-    }
-
-    /* 打印顶点与邻接矩阵 */
-    void printGraph(graphAdjMat *t) {
-        if (t->size == 0) {
-            printf("graph is empty\n");
-            return;
-        }
-        printf("顶点列表 = [");
-        for (int i = 0; i < t->size; i++) {
-            if (i != t->size - 1) {
-                printf("%d, ", t->vertices[i]);
-            } else {
-                printf("%d", t->vertices[i]);
-            }
-        }
-        printf("]\n");
-        printf("邻接矩阵 =\n[\n");
-        for (int i = 0; i < t->size; i++) {
-            printf("  [");
-            for (int j = 0; j < t->size; j++) {
-                if (j != t->size - 1) {
-                    printf("%u, ", t->adjMat[i][j]);
-                } else {
-                    printf("%u", t->adjMat[i][j]);
-                }
-            }
-            printf("],\n");
-        }
-        printf("]\n");
-    }
-
-    /* 构造函数 */
-    graphAdjMat *newGraphAjdMat(unsigned int numberVertices, int *vertices, unsigned int **adjMat) {
-        // 申请内存
-        graphAdjMat *newGraph = (graphAdjMat *)malloc(sizeof(graphAdjMat));   // 为图分配内存
-        newGraph->vertices = (int *)malloc(sizeof(int) * numberVertices * 2); // 为顶点列表分配内存
-        newGraph->adjMat = (unsigned int **)malloc(sizeof(unsigned int *) * numberVertices * 2); // 为邻接矩阵分配二维内存
-        unsigned int *temp = (unsigned int *)malloc(sizeof(unsigned int) * numberVertices * 2 * numberVertices * 2); // 为邻接矩阵分配一维内存
-        newGraph->size = numberVertices;                // 初始化顶点数量
-        newGraph->capacity = numberVertices * 2;        // 初始化图容量
-
-        // 配置二维数组
-        for (int i = 0; i < numberVertices * 2; i++) {
-            newGraph->adjMat[i] = temp + i * numberVertices * 2; // 将二维指针指向一维数组
-        }
-
-        // 赋值
-        memcpy(newGraph->vertices, vertices, sizeof(int) * numberVertices);
-        for (int i = 0; i < numberVertices; i++) {
-            memcpy(newGraph->adjMat[i], adjMat[i], sizeof(unsigned int) * numberVertices); // 将传入的邻接矩阵赋值给结构体内邻接矩阵
-        }
-
-        // 返回结构体指针
-        return newGraph;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="graph_adjacency_matrix.cs"
-    /* 基于邻接矩阵实现的无向图类 */
-    class GraphAdjMat {
-        List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-        List<List<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
-
-        /* 构造函数 */
-        public GraphAdjMat(int[] vertices, int[][] edges) {
-            this.vertices = new List<int>();
-            this.adjMat = new List<List<int>>();
-            // 添加顶点
-            foreach (int val in vertices) {
-                addVertex(val);
-            }
-            // 添加边
-            // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-            foreach (int[] e in edges) {
-                addEdge(e[0], e[1]);
-            }
-        }
-
-        /* 获取顶点数量 */
-        public int size() {
-            return vertices.Count;
-        }
-
-        /* 添加顶点 */
-        public void addVertex(int val) {
-            int n = size();
-            // 向顶点列表中添加新顶点的值
-            vertices.Add(val);
-            // 在邻接矩阵中添加一行
-            List<int> newRow = new List<int>(n);
-            for (int j = 0; j < n; j++) {
-                newRow.Add(0);
-            }
-            adjMat.Add(newRow);
-            // 在邻接矩阵中添加一列
-            foreach (List<int> row in adjMat) {
-                row.Add(0);
-            }
-        }
-
-        /* 删除顶点 */
-        public void removeVertex(int index) {
-            if (index >= size())
-                throw new IndexOutOfRangeException();
-            // 在顶点列表中移除索引 index 的顶点
-            vertices.RemoveAt(index);
-            // 在邻接矩阵中删除索引 index 的行
-            adjMat.RemoveAt(index);
-            // 在邻接矩阵中删除索引 index 的列
-            foreach (List<int> row in adjMat) {
-                row.RemoveAt(index);
-            }
-        }
-
-        /* 添加边 */
-        // 参数 i, j 对应 vertices 元素索引
-        public void addEdge(int i, int j) {
-            // 索引越界与相等处理
-            if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
-                throw new IndexOutOfRangeException();
-            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
-            adjMat[i][j] = 1;
-            adjMat[j][i] = 1;
-        }
-
-        /* 删除边 */
-        // 参数 i, j 对应 vertices 元素索引
-        public void removeEdge(int i, int j) {
-            // 索引越界与相等处理
-            if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
-                throw new IndexOutOfRangeException();
-            adjMat[i][j] = 0;
-            adjMat[j][i] = 0;
-        }
-
-        /* 打印邻接矩阵 */
-        public void print() {
-            Console.Write("顶点列表 = ");
-            PrintUtil.PrintList(vertices);
-            Console.WriteLine("邻接矩阵 =");
-            PrintUtil.PrintMatrix(adjMat);
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="graph_adjacency_matrix.swift"
-    /* 基于邻接矩阵实现的无向图类 */
-    class GraphAdjMat {
-        private var vertices: [Int] // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-        private var adjMat: [[Int]] // 邻接矩阵，行列索引对应“顶点索引”
-
-        /* 构造方法 */
-        init(vertices: [Int], edges: [[Int]]) {
-            self.vertices = []
-            adjMat = []
-            // 添加顶点
-            for val in vertices {
-                addVertex(val: val)
-            }
-            // 添加边
-            // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
-            for e in edges {
-                addEdge(i: e[0], j: e[1])
-            }
-        }
-
-        /* 获取顶点数量 */
-        func size() -> Int {
-            vertices.count
-        }
-
-        /* 添加顶点 */
-        func addVertex(val: Int) {
-            let n = size()
-            // 向顶点列表中添加新顶点的值
-            vertices.append(val)
-            // 在邻接矩阵中添加一行
-            let newRow = Array(repeating: 0, count: n)
-            adjMat.append(newRow)
-            // 在邻接矩阵中添加一列
-            for i in adjMat.indices {
-                adjMat[i].append(0)
-            }
-        }
-
-        /* 删除顶点 */
-        func removeVertex(index: Int) {
-            if index >= size() {
-                fatalError("越界")
-            }
-            // 在顶点列表中移除索引 index 的顶点
-            vertices.remove(at: index)
-            // 在邻接矩阵中删除索引 index 的行
-            adjMat.remove(at: index)
-            // 在邻接矩阵中删除索引 index 的列
-            for i in adjMat.indices {
-                adjMat[i].remove(at: index)
-            }
-        }
-
-        /* 添加边 */
-        // 参数 i, j 对应 vertices 元素索引
-        func addEdge(i: Int, j: Int) {
-            // 索引越界与相等处理
-            if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
-                fatalError("越界")
-            }
-            // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
-            adjMat[i][j] = 1
-            adjMat[j][i] = 1
-        }
-
-        /* 删除边 */
-        // 参数 i, j 对应 vertices 元素索引
-        func removeEdge(i: Int, j: Int) {
-            // 索引越界与相等处理
-            if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
-                fatalError("越界")
-            }
-            adjMat[i][j] = 0
-            adjMat[j][i] = 0
-        }
-
-        /* 打印邻接矩阵 */
-        func print() {
-            Swift.print("顶点列表 = ", terminator: "")
-            Swift.print(vertices)
-            Swift.print("邻接矩阵 =")
-            PrintUtil.printMatrix(matrix: adjMat)
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="graph_adjacency_matrix.zig"
-
     ```
 
 === "Dart"
@@ -1122,6 +942,186 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="graph_adjacency_matrix.c"
+    /* 基于邻接矩阵实现的无向图类结构 */
+    struct graphAdjMat {
+        int *vertices;         // 顶点列表
+        unsigned int **adjMat; // 邻接矩阵，元素代表“边”，索引代表“顶点索引”
+        unsigned int size;     // 顶点数量
+        unsigned int capacity; // 图容量
+    };
+
+    typedef struct graphAdjMat graphAdjMat;
+
+    /* 添加边 */
+    // 参数 i, j 对应 vertices 元素索引
+    void addEdge(graphAdjMat *t, int i, int j) {
+        // 越界检查
+        if (i < 0 || j < 0 || i >= t->size || j >= t->size || i == j) {
+            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
+            exit(1);
+        }
+        // 添加边
+        // 参数 i, j 对应 vertices 元素索引
+        t->adjMat[i][j] = 1;
+        t->adjMat[j][i] = 1;
+    }
+
+    /* 删除边 */
+    // 参数 i, j 对应 vertices 元素索引
+    void removeEdge(graphAdjMat *t, int i, int j) {
+        // 越界检查
+        if (i < 0 || j < 0 || i >= t->size || j >= t->size || i == j) {
+            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
+            exit(1);
+        }
+        // 删除边
+        // 参数 i, j 对应 vertices 元素索引
+        t->adjMat[i][j] = 0;
+        t->adjMat[j][i] = 0;
+    }
+
+    /* 添加顶点 */
+    void addVertex(graphAdjMat *t, int val) {
+        // 如果实际使用不大于预设空间，则直接初始化新空间
+        if (t->size < t->capacity) {
+            t->vertices[t->size] = val; // 初始化新顶点值
+            for (int i = 0; i < t->size; i++) {
+                t->adjMat[i][t->size] = 0; // 邻接矩新列阵置0
+            }
+            memset(t->adjMat[t->size], 0, sizeof(unsigned int) * (t->size + 1)); // 将新增行置 0
+            t->size++;
+            return;
+        }
+
+        // 扩容，申请新的顶点数组
+        int *temp = (int *)malloc(sizeof(int) * (t->size * 2));
+        memcpy(temp, t->vertices, sizeof(int) * t->size);
+        temp[t->size] = val;
+
+        // 释放原数组
+        free(t->vertices);
+        t->vertices = temp;
+
+        // 扩容，申请新的二维数组
+        unsigned int **tempMat = (unsigned int **)malloc(sizeof(unsigned int *) * t->size * 2);
+        unsigned int *tempMatLine = (unsigned int *)malloc(sizeof(unsigned int) * (t->size * 2) * (t->size * 2));
+        memset(tempMatLine, 0, sizeof(unsigned int) * (t->size * 2) * (t->size * 2));
+        for (int k = 0; k < t->size * 2; k++) {
+            tempMat[k] = tempMatLine + k * (t->size * 2);
+        }
+
+        for (int i = 0; i < t->size; i++) {
+            memcpy(tempMat[i], t->adjMat[i], sizeof(unsigned int) * t->size); // 原数据复制到新数组
+        }
+
+        for (int i = 0; i < t->size; i++) {
+            tempMat[i][t->size] = 0; // 将新增列置 0
+        }
+        memset(tempMat[t->size], 0, sizeof(unsigned int) * (t->size + 1)); // 将新增行置 0
+
+        // 释放原数组
+        free(t->adjMat[0]);
+        free(t->adjMat);
+
+        // 扩容后，指向新地址
+        t->adjMat = tempMat; // 指向新的邻接矩阵地址
+        t->capacity = t->size * 2;
+        t->size++;
+    }
+
+    /* 删除顶点 */
+    void removeVertex(graphAdjMat *t, unsigned int index) {
+        // 越界检查
+        if (index < 0 || index >= t->size) {
+            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
+            exit(1);
+        }
+        for (int i = index; i < t->size - 1; i++) {
+            t->vertices[i] = t->vertices[i + 1]; // 清除删除的顶点，并将其后所有顶点前移
+        }
+        t->vertices[t->size - 1] = 0; // 将被前移的最后一个顶点置 0
+
+        // 清除邻接矩阵中删除的列
+        for (int i = 0; i < t->size - 1; i++) {
+            if (i < index) {
+                for (int j = index; j < t->size - 1; j++) {
+                    t->adjMat[i][j] = t->adjMat[i][j + 1]; // 被删除列后的所有列前移
+                }
+            } else {
+                memcpy(t->adjMat[i], t->adjMat[i + 1], sizeof(unsigned int) * t->size); // 被删除行的下方所有行上移
+                for (int j = index; j < t->size; j++) {
+                    t->adjMat[i][j] = t->adjMat[i][j + 1]; // 被删除列后的所有列前移
+                }
+            }
+        }
+        t->size--;
+    }
+
+    /* 打印顶点与邻接矩阵 */
+    void printGraph(graphAdjMat *t) {
+        if (t->size == 0) {
+            printf("graph is empty\n");
+            return;
+        }
+        printf("顶点列表 = [");
+        for (int i = 0; i < t->size; i++) {
+            if (i != t->size - 1) {
+                printf("%d, ", t->vertices[i]);
+            } else {
+                printf("%d", t->vertices[i]);
+            }
+        }
+        printf("]\n");
+        printf("邻接矩阵 =\n[\n");
+        for (int i = 0; i < t->size; i++) {
+            printf("  [");
+            for (int j = 0; j < t->size; j++) {
+                if (j != t->size - 1) {
+                    printf("%u, ", t->adjMat[i][j]);
+                } else {
+                    printf("%u", t->adjMat[i][j]);
+                }
+            }
+            printf("],\n");
+        }
+        printf("]\n");
+    }
+
+    /* 构造函数 */
+    graphAdjMat *newGraphAjdMat(unsigned int numberVertices, int *vertices, unsigned int **adjMat) {
+        // 申请内存
+        graphAdjMat *newGraph = (graphAdjMat *)malloc(sizeof(graphAdjMat));   // 为图分配内存
+        newGraph->vertices = (int *)malloc(sizeof(int) * numberVertices * 2); // 为顶点列表分配内存
+        newGraph->adjMat = (unsigned int **)malloc(sizeof(unsigned int *) * numberVertices * 2); // 为邻接矩阵分配二维内存
+        unsigned int *temp = (unsigned int *)malloc(sizeof(unsigned int) * numberVertices * 2 * numberVertices * 2); // 为邻接矩阵分配一维内存
+        newGraph->size = numberVertices;                // 初始化顶点数量
+        newGraph->capacity = numberVertices * 2;        // 初始化图容量
+
+        // 配置二维数组
+        for (int i = 0; i < numberVertices * 2; i++) {
+            newGraph->adjMat[i] = temp + i * numberVertices * 2; // 将二维指针指向一维数组
+        }
+
+        // 赋值
+        memcpy(newGraph->vertices, vertices, sizeof(int) * numberVertices);
+        for (int i = 0; i < numberVertices; i++) {
+            memcpy(newGraph->adjMat[i], adjMat[i], sizeof(unsigned int) * numberVertices); // 将传入的邻接矩阵赋值给结构体内邻接矩阵
+        }
+
+        // 返回结构体指针
+        return newGraph;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="graph_adjacency_matrix.zig"
+
+    ```
+
 ## 9.2.2 &nbsp; 基于邻接表的实现
 
 设无向图的顶点总数为 $n$、边总数为 $m$ ，则可根据图 9-8 所示的方法实现各种操作。
@@ -1155,79 +1155,66 @@ comments: true
 2. 如果类似邻接矩阵那样，使用顶点列表索引来区分不同顶点。那么，假设我们想要删除索引为 $i$ 的顶点，则需要遍历整个邻接表，将其中 $> i$ 的索引全部减 $1$ ，这样操作效率较低。
 3. 因此我们考虑引入顶点类 `Vertex` ，使得每个顶点都是唯一的对象，此时删除顶点时就无须改动其余顶点了。
 
-=== "Java"
+=== "Python"
 
-    ```java title="graph_adjacency_list.java"
-    /* 基于邻接表实现的无向图类 */
-    class GraphAdjList {
-        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
-        Map<Vertex, List<Vertex>> adjList;
+    ```python title="graph_adjacency_list.py"
+    class GraphAdjList:
+        """基于邻接表实现的无向图类"""
 
-        /* 构造方法 */
-        public GraphAdjList(Vertex[][] edges) {
-            this.adjList = new HashMap<>();
-            // 添加所有顶点和边
-            for (Vertex[] edge : edges) {
-                addVertex(edge[0]);
-                addVertex(edge[1]);
-                addEdge(edge[0], edge[1]);
-            }
-        }
+        def __init__(self, edges: list[list[Vertex]]):
+            """构造方法"""
+            # 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+            self.adj_list = dict[Vertex, Vertex]()
+            # 添加所有顶点和边
+            for edge in edges:
+                self.add_vertex(edge[0])
+                self.add_vertex(edge[1])
+                self.add_edge(edge[0], edge[1])
 
-        /* 获取顶点数量 */
-        public int size() {
-            return adjList.size();
-        }
+        def size(self) -> int:
+            """获取顶点数量"""
+            return len(self.adj_list)
 
-        /* 添加边 */
-        public void addEdge(Vertex vet1, Vertex vet2) {
-            if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
-                throw new IllegalArgumentException();
-            // 添加边 vet1 - vet2
-            adjList.get(vet1).add(vet2);
-            adjList.get(vet2).add(vet1);
-        }
+        def add_edge(self, vet1: Vertex, vet2: Vertex):
+            """添加边"""
+            if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
+                raise ValueError()
+            # 添加边 vet1 - vet2
+            self.adj_list[vet1].append(vet2)
+            self.adj_list[vet2].append(vet1)
 
-        /* 删除边 */
-        public void removeEdge(Vertex vet1, Vertex vet2) {
-            if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
-                throw new IllegalArgumentException();
-            // 删除边 vet1 - vet2
-            adjList.get(vet1).remove(vet2);
-            adjList.get(vet2).remove(vet1);
-        }
+        def remove_edge(self, vet1: Vertex, vet2: Vertex):
+            """删除边"""
+            if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
+                raise ValueError()
+            # 删除边 vet1 - vet2
+            self.adj_list[vet1].remove(vet2)
+            self.adj_list[vet2].remove(vet1)
 
-        /* 添加顶点 */
-        public void addVertex(Vertex vet) {
-            if (adjList.containsKey(vet))
-                return;
-            // 在邻接表中添加一个新链表
-            adjList.put(vet, new ArrayList<>());
-        }
+        def add_vertex(self, vet: Vertex):
+            """添加顶点"""
+            if vet in self.adj_list:
+                return
+            # 在邻接表中添加一个新链表
+            self.adj_list[vet] = []
 
-        /* 删除顶点 */
-        public void removeVertex(Vertex vet) {
-            if (!adjList.containsKey(vet))
-                throw new IllegalArgumentException();
-            // 在邻接表中删除顶点 vet 对应的链表
-            adjList.remove(vet);
-            // 遍历其他顶点的链表，删除所有包含 vet 的边
-            for (List<Vertex> list : adjList.values()) {
-                list.remove(vet);
-            }
-        }
+        def remove_vertex(self, vet: Vertex):
+            """删除顶点"""
+            if vet not in self.adj_list:
+                raise ValueError()
+            # 在邻接表中删除顶点 vet 对应的链表
+            self.adj_list.pop(vet)
+            # 遍历其他顶点的链表，删除所有包含 vet 的边
+            for vertex in self.adj_list:
+                if vet in self.adj_list[vertex]:
+                    self.adj_list[vertex].remove(vet)
 
-        /* 打印邻接表 */
-        public void print() {
-            System.out.println("邻接表 =");
-            for (Map.Entry<Vertex, List<Vertex>> pair : adjList.entrySet()) {
-                List<Integer> tmp = new ArrayList<>();
-                for (Vertex vertex : pair.getValue())
-                    tmp.add(vertex.val);
-                System.out.println(pair.getKey().val + ": " + tmp + ",");
-            }
-        }
-    }
+        def print(self):
+            """打印邻接表"""
+            print("邻接表 =")
+            for vertex in self.adj_list:
+                tmp = [v.val for v in self.adj_list[vertex]]
+                print(f"{vertex.val}: {tmp},")
     ```
 
 === "C++"
@@ -1315,66 +1302,154 @@ comments: true
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="graph_adjacency_list.py"
-    class GraphAdjList:
-        """基于邻接表实现的无向图类"""
+    ```java title="graph_adjacency_list.java"
+    /* 基于邻接表实现的无向图类 */
+    class GraphAdjList {
+        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        Map<Vertex, List<Vertex>> adjList;
 
-        def __init__(self, edges: list[list[Vertex]]):
-            """构造方法"""
-            # 邻接表，key: 顶点，value：该顶点的所有邻接顶点
-            self.adj_list = dict[Vertex, Vertex]()
-            # 添加所有顶点和边
-            for edge in edges:
-                self.add_vertex(edge[0])
-                self.add_vertex(edge[1])
-                self.add_edge(edge[0], edge[1])
+        /* 构造方法 */
+        public GraphAdjList(Vertex[][] edges) {
+            this.adjList = new HashMap<>();
+            // 添加所有顶点和边
+            for (Vertex[] edge : edges) {
+                addVertex(edge[0]);
+                addVertex(edge[1]);
+                addEdge(edge[0], edge[1]);
+            }
+        }
 
-        def size(self) -> int:
-            """获取顶点数量"""
-            return len(self.adj_list)
+        /* 获取顶点数量 */
+        public int size() {
+            return adjList.size();
+        }
 
-        def add_edge(self, vet1: Vertex, vet2: Vertex):
-            """添加边"""
-            if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
-                raise ValueError()
-            # 添加边 vet1 - vet2
-            self.adj_list[vet1].append(vet2)
-            self.adj_list[vet2].append(vet1)
+        /* 添加边 */
+        public void addEdge(Vertex vet1, Vertex vet2) {
+            if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
+                throw new IllegalArgumentException();
+            // 添加边 vet1 - vet2
+            adjList.get(vet1).add(vet2);
+            adjList.get(vet2).add(vet1);
+        }
 
-        def remove_edge(self, vet1: Vertex, vet2: Vertex):
-            """删除边"""
-            if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
-                raise ValueError()
-            # 删除边 vet1 - vet2
-            self.adj_list[vet1].remove(vet2)
-            self.adj_list[vet2].remove(vet1)
+        /* 删除边 */
+        public void removeEdge(Vertex vet1, Vertex vet2) {
+            if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
+                throw new IllegalArgumentException();
+            // 删除边 vet1 - vet2
+            adjList.get(vet1).remove(vet2);
+            adjList.get(vet2).remove(vet1);
+        }
 
-        def add_vertex(self, vet: Vertex):
-            """添加顶点"""
-            if vet in self.adj_list:
-                return
-            # 在邻接表中添加一个新链表
-            self.adj_list[vet] = []
+        /* 添加顶点 */
+        public void addVertex(Vertex vet) {
+            if (adjList.containsKey(vet))
+                return;
+            // 在邻接表中添加一个新链表
+            adjList.put(vet, new ArrayList<>());
+        }
 
-        def remove_vertex(self, vet: Vertex):
-            """删除顶点"""
-            if vet not in self.adj_list:
-                raise ValueError()
-            # 在邻接表中删除顶点 vet 对应的链表
-            self.adj_list.pop(vet)
-            # 遍历其他顶点的链表，删除所有包含 vet 的边
-            for vertex in self.adj_list:
-                if vet in self.adj_list[vertex]:
-                    self.adj_list[vertex].remove(vet)
+        /* 删除顶点 */
+        public void removeVertex(Vertex vet) {
+            if (!adjList.containsKey(vet))
+                throw new IllegalArgumentException();
+            // 在邻接表中删除顶点 vet 对应的链表
+            adjList.remove(vet);
+            // 遍历其他顶点的链表，删除所有包含 vet 的边
+            for (List<Vertex> list : adjList.values()) {
+                list.remove(vet);
+            }
+        }
 
-        def print(self):
-            """打印邻接表"""
-            print("邻接表 =")
-            for vertex in self.adj_list:
-                tmp = [v.val for v in self.adj_list[vertex]]
-                print(f"{vertex.val}: {tmp},")
+        /* 打印邻接表 */
+        public void print() {
+            System.out.println("邻接表 =");
+            for (Map.Entry<Vertex, List<Vertex>> pair : adjList.entrySet()) {
+                List<Integer> tmp = new ArrayList<>();
+                for (Vertex vertex : pair.getValue())
+                    tmp.add(vertex.val);
+                System.out.println(pair.getKey().val + ": " + tmp + ",");
+            }
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="graph_adjacency_list.cs"
+    /* 基于邻接表实现的无向图类 */
+    class GraphAdjList {
+        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        public Dictionary<Vertex, List<Vertex>> adjList;
+
+        /* 构造函数 */
+        public GraphAdjList(Vertex[][] edges) {
+            this.adjList = new Dictionary<Vertex, List<Vertex>>();
+            // 添加所有顶点和边
+            foreach (Vertex[] edge in edges) {
+                addVertex(edge[0]);
+                addVertex(edge[1]);
+                addEdge(edge[0], edge[1]);
+            }
+        }
+
+        /* 获取顶点数量 */
+        public int size() {
+            return adjList.Count;
+        }
+
+        /* 添加边 */
+        public void addEdge(Vertex vet1, Vertex vet2) {
+            if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
+                throw new InvalidOperationException();
+            // 添加边 vet1 - vet2
+            adjList[vet1].Add(vet2);
+            adjList[vet2].Add(vet1);
+        }
+
+        /* 删除边 */
+        public void removeEdge(Vertex vet1, Vertex vet2) {
+            if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
+                throw new InvalidOperationException();
+            // 删除边 vet1 - vet2
+            adjList[vet1].Remove(vet2);
+            adjList[vet2].Remove(vet1);
+        }
+
+        /* 添加顶点 */
+        public void addVertex(Vertex vet) {
+            if (adjList.ContainsKey(vet))
+                return;
+            // 在邻接表中添加一个新链表
+            adjList.Add(vet, new List<Vertex>());
+        }
+
+        /* 删除顶点 */
+        public void removeVertex(Vertex vet) {
+            if (!adjList.ContainsKey(vet))
+                throw new InvalidOperationException();
+            // 在邻接表中删除顶点 vet 对应的链表
+            adjList.Remove(vet);
+            // 遍历其他顶点的链表，删除所有包含 vet 的边
+            foreach (List<Vertex> list in adjList.Values) {
+                list.Remove(vet);
+            }
+        }
+
+        /* 打印邻接表 */
+        public void print() {
+            Console.WriteLine("邻接表 =");
+            foreach (KeyValuePair<Vertex, List<Vertex>> pair in adjList) {
+                List<int> tmp = new List<int>();
+                foreach (Vertex vertex in pair.Value)
+                    tmp.Add(vertex.val);
+                Console.WriteLine(pair.Key.val + ": [" + string.Join(", ", tmp) + "],");
+            }
+        }
+    }
     ```
 
 === "Go"
@@ -1464,6 +1539,86 @@ comments: true
             }
             fmt.Println(builder.String())
             builder.Reset()
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="graph_adjacency_list.swift"
+    /* 基于邻接表实现的无向图类 */
+    class GraphAdjList {
+        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+        public private(set) var adjList: [Vertex: [Vertex]]
+
+        /* 构造方法 */
+        public init(edges: [[Vertex]]) {
+            adjList = [:]
+            // 添加所有顶点和边
+            for edge in edges {
+                addVertex(vet: edge[0])
+                addVertex(vet: edge[1])
+                addEdge(vet1: edge[0], vet2: edge[1])
+            }
+        }
+
+        /* 获取顶点数量 */
+        public func size() -> Int {
+            adjList.count
+        }
+
+        /* 添加边 */
+        public func addEdge(vet1: Vertex, vet2: Vertex) {
+            if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
+                fatalError("参数错误")
+            }
+            // 添加边 vet1 - vet2
+            adjList[vet1]?.append(vet2)
+            adjList[vet2]?.append(vet1)
+        }
+
+        /* 删除边 */
+        public func removeEdge(vet1: Vertex, vet2: Vertex) {
+            if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
+                fatalError("参数错误")
+            }
+            // 删除边 vet1 - vet2
+            adjList[vet1]?.removeAll(where: { $0 == vet2 })
+            adjList[vet2]?.removeAll(where: { $0 == vet1 })
+        }
+
+        /* 添加顶点 */
+        public func addVertex(vet: Vertex) {
+            if adjList[vet] != nil {
+                return
+            }
+            // 在邻接表中添加一个新链表
+            adjList[vet] = []
+        }
+
+        /* 删除顶点 */
+        public func removeVertex(vet: Vertex) {
+            if adjList[vet] == nil {
+                fatalError("参数错误")
+            }
+            // 在邻接表中删除顶点 vet 对应的链表
+            adjList.removeValue(forKey: vet)
+            // 遍历其他顶点的链表，删除所有包含 vet 的边
+            for key in adjList.keys {
+                adjList[key]?.removeAll(where: { $0 == vet })
+            }
+        }
+
+        /* 打印邻接表 */
+        public func print() {
+            Swift.print("邻接表 =")
+            for pair in adjList {
+                var tmp: [Int] = []
+                for vertex in pair.value {
+                    tmp.append(vertex.val)
+                }
+                Swift.print("\(pair.key.val): \(tmp),")
+            }
         }
     }
     ```
@@ -1646,296 +1801,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="graph_adjacency_list.c"
-    /* 基于邻接链表实现的无向图类结构 */
-    struct graphAdjList {
-        Vertex **verticesList; // 邻接表
-        unsigned int size;     // 顶点数量
-        unsigned int capacity; // 顶点容量
-    };
-
-    typedef struct graphAdjList graphAdjList;
-
-    /* 添加边 */
-    void addEdge(graphAdjList *t, int i, int j) {
-        // 越界检查
-        if (i < 0 || j < 0 || i == j || i >= t->size || j >= t->size) {
-            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
-            return;
-        }
-        // 查找欲添加边的顶点 vet1 - vet2
-        Vertex *vet1 = t->verticesList[i];
-        Vertex *vet2 = t->verticesList[j];
-
-        // 连接顶点 vet1 - vet2
-        pushBack(vet1->linked, vet2);
-        pushBack(vet2->linked, vet1);
-    }
-
-    /* 删除边 */
-    void removeEdge(graphAdjList *t, int i, int j) {
-        // 越界检查
-        if (i < 0 || j < 0 || i == j || i >= t->size || j >= t->size) {
-            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
-            return;
-        }
-
-        // 查找欲删除边的顶点 vet1 - vet2
-        Vertex *vet1 = t->verticesList[i];
-        Vertex *vet2 = t->verticesList[j];
-
-        // 移除待删除边 vet1 - vet2
-        removeLink(vet1->linked, vet2);
-        removeLink(vet2->linked, vet1);
-    }
-
-    /* 添加顶点 */
-    void addVertex(graphAdjList *t, int val) {
-        // 若大小超过容量，则扩容
-        if (t->size >= t->capacity) {
-            Vertex **tempList = (Vertex **)malloc(sizeof(Vertex *) * 2 * t->capacity);
-            memcpy(tempList, t->verticesList, sizeof(Vertex *) * t->size);
-            free(t->verticesList);         // 释放原邻接表内存
-            t->verticesList = tempList;    // 指向新邻接表
-            t->capacity = t->capacity * 2; // 容量扩大至2倍
-        }
-        // 申请新顶点内存并将新顶点地址存入顶点列表
-        Vertex *newV = newVertex(val);    // 建立新顶点
-        newV->pos = t->size;              // 为新顶点标记下标
-        newV->linked = newLinklist(newV); // 为新顶点建立链表
-        t->verticesList[t->size] = newV;  // 将新顶点加入邻接表
-        t->size++;
-    }
-
-    /* 删除顶点 */
-    void removeVertex(graphAdjList *t, unsigned int index) {
-        // 越界检查
-        if (index < 0 || index >= t->size) {
-            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
-            exit(1);
-        }
-
-        Vertex *vet = t->verticesList[index]; // 查找待删节点
-        if (vet == 0) {                       // 若不存在该节点，则返回
-            printf("index is:%d\n", index);
-            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
-            return;
-        }
-
-        // 遍历待删除顶点的链表，将所有与待删除结点有关的边删除
-        Node *temp = vet->linked->head->next;
-        while (temp != 0) {
-            removeLink(temp->val->linked, vet); // 删除与该顶点有关的边
-            temp = temp->next;
-        }
-
-        // 将顶点前移
-        for (int i = index; i < t->size - 1; i++) {
-            t->verticesList[i] = t->verticesList[i + 1]; // 顶点前移
-            t->verticesList[i]->pos--;                   // 所有前移的顶点索引值减1
-        }
-        t->verticesList[t->size - 1] = 0; // 将被删除顶点的位置置 0
-        t->size--;
-
-        // 释放内存
-        freeVertex(vet);
-    }
-
-    /* 打印顶点与邻接矩阵 */
-    void printGraph(graphAdjList *t) {
-        printf("邻接表  =\n");
-        for (int i = 0; i < t->size; i++) {
-            Node *n = t->verticesList[i]->linked->head->next;
-            printf("%d: [", t->verticesList[i]->val);
-            while (n != 0) {
-                if (n->next != 0) {
-                    printf("%d, ", n->val->val);
-                } else {
-                    printf("%d", n->val->val);
-                }
-                n = n->next;
-            }
-            printf("]\n");
-        }
-    }
-
-    /* 构造函数 */
-    graphAdjList *newGraphAdjList(unsigned int verticesCapacity) {
-        // 申请内存
-        graphAdjList *newGraph = (graphAdjList *)malloc(sizeof(graphAdjList));
-        // 建立顶点表并分配内存
-        newGraph->verticesList = (Vertex **)malloc(sizeof(Vertex *) * verticesCapacity); // 为顶点列表分配内存
-        memset(newGraph->verticesList, 0, sizeof(Vertex *) * verticesCapacity);          // 顶点列表置 0
-        newGraph->size = 0;                                                              // 初始化顶点数量
-        newGraph->capacity = verticesCapacity;                                           // 初始化顶点容量
-        // 返回图指针
-        return newGraph;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="graph_adjacency_list.cs"
-    /* 基于邻接表实现的无向图类 */
-    class GraphAdjList {
-        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
-        public Dictionary<Vertex, List<Vertex>> adjList;
-
-        /* 构造函数 */
-        public GraphAdjList(Vertex[][] edges) {
-            this.adjList = new Dictionary<Vertex, List<Vertex>>();
-            // 添加所有顶点和边
-            foreach (Vertex[] edge in edges) {
-                addVertex(edge[0]);
-                addVertex(edge[1]);
-                addEdge(edge[0], edge[1]);
-            }
-        }
-
-        /* 获取顶点数量 */
-        public int size() {
-            return adjList.Count;
-        }
-
-        /* 添加边 */
-        public void addEdge(Vertex vet1, Vertex vet2) {
-            if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
-                throw new InvalidOperationException();
-            // 添加边 vet1 - vet2
-            adjList[vet1].Add(vet2);
-            adjList[vet2].Add(vet1);
-        }
-
-        /* 删除边 */
-        public void removeEdge(Vertex vet1, Vertex vet2) {
-            if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
-                throw new InvalidOperationException();
-            // 删除边 vet1 - vet2
-            adjList[vet1].Remove(vet2);
-            adjList[vet2].Remove(vet1);
-        }
-
-        /* 添加顶点 */
-        public void addVertex(Vertex vet) {
-            if (adjList.ContainsKey(vet))
-                return;
-            // 在邻接表中添加一个新链表
-            adjList.Add(vet, new List<Vertex>());
-        }
-
-        /* 删除顶点 */
-        public void removeVertex(Vertex vet) {
-            if (!adjList.ContainsKey(vet))
-                throw new InvalidOperationException();
-            // 在邻接表中删除顶点 vet 对应的链表
-            adjList.Remove(vet);
-            // 遍历其他顶点的链表，删除所有包含 vet 的边
-            foreach (List<Vertex> list in adjList.Values) {
-                list.Remove(vet);
-            }
-        }
-
-        /* 打印邻接表 */
-        public void print() {
-            Console.WriteLine("邻接表 =");
-            foreach (KeyValuePair<Vertex, List<Vertex>> pair in adjList) {
-                List<int> tmp = new List<int>();
-                foreach (Vertex vertex in pair.Value)
-                    tmp.Add(vertex.val);
-                Console.WriteLine(pair.Key.val + ": [" + string.Join(", ", tmp) + "],");
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="graph_adjacency_list.swift"
-    /* 基于邻接表实现的无向图类 */
-    class GraphAdjList {
-        // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
-        public private(set) var adjList: [Vertex: [Vertex]]
-
-        /* 构造方法 */
-        public init(edges: [[Vertex]]) {
-            adjList = [:]
-            // 添加所有顶点和边
-            for edge in edges {
-                addVertex(vet: edge[0])
-                addVertex(vet: edge[1])
-                addEdge(vet1: edge[0], vet2: edge[1])
-            }
-        }
-
-        /* 获取顶点数量 */
-        public func size() -> Int {
-            adjList.count
-        }
-
-        /* 添加边 */
-        public func addEdge(vet1: Vertex, vet2: Vertex) {
-            if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-                fatalError("参数错误")
-            }
-            // 添加边 vet1 - vet2
-            adjList[vet1]?.append(vet2)
-            adjList[vet2]?.append(vet1)
-        }
-
-        /* 删除边 */
-        public func removeEdge(vet1: Vertex, vet2: Vertex) {
-            if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-                fatalError("参数错误")
-            }
-            // 删除边 vet1 - vet2
-            adjList[vet1]?.removeAll(where: { $0 == vet2 })
-            adjList[vet2]?.removeAll(where: { $0 == vet1 })
-        }
-
-        /* 添加顶点 */
-        public func addVertex(vet: Vertex) {
-            if adjList[vet] != nil {
-                return
-            }
-            // 在邻接表中添加一个新链表
-            adjList[vet] = []
-        }
-
-        /* 删除顶点 */
-        public func removeVertex(vet: Vertex) {
-            if adjList[vet] == nil {
-                fatalError("参数错误")
-            }
-            // 在邻接表中删除顶点 vet 对应的链表
-            adjList.removeValue(forKey: vet)
-            // 遍历其他顶点的链表，删除所有包含 vet 的边
-            for key in adjList.keys {
-                adjList[key]?.removeAll(where: { $0 == vet })
-            }
-        }
-
-        /* 打印邻接表 */
-        public func print() {
-            Swift.print("邻接表 =")
-            for pair in adjList {
-                var tmp: [Int] = []
-                for vertex in pair.value {
-                    tmp.append(vertex.val)
-                }
-                Swift.print("\(pair.key.val): \(tmp),")
-            }
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="graph_adjacency_list.zig"
-    [class]{GraphAdjList}-[func]{}
-    ```
-
 === "Dart"
 
     ```dart title="graph_adjacency_list.dart"
@@ -2108,6 +1973,141 @@ comments: true
             }
         }
     }
+    ```
+
+=== "C"
+
+    ```c title="graph_adjacency_list.c"
+    /* 基于邻接链表实现的无向图类结构 */
+    struct graphAdjList {
+        Vertex **verticesList; // 邻接表
+        unsigned int size;     // 顶点数量
+        unsigned int capacity; // 顶点容量
+    };
+
+    typedef struct graphAdjList graphAdjList;
+
+    /* 添加边 */
+    void addEdge(graphAdjList *t, int i, int j) {
+        // 越界检查
+        if (i < 0 || j < 0 || i == j || i >= t->size || j >= t->size) {
+            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
+            return;
+        }
+        // 查找欲添加边的顶点 vet1 - vet2
+        Vertex *vet1 = t->verticesList[i];
+        Vertex *vet2 = t->verticesList[j];
+
+        // 连接顶点 vet1 - vet2
+        pushBack(vet1->linked, vet2);
+        pushBack(vet2->linked, vet1);
+    }
+
+    /* 删除边 */
+    void removeEdge(graphAdjList *t, int i, int j) {
+        // 越界检查
+        if (i < 0 || j < 0 || i == j || i >= t->size || j >= t->size) {
+            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
+            return;
+        }
+
+        // 查找欲删除边的顶点 vet1 - vet2
+        Vertex *vet1 = t->verticesList[i];
+        Vertex *vet2 = t->verticesList[j];
+
+        // 移除待删除边 vet1 - vet2
+        removeLink(vet1->linked, vet2);
+        removeLink(vet2->linked, vet1);
+    }
+
+    /* 添加顶点 */
+    void addVertex(graphAdjList *t, int val) {
+        // 若大小超过容量，则扩容
+        if (t->size >= t->capacity) {
+            Vertex **tempList = (Vertex **)malloc(sizeof(Vertex *) * 2 * t->capacity);
+            memcpy(tempList, t->verticesList, sizeof(Vertex *) * t->size);
+            free(t->verticesList);         // 释放原邻接表内存
+            t->verticesList = tempList;    // 指向新邻接表
+            t->capacity = t->capacity * 2; // 容量扩大至2倍
+        }
+        // 申请新顶点内存并将新顶点地址存入顶点列表
+        Vertex *newV = newVertex(val);    // 建立新顶点
+        newV->pos = t->size;              // 为新顶点标记下标
+        newV->linked = newLinklist(newV); // 为新顶点建立链表
+        t->verticesList[t->size] = newV;  // 将新顶点加入邻接表
+        t->size++;
+    }
+
+    /* 删除顶点 */
+    void removeVertex(graphAdjList *t, unsigned int index) {
+        // 越界检查
+        if (index < 0 || index >= t->size) {
+            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
+            exit(1);
+        }
+
+        Vertex *vet = t->verticesList[index]; // 查找待删节点
+        if (vet == 0) {                       // 若不存在该节点，则返回
+            printf("index is:%d\n", index);
+            printf("Out of range in %s:%d\n", __FILE__, __LINE__);
+            return;
+        }
+
+        // 遍历待删除顶点的链表，将所有与待删除结点有关的边删除
+        Node *temp = vet->linked->head->next;
+        while (temp != 0) {
+            removeLink(temp->val->linked, vet); // 删除与该顶点有关的边
+            temp = temp->next;
+        }
+
+        // 将顶点前移
+        for (int i = index; i < t->size - 1; i++) {
+            t->verticesList[i] = t->verticesList[i + 1]; // 顶点前移
+            t->verticesList[i]->pos--;                   // 所有前移的顶点索引值减1
+        }
+        t->verticesList[t->size - 1] = 0; // 将被删除顶点的位置置 0
+        t->size--;
+
+        // 释放内存
+        freeVertex(vet);
+    }
+
+    /* 打印顶点与邻接矩阵 */
+    void printGraph(graphAdjList *t) {
+        printf("邻接表  =\n");
+        for (int i = 0; i < t->size; i++) {
+            Node *n = t->verticesList[i]->linked->head->next;
+            printf("%d: [", t->verticesList[i]->val);
+            while (n != 0) {
+                if (n->next != 0) {
+                    printf("%d, ", n->val->val);
+                } else {
+                    printf("%d", n->val->val);
+                }
+                n = n->next;
+            }
+            printf("]\n");
+        }
+    }
+
+    /* 构造函数 */
+    graphAdjList *newGraphAdjList(unsigned int verticesCapacity) {
+        // 申请内存
+        graphAdjList *newGraph = (graphAdjList *)malloc(sizeof(graphAdjList));
+        // 建立顶点表并分配内存
+        newGraph->verticesList = (Vertex **)malloc(sizeof(Vertex *) * verticesCapacity); // 为顶点列表分配内存
+        memset(newGraph->verticesList, 0, sizeof(Vertex *) * verticesCapacity);          // 顶点列表置 0
+        newGraph->size = 0;                                                              // 初始化顶点数量
+        newGraph->capacity = verticesCapacity;                                           // 初始化顶点容量
+        // 返回图指针
+        return newGraph;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="graph_adjacency_list.zig"
+    [class]{GraphAdjList}-[func]{}
     ```
 
 ## 9.2.3 &nbsp; 效率对比

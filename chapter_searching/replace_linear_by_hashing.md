@@ -18,21 +18,17 @@ comments: true
 
 <p align="center"> 图 10-9 &nbsp; 线性查找求解两数之和 </p>
 
-=== "Java"
+=== "Python"
 
-    ```java title="two_sum.java"
-    /* 方法一：暴力枚举 */
-    int[] twoSumBruteForce(int[] nums, int target) {
-        int size = nums.length;
-        // 两层循环，时间复杂度 O(n^2)
-        for (int i = 0; i < size - 1; i++) {
-            for (int j = i + 1; j < size; j++) {
-                if (nums[i] + nums[j] == target)
-                    return new int[] { i, j };
-            }
-        }
-        return new int[0];
-    }
+    ```python title="two_sum.py"
+    def two_sum_brute_force(nums: list[int], target: int) -> list[int]:
+        """方法一：暴力枚举"""
+        # 两层循环，时间复杂度 O(n^2)
+        for i in range(len(nums) - 1):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+        return []
     ```
 
 === "C++"
@@ -52,17 +48,38 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="two_sum.py"
-    def two_sum_brute_force(nums: list[int], target: int) -> list[int]:
-        """方法一：暴力枚举"""
-        # 两层循环，时间复杂度 O(n^2)
-        for i in range(len(nums) - 1):
-            for j in range(i + 1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i, j]
-        return []
+    ```java title="two_sum.java"
+    /* 方法一：暴力枚举 */
+    int[] twoSumBruteForce(int[] nums, int target) {
+        int size = nums.length;
+        // 两层循环，时间复杂度 O(n^2)
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (nums[i] + nums[j] == target)
+                    return new int[] { i, j };
+            }
+        }
+        return new int[0];
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="two_sum.cs"
+    /* 方法一：暴力枚举 */
+    int[] twoSumBruteForce(int[] nums, int target) {
+        int size = nums.Length;
+        // 两层循环，时间复杂度 O(n^2)
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (nums[i] + nums[j] == target)
+                    return new int[] { i, j };
+            }
+        }
+        return Array.Empty<int>();
+    }
     ```
 
 === "Go"
@@ -80,6 +97,23 @@ comments: true
             }
         }
         return nil
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="two_sum.swift"
+    /* 方法一：暴力枚举 */
+    func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
+        // 两层循环，时间复杂度 O(n^2)
+        for i in nums.indices.dropLast() {
+            for j in nums.indices.dropFirst(i + 1) {
+                if nums[i] + nums[j] == target {
+                    return [i, j]
+                }
+            }
+        }
+        return [0]
     }
     ```
 
@@ -119,80 +153,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="two_sum.c"
-    /* 方法一：暴力枚举 */
-    int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
-        for (int i = 0; i < numsSize; ++i) {
-            for (int j = i + 1; j < numsSize; ++j) {
-                if (nums[i] + nums[j] == target) {
-                    int *res = malloc(sizeof(int) * 2);
-                    res[0] = i, res[1] = j;
-                    *returnSize = 2;
-                    return res;
-                }
-            }
-        }
-        *returnSize = 0;
-        return NULL;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="two_sum.cs"
-    /* 方法一：暴力枚举 */
-    int[] twoSumBruteForce(int[] nums, int target) {
-        int size = nums.Length;
-        // 两层循环，时间复杂度 O(n^2)
-        for (int i = 0; i < size - 1; i++) {
-            for (int j = i + 1; j < size; j++) {
-                if (nums[i] + nums[j] == target)
-                    return new int[] { i, j };
-            }
-        }
-        return Array.Empty<int>();
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="two_sum.swift"
-    /* 方法一：暴力枚举 */
-    func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
-        // 两层循环，时间复杂度 O(n^2)
-        for i in nums.indices.dropLast() {
-            for j in nums.indices.dropFirst(i + 1) {
-                if nums[i] + nums[j] == target {
-                    return [i, j]
-                }
-            }
-        }
-        return [0]
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="two_sum.zig"
-    // 方法一：暴力枚举
-    fn twoSumBruteForce(nums: []i32, target: i32) ?[2]i32 {
-        var size: usize = nums.len;
-        var i: usize = 0;
-        // 两层循环，时间复杂度 O(n^2)
-        while (i < size - 1) : (i += 1) {
-            var j = i + 1;
-            while (j < size) : (j += 1) {
-                if (nums[i] + nums[j] == target) {
-                    return [_]i32{@intCast(i), @intCast(j)};
-                }
-            }
-        }
-        return null;
-    }
-    ```
-
 === "Dart"
 
     ```dart title="two_sum.dart"
@@ -227,6 +187,46 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="two_sum.c"
+    /* 方法一：暴力枚举 */
+    int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
+        for (int i = 0; i < numsSize; ++i) {
+            for (int j = i + 1; j < numsSize; ++j) {
+                if (nums[i] + nums[j] == target) {
+                    int *res = malloc(sizeof(int) * 2);
+                    res[0] = i, res[1] = j;
+                    *returnSize = 2;
+                    return res;
+                }
+            }
+        }
+        *returnSize = 0;
+        return NULL;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="two_sum.zig"
+    // 方法一：暴力枚举
+    fn twoSumBruteForce(nums: []i32, target: i32) ?[2]i32 {
+        var size: usize = nums.len;
+        var i: usize = 0;
+        // 两层循环，时间复杂度 O(n^2)
+        while (i < size - 1) : (i += 1) {
+            var j = i + 1;
+            while (j < size) : (j += 1) {
+                if (nums[i] + nums[j] == target) {
+                    return [_]i32{@intCast(i), @intCast(j)};
+                }
+            }
+        }
+        return null;
+    }
+    ```
+
 此方法的时间复杂度为 $O(n^2)$ ，空间复杂度为 $O(1)$ ，在大数据量下非常耗时。
 
 ## 10.4.2 &nbsp; 哈希查找：以空间换时间
@@ -249,23 +249,19 @@ comments: true
 
 实现代码如下所示，仅需单层循环即可。
 
-=== "Java"
+=== "Python"
 
-    ```java title="two_sum.java"
-    /* 方法二：辅助哈希表 */
-    int[] twoSumHashTable(int[] nums, int target) {
-        int size = nums.length;
-        // 辅助哈希表，空间复杂度 O(n)
-        Map<Integer, Integer> dic = new HashMap<>();
-        // 单层循环，时间复杂度 O(n)
-        for (int i = 0; i < size; i++) {
-            if (dic.containsKey(target - nums[i])) {
-                return new int[] { dic.get(target - nums[i]), i };
-            }
-            dic.put(nums[i], i);
-        }
-        return new int[0];
-    }
+    ```python title="two_sum.py"
+    def two_sum_hash_table(nums: list[int], target: int) -> list[int]:
+        """方法二：辅助哈希表"""
+        # 辅助哈希表，空间复杂度 O(n)
+        dic = {}
+        # 单层循环，时间复杂度 O(n)
+        for i in range(len(nums)):
+            if target - nums[i] in dic:
+                return [dic[target - nums[i]], i]
+            dic[nums[i]] = i
+        return []
     ```
 
 === "C++"
@@ -287,19 +283,42 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="two_sum.py"
-    def two_sum_hash_table(nums: list[int], target: int) -> list[int]:
-        """方法二：辅助哈希表"""
-        # 辅助哈希表，空间复杂度 O(n)
-        dic = {}
-        # 单层循环，时间复杂度 O(n)
-        for i in range(len(nums)):
-            if target - nums[i] in dic:
-                return [dic[target - nums[i]], i]
-            dic[nums[i]] = i
-        return []
+    ```java title="two_sum.java"
+    /* 方法二：辅助哈希表 */
+    int[] twoSumHashTable(int[] nums, int target) {
+        int size = nums.length;
+        // 辅助哈希表，空间复杂度 O(n)
+        Map<Integer, Integer> dic = new HashMap<>();
+        // 单层循环，时间复杂度 O(n)
+        for (int i = 0; i < size; i++) {
+            if (dic.containsKey(target - nums[i])) {
+                return new int[] { dic.get(target - nums[i]), i };
+            }
+            dic.put(nums[i], i);
+        }
+        return new int[0];
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="two_sum.cs"
+    /* 方法二：辅助哈希表 */
+    int[] twoSumHashTable(int[] nums, int target) {
+        int size = nums.Length;
+        // 辅助哈希表，空间复杂度 O(n)
+        Dictionary<int, int> dic = new();
+        // 单层循环，时间复杂度 O(n)
+        for (int i = 0; i < size; i++) {
+            if (dic.ContainsKey(target - nums[i])) {
+                return new int[] { dic[target - nums[i]], i };
+            }
+            dic.Add(nums[i], i);
+        }
+        return Array.Empty<int>();
+    }
     ```
 
 === "Go"
@@ -317,6 +336,24 @@ comments: true
             hashTable[val] = idx
         }
         return nil
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="two_sum.swift"
+    /* 方法二：辅助哈希表 */
+    func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
+        // 辅助哈希表，空间复杂度 O(n)
+        var dic: [Int: Int] = [:]
+        // 单层循环，时间复杂度 O(n)
+        for i in nums.indices {
+            if let j = dic[target - nums[i]] {
+                return [j, i]
+            }
+            dic[nums[i]] = i
+        }
+        return [0]
     }
     ```
 
@@ -356,6 +393,43 @@ comments: true
             }
         }
         return [];
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="two_sum.dart"
+    /* 方法二： 辅助哈希表 */
+    List<int> twoSumHashTable(List<int> nums, int target) {
+      int size = nums.length;
+      // 辅助哈希表，空间复杂度 O(n)
+      Map<int, int> dic = HashMap();
+      // 单层循环，时间复杂度 O(n)
+      for (var i = 0; i < size; i++) {
+        if (dic.containsKey(target - nums[i])) {
+          return [dic[target - nums[i]]!, i];
+        }
+        dic.putIfAbsent(nums[i], () => i);
+      }
+      return [0];
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="two_sum.rs"
+    /* 方法二：辅助哈希表 */
+    pub fn two_sum_hash_table(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
+        // 辅助哈希表，空间复杂度 O(n)
+        let mut dic = HashMap::new();
+        // 单层循环，时间复杂度 O(n)
+        for (i, num) in nums.iter().enumerate() {
+            match dic.get(&(target - num)) {
+                Some(v) => return Some(vec![*v as i32, i as i32]),
+                None => dic.insert(num, i as i32)
+            };
+        }
+        None
     }
     ```
 
@@ -408,43 +482,6 @@ comments: true
     }
     ```
 
-=== "C#"
-
-    ```csharp title="two_sum.cs"
-    /* 方法二：辅助哈希表 */
-    int[] twoSumHashTable(int[] nums, int target) {
-        int size = nums.Length;
-        // 辅助哈希表，空间复杂度 O(n)
-        Dictionary<int, int> dic = new();
-        // 单层循环，时间复杂度 O(n)
-        for (int i = 0; i < size; i++) {
-            if (dic.ContainsKey(target - nums[i])) {
-                return new int[] { dic[target - nums[i]], i };
-            }
-            dic.Add(nums[i], i);
-        }
-        return Array.Empty<int>();
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="two_sum.swift"
-    /* 方法二：辅助哈希表 */
-    func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
-        // 辅助哈希表，空间复杂度 O(n)
-        var dic: [Int: Int] = [:]
-        // 单层循环，时间复杂度 O(n)
-        for i in nums.indices {
-            if let j = dic[target - nums[i]] {
-                return [j, i]
-            }
-            dic[nums[i]] = i
-        }
-        return [0]
-    }
-    ```
-
 === "Zig"
 
     ```zig title="two_sum.zig"
@@ -463,43 +500,6 @@ comments: true
             try dic.put(nums[i], @intCast(i));
         }
         return null;
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title="two_sum.dart"
-    /* 方法二： 辅助哈希表 */
-    List<int> twoSumHashTable(List<int> nums, int target) {
-      int size = nums.length;
-      // 辅助哈希表，空间复杂度 O(n)
-      Map<int, int> dic = HashMap();
-      // 单层循环，时间复杂度 O(n)
-      for (var i = 0; i < size; i++) {
-        if (dic.containsKey(target - nums[i])) {
-          return [dic[target - nums[i]]!, i];
-        }
-        dic.putIfAbsent(nums[i], () => i);
-      }
-      return [0];
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title="two_sum.rs"
-    /* 方法二：辅助哈希表 */
-    pub fn two_sum_hash_table(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
-        // 辅助哈希表，空间复杂度 O(n)
-        let mut dic = HashMap::new();
-        // 单层循环，时间复杂度 O(n)
-        for (i, num) in nums.iter().enumerate() {
-            match dic.get(&(target - num)) {
-                Some(v) => return Some(vec![*v as i32, i as i32]),
-                None => dic.insert(num, i as i32)
-            };
-        }
-        None
     }
     ```
 

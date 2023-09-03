@@ -28,17 +28,16 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 
 由于 AVL 树的相关操作需要获取节点高度，因此我们需要为节点类添加 `height` 变量。
 
-=== "Java"
+=== "Python"
 
-    ```java title=""
-    /* AVL 树节点类 */
-    class TreeNode {
-        public int val;        // 节点值
-        public int height;     // 节点高度
-        public TreeNode left;  // 左子节点
-        public TreeNode right; // 右子节点
-        public TreeNode(int x) { val = x; }
-    }
+    ```python title=""
+    class TreeNode:
+        """AVL 树节点类"""
+        def __init__(self, val: int):
+            self.val: int = val                    # 节点值
+            self.height: int = 0                   # 节点高度
+            self.left: Optional[TreeNode] = None   # 左子节点引用
+            self.right: Optional[TreeNode] = None  # 右子节点引用
     ```
 
 === "C++"
@@ -55,16 +54,30 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title=""
-    class TreeNode:
-        """AVL 树节点类"""
-        def __init__(self, val: int):
-            self.val: int = val                    # 节点值
-            self.height: int = 0                   # 节点高度
-            self.left: Optional[TreeNode] = None   # 左子节点引用
-            self.right: Optional[TreeNode] = None  # 右子节点引用
+    ```java title=""
+    /* AVL 树节点类 */
+    class TreeNode {
+        public int val;        // 节点值
+        public int height;     // 节点高度
+        public TreeNode left;  // 左子节点
+        public TreeNode right; // 右子节点
+        public TreeNode(int x) { val = x; }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+    /* AVL 树节点类 */
+    class TreeNode {
+        public int val;          // 节点值
+        public int height;       // 节点高度
+        public TreeNode? left;   // 左子节点
+        public TreeNode? right;  // 右子节点
+        public TreeNode(int x) { val = x; }
+    }
     ```
 
 === "Go"
@@ -76,6 +89,23 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
         Height int       // 节点高度
         Left   *TreeNode // 左子节点引用
         Right  *TreeNode // 右子节点引用
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    /* AVL 树节点类 */
+    class TreeNode {
+        var val: Int // 节点值
+        var height: Int // 节点高度
+        var left: TreeNode? // 左子节点
+        var right: TreeNode? // 右子节点
+
+        init(x: Int) {
+            val = x
+            height = 0
+        }
     }
     ```
 
@@ -115,6 +145,25 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
     }
     ```
 
+=== "Dart"
+
+    ```dart title=""
+    /* AVL 树节点类 */
+    class TreeNode {
+      int val;         // 节点值
+      int height;      // 节点高度
+      TreeNode? left;  // 左子节点
+      TreeNode? right; // 右子节点
+      TreeNode(this.val, [this.height = 0, this.left, this.right]);
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 === "C"
 
     ```c title=""
@@ -141,77 +190,28 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
     }
     ```
 
-=== "C#"
-
-    ```csharp title=""
-    /* AVL 树节点类 */
-    class TreeNode {
-        public int val;          // 节点值
-        public int height;       // 节点高度
-        public TreeNode? left;   // 左子节点
-        public TreeNode? right;  // 右子节点
-        public TreeNode(int x) { val = x; }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* AVL 树节点类 */
-    class TreeNode {
-        var val: Int // 节点值
-        var height: Int // 节点高度
-        var left: TreeNode? // 左子节点
-        var right: TreeNode? // 右子节点
-
-        init(x: Int) {
-            val = x
-            height = 0
-        }
-    }
-    ```
-
 === "Zig"
 
     ```zig title=""
 
     ```
 
-=== "Dart"
-
-    ```dart title=""
-    /* AVL 树节点类 */
-    class TreeNode {
-      int val;         // 节点值
-      int height;      // 节点高度
-      TreeNode? left;  // 左子节点
-      TreeNode? right; // 右子节点
-      TreeNode(this.val, [this.height = 0, this.left, this.right]);
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-
-    ```
-
 “节点高度”是指从该节点到最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 0 ，而空节点的高度为 -1 。我们将创建两个工具函数，分别用于获取和更新节点的高度。
 
-=== "Java"
+=== "Python"
 
-    ```java title="avl_tree.java"
-    /* 获取节点高度 */
-    int height(TreeNode node) {
-        // 空节点高度为 -1 ，叶节点高度为 0
-        return node == null ? -1 : node.height;
-    }
+    ```python title="avl_tree.py"
+    def height(self, node: TreeNode | None) -> int:
+        """获取节点高度"""
+        # 空节点高度为 -1 ，叶节点高度为 0
+        if node is not None:
+            return node.height
+        return -1
 
-    /* 更新节点高度 */
-    void updateHeight(TreeNode node) {
-        // 节点高度等于最高子树高度 + 1
-        node.height = Math.max(height(node.left), height(node.right)) + 1;
-    }
+    def __update_height(self, node: TreeNode | None):
+        """更新节点高度"""
+        # 节点高度等于最高子树高度 + 1
+        node.height = max([self.height(node.left), self.height(node.right)]) + 1
     ```
 
 === "C++"
@@ -230,20 +230,36 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="avl_tree.py"
-    def height(self, node: TreeNode | None) -> int:
-        """获取节点高度"""
-        # 空节点高度为 -1 ，叶节点高度为 0
-        if node is not None:
-            return node.height
-        return -1
+    ```java title="avl_tree.java"
+    /* 获取节点高度 */
+    int height(TreeNode node) {
+        // 空节点高度为 -1 ，叶节点高度为 0
+        return node == null ? -1 : node.height;
+    }
 
-    def __update_height(self, node: TreeNode | None):
-        """更新节点高度"""
-        # 节点高度等于最高子树高度 + 1
-        node.height = max([self.height(node.left), self.height(node.right)]) + 1
+    /* 更新节点高度 */
+    void updateHeight(TreeNode node) {
+        // 节点高度等于最高子树高度 + 1
+        node.height = Math.max(height(node.left), height(node.right)) + 1;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="avl_tree.cs"
+    /* 获取节点高度 */
+    int height(TreeNode? node) {
+        // 空节点高度为 -1 ，叶节点高度为 0
+        return node == null ? -1 : node.height;
+    }
+
+    /* 更新节点高度 */
+    void updateHeight(TreeNode node) {
+        // 节点高度等于最高子树高度 + 1
+        node.height = Math.Max(height(node.left), height(node.right)) + 1;
+    }
     ```
 
 === "Go"
@@ -268,6 +284,22 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
         } else {
             node.Height = rh + 1
         }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+    /* 获取节点高度 */
+    func height(node: TreeNode?) -> Int {
+        // 空节点高度为 -1 ，叶节点高度为 0
+        node == nil ? -1 : node!.height
+    }
+
+    /* 更新节点高度 */
+    func updateHeight(node: TreeNode?) {
+        // 节点高度等于最高子树高度 + 1
+        node?.height = max(height(node: node?.left), height(node: node?.right)) + 1
     }
     ```
 
@@ -302,80 +334,6 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
         // 节点高度等于最高子树高度 + 1
         node.height =
             Math.max(this.height(node.left), this.height(node.right)) + 1;
-    }
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    /* 获取节点高度 */
-    int height(TreeNode *node) {
-        // 空节点高度为 -1 ，叶节点高度为 0
-        if (node != NULL) {
-            return node->height;
-        }
-        return -1;
-    }
-
-    /* 更新节点高度 */
-    void updateHeight(TreeNode *node) {
-        int lh = height(node->left);
-        int rh = height(node->right);
-        // 节点高度等于最高子树高度 + 1
-        if (lh > rh) {
-            node->height = lh + 1;
-        } else {
-            node->height = rh + 1;
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    /* 获取节点高度 */
-    int height(TreeNode? node) {
-        // 空节点高度为 -1 ，叶节点高度为 0
-        return node == null ? -1 : node.height;
-    }
-
-    /* 更新节点高度 */
-    void updateHeight(TreeNode node) {
-        // 节点高度等于最高子树高度 + 1
-        node.height = Math.Max(height(node.left), height(node.right)) + 1;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    /* 获取节点高度 */
-    func height(node: TreeNode?) -> Int {
-        // 空节点高度为 -1 ，叶节点高度为 0
-        node == nil ? -1 : node!.height
-    }
-
-    /* 更新节点高度 */
-    func updateHeight(node: TreeNode?) {
-        // 节点高度等于最高子树高度 + 1
-        node?.height = max(height(node: node?.left), height(node: node?.right)) + 1
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    // 获取节点高度
-    fn height(self: *Self, node: ?*inc.TreeNode(T)) i32 {
-        _ = self;
-        // 空节点高度为 -1 ，叶节点高度为 0
-        return if (node == null) -1 else node.?.height;
-    }
-
-    // 更新节点高度
-    fn updateHeight(self: *Self, node: ?*inc.TreeNode(T)) void {
-        // 节点高度等于最高子树高度 + 1
-        node.?.height = @max(self.height(node.?.left), self.height(node.?.right)) + 1;
     }
     ```
 
@@ -418,21 +376,62 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
     }
     ```
 
+=== "C"
+
+    ```c title="avl_tree.c"
+    /* 获取节点高度 */
+    int height(TreeNode *node) {
+        // 空节点高度为 -1 ，叶节点高度为 0
+        if (node != NULL) {
+            return node->height;
+        }
+        return -1;
+    }
+
+    /* 更新节点高度 */
+    void updateHeight(TreeNode *node) {
+        int lh = height(node->left);
+        int rh = height(node->right);
+        // 节点高度等于最高子树高度 + 1
+        if (lh > rh) {
+            node->height = lh + 1;
+        } else {
+            node->height = rh + 1;
+        }
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="avl_tree.zig"
+    // 获取节点高度
+    fn height(self: *Self, node: ?*inc.TreeNode(T)) i32 {
+        _ = self;
+        // 空节点高度为 -1 ，叶节点高度为 0
+        return if (node == null) -1 else node.?.height;
+    }
+
+    // 更新节点高度
+    fn updateHeight(self: *Self, node: ?*inc.TreeNode(T)) void {
+        // 节点高度等于最高子树高度 + 1
+        node.?.height = @max(self.height(node.?.left), self.height(node.?.right)) + 1;
+    }
+    ```
+
 ### 2. &nbsp; 节点平衡因子
 
 节点的「平衡因子 balance factor」定义为节点左子树的高度减去右子树的高度，同时规定空节点的平衡因子为 0 。我们同样将获取节点平衡因子的功能封装成函数，方便后续使用。
 
-=== "Java"
+=== "Python"
 
-    ```java title="avl_tree.java"
-    /* 获取平衡因子 */
-    int balanceFactor(TreeNode node) {
-        // 空节点平衡因子为 0
-        if (node == null)
-            return 0;
-        // 节点平衡因子 = 左子树高度 - 右子树高度
-        return height(node.left) - height(node.right);
-    }
+    ```python title="avl_tree.py"
+    def balance_factor(self, node: TreeNode | None) -> int:
+        """获取平衡因子"""
+        # 空节点平衡因子为 0
+        if node is None:
+            return 0
+        # 节点平衡因子 = 左子树高度 - 右子树高度
+        return self.height(node.left) - self.height(node.right)
     ```
 
 === "C++"
@@ -448,16 +447,29 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="avl_tree.py"
-    def balance_factor(self, node: TreeNode | None) -> int:
-        """获取平衡因子"""
-        # 空节点平衡因子为 0
-        if node is None:
-            return 0
-        # 节点平衡因子 = 左子树高度 - 右子树高度
-        return self.height(node.left) - self.height(node.right)
+    ```java title="avl_tree.java"
+    /* 获取平衡因子 */
+    int balanceFactor(TreeNode node) {
+        // 空节点平衡因子为 0
+        if (node == null)
+            return 0;
+        // 节点平衡因子 = 左子树高度 - 右子树高度
+        return height(node.left) - height(node.right);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="avl_tree.cs"
+    /* 获取平衡因子 */
+    int balanceFactor(TreeNode? node) {
+        // 空节点平衡因子为 0
+        if (node == null) return 0;
+        // 节点平衡因子 = 左子树高度 - 右子树高度
+        return height(node.left) - height(node.right);
+    }
     ```
 
 === "Go"
@@ -471,6 +483,18 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
         }
         // 节点平衡因子 = 左子树高度 - 右子树高度
         return t.height(node.Left) - t.height(node.Right)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+    /* 获取平衡因子 */
+    func balanceFactor(node: TreeNode?) -> Int {
+        // 空节点平衡因子为 0
+        guard let node = node else { return 0 }
+        // 节点平衡因子 = 左子树高度 - 右子树高度
+        return height(node: node.left) - height(node: node.right)
     }
     ```
 
@@ -495,56 +519,6 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
         if (node === null) return 0;
         // 节点平衡因子 = 左子树高度 - 右子树高度
         return this.height(node.left) - this.height(node.right);
-    }
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    /* 获取平衡因子 */
-    int balanceFactor(TreeNode *node) {
-        // 空节点平衡因子为 0
-        if (node == NULL) {
-            return 0;
-        }
-        // 节点平衡因子 = 左子树高度 - 右子树高度
-        return height(node->left) - height(node->right);
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    /* 获取平衡因子 */
-    int balanceFactor(TreeNode? node) {
-        // 空节点平衡因子为 0
-        if (node == null) return 0;
-        // 节点平衡因子 = 左子树高度 - 右子树高度
-        return height(node.left) - height(node.right);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    /* 获取平衡因子 */
-    func balanceFactor(node: TreeNode?) -> Int {
-        // 空节点平衡因子为 0
-        guard let node = node else { return 0 }
-        // 节点平衡因子 = 左子树高度 - 右子树高度
-        return height(node: node.left) - height(node: node.right)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    // 获取平衡因子
-    fn balanceFactor(self: *Self, node: ?*inc.TreeNode(T)) i32 {
-        // 空节点平衡因子为 0
-        if (node == null) return 0;
-        // 节点平衡因子 = 左子树高度 - 右子树高度
-        return self.height(node.?.left) - self.height(node.?.right);
     }
     ```
 
@@ -573,6 +547,32 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
                 Self::height(node.borrow().left.clone()) - Self::height(node.borrow().right.clone())
             }
         }
+    }
+    ```
+
+=== "C"
+
+    ```c title="avl_tree.c"
+    /* 获取平衡因子 */
+    int balanceFactor(TreeNode *node) {
+        // 空节点平衡因子为 0
+        if (node == NULL) {
+            return 0;
+        }
+        // 节点平衡因子 = 左子树高度 - 右子树高度
+        return height(node->left) - height(node->right);
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="avl_tree.zig"
+    // 获取平衡因子
+    fn balanceFactor(self: *Self, node: ?*inc.TreeNode(T)) i32 {
+        // 空节点平衡因子为 0
+        if (node == null) return 0;
+        // 节点平衡因子 = 左子树高度 - 右子树高度
+        return self.height(node.?.left) - self.height(node.?.right);
     }
     ```
 
@@ -612,22 +612,21 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 “向右旋转”是一种形象化的说法，实际上需要通过修改节点指针来实现，代码如下所示。
 
-=== "Java"
+=== "Python"
 
-    ```java title="avl_tree.java"
-    /* 右旋操作 */
-    TreeNode rightRotate(TreeNode node) {
-        TreeNode child = node.left;
-        TreeNode grandChild = child.right;
-        // 以 child 为原点，将 node 向右旋转
-        child.right = node;
-        node.left = grandChild;
-        // 更新节点高度
-        updateHeight(node);
-        updateHeight(child);
-        // 返回旋转后子树的根节点
-        return child;
-    }
+    ```python title="avl_tree.py"
+    def __right_rotate(self, node: TreeNode | None) -> TreeNode | None:
+        """右旋操作"""
+        child = node.left
+        grand_child = child.right
+        # 以 child 为原点，将 node 向右旋转
+        child.right = node
+        node.left = grand_child
+        # 更新节点高度
+        self.__update_height(node)
+        self.__update_height(child)
+        # 返回旋转后子树的根节点
+        return child
     ```
 
 === "C++"
@@ -648,21 +647,40 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="avl_tree.py"
-    def __right_rotate(self, node: TreeNode | None) -> TreeNode | None:
-        """右旋操作"""
-        child = node.left
-        grand_child = child.right
-        # 以 child 为原点，将 node 向右旋转
-        child.right = node
-        node.left = grand_child
-        # 更新节点高度
-        self.__update_height(node)
-        self.__update_height(child)
-        # 返回旋转后子树的根节点
-        return child
+    ```java title="avl_tree.java"
+    /* 右旋操作 */
+    TreeNode rightRotate(TreeNode node) {
+        TreeNode child = node.left;
+        TreeNode grandChild = child.right;
+        // 以 child 为原点，将 node 向右旋转
+        child.right = node;
+        node.left = grandChild;
+        // 更新节点高度
+        updateHeight(node);
+        updateHeight(child);
+        // 返回旋转后子树的根节点
+        return child;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="avl_tree.cs"
+    /* 右旋操作 */
+    TreeNode? rightRotate(TreeNode? node) {
+        TreeNode? child = node.left;
+        TreeNode? grandChild = child?.right;
+        // 以 child 为原点，将 node 向右旋转
+        child.right = node;
+        node.left = grandChild;
+        // 更新节点高度
+        updateHeight(node);
+        updateHeight(child);
+        // 返回旋转后子树的根节点
+        return child;
+    }
     ```
 
 === "Go"
@@ -678,6 +696,24 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
         // 更新节点高度
         t.updateHeight(node)
         t.updateHeight(child)
+        // 返回旋转后子树的根节点
+        return child
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+    /* 右旋操作 */
+    func rightRotate(node: TreeNode?) -> TreeNode? {
+        let child = node?.left
+        let grandChild = child?.right
+        // 以 child 为原点，将 node 向右旋转
+        child?.right = node
+        node?.left = grandChild
+        // 更新节点高度
+        updateHeight(node: node)
+        updateHeight(node: child)
         // 返回旋转后子树的根节点
         return child
     }
@@ -714,79 +750,6 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
         // 更新节点高度
         this.updateHeight(node);
         this.updateHeight(child);
-        // 返回旋转后子树的根节点
-        return child;
-    }
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    /* 右旋操作 */
-    TreeNode *rightRotate(TreeNode *node) {
-        TreeNode *child, *grandChild;
-        child = node->left;
-        grandChild = child->right;
-        // 以 child 为原点，将 node 向右旋转
-        child->right = node;
-        node->left = grandChild;
-        // 更新节点高度
-        updateHeight(node);
-        updateHeight(child);
-        // 返回旋转后子树的根节点
-        return child;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    /* 右旋操作 */
-    TreeNode? rightRotate(TreeNode? node) {
-        TreeNode? child = node.left;
-        TreeNode? grandChild = child?.right;
-        // 以 child 为原点，将 node 向右旋转
-        child.right = node;
-        node.left = grandChild;
-        // 更新节点高度
-        updateHeight(node);
-        updateHeight(child);
-        // 返回旋转后子树的根节点
-        return child;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    /* 右旋操作 */
-    func rightRotate(node: TreeNode?) -> TreeNode? {
-        let child = node?.left
-        let grandChild = child?.right
-        // 以 child 为原点，将 node 向右旋转
-        child?.right = node
-        node?.left = grandChild
-        // 更新节点高度
-        updateHeight(node: node)
-        updateHeight(node: child)
-        // 返回旋转后子树的根节点
-        return child
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    // 右旋操作
-    fn rightRotate(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
-        var child = node.?.left;
-        var grandChild = child.?.right;
-        // 以 child 为原点，将 node 向右旋转
-        child.?.right = node;
-        node.?.left = grandChild;
-        // 更新节点高度
-        self.updateHeight(node);
-        self.updateHeight(child);
         // 返回旋转后子树的根节点
         return child;
     }
@@ -833,6 +796,43 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
     }
     ```
 
+=== "C"
+
+    ```c title="avl_tree.c"
+    /* 右旋操作 */
+    TreeNode *rightRotate(TreeNode *node) {
+        TreeNode *child, *grandChild;
+        child = node->left;
+        grandChild = child->right;
+        // 以 child 为原点，将 node 向右旋转
+        child->right = node;
+        node->left = grandChild;
+        // 更新节点高度
+        updateHeight(node);
+        updateHeight(child);
+        // 返回旋转后子树的根节点
+        return child;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="avl_tree.zig"
+    // 右旋操作
+    fn rightRotate(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
+        var child = node.?.left;
+        var grandChild = child.?.right;
+        // 以 child 为原点，将 node 向右旋转
+        child.?.right = node;
+        node.?.left = grandChild;
+        // 更新节点高度
+        self.updateHeight(node);
+        self.updateHeight(child);
+        // 返回旋转后子树的根节点
+        return child;
+    }
+    ```
+
 ### 2. &nbsp; 左旋
 
 相应的，如果考虑上述失衡二叉树的“镜像”，则需要执行图 7-28 所示的“左旋”操作。
@@ -849,22 +849,21 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 可以观察到，**右旋和左旋操作在逻辑上是镜像对称的，它们分别解决的两种失衡情况也是对称的**。基于对称性，我们只需将右旋的实现代码中的所有的 `left` 替换为 `right` ，将所有的 `right` 替换为 `left` ，即可得到左旋的实现代码。
 
-=== "Java"
+=== "Python"
 
-    ```java title="avl_tree.java"
-    /* 左旋操作 */
-    TreeNode leftRotate(TreeNode node) {
-        TreeNode child = node.right;
-        TreeNode grandChild = child.left;
-        // 以 child 为原点，将 node 向左旋转
-        child.left = node;
-        node.right = grandChild;
-        // 更新节点高度
-        updateHeight(node);
-        updateHeight(child);
-        // 返回旋转后子树的根节点
-        return child;
-    }
+    ```python title="avl_tree.py"
+    def __left_rotate(self, node: TreeNode | None) -> TreeNode | None:
+        """左旋操作"""
+        child = node.right
+        grand_child = child.left
+        # 以 child 为原点，将 node 向左旋转
+        child.left = node
+        node.right = grand_child
+        # 更新节点高度
+        self.__update_height(node)
+        self.__update_height(child)
+        # 返回旋转后子树的根节点
+        return child
     ```
 
 === "C++"
@@ -885,21 +884,40 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="avl_tree.py"
-    def __left_rotate(self, node: TreeNode | None) -> TreeNode | None:
-        """左旋操作"""
-        child = node.right
-        grand_child = child.left
-        # 以 child 为原点，将 node 向左旋转
-        child.left = node
-        node.right = grand_child
-        # 更新节点高度
-        self.__update_height(node)
-        self.__update_height(child)
-        # 返回旋转后子树的根节点
-        return child
+    ```java title="avl_tree.java"
+    /* 左旋操作 */
+    TreeNode leftRotate(TreeNode node) {
+        TreeNode child = node.right;
+        TreeNode grandChild = child.left;
+        // 以 child 为原点，将 node 向左旋转
+        child.left = node;
+        node.right = grandChild;
+        // 更新节点高度
+        updateHeight(node);
+        updateHeight(child);
+        // 返回旋转后子树的根节点
+        return child;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="avl_tree.cs"
+    /* 左旋操作 */
+    TreeNode? leftRotate(TreeNode? node) {
+        TreeNode? child = node.right;
+        TreeNode? grandChild = child?.left;
+        // 以 child 为原点，将 node 向左旋转
+        child.left = node;
+        node.right = grandChild;
+        // 更新节点高度
+        updateHeight(node);
+        updateHeight(child);
+        // 返回旋转后子树的根节点
+        return child;
+    }
     ```
 
 === "Go"
@@ -915,6 +933,24 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
         // 更新节点高度
         t.updateHeight(node)
         t.updateHeight(child)
+        // 返回旋转后子树的根节点
+        return child
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+    /* 左旋操作 */
+    func leftRotate(node: TreeNode?) -> TreeNode? {
+        let child = node?.right
+        let grandChild = child?.left
+        // 以 child 为原点，将 node 向左旋转
+        child?.left = node
+        node?.right = grandChild
+        // 更新节点高度
+        updateHeight(node: node)
+        updateHeight(node: child)
         // 返回旋转后子树的根节点
         return child
     }
@@ -951,79 +987,6 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
         // 更新节点高度
         this.updateHeight(node);
         this.updateHeight(child);
-        // 返回旋转后子树的根节点
-        return child;
-    }
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    /* 左旋操作 */
-    TreeNode *leftRotate(TreeNode *node) {
-        TreeNode *child, *grandChild;
-        child = node->right;
-        grandChild = child->left;
-        // 以 child 为原点，将 node 向左旋转
-        child->left = node;
-        node->right = grandChild;
-        // 更新节点高度
-        updateHeight(node);
-        updateHeight(child);
-        // 返回旋转后子树的根节点
-        return child;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    /* 左旋操作 */
-    TreeNode? leftRotate(TreeNode? node) {
-        TreeNode? child = node.right;
-        TreeNode? grandChild = child?.left;
-        // 以 child 为原点，将 node 向左旋转
-        child.left = node;
-        node.right = grandChild;
-        // 更新节点高度
-        updateHeight(node);
-        updateHeight(child);
-        // 返回旋转后子树的根节点
-        return child;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    /* 左旋操作 */
-    func leftRotate(node: TreeNode?) -> TreeNode? {
-        let child = node?.right
-        let grandChild = child?.left
-        // 以 child 为原点，将 node 向左旋转
-        child?.left = node
-        node?.right = grandChild
-        // 更新节点高度
-        updateHeight(node: node)
-        updateHeight(node: child)
-        // 返回旋转后子树的根节点
-        return child
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    // 左旋操作
-    fn leftRotate(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
-        var child = node.?.right;
-        var grandChild = child.?.left;
-        // 以 child 为原点，将 node 向左旋转
-        child.?.left = node;
-        node.?.right = grandChild;
-        // 更新节点高度
-        self.updateHeight(node);
-        self.updateHeight(child);
         // 返回旋转后子树的根节点
         return child;
     }
@@ -1070,6 +1033,43 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
     }
     ```
 
+=== "C"
+
+    ```c title="avl_tree.c"
+    /* 左旋操作 */
+    TreeNode *leftRotate(TreeNode *node) {
+        TreeNode *child, *grandChild;
+        child = node->right;
+        grandChild = child->left;
+        // 以 child 为原点，将 node 向左旋转
+        child->left = node;
+        node->right = grandChild;
+        // 更新节点高度
+        updateHeight(node);
+        updateHeight(child);
+        // 返回旋转后子树的根节点
+        return child;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="avl_tree.zig"
+    // 左旋操作
+    fn leftRotate(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
+        var child = node.?.right;
+        var grandChild = child.?.left;
+        // 以 child 为原点，将 node 向左旋转
+        child.?.left = node;
+        node.?.right = grandChild;
+        // 更新节点高度
+        self.updateHeight(node);
+        self.updateHeight(child);
+        // 返回旋转后子树的根节点
+        return child;
+    }
+    ```
+
 ### 3. &nbsp; 先左旋后右旋
 
 对于图 7-30 中的失衡节点 3 ，仅使用左旋或右旋都无法使子树恢复平衡。此时需要先对 `child` 执行“左旋”，再对 `node` 执行“右旋”。
@@ -1111,38 +1111,33 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 为了便于使用，我们将旋转操作封装成一个函数。**有了这个函数，我们就能对各种失衡情况进行旋转，使失衡节点重新恢复平衡**。
 
-=== "Java"
+=== "Python"
 
-    ```java title="avl_tree.java"
-    /* 执行旋转操作，使该子树重新恢复平衡 */
-    TreeNode rotate(TreeNode node) {
-        // 获取节点 node 的平衡因子
-        int balanceFactor = balanceFactor(node);
-        // 左偏树
-        if (balanceFactor > 1) {
-            if (balanceFactor(node.left) >= 0) {
-                // 右旋
-                return rightRotate(node);
-            } else {
-                // 先左旋后右旋
-                node.left = leftRotate(node.left);
-                return rightRotate(node);
-            }
-        }
-        // 右偏树
-        if (balanceFactor < -1) {
-            if (balanceFactor(node.right) <= 0) {
-                // 左旋
-                return leftRotate(node);
-            } else {
-                // 先右旋后左旋
-                node.right = rightRotate(node.right);
-                return leftRotate(node);
-            }
-        }
-        // 平衡树，无须旋转，直接返回
-        return node;
-    }
+    ```python title="avl_tree.py"
+    def __rotate(self, node: TreeNode | None) -> TreeNode | None:
+        """执行旋转操作，使该子树重新恢复平衡"""
+        # 获取节点 node 的平衡因子
+        balance_factor = self.balance_factor(node)
+        # 左偏树
+        if balance_factor > 1:
+            if self.balance_factor(node.left) >= 0:
+                # 右旋
+                return self.__right_rotate(node)
+            else:
+                # 先左旋后右旋
+                node.left = self.__left_rotate(node.left)
+                return self.__right_rotate(node)
+        # 右偏树
+        elif balance_factor < -1:
+            if self.balance_factor(node.right) <= 0:
+                # 左旋
+                return self.__left_rotate(node)
+            else:
+                # 先右旋后左旋
+                node.right = self.__right_rotate(node.right)
+                return self.__left_rotate(node)
+        # 平衡树，无须旋转，直接返回
+        return node
     ```
 
 === "C++"
@@ -1179,33 +1174,72 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="avl_tree.py"
-    def __rotate(self, node: TreeNode | None) -> TreeNode | None:
-        """执行旋转操作，使该子树重新恢复平衡"""
-        # 获取节点 node 的平衡因子
-        balance_factor = self.balance_factor(node)
-        # 左偏树
-        if balance_factor > 1:
-            if self.balance_factor(node.left) >= 0:
-                # 右旋
-                return self.__right_rotate(node)
-            else:
-                # 先左旋后右旋
-                node.left = self.__left_rotate(node.left)
-                return self.__right_rotate(node)
-        # 右偏树
-        elif balance_factor < -1:
-            if self.balance_factor(node.right) <= 0:
-                # 左旋
-                return self.__left_rotate(node)
-            else:
-                # 先右旋后左旋
-                node.right = self.__right_rotate(node.right)
-                return self.__left_rotate(node)
-        # 平衡树，无须旋转，直接返回
-        return node
+    ```java title="avl_tree.java"
+    /* 执行旋转操作，使该子树重新恢复平衡 */
+    TreeNode rotate(TreeNode node) {
+        // 获取节点 node 的平衡因子
+        int balanceFactor = balanceFactor(node);
+        // 左偏树
+        if (balanceFactor > 1) {
+            if (balanceFactor(node.left) >= 0) {
+                // 右旋
+                return rightRotate(node);
+            } else {
+                // 先左旋后右旋
+                node.left = leftRotate(node.left);
+                return rightRotate(node);
+            }
+        }
+        // 右偏树
+        if (balanceFactor < -1) {
+            if (balanceFactor(node.right) <= 0) {
+                // 左旋
+                return leftRotate(node);
+            } else {
+                // 先右旋后左旋
+                node.right = rightRotate(node.right);
+                return leftRotate(node);
+            }
+        }
+        // 平衡树，无须旋转，直接返回
+        return node;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="avl_tree.cs"
+    /* 执行旋转操作，使该子树重新恢复平衡 */
+    TreeNode? rotate(TreeNode? node) {
+        // 获取节点 node 的平衡因子
+        int balanceFactorInt = balanceFactor(node);
+        // 左偏树
+        if (balanceFactorInt > 1) {
+            if (balanceFactor(node.left) >= 0) {
+                // 右旋
+                return rightRotate(node);
+            } else {
+                // 先左旋后右旋
+                node.left = leftRotate(node?.left);
+                return rightRotate(node);
+            }
+        }
+        // 右偏树
+        if (balanceFactorInt < -1) {
+            if (balanceFactor(node.right) <= 0) {
+                // 左旋
+                return leftRotate(node);
+            } else {
+                // 先右旋后左旋
+                node.right = rightRotate(node?.right);
+                return leftRotate(node);
+            }
+        }
+        // 平衡树，无须旋转，直接返回
+        return node;
+    }
     ```
 
 === "Go"
@@ -1236,6 +1270,40 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
                 // 先右旋后左旋
                 node.Right = t.rightRotate(node.Right)
                 return t.leftRotate(node)
+            }
+        }
+        // 平衡树，无须旋转，直接返回
+        return node
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+    /* 执行旋转操作，使该子树重新恢复平衡 */
+    func rotate(node: TreeNode?) -> TreeNode? {
+        // 获取节点 node 的平衡因子
+        let balanceFactor = balanceFactor(node: node)
+        // 左偏树
+        if balanceFactor > 1 {
+            if self.balanceFactor(node: node?.left) >= 0 {
+                // 右旋
+                return rightRotate(node: node)
+            } else {
+                // 先左旋后右旋
+                node?.left = leftRotate(node: node?.left)
+                return rightRotate(node: node)
+            }
+        }
+        // 右偏树
+        if balanceFactor < -1 {
+            if self.balanceFactor(node: node?.right) <= 0 {
+                // 左旋
+                return leftRotate(node: node)
+            } else {
+                // 先右旋后左旋
+                node?.right = rightRotate(node: node?.right)
+                return leftRotate(node: node)
             }
         }
         // 平衡树，无须旋转，直接返回
@@ -1304,142 +1372,6 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
                 // 先右旋后左旋
                 node.right = this.rightRotate(node.right);
                 return this.leftRotate(node);
-            }
-        }
-        // 平衡树，无须旋转，直接返回
-        return node;
-    }
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    /* 执行旋转操作，使该子树重新恢复平衡 */
-    TreeNode *rotate(TreeNode *node) {
-        // 获取节点 node 的平衡因子
-        int bf = balanceFactor(node);
-        // 左偏树
-        if (bf > 1) {
-            if (balanceFactor(node->left) >= 0) {
-                // 右旋
-                return rightRotate(node);
-            } else {
-                // 先左旋后右旋
-                node->left = leftRotate(node->left);
-                return rightRotate(node);
-            }
-        }
-        // 右偏树
-        if (bf < -1) {
-            if (balanceFactor(node->right) <= 0) {
-                // 左旋
-                return leftRotate(node);
-            } else {
-                // 先右旋后左旋
-                node->right = rightRotate(node->right);
-                return leftRotate(node);
-            }
-        }
-        // 平衡树，无须旋转，直接返回
-        return node;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    /* 执行旋转操作，使该子树重新恢复平衡 */
-    TreeNode? rotate(TreeNode? node) {
-        // 获取节点 node 的平衡因子
-        int balanceFactorInt = balanceFactor(node);
-        // 左偏树
-        if (balanceFactorInt > 1) {
-            if (balanceFactor(node.left) >= 0) {
-                // 右旋
-                return rightRotate(node);
-            } else {
-                // 先左旋后右旋
-                node.left = leftRotate(node?.left);
-                return rightRotate(node);
-            }
-        }
-        // 右偏树
-        if (balanceFactorInt < -1) {
-            if (balanceFactor(node.right) <= 0) {
-                // 左旋
-                return leftRotate(node);
-            } else {
-                // 先右旋后左旋
-                node.right = rightRotate(node?.right);
-                return leftRotate(node);
-            }
-        }
-        // 平衡树，无须旋转，直接返回
-        return node;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    /* 执行旋转操作，使该子树重新恢复平衡 */
-    func rotate(node: TreeNode?) -> TreeNode? {
-        // 获取节点 node 的平衡因子
-        let balanceFactor = balanceFactor(node: node)
-        // 左偏树
-        if balanceFactor > 1 {
-            if self.balanceFactor(node: node?.left) >= 0 {
-                // 右旋
-                return rightRotate(node: node)
-            } else {
-                // 先左旋后右旋
-                node?.left = leftRotate(node: node?.left)
-                return rightRotate(node: node)
-            }
-        }
-        // 右偏树
-        if balanceFactor < -1 {
-            if self.balanceFactor(node: node?.right) <= 0 {
-                // 左旋
-                return leftRotate(node: node)
-            } else {
-                // 先右旋后左旋
-                node?.right = rightRotate(node: node?.right)
-                return leftRotate(node: node)
-            }
-        }
-        // 平衡树，无须旋转，直接返回
-        return node
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    // 执行旋转操作，使该子树重新恢复平衡
-    fn rotate(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
-        // 获取节点 node 的平衡因子
-        var balance_factor = self.balanceFactor(node);
-        // 左偏树
-        if (balance_factor > 1) {
-            if (self.balanceFactor(node.?.left) >= 0) {
-                // 右旋
-                return self.rightRotate(node);
-            } else {
-                // 先左旋后右旋
-                node.?.left = self.leftRotate(node.?.left);
-                return self.rightRotate(node);
-            }
-        }
-        // 右偏树
-        if (balance_factor < -1) {
-            if (self.balanceFactor(node.?.right) <= 0) {
-                // 左旋
-                return self.leftRotate(node);
-            } else {
-                // 先右旋后左旋
-                node.?.right = self.rightRotate(node.?.right);
-                return self.leftRotate(node);
             }
         }
         // 平衡树，无须旋转，直接返回
@@ -1520,37 +1452,103 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
     }
     ```
 
+=== "C"
+
+    ```c title="avl_tree.c"
+    /* 执行旋转操作，使该子树重新恢复平衡 */
+    TreeNode *rotate(TreeNode *node) {
+        // 获取节点 node 的平衡因子
+        int bf = balanceFactor(node);
+        // 左偏树
+        if (bf > 1) {
+            if (balanceFactor(node->left) >= 0) {
+                // 右旋
+                return rightRotate(node);
+            } else {
+                // 先左旋后右旋
+                node->left = leftRotate(node->left);
+                return rightRotate(node);
+            }
+        }
+        // 右偏树
+        if (bf < -1) {
+            if (balanceFactor(node->right) <= 0) {
+                // 左旋
+                return leftRotate(node);
+            } else {
+                // 先右旋后左旋
+                node->right = rightRotate(node->right);
+                return leftRotate(node);
+            }
+        }
+        // 平衡树，无须旋转，直接返回
+        return node;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="avl_tree.zig"
+    // 执行旋转操作，使该子树重新恢复平衡
+    fn rotate(self: *Self, node: ?*inc.TreeNode(T)) ?*inc.TreeNode(T) {
+        // 获取节点 node 的平衡因子
+        var balance_factor = self.balanceFactor(node);
+        // 左偏树
+        if (balance_factor > 1) {
+            if (self.balanceFactor(node.?.left) >= 0) {
+                // 右旋
+                return self.rightRotate(node);
+            } else {
+                // 先左旋后右旋
+                node.?.left = self.leftRotate(node.?.left);
+                return self.rightRotate(node);
+            }
+        }
+        // 右偏树
+        if (balance_factor < -1) {
+            if (self.balanceFactor(node.?.right) <= 0) {
+                // 左旋
+                return self.leftRotate(node);
+            } else {
+                // 先右旋后左旋
+                node.?.right = self.rightRotate(node.?.right);
+                return self.leftRotate(node);
+            }
+        }
+        // 平衡树，无须旋转，直接返回
+        return node;
+    }
+    ```
+
 ## 7.5.3 &nbsp; AVL 树常用操作
 
 ### 1. &nbsp; 插入节点
 
 AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区别在于，在 AVL 树中插入节点后，从该节点到根节点的路径上可能会出现一系列失衡节点。因此，**我们需要从这个节点开始，自底向上执行旋转操作，使所有失衡节点恢复平衡**。
 
-=== "Java"
+=== "Python"
 
-    ```java title="avl_tree.java"
-    /* 插入节点 */
-    void insert(int val) {
-        root = insertHelper(root, val);
-    }
+    ```python title="avl_tree.py"
+    def insert(self, val):
+        """插入节点"""
+        self.root = self.__insert_helper(self.root, val)
 
-    /* 递归插入节点（辅助方法） */
-    TreeNode insertHelper(TreeNode node, int val) {
-        if (node == null)
-            return new TreeNode(val);
-        /* 1. 查找插入位置，并插入节点 */
-        if (val < node.val)
-            node.left = insertHelper(node.left, val);
-        else if (val > node.val)
-            node.right = insertHelper(node.right, val);
-        else
-            return node; // 重复节点不插入，直接返回
-        updateHeight(node); // 更新节点高度
-        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
-        node = rotate(node);
-        // 返回子树的根节点
-        return node;
-    }
+    def __insert_helper(self, node: TreeNode | None, val: int) -> TreeNode:
+        """递归插入节点（辅助方法）"""
+        if node is None:
+            return TreeNode(val)
+        # 1. 查找插入位置，并插入节点
+        if val < node.val:
+            node.left = self.__insert_helper(node.left, val)
+        elif val > node.val:
+            node.right = self.__insert_helper(node.right, val)
+        else:
+            # 重复节点不插入，直接返回
+            return node
+        # 更新节点高度
+        self.__update_height(node)
+        # 2. 执行旋转操作，使该子树重新恢复平衡
+        return self.__rotate(node)
     ```
 
 === "C++"
@@ -1580,29 +1578,57 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="avl_tree.py"
-    def insert(self, val):
-        """插入节点"""
-        self.root = self.__insert_helper(self.root, val)
+    ```java title="avl_tree.java"
+    /* 插入节点 */
+    void insert(int val) {
+        root = insertHelper(root, val);
+    }
 
-    def __insert_helper(self, node: TreeNode | None, val: int) -> TreeNode:
-        """递归插入节点（辅助方法）"""
-        if node is None:
-            return TreeNode(val)
-        # 1. 查找插入位置，并插入节点
-        if val < node.val:
-            node.left = self.__insert_helper(node.left, val)
-        elif val > node.val:
-            node.right = self.__insert_helper(node.right, val)
-        else:
-            # 重复节点不插入，直接返回
-            return node
-        # 更新节点高度
-        self.__update_height(node)
-        # 2. 执行旋转操作，使该子树重新恢复平衡
-        return self.__rotate(node)
+    /* 递归插入节点（辅助方法） */
+    TreeNode insertHelper(TreeNode node, int val) {
+        if (node == null)
+            return new TreeNode(val);
+        /* 1. 查找插入位置，并插入节点 */
+        if (val < node.val)
+            node.left = insertHelper(node.left, val);
+        else if (val > node.val)
+            node.right = insertHelper(node.right, val);
+        else
+            return node; // 重复节点不插入，直接返回
+        updateHeight(node); // 更新节点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node);
+        // 返回子树的根节点
+        return node;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="avl_tree.cs"
+    /* 插入节点 */
+    void insert(int val) {
+        root = insertHelper(root, val);
+    }
+
+    /* 递归插入节点（辅助方法） */
+    TreeNode? insertHelper(TreeNode? node, int val) {
+        if (node == null) return new TreeNode(val);
+        /* 1. 查找插入位置，并插入节点 */
+        if (val < node.val)
+            node.left = insertHelper(node.left, val);
+        else if (val > node.val)
+            node.right = insertHelper(node.right, val);
+        else
+            return node;     // 重复节点不插入，直接返回
+        updateHeight(node);  // 更新节点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node);
+        // 返回子树的根节点
+        return node;
+    }
     ```
 
 === "Go"
@@ -1631,6 +1657,36 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         t.updateHeight(node)
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = t.rotate(node)
+        // 返回子树的根节点
+        return node
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+    /* 插入节点 */
+    func insert(val: Int) {
+        root = insertHelper(node: root, val: val)
+    }
+
+    /* 递归插入节点（辅助方法） */
+    func insertHelper(node: TreeNode?, val: Int) -> TreeNode? {
+        var node = node
+        if node == nil {
+            return TreeNode(x: val)
+        }
+        /* 1. 查找插入位置，并插入节点 */
+        if val < node!.val {
+            node?.left = insertHelper(node: node?.left, val: val)
+        } else if val > node!.val {
+            node?.right = insertHelper(node: node?.right, val: val)
+        } else {
+            return node // 重复节点不插入，直接返回
+        }
+        updateHeight(node: node) // 更新节点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node: node)
         // 返回子树的根节点
         return node
     }
@@ -1682,125 +1738,6 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         this.updateHeight(node); // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = this.rotate(node);
-        // 返回子树的根节点
-        return node;
-    }
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    /* 插入节点 */
-    void insert(aVLTree *tree, int val) {
-        tree->root = insertHelper(tree->root, val);
-    }
-
-    /* 递归插入节点（辅助函数） */
-    TreeNode *insertHelper(TreeNode *node, int val) {
-        if (node == NULL) {
-            return newTreeNode(val);
-        }
-        /* 1. 查找插入位置，并插入节点 */
-        if (val < node->val) {
-            node->left = insertHelper(node->left, val);
-        } else if (val > node->val) {
-            node->right = insertHelper(node->right, val);
-        } else {
-            // 重复节点不插入，直接返回
-            return node;
-        }
-        // 更新节点高度
-        updateHeight(node);
-        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
-        node = rotate(node);
-        // 返回子树的根节点
-        return node;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    /* 插入节点 */
-    void insert(int val) {
-        root = insertHelper(root, val);
-    }
-
-    /* 递归插入节点（辅助方法） */
-    TreeNode? insertHelper(TreeNode? node, int val) {
-        if (node == null) return new TreeNode(val);
-        /* 1. 查找插入位置，并插入节点 */
-        if (val < node.val)
-            node.left = insertHelper(node.left, val);
-        else if (val > node.val)
-            node.right = insertHelper(node.right, val);
-        else
-            return node;     // 重复节点不插入，直接返回
-        updateHeight(node);  // 更新节点高度
-        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
-        node = rotate(node);
-        // 返回子树的根节点
-        return node;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    /* 插入节点 */
-    func insert(val: Int) {
-        root = insertHelper(node: root, val: val)
-    }
-
-    /* 递归插入节点（辅助方法） */
-    func insertHelper(node: TreeNode?, val: Int) -> TreeNode? {
-        var node = node
-        if node == nil {
-            return TreeNode(x: val)
-        }
-        /* 1. 查找插入位置，并插入节点 */
-        if val < node!.val {
-            node?.left = insertHelper(node: node?.left, val: val)
-        } else if val > node!.val {
-            node?.right = insertHelper(node: node?.right, val: val)
-        } else {
-            return node // 重复节点不插入，直接返回
-        }
-        updateHeight(node: node) // 更新节点高度
-        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
-        node = rotate(node: node)
-        // 返回子树的根节点
-        return node
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    // 插入节点
-    fn insert(self: *Self, val: T) !void {
-        self.root = (try self.insertHelper(self.root, val)).?;
-    }
-
-    // 递归插入节点（辅助方法）
-    fn insertHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) !?*inc.TreeNode(T) {
-        var node = node_;
-        if (node == null) {
-            var tmp_node = try self.mem_allocator.create(inc.TreeNode(T));
-            tmp_node.init(val);
-            return tmp_node;
-        }
-        // 1. 查找插入位置，并插入节点
-        if (val < node.?.val) {
-            node.?.left = try self.insertHelper(node.?.left, val);
-        } else if (val > node.?.val) {
-            node.?.right = try self.insertHelper(node.?.right, val);
-        } else {
-            return node;            // 重复节点不插入，直接返回
-        }
-        self.updateHeight(node);    // 更新节点高度
-        // 2. 执行旋转操作，使该子树重新恢复平衡
-        node = self.rotate(node);
         // 返回子树的根节点
         return node;
     }
@@ -1874,52 +1811,109 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     }
     ```
 
-### 2. &nbsp; 删除节点
+=== "C"
 
-类似地，在二叉搜索树的删除节点方法的基础上，需要从底至顶地执行旋转操作，使所有失衡节点恢复平衡。
-
-=== "Java"
-
-    ```java title="avl_tree.java"
-    /* 删除节点 */
-    void remove(int val) {
-        root = removeHelper(root, val);
+    ```c title="avl_tree.c"
+    /* 插入节点 */
+    void insert(aVLTree *tree, int val) {
+        tree->root = insertHelper(tree->root, val);
     }
 
-    /* 递归删除节点（辅助方法） */
-    TreeNode removeHelper(TreeNode node, int val) {
-        if (node == null)
-            return null;
-        /* 1. 查找节点，并删除之 */
-        if (val < node.val)
-            node.left = removeHelper(node.left, val);
-        else if (val > node.val)
-            node.right = removeHelper(node.right, val);
-        else {
-            if (node.left == null || node.right == null) {
-                TreeNode child = node.left != null ? node.left : node.right;
-                // 子节点数量 = 0 ，直接删除 node 并返回
-                if (child == null)
-                    return null;
-                // 子节点数量 = 1 ，直接删除 node
-                else
-                    node = child;
-            } else {
-                // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                TreeNode temp = node.right;
-                while (temp.left != null) {
-                    temp = temp.left;
-                }
-                node.right = removeHelper(node.right, temp.val);
-                node.val = temp.val;
-            }
+    /* 递归插入节点（辅助函数） */
+    TreeNode *insertHelper(TreeNode *node, int val) {
+        if (node == NULL) {
+            return newTreeNode(val);
         }
-        updateHeight(node); // 更新节点高度
+        /* 1. 查找插入位置，并插入节点 */
+        if (val < node->val) {
+            node->left = insertHelper(node->left, val);
+        } else if (val > node->val) {
+            node->right = insertHelper(node->right, val);
+        } else {
+            // 重复节点不插入，直接返回
+            return node;
+        }
+        // 更新节点高度
+        updateHeight(node);
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = rotate(node);
         // 返回子树的根节点
         return node;
     }
+    ```
+
+=== "Zig"
+
+    ```zig title="avl_tree.zig"
+    // 插入节点
+    fn insert(self: *Self, val: T) !void {
+        self.root = (try self.insertHelper(self.root, val)).?;
+    }
+
+    // 递归插入节点（辅助方法）
+    fn insertHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) !?*inc.TreeNode(T) {
+        var node = node_;
+        if (node == null) {
+            var tmp_node = try self.mem_allocator.create(inc.TreeNode(T));
+            tmp_node.init(val);
+            return tmp_node;
+        }
+        // 1. 查找插入位置，并插入节点
+        if (val < node.?.val) {
+            node.?.left = try self.insertHelper(node.?.left, val);
+        } else if (val > node.?.val) {
+            node.?.right = try self.insertHelper(node.?.right, val);
+        } else {
+            return node;            // 重复节点不插入，直接返回
+        }
+        self.updateHeight(node);    // 更新节点高度
+        // 2. 执行旋转操作，使该子树重新恢复平衡
+        node = self.rotate(node);
+        // 返回子树的根节点
+        return node;
+    }
+    ```
+
+### 2. &nbsp; 删除节点
+
+类似地，在二叉搜索树的删除节点方法的基础上，需要从底至顶地执行旋转操作，使所有失衡节点恢复平衡。
+
+=== "Python"
+
+    ```python title="avl_tree.py"
+    def remove(self, val: int):
+        """删除节点"""
+        self.root = self.__remove_helper(self.root, val)
+
+    def __remove_helper(self, node: TreeNode | None, val: int) -> TreeNode | None:
+        """递归删除节点（辅助方法）"""
+        if node is None:
+            return None
+        # 1. 查找节点，并删除之
+        if val < node.val:
+            node.left = self.__remove_helper(node.left, val)
+        elif val > node.val:
+            node.right = self.__remove_helper(node.right, val)
+        else:
+            if node.left is None or node.right is None:
+                child = node.left or node.right
+                # 子节点数量 = 0 ，直接删除 node 并返回
+                if child is None:
+                    return None
+                # 子节点数量 = 1 ，直接删除 node
+                else:
+                    node = child
+            else:
+                # 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+                temp = node.right
+                while temp.left is not None:
+                    temp = temp.left
+                node.right = self.__remove_helper(node.right, temp.val)
+                node.val = temp.val
+        # 更新节点高度
+        self.__update_height(node)
+        # 2. 执行旋转操作，使该子树重新恢复平衡
+        return self.__rotate(node)
     ```
 
 === "C++"
@@ -1971,42 +1965,91 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="avl_tree.py"
-    def remove(self, val: int):
-        """删除节点"""
-        self.root = self.__remove_helper(self.root, val)
+    ```java title="avl_tree.java"
+    /* 删除节点 */
+    void remove(int val) {
+        root = removeHelper(root, val);
+    }
 
-    def __remove_helper(self, node: TreeNode | None, val: int) -> TreeNode | None:
-        """递归删除节点（辅助方法）"""
-        if node is None:
-            return None
-        # 1. 查找节点，并删除之
-        if val < node.val:
-            node.left = self.__remove_helper(node.left, val)
-        elif val > node.val:
-            node.right = self.__remove_helper(node.right, val)
-        else:
-            if node.left is None or node.right is None:
-                child = node.left or node.right
-                # 子节点数量 = 0 ，直接删除 node 并返回
-                if child is None:
-                    return None
-                # 子节点数量 = 1 ，直接删除 node
-                else:
-                    node = child
-            else:
-                # 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                temp = node.right
-                while temp.left is not None:
-                    temp = temp.left
-                node.right = self.__remove_helper(node.right, temp.val)
-                node.val = temp.val
-        # 更新节点高度
-        self.__update_height(node)
-        # 2. 执行旋转操作，使该子树重新恢复平衡
-        return self.__rotate(node)
+    /* 递归删除节点（辅助方法） */
+    TreeNode removeHelper(TreeNode node, int val) {
+        if (node == null)
+            return null;
+        /* 1. 查找节点，并删除之 */
+        if (val < node.val)
+            node.left = removeHelper(node.left, val);
+        else if (val > node.val)
+            node.right = removeHelper(node.right, val);
+        else {
+            if (node.left == null || node.right == null) {
+                TreeNode child = node.left != null ? node.left : node.right;
+                // 子节点数量 = 0 ，直接删除 node 并返回
+                if (child == null)
+                    return null;
+                // 子节点数量 = 1 ，直接删除 node
+                else
+                    node = child;
+            } else {
+                // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+                TreeNode temp = node.right;
+                while (temp.left != null) {
+                    temp = temp.left;
+                }
+                node.right = removeHelper(node.right, temp.val);
+                node.val = temp.val;
+            }
+        }
+        updateHeight(node); // 更新节点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node);
+        // 返回子树的根节点
+        return node;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="avl_tree.cs"
+    /* 删除节点 */
+    void remove(int val) {
+        root = removeHelper(root, val);
+    }
+
+    /* 递归删除节点（辅助方法） */
+    TreeNode? removeHelper(TreeNode? node, int val) {
+        if (node == null) return null;
+        /* 1. 查找节点，并删除之 */
+        if (val < node.val)
+            node.left = removeHelper(node.left, val);
+        else if (val > node.val)
+            node.right = removeHelper(node.right, val);
+        else {
+            if (node.left == null || node.right == null) {
+                TreeNode? child = node.left != null ? node.left : node.right;
+                // 子节点数量 = 0 ，直接删除 node 并返回
+                if (child == null)
+                    return null;
+                // 子节点数量 = 1 ，直接删除 node
+                else
+                    node = child;
+            } else {
+                // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+                TreeNode? temp = node.right;
+                while (temp.left != null) {
+                    temp = temp.left;
+                }
+                node.right = removeHelper(node.right, temp.val);
+                node.val = temp.val;
+            }
+        }
+        updateHeight(node);  // 更新节点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node);
+        // 返回子树的根节点
+        return node;
+    }
     ```
 
 === "Go"
@@ -2054,6 +2097,54 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         t.updateHeight(node)
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = t.rotate(node)
+        // 返回子树的根节点
+        return node
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="avl_tree.swift"
+    /* 删除节点 */
+    func remove(val: Int) {
+        root = removeHelper(node: root, val: val)
+    }
+
+    /* 递归删除节点（辅助方法） */
+    func removeHelper(node: TreeNode?, val: Int) -> TreeNode? {
+        var node = node
+        if node == nil {
+            return nil
+        }
+        /* 1. 查找节点，并删除之 */
+        if val < node!.val {
+            node?.left = removeHelper(node: node?.left, val: val)
+        } else if val > node!.val {
+            node?.right = removeHelper(node: node?.right, val: val)
+        } else {
+            if node?.left == nil || node?.right == nil {
+                let child = node?.left != nil ? node?.left : node?.right
+                // 子节点数量 = 0 ，直接删除 node 并返回
+                if child == nil {
+                    return nil
+                }
+                // 子节点数量 = 1 ，直接删除 node
+                else {
+                    node = child
+                }
+            } else {
+                // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+                var temp = node?.right
+                while temp?.left != nil {
+                    temp = temp?.left
+                }
+                node?.right = removeHelper(node: node?.right, val: temp!.val)
+                node?.val = temp!.val
+            }
+        }
+        updateHeight(node: node) // 更新节点高度
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node: node)
         // 返回子树的根节点
         return node
     }
@@ -2138,195 +2229,6 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
         this.updateHeight(node); // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
         node = this.rotate(node);
-        // 返回子树的根节点
-        return node;
-    }
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    /* 删除节点 */
-    // 由于引入了 stdio.h ，此处无法使用 remove 关键词
-    void removeNode(aVLTree *tree, int val) {
-        TreeNode *root = removeHelper(tree->root, val);
-    }
-
-    /* 递归删除节点（辅助函数） */
-    TreeNode *removeHelper(TreeNode *node, int val) {
-        TreeNode *child, *grandChild;
-        if (node == NULL) {
-            return NULL;
-        }
-        /* 1. 查找节点，并删除之 */
-        if (val < node->val) {
-            node->left = removeHelper(node->left, val);
-        } else if (val > node->val) {
-            node->right = removeHelper(node->right, val);
-        } else {
-            if (node->left == NULL || node->right == NULL) {
-                child = node->left;
-                if (node->right != NULL) {
-                    child = node->right;
-                }
-                // 子节点数量 = 0 ，直接删除 node 并返回
-                if (child == NULL) {
-                    return NULL;
-                } else {
-                    // 子节点数量 = 1 ，直接删除 node
-                    node = child;
-                }
-            } else {
-                // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                TreeNode *temp = node->right;
-                while (temp->left != NULL) {
-                    temp = temp->left;
-                }
-                int tempVal = temp->val;
-                node->right = removeHelper(node->right, temp->val);
-                node->val = tempVal;
-            }
-        }
-        // 更新节点高度
-        updateHeight(node);
-        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
-        node = rotate(node);
-        // 返回子树的根节点
-        return node;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    /* 删除节点 */
-    void remove(int val) {
-        root = removeHelper(root, val);
-    }
-
-    /* 递归删除节点（辅助方法） */
-    TreeNode? removeHelper(TreeNode? node, int val) {
-        if (node == null) return null;
-        /* 1. 查找节点，并删除之 */
-        if (val < node.val)
-            node.left = removeHelper(node.left, val);
-        else if (val > node.val)
-            node.right = removeHelper(node.right, val);
-        else {
-            if (node.left == null || node.right == null) {
-                TreeNode? child = node.left != null ? node.left : node.right;
-                // 子节点数量 = 0 ，直接删除 node 并返回
-                if (child == null)
-                    return null;
-                // 子节点数量 = 1 ，直接删除 node
-                else
-                    node = child;
-            } else {
-                // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                TreeNode? temp = node.right;
-                while (temp.left != null) {
-                    temp = temp.left;
-                }
-                node.right = removeHelper(node.right, temp.val);
-                node.val = temp.val;
-            }
-        }
-        updateHeight(node);  // 更新节点高度
-        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
-        node = rotate(node);
-        // 返回子树的根节点
-        return node;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    /* 删除节点 */
-    func remove(val: Int) {
-        root = removeHelper(node: root, val: val)
-    }
-
-    /* 递归删除节点（辅助方法） */
-    func removeHelper(node: TreeNode?, val: Int) -> TreeNode? {
-        var node = node
-        if node == nil {
-            return nil
-        }
-        /* 1. 查找节点，并删除之 */
-        if val < node!.val {
-            node?.left = removeHelper(node: node?.left, val: val)
-        } else if val > node!.val {
-            node?.right = removeHelper(node: node?.right, val: val)
-        } else {
-            if node?.left == nil || node?.right == nil {
-                let child = node?.left != nil ? node?.left : node?.right
-                // 子节点数量 = 0 ，直接删除 node 并返回
-                if child == nil {
-                    return nil
-                }
-                // 子节点数量 = 1 ，直接删除 node
-                else {
-                    node = child
-                }
-            } else {
-                // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                var temp = node?.right
-                while temp?.left != nil {
-                    temp = temp?.left
-                }
-                node?.right = removeHelper(node: node?.right, val: temp!.val)
-                node?.val = temp!.val
-            }
-        }
-        updateHeight(node: node) // 更新节点高度
-        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
-        node = rotate(node: node)
-        // 返回子树的根节点
-        return node
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    // 删除节点
-    fn remove(self: *Self, val: T) void {
-       self.root = self.removeHelper(self.root, val).?;
-    }
-
-    // 递归删除节点（辅助方法）
-    fn removeHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) ?*inc.TreeNode(T) {
-        var node = node_;
-        if (node == null) return null;
-        // 1. 查找节点，并删除之
-        if (val < node.?.val) {
-            node.?.left = self.removeHelper(node.?.left, val);
-        } else if (val > node.?.val) {
-            node.?.right = self.removeHelper(node.?.right, val);
-        } else {
-            if (node.?.left == null or node.?.right == null) {
-                var child = if (node.?.left != null) node.?.left else node.?.right;
-                // 子节点数量 = 0 ，直接删除 node 并返回
-                if (child == null) {
-                    return null;
-                // 子节点数量 = 1 ，直接删除 node
-                } else {
-                    node = child;
-                }
-            } else {
-                // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
-                var temp = node.?.right;
-                while (temp.?.left != null) {
-                    temp = temp.?.left;
-                }
-                node.?.right = self.removeHelper(node.?.right, temp.?.val);
-                node.?.val = temp.?.val;
-            }
-        }
-        self.updateHeight(node); // 更新节点高度
-        // 2. 执行旋转操作，使该子树重新恢复平衡
-        node = self.rotate(node);
         // 返回子树的根节点
         return node;
     }
@@ -2430,6 +2332,104 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
             }
             None => None,
         }
+    }
+    ```
+
+=== "C"
+
+    ```c title="avl_tree.c"
+    /* 删除节点 */
+    // 由于引入了 stdio.h ，此处无法使用 remove 关键词
+    void removeNode(aVLTree *tree, int val) {
+        TreeNode *root = removeHelper(tree->root, val);
+    }
+
+    /* 递归删除节点（辅助函数） */
+    TreeNode *removeHelper(TreeNode *node, int val) {
+        TreeNode *child, *grandChild;
+        if (node == NULL) {
+            return NULL;
+        }
+        /* 1. 查找节点，并删除之 */
+        if (val < node->val) {
+            node->left = removeHelper(node->left, val);
+        } else if (val > node->val) {
+            node->right = removeHelper(node->right, val);
+        } else {
+            if (node->left == NULL || node->right == NULL) {
+                child = node->left;
+                if (node->right != NULL) {
+                    child = node->right;
+                }
+                // 子节点数量 = 0 ，直接删除 node 并返回
+                if (child == NULL) {
+                    return NULL;
+                } else {
+                    // 子节点数量 = 1 ，直接删除 node
+                    node = child;
+                }
+            } else {
+                // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+                TreeNode *temp = node->right;
+                while (temp->left != NULL) {
+                    temp = temp->left;
+                }
+                int tempVal = temp->val;
+                node->right = removeHelper(node->right, temp->val);
+                node->val = tempVal;
+            }
+        }
+        // 更新节点高度
+        updateHeight(node);
+        /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+        node = rotate(node);
+        // 返回子树的根节点
+        return node;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="avl_tree.zig"
+    // 删除节点
+    fn remove(self: *Self, val: T) void {
+       self.root = self.removeHelper(self.root, val).?;
+    }
+
+    // 递归删除节点（辅助方法）
+    fn removeHelper(self: *Self, node_: ?*inc.TreeNode(T), val: T) ?*inc.TreeNode(T) {
+        var node = node_;
+        if (node == null) return null;
+        // 1. 查找节点，并删除之
+        if (val < node.?.val) {
+            node.?.left = self.removeHelper(node.?.left, val);
+        } else if (val > node.?.val) {
+            node.?.right = self.removeHelper(node.?.right, val);
+        } else {
+            if (node.?.left == null or node.?.right == null) {
+                var child = if (node.?.left != null) node.?.left else node.?.right;
+                // 子节点数量 = 0 ，直接删除 node 并返回
+                if (child == null) {
+                    return null;
+                // 子节点数量 = 1 ，直接删除 node
+                } else {
+                    node = child;
+                }
+            } else {
+                // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+                var temp = node.?.right;
+                while (temp.?.left != null) {
+                    temp = temp.?.left;
+                }
+                node.?.right = self.removeHelper(node.?.right, temp.?.val);
+                node.?.val = temp.?.val;
+            }
+        }
+        self.updateHeight(node); // 更新节点高度
+        // 2. 执行旋转操作，使该子树重新恢复平衡
+        node = self.rotate(node);
+        // 返回子树的根节点
+        return node;
     }
     ```
 

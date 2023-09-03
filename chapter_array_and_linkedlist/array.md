@@ -16,12 +16,12 @@ comments: true
 
 我们可以根据需求选用数组的两种初始化方式：无初始值、给定初始值。在未指定初始值的情况下，大多数编程语言会将数组元素初始化为 $0$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    /* 初始化数组 */
-    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
-    int[] nums = { 1, 3, 2, 5, 4 };
+    ```python title="array.py"
+    # 初始化数组
+    arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
+    nums: list[int] = [1, 3, 2, 5, 4]  
     ```
 
 === "C++"
@@ -36,12 +36,20 @@ comments: true
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    # 初始化数组
-    arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums: list[int] = [1, 3, 2, 5, 4]  
+    ```java title="array.java"
+    /* 初始化数组 */
+    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
+    int[] nums = { 1, 3, 2, 5, 4 };
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    /* 初始化数组 */
+    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
+    int[] nums = { 1, 3, 2, 5, 4 };
     ```
 
 === "Go"
@@ -53,6 +61,14 @@ comments: true
     // 由于 Go 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
     // 为了方便实现扩容 extend() 方法，以下将切片（Slice）看作数组（Array）
     nums := []int{1, 3, 2, 5, 4}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    /* 初始化数组 */
+    let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
+    let nums = [1, 3, 2, 5, 4]
     ```
 
 === "JS"
@@ -71,37 +87,6 @@ comments: true
     let nums: number[] = [1, 3, 2, 5, 4];
     ```
 
-=== "C"
-
-    ```c title="array.c"
-    int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
-    int nums[5] = { 1, 3, 2, 5, 4 };
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    /* 初始化数组 */
-    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
-    int[] nums = { 1, 3, 2, 5, 4 };
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    /* 初始化数组 */
-    let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
-    let nums = [1, 3, 2, 5, 4]
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 初始化数组
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
-    ```
-
 === "Dart"
 
     ```dart title="array.dart"
@@ -118,6 +103,21 @@ comments: true
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
+=== "C"
+
+    ```c title="array.c"
+    int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
+    int nums[5] = { 1, 3, 2, 5, 4 };
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    // 初始化数组
+    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
+    var nums = [_]i32{ 1, 3, 2, 5, 4 };
+    ```
+
 ### 2. &nbsp; 访问元素
 
 数组元素被存储在连续的内存空间中，这意味着计算数组元素的内存地址非常容易。给定数组内存地址（即首元素内存地址）和某个元素的索引，我们可以使用图 4-2 所示的公式计算得到该元素的内存地址，从而直接访问此元素。
@@ -130,17 +130,16 @@ comments: true
 
 在数组中访问元素是非常高效的，我们可以在 $O(1)$ 时间内随机访问数组中的任意一个元素。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    /* 随机访问元素 */
-    int randomAccess(int[] nums) {
-        // 在区间 [0, nums.length) 中随机抽取一个数字
-        int randomIndex = ThreadLocalRandom.current().nextInt(0, nums.length);
-        // 获取并返回随机元素
-        int randomNum = nums[randomIndex];
-        return randomNum;
-    }
+    ```python title="array.py"
+    def random_access(nums: list[int]) -> int:
+        """随机访问元素"""
+        # 在区间 [0, len(nums)-1] 中随机抽取一个数字
+        random_index = random.randint(0, len(nums) - 1)
+        # 获取并返回随机元素
+        random_num = nums[random_index]
+        return random_num
     ```
 
 === "C++"
@@ -156,16 +155,31 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    def random_access(nums: list[int]) -> int:
-        """随机访问元素"""
-        # 在区间 [0, len(nums)-1] 中随机抽取一个数字
-        random_index = random.randint(0, len(nums) - 1)
-        # 获取并返回随机元素
-        random_num = nums[random_index]
-        return random_num
+    ```java title="array.java"
+    /* 随机访问元素 */
+    int randomAccess(int[] nums) {
+        // 在区间 [0, nums.length) 中随机抽取一个数字
+        int randomIndex = ThreadLocalRandom.current().nextInt(0, nums.length);
+        // 获取并返回随机元素
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    /* 随机访问元素 */
+    int randomAccess(int[] nums) {
+        Random random = new();
+        // 在区间 [0, nums.Length) 中随机抽取一个数字
+        int randomIndex = random.Next(nums.Length);
+        // 获取并返回随机元素
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
     ```
 
 === "Go"
@@ -178,6 +192,19 @@ comments: true
         // 获取并返回随机元素
         randomNum = nums[randomIndex]
         return
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    /* 随机访问元素 */
+    func randomAccess(nums: [Int]) -> Int {
+        // 在区间 [0, nums.count) 中随机抽取一个数字
+        let randomIndex = nums.indices.randomElement()!
+        // 获取并返回随机元素
+        let randomNum = nums[randomIndex]
+        return randomNum
     }
     ```
 
@@ -207,59 +234,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="array.c"
-    /* 随机访问元素 */
-    int randomAccess(int *nums, int size) {
-        // 在区间 [0, size) 中随机抽取一个数字
-        int randomIndex = rand() % size;
-        // 获取并返回随机元素
-        int randomNum = nums[randomIndex];
-        return randomNum;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    /* 随机访问元素 */
-    int randomAccess(int[] nums) {
-        Random random = new();
-        // 在区间 [0, nums.Length) 中随机抽取一个数字
-        int randomIndex = random.Next(nums.Length);
-        // 获取并返回随机元素
-        int randomNum = nums[randomIndex];
-        return randomNum;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    /* 随机访问元素 */
-    func randomAccess(nums: [Int]) -> Int {
-        // 在区间 [0, nums.count) 中随机抽取一个数字
-        let randomIndex = nums.indices.randomElement()!
-        // 获取并返回随机元素
-        let randomNum = nums[randomIndex]
-        return randomNum
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 随机访问元素
-    fn randomAccess(nums: []i32) i32 {
-        // 在区间 [0, nums.len) 中随机抽取一个整数
-        var randomIndex = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
-        // 获取并返回随机元素
-        var randomNum = nums[randomIndex];
-        return randomNum;
-    }
-    ```
-
 === "Dart"
 
     ```dart title="array.dart"
@@ -286,6 +260,32 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="array.c"
+    /* 随机访问元素 */
+    int randomAccess(int *nums, int size) {
+        // 在区间 [0, size) 中随机抽取一个数字
+        int randomIndex = rand() % size;
+        // 获取并返回随机元素
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    // 随机访问元素
+    fn randomAccess(nums: []i32) i32 {
+        // 在区间 [0, nums.len) 中随机抽取一个整数
+        var randomIndex = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
+        // 获取并返回随机元素
+        var randomNum = nums[randomIndex];
+        return randomNum;
+    }
+    ```
+
 ### 3. &nbsp; 插入元素
 
 数组元素在内存中是“紧挨着的”，它们之间没有空间再存放任何数据。如图 4-3 所示，如果想要在数组中间插入一个元素，则需要将该元素之后的所有元素都向后移动一位，之后再把元素赋值给该索引。
@@ -296,18 +296,16 @@ comments: true
 
 值得注意的是，由于数组的长度是固定的，因此插入一个元素必定会导致数组尾部元素的“丢失”。我们将这个问题的解决方案留在列表章节中讨论。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    /* 在数组的索引 index 处插入元素 num */
-    void insert(int[] nums, int num, int index) {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for (int i = nums.length - 1; i > index; i--) {
-            nums[i] = nums[i - 1];
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num;
-    }
+    ```python title="array.py"
+    def insert(nums: list[int], num: int, index: int):
+        """在数组的索引 index 处插入元素 num"""
+        # 把索引 index 以及之后的所有元素向后移动一位
+        for i in range(len(nums) - 1, index, -1):
+            nums[i] = nums[i - 1]
+        # 将 num 赋给 index 处元素
+        nums[index] = num
     ```
 
 === "C++"
@@ -324,16 +322,32 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    def insert(nums: list[int], num: int, index: int):
-        """在数组的索引 index 处插入元素 num"""
-        # 把索引 index 以及之后的所有元素向后移动一位
-        for i in range(len(nums) - 1, index, -1):
-            nums[i] = nums[i - 1]
-        # 将 num 赋给 index 处元素
-        nums[index] = num
+    ```java title="array.java"
+    /* 在数组的索引 index 处插入元素 num */
+    void insert(int[] nums, int num, int index) {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        for (int i = nums.length - 1; i > index; i--) {
+            nums[i] = nums[i - 1];
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    /* 在数组的索引 index 处插入元素 num */
+    void insert(int[] nums, int num, int index) {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        for (int i = nums.Length - 1; i > index; i--) {
+            nums[i] = nums[i - 1];
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num;
+    }
     ```
 
 === "Go"
@@ -344,6 +358,20 @@ comments: true
         // 把索引 index 以及之后的所有元素向后移动一位
         for i := len(nums) - 1; i > index; i-- {
             nums[i] = nums[i-1]
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    /* 在数组的索引 index 处插入元素 num */
+    func insert(nums: inout [Int], num: Int, index: Int) {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        for i in sequence(first: nums.count - 1, next: { $0 > index + 1 ? $0 - 1 : nil }) {
+            nums[i] = nums[i - 1]
         }
         // 将 num 赋给 index 处元素
         nums[index] = num
@@ -371,63 +399,6 @@ comments: true
     function insert(nums: number[], num: number, index: number): void {
         // 把索引 index 以及之后的所有元素向后移动一位
         for (let i = nums.length - 1; i > index; i--) {
-            nums[i] = nums[i - 1];
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num;
-    }
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    /* 在数组的索引 index 处插入元素 num */
-    void insert(int *nums, int size, int num, int index) {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for (int i = size - 1; i > index; i--) {
-            nums[i] = nums[i - 1];
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    /* 在数组的索引 index 处插入元素 num */
-    void insert(int[] nums, int num, int index) {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for (int i = nums.Length - 1; i > index; i--) {
-            nums[i] = nums[i - 1];
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    /* 在数组的索引 index 处插入元素 num */
-    func insert(nums: inout [Int], num: Int, index: Int) {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        for i in sequence(first: nums.count - 1, next: { $0 > index + 1 ? $0 - 1 : nil }) {
-            nums[i] = nums[i - 1]
-        }
-        // 将 num 赋给 index 处元素
-        nums[index] = num
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 在数组的索引 index 处插入元素 num
-    fn insert(nums: []i32, num: i32, index: usize) void {
-        // 把索引 index 以及之后的所有元素向后移动一位
-        var i = nums.len - 1;
-        while (i > index) : (i -= 1) {
             nums[i] = nums[i - 1];
         }
         // 将 num 赋给 index 处元素
@@ -463,6 +434,35 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="array.c"
+    /* 在数组的索引 index 处插入元素 num */
+    void insert(int *nums, int size, int num, int index) {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        for (int i = size - 1; i > index; i--) {
+            nums[i] = nums[i - 1];
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    // 在数组的索引 index 处插入元素 num
+    fn insert(nums: []i32, num: i32, index: usize) void {
+        // 把索引 index 以及之后的所有元素向后移动一位
+        var i = nums.len - 1;
+        while (i > index) : (i -= 1) {
+            nums[i] = nums[i - 1];
+        }
+        // 将 num 赋给 index 处元素
+        nums[index] = num;
+    }
+    ```
+
 ### 4. &nbsp; 删除元素
 
 同理，如图 4-4 所示，若想要删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。
@@ -473,16 +473,14 @@ comments: true
 
 请注意，删除元素完成后，原先末尾的元素变得“无意义”了，所以我们无须特意去修改它。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    /* 删除索引 index 处元素 */
-    void remove(int[] nums, int index) {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (int i = index; i < nums.length - 1; i++) {
-            nums[i] = nums[i + 1];
-        }
-    }
+    ```python title="array.py"
+    def remove(nums: list[int], index: int):
+        """删除索引 index 处元素"""
+        # 把索引 index 之后的所有元素向前移动一位
+        for i in range(index, len(nums) - 1):
+            nums[i] = nums[i + 1]
     ```
 
 === "C++"
@@ -497,14 +495,28 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    def remove(nums: list[int], index: int):
-        """删除索引 index 处元素"""
-        # 把索引 index 之后的所有元素向前移动一位
-        for i in range(index, len(nums) - 1):
-            nums[i] = nums[i + 1]
+    ```java title="array.java"
+    /* 删除索引 index 处元素 */
+    void remove(int[] nums, int index) {
+        // 把索引 index 之后的所有元素向前移动一位
+        for (int i = index; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    /* 删除索引 index 处元素 */
+    void remove(int[] nums, int index) {
+        // 把索引 index 之后的所有元素向前移动一位
+        for (int i = index; i < nums.Length - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
     ```
 
 === "Go"
@@ -515,6 +527,19 @@ comments: true
         // 把索引 index 之后的所有元素向前移动一位
         for i := index; i < len(nums)-1; i++ {
             nums[i] = nums[i+1]
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    /* 删除索引 index 处元素 */
+    func remove(nums: inout [Int], index: Int) {
+        let count = nums.count
+        // 把索引 index 之后的所有元素向前移动一位
+        for i in sequence(first: index, next: { $0 < count - 1 - 1 ? $0 + 1 : nil }) {
+            nums[i] = nums[i + 1]
         }
     }
     ```
@@ -538,57 +563,6 @@ comments: true
     function remove(nums: number[], index: number): void {
         // 把索引 index 之后的所有元素向前移动一位
         for (let i = index; i < nums.length - 1; i++) {
-            nums[i] = nums[i + 1];
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    /* 删除索引 index 处元素 */
-    // 注意：stdio.h 占用了 remove 关键词
-    void removeItem(int *nums, int size, int index) {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (int i = index; i < size - 1; i++) {
-            nums[i] = nums[i + 1];
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    /* 删除索引 index 处元素 */
-    void remove(int[] nums, int index) {
-        // 把索引 index 之后的所有元素向前移动一位
-        for (int i = index; i < nums.Length - 1; i++) {
-            nums[i] = nums[i + 1];
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    /* 删除索引 index 处元素 */
-    func remove(nums: inout [Int], index: Int) {
-        let count = nums.count
-        // 把索引 index 之后的所有元素向前移动一位
-        for i in sequence(first: index, next: { $0 < count - 1 - 1 ? $0 + 1 : nil }) {
-            nums[i] = nums[i + 1]
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 删除索引 index 处元素
-    fn remove(nums: []i32, index: usize) void {
-        // 把索引 index 之后的所有元素向前移动一位
-        var i = index;
-        while (i < nums.len - 1) : (i += 1) {
             nums[i] = nums[i + 1];
         }
     }
@@ -618,6 +592,32 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="array.c"
+    /* 删除索引 index 处元素 */
+    // 注意：stdio.h 占用了 remove 关键词
+    void removeItem(int *nums, int size, int index) {
+        // 把索引 index 之后的所有元素向前移动一位
+        for (int i = index; i < size - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    // 删除索引 index 处元素
+    fn remove(nums: []i32, index: usize) void {
+        // 把索引 index 之后的所有元素向前移动一位
+        var i = index;
+        while (i < nums.len - 1) : (i += 1) {
+            nums[i] = nums[i + 1];
+        }
+    }
+    ```
+
 总的来看，数组的插入与删除操作有以下缺点。
 
 - **时间复杂度高**：数组的插入和删除的平均时间复杂度均为 $O(n)$ ，其中 $n$ 为数组长度。
@@ -627,36 +627,6 @@ comments: true
 ### 5. &nbsp; 遍历数组
 
 在大多数编程语言中，我们既可以通过索引遍历数组，也可以直接遍历获取数组中的每个元素。
-
-=== "Java"
-
-    ```java title="array.java"
-    /* 遍历数组 */
-    void traverse(int[] nums) {
-        int count = 0;
-        // 通过索引遍历数组
-        for (int i = 0; i < nums.length; i++) {
-            count++;
-        }
-        // 直接遍历数组
-        for (int num : nums) {
-            count++;
-        }
-    }
-    ```
-
-=== "C++"
-
-    ```cpp title="array.cpp"
-    /* 遍历数组 */
-    void traverse(int *nums, int size) {
-        int count = 0;
-        // 通过索引遍历数组
-        for (int i = 0; i < size; i++) {
-            count++;
-        }
-    }
-    ```
 
 === "Python"
 
@@ -675,6 +645,53 @@ comments: true
             count += 1
     ```
 
+=== "C++"
+
+    ```cpp title="array.cpp"
+    /* 遍历数组 */
+    void traverse(int *nums, int size) {
+        int count = 0;
+        // 通过索引遍历数组
+        for (int i = 0; i < size; i++) {
+            count++;
+        }
+    }
+    ```
+
+=== "Java"
+
+    ```java title="array.java"
+    /* 遍历数组 */
+    void traverse(int[] nums) {
+        int count = 0;
+        // 通过索引遍历数组
+        for (int i = 0; i < nums.length; i++) {
+            count++;
+        }
+        // 直接遍历数组
+        for (int num : nums) {
+            count++;
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    /* 遍历数组 */
+    void traverse(int[] nums) {
+        int count = 0;
+        // 通过索引遍历数组
+        for (int i = 0; i < nums.Length; i++) {
+            count++;
+        }
+        // 直接遍历数组
+        foreach (int num in nums) {
+            count++;
+        }
+    }
+    ```
+
 === "Go"
 
     ```go title="array.go"
@@ -689,6 +706,23 @@ comments: true
         // 直接遍历数组
         for range nums {
             count++
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    /* 遍历数组 */
+    func traverse(nums: [Int]) {
+        var count = 0
+        // 通过索引遍历数组
+        for _ in nums.indices {
+            count += 1
+        }
+        // 直接遍历数组
+        for _ in nums {
+            count += 1
         }
     }
     ```
@@ -722,72 +756,6 @@ comments: true
         }
         // 直接遍历数组
         for (const num of nums) {
-            count += 1;
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    /* 遍历数组 */
-    void traverse(int *nums, int size) {
-        int count = 0;
-        // 通过索引遍历数组
-        for (int i = 0; i < size; i++) {
-            count++;
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    /* 遍历数组 */
-    void traverse(int[] nums) {
-        int count = 0;
-        // 通过索引遍历数组
-        for (int i = 0; i < nums.Length; i++) {
-            count++;
-        }
-        // 直接遍历数组
-        foreach (int num in nums) {
-            count++;
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    /* 遍历数组 */
-    func traverse(nums: [Int]) {
-        var count = 0
-        // 通过索引遍历数组
-        for _ in nums.indices {
-            count += 1
-        }
-        // 直接遍历数组
-        for _ in nums {
-            count += 1
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 遍历数组
-    fn traverse(nums: []i32) void {
-        var count: i32 = 0;
-        // 通过索引遍历数组
-        var i: i32 = 0;
-        while (i < nums.len) : (i += 1) {
-            count += 1;
-        }
-        count = 0;
-        // 直接遍历数组
-        for (nums) |_| {
             count += 1;
         }
     }
@@ -831,23 +799,53 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="array.c"
+    /* 遍历数组 */
+    void traverse(int *nums, int size) {
+        int count = 0;
+        // 通过索引遍历数组
+        for (int i = 0; i < size; i++) {
+            count++;
+        }
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    // 遍历数组
+    fn traverse(nums: []i32) void {
+        var count: i32 = 0;
+        // 通过索引遍历数组
+        var i: i32 = 0;
+        while (i < nums.len) : (i += 1) {
+            count += 1;
+        }
+        count = 0;
+        // 直接遍历数组
+        for (nums) |_| {
+            count += 1;
+        }
+    }
+    ```
+
 ### 6. &nbsp; 查找元素
 
 在数组中查找指定元素需要遍历数组，每轮判断元素值是否匹配，若匹配则输出对应索引。
 
 因为数组是线性数据结构，所以上述查找操作被称为“线性查找”。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    /* 在数组中查找指定元素 */
-    int find(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == target)
-                return i;
-        }
-        return -1;
-    }
+    ```python title="array.py"
+    def find(nums: list[int], target: int) -> int:
+        """在数组中查找指定元素"""
+        for i in range(len(nums)):
+            if nums[i] == target:
+                return i
+        return -1
     ```
 
 === "C++"
@@ -863,15 +861,30 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    def find(nums: list[int], target: int) -> int:
-        """在数组中查找指定元素"""
-        for i in range(len(nums)):
-            if nums[i] == target:
-                return i
-        return -1
+    ```java title="array.java"
+    /* 在数组中查找指定元素 */
+    int find(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target)
+                return i;
+        }
+        return -1;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    /* 在数组中查找指定元素 */
+    int find(int[] nums, int target) {
+        for (int i = 0; i < nums.Length; i++) {
+            if (nums[i] == target)
+                return i;
+        }
+        return -1;
+    }
     ```
 
 === "Go"
@@ -887,6 +900,20 @@ comments: true
             }
         }
         return
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    /* 在数组中查找指定元素 */
+    func find(nums: [Int], target: Int) -> Int {
+        for i in nums.indices {
+            if nums[i] == target {
+                return i
+            }
+        }
+        return -1
     }
     ```
 
@@ -911,58 +938,6 @@ comments: true
             if (nums[i] === target) {
                 return i;
             }
-        }
-        return -1;
-    }
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    /* 在数组中查找指定元素 */
-    int find(int *nums, int size, int target) {
-        for (int i = 0; i < size; i++) {
-            if (nums[i] == target)
-                return i;
-        }
-        return -1;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    /* 在数组中查找指定元素 */
-    int find(int[] nums, int target) {
-        for (int i = 0; i < nums.Length; i++) {
-            if (nums[i] == target)
-                return i;
-        }
-        return -1;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    /* 在数组中查找指定元素 */
-    func find(nums: [Int], target: Int) -> Int {
-        for i in nums.indices {
-            if nums[i] == target {
-                return i
-            }
-        }
-        return -1
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 在数组中查找指定元素
-    fn find(nums: []i32, target: i32) i32 {
-        for (nums, 0..) |num, i| {
-            if (num == target) return @intCast(i);
         }
         return -1;
     }
@@ -994,26 +969,49 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="array.c"
+    /* 在数组中查找指定元素 */
+    int find(int *nums, int size, int target) {
+        for (int i = 0; i < size; i++) {
+            if (nums[i] == target)
+                return i;
+        }
+        return -1;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    // 在数组中查找指定元素
+    fn find(nums: []i32, target: i32) i32 {
+        for (nums, 0..) |num, i| {
+            if (num == target) return @intCast(i);
+        }
+        return -1;
+    }
+    ```
+
 ### 7. &nbsp; 扩容数组
 
 在复杂的系统环境中，程序难以保证数组之后的内存空间是可用的，从而无法安全地扩展数组容量。因此在大多数编程语言中，**数组的长度是不可变的**。
 
 如果我们希望扩容数组，则需重新建立一个更大的数组，然后把原数组元素依次拷贝到新数组。这是一个 $O(n)$ 的操作，在数组很大的情况下是非常耗时的。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array.java"
-    /* 扩展数组长度 */
-    int[] extend(int[] nums, int enlarge) {
-        // 初始化一个扩展长度后的数组
-        int[] res = new int[nums.length + enlarge];
-        // 将原数组中的所有元素复制到新数组
-        for (int i = 0; i < nums.length; i++) {
-            res[i] = nums[i];
-        }
-        // 返回扩展后的新数组
-        return res;
-    }
+    ```python title="array.py"
+    def extend(nums: list[int], enlarge: int) -> list[int]:
+        """扩展数组长度"""
+        # 初始化一个扩展长度后的数组
+        res = [0] * (len(nums) + enlarge)
+        # 将原数组中的所有元素复制到新数组
+        for i in range(len(nums)):
+            res[i] = nums[i]
+        # 返回扩展后的新数组
+        return res
     ```
 
 === "C++"
@@ -1034,18 +1032,36 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array.py"
-    def extend(nums: list[int], enlarge: int) -> list[int]:
-        """扩展数组长度"""
-        # 初始化一个扩展长度后的数组
-        res = [0] * (len(nums) + enlarge)
-        # 将原数组中的所有元素复制到新数组
-        for i in range(len(nums)):
-            res[i] = nums[i]
-        # 返回扩展后的新数组
-        return res
+    ```java title="array.java"
+    /* 扩展数组长度 */
+    int[] extend(int[] nums, int enlarge) {
+        // 初始化一个扩展长度后的数组
+        int[] res = new int[nums.length + enlarge];
+        // 将原数组中的所有元素复制到新数组
+        for (int i = 0; i < nums.length; i++) {
+            res[i] = nums[i];
+        }
+        // 返回扩展后的新数组
+        return res;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    /* 扩展数组长度 */
+    int[] extend(int[] nums, int enlarge) {
+        // 初始化一个扩展长度后的数组
+        int[] res = new int[nums.Length + enlarge];
+        // 将原数组中的所有元素复制到新数组
+        for (int i = 0; i < nums.Length; i++) {
+            res[i] = nums[i];
+        }
+        // 返回扩展后的新数组
+        return res;
+    }
     ```
 
 === "Go"
@@ -1058,6 +1074,22 @@ comments: true
         // 将原数组中的所有元素复制到新数组
         for i, num := range nums {
             res[i] = num
+        }
+        // 返回扩展后的新数组
+        return res
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    /* 扩展数组长度 */
+    func extend(nums: [Int], enlarge: Int) -> [Int] {
+        // 初始化一个扩展长度后的数组
+        var res = Array(repeating: 0, count: nums.count + enlarge)
+        // 将原数组中的所有元素复制到新数组
+        for i in nums.indices {
+            res[i] = nums[i]
         }
         // 返回扩展后的新数组
         return res
@@ -1100,73 +1132,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="array.c"
-    /* 扩展数组长度 */
-    int *extend(int *nums, int size, int enlarge) {
-        // 初始化一个扩展长度后的数组
-        int *res = (int *)malloc(sizeof(int) * (size + enlarge));
-        // 将原数组中的所有元素复制到新数组
-        for (int i = 0; i < size; i++) {
-            res[i] = nums[i];
-        }
-        // 初始化扩展后的空间
-        for (int i = size; i < size + enlarge; i++) {
-            res[i] = 0;
-        }
-        // 返回扩展后的新数组
-        return res;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    /* 扩展数组长度 */
-    int[] extend(int[] nums, int enlarge) {
-        // 初始化一个扩展长度后的数组
-        int[] res = new int[nums.Length + enlarge];
-        // 将原数组中的所有元素复制到新数组
-        for (int i = 0; i < nums.Length; i++) {
-            res[i] = nums[i];
-        }
-        // 返回扩展后的新数组
-        return res;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    /* 扩展数组长度 */
-    func extend(nums: [Int], enlarge: Int) -> [Int] {
-        // 初始化一个扩展长度后的数组
-        var res = Array(repeating: 0, count: nums.count + enlarge)
-        // 将原数组中的所有元素复制到新数组
-        for i in nums.indices {
-            res[i] = nums[i]
-        }
-        // 返回扩展后的新数组
-        return res
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 扩展数组长度
-    fn extend(mem_allocator: std.mem.Allocator, nums: []i32, enlarge: usize) ![]i32 {
-        // 初始化一个扩展长度后的数组
-        var res = try mem_allocator.alloc(i32, nums.len + enlarge);
-        @memset(res, 0);
-        // 将原数组中的所有元素复制到新数组
-        std.mem.copy(i32, res, nums);
-        // 返回扩展后的新数组
-        return res;
-    }
-    ```
-
 === "Dart"
 
     ```dart title="array.dart"
@@ -1196,6 +1161,41 @@ comments: true
         }
         // 返回扩展后的新数组
         res
+    }
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    /* 扩展数组长度 */
+    int *extend(int *nums, int size, int enlarge) {
+        // 初始化一个扩展长度后的数组
+        int *res = (int *)malloc(sizeof(int) * (size + enlarge));
+        // 将原数组中的所有元素复制到新数组
+        for (int i = 0; i < size; i++) {
+            res[i] = nums[i];
+        }
+        // 初始化扩展后的空间
+        for (int i = size; i < size + enlarge; i++) {
+            res[i] = 0;
+        }
+        // 返回扩展后的新数组
+        return res;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    // 扩展数组长度
+    fn extend(mem_allocator: std.mem.Allocator, nums: []i32, enlarge: usize) ![]i32 {
+        // 初始化一个扩展长度后的数组
+        var res = try mem_allocator.alloc(i32, nums.len + enlarge);
+        @memset(res, 0);
+        // 将原数组中的所有元素复制到新数组
+        std.mem.copy(i32, res, nums);
+        // 返回扩展后的新数组
+        return res;
     }
     ```
 

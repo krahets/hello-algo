@@ -17,18 +17,16 @@ status: new
 
 以下函数基于 `for` 循环实现了求和 $1 + 2 + \dots + n$ ，求和结果使用变量 `res` 记录。需要注意的是，Python 中 `range(a, b)` 对应的区间是“左闭右开”的，对应的遍历范围为 $a, a + 1, \dots, b-1$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="iteration.java"
-    /* for 循环 */
-    int forLoop(int n) {
-        int res = 0;
-        // 循环求和 1, 2, ..., n-1, n
-        for (int i = 1; i <= n; i++) {
-            res += i;
-        }
-        return res;
-    }
+    ```python title="iteration.py"
+    def for_loop(n: int) -> int:
+        """for 循环"""
+        res = 0
+        # 循环求和 1, 2, ..., n-1, n
+        for i in range(1, n + 1):
+            res += i
+        return res
     ```
 
 === "C++"
@@ -45,16 +43,32 @@ status: new
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="iteration.py"
-    def for_loop(n: int) -> int:
-        """for 循环"""
-        res = 0
-        # 循环求和 1, 2, ..., n-1, n
-        for i in range(1, n + 1):
-            res += i
-        return res
+    ```java title="iteration.java"
+    /* for 循环 */
+    int forLoop(int n) {
+        int res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="iteration.cs"
+    /* for 循环 */
+    int forLoop(int n) {
+        int res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
     ```
 
 === "Go"
@@ -65,6 +79,20 @@ status: new
         res := 0
         // 循环求和 1, 2, ..., n-1, n
         for i := 1; i <= n; i++ {
+            res += i
+        }
+        return res
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="iteration.swift"
+    /* for 循环 */
+    func forLoop(n: Int) -> Int {
+        var res = 0
+        // 循环求和 1, 2, ..., n-1, n
+        for i in 1 ... n {
             res += i
         }
         return res
@@ -99,46 +127,6 @@ status: new
     }
     ```
 
-=== "C"
-
-    ```c title="iteration.c"
-    [class]{}-[func]{forLoop}
-    ```
-
-=== "C#"
-
-    ```csharp title="iteration.cs"
-    /* for 循环 */
-    int forLoop(int n) {
-        int res = 0;
-        // 循环求和 1, 2, ..., n-1, n
-        for (int i = 1; i <= n; i++) {
-            res += i;
-        }
-        return res;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="iteration.swift"
-    /* for 循环 */
-    func forLoop(n: Int) -> Int {
-        var res = 0
-        // 循环求和 1, 2, ..., n-1, n
-        for i in 1 ... n {
-            res += i
-        }
-        return res
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{forLoop}
-    ```
-
 === "Dart"
 
     ```dart title="iteration.dart"
@@ -167,6 +155,18 @@ status: new
     } 
     ```
 
+=== "C"
+
+    ```c title="iteration.c"
+    [class]{}-[func]{forLoop}
+    ```
+
+=== "Zig"
+
+    ```zig title="iteration.zig"
+    [class]{}-[func]{forLoop}
+    ```
+
 图 2-1 展示了该求和函数的流程框图。
 
 ![求和函数的流程框图](iteration_and_recursion.assets/iteration.png)
@@ -181,20 +181,18 @@ status: new
 
 下面，我们用 `while` 循环来实现求和 $1 + 2 + \dots + n$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="iteration.java"
-    /* while 循环 */
-    int whileLoop(int n) {
-        int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
-        while (i <= n) {
-            res += i;
-            i++; // 更新条件变量
-        }
-        return res;
-    }
+    ```python title="iteration.py"
+    def while_loop(n: int) -> int:
+        """while 循环"""
+        res = 0
+        i = 1  # 初始化条件变量
+        # 循环求和 1, 2, ..., n-1, n
+        while i <= n:
+            res += i
+            i += 1  # 更新条件变量
+        return res
     ```
 
 === "C++"
@@ -213,18 +211,36 @@ status: new
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="iteration.py"
-    def while_loop(n: int) -> int:
-        """while 循环"""
-        res = 0
-        i = 1  # 初始化条件变量
-        # 循环求和 1, 2, ..., n-1, n
-        while i <= n:
-            res += i
-            i += 1  # 更新条件变量
-        return res
+    ```java title="iteration.java"
+    /* while 循环 */
+    int whileLoop(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i;
+            i++; // 更新条件变量
+        }
+        return res;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="iteration.cs"
+    /* while 循环 */
+    int whileLoop(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i;
+            i += 1; // 更新条件变量
+        }
+        return res;
+    }
     ```
 
 === "Go"
@@ -240,6 +256,22 @@ status: new
             res += i
             // 更新条件变量
             i++
+        }
+        return res
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="iteration.swift"
+    /* while 循环 */
+    func whileLoop(n: Int) -> Int {
+        var res = 0
+        var i = 1 // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while i <= n {
+            res += i
+            i += 1 // 更新条件变量
         }
         return res
     }
@@ -277,50 +309,6 @@ status: new
     }
     ```
 
-=== "C"
-
-    ```c title="iteration.c"
-    [class]{}-[func]{whileLoop}
-    ```
-
-=== "C#"
-
-    ```csharp title="iteration.cs"
-    /* while 循环 */
-    int whileLoop(int n) {
-        int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
-        while (i <= n) {
-            res += i;
-            i += 1; // 更新条件变量
-        }
-        return res;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="iteration.swift"
-    /* while 循环 */
-    func whileLoop(n: Int) -> Int {
-        var res = 0
-        var i = 1 // 初始化条件变量
-        // 循环求和 1, 2, ..., n-1, n
-        while i <= n {
-            res += i
-            i += 1 // 更新条件变量
-        }
-        return res
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{whileLoop}
-    ```
-
 === "Dart"
 
     ```dart title="iteration.dart"
@@ -353,26 +341,36 @@ status: new
     }
     ```
 
+=== "C"
+
+    ```c title="iteration.c"
+    [class]{}-[func]{whileLoop}
+    ```
+
+=== "Zig"
+
+    ```zig title="iteration.zig"
+    [class]{}-[func]{whileLoop}
+    ```
+
 在 `while` 循环中，由于初始化和更新条件变量的步骤是独立在循环结构之外的，**因此它比 `for` 循环的自由度更高**。
 
 例如在以下代码中，条件变量 $i$ 每轮进行了两次更新，这种情况就不太方便用 `for` 循环实现。
 
-=== "Java"
+=== "Python"
 
-    ```java title="iteration.java"
-    /* while 循环（两次更新） */
-    int whileLoopII(int n) {
-        int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 4, ...
-        while (i <= n) {
-            res += i;
-            // 更新条件变量
-            i++;
-            i *= 2;
-        }
-        return res;
-    }
+    ```python title="iteration.py"
+    def while_loop_ii(n: int) -> int:
+        """while 循环（两次更新）"""
+        res = 0
+        i = 1  # 初始化条件变量
+        # 循环求和 1, 4, ...
+        while i <= n:
+            res += i
+            # 更新条件变量
+            i += 1
+            i *= 2
+        return res
     ```
 
 === "C++"
@@ -393,20 +391,40 @@ status: new
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="iteration.py"
-    def while_loop_ii(n: int) -> int:
-        """while 循环（两次更新）"""
-        res = 0
-        i = 1  # 初始化条件变量
-        # 循环求和 1, 4, ...
-        while i <= n:
-            res += i
-            # 更新条件变量
-            i += 1
-            i *= 2
-        return res
+    ```java title="iteration.java"
+    /* while 循环（两次更新） */
+    int whileLoopII(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while (i <= n) {
+            res += i;
+            // 更新条件变量
+            i++;
+            i *= 2;
+        }
+        return res;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="iteration.cs"
+    /* while 循环（两次更新） */
+    int whileLoopII(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 2, 4, 5...
+        while (i <= n) {
+            res += i;
+            i += 1; // 更新条件变量
+            res += i;
+            i *= 2; // 更新条件变量
+        }
+        return res;
+    }
     ```
 
 === "Go"
@@ -422,6 +440,24 @@ status: new
             res += i
             // 更新条件变量
             i++
+            i *= 2
+        }
+        return res
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="iteration.swift"
+    /* while 循环（两次更新） */
+    func whileLoopII(n: Int) -> Int {
+        var res = 0
+        var i = 1 // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while i <= n {
+            res += i
+            // 更新条件变量
+            i += 1
             i *= 2
         }
         return res
@@ -464,54 +500,6 @@ status: new
     }
     ```
 
-=== "C"
-
-    ```c title="iteration.c"
-    [class]{}-[func]{whileLoopII}
-    ```
-
-=== "C#"
-
-    ```csharp title="iteration.cs"
-    /* while 循环（两次更新） */
-    int whileLoopII(int n) {
-        int res = 0;
-        int i = 1; // 初始化条件变量
-        // 循环求和 1, 2, 4, 5...
-        while (i <= n) {
-            res += i;
-            i += 1; // 更新条件变量
-            res += i;
-            i *= 2; // 更新条件变量
-        }
-        return res;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="iteration.swift"
-    /* while 循环（两次更新） */
-    func whileLoopII(n: Int) -> Int {
-        var res = 0
-        var i = 1 // 初始化条件变量
-        // 循环求和 1, 4, ...
-        while i <= n {
-            res += i
-            // 更新条件变量
-            i += 1
-            i *= 2
-        }
-        return res
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{whileLoopII}
-    ```
-
 === "Dart"
 
     ```dart title="iteration.dart"
@@ -548,27 +536,36 @@ status: new
     }
     ```
 
+=== "C"
+
+    ```c title="iteration.c"
+    [class]{}-[func]{whileLoopII}
+    ```
+
+=== "Zig"
+
+    ```zig title="iteration.zig"
+    [class]{}-[func]{whileLoopII}
+    ```
+
 总的来说，**`for` 循环的代码更加紧凑，`while` 循环更加灵活**，两者都可以实现迭代结构。选择使用哪一个应该根据特定问题的需求来决定。
 
 ### 3. &nbsp; 嵌套循环
 
 我们可以在一个循环结构内嵌套另一个循环结构，以 `for` 循环为例：
 
-=== "Java"
+=== "Python"
 
-    ```java title="iteration.java"
-    /* 双层 for 循环 */
-    String nestedForLoop(int n) {
-        StringBuilder res = new StringBuilder();
-        // 循环 i = 1, 2, ..., n-1, n
-        for (int i = 1; i <= n; i++) {
-            // 循环 j = 1, 2, ..., n-1, n
-            for (int j = 1; j <= n; j++) {
-                res.append("(" + i + ", " + j + "), ");
-            }
-        }
-        return res.toString();
-    }
+    ```python title="iteration.py"
+    def nested_for_loop(n: int) -> str:
+        """双层 for 循环"""
+        res = ""
+        # 循环 i = 1, 2, ..., n-1, n
+        for i in range(1, n + 1):
+            # 循环 j = 1, 2, ..., n-1, n
+            for j in range(1, n + 1):
+                res += f"({i}, {j}), "
+        return res
     ```
 
 === "C++"
@@ -588,18 +585,38 @@ status: new
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="iteration.py"
-    def nested_for_loop(n: int) -> str:
-        """双层 for 循环"""
-        res = ""
-        # 循环 i = 1, 2, ..., n-1, n
-        for i in range(1, n + 1):
-            # 循环 j = 1, 2, ..., n-1, n
-            for j in range(1, n + 1):
-                res += f"({i}, {j}), "
-        return res
+    ```java title="iteration.java"
+    /* 双层 for 循环 */
+    String nestedForLoop(int n) {
+        StringBuilder res = new StringBuilder();
+        // 循环 i = 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; i++) {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (int j = 1; j <= n; j++) {
+                res.append("(" + i + ", " + j + "), ");
+            }
+        }
+        return res.toString();
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="iteration.cs"
+    /* 双层 for 循环 */
+    string nestedForLoop(int n) {
+        StringBuilder res = new StringBuilder();
+        // 循环 i = 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; i++) {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (int j = 1; j <= n; j++) {
+                res.Append($"({i}, {j}), ");
+            }
+        }
+        return res.ToString();
+    }
     ```
 
 === "Go"
@@ -613,6 +630,23 @@ status: new
             for j := 1; j <= n; j++ {
                 // 循环 j = 1, 2, ..., n-1, n
                 res += fmt.Sprintf("(%d, %d), ", i, j)
+            }
+        }
+        return res
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="iteration.swift"
+    /* 双层 for 循环 */
+    func nestedForLoop(n: Int) -> String {
+        var res = ""
+        // 循环 i = 1, 2, ..., n-1, n
+        for i in 1 ... n {
+            // 循环 j = 1, 2, ..., n-1, n
+            for j in 1 ... n {
+                res.append("(\(i), \(j)), ")
             }
         }
         return res
@@ -653,52 +687,6 @@ status: new
     }
     ```
 
-=== "C"
-
-    ```c title="iteration.c"
-    [class]{}-[func]{nestedForLoop}
-    ```
-
-=== "C#"
-
-    ```csharp title="iteration.cs"
-    /* 双层 for 循环 */
-    string nestedForLoop(int n) {
-        StringBuilder res = new StringBuilder();
-        // 循环 i = 1, 2, ..., n-1, n
-        for (int i = 1; i <= n; i++) {
-            // 循环 j = 1, 2, ..., n-1, n
-            for (int j = 1; j <= n; j++) {
-                res.Append($"({i}, {j}), ");
-            }
-        }
-        return res.ToString();
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="iteration.swift"
-    /* 双层 for 循环 */
-    func nestedForLoop(n: Int) -> String {
-        var res = ""
-        // 循环 i = 1, 2, ..., n-1, n
-        for i in 1 ... n {
-            // 循环 j = 1, 2, ..., n-1, n
-            for j in 1 ... n {
-                res.append("(\(i), \(j)), ")
-            }
-        }
-        return res
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{nestedForLoop}
-    ```
-
 === "Dart"
 
     ```dart title="iteration.dart"
@@ -733,6 +721,18 @@ status: new
     }
     ```
 
+=== "C"
+
+    ```c title="iteration.c"
+    [class]{}-[func]{nestedForLoop}
+    ```
+
+=== "Zig"
+
+    ```zig title="iteration.zig"
+    [class]{}-[func]{nestedForLoop}
+    ```
+
 图 2-2 给出了该嵌套循环的流程框图。
 
 ![嵌套循环的流程框图](iteration_and_recursion.assets/nested_iteration.png)
@@ -758,19 +758,18 @@ status: new
 
 观察以下代码，我们只需调用函数 `recur(n)`  ，就可以完成 $1 + 2 + \dots + n$ 的计算：
 
-=== "Java"
+=== "Python"
 
-    ```java title="recursion.java"
-    /* 递归 */
-    int recur(int n) {
-        // 终止条件
-        if (n == 1)
-            return 1;
-        // 递：递归调用
-        int res = recur(n - 1);
-        // 归：返回结果
-        return n + res;
-    }
+    ```python title="recursion.py"
+    def recur(n: int) -> int:
+        """递归"""
+        # 终止条件
+        if n == 1:
+            return 1
+        # 递：递归调用
+        res = recur(n - 1)
+        # 归：返回结果
+        return n + res
     ```
 
 === "C++"
@@ -788,18 +787,34 @@ status: new
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="recursion.py"
-    def recur(n: int) -> int:
-        """递归"""
-        # 终止条件
-        if n == 1:
-            return 1
-        # 递：递归调用
-        res = recur(n - 1)
-        # 归：返回结果
-        return n + res
+    ```java title="recursion.java"
+    /* 递归 */
+    int recur(int n) {
+        // 终止条件
+        if (n == 1)
+            return 1;
+        // 递：递归调用
+        int res = recur(n - 1);
+        // 归：返回结果
+        return n + res;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="recursion.cs"
+    /* 递归 */
+    int recur(int n) {
+        // 终止条件
+        if (n == 1)
+            return 1;
+        // 递：递归调用
+        int res = recur(n - 1);
+        // 归：返回结果
+        return n + res;
+    }
     ```
 
 === "Go"
@@ -813,6 +828,22 @@ status: new
         }
         // 递：递归调用
         res := recur(n - 1)
+        // 归：返回结果
+        return n + res
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="recursion.swift"
+    /* 递归 */
+    func recur(n: Int) -> Int {
+        // 终止条件
+        if n == 1 {
+            return 1
+        }
+        // 递：递归调用
+        let res = recur(n: n - 1)
         // 归：返回结果
         return n + res
     }
@@ -846,49 +877,6 @@ status: new
     }
     ```
 
-=== "C"
-
-    ```c title="recursion.c"
-    [class]{}-[func]{recur}
-    ```
-
-=== "C#"
-
-    ```csharp title="recursion.cs"
-    /* 递归 */
-    int recur(int n) {
-        // 终止条件
-        if (n == 1)
-            return 1;
-        // 递：递归调用
-        int res = recur(n - 1);
-        // 归：返回结果
-        return n + res;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="recursion.swift"
-    /* 递归 */
-    func recur(n: Int) -> Int {
-        // 终止条件
-        if n == 1 {
-            return 1
-        }
-        // 递：递归调用
-        let res = recur(n: n - 1)
-        // 归：返回结果
-        return n + res
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    [class]{}-[func]{recur}
-    ```
-
 === "Dart"
 
     ```dart title="recursion.dart"
@@ -917,6 +905,18 @@ status: new
         // 归：返回结果
         n + res
     }
+    ```
+
+=== "C"
+
+    ```c title="recursion.c"
+    [class]{}-[func]{recur}
+    ```
+
+=== "Zig"
+
+    ```zig title="recursion.zig"
+    [class]{}-[func]{recur}
     ```
 
 图 2-3 展示了该函数的递归过程。
@@ -959,17 +959,16 @@ status: new
 
 以计算 $1 + 2 + \dots + n$ 为例，我们可以将结果变量 `res` 设为函数参数，从而实现尾递归。
 
-=== "Java"
+=== "Python"
 
-    ```java title="recursion.java"
-    /* 尾递归 */
-    int tailRecur(int n, int res) {
-        // 终止条件
-        if (n == 0)
-            return res;
-        // 尾递归调用
-        return tailRecur(n - 1, res + n);
-    }
+    ```python title="recursion.py"
+    def tail_recur(n, res):
+        """尾递归"""
+        # 终止条件
+        if n == 0:
+            return res
+        # 尾递归调用
+        return tail_recur(n - 1, res + n)
     ```
 
 === "C++"
@@ -985,16 +984,30 @@ status: new
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="recursion.py"
-    def tail_recur(n, res):
-        """尾递归"""
-        # 终止条件
-        if n == 0:
-            return res
-        # 尾递归调用
-        return tail_recur(n - 1, res + n)
+    ```java title="recursion.java"
+    /* 尾递归 */
+    int tailRecur(int n, int res) {
+        // 终止条件
+        if (n == 0)
+            return res;
+        // 尾递归调用
+        return tailRecur(n - 1, res + n);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="recursion.cs"
+    /* 尾递归 */
+    int tailRecur(int n, int res) {
+        // 终止条件
+        if (n == 0)
+            return res;
+        // 尾递归调用
+        return tailRecur(n - 1, res + n);
+    }
     ```
 
 === "Go"
@@ -1008,6 +1021,20 @@ status: new
         }
         // 尾递归调用
         return tailRecur(n-1, res+n)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="recursion.swift"
+    /* 尾递归 */
+    func tailRecur(n: Int, res: Int) -> Int {
+        // 终止条件
+        if n == 0 {
+            return res
+        }
+        // 尾递归调用
+        return tailRecur(n: n - 1, res: res + n)
     }
     ```
 
@@ -1033,45 +1060,6 @@ status: new
         // 尾递归调用
         return tailRecur(n - 1, res + n);
     }
-    ```
-
-=== "C"
-
-    ```c title="recursion.c"
-    [class]{}-[func]{tailRecur}
-    ```
-
-=== "C#"
-
-    ```csharp title="recursion.cs"
-    /* 尾递归 */
-    int tailRecur(int n, int res) {
-        // 终止条件
-        if (n == 0)
-            return res;
-        // 尾递归调用
-        return tailRecur(n - 1, res + n);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="recursion.swift"
-    /* 尾递归 */
-    func tailRecur(n: Int, res: Int) -> Int {
-        // 终止条件
-        if n == 0 {
-            return res
-        }
-        // 尾递归调用
-        return tailRecur(n: n - 1, res: res + n)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    [class]{}-[func]{tailRecur}
     ```
 
 === "Dart"
@@ -1100,6 +1088,18 @@ status: new
     }
     ```
 
+=== "C"
+
+    ```c title="recursion.c"
+    [class]{}-[func]{tailRecur}
+    ```
+
+=== "Zig"
+
+    ```zig title="recursion.zig"
+    [class]{}-[func]{tailRecur}
+    ```
+
 两种递归的过程对比如图 2-5 所示。
 
 - **普通递归**：求和操作是在“归”的过程中执行的，每层返回后都要再执行一次求和操作。
@@ -1126,19 +1126,18 @@ status: new
 
 按照递推关系进行递归调用，将前两个数字作为终止条件，便可写出递归代码。调用 `fib(n)` 即可得到斐波那契数列的第 $n$ 个数字。
 
-=== "Java"
+=== "Python"
 
-    ```java title="recursion.java"
-    /* 斐波那契数列：递归 */
-    int fib(int n) {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if (n == 1 || n == 2)
-            return n - 1;
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        int res = fib(n - 1) + fib(n - 2);
-        // 返回结果 f(n)
-        return res;
-    }
+    ```python title="recursion.py"
+    def fib(n: int) -> int:
+        """斐波那契数列：递归"""
+        # 终止条件 f(1) = 0, f(2) = 1
+        if n == 1 or n == 2:
+            return n - 1
+        # 递归调用 f(n) = f(n-1) + f(n-2)
+        res = fib(n - 1) + fib(n - 2)
+        # 返回结果 f(n)
+        return res
     ```
 
 === "C++"
@@ -1156,18 +1155,34 @@ status: new
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="recursion.py"
-    def fib(n: int) -> int:
-        """斐波那契数列：递归"""
-        # 终止条件 f(1) = 0, f(2) = 1
-        if n == 1 or n == 2:
-            return n - 1
-        # 递归调用 f(n) = f(n-1) + f(n-2)
-        res = fib(n - 1) + fib(n - 2)
-        # 返回结果 f(n)
-        return res
+    ```java title="recursion.java"
+    /* 斐波那契数列：递归 */
+    int fib(int n) {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n == 1 || n == 2)
+            return n - 1;
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        int res = fib(n - 1) + fib(n - 2);
+        // 返回结果 f(n)
+        return res;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="recursion.cs"
+    /* 斐波那契数列：递归 */
+    int fib(int n) {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n == 1 || n == 2)
+            return n - 1;
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        int res = fib(n - 1) + fib(n - 2);
+        // 返回结果 f(n)
+        return res;
+    }
     ```
 
 === "Go"
@@ -1181,6 +1196,22 @@ status: new
         }
         // 递归调用 f(n) = f(n-1) + f(n-2)
         res := fib(n-1) + fib(n-2)
+        // 返回结果 f(n)
+        return res
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="recursion.swift"
+    /* 斐波那契数列：递归 */
+    func fib(n: Int) -> Int {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if n == 1 || n == 2 {
+            return n - 1
+        }
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        let res = fib(n: n - 1) + fib(n: n - 2)
         // 返回结果 f(n)
         return res
     }
@@ -1214,49 +1245,6 @@ status: new
     }
     ```
 
-=== "C"
-
-    ```c title="recursion.c"
-    [class]{}-[func]{fib}
-    ```
-
-=== "C#"
-
-    ```csharp title="recursion.cs"
-    /* 斐波那契数列：递归 */
-    int fib(int n) {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if (n == 1 || n == 2)
-            return n - 1;
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        int res = fib(n - 1) + fib(n - 2);
-        // 返回结果 f(n)
-        return res;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="recursion.swift"
-    /* 斐波那契数列：递归 */
-    func fib(n: Int) -> Int {
-        // 终止条件 f(1) = 0, f(2) = 1
-        if n == 1 || n == 2 {
-            return n - 1
-        }
-        // 递归调用 f(n) = f(n-1) + f(n-2)
-        let res = fib(n: n - 1) + fib(n: n - 2)
-        // 返回结果 f(n)
-        return res
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    [class]{}-[func]{fib}
-    ```
-
 === "Dart"
 
     ```dart title="recursion.dart"
@@ -1285,6 +1273,18 @@ status: new
         // 返回结果
         res
     }
+    ```
+
+=== "C"
+
+    ```c title="recursion.c"
+    [class]{}-[func]{fib}
+    ```
+
+=== "Zig"
+
+    ```zig title="recursion.zig"
+    [class]{}-[func]{fib}
     ```
 
 观察以上代码，我们在函数内递归调用了两个函数，**这意味着从一个调用产生了两个调用分支**。如图 2-6 所示，这样不断递归调用下去，最终将产生一个层数为 $n$ 的「递归树 recursion tree」。

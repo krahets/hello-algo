@@ -93,29 +93,26 @@ $$
 
 变量 $i$、$j$、$res$ 使用常数大小额外空间，**因此空间复杂度为 $O(1)$** 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="max_capacity.java"
-    /* 最大容量：贪心 */
-    int maxCapacity(int[] ht) {
-        // 初始化 i, j 分列数组两端
-        int i = 0, j = ht.length - 1;
-        // 初始最大容量为 0
-        int res = 0;
-        // 循环贪心选择，直至两板相遇
-        while (i < j) {
-            // 更新最大容量
-            int cap = Math.min(ht[i], ht[j]) * (j - i);
-            res = Math.max(res, cap);
-            // 向内移动短板
-            if (ht[i] < ht[j]) {
-                i++;
-            } else {
-                j--;
-            }
-        }
-        return res;
-    }
+    ```python title="max_capacity.py"
+    def max_capacity(ht: list[int]) -> int:
+        """最大容量：贪心"""
+        # 初始化 i, j 分列数组两端
+        i, j = 0, len(ht) - 1
+        # 初始最大容量为 0
+        res = 0
+        # 循环贪心选择，直至两板相遇
+        while i < j:
+            # 更新最大容量
+            cap = min(ht[i], ht[j]) * (j - i)
+            res = max(res, cap)
+            # 向内移动短板
+            if ht[i] < ht[j]:
+                i += 1
+            else:
+                j -= 1
+        return res
     ```
 
 === "C++"
@@ -143,26 +140,54 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="max_capacity.py"
-    def max_capacity(ht: list[int]) -> int:
-        """最大容量：贪心"""
-        # 初始化 i, j 分列数组两端
-        i, j = 0, len(ht) - 1
-        # 初始最大容量为 0
-        res = 0
-        # 循环贪心选择，直至两板相遇
-        while i < j:
-            # 更新最大容量
-            cap = min(ht[i], ht[j]) * (j - i)
-            res = max(res, cap)
-            # 向内移动短板
-            if ht[i] < ht[j]:
-                i += 1
-            else:
-                j -= 1
-        return res
+    ```java title="max_capacity.java"
+    /* 最大容量：贪心 */
+    int maxCapacity(int[] ht) {
+        // 初始化 i, j 分列数组两端
+        int i = 0, j = ht.length - 1;
+        // 初始最大容量为 0
+        int res = 0;
+        // 循环贪心选择，直至两板相遇
+        while (i < j) {
+            // 更新最大容量
+            int cap = Math.min(ht[i], ht[j]) * (j - i);
+            res = Math.max(res, cap);
+            // 向内移动短板
+            if (ht[i] < ht[j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return res;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="max_capacity.cs"
+    /* 最大容量：贪心 */
+    int maxCapacity(int[] ht) {
+        // 初始化 i, j 分列数组两端
+        int i = 0, j = ht.Length - 1;
+        // 初始最大容量为 0
+        int res = 0;
+        // 循环贪心选择，直至两板相遇
+        while (i < j) {
+            // 更新最大容量
+            int cap = Math.Min(ht[i], ht[j]) * (j - i);
+            res = Math.Max(res, cap);
+            // 向内移动短板
+            if (ht[i] < ht[j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return res;
+    }
     ```
 
 === "Go"
@@ -184,6 +209,31 @@ $$
                 i++
             } else {
                 j--
+            }
+        }
+        return res
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="max_capacity.swift"
+    /* 最大容量：贪心 */
+    func maxCapacity(ht: [Int]) -> Int {
+        // 初始化 i, j 分列数组两端
+        var i = 0, j = ht.count - 1
+        // 初始最大容量为 0
+        var res = 0
+        // 循环贪心选择，直至两板相遇
+        while i < j {
+            // 更新最大容量
+            let cap = min(ht[i], ht[j]) * (j - i)
+            res = max(res, cap)
+            // 向内移动短板
+            if ht[i] < ht[j] {
+                i += 1
+            } else {
+                j -= 1
             }
         }
         return res
@@ -242,68 +292,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="max_capacity.c"
-    [class]{}-[func]{maxCapacity}
-    ```
-
-=== "C#"
-
-    ```csharp title="max_capacity.cs"
-    /* 最大容量：贪心 */
-    int maxCapacity(int[] ht) {
-        // 初始化 i, j 分列数组两端
-        int i = 0, j = ht.Length - 1;
-        // 初始最大容量为 0
-        int res = 0;
-        // 循环贪心选择，直至两板相遇
-        while (i < j) {
-            // 更新最大容量
-            int cap = Math.Min(ht[i], ht[j]) * (j - i);
-            res = Math.Max(res, cap);
-            // 向内移动短板
-            if (ht[i] < ht[j]) {
-                i++;
-            } else {
-                j--;
-            }
-        }
-        return res;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="max_capacity.swift"
-    /* 最大容量：贪心 */
-    func maxCapacity(ht: [Int]) -> Int {
-        // 初始化 i, j 分列数组两端
-        var i = 0, j = ht.count - 1
-        // 初始最大容量为 0
-        var res = 0
-        // 循环贪心选择，直至两板相遇
-        while i < j {
-            // 更新最大容量
-            let cap = min(ht[i], ht[j]) * (j - i)
-            res = max(res, cap)
-            // 向内移动短板
-            if ht[i] < ht[j] {
-                i += 1
-            } else {
-                j -= 1
-            }
-        }
-        return res
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="max_capacity.zig"
-    [class]{}-[func]{maxCapacity}
-    ```
-
 === "Dart"
 
     ```dart title="max_capacity.dart"
@@ -353,6 +341,18 @@ $$
         }
         res
     }
+    ```
+
+=== "C"
+
+    ```c title="max_capacity.c"
+    [class]{}-[func]{maxCapacity}
+    ```
+
+=== "Zig"
+
+    ```zig title="max_capacity.zig"
+    [class]{}-[func]{maxCapacity}
     ```
 
 ### 3. &nbsp; 正确性证明

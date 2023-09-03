@@ -63,25 +63,22 @@ $$
 - **终止条件**：当物品编号越界 $i = 0$ 或背包剩余容量为 $0$ 时，终止递归并返回价值 $0$ 。
 - **剪枝**：若当前物品重量超出背包剩余容量，则只能不放入背包。
 
-=== "Java"
+=== "Python"
 
-    ```java title="knapsack.java"
-    /* 0-1 背包：暴力搜索 */
-    int knapsackDFS(int[] wgt, int[] val, int i, int c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
-        if (i == 0 || c == 0) {
-            return 0;
-        }
-        // 若超过背包容量，则只能不放入背包
-        if (wgt[i - 1] > c) {
-            return knapsackDFS(wgt, val, i - 1, c);
-        }
-        // 计算不放入和放入物品 i 的最大价值
-        int no = knapsackDFS(wgt, val, i - 1, c);
-        int yes = knapsackDFS(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1];
-        // 返回两种方案中价值更大的那一个
-        return Math.max(no, yes);
-    }
+    ```python title="knapsack.py"
+    def knapsack_dfs(wgt: list[int], val: list[int], i: int, c: int) -> int:
+        """0-1 背包：暴力搜索"""
+        # 若已选完所有物品或背包无容量，则返回价值 0
+        if i == 0 or c == 0:
+            return 0
+        # 若超过背包容量，则只能不放入背包
+        if wgt[i - 1] > c:
+            return knapsack_dfs(wgt, val, i - 1, c)
+        # 计算不放入和放入物品 i 的最大价值
+        no = knapsack_dfs(wgt, val, i - 1, c)
+        yes = knapsack_dfs(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1]
+        # 返回两种方案中价值更大的那一个
+        return max(no, yes)
     ```
 
 === "C++"
@@ -105,22 +102,46 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="knapsack.py"
-    def knapsack_dfs(wgt: list[int], val: list[int], i: int, c: int) -> int:
-        """0-1 背包：暴力搜索"""
-        # 若已选完所有物品或背包无容量，则返回价值 0
-        if i == 0 or c == 0:
-            return 0
-        # 若超过背包容量，则只能不放入背包
-        if wgt[i - 1] > c:
-            return knapsack_dfs(wgt, val, i - 1, c)
-        # 计算不放入和放入物品 i 的最大价值
-        no = knapsack_dfs(wgt, val, i - 1, c)
-        yes = knapsack_dfs(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1]
-        # 返回两种方案中价值更大的那一个
-        return max(no, yes)
+    ```java title="knapsack.java"
+    /* 0-1 背包：暴力搜索 */
+    int knapsackDFS(int[] wgt, int[] val, int i, int c) {
+        // 若已选完所有物品或背包无容量，则返回价值 0
+        if (i == 0 || c == 0) {
+            return 0;
+        }
+        // 若超过背包容量，则只能不放入背包
+        if (wgt[i - 1] > c) {
+            return knapsackDFS(wgt, val, i - 1, c);
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        int no = knapsackDFS(wgt, val, i - 1, c);
+        int yes = knapsackDFS(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1];
+        // 返回两种方案中价值更大的那一个
+        return Math.max(no, yes);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="knapsack.cs"
+    /* 0-1 背包：暴力搜索 */
+    int knapsackDFS(int[] weight, int[] val, int i, int c) {
+        // 若已选完所有物品或背包无容量，则返回价值 0
+        if (i == 0 || c == 0) {
+            return 0;
+        }
+        // 若超过背包容量，则只能不放入背包
+        if (weight[i - 1] > c) {
+            return knapsackDFS(weight, val, i - 1, c);
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        int no = knapsackDFS(weight, val, i - 1, c);
+        int yes = knapsackDFS(weight, val, i - 1, c - weight[i - 1]) + val[i - 1];
+        // 返回两种方案中价值更大的那一个
+        return Math.Max(no, yes);
+    }
     ```
 
 === "Go"
@@ -141,6 +162,27 @@ $$
         yes := knapsackDFS(wgt, val, i-1, c-wgt[i-1]) + val[i-1]
         // 返回两种方案中价值更大的那一个
         return int(math.Max(float64(no), float64(yes)))
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="knapsack.swift"
+    /* 0-1 背包：暴力搜索 */
+    func knapsackDFS(wgt: [Int], val: [Int], i: Int, c: Int) -> Int {
+        // 若已选完所有物品或背包无容量，则返回价值 0
+        if i == 0 || c == 0 {
+            return 0
+        }
+        // 若超过背包容量，则只能不放入背包
+        if wgt[i - 1] > c {
+            return knapsackDFS(wgt: wgt, val: val, i: i - 1, c: c)
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        let no = knapsackDFS(wgt: wgt, val: val, i: i - 1, c: c)
+        let yes = knapsackDFS(wgt: wgt, val: val, i: i - 1, c: c - wgt[i - 1]) + val[i - 1]
+        // 返回两种方案中价值更大的那一个
+        return max(no, yes)
     }
     ```
 
@@ -191,75 +233,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="knapsack.c"
-    [class]{}-[func]{knapsackDFS}
-    ```
-
-=== "C#"
-
-    ```csharp title="knapsack.cs"
-    /* 0-1 背包：暴力搜索 */
-    int knapsackDFS(int[] weight, int[] val, int i, int c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
-        if (i == 0 || c == 0) {
-            return 0;
-        }
-        // 若超过背包容量，则只能不放入背包
-        if (weight[i - 1] > c) {
-            return knapsackDFS(weight, val, i - 1, c);
-        }
-        // 计算不放入和放入物品 i 的最大价值
-        int no = knapsackDFS(weight, val, i - 1, c);
-        int yes = knapsackDFS(weight, val, i - 1, c - weight[i - 1]) + val[i - 1];
-        // 返回两种方案中价值更大的那一个
-        return Math.Max(no, yes);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="knapsack.swift"
-    /* 0-1 背包：暴力搜索 */
-    func knapsackDFS(wgt: [Int], val: [Int], i: Int, c: Int) -> Int {
-        // 若已选完所有物品或背包无容量，则返回价值 0
-        if i == 0 || c == 0 {
-            return 0
-        }
-        // 若超过背包容量，则只能不放入背包
-        if wgt[i - 1] > c {
-            return knapsackDFS(wgt: wgt, val: val, i: i - 1, c: c)
-        }
-        // 计算不放入和放入物品 i 的最大价值
-        let no = knapsackDFS(wgt: wgt, val: val, i: i - 1, c: c)
-        let yes = knapsackDFS(wgt: wgt, val: val, i: i - 1, c: c - wgt[i - 1]) + val[i - 1]
-        // 返回两种方案中价值更大的那一个
-        return max(no, yes)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    // 0-1 背包：暴力搜索
-    fn knapsackDFS(wgt: []i32, val: []i32, i: usize, c: usize) i32 {
-        // 若已选完所有物品或背包无容量，则返回价值 0
-        if (i == 0 or c == 0) {
-            return 0;
-        }
-        // 若超过背包容量，则只能不放入背包
-        if (wgt[i - 1] > c) {
-            return knapsackDFS(wgt, val, i - 1, c);
-        }
-        // 计算不放入和放入物品 i 的最大价值
-        var no = knapsackDFS(wgt, val, i - 1, c);
-        var yes = knapsackDFS(wgt, val, i - 1, c - @as(usize, @intCast(wgt[i - 1]))) + val[i - 1];
-        // 返回两种方案中价值更大的那一个
-        return @max(no, yes);
-    }
-    ```
-
 === "Dart"
 
     ```dart title="knapsack.dart"
@@ -302,6 +275,33 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="knapsack.c"
+    [class]{}-[func]{knapsackDFS}
+    ```
+
+=== "Zig"
+
+    ```zig title="knapsack.zig"
+    // 0-1 背包：暴力搜索
+    fn knapsackDFS(wgt: []i32, val: []i32, i: usize, c: usize) i32 {
+        // 若已选完所有物品或背包无容量，则返回价值 0
+        if (i == 0 or c == 0) {
+            return 0;
+        }
+        // 若超过背包容量，则只能不放入背包
+        if (wgt[i - 1] > c) {
+            return knapsackDFS(wgt, val, i - 1, c);
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        var no = knapsackDFS(wgt, val, i - 1, c);
+        var yes = knapsackDFS(wgt, val, i - 1, c - @as(usize, @intCast(wgt[i - 1]))) + val[i - 1];
+        // 返回两种方案中价值更大的那一个
+        return @max(no, yes);
+    }
+    ```
+
 如图 14-18 所示，由于每个物品都会产生不选和选两条搜索分支，因此时间复杂度为 $O(2^n)$ 。
 
 观察递归树，容易发现其中存在重叠子问题，例如 $dp[1, 10]$ 等。而当物品较多、背包容量较大，尤其是相同重量的物品较多时，重叠子问题的数量将会大幅增多。
@@ -316,30 +316,28 @@ $$
 
 引入记忆化之后，**时间复杂度取决于子问题数量**，也就是 $O(n \times cap)$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="knapsack.java"
-    /* 0-1 背包：记忆化搜索 */
-    int knapsackDFSMem(int[] wgt, int[] val, int[][] mem, int i, int c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
-        if (i == 0 || c == 0) {
-            return 0;
-        }
-        // 若已有记录，则直接返回
-        if (mem[i][c] != -1) {
-            return mem[i][c];
-        }
-        // 若超过背包容量，则只能不放入背包
-        if (wgt[i - 1] > c) {
-            return knapsackDFSMem(wgt, val, mem, i - 1, c);
-        }
-        // 计算不放入和放入物品 i 的最大价值
-        int no = knapsackDFSMem(wgt, val, mem, i - 1, c);
-        int yes = knapsackDFSMem(wgt, val, mem, i - 1, c - wgt[i - 1]) + val[i - 1];
-        // 记录并返回两种方案中价值更大的那一个
-        mem[i][c] = Math.max(no, yes);
-        return mem[i][c];
-    }
+    ```python title="knapsack.py"
+    def knapsack_dfs_mem(
+        wgt: list[int], val: list[int], mem: list[list[int]], i: int, c: int
+    ) -> int:
+        """0-1 背包：记忆化搜索"""
+        # 若已选完所有物品或背包无容量，则返回价值 0
+        if i == 0 or c == 0:
+            return 0
+        # 若已有记录，则直接返回
+        if mem[i][c] != -1:
+            return mem[i][c]
+        # 若超过背包容量，则只能不放入背包
+        if wgt[i - 1] > c:
+            return knapsack_dfs_mem(wgt, val, mem, i - 1, c)
+        # 计算不放入和放入物品 i 的最大价值
+        no = knapsack_dfs_mem(wgt, val, mem, i - 1, c)
+        yes = knapsack_dfs_mem(wgt, val, mem, i - 1, c - wgt[i - 1]) + val[i - 1]
+        # 记录并返回两种方案中价值更大的那一个
+        mem[i][c] = max(no, yes)
+        return mem[i][c]
     ```
 
 === "C++"
@@ -368,28 +366,56 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="knapsack.py"
-    def knapsack_dfs_mem(
-        wgt: list[int], val: list[int], mem: list[list[int]], i: int, c: int
-    ) -> int:
-        """0-1 背包：记忆化搜索"""
-        # 若已选完所有物品或背包无容量，则返回价值 0
-        if i == 0 or c == 0:
-            return 0
-        # 若已有记录，则直接返回
-        if mem[i][c] != -1:
-            return mem[i][c]
-        # 若超过背包容量，则只能不放入背包
-        if wgt[i - 1] > c:
-            return knapsack_dfs_mem(wgt, val, mem, i - 1, c)
-        # 计算不放入和放入物品 i 的最大价值
-        no = knapsack_dfs_mem(wgt, val, mem, i - 1, c)
-        yes = knapsack_dfs_mem(wgt, val, mem, i - 1, c - wgt[i - 1]) + val[i - 1]
-        # 记录并返回两种方案中价值更大的那一个
-        mem[i][c] = max(no, yes)
-        return mem[i][c]
+    ```java title="knapsack.java"
+    /* 0-1 背包：记忆化搜索 */
+    int knapsackDFSMem(int[] wgt, int[] val, int[][] mem, int i, int c) {
+        // 若已选完所有物品或背包无容量，则返回价值 0
+        if (i == 0 || c == 0) {
+            return 0;
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][c] != -1) {
+            return mem[i][c];
+        }
+        // 若超过背包容量，则只能不放入背包
+        if (wgt[i - 1] > c) {
+            return knapsackDFSMem(wgt, val, mem, i - 1, c);
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        int no = knapsackDFSMem(wgt, val, mem, i - 1, c);
+        int yes = knapsackDFSMem(wgt, val, mem, i - 1, c - wgt[i - 1]) + val[i - 1];
+        // 记录并返回两种方案中价值更大的那一个
+        mem[i][c] = Math.max(no, yes);
+        return mem[i][c];
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="knapsack.cs"
+    /* 0-1 背包：记忆化搜索 */
+    int knapsackDFSMem(int[] weight, int[] val, int[][] mem, int i, int c) {
+        // 若已选完所有物品或背包无容量，则返回价值 0
+        if (i == 0 || c == 0) {
+            return 0;
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][c] != -1) {
+            return mem[i][c];
+        }
+        // 若超过背包容量，则只能不放入背包
+        if (weight[i - 1] > c) {
+            return knapsackDFSMem(weight, val, mem, i - 1, c);
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        int no = knapsackDFSMem(weight, val, mem, i - 1, c);
+        int yes = knapsackDFSMem(weight, val, mem, i - 1, c - weight[i - 1]) + val[i - 1];
+        // 记录并返回两种方案中价值更大的那一个
+        mem[i][c] = Math.Max(no, yes);
+        return mem[i][c];
+    }
     ```
 
 === "Go"
@@ -414,6 +440,32 @@ $$
         yes := knapsackDFSMem(wgt, val, mem, i-1, c-wgt[i-1]) + val[i-1]
         // 返回两种方案中价值更大的那一个
         mem[i][c] = int(math.Max(float64(no), float64(yes)))
+        return mem[i][c]
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="knapsack.swift"
+    /* 0-1 背包：记忆化搜索 */
+    func knapsackDFSMem(wgt: [Int], val: [Int], mem: inout [[Int]], i: Int, c: Int) -> Int {
+        // 若已选完所有物品或背包无容量，则返回价值 0
+        if i == 0 || c == 0 {
+            return 0
+        }
+        // 若已有记录，则直接返回
+        if mem[i][c] != -1 {
+            return mem[i][c]
+        }
+        // 若超过背包容量，则只能不放入背包
+        if wgt[i - 1] > c {
+            return knapsackDFSMem(wgt: wgt, val: val, mem: &mem, i: i - 1, c: c)
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        let no = knapsackDFSMem(wgt: wgt, val: val, mem: &mem, i: i - 1, c: c)
+        let yes = knapsackDFSMem(wgt: wgt, val: val, mem: &mem, i: i - 1, c: c - wgt[i - 1]) + val[i - 1]
+        // 记录并返回两种方案中价值更大的那一个
+        mem[i][c] = max(no, yes)
         return mem[i][c]
     }
     ```
@@ -478,90 +530,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="knapsack.c"
-    [class]{}-[func]{knapsackDFSMem}
-    ```
-
-=== "C#"
-
-    ```csharp title="knapsack.cs"
-    /* 0-1 背包：记忆化搜索 */
-    int knapsackDFSMem(int[] weight, int[] val, int[][] mem, int i, int c) {
-        // 若已选完所有物品或背包无容量，则返回价值 0
-        if (i == 0 || c == 0) {
-            return 0;
-        }
-        // 若已有记录，则直接返回
-        if (mem[i][c] != -1) {
-            return mem[i][c];
-        }
-        // 若超过背包容量，则只能不放入背包
-        if (weight[i - 1] > c) {
-            return knapsackDFSMem(weight, val, mem, i - 1, c);
-        }
-        // 计算不放入和放入物品 i 的最大价值
-        int no = knapsackDFSMem(weight, val, mem, i - 1, c);
-        int yes = knapsackDFSMem(weight, val, mem, i - 1, c - weight[i - 1]) + val[i - 1];
-        // 记录并返回两种方案中价值更大的那一个
-        mem[i][c] = Math.Max(no, yes);
-        return mem[i][c];
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="knapsack.swift"
-    /* 0-1 背包：记忆化搜索 */
-    func knapsackDFSMem(wgt: [Int], val: [Int], mem: inout [[Int]], i: Int, c: Int) -> Int {
-        // 若已选完所有物品或背包无容量，则返回价值 0
-        if i == 0 || c == 0 {
-            return 0
-        }
-        // 若已有记录，则直接返回
-        if mem[i][c] != -1 {
-            return mem[i][c]
-        }
-        // 若超过背包容量，则只能不放入背包
-        if wgt[i - 1] > c {
-            return knapsackDFSMem(wgt: wgt, val: val, mem: &mem, i: i - 1, c: c)
-        }
-        // 计算不放入和放入物品 i 的最大价值
-        let no = knapsackDFSMem(wgt: wgt, val: val, mem: &mem, i: i - 1, c: c)
-        let yes = knapsackDFSMem(wgt: wgt, val: val, mem: &mem, i: i - 1, c: c - wgt[i - 1]) + val[i - 1]
-        // 记录并返回两种方案中价值更大的那一个
-        mem[i][c] = max(no, yes)
-        return mem[i][c]
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    // 0-1 背包：记忆化搜索
-    fn knapsackDFSMem(wgt: []i32, val: []i32, mem: anytype, i: usize, c: usize) i32 {
-        // 若已选完所有物品或背包无容量，则返回价值 0
-        if (i == 0 or c == 0) {
-            return 0;
-        }
-        // 若已有记录，则直接返回
-        if (mem[i][c] != -1) {
-            return mem[i][c];
-        }
-        // 若超过背包容量，则只能不放入背包
-        if (wgt[i - 1] > c) {
-            return knapsackDFSMem(wgt, val, mem, i - 1, c);
-        }
-        // 计算不放入和放入物品 i 的最大价值
-        var no = knapsackDFSMem(wgt, val, mem, i - 1, c);
-        var yes = knapsackDFSMem(wgt, val, mem, i - 1, c - @as(usize, @intCast(wgt[i - 1]))) + val[i - 1];
-        // 记录并返回两种方案中价值更大的那一个
-        mem[i][c] = @max(no, yes);
-        return mem[i][c];
-    }
-    ```
-
 === "Dart"
 
     ```dart title="knapsack.dart"
@@ -620,6 +588,38 @@ $$
     }
     ```
 
+=== "C"
+
+    ```c title="knapsack.c"
+    [class]{}-[func]{knapsackDFSMem}
+    ```
+
+=== "Zig"
+
+    ```zig title="knapsack.zig"
+    // 0-1 背包：记忆化搜索
+    fn knapsackDFSMem(wgt: []i32, val: []i32, mem: anytype, i: usize, c: usize) i32 {
+        // 若已选完所有物品或背包无容量，则返回价值 0
+        if (i == 0 or c == 0) {
+            return 0;
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][c] != -1) {
+            return mem[i][c];
+        }
+        // 若超过背包容量，则只能不放入背包
+        if (wgt[i - 1] > c) {
+            return knapsackDFSMem(wgt, val, mem, i - 1, c);
+        }
+        // 计算不放入和放入物品 i 的最大价值
+        var no = knapsackDFSMem(wgt, val, mem, i - 1, c);
+        var yes = knapsackDFSMem(wgt, val, mem, i - 1, c - @as(usize, @intCast(wgt[i - 1]))) + val[i - 1];
+        // 记录并返回两种方案中价值更大的那一个
+        mem[i][c] = @max(no, yes);
+        return mem[i][c];
+    }
+    ```
+
 图 14-19 展示了在记忆化递归中被剪掉的搜索分支。
 
 ![0-1 背包的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.png)
@@ -630,28 +630,24 @@ $$
 
 动态规划实质上就是在状态转移中填充 $dp$ 表的过程，代码如下所示。
 
-=== "Java"
+=== "Python"
 
-    ```java title="knapsack.java"
-    /* 0-1 背包：动态规划 */
-    int knapsackDP(int[] wgt, int[] val, int cap) {
-        int n = wgt.length;
-        // 初始化 dp 表
-        int[][] dp = new int[n + 1][cap + 1];
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            for (int c = 1; c <= cap; c++) {
-                if (wgt[i - 1] > c) {
-                    // 若超过背包容量，则不选物品 i
-                    dp[i][c] = dp[i - 1][c];
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = Math.max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1]);
-                }
-            }
-        }
-        return dp[n][cap];
-    }
+    ```python title="knapsack.py"
+    def knapsack_dp(wgt: list[int], val: list[int], cap: int) -> int:
+        """0-1 背包：动态规划"""
+        n = len(wgt)
+        # 初始化 dp 表
+        dp = [[0] * (cap + 1) for _ in range(n + 1)]
+        # 状态转移
+        for i in range(1, n + 1):
+            for c in range(1, cap + 1):
+                if wgt[i - 1] > c:
+                    # 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c]
+                else:
+                    # 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1])
+        return dp[n][cap]
     ```
 
 === "C++"
@@ -678,24 +674,52 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="knapsack.py"
-    def knapsack_dp(wgt: list[int], val: list[int], cap: int) -> int:
-        """0-1 背包：动态规划"""
-        n = len(wgt)
-        # 初始化 dp 表
-        dp = [[0] * (cap + 1) for _ in range(n + 1)]
-        # 状态转移
-        for i in range(1, n + 1):
-            for c in range(1, cap + 1):
-                if wgt[i - 1] > c:
-                    # 若超过背包容量，则不选物品 i
-                    dp[i][c] = dp[i - 1][c]
-                else:
-                    # 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1])
-        return dp[n][cap]
+    ```java title="knapsack.java"
+    /* 0-1 背包：动态规划 */
+    int knapsackDP(int[] wgt, int[] val, int cap) {
+        int n = wgt.length;
+        // 初始化 dp 表
+        int[][] dp = new int[n + 1][cap + 1];
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = Math.max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[n][cap];
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="knapsack.cs"
+    /* 0-1 背包：动态规划 */
+    int knapsackDP(int[] weight, int[] val, int cap) {
+        int n = weight.Length;
+        // 初始化 dp 表
+        int[,] dp = new int[n + 1, cap + 1];
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int c = 1; c <= cap; c++) {
+                if (weight[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i, c] = dp[i - 1, c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i, c] = Math.Max(dp[i - 1, c - weight[i - 1]] + val[i - 1], dp[i - 1, c]);
+                }
+            }
+        }
+        return dp[n, cap];
+    }
     ```
 
 === "Go"
@@ -718,6 +742,30 @@ $$
                 } else {
                     // 不选和选物品 i 这两种方案的较大值
                     dp[i][c] = int(math.Max(float64(dp[i-1][c]), float64(dp[i-1][c-wgt[i-1]]+val[i-1])))
+                }
+            }
+        }
+        return dp[n][cap]
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="knapsack.swift"
+    /* 0-1 背包：动态规划 */
+    func knapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
+        let n = wgt.count
+        // 初始化 dp 表
+        var dp = Array(repeating: Array(repeating: 0, count: cap + 1), count: n + 1)
+        // 状态转移
+        for i in stride(from: 1, through: n, by: 1) {
+            for c in stride(from: 1, through: cap, by: 1) {
+                if wgt[i - 1] > c {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c]
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1])
                 }
             }
         }
@@ -787,84 +835,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="knapsack.c"
-    [class]{}-[func]{knapsackDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="knapsack.cs"
-    /* 0-1 背包：动态规划 */
-    int knapsackDP(int[] weight, int[] val, int cap) {
-        int n = weight.Length;
-        // 初始化 dp 表
-        int[,] dp = new int[n + 1, cap + 1];
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            for (int c = 1; c <= cap; c++) {
-                if (weight[i - 1] > c) {
-                    // 若超过背包容量，则不选物品 i
-                    dp[i, c] = dp[i - 1, c];
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[i, c] = Math.Max(dp[i - 1, c - weight[i - 1]] + val[i - 1], dp[i - 1, c]);
-                }
-            }
-        }
-        return dp[n, cap];
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="knapsack.swift"
-    /* 0-1 背包：动态规划 */
-    func knapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
-        let n = wgt.count
-        // 初始化 dp 表
-        var dp = Array(repeating: Array(repeating: 0, count: cap + 1), count: n + 1)
-        // 状态转移
-        for i in stride(from: 1, through: n, by: 1) {
-            for c in stride(from: 1, through: cap, by: 1) {
-                if wgt[i - 1] > c {
-                    // 若超过背包容量，则不选物品 i
-                    dp[i][c] = dp[i - 1][c]
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1])
-                }
-            }
-        }
-        return dp[n][cap]
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    // 0-1 背包：动态规划
-    fn knapsackDP(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
-        comptime var n = wgt.len;
-        // 初始化 dp 表
-        var dp = [_][cap + 1]i32{[_]i32{0} ** (cap + 1)} ** (n + 1);
-        // 状态转移
-        for (1..n + 1) |i| {
-            for (1..cap + 1) |c| {
-                if (wgt[i - 1] > c) {
-                    // 若超过背包容量，则不选物品 i
-                    dp[i][c] = dp[i - 1][c];
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[i][c] = @max(dp[i - 1][c], dp[i - 1][c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
-                }
-            }
-        }
-        return dp[n][cap];
-    }
-    ```
-
 === "Dart"
 
     ```dart title="knapsack.dart"
@@ -910,6 +880,36 @@ $$
             }
         }
         dp[n][cap]
+    }
+    ```
+
+=== "C"
+
+    ```c title="knapsack.c"
+    [class]{}-[func]{knapsackDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="knapsack.zig"
+    // 0-1 背包：动态规划
+    fn knapsackDP(comptime wgt: []i32, val: []i32, comptime cap: usize) i32 {
+        comptime var n = wgt.len;
+        // 初始化 dp 表
+        var dp = [_][cap + 1]i32{[_]i32{0} ** (cap + 1)} ** (n + 1);
+        // 状态转移
+        for (1..n + 1) |i| {
+            for (1..cap + 1) |c| {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = @max(dp[i - 1][c], dp[i - 1][c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
+                }
+            }
+        }
+        return dp[n][cap];
     }
     ```
 
@@ -992,26 +992,25 @@ $$
 
 在代码实现中，我们仅需将数组 `dp` 的第一维 $i$ 直接删除，并且把内循环更改为倒序遍历即可。
 
-=== "Java"
+=== "Python"
 
-    ```java title="knapsack.java"
-    /* 0-1 背包：空间优化后的动态规划 */
-    int knapsackDPComp(int[] wgt, int[] val, int cap) {
-        int n = wgt.length;
-        // 初始化 dp 表
-        int[] dp = new int[cap + 1];
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            // 倒序遍历
-            for (int c = cap; c >= 1; c--) {
-                if (wgt[i - 1] <= c) {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
-                }
-            }
-        }
-        return dp[cap];
-    }
+    ```python title="knapsack.py"
+    def knapsack_dp_comp(wgt: list[int], val: list[int], cap: int) -> int:
+        """0-1 背包：空间优化后的动态规划"""
+        n = len(wgt)
+        # 初始化 dp 表
+        dp = [0] * (cap + 1)
+        # 状态转移
+        for i in range(1, n + 1):
+            # 倒序遍历
+            for c in range(cap, 0, -1):
+                if wgt[i - 1] > c:
+                    # 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c]
+                else:
+                    # 不选和选物品 i 这两种方案的较大值
+                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
+        return dp[cap]
     ```
 
 === "C++"
@@ -1036,25 +1035,51 @@ $$
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="knapsack.py"
-    def knapsack_dp_comp(wgt: list[int], val: list[int], cap: int) -> int:
-        """0-1 背包：空间优化后的动态规划"""
-        n = len(wgt)
-        # 初始化 dp 表
-        dp = [0] * (cap + 1)
-        # 状态转移
-        for i in range(1, n + 1):
-            # 倒序遍历
-            for c in range(cap, 0, -1):
-                if wgt[i - 1] > c:
-                    # 若超过背包容量，则不选物品 i
-                    dp[c] = dp[c]
-                else:
-                    # 不选和选物品 i 这两种方案的较大值
-                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
-        return dp[cap]
+    ```java title="knapsack.java"
+    /* 0-1 背包：空间优化后的动态规划 */
+    int knapsackDPComp(int[] wgt, int[] val, int cap) {
+        int n = wgt.length;
+        // 初始化 dp 表
+        int[] dp = new int[cap + 1];
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            // 倒序遍历
+            for (int c = cap; c >= 1; c--) {
+                if (wgt[i - 1] <= c) {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="knapsack.cs"
+    /* 0-1 背包：空间优化后的动态规划 */
+    int knapsackDPComp(int[] weight, int[] val, int cap) {
+        int n = weight.Length;
+        // 初始化 dp 表
+        int[] dp = new int[cap + 1];
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            // 倒序遍历
+            for (int c = cap; c > 0; c--) {
+                if (weight[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = Math.Max(dp[c], dp[c - weight[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
+    }
     ```
 
 === "Go"
@@ -1072,6 +1097,28 @@ $$
                 if wgt[i-1] <= c {
                     // 不选和选物品 i 这两种方案的较大值
                     dp[c] = int(math.Max(float64(dp[c]), float64(dp[c-wgt[i-1]]+val[i-1])))
+                }
+            }
+        }
+        return dp[cap]
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="knapsack.swift"
+    /* 0-1 背包：空间优化后的动态规划 */
+    func knapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
+        let n = wgt.count
+        // 初始化 dp 表
+        var dp = Array(repeating: 0, count: cap + 1)
+        // 状态转移
+        for i in stride(from: 1, through: n, by: 1) {
+            // 倒序遍历
+            for c in stride(from: cap, through: 1, by: -1) {
+                if wgt[i - 1] <= c {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
                 }
             }
         }
@@ -1127,82 +1174,6 @@ $$
     }
     ```
 
-=== "C"
-
-    ```c title="knapsack.c"
-    [class]{}-[func]{knapsackDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="knapsack.cs"
-    /* 0-1 背包：空间优化后的动态规划 */
-    int knapsackDPComp(int[] weight, int[] val, int cap) {
-        int n = weight.Length;
-        // 初始化 dp 表
-        int[] dp = new int[cap + 1];
-        // 状态转移
-        for (int i = 1; i <= n; i++) {
-            // 倒序遍历
-            for (int c = cap; c > 0; c--) {
-                if (weight[i - 1] > c) {
-                    // 若超过背包容量，则不选物品 i
-                    dp[c] = dp[c];
-                } else {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[c] = Math.Max(dp[c], dp[c - weight[i - 1]] + val[i - 1]);
-                }
-            }
-        }
-        return dp[cap];
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="knapsack.swift"
-    /* 0-1 背包：空间优化后的动态规划 */
-    func knapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
-        let n = wgt.count
-        // 初始化 dp 表
-        var dp = Array(repeating: 0, count: cap + 1)
-        // 状态转移
-        for i in stride(from: 1, through: n, by: 1) {
-            // 倒序遍历
-            for c in stride(from: cap, through: 1, by: -1) {
-                if wgt[i - 1] <= c {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
-                }
-            }
-        }
-        return dp[cap]
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    // 0-1 背包：空间优化后的动态规划
-    fn knapsackDPComp(wgt: []i32, val: []i32, comptime cap: usize) i32 {
-        var n = wgt.len;
-        // 初始化 dp 表
-        var dp = [_]i32{0} ** (cap + 1);
-        // 状态转移
-        for (1..n + 1) |i| {
-            // 倒序遍历
-            var c = cap;
-            while (c > 0) : (c -= 1) {
-                if (wgt[i - 1] < c) {
-                    // 不选和选物品 i 这两种方案的较大值
-                    dp[c] = @max(dp[c], dp[c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
-                }
-            }
-        }
-        return dp[cap];
-    }
-    ```
-
 === "Dart"
 
     ```dart title="knapsack.dart"
@@ -1244,5 +1215,34 @@ $$
             }
         }
         dp[cap]
+    }
+    ```
+
+=== "C"
+
+    ```c title="knapsack.c"
+    [class]{}-[func]{knapsackDPComp}
+    ```
+
+=== "Zig"
+
+    ```zig title="knapsack.zig"
+    // 0-1 背包：空间优化后的动态规划
+    fn knapsackDPComp(wgt: []i32, val: []i32, comptime cap: usize) i32 {
+        var n = wgt.len;
+        // 初始化 dp 表
+        var dp = [_]i32{0} ** (cap + 1);
+        // 状态转移
+        for (1..n + 1) |i| {
+            // 倒序遍历
+            var c = cap;
+            while (c > 0) : (c -= 1) {
+                if (wgt[i - 1] < c) {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = @max(dp[c], dp[c - @as(usize, @intCast(wgt[i - 1]))] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
     }
     ```

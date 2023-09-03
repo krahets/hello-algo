@@ -47,30 +47,23 @@ comments: true
 
     哨兵划分的实质是将一个较长数组的排序问题简化为两个较短数组的排序问题。
 
-=== "Java"
+=== "Python"
 
-    ```java title="quick_sort.java"
-    /* 元素交换 */
-    void swap(int[] nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
-    /* 哨兵划分 */
-    int partition(int[] nums, int left, int right) {
-        // 以 nums[left] 作为基准数
-        int i = left, j = right;
-        while (i < j) {
-            while (i < j && nums[j] >= nums[left])
-                j--;          // 从右向左找首个小于基准数的元素
-            while (i < j && nums[i] <= nums[left])
-                i++;          // 从左向右找首个大于基准数的元素
-            swap(nums, i, j); // 交换这两个元素
-        }
-        swap(nums, i, left);  // 将基准数交换至两子数组的分界线
-        return i;             // 返回基准数的索引
-    }
+    ```python title="quick_sort.py"
+    def partition(self, nums: list[int], left: int, right: int) -> int:
+        """哨兵划分"""
+        # 以 nums[left] 作为基准数
+        i, j = left, right
+        while i < j:
+            while i < j and nums[j] >= nums[left]:
+                j -= 1  # 从右向左找首个小于基准数的元素
+            while i < j and nums[i] <= nums[left]:
+                i += 1  # 从左向右找首个大于基准数的元素
+            # 元素交换
+            nums[i], nums[j] = nums[j], nums[i]
+        # 将基准数交换至两子数组的分界线
+        nums[i], nums[left] = nums[left], nums[i]
+        return i  # 返回基准数的索引
     ```
 
 === "C++"
@@ -99,23 +92,56 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="quick_sort.py"
-    def partition(self, nums: list[int], left: int, right: int) -> int:
-        """哨兵划分"""
-        # 以 nums[left] 作为基准数
-        i, j = left, right
-        while i < j:
-            while i < j and nums[j] >= nums[left]:
-                j -= 1  # 从右向左找首个小于基准数的元素
-            while i < j and nums[i] <= nums[left]:
-                i += 1  # 从左向右找首个大于基准数的元素
-            # 元素交换
-            nums[i], nums[j] = nums[j], nums[i]
-        # 将基准数交换至两子数组的分界线
-        nums[i], nums[left] = nums[left], nums[i]
-        return i  # 返回基准数的索引
+    ```java title="quick_sort.java"
+    /* 元素交换 */
+    void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
+    /* 哨兵划分 */
+    int partition(int[] nums, int left, int right) {
+        // 以 nums[left] 作为基准数
+        int i = left, j = right;
+        while (i < j) {
+            while (i < j && nums[j] >= nums[left])
+                j--;          // 从右向左找首个小于基准数的元素
+            while (i < j && nums[i] <= nums[left])
+                i++;          // 从左向右找首个大于基准数的元素
+            swap(nums, i, j); // 交换这两个元素
+        }
+        swap(nums, i, left);  // 将基准数交换至两子数组的分界线
+        return i;             // 返回基准数的索引
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="quick_sort.cs"
+    /* 元素交换 */
+    void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
+    /* 哨兵划分 */
+    int partition(int[] nums, int left, int right) {
+        // 以 nums[left] 作为基准数
+        int i = left, j = right;
+        while (i < j) {
+            while (i < j && nums[j] >= nums[left])
+                j--;          // 从右向左找首个小于基准数的元素
+            while (i < j && nums[i] <= nums[left])
+                i++;          // 从左向右找首个大于基准数的元素
+            swap(nums, i, j); // 交换这两个元素
+        }
+        swap(nums, i, left);  // 将基准数交换至两子数组的分界线
+        return i;             // 返回基准数的索引
+    }
     ```
 
 === "Go"
@@ -137,6 +163,35 @@ comments: true
         }
         // 将基准数交换至两子数组的分界线
         nums[i], nums[left] = nums[left], nums[i]
+        return i // 返回基准数的索引
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="quick_sort.swift"
+    /* 元素交换 */
+    func swap(nums: inout [Int], i: Int, j: Int) {
+        let tmp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = tmp
+    }
+
+    /* 哨兵划分 */
+    func partition(nums: inout [Int], left: Int, right: Int) -> Int {
+        // 以 nums[left] 作为基准数
+        var i = left
+        var j = right
+        while i < j {
+            while i < j, nums[j] >= nums[left] {
+                j -= 1 // 从右向左找首个小于基准数的元素
+            }
+            while i < j, nums[i] <= nums[left] {
+                i += 1 // 从左向右找首个大于基准数的元素
+            }
+            swap(nums: &nums, i: i, j: j) // 交换这两个元素
+        }
+        swap(nums: &nums, i: i, j: left) // 将基准数交换至两子数组的分界线
         return i // 返回基准数的索引
     }
     ```
@@ -201,120 +256,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="quick_sort.c"
-    /* 元素交换 */
-    void swap(int nums[], int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
-    /* 快速排序类 */
-    // 快速排序类-哨兵划分
-    int partition(int nums[], int left, int right) {
-        // 以 nums[left] 作为基准数
-        int i = left, j = right;
-        while (i < j) {
-            while (i < j && nums[j] >= nums[left]) {
-                // 从右向左找首个小于基准数的元素
-                j--;
-            }
-            while (i < j && nums[i] <= nums[left]) {
-                // 从左向右找首个大于基准数的元素
-                i++;
-            }
-            // 交换这两个元素
-            swap(nums, i, j);
-        }
-        // 将基准数交换至两子数组的分界线
-        swap(nums, i, left);
-        // 返回基准数的索引
-        return i;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="quick_sort.cs"
-    /* 元素交换 */
-    void swap(int[] nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
-    /* 哨兵划分 */
-    int partition(int[] nums, int left, int right) {
-        // 以 nums[left] 作为基准数
-        int i = left, j = right;
-        while (i < j) {
-            while (i < j && nums[j] >= nums[left])
-                j--;          // 从右向左找首个小于基准数的元素
-            while (i < j && nums[i] <= nums[left])
-                i++;          // 从左向右找首个大于基准数的元素
-            swap(nums, i, j); // 交换这两个元素
-        }
-        swap(nums, i, left);  // 将基准数交换至两子数组的分界线
-        return i;             // 返回基准数的索引
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="quick_sort.swift"
-    /* 元素交换 */
-    func swap(nums: inout [Int], i: Int, j: Int) {
-        let tmp = nums[i]
-        nums[i] = nums[j]
-        nums[j] = tmp
-    }
-
-    /* 哨兵划分 */
-    func partition(nums: inout [Int], left: Int, right: Int) -> Int {
-        // 以 nums[left] 作为基准数
-        var i = left
-        var j = right
-        while i < j {
-            while i < j, nums[j] >= nums[left] {
-                j -= 1 // 从右向左找首个小于基准数的元素
-            }
-            while i < j, nums[i] <= nums[left] {
-                i += 1 // 从左向右找首个大于基准数的元素
-            }
-            swap(nums: &nums, i: i, j: j) // 交换这两个元素
-        }
-        swap(nums: &nums, i: i, j: left) // 将基准数交换至两子数组的分界线
-        return i // 返回基准数的索引
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="quick_sort.zig"
-    // 元素交换
-    fn swap(nums: []i32, i: usize, j: usize) void {
-        var tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
-    // 哨兵划分
-    fn partition(nums: []i32, left: usize, right: usize) usize {
-        // 以 nums[left] 作为基准数
-        var i = left;
-        var j = right;
-        while (i < j) {
-            while (i < j and nums[j] >= nums[left]) j -= 1; // 从右向左找首个小于基准数的元素
-            while (i < j and nums[i] <= nums[left]) i += 1; // 从左向右找首个大于基准数的元素
-            swap(nums, i, j);   // 交换这两个元素
-        }
-        swap(nums, i, left);    // 将基准数交换至两子数组的分界线
-        return i;               // 返回基准数的索引
-    }
-    ```
-
 === "Dart"
 
     ```dart title="quick_sort.dart"
@@ -360,6 +301,65 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="quick_sort.c"
+    /* 元素交换 */
+    void swap(int nums[], int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
+    /* 快速排序类 */
+    // 快速排序类-哨兵划分
+    int partition(int nums[], int left, int right) {
+        // 以 nums[left] 作为基准数
+        int i = left, j = right;
+        while (i < j) {
+            while (i < j && nums[j] >= nums[left]) {
+                // 从右向左找首个小于基准数的元素
+                j--;
+            }
+            while (i < j && nums[i] <= nums[left]) {
+                // 从左向右找首个大于基准数的元素
+                i++;
+            }
+            // 交换这两个元素
+            swap(nums, i, j);
+        }
+        // 将基准数交换至两子数组的分界线
+        swap(nums, i, left);
+        // 返回基准数的索引
+        return i;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="quick_sort.zig"
+    // 元素交换
+    fn swap(nums: []i32, i: usize, j: usize) void {
+        var tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
+    // 哨兵划分
+    fn partition(nums: []i32, left: usize, right: usize) usize {
+        // 以 nums[left] 作为基准数
+        var i = left;
+        var j = right;
+        while (i < j) {
+            while (i < j and nums[j] >= nums[left]) j -= 1; // 从右向左找首个小于基准数的元素
+            while (i < j and nums[i] <= nums[left]) i += 1; // 从左向右找首个大于基准数的元素
+            swap(nums, i, j);   // 交换这两个元素
+        }
+        swap(nums, i, left);    // 将基准数交换至两子数组的分界线
+        return i;               // 返回基准数的索引
+    }
+    ```
+
 ## 11.5.1 &nbsp; 算法流程
 
 快速排序的整体流程如图 11-9 所示。
@@ -372,20 +372,19 @@ comments: true
 
 <p align="center"> 图 11-9 &nbsp; 快速排序流程 </p>
 
-=== "Java"
+=== "Python"
 
-    ```java title="quick_sort.java"
-    /* 快速排序 */
-    void quickSort(int[] nums, int left, int right) {
-        // 子数组长度为 1 时终止递归
-        if (left >= right)
-            return;
-        // 哨兵划分
-        int pivot = partition(nums, left, right);
-        // 递归左子数组、右子数组
-        quickSort(nums, left, pivot - 1);
-        quickSort(nums, pivot + 1, right);
-    }
+    ```python title="quick_sort.py"
+    def quick_sort(self, nums: list[int], left: int, right: int):
+        """快速排序"""
+        # 子数组长度为 1 时终止递归
+        if left >= right:
+            return
+        # 哨兵划分
+        pivot = self.partition(nums, left, right)
+        # 递归左子数组、右子数组
+        self.quick_sort(nums, left, pivot - 1)
+        self.quick_sort(nums, pivot + 1, right)
     ```
 
 === "C++"
@@ -404,19 +403,36 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="quick_sort.py"
-    def quick_sort(self, nums: list[int], left: int, right: int):
-        """快速排序"""
-        # 子数组长度为 1 时终止递归
-        if left >= right:
-            return
-        # 哨兵划分
-        pivot = self.partition(nums, left, right)
-        # 递归左子数组、右子数组
-        self.quick_sort(nums, left, pivot - 1)
-        self.quick_sort(nums, pivot + 1, right)
+    ```java title="quick_sort.java"
+    /* 快速排序 */
+    void quickSort(int[] nums, int left, int right) {
+        // 子数组长度为 1 时终止递归
+        if (left >= right)
+            return;
+        // 哨兵划分
+        int pivot = partition(nums, left, right);
+        // 递归左子数组、右子数组
+        quickSort(nums, left, pivot - 1);
+        quickSort(nums, pivot + 1, right);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="quick_sort.cs"
+    /* 快速排序 */
+    void quickSort(int[] nums, int left, int right) {
+        // 子数组长度为 1 时终止递归
+        if (left >= right)
+            return;
+        // 哨兵划分
+        int pivot = partition(nums, left, right);
+        // 递归左子数组、右子数组
+        quickSort(nums, left, pivot - 1);
+        quickSort(nums, pivot + 1, right);
+    }
     ```
 
 === "Go"
@@ -433,6 +449,23 @@ comments: true
         // 递归左子数组、右子数组
         q.quickSort(nums, left, pivot-1)
         q.quickSort(nums, pivot+1, right)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="quick_sort.swift"
+    /* 快速排序 */
+    func quickSort(nums: inout [Int], left: Int, right: Int) {
+        // 子数组长度为 1 时终止递归
+        if left >= right {
+            return
+        }
+        // 哨兵划分
+        let pivot = partition(nums: &nums, left: left, right: right)
+        // 递归左子数组、右子数组
+        quickSort(nums: &nums, left: left, right: pivot - 1)
+        quickSort(nums: &nums, left: pivot + 1, right: right)
     }
     ```
 
@@ -465,6 +498,38 @@ comments: true
         // 递归左子数组、右子数组
         this.quickSort(nums, left, pivot - 1);
         this.quickSort(nums, pivot + 1, right);
+    }
+    ```
+
+=== "Dart"
+
+    ```dart title="quick_sort.dart"
+    /* 快速排序 */
+    void quickSort(List<int> nums, int left, int right) {
+      // 子数组长度为 1 时终止递归
+      if (left >= right) return;
+      // 哨兵划分
+      int pivot = _partition(nums, left, right);
+      // 递归左子数组、右子数组
+      quickSort(nums, left, pivot - 1);
+      quickSort(nums, pivot + 1, right);
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title="quick_sort.rs"
+    /* 快速排序 */
+    pub fn quick_sort(left: i32, right: i32, nums: &mut [i32]) {
+        // 子数组长度为 1 时终止递归
+        if left >= right {
+            return;
+        }
+        // 哨兵划分
+        let pivot = Self::partition(nums, left as usize, right as usize) as i32;
+        // 递归左子数组、右子数组
+        Self::quick_sort(left, pivot - 1, nums);
+        Self::quick_sort(pivot + 1, right, nums);
     }
     ```
 
@@ -508,39 +573,6 @@ comments: true
     }
     ```
 
-=== "C#"
-
-    ```csharp title="quick_sort.cs"
-    /* 快速排序 */
-    void quickSort(int[] nums, int left, int right) {
-        // 子数组长度为 1 时终止递归
-        if (left >= right)
-            return;
-        // 哨兵划分
-        int pivot = partition(nums, left, right);
-        // 递归左子数组、右子数组
-        quickSort(nums, left, pivot - 1);
-        quickSort(nums, pivot + 1, right);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="quick_sort.swift"
-    /* 快速排序 */
-    func quickSort(nums: inout [Int], left: Int, right: Int) {
-        // 子数组长度为 1 时终止递归
-        if left >= right {
-            return
-        }
-        // 哨兵划分
-        let pivot = partition(nums: &nums, left: left, right: right)
-        // 递归左子数组、右子数组
-        quickSort(nums: &nums, left: left, right: pivot - 1)
-        quickSort(nums: &nums, left: pivot + 1, right: right)
-    }
-    ```
-
 === "Zig"
 
     ```zig title="quick_sort.zig"
@@ -553,38 +585,6 @@ comments: true
         // 递归左子数组、右子数组
         quickSort(nums, left, pivot - 1);
         quickSort(nums, pivot + 1, right);
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title="quick_sort.dart"
-    /* 快速排序 */
-    void quickSort(List<int> nums, int left, int right) {
-      // 子数组长度为 1 时终止递归
-      if (left >= right) return;
-      // 哨兵划分
-      int pivot = _partition(nums, left, right);
-      // 递归左子数组、右子数组
-      quickSort(nums, left, pivot - 1);
-      quickSort(nums, pivot + 1, right);
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title="quick_sort.rs"
-    /* 快速排序 */
-    pub fn quick_sort(left: i32, right: i32, nums: &mut [i32]) {
-        // 子数组长度为 1 时终止递归
-        if left >= right {
-            return;
-        }
-        // 哨兵划分
-        let pivot = Self::partition(nums, left as usize, right as usize) as i32;
-        // 递归左子数组、右子数组
-        Self::quick_sort(left, pivot - 1, nums);
-        Self::quick_sort(pivot + 1, right, nums);
     }
     ```
 
@@ -612,39 +612,37 @@ comments: true
 
 为了进一步改进，我们可以在数组中选取三个候选元素（通常为数组的首、尾、中点元素），**并将这三个候选元素的中位数作为基准数**。这样一来，基准数“既不太小也不太大”的概率将大幅提升。当然，我们还可以选取更多候选元素，以进一步提高算法的稳健性。采用这种方法后，时间复杂度劣化至 $O(n^2)$ 的概率大大降低。
 
-=== "Java"
+=== "Python"
 
-    ```java title="quick_sort.java"
-    /* 选取三个元素的中位数 */
-    int medianThree(int[] nums, int left, int mid, int right) {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
-            return left;
-        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-            return mid;
-        else
-            return right;
-    }
+    ```python title="quick_sort.py"
+    def median_three(self, nums: list[int], left: int, mid: int, right: int) -> int:
+        """选取三个元素的中位数"""
+        # 此处使用异或运算来简化代码
+        # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
+        if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]):
+            return left
+        elif (nums[mid] < nums[left]) ^ (nums[mid] < nums[right]):
+            return mid
+        return right
 
-    /* 哨兵划分（三数取中值） */
-    int partition(int[] nums, int left, int right) {
-        // 选取三个候选元素的中位数
-        int med = medianThree(nums, left, (left + right) / 2, right);
-        // 将中位数交换至数组最左端
-        swap(nums, left, med);
-        // 以 nums[left] 作为基准数
-        int i = left, j = right;
-        while (i < j) {
-            while (i < j && nums[j] >= nums[left])
-                j--;          // 从右向左找首个小于基准数的元素
-            while (i < j && nums[i] <= nums[left])
-                i++;          // 从左向右找首个大于基准数的元素
-            swap(nums, i, j); // 交换这两个元素
-        }
-        swap(nums, i, left);  // 将基准数交换至两子数组的分界线
-        return i;             // 返回基准数的索引
-    }
+    def partition(self, nums: list[int], left: int, right: int) -> int:
+        """哨兵划分（三数取中值）"""
+        # 以 nums[left] 作为基准数
+        med = self.median_three(nums, left, (left + right) // 2, right)
+        # 将中位数交换至数组最左端
+        nums[left], nums[med] = nums[med], nums[left]
+        # 以 nums[left] 作为基准数
+        i, j = left, right
+        while i < j:
+            while i < j and nums[j] >= nums[left]:
+                j -= 1  # 从右向左找首个小于基准数的元素
+            while i < j and nums[i] <= nums[left]:
+                i += 1  # 从左向右找首个大于基准数的元素
+            # 元素交换
+            nums[i], nums[j] = nums[j], nums[i]
+        # 将基准数交换至两子数组的分界线
+        nums[i], nums[left] = nums[left], nums[i]
+        return i  # 返回基准数的索引
     ```
 
 === "C++"
@@ -682,37 +680,74 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="quick_sort.py"
-    def median_three(self, nums: list[int], left: int, mid: int, right: int) -> int:
-        """选取三个元素的中位数"""
-        # 此处使用异或运算来简化代码
-        # 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if (nums[left] < nums[mid]) ^ (nums[left] < nums[right]):
-            return left
-        elif (nums[mid] < nums[left]) ^ (nums[mid] < nums[right]):
-            return mid
-        return right
+    ```java title="quick_sort.java"
+    /* 选取三个元素的中位数 */
+    int medianThree(int[] nums, int left, int mid, int right) {
+        // 此处使用异或运算来简化代码
+        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
+        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
+            return left;
+        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
+            return mid;
+        else
+            return right;
+    }
 
-    def partition(self, nums: list[int], left: int, right: int) -> int:
-        """哨兵划分（三数取中值）"""
-        # 以 nums[left] 作为基准数
-        med = self.median_three(nums, left, (left + right) // 2, right)
-        # 将中位数交换至数组最左端
-        nums[left], nums[med] = nums[med], nums[left]
-        # 以 nums[left] 作为基准数
-        i, j = left, right
-        while i < j:
-            while i < j and nums[j] >= nums[left]:
-                j -= 1  # 从右向左找首个小于基准数的元素
-            while i < j and nums[i] <= nums[left]:
-                i += 1  # 从左向右找首个大于基准数的元素
-            # 元素交换
-            nums[i], nums[j] = nums[j], nums[i]
-        # 将基准数交换至两子数组的分界线
-        nums[i], nums[left] = nums[left], nums[i]
-        return i  # 返回基准数的索引
+    /* 哨兵划分（三数取中值） */
+    int partition(int[] nums, int left, int right) {
+        // 选取三个候选元素的中位数
+        int med = medianThree(nums, left, (left + right) / 2, right);
+        // 将中位数交换至数组最左端
+        swap(nums, left, med);
+        // 以 nums[left] 作为基准数
+        int i = left, j = right;
+        while (i < j) {
+            while (i < j && nums[j] >= nums[left])
+                j--;          // 从右向左找首个小于基准数的元素
+            while (i < j && nums[i] <= nums[left])
+                i++;          // 从左向右找首个大于基准数的元素
+            swap(nums, i, j); // 交换这两个元素
+        }
+        swap(nums, i, left);  // 将基准数交换至两子数组的分界线
+        return i;             // 返回基准数的索引
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="quick_sort.cs"
+    /* 选取三个元素的中位数 */
+    int medianThree(int[] nums, int left, int mid, int right) {
+        // 此处使用异或运算来简化代码
+        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
+        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
+            return left;
+        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
+            return mid;
+        else
+            return right;
+    }
+
+    /* 哨兵划分（三数取中值） */
+    int partition(int[] nums, int left, int right) {
+        // 选取三个候选元素的中位数
+        int med = medianThree(nums, left, (left + right) / 2, right);
+        // 将中位数交换至数组最左端
+        swap(nums, left, med);
+        // 以 nums[left] 作为基准数
+        int i = left, j = right;
+        while (i < j) {
+            while (i < j && nums[j] >= nums[left])
+                j--;          // 从右向左找首个小于基准数的元素
+            while (i < j && nums[i] <= nums[left])
+                i++;          // 从左向右找首个大于基准数的元素
+            swap(nums, i, j); // 交换这两个元素
+        }
+        swap(nums, i, left);  // 将基准数交换至两子数组的分界线
+        return i;             // 返回基准数的索引
+    }
     ```
 
 === "Go"
@@ -751,6 +786,30 @@ comments: true
         //将基准数交换至两子数组的分界线
         nums[i], nums[left] = nums[left], nums[i]
         return i //返回基准数的索引
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="quick_sort.swift"
+    /* 选取三个元素的中位数 */
+    func medianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
+        if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
+            return left
+        } else if (nums[mid] < nums[left]) != (nums[mid] < nums[right]) {
+            return mid
+        } else {
+            return right
+        }
+    }
+
+    /* 哨兵划分（三数取中值） */
+    func partitionMedian(nums: inout [Int], left: Int, right: Int) -> Int {
+        // 选取三个候选元素的中位数
+        let med = medianThree(nums: nums, left: left, mid: (left + right) / 2, right: right)
+        // 将中位数交换至数组最左端
+        swap(nums: &nums, i: left, j: med)
+        return partition(nums: &nums, left: left, right: right)
     }
     ```
 
@@ -842,149 +901,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="quick_sort.c"
-    /* 快速排序类（中位基准数优化） */
-    // 选取三个元素的中位数
-    int medianThree(int nums[], int left, int mid, int right) {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
-            return left;
-        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-            return mid;
-        else
-            return right;
-    }
-
-    /* 快速排序类（中位基准数优化） */
-    // 选取三个元素的中位数
-    int medianThree(int nums[], int left, int mid, int right) {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
-            return left;
-        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-            return mid;
-        else
-            return right;
-    }
-
-    // 哨兵划分（三数取中值）
-    int partitionMedian(int nums[], int left, int right) {
-        // 选取三个候选元素的中位数
-        int med = medianThree(nums, left, (left + right) / 2, right);
-        // 将中位数交换至数组最左端
-        swap(nums, left, med);
-        // 以 nums[left] 作为基准数
-        int i = left, j = right;
-        while (i < j) {
-            while (i < j && nums[j] >= nums[left])
-                j--; // 从右向左找首个小于基准数的元素
-            while (i < j && nums[i] <= nums[left])
-                i++;          // 从左向右找首个大于基准数的元素
-            swap(nums, i, j); // 交换这两个元素
-        }
-        swap(nums, i, left); // 将基准数交换至两子数组的分界线
-        return i;            // 返回基准数的索引
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="quick_sort.cs"
-    /* 选取三个元素的中位数 */
-    int medianThree(int[] nums, int left, int mid, int right) {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
-            return left;
-        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
-            return mid;
-        else
-            return right;
-    }
-
-    /* 哨兵划分（三数取中值） */
-    int partition(int[] nums, int left, int right) {
-        // 选取三个候选元素的中位数
-        int med = medianThree(nums, left, (left + right) / 2, right);
-        // 将中位数交换至数组最左端
-        swap(nums, left, med);
-        // 以 nums[left] 作为基准数
-        int i = left, j = right;
-        while (i < j) {
-            while (i < j && nums[j] >= nums[left])
-                j--;          // 从右向左找首个小于基准数的元素
-            while (i < j && nums[i] <= nums[left])
-                i++;          // 从左向右找首个大于基准数的元素
-            swap(nums, i, j); // 交换这两个元素
-        }
-        swap(nums, i, left);  // 将基准数交换至两子数组的分界线
-        return i;             // 返回基准数的索引
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="quick_sort.swift"
-    /* 选取三个元素的中位数 */
-    func medianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
-        if (nums[left] < nums[mid]) != (nums[left] < nums[right]) {
-            return left
-        } else if (nums[mid] < nums[left]) != (nums[mid] < nums[right]) {
-            return mid
-        } else {
-            return right
-        }
-    }
-
-    /* 哨兵划分（三数取中值） */
-    func partitionMedian(nums: inout [Int], left: Int, right: Int) -> Int {
-        // 选取三个候选元素的中位数
-        let med = medianThree(nums: nums, left: left, mid: (left + right) / 2, right: right)
-        // 将中位数交换至数组最左端
-        swap(nums: &nums, i: left, j: med)
-        return partition(nums: &nums, left: left, right: right)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="quick_sort.zig"
-    // 选取三个元素的中位数
-    fn medianThree(nums: []i32, left: usize, mid: usize, right: usize) usize {
-        // 此处使用异或运算来简化代码
-        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
-        if ((nums[left] < nums[mid]) != (nums[left] < nums[right])) {
-            return left;
-        } else if ((nums[mid] < nums[left]) != (nums[mid] < nums[right])) {
-            return mid;
-        } else {
-            return right;
-        }
-    }
-
-    // 哨兵划分（三数取中值）
-    fn partition(nums: []i32, left: usize, right: usize) usize {
-        // 选取三个候选元素的中位数
-        var med = medianThree(nums, left, (left + right) / 2, right);
-        // 将中位数交换至数组最左端
-        swap(nums, left, med);
-        // 以 nums[left] 作为基准数
-        var i = left;
-        var j = right;
-        while (i < j) {
-            while (i < j and nums[j] >= nums[left]) j -= 1; // 从右向左找首个小于基准数的元素
-            while (i < j and nums[i] <= nums[left]) i += 1; // 从左向右找首个大于基准数的元素
-            swap(nums, i, j);   // 交换这两个元素
-        }
-        swap(nums, i, left);    // 将基准数交换至两子数组的分界线
-        return i;               // 返回基准数的索引
-    }
-    ```
-
 === "Dart"
 
     ```dart title="quick_sort.dart"
@@ -1055,31 +971,112 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="quick_sort.c"
+    /* 快速排序类（中位基准数优化） */
+    // 选取三个元素的中位数
+    int medianThree(int nums[], int left, int mid, int right) {
+        // 此处使用异或运算来简化代码
+        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
+        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
+            return left;
+        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
+            return mid;
+        else
+            return right;
+    }
+
+    /* 快速排序类（中位基准数优化） */
+    // 选取三个元素的中位数
+    int medianThree(int nums[], int left, int mid, int right) {
+        // 此处使用异或运算来简化代码
+        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
+        if ((nums[left] < nums[mid]) ^ (nums[left] < nums[right]))
+            return left;
+        else if ((nums[mid] < nums[left]) ^ (nums[mid] < nums[right]))
+            return mid;
+        else
+            return right;
+    }
+
+    // 哨兵划分（三数取中值）
+    int partitionMedian(int nums[], int left, int right) {
+        // 选取三个候选元素的中位数
+        int med = medianThree(nums, left, (left + right) / 2, right);
+        // 将中位数交换至数组最左端
+        swap(nums, left, med);
+        // 以 nums[left] 作为基准数
+        int i = left, j = right;
+        while (i < j) {
+            while (i < j && nums[j] >= nums[left])
+                j--; // 从右向左找首个小于基准数的元素
+            while (i < j && nums[i] <= nums[left])
+                i++;          // 从左向右找首个大于基准数的元素
+            swap(nums, i, j); // 交换这两个元素
+        }
+        swap(nums, i, left); // 将基准数交换至两子数组的分界线
+        return i;            // 返回基准数的索引
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="quick_sort.zig"
+    // 选取三个元素的中位数
+    fn medianThree(nums: []i32, left: usize, mid: usize, right: usize) usize {
+        // 此处使用异或运算来简化代码
+        // 异或规则为 0 ^ 0 = 1 ^ 1 = 0, 0 ^ 1 = 1 ^ 0 = 1
+        if ((nums[left] < nums[mid]) != (nums[left] < nums[right])) {
+            return left;
+        } else if ((nums[mid] < nums[left]) != (nums[mid] < nums[right])) {
+            return mid;
+        } else {
+            return right;
+        }
+    }
+
+    // 哨兵划分（三数取中值）
+    fn partition(nums: []i32, left: usize, right: usize) usize {
+        // 选取三个候选元素的中位数
+        var med = medianThree(nums, left, (left + right) / 2, right);
+        // 将中位数交换至数组最左端
+        swap(nums, left, med);
+        // 以 nums[left] 作为基准数
+        var i = left;
+        var j = right;
+        while (i < j) {
+            while (i < j and nums[j] >= nums[left]) j -= 1; // 从右向左找首个小于基准数的元素
+            while (i < j and nums[i] <= nums[left]) i += 1; // 从左向右找首个大于基准数的元素
+            swap(nums, i, j);   // 交换这两个元素
+        }
+        swap(nums, i, left);    // 将基准数交换至两子数组的分界线
+        return i;               // 返回基准数的索引
+    }
+    ```
+
 ## 11.5.5 &nbsp; 尾递归优化
 
 **在某些输入下，快速排序可能占用空间较多**。以完全倒序的输入数组为例，由于每轮哨兵划分后右子数组长度为 $0$ ，递归树的高度会达到 $n - 1$ ，此时需要占用 $O(n)$ 大小的栈帧空间。
 
 为了防止栈帧空间的累积，我们可以在每轮哨兵排序完成后，比较两个子数组的长度，**仅对较短的子数组进行递归**。由于较短子数组的长度不会超过 $n / 2$ ，因此这种方法能确保递归深度不超过 $\log n$ ，从而将最差空间复杂度优化至 $O(\log n)$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="quick_sort.java"
-    /* 快速排序（尾递归优化） */
-    void quickSort(int[] nums, int left, int right) {
-        // 子数组长度为 1 时终止
-        while (left < right) {
-            // 哨兵划分操作
-            int pivot = partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
-            if (pivot - left < right - pivot) {
-                quickSort(nums, left, pivot - 1); // 递归排序左子数组
-                left = pivot + 1; // 剩余未排序区间为 [pivot + 1, right]
-            } else {
-                quickSort(nums, pivot + 1, right); // 递归排序右子数组
-                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
-            }
-        }
-    }
+    ```python title="quick_sort.py"
+    def quick_sort(self, nums: list[int], left: int, right: int):
+        """快速排序（尾递归优化）"""
+        # 子数组长度为 1 时终止
+        while left < right:
+            # 哨兵划分操作
+            pivot = self.partition(nums, left, right)
+            # 对两个子数组中较短的那个执行快排
+            if pivot - left < right - pivot:
+                self.quick_sort(nums, left, pivot - 1)  # 递归排序左子数组
+                left = pivot + 1  # 剩余未排序区间为 [pivot + 1, right]
+            else:
+                self.quick_sort(nums, pivot + 1, right)  # 递归排序右子数组
+                right = pivot - 1  # 剩余未排序区间为 [left, pivot - 1]
     ```
 
 === "C++"
@@ -1103,22 +1100,46 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="quick_sort.py"
-    def quick_sort(self, nums: list[int], left: int, right: int):
-        """快速排序（尾递归优化）"""
-        # 子数组长度为 1 时终止
-        while left < right:
-            # 哨兵划分操作
-            pivot = self.partition(nums, left, right)
-            # 对两个子数组中较短的那个执行快排
-            if pivot - left < right - pivot:
-                self.quick_sort(nums, left, pivot - 1)  # 递归排序左子数组
-                left = pivot + 1  # 剩余未排序区间为 [pivot + 1, right]
-            else:
-                self.quick_sort(nums, pivot + 1, right)  # 递归排序右子数组
-                right = pivot - 1  # 剩余未排序区间为 [left, pivot - 1]
+    ```java title="quick_sort.java"
+    /* 快速排序（尾递归优化） */
+    void quickSort(int[] nums, int left, int right) {
+        // 子数组长度为 1 时终止
+        while (left < right) {
+            // 哨兵划分操作
+            int pivot = partition(nums, left, right);
+            // 对两个子数组中较短的那个执行快排
+            if (pivot - left < right - pivot) {
+                quickSort(nums, left, pivot - 1); // 递归排序左子数组
+                left = pivot + 1; // 剩余未排序区间为 [pivot + 1, right]
+            } else {
+                quickSort(nums, pivot + 1, right); // 递归排序右子数组
+                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
+            }
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="quick_sort.cs"
+    /* 快速排序（尾递归优化） */
+    void quickSort(int[] nums, int left, int right) {
+        // 子数组长度为 1 时终止
+        while (left < right) {
+            // 哨兵划分操作
+            int pivot = partition(nums, left, right);
+            // 对两个子数组中较短的那个执行快排
+            if (pivot - left < right - pivot) {
+                quickSort(nums, left, pivot - 1);  // 递归排序左子数组
+                left = pivot + 1;  // 剩余未排序区间为 [pivot + 1, right]
+            } else {
+                quickSort(nums, pivot + 1, right); // 递归排序右子数组
+                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
+            }
+        }
+    }
     ```
 
 === "Go"
@@ -1137,6 +1158,29 @@ comments: true
             } else {
                 q.quickSort(nums, pivot+1, right) // 递归排序右子数组
                 right = pivot - 1                 // 剩余未排序区间为 [left, pivot - 1]
+            }
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="quick_sort.swift"
+    /* 快速排序（尾递归优化） */
+    func quickSortTailCall(nums: inout [Int], left: Int, right: Int) {
+        var left = left
+        var right = right
+        // 子数组长度为 1 时终止
+        while left < right {
+            // 哨兵划分操作
+            let pivot = partition(nums: &nums, left: left, right: right)
+            // 对两个子数组中较短的那个执行快排
+            if (pivot - left) < (right - pivot) {
+                quickSortTailCall(nums: &nums, left: left, right: pivot - 1) // 递归排序左子数组
+                left = pivot + 1 // 剩余未排序区间为 [pivot + 1, right]
+            } else {
+                quickSortTailCall(nums: &nums, left: pivot + 1, right: right) // 递归排序右子数组
+                right = pivot - 1 // 剩余未排序区间为 [left, pivot - 1]
             }
         }
     }
@@ -1184,95 +1228,6 @@ comments: true
     }
     ```
 
-=== "C"
-
-    ```c title="quick_sort.c"
-    /* 快速排序类（尾递归优化） */
-    // 快速排序（尾递归优化）
-    void quickSortTailCall(int nums[], int left, int right) {
-        // 子数组长度为 1 时终止
-        while (left < right) {
-            // 哨兵划分操作
-            int pivot = partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
-            if (pivot - left < right - pivot) {
-                quickSortTailCall(nums, left, pivot - 1); // 递归排序左子数组
-                left = pivot + 1;                         // 剩余未排序区间为 [pivot + 1, right]
-            } else {
-                quickSortTailCall(nums, pivot + 1, right); // 递归排序右子数组
-                right = pivot - 1;                         // 剩余未排序区间为 [left, pivot - 1]
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="quick_sort.cs"
-    /* 快速排序（尾递归优化） */
-    void quickSort(int[] nums, int left, int right) {
-        // 子数组长度为 1 时终止
-        while (left < right) {
-            // 哨兵划分操作
-            int pivot = partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
-            if (pivot - left < right - pivot) {
-                quickSort(nums, left, pivot - 1);  // 递归排序左子数组
-                left = pivot + 1;  // 剩余未排序区间为 [pivot + 1, right]
-            } else {
-                quickSort(nums, pivot + 1, right); // 递归排序右子数组
-                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="quick_sort.swift"
-    /* 快速排序（尾递归优化） */
-    func quickSortTailCall(nums: inout [Int], left: Int, right: Int) {
-        var left = left
-        var right = right
-        // 子数组长度为 1 时终止
-        while left < right {
-            // 哨兵划分操作
-            let pivot = partition(nums: &nums, left: left, right: right)
-            // 对两个子数组中较短的那个执行快排
-            if (pivot - left) < (right - pivot) {
-                quickSortTailCall(nums: &nums, left: left, right: pivot - 1) // 递归排序左子数组
-                left = pivot + 1 // 剩余未排序区间为 [pivot + 1, right]
-            } else {
-                quickSortTailCall(nums: &nums, left: pivot + 1, right: right) // 递归排序右子数组
-                right = pivot - 1 // 剩余未排序区间为 [left, pivot - 1]
-            }
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="quick_sort.zig"
-    // 快速排序（尾递归优化）
-    fn quickSort(nums: []i32, left_: usize, right_: usize) void {
-        var left = left_;
-        var right = right_;
-        // 子数组长度为 1 时终止递归
-        while (left < right) {
-            // 哨兵划分操作
-            var pivot = partition(nums, left, right);
-            // 对两个子数组中较短的那个执行快排
-            if (pivot - left < right - pivot) {
-                quickSort(nums, left, pivot - 1);   // 递归排序左子数组
-                left = pivot + 1;                   // 剩余未排序区间为 [pivot + 1, right]
-            } else {
-                quickSort(nums, pivot + 1, right);  // 递归排序右子数组
-                right = pivot - 1;                  // 剩余未排序区间为 [left, pivot - 1]
-            }
-        }
-    }
-    ```
-
 === "Dart"
 
     ```dart title="quick_sort.dart"
@@ -1310,6 +1265,51 @@ comments: true
             } else {
                 Self::quick_sort(pivot + 1, right, nums); // 递归排序右子数组
                 right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
+            }
+        }
+    }
+    ```
+
+=== "C"
+
+    ```c title="quick_sort.c"
+    /* 快速排序类（尾递归优化） */
+    // 快速排序（尾递归优化）
+    void quickSortTailCall(int nums[], int left, int right) {
+        // 子数组长度为 1 时终止
+        while (left < right) {
+            // 哨兵划分操作
+            int pivot = partition(nums, left, right);
+            // 对两个子数组中较短的那个执行快排
+            if (pivot - left < right - pivot) {
+                quickSortTailCall(nums, left, pivot - 1); // 递归排序左子数组
+                left = pivot + 1;                         // 剩余未排序区间为 [pivot + 1, right]
+            } else {
+                quickSortTailCall(nums, pivot + 1, right); // 递归排序右子数组
+                right = pivot - 1;                         // 剩余未排序区间为 [left, pivot - 1]
+            }
+        }
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="quick_sort.zig"
+    // 快速排序（尾递归优化）
+    fn quickSort(nums: []i32, left_: usize, right_: usize) void {
+        var left = left_;
+        var right = right_;
+        // 子数组长度为 1 时终止递归
+        while (left < right) {
+            // 哨兵划分操作
+            var pivot = partition(nums, left, right);
+            // 对两个子数组中较短的那个执行快排
+            if (pivot - left < right - pivot) {
+                quickSort(nums, left, pivot - 1);   // 递归排序左子数组
+                left = pivot + 1;                   // 剩余未排序区间为 [pivot + 1, right]
+            } else {
+                quickSort(nums, pivot + 1, right);  // 递归排序右子数组
+                right = pivot - 1;                  // 剩余未排序区间为 [left, pivot - 1]
             }
         }
     }

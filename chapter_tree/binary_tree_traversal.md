@@ -22,26 +22,24 @@ comments: true
 
 广度优先遍历通常借助“队列”来实现。队列遵循“先进先出”的规则，而广度优先遍历则遵循“逐层推进”的规则，两者背后的思想是一致的。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_tree_bfs.java"
-    /* 层序遍历 */
-    List<Integer> levelOrder(TreeNode root) {
-        // 初始化队列，加入根节点
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        // 初始化一个列表，用于保存遍历序列
-        List<Integer> list = new ArrayList<>();
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll(); // 队列出队
-            list.add(node.val);           // 保存节点值
-            if (node.left != null)
-                queue.offer(node.left);   // 左子节点入队
-            if (node.right != null)
-                queue.offer(node.right);  // 右子节点入队
-        }
-        return list;
-    }
+    ```python title="binary_tree_bfs.py"
+    def level_order(root: TreeNode | None) -> list[int]:
+        """层序遍历"""
+        # 初始化队列，加入根节点
+        queue: deque[TreeNode] = deque()
+        queue.append(root)
+        # 初始化一个列表，用于保存遍历序列
+        res = []
+        while queue:
+            node: TreeNode = queue.popleft()  # 队列出队
+            res.append(node.val)  # 保存节点值
+            if node.left is not None:
+                queue.append(node.left)  # 左子节点入队
+            if node.right is not None:
+                queue.append(node.right)  # 右子节点入队
+        return res
     ```
 
 === "C++"
@@ -67,24 +65,48 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_tree_bfs.py"
-    def level_order(root: TreeNode | None) -> list[int]:
-        """层序遍历"""
-        # 初始化队列，加入根节点
-        queue: deque[TreeNode] = deque()
-        queue.append(root)
-        # 初始化一个列表，用于保存遍历序列
-        res = []
-        while queue:
-            node: TreeNode = queue.popleft()  # 队列出队
-            res.append(node.val)  # 保存节点值
-            if node.left is not None:
-                queue.append(node.left)  # 左子节点入队
-            if node.right is not None:
-                queue.append(node.right)  # 右子节点入队
-        return res
+    ```java title="binary_tree_bfs.java"
+    /* 层序遍历 */
+    List<Integer> levelOrder(TreeNode root) {
+        // 初始化队列，加入根节点
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        // 初始化一个列表，用于保存遍历序列
+        List<Integer> list = new ArrayList<>();
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll(); // 队列出队
+            list.add(node.val);           // 保存节点值
+            if (node.left != null)
+                queue.offer(node.left);   // 左子节点入队
+            if (node.right != null)
+                queue.offer(node.right);  // 右子节点入队
+        }
+        return list;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_tree_bfs.cs"
+    /* 层序遍历 */
+    List<int> levelOrder(TreeNode root) {
+        // 初始化队列，加入根节点
+        Queue<TreeNode> queue = new();
+        queue.Enqueue(root);
+        // 初始化一个列表，用于保存遍历序列
+        List<int> list = new();
+        while (queue.Count != 0) {
+            TreeNode node = queue.Dequeue(); // 队列出队
+            list.Add(node.val);              // 保存节点值
+            if (node.left != null)
+                queue.Enqueue(node.left);    // 左子节点入队
+            if (node.right != null)
+                queue.Enqueue(node.right);   // 右子节点入队
+        }
+        return list;
+    }
     ```
 
 === "Go"
@@ -112,6 +134,29 @@ comments: true
             }
         }
         return nums
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_tree_bfs.swift"
+    /* 层序遍历 */
+    func levelOrder(root: TreeNode) -> [Int] {
+        // 初始化队列，加入根节点
+        var queue: [TreeNode] = [root]
+        // 初始化一个列表，用于保存遍历序列
+        var list: [Int] = []
+        while !queue.isEmpty {
+            let node = queue.removeFirst() // 队列出队
+            list.append(node.val) // 保存节点值
+            if let left = node.left {
+                queue.append(left) // 左子节点入队
+            }
+            if let right = node.right {
+                queue.append(right) // 右子节点入队
+            }
+        }
+        return list
     }
     ```
 
@@ -152,129 +197,6 @@ comments: true
             if (node.right) {
                 queue.push(node.right); // 右子节点入队
             }
-        }
-        return list;
-    }
-    ```
-
-=== "C"
-
-    ```c title="binary_tree_bfs.c"
-    /* 层序遍历 */
-    int *levelOrder(TreeNode *root, int *size) {
-        /* 辅助队列 */
-        int front, rear;
-        int index, *arr;
-        TreeNode *node;
-        TreeNode **queue;
-
-        /* 辅助队列 */
-        queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_NODE_SIZE);
-        // 队列指针
-        front = 0, rear = 0;
-        // 加入根节点
-        queue[rear++] = root;
-        // 初始化一个列表，用于保存遍历序列
-        /* 辅助数组 */
-        arr = (int *)malloc(sizeof(int) * MAX_NODE_SIZE);
-        // 数组指针
-        index = 0;
-        while (front < rear) {
-            // 队列出队
-            node = queue[front++];
-            // 保存节点值
-            arr[index++] = node->val;
-            if (node->left != NULL) {
-                // 左子节点入队
-                queue[rear++] = node->left;
-            }
-            if (node->right != NULL) {
-                // 右子节点入队
-                queue[rear++] = node->right;
-            }
-        }
-        // 更新数组长度的值
-        *size = index;
-        arr = realloc(arr, sizeof(int) * (*size));
-
-        // 释放辅助数组空间
-        free(queue);
-        return arr;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_tree_bfs.cs"
-    /* 层序遍历 */
-    List<int> levelOrder(TreeNode root) {
-        // 初始化队列，加入根节点
-        Queue<TreeNode> queue = new();
-        queue.Enqueue(root);
-        // 初始化一个列表，用于保存遍历序列
-        List<int> list = new();
-        while (queue.Count != 0) {
-            TreeNode node = queue.Dequeue(); // 队列出队
-            list.Add(node.val);              // 保存节点值
-            if (node.left != null)
-                queue.Enqueue(node.left);    // 左子节点入队
-            if (node.right != null)
-                queue.Enqueue(node.right);   // 右子节点入队
-        }
-        return list;
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_tree_bfs.swift"
-    /* 层序遍历 */
-    func levelOrder(root: TreeNode) -> [Int] {
-        // 初始化队列，加入根节点
-        var queue: [TreeNode] = [root]
-        // 初始化一个列表，用于保存遍历序列
-        var list: [Int] = []
-        while !queue.isEmpty {
-            let node = queue.removeFirst() // 队列出队
-            list.append(node.val) // 保存节点值
-            if let left = node.left {
-                queue.append(left) // 左子节点入队
-            }
-            if let right = node.right {
-                queue.append(right) // 右子节点入队
-            }
-        }
-        return list
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_tree_bfs.zig"
-    // 层序遍历
-    fn levelOrder(comptime T: type, mem_allocator: std.mem.Allocator, root: *inc.TreeNode(T)) !std.ArrayList(T) {
-        // 初始化队列，加入根节点
-        const L = std.TailQueue(*inc.TreeNode(T));
-        var queue = L{};
-        var root_node = try mem_allocator.create(L.Node);
-        root_node.data = root;
-        queue.append(root_node); 
-        // 初始化一个列表，用于保存遍历序列
-        var list = std.ArrayList(T).init(std.heap.page_allocator);
-        while (queue.len > 0) {
-            var queue_node = queue.popFirst().?;    // 队列出队
-            var node = queue_node.data;
-            try list.append(node.val);              // 保存节点值
-            if (node.left != null) {
-                var tmp_node = try mem_allocator.create(L.Node);
-                tmp_node.data = node.left.?;
-                queue.append(tmp_node);             // 左子节点入队
-            }
-            if (node.right != null) {
-                var tmp_node = try mem_allocator.create(L.Node);
-                tmp_node.data = node.right.?;
-                queue.append(tmp_node);             // 右子节点入队
-            }        
         }
         return list;
     }
@@ -324,6 +246,84 @@ comments: true
     }
     ```
 
+=== "C"
+
+    ```c title="binary_tree_bfs.c"
+    /* 层序遍历 */
+    int *levelOrder(TreeNode *root, int *size) {
+        /* 辅助队列 */
+        int front, rear;
+        int index, *arr;
+        TreeNode *node;
+        TreeNode **queue;
+
+        /* 辅助队列 */
+        queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_NODE_SIZE);
+        // 队列指针
+        front = 0, rear = 0;
+        // 加入根节点
+        queue[rear++] = root;
+        // 初始化一个列表，用于保存遍历序列
+        /* 辅助数组 */
+        arr = (int *)malloc(sizeof(int) * MAX_NODE_SIZE);
+        // 数组指针
+        index = 0;
+        while (front < rear) {
+            // 队列出队
+            node = queue[front++];
+            // 保存节点值
+            arr[index++] = node->val;
+            if (node->left != NULL) {
+                // 左子节点入队
+                queue[rear++] = node->left;
+            }
+            if (node->right != NULL) {
+                // 右子节点入队
+                queue[rear++] = node->right;
+            }
+        }
+        // 更新数组长度的值
+        *size = index;
+        arr = realloc(arr, sizeof(int) * (*size));
+
+        // 释放辅助数组空间
+        free(queue);
+        return arr;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_tree_bfs.zig"
+    // 层序遍历
+    fn levelOrder(comptime T: type, mem_allocator: std.mem.Allocator, root: *inc.TreeNode(T)) !std.ArrayList(T) {
+        // 初始化队列，加入根节点
+        const L = std.TailQueue(*inc.TreeNode(T));
+        var queue = L{};
+        var root_node = try mem_allocator.create(L.Node);
+        root_node.data = root;
+        queue.append(root_node); 
+        // 初始化一个列表，用于保存遍历序列
+        var list = std.ArrayList(T).init(std.heap.page_allocator);
+        while (queue.len > 0) {
+            var queue_node = queue.popFirst().?;    // 队列出队
+            var node = queue_node.data;
+            try list.append(node.val);              // 保存节点值
+            if (node.left != null) {
+                var tmp_node = try mem_allocator.create(L.Node);
+                tmp_node.data = node.left.?;
+                queue.append(tmp_node);             // 左子节点入队
+            }
+            if (node.right != null) {
+                var tmp_node = try mem_allocator.create(L.Node);
+                tmp_node.data = node.right.?;
+                queue.append(tmp_node);             // 右子节点入队
+            }        
+        }
+        return list;
+    }
+    ```
+
 ### 2. &nbsp; 复杂度分析
 
 - **时间复杂度 $O(n)$** ：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
@@ -343,38 +343,35 @@ comments: true
 
 深度优先搜索通常基于递归实现：
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_tree_dfs.java"
-    /* 前序遍历 */
-    void preOrder(TreeNode root) {
-        if (root == null)
-            return;
-        // 访问优先级：根节点 -> 左子树 -> 右子树
-        list.add(root.val);
-        preOrder(root.left);
-        preOrder(root.right);
-    }
+    ```python title="binary_tree_dfs.py"
+    def pre_order(root: TreeNode | None):
+        """前序遍历"""
+        if root is None:
+            return
+        # 访问优先级：根节点 -> 左子树 -> 右子树
+        res.append(root.val)
+        pre_order(root=root.left)
+        pre_order(root=root.right)
 
-    /* 中序遍历 */
-    void inOrder(TreeNode root) {
-        if (root == null)
-            return;
-        // 访问优先级：左子树 -> 根节点 -> 右子树
-        inOrder(root.left);
-        list.add(root.val);
-        inOrder(root.right);
-    }
+    def in_order(root: TreeNode | None):
+        """中序遍历"""
+        if root is None:
+            return
+        # 访问优先级：左子树 -> 根节点 -> 右子树
+        in_order(root=root.left)
+        res.append(root.val)
+        in_order(root=root.right)
 
-    /* 后序遍历 */
-    void postOrder(TreeNode root) {
-        if (root == null)
-            return;
-        // 访问优先级：左子树 -> 右子树 -> 根节点
-        postOrder(root.left);
-        postOrder(root.right);
-        list.add(root.val);
-    }
+    def post_order(root: TreeNode | None):
+        """后序遍历"""
+        if root is None:
+            return
+        # 访问优先级：左子树 -> 右子树 -> 根节点
+        post_order(root=root.left)
+        post_order(root=root.right)
+        res.append(root.val)
     ```
 
 === "C++"
@@ -411,35 +408,69 @@ comments: true
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_tree_dfs.py"
-    def pre_order(root: TreeNode | None):
-        """前序遍历"""
-        if root is None:
-            return
-        # 访问优先级：根节点 -> 左子树 -> 右子树
-        res.append(root.val)
-        pre_order(root=root.left)
-        pre_order(root=root.right)
+    ```java title="binary_tree_dfs.java"
+    /* 前序遍历 */
+    void preOrder(TreeNode root) {
+        if (root == null)
+            return;
+        // 访问优先级：根节点 -> 左子树 -> 右子树
+        list.add(root.val);
+        preOrder(root.left);
+        preOrder(root.right);
+    }
 
-    def in_order(root: TreeNode | None):
-        """中序遍历"""
-        if root is None:
-            return
-        # 访问优先级：左子树 -> 根节点 -> 右子树
-        in_order(root=root.left)
-        res.append(root.val)
-        in_order(root=root.right)
+    /* 中序遍历 */
+    void inOrder(TreeNode root) {
+        if (root == null)
+            return;
+        // 访问优先级：左子树 -> 根节点 -> 右子树
+        inOrder(root.left);
+        list.add(root.val);
+        inOrder(root.right);
+    }
 
-    def post_order(root: TreeNode | None):
-        """后序遍历"""
-        if root is None:
-            return
-        # 访问优先级：左子树 -> 右子树 -> 根节点
-        post_order(root=root.left)
-        post_order(root=root.right)
-        res.append(root.val)
+    /* 后序遍历 */
+    void postOrder(TreeNode root) {
+        if (root == null)
+            return;
+        // 访问优先级：左子树 -> 右子树 -> 根节点
+        postOrder(root.left);
+        postOrder(root.right);
+        list.add(root.val);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_tree_dfs.cs"
+    /* 前序遍历 */
+    void preOrder(TreeNode? root) {
+        if (root == null) return;
+        // 访问优先级：根节点 -> 左子树 -> 右子树
+        list.Add(root.val);
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+
+    /* 中序遍历 */
+    void inOrder(TreeNode? root) {
+        if (root == null) return;
+        // 访问优先级：左子树 -> 根节点 -> 右子树
+        inOrder(root.left);
+        list.Add(root.val);
+        inOrder(root.right);
+    }
+
+    /* 后序遍历 */
+    void postOrder(TreeNode? root) {
+        if (root == null) return;
+        // 访问优先级：左子树 -> 右子树 -> 根节点
+        postOrder(root.left);
+        postOrder(root.right);
+        list.Add(root.val);
+    }
     ```
 
 === "Go"
@@ -476,6 +507,43 @@ comments: true
         postOrder(node.Left)
         postOrder(node.Right)
         nums = append(nums, node.Val)
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_tree_dfs.swift"
+    /* 前序遍历 */
+    func preOrder(root: TreeNode?) {
+        guard let root = root else {
+            return
+        }
+        // 访问优先级：根节点 -> 左子树 -> 右子树
+        list.append(root.val)
+        preOrder(root: root.left)
+        preOrder(root: root.right)
+    }
+
+    /* 中序遍历 */
+    func inOrder(root: TreeNode?) {
+        guard let root = root else {
+            return
+        }
+        // 访问优先级：左子树 -> 根节点 -> 右子树
+        inOrder(root: root.left)
+        list.append(root.val)
+        inOrder(root: root.right)
+    }
+
+    /* 后序遍历 */
+    func postOrder(root: TreeNode?) {
+        guard let root = root else {
+            return
+        }
+        // 访问优先级：左子树 -> 右子树 -> 根节点
+        postOrder(root: root.left)
+        postOrder(root: root.right)
+        list.append(root.val)
     }
     ```
 
@@ -544,139 +612,6 @@ comments: true
         postOrder(root.left);
         postOrder(root.right);
         list.push(root.val);
-    }
-    ```
-
-=== "C"
-
-    ```c title="binary_tree_dfs.c"
-    /* 前序遍历 */
-    void preOrder(TreeNode *root, int *size) {
-        if (root == NULL)
-            return;
-        // 访问优先级：根节点 -> 左子树 -> 右子树
-        arr[(*size)++] = root->val;
-        preOrder(root->left, size);
-        preOrder(root->right, size);
-    }
-
-    /* 中序遍历 */
-    void inOrder(TreeNode *root, int *size) {
-        if (root == NULL)
-            return;
-        // 访问优先级：左子树 -> 根节点 -> 右子树
-        inOrder(root->left, size);
-        arr[(*size)++] = root->val;
-        inOrder(root->right, size);
-    }
-
-    /* 后序遍历 */
-    void postOrder(TreeNode *root, int *size) {
-        if (root == NULL)
-            return;
-        // 访问优先级：左子树 -> 右子树 -> 根节点
-        postOrder(root->left, size);
-        postOrder(root->right, size);
-        arr[(*size)++] = root->val;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_tree_dfs.cs"
-    /* 前序遍历 */
-    void preOrder(TreeNode? root) {
-        if (root == null) return;
-        // 访问优先级：根节点 -> 左子树 -> 右子树
-        list.Add(root.val);
-        preOrder(root.left);
-        preOrder(root.right);
-    }
-
-    /* 中序遍历 */
-    void inOrder(TreeNode? root) {
-        if (root == null) return;
-        // 访问优先级：左子树 -> 根节点 -> 右子树
-        inOrder(root.left);
-        list.Add(root.val);
-        inOrder(root.right);
-    }
-
-    /* 后序遍历 */
-    void postOrder(TreeNode? root) {
-        if (root == null) return;
-        // 访问优先级：左子树 -> 右子树 -> 根节点
-        postOrder(root.left);
-        postOrder(root.right);
-        list.Add(root.val);
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_tree_dfs.swift"
-    /* 前序遍历 */
-    func preOrder(root: TreeNode?) {
-        guard let root = root else {
-            return
-        }
-        // 访问优先级：根节点 -> 左子树 -> 右子树
-        list.append(root.val)
-        preOrder(root: root.left)
-        preOrder(root: root.right)
-    }
-
-    /* 中序遍历 */
-    func inOrder(root: TreeNode?) {
-        guard let root = root else {
-            return
-        }
-        // 访问优先级：左子树 -> 根节点 -> 右子树
-        inOrder(root: root.left)
-        list.append(root.val)
-        inOrder(root: root.right)
-    }
-
-    /* 后序遍历 */
-    func postOrder(root: TreeNode?) {
-        guard let root = root else {
-            return
-        }
-        // 访问优先级：左子树 -> 右子树 -> 根节点
-        postOrder(root: root.left)
-        postOrder(root: root.right)
-        list.append(root.val)
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_tree_dfs.zig"
-    // 前序遍历
-    fn preOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
-        if (root == null) return;
-        // 访问优先级：根节点 -> 左子树 -> 右子树
-        try list.append(root.?.val);
-        try preOrder(T, root.?.left);
-        try preOrder(T, root.?.right);
-    }
-
-    // 中序遍历
-    fn inOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
-        if (root == null) return;
-        // 访问优先级：左子树 -> 根节点 -> 右子树
-        try inOrder(T, root.?.left);
-        try list.append(root.?.val);
-        try inOrder(T, root.?.right);
-    }
-
-    // 后序遍历
-    fn postOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
-        if (root == null) return;
-        // 访问优先级：左子树 -> 右子树 -> 根节点
-        try postOrder(T, root.?.left);
-        try postOrder(T, root.?.right);
-        try list.append(root.?.val);
     }
     ```
 
@@ -751,6 +686,71 @@ comments: true
             result.push(node.borrow().val);
         }
         result
+    }
+    ```
+
+=== "C"
+
+    ```c title="binary_tree_dfs.c"
+    /* 前序遍历 */
+    void preOrder(TreeNode *root, int *size) {
+        if (root == NULL)
+            return;
+        // 访问优先级：根节点 -> 左子树 -> 右子树
+        arr[(*size)++] = root->val;
+        preOrder(root->left, size);
+        preOrder(root->right, size);
+    }
+
+    /* 中序遍历 */
+    void inOrder(TreeNode *root, int *size) {
+        if (root == NULL)
+            return;
+        // 访问优先级：左子树 -> 根节点 -> 右子树
+        inOrder(root->left, size);
+        arr[(*size)++] = root->val;
+        inOrder(root->right, size);
+    }
+
+    /* 后序遍历 */
+    void postOrder(TreeNode *root, int *size) {
+        if (root == NULL)
+            return;
+        // 访问优先级：左子树 -> 右子树 -> 根节点
+        postOrder(root->left, size);
+        postOrder(root->right, size);
+        arr[(*size)++] = root->val;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_tree_dfs.zig"
+    // 前序遍历
+    fn preOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
+        if (root == null) return;
+        // 访问优先级：根节点 -> 左子树 -> 右子树
+        try list.append(root.?.val);
+        try preOrder(T, root.?.left);
+        try preOrder(T, root.?.right);
+    }
+
+    // 中序遍历
+    fn inOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
+        if (root == null) return;
+        // 访问优先级：左子树 -> 根节点 -> 右子树
+        try inOrder(T, root.?.left);
+        try list.append(root.?.val);
+        try inOrder(T, root.?.right);
+    }
+
+    // 后序遍历
+    fn postOrder(comptime T: type, root: ?*inc.TreeNode(T)) !void {
+        if (root == null) return;
+        // 访问优先级：左子树 -> 右子树 -> 根节点
+        try postOrder(T, root.?.left);
+        try postOrder(T, root.?.right);
+        try list.append(root.?.val);
     }
     ```
 
