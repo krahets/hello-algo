@@ -19,10 +19,10 @@
 
 ![插入排序流程](insertion_sort.assets/insertion_sort_overview.png)
 
-=== "Java"
+=== "Python"
 
-    ```java title="insertion_sort.java"
-    [class]{insertion_sort}-[func]{insertionSort}
+    ```python title="insertion_sort.py"
+    [class]{}-[func]{insertion_sort}
     ```
 
 === "C++"
@@ -31,15 +31,27 @@
     [class]{}-[func]{insertionSort}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="insertion_sort.py"
-    [class]{}-[func]{insertion_sort}
+    ```java title="insertion_sort.java"
+    [class]{insertion_sort}-[func]{insertionSort}
+    ```
+
+=== "C#"
+
+    ```csharp title="insertion_sort.cs"
+    [class]{insertion_sort}-[func]{insertionSort}
     ```
 
 === "Go"
 
     ```go title="insertion_sort.go"
+    [class]{}-[func]{insertionSort}
+    ```
+
+=== "Swift"
+
+    ```swift title="insertion_sort.swift"
     [class]{}-[func]{insertionSort}
     ```
 
@@ -55,30 +67,6 @@
     [class]{}-[func]{insertionSort}
     ```
 
-=== "C"
-
-    ```c title="insertion_sort.c"
-    [class]{}-[func]{insertionSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="insertion_sort.cs"
-    [class]{insertion_sort}-[func]{insertionSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="insertion_sort.swift"
-    [class]{}-[func]{insertionSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="insertion_sort.zig"
-    [class]{}-[func]{insertionSort}
-    ```
-
 === "Dart"
 
     ```dart title="insertion_sort.dart"
@@ -89,6 +77,18 @@
 
     ```rust title="insertion_sort.rs"
     [class]{}-[func]{insertion_sort}
+    ```
+
+=== "C"
+
+    ```c title="insertion_sort.c"
+    [class]{}-[func]{insertionSort}
+    ```
+
+=== "Zig"
+
+    ```zig title="insertion_sort.zig"
+    [class]{}-[func]{insertionSort}
     ```
 
 ## 算法特性

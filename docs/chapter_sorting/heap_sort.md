@@ -62,12 +62,12 @@
 
 在代码实现中，我们使用了与堆章节相同的从顶至底堆化 `sift_down()` 函数。值得注意的是，由于堆的长度会随着提取最大元素而减小，因此我们需要给 `sift_down()` 函数添加一个长度参数 $n$ ，用于指定堆的当前有效长度。
 
-=== "Java"
+=== "Python"
 
-    ```java title="heap_sort.java"
-    [class]{heap_sort}-[func]{siftDown}
+    ```python title="heap_sort.py"
+    [class]{}-[func]{sift_down}
 
-    [class]{heap_sort}-[func]{heapSort}
+    [class]{}-[func]{heap_sort}
     ```
 
 === "C++"
@@ -78,17 +78,33 @@
     [class]{}-[func]{heapSort}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="heap_sort.py"
-    [class]{}-[func]{sift_down}
+    ```java title="heap_sort.java"
+    [class]{heap_sort}-[func]{siftDown}
 
-    [class]{}-[func]{heap_sort}
+    [class]{heap_sort}-[func]{heapSort}
+    ```
+
+=== "C#"
+
+    ```csharp title="heap_sort.cs"
+    [class]{heap_sort}-[func]{siftDown}
+
+    [class]{heap_sort}-[func]{heapSort}
     ```
 
 === "Go"
 
     ```go title="heap_sort.go"
+    [class]{}-[func]{siftDown}
+
+    [class]{}-[func]{heapSort}
+    ```
+
+=== "Swift"
+
+    ```swift title="heap_sort.swift"
     [class]{}-[func]{siftDown}
 
     [class]{}-[func]{heapSort}
@@ -110,38 +126,6 @@
     [class]{}-[func]{heapSort}
     ```
 
-=== "C"
-
-    ```c title="heap_sort.c"
-    [class]{}-[func]{siftDown}
-
-    [class]{}-[func]{heapSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="heap_sort.cs"
-    [class]{heap_sort}-[func]{siftDown}
-
-    [class]{heap_sort}-[func]{heapSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="heap_sort.swift"
-    [class]{}-[func]{siftDown}
-
-    [class]{}-[func]{heapSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="heap_sort.zig"
-    [class]{}-[func]{siftDown}
-
-    [class]{}-[func]{heapSort}
-    ```
-
 === "Dart"
 
     ```dart title="heap_sort.dart"
@@ -156,6 +140,22 @@
     [class]{}-[func]{sift_down}
 
     [class]{}-[func]{heap_sort}
+    ```
+
+=== "C"
+
+    ```c title="heap_sort.c"
+    [class]{}-[func]{siftDown}
+
+    [class]{}-[func]{heapSort}
+    ```
+
+=== "Zig"
+
+    ```zig title="heap_sort.zig"
+    [class]{}-[func]{siftDown}
+
+    [class]{}-[func]{heapSort}
     ```
 
 ## 算法特性

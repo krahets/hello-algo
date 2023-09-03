@@ -12,10 +12,10 @@
 
 ![计数排序流程](counting_sort.assets/counting_sort_overview.png)
 
-=== "Java"
+=== "Python"
 
-    ```java title="counting_sort.java"
-    [class]{counting_sort}-[func]{countingSortNaive}
+    ```python title="counting_sort.py"
+    [class]{}-[func]{counting_sort_naive}
     ```
 
 === "C++"
@@ -24,15 +24,27 @@
     [class]{}-[func]{countingSortNaive}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="counting_sort.py"
-    [class]{}-[func]{counting_sort_naive}
+    ```java title="counting_sort.java"
+    [class]{counting_sort}-[func]{countingSortNaive}
+    ```
+
+=== "C#"
+
+    ```csharp title="counting_sort.cs"
+    [class]{counting_sort}-[func]{countingSortNaive}
     ```
 
 === "Go"
 
     ```go title="counting_sort.go"
+    [class]{}-[func]{countingSortNaive}
+    ```
+
+=== "Swift"
+
+    ```swift title="counting_sort.swift"
     [class]{}-[func]{countingSortNaive}
     ```
 
@@ -48,30 +60,6 @@
     [class]{}-[func]{countingSortNaive}
     ```
 
-=== "C"
-
-    ```c title="counting_sort.c"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
-=== "C#"
-
-    ```csharp title="counting_sort.cs"
-    [class]{counting_sort}-[func]{countingSortNaive}
-    ```
-
-=== "Swift"
-
-    ```swift title="counting_sort.swift"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
-=== "Zig"
-
-    ```zig title="counting_sort.zig"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
 === "Dart"
 
     ```dart title="counting_sort.dart"
@@ -82,6 +70,18 @@
 
     ```rust title="counting_sort.rs"
     [class]{}-[func]{counting_sort_naive}
+    ```
+
+=== "C"
+
+    ```c title="counting_sort.c"
+    [class]{}-[func]{countingSortNaive}
+    ```
+
+=== "Zig"
+
+    ```zig title="counting_sort.zig"
+    [class]{}-[func]{countingSortNaive}
     ```
 
 !!! note "计数排序与桶排序的联系"
@@ -131,10 +131,10 @@ $$
 
 计数排序的实现代码如下所示。
 
-=== "Java"
+=== "Python"
 
-    ```java title="counting_sort.java"
-    [class]{counting_sort}-[func]{countingSort}
+    ```python title="counting_sort.py"
+    [class]{}-[func]{counting_sort}
     ```
 
 === "C++"
@@ -143,15 +143,27 @@ $$
     [class]{}-[func]{countingSort}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="counting_sort.py"
-    [class]{}-[func]{counting_sort}
+    ```java title="counting_sort.java"
+    [class]{counting_sort}-[func]{countingSort}
+    ```
+
+=== "C#"
+
+    ```csharp title="counting_sort.cs"
+    [class]{counting_sort}-[func]{countingSort}
     ```
 
 === "Go"
 
     ```go title="counting_sort.go"
+    [class]{}-[func]{countingSort}
+    ```
+
+=== "Swift"
+
+    ```swift title="counting_sort.swift"
     [class]{}-[func]{countingSort}
     ```
 
@@ -167,30 +179,6 @@ $$
     [class]{}-[func]{countingSort}
     ```
 
-=== "C"
-
-    ```c title="counting_sort.c"
-    [class]{}-[func]{countingSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="counting_sort.cs"
-    [class]{counting_sort}-[func]{countingSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="counting_sort.swift"
-    [class]{}-[func]{countingSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="counting_sort.zig"
-    [class]{}-[func]{countingSort}
-    ```
-
 === "Dart"
 
     ```dart title="counting_sort.dart"
@@ -201,6 +189,18 @@ $$
 
     ```rust title="counting_sort.rs"
     [class]{}-[func]{counting_sort}
+    ```
+
+=== "C"
+
+    ```c title="counting_sort.c"
+    [class]{}-[func]{countingSort}
+    ```
+
+=== "Zig"
+
+    ```zig title="counting_sort.zig"
+    [class]{}-[func]{countingSort}
     ```
 
 ## 算法特性

@@ -22,10 +22,10 @@
 
 因此二分结束时一定有：$i$ 指向首个大于 `target` 的元素，$j$ 指向首个小于 `target` 的元素。**易得当数组不包含 `target` 时，插入索引为 $i$** 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_insertion.java"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}
+    ```python title="binary_search_insertion.py"
+    [class]{}-[func]{binary_search_insertion_simple}
     ```
 
 === "C++"
@@ -34,15 +34,27 @@
     [class]{}-[func]{binarySearchInsertionSimple}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_insertion.py"
-    [class]{}-[func]{binary_search_insertion_simple}
+    ```java title="binary_search_insertion.java"
+    [class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_insertion.cs"
+    [class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}
     ```
 
 === "Go"
 
     ```go title="binary_search_insertion.go"
+    [class]{}-[func]{binarySearchInsertionSimple}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_insertion.swift"
     [class]{}-[func]{binarySearchInsertionSimple}
     ```
 
@@ -58,30 +70,6 @@
     [class]{}-[func]{binarySearchInsertionSimple}
     ```
 
-=== "C"
-
-    ```c title="binary_search_insertion.c"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_insertion.cs"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_insertion.swift"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_insertion.zig"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
 === "Dart"
 
     ```dart title="binary_search_insertion.dart"
@@ -92,6 +80,18 @@
 
     ```rust title="binary_search_insertion.rs"
     [class]{}-[func]{binary_search_insertion}
+    ```
+
+=== "C"
+
+    ```c title="binary_search_insertion.c"
+    [class]{}-[func]{binarySearchInsertionSimple}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_insertion.zig"
+    [class]{}-[func]{binarySearchInsertionSimple}
     ```
 
 ## 存在重复元素的情况
@@ -146,10 +146,10 @@
 
 即便如此，我们仍然可以将判断条件保持展开，因为其逻辑更加清晰、可读性更好。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_insertion.java"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertion}
+    ```python title="binary_search_insertion.py"
+    [class]{}-[func]{binary_search_insertion}
     ```
 
 === "C++"
@@ -158,15 +158,27 @@
     [class]{}-[func]{binarySearchInsertion}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_insertion.py"
-    [class]{}-[func]{binary_search_insertion}
+    ```java title="binary_search_insertion.java"
+    [class]{binary_search_insertion}-[func]{binarySearchInsertion}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_insertion.cs"
+    [class]{binary_search_insertion}-[func]{binarySearchInsertion}
     ```
 
 === "Go"
 
     ```go title="binary_search_insertion.go"
+    [class]{}-[func]{binarySearchInsertion}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_insertion.swift"
     [class]{}-[func]{binarySearchInsertion}
     ```
 
@@ -182,30 +194,6 @@
     [class]{}-[func]{binarySearchInsertion}
     ```
 
-=== "C"
-
-    ```c title="binary_search_insertion.c"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_insertion.cs"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertion}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_insertion.swift"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_insertion.zig"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
 === "Dart"
 
     ```dart title="binary_search_insertion.dart"
@@ -216,6 +204,18 @@
 
     ```rust title="binary_search_insertion.rs"
     [class]{}-[func]{binary_search_insertion}
+    ```
+
+=== "C"
+
+    ```c title="binary_search_insertion.c"
+    [class]{}-[func]{binarySearchInsertion}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_insertion.zig"
+    [class]{}-[func]{binarySearchInsertion}
     ```
 
 !!! tip

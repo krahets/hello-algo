@@ -2,16 +2,15 @@
 
 「二叉树 binary tree」是一种非线性数据结构，代表着祖先与后代之间的派生关系，体现着“一分为二”的分治逻辑。与链表类似，二叉树的基本单元是节点，每个节点包含：值、左子节点引用、右子节点引用。
 
-=== "Java"
+=== "Python"
 
-    ```java title=""
-    /* 二叉树节点类 */
-    class TreeNode {
-        int val;         // 节点值
-        TreeNode left;   // 左子节点引用
-        TreeNode right;  // 右子节点引用
-        TreeNode(int x) { val = x; }
-    }
+    ```python title=""
+    class TreeNode:
+        """二叉树节点类"""
+        def __init__(self, val: int):
+            self.val: int = val                   # 节点值
+            self.left: Optional[TreeNode] = None  # 左子节点引用
+            self.right: Optional[TreeNode] = None # 右子节点引用
     ```
 
 === "C++"
@@ -26,15 +25,28 @@
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title=""
-    class TreeNode:
-        """二叉树节点类"""
-        def __init__(self, val: int):
-            self.val: int = val                   # 节点值
-            self.left: Optional[TreeNode] = None  # 左子节点引用
-            self.right: Optional[TreeNode] = None # 右子节点引用
+    ```java title=""
+    /* 二叉树节点类 */
+    class TreeNode {
+        int val;         // 节点值
+        TreeNode left;   // 左子节点引用
+        TreeNode right;  // 右子节点引用
+        TreeNode(int x) { val = x; }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+    /* 二叉树节点类 */
+    class TreeNode {
+        int val;          // 节点值
+        TreeNode? left;   // 左子节点引用
+        TreeNode? right;  // 右子节点引用
+        TreeNode(int x) { val = x; }
+    }
     ```
 
 === "Go"
@@ -52,6 +64,21 @@
             Left:  nil, // 左子节点指针
             Right: nil, // 右子节点指针
             Val:   v,   // 节点值
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    /* 二叉树节点类 */
+    class TreeNode {
+        var val: Int // 节点值
+        var left: TreeNode? // 左子节点引用
+        var right: TreeNode? // 右子节点引用
+
+        init(x: Int) {
+            val = x
         }
     }
     ```
@@ -84,6 +111,24 @@
     }
     ```
 
+=== "Dart"
+
+    ```dart title=""
+    /* 二叉树节点类 */
+    class TreeNode {
+      int val;         // 节点值
+      TreeNode? left;  // 左子节点引用
+      TreeNode? right; // 右子节点引用
+      TreeNode(this.val, [this.left, this.right]);
+    }
+    ```
+
+=== "Rust"
+
+    ```rust title=""
+
+    ```
+
 === "C"
 
     ```c title=""
@@ -110,54 +155,9 @@
     }
     ```
 
-=== "C#"
-
-    ```csharp title=""
-    /* 二叉树节点类 */
-    class TreeNode {
-        int val;          // 节点值
-        TreeNode? left;   // 左子节点引用
-        TreeNode? right;  // 右子节点引用
-        TreeNode(int x) { val = x; }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* 二叉树节点类 */
-    class TreeNode {
-        var val: Int // 节点值
-        var left: TreeNode? // 左子节点引用
-        var right: TreeNode? // 右子节点引用
-
-        init(x: Int) {
-            val = x
-        }
-    }
-    ```
-
 === "Zig"
 
     ```zig title=""
-
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    /* 二叉树节点类 */
-    class TreeNode {
-      int val;         // 节点值
-      TreeNode? left;  // 左子节点引用
-      TreeNode? right; // 右子节点引用
-      TreeNode(this.val, [this.left, this.right]);
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
 
     ```
 
@@ -192,20 +192,21 @@
 
 与链表类似，首先初始化节点，然后构建引用（指针）。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_tree.java"
-    // 初始化节点
-    TreeNode n1 = new TreeNode(1);
-    TreeNode n2 = new TreeNode(2);
-    TreeNode n3 = new TreeNode(3);
-    TreeNode n4 = new TreeNode(4);
-    TreeNode n5 = new TreeNode(5);
-    // 构建引用指向（即指针）
-    n1.left = n2;
-    n1.right = n3;
-    n2.left = n4;
-    n2.right = n5;
+    ```python title="binary_tree.py"
+    # 初始化二叉树
+    # 初始化节点
+    n1 = TreeNode(val=1)
+    n2 = TreeNode(val=2)
+    n3 = TreeNode(val=3)
+    n4 = TreeNode(val=4)
+    n5 = TreeNode(val=5)
+    # 构建引用指向（即指针）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
     ```
 
 === "C++"
@@ -225,21 +226,37 @@
     n2->right = n5;
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_tree.py"
-    # 初始化二叉树
-    # 初始化节点
-    n1 = TreeNode(val=1)
-    n2 = TreeNode(val=2)
-    n3 = TreeNode(val=3)
-    n4 = TreeNode(val=4)
-    n5 = TreeNode(val=5)
-    # 构建引用指向（即指针）
-    n1.left = n2
-    n1.right = n3
-    n2.left = n4
-    n2.right = n5
+    ```java title="binary_tree.java"
+    // 初始化节点
+    TreeNode n1 = new TreeNode(1);
+    TreeNode n2 = new TreeNode(2);
+    TreeNode n3 = new TreeNode(3);
+    TreeNode n4 = new TreeNode(4);
+    TreeNode n5 = new TreeNode(5);
+    // 构建引用指向（即指针）
+    n1.left = n2;
+    n1.right = n3;
+    n2.left = n4;
+    n2.right = n5;
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_tree.cs"
+    /* 初始化二叉树 */
+    // 初始化节点
+    TreeNode n1 = new TreeNode(1);
+    TreeNode n2 = new TreeNode(2);
+    TreeNode n3 = new TreeNode(3);
+    TreeNode n4 = new TreeNode(4);
+    TreeNode n5 = new TreeNode(5);
+    // 构建引用指向（即指针）
+    n1.left = n2;
+    n1.right = n3;
+    n2.left = n4;
+    n2.right = n5;
     ```
 
 === "Go"
@@ -257,6 +274,22 @@
     n1.Right = n3
     n2.Left = n4
     n2.Right = n5
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_tree.swift"
+    // 初始化节点
+    let n1 = TreeNode(x: 1)
+    let n2 = TreeNode(x: 2)
+    let n3 = TreeNode(x: 3)
+    let n4 = TreeNode(x: 4)
+    let n5 = TreeNode(x: 5)
+    // 构建引用指向（即指针）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
     ```
 
 === "JS"
@@ -293,62 +326,6 @@
     n2.right = n5;
     ```
 
-=== "C"
-
-    ```c title="binary_tree.c"
-    /* 初始化二叉树 */
-    // 初始化节点
-    TreeNode *n1 = newTreeNode(1);
-    TreeNode *n2 = newTreeNode(2);
-    TreeNode *n3 = newTreeNode(3);
-    TreeNode *n4 = newTreeNode(4);
-    TreeNode *n5 = newTreeNode(5);
-    // 构建引用指向（即指针）
-    n1->left = n2;
-    n1->right = n3;
-    n2->left = n4;
-    n2->right = n5;
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_tree.cs"
-    /* 初始化二叉树 */
-    // 初始化节点
-    TreeNode n1 = new TreeNode(1);
-    TreeNode n2 = new TreeNode(2);
-    TreeNode n3 = new TreeNode(3);
-    TreeNode n4 = new TreeNode(4);
-    TreeNode n5 = new TreeNode(5);
-    // 构建引用指向（即指针）
-    n1.left = n2;
-    n1.right = n3;
-    n2.left = n4;
-    n2.right = n5;
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_tree.swift"
-    // 初始化节点
-    let n1 = TreeNode(x: 1)
-    let n2 = TreeNode(x: 2)
-    let n3 = TreeNode(x: 3)
-    let n4 = TreeNode(x: 4)
-    let n5 = TreeNode(x: 5)
-    // 构建引用指向（即指针）
-    n1.left = n2
-    n1.right = n3
-    n2.left = n4
-    n2.right = n5
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_tree.zig"
-
-    ```
-
 === "Dart"
 
     ```dart title="binary_tree.dart"
@@ -372,21 +349,45 @@
 
     ```
 
+=== "C"
+
+    ```c title="binary_tree.c"
+    /* 初始化二叉树 */
+    // 初始化节点
+    TreeNode *n1 = newTreeNode(1);
+    TreeNode *n2 = newTreeNode(2);
+    TreeNode *n3 = newTreeNode(3);
+    TreeNode *n4 = newTreeNode(4);
+    TreeNode *n5 = newTreeNode(5);
+    // 构建引用指向（即指针）
+    n1->left = n2;
+    n1->right = n3;
+    n2->left = n4;
+    n2->right = n5;
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_tree.zig"
+
+    ```
+
 ### 插入与删除节点
 
 与链表类似，在二叉树中插入与删除节点可以通过修改指针来实现。下图给出了一个示例。
 
 ![在二叉树中插入与删除节点](binary_tree.assets/binary_tree_add_remove.png)
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_tree.java"
-    TreeNode P = new TreeNode(0);
-    // 在 n1 -> n2 中间插入节点 P
-    n1.left = P;
-    P.left = n2;
-    // 删除节点 P
-    n1.left = n2;
+    ```python title="binary_tree.py"
+    # 插入与删除节点
+    p = TreeNode(0)
+    # 在 n1 -> n2 中间插入节点 P
+    n1.left = p
+    p.left = n2
+    # 删除节点 P
+    n1.left = n2
     ```
 
 === "C++"
@@ -401,16 +402,27 @@
     n1->left = n2;
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_tree.py"
-    # 插入与删除节点
-    p = TreeNode(0)
-    # 在 n1 -> n2 中间插入节点 P
-    n1.left = p
-    p.left = n2
-    # 删除节点 P
-    n1.left = n2
+    ```java title="binary_tree.java"
+    TreeNode P = new TreeNode(0);
+    // 在 n1 -> n2 中间插入节点 P
+    n1.left = P;
+    P.left = n2;
+    // 删除节点 P
+    n1.left = n2;
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_tree.cs"
+    /* 插入与删除节点 */
+    TreeNode P = new TreeNode(0);
+    // 在 n1 -> n2 中间插入节点 P
+    n1.left = P;
+    P.left = n2;
+    // 删除节点 P
+    n1.left = n2;
     ```
 
 === "Go"
@@ -423,6 +435,17 @@
     p.Left = n2
     // 删除节点 P
     n1.Left = n2
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_tree.swift"
+    let P = TreeNode(x: 0)
+    // 在 n1 -> n2 中间插入节点 P
+    n1.left = P
+    P.left = n2
+    // 删除节点 P
+    n1.left = n2
     ```
 
 === "JS"
@@ -449,47 +472,6 @@
     n1.left = n2;
     ```
 
-=== "C"
-
-    ```c title="binary_tree.c"
-    /* 插入与删除节点 */
-    TreeNode *P = newTreeNode(0);
-    // 在 n1 -> n2 中间插入节点 P
-    n1->left = P;
-    P->left = n2;
-    // 删除节点 P
-    n1->left = n2;
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_tree.cs"
-    /* 插入与删除节点 */
-    TreeNode P = new TreeNode(0);
-    // 在 n1 -> n2 中间插入节点 P
-    n1.left = P;
-    P.left = n2;
-    // 删除节点 P
-    n1.left = n2;
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_tree.swift"
-    let P = TreeNode(x: 0)
-    // 在 n1 -> n2 中间插入节点 P
-    n1.left = P
-    P.left = n2
-    // 删除节点 P
-    n1.left = n2
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_tree.zig"
-
-    ```
-
 === "Dart"
 
     ```dart title="binary_tree.dart"
@@ -505,6 +487,24 @@
 === "Rust"
 
     ```rust title="binary_tree.rs"
+
+    ```
+
+=== "C"
+
+    ```c title="binary_tree.c"
+    /* 插入与删除节点 */
+    TreeNode *P = newTreeNode(0);
+    // 在 n1 -> n2 中间插入节点 P
+    n1->left = P;
+    P->left = n2;
+    // 删除节点 P
+    n1->left = n2;
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_tree.zig"
 
     ```
 

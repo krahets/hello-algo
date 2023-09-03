@@ -14,10 +14,10 @@
 
 ![桶排序算法流程](bucket_sort.assets/bucket_sort_overview.png)
 
-=== "Java"
+=== "Python"
 
-    ```java title="bucket_sort.java"
-    [class]{bucket_sort}-[func]{bucketSort}
+    ```python title="bucket_sort.py"
+    [class]{}-[func]{bucket_sort}
     ```
 
 === "C++"
@@ -26,15 +26,27 @@
     [class]{}-[func]{bucketSort}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="bucket_sort.py"
-    [class]{}-[func]{bucket_sort}
+    ```java title="bucket_sort.java"
+    [class]{bucket_sort}-[func]{bucketSort}
+    ```
+
+=== "C#"
+
+    ```csharp title="bucket_sort.cs"
+    [class]{bucket_sort}-[func]{bucketSort}
     ```
 
 === "Go"
 
     ```go title="bucket_sort.go"
+    [class]{}-[func]{bucketSort}
+    ```
+
+=== "Swift"
+
+    ```swift title="bucket_sort.swift"
     [class]{}-[func]{bucketSort}
     ```
 
@@ -50,30 +62,6 @@
     [class]{}-[func]{bucketSort}
     ```
 
-=== "C"
-
-    ```c title="bucket_sort.c"
-    [class]{}-[func]{bucketSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="bucket_sort.cs"
-    [class]{bucket_sort}-[func]{bucketSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="bucket_sort.swift"
-    [class]{}-[func]{bucketSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="bucket_sort.zig"
-    [class]{}-[func]{bucketSort}
-    ```
-
 === "Dart"
 
     ```dart title="bucket_sort.dart"
@@ -84,6 +72,18 @@
 
     ```rust title="bucket_sort.rs"
     [class]{}-[func]{bucket_sort}
+    ```
+
+=== "C"
+
+    ```c title="bucket_sort.c"
+    [class]{}-[func]{bucketSort}
+    ```
+
+=== "Zig"
+
+    ```zig title="bucket_sort.zig"
+    [class]{}-[func]{bucketSort}
     ```
 
 ## 算法特性

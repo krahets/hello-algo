@@ -43,12 +43,12 @@
 
 想清楚以上信息之后，我们就可以在框架代码中做“完形填空”了。为了缩短代码行数，我们不单独实现框架代码中的各个函数，而是将他们展开在 `backtrack()` 函数中。
 
-=== "Java"
+=== "Python"
 
-    ```java title="permutations_i.java"
-    [class]{permutations_i}-[func]{backtrack}
+    ```python title="permutations_i.py"
+    [class]{}-[func]{backtrack}
 
-    [class]{permutations_i}-[func]{permutationsI}
+    [class]{}-[func]{permutations_i}
     ```
 
 === "C++"
@@ -59,18 +59,34 @@
     [class]{}-[func]{permutationsI}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="permutations_i.py"
-    [class]{}-[func]{backtrack}
+    ```java title="permutations_i.java"
+    [class]{permutations_i}-[func]{backtrack}
 
-    [class]{}-[func]{permutations_i}
+    [class]{permutations_i}-[func]{permutationsI}
+    ```
+
+=== "C#"
+
+    ```csharp title="permutations_i.cs"
+    [class]{permutations_i}-[func]{backtrack}
+
+    [class]{permutations_i}-[func]{permutationsI}
     ```
 
 === "Go"
 
     ```go title="permutations_i.go"
     [class]{}-[func]{backtrackI}
+
+    [class]{}-[func]{permutationsI}
+    ```
+
+=== "Swift"
+
+    ```swift title="permutations_i.swift"
+    [class]{}-[func]{backtrack}
 
     [class]{}-[func]{permutationsI}
     ```
@@ -91,38 +107,6 @@
     [class]{}-[func]{permutationsI}
     ```
 
-=== "C"
-
-    ```c title="permutations_i.c"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
-=== "C#"
-
-    ```csharp title="permutations_i.cs"
-    [class]{permutations_i}-[func]{backtrack}
-
-    [class]{permutations_i}-[func]{permutationsI}
-    ```
-
-=== "Swift"
-
-    ```swift title="permutations_i.swift"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
-=== "Zig"
-
-    ```zig title="permutations_i.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
 === "Dart"
 
     ```dart title="permutations_i.dart"
@@ -137,6 +121,22 @@
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{permutations_i}
+    ```
+
+=== "C"
+
+    ```c title="permutations_i.c"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsI}
+    ```
+
+=== "Zig"
+
+    ```zig title="permutations_i.zig"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsI}
     ```
 
 ## 考虑相等元素的情况
@@ -167,12 +167,12 @@
 
 在上一题的代码的基础上，我们考虑在每一轮选择中开启一个哈希表 `duplicated` ，用于记录该轮中已经尝试过的元素，并将重复元素剪枝。
 
-=== "Java"
+=== "Python"
 
-    ```java title="permutations_ii.java"
-    [class]{permutations_ii}-[func]{backtrack}
+    ```python title="permutations_ii.py"
+    [class]{}-[func]{backtrack}
 
-    [class]{permutations_ii}-[func]{permutationsII}
+    [class]{}-[func]{permutations_ii}
     ```
 
 === "C++"
@@ -183,18 +183,34 @@
     [class]{}-[func]{permutationsII}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="permutations_ii.py"
-    [class]{}-[func]{backtrack}
+    ```java title="permutations_ii.java"
+    [class]{permutations_ii}-[func]{backtrack}
 
-    [class]{}-[func]{permutations_ii}
+    [class]{permutations_ii}-[func]{permutationsII}
+    ```
+
+=== "C#"
+
+    ```csharp title="permutations_ii.cs"
+    [class]{permutations_ii}-[func]{backtrack}
+
+    [class]{permutations_ii}-[func]{permutationsII}
     ```
 
 === "Go"
 
     ```go title="permutations_ii.go"
     [class]{}-[func]{backtrackII}
+
+    [class]{}-[func]{permutationsII}
+    ```
+
+=== "Swift"
+
+    ```swift title="permutations_ii.swift"
+    [class]{}-[func]{backtrack}
 
     [class]{}-[func]{permutationsII}
     ```
@@ -215,38 +231,6 @@
     [class]{}-[func]{permutationsII}
     ```
 
-=== "C"
-
-    ```c title="permutations_ii.c"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
-    ```
-
-=== "C#"
-
-    ```csharp title="permutations_ii.cs"
-    [class]{permutations_ii}-[func]{backtrack}
-
-    [class]{permutations_ii}-[func]{permutationsII}
-    ```
-
-=== "Swift"
-
-    ```swift title="permutations_ii.swift"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
-    ```
-
-=== "Zig"
-
-    ```zig title="permutations_ii.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
-    ```
-
 === "Dart"
 
     ```dart title="permutations_ii.dart"
@@ -261,6 +245,22 @@
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{permutations_ii}
+    ```
+
+=== "C"
+
+    ```c title="permutations_ii.c"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsII}
+    ```
+
+=== "Zig"
+
+    ```zig title="permutations_ii.zig"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{permutationsII}
     ```
 
 假设元素两两之间互不相同，则 $n$ 个元素共有 $n!$  种排列（阶乘）；在记录结果时，需要复制长度为 $n$ 的列表，使用 $O(n)$ 时间。**因此时间复杂度为 $O(n!n)$** 。

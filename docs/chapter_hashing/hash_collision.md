@@ -31,9 +31,9 @@
 - 使用列表（动态数组）代替链表，从而简化代码。在这种设定下，哈希表（数组）包含多个桶，每个桶都是一个列表。
 - 以下实现包含哈希表扩容方法。当负载因子超过 $0.75$ 时，我们将哈希表扩容至 $2$ 倍。
 
-=== "Java"
+=== "Python"
 
-    ```java title="hash_map_chaining.java"
+    ```python title="hash_map_chaining.py"
     [class]{HashMapChaining}-[func]{}
     ```
 
@@ -43,9 +43,15 @@
     [class]{HashMapChaining}-[func]{}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="hash_map_chaining.py"
+    ```java title="hash_map_chaining.java"
+    [class]{HashMapChaining}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="hash_map_chaining.cs"
     [class]{HashMapChaining}-[func]{}
     ```
 
@@ -53,6 +59,12 @@
 
     ```go title="hash_map_chaining.go"
     [class]{hashMapChaining}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="hash_map_chaining.swift"
+    [class]{HashMapChaining}-[func]{}
     ```
 
 === "JS"
@@ -67,30 +79,6 @@
     [class]{HashMapChaining}-[func]{}
     ```
 
-=== "C"
-
-    ```c title="hash_map_chaining.c"
-    [class]{hashMapChaining}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="hash_map_chaining.cs"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="hash_map_chaining.swift"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map_chaining.zig"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
 === "Dart"
 
     ```dart title="hash_map_chaining.dart"
@@ -100,6 +88,18 @@
 === "Rust"
 
     ```rust title="hash_map_chaining.rs"
+    [class]{HashMapChaining}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="hash_map_chaining.c"
+    [class]{hashMapChaining}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="hash_map_chaining.zig"
     [class]{HashMapChaining}-[func]{}
     ```
 
@@ -130,9 +130,9 @@
 - 我们使用一个固定的键值对实例 `removed` 来标记已删除元素。也就是说，当一个桶内的元素为 $\text{None}$ 或 `removed` 时，说明这个桶是空的，可用于放置键值对。
 - 在线性探测时，我们从当前索引 `index` 向后遍历；而当越过数组尾部时，需要回到头部继续遍历。
 
-=== "Java"
+=== "Python"
 
-    ```java title="hash_map_open_addressing.java"
+    ```python title="hash_map_open_addressing.py"
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
@@ -142,9 +142,15 @@
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="hash_map_open_addressing.py"
+    ```java title="hash_map_open_addressing.java"
+    [class]{HashMapOpenAddressing}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="hash_map_open_addressing.cs"
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
@@ -152,6 +158,12 @@
 
     ```go title="hash_map_open_addressing.go"
     [class]{hashMapOpenAddressing}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="hash_map_open_addressing.swift"
+    [class]{HashMapOpenAddressing}-[func]{}
     ```
 
 === "JS"
@@ -166,30 +178,6 @@
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 
-=== "C"
-
-    ```c title="hash_map_open_addressing.c"
-    [class]{hashMapOpenAddressing}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="hash_map_open_addressing.cs"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="hash_map_open_addressing.swift"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map_open_addressing.zig"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
 === "Dart"
 
     ```dart title="hash_map_open_addressing.dart"
@@ -199,6 +187,18 @@
 === "Rust"
 
     ```rust title="hash_map_open_addressing.rs"
+    [class]{HashMapOpenAddressing}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="hash_map_open_addressing.c"
+    [class]{hashMapOpenAddressing}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="hash_map_open_addressing.zig"
     [class]{HashMapOpenAddressing}-[func]{}
     ```
 

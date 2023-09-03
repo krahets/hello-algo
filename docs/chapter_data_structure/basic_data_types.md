@@ -43,26 +43,6 @@
 
 换句话说，**基本数据类型提供了数据的“内容类型”，而数据结构提供了数据的“组织方式”**。例如以下代码，我们用相同的数据结构（数组）来存储与表示不同的基本数据类型，包括 `int`、`float`、`char`、`bool` 等。
 
-=== "Java"
-
-    ```java title=""
-    // 使用多种基本数据类型来初始化数组
-    int[] numbers = new int[5];
-    float[] decimals = new float[5];
-    char[] characters = new char[5];
-    boolean[] bools = new boolean[5];
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    // 使用多种基本数据类型来初始化数组
-    int numbers[5];
-    float decimals[5];
-    char characters[5];
-    bool bools[5];
-    ```
-
 === "Python"
 
     ```python title=""
@@ -76,6 +56,36 @@
     data = [0, 0.0, 'a', False, ListNode(0)]
     ```
 
+=== "C++"
+
+    ```cpp title=""
+    // 使用多种基本数据类型来初始化数组
+    int numbers[5];
+    float decimals[5];
+    char characters[5];
+    bool bools[5];
+    ```
+
+=== "Java"
+
+    ```java title=""
+    // 使用多种基本数据类型来初始化数组
+    int[] numbers = new int[5];
+    float[] decimals = new float[5];
+    char[] characters = new char[5];
+    boolean[] bools = new boolean[5];
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+    // 使用多种基本数据类型来初始化数组
+    int[] numbers = new int[5];
+    float[] decimals = new float[5];
+    char[] characters = new char[5];
+    bool[] bools = new bool[5];
+    ```
+
 === "Go"
 
     ```go title=""
@@ -84,6 +94,16 @@
     var decimals = [5]float64{}
     var characters = [5]byte{}
     var bools = [5]bool{}
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    // 使用多种基本数据类型来初始化数组
+    let numbers = Array(repeating: Int(), count: 5)
+    let decimals = Array(repeating: Double(), count: 5)
+    let characters = Array(repeating: Character("a"), count: 5)
+    let bools = Array(repeating: Bool(), count: 5)
     ```
 
 === "JS"
@@ -102,42 +122,6 @@
     const bools: boolean[] = [];
     ```
 
-=== "C"
-
-    ```c title=""
-    // 使用多种基本数据类型来初始化数组
-    int numbers[10];
-    float decimals[10];
-    char characters[10];
-    bool bools[10];
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    // 使用多种基本数据类型来初始化数组
-    int[] numbers = new int[5];
-    float[] decimals = new float[5];
-    char[] characters = new char[5];
-    bool[] bools = new bool[5];
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    // 使用多种基本数据类型来初始化数组
-    let numbers = Array(repeating: Int(), count: 5)
-    let decimals = Array(repeating: Double(), count: 5)
-    let characters = Array(repeating: Character("a"), count: 5)
-    let bools = Array(repeating: Bool(), count: 5)
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    
-    ```
-
 === "Dart"
 
     ```dart title=""
@@ -152,4 +136,20 @@
 
     ```rust title=""
 
+    ```
+
+=== "C"
+
+    ```c title=""
+    // 使用多种基本数据类型来初始化数组
+    int numbers[10];
+    float decimals[10];
+    char characters[10];
+    bool bools[10];
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+    
     ```

@@ -36,10 +36,10 @@
 
 ![冒泡排序流程](bubble_sort.assets/bubble_sort_overview.png)
 
-=== "Java"
+=== "Python"
 
-    ```java title="bubble_sort.java"
-    [class]{bubble_sort}-[func]{bubbleSort}
+    ```python title="bubble_sort.py"
+    [class]{}-[func]{bubble_sort}
     ```
 
 === "C++"
@@ -48,15 +48,27 @@
     [class]{}-[func]{bubbleSort}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="bubble_sort.py"
-    [class]{}-[func]{bubble_sort}
+    ```java title="bubble_sort.java"
+    [class]{bubble_sort}-[func]{bubbleSort}
+    ```
+
+=== "C#"
+
+    ```csharp title="bubble_sort.cs"
+    [class]{bubble_sort}-[func]{bubbleSort}
     ```
 
 === "Go"
 
     ```go title="bubble_sort.go"
+    [class]{}-[func]{bubbleSort}
+    ```
+
+=== "Swift"
+
+    ```swift title="bubble_sort.swift"
     [class]{}-[func]{bubbleSort}
     ```
 
@@ -72,30 +84,6 @@
     [class]{}-[func]{bubbleSort}
     ```
 
-=== "C"
-
-    ```c title="bubble_sort.c"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="bubble_sort.cs"
-    [class]{bubble_sort}-[func]{bubbleSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="bubble_sort.swift"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="bubble_sort.zig"
-    [class]{}-[func]{bubbleSort}
-    ```
-
 === "Dart"
 
     ```dart title="bubble_sort.dart"
@@ -106,6 +94,18 @@
 
     ```rust title="bubble_sort.rs"
     [class]{}-[func]{bubble_sort}
+    ```
+
+=== "C"
+
+    ```c title="bubble_sort.c"
+    [class]{}-[func]{bubbleSort}
+    ```
+
+=== "Zig"
+
+    ```zig title="bubble_sort.zig"
+    [class]{}-[func]{bubbleSort}
     ```
 
 ## 效率优化
@@ -114,10 +114,10 @@
 
 经过优化，冒泡排序的最差和平均时间复杂度仍为 $O(n^2)$ ；但当输入数组完全有序时，可达到最佳时间复杂度 $O(n)$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="bubble_sort.java"
-    [class]{bubble_sort}-[func]{bubbleSortWithFlag}
+    ```python title="bubble_sort.py"
+    [class]{}-[func]{bubble_sort_with_flag}
     ```
 
 === "C++"
@@ -126,15 +126,27 @@
     [class]{}-[func]{bubbleSortWithFlag}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="bubble_sort.py"
-    [class]{}-[func]{bubble_sort_with_flag}
+    ```java title="bubble_sort.java"
+    [class]{bubble_sort}-[func]{bubbleSortWithFlag}
+    ```
+
+=== "C#"
+
+    ```csharp title="bubble_sort.cs"
+    [class]{bubble_sort}-[func]{bubbleSortWithFlag}
     ```
 
 === "Go"
 
     ```go title="bubble_sort.go"
+    [class]{}-[func]{bubbleSortWithFlag}
+    ```
+
+=== "Swift"
+
+    ```swift title="bubble_sort.swift"
     [class]{}-[func]{bubbleSortWithFlag}
     ```
 
@@ -150,30 +162,6 @@
     [class]{}-[func]{bubbleSortWithFlag}
     ```
 
-=== "C"
-
-    ```c title="bubble_sort.c"
-    [class]{}-[func]{bubbleSortWithFlag}
-    ```
-
-=== "C#"
-
-    ```csharp title="bubble_sort.cs"
-    [class]{bubble_sort}-[func]{bubbleSortWithFlag}
-    ```
-
-=== "Swift"
-
-    ```swift title="bubble_sort.swift"
-    [class]{}-[func]{bubbleSortWithFlag}
-    ```
-
-=== "Zig"
-
-    ```zig title="bubble_sort.zig"
-    [class]{}-[func]{bubbleSortWithFlag}
-    ```
-
 === "Dart"
 
     ```dart title="bubble_sort.dart"
@@ -184,6 +172,18 @@
 
     ```rust title="bubble_sort.rs"
     [class]{}-[func]{bubble_sort_with_flag}
+    ```
+
+=== "C"
+
+    ```c title="bubble_sort.c"
+    [class]{}-[func]{bubbleSortWithFlag}
+    ```
+
+=== "Zig"
+
+    ```zig title="bubble_sort.zig"
+    [class]{}-[func]{bubbleSortWithFlag}
     ```
 
 ## 算法特性

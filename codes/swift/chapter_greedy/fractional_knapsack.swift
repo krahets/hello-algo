@@ -4,8 +4,8 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-// 物品
-struct Item {
+/* 物品 */
+class Item {
     var w: Int // 物品重量
     var v: Int // 物品价值
 
