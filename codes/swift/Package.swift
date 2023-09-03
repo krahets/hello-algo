@@ -97,6 +97,7 @@ let package = Package(
         .executable(name: "coin_change_greedy", targets: ["coin_change_greedy"]),
         .executable(name: "fractional_knapsack", targets: ["fractional_knapsack"]),
         .executable(name: "max_capacity", targets: ["max_capacity"]),
+        .executable(name: "max_product_cutting", targets: ["max_product_cutting"]),
     ],
     targets: [
         // helper
@@ -195,5 +196,6 @@ let package = Package(
         .executableTarget(name: "coin_change_greedy", path: "chapter_greedy", sources: ["coin_change_greedy.swift"]),
         .executableTarget(name: "fractional_knapsack", path: "chapter_greedy", sources: ["fractional_knapsack.swift"]),
         .executableTarget(name: "max_capacity", path: "chapter_greedy", sources: ["max_capacity.swift"]),
+        .executableTarget(name: "max_product_cutting", path: "chapter_greedy", sources: ["max_product_cutting.swift"]),
     ]
 )
