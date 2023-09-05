@@ -50,6 +50,10 @@ class LinkedListQueue {
         // 删除头节点
         front = front.next;
         queSize--;
+        // 如果队列已经空，尾元素设置为null
+        if(queSize == 0) {
+           rear = null; 
+        }
         return num;
     }
 
