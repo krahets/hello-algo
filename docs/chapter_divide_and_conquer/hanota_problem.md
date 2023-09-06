@@ -82,14 +82,14 @@
 
 在代码中，我们声明一个递归函数 `dfs(i, src, buf, tar)` ，它的作用是将柱 `src` 顶部的 $i$ 个圆盘借助缓冲柱 `buf` 移动至目标柱 `tar` 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="hanota.java"
-    [class]{hanota}-[func]{move}
+    ```python title="hanota.py"
+    [class]{}-[func]{move}
 
-    [class]{hanota}-[func]{dfs}
+    [class]{}-[func]{dfs}
 
-    [class]{hanota}-[func]{solveHanota}
+    [class]{}-[func]{solve_hanota}
     ```
 
 === "C++"
@@ -102,14 +102,24 @@
     [class]{}-[func]{solveHanota}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="hanota.py"
-    [class]{}-[func]{move}
+    ```java title="hanota.java"
+    [class]{hanota}-[func]{move}
 
-    [class]{}-[func]{dfs}
+    [class]{hanota}-[func]{dfs}
 
-    [class]{}-[func]{solve_hanota}
+    [class]{hanota}-[func]{solveHanota}
+    ```
+
+=== "C#"
+
+    ```csharp title="hanota.cs"
+    [class]{hanota}-[func]{move}
+
+    [class]{hanota}-[func]{dfs}
+
+    [class]{hanota}-[func]{solveHanota}
     ```
 
 === "Go"
@@ -118,6 +128,16 @@
     [class]{}-[func]{move}
 
     [class]{}-[func]{dfsHanota}
+
+    [class]{}-[func]{solveHanota}
+    ```
+
+=== "Swift"
+
+    ```swift title="hanota.swift"
+    [class]{}-[func]{move}
+
+    [class]{}-[func]{dfs}
 
     [class]{}-[func]{solveHanota}
     ```
@@ -135,46 +155,6 @@
 === "TS"
 
     ```typescript title="hanota.ts"
-    [class]{}-[func]{move}
-
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{solveHanota}
-    ```
-
-=== "C"
-
-    ```c title="hanota.c"
-    [class]{}-[func]{move}
-
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{solveHanota}
-    ```
-
-=== "C#"
-
-    ```csharp title="hanota.cs"
-    [class]{hanota}-[func]{move}
-
-    [class]{hanota}-[func]{dfs}
-
-    [class]{hanota}-[func]{solveHanota}
-    ```
-
-=== "Swift"
-
-    ```swift title="hanota.swift"
-    [class]{}-[func]{move}
-
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{solveHanota}
-    ```
-
-=== "Zig"
-
-    ```zig title="hanota.zig"
     [class]{}-[func]{move}
 
     [class]{}-[func]{dfs}
@@ -200,6 +180,26 @@
     [class]{}-[func]{dfs}
 
     [class]{}-[func]{solve_hanota}
+    ```
+
+=== "C"
+
+    ```c title="hanota.c"
+    [class]{}-[func]{move}
+
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{solveHanota}
+    ```
+
+=== "Zig"
+
+    ```zig title="hanota.zig"
+    [class]{}-[func]{move}
+
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{solveHanota}
     ```
 
 如下图所示，汉诺塔问题形成一个高度为 $n$ 的递归树，每个节点代表一个子问题、对应一个开启的 `dfs()` 函数，**因此时间复杂度为 $O(2^n)$ ，空间复杂度为 $O(n)$** 。

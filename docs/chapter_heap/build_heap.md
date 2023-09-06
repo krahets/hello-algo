@@ -22,10 +22,10 @@
 - 由于叶节点没有子节点，因此无需对它们执行堆化。最后一个节点的父节点是最后一个非叶节点。
 - 在倒序遍历中，我们能够保证当前节点之下的子树已经完成堆化（已经是合法的堆），而这是堆化当前节点的前置条件。
 
-=== "Java"
+=== "Python"
 
-    ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{MaxHeap}
+    ```python title="my_heap.py"
+    [class]{MaxHeap}-[func]{__init__}
     ```
 
 === "C++"
@@ -34,16 +34,28 @@
     [class]{MaxHeap}-[func]{MaxHeap}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{__init__}
+    ```java title="my_heap.java"
+    [class]{MaxHeap}-[func]{MaxHeap}
+    ```
+
+=== "C#"
+
+    ```csharp title="my_heap.cs"
+    [class]{MaxHeap}-[func]{MaxHeap}
     ```
 
 === "Go"
 
     ```go title="my_heap.go"
     [class]{maxHeap}-[func]{newMaxHeap}
+    ```
+
+=== "Swift"
+
+    ```swift title="my_heap.swift"
+    [class]{MaxHeap}-[func]{init}
     ```
 
 === "JS"
@@ -58,30 +70,6 @@
     [class]{MaxHeap}-[func]{constructor}
     ```
 
-=== "C"
-
-    ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{newMaxHeap}
-    ```
-
-=== "C#"
-
-    ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{MaxHeap}
-    ```
-
-=== "Swift"
-
-    ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{init}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{init}
-    ```
-
 === "Dart"
 
     ```dart title="my_heap.dart"
@@ -92,6 +80,18 @@
 
     ```rust title="my_heap.rs"
     [class]{MaxHeap}-[func]{new}
+    ```
+
+=== "C"
+
+    ```c title="my_heap.c"
+    [class]{maxHeap}-[func]{newMaxHeap}
+    ```
+
+=== "Zig"
+
+    ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{init}
     ```
 
 ## 复杂度分析

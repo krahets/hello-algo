@@ -12,10 +12,10 @@
 
 以下函数基于 `for` 循环实现了求和 $1 + 2 + \dots + n$ ，求和结果使用变量 `res` 记录。需要注意的是，Python 中 `range(a, b)` 对应的区间是“左闭右开”的，对应的遍历范围为 $a, a + 1, \dots, b-1$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="iteration.java"
-    [class]{iteration}-[func]{forLoop}
+    ```python title="iteration.py"
+    [class]{}-[func]{for_loop}
     ```
 
 === "C++"
@@ -24,15 +24,27 @@
     [class]{}-[func]{forLoop}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="iteration.py"
-    [class]{}-[func]{for_loop}
+    ```java title="iteration.java"
+    [class]{iteration}-[func]{forLoop}
+    ```
+
+=== "C#"
+
+    ```csharp title="iteration.cs"
+    [class]{iteration}-[func]{forLoop}
     ```
 
 === "Go"
 
     ```go title="iteration.go"
+    [class]{}-[func]{forLoop}
+    ```
+
+=== "Swift"
+
+    ```swift title="iteration.swift"
     [class]{}-[func]{forLoop}
     ```
 
@@ -48,30 +60,6 @@
     [class]{}-[func]{forLoop}
     ```
 
-=== "C"
-
-    ```c title="iteration.c"
-    [class]{}-[func]{forLoop}
-    ```
-
-=== "C#"
-
-    ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{forLoop}
-    ```
-
-=== "Swift"
-
-    ```swift title="iteration.swift"
-    [class]{}-[func]{forLoop}
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{forLoop}
-    ```
-
 === "Dart"
 
     ```dart title="iteration.dart"
@@ -82,6 +70,18 @@
 
     ```rust title="iteration.rs"
     [class]{}-[func]{for_loop}
+    ```
+
+=== "C"
+
+    ```c title="iteration.c"
+    [class]{}-[func]{forLoop}
+    ```
+
+=== "Zig"
+
+    ```zig title="iteration.zig"
+    [class]{}-[func]{forLoop}
     ```
 
 下图展示了该求和函数的流程框图。
@@ -96,10 +96,10 @@
 
 下面，我们用 `while` 循环来实现求和 $1 + 2 + \dots + n$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="iteration.java"
-    [class]{iteration}-[func]{whileLoop}
+    ```python title="iteration.py"
+    [class]{}-[func]{while_loop}
     ```
 
 === "C++"
@@ -108,15 +108,27 @@
     [class]{}-[func]{whileLoop}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="iteration.py"
-    [class]{}-[func]{while_loop}
+    ```java title="iteration.java"
+    [class]{iteration}-[func]{whileLoop}
+    ```
+
+=== "C#"
+
+    ```csharp title="iteration.cs"
+    [class]{iteration}-[func]{whileLoop}
     ```
 
 === "Go"
 
     ```go title="iteration.go"
+    [class]{}-[func]{whileLoop}
+    ```
+
+=== "Swift"
+
+    ```swift title="iteration.swift"
     [class]{}-[func]{whileLoop}
     ```
 
@@ -132,30 +144,6 @@
     [class]{}-[func]{whileLoop}
     ```
 
-=== "C"
-
-    ```c title="iteration.c"
-    [class]{}-[func]{whileLoop}
-    ```
-
-=== "C#"
-
-    ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{whileLoop}
-    ```
-
-=== "Swift"
-
-    ```swift title="iteration.swift"
-    [class]{}-[func]{whileLoop}
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{whileLoop}
-    ```
-
 === "Dart"
 
     ```dart title="iteration.dart"
@@ -166,16 +154,28 @@
 
     ```rust title="iteration.rs"
     [class]{}-[func]{while_loop}
+    ```
+
+=== "C"
+
+    ```c title="iteration.c"
+    [class]{}-[func]{whileLoop}
+    ```
+
+=== "Zig"
+
+    ```zig title="iteration.zig"
+    [class]{}-[func]{whileLoop}
     ```
 
 在 `while` 循环中，由于初始化和更新条件变量的步骤是独立在循环结构之外的，**因此它比 `for` 循环的自由度更高**。
 
 例如在以下代码中，条件变量 $i$ 每轮进行了两次更新，这种情况就不太方便用 `for` 循环实现。
 
-=== "Java"
+=== "Python"
 
-    ```java title="iteration.java"
-    [class]{iteration}-[func]{whileLoopII}
+    ```python title="iteration.py"
+    [class]{}-[func]{while_loop_ii}
     ```
 
 === "C++"
@@ -184,15 +184,27 @@
     [class]{}-[func]{whileLoopII}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="iteration.py"
-    [class]{}-[func]{while_loop_ii}
+    ```java title="iteration.java"
+    [class]{iteration}-[func]{whileLoopII}
+    ```
+
+=== "C#"
+
+    ```csharp title="iteration.cs"
+    [class]{iteration}-[func]{whileLoopII}
     ```
 
 === "Go"
 
     ```go title="iteration.go"
+    [class]{}-[func]{whileLoopII}
+    ```
+
+=== "Swift"
+
+    ```swift title="iteration.swift"
     [class]{}-[func]{whileLoopII}
     ```
 
@@ -208,30 +220,6 @@
     [class]{}-[func]{whileLoopII}
     ```
 
-=== "C"
-
-    ```c title="iteration.c"
-    [class]{}-[func]{whileLoopII}
-    ```
-
-=== "C#"
-
-    ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{whileLoopII}
-    ```
-
-=== "Swift"
-
-    ```swift title="iteration.swift"
-    [class]{}-[func]{whileLoopII}
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{whileLoopII}
-    ```
-
 === "Dart"
 
     ```dart title="iteration.dart"
@@ -242,6 +230,18 @@
 
     ```rust title="iteration.rs"
     [class]{}-[func]{while_loop_ii}
+    ```
+
+=== "C"
+
+    ```c title="iteration.c"
+    [class]{}-[func]{whileLoopII}
+    ```
+
+=== "Zig"
+
+    ```zig title="iteration.zig"
+    [class]{}-[func]{whileLoopII}
     ```
 
 总的来说，**`for` 循环的代码更加紧凑，`while` 循环更加灵活**，两者都可以实现迭代结构。选择使用哪一个应该根据特定问题的需求来决定。
@@ -250,10 +250,10 @@
 
 我们可以在一个循环结构内嵌套另一个循环结构，以 `for` 循环为例：
 
-=== "Java"
+=== "Python"
 
-    ```java title="iteration.java"
-    [class]{iteration}-[func]{nestedForLoop}
+    ```python title="iteration.py"
+    [class]{}-[func]{nested_for_loop}
     ```
 
 === "C++"
@@ -262,15 +262,27 @@
     [class]{}-[func]{nestedForLoop}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="iteration.py"
-    [class]{}-[func]{nested_for_loop}
+    ```java title="iteration.java"
+    [class]{iteration}-[func]{nestedForLoop}
+    ```
+
+=== "C#"
+
+    ```csharp title="iteration.cs"
+    [class]{iteration}-[func]{nestedForLoop}
     ```
 
 === "Go"
 
     ```go title="iteration.go"
+    [class]{}-[func]{nestedForLoop}
+    ```
+
+=== "Swift"
+
+    ```swift title="iteration.swift"
     [class]{}-[func]{nestedForLoop}
     ```
 
@@ -286,30 +298,6 @@
     [class]{}-[func]{nestedForLoop}
     ```
 
-=== "C"
-
-    ```c title="iteration.c"
-    [class]{}-[func]{nestedForLoop}
-    ```
-
-=== "C#"
-
-    ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{nestedForLoop}
-    ```
-
-=== "Swift"
-
-    ```swift title="iteration.swift"
-    [class]{}-[func]{nestedForLoop}
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{nestedForLoop}
-    ```
-
 === "Dart"
 
     ```dart title="iteration.dart"
@@ -320,6 +308,18 @@
 
     ```rust title="iteration.rs"
     [class]{}-[func]{nested_for_loop}
+    ```
+
+=== "C"
+
+    ```c title="iteration.c"
+    [class]{}-[func]{nestedForLoop}
+    ```
+
+=== "Zig"
+
+    ```zig title="iteration.zig"
+    [class]{}-[func]{nestedForLoop}
     ```
 
 下图给出了该嵌套循环的流程框图。
@@ -345,10 +345,10 @@
 
 观察以下代码，我们只需调用函数 `recur(n)`  ，就可以完成 $1 + 2 + \dots + n$ 的计算：
 
-=== "Java"
+=== "Python"
 
-    ```java title="recursion.java"
-    [class]{recursion}-[func]{recur}
+    ```python title="recursion.py"
+    [class]{}-[func]{recur}
     ```
 
 === "C++"
@@ -357,15 +357,27 @@
     [class]{}-[func]{recur}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="recursion.py"
-    [class]{}-[func]{recur}
+    ```java title="recursion.java"
+    [class]{recursion}-[func]{recur}
+    ```
+
+=== "C#"
+
+    ```csharp title="recursion.cs"
+    [class]{recursion}-[func]{recur}
     ```
 
 === "Go"
 
     ```go title="recursion.go"
+    [class]{}-[func]{recur}
+    ```
+
+=== "Swift"
+
+    ```swift title="recursion.swift"
     [class]{}-[func]{recur}
     ```
 
@@ -381,30 +393,6 @@
     [class]{}-[func]{recur}
     ```
 
-=== "C"
-
-    ```c title="recursion.c"
-    [class]{}-[func]{recur}
-    ```
-
-=== "C#"
-
-    ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{recur}
-    ```
-
-=== "Swift"
-
-    ```swift title="recursion.swift"
-    [class]{}-[func]{recur}
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    [class]{}-[func]{recur}
-    ```
-
 === "Dart"
 
     ```dart title="recursion.dart"
@@ -414,6 +402,18 @@
 === "Rust"
 
     ```rust title="recursion.rs"
+    [class]{}-[func]{recur}
+    ```
+
+=== "C"
+
+    ```c title="recursion.c"
+    [class]{}-[func]{recur}
+    ```
+
+=== "Zig"
+
+    ```zig title="recursion.zig"
     [class]{}-[func]{recur}
     ```
 
@@ -453,10 +453,10 @@
 
 以计算 $1 + 2 + \dots + n$ 为例，我们可以将结果变量 `res` 设为函数参数，从而实现尾递归。
 
-=== "Java"
+=== "Python"
 
-    ```java title="recursion.java"
-    [class]{recursion}-[func]{tailRecur}
+    ```python title="recursion.py"
+    [class]{}-[func]{tail_recur}
     ```
 
 === "C++"
@@ -465,15 +465,27 @@
     [class]{}-[func]{tailRecur}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="recursion.py"
-    [class]{}-[func]{tail_recur}
+    ```java title="recursion.java"
+    [class]{recursion}-[func]{tailRecur}
+    ```
+
+=== "C#"
+
+    ```csharp title="recursion.cs"
+    [class]{recursion}-[func]{tailRecur}
     ```
 
 === "Go"
 
     ```go title="recursion.go"
+    [class]{}-[func]{tailRecur}
+    ```
+
+=== "Swift"
+
+    ```swift title="recursion.swift"
     [class]{}-[func]{tailRecur}
     ```
 
@@ -489,30 +501,6 @@
     [class]{}-[func]{tailRecur}
     ```
 
-=== "C"
-
-    ```c title="recursion.c"
-    [class]{}-[func]{tailRecur}
-    ```
-
-=== "C#"
-
-    ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{tailRecur}
-    ```
-
-=== "Swift"
-
-    ```swift title="recursion.swift"
-    [class]{}-[func]{tailRecur}
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    [class]{}-[func]{tailRecur}
-    ```
-
 === "Dart"
 
     ```dart title="recursion.dart"
@@ -523,6 +511,18 @@
 
     ```rust title="recursion.rs"
     [class]{}-[func]{tail_recur}
+    ```
+
+=== "C"
+
+    ```c title="recursion.c"
+    [class]{}-[func]{tailRecur}
+    ```
+
+=== "Zig"
+
+    ```zig title="recursion.zig"
+    [class]{}-[func]{tailRecur}
     ```
 
 两种递归的过程对比如下图所示。
@@ -549,10 +549,10 @@
 
 按照递推关系进行递归调用，将前两个数字作为终止条件，便可写出递归代码。调用 `fib(n)` 即可得到斐波那契数列的第 $n$ 个数字。
 
-=== "Java"
+=== "Python"
 
-    ```java title="recursion.java"
-    [class]{recursion}-[func]{fib}
+    ```python title="recursion.py"
+    [class]{}-[func]{fib}
     ```
 
 === "C++"
@@ -561,15 +561,27 @@
     [class]{}-[func]{fib}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="recursion.py"
-    [class]{}-[func]{fib}
+    ```java title="recursion.java"
+    [class]{recursion}-[func]{fib}
+    ```
+
+=== "C#"
+
+    ```csharp title="recursion.cs"
+    [class]{recursion}-[func]{fib}
     ```
 
 === "Go"
 
     ```go title="recursion.go"
+    [class]{}-[func]{fib}
+    ```
+
+=== "Swift"
+
+    ```swift title="recursion.swift"
     [class]{}-[func]{fib}
     ```
 
@@ -585,30 +597,6 @@
     [class]{}-[func]{fib}
     ```
 
-=== "C"
-
-    ```c title="recursion.c"
-    [class]{}-[func]{fib}
-    ```
-
-=== "C#"
-
-    ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{fib}
-    ```
-
-=== "Swift"
-
-    ```swift title="recursion.swift"
-    [class]{}-[func]{fib}
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    [class]{}-[func]{fib}
-    ```
-
 === "Dart"
 
     ```dart title="recursion.dart"
@@ -618,6 +606,18 @@
 === "Rust"
 
     ```rust title="recursion.rs"
+    [class]{}-[func]{fib}
+    ```
+
+=== "C"
+
+    ```c title="recursion.c"
+    [class]{}-[func]{fib}
+    ```
+
+=== "Zig"
+
+    ```zig title="recursion.zig"
     [class]{}-[func]{fib}
     ```
 

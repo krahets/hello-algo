@@ -22,30 +22,31 @@
 
 通常情况下，我们可以直接使用编程语言内置的栈类。然而，某些语言可能没有专门提供栈类，这时我们可以将该语言的“数组”或“链表”视作栈来使用，并在程序逻辑上忽略与栈无关的操作。
 
-=== "Java"
+=== "Python"
 
-    ```java title="stack.java"
-    /* 初始化栈 */
-    Stack<Integer> stack = new Stack<>();
-
-    /* 元素入栈 */
-    stack.push(1);
-    stack.push(3);
-    stack.push(2);
-    stack.push(5);
-    stack.push(4);
-
-    /* 访问栈顶元素 */
-    int peek = stack.peek();
-
-    /* 元素出栈 */
-    int pop = stack.pop();
-
-    /* 获取栈的长度 */
-    int size = stack.size();
-
-    /* 判断是否为空 */
-    boolean isEmpty = stack.isEmpty();
+    ```python title="stack.py"
+    # 初始化栈
+    # Python 没有内置的栈类，可以把 List 当作栈来使用 
+    stack: list[int] = []
+    
+    # 元素入栈
+    stack.append(1)
+    stack.append(3)
+    stack.append(2)
+    stack.append(5)
+    stack.append(4)
+    
+    # 访问栈顶元素
+    peek: int = stack[-1]
+    
+    # 元素出栈
+    pop: int = stack.pop()
+    
+    # 获取栈的长度
+    size: int = len(stack)
+    
+    # 判断是否为空
+    is_empty: bool = len(stack) == 0
     ```
 
 === "C++"
@@ -74,31 +75,56 @@
     bool empty = stack.empty();
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="stack.py"
-    # 初始化栈
-    # Python 没有内置的栈类，可以把 List 当作栈来使用 
-    stack: list[int] = []
+    ```java title="stack.java"
+    /* 初始化栈 */
+    Stack<Integer> stack = new Stack<>();
+
+    /* 元素入栈 */
+    stack.push(1);
+    stack.push(3);
+    stack.push(2);
+    stack.push(5);
+    stack.push(4);
+
+    /* 访问栈顶元素 */
+    int peek = stack.peek();
+
+    /* 元素出栈 */
+    int pop = stack.pop();
+
+    /* 获取栈的长度 */
+    int size = stack.size();
+
+    /* 判断是否为空 */
+    boolean isEmpty = stack.isEmpty();
+    ```
+
+=== "C#"
+
+    ```csharp title="stack.cs"
+    /* 初始化栈 */
+    Stack<int> stack = new ();
     
-    # 元素入栈
-    stack.append(1)
-    stack.append(3)
-    stack.append(2)
-    stack.append(5)
-    stack.append(4)
+    /* 元素入栈 */
+    stack.Push(1);
+    stack.Push(3);
+    stack.Push(2);
+    stack.Push(5);
+    stack.Push(4);
     
-    # 访问栈顶元素
-    peek: int = stack[-1]
+    /* 访问栈顶元素 */
+    int peek = stack.Peek();
     
-    # 元素出栈
-    pop: int = stack.pop()
+    /* 元素出栈 */
+    int pop = stack.Pop();
     
-    # 获取栈的长度
-    size: int = len(stack)
+    /* 获取栈的长度 */
+    int size = stack.Count;
     
-    # 判断是否为空
-    is_empty: bool = len(stack) == 0
+    /* 判断是否为空 */
+    bool isEmpty = stack.Count == 0;
     ```
 
 === "Go"
@@ -127,6 +153,33 @@
     
     /* 判断是否为空 */
     isEmpty := len(stack) == 0
+    ```
+
+=== "Swift"
+
+    ```swift title="stack.swift"
+    /* 初始化栈 */
+    // Swift 没有内置的栈类，可以把 Array 当作栈来使用
+    var stack: [Int] = []
+    
+    /* 元素入栈 */
+    stack.append(1)
+    stack.append(3)
+    stack.append(2)
+    stack.append(5)
+    stack.append(4)
+    
+    /* 访问栈顶元素 */
+    let peek = stack.last!
+    
+    /* 元素出栈 */
+    let pop = stack.removeLast()
+    
+    /* 获取栈的长度 */
+    let size = stack.count
+    
+    /* 判断是否为空 */
+    let isEmpty = stack.isEmpty
     ```
 
 === "JS"
@@ -183,71 +236,6 @@
     const is_empty = stack.length === 0;
     ```
 
-=== "C"
-
-    ```c title="stack.c"
-    // C 未提供内置栈
-    ```
-
-=== "C#"
-
-    ```csharp title="stack.cs"
-    /* 初始化栈 */
-    Stack<int> stack = new ();
-    
-    /* 元素入栈 */
-    stack.Push(1);
-    stack.Push(3);
-    stack.Push(2);
-    stack.Push(5);
-    stack.Push(4);
-    
-    /* 访问栈顶元素 */
-    int peek = stack.Peek();
-    
-    /* 元素出栈 */
-    int pop = stack.Pop();
-    
-    /* 获取栈的长度 */
-    int size = stack.Count;
-    
-    /* 判断是否为空 */
-    bool isEmpty = stack.Count == 0;
-    ```
-
-=== "Swift"
-
-    ```swift title="stack.swift"
-    /* 初始化栈 */
-    // Swift 没有内置的栈类，可以把 Array 当作栈来使用
-    var stack: [Int] = []
-    
-    /* 元素入栈 */
-    stack.append(1)
-    stack.append(3)
-    stack.append(2)
-    stack.append(5)
-    stack.append(4)
-    
-    /* 访问栈顶元素 */
-    let peek = stack.last!
-    
-    /* 元素出栈 */
-    let pop = stack.removeLast()
-    
-    /* 获取栈的长度 */
-    let size = stack.count
-    
-    /* 判断是否为空 */
-    let isEmpty = stack.isEmpty
-    ```
-
-=== "Zig"
-
-    ```zig title="stack.zig"
-
-    ```
-
 === "Dart"
 
     ```dart title="stack.dart"
@@ -281,6 +269,18 @@
 
     ```
 
+=== "C"
+
+    ```c title="stack.c"
+    // C 未提供内置栈
+    ```
+
+=== "Zig"
+
+    ```zig title="stack.zig"
+
+    ```
+
 ## 栈的实现
 
 为了深入了解栈的运行机制，我们来尝试自己实现一个栈类。
@@ -304,9 +304,9 @@
 
 以下是基于链表实现栈的示例代码。
 
-=== "Java"
+=== "Python"
 
-    ```java title="linkedlist_stack.java"
+    ```python title="linkedlist_stack.py"
     [class]{LinkedListStack}-[func]{}
     ```
 
@@ -316,9 +316,15 @@
     [class]{LinkedListStack}-[func]{}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="linkedlist_stack.py"
+    ```java title="linkedlist_stack.java"
+    [class]{LinkedListStack}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="linkedlist_stack.cs"
     [class]{LinkedListStack}-[func]{}
     ```
 
@@ -326,6 +332,12 @@
 
     ```go title="linkedlist_stack.go"
     [class]{linkedListStack}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="linkedlist_stack.swift"
+    [class]{LinkedListStack}-[func]{}
     ```
 
 === "JS"
@@ -340,30 +352,6 @@
     [class]{LinkedListStack}-[func]{}
     ```
 
-=== "C"
-
-    ```c title="linkedlist_stack.c"
-    [class]{linkedListStack}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="linkedlist_stack.cs"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="linkedlist_stack.swift"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="linkedlist_stack.zig"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
 === "Dart"
 
     ```dart title="linkedlist_stack.dart"
@@ -373,6 +361,18 @@
 === "Rust"
 
     ```rust title="linkedlist_stack.rs"
+    [class]{LinkedListStack}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="linkedlist_stack.c"
+    [class]{linkedListStack}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="linkedlist_stack.zig"
     [class]{LinkedListStack}-[func]{}
     ```
 
@@ -391,9 +391,9 @@
 
 由于入栈的元素可能会源源不断地增加，因此我们可以使用动态数组，这样就无须自行处理数组扩容问题。以下为示例代码。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array_stack.java"
+    ```python title="array_stack.py"
     [class]{ArrayStack}-[func]{}
     ```
 
@@ -403,9 +403,15 @@
     [class]{ArrayStack}-[func]{}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array_stack.py"
+    ```java title="array_stack.java"
+    [class]{ArrayStack}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="array_stack.cs"
     [class]{ArrayStack}-[func]{}
     ```
 
@@ -413,6 +419,12 @@
 
     ```go title="array_stack.go"
     [class]{arrayStack}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="array_stack.swift"
+    [class]{ArrayStack}-[func]{}
     ```
 
 === "JS"
@@ -427,30 +439,6 @@
     [class]{ArrayStack}-[func]{}
     ```
 
-=== "C"
-
-    ```c title="array_stack.c"
-    [class]{arrayStack}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="array_stack.cs"
-    [class]{ArrayStack}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="array_stack.swift"
-    [class]{ArrayStack}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_stack.zig"
-    [class]{ArrayStack}-[func]{}
-    ```
-
 === "Dart"
 
     ```dart title="array_stack.dart"
@@ -460,6 +448,18 @@
 === "Rust"
 
     ```rust title="array_stack.rs"
+    [class]{ArrayStack}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="array_stack.c"
+    [class]{arrayStack}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="array_stack.zig"
     [class]{ArrayStack}-[func]{}
     ```
 

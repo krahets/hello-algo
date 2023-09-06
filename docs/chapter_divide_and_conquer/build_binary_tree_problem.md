@@ -57,12 +57,12 @@
 
 为了提升查询 $m$ 的效率，我们借助一个哈希表 `hmap` 来存储数组 `inorder` 中元素到索引的映射。
 
-=== "Java"
+=== "Python"
 
-    ```java title="build_tree.java"
-    [class]{build_tree}-[func]{dfs}
+    ```python title="build_tree.py"
+    [class]{}-[func]{dfs}
 
-    [class]{build_tree}-[func]{buildTree}
+    [class]{}-[func]{build_tree}
     ```
 
 === "C++"
@@ -73,18 +73,34 @@
     [class]{}-[func]{buildTree}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="build_tree.py"
-    [class]{}-[func]{dfs}
+    ```java title="build_tree.java"
+    [class]{build_tree}-[func]{dfs}
 
-    [class]{}-[func]{build_tree}
+    [class]{build_tree}-[func]{buildTree}
+    ```
+
+=== "C#"
+
+    ```csharp title="build_tree.cs"
+    [class]{build_tree}-[func]{dfs}
+
+    [class]{build_tree}-[func]{buildTree}
     ```
 
 === "Go"
 
     ```go title="build_tree.go"
     [class]{}-[func]{dfsBuildTree}
+
+    [class]{}-[func]{buildTree}
+    ```
+
+=== "Swift"
+
+    ```swift title="build_tree.swift"
+    [class]{}-[func]{dfs}
 
     [class]{}-[func]{buildTree}
     ```
@@ -105,38 +121,6 @@
     [class]{}-[func]{buildTree}
     ```
 
-=== "C"
-
-    ```c title="build_tree.c"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{buildTree}
-    ```
-
-=== "C#"
-
-    ```csharp title="build_tree.cs"
-    [class]{build_tree}-[func]{dfs}
-
-    [class]{build_tree}-[func]{buildTree}
-    ```
-
-=== "Swift"
-
-    ```swift title="build_tree.swift"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{buildTree}
-    ```
-
-=== "Zig"
-
-    ```zig title="build_tree.zig"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{buildTree}
-    ```
-
 === "Dart"
 
     ```dart title="build_tree.dart"
@@ -151,6 +135,22 @@
     [class]{}-[func]{dfs}
 
     [class]{}-[func]{build_tree}
+    ```
+
+=== "C"
+
+    ```c title="build_tree.c"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{buildTree}
+    ```
+
+=== "Zig"
+
+    ```zig title="build_tree.zig"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{buildTree}
     ```
 
 下图展示了构建二叉树的递归过程，各个节点是在向下“递”的过程中建立的，而各条边（即引用）是在向上“归”的过程中建立的。

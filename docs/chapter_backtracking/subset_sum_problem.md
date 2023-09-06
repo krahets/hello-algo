@@ -17,12 +17,12 @@
 
 而与全排列问题不同的是，**本题集合中的元素可以被无限次选取**，因此无须借助 `selected` 布尔列表来记录元素是否已被选择。我们可以对全排列代码进行小幅修改，初步得到解题代码。
 
-=== "Java"
+=== "Python"
 
-    ```java title="subset_sum_i_naive.java"
-    [class]{subset_sum_i_naive}-[func]{backtrack}
+    ```python title="subset_sum_i_naive.py"
+    [class]{}-[func]{backtrack}
 
-    [class]{subset_sum_i_naive}-[func]{subsetSumINaive}
+    [class]{}-[func]{subset_sum_i_naive}
     ```
 
 === "C++"
@@ -33,18 +33,34 @@
     [class]{}-[func]{subsetSumINaive}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="subset_sum_i_naive.py"
-    [class]{}-[func]{backtrack}
+    ```java title="subset_sum_i_naive.java"
+    [class]{subset_sum_i_naive}-[func]{backtrack}
 
-    [class]{}-[func]{subset_sum_i_naive}
+    [class]{subset_sum_i_naive}-[func]{subsetSumINaive}
+    ```
+
+=== "C#"
+
+    ```csharp title="subset_sum_i_naive.cs"
+    [class]{subset_sum_i_naive}-[func]{backtrack}
+
+    [class]{subset_sum_i_naive}-[func]{subsetSumINaive}
     ```
 
 === "Go"
 
     ```go title="subset_sum_i_naive.go"
     [class]{}-[func]{backtrackSubsetSumINaive}
+
+    [class]{}-[func]{subsetSumINaive}
+    ```
+
+=== "Swift"
+
+    ```swift title="subset_sum_i_naive.swift"
+    [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subsetSumINaive}
     ```
@@ -65,38 +81,6 @@
     [class]{}-[func]{subsetSumINaive}
     ```
 
-=== "C"
-
-    ```c title="subset_sum_i_naive.c"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{subsetSumINaive}
-    ```
-
-=== "C#"
-
-    ```csharp title="subset_sum_i_naive.cs"
-    [class]{subset_sum_i_naive}-[func]{backtrack}
-
-    [class]{subset_sum_i_naive}-[func]{subsetSumINaive}
-    ```
-
-=== "Swift"
-
-    ```swift title="subset_sum_i_naive.swift"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{subsetSumINaive}
-    ```
-
-=== "Zig"
-
-    ```zig title="subset_sum_i_naive.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{subsetSumINaive}
-    ```
-
 === "Dart"
 
     ```dart title="subset_sum_i_naive.dart"
@@ -111,6 +95,22 @@
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subset_sum_i_naive}
+    ```
+
+=== "C"
+
+    ```c title="subset_sum_i_naive.c"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subsetSumINaive}
+    ```
+
+=== "Zig"
+
+    ```zig title="subset_sum_i_naive.zig"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subsetSumINaive}
     ```
 
 向以上代码输入数组 $[3, 4, 5]$ 和目标元素 $9$ ，输出结果为 $[3, 3, 3], [4, 5], [5, 4]$ 。**虽然成功找出了所有和为 $9$ 的子集，但其中存在重复的子集 $[4, 5]$ 和 $[5, 4]$** 。
@@ -150,12 +150,12 @@
 - 在开启搜索前，先将数组 `nums` 排序。在遍历所有选择时，**当子集和超过 `target` 时直接结束循环**，因为后边的元素更大，其子集和都一定会超过 `target` 。
 - 省去元素和变量 `total`，**通过在 `target` 上执行减法来统计元素和**，当 `target` 等于 $0$ 时记录解。
 
-=== "Java"
+=== "Python"
 
-    ```java title="subset_sum_i.java"
-    [class]{subset_sum_i}-[func]{backtrack}
+    ```python title="subset_sum_i.py"
+    [class]{}-[func]{backtrack}
 
-    [class]{subset_sum_i}-[func]{subsetSumI}
+    [class]{}-[func]{subset_sum_i}
     ```
 
 === "C++"
@@ -166,18 +166,34 @@
     [class]{}-[func]{subsetSumI}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="subset_sum_i.py"
-    [class]{}-[func]{backtrack}
+    ```java title="subset_sum_i.java"
+    [class]{subset_sum_i}-[func]{backtrack}
 
-    [class]{}-[func]{subset_sum_i}
+    [class]{subset_sum_i}-[func]{subsetSumI}
+    ```
+
+=== "C#"
+
+    ```csharp title="subset_sum_i.cs"
+    [class]{subset_sum_i}-[func]{backtrack}
+
+    [class]{subset_sum_i}-[func]{subsetSumI}
     ```
 
 === "Go"
 
     ```go title="subset_sum_i.go"
     [class]{}-[func]{backtrackSubsetSumI}
+
+    [class]{}-[func]{subsetSumI}
+    ```
+
+=== "Swift"
+
+    ```swift title="subset_sum_i.swift"
+    [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subsetSumI}
     ```
@@ -198,38 +214,6 @@
     [class]{}-[func]{subsetSumI}
     ```
 
-=== "C"
-
-    ```c title="subset_sum_i.c"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{subsetSumI}
-    ```
-
-=== "C#"
-
-    ```csharp title="subset_sum_i.cs"
-    [class]{subset_sum_i}-[func]{backtrack}
-
-    [class]{subset_sum_i}-[func]{subsetSumI}
-    ```
-
-=== "Swift"
-
-    ```swift title="subset_sum_i.swift"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{subsetSumI}
-    ```
-
-=== "Zig"
-
-    ```zig title="subset_sum_i.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{subsetSumI}
-    ```
-
 === "Dart"
 
     ```dart title="subset_sum_i.dart"
@@ -244,6 +228,22 @@
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subset_sum_i}
+    ```
+
+=== "C"
+
+    ```c title="subset_sum_i.c"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subsetSumI}
+    ```
+
+=== "Zig"
+
+    ```zig title="subset_sum_i.zig"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subsetSumI}
     ```
 
 如下图所示，为将数组 $[3, 4, 5]$ 和目标元素 $9$ 输入到以上代码后的整体回溯过程。
@@ -270,12 +270,12 @@
 
 ### 代码实现
 
-=== "Java"
+=== "Python"
 
-    ```java title="subset_sum_ii.java"
-    [class]{subset_sum_ii}-[func]{backtrack}
+    ```python title="subset_sum_ii.py"
+    [class]{}-[func]{backtrack}
 
-    [class]{subset_sum_ii}-[func]{subsetSumII}
+    [class]{}-[func]{subset_sum_ii}
     ```
 
 === "C++"
@@ -286,18 +286,34 @@
     [class]{}-[func]{subsetSumII}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="subset_sum_ii.py"
-    [class]{}-[func]{backtrack}
+    ```java title="subset_sum_ii.java"
+    [class]{subset_sum_ii}-[func]{backtrack}
 
-    [class]{}-[func]{subset_sum_ii}
+    [class]{subset_sum_ii}-[func]{subsetSumII}
+    ```
+
+=== "C#"
+
+    ```csharp title="subset_sum_ii.cs"
+    [class]{subset_sum_ii}-[func]{backtrack}
+
+    [class]{subset_sum_ii}-[func]{subsetSumII}
     ```
 
 === "Go"
 
     ```go title="subset_sum_ii.go"
     [class]{}-[func]{backtrackSubsetSumII}
+
+    [class]{}-[func]{subsetSumII}
+    ```
+
+=== "Swift"
+
+    ```swift title="subset_sum_ii.swift"
+    [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subsetSumII}
     ```
@@ -318,38 +334,6 @@
     [class]{}-[func]{subsetSumII}
     ```
 
-=== "C"
-
-    ```c title="subset_sum_ii.c"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{subsetSumII}
-    ```
-
-=== "C#"
-
-    ```csharp title="subset_sum_ii.cs"
-    [class]{subset_sum_ii}-[func]{backtrack}
-
-    [class]{subset_sum_ii}-[func]{subsetSumII}
-    ```
-
-=== "Swift"
-
-    ```swift title="subset_sum_ii.swift"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{subsetSumII}
-    ```
-
-=== "Zig"
-
-    ```zig title="subset_sum_ii.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{subsetSumII}
-    ```
-
 === "Dart"
 
     ```dart title="subset_sum_ii.dart"
@@ -364,6 +348,22 @@
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{subset_sum_ii}
+    ```
+
+=== "C"
+
+    ```c title="subset_sum_ii.c"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subsetSumII}
+    ```
+
+=== "Zig"
+
+    ```zig title="subset_sum_ii.zig"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{subsetSumII}
     ```
 
 下图展示了数组 $[4, 4, 5]$ 和目标元素 $9$ 的回溯过程，共包含四种剪枝操作。请你将图示与代码注释相结合，理解整个搜索过程，以及每种剪枝操作是如何工作的。

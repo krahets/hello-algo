@@ -19,10 +19,10 @@
 
 实现代码如下所示。你可能会不由地发出感叹：So Clean ！贪心算法仅用十行代码就解决了零钱兑换问题。
 
-=== "Java"
+=== "Python"
 
-    ```java title="coin_change_greedy.java"
-    [class]{coin_change_greedy}-[func]{coinChangeGreedy}
+    ```python title="coin_change_greedy.py"
+    [class]{}-[func]{coin_change_greedy}
     ```
 
 === "C++"
@@ -31,15 +31,27 @@
     [class]{}-[func]{coinChangeGreedy}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="coin_change_greedy.py"
-    [class]{}-[func]{coin_change_greedy}
+    ```java title="coin_change_greedy.java"
+    [class]{coin_change_greedy}-[func]{coinChangeGreedy}
+    ```
+
+=== "C#"
+
+    ```csharp title="coin_change_greedy.cs"
+    [class]{coin_change_greedy}-[func]{coinChangeGreedy}
     ```
 
 === "Go"
 
     ```go title="coin_change_greedy.go"
+    [class]{}-[func]{coinChangeGreedy}
+    ```
+
+=== "Swift"
+
+    ```swift title="coin_change_greedy.swift"
     [class]{}-[func]{coinChangeGreedy}
     ```
 
@@ -55,30 +67,6 @@
     [class]{}-[func]{coinChangeGreedy}
     ```
 
-=== "C"
-
-    ```c title="coin_change_greedy.c"
-    [class]{}-[func]{coinChangeGreedy}
-    ```
-
-=== "C#"
-
-    ```csharp title="coin_change_greedy.cs"
-    [class]{coin_change_greedy}-[func]{coinChangeGreedy}
-    ```
-
-=== "Swift"
-
-    ```swift title="coin_change_greedy.swift"
-    [class]{}-[func]{coinChangeGreedy}
-    ```
-
-=== "Zig"
-
-    ```zig title="coin_change_greedy.zig"
-    [class]{}-[func]{coinChangeGreedy}
-    ```
-
 === "Dart"
 
     ```dart title="coin_change_greedy.dart"
@@ -89,6 +77,18 @@
 
     ```rust title="coin_change_greedy.rs"
     [class]{}-[func]{coin_change_greedy}
+    ```
+
+=== "C"
+
+    ```c title="coin_change_greedy.c"
+    [class]{}-[func]{coinChangeGreedy}
+    ```
+
+=== "Zig"
+
+    ```zig title="coin_change_greedy.zig"
+    [class]{}-[func]{coinChangeGreedy}
     ```
 
 ## 贪心优点与局限性

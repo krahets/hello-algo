@@ -93,6 +93,11 @@ let package = Package(
         .executable(name: "coin_change", targets: ["coin_change"]),
         .executable(name: "coin_change_ii", targets: ["coin_change_ii"]),
         .executable(name: "edit_distance", targets: ["edit_distance"]),
+        // chapter_greedy
+        .executable(name: "coin_change_greedy", targets: ["coin_change_greedy"]),
+        .executable(name: "fractional_knapsack", targets: ["fractional_knapsack"]),
+        .executable(name: "max_capacity", targets: ["max_capacity"]),
+        .executable(name: "max_product_cutting", targets: ["max_product_cutting"]),
     ],
     targets: [
         // helper
@@ -187,5 +192,10 @@ let package = Package(
         .executableTarget(name: "coin_change", path: "chapter_dynamic_programming", sources: ["coin_change.swift"]),
         .executableTarget(name: "coin_change_ii", path: "chapter_dynamic_programming", sources: ["coin_change_ii.swift"]),
         .executableTarget(name: "edit_distance", path: "chapter_dynamic_programming", sources: ["edit_distance.swift"]),
+        // chapter_greedy
+        .executableTarget(name: "coin_change_greedy", path: "chapter_greedy", sources: ["coin_change_greedy.swift"]),
+        .executableTarget(name: "fractional_knapsack", path: "chapter_greedy", sources: ["fractional_knapsack.swift"]),
+        .executableTarget(name: "max_capacity", path: "chapter_greedy", sources: ["max_capacity.swift"]),
+        .executableTarget(name: "max_product_cutting", path: "chapter_greedy", sources: ["max_product_cutting.swift"]),
     ]
 )

@@ -51,12 +51,12 @@
 - **后序遍历**：先递归左子树，再递归右子树，最后处理根节点。
 - **归并排序**：先递归左子数组，再递归右子数组，最后处理合并。
 
-=== "Java"
+=== "Python"
 
-    ```java title="merge_sort.java"
-    [class]{merge_sort}-[func]{merge}
+    ```python title="merge_sort.py"
+    [class]{}-[func]{merge}
 
-    [class]{merge_sort}-[func]{mergeSort}
+    [class]{}-[func]{merge_sort}
     ```
 
 === "C++"
@@ -67,17 +67,33 @@
     [class]{}-[func]{mergeSort}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="merge_sort.py"
-    [class]{}-[func]{merge}
+    ```java title="merge_sort.java"
+    [class]{merge_sort}-[func]{merge}
 
-    [class]{}-[func]{merge_sort}
+    [class]{merge_sort}-[func]{mergeSort}
+    ```
+
+=== "C#"
+
+    ```csharp title="merge_sort.cs"
+    [class]{merge_sort}-[func]{merge}
+
+    [class]{merge_sort}-[func]{mergeSort}
     ```
 
 === "Go"
 
     ```go title="merge_sort.go"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{mergeSort}
+    ```
+
+=== "Swift"
+
+    ```swift title="merge_sort.swift"
     [class]{}-[func]{merge}
 
     [class]{}-[func]{mergeSort}
@@ -99,38 +115,6 @@
     [class]{}-[func]{mergeSort}
     ```
 
-=== "C"
-
-    ```c title="merge_sort.c"
-    [class]{}-[func]{merge}
-
-    [class]{}-[func]{mergeSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="merge_sort.cs"
-    [class]{merge_sort}-[func]{merge}
-
-    [class]{merge_sort}-[func]{mergeSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="merge_sort.swift"
-    [class]{}-[func]{merge}
-
-    [class]{}-[func]{mergeSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="merge_sort.zig"
-    [class]{}-[func]{merge}
-
-    [class]{}-[func]{mergeSort}
-    ```
-
 === "Dart"
 
     ```dart title="merge_sort.dart"
@@ -145,6 +129,22 @@
     [class]{}-[func]{merge}
 
     [class]{}-[func]{merge_sort}
+    ```
+
+=== "C"
+
+    ```c title="merge_sort.c"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{mergeSort}
+    ```
+
+=== "Zig"
+
+    ```zig title="merge_sort.zig"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{mergeSort}
     ```
 
 实现合并函数 `merge()` 存在以下难点。
