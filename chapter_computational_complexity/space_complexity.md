@@ -266,7 +266,35 @@ comments: true
 === "Rust"
 
     ```rust title=""
+    use std::rc::Rc;
+    use std::cell::RefCell;
+    
+    /* 结构体 */
+    struct Node {
+        val: i32,
+        next: Option<Rc<RefCell<Node>>>,
+    }
 
+    /* 创建 Node 结构体 */
+    impl Node {
+        fn new(val: i32) -> Self {
+            Self { val: val, next: None }
+        }
+    }
+
+    /* 函数 */
+    fn function() -> i32 {      
+        // 执行某些操作...
+        return 0;
+    }
+
+    fn algorithm(n: i32) -> i32 {       // 输入数据
+        const a: i32 = 0;               // 暂存数据（常量）
+        let mut b = 0;                  // 暂存数据（变量）
+        let node = Node::new(0);        // 暂存数据（对象）
+        let c = function();             // 栈帧空间（调用函数）
+        return a + b + c;               // 输出数据
+    }
     ```
 
 === "C"
@@ -412,7 +440,13 @@ comments: true
 === "Rust"
 
     ```rust title=""
-
+    fn algorithm(n: i32) {
+        let a = 0;                              // O(1)
+        let b = [0; 10000];                     // O(1)
+        if n > 10 {
+            let nums = vec![0; n as usize];     // O(n)
+        }
+    }
     ```
 
 === "C"
@@ -627,7 +661,23 @@ comments: true
 === "Rust"
 
     ```rust title=""
-
+    fn function() -> i32 {
+        // 执行某些操作
+        return 0;
+    }
+    /* 循环 O(1) */
+    fn loop(n: i32) {
+        for i in 0..n {
+            function();
+        }
+    }
+    /* 递归 O(n) */
+    void recur(n: i32) {
+        if n == 1 {
+            return;
+        }
+        recur(n - 1);
+    }
     ```
 
 === "C"
