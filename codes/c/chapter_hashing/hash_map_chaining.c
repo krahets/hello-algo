@@ -7,24 +7,30 @@
 #include "../utils/common.h"
 
 /* 键值对 int->string */
-typedef struct node {
+struct node {
     int key;
     char *val;
     struct node *next; // 下一个元素
-} Node;
+};
 
-typedef struct pair {
+typedef struct node Node;
+
+struct pair {
     Node *node; // 键值对节点
-} Pair;
+};
+
+typedef struct pair Pair;
 
 /* 基于数组简易实现的链式地址哈希表 */
-typedef struct HashMapChaining {
+struct HashMapChaining {
     int size;         // 键值对数量
     int capacity;     // 哈希表容量
     double loadThres; // 触发扩容的负载因子阈值
     int extendRatio;  // 扩容倍数
     Pair *buckets;    // 桶数组
-} HashMapChaining;
+};
+
+typedef struct HashMapChaining HashMapChaining;
 
 // 函数声明
 void extend(HashMapChaining *hashmap);
