@@ -459,13 +459,53 @@ index = hash(key) % capacity
 === "Rust"
 
     ```rust title="simple_hash.rs"
-    [class]{}-[func]{add_hash}
+    /* 加法哈希 */
+    fn add_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
 
-    [class]{}-[func]{mul_hash}
+        for c in key.chars() {
+            hash = (hash + c as i64) % MODULUS;
+        }
 
-    [class]{}-[func]{xor_hash}
+        hash as i32
+    } 
 
-    [class]{}-[func]{rot_hash}
+    /* 乘法哈希 */
+    fn mul_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash = (31 * hash + c as i64) % MODULUS;
+        }
+
+        hash as i32
+    }
+
+    /* 异或哈希 */
+    fn xor_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash ^= c as i64;
+        }
+
+        (hash & MODULUS) as i32
+    }
+
+    /* 旋转哈希 */
+    fn rot_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash = ((hash << 4) ^ (hash >> 28) ^ c as i64) % MODULUS;
+        }
+
+        hash as i32
+    }
     ```
 
 === "C"
