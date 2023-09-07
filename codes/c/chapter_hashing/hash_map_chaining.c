@@ -22,7 +22,7 @@ struct pair {
 typedef struct pair Pair;
 
 /* 基于数组简易实现的链式地址哈希表 */
-struct HashMapChaining {
+struct hashMapChaining {
     int size;         // 键值对数量
     int capacity;     // 哈希表容量
     double loadThres; // 触发扩容的负载因子阈值
@@ -30,7 +30,7 @@ struct HashMapChaining {
     Pair *buckets;    // 桶数组
 };
 
-typedef struct HashMapChaining HashMapChaining;
+typedef struct hashMapChaining HashMapChaining;
 
 // 函数声明
 void extend(HashMapChaining *hashmap);
