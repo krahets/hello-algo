@@ -89,6 +89,11 @@ path = "chapter_stack_and_queue/array_deque.rs"
 name = "linkedlist_deque"
 path = "chapter_stack_and_queue/linkedlist_deque.rs"
 
+# Run Command: cargo run --bin simple_hash
+[[bin]]
+name = "simple_hash"
+path = "chapter_hashing/simple_hash.rs"
+
 # Run Command: cargo run --bin hash_map
 [[bin]]
 name = "hash_map"
