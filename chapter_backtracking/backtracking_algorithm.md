@@ -526,8 +526,6 @@ comments: true
         if root.val == 7:
             # 记录解
             res.append(list(path))
-            path.pop()
-            return
         pre_order(root.left)
         pre_order(root.right)
         # 回退
@@ -548,8 +546,6 @@ comments: true
         if (root->val == 7) {
             // 记录解
             res.push_back(path);
-            path.pop_back();
-            return;
         }
         preOrder(root->left);
         preOrder(root->right);
@@ -572,8 +568,6 @@ comments: true
         if (root.val == 7) {
             // 记录解
             res.add(new ArrayList<>(path));
-            path.remove(path.size() - 1);
-            return;
         }
         preOrder(root.left);
         preOrder(root.right);
@@ -596,8 +590,6 @@ comments: true
         if (root.val == 7) {
             // 记录解
             res.Add(new List<TreeNode>(path));
-            path.RemoveAt(path.Count - 1);
-            return;
         }
         preOrder(root.left);
         preOrder(root.right);
@@ -620,8 +612,6 @@ comments: true
         if root.Val.(int) == 7 {
             // 记录解
             *res = append(*res, *path)
-            *path = (*path)[:len(*path)-1]
-            return
         }
         preOrderIII(root.Left, res, path)
         preOrderIII(root.Right, res, path)
@@ -644,8 +634,6 @@ comments: true
         if root.val == 7 {
             // 记录解
             res.append(path)
-            path.removeLast()
-            return
         }
         preOrder(root: root.left)
         preOrder(root: root.right)
@@ -668,8 +656,6 @@ comments: true
         if (root.val === 7) {
             // 记录解
             res.push([...path]);
-            path.pop();
-            return;
         }
         preOrder(root.left, path, res);
         preOrder(root.right, path, res);
@@ -696,8 +682,6 @@ comments: true
         if (root.val === 7) {
             // 记录解
             res.push([...path]);
-            path.pop();
-            return;
         }
         preOrder(root.left, path, res);
         preOrder(root.right, path, res);
@@ -724,8 +708,6 @@ comments: true
       if (root.val == 7) {
         // 记录解
         res.add(List.from(path));
-        path.removeLast();
-        return;
       }
       preOrder(root.left, path, res);
       preOrder(root.right, path, res);
@@ -749,8 +731,6 @@ comments: true
             if node.borrow().val == 7 {
                 // 记录解
                 res.push(path.clone());
-                path.remove(path.len() -  1);
-                return;
             }
             pre_order(res, path, node.borrow().left.clone());
             pre_order(res, path, node.borrow().right.clone());
@@ -1612,7 +1592,7 @@ comments: true
         vectorPopback(state);
     }
 
-    /* 前序遍历：例题三 */
+    /* 回溯算法：例题三 */
     void backtrack(vector *state, vector *choices, vector *res) {
         // 检查是否为解
         if (isSolution(state)) {
@@ -1655,7 +1635,7 @@ comments: true
     [class]{}-[func]{backtrack}
     ```
 
-根据题意，我们在找到值为 7 的节点后应该继续搜索，**因此需要将记录解之后的 `return` 语句删除**。图 13-4 对比了保留或删除 `return` 语句的搜索过程。
+根据题意，我们在找到值为 $7$ 的节点后应该继续搜索，**因此需要将记录解之后的 `return` 语句删除**。图 13-4 对比了保留或删除 `return` 语句的搜索过程。
 
 ![保留与删除 return 的搜索过程对比](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
 
@@ -1674,7 +1654,7 @@ comments: true
 | 名词                | 定义                                                                       | 例题三                                                               |
 | ------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | 解 Solution         | 解是满足问题特定条件的答案，可能有一个或多个                               | 根节点到节点 $7$ 的满足约束条件的所有路径                            |
-| 约束条件 Constraint | 约束条件是问题中限制解的可行性的条件，通常用于剪枝                         | 路径中不包含节点 $3$ ，只包含一个节点 $7$                            |
+| 约束条件 Constraint | 约束条件是问题中限制解的可行性的条件，通常用于剪枝                         | 路径中不包含节点 $3$                                                 |
 | 状态 State          | 状态表示问题在某一时刻的情况，包括已经做出的选择                           | 当前已访问的节点路径，即 `path` 节点列表                             |
 | 尝试 Attempt        | 尝试是根据可用选择来探索解空间的过程，包括做出选择，更新状态，检查是否为解 | 递归访问左（右）子节点，将节点添加进 `path` ，判断节点的值是否为 $7$ |
 | 回退 Backtracking   | 回退指遇到不满足约束条件的状态时，撤销前面做出的选择，回到上一个状态       | 当越过叶结点、结束结点访问、遇到值为 $3$ 的节点时终止搜索，函数返回  |
