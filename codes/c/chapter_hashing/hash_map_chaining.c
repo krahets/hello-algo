@@ -30,16 +30,16 @@ struct hashMapChaining {
     Pair *buckets;    // 桶数组
 };
 
-typedef struct hashMapChaining HashMapChaining;
+typedef struct hashMapChaining hashMapChaining;
 
 // 函数声明
-void extend(HashMapChaining *hashmap);
+void extend(hashMapChaining *hashmap);
 
 /* 初始化桶数组 */
-HashMapChaining *newHashMapChaining() {
+hashMapChaining *newHashMapChaining() {
     // 为哈希表分配空间
     int tableSize = 4;
-    HashMapChaining *hashmap = (HashMapChaining *)malloc(sizeof(HashMapChaining));
+    hashMapChaining *hashmap = (hashMapChaining *)malloc(sizeof(hashMapChaining));
 
     // 初始化数组
     hashmap->buckets = (Pair *)malloc(sizeof(Pair) * tableSize);
@@ -54,7 +54,7 @@ HashMapChaining *newHashMapChaining() {
 }
 
 /* 销毁哈希表 */
-void delHashMapChaining(HashMapChaining *hashmap) {
+void delHashMapChaining(hashMapChaining *hashmap) {
     for (int i = 0; i < hashmap->capacity; i++) {
         Pair *pair = &hashmap->buckets[i];
         Node *node = pair->node;
@@ -70,17 +70,17 @@ void delHashMapChaining(HashMapChaining *hashmap) {
 }
 
 /* 哈希函数 */
-int hashFunc(HashMapChaining *hashmap, const int key) {
+int hashFunc(hashMapChaining *hashmap, const int key) {
     return key % hashmap->capacity;
 }
 
 /* 负载因子 */
-double loadFactor(HashMapChaining *hashmap) {
+double loadFactor(hashMapChaining *hashmap) {
     return (double)hashmap->size / (double)hashmap->capacity;
 }
 
 /* 查询操作 */
-const char *get(HashMapChaining *hashmap, const int key) {
+const char *get(hashMapChaining *hashmap, const int key) {
     int index = hashFunc(hashmap, key);
     Pair *pair = &hashmap->buckets[index];
     Node *node = pair->node;
@@ -93,7 +93,7 @@ const char *get(HashMapChaining *hashmap, const int key) {
 }
 
 /* 添加操作 */
-void put(HashMapChaining *hashmap, const int key, char *val) {
+void put(hashMapChaining *hashmap, const int key, char *val) {
     if (loadFactor(hashmap) > hashmap->loadThres) {
         extend(hashmap);
     }
@@ -134,7 +134,7 @@ void put(HashMapChaining *hashmap, const int key, char *val) {
 }
 
 /* 删除操作 */
-void removeItem(HashMapChaining *hashmap, int key) {
+void removeItem(hashMapChaining *hashmap, int key) {
     int index = hashFunc(hashmap, key);
     Pair *pair = &hashmap->buckets[index];
     Node *node = pair->node;
@@ -161,7 +161,7 @@ void removeItem(HashMapChaining *hashmap, int key) {
 }
 
 /* 扩容哈希表 */
-void extend(HashMapChaining *hashmap) {
+void extend(hashMapChaining *hashmap) {
     // 暂存原哈希表
     Pair *oldBuckets = hashmap->buckets;
     int oldCapacity = hashmap->capacity;
@@ -195,7 +195,7 @@ void extend(HashMapChaining *hashmap) {
 }
 
 /* 打印哈希表 */
-void print(HashMapChaining *hashmap) {
+void print(hashMapChaining *hashmap) {
     for (int i = 0; i < hashmap->capacity; i++) {
         printf("[");
         Pair *pair = &hashmap->buckets[i];
@@ -214,7 +214,7 @@ void print(HashMapChaining *hashmap) {
 /* Driver Code */
 int main() {
     /* 初始化哈希表 */
-    HashMapChaining *map = newHashMapChaining();
+    hashMapChaining *map = newHashMapChaining();
 
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)

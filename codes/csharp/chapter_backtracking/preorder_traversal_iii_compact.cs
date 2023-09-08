@@ -21,8 +21,6 @@ public class preorder_traversal_iii_compact {
         if (root.val == 7) {
             // 记录解
             res.Add(new List<TreeNode>(path));
-            path.RemoveAt(path.Count - 1);
-            return;
         }
         preOrder(root.left);
         preOrder(root.right);

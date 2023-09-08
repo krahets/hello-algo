@@ -35,7 +35,7 @@ void undoChoice(vector *state, TreeNode *choice) {
     vectorPopback(state);
 }
 
-/* 前序遍历：例题三 */
+/* 回溯算法：例题三 */
 void backtrack(vector *state, vector *choices, vector *res) {
     // 检查是否为解
     if (isSolution(state)) {

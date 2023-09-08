@@ -19,8 +19,6 @@ func preOrderIII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
 	if root.Val.(int) == 7 {
 		// 记录解
 		*res = append(*res, *path)
-		*path = (*path)[:len(*path)-1]
-		return
 	}
 	preOrderIII(root.Left, res, path)
 	preOrderIII(root.Right, res, path)
