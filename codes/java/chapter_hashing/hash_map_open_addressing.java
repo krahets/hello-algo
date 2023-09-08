@@ -92,7 +92,6 @@ class HashMapOpenAddressing {
             if (buckets[j].key == key) {
                 buckets[j] = removed;
                 size -= 1;
-                return;
             }
         }
     }
