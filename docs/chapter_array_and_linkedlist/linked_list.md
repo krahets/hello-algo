@@ -16,15 +16,14 @@
 
 如以下代码所示，链表节点 `ListNode` 除了包含值，还需额外保存一个引用（指针）。因此在相同数据量下，**链表比数组占用更多的内存空间**。
 
-=== "Java"
+=== "Python"
 
-    ```java title=""
-    /* 链表节点类 */
-    class ListNode {
-        int val;        // 节点值
-        ListNode next;  // 指向下一节点的引用
-        ListNode(int x) { val = x; }  // 构造函数
-    }
+    ```python title=""
+    class ListNode:
+        """链表节点类"""
+        def __init__(self, val: int):
+            self.val: int = val                  # 节点值
+            self.next: Optional[ListNode] = None # 指向下一节点的引用
     ```
 
 === "C++"
@@ -38,14 +37,26 @@
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title=""
-    class ListNode:
-        """链表节点类"""
-        def __init__(self, val: int):
-            self.val: int = val                  # 节点值
-            self.next: Optional[ListNode] = None # 指向下一节点的引用
+    ```java title=""
+    /* 链表节点类 */
+    class ListNode {
+        int val;        // 节点值
+        ListNode next;  // 指向下一节点的引用
+        ListNode(int x) { val = x; }  // 构造函数
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+    /* 链表节点类 */
+    class ListNode {
+        int val;         // 节点值
+        ListNode next;   // 指向下一节点的引用
+        ListNode(int x) => val = x;  //构造函数
+    }
     ```
 
 === "Go"
@@ -62,6 +73,20 @@
         return &ListNode{
             Val:  val,
             Next: nil,
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    /* 链表节点类 */
+    class ListNode {
+        var val: Int // 节点值
+        var next: ListNode? // 指向下一节点的引用
+
+        init(x: Int) { // 构造函数
+            val = x
         }
     }
     ```
@@ -94,72 +119,6 @@
     }
     ```
 
-=== "C"
-
-    ```c title=""
-    /* 链表节点结构体 */
-    struct ListNode {
-        int val;               // 节点值
-        struct ListNode *next; // 指向下一节点的指针
-    };
-
-    typedef struct ListNode ListNode;
-
-    /* 构造函数 */
-    ListNode *newListNode(int val) {
-        ListNode *node, *next;
-        node = (ListNode *) malloc(sizeof(ListNode));
-        node->val = val;
-        node->next = NULL;
-        return node;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* 链表节点类 */
-    class ListNode {
-        int val;         // 节点值
-        ListNode next;   // 指向下一节点的引用
-        ListNode(int x) => val = x;  //构造函数
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* 链表节点类 */
-    class ListNode {
-        var val: Int // 节点值
-        var next: ListNode? // 指向下一节点的引用
-
-        init(x: Int) { // 构造函数
-            val = x
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    // 链表节点类
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 节点值
-            next: ?*Self = null, // 指向下一节点的指针
-
-            // 构造函数
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-            }
-        };
-    }
-    ```
-
 === "Dart"
 
     ```dart title=""
@@ -184,27 +143,68 @@
     }
     ```
 
+=== "C"
+
+    ```c title=""
+    /* 链表节点结构体 */
+    struct ListNode {
+        int val;               // 节点值
+        struct ListNode *next; // 指向下一节点的指针
+    };
+
+    typedef struct ListNode ListNode;
+
+    /* 构造函数 */
+    ListNode *newListNode(int val) {
+        ListNode *node, *next;
+        node = (ListNode *) malloc(sizeof(ListNode));
+        node->val = val;
+        node->next = NULL;
+        return node;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+    // 链表节点类
+    pub fn ListNode(comptime T: type) type {
+        return struct {
+            const Self = @This();
+
+            val: T = 0, // 节点值
+            next: ?*Self = null, // 指向下一节点的指针
+
+            // 构造函数
+            pub fn init(self: *Self, x: i32) void {
+                self.val = x;
+                self.next = null;
+            }
+        };
+    }
+    ```
+
 ## 链表常用操作
 
 ### 初始化链表
 
 建立链表分为两步，第一步是初始化各个节点对象，第二步是构建引用指向关系。初始化完成后，我们就可以从链表的头节点出发，通过引用指向 `next` 依次访问所有节点。
 
-=== "Java"
+=== "Python"
 
-    ```java title="linked_list.java"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点
-    ListNode n0 = new ListNode(1);
-    ListNode n1 = new ListNode(3);
-    ListNode n2 = new ListNode(2);
-    ListNode n3 = new ListNode(5);
-    ListNode n4 = new ListNode(4);
-    // 构建引用指向
-    n0.next = n1;
-    n1.next = n2;
-    n2.next = n3;
-    n3.next = n4;
+    ```python title="linked_list.py"
+    # 初始化链表 1 -> 3 -> 2 -> 5 -> 4
+    # 初始化各个节点
+    n0 = ListNode(1)
+    n1 = ListNode(3)
+    n2 = ListNode(2)
+    n3 = ListNode(5)
+    n4 = ListNode(4)
+    # 构建引用指向
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
     ```
 
 === "C++"
@@ -224,21 +224,38 @@
     n3->next = n4;
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="linked_list.py"
-    # 初始化链表 1 -> 3 -> 2 -> 5 -> 4
-    # 初始化各个节点
-    n0 = ListNode(1)
-    n1 = ListNode(3)
-    n2 = ListNode(2)
-    n3 = ListNode(5)
-    n4 = ListNode(4)
-    # 构建引用指向
-    n0.next = n1
-    n1.next = n2
-    n2.next = n3
-    n3.next = n4
+    ```java title="linked_list.java"
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个节点
+    ListNode n0 = new ListNode(1);
+    ListNode n1 = new ListNode(3);
+    ListNode n2 = new ListNode(2);
+    ListNode n3 = new ListNode(5);
+    ListNode n4 = new ListNode(4);
+    // 构建引用指向
+    n0.next = n1;
+    n1.next = n2;
+    n2.next = n3;
+    n3.next = n4;
+    ```
+
+=== "C#"
+
+    ```csharp title="linked_list.cs"
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个节点
+    ListNode n0 = new ListNode(1);
+    ListNode n1 = new ListNode(3);
+    ListNode n2 = new ListNode(2);
+    ListNode n3 = new ListNode(5);
+    ListNode n4 = new ListNode(4);
+    // 构建引用指向
+    n0.next = n1;
+    n1.next = n2;
+    n2.next = n3;
+    n3.next = n4;
     ```
 
 === "Go"
@@ -256,6 +273,23 @@
     n1.Next = n2
     n2.Next = n3
     n3.Next = n4
+    ```
+
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个节点
+    let n0 = ListNode(x: 1)
+    let n1 = ListNode(x: 3)
+    let n2 = ListNode(x: 2)
+    let n3 = ListNode(x: 5)
+    let n4 = ListNode(x: 4)
+    // 构建引用指向
+    n0.next = n1
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
     ```
 
 === "JS"
@@ -290,74 +324,6 @@
     n1.next = n2;
     n2.next = n3;
     n3.next = n4;
-    ```
-
-=== "C"
-
-    ```c title="linked_list.c"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点
-    ListNode* n0 = newListNode(1);
-    ListNode* n1 = newListNode(3);
-    ListNode* n2 = newListNode(2);
-    ListNode* n3 = newListNode(5);
-    ListNode* n4 = newListNode(4);
-    // 构建引用指向
-    n0->next = n1;
-    n1->next = n2;
-    n2->next = n3;
-    n3->next = n4;
-    ```
-
-=== "C#"
-
-    ```csharp title="linked_list.cs"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点
-    ListNode n0 = new ListNode(1);
-    ListNode n1 = new ListNode(3);
-    ListNode n2 = new ListNode(2);
-    ListNode n3 = new ListNode(5);
-    ListNode n4 = new ListNode(4);
-    // 构建引用指向
-    n0.next = n1;
-    n1.next = n2;
-    n2.next = n3;
-    n3.next = n4;
-    ```
-
-=== "Swift"
-
-    ```swift title="linked_list.swift"
-    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
-    // 初始化各个节点
-    let n0 = ListNode(x: 1)
-    let n1 = ListNode(x: 3)
-    let n2 = ListNode(x: 2)
-    let n3 = ListNode(x: 5)
-    let n4 = ListNode(x: 4)
-    // 构建引用指向
-    n0.next = n1
-    n1.next = n2
-    n2.next = n3
-    n3.next = n4
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // 初始化链表
-    // 初始化各个节点
-    var n0 = inc.ListNode(i32){.val = 1};
-    var n1 = inc.ListNode(i32){.val = 3};
-    var n2 = inc.ListNode(i32){.val = 2};
-    var n3 = inc.ListNode(i32){.val = 5};
-    var n4 = inc.ListNode(i32){.val = 4};
-    // 构建引用指向
-    n0.next = &n1;
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
     ```
 
 === "Dart"
@@ -395,6 +361,40 @@
     n3.borrow_mut().next = Some(n4.clone());
     ```
 
+=== "C"
+
+    ```c title="linked_list.c"
+    /* 初始化链表 1 -> 3 -> 2 -> 5 -> 4 */
+    // 初始化各个节点
+    ListNode* n0 = newListNode(1);
+    ListNode* n1 = newListNode(3);
+    ListNode* n2 = newListNode(2);
+    ListNode* n3 = newListNode(5);
+    ListNode* n4 = newListNode(4);
+    // 构建引用指向
+    n0->next = n1;
+    n1->next = n2;
+    n2->next = n3;
+    n3->next = n4;
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
+    // 初始化链表
+    // 初始化各个节点
+    var n0 = inc.ListNode(i32){.val = 1};
+    var n1 = inc.ListNode(i32){.val = 3};
+    var n2 = inc.ListNode(i32){.val = 2};
+    var n3 = inc.ListNode(i32){.val = 5};
+    var n4 = inc.ListNode(i32){.val = 4};
+    // 构建引用指向
+    n0.next = &n1;
+    n1.next = &n2;
+    n2.next = &n3;
+    n3.next = &n4;
+    ```
+
 数组整体是一个变量，比如数组 `nums` 包含元素 `nums[0]` 和 `nums[1]` 等，而链表是由多个独立的节点对象组成的。**我们通常将头节点当作链表的代称**，比如以上代码中的链表可被记做链表 `n0` 。
 
 ### 插入节点
@@ -405,10 +405,10 @@
 
 ![链表插入节点示例](linked_list.assets/linkedlist_insert_node.png)
 
-=== "Java"
+=== "Python"
 
-    ```java title="linked_list.java"
-    [class]{linked_list}-[func]{insert}
+    ```python title="linked_list.py"
+    [class]{}-[func]{insert}
     ```
 
 === "C++"
@@ -417,16 +417,28 @@
     [class]{}-[func]{insert}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="linked_list.py"
-    [class]{}-[func]{insert}
+    ```java title="linked_list.java"
+    [class]{linked_list}-[func]{insert}
+    ```
+
+=== "C#"
+
+    ```csharp title="linked_list.cs"
+    [class]{linked_list}-[func]{insert}
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
     [class]{}-[func]{insertNode}
+    ```
+
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+    [class]{}-[func]{insert}
     ```
 
 === "JS"
@@ -441,30 +453,6 @@
     [class]{}-[func]{insert}
     ```
 
-=== "C"
-
-    ```c title="linked_list.c"
-    [class]{}-[func]{insert}
-    ```
-
-=== "C#"
-
-    ```csharp title="linked_list.cs"
-    [class]{linked_list}-[func]{insert}
-    ```
-
-=== "Swift"
-
-    ```swift title="linked_list.swift"
-    [class]{}-[func]{insert}
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    [class]{}-[func]{insert}
-    ```
-
 === "Dart"
 
     ```dart title="linked_list.dart"
@@ -474,6 +462,18 @@
 === "Rust"
 
     ```rust title="linked_list.rs"
+    [class]{}-[func]{insert}
+    ```
+
+=== "C"
+
+    ```c title="linked_list.c"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
     [class]{}-[func]{insert}
     ```
 
@@ -485,10 +485,10 @@
 
 ![链表删除节点](linked_list.assets/linkedlist_remove_node.png)
 
-=== "Java"
+=== "Python"
 
-    ```java title="linked_list.java"
-    [class]{linked_list}-[func]{remove}
+    ```python title="linked_list.py"
+    [class]{}-[func]{remove}
     ```
 
 === "C++"
@@ -497,16 +497,28 @@
     [class]{}-[func]{remove}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="linked_list.py"
-    [class]{}-[func]{remove}
+    ```java title="linked_list.java"
+    [class]{linked_list}-[func]{remove}
+    ```
+
+=== "C#"
+
+    ```csharp title="linked_list.cs"
+    [class]{linked_list}-[func]{remove}
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
     [class]{}-[func]{removeNode}
+    ```
+
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+    [class]{}-[func]{remove}
     ```
 
 === "JS"
@@ -521,30 +533,6 @@
     [class]{}-[func]{remove}
     ```
 
-=== "C"
-
-    ```c title="linked_list.c"
-    [class]{}-[func]{removeNode}
-    ```
-
-=== "C#"
-
-    ```csharp title="linked_list.cs"
-    [class]{linked_list}-[func]{remove}
-    ```
-
-=== "Swift"
-
-    ```swift title="linked_list.swift"
-    [class]{}-[func]{remove}
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    [class]{}-[func]{remove}
-    ```
-
 === "Dart"
 
     ```dart title="linked_list.dart"
@@ -554,6 +542,18 @@
 === "Rust"
 
     ```rust title="linked_list.rs"
+    [class]{}-[func]{remove}
+    ```
+
+=== "C"
+
+    ```c title="linked_list.c"
+    [class]{}-[func]{removeNode}
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
     [class]{}-[func]{remove}
     ```
 
@@ -561,10 +561,10 @@
 
 **在链表访问节点的效率较低**。如上节所述，我们可以在 $O(1)$ 时间下访问数组中的任意元素。链表则不然，程序需要从头节点出发，逐个向后遍历，直至找到目标节点。也就是说，访问链表的第 $i$ 个节点需要循环 $i - 1$ 轮，时间复杂度为 $O(n)$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="linked_list.java"
-    [class]{linked_list}-[func]{access}
+    ```python title="linked_list.py"
+    [class]{}-[func]{access}
     ```
 
 === "C++"
@@ -573,15 +573,27 @@
     [class]{}-[func]{access}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="linked_list.py"
-    [class]{}-[func]{access}
+    ```java title="linked_list.java"
+    [class]{linked_list}-[func]{access}
+    ```
+
+=== "C#"
+
+    ```csharp title="linked_list.cs"
+    [class]{linked_list}-[func]{access}
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
+    [class]{}-[func]{access}
+    ```
+
+=== "Swift"
+
+    ```swift title="linked_list.swift"
     [class]{}-[func]{access}
     ```
 
@@ -597,30 +609,6 @@
     [class]{}-[func]{access}
     ```
 
-=== "C"
-
-    ```c title="linked_list.c"
-    [class]{}-[func]{access}
-    ```
-
-=== "C#"
-
-    ```csharp title="linked_list.cs"
-    [class]{linked_list}-[func]{access}
-    ```
-
-=== "Swift"
-
-    ```swift title="linked_list.swift"
-    [class]{}-[func]{access}
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    [class]{}-[func]{access}
-    ```
-
 === "Dart"
 
     ```dart title="linked_list.dart"
@@ -633,14 +621,26 @@
     [class]{}-[func]{access}
     ```
 
+=== "C"
+
+    ```c title="linked_list.c"
+    [class]{}-[func]{access}
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
+    [class]{}-[func]{access}
+    ```
+
 ### 查找节点
 
 遍历链表，查找链表内值为 `target` 的节点，输出节点在链表中的索引。此过程也属于线性查找。
 
-=== "Java"
+=== "Python"
 
-    ```java title="linked_list.java"
-    [class]{linked_list}-[func]{find}
+    ```python title="linked_list.py"
+    [class]{}-[func]{find}
     ```
 
 === "C++"
@@ -649,10 +649,16 @@
     [class]{}-[func]{find}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="linked_list.py"
-    [class]{}-[func]{find}
+    ```java title="linked_list.java"
+    [class]{linked_list}-[func]{find}
+    ```
+
+=== "C#"
+
+    ```csharp title="linked_list.cs"
+    [class]{linked_list}-[func]{find}
     ```
 
 === "Go"
@@ -661,6 +667,12 @@
     [class]{}-[func]{findNode}
     ```
 
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+    [class]{}-[func]{find}
+    ```
+
 === "JS"
 
     ```javascript title="linked_list.js"
@@ -673,30 +685,6 @@
     [class]{}-[func]{find}
     ```
 
-=== "C"
-
-    ```c title="linked_list.c"
-    [class]{}-[func]{find}
-    ```
-
-=== "C#"
-
-    ```csharp title="linked_list.cs"
-    [class]{linked_list}-[func]{find}
-    ```
-
-=== "Swift"
-
-    ```swift title="linked_list.swift"
-    [class]{}-[func]{find}
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    [class]{}-[func]{find}
-    ```
-
 === "Dart"
 
     ```dart title="linked_list.dart"
@@ -706,6 +694,18 @@
 === "Rust"
 
     ```rust title="linked_list.rs"
+    [class]{}-[func]{find}
+    ```
+
+=== "C"
+
+    ```c title="linked_list.c"
+    [class]{}-[func]{find}
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
     [class]{}-[func]{find}
     ```
 
@@ -733,16 +733,15 @@
 - **环形链表**：如果我们令单向链表的尾节点指向头节点（即首尾相接），则得到一个环形链表。在环形链表中，任意节点都可以视作头节点。
 - **双向链表**：与单向链表相比，双向链表记录了两个方向的引用。双向链表的节点定义同时包含指向后继节点（下一个节点）和前驱节点（上一个节点）的引用（指针）。相较于单向链表，双向链表更具灵活性，可以朝两个方向遍历链表，但相应地也需要占用更多的内存空间。
 
-=== "Java"
+=== "Python"
 
-    ```java title=""
-    /* 双向链表节点类 */
-    class ListNode {
-        int val;        // 节点值
-        ListNode next;  // 指向后继节点的引用
-        ListNode prev;  // 指向前驱节点的引用
-        ListNode(int x) { val = x; }  // 构造函数
-    }
+    ```python title=""
+    class ListNode:
+        """双向链表节点类"""
+        def __init__(self, val: int):
+            self.val: int = val                   # 节点值
+            self.next: Optional[ListNode] = None  # 指向后继节点的引用
+            self.prev: Optional[ListNode] = None  # 指向前驱节点的引用
     ```
 
 === "C++"
@@ -757,15 +756,28 @@
     };
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title=""
-    class ListNode:
-        """双向链表节点类"""
-        def __init__(self, val: int):
-            self.val: int = val                   # 节点值
-            self.next: Optional[ListNode] = None  # 指向后继节点的引用
-            self.prev: Optional[ListNode] = None  # 指向前驱节点的引用
+    ```java title=""
+    /* 双向链表节点类 */
+    class ListNode {
+        int val;        // 节点值
+        ListNode next;  // 指向后继节点的引用
+        ListNode prev;  // 指向前驱节点的引用
+        ListNode(int x) { val = x; }  // 构造函数
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+    /* 双向链表节点类 */
+    class ListNode {
+        int val;        // 节点值
+        ListNode next;  // 指向后继节点的引用
+        ListNode prev;  // 指向前驱节点的引用
+        ListNode(int x) => val = x;  // 构造函数
+    }
     ```
 
 === "Go"
@@ -784,6 +796,21 @@
             Val:  val,
             Next: nil,
             Prev: nil,
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    /* 双向链表节点类 */
+    class ListNode {
+        var val: Int // 节点值
+        var next: ListNode? // 指向后继节点的引用
+        var prev: ListNode? // 指向前驱节点的引用
+
+        init(x: Int) { // 构造函数
+            val = x
         }
     }
     ```
@@ -817,78 +844,6 @@
             this.next = next  ===  undefined ? null : next;  // 指向后继节点的引用
             this.prev = prev  ===  undefined ? null : prev;  // 指向前驱节点的引用
         }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    /* 双向链表节点结构体 */
-    struct ListNode {
-        int val;               // 节点值
-        struct ListNode *next; // 指向后继节点的指针
-        struct ListNode *prev; // 指向前驱节点的指针
-    };
-
-    typedef struct ListNode ListNode;
-
-    /* 构造函数 */
-    ListNode *newListNode(int val) {
-        ListNode *node, *next;
-        node = (ListNode *) malloc(sizeof(ListNode));
-        node->val = val;
-        node->next = NULL;
-        node->prev = NULL;
-        return node;
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* 双向链表节点类 */
-    class ListNode {
-        int val;        // 节点值
-        ListNode next;  // 指向后继节点的引用
-        ListNode prev;  // 指向前驱节点的引用
-        ListNode(int x) => val = x;  // 构造函数
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* 双向链表节点类 */
-    class ListNode {
-        var val: Int // 节点值
-        var next: ListNode? // 指向后继节点的引用
-        var prev: ListNode? // 指向前驱节点的引用
-
-        init(x: Int) { // 构造函数
-            val = x
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    // 双向链表节点类
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 节点值
-            next: ?*Self = null, // 指向后继节点的指针
-            prev: ?*Self = null, // 指向前驱节点的指针
-
-            // 构造函数
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-                self.prev = null;
-            }
-        };
     }
     ```
 
@@ -927,6 +882,51 @@
                 prev: None,
             }
         }
+    }
+    ```
+
+=== "C"
+
+    ```c title=""
+    /* 双向链表节点结构体 */
+    struct ListNode {
+        int val;               // 节点值
+        struct ListNode *next; // 指向后继节点的指针
+        struct ListNode *prev; // 指向前驱节点的指针
+    };
+
+    typedef struct ListNode ListNode;
+
+    /* 构造函数 */
+    ListNode *newListNode(int val) {
+        ListNode *node, *next;
+        node = (ListNode *) malloc(sizeof(ListNode));
+        node->val = val;
+        node->next = NULL;
+        node->prev = NULL;
+        return node;
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title=""
+    // 双向链表节点类
+    pub fn ListNode(comptime T: type) type {
+        return struct {
+            const Self = @This();
+
+            val: T = 0, // 节点值
+            next: ?*Self = null, // 指向后继节点的指针
+            prev: ?*Self = null, // 指向前驱节点的指针
+
+            // 构造函数
+            pub fn init(self: *Self, x: i32) void {
+                self.val = x;
+                self.next = null;
+                self.prev = null;
+            }
+        };
     }
     ```
 

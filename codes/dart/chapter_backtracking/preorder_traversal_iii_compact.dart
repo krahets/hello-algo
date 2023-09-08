@@ -22,8 +22,6 @@ void preOrder(
   if (root.val == 7) {
     // 记录解
     res.add(List.from(path));
-    path.removeLast();
-    return;
   }
   preOrder(root.left, path, res);
   preOrder(root.right, path, res);

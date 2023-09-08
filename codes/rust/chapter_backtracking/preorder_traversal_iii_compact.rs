@@ -4,7 +4,7 @@
  * Author: sjinzh (sjinzh@gmail.com)
  */
 
- include!("../include/include.rs");
+include!("../include/include.rs");
 
 use std::{cell::RefCell, rc::Rc};
 use tree_node::{vec_to_tree, TreeNode};
@@ -21,8 +21,6 @@ fn pre_order(res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>, path: &mut Vec<Rc<RefCel
         if node.borrow().val == 7 {
             // 记录解
             res.push(path.clone());
-            path.remove(path.len() -  1);
-            return;
         }
         pre_order(res, path, node.borrow().left.clone());
         pre_order(res, path, node.borrow().right.clone());

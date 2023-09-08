@@ -4,7 +4,7 @@
 * Author: hpstory (hpstory1024@163.com)
 */
 
-namespace hello_algo.chapter_heap; 
+namespace hello_algo.chapter_heap;
 
 public class top_k {
     /* 基于堆查找数组中最大的 k 个元素 */

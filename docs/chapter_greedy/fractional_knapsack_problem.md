@@ -29,12 +29,12 @@
 
 我们建立了一个物品类 `Item` ，以便将物品按照单位价值进行排序。循环进行贪心选择，当背包已满时跳出并返回解。
 
-=== "Java"
+=== "Python"
 
-    ```java title="fractional_knapsack.java"
+    ```python title="fractional_knapsack.py"
     [class]{Item}-[func]{}
 
-    [class]{fractional_knapsack}-[func]{fractionalKnapsack}
+    [class]{}-[func]{fractional_knapsack}
     ```
 
 === "C++"
@@ -45,17 +45,33 @@
     [class]{}-[func]{fractionalKnapsack}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="fractional_knapsack.py"
+    ```java title="fractional_knapsack.java"
     [class]{Item}-[func]{}
 
-    [class]{}-[func]{fractional_knapsack}
+    [class]{fractional_knapsack}-[func]{fractionalKnapsack}
+    ```
+
+=== "C#"
+
+    ```csharp title="fractional_knapsack.cs"
+    [class]{Item}-[func]{}
+
+    [class]{fractional_knapsack}-[func]{fractionalKnapsack}
     ```
 
 === "Go"
 
     ```go title="fractional_knapsack.go"
+    [class]{Item}-[func]{}
+
+    [class]{}-[func]{fractionalKnapsack}
+    ```
+
+=== "Swift"
+
+    ```swift title="fractional_knapsack.swift"
     [class]{Item}-[func]{}
 
     [class]{}-[func]{fractionalKnapsack}
@@ -77,38 +93,6 @@
     [class]{}-[func]{fractionalKnapsack}
     ```
 
-=== "C"
-
-    ```c title="fractional_knapsack.c"
-    [class]{Item}-[func]{}
-
-    [class]{}-[func]{fractionalKnapsack}
-    ```
-
-=== "C#"
-
-    ```csharp title="fractional_knapsack.cs"
-    [class]{Item}-[func]{}
-
-    [class]{fractional_knapsack}-[func]{fractionalKnapsack}
-    ```
-
-=== "Swift"
-
-    ```swift title="fractional_knapsack.swift"
-    [class]{Item}-[func]{}
-
-    [class]{}-[func]{fractionalKnapsack}
-    ```
-
-=== "Zig"
-
-    ```zig title="fractional_knapsack.zig"
-    [class]{Item}-[func]{}
-
-    [class]{}-[func]{fractionalKnapsack}
-    ```
-
 === "Dart"
 
     ```dart title="fractional_knapsack.dart"
@@ -123,6 +107,22 @@
     [class]{Item}-[func]{}
 
     [class]{}-[func]{fractional_knapsack}
+    ```
+
+=== "C"
+
+    ```c title="fractional_knapsack.c"
+    [class]{Item}-[func]{}
+
+    [class]{}-[func]{fractionalKnapsack}
+    ```
+
+=== "Zig"
+
+    ```zig title="fractional_knapsack.zig"
+    [class]{Item}-[func]{}
+
+    [class]{}-[func]{fractionalKnapsack}
     ```
 
 最差情况下，需要遍历整个物品列表，**因此时间复杂度为 $O(n)$** ，其中 $n$ 为物品数量。

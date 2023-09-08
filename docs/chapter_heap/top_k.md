@@ -66,10 +66,10 @@
 
 另外，该方法适用于动态数据流的使用场景。在不断加入数据时，我们可以持续维护堆内的元素，从而实现最大 $k$ 个元素的动态更新。
 
-=== "Java"
+=== "Python"
 
-    ```java title="top_k.java"
-    [class]{top_k}-[func]{topKHeap}
+    ```python title="top_k.py"
+    [class]{}-[func]{top_k_heap}
     ```
 
 === "C++"
@@ -78,15 +78,27 @@
     [class]{}-[func]{topKHeap}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="top_k.py"
-    [class]{}-[func]{top_k_heap}
+    ```java title="top_k.java"
+    [class]{top_k}-[func]{topKHeap}
+    ```
+
+=== "C#"
+
+    ```csharp title="top_k.cs"
+    [class]{top_k}-[func]{topKHeap}
     ```
 
 === "Go"
 
     ```go title="top_k.go"
+    [class]{}-[func]{topKHeap}
+    ```
+
+=== "Swift"
+
+    ```swift title="top_k.swift"
     [class]{}-[func]{topKHeap}
     ```
 
@@ -102,30 +114,6 @@
     [class]{}-[func]{topKHeap}
     ```
 
-=== "C"
-
-    ```c title="top_k.c"
-    [class]{}-[func]{topKHeap}
-    ```
-
-=== "C#"
-
-    ```csharp title="top_k.cs"
-    [class]{top_k}-[func]{topKHeap}
-    ```
-
-=== "Swift"
-
-    ```swift title="top_k.swift"
-    [class]{}-[func]{topKHeap}
-    ```
-
-=== "Zig"
-
-    ```zig title="top_k.zig"
-    [class]{}-[func]{topKHeap}
-    ```
-
 === "Dart"
 
     ```dart title="top_k.dart"
@@ -136,4 +124,16 @@
 
     ```rust title="top_k.rs"
     [class]{}-[func]{top_k_heap}
+    ```
+
+=== "C"
+
+    ```c title="top_k.c"
+    [class]{}-[func]{topKHeap}
+    ```
+
+=== "Zig"
+
+    ```zig title="top_k.zig"
+    [class]{}-[func]{topKHeap}
     ```

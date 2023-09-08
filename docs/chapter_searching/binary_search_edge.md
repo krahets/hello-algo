@@ -15,10 +15,10 @@
 
 当遇到以上两种情况时，直接返回 $-1$ 即可。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_edge.java"
-    [class]{binary_search_edge}-[func]{binarySearchLeftEdge}
+    ```python title="binary_search_edge.py"
+    [class]{}-[func]{binary_search_left_edge}
     ```
 
 === "C++"
@@ -27,15 +27,27 @@
     [class]{}-[func]{binarySearchLeftEdge}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_edge.py"
-    [class]{}-[func]{binary_search_left_edge}
+    ```java title="binary_search_edge.java"
+    [class]{binary_search_edge}-[func]{binarySearchLeftEdge}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_edge.cs"
+    [class]{binary_search_edge}-[func]{binarySearchLeftEdge}
     ```
 
 === "Go"
 
     ```go title="binary_search_edge.go"
+    [class]{}-[func]{binarySearchLeftEdge}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_edge.swift"
     [class]{}-[func]{binarySearchLeftEdge}
     ```
 
@@ -51,30 +63,6 @@
     [class]{}-[func]{binarySearchLeftEdge}
     ```
 
-=== "C"
-
-    ```c title="binary_search_edge.c"
-    [class]{}-[func]{binarySearchLeftEdge}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_edge.cs"
-    [class]{binary_search_edge}-[func]{binarySearchLeftEdge}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_edge.swift"
-    [class]{}-[func]{binarySearchLeftEdge}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_edge.zig"
-    [class]{}-[func]{binarySearchLeftEdge}
-    ```
-
 === "Dart"
 
     ```dart title="binary_search_edge.dart"
@@ -85,6 +73,18 @@
 
     ```rust title="binary_search_edge.rs"
     [class]{}-[func]{binary_search_left_edge}
+    ```
+
+=== "C"
+
+    ```c title="binary_search_edge.c"
+    [class]{}-[func]{binarySearchLeftEdge}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_edge.zig"
+    [class]{}-[func]{binarySearchLeftEdge}
     ```
 
 ## 查找右边界
@@ -103,10 +103,10 @@
 
 请注意，返回的插入点是 $i$ ，因此需要将其减 $1$ ，从而获得 $j$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_edge.java"
-    [class]{binary_search_edge}-[func]{binarySearchRightEdge}
+    ```python title="binary_search_edge.py"
+    [class]{}-[func]{binary_search_right_edge}
     ```
 
 === "C++"
@@ -115,15 +115,27 @@
     [class]{}-[func]{binarySearchRightEdge}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_edge.py"
-    [class]{}-[func]{binary_search_right_edge}
+    ```java title="binary_search_edge.java"
+    [class]{binary_search_edge}-[func]{binarySearchRightEdge}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_edge.cs"
+    [class]{binary_search_edge}-[func]{binarySearchRightEdge}
     ```
 
 === "Go"
 
     ```go title="binary_search_edge.go"
+    [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_edge.swift"
     [class]{}-[func]{binarySearchRightEdge}
     ```
 
@@ -139,30 +151,6 @@
     [class]{}-[func]{binarySearchRightEdge}
     ```
 
-=== "C"
-
-    ```c title="binary_search_edge.c"
-    [class]{}-[func]{binarySearchRightEdge}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_edge.cs"
-    [class]{binary_search_edge}-[func]{binarySearchRightEdge}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_edge.swift"
-    [class]{}-[func]{binarySearchRightEdge}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_edge.zig"
-    [class]{}-[func]{binarySearchRightEdge}
-    ```
-
 === "Dart"
 
     ```dart title="binary_search_edge.dart"
@@ -173,6 +161,18 @@
 
     ```rust title="binary_search_edge.rs"
     [class]{}-[func]{binary_search_right_edge}
+    ```
+
+=== "C"
+
+    ```c title="binary_search_edge.c"
+    [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_edge.zig"
+    [class]{}-[func]{binarySearchRightEdge}
     ```
 
 ### 转化为查找元素

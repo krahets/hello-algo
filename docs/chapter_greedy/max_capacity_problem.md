@@ -78,10 +78,10 @@ $$
 
 变量 $i$、$j$、$res$ 使用常数大小额外空间，**因此空间复杂度为 $O(1)$** 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="max_capacity.java"
-    [class]{max_capacity}-[func]{maxCapacity}
+    ```python title="max_capacity.py"
+    [class]{}-[func]{max_capacity}
     ```
 
 === "C++"
@@ -90,15 +90,27 @@ $$
     [class]{}-[func]{maxCapacity}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="max_capacity.py"
-    [class]{}-[func]{max_capacity}
+    ```java title="max_capacity.java"
+    [class]{max_capacity}-[func]{maxCapacity}
+    ```
+
+=== "C#"
+
+    ```csharp title="max_capacity.cs"
+    [class]{max_capacity}-[func]{maxCapacity}
     ```
 
 === "Go"
 
     ```go title="max_capacity.go"
+    [class]{}-[func]{maxCapacity}
+    ```
+
+=== "Swift"
+
+    ```swift title="max_capacity.swift"
     [class]{}-[func]{maxCapacity}
     ```
 
@@ -114,30 +126,6 @@ $$
     [class]{}-[func]{maxCapacity}
     ```
 
-=== "C"
-
-    ```c title="max_capacity.c"
-    [class]{}-[func]{maxCapacity}
-    ```
-
-=== "C#"
-
-    ```csharp title="max_capacity.cs"
-    [class]{max_capacity}-[func]{maxCapacity}
-    ```
-
-=== "Swift"
-
-    ```swift title="max_capacity.swift"
-    [class]{}-[func]{maxCapacity}
-    ```
-
-=== "Zig"
-
-    ```zig title="max_capacity.zig"
-    [class]{}-[func]{maxCapacity}
-    ```
-
 === "Dart"
 
     ```dart title="max_capacity.dart"
@@ -148,6 +136,18 @@ $$
 
     ```rust title="max_capacity.rs"
     [class]{}-[func]{max_capacity}
+    ```
+
+=== "C"
+
+    ```c title="max_capacity.c"
+    [class]{}-[func]{maxCapacity}
+    ```
+
+=== "Zig"
+
+    ```zig title="max_capacity.zig"
+    [class]{}-[func]{maxCapacity}
     ```
 
 ### 正确性证明

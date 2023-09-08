@@ -230,7 +230,7 @@ void removeVertex(graphAdjList *t, unsigned int index) {
     Node *temp = vet->linked->head->next;
     while (temp != 0) {
         removeLink(temp->val->linked, vet); // 删除与该顶点有关的边
-        temp = temp->next;                
+        temp = temp->next;
     }
 
     // 将顶点前移
@@ -241,7 +241,7 @@ void removeVertex(graphAdjList *t, unsigned int index) {
     t->verticesList[t->size - 1] = 0; // 将被删除顶点的位置置 0
     t->size--;
 
-    //释放被删除顶点的内存
+    // 释放内存
     freeVertex(vet);
 }
 
@@ -273,5 +273,5 @@ graphAdjList *newGraphAdjList(unsigned int verticesCapacity) {
     newGraph->size = 0;                                                              // 初始化顶点数量
     newGraph->capacity = verticesCapacity;                                           // 初始化顶点容量
     // 返回图指针
-    return newGraph;                
+    return newGraph;
 }

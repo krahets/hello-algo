@@ -98,4 +98,4 @@ traverse(nums);
 let index = find(nums, 3);
 console.log('在 nums 中查找元素 3 ，得到索引 =', index);
 
-export { };
+export {};

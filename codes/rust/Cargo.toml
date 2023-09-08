@@ -19,6 +19,16 @@ path = "chapter_computational_complexity/worst_best_time_complexity.rs"
 name = "space_complexity"
 path = "chapter_computational_complexity/space_complexity.rs"
 
+# Run Command: cargo run --bin iteration
+[[bin]]
+name = "iteration"
+path = "chapter_computational_complexity/iteration.rs"
+
+# Run Command: cargo run --bin recursion
+[[bin]]
+name = "recursion"
+path = "chapter_computational_complexity/recursion.rs"
+
 # Run Command: cargo run --bin two_sum
 [[bin]]
 name = "two_sum"
@@ -78,6 +88,11 @@ path = "chapter_stack_and_queue/array_deque.rs"
 [[bin]]
 name = "linkedlist_deque"
 path = "chapter_stack_and_queue/linkedlist_deque.rs"
+
+# Run Command: cargo run --bin simple_hash
+[[bin]]
+name = "simple_hash"
+path = "chapter_hashing/simple_hash.rs"
 
 # Run Command: cargo run --bin hash_map
 [[bin]]

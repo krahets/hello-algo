@@ -28,9 +28,9 @@
 
 以下是基于邻接矩阵表示图的实现代码。
 
-=== "Java"
+=== "Python"
 
-    ```java title="graph_adjacency_matrix.java"
+    ```python title="graph_adjacency_matrix.py"
     [class]{GraphAdjMat}-[func]{}
     ```
 
@@ -40,9 +40,15 @@
     [class]{GraphAdjMat}-[func]{}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="graph_adjacency_matrix.py"
+    ```java title="graph_adjacency_matrix.java"
+    [class]{GraphAdjMat}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="graph_adjacency_matrix.cs"
     [class]{GraphAdjMat}-[func]{}
     ```
 
@@ -50,6 +56,12 @@
 
     ```go title="graph_adjacency_matrix.go"
     [class]{graphAdjMat}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="graph_adjacency_matrix.swift"
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 === "JS"
@@ -64,30 +76,6 @@
     [class]{GraphAdjMat}-[func]{}
     ```
 
-=== "C"
-
-    ```c title="graph_adjacency_matrix.c"
-    [class]{graphAdjMat}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="graph_adjacency_matrix.cs"
-    [class]{GraphAdjMat}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="graph_adjacency_matrix.swift"
-    [class]{GraphAdjMat}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="graph_adjacency_matrix.zig"
-
-    ```
-
 === "Dart"
 
     ```dart title="graph_adjacency_matrix.dart"
@@ -98,6 +86,18 @@
 
     ```rust title="graph_adjacency_matrix.rs"
     [class]{GraphAdjMat}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="graph_adjacency_matrix.c"
+    [class]{graphAdjMat}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="graph_adjacency_matrix.zig"
+
     ```
 
 ## 基于邻接表的实现
@@ -131,9 +131,9 @@
 2. 如果类似邻接矩阵那样，使用顶点列表索引来区分不同顶点。那么，假设我们想要删除索引为 $i$ 的顶点，则需要遍历整个邻接表，将其中 $> i$ 的索引全部减 $1$ ，这样操作效率较低。
 3. 因此我们考虑引入顶点类 `Vertex` ，使得每个顶点都是唯一的对象，此时删除顶点时就无须改动其余顶点了。
 
-=== "Java"
+=== "Python"
 
-    ```java title="graph_adjacency_list.java"
+    ```python title="graph_adjacency_list.py"
     [class]{GraphAdjList}-[func]{}
     ```
 
@@ -143,9 +143,15 @@
     [class]{GraphAdjList}-[func]{}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="graph_adjacency_list.py"
+    ```java title="graph_adjacency_list.java"
+    [class]{GraphAdjList}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="graph_adjacency_list.cs"
     [class]{GraphAdjList}-[func]{}
     ```
 
@@ -153,6 +159,12 @@
 
     ```go title="graph_adjacency_list.go"
     [class]{graphAdjList}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="graph_adjacency_list.swift"
+    [class]{GraphAdjList}-[func]{}
     ```
 
 === "JS"
@@ -167,30 +179,6 @@
     [class]{GraphAdjList}-[func]{}
     ```
 
-=== "C"
-
-    ```c title="graph_adjacency_list.c"
-    [class]{graphAdjList}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="graph_adjacency_list.cs"
-    [class]{GraphAdjList}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="graph_adjacency_list.swift"
-    [class]{GraphAdjList}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="graph_adjacency_list.zig"
-    [class]{GraphAdjList}-[func]{}
-    ```
-
 === "Dart"
 
     ```dart title="graph_adjacency_list.dart"
@@ -200,6 +188,18 @@
 === "Rust"
 
     ```rust title="graph_adjacency_list.rs"
+    [class]{GraphAdjList}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="graph_adjacency_list.c"
+    [class]{graphAdjList}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="graph_adjacency_list.zig"
     [class]{GraphAdjList}-[func]{}
     ```
 

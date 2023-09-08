@@ -23,8 +23,6 @@ function preOrder(
     if (root.val === 7) {
         // 记录解
         res.push([...path]);
-        path.pop();
-        return;
     }
     preOrder(root.left, path, res);
     preOrder(root.right, path, res);

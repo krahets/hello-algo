@@ -32,10 +32,10 @@ $$
 
 对比两道题目的代码，状态转移中有一处从 $i-1$ 变为 $i$ ，其余完全一致。
 
-=== "Java"
+=== "Python"
 
-    ```java title="unbounded_knapsack.java"
-    [class]{unbounded_knapsack}-[func]{unboundedKnapsackDP}
+    ```python title="unbounded_knapsack.py"
+    [class]{}-[func]{unbounded_knapsack_dp}
     ```
 
 === "C++"
@@ -44,15 +44,27 @@ $$
     [class]{}-[func]{unboundedKnapsackDP}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="unbounded_knapsack.py"
-    [class]{}-[func]{unbounded_knapsack_dp}
+    ```java title="unbounded_knapsack.java"
+    [class]{unbounded_knapsack}-[func]{unboundedKnapsackDP}
+    ```
+
+=== "C#"
+
+    ```csharp title="unbounded_knapsack.cs"
+    [class]{unbounded_knapsack}-[func]{unboundedKnapsackDP}
     ```
 
 === "Go"
 
     ```go title="unbounded_knapsack.go"
+    [class]{}-[func]{unboundedKnapsackDP}
+    ```
+
+=== "Swift"
+
+    ```swift title="unbounded_knapsack.swift"
     [class]{}-[func]{unboundedKnapsackDP}
     ```
 
@@ -68,30 +80,6 @@ $$
     [class]{}-[func]{unboundedKnapsackDP}
     ```
 
-=== "C"
-
-    ```c title="unbounded_knapsack.c"
-    [class]{}-[func]{unboundedKnapsackDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="unbounded_knapsack.cs"
-    [class]{unbounded_knapsack}-[func]{unboundedKnapsackDP}
-    ```
-
-=== "Swift"
-
-    ```swift title="unbounded_knapsack.swift"
-    [class]{}-[func]{unboundedKnapsackDP}
-    ```
-
-=== "Zig"
-
-    ```zig title="unbounded_knapsack.zig"
-    [class]{}-[func]{unboundedKnapsackDP}
-    ```
-
 === "Dart"
 
     ```dart title="unbounded_knapsack.dart"
@@ -102,6 +90,18 @@ $$
 
     ```rust title="unbounded_knapsack.rs"
     [class]{}-[func]{unbounded_knapsack_dp}
+    ```
+
+=== "C"
+
+    ```c title="unbounded_knapsack.c"
+    [class]{}-[func]{unboundedKnapsackDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="unbounded_knapsack.zig"
+    [class]{}-[func]{unboundedKnapsackDP}
     ```
 
 ### 空间优化
@@ -130,10 +130,10 @@ $$
 
 代码实现比较简单，仅需将数组 `dp` 的第一维删除。
 
-=== "Java"
+=== "Python"
 
-    ```java title="unbounded_knapsack.java"
-    [class]{unbounded_knapsack}-[func]{unboundedKnapsackDPComp}
+    ```python title="unbounded_knapsack.py"
+    [class]{}-[func]{unbounded_knapsack_dp_comp}
     ```
 
 === "C++"
@@ -142,15 +142,27 @@ $$
     [class]{}-[func]{unboundedKnapsackDPComp}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="unbounded_knapsack.py"
-    [class]{}-[func]{unbounded_knapsack_dp_comp}
+    ```java title="unbounded_knapsack.java"
+    [class]{unbounded_knapsack}-[func]{unboundedKnapsackDPComp}
+    ```
+
+=== "C#"
+
+    ```csharp title="unbounded_knapsack.cs"
+    [class]{unbounded_knapsack}-[func]{unboundedKnapsackDPComp}
     ```
 
 === "Go"
 
     ```go title="unbounded_knapsack.go"
+    [class]{}-[func]{unboundedKnapsackDPComp}
+    ```
+
+=== "Swift"
+
+    ```swift title="unbounded_knapsack.swift"
     [class]{}-[func]{unboundedKnapsackDPComp}
     ```
 
@@ -166,30 +178,6 @@ $$
     [class]{}-[func]{unboundedKnapsackDPComp}
     ```
 
-=== "C"
-
-    ```c title="unbounded_knapsack.c"
-    [class]{}-[func]{unboundedKnapsackDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="unbounded_knapsack.cs"
-    [class]{unbounded_knapsack}-[func]{unboundedKnapsackDPComp}
-    ```
-
-=== "Swift"
-
-    ```swift title="unbounded_knapsack.swift"
-    [class]{}-[func]{unboundedKnapsackDPComp}
-    ```
-
-=== "Zig"
-
-    ```zig title="unbounded_knapsack.zig"
-    [class]{}-[func]{unboundedKnapsackDPComp}
-    ```
-
 === "Dart"
 
     ```dart title="unbounded_knapsack.dart"
@@ -200,6 +188,18 @@ $$
 
     ```rust title="unbounded_knapsack.rs"
     [class]{}-[func]{unbounded_knapsack_dp_comp}
+    ```
+
+=== "C"
+
+    ```c title="unbounded_knapsack.c"
+    [class]{}-[func]{unboundedKnapsackDPComp}
+    ```
+
+=== "Zig"
+
+    ```zig title="unbounded_knapsack.zig"
+    [class]{}-[func]{unboundedKnapsackDPComp}
     ```
 
 ## 零钱兑换问题
@@ -251,10 +251,10 @@ $$
 
 最后返回前，判断 $dp[n, amt]$ 是否等于 $amt + 1$ ，若是则返回 $-1$ ，代表无法凑出目标金额。
 
-=== "Java"
+=== "Python"
 
-    ```java title="coin_change.java"
-    [class]{coin_change}-[func]{coinChangeDP}
+    ```python title="coin_change.py"
+    [class]{}-[func]{coin_change_dp}
     ```
 
 === "C++"
@@ -263,15 +263,27 @@ $$
     [class]{}-[func]{coinChangeDP}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="coin_change.py"
-    [class]{}-[func]{coin_change_dp}
+    ```java title="coin_change.java"
+    [class]{coin_change}-[func]{coinChangeDP}
+    ```
+
+=== "C#"
+
+    ```csharp title="coin_change.cs"
+    [class]{coin_change}-[func]{coinChangeDP}
     ```
 
 === "Go"
 
     ```go title="coin_change.go"
+    [class]{}-[func]{coinChangeDP}
+    ```
+
+=== "Swift"
+
+    ```swift title="coin_change.swift"
     [class]{}-[func]{coinChangeDP}
     ```
 
@@ -287,30 +299,6 @@ $$
     [class]{}-[func]{coinChangeDP}
     ```
 
-=== "C"
-
-    ```c title="coin_change.c"
-    [class]{}-[func]{coinChangeDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="coin_change.cs"
-    [class]{coin_change}-[func]{coinChangeDP}
-    ```
-
-=== "Swift"
-
-    ```swift title="coin_change.swift"
-    [class]{}-[func]{coinChangeDP}
-    ```
-
-=== "Zig"
-
-    ```zig title="coin_change.zig"
-    [class]{}-[func]{coinChangeDP}
-    ```
-
 === "Dart"
 
     ```dart title="coin_change.dart"
@@ -321,6 +309,18 @@ $$
 
     ```rust title="coin_change.rs"
     [class]{}-[func]{coin_change_dp}
+    ```
+
+=== "C"
+
+    ```c title="coin_change.c"
+    [class]{}-[func]{coinChangeDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="coin_change.zig"
+    [class]{}-[func]{coinChangeDP}
     ```
 
 下图展示了零钱兑换的动态规划过程，和完全背包非常相似。
@@ -374,10 +374,10 @@ $$
 
 零钱兑换的空间优化的处理方式和完全背包一致。
 
-=== "Java"
+=== "Python"
 
-    ```java title="coin_change.java"
-    [class]{coin_change}-[func]{coinChangeDPComp}
+    ```python title="coin_change.py"
+    [class]{}-[func]{coin_change_dp_comp}
     ```
 
 === "C++"
@@ -386,15 +386,27 @@ $$
     [class]{}-[func]{coinChangeDPComp}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="coin_change.py"
-    [class]{}-[func]{coin_change_dp_comp}
+    ```java title="coin_change.java"
+    [class]{coin_change}-[func]{coinChangeDPComp}
+    ```
+
+=== "C#"
+
+    ```csharp title="coin_change.cs"
+    [class]{coin_change}-[func]{coinChangeDPComp}
     ```
 
 === "Go"
 
     ```go title="coin_change.go"
+    [class]{}-[func]{coinChangeDPComp}
+    ```
+
+=== "Swift"
+
+    ```swift title="coin_change.swift"
     [class]{}-[func]{coinChangeDPComp}
     ```
 
@@ -410,30 +422,6 @@ $$
     [class]{}-[func]{coinChangeDPComp}
     ```
 
-=== "C"
-
-    ```c title="coin_change.c"
-    [class]{}-[func]{coinChangeDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="coin_change.cs"
-    [class]{coin_change}-[func]{coinChangeDPComp}
-    ```
-
-=== "Swift"
-
-    ```swift title="coin_change.swift"
-    [class]{}-[func]{coinChangeDPComp}
-    ```
-
-=== "Zig"
-
-    ```zig title="coin_change.zig"
-    [class]{}-[func]{coinChangeDPComp}
-    ```
-
 === "Dart"
 
     ```dart title="coin_change.dart"
@@ -444,6 +432,18 @@ $$
 
     ```rust title="coin_change.rs"
     [class]{}-[func]{coin_change_dp_comp}
+    ```
+
+=== "C"
+
+    ```c title="coin_change.c"
+    [class]{}-[func]{coinChangeDPComp}
+    ```
+
+=== "Zig"
+
+    ```zig title="coin_change.zig"
+    [class]{}-[func]{coinChangeDPComp}
     ```
 
 ## 零钱兑换问题 II
@@ -468,10 +468,10 @@ $$
 
 ### 代码实现
 
-=== "Java"
+=== "Python"
 
-    ```java title="coin_change_ii.java"
-    [class]{coin_change_ii}-[func]{coinChangeIIDP}
+    ```python title="coin_change_ii.py"
+    [class]{}-[func]{coin_change_ii_dp}
     ```
 
 === "C++"
@@ -480,15 +480,27 @@ $$
     [class]{}-[func]{coinChangeIIDP}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="coin_change_ii.py"
-    [class]{}-[func]{coin_change_ii_dp}
+    ```java title="coin_change_ii.java"
+    [class]{coin_change_ii}-[func]{coinChangeIIDP}
+    ```
+
+=== "C#"
+
+    ```csharp title="coin_change_ii.cs"
+    [class]{coin_change_ii}-[func]{coinChangeIIDP}
     ```
 
 === "Go"
 
     ```go title="coin_change_ii.go"
+    [class]{}-[func]{coinChangeIIDP}
+    ```
+
+=== "Swift"
+
+    ```swift title="coin_change_ii.swift"
     [class]{}-[func]{coinChangeIIDP}
     ```
 
@@ -504,30 +516,6 @@ $$
     [class]{}-[func]{coinChangeIIDP}
     ```
 
-=== "C"
-
-    ```c title="coin_change_ii.c"
-    [class]{}-[func]{coinChangeIIDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="coin_change_ii.cs"
-    [class]{coin_change_ii}-[func]{coinChangeIIDP}
-    ```
-
-=== "Swift"
-
-    ```swift title="coin_change_ii.swift"
-    [class]{}-[func]{coinChangeIIDP}
-    ```
-
-=== "Zig"
-
-    ```zig title="coin_change_ii.zig"
-    [class]{}-[func]{coinChangeIIDP}
-    ```
-
 === "Dart"
 
     ```dart title="coin_change_ii.dart"
@@ -538,16 +526,28 @@ $$
 
     ```rust title="coin_change_ii.rs"
     [class]{}-[func]{coin_change_ii_dp}
+    ```
+
+=== "C"
+
+    ```c title="coin_change_ii.c"
+    [class]{}-[func]{coinChangeIIDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="coin_change_ii.zig"
+    [class]{}-[func]{coinChangeIIDP}
     ```
 
 ### 空间优化
 
 空间优化处理方式相同，删除硬币维度即可。
 
-=== "Java"
+=== "Python"
 
-    ```java title="coin_change_ii.java"
-    [class]{coin_change_ii}-[func]{coinChangeIIDPComp}
+    ```python title="coin_change_ii.py"
+    [class]{}-[func]{coin_change_ii_dp_comp}
     ```
 
 === "C++"
@@ -556,15 +556,27 @@ $$
     [class]{}-[func]{coinChangeIIDPComp}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="coin_change_ii.py"
-    [class]{}-[func]{coin_change_ii_dp_comp}
+    ```java title="coin_change_ii.java"
+    [class]{coin_change_ii}-[func]{coinChangeIIDPComp}
+    ```
+
+=== "C#"
+
+    ```csharp title="coin_change_ii.cs"
+    [class]{coin_change_ii}-[func]{coinChangeIIDPComp}
     ```
 
 === "Go"
 
     ```go title="coin_change_ii.go"
+    [class]{}-[func]{coinChangeIIDPComp}
+    ```
+
+=== "Swift"
+
+    ```swift title="coin_change_ii.swift"
     [class]{}-[func]{coinChangeIIDPComp}
     ```
 
@@ -580,30 +592,6 @@ $$
     [class]{}-[func]{coinChangeIIDPComp}
     ```
 
-=== "C"
-
-    ```c title="coin_change_ii.c"
-    [class]{}-[func]{coinChangeIIDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="coin_change_ii.cs"
-    [class]{coin_change_ii}-[func]{coinChangeIIDPComp}
-    ```
-
-=== "Swift"
-
-    ```swift title="coin_change_ii.swift"
-    [class]{}-[func]{coinChangeIIDPComp}
-    ```
-
-=== "Zig"
-
-    ```zig title="coin_change_ii.zig"
-    [class]{}-[func]{coinChangeIIDPComp}
-    ```
-
 === "Dart"
 
     ```dart title="coin_change_ii.dart"
@@ -614,4 +602,16 @@ $$
 
     ```rust title="coin_change_ii.rs"
     [class]{}-[func]{coin_change_ii_dp_comp}
+    ```
+
+=== "C"
+
+    ```c title="coin_change_ii.c"
+    [class]{}-[func]{coinChangeIIDPComp}
+    ```
+
+=== "Zig"
+
+    ```zig title="coin_change_ii.zig"
+    [class]{}-[func]{coinChangeIIDPComp}
     ```

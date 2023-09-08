@@ -33,9 +33,9 @@
 
 二叉搜索树的查找操作与二分查找算法的工作原理一致，都是每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 $O(\log n)$ 时间。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_tree.java"
+    ```python title="binary_search_tree.py"
     [class]{BinarySearchTree}-[func]{search}
     ```
 
@@ -45,9 +45,15 @@
     [class]{BinarySearchTree}-[func]{search}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_tree.py"
+    ```java title="binary_search_tree.java"
+    [class]{BinarySearchTree}-[func]{search}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_tree.cs"
     [class]{BinarySearchTree}-[func]{search}
     ```
 
@@ -55,6 +61,12 @@
 
     ```go title="binary_search_tree.go"
     [class]{binarySearchTree}-[func]{search}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_tree.swift"
+    [class]{BinarySearchTree}-[func]{search}
     ```
 
 === "JS"
@@ -66,30 +78,6 @@
 === "TS"
 
     ```typescript title="binary_search_tree.ts"
-    [class]{}-[func]{search}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{search}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_tree.cs"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_tree.swift"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_tree.zig"
     [class]{BinarySearchTree}-[func]{search}
     ```
 
@@ -102,6 +90,18 @@
 === "Rust"
 
     ```rust title="binary_search_tree.rs"
+    [class]{BinarySearchTree}-[func]{search}
+    ```
+
+=== "C"
+
+    ```c title="binary_search_tree.c"
+    [class]{binarySearchTree}-[func]{search}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_tree.zig"
     [class]{BinarySearchTree}-[func]{search}
     ```
 
@@ -119,9 +119,9 @@
 - 二叉搜索树不允许存在重复节点，否则将违反其定义。因此，若待插入节点在树中已存在，则不执行插入，直接返回。
 - 为了实现插入节点，我们需要借助节点 `pre` 保存上一轮循环的节点。这样在遍历至 $\text{None}$ 时，我们可以获取到其父节点，从而完成节点插入操作。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_tree.java"
+    ```python title="binary_search_tree.py"
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
@@ -131,9 +131,15 @@
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_tree.py"
+    ```java title="binary_search_tree.java"
+    [class]{BinarySearchTree}-[func]{insert}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_tree.cs"
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
@@ -141,6 +147,12 @@
 
     ```go title="binary_search_tree.go"
     [class]{binarySearchTree}-[func]{insert}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_tree.swift"
+    [class]{BinarySearchTree}-[func]{insert}
     ```
 
 === "JS"
@@ -152,30 +164,6 @@
 === "TS"
 
     ```typescript title="binary_search_tree.ts"
-    [class]{}-[func]{insert}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{insert}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_tree.cs"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_tree.swift"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_tree.zig"
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
@@ -188,6 +176,18 @@
 === "Rust"
 
     ```rust title="binary_search_tree.rs"
+    [class]{BinarySearchTree}-[func]{insert}
+    ```
+
+=== "C"
+
+    ```c title="binary_search_tree.c"
+    [class]{binarySearchTree}-[func]{insert}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_tree.zig"
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
@@ -230,9 +230,9 @@
 
 删除节点操作同样使用 $O(\log n)$ 时间，其中查找待删除节点需要 $O(\log n)$ 时间，获取中序遍历后继节点需要 $O(\log n)$ 时间。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_tree.java"
+    ```python title="binary_search_tree.py"
     [class]{BinarySearchTree}-[func]{remove}
     ```
 
@@ -242,9 +242,15 @@
     [class]{BinarySearchTree}-[func]{remove}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_tree.py"
+    ```java title="binary_search_tree.java"
+    [class]{BinarySearchTree}-[func]{remove}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_tree.cs"
     [class]{BinarySearchTree}-[func]{remove}
     ```
 
@@ -252,6 +258,12 @@
 
     ```go title="binary_search_tree.go"
     [class]{binarySearchTree}-[func]{remove}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_tree.swift"
+    [class]{BinarySearchTree}-[func]{remove}
     ```
 
 === "JS"
@@ -263,30 +275,6 @@
 === "TS"
 
     ```typescript title="binary_search_tree.ts"
-    [class]{}-[func]{remove}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{removeNode}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_tree.cs"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_tree.swift"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_tree.zig"
     [class]{BinarySearchTree}-[func]{remove}
     ```
 
@@ -299,6 +287,18 @@
 === "Rust"
 
     ```rust title="binary_search_tree.rs"
+    [class]{BinarySearchTree}-[func]{remove}
+    ```
+
+=== "C"
+
+    ```c title="binary_search_tree.c"
+    [class]{binarySearchTree}-[func]{removeNode}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_tree.zig"
     [class]{BinarySearchTree}-[func]{remove}
     ```
 

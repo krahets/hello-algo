@@ -6,8 +6,9 @@ package chapter_divide_and_conquer
 
 import (
 	"fmt"
-	. "github.com/krahets/hello-algo/pkg"
 	"testing"
+
+	. "github.com/krahets/hello-algo/pkg"
 )
 
 func TestBuildTree(t *testing.T) {

@@ -36,7 +36,7 @@ public class TreeNode {
 
     /* 将列表反序列化为二叉树：递归 */
     private static TreeNode? ListToTreeDFS(List<int?> arr, int i) {
-        if (i < 0|| i >= arr.Count || !arr[i].HasValue) {
+        if (i < 0 || i >= arr.Count || !arr[i].HasValue) {
             return null;
         }
         TreeNode root = new TreeNode(arr[i].Value);
