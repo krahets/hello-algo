@@ -442,7 +442,7 @@ $$
 === "C"
 
     ```c title="built_in_hash.c"
-
+    // C 未提供内置 hash code 函数
     ```
 
 === "Zig"
