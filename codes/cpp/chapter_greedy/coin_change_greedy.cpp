@@ -40,7 +40,7 @@ int main() {
     coins = {1, 20, 50};
     amt = 60;
     res = coinChangeGreedy(coins, amt);
-    cout << "\ncoins = [";
+    cout << "\ncoins = ";
     printVector(coins);
     cout << "amt = " << amt << endl;
     cout << "凑到 " << amt << " 所需的最少硬币数量为 " << res << endl;
@@ -50,7 +50,7 @@ int main() {
     coins = {1, 49, 50};
     amt = 98;
     res = coinChangeGreedy(coins, amt);
-    cout << "\ncoins = [";
+    cout << "\ncoins = ";
     printVector(coins);
     cout << "amt = " << amt << endl;
     cout << "凑到 " << amt << " 所需的最少硬币数量为 " << res << endl;
