@@ -22,13 +22,15 @@ void siftDown(maxHeap *h, int i);
 
 void siftUp(maxHeap *h, int i);
 
+int parent(maxHeap *h, int i);
+
 /* 构造函数，根据切片建堆 */
 maxHeap *newMaxHeap(int nums[], int size) {
     // 所有元素入堆
     maxHeap *h = (maxHeap *)malloc(sizeof(maxHeap));
     h->size = size;
     memcpy(h->data, nums, size * sizeof(int));
-    for (int i = parent(size - 1); i >= 0; i--) {
+    for (int i = parent(h, size - 1); i >= 0; i--) {
         // 堆化除叶节点以外的其他所有节点
         siftDown(h, i);
     }
