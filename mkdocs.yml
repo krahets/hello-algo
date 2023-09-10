@@ -8,7 +8,7 @@ docs_dir: build
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
 edit_uri: https://github.com/krahets/hello-algo/tree/main/docs/
-version: 1.0.0b4
+version: 1.0.0b5
 
 # Copyright
 copyright: Copyright &copy; 2023 Krahets
