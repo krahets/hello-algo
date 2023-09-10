@@ -3456,8 +3456,8 @@
 
 
 <h1 id="162">16.2 &nbsp; 一起参与创作<a class="headerlink" href="#162" title="Permanent link">&para;</a></h1>
-<p>由于作者能力有限，书中难免存在一些遗漏和错误，请您谅解。如果您发现了笔误、失效链接、内容缺失、文字歧义、解释不清晰或行文结构不合理等问题，请协助我们进行修正，以帮助其他读者获得更优质的学习资源。</p>
-<p>所有<a href="https://github.com/krahets/hello-algo/graphs/contributors">撰稿人</a>的 GitHub ID 将在仓库、网页版和 PDF 版的主页上进行展示，以感谢他们对开源社区的无私奉献。</p>
+<p>由于作者能力有限，书中难免存在一些遗漏和错误，请您谅解。如果您发现了笔误、失效链接、内容缺失、文字歧义、解释不清晰或行文结构不合理等问题，请协助我们进行修正，以给读者提供更优质的学习资源。</p>
+<p>所有<a href="https://github.com/krahets/hello-algo/graphs/contributors">撰稿人</a>的 GitHub ID 将被展示在本书的仓库主页上，以感谢他们对开源社区的无私奉献。</p>
 <div class="admonition success">
 <p class="admonition-title">开源的魅力</p>
 <p>纸质书籍的两次印刷的间隔时间往往需要数年，内容更新非常不方便。</p>
@@ -3484,10 +3484,8 @@
 <li>刷新仓库网页，点击“Create pull request”按钮即可发起拉取请求。</li>
 </ol>
 <h3 id="3-docker">3. &nbsp; Docker 部署<a class="headerlink" href="#3-docker" title="Permanent link">&para;</a></h3>
-<p>执行以下 Docker 脚本，稍等片刻，即可在网页 <code>http://localhost:8000</code> 访问本项目。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/krahets/hello-algo.git
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>hello-algo
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+<p>在 <code>hello-algo</code> 根目录下，执行以下 Docker 脚本，即可在 <code>http://localhost:8000</code> 访问本项目。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
 <p>使用以下命令即可删除部署。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker-compose<span class="w"> </span>down
