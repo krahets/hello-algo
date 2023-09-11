@@ -79,3 +79,10 @@ body {
 .md-typeset pre > code {
   max-height: 25rem;
 }
+
+/* Make the picture not glare in dark theme */
+[data-md-color-scheme="slate"] .md-typeset img,
+[data-md-color-scheme="slate"] .md-typeset svg,
+[data-md-color-scheme="slate"] .md-typeset video {
+  filter: brightness(0.8) invert(0.2);
+}
