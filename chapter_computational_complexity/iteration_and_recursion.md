@@ -1162,7 +1162,7 @@ status: new
     [class]{}-[func]{tailRecur}
     ```
 
-两种递归的过程对比如图 2-5 所示。
+尾递归的执行过程如图 2-5 所示。对比普通递归和尾递归，求和操作的执行点是不同的。
 
 - **普通递归**：求和操作是在“归”的过程中执行的，每层返回后都要再执行一次求和操作。
 - **尾递归**：求和操作是在“递”的过程中执行的，“归”的过程只需层层返回。
@@ -1171,7 +1171,9 @@ status: new
 
 <p align="center"> 图 2-5 &nbsp; 尾递归过程 </p>
 
-请注意，许多编译器或解释器并不支持尾递归优化。例如，Python 默认不支持尾递归优化，因此即使函数是尾递归形式，但仍然可能会遇到栈溢出问题。
+!!! tip
+
+    请注意，许多编译器或解释器并不支持尾递归优化。例如，Python 默认不支持尾递归优化，因此即使函数是尾递归形式，但仍然可能会遇到栈溢出问题。
 
 ### 3. &nbsp; 递归树
 
@@ -1368,3 +1370,161 @@ status: new
 
 - 从算法角度看，搜索、排序、回溯、分治、动态规划等许多重要算法策略都直接或间接地应用这种思维方式。
 - 从数据结构角度看，递归天然适合处理链表、树和图的相关问题，因为它们非常适合用分治思想进行分析。
+
+## 2.2.3 &nbsp; 两者对比
+
+总结以上内容，如表 2-1 所示，迭代和递归在实现、性能和适用性上有所不同。
+
+<p align="center"> 表 2-1 &nbsp; 迭代与递归特点对比 </p>
+
+<div class="center-table" markdown>
+
+|          | 迭代                                   | 递归                                                         |
+| -------- | -------------------------------------- | ------------------------------------------------------------ |
+| 实现方式 | 循环结构                               | 函数调用自身                                                 |
+| 时间效率 | 效率通常较高，无函数调用开销           | 每次函数调用都会产生开销                                     |
+| 内存使用 | 通常使用固定大小的内存空间             | 累积函数调用可能使用大量的栈帧空间                           |
+| 适用问题 | 适用于简单循环任务，代码直观、可读性好 | 适用于子问题分解，如树、图、分治、回溯等，代码结构简洁、清晰 |
+
+</div>
+
+!!! tip
+
+    如果感觉以下内容理解困难，可以在读完“栈”章节后再来复习。
+
+那么，迭代和递归具有什么内在联系呢？以上述的递归函数为例，求和操作在递归的“归”阶段进行。这意味着最初被调用的函数实际上是最后完成其求和操作的，**这种工作机制与栈的“先入后出”原则是异曲同工的**。
+
+事实上，“调用栈”和“栈帧空间”这类递归术语已经暗示了递归与栈之间的密切关系。
+
+1. **递**：当函数被调用时，系统会在“调用栈”上为该函数分配新的栈帧，用于存储函数的局部变量、参数、返回地址等数据。
+2. **归**：当函数完成执行并返回时，对应的栈帧会从“调用栈”上被移除，恢复之前函数的执行环境。
+
+因此，**我们可以使用一个显式的栈来模拟调用栈的行为**，从而将递归转化为迭代形式：
+
+=== "Python"
+
+    ```python title="recursion.py"
+    def for_loop_recur(n: int) -> int:
+        """使用迭代模拟递归"""
+        # 使用一个显式的栈来模拟系统调用栈
+        stack = []
+        res = 0
+        # 递：递归调用
+        for i in range(n, 0, -1):
+            # 通过“入栈操作”模拟“递”
+            stack.append(i)
+        # 归：返回结果
+        while stack:
+            # 通过“出栈操作”模拟“归”
+            res += stack.pop()
+        # res = 1+2+3+...+n
+        return res
+    ```
+
+=== "C++"
+
+    ```cpp title="recursion.cpp"
+    /* 使用迭代模拟递归 */
+    int forLoopRecur(int n) {
+        // 使用一个显式的栈来模拟系统调用栈
+        stack<int> stack;
+        int res = 0;
+        // 递：递归调用
+        for (int i = n; i > 0; i--) {
+            // 通过“入栈操作”模拟“递”
+            stack.push(i);
+        }
+        // 归：返回结果
+        while (!stack.empty()) {
+            // 通过“出栈操作”模拟“归”
+            res += stack.top();
+            stack.pop();
+        }
+        // res = 1+2+3+...+n
+        return res;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="recursion.java"
+    /* 使用迭代模拟递归 */
+    int forLoopRecur(int n) {
+        // 使用一个显式的栈来模拟系统调用栈
+        Stack<Integer> stack = new Stack<>();
+        int res = 0;
+        // 递：递归调用
+        for (int i = n; i > 0; i--) {
+            // 通过“入栈操作”模拟“递”
+            stack.push(i);
+        }
+        // 归：返回结果
+        while (!stack.isEmpty()) {
+            // 通过“出栈操作”模拟“归”
+            res += stack.pop();
+        }
+        // res = 1+2+3+...+n
+        return res;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="recursion.cs"
+    [class]{recursion}-[func]{forLoopRecur}
+    ```
+
+=== "Go"
+
+    ```go title="recursion.go"
+    [class]{}-[func]{forLoopRecur}
+    ```
+
+=== "Swift"
+
+    ```swift title="recursion.swift"
+    [class]{}-[func]{forLoopRecur}
+    ```
+
+=== "JS"
+
+    ```javascript title="recursion.js"
+    [class]{}-[func]{forLoopRecur}
+    ```
+
+=== "TS"
+
+    ```typescript title="recursion.ts"
+    [class]{}-[func]{forLoopRecur}
+    ```
+
+=== "Dart"
+
+    ```dart title="recursion.dart"
+    [class]{}-[func]{forLoopRecur}
+    ```
+
+=== "Rust"
+
+    ```rust title="recursion.rs"
+    [class]{}-[func]{for_loop_recur}
+    ```
+
+=== "C"
+
+    ```c title="recursion.c"
+    [class]{}-[func]{forLoopRecur}
+    ```
+
+=== "Zig"
+
+    ```zig title="recursion.zig"
+    [class]{}-[func]{forLoopRecur}
+    ```
+
+观察以上代码，当递归被转换为迭代后，代码变得更加复杂了。尽管迭代和递归在很多情况下可以互相转换，但也不一定值得这样做，有以下两点原因。
+
+- 转化后的代码可能更加难以理解，可读性更差。
+- 对于某些复杂问题，模拟系统调用栈的行为可能非常困难。
+
+总之，**选择迭代还是递归取决于特定问题的性质**。在编程实践中，权衡两者的优劣并根据情境选择合适的方法是至关重要的。
