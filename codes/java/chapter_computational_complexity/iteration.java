@@ -8,7 +8,7 @@ package chapter_computational_complexity;
 
 public class iteration {
     /* for 循环 */
-    public static int forLoop(int n) {
+    static int forLoop(int n) {
         int res = 0;
         // 循环求和 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
@@ -18,7 +18,7 @@ public class iteration {
     }
 
     /* while 循环 */
-    public static int whileLoop(int n) {
+    static int whileLoop(int n) {
         int res = 0;
         int i = 1; // 初始化条件变量
         // 循环求和 1, 2, ..., n-1, n
@@ -30,7 +30,7 @@ public class iteration {
     }
 
     /* while 循环（两次更新） */
-    public static int whileLoopII(int n) {
+    static int whileLoopII(int n) {
         int res = 0;
         int i = 1; // 初始化条件变量
         // 循环求和 1, 4, ...
@@ -44,7 +44,7 @@ public class iteration {
     }
 
     /* 双层 for 循环 */
-    public static String nestedForLoop(int n) {
+    static String nestedForLoop(int n) {
         StringBuilder res = new StringBuilder();
         // 循环 i = 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
