@@ -17,7 +17,7 @@ class ArrayStack {
     }
 
     /* 判断栈是否为空 */
-    empty(): boolean {
+    isEmpty(): boolean {
         return this.stack.length === 0;
     }
 
