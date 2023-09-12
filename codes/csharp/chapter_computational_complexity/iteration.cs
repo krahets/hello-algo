@@ -36,9 +36,9 @@ public class iteration {
         // 循环求和 1, 2, 4, 5...
         while (i <= n) {
             res += i;
-            i += 1; // 更新条件变量
-            res += i;
-            i *= 2; // 更新条件变量
+            // 更新条件变量
+            i += 1; 
+            i *= 2;
         }
         return res;
     }
