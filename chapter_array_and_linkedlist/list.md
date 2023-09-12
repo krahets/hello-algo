@@ -1947,6 +1947,10 @@ comments: true
     /* 中间插入元素 */
     void insert(myList *list, int index, int num) {
         assert(index >= 0 && index < size(list));
+        // 元素数量超出容量时，触发扩容机制
+        if (size(list) == capacity(list)) {
+            extendCapacity(list); // 扩容
+        }
         for (int i = size(list); i > index; --i) {
             list->nums[i] = list->nums[i - 1];
         }

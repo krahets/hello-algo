@@ -1386,7 +1386,7 @@ comments: true
         }
 
         /* 判断栈是否为空 */
-        empty() {
+        isEmpty() {
             return this.#stack.length === 0;
         }
 
@@ -1397,13 +1397,13 @@ comments: true
 
         /* 出栈 */
         pop() {
-            if (this.empty()) throw new Error('栈为空');
+            if (this.isEmpty()) throw new Error('栈为空');
             return this.#stack.pop();
         }
 
         /* 访问栈顶元素 */
         top() {
-            if (this.empty()) throw new Error('栈为空');
+            if (this.isEmpty()) throw new Error('栈为空');
             return this.#stack[this.#stack.length - 1];
         }
 
@@ -1430,7 +1430,7 @@ comments: true
         }
 
         /* 判断栈是否为空 */
-        empty(): boolean {
+        isEmpty(): boolean {
             return this.stack.length === 0;
         }
 
@@ -1441,13 +1441,13 @@ comments: true
 
         /* 出栈 */
         pop(): number | undefined {
-            if (this.empty()) throw new Error('栈为空');
+            if (this.isEmpty()) throw new Error('栈为空');
             return this.stack.pop();
         }
 
         /* 访问栈顶元素 */
         top(): number | undefined {
-            if (this.empty()) throw new Error('栈为空');
+            if (this.isEmpty()) throw new Error('栈为空');
             return this.stack[this.stack.length - 1];
         }
 

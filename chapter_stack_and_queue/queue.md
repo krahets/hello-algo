@@ -1660,7 +1660,7 @@ comments: true
         }
 
         /* 判断队列是否为空 */
-        empty() {
+        isEmpty() {
             return this.#queSize === 0;
         }
 
@@ -1689,7 +1689,7 @@ comments: true
 
         /* 访问队首元素 */
         peek() {
-            if (this.empty()) throw new Error('队列为空');
+            if (this.isEmpty()) throw new Error('队列为空');
             return this.#nums[this.#front];
         }
 
@@ -1730,7 +1730,7 @@ comments: true
         }
 
         /* 判断队列是否为空 */
-        empty(): boolean {
+        isEmpty(): boolean {
             return this.queSize === 0;
         }
 
@@ -1759,7 +1759,7 @@ comments: true
 
         /* 访问队首元素 */
         peek(): number {
-            if (this.empty()) throw new Error('队列为空');
+            if (this.isEmpty()) throw new Error('队列为空');
             return this.nums[this.front];
         }
 
