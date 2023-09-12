@@ -291,7 +291,7 @@
     let size = stack.len();
 
     /* 判断是否为空 */
-    bool isEmpty = stack.is_empty();
+    let isEmpty = stack.is_empty();
 
     ```
 
