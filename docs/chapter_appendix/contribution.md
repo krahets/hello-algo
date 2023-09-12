@@ -1,8 +1,8 @@
 # 一起参与创作
 
-由于作者能力有限，书中难免存在一些遗漏和错误，请您谅解。如果您发现了笔误、失效链接、内容缺失、文字歧义、解释不清晰或行文结构不合理等问题，请协助我们进行修正，以帮助其他读者获得更优质的学习资源。
+由于作者能力有限，书中难免存在一些遗漏和错误，请您谅解。如果您发现了笔误、失效链接、内容缺失、文字歧义、解释不清晰或行文结构不合理等问题，请协助我们进行修正，以给读者提供更优质的学习资源。
 
-所有[撰稿人](https://github.com/krahets/hello-algo/graphs/contributors)的 GitHub ID 将在仓库、网页版和 PDF 版的主页上进行展示，以感谢他们对开源社区的无私奉献。
+所有[撰稿人](https://github.com/krahets/hello-algo/graphs/contributors)的 GitHub ID 将被展示在本书的仓库主页上，以感谢他们对开源社区的无私奉献。
 
 !!! success "开源的魅力"
 
@@ -34,11 +34,9 @@
 
 ### Docker 部署
 
-执行以下 Docker 脚本，稍等片刻，即可在网页 `http://localhost:8000` 访问本项目。
+在 `hello-algo` 根目录下，执行以下 Docker 脚本，即可在 `http://localhost:8000` 访问本项目。
 
 ```shell
-git clone https://github.com/krahets/hello-algo.git
-cd hello-algo
 docker-compose up -d
 ```
 

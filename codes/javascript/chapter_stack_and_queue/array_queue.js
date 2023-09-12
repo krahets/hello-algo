@@ -25,7 +25,7 @@ class ArrayQueue {
     }
 
     /* 判断队列是否为空 */
-    empty() {
+    isEmpty() {
         return this.#queSize === 0;
     }
 
@@ -54,7 +54,7 @@ class ArrayQueue {
 
     /* 访问队首元素 */
     peek() {
-        if (this.empty()) throw new Error('队列为空');
+        if (this.isEmpty()) throw new Error('队列为空');
         return this.#nums[this.#front];
     }
 
@@ -95,8 +95,8 @@ const size = queue.size;
 console.log('队列长度 size = ' + size);
 
 /* 判断队列是否为空 */
-const empty = queue.empty();
-console.log('队列是否为空 = ' + empty);
+const isEmpty = queue.isEmpty();
+console.log('队列是否为空 = ' + isEmpty);
 
 /* 测试环形数组 */
 for (let i = 0; i < 10; i++) {
