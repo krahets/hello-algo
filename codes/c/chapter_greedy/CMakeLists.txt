@@ -1,1 +1,2 @@
 add_executable(coin_change_greedy coin_change_greedy.c)
+add_executable(fractional_knapsack fractional_knapsack.c)
