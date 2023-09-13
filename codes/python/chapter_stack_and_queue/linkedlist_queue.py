@@ -51,9 +51,8 @@ class LinkedListQueue:
 
     def peek(self) -> int:
         """访问队首元素"""
-        if self.size() == 0:
-            print("队列为空")
-            return False
+        if self.is_empty():
+            raise IndexError("队列为空")
         return self.__front.val
 
     def to_list(self) -> list[int]:
