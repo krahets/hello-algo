@@ -18,8 +18,8 @@ class ArrayStack {
     }
 
     /* 判断栈是否为空 */
-    bool empty() {
-        return stack.empty();
+    bool isEmpty() {
+        return stack.size() == 0;
     }
 
     /* 入栈 */
@@ -35,7 +35,7 @@ class ArrayStack {
 
     /* 访问栈顶元素 */
     int top() {
-        if (empty())
+        if (isEmpty())
             throw out_of_range("栈为空");
         return stack.back();
     }
@@ -74,7 +74,7 @@ int main() {
     cout << "栈的长度 size = " << size << endl;
 
     /* 判断是否为空 */
-    bool empty = stack->empty();
+    bool empty = stack->isEmpty();
     cout << "栈是否为空 = " << empty << endl;
 
     // 释放内存

@@ -77,34 +77,29 @@ public class LinkedListDeque {
 
     /* 出队操作 */
     private int? pop(bool isFront) {
-        // 若队列为空，直接返回 null
-        if (isEmpty()) {
-            return null;
-        }
-
+        if (isEmpty())
+            throw new Exception();
         int val;
         // 队首出队操作
         if (isFront) {
             val = front.val; // 暂存头节点值
-                             // 删除头节点
+            // 删除头节点
             ListNode fNext = front.next;
             if (fNext != null) {
                 fNext.prev = null;
                 front.next = null;
             }
-
             front = fNext;   // 更新头节点
         }
         // 队尾出队操作
         else {
             val = rear.val;  // 暂存尾节点值
-                             // 删除尾节点
+            // 删除尾节点
             ListNode rPrev = rear.prev;
             if (rPrev != null) {
                 rPrev.next = null;
                 rear.prev = null;
             }
-
             rear = rPrev;    // 更新尾节点
         }
 
@@ -124,12 +119,16 @@ public class LinkedListDeque {
 
     /* 访问队首元素 */
     public int? peekFirst() {
-        return isEmpty() ? null : front.val;
+        if (isEmpty())
+            throw new Exception();
+        return front.val;
     }
 
     /* 访问队尾元素 */
     public int? peekLast() {
-        return isEmpty() ? null : rear.val;
+        if (isEmpty())
+            throw new Exception();
+        return rear.val;
     }
 
     /* 返回数组用于打印 */

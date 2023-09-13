@@ -53,7 +53,7 @@ class LinkedListQueue {
 
     /* 访问队首元素 */
     public int peek() {
-        if (size() == 0 || front == null)
+        if (isEmpty())
             throw new Exception();
         return front.val;
     }

@@ -29,7 +29,7 @@ class LinkedListStack {
     }
 
     /* 判断栈是否为空 */
-    bool empty() {
+    bool isEmpty() {
         return size() == 0;
     }
 
@@ -53,7 +53,7 @@ class LinkedListStack {
 
     /* 访问栈顶元素 */
     int top() {
-        if (size() == 0)
+        if (isEmpty())
             throw out_of_range("栈为空");
         return stackTop->val;
     }
@@ -98,7 +98,7 @@ int main() {
     cout << "栈的长度 size = " << size << endl;
 
     /* 判断是否为空 */
-    bool empty = stack->empty();
+    bool empty = stack->isEmpty();
     cout << "栈是否为空 = " << empty << endl;
 
     // 释放内存
