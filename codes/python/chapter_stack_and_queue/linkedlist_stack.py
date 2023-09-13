@@ -44,7 +44,7 @@ class LinkedListStack:
         """访问栈顶元素"""
         # 判空处理
         if not self.__peek:
-            return None
+            raise IndexError("栈为空")
         return self.__peek.val
 
     def to_list(self) -> list[int]:
