@@ -3463,6 +3463,15 @@
 <p class="admonition-title">双向队列像是两个栈拼接在了一起，它的用途是什么？</p>
 <p>双向队列就像是栈和队列的组合，或者是两个栈拼在了一起。它表现的是栈 + 队列的逻辑，因此可以实现栈与队列的所有应用，并且更加灵活。</p>
 </div>
+<div class="admonition question">
+<p class="admonition-title">撤销（undo）和反撤销（redo）具体是如何实现的？</p>
+<p>使用两个堆栈，栈 <code>A</code> 用于撤销，栈 <code>B</code> 用于反撤销。</p>
+<ol>
+<li>每当用户执行一个操作，将这个操作压入栈 <code>A</code> ，并清空栈 <code>B</code> 。</li>
+<li>当用户执行“撤销”时，从栈 <code>A</code> 中弹出最近的操作，并将其压入栈 <code>B</code> 。</li>
+<li>当用户执行“反撤销”时，从栈 <code>B</code> 中弹出最近的操作，并将其压入栈 <code>A</code> 。</li>
+</ol>
+</div>
 
 
 

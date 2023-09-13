@@ -1619,14 +1619,14 @@
       
         <li class="md-nav__item">
   <a href="#821" class="md-nav__link">
-    8.2.1 &nbsp; 自上而下构建
+    8.2.1 &nbsp; 借助入堆操作实现
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#822" class="md-nav__link">
-    8.2.2 &nbsp; 自下而上构建
+    8.2.2 &nbsp; 通过遍历堆化实现
   </a>
   
 </li>
@@ -3413,14 +3413,14 @@
       
         <li class="md-nav__item">
   <a href="#821" class="md-nav__link">
-    8.2.1 &nbsp; 自上而下构建
+    8.2.1 &nbsp; 借助入堆操作实现
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#822" class="md-nav__link">
-    8.2.2 &nbsp; 自下而上构建
+    8.2.2 &nbsp; 通过遍历堆化实现
   </a>
   
 </li>
@@ -3457,21 +3457,19 @@
 
 <h1 id="82">8.2 &nbsp; 建堆操作<a class="headerlink" href="#82" title="Permanent link">&para;</a></h1>
 <p>在某些情况下，我们希望使用一个列表的所有元素来构建一个堆，这个过程被称为“建堆操作”。</p>
-<h2 id="821">8.2.1 &nbsp; 自上而下构建<a class="headerlink" href="#821" title="Permanent link">&para;</a></h2>
+<h2 id="821">8.2.1 &nbsp; 借助入堆操作实现<a class="headerlink" href="#821" title="Permanent link">&para;</a></h2>
 <p>我们首先创建一个空堆，然后遍历列表，依次对每个元素执行“入堆操作”，即先将元素添加至堆的尾部，再对该元素执行“从底至顶”堆化。</p>
-<p>每当一个元素入堆，堆的长度就加一，因此堆是“自上而下”地构建的。</p>
+<p>每当一个元素入堆，堆的长度就加一。由于节点是从顶到底依次被添加进二叉树的，因此堆是“自上而下”地构建的。</p>
 <p>设元素数量为 <span class="arithmatex">\(n\)</span> ，每个元素的入堆操作使用 <span class="arithmatex">\(O(\log{n})\)</span> 时间，因此该建堆方法的时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。</p>
-<h2 id="822">8.2.2 &nbsp; 自下而上构建<a class="headerlink" href="#822" title="Permanent link">&para;</a></h2>
+<h2 id="822">8.2.2 &nbsp; 通过遍历堆化实现<a class="headerlink" href="#822" title="Permanent link">&para;</a></h2>
 <p>实际上，我们可以实现一种更为高效的建堆方法，共分为两步。</p>
 <ol>
-<li>将列表所有元素原封不动添加到堆中。</li>
+<li>将列表所有元素原封不动添加到堆中，此时堆的性质尚未得到满足。</li>
 <li>倒序遍历堆（即层序遍历的倒序），依次对每个非叶节点执行“从顶至底堆化”。</li>
 </ol>
-<p>在倒序遍历中，堆是“自下而上”地构建的，需要重点理解以下两点。</p>
-<ul>
-<li>由于叶节点没有子节点，因此无需对它们执行堆化。最后一个节点的父节点是最后一个非叶节点。</li>
-<li>在倒序遍历中，我们能够保证当前节点之下的子树已经完成堆化（已经是合法的堆），而这是堆化当前节点的前置条件。</li>
-</ul>
+<p><strong>每当堆化一个节点后，以该节点为根节点的子树就形成一个合法的子堆</strong>。而由于是倒序遍历，因此堆是“自下而上”地被构建的。</p>
+<p>之所以选择倒序遍历，是因为这样能够保证当前节点之下的子树已经是合法的子堆，这样堆化当前节点才是有效的。</p>
+<p>值得说明的是，<strong>叶节点没有子节点，天然就是合法的子堆，因此无需堆化</strong>。如以下代码所示，最后一个非叶节点是最后一个节点的父节点，我们从它开始倒序遍历并执行堆化。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:12"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><input id="__tabbed_1_10" name="__tabbed_1" type="radio" /><input id="__tabbed_1_11" name="__tabbed_1" type="radio" /><input id="__tabbed_1_12" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
