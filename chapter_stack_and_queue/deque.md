@@ -416,9 +416,8 @@ comments: true
 
         def pop(self, is_front: bool) -> int:
             """出队操作"""
-            # 若队列为空，直接返回 None
             if self.is_empty():
-                return None
+                raise IndexError("双向队列为空")
             # 队首出队操作
             if is_front:
                 val: int = self.front.val  # 暂存头节点值
@@ -450,11 +449,15 @@ comments: true
 
         def peek_first(self) -> int:
             """访问队首元素"""
-            return None if self.is_empty() else self.front.val
+            if self.is_empty():
+                raise IndexError("双向队列为空")
+            return self.front.val
 
         def peek_last(self) -> int:
             """访问队尾元素"""
-            return None if self.is_empty() else self.rear.val
+            if self.is_empty():
+                raise IndexError("双向队列为空")
+            return self.rear.val
 
         def to_array(self) -> list[int]:
             """返回数组用于打印"""
@@ -544,9 +547,8 @@ comments: true
 
         /* 出队操作 */
         int pop(bool isFront) {
-            // 若队列为空，直接返回 -1
             if (isEmpty())
-                return -1;
+                throw out_of_range("队列为空");
             int val;
             // 队首出队操作
             if (isFront) {
@@ -587,12 +589,16 @@ comments: true
 
         /* 访问队首元素 */
         int peekFirst() {
-            return isEmpty() ? -1 : front->val;
+            if (isEmpty())
+                throw out_of_range("双向队列为空");
+            return front->val;
         }
 
         /* 访问队尾元素 */
         int peekLast() {
-            return isEmpty() ? -1 : rear->val;
+            if (isEmpty())
+                throw out_of_range("双向队列为空");
+            return rear->val;
         }
 
         /* 返回数组用于打印 */
@@ -675,10 +681,9 @@ comments: true
         }
 
         /* 出队操作 */
-        private Integer pop(boolean isFront) {
-            // 若队列为空，直接返回 null
+        private int pop(boolean isFront) {
             if (isEmpty())
-                return null;
+                throw new IndexOutOfBoundsException();
             int val;
             // 队首出队操作
             if (isFront) {
@@ -706,23 +711,27 @@ comments: true
         }
 
         /* 队首出队 */
-        public Integer popFirst() {
+        public int popFirst() {
             return pop(true);
         }
 
         /* 队尾出队 */
-        public Integer popLast() {
+        public int popLast() {
             return pop(false);
         }
 
         /* 访问队首元素 */
-        public Integer peekFirst() {
-            return isEmpty() ? null : front.val;
+        public int peekFirst() {
+            if (isEmpty())
+                throw new IndexOutOfBoundsException();
+            return front.val;
         }
 
         /* 访问队尾元素 */
-        public Integer peekLast() {
-            return isEmpty() ? null : rear.val;
+        public int peekLast() {
+            if (isEmpty())
+                throw new IndexOutOfBoundsException();
+            return rear.val;
         }
 
         /* 返回数组用于打印 */
@@ -812,34 +821,29 @@ comments: true
 
         /* 出队操作 */
         private int? pop(bool isFront) {
-            // 若队列为空，直接返回 null
-            if (isEmpty()) {
-                return null;
-            }
-
+            if (isEmpty())
+                throw new Exception();
             int val;
             // 队首出队操作
             if (isFront) {
                 val = front.val; // 暂存头节点值
-                                 // 删除头节点
+                // 删除头节点
                 ListNode fNext = front.next;
                 if (fNext != null) {
                     fNext.prev = null;
                     front.next = null;
                 }
-
                 front = fNext;   // 更新头节点
             }
             // 队尾出队操作
             else {
                 val = rear.val;  // 暂存尾节点值
-                                 // 删除尾节点
+                // 删除尾节点
                 ListNode rPrev = rear.prev;
                 if (rPrev != null) {
                     rPrev.next = null;
                     rear.prev = null;
                 }
-
                 rear = rPrev;    // 更新尾节点
             }
 
@@ -859,12 +863,16 @@ comments: true
 
         /* 访问队首元素 */
         public int? peekFirst() {
-            return isEmpty() ? null : front.val;
+            if (isEmpty())
+                throw new Exception();
+            return front.val;
         }
 
         /* 访问队尾元素 */
         public int? peekLast() {
-            return isEmpty() ? null : rear.val;
+            if (isEmpty())
+                throw new Exception();
+            return rear.val;
         }
 
         /* 返回数组用于打印 */

@@ -344,16 +344,15 @@ comments: true
 
         def pop(self) -> int:
             """出栈"""
-            num: int = self.peek()
+            num = self.peek()
             self.__peek = self.__peek.next
             self.__size -= 1
             return num
 
         def peek(self) -> int:
             """访问栈顶元素"""
-            # 判空处理
-            if not self.__peek:
-                return None
+            if self.is_empty():
+                raise IndexError("栈为空")
             return self.__peek.val
 
         def to_list(self) -> list[int]:
@@ -393,7 +392,7 @@ comments: true
         }
 
         /* 判断栈是否为空 */
-        bool empty() {
+        bool isEmpty() {
             return size() == 0;
         }
 
@@ -417,7 +416,7 @@ comments: true
 
         /* 访问栈顶元素 */
         int top() {
-            if (size() == 0)
+            if (isEmpty())
                 throw out_of_range("栈为空");
             return stackTop->val;
         }
@@ -475,7 +474,7 @@ comments: true
 
         /* 访问栈顶元素 */
         public int peek() {
-            if (size() == 0)
+            if (isEmpty())
                 throw new IndexOutOfBoundsException();
             return stackPeek.val;
         }
@@ -525,9 +524,6 @@ comments: true
 
         /* 出栈 */
         public int pop() {
-            if (stackPeek == null)
-                throw new Exception();
-
             int num = peek();
             stackPeek = stackPeek.next;
             stkSize--;
@@ -536,7 +532,7 @@ comments: true
 
         /* 访问栈顶元素 */
         public int peek() {
-            if (size() == 0 || stackPeek == null)
+            if (isEmpty())
                 throw new Exception();
             return stackPeek.val;
         }
@@ -1139,8 +1135,8 @@ comments: true
         }
 
         /* 判断栈是否为空 */
-        bool empty() {
-            return stack.empty();
+        bool isEmpty() {
+            return stack.size() == 0;
         }
 
         /* 入栈 */
@@ -1156,7 +1152,7 @@ comments: true
 
         /* 访问栈顶元素 */
         int top() {
-            if (empty())
+            if (isEmpty())
                 throw out_of_range("栈为空");
             return stack.back();
         }

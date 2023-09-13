@@ -358,9 +358,8 @@ comments: true
 
         def peek(self) -> int:
             """访问队首元素"""
-            if self.size() == 0:
-                print("队列为空")
-                return False
+            if self.is_empty():
+                raise IndexError("队列为空")
             return self.__front.val
 
         def to_list(self) -> list[int]:
@@ -400,7 +399,7 @@ comments: true
         }
 
         /* 判断队列是否为空 */
-        bool empty() {
+        bool isEmpty() {
             return queSize == 0;
         }
 
@@ -502,7 +501,7 @@ comments: true
 
         /* 访问队首元素 */
         public int peek() {
-            if (size() == 0)
+            if (isEmpty())
                 throw new IndexOutOfBoundsException();
             return front.val;
         }
@@ -570,7 +569,7 @@ comments: true
 
         /* 访问队首元素 */
         public int peek() {
-            if (size() == 0 || front == null)
+            if (isEmpty())
                 throw new Exception();
             return front.val;
         }
@@ -1303,7 +1302,7 @@ comments: true
         }
 
         /* 判断队列是否为空 */
-        bool empty() {
+        bool isEmpty() {
             return size() == 0;
         }
 
@@ -1331,7 +1330,7 @@ comments: true
 
         /* 访问队首元素 */
         int peek() {
-            if (empty())
+            if (isEmpty())
                 throw out_of_range("队列为空");
             return nums[front];
         }

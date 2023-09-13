@@ -1135,7 +1135,7 @@ comments: true
     /* 元素出堆 */
     void pop() {
         // 判空处理
-        if (empty()) {
+        if (isEmpty()) {
             throw out_of_range("堆为空");
         }
         // 交换根节点与最右叶节点（即交换首元素与尾元素）
