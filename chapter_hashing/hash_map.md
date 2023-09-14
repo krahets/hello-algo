@@ -249,7 +249,26 @@ comments: true
 === "Rust"
 
     ```rust title="hash_map.rs"
+    use std::collections::HashMap;
+    
+    /* 初始化哈希表 */
+    let mut map: HashMap<i32, String> = HashMap::new();
 
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map.insert(12836, "小哈".to_string());
+    map.insert(15937, "小啰".to_string());
+    map.insert(16750, "小算".to_string());
+    map.insert(13279, "小法".to_string());
+    map.insert(10583, "小鸭".to_string());
+
+    /* 查询操作 */
+    // 向哈希表中输入键 key ，得到值 value
+    let _name: Option<&String> = map.get(&15937);
+
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    let _removed_value: Option<String> = map.remove(&10583);
     ```
 
 === "C"
@@ -430,7 +449,21 @@ comments: true
 === "Rust"
 
     ```rust title="hash_map.rs"
+    /* 遍历哈希表 */
+    // 遍历键值对 Key->Value
+    for (key, value) in &map {
+        println!("{key} -> {value}");
+    }
 
+    // 单独遍历键 Key
+    for key in map.keys() {
+        println!("{key}"); 
+    }
+
+    // 单独遍历值 Value
+    for value in map.values() {
+        println!("{value}");
+    }
     ```
 
 === "C"
