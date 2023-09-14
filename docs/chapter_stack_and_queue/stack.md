@@ -267,7 +267,7 @@
 
     ```rust title="stack.rs"
     /* 初始化栈 */
-    // 使用Vec模拟栈来使用
+    // 把 Vec 当作栈来使用
     let mut stack: Vec<i32> = Vec::new();
 
     /* 元素入栈 */
@@ -292,7 +292,6 @@
 
     /* 判断是否为空 */
     let isEmpty = stack.is_empty();
-
     ```
 
 === "C"
