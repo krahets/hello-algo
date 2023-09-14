@@ -35,16 +35,15 @@ class LinkedListStack:
 
     def pop(self) -> int:
         """出栈"""
-        num: int = self.peek()
+        num = self.peek()
         self.__peek = self.__peek.next
         self.__size -= 1
         return num
 
     def peek(self) -> int:
         """访问栈顶元素"""
-        # 判空处理
-        if not self.__peek:
-            return None
+        if self.is_empty():
+            raise IndexError("栈为空")
         return self.__peek.val
 
     def to_list(self) -> list[int]:

@@ -62,9 +62,8 @@ class LinkedListDeque:
 
     def pop(self, is_front: bool) -> int:
         """出队操作"""
-        # 若队列为空，直接返回 None
         if self.is_empty():
-            return None
+            raise IndexError("双向队列为空")
         # 队首出队操作
         if is_front:
             val: int = self.front.val  # 暂存头节点值
@@ -96,11 +95,15 @@ class LinkedListDeque:
 
     def peek_first(self) -> int:
         """访问队首元素"""
-        return None if self.is_empty() else self.front.val
+        if self.is_empty():
+            raise IndexError("双向队列为空")
+        return self.front.val
 
     def peek_last(self) -> int:
         """访问队尾元素"""
-        return None if self.is_empty() else self.rear.val
+        if self.is_empty():
+            raise IndexError("双向队列为空")
+        return self.rear.val
 
     def to_array(self) -> list[int]:
         """返回数组用于打印"""

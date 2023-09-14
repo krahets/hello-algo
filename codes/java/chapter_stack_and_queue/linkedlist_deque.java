@@ -72,10 +72,9 @@ class LinkedListDeque {
     }
 
     /* 出队操作 */
-    private Integer pop(boolean isFront) {
-        // 若队列为空，直接返回 null
+    private int pop(boolean isFront) {
         if (isEmpty())
-            return null;
+            throw new IndexOutOfBoundsException();
         int val;
         // 队首出队操作
         if (isFront) {
@@ -103,23 +102,27 @@ class LinkedListDeque {
     }
 
     /* 队首出队 */
-    public Integer popFirst() {
+    public int popFirst() {
         return pop(true);
     }
 
     /* 队尾出队 */
-    public Integer popLast() {
+    public int popLast() {
         return pop(false);
     }
 
     /* 访问队首元素 */
-    public Integer peekFirst() {
-        return isEmpty() ? null : front.val;
+    public int peekFirst() {
+        if (isEmpty())
+            throw new IndexOutOfBoundsException();
+        return front.val;
     }
 
     /* 访问队尾元素 */
-    public Integer peekLast() {
-        return isEmpty() ? null : rear.val;
+    public int peekLast() {
+        if (isEmpty())
+            throw new IndexOutOfBoundsException();
+        return rear.val;
     }
 
     /* 返回数组用于打印 */

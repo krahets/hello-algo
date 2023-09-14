@@ -46,7 +46,7 @@ class LinkedListStack {
 
     /* 访问栈顶元素 */
     public int peek() {
-        if (size() == 0)
+        if (isEmpty())
             throw new IndexOutOfBoundsException();
         return stackPeek.val;
     }
