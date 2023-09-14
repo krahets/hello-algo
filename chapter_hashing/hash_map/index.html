@@ -3699,7 +3699,26 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hash_map.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>
+<div class="highlight"><span class="filename">hash_map.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">collections</span>::<span class="n">HashMap</span><span class="p">;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="cm">/* 初始化哈希表 */</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">map</span>: <span class="nc">HashMap</span><span class="o">&lt;</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span>::<span class="n">new</span><span class="p">();</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="cm">/* 添加操作 */</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1">// 在哈希表中添加键值对 (key, value)</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">map</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;小哈&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">());</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="n">map</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">15937</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;小啰&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">());</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">map</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">16750</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;小算&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">());</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="n">map</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">13279</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;小法&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">());</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="n">map</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10583</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;小鸭&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">());</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="cm">/* 查询操作 */</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="c1">// 向哈希表中输入键 key ，得到值 value</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="kd">let</span><span class="w"> </span><span class="n">_name</span>: <span class="nb">Option</span><span class="o">&lt;&amp;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="o">&amp;</span><span class="mi">15937</span><span class="p">);</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="cm">/* 删除操作 */</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="c1">// 在哈希表中删除键值对 (key, value)</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="kd">let</span><span class="w"> </span><span class="n">_removed_value</span>: <span class="nb">Option</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="o">&amp;</span><span class="mi">10583</span><span class="p">);</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3859,7 +3878,21 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">hash_map.rs</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>
+<div class="highlight"><span class="filename">hash_map.rs</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cm">/* 遍历哈希表 */</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="c1">// 遍历键值对 Key-&gt;Value</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&amp;</span><span class="n">map</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{key} -&gt; {value}&quot;</span><span class="p">);</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="p">}</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="c1">// 单独遍历键 Key</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="k">for</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="n">keys</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{key}&quot;</span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="p">}</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="c1">// 单独遍历值 Value</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="k">for</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="n">values</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{value}&quot;</span><span class="p">);</span>
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
