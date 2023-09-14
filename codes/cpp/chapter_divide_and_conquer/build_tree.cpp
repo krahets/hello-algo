@@ -7,18 +7,18 @@
 #include "../utils/common.hpp"
 
 /* 构建二叉树：分治 */
-TreeNode *dfs(vector<int> &preorder, vector<int> &inorder, unordered_map<int, int> &hmap, int i, int l, int r) {
+TreeNode *dfs(vector<int> &preorder, unordered_map<int, int> &inorderMap, int i, int l, int r) {
     // 子树区间为空时终止
     if (r - l < 0)
         return NULL;
     // 初始化根节点
     TreeNode *root = new TreeNode(preorder[i]);
     // 查询 m ，从而划分左右子树
-    int m = hmap[preorder[i]];
+    int m = inorderMap[preorder[i]];
     // 子问题：构建左子树
-    root->left = dfs(preorder, inorder, hmap, i + 1, l, m - 1);
+    root->left = dfs(preorder, inorderMap, i + 1, l, m - 1);
     // 子问题：构建右子树
-    root->right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r);
+    root->right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
     // 返回根节点
     return root;
 }
@@ -26,11 +26,11 @@ TreeNode *dfs(vector<int> &preorder, vector<int> &inorder, unordered_map<int, in
 /* 构建二叉树 */
 TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
     // 初始化哈希表，存储 inorder 元素到索引的映射
-    unordered_map<int, int> hmap;
+    unordered_map<int, int> inorderMap;
     for (int i = 0; i < inorder.size(); i++) {
-        hmap[inorder[i]] = i;
+        inorderMap[inorder[i]] = i;
     }
-    TreeNode *root = dfs(preorder, inorder, hmap, 0, 0, inorder.size() - 1);
+    TreeNode *root = dfs(preorder, inorderMap, 0, 0, inorder.size() - 1);
     return root;
 }
 
