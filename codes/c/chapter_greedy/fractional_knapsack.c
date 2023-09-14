@@ -52,5 +52,7 @@ int main(void) {
 
 	// 贪心算法
 	float res = fractionalKnapsack(items, sizeof(items)/sizeof(Item), capacity);
-	printf("不超过背包容量的最大物品价值为%0.2f\n", res);
+	printf("不超过背包容量的最大物品价值为 %0.2f\n", res);
+
+	return 0;
 }
