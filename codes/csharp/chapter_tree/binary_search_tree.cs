@@ -91,7 +91,7 @@ class BinarySearchTree {
                 cur = cur.left;
         }
         // 若无待删除节点，则直接返回
-        if (cur == null || pre == null)
+        if (cur == null)
             return;
         // 子节点数量 = 0 or 1
         if (cur.left == null || cur.right == null) {

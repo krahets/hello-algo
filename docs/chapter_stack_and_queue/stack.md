@@ -266,7 +266,32 @@
 === "Rust"
 
     ```rust title="stack.rs"
+    /* 初始化栈 */
+    // 把 Vec 当作栈来使用
+    let mut stack: Vec<i32> = Vec::new();
 
+    /* 元素入栈 */
+    stack.push(1);
+    stack.push(3);
+    stack.push(2);
+    stack.push(5);
+    stack.push(4);
+
+    /* 访问栈顶元素 */
+    if let Some(top) = stack.get(stack.len() - 1) {
+    } 
+    if let Some(top) = stack.last() {
+    }
+
+    /* 元素出栈 */
+    if let Some(pop) = stack.pop() {
+    }
+
+    /* 获取栈的长度 */
+    let size = stack.len();
+
+    /* 判断是否为空 */
+    let isEmpty = stack.is_empty();
     ```
 
 === "C"

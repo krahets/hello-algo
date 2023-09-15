@@ -35,9 +35,6 @@ class LinkedListStack {
 
     /* 出栈 */
     public int pop() {
-        if (stackPeek == null)
-            throw new Exception();
-
         int num = peek();
         stackPeek = stackPeek.next;
         stkSize--;
@@ -46,7 +43,7 @@ class LinkedListStack {
 
     /* 访问栈顶元素 */
     public int peek() {
-        if (size() == 0 || stackPeek == null)
+        if (isEmpty())
             throw new Exception();
         return stackPeek.val;
     }

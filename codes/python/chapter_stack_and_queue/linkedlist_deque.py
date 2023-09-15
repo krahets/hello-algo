@@ -62,9 +62,8 @@ class LinkedListDeque:
 
     def pop(self, is_front: bool) -> int:
         """出队操作"""
-        # 若队列为空，直接返回 None
         if self.is_empty():
-            return None
+            raise IndexError("双向队列为空")
         # 队首出队操作
         if is_front:
             val: int = self.front.val  # 暂存头节点值
