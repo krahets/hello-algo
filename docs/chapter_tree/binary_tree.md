@@ -126,7 +126,12 @@
 === "Rust"
 
     ```rust title=""
-
+    /* 二叉树节点结构体 */
+    struct Node<T> {
+        value: T,
+        left: Option<Box<Node<T>>>,
+        right: Option<Box<Node<T>>>,
+    }
     ```
 
 === "C"
