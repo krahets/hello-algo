@@ -132,9 +132,9 @@ void main() {
 
   /* 元素出队 */
   final int popLast = deque.popLast();
-  print("队尾出队元素 = $popLast，队尾出队后 deque = ${deque.toArray()}");
+  print("队尾出队元素 = $popLast ，队尾出队后 deque = ${deque.toArray()}");
   final int popFirst = deque.popFirst();
-  print("队首出队元素 = $popFirst，队首出队后 deque = ${deque.toArray()}");
+  print("队首出队元素 = $popFirst ，队首出队后 deque = ${deque.toArray()}");
 
   /* 获取双向队列的长度 */
   final int size = deque.size();

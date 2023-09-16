@@ -110,7 +110,7 @@ int main() {
 
     /* 元素出队 */
     pop(queue);
-    printf("出队元素 pop = %d，出队后 queue = ", peekNum);
+    printf("出队元素 pop = %d ，出队后 queue = ", peekNum);
     printLinkedListQueue(queue);
 
     /* 获取队列的长度 */
