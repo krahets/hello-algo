@@ -1,6 +1,8 @@
-// File: max_capacity.c
-// Created Time: 2023-09-15
-// Author: xianii (xianyi.xia@outlook.com)
+/**
+ * File: max_capacity.c
+ * Created Time: 2023-09-15
+ * Author: xianii (xianyi.xia@outlook.com)
+ */
 
 #include "../utils/common.h"
 

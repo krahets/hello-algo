@@ -1,6 +1,8 @@
-// File: fractional_knapsack.c
-// Created Time: 2023-09-14
-// Author: xianii (xianyi.xia@outlook.com)
+/**
+ * File: fractional_knapsack.c
+ * Created Time: 2023-09-14
+ * Author: xianii (xianyi.xia@outlook.com)
+ */
 
 #include "../utils/common.h"
 
