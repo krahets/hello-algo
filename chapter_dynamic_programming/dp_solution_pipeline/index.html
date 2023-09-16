@@ -3576,7 +3576,7 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 <p>一旦我们找到了最优子结构，就可以使用它来构建出状态转移方程。</p>
 </div>
 <p><strong>第三步：确定边界条件和状态转移顺序</strong></p>
-<p>在本题中，处在首行的状态只能向右转移，首列状态只能向下转移，因此首行 <span class="arithmatex">\(i = 0\)</span> 和首列 <span class="arithmatex">\(j = 0\)</span> 是边界条件。</p>
+<p>在本题中，首行的状态只能从其左边的状态得来，首列的状态只能从其上边的状态得来，因此首行 <span class="arithmatex">\(i = 0\)</span> 和首列 <span class="arithmatex">\(j = 0\)</span> 是边界条件。</p>
 <p>如图 14-13 所示，由于每个格子是由其左方格子和上方格子转移而来，因此我们使用采用循环来遍历矩阵，外循环遍历各行、内循环遍历各列。</p>
 <p><img alt="边界条件与状态转移顺序" src="../dp_solution_pipeline.assets/min_path_sum_solution_step3.png" /></p>
 <p align="center"> 图 14-13 &nbsp; 边界条件与状态转移顺序 </p>

@@ -3637,7 +3637,7 @@
 <p>运行时间可以直观且准确地反映算法的效率。如果我们想要准确预估一段代码的运行时间，应该如何操作呢？</p>
 <ol>
 <li><strong>确定运行平台</strong>，包括硬件配置、编程语言、系统环境等，这些因素都会影响代码的运行效率。</li>
-<li><strong>评估各种计算操作所需的运行时间</strong>，例如加法操作 <code>+</code> 需要 1 ns，乘法操作 <code>*</code> 需要 10 ns，打印操作 <code>print()</code> 需要 5 ns 等。</li>
+<li><strong>评估各种计算操作所需的运行时间</strong>，例如加法操作 <code>+</code> 需要 1 ns ，乘法操作 <code>*</code> 需要 10 ns ，打印操作 <code>print()</code> 需要 5 ns 等。</li>
 <li><strong>统计代码中所有的计算操作</strong>，并将所有操作的执行时间求和，从而得到运行时间。</li>
 </ol>
 <p>例如在以下代码中，输入数据大小为 <span class="arithmatex">\(n\)</span> ：</p>
@@ -6519,7 +6519,7 @@ n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">worst_best_time_complexity.c</span><pre><span></span><code><a id="__codelineno-190-1" name="__codelineno-190-1" href="#__codelineno-190-1"></a><span class="cm">/* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */</span>
 <a id="__codelineno-190-2" name="__codelineno-190-2" href="#__codelineno-190-2"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">randomNumbers</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-190-3" name="__codelineno-190-3" href="#__codelineno-190-3"></a><span class="w">    </span><span class="c1">// 分配堆区内存（创建一维可变长数组：数组中元素数量为n，元素类型为int）</span>
+<a id="__codelineno-190-3" name="__codelineno-190-3" href="#__codelineno-190-3"></a><span class="w">    </span><span class="c1">// 分配堆区内存（创建一维可变长数组：数组中元素数量为 n ，元素类型为 int ）</span>
 <a id="__codelineno-190-4" name="__codelineno-190-4" href="#__codelineno-190-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
 <a id="__codelineno-190-5" name="__codelineno-190-5" href="#__codelineno-190-5"></a><span class="w">    </span><span class="c1">// 生成数组 nums = { 1, 2, 3, ..., n }</span>
 <a id="__codelineno-190-6" name="__codelineno-190-6" href="#__codelineno-190-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>

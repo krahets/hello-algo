@@ -3511,7 +3511,7 @@
 <p>现在我们可以总结出计算机使用补码的原因：基于补码表示，计算机可以用同样的电路和操作来处理正数和负数的加法，不需要设计特殊的硬件电路来处理减法，并且无须特别处理正负零的歧义问题。这大大简化了硬件设计，提高了运算效率。</p>
 <p>补码的设计非常精妙，因篇幅关系我们就先介绍到这里，建议有兴趣的读者进一步深度了解。</p>
 <h2 id="332">3.3.2 &nbsp; 浮点数编码<a class="headerlink" href="#332" title="Permanent link">&para;</a></h2>
-<p>细心的你可能会发现：<code>int</code> 和 <code>float</code> 长度相同，都是 4 bytes，但为什么 <code>float</code> 的取值范围远大于 <code>int</code> ？这非常反直觉，因为按理说 <code>float</code> 需要表示小数，取值范围应该变小才对。</p>
+<p>细心的你可能会发现：<code>int</code> 和 <code>float</code> 长度相同，都是 4 bytes ，但为什么 <code>float</code> 的取值范围远大于 <code>int</code> ？这非常反直觉，因为按理说 <code>float</code> 需要表示小数，取值范围应该变小才对。</p>
 <p>实际上，<strong>这是因为浮点数 <code>float</code> 采用了不同的表示方式</strong>。记一个 32-bit 长度的二进制数为：</p>
 <div class="arithmatex">\[
 b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
