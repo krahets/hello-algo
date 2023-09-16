@@ -207,7 +207,7 @@ comments: true
     ```javascript title="top_k.js"
     /* 基于堆查找数组中最大的 k 个元素 */
     function topKHeap(nums, k) {
-        // 使用大顶堆 MaxHeap，对数组 nums 取相反数
+        // 使用大顶堆 MaxHeap ，对数组 nums 取相反数
         const invertedNums = nums.map((num) => -num);
         // 将数组的前 k 个元素入堆
         const heap = new MaxHeap(invertedNums.slice(0, k));
