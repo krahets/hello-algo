@@ -125,73 +125,157 @@
 === "Python"
 
     ```python title="array.py"
-    [class]{}-[func]{random_access}
+    def random_access(nums: list[int]) -> int:
+    """随机访问元素"""
+    # 在区间 [0, len(nums)-1] 中随机抽取一个数字
+    random_index = random.randint(0, len(nums) - 1)
+    # 获取并返回随机元素
+    random_num = nums[random_index]
+    return random_num
     ```
 
 === "C++"
 
     ```cpp title="array.cpp"
-    [class]{}-[func]{randomAccess}
+    /* 随机访问元素 */
+    int randomAccess(int *nums, int size) {
+        // 在区间 [0, size) 中随机抽取一个数字
+        int randomIndex = rand() % size;
+        // 获取并返回随机元素
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
     ```
 
 === "Java"
 
     ```java title="array.java"
-    [class]{array}-[func]{randomAccess}
+    /* 随机访问元素 */
+    int randomAccess(int[] nums) {
+        // 在区间 [0, nums.length) 中随机抽取一个数字
+        int randomIndex = ThreadLocalRandom.current().nextInt(0, nums.length);
+        // 获取并返回随机元素
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
     ```
 
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{randomAccess}
+    /* 随机访问元素 */
+    int randomAccess(int[] nums) {
+        Random random = new();
+        // 在区间 [0, nums.Length) 中随机抽取一个数字
+        int randomIndex = random.Next(nums.Length);
+        // 获取并返回随机元素
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
     ```
 
 === "Go"
 
     ```go title="array.go"
-    [class]{}-[func]{randomAccess}
+    /* 随机访问元素 */
+    func randomAccess(nums []int) (randomNum int) {
+        // 在区间 [0, nums.length) 中随机抽取一个数字
+        randomIndex := rand.Intn(len(nums))
+        // 获取并返回随机元素
+        randomNum = nums[randomIndex]
+        return
+    }
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    [class]{}-[func]{randomAccess}
+    /* 随机访问元素 */
+    func randomAccess(nums: [Int]) -> Int {
+        // 在区间 [0, nums.count) 中随机抽取一个数字
+        let randomIndex = nums.indices.randomElement()!
+        // 获取并返回随机元素
+        let randomNum = nums[randomIndex]
+        return randomNum
+    }
     ```
 
 === "JS"
 
     ```javascript title="array.js"
-    [class]{}-[func]{randomAccess}
+    /* 随机访问元素 */
+    function randomAccess(nums) {
+        // 在区间 [0, nums.length) 中随机抽取一个数字
+        const random_index = Math.floor(Math.random() * nums.length);
+        // 获取并返回随机元素
+        const random_num = nums[random_index];
+        return random_num;
+    }
     ```
 
 === "TS"
 
     ```typescript title="array.ts"
-    [class]{}-[func]{randomAccess}
+    /* 随机访问元素 */
+    function randomAccess(nums: number[]): number {
+        // 在区间 [0, nums.length) 中随机抽取一个数字
+        const random_index = Math.floor(Math.random() * nums.length);
+        // 获取并返回随机元素
+        const random_num = nums[random_index];
+        return random_num;
+    }
     ```
 
 === "Dart"
 
     ```dart title="array.dart"
-    [class]{}-[func]{randomAccess}
+    /* 随机访问元素 */
+    int randomAccess(List nums) {
+      // 在区间 [0, nums.length) 中随机抽取一个数字
+      int randomIndex = Random().nextInt(nums.length);
+      // 获取并返回随机元素
+      int randomNum = nums[randomIndex];
+      return randomNum;
+    }
     ```
 
 === "Rust"
 
     ```rust title="array.rs"
-    [class]{}-[func]{random_access}
+    /* 随机访问元素 */
+    fn random_access(nums: &[i32]) -> i32 {
+        // 在区间 [0, nums.len()) 中随机抽取一个数字
+        let random_index = rand::thread_rng().gen_range(0..nums.len());
+        // 获取并返回随机元素
+        let random_num = nums[random_index];
+        random_num
+    }
     ```
 
 === "C"
 
     ```c title="array.c"
-    [class]{}-[func]{randomAccess}
+    /* 随机访问元素 */
+    int randomAccess(int *nums, int size) {
+        // 在区间 [0, size) 中随机抽取一个数字
+        int randomIndex = rand() % size;
+        // 获取并返回随机元素
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
     ```
 
 === "Zig"
 
     ```zig title="array.zig"
-    [class]{}-[func]{randomAccess}
+    // 随机访问元素
+    fn randomAccess(nums: []i32) i32 {
+        // 在区间 [0, nums.len) 中随机抽取一个整数
+        var randomIndex = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
+        // 获取并返回随机元素
+        var randomNum = nums[randomIndex];
+        return randomNum;
+    }
     ```
 
 ### 插入元素
