@@ -22,7 +22,6 @@ int sortByValueDensity(const void *a, const void *b) {
 /* 分数背包：贪心 */
 float fractionalKnapsack(Item items[], int itemCount, int cap) {
     // 按照单位价值 item.v / item.w 从高到低进行排序
-    // sortByValueDensity(items, itemCount);
     qsort(items, (size_t)itemCount, sizeof(struct Item), sortByValueDensity);
 
     // 循环贪心选择
