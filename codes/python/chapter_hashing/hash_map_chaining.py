@@ -92,7 +92,7 @@ class HashMapChaining:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # 测试代码
+    # 初始化哈希表
     hashmap = HashMapChaining()
 
     # 添加操作

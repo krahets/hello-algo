@@ -139,7 +139,7 @@ int main(int argc, char *argv[]) {
 
     count = linear(n);
     printf("线性阶的操作数量 = %d\n", count);
-    // 分配堆区内存（创建一维可变长数组：数组中元素数量为n，元素类型为int）
+    // 分配堆区内存（创建一维可变长数组：数组中元素数量为 n ，元素类型为 int ）
     int *nums = (int *)malloc(n * sizeof(int));
     count = arrayTraversal(nums, n);
     printf("线性阶（遍历数组）的操作数量 = %d\n", count);

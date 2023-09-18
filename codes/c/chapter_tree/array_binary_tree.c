@@ -134,10 +134,10 @@ int main() {
     // 访问节点
     int i = 1;
     int l = left(i), r = right(i), p = parent(i);
-    printf("\n当前节点的索引为 %d，值为 %d\n", i, val(abt, i));
-    printf("其左子节点的索引为 %d，值为 %d\r\n", l, val(abt, l));
-    printf("其右子节点的索引为 %d，值为 %d\r\n", r, val(abt, r));
-    printf("其父节点的索引为 %d，值为 %d\r\n", p, val(abt, p));
+    printf("\n当前节点的索引为 %d ，值为 %d\n", i, val(abt, i));
+    printf("其左子节点的索引为 %d ，值为 %d\r\n", l, val(abt, l));
+    printf("其右子节点的索引为 %d ，值为 %d\r\n", r, val(abt, r));
+    printf("其父节点的索引为 %d ，值为 %d\r\n", p, val(abt, p));
 
     // 遍历树
     vector *res = levelOrder(abt);

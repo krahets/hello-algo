@@ -91,7 +91,7 @@ void main() {
 
   /* 元素出队 */
   final int pop = queue.pop();
-  print("出队元素 pop = $pop，出队后 queue = ${queue.toArray()}");
+  print("出队元素 pop = $pop ，出队后 queue = ${queue.toArray()}");
 
   /* 获取队列长度 */
   final int size = queue.size();
