@@ -20,10 +20,13 @@ int sortByValueDensity(const void *a, const void *b) {
 }
 
 /* 分数背包：贪心 */
-float fractionalKnapsack(Item items[], int itemCount, int cap) {
+float fractionalKnapsack(int wgt[], int val[], int itemCount, int cap) {
+    Item *items = malloc(sizeof(Item) * itemCount);
+    for (int i = 0; i < itemCount; i++) {
+        items[i] = (Item){.w = wgt[i], .v = val[i]};
+    }
     // 按照单位价值 item.v / item.w 从高到低进行排序
     qsort(items, (size_t)itemCount, sizeof(struct Item), sortByValueDensity);
-
     // 循环贪心选择
     float res = .0;
     for (int i = 0; i < itemCount; i++) {
@@ -38,15 +41,17 @@ float fractionalKnapsack(Item items[], int itemCount, int cap) {
             break;
         }
     }
+    free(items);
     return res;
 }
 
 int main(void) {
-    Item items[] = {{10, 50}, {20, 120}, {30, 150}, {40, 210}, {50, 240}};
+    int wgt[] = {10, 20, 30, 40, 50};
+    int val[] = {50, 120, 150, 210, 240};
     int capacity = 50;
 
     // 贪心算法
-    float res = fractionalKnapsack(items, sizeof(items) / sizeof(Item), capacity);
+    float res = fractionalKnapsack(wgt, val, sizeof(wgt) / sizeof(int), capacity);
     printf("不超过背包容量的最大物品价值为 %0.2f\n", res);
 
     return 0;
