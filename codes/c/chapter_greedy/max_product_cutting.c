@@ -27,6 +27,7 @@ int maxProductCutting(int n) {
     return pow(3, a);
 }
 
+/* Driver Code */
 int main(void) {
     int n = 58;
     // 贪心算法

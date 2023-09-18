@@ -45,6 +45,7 @@ float fractionalKnapsack(int wgt[], int val[], int itemCount, int cap) {
     return res;
 }
 
+/* Driver Code */
 int main(void) {
     int wgt[] = {10, 20, 30, 40, 50};
     int val[] = {50, 120, 150, 210, 240};

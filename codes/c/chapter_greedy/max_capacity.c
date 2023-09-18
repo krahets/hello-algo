@@ -28,6 +28,7 @@ int maxCapacity(int ht[], int htLength) {
     return res;
 }
 
+/* Driver Code */
 int main(void) {
     int ht[] = {3, 8, 5, 2, 7, 7, 3, 4};
 
