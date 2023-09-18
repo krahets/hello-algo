@@ -8,7 +8,7 @@ WORKDIR /app
 COPY docs /app/build
 COPY mkdocs.yml /app/mkdocs.yml
 
-RUN mkdir -p ./build/overrides && mkdocs build
+RUN mkdocs build
 
 EXPOSE 8000
 
