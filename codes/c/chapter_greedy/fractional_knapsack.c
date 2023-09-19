@@ -29,7 +29,7 @@ float fractionalKnapsack(int wgt[], int val[], int itemCount, int cap) {
         items[i] = (Item){.w = wgt[i], .v = val[i]};
     }
     // 按照单位价值 item.v / item.w 从高到低进行排序
-    qsort(items, (size_t)itemCount, sizeof(struct Item), sortByValueDensity);
+    qsort(items, (size_t)itemCount, sizeof(Item), sortByValueDensity);
     // 循环贪心选择
     float res = 0.0;
     for (int i = 0; i < itemCount; i++) {
