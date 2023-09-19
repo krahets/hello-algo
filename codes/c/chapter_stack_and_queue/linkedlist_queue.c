@@ -83,7 +83,7 @@ void printLinkedListQueue(linkedListQueue *queue) {
     // 拷贝链表中的数据到数组
     int i;
     ListNode *node;
-    for (i = 0, node = queue->front; i < queue->queSize && queue->front != queue->rear; i++) {
+    for (i = 0, node = queue->front; i < queue->queSize; i++) {
         arr[i] = node->val;
         node = node->next;
     }
