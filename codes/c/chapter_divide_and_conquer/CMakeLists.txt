@@ -1,0 +1,1 @@
+add_executable(binary_search_recur binary_search_recur.c)
