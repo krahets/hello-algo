@@ -4,7 +4,7 @@
  * Author: huawuque404 (huawuque404@163.com)
  */
 
-#include "../utils/common.hpp"
+#include "../utils/common.h"
 
 /* 搜索 */
 int dfs(int i) {

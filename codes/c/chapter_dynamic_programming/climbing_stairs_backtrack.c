@@ -4,7 +4,7 @@
  * Author: huawuque404 (huawuque404@163.com)
  */
 
-#include "../utils/common.hpp"
+#include "../utils/common.h"
 
 /* 回溯 */
 void backtrack(int *choices, int state, int n, int *res) {
@@ -12,7 +12,7 @@ void backtrack(int *choices, int state, int n, int *res) {
     if (state == n)
         res[0]++;
     // 遍历所有选择
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < sizeof(choices) / sizeof(int); i++) {
         int choice = choices[i];
         // 剪枝：不允许越过第 n 阶
         if (state + choice > n)
