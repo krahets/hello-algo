@@ -6,6 +6,9 @@
 
 #include "../utils/common.h"
 
+#define MIN(a, b) (a < b ? a : b)
+#define MAX(a, b) (a > b ? a : b)
+
 /* 最大容量：贪心 */
 int maxCapacity(int ht[], int htLength) {
     // 初始化 i, j 分列数组两端

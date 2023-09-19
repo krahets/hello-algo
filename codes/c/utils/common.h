@@ -18,7 +18,6 @@
 #include "list_node.h"
 #include "print_util.h"
 #include "tree_node.h"
-#include "greedy.h"
 
 // hash table lib
 #include "uthash.h"
