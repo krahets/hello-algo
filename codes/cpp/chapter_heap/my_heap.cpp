@@ -47,7 +47,6 @@ class MaxHeap {
         while (true) {
             // 判断节点 i, l, r 中值最大的节点，记为 ma
             int l = left(i), r = right(i), ma = i;
-            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if (l < size() && maxHeap[l] > maxHeap[ma])
                 ma = l;
             if (r < size() && maxHeap[r] > maxHeap[ma])
