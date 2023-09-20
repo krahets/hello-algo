@@ -80,6 +80,12 @@ public class linear_search {
         int expectedIndex4 = -1;
         int result4 = linearSearchArray(testEmptyArr, findNum4);
         assertEquals(expectedIndex4, result4);
+
+        // Test case 5: Number is found at the end of the array.
+        int findNum5 = 5;
+        int expectedIndex5 = 4;
+        int result5 = linearSearchArray(testNumArr, findNum5);
+        assertEquals(expectedIndex5, result5);
     }
 
 }
