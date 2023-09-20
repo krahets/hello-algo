@@ -6,7 +6,10 @@
 
 package chapter_searching;
 
+import org.junit.Test;
 import utils.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class linear_search {
     /* 线性查找（数组） */
@@ -47,4 +50,36 @@ public class linear_search {
         ListNode node = linearSearchLinkedList(head, target);
         System.out.println("目标节点值 3 的对应节点对象为 " + node);
     }
+
+    @Test
+    public void testLinearSearch() {
+
+        int[] testNumArr = {3, 2, 1, 4, 5};
+
+        // Test case 1: Number is found in the beginning of the array.
+        int findNum1 = 3;
+        int expectedIndex1 = 0;
+        int result1 = linearSearchArray(testNumArr, findNum1);
+        assertEquals(expectedIndex1, result1);
+
+        // Test case 2: Number is found at the middle of the array.
+        int findNum2 = 1;
+        int expectedIndex2 = 2;
+        int result2 = linearSearchArray(testNumArr, findNum2);
+        assertEquals(expectedIndex2, result2);
+
+        // Test case 3: Number is not found in the array.
+        int findNum3 = 6; // Not in the array.
+        int expectedIndex3 = -1;
+        int result3 = linearSearchArray(testNumArr, findNum3);
+        assertEquals(expectedIndex3, result3);
+
+        // Test case 4: Empty array.
+        int[] testEmptyArr = {};
+        int findNum4 = 1;
+        int expectedIndex4 = -1;
+        int result4 = linearSearchArray(testEmptyArr, findNum4);
+        assertEquals(expectedIndex4, result4);
+    }
+
 }
