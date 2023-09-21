@@ -7,7 +7,6 @@
 
 # mkdocs files
 .cache/
-/docs/overrides
 
 # build
 /build
