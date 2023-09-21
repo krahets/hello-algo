@@ -83,7 +83,6 @@ class ArrayHashMap {
     print() {
         let pairSet = this.entries();
         for (const pair of pairSet) {
-            if (!pair) continue;
             console.info(`${pair.key} -> ${pair.val}`);
         }
     }
