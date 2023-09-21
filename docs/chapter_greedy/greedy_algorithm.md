@@ -157,4 +157,74 @@
 - **分数背包问题**：给定一组物品和一个载重量，你的目标是选择一组物品，使得总重量不超过载重量，且总价值最大。如果每次都选择性价比最高（价值 / 重量）的物品，那么贪心算法在一些情况下可以得到最优解。
 - **股票买卖问题**：给定一组股票的历史价格，你可以进行多次买卖，但如果你已经持有股票，那么在卖出之前不能再买，目标是获取最大利润。
 - **霍夫曼编码**：霍夫曼编码是一种用于无损数据压缩的贪心算法。通过构建霍夫曼树，每次选择出现频率最小的两个节点合并，最后得到的霍夫曼树的带权路径长度（即编码长度）最小。
-- **Dijkstra 算法**：它是一种解决给定源顶点到其余各顶点的最短路径问题的贪心算法。
+- **Dijkstra 算法**：它是一种解决给定源顶点到其余各顶点的最短路径问题的贪心算法。该算法的基本思想是：
+
+    创建一个集合S，用于存放已找到最短路径的顶点。
+    初始化距离数组dist[]，将起点的距离设为0，其余顶点的距离设为无穷大。
+    从未处理的顶点中选择距离起点最近的顶点，并将其加入集合S。
+    更新与该顶点相邻的顶点的距离，如果通过当前顶点前往相邻顶点的距离比已知的更短，则更新该顶点的最短路径长度。
+    重复步骤3和4，直到所有顶点都加入集合S。
+    最终得到起点到每个顶点的最短路径长度。
+
+  Dijkstra算法保证了每次选择距离起点最近的顶点，因此在遍历过程中逐步扩展最短路径的长度。通过不断更新顶点的最短路径长度，最终得到起点到每个顶点的最短路径。其时间复杂度取决于具体的实现方式。在使用数组实现的情况下，时间复杂度为O(V^2)，其中V是顶点的数量。但是，如果使用优先队列等数据结构来优化查找最短路径的过程，可以将时间复杂度优化到O((V+E)logV)，其中E是边的数量。
+
+  需要注意的是，Dijkstra算法要求图中的边权重必须为非负值，且不能处理带有负权边的图。此外，Dijkstra算法只能求解单源最短路径问题，即从一个起点到其他顶点的最短路径，无法处理多源最短路径或负权环的情况。
+
+
+Dijkstra代码实现
+
+=== "Python"
+
+```python title="dijkstra.py"
+[class]{}-[func]{dijkstra}
+```
+=== "C++"
+
+```cpp title="Dijkstra.cpp"
+[class]{}-[func]{Dijkstra}
+```
+=== "Java"
+
+```java title="dijkstra.java"
+[class]{dijkstra}-[func]{dijkstra}
+```
+=== "C#"
+
+```csharp title="dijkstra.cs"
+[class]{dijkstra}-[func]{ Dijkstra}
+```
+=== "Go"
+
+```go title="dijkstra.go"
+[class]{}-[func]{dijkstra}
+```
+=== "Swift"
+
+```swift title="dijkstra.swift"
+[class]{}-[func]{dijkstra}
+```
+=== "JS"
+
+```javascript title="dijkstra.js"
+[class]{}-[func]{dijkstra}
+```
+=== "TS"
+
+```typescript title="dijkstra.ts"
+[class]{}-[func]{dijkstra}
+```
+=== "Dart"
+
+```dart title="dijkstra.dart"
+[class]{}-[func]{dijkstra}
+```
+=== "Rust"
+
+```rust title="dijkstra.rs"
+[class]{}-[func]{dijkstra}
+```
+=== "C"
+
+```c title="dijkstra.c"
+[class]{}-[func]{dijkstra}
+```
