@@ -1137,7 +1137,6 @@ index = hash(key) % capacity
         print() {
             let pairSet = this.entries();
             for (const pair of pairSet) {
-                if (!pair) continue;
                 console.info(`${pair.key} -> ${pair.val}`);
             }
         }
@@ -1230,7 +1229,6 @@ index = hash(key) % capacity
         public print() {
             let pairSet = this.entries();
             for (const pair of pairSet) {
-                if (!pair) continue;
                 console.info(`${pair.key} -> ${pair.val}`);
             }
         }
