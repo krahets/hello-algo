@@ -1,7 +1,6 @@
 ---
 comments: true
 icon: material/table-pivot
-status: new
 ---
 
 # 第 14 章 &nbsp; 动态规划

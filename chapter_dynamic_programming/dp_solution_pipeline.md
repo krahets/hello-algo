@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 14.3 &nbsp; 动态规划解题思路

@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 14.6 &nbsp; 编辑距离问题

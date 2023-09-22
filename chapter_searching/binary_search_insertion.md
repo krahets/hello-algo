@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 10.2 &nbsp; 二分查找插入点

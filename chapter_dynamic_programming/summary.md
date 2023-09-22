@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 14.7 &nbsp; 小结

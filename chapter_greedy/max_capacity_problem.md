@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 15.3 &nbsp; 最大容量问题

@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 14.5 &nbsp; 完全背包问题

@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 15.1 &nbsp; 贪心算法

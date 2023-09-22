@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 12.4 &nbsp; 汉诺塔问题

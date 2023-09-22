@@ -1,7 +1,6 @@
 ---
 comments: true
 icon: material/set-split
-status: new
 ---
 
 # 第 12 章 &nbsp; 分治

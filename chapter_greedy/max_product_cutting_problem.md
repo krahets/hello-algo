@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 15.4 &nbsp; 最大切分乘积问题

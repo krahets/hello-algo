@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 15.2 &nbsp; 分数背包问题

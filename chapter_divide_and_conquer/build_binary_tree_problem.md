@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 12.3 &nbsp; 构建二叉树问题

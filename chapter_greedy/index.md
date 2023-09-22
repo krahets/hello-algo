@@ -1,7 +1,6 @@
 ---
 comments: true
 icon: material/head-heart-outline
-status: new
 ---
 
 # 第 15 章 &nbsp; 贪心

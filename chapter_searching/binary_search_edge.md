@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 10.3 &nbsp; 二分查找边界
