@@ -1473,14 +1473,7 @@ comments: true
 === "C++"
 
     ```cpp title="hash_map_open_addressing.cpp"
-    /**
-     * File: hash_map_open_addressing.cpp
-     * Created Time: 2023-06-13
-     * Author: Krahets (krahets@163.com)
-     */
-
-    #include "./array_hash_map.cpp"
-
+    /* 开放寻址哈希表 */
     class HashMapOpenAddressing {
       private:
         int size;                             // 键值对数量
@@ -1869,7 +1862,7 @@ comments: true
 === "Go"
 
     ```go title="hash_map_open_addressing.go"
-    /* 链式地址哈希表 */
+    /* 开放寻址哈希表 */
     type hashMapOpenAddressing struct {
         size        int     // 键值对数量
         capacity    int     // 哈希表容量
