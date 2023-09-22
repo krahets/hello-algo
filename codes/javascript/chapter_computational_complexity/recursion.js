@@ -32,6 +32,25 @@ function fib(n) {
     return res;
 }
 
+/* 递归转化为迭代 */
+function forLoopRecur(n) {
+    // 用数组模拟系统调用栈 
+    const stack = [];
+    let res = 0;
+    // 递：递归调用
+    for (let i = 1; i <= n; i++) {
+        // 用 '入栈' 模拟 '递操作'
+        stack.push(i);
+    }
+    // 归：返回结果
+    while (stack.length) { 
+        // 用 '出栈' 模拟 '归操作'
+        res += stack.pop();
+    }
+    // 返回结果：res = n + ... + 3 + 2 + 1
+    return res;
+}
+
 /* Driver Code */
 const n = 5;
 let res;
@@ -44,3 +63,6 @@ console.log(`尾递归函数的求和结果 res = ${res}`);
 
 res = fib(n);
 console.log(`斐波那契数列的第 ${n} 项为 ${res}`);
+
+res = forLoopRecur(n);
+console.log(`递归转化为迭代的求和结果为 res = ${res}`);
