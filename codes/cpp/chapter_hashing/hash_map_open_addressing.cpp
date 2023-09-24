@@ -6,6 +6,7 @@
 
 #include "./array_hash_map.cpp"
 
+/* 开放寻址哈希表 */
 class HashMapOpenAddressing {
   private:
     int size;                             // 键值对数量

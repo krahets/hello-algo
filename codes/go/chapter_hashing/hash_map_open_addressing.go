@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-/* 链式地址哈希表 */
+/* 开放寻址哈希表 */
 type hashMapOpenAddressing struct {
 	size        int     // 键值对数量
 	capacity    int     // 哈希表容量

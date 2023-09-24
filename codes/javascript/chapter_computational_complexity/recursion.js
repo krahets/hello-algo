@@ -14,7 +14,7 @@ function recur(n) {
     return n + res;
 }
 
-/* 递归转化为迭代 */
+/* 使用迭代模拟递归 */
 function forLoopRecur(n) {
     // 使用一个显式的栈来模拟系统调用栈
     const stack = [];
@@ -59,7 +59,7 @@ res = recur(n);
 console.log(`递归函数的求和结果 res = ${res}`);
 
 res = forLoopRecur(n);
-console.log(`递归转化为迭代的求和结果 res = ${res}`);
+console.log(`使用迭代模拟递归的求和结果 res = ${res}`);
 
 res = tailRecur(n, 0);
 console.log(`尾递归函数的求和结果 res = ${res}`);

@@ -1,5 +1,6 @@
 ---
 comments: true
+glightbox: false
 hide:
   - footer
 ---
