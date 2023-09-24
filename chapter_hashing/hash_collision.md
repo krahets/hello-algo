@@ -35,7 +35,7 @@ comments: true
 以下代码给出了链式地址哈希表的简单实现，需要注意两点。
 
 - 使用列表（动态数组）代替链表，从而简化代码。在这种设定下，哈希表（数组）包含多个桶，每个桶都是一个列表。
-- 以下实现包含哈希表扩容方法。当负载因子超过 $0.75$ 时，我们将哈希表扩容至 $2$ 倍。
+- 以下实现包含哈希表扩容方法。当负载因子超过 $\frac{2}{3}$ 时，我们将哈希表扩容至 $2$ 倍。
 
 === "Python"
 
@@ -47,7 +47,7 @@ comments: true
             """构造方法"""
             self.size = 0  # 键值对数量
             self.capacity = 4  # 哈希表容量
-            self.load_thres = 2 / 3  # 触发扩容的负载因子阈值
+            self.load_thres = 2.0 / 3.0  # 触发扩容的负载因子阈值
             self.extend_ratio = 2  # 扩容倍数
             self.buckets = [[] for _ in range(self.capacity)]  # 桶数组
 
@@ -134,7 +134,7 @@ comments: true
 
       public:
         /* 构造方法 */
-        HashMapChaining() : size(0), capacity(4), loadThres(2.0 / 3), extendRatio(2) {
+        HashMapChaining() : size(0), capacity(4), loadThres(2.0 / 3.0), extendRatio(2) {
             buckets.resize(capacity);
         }
 
@@ -253,7 +253,7 @@ comments: true
         public HashMapChaining() {
             size = 0;
             capacity = 4;
-            loadThres = 2 / 3.0;
+            loadThres = 2.0 / 3.0;
             extendRatio = 2;
             buckets = new ArrayList<>(capacity);
             for (int i = 0; i < capacity; i++) {
@@ -367,7 +367,7 @@ comments: true
         public HashMapChaining() {
             size = 0;
             capacity = 4;
-            loadThres = 2 / 3.0;
+            loadThres = 2.0 / 3.0;
             extendRatio = 2;
             buckets = new List<List<Pair>>(capacity);
             for (int i = 0; i < capacity; i++) {
@@ -485,7 +485,7 @@ comments: true
         return &hashMapChaining{
             size:        0,
             capacity:    4,
-            loadThres:   2 / 3.0,
+            loadThres:   2.0 / 3.0,
             extendRatio: 2,
             buckets:     buckets,
         }
@@ -606,7 +606,7 @@ comments: true
         init() {
             size = 0
             capacity = 4
-            loadThres = 2 / 3
+            loadThres = 2.0 / 3.0
             extendRatio = 2
             buckets = Array(repeating: [], count: capacity)
         }
@@ -710,7 +710,7 @@ comments: true
         constructor() {
             this.#size = 0;
             this.#capacity = 4;
-            this.#loadThres = 2 / 3.0;
+            this.#loadThres = 2.0 / 3.0;
             this.#extendRatio = 2;
             this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
         }
@@ -818,7 +818,7 @@ comments: true
         constructor() {
             this.#size = 0;
             this.#capacity = 4;
-            this.#loadThres = 2 / 3.0;
+            this.#loadThres = 2.0 / 3.0;
             this.#extendRatio = 2;
             this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
         }
@@ -926,7 +926,7 @@ comments: true
       HashMapChaining() {
         size = 0;
         capacity = 4;
-        loadThres = 2 / 3.0;
+        loadThres = 2.0 / 3.0;
         extendRatio = 2;
         buckets = List.generate(capacity, (_) => []);
       }
@@ -1173,7 +1173,7 @@ comments: true
         hashmap->capacity = tableSize;
         hashmap->size = 0;
         hashmap->extendRatio = 2;
-        hashmap->loadThres = 2.0 / 3;
+        hashmap->loadThres = 2.0 / 3.0;
 
         return hashmap;
     }
@@ -1377,7 +1377,7 @@ comments: true
             """构造方法"""
             self.size = 0  # 键值对数量
             self.capacity = 4  # 哈希表容量
-            self.load_thres = 2 / 3  # 触发扩容的负载因子阈值
+            self.load_thres = 2.0 / 3.0  # 触发扩容的负载因子阈值
             self.extend_ratio = 2  # 扩容倍数
             self.buckets: list[Pair | None] = [None] * self.capacity  # 桶数组
             self.TOMBSTONE = Pair(-1, "-1")  # 删除标记
@@ -1478,7 +1478,7 @@ comments: true
       private:
         int size;                             // 键值对数量
         int capacity = 4;                     // 哈希表容量
-        const double loadThres = 2.0 / 3;     // 触发扩容的负载因子阈值
+        const double loadThres = 2.0 / 3.0;     // 触发扩容的负载因子阈值
         const int extendRatio = 2;            // 扩容倍数
         vector<Pair *> buckets;               // 桶数组
         Pair *TOMBSTONE = new Pair(-1, "-1"); // 删除标记
@@ -1616,7 +1616,7 @@ comments: true
     class HashMapOpenAddressing {
         private int size; // 键值对数量
         private int capacity = 4; // 哈希表容量
-        private final double loadThres = 2.0 / 3; // 触发扩容的负载因子阈值
+        private final double loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
         private final int extendRatio = 2; // 扩容倍数
         private Pair[] buckets; // 桶数组
         private final Pair TOMBSTONE = new Pair(-1, "-1"); // 删除标记
@@ -1743,7 +1743,7 @@ comments: true
     class HashMapOpenAddressing {
         private int size; // 键值对数量
         private int capacity = 4; // 哈希表容量
-        private double loadThres = 2.0 / 3; // 触发扩容的负载因子阈值
+        private double loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
         private int extendRatio = 2; // 扩容倍数
         private Pair[] buckets; // 桶数组
         private Pair TOMBSTONE = new Pair(-1, "-1"); // 删除标记
@@ -1882,7 +1882,7 @@ comments: true
         return &hashMapOpenAddressing{
             size:        0,
             capacity:    4,
-            loadThres:   2 / 3.0,
+            loadThres:   2.0 / 3.0,
             extendRatio: 2,
             buckets:     buckets,
             removed: pair{
@@ -2009,16 +2009,16 @@ comments: true
         var loadThres: Double // 触发扩容的负载因子阈值
         var extendRatio: Int // 扩容倍数
         var buckets: [Pair?] // 桶数组
-        var removed: Pair // 删除标记
+        var TOMBSTONE: Pair // 删除标记
 
         /* 构造方法 */
         init() {
             size = 0
             capacity = 4
-            loadThres = 2 / 3
+            loadThres = 2.0 / 3.0
             extendRatio = 2
             buckets = Array(repeating: nil, count: capacity)
-            removed = Pair(key: -1, val: "-1")
+            TOMBSTONE = Pair(key: -1, val: "-1")
         }
 
         /* 哈希函数 */
@@ -2031,22 +2031,42 @@ comments: true
             Double(size / capacity)
         }
 
+        /* 搜索 key 对应的桶索引 */
+        func findBucket(key: Int) -> Int {
+            var index = hashFunc(key: key)
+            var firstTombstone = -1
+            // 线性探测，当遇到空桶时跳出
+            while buckets[index] != nil {
+                // 若遇到 key ，返回对应桶索引
+                if buckets[index]!.key == key {
+                    // 若之前遇到了删除标记，则将键值对移动至该索引
+                    if firstTombstone != -1 {
+                        buckets[firstTombstone] = buckets[index]
+                        buckets[index] = TOMBSTONE
+                        return firstTombstone // 返回移动后的桶索引
+                    }
+                    return index // 返回桶索引
+                }
+                // 记录遇到的首个删除标记
+                if firstTombstone == -1 && buckets[index] == TOMBSTONE {
+                    firstTombstone = index
+                }
+                // 计算桶索引，越过尾部返回头部
+                index = (index + 1) % capacity
+            }
+            // 若 key 不存在，则返回添加点的索引
+            return firstTombstone == -1 ? index : firstTombstone
+        }
+
         /* 查询操作 */
         func get(key: Int) -> String? {
-            let index = hashFunc(key: key)
-            // 线性探测，从 index 开始向后遍历
-            for i in stride(from: 0, to: capacity, by: 1) {
-                // 计算桶索引，越过尾部返回头部
-                let j = (index + i) % capacity
-                // 若遇到空桶，说明无此 key ，则返回 nil
-                if buckets[j] == nil {
-                    return nil
-                }
-                // 若遇到指定 key ，则返回对应 val
-                if buckets[j]?.key == key, buckets[j] != removed {
-                    return buckets[j]?.val
-                }
+            // 搜索 key 对应的桶索引
+            let index = findBucket(key: key)
+            // 若找到键值对，则返回对应 val
+            if buckets[index] != nil, buckets[index] != TOMBSTONE {
+                return buckets[index]!.val
             }
+            // 若键值对不存在，则返回 null
             return nil
         }
 
@@ -2056,42 +2076,26 @@ comments: true
             if loadFactor() > loadThres {
                 extend()
             }
-            let index = hashFunc(key: key)
-            // 线性探测，从 index 开始向后遍历
-            for i in stride(from: 0, through: capacity, by: 1) {
-                // 计算桶索引，越过尾部返回头部
-                let j = (index + i) % capacity
-                // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
-                if buckets[j] == nil || buckets[j] == removed {
-                    buckets[j] = Pair(key: key, val: val)
-                    size += 1
-                    return
-                }
-                // 若遇到指定 key ，则更新对应 val
-                if buckets[j]?.key == key {
-                    buckets[j]?.val = val
-                    return
-                }
+            // 搜索 key 对应的桶索引
+            let index = findBucket(key: key)
+            // 若找到键值对，则覆盖 val 并返回
+            if buckets[index] != nil, buckets[index] != TOMBSTONE {
+                buckets[index]!.val = val
+                return
             }
+            // 若键值对不存在，则添加该键值对
+            buckets[index] = Pair(key: key, val: val)
+            size += 1
         }
 
         /* 删除操作 */
         func remove(key: Int) {
-            let index = hashFunc(key: key)
-            // 线性探测，从 index 开始向后遍历
-            for i in stride(from: 0, to: capacity, by: 1) {
-                // 计算桶索引，越过尾部返回头部
-                let j = (index + i) % capacity
-                // 若遇到空桶，说明无此 key ，则直接返回
-                if buckets[j] == nil {
-                    return
-                }
-                // 若遇到指定 key ，则标记删除并返回
-                if buckets[j]?.key == key {
-                    buckets[j] = removed
-                    size -= 1
-                    return
-                }
+            // 搜索 key 对应的桶索引
+            let index = findBucket(key: key)
+            // 若找到键值对，则用删除标记覆盖它
+            if buckets[index] != nil, buckets[index] != TOMBSTONE {
+                buckets[index] = TOMBSTONE
+                size -= 1
             }
         }
 
@@ -2105,7 +2109,7 @@ comments: true
             size = 0
             // 将键值对从原哈希表搬运至新哈希表
             for pair in bucketsTmp {
-                if let pair, pair != removed {
+                if let pair, pair != TOMBSTONE {
                     put(key: pair.key, val: pair.val)
                 }
             }
@@ -2114,10 +2118,12 @@ comments: true
         /* 打印哈希表 */
         func print() {
             for pair in buckets {
-                if let pair {
-                    Swift.print("\(pair.key) -> \(pair.val)")
-                } else {
+                if pair == nil {
                     Swift.print("null")
+                } else if pair == TOMBSTONE {
+                    Swift.print("TOMBSTONE")
+                } else {
+                    Swift.print("\(pair!.key) -> \(pair!.val)")
                 }
             }
         }

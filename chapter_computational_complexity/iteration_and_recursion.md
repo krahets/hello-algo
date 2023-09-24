@@ -987,7 +987,7 @@ status: new
 以上述的求和函数为例，设问题 $f(n) = 1 + 2 + \dots + n$ 。
 
 - **迭代**：在循环中模拟求和过程，从 $1$ 遍历到 $n$ ，每轮执行求和操作，即可求得 $f(n)$ 。
-- **递归**：将问题分解为子问题 $f(n) = n + f(n-1)$ ，不断（递归地）分解下去，直至基本情况 $f(0) = 0$ 时终止。
+- **递归**：将问题分解为子问题 $f(n) = n + f(n-1)$ ，不断（递归地）分解下去，直至基本情况 $f(1) = 1$ 时终止。
 
 ### 1. &nbsp; 调用栈
 
@@ -1499,7 +1499,24 @@ status: new
 === "Swift"
 
     ```swift title="recursion.swift"
-    [class]{}-[func]{forLoopRecur}
+    /* 使用迭代模拟递归 */
+    func forLoopRecur(n: Int) -> Int {
+        // 使用一个显式的栈来模拟系统调用栈
+        var stack: [Int] = []
+        var res = 0
+        // 递：递归调用
+        for i in stride(from: n, to: 0, by: -1) {
+            // 通过“入栈操作”模拟“递”
+            stack.append(i)
+        }
+        // 归：返回结果
+        while !stack.isEmpty {
+            // 通过“出栈操作”模拟“归”
+            res += stack.removeLast()
+        }
+        // res = 1+2+3+...+n
+        return res
+    }
     ```
 
 === "JS"
