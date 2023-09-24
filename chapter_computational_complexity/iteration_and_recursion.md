@@ -1470,7 +1470,24 @@ status: new
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{forLoopRecur}
+    /* 使用迭代模拟递归 */
+    int forLoopRecur(int n) {
+        // 使用一个显式的栈来模拟系统调用栈
+        Stack<int> stack = new Stack<int>();
+        int res = 0;
+        // 递：递归调用
+        for (int i = n; i > 0; i--) {
+            // 通过“入栈操作”模拟“递”
+            stack.Push(i);
+        }
+        // 归：返回结果
+        while (stack.Count > 0) {
+            // 通过“出栈操作”模拟“归”
+            res += stack.Pop();
+        }
+        // res = 1+2+3+...+n
+        return res;
+    }
     ```
 
 === "Go"
@@ -1488,13 +1505,47 @@ status: new
 === "JS"
 
     ```javascript title="recursion.js"
-    [class]{}-[func]{forLoopRecur}
+    /* 递归转化为迭代 */
+    function forLoopRecur(n) {
+        // 使用一个显式的栈来模拟系统调用栈
+        const stack = [];
+        let res = 0;
+        // 递：递归调用
+        for (let i = 1; i <= n; i++) {
+            // 通过“入栈操作”模拟“递”
+            stack.push(i);
+        }
+        // 归：返回结果
+        while (stack.length) { 
+            // 通过“出栈操作”模拟“归”
+            res += stack.pop();
+        }
+        // res = 1+2+3+...+n
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="recursion.ts"
-    [class]{}-[func]{forLoopRecur}
+    /* 递归转化为迭代 */
+    function forLoopRecur(n: number): number {
+        // 使用一个显式的栈来模拟系统调用栈 
+        const stack: number[] = [];
+        let res: number = 0;
+        // 递：递归调用
+        for (let i = 1; i <= n; i++) {
+            // 通过“入栈操作”模拟“递”
+            stack.push(i);
+        }
+        // 归：返回结果
+        while (stack.length) { 
+            // 通过“出栈操作”模拟“归”
+            res += stack.pop();
+        }
+        // res = 1+2+3+...+n
+        return res;
+    }
     ```
 
 === "Dart"

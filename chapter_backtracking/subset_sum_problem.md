@@ -729,7 +729,7 @@ comments: true
     /* 求解子集和 I */
     function subsetSumI(nums, target) {
         const state = []; // 状态（子集）
-        nums.sort(); // 对 nums 进行排序
+        nums.sort((a, b) => a - b); // 对 nums 进行排序
         const start = 0; // 遍历起始点
         const res = []; // 结果列表（子集列表）
         backtrack(state, target, nums, start, res);
@@ -773,7 +773,7 @@ comments: true
     /* 求解子集和 I */
     function subsetSumI(nums: number[], target: number): number[][] {
         const state = []; // 状态（子集）
-        nums.sort(); // 对 nums 进行排序
+        nums.sort((a, b) => a - b); // 对 nums 进行排序
         const start = 0; // 遍历起始点
         const res = []; // 结果列表（子集列表）
         backtrack(state, target, nums, start, res);
@@ -1230,7 +1230,7 @@ comments: true
     /* 求解子集和 II */
     function subsetSumII(nums, target) {
         const state = []; // 状态（子集）
-        nums.sort(); // 对 nums 进行排序
+        nums.sort((a, b) => a - b); // 对 nums 进行排序
         const start = 0; // 遍历起始点
         const res = []; // 结果列表（子集列表）
         backtrack(state, target, nums, start, res);
@@ -1279,7 +1279,7 @@ comments: true
     /* 求解子集和 II */
     function subsetSumII(nums: number[], target: number): number[][] {
         const state = []; // 状态（子集）
-        nums.sort(); // 对 nums 进行排序
+        nums.sort((a, b) => a - b); // 对 nums 进行排序
         const start = 0; // 遍历起始点
         const res = []; // 结果列表（子集列表）
         backtrack(state, target, nums, start, res);

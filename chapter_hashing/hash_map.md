@@ -1329,6 +1329,7 @@ index = hash(key) % capacity
 
     ```rust title="array_hash_map.rs"
     /* 键值对 */
+    #[derive(Debug, Clone, PartialEq)]
     pub struct Pair {
         pub key: i32,
         pub val: String,
