@@ -10,7 +10,7 @@ package chapter_hashing;
 class HashMapOpenAddressing {
     private int size; // 键值对数量
     private int capacity = 4; // 哈希表容量
-    private final double loadThres = 2.0 / 3; // 触发扩容的负载因子阈值
+    private final double loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
     private final int extendRatio = 2; // 扩容倍数
     private Pair[] buckets; // 桶数组
     private final Pair TOMBSTONE = new Pair(-1, "-1"); // 删除标记

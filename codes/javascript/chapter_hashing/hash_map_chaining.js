@@ -24,7 +24,7 @@ class HashMapChaining {
     constructor() {
         this.#size = 0;
         this.#capacity = 4;
-        this.#loadThres = 2 / 3.0;
+        this.#loadThres = 2.0 / 3.0;
         this.#extendRatio = 2;
         this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
     }

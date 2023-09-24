@@ -48,7 +48,7 @@ hashMapChaining *newHashMapChaining() {
     hashmap->capacity = tableSize;
     hashmap->size = 0;
     hashmap->extendRatio = 2;
-    hashmap->loadThres = 2.0 / 3;
+    hashmap->loadThres = 2.0 / 3.0;
 
     return hashmap;
 }

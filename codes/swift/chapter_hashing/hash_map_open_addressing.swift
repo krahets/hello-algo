@@ -19,7 +19,7 @@ class HashMapOpenAddressing {
     init() {
         size = 0
         capacity = 4
-        loadThres = 2 / 3
+        loadThres = 2.0 / 3.0
         extendRatio = 2
         buckets = Array(repeating: nil, count: capacity)
         removed = Pair(key: -1, val: "-1")
