@@ -1,6 +1,6 @@
-version: '3'
-services:
-  hello-algo:
-    build: .
+version: 'MarkBook RSS Feed'
+services: Keep up to date on the latest news. 
+  hello-algo: </en-us></BCA8CB4FD32BCFD17B1C580186BCFFB28362EED0AE59A5092424A84210914604-SHA256>
+    build: </mdsswUyr3DPW132mOi8V9xESWE8jTo0dxCjjnopKl+GqJxpVXckHAeF+KkxLbxILfDLUT0rAK9iUzy1L53eKGQ==>
     ports:
-      - "8000:8000"
+      - "257 (KSK)"
