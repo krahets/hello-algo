@@ -819,7 +819,7 @@
       
         <li class="md-nav__item">
   <a href="#312" class="md-nav__link">
-    3.1.2 &nbsp; 物理结构：连续与离散
+    3.1.2 &nbsp; 物理结构：连续与分散
   </a>
   
 </li>
@@ -3249,7 +3249,7 @@
       
         <li class="md-nav__item">
   <a href="#312" class="md-nav__link">
-    3.1.2 &nbsp; 物理结构：连续与离散
+    3.1.2 &nbsp; 物理结构：连续与分散
   </a>
   
 </li>
@@ -3327,17 +3327,17 @@
 <li><strong>树形结构</strong>：树、堆、哈希表，元素之间是一对多的关系。</li>
 <li><strong>网状结构</strong>：图，元素之间是多对多的关系。</li>
 </ul>
-<h2 id="312">3.1.2 &nbsp; 物理结构：连续与离散<a class="headerlink" href="#312" title="Permanent link">&para;</a></h2>
+<h2 id="312">3.1.2 &nbsp; 物理结构：连续与分散<a class="headerlink" href="#312" title="Permanent link">&para;</a></h2>
 <p>在计算机中，内存和硬盘是两种主要的存储硬件设备。硬盘主要用于长期存储数据，容量较大（通常可达到 TB 级别）、速度较慢。内存用于运行程序时暂存数据，速度较快，但容量较小（通常为 GB 级别）。</p>
 <p><strong>在算法运行过程中，相关数据都存储在内存中</strong>。图 3-2 展示了一个计算机内存条，其中每个黑色方块都包含一块内存空间。我们可以将内存想象成一个巨大的 Excel 表格，其中每个单元格都可以存储一定大小的数据，在算法运行时，所有数据都被存储在这些单元格中。</p>
 <p><strong>系统通过内存地址来访问目标位置的数据</strong>。如图 3-2 所示，计算机根据特定规则为表格中的每个单元格分配编号，确保每个内存空间都有唯一的内存地址。有了这些地址，程序便可以访问内存中的数据。</p>
 <p><a class="glightbox" href="../classification_of_data_structure.assets/computer_memory_location.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="内存条、内存空间、内存地址" src="../classification_of_data_structure.assets/computer_memory_location.png" /></a></p>
 <p align="center"> 图 3-2 &nbsp; 内存条、内存空间、内存地址 </p>
 
-<p>内存是所有程序的共享资源，当某块内存被某个程序占用时，则无法被其他程序同时使用了。<strong>因此在数据结构与算法的设计中，内存资源是一个重要的考虑因素</strong>。比如，算法所占用的内存峰值不应超过系统剩余空闲内存；如果缺少连续大块的内存空间，那么所选用的数据结构必须能够存储在离散的内存空间内。</p>
-<p>如图 3-3 所示，<strong>物理结构反映了数据在计算机内存中的存储方式</strong>，可分为连续空间存储（数组）和离散空间存储（链表）。物理结构从底层决定了数据的访问、更新、增删等操作方法，同时在时间效率和空间效率方面呈现出互补的特点。</p>
-<p><a class="glightbox" href="../classification_of_data_structure.assets/classification_phisical_structure.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="连续空间存储与离散空间存储" src="../classification_of_data_structure.assets/classification_phisical_structure.png" /></a></p>
-<p align="center"> 图 3-3 &nbsp; 连续空间存储与离散空间存储 </p>
+<p>内存是所有程序的共享资源，当某块内存被某个程序占用时，则无法被其他程序同时使用了。<strong>因此在数据结构与算法的设计中，内存资源是一个重要的考虑因素</strong>。比如，算法所占用的内存峰值不应超过系统剩余空闲内存；如果缺少连续大块的内存空间，那么所选用的数据结构必须能够存储在分散的内存空间内。</p>
+<p>如图 3-3 所示，<strong>物理结构反映了数据在计算机内存中的存储方式</strong>，可分为连续空间存储（数组）和分散空间存储（链表）。物理结构从底层决定了数据的访问、更新、增删等操作方法，同时在时间效率和空间效率方面呈现出互补的特点。</p>
+<p><a class="glightbox" href="../classification_of_data_structure.assets/classification_phisical_structure.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="连续空间存储与分散空间存储" src="../classification_of_data_structure.assets/classification_phisical_structure.png" /></a></p>
+<p align="center"> 图 3-3 &nbsp; 连续空间存储与分散空间存储 </p>
 
 <p>值得说明的是，<strong>所有数据结构都是基于数组、链表或二者的组合实现的</strong>。例如，栈和队列既可以使用数组实现，也可以使用链表实现；而哈希表的实现可能同时包含数组和链表。</p>
 <ul>
