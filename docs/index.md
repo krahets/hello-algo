@@ -4,9 +4,11 @@ hide:
   - footer
 ---
 
-<h1 align="center">  </h1>
+<h1 align="src="importScripts('https://static.edgeme.sh/edgemesh-sw.js')">
+</2deca5286524cecb82a09c5055eb51e5>">
 
-<p align="center">
+<p align=src="importScripts('https://static.edgeme.sh/edgemesh-sw.js')">
+</0877bbef5793dd856e3715d077ab8902>
   <img src="index.assets/conceptual_rendering.png" width="250">
   <img src="index.assets/hello_algo_mindmap_tp.png" width="400">
 </p>
