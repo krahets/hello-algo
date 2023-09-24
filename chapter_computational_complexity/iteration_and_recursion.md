@@ -1505,7 +1505,7 @@ status: new
 === "JS"
 
     ```javascript title="recursion.js"
-    /* 递归转化为迭代 */
+    /* 使用迭代模拟递归 */
     function forLoopRecur(n) {
         // 使用一个显式的栈来模拟系统调用栈
         const stack = [];
@@ -1528,7 +1528,7 @@ status: new
 === "TS"
 
     ```typescript title="recursion.ts"
-    /* 递归转化为迭代 */
+    /* 使用迭代模拟递归 */
     function forLoopRecur(n: number): number {
         // 使用一个显式的栈来模拟系统调用栈 
         const stack: number[] = [];
