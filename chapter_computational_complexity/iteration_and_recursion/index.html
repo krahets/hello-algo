@@ -4297,7 +4297,7 @@
 <p>以上述的求和函数为例，设问题 <span class="arithmatex">\(f(n) = 1 + 2 + \dots + n\)</span> 。</p>
 <ul>
 <li><strong>迭代</strong>：在循环中模拟求和过程，从 <span class="arithmatex">\(1\)</span> 遍历到 <span class="arithmatex">\(n\)</span> ，每轮执行求和操作，即可求得 <span class="arithmatex">\(f(n)\)</span> 。</li>
-<li><strong>递归</strong>：将问题分解为子问题 <span class="arithmatex">\(f(n) = n + f(n-1)\)</span> ，不断（递归地）分解下去，直至基本情况 <span class="arithmatex">\(f(0) = 0\)</span> 时终止。</li>
+<li><strong>递归</strong>：将问题分解为子问题 <span class="arithmatex">\(f(n) = n + f(n-1)\)</span> ，不断（递归地）分解下去，直至基本情况 <span class="arithmatex">\(f(1) = 1\)</span> 时终止。</li>
 </ul>
 <h3 id="1">1. &nbsp; 调用栈<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>递归函数每次调用自身时，系统都会为新开启的函数分配内存，以存储局部变量、调用地址和其他信息等。这将导致两方面的结果。</p>
@@ -4765,7 +4765,24 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">recursion.swift</span><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">forLoopRecur</span><span class="p">}</span>
+<div class="highlight"><span class="filename">recursion.swift</span><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a><span class="cm">/* 使用迭代模拟递归 */</span>
+<a id="__codelineno-89-2" name="__codelineno-89-2" href="#__codelineno-89-2"></a><span class="kd">func</span> <span class="nf">forLoopRecur</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<a id="__codelineno-89-3" name="__codelineno-89-3" href="#__codelineno-89-3"></a>    <span class="c1">// 使用一个显式的栈来模拟系统调用栈</span>
+<a id="__codelineno-89-4" name="__codelineno-89-4" href="#__codelineno-89-4"></a>    <span class="kd">var</span> <span class="nv">stack</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span>
+<a id="__codelineno-89-5" name="__codelineno-89-5" href="#__codelineno-89-5"></a>    <span class="kd">var</span> <span class="nv">res</span> <span class="p">=</span> <span class="mi">0</span>
+<a id="__codelineno-89-6" name="__codelineno-89-6" href="#__codelineno-89-6"></a>    <span class="c1">// 递：递归调用</span>
+<a id="__codelineno-89-7" name="__codelineno-89-7" href="#__codelineno-89-7"></a>    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="bp">stride</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="n">n</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">by</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-89-8" name="__codelineno-89-8" href="#__codelineno-89-8"></a>        <span class="c1">// 通过“入栈操作”模拟“递”</span>
+<a id="__codelineno-89-9" name="__codelineno-89-9" href="#__codelineno-89-9"></a>        <span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-89-10" name="__codelineno-89-10" href="#__codelineno-89-10"></a>    <span class="p">}</span>
+<a id="__codelineno-89-11" name="__codelineno-89-11" href="#__codelineno-89-11"></a>    <span class="c1">// 归：返回结果</span>
+<a id="__codelineno-89-12" name="__codelineno-89-12" href="#__codelineno-89-12"></a>    <span class="k">while</span> <span class="o">!</span><span class="n">stack</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="p">{</span>
+<a id="__codelineno-89-13" name="__codelineno-89-13" href="#__codelineno-89-13"></a>        <span class="c1">// 通过“出栈操作”模拟“归”</span>
+<a id="__codelineno-89-14" name="__codelineno-89-14" href="#__codelineno-89-14"></a>        <span class="n">res</span> <span class="o">+=</span> <span class="n">stack</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">()</span>
+<a id="__codelineno-89-15" name="__codelineno-89-15" href="#__codelineno-89-15"></a>    <span class="p">}</span>
+<a id="__codelineno-89-16" name="__codelineno-89-16" href="#__codelineno-89-16"></a>    <span class="c1">// res = 1+2+3+...+n</span>
+<a id="__codelineno-89-17" name="__codelineno-89-17" href="#__codelineno-89-17"></a>    <span class="k">return</span> <span class="n">res</span>
+<a id="__codelineno-89-18" name="__codelineno-89-18" href="#__codelineno-89-18"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
