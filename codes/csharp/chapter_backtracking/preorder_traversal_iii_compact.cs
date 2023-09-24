@@ -11,7 +11,7 @@ public class preorder_traversal_iii_compact {
     static List<List<TreeNode>> res;
 
     /* 前序遍历：例题三 */
-    static void preOrder(TreeNode root) {
+    static void PreOrder(TreeNode root) {
         // 剪枝
         if (root == null || root.val == 3) {
             return;
@@ -22,8 +22,8 @@ public class preorder_traversal_iii_compact {
             // 记录解
             res.Add(new List<TreeNode>(path));
         }
-        preOrder(root.left);
-        preOrder(root.right);
+        PreOrder(root.left);
+        PreOrder(root.right);
         // 回退
         path.RemoveAt(path.Count - 1);
     }
@@ -37,7 +37,7 @@ public class preorder_traversal_iii_compact {
         // 前序遍历
         path = new List<TreeNode>();
         res = new List<List<TreeNode>>();
-        preOrder(root);
+        PreOrder(root);
 
         Console.WriteLine("\n输出所有根节点到节点 7 的路径，路径中不包含值为 3 的节点");
         foreach (List<TreeNode> path in res) {

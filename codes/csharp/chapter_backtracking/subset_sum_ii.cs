@@ -8,7 +8,7 @@ namespace hello_algo.chapter_backtracking;
 
 public class subset_sum_ii {
     /* 回溯算法：子集和 II */
-    public static void backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
+    public static void Backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
         // 子集和等于 target 时，记录解
         if (target == 0) {
             res.Add(new List<int>(state));
@@ -30,19 +30,19 @@ public class subset_sum_ii {
             // 尝试：做出选择，更新 target, start
             state.Add(choices[i]);
             // 进行下一轮选择
-            backtrack(state, target - choices[i], choices, i + 1, res);
+            Backtrack(state, target - choices[i], choices, i + 1, res);
             // 回退：撤销选择，恢复到之前的状态
             state.RemoveAt(state.Count - 1);
         }
     }
 
     /* 求解子集和 II */
-    public static List<List<int>> subsetSumII(int[] nums, int target) {
-        List<int> state = new List<int>(); // 状态（子集）
+    public static List<List<int>> SubsetSumII(int[] nums, int target) {
+        List<int> state = new(); // 状态（子集）
         Array.Sort(nums); // 对 nums 进行排序
         int start = 0; // 遍历起始点
-        List<List<int>> res = new List<List<int>>(); // 结果列表（子集列表）
-        backtrack(state, target, nums, start, res);
+        List<List<int>> res = new(); // 结果列表（子集列表）
+        Backtrack(state, target, nums, start, res);
         return res;
     }
 
@@ -50,7 +50,7 @@ public class subset_sum_ii {
     public void Test() {
         int[] nums = { 4, 4, 5 };
         int target = 9;
-        List<List<int>> res = subsetSumII(nums, target);
+        List<List<int>> res = SubsetSumII(nums, target);
         Console.WriteLine("输入数组 nums = " + string.Join(", ", nums) + ", target = " + target);
         Console.WriteLine("所有和等于 " + target + " 的子集 res = ");
         foreach (var subset in res) {

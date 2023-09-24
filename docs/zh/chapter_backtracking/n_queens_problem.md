@@ -67,9 +67,9 @@
 === "C#"
 
     ```csharp title="n_queens.cs"
-    [class]{n_queens}-[func]{backtrack}
+    [class]{n_queens}-[func]{Backtrack}
 
-    [class]{n_queens}-[func]{nQueens}
+    [class]{n_queens}-[func]{NQueens}
     ```
 
 === "Go"

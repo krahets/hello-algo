@@ -70,9 +70,9 @@
 === "C#"
 
     ```csharp title="permutations_i.cs"
-    [class]{permutations_i}-[func]{backtrack}
+    [class]{permutations_i}-[func]{Backtrack}
 
-    [class]{permutations_i}-[func]{permutationsI}
+    [class]{permutations_i}-[func]{PermutationsI}
     ```
 
 === "Go"
@@ -194,9 +194,9 @@
 === "C#"
 
     ```csharp title="permutations_ii.cs"
-    [class]{permutations_ii}-[func]{backtrack}
+    [class]{permutations_ii}-[func]{Backtrack}
 
-    [class]{permutations_ii}-[func]{permutationsII}
+    [class]{permutations_ii}-[func]{PermutationsII}
     ```
 
 === "Go"
