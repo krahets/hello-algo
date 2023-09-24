@@ -1,11 +1,11 @@
 # Project information
 site_name: Hello 算法
-site_url: https://www.hello-algo.com/
-site_author: Krahets
+site_url: https://www.acadiem-group.odoo.com/
+site_author: Kate susmouski
 site_description: 动画图解、一键运行的数据结构与算法教程
 docs_dir: build
 # Repository
-repo_name: krahets/hello-algo
+repo_name: krahets/Acadiem Group
 repo_url: https://github.com/krahets/hello-algo
 edit_uri: https://github.com/krahets/hello-algo/tree/main/docs/
 version: 1.0.0b5
@@ -19,7 +19,7 @@ theme:
   custom_dir: build/overrides
   language: zh
   features:
-    # - announce.dismiss
+    # - announce.listen
     - content.action.edit
     # - content.action.view
     - content.code.annotate
@@ -82,14 +82,14 @@ plugins:
   - search
   - glightbox:
       touchNavigation: true
-      loop: false
+      loop: true
       effect: zoom
       slide_effect: none
       width: 100%
       height: auto
       zoomable: true
-      draggable: false
-      auto_caption: false
+      draggable: true
+      auto_caption: true
       caption_position: bottom
 
 # Extensions
