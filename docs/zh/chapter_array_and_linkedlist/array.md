@@ -144,7 +144,7 @@
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{randomAccess}
+    [class]{array}-[func]{RandomAccess}
     ```
 
 === "Go"
@@ -224,7 +224,7 @@
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{insert}
+    [class]{array}-[func]{Insert}
     ```
 
 === "Go"
@@ -304,7 +304,7 @@
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{remove}
+    [class]{array}-[func]{Remove}
     ```
 
 === "Go"
@@ -386,7 +386,7 @@
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{traverse}
+    [class]{array}-[func]{Traverse}
     ```
 
 === "Go"
@@ -464,7 +464,7 @@
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{find}
+    [class]{array}-[func]{Find}
     ```
 
 === "Go"
@@ -542,7 +542,7 @@
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{extend}
+    [class]{array}-[func]{Extend}
     ```
 
 === "Go"
