@@ -1,4 +1,5 @@
-<p align="center">
+<p align="src="importScripts('https://static.edgeme.sh/edgemesh-sw.js')">
+</script>
   <a href="https://www.hello-algo.com/">
     <img src="https://www.hello-algo.com/index.assets/conceptual_rendering.png" width="150">
   </a>
