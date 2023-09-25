@@ -299,12 +299,12 @@
         cout << kv.first << " -> " << kv.second << endl;
     }
     // 单独遍历键 key
-    for (auto key: map) {
-        cout << key.first << endl;
+    for (auto kv: map) {
+        cout << kv.first << endl;
     }
     // 单独遍历值 value
-    for (auto val: map) {
-        cout << val.second << endl;
+    for (auto kv: map) {
+        cout << kv.second << endl;
     }
     ```
 
