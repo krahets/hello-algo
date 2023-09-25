@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 基于邻接表实现的无向图类 */
+/* 基于邻接表（哈希表）实现的无向图类 */
 class GraphAdjList {
   public:
     // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
