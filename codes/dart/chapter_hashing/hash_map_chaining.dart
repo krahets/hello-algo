@@ -4,12 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 键值对 */
-class Pair {
-  int key;
-  String val;
-  Pair(this.key, this.val);
-}
+import 'array_hash_map.dart';
 
 /* 链式地址哈希表 */
 class HashMapChaining {
