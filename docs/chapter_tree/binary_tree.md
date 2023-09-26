@@ -127,11 +127,21 @@
 
     ```rust title=""
     /* 二叉树节点结构体 */
-    struct Node<T> {
+    struct TreeNode<T> {
         value: T,
         left: Option<Box<Node<T>>>,
         right: Option<Box<Node<T>>>,
     }
+    /* 构造方法 */
+    impl TreeNode {
+        fn new(value: T) -> Self {
+            TreeNode {
+                value,
+                left: None,
+                right: None,
+                }
+            }
+        }
     ```
 
 === "C"
