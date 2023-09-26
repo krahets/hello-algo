@@ -309,12 +309,12 @@ comments: true
         cout << kv.first << " -> " << kv.second << endl;
     }
     // 单独遍历键 key
-    for (auto key: map) {
-        cout << key.first << endl;
+    for (auto kv: map) {
+        cout << kv.first << endl;
     }
     // 单独遍历值 value
-    for (auto val: map) {
-        cout << val.second << endl;
+    for (auto kv: map) {
+        cout << kv.second << endl;
     }
     ```
 
@@ -1408,7 +1408,126 @@ index = hash(key) % capacity
 
     typedef struct pair pair;
 
-    [class]{arrayHashMap}-[func]{}
+    /* 基于数组简易实现的哈希表 */
+    struct arrayHashMap {
+        pair *buckets[HASH_MAP_DEFAULT_SIZE];
+    };
+
+    typedef struct arrayHashMap arrayHashMap;
+
+    /* 哈希表初始化函数 */
+    arrayHashMap *newArrayHashMap() {
+        arrayHashMap *map = malloc(sizeof(arrayHashMap));
+        return map;
+    }
+
+    /* 添加操作 */
+    void put(arrayHashMap *d, const int key, const char *val) {
+        pair *pair = malloc(sizeof(pair));
+        pair->key = key;
+        pair->val = malloc(strlen(val) + 1);
+        strcpy(pair->val, val);
+
+        int index = hashFunc(key);
+        d->buckets[index] = pair;
+    }
+
+    /* 删除操作 */
+    void removeItem(arrayHashMap *d, const int key) {
+        int index = hashFunc(key);
+        free(d->buckets[index]->val);
+        free(d->buckets[index]);
+        d->buckets[index] = NULL;
+    }
+
+    /* 获取所有键值对 */
+    void pairSet(arrayHashMap *d, mapSet *set) {
+        pair *entries;
+        int i = 0, index = 0;
+        int total = 0;
+
+        /* 统计有效键值对数量 */
+        for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+            if (d->buckets[i] != NULL) {
+                total++;
+            }
+        }
+
+        entries = malloc(sizeof(pair) * total);
+        for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+            if (d->buckets[i] != NULL) {
+                entries[index].key = d->buckets[i]->key;
+                entries[index].val = malloc(strlen(d->buckets[i]->val + 1));
+                strcpy(entries[index].val, d->buckets[i]->val);
+                index++;
+            }
+        }
+
+        set->set = entries;
+        set->len = total;
+    }
+
+    /* 获取所有键 */
+    void keySet(arrayHashMap *d, mapSet *set) {
+        int *keys;
+        int i = 0, index = 0;
+        int total = 0;
+
+        /* 统计有效键值对数量 */
+        for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+            if (d->buckets[i] != NULL) {
+                total++;
+            }
+        }
+
+        keys = malloc(total * sizeof(int));
+        for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+            if (d->buckets[i] != NULL) {
+                keys[index] = d->buckets[i]->key;
+                index++;
+            }
+        }
+
+        set->set = keys;
+        set->len = total;
+    }
+
+    /* 获取所有值 */
+    void valueSet(arrayHashMap *d, mapSet *set) {
+        char **vals;
+        int i = 0, index = 0;
+        int total = 0;
+
+        /* 统计有效键值对数量 */
+        for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+            if (d->buckets[i] != NULL) {
+                total++;
+            }
+        }
+
+        vals = malloc(total * sizeof(char *));
+        for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+            if (d->buckets[i] != NULL) {
+                vals[index] = d->buckets[i]->val;
+                index++;
+            }
+        }
+
+        set->set = vals;
+        set->len = total;
+    }
+
+    /* 打印哈希表 */
+    void print(arrayHashMap *d) {
+        int i;
+        mapSet set;
+        pairSet(d, &set);
+        pair *entries = (pair *)set.set;
+        for (i = 0; i < set.len; i++) {
+            printf("%d -> %s\n", entries[i].key, entries[i].val);
+        }
+        free(set.set);
+    }
     ```
 
 === "Zig"

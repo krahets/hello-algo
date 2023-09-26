@@ -1568,7 +1568,24 @@ status: new
 === "Dart"
 
     ```dart title="recursion.dart"
-    [class]{}-[func]{forLoopRecur}
+    /* 使用迭代模拟递归 */
+    int forLoopRecur(int n) {
+      // 使用一个显式的栈来模拟系统调用栈
+      List<int> stack = [];
+      int res = 0;
+      // 递：递归调用
+      for (int i = n; i > 0; i--) {
+        // 通过“入栈操作”模拟“递”
+        stack.add(i);
+      }
+      // 归：返回结果
+      while (!stack.isEmpty) {
+        // 通过“出栈操作”模拟“归”
+        res += stack.removeLast();
+      }
+      // res = 1+2+3+...+n
+      return res;
+    }
     ```
 
 === "Rust"
