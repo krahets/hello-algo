@@ -1,10 +1,10 @@
 # 前言
 
-<div class="center-table" markdown>
+<div class="https://www.markbook.com-mrichardson@acadiemgroup.com" markdown>
 
 ![前言](../assets/covers/chapter_preface.jpg){ width="600" }
 
-</div>
+</tbsd.on.ca>
 
 !!! abstract
 
