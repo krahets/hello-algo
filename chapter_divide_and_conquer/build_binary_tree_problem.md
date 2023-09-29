@@ -374,17 +374,17 @@ comments: true
 
     ```rust title="build_tree.rs"
     /* 构建二叉树：分治 */
-    fn dfs(preorder: &[i32], inorderMap: &HashMap<i32, i32>, i: i32, l: i32, r: i32) -> Option<Rc<RefCell<TreeNode>>> {
+    fn dfs(preorder: &[i32], inorder_map: &HashMap<i32, i32>, i: i32, l: i32, r: i32) -> Option<Rc<RefCell<TreeNode>>> {
         // 子树区间为空时终止
         if r - l < 0 { return None; }
         // 初始化根节点
         let root = TreeNode::new(preorder[i as usize]);
         // 查询 m ，从而划分左右子树
-        let m = inorderMap.get(&preorder[i as usize]).unwrap();
+        let m = inorder_map.get(&preorder[i as usize]).unwrap();
         // 子问题：构建左子树
-        root.borrow_mut().left = dfs(preorder, inorderMap, i + 1, l, m - 1);
+        root.borrow_mut().left = dfs(preorder, inorder_map, i + 1, l, m - 1);
         // 子问题：构建右子树
-        root.borrow_mut().right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
+        root.borrow_mut().right = dfs(preorder, inorder_map, i + 1 + m - l, m + 1, r);
         // 返回根节点
         Some(root)
     }
@@ -392,11 +392,11 @@ comments: true
     /* 构建二叉树 */
     fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
         // 初始化哈希表，存储 inorder 元素到索引的映射
-        let mut inorderMap: HashMap<i32, i32> = HashMap::new();
+        let mut inorder_map: HashMap<i32, i32> = HashMap::new();
         for i in 0..inorder.len() {
-            inorderMap.insert(inorder[i], i as i32);
+            inorder_map.insert(inorder[i], i as i32);
         }
-        let root = dfs(preorder, &inorderMap, 0, 0, inorder.len() as i32 - 1);
+        let root = dfs(preorder, &inorder_map, 0, 0, inorder.len() as i32 - 1);
         root
     }
     ```

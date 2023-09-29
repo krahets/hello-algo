@@ -91,10 +91,15 @@ comments: true
 
     ```javascript title=""
     /* 二叉树节点类 */
-    function TreeNode(val, left, right) {
-        this.val = (val === undefined ? 0 : val); // 节点值
-        this.left = (left === undefined ? null : left); // 左子节点引用
-        this.right = (right === undefined ? null : right); // 右子节点引用
+    class TreeNode {
+        val; // 节点值
+        left; // 左子节点指针
+        right; // 右子节点指针
+        constructor(val, left, right) {
+            this.val = val === undefined ? 0 : val;
+            this.left = left === undefined ? null : left;
+            this.right = right === undefined ? null : right;
+        }
     }
     ```
 
