@@ -87,10 +87,15 @@
 
     ```javascript title=""
     /* 二叉树节点类 */
-    function TreeNode(val, left, right) {
-        this.val = (val === undefined ? 0 : val); // 节点值
-        this.left = (left === undefined ? null : left); // 左子节点引用
-        this.right = (right === undefined ? null : right); // 右子节点引用
+    class TreeNode {
+        val; // 节点值
+        left; // 左子节点指针
+        right; // 右子节点指针
+        constructor(val, left, right) {
+            this.val = val === undefined ? 0 : val;
+            this.left = left === undefined ? null : left;
+            this.right = right === undefined ? null : right;
+        }
     }
     ```
 
@@ -550,7 +555,7 @@
 
 ### 完美二叉树
 
-「完美二叉树 perfect binary tree」除了最底层外，其余所有层的节点都被完全填满。在完美二叉树中，叶节点的度为 $0$ ，其余所有节点的度都为 $2$ ；若树高度为 $h$ ，则节点总数为 $2^{h+1} - 1$ ，呈现标准的指数级关系，反映了自然界中常见的细胞分裂现象。
+「完美二叉树 perfect binary tree」所有层的节点都被完全填满。在完美二叉树中，叶节点的度为 $0$ ，其余所有节点的度都为 $2$ ；若树高度为 $h$ ，则节点总数为 $2^{h+1} - 1$ ，呈现标准的指数级关系，反映了自然界中常见的细胞分裂现象。
 
 !!! tip
 
@@ -578,7 +583,7 @@
 
 ## 二叉树的退化
 
-当二叉树的每层节点都被填满时，达到“完美二叉树”；而当所有节点都偏向一侧时，二叉树退化为“链表”。
+下图展示了二叉树的理想与退化状态。当二叉树的每层节点都被填满时，达到“完美二叉树”；而当所有节点都偏向一侧时，二叉树退化为“链表”。
 
 - 完美二叉树是理想情况，可以充分发挥二叉树“分治”的优势。
 - 链表则是另一个极端，各项操作都变为线性操作，时间复杂度退化至 $O(n)$ 。
