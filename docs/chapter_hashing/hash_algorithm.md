@@ -436,6 +436,9 @@ $$
 === "Rust"
 
     ```rust title="built_in_hash.rs"
+    use std::collections::hash_map::DefaultHasher;
+    use std::hash::{Hash, Hasher};
+    
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
