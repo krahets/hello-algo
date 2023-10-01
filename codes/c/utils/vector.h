@@ -83,7 +83,8 @@ int vectorSize(vector *v) {
 
 /* 获取向量的尾元素 */
 void *vectorBack(vector *v) {
-    return v->data[v->size];
+    int n = v->size;
+    return n > 0 ? v->data[n - 1] : NULL;
 }
 
 /* 获取向量的头元素 */
