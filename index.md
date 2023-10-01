@@ -99,7 +99,7 @@ hide:
 
 <h2 align="center"> 致谢 </h2>
 
-本书在开源社区众多贡献者的共同努力下不断成长。感谢每一位投入时间与精力的撰稿人，是他们的无私奉献使这本书变得更好，他们是（按照 GitHub 自动生成的顺序）：
+本书在开源社区众多贡献者的共同努力下不断成长。感谢每一位投入时间与精力的撰稿人，是他们的无私奉献使这本书变得更好，他们是（按照 GitHub 自动生成的顺序排列）：
 
 <p align="center">
     <a href="https://github.com/krahets/hello-algo/graphs/contributors">
