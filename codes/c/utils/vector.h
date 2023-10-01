@@ -254,6 +254,10 @@ void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
         if (v->depth == 0) {
             return;
         } else if (v->depth == 1) {
+            if(v->size == 0) {
+                printf("\r\n");
+                return;
+            }
             for (int i = 0; i < v->size; i++) {
                 if (i == 0) {
                     printf("[");
