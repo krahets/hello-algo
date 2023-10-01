@@ -99,7 +99,9 @@
 === "Rust"
 
     ```rust title=""
-
+    /* 二叉树的数组表示 */
+    // 使用 None 来标记空位
+    let tree = [Some(1), Some(2), Some(3), Some(4), None, Some(6), Some(7), Some(8), Some(9), None, None, Some(12), None, None, Some(15)];
     ```
 
 === "C"
