@@ -55,20 +55,16 @@ int main() {
     printVector(A, printFunc);
     printf("B =");
     printVector(B, printFunc);
-    printf("\n");
     printf("C =");
     printVector(C, printFunc);
-    printf("\n");
 
     solveHanota(A, B, C);
 
     printf("圆盘移动完成后：\n");
     printf("A =");
     printVector(A, printFunc);
-    printf("\n");
     printf("B =");
     printVector(B, printFunc);
-    printf("\n");
     printf("C =");
     printVector(C, printFunc);
 
