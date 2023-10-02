@@ -6,46 +6,37 @@
 
 #include "../utils/common.h"
 
+int cost_size;
+
 /* 爬楼梯最小代价：动态规划 */
-int minCostClimbingStairsDP(vector *cost) {
-    int n = cost->size - 1;
+int minCostClimbingStairsDP(int cost[]) {
+    int n = cost_size - 1;
     if (n == 1 || n == 2)
-        return *(int *)cost->data[n];
+        return cost[n];
     // 初始化 dp 表，用于存储子问题的解
-    int *temp = malloc(sizeof(int));
-    *temp = 0;
-    vector *dp = _newVector(n + 1, temp, sizeof(int));
+    int dp[n + 1];
     // 初始状态：预设最小子问题的解
-    vectorSet(dp, 1, cost->data[1], sizeof(int));
-    vectorSet(dp, 2, cost->data[2], sizeof(int));
+    dp[1] = cost[1];
+    dp[2] = cost[2];
     // 状态转移：从较小子问题逐步求解较大子问题
     for (int i = 3; i <= n; i++) {
-        int *a = dp->data[i - 1];
-        int *b = dp->data[i - 2];
-        int *c = cost->data[i];
-        int *minNum = malloc(sizeof(int));
-        *minNum = min(*a, *b) + *c;
-        vectorSet(dp, i, minNum, sizeof(int));
+        dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
     }
-    return *(int *)dp->data[n];
+    return dp[n];
 }
 
 /* 爬楼梯最小代价：空间优化后的动态规划 */
-int minCostClimbingStairsDPComp(vector *cost) {
-    int n = cost->size - 1;
+int minCostClimbingStairsDPComp(int cost[]) {
+    int n = cost_size - 1;
     if (n == 1 || n == 2)
-        return *(int *)cost->data[n];
-    int *a = malloc(sizeof(int));
-    *a = *(int *)cost->data[1];
-    int *b = malloc(sizeof(int));
-    *b = *(int *)cost->data[2];
+        return cost[n];
+    int a = cost[1], b = cost[2];
     for (int i = 3; i <= n; i++) {
-        int *tmp = malloc(sizeof(int));
-        *tmp = *b;
-        *b = min(*a, *tmp) + *(int *)cost->data[i];
-        *a = *tmp;
+        int tmp = b;
+        b = min(a, tmp) + cost[i];
+        a = tmp;
     }
-    return *b;
+    return b;
 }
 
 /*求最小值*/
@@ -55,13 +46,14 @@ int min(int a, int b) {
 
 /* Driver Code */
 int main() {
-    int nums[] = {0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1};
-    vector *cost = newVector(); // int
-    for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
-        vectorPushback(cost, &nums[i], sizeof(int));
+    int cost[] = {0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1};
+    cost_size = sizeof(cost) / sizeof(cost[0]);
+    printf("输入楼梯的代价列表为 [");
+    for(int i = 0; i < cost_size; i++) {
+        if(i != cost_size - 1) printf("%d ", cost[i]);
+        else printf("%d", cost[i]);
     }
-    printf("输入楼梯的代价列表为 ");
-    printVector(cost, printFunc);
+    printf("]\n");
 
     int res = minCostClimbingStairsDP(cost);
     printf("爬完楼梯的最低代价为 %d\n", res);
