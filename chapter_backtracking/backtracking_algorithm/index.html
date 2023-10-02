@@ -4289,7 +4289,27 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="cm">/* 回溯算法框架 */</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="k">fn</span> <span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span>: <span class="kp">&amp;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">Choice</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">State</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">    </span><span class="c1">// 判断是否为解</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">is_solution</span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="w">        </span><span class="c1">// 记录解</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="w">        </span><span class="n">record_solution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="w">        </span><span class="c1">// 停止继续搜索</span>
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a><span class="w">    </span><span class="c1">// 遍历所有选择</span>
+<a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a><span class="w">        </span><span class="c1">// 剪枝：判断选择是否合法</span>
+<a id="__codelineno-45-13" name="__codelineno-45-13" href="#__codelineno-45-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">is_valid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-45-14" name="__codelineno-45-14" href="#__codelineno-45-14"></a><span class="w">            </span><span class="c1">// 尝试：做出选择，更新状态</span>
+<a id="__codelineno-45-15" name="__codelineno-45-15" href="#__codelineno-45-15"></a><span class="w">            </span><span class="n">make_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
+<a id="__codelineno-45-16" name="__codelineno-45-16" href="#__codelineno-45-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
+<a id="__codelineno-45-17" name="__codelineno-45-17" href="#__codelineno-45-17"></a><span class="w">            </span><span class="c1">// 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-45-18" name="__codelineno-45-18" href="#__codelineno-45-18"></a><span class="w">            </span><span class="n">undo_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
+<a id="__codelineno-45-19" name="__codelineno-45-19" href="#__codelineno-45-19"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-45-20" name="__codelineno-45-20" href="#__codelineno-45-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-45-21" name="__codelineno-45-21" href="#__codelineno-45-21"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
