@@ -161,7 +161,28 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 === "Rust"
 
     ```rust title=""
+    use std::rc::Rc;
+    use std::cell::RefCell;
 
+    /* AVL 树节点结构体 */
+    struct TreeNode {
+        val: i32,                               // 节点值
+        height: i32,                            // 节点高度
+        left: Option<Rc<RefCell<TreeNode>>>,    // 左子节点
+        right: Option<Rc<RefCell<TreeNode>>>,   // 右子节点
+    }
+
+    impl TreeNode {
+        /* 构造方法 */
+        fn new(val: i32) -> Rc<RefCell<Self>> {
+            Rc::new(RefCell::new(Self {
+                val,
+                height: 0,
+                left: None,
+                right: None
+            }))
+        }
+    }
     ```
 
 === "C"

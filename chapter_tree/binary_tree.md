@@ -62,7 +62,7 @@ comments: true
         Left  *TreeNode
         Right *TreeNode
     }
-    /* 节点初始化方法 */
+    /* 构造方法 */
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
             Left:  nil, // 左子节点指针
@@ -135,7 +135,26 @@ comments: true
 === "Rust"
 
     ```rust title=""
+    use std::rc::Rc;
+    use std::cell::RefCell;
 
+    /* 二叉树节点结构体 */
+    struct TreeNode {
+        val: i32,                               // 节点值
+        left: Option<Rc<RefCell<TreeNode>>>,    // 左子节点引用
+        right: Option<Rc<RefCell<TreeNode>>>,   // 右子节点引用
+    }
+
+    impl TreeNode {
+        /* 构造方法 */
+        fn new(val: i32) -> Rc<RefCell<Self>> {
+            Rc::new(RefCell::new(Self {
+                val,
+                left: None,
+                right: None
+            }))
+        }
+    }
     ```
 
 === "C"
@@ -359,7 +378,17 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
-
+    // 初始化节点
+    let n1 = TreeNode::new(1);
+    let n2 = TreeNode::new(2);
+    let n3 = TreeNode::new(3);
+    let n4 = TreeNode::new(4);
+    let n5 = TreeNode::new(5);
+    // 构建引用指向（即指针）
+    n1.borrow_mut().left = Some(n2.clone());
+    n1.borrow_mut().right = Some(n3);
+    n2.borrow_mut().left = Some(n4);
+    n2.borrow_mut().right = Some(n5);
     ```
 
 === "C"
@@ -502,7 +531,12 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
-
+    let p = TreeNode::new(0);
+    // 在 n1 -> n2 中间插入节点 P
+    n1.borrow_mut().left = Some(p.clone());
+    p.borrow_mut().left = Some(n2.clone());
+    // 删除节点 p
+    n1.borrow_mut().left = Some(n2);
     ```
 
 === "C"

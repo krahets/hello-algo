@@ -306,7 +306,41 @@ comments: true
 === "Rust"
 
     ```rust title="heap.rs"
+    use std::collections::BinaryHeap;
+    use std::cmp::Reverse;
 
+    /* 初始化堆 */
+    // 初始化小顶堆
+    let mut min_heap = BinaryHeap::<Reverse<i32>>::new();
+    // 初始化大顶堆
+    let mut max_heap = BinaryHeap::new();
+
+    /* 元素入堆 */
+    max_heap.push(1);
+    max_heap.push(3);
+    max_heap.push(2);
+    max_heap.push(5);
+    max_heap.push(4);
+    
+    /* 获取堆顶元素 */
+    let peek = max_heap.peek().unwrap();  // 5
+
+    /* 堆顶元素出堆 */
+    // 出堆元素会形成一个从大到小的序列
+    let peek = max_heap.pop().unwrap();   // 5
+    let peek = max_heap.pop().unwrap();   // 4
+    let peek = max_heap.pop().unwrap();   // 3
+    let peek = max_heap.pop().unwrap();   // 2
+    let peek = max_heap.pop().unwrap();   // 1
+
+    /* 获取堆大小 */
+    let size = max_heap.len();
+
+    /* 判断堆是否为空 */
+    let is_empty = max_heap.is_empty();
+
+    /* 输入列表并建堆 */
+    let min_heap = BinaryHeap::from(vec![Reverse(1), Reverse(3), Reverse(2), Reverse(5), Reverse(4)]);
     ```
 
 === "C"
