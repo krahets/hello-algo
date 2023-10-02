@@ -4,7 +4,7 @@
  * Author: Zuoxun (845242523@qq.com)
  */
 
-#include "common.h"
+#include "../utils/common.h"
 
 /* 爬楼梯最小代价：动态规划 */
 int minCostClimbingStairsDP(vector *cost) {
