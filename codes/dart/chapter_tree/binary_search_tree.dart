@@ -133,7 +133,7 @@ void main() {
 
   /* 查找节点 */
   TreeNode? node = bst.search(7);
-  print("\n查找到的节点对象为 $node，节点值 = ${node?.val}");
+  print("\n查找到的节点对象为 $node ，节点值 = ${node?.val}");
 
   /* 插入节点 */
   bst.insert(16);

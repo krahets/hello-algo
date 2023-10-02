@@ -194,10 +194,10 @@ int main() {
 
     /* 元素出队 */
     int popLastNum = popLast(deque);
-    printf("队尾出队元素 popLast = %d，队尾出队后 deque = ", popLastNum);
+    printf("队尾出队元素 popLast = %d ，队尾出队后 deque = ", popLastNum);
     printLinkedListDeque(deque);
     int popFirstNum = popFirst(deque);
-    printf("队首出队元素 popFirst = %d，队首出队后 deque = ", popFirstNum);
+    printf("队首出队元素 popFirst = %d ，队首出队后 deque = ", popFirstNum);
     printLinkedListDeque(deque);
 
     /* 获取队列的长度 */

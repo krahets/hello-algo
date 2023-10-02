@@ -214,5 +214,5 @@ void main() {
 
   /* 查询节点 */
   TreeNode? node = avlTree.search(7);
-  print("\n查找到的节点对象为 $node，节点值 = ${node!.val}");
+  print("\n查找到的节点对象为 $node ，节点值 = ${node!.val}");
 }

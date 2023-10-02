@@ -83,7 +83,7 @@ void printLinkedListQueue(linkedListQueue *queue) {
     // 拷贝链表中的数据到数组
     int i;
     ListNode *node;
-    for (i = 0, node = queue->front; i < queue->queSize && queue->front != queue->rear; i++) {
+    for (i = 0, node = queue->front; i < queue->queSize; i++) {
         arr[i] = node->val;
         node = node->next;
     }
@@ -110,7 +110,7 @@ int main() {
 
     /* 元素出队 */
     pop(queue);
-    printf("出队元素 pop = %d，出队后 queue = ", peekNum);
+    printf("出队元素 pop = %d ，出队后 queue = ", peekNum);
     printLinkedListQueue(queue);
 
     /* 获取队列的长度 */

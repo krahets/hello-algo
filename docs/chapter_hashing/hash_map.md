@@ -120,7 +120,7 @@
 
 === "Go"
 
-    ```go title="hash_map.go"
+    ```go title="hash_map_test.go"
     /* 初始化哈希表 */
     hmap := make(map[int]string)
     
@@ -299,12 +299,12 @@
         cout << kv.first << " -> " << kv.second << endl;
     }
     // 单独遍历键 key
-    for (auto key: map) {
-        cout << key.first << endl;
+    for (auto kv: map) {
+        cout << kv.first << endl;
     }
     // 单独遍历值 value
-    for (auto val: map) {
-        cout << val.second << endl;
+    for (auto kv: map) {
+        cout << kv.second << endl;
     }
     ```
 

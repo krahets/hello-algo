@@ -22,8 +22,8 @@
     class ListNode:
         """链表节点类"""
         def __init__(self, val: int):
-            self.val: int = val                  # 节点值
-            self.next: Optional[ListNode] = None # 指向下一节点的引用
+            self.val: int = val               # 节点值
+            self.next: ListNode | None = None # 指向下一节点的引用
     ```
 
 === "C++"
@@ -717,7 +717,7 @@
 
 |            | 数组                     | 链表         |
 | ---------- | ------------------------ | ------------ |
-| 存储方式   | 连续内存空间             | 离散内存空间 |
+| 存储方式   | 连续内存空间             | 分散内存空间 |
 | 缓存局部性 | 友好                     | 不友好       |
 | 容量扩展   | 长度不可变               | 可灵活扩展   |
 | 内存效率   | 占用内存少、浪费部分空间 | 占用内存多   |
@@ -739,9 +739,9 @@
     class ListNode:
         """双向链表节点类"""
         def __init__(self, val: int):
-            self.val: int = val                   # 节点值
-            self.next: Optional[ListNode] = None  # 指向后继节点的引用
-            self.prev: Optional[ListNode] = None  # 指向前驱节点的引用
+            self.val: int = val                # 节点值
+            self.next: ListNode | None = None  # 指向后继节点的引用
+            self.prev: ListNode | None = None  # 指向前驱节点的引用
     ```
 
 === "C++"

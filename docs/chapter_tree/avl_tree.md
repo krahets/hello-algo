@@ -1,6 +1,6 @@
 # AVL 树 *
 
-在二叉搜索树章节中，我们提到了在多次插入和删除操作后，二叉搜索树可能退化为链表。这种情况下，所有操作的时间复杂度将从 $O(\log n)$ 恶化为 $O(n)$。
+在二叉搜索树章节中，我们提到了在多次插入和删除操作后，二叉搜索树可能退化为链表。这种情况下，所有操作的时间复杂度将从 $O(\log n)$ 恶化为 $O(n)$ 。
 
 如下图所示，经过两次删除节点操作，这个二叉搜索树便会退化为链表。
 
@@ -26,10 +26,10 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
     class TreeNode:
         """AVL 树节点类"""
         def __init__(self, val: int):
-            self.val: int = val                    # 节点值
-            self.height: int = 0                   # 节点高度
-            self.left: Optional[TreeNode] = None   # 左子节点引用
-            self.right: Optional[TreeNode] = None  # 右子节点引用
+            self.val: int = val                 # 节点值
+            self.height: int = 0                # 节点高度
+            self.left: TreeNode | None = None   # 左子节点引用
+            self.right: TreeNode | None = None  # 右子节点引用
     ```
 
 === "C++"
@@ -153,7 +153,28 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 === "Rust"
 
     ```rust title=""
+    use std::rc::Rc;
+    use std::cell::RefCell;
 
+    /* AVL 树节点类型 */
+    struct TreeNode {
+        val: i32,                               // 节点值
+        height: i32,                            // 节点高度
+        left: Option<Rc<RefCell<TreeNode>>>,    // 左子节点
+        right: Option<Rc<RefCell<TreeNode>>>,   // 右子节点
+    }
+
+    impl TreeNode {
+        /* AVL 树节点构造方法 */
+        fn new(val: i32) -> Rc<RefCell<Self>> {
+            Rc::new(RefCell::new(Self {
+                val,
+                height: 0,
+                left: None,
+                right: None
+            }))
+        }
+    }
     ```
 
 === "C"

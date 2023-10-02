@@ -13,8 +13,8 @@ func minCostClimbingStairsDP(cost: [Int]) -> Int {
     // 初始化 dp 表，用于存储子问题的解
     var dp = Array(repeating: 0, count: n + 1)
     // 初始状态：预设最小子问题的解
-    dp[1] = 1
-    dp[2] = 2
+    dp[1] = cost[1]
+    dp[2] = cost[2]
     // 状态转移：从较小子问题逐步求解较大子问题
     for i in stride(from: 3, through: n, by: 1) {
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]

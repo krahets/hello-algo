@@ -8,8 +8,8 @@
  * Definition for a singly-linked list node
  */
 class ListNode {
-    val;
-    next;
+    val; // 节点值
+    next; // 指向下一节点的引用（指针）
     constructor(val, next) {
         this.val = val === undefined ? 0 : val;
         this.next = next === undefined ? null : next;

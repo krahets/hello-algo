@@ -7,7 +7,6 @@
 
 # mkdocs files
 .cache/
-/docs/overrides
 
 # build
 /build
@@ -16,3 +15,8 @@
 
 # test script
 test.sh
+
+# overrides
+docs/overrides/partials/*
+!docs/overrides/partials/content.html
+!docs/overrides/partials/footer.html
