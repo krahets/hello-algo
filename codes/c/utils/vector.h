@@ -29,6 +29,21 @@ vector *newVector() {
     return v;
 }
 
+/*构造向量，指定大小、元素默认值*/
+vector *_newVector(int size, void *elem, int elemSize) {
+    vector *v = malloc(sizeof(vector));
+    v->size = size;
+    v->capacity = size;
+    v->depth = 1;
+    v->data = malloc(v->capacity * sizeof(void *));
+    for (int i = 0; i < size; i++) {
+        void *tmp = malloc(sizeof(char) * elemSize);
+        memcpy(tmp, elem, elemSize);
+        v->data[i] = tmp;
+    }
+    return v;
+}
+
 /* 析构向量 */
 void delVector(vector *v) {
     if (v) {
