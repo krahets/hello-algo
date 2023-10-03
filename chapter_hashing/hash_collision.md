@@ -59,7 +59,7 @@ comments: true
             """负载因子"""
             return self.size / self.capacity
 
-        def get(self, key: int) -> str:
+        def get(self, key: int) -> str | None:
             """查询操作"""
             index = self.hash_func(key)
             bucket = self.buckets[index]
@@ -167,8 +167,8 @@ comments: true
                     return pair->val;
                 }
             }
-            // 若未找到 key 则返回 nullptr
-            return nullptr;
+            // 若未找到 key 则返回空字符串
+            return "";
         }
 
         /* 添加操作 */
@@ -386,7 +386,7 @@ comments: true
         }
 
         /* 查询操作 */
-        public string get(int key) {
+        public string? get(int key) {
             int index = hashFunc(key);
             // 遍历桶，若找到 key 则返回对应 val
             foreach (Pair pair in buckets[index]) {
@@ -1792,7 +1792,7 @@ comments: true
         }
 
         /* 查询操作 */
-        public string get(int key) {
+        public string? get(int key) {
             // 搜索 key 对应的桶索引
             int index = findBucket(key);
             // 若找到键值对，则返回对应 val
