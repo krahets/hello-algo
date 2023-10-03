@@ -7,7 +7,6 @@
 #include "../utils/common.h"
 
 int n, m;
-int s_length, t_length;
 
 /* 编辑距离：暴力搜索 */
 int editDistanceDFS(char *s, char *t, int i, int j) {
@@ -58,8 +57,7 @@ int editDistanceDFSMem(char *s, char *t, int mem[][m + 1], int i, int j) {
 }
 
 /* 编辑距离：动态规划 */
-int editDistanceDP(char *s, char *t) {
-    int n = s_length, m = t_length;
+int editDistanceDP(char *s, char *t, int n, int m) {
     int dp[n + 1][m + 1];
     memset(dp, 0, sizeof(dp));
     // 状态转移：首行首列
@@ -85,8 +83,7 @@ int editDistanceDP(char *s, char *t) {
 }
 
 /* 编辑距离：空间优化后的动态规划 */
-int editDistanceDPComp(char *s, char *t) {
-    int n = s_length, m = t_length;
+int editDistanceDPComp(char *s, char *t, int n, int m) {
     int dp[m + 1];
     memset(dp, 0, sizeof(dp));
     // 状态转移：首行
@@ -123,7 +120,7 @@ int min(int a, int b) {
 int main() {
     char *s = "bag";
     char *t = "pack";
-    n = s_length = strlen(s), m = t_length = strlen(t);
+    n = strlen(s), m = strlen(t);
 
     // 暴力搜索
     int res = editDistanceDFS(s, t, n, m);
@@ -136,11 +133,11 @@ int main() {
     printf("将 %s 更改为 %s 最少需要编辑 %d 步\n", s, t, res);
 
     // 动态规划
-    res = editDistanceDP(s, t);
+    res = editDistanceDP(s, t, n, m);
     printf("将 %s 更改为 %s 最少需要编辑 %d 步\n", s, t, res);
 
     // 空间优化后的动态规划
-    res = editDistanceDPComp(s, t);
+    res = editDistanceDPComp(s, t, n, m);
     printf("将 %s 更改为 %s 最少需要编辑 %d 步\n", s, t, res);
 
     return 0;
