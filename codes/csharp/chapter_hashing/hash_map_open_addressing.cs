@@ -59,7 +59,7 @@ class HashMapOpenAddressing {
     }
 
     /* 查询操作 */
-    public string get(int key) {
+    public string? get(int key) {
         // 搜索 key 对应的桶索引
         int index = findBucket(key);
         // 若找到键值对，则返回对应 val

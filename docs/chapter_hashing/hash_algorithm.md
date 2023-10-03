@@ -475,7 +475,6 @@ $$
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
     // 节点对象 RefCell { value: ListNode { val: 42, next: None } } 的哈希值为15387811073369036852
-
     ```
 
 === "C"
