@@ -58,7 +58,7 @@
         Left  *TreeNode
         Right *TreeNode
     }
-    /* 节点初始化方法 */
+    /* 构造方法 */
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
             Left:  nil, // 左子节点指针
@@ -134,7 +134,7 @@
     use std::rc::Rc;
     use std::cell::RefCell;
 
-    /* 二叉树节点类型 */
+    /* 二叉树节点结构体 */
     struct TreeNode {
         val: i32,                               // 节点值
         left: Option<Rc<RefCell<TreeNode>>>,    // 左子节点引用
@@ -142,7 +142,7 @@
     }
 
     impl TreeNode {
-        /* 二叉树节点构造方法 */
+        /* 构造方法 */
         fn new(val: i32) -> Rc<RefCell<Self>> {
             Rc::new(RefCell::new(Self {
                 val,
