@@ -9,9 +9,9 @@
 /* 移动一个圆盘 */
 void move(vector *src, vector *tar) {
     // 从 src 顶部拿出一个圆盘
-    int *pan_temp = vectorBack(src);
+    int *panTemp = vectorBack(src);
     int *pan = malloc(sizeof(int));
-    *pan = *pan_temp;
+    *pan = *panTemp;
     vectorPopback(src);
     // 将圆盘放入 tar 顶部
     vectorPushback(tar, pan, sizeof(int));
