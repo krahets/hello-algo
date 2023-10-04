@@ -39,7 +39,7 @@ int minCostClimbingStairsDPComp(int cost[]) {
     return b;
 }
 
-/*求最小值*/
+/* 求最小值 */
 int min(int a, int b) {
     return a < b ? a : b;
 }
