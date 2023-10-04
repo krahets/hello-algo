@@ -88,7 +88,7 @@ int knapsackDPComp(int wgt[], int val[], int cap) {
     return dp[cap];
 }
 
-/*求最大值*/
+/* 求最大值 */
 int max(int a, int b) {
     return a > b ? a : b;
 }
