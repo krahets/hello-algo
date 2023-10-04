@@ -93,7 +93,7 @@ int minPathSumDPComp(int grid[][m]) {
     return dp[m - 1];
 }
 
-/*求最小值*/
+/* 求最小值 */
 int min(int a, int b) {
     return a < b ? a : b;
 }
