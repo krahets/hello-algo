@@ -111,7 +111,7 @@ int editDistanceDPComp(char *s, char *t, int n, int m) {
     return dp[m];
 }
 
-/*求最小值*/
+/* 求最小值 */
 int min(int a, int b) {
     return a < b ? a : b;
 }
