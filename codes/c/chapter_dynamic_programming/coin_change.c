@@ -57,7 +57,7 @@ int coinChangeDPComp(int coins[], int amt) {
     return dp[amt] != MAX ? dp[amt] : -1;
 }
 
-/*求最小值*/
+/* 求最小值 */
 int min(int a, int b) {
     return a < b ? a : b;
 }
