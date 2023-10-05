@@ -7,7 +7,11 @@
 #include "../utils/common.h"
 
 int cap;
-int wgt_size;
+
+/* 求最大值 */
+int max(int a, int b) {
+    return a > b ? a : b;
+}
 
 /* 0-1 背包：暴力搜索 */
 int knapsackDFS(int wgt[], int val[], int i, int c) {
@@ -49,7 +53,7 @@ int knapsackDFSMem(int wgt[], int val[], int mem[][cap + 1], int i, int c) {
 }
 
 /* 0-1 背包：动态规划 */
-int knapsackDP(int wgt[], int val[], int cap) {
+int knapsackDP(int wgt[], int val[], int cap, int wgt_size) {
     int n = wgt_size;
     // 初始化 dp 表
     int dp[n + 1][cap + 1];
@@ -70,7 +74,7 @@ int knapsackDP(int wgt[], int val[], int cap) {
 }
 
 /* 0-1 背包：空间优化后的动态规划 */
-int knapsackDPComp(int wgt[], int val[], int cap) {
+int knapsackDPComp(int wgt[], int val[], int cap, int wgt_size) {
     int n = wgt_size;
     // 初始化 dp 表
     int dp[cap + 1];
@@ -88,18 +92,13 @@ int knapsackDPComp(int wgt[], int val[], int cap) {
     return dp[cap];
 }
 
-/* 求最大值 */
-int max(int a, int b) {
-    return a > b ? a : b;
-}
-
 /* Driver Code */
 int main() {
     int wgt[] = {10, 20, 30, 40, 50};
     int val[] = {50, 120, 150, 210, 240};
     cap = 50;
     int n = sizeof(wgt) / sizeof(wgt[0]);
-    wgt_size = n;
+    int wgt_size = n;
 
     // 暴力搜索
     int res = knapsackDFS(wgt, val, n, cap);
@@ -112,11 +111,11 @@ int main() {
     printf("不超过背包容量的最大物品价值为 %d\n", res);
 
     // 动态规划
-    res = knapsackDP(wgt, val, cap);
+    res = knapsackDP(wgt, val, cap, wgt_size);
     printf("不超过背包容量的最大物品价值为 %d\n", res);
 
     // 空间优化后的动态规划
-    res = knapsackDPComp(wgt, val, cap);
+    res = knapsackDPComp(wgt, val, cap, wgt_size);
     printf("不超过背包容量的最大物品价值为 %d\n", res);
 
     return 0;
