@@ -7,7 +7,11 @@
 #include "../utils/common.h"
 
 int n, m;
-int grid_size, grid0_size;
+
+/* 求最小值 */
+int min(int a, int b) {
+    return a < b ? a : b;
+}
 
 /* 最小路径和：暴力搜索 */
 int minPathSumDFS(int grid[][m], int i, int j) {
@@ -49,8 +53,7 @@ int minPathSumDFSMem(int grid[][m], int mem[][m], int i, int j) {
 }
 
 /* 最小路径和：动态规划 */
-int minPathSumDP(int grid[][m]) {
-    int n = grid_size, m = grid0_size;
+int minPathSumDP(int grid[][m], int n, int m) {
     // 初始化 dp 表
     int dp[n][m];
     dp[0][0] = grid[0][0];
@@ -72,8 +75,7 @@ int minPathSumDP(int grid[][m]) {
 }
 
 /* 最小路径和：空间优化后的动态规划 */
-int minPathSumDPComp(int grid[][m]) {
-    int n = grid_size, m = grid0_size;
+int minPathSumDPComp(int grid[][m], int n, int m) {
     // 初始化 dp 表
     int dp[m];
     // 状态转移：首行
@@ -93,15 +95,10 @@ int minPathSumDPComp(int grid[][m]) {
     return dp[m - 1];
 }
 
-/* 求最小值 */
-int min(int a, int b) {
-    return a < b ? a : b;
-}
-
 /* Driver Code */
 int main() {
     int grid[][4] = {{1, 3, 1, 5}, {2, 2, 4, 2}, {5, 3, 2, 1}, {4, 3, 5, 2}};
-    n = grid_size = sizeof(grid) / sizeof(grid[0]), m = grid0_size = sizeof(grid[0]) / sizeof(grid[0][0]);
+    n = sizeof(grid) / sizeof(grid[0]), m = sizeof(grid[0]) / sizeof(grid[0][0]);
 
     // 暴力搜索
     int res = minPathSumDFS(grid, n - 1, m - 1);
@@ -114,11 +111,11 @@ int main() {
     printf("从左上角到右下角的最小路径和为 %d\n", res);
 
     // 动态规划
-    res = minPathSumDP(grid);
+    res = minPathSumDP(grid, n, m);
     printf("从左上角到右下角的最小路径和为 %d\n", res);
 
     // 空间优化后的动态规划
-    res = minPathSumDPComp(grid);
+    res = minPathSumDPComp(grid, n, m);
     printf("从左上角到右下角的最小路径和为 %d\n", res);
 
     return 0;
