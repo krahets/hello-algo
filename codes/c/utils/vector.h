@@ -29,7 +29,7 @@ vector *newVector() {
     return v;
 }
 
-/*构造向量，指定大小、元素默认值*/
+/* 构造向量，指定大小、元素默认值 */
 vector *_newVector(int size, void *elem, int elemSize) {
     vector *v = malloc(sizeof(vector));
     v->size = size;
@@ -104,20 +104,28 @@ void *vectorBack(vector *v) {
 
 /* 获取向量的头元素 */
 void *vectorFront(vector *v) {
-    return v->data[0];
+    return v->size > 0 ? v->data[0] : NULL;
 }
 
-/* 获取向量的第 i 个元素 */
-void *vectorGet(vector *v, int i) {
-    return v->data[i];
+/* 获取向量下标 pos 的元素 */
+void *vectorAt(vector *v, int pos) {
+    if (pos < 0 || pos >= v->size) {
+        printf("vectorAt: out of range\n");
+        return NULL;
+    }
+    return v->data[pos];
 }
 
-/* 设置向量的第 i 个元素 */
-void vectorSet(vector *v, int i, void *elem, int elemSize) {
-    free(v->data[i]);
+/* 设置向量下标 pos 的元素 */
+void vectorSet(vector *v, int pos, void *elem, int elemSize) {
+    if (pos < 0 || pos >= v->size) {
+        printf("vectorSet: out of range\n");
+        return;
+    }
+    free(v->data[pos]);
     void *tmp = malloc(sizeof(char) * elemSize);
     memcpy(tmp, elem, elemSize);
-    v->data[i] = tmp;
+    v->data[pos] = tmp;
 }
 
 /* 向量扩容 */
@@ -132,25 +140,25 @@ void vectorShrink(vector *v) {
     v->data = realloc(v->data, v->capacity * sizeof(void *));
 }
 
-/* 向量插入元素 */
-void vectorInsert(vector *v, int i, void *elem, int elemSize) {
+/* 在向量下标 pos 处插入元素 */
+void vectorInsert(vector *v, int pos, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         vectorExpand(v);
     }
-    for (int j = v->size; j > i; j--) {
+    for (int j = v->size; j > pos; j--) {
         v->data[j] = v->data[j - 1];
     }
     void *tmp = malloc(sizeof(char) * elemSize);
     memcpy(tmp, elem, elemSize);
-    v->data[i] = tmp;
+    v->data[pos] = tmp;
     v->size++;
 }
 
-/* 向量删除元素 */
-void vectorErase(vector *v, int i) {
+/* 删除向量下标 pos 处的元素 */
+void vectorErase(vector *v, int pos) {
     if (v->size != 0) {
-        free(v->data[i]);
-        for (int j = i; j < v->size - 1; j++) {
+        free(v->data[pos]);
+        for (int j = pos; j < v->size - 1; j++) {
             v->data[j] = v->data[j + 1];
         }
         v->size--;
@@ -177,34 +185,18 @@ bool vectorFull(vector *v) {
 /* 向量是否相等 */
 bool vectorEqual(vector *v1, vector *v2) {
     if (v1->size != v2->size) {
-        printf("size not equal\r\n");
+        printf("size not equal\n");
         return false;
     }
     for (int i = 0; i < v1->size; i++) {
-        int *a = v1->data[i];
-        int *b = v2->data[i];
-        if (*a != *b) {
-            printf("data %d not equal\r\n", i);
-            printf("v1->data[%d] = %d\r\n", i, *(int *)v1->data[i]);
-            printf("v2->data[%d] = %d\r\n", i, *(int *)v2->data[i]);
+        void *a = v1->data[i];
+        void *b = v2->data[i];
+        if (memcmp(a, b, sizeof(a)) != 0) {
+            printf("data %d not equal\n", i);
             return false;
         }
     }
     return true;
-}
-
-/* 比较函数，用于排序，升序*/
-int cmp(const void *a, const void *b) {
-    int *pa = *(int **)a;
-    int *pb = *(int **)b;
-    return *pa - *pb;
-}
-
-/* 比较函数，用于排序，降序*/
-int cmp2(const void *a, const void *b) {
-    int *pa = *(int **)a;
-    int *pb = *(int **)b;
-    return *pb - *pa;
 }
 
 /* 对向量内部进行排序 */
@@ -212,65 +204,15 @@ void vectorSort(vector *v, int (*cmp)(const void *, const void *)) {
     qsort(v->data, v->size, sizeof(void *), cmp);
 }
 
-/* 对向量某段数据排序，升序*/
-void vectorSubSort(void **data, int left, int right) {
-    if (left >= right) {
-        return;
-    }
-    int i = left, j = right;
-    void *pivot = data[left];
-    while (i < j) {
-        while (i < j && *(int *)data[j] >= *(int *)pivot) {
-            j--;
-        }
-        data[i] = data[j];
-        while (i < j && *(int *)data[i] <= *(int *)pivot) {
-            i++;
-        }
-        data[j] = data[i];
-    }
-    data[i] = pivot;
-    vectorSubSort(data, left, i - 1);
-    vectorSubSort(data, i + 1, right);
-}
-
-/* 对向量某段数据排序，降序*/
-void vectorSubSort2(void **data, int left, int right) {
-    if (left >= right) {
-        return;
-    }
-    int i = left, j = right;
-    void *pivot = data[left];
-    while (i < j) {
-        while (i < j && *(int *)data[j] <= *(int *)pivot) {
-            j--;
-        }
-        data[i] = data[j];
-        while (i < j && *(int *)data[i] >= *(int *)pivot) {
-            i++;
-        }
-        data[j] = data[i];
-    }
-    data[i] = pivot;
-    vectorSubSort2(data, left, i - 1);
-    vectorSubSort2(data, i + 1, right);
-}
-
-/* 打印向量中的元素 */
-void printFunc(vector *v, void *p) {
-    int *node = p;
-    printf("%d", *node);
-}
-
 /* 打印函数， 需传递一个打印变量的函数进来 */
-/* 当前仅支持打印深度为 1 的 vector*/
+/* 当前仅支持打印深度为 1 的 vector */
 void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     if (v) {
         if (v->depth == 0) {
             return;
         } else if (v->depth == 1) {
             if(v->size == 0) {
-                printf("\r\n");
+                printf("\n");
                 return;
             }
             for (int i = 0; i < v->size; i++) {
