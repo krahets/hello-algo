@@ -68,5 +68,9 @@ int main() {
     printf("C =");
     printVector(C, printFunc);
 
+    // 释放内存
+    delVector(A);
+    delVector(B);
+    delVector(C);
     return 0;
 }
