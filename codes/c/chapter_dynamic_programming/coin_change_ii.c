@@ -6,10 +6,8 @@
 
 #include "../utils/common.h"
 
-int coins_size;
-
 /* 零钱兑换 II：动态规划 */
-int coinChangeIIDP(int coins[], int amt) {
+int coinChangeIIDP(int coins[], int amt, int coins_size) {
     int n = coins_size;
     // 初始化 dp 表
     int dp[n + 1][amt + 1];
@@ -34,7 +32,7 @@ int coinChangeIIDP(int coins[], int amt) {
 }
 
 /* 零钱兑换 II：空间优化后的动态规划 */
-int coinChangeIIDPComp(int coins[], int amt) {
+int coinChangeIIDPComp(int coins[], int amt, int coins_size) {
     int n = coins_size;
     // 初始化 dp 表
     int dp[amt + 1];
@@ -58,15 +56,15 @@ int coinChangeIIDPComp(int coins[], int amt) {
 /* Driver code */
 int main() {
     int coins[] = {1, 2, 5};
-    coins_size = sizeof(coins) / sizeof(coins[0]);
+    int coins_size = sizeof(coins) / sizeof(coins[0]);
     int amt = 5;
 
     // 动态规划
-    int res = coinChangeIIDP(coins, amt);
+    int res = coinChangeIIDP(coins, amt, coins_size);
     printf("凑出目标金额的硬币组合数量为 %d\n", res);
 
     // 空间优化后的动态规划
-    res = coinChangeIIDPComp(coins, amt);
+    res = coinChangeIIDPComp(coins, amt, coins_size);
     printf("凑出目标金额的硬币组合数量为 %d\n", res);
 
     return 0;
