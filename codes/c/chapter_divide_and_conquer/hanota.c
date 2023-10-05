@@ -39,6 +39,12 @@ void solveHanota(vector *A, vector *B, vector *C) {
     dfs(n, A, B, C);
 }
 
+/* 打印向量中的元素 */
+void printFunc(vector *v, void *p) {
+    int *node = p;
+    printf("%d", *node);
+}
+
 /* Driver Code */
 int main() {
     // 列表尾部是柱子顶部
