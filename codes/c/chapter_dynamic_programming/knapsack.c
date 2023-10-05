@@ -6,8 +6,6 @@
 
 #include "../utils/common.h"
 
-int cap;
-
 /* 求最大值 */
 int max(int a, int b) {
     return a > b ? a : b;
@@ -31,7 +29,7 @@ int knapsackDFS(int wgt[], int val[], int i, int c) {
 }
 
 /* 0-1 背包：记忆化搜索 */
-int knapsackDFSMem(int wgt[], int val[], int mem[][cap + 1], int i, int c) {
+int knapsackDFSMem(int wgt[], int val[], int memCols, int mem[][memCols], int i, int c) {
     // 若已选完所有物品或背包无容量，则返回价值 0
     if (i == 0 || c == 0) {
         return 0;
@@ -42,11 +40,11 @@ int knapsackDFSMem(int wgt[], int val[], int mem[][cap + 1], int i, int c) {
     }
     // 若超过背包容量，则只能不放入背包
     if (wgt[i - 1] > c) {
-        return knapsackDFSMem(wgt, val, mem, i - 1, c);
+        return knapsackDFSMem(wgt, val, memCols, mem, i - 1, c);
     }
     // 计算不放入和放入物品 i 的最大价值
-    int no = knapsackDFSMem(wgt, val, mem, i - 1, c);
-    int yes = knapsackDFSMem(wgt, val, mem, i - 1, c - wgt[i - 1]) + val[i - 1];
+    int no = knapsackDFSMem(wgt, val, memCols, mem, i - 1, c);
+    int yes = knapsackDFSMem(wgt, val, memCols, mem, i - 1, c - wgt[i - 1]) + val[i - 1];
     // 记录并返回两种方案中价值更大的那一个
     mem[i][c] = max(no, yes);
     return mem[i][c];
@@ -96,7 +94,7 @@ int knapsackDPComp(int wgt[], int val[], int cap, int wgt_size) {
 int main() {
     int wgt[] = {10, 20, 30, 40, 50};
     int val[] = {50, 120, 150, 210, 240};
-    cap = 50;
+    int cap = 50;
     int n = sizeof(wgt) / sizeof(wgt[0]);
     int wgt_size = n;
 
@@ -107,7 +105,7 @@ int main() {
     // 记忆化搜索
     int mem[n + 1][cap + 1];
     memset(mem, -1, sizeof(mem));
-    res = knapsackDFSMem(wgt, val, mem, n, cap);
+    res = knapsackDFSMem(wgt, val, cap + 1, mem, n, cap);
     printf("不超过背包容量的最大物品价值为 %d\n", res);
 
     // 动态规划
