@@ -6,8 +6,6 @@
 
 #include "../utils/common.h"
 
-int n, m;
-
 /* 求最小值 */
 int min(int a, int b) {
     return a < b ? a : b;
@@ -36,7 +34,7 @@ int editDistanceDFS(char *s, char *t, int i, int j) {
 }
 
 /* 编辑距离：记忆化搜索 */
-int editDistanceDFSMem(char *s, char *t, int mem[][m + 1], int i, int j) {
+int editDistanceDFSMem(char *s, char *t, int memCols, int mem[][memCols], int i, int j) {
     // 若 s 和 t 都为空，则返回 0
     if (i == 0 && j == 0)
         return 0;
@@ -51,11 +49,11 @@ int editDistanceDFSMem(char *s, char *t, int mem[][m + 1], int i, int j) {
         return mem[i][j];
     // 若两字符相等，则直接跳过此两字符
     if (s[i - 1] == t[j - 1])
-        return editDistanceDFSMem(s, t, mem, i - 1, j - 1);
+        return editDistanceDFSMem(s, t, memCols, mem, i - 1, j - 1);
     // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-    int insert = editDistanceDFSMem(s, t, mem, i, j - 1);
-    int del = editDistanceDFSMem(s, t, mem, i - 1, j);
-    int replace = editDistanceDFSMem(s, t, mem, i - 1, j - 1);
+    int insert = editDistanceDFSMem(s, t, memCols, mem, i, j - 1);
+    int del = editDistanceDFSMem(s, t, memCols, mem, i - 1, j);
+    int replace = editDistanceDFSMem(s, t, memCols, mem, i - 1, j - 1);
     // 记录并返回最少编辑步数
     mem[i][j] = min(min(insert, del), replace) + 1;
     return mem[i][j];
@@ -120,7 +118,7 @@ int editDistanceDPComp(char *s, char *t, int n, int m) {
 int main() {
     char *s = "bag";
     char *t = "pack";
-    n = strlen(s), m = strlen(t);
+    int n = strlen(s), m = strlen(t);
 
     // 暴力搜索
     int res = editDistanceDFS(s, t, n, m);
@@ -129,7 +127,7 @@ int main() {
     // 记忆化搜索
     int mem[n + 1][m + 1];
     memset(mem, -1, sizeof(mem));
-    res = editDistanceDFSMem(s, t, mem, n, m);
+    res = editDistanceDFSMem(s, t, m + 1, mem, n, m);
     printf("将 %s 更改为 %s 最少需要编辑 %d 步\n", s, t, res);
 
     // 动态规划
