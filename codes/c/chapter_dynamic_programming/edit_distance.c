@@ -8,6 +8,11 @@
 
 int n, m;
 
+/* 求最小值 */
+int min(int a, int b) {
+    return a < b ? a : b;
+}
+
 /* 编辑距离：暴力搜索 */
 int editDistanceDFS(char *s, char *t, int i, int j) {
     // 若 s 和 t 都为空，则返回 0
@@ -109,11 +114,6 @@ int editDistanceDPComp(char *s, char *t, int n, int m) {
         }
     }
     return dp[m];
-}
-
-/* 求最小值 */
-int min(int a, int b) {
-    return a < b ? a : b;
 }
 
 /* Driver Code */
