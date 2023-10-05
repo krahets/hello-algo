@@ -6,10 +6,13 @@
 
 #include "../utils/common.h"
 
-int wgt_size;
+/* 求最大值 */
+int max(int a, int b) {
+    return a > b ? a : b;
+}
 
 /* 完全背包：动态规划 */
-int unboundedKnapsackDP(int wgt[], int val[], int cap) {
+int unboundedKnapsackDP(int wgt[], int val[], int cap, int wgt_size) {
     int n = wgt_size;
     // 初始化 dp 表
     int dp[n + 1][cap + 1];
@@ -30,7 +33,7 @@ int unboundedKnapsackDP(int wgt[], int val[], int cap) {
 }
 
 /* 完全背包：空间优化后的动态规划 */
-int unboundedKnapsackDPComp(int wgt[], int val[], int cap) {
+int unboundedKnapsackDPComp(int wgt[], int val[], int cap, int wgt_size) {
     int n = wgt_size;
     // 初始化 dp 表
     int dp[cap + 1];
@@ -50,24 +53,19 @@ int unboundedKnapsackDPComp(int wgt[], int val[], int cap) {
     return dp[cap];
 }
 
-/* 求最大值 */
-int max(int a, int b) {
-    return a > b ? a : b;
-}
-
 /* Driver code */
 int main() {
     int wgt[] = {1, 2, 3};
     int val[] = {5, 11, 15};
-    wgt_size = sizeof(wgt) / sizeof(wgt[0]);
+    int wgt_size = sizeof(wgt) / sizeof(wgt[0]);
     int cap = 4;
 
     // 动态规划
-    int res = unboundedKnapsackDP(wgt, val, cap);
+    int res = unboundedKnapsackDP(wgt, val, cap, wgt_size);
     printf("不超过背包容量的最大物品价值为 %d\n", res);
 
     // 空间优化后的动态规划
-    res = unboundedKnapsackDPComp(wgt, val, cap);
+    res = unboundedKnapsackDPComp(wgt, val, cap, wgt_size);
     printf("不超过背包容量的最大物品价值为 %d\n", res);
 
     return 0;
