@@ -1,2 +1,1 @@
-add_executable(hanota.c)
-add_executable(binary_search_recur.c)
+add_executable(hanota hanota.c)
