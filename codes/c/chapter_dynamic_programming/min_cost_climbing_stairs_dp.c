@@ -6,10 +6,13 @@
 
 #include "../utils/common.h"
 
-int cost_size;
+/* 求最小值 */
+int min(int a, int b) {
+    return a < b ? a : b;
+}
 
 /* 爬楼梯最小代价：动态规划 */
-int minCostClimbingStairsDP(int cost[]) {
+int minCostClimbingStairsDP(int cost[], int cost_size) {
     int n = cost_size - 1;
     if (n == 1 || n == 2)
         return cost[n];
@@ -26,7 +29,7 @@ int minCostClimbingStairsDP(int cost[]) {
 }
 
 /* 爬楼梯最小代价：空间优化后的动态规划 */
-int minCostClimbingStairsDPComp(int cost[]) {
+int minCostClimbingStairsDPComp(int cost[], int cost_size) {
     int n = cost_size - 1;
     if (n == 1 || n == 2)
         return cost[n];
@@ -39,26 +42,21 @@ int minCostClimbingStairsDPComp(int cost[]) {
     return b;
 }
 
-/* 求最小值 */
-int min(int a, int b) {
-    return a < b ? a : b;
-}
-
 /* Driver Code */
 int main() {
     int cost[] = {0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1};
-    cost_size = sizeof(cost) / sizeof(cost[0]);
+    int cost_size = sizeof(cost) / sizeof(cost[0]);
     printf("输入楼梯的代价列表为 [");
-    for(int i = 0; i < cost_size; i++) {
-        if(i != cost_size - 1) printf("%d ", cost[i]);
+    for (int i = 0; i < cost_size; i++) {
+        if (i != cost_size - 1) printf("%d, ", cost[i]);
         else printf("%d", cost[i]);
     }
     printf("]\n");
 
-    int res = minCostClimbingStairsDP(cost);
+    int res = minCostClimbingStairsDP(cost, cost_size);
     printf("爬完楼梯的最低代价为 %d\n", res);
 
-    res = minCostClimbingStairsDPComp(cost);
+    res = minCostClimbingStairsDPComp(cost, cost_size);
     printf("爬完楼梯的最低代价为 %d\n", res);
 
     return 0;
