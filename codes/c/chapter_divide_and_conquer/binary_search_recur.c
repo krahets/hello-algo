@@ -47,5 +47,7 @@ int main() {
     int index = binarySearch(iNums, target);
     printf("目标元素 6 的索引 = %d\n", index);
 
+    // 释放内存
+    delVector(iNums);
     return 0;
 }
