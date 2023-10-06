@@ -1,5 +1,13 @@
 {% if page.meta.comments %}
-  <h5 align="center" id="__comments">{{ "欢迎在评论区留下你的见解、疑惑或建议" }}</h5>
+  {% if config.theme.language == 'zh' %}
+    {% set comm = "欢迎在评论区留下你的见解、疑惑或建议" %}
+    {% set lang = "zh-CN" %}
+  {% elif config.theme.language == 'en' %}
+    {% set comm = "Feel free to drop your insights, questions or suggestions" %}
+    {% set lang = "en" %}
+  {% endif %}
+  <h5 align="center" id="__comments">{{ comm }}</h5>
+
   <!-- Insert generated snippet here -->
   <script 
     src="https://giscus.app/client.js"
@@ -13,7 +21,7 @@
     data-emit-metadata="0"
     data-input-position="top"
     data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
+    data-lang="{{ lang }}"
     crossorigin="anonymous"
     async
   >
