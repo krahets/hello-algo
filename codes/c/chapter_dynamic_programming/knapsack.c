@@ -51,8 +51,8 @@ int knapsackDFSMem(int wgt[], int val[], int memCols, int mem[][memCols], int i,
 }
 
 /* 0-1 背包：动态规划 */
-int knapsackDP(int wgt[], int val[], int cap, int wgt_size) {
-    int n = wgt_size;
+int knapsackDP(int wgt[], int val[], int cap, int wgtSize) {
+    int n = wgtSize;
     // 初始化 dp 表
     int dp[n + 1][cap + 1];
     memset(dp, 0, sizeof(dp));
@@ -72,8 +72,8 @@ int knapsackDP(int wgt[], int val[], int cap, int wgt_size) {
 }
 
 /* 0-1 背包：空间优化后的动态规划 */
-int knapsackDPComp(int wgt[], int val[], int cap, int wgt_size) {
-    int n = wgt_size;
+int knapsackDPComp(int wgt[], int val[], int cap, int wgtSize) {
+    int n = wgtSize;
     // 初始化 dp 表
     int dp[cap + 1];
     memset(dp, 0, sizeof(dp));
@@ -96,7 +96,7 @@ int main() {
     int val[] = {50, 120, 150, 210, 240};
     int cap = 50;
     int n = sizeof(wgt) / sizeof(wgt[0]);
-    int wgt_size = n;
+    int wgtSize = n;
 
     // 暴力搜索
     int res = knapsackDFS(wgt, val, n, cap);
@@ -109,11 +109,11 @@ int main() {
     printf("不超过背包容量的最大物品价值为 %d\n", res);
 
     // 动态规划
-    res = knapsackDP(wgt, val, cap, wgt_size);
+    res = knapsackDP(wgt, val, cap, wgtSize);
     printf("不超过背包容量的最大物品价值为 %d\n", res);
 
     // 空间优化后的动态规划
-    res = knapsackDPComp(wgt, val, cap, wgt_size);
+    res = knapsackDPComp(wgt, val, cap, wgtSize);
     printf("不超过背包容量的最大物品价值为 %d\n", res);
 
     return 0;
