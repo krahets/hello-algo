@@ -62,97 +62,562 @@ comments: true
 === "Python"
 
     ```python title="merge_sort.py"
-    [class]{}-[func]{merge}
+    def merge(nums: list[int], left: int, mid: int, right: int):
+        """合并左子数组和右子数组"""
+        # 左子数组区间 [left, mid]
+        # 右子数组区间 [mid + 1, right]
+        # 初始化辅助数组
+        tmp = list(nums[left : right + 1])
+        # 左子数组的起始索引和结束索引
+        left_start = 0
+        left_end = mid - left
+        # 右子数组的起始索引和结束索引
+        right_start = mid + 1 - left
+        right_end = right - left
+        # i, j 分别指向左子数组、右子数组的首元素
+        i = left_start
+        j = right_start
+        # 通过覆盖原数组 nums 来合并左子数组和右子数组
+        for k in range(left, right + 1):
+            # 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
+            if i > left_end:
+                nums[k] = tmp[j]
+                j += 1
+            # 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
+            elif j > right_end or tmp[i] <= tmp[j]:
+                nums[k] = tmp[i]
+                i += 1
+            # 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+            else:
+                nums[k] = tmp[j]
+                j += 1
 
-    [class]{}-[func]{merge_sort}
+    def merge_sort(nums: list[int], left: int, right: int):
+        """归并排序"""
+        # 终止条件
+        if left >= right:
+            return  # 当子数组长度为 1 时终止递归
+        # 划分阶段
+        mid = (left + right) // 2  # 计算中点
+        merge_sort(nums, left, mid)  # 递归左子数组
+        merge_sort(nums, mid + 1, right)  # 递归右子数组
+        # 合并阶段
+        merge(nums, left, mid, right)
     ```
 
 === "C++"
 
     ```cpp title="merge_sort.cpp"
-    [class]{}-[func]{merge}
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
+    void merge(vector<int> &nums, int left, int mid, int right) {
+        // 初始化辅助数组
+        vector<int> tmp(nums.begin() + left, nums.begin() + right + 1);
+        // 左子数组的起始索引和结束索引
+        int leftStart = left - left, leftEnd = mid - left;
+        // 右子数组的起始索引和结束索引
+        int rightStart = mid + 1 - left, rightEnd = right - left;
+        // i, j 分别指向左子数组、右子数组的首元素
+        int i = leftStart, j = rightStart;
+        // 通过覆盖原数组 nums 来合并左子数组和右子数组
+        for (int k = left; k <= right; k++) {
+            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
+            if (i > leftEnd)
+                nums[k] = tmp[j++];
+            // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
+            else if (j > rightEnd || tmp[i] <= tmp[j])
+                nums[k] = tmp[i++];
+            // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+            else
+                nums[k] = tmp[j++];
+        }
+    }
 
-    [class]{}-[func]{mergeSort}
+    /* 归并排序 */
+    void mergeSort(vector<int> &nums, int left, int right) {
+        // 终止条件
+        if (left >= right)
+            return; // 当子数组长度为 1 时终止递归
+        // 划分阶段
+        int mid = (left + right) / 2;    // 计算中点
+        mergeSort(nums, left, mid);      // 递归左子数组
+        mergeSort(nums, mid + 1, right); // 递归右子数组
+        // 合并阶段
+        merge(nums, left, mid, right);
+    }
     ```
 
 === "Java"
 
     ```java title="merge_sort.java"
-    [class]{merge_sort}-[func]{merge}
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
+    void merge(int[] nums, int left, int mid, int right) {
+        // 初始化辅助数组
+        int[] tmp = Arrays.copyOfRange(nums, left, right + 1);
+        // 左子数组的起始索引和结束索引
+        int leftStart = left - left, leftEnd = mid - left;
+        // 右子数组的起始索引和结束索引
+        int rightStart = mid + 1 - left, rightEnd = right - left;
+        // i, j 分别指向左子数组、右子数组的首元素
+        int i = leftStart, j = rightStart;
+        // 通过覆盖原数组 nums 来合并左子数组和右子数组
+        for (int k = left; k <= right; k++) {
+            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
+            if (i > leftEnd)
+                nums[k] = tmp[j++];
+            // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
+            else if (j > rightEnd || tmp[i] <= tmp[j])
+                nums[k] = tmp[i++];
+            // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+            else
+                nums[k] = tmp[j++];
+        }
+    }
 
-    [class]{merge_sort}-[func]{mergeSort}
+    /* 归并排序 */
+    void mergeSort(int[] nums, int left, int right) {
+        // 终止条件
+        if (left >= right)
+            return;                      // 当子数组长度为 1 时终止递归
+        // 划分阶段
+        int mid = (left + right) / 2;    // 计算中点
+        mergeSort(nums, left, mid);      // 递归左子数组
+        mergeSort(nums, mid + 1, right); // 递归右子数组
+        // 合并阶段
+        merge(nums, left, mid, right);
+    }
     ```
 
 === "C#"
 
     ```csharp title="merge_sort.cs"
-    [class]{merge_sort}-[func]{merge}
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
+    void merge(int[] nums, int left, int mid, int right) {
+        // 初始化辅助数组
+        int[] tmp = nums[left..(right + 1)];
+        // 左子数组的起始索引和结束索引  
+        int leftStart = left - left, leftEnd = mid - left;
+        // 右子数组的起始索引和结束索引       
+        int rightStart = mid + 1 - left, rightEnd = right - left;
+        // i, j 分别指向左子数组、右子数组的首元素
+        int i = leftStart, j = rightStart;
+        // 通过覆盖原数组 nums 来合并左子数组和右子数组
+        for (int k = left; k <= right; k++) {
+            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
+            if (i > leftEnd)
+                nums[k] = tmp[j++];
+            // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
+            else if (j > rightEnd || tmp[i] <= tmp[j])
+                nums[k] = tmp[i++];
+            // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+            else
+                nums[k] = tmp[j++];
+        }
+    }
 
-    [class]{merge_sort}-[func]{mergeSort}
+    /* 归并排序 */
+    void mergeSort(int[] nums, int left, int right) {
+        // 终止条件
+        if (left >= right) return;       // 当子数组长度为 1 时终止递归
+        // 划分阶段
+        int mid = (left + right) / 2;    // 计算中点
+        mergeSort(nums, left, mid);      // 递归左子数组
+        mergeSort(nums, mid + 1, right); // 递归右子数组
+        // 合并阶段
+        merge(nums, left, mid, right);
+    }
     ```
 
 === "Go"
 
     ```go title="merge_sort.go"
-    [class]{}-[func]{merge}
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
+    func merge(nums []int, left, mid, right int) {
+        // 初始化辅助数组 借助 copy 模块
+        tmp := make([]int, right-left+1)
+        for i := left; i <= right; i++ {
+            tmp[i-left] = nums[i]
+        }
+        // 左子数组的起始索引和结束索引
+        leftStart, leftEnd := left-left, mid-left
+        // 右子数组的起始索引和结束索引
+        rightStart, rightEnd := mid+1-left, right-left
+        // i, j 分别指向左子数组、右子数组的首元素
+        i, j := leftStart, rightStart
+        // 通过覆盖原数组 nums 来合并左子数组和右子数组
+        for k := left; k <= right; k++ {
+            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
+            if i > leftEnd {
+                nums[k] = tmp[j]
+                j++
+                // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
+            } else if j > rightEnd || tmp[i] <= tmp[j] {
+                nums[k] = tmp[i]
+                i++
+                // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+            } else {
+                nums[k] = tmp[j]
+                j++
+            }
+        }
+    }
 
-    [class]{}-[func]{mergeSort}
+    /* 归并排序 */
+    func mergeSort(nums []int, left, right int) {
+        // 终止条件
+        if left >= right {
+            return
+        }
+        // 划分阶段
+        mid := (left + right) / 2
+        mergeSort(nums, left, mid)
+        mergeSort(nums, mid+1, right)
+        // 合并阶段
+        merge(nums, left, mid, right)
+    }
     ```
 
 === "Swift"
 
     ```swift title="merge_sort.swift"
-    [class]{}-[func]{merge}
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
+    func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
+        // 初始化辅助数组
+        let tmp = Array(nums[left ..< (right + 1)])
+        // 左子数组的起始索引和结束索引
+        let leftStart = left - left
+        let leftEnd = mid - left
+        // 右子数组的起始索引和结束索引
+        let rightStart = mid + 1 - left
+        let rightEnd = right - left
+        // i, j 分别指向左子数组、右子数组的首元素
+        var i = leftStart
+        var j = rightStart
+        // 通过覆盖原数组 nums 来合并左子数组和右子数组
+        for k in left ... right {
+            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
+            if i > leftEnd {
+                nums[k] = tmp[j]
+                j += 1
+            }
+            // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
+            else if j > rightEnd || tmp[i] <= tmp[j] {
+                nums[k] = tmp[i]
+                i += 1
+            }
+            // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+            else {
+                nums[k] = tmp[j]
+                j += 1
+            }
+        }
+    }
 
-    [class]{}-[func]{mergeSort}
+    /* 归并排序 */
+    func mergeSort(nums: inout [Int], left: Int, right: Int) {
+        // 终止条件
+        if left >= right { // 当子数组长度为 1 时终止递归
+            return
+        }
+        // 划分阶段
+        let mid = (left + right) / 2 // 计算中点
+        mergeSort(nums: &nums, left: left, right: mid) // 递归左子数组
+        mergeSort(nums: &nums, left: mid + 1, right: right) // 递归右子数组
+        // 合并阶段
+        merge(nums: &nums, left: left, mid: mid, right: right)
+    }
     ```
 
 === "JS"
 
     ```javascript title="merge_sort.js"
-    [class]{}-[func]{merge}
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
+    function merge(nums, left, mid, right) {
+        // 初始化辅助数组
+        let tmp = nums.slice(left, right + 1);
+        // 左子数组的起始索引和结束索引
+        let leftStart = left - left,
+            leftEnd = mid - left;
+        // 右子数组的起始索引和结束索引
+        let rightStart = mid + 1 - left,
+            rightEnd = right - left;
+        // i, j 分别指向左子数组、右子数组的首元素
+        let i = leftStart,
+            j = rightStart;
+        // 通过覆盖原数组 nums 来合并左子数组和右子数组
+        for (let k = left; k <= right; k++) {
+            if (i > leftEnd) {
+                // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
+                nums[k] = tmp[j++];
+            } else if (j > rightEnd || tmp[i] <= tmp[j]) {
+                // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
+                nums[k] = tmp[i++];
+            } else {
+                // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+                nums[k] = tmp[j++];
+            }
+        }
+    }
 
-    [class]{}-[func]{mergeSort}
+    /* 归并排序 */
+    function mergeSort(nums, left, right) {
+        // 终止条件
+        if (left >= right) return; // 当子数组长度为 1 时终止递归
+        // 划分阶段
+        let mid = Math.floor((left + right) / 2); // 计算中点
+        mergeSort(nums, left, mid); // 递归左子数组
+        mergeSort(nums, mid + 1, right); // 递归右子数组
+        // 合并阶段
+        merge(nums, left, mid, right);
+    }
     ```
 
 === "TS"
 
     ```typescript title="merge_sort.ts"
-    [class]{}-[func]{merge}
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
+    function merge(nums: number[], left: number, mid: number, right: number): void {
+        // 初始化辅助数组
+        let tmp = nums.slice(left, right + 1);
+        // 左子数组的起始索引和结束索引
+        let leftStart = left - left,
+            leftEnd = mid - left;
+        // 右子数组的起始索引和结束索引
+        let rightStart = mid + 1 - left,
+            rightEnd = right - left;
+        // i, j 分别指向左子数组、右子数组的首元素
+        let i = leftStart,
+            j = rightStart;
+        // 通过覆盖原数组 nums 来合并左子数组和右子数组
+        for (let k = left; k <= right; k++) {
+            if (i > leftEnd) {
+                // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
+                nums[k] = tmp[j++];
+                // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
+            } else if (j > rightEnd || tmp[i] <= tmp[j]) {
+                nums[k] = tmp[i++];
+                // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+            } else {
+                nums[k] = tmp[j++];
+            }
+        }
+    }
 
-    [class]{}-[func]{mergeSort}
+    /* 归并排序 */
+    function mergeSort(nums: number[], left: number, right: number): void {
+        // 终止条件
+        if (left >= right) return; // 当子数组长度为 1 时终止递归
+        // 划分阶段
+        let mid = Math.floor((left + right) / 2); // 计算中点
+        mergeSort(nums, left, mid); // 递归左子数组
+        mergeSort(nums, mid + 1, right); // 递归右子数组
+        // 合并阶段
+        merge(nums, left, mid, right);
+    }
     ```
 
 === "Dart"
 
     ```dart title="merge_sort.dart"
-    [class]{}-[func]{merge}
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
+    void merge(List<int> nums, int left, int mid, int right) {
+      // 初始化辅助数组
+      List<int> tmp = nums.sublist(left, right + 1);
+      // 左子数组的起始索引和结束索引
+      int leftStart = left - left, leftEnd = mid - left;
+      // 右子数组的起始索引和结束索引
+      int rightStart = mid + 1 - left, rightEnd = right - left;
+      // i, j 分别指向左子数组、右子数组的首元素
+      int i = leftStart, j = rightStart;
+      // 通过覆盖原数组 nums 来合并左子数组和右子数组
+      for (int k = left; k <= right; k++) {
+        // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
+        if (i > leftEnd)
+          nums[k] = tmp[j++];
+        // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
+        else if (j > rightEnd || tmp[i] <= tmp[j])
+          nums[k] = tmp[i++];
+        // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+        else
+          nums[k] = tmp[j++];
+      }
+    }
 
-    [class]{}-[func]{mergeSort}
+    /* 归并排序 */
+    void mergeSort(List<int> nums, int left, int right) {
+      // 终止条件
+      if (left >= right) return; // 当子数组长度为 1 时终止递归
+      // 划分阶段
+      int mid = (left + right) ~/ 2; // 计算中点
+      mergeSort(nums, left, mid); // 递归左子数组
+      mergeSort(nums, mid + 1, right); // 递归右子数组
+      // 合并阶段
+      merge(nums, left, mid, right);
+    }
     ```
 
 === "Rust"
 
     ```rust title="merge_sort.rs"
-    [class]{}-[func]{merge}
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
+    fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
+        // 初始化辅助数组
+        let tmp: Vec<i32> = nums[left..right + 1].to_vec();
+        // 左子数组的起始索引和结束索引
+        let (left_start, left_end) = (left - left, mid - left);
+        // 右子数组的起始索引和结束索引
+        let (right_start, right_end) = (mid + 1 - left, right-left);
+        // i, j 分别指向左子数组、右子数组的首元素
+        let (mut l_corrent, mut r_corrent) = (left_start, right_start);
+        // 通过覆盖原数组 nums 来合并左子数组和右子数组
+        for k in left..right + 1 {
+            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
+            if l_corrent > left_end {
+                nums[k] = tmp[r_corrent];
+                r_corrent += 1;
+            }
+            // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
+            else if r_corrent > right_end || tmp[l_corrent] <= tmp[r_corrent] {
+                nums[k] = tmp[l_corrent];
+                l_corrent += 1;
+            }
+            // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+            else {
+                nums[k] = tmp[r_corrent];
+                r_corrent += 1;
+            }
+        }
+    }
 
-    [class]{}-[func]{merge_sort}
+    /* 归并排序 */
+    fn merge_sort(left: usize, right: usize, nums: &mut [i32]) {
+        // 终止条件
+        if left >= right { return; }       // 当子数组长度为 1 时终止递归
+        // 划分阶段
+        let mid = (left + right) / 2;     // 计算中点
+        merge_sort(left, mid, nums);      // 递归左子数组
+        merge_sort(mid + 1, right, nums);  // 递归右子数组
+        // 合并阶段
+        merge(nums, left, mid, right);
+    }
     ```
 
 === "C"
 
     ```c title="merge_sort.c"
-    [class]{}-[func]{merge}
+    /* 合并左子数组和右子数组 */
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
+    void merge(int *nums, int left, int mid, int right) {
+        int index;
+        // 初始化辅助数组
+        int tmp[right + 1 - left];
+        for (index = left; index < right + 1; index++) {
+            tmp[index - left] = nums[index];
+        }
+        // 左子数组的起始索引和结束索引
+        int leftStart = left - left, leftEnd = mid - left;
+        // 右子数组的起始索引和结束索引
+        int rightStart = mid + 1 - left, rightEnd = right - left;
+        // i, j 分别指向左子数组、右子数组的首元素
+        int i = leftStart, j = rightStart;
+        // 通过覆盖原数组 nums 来合并左子数组和右子数组
+        for (int k = left; k <= right; k++) {
+            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
+            if (i > leftEnd)
+                nums[k] = tmp[j++];
+            // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
+            else if (j > rightEnd || tmp[i] <= tmp[j])
+                nums[k] = tmp[i++];
+            // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+            else
+                nums[k] = tmp[j++];
+        }
+    }
 
-    [class]{}-[func]{mergeSort}
+    /* 归并排序 */
+    void mergeSort(int *nums, int left, int right) {
+        // 终止条件
+        if (left >= right)
+            return; // 当子数组长度为 1 时终止递归
+        // 划分阶段
+        int mid = (left + right) / 2;    // 计算中点
+        mergeSort(nums, left, mid);      // 递归左子数组
+        mergeSort(nums, mid + 1, right); // 递归右子数组
+        // 合并阶段
+        merge(nums, left, mid, right);
+    }
     ```
 
 === "Zig"
 
     ```zig title="merge_sort.zig"
-    [class]{}-[func]{merge}
+    // 合并左子数组和右子数组
+    // 左子数组区间 [left, mid]
+    // 右子数组区间 [mid + 1, right]
+    fn merge(nums: []i32, left: usize, mid: usize, right: usize) !void {
+        // 初始化辅助数组
+        var mem_arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
+        defer mem_arena.deinit();
+        const mem_allocator = mem_arena.allocator();
+        var tmp = try mem_allocator.alloc(i32, right + 1 - left);
+        std.mem.copy(i32, tmp, nums[left..right+1]);
+        // 左子数组的起始索引和结束索引  
+        var leftStart = left - left;
+        var leftEnd = mid - left;
+        // 右子数组的起始索引和结束索引       
+        var rightStart = mid + 1 - left;
+        var rightEnd = right - left;
+        // i, j 分别指向左子数组、右子数组的首元素
+        var i = leftStart;
+        var j = rightStart;
+        // 通过覆盖原数组 nums 来合并左子数组和右子数组
+        var k = left;
+        while (k <= right) : (k += 1) {
+            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
+            if (i > leftEnd) {
+                nums[k] = tmp[j];
+                j += 1;
+            // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
+            } else if  (j > rightEnd or tmp[i] <= tmp[j]) {
+                nums[k] = tmp[i];
+                i += 1;
+            // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+            } else {
+                nums[k] = tmp[j];
+                j += 1;
+            }
+        }
+    }
 
-    [class]{}-[func]{mergeSort}
+    // 归并排序
+    fn mergeSort(nums: []i32, left: usize, right: usize) !void {
+        // 终止条件
+        if (left >= right) return;              // 当子数组长度为 1 时终止递归
+        // 划分阶段
+        var mid = (left + right) / 2;           // 计算中点
+        try mergeSort(nums, left, mid);         // 递归左子数组
+        try mergeSort(nums, mid + 1, right);    // 递归右子数组
+        // 合并阶段
+        try merge(nums, left, mid, right);
+    }
     ```
 
 实现合并函数 `merge()` 存在以下难点。

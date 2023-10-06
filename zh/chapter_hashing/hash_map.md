@@ -506,41 +506,459 @@ index = hash(key) % capacity
 === "Python"
 
     ```python title="array_hash_map.py"
-    [class]{Pair}-[func]{}
+    class Pair:
+        """键值对"""
 
-    [class]{ArrayHashMap}-[func]{}
+        def __init__(self, key: int, val: str):
+            self.key = key
+            self.val = val
+
+    class ArrayHashMap:
+        """基于数组简易实现的哈希表"""
+
+        def __init__(self):
+            """构造方法"""
+            # 初始化数组，包含 100 个桶
+            self.buckets: list[Pair | None] = [None] * 100
+
+        def hash_func(self, key: int) -> int:
+            """哈希函数"""
+            index = key % 100
+            return index
+
+        def get(self, key: int) -> str:
+            """查询操作"""
+            index: int = self.hash_func(key)
+            pair: Pair = self.buckets[index]
+            if pair is None:
+                return None
+            return pair.val
+
+        def put(self, key: int, val: str):
+            """添加操作"""
+            pair = Pair(key, val)
+            index: int = self.hash_func(key)
+            self.buckets[index] = pair
+
+        def remove(self, key: int):
+            """删除操作"""
+            index: int = self.hash_func(key)
+            # 置为 None ，代表删除
+            self.buckets[index] = None
+
+        def entry_set(self) -> list[Pair]:
+            """获取所有键值对"""
+            result: list[Pair] = []
+            for pair in self.buckets:
+                if pair is not None:
+                    result.append(pair)
+            return result
+
+        def key_set(self) -> list[int]:
+            """获取所有键"""
+            result = []
+            for pair in self.buckets:
+                if pair is not None:
+                    result.append(pair.key)
+            return result
+
+        def value_set(self) -> list[str]:
+            """获取所有值"""
+            result = []
+            for pair in self.buckets:
+                if pair is not None:
+                    result.append(pair.val)
+            return result
+
+        def print(self):
+            """打印哈希表"""
+            for pair in self.buckets:
+                if pair is not None:
+                    print(pair.key, "->", pair.val)
     ```
 
 === "C++"
 
     ```cpp title="array_hash_map.cpp"
-    [class]{Pair}-[func]{}
+    /* 键值对 */
+    struct Pair {
+      public:
+        int key;
+        string val;
+        Pair(int key, string val) {
+            this->key = key;
+            this->val = val;
+        }
+    };
 
-    [class]{ArrayHashMap}-[func]{}
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+      private:
+        vector<Pair *> buckets;
+
+      public:
+        ArrayHashMap() {
+            // 初始化数组，包含 100 个桶
+            buckets = vector<Pair *>(100);
+        }
+
+        ~ArrayHashMap() {
+            // 释放内存
+            for (const auto &bucket : buckets) {
+                delete bucket;
+            }
+            buckets.clear();
+        }
+
+        /* 哈希函数 */
+        int hashFunc(int key) {
+            int index = key % 100;
+            return index;
+        }
+
+        /* 查询操作 */
+        string get(int key) {
+            int index = hashFunc(key);
+            Pair *pair = buckets[index];
+            if (pair == nullptr)
+                return "";
+            return pair->val;
+        }
+
+        /* 添加操作 */
+        void put(int key, string val) {
+            Pair *pair = new Pair(key, val);
+            int index = hashFunc(key);
+            buckets[index] = pair;
+        }
+
+        /* 删除操作 */
+        void remove(int key) {
+            int index = hashFunc(key);
+            // 释放内存并置为 nullptr
+            delete buckets[index];
+            buckets[index] = nullptr;
+        }
+
+        /* 获取所有键值对 */
+        vector<Pair *> pairSet() {
+            vector<Pair *> pairSet;
+            for (Pair *pair : buckets) {
+                if (pair != nullptr) {
+                    pairSet.push_back(pair);
+                }
+            }
+            return pairSet;
+        }
+
+        /* 获取所有键 */
+        vector<int> keySet() {
+            vector<int> keySet;
+            for (Pair *pair : buckets) {
+                if (pair != nullptr) {
+                    keySet.push_back(pair->key);
+                }
+            }
+            return keySet;
+        }
+
+        /* 获取所有值 */
+        vector<string> valueSet() {
+            vector<string> valueSet;
+            for (Pair *pair : buckets) {
+                if (pair != nullptr) {
+                    valueSet.push_back(pair->val);
+                }
+            }
+            return valueSet;
+        }
+
+        /* 打印哈希表 */
+        void print() {
+            for (Pair *kv : pairSet()) {
+                cout << kv->key << " -> " << kv->val << endl;
+            }
+        }
+    };
     ```
 
 === "Java"
 
     ```java title="array_hash_map.java"
-    [class]{Pair}-[func]{}
+    /* 键值对 */
+    class Pair {
+        public int key;
+        public String val;
 
-    [class]{ArrayHashMap}-[func]{}
+        public Pair(int key, String val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
+
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+        private List<Pair> buckets;
+
+        public ArrayHashMap() {
+            // 初始化数组，包含 100 个桶
+            buckets = new ArrayList<>();
+            for (int i = 0; i < 100; i++) {
+                buckets.add(null);
+            }
+        }
+
+        /* 哈希函数 */
+        private int hashFunc(int key) {
+            int index = key % 100;
+            return index;
+        }
+
+        /* 查询操作 */
+        public String get(int key) {
+            int index = hashFunc(key);
+            Pair pair = buckets.get(index);
+            if (pair == null)
+                return null;
+            return pair.val;
+        }
+
+        /* 添加操作 */
+        public void put(int key, String val) {
+            Pair pair = new Pair(key, val);
+            int index = hashFunc(key);
+            buckets.set(index, pair);
+        }
+
+        /* 删除操作 */
+        public void remove(int key) {
+            int index = hashFunc(key);
+            // 置为 null ，代表删除
+            buckets.set(index, null);
+        }
+
+        /* 获取所有键值对 */
+        public List<Pair> pairSet() {
+            List<Pair> pairSet = new ArrayList<>();
+            for (Pair pair : buckets) {
+                if (pair != null)
+                    pairSet.add(pair);
+            }
+            return pairSet;
+        }
+
+        /* 获取所有键 */
+        public List<Integer> keySet() {
+            List<Integer> keySet = new ArrayList<>();
+            for (Pair pair : buckets) {
+                if (pair != null)
+                    keySet.add(pair.key);
+            }
+            return keySet;
+        }
+
+        /* 获取所有值 */
+        public List<String> valueSet() {
+            List<String> valueSet = new ArrayList<>();
+            for (Pair pair : buckets) {
+                if (pair != null)
+                    valueSet.add(pair.val);
+            }
+            return valueSet;
+        }
+
+        /* 打印哈希表 */
+        public void print() {
+            for (Pair kv : pairSet()) {
+                System.out.println(kv.key + " -> " + kv.val);
+            }
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="array_hash_map.cs"
-    [class]{Pair}-[func]{}
+    /* 键值对 int->string */
+    class Pair {
+        public int key;
+        public string val;
+        public Pair(int key, string val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
 
-    [class]{ArrayHashMap}-[func]{}
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+        private List<Pair?> buckets;
+        public ArrayHashMap() {
+            // 初始化数组，包含 100 个桶
+            buckets = new();
+            for (int i = 0; i < 100; i++) {
+                buckets.Add(null);
+            }
+        }
+
+        /* 哈希函数 */
+        private int hashFunc(int key) {
+            int index = key % 100;
+            return index;
+        }
+
+        /* 查询操作 */
+        public string? get(int key) {
+            int index = hashFunc(key);
+            Pair? pair = buckets[index];
+            if (pair == null) return null;
+            return pair.val;
+        }
+
+        /* 添加操作 */
+        public void put(int key, string val) {
+            Pair pair = new Pair(key, val);
+            int index = hashFunc(key);
+            buckets[index] = pair;
+        }
+
+        /* 删除操作 */
+        public void remove(int key) {
+            int index = hashFunc(key);
+            // 置为 null ，代表删除
+            buckets[index] = null;
+        }
+
+        /* 获取所有键值对 */
+        public List<Pair> pairSet() {
+            List<Pair> pairSet = new();
+            foreach (Pair? pair in buckets) {
+                if (pair != null)
+                    pairSet.Add(pair);
+            }
+            return pairSet;
+        }
+
+        /* 获取所有键 */
+        public List<int> keySet() {
+            List<int> keySet = new();
+            foreach (Pair? pair in buckets) {
+                if (pair != null)
+                    keySet.Add(pair.key);
+            }
+            return keySet;
+        }
+
+        /* 获取所有值 */
+        public List<string> valueSet() {
+            List<string> valueSet = new();
+            foreach (Pair? pair in buckets) {
+                if (pair != null)
+                    valueSet.Add(pair.val);
+            }
+            return valueSet;
+        }
+
+        /* 打印哈希表 */
+        public void print() {
+            foreach (Pair kv in pairSet()) {
+                Console.WriteLine(kv.key + " -> " + kv.val);
+            }
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="array_hash_map.go"
-    [class]{pair}-[func]{}
+    /* 键值对 */
+    type pair struct {
+        key int
+        val string
+    }
 
-    [class]{arrayHashMap}-[func]{}
+    /* 基于数组简易实现的哈希表 */
+    type arrayHashMap struct {
+        buckets []*pair
+    }
+
+    /* 初始化哈希表 */
+    func newArrayHashMap() *arrayHashMap {
+        // 初始化数组，包含 100 个桶
+        buckets := make([]*pair, 100)
+        return &arrayHashMap{buckets: buckets}
+    }
+
+    /* 哈希函数 */
+    func (a *arrayHashMap) hashFunc(key int) int {
+        index := key % 100
+        return index
+    }
+
+    /* 查询操作 */
+    func (a *arrayHashMap) get(key int) string {
+        index := a.hashFunc(key)
+        pair := a.buckets[index]
+        if pair == nil {
+            return "Not Found"
+        }
+        return pair.val
+    }
+
+    /* 添加操作 */
+    func (a *arrayHashMap) put(key int, val string) {
+        pair := &pair{key: key, val: val}
+        index := a.hashFunc(key)
+        a.buckets[index] = pair
+    }
+
+    /* 删除操作 */
+    func (a *arrayHashMap) remove(key int) {
+        index := a.hashFunc(key)
+        // 置为 nil ，代表删除
+        a.buckets[index] = nil
+    }
+
+    /* 获取所有键对 */
+    func (a *arrayHashMap) pairSet() []*pair {
+        var pairs []*pair
+        for _, pair := range a.buckets {
+            if pair != nil {
+                pairs = append(pairs, pair)
+            }
+        }
+        return pairs
+    }
+
+    /* 获取所有键 */
+    func (a *arrayHashMap) keySet() []int {
+        var keys []int
+        for _, pair := range a.buckets {
+            if pair != nil {
+                keys = append(keys, pair.key)
+            }
+        }
+        return keys
+    }
+
+    /* 获取所有值 */
+    func (a *arrayHashMap) valueSet() []string {
+        var values []string
+        for _, pair := range a.buckets {
+            if pair != nil {
+                values = append(values, pair.val)
+            }
+        }
+        return values
+    }
+
+    /* 打印哈希表 */
+    func (a *arrayHashMap) print() {
+        for _, pair := range a.buckets {
+            if pair != nil {
+                fmt.Println(pair.key, "->", pair.val)
+            }
+        }
+    }
     ```
 
 === "Swift"
@@ -557,55 +975,668 @@ index = hash(key) % capacity
         }
     }
 
-    [class]{ArrayHashMap}-[func]{}
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+        private var buckets: [Pair?] = []
+
+        init() {
+            // 初始化数组，包含 100 个桶
+            for _ in 0 ..< 100 {
+                buckets.append(nil)
+            }
+        }
+
+        /* 哈希函数 */
+        private func hashFunc(key: Int) -> Int {
+            let index = key % 100
+            return index
+        }
+
+        /* 查询操作 */
+        func get(key: Int) -> String? {
+            let index = hashFunc(key: key)
+            let pair = buckets[index]
+            return pair?.val
+        }
+
+        /* 添加操作 */
+        func put(key: Int, val: String) {
+            let pair = Pair(key: key, val: val)
+            let index = hashFunc(key: key)
+            buckets[index] = pair
+        }
+
+        /* 删除操作 */
+        func remove(key: Int) {
+            let index = hashFunc(key: key)
+            // 置为 nil ，代表删除
+            buckets[index] = nil
+        }
+
+        /* 获取所有键值对 */
+        func pairSet() -> [Pair] {
+            var pairSet: [Pair] = []
+            for pair in buckets {
+                if let pair = pair {
+                    pairSet.append(pair)
+                }
+            }
+            return pairSet
+        }
+
+        /* 获取所有键 */
+        func keySet() -> [Int] {
+            var keySet: [Int] = []
+            for pair in buckets {
+                if let pair = pair {
+                    keySet.append(pair.key)
+                }
+            }
+            return keySet
+        }
+
+        /* 获取所有值 */
+        func valueSet() -> [String] {
+            var valueSet: [String] = []
+            for pair in buckets {
+                if let pair = pair {
+                    valueSet.append(pair.val)
+                }
+            }
+            return valueSet
+        }
+
+        /* 打印哈希表 */
+        func print() {
+            for pair in pairSet() {
+                Swift.print("\(pair.key) -> \(pair.val)")
+            }
+        }
+    }
     ```
 
 === "JS"
 
     ```javascript title="array_hash_map.js"
-    [class]{Pair}-[func]{}
+    /* 键值对 Number -> String */
+    class Pair {
+        constructor(key, val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
 
-    [class]{ArrayHashMap}-[func]{}
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+        #buckets;
+        constructor() {
+            // 初始化数组，包含 100 个桶
+            this.#buckets = new Array(100).fill(null);
+        }
+
+        /* 哈希函数 */
+        #hashFunc(key) {
+            return key % 100;
+        }
+
+        /* 查询操作 */
+        get(key) {
+            let index = this.#hashFunc(key);
+            let pair = this.#buckets[index];
+            if (pair === null) return null;
+            return pair.val;
+        }
+
+        /* 添加操作 */
+        set(key, val) {
+            let index = this.#hashFunc(key);
+            this.#buckets[index] = new Pair(key, val);
+        }
+
+        /* 删除操作 */
+        delete(key) {
+            let index = this.#hashFunc(key);
+            // 置为 null ，代表删除
+            this.#buckets[index] = null;
+        }
+
+        /* 获取所有键值对 */
+        entries() {
+            let arr = [];
+            for (let i = 0; i < this.#buckets.length; i++) {
+                if (this.#buckets[i]) {
+                    arr.push(this.#buckets[i]);
+                }
+            }
+            return arr;
+        }
+
+        /* 获取所有键 */
+        keys() {
+            let arr = [];
+            for (let i = 0; i < this.#buckets.length; i++) {
+                if (this.#buckets[i]) {
+                    arr.push(this.#buckets[i].key);
+                }
+            }
+            return arr;
+        }
+
+        /* 获取所有值 */
+        values() {
+            let arr = [];
+            for (let i = 0; i < this.#buckets.length; i++) {
+                if (this.#buckets[i]) {
+                    arr.push(this.#buckets[i].val);
+                }
+            }
+            return arr;
+        }
+
+        /* 打印哈希表 */
+        print() {
+            let pairSet = this.entries();
+            for (const pair of pairSet) {
+                console.info(`${pair.key} -> ${pair.val}`);
+            }
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="array_hash_map.ts"
-    [class]{Pair}-[func]{}
+    /* 键值对 Number -> String */
+    class Pair {
+        public key: number;
+        public val: string;
 
-    [class]{ArrayHashMap}-[func]{}
+        constructor(key: number, val: string) {
+            this.key = key;
+            this.val = val;
+        }
+    }
+
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+        private readonly buckets: (Pair | null)[];
+
+        constructor() {
+            // 初始化数组，包含 100 个桶
+            this.buckets = new Array(100).fill(null);
+        }
+
+        /* 哈希函数 */
+        private hashFunc(key: number): number {
+            return key % 100;
+        }
+
+        /* 查询操作 */
+        public get(key: number): string | null {
+            let index = this.hashFunc(key);
+            let pair = this.buckets[index];
+            if (pair === null) return null;
+            return pair.val;
+        }
+
+        /* 添加操作 */
+        public set(key: number, val: string) {
+            let index = this.hashFunc(key);
+            this.buckets[index] = new Pair(key, val);
+        }
+
+        /* 删除操作 */
+        public delete(key: number) {
+            let index = this.hashFunc(key);
+            // 置为 null ，代表删除
+            this.buckets[index] = null;
+        }
+
+        /* 获取所有键值对 */
+        public entries(): (Pair | null)[] {
+            let arr: (Pair | null)[] = [];
+            for (let i = 0; i < this.buckets.length; i++) {
+                if (this.buckets[i]) {
+                    arr.push(this.buckets[i]);
+                }
+            }
+            return arr;
+        }
+
+        /* 获取所有键 */
+        public keys(): (number | undefined)[] {
+            let arr: (number | undefined)[] = [];
+            for (let i = 0; i < this.buckets.length; i++) {
+                if (this.buckets[i]) {
+                    arr.push(this.buckets[i].key);
+                }
+            }
+            return arr;
+        }
+
+        /* 获取所有值 */
+        public values(): (string | undefined)[] {
+            let arr: (string | undefined)[] = [];
+            for (let i = 0; i < this.buckets.length; i++) {
+                if (this.buckets[i]) {
+                    arr.push(this.buckets[i].val);
+                }
+            }
+            return arr;
+        }
+
+        /* 打印哈希表 */
+        public print() {
+            let pairSet = this.entries();
+            for (const pair of pairSet) {
+                console.info(`${pair.key} -> ${pair.val}`);
+            }
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="array_hash_map.dart"
-    [class]{Pair}-[func]{}
+    /* 键值对 */
+    class Pair {
+      int key;
+      String val;
+      Pair(this.key, this.val);
+    }
 
-    [class]{ArrayHashMap}-[func]{}
+    /* 基于数组简易实现的哈希表 */
+    class ArrayHashMap {
+      late List<Pair?> _buckets;
+
+      ArrayHashMap() {
+        // 初始化数组，包含 100 个桶
+        _buckets = List.filled(100, null);
+      }
+
+      /* 哈希函数 */
+      int _hashFunc(int key) {
+        final int index = key % 100;
+        return index;
+      }
+
+      /* 查询操作 */
+      String? get(int key) {
+        final int index = _hashFunc(key);
+        final Pair? pair = _buckets[index];
+        if (pair == null) {
+          return null;
+        }
+        return pair.val;
+      }
+
+      /* 添加操作 */
+      void put(int key, String val) {
+        final Pair pair = Pair(key, val);
+        final int index = _hashFunc(key);
+        _buckets[index] = pair;
+      }
+
+      /* 删除操作 */
+      void remove(int key) {
+        final int index = _hashFunc(key);
+        _buckets[index] = null;
+      }
+
+      /* 获取所有键值对 */
+      List<Pair> pairSet() {
+        List<Pair> pairSet = [];
+        for (final Pair? pair in _buckets) {
+          if (pair != null) {
+            pairSet.add(pair);
+          }
+        }
+        return pairSet;
+      }
+
+      /* 获取所有键 */
+      List<int> keySet() {
+        List<int> keySet = [];
+        for (final Pair? pair in _buckets) {
+          if (pair != null) {
+            keySet.add(pair.key);
+          }
+        }
+        return keySet;
+      }
+
+      /* 获取所有值 */
+      List<String> values() {
+        List<String> valueSet = [];
+        for (final Pair? pair in _buckets) {
+          if (pair != null) {
+            valueSet.add(pair.val);
+          }
+        }
+        return valueSet;
+      }
+
+      /* 打印哈希表 */
+      void printHashMap() {
+        for (final Pair kv in pairSet()) {
+          print("${kv.key} -> ${kv.val}");
+        }
+      }
+    }
     ```
 
 === "Rust"
 
     ```rust title="array_hash_map.rs"
-    [class]{Pair}-[func]{}
+    /* 键值对 */
+    #[derive(Debug, Clone, PartialEq)]
+    pub struct Pair {
+        pub key: i32,
+        pub val: String,
+    }
 
-    [class]{ArrayHashMap}-[func]{}
+    /* 基于数组简易实现的哈希表 */
+    pub struct ArrayHashMap {
+        buckets: Vec<Option<Pair>>
+    }
+
+    impl ArrayHashMap {
+        pub fn new() -> ArrayHashMap {
+            // 初始化数组，包含 100 个桶
+            Self { buckets: vec![None; 100] }
+        }
+
+        /* 哈希函数 */
+        fn hash_func(&self, key: i32) -> usize {
+            key as usize % 100
+        }
+
+        /* 查询操作 */
+        pub fn get(&self, key: i32) -> Option<&String> {
+            let index = self.hash_func(key);
+            self.buckets[index].as_ref().map(|pair| &pair.val)
+        }
+
+        /* 添加操作 */
+        pub fn put(&mut self, key: i32, val: &str) {
+            let index = self.hash_func(key);
+            self.buckets[index] = Some(Pair {
+                key,
+                val: val.to_string(),
+            });
+        }
+
+        /* 删除操作 */
+        pub fn remove(&mut self, key: i32) {
+            let index = self.hash_func(key);
+            // 置为 None ，代表删除
+            self.buckets[index] = None;
+        }
+
+        /* 获取所有键值对 */
+        pub fn entry_set(&self) -> Vec<&Pair> {
+            self.buckets.iter().filter_map(|pair| pair.as_ref()).collect()
+        }
+
+        /* 获取所有键 */
+        pub fn key_set(&self) -> Vec<&i32> {
+            self.buckets.iter().filter_map(|pair| pair.as_ref().map(|pair| &pair.key)).collect()
+        }
+
+        /* 获取所有值 */
+        pub fn value_set(&self) -> Vec<&String> {
+            self.buckets.iter().filter_map(|pair| pair.as_ref().map(|pair| &pair.val)).collect()
+        }
+
+        /* 打印哈希表 */
+        pub fn print(&self) {
+            for pair in self.entry_set() {
+                println!("{} -> {}", pair.key, pair.val);
+            }
+        }
+    }
     ```
 
 === "C"
 
     ```c title="array_hash_map.c"
-    [class]{pair}-[func]{}
+    /* 键值对 int->string */
+    struct pair {
+        int key;
+        char *val;
+    };
 
-    [class]{arrayHashMap}-[func]{}
+    typedef struct pair pair;
+
+    /* 基于数组简易实现的哈希表 */
+    struct arrayHashMap {
+        pair *buckets[HASH_MAP_DEFAULT_SIZE];
+    };
+
+    typedef struct arrayHashMap arrayHashMap;
+
+    /* 哈希表初始化函数 */
+    arrayHashMap *newArrayHashMap() {
+        arrayHashMap *map = malloc(sizeof(arrayHashMap));
+        return map;
+    }
+
+    /* 添加操作 */
+    void put(arrayHashMap *d, const int key, const char *val) {
+        pair *pair = malloc(sizeof(pair));
+        pair->key = key;
+        pair->val = malloc(strlen(val) + 1);
+        strcpy(pair->val, val);
+
+        int index = hashFunc(key);
+        d->buckets[index] = pair;
+    }
+
+    /* 删除操作 */
+    void removeItem(arrayHashMap *d, const int key) {
+        int index = hashFunc(key);
+        free(d->buckets[index]->val);
+        free(d->buckets[index]);
+        d->buckets[index] = NULL;
+    }
+
+    /* 获取所有键值对 */
+    void pairSet(arrayHashMap *d, mapSet *set) {
+        pair *entries;
+        int i = 0, index = 0;
+        int total = 0;
+
+        /* 统计有效键值对数量 */
+        for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+            if (d->buckets[i] != NULL) {
+                total++;
+            }
+        }
+
+        entries = malloc(sizeof(pair) * total);
+        for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+            if (d->buckets[i] != NULL) {
+                entries[index].key = d->buckets[i]->key;
+                entries[index].val = malloc(strlen(d->buckets[i]->val + 1));
+                strcpy(entries[index].val, d->buckets[i]->val);
+                index++;
+            }
+        }
+
+        set->set = entries;
+        set->len = total;
+    }
+
+    /* 获取所有键 */
+    void keySet(arrayHashMap *d, mapSet *set) {
+        int *keys;
+        int i = 0, index = 0;
+        int total = 0;
+
+        /* 统计有效键值对数量 */
+        for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+            if (d->buckets[i] != NULL) {
+                total++;
+            }
+        }
+
+        keys = malloc(total * sizeof(int));
+        for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+            if (d->buckets[i] != NULL) {
+                keys[index] = d->buckets[i]->key;
+                index++;
+            }
+        }
+
+        set->set = keys;
+        set->len = total;
+    }
+
+    /* 获取所有值 */
+    void valueSet(arrayHashMap *d, mapSet *set) {
+        char **vals;
+        int i = 0, index = 0;
+        int total = 0;
+
+        /* 统计有效键值对数量 */
+        for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+            if (d->buckets[i] != NULL) {
+                total++;
+            }
+        }
+
+        vals = malloc(total * sizeof(char *));
+        for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
+            if (d->buckets[i] != NULL) {
+                vals[index] = d->buckets[i]->val;
+                index++;
+            }
+        }
+
+        set->set = vals;
+        set->len = total;
+    }
+
+    /* 打印哈希表 */
+    void print(arrayHashMap *d) {
+        int i;
+        mapSet set;
+        pairSet(d, &set);
+        pair *entries = (pair *)set.set;
+        for (i = 0; i < set.len; i++) {
+            printf("%d -> %s\n", entries[i].key, entries[i].val);
+        }
+        free(set.set);
+    }
     ```
 
 === "Zig"
 
     ```zig title="array_hash_map.zig"
-    [class]{Pair}-[func]{}
+    // 键值对
+    const Pair = struct {
+        key: usize = undefined,
+        val: []const u8 = undefined,
 
-    [class]{ArrayHashMap}-[func]{}
+       pub fn init(key: usize, val: []const u8) Pair {
+            return Pair {
+                .key = key,
+                .val = val,
+            };
+        }
+    };
+
+    // 基于数组简易实现的哈希表
+    fn ArrayHashMap(comptime T: type) type {
+        return struct {
+            bucket: ?std.ArrayList(?T) = null,
+            mem_allocator: std.mem.Allocator = undefined,
+
+            const Self = @This();
+            
+            // 构造函数
+            pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
+                self.mem_allocator = allocator;
+                // 初始化一个长度为 100 的桶（数组）
+                self.bucket = std.ArrayList(?T).init(self.mem_allocator);
+                var i: i32 = 0;
+                while (i < 100) : (i += 1) {
+                    try self.bucket.?.append(null);
+                }
+            }
+
+            // 析构函数
+            pub fn deinit(self: *Self) void {
+                if (self.bucket != null) self.bucket.?.deinit();
+            }
+
+            // 哈希函数
+            fn hashFunc(key: usize) usize {
+                var index = key % 100;
+                return index;
+            }
+
+            // 查询操作
+            pub fn get(self: *Self, key: usize) []const u8 {
+                var index = hashFunc(key);
+                var pair = self.bucket.?.items[index];
+                return pair.?.val;
+            }
+
+            // 添加操作
+            pub fn put(self: *Self, key: usize, val: []const u8) !void {
+                var pair = Pair.init(key, val);
+                var index = hashFunc(key);
+                self.bucket.?.items[index] = pair;
+            }
+
+            // 删除操作
+            pub fn remove(self: *Self, key: usize) !void {
+                var index = hashFunc(key);
+                // 置为 null ，代表删除
+                self.bucket.?.items[index] = null;
+            }       
+
+            // 获取所有键值对
+            pub fn pairSet(self: *Self) !std.ArrayList(T) {
+                var entry_set = std.ArrayList(T).init(self.mem_allocator);
+                for (self.bucket.?.items) |item| {
+                    if (item == null) continue;
+                    try entry_set.append(item.?);
+                }
+                return entry_set;
+            }  
+
+            // 获取所有键
+            pub fn keySet(self: *Self) !std.ArrayList(usize) {
+                var key_set = std.ArrayList(usize).init(self.mem_allocator);
+                for (self.bucket.?.items) |item| {
+                    if (item == null) continue;
+                    try key_set.append(item.?.key);
+                }
+                return key_set;
+            }  
+
+            // 获取所有值
+            pub fn valueSet(self: *Self) !std.ArrayList([]const u8) {
+                var value_set = std.ArrayList([]const u8).init(self.mem_allocator);
+                for (self.bucket.?.items) |item| {
+                    if (item == null) continue;
+                    try value_set.append(item.?.val);
+                }
+                return value_set;
+            }
+
+            // 打印哈希表
+            pub fn print(self: *Self) !void {
+                var entry_set = try self.pairSet();
+                defer entry_set.deinit();
+                for (entry_set.items) |item| {
+                    std.debug.print("{} -> {s}\n", .{item.key, item.val});
+                }
+            }
+        };
+    }
     ```
 
 ## 6.1.3 &nbsp; 哈希冲突与扩容

@@ -22,67 +22,175 @@ comments: true
 === "Python"
 
     ```python title="binary_search_edge.py"
-    [class]{}-[func]{binary_search_left_edge}
+    def binary_search_left_edge(nums: list[int], target: int) -> int:
+        """二分查找最左一个 target"""
+        # 等价于查找 target 的插入点
+        i = binary_search_insertion(nums, target)
+        # 未找到 target ，返回 -1
+        if i == len(nums) or nums[i] != target:
+            return -1
+        # 找到 target ，返回索引 i
+        return i
     ```
 
 === "C++"
 
     ```cpp title="binary_search_edge.cpp"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个 target */
+    int binarySearchLeftEdge(vector<int> &nums, int target) {
+        // 等价于查找 target 的插入点
+        int i = binarySearchInsertion(nums, target);
+        // 未找到 target ，返回 -1
+        if (i == nums.size() || nums[i] != target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 i
+        return i;
+    }
     ```
 
 === "Java"
 
     ```java title="binary_search_edge.java"
-    [class]{binary_search_edge}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个 target */
+    int binarySearchLeftEdge(int[] nums, int target) {
+        // 等价于查找 target 的插入点
+        int i = binary_search_insertion.binarySearchInsertion(nums, target);
+        // 未找到 target ，返回 -1
+        if (i == nums.length || nums[i] != target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 i
+        return i;
+    }
     ```
 
 === "C#"
 
     ```csharp title="binary_search_edge.cs"
-    [class]{binary_search_edge}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个 target */
+    int binarySearchLeftEdge(int[] nums, int target) {
+        // 等价于查找 target 的插入点
+        int i = binary_search_insertion.binarySearchInsertion(nums, target);
+        // 未找到 target ，返回 -1
+        if (i == nums.Length || nums[i] != target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 i
+        return i;
+    }
     ```
 
 === "Go"
 
     ```go title="binary_search_edge.go"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个 target */
+    func binarySearchLeftEdge(nums []int, target int) int {
+        // 等价于查找 target 的插入点
+        i := binarySearchInsertion(nums, target)
+        // 未找到 target ，返回 -1
+        if i == len(nums) || nums[i] != target {
+            return -1
+        }
+        // 找到 target ，返回索引 i
+        return i
+    }
     ```
 
 === "Swift"
 
     ```swift title="binary_search_edge.swift"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个 target */
+    func binarySearchLeftEdge(nums: [Int], target: Int) -> Int {
+        // 等价于查找 target 的插入点
+        let i = binarySearchInsertion(nums: nums, target: target)
+        // 未找到 target ，返回 -1
+        if i == nums.count || nums[i] != target {
+            return -1
+        }
+        // 找到 target ，返回索引 i
+        return i
+    }
     ```
 
 === "JS"
 
     ```javascript title="binary_search_edge.js"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个 target */
+    function binarySearchLeftEdge(nums, target) {
+        // 等价于查找 target 的插入点
+        const i = binarySearchInsertion(nums, target);
+        // 未找到 target ，返回 -1
+        if (i === nums.length || nums[i] !== target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 i
+        return i;
+    }
     ```
 
 === "TS"
 
     ```typescript title="binary_search_edge.ts"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个 target */
+    function binarySearchLeftEdge(nums: Array<number>, target: number): number {
+        // 等价于查找 target 的插入点
+        const i = binarySearchInsertion(nums, target);
+        // 未找到 target ，返回 -1
+        if (i === nums.length || nums[i] !== target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 i
+        return i;
+    }
     ```
 
 === "Dart"
 
     ```dart title="binary_search_edge.dart"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个 target */
+    int binarySearchLeftEdge(List<int> nums, int target) {
+      // 等价于查找 target 的插入点
+      int i = binarySearchInsertion(nums, target);
+      // 未找到 target ，返回 -1
+      if (i == nums.length || nums[i] != target) {
+        return -1;
+      }
+      // 找到 target ，返回索引 i
+      return i;
+    }
     ```
 
 === "Rust"
 
     ```rust title="binary_search_edge.rs"
-    [class]{}-[func]{binary_search_left_edge}
+    /* 二分查找最左一个 target */
+    fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
+        // 等价于查找 target 的插入点
+        let i = binary_search_insertion(nums, target);
+        // 未找到 target ，返回 -1
+        if i == nums.len() as i32 || nums[i as usize] != target {
+            return -1;
+        }
+        // 找到 target ，返回索引 i
+        i
+    }
     ```
 
 === "C"
 
     ```c title="binary_search_edge.c"
-    [class]{}-[func]{binarySearchLeftEdge}
+    /* 二分查找最左一个 target */
+    int binarySearchLeftEdge(int *nums, int numSize, int target) {
+        // 等价于查找 target 的插入点
+        int i = binarySearchInsertion(nums, numSize, target);
+        // 未找到 target ，返回 -1
+        if (i == numSize || nums[i] != target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 i
+        return i;
+    }
     ```
 
 === "Zig"
@@ -112,67 +220,197 @@ comments: true
 === "Python"
 
     ```python title="binary_search_edge.py"
-    [class]{}-[func]{binary_search_right_edge}
+    def binary_search_right_edge(nums: list[int], target: int) -> int:
+        """二分查找最右一个 target"""
+        # 转化为查找最左一个 target + 1
+        i = binary_search_insertion(nums, target + 1)
+        # j 指向最右一个 target ，i 指向首个大于 target 的元素
+        j = i - 1
+        # 未找到 target ，返回 -1
+        if j == -1 or nums[j] != target:
+            return -1
+        # 找到 target ，返回索引 j
+        return j
     ```
 
 === "C++"
 
     ```cpp title="binary_search_edge.cpp"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个 target */
+    int binarySearchRightEdge(vector<int> &nums, int target) {
+        // 转化为查找最左一个 target + 1
+        int i = binarySearchInsertion(nums, target + 1);
+        // j 指向最右一个 target ，i 指向首个大于 target 的元素
+        int j = i - 1;
+        // 未找到 target ，返回 -1
+        if (j == -1 || nums[j] != target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 j
+        return j;
+    }
     ```
 
 === "Java"
 
     ```java title="binary_search_edge.java"
-    [class]{binary_search_edge}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个 target */
+    int binarySearchRightEdge(int[] nums, int target) {
+        // 转化为查找最左一个 target + 1
+        int i = binary_search_insertion.binarySearchInsertion(nums, target + 1);
+        // j 指向最右一个 target ，i 指向首个大于 target 的元素
+        int j = i - 1;
+        // 未找到 target ，返回 -1
+        if (j == -1 || nums[j] != target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 j
+        return j;
+    }
     ```
 
 === "C#"
 
     ```csharp title="binary_search_edge.cs"
-    [class]{binary_search_edge}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个 target */
+    int binarySearchRightEdge(int[] nums, int target) {
+        // 转化为查找最左一个 target + 1
+        int i = binary_search_insertion.binarySearchInsertion(nums, target + 1);
+        // j 指向最右一个 target ，i 指向首个大于 target 的元素
+        int j = i - 1;
+        // 未找到 target ，返回 -1
+        if (j == -1 || nums[j] != target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 j
+        return j;
+    }
     ```
 
 === "Go"
 
     ```go title="binary_search_edge.go"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个 target */
+    func binarySearchRightEdge(nums []int, target int) int {
+        // 转化为查找最左一个 target + 1
+        i := binarySearchInsertion(nums, target+1)
+        // j 指向最右一个 target ，i 指向首个大于 target 的元素
+        j := i - 1
+        // 未找到 target ，返回 -1
+        if j == -1 || nums[j] != target {
+            return -1
+        }
+        // 找到 target ，返回索引 j
+        return j
+    }
     ```
 
 === "Swift"
 
     ```swift title="binary_search_edge.swift"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个 target */
+    func binarySearchRightEdge(nums: [Int], target: Int) -> Int {
+        // 转化为查找最左一个 target + 1
+        let i = binarySearchInsertion(nums: nums, target: target + 1)
+        // j 指向最右一个 target ，i 指向首个大于 target 的元素
+        let j = i - 1
+        // 未找到 target ，返回 -1
+        if j == -1 || nums[j] != target {
+            return -1
+        }
+        // 找到 target ，返回索引 j
+        return j
+    }
     ```
 
 === "JS"
 
     ```javascript title="binary_search_edge.js"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个 target */
+    function binarySearchRightEdge(nums, target) {
+        // 转化为查找最左一个 target + 1
+        const i = binarySearchInsertion(nums, target + 1);
+        // j 指向最右一个 target ，i 指向首个大于 target 的元素
+        const j = i - 1;
+        // 未找到 target ，返回 -1
+        if (j === -1 || nums[j] !== target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 j
+        return j;
+    }
     ```
 
 === "TS"
 
     ```typescript title="binary_search_edge.ts"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个 target */
+    function binarySearchRightEdge(nums: Array<number>, target: number): number {
+        // 转化为查找最左一个 target + 1
+        const i = binarySearchInsertion(nums, target + 1);
+        // j 指向最右一个 target ，i 指向首个大于 target 的元素
+        const j = i - 1;
+        // 未找到 target ，返回 -1
+        if (j === -1 || nums[j] !== target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 j
+        return j;
+    }
     ```
 
 === "Dart"
 
     ```dart title="binary_search_edge.dart"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个 target */
+    int binarySearchRightEdge(List<int> nums, int target) {
+      // 转化为查找最左一个 target + 1
+      int i = binarySearchInsertion(nums, target + 1);
+      // j 指向最右一个 target ，i 指向首个大于 target 的元素
+      int j = i - 1;
+      // 未找到 target ，返回 -1
+      if (j == -1 || nums[j] != target) {
+        return -1;
+      }
+      // 找到 target ，返回索引 j
+      return j;
+    }
     ```
 
 === "Rust"
 
     ```rust title="binary_search_edge.rs"
-    [class]{}-[func]{binary_search_right_edge}
+    /* 二分查找最右一个 target */
+    fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
+        // 转化为查找最左一个 target + 1
+        let i = binary_search_insertion(nums, target + 1);
+        // j 指向最右一个 target ，i 指向首个大于 target 的元素
+        let j = i - 1;
+        // 未找到 target ，返回 -1
+        if j == -1 || nums[j as usize] != target {
+            return -1;
+        }
+        // 找到 target ，返回索引 j
+        j
+    }
     ```
 
 === "C"
 
     ```c title="binary_search_edge.c"
-    [class]{}-[func]{binarySearchRightEdge}
+    /* 二分查找最右一个 target */
+    int binarySearchRightEdge(int *nums, int numSize, int target) {
+        // 转化为查找最左一个 target + 1
+        int i = binarySearchInsertion(nums, numSize, target + 1);
+        // j 指向最右一个 target ，i 指向首个大于 target 的元素
+        int j = i - 1;
+        // 未找到 target ，返回 -1
+        if (j == -1 || nums[j] != target) {
+            return -1;
+        }
+        // 找到 target ，返回索引 j
+        return j;
+    }
     ```
 
 === "Zig"

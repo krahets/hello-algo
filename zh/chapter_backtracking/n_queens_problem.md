@@ -55,81 +55,547 @@ comments: true
 === "Python"
 
     ```python title="n_queens.py"
-    [class]{}-[func]{backtrack}
+    def backtrack(
+        row: int,
+        n: int,
+        state: list[list[str]],
+        res: list[list[list[str]]],
+        cols: list[bool],
+        diags1: list[bool],
+        diags2: list[bool],
+    ):
+        """回溯算法：N 皇后"""
+        # 当放置完所有行时，记录解
+        if row == n:
+            res.append([list(row) for row in state])
+            return
+        # 遍历所有列
+        for col in range(n):
+            # 计算该格子对应的主对角线和副对角线
+            diag1 = row - col + n - 1
+            diag2 = row + col
+            # 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if not cols[col] and not diags1[diag1] and not diags2[diag2]:
+                # 尝试：将皇后放置在该格子
+                state[row][col] = "Q"
+                cols[col] = diags1[diag1] = diags2[diag2] = True
+                # 放置下一行
+                backtrack(row + 1, n, state, res, cols, diags1, diags2)
+                # 回退：将该格子恢复为空位
+                state[row][col] = "#"
+                cols[col] = diags1[diag1] = diags2[diag2] = False
 
-    [class]{}-[func]{n_queens}
+    def n_queens(n: int) -> list[list[list[str]]]:
+        """求解 N 皇后"""
+        # 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        state = [["#" for _ in range(n)] for _ in range(n)]
+        cols = [False] * n  # 记录列是否有皇后
+        diags1 = [False] * (2 * n - 1)  # 记录主对角线是否有皇后
+        diags2 = [False] * (2 * n - 1)  # 记录副对角线是否有皇后
+        res = []
+        backtrack(0, n, state, res, cols, diags1, diags2)
+
+        return res
     ```
 
 === "C++"
 
     ```cpp title="n_queens.cpp"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    void backtrack(int row, int n, vector<vector<string>> &state, vector<vector<vector<string>>> &res, vector<bool> &cols,
+                   vector<bool> &diags1, vector<bool> &diags2) {
+        // 当放置完所有行时，记录解
+        if (row == n) {
+            res.push_back(state);
+            return;
+        }
+        // 遍历所有列
+        for (int col = 0; col < n; col++) {
+            // 计算该格子对应的主对角线和副对角线
+            int diag1 = row - col + n - 1;
+            int diag2 = row + col;
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
+                // 尝试：将皇后放置在该格子
+                state[row][col] = "Q";
+                cols[col] = diags1[diag1] = diags2[diag2] = true;
+                // 放置下一行
+                backtrack(row + 1, n, state, res, cols, diags1, diags2);
+                // 回退：将该格子恢复为空位
+                state[row][col] = "#";
+                cols[col] = diags1[diag1] = diags2[diag2] = false;
+            }
+        }
+    }
 
-    [class]{}-[func]{nQueens}
+    /* 求解 N 皇后 */
+    vector<vector<vector<string>>> nQueens(int n) {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        vector<vector<string>> state(n, vector<string>(n, "#"));
+        vector<bool> cols(n, false);           // 记录列是否有皇后
+        vector<bool> diags1(2 * n - 1, false); // 记录主对角线是否有皇后
+        vector<bool> diags2(2 * n - 1, false); // 记录副对角线是否有皇后
+        vector<vector<vector<string>>> res;
+
+        backtrack(0, n, state, res, cols, diags1, diags2);
+
+        return res;
+    }
     ```
 
 === "Java"
 
     ```java title="n_queens.java"
-    [class]{n_queens}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    void backtrack(int row, int n, List<List<String>> state, List<List<List<String>>> res,
+            boolean[] cols, boolean[] diags1, boolean[] diags2) {
+        // 当放置完所有行时，记录解
+        if (row == n) {
+            List<List<String>> copyState = new ArrayList<>();
+            for (List<String> sRow : state) {
+                copyState.add(new ArrayList<>(sRow));
+            }
+            res.add(copyState);
+            return;
+        }
+        // 遍历所有列
+        for (int col = 0; col < n; col++) {
+            // 计算该格子对应的主对角线和副对角线
+            int diag1 = row - col + n - 1;
+            int diag2 = row + col;
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
+                // 尝试：将皇后放置在该格子
+                state.get(row).set(col, "Q");
+                cols[col] = diags1[diag1] = diags2[diag2] = true;
+                // 放置下一行
+                backtrack(row + 1, n, state, res, cols, diags1, diags2);
+                // 回退：将该格子恢复为空位
+                state.get(row).set(col, "#");
+                cols[col] = diags1[diag1] = diags2[diag2] = false;
+            }
+        }
+    }
 
-    [class]{n_queens}-[func]{nQueens}
+    /* 求解 N 皇后 */
+    List<List<List<String>>> nQueens(int n) {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        List<List<String>> state = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            List<String> row = new ArrayList<>();
+            for (int j = 0; j < n; j++) {
+                row.add("#");
+            }
+            state.add(row);
+        }
+        boolean[] cols = new boolean[n]; // 记录列是否有皇后
+        boolean[] diags1 = new boolean[2 * n - 1]; // 记录主对角线是否有皇后
+        boolean[] diags2 = new boolean[2 * n - 1]; // 记录副对角线是否有皇后
+        List<List<List<String>>> res = new ArrayList<>();
+
+        backtrack(0, n, state, res, cols, diags1, diags2);
+
+        return res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="n_queens.cs"
-    [class]{n_queens}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    void backtrack(int row, int n, List<List<string>> state, List<List<List<string>>> res,
+            bool[] cols, bool[] diags1, bool[] diags2) {
+        // 当放置完所有行时，记录解
+        if (row == n) {
+            List<List<string>> copyState = new List<List<string>>();
+            foreach (List<string> sRow in state) {
+                copyState.Add(new List<string>(sRow));
+            }
+            res.Add(copyState);
+            return;
+        }
+        // 遍历所有列
+        for (int col = 0; col < n; col++) {
+            // 计算该格子对应的主对角线和副对角线
+            int diag1 = row - col + n - 1;
+            int diag2 = row + col;
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
+                // 尝试：将皇后放置在该格子
+                state[row][col] = "Q";
+                cols[col] = diags1[diag1] = diags2[diag2] = true;
+                // 放置下一行
+                backtrack(row + 1, n, state, res, cols, diags1, diags2);
+                // 回退：将该格子恢复为空位
+                state[row][col] = "#";
+                cols[col] = diags1[diag1] = diags2[diag2] = false;
+            }
+        }
+    }
 
-    [class]{n_queens}-[func]{nQueens}
+    /* 求解 N 皇后 */
+    List<List<List<string>>> nQueens(int n) {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        List<List<string>> state = new List<List<string>>();
+        for (int i = 0; i < n; i++) {
+            List<string> row = new List<string>();
+            for (int j = 0; j < n; j++) {
+                row.Add("#");
+            }
+            state.Add(row);
+        }
+        bool[] cols = new bool[n]; // 记录列是否有皇后
+        bool[] diags1 = new bool[2 * n - 1]; // 记录主对角线是否有皇后
+        bool[] diags2 = new bool[2 * n - 1]; // 记录副对角线是否有皇后
+        List<List<List<string>>> res = new List<List<List<string>>>();
+
+        backtrack(0, n, state, res, cols, diags1, diags2);
+
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="n_queens.go"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, diags2 *[]bool) {
+        // 当放置完所有行时，记录解
+        if row == n {
+            newState := make([][]string, len(*state))
+            for i, _ := range newState {
+                newState[i] = make([]string, len((*state)[0]))
+                copy(newState[i], (*state)[i])
 
-    [class]{}-[func]{nQueens}
+            }
+            *res = append(*res, newState)
+        }
+        // 遍历所有列
+        for col := 0; col < n; col++ {
+            // 计算该格子对应的主对角线和副对角线
+            diag1 := row - col + n - 1
+            diag2 := row + col
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if !(*cols)[col] && !(*diags1)[diag1] && !(*diags2)[diag2] {
+                // 尝试：将皇后放置在该格子
+                (*state)[row][col] = "Q"
+                (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = true, true, true
+                // 放置下一行
+                backtrack(row+1, n, state, res, cols, diags1, diags2)
+                // 回退：将该格子恢复为空位
+                (*state)[row][col] = "#"
+                (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = false, false, false
+            }
+        }
+    }
+
+    /* 回溯算法：N 皇后 */
+    func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, diags2 *[]bool) {
+        // 当放置完所有行时，记录解
+        if row == n {
+            newState := make([][]string, len(*state))
+            for i, _ := range newState {
+                newState[i] = make([]string, len((*state)[0]))
+                copy(newState[i], (*state)[i])
+
+            }
+            *res = append(*res, newState)
+        }
+        // 遍历所有列
+        for col := 0; col < n; col++ {
+            // 计算该格子对应的主对角线和副对角线
+            diag1 := row - col + n - 1
+            diag2 := row + col
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if !(*cols)[col] && !(*diags1)[diag1] && !(*diags2)[diag2] {
+                // 尝试：将皇后放置在该格子
+                (*state)[row][col] = "Q"
+                (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = true, true, true
+                // 放置下一行
+                backtrack(row+1, n, state, res, cols, diags1, diags2)
+                // 回退：将该格子恢复为空位
+                (*state)[row][col] = "#"
+                (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = false, false, false
+            }
+        }
+    }
+
+    func nQueens(n int) [][][]string {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        state := make([][]string, n)
+        for i := 0; i < n; i++ {
+            row := make([]string, n)
+            for i := 0; i < n; i++ {
+                row[i] = "#"
+            }
+            state[i] = row
+        }
+        // 记录列是否有皇后
+        cols := make([]bool, n)
+        diags1 := make([]bool, 2*n-1)
+        diags2 := make([]bool, 2*n-1)
+        res := make([][][]string, 0)
+        backtrack(0, n, &state, &res, &cols, &diags1, &diags2)
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="n_queens.swift"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    func backtrack(row: Int, n: Int, state: inout [[String]], res: inout [[[String]]], cols: inout [Bool], diags1: inout [Bool], diags2: inout [Bool]) {
+        // 当放置完所有行时，记录解
+        if row == n {
+            res.append(state)
+            return
+        }
+        // 遍历所有列
+        for col in 0 ..< n {
+            // 计算该格子对应的主对角线和副对角线
+            let diag1 = row - col + n - 1
+            let diag2 = row + col
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if !cols[col] && !diags1[diag1] && !diags2[diag2] {
+                // 尝试：将皇后放置在该格子
+                state[row][col] = "Q"
+                cols[col] = true
+                diags1[diag1] = true
+                diags2[diag2] = true
+                // 放置下一行
+                backtrack(row: row + 1, n: n, state: &state, res: &res, cols: &cols, diags1: &diags1, diags2: &diags2)
+                // 回退：将该格子恢复为空位
+                state[row][col] = "#"
+                cols[col] = false
+                diags1[diag1] = false
+                diags2[diag2] = false
+            }
+        }
+    }
 
-    [class]{}-[func]{nQueens}
+    /* 求解 N 皇后 */
+    func nQueens(n: Int) -> [[[String]]] {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        var state = Array(repeating: Array(repeating: "#", count: n), count: n)
+        var cols = Array(repeating: false, count: n) // 记录列是否有皇后
+        var diags1 = Array(repeating: false, count: 2 * n - 1) // 记录主对角线是否有皇后
+        var diags2 = Array(repeating: false, count: 2 * n - 1) // 记录副对角线是否有皇后
+        var res: [[[String]]] = []
+
+        backtrack(row: 0, n: n, state: &state, res: &res, cols: &cols, diags1: &diags1, diags2: &diags2)
+
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="n_queens.js"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    function backtrack(row, n, state, res, cols, diags1, diags2) {
+        // 当放置完所有行时，记录解
+        if (row === n) {
+            res.push(state.map((row) => row.slice()));
+            return;
+        }
+        // 遍历所有列
+        for (let col = 0; col < n; col++) {
+            // 计算该格子对应的主对角线和副对角线
+            const diag1 = row - col + n - 1;
+            const diag2 = row + col;
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
+                // 尝试：将皇后放置在该格子
+                state[row][col] = 'Q';
+                cols[col] = diags1[diag1] = diags2[diag2] = true;
+                // 放置下一行
+                backtrack(row + 1, n, state, res, cols, diags1, diags2);
+                // 回退：将该格子恢复为空位
+                state[row][col] = '#';
+                cols[col] = diags1[diag1] = diags2[diag2] = false;
+            }
+        }
+    }
 
-    [class]{}-[func]{nQueens}
+    /* 求解 N 皇后 */
+    function nQueens(n) {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        const state = Array.from({ length: n }, () => Array(n).fill('#'));
+        const cols = Array(n).fill(false); // 记录列是否有皇后
+        const diags1 = Array(2 * n - 1).fill(false); // 记录主对角线是否有皇后
+        const diags2 = Array(2 * n - 1).fill(false); // 记录副对角线是否有皇后
+        const res = [];
+
+        backtrack(0, n, state, res, cols, diags1, diags2);
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="n_queens.ts"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    function backtrack(
+        row: number,
+        n: number,
+        state: string[][],
+        res: string[][][],
+        cols: boolean[],
+        diags1: boolean[],
+        diags2: boolean[]
+    ): void {
+        // 当放置完所有行时，记录解
+        if (row === n) {
+            res.push(state.map((row) => row.slice()));
+            return;
+        }
+        // 遍历所有列
+        for (let col = 0; col < n; col++) {
+            // 计算该格子对应的主对角线和副对角线
+            const diag1 = row - col + n - 1;
+            const diag2 = row + col;
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
+                // 尝试：将皇后放置在该格子
+                state[row][col] = 'Q';
+                cols[col] = diags1[diag1] = diags2[diag2] = true;
+                // 放置下一行
+                backtrack(row + 1, n, state, res, cols, diags1, diags2);
+                // 回退：将该格子恢复为空位
+                state[row][col] = '#';
+                cols[col] = diags1[diag1] = diags2[diag2] = false;
+            }
+        }
+    }
 
-    [class]{}-[func]{nQueens}
+    /* 求解 N 皇后 */
+    function nQueens(n: number): string[][][] {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        const state = Array.from({ length: n }, () => Array(n).fill('#'));
+        const cols = Array(n).fill(false); // 记录列是否有皇后
+        const diags1 = Array(2 * n - 1).fill(false); // 记录主对角线是否有皇后
+        const diags2 = Array(2 * n - 1).fill(false); // 记录副对角线是否有皇后
+        const res: string[][][] = [];
+
+        backtrack(0, n, state, res, cols, diags1, diags2);
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="n_queens.dart"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    void backtrack(
+      int row,
+      int n,
+      List<List<String>> state,
+      List<List<List<String>>> res,
+      List<bool> cols,
+      List<bool> diags1,
+      List<bool> diags2,
+    ) {
+      // 当放置完所有行时，记录解
+      if (row == n) {
+        List<List<String>> copyState = [];
+        for (List<String> sRow in state) {
+          copyState.add(List.from(sRow));
+        }
+        res.add(copyState);
+        return;
+      }
+      // 遍历所有列
+      for (int col = 0; col < n; col++) {
+        // 计算该格子对应的主对角线和副对角线
+        int diag1 = row - col + n - 1;
+        int diag2 = row + col;
+        // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+        if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
+          // 尝试：将皇后放置在该格子
+          state[row][col] = "Q";
+          cols[col] = true;
+          diags1[diag1] = true;
+          diags2[diag2] = true;
+          // 放置下一行
+          backtrack(row + 1, n, state, res, cols, diags1, diags2);
+          // 回退：将该格子恢复为空位
+          state[row][col] = "#";
+          cols[col] = false;
+          diags1[diag1] = false;
+          diags2[diag2] = false;
+        }
+      }
+    }
 
-    [class]{}-[func]{nQueens}
+    /* 求解 N 皇后 */
+    List<List<List<String>>> nQueens(int n) {
+      // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+      List<List<String>> state = List.generate(n, (index) => List.filled(n, "#"));
+      List<bool> cols = List.filled(n, false); // 记录列是否有皇后
+      List<bool> diags1 = List.filled(2 * n - 1, false); // 记录主对角线是否有皇后
+      List<bool> diags2 = List.filled(2 * n - 1, false); // 记录副对角线是否有皇后
+      List<List<List<String>>> res = [];
+
+      backtrack(0, n, state, res, cols, diags1, diags2);
+
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="n_queens.rs"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：N 皇后 */
+    fn backtrack(row: usize, n: usize, state: &mut Vec<Vec<String>>, res: &mut Vec<Vec<Vec<String>>>,
+        cols: &mut [bool], diags1: &mut [bool], diags2: &mut [bool]) {
+        // 当放置完所有行时，记录解
+        if row == n {
+            let mut copy_state: Vec<Vec<String>> = Vec::new();
+            for s_row in state.clone() {
+                copy_state.push(s_row);
+            }
+            res.push(copy_state);
+            return;
+        }
+        // 遍历所有列
+        for col in 0..n {
+            // 计算该格子对应的主对角线和副对角线
+            let diag1 = row + n - 1 - col;
+            let diag2 = row + col;
+            // 剪枝：不允许该格子所在列、主对角线、副对角线存在皇后
+            if !cols[col] && !diags1[diag1] && !diags2[diag2] {
+                // 尝试：将皇后放置在该格子
+                state.get_mut(row).unwrap()[col] = "Q".into();
+                (cols[col], diags1[diag1], diags2[diag2]) = (true, true, true);
+                // 放置下一行
+                backtrack(row + 1, n, state, res, cols, diags1, diags2);
+                // 回退：将该格子恢复为空位
+                state.get_mut(row).unwrap()[col] = "#".into();
+                (cols[col], diags1[diag1], diags2[diag2]) = (false, false, false);
+            }
+        }
+    }
 
-    [class]{}-[func]{n_queens}
+    /* 求解 N 皇后 */
+    fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
+        // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+        let mut state: Vec<Vec<String>> = Vec::new();
+        for _ in 0..n {
+            let mut row: Vec<String> = Vec::new();
+            for _ in 0..n {
+                row.push("#".into());
+            }
+            state.push(row);
+        }
+        let mut cols = vec![false; n]; // 记录列是否有皇后
+        let mut diags1 = vec![false; 2 * n - 1]; // 记录主对角线是否有皇后
+        let mut diags2 = vec![false; 2 * n - 1]; // 记录副对角线是否有皇后
+        let mut res: Vec<Vec<Vec<String>>> = Vec::new();
+
+        backtrack(0, n, &mut state, &mut res, &mut cols, &mut diags1, &mut diags2);
+
+        res
+    }
     ```
 
 === "C"

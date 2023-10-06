@@ -23,97 +23,366 @@ comments: true
 === "Python"
 
     ```python title="climbing_stairs_backtrack.py"
-    [class]{}-[func]{backtrack}
+    def backtrack(choices: list[int], state: int, n: int, res: list[int]) -> int:
+        """回溯"""
+        # 当爬到第 n 阶时，方案数量加 1
+        if state == n:
+            res[0] += 1
+        # 遍历所有选择
+        for choice in choices:
+            # 剪枝：不允许越过第 n 阶
+            if state + choice > n:
+                break
+            # 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res)
+            # 回退
 
-    [class]{}-[func]{climbing_stairs_backtrack}
+    def climbing_stairs_backtrack(n: int) -> int:
+        """爬楼梯：回溯"""
+        choices = [1, 2]  # 可选择向上爬 1 或 2 阶
+        state = 0  # 从第 0 阶开始爬
+        res = [0]  # 使用 res[0] 记录方案数量
+        backtrack(choices, state, n, res)
+        return res[0]
     ```
 
 === "C++"
 
     ```cpp title="climbing_stairs_backtrack.cpp"
-    [class]{}-[func]{backtrack}
+    /* 回溯 */
+    void backtrack(vector<int> &choices, int state, int n, vector<int> &res) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if (state == n)
+            res[0]++;
+        // 遍历所有选择
+        for (auto &choice : choices) {
+            // 剪枝：不允许越过第 n 阶
+            if (state + choice > n)
+                break;
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res);
+            // 回退
+        }
+    }
 
-    [class]{}-[func]{climbingStairsBacktrack}
+    /* 爬楼梯：回溯 */
+    int climbingStairsBacktrack(int n) {
+        vector<int> choices = {1, 2}; // 可选择向上爬 1 或 2 阶
+        int state = 0;                // 从第 0 阶开始爬
+        vector<int> res = {0};        // 使用 res[0] 记录方案数量
+        backtrack(choices, state, n, res);
+        return res[0];
+    }
     ```
 
 === "Java"
 
     ```java title="climbing_stairs_backtrack.java"
-    [class]{climbing_stairs_backtrack}-[func]{backtrack}
+    /* 回溯 */
+    void backtrack(List<Integer> choices, int state, int n, List<Integer> res) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if (state == n)
+            res.set(0, res.get(0) + 1);
+        // 遍历所有选择
+        for (Integer choice : choices) {
+            // 剪枝：不允许越过第 n 阶
+            if (state + choice > n)
+                break;
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res);
+            // 回退
+        }
+    }
 
-    [class]{climbing_stairs_backtrack}-[func]{climbingStairsBacktrack}
+    /* 爬楼梯：回溯 */
+    int climbingStairsBacktrack(int n) {
+        List<Integer> choices = Arrays.asList(1, 2); // 可选择向上爬 1 或 2 阶
+        int state = 0; // 从第 0 阶开始爬
+        List<Integer> res = new ArrayList<>();
+        res.add(0); // 使用 res[0] 记录方案数量
+        backtrack(choices, state, n, res);
+        return res.get(0);
+    }
     ```
 
 === "C#"
 
     ```csharp title="climbing_stairs_backtrack.cs"
-    [class]{climbing_stairs_backtrack}-[func]{backtrack}
+    /* 回溯 */
+    void backtrack(List<int> choices, int state, int n, List<int> res) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if (state == n)
+            res[0]++;
+        // 遍历所有选择
+        foreach (int choice in choices) {
+            // 剪枝：不允许越过第 n 阶
+            if (state + choice > n)
+                break;
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res);
+            // 回退
+        }
+    }
 
-    [class]{climbing_stairs_backtrack}-[func]{climbingStairsBacktrack}
+    /* 爬楼梯：回溯 */
+    int climbingStairsBacktrack(int n) {
+        List<int> choices = new List<int> { 1, 2 }; // 可选择向上爬 1 或 2 阶
+        int state = 0; // 从第 0 阶开始爬
+        List<int> res = new List<int> { 0 }; // 使用 res[0] 记录方案数量
+        backtrack(choices, state, n, res);
+        return res[0];
+    }
     ```
 
 === "Go"
 
     ```go title="climbing_stairs_backtrack.go"
-    [class]{}-[func]{backtrack}
+    /* 回溯 */
+    func backtrack(choices []int, state, n int, res []int) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if state == n {
+            res[0] = res[0] + 1
+        }
+        // 遍历所有选择
+        for _, choice := range choices {
+            // 剪枝：不允许越过第 n 阶
+            if state+choice > n {
+                break
+            }
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state+choice, n, res)
+            // 回退
+        }
+    }
 
-    [class]{}-[func]{climbingStairsBacktrack}
+    /* 爬楼梯：回溯 */
+    func climbingStairsBacktrack(n int) int {
+        // 可选择向上爬 1 或 2 阶
+        choices := []int{1, 2}
+        // 从第 0 阶开始爬
+        state := 0
+        res := make([]int, 1)
+        // 使用 res[0] 记录方案数量
+        res[0] = 0
+        backtrack(choices, state, n, res)
+        return res[0]
+    }
     ```
 
 === "Swift"
 
     ```swift title="climbing_stairs_backtrack.swift"
-    [class]{}-[func]{backtrack}
+    /* 回溯 */
+    func backtrack(choices: [Int], state: Int, n: Int, res: inout [Int]) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if state == n {
+            res[0] += 1
+        }
+        // 遍历所有选择
+        for choice in choices {
+            // 剪枝：不允许越过第 n 阶
+            if state + choice > n {
+                break
+            }
+            backtrack(choices: choices, state: state + choice, n: n, res: &res)
+        }
+    }
 
-    [class]{}-[func]{climbingStairsBacktrack}
+    /* 爬楼梯：回溯 */
+    func climbingStairsBacktrack(n: Int) -> Int {
+        let choices = [1, 2] // 可选择向上爬 1 或 2 阶
+        let state = 0 // 从第 0 阶开始爬
+        var res: [Int] = []
+        res.append(0) // 使用 res[0] 记录方案数量
+        backtrack(choices: choices, state: state, n: n, res: &res)
+        return res[0]
+    }
     ```
 
 === "JS"
 
     ```javascript title="climbing_stairs_backtrack.js"
-    [class]{}-[func]{backtrack}
+    /* 回溯 */
+    function backtrack(choices, state, n, res) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if (state === n) res.set(0, res.get(0) + 1);
+        // 遍历所有选择
+        for (const choice of choices) {
+            // 剪枝：不允许越过第 n 阶
+            if (state + choice > n) break;
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res);
+            // 回退
+        }
+    }
 
-    [class]{}-[func]{climbingStairsBacktrack}
+    /* 爬楼梯：回溯 */
+    function climbingStairsBacktrack(n) {
+        const choices = [1, 2]; // 可选择向上爬 1 或 2 阶
+        const state = 0; // 从第 0 阶开始爬
+        const res = new Map();
+        res.set(0, 0); // 使用 res[0] 记录方案数量
+        backtrack(choices, state, n, res);
+        return res.get(0);
+    }
     ```
 
 === "TS"
 
     ```typescript title="climbing_stairs_backtrack.ts"
-    [class]{}-[func]{backtrack}
+    /* 回溯 */
+    function backtrack(
+        choices: number[],
+        state: number,
+        n: number,
+        res: Map<0, any>
+    ): void {
+        // 当爬到第 n 阶时，方案数量加 1
+        if (state === n) res.set(0, res.get(0) + 1);
+        // 遍历所有选择
+        for (const choice of choices) {
+            // 剪枝：不允许越过第 n 阶
+            if (state + choice > n) break;
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res);
+            // 回退
+        }
+    }
 
-    [class]{}-[func]{climbingStairsBacktrack}
+    /* 爬楼梯：回溯 */
+    function climbingStairsBacktrack(n: number): number {
+        const choices = [1, 2]; // 可选择向上爬 1 或 2 阶
+        const state = 0; // 从第 0 阶开始爬
+        const res = new Map();
+        res.set(0, 0); // 使用 res[0] 记录方案数量
+        backtrack(choices, state, n, res);
+        return res.get(0);
+    }
     ```
 
 === "Dart"
 
     ```dart title="climbing_stairs_backtrack.dart"
-    [class]{}-[func]{backtrack}
+    /* 回溯 */
+    void backtrack(List<int> choices, int state, int n, List<int> res) {
+      // 当爬到第 n 阶时，方案数量加 1
+      if (state == n) {
+        res[0]++;
+      }
+      // 遍历所有选择
+      for (int choice in choices) {
+        // 剪枝：不允许越过第 n 阶
+        if (state + choice > n) break;
+        // 尝试：做出选择，更新状态
+        backtrack(choices, state + choice, n, res);
+        // 回退
+      }
+    }
 
-    [class]{}-[func]{climbingStairsBacktrack}
+    /* 爬楼梯：回溯 */
+    int climbingStairsBacktrack(int n) {
+      List<int> choices = [1, 2]; // 可选择向上爬 1 或 2 阶
+      int state = 0; // 从第 0 阶开始爬
+      List<int> res = [];
+      res.add(0); // 使用 res[0] 记录方案数量
+      backtrack(choices, state, n, res);
+      return res[0];
+    }
     ```
 
 === "Rust"
 
     ```rust title="climbing_stairs_backtrack.rs"
-    [class]{}-[func]{backtrack}
+    /* 回溯 */
+    fn backtrack(choices: &[i32], state: i32, n: i32, res: &mut [i32]) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if state == n { res[0] = res[0] + 1; }
+        // 遍历所有选择
+        for &choice in choices {
+            // 剪枝：不允许越过第 n 阶
+            if state + choice > n { break; }
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res);
+            // 回退
+        }
+    }
 
-    [class]{}-[func]{climbing_stairs_backtrack}
+    /* 爬楼梯：回溯 */
+    fn climbing_stairs_backtrack(n: usize) -> i32 {
+        let choices = vec![ 1, 2 ]; // 可选择向上爬 1 或 2 阶
+        let state = 0; // 从第 0 阶开始爬
+        let mut res = Vec::new();
+        res.push(0); // 使用 res[0] 记录方案数量
+        backtrack(&choices, state, n as i32, &mut res);
+        res[0]
+    }
     ```
 
 === "C"
 
     ```c title="climbing_stairs_backtrack.c"
-    [class]{}-[func]{backtrack}
+    /* 回溯 */
+    void backtrack(int *choices, int state, int n, int *res, int len) {
+        // 当爬到第 n 阶时，方案数量加 1
+        if (state == n)
+            res[0]++;
+        // 遍历所有选择
+        for (int i = 0; i < len; i++) {
+            int choice = choices[i];
+            // 剪枝：不允许越过第 n 阶
+            if (state + choice > n)
+                break;
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res, len);
+            // 回退
+        }
+    }
 
-    [class]{}-[func]{climbingStairsBacktrack}
+    /* 爬楼梯：回溯 */
+    int climbingStairsBacktrack(int n) {
+        int choices[2] = {1, 2}; // 可选择向上爬 1 或 2 阶
+        int state = 0;           // 从第 0 阶开始爬
+        int *res = (int *)malloc(sizeof(int));
+        *res = 0;                // 使用 res[0] 记录方案数量
+        int len = sizeof(choices) / sizeof(int);
+        backtrack(choices, state, n, res, len);
+        int result = *res;
+        free(res);
+        return result;
+    }
     ```
 
 === "Zig"
 
     ```zig title="climbing_stairs_backtrack.zig"
-    [class]{}-[func]{backtrack}
+    // 回溯
+    fn backtrack(choices: []i32, state: i32, n: i32, res: std.ArrayList(i32)) void {
+        // 当爬到第 n 阶时，方案数量加 1
+        if (state == n) {
+            res.items[0] = res.items[0] + 1;
+        }
+        // 遍历所有选择
+        for (choices) |choice| {
+            // 剪枝：不允许越过第 n 阶
+            if (state + choice > n) {
+                break;
+            }
+            // 尝试：做出选择，更新状态
+            backtrack(choices, state + choice, n, res);
+            // 回退
+        }
+    }
 
-    [class]{}-[func]{climbingStairsBacktrack}
+    // 爬楼梯：回溯
+    fn climbingStairsBacktrack(n: usize) !i32 {
+        var choices = [_]i32{ 1, 2 }; // 可选择向上爬 1 或 2 阶
+        var state: i32 = 0; // 从第 0 阶开始爬
+        var res = std.ArrayList(i32).init(std.heap.page_allocator);
+        defer res.deinit();
+        try res.append(0); // 使用 res[0] 记录方案数量
+        backtrack(&choices, state, @intCast(n), res);
+        return res.items[0];
+    }
     ```
 
 ## 14.1.1 &nbsp; 方法一：暴力搜索
@@ -147,97 +416,226 @@ $$
 === "Python"
 
     ```python title="climbing_stairs_dfs.py"
-    [class]{}-[func]{dfs}
+    def dfs(i: int) -> int:
+        """搜索"""
+        # 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 or i == 2:
+            return i
+        # dp[i] = dp[i-1] + dp[i-2]
+        count = dfs(i - 1) + dfs(i - 2)
+        return count
 
-    [class]{}-[func]{climbing_stairs_dfs}
+    def climbing_stairs_dfs(n: int) -> int:
+        """爬楼梯：搜索"""
+        return dfs(n)
     ```
 
 === "C++"
 
     ```cpp title="climbing_stairs_dfs.cpp"
-    [class]{}-[func]{dfs}
+    /* 搜索 */
+    int dfs(int i) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2)
+            return i;
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1) + dfs(i - 2);
+        return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFS}
+    /* 爬楼梯：搜索 */
+    int climbingStairsDFS(int n) {
+        return dfs(n);
+    }
     ```
 
 === "Java"
 
     ```java title="climbing_stairs_dfs.java"
-    [class]{climbing_stairs_dfs}-[func]{dfs}
+    /* 搜索 */
+    int dfs(int i) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2)
+            return i;
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1) + dfs(i - 2);
+        return count;
+    }
 
-    [class]{climbing_stairs_dfs}-[func]{climbingStairsDFS}
+    /* 爬楼梯：搜索 */
+    int climbingStairsDFS(int n) {
+        return dfs(n);
+    }
     ```
 
 === "C#"
 
     ```csharp title="climbing_stairs_dfs.cs"
-    [class]{climbing_stairs_dfs}-[func]{dfs}
+    /* 搜索 */
+    int dfs(int i) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2)
+            return i;
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1) + dfs(i - 2);
+        return count;
+    }
 
-    [class]{climbing_stairs_dfs}-[func]{climbingStairsDFS}
+    /* 爬楼梯：搜索 */
+    int climbingStairsDFS(int n) {
+        return dfs(n);
+    }
     ```
 
 === "Go"
 
     ```go title="climbing_stairs_dfs.go"
-    [class]{}-[func]{dfs}
+    /* 搜索 */
+    func dfs(i int) int {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 || i == 2 {
+            return i
+        }
+        // dp[i] = dp[i-1] + dp[i-2]
+        count := dfs(i-1) + dfs(i-2)
+        return count
+    }
 
-    [class]{}-[func]{climbingStairsDFS}
+    /* 爬楼梯：搜索 */
+    func climbingStairsDFS(n int) int {
+        return dfs(n)
+    }
     ```
 
 === "Swift"
 
     ```swift title="climbing_stairs_dfs.swift"
-    [class]{}-[func]{dfs}
+    /* 搜索 */
+    func dfs(i: Int) -> Int {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 || i == 2 {
+            return i
+        }
+        // dp[i] = dp[i-1] + dp[i-2]
+        let count = dfs(i: i - 1) + dfs(i: i - 2)
+        return count
+    }
 
-    [class]{}-[func]{climbingStairsDFS}
+    /* 爬楼梯：搜索 */
+    func climbingStairsDFS(n: Int) -> Int {
+        dfs(i: n)
+    }
     ```
 
 === "JS"
 
     ```javascript title="climbing_stairs_dfs.js"
-    [class]{}-[func]{dfs}
+    /* 搜索 */
+    function dfs(i) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i === 1 || i === 2) return i;
+        // dp[i] = dp[i-1] + dp[i-2]
+        const count = dfs(i - 1) + dfs(i - 2);
+        return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFS}
+    /* 爬楼梯：搜索 */
+    function climbingStairsDFS(n) {
+        return dfs(n);
+    }
     ```
 
 === "TS"
 
     ```typescript title="climbing_stairs_dfs.ts"
-    [class]{}-[func]{dfs}
+    /* 搜索 */
+    function dfs(i: number): number {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i === 1 || i === 2) return i;
+        // dp[i] = dp[i-1] + dp[i-2]
+        const count = dfs(i - 1) + dfs(i - 2);
+        return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFS}
+    /* 爬楼梯：搜索 */
+    function climbingStairsDFS(n: number): number {
+        return dfs(n);
+    }
     ```
 
 === "Dart"
 
     ```dart title="climbing_stairs_dfs.dart"
-    [class]{}-[func]{dfs}
+    /* 搜索 */
+    int dfs(int i) {
+      // 已知 dp[1] 和 dp[2] ，返回之
+      if (i == 1 || i == 2) return i;
+      // dp[i] = dp[i-1] + dp[i-2]
+      int count = dfs(i - 1) + dfs(i - 2);
+      return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFS}
+    /* 爬楼梯：搜索 */
+    int climbingStairsDFS(int n) {
+      return dfs(n);
+    }
     ```
 
 === "Rust"
 
     ```rust title="climbing_stairs_dfs.rs"
-    [class]{}-[func]{dfs}
+    /* 搜索 */
+    fn dfs(i: usize) -> i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 || i == 2 { return i as i32; }
+        // dp[i] = dp[i-1] + dp[i-2]
+        let count = dfs(i - 1) + dfs(i - 2);
+        count
+    }
 
-    [class]{}-[func]{climbing_stairs_dfs}
+    /* 爬楼梯：搜索 */
+    fn climbing_stairs_dfs(n: usize) -> i32 {
+        dfs(n) 
+    }
     ```
 
 === "C"
 
     ```c title="climbing_stairs_dfs.c"
-    [class]{}-[func]{dfs}
+    /* 搜索 */
+    int dfs(int i) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2)
+            return i;
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1) + dfs(i - 2);
+        return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFS}
+    /* 爬楼梯：搜索 */
+    int climbingStairsDFS(int n) {
+        return dfs(n);
+    }
     ```
 
 === "Zig"
 
     ```zig title="climbing_stairs_dfs.zig"
-    [class]{}-[func]{dfs}
+    // 搜索
+    fn dfs(i: usize) i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 or i == 2) {
+            return @intCast(i);
+        }
+        // dp[i] = dp[i-1] + dp[i-2]
+        var count = dfs(i - 1) + dfs(i - 2);
+        return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFS}
+    // 爬楼梯：搜索
+    fn climbingStairsDFS(comptime n: usize) i32 {
+        return dfs(n);
+    }
     ```
 
 图 14-3 展示了暴力搜索形成的递归树。对于问题 $dp[n]$ ，其递归树的深度为 $n$ ，时间复杂度为 $O(2^n)$ 。指数阶属于爆炸式增长，如果我们输入一个比较大的 $n$ ，则会陷入漫长的等待之中。
@@ -260,97 +658,319 @@ $$
 === "Python"
 
     ```python title="climbing_stairs_dfs_mem.py"
-    [class]{}-[func]{dfs}
+    def dfs(i: int, mem: list[int]) -> int:
+        """记忆化搜索"""
+        # 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 or i == 2:
+            return i
+        # 若存在记录 dp[i] ，则直接返回之
+        if mem[i] != -1:
+            return mem[i]
+        # dp[i] = dp[i-1] + dp[i-2]
+        count = dfs(i - 1, mem) + dfs(i - 2, mem)
+        # 记录 dp[i]
+        mem[i] = count
+        return count
 
-    [class]{}-[func]{climbing_stairs_dfs_mem}
+    def climbing_stairs_dfs_mem(n: int) -> int:
+        """爬楼梯：记忆化搜索"""
+        # mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        mem = [-1] * (n + 1)
+        return dfs(n, mem)
     ```
 
 === "C++"
 
     ```cpp title="climbing_stairs_dfs_mem.cpp"
-    [class]{}-[func]{dfs}
+    /* 记忆化搜索 */
+    int dfs(int i, vector<int> &mem) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2)
+            return i;
+        // 若存在记录 dp[i] ，则直接返回之
+        if (mem[i] != -1)
+            return mem[i];
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // 记录 dp[i]
+        mem[i] = count;
+        return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFSMem}
+    /* 爬楼梯：记忆化搜索 */
+    int climbingStairsDFSMem(int n) {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        vector<int> mem(n + 1, -1);
+        return dfs(n, mem);
+    }
     ```
 
 === "Java"
 
     ```java title="climbing_stairs_dfs_mem.java"
-    [class]{climbing_stairs_dfs_mem}-[func]{dfs}
+    /* 记忆化搜索 */
+    int dfs(int i, int[] mem) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2)
+            return i;
+        // 若存在记录 dp[i] ，则直接返回之
+        if (mem[i] != -1)
+            return mem[i];
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // 记录 dp[i]
+        mem[i] = count;
+        return count;
+    }
 
-    [class]{climbing_stairs_dfs_mem}-[func]{climbingStairsDFSMem}
+    /* 爬楼梯：记忆化搜索 */
+    int climbingStairsDFSMem(int n) {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        int[] mem = new int[n + 1];
+        Arrays.fill(mem, -1);
+        return dfs(n, mem);
+    }
     ```
 
 === "C#"
 
     ```csharp title="climbing_stairs_dfs_mem.cs"
-    [class]{climbing_stairs_dfs_mem}-[func]{dfs}
+    /* 记忆化搜索 */
+    int dfs(int i, int[] mem) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2)
+            return i;
+        // 若存在记录 dp[i] ，则直接返回之
+        if (mem[i] != -1)
+            return mem[i];
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // 记录 dp[i]
+        mem[i] = count;
+        return count;
+    }
 
-    [class]{climbing_stairs_dfs_mem}-[func]{climbingStairsDFSMem}
+    /* 爬楼梯：记忆化搜索 */
+    int climbingStairsDFSMem(int n) {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        int[] mem = new int[n + 1];
+        Array.Fill(mem, -1);
+        return dfs(n, mem);
+    }
     ```
 
 === "Go"
 
     ```go title="climbing_stairs_dfs_mem.go"
-    [class]{}-[func]{dfsMem}
+    /* 记忆化搜索 */
+    func dfsMem(i int, mem []int) int {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 || i == 2 {
+            return i
+        }
+        // 若存在记录 dp[i] ，则直接返回之
+        if mem[i] != -1 {
+            return mem[i]
+        }
+        // dp[i] = dp[i-1] + dp[i-2]
+        count := dfsMem(i-1, mem) + dfsMem(i-2, mem)
+        // 记录 dp[i]
+        mem[i] = count
+        return count
+    }
 
-    [class]{}-[func]{climbingStairsDFSMem}
+    /* 爬楼梯：记忆化搜索 */
+    func climbingStairsDFSMem(n int) int {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        mem := make([]int, n+1)
+        for i := range mem {
+            mem[i] = -1
+        }
+        return dfsMem(n, mem)
+    }
     ```
 
 === "Swift"
 
     ```swift title="climbing_stairs_dfs_mem.swift"
-    [class]{}-[func]{dfs}
+    /* 记忆化搜索 */
+    func dfs(i: Int, mem: inout [Int]) -> Int {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 || i == 2 {
+            return i
+        }
+        // 若存在记录 dp[i] ，则直接返回之
+        if mem[i] != -1 {
+            return mem[i]
+        }
+        // dp[i] = dp[i-1] + dp[i-2]
+        let count = dfs(i: i - 1, mem: &mem) + dfs(i: i - 2, mem: &mem)
+        // 记录 dp[i]
+        mem[i] = count
+        return count
+    }
 
-    [class]{}-[func]{climbingStairsDFSMem}
+    /* 爬楼梯：记忆化搜索 */
+    func climbingStairsDFSMem(n: Int) -> Int {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        var mem = Array(repeating: -1, count: n + 1)
+        return dfs(i: n, mem: &mem)
+    }
     ```
 
 === "JS"
 
     ```javascript title="climbing_stairs_dfs_mem.js"
-    [class]{}-[func]{dfs}
+    /* 记忆化搜索 */
+    function dfs(i, mem) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i === 1 || i === 2) return i;
+        // 若存在记录 dp[i] ，则直接返回之
+        if (mem[i] != -1) return mem[i];
+        // dp[i] = dp[i-1] + dp[i-2]
+        const count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // 记录 dp[i]
+        mem[i] = count;
+        return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFSMem}
+    /* 爬楼梯：记忆化搜索 */
+    function climbingStairsDFSMem(n) {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        const mem = new Array(n + 1).fill(-1);
+        return dfs(n, mem);
+    }
     ```
 
 === "TS"
 
     ```typescript title="climbing_stairs_dfs_mem.ts"
-    [class]{}-[func]{dfs}
+    /* 记忆化搜索 */
+    function dfs(i: number, mem: number[]): number {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i === 1 || i === 2) return i;
+        // 若存在记录 dp[i] ，则直接返回之
+        if (mem[i] != -1) return mem[i];
+        // dp[i] = dp[i-1] + dp[i-2]
+        const count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // 记录 dp[i]
+        mem[i] = count;
+        return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFSMem}
+    /* 爬楼梯：记忆化搜索 */
+    function climbingStairsDFSMem(n: number): number {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        const mem = new Array(n + 1).fill(-1);
+        return dfs(n, mem);
+    }
     ```
 
 === "Dart"
 
     ```dart title="climbing_stairs_dfs_mem.dart"
-    [class]{}-[func]{dfs}
+    /* 记忆化搜索 */
+    int dfs(int i, List<int> mem) {
+      // 已知 dp[1] 和 dp[2] ，返回之
+      if (i == 1 || i == 2) return i;
+      // 若存在记录 dp[i] ，则直接返回之
+      if (mem[i] != -1) return mem[i];
+      // dp[i] = dp[i-1] + dp[i-2]
+      int count = dfs(i - 1, mem) + dfs(i - 2, mem);
+      // 记录 dp[i]
+      mem[i] = count;
+      return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFSMem}
+    /* 爬楼梯：记忆化搜索 */
+    int climbingStairsDFSMem(int n) {
+      // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+      List<int> mem = List.filled(n + 1, -1);
+      return dfs(n, mem);
+    }
     ```
 
 === "Rust"
 
     ```rust title="climbing_stairs_dfs_mem.rs"
-    [class]{}-[func]{dfs}
+    /* 记忆化搜索 */
+    fn dfs(i: usize, mem: &mut [i32]) -> i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if i == 1 || i == 2 { return i as i32; }
+        // 若存在记录 dp[i] ，则直接返回之
+        if mem[i] != -1 { return mem[i]; }
+        // dp[i] = dp[i-1] + dp[i-2]
+        let count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // 记录 dp[i]
+        mem[i] = count;
+        count
+    }
 
-    [class]{}-[func]{climbing_stairs_dfs_mem}
+    /* 爬楼梯：记忆化搜索 */
+    fn climbing_stairs_dfs_mem(n: usize) -> i32 {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        let mut mem = vec![-1; n + 1];
+        dfs(n, &mut mem)
+    }
     ```
 
 === "C"
 
     ```c title="climbing_stairs_dfs_mem.c"
-    [class]{}-[func]{dfs}
+    /* 记忆化搜索 */
+    int dfs(int i, int *mem) {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 || i == 2)
+            return i;
+        // 若存在记录 dp[i] ，则直接返回之
+        if (mem[i] != -1)
+            return mem[i];
+        // dp[i] = dp[i-1] + dp[i-2]
+        int count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // 记录 dp[i]
+        mem[i] = count;
+        return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFSMem}
+    /* 爬楼梯：记忆化搜索 */
+    int climbingStairsDFSMem(int n) {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        int *mem = (int *)malloc((n + 1) * sizeof(int));
+        for (int i = 0; i <= n; i++) {
+            mem[i] = -1;
+        }
+        int result = dfs(n, mem);
+        free(mem);
+        return result;
+    }
     ```
 
 === "Zig"
 
     ```zig title="climbing_stairs_dfs_mem.zig"
-    [class]{}-[func]{dfs}
+    // 记忆化搜索
+    fn dfs(i: usize, mem: []i32) i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (i == 1 or i == 2) {
+            return @intCast(i);
+        }
+        // 若存在记录 dp[i] ，则直接返回之
+        if (mem[i] != -1) {
+            return mem[i];
+        }
+        // dp[i] = dp[i-1] + dp[i-2]
+        var count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        // 记录 dp[i]
+        mem[i] = count;
+        return count;
+    }
 
-    [class]{}-[func]{climbingStairsDFSMem}
+    // 爬楼梯：记忆化搜索
+    fn climbingStairsDFSMem(comptime n: usize) i32 {
+        // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
+        var mem = [_]i32{ -1 } ** (n + 1);
+        return dfs(n, &mem);
+    }
     ```
 
 观察图 14-4 ，**经过记忆化处理后，所有重叠子问题都只需被计算一次，时间复杂度被优化至 $O(n)$** ，这是一个巨大的飞跃。
@@ -370,73 +990,241 @@ $$
 === "Python"
 
     ```python title="climbing_stairs_dp.py"
-    [class]{}-[func]{climbing_stairs_dp}
+    def climbing_stairs_dp(n: int) -> int:
+        """爬楼梯：动态规划"""
+        if n == 1 or n == 2:
+            return n
+        # 初始化 dp 表，用于存储子问题的解
+        dp = [0] * (n + 1)
+        # 初始状态：预设最小子问题的解
+        dp[1], dp[2] = 1, 2
+        # 状态转移：从较小子问题逐步求解较大子问题
+        for i in range(3, n + 1):
+            dp[i] = dp[i - 1] + dp[i - 2]
+        return dp[n]
     ```
 
 === "C++"
 
     ```cpp title="climbing_stairs_dp.cpp"
-    [class]{}-[func]{climbingStairsDP}
+    /* 爬楼梯：动态规划 */
+    int climbingStairsDP(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        // 初始化 dp 表，用于存储子问题的解
+        vector<int> dp(n + 1);
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
     ```
 
 === "Java"
 
     ```java title="climbing_stairs_dp.java"
-    [class]{climbing_stairs_dp}-[func]{climbingStairsDP}
+    /* 爬楼梯：动态规划 */
+    int climbingStairsDP(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        // 初始化 dp 表，用于存储子问题的解
+        int[] dp = new int[n + 1];
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
     ```
 
 === "C#"
 
     ```csharp title="climbing_stairs_dp.cs"
-    [class]{climbing_stairs_dp}-[func]{climbingStairsDP}
+    /* 爬楼梯：动态规划 */
+    int climbingStairsDP(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        // 初始化 dp 表，用于存储子问题的解
+        int[] dp = new int[n + 1];
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
     ```
 
 === "Go"
 
     ```go title="climbing_stairs_dp.go"
-    [class]{}-[func]{climbingStairsDP}
+    /* 爬楼梯：动态规划 */
+    func climbingStairsDP(n int) int {
+        if n == 1 || n == 2 {
+            return n
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        dp := make([]int, n+1)
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1
+        dp[2] = 2
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i := 3; i <= n; i++ {
+            dp[i] = dp[i-1] + dp[i-2]
+        }
+        return dp[n]
+    }
     ```
 
 === "Swift"
 
     ```swift title="climbing_stairs_dp.swift"
-    [class]{}-[func]{climbingStairsDP}
+    /* 爬楼梯：动态规划 */
+    func climbingStairsDP(n: Int) -> Int {
+        if n == 1 || n == 2 {
+            return n
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        var dp = Array(repeating: 0, count: n + 1)
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1
+        dp[2] = 2
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i in stride(from: 3, through: n, by: 1) {
+            dp[i] = dp[i - 1] + dp[i - 2]
+        }
+        return dp[n]
+    }
     ```
 
 === "JS"
 
     ```javascript title="climbing_stairs_dp.js"
-    [class]{}-[func]{climbingStairsDP}
+    /* 爬楼梯：动态规划 */
+    function climbingStairsDP(n) {
+        if (n === 1 || n === 2) return n;
+        // 初始化 dp 表，用于存储子问题的解
+        const dp = new Array(n + 1).fill(-1);
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (let i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
     ```
 
 === "TS"
 
     ```typescript title="climbing_stairs_dp.ts"
-    [class]{}-[func]{climbingStairsDP}
+    /* 爬楼梯：动态规划 */
+    function climbingStairsDP(n: number): number {
+        if (n === 1 || n === 2) return n;
+        // 初始化 dp 表，用于存储子问题的解
+        const dp = new Array(n + 1).fill(-1);
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (let i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
     ```
 
 === "Dart"
 
     ```dart title="climbing_stairs_dp.dart"
-    [class]{}-[func]{climbingStairsDP}
+    /* 爬楼梯：动态规划 */
+    int climbingStairsDP(int n) {
+      if (n == 1 || n == 2) return n;
+      // 初始化 dp 表，用于存储子问题的解
+      List<int> dp = List.filled(n + 1, 0);
+      // 初始状态：预设最小子问题的解
+      dp[1] = 1;
+      dp[2] = 2;
+      // 状态转移：从较小子问题逐步求解较大子问题
+      for (int i = 3; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 2];
+      }
+      return dp[n];
+    }
     ```
 
 === "Rust"
 
     ```rust title="climbing_stairs_dp.rs"
-    [class]{}-[func]{climbing_stairs_dp}
+    /* 爬楼梯：动态规划 */
+    fn climbing_stairs_dp(n: usize) -> i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if n == 1 || n == 2 { return n as i32; }
+        // 初始化 dp 表，用于存储子问题的解
+        let mut dp = vec![-1; n + 1];
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i in 3..=n {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        dp[n]
+    }
     ```
 
 === "C"
 
     ```c title="climbing_stairs_dp.c"
-    [class]{}-[func]{climbingStairsDP}
+    /* 爬楼梯：动态规划 */
+    int climbingStairsDP(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        // 初始化 dp 表，用于存储子问题的解
+        int *dp = (int *)malloc((n + 1) * sizeof(int));
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        int result = dp[n];
+        free(dp);
+        return result;
+    }
     ```
 
 === "Zig"
 
     ```zig title="climbing_stairs_dp.zig"
-    [class]{}-[func]{climbingStairsDP}
+    // 爬楼梯：动态规划
+    fn climbingStairsDP(comptime n: usize) i32 {
+        // 已知 dp[1] 和 dp[2] ，返回之
+        if (n == 1 or n == 2) {
+            return @intCast(n);
+        }
+        // 初始化 dp 表，用于存储子问题的解
+        var dp = [_]i32{-1} ** (n + 1);
+        // 初始状态：预设最小子问题的解
+        dp[1] = 1;
+        dp[2] = 2;
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (3..n + 1) |i| {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
     ```
 
 图 14-5 模拟了以上代码的执行过程。
@@ -460,73 +1248,201 @@ $$
 === "Python"
 
     ```python title="climbing_stairs_dp.py"
-    [class]{}-[func]{climbing_stairs_dp_comp}
+    def climbing_stairs_dp_comp(n: int) -> int:
+        """爬楼梯：空间优化后的动态规划"""
+        if n == 1 or n == 2:
+            return n
+        a, b = 1, 2
+        for _ in range(3, n + 1):
+            a, b = b, a + b
+        return b
     ```
 
 === "C++"
 
     ```cpp title="climbing_stairs_dp.cpp"
-    [class]{}-[func]{climbingStairsDPComp}
+    /* 爬楼梯：空间优化后的动态规划 */
+    int climbingStairsDPComp(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        int a = 1, b = 2;
+        for (int i = 3; i <= n; i++) {
+            int tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "Java"
 
     ```java title="climbing_stairs_dp.java"
-    [class]{climbing_stairs_dp}-[func]{climbingStairsDPComp}
+    /* 爬楼梯：空间优化后的动态规划 */
+    int climbingStairsDPComp(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        int a = 1, b = 2;
+        for (int i = 3; i <= n; i++) {
+            int tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "C#"
 
     ```csharp title="climbing_stairs_dp.cs"
-    [class]{climbing_stairs_dp}-[func]{climbingStairsDPComp}
+    /* 爬楼梯：空间优化后的动态规划 */
+    int climbingStairsDPComp(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        int a = 1, b = 2;
+        for (int i = 3; i <= n; i++) {
+            int tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "Go"
 
     ```go title="climbing_stairs_dp.go"
-    [class]{}-[func]{climbingStairsDPComp}
+    /* 爬楼梯：空间优化后的动态规划 */
+    func climbingStairsDPComp(n int) int {
+        if n == 1 || n == 2 {
+            return n
+        }
+        a, b := 1, 2
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for i := 3; i <= n; i++ {
+            a, b = b, a+b
+        }
+        return b
+    }
     ```
 
 === "Swift"
 
     ```swift title="climbing_stairs_dp.swift"
-    [class]{}-[func]{climbingStairsDPComp}
+    /* 爬楼梯：空间优化后的动态规划 */
+    func climbingStairsDPComp(n: Int) -> Int {
+        if n == 1 || n == 2 {
+            return n
+        }
+        var a = 1
+        var b = 2
+        for _ in stride(from: 3, through: n, by: 1) {
+            (a, b) = (b, a + b)
+        }
+        return b
+    }
     ```
 
 === "JS"
 
     ```javascript title="climbing_stairs_dp.js"
-    [class]{}-[func]{climbingStairsDPComp}
+    /* 爬楼梯：空间优化后的动态规划 */
+    function climbingStairsDPComp(n) {
+        if (n === 1 || n === 2) return n;
+        let a = 1,
+            b = 2;
+        for (let i = 3; i <= n; i++) {
+            const tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "TS"
 
     ```typescript title="climbing_stairs_dp.ts"
-    [class]{}-[func]{climbingStairsDPComp}
+    /* 爬楼梯：空间优化后的动态规划 */
+    function climbingStairsDPComp(n: number): number {
+        if (n === 1 || n === 2) return n;
+        let a = 1,
+            b = 2;
+        for (let i = 3; i <= n; i++) {
+            const tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "Dart"
 
     ```dart title="climbing_stairs_dp.dart"
-    [class]{}-[func]{climbingStairsDPComp}
+    /* 爬楼梯：空间优化后的动态规划 */
+    int climbingStairsDPComp(int n) {
+      if (n == 1 || n == 2) return n;
+      int a = 1, b = 2;
+      for (int i = 3; i <= n; i++) {
+        int tmp = b;
+        b = a + b;
+        a = tmp;
+      }
+      return b;
+    }
     ```
 
 === "Rust"
 
     ```rust title="climbing_stairs_dp.rs"
-    [class]{}-[func]{climbing_stairs_dp_comp}
+    /* 爬楼梯：空间优化后的动态规划 */
+    fn climbing_stairs_dp_comp(n: usize) -> i32 {
+        if n == 1 || n == 2 { return n as i32; }
+        let (mut a, mut b) = (1, 2);
+        for _ in 3..=n {
+            let tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        b
+    }
     ```
 
 === "C"
 
     ```c title="climbing_stairs_dp.c"
-    [class]{}-[func]{climbingStairsDPComp}
+    /* 爬楼梯：空间优化后的动态规划 */
+    int climbingStairsDPComp(int n) {
+        if (n == 1 || n == 2)
+            return n;
+        int a = 1, b = 2;
+        for (int i = 3; i <= n; i++) {
+            int tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "Zig"
 
     ```zig title="climbing_stairs_dp.zig"
-    [class]{}-[func]{climbingStairsDPComp}
+    // 爬楼梯：空间优化后的动态规划
+    fn climbingStairsDPComp(comptime n: usize) i32 {
+        if (n == 1 or n == 2) {
+            return @intCast(n);
+        }
+        var a: i32 = 1;
+        var b: i32 = 2;
+        for (3..n + 1) |_| {
+            var tmp = b;
+            b = a + b;
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 观察以上代码，由于省去了数组 `dp` 占用的空间，因此空间复杂度从 $O(n)$ 降低至 $O(1)$ 。

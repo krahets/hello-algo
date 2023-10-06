@@ -376,121 +376,228 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{left}
+    def left(self, i: int) -> int:
+        """获取左子节点索引"""
+        return 2 * i + 1
 
-    [class]{MaxHeap}-[func]{right}
+    def right(self, i: int) -> int:
+        """获取右子节点索引"""
+        return 2 * i + 2
 
-    [class]{MaxHeap}-[func]{parent}
+    def parent(self, i: int) -> int:
+        """获取父节点索引"""
+        return (i - 1) // 2  # 向下整除
     ```
 
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{left}
+    /* 获取左子节点索引 */
+    int left(int i) {
+        return 2 * i + 1;
+    }
 
-    [class]{MaxHeap}-[func]{right}
+    /* 获取右子节点索引 */
+    int right(int i) {
+        return 2 * i + 2;
+    }
 
-    [class]{MaxHeap}-[func]{parent}
+    /* 获取父节点索引 */
+    int parent(int i) {
+        return (i - 1) / 2; // 向下取整
+    }
     ```
 
 === "Java"
 
     ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{left}
+    /* 获取左子节点索引 */
+    int left(int i) {
+        return 2 * i + 1;
+    }
 
-    [class]{MaxHeap}-[func]{right}
+    /* 获取右子节点索引 */
+    int right(int i) {
+        return 2 * i + 2;
+    }
 
-    [class]{MaxHeap}-[func]{parent}
+    /* 获取父节点索引 */
+    int parent(int i) {
+        return (i - 1) / 2; // 向下整除
+    }
     ```
 
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{left}
+    /* 获取左子节点索引 */
+    int left(int i) {
+        return 2 * i + 1;
+    }
 
-    [class]{MaxHeap}-[func]{right}
+    /* 获取右子节点索引 */
+    int right(int i) {
+        return 2 * i + 2;
+    }
 
-    [class]{MaxHeap}-[func]{parent}
+    /* 获取父节点索引 */
+    int parent(int i) {
+        return (i - 1) / 2; // 向下整除
+    }
     ```
 
 === "Go"
 
     ```go title="my_heap.go"
-    [class]{maxHeap}-[func]{left}
+    /* 获取左子节点索引 */
+    func (h *maxHeap) left(i int) int {
+        return 2*i + 1
+    }
 
-    [class]{maxHeap}-[func]{right}
+    /* 获取右子节点索引 */
+    func (h *maxHeap) right(i int) int {
+        return 2*i + 2
+    }
 
-    [class]{maxHeap}-[func]{parent}
+    /* 获取父节点索引 */
+    func (h *maxHeap) parent(i int) int {
+        // 向下整除
+        return (i - 1) / 2
+    }
     ```
 
 === "Swift"
 
     ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{left}
+    /* 获取左子节点索引 */
+    func left(i: Int) -> Int {
+        2 * i + 1
+    }
 
-    [class]{MaxHeap}-[func]{right}
+    /* 获取右子节点索引 */
+    func right(i: Int) -> Int {
+        2 * i + 2
+    }
 
-    [class]{MaxHeap}-[func]{parent}
+    /* 获取父节点索引 */
+    func parent(i: Int) -> Int {
+        (i - 1) / 2 // 向下整除
+    }
     ```
 
 === "JS"
 
     ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{#left}
+    /* 获取左子节点索引 */
+    #left(i) {
+        return 2 * i + 1;
+    }
 
-    [class]{MaxHeap}-[func]{#right}
+    /* 获取右子节点索引 */
+    #right(i) {
+        return 2 * i + 2;
+    }
 
-    [class]{MaxHeap}-[func]{#parent}
+    /* 获取父节点索引 */
+    #parent(i) {
+        return Math.floor((i - 1) / 2); // 向下整除
+    }
     ```
 
 === "TS"
 
     ```typescript title="my_heap.ts"
-    [class]{MaxHeap}-[func]{left}
+    /* 获取左子节点索引 */
+    left(i: number): number {
+        return 2 * i + 1;
+    }
 
-    [class]{MaxHeap}-[func]{right}
+    /* 获取右子节点索引 */
+    right(i: number): number {
+        return 2 * i + 2;
+    }
 
-    [class]{MaxHeap}-[func]{parent}
+    /* 获取父节点索引 */
+    parent(i: number): number {
+        return Math.floor((i - 1) / 2); // 向下整除
+    }
     ```
 
 === "Dart"
 
     ```dart title="my_heap.dart"
-    [class]{MaxHeap}-[func]{_left}
+    /* 获取左子节点索引 */
+    int _left(int i) {
+      return 2 * i + 1;
+    }
 
-    [class]{MaxHeap}-[func]{_right}
+    /* 获取右子节点索引 */
+    int _right(int i) {
+      return 2 * i + 2;
+    }
 
-    [class]{MaxHeap}-[func]{_parent}
+    /* 获取父节点索引 */
+    int _parent(int i) {
+      return (i - 1) ~/ 2; // 向下整除
+    }
     ```
 
 === "Rust"
 
     ```rust title="my_heap.rs"
-    [class]{MaxHeap}-[func]{left}
+    /* 获取左子节点索引 */
+    fn left(i: usize) -> usize {
+        2 * i + 1
+    }
 
-    [class]{MaxHeap}-[func]{right}
+    /* 获取右子节点索引 */
+    fn right(i: usize) -> usize {
+        2 * i + 2
+    }
 
-    [class]{MaxHeap}-[func]{parent}
+    /* 获取父节点索引 */
+    fn parent(i: usize) -> usize {
+        (i - 1) / 2 // 向下整除
+    }
     ```
 
 === "C"
 
     ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{left}
+    /* 获取左子节点索引 */
+    int left(maxHeap *h, int i) {
+        return 2 * i + 1;
+    }
 
-    [class]{maxHeap}-[func]{right}
+    /* 获取右子节点索引 */
+    int right(maxHeap *h, int i) {
+        return 2 * i + 2;
+    }
 
-    [class]{maxHeap}-[func]{parent}
+    /* 获取父节点索引 */
+    int parent(maxHeap *h, int i) {
+        return (i - 1) / 2;
+    }
     ```
 
 === "Zig"
 
     ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{left}
+    // 获取左子节点索引
+    fn left(i: usize) usize {
+        return 2 * i + 1;
+    }
 
-    [class]{MaxHeap}-[func]{right}
+    // 获取右子节点索引
+    fn right(i: usize) usize {
+        return 2 * i + 2;
+    }
 
-    [class]{MaxHeap}-[func]{parent}
+    // 获取父节点索引
+    fn parent(i: usize) usize {
+        // return (i - 1) / 2; // 向下整除
+        return @divFloor(i - 1, 2);
+    }
     ```
 
 ### 2. &nbsp; 访问堆顶元素
@@ -500,73 +607,108 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{peek}
+    def peek(self) -> int:
+        """访问堆顶元素"""
+        return self.max_heap[0]
     ```
 
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{peek}
+    /* 访问堆顶元素 */
+    int peek() {
+        return maxHeap[0];
+    }
     ```
 
 === "Java"
 
     ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{peek}
+    /* 访问堆顶元素 */
+    int peek() {
+        return maxHeap.get(0);
+    }
     ```
 
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{peek}
+    /* 访问堆顶元素 */
+    int peek() {
+        return maxHeap[0];
+    }
     ```
 
 === "Go"
 
     ```go title="my_heap.go"
-    [class]{maxHeap}-[func]{peek}
+    /* 访问堆顶元素 */
+    func (h *maxHeap) peek() any {
+        return h.data[0]
+    }
     ```
 
 === "Swift"
 
     ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{peek}
+    /* 访问堆顶元素 */
+    func peek() -> Int {
+        maxHeap[0]
+    }
     ```
 
 === "JS"
 
     ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{peek}
+    /* 访问堆顶元素 */
+    peek() {
+        return this.#maxHeap[0];
+    }
     ```
 
 === "TS"
 
     ```typescript title="my_heap.ts"
-    [class]{MaxHeap}-[func]{peek}
+    /* 访问堆顶元素 */
+    peek(): number {
+        return this.maxHeap[0];
+    }
     ```
 
 === "Dart"
 
     ```dart title="my_heap.dart"
-    [class]{MaxHeap}-[func]{peek}
+    /* 访问堆顶元素 */
+    int peek() {
+      return _maxHeap[0];
+    }
     ```
 
 === "Rust"
 
     ```rust title="my_heap.rs"
-    [class]{MaxHeap}-[func]{peek}
+    /* 访问堆顶元素 */
+    fn peek(&self) -> Option<i32> {
+        self.max_heap.first().copied()
+    }
     ```
 
 === "C"
 
     ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{peek}
+    /* 访问堆顶元素 */
+    int peek(maxHeap *h) {
+        return h->data[0];
+    }
     ```
 
 === "Zig"
 
     ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{peek}
+    // 访问堆顶元素
+    fn peek(self: *Self) T {
+        return self.max_heap.?.items[0];
+    }  
     ```
 
 ### 3. &nbsp; 元素入堆
@@ -609,97 +751,337 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{push}
+    def push(self, val: int):
+        """元素入堆"""
+        # 添加节点
+        self.max_heap.append(val)
+        # 从底至顶堆化
+        self.sift_up(self.size() - 1)
 
-    [class]{MaxHeap}-[func]{sift_up}
+    def sift_up(self, i: int):
+        """从节点 i 开始，从底至顶堆化"""
+        while True:
+            # 获取节点 i 的父节点
+            p = self.parent(i)
+            # 当“越过根节点”或“节点无须修复”时，结束堆化
+            if p < 0 or self.max_heap[i] <= self.max_heap[p]:
+                break
+            # 交换两节点
+            self.swap(i, p)
+            # 循环向上堆化
+            i = p
     ```
 
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{push}
+    /* 元素入堆 */
+    void push(int val) {
+        // 添加节点
+        maxHeap.push_back(val);
+        // 从底至顶堆化
+        siftUp(size() - 1);
+    }
 
-    [class]{MaxHeap}-[func]{siftUp}
+    /* 从节点 i 开始，从底至顶堆化 */
+    void siftUp(int i) {
+        while (true) {
+            // 获取节点 i 的父节点
+            int p = parent(i);
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
+            if (p < 0 || maxHeap[i] <= maxHeap[p])
+                break;
+            // 交换两节点
+            swap(maxHeap[i], maxHeap[p]);
+            // 循环向上堆化
+            i = p;
+        }
+    }
     ```
 
 === "Java"
 
     ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{push}
+    /* 元素入堆 */
+    void push(int val) {
+        // 添加节点
+        maxHeap.add(val);
+        // 从底至顶堆化
+        siftUp(size() - 1);
+    }
 
-    [class]{MaxHeap}-[func]{siftUp}
+    /* 从节点 i 开始，从底至顶堆化 */
+    void siftUp(int i) {
+        while (true) {
+            // 获取节点 i 的父节点
+            int p = parent(i);
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
+            if (p < 0 || maxHeap.get(i) <= maxHeap.get(p))
+                break;
+            // 交换两节点
+            swap(i, p);
+            // 循环向上堆化
+            i = p;
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{push}
+    /* 元素入堆 */
+    void push(int val) {
+        // 添加节点
+        maxHeap.Add(val);
+        // 从底至顶堆化
+        siftUp(size() - 1);
+    }
 
-    [class]{MaxHeap}-[func]{siftUp}
+    /* 从节点 i 开始，从底至顶堆化 */
+    void siftUp(int i) {
+        while (true) {
+            // 获取节点 i 的父节点
+            int p = parent(i);
+            // 若“越过根节点”或“节点无须修复”，则结束堆化
+            if (p < 0 || maxHeap[i] <= maxHeap[p])
+                break;
+            // 交换两节点
+            swap(i, p);
+            // 循环向上堆化
+            i = p;
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="my_heap.go"
-    [class]{maxHeap}-[func]{push}
+    /* 元素入堆 */
+    func (h *maxHeap) push(val any) {
+        // 添加节点
+        h.data = append(h.data, val)
+        // 从底至顶堆化
+        h.siftUp(len(h.data) - 1)
+    }
 
-    [class]{maxHeap}-[func]{siftUp}
+    /* 从节点 i 开始，从底至顶堆化 */
+    func (h *maxHeap) siftUp(i int) {
+        for true {
+            // 获取节点 i 的父节点
+            p := h.parent(i)
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
+            if p < 0 || h.data[i].(int) <= h.data[p].(int) {
+                break
+            }
+            // 交换两节点
+            h.swap(i, p)
+            // 循环向上堆化
+            i = p
+        }
+    }
     ```
 
 === "Swift"
 
     ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{push}
+    /* 元素入堆 */
+    func push(val: Int) {
+        // 添加节点
+        maxHeap.append(val)
+        // 从底至顶堆化
+        siftUp(i: size() - 1)
+    }
 
-    [class]{MaxHeap}-[func]{siftUp}
+    /* 从节点 i 开始，从底至顶堆化 */
+    func siftUp(i: Int) {
+        var i = i
+        while true {
+            // 获取节点 i 的父节点
+            let p = parent(i: i)
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
+            if p < 0 || maxHeap[i] <= maxHeap[p] {
+                break
+            }
+            // 交换两节点
+            swap(i: i, j: p)
+            // 循环向上堆化
+            i = p
+        }
+    }
     ```
 
 === "JS"
 
     ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{push}
+    /* 元素入堆 */
+    push(val) {
+        // 添加节点
+        this.#maxHeap.push(val);
+        // 从底至顶堆化
+        this.#siftUp(this.size() - 1);
+    }
 
-    [class]{MaxHeap}-[func]{#siftUp}
+    /* 从节点 i 开始，从底至顶堆化 */
+    #siftUp(i) {
+        while (true) {
+            // 获取节点 i 的父节点
+            const p = this.#parent(i);
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
+            if (p < 0 || this.#maxHeap[i] <= this.#maxHeap[p]) break;
+            // 交换两节点
+            this.#swap(i, p);
+            // 循环向上堆化
+            i = p;
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="my_heap.ts"
-    [class]{MaxHeap}-[func]{push}
+    /* 元素入堆 */
+    push(val: number): void {
+        // 添加节点
+        this.maxHeap.push(val);
+        // 从底至顶堆化
+        this.siftUp(this.size() - 1);
+    }
 
-    [class]{MaxHeap}-[func]{siftUp}
+    /* 从节点 i 开始，从底至顶堆化 */
+    siftUp(i: number): void {
+        while (true) {
+            // 获取节点 i 的父节点
+            const p = this.parent(i);
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
+            if (p < 0 || this.maxHeap[i] <= this.maxHeap[p]) break;
+            // 交换两节点
+            this.swap(i, p);
+            // 循环向上堆化
+            i = p;
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="my_heap.dart"
-    [class]{MaxHeap}-[func]{push}
+    /* 元素入堆 */
+    void push(int val) {
+      // 添加节点
+      _maxHeap.add(val);
+      // 从底至顶堆化
+      siftUp(size() - 1);
+    }
 
-    [class]{MaxHeap}-[func]{siftUp}
+    /* 从节点 i 开始，从底至顶堆化 */
+    void siftUp(int i) {
+      while (true) {
+        // 获取节点 i 的父节点
+        int p = _parent(i);
+        // 当“越过根节点”或“节点无须修复”时，结束堆化
+        if (p < 0 || _maxHeap[i] <= _maxHeap[p]) {
+          break;
+        }
+        // 交换两节点
+        _swap(i, p);
+        // 循环向上堆化
+        i = p;
+      }
+    }
     ```
 
 === "Rust"
 
     ```rust title="my_heap.rs"
-    [class]{MaxHeap}-[func]{push}
+    /* 元素入堆 */
+    fn push(&mut self, val: i32) {
+        // 添加节点
+        self.max_heap.push(val);
+        // 从底至顶堆化
+        self.sift_up(self.size() - 1);
+    }
 
-    [class]{MaxHeap}-[func]{sift_up}
+    /* 从节点 i 开始，从底至顶堆化 */
+    fn sift_up(&mut self, mut i: usize) {
+        loop {
+            // 节点 i 已经是堆顶节点了，结束堆化
+            if i == 0 {
+                break;
+            }
+            // 获取节点 i 的父节点
+            let p = Self::parent(i);
+            // 当“节点无须修复”时，结束堆化
+            if self.max_heap[i] <= self.max_heap[p] {
+                break;
+            }
+            // 交换两节点
+            self.swap(i, p);
+            // 循环向上堆化
+            i = p;
+        }
+    }
     ```
 
 === "C"
 
     ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{push}
+    /* 元素入堆 */
+    void push(maxHeap *h, int val) {
+        // 默认情况下，不应该添加这么多节点
+        if (h->size == MAX_SIZE) {
+            printf("heap is full!");
+            return;
+        }
+        // 添加节点
+        h->data[h->size] = val;
+        h->size++;
 
-    [class]{maxHeap}-[func]{siftUp}
+        // 从底至顶堆化
+        siftUp(h, h->size - 1);
+    }
+
+    /* 从节点 i 开始，从底至顶堆化 */
+    void siftUp(maxHeap *h, int i) {
+        while (true) {
+            // 获取节点 i 的父节点
+            int p = parent(h, i);
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
+            if (p < 0 || h->data[i] <= h->data[p]) {
+                break;
+            }
+            // 交换两节点
+            swap(h, i, p);
+            // 循环向上堆化
+            i = p;
+        }
+    }
     ```
 
 === "Zig"
 
     ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{push}
+    // 元素入堆
+    fn push(self: *Self, val: T) !void {
+        // 添加节点
+        try self.max_heap.?.append(val);
+        // 从底至顶堆化
+        try self.siftUp(self.size() - 1);
+    }  
 
-    [class]{MaxHeap}-[func]{siftUp}
+    // 从节点 i 开始，从底至顶堆化
+    fn siftUp(self: *Self, i_: usize) !void {
+        var i = i_;
+        while (true) {
+            // 获取节点 i 的父节点
+            var p = parent(i);
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
+            if (p < 0 or self.max_heap.?.items[i] <= self.max_heap.?.items[p]) break;
+            // 交换两节点
+            try self.swap(i, p);
+            // 循环向上堆化
+            i = p;
+        }
+    }
     ```
 
 ### 4. &nbsp; 堆顶元素出堆
@@ -749,97 +1131,472 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{pop}
+    def pop(self) -> int:
+        """元素出堆"""
+        # 判空处理
+        if self.is_empty():
+            raise IndexError("堆为空")
+        # 交换根节点与最右叶节点（即交换首元素与尾元素）
+        self.swap(0, self.size() - 1)
+        # 删除节点
+        val = self.max_heap.pop()
+        # 从顶至底堆化
+        self.sift_down(0)
+        # 返回堆顶元素
+        return val
 
-    [class]{MaxHeap}-[func]{sift_down}
+    def sift_down(self, i: int):
+        """从节点 i 开始，从顶至底堆化"""
+        while True:
+            # 判断节点 i, l, r 中值最大的节点，记为 ma
+            l, r, ma = self.left(i), self.right(i), i
+            if l < self.size() and self.max_heap[l] > self.max_heap[ma]:
+                ma = l
+            if r < self.size() and self.max_heap[r] > self.max_heap[ma]:
+                ma = r
+            # 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if ma == i:
+                break
+            # 交换两节点
+            self.swap(i, ma)
+            # 循环向下堆化
+            i = ma
     ```
 
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{pop}
+    /* 元素出堆 */
+    void pop() {
+        // 判空处理
+        if (isEmpty()) {
+            throw out_of_range("堆为空");
+        }
+        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        swap(maxHeap[0], maxHeap[size() - 1]);
+        // 删除节点
+        maxHeap.pop_back();
+        // 从顶至底堆化
+        siftDown(0);
+    }
 
-    [class]{MaxHeap}-[func]{siftDown}
+    /* 从节点 i 开始，从顶至底堆化 */
+    void siftDown(int i) {
+        while (true) {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            int l = left(i), r = right(i), ma = i;
+            if (l < size() && maxHeap[l] > maxHeap[ma])
+                ma = l;
+            if (r < size() && maxHeap[r] > maxHeap[ma])
+                ma = r;
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if (ma == i)
+                break;
+            swap(maxHeap[i], maxHeap[ma]);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
     ```
 
 === "Java"
 
     ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{pop}
+    /* 元素出堆 */
+    int pop() {
+        // 判空处理
+        if (isEmpty())
+            throw new IndexOutOfBoundsException();
+        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        swap(0, size() - 1);
+        // 删除节点
+        int val = maxHeap.remove(size() - 1);
+        // 从顶至底堆化
+        siftDown(0);
+        // 返回堆顶元素
+        return val;
+    }
 
-    [class]{MaxHeap}-[func]{siftDown}
+    /* 从节点 i 开始，从顶至底堆化 */
+    void siftDown(int i) {
+        while (true) {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            int l = left(i), r = right(i), ma = i;
+            if (l < size() && maxHeap.get(l) > maxHeap.get(ma))
+                ma = l;
+            if (r < size() && maxHeap.get(r) > maxHeap.get(ma))
+                ma = r;
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if (ma == i)
+                break;
+            // 交换两节点
+            swap(i, ma);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{pop}
+    /* 元素出堆 */
+    int pop() {
+        // 判空处理
+        if (isEmpty())
+            throw new IndexOutOfRangeException();
+        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        swap(0, size() - 1);
+        // 删除节点
+        int val = maxHeap.Last();
+        maxHeap.RemoveAt(size() - 1);
+        // 从顶至底堆化
+        siftDown(0);
+        // 返回堆顶元素
+        return val;
+    }
 
-    [class]{MaxHeap}-[func]{siftDown}
+    /* 从节点 i 开始，从顶至底堆化 */
+    void siftDown(int i) {
+        while (true) {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            int l = left(i), r = right(i), ma = i;
+            if (l < size() && maxHeap[l] > maxHeap[ma])
+                ma = l;
+            if (r < size() && maxHeap[r] > maxHeap[ma])
+                ma = r;
+            // 若“节点 i 最大”或“越过叶节点”，则结束堆化
+            if (ma == i) break;
+            // 交换两节点
+            swap(i, ma);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="my_heap.go"
-    [class]{maxHeap}-[func]{pop}
+    /* 元素出堆 */
+    func (h *maxHeap) pop() any {
+        // 判空处理
+        if h.isEmpty() {
+            fmt.Println("error")
+            return nil
+        }
+        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        h.swap(0, h.size()-1)
+        // 删除节点
+        val := h.data[len(h.data)-1]
+        h.data = h.data[:len(h.data)-1]
+        // 从顶至底堆化
+        h.siftDown(0)
 
-    [class]{maxHeap}-[func]{siftDown}
+        // 返回堆顶元素
+        return val
+    }
+
+    /* 从节点 i 开始，从顶至底堆化 */
+    func (h *maxHeap) siftDown(i int) {
+        for true {
+            // 判断节点 i, l, r 中值最大的节点，记为 max
+            l, r, max := h.left(i), h.right(i), i
+            if l < h.size() && h.data[l].(int) > h.data[max].(int) {
+                max = l
+            }
+            if r < h.size() && h.data[r].(int) > h.data[max].(int) {
+                max = r
+            }
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if max == i {
+                break
+            }
+            // 交换两节点
+            h.swap(i, max)
+            // 循环向下堆化
+            i = max
+        }
+    }
     ```
 
 === "Swift"
 
     ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{pop}
+    /* 元素出堆 */
+    func pop() -> Int {
+        // 判空处理
+        if isEmpty() {
+            fatalError("堆为空")
+        }
+        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        swap(i: 0, j: size() - 1)
+        // 删除节点
+        let val = maxHeap.remove(at: size() - 1)
+        // 从顶至底堆化
+        siftDown(i: 0)
+        // 返回堆顶元素
+        return val
+    }
 
-    [class]{MaxHeap}-[func]{siftDown}
+    /* 从节点 i 开始，从顶至底堆化 */
+    func siftDown(i: Int) {
+        var i = i
+        while true {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            let l = left(i: i)
+            let r = right(i: i)
+            var ma = i
+            if l < size(), maxHeap[l] > maxHeap[ma] {
+                ma = l
+            }
+            if r < size(), maxHeap[r] > maxHeap[ma] {
+                ma = r
+            }
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if ma == i {
+                break
+            }
+            // 交换两节点
+            swap(i: i, j: ma)
+            // 循环向下堆化
+            i = ma
+        }
+    }
     ```
 
 === "JS"
 
     ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{pop}
+    /* 元素出堆 */
+    pop() {
+        // 判空处理
+        if (this.isEmpty()) throw new Error('堆为空');
+        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        this.#swap(0, this.size() - 1);
+        // 删除节点
+        const val = this.#maxHeap.pop();
+        // 从顶至底堆化
+        this.#siftDown(0);
+        // 返回堆顶元素
+        return val;
+    }
 
-    [class]{MaxHeap}-[func]{#siftDown}
+    /* 从节点 i 开始，从顶至底堆化 */
+    #siftDown(i) {
+        while (true) {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            const l = this.#left(i),
+                r = this.#right(i);
+            let ma = i;
+            if (l < this.size() && this.#maxHeap[l] > this.#maxHeap[ma]) ma = l;
+            if (r < this.size() && this.#maxHeap[r] > this.#maxHeap[ma]) ma = r;
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if (ma === i) break;
+            // 交换两节点
+            this.#swap(i, ma);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="my_heap.ts"
-    [class]{MaxHeap}-[func]{pop}
+    /* 元素出堆 */
+    pop(): number {
+        // 判空处理
+        if (this.isEmpty()) throw new RangeError('Heap is empty.');
+        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        this.swap(0, this.size() - 1);
+        // 删除节点
+        const val = this.maxHeap.pop();
+        // 从顶至底堆化
+        this.siftDown(0);
+        // 返回堆顶元素
+        return val;
+    }
 
-    [class]{MaxHeap}-[func]{siftDown}
+    /* 从节点 i 开始，从顶至底堆化 */
+    siftDown(i: number): void {
+        while (true) {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            const l = this.left(i),
+                r = this.right(i);
+            let ma = i;
+            if (l < this.size() && this.maxHeap[l] > this.maxHeap[ma]) ma = l;
+            if (r < this.size() && this.maxHeap[r] > this.maxHeap[ma]) ma = r;
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if (ma === i) break;
+            // 交换两节点
+            this.swap(i, ma);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="my_heap.dart"
-    [class]{MaxHeap}-[func]{pop}
+    /* 元素出堆 */
+    int pop() {
+      // 判空处理
+      if (isEmpty()) throw Exception('堆为空');
+      // 交换根节点与最右叶节点（即交换首元素与尾元素）
+      _swap(0, size() - 1);
+      // 删除节点
+      int val = _maxHeap.removeLast();
+      // 从顶至底堆化
+      siftDown(0);
+      // 返回堆顶元素
+      return val;
+    }
 
-    [class]{MaxHeap}-[func]{siftDown}
+    /* 从节点 i 开始，从顶至底堆化 */
+    void siftDown(int i) {
+      while (true) {
+        // 判断节点 i, l, r 中值最大的节点，记为 ma
+        int l = _left(i);
+        int r = _right(i);
+        int ma = i;
+        if (l < size() && _maxHeap[l] > _maxHeap[ma]) ma = l;
+        if (r < size() && _maxHeap[r] > _maxHeap[ma]) ma = r;
+        // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+        if (ma == i) break;
+        // 交换两节点
+        _swap(i, ma);
+        // 循环向下堆化
+        i = ma;
+      }
+    }
     ```
 
 === "Rust"
 
     ```rust title="my_heap.rs"
-    [class]{MaxHeap}-[func]{pop}
+    /* 元素出堆 */
+    fn pop(&mut self) -> i32 {
+        // 判空处理
+        if self.is_empty() {
+            panic!("index out of bounds");
+        }
+        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        self.swap(0, self.size() - 1);
+        // 删除节点
+        let val = self.max_heap.remove(self.size() - 1);
+        // 从顶至底堆化
+        self.sift_down(0);
+        // 返回堆顶元素
+        val
+    }
 
-    [class]{MaxHeap}-[func]{sift_down}
+    /* 从节点 i 开始，从顶至底堆化 */
+    fn sift_down(&mut self, mut i: usize) {
+        loop {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            let (l, r, mut ma) = (Self::left(i), Self::right(i), i);
+            if l < self.size() && self.max_heap[l] > self.max_heap[ma] {
+                ma = l;
+            }
+            if r < self.size() && self.max_heap[r] > self.max_heap[ma] {
+                ma = r;
+            }
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if ma == i {
+                break;
+            }
+            // 交换两节点
+            self.swap(i, ma);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
     ```
 
 === "C"
 
     ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{pop}
+    /* 元素出堆 */
+    int pop(maxHeap *h) {
+        // 判空处理
+        if (isEmpty(h)) {
+            printf("heap is empty!");
+            return INT_MAX;
+        }
+        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        swap(h, 0, size(h) - 1);
+        // 删除节点
+        int val = h->data[h->size - 1];
+        h->size--;
+        // 从顶至底堆化
+        siftDown(h, 0);
 
-    [class]{maxHeap}-[func]{siftDown}
+        // 返回堆顶元素
+        return val;
+    }
+
+    /* 从节点 i 开始，从顶至底堆化 */
+    void siftDown(maxHeap *h, int i) {
+        while (true) {
+            // 判断节点 i, l, r 中值最大的节点，记为 max
+            int l = left(h, i);
+            int r = right(h, i);
+            int max = i;
+            if (l < size(h) && h->data[l] > h->data[max]) {
+                max = l;
+            }
+            if (r < size(h) && h->data[r] > h->data[max]) {
+                max = r;
+            }
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if (max == i) {
+                break;
+            }
+            // 交换两节点
+            swap(h, i, max);
+            // 循环向下堆化
+            i = max;
+        }
+    }
     ```
 
 === "Zig"
 
     ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{pop}
+    // 元素出堆
+    fn pop(self: *Self) !T {
+        // 判断处理
+        if (self.isEmpty()) unreachable;
+        // 交换根节点与最右叶节点（即交换首元素与尾元素）
+        try self.swap(0, self.size() - 1);
+        // 删除节点
+        var val = self.max_heap.?.pop();
+        // 从顶至底堆化
+        try self.siftDown(0);
+        // 返回堆顶元素
+        return val;
+    } 
 
-    [class]{MaxHeap}-[func]{siftDown}
+    // 从节点 i 开始，从顶至底堆化
+    fn siftDown(self: *Self, i_: usize) !void {
+        var i = i_;
+        while (true) {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            var l = left(i);
+            var r = right(i);
+            var ma = i;
+            if (l < self.size() and self.max_heap.?.items[l] > self.max_heap.?.items[ma]) ma = l;
+            if (r < self.size() and self.max_heap.?.items[r] > self.max_heap.?.items[ma]) ma = r;
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if (ma == i) break;
+            // 交换两节点
+            try self.swap(i, ma);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
     ```
 
 ## 8.1.3 &nbsp; 堆常见应用

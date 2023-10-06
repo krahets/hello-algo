@@ -80,61 +80,312 @@ $$
 === "Python"
 
     ```python title="edit_distance.py"
-    [class]{}-[func]{edit_distance_dp}
+    def edit_distance_dp(s: str, t: str) -> int:
+        """编辑距离：动态规划"""
+        n, m = len(s), len(t)
+        dp = [[0] * (m + 1) for _ in range(n + 1)]
+        # 状态转移：首行首列
+        for i in range(1, n + 1):
+            dp[i][0] = i
+        for j in range(1, m + 1):
+            dp[0][j] = j
+        # 状态转移：其余行列
+        for i in range(1, n + 1):
+            for j in range(1, m + 1):
+                if s[i - 1] == t[j - 1]:
+                    # 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1]
+                else:
+                    # 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] = min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1
+        return dp[n][m]
     ```
 
 === "C++"
 
     ```cpp title="edit_distance.cpp"
-    [class]{}-[func]{editDistanceDP}
+    /* 编辑距离：动态规划 */
+    int editDistanceDP(string s, string t) {
+        int n = s.length(), m = t.length();
+        vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
+        // 状态转移：首行首列
+        for (int i = 1; i <= n; i++) {
+            dp[i][0] = i;
+        }
+        for (int j = 1; j <= m; j++) {
+            dp[0][j] = j;
+        }
+        // 状态转移：其余行列
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (s[i - 1] == t[j - 1]) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                }
+            }
+        }
+        return dp[n][m];
+    }
     ```
 
 === "Java"
 
     ```java title="edit_distance.java"
-    [class]{edit_distance}-[func]{editDistanceDP}
+    /* 编辑距离：动态规划 */
+    int editDistanceDP(String s, String t) {
+        int n = s.length(), m = t.length();
+        int[][] dp = new int[n + 1][m + 1];
+        // 状态转移：首行首列
+        for (int i = 1; i <= n; i++) {
+            dp[i][0] = i;
+        }
+        for (int j = 1; j <= m; j++) {
+            dp[0][j] = j;
+        }
+        // 状态转移：其余行列
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (s.charAt(i - 1) == t.charAt(j - 1)) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] = Math.min(Math.min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                }
+            }
+        }
+        return dp[n][m];
+    }
     ```
 
 === "C#"
 
     ```csharp title="edit_distance.cs"
-    [class]{edit_distance}-[func]{editDistanceDP}
+    /* 编辑距离：动态规划 */
+    int editDistanceDP(string s, string t) {
+        int n = s.Length, m = t.Length;
+        int[,] dp = new int[n + 1, m + 1];
+        // 状态转移：首行首列
+        for (int i = 1; i <= n; i++) {
+            dp[i, 0] = i;
+        }
+        for (int j = 1; j <= m; j++) {
+            dp[0, j] = j;
+        }
+        // 状态转移：其余行列
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (s[i - 1] == t[j - 1]) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i, j] = dp[i - 1, j - 1];
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i, j] = Math.Min(Math.Min(dp[i, j - 1], dp[i - 1, j]), dp[i - 1, j - 1]) + 1;
+                }
+            }
+        }
+        return dp[n, m];
+    }
     ```
 
 === "Go"
 
     ```go title="edit_distance.go"
-    [class]{}-[func]{editDistanceDP}
+    /* 编辑距离：动态规划 */
+    func editDistanceDP(s string, t string) int {
+        n := len(s)
+        m := len(t)
+        dp := make([][]int, n+1)
+        for i := 0; i <= n; i++ {
+            dp[i] = make([]int, m+1)
+        }
+        // 状态转移：首行首列
+        for i := 1; i <= n; i++ {
+            dp[i][0] = i
+        }
+        for j := 1; j <= m; j++ {
+            dp[0][j] = j
+        }
+        // 状态转移：其余行列
+        for i := 1; i <= n; i++ {
+            for j := 1; j <= m; j++ {
+                if s[i-1] == t[j-1] {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i-1][j-1]
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] = MinInt(MinInt(dp[i][j-1], dp[i-1][j]), dp[i-1][j-1]) + 1
+                }
+            }
+        }
+        return dp[n][m]
+    }
     ```
 
 === "Swift"
 
     ```swift title="edit_distance.swift"
-    [class]{}-[func]{editDistanceDP}
+    /* 编辑距离：动态规划 */
+    func editDistanceDP(s: String, t: String) -> Int {
+        let n = s.utf8CString.count
+        let m = t.utf8CString.count
+        var dp = Array(repeating: Array(repeating: 0, count: m + 1), count: n + 1)
+        // 状态转移：首行首列
+        for i in stride(from: 1, through: n, by: 1) {
+            dp[i][0] = i
+        }
+        for j in stride(from: 1, through: m, by: 1) {
+            dp[0][j] = j
+        }
+        // 状态转移：其余行列
+        for i in stride(from: 1, through: n, by: 1) {
+            for j in stride(from: 1, through: m, by: 1) {
+                if s.utf8CString[i - 1] == t.utf8CString[j - 1] {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1]
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1
+                }
+            }
+        }
+        return dp[n][m]
+    }
     ```
 
 === "JS"
 
     ```javascript title="edit_distance.js"
-    [class]{}-[func]{editDistanceDP}
+    /* 编辑距离：动态规划 */
+    function editDistanceDP(s, t) {
+        const n = s.length,
+            m = t.length;
+        const dp = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
+        // 状态转移：首行首列
+        for (let i = 1; i <= n; i++) {
+            dp[i][0] = i;
+        }
+        for (let j = 1; j <= m; j++) {
+            dp[0][j] = j;
+        }
+        // 状态转移：其余行列
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= m; j++) {
+                if (s.charAt(i - 1) === t.charAt(j - 1)) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] =
+                        Math.min(
+                            Math.min(dp[i][j - 1], dp[i - 1][j]),
+                            dp[i - 1][j - 1]
+                        ) + 1;
+                }
+            }
+        }
+        return dp[n][m];
+    }
     ```
 
 === "TS"
 
     ```typescript title="edit_distance.ts"
-    [class]{}-[func]{editDistanceDP}
+    /* 编辑距离：动态规划 */
+    function editDistanceDP(s: string, t: string): number {
+        const n = s.length,
+            m = t.length;
+        const dp = Array.from({ length: n + 1 }, () =>
+            Array.from({ length: m + 1 }, () => 0)
+        );
+        // 状态转移：首行首列
+        for (let i = 1; i <= n; i++) {
+            dp[i][0] = i;
+        }
+        for (let j = 1; j <= m; j++) {
+            dp[0][j] = j;
+        }
+        // 状态转移：其余行列
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= m; j++) {
+                if (s.charAt(i - 1) === t.charAt(j - 1)) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] =
+                        Math.min(
+                            Math.min(dp[i][j - 1], dp[i - 1][j]),
+                            dp[i - 1][j - 1]
+                        ) + 1;
+                }
+            }
+        }
+        return dp[n][m];
+    }
     ```
 
 === "Dart"
 
     ```dart title="edit_distance.dart"
-    [class]{}-[func]{editDistanceDP}
+    /* 编辑距离：动态规划 */
+    int editDistanceDP(String s, String t) {
+      int n = s.length, m = t.length;
+      List<List<int>> dp = List.generate(n + 1, (_) => List.filled(m + 1, 0));
+      // 状态转移：首行首列
+      for (int i = 1; i <= n; i++) {
+        dp[i][0] = i;
+      }
+      for (int j = 1; j <= m; j++) {
+        dp[0][j] = j;
+      }
+      // 状态转移：其余行列
+      for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+          if (s[i - 1] == t[j - 1]) {
+            // 若两字符相等，则直接跳过此两字符
+            dp[i][j] = dp[i - 1][j - 1];
+          } else {
+            // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+            dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+          }
+        }
+      }
+      return dp[n][m];
+    }
     ```
 
 === "Rust"
 
     ```rust title="edit_distance.rs"
-    [class]{}-[func]{edit_distance_dp}
+    /* 编辑距离：动态规划 */
+    fn edit_distance_dp(s: &str, t: &str) -> i32 {
+        let (n, m) = (s.len(), t.len());
+        let mut dp = vec![vec![0; m + 1]; n + 1];
+        // 状态转移：首行首列
+        for i in 1..= n {
+            dp[i][0] = i as i32;
+        }
+        for j in 1..m {
+            dp[0][j] = j as i32;
+        }
+        // 状态转移：其余行列
+        for i in 1..=n {
+            for j in 1..=m {
+                if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] = std::cmp::min(std::cmp::min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                }
+            }
+        }
+        dp[n][m]
+    }
     ```
 
 === "C"
@@ -146,7 +397,32 @@ $$
 === "Zig"
 
     ```zig title="edit_distance.zig"
-    [class]{}-[func]{editDistanceDP}
+    // 编辑距离：动态规划
+    fn editDistanceDP(comptime s: []const u8, comptime t: []const u8) i32 {
+        comptime var n = s.len;
+        comptime var m = t.len;
+        var dp = [_][m + 1]i32{[_]i32{0} ** (m + 1)} ** (n + 1);
+        // 状态转移：首行首列
+        for (1..n + 1) |i| {
+            dp[i][0] = @intCast(i);
+        }
+        for (1..m + 1) |j| {
+            dp[0][j] = @intCast(j);
+        }
+        // 状态转移：其余行列
+        for (1..n + 1) |i| {
+            for (1..m + 1) |j| {
+                if (s[i - 1] == t[j - 1]) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[i][j] = @min(@min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                }
+            }
+        }
+        return dp[n][m];
+    }
     ```
 
 如图 14-30 所示，编辑距离问题的状态转移过程与背包问题非常类似，都可以看作是填写一个二维网格的过程。
@@ -207,61 +483,330 @@ $$
 === "Python"
 
     ```python title="edit_distance.py"
-    [class]{}-[func]{edit_distance_dp_comp}
+    def edit_distance_dp_comp(s: str, t: str) -> int:
+        """编辑距离：空间优化后的动态规划"""
+        n, m = len(s), len(t)
+        dp = [0] * (m + 1)
+        # 状态转移：首行
+        for j in range(1, m + 1):
+            dp[j] = j
+        # 状态转移：其余行
+        for i in range(1, n + 1):
+            # 状态转移：首列
+            leftup = dp[0]  # 暂存 dp[i-1, j-1]
+            dp[0] += 1
+            # 状态转移：其余列
+            for j in range(1, m + 1):
+                temp = dp[j]
+                if s[i - 1] == t[j - 1]:
+                    # 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup
+                else:
+                    # 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = min(dp[j - 1], dp[j], leftup) + 1
+                leftup = temp  # 更新为下一轮的 dp[i-1, j-1]
+        return dp[m]
     ```
 
 === "C++"
 
     ```cpp title="edit_distance.cpp"
-    [class]{}-[func]{editDistanceDPComp}
+    /* 编辑距离：空间优化后的动态规划 */
+    int editDistanceDPComp(string s, string t) {
+        int n = s.length(), m = t.length();
+        vector<int> dp(m + 1, 0);
+        // 状态转移：首行
+        for (int j = 1; j <= m; j++) {
+            dp[j] = j;
+        }
+        // 状态转移：其余行
+        for (int i = 1; i <= n; i++) {
+            // 状态转移：首列
+            int leftup = dp[0]; // 暂存 dp[i-1, j-1]
+            dp[0] = i;
+            // 状态转移：其余列
+            for (int j = 1; j <= m; j++) {
+                int temp = dp[j];
+                if (s[i - 1] == t[j - 1]) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup;
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1;
+                }
+                leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        return dp[m];
+    }
     ```
 
 === "Java"
 
     ```java title="edit_distance.java"
-    [class]{edit_distance}-[func]{editDistanceDPComp}
+    /* 编辑距离：空间优化后的动态规划 */
+    int editDistanceDPComp(String s, String t) {
+        int n = s.length(), m = t.length();
+        int[] dp = new int[m + 1];
+        // 状态转移：首行
+        for (int j = 1; j <= m; j++) {
+            dp[j] = j;
+        }
+        // 状态转移：其余行
+        for (int i = 1; i <= n; i++) {
+            // 状态转移：首列
+            int leftup = dp[0]; // 暂存 dp[i-1, j-1]
+            dp[0] = i;
+            // 状态转移：其余列
+            for (int j = 1; j <= m; j++) {
+                int temp = dp[j];
+                if (s.charAt(i - 1) == t.charAt(j - 1)) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup;
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = Math.min(Math.min(dp[j - 1], dp[j]), leftup) + 1;
+                }
+                leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        return dp[m];
+    }
     ```
 
 === "C#"
 
     ```csharp title="edit_distance.cs"
-    [class]{edit_distance}-[func]{editDistanceDPComp}
+    /* 编辑距离：空间优化后的动态规划 */
+    int editDistanceDPComp(string s, string t) {
+        int n = s.Length, m = t.Length;
+        int[] dp = new int[m + 1];
+        // 状态转移：首行
+        for (int j = 1; j <= m; j++) {
+            dp[j] = j;
+        }
+        // 状态转移：其余行
+        for (int i = 1; i <= n; i++) {
+            // 状态转移：首列
+            int leftup = dp[0]; // 暂存 dp[i-1, j-1]
+            dp[0] = i;
+            // 状态转移：其余列
+            for (int j = 1; j <= m; j++) {
+                int temp = dp[j];
+                if (s[i - 1] == t[j - 1]) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup;
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = Math.Min(Math.Min(dp[j - 1], dp[j]), leftup) + 1;
+                }
+                leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        return dp[m];
+    }
     ```
 
 === "Go"
 
     ```go title="edit_distance.go"
-    [class]{}-[func]{editDistanceDPComp}
+    /* 编辑距离：空间优化后的动态规划 */
+    func editDistanceDPComp(s string, t string) int {
+        n := len(s)
+        m := len(t)
+        dp := make([]int, m+1)
+        // 状态转移：首行
+        for j := 1; j <= m; j++ {
+            dp[j] = j
+        }
+        // 状态转移：其余行
+        for i := 1; i <= n; i++ {
+            // 状态转移：首列
+            leftUp := dp[0] // 暂存 dp[i-1, j-1]
+            dp[0] = i
+            // 状态转移：其余列
+            for j := 1; j <= m; j++ {
+                temp := dp[j]
+                if s[i-1] == t[j-1] {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftUp
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = MinInt(MinInt(dp[j-1], dp[j]), leftUp) + 1
+                }
+                leftUp = temp // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        return dp[m]
+    }
     ```
 
 === "Swift"
 
     ```swift title="edit_distance.swift"
-    [class]{}-[func]{editDistanceDPComp}
+    /* 编辑距离：空间优化后的动态规划 */
+    func editDistanceDPComp(s: String, t: String) -> Int {
+        let n = s.utf8CString.count
+        let m = t.utf8CString.count
+        var dp = Array(repeating: 0, count: m + 1)
+        // 状态转移：首行
+        for j in stride(from: 1, through: m, by: 1) {
+            dp[j] = j
+        }
+        // 状态转移：其余行
+        for i in stride(from: 1, through: n, by: 1) {
+            // 状态转移：首列
+            var leftup = dp[0] // 暂存 dp[i-1, j-1]
+            dp[0] = i
+            // 状态转移：其余列
+            for j in stride(from: 1, through: m, by: 1) {
+                let temp = dp[j]
+                if s.utf8CString[i - 1] == t.utf8CString[j - 1] {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1
+                }
+                leftup = temp // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        return dp[m]
+    }
     ```
 
 === "JS"
 
     ```javascript title="edit_distance.js"
-    [class]{}-[func]{editDistanceDPComp}
+    /* 编辑距离：状态压缩后的动态规划 */
+    function editDistanceDPComp(s, t) {
+        const n = s.length,
+            m = t.length;
+        const dp = new Array(m + 1).fill(0);
+        // 状态转移：首行
+        for (let j = 1; j <= m; j++) {
+            dp[j] = j;
+        }
+        // 状态转移：其余行
+        for (let i = 1; i <= n; i++) {
+            // 状态转移：首列
+            let leftup = dp[0]; // 暂存 dp[i-1, j-1]
+            dp[0] = i;
+            // 状态转移：其余列
+            for (let j = 1; j <= m; j++) {
+                const temp = dp[j];
+                if (s.charAt(i - 1) === t.charAt(j - 1)) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup;
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = Math.min(Math.min(dp[j - 1], dp[j]), leftup) + 1;
+                }
+                leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        return dp[m];
+    }
     ```
 
 === "TS"
 
     ```typescript title="edit_distance.ts"
-    [class]{}-[func]{editDistanceDPComp}
+    /* 编辑距离：状态压缩后的动态规划 */
+    function editDistanceDPComp(s: string, t: string): number {
+        const n = s.length,
+            m = t.length;
+        const dp = new Array(m + 1).fill(0);
+        // 状态转移：首行
+        for (let j = 1; j <= m; j++) {
+            dp[j] = j;
+        }
+        // 状态转移：其余行
+        for (let i = 1; i <= n; i++) {
+            // 状态转移：首列
+            let leftup = dp[0]; // 暂存 dp[i-1, j-1]
+            dp[0] = i;
+            // 状态转移：其余列
+            for (let j = 1; j <= m; j++) {
+                const temp = dp[j];
+                if (s.charAt(i - 1) === t.charAt(j - 1)) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup;
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = Math.min(Math.min(dp[j - 1], dp[j]), leftup) + 1;
+                }
+                leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        return dp[m];
+    }
     ```
 
 === "Dart"
 
     ```dart title="edit_distance.dart"
-    [class]{}-[func]{editDistanceDPComp}
+    /* 编辑距离：空间优化后的动态规划 */
+    int editDistanceDPComp(String s, String t) {
+      int n = s.length, m = t.length;
+      List<int> dp = List.filled(m + 1, 0);
+      // 状态转移：首行
+      for (int j = 1; j <= m; j++) {
+        dp[j] = j;
+      }
+      // 状态转移：其余行
+      for (int i = 1; i <= n; i++) {
+        // 状态转移：首列
+        int leftup = dp[0]; // 暂存 dp[i-1, j-1]
+        dp[0] = i;
+        // 状态转移：其余列
+        for (int j = 1; j <= m; j++) {
+          int temp = dp[j];
+          if (s[i - 1] == t[j - 1]) {
+            // 若两字符相等，则直接跳过此两字符
+            dp[j] = leftup;
+          } else {
+            // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+            dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1;
+          }
+          leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
+        }
+      }
+      return dp[m];
+    }
     ```
 
 === "Rust"
 
     ```rust title="edit_distance.rs"
-    [class]{}-[func]{edit_distance_dp_comp}
+    /* 编辑距离：空间优化后的动态规划 */
+    fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
+        let (n, m) = (s.len(), t.len());
+        let mut dp = vec![0; m + 1];
+        // 状态转移：首行
+        for j in 1..m {
+            dp[j] = j as i32;
+        }
+        // 状态转移：其余行
+        for i in 1..=n {
+            // 状态转移：首列
+            let mut leftup = dp[0]; // 暂存 dp[i-1, j-1]
+            dp[0] = i as i32;
+            // 状态转移：其余列
+            for j in 1..=m {
+                let temp = dp[j];
+                if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup;
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = std::cmp::min(std::cmp::min(dp[j - 1], dp[j]), leftup) + 1;
+                }
+                leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        dp[m]
+    }
     ```
 
 === "C"
@@ -273,5 +818,33 @@ $$
 === "Zig"
 
     ```zig title="edit_distance.zig"
-    [class]{}-[func]{editDistanceDPComp}
+    // 编辑距离：空间优化后的动态规划
+    fn editDistanceDPComp(comptime s: []const u8, comptime t: []const u8) i32 {
+        comptime var n = s.len;
+        comptime var m = t.len;
+        var dp = [_]i32{0} ** (m + 1);
+        // 状态转移：首行
+        for (1..m + 1) |j| {
+            dp[j] = @intCast(j);
+        }
+        // 状态转移：其余行
+        for (1..n + 1) |i| {
+            // 状态转移：首列
+            var leftup = dp[0]; // 暂存 dp[i-1, j-1]
+            dp[0] = @intCast(i);
+            // 状态转移：其余列
+            for (1..m + 1) |j| {
+                var temp = dp[j];
+                if (s[i - 1] == t[j - 1]) {
+                    // 若两字符相等，则直接跳过此两字符
+                    dp[j] = leftup;
+                } else {
+                    // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
+                    dp[j] = @min(@min(dp[j - 1], dp[j]), leftup) + 1;
+                }
+                leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
+            }
+        }
+        return dp[m];
+    }
     ```

@@ -30,73 +30,222 @@ comments: true
 === "Python"
 
     ```python title="insertion_sort.py"
-    [class]{}-[func]{insertion_sort}
+    def insertion_sort(nums: list[int]):
+        """插入排序"""
+        # 外循环：已排序区间为 [0, i-1]
+        for i in range(1, len(nums)):
+            base = nums[i]
+            j = i - 1
+            # 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
+            while j >= 0 and nums[j] > base:
+                nums[j + 1] = nums[j]  # 将 nums[j] 向右移动一位
+                j -= 1
+            nums[j + 1] = base  # 将 base 赋值到正确位置
     ```
 
 === "C++"
 
     ```cpp title="insertion_sort.cpp"
-    [class]{}-[func]{insertionSort}
+    /* 插入排序 */
+    void insertionSort(vector<int> &nums) {
+        // 外循环：已排序元素数量为 1, 2, ..., n
+        for (int i = 1; i < nums.size(); i++) {
+            int base = nums[i], j = i - 1;
+            // 内循环：将 base 插入到已排序部分的正确位置
+            while (j >= 0 && nums[j] > base) {
+                nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
+                j--;
+            }
+            nums[j + 1] = base; // 将 base 赋值到正确位置
+        }
+    }
     ```
 
 === "Java"
 
     ```java title="insertion_sort.java"
-    [class]{insertion_sort}-[func]{insertionSort}
+    /* 插入排序 */
+    void insertionSort(int[] nums) {
+        // 外循环：已排序元素数量为 1, 2, ..., n
+        for (int i = 1; i < nums.length; i++) {
+            int base = nums[i], j = i - 1;
+            // 内循环：将 base 插入到已排序部分的正确位置
+            while (j >= 0 && nums[j] > base) {
+                nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
+                j--;
+            }
+            nums[j + 1] = base;        // 将 base 赋值到正确位置
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="insertion_sort.cs"
-    [class]{insertion_sort}-[func]{insertionSort}
+    /* 插入排序 */
+    void insertionSort(int[] nums) {
+        // 外循环：已排序元素数量为 1, 2, ..., n
+        for (int i = 1; i < nums.Length; i++) {
+            int bas = nums[i], j = i - 1;
+            // 内循环：将 base 插入到已排序部分的正确位置
+            while (j >= 0 && nums[j] > bas) {
+                nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
+                j--;
+            }
+            nums[j + 1] = bas;         // 将 base 赋值到正确位置
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="insertion_sort.go"
-    [class]{}-[func]{insertionSort}
+    /* 插入排序 */
+    func insertionSort(nums []int) {
+        // 外循环：未排序区间为 [0, i]
+        for i := 1; i < len(nums); i++ {
+            base := nums[i]
+            j := i - 1
+            // 内循环：将 base 插入到已排序部分的正确位置
+            for j >= 0 && nums[j] > base {
+                nums[j+1] = nums[j] // 将 nums[j] 向右移动一位
+                j--
+            }
+            nums[j+1] = base // 将 base 赋值到正确位置
+        }
+    }
     ```
 
 === "Swift"
 
     ```swift title="insertion_sort.swift"
-    [class]{}-[func]{insertionSort}
+    /* 插入排序 */
+    func insertionSort(nums: inout [Int]) {
+        // 外循环：已排序元素数量为 1, 2, ..., n
+        for i in stride(from: 1, to: nums.count, by: 1) {
+            let base = nums[i]
+            var j = i - 1
+            // 内循环：将 base 插入到已排序部分的正确位置
+            while j >= 0, nums[j] > base {
+                nums[j + 1] = nums[j] // 将 nums[j] 向右移动一位
+                j -= 1
+            }
+            nums[j + 1] = base // 将 base 赋值到正确位置
+        }
+    }
     ```
 
 === "JS"
 
     ```javascript title="insertion_sort.js"
-    [class]{}-[func]{insertionSort}
+    /* 插入排序 */
+    function insertionSort(nums) {
+        // 外循环：已排序元素数量为 1, 2, ..., n
+        for (let i = 1; i < nums.length; i++) {
+            let base = nums[i],
+                j = i - 1;
+            // 内循环：将 base 插入到已排序部分的正确位置
+            while (j >= 0 && nums[j] > base) {
+                nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
+                j--;
+            }
+            nums[j + 1] = base; // 将 base 赋值到正确位置
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="insertion_sort.ts"
-    [class]{}-[func]{insertionSort}
+    /* 插入排序 */
+    function insertionSort(nums: number[]): void {
+        // 外循环：已排序元素数量为 1, 2, ..., n
+        for (let i = 1; i < nums.length; i++) {
+            const base = nums[i];
+            let j = i - 1;
+            // 内循环：将 base 插入到已排序部分的正确位置
+            while (j >= 0 && nums[j] > base) {
+                nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
+                j--;
+            }
+            nums[j + 1] = base; // 将 base 赋值到正确位置
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="insertion_sort.dart"
-    [class]{}-[func]{insertionSort}
+    /* 插入排序 */
+    void insertionSort(List<int> nums) {
+      // 外循环：已排序元素数量为 1, 2, ..., n
+      for (int i = 1; i < nums.length; i++) {
+        int base = nums[i], j = i - 1;
+        // 内循环：将 base 插入到已排序部分的正确位置
+        while (j >= 0 && nums[j] > base) {
+          nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
+          j--;
+        }
+        nums[j + 1] = base; // 将 base 赋值到正确位置
+      }
+    }
     ```
 
 === "Rust"
 
     ```rust title="insertion_sort.rs"
-    [class]{}-[func]{insertion_sort}
+    /* 插入排序 */
+    fn insertion_sort(nums: &mut [i32]) {
+        // 外循环：已排序元素数量为 1, 2, ..., n
+        for i in 1..nums.len() {
+            let (base, mut j) = (nums[i],  (i - 1) as i32);
+            // 内循环：将 base 插入到已排序部分的正确位置
+            while j >= 0 && nums[j as usize] > base {
+                nums[(j + 1) as usize] = nums[j as usize]; // 将 nums[j] 向右移动一位
+                j -= 1;
+            }
+            nums[(j + 1) as usize] = base;  // 将 base 赋值到正确位置
+        }
+    }
     ```
 
 === "C"
 
     ```c title="insertion_sort.c"
-    [class]{}-[func]{insertionSort}
+    /* 插入排序 */
+    void insertionSort(int nums[], int size) {
+        // 外循环：已排序元素数量为 1, 2, ..., n
+        for (int i = 1; i < size; i++) {
+            int base = nums[i], j = i - 1;
+            // 内循环：将 base 插入到已排序部分的正确位置
+            while (j >= 0 && nums[j] > base) {
+                // 将 nums[j] 向右移动一位
+                nums[j + 1] = nums[j];
+                j--;
+            }
+            // 将 base 赋值到正确位置
+            nums[j + 1] = base;
+        }
+    }
     ```
 
 === "Zig"
 
     ```zig title="insertion_sort.zig"
-    [class]{}-[func]{insertionSort}
+    // 插入排序
+    fn insertionSort(nums: []i32) void {
+        // 外循环：已排序元素数量为 1, 2, ..., n
+        var i: usize = 1;
+        while (i < nums.len) : (i += 1) {
+            var base = nums[i];
+            var j: usize = i;
+            // 内循环：将 base 插入到已排序部分的正确位置
+            while (j >= 1 and nums[j - 1] > base) : (j -= 1) {
+                nums[j] = nums[j - 1];  // 将 nums[j] 向右移动一位
+            }
+            nums[j] = base;             // 将 base 赋值到正确位置
+        }
+    }
     ```
 
 ## 11.4.2 &nbsp; 算法特性

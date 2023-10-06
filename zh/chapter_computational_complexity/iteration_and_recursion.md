@@ -20,67 +20,153 @@ status: new
 === "Python"
 
     ```python title="iteration.py"
-    [class]{}-[func]{for_loop}
+    def for_loop(n: int) -> int:
+        """for 循环"""
+        res = 0
+        # 循环求和 1, 2, ..., n-1, n
+        for i in range(1, n + 1):
+            res += i
+        return res
     ```
 
 === "C++"
 
     ```cpp title="iteration.cpp"
-    [class]{}-[func]{forLoop}
+    /* for 循环 */
+    int forLoop(int n) {
+        int res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; ++i) {
+            res += i;
+        }
+        return res;
+    }
     ```
 
 === "Java"
 
     ```java title="iteration.java"
-    [class]{iteration}-[func]{forLoop}
+    /* for 循环 */
+    int forLoop(int n) {
+        int res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{forLoop}
+    /* for 循环 */
+    int forLoop(int n) {
+        int res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="iteration.go"
-    [class]{}-[func]{forLoop}
+    /* for 循环 */
+    func forLoop(n int) int {
+        res := 0
+        // 循环求和 1, 2, ..., n-1, n
+        for i := 1; i <= n; i++ {
+            res += i
+        }
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="iteration.swift"
-    [class]{}-[func]{forLoop}
+    /* for 循环 */
+    func forLoop(n: Int) -> Int {
+        var res = 0
+        // 循环求和 1, 2, ..., n-1, n
+        for i in 1 ... n {
+            res += i
+        }
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="iteration.js"
-    [class]{}-[func]{forLoop}
+    /* for 循环 */
+    function forLoop(n) {
+        let res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for (let i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="iteration.ts"
-    [class]{}-[func]{forLoop}
+    /* for 循环 */
+    function forLoop(n: number): number {
+        let res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for (let i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="iteration.dart"
-    [class]{}-[func]{forLoop}
+    /* for 循环 */
+    int forLoop(int n) {
+      int res = 0;
+      // 循环求和 1, 2, ..., n-1, n
+      for (int i = 1; i <= n; i++) {
+        res += i;
+      }
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="iteration.rs"
-    [class]{}-[func]{for_loop}
+    /* for 循环 */
+    fn for_loop(n: i32) -> i32 {
+        let mut res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for i in 1..=n {
+            res += i;
+        }
+        res
+    } 
     ```
 
 === "C"
 
     ```c title="iteration.c"
-    [class]{}-[func]{forLoop}
+    /* for 循环 */
+    int forLoop(int n) {
+        int res = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; i++) {
+            res += i;
+        }
+        return res;
+    }
     ```
 
 === "Zig"
@@ -106,67 +192,177 @@ status: new
 === "Python"
 
     ```python title="iteration.py"
-    [class]{}-[func]{while_loop}
+    def while_loop(n: int) -> int:
+        """while 循环"""
+        res = 0
+        i = 1  # 初始化条件变量
+        # 循环求和 1, 2, ..., n-1, n
+        while i <= n:
+            res += i
+            i += 1  # 更新条件变量
+        return res
     ```
 
 === "C++"
 
     ```cpp title="iteration.cpp"
-    [class]{}-[func]{whileLoop}
+    /* while 循环 */
+    int whileLoop(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i;
+            i++; // 更新条件变量
+        }
+        return res;
+    }
     ```
 
 === "Java"
 
     ```java title="iteration.java"
-    [class]{iteration}-[func]{whileLoop}
+    /* while 循环 */
+    int whileLoop(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i;
+            i++; // 更新条件变量
+        }
+        return res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{whileLoop}
+    /* while 循环 */
+    int whileLoop(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i;
+            i += 1; // 更新条件变量
+        }
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="iteration.go"
-    [class]{}-[func]{whileLoop}
+    /* while 循环 */
+    func whileLoop(n int) int {
+        res := 0
+        // 初始化条件变量
+        i := 1
+        // 循环求和 1, 2, ..., n-1, n
+        for i <= n {
+            res += i
+            // 更新条件变量
+            i++
+        }
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="iteration.swift"
-    [class]{}-[func]{whileLoop}
+    /* while 循环 */
+    func whileLoop(n: Int) -> Int {
+        var res = 0
+        var i = 1 // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while i <= n {
+            res += i
+            i += 1 // 更新条件变量
+        }
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="iteration.js"
-    [class]{}-[func]{whileLoop}
+    /* while 循环 */
+    function whileLoop(n) {
+        let res = 0;
+        let i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i;
+            i++; // 更新条件变量
+        }
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="iteration.ts"
-    [class]{}-[func]{whileLoop}
+    /* while 循环 */
+    function whileLoop(n: number): number {
+        let res = 0;
+        let i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i;
+            i++; // 更新条件变量
+        }
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="iteration.dart"
-    [class]{}-[func]{whileLoop}
+    /* while 循环 */
+    int whileLoop(int n) {
+      int res = 0;
+      int i = 1; // 初始化条件变量
+      // 循环求和 1, 2, ..., n-1, n
+      while (i <= n) {
+        res += i;
+        i++; // 更新条件变量
+      }
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="iteration.rs"
-    [class]{}-[func]{while_loop}
+    /* while 循环 */
+    fn while_loop(n: i32) -> i32 {
+        let mut res = 0;
+        let mut i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while i <= n {
+            res += i;
+            i += 1; // 更新条件变量
+        }
+        res
+    }
     ```
 
 === "C"
 
     ```c title="iteration.c"
-    [class]{}-[func]{whileLoop}
+    /* while 循环 */
+    int whileLoop(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += i;
+            i++; // 更新条件变量
+        }
+        return res;
+    }
     ```
 
 === "Zig"
@@ -182,67 +378,198 @@ status: new
 === "Python"
 
     ```python title="iteration.py"
-    [class]{}-[func]{while_loop_ii}
+    def while_loop_ii(n: int) -> int:
+        """while 循环（两次更新）"""
+        res = 0
+        i = 1  # 初始化条件变量
+        # 循环求和 1, 4, ...
+        while i <= n:
+            res += i
+            # 更新条件变量
+            i += 1
+            i *= 2
+        return res
     ```
 
 === "C++"
 
     ```cpp title="iteration.cpp"
-    [class]{}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    int whileLoopII(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while (i <= n) {
+            res += i;
+            // 更新条件变量
+            i++;
+            i *= 2;
+        }
+        return res;
+    }
     ```
 
 === "Java"
 
     ```java title="iteration.java"
-    [class]{iteration}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    int whileLoopII(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while (i <= n) {
+            res += i;
+            // 更新条件变量
+            i++;
+            i *= 2;
+        }
+        return res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    int whileLoopII(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 2, 4, 5...
+        while (i <= n) {
+            res += i;
+            // 更新条件变量
+            i += 1; 
+            i *= 2;
+        }
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="iteration.go"
-    [class]{}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    func whileLoopII(n int) int {
+        res := 0
+        // 初始化条件变量
+        i := 1
+        // 循环求和 1, 4, ...
+        for i <= n {
+            res += i
+            // 更新条件变量
+            i++
+            i *= 2
+        }
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="iteration.swift"
-    [class]{}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    func whileLoopII(n: Int) -> Int {
+        var res = 0
+        var i = 1 // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while i <= n {
+            res += i
+            // 更新条件变量
+            i += 1
+            i *= 2
+        }
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="iteration.js"
-    [class]{}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    function whileLoopII(n) {
+        let res = 0;
+        let i = 1; // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while (i <= n) {
+            res += i;
+            // 更新条件变量
+            i++;
+            i *= 2;
+        }
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="iteration.ts"
-    [class]{}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    function whileLoopII(n: number): number {
+        let res = 0;
+        let i = 1; // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while (i <= n) {
+            res += i;
+            // 更新条件变量
+            i++;
+            i *= 2;
+        }
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="iteration.dart"
-    [class]{}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    int whileLoopII(int n) {
+      int res = 0;
+      int i = 1; // 初始化条件变量
+      // 循环求和 1, 4, ...
+      while (i <= n) {
+        res += i;
+        // 更新条件变量
+        i++;
+        i *= 2;
+      }
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="iteration.rs"
-    [class]{}-[func]{while_loop_ii}
+    /* while 循环（两次更新） */
+    fn while_loop_ii(n: i32) -> i32 {
+        let mut res = 0;
+        let mut i = 1; // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while i <= n {
+            res += i;
+            // 更新条件变量
+            i += 1;
+            i *= 2;
+        }
+        res
+    }
     ```
 
 === "C"
 
     ```c title="iteration.c"
-    [class]{}-[func]{whileLoopII}
+    /* while 循环（两次更新） */
+    int whileLoopII(int n) {
+        int res = 0;
+        int i = 1; // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while (i <= n) {
+            res += i;
+            // 更新条件变量
+            i++;
+            i *= 2;
+        }
+        return res;
+    }
     ```
 
 === "Zig"
@@ -260,67 +587,189 @@ status: new
 === "Python"
 
     ```python title="iteration.py"
-    [class]{}-[func]{nested_for_loop}
+    def nested_for_loop(n: int) -> str:
+        """双层 for 循环"""
+        res = ""
+        # 循环 i = 1, 2, ..., n-1, n
+        for i in range(1, n + 1):
+            # 循环 j = 1, 2, ..., n-1, n
+            for j in range(1, n + 1):
+                res += f"({i}, {j}), "
+        return res
     ```
 
 === "C++"
 
     ```cpp title="iteration.cpp"
-    [class]{}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    string nestedForLoop(int n) {
+        ostringstream res;
+        // 循环 i = 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; ++i) {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (int j = 1; j <= n; ++j) {
+                res << "(" << i << ", " << j << "), ";
+            }
+        }
+        return res.str();
+    }
     ```
 
 === "Java"
 
     ```java title="iteration.java"
-    [class]{iteration}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    String nestedForLoop(int n) {
+        StringBuilder res = new StringBuilder();
+        // 循环 i = 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; i++) {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (int j = 1; j <= n; j++) {
+                res.append("(" + i + ", " + j + "), ");
+            }
+        }
+        return res.toString();
+    }
     ```
 
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    string nestedForLoop(int n) {
+        StringBuilder res = new StringBuilder();
+        // 循环 i = 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; i++) {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (int j = 1; j <= n; j++) {
+                res.Append($"({i}, {j}), ");
+            }
+        }
+        return res.ToString();
+    }
     ```
 
 === "Go"
 
     ```go title="iteration.go"
-    [class]{}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    func nestedForLoop(n int) string {
+        res := ""
+        // 循环 i = 1, 2, ..., n-1, n
+        for i := 1; i <= n; i++ {
+            for j := 1; j <= n; j++ {
+                // 循环 j = 1, 2, ..., n-1, n
+                res += fmt.Sprintf("(%d, %d), ", i, j)
+            }
+        }
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="iteration.swift"
-    [class]{}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    func nestedForLoop(n: Int) -> String {
+        var res = ""
+        // 循环 i = 1, 2, ..., n-1, n
+        for i in 1 ... n {
+            // 循环 j = 1, 2, ..., n-1, n
+            for j in 1 ... n {
+                res.append("(\(i), \(j)), ")
+            }
+        }
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="iteration.js"
-    [class]{}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    function nestedForLoop(n) {
+        let res = '';
+        // 循环 i = 1, 2, ..., n-1, n
+        for (let i = 1; i <= n; i++) {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (let j = 1; j <= n; j++) {
+                res += `(${i}, ${j}), `;
+            }
+        }
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="iteration.ts"
-    [class]{}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    function nestedForLoop(n: number): string {
+        let res = '';
+        // 循环 i = 1, 2, ..., n-1, n
+        for (let i = 1; i <= n; i++) {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (let j = 1; j <= n; j++) {
+                res += `(${i}, ${j}), `;
+            }
+        }
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="iteration.dart"
-    [class]{}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    String nestedForLoop(int n) {
+      String res = "";
+      // 循环 i = 1, 2, ..., n-1, n
+      for (int i = 1; i <= n; i++) {
+        // 循环 j = 1, 2, ..., n-1, n
+        for (int j = 1; j <= n; j++) {
+          res += "($i, $j), ";
+        }
+      }
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="iteration.rs"
-    [class]{}-[func]{nested_for_loop}
+    /* 双层 for 循环 */
+    fn nested_for_loop(n: i32) -> String {
+        let mut res = vec![];
+        // 循环 i = 1, 2, ..., n-1, n
+        for i in 1..=n {
+            // 循环 j = 1, 2, ..., n-1, n
+            for j in 1..=n {
+                res.push(format!("({}, {}), ", i, j));
+            }
+        }
+        res.join("")
+    }
     ```
 
 === "C"
 
     ```c title="iteration.c"
-    [class]{}-[func]{nestedForLoop}
+    /* 双层 for 循环 */
+    char *nestedForLoop(int n) {
+        // n * n 为对应点数量，"(i, j), " 对应字符串长最大为 6+10*2，加上最后一个空字符 \0 的额外空间
+        int size = n * n * 26 + 1;
+        char *res = malloc(size * sizeof(char));
+        // 循环 i = 1, 2, ..., n-1, n
+        for (int i = 1; i <= n; i++) {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (int j = 1; j <= n; j++) {
+                char tmp[26];
+                snprintf(tmp, sizeof(tmp), "(%d, %d), ", i, j);
+                strncat(res, tmp, size - strlen(res) - 1);
+            }
+        }
+        return res;
+    }
     ```
 
 === "Zig"
@@ -357,67 +806,165 @@ status: new
 === "Python"
 
     ```python title="recursion.py"
-    [class]{}-[func]{recur}
+    def recur(n: int) -> int:
+        """递归"""
+        # 终止条件
+        if n == 1:
+            return 1
+        # 递：递归调用
+        res = recur(n - 1)
+        # 归：返回结果
+        return n + res
     ```
 
 === "C++"
 
     ```cpp title="recursion.cpp"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    int recur(int n) {
+        // 终止条件
+        if (n == 1)
+            return 1;
+        // 递：递归调用
+        int res = recur(n - 1);
+        // 归：返回结果
+        return n + res;
+    }
     ```
 
 === "Java"
 
     ```java title="recursion.java"
-    [class]{recursion}-[func]{recur}
+    /* 递归 */
+    int recur(int n) {
+        // 终止条件
+        if (n == 1)
+            return 1;
+        // 递：递归调用
+        int res = recur(n - 1);
+        // 归：返回结果
+        return n + res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{recur}
+    /* 递归 */
+    int recur(int n) {
+        // 终止条件
+        if (n == 1)
+            return 1;
+        // 递：递归调用
+        int res = recur(n - 1);
+        // 归：返回结果
+        return n + res;
+    }
     ```
 
 === "Go"
 
     ```go title="recursion.go"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    func recur(n int) int {
+        // 终止条件
+        if n == 1 {
+            return 1
+        }
+        // 递：递归调用
+        res := recur(n - 1)
+        // 归：返回结果
+        return n + res
+    }
     ```
 
 === "Swift"
 
     ```swift title="recursion.swift"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    func recur(n: Int) -> Int {
+        // 终止条件
+        if n == 1 {
+            return 1
+        }
+        // 递：递归调用
+        let res = recur(n: n - 1)
+        // 归：返回结果
+        return n + res
+    }
     ```
 
 === "JS"
 
     ```javascript title="recursion.js"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    function recur(n) {
+        // 终止条件
+        if (n === 1) return 1;
+        // 递：递归调用
+        const res = recur(n - 1);
+        // 归：返回结果
+        return n + res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="recursion.ts"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    function recur(n: number): number {
+        // 终止条件
+        if (n === 1) return 1;
+        // 递：递归调用
+        const res = recur(n - 1);
+        // 归：返回结果
+        return n + res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="recursion.dart"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    int recur(int n) {
+      // 终止条件
+      if (n == 1) return 1;
+      // 递：递归调用
+      int res = recur(n - 1);
+      // 归：返回结果
+      return n + res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="recursion.rs"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    fn recur(n: i32) -> i32 {
+        // 终止条件
+        if n == 1 {
+            return 1;
+        }
+        // 递：递归调用
+        let res = recur(n - 1);
+        // 归：返回结果
+        n + res
+    }
     ```
 
 === "C"
 
     ```c title="recursion.c"
-    [class]{}-[func]{recur}
+    /* 递归 */
+    int recur(int n) {
+        // 终止条件
+        if (n == 1)
+            return 1;
+        // 递：递归调用
+        int res = recur(n - 1);
+        // 归：返回结果
+        return n + res;
+    }
     ```
 
 === "Zig"
@@ -469,67 +1016,143 @@ status: new
 === "Python"
 
     ```python title="recursion.py"
-    [class]{}-[func]{tail_recur}
+    def tail_recur(n, res):
+        """尾递归"""
+        # 终止条件
+        if n == 0:
+            return res
+        # 尾递归调用
+        return tail_recur(n - 1, res + n)
     ```
 
 === "C++"
 
     ```cpp title="recursion.cpp"
-    [class]{}-[func]{tailRecur}
+    /* 尾递归 */
+    int tailRecur(int n, int res) {
+        // 终止条件
+        if (n == 0)
+            return res;
+        // 尾递归调用
+        return tailRecur(n - 1, res + n);
+    }
     ```
 
 === "Java"
 
     ```java title="recursion.java"
-    [class]{recursion}-[func]{tailRecur}
+    /* 尾递归 */
+    int tailRecur(int n, int res) {
+        // 终止条件
+        if (n == 0)
+            return res;
+        // 尾递归调用
+        return tailRecur(n - 1, res + n);
+    }
     ```
 
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{tailRecur}
+    /* 尾递归 */
+    int tailRecur(int n, int res) {
+        // 终止条件
+        if (n == 0)
+            return res;
+        // 尾递归调用
+        return tailRecur(n - 1, res + n);
+    }
     ```
 
 === "Go"
 
     ```go title="recursion.go"
-    [class]{}-[func]{tailRecur}
+    /* 尾递归 */
+    func tailRecur(n int, res int) int {
+        // 终止条件
+        if n == 0 {
+            return res
+        }
+        // 尾递归调用
+        return tailRecur(n-1, res+n)
+    }
     ```
 
 === "Swift"
 
     ```swift title="recursion.swift"
-    [class]{}-[func]{tailRecur}
+    /* 尾递归 */
+    func tailRecur(n: Int, res: Int) -> Int {
+        // 终止条件
+        if n == 0 {
+            return res
+        }
+        // 尾递归调用
+        return tailRecur(n: n - 1, res: res + n)
+    }
     ```
 
 === "JS"
 
     ```javascript title="recursion.js"
-    [class]{}-[func]{tailRecur}
+    /* 尾递归 */
+    function tailRecur(n, res) {
+        // 终止条件
+        if (n === 0) return res;
+        // 尾递归调用
+        return tailRecur(n - 1, res + n);
+    }
     ```
 
 === "TS"
 
     ```typescript title="recursion.ts"
-    [class]{}-[func]{tailRecur}
+    /* 尾递归 */
+    function tailRecur(n: number, res: number): number {
+        // 终止条件
+        if (n === 0) return res;
+        // 尾递归调用
+        return tailRecur(n - 1, res + n);
+    }
     ```
 
 === "Dart"
 
     ```dart title="recursion.dart"
-    [class]{}-[func]{tailRecur}
+    /* 尾递归 */
+    int tailRecur(int n, int res) {
+      // 终止条件
+      if (n == 0) return res;
+      // 尾递归调用
+      return tailRecur(n - 1, res + n);
+    }
     ```
 
 === "Rust"
 
     ```rust title="recursion.rs"
-    [class]{}-[func]{tail_recur}
+    /* 尾递归 */
+    fn tail_recur(n: i32, res: i32) -> i32 {
+        // 终止条件
+        if n == 0 {
+            return res;
+        }
+        // 尾递归调用
+        tail_recur(n - 1, res + n)
+    }
     ```
 
 === "C"
 
     ```c title="recursion.c"
-    [class]{}-[func]{tailRecur}
+    /* 尾递归 */
+    int tailRecur(int n, int res) {
+        // 终止条件
+        if (n == 0)
+            return res;
+        // 尾递归调用
+        return tailRecur(n - 1, res + n);
+    }
     ```
 
 === "Zig"
@@ -569,67 +1192,165 @@ status: new
 === "Python"
 
     ```python title="recursion.py"
-    [class]{}-[func]{fib}
+    def fib(n: int) -> int:
+        """斐波那契数列：递归"""
+        # 终止条件 f(1) = 0, f(2) = 1
+        if n == 1 or n == 2:
+            return n - 1
+        # 递归调用 f(n) = f(n-1) + f(n-2)
+        res = fib(n - 1) + fib(n - 2)
+        # 返回结果 f(n)
+        return res
     ```
 
 === "C++"
 
     ```cpp title="recursion.cpp"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    int fib(int n) {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n == 1 || n == 2)
+            return n - 1;
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        int res = fib(n - 1) + fib(n - 2);
+        // 返回结果 f(n)
+        return res;
+    }
     ```
 
 === "Java"
 
     ```java title="recursion.java"
-    [class]{recursion}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    int fib(int n) {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n == 1 || n == 2)
+            return n - 1;
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        int res = fib(n - 1) + fib(n - 2);
+        // 返回结果 f(n)
+        return res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    int fib(int n) {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n == 1 || n == 2)
+            return n - 1;
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        int res = fib(n - 1) + fib(n - 2);
+        // 返回结果 f(n)
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="recursion.go"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    func fib(n int) int {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if n == 1 || n == 2 {
+            return n - 1
+        }
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        res := fib(n-1) + fib(n-2)
+        // 返回结果 f(n)
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="recursion.swift"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    func fib(n: Int) -> Int {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if n == 1 || n == 2 {
+            return n - 1
+        }
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        let res = fib(n: n - 1) + fib(n: n - 2)
+        // 返回结果 f(n)
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="recursion.js"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    function fib(n) {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n === 1 || n === 2) return n - 1;
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        const res = fib(n - 1) + fib(n - 2);
+        // 返回结果 f(n)
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="recursion.ts"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    function fib(n: number): number {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n === 1 || n === 2) return n - 1;
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        const res = fib(n - 1) + fib(n - 2);
+        // 返回结果 f(n)
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="recursion.dart"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    int fib(int n) {
+      // 终止条件 f(1) = 0, f(2) = 1
+      if (n == 1 || n == 2) return n - 1;
+      // 递归调用 f(n) = f(n-1) + f(n-2)
+      int res = fib(n - 1) + fib(n - 2);
+      // 返回结果 f(n)
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="recursion.rs"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    fn fib(n: i32) -> i32 {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if n == 1 || n == 2 {
+            return n - 1;
+        }
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        let res = fib(n - 1) + fib(n - 2);
+        // 返回结果
+        res
+    }
     ```
 
 === "C"
 
     ```c title="recursion.c"
-    [class]{}-[func]{fib}
+    /* 斐波那契数列：递归 */
+    int fib(int n) {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n == 1 || n == 2)
+            return n - 1;
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        int res = fib(n - 1) + fib(n - 2);
+        // 返回结果 f(n)
+        return res;
+    }
     ```
 
 === "Zig"
@@ -682,25 +1403,91 @@ status: new
 === "Python"
 
     ```python title="recursion.py"
-    [class]{}-[func]{for_loop_recur}
+    def for_loop_recur(n: int) -> int:
+        """使用迭代模拟递归"""
+        # 使用一个显式的栈来模拟系统调用栈
+        stack = []
+        res = 0
+        # 递：递归调用
+        for i in range(n, 0, -1):
+            # 通过“入栈操作”模拟“递”
+            stack.append(i)
+        # 归：返回结果
+        while stack:
+            # 通过“出栈操作”模拟“归”
+            res += stack.pop()
+        # res = 1+2+3+...+n
+        return res
     ```
 
 === "C++"
 
     ```cpp title="recursion.cpp"
-    [class]{}-[func]{forLoopRecur}
+    /* 使用迭代模拟递归 */
+    int forLoopRecur(int n) {
+        // 使用一个显式的栈来模拟系统调用栈
+        stack<int> stack;
+        int res = 0;
+        // 递：递归调用
+        for (int i = n; i > 0; i--) {
+            // 通过“入栈操作”模拟“递”
+            stack.push(i);
+        }
+        // 归：返回结果
+        while (!stack.empty()) {
+            // 通过“出栈操作”模拟“归”
+            res += stack.top();
+            stack.pop();
+        }
+        // res = 1+2+3+...+n
+        return res;
+    }
     ```
 
 === "Java"
 
     ```java title="recursion.java"
-    [class]{recursion}-[func]{forLoopRecur}
+    /* 使用迭代模拟递归 */
+    int forLoopRecur(int n) {
+        // 使用一个显式的栈来模拟系统调用栈
+        Stack<Integer> stack = new Stack<>();
+        int res = 0;
+        // 递：递归调用
+        for (int i = n; i > 0; i--) {
+            // 通过“入栈操作”模拟“递”
+            stack.push(i);
+        }
+        // 归：返回结果
+        while (!stack.isEmpty()) {
+            // 通过“出栈操作”模拟“归”
+            res += stack.pop();
+        }
+        // res = 1+2+3+...+n
+        return res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{forLoopRecur}
+    /* 使用迭代模拟递归 */
+    int forLoopRecur(int n) {
+        // 使用一个显式的栈来模拟系统调用栈
+        Stack<int> stack = new Stack<int>();
+        int res = 0;
+        // 递：递归调用
+        for (int i = n; i > 0; i--) {
+            // 通过“入栈操作”模拟“递”
+            stack.Push(i);
+        }
+        // 归：返回结果
+        while (stack.Count > 0) {
+            // 通过“出栈操作”模拟“归”
+            res += stack.Pop();
+        }
+        // res = 1+2+3+...+n
+        return res;
+    }
     ```
 
 === "Go"
@@ -712,31 +1499,116 @@ status: new
 === "Swift"
 
     ```swift title="recursion.swift"
-    [class]{}-[func]{forLoopRecur}
+    /* 使用迭代模拟递归 */
+    func forLoopRecur(n: Int) -> Int {
+        // 使用一个显式的栈来模拟系统调用栈
+        var stack: [Int] = []
+        var res = 0
+        // 递：递归调用
+        for i in stride(from: n, to: 0, by: -1) {
+            // 通过“入栈操作”模拟“递”
+            stack.append(i)
+        }
+        // 归：返回结果
+        while !stack.isEmpty {
+            // 通过“出栈操作”模拟“归”
+            res += stack.removeLast()
+        }
+        // res = 1+2+3+...+n
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="recursion.js"
-    [class]{}-[func]{forLoopRecur}
+    /* 使用迭代模拟递归 */
+    function forLoopRecur(n) {
+        // 使用一个显式的栈来模拟系统调用栈
+        const stack = [];
+        let res = 0;
+        // 递：递归调用
+        for (let i = 1; i <= n; i++) {
+            // 通过“入栈操作”模拟“递”
+            stack.push(i);
+        }
+        // 归：返回结果
+        while (stack.length) { 
+            // 通过“出栈操作”模拟“归”
+            res += stack.pop();
+        }
+        // res = 1+2+3+...+n
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="recursion.ts"
-    [class]{}-[func]{forLoopRecur}
+    /* 使用迭代模拟递归 */
+    function forLoopRecur(n: number): number {
+        // 使用一个显式的栈来模拟系统调用栈 
+        const stack: number[] = [];
+        let res: number = 0;
+        // 递：递归调用
+        for (let i = 1; i <= n; i++) {
+            // 通过“入栈操作”模拟“递”
+            stack.push(i);
+        }
+        // 归：返回结果
+        while (stack.length) { 
+            // 通过“出栈操作”模拟“归”
+            res += stack.pop();
+        }
+        // res = 1+2+3+...+n
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="recursion.dart"
-    [class]{}-[func]{forLoopRecur}
+    /* 使用迭代模拟递归 */
+    int forLoopRecur(int n) {
+      // 使用一个显式的栈来模拟系统调用栈
+      List<int> stack = [];
+      int res = 0;
+      // 递：递归调用
+      for (int i = n; i > 0; i--) {
+        // 通过“入栈操作”模拟“递”
+        stack.add(i);
+      }
+      // 归：返回结果
+      while (!stack.isEmpty) {
+        // 通过“出栈操作”模拟“归”
+        res += stack.removeLast();
+      }
+      // res = 1+2+3+...+n
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="recursion.rs"
-    [class]{}-[func]{for_loop_recur}
+    /* 使用迭代模拟递归 */
+    fn for_loop_recur(n: i32) -> i32 {
+        // 使用一个显式的栈来模拟系统调用栈
+        let mut stack = Vec::new();
+        let mut res = 0;
+        // 递：递归调用
+        for i in (1..=n).rev() {
+            // 通过“入栈操作”模拟“递”
+            stack.push(i);
+        }
+        // 归：返回结果
+        while !stack.is_empty() {
+            // 通过“出栈操作”模拟“归”
+            res += stack.pop().unwrap();
+        }
+        // res = 1+2+3+...+n
+        res
+    }
     ```
 
 === "C"

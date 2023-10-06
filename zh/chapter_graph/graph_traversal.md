@@ -29,67 +29,357 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 === "Python"
 
     ```python title="graph_bfs.py"
-    [class]{}-[func]{graph_bfs}
+    def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
+        """广度优先遍历 BFS"""
+        # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+        # 顶点遍历序列
+        res = []
+        # 哈希表，用于记录已被访问过的顶点
+        visited = set[Vertex]([start_vet])
+        # 队列用于实现 BFS
+        que = deque[Vertex]([start_vet])
+        # 以顶点 vet 为起点，循环直至访问完所有顶点
+        while len(que) > 0:
+            vet = que.popleft()  # 队首顶点出队
+            res.append(vet)  # 记录访问顶点
+            # 遍历该顶点的所有邻接顶点
+            for adj_vet in graph.adj_list[vet]:
+                if adj_vet in visited:
+                    continue  # 跳过已被访问过的顶点
+                que.append(adj_vet)  # 只入队未访问的顶点
+                visited.add(adj_vet)  # 标记该顶点已被访问
+        # 返回顶点遍历序列
+        return res
     ```
 
 === "C++"
 
     ```cpp title="graph_bfs.cpp"
-    [class]{}-[func]{graphBFS}
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    vector<Vertex *> graphBFS(GraphAdjList &graph, Vertex *startVet) {
+        // 顶点遍历序列
+        vector<Vertex *> res;
+        // 哈希表，用于记录已被访问过的顶点
+        unordered_set<Vertex *> visited = {startVet};
+        // 队列用于实现 BFS
+        queue<Vertex *> que;
+        que.push(startVet);
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while (!que.empty()) {
+            Vertex *vet = que.front();
+            que.pop();          // 队首顶点出队
+            res.push_back(vet); // 记录访问顶点
+            // 遍历该顶点的所有邻接顶点
+            for (auto adjVet : graph.adjList[vet]) {
+                if (visited.count(adjVet))
+                    continue;            // 跳过已被访问过的顶点
+                que.push(adjVet);        // 只入队未访问的顶点
+                visited.emplace(adjVet); // 标记该顶点已被访问
+            }
+        }
+        // 返回顶点遍历序列
+        return res;
+    }
     ```
 
 === "Java"
 
     ```java title="graph_bfs.java"
-    [class]{graph_bfs}-[func]{graphBFS}
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
+        // 顶点遍历序列
+        List<Vertex> res = new ArrayList<>();
+        // 哈希表，用于记录已被访问过的顶点
+        Set<Vertex> visited = new HashSet<>();
+        visited.add(startVet);
+        // 队列用于实现 BFS
+        Queue<Vertex> que = new LinkedList<>();
+        que.offer(startVet);
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while (!que.isEmpty()) {
+            Vertex vet = que.poll(); // 队首顶点出队
+            res.add(vet);            // 记录访问顶点
+            // 遍历该顶点的所有邻接顶点
+            for (Vertex adjVet : graph.adjList.get(vet)) {
+                if (visited.contains(adjVet))
+                    continue;        // 跳过已被访问过的顶点
+                que.offer(adjVet);   // 只入队未访问的顶点
+                visited.add(adjVet); // 标记该顶点已被访问
+            }
+        }
+        // 返回顶点遍历序列
+        return res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="graph_bfs.cs"
-    [class]{graph_bfs}-[func]{graphBFS}
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
+        // 顶点遍历序列
+        List<Vertex> res = new List<Vertex>();
+        // 哈希表，用于记录已被访问过的顶点
+        HashSet<Vertex> visited = new HashSet<Vertex>() { startVet };
+        // 队列用于实现 BFS
+        Queue<Vertex> que = new Queue<Vertex>();
+        que.Enqueue(startVet);
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while (que.Count > 0) {
+            Vertex vet = que.Dequeue(); // 队首顶点出队
+            res.Add(vet);               // 记录访问顶点
+            foreach (Vertex adjVet in graph.adjList[vet]) {
+                if (visited.Contains(adjVet)) {
+                    continue;          // 跳过已被访问过的顶点
+                }
+                que.Enqueue(adjVet);   // 只入队未访问的顶点
+                visited.Add(adjVet);   // 标记该顶点已被访问
+            }
+        }
+
+        // 返回顶点遍历序列
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="graph_bfs.go"
-    [class]{}-[func]{graphBFS}
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    func graphBFS(g *graphAdjList, startVet Vertex) []Vertex {
+        // 顶点遍历序列
+        res := make([]Vertex, 0)
+        // 哈希表，用于记录已被访问过的顶点
+        visited := make(map[Vertex]struct{})
+        visited[startVet] = struct{}{}
+        // 队列用于实现 BFS, 使用切片模拟队列
+        queue := make([]Vertex, 0)
+        queue = append(queue, startVet)
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        for len(queue) > 0 {
+            // 队首顶点出队
+            vet := queue[0]
+            queue = queue[1:]
+            // 记录访问顶点
+            res = append(res, vet)
+            // 遍历该顶点的所有邻接顶点
+            for _, adjVet := range g.adjList[vet] {
+                _, isExist := visited[adjVet]
+                // 只入队未访问的顶点
+                if !isExist {
+                    queue = append(queue, adjVet)
+                    visited[adjVet] = struct{}{}
+                }
+            }
+        }
+        // 返回顶点遍历序列
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="graph_bfs.swift"
-    [class]{}-[func]{graphBFS}
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    func graphBFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
+        // 顶点遍历序列
+        var res: [Vertex] = []
+        // 哈希表，用于记录已被访问过的顶点
+        var visited: Set<Vertex> = [startVet]
+        // 队列用于实现 BFS
+        var que: [Vertex] = [startVet]
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while !que.isEmpty {
+            let vet = que.removeFirst() // 队首顶点出队
+            res.append(vet) // 记录访问顶点
+            // 遍历该顶点的所有邻接顶点
+            for adjVet in graph.adjList[vet] ?? [] {
+                if visited.contains(adjVet) {
+                    continue // 跳过已被访问过的顶点
+                }
+                que.append(adjVet) // 只入队未访问的顶点
+                visited.insert(adjVet) // 标记该顶点已被访问
+            }
+        }
+        // 返回顶点遍历序列
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="graph_bfs.js"
-    [class]{}-[func]{graphBFS}
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    function graphBFS(graph, startVet) {
+        // 顶点遍历序列
+        const res = [];
+        // 哈希表，用于记录已被访问过的顶点
+        const visited = new Set();
+        visited.add(startVet);
+        // 队列用于实现 BFS
+        const que = [startVet];
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while (que.length) {
+            const vet = que.shift(); // 队首顶点出队
+            res.push(vet); // 记录访问顶点
+            // 遍历该顶点的所有邻接顶点
+            for (const adjVet of graph.adjList.get(vet) ?? []) {
+                if (visited.has(adjVet)) {
+                    continue; // 跳过已被访问过的顶点
+                }
+                que.push(adjVet); // 只入队未访问的顶点
+                visited.add(adjVet); // 标记该顶点已被访问
+            }
+        }
+        // 返回顶点遍历序列
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="graph_bfs.ts"
-    [class]{}-[func]{graphBFS}
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    function graphBFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
+        // 顶点遍历序列
+        const res: Vertex[] = [];
+        // 哈希表，用于记录已被访问过的顶点
+        const visited: Set<Vertex> = new Set();
+        visited.add(startVet);
+        // 队列用于实现 BFS
+        const que = [startVet];
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while (que.length) {
+            const vet = que.shift(); // 队首顶点出队
+            res.push(vet); // 记录访问顶点
+            // 遍历该顶点的所有邻接顶点
+            for (const adjVet of graph.adjList.get(vet) ?? []) {
+                if (visited.has(adjVet)) {
+                    continue; // 跳过已被访问过的顶点
+                }
+                que.push(adjVet); // 只入队未访问
+                visited.add(adjVet); // 标记该顶点已被访问
+            }
+        }
+        // 返回顶点遍历序列
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="graph_bfs.dart"
-    [class]{}-[func]{graphBFS}
+    /* 广度优先遍历 BFS */
+    List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
+      // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+      // 顶点遍历序列
+      List<Vertex> res = [];
+      // 哈希表，用于记录已被访问过的顶点
+      Set<Vertex> visited = {};
+      visited.add(startVet);
+      // 队列用于实现 BFS
+      Queue<Vertex> que = Queue();
+      que.add(startVet);
+      // 以顶点 vet 为起点，循环直至访问完所有顶点
+      while (que.isNotEmpty) {
+        Vertex vet = que.removeFirst(); // 队首顶点出队
+        res.add(vet); // 记录访问顶点
+        // 遍历该顶点的所有邻接顶点
+        for (Vertex adjVet in graph.adjList[vet]!) {
+          if (visited.contains(adjVet)) {
+            continue; // 跳过已被访问过的顶点
+          }
+          que.add(adjVet); // 只入队未访问的顶点
+          visited.add(adjVet); // 标记该顶点已被访问
+        }
+      }
+      // 返回顶点遍历序列
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="graph_bfs.rs"
-    [class]{}-[func]{graph_bfs}
+    /* 广度优先遍历 BFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
+        // 顶点遍历序列
+        let mut res = vec![];
+        // 哈希表，用于记录已被访问过的顶点
+        let mut visited = HashSet::new();
+        visited.insert(start_vet);
+        // 队列用于实现 BFS
+        let mut que = VecDeque::new();
+        que.push_back(start_vet);
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while !que.is_empty() {
+            let vet = que.pop_front().unwrap(); // 队首顶点出队
+            res.push(vet); // 记录访问顶点
+                        // 遍历该顶点的所有邻接顶点
+            if let Some(adj_vets) = graph.adj_list.get(&vet) {
+                for &adj_vet in adj_vets {
+                    if visited.contains(&adj_vet) {
+                        continue; // 跳过已被访问过的顶点
+                    }
+                    que.push_back(adj_vet); // 只入队未访问的顶点
+                    visited.insert(adj_vet); // 标记该顶点已被访问
+                }
+            }
+        }
+        // 返回顶点遍历序列
+        res
+    }
     ```
 
 === "C"
 
     ```c title="graph_bfs.c"
-    [class]{}-[func]{graphBFS}
+    /* 广度优先遍历 */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
+        // 顶点遍历序列
+        Vertex **res = (Vertex **)malloc(sizeof(Vertex *) * t->size);
+        memset(res, 0, sizeof(Vertex *) * t->size);
+        // 队列用于实现 BFS
+        queue *que = newQueue(t->size);
+        // 哈希表，用于记录已被访问过的顶点
+        hashTable *visited = newHash(t->size);
+        int resIndex = 0;
+        queuePush(que, startVet);         // 将第一个元素入队
+        hashMark(visited, startVet->pos); // 标记第一个入队的顶点
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while (que->head < que->tail) {
+            // 遍历该顶点的边链表，将所有与该顶点有连接的，并且未被标记的顶点入队
+            Node *n = queueTop(que)->linked->head->next;
+            while (n != 0) {
+                // 查询哈希表，若该索引的顶点已入队，则跳过，否则入队并标记
+                if (hashQuery(visited, n->val->pos) == 1) {
+                    n = n->next;
+                    continue; // 跳过已被访问过的顶点
+                }
+                queuePush(que, n->val);         // 只入队未访问的顶点
+                hashMark(visited, n->val->pos); // 标记该顶点已被访问
+            }
+            // 队首元素存入数组
+            res[resIndex] = queueTop(que); // 队首顶点加入顶点遍历序列
+            resIndex++;
+            queuePop(que); // 队首元素出队
+        }
+        // 释放内存
+        freeQueue(que);
+        freeHash(visited);
+        resIndex = 0;
+        // 返回顶点遍历序列
+        return res;
+    }
     ```
 
 === "Zig"
@@ -160,89 +450,339 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 === "Python"
 
     ```python title="graph_dfs.py"
-    [class]{}-[func]{dfs}
+    def dfs(graph: GraphAdjList, visited: set[Vertex], res: list[Vertex], vet: Vertex):
+        """深度优先遍历 DFS 辅助函数"""
+        res.append(vet)  # 记录访问顶点
+        visited.add(vet)  # 标记该顶点已被访问
+        # 遍历该顶点的所有邻接顶点
+        for adjVet in graph.adj_list[vet]:
+            if adjVet in visited:
+                continue  # 跳过已被访问过的顶点
+            # 递归访问邻接顶点
+            dfs(graph, visited, res, adjVet)
 
-    [class]{}-[func]{graph_dfs}
+    def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
+        """深度优先遍历 DFS"""
+        # 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+        # 顶点遍历序列
+        res = []
+        # 哈希表，用于记录已被访问过的顶点
+        visited = set[Vertex]()
+        dfs(graph, visited, res, start_vet)
+        return res
     ```
 
 === "C++"
 
     ```cpp title="graph_dfs.cpp"
-    [class]{}-[func]{dfs}
+    /* 深度优先遍历 DFS 辅助函数 */
+    void dfs(GraphAdjList &graph, unordered_set<Vertex *> &visited, vector<Vertex *> &res, Vertex *vet) {
+        res.push_back(vet);   // 记录访问顶点
+        visited.emplace(vet); // 标记该顶点已被访问
+        // 遍历该顶点的所有邻接顶点
+        for (Vertex *adjVet : graph.adjList[vet]) {
+            if (visited.count(adjVet))
+                continue; // 跳过已被访问过的顶点
+            // 递归访问邻接顶点
+            dfs(graph, visited, res, adjVet);
+        }
+    }
 
-    [class]{}-[func]{graphDFS}
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    vector<Vertex *> graphDFS(GraphAdjList &graph, Vertex *startVet) {
+        // 顶点遍历序列
+        vector<Vertex *> res;
+        // 哈希表，用于记录已被访问过的顶点
+        unordered_set<Vertex *> visited;
+        dfs(graph, visited, res, startVet);
+        return res;
+    }
     ```
 
 === "Java"
 
     ```java title="graph_dfs.java"
-    [class]{graph_dfs}-[func]{dfs}
+    /* 深度优先遍历 DFS 辅助函数 */
+    void dfs(GraphAdjList graph, Set<Vertex> visited, List<Vertex> res, Vertex vet) {
+        res.add(vet);     // 记录访问顶点
+        visited.add(vet); // 标记该顶点已被访问
+        // 遍历该顶点的所有邻接顶点
+        for (Vertex adjVet : graph.adjList.get(vet)) {
+            if (visited.contains(adjVet))
+                continue; // 跳过已被访问过的顶点
+            // 递归访问邻接顶点
+            dfs(graph, visited, res, adjVet);
+        }
+    }
 
-    [class]{graph_dfs}-[func]{graphDFS}
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
+        // 顶点遍历序列
+        List<Vertex> res = new ArrayList<>();
+        // 哈希表，用于记录已被访问过的顶点
+        Set<Vertex> visited = new HashSet<>();
+        dfs(graph, visited, res, startVet);
+        return res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="graph_dfs.cs"
-    [class]{graph_dfs}-[func]{dfs}
+    /* 深度优先遍历 DFS 辅助函数 */
+    void dfs(GraphAdjList graph, HashSet<Vertex> visited, List<Vertex> res, Vertex vet) {
+        res.Add(vet);     // 记录访问顶点
+        visited.Add(vet); // 标记该顶点已被访问
+        // 遍历该顶点的所有邻接顶点
+        foreach (Vertex adjVet in graph.adjList[vet]) {
+            if (visited.Contains(adjVet)) {
+                continue; // 跳过已被访问过的顶点                             
+            }
+            // 递归访问邻接顶点
+            dfs(graph, visited, res, adjVet);
+        }
+    }
 
-    [class]{graph_dfs}-[func]{graphDFS}
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
+        // 顶点遍历序列
+        List<Vertex> res = new List<Vertex>();
+        // 哈希表，用于记录已被访问过的顶点
+        HashSet<Vertex> visited = new HashSet<Vertex>();
+        dfs(graph, visited, res, startVet);
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="graph_dfs.go"
-    [class]{}-[func]{dfs}
+    /* 深度优先遍历 DFS 辅助函数 */
+    func dfs(g *graphAdjList, visited map[Vertex]struct{}, res *[]Vertex, vet Vertex) {
+        // append 操作会返回新的的引用，必须让原引用重新赋值为新slice的引用
+        *res = append(*res, vet)
+        visited[vet] = struct{}{}
+        // 遍历该顶点的所有邻接顶点
+        for _, adjVet := range g.adjList[vet] {
+            _, isExist := visited[adjVet]
+            // 递归访问邻接顶点
+            if !isExist {
+                dfs(g, visited, res, adjVet)
+            }
+        }
+    }
 
-    [class]{}-[func]{graphDFS}
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    func graphDFS(g *graphAdjList, startVet Vertex) []Vertex {
+        // 顶点遍历序列
+        res := make([]Vertex, 0)
+        // 哈希表，用于记录已被访问过的顶点
+        visited := make(map[Vertex]struct{})
+        dfs(g, visited, &res, startVet)
+        // 返回顶点遍历序列
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="graph_dfs.swift"
-    [class]{}-[func]{dfs}
+    /* 深度优先遍历 DFS 辅助函数 */
+    func dfs(graph: GraphAdjList, visited: inout Set<Vertex>, res: inout [Vertex], vet: Vertex) {
+        res.append(vet) // 记录访问顶点
+        visited.insert(vet) // 标记该顶点已被访问
+        // 遍历该顶点的所有邻接顶点
+        for adjVet in graph.adjList[vet] ?? [] {
+            if visited.contains(adjVet) {
+                continue // 跳过已被访问过的顶点
+            }
+            // 递归访问邻接顶点
+            dfs(graph: graph, visited: &visited, res: &res, vet: adjVet)
+        }
+    }
 
-    [class]{}-[func]{graphDFS}
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    func graphDFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
+        // 顶点遍历序列
+        var res: [Vertex] = []
+        // 哈希表，用于记录已被访问过的顶点
+        var visited: Set<Vertex> = []
+        dfs(graph: graph, visited: &visited, res: &res, vet: startVet)
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="graph_dfs.js"
-    [class]{}-[func]{dfs}
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    function dfs(graph, visited, res, vet) {
+        res.push(vet); // 记录访问顶点
+        visited.add(vet); // 标记该顶点已被访问
+        // 遍历该顶点的所有邻接顶点
+        for (const adjVet of graph.adjList.get(vet)) {
+            if (visited.has(adjVet)) {
+                continue; // 跳过已被访问过的顶点
+            }
+            // 递归访问邻接顶点
+            dfs(graph, visited, res, adjVet);
+        }
+    }
 
-    [class]{}-[func]{graphDFS}
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    function graphDFS(graph, startVet) {
+        // 顶点遍历序列
+        const res = [];
+        // 哈希表，用于记录已被访问过的顶点
+        const visited = new Set();
+        dfs(graph, visited, res, startVet);
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="graph_dfs.ts"
-    [class]{}-[func]{dfs}
+    /* 深度优先遍历 DFS 辅助函数 */
+    function dfs(
+        graph: GraphAdjList,
+        visited: Set<Vertex>,
+        res: Vertex[],
+        vet: Vertex
+    ): void {
+        res.push(vet); // 记录访问顶点
+        visited.add(vet); // 标记该顶点已被访问
+        // 遍历该顶点的所有邻接顶点
+        for (const adjVet of graph.adjList.get(vet)) {
+            if (visited.has(adjVet)) {
+                continue; // 跳过已被访问过的顶点
+            }
+            // 递归访问邻接顶点
+            dfs(graph, visited, res, adjVet);
+        }
+    }
 
-    [class]{}-[func]{graphDFS}
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    function graphDFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
+        // 顶点遍历序列
+        const res: Vertex[] = [];
+        // 哈希表，用于记录已被访问过的顶点
+        const visited: Set<Vertex> = new Set();
+        dfs(graph, visited, res, startVet);
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="graph_dfs.dart"
-    [class]{}-[func]{dfs}
+    /* 深度优先遍历 DFS 辅助函数 */
+    void dfs(
+      GraphAdjList graph,
+      Set<Vertex> visited,
+      List<Vertex> res,
+      Vertex vet,
+    ) {
+      res.add(vet); // 记录访问顶点
+      visited.add(vet); // 标记该顶点已被访问
+      // 遍历该顶点的所有邻接顶点
+      for (Vertex adjVet in graph.adjList[vet]!) {
+        if (visited.contains(adjVet)) {
+          continue; // 跳过已被访问过的顶点
+        }
+        // 递归访问邻接顶点
+        dfs(graph, visited, res, adjVet);
+      }
+    }
 
-    [class]{}-[func]{graphDFS}
+    /* 深度优先遍历 DFS */
+    List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
+      // 顶点遍历序列
+      List<Vertex> res = [];
+      // 哈希表，用于记录已被访问过的顶点
+      Set<Vertex> visited = {};
+      dfs(graph, visited, res, startVet);
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="graph_dfs.rs"
-    [class]{}-[func]{dfs}
+    /* 深度优先遍历 DFS 辅助函数 */
+    fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex>, vet: Vertex) {
+        res.push(vet); // 记录访问顶点
+        visited.insert(vet); // 标记该顶点已被访问
+                             // 遍历该顶点的所有邻接顶点
+        if let Some(adj_vets) = graph.adj_list.get(&vet) {
+            for &adj_vet in adj_vets {
+                if visited.contains(&adj_vet) {
+                    continue; // 跳过已被访问过的顶点
+                }
+                // 递归访问邻接顶点
+                dfs(graph, visited, res, adj_vet);
+            }
+        }
+    }
 
-    [class]{}-[func]{graph_dfs}
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
+        // 顶点遍历序列
+        let mut res = vec![];
+        // 哈希表，用于记录已被访问过的顶点
+        let mut visited = HashSet::new();
+        dfs(&graph, &mut visited, &mut res, start_vet);
+
+        res
+    }
     ```
 
 === "C"
 
     ```c title="graph_dfs.c"
-    [class]{}-[func]{dfs}
+    /* 深度优先遍历 DFS 辅助函数 */
+    int resIndex = 0;
+    void dfs(graphAdjList *graph, hashTable *visited, Vertex *vet, Vertex **res) {
+        if (hashQuery(visited, vet->pos) == 1) {
+            return; // 跳过已被访问过的顶点
+        }
+        hashMark(visited, vet->pos); // 标记顶点并将顶点存入数组
+        res[resIndex] = vet;         // 将顶点存入数组
+        resIndex++;
+        // 遍历该顶点链表
+        Node *n = vet->linked->head->next;
+        while (n != 0) {
+            // 递归访问邻接顶点
+            dfs(graph, visited, n->val, res);
+            n = n->next;
+        }
+        return;
+    }
 
-    [class]{}-[func]{graphDFS}
+    /* 深度优先遍历 DFS */
+    // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+    Vertex **graphDFS(graphAdjList *graph, Vertex *startVet) {
+        // 顶点遍历序列
+        Vertex **res = (Vertex **)malloc(sizeof(Vertex *) * graph->size);
+        memset(res, 0, sizeof(Vertex *) * graph->size);
+        // 哈希表，用于记录已被访问过的顶点
+        hashTable *visited = newHash(graph->size);
+        dfs(graph, visited, startVet, res);
+        // 释放哈希表内存并将数组索引归零
+        freeHash(visited);
+        resIndex = 0;
+        // 返回遍历数组
+        return res;
+    }
     ```
 
 === "Zig"

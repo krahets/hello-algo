@@ -416,73 +416,133 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    [class]{}-[func]{insert}
+    def insert(n0: ListNode, P: ListNode):
+        """在链表的节点 n0 之后插入节点 P"""
+        n1 = n0.next
+        P.next = n1
+        n0.next = P
     ```
 
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    [class]{}-[func]{insert}
+    /* 在链表的节点 n0 之后插入节点 P */
+    void insert(ListNode *n0, ListNode *P) {
+        ListNode *n1 = n0->next;
+        P->next = n1;
+        n0->next = P;
+    }
     ```
 
 === "Java"
 
     ```java title="linked_list.java"
-    [class]{linked_list}-[func]{insert}
+    /* 在链表的节点 n0 之后插入节点 P */
+    void insert(ListNode n0, ListNode P) {
+        ListNode n1 = n0.next;
+        P.next = n1;
+        n0.next = P;
+    }
     ```
 
 === "C#"
 
     ```csharp title="linked_list.cs"
-    [class]{linked_list}-[func]{insert}
+    /* 在链表的节点 n0 之后插入节点 P */
+    void insert(ListNode n0, ListNode P) {
+        ListNode? n1 = n0.next;
+        P.next = n1;
+        n0.next = P;
+    }
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
-    [class]{}-[func]{insertNode}
+    /* 在链表的节点 n0 之后插入节点 P */
+    func insertNode(n0 *ListNode, P *ListNode) {
+        n1 := n0.Next
+        P.Next = n1
+        n0.Next = P
+    }
     ```
 
 === "Swift"
 
     ```swift title="linked_list.swift"
-    [class]{}-[func]{insert}
+    /* 在链表的节点 n0 之后插入节点 P */
+    func insert(n0: ListNode, P: ListNode) {
+        let n1 = n0.next
+        P.next = n1
+        n0.next = P
+    }
     ```
 
 === "JS"
 
     ```javascript title="linked_list.js"
-    [class]{}-[func]{insert}
+    /* 在链表的节点 n0 之后插入节点 P */
+    function insert(n0, P) {
+        const n1 = n0.next;
+        P.next = n1;
+        n0.next = P;
+    }
     ```
 
 === "TS"
 
     ```typescript title="linked_list.ts"
-    [class]{}-[func]{insert}
+    /* 在链表的节点 n0 之后插入节点 P */
+    function insert(n0: ListNode, P: ListNode): void {
+        const n1 = n0.next;
+        P.next = n1;
+        n0.next = P;
+    }
     ```
 
 === "Dart"
 
     ```dart title="linked_list.dart"
-    [class]{}-[func]{insert}
+    /* 在链表的节点 n0 之后插入节点 P */
+    void insert(ListNode n0, ListNode P) {
+      ListNode? n1 = n0.next;
+      P.next = n1;
+      n0.next = P;
+    }
     ```
 
 === "Rust"
 
     ```rust title="linked_list.rs"
-    [class]{}-[func]{insert}
+    /* 在链表的节点 n0 之后插入节点 P */
+    #[allow(non_snake_case)]
+    pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
+        let n1 =  n0.borrow_mut().next.take();
+        P.borrow_mut().next = n1;
+        n0.borrow_mut().next = Some(P);
+    }
     ```
 
 === "C"
 
     ```c title="linked_list.c"
-    [class]{}-[func]{insert}
+    /* 在链表的节点 n0 之后插入节点 P */
+    void insert(ListNode *n0, ListNode *P) {
+        ListNode *n1 = n0->next;
+        P->next = n1;
+        n0->next = P;
+    }
     ```
 
 === "Zig"
 
     ```zig title="linked_list.zig"
-    [class]{}-[func]{insert}
+    // 在链表的节点 n0 之后插入节点 P
+    fn insert(n0: ?*inc.ListNode(i32), P: ?*inc.ListNode(i32)) void {
+        var n1 = n0.?.next;
+        P.?.next = n1;
+        n0.?.next = P;
+    }
     ```
 
 ### 3. &nbsp; 删除节点
@@ -498,73 +558,176 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    [class]{}-[func]{remove}
+    def remove(n0: ListNode):
+        """删除链表的节点 n0 之后的首个节点"""
+        if not n0.next:
+            return
+        # n0 -> P -> n1
+        P = n0.next
+        n1 = P.next
+        n0.next = n1
     ```
 
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    [class]{}-[func]{remove}
+    /* 删除链表的节点 n0 之后的首个节点 */
+    void remove(ListNode *n0) {
+        if (n0->next == nullptr)
+            return;
+        // n0 -> P -> n1
+        ListNode *P = n0->next;
+        ListNode *n1 = P->next;
+        n0->next = n1;
+        // 释放内存
+        delete P;
+    }
     ```
 
 === "Java"
 
     ```java title="linked_list.java"
-    [class]{linked_list}-[func]{remove}
+    /* 删除链表的节点 n0 之后的首个节点 */
+    void remove(ListNode n0) {
+        if (n0.next == null)
+            return;
+        // n0 -> P -> n1
+        ListNode P = n0.next;
+        ListNode n1 = P.next;
+        n0.next = n1;
+    }
     ```
 
 === "C#"
 
     ```csharp title="linked_list.cs"
-    [class]{linked_list}-[func]{remove}
+    /* 删除链表的节点 n0 之后的首个节点 */
+    void remove(ListNode n0) {
+        if (n0.next == null)
+            return;
+        // n0 -> P -> n1
+        ListNode P = n0.next;
+        ListNode? n1 = P.next;
+        n0.next = n1;
+    }
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
-    [class]{}-[func]{removeNode}
+    /* 删除链表的节点 n0 之后的首个节点 */
+    func removeNode(n0 *ListNode) {
+        if n0.Next == nil {
+            return
+        }
+        // n0 -> P -> n1
+        P := n0.Next
+        n1 := P.Next
+        n0.Next = n1
+    }
     ```
 
 === "Swift"
 
     ```swift title="linked_list.swift"
-    [class]{}-[func]{remove}
+    /* 删除链表的节点 n0 之后的首个节点 */
+    func remove(n0: ListNode) {
+        if n0.next == nil {
+            return
+        }
+        // n0 -> P -> n1
+        let P = n0.next
+        let n1 = P?.next
+        n0.next = n1
+        P?.next = nil
+    }
     ```
 
 === "JS"
 
     ```javascript title="linked_list.js"
-    [class]{}-[func]{remove}
+    /* 删除链表的节点 n0 之后的首个节点 */
+    function remove(n0) {
+        if (!n0.next) return;
+        // n0 -> P -> n1
+        const P = n0.next;
+        const n1 = P.next;
+        n0.next = n1;
+    }
     ```
 
 === "TS"
 
     ```typescript title="linked_list.ts"
-    [class]{}-[func]{remove}
+    /* 删除链表的节点 n0 之后的首个节点 */
+    function remove(n0: ListNode): void {
+        if (!n0.next) {
+            return;
+        }
+        // n0 -> P -> n1
+        const P = n0.next;
+        const n1 = P.next;
+        n0.next = n1;
+    }
     ```
 
 === "Dart"
 
     ```dart title="linked_list.dart"
-    [class]{}-[func]{remove}
+    /* 删除链表的节点 n0 之后的首个节点 */
+    void remove(ListNode n0) {
+      if (n0.next == null) return;
+      // n0 -> P -> n1
+      ListNode P = n0.next!;
+      ListNode? n1 = P.next;
+      n0.next = n1;
+    }
     ```
 
 === "Rust"
 
     ```rust title="linked_list.rs"
-    [class]{}-[func]{remove}
+    /* 删除链表的节点 n0 之后的首个节点 */
+    #[allow(non_snake_case)]
+    pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
+        if n0.borrow().next.is_none() {return};
+        // n0 -> P -> n1
+        let P = n0.borrow_mut().next.take();
+        if let Some(node) = P {
+            let n1 = node.borrow_mut().next.take();
+            n0.borrow_mut().next = n1;
+        }
+    }
     ```
 
 === "C"
 
     ```c title="linked_list.c"
-    [class]{}-[func]{removeNode}
+    /* 删除链表的节点 n0 之后的首个节点 */
+    // 注意：stdio.h 占用了 remove 关键词
+    void removeNode(ListNode *n0) {
+        if (!n0->next)
+            return;
+        // n0 -> P -> n1
+        ListNode *P = n0->next;
+        ListNode *n1 = P->next;
+        n0->next = n1;
+        // 释放内存
+        free(P);
+    }
     ```
 
 === "Zig"
 
     ```zig title="linked_list.zig"
-    [class]{}-[func]{remove}
+    // 删除链表的节点 n0 之后的首个节点
+    fn remove(n0: ?*inc.ListNode(i32)) void {
+        if (n0.?.next == null) return;
+        // n0 -> P -> n1
+        var P = n0.?.next;
+        var n1 = P.?.next;
+        n0.?.next = n1;
+    }
     ```
 
 ### 4. &nbsp; 访问节点
@@ -574,73 +737,170 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    [class]{}-[func]{access}
+    def access(head: ListNode, index: int) -> ListNode | None:
+        """访问链表中索引为 index 的节点"""
+        for _ in range(index):
+            if not head:
+                return None
+            head = head.next
+        return head
     ```
 
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    [class]{}-[func]{access}
+    /* 访问链表中索引为 index 的节点 */
+    ListNode *access(ListNode *head, int index) {
+        for (int i = 0; i < index; i++) {
+            if (head == nullptr)
+                return nullptr;
+            head = head->next;
+        }
+        return head;
+    }
     ```
 
 === "Java"
 
     ```java title="linked_list.java"
-    [class]{linked_list}-[func]{access}
+    /* 访问链表中索引为 index 的节点 */
+    ListNode access(ListNode head, int index) {
+        for (int i = 0; i < index; i++) {
+            if (head == null)
+                return null;
+            head = head.next;
+        }
+        return head;
+    }
     ```
 
 === "C#"
 
     ```csharp title="linked_list.cs"
-    [class]{linked_list}-[func]{access}
+    /* 访问链表中索引为 index 的节点 */
+    ListNode? access(ListNode head, int index) {
+        for (int i = 0; i < index; i++) {
+            if (head == null)
+                return null;
+            head = head.next;
+        }
+        return head;
+    }
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
-    [class]{}-[func]{access}
+    /* 访问链表中索引为 index 的节点 */
+    func access(head *ListNode, index int) *ListNode {
+        for i := 0; i < index; i++ {
+            if head == nil {
+                return nil
+            }
+            head = head.Next
+        }
+        return head
+    }
     ```
 
 === "Swift"
 
     ```swift title="linked_list.swift"
-    [class]{}-[func]{access}
+    /* 访问链表中索引为 index 的节点 */
+    func access(head: ListNode, index: Int) -> ListNode? {
+        var head: ListNode? = head
+        for _ in 0 ..< index {
+            if head == nil {
+                return nil
+            }
+            head = head?.next
+        }
+        return head
+    }
     ```
 
 === "JS"
 
     ```javascript title="linked_list.js"
-    [class]{}-[func]{access}
+    /* 访问链表中索引为 index 的节点 */
+    function access(head, index) {
+        for (let i = 0; i < index; i++) {
+            if (!head) {
+                return null;
+            }
+            head = head.next;
+        }
+        return head;
+    }
     ```
 
 === "TS"
 
     ```typescript title="linked_list.ts"
-    [class]{}-[func]{access}
+    /* 访问链表中索引为 index 的节点 */
+    function access(head: ListNode | null, index: number): ListNode | null {
+        for (let i = 0; i < index; i++) {
+            if (!head) {
+                return null;
+            }
+            head = head.next;
+        }
+        return head;
+    }
     ```
 
 === "Dart"
 
     ```dart title="linked_list.dart"
-    [class]{}-[func]{access}
+    /* 访问链表中索引为 index 的节点 */
+    ListNode? access(ListNode? head, int index) {
+      for (var i = 0; i < index; i++) {
+        if (head == null) return null;
+        head = head.next;
+      }
+      return head;
+    }
     ```
 
 === "Rust"
 
     ```rust title="linked_list.rs"
-    [class]{}-[func]{access}
+    /* 访问链表中索引为 index 的节点 */
+    pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Rc<RefCell<ListNode<T>>> {
+        if index <= 0 {return head};
+        if let Some(node) = &head.borrow_mut().next {
+            return access(node.clone(), index - 1);
+        }
+        return head;
+    }
     ```
 
 === "C"
 
     ```c title="linked_list.c"
-    [class]{}-[func]{access}
+    /* 访问链表中索引为 index 的节点 */
+    ListNode *access(ListNode *head, int index) {
+        while (head && head->next && index) {
+            head = head->next;
+            index--;
+        }
+        return head;
+    }
     ```
 
 === "Zig"
 
     ```zig title="linked_list.zig"
-    [class]{}-[func]{access}
+    // 访问链表中索引为 index 的节点
+    fn access(node: ?*inc.ListNode(i32), index: i32) ?*inc.ListNode(i32) {
+        var head = node;
+        var i: i32 = 0;
+        while (i < index) : (i += 1) {
+            head = head.?.next;
+            if (head == null) return null;
+        }
+        return head;
+    }
     ```
 
 ### 5. &nbsp; 查找节点
@@ -650,73 +910,194 @@ comments: true
 === "Python"
 
     ```python title="linked_list.py"
-    [class]{}-[func]{find}
+    def find(head: ListNode, target: int) -> int:
+        """在链表中查找值为 target 的首个节点"""
+        index = 0
+        while head:
+            if head.val == target:
+                return index
+            head = head.next
+            index += 1
+        return -1
     ```
 
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    [class]{}-[func]{find}
+    /* 在链表中查找值为 target 的首个节点 */
+    int find(ListNode *head, int target) {
+        int index = 0;
+        while (head != nullptr) {
+            if (head->val == target)
+                return index;
+            head = head->next;
+            index++;
+        }
+        return -1;
+    }
     ```
 
 === "Java"
 
     ```java title="linked_list.java"
-    [class]{linked_list}-[func]{find}
+    /* 在链表中查找值为 target 的首个节点 */
+    int find(ListNode head, int target) {
+        int index = 0;
+        while (head != null) {
+            if (head.val == target)
+                return index;
+            head = head.next;
+            index++;
+        }
+        return -1;
+    }
     ```
 
 === "C#"
 
     ```csharp title="linked_list.cs"
-    [class]{linked_list}-[func]{find}
+    /* 在链表中查找值为 target 的首个节点 */
+    int find(ListNode head, int target) {
+        int index = 0;
+        while (head != null) {
+            if (head.val == target)
+                return index;
+            head = head.next;
+            index++;
+        }
+        return -1;
+    }
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
-    [class]{}-[func]{findNode}
+    /* 在链表中查找值为 target 的首个节点 */
+    func findNode(head *ListNode, target int) int {
+        index := 0
+        for head != nil {
+            if head.Val == target {
+                return index
+            }
+            head = head.Next
+            index++
+        }
+        return -1
+    }
     ```
 
 === "Swift"
 
     ```swift title="linked_list.swift"
-    [class]{}-[func]{find}
+    /* 在链表中查找值为 target 的首个节点 */
+    func find(head: ListNode, target: Int) -> Int {
+        var head: ListNode? = head
+        var index = 0
+        while head != nil {
+            if head?.val == target {
+                return index
+            }
+            head = head?.next
+            index += 1
+        }
+        return -1
+    }
     ```
 
 === "JS"
 
     ```javascript title="linked_list.js"
-    [class]{}-[func]{find}
+    /* 在链表中查找值为 target 的首个节点 */
+    function find(head, target) {
+        let index = 0;
+        while (head !== null) {
+            if (head.val === target) {
+                return index;
+            }
+            head = head.next;
+            index += 1;
+        }
+        return -1;
+    }
     ```
 
 === "TS"
 
     ```typescript title="linked_list.ts"
-    [class]{}-[func]{find}
+    /* 在链表中查找值为 target 的首个节点 */
+    function find(head: ListNode | null, target: number): number {
+        let index = 0;
+        while (head !== null) {
+            if (head.val === target) {
+                return index;
+            }
+            head = head.next;
+            index += 1;
+        }
+        return -1;
+    }
     ```
 
 === "Dart"
 
     ```dart title="linked_list.dart"
-    [class]{}-[func]{find}
+    /* 在链表中查找值为 target 的首个节点 */
+    int find(ListNode? head, int target) {
+      int index = 0;
+      while (head != null) {
+        if (head.val == target) {
+          return index;
+        }
+        head = head.next;
+        index++;
+      }
+      return -1;
+    }
     ```
 
 === "Rust"
 
     ```rust title="linked_list.rs"
-    [class]{}-[func]{find}
+    /* 在链表中查找值为 target 的首个节点 */
+    pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T, index: i32) -> i32 {
+        if head.borrow().val == target {return index};
+        if let Some(node) = &head.borrow_mut().next {
+            return find(node.clone(), target, index + 1);
+        }
+        return -1;
+    }
     ```
 
 === "C"
 
     ```c title="linked_list.c"
-    [class]{}-[func]{find}
+    /* 在链表中查找值为 target 的首个节点 */
+    int find(ListNode *head, int target) {
+        int index = 0;
+        while (head) {
+            if (head->val == target)
+                return index;
+            head = head->next;
+            index++;
+        }
+        return -1;
+    }
     ```
 
 === "Zig"
 
     ```zig title="linked_list.zig"
-    [class]{}-[func]{find}
+    // 在链表中查找值为 target 的首个节点
+    fn find(node: ?*inc.ListNode(i32), target: i32) i32 {
+        var head = node;
+        var index: i32 = 0;
+        while (head != null) {
+            if (head.?.val == target) return index;
+            head = head.?.next;
+            index += 1;
+        }
+        return -1;
+    }
     ```
 
 ## 4.2.2 &nbsp; 数组 VS 链表

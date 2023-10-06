@@ -730,89 +730,298 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    [class]{}-[func]{function}
+    def function() -> int:
+        """函数"""
+        # 执行某些操作
+        return 0
 
-    [class]{}-[func]{constant}
+    def constant(n: int):
+        """常数阶"""
+        # 常量、变量、对象占用 O(1) 空间
+        a = 0
+        nums = [0] * 10000
+        node = ListNode(0)
+        # 循环中的变量占用 O(1) 空间
+        for _ in range(n):
+            c = 0
+        # 循环中的函数占用 O(1) 空间
+        for _ in range(n):
+            function()
     ```
 
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{func}
+    /* 函数 */
+    int func() {
+        // 执行某些操作
+        return 0;
+    }
 
-    [class]{}-[func]{constant}
+    /* 常数阶 */
+    void constant(int n) {
+        // 常量、变量、对象占用 O(1) 空间
+        const int a = 0;
+        int b = 0;
+        vector<int> nums(10000);
+        ListNode node(0);
+        // 循环中的变量占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            int c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            func();
+        }
+    }
     ```
 
 === "Java"
 
     ```java title="space_complexity.java"
-    [class]{space_complexity}-[func]{function}
+    /* 函数 */
+    int function() {
+        // 执行某些操作
+        return 0;
+    }
 
-    [class]{space_complexity}-[func]{constant}
+    /* 常数阶 */
+    void constant(int n) {
+        // 常量、变量、对象占用 O(1) 空间
+        final int a = 0;
+        int b = 0;
+        int[] nums = new int[10000];
+        ListNode node = new ListNode(0);
+        // 循环中的变量占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            int c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            function();
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{function}
+    /* 函数 */
+    int function() {
+        // 执行某些操作
+        return 0;
+    }
 
-    [class]{space_complexity}-[func]{constant}
+    /* 常数阶 */
+    void constant(int n) {
+        // 常量、变量、对象占用 O(1) 空间
+        int a = 0;
+        int b = 0;
+        int[] nums = new int[10000];
+        ListNode node = new ListNode(0);
+        // 循环中的变量占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            int c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            function();
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="space_complexity.go"
-    [class]{}-[func]{function}
+    /* 函数 */
+    func function() int {
+        // 执行某些操作...
+        return 0
+    }
 
-    [class]{}-[func]{spaceConstant}
+    /* 常数阶 */
+    func spaceConstant(n int) {
+        // 常量、变量、对象占用 O(1) 空间
+        const a = 0
+        b := 0
+        nums := make([]int, 10000)
+        ListNode := newNode(0)
+        // 循环中的变量占用 O(1) 空间
+        var c int
+        for i := 0; i < n; i++ {
+            c = 0
+        }
+        // 循环中的函数占用 O(1) 空间
+        for i := 0; i < n; i++ {
+            function()
+        }
+        fmt.Println(a, b, nums, c, ListNode)
+    }
     ```
 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    [class]{}-[func]{function}
+    /* 函数 */
+    @discardableResult
+    func function() -> Int {
+        // 执行某些操作
+        return 0
+    }
 
-    [class]{}-[func]{constant}
+    /* 常数阶 */
+    func constant(n: Int) {
+        // 常量、变量、对象占用 O(1) 空间
+        let a = 0
+        var b = 0
+        let nums = Array(repeating: 0, count: 10000)
+        let node = ListNode(x: 0)
+        // 循环中的变量占用 O(1) 空间
+        for _ in 0 ..< n {
+            let c = 0
+        }
+        // 循环中的函数占用 O(1) 空间
+        for _ in 0 ..< n {
+            function()
+        }
+    }
     ```
 
 === "JS"
 
     ```javascript title="space_complexity.js"
-    [class]{}-[func]{constFunc}
+    /* 函数 */
+    function constFunc() {
+        // 执行某些操作
+        return 0;
+    }
 
-    [class]{}-[func]{constant}
+    /* 常数阶 */
+    function constant(n) {
+        // 常量、变量、对象占用 O(1) 空间
+        const a = 0;
+        const b = 0;
+        const nums = new Array(10000);
+        const node = new ListNode(0);
+        // 循环中的变量占用 O(1) 空间
+        for (let i = 0; i < n; i++) {
+            const c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (let i = 0; i < n; i++) {
+            constFunc();
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="space_complexity.ts"
-    [class]{}-[func]{constFunc}
+    /* 函数 */
+    function constFunc(): number {
+        // 执行某些操作
+        return 0;
+    }
 
-    [class]{}-[func]{constant}
+    /* 常数阶 */
+    function constant(n: number): void {
+        // 常量、变量、对象占用 O(1) 空间
+        const a = 0;
+        const b = 0;
+        const nums = new Array(10000);
+        const node = new ListNode(0);
+        // 循环中的变量占用 O(1) 空间
+        for (let i = 0; i < n; i++) {
+            const c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (let i = 0; i < n; i++) {
+            constFunc();
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="space_complexity.dart"
-    [class]{}-[func]{function}
+    /* 函数 */
+    int function() {
+      // 执行某些操作
+      return 0;
+    }
 
-    [class]{}-[func]{constant}
+    /* 常数阶 */
+    void constant(int n) {
+      // 常量、变量、对象占用 O(1) 空间
+      final int a = 0;
+      int b = 0;
+      List<int> nums = List.filled(10000, 0);
+      ListNode node = ListNode(0);
+      // 循环中的变量占用 O(1) 空间
+      for (var i = 0; i < n; i++) {
+        int c = 0;
+      }
+      // 循环中的函数占用 O(1) 空间
+      for (var i = 0; i < n; i++) {
+        function();
+      }
+    }
     ```
 
 === "Rust"
 
     ```rust title="space_complexity.rs"
-    [class]{}-[func]{function}
+    /* 函数 */
+    fn function() ->i32 {
+        // 执行某些操作
+        return 0;
+    }
 
-    [class]{}-[func]{constant}
+    /* 常数阶 */
+    #[allow(unused)]
+    fn constant(n: i32) {
+        // 常量、变量、对象占用 O(1) 空间
+        const A: i32 = 0;
+        let b = 0;
+        let nums = vec![0; 10000];
+        let node = ListNode::new(0);
+        // 循环中的变量占用 O(1) 空间
+        for i in 0..n {
+            let c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for i in 0..n {
+            function();
+        }
+    }
     ```
 
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{func}
+    /* 函数 */
+    int func() {
+        // 执行某些操作
+        return 0;
+    }
 
-    [class]{}-[func]{constant}
+    /* 常数阶 */
+    void constant(int n) {
+        // 常量、变量、对象占用 O(1) 空间
+        const int a = 0;
+        int b = 0;
+        int nums[1000];
+        ListNode *node = newListNode(0);
+        free(node);
+        // 循环中的变量占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            int c = 0;
+        }
+        // 循环中的函数占用 O(1) 空间
+        for (int i = 0; i < n; i++) {
+            func();
+        }
+    }
     ```
 
 === "Zig"
@@ -820,7 +1029,29 @@ $$
     ```zig title="space_complexity.zig"
     [class]{}-[func]{function}
 
-    [class]{}-[func]{constant}
+    // 常数阶
+    fn constant(n: i32) void {
+        // 常量、变量、对象占用 O(1) 空间
+        const a: i32 = 0;
+        var b: i32 = 0;
+        var nums = [_]i32{0}**10000;
+        var node = inc.ListNode(i32){.val = 0};
+        var i: i32 = 0;
+        // 循环中的变量占用 O(1) 空间
+        while (i < n) : (i += 1) {
+            var c: i32 = 0;
+            _ = c;
+        }
+        // 循环中的函数占用 O(1) 空间
+        i = 0;
+        while (i < n) : (i += 1) {
+            _ = function();
+        }
+        _ = a;
+        _ = b;
+        _ = nums;
+        _ = node;
+    }
     ```
 
 ### 2. &nbsp; 线性阶 $O(n)$
@@ -830,75 +1061,263 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    [class]{}-[func]{linear}
+    def linear(n: int):
+        """线性阶"""
+        # 长度为 n 的列表占用 O(n) 空间
+        nums = [0] * n
+        # 长度为 n 的哈希表占用 O(n) 空间
+        hmap = dict[int, str]()
+        for i in range(n):
+            hmap[i] = str(i)
     ```
 
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{linear}
+    /* 线性阶 */
+    void linear(int n) {
+        // 长度为 n 的数组占用 O(n) 空间
+        vector<int> nums(n);
+        // 长度为 n 的列表占用 O(n) 空间
+        vector<ListNode> nodes;
+        for (int i = 0; i < n; i++) {
+            nodes.push_back(ListNode(i));
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        unordered_map<int, string> map;
+        for (int i = 0; i < n; i++) {
+            map[i] = to_string(i);
+        }
+    }
     ```
 
 === "Java"
 
     ```java title="space_complexity.java"
-    [class]{space_complexity}-[func]{linear}
+    /* 线性阶 */
+    void linear(int n) {
+        // 长度为 n 的数组占用 O(n) 空间
+        int[] nums = new int[n];
+        // 长度为 n 的列表占用 O(n) 空间
+        List<ListNode> nodes = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            nodes.add(new ListNode(i));
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        Map<Integer, String> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            map.put(i, String.valueOf(i));
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{linear}
+    /* 线性阶 */
+    void linear(int n) {
+        // 长度为 n 的数组占用 O(n) 空间
+        int[] nums = new int[n];
+        // 长度为 n 的列表占用 O(n) 空间
+        List<ListNode> nodes = new();
+        for (int i = 0; i < n; i++) {
+            nodes.Add(new ListNode(i));
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        Dictionary<int, string> map = new();
+        for (int i = 0; i < n; i++) {
+            map.Add(i, i.ToString());
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="space_complexity.go"
-    [class]{}-[func]{spaceLinear}
+    /* 线性阶 */
+    func spaceLinear(n int) {
+        // 长度为 n 的数组占用 O(n) 空间
+        _ = make([]int, n)
+        // 长度为 n 的列表占用 O(n) 空间
+        var nodes []*node
+        for i := 0; i < n; i++ {
+            nodes = append(nodes, newNode(i))
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        m := make(map[int]string, n)
+        for i := 0; i < n; i++ {
+            m[i] = strconv.Itoa(i)
+        }
+    }
     ```
 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    [class]{}-[func]{linear}
+    /* 线性阶 */
+    func linear(n: Int) {
+        // 长度为 n 的数组占用 O(n) 空间
+        let nums = Array(repeating: 0, count: n)
+        // 长度为 n 的列表占用 O(n) 空间
+        let nodes = (0 ..< n).map { ListNode(x: $0) }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
+    }
     ```
 
 === "JS"
 
     ```javascript title="space_complexity.js"
-    [class]{}-[func]{linear}
+    /* 线性阶 */
+    function linear(n) {
+        // 长度为 n 的数组占用 O(n) 空间
+        const nums = new Array(n);
+        // 长度为 n 的列表占用 O(n) 空间
+        const nodes = [];
+        for (let i = 0; i < n; i++) {
+            nodes.push(new ListNode(i));
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        const map = new Map();
+        for (let i = 0; i < n; i++) {
+            map.set(i, i.toString());
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="space_complexity.ts"
-    [class]{}-[func]{linear}
+    /* 线性阶 */
+    function linear(n: number): void {
+        // 长度为 n 的数组占用 O(n) 空间
+        const nums = new Array(n);
+        // 长度为 n 的列表占用 O(n) 空间
+        const nodes: ListNode[] = [];
+        for (let i = 0; i < n; i++) {
+            nodes.push(new ListNode(i));
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        const map = new Map();
+        for (let i = 0; i < n; i++) {
+            map.set(i, i.toString());
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="space_complexity.dart"
-    [class]{}-[func]{linear}
+    /* 线性阶 */
+    void linear(int n) {
+      // 长度为 n 的数组占用 O(n) 空间
+      List<int> nums = List.filled(n, 0);
+      // 长度为 n 的列表占用 O(n) 空间
+      List<ListNode> nodes = [];
+      for (var i = 0; i < n; i++) {
+        nodes.add(ListNode(i));
+      }
+      // 长度为 n 的哈希表占用 O(n) 空间
+      Map<int, String> map = HashMap();
+      for (var i = 0; i < n; i++) {
+        map.putIfAbsent(i, () => i.toString());
+      }
+    }
     ```
 
 === "Rust"
 
     ```rust title="space_complexity.rs"
-    [class]{}-[func]{linear}
+    /* 线性阶 */
+    #[allow(unused)]
+    fn linear(n: i32) {
+        // 长度为 n 的数组占用 O(n) 空间
+        let mut nums = vec![0; n as usize];
+        // 长度为 n 的列表占用 O(n) 空间
+        let mut nodes = Vec::new();
+        for i in 0..n {
+            nodes.push(ListNode::new(i))
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        let mut map = HashMap::new();
+        for i in 0..n {
+            map.insert(i, i.to_string());
+        }
+    }
     ```
 
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{hashTable}-[func]{}
+    /* 哈希表 */
+    struct hashTable {
+        int key;
+        int val;
+        UT_hash_handle hh; // 基于 uthash.h 实现
+    };
 
-    [class]{}-[func]{linear}
+    typedef struct hashTable hashTable;
+
+    /* 线性阶 */
+    void linear(int n) {
+        // 长度为 n 的数组占用 O(n) 空间
+        int *nums = malloc(sizeof(int) * n);
+        free(nums);
+
+        // 长度为 n 的列表占用 O(n) 空间
+        ListNode **nodes = malloc(sizeof(ListNode *) * n);
+        for (int i = 0; i < n; i++) {
+            nodes[i] = newListNode(i);
+        }
+        // 内存释放
+        for (int i = 0; i < n; i++) {
+            free(nodes[i]);
+        }
+        free(nodes);
+
+        // 长度为 n 的哈希表占用 O(n) 空间
+        hashTable *h = NULL;
+        for (int i = 0; i < n; i++) {
+            hashTable *tmp = malloc(sizeof(hashTable));
+            tmp->key = i;
+            tmp->val = i;
+            HASH_ADD_INT(h, key, tmp);
+        }
+
+        // 内存释放
+        hashTable *curr, *tmp;
+        HASH_ITER(hh, h, curr, tmp) {
+            HASH_DEL(h, curr);
+            free(curr);
+        }
+    }
     ```
 
 === "Zig"
 
     ```zig title="space_complexity.zig"
-    [class]{}-[func]{linear}
+    // 线性阶
+    fn linear(comptime n: i32) !void {
+        // 长度为 n 的数组占用 O(n) 空间
+        var nums = [_]i32{0}**n;
+        // 长度为 n 的列表占用 O(n) 空间
+        var nodes = std.ArrayList(i32).init(std.heap.page_allocator);
+        defer nodes.deinit();
+        var i: i32 = 0;
+        while (i < n) : (i += 1) {
+            try nodes.append(i);
+        }
+        // 长度为 n 的哈希表占用 O(n) 空间
+        var map = std.AutoArrayHashMap(i32, []const u8).init(std.heap.page_allocator);
+        defer map.deinit();
+        var j: i32 = 0;
+        while (j < n) : (j += 1) {
+            const string = try std.fmt.allocPrint(std.heap.page_allocator, "{d}", .{j});
+            defer std.heap.page_allocator.free(string);
+            try map.put(i, string);
+        }
+        _ = nums;
+    }
     ```
 
 如图 2-17 所示，此函数的递归深度为 $n$ ，即同时存在 $n$ 个未返回的 `linear_recur()` 函数，使用 $O(n)$ 大小的栈帧空间：
@@ -906,73 +1325,140 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    [class]{}-[func]{linear_recur}
+    def linear_recur(n: int):
+        """线性阶（递归实现）"""
+        print("递归 n =", n)
+        if n == 1:
+            return
+        linear_recur(n - 1)
     ```
 
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{linearRecur}
+    /* 线性阶（递归实现） */
+    void linearRecur(int n) {
+        cout << "递归 n = " << n << endl;
+        if (n == 1)
+            return;
+        linearRecur(n - 1);
+    }
     ```
 
 === "Java"
 
     ```java title="space_complexity.java"
-    [class]{space_complexity}-[func]{linearRecur}
+    /* 线性阶（递归实现） */
+    void linearRecur(int n) {
+        System.out.println("递归 n = " + n);
+        if (n == 1)
+            return;
+        linearRecur(n - 1);
+    }
     ```
 
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{linearRecur}
+    /* 线性阶（递归实现） */
+    void linearRecur(int n) {
+        Console.WriteLine("递归 n = " + n);
+        if (n == 1) return;
+        linearRecur(n - 1);
+    }
     ```
 
 === "Go"
 
     ```go title="space_complexity.go"
-    [class]{}-[func]{spaceLinearRecur}
+    /* 线性阶（递归实现） */
+    func spaceLinearRecur(n int) {
+        fmt.Println("递归 n =", n)
+        if n == 1 {
+            return
+        }
+        spaceLinearRecur(n - 1)
+    }
     ```
 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    [class]{}-[func]{linearRecur}
+    /* 线性阶（递归实现） */
+    func linearRecur(n: Int) {
+        print("递归 n = \(n)")
+        if n == 1 {
+            return
+        }
+        linearRecur(n: n - 1)
+    }
     ```
 
 === "JS"
 
     ```javascript title="space_complexity.js"
-    [class]{}-[func]{linearRecur}
+    /* 线性阶（递归实现） */
+    function linearRecur(n) {
+        console.log(`递归 n = ${n}`);
+        if (n === 1) return;
+        linearRecur(n - 1);
+    }
     ```
 
 === "TS"
 
     ```typescript title="space_complexity.ts"
-    [class]{}-[func]{linearRecur}
+    /* 线性阶（递归实现） */
+    function linearRecur(n: number): void {
+        console.log(`递归 n = ${n}`);
+        if (n === 1) return;
+        linearRecur(n - 1);
+    }
     ```
 
 === "Dart"
 
     ```dart title="space_complexity.dart"
-    [class]{}-[func]{linearRecur}
+    /* 线性阶（递归实现） */
+    void linearRecur(int n) {
+      print('递归 n = $n');
+      if (n == 1) return;
+      linearRecur(n - 1);
+    }
     ```
 
 === "Rust"
 
     ```rust title="space_complexity.rs"
-    [class]{}-[func]{linear_recur}
+    /* 线性阶（递归实现） */
+    fn linear_recur(n: i32) {
+        println!("递归 n = {}", n);
+        if n == 1 {return};
+        linear_recur(n - 1);
+    }
     ```
 
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{linearRecur}
+    /* 线性阶（递归实现） */
+    void linearRecur(int n) {
+        printf("递归 n = %d\r\n", n);
+        if (n == 1)
+            return;
+        linearRecur(n - 1);
+    }
     ```
 
 === "Zig"
 
     ```zig title="space_complexity.zig"
-    [class]{}-[func]{linearRecur}
+    // 线性阶（递归实现）
+    fn linearRecur(comptime n: i32) void {
+        std.debug.print("递归 n = {}\n", .{n});
+        if (n == 1) return;
+        linearRecur(n - 1);
+    }
     ```
 
 ![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png)
@@ -986,73 +1472,213 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    [class]{}-[func]{quadratic}
+    def quadratic(n: int):
+        """平方阶"""
+        # 二维列表占用 O(n^2) 空间
+        num_matrix = [[0] * n for _ in range(n)]
     ```
 
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{quadratic}
+    /* 平方阶 */
+    void quadratic(int n) {
+        // 二维列表占用 O(n^2) 空间
+        vector<vector<int>> numMatrix;
+        for (int i = 0; i < n; i++) {
+            vector<int> tmp;
+            for (int j = 0; j < n; j++) {
+                tmp.push_back(0);
+            }
+            numMatrix.push_back(tmp);
+        }
+    }
     ```
 
 === "Java"
 
     ```java title="space_complexity.java"
-    [class]{space_complexity}-[func]{quadratic}
+    /* 平方阶 */
+    void quadratic(int n) {
+        // 矩阵占用 O(n^2) 空间
+        int[][] numMatrix = new int[n][n];
+        // 二维列表占用 O(n^2) 空间
+        List<List<Integer>> numList = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            List<Integer> tmp = new ArrayList<>();
+            for (int j = 0; j < n; j++) {
+                tmp.add(0);
+            }
+            numList.add(tmp);
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{quadratic}
+    /* 平方阶 */
+    void quadratic(int n) {
+        // 矩阵占用 O(n^2) 空间
+        int[,] numMatrix = new int[n, n];
+        // 二维列表占用 O(n^2) 空间
+        List<List<int>> numList = new();
+        for (int i = 0; i < n; i++) {
+            List<int> tmp = new();
+            for (int j = 0; j < n; j++) {
+                tmp.Add(0);
+            }
+            numList.Add(tmp);
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="space_complexity.go"
-    [class]{}-[func]{spaceQuadratic}
+    /* 平方阶 */
+    func spaceQuadratic(n int) {
+        // 矩阵占用 O(n^2) 空间
+        numMatrix := make([][]int, n)
+        for i := 0; i < n; i++ {
+            numMatrix[i] = make([]int, n)
+        }
+    }
     ```
 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    [class]{}-[func]{quadratic}
+    /* 平方阶 */
+    func quadratic(n: Int) {
+        // 二维列表占用 O(n^2) 空间
+        let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
+    }
     ```
 
 === "JS"
 
     ```javascript title="space_complexity.js"
-    [class]{}-[func]{quadratic}
+    /* 平方阶 */
+    function quadratic(n) {
+        // 矩阵占用 O(n^2) 空间
+        const numMatrix = Array(n)
+            .fill(null)
+            .map(() => Array(n).fill(null));
+        // 二维列表占用 O(n^2) 空间
+        const numList = [];
+        for (let i = 0; i < n; i++) {
+            const tmp = [];
+            for (let j = 0; j < n; j++) {
+                tmp.push(0);
+            }
+            numList.push(tmp);
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="space_complexity.ts"
-    [class]{}-[func]{quadratic}
+    /* 平方阶 */
+    function quadratic(n: number): void {
+        // 矩阵占用 O(n^2) 空间
+        const numMatrix = Array(n)
+            .fill(null)
+            .map(() => Array(n).fill(null));
+        // 二维列表占用 O(n^2) 空间
+        const numList = [];
+        for (let i = 0; i < n; i++) {
+            const tmp = [];
+            for (let j = 0; j < n; j++) {
+                tmp.push(0);
+            }
+            numList.push(tmp);
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="space_complexity.dart"
-    [class]{}-[func]{quadratic}
+    /* 平方阶 */
+    void quadratic(int n) {
+      // 矩阵占用 O(n^2) 空间
+      List<List<int>> numMatrix = List.generate(n, (_) => List.filled(n, 0));
+      // 二维列表占用 O(n^2) 空间
+      List<List<int>> numList = [];
+      for (var i = 0; i < n; i++) {
+        List<int> tmp = [];
+        for (int j = 0; j < n; j++) {
+          tmp.add(0);
+        }
+        numList.add(tmp);
+      }
+    }
     ```
 
 === "Rust"
 
     ```rust title="space_complexity.rs"
-    [class]{}-[func]{quadratic}
+    /* 平方阶 */
+    #[allow(unused)]
+    fn quadratic(n: i32) {
+        // 矩阵占用 O(n^2) 空间
+        let num_matrix = vec![vec![0; n as usize]; n as usize];
+        // 二维列表占用 O(n^2) 空间
+        let mut num_list = Vec::new();
+        for i in 0..n {
+            let mut tmp = Vec::new();
+            for j in 0..n {
+                tmp.push(0);
+            }
+            num_list.push(tmp);
+        }
+    }
     ```
 
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{quadratic}
+    /* 平方阶 */
+    void quadratic(int n) {
+        // 二维列表占用 O(n^2) 空间
+        int **numMatrix = malloc(sizeof(int *) * n);
+        for (int i = 0; i < n; i++) {
+            int *tmp = malloc(sizeof(int) * n);
+            for (int j = 0; j < n; j++) {
+                tmp[j] = 0;
+            }
+            numMatrix[i] = tmp;
+        }
+
+        // 内存释放
+        for (int i = 0; i < n; i++) {
+            free(numMatrix[i]);
+        }
+        free(numMatrix);
+    }
     ```
 
 === "Zig"
 
     ```zig title="space_complexity.zig"
-    [class]{}-[func]{quadratic}
+    // 平方阶
+    fn quadratic(n: i32) !void {
+        // 二维列表占用 O(n^2) 空间
+        var nodes = std.ArrayList(std.ArrayList(i32)).init(std.heap.page_allocator);
+        defer nodes.deinit();
+        var i: i32 = 0;
+        while (i < n) : (i += 1) {
+            var tmp = std.ArrayList(i32).init(std.heap.page_allocator);
+            defer tmp.deinit();
+            var j: i32 = 0;
+            while (j < n) : (j += 1) {
+                try tmp.append(0);
+            }
+            try nodes.append(tmp);
+        }
+    }
     ```
 
 如图 2-18 所示，该函数的递归深度为 $n$ ，在每个递归函数中都初始化了一个数组，长度分别为 $n$、$n-1$、$\dots$、$2$、$1$ ，平均长度为 $n / 2$ ，因此总体占用 $O(n^2)$ 空间：
@@ -1060,73 +1686,158 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    [class]{}-[func]{quadratic_recur}
+    def quadratic_recur(n: int) -> int:
+        """平方阶（递归实现）"""
+        if n <= 0:
+            return 0
+        # 数组 nums 长度为 n, n-1, ..., 2, 1
+        nums = [0] * n
+        return quadratic_recur(n - 1)
     ```
 
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{quadraticRecur}
+    /* 平方阶（递归实现） */
+    int quadraticRecur(int n) {
+        if (n <= 0)
+            return 0;
+        vector<int> nums(n);
+        cout << "递归 n = " << n << " 中的 nums 长度 = " << nums.size() << endl;
+        return quadraticRecur(n - 1);
+    }
     ```
 
 === "Java"
 
     ```java title="space_complexity.java"
-    [class]{space_complexity}-[func]{quadraticRecur}
+    /* 平方阶（递归实现） */
+    int quadraticRecur(int n) {
+        if (n <= 0)
+            return 0;
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
+        int[] nums = new int[n];
+        System.out.println("递归 n = " + n + " 中的 nums 长度 = " + nums.length);
+        return quadraticRecur(n - 1);
+    }
     ```
 
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{quadraticRecur}
+    /* 平方阶（递归实现） */
+    int quadraticRecur(int n) {
+        if (n <= 0) return 0;
+        int[] nums = new int[n];
+        Console.WriteLine("递归 n = " + n + " 中的 nums 长度 = " + nums.Length);
+        return quadraticRecur(n - 1);
+    }
     ```
 
 === "Go"
 
     ```go title="space_complexity.go"
-    [class]{}-[func]{spaceQuadraticRecur}
+    /* 平方阶（递归实现） */
+    func spaceQuadraticRecur(n int) int {
+        if n <= 0 {
+            return 0
+        }
+        nums := make([]int, n)
+        fmt.Printf("递归 n = %d 中的 nums 长度 = %d \n", n, len(nums))
+        return spaceQuadraticRecur(n - 1)
+    }
     ```
 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    [class]{}-[func]{quadraticRecur}
+    /* 平方阶（递归实现） */
+    @discardableResult
+    func quadraticRecur(n: Int) -> Int {
+        if n <= 0 {
+            return 0
+        }
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
+        let nums = Array(repeating: 0, count: n)
+        print("递归 n = \(n) 中的 nums 长度 = \(nums.count)")
+        return quadraticRecur(n: n - 1)
+    }
     ```
 
 === "JS"
 
     ```javascript title="space_complexity.js"
-    [class]{}-[func]{quadraticRecur}
+    /* 平方阶（递归实现） */
+    function quadraticRecur(n) {
+        if (n <= 0) return 0;
+        const nums = new Array(n);
+        console.log(`递归 n = ${n} 中的 nums 长度 = ${nums.length}`);
+        return quadraticRecur(n - 1);
+    }
     ```
 
 === "TS"
 
     ```typescript title="space_complexity.ts"
-    [class]{}-[func]{quadraticRecur}
+    /* 平方阶（递归实现） */
+    function quadraticRecur(n: number): number {
+        if (n <= 0) return 0;
+        const nums = new Array(n);
+        console.log(`递归 n = ${n} 中的 nums 长度 = ${nums.length}`);
+        return quadraticRecur(n - 1);
+    }
     ```
 
 === "Dart"
 
     ```dart title="space_complexity.dart"
-    [class]{}-[func]{quadraticRecur}
+    /* 平方阶（递归实现） */
+    int quadraticRecur(int n) {
+      if (n <= 0) return 0;
+      List<int> nums = List.filled(n, 0);
+      print('递归 n = $n 中的 nums 长度 = ${nums.length}');
+      return quadraticRecur(n - 1);
+    }
     ```
 
 === "Rust"
 
     ```rust title="space_complexity.rs"
-    [class]{}-[func]{quadratic_recur}
+    /* 平方阶（递归实现） */
+    fn quadratic_recur(n: i32) -> i32 {
+        if n <= 0 {return 0};
+        // 数组 nums 长度为 n, n-1, ..., 2, 1
+        let nums = vec![0; n as usize];
+        println!("递归 n = {} 中的 nums 长度 = {}", n, nums.len());
+        return quadratic_recur(n - 1);
+    }
     ```
 
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{quadraticRecur}
+    /* 平方阶（递归实现） */
+    int quadraticRecur(int n) {
+        if (n <= 0)
+            return 0;
+        int *nums = malloc(sizeof(int) * n);
+        printf("递归 n = %d 中的 nums 长度 = %d\r\n", n, n);
+        int res = quadraticRecur(n - 1);
+        free(nums);
+        return res;
+    }
     ```
 
 === "Zig"
 
     ```zig title="space_complexity.zig"
-    [class]{}-[func]{quadraticRecur}
+    // 平方阶（递归实现）
+    fn quadraticRecur(comptime n: i32) i32 {
+        if (n <= 0) return 0;
+        var nums = [_]i32{0}**n;
+        std.debug.print("递归 n = {} 中的 nums 长度 = {}\n", .{n, nums.len});
+        return quadraticRecur(n - 1);
+    }
     ```
 
 ![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png)
@@ -1140,73 +1851,165 @@ $$
 === "Python"
 
     ```python title="space_complexity.py"
-    [class]{}-[func]{build_tree}
+    def build_tree(n: int) -> TreeNode | None:
+        """指数阶（建立满二叉树）"""
+        if n == 0:
+            return None
+        root = TreeNode(0)
+        root.left = build_tree(n - 1)
+        root.right = build_tree(n - 1)
+        return root
     ```
 
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{buildTree}
+    /* 指数阶（建立满二叉树） */
+    TreeNode *buildTree(int n) {
+        if (n == 0)
+            return nullptr;
+        TreeNode *root = new TreeNode(0);
+        root->left = buildTree(n - 1);
+        root->right = buildTree(n - 1);
+        return root;
+    }
     ```
 
 === "Java"
 
     ```java title="space_complexity.java"
-    [class]{space_complexity}-[func]{buildTree}
+    /* 指数阶（建立满二叉树） */
+    TreeNode buildTree(int n) {
+        if (n == 0)
+            return null;
+        TreeNode root = new TreeNode(0);
+        root.left = buildTree(n - 1);
+        root.right = buildTree(n - 1);
+        return root;
+    }
     ```
 
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{buildTree}
+    /* 指数阶（建立满二叉树） */
+    TreeNode? buildTree(int n) {
+        if (n == 0) return null;
+        TreeNode root = new TreeNode(0);
+        root.left = buildTree(n - 1);
+        root.right = buildTree(n - 1);
+        return root;
+    }
     ```
 
 === "Go"
 
     ```go title="space_complexity.go"
-    [class]{}-[func]{buildTree}
+    /* 指数阶（建立满二叉树） */
+    func buildTree(n int) *treeNode {
+        if n == 0 {
+            return nil
+        }
+        root := newTreeNode(0)
+        root.left = buildTree(n - 1)
+        root.right = buildTree(n - 1)
+        return root
+    }
     ```
 
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    [class]{}-[func]{buildTree}
+    /* 指数阶（建立满二叉树） */
+    func buildTree(n: Int) -> TreeNode? {
+        if n == 0 {
+            return nil
+        }
+        let root = TreeNode(x: 0)
+        root.left = buildTree(n: n - 1)
+        root.right = buildTree(n: n - 1)
+        return root
+    }
     ```
 
 === "JS"
 
     ```javascript title="space_complexity.js"
-    [class]{}-[func]{buildTree}
+    /* 指数阶（建立满二叉树） */
+    function buildTree(n) {
+        if (n === 0) return null;
+        const root = new TreeNode(0);
+        root.left = buildTree(n - 1);
+        root.right = buildTree(n - 1);
+        return root;
+    }
     ```
 
 === "TS"
 
     ```typescript title="space_complexity.ts"
-    [class]{}-[func]{buildTree}
+    /* 指数阶（建立满二叉树） */
+    function buildTree(n: number): TreeNode | null {
+        if (n === 0) return null;
+        const root = new TreeNode(0);
+        root.left = buildTree(n - 1);
+        root.right = buildTree(n - 1);
+        return root;
+    }
     ```
 
 === "Dart"
 
     ```dart title="space_complexity.dart"
-    [class]{}-[func]{buildTree}
+    /* 指数阶（建立满二叉树） */
+    TreeNode? buildTree(int n) {
+      if (n == 0) return null;
+      TreeNode root = TreeNode(0);
+      root.left = buildTree(n - 1);
+      root.right = buildTree(n - 1);
+      return root;
+    }
     ```
 
 === "Rust"
 
     ```rust title="space_complexity.rs"
-    [class]{}-[func]{build_tree}
+    /* 指数阶（建立满二叉树） */
+    fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
+        if n == 0 {return None};
+        let root = TreeNode::new(0);
+        root.borrow_mut().left = build_tree(n - 1);
+        root.borrow_mut().right = build_tree(n - 1);
+        return Some(root);
+    }
     ```
 
 === "C"
 
     ```c title="space_complexity.c"
-    [class]{}-[func]{buildTree}
+    /* 指数阶（建立满二叉树） */
+    TreeNode *buildTree(int n) {
+        if (n == 0)
+            return NULL;
+        TreeNode *root = newTreeNode(0);
+        root->left = buildTree(n - 1);
+        root->right = buildTree(n - 1);
+        return root;
+    }
     ```
 
 === "Zig"
 
     ```zig title="space_complexity.zig"
-    [class]{}-[func]{buildTree}
+    // 指数阶（建立满二叉树）
+    fn buildTree(mem_allocator: std.mem.Allocator, n: i32) !?*inc.TreeNode(i32) {
+        if (n == 0) return null;
+        const root = try mem_allocator.create(inc.TreeNode(i32));
+        root.init(0);
+        root.left = try buildTree(mem_allocator, n - 1);
+        root.right = try buildTree(mem_allocator, n - 1);
+        return root;
+    }
     ```
 
 ![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.png)

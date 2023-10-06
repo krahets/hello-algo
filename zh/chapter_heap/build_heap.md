@@ -30,73 +30,176 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{__init__}
+    def __init__(self, nums: list[int]):
+        """构造方法，根据输入列表建堆"""
+        # 将列表元素原封不动添加进堆
+        self.max_heap = nums
+        # 堆化除叶节点以外的其他所有节点
+        for i in range(self.parent(self.size() - 1), -1, -1):
+            self.sift_down(i)
     ```
 
 === "C++"
 
     ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{MaxHeap}
+    /* 构造方法，根据输入列表建堆 */
+    MaxHeap(vector<int> nums) {
+        // 将列表元素原封不动添加进堆
+        maxHeap = nums;
+        // 堆化除叶节点以外的其他所有节点
+        for (int i = parent(size() - 1); i >= 0; i--) {
+            siftDown(i);
+        }
+    }
     ```
 
 === "Java"
 
     ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{MaxHeap}
+    /* 构造方法，根据输入列表建堆 */
+    MaxHeap(List<Integer> nums) {
+        // 将列表元素原封不动添加进堆
+        maxHeap = new ArrayList<>(nums);
+        // 堆化除叶节点以外的其他所有节点
+        for (int i = parent(size() - 1); i >= 0; i--) {
+            siftDown(i);
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{MaxHeap}
+    /* 构造函数，根据输入列表建堆 */
+    MaxHeap(IEnumerable<int> nums) {
+        // 将列表元素原封不动添加进堆
+        maxHeap = new List<int>(nums);
+        // 堆化除叶节点以外的其他所有节点
+        var size = parent(this.size() - 1);
+        for (int i = size; i >= 0; i--) {
+            siftDown(i);
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="my_heap.go"
-    [class]{maxHeap}-[func]{newMaxHeap}
+    /* 构造函数，根据切片建堆 */
+    func newMaxHeap(nums []any) *maxHeap {
+        // 将列表元素原封不动添加进堆
+        h := &maxHeap{data: nums}
+        for i := h.parent(len(h.data) - 1); i >= 0; i-- {
+            // 堆化除叶节点以外的其他所有节点
+            h.siftDown(i)
+        }
+        return h
+    }
     ```
 
 === "Swift"
 
     ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{init}
+    /* 构造方法，根据输入列表建堆 */
+    init(nums: [Int]) {
+        // 将列表元素原封不动添加进堆
+        maxHeap = nums
+        // 堆化除叶节点以外的其他所有节点
+        for i in stride(from: parent(i: size() - 1), through: 0, by: -1) {
+            siftDown(i: i)
+        }
+    }
     ```
 
 === "JS"
 
     ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{constructor}
+    /* 构造方法，建立空堆或根据输入列表建堆 */
+    constructor(nums) {
+        // 将列表元素原封不动添加进堆
+        this.#maxHeap = nums === undefined ? [] : [...nums];
+        // 堆化除叶节点以外的其他所有节点
+        for (let i = this.#parent(this.size() - 1); i >= 0; i--) {
+            this.#siftDown(i);
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="my_heap.ts"
-    [class]{MaxHeap}-[func]{constructor}
+    /* 构造方法，建立空堆或根据输入列表建堆 */
+    constructor(nums?: number[]) {
+        // 将列表元素原封不动添加进堆
+        this.maxHeap = nums === undefined ? [] : [...nums];
+        // 堆化除叶节点以外的其他所有节点
+        for (let i = this.parent(this.size() - 1); i >= 0; i--) {
+            this.siftDown(i);
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="my_heap.dart"
-    [class]{MaxHeap}-[func]{MaxHeap}
+    /* 构造方法，根据输入列表建堆 */
+    MaxHeap(List<int> nums) {
+      // 将列表元素原封不动添加进堆
+      _maxHeap = nums;
+      // 堆化除叶节点以外的其他所有节点
+      for (int i = _parent(size() - 1); i >= 0; i--) {
+        siftDown(i);
+      }
+    }
     ```
 
 === "Rust"
 
     ```rust title="my_heap.rs"
-    [class]{MaxHeap}-[func]{new}
+    /* 构造方法，根据输入列表建堆 */
+    fn new(nums: Vec<i32>) -> Self {
+        // 将列表元素原封不动添加进堆
+        let mut heap = MaxHeap { max_heap: nums };
+        // 堆化除叶节点以外的其他所有节点
+        for i in (0..=Self::parent(heap.size() - 1)).rev() {
+            heap.sift_down(i);
+        }
+        heap
+    }
     ```
 
 === "C"
 
     ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{newMaxHeap}
+    /* 构造函数，根据切片建堆 */
+    maxHeap *newMaxHeap(int nums[], int size) {
+        // 所有元素入堆
+        maxHeap *h = (maxHeap *)malloc(sizeof(maxHeap));
+        h->size = size;
+        memcpy(h->data, nums, size * sizeof(int));
+        for (int i = parent(h, size - 1); i >= 0; i--) {
+            // 堆化除叶节点以外的其他所有节点
+            siftDown(h, i);
+        }
+        return h;
+    }
     ```
 
 === "Zig"
 
     ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{init}
+    // 构造方法，根据输入列表建堆
+    fn init(self: *Self, allocator: std.mem.Allocator, nums: []const T) !void {
+        if (self.max_heap != null) return;
+        self.max_heap = std.ArrayList(T).init(allocator);
+        // 将列表元素原封不动添加进堆
+        try self.max_heap.?.appendSlice(nums);
+        // 堆化除叶节点以外的其他所有节点
+        var i: usize = parent(self.size() - 1) + 1;
+        while (i > 0) : (i -= 1) {
+            try self.siftDown(i - 1);
+        }
+    }
     ```
 
 ## 8.2.3 &nbsp; 复杂度分析

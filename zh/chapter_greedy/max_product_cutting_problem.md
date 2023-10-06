@@ -76,67 +76,271 @@ $$
 === "Python"
 
     ```python title="max_product_cutting.py"
-    [class]{}-[func]{max_product_cutting}
+    def max_product_cutting(n: int) -> int:
+        """最大切分乘积：贪心"""
+        # 当 n <= 3 时，必须切分出一个 1
+        if n <= 3:
+            return 1 * (n - 1)
+        # 贪心地切分出 3 ，a 为 3 的个数，b 为余数
+        a, b = n // 3, n % 3
+        if b == 1:
+            # 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
+            return int(math.pow(3, a - 1)) * 2 * 2
+        if b == 2:
+            # 当余数为 2 时，不做处理
+            return int(math.pow(3, a)) * 2
+        # 当余数为 0 时，不做处理
+        return int(math.pow(3, a))
     ```
 
 === "C++"
 
     ```cpp title="max_product_cutting.cpp"
-    [class]{}-[func]{maxProductCutting}
+    /* 最大切分乘积：贪心 */
+    int maxProductCutting(int n) {
+        // 当 n <= 3 时，必须切分出一个 1
+        if (n <= 3) {
+            return 1 * (n - 1);
+        }
+        // 贪心地切分出 3 ，a 为 3 的个数，b 为余数
+        int a = n / 3;
+        int b = n % 3;
+        if (b == 1) {
+            // 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
+            return (int)pow(3, a - 1) * 2 * 2;
+        }
+        if (b == 2) {
+            // 当余数为 2 时，不做处理
+            return (int)pow(3, a) * 2;
+        }
+        // 当余数为 0 时，不做处理
+        return (int)pow(3, a);
+    }
     ```
 
 === "Java"
 
     ```java title="max_product_cutting.java"
-    [class]{max_product_cutting}-[func]{maxProductCutting}
+    /* 最大切分乘积：贪心 */
+    int maxProductCutting(int n) {
+        // 当 n <= 3 时，必须切分出一个 1
+        if (n <= 3) {
+            return 1 * (n - 1);
+        }
+        // 贪心地切分出 3 ，a 为 3 的个数，b 为余数
+        int a = n / 3;
+        int b = n % 3;
+        if (b == 1) {
+            // 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
+            return (int) Math.pow(3, a - 1) * 2 * 2;
+        }
+        if (b == 2) {
+            // 当余数为 2 时，不做处理
+            return (int) Math.pow(3, a) * 2;
+        }
+        // 当余数为 0 时，不做处理
+        return (int) Math.pow(3, a);
+    }
     ```
 
 === "C#"
 
     ```csharp title="max_product_cutting.cs"
-    [class]{max_product_cutting}-[func]{maxProductCutting}
+    /* 最大切分乘积：贪心 */
+    int maxProductCutting(int n) {
+        // 当 n <= 3 时，必须切分出一个 1
+        if (n <= 3) {
+            return 1 * (n - 1);
+        }
+        // 贪心地切分出 3 ，a 为 3 的个数，b 为余数
+        int a = n / 3;
+        int b = n % 3;
+        if (b == 1) {
+            // 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
+            return (int)Math.Pow(3, a - 1) * 2 * 2;
+        }
+        if (b == 2) {
+            // 当余数为 2 时，不做处理
+            return (int)Math.Pow(3, a) * 2;
+        }
+        // 当余数为 0 时，不做处理
+        return (int)Math.Pow(3, a);
+    }
     ```
 
 === "Go"
 
     ```go title="max_product_cutting.go"
-    [class]{}-[func]{maxProductCutting}
+    /* 最大切分乘积：贪心 */
+    func maxProductCutting(n int) int {
+        // 当 n <= 3 时，必须切分出一个 1
+        if n <= 3 {
+            return 1 * (n - 1)
+        }
+        // 贪心地切分出 3 ，a 为 3 的个数，b 为余数
+        a := n / 3
+        b := n % 3
+        if b == 1 {
+            // 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
+            return int(math.Pow(3, float64(a-1))) * 2 * 2
+        }
+        if b == 2 {
+            // 当余数为 2 时，不做处理
+            return int(math.Pow(3, float64(a))) * 2
+        }
+        // 当余数为 0 时，不做处理
+        return int(math.Pow(3, float64(a)))
+    }
     ```
 
 === "Swift"
 
     ```swift title="max_product_cutting.swift"
-    [class]{}-[func]{maxProductCutting}
+    /* 最大切分乘积：贪心 */
+    func maxProductCutting(n: Int) -> Int {
+        // 当 n <= 3 时，必须切分出一个 1
+        if n <= 3 {
+            return 1 * (n - 1)
+        }
+        // 贪心地切分出 3 ，a 为 3 的个数，b 为余数
+        let a = n / 3
+        let b = n % 3
+        if b == 1 {
+            // 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
+            return pow(3, a - 1) * 2 * 2
+        }
+        if b == 2 {
+            // 当余数为 2 时，不做处理
+            return pow(3, a) * 2
+        }
+        // 当余数为 0 时，不做处理
+        return pow(3, a)
+    }
     ```
 
 === "JS"
 
     ```javascript title="max_product_cutting.js"
-    [class]{}-[func]{maxProductCutting}
+    /* 最大切分乘积：贪心 */
+    function maxProductCutting(n) {
+        // 当 n <= 3 时，必须切分出一个 1
+        if (n <= 3) {
+            return 1 * (n - 1);
+        }
+        // 贪心地切分出 3 ，a 为 3 的个数，b 为余数
+        let a = Math.floor(n / 3);
+        let b = n % 3;
+        if (b === 1) {
+            // 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
+            return Math.pow(3, a - 1) * 2 * 2;
+        }
+        if (b === 2) {
+            // 当余数为 2 时，不做处理
+            return Math.pow(3, a) * 2;
+        }
+        // 当余数为 0 时，不做处理
+        return Math.pow(3, a);
+    }
     ```
 
 === "TS"
 
     ```typescript title="max_product_cutting.ts"
-    [class]{}-[func]{maxProductCutting}
+    /* 最大切分乘积：贪心 */
+    function maxProductCutting(n: number): number {
+        // 当 n <= 3 时，必须切分出一个 1
+        if (n <= 3) {
+            return 1 * (n - 1);
+        }
+        // 贪心地切分出 3 ，a 为 3 的个数，b 为余数
+        let a: number = Math.floor(n / 3);
+        let b: number = n % 3;
+        if (b === 1) {
+            // 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
+            return Math.pow(3, a - 1) * 2 * 2;
+        }
+        if (b === 2) {
+            // 当余数为 2 时，不做处理
+            return Math.pow(3, a) * 2;
+        }
+        // 当余数为 0 时，不做处理
+        return Math.pow(3, a);
+    }
     ```
 
 === "Dart"
 
     ```dart title="max_product_cutting.dart"
-    [class]{}-[func]{maxProductCutting}
+    /* 最大切分乘积：贪心 */
+    int maxProductCutting(int n) {
+      // 当 n <= 3 时，必须切分出一个 1
+      if (n <= 3) {
+        return 1 * (n - 1);
+      }
+      // 贪心地切分出 3 ，a 为 3 的个数，b 为余数
+      int a = n ~/ 3;
+      int b = n % 3;
+      if (b == 1) {
+        // 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
+        return (pow(3, a - 1) * 2 * 2).toInt();
+      }
+      if (b == 2) {
+        // 当余数为 2 时，不做处理
+        return (pow(3, a) * 2).toInt();
+      }
+      // 当余数为 0 时，不做处理
+      return pow(3, a).toInt();
+    }
     ```
 
 === "Rust"
 
     ```rust title="max_product_cutting.rs"
-    [class]{}-[func]{max_product_cutting}
+    /* 最大切分乘积：贪心 */
+    fn max_product_cutting(n: i32) -> i32 {
+        // 当 n <= 3 时，必须切分出一个 1
+        if n <= 3 {
+            return 1 * (n - 1);
+        }
+        // 贪心地切分出 3 ，a 为 3 的个数，b 为余数
+        let a = n / 3;
+        let b = n % 3;
+        if b == 1 {
+            // 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
+            3_i32.pow(a as u32 - 1) * 2 * 2
+        } else if b == 2 {
+            // 当余数为 2 时，不做处理
+            3_i32.pow(a as u32) * 2
+        } else {
+            // 当余数为 0 时，不做处理
+            3_i32.pow(a as u32)
+        }
+    }
     ```
 
 === "C"
 
     ```c title="max_product_cutting.c"
-    [class]{}-[func]{maxProductCutting}
+    /* 最大切分乘积：贪心 */
+    int maxProductCutting(int n) {
+        // 当 n <= 3 时，必须切分出一个 1
+        if (n <= 3) {
+            return 1 * (n - 1);
+        }
+        // 贪心地切分出 3 ，a 为 3 的个数，b 为余数
+        int a = n / 3;
+        int b = n % 3;
+        if (b == 1) {
+            // 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
+            return pow(3, a - 1) * 2 * 2;
+        }
+        if (b == 2) {
+            // 当余数为 2 时，不做处理
+            return pow(3, a) * 2;
+        }
+        // 当余数为 0 时，不做处理
+        return pow(3, a);
+    }
     ```
 
 === "Zig"

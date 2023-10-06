@@ -79,61 +79,219 @@ comments: true
 === "Python"
 
     ```python title="top_k.py"
-    [class]{}-[func]{top_k_heap}
+    def top_k_heap(nums: list[int], k: int) -> list[int]:
+        """基于堆查找数组中最大的 k 个元素"""
+        heap = []
+        # 将数组的前 k 个元素入堆
+        for i in range(k):
+            heapq.heappush(heap, nums[i])
+        # 从第 k+1 个元素开始，保持堆的长度为 k
+        for i in range(k, len(nums)):
+            # 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+            if nums[i] > heap[0]:
+                heapq.heappop(heap)
+                heapq.heappush(heap, nums[i])
+        return heap
     ```
 
 === "C++"
 
     ```cpp title="top_k.cpp"
-    [class]{}-[func]{topKHeap}
+    /* 基于堆查找数组中最大的 k 个元素 */
+    priority_queue<int, vector<int>, greater<int>> topKHeap(vector<int> &nums, int k) {
+        priority_queue<int, vector<int>, greater<int>> heap;
+        // 将数组的前 k 个元素入堆
+        for (int i = 0; i < k; i++) {
+            heap.push(nums[i]);
+        }
+        // 从第 k+1 个元素开始，保持堆的长度为 k
+        for (int i = k; i < nums.size(); i++) {
+            // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+            if (nums[i] > heap.top()) {
+                heap.pop();
+                heap.push(nums[i]);
+            }
+        }
+        return heap;
+    }
     ```
 
 === "Java"
 
     ```java title="top_k.java"
-    [class]{top_k}-[func]{topKHeap}
+    /* 基于堆查找数组中最大的 k 个元素 */
+    Queue<Integer> topKHeap(int[] nums, int k) {
+        Queue<Integer> heap = new PriorityQueue<Integer>();
+        // 将数组的前 k 个元素入堆
+        for (int i = 0; i < k; i++) {
+            heap.offer(nums[i]);
+        }
+        // 从第 k+1 个元素开始，保持堆的长度为 k
+        for (int i = k; i < nums.length; i++) {
+            // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+            if (nums[i] > heap.peek()) {
+                heap.poll();
+                heap.offer(nums[i]);
+            }
+        }
+        return heap;
+    }
     ```
 
 === "C#"
 
     ```csharp title="top_k.cs"
-    [class]{top_k}-[func]{topKHeap}
+    /* 基于堆查找数组中最大的 k 个元素 */
+    PriorityQueue<int, int> topKHeap(int[] nums, int k) {
+        PriorityQueue<int, int> heap = new PriorityQueue<int, int>();
+        // 将数组的前 k 个元素入堆
+        for (int i = 0; i < k; i++) {
+            heap.Enqueue(nums[i], nums[i]);
+        }
+        // 从第 k+1 个元素开始，保持堆的长度为 k
+        for (int i = k; i < nums.Length; i++) {
+            // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+            if (nums[i] > heap.Peek()) {
+                heap.Dequeue();
+                heap.Enqueue(nums[i], nums[i]);
+            }
+        }
+        return heap;
+    }
     ```
 
 === "Go"
 
     ```go title="top_k.go"
-    [class]{}-[func]{topKHeap}
+    /* 基于堆查找数组中最大的 k 个元素 */
+    func topKHeap(nums []int, k int) *minHeap {
+        h := &minHeap{}
+        heap.Init(h)
+        // 将数组的前 k 个元素入堆
+        for i := 0; i < k; i++ {
+            heap.Push(h, nums[i])
+        }
+        // 从第 k+1 个元素开始，保持堆的长度为 k
+        for i := k; i < len(nums); i++ {
+            // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+            if nums[i] > h.Top().(int) {
+                heap.Pop(h)
+                heap.Push(h, nums[i])
+            }
+        }
+        return h
+    }
     ```
 
 === "Swift"
 
     ```swift title="top_k.swift"
-    [class]{}-[func]{topKHeap}
+    /* 基于堆查找数组中最大的 k 个元素 */
+    func topKHeap(nums: [Int], k: Int) -> [Int] {
+        // 将数组的前 k 个元素入堆
+        var heap = Array(nums.prefix(k))
+        // 从第 k+1 个元素开始，保持堆的长度为 k
+        for i in stride(from: k, to: nums.count, by: 1) {
+            // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+            if nums[i] > heap.first! {
+                heap.removeFirst()
+                heap.insert(nums[i], at: 0)
+            }
+        }
+        return heap
+    }
     ```
 
 === "JS"
 
     ```javascript title="top_k.js"
-    [class]{}-[func]{topKHeap}
+    /* 基于堆查找数组中最大的 k 个元素 */
+    function topKHeap(nums, k) {
+        // 使用大顶堆 MaxHeap ，对数组 nums 取相反数
+        const invertedNums = nums.map((num) => -num);
+        // 将数组的前 k 个元素入堆
+        const heap = new MaxHeap(invertedNums.slice(0, k));
+        // 从第 k+1 个元素开始，保持堆的长度为 k
+        for (let i = k; i < invertedNums.length; i++) {
+            // 若当前元素小于堆顶元素，则将堆顶元素出堆、当前元素入堆
+            if (invertedNums[i] < heap.peek()) {
+                heap.pop();
+                heap.push(invertedNums[i]);
+            }
+        }
+        // 取出堆中元素
+        const maxHeap = heap.getMaxHeap();
+        // 对堆中元素取相反数
+        const invertedMaxHeap = maxHeap.map((num) => -num);
+        return invertedMaxHeap;
+    }
     ```
 
 === "TS"
 
     ```typescript title="top_k.ts"
-    [class]{}-[func]{topKHeap}
+    /* 基于堆查找数组中最大的 k 个元素 */
+    function topKHeap(nums: number[], k: number): number[] {
+        // 将堆中所有元素取反，从而用大顶堆来模拟小顶堆
+        const invertedNums = nums.map((num) => -num);
+        // 将数组的前 k 个元素入堆
+        const heap = new MaxHeap(invertedNums.slice(0, k));
+        // 从第 k+1 个元素开始，保持堆的长度为 k
+        for (let i = k; i < invertedNums.length; i++) {
+            // 若当前元素小于堆顶元素，则将堆顶元素出堆、当前元素入堆
+            if (invertedNums[i] < heap.peek()) {
+                heap.pop();
+                heap.push(invertedNums[i]);
+            }
+        }
+        // 取出堆中元素
+        const maxHeap = heap.getMaxHeap();
+        // 对堆中元素取相反数
+        const invertedMaxHeap = maxHeap.map((num) => -num);
+        return invertedMaxHeap;
+    }
     ```
 
 === "Dart"
 
     ```dart title="top_k.dart"
-    [class]{}-[func]{topKHeap}
+    /* 基于堆查找数组中最大的 k 个元素 */
+    MinHeap topKHeap(List<int> nums, int k) {
+      // 将数组的前 k 个元素入堆
+      MinHeap heap = MinHeap(nums.sublist(0, k));
+      // 从第 k+1 个元素开始，保持堆的长度为 k
+      for (int i = k; i < nums.length; i++) {
+        // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+        if (nums[i] > heap.peek()) {
+          heap.pop();
+          heap.push(nums[i]);
+        }
+      }
+      return heap;
+    }
     ```
 
 === "Rust"
 
     ```rust title="top_k.rs"
-    [class]{}-[func]{top_k_heap}
+    /* 基于堆查找数组中最大的 k 个元素 */
+    fn top_k_heap(nums: Vec<i32>, k: usize) -> BinaryHeap<Reverse<i32>> {
+        // Rust 的 BinaryHeap 是大顶堆，使用 Reverse 将元素大小反转
+        let mut heap = BinaryHeap::<Reverse<i32>>::new();
+        // 将数组的前 k 个元素入堆
+        for &num in nums.iter().take(k) {
+            heap.push(Reverse(num));
+        }
+        // 从第 k+1 个元素开始，保持堆的长度为 k
+        for &num in nums.iter().skip(k) {
+            // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+            if num > heap.peek().unwrap().0 {
+                heap.pop();
+                heap.push(Reverse(num));
+            }
+        }
+        heap
+    }
     ```
 
 === "C"

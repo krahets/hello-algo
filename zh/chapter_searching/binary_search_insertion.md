@@ -31,67 +31,239 @@ comments: true
 === "Python"
 
     ```python title="binary_search_insertion.py"
-    [class]{}-[func]{binary_search_insertion_simple}
+    def binary_search_insertion_simple(nums: list[int], target: int) -> int:
+        """二分查找插入点（无重复元素）"""
+        i, j = 0, len(nums) - 1  # 初始化双闭区间 [0, n-1]
+        while i <= j:
+            m = (i + j) // 2  # 计算中点索引 m
+            if nums[m] < target:
+                i = m + 1  # target 在区间 [m+1, j] 中
+            elif nums[m] > target:
+                j = m - 1  # target 在区间 [i, m-1] 中
+            else:
+                return m  # 找到 target ，返回插入点 m
+        # 未找到 target ，返回插入点 i
+        return i
     ```
 
 === "C++"
 
     ```cpp title="binary_search_insertion.cpp"
-    [class]{}-[func]{binarySearchInsertionSimple}
+    /* 二分查找插入点（无重复元素） */
+    int binarySearchInsertionSimple(vector<int> &nums, int target) {
+        int i = 0, j = nums.size() - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                return m; // 找到 target ，返回插入点 m
+            }
+        }
+        // 未找到 target ，返回插入点 i
+        return i;
+    }
     ```
 
 === "Java"
 
     ```java title="binary_search_insertion.java"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}
+    /* 二分查找插入点（无重复元素） */
+    int binarySearchInsertionSimple(int[] nums, int target) {
+        int i = 0, j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                return m; // 找到 target ，返回插入点 m
+            }
+        }
+        // 未找到 target ，返回插入点 i
+        return i;
+    }
     ```
 
 === "C#"
 
     ```csharp title="binary_search_insertion.cs"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}
+    /* 二分查找插入点（无重复元素） */
+    int binarySearchInsertionSimple(int[] nums, int target) {
+        int i = 0, j = nums.Length - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                return m; // 找到 target ，返回插入点 m
+            }
+        }
+        // 未找到 target ，返回插入点 i
+        return i;
+    }
     ```
 
 === "Go"
 
     ```go title="binary_search_insertion.go"
-    [class]{}-[func]{binarySearchInsertionSimple}
+    /* 二分查找插入点（无重复元素） */
+    func binarySearchInsertionSimple(nums []int, target int) int {
+        // 初始化双闭区间 [0, n-1]
+        i, j := 0, len(nums)-1
+        for i <= j {
+            // 计算中点索引 m
+            m := i + (j-i)/2
+            if nums[m] < target {
+                // target 在区间 [m+1, j] 中
+                i = m + 1
+            } else if nums[m] > target {
+                // target 在区间 [i, m-1] 中
+                j = m - 1
+            } else {
+                // 找到 target ，返回插入点 m
+                return m
+            }
+        }
+        // 未找到 target ，返回插入点 i
+        return i
+    }
     ```
 
 === "Swift"
 
     ```swift title="binary_search_insertion.swift"
-    [class]{}-[func]{binarySearchInsertionSimple}
+    /* 二分查找插入点（无重复元素） */
+    func binarySearchInsertionSimple(nums: [Int], target: Int) -> Int {
+        var i = 0, j = nums.count - 1 // 初始化双闭区间 [0, n-1]
+        while i <= j {
+            let m = i + (j - i) / 2 // 计算中点索引 m
+            if nums[m] < target {
+                i = m + 1 // target 在区间 [m+1, j] 中
+            } else if nums[m] > target {
+                j = m - 1 // target 在区间 [i, m-1] 中
+            } else {
+                return m // 找到 target ，返回插入点 m
+            }
+        }
+        // 未找到 target ，返回插入点 i
+        return i
+    }
     ```
 
 === "JS"
 
     ```javascript title="binary_search_insertion.js"
-    [class]{}-[func]{binarySearchInsertionSimple}
+    /* 二分查找插入点（无重复元素） */
+    function binarySearchInsertionSimple(nums, target) {
+        let i = 0,
+            j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            const m = Math.floor(i + (j - i) / 2); // 计算中点索引 m, 使用 Math.floor() 向下取整
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                return m; // 找到 target ，返回插入点 m
+            }
+        }
+        // 未找到 target ，返回插入点 i
+        return i;
+    }
     ```
 
 === "TS"
 
     ```typescript title="binary_search_insertion.ts"
-    [class]{}-[func]{binarySearchInsertionSimple}
+    /* 二分查找插入点（无重复元素） */
+    function binarySearchInsertionSimple(
+        nums: Array<number>,
+        target: number
+    ): number {
+        let i = 0,
+            j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            const m = Math.floor(i + (j - i) / 2); // 计算中点索引 m, 使用 Math.floor() 向下取整
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                return m; // 找到 target ，返回插入点 m
+            }
+        }
+        // 未找到 target ，返回插入点 i
+        return i;
+    }
     ```
 
 === "Dart"
 
     ```dart title="binary_search_insertion.dart"
-    [class]{}-[func]{binarySearchInsertionSimple}
+    /* 二分查找插入点（无重复元素） */
+    int binarySearchInsertionSimple(List<int> nums, int target) {
+      int i = 0, j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+      while (i <= j) {
+        int m = i + (j - i) ~/ 2; // 计算中点索引 m
+        if (nums[m] < target) {
+          i = m + 1; // target 在区间 [m+1, j] 中
+        } else if (nums[m] > target) {
+          j = m - 1; // target 在区间 [i, m-1] 中
+        } else {
+          return m; // 找到 target ，返回插入点 m
+        }
+      }
+      // 未找到 target ，返回插入点 i
+      return i;
+    }
     ```
 
 === "Rust"
 
     ```rust title="binary_search_insertion.rs"
-    [class]{}-[func]{binary_search_insertion}
+    /* 二分查找插入点（存在重复元素） */
+    pub fn binary_search_insertion(nums: &[i32], target: i32) -> i32 {
+        let (mut i, mut j) = (0, nums.len() as i32 - 1);    // 初始化双闭区间 [0, n-1]
+        while i <= j {
+            let m = i + (j - i) / 2;    // 计算中点索引 m
+            if nums[m as usize] < target {
+                i = m + 1;  // target 在区间 [m+1, j] 中
+            } else if nums[m as usize] > target {
+                j = m - 1;  // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1;  // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        i
+    }
     ```
 
 === "C"
 
     ```c title="binary_search_insertion.c"
-    [class]{}-[func]{binarySearchInsertionSimple}
+    /* 二分查找插入点（无重复元素） */
+    int binarySearchInsertionSimple(int *nums, int numSize, int target) {
+        int i = 0, j = numSize - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                return m; // 找到 target ，返回插入点 m
+            }
+        }
+        // 未找到 target ，返回插入点 i
+        return i;
+    }
     ```
 
 === "Zig"
@@ -159,67 +331,236 @@ comments: true
 === "Python"
 
     ```python title="binary_search_insertion.py"
-    [class]{}-[func]{binary_search_insertion}
+    def binary_search_insertion(nums: list[int], target: int) -> int:
+        """二分查找插入点（存在重复元素）"""
+        i, j = 0, len(nums) - 1  # 初始化双闭区间 [0, n-1]
+        while i <= j:
+            m = (i + j) // 2  # 计算中点索引 m
+            if nums[m] < target:
+                i = m + 1  # target 在区间 [m+1, j] 中
+            elif nums[m] > target:
+                j = m - 1  # target 在区间 [i, m-1] 中
+            else:
+                j = m - 1  # 首个小于 target 的元素在区间 [i, m-1] 中
+        # 返回插入点 i
+        return i
     ```
 
 === "C++"
 
     ```cpp title="binary_search_insertion.cpp"
-    [class]{}-[func]{binarySearchInsertion}
+    /* 二分查找插入点（存在重复元素） */
+    int binarySearchInsertion(vector<int> &nums, int target) {
+        int i = 0, j = nums.size() - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        return i;
+    }
     ```
 
 === "Java"
 
     ```java title="binary_search_insertion.java"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertion}
+    /* 二分查找插入点（存在重复元素） */
+    int binarySearchInsertion(int[] nums, int target) {
+        int i = 0, j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        return i;
+    }
     ```
 
 === "C#"
 
     ```csharp title="binary_search_insertion.cs"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertion}
+    /* 二分查找插入点（存在重复元素） */
+    int binarySearchInsertion(int[] nums, int target) {
+        int i = 0, j = nums.Length - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        return i;
+    }
     ```
 
 === "Go"
 
     ```go title="binary_search_insertion.go"
-    [class]{}-[func]{binarySearchInsertion}
+    /* 二分查找插入点（存在重复元素） */
+    func binarySearchInsertion(nums []int, target int) int {
+        // 初始化双闭区间 [0, n-1]
+        i, j := 0, len(nums)-1
+        for i <= j {
+            // 计算中点索引 m
+            m := i + (j-i)/2
+            if nums[m] < target {
+                // target 在区间 [m+1, j] 中
+                i = m + 1
+            } else if nums[m] > target {
+                // target 在区间 [i, m-1] 中
+                j = m - 1
+            } else {
+                // 首个小于 target 的元素在区间 [i, m-1] 中
+                j = m - 1
+            }
+        }
+        // 返回插入点 i
+        return i
+    }
     ```
 
 === "Swift"
 
     ```swift title="binary_search_insertion.swift"
-    [class]{}-[func]{binarySearchInsertion}
+    /* 二分查找插入点（存在重复元素） */
+    func binarySearchInsertion(nums: [Int], target: Int) -> Int {
+        var i = 0, j = nums.count - 1 // 初始化双闭区间 [0, n-1]
+        while i <= j {
+            let m = i + (j - i) / 2 // 计算中点索引 m
+            if nums[m] < target {
+                i = m + 1 // target 在区间 [m+1, j] 中
+            } else if nums[m] > target {
+                j = m - 1 // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1 // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        return i
+    }
     ```
 
 === "JS"
 
     ```javascript title="binary_search_insertion.js"
-    [class]{}-[func]{binarySearchInsertion}
+    /* 二分查找插入点（存在重复元素） */
+    function binarySearchInsertion(nums, target) {
+        let i = 0,
+            j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            const m = Math.floor(i + (j - i) / 2); // 计算中点索引 m, 使用 Math.floor() 向下取整
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        return i;
+    }
     ```
 
 === "TS"
 
     ```typescript title="binary_search_insertion.ts"
-    [class]{}-[func]{binarySearchInsertion}
+    /* 二分查找插入点（存在重复元素） */
+    function binarySearchInsertion(nums: Array<number>, target: number): number {
+        let i = 0,
+            j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            const m = Math.floor(i + (j - i) / 2); // 计算中点索引 m, 使用 Math.floor() 向下取整
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        return i;
+    }
     ```
 
 === "Dart"
 
     ```dart title="binary_search_insertion.dart"
-    [class]{}-[func]{binarySearchInsertion}
+    /* 二分查找插入点（存在重复元素） */
+    int binarySearchInsertion(List<int> nums, int target) {
+      int i = 0, j = nums.length - 1; // 初始化双闭区间 [0, n-1]
+      while (i <= j) {
+        int m = i + (j - i) ~/ 2; // 计算中点索引 m
+        if (nums[m] < target) {
+          i = m + 1; // target 在区间 [m+1, j] 中
+        } else if (nums[m] > target) {
+          j = m - 1; // target 在区间 [i, m-1] 中
+        } else {
+          j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+        }
+      }
+      // 返回插入点 i
+      return i;
+    }
     ```
 
 === "Rust"
 
     ```rust title="binary_search_insertion.rs"
-    [class]{}-[func]{binary_search_insertion}
+    /* 二分查找插入点（存在重复元素） */
+    pub fn binary_search_insertion(nums: &[i32], target: i32) -> i32 {
+        let (mut i, mut j) = (0, nums.len() as i32 - 1);    // 初始化双闭区间 [0, n-1]
+        while i <= j {
+            let m = i + (j - i) / 2;    // 计算中点索引 m
+            if nums[m as usize] < target {
+                i = m + 1;  // target 在区间 [m+1, j] 中
+            } else if nums[m as usize] > target {
+                j = m - 1;  // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1;  // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        i
+    }
     ```
 
 === "C"
 
     ```c title="binary_search_insertion.c"
-    [class]{}-[func]{binarySearchInsertion}
+    /* 二分查找插入点（存在重复元素） */
+    int binarySearchInsertion(int *nums, int numSize, int target) {
+        int i = 0, j = numSize - 1; // 初始化双闭区间 [0, n-1]
+        while (i <= j) {
+            int m = i + (j - i) / 2; // 计算中点索引 m
+            if (nums[m] < target) {
+                i = m + 1; // target 在区间 [m+1, j] 中
+            } else if (nums[m] > target) {
+                j = m - 1; // target 在区间 [i, m-1] 中
+            } else {
+                j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+            }
+        }
+        // 返回插入点 i
+        return i;
+    }
     ```
 
 === "Zig"

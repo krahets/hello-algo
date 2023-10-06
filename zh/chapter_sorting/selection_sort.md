@@ -54,67 +54,228 @@ comments: true
 === "Python"
 
     ```python title="selection_sort.py"
-    [class]{}-[func]{selection_sort}
+    def selection_sort(nums: list[int]):
+        """选择排序"""
+        n = len(nums)
+        # 外循环：未排序区间为 [i, n-1]
+        for i in range(n - 1):
+            # 内循环：找到未排序区间内的最小元素
+            k = i
+            for j in range(i + 1, n):
+                if nums[j] < nums[k]:
+                    k = j  # 记录最小元素的索引
+            # 将该最小元素与未排序区间的首个元素交换
+            nums[i], nums[k] = nums[k], nums[i]
     ```
 
 === "C++"
 
     ```cpp title="selection_sort.cpp"
-    [class]{}-[func]{selectionSort}
+    /* 选择排序 */
+    void selectionSort(vector<int> &nums) {
+        int n = nums.size();
+        // 外循环：未排序区间为 [i, n-1]
+        for (int i = 0; i < n - 1; i++) {
+            // 内循环：找到未排序区间内的最小元素
+            int k = i;
+            for (int j = i + 1; j < n; j++) {
+                if (nums[j] < nums[k])
+                    k = j; // 记录最小元素的索引
+            }
+            // 将该最小元素与未排序区间的首个元素交换
+            swap(nums[i], nums[k]);
+        }
+    }
     ```
 
 === "Java"
 
     ```java title="selection_sort.java"
-    [class]{selection_sort}-[func]{selectionSort}
+    /* 选择排序 */
+    void selectionSort(int[] nums) {
+        int n = nums.length;
+        // 外循环：未排序区间为 [i, n-1]
+        for (int i = 0; i < n - 1; i++) {
+            // 内循环：找到未排序区间内的最小元素
+            int k = i;
+            for (int j = i + 1; j < n; j++) {
+                if (nums[j] < nums[k])
+                    k = j; // 记录最小元素的索引
+            }
+            // 将该最小元素与未排序区间的首个元素交换
+            int temp = nums[i];
+            nums[i] = nums[k];
+            nums[k] = temp;
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="selection_sort.cs"
-    [class]{selection_sort}-[func]{selectionSort}
+    /* 选择排序 */
+    void selectionSort(int[] nums) {
+        int n = nums.Length;
+        // 外循环：未排序区间为 [i, n-1]
+        for (int i = 0; i < n - 1; i++) {
+            // 内循环：找到未排序区间内的最小元素
+            int k = i;
+            for (int j = i + 1; j < n; j++) {
+                if (nums[j] < nums[k])
+                    k = j; // 记录最小元素的索引
+            }
+            // 将该最小元素与未排序区间的首个元素交换
+            (nums[k], nums[i]) = (nums[i], nums[k]);
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="selection_sort.go"
-    [class]{}-[func]{selectionSort}
+    /* 选择排序 */
+    func selectionSort(nums []int) {
+        n := len(nums)
+        // 外循环：未排序区间为 [i, n-1]
+        for i := 0; i < n-1; i++ {
+            // 内循环：找到未排序区间内的最小元素
+            k := i
+            for j := i + 1; j < n; j++ {
+                if nums[j] < nums[k] {
+                    // 记录最小元素的索引
+                    k = j
+                }
+            }
+            // 将该最小元素与未排序区间的首个元素交换
+            nums[i], nums[k] = nums[k], nums[i]
+
+        }
+    }
     ```
 
 === "Swift"
 
     ```swift title="selection_sort.swift"
-    [class]{}-[func]{selectionSort}
+    /* 选择排序 */
+    func selectionSort(nums: inout [Int]) {
+        // 外循环：未排序区间为 [i, n-1]
+        for i in nums.indices.dropLast() {
+            // 内循环：找到未排序区间内的最小元素
+            var k = i
+            for j in nums.indices.dropFirst(i + 1) {
+                if nums[j] < nums[k] {
+                    k = j // 记录最小元素的索引
+                }
+            }
+            // 将该最小元素与未排序区间的首个元素交换
+            nums.swapAt(i, k)
+        }
+    }
     ```
 
 === "JS"
 
     ```javascript title="selection_sort.js"
-    [class]{}-[func]{selectionSort}
+    /* 选择排序 */
+    function selectionSort(nums) {
+        let n = nums.length;
+        // 外循环：未排序区间为 [i, n-1]
+        for (let i = 0; i < n - 1; i++) {
+            // 内循环：找到未排序区间内的最小元素
+            let k = i;
+            for (let j = i + 1; j < n; j++) {
+                if (nums[j] < nums[k]) {
+                    k = j; // 记录最小元素的索引
+                }
+            }
+            // 将该最小元素与未排序区间的首个元素交换
+            [nums[i], nums[k]] = [nums[k], nums[i]];
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="selection_sort.ts"
-    [class]{}-[func]{selectionSort}
+    /* 选择排序 */
+    function selectionSort(nums: number[]): void {
+        let n = nums.length;
+        // 外循环：未排序区间为 [i, n-1]
+        for (let i = 0; i < n - 1; i++) {
+            // 内循环：找到未排序区间内的最小元素
+            let k = i;
+            for (let j = i + 1; j < n; j++) {
+                if (nums[j] < nums[k]) {
+                    k = j; // 记录最小元素的索引
+                }
+            }
+            // 将该最小元素与未排序区间的首个元素交换
+            [nums[i], nums[k]] = [nums[k], nums[i]];
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="selection_sort.dart"
-    [class]{}-[func]{selectionSort}
+    /* 选择排序 */
+    void selectionSort(List<int> nums) {
+      int n = nums.length;
+      // 外循环：未排序区间为 [i, n-1]
+      for (int i = 0; i < n - 1; i++) {
+        // 内循环：找到未排序区间内的最小元素
+        int k = i;
+        for (int j = i + 1; j < n; j++) {
+          if (nums[j] < nums[k]) k = j; // 记录最小元素的索引
+        }
+        // 将该最小元素与未排序区间的首个元素交换
+        int temp = nums[i];
+        nums[i] = nums[k];
+        nums[k] = temp;
+      }
+    }
     ```
 
 === "Rust"
 
     ```rust title="selection_sort.rs"
-    [class]{}-[func]{selection_sort}
+    /* 选择排序 */
+    fn selection_sort(nums: &mut [i32]) {
+        let n = nums.len();
+        // 外循环：未排序区间为 [i, n-1]
+        for i in 0..n-1 {
+            // 内循环：找到未排序区间内的最小元素
+            let mut k = i;
+            for j in i+1..n {
+                if nums[j] < nums[k] {
+                    k = j; // 记录最小元素的索引
+                }
+            }
+            // 将该最小元素与未排序区间的首个元素交换
+            nums.swap(i, k);
+        }
+    }
     ```
 
 === "C"
 
     ```c title="selection_sort.c"
-    [class]{}-[func]{selectionSort}
+    /* 选择排序 */
+    void selectionSort(int nums[], int n) {
+        // 外循环：未排序区间为 [i, n-1]
+        for (int i = 0; i < n - 1; i++) {
+            // 内循环：找到未排序区间内的最小元素
+            int k = i;
+            for (int j = i + 1; j < n; j++) {
+                if (nums[j] < nums[k])
+                    k = j; // 记录最小元素的索引
+            }
+            // 将该最小元素与未排序区间的首个元素交换
+            int temp = nums[i];
+            nums[i] = nums[k];
+            nums[k] = temp;
+        }
+    }
     ```
 
 === "Zig"

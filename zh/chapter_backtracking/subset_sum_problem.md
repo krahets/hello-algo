@@ -24,89 +24,404 @@ comments: true
 === "Python"
 
     ```python title="subset_sum_i_naive.py"
-    [class]{}-[func]{backtrack}
+    def backtrack(
+        state: list[int],
+        target: int,
+        total: int,
+        choices: list[int],
+        res: list[list[int]],
+    ):
+        """回溯算法：子集和 I"""
+        # 子集和等于 target 时，记录解
+        if total == target:
+            res.append(list(state))
+            return
+        # 遍历所有选择
+        for i in range(len(choices)):
+            # 剪枝：若子集和超过 target ，则跳过该选择
+            if total + choices[i] > target:
+                continue
+            # 尝试：做出选择，更新元素和 total
+            state.append(choices[i])
+            # 进行下一轮选择
+            backtrack(state, target, total + choices[i], choices, res)
+            # 回退：撤销选择，恢复到之前的状态
+            state.pop()
 
-    [class]{}-[func]{subset_sum_i_naive}
+    def subset_sum_i_naive(nums: list[int], target: int) -> list[list[int]]:
+        """求解子集和 I（包含重复子集）"""
+        state = []  # 状态（子集）
+        total = 0  # 子集和
+        res = []  # 结果列表（子集列表）
+        backtrack(state, target, total, nums, res)
+        return res
     ```
 
 === "C++"
 
     ```cpp title="subset_sum_i_naive.cpp"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(vector<int> &state, int target, int total, vector<int> &choices, vector<vector<int>> &res) {
+        // 子集和等于 target 时，记录解
+        if (total == target) {
+            res.push_back(state);
+            return;
+        }
+        // 遍历所有选择
+        for (size_t i = 0; i < choices.size(); i++) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if (total + choices[i] > target) {
+                continue;
+            }
+            // 尝试：做出选择，更新元素和 total
+            state.push_back(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target, total + choices[i], choices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop_back();
+        }
+    }
 
-    [class]{}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    vector<vector<int>> subsetSumINaive(vector<int> &nums, int target) {
+        vector<int> state;       // 状态（子集）
+        int total = 0;           // 子集和
+        vector<vector<int>> res; // 结果列表（子集列表）
+        backtrack(state, target, total, nums, res);
+        return res;
+    }
     ```
 
 === "Java"
 
     ```java title="subset_sum_i_naive.java"
-    [class]{subset_sum_i_naive}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(List<Integer> state, int target, int total, int[] choices, List<List<Integer>> res) {
+        // 子集和等于 target 时，记录解
+        if (total == target) {
+            res.add(new ArrayList<>(state));
+            return;
+        }
+        // 遍历所有选择
+        for (int i = 0; i < choices.length; i++) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if (total + choices[i] > target) {
+                continue;
+            }
+            // 尝试：做出选择，更新元素和 total
+            state.add(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target, total + choices[i], choices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.remove(state.size() - 1);
+        }
+    }
 
-    [class]{subset_sum_i_naive}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    List<List<Integer>> subsetSumINaive(int[] nums, int target) {
+        List<Integer> state = new ArrayList<>(); // 状态（子集）
+        int total = 0; // 子集和
+        List<List<Integer>> res = new ArrayList<>(); // 结果列表（子集列表）
+        backtrack(state, target, total, nums, res);
+        return res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="subset_sum_i_naive.cs"
-    [class]{subset_sum_i_naive}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(List<int> state, int target, int total, int[] choices, List<List<int>> res) {
+        // 子集和等于 target 时，记录解
+        if (total == target) {
+            res.Add(new List<int>(state));
+            return;
+        }
+        // 遍历所有选择
+        for (int i = 0; i < choices.Length; i++) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if (total + choices[i] > target) {
+                continue;
+            }
+            // 尝试：做出选择，更新元素和 total
+            state.Add(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target, total + choices[i], choices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.RemoveAt(state.Count - 1);
+        }
+    }
 
-    [class]{subset_sum_i_naive}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    List<List<int>> subsetSumINaive(int[] nums, int target) {
+        List<int> state = new List<int>(); // 状态（子集）
+        int total = 0; // 子集和
+        List<List<int>> res = new List<List<int>>(); // 结果列表（子集列表）
+        backtrack(state, target, total, nums, res);
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="subset_sum_i_naive.go"
-    [class]{}-[func]{backtrackSubsetSumINaive}
+    /* 回溯算法：子集和 I */
+    func backtrackSubsetSumINaive(total, target int, state, choices *[]int, res *[][]int) {
+        // 子集和等于 target 时，记录解
+        if target == total {
+            newState := append([]int{}, *state...)
+            *res = append(*res, newState)
+            return
+        }
+        // 遍历所有选择
+        for i := 0; i < len(*choices); i++ {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if total+(*choices)[i] > target {
+                continue
+            }
+            // 尝试：做出选择，更新元素和 total
+            *state = append(*state, (*choices)[i])
+            // 进行下一轮选择
+            backtrackSubsetSumINaive(total+(*choices)[i], target, state, choices, res)
+            // 回退：撤销选择，恢复到之前的状态
+            *state = (*state)[:len(*state)-1]
+        }
+    }
 
-    [class]{}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    func subsetSumINaive(nums []int, target int) [][]int {
+        state := make([]int, 0) // 状态（子集）
+        total := 0              // 子集和
+        res := make([][]int, 0) // 结果列表（子集列表）
+        backtrackSubsetSumINaive(total, target, &state, &nums, &res)
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="subset_sum_i_naive.swift"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    func backtrack(state: inout [Int], target: Int, total: Int, choices: [Int], res: inout [[Int]]) {
+        // 子集和等于 target 时，记录解
+        if total == target {
+            res.append(state)
+            return
+        }
+        // 遍历所有选择
+        for i in stride(from: 0, to: choices.count, by: 1) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if total + choices[i] > target {
+                continue
+            }
+            // 尝试：做出选择，更新元素和 total
+            state.append(choices[i])
+            // 进行下一轮选择
+            backtrack(state: &state, target: target, total: total + choices[i], choices: choices, res: &res)
+            // 回退：撤销选择，恢复到之前的状态
+            state.removeLast()
+        }
+    }
 
-    [class]{}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    func subsetSumINaive(nums: [Int], target: Int) -> [[Int]] {
+        var state: [Int] = [] // 状态（子集）
+        let total = 0 // 子集和
+        var res: [[Int]] = [] // 结果列表（子集列表）
+        backtrack(state: &state, target: target, total: total, choices: nums, res: &res)
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="subset_sum_i_naive.js"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    function backtrack(state, target, total, choices, res) {
+        // 子集和等于 target 时，记录解
+        if (total === target) {
+            res.push([...state]);
+            return;
+        }
+        // 遍历所有选择
+        for (let i = 0; i < choices.length; i++) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if (total + choices[i] > target) {
+                continue;
+            }
+            // 尝试：做出选择，更新元素和 total
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target, total + choices[i], choices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    function subsetSumINaive(nums, target) {
+        const state = []; // 状态（子集）
+        const total = 0; // 子集和
+        const res = []; // 结果列表（子集列表）
+        backtrack(state, target, total, nums, res);
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="subset_sum_i_naive.ts"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    function backtrack(
+        state: number[],
+        target: number,
+        total: number,
+        choices: number[],
+        res: number[][]
+    ): void {
+        // 子集和等于 target 时，记录解
+        if (total === target) {
+            res.push([...state]);
+            return;
+        }
+        // 遍历所有选择
+        for (let i = 0; i < choices.length; i++) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if (total + choices[i] > target) {
+                continue;
+            }
+            // 尝试：做出选择，更新元素和 total
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target, total + choices[i], choices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    function subsetSumINaive(nums: number[], target: number): number[][] {
+        const state = []; // 状态（子集）
+        const total = 0; // 子集和
+        const res = []; // 结果列表（子集列表）
+        backtrack(state, target, total, nums, res);
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="subset_sum_i_naive.dart"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(
+      List<int> state,
+      int target,
+      int total,
+      List<int> choices,
+      List<List<int>> res,
+    ) {
+      // 子集和等于 target 时，记录解
+      if (total == target) {
+        res.add(List.from(state));
+        return;
+      }
+      // 遍历所有选择
+      for (int i = 0; i < choices.length; i++) {
+        // 剪枝：若子集和超过 target ，则跳过该选择
+        if (total + choices[i] > target) {
+          continue;
+        }
+        // 尝试：做出选择，更新元素和 total
+        state.add(choices[i]);
+        // 进行下一轮选择
+        backtrack(state, target, total + choices[i], choices, res);
+        // 回退：撤销选择，恢复到之前的状态
+        state.removeLast();
+      }
+    }
 
-    [class]{}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    List<List<int>> subsetSumINaive(List<int> nums, int target) {
+      List<int> state = []; // 状态（子集）
+      int total = 0; // 元素和
+      List<List<int>> res = []; // 结果列表（子集列表）
+      backtrack(state, target, total, nums, res);
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="subset_sum_i_naive.rs"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    fn backtrack(mut state: Vec<i32>, target: i32, total: i32, choices: &[i32], res: &mut Vec<Vec<i32>>) {
+        // 子集和等于 target 时，记录解
+        if total == target {
+            res.push(state);
+            return;
+        }
+        // 遍历所有选择
+        for i in 0..choices.len() {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if total + choices[i] > target {
+                continue;
+            }
+            // 尝试：做出选择，更新元素和 total
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state.clone(), target, total + choices[i], choices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subset_sum_i_naive}
+    /* 求解子集和 I（包含重复子集） */
+    fn subset_sum_i_naive(nums: &[i32], target: i32) -> Vec<Vec<i32>> {
+        let state = Vec::new(); // 状态（子集）
+        let total = 0; // 子集和
+        let mut res = Vec::new(); // 结果列表（子集列表）
+        backtrack(state, target, total, nums, &mut res);
+        res
+    }
     ```
 
 === "C"
 
     ```c title="subset_sum_i_naive.c"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(vector *state, int target, int total, vector *choices, vector *res) {
+        // 子集和等于 target 时，记录解
+        if (total == target) {
+            vector *tmpVector = newVector();
+            for (int i = 0; i < state->size; i++) {
+                vectorPushback(tmpVector, state->data[i], sizeof(int));
+            }
+            vectorPushback(res, tmpVector, sizeof(vector));
+            return;
+        }
+        // 遍历所有选择
+        for (size_t i = 0; i < choices->size; i++) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if (total + *(int *)(choices->data[i]) > target) {
+                continue;
+            }
+            // 尝试：做出选择，更新元素和 total
+            vectorPushback(state, choices->data[i], sizeof(int));
+            // 进行下一轮选择
+            backtrack(state, target, total + *(int *)(choices->data[i]), choices, res);
+            // 回退：撤销选择，恢复到之前的状态
+            vectorPopback(state);
+        }
+    }
 
-    [class]{}-[func]{subsetSumINaive}
+    /* 求解子集和 I（包含重复子集） */
+    vector *subsetSumINaive(vector *nums, int target) {
+        vector *state = newVector(); // 状态（子集）
+        int total = 0;               // 子集和
+        vector *res = newVector();   // 结果列表（子集列表）
+        backtrack(state, target, total, nums, res);
+        return res;
+    }
     ```
 
 === "Zig"
@@ -161,89 +476,432 @@ comments: true
 === "Python"
 
     ```python title="subset_sum_i.py"
-    [class]{}-[func]{backtrack}
+    def backtrack(
+        state: list[int], target: int, choices: list[int], start: int, res: list[list[int]]
+    ):
+        """回溯算法：子集和 I"""
+        # 子集和等于 target 时，记录解
+        if target == 0:
+            res.append(list(state))
+            return
+        # 遍历所有选择
+        # 剪枝二：从 start 开始遍历，避免生成重复子集
+        for i in range(start, len(choices)):
+            # 剪枝一：若子集和超过 target ，则直接结束循环
+            # 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if target - choices[i] < 0:
+                break
+            # 尝试：做出选择，更新 target, start
+            state.append(choices[i])
+            # 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i, res)
+            # 回退：撤销选择，恢复到之前的状态
+            state.pop()
 
-    [class]{}-[func]{subset_sum_i}
+    def subset_sum_i(nums: list[int], target: int) -> list[list[int]]:
+        """求解子集和 I"""
+        state = []  # 状态（子集）
+        nums.sort()  # 对 nums 进行排序
+        start = 0  # 遍历起始点
+        res = []  # 结果列表（子集列表）
+        backtrack(state, target, nums, start, res)
+        return res
     ```
 
 === "C++"
 
     ```cpp title="subset_sum_i.cpp"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(vector<int> &state, int target, vector<int> &choices, int start, vector<vector<int>> &res) {
+        // 子集和等于 target 时，记录解
+        if (target == 0) {
+            res.push_back(state);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for (int i = start; i < choices.size(); i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push_back(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop_back();
+        }
+    }
 
-    [class]{}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    vector<vector<int>> subsetSumI(vector<int> &nums, int target) {
+        vector<int> state;              // 状态（子集）
+        sort(nums.begin(), nums.end()); // 对 nums 进行排序
+        int start = 0;                  // 遍历起始点
+        vector<vector<int>> res;        // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "Java"
 
     ```java title="subset_sum_i.java"
-    [class]{subset_sum_i}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(List<Integer> state, int target, int[] choices, int start, List<List<Integer>> res) {
+        // 子集和等于 target 时，记录解
+        if (target == 0) {
+            res.add(new ArrayList<>(state));
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for (int i = start; i < choices.length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.add(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.remove(state.size() - 1);
+        }
+    }
 
-    [class]{subset_sum_i}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    List<List<Integer>> subsetSumI(int[] nums, int target) {
+        List<Integer> state = new ArrayList<>(); // 状态（子集）
+        Arrays.sort(nums); // 对 nums 进行排序
+        int start = 0; // 遍历起始点
+        List<List<Integer>> res = new ArrayList<>(); // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="subset_sum_i.cs"
-    [class]{subset_sum_i}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
+        // 子集和等于 target 时，记录解
+        if (target == 0) {
+            res.Add(new List<int>(state));
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for (int i = start; i < choices.Length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.Add(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.RemoveAt(state.Count - 1);
+        }
+    }
 
-    [class]{subset_sum_i}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    List<List<int>> subsetSumI(int[] nums, int target) {
+        List<int> state = new List<int>(); // 状态（子集）
+        Array.Sort(nums); // 对 nums 进行排序
+        int start = 0; // 遍历起始点
+        List<List<int>> res = new List<List<int>>(); // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="subset_sum_i.go"
-    [class]{}-[func]{backtrackSubsetSumI}
+    /* 回溯算法：子集和 I */
+    func backtrackSubsetSumI(start, target int, state, choices *[]int, res *[][]int) {
+        // 子集和等于 target 时，记录解
+        if target == 0 {
+            newState := append([]int{}, *state...)
+            *res = append(*res, newState)
+            return
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for i := start; i < len(*choices); i++ {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if target-(*choices)[i] < 0 {
+                break
+            }
+            // 尝试：做出选择，更新 target, start
+            *state = append(*state, (*choices)[i])
+            // 进行下一轮选择
+            backtrackSubsetSumI(i, target-(*choices)[i], state, choices, res)
+            // 回退：撤销选择，恢复到之前的状态
+            *state = (*state)[:len(*state)-1]
+        }
+    }
 
-    [class]{}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    func subsetSumI(nums []int, target int) [][]int {
+        state := make([]int, 0) // 状态（子集）
+        sort.Ints(nums)         // 对 nums 进行排序
+        start := 0              // 遍历起始点
+        res := make([][]int, 0) // 结果列表（子集列表）
+        backtrackSubsetSumI(start, target, &state, &nums, &res)
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="subset_sum_i.swift"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    func backtrack(state: inout [Int], target: Int, choices: [Int], start: Int, res: inout [[Int]]) {
+        // 子集和等于 target 时，记录解
+        if target == 0 {
+            res.append(state)
+            return
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for i in stride(from: start, to: choices.count, by: 1) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if target - choices[i] < 0 {
+                break
+            }
+            // 尝试：做出选择，更新 target, start
+            state.append(choices[i])
+            // 进行下一轮选择
+            backtrack(state: &state, target: target - choices[i], choices: choices, start: i, res: &res)
+            // 回退：撤销选择，恢复到之前的状态
+            state.removeLast()
+        }
+    }
 
-    [class]{}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    func subsetSumI(nums: [Int], target: Int) -> [[Int]] {
+        var state: [Int] = [] // 状态（子集）
+        let nums = nums.sorted() // 对 nums 进行排序
+        let start = 0 // 遍历起始点
+        var res: [[Int]] = [] // 结果列表（子集列表）
+        backtrack(state: &state, target: target, choices: nums, start: start, res: &res)
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="subset_sum_i.js"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    function backtrack(state, target, choices, start, res) {
+        // 子集和等于 target 时，记录解
+        if (target === 0) {
+            res.push([...state]);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for (let i = start; i < choices.length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    function subsetSumI(nums, target) {
+        const state = []; // 状态（子集）
+        nums.sort((a, b) => a - b); // 对 nums 进行排序
+        const start = 0; // 遍历起始点
+        const res = []; // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="subset_sum_i.ts"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    function backtrack(
+        state: number[],
+        target: number,
+        choices: number[],
+        start: number,
+        res: number[][]
+    ): void {
+        // 子集和等于 target 时，记录解
+        if (target === 0) {
+            res.push([...state]);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for (let i = start; i < choices.length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    function subsetSumI(nums: number[], target: number): number[][] {
+        const state = []; // 状态（子集）
+        nums.sort((a, b) => a - b); // 对 nums 进行排序
+        const start = 0; // 遍历起始点
+        const res = []; // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="subset_sum_i.dart"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(
+      List<int> state,
+      int target,
+      List<int> choices,
+      int start,
+      List<List<int>> res,
+    ) {
+      // 子集和等于 target 时，记录解
+      if (target == 0) {
+        res.add(List.from(state));
+        return;
+      }
+      // 遍历所有选择
+      // 剪枝二：从 start 开始遍历，避免生成重复子集
+      for (int i = start; i < choices.length; i++) {
+        // 剪枝一：若子集和超过 target ，则直接结束循环
+        // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+        if (target - choices[i] < 0) {
+          break;
+        }
+        // 尝试：做出选择，更新 target, start
+        state.add(choices[i]);
+        // 进行下一轮选择
+        backtrack(state, target - choices[i], choices, i, res);
+        // 回退：撤销选择，恢复到之前的状态
+        state.removeLast();
+      }
+    }
 
-    [class]{}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    List<List<int>> subsetSumI(List<int> nums, int target) {
+      List<int> state = []; // 状态（子集）
+      nums.sort(); // 对 nums 进行排序
+      int start = 0; // 遍历起始点
+      List<List<int>> res = []; // 结果列表（子集列表）
+      backtrack(state, target, nums, start, res);
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="subset_sum_i.rs"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    fn backtrack(mut state: Vec<i32>, target: i32, choices: &[i32], start: usize, res: &mut Vec<Vec<i32>>) {
+        // 子集和等于 target 时，记录解
+        if target == 0 {
+            res.push(state);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for i in start..choices.len() {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if target - choices[i] < 0 {
+                break;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state.clone(), target - choices[i], choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subset_sum_i}
+    /* 求解子集和 I */
+    fn subset_sum_i(nums: &mut [i32], target: i32) -> Vec<Vec<i32>> {
+        let state = Vec::new(); // 状态（子集）
+        nums.sort(); // 对 nums 进行排序
+        let start = 0; // 遍历起始点
+        let mut res = Vec::new(); // 结果列表（子集列表）
+        backtrack(state, target, nums, start, &mut res);
+        res
+    }
     ```
 
 === "C"
 
     ```c title="subset_sum_i.c"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 I */
+    void backtrack(vector *state, int target, vector *choices, int start, vector *res) {
+        // 子集和等于 target 时，记录解
+        if (target == 0) {
+            vector *tmpVector = newVector();
+            for (int i = 0; i < state->size; i++) {
+                vectorPushback(tmpVector, state->data[i], sizeof(int));
+            }
+            vectorPushback(res, tmpVector, sizeof(vector));
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        for (int i = start; i < choices->size; i++) {
+            // 剪枝：若子集和超过 target ，则跳过该选择
+            if (target - *(int *)(choices->data[i]) < 0) {
+                break;
+            }
+            // 尝试：做出选择，更新 target, start
+            vectorPushback(state, choices->data[i], sizeof(int));
+            // 进行下一轮选择
+            backtrack(state, target - *(int *)(choices->data[i]), choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            vectorPopback(state);
+        }
+    }
 
-    [class]{}-[func]{subsetSumI}
+    /* 求解子集和 I */
+    vector *subsetSumI(vector *nums, int target) {
+        vector *state = newVector();                        // 状态（子集）
+        qsort(nums->data, nums->size, sizeof(int *), comp); // 对 nums 进行排序
+        int start = 0;                                      // 子集和
+        vector *res = newVector();                          // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "Zig"
@@ -285,89 +943,487 @@ comments: true
 === "Python"
 
     ```python title="subset_sum_ii.py"
-    [class]{}-[func]{backtrack}
+    def backtrack(
+        state: list[int], target: int, choices: list[int], start: int, res: list[list[int]]
+    ):
+        """回溯算法：子集和 II"""
+        # 子集和等于 target 时，记录解
+        if target == 0:
+            res.append(list(state))
+            return
+        # 遍历所有选择
+        # 剪枝二：从 start 开始遍历，避免生成重复子集
+        # 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for i in range(start, len(choices)):
+            # 剪枝一：若子集和超过 target ，则直接结束循环
+            # 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if target - choices[i] < 0:
+                break
+            # 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if i > start and choices[i] == choices[i - 1]:
+                continue
+            # 尝试：做出选择，更新 target, start
+            state.append(choices[i])
+            # 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i + 1, res)
+            # 回退：撤销选择，恢复到之前的状态
+            state.pop()
 
-    [class]{}-[func]{subset_sum_ii}
+    def subset_sum_ii(nums: list[int], target: int) -> list[list[int]]:
+        """求解子集和 II"""
+        state = []  # 状态（子集）
+        nums.sort()  # 对 nums 进行排序
+        start = 0  # 遍历起始点
+        res = []  # 结果列表（子集列表）
+        backtrack(state, target, nums, start, res)
+        return res
     ```
 
 === "C++"
 
     ```cpp title="subset_sum_ii.cpp"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    void backtrack(vector<int> &state, int target, vector<int> &choices, int start, vector<vector<int>> &res) {
+        // 子集和等于 target 时，记录解
+        if (target == 0) {
+            res.push_back(state);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for (int i = start; i < choices.size(); i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if (i > start && choices[i] == choices[i - 1]) {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push_back(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i + 1, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop_back();
+        }
+    }
 
-    [class]{}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    vector<vector<int>> subsetSumII(vector<int> &nums, int target) {
+        vector<int> state;              // 状态（子集）
+        sort(nums.begin(), nums.end()); // 对 nums 进行排序
+        int start = 0;                  // 遍历起始点
+        vector<vector<int>> res;        // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "Java"
 
     ```java title="subset_sum_ii.java"
-    [class]{subset_sum_ii}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    void backtrack(List<Integer> state, int target, int[] choices, int start, List<List<Integer>> res) {
+        // 子集和等于 target 时，记录解
+        if (target == 0) {
+            res.add(new ArrayList<>(state));
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for (int i = start; i < choices.length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if (i > start && choices[i] == choices[i - 1]) {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.add(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i + 1, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.remove(state.size() - 1);
+        }
+    }
 
-    [class]{subset_sum_ii}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    List<List<Integer>> subsetSumII(int[] nums, int target) {
+        List<Integer> state = new ArrayList<>(); // 状态（子集）
+        Arrays.sort(nums); // 对 nums 进行排序
+        int start = 0; // 遍历起始点
+        List<List<Integer>> res = new ArrayList<>(); // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="subset_sum_ii.cs"
-    [class]{subset_sum_ii}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    void backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
+        // 子集和等于 target 时，记录解
+        if (target == 0) {
+            res.Add(new List<int>(state));
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for (int i = start; i < choices.Length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if (i > start && choices[i] == choices[i - 1]) {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.Add(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i + 1, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.RemoveAt(state.Count - 1);
+        }
+    }
 
-    [class]{subset_sum_ii}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    List<List<int>> subsetSumII(int[] nums, int target) {
+        List<int> state = new List<int>(); // 状态（子集）
+        Array.Sort(nums); // 对 nums 进行排序
+        int start = 0; // 遍历起始点
+        List<List<int>> res = new List<List<int>>(); // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="subset_sum_ii.go"
-    [class]{}-[func]{backtrackSubsetSumII}
+    /* 回溯算法：子集和 II */
+    func backtrackSubsetSumII(start, target int, state, choices *[]int, res *[][]int) {
+        // 子集和等于 target 时，记录解
+        if target == 0 {
+            newState := append([]int{}, *state...)
+            *res = append(*res, newState)
+            return
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for i := start; i < len(*choices); i++ {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if target-(*choices)[i] < 0 {
+                break
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if i > start && (*choices)[i] == (*choices)[i-1] {
+                continue
+            }
+            // 尝试：做出选择，更新 target, start
+            *state = append(*state, (*choices)[i])
+            // 进行下一轮选择
+            backtrackSubsetSumII(i+1, target-(*choices)[i], state, choices, res)
+            // 回退：撤销选择，恢复到之前的状态
+            *state = (*state)[:len(*state)-1]
+        }
+    }
 
-    [class]{}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    func subsetSumII(nums []int, target int) [][]int {
+        state := make([]int, 0) // 状态（子集）
+        sort.Ints(nums)         // 对 nums 进行排序
+        start := 0              // 遍历起始点
+        res := make([][]int, 0) // 结果列表（子集列表）
+        backtrackSubsetSumII(start, target, &state, &nums, &res)
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="subset_sum_ii.swift"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    func backtrack(state: inout [Int], target: Int, choices: [Int], start: Int, res: inout [[Int]]) {
+        // 子集和等于 target 时，记录解
+        if target == 0 {
+            res.append(state)
+            return
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for i in stride(from: start, to: choices.count, by: 1) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if target - choices[i] < 0 {
+                break
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if i > start, choices[i] == choices[i - 1] {
+                continue
+            }
+            // 尝试：做出选择，更新 target, start
+            state.append(choices[i])
+            // 进行下一轮选择
+            backtrack(state: &state, target: target - choices[i], choices: choices, start: i + 1, res: &res)
+            // 回退：撤销选择，恢复到之前的状态
+            state.removeLast()
+        }
+    }
 
-    [class]{}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    func subsetSumII(nums: [Int], target: Int) -> [[Int]] {
+        var state: [Int] = [] // 状态（子集）
+        let nums = nums.sorted() // 对 nums 进行排序
+        let start = 0 // 遍历起始点
+        var res: [[Int]] = [] // 结果列表（子集列表）
+        backtrack(state: &state, target: target, choices: nums, start: start, res: &res)
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="subset_sum_ii.js"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    function backtrack(state, target, choices, start, res) {
+        // 子集和等于 target 时，记录解
+        if (target === 0) {
+            res.push([...state]);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for (let i = start; i < choices.length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if (i > start && choices[i] === choices[i - 1]) {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i + 1, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    function subsetSumII(nums, target) {
+        const state = []; // 状态（子集）
+        nums.sort((a, b) => a - b); // 对 nums 进行排序
+        const start = 0; // 遍历起始点
+        const res = []; // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="subset_sum_ii.ts"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    function backtrack(
+        state: number[],
+        target: number,
+        choices: number[],
+        start: number,
+        res: number[][]
+    ): void {
+        // 子集和等于 target 时，记录解
+        if (target === 0) {
+            res.push([...state]);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for (let i = start; i < choices.length; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - choices[i] < 0) {
+                break;
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if (i > start && choices[i] === choices[i - 1]) {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state, target - choices[i], choices, i + 1, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    function subsetSumII(nums: number[], target: number): number[][] {
+        const state = []; // 状态（子集）
+        nums.sort((a, b) => a - b); // 对 nums 进行排序
+        const start = 0; // 遍历起始点
+        const res = []; // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="subset_sum_ii.dart"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    void backtrack(
+      List<int> state,
+      int target,
+      List<int> choices,
+      int start,
+      List<List<int>> res,
+    ) {
+      // 子集和等于 target 时，记录解
+      if (target == 0) {
+        res.add(List.from(state));
+        return;
+      }
+      // 遍历所有选择
+      // 剪枝二：从 start 开始遍历，避免生成重复子集
+      // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+      for (int i = start; i < choices.length; i++) {
+        // 剪枝一：若子集和超过 target ，则直接结束循环
+        // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+        if (target - choices[i] < 0) {
+          break;
+        }
+        // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+        if (i > start && choices[i] == choices[i - 1]) {
+          continue;
+        }
+        // 尝试：做出选择，更新 target, start
+        state.add(choices[i]);
+        // 进行下一轮选择
+        backtrack(state, target - choices[i], choices, i + 1, res);
+        // 回退：撤销选择，恢复到之前的状态
+        state.removeLast();
+      }
+    }
 
-    [class]{}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    List<List<int>> subsetSumII(List<int> nums, int target) {
+      List<int> state = []; // 状态（子集）
+      nums.sort(); // 对 nums 进行排序
+      int start = 0; // 遍历起始点
+      List<List<int>> res = []; // 结果列表（子集列表）
+      backtrack(state, target, nums, start, res);
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="subset_sum_ii.rs"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    fn backtrack(mut state: Vec<i32>, target: i32, choices: &[i32], start: usize, res: &mut Vec<Vec<i32>>) {
+        // 子集和等于 target 时，记录解
+        if target == 0 {
+            res.push(state);
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for i in start..choices.len() {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if target - choices[i] < 0 {
+                break;
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if i > start && choices[i] == choices[i - 1] {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            state.push(choices[i]);
+            // 进行下一轮选择
+            backtrack(state.clone(), target - choices[i], choices, i, res);
+            // 回退：撤销选择，恢复到之前的状态
+            state.pop();
+        }
+    }
 
-    [class]{}-[func]{subset_sum_ii}
+    /* 求解子集和 II */
+    fn subset_sum_ii(nums: &mut [i32], target: i32) -> Vec<Vec<i32>> {
+        let state = Vec::new(); // 状态（子集）
+        nums.sort(); // 对 nums 进行排序
+        let start = 0; // 遍历起始点
+        let mut res = Vec::new(); // 结果列表（子集列表）
+        backtrack(state, target, nums, start, &mut res);
+        res
+    }
     ```
 
 === "C"
 
     ```c title="subset_sum_ii.c"
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：子集和 II */
+    void backtrack(vector *state, int target, vector *choices, int start, vector *res) {
+        // 子集和等于 target 时，记录解
+        if (target == 0) {
+            vector *tmpVector = newVector();
+            for (int i = 0; i < state->size; i++) {
+                vectorPushback(tmpVector, state->data[i], sizeof(int));
+            }
+            vectorPushback(res, tmpVector, sizeof(vector));
+            return;
+        }
+        // 遍历所有选择
+        // 剪枝二：从 start 开始遍历，避免生成重复子集
+        // 剪枝三：从 start 开始遍历，避免重复选择同一元素
+        for (int i = start; i < choices->size; i++) {
+            // 剪枝一：若子集和超过 target ，则直接结束循环
+            // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+            if (target - *(int *)(choices->data[i]) < 0) {
+                continue;
+            }
+            // 剪枝四：如果该元素与左边元素相等，说明该搜索分支重复，直接跳过
+            if (i > start && *(int *)(choices->data[i]) == *(int *)(choices->data[i - 1])) {
+                continue;
+            }
+            // 尝试：做出选择，更新 target, start
+            vectorPushback(state, choices->data[i], sizeof(int));
+            // 进行下一轮选择
+            backtrack(state, target - *(int *)(choices->data[i]), choices, i + 1, res);
+            // 回退：撤销选择，恢复到之前的状态
+            vectorPopback(state);
+        }
+    }
 
-    [class]{}-[func]{subsetSumII}
+    /* 求解子集和 II */
+    vector *subsetSumII(vector *nums, int target) {
+        vector *state = newVector();                        // 状态（子集）
+        qsort(nums->data, nums->size, sizeof(int *), comp); // 对 nums 进行排序
+        int start = 0;                                      // 子集和
+        vector *res = newVector();                          // 结果列表（子集列表）
+        backtrack(state, target, nums, start, res);
+        return res;
+    }
     ```
 
 === "Zig"

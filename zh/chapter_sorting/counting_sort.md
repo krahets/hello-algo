@@ -21,67 +21,294 @@ comments: true
 === "Python"
 
     ```python title="counting_sort.py"
-    [class]{}-[func]{counting_sort_naive}
+    def counting_sort_naive(nums: list[int]):
+        """计数排序"""
+        # 简单实现，无法用于排序对象
+        # 1. 统计数组最大元素 m
+        m = 0
+        for num in nums:
+            m = max(m, num)
+        # 2. 统计各数字的出现次数
+        # counter[num] 代表 num 的出现次数
+        counter = [0] * (m + 1)
+        for num in nums:
+            counter[num] += 1
+        # 3. 遍历 counter ，将各元素填入原数组 nums
+        i = 0
+        for num in range(m + 1):
+            for _ in range(counter[num]):
+                nums[i] = num
+                i += 1
     ```
 
 === "C++"
 
     ```cpp title="counting_sort.cpp"
-    [class]{}-[func]{countingSortNaive}
+    /* 计数排序 */
+    // 简单实现，无法用于排序对象
+    void countingSortNaive(vector<int> &nums) {
+        // 1. 统计数组最大元素 m
+        int m = 0;
+        for (int num : nums) {
+            m = max(m, num);
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        vector<int> counter(m + 1, 0);
+        for (int num : nums) {
+            counter[num]++;
+        }
+        // 3. 遍历 counter ，将各元素填入原数组 nums
+        int i = 0;
+        for (int num = 0; num < m + 1; num++) {
+            for (int j = 0; j < counter[num]; j++, i++) {
+                nums[i] = num;
+            }
+        }
+    }
     ```
 
 === "Java"
 
     ```java title="counting_sort.java"
-    [class]{counting_sort}-[func]{countingSortNaive}
+    /* 计数排序 */
+    // 简单实现，无法用于排序对象
+    void countingSortNaive(int[] nums) {
+        // 1. 统计数组最大元素 m
+        int m = 0;
+        for (int num : nums) {
+            m = Math.max(m, num);
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        int[] counter = new int[m + 1];
+        for (int num : nums) {
+            counter[num]++;
+        }
+        // 3. 遍历 counter ，将各元素填入原数组 nums
+        int i = 0;
+        for (int num = 0; num < m + 1; num++) {
+            for (int j = 0; j < counter[num]; j++, i++) {
+                nums[i] = num;
+            }
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="counting_sort.cs"
-    [class]{counting_sort}-[func]{countingSortNaive}
+    /* 计数排序 */
+    // 简单实现，无法用于排序对象
+    void countingSortNaive(int[] nums) {
+        // 1. 统计数组最大元素 m
+        int m = 0;
+        foreach (int num in nums) {
+            m = Math.Max(m, num);
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        int[] counter = new int[m + 1];
+        foreach (int num in nums) {
+            counter[num]++;
+        }
+        // 3. 遍历 counter ，将各元素填入原数组 nums
+        int i = 0;
+        for (int num = 0; num < m + 1; num++) {
+            for (int j = 0; j < counter[num]; j++, i++) {
+                nums[i] = num;
+            }
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="counting_sort.go"
-    [class]{}-[func]{countingSortNaive}
+    /* 计数排序 */
+    // 简单实现，无法用于排序对象
+    func countingSortNaive(nums []int) {
+        // 1. 统计数组最大元素 m
+        m := 0
+        for _, num := range nums {
+            if num > m {
+                m = num
+            }
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        counter := make([]int, m+1)
+        for _, num := range nums {
+            counter[num]++
+        }
+        // 3. 遍历 counter ，将各元素填入原数组 nums
+        for i, num := 0, 0; num < m+1; num++ {
+            for j := 0; j < counter[num]; j++ {
+                nums[i] = num
+                i++
+            }
+        }
+    }
     ```
 
 === "Swift"
 
     ```swift title="counting_sort.swift"
-    [class]{}-[func]{countingSortNaive}
+    /* 计数排序 */
+    // 简单实现，无法用于排序对象
+    func countingSortNaive(nums: inout [Int]) {
+        // 1. 统计数组最大元素 m
+        let m = nums.max()!
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        var counter = Array(repeating: 0, count: m + 1)
+        for num in nums {
+            counter[num] += 1
+        }
+        // 3. 遍历 counter ，将各元素填入原数组 nums
+        var i = 0
+        for num in stride(from: 0, to: m + 1, by: 1) {
+            for _ in stride(from: 0, to: counter[num], by: 1) {
+                nums[i] = num
+                i += 1
+            }
+        }
+    }
     ```
 
 === "JS"
 
     ```javascript title="counting_sort.js"
-    [class]{}-[func]{countingSortNaive}
+    /* 计数排序 */
+    // 简单实现，无法用于排序对象
+    function countingSortNaive(nums) {
+        // 1. 统计数组最大元素 m
+        let m = 0;
+        for (const num of nums) {
+            m = Math.max(m, num);
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        const counter = new Array(m + 1).fill(0);
+        for (const num of nums) {
+            counter[num]++;
+        }
+        // 3. 遍历 counter ，将各元素填入原数组 nums
+        let i = 0;
+        for (let num = 0; num < m + 1; num++) {
+            for (let j = 0; j < counter[num]; j++, i++) {
+                nums[i] = num;
+            }
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="counting_sort.ts"
-    [class]{}-[func]{countingSortNaive}
+    /* 计数排序 */
+    // 简单实现，无法用于排序对象
+    function countingSortNaive(nums: number[]): void {
+        // 1. 统计数组最大元素 m
+        let m = 0;
+        for (const num of nums) {
+            m = Math.max(m, num);
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        const counter: number[] = new Array<number>(m + 1).fill(0);
+        for (const num of nums) {
+            counter[num]++;
+        }
+        // 3. 遍历 counter ，将各元素填入原数组 nums
+        let i = 0;
+        for (let num = 0; num < m + 1; num++) {
+            for (let j = 0; j < counter[num]; j++, i++) {
+                nums[i] = num;
+            }
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="counting_sort.dart"
-    [class]{}-[func]{countingSortNaive}
+    /* 计数排序 */
+    // 简单实现，无法用于排序对象
+    void countingSortNaive(List<int> nums) {
+      // 1. 统计数组最大元素 m
+      int m = 0;
+      for (int num in nums) {
+        m = max(m, num);
+      }
+      // 2. 统计各数字的出现次数
+      // counter[num] 代表 num 的出现次数
+      List<int> counter = List.filled(m + 1, 0);
+      for (int num in nums) {
+        counter[num]++;
+      }
+      // 3. 遍历 counter ，将各元素填入原数组 nums
+      int i = 0;
+      for (int num = 0; num < m + 1; num++) {
+        for (int j = 0; j < counter[num]; j++, i++) {
+          nums[i] = num;
+        }
+      }
+    }
     ```
 
 === "Rust"
 
     ```rust title="counting_sort.rs"
-    [class]{}-[func]{counting_sort_naive}
+    /* 计数排序 */
+    // 简单实现，无法用于排序对象
+    fn counting_sort_naive(nums: &mut [i32]) {
+        // 1. 统计数组最大元素 m
+        let m = *nums.into_iter().max().unwrap();
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        let mut counter = vec![0; m as usize + 1];
+        for &num in &*nums {
+            counter[num as usize] += 1;
+        }
+        // 3. 遍历 counter ，将各元素填入原数组 nums
+        let mut i = 0;
+        for num in 0..m + 1 {
+            for _ in 0..counter[num as usize] {
+                nums[i] = num;
+                i += 1;
+            }
+        }
+    }
     ```
 
 === "C"
 
     ```c title="counting_sort.c"
-    [class]{}-[func]{countingSortNaive}
+    /* 计数排序 */
+    // 简单实现，无法用于排序对象
+    void countingSortNaive(int nums[], int size) {
+        // 1. 统计数组最大元素 m
+        int m = 0;
+        for (int i = 0; i < size; i++) {
+            if (nums[i] > m) {
+                m = nums[i];
+            }
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        int *counter = malloc(sizeof(int) * m);
+        for (int i = 0; i < size; i++) {
+            counter[nums[i]]++;
+        }
+        // 3. 遍历 counter ，将各元素填入原数组 nums
+        int i = 0;
+        for (int num = 0; num < m + 1; num++) {
+            for (int j = 0; j < counter[num]; j++, i++) {
+                nums[i] = num;
+            }
+        }
+    }
     ```
 
 === "Zig"
@@ -142,67 +369,401 @@ $$
 === "Python"
 
     ```python title="counting_sort.py"
-    [class]{}-[func]{counting_sort}
+    def counting_sort(nums: list[int]):
+        """计数排序"""
+        # 完整实现，可排序对象，并且是稳定排序
+        # 1. 统计数组最大元素 m
+        m = max(nums)
+        # 2. 统计各数字的出现次数
+        # counter[num] 代表 num 的出现次数
+        counter = [0] * (m + 1)
+        for num in nums:
+            counter[num] += 1
+        # 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
+        # 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+        for i in range(m):
+            counter[i + 1] += counter[i]
+        # 4. 倒序遍历 nums ，将各元素填入结果数组 res
+        # 初始化数组 res 用于记录结果
+        n = len(nums)
+        res = [0] * n
+        for i in range(n - 1, -1, -1):
+            num = nums[i]
+            res[counter[num] - 1] = num  # 将 num 放置到对应索引处
+            counter[num] -= 1  # 令前缀和自减 1 ，得到下次放置 num 的索引
+        # 使用结果数组 res 覆盖原数组 nums
+        for i in range(n):
+            nums[i] = res[i]
     ```
 
 === "C++"
 
     ```cpp title="counting_sort.cpp"
-    [class]{}-[func]{countingSort}
+    /* 计数排序 */
+    // 完整实现，可排序对象，并且是稳定排序
+    void countingSort(vector<int> &nums) {
+        // 1. 统计数组最大元素 m
+        int m = 0;
+        for (int num : nums) {
+            m = max(m, num);
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        vector<int> counter(m + 1, 0);
+        for (int num : nums) {
+            counter[num]++;
+        }
+        // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
+        // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+        for (int i = 0; i < m; i++) {
+            counter[i + 1] += counter[i];
+        }
+        // 4. 倒序遍历 nums ，将各元素填入结果数组 res
+        // 初始化数组 res 用于记录结果
+        int n = nums.size();
+        vector<int> res(n);
+        for (int i = n - 1; i >= 0; i--) {
+            int num = nums[i];
+            res[counter[num] - 1] = num; // 将 num 放置到对应索引处
+            counter[num]--;              // 令前缀和自减 1 ，得到下次放置 num 的索引
+        }
+        // 使用结果数组 res 覆盖原数组 nums
+        nums = res;
+    }
     ```
 
 === "Java"
 
     ```java title="counting_sort.java"
-    [class]{counting_sort}-[func]{countingSort}
+    /* 计数排序 */
+    // 完整实现，可排序对象，并且是稳定排序
+    void countingSort(int[] nums) {
+        // 1. 统计数组最大元素 m
+        int m = 0;
+        for (int num : nums) {
+            m = Math.max(m, num);
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        int[] counter = new int[m + 1];
+        for (int num : nums) {
+            counter[num]++;
+        }
+        // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
+        // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+        for (int i = 0; i < m; i++) {
+            counter[i + 1] += counter[i];
+        }
+        // 4. 倒序遍历 nums ，将各元素填入结果数组 res
+        // 初始化数组 res 用于记录结果
+        int n = nums.length;
+        int[] res = new int[n];
+        for (int i = n - 1; i >= 0; i--) {
+            int num = nums[i];
+            res[counter[num] - 1] = num; // 将 num 放置到对应索引处
+            counter[num]--; // 令前缀和自减 1 ，得到下次放置 num 的索引
+        }
+        // 使用结果数组 res 覆盖原数组 nums
+        for (int i = 0; i < n; i++) {
+            nums[i] = res[i];
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="counting_sort.cs"
-    [class]{counting_sort}-[func]{countingSort}
+    /* 计数排序 */
+    // 完整实现，可排序对象，并且是稳定排序
+    void countingSort(int[] nums) {
+        // 1. 统计数组最大元素 m
+        int m = 0;
+        foreach (int num in nums) {
+            m = Math.Max(m, num);
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        int[] counter = new int[m + 1];
+        foreach (int num in nums) {
+            counter[num]++;
+        }
+        // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
+        // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+        for (int i = 0; i < m; i++) {
+            counter[i + 1] += counter[i];
+        }
+        // 4. 倒序遍历 nums ，将各元素填入结果数组 res
+        // 初始化数组 res 用于记录结果
+        int n = nums.Length;
+        int[] res = new int[n];
+        for (int i = n - 1; i >= 0; i--) {
+            int num = nums[i];
+            res[counter[num] - 1] = num; // 将 num 放置到对应索引处
+            counter[num]--; // 令前缀和自减 1 ，得到下次放置 num 的索引
+        }
+        // 使用结果数组 res 覆盖原数组 nums
+        for (int i = 0; i < n; i++) {
+            nums[i] = res[i];
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="counting_sort.go"
-    [class]{}-[func]{countingSort}
+    /* 计数排序 */
+    // 完整实现，可排序对象，并且是稳定排序
+    func countingSort(nums []int) {
+        // 1. 统计数组最大元素 m
+        m := 0
+        for _, num := range nums {
+            if num > m {
+                m = num
+            }
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        counter := make([]int, m+1)
+        for _, num := range nums {
+            counter[num]++
+        }
+        // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
+        // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+        for i := 0; i < m; i++ {
+            counter[i+1] += counter[i]
+        }
+        // 4. 倒序遍历 nums ，将各元素填入结果数组 res
+        // 初始化数组 res 用于记录结果
+        n := len(nums)
+        res := make([]int, n)
+        for i := n - 1; i >= 0; i-- {
+            num := nums[i]
+            // 将 num 放置到对应索引处
+            res[counter[num]-1] = num
+            // 令前缀和自减 1 ，得到下次放置 num 的索引
+            counter[num]--
+        }
+        // 使用结果数组 res 覆盖原数组 nums
+        copy(nums, res)
+    }
     ```
 
 === "Swift"
 
     ```swift title="counting_sort.swift"
-    [class]{}-[func]{countingSort}
+    /* 计数排序 */
+    // 完整实现，可排序对象，并且是稳定排序
+    func countingSort(nums: inout [Int]) {
+        // 1. 统计数组最大元素 m
+        let m = nums.max()!
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        var counter = Array(repeating: 0, count: m + 1)
+        for num in nums {
+            counter[num] += 1
+        }
+        // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
+        // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+        for i in stride(from: 0, to: m, by: 1) {
+            counter[i + 1] += counter[i]
+        }
+        // 4. 倒序遍历 nums ，将各元素填入结果数组 res
+        // 初始化数组 res 用于记录结果
+        var res = Array(repeating: 0, count: nums.count)
+        for i in stride(from: nums.count - 1, through: 0, by: -1) {
+            let num = nums[i]
+            res[counter[num] - 1] = num // 将 num 放置到对应索引处
+            counter[num] -= 1 // 令前缀和自减 1 ，得到下次放置 num 的索引
+        }
+        // 使用结果数组 res 覆盖原数组 nums
+        for i in stride(from: 0, to: nums.count, by: 1) {
+            nums[i] = res[i]
+        }
+    }
     ```
 
 === "JS"
 
     ```javascript title="counting_sort.js"
-    [class]{}-[func]{countingSort}
+    /* 计数排序 */
+    // 完整实现，可排序对象，并且是稳定排序
+    function countingSort(nums) {
+        // 1. 统计数组最大元素 m
+        let m = 0;
+        for (const num of nums) {
+            m = Math.max(m, num);
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        const counter = new Array(m + 1).fill(0);
+        for (const num of nums) {
+            counter[num]++;
+        }
+        // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
+        // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+        for (let i = 0; i < m; i++) {
+            counter[i + 1] += counter[i];
+        }
+        // 4. 倒序遍历 nums ，将各元素填入结果数组 res
+        // 初始化数组 res 用于记录结果
+        const n = nums.length;
+        const res = new Array(n);
+        for (let i = n - 1; i >= 0; i--) {
+            const num = nums[i];
+            res[counter[num] - 1] = num; // 将 num 放置到对应索引处
+            counter[num]--; // 令前缀和自减 1 ，得到下次放置 num 的索引
+        }
+        // 使用结果数组 res 覆盖原数组 nums
+        for (let i = 0; i < n; i++) {
+            nums[i] = res[i];
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="counting_sort.ts"
-    [class]{}-[func]{countingSort}
+    /* 计数排序 */
+    // 完整实现，可排序对象，并且是稳定排序
+    function countingSort(nums: number[]): void {
+        // 1. 统计数组最大元素 m
+        let m = 0;
+        for (const num of nums) {
+            m = Math.max(m, num);
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        const counter: number[] = new Array<number>(m + 1).fill(0);
+        for (const num of nums) {
+            counter[num]++;
+        }
+        // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
+        // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+        for (let i = 0; i < m; i++) {
+            counter[i + 1] += counter[i];
+        }
+        // 4. 倒序遍历 nums ，将各元素填入结果数组 res
+        // 初始化数组 res 用于记录结果
+        const n = nums.length;
+        const res: number[] = new Array<number>(n);
+        for (let i = n - 1; i >= 0; i--) {
+            const num = nums[i];
+            res[counter[num] - 1] = num; // 将 num 放置到对应索引处
+            counter[num]--; // 令前缀和自减 1 ，得到下次放置 num 的索引
+        }
+        // 使用结果数组 res 覆盖原数组 nums
+        for (let i = 0; i < n; i++) {
+            nums[i] = res[i];
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="counting_sort.dart"
-    [class]{}-[func]{countingSort}
+    /* 计数排序 */
+    // 完整实现，可排序对象，并且是稳定排序
+    void countingSort(List<int> nums) {
+      // 1. 统计数组最大元素 m
+      int m = 0;
+      for (int num in nums) {
+        m = max(m, num);
+      }
+      // 2. 统计各数字的出现次数
+      // counter[num] 代表 num 的出现次数
+      List<int> counter = List.filled(m + 1, 0);
+      for (int num in nums) {
+        counter[num]++;
+      }
+      // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
+      // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+      for (int i = 0; i < m; i++) {
+        counter[i + 1] += counter[i];
+      }
+      // 4. 倒序遍历 nums ，将各元素填入结果数组 res
+      // 初始化数组 res 用于记录结果
+      int n = nums.length;
+      List<int> res = List.filled(n, 0);
+      for (int i = n - 1; i >= 0; i--) {
+        int num = nums[i];
+        res[counter[num] - 1] = num; // 将 num 放置到对应索引处
+        counter[num]--; // 令前缀和自减 1 ，得到下次放置 num 的索引
+      }
+      // 使用结果数组 res 覆盖原数组 nums
+      nums.setAll(0, res);
+    }
     ```
 
 === "Rust"
 
     ```rust title="counting_sort.rs"
-    [class]{}-[func]{counting_sort}
+    /* 计数排序 */
+    // 完整实现，可排序对象，并且是稳定排序
+    fn counting_sort(nums: &mut [i32]) {
+        // 1. 统计数组最大元素 m
+        let m = *nums.into_iter().max().unwrap();
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        let mut counter = vec![0; m as usize + 1];
+        for &num in &*nums {
+            counter[num as usize] += 1;
+        }
+        // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
+        // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+        for i in 0..m as usize {
+            counter[i + 1] += counter[i];
+        }
+        // 4. 倒序遍历 nums ，将各元素填入结果数组 res
+        // 初始化数组 res 用于记录结果
+        let n = nums.len();
+        let mut res = vec![0; n];
+        for i in (0..n).rev() {
+            let num = nums[i];
+            res[counter[num as usize] - 1] = num; // 将 num 放置到对应索引处
+            counter[num as usize] -= 1; // 令前缀和自减 1 ，得到下次放置 num 的索引
+        }
+        // 使用结果数组 res 覆盖原数组 nums
+        for i in 0..n {
+            nums[i] = res[i];
+        }
+    }
     ```
 
 === "C"
 
     ```c title="counting_sort.c"
-    [class]{}-[func]{countingSort}
+    /* 计数排序 */
+    // 完整实现，可排序对象，并且是稳定排序
+    void countingSort(int nums[], int size) {
+        // 1. 统计数组最大元素 m
+        int m = 0;
+        for (int i = 0; i < size; i++) {
+            if (nums[i] > m) {
+                m = nums[i];
+            }
+        }
+        // 2. 统计各数字的出现次数
+        // counter[num] 代表 num 的出现次数
+        int *counter = malloc(sizeof(int) * m);
+        for (int i = 0; i < size; i++) {
+            counter[nums[i]]++;
+        }
+        // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
+        // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
+        for (int i = 0; i < m; i++) {
+            counter[i + 1] += counter[i];
+        }
+        // 4. 倒序遍历 nums ，将各元素填入结果数组 res
+        // 初始化数组 res 用于记录结果
+        int *res = malloc(sizeof(int) * size);
+        for (int i = size - 1; i >= 0; i--) {
+            int num = nums[i];
+            res[counter[num] - 1] = num; // 将 num 放置到对应索引处
+            counter[num]--;              // 令前缀和自减 1 ，得到下次放置 num 的索引
+        }
+        // 使用结果数组 res 覆盖原数组 nums
+        memcpy(nums, res, size * sizeof(int));
+    }
     ```
 
 === "Zig"

@@ -55,133 +55,503 @@ index = hash(key) % capacity
 === "Python"
 
     ```python title="simple_hash.py"
-    [class]{}-[func]{add_hash}
+    def add_hash(key: str) -> int:
+        """加法哈希"""
+        hash = 0
+        modulus = 1000000007
+        for c in key:
+            hash += ord(c)
+        return hash % modulus
 
-    [class]{}-[func]{mul_hash}
+    def mul_hash(key: str) -> int:
+        """乘法哈希"""
+        hash = 0
+        modulus = 1000000007
+        for c in key:
+            hash = 31 * hash + ord(c)
+        return hash % modulus
 
-    [class]{}-[func]{xor_hash}
+    def xor_hash(key: str) -> int:
+        """异或哈希"""
+        hash = 0
+        modulus = 1000000007
+        for c in key:
+            hash ^= ord(c)
+        return hash % modulus
 
-    [class]{}-[func]{rot_hash}
+    def rot_hash(key: str) -> int:
+        """旋转哈希"""
+        hash = 0
+        modulus = 1000000007
+        for c in key:
+            hash = (hash << 4) ^ (hash >> 28) ^ ord(c)
+        return hash % modulus
     ```
 
 === "C++"
 
     ```cpp title="simple_hash.cpp"
-    [class]{}-[func]{addHash}
+    /* 加法哈希 */
+    int addHash(string key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (unsigned char c : key) {
+            hash = (hash + (int)c) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{}-[func]{mulHash}
+    /* 乘法哈希 */
+    int mulHash(string key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (unsigned char c : key) {
+            hash = (31 * hash + (int)c) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{}-[func]{xorHash}
+    /* 异或哈希 */
+    int xorHash(string key) {
+        int hash = 0;
+        const int MODULUS = 1000000007;
+        for (unsigned char c : key) {
+            hash ^= (int)c;
+        }
+        return hash & MODULUS;
+    }
 
-    [class]{}-[func]{rotHash}
+    /* 旋转哈希 */
+    int rotHash(string key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (unsigned char c : key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ (int)c) % MODULUS;
+        }
+        return (int)hash;
+    }
     ```
 
 === "Java"
 
     ```java title="simple_hash.java"
-    [class]{simple_hash}-[func]{addHash}
+    /* 加法哈希 */
+    int addHash(String key) {
+        long hash = 0;
+        final int MODULUS = 1000000007;
+        for (char c : key.toCharArray()) {
+            hash = (hash + (int) c) % MODULUS;
+        }
+        return (int) hash;
+    }
 
-    [class]{simple_hash}-[func]{mulHash}
+    /* 乘法哈希 */
+    int mulHash(String key) {
+        long hash = 0;
+        final int MODULUS = 1000000007;
+        for (char c : key.toCharArray()) {
+            hash = (31 * hash + (int) c) % MODULUS;
+        }
+        return (int) hash;
+    }
 
-    [class]{simple_hash}-[func]{xorHash}
+    /* 异或哈希 */
+    int xorHash(String key) {
+        int hash = 0;
+        final int MODULUS = 1000000007;
+        for (char c : key.toCharArray()) {
+            hash ^= (int) c;
+        }
+        return hash & MODULUS;
+    }
 
-    [class]{simple_hash}-[func]{rotHash}
+    /* 旋转哈希 */
+    int rotHash(String key) {
+        long hash = 0;
+        final int MODULUS = 1000000007;
+        for (char c : key.toCharArray()) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ (int) c) % MODULUS;
+        }
+        return (int) hash;
+    }
     ```
 
 === "C#"
 
     ```csharp title="simple_hash.cs"
-    [class]{simple_hash}-[func]{addHash}
+    /* 加法哈希 */
+    int addHash(string key) {
+        long hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash = (hash + c) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{simple_hash}-[func]{mulHash}
+    /* 乘法哈希 */
+    int mulHash(string key) {
+        long hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash = (31 * hash + c) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{simple_hash}-[func]{xorHash}
+    /* 异或哈希 */
+    int xorHash(string key) {
+        int hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash ^= c;
+        }
+        return hash & MODULUS;
+    }
 
-    [class]{simple_hash}-[func]{rotHash}
+    /* 旋转哈希 */
+    int rotHash(string key) {
+        long hash = 0;
+        const int MODULUS = 1000000007;
+        foreach (char c in key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ c) % MODULUS;
+        }
+        return (int)hash;
+    }
     ```
 
 === "Go"
 
     ```go title="simple_hash.go"
-    [class]{}-[func]{addHash}
+    /* 加法哈希 */
+    func addHash(key string) int {
+        var hash int64
+        var modulus int64
 
-    [class]{}-[func]{mulHash}
+        modulus = 1000000007
+        for _, b := range []byte(key) {
+            hash = (hash + int64(b)) % modulus
+        }
+        return int(hash)
+    }
 
-    [class]{}-[func]{xorHash}
+    /* 乘法哈希 */
+    func mulHash(key string) int {
+        var hash int64
+        var modulus int64
 
-    [class]{}-[func]{rotHash}
+        modulus = 1000000007
+        for _, b := range []byte(key) {
+            hash = (31*hash + int64(b)) % modulus
+        }
+        return int(hash)
+    }
+
+    /* 异或哈希 */
+    func xorHash(key string) int {
+        hash := 0
+        modulus := 1000000007
+        for _, b := range []byte(key) {
+            fmt.Println(int(b))
+            hash ^= int(b)
+            hash = (31*hash + int(b)) % modulus
+        }
+        return hash & modulus
+    }
+
+    /* 旋转哈希 */
+    func rotHash(key string) int {
+        var hash int64
+        var modulus int64
+
+        modulus = 1000000007
+        for _, b := range []byte(key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ int64(b)) % modulus
+        }
+        return int(hash)
+    }
     ```
 
 === "Swift"
 
     ```swift title="simple_hash.swift"
-    [class]{}-[func]{addHash}
+    /* 加法哈希 */
+    func addHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash = (hash + Int(scalar.value)) % MODULUS
+            }
+        }
+        return hash
+    }
 
-    [class]{}-[func]{mulHash}
+    /* 乘法哈希 */
+    func mulHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash = (31 * hash + Int(scalar.value)) % MODULUS
+            }
+        }
+        return hash
+    }
 
-    [class]{}-[func]{xorHash}
+    /* 异或哈希 */
+    func xorHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash ^= Int(scalar.value)
+            }
+        }
+        return hash & MODULUS
+    }
 
-    [class]{}-[func]{rotHash}
+    /* 旋转哈希 */
+    func rotHash(key: String) -> Int {
+        var hash = 0
+        let MODULUS = 1_000_000_007
+        for c in key {
+            for scalar in c.unicodeScalars {
+                hash = ((hash << 4) ^ (hash >> 28) ^ Int(scalar.value)) % MODULUS
+            }
+        }
+        return hash
+    }
     ```
 
 === "JS"
 
     ```javascript title="simple_hash.js"
-    [class]{}-[func]{addHash}
+    /* 加法哈希 */
+    function addHash(key) {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash = (hash + c.charCodeAt(0)) % MODULUS;
+        }
+        return hash;
+    }
 
-    [class]{}-[func]{mulHash}
+    /* 乘法哈希 */
+    function mulHash(key) {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash = (31 * hash + c.charCodeAt(0)) % MODULUS;
+        }
+        return hash;
+    }
 
-    [class]{}-[func]{xorHash}
+    /* 异或哈希 */
+    function xorHash(key) {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash ^= c.charCodeAt(0);
+        }
+        return hash & MODULUS;
+    }
 
-    [class]{}-[func]{rotHash}
+    /* 旋转哈希 */
+    function rotHash(key) {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ c.charCodeAt(0)) % MODULUS;
+        }
+        return hash;
+    }
     ```
 
 === "TS"
 
     ```typescript title="simple_hash.ts"
-    [class]{}-[func]{addHash}
+    /* 加法哈希 */
+    function addHash(key: string): number {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash = (hash + c.charCodeAt(0)) % MODULUS;
+        }
+        return hash;
+    }
 
-    [class]{}-[func]{mulHash}
+    /* 乘法哈希 */
+    function mulHash(key: string): number {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash = (31 * hash + c.charCodeAt(0)) % MODULUS;
+        }
+        return hash;
+    }
 
-    [class]{}-[func]{xorHash}
+    /* 异或哈希 */
+    function xorHash(key: string): number {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash ^= c.charCodeAt(0);
+        }
+        return hash & MODULUS;
+    }
 
-    [class]{}-[func]{rotHash}
+    /* 旋转哈希 */
+    function rotHash(key: string): number {
+        let hash = 0;
+        const MODULUS = 1000000007;
+        for (const c of key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ c.charCodeAt(0)) % MODULUS;
+        }
+        return hash;
+    }
     ```
 
 === "Dart"
 
     ```dart title="simple_hash.dart"
-    [class]{}-[func]{addHash}
+    /* 加法哈希 */
+    int addHash(String key) {
+      int hash = 0;
+      final int MODULUS = 1000000007;
+      for (int i = 0; i < key.length; i++) {
+        hash = (hash + key.codeUnitAt(i)) % MODULUS;
+      }
+      return hash;
+    }
 
-    [class]{}-[func]{mulHash}
+    /* 乘法哈希 */
+    int mulHash(String key) {
+      int hash = 0;
+      final int MODULUS = 1000000007;
+      for (int i = 0; i < key.length; i++) {
+        hash = (31 * hash + key.codeUnitAt(i)) % MODULUS;
+      }
+      return hash;
+    }
 
-    [class]{}-[func]{xorHash}
+    /* 异或哈希 */
+    int xorHash(String key) {
+      int hash = 0;
+      final int MODULUS = 1000000007;
+      for (int i = 0; i < key.length; i++) {
+        hash ^= key.codeUnitAt(i);
+      }
+      return hash & MODULUS;
+    }
 
-    [class]{}-[func]{rotHash}
+    /* 旋转哈希 */
+    int rotHash(String key) {
+      int hash = 0;
+      final int MODULUS = 1000000007;
+      for (int i = 0; i < key.length; i++) {
+        hash = ((hash << 4) ^ (hash >> 28) ^ key.codeUnitAt(i)) % MODULUS;
+      }
+      return hash;
+    }
     ```
 
 === "Rust"
 
     ```rust title="simple_hash.rs"
-    [class]{}-[func]{add_hash}
+    /* 加法哈希 */
+    fn add_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
 
-    [class]{}-[func]{mul_hash}
+        for c in key.chars() {
+            hash = (hash + c as i64) % MODULUS;
+        }
 
-    [class]{}-[func]{xor_hash}
+        hash as i32
+    } 
 
-    [class]{}-[func]{rot_hash}
+    /* 乘法哈希 */
+    fn mul_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash = (31 * hash + c as i64) % MODULUS;
+        }
+
+        hash as i32
+    }
+
+    /* 异或哈希 */
+    fn xor_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash ^= c as i64;
+        }
+
+        (hash & MODULUS) as i32
+    }
+
+    /* 旋转哈希 */
+    fn rot_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash = ((hash << 4) ^ (hash >> 28) ^ c as i64) % MODULUS;
+        }
+
+        hash as i32
+    }
     ```
 
 === "C"
 
     ```c title="simple_hash.c"
-    [class]{}-[func]{addHash}
+    /* 加法哈希 */
+    int addHash(char *key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (int i = 0; i < strlen(key); i++) {
+            hash = (hash + (unsigned char)key[i]) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{}-[func]{mulHash}
+    /* 乘法哈希 */
+    int mulHash(char *key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (int i = 0; i < strlen(key); i++) {
+            hash = (31 * hash + (unsigned char)key[i]) % MODULUS;
+        }
+        return (int)hash;
+    }
 
-    [class]{}-[func]{xorHash}
+    /* 异或哈希 */
+    int xorHash(char *key) {
+        int hash = 0;
+        const int MODULUS = 1000000007;
 
-    [class]{}-[func]{rotHash}
+        for (int i = 0; i < strlen(key); i++) {
+            hash ^= (unsigned char)key[i];
+        }
+        return hash & MODULUS;
+    }
+
+    /* 旋转哈希 */
+    int rotHash(char *key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (int i = 0; i < strlen(key); i++) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ (unsigned char)key[i]) % MODULUS;
+        }
+
+        return (int)hash;
+    }
     ```
 
 === "Zig"

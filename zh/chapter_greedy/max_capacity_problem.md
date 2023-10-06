@@ -95,67 +95,277 @@ $$
 === "Python"
 
     ```python title="max_capacity.py"
-    [class]{}-[func]{max_capacity}
+    def max_capacity(ht: list[int]) -> int:
+        """最大容量：贪心"""
+        # 初始化 i, j 分列数组两端
+        i, j = 0, len(ht) - 1
+        # 初始最大容量为 0
+        res = 0
+        # 循环贪心选择，直至两板相遇
+        while i < j:
+            # 更新最大容量
+            cap = min(ht[i], ht[j]) * (j - i)
+            res = max(res, cap)
+            # 向内移动短板
+            if ht[i] < ht[j]:
+                i += 1
+            else:
+                j -= 1
+        return res
     ```
 
 === "C++"
 
     ```cpp title="max_capacity.cpp"
-    [class]{}-[func]{maxCapacity}
+    /* 最大容量：贪心 */
+    int maxCapacity(vector<int> &ht) {
+        // 初始化 i, j 分列数组两端
+        int i = 0, j = ht.size() - 1;
+        // 初始最大容量为 0
+        int res = 0;
+        // 循环贪心选择，直至两板相遇
+        while (i < j) {
+            // 更新最大容量
+            int cap = min(ht[i], ht[j]) * (j - i);
+            res = max(res, cap);
+            // 向内移动短板
+            if (ht[i] < ht[j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return res;
+    }
     ```
 
 === "Java"
 
     ```java title="max_capacity.java"
-    [class]{max_capacity}-[func]{maxCapacity}
+    /* 最大容量：贪心 */
+    int maxCapacity(int[] ht) {
+        // 初始化 i, j 分列数组两端
+        int i = 0, j = ht.length - 1;
+        // 初始最大容量为 0
+        int res = 0;
+        // 循环贪心选择，直至两板相遇
+        while (i < j) {
+            // 更新最大容量
+            int cap = Math.min(ht[i], ht[j]) * (j - i);
+            res = Math.max(res, cap);
+            // 向内移动短板
+            if (ht[i] < ht[j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return res;
+    }
     ```
 
 === "C#"
 
     ```csharp title="max_capacity.cs"
-    [class]{max_capacity}-[func]{maxCapacity}
+    /* 最大容量：贪心 */
+    int maxCapacity(int[] ht) {
+        // 初始化 i, j 分列数组两端
+        int i = 0, j = ht.Length - 1;
+        // 初始最大容量为 0
+        int res = 0;
+        // 循环贪心选择，直至两板相遇
+        while (i < j) {
+            // 更新最大容量
+            int cap = Math.Min(ht[i], ht[j]) * (j - i);
+            res = Math.Max(res, cap);
+            // 向内移动短板
+            if (ht[i] < ht[j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return res;
+    }
     ```
 
 === "Go"
 
     ```go title="max_capacity.go"
-    [class]{}-[func]{maxCapacity}
+    /* 最大容量：贪心 */
+    func maxCapacity(ht []int) int {
+        // 初始化 i, j 分列数组两端
+        i, j := 0, len(ht)-1
+        // 初始最大容量为 0
+        res := 0
+        // 循环贪心选择，直至两板相遇
+        for i < j {
+            // 更新最大容量
+            capacity := int(math.Min(float64(ht[i]), float64(ht[j]))) * (j - i)
+            res = int(math.Max(float64(res), float64(capacity)))
+            // 向内移动短板
+            if ht[i] < ht[j] {
+                i++
+            } else {
+                j--
+            }
+        }
+        return res
+    }
     ```
 
 === "Swift"
 
     ```swift title="max_capacity.swift"
-    [class]{}-[func]{maxCapacity}
+    /* 最大容量：贪心 */
+    func maxCapacity(ht: [Int]) -> Int {
+        // 初始化 i, j 分列数组两端
+        var i = 0, j = ht.count - 1
+        // 初始最大容量为 0
+        var res = 0
+        // 循环贪心选择，直至两板相遇
+        while i < j {
+            // 更新最大容量
+            let cap = min(ht[i], ht[j]) * (j - i)
+            res = max(res, cap)
+            // 向内移动短板
+            if ht[i] < ht[j] {
+                i += 1
+            } else {
+                j -= 1
+            }
+        }
+        return res
+    }
     ```
 
 === "JS"
 
     ```javascript title="max_capacity.js"
-    [class]{}-[func]{maxCapacity}
+    /* 最大容量：贪心 */
+    function maxCapacity(ht) {
+        // 初始化 i, j 分列数组两端
+        let i = 0,
+            j = ht.length - 1;
+        // 初始最大容量为 0
+        let res = 0;
+        // 循环贪心选择，直至两板相遇
+        while (i < j) {
+            // 更新最大容量
+            const cap = Math.min(ht[i], ht[j]) * (j - i);
+            res = Math.max(res, cap);
+            // 向内移动短板
+            if (ht[i] < ht[j]) {
+                i += 1;
+            } else {
+                j -= 1;
+            }
+        }
+        return res;
+    }
     ```
 
 === "TS"
 
     ```typescript title="max_capacity.ts"
-    [class]{}-[func]{maxCapacity}
+    /* 最大容量：贪心 */
+    function maxCapacity(ht: number[]): number {
+        // 初始化 i, j 分列数组两端
+        let i = 0,
+            j = ht.length - 1;
+        // 初始最大容量为 0
+        let res = 0;
+        // 循环贪心选择，直至两板相遇
+        while (i < j) {
+            // 更新最大容量
+            const cap: number = Math.min(ht[i], ht[j]) * (j - i);
+            res = Math.max(res, cap);
+            // 向内移动短板
+            if (ht[i] < ht[j]) {
+                i += 1;
+            } else {
+                j -= 1;
+            }
+        }
+        return res;
+    }
     ```
 
 === "Dart"
 
     ```dart title="max_capacity.dart"
-    [class]{}-[func]{maxCapacity}
+    /* 最大容量：贪心 */
+    int maxCapacity(List<int> ht) {
+      // 初始化 i, j 分列数组两端
+      int i = 0, j = ht.length - 1;
+      // 初始最大容量为 0
+      int res = 0;
+      // 循环贪心选择，直至两板相遇
+      while (i < j) {
+        // 更新最大容量
+        int cap = min(ht[i], ht[j]) * (j - i);
+        res = max(res, cap);
+        // 向内移动短板
+        if (ht[i] < ht[j]) {
+          i++;
+        } else {
+          j--;
+        }
+      }
+      return res;
+    }
     ```
 
 === "Rust"
 
     ```rust title="max_capacity.rs"
-    [class]{}-[func]{max_capacity}
+    /* 最大容量：贪心 */
+    fn max_capacity(ht: &[i32]) -> i32 {
+        // 初始化 i, j 分列数组两端
+        let mut i = 0;
+        let mut j = ht.len() - 1;
+        // 初始最大容量为 0
+        let mut res = 0;
+        // 循环贪心选择，直至两板相遇
+        while i < j {
+            // 更新最大容量
+            let cap = std::cmp::min(ht[i], ht[j]) * (j - i) as i32;
+            res = std::cmp::max(res, cap);
+            // 向内移动短板
+            if ht[i] < ht[j] {
+                i += 1;
+            } else {
+                j -= 1;
+            }
+        }
+        res
+    }
     ```
 
 === "C"
 
     ```c title="max_capacity.c"
-    [class]{}-[func]{maxCapacity}
+    /* 最大容量：贪心 */
+    int maxCapacity(int ht[], int htLength) {
+        // 初始化 i, j 分列数组两端
+        int i = 0;
+        int j = htLength - 1;
+        // 初始最大容量为 0
+        int res = 0;
+        // 循环贪心选择，直至两板相遇
+        while (i < j) {
+            // 更新最大容量
+            int capacity = MIN(ht[i], ht[j]) * (j - i);
+            res = MAX(res, capacity);
+            // 向内移动短板
+            if (ht[i] < ht[j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return res;
+    }
     ```
 
 === "Zig"

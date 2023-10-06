@@ -113,61 +113,213 @@ $$
 === "Python"
 
     ```python title="min_path_sum.py"
-    [class]{}-[func]{min_path_sum_dfs}
+    def min_path_sum_dfs(grid: list[list[int]], i: int, j: int) -> int:
+        """最小路径和：暴力搜索"""
+        # 若为左上角单元格，则终止搜索
+        if i == 0 and j == 0:
+            return grid[0][0]
+        # 若行列索引越界，则返回 +∞ 代价
+        if i < 0 or j < 0:
+            return inf
+        # 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        left = min_path_sum_dfs(grid, i - 1, j)
+        up = min_path_sum_dfs(grid, i, j - 1)
+        # 返回从左上角到 (i, j) 的最小路径代价
+        return min(left, up) + grid[i][j]
     ```
 
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    [class]{}-[func]{minPathSumDFS}
+    /* 最小路径和：暴力搜索 */
+    int minPathSumDFS(vector<vector<int>> &grid, int i, int j) {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return INT_MAX;
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        int left = minPathSumDFS(grid, i - 1, j);
+        int up = minPathSumDFS(grid, i, j - 1);
+        // 返回从左上角到 (i, j) 的最小路径代价
+        return min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
+    }
     ```
 
 === "Java"
 
     ```java title="min_path_sum.java"
-    [class]{min_path_sum}-[func]{minPathSumDFS}
+    /* 最小路径和：暴力搜索 */
+    int minPathSumDFS(int[][] grid, int i, int j) {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return Integer.MAX_VALUE;
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        int left = minPathSumDFS(grid, i - 1, j);
+        int up = minPathSumDFS(grid, i, j - 1);
+        // 返回从左上角到 (i, j) 的最小路径代价
+        return Math.min(left, up) + grid[i][j];
+    }
     ```
 
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDFS}
+    /* 最小路径和：暴力搜索 */
+    int minPathSumDFS(int[][] grid, int i, int j) {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return int.MaxValue;
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        int left = minPathSumDFS(grid, i - 1, j);
+        int up = minPathSumDFS(grid, i, j - 1);
+        // 返回从左上角到 (i, j) 的最小路径代价
+        return Math.Min(left, up) + grid[i][j];
+    }
     ```
 
 === "Go"
 
     ```go title="min_path_sum.go"
-    [class]{}-[func]{minPathSumDFS}
+    /* 最小路径和：暴力搜索 */
+    func minPathSumDFS(grid [][]int, i, j int) int {
+        // 若为左上角单元格，则终止搜索
+        if i == 0 && j == 0 {
+            return grid[0][0]
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if i < 0 || j < 0 {
+            return math.MaxInt
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        left := minPathSumDFS(grid, i-1, j)
+        up := minPathSumDFS(grid, i, j-1)
+        // 返回从左上角到 (i, j) 的最小路径代价
+        return int(math.Min(float64(left), float64(up))) + grid[i][j]
+    }
     ```
 
 === "Swift"
 
     ```swift title="min_path_sum.swift"
-    [class]{}-[func]{minPathSumDFS}
+    /* 最小路径和：暴力搜索 */
+    func minPathSumDFS(grid: [[Int]], i: Int, j: Int) -> Int {
+        // 若为左上角单元格，则终止搜索
+        if i == 0, j == 0 {
+            return grid[0][0]
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if i < 0 || j < 0 {
+            return .max
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        let left = minPathSumDFS(grid: grid, i: i - 1, j: j)
+        let up = minPathSumDFS(grid: grid, i: i, j: j - 1)
+        // 返回从左上角到 (i, j) 的最小路径代价
+        return min(left, up) + grid[i][j]
+    }
     ```
 
 === "JS"
 
     ```javascript title="min_path_sum.js"
-    [class]{}-[func]{minPathSumDFS}
+    /* 最小路径和：暴力搜索 */
+    function minPathSumDFS(grid, i, j) {
+        // 若为左上角单元格，则终止搜索
+        if (i === 0 && j === 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return Infinity;
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        const left = minPathSumDFS(grid, i - 1, j);
+        const up = minPathSumDFS(grid, i, j - 1);
+        // 返回从左上角到 (i, j) 的最小路径代价
+        return Math.min(left, up) + grid[i][j];
+    }
     ```
 
 === "TS"
 
     ```typescript title="min_path_sum.ts"
-    [class]{}-[func]{minPathSumDFS}
+    /* 最小路径和：暴力搜索 */
+    function minPathSumDFS(
+        grid: Array<Array<number>>,
+        i: number,
+        j: number
+    ): number {
+        // 若为左上角单元格，则终止搜索
+        if (i === 0 && j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return Infinity;
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        const left = minPathSumDFS(grid, i - 1, j);
+        const up = minPathSumDFS(grid, i, j - 1);
+        // 返回从左上角到 (i, j) 的最小路径代价
+        return Math.min(left, up) + grid[i][j];
+    }
     ```
 
 === "Dart"
 
     ```dart title="min_path_sum.dart"
-    [class]{}-[func]{minPathSumDFS}
+    /* 最小路径和：暴力搜索 */
+    int minPathSumDFS(List<List<int>> grid, int i, int j) {
+      // 若为左上角单元格，则终止搜索
+      if (i == 0 && j == 0) {
+        return grid[0][0];
+      }
+      // 若行列索引越界，则返回 +∞ 代价
+      if (i < 0 || j < 0) {
+        // 在 Dart 中，int 类型是固定范围的整数，不存在表示“无穷大”的值
+        return BigInt.from(2).pow(31).toInt();
+      }
+      // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+      int left = minPathSumDFS(grid, i - 1, j);
+      int up = minPathSumDFS(grid, i, j - 1);
+      // 返回从左上角到 (i, j) 的最小路径代价
+      return min(left, up) + grid[i][j];
+    }
     ```
 
 === "Rust"
 
     ```rust title="min_path_sum.rs"
-    [class]{}-[func]{min_path_sum_dfs}
+    /* 最小路径和：暴力搜索 */
+    fn min_path_sum_dfs(grid: &Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
+        // 若为左上角单元格，则终止搜索
+        if i == 0 && j == 0 {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if i < 0 || j < 0 {
+            return i32::MAX;
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        let left = min_path_sum_dfs(grid, i - 1, j);
+        let up = min_path_sum_dfs(grid, i, j - 1);
+        // 返回从左上角到 (i, j) 的最小路径代价
+        std::cmp::min(left, up) + grid[i as usize][j as usize]
+    }
     ```
 
 === "C"
@@ -179,7 +331,22 @@ $$
 === "Zig"
 
     ```zig title="min_path_sum.zig"
-    [class]{}-[func]{minPathSumDFS}
+    // 最小路径和：暴力搜索
+    fn minPathSumDFS(grid: anytype, i: i32, j: i32) i32 {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 and j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 or j < 0) {
+            return std.math.maxInt(i32);
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        var left = minPathSumDFS(grid, i - 1, j);
+        var up = minPathSumDFS(grid, i, j - 1);
+        // 返回从左上角到 (i, j) 的最小路径代价
+        return @min(left, up) + grid[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
+    }
     ```
 
 图 14-14 给出了以 $dp[2, 1]$ 为根节点的递归树，其中包含一些重叠子问题，其数量会随着网格 `grid` 的尺寸变大而急剧增多。
@@ -199,61 +366,265 @@ $$
 === "Python"
 
     ```python title="min_path_sum.py"
-    [class]{}-[func]{min_path_sum_dfs_mem}
+    def min_path_sum_dfs_mem(
+        grid: list[list[int]], mem: list[list[int]], i: int, j: int
+    ) -> int:
+        """最小路径和：记忆化搜索"""
+        # 若为左上角单元格，则终止搜索
+        if i == 0 and j == 0:
+            return grid[0][0]
+        # 若行列索引越界，则返回 +∞ 代价
+        if i < 0 or j < 0:
+            return inf
+        # 若已有记录，则直接返回
+        if mem[i][j] != -1:
+            return mem[i][j]
+        # 左边和上边单元格的最小路径代价
+        left = min_path_sum_dfs_mem(grid, mem, i - 1, j)
+        up = min_path_sum_dfs_mem(grid, mem, i, j - 1)
+        # 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i][j] = min(left, up) + grid[i][j]
+        return mem[i][j]
     ```
 
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    [class]{}-[func]{minPathSumDFSMem}
+    /* 最小路径和：记忆化搜索 */
+    int minPathSumDFSMem(vector<vector<int>> &grid, vector<vector<int>> &mem, int i, int j) {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return INT_MAX;
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][j] != -1) {
+            return mem[i][j];
+        }
+        // 左边和上边单元格的最小路径代价
+        int left = minPathSumDFSMem(grid, mem, i - 1, j);
+        int up = minPathSumDFSMem(grid, mem, i, j - 1);
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i][j] = min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
+        return mem[i][j];
+    }
     ```
 
 === "Java"
 
     ```java title="min_path_sum.java"
-    [class]{min_path_sum}-[func]{minPathSumDFSMem}
+    /* 最小路径和：记忆化搜索 */
+    int minPathSumDFSMem(int[][] grid, int[][] mem, int i, int j) {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return Integer.MAX_VALUE;
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][j] != -1) {
+            return mem[i][j];
+        }
+        // 左边和上边单元格的最小路径代价
+        int left = minPathSumDFSMem(grid, mem, i - 1, j);
+        int up = minPathSumDFSMem(grid, mem, i, j - 1);
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i][j] = Math.min(left, up) + grid[i][j];
+        return mem[i][j];
+    }
     ```
 
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDFSMem}
+    /* 最小路径和：记忆化搜索 */
+    int minPathSumDFSMem(int[][] grid, int[][] mem, int i, int j) {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 && j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return int.MaxValue;
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][j] != -1) {
+            return mem[i][j];
+        }
+        // 左边和上边单元格的最小路径代价
+        int left = minPathSumDFSMem(grid, mem, i - 1, j);
+        int up = minPathSumDFSMem(grid, mem, i, j - 1);
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i][j] = Math.Min(left, up) + grid[i][j];
+        return mem[i][j];
+    }
     ```
 
 === "Go"
 
     ```go title="min_path_sum.go"
-    [class]{}-[func]{minPathSumDFSMem}
+    /* 最小路径和：记忆化搜索 */
+    func minPathSumDFSMem(grid, mem [][]int, i, j int) int {
+        // 若为左上角单元格，则终止搜索
+        if i == 0 && j == 0 {
+            return grid[0][0]
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if i < 0 || j < 0 {
+            return math.MaxInt
+        }
+        // 若已有记录，则直接返回
+        if mem[i][j] != -1 {
+            return mem[i][j]
+        }
+        // 左边和上边单元格的最小路径代价
+        left := minPathSumDFSMem(grid, mem, i-1, j)
+        up := minPathSumDFSMem(grid, mem, i, j-1)
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i][j] = int(math.Min(float64(left), float64(up))) + grid[i][j]
+        return mem[i][j]
+    }
     ```
 
 === "Swift"
 
     ```swift title="min_path_sum.swift"
-    [class]{}-[func]{minPathSumDFSMem}
+    /* 最小路径和：记忆化搜索 */
+    func minPathSumDFSMem(grid: [[Int]], mem: inout [[Int]], i: Int, j: Int) -> Int {
+        // 若为左上角单元格，则终止搜索
+        if i == 0, j == 0 {
+            return grid[0][0]
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if i < 0 || j < 0 {
+            return .max
+        }
+        // 若已有记录，则直接返回
+        if mem[i][j] != -1 {
+            return mem[i][j]
+        }
+        // 左边和上边单元格的最小路径代价
+        let left = minPathSumDFSMem(grid: grid, mem: &mem, i: i - 1, j: j)
+        let up = minPathSumDFSMem(grid: grid, mem: &mem, i: i, j: j - 1)
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i][j] = min(left, up) + grid[i][j]
+        return mem[i][j]
+    }
     ```
 
 === "JS"
 
     ```javascript title="min_path_sum.js"
-    [class]{}-[func]{minPathSumDFSMem}
+    /* 最小路径和：记忆化搜索 */
+    function minPathSumDFSMem(grid, mem, i, j) {
+        // 若为左上角单元格，则终止搜索
+        if (i === 0 && j === 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return Infinity;
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][j] !== -1) {
+            return mem[i][j];
+        }
+        // 左边和上边单元格的最小路径代价
+        const left = minPathSumDFSMem(grid, mem, i - 1, j);
+        const up = minPathSumDFSMem(grid, mem, i, j - 1);
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i][j] = Math.min(left, up) + grid[i][j];
+        return mem[i][j];
+    }
     ```
 
 === "TS"
 
     ```typescript title="min_path_sum.ts"
-    [class]{}-[func]{minPathSumDFSMem}
+    /* 最小路径和：记忆化搜索 */
+    function minPathSumDFSMem(
+        grid: Array<Array<number>>,
+        mem: Array<Array<number>>,
+        i: number,
+        j: number
+    ): number {
+        // 若为左上角单元格，则终止搜索
+        if (i === 0 && j === 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 || j < 0) {
+            return Infinity;
+        }
+        // 若已有记录，则直接返回
+        if (mem[i][j] != -1) {
+            return mem[i][j];
+        }
+        // 左边和上边单元格的最小路径代价
+        const left = minPathSumDFSMem(grid, mem, i - 1, j);
+        const up = minPathSumDFSMem(grid, mem, i, j - 1);
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i][j] = Math.min(left, up) + grid[i][j];
+        return mem[i][j];
+    }
     ```
 
 === "Dart"
 
     ```dart title="min_path_sum.dart"
-    [class]{}-[func]{minPathSumDFSMem}
+    /* 最小路径和：记忆化搜索 */
+    int minPathSumDFSMem(List<List<int>> grid, List<List<int>> mem, int i, int j) {
+      // 若为左上角单元格，则终止搜索
+      if (i == 0 && j == 0) {
+        return grid[0][0];
+      }
+      // 若行列索引越界，则返回 +∞ 代价
+      if (i < 0 || j < 0) {
+        // 在 Dart 中，int 类型是固定范围的整数，不存在表示“无穷大”的值
+        return BigInt.from(2).pow(31).toInt();
+      }
+      // 若已有记录，则直接返回
+      if (mem[i][j] != -1) {
+        return mem[i][j];
+      }
+      // 左边和上边单元格的最小路径代价
+      int left = minPathSumDFSMem(grid, mem, i - 1, j);
+      int up = minPathSumDFSMem(grid, mem, i, j - 1);
+      // 记录并返回左上角到 (i, j) 的最小路径代价
+      mem[i][j] = min(left, up) + grid[i][j];
+      return mem[i][j];
+    }
     ```
 
 === "Rust"
 
     ```rust title="min_path_sum.rs"
-    [class]{}-[func]{min_path_sum_dfs_mem}
+    /* 最小路径和：记忆化搜索 */
+    fn min_path_sum_dfs_mem(grid: &Vec<Vec<i32>>, mem: &mut Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
+        // 若为左上角单元格，则终止搜索
+        if i == 0 && j == 0 {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if i < 0 || j < 0 {
+            return i32::MAX;
+        }
+        // 若已有记录，则直接返回
+        if mem[i as usize][j as usize] != -1 {
+            return mem[i as usize][j as usize];
+        }
+        // 左边和上边单元格的最小路径代价
+        let left = min_path_sum_dfs_mem(grid, mem, i - 1, j);
+        let up = min_path_sum_dfs_mem(grid, mem, i, j - 1);
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[i as usize][j as usize] = std::cmp::min(left, up) + grid[i as usize][j as usize];
+        mem[i as usize][j as usize]
+    }
     ```
 
 === "C"
@@ -265,7 +636,28 @@ $$
 === "Zig"
 
     ```zig title="min_path_sum.zig"
-    [class]{}-[func]{minPathSumDFSMem}
+    // 最小路径和：记忆化搜索
+    fn minPathSumDFSMem(grid: anytype, mem: anytype, i: i32, j: i32) i32 {
+        // 若为左上角单元格，则终止搜索
+        if (i == 0 and j == 0) {
+            return grid[0][0];
+        }
+        // 若行列索引越界，则返回 +∞ 代价
+        if (i < 0 or j < 0) {
+            return std.math.maxInt(i32);
+        }
+        // 若已有记录，则直接返回
+        if (mem[@as(usize, @intCast(i))][@as(usize, @intCast(j))] != -1) {
+            return mem[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
+        }
+        // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+        var left = minPathSumDFSMem(grid, mem, i - 1, j);
+        var up = minPathSumDFSMem(grid, mem, i, j - 1);
+        // 返回从左上角到 (i, j) 的最小路径代价
+        // 记录并返回左上角到 (i, j) 的最小路径代价
+        mem[@as(usize, @intCast(i))][@as(usize, @intCast(j))] = @min(left, up) + grid[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
+        return mem[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
+    }
     ```
 
 如图 14-15 所示，在引入记忆化后，所有子问题的解只需计算一次，因此时间复杂度取决于状态总数，即网格尺寸 $O(nm)$ 。
@@ -281,61 +673,276 @@ $$
 === "Python"
 
     ```python title="min_path_sum.py"
-    [class]{}-[func]{min_path_sum_dp}
+    def min_path_sum_dp(grid: list[list[int]]) -> int:
+        """最小路径和：动态规划"""
+        n, m = len(grid), len(grid[0])
+        # 初始化 dp 表
+        dp = [[0] * m for _ in range(n)]
+        dp[0][0] = grid[0][0]
+        # 状态转移：首行
+        for j in range(1, m):
+            dp[0][j] = dp[0][j - 1] + grid[0][j]
+        # 状态转移：首列
+        for i in range(1, n):
+            dp[i][0] = dp[i - 1][0] + grid[i][0]
+        # 状态转移：其余行列
+        for i in range(1, n):
+            for j in range(1, m):
+                dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j]
+        return dp[n - 1][m - 1]
     ```
 
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    [class]{}-[func]{minPathSumDP}
+    /* 最小路径和：动态规划 */
+    int minPathSumDP(vector<vector<int>> &grid) {
+        int n = grid.size(), m = grid[0].size();
+        // 初始化 dp 表
+        vector<vector<int>> dp(n, vector<int>(m));
+        dp[0][0] = grid[0][0];
+        // 状态转移：首行
+        for (int j = 1; j < m; j++) {
+            dp[0][j] = dp[0][j - 1] + grid[0][j];
+        }
+        // 状态转移：首列
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = dp[i - 1][0] + grid[i][0];
+        }
+        // 状态转移：其余行列
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+            }
+        }
+        return dp[n - 1][m - 1];
+    }
     ```
 
 === "Java"
 
     ```java title="min_path_sum.java"
-    [class]{min_path_sum}-[func]{minPathSumDP}
+    /* 最小路径和：动态规划 */
+    int minPathSumDP(int[][] grid) {
+        int n = grid.length, m = grid[0].length;
+        // 初始化 dp 表
+        int[][] dp = new int[n][m];
+        dp[0][0] = grid[0][0];
+        // 状态转移：首行
+        for (int j = 1; j < m; j++) {
+            dp[0][j] = dp[0][j - 1] + grid[0][j];
+        }
+        // 状态转移：首列
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = dp[i - 1][0] + grid[i][0];
+        }
+        // 状态转移：其余行列
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                dp[i][j] = Math.min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+            }
+        }
+        return dp[n - 1][m - 1];
+    }
     ```
 
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDP}
+    /* 最小路径和：动态规划 */
+    int minPathSumDP(int[][] grid) {
+        int n = grid.Length, m = grid[0].Length;
+        // 初始化 dp 表
+        int[,] dp = new int[n, m];
+        dp[0, 0] = grid[0][0];
+        // 状态转移：首行
+        for (int j = 1; j < m; j++) {
+            dp[0, j] = dp[0, j - 1] + grid[0][j];
+        }
+        // 状态转移：首列
+        for (int i = 1; i < n; i++) {
+            dp[i, 0] = dp[i - 1, 0] + grid[i][0];
+        }
+        // 状态转移：其余行列
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                dp[i, j] = Math.Min(dp[i, j - 1], dp[i - 1, j]) + grid[i][j];
+            }
+        }
+        return dp[n - 1, m - 1];
+    }
     ```
 
 === "Go"
 
     ```go title="min_path_sum.go"
-    [class]{}-[func]{minPathSumDP}
+    /* 最小路径和：动态规划 */
+    func minPathSumDP(grid [][]int) int {
+        n, m := len(grid), len(grid[0])
+        // 初始化 dp 表
+        dp := make([][]int, n)
+        for i := 0; i < n; i++ {
+            dp[i] = make([]int, m)
+        }
+        dp[0][0] = grid[0][0]
+        // 状态转移：首行
+        for j := 1; j < m; j++ {
+            dp[0][j] = dp[0][j-1] + grid[0][j]
+        }
+        // 状态转移：首列
+        for i := 1; i < n; i++ {
+            dp[i][0] = dp[i-1][0] + grid[i][0]
+        }
+        // 状态转移：其余行列
+        for i := 1; i < n; i++ {
+            for j := 1; j < m; j++ {
+                dp[i][j] = int(math.Min(float64(dp[i][j-1]), float64(dp[i-1][j]))) + grid[i][j]
+            }
+        }
+        return dp[n-1][m-1]
+    }
     ```
 
 === "Swift"
 
     ```swift title="min_path_sum.swift"
-    [class]{}-[func]{minPathSumDP}
+    /* 最小路径和：动态规划 */
+    func minPathSumDP(grid: [[Int]]) -> Int {
+        let n = grid.count
+        let m = grid[0].count
+        // 初始化 dp 表
+        var dp = Array(repeating: Array(repeating: 0, count: m), count: n)
+        dp[0][0] = grid[0][0]
+        // 状态转移：首行
+        for j in stride(from: 1, to: m, by: 1) {
+            dp[0][j] = dp[0][j - 1] + grid[0][j]
+        }
+        // 状态转移：首列
+        for i in stride(from: 1, to: n, by: 1) {
+            dp[i][0] = dp[i - 1][0] + grid[i][0]
+        }
+        // 状态转移：其余行列
+        for i in stride(from: 1, to: n, by: 1) {
+            for j in stride(from: 1, to: m, by: 1) {
+                dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j]
+            }
+        }
+        return dp[n - 1][m - 1]
+    }
     ```
 
 === "JS"
 
     ```javascript title="min_path_sum.js"
-    [class]{}-[func]{minPathSumDP}
+    /* 最小路径和：动态规划 */
+    function minPathSumDP(grid) {
+        const n = grid.length,
+            m = grid[0].length;
+        // 初始化 dp 表
+        const dp = Array.from({ length: n }, () =>
+            Array.from({ length: m }, () => 0)
+        );
+        dp[0][0] = grid[0][0];
+        // 状态转移：首行
+        for (let j = 1; j < m; j++) {
+            dp[0][j] = dp[0][j - 1] + grid[0][j];
+        }
+        // 状态转移：首列
+        for (let i = 1; i < n; i++) {
+            dp[i][0] = dp[i - 1][0] + grid[i][0];
+        }
+        // 状态转移：其余行列
+        for (let i = 1; i < n; i++) {
+            for (let j = 1; j < m; j++) {
+                dp[i][j] = Math.min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+            }
+        }
+        return dp[n - 1][m - 1];
+    }
     ```
 
 === "TS"
 
     ```typescript title="min_path_sum.ts"
-    [class]{}-[func]{minPathSumDP}
+    /* 最小路径和：动态规划 */
+    function minPathSumDP(grid: Array<Array<number>>): number {
+        const n = grid.length,
+            m = grid[0].length;
+        // 初始化 dp 表
+        const dp = Array.from({ length: n }, () =>
+            Array.from({ length: m }, () => 0)
+        );
+        dp[0][0] = grid[0][0];
+        // 状态转移：首行
+        for (let j = 1; j < m; j++) {
+            dp[0][j] = dp[0][j - 1] + grid[0][j];
+        }
+        // 状态转移：首列
+        for (let i = 1; i < n; i++) {
+            dp[i][0] = dp[i - 1][0] + grid[i][0];
+        }
+        // 状态转移：其余行列
+        for (let i = 1; i < n; i++) {
+            for (let j: number = 1; j < m; j++) {
+                dp[i][j] = Math.min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+            }
+        }
+        return dp[n - 1][m - 1];
+    }
     ```
 
 === "Dart"
 
     ```dart title="min_path_sum.dart"
-    [class]{}-[func]{minPathSumDP}
+    /* 最小路径和：动态规划 */
+    int minPathSumDP(List<List<int>> grid) {
+      int n = grid.length, m = grid[0].length;
+      // 初始化 dp 表
+      List<List<int>> dp = List.generate(n, (i) => List.filled(m, 0));
+      dp[0][0] = grid[0][0];
+      // 状态转移：首行
+      for (int j = 1; j < m; j++) {
+        dp[0][j] = dp[0][j - 1] + grid[0][j];
+      }
+      // 状态转移：首列
+      for (int i = 1; i < n; i++) {
+        dp[i][0] = dp[i - 1][0] + grid[i][0];
+      }
+      // 状态转移：其余行列
+      for (int i = 1; i < n; i++) {
+        for (int j = 1; j < m; j++) {
+          dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+        }
+      }
+      return dp[n - 1][m - 1];
+    }
     ```
 
 === "Rust"
 
     ```rust title="min_path_sum.rs"
-    [class]{}-[func]{min_path_sum_dp}
+    /* 最小路径和：动态规划 */
+    fn min_path_sum_dp(grid: &Vec<Vec<i32>>) -> i32 {
+        let (n, m) = (grid.len(), grid[0].len());
+        // 初始化 dp 表
+        let mut dp = vec![vec![0; m]; n];
+        dp[0][0] = grid[0][0];
+        // 状态转移：首行
+        for j in 1..m {
+            dp[0][j] = dp[0][j - 1] + grid[0][j];
+        }
+        // 状态转移：首列
+        for i in 1..n {
+            dp[i][0] = dp[i - 1][0] + grid[i][0];
+        }
+        // 状态转移：其余行列
+        for i in 1..n {
+            for j in 1..m {
+                dp[i][j] = std::cmp::min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+            }
+        }
+        dp[n - 1][m - 1]
+    }
     ```
 
 === "C"
@@ -347,7 +954,29 @@ $$
 === "Zig"
 
     ```zig title="min_path_sum.zig"
-    [class]{}-[func]{minPathSumDP}
+    // 最小路径和：动态规划
+    fn minPathSumDP(comptime grid: anytype) i32 {
+        comptime var n = grid.len;
+        comptime var m = grid[0].len;
+        // 初始化 dp 表
+        var dp = [_][m]i32{[_]i32{0} ** m} ** n;
+        dp[0][0] = grid[0][0];
+        // 状态转移：首行
+        for (1..m) |j| {
+            dp[0][j] = dp[0][j - 1] + grid[0][j];
+        }
+        // 状态转移：首列
+        for (1..n) |i| {
+            dp[i][0] = dp[i - 1][0] + grid[i][0];
+        }
+        // 状态转移：其余行列
+        for (1..n) |i| {
+            for (1..m) |j| {
+                dp[i][j] = @min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+            }
+        }
+        return dp[n - 1][m - 1];
+    }
     ```
 
 图 14-16 展示了最小路径和的状态转移过程，其遍历了整个网格，**因此时间复杂度为 $O(nm)$** 。
@@ -401,61 +1030,259 @@ $$
 === "Python"
 
     ```python title="min_path_sum.py"
-    [class]{}-[func]{min_path_sum_dp_comp}
+    def min_path_sum_dp_comp(grid: list[list[int]]) -> int:
+        """最小路径和：空间优化后的动态规划"""
+        n, m = len(grid), len(grid[0])
+        # 初始化 dp 表
+        dp = [0] * m
+        # 状态转移：首行
+        dp[0] = grid[0][0]
+        for j in range(1, m):
+            dp[j] = dp[j - 1] + grid[0][j]
+        # 状态转移：其余行
+        for i in range(1, n):
+            # 状态转移：首列
+            dp[0] = dp[0] + grid[i][0]
+            # 状态转移：其余列
+            for j in range(1, m):
+                dp[j] = min(dp[j - 1], dp[j]) + grid[i][j]
+        return dp[m - 1]
     ```
 
 === "C++"
 
     ```cpp title="min_path_sum.cpp"
-    [class]{}-[func]{minPathSumDPComp}
+    /* 最小路径和：空间优化后的动态规划 */
+    int minPathSumDPComp(vector<vector<int>> &grid) {
+        int n = grid.size(), m = grid[0].size();
+        // 初始化 dp 表
+        vector<int> dp(m);
+        // 状态转移：首行
+        dp[0] = grid[0][0];
+        for (int j = 1; j < m; j++) {
+            dp[j] = dp[j - 1] + grid[0][j];
+        }
+        // 状态转移：其余行
+        for (int i = 1; i < n; i++) {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0];
+            // 状态转移：其余列
+            for (int j = 1; j < m; j++) {
+                dp[j] = min(dp[j - 1], dp[j]) + grid[i][j];
+            }
+        }
+        return dp[m - 1];
+    }
     ```
 
 === "Java"
 
     ```java title="min_path_sum.java"
-    [class]{min_path_sum}-[func]{minPathSumDPComp}
+    /* 最小路径和：空间优化后的动态规划 */
+    int minPathSumDPComp(int[][] grid) {
+        int n = grid.length, m = grid[0].length;
+        // 初始化 dp 表
+        int[] dp = new int[m];
+        // 状态转移：首行
+        dp[0] = grid[0][0];
+        for (int j = 1; j < m; j++) {
+            dp[j] = dp[j - 1] + grid[0][j];
+        }
+        // 状态转移：其余行
+        for (int i = 1; i < n; i++) {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0];
+            // 状态转移：其余列
+            for (int j = 1; j < m; j++) {
+                dp[j] = Math.min(dp[j - 1], dp[j]) + grid[i][j];
+            }
+        }
+        return dp[m - 1];
+    }
     ```
 
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDPComp}
+    /* 最小路径和：空间优化后的动态规划 */
+    int minPathSumDPComp(int[][] grid) {
+        int n = grid.Length, m = grid[0].Length;
+        // 初始化 dp 表
+        int[] dp = new int[m];
+        dp[0] = grid[0][0];
+        // 状态转移：首行
+        for (int j = 1; j < m; j++) {
+            dp[j] = dp[j - 1] + grid[0][j];
+        }
+        // 状态转移：其余行
+        for (int i = 1; i < n; i++) {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0];
+            // 状态转移：其余列
+            for (int j = 1; j < m; j++) {
+                dp[j] = Math.Min(dp[j - 1], dp[j]) + grid[i][j];
+            }
+        }
+        return dp[m - 1];
+    }
     ```
 
 === "Go"
 
     ```go title="min_path_sum.go"
-    [class]{}-[func]{minPathSumDPComp}
+    /* 最小路径和：空间优化后的动态规划 */
+    func minPathSumDPComp(grid [][]int) int {
+        n, m := len(grid), len(grid[0])
+        // 初始化 dp 表
+        dp := make([]int, m)
+        // 状态转移：首行
+        dp[0] = grid[0][0]
+        for j := 1; j < m; j++ {
+            dp[j] = dp[j-1] + grid[0][j]
+        }
+        // 状态转移：其余行列
+        for i := 1; i < n; i++ {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0]
+            // 状态转移：其余列
+            for j := 1; j < m; j++ {
+                dp[j] = int(math.Min(float64(dp[j-1]), float64(dp[j]))) + grid[i][j]
+            }
+        }
+        return dp[m-1]
+    }
     ```
 
 === "Swift"
 
     ```swift title="min_path_sum.swift"
-    [class]{}-[func]{minPathSumDPComp}
+    /* 最小路径和：空间优化后的动态规划 */
+    func minPathSumDPComp(grid: [[Int]]) -> Int {
+        let n = grid.count
+        let m = grid[0].count
+        // 初始化 dp 表
+        var dp = Array(repeating: 0, count: m)
+        // 状态转移：首行
+        dp[0] = grid[0][0]
+        for j in stride(from: 1, to: m, by: 1) {
+            dp[j] = dp[j - 1] + grid[0][j]
+        }
+        // 状态转移：其余行
+        for i in stride(from: 1, to: n, by: 1) {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0]
+            // 状态转移：其余列
+            for j in stride(from: 1, to: m, by: 1) {
+                dp[j] = min(dp[j - 1], dp[j]) + grid[i][j]
+            }
+        }
+        return dp[m - 1]
+    }
     ```
 
 === "JS"
 
     ```javascript title="min_path_sum.js"
-    [class]{}-[func]{minPathSumDPComp}
+    /* 最小路径和：状态压缩后的动态规划 */
+    function minPathSumDPComp(grid) {
+        const n = grid.length,
+            m = grid[0].length;
+        // 初始化 dp 表
+        const dp = new Array(m);
+        // 状态转移：首行
+        dp[0] = grid[0][0];
+        for (let j = 1; j < m; j++) {
+            dp[j] = dp[j - 1] + grid[0][j];
+        }
+        // 状态转移：其余行
+        for (let i = 1; i < n; i++) {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0];
+            // 状态转移：其余列
+            for (let j = 1; j < m; j++) {
+                dp[j] = Math.min(dp[j - 1], dp[j]) + grid[i][j];
+            }
+        }
+        return dp[m - 1];
+    }
     ```
 
 === "TS"
 
     ```typescript title="min_path_sum.ts"
-    [class]{}-[func]{minPathSumDPComp}
+    /* 最小路径和：状态压缩后的动态规划 */
+    function minPathSumDPComp(grid: Array<Array<number>>): number {
+        const n = grid.length,
+            m = grid[0].length;
+        // 初始化 dp 表
+        const dp = new Array(m);
+        // 状态转移：首行
+        dp[0] = grid[0][0];
+        for (let j = 1; j < m; j++) {
+            dp[j] = dp[j - 1] + grid[0][j];
+        }
+        // 状态转移：其余行
+        for (let i = 1; i < n; i++) {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0];
+            // 状态转移：其余列
+            for (let j = 1; j < m; j++) {
+                dp[j] = Math.min(dp[j - 1], dp[j]) + grid[i][j];
+            }
+        }
+        return dp[m - 1];
+    }
     ```
 
 === "Dart"
 
     ```dart title="min_path_sum.dart"
-    [class]{}-[func]{minPathSumDPComp}
+    /* 最小路径和：空间优化后的动态规划 */
+    int minPathSumDPComp(List<List<int>> grid) {
+      int n = grid.length, m = grid[0].length;
+      // 初始化 dp 表
+      List<int> dp = List.filled(m, 0);
+      dp[0] = grid[0][0];
+      for (int j = 1; j < m; j++) {
+        dp[j] = dp[j - 1] + grid[0][j];
+      }
+      // 状态转移：其余行
+      for (int i = 1; i < n; i++) {
+        // 状态转移：首列
+        dp[0] = dp[0] + grid[i][0];
+        // 状态转移：其余列
+        for (int j = 1; j < m; j++) {
+          dp[j] = min(dp[j - 1], dp[j]) + grid[i][j];
+        }
+      }
+      return dp[m - 1];
+    }
     ```
 
 === "Rust"
 
     ```rust title="min_path_sum.rs"
-    [class]{}-[func]{min_path_sum_dp_comp}
+    /* 最小路径和：空间优化后的动态规划 */
+    fn min_path_sum_dp_comp(grid: &Vec<Vec<i32>>) -> i32 {
+        let (n, m) = (grid.len(), grid[0].len());
+        // 初始化 dp 表
+        let mut dp = vec![0; m];
+        // 状态转移：首行
+        dp[0] = grid[0][0];
+        for j in 1..m {
+            dp[j] = dp[j - 1] + grid[0][j];
+        }
+        // 状态转移：其余行
+        for i in 1..n {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0];
+            // 状态转移：其余列
+            for j in 1..m {
+                dp[j] = std::cmp::min(dp[j - 1], dp[j]) + grid[i][j];
+            }
+        }
+        dp[m - 1]
+    }
     ```
 
 === "C"
@@ -467,5 +1294,25 @@ $$
 === "Zig"
 
     ```zig title="min_path_sum.zig"
-    [class]{}-[func]{minPathSumDPComp}
+    // 最小路径和：空间优化后的动态规划
+    fn minPathSumDPComp(comptime grid: anytype) i32 {
+        comptime var n = grid.len;
+        comptime var m = grid[0].len;
+        // 初始化 dp 表
+        var dp = [_]i32{0} ** m;
+        // 状态转移：首行
+        dp[0] = grid[0][0];
+        for (1..m) |j| {
+            dp[j] = dp[j - 1] + grid[0][j];
+        }
+        // 状态转移：其余行
+        for (1..n) |i| {
+            // 状态转移：首列
+            dp[0] = dp[0] + grid[i][0];
+            for (1..m) |j| {
+                dp[j] = @min(dp[j - 1], dp[j]) + grid[i][j];
+            }
+        }
+        return dp[m - 1];
+    }
     ```

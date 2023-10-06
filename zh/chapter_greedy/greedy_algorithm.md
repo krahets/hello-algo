@@ -28,67 +28,259 @@ comments: true
 === "Python"
 
     ```python title="coin_change_greedy.py"
-    [class]{}-[func]{coin_change_greedy}
+    def coin_change_greedy(coins: list[int], amt: int) -> int:
+        """零钱兑换：贪心"""
+        # 假设 coins 列表有序
+        i = len(coins) - 1
+        count = 0
+        # 循环进行贪心选择，直到无剩余金额
+        while amt > 0:
+            # 找到小于且最接近剩余金额的硬币
+            while i > 0 and coins[i] > amt:
+                i -= 1
+            # 选择 coins[i]
+            amt -= coins[i]
+            count += 1
+        # 若未找到可行方案，则返回 -1
+        return count if amt == 0 else -1
     ```
 
 === "C++"
 
     ```cpp title="coin_change_greedy.cpp"
-    [class]{}-[func]{coinChangeGreedy}
+    /* 零钱兑换：贪心 */
+    int coinChangeGreedy(vector<int> &coins, int amt) {
+        // 假设 coins 列表有序
+        int i = coins.size() - 1;
+        int count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while (amt > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt == 0 ? count : -1;
+    }
     ```
 
 === "Java"
 
     ```java title="coin_change_greedy.java"
-    [class]{coin_change_greedy}-[func]{coinChangeGreedy}
+    /* 零钱兑换：贪心 */
+    int coinChangeGreedy(int[] coins, int amt) {
+        // 假设 coins 列表有序
+        int i = coins.length - 1;
+        int count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while (amt > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt == 0 ? count : -1;
+    }
     ```
 
 === "C#"
 
     ```csharp title="coin_change_greedy.cs"
-    [class]{coin_change_greedy}-[func]{coinChangeGreedy}
+    /* 零钱兑换：贪心 */
+    int coinChangeGreedy(int[] coins, int amt) {
+        // 假设 coins 列表有序
+        int i = coins.Length - 1;
+        int count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while (amt > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt == 0 ? count : -1;
+    }
     ```
 
 === "Go"
 
     ```go title="coin_change_greedy.go"
-    [class]{}-[func]{coinChangeGreedy}
+    /* 零钱兑换：贪心 */
+    func coinChangeGreedy(coins []int, amt int) int {
+        // 假设 coins 列表有序
+        i := len(coins) - 1
+        count := 0
+        // 循环进行贪心选择，直到无剩余金额
+        for amt > 0 {
+            // 找到小于且最接近剩余金额的硬币
+            for i > 0 && coins[i] > amt {
+                i--
+            }
+            // 选择 coins[i]
+            amt -= coins[i]
+            count++
+        }
+        // 若未找到可行方案，则返回 -1
+        if amt != 0 {
+            return -1
+        }
+        return count
+    }
     ```
 
 === "Swift"
 
     ```swift title="coin_change_greedy.swift"
-    [class]{}-[func]{coinChangeGreedy}
+    /* 零钱兑换：贪心 */
+    func coinChangeGreedy(coins: [Int], amt: Int) -> Int {
+        // 假设 coins 列表有序
+        var i = coins.count - 1
+        var count = 0
+        var amt = amt
+        // 循环进行贪心选择，直到无剩余金额
+        while amt > 0 {
+            // 找到小于且最接近剩余金额的硬币
+            while i > 0 && coins[i] > amt {
+                i -= 1
+            }
+            // 选择 coins[i]
+            amt -= coins[i]
+            count += 1
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt == 0 ? count : -1
+    }
     ```
 
 === "JS"
 
     ```javascript title="coin_change_greedy.js"
-    [class]{}-[func]{coinChangeGreedy}
+    /* 零钱兑换：贪心 */
+    function coinChangeGreedy(coins, amt) {
+        // 假设 coins 数组有序
+        let i = coins.length - 1;
+        let count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while (amt > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt === 0 ? count : -1;
+    }
     ```
 
 === "TS"
 
     ```typescript title="coin_change_greedy.ts"
-    [class]{}-[func]{coinChangeGreedy}
+    /* 零钱兑换：贪心 */
+    function coinChangeGreedy(coins: number[], amt: number): number {
+        // 假设 coins 数组有序
+        let i = coins.length - 1;
+        let count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while (amt > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt === 0 ? count : -1;
+    }
     ```
 
 === "Dart"
 
     ```dart title="coin_change_greedy.dart"
-    [class]{}-[func]{coinChangeGreedy}
+    /* 零钱兑换：贪心 */
+    int coinChangeGreedy(List<int> coins, int amt) {
+      // 假设 coins 列表有序
+      int i = coins.length - 1;
+      int count = 0;
+      // 循环进行贪心选择，直到无剩余金额
+      while (amt > 0) {
+        // 找到小于且最接近剩余金额的硬币
+        while (i > 0 && coins[i] > amt) {
+          i--;
+        }
+        // 选择 coins[i]
+        amt -= coins[i];
+        count++;
+      }
+      // 若未找到可行方案，则返回 -1
+      return amt == 0 ? count : -1;
+    }
     ```
 
 === "Rust"
 
     ```rust title="coin_change_greedy.rs"
-    [class]{}-[func]{coin_change_greedy}
+    /* 零钱兑换：贪心 */
+    fn coin_change_greedy(coins: &[i32], mut amt: i32) -> i32 {
+        // 假设 coins 列表有序
+        let mut i = coins.len() - 1;
+        let mut count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while amt > 0 {
+            // 找到小于且最接近剩余金额的硬币
+            while i > 0 && coins[i] > amt {
+                i -= 1;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count += 1;
+        }
+        // 若未找到可行方案，则返回 -1
+        if amt == 0 {
+            count
+        } else {
+            -1
+        }
+    }
     ```
 
 === "C"
 
     ```c title="coin_change_greedy.c"
-    [class]{}-[func]{coinChangeGreedy}
+    /* 零钱兑换：贪心 */
+    int coinChangeGreedy(int* coins, int size, int amt) {
+        // 假设 coins 列表有序
+        int i = size - 1;
+        int count = 0;
+        // 循环进行贪心选择，直到无剩余金额
+        while (amt > 0) {
+            // 找到小于且最接近剩余金额的硬币
+            while (i > 0 && coins[i] > amt) {
+                i--;
+            }
+            // 选择 coins[i]
+            amt -= coins[i];
+            count++;
+        }
+        // 若未找到可行方案，则返回 -1
+        return amt == 0 ? count : -1;
+    }
     ```
 
 === "Zig"

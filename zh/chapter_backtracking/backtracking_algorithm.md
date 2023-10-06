@@ -17,61 +17,170 @@ comments: true
 === "Python"
 
     ```python title="preorder_traversal_i_compact.py"
-    [class]{}-[func]{pre_order}
+    def pre_order(root: TreeNode):
+        """前序遍历：例题一"""
+        if root is None:
+            return
+        if root.val == 7:
+            # 记录解
+            res.append(root)
+        pre_order(root.left)
+        pre_order(root.right)
     ```
 
 === "C++"
 
     ```cpp title="preorder_traversal_i_compact.cpp"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    void preOrder(TreeNode *root) {
+        if (root == nullptr) {
+            return;
+        }
+        if (root->val == 7) {
+            // 记录解
+            res.push_back(root);
+        }
+        preOrder(root->left);
+        preOrder(root->right);
+    }
     ```
 
 === "Java"
 
     ```java title="preorder_traversal_i_compact.java"
-    [class]{preorder_traversal_i_compact}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    void preOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        if (root.val == 7) {
+            // 记录解
+            res.add(root);
+        }
+        preOrder(root.left);
+        preOrder(root.right);
+    }
     ```
 
 === "C#"
 
     ```csharp title="preorder_traversal_i_compact.cs"
-    [class]{preorder_traversal_i_compact}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    void preOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        if (root.val == 7) {
+            // 记录解
+            res.Add(root);
+        }
+        preOrder(root.left);
+        preOrder(root.right);
+    }
     ```
 
 === "Go"
 
     ```go title="preorder_traversal_i_compact.go"
-    [class]{}-[func]{preOrderI}
+    /* 前序遍历：例题一 */
+    func preOrderI(root *TreeNode, res *[]*TreeNode) {
+        if root == nil {
+            return
+        }
+        if (root.Val).(int) == 7 {
+            // 记录解
+            *res = append(*res, root)
+        }
+        preOrderI(root.Left, res)
+        preOrderI(root.Right, res)
+    }
     ```
 
 === "Swift"
 
     ```swift title="preorder_traversal_i_compact.swift"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    func preOrder(root: TreeNode?) {
+        guard let root = root else {
+            return
+        }
+        if root.val == 7 {
+            // 记录解
+            res.append(root)
+        }
+        preOrder(root: root.left)
+        preOrder(root: root.right)
+    }
     ```
 
 === "JS"
 
     ```javascript title="preorder_traversal_i_compact.js"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    function preOrder(root, res) {
+        if (root === null) {
+            return;
+        }
+        if (root.val === 7) {
+            // 记录解
+            res.push(root);
+        }
+        preOrder(root.left, res);
+        preOrder(root.right, res);
+    }
     ```
 
 === "TS"
 
     ```typescript title="preorder_traversal_i_compact.ts"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    function preOrder(root: TreeNode | null, res: TreeNode[]): void {
+        if (root === null) {
+            return;
+        }
+        if (root.val === 7) {
+            // 记录解
+            res.push(root);
+        }
+        preOrder(root.left, res);
+        preOrder(root.right, res);
+    }
     ```
 
 === "Dart"
 
     ```dart title="preorder_traversal_i_compact.dart"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    void preOrder(TreeNode? root, List<TreeNode> res) {
+      if (root == null) {
+        return;
+      }
+      if (root.val == 7) {
+        // 记录解
+        res.add(root);
+      }
+      preOrder(root.left, res);
+      preOrder(root.right, res);
+    }
     ```
 
 === "Rust"
 
     ```rust title="preorder_traversal_i_compact.rs"
-    [class]{}-[func]{pre_order}
+    /* 前序遍历：例题一 */
+    fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<Rc<RefCell<TreeNode>>>) {
+        if root.is_none() {
+            return;
+        }
+        if let Some(node) = root {
+            if node.borrow().val == 7 {
+                // 记录解
+                res.push(node.clone());
+            }
+            pre_order(res, node.borrow().left.clone());
+            pre_order(res, node.borrow().right.clone());
+        }
+    }
     ```
 
 === "C"
@@ -107,67 +216,246 @@ comments: true
 === "Python"
 
     ```python title="preorder_traversal_ii_compact.py"
-    [class]{}-[func]{pre_order}
+    def pre_order(root: TreeNode):
+        """前序遍历：例题二"""
+        if root is None:
+            return
+        # 尝试
+        path.append(root)
+        if root.val == 7:
+            # 记录解
+            res.append(list(path))
+        pre_order(root.left)
+        pre_order(root.right)
+        # 回退
+        path.pop()
     ```
 
 === "C++"
 
     ```cpp title="preorder_traversal_ii_compact.cpp"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    void preOrder(TreeNode *root) {
+        if (root == nullptr) {
+            return;
+        }
+        // 尝试
+        path.push_back(root);
+        if (root->val == 7) {
+            // 记录解
+            res.push_back(path);
+        }
+        preOrder(root->left);
+        preOrder(root->right);
+        // 回退
+        path.pop_back();
+    }
     ```
 
 === "Java"
 
     ```java title="preorder_traversal_ii_compact.java"
-    [class]{preorder_traversal_ii_compact}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    void preOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        // 尝试
+        path.add(root);
+        if (root.val == 7) {
+            // 记录解
+            res.add(new ArrayList<>(path));
+        }
+        preOrder(root.left);
+        preOrder(root.right);
+        // 回退
+        path.remove(path.size() - 1);
+    }
     ```
 
 === "C#"
 
     ```csharp title="preorder_traversal_ii_compact.cs"
-    [class]{preorder_traversal_ii_compact}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    void preOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        // 尝试
+        path.Add(root);
+        if (root.val == 7) {
+            // 记录解
+            res.Add(new List<TreeNode>(path));
+        }
+        preOrder(root.left);
+        preOrder(root.right);
+        // 回退
+        path.RemoveAt(path.Count - 1);
+    }
     ```
 
 === "Go"
 
     ```go title="preorder_traversal_ii_compact.go"
-    [class]{}-[func]{preOrderII}
+    /* 前序遍历：例题二 */
+    func preOrderII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
+        if root == nil {
+            return
+        }
+        // 尝试
+        *path = append(*path, root)
+        if root.Val.(int) == 7 {
+            // 记录解
+            *res = append(*res, *path)
+        }
+        preOrderII(root.Left, res, path)
+        preOrderII(root.Right, res, path)
+        // 回退
+        *path = (*path)[:len(*path)-1]
+    }
     ```
 
 === "Swift"
 
     ```swift title="preorder_traversal_ii_compact.swift"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    func preOrder(root: TreeNode?) {
+        guard let root = root else {
+            return
+        }
+        // 尝试
+        path.append(root)
+        if root.val == 7 {
+            // 记录解
+            res.append(path)
+        }
+        preOrder(root: root.left)
+        preOrder(root: root.right)
+        // 回退
+        path.removeLast()
+    }
     ```
 
 === "JS"
 
     ```javascript title="preorder_traversal_ii_compact.js"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    function preOrder(root, path, res) {
+        if (root === null) {
+            return;
+        }
+        // 尝试
+        path.push(root);
+        if (root.val === 7) {
+            // 记录解
+            res.push([...path]);
+        }
+        preOrder(root.left, path, res);
+        preOrder(root.right, path, res);
+        // 回退
+        path.pop();
+    }
     ```
 
 === "TS"
 
     ```typescript title="preorder_traversal_ii_compact.ts"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    function preOrder(
+        root: TreeNode | null,
+        path: TreeNode[],
+        res: TreeNode[][]
+    ): void {
+        if (root === null) {
+            return;
+        }
+        // 尝试
+        path.push(root);
+        if (root.val === 7) {
+            // 记录解
+            res.push([...path]);
+        }
+        preOrder(root.left, path, res);
+        preOrder(root.right, path, res);
+        // 回退
+        path.pop();
+    }
     ```
 
 === "Dart"
 
     ```dart title="preorder_traversal_ii_compact.dart"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    void preOrder(
+      TreeNode? root,
+      List<TreeNode> path,
+      List<List<TreeNode>> res,
+    ) {
+      if (root == null) {
+        return;
+      }
+
+      // 尝试
+      path.add(root);
+      if (root.val == 7) {
+        // 记录解
+        res.add(List.from(path));
+      }
+      preOrder(root.left, path, res);
+      preOrder(root.right, path, res);
+      // 回退
+      path.removeLast();
+    }
     ```
 
 === "Rust"
 
     ```rust title="preorder_traversal_ii_compact.rs"
-    [class]{}-[func]{pre_order}
+    /* 前序遍历：例题二 */
+    fn pre_order(res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>, path: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<Rc<RefCell<TreeNode>>>) {
+        if root.is_none() {
+            return;
+        }
+        if let Some(node) = root {
+            // 尝试
+            path.push(node.clone());
+            if node.borrow().val == 7 {
+                // 记录解
+                res.push(path.clone());
+            }
+            pre_order(res, path, node.borrow().left.clone());
+            pre_order(res, path, node.borrow().right.clone());
+            // 回退
+            path.remove(path.len() -  1);
+        }
+    }
     ```
 
 === "C"
 
     ```c title="preorder_traversal_ii_compact.c"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题二 */
+    void preOrder(TreeNode *root, vector *path, vector *res) {
+        if (root == NULL) {
+            return;
+        }
+        // 尝试
+        vectorPushback(path, root, sizeof(TreeNode));
+        if (root->val == 7) {
+            // 记录解
+            vector *newPath = newVector();
+            for (int i = 0; i < path->size; i++) {
+                vectorPushback(newPath, path->data[i], sizeof(int));
+            }
+            vectorPushback(res, newPath, sizeof(vector));
+        }
+
+        preOrder(root->left, path, res);
+        preOrder(root->right, path, res);
+
+        // 回退
+        vectorPopback(path);
+    }
     ```
 
 === "Zig"
@@ -228,67 +516,257 @@ comments: true
 === "Python"
 
     ```python title="preorder_traversal_iii_compact.py"
-    [class]{}-[func]{pre_order}
+    def pre_order(root: TreeNode):
+        """前序遍历：例题三"""
+        # 剪枝
+        if root is None or root.val == 3:
+            return
+        # 尝试
+        path.append(root)
+        if root.val == 7:
+            # 记录解
+            res.append(list(path))
+        pre_order(root.left)
+        pre_order(root.right)
+        # 回退
+        path.pop()
     ```
 
 === "C++"
 
     ```cpp title="preorder_traversal_iii_compact.cpp"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    void preOrder(TreeNode *root) {
+        // 剪枝
+        if (root == nullptr || root->val == 3) {
+            return;
+        }
+        // 尝试
+        path.push_back(root);
+        if (root->val == 7) {
+            // 记录解
+            res.push_back(path);
+        }
+        preOrder(root->left);
+        preOrder(root->right);
+        // 回退
+        path.pop_back();
+    }
     ```
 
 === "Java"
 
     ```java title="preorder_traversal_iii_compact.java"
-    [class]{preorder_traversal_iii_compact}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    void preOrder(TreeNode root) {
+        // 剪枝
+        if (root == null || root.val == 3) {
+            return;
+        }
+        // 尝试
+        path.add(root);
+        if (root.val == 7) {
+            // 记录解
+            res.add(new ArrayList<>(path));
+        }
+        preOrder(root.left);
+        preOrder(root.right);
+        // 回退
+        path.remove(path.size() - 1);
+    }
     ```
 
 === "C#"
 
     ```csharp title="preorder_traversal_iii_compact.cs"
-    [class]{preorder_traversal_iii_compact}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    void preOrder(TreeNode root) {
+        // 剪枝
+        if (root == null || root.val == 3) {
+            return;
+        }
+        // 尝试
+        path.Add(root);
+        if (root.val == 7) {
+            // 记录解
+            res.Add(new List<TreeNode>(path));
+        }
+        preOrder(root.left);
+        preOrder(root.right);
+        // 回退
+        path.RemoveAt(path.Count - 1);
+    }
     ```
 
 === "Go"
 
     ```go title="preorder_traversal_iii_compact.go"
-    [class]{}-[func]{preOrderIII}
+    /* 前序遍历：例题三 */
+    func preOrderIII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
+        // 剪枝
+        if root == nil || root.Val == 3 {
+            return
+        }
+        // 尝试
+        *path = append(*path, root)
+        if root.Val.(int) == 7 {
+            // 记录解
+            *res = append(*res, *path)
+        }
+        preOrderIII(root.Left, res, path)
+        preOrderIII(root.Right, res, path)
+        // 回退
+        *path = (*path)[:len(*path)-1]
+    }
     ```
 
 === "Swift"
 
     ```swift title="preorder_traversal_iii_compact.swift"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    func preOrder(root: TreeNode?) {
+        // 剪枝
+        guard let root = root, root.val != 3 else {
+            return
+        }
+        // 尝试
+        path.append(root)
+        if root.val == 7 {
+            // 记录解
+            res.append(path)
+        }
+        preOrder(root: root.left)
+        preOrder(root: root.right)
+        // 回退
+        path.removeLast()
+    }
     ```
 
 === "JS"
 
     ```javascript title="preorder_traversal_iii_compact.js"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    function preOrder(root, path, res) {
+        // 剪枝
+        if (root === null || root.val === 3) {
+            return;
+        }
+        // 尝试
+        path.push(root);
+        if (root.val === 7) {
+            // 记录解
+            res.push([...path]);
+        }
+        preOrder(root.left, path, res);
+        preOrder(root.right, path, res);
+        // 回退
+        path.pop();
+    }
     ```
 
 === "TS"
 
     ```typescript title="preorder_traversal_iii_compact.ts"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    function preOrder(
+        root: TreeNode | null,
+        path: TreeNode[],
+        res: TreeNode[][]
+    ): void {
+        // 剪枝
+        if (root === null || root.val === 3) {
+            return;
+        }
+        // 尝试
+        path.push(root);
+        if (root.val === 7) {
+            // 记录解
+            res.push([...path]);
+        }
+        preOrder(root.left, path, res);
+        preOrder(root.right, path, res);
+        // 回退
+        path.pop();
+    }
     ```
 
 === "Dart"
 
     ```dart title="preorder_traversal_iii_compact.dart"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    void preOrder(
+      TreeNode? root,
+      List<TreeNode> path,
+      List<List<TreeNode>> res,
+    ) {
+      if (root == null || root.val == 3) {
+        return;
+      }
+
+      // 尝试
+      path.add(root);
+      if (root.val == 7) {
+        // 记录解
+        res.add(List.from(path));
+      }
+      preOrder(root.left, path, res);
+      preOrder(root.right, path, res);
+      // 回退
+      path.removeLast();
+    }
     ```
 
 === "Rust"
 
     ```rust title="preorder_traversal_iii_compact.rs"
-    [class]{}-[func]{pre_order}
+    /* 前序遍历：例题三 */
+    fn pre_order(res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>, path: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<Rc<RefCell<TreeNode>>>) {
+        // 剪枝
+        if root.is_none() || root.as_ref().unwrap().borrow().val == 3 {
+            return;
+        }
+        if let Some(node) = root {
+            // 尝试
+            path.push(node.clone());
+            if node.borrow().val == 7 {
+                // 记录解
+                res.push(path.clone());
+            }
+            pre_order(res, path, node.borrow().left.clone());
+            pre_order(res, path, node.borrow().right.clone());
+            // 回退
+            path.remove(path.len() -  1);
+        }
+    }
     ```
 
 === "C"
 
     ```c title="preorder_traversal_iii_compact.c"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题三 */
+    void preOrder(TreeNode *root, vector *path, vector *res) {
+        // 剪枝
+        if (root == NULL || root->val == 3) {
+            return;
+        }
+        // 尝试
+        vectorPushback(path, root, sizeof(TreeNode));
+        if (root->val == 7) {
+            // 记录解
+            vector *newPath = newVector();
+            for (int i = 0; i < path->size; i++) {
+                vectorPushback(newPath, path->data[i], sizeof(int));
+            }
+            vectorPushback(res, newPath, sizeof(vector));
+            res->depth++;
+        }
+
+        preOrder(root->left, path, res);
+        preOrder(root->right, path, res);
+
+        // 回退
+        vectorPopback(path);
+    }
     ```
 
 === "Zig"
@@ -602,177 +1080,563 @@ comments: true
 === "Python"
 
     ```python title="preorder_traversal_iii_template.py"
-    [class]{}-[func]{is_solution}
+    def is_solution(state: list[TreeNode]) -> bool:
+        """判断当前状态是否为解"""
+        return state and state[-1].val == 7
 
-    [class]{}-[func]{record_solution}
+    def record_solution(state: list[TreeNode], res: list[list[TreeNode]]):
+        """记录解"""
+        res.append(list(state))
 
-    [class]{}-[func]{is_valid}
+    def is_valid(state: list[TreeNode], choice: TreeNode) -> bool:
+        """判断在当前状态下，该选择是否合法"""
+        return choice is not None and choice.val != 3
 
-    [class]{}-[func]{make_choice}
+    def make_choice(state: list[TreeNode], choice: TreeNode):
+        """更新状态"""
+        state.append(choice)
 
-    [class]{}-[func]{undo_choice}
+    def undo_choice(state: list[TreeNode], choice: TreeNode):
+        """恢复状态"""
+        state.pop()
 
-    [class]{}-[func]{backtrack}
+    def backtrack(
+        state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]
+    ):
+        """回溯算法：例题三"""
+        # 检查是否为解
+        if is_solution(state):
+            # 记录解
+            record_solution(state, res)
+        # 遍历所有选择
+        for choice in choices:
+            # 剪枝：检查选择是否合法
+            if is_valid(state, choice):
+                # 尝试：做出选择，更新状态
+                make_choice(state, choice)
+                # 进行下一轮选择
+                backtrack(state, [choice.left, choice.right], res)
+                # 回退：撤销选择，恢复到之前的状态
+                undo_choice(state, choice)
     ```
 
 === "C++"
 
     ```cpp title="preorder_traversal_iii_template.cpp"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    bool isSolution(vector<TreeNode *> &state) {
+        return !state.empty() && state.back()->val == 7;
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    void recordSolution(vector<TreeNode *> &state, vector<vector<TreeNode *>> &res) {
+        res.push_back(state);
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    bool isValid(vector<TreeNode *> &state, TreeNode *choice) {
+        return choice != nullptr && choice->val != 3;
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    void makeChoice(vector<TreeNode *> &state, TreeNode *choice) {
+        state.push_back(choice);
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    void undoChoice(vector<TreeNode *> &state, TreeNode *choice) {
+        state.pop_back();
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<vector<TreeNode *>> &res) {
+        // 检查是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+        }
+        // 遍历所有选择
+        for (TreeNode *choice : choices) {
+            // 剪枝：检查选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                // 进行下一轮选择
+                vector<TreeNode *> nextChoices{choice->left, choice->right};
+                backtrack(state, nextChoices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
     ```
 
 === "Java"
 
     ```java title="preorder_traversal_iii_template.java"
-    [class]{preorder_traversal_iii_template}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    boolean isSolution(List<TreeNode> state) {
+        return !state.isEmpty() && state.get(state.size() - 1).val == 7;
+    }
 
-    [class]{preorder_traversal_iii_template}-[func]{recordSolution}
+    /* 记录解 */
+    void recordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
+        res.add(new ArrayList<>(state));
+    }
 
-    [class]{preorder_traversal_iii_template}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    boolean isValid(List<TreeNode> state, TreeNode choice) {
+        return choice != null && choice.val != 3;
+    }
 
-    [class]{preorder_traversal_iii_template}-[func]{makeChoice}
+    /* 更新状态 */
+    void makeChoice(List<TreeNode> state, TreeNode choice) {
+        state.add(choice);
+    }
 
-    [class]{preorder_traversal_iii_template}-[func]{undoChoice}
+    /* 恢复状态 */
+    void undoChoice(List<TreeNode> state, TreeNode choice) {
+        state.remove(state.size() - 1);
+    }
 
-    [class]{preorder_traversal_iii_template}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
+        // 检查是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+        }
+        // 遍历所有选择
+        for (TreeNode choice : choices) {
+            // 剪枝：检查选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                // 进行下一轮选择
+                backtrack(state, Arrays.asList(choice.left, choice.right), res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
     ```
 
 === "C#"
 
     ```csharp title="preorder_traversal_iii_template.cs"
-    [class]{preorder_traversal_iii_template}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    bool isSolution(List<TreeNode> state) {
+        return state.Count != 0 && state[^1].val == 7;
+    }
 
-    [class]{preorder_traversal_iii_template}-[func]{recordSolution}
+    /* 记录解 */
+    void recordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
+        res.Add(new List<TreeNode>(state));
+    }
 
-    [class]{preorder_traversal_iii_template}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    bool isValid(List<TreeNode> state, TreeNode choice) {
+        return choice != null && choice.val != 3;
+    }
 
-    [class]{preorder_traversal_iii_template}-[func]{makeChoice}
+    /* 更新状态 */
+    void makeChoice(List<TreeNode> state, TreeNode choice) {
+        state.Add(choice);
+    }
 
-    [class]{preorder_traversal_iii_template}-[func]{undoChoice}
+    /* 恢复状态 */
+    void undoChoice(List<TreeNode> state, TreeNode choice) {
+        state.RemoveAt(state.Count - 1);
+    }
 
-    [class]{preorder_traversal_iii_template}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
+        // 检查是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+        }
+        // 遍历所有选择
+        foreach (TreeNode choice in choices) {
+            // 剪枝：检查选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                // 进行下一轮选择
+                backtrack(state, new List<TreeNode> { choice.left, choice.right }, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
     ```
 
 === "Go"
 
     ```go title="preorder_traversal_iii_template.go"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    func isSolution(state *[]*TreeNode) bool {
+        return len(*state) != 0 && (*state)[len(*state)-1].Val == 7
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    func recordSolution(state *[]*TreeNode, res *[][]*TreeNode) {
+        *res = append(*res, *state)
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    func isValid(state *[]*TreeNode, choice *TreeNode) bool {
+        return choice != nil && choice.Val != 3
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    func makeChoice(state *[]*TreeNode, choice *TreeNode) {
+        *state = append(*state, choice)
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    func undoChoice(state *[]*TreeNode, choice *TreeNode) {
+        *state = (*state)[:len(*state)-1]
+    }
 
-    [class]{}-[func]{backtrackIII}
+    /* 回溯算法：例题三 */
+    func backtrackIII(state *[]*TreeNode, choices *[]*TreeNode, res *[][]*TreeNode) {
+        // 检查是否为解
+        if isSolution(state) {
+            // 记录解
+            recordSolution(state, res)
+        }
+        // 遍历所有选择
+        for _, choice := range *choices {
+            // 剪枝：检查选择是否合法
+            if isValid(state, choice) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice)
+                // 进行下一轮选择
+                temp := make([]*TreeNode, 0)
+                temp = append(temp, choice.Left, choice.Right)
+                backtrackIII(state, &temp, res)
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice)
+            }
+        }
+    }
     ```
 
 === "Swift"
 
     ```swift title="preorder_traversal_iii_template.swift"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    func isSolution(state: [TreeNode]) -> Bool {
+        !state.isEmpty && state.last!.val == 7
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    func recordSolution(state: [TreeNode], res: inout [[TreeNode]]) {
+        res.append(state)
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    func isValid(state: [TreeNode], choice: TreeNode?) -> Bool {
+        choice != nil && choice!.val != 3
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    func makeChoice(state: inout [TreeNode], choice: TreeNode) {
+        state.append(choice)
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    func undoChoice(state: inout [TreeNode], choice: TreeNode) {
+        state.removeLast()
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNode]]) {
+        // 检查是否为解
+        if isSolution(state: state) {
+            recordSolution(state: state, res: &res)
+        }
+        // 遍历所有选择
+        for choice in choices {
+            // 剪枝：检查选择是否合法
+            if isValid(state: state, choice: choice) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state: &state, choice: choice)
+                // 进行下一轮选择
+                backtrack(state: &state, choices: [choice.left, choice.right].compactMap { $0 }, res: &res)
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state: &state, choice: choice)
+            }
+        }
+    }
     ```
 
 === "JS"
 
     ```javascript title="preorder_traversal_iii_template.js"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    function isSolution(state) {
+        return state && state[state.length - 1]?.val === 7;
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    function recordSolution(state, res) {
+        res.push([...state]);
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    function isValid(state, choice) {
+        return choice !== null && choice.val !== 3;
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    function makeChoice(state, choice) {
+        state.push(choice);
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    function undoChoice(state) {
+        state.pop();
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    function backtrack(state, choices, res) {
+        // 检查是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+        }
+        // 遍历所有选择
+        for (const choice of choices) {
+            // 剪枝：检查选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                // 进行下一轮选择
+                backtrack(state, [choice.left, choice.right], res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state);
+            }
+        }
+    }
     ```
 
 === "TS"
 
     ```typescript title="preorder_traversal_iii_template.ts"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    function isSolution(state: TreeNode[]): boolean {
+        return state && state[state.length - 1]?.val === 7;
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    function recordSolution(state: TreeNode[], res: TreeNode[][]): void {
+        res.push([...state]);
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    function isValid(state: TreeNode[], choice: TreeNode): boolean {
+        return choice !== null && choice.val !== 3;
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    function makeChoice(state: TreeNode[], choice: TreeNode): void {
+        state.push(choice);
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    function undoChoice(state: TreeNode[]): void {
+        state.pop();
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    function backtrack(
+        state: TreeNode[],
+        choices: TreeNode[],
+        res: TreeNode[][]
+    ): void {
+        // 检查是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+        }
+        // 遍历所有选择
+        for (const choice of choices) {
+            // 剪枝：检查选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                // 进行下一轮选择
+                backtrack(state, [choice.left, choice.right], res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state);
+            }
+        }
+    }
     ```
 
 === "Dart"
 
     ```dart title="preorder_traversal_iii_template.dart"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    bool isSolution(List<TreeNode> state) {
+      return state.isNotEmpty && state.last.val == 7;
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    void recordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
+      res.add(List.from(state));
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    bool isValid(List<TreeNode> state, TreeNode? choice) {
+      return choice != null && choice.val != 3;
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    void makeChoice(List<TreeNode> state, TreeNode? choice) {
+      state.add(choice!);
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    void undoChoice(List<TreeNode> state, TreeNode? choice) {
+      state.removeLast();
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    void backtrack(
+      List<TreeNode> state,
+      List<TreeNode?> choices,
+      List<List<TreeNode>> res,
+    ) {
+      // 检查是否为解
+      if (isSolution(state)) {
+        // 记录解
+        recordSolution(state, res);
+      }
+      // 遍历所有选择
+      for (TreeNode? choice in choices) {
+        // 剪枝：检查选择是否合法
+        if (isValid(state, choice)) {
+          // 尝试：做出选择，更新状态
+          makeChoice(state, choice);
+          // 进行下一轮选择
+          backtrack(state, [choice!.left, choice.right], res);
+          // 回退：撤销选择，恢复到之前的状态
+          undoChoice(state, choice);
+        }
+      }
+    }
     ```
 
 === "Rust"
 
     ```rust title="preorder_traversal_iii_template.rs"
-    [class]{}-[func]{is_solution}
+    /* 判断当前状态是否为解 */
+    fn is_solution(state: &mut Vec<Rc<RefCell<TreeNode>>>) -> bool {
+        return !state.is_empty() && state.get(state.len() - 1).unwrap().borrow().val == 7;
+    }
 
-    [class]{}-[func]{record_solution}
+    /* 记录解 */
+    fn record_solution(state: &mut Vec<Rc<RefCell<TreeNode>>>, res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>) {
+        res.push(state.clone());
+    }
 
-    [class]{}-[func]{is_valid}
+    /* 判断在当前状态下，该选择是否合法 */
+    fn is_valid(_: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Rc<RefCell<TreeNode>>) -> bool {
+        return choice.borrow().val != 3;
+    }
 
-    [class]{}-[func]{make_choice}
+    /* 更新状态 */
+    fn make_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Rc<RefCell<TreeNode>>) {
+        state.push(choice);
+    }
 
-    [class]{}-[func]{undo_choice}
+    /* 恢复状态 */
+    fn undo_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, _: Rc<RefCell<TreeNode>>) {
+        state.remove(state.len() - 1);
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    fn backtrack(state: &mut Vec<Rc<RefCell<TreeNode>>>, choices: &mut Vec<Rc<RefCell<TreeNode>>>, res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>) {
+        // 检查是否为解
+        if is_solution(state) {
+            // 记录解
+            record_solution(state, res);
+        }
+        // 遍历所有选择
+        for choice in choices {
+            // 剪枝：检查选择是否合法
+            if is_valid(state, choice.clone()) {
+                // 尝试：做出选择，更新状态
+                make_choice(state, choice.clone());
+                // 进行下一轮选择
+                backtrack(state, &mut vec![choice.borrow().left.clone().unwrap(), choice.borrow().right.clone().unwrap()], res);
+                // 回退：撤销选择，恢复到之前的状态
+                undo_choice(state, choice.clone());
+            }
+        }
+    }
     ```
 
 === "C"
 
     ```c title="preorder_traversal_iii_template.c"
-    [class]{}-[func]{isSolution}
+    /* 判断当前状态是否为解 */
+    bool isSolution(vector *state) {
+        return state->size != 0 && ((TreeNode *)(state->data[state->size - 1]))->val == 7;
+    }
 
-    [class]{}-[func]{recordSolution}
+    /* 记录解 */
+    void recordSolution(vector *state, vector *res) {
+        vector *newPath = newVector();
+        for (int i = 0; i < state->size; i++) {
+            vectorPushback(newPath, state->data[i], sizeof(int));
+        }
+        vectorPushback(res, newPath, sizeof(vector));
+    }
 
-    [class]{}-[func]{isValid}
+    /* 判断在当前状态下，该选择是否合法 */
+    bool isValid(vector *state, TreeNode *choice) {
+        return choice != NULL && choice->val != 3;
+    }
 
-    [class]{}-[func]{makeChoice}
+    /* 更新状态 */
+    void makeChoice(vector *state, TreeNode *choice) {
+        vectorPushback(state, choice, sizeof(TreeNode));
+    }
 
-    [class]{}-[func]{undoChoice}
+    /* 恢复状态 */
+    void undoChoice(vector *state, TreeNode *choice) {
+        vectorPopback(state);
+    }
 
-    [class]{}-[func]{backtrack}
+    /* 回溯算法：例题三 */
+    void backtrack(vector *state, vector *choices, vector *res) {
+        // 检查是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+            return;
+        }
+        // 遍历所有选择
+        for (int i = 0; i < choices->size; i++) {
+            TreeNode *choice = choices->data[i];
+            // 剪枝：检查选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                // 进行下一轮选择
+                vector *nextChoices = newVector();
+                vectorPushback(nextChoices, choice->left, sizeof(TreeNode));
+                vectorPushback(nextChoices, choice->right, sizeof(TreeNode));
+                backtrack(state, nextChoices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
     ```
 
 === "Zig"
