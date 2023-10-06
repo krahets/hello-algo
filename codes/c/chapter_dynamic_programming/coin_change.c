@@ -12,8 +12,8 @@ int min(int a, int b) {
 }
 
 /* 零钱兑换：动态规划 */
-int coinChangeDP(int coins[], int amt, int coins_size) {
-    int n = coins_size;
+int coinChangeDP(int coins[], int amt, int coinsSize) {
+    int n = coinsSize;
     int MAX = amt + 1;
     // 初始化 dp 表
     int dp[n + 1][amt + 1];
@@ -38,8 +38,8 @@ int coinChangeDP(int coins[], int amt, int coins_size) {
 }
 
 /* 零钱兑换：空间优化后的动态规划 */
-int coinChangeDPComp(int coins[], int amt, int coins_size) {
-    int n = coins_size;
+int coinChangeDPComp(int coins[], int amt, int coinsSize) {
+    int n = coinsSize;
     int MAX = amt + 1;
     // 初始化 dp 表
     int dp[amt + 1];
@@ -63,15 +63,15 @@ int coinChangeDPComp(int coins[], int amt, int coins_size) {
 /* Driver code */
 int main() {
     int coins[] = {1, 2, 5};
-    int coins_size = sizeof(coins) / sizeof(coins[0]);
+    int coinsSize = sizeof(coins) / sizeof(coins[0]);
     int amt = 4;
 
     // 动态规划
-    int res = coinChangeDP(coins, amt, coins_size);
+    int res = coinChangeDP(coins, amt, coinsSize);
     printf("凑到目标金额所需的最少硬币数量为 %d\n", res);
 
     // 空间优化后的动态规划
-    res = coinChangeDPComp(coins, amt, coins_size);
+    res = coinChangeDPComp(coins, amt, coinsSize);
     printf("凑到目标金额所需的最少硬币数量为 %d\n", res);
 
     return 0;
