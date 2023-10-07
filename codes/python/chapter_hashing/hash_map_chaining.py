@@ -29,7 +29,7 @@ class HashMapChaining:
         """负载因子"""
         return self.size / self.capacity
 
-    def get(self, key: int) -> str:
+    def get(self, key: int) -> str | None:
         """查询操作"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
