@@ -1,8 +1,7 @@
 /**
- * File        : n_queens.c
+ * File : n_queens.c
  * Created Time: 2023-09-25
- * Updated Time: 2023-10-07
- * Author      : lucas (superrat6@gmail.com)
+ * Author : lucas (superrat6@gmail.com)
  */
 
 #include "../utils/common.h"
