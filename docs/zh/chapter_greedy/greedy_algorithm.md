@@ -40,7 +40,7 @@
 === "C#"
 
     ```csharp title="coin_change_greedy.cs"
-    [class]{coin_change_greedy}-[func]{coinChangeGreedy}
+    [class]{coin_change_greedy}-[func]{CoinChangeGreedy}
     ```
 
 === "Go"
