@@ -120,7 +120,7 @@
 
 === "Go"
 
-    ```go title="hash_map.go"
+    ```go title="hash_map_test.go"
     /* 初始化哈希表 */
     hmap := make(map[int]string)
     
