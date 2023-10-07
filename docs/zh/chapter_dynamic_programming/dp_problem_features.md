@@ -55,7 +55,7 @@ $$
 === "C#"
 
     ```csharp title="min_cost_climbing_stairs_dp.cs"
-    [class]{min_cost_climbing_stairs_dp}-[func]{minCostClimbingStairsDP}
+    [class]{min_cost_climbing_stairs_dp}-[func]{MinCostClimbingStairsDP}
     ```
 
 === "Go"
@@ -133,7 +133,7 @@ $$
 === "C#"
 
     ```csharp title="min_cost_climbing_stairs_dp.cs"
-    [class]{min_cost_climbing_stairs_dp}-[func]{minCostClimbingStairsDPComp}
+    [class]{min_cost_climbing_stairs_dp}-[func]{MinCostClimbingStairsDPComp}
     ```
 
 === "Go"
@@ -243,7 +243,7 @@ $$
 === "C#"
 
     ```csharp title="climbing_stairs_constraint_dp.cs"
-    [class]{climbing_stairs_constraint_dp}-[func]{climbingStairsConstraintDP}
+    [class]{climbing_stairs_constraint_dp}-[func]{ClimbingStairsConstraintDP}
     ```
 
 === "Go"

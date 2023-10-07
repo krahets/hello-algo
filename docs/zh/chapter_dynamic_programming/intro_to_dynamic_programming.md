@@ -41,9 +41,9 @@
 === "C#"
 
     ```csharp title="climbing_stairs_backtrack.cs"
-    [class]{climbing_stairs_backtrack}-[func]{backtrack}
+    [class]{climbing_stairs_backtrack}-[func]{Backtrack}
 
-    [class]{climbing_stairs_backtrack}-[func]{climbingStairsBacktrack}
+    [class]{climbing_stairs_backtrack}-[func]{ClimbingStairsBacktrack}
     ```
 
 === "Go"
@@ -163,9 +163,9 @@ $$
 === "C#"
 
     ```csharp title="climbing_stairs_dfs.cs"
-    [class]{climbing_stairs_dfs}-[func]{dfs}
+    [class]{climbing_stairs_dfs}-[func]{Dfs}
 
-    [class]{climbing_stairs_dfs}-[func]{climbingStairsDFS}
+    [class]{climbing_stairs_dfs}-[func]{ClimbingStairsDFS}
     ```
 
 === "Go"
@@ -274,9 +274,9 @@ $$
 === "C#"
 
     ```csharp title="climbing_stairs_dfs_mem.cs"
-    [class]{climbing_stairs_dfs_mem}-[func]{dfs}
+    [class]{climbing_stairs_dfs_mem}-[func]{Dfs}
 
-    [class]{climbing_stairs_dfs_mem}-[func]{climbingStairsDFSMem}
+    [class]{climbing_stairs_dfs_mem}-[func]{ClimbingStairsDFSMem}
     ```
 
 === "Go"
@@ -376,7 +376,7 @@ $$
 === "C#"
 
     ```csharp title="climbing_stairs_dp.cs"
-    [class]{climbing_stairs_dp}-[func]{climbingStairsDP}
+    [class]{climbing_stairs_dp}-[func]{ClimbingStairsDP}
     ```
 
 === "Go"
@@ -464,7 +464,7 @@ $$
 === "C#"
 
     ```csharp title="climbing_stairs_dp.cs"
-    [class]{climbing_stairs_dp}-[func]{climbingStairsDPComp}
+    [class]{climbing_stairs_dp}-[func]{ClimbingStairsDPComp}
     ```
 
 === "Go"
