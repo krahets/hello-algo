@@ -78,6 +78,10 @@
   font-weight: 500;
 }
 
+.md-typeset h5 {
+  text-transform: none;
+}
+
 /* Image align center */
 .center {
   display: block;
