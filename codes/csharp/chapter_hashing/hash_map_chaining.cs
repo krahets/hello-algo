@@ -37,7 +37,7 @@ class HashMapChaining {
     }
 
     /* 查询操作 */
-    public string get(int key) {
+    public string? get(int key) {
         int index = hashFunc(key);
         // 遍历桶，若找到 key 则返回对应 val
         foreach (Pair pair in buckets[index]) {
