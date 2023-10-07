@@ -238,9 +238,9 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{height}
+    [class]{AVLTree}-[func]{Height}
 
-    [class]{AVLTree}-[func]{updateHeight}
+    [class]{AVLTree}-[func]{UpdateHeight}
     ```
 
 === "Go"
@@ -332,7 +332,7 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{balanceFactor}
+    [class]{AVLTree}-[func]{BalanceFactor}
     ```
 
 === "Go"
@@ -436,7 +436,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{rightRotate}
+    [class]{AVLTree}-[func]{RightRotate}
     ```
 
 === "Go"
@@ -520,7 +520,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{leftRotate}
+    [class]{AVLTree}-[func]{LeftRotate}
     ```
 
 === "Go"
@@ -623,7 +623,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{rotate}
+    [class]{AVLTree}-[func]{Rotate}
     ```
 
 === "Go"
@@ -707,9 +707,9 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{insert}
+    [class]{AVLTree}-[func]{Insert}
 
-    [class]{AVLTree}-[func]{insertHelper}
+    [class]{AVLTree}-[func]{InsertHelper}
     ```
 
 === "Go"
@@ -807,9 +807,9 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{remove}
+    [class]{AVLTree}-[func]{Remove}
 
-    [class]{AVLTree}-[func]{removeHelper}
+    [class]{AVLTree}-[func]{RemoveHelper}
     ```
 
 === "Go"
