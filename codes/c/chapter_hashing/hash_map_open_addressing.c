@@ -183,7 +183,7 @@ void print(HashMapOpenAddressing *hashMap) {
 }
 
 /* Driver Code */
-int main(int argc, char const *argv[]) {
+int main() {
     // 初始化哈希表
     HashMapOpenAddressing *hashmap = newHashMapOpenAddressing();
 
