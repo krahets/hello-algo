@@ -20,7 +20,7 @@ public class binary_search_edge {
     }
 
     /* 二分查找最右一个 target */
-    public int binarySearchRightEdge(int[] nums, int target) {
+    public int BinarySearchRightEdge(int[] nums, int target) {
         // 转化为查找最左一个 target + 1
         int i = binary_search_insertion.BinarySearchInsertion(nums, target + 1);
         // j 指向最右一个 target ，i 指向首个大于 target 的元素
@@ -43,7 +43,7 @@ public class binary_search_edge {
         foreach (int target in new int[] { 6, 7 }) {
             int index = BinarySearchLeftEdge(nums, target);
             Console.WriteLine("最左一个元素 " + target + " 的索引为 " + index);
-            index = binarySearchRightEdge(nums, target);
+            index = BinarySearchRightEdge(nums, target);
             Console.WriteLine("最右一个元素 " + target + " 的索引为 " + index);
         }
     }
