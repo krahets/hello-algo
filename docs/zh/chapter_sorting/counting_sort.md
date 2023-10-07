@@ -33,7 +33,7 @@
 === "C#"
 
     ```csharp title="counting_sort.cs"
-    [class]{counting_sort}-[func]{countingSortNaive}
+    [class]{counting_sort}-[func]{CountingSortNaive}
     ```
 
 === "Go"
@@ -152,7 +152,7 @@ $$
 === "C#"
 
     ```csharp title="counting_sort.cs"
-    [class]{counting_sort}-[func]{countingSort}
+    [class]{counting_sort}-[func]{CountingSort}
     ```
 
 === "Go"

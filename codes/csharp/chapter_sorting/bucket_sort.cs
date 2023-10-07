@@ -8,10 +8,10 @@ namespace hello_algo.chapter_sorting;
 
 public class bucket_sort {
     /* 桶排序 */
-    public static void bucketSort(float[] nums) {
+    public static void BucketSort(float[] nums) {
         // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
         int k = nums.Length / 2;
-        List<List<float>> buckets = new List<List<float>>();
+        List<List<float>> buckets = new();
         for (int i = 0; i < k; i++) {
             buckets.Add(new List<float>());
         }
@@ -40,7 +40,7 @@ public class bucket_sort {
     public void Test() {
         // 设输入数据为浮点数，范围为 [0, 1)
         float[] nums = { 0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f };
-        bucketSort(nums);
+        BucketSort(nums);
         Console.WriteLine("桶排序完成后 nums = " + string.Join(" ", nums));
     }
 }
