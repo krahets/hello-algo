@@ -3,7 +3,7 @@ site_name: Hello 算法
 site_url: https://www.hello-algo.com/
 site_author: Krahets
 site_description: 动画图解、一键运行的数据结构与算法教程
-docs_dir: build/zh
+docs_dir: build/docs
 site_dir: site
 # Repository
 repo_name: krahets/hello-algo
@@ -59,8 +59,8 @@ theme:
   font:
     text: Noto Sans SC
     code: Fira Code
-  favicon: assets/images/favicon.png
-  logo: assets/images/logo.png
+  favicon: assets/favicon.png
+  logo: assets/logo.png
   icon:
     logo: logo
     repo: fontawesome/brands/github
