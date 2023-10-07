@@ -11,7 +11,7 @@ public class preorder_traversal_ii_compact {
     static List<List<TreeNode>> res;
 
     /* 前序遍历：例题二 */
-    static void preOrder(TreeNode root) {
+    static void PreOrder(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -21,8 +21,8 @@ public class preorder_traversal_ii_compact {
             // 记录解
             res.Add(new List<TreeNode>(path));
         }
-        preOrder(root.left);
-        preOrder(root.right);
+        PreOrder(root.left);
+        PreOrder(root.right);
         // 回退
         path.RemoveAt(path.Count - 1);
     }
@@ -36,7 +36,7 @@ public class preorder_traversal_ii_compact {
         // 前序遍历
         path = new List<TreeNode>();
         res = new List<List<TreeNode>>();
-        preOrder(root);
+        PreOrder(root);
 
         Console.WriteLine("\n输出所有根节点到节点 7 的路径");
         foreach (List<TreeNode> path in res) {

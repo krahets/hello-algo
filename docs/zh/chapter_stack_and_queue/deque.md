@@ -110,7 +110,7 @@
     ```csharp title="deque.cs"
     /* 初始化双向队列 */
     // 在 C# 中，将链表 LinkedList 看作双向队列来使用
-    LinkedList<int> deque = new LinkedList<int>();
+    LinkedList<int> deque = new();
     
     /* 元素入队 */
     deque.AddLast(2);   // 添加至队尾

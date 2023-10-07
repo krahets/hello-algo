@@ -84,7 +84,7 @@ $$
 === "C#"
 
     ```csharp title="max_product_cutting.cs"
-    [class]{max_product_cutting}-[func]{maxProductCutting}
+    [class]{max_product_cutting}-[func]{MaxProductCutting}
     ```
 
 === "Go"

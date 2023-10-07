@@ -47,7 +47,7 @@
     ```csharp title="list.cs"
     /* 初始化列表 */
     // 无初始值
-    List<int> list1 = new ();
+    List<int> list1 = new();
     // 有初始值
     int[] numbers = new int[] { 1, 3, 2, 5, 4 };
     List<int> list = numbers.ToList();

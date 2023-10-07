@@ -88,7 +88,7 @@ $$
 === "C#"
 
     ```csharp title="edit_distance.cs"
-    [class]{edit_distance}-[func]{editDistanceDP}
+    [class]{edit_distance}-[func]{EditDistanceDP}
     ```
 
 === "Go"
@@ -213,7 +213,7 @@ $$
 === "C#"
 
     ```csharp title="edit_distance.cs"
-    [class]{edit_distance}-[func]{editDistanceDPComp}
+    [class]{edit_distance}-[func]{EditDistanceDPComp}
     ```
 
 === "Go"

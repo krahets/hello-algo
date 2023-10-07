@@ -105,16 +105,16 @@
     }
 
     /* 函数 */
-    int function() {
+    int Function() {
         // 执行某些操作...
         return 0;
     }
 
-    int algorithm(int n) {        // 输入数据
+    int Algorithm(int n) {        // 输入数据
         const int a = 0;          // 暂存数据（常量）
         int b = 0;                // 暂存数据（变量）
-        Node node = new Node(0);  // 暂存数据（对象）
-        int c = function();       // 栈帧空间（调用函数）
+        Node node = new(0);  // 暂存数据（对象）
+        int c = Function();       // 栈帧空间（调用函数）
         return a + b + c;         // 输出数据
     }
     ```
@@ -360,7 +360,7 @@
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n) {
+    void Algorithm(int n) {
         int a = 0;                   // O(1)
         int[] b = new int[10000];    // O(1)
         if (n > 10) {
@@ -526,20 +526,20 @@
 === "C#"
 
     ```csharp title=""
-    int function() {
+    int Function() {
         // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
-    void loop(int n) {
+    void Loop(int n) {
         for (int i = 0; i < n; i++) {
-            function();
+            Function();
         }
     }
     /* 递归 O(n) */
-    int recur(int n) {
+    int Recur(int n) {
         if (n == 1) return 1;
-        return recur(n - 1);
+        return Recur(n - 1);
     }
     ```
 
@@ -746,9 +746,9 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{function}
+    [class]{space_complexity}-[func]{Function}
 
-    [class]{space_complexity}-[func]{constant}
+    [class]{space_complexity}-[func]{Constant}
     ```
 
 === "Go"
@@ -840,7 +840,7 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{linear}
+    [class]{space_complexity}-[func]{Linear}
     ```
 
 === "Go"
@@ -916,7 +916,7 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{linearRecur}
+    [class]{space_complexity}-[func]{LinearRecur}
     ```
 
 === "Go"
@@ -994,7 +994,7 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{quadratic}
+    [class]{space_complexity}-[func]{Quadratic}
     ```
 
 === "Go"
@@ -1068,7 +1068,7 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{quadraticRecur}
+    [class]{space_complexity}-[func]{QuadraticRecur}
     ```
 
 === "Go"
@@ -1146,7 +1146,7 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{buildTree}
+    [class]{space_complexity}-[func]{BuildTree}
     ```
 
 === "Go"

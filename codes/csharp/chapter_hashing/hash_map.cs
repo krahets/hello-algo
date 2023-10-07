@@ -11,15 +11,15 @@ public class hash_map {
     [Test]
     public void Test() {
         /* 初始化哈希表 */
-        Dictionary<int, string> map = new();
-
-        /* 添加操作 */
-        // 在哈希表中添加键值对 (key, value)
-        map.Add(12836, "小哈");
-        map.Add(15937, "小啰");
-        map.Add(16750, "小算");
-        map.Add(13276, "小法");
-        map.Add(10583, "小鸭");
+        Dictionary<int, string> map = new() {
+            /* 添加操作 */
+            // 在哈希表中添加键值对 (key, value)
+            { 12836, "小哈" },
+            { 15937, "小啰" },
+            { 16750, "小算" },
+            { 13276, "小法" },
+            { 10583, "小鸭" }
+        };
         Console.WriteLine("\n添加完成后，哈希表为\nKey -> Value");
         PrintUtil.PrintHashMap(map);
 

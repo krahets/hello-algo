@@ -11,7 +11,7 @@ public class deque {
     public void Test() {
         /* 初始化双向队列 */
         // 在 C# 中，将链表 LinkedList 看作双向队列来使用
-        LinkedList<int> deque = new LinkedList<int>();
+        LinkedList<int> deque = new();
 
         /* 元素入队 */
         deque.AddLast(2);   // 添加至队尾
@@ -22,9 +22,9 @@ public class deque {
         Console.WriteLine("双向队列 deque = " + string.Join(",", deque));
 
         /* 访问元素 */
-        int peekFirst = deque.First.Value;  // 队首元素
+        int? peekFirst = deque.First?.Value;  // 队首元素
         Console.WriteLine("队首元素 peekFirst = " + peekFirst);
-        int peekLast = deque.Last.Value;    // 队尾元素
+        int? peekLast = deque.Last?.Value;    // 队尾元素
         Console.WriteLine("队尾元素 peekLast = " + peekLast);
 
         /* 元素出队 */

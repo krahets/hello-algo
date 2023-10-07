@@ -67,9 +67,9 @@
 === "C#"
 
     ```csharp title="binary_search_recur.cs"
-    [class]{binary_search_recur}-[func]{dfs}
+    [class]{binary_search_recur}-[func]{Dfs}
 
-    [class]{binary_search_recur}-[func]{binarySearch}
+    [class]{binary_search_recur}-[func]{BinarySearch}
     ```
 
 === "Go"

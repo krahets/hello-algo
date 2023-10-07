@@ -44,9 +44,9 @@
 === "C#"
 
     ```csharp title="subset_sum_i_naive.cs"
-    [class]{subset_sum_i_naive}-[func]{backtrack}
+    [class]{subset_sum_i_naive}-[func]{Backtrack}
 
-    [class]{subset_sum_i_naive}-[func]{subsetSumINaive}
+    [class]{subset_sum_i_naive}-[func]{SubsetSumINaive}
     ```
 
 === "Go"
@@ -177,9 +177,9 @@
 === "C#"
 
     ```csharp title="subset_sum_i.cs"
-    [class]{subset_sum_i}-[func]{backtrack}
+    [class]{subset_sum_i}-[func]{Backtrack}
 
-    [class]{subset_sum_i}-[func]{subsetSumI}
+    [class]{subset_sum_i}-[func]{SubsetSumI}
     ```
 
 === "Go"
@@ -297,9 +297,9 @@
 === "C#"
 
     ```csharp title="subset_sum_ii.cs"
-    [class]{subset_sum_ii}-[func]{backtrack}
+    [class]{subset_sum_ii}-[func]{Backtrack}
 
-    [class]{subset_sum_ii}-[func]{subsetSumII}
+    [class]{subset_sum_ii}-[func]{SubsetSumII}
     ```
 
 === "Go"

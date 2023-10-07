@@ -54,7 +54,7 @@
 === "C#"
 
     ```csharp title="binary_search_tree.cs"
-    [class]{BinarySearchTree}-[func]{search}
+    [class]{BinarySearchTree}-[func]{Search}
     ```
 
 === "Go"
@@ -140,7 +140,7 @@
 === "C#"
 
     ```csharp title="binary_search_tree.cs"
-    [class]{BinarySearchTree}-[func]{insert}
+    [class]{BinarySearchTree}-[func]{Insert}
     ```
 
 === "Go"
@@ -251,7 +251,7 @@
 === "C#"
 
     ```csharp title="binary_search_tree.cs"
-    [class]{BinarySearchTree}-[func]{remove}
+    [class]{BinarySearchTree}-[func]{Remove}
     ```
 
 === "Go"

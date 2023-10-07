@@ -57,7 +57,7 @@
 === "C#"
 
     ```csharp title="bubble_sort.cs"
-    [class]{bubble_sort}-[func]{bubbleSort}
+    [class]{bubble_sort}-[func]{BubbleSort}
     ```
 
 === "Go"
@@ -135,7 +135,7 @@
 === "C#"
 
     ```csharp title="bubble_sort.cs"
-    [class]{bubble_sort}-[func]{bubbleSortWithFlag}
+    [class]{bubble_sort}-[func]{BubbleSortWithFlag}
     ```
 
 === "Go"

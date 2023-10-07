@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class climbing_stairs_constraint_dp {
     /* 带约束爬楼梯：动态规划 */
-    public int climbingStairsConstraintDP(int n) {
+    public int ClimbingStairsConstraintDP(int n) {
         if (n == 1 || n == 2) {
             return 1;
         }
@@ -30,7 +30,7 @@ public class climbing_stairs_constraint_dp {
     [Test]
     public void Test() {
         int n = 9;
-        int res = climbingStairsConstraintDP(n);
+        int res = ClimbingStairsConstraintDP(n);
         Console.WriteLine($"爬 {n} 阶楼梯共有 {res} 种方案");
     }
 }

@@ -19,7 +19,7 @@ class Item {
 
 public class fractional_knapsack {
     /* 分数背包：贪心 */
-    public double fractionalKnapsack(int[] wgt, int[] val, int cap) {
+    public double FractionalKnapsack(int[] wgt, int[] val, int cap) {
         // 创建物品列表，包含两个属性：重量、价值
         Item[] items = new Item[wgt.Length];
         for (int i = 0; i < wgt.Length; i++) {
@@ -51,7 +51,7 @@ public class fractional_knapsack {
         int cap = 50;
 
         // 贪心算法
-        double res = fractionalKnapsack(wgt, val, cap);
+        double res = FractionalKnapsack(wgt, val, cap);
         Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
     }
 }

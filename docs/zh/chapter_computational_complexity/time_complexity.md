@@ -55,7 +55,7 @@
 
     ```csharp title=""
     // 在某运行平台下
-    void algorithm(int n) {
+    void Algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
@@ -253,17 +253,17 @@ $$
 
     ```csharp title=""
     // 算法 A 的时间复杂度：常数阶
-    void algorithm_A(int n) {
+    void AlgorithmA(int n) {
         Console.WriteLine(0);
     }
     // 算法 B 的时间复杂度：线性阶
-    void algorithm_B(int n) {
+    void AlgorithmB(int n) {
         for (int i = 0; i < n; i++) {
             Console.WriteLine(0);
         }
     }
     // 算法 C 的时间复杂度：常数阶
-    void algorithm_C(int n) {
+    void AlgorithmC(int n) {
         for (int i = 0; i < 1000000; i++) {
             Console.WriteLine(0);
         }
@@ -487,7 +487,7 @@ $$
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n) {
+    void Algorithm(int n) {
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
@@ -695,7 +695,7 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n) {
+    void Algorithm(int n) {
         int a = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
         // +n（技巧 2）
@@ -918,7 +918,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{constant}
+    [class]{time_complexity}-[func]{Constant}
     ```
 
 === "Go"
@@ -994,7 +994,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{linear}
+    [class]{time_complexity}-[func]{Linear}
     ```
 
 === "Go"
@@ -1068,7 +1068,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{arrayTraversal}
+    [class]{time_complexity}-[func]{ArrayTraversal}
     ```
 
 === "Go"
@@ -1146,7 +1146,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{quadratic}
+    [class]{time_complexity}-[func]{Quadratic}
     ```
 
 === "Go"
@@ -1224,7 +1224,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{bubbleSort}
+    [class]{time_complexity}-[func]{BubbleSort}
     ```
 
 === "Go"
@@ -1302,7 +1302,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{exponential}
+    [class]{time_complexity}-[func]{Exponential}
     ```
 
 === "Go"
@@ -1378,7 +1378,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{expRecur}
+    [class]{time_complexity}-[func]{ExpRecur}
     ```
 
 === "Go"
@@ -1458,7 +1458,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{logarithmic}
+    [class]{time_complexity}-[func]{Logarithmic}
     ```
 
 === "Go"
@@ -1534,7 +1534,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{logRecur}
+    [class]{time_complexity}-[func]{LogRecur}
     ```
 
 === "Go"
@@ -1622,7 +1622,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{linearLogRecur}
+    [class]{time_complexity}-[func]{LinearLogRecur}
     ```
 
 === "Go"
@@ -1710,7 +1710,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{factorialRecur}
+    [class]{time_complexity}-[func]{FactorialRecur}
     ```
 
 === "Go"
@@ -1801,9 +1801,9 @@ $$
 === "C#"
 
     ```csharp title="worst_best_time_complexity.cs"
-    [class]{worst_best_time_complexity}-[func]{randomNumbers}
+    [class]{worst_best_time_complexity}-[func]{RandomNumbers}
 
-    [class]{worst_best_time_complexity}-[func]{findOne}
+    [class]{worst_best_time_complexity}-[func]{FindOne}
     ```
 
 === "Go"
