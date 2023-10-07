@@ -51,7 +51,7 @@ comments: true
     ```csharp title="list.cs"
     /* 初始化列表 */
     // 无初始值
-    List<int> list1 = new ();
+    List<int> list1 = new();
     // 有初始值
     int[] numbers = new int[] { 1, 3, 2, 5, 4 };
     List<int> list = numbers.ToList();
@@ -1170,7 +1170,7 @@ comments: true
         private int[] nums;           // 数组（存储列表元素）
         private int numsCapacity = 10;    // 列表容量
         private int numsSize = 0;         // 列表长度（即当前元素数量）
-        private int extendRatio = 2;  // 每次列表扩容的倍数
+        private readonly int extendRatio = 2;  // 每次列表扩容的倍数
 
         /* 构造方法 */
         public MyList() {
@@ -1178,17 +1178,17 @@ comments: true
         }
 
         /* 获取列表长度（即当前元素数量）*/
-        public int size() {
+        public int Size() {
             return numsSize;
         }
 
         /* 获取列表容量 */
-        public int capacity() {
+        public int Capacity() {
             return numsCapacity;
         }
 
         /* 访问元素 */
-        public int get(int index) {
+        public int Get(int index) {
             // 索引如果越界则抛出异常，下同
             if (index < 0 || index >= numsSize)
                 throw new IndexOutOfRangeException("索引越界");
@@ -1196,29 +1196,29 @@ comments: true
         }
 
         /* 更新元素 */
-        public void set(int index, int num) {
+        public void Set(int index, int num) {
             if (index < 0 || index >= numsSize)
                 throw new IndexOutOfRangeException("索引越界");
             nums[index] = num;
         }
 
         /* 尾部添加元素 */
-        public void add(int num) {
+        public void Add(int num) {
             // 元素数量超出容量时，触发扩容机制
             if (numsSize == numsCapacity)
-                extendCapacity();
+                ExtendCapacity();
             nums[numsSize] = num;
             // 更新元素数量
             numsSize++;
         }
 
         /* 中间插入元素 */
-        public void insert(int index, int num) {
+        public void Insert(int index, int num) {
             if (index < 0 || index >= numsSize)
                 throw new IndexOutOfRangeException("索引越界");
             // 元素数量超出容量时，触发扩容机制
             if (numsSize == numsCapacity)
-                extendCapacity();
+                ExtendCapacity();
             // 将索引 index 以及之后的元素都向后移动一位
             for (int j = numsSize - 1; j >= index; j--) {
                 nums[j + 1] = nums[j];
@@ -1229,7 +1229,7 @@ comments: true
         }
 
         /* 删除元素 */
-        public int remove(int index) {
+        public int Remove(int index) {
             if (index < 0 || index >= numsSize)
                 throw new IndexOutOfRangeException("索引越界");
             int num = nums[index];
@@ -1244,7 +1244,7 @@ comments: true
         }
 
         /* 列表扩容 */
-        public void extendCapacity() {
+        public void ExtendCapacity() {
             // 新建一个长度为 numsCapacity * extendRatio 的数组，并将原数组拷贝到新数组
             Array.Resize(ref nums, numsCapacity * extendRatio);
             // 更新列表容量
@@ -1252,11 +1252,11 @@ comments: true
         }
 
         /* 将列表转换为数组 */
-        public int[] toArray() {
+        public int[] ToArray() {
             // 仅转换有效长度范围内的列表元素
             int[] nums = new int[numsSize];
             for (int i = 0; i < numsSize; i++) {
-                nums[i] = get(i);
+                nums[i] = Get(i);
             }
             return nums;
         }

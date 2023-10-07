@@ -172,30 +172,30 @@ comments: true
 
     ```csharp title="build_tree.cs"
     /* 构建二叉树：分治 */
-    TreeNode dfs(int[] preorder, Dictionary<int, int> inorderMap, int i, int l, int r) {
+    TreeNode Dfs(int[] preorder, Dictionary<int, int> inorderMap, int i, int l, int r) {
         // 子树区间为空时终止
         if (r - l < 0)
             return null;
         // 初始化根节点
-        TreeNode root = new TreeNode(preorder[i]);
+        TreeNode root = new(preorder[i]);
         // 查询 m ，从而划分左右子树
         int m = inorderMap[preorder[i]];
         // 子问题：构建左子树
-        root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
+        root.left = Dfs(preorder, inorderMap, i + 1, l, m - 1);
         // 子问题：构建右子树
-        root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
+        root.right = Dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
         // 返回根节点
         return root;
     }
 
     /* 构建二叉树 */
-    TreeNode buildTree(int[] preorder, int[] inorder) {
+    TreeNode BuildTree(int[] preorder, int[] inorder) {
         // 初始化哈希表，存储 inorder 元素到索引的映射
-        Dictionary<int, int> inorderMap = new Dictionary<int, int>();
+        Dictionary<int, int> inorderMap = new();
         for (int i = 0; i < inorder.Length; i++) {
             inorderMap.TryAdd(inorder[i], i);
         }
-        TreeNode root = dfs(preorder, inorderMap, 0, 0, inorder.Length - 1);
+        TreeNode root = Dfs(preorder, inorderMap, 0, 0, inorder.Length - 1);
         return root;
     }
     ```

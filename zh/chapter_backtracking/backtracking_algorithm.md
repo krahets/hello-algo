@@ -66,7 +66,7 @@ comments: true
 
     ```csharp title="preorder_traversal_i_compact.cs"
     /* 前序遍历：例题一 */
-    void preOrder(TreeNode root) {
+    void PreOrder(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -74,8 +74,8 @@ comments: true
             // 记录解
             res.Add(root);
         }
-        preOrder(root.left);
-        preOrder(root.right);
+        PreOrder(root.left);
+        PreOrder(root.right);
     }
     ```
 
@@ -277,7 +277,7 @@ comments: true
 
     ```csharp title="preorder_traversal_ii_compact.cs"
     /* 前序遍历：例题二 */
-    void preOrder(TreeNode root) {
+    void PreOrder(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -287,8 +287,8 @@ comments: true
             // 记录解
             res.Add(new List<TreeNode>(path));
         }
-        preOrder(root.left);
-        preOrder(root.right);
+        PreOrder(root.left);
+        PreOrder(root.right);
         // 回退
         path.RemoveAt(path.Count - 1);
     }
@@ -580,7 +580,7 @@ comments: true
 
     ```csharp title="preorder_traversal_iii_compact.cs"
     /* 前序遍历：例题三 */
-    void preOrder(TreeNode root) {
+    void PreOrder(TreeNode root) {
         // 剪枝
         if (root == null || root.val == 3) {
             return;
@@ -591,8 +591,8 @@ comments: true
             // 记录解
             res.Add(new List<TreeNode>(path));
         }
-        preOrder(root.left);
-        preOrder(root.right);
+        PreOrder(root.left);
+        PreOrder(root.right);
         // 回退
         path.RemoveAt(path.Count - 1);
     }
@@ -865,23 +865,23 @@ comments: true
 
     ```csharp title=""
     /* 回溯算法框架 */
-    void backtrack(State state, List<Choice> choices, List<State> res) {
+    void Backtrack(State state, List<Choice> choices, List<State> res) {
         // 判断是否为解
-        if (isSolution(state)) {
+        if (IsSolution(state)) {
             // 记录解
-            recordSolution(state, res);
+            RecordSolution(state, res);
             // 停止继续搜索
             return;
         }
         // 遍历所有选择
         foreach (Choice choice in choices) {
             // 剪枝：判断选择是否合法
-            if (isValid(state, choice)) {
+            if (IsValid(state, choice)) {
                 // 尝试：做出选择，更新状态
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
+                MakeChoice(state, choice);
+                Backtrack(state, choices, res);
                 // 回退：撤销选择，恢复到之前的状态
-                undoChoice(state, choice);
+                UndoChoice(state, choice);
             }
         }
     }
@@ -1225,47 +1225,47 @@ comments: true
 
     ```csharp title="preorder_traversal_iii_template.cs"
     /* 判断当前状态是否为解 */
-    bool isSolution(List<TreeNode> state) {
+    bool IsSolution(List<TreeNode> state) {
         return state.Count != 0 && state[^1].val == 7;
     }
 
     /* 记录解 */
-    void recordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
+    void RecordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
         res.Add(new List<TreeNode>(state));
     }
 
     /* 判断在当前状态下，该选择是否合法 */
-    bool isValid(List<TreeNode> state, TreeNode choice) {
+    bool IsValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
 
     /* 更新状态 */
-    void makeChoice(List<TreeNode> state, TreeNode choice) {
+    void MakeChoice(List<TreeNode> state, TreeNode choice) {
         state.Add(choice);
     }
 
     /* 恢复状态 */
-    void undoChoice(List<TreeNode> state, TreeNode choice) {
+    void UndoChoice(List<TreeNode> state, TreeNode choice) {
         state.RemoveAt(state.Count - 1);
     }
 
     /* 回溯算法：例题三 */
-    void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
+    void Backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
         // 检查是否为解
-        if (isSolution(state)) {
+        if (IsSolution(state)) {
             // 记录解
-            recordSolution(state, res);
+            RecordSolution(state, res);
         }
         // 遍历所有选择
         foreach (TreeNode choice in choices) {
             // 剪枝：检查选择是否合法
-            if (isValid(state, choice)) {
+            if (IsValid(state, choice)) {
                 // 尝试：做出选择，更新状态
-                makeChoice(state, choice);
+                MakeChoice(state, choice);
                 // 进行下一轮选择
-                backtrack(state, new List<TreeNode> { choice.left, choice.right }, res);
+                Backtrack(state, new List<TreeNode> { choice.left, choice.right }, res);
                 // 回退：撤销选择，恢复到之前的状态
-                undoChoice(state, choice);
+                UndoChoice(state, choice);
             }
         }
     }

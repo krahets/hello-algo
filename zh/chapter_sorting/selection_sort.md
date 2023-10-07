@@ -114,7 +114,7 @@ comments: true
 
     ```csharp title="selection_sort.cs"
     /* 选择排序 */
-    void selectionSort(int[] nums) {
+    void SelectionSort(int[] nums) {
         int n = nums.Length;
         // 外循环：未排序区间为 [i, n-1]
         for (int i = 0; i < n - 1; i++) {

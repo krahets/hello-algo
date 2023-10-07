@@ -359,8 +359,8 @@ comments: true
     class HashMapChaining {
         int size; // 键值对数量
         int capacity; // 哈希表容量
-        double loadThres; // 触发扩容的负载因子阈值
-        int extendRatio; // 扩容倍数
+        readonly double loadThres; // 触发扩容的负载因子阈值
+        readonly int extendRatio; // 扩容倍数
         List<List<Pair>> buckets; // 桶数组
 
         /* 构造方法 */
@@ -376,18 +376,18 @@ comments: true
         }
 
         /* 哈希函数 */
-        private int hashFunc(int key) {
+        private int HashFunc(int key) {
             return key % capacity;
         }
 
         /* 负载因子 */
-        private double loadFactor() {
+        private double LoadFactor() {
             return (double)size / capacity;
         }
 
         /* 查询操作 */
-        public string? get(int key) {
-            int index = hashFunc(key);
+        public string? Get(int key) {
+            int index = HashFunc(key);
             // 遍历桶，若找到 key 则返回对应 val
             foreach (Pair pair in buckets[index]) {
                 if (pair.key == key) {
@@ -399,12 +399,12 @@ comments: true
         }
 
         /* 添加操作 */
-        public void put(int key, string val) {
+        public void Put(int key, string val) {
             // 当负载因子超过阈值时，执行扩容
-            if (loadFactor() > loadThres) {
-                extend();
+            if (LoadFactor() > loadThres) {
+                Extend();
             }
-            int index = hashFunc(key);
+            int index = HashFunc(key);
             // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
             foreach (Pair pair in buckets[index]) {
                 if (pair.key == key) {
@@ -418,8 +418,8 @@ comments: true
         }
 
         /* 删除操作 */
-        public void remove(int key) {
-            int index = hashFunc(key);
+        public void Remove(int key) {
+            int index = HashFunc(key);
             // 遍历桶，从中删除键值对
             foreach (Pair pair in buckets[index].ToList()) {
                 if (pair.key == key) {
@@ -431,7 +431,7 @@ comments: true
         }
 
         /* 扩容哈希表 */
-        private void extend() {
+        private void Extend() {
             // 暂存原哈希表
             List<List<Pair>> bucketsTmp = buckets;
             // 初始化扩容后的新哈希表
@@ -444,15 +444,15 @@ comments: true
             // 将键值对从原哈希表搬运至新哈希表
             foreach (List<Pair> bucket in bucketsTmp) {
                 foreach (Pair pair in bucket) {
-                    put(pair.key, pair.val);
+                    Put(pair.key, pair.val);
                 }
             }
         }
 
         /* 打印哈希表 */
-        public void print() {
+        public void Print() {
             foreach (List<Pair> bucket in buckets) {
-                List<string> res = new List<string>();
+                List<string> res = new();
                 foreach (Pair pair in bucket) {
                     res.Add(pair.key + " -> " + pair.val);
                 }
@@ -1743,10 +1743,10 @@ comments: true
     class HashMapOpenAddressing {
         private int size; // 键值对数量
         private int capacity = 4; // 哈希表容量
-        private double loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
-        private int extendRatio = 2; // 扩容倍数
+        private readonly double loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
+        private readonly int extendRatio = 2; // 扩容倍数
         private Pair[] buckets; // 桶数组
-        private Pair TOMBSTONE = new Pair(-1, "-1"); // 删除标记
+        private readonly Pair TOMBSTONE = new(-1, "-1"); // 删除标记
 
         /* 构造方法 */
         public HashMapOpenAddressing() {
@@ -1755,18 +1755,18 @@ comments: true
         }
 
         /* 哈希函数 */
-        private int hashFunc(int key) {
+        private int HashFunc(int key) {
             return key % capacity;
         }
 
         /* 负载因子 */
-        private double loadFactor() {
+        private double LoadFactor() {
             return (double)size / capacity;
         }
 
         /* 搜索 key 对应的桶索引 */
-        private int findBucket(int key) {
-            int index = hashFunc(key);
+        private int FindBucket(int key) {
+            int index = HashFunc(key);
             int firstTombstone = -1;
             // 线性探测，当遇到空桶时跳出
             while (buckets[index] != null) {
@@ -1792,9 +1792,9 @@ comments: true
         }
 
         /* 查询操作 */
-        public string? get(int key) {
+        public string? Get(int key) {
             // 搜索 key 对应的桶索引
-            int index = findBucket(key);
+            int index = FindBucket(key);
             // 若找到键值对，则返回对应 val
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 return buckets[index].val;
@@ -1804,13 +1804,13 @@ comments: true
         }
 
         /* 添加操作 */
-        public void put(int key, string val) {
+        public void Put(int key, string val) {
             // 当负载因子超过阈值时，执行扩容
-            if (loadFactor() > loadThres) {
-                extend();
+            if (LoadFactor() > loadThres) {
+                Extend();
             }
             // 搜索 key 对应的桶索引
-            int index = findBucket(key);
+            int index = FindBucket(key);
             // 若找到键值对，则覆盖 val 并返回
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index].val = val;
@@ -1822,9 +1822,9 @@ comments: true
         }
 
         /* 删除操作 */
-        public void remove(int key) {
+        public void Remove(int key) {
             // 搜索 key 对应的桶索引
-            int index = findBucket(key);
+            int index = FindBucket(key);
             // 若找到键值对，则用删除标记覆盖它
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index] = TOMBSTONE;
@@ -1833,7 +1833,7 @@ comments: true
         }
 
         /* 扩容哈希表 */
-        private void extend() {
+        private void Extend() {
             // 暂存原哈希表
             Pair[] bucketsTmp = buckets;
             // 初始化扩容后的新哈希表
@@ -1843,13 +1843,13 @@ comments: true
             // 将键值对从原哈希表搬运至新哈希表
             foreach (Pair pair in bucketsTmp) {
                 if (pair != null && pair != TOMBSTONE) {
-                    put(pair.key, pair.val);
+                    Put(pair.key, pair.val);
                 }
             }
         }
 
         /* 打印哈希表 */
-        public void print() {
+        public void Print() {
             foreach (Pair pair in buckets) {
                 if (pair == null) {
                     Console.WriteLine("null");

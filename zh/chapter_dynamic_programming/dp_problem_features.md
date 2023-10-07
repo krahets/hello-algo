@@ -104,7 +104,7 @@ $$
 
     ```csharp title="min_cost_climbing_stairs_dp.cs"
     /* 爬楼梯最小代价：动态规划 */
-    int minCostClimbingStairsDP(int[] cost) {
+    int MinCostClimbingStairsDP(int[] cost) {
         int n = cost.Length - 1;
         if (n == 1 || n == 2)
             return cost[n];
@@ -130,6 +130,12 @@ $$
         if n == 1 || n == 2 {
             return cost[n]
         }
+        min := func(a, b int) int {
+            if a < b {
+                return a
+            }
+            return b
+        }
         // 初始化 dp 表，用于存储子问题的解
         dp := make([]int, n+1)
         // 初始状态：预设最小子问题的解
@@ -137,7 +143,7 @@ $$
         dp[2] = cost[2]
         // 状态转移：从较小子问题逐步求解较大子问题
         for i := 3; i <= n; i++ {
-            dp[i] = int(math.Min(float64(dp[i-1]), float64(dp[i-2]+cost[i])))
+            dp[i] = min(dp[i-1], dp[i-2]) + cost[i]
         }
         return dp[n]
     }
@@ -252,7 +258,22 @@ $$
 === "C"
 
     ```c title="min_cost_climbing_stairs_dp.c"
-    [class]{}-[func]{minCostClimbingStairsDP}
+    /* 爬楼梯最小代价：动态规划 */
+    int minCostClimbingStairsDP(int cost[], int costSize) {
+        int n = costSize - 1;
+        if (n == 1 || n == 2)
+            return cost[n];
+        // 初始化 dp 表，用于存储子问题的解
+        int dp[n + 1];
+        // 初始状态：预设最小子问题的解
+        dp[1] = cost[1];
+        dp[2] = cost[2];
+        // 状态转移：从较小子问题逐步求解较大子问题
+        for (int i = 3; i <= n; i++) {
+            dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
+        }
+        return dp[n];
+    }
     ```
 
 === "Zig"
@@ -339,7 +360,7 @@ $$
 
     ```csharp title="min_cost_climbing_stairs_dp.cs"
     /* 爬楼梯最小代价：空间优化后的动态规划 */
-    int minCostClimbingStairsDPComp(int[] cost) {
+    int MinCostClimbingStairsDPComp(int[] cost) {
         int n = cost.Length - 1;
         if (n == 1 || n == 2)
             return cost[n];
@@ -362,12 +383,18 @@ $$
         if n == 1 || n == 2 {
             return cost[n]
         }
+        min := func(a, b int) int {
+            if a < b {
+                return a
+            }
+            return b
+        }
         // 初始状态：预设最小子问题的解
         a, b := cost[1], cost[2]
         // 状态转移：从较小子问题逐步求解较大子问题
         for i := 3; i <= n; i++ {
             tmp := b
-            b = int(math.Min(float64(a), float64(tmp+cost[i])))
+            b = min(a, tmp) + cost[i]
             a = tmp
         }
         return b
@@ -468,7 +495,19 @@ $$
 === "C"
 
     ```c title="min_cost_climbing_stairs_dp.c"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
+    /* 爬楼梯最小代价：空间优化后的动态规划 */
+    int minCostClimbingStairsDPComp(int cost[], int costSize) {
+        int n = costSize - 1;
+        if (n == 1 || n == 2)
+            return cost[n];
+        int a = cost[1], b = cost[2];
+        for (int i = 3; i <= n; i++) {
+            int tmp = b;
+            b = min(a, tmp) + cost[i];
+            a = tmp;
+        }
+        return b;
+    }
     ```
 
 === "Zig"
@@ -605,7 +644,7 @@ $$
 
     ```csharp title="climbing_stairs_constraint_dp.cs"
     /* 带约束爬楼梯：动态规划 */
-    int climbingStairsConstraintDP(int n) {
+    int ClimbingStairsConstraintDP(int n) {
         if (n == 1 || n == 2) {
             return 1;
         }

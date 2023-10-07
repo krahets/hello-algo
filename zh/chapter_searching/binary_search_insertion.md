@@ -92,7 +92,7 @@ comments: true
 
     ```csharp title="binary_search_insertion.cs"
     /* 二分查找插入点（无重复元素） */
-    int binarySearchInsertionSimple(int[] nums, int target) {
+    int BinarySearchInsertionSimple(int[] nums, int target) {
         int i = 0, j = nums.Length - 1; // 初始化双闭区间 [0, n-1]
         while (i <= j) {
             int m = i + (j - i) / 2; // 计算中点索引 m
@@ -392,7 +392,7 @@ comments: true
 
     ```csharp title="binary_search_insertion.cs"
     /* 二分查找插入点（存在重复元素） */
-    int binarySearchInsertion(int[] nums, int target) {
+    int BinarySearchInsertion(int[] nums, int target) {
         int i = 0, j = nums.Length - 1; // 初始化双闭区间 [0, n-1]
         while (i <= j) {
             int m = i + (j - i) / 2; // 计算中点索引 m

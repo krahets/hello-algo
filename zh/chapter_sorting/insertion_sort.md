@@ -83,7 +83,7 @@ comments: true
 
     ```csharp title="insertion_sort.cs"
     /* 插入排序 */
-    void insertionSort(int[] nums) {
+    void InsertionSort(int[] nums) {
         // 外循环：已排序元素数量为 1, 2, ..., n
         for (int i = 1; i < nums.Length; i++) {
             int bas = nums[i], j = i - 1;

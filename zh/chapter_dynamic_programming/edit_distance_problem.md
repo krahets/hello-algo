@@ -165,7 +165,7 @@ $$
 
     ```csharp title="edit_distance.cs"
     /* 编辑距离：动态规划 */
-    int editDistanceDP(string s, string t) {
+    int EditDistanceDP(string s, string t) {
         int n = s.Length, m = t.Length;
         int[,] dp = new int[n + 1, m + 1];
         // 状态转移：首行首列
@@ -578,7 +578,7 @@ $$
 
     ```csharp title="edit_distance.cs"
     /* 编辑距离：空间优化后的动态规划 */
-    int editDistanceDPComp(string s, string t) {
+    int EditDistanceDPComp(string s, string t) {
         int n = s.Length, m = t.Length;
         int[] dp = new int[m + 1];
         // 状态转移：首行

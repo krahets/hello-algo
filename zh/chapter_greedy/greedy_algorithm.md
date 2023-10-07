@@ -95,7 +95,7 @@ comments: true
 
     ```csharp title="coin_change_greedy.cs"
     /* 零钱兑换：贪心 */
-    int coinChangeGreedy(int[] coins, int amt) {
+    int CoinChangeGreedy(int[] coins, int amt) {
         // 假设 coins 列表有序
         int i = coins.Length - 1;
         int count = 0;

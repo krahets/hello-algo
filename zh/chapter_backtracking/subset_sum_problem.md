@@ -131,7 +131,7 @@ comments: true
 
     ```csharp title="subset_sum_i_naive.cs"
     /* 回溯算法：子集和 I */
-    void backtrack(List<int> state, int target, int total, int[] choices, List<List<int>> res) {
+    void Backtrack(List<int> state, int target, int total, int[] choices, List<List<int>> res) {
         // 子集和等于 target 时，记录解
         if (total == target) {
             res.Add(new List<int>(state));
@@ -146,18 +146,18 @@ comments: true
             // 尝试：做出选择，更新元素和 total
             state.Add(choices[i]);
             // 进行下一轮选择
-            backtrack(state, target, total + choices[i], choices, res);
+            Backtrack(state, target, total + choices[i], choices, res);
             // 回退：撤销选择，恢复到之前的状态
             state.RemoveAt(state.Count - 1);
         }
     }
 
     /* 求解子集和 I（包含重复子集） */
-    List<List<int>> subsetSumINaive(int[] nums, int target) {
-        List<int> state = new List<int>(); // 状态（子集）
+    List<List<int>> SubsetSumINaive(int[] nums, int target) {
+        List<int> state = new(); // 状态（子集）
         int total = 0; // 子集和
-        List<List<int>> res = new List<List<int>>(); // 结果列表（子集列表）
-        backtrack(state, target, total, nums, res);
+        List<List<int>> res = new(); // 结果列表（子集列表）
+        Backtrack(state, target, total, nums, res);
         return res;
     }
     ```
@@ -588,7 +588,7 @@ comments: true
 
     ```csharp title="subset_sum_i.cs"
     /* 回溯算法：子集和 I */
-    void backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
+    void Backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
         // 子集和等于 target 时，记录解
         if (target == 0) {
             res.Add(new List<int>(state));
@@ -605,19 +605,19 @@ comments: true
             // 尝试：做出选择，更新 target, start
             state.Add(choices[i]);
             // 进行下一轮选择
-            backtrack(state, target - choices[i], choices, i, res);
+            Backtrack(state, target - choices[i], choices, i, res);
             // 回退：撤销选择，恢复到之前的状态
             state.RemoveAt(state.Count - 1);
         }
     }
 
     /* 求解子集和 I */
-    List<List<int>> subsetSumI(int[] nums, int target) {
-        List<int> state = new List<int>(); // 状态（子集）
+    List<List<int>> SubsetSumI(int[] nums, int target) {
+        List<int> state = new(); // 状态（子集）
         Array.Sort(nums); // 对 nums 进行排序
         int start = 0; // 遍历起始点
-        List<List<int>> res = new List<List<int>>(); // 结果列表（子集列表）
-        backtrack(state, target, nums, start, res);
+        List<List<int>> res = new(); // 结果列表（子集列表）
+        Backtrack(state, target, nums, start, res);
         return res;
     }
     ```
@@ -1069,7 +1069,7 @@ comments: true
 
     ```csharp title="subset_sum_ii.cs"
     /* 回溯算法：子集和 II */
-    void backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
+    void Backtrack(List<int> state, int target, int[] choices, int start, List<List<int>> res) {
         // 子集和等于 target 时，记录解
         if (target == 0) {
             res.Add(new List<int>(state));
@@ -1091,19 +1091,19 @@ comments: true
             // 尝试：做出选择，更新 target, start
             state.Add(choices[i]);
             // 进行下一轮选择
-            backtrack(state, target - choices[i], choices, i + 1, res);
+            Backtrack(state, target - choices[i], choices, i + 1, res);
             // 回退：撤销选择，恢复到之前的状态
             state.RemoveAt(state.Count - 1);
         }
     }
 
     /* 求解子集和 II */
-    List<List<int>> subsetSumII(int[] nums, int target) {
-        List<int> state = new List<int>(); // 状态（子集）
+    List<List<int>> SubsetSumII(int[] nums, int target) {
+        List<int> state = new(); // 状态（子集）
         Array.Sort(nums); // 对 nums 进行排序
         int start = 0; // 遍历起始点
-        List<List<int>> res = new List<List<int>>(); // 结果列表（子集列表）
-        backtrack(state, target, nums, start, res);
+        List<List<int>> res = new(); // 结果列表（子集列表）
+        Backtrack(state, target, nums, start, res);
         return res;
     }
     ```

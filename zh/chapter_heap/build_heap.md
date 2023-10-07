@@ -75,9 +75,9 @@ comments: true
         // 将列表元素原封不动添加进堆
         maxHeap = new List<int>(nums);
         // 堆化除叶节点以外的其他所有节点
-        var size = parent(this.size() - 1);
+        var size = Parent(this.Size() - 1);
         for (int i = size; i >= 0; i--) {
-            siftDown(i);
+            SiftDown(i);
         }
     }
     ```

@@ -147,7 +147,7 @@ $$
 
     ```csharp title="max_product_cutting.cs"
     /* 最大切分乘积：贪心 */
-    int maxProductCutting(int n) {
+    int MaxProductCutting(int n) {
         // 当 n <= 3 时，必须切分出一个 1
         if (n <= 3) {
             return 1 * (n - 1);

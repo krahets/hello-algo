@@ -142,8 +142,8 @@ comments: true
 
     ```csharp title="top_k.cs"
     /* 基于堆查找数组中最大的 k 个元素 */
-    PriorityQueue<int, int> topKHeap(int[] nums, int k) {
-        PriorityQueue<int, int> heap = new PriorityQueue<int, int>();
+    PriorityQueue<int, int> TopKHeap(int[] nums, int k) {
+        PriorityQueue<int, int> heap = new();
         // 将数组的前 k 个元素入堆
         for (int i = 0; i < k; i++) {
             heap.Enqueue(nums[i], nums[i]);

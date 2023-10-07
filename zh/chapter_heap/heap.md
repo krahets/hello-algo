@@ -168,9 +168,9 @@ comments: true
     ```csharp title="heap.cs"
     /* 初始化堆 */
     // 初始化小顶堆
-    PriorityQueue<int, int> minHeap = new PriorityQueue<int, int>();
+    PriorityQueue<int, int> minHeap = new();
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
-    PriorityQueue<int, int> maxHeap = new PriorityQueue<int, int>(Comparer<int>.Create((x, y) => y - x));
+    PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y - x));
 
     /* 元素入堆 */
     maxHeap.Enqueue(1, 1);
@@ -431,17 +431,17 @@ comments: true
 
     ```csharp title="my_heap.cs"
     /* 获取左子节点索引 */
-    int left(int i) {
+    int Left(int i) {
         return 2 * i + 1;
     }
 
     /* 获取右子节点索引 */
-    int right(int i) {
+    int Right(int i) {
         return 2 * i + 2;
     }
 
     /* 获取父节点索引 */
-    int parent(int i) {
+    int Parent(int i) {
         return (i - 1) / 2; // 向下整除
     }
     ```
@@ -634,7 +634,7 @@ comments: true
 
     ```csharp title="my_heap.cs"
     /* 访问堆顶元素 */
-    int peek() {
+    int Peek() {
         return maxHeap[0];
     }
     ```
@@ -830,23 +830,23 @@ comments: true
 
     ```csharp title="my_heap.cs"
     /* 元素入堆 */
-    void push(int val) {
+    void Push(int val) {
         // 添加节点
         maxHeap.Add(val);
         // 从底至顶堆化
-        siftUp(size() - 1);
+        SiftUp(Size() - 1);
     }
 
     /* 从节点 i 开始，从底至顶堆化 */
-    void siftUp(int i) {
+    void SiftUp(int i) {
         while (true) {
             // 获取节点 i 的父节点
-            int p = parent(i);
+            int p = Parent(i);
             // 若“越过根节点”或“节点无须修复”，则结束堆化
             if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
             // 交换两节点
-            swap(i, p);
+            Swap(i, p);
             // 循环向上堆化
             i = p;
         }
@@ -1241,34 +1241,34 @@ comments: true
 
     ```csharp title="my_heap.cs"
     /* 元素出堆 */
-    int pop() {
+    int Pop() {
         // 判空处理
-        if (isEmpty())
+        if (IsEmpty())
             throw new IndexOutOfRangeException();
         // 交换根节点与最右叶节点（即交换首元素与尾元素）
-        swap(0, size() - 1);
+        Swap(0, Size() - 1);
         // 删除节点
         int val = maxHeap.Last();
-        maxHeap.RemoveAt(size() - 1);
+        maxHeap.RemoveAt(Size() - 1);
         // 从顶至底堆化
-        siftDown(0);
+        SiftDown(0);
         // 返回堆顶元素
         return val;
     }
 
     /* 从节点 i 开始，从顶至底堆化 */
-    void siftDown(int i) {
+    void SiftDown(int i) {
         while (true) {
             // 判断节点 i, l, r 中值最大的节点，记为 ma
-            int l = left(i), r = right(i), ma = i;
-            if (l < size() && maxHeap[l] > maxHeap[ma])
+            int l = Left(i), r = Right(i), ma = i;
+            if (l < Size() && maxHeap[l] > maxHeap[ma])
                 ma = l;
-            if (r < size() && maxHeap[r] > maxHeap[ma])
+            if (r < Size() && maxHeap[r] > maxHeap[ma])
                 ma = r;
             // 若“节点 i 最大”或“越过叶节点”，则结束堆化
             if (ma == i) break;
             // 交换两节点
-            swap(i, ma);
+            Swap(i, ma);
             // 循环向下堆化
             i = ma;
         }

@@ -110,7 +110,7 @@ $$
 
     ```csharp title="unbounded_knapsack.cs"
     /* 完全背包：动态规划 */
-    int unboundedKnapsackDP(int[] wgt, int[] val, int cap) {
+    int UnboundedKnapsackDP(int[] wgt, int[] val, int cap) {
         int n = wgt.Length;
         // 初始化 dp 表
         int[,] dp = new int[n + 1, cap + 1];
@@ -294,7 +294,26 @@ $$
 === "C"
 
     ```c title="unbounded_knapsack.c"
-    [class]{}-[func]{unboundedKnapsackDP}
+    /* 完全背包：动态规划 */
+    int unboundedKnapsackDP(int wgt[], int val[], int cap, int wgtSize) {
+        int n = wgtSize;
+        // 初始化 dp 表
+        int dp[n + 1][cap + 1];
+        memset(dp, 0, sizeof(dp));
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[i][c] = dp[i - 1][c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[n][cap];
+    }
     ```
 
 === "Zig"
@@ -422,7 +441,7 @@ $$
 
     ```csharp title="unbounded_knapsack.cs"
     /* 完全背包：空间优化后的动态规划 */
-    int unboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
+    int UnboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
         int n = wgt.Length;
         // 初始化 dp 表
         int[] dp = new int[cap + 1];
@@ -593,7 +612,26 @@ $$
 === "C"
 
     ```c title="unbounded_knapsack.c"
-    [class]{}-[func]{unboundedKnapsackDPComp}
+    /* 完全背包：空间优化后的动态规划 */
+    int unboundedKnapsackDPComp(int wgt[], int val[], int cap, int wgtSize) {
+        int n = wgtSize;
+        // 初始化 dp 表
+        int dp[cap + 1];
+        memset(dp, 0, sizeof(dp));
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int c = 1; c <= cap; c++) {
+                if (wgt[i - 1] > c) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[c] = dp[c];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
+    }
     ```
 
 === "Zig"
@@ -757,7 +795,7 @@ $$
 
     ```csharp title="coin_change.cs"
     /* 零钱兑换：动态规划 */
-    int coinChangeDP(int[] coins, int amt) {
+    int CoinChangeDP(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
         // 初始化 dp 表
@@ -969,7 +1007,31 @@ $$
 === "C"
 
     ```c title="coin_change.c"
-    [class]{}-[func]{coinChangeDP}
+    /* 零钱兑换：动态规划 */
+    int coinChangeDP(int coins[], int amt, int coinsSize) {
+        int n = coinsSize;
+        int MAX = amt + 1;
+        // 初始化 dp 表
+        int dp[n + 1][amt + 1];
+        memset(dp, 0, sizeof(dp));
+        // 状态转移：首行首列
+        for (int a = 1; a <= amt; a++) {
+            dp[0][a] = MAX;
+        }
+        // 状态转移：其余行列
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[n][amt] != MAX ? dp[n][amt] : -1;
+    }
     ```
 
 === "Zig"
@@ -1138,7 +1200,7 @@ $$
 
     ```csharp title="coin_change.cs"
     /* 零钱兑换：空间优化后的动态规划 */
-    int coinChangeDPComp(int[] coins, int amt) {
+    int CoinChangeDPComp(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
         // 初始化 dp 表
@@ -1327,7 +1389,28 @@ $$
 === "C"
 
     ```c title="coin_change.c"
-    [class]{}-[func]{coinChangeDPComp}
+    /* 零钱兑换：空间优化后的动态规划 */
+    int coinChangeDPComp(int coins[], int amt, int coinsSize) {
+        int n = coinsSize;
+        int MAX = amt + 1;
+        // 初始化 dp 表
+        int dp[amt + 1];
+        memset(dp, MAX, sizeof(dp));
+        dp[0] = 0;
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案的较小值
+                    dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1);
+                }
+            }
+        }
+        return dp[amt] != MAX ? dp[amt] : -1;
+    }
     ```
 
 === "Zig"
@@ -1468,7 +1551,7 @@ $$
 
     ```csharp title="coin_change_ii.cs"
     /* 零钱兑换 II：动态规划 */
-    int coinChangeIIDP(int[] coins, int amt) {
+    int CoinChangeIIDP(int[] coins, int amt) {
         int n = coins.Length;
         // 初始化 dp 表
         int[,] dp = new int[n + 1, amt + 1];
@@ -1670,7 +1753,30 @@ $$
 === "C"
 
     ```c title="coin_change_ii.c"
-    [class]{}-[func]{coinChangeIIDP}
+    /* 零钱兑换 II：动态规划 */
+    int coinChangeIIDP(int coins[], int amt, int coinsSize) {
+        int n = coinsSize;
+        // 初始化 dp 表
+        int dp[n + 1][amt + 1];
+        memset(dp, 0, sizeof(dp));
+        // 初始化首列
+        for (int i = 0; i <= n; i++) {
+            dp[i][0] = 1;
+        }
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[i][a] = dp[i - 1][a];
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
+                }
+            }
+        }
+        return dp[n][amt];
+    }
     ```
 
 === "Zig"
@@ -1781,7 +1887,7 @@ $$
 
     ```csharp title="coin_change_ii.cs"
     /* 零钱兑换 II：空间优化后的动态规划 */
-    int coinChangeIIDPComp(int[] coins, int amt) {
+    int CoinChangeIIDPComp(int[] coins, int amt) {
         int n = coins.Length;
         // 初始化 dp 表
         int[] dp = new int[amt + 1];
@@ -1956,7 +2062,27 @@ $$
 === "C"
 
     ```c title="coin_change_ii.c"
-    [class]{}-[func]{coinChangeIIDPComp}
+    /* 零钱兑换 II：空间优化后的动态规划 */
+    int coinChangeIIDPComp(int coins[], int amt, int coinsSize) {
+        int n = coinsSize;
+        // 初始化 dp 表
+        int dp[amt + 1];
+        memset(dp, 0, sizeof(dp));
+        dp[0] = 1;
+        // 状态转移
+        for (int i = 1; i <= n; i++) {
+            for (int a = 1; a <= amt; a++) {
+                if (coins[i - 1] > a) {
+                    // 若超过背包容量，则不选硬币 i
+                    dp[a] = dp[a];
+                } else {
+                    // 不选和选硬币 i 这两种方案之和
+                    dp[a] = dp[a] + dp[a - coins[i - 1]];
+                }
+            }
+        }
+        return dp[amt];
+    }
     ```
 
 === "Zig"

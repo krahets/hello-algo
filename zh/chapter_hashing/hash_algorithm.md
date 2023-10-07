@@ -180,7 +180,7 @@ index = hash(key) % capacity
 
     ```csharp title="simple_hash.cs"
     /* 加法哈希 */
-    int addHash(string key) {
+    int AddHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
         foreach (char c in key) {
@@ -190,7 +190,7 @@ index = hash(key) % capacity
     }
 
     /* 乘法哈希 */
-    int mulHash(string key) {
+    int MulHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
         foreach (char c in key) {
@@ -200,7 +200,7 @@ index = hash(key) % capacity
     }
 
     /* 异或哈希 */
-    int xorHash(string key) {
+    int XorHash(string key) {
         int hash = 0;
         const int MODULUS = 1000000007;
         foreach (char c in key) {
@@ -210,7 +210,7 @@ index = hash(key) % capacity
     }
 
     /* 旋转哈希 */
-    int rotHash(string key) {
+    int RotHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
         foreach (char c in key) {
@@ -735,7 +735,7 @@ $$
     int hashTup = arr.GetHashCode();
     // 数组 [12836, 小哈] 的哈希值为 42931033;
 
-    ListNode obj = new ListNode(0);
+    ListNode obj = new(0);
     int hashObj = obj.GetHashCode();
     // 节点对象 0 的哈希值为 39053774;
     ```

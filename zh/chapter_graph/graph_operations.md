@@ -294,8 +294,8 @@ comments: true
     ```csharp title="graph_adjacency_matrix.cs"
     /* 基于邻接矩阵实现的无向图类 */
     class GraphAdjMat {
-        List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-        List<List<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
+        readonly List<int> vertices;     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+        readonly List<List<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
 
         /* 构造函数 */
         public GraphAdjMat(int[] vertices, int[][] edges) {
@@ -303,27 +303,27 @@ comments: true
             this.adjMat = new List<List<int>>();
             // 添加顶点
             foreach (int val in vertices) {
-                addVertex(val);
+                AddVertex(val);
             }
             // 添加边
             // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
             foreach (int[] e in edges) {
-                addEdge(e[0], e[1]);
+                AddEdge(e[0], e[1]);
             }
         }
 
         /* 获取顶点数量 */
-        public int size() {
+        public int Size() {
             return vertices.Count;
         }
 
         /* 添加顶点 */
-        public void addVertex(int val) {
-            int n = size();
+        public void AddVertex(int val) {
+            int n = Size();
             // 向顶点列表中添加新顶点的值
             vertices.Add(val);
             // 在邻接矩阵中添加一行
-            List<int> newRow = new List<int>(n);
+            List<int> newRow = new(n);
             for (int j = 0; j < n; j++) {
                 newRow.Add(0);
             }
@@ -335,8 +335,8 @@ comments: true
         }
 
         /* 删除顶点 */
-        public void removeVertex(int index) {
-            if (index >= size())
+        public void RemoveVertex(int index) {
+            if (index >= Size())
                 throw new IndexOutOfRangeException();
             // 在顶点列表中移除索引 index 的顶点
             vertices.RemoveAt(index);
@@ -350,9 +350,9 @@ comments: true
 
         /* 添加边 */
         // 参数 i, j 对应 vertices 元素索引
-        public void addEdge(int i, int j) {
+        public void AddEdge(int i, int j) {
             // 索引越界与相等处理
-            if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
+            if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
                 throw new IndexOutOfRangeException();
             // 在无向图中，邻接矩阵沿主对角线对称，即满足 (i, j) == (j, i)
             adjMat[i][j] = 1;
@@ -361,16 +361,16 @@ comments: true
 
         /* 删除边 */
         // 参数 i, j 对应 vertices 元素索引
-        public void removeEdge(int i, int j) {
+        public void RemoveEdge(int i, int j) {
             // 索引越界与相等处理
-            if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
+            if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
                 throw new IndexOutOfRangeException();
             adjMat[i][j] = 0;
             adjMat[j][i] = 0;
         }
 
         /* 打印邻接矩阵 */
-        public void print() {
+        public void Print() {
             Console.Write("顶点列表 = ");
             PrintUtil.PrintList(vertices);
             Console.WriteLine("邻接矩阵 =");
@@ -1390,19 +1390,19 @@ comments: true
             this.adjList = new Dictionary<Vertex, List<Vertex>>();
             // 添加所有顶点和边
             foreach (Vertex[] edge in edges) {
-                addVertex(edge[0]);
-                addVertex(edge[1]);
-                addEdge(edge[0], edge[1]);
+                AddVertex(edge[0]);
+                AddVertex(edge[1]);
+                AddEdge(edge[0], edge[1]);
             }
         }
 
         /* 获取顶点数量 */
-        public int size() {
+        public int Size() {
             return adjList.Count;
         }
 
         /* 添加边 */
-        public void addEdge(Vertex vet1, Vertex vet2) {
+        public void AddEdge(Vertex vet1, Vertex vet2) {
             if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
                 throw new InvalidOperationException();
             // 添加边 vet1 - vet2
@@ -1411,7 +1411,7 @@ comments: true
         }
 
         /* 删除边 */
-        public void removeEdge(Vertex vet1, Vertex vet2) {
+        public void RemoveEdge(Vertex vet1, Vertex vet2) {
             if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
                 throw new InvalidOperationException();
             // 删除边 vet1 - vet2
@@ -1420,7 +1420,7 @@ comments: true
         }
 
         /* 添加顶点 */
-        public void addVertex(Vertex vet) {
+        public void AddVertex(Vertex vet) {
             if (adjList.ContainsKey(vet))
                 return;
             // 在邻接表中添加一个新链表
@@ -1428,7 +1428,7 @@ comments: true
         }
 
         /* 删除顶点 */
-        public void removeVertex(Vertex vet) {
+        public void RemoveVertex(Vertex vet) {
             if (!adjList.ContainsKey(vet))
                 throw new InvalidOperationException();
             // 在邻接表中删除顶点 vet 对应的链表
@@ -1440,10 +1440,10 @@ comments: true
         }
 
         /* 打印邻接表 */
-        public void print() {
+        public void Print() {
             Console.WriteLine("邻接表 =");
             foreach (KeyValuePair<Vertex, List<Vertex>> pair in adjList) {
-                List<int> tmp = new List<int>();
+                List<int> tmp = new();
                 foreach (Vertex vertex in pair.Value)
                     tmp.Add(vertex.val);
                 Console.WriteLine(pair.Key.val + ": [" + string.Join(", ", tmp) + "],");

@@ -162,7 +162,7 @@ comments: true
 
     ```csharp title="permutations_i.cs"
     /* 回溯算法：全排列 I */
-    void backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
+    void Backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
         // 当状态长度等于元素数量时，记录解
         if (state.Count == choices.Length) {
             res.Add(new List<int>(state));
@@ -177,7 +177,7 @@ comments: true
                 selected[i] = true;
                 state.Add(choice);
                 // 进行下一轮选择
-                backtrack(state, choices, selected, res);
+                Backtrack(state, choices, selected, res);
                 // 回退：撤销选择，恢复到之前的状态
                 selected[i] = false;
                 state.RemoveAt(state.Count - 1);
@@ -186,9 +186,9 @@ comments: true
     }
 
     /* 全排列 I */
-    List<List<int>> permutationsI(int[] nums) {
-        List<List<int>> res = new List<List<int>>();
-        backtrack(new List<int>(), nums, new bool[nums.Length], res);
+    List<List<int>> PermutationsI(int[] nums) {
+        List<List<int>> res = new();
+        Backtrack(new List<int>(), nums, new bool[nums.Length], res);
         return res;
     }
     ```
@@ -618,7 +618,7 @@ comments: true
 
     ```csharp title="permutations_ii.cs"
     /* 回溯算法：全排列 II */
-    void backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
+    void Backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
         // 当状态长度等于元素数量时，记录解
         if (state.Count == choices.Length) {
             res.Add(new List<int>(state));
@@ -635,7 +635,7 @@ comments: true
                 selected[i] = true;
                 state.Add(choice);
                 // 进行下一轮选择
-                backtrack(state, choices, selected, res);
+                Backtrack(state, choices, selected, res);
                 // 回退：撤销选择，恢复到之前的状态
                 selected[i] = false;
                 state.RemoveAt(state.Count - 1);
@@ -644,9 +644,9 @@ comments: true
     }
 
     /* 全排列 II */
-    List<List<int>> permutationsII(int[] nums) {
-        List<List<int>> res = new List<List<int>>();
-        backtrack(new List<int>(), nums, new bool[nums.Length], res);
+    List<List<int>> PermutationsII(int[] nums) {
+        List<List<int>> res = new();
+        Backtrack(new List<int>(), nums, new bool[nums.Length], res);
         return res;
     }
     ```

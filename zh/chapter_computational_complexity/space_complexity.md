@@ -111,16 +111,16 @@ comments: true
     }
 
     /* 函数 */
-    int function() {
+    int Function() {
         // 执行某些操作...
         return 0;
     }
 
-    int algorithm(int n) {        // 输入数据
+    int Algorithm(int n) {        // 输入数据
         const int a = 0;          // 暂存数据（常量）
         int b = 0;                // 暂存数据（变量）
-        Node node = new Node(0);  // 暂存数据（对象）
-        int c = function();       // 栈帧空间（调用函数）
+        Node node = new(0);  // 暂存数据（对象）
+        int c = Function();       // 栈帧空间（调用函数）
         return a + b + c;         // 输出数据
     }
     ```
@@ -366,7 +366,7 @@ comments: true
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n) {
+    void Algorithm(int n) {
         int a = 0;                   // O(1)
         int[] b = new int[10000];    // O(1)
         if (n > 10) {
@@ -532,20 +532,20 @@ comments: true
 === "C#"
 
     ```csharp title=""
-    int function() {
+    int Function() {
         // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
-    void loop(int n) {
+    void Loop(int n) {
         for (int i = 0; i < n; i++) {
-            function();
+            Function();
         }
     }
     /* 递归 O(n) */
-    int recur(int n) {
+    int Recur(int n) {
         if (n == 1) return 1;
-        return recur(n - 1);
+        return Recur(n - 1);
     }
     ```
 
@@ -807,25 +807,25 @@ $$
 
     ```csharp title="space_complexity.cs"
     /* 函数 */
-    int function() {
+    int Function() {
         // 执行某些操作
         return 0;
     }
 
     /* 常数阶 */
-    void constant(int n) {
+    void Constant(int n) {
         // 常量、变量、对象占用 O(1) 空间
         int a = 0;
         int b = 0;
         int[] nums = new int[10000];
-        ListNode node = new ListNode(0);
+        ListNode node = new(0);
         // 循环中的变量占用 O(1) 空间
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
         // 循环中的函数占用 O(1) 空间
         for (int i = 0; i < n; i++) {
-            function();
+            Function();
         }
     }
     ```
@@ -1115,7 +1115,7 @@ $$
 
     ```csharp title="space_complexity.cs"
     /* 线性阶 */
-    void linear(int n) {
+    void Linear(int n) {
         // 长度为 n 的数组占用 O(n) 空间
         int[] nums = new int[n];
         // 长度为 n 的列表占用 O(n) 空间
@@ -1361,10 +1361,10 @@ $$
 
     ```csharp title="space_complexity.cs"
     /* 线性阶（递归实现） */
-    void linearRecur(int n) {
+    void LinearRecur(int n) {
         Console.WriteLine("递归 n = " + n);
         if (n == 1) return;
-        linearRecur(n - 1);
+        LinearRecur(n - 1);
     }
     ```
 
@@ -1518,7 +1518,7 @@ $$
 
     ```csharp title="space_complexity.cs"
     /* 平方阶 */
-    void quadratic(int n) {
+    void Quadratic(int n) {
         // 矩阵占用 O(n^2) 空间
         int[,] numMatrix = new int[n, n];
         // 二维列表占用 O(n^2) 空间
@@ -1726,11 +1726,11 @@ $$
 
     ```csharp title="space_complexity.cs"
     /* 平方阶（递归实现） */
-    int quadraticRecur(int n) {
+    int QuadraticRecur(int n) {
         if (n <= 0) return 0;
         int[] nums = new int[n];
         Console.WriteLine("递归 n = " + n + " 中的 nums 长度 = " + nums.Length);
-        return quadraticRecur(n - 1);
+        return QuadraticRecur(n - 1);
     }
     ```
 
@@ -1893,11 +1893,12 @@ $$
 
     ```csharp title="space_complexity.cs"
     /* 指数阶（建立满二叉树） */
-    TreeNode? buildTree(int n) {
+    TreeNode? BuildTree(int n) {
         if (n == 0) return null;
-        TreeNode root = new TreeNode(0);
-        root.left = buildTree(n - 1);
-        root.right = buildTree(n - 1);
+        TreeNode root = new(0) {
+            left = BuildTree(n - 1),
+            right = BuildTree(n - 1)
+        };
         return root;
     }
     ```

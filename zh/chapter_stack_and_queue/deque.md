@@ -120,7 +120,7 @@ comments: true
     ```csharp title="deque.cs"
     /* 初始化双向队列 */
     // 在 C# 中，将链表 LinkedList 看作双向队列来使用
-    LinkedList<int> deque = new LinkedList<int>();
+    LinkedList<int> deque = new();
     
     /* 元素入队 */
     deque.AddLast(2);   // 添加至队尾
@@ -800,20 +800,20 @@ comments: true
         }
 
         /* 获取双向队列的长度 */
-        public int size() {
+        public int Size() {
             return queSize;
         }
 
         /* 判断双向队列是否为空 */
-        public bool isEmpty() {
-            return size() == 0;
+        public bool IsEmpty() {
+            return Size() == 0;
         }
 
         /* 入队操作 */
-        private void push(int num, bool isFront) {
-            ListNode node = new ListNode(num);
+        private void Push(int num, bool isFront) {
+            ListNode node = new(num);
             // 若链表为空，则令 front, rear 都指向 node
-            if (isEmpty()) {
+            if (IsEmpty()) {
                 front = node;
                 rear = node;
             }
@@ -836,25 +836,25 @@ comments: true
         }
 
         /* 队首入队 */
-        public void pushFirst(int num) {
-            push(num, true);
+        public void PushFirst(int num) {
+            Push(num, true);
         }
 
         /* 队尾入队 */
-        public void pushLast(int num) {
-            push(num, false);
+        public void PushLast(int num) {
+            Push(num, false);
         }
 
         /* 出队操作 */
-        private int? pop(bool isFront) {
-            if (isEmpty())
+        private int? Pop(bool isFront) {
+            if (IsEmpty())
                 throw new Exception();
-            int val;
+            int? val;
             // 队首出队操作
             if (isFront) {
-                val = front.val; // 暂存头节点值
+                val = front?.val; // 暂存头节点值
                 // 删除头节点
-                ListNode fNext = front.next;
+                ListNode? fNext = front?.next;
                 if (fNext != null) {
                     fNext.prev = null;
                     front.next = null;
@@ -863,9 +863,9 @@ comments: true
             }
             // 队尾出队操作
             else {
-                val = rear.val;  // 暂存尾节点值
+                val = rear?.val;  // 暂存尾节点值
                 // 删除尾节点
-                ListNode rPrev = rear.prev;
+                ListNode? rPrev = rear?.prev;
                 if (rPrev != null) {
                     rPrev.next = null;
                     rear.prev = null;
@@ -878,36 +878,36 @@ comments: true
         }
 
         /* 队首出队 */
-        public int? popFirst() {
-            return pop(true);
+        public int? PopFirst() {
+            return Pop(true);
         }
 
         /* 队尾出队 */
-        public int? popLast() {
-            return pop(false);
+        public int? PopLast() {
+            return Pop(false);
         }
 
         /* 访问队首元素 */
-        public int? peekFirst() {
-            if (isEmpty())
+        public int? PeekFirst() {
+            if (IsEmpty())
                 throw new Exception();
-            return front.val;
+            return front?.val;
         }
 
         /* 访问队尾元素 */
-        public int? peekLast() {
-            if (isEmpty())
+        public int? PeekLast() {
+            if (IsEmpty())
                 throw new Exception();
-            return rear.val;
+            return rear?.val;
         }
 
         /* 返回数组用于打印 */
-        public int[] toArray() {
-            ListNode node = front;
-            int[] res = new int[size()];
+        public int?[] ToArray() {
+            ListNode? node = front;
+            int?[] res = new int?[Size()];
             for (int i = 0; i < res.Length; i++) {
-                res[i] = node.val;
-                node = node.next;
+                res[i] = node?.val;
+                node = node?.next;
             }
 
             return res;
@@ -2357,95 +2357,95 @@ comments: true
         }
 
         /* 获取双向队列的容量 */
-        public int capacity() {
+        public int Capacity() {
             return nums.Length;
         }
 
         /* 获取双向队列的长度 */
-        public int size() {
+        public int Size() {
             return queSize;
         }
 
         /* 判断双向队列是否为空 */
-        public bool isEmpty() {
+        public bool IsEmpty() {
             return queSize == 0;
         }
 
         /* 计算环形数组索引 */
-        private int index(int i) {
+        private int Index(int i) {
             // 通过取余操作实现数组首尾相连
             // 当 i 越过数组尾部后，回到头部
             // 当 i 越过数组头部后，回到尾部
-            return (i + capacity()) % capacity();
+            return (i + Capacity()) % Capacity();
         }
 
         /* 队首入队 */
-        public void pushFirst(int num) {
-            if (queSize == capacity()) {
+        public void PushFirst(int num) {
+            if (queSize == Capacity()) {
                 Console.WriteLine("双向队列已满");
                 return;
             }
             // 队首指针向左移动一位
             // 通过取余操作，实现 front 越过数组头部后回到尾部
-            front = index(front - 1);
+            front = Index(front - 1);
             // 将 num 添加至队首
             nums[front] = num;
             queSize++;
         }
 
         /* 队尾入队 */
-        public void pushLast(int num) {
-            if (queSize == capacity()) {
+        public void PushLast(int num) {
+            if (queSize == Capacity()) {
                 Console.WriteLine("双向队列已满");
                 return;
             }
             // 计算尾指针，指向队尾索引 + 1
-            int rear = index(front + queSize);
+            int rear = Index(front + queSize);
             // 将 num 添加至队尾
             nums[rear] = num;
             queSize++;
         }
 
         /* 队首出队 */
-        public int popFirst() {
-            int num = peekFirst();
+        public int PopFirst() {
+            int num = PeekFirst();
             // 队首指针向后移动一位
-            front = index(front + 1);
+            front = Index(front + 1);
             queSize--;
             return num;
         }
 
         /* 队尾出队 */
-        public int popLast() {
-            int num = peekLast();
+        public int PopLast() {
+            int num = PeekLast();
             queSize--;
             return num;
         }
 
         /* 访问队首元素 */
-        public int peekFirst() {
-            if (isEmpty()) {
+        public int PeekFirst() {
+            if (IsEmpty()) {
                 throw new InvalidOperationException();
             }
             return nums[front];
         }
 
         /* 访问队尾元素 */
-        public int peekLast() {
-            if (isEmpty()) {
+        public int PeekLast() {
+            if (IsEmpty()) {
                 throw new InvalidOperationException();
             }
             // 计算尾元素索引
-            int last = index(front + queSize - 1);
+            int last = Index(front + queSize - 1);
             return nums[last];
         }
 
         /* 返回数组用于打印 */
-        public int[] toArray() {
+        public int[] ToArray() {
             // 仅转换有效长度范围内的列表元素
             int[] res = new int[queSize];
             for (int i = 0, j = front; i < queSize; i++, j++) {
-                res[i] = nums[index(j)];
+                res[i] = nums[Index(j)];
             }
             return res;
         }

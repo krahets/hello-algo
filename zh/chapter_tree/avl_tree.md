@@ -271,15 +271,15 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 
     ```csharp title="avl_tree.cs"
     /* 获取节点高度 */
-    int height(TreeNode? node) {
+    int Height(TreeNode? node) {
         // 空节点高度为 -1 ，叶节点高度为 0
         return node == null ? -1 : node.height;
     }
 
     /* 更新节点高度 */
-    void updateHeight(TreeNode node) {
+    void UpdateHeight(TreeNode node) {
         // 节点高度等于最高子树高度 + 1
-        node.height = Math.Max(height(node.left), height(node.right)) + 1;
+        node.height = Math.Max(Height(node.left), Height(node.right)) + 1;
     }
     ```
 
@@ -485,11 +485,11 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 
     ```csharp title="avl_tree.cs"
     /* 获取平衡因子 */
-    int balanceFactor(TreeNode? node) {
+    int BalanceFactor(TreeNode? node) {
         // 空节点平衡因子为 0
         if (node == null) return 0;
         // 节点平衡因子 = 左子树高度 - 右子树高度
-        return height(node.left) - height(node.right);
+        return Height(node.left) - Height(node.right);
     }
     ```
 
@@ -690,15 +690,15 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
     ```csharp title="avl_tree.cs"
     /* 右旋操作 */
-    TreeNode? rightRotate(TreeNode? node) {
+    TreeNode? RightRotate(TreeNode? node) {
         TreeNode? child = node.left;
         TreeNode? grandChild = child?.right;
         // 以 child 为原点，将 node 向右旋转
         child.right = node;
         node.left = grandChild;
         // 更新节点高度
-        updateHeight(node);
-        updateHeight(child);
+        UpdateHeight(node);
+        UpdateHeight(child);
         // 返回旋转后子树的根节点
         return child;
     }
@@ -927,15 +927,15 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
     ```csharp title="avl_tree.cs"
     /* 左旋操作 */
-    TreeNode? leftRotate(TreeNode? node) {
+    TreeNode? LeftRotate(TreeNode? node) {
         TreeNode? child = node.right;
         TreeNode? grandChild = child?.left;
         // 以 child 为原点，将 node 向左旋转
         child.left = node;
         node.right = grandChild;
         // 更新节点高度
-        updateHeight(node);
-        updateHeight(child);
+        UpdateHeight(node);
+        UpdateHeight(child);
         // 返回旋转后子树的根节点
         return child;
     }
@@ -1233,29 +1233,29 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
     ```csharp title="avl_tree.cs"
     /* 执行旋转操作，使该子树重新恢复平衡 */
-    TreeNode? rotate(TreeNode? node) {
+    TreeNode? Rotate(TreeNode? node) {
         // 获取节点 node 的平衡因子
-        int balanceFactorInt = balanceFactor(node);
+        int balanceFactorInt = BalanceFactor(node);
         // 左偏树
         if (balanceFactorInt > 1) {
-            if (balanceFactor(node.left) >= 0) {
+            if (BalanceFactor(node.left) >= 0) {
                 // 右旋
-                return rightRotate(node);
+                return RightRotate(node);
             } else {
                 // 先左旋后右旋
-                node.left = leftRotate(node?.left);
-                return rightRotate(node);
+                node.left = LeftRotate(node?.left);
+                return RightRotate(node);
             }
         }
         // 右偏树
         if (balanceFactorInt < -1) {
-            if (balanceFactor(node.right) <= 0) {
+            if (BalanceFactor(node.right) <= 0) {
                 // 左旋
-                return leftRotate(node);
+                return LeftRotate(node);
             } else {
                 // 先右旋后左旋
-                node.right = rightRotate(node?.right);
-                return leftRotate(node);
+                node.right = RightRotate(node?.right);
+                return LeftRotate(node);
             }
         }
         // 平衡树，无须旋转，直接返回
@@ -1630,23 +1630,23 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
 
     ```csharp title="avl_tree.cs"
     /* 插入节点 */
-    void insert(int val) {
-        root = insertHelper(root, val);
+    void Insert(int val) {
+        root = InsertHelper(root, val);
     }
 
     /* 递归插入节点（辅助方法） */
-    TreeNode? insertHelper(TreeNode? node, int val) {
+    TreeNode? InsertHelper(TreeNode? node, int val) {
         if (node == null) return new TreeNode(val);
         /* 1. 查找插入位置，并插入节点 */
         if (val < node.val)
-            node.left = insertHelper(node.left, val);
+            node.left = InsertHelper(node.left, val);
         else if (val > node.val)
-            node.right = insertHelper(node.right, val);
+            node.right = InsertHelper(node.right, val);
         else
             return node;     // 重复节点不插入，直接返回
-        updateHeight(node);  // 更新节点高度
+        UpdateHeight(node);  // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
-        node = rotate(node);
+        node = Rotate(node);
         // 返回子树的根节点
         return node;
     }
@@ -2034,21 +2034,21 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
 
     ```csharp title="avl_tree.cs"
     /* 删除节点 */
-    void remove(int val) {
-        root = removeHelper(root, val);
+    void Remove(int val) {
+        root = RemoveHelper(root, val);
     }
 
     /* 递归删除节点（辅助方法） */
-    TreeNode? removeHelper(TreeNode? node, int val) {
+    TreeNode? RemoveHelper(TreeNode? node, int val) {
         if (node == null) return null;
         /* 1. 查找节点，并删除之 */
         if (val < node.val)
-            node.left = removeHelper(node.left, val);
+            node.left = RemoveHelper(node.left, val);
         else if (val > node.val)
-            node.right = removeHelper(node.right, val);
+            node.right = RemoveHelper(node.right, val);
         else {
             if (node.left == null || node.right == null) {
-                TreeNode? child = node.left != null ? node.left : node.right;
+                TreeNode? child = node.left ?? node.right;
                 // 子节点数量 = 0 ，直接删除 node 并返回
                 if (child == null)
                     return null;
@@ -2061,13 +2061,13 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
                 while (temp.left != null) {
                     temp = temp.left;
                 }
-                node.right = removeHelper(node.right, temp.val);
+                node.right = RemoveHelper(node.right, temp.val);
                 node.val = temp.val;
             }
         }
-        updateHeight(node);  // 更新节点高度
+        UpdateHeight(node);  // 更新节点高度
         /* 2. 执行旋转操作，使该子树重新恢复平衡 */
-        node = rotate(node);
+        node = Rotate(node);
         // 返回子树的根节点
         return node;
     }

@@ -173,7 +173,7 @@ comments: true
 
     ```csharp title="array.cs"
     /* 随机访问元素 */
-    int randomAccess(int[] nums) {
+    int RandomAccess(int[] nums) {
         Random random = new();
         // 在区间 [0, nums.Length) 中随机抽取一个数字
         int randomIndex = random.Next(nums.Length);
@@ -341,7 +341,7 @@ comments: true
 
     ```csharp title="array.cs"
     /* 在数组的索引 index 处插入元素 num */
-    void insert(int[] nums, int num, int index) {
+    void Insert(int[] nums, int num, int index) {
         // 把索引 index 以及之后的所有元素向后移动一位
         for (int i = nums.Length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
@@ -512,7 +512,7 @@ comments: true
 
     ```csharp title="array.cs"
     /* 删除索引 index 处元素 */
-    void remove(int[] nums, int index) {
+    void Remove(int[] nums, int index) {
         // 把索引 index 之后的所有元素向前移动一位
         for (int i = index; i < nums.Length - 1; i++) {
             nums[i] = nums[i + 1];
@@ -680,7 +680,7 @@ comments: true
 
     ```csharp title="array.cs"
     /* 遍历数组 */
-    void traverse(int[] nums) {
+    void Traverse(int[] nums) {
         int count = 0;
         // 通过索引遍历数组
         for (int i = 0; i < nums.Length; i++) {
@@ -879,7 +879,7 @@ comments: true
 
     ```csharp title="array.cs"
     /* 在数组中查找指定元素 */
-    int find(int[] nums, int target) {
+    int Find(int[] nums, int target) {
         for (int i = 0; i < nums.Length; i++) {
             if (nums[i] == target)
                 return i;
@@ -1053,7 +1053,7 @@ comments: true
 
     ```csharp title="array.cs"
     /* 扩展数组长度 */
-    int[] extend(int[] nums, int enlarge) {
+    int[] Extend(int[] nums, int enlarge) {
         // 初始化一个扩展长度后的数组
         int[] res = new int[nums.Length + enlarge];
         // 将原数组中的所有元素复制到新数组

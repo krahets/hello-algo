@@ -109,19 +109,19 @@ comments: true
 
     ```csharp title="hash_map.cs"
     /* 初始化哈希表 */
-    Dictionary<int, String> map = new ();
-    
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
-    map.Add(12836, "小哈");
-    map.Add(15937, "小啰");
-    map.Add(16750, "小算");
-    map.Add(13276, "小法");
-    map.Add(10583, "小鸭");
+    Dictionary<int, string> map = new() {
+        /* 添加操作 */
+        // 在哈希表中添加键值对 (key, value)
+        { 12836, "小哈" },
+        { 15937, "小啰" },
+        { 16750, "小算" },
+        { 13276, "小法" },
+        { 10583, "小鸭" }
+    };
     
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
-    String name = map[15937];
+    string name = map[15937];
     
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
@@ -791,7 +791,7 @@ index = hash(key) % capacity
 
     /* 基于数组简易实现的哈希表 */
     class ArrayHashMap {
-        private List<Pair?> buckets;
+        private readonly List<Pair?> buckets;
         public ArrayHashMap() {
             // 初始化数组，包含 100 个桶
             buckets = new();
@@ -801,35 +801,35 @@ index = hash(key) % capacity
         }
 
         /* 哈希函数 */
-        private int hashFunc(int key) {
+        private int HashFunc(int key) {
             int index = key % 100;
             return index;
         }
 
         /* 查询操作 */
-        public string? get(int key) {
-            int index = hashFunc(key);
+        public string? Get(int key) {
+            int index = HashFunc(key);
             Pair? pair = buckets[index];
             if (pair == null) return null;
             return pair.val;
         }
 
         /* 添加操作 */
-        public void put(int key, string val) {
-            Pair pair = new Pair(key, val);
-            int index = hashFunc(key);
+        public void Put(int key, string val) {
+            Pair pair = new(key, val);
+            int index = HashFunc(key);
             buckets[index] = pair;
         }
 
         /* 删除操作 */
-        public void remove(int key) {
-            int index = hashFunc(key);
+        public void Remove(int key) {
+            int index = HashFunc(key);
             // 置为 null ，代表删除
             buckets[index] = null;
         }
 
         /* 获取所有键值对 */
-        public List<Pair> pairSet() {
+        public List<Pair> PairSet() {
             List<Pair> pairSet = new();
             foreach (Pair? pair in buckets) {
                 if (pair != null)
@@ -839,7 +839,7 @@ index = hash(key) % capacity
         }
 
         /* 获取所有键 */
-        public List<int> keySet() {
+        public List<int> KeySet() {
             List<int> keySet = new();
             foreach (Pair? pair in buckets) {
                 if (pair != null)
@@ -849,7 +849,7 @@ index = hash(key) % capacity
         }
 
         /* 获取所有值 */
-        public List<string> valueSet() {
+        public List<string> ValueSet() {
             List<string> valueSet = new();
             foreach (Pair? pair in buckets) {
                 if (pair != null)
@@ -859,8 +859,8 @@ index = hash(key) % capacity
         }
 
         /* 打印哈希表 */
-        public void print() {
-            foreach (Pair kv in pairSet()) {
+        public void Print() {
+            foreach (Pair kv in PairSet()) {
                 Console.WriteLine(kv.key + " -> " + kv.val);
             }
         }

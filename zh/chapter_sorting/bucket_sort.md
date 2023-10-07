@@ -113,10 +113,10 @@ comments: true
 
     ```csharp title="bucket_sort.cs"
     /* 桶排序 */
-    void bucketSort(float[] nums) {
+    void BucketSort(float[] nums) {
         // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
         int k = nums.Length / 2;
-        List<List<float>> buckets = new List<List<float>>();
+        List<List<float>> buckets = new();
         for (int i = 0; i < k; i++) {
             buckets.Add(new List<float>());
         }

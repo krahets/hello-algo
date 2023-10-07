@@ -109,7 +109,7 @@ comments: true
 
     ```csharp title="climbing_stairs_backtrack.cs"
     /* 回溯 */
-    void backtrack(List<int> choices, int state, int n, List<int> res) {
+    void Backtrack(List<int> choices, int state, int n, List<int> res) {
         // 当爬到第 n 阶时，方案数量加 1
         if (state == n)
             res[0]++;
@@ -119,17 +119,17 @@ comments: true
             if (state + choice > n)
                 break;
             // 尝试：做出选择，更新状态
-            backtrack(choices, state + choice, n, res);
+            Backtrack(choices, state + choice, n, res);
             // 回退
         }
     }
 
     /* 爬楼梯：回溯 */
-    int climbingStairsBacktrack(int n) {
-        List<int> choices = new List<int> { 1, 2 }; // 可选择向上爬 1 或 2 阶
+    int ClimbingStairsBacktrack(int n) {
+        List<int> choices = new() { 1, 2 }; // 可选择向上爬 1 或 2 阶
         int state = 0; // 从第 0 阶开始爬
-        List<int> res = new List<int> { 0 }; // 使用 res[0] 记录方案数量
-        backtrack(choices, state, n, res);
+        List<int> res = new() { 0 }; // 使用 res[0] 记录方案数量
+        Backtrack(choices, state, n, res);
         return res[0];
     }
     ```
@@ -472,18 +472,18 @@ $$
 
     ```csharp title="climbing_stairs_dfs.cs"
     /* 搜索 */
-    int dfs(int i) {
+    int Dfs(int i) {
         // 已知 dp[1] 和 dp[2] ，返回之
         if (i == 1 || i == 2)
             return i;
         // dp[i] = dp[i-1] + dp[i-2]
-        int count = dfs(i - 1) + dfs(i - 2);
+        int count = Dfs(i - 1) + Dfs(i - 2);
         return count;
     }
 
     /* 爬楼梯：搜索 */
-    int climbingStairsDFS(int n) {
-        return dfs(n);
+    int ClimbingStairsDFS(int n) {
+        return Dfs(n);
     }
     ```
 
@@ -736,7 +736,7 @@ $$
 
     ```csharp title="climbing_stairs_dfs_mem.cs"
     /* 记忆化搜索 */
-    int dfs(int i, int[] mem) {
+    int Dfs(int i, int[] mem) {
         // 已知 dp[1] 和 dp[2] ，返回之
         if (i == 1 || i == 2)
             return i;
@@ -744,18 +744,18 @@ $$
         if (mem[i] != -1)
             return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
-        int count = dfs(i - 1, mem) + dfs(i - 2, mem);
+        int count = Dfs(i - 1, mem) + Dfs(i - 2, mem);
         // 记录 dp[i]
         mem[i] = count;
         return count;
     }
 
     /* 爬楼梯：记忆化搜索 */
-    int climbingStairsDFSMem(int n) {
+    int ClimbingStairsDFSMem(int n) {
         // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
         int[] mem = new int[n + 1];
         Array.Fill(mem, -1);
-        return dfs(n, mem);
+        return Dfs(n, mem);
     }
     ```
 
@@ -1048,7 +1048,7 @@ $$
 
     ```csharp title="climbing_stairs_dp.cs"
     /* 爬楼梯：动态规划 */
-    int climbingStairsDP(int n) {
+    int ClimbingStairsDP(int n) {
         if (n == 1 || n == 2)
             return n;
         // 初始化 dp 表，用于存储子问题的解
@@ -1296,7 +1296,7 @@ $$
 
     ```csharp title="climbing_stairs_dp.cs"
     /* 爬楼梯：空间优化后的动态规划 */
-    int climbingStairsDPComp(int n) {
+    int ClimbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;
         int a = 1, b = 2;

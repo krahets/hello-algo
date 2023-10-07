@@ -69,9 +69,9 @@ comments: true
 
     ```csharp title="binary_search_edge.cs"
     /* 二分查找最左一个 target */
-    int binarySearchLeftEdge(int[] nums, int target) {
+    int BinarySearchLeftEdge(int[] nums, int target) {
         // 等价于查找 target 的插入点
-        int i = binary_search_insertion.binarySearchInsertion(nums, target);
+        int i = binary_search_insertion.BinarySearchInsertion(nums, target);
         // 未找到 target ，返回 -1
         if (i == nums.Length || nums[i] != target) {
             return -1;
@@ -273,9 +273,9 @@ comments: true
 
     ```csharp title="binary_search_edge.cs"
     /* 二分查找最右一个 target */
-    int binarySearchRightEdge(int[] nums, int target) {
+    int BinarySearchRightEdge(int[] nums, int target) {
         // 转化为查找最左一个 target + 1
-        int i = binary_search_insertion.binarySearchInsertion(nums, target + 1);
+        int i = binary_search_insertion.BinarySearchInsertion(nums, target + 1);
         // j 指向最右一个 target ，i 指向首个大于 target 的元素
         int j = i - 1;
         // 未找到 target ，返回 -1

@@ -69,7 +69,7 @@ comments: true
 
     ```csharp title="two_sum.cs"
     /* 方法一：暴力枚举 */
-    int[] twoSumBruteForce(int[] nums, int target) {
+    int[] TwoSumBruteForce(int[] nums, int target) {
         int size = nums.Length;
         // 两层循环，时间复杂度 O(n^2)
         for (int i = 0; i < size - 1; i++) {
@@ -306,7 +306,7 @@ comments: true
 
     ```csharp title="two_sum.cs"
     /* 方法二：辅助哈希表 */
-    int[] twoSumHashTable(int[] nums, int target) {
+    int[] TwoSumHashTable(int[] nums, int target) {
         int size = nums.Length;
         // 辅助哈希表，空间复杂度 O(n)
         Dictionary<int, int> dic = new();

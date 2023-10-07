@@ -183,19 +183,19 @@ $$
 
     ```csharp title="radix_sort.cs"
     /* 获取元素 num 的第 k 位，其中 exp = 10^(k-1) */
-    int digit(int num, int exp) {
+    int Digit(int num, int exp) {
         // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
         return (num / exp) % 10;
     }
 
     /* 计数排序（根据 nums 第 k 位排序） */
-    void countingSortDigit(int[] nums, int exp) {
+    void CountingSortDigit(int[] nums, int exp) {
         // 十进制的位范围为 0~9 ，因此需要长度为 10 的桶
         int[] counter = new int[10];
         int n = nums.Length;
         // 统计 0~9 各数字的出现次数
         for (int i = 0; i < n; i++) {
-            int d = digit(nums[i], exp); // 获取 nums[i] 第 k 位，记为 d
+            int d = Digit(nums[i], exp); // 获取 nums[i] 第 k 位，记为 d
             counter[d]++;                // 统计数字 d 的出现次数
         }
         // 求前缀和，将“出现个数”转换为“数组索引”
@@ -205,7 +205,7 @@ $$
         // 倒序遍历，根据桶内统计结果，将各元素填入 res
         int[] res = new int[n];
         for (int i = n - 1; i >= 0; i--) {
-            int d = digit(nums[i], exp);
+            int d = Digit(nums[i], exp);
             int j = counter[d] - 1; // 获取 d 在数组中的索引 j
             res[j] = nums[i];       // 将当前元素填入索引 j
             counter[d]--;           // 将 d 的数量减 1
@@ -217,7 +217,7 @@ $$
     }
 
     /* 基数排序 */
-    void radixSort(int[] nums) {
+    void RadixSort(int[] nums) {
         // 获取数组的最大元素，用于判断最大位数
         int m = int.MinValue;
         foreach (int num in nums) {
@@ -229,7 +229,7 @@ $$
             // k = 1 -> exp = 1
             // k = 2 -> exp = 10
             // 即 exp = 10^(k-1)
-            countingSortDigit(nums, exp);
+            CountingSortDigit(nums, exp);
         }
     }
     ```
