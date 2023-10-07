@@ -85,13 +85,13 @@ index = hash(key) % capacity
 === "C#"
 
     ```csharp title="simple_hash.cs"
-    [class]{simple_hash}-[func]{addHash}
+    [class]{simple_hash}-[func]{AddHash}
 
-    [class]{simple_hash}-[func]{mulHash}
+    [class]{simple_hash}-[func]{MulHash}
 
-    [class]{simple_hash}-[func]{xorHash}
+    [class]{simple_hash}-[func]{XorHash}
 
-    [class]{simple_hash}-[func]{rotHash}
+    [class]{simple_hash}-[func]{RotHash}
     ```
 
 === "Go"
@@ -355,7 +355,7 @@ $$
     int hashTup = arr.GetHashCode();
     // 数组 [12836, 小哈] 的哈希值为 42931033;
 
-    ListNode obj = new ListNode(0);
+    ListNode obj = new(0);
     int hashObj = obj.GetHashCode();
     // 节点对象 0 的哈希值为 39053774;
     ```
