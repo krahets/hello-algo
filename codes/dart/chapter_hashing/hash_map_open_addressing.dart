@@ -4,30 +4,21 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 键值对 */
-class Pair {
-  int key;
-  String val;
-  Pair(this.key, this.val);
-}
+import 'array_hash_map.dart';
 
 /* 开放寻址哈希表 */
 class HashMapOpenAddressing {
   late int _size; // 键值对数量
-  late int _capacity; // 哈希表容量
-  late double _loadThres; // 触发扩容的负载因子阈值
-  late int _extendRatio; // 扩容倍数
+  int _capacity = 4; // 哈希表容量
+  double _loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
+  int _extendRatio = 2; // 扩容倍数
   late List<Pair?> _buckets; // 桶数组
-  late Pair _removed; // 删除标记
+  Pair _TOMBSTONE = Pair(-1, "-1"); // 删除标记
 
   /* 构造方法 */
   HashMapOpenAddressing() {
     _size = 0;
-    _capacity = 4;
-    _loadThres = 2.0 / 3.0;
-    _extendRatio = 2;
     _buckets = List.generate(_capacity, (index) => null);
-    _removed = Pair(-1, "-1");
   }
 
   /* 哈希函数 */
@@ -40,19 +31,42 @@ class HashMapOpenAddressing {
     return _size / _capacity;
   }
 
+  /* 搜索 key 对应的桶索引 */
+  int findBucket(int key) {
+    int index = hashFunc(key);
+    int firstTombstone = -1;
+    // 线性探测，当遇到空桶时跳出
+    while (_buckets[index] != null) {
+      // 若遇到 key ，返回对应桶索引
+      if (_buckets[index]!.key == key) {
+        // 若之前遇到了删除标记，则将键值对移动至该索引
+        if (firstTombstone != -1) {
+          _buckets[firstTombstone] = _buckets[index];
+          _buckets[index] = _TOMBSTONE;
+          return firstTombstone; // 返回移动后的桶索引
+        }
+        return index; // 返回桶索引
+      }
+      // 记录遇到的首个删除标记
+      if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
+        firstTombstone = index;
+      }
+      // 计算桶索引，越过尾部返回头部
+      index = (index + 1) % _capacity;
+    }
+    // 若 key 不存在，则返回添加点的索引
+    return firstTombstone == -1 ? index : firstTombstone;
+  }
+
   /* 查询操作 */
   String? get(int key) {
-    int index = hashFunc(key);
-    // 线性探测，从 index 开始向后遍历
-    for (int i = 0; i < _capacity; i++) {
-      // 计算桶索引，越过尾部返回头部
-      int j = (index + i) % _capacity;
-      // 若遇到空桶，说明无此 key ，则返回 null
-      if (_buckets[j] == null) return null;
-      // 若遇到指定 key ，则返回对应 val
-      if (_buckets[j]!.key == key && _buckets[j] != _removed)
-        return _buckets[j]!.val;
+    // 搜索 key 对应的桶索引
+    int index = findBucket(key);
+    // 若找到键值对，则返回对应 val
+    if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
+      return _buckets[index]!.val;
     }
+    // 若键值对不存在，则返回 null
     return null;
   }
 
@@ -62,42 +76,26 @@ class HashMapOpenAddressing {
     if (loadFactor() > _loadThres) {
       extend();
     }
-    int index = hashFunc(key);
-    // 线性探测，从 index 开始向后遍历
-    for (int i = 0; i < _capacity; i++) {
-      // 计算桶索引，越过尾部返回头部
-      int j = (index + i) % _capacity;
-      // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
-      if (_buckets[j] == null || _buckets[j] == _removed) {
-        _buckets[j] = new Pair(key, val);
-        _size += 1;
-        return;
-      }
-      // 若遇到指定 key ，则更新对应 val
-      if (_buckets[j]!.key == key) {
-        _buckets[j]!.val = val;
-        return;
-      }
+    // 搜索 key 对应的桶索引
+    int index = findBucket(key);
+    // 若找到键值对，则覆盖 val 并返回
+    if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
+      _buckets[index]!.val = val;
+      return;
     }
+    // 若键值对不存在，则添加该键值对
+    _buckets[index] = new Pair(key, val);
+    _size++;
   }
 
   /* 删除操作 */
   void remove(int key) {
-    int index = hashFunc(key);
-    // 线性探测，从 index 开始向后遍历
-    for (int i = 0; i < _capacity; i++) {
-      // 计算桶索引，越过尾部返回头部
-      int j = (index + i) % _capacity;
-      // 若遇到空桶，说明无此 key ，则直接返回
-      if (_buckets[j] == null) {
-        return;
-      }
-      // 若遇到指定 key ，则标记删除并返回
-      if (_buckets[j]!.key == key) {
-        _buckets[j] = _removed;
-        _size -= 1;
-        return;
-      }
+    // 搜索 key 对应的桶索引
+    int index = findBucket(key);
+    // 若找到键值对，则用删除标记覆盖它
+    if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
+      _buckets[index] = _TOMBSTONE;
+      _size--;
     }
   }
 
@@ -111,7 +109,7 @@ class HashMapOpenAddressing {
     _size = 0;
     // 将键值对从原哈希表搬运至新哈希表
     for (Pair? pair in bucketsTmp) {
-      if (pair != null && pair != _removed) {
+      if (pair != null && pair != _TOMBSTONE) {
         put(pair.key, pair.val);
       }
     }
@@ -120,10 +118,12 @@ class HashMapOpenAddressing {
   /* 打印哈希表 */
   void printHashMap() {
     for (Pair? pair in _buckets) {
-      if (pair != null) {
-        print("${pair.key} -> ${pair.val}");
+      if (pair == null) {
+        print("null");
+      } else if (pair == _TOMBSTONE) {
+        print("TOMBSTONE");
       } else {
-        print(null);
+        print("${pair.key} -> ${pair.val}");
       }
     }
   }

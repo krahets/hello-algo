@@ -3,15 +3,16 @@ site_name: Hello 算法
 site_url: https://www.hello-algo.com/
 site_author: Krahets
 site_description: 动画图解、一键运行的数据结构与算法教程
-docs_dir: build
+docs_dir: build/zh
+site_dir: site
 # Repository
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
-edit_uri: https://github.com/krahets/hello-algo/tree/main/docs/
+edit_uri: tree/main/docs
 version: 1.0.0b5
 
 # Copyright
-copyright: Copyright &copy; 2023 Krahets
+copyright: Copyright &copy; 2022 - 2023 Krahets
 
 # Configuration
 theme:
@@ -66,6 +67,13 @@ theme:
     edit: material/file-edit-outline
 
 extra:
+  alternate:
+    - name: 中文
+      link: /
+      lang: zh
+    - name: English
+      link: /en/
+      lang: en
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/krahets
@@ -80,6 +88,17 @@ extra:
 # Plugins
 plugins:
   - search
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: none
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: false
+      auto_caption: false
+      caption_position: bottom
 
 # Extensions
 markdown_extensions:
@@ -209,9 +228,7 @@ nav:
     # [icon: material/text-search]
     - chapter_searching/index.md
     - 10.1 &nbsp; 二分查找: chapter_searching/binary_search.md
-    # [status: new]
     - 10.2 &nbsp; 二分查找插入点: chapter_searching/binary_search_insertion.md
-    # [status: new]
     - 10.3 &nbsp; 二分查找边界: chapter_searching/binary_search_edge.md
     - 10.4 &nbsp; 哈希优化策略: chapter_searching/replace_linear_by_hashing.md
     - 10.5 &nbsp; 重识搜索算法: chapter_searching/searching_algorithm_revisited.md
@@ -231,17 +248,12 @@ nav:
     - 11.10 &nbsp; 基数排序: chapter_sorting/radix_sort.md
     - 11.11 &nbsp; 小结: chapter_sorting/summary.md
   - 第 12 章 &nbsp; 分治:
-    # [icon: material/set-split, status: new]
+    # [icon: material/set-split]
     - chapter_divide_and_conquer/index.md
-    # [status: new]
     - 12.1 &nbsp; 分治算法: chapter_divide_and_conquer/divide_and_conquer.md
-    # [status: new]
     - 12.2 &nbsp; 分治搜索策略: chapter_divide_and_conquer/binary_search_recur.md
-    # [status: new]
     - 12.3 &nbsp; 构建树问题: chapter_divide_and_conquer/build_binary_tree_problem.md
-    # [status: new]
     - 12.4 &nbsp; 汉诺塔问题: chapter_divide_and_conquer/hanota_problem.md
-    # [status: new]
     - 12.5 &nbsp; 小结: chapter_divide_and_conquer/summary.md
   - 第 13 章 &nbsp; 回溯:
     # [icon: material/map-marker-path]
@@ -252,34 +264,22 @@ nav:
     - 13.4 &nbsp; N 皇后问题: chapter_backtracking/n_queens_problem.md
     - 13.5 &nbsp; 小结: chapter_backtracking/summary.md
   - 第 14 章 &nbsp; 动态规划:
-    # [icon: material/table-pivot, status: new]
+    # [icon: material/table-pivot]
     - chapter_dynamic_programming/index.md
-    # [status: new]
     - 14.1 &nbsp; 初探动态规划: chapter_dynamic_programming/intro_to_dynamic_programming.md
-    # [status: new]
     - 14.2 &nbsp; DP 问题特性: chapter_dynamic_programming/dp_problem_features.md
-    # [status: new]
     - 14.3 &nbsp; DP 解题思路: chapter_dynamic_programming/dp_solution_pipeline.md
-    # [status: new]
     - 14.4 &nbsp; 0-1 背包问题: chapter_dynamic_programming/knapsack_problem.md
-    # [status: new]
     - 14.5 &nbsp; 完全背包问题: chapter_dynamic_programming/unbounded_knapsack_problem.md
-    # [status: new]
     - 14.6 &nbsp; 编辑距离问题: chapter_dynamic_programming/edit_distance_problem.md
-    # [status: new]
     - 14.7 &nbsp; 小结: chapter_dynamic_programming/summary.md
   - 第 15 章 &nbsp; 贪心:
-    # [icon: material/head-heart-outline, status: new]
+    # [icon: material/head-heart-outline]
     - chapter_greedy/index.md
-    # [status: new]
     - 15.1 &nbsp; 贪心算法: chapter_greedy/greedy_algorithm.md
-    # [status: new]
     - 15.2 &nbsp; 分数背包问题: chapter_greedy/fractional_knapsack_problem.md
-    # [status: new]
     - 15.3 &nbsp; 最大容量问题: chapter_greedy/max_capacity_problem.md
-    # [status: new]
     - 15.4 &nbsp; 最大切分乘积问题: chapter_greedy/max_product_cutting_problem.md
-    # [status: new]
     - 15.5 &nbsp; 小结: chapter_greedy/summary.md
   - 第 16 章 &nbsp; 附录:
     # [icon: material/help-circle-outline]

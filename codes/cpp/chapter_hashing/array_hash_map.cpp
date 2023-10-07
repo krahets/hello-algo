@@ -47,7 +47,7 @@ class ArrayHashMap {
         int index = hashFunc(key);
         Pair *pair = buckets[index];
         if (pair == nullptr)
-            return nullptr;
+            return "";
         return pair->val;
     }
 

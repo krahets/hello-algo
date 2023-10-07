@@ -17,7 +17,7 @@ class HashMapChaining {
 
   public:
     /* 构造方法 */
-    HashMapChaining() : size(0), capacity(4), loadThres(2.0 / 3), extendRatio(2) {
+    HashMapChaining() : size(0), capacity(4), loadThres(2.0 / 3.0), extendRatio(2) {
         buckets.resize(capacity);
     }
 
@@ -50,8 +50,8 @@ class HashMapChaining {
                 return pair->val;
             }
         }
-        // 若未找到 key 则返回 nullptr
-        return nullptr;
+        // 若未找到 key 则返回空字符串
+        return "";
     }
 
     /* 添加操作 */
