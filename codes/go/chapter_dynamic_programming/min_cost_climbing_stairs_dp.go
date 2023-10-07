@@ -4,13 +4,17 @@
 
 package chapter_dynamic_programming
 
-import "math"
-
 /* 爬楼梯最小代价：动态规划 */
 func minCostClimbingStairsDP(cost []int) int {
 	n := len(cost) - 1
 	if n == 1 || n == 2 {
 		return cost[n]
+	}
+	min := func(a, b int) int {
+		if a < b {
+			return a
+		}
+		return b
 	}
 	// 初始化 dp 表，用于存储子问题的解
 	dp := make([]int, n+1)
@@ -19,7 +23,7 @@ func minCostClimbingStairsDP(cost []int) int {
 	dp[2] = cost[2]
 	// 状态转移：从较小子问题逐步求解较大子问题
 	for i := 3; i <= n; i++ {
-		dp[i] = int(math.Min(float64(dp[i-1]), float64(dp[i-2]+cost[i])))
+		dp[i] = min(dp[i-1], dp[i-2]) + cost[i]
 	}
 	return dp[n]
 }
@@ -30,12 +34,18 @@ func minCostClimbingStairsDPComp(cost []int) int {
 	if n == 1 || n == 2 {
 		return cost[n]
 	}
+	min := func(a, b int) int {
+		if a < b {
+			return a
+		}
+		return b
+	}
 	// 初始状态：预设最小子问题的解
 	a, b := cost[1], cost[2]
 	// 状态转移：从较小子问题逐步求解较大子问题
 	for i := 3; i <= n; i++ {
 		tmp := b
-		b = int(math.Min(float64(a), float64(tmp+cost[i])))
+		b = min(a, tmp) + cost[i]
 		a = tmp
 	}
 	return b
