@@ -105,7 +105,7 @@
 
     ```csharp title="stack.cs"
     /* 初始化栈 */
-    Stack<int> stack = new ();
+    Stack<int> stack = new();
     
     /* 元素入栈 */
     stack.Push(1);

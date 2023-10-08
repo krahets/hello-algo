@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class climbing_stairs_dp {
     /* 爬楼梯：动态规划 */
-    public int climbingStairsDP(int n) {
+    public int ClimbingStairsDP(int n) {
         if (n == 1 || n == 2)
             return n;
         // 初始化 dp 表，用于存储子问题的解
@@ -24,7 +24,7 @@ public class climbing_stairs_dp {
     }
 
     /* 爬楼梯：空间优化后的动态规划 */
-    public int climbingStairsDPComp(int n) {
+    public int ClimbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;
         int a = 1, b = 2;
@@ -40,10 +40,10 @@ public class climbing_stairs_dp {
     public void Test() {
         int n = 9;
 
-        int res = climbingStairsDP(n);
+        int res = ClimbingStairsDP(n);
         Console.WriteLine($"爬 {n} 阶楼梯共有 {res} 种方案");
 
-        res = climbingStairsDPComp(n);
+        res = ClimbingStairsDPComp(n);
         Console.WriteLine($"爬 {n} 阶楼梯共有 {res} 种方案");
     }
 }

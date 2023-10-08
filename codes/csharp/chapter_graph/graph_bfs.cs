@@ -9,13 +9,13 @@ namespace hello_algo.chapter_graph;
 public class graph_bfs {
     /* 广度优先遍历 BFS */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-    public static List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
+    public static List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
         // 顶点遍历序列
-        List<Vertex> res = new List<Vertex>();
+        List<Vertex> res = new();
         // 哈希表，用于记录已被访问过的顶点
-        HashSet<Vertex> visited = new HashSet<Vertex>() { startVet };
+        HashSet<Vertex> visited = new() { startVet };
         // 队列用于实现 BFS
-        Queue<Vertex> que = new Queue<Vertex>();
+        Queue<Vertex> que = new();
         que.Enqueue(startVet);
         // 以顶点 vet 为起点，循环直至访问完所有顶点
         while (que.Count > 0) {
@@ -46,12 +46,12 @@ public class graph_bfs {
             new Vertex[2] { v[5], v[8] }, new Vertex[2] { v[6], v[7] }, new Vertex[2] { v[7], v[8] }
         };
 
-        GraphAdjList graph = new GraphAdjList(edges);
+        GraphAdjList graph = new(edges);
         Console.WriteLine("\n初始化后，图为");
-        graph.print();
+        graph.Print();
 
         /* 广度优先遍历 BFS */
-        List<Vertex> res = graphBFS(graph, v[0]);
+        List<Vertex> res = GraphBFS(graph, v[0]);
         Console.WriteLine("\n广度优先遍历（BFS）顶点序列为");
         Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));
     }

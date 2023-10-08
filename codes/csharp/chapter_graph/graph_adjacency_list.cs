@@ -16,19 +16,19 @@ public class GraphAdjList {
         this.adjList = new Dictionary<Vertex, List<Vertex>>();
         // 添加所有顶点和边
         foreach (Vertex[] edge in edges) {
-            addVertex(edge[0]);
-            addVertex(edge[1]);
-            addEdge(edge[0], edge[1]);
+            AddVertex(edge[0]);
+            AddVertex(edge[1]);
+            AddEdge(edge[0], edge[1]);
         }
     }
 
     /* 获取顶点数量 */
-    public int size() {
+    public int Size() {
         return adjList.Count;
     }
 
     /* 添加边 */
-    public void addEdge(Vertex vet1, Vertex vet2) {
+    public void AddEdge(Vertex vet1, Vertex vet2) {
         if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
             throw new InvalidOperationException();
         // 添加边 vet1 - vet2
@@ -37,7 +37,7 @@ public class GraphAdjList {
     }
 
     /* 删除边 */
-    public void removeEdge(Vertex vet1, Vertex vet2) {
+    public void RemoveEdge(Vertex vet1, Vertex vet2) {
         if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
             throw new InvalidOperationException();
         // 删除边 vet1 - vet2
@@ -46,7 +46,7 @@ public class GraphAdjList {
     }
 
     /* 添加顶点 */
-    public void addVertex(Vertex vet) {
+    public void AddVertex(Vertex vet) {
         if (adjList.ContainsKey(vet))
             return;
         // 在邻接表中添加一个新链表
@@ -54,7 +54,7 @@ public class GraphAdjList {
     }
 
     /* 删除顶点 */
-    public void removeVertex(Vertex vet) {
+    public void RemoveVertex(Vertex vet) {
         if (!adjList.ContainsKey(vet))
             throw new InvalidOperationException();
         // 在邻接表中删除顶点 vet 对应的链表
@@ -66,10 +66,10 @@ public class GraphAdjList {
     }
 
     /* 打印邻接表 */
-    public void print() {
+    public void Print() {
         Console.WriteLine("邻接表 =");
         foreach (KeyValuePair<Vertex, List<Vertex>> pair in adjList) {
-            List<int> tmp = new List<int>();
+            List<int> tmp = new();
             foreach (Vertex vertex in pair.Value)
                 tmp.Add(vertex.val);
             Console.WriteLine(pair.Key.val + ": [" + string.Join(", ", tmp) + "],");
@@ -85,32 +85,32 @@ public class graph_adjacency_list {
         Vertex[][] edges = new Vertex[][] { new Vertex[] { v[0], v[1] }, new Vertex[] { v[0], v[3] },
                                             new Vertex[] { v[1], v[2] }, new Vertex[] { v[2], v[3] },
                                             new Vertex[] { v[2], v[4] }, new Vertex[] { v[3], v[4] } };
-        GraphAdjList graph = new GraphAdjList(edges);
+        GraphAdjList graph = new(edges);
         Console.WriteLine("\n初始化后，图为");
-        graph.print();
+        graph.Print();
 
         /* 添加边 */
         // 顶点 1, 2 即 v[0], v[2]
-        graph.addEdge(v[0], v[2]);
+        graph.AddEdge(v[0], v[2]);
         Console.WriteLine("\n添加边 1-2 后，图为");
-        graph.print();
+        graph.Print();
 
         /* 删除边 */
         // 顶点 1, 3 即 v[0], v[1]
-        graph.removeEdge(v[0], v[1]);
+        graph.RemoveEdge(v[0], v[1]);
         Console.WriteLine("\n删除边 1-3 后，图为");
-        graph.print();
+        graph.Print();
 
         /* 添加顶点 */
-        Vertex v5 = new Vertex(6);
-        graph.addVertex(v5);
+        Vertex v5 = new(6);
+        graph.AddVertex(v5);
         Console.WriteLine("\n添加顶点 6 后，图为");
-        graph.print();
+        graph.Print();
 
         /* 删除顶点 */
         // 顶点 3 即 v[1]
-        graph.removeVertex(v[1]);
+        graph.RemoveVertex(v[1]);
         Console.WriteLine("\n删除顶点 3 后，图为");
-        graph.print();
+        graph.Print();
     }
 }

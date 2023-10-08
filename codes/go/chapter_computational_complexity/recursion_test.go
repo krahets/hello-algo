@@ -15,6 +15,9 @@ func TestRecursion(t *testing.T) {
 	res := recur(n)
 	fmt.Println("\n递归函数的求和结果 res = ", res)
 
+	res = forLoopRecur(n)
+	fmt.Println("\n使用迭代模拟递归求和结果 res = ", res)
+
 	res = tailRecur(n, 0)
 	fmt.Println("\n尾递归函数的求和结果 res = ", res)
 

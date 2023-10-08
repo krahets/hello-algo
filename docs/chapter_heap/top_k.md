@@ -87,7 +87,7 @@
 === "C#"
 
     ```csharp title="top_k.cs"
-    [class]{top_k}-[func]{topKHeap}
+    [class]{top_k}-[func]{TopKHeap}
     ```
 
 === "Go"

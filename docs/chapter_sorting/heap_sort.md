@@ -89,9 +89,9 @@
 === "C#"
 
     ```csharp title="heap_sort.cs"
-    [class]{heap_sort}-[func]{siftDown}
+    [class]{heap_sort}-[func]{SiftDown}
 
-    [class]{heap_sort}-[func]{heapSort}
+    [class]{heap_sort}-[func]{HeapSort}
     ```
 
 === "Go"

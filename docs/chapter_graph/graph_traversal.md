@@ -41,7 +41,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 === "C#"
 
     ```csharp title="graph_bfs.cs"
-    [class]{graph_bfs}-[func]{graphBFS}
+    [class]{graph_bfs}-[func]{GraphBFS}
     ```
 
 === "Go"
@@ -174,9 +174,9 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 === "C#"
 
     ```csharp title="graph_dfs.cs"
-    [class]{graph_dfs}-[func]{dfs}
+    [class]{graph_dfs}-[func]{Dfs}
 
-    [class]{graph_dfs}-[func]{graphDFS}
+    [class]{graph_dfs}-[func]{GraphDFS}
     ```
 
 === "Go"

@@ -8,7 +8,7 @@ namespace hello_algo.chapter_backtracking;
 
 public class permutations_ii {
     /* 回溯算法：全排列 II */
-    static void backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
+    static void Backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
         // 当状态长度等于元素数量时，记录解
         if (state.Count == choices.Length) {
             res.Add(new List<int>(state));
@@ -25,7 +25,7 @@ public class permutations_ii {
                 selected[i] = true;
                 state.Add(choice);
                 // 进行下一轮选择
-                backtrack(state, choices, selected, res);
+                Backtrack(state, choices, selected, res);
                 // 回退：撤销选择，恢复到之前的状态
                 selected[i] = false;
                 state.RemoveAt(state.Count - 1);
@@ -34,9 +34,9 @@ public class permutations_ii {
     }
 
     /* 全排列 II */
-    static List<List<int>> permutationsII(int[] nums) {
-        List<List<int>> res = new List<List<int>>();
-        backtrack(new List<int>(), nums, new bool[nums.Length], res);
+    static List<List<int>> PermutationsII(int[] nums) {
+        List<List<int>> res = new();
+        Backtrack(new List<int>(), nums, new bool[nums.Length], res);
         return res;
     }
 
@@ -44,7 +44,7 @@ public class permutations_ii {
     public void Test() {
         int[] nums = { 1, 2, 2 };
 
-        List<List<int>> res = permutationsII(nums);
+        List<List<int>> res = PermutationsII(nums);
 
         Console.WriteLine("输入数组 nums = " + string.Join(", ", nums));
         Console.WriteLine("所有排列 res = ");

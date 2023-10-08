@@ -40,7 +40,7 @@
 === "C#"
 
     ```csharp title="insertion_sort.cs"
-    [class]{insertion_sort}-[func]{insertionSort}
+    [class]{insertion_sort}-[func]{InsertionSort}
     ```
 
 === "Go"

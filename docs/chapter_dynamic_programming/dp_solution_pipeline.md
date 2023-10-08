@@ -119,7 +119,7 @@ $$
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDFS}
+    [class]{min_path_sum}-[func]{MinPathSumDFS}
     ```
 
 === "Go"
@@ -203,7 +203,7 @@ $$
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDFSMem}
+    [class]{min_path_sum}-[func]{MinPathSumDFSMem}
     ```
 
 === "Go"
@@ -283,7 +283,7 @@ $$
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDP}
+    [class]{min_path_sum}-[func]{MinPathSumDP}
     ```
 
 === "Go"
@@ -401,7 +401,7 @@ $$
 === "C#"
 
     ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDPComp}
+    [class]{min_path_sum}-[func]{MinPathSumDPComp}
     ```
 
 === "Go"

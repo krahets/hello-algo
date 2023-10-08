@@ -58,7 +58,7 @@
         Left  *TreeNode
         Right *TreeNode
     }
-    /* 节点初始化方法 */
+    /* 构造方法 */
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
             Left:  nil, // 左子节点指针
@@ -134,7 +134,7 @@
     use std::rc::Rc;
     use std::cell::RefCell;
 
-    /* 二叉树节点类型 */
+    /* 二叉树节点结构体 */
     struct TreeNode {
         val: i32,                               // 节点值
         left: Option<Rc<RefCell<TreeNode>>>,    // 左子节点引用
@@ -142,7 +142,7 @@
     }
 
     impl TreeNode {
-        /* 二叉树节点构造方法 */
+        /* 构造方法 */
         fn new(val: i32) -> Rc<RefCell<Self>> {
             Rc::new(RefCell::new(Self {
                 val,
@@ -271,11 +271,11 @@
     ```csharp title="binary_tree.cs"
     /* 初始化二叉树 */
     // 初始化节点
-    TreeNode n1 = new TreeNode(1);
-    TreeNode n2 = new TreeNode(2);
-    TreeNode n3 = new TreeNode(3);
-    TreeNode n4 = new TreeNode(4);
-    TreeNode n5 = new TreeNode(5);
+    TreeNode n1 = new(1);
+    TreeNode n2 = new(2);
+    TreeNode n3 = new(3);
+    TreeNode n4 = new(4);
+    TreeNode n5 = new(5);
     // 构建引用指向（即指针）
     n1.left = n2;
     n1.right = n3;
@@ -451,7 +451,7 @@
 
     ```csharp title="binary_tree.cs"
     /* 插入与删除节点 */
-    TreeNode P = new TreeNode(0);
+    TreeNode P = new(0);
     // 在 n1 -> n2 中间插入节点 P
     n1.left = P;
     P.left = n2;

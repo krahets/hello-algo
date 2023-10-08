@@ -8,7 +8,7 @@ namespace hello_algo.chapter_tree;
 
 /* 数组表示下的二叉树类 */
 public class ArrayBinaryTree {
-    private List<int?> tree;
+    private readonly List<int?> tree;
 
     /* 构造方法 */
     public ArrayBinaryTree(List<int?> arr) {
@@ -16,80 +16,80 @@ public class ArrayBinaryTree {
     }
 
     /* 节点数量 */
-    public int size() {
+    public int Size() {
         return tree.Count;
     }
 
     /* 获取索引为 i 节点的值 */
-    public int? val(int i) {
+    public int? Val(int i) {
         // 若索引越界，则返回 null ，代表空位
-        if (i < 0 || i >= size())
+        if (i < 0 || i >= Size())
             return null;
         return tree[i];
     }
 
     /* 获取索引为 i 节点的左子节点的索引 */
-    public int left(int i) {
+    public int Left(int i) {
         return 2 * i + 1;
     }
 
     /* 获取索引为 i 节点的右子节点的索引 */
-    public int right(int i) {
+    public int Right(int i) {
         return 2 * i + 2;
     }
 
     /* 获取索引为 i 节点的父节点的索引 */
-    public int parent(int i) {
+    public int Parent(int i) {
         return (i - 1) / 2;
     }
 
     /* 层序遍历 */
-    public List<int> levelOrder() {
-        List<int> res = new List<int>();
+    public List<int> LevelOrder() {
+        List<int> res = new();
         // 直接遍历数组
-        for (int i = 0; i < size(); i++) {
-            if (val(i).HasValue)
-                res.Add(val(i).Value);
+        for (int i = 0; i < Size(); i++) {
+            if (Val(i).HasValue)
+                res.Add(Val(i).Value);
         }
         return res;
     }
 
     /* 深度优先遍历 */
-    private void dfs(int i, string order, List<int> res) {
+    private void Dfs(int i, string order, List<int> res) {
         // 若为空位，则返回
-        if (!val(i).HasValue)
+        if (!Val(i).HasValue)
             return;
         // 前序遍历
         if (order == "pre")
-            res.Add(val(i).Value);
-        dfs(left(i), order, res);
+            res.Add(Val(i).Value);
+        Dfs(Left(i), order, res);
         // 中序遍历
         if (order == "in")
-            res.Add(val(i).Value);
-        dfs(right(i), order, res);
+            res.Add(Val(i).Value);
+        Dfs(Right(i), order, res);
         // 后序遍历
         if (order == "post")
-            res.Add(val(i).Value);
+            res.Add(Val(i).Value);
     }
 
     /* 前序遍历 */
-    public List<int> preOrder() {
-        List<int> res = new List<int>();
-        dfs(0, "pre", res);
+    public List<int> PreOrder() {
+        List<int> res = new();
+        Dfs(0, "pre", res);
         return res;
     }
 
     /* 中序遍历 */
-    public List<int> inOrder() {
-        List<int> res = new List<int>();
-        dfs(0, "in", res);
+    public List<int> InOrder() {
+        List<int> res = new();
+        Dfs(0, "in", res);
         return res;
     }
 
     /* 后序遍历 */
-    public List<int> postOrder() {
-        List<int> res = new List<int>();
-        dfs(0, "post", res);
+    public List<int> PostOrder() {
+        List<int> res = new();
+        Dfs(0, "post", res);
         return res;
     }
 }
@@ -99,7 +99,7 @@ public class array_binary_tree {
     public void Test() {
         // 初始化二叉树
         // 这里借助了一个从数组直接生成二叉树的函数
-        List<int?> arr = new List<int?> { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
+        List<int?> arr = new() { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
 
         TreeNode root = TreeNode.ListToTree(arr);
         Console.WriteLine("\n初始化二叉树\n");
@@ -109,26 +109,26 @@ public class array_binary_tree {
         PrintUtil.PrintTree(root);
 
         // 数组表示下的二叉树类
-        ArrayBinaryTree abt = new ArrayBinaryTree(arr);
+        ArrayBinaryTree abt = new(arr);
 
         // 访问节点
         int i = 1;
-        int l = abt.left(i);
-        int r = abt.right(i);
-        int p = abt.parent(i);
-        Console.WriteLine("\n当前节点的索引为 " + i + " ，值为 " + abt.val(i));
-        Console.WriteLine("其左子节点的索引为 " + l + " ，值为 " + (abt.val(l).HasValue ? abt.val(l) : "null"));
-        Console.WriteLine("其右子节点的索引为 " + r + " ，值为 " + (abt.val(r).HasValue ? abt.val(r) : "null"));
-        Console.WriteLine("其父节点的索引为 " + p + " ，值为 " + (abt.val(p).HasValue ? abt.val(p) : "null"));
+        int l = abt.Left(i);
+        int r = abt.Right(i);
+        int p = abt.Parent(i);
+        Console.WriteLine("\n当前节点的索引为 " + i + " ，值为 " + abt.Val(i));
+        Console.WriteLine("其左子节点的索引为 " + l + " ，值为 " + (abt.Val(l).HasValue ? abt.Val(l) : "null"));
+        Console.WriteLine("其右子节点的索引为 " + r + " ，值为 " + (abt.Val(r).HasValue ? abt.Val(r) : "null"));
+        Console.WriteLine("其父节点的索引为 " + p + " ，值为 " + (abt.Val(p).HasValue ? abt.Val(p) : "null"));
 
         // 遍历树
-        List<int> res = abt.levelOrder();
+        List<int> res = abt.LevelOrder();
         Console.WriteLine("\n层序遍历为：" + res.PrintList());
-        res = abt.preOrder();
+        res = abt.PreOrder();
         Console.WriteLine("前序遍历为：" + res.PrintList());
-        res = abt.inOrder();
+        res = abt.InOrder();
         Console.WriteLine("中序遍历为：" + res.PrintList());
-        res = abt.postOrder();
+        res = abt.PostOrder();
         Console.WriteLine("后序遍历为：" + res.PrintList());
     }
 }

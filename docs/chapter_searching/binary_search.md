@@ -64,7 +64,7 @@
 === "C#"
 
     ```csharp title="binary_search.cs"
-    [class]{binary_search}-[func]{binarySearch}
+    [class]{binary_search}-[func]{BinarySearch}
     ```
 
 === "Go"
@@ -146,7 +146,7 @@
 === "C#"
 
     ```csharp title="binary_search.cs"
-    [class]{binary_search}-[func]{binarySearchLCRO}
+    [class]{binary_search}-[func]{BinarySearchLCRO}
     ```
 
 === "Go"
