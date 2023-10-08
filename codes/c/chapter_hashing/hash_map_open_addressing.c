@@ -47,12 +47,11 @@ HashMapOpenAddressing *newHashMapOpenAddressing() {
 void delHashMapOpenAddressing(HashMapOpenAddressing *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Pair *pair = hashMap->buckets[i];
-        if (pair == NULL || pair->key == -1)
-            continue;
-        free(pair->val);
-        free(pair);
+        if (pair != NULL && pair != hashMap->TOMBSTONE) {
+            free(pair->val);
+            free(pair);
+        }
     }
-    return;
 }
 
 /* 哈希函数 */
@@ -85,7 +84,7 @@ int findBucket(HashMapOpenAddressing *hashMap, int key) {
         if (firstTombstone == -1 && hashMap->buckets[index] == hashMap->TOMBSTONE) {
             firstTombstone = index;
         }
-        // 计算桶索引，越过尾部返回o头部
+        // 计算桶索引，越过尾部返回头部
         index = (index + 1) % hashMap->capacity;
     }
     // 若 key 不存在，则返回添加点的索引
@@ -100,7 +99,7 @@ char *get(HashMapOpenAddressing *hashMap, int key) {
     if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
         return hashMap->buckets[index]->val;
     }
-    // 若a键值对不存在，则返回空字符串
+    // 若键值对不存在，则返回空字符串
     return "";
 }
 
@@ -143,7 +142,6 @@ void removeItem(HashMapOpenAddressing *hashMap, int key) {
         hashMap->buckets[index] = hashMap->TOMBSTONE;
         hashMap->size--;
     }
-    return;
 }
 
 /* 扩容哈希表 */
@@ -165,7 +163,6 @@ void extend(HashMapOpenAddressing *hashMap) {
         }
     }
     free(bucketsTmp);
-    return;
 }
 
 /* 打印哈希表 */
