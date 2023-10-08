@@ -7,11 +7,11 @@
 #include "../utils/common.h"
 
 #define MAX_N 100
-#define MAX_SOLUTIONS 1000
+#define MAX_RES 1000
 
 struct result {
-    char ***results;
-    int resultsCount;
+    char ***data;
+    int size;
 };
 
 typedef struct result Result;
@@ -21,12 +21,12 @@ void backtrack(int row, int n, char state[MAX_N][MAX_N], Result *res, bool cols[
                bool diags2[2 * MAX_N - 1]) {
     // 当放置完所有行时，记录解
     if (row == n) {
-        res->results[res->resultsCount] = (char **)malloc(sizeof(char *) * n);
+        res->data[res->size] = (char **)malloc(sizeof(char *) * n);
         for (int i = 0; i < n; ++i) {
-            res->results[res->resultsCount][i] = (char *)malloc(sizeof(char) * (n + 1));
-            strcpy(res->results[res->resultsCount][i], state[i]);
+            res->data[res->size][i] = (char *)malloc(sizeof(char) * (n + 1));
+            strcpy(res->data[res->size][i], state[i]);
         }
-        res->resultsCount++;
+        res->size++;
         return;
     }
     // 遍历所有列
@@ -63,8 +63,8 @@ Result *nQueens(int n) {
     bool diags2[2 * MAX_N - 1] = {false}; // 记录副对角线是否有皇后
 
     Result *res = malloc(sizeof(Result));
-    res->results = (char ***)malloc(sizeof(char **) * MAX_SOLUTIONS);
-    res->resultsCount = 0;
+    res->data = (char ***)malloc(sizeof(char **) * MAX_RES);
+    res->size = 0;
     backtrack(0, n, state, res, cols, diags1, diags2);
     return res;
 }
@@ -73,15 +73,15 @@ Result *nQueens(int n) {
 int main() {
     int n = 4;
     Result *res = nQueens(n);
-    printf("输入棋盘长宽为%d\n", n);
-    printf("皇后放置方案共有 %d 种\n", res->resultsCount);
 
-    for (int i = 0; i < res->resultsCount; ++i) {
+    printf("输入棋盘长宽为%d\n", n);
+    printf("皇后放置方案共有 %d 种\n", res->size);
+    for (int i = 0; i < res->size; ++i) {
         for (int j = 0; j < n; ++j) {
             printf("[");
-            for (int k = 0; res->results[i][j][k] != '\0'; ++k) {
-                printf("%c", res->results[i][j][k]);
-                if (res->results[i][j][k + 1] != '\0') {
+            for (int k = 0; res->data[i][j][k] != '\0'; ++k) {
+                printf("%c", res->data[i][j][k]);
+                if (res->data[i][j][k + 1] != '\0') {
                     printf(", ");
                 }
             }
@@ -90,13 +90,14 @@ int main() {
         printf("---------------------\n");
     }
 
-    // Free allocated memory
-    for (int i = 0; i < res->resultsCount; ++i) {
+    // 释放内存
+    for (int i = 0; i < res->size; ++i) {
         for (int j = 0; j < n; ++j) {
-            free(res->results[i][j]);
+            free(res->data[i][j]);
         }
-        free(res->results[i]);
+        free(res->data[i]);
     }
-    free(res->results);
+    free(res->data);
+
     return 0;
 }
