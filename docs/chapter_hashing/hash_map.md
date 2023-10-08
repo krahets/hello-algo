@@ -168,7 +168,7 @@
 
     ```javascript title="hash_map.js"
     /* 初始化哈希表 */
-    const map = new ArrayHashMap();
+    const map = new Map();
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map.set(12836, '小哈');
