@@ -339,7 +339,7 @@
         Console.WriteLine(key);
     }
     // 单独遍历值 value
-    foreach (String val in map.Values) {
+    foreach (string val in map.Values) {
         Console.WriteLine(val);
     }
     ```

@@ -134,8 +134,7 @@ public class time_complexity {
     /* 线性对数阶 */
     static int LinearLogRecur(float n) {
         if (n <= 1) return 1;
-        int count = LinearLogRecur(n / 2) +
-                    LinearLogRecur(n / 2);
+        int count = LinearLogRecur(n / 2) + LinearLogRecur(n / 2);
         for (int i = 0; i < n; i++) {
             count++;
         }
