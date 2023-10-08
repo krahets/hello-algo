@@ -8,7 +8,7 @@ namespace hello_algo.chapter_computational_complexity;
 
 public class iteration {
     /* for 循环 */
-    public int forLoop(int n) {
+    public static int ForLoop(int n) {
         int res = 0;
         // 循环求和 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
@@ -18,7 +18,7 @@ public class iteration {
     }
 
     /* while 循环 */
-    public int whileLoop(int n) {
+    public static int WhileLoop(int n) {
         int res = 0;
         int i = 1; // 初始化条件变量
         // 循环求和 1, 2, ..., n-1, n
@@ -30,7 +30,7 @@ public class iteration {
     }
 
     /* while 循环（两次更新） */
-    public int whileLoopII(int n) {
+    public static int WhileLoopII(int n) {
         int res = 0;
         int i = 1; // 初始化条件变量
         // 循环求和 1, 2, 4, 5...
@@ -44,8 +44,8 @@ public class iteration {
     }
 
     /* 双层 for 循环 */
-    public string nestedForLoop(int n) {
-        StringBuilder res = new StringBuilder();
+    public static string NestedForLoop(int n) {
+        StringBuilder res = new();
         // 循环 i = 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
             // 循环 j = 1, 2, ..., n-1, n
@@ -62,16 +62,16 @@ public class iteration {
         int n = 5;
         int res;
 
-        res = forLoop(n);
+        res = ForLoop(n);
         Console.WriteLine("\nfor 循环的求和结果 res = " + res);
 
-        res = whileLoop(n);
+        res = WhileLoop(n);
         Console.WriteLine("\nwhile 循环的求和结果 res = " + res);
 
-        res = whileLoopII(n);
+        res = WhileLoopII(n);
         Console.WriteLine("\nwhile 循环（两次更新）求和结果 res = " + res);
 
-        string resStr = nestedForLoop(n);
+        string resStr = NestedForLoop(n);
         Console.WriteLine("\n双层 for 循环的遍历结果 " + resStr);
     }
 }

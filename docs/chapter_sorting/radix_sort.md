@@ -57,11 +57,11 @@ $$
 === "C#"
 
     ```csharp title="radix_sort.cs"
-    [class]{radix_sort}-[func]{digit}
+    [class]{radix_sort}-[func]{Digit}
 
-    [class]{radix_sort}-[func]{countingSortDigit}
+    [class]{radix_sort}-[func]{CountingSortDigit}
 
-    [class]{radix_sort}-[func]{radixSort}
+    [class]{radix_sort}-[func]{RadixSort}
     ```
 
 === "Go"

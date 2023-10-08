@@ -33,7 +33,7 @@
 === "C#"
 
     ```csharp title="two_sum.cs"
-    [class]{two_sum}-[func]{twoSumBruteForce}
+    [class]{two_sum}-[func]{TwoSumBruteForce}
     ```
 
 === "Go"
@@ -125,7 +125,7 @@
 === "C#"
 
     ```csharp title="two_sum.cs"
-    [class]{two_sum}-[func]{twoSumHashTable}
+    [class]{two_sum}-[func]{TwoSumHashTable}
     ```
 
 === "Go"

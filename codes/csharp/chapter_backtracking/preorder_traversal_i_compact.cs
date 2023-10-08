@@ -10,7 +10,7 @@ public class preorder_traversal_i_compact {
     static List<TreeNode> res;
 
     /* 前序遍历：例题一 */
-    static void preOrder(TreeNode root) {
+    static void PreOrder(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -18,8 +18,8 @@ public class preorder_traversal_i_compact {
             // 记录解
             res.Add(root);
         }
-        preOrder(root.left);
-        preOrder(root.right);
+        PreOrder(root.left);
+        PreOrder(root.right);
     }
 
     [Test]
@@ -30,7 +30,7 @@ public class preorder_traversal_i_compact {
 
         // 前序遍历
         res = new List<TreeNode>();
-        preOrder(root);
+        PreOrder(root);
 
         Console.WriteLine("\n输出所有值为 7 的节点");
         PrintUtil.PrintList(res.Select(p => p.val).ToList());

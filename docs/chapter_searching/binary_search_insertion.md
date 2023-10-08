@@ -43,7 +43,7 @@
 === "C#"
 
     ```csharp title="binary_search_insertion.cs"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}
+    [class]{binary_search_insertion}-[func]{BinarySearchInsertionSimple}
     ```
 
 === "Go"
@@ -167,7 +167,7 @@
 === "C#"
 
     ```csharp title="binary_search_insertion.cs"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertion}
+    [class]{binary_search_insertion}-[func]{BinarySearchInsertion}
     ```
 
 === "Go"

@@ -66,9 +66,9 @@
 === "C#"
 
     ```csharp title="quick_sort.cs"
-    [class]{QuickSort}-[func]{swap}
+    [class]{quickSort}-[func]{Swap}
 
-    [class]{QuickSort}-[func]{partition}
+    [class]{quickSort}-[func]{Partition}
     ```
 
 === "Go"
@@ -162,7 +162,7 @@
 === "C#"
 
     ```csharp title="quick_sort.cs"
-    [class]{QuickSort}-[func]{quickSort}
+    [class]{quickSort}-[func]{QuickSort}
     ```
 
 === "Go"
@@ -264,9 +264,9 @@
 === "C#"
 
     ```csharp title="quick_sort.cs"
-    [class]{QuickSortMedian}-[func]{medianThree}
+    [class]{QuickSortMedian}-[func]{MedianThree}
 
-    [class]{QuickSortMedian}-[func]{partition}
+    [class]{QuickSortMedian}-[func]{Partition}
     ```
 
 === "Go"
@@ -360,7 +360,7 @@
 === "C#"
 
     ```csharp title="quick_sort.cs"
-    [class]{QuickSortTailCall}-[func]{quickSort}
+    [class]{QuickSortTailCall}-[func]{QuickSort}
     ```
 
 === "Go"

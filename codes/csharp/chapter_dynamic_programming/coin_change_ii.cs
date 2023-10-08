@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class coin_change_ii {
     /* 零钱兑换 II：动态规划 */
-    public int coinChangeIIDP(int[] coins, int amt) {
+    public int CoinChangeIIDP(int[] coins, int amt) {
         int n = coins.Length;
         // 初始化 dp 表
         int[,] dp = new int[n + 1, amt + 1];
@@ -32,7 +32,7 @@ public class coin_change_ii {
     }
 
     /* 零钱兑换 II：空间优化后的动态规划 */
-    public int coinChangeIIDPComp(int[] coins, int amt) {
+    public int CoinChangeIIDPComp(int[] coins, int amt) {
         int n = coins.Length;
         // 初始化 dp 表
         int[] dp = new int[amt + 1];
@@ -58,11 +58,11 @@ public class coin_change_ii {
         int amt = 5;
 
         // 动态规划
-        int res = coinChangeIIDP(coins, amt);
+        int res = CoinChangeIIDP(coins, amt);
         Console.WriteLine("凑出目标金额的硬币组合数量为 " + res);
 
         // 空间优化后的动态规划
-        res = coinChangeIIDPComp(coins, amt);
+        res = CoinChangeIIDPComp(coins, amt);
         Console.WriteLine("凑出目标金额的硬币组合数量为 " + res);
     }
 }

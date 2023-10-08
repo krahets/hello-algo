@@ -158,9 +158,9 @@
     ```csharp title="heap.cs"
     /* 初始化堆 */
     // 初始化小顶堆
-    PriorityQueue<int, int> minHeap = new PriorityQueue<int, int>();
+    PriorityQueue<int, int> minHeap = new();
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
-    PriorityQueue<int, int> maxHeap = new PriorityQueue<int, int>(Comparer<int>.Create((x, y) => y - x));
+    PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y - x));
 
     /* 元素入堆 */
     maxHeap.Enqueue(1, 1);
@@ -394,11 +394,11 @@
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{left}
+    [class]{MaxHeap}-[func]{Left}
 
-    [class]{MaxHeap}-[func]{right}
+    [class]{MaxHeap}-[func]{Right}
 
-    [class]{MaxHeap}-[func]{parent}
+    [class]{MaxHeap}-[func]{Parent}
     ```
 
 === "Go"
@@ -506,7 +506,7 @@
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{peek}
+    [class]{MaxHeap}-[func]{Peek}
     ```
 
 === "Go"
@@ -619,9 +619,9 @@
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{push}
+    [class]{MaxHeap}-[func]{Push}
 
-    [class]{MaxHeap}-[func]{siftUp}
+    [class]{MaxHeap}-[func]{SiftUp}
     ```
 
 === "Go"
@@ -757,9 +757,9 @@
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{pop}
+    [class]{MaxHeap}-[func]{Pop}
 
-    [class]{MaxHeap}-[func]{siftDown}
+    [class]{MaxHeap}-[func]{SiftDown}
     ```
 
 === "Go"

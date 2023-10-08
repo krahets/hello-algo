@@ -77,7 +77,7 @@ $$
 === "C#"
 
     ```csharp title="knapsack.cs"
-    [class]{knapsack}-[func]{knapsackDFS}
+    [class]{knapsack}-[func]{KnapsackDFS}
     ```
 
 === "Go"
@@ -161,7 +161,7 @@ $$
 === "C#"
 
     ```csharp title="knapsack.cs"
-    [class]{knapsack}-[func]{knapsackDFSMem}
+    [class]{knapsack}-[func]{KnapsackDFSMem}
     ```
 
 === "Go"
@@ -241,7 +241,7 @@ $$
 === "C#"
 
     ```csharp title="knapsack.cs"
-    [class]{knapsack}-[func]{knapsackDP}
+    [class]{knapsack}-[func]{KnapsackDP}
     ```
 
 === "Go"
@@ -388,7 +388,7 @@ $$
 === "C#"
 
     ```csharp title="knapsack.cs"
-    [class]{knapsack}-[func]{knapsackDPComp}
+    [class]{knapsack}-[func]{KnapsackDPComp}
     ```
 
 === "Go"

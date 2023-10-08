@@ -37,7 +37,7 @@
 === "C#"
 
     ```csharp title="binary_tree_bfs.cs"
-    [class]{binary_tree_bfs}-[func]{levelOrder}
+    [class]{binary_tree_bfs}-[func]{LevelOrder}
     ```
 
 === "Go"
@@ -138,11 +138,11 @@
 === "C#"
 
     ```csharp title="binary_tree_dfs.cs"
-    [class]{binary_tree_dfs}-[func]{preOrder}
+    [class]{binary_tree_dfs}-[func]{PreOrder}
 
-    [class]{binary_tree_dfs}-[func]{inOrder}
+    [class]{binary_tree_dfs}-[func]{InOrder}
 
-    [class]{binary_tree_dfs}-[func]{postOrder}
+    [class]{binary_tree_dfs}-[func]{PostOrder}
     ```
 
 === "Go"

@@ -100,6 +100,7 @@
 === "C"
 
     ```c title="array.c"
+    /* 初始化数组 */
     int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
     int nums[5] = { 1, 3, 2, 5, 4 };
     ```
@@ -143,7 +144,7 @@
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{randomAccess}
+    [class]{array}-[func]{RandomAccess}
     ```
 
 === "Go"
@@ -223,7 +224,7 @@
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{insert}
+    [class]{array}-[func]{Insert}
     ```
 
 === "Go"
@@ -303,7 +304,7 @@
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{remove}
+    [class]{array}-[func]{Remove}
     ```
 
 === "Go"
@@ -385,7 +386,7 @@
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{traverse}
+    [class]{array}-[func]{Traverse}
     ```
 
 === "Go"
@@ -463,7 +464,7 @@
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{find}
+    [class]{array}-[func]{Find}
     ```
 
 === "Go"
@@ -541,7 +542,7 @@
 === "C#"
 
     ```csharp title="array.cs"
-    [class]{array}-[func]{extend}
+    [class]{array}-[func]{Extend}
     ```
 
 === "Go"

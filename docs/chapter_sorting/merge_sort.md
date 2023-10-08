@@ -78,9 +78,9 @@
 === "C#"
 
     ```csharp title="merge_sort.cs"
-    [class]{merge_sort}-[func]{merge}
+    [class]{merge_sort}-[func]{Merge}
 
-    [class]{merge_sort}-[func]{mergeSort}
+    [class]{merge_sort}-[func]{MergeSort}
     ```
 
 === "Go"

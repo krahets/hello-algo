@@ -53,7 +53,7 @@ $$
 === "C#"
 
     ```csharp title="unbounded_knapsack.cs"
-    [class]{unbounded_knapsack}-[func]{unboundedKnapsackDP}
+    [class]{unbounded_knapsack}-[func]{UnboundedKnapsackDP}
     ```
 
 === "Go"
@@ -151,7 +151,7 @@ $$
 === "C#"
 
     ```csharp title="unbounded_knapsack.cs"
-    [class]{unbounded_knapsack}-[func]{unboundedKnapsackDPComp}
+    [class]{unbounded_knapsack}-[func]{UnboundedKnapsackDPComp}
     ```
 
 === "Go"
@@ -272,7 +272,7 @@ $$
 === "C#"
 
     ```csharp title="coin_change.cs"
-    [class]{coin_change}-[func]{coinChangeDP}
+    [class]{coin_change}-[func]{CoinChangeDP}
     ```
 
 === "Go"
@@ -395,7 +395,7 @@ $$
 === "C#"
 
     ```csharp title="coin_change.cs"
-    [class]{coin_change}-[func]{coinChangeDPComp}
+    [class]{coin_change}-[func]{CoinChangeDPComp}
     ```
 
 === "Go"
@@ -489,7 +489,7 @@ $$
 === "C#"
 
     ```csharp title="coin_change_ii.cs"
-    [class]{coin_change_ii}-[func]{coinChangeIIDP}
+    [class]{coin_change_ii}-[func]{CoinChangeIIDP}
     ```
 
 === "Go"
@@ -565,7 +565,7 @@ $$
 === "C#"
 
     ```csharp title="coin_change_ii.cs"
-    [class]{coin_change_ii}-[func]{coinChangeIIDPComp}
+    [class]{coin_change_ii}-[func]{CoinChangeIIDPComp}
     ```
 
 === "Go"

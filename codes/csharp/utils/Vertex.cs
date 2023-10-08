@@ -24,7 +24,7 @@ public class Vertex {
 
     /* 输入顶点列表 vets ，返回值列表 vals */
     public static List<int> VetsToVals(List<Vertex> vets) {
-        List<int> vals = new List<int>();
+        List<int> vals = new();
         foreach (Vertex vet in vets) {
             vals.Add(vet.val);
         }

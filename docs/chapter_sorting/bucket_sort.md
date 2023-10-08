@@ -35,7 +35,7 @@
 === "C#"
 
     ```csharp title="bucket_sort.cs"
-    [class]{bucket_sort}-[func]{bucketSort}
+    [class]{bucket_sort}-[func]{BucketSort}
     ```
 
 === "Go"

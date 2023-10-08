@@ -33,7 +33,7 @@
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{forLoop}
+    [class]{iteration}-[func]{ForLoop}
     ```
 
 === "Go"
@@ -117,7 +117,7 @@
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{whileLoop}
+    [class]{iteration}-[func]{WhileLoop}
     ```
 
 === "Go"
@@ -193,7 +193,7 @@
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{whileLoopII}
+    [class]{iteration}-[func]{WhileLoopII}
     ```
 
 === "Go"
@@ -271,7 +271,7 @@
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{nestedForLoop}
+    [class]{iteration}-[func]{NestedForLoop}
     ```
 
 === "Go"
@@ -366,7 +366,7 @@
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{recur}
+    [class]{recursion}-[func]{Recur}
     ```
 
 === "Go"
@@ -474,7 +474,7 @@
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{tailRecur}
+    [class]{recursion}-[func]{TailRecur}
     ```
 
 === "Go"
@@ -572,7 +572,7 @@
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{fib}
+    [class]{recursion}-[func]{Fib}
     ```
 
 === "Go"
@@ -679,7 +679,7 @@
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{forLoopRecur}
+    [class]{recursion}-[func]{ForLoopRecur}
     ```
 
 === "Go"

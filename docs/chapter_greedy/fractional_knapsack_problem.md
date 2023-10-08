@@ -58,7 +58,7 @@
     ```csharp title="fractional_knapsack.cs"
     [class]{Item}-[func]{}
 
-    [class]{fractional_knapsack}-[func]{fractionalKnapsack}
+    [class]{fractional_knapsack}-[func]{FractionalKnapsack}
     ```
 
 === "Go"

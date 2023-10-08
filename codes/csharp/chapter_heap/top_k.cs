@@ -8,8 +8,8 @@ namespace hello_algo.chapter_heap;
 
 public class top_k {
     /* 基于堆查找数组中最大的 k 个元素 */
-    public static PriorityQueue<int, int> topKHeap(int[] nums, int k) {
-        PriorityQueue<int, int> heap = new PriorityQueue<int, int>();
+    public static PriorityQueue<int, int> TopKHeap(int[] nums, int k) {
+        PriorityQueue<int, int> heap = new();
         // 将数组的前 k 个元素入堆
         for (int i = 0; i < k; i++) {
             heap.Enqueue(nums[i], nums[i]);
@@ -29,7 +29,7 @@ public class top_k {
     public void Test() {
         int[] nums = { 1, 7, 6, 3, 2 };
         int k = 3;
-        PriorityQueue<int, int> res = topKHeap(nums, k);
+        PriorityQueue<int, int> res = TopKHeap(nums, k);
         Console.WriteLine("最大的 " + k + " 个元素为");
         PrintUtil.PrintHeap(res);
     }

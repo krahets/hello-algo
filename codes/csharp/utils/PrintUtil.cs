@@ -70,7 +70,7 @@ public static class PrintUtil {
         }
 
         string prev_str = "    ";
-        Trunk trunk = new Trunk(prev, prev_str);
+        Trunk trunk = new(prev, prev_str);
 
         PrintTree(root.right, trunk, true);
 
@@ -126,8 +126,8 @@ public static class PrintUtil {
     public static void PrintHeap(PriorityQueue<int, int> queue) {
         var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
         Console.Write("堆的数组表示：");
-        List<int> list = new List<int>();
-        while (newQueue.TryDequeue(out int element, out int priority)) {
+        List<int> list = new();
+        while (newQueue.TryDequeue(out int element, out _)) {
             list.Add(element);
         }
         Console.WriteLine("堆的树状表示：");

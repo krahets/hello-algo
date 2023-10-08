@@ -9,7 +9,7 @@ namespace hello_algo.chapter_tree;
 public class binary_tree_bfs {
 
     /* 层序遍历 */
-    public List<int> levelOrder(TreeNode root) {
+    public List<int> LevelOrder(TreeNode root) {
         // 初始化队列，加入根节点
         Queue<TreeNode> queue = new();
         queue.Enqueue(root);
@@ -34,7 +34,7 @@ public class binary_tree_bfs {
         Console.WriteLine("\n初始化二叉树\n");
         PrintUtil.PrintTree(root);
 
-        List<int> list = levelOrder(root);
+        List<int> list = LevelOrder(root);
         Console.WriteLine("\n层序遍历的节点打印序列 = " + string.Join(",", list));
     }
 }
