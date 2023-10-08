@@ -443,7 +443,7 @@ $$
 相较于直接统计算法运行时间，时间复杂度分析有哪些特点呢？
 
 - **时间复杂度能够有效评估算法效率**。例如，算法 `B` 的运行时间呈线性增长，在 $n > 1$ 时比算法 `A` 更慢，在 $n > 1000000$ 时比算法 `C` 更慢。事实上，只要输入数据大小 $n$ 足够大，复杂度为“常数阶”的算法一定优于“线性阶”的算法，这正是时间增长趋势所表达的含义。
-- **时间复杂度的推算方法更简便**。显然，运行平台和计算操作类型都与算法运行时间的增长趋势无关。因此在时间复杂度分析中，我们可以简单地将所有计算操作的执行时间视为相同的“单位时间”，从而将“计算操作的运行时间的统计”简化为“计算操作的数量的统计”，这样以来估算难度就大大降低了。
+- **时间复杂度的推算方法更简便**。显然，运行平台和计算操作类型都与算法运行时间的增长趋势无关。因此在时间复杂度分析中，我们可以简单地将所有计算操作的执行时间视为相同的“单位时间”，从而将“计算操作的运行时间的统计”简化为“计算操作的数量的统计”，这样一来估算难度就大大降低了。
 - **时间复杂度也存在一定的局限性**。例如，尽管算法 `A` 和 `C` 的时间复杂度相同，但实际运行时间差别很大。同样，尽管算法 `B` 的时间复杂度比 `C` 高，但在输入数据大小 $n$ 较小时，算法 `B` 明显优于算法 `C` 。在这些情况下，我们很难仅凭时间复杂度判断算法效率的高低。当然，尽管存在上述问题，复杂度分析仍然是评判算法效率最有效且常用的方法。
 
 ## 2.3.2 &nbsp; 函数渐近上界
@@ -2597,8 +2597,7 @@ $$
     int linearLogRecur(float n) {
         if (n <= 1)
             return 1;
-        int count = linearLogRecur(n / 2) +
-                linearLogRecur(n / 2);
+        int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
         for (int i = 0; i < n; i++) {
             count++;
         }
@@ -2612,8 +2611,7 @@ $$
     /* 线性对数阶 */
     int LinearLogRecur(float n) {
         if (n <= 1) return 1;
-        int count = LinearLogRecur(n / 2) +
-                    LinearLogRecur(n / 2);
+        int count = LinearLogRecur(n / 2) + LinearLogRecur(n / 2);
         for (int i = 0; i < n; i++) {
             count++;
         }
@@ -2629,8 +2627,7 @@ $$
         if n <= 1 {
             return 1
         }
-        count := linearLogRecur(n/2) +
-            linearLogRecur(n/2)
+        count := linearLogRecur(n/2) + linearLogRecur(n/2)
         for i := 0.0; i < n; i++ {
             count++
         }
@@ -2704,8 +2701,7 @@ $$
         if n <= 1.0 {
             return 1;
         }
-        let mut count = linear_log_recur(n / 2.0) + 
-                        linear_log_recur(n / 2.0);
+        let mut count = linear_log_recur(n / 2.0) + linear_log_recur(n / 2.0);
         for _ in 0 ..n as i32 {
             count += 1;
         }
@@ -2734,8 +2730,7 @@ $$
     // 线性对数阶
     fn linearLogRecur(n: f32) i32 {
         if (n <= 1) return 1;
-        var count: i32 = linearLogRecur(n / 2) +
-                    linearLogRecur(n / 2);
+        var count: i32 = linearLogRecur(n / 2) + linearLogRecur(n / 2);
         var i: f32 = 0;
         while (i < n) : (i += 1) {
             count += 1;
@@ -3060,11 +3055,8 @@ $$
 
         // 随机打乱数组元素
         for (int i = 0; i < nums.Length; i++) {
-            var index = new Random().Next(i, nums.Length);
-            var tmp = nums[i];
-            var ran = nums[index];
-            nums[i] = ran;
-            nums[index] = tmp;
+            int index = new Random().Next(i, nums.Length);
+            (nums[i], nums[index]) = (nums[index], nums[i]);
         }
         return nums;
     }
