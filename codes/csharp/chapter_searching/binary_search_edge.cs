@@ -8,9 +8,9 @@ namespace hello_algo.chapter_searching;
 
 public class binary_search_edge {
     /* 二分查找最左一个 target */
-    public int binarySearchLeftEdge(int[] nums, int target) {
+    public int BinarySearchLeftEdge(int[] nums, int target) {
         // 等价于查找 target 的插入点
-        int i = binary_search_insertion.binarySearchInsertion(nums, target);
+        int i = binary_search_insertion.BinarySearchInsertion(nums, target);
         // 未找到 target ，返回 -1
         if (i == nums.Length || nums[i] != target) {
             return -1;
@@ -20,9 +20,9 @@ public class binary_search_edge {
     }
 
     /* 二分查找最右一个 target */
-    public int binarySearchRightEdge(int[] nums, int target) {
+    public int BinarySearchRightEdge(int[] nums, int target) {
         // 转化为查找最左一个 target + 1
-        int i = binary_search_insertion.binarySearchInsertion(nums, target + 1);
+        int i = binary_search_insertion.BinarySearchInsertion(nums, target + 1);
         // j 指向最右一个 target ，i 指向首个大于 target 的元素
         int j = i - 1;
         // 未找到 target ，返回 -1
@@ -41,9 +41,9 @@ public class binary_search_edge {
 
         // 二分查找左边界和右边界
         foreach (int target in new int[] { 6, 7 }) {
-            int index = binarySearchLeftEdge(nums, target);
+            int index = BinarySearchLeftEdge(nums, target);
             Console.WriteLine("最左一个元素 " + target + " 的索引为 " + index);
-            index = binarySearchRightEdge(nums, target);
+            index = BinarySearchRightEdge(nums, target);
             Console.WriteLine("最右一个元素 " + target + " 的索引为 " + index);
         }
     }

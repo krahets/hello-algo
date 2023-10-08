@@ -17,6 +17,6 @@
 test.sh
 
 # overrides
-docs/overrides/partials/*
-!docs/overrides/partials/content.html
-!docs/overrides/partials/footer.html
+overrides/partials/*
+!overrides/partials/content.html
+!overrides/partials/footer.html

@@ -8,7 +8,7 @@ namespace hello_algo.chapter_searching;
 
 public class binary_search_insertion {
     /* 二分查找插入点（无重复元素） */
-    public int binarySearchInsertionSimple(int[] nums, int target) {
+    public int BinarySearchInsertionSimple(int[] nums, int target) {
         int i = 0, j = nums.Length - 1; // 初始化双闭区间 [0, n-1]
         while (i <= j) {
             int m = i + (j - i) / 2; // 计算中点索引 m
@@ -25,7 +25,7 @@ public class binary_search_insertion {
     }
 
     /* 二分查找插入点（存在重复元素） */
-    public static int binarySearchInsertion(int[] nums, int target) {
+    public static int BinarySearchInsertion(int[] nums, int target) {
         int i = 0, j = nums.Length - 1; // 初始化双闭区间 [0, n-1]
         while (i <= j) {
             int m = i + (j - i) / 2; // 计算中点索引 m
@@ -48,7 +48,7 @@ public class binary_search_insertion {
         Console.WriteLine("\n数组 nums = " + nums.PrintList());
         // 二分查找插入点
         foreach (int target in new int[] { 6, 9 }) {
-            int index = binarySearchInsertionSimple(nums, target);
+            int index = BinarySearchInsertionSimple(nums, target);
             Console.WriteLine("元素 " + target + " 的插入点的索引为 " + index);
         }
 
@@ -57,7 +57,7 @@ public class binary_search_insertion {
         Console.WriteLine("\n数组 nums = " + nums.PrintList());
         // 二分查找插入点
         foreach (int target in new int[] { 2, 6, 20 }) {
-            int index = binarySearchInsertion(nums, target);
+            int index = BinarySearchInsertion(nums, target);
             Console.WriteLine("元素 " + target + " 的插入点的索引为 " + index);
         }
     }

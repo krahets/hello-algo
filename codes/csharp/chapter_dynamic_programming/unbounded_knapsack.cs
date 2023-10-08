@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class unbounded_knapsack {
     /* 完全背包：动态规划 */
-    public int unboundedKnapsackDP(int[] wgt, int[] val, int cap) {
+    public int UnboundedKnapsackDP(int[] wgt, int[] val, int cap) {
         int n = wgt.Length;
         // 初始化 dp 表
         int[,] dp = new int[n + 1, cap + 1];
@@ -28,7 +28,7 @@ public class unbounded_knapsack {
     }
 
     /* 完全背包：空间优化后的动态规划 */
-    public int unboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
+    public int UnboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
         int n = wgt.Length;
         // 初始化 dp 表
         int[] dp = new int[cap + 1];
@@ -54,11 +54,11 @@ public class unbounded_knapsack {
         int cap = 4;
 
         // 动态规划
-        int res = unboundedKnapsackDP(wgt, val, cap);
+        int res = UnboundedKnapsackDP(wgt, val, cap);
         Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
 
         // 空间优化后的动态规划
-        res = unboundedKnapsackDPComp(wgt, val, cap);
+        res = UnboundedKnapsackDPComp(wgt, val, cap);
         Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
     }
 }
