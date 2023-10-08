@@ -88,6 +88,7 @@ const char *get(hashMapChaining *hashmap, const int key) {
         if (node->key == key) {
             return node->val;
         }
+        node = node->next;
     }
     return NULL;
 }
