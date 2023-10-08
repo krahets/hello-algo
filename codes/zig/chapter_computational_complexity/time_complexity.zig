@@ -115,8 +115,7 @@ fn logRecur(n: f32) i32 {
 // 线性对数阶
 fn linearLogRecur(n: f32) i32 {
     if (n <= 1) return 1;
-    var count: i32 = linearLogRecur(n / 2) +
-                linearLogRecur(n / 2);
+    var count: i32 = linearLogRecur(n / 2) + linearLogRecur(n / 2);
     var i: f32 = 0;
     while (i < n) : (i += 1) {
         count += 1;

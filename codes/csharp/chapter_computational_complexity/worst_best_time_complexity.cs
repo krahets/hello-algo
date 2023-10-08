@@ -17,11 +17,8 @@ public class worst_best_time_complexity {
 
         // 随机打乱数组元素
         for (int i = 0; i < nums.Length; i++) {
-            var index = new Random().Next(i, nums.Length);
-            var tmp = nums[i];
-            var ran = nums[index];
-            nums[i] = ran;
-            nums[index] = tmp;
+            int index = new Random().Next(i, nums.Length);
+            (nums[i], nums[index]) = (nums[index], nums[i]);
         }
         return nums;
     }
