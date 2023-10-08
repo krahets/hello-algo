@@ -3528,7 +3528,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">hash_map.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* 初始化哈希表 */</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ArrayHashMap</span><span class="p">();</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">();</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="cm">/* 添加操作 */</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1">// 在哈希表中添加键值对 (key, value)</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mf">12836</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;小哈&#39;</span><span class="p">);</span>
@@ -3684,7 +3684,7 @@
 <a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
 <a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="p">}</span>
 <a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1">// 单独遍历值 value</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="n">Values</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="n">Values</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
 <a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="p">}</span>
 </code></pre></div>
