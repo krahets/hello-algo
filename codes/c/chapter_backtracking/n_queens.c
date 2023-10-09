@@ -9,6 +9,7 @@
 #define MAX_N 100
 #define MAX_RES 1000
 
+/* 放置结果 */
 struct result {
     char ***data;
     int size;
@@ -17,8 +18,8 @@ struct result {
 typedef struct result Result;
 
 /* 回溯算法：N 皇后 */
-void backtrack(int row, int n, char state[MAX_N][MAX_N], Result *res, bool cols[MAX_N], bool diags1[2 * MAX_N - 1],
-               bool diags2[2 * MAX_N - 1]) {
+void backtrack(int row, int n, char state[MAX_N][MAX_N], Result *res, 
+        bool cols[MAX_N], bool diags1[2 * MAX_N - 1], bool diags2[2 * MAX_N - 1]) {
     // 当放置完所有行时，记录解
     if (row == n) {
         res->data[res->size] = (char **)malloc(sizeof(char *) * n);
