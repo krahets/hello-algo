@@ -17,7 +17,7 @@
     # 无初始值
     list1: list[int] = []
     # 有初始值
-    list: list[int] = [1, 3, 2, 5, 4]
+    list2: list[int] = [1, 3, 2, 5, 4]
     ```
 
 === "C++"
@@ -136,10 +136,10 @@
 
     ```python title="list.py"
     # 访问元素
-    num: int = list[1]  # 访问索引 1 处的元素
+    num: int = list2[1]  # 访问索引 1 处的元素
 
     # 更新元素
-    list[1] = 0    # 将索引 1 处的元素更新为 0
+    list2[1] = 0    # 将索引 1 处的元素更新为 0
     ```
 
 === "C++"
@@ -255,20 +255,20 @@
 
     ```python title="list.py"
     # 清空列表
-    list.clear()
+    list2.clear()
 
     # 尾部添加元素
-    list.append(1)
-    list.append(3)
-    list.append(2)
-    list.append(5)
-    list.append(4)
+    list2.append(1)
+    list2.append(3)
+    list2.append(2)
+    list2.append(5)
+    list2.append(4)
 
     # 中间插入元素
-    list.insert(3, 6)  # 在索引 3 处插入数字 6
+    list2.insert(3, 6)  # 在索引 3 处插入数字 6
 
     # 删除元素
-    list.pop(3)        # 删除索引 3 处的元素
+    list2.pop(3)        # 删除索引 3 处的元素
     ```
 
 === "C++"
@@ -671,7 +671,7 @@
     ```python title="list.py"
     # 拼接两个列表
     list1: list[int] = [6, 8, 7, 10, 9]
-    list += list1  # 将列表 list1 拼接到 list 之后
+    list2 += list1  # 将列表 list1 拼接到 list2 之后
     ```
 
 === "C++"
@@ -771,7 +771,7 @@
 
     ```python title="list.py"
     # 排序列表
-    list.sort()  # 排序后，列表元素从小到大排列
+    list2.sort()  # 排序后，列表元素从小到大排列
     ```
 
 === "C++"
