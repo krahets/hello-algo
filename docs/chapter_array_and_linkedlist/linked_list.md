@@ -96,8 +96,6 @@
     ```javascript title=""
     /* 链表节点类 */
     class ListNode {
-        val;
-        next;
         constructor(val, next) {
             this.val = (val === undefined ? 0 : val);       // 节点值
             this.next = (next === undefined ? null : next); // 指向下一节点的引用
@@ -110,8 +108,6 @@
     ```typescript title=""
     /* 链表节点类 */
     class ListNode {
-        val: number;
-        next: ListNode | null;
         constructor(val?: number, next?: ListNode | null) {
             this.val = val === undefined ? 0 : val;        // 节点值
             this.next = next === undefined ? null : next;  // 指向下一节点的引用
@@ -820,9 +816,6 @@
     ```javascript title=""
     /* 双向链表节点类 */
     class ListNode {
-        val;
-        next;
-        prev;
         constructor(val, next, prev) {
             this.val = val  ===  undefined ? 0 : val;        // 节点值
             this.next = next  ===  undefined ? null : next;  // 指向后继节点的引用
@@ -836,9 +829,6 @@
     ```typescript title=""
     /* 双向链表节点类 */
     class ListNode {
-        val: number;
-        next: ListNode | null;
-        prev: ListNode | null;
         constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
             this.val = val  ===  undefined ? 0 : val;        // 节点值
             this.next = next  ===  undefined ? null : next;  // 指向后继节点的引用
