@@ -36,9 +36,11 @@ class GraphAdjMat:
 
     def add_vertex(self, val: int):
         """添加顶点"""
-        n = self.size()
         # 向顶点列表中添加新顶点的值
         self.vertices.append(val)
+        
+        n = self.size()
+        
         # 在邻接矩阵中添加一行
         new_row = [0] * n
         self.adj_mat.append(new_row)
