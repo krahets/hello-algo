@@ -21,7 +21,7 @@ comments: true
     # 无初始值
     nums1: nums[int] = []
     # 有初始值
-    list2: nums[int] = [1, 3, 2, 5, 4]
+    nums: nums[int] = [1, 3, 2, 5, 4]
     ```
 
 === "C++"
@@ -114,7 +114,7 @@ comments: true
     // 无初始值
     let nums1: Vec<i32> = Vec::new();
     // 有初始值
-    let list2: Vec<i32> = vec![1, 3, 2, 5, 4];
+    let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
 === "C"
@@ -140,10 +140,10 @@ comments: true
 
     ```python title="list.py"
     # 访问元素
-    num: int = list2[1]  # 访问索引 1 处的元素
+    num: int = nums[1]  # 访问索引 1 处的元素
 
     # 更新元素
-    list2[1] = 0    # 将索引 1 处的元素更新为 0
+    nums[1] = 0    # 将索引 1 处的元素更新为 0
     ```
 
 === "C++"
@@ -259,20 +259,20 @@ comments: true
 
     ```python title="list.py"
     # 清空列表
-    list2.clear()
+    nums.clear()
 
     # 尾部添加元素
-    list2.append(1)
-    list2.append(3)
-    list2.append(2)
-    list2.append(5)
-    list2.append(4)
+    nums.append(1)
+    nums.append(3)
+    nums.append(2)
+    nums.append(5)
+    nums.append(4)
 
     # 中间插入元素
-    list2.insert(3, 6)  # 在索引 3 处插入数字 6
+    nums.insert(3, 6)  # 在索引 3 处插入数字 6
 
     # 删除元素
-    list2.pop(3)        # 删除索引 3 处的元素
+    nums.pop(3)        # 删除索引 3 处的元素
     ```
 
 === "C++"
@@ -675,7 +675,7 @@ comments: true
     ```python title="list.py"
     # 拼接两个列表
     nums1: nums[int] = [6, 8, 7, 10, 9]
-    list2 += nums1  # 将列表 nums1 拼接到 list2 之后
+    nums += nums1  # 将列表 nums1 拼接到 nums 之后
     ```
 
 === "C++"
@@ -775,7 +775,7 @@ comments: true
 
     ```python title="list.py"
     # 排序列表
-    list2.sort()  # 排序后，列表元素从小到大排列
+    nums.sort()  # 排序后，列表元素从小到大排列
     ```
 
 === "C++"
