@@ -1149,44 +1149,47 @@ comments: true
 === "C"
 
     ```c title="hash_map_chaining.c"
-    /* 基于数组简易实现的链式地址哈希表 */
+    /* 链表节点 */
+    struct node {
+        Pair *pair;
+        struct Node *next;
+    };
+
+    typedef struct node Node;
+
+    /* 链式地址哈希表 */
     struct hashMapChaining {
         int size;         // 键值对数量
         int capacity;     // 哈希表容量
         double loadThres; // 触发扩容的负载因子阈值
         int extendRatio;  // 扩容倍数
-        Pair *buckets;    // 桶数组
+        Node **buckets;   // 桶数组
     };
 
     typedef struct hashMapChaining hashMapChaining;
 
-    /* 初始化桶数组 */
-    hashMapChaining *newHashMapChaining() {
-        // 为哈希表分配空间
-        int tableSize = 4;
+    /* 构造方法 */
+    hashMapChaining *initHashMapChaining() {
         hashMapChaining *hashMap = (hashMapChaining *)malloc(sizeof(hashMapChaining));
-
-        // 初始化数组
-        hashMap->buckets = (Pair *)malloc(sizeof(Pair) * tableSize);
-        memset(hashMap->buckets, 0, sizeof(Pair) * tableSize);
-
-        hashMap->capacity = tableSize;
         hashMap->size = 0;
-        hashMap->extendRatio = 2;
+        hashMap->capacity = 4;
         hashMap->loadThres = 2.0 / 3.0;
-
+        hashMap->extendRatio = 2;
+        hashMap->buckets = (Node **)malloc(hashMap->capacity * sizeof(Node *));
+        for (int i = 0; i < hashMap->capacity; i++) {
+            hashMap->buckets[i] = NULL;
+        }
         return hashMap;
     }
 
-    /* 销毁哈希表 */
-    void delHashMapChaining(hashMapChaining *hashMap) {
+    /* 析构方法 */
+    void freeHashMapChaining(hashMapChaining *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
-            Pair *pair = &hashMap->buckets[i];
-            Node *node = pair->node;
-            while (node != NULL) {
-                Node *temp = node;
-                node = node->next;
-                free(temp->val);
+            Node *cur = hashMap->buckets[i];
+            while (cur) {
+                Node *temp = cur;
+                cur = cur->next;
+                free(temp->pair);
                 free(temp);
             }
         }
@@ -1195,7 +1198,7 @@ comments: true
     }
 
     /* 哈希函数 */
-    int hashFunc(hashMapChaining *hashMap, const int key) {
+    int hashFunc(hashMapChaining *hashMap, int key) {
         return key % hashMap->capacity;
     }
 
@@ -1205,136 +1208,109 @@ comments: true
     }
 
     /* 查询操作 */
-    char *get(hashMapChaining *hashMap, const int key) {
+    char *get(hashMapChaining *hashMap, int key) {
         int index = hashFunc(hashMap, key);
-        Pair *pair = &hashMap->buckets[index];
-        Node *node = pair->node;
-        while (node != NULL) {
-            if (node->key == key) {
-                return node->val;
+        // 遍历桶，若找到 key 则返回对应 val
+        Node *cur = hashMap->buckets[index];
+        while (cur) {
+            if (cur->pair->key == key) {
+                return cur->pair->val;
             }
-            node = node->next;
+            cur = cur->next;
         }
-        return NULL;
+        return ""; // 若未找到 key 则返回空字符串
     }
 
     /* 添加操作 */
-    void put(hashMapChaining *hashMap, const int key, char *val) {
+    void put(hashMapChaining *hashMap, int key, const char *val) {
+        // 当负载因子超过阈值时，执行扩容
         if (loadFactor(hashMap) > hashMap->loadThres) {
             extend(hashMap);
         }
         int index = hashFunc(hashMap, key);
-
-        // 先为新节点分配空间再赋值
+        // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+        Node *cur = hashMap->buckets[index];
+        while (cur) {
+            if (cur->pair->key == key) {
+                strcpy(cur->pair->val, val); // 若遇到指定 key ，则更新对应 val 并返回
+                return;
+            }
+            cur = cur->next;
+        }
+        // 若无该 key ，则将键值对添加至尾部
+        Pair *newPair = (Pair *)malloc(sizeof(Pair));
+        newPair->key = key;
+        strcpy(newPair->val, val);
         Node *newNode = (Node *)malloc(sizeof(Node));
-        memset(newNode, 0, sizeof(Node));
-        newNode->key = key;
-        newNode->val = (char *)malloc(strlen(val) + 1);
-        strcpy(newNode->val, val);
-        newNode->val[strlen(val)] = '\0';
-
-        Pair *pair = &hashMap->buckets[index];
-        Node *node = pair->node;
-        if (node == NULL) {
-            hashMap->buckets[index].node = newNode;
-            hashMap->size++;
-            return;
-        }
-        while (node != NULL) {
-            if (node->key == key) {
-                // 释放先前分配的内存
-                free(node->val);
-                // 更新节点的值
-                node->val = (char *)malloc(strlen(val) + 1);
-                strcpy(node->val, val);
-                node->val[strlen(val)] = '\0';
-                return;
-            }
-            if (node->next == NULL) {
-                break;
-            }
-            node = node->next;
-        }
-        node->next = newNode;
+        newNode->pair = newPair;
+        newNode->next = hashMap->buckets[index];
+        hashMap->buckets[index] = newNode;
         hashMap->size++;
-    }
-
-    /* 删除操作 */
-    void removeItem(hashMapChaining *hashMap, int key) {
-        int index = hashFunc(hashMap, key);
-        Pair *pair = &hashMap->buckets[index];
-        Node *node = pair->node;
-        // 保存后继的节点
-        Node *prev = NULL;
-        while (node != NULL) {
-            if (node->key == key) {
-                // 如果要删除的节点是桶的第一个节点
-                if (prev == NULL) {
-                    pair->node = node->next;
-                } else {
-                    prev->next = node->next;
-                }
-                // 释放内存
-                free(node->val);
-                free(node);
-                hashMap->size--;
-                return;
-            }
-            prev = node;
-            node = node->next;
-        }
-        return;
     }
 
     /* 扩容哈希表 */
     void extend(hashMapChaining *hashMap) {
         // 暂存原哈希表
-        Pair *oldBuckets = hashMap->buckets;
         int oldCapacity = hashMap->capacity;
-
-        // 创建新的哈希表，重新分配一段空间
+        Node **oldBuckets = hashMap->buckets;
+        // 初始化扩容后的新哈希表
         hashMap->capacity *= hashMap->extendRatio;
-        hashMap->buckets = (Pair *)malloc(sizeof(Pair) * hashMap->capacity);
-        memset(hashMap->buckets, 0, sizeof(Pair) * hashMap->capacity);
-        hashMap->size = 0;
-
-        // 将原哈希表中的键值对重新哈希到新的哈希表中
-        for (int i = 0; i < oldCapacity; i++) {
-            Node *node = oldBuckets[i].node;
-            while (node != NULL) {
-                put(hashMap, node->key, node->val);
-                node = node->next;
-            }
+        hashMap->buckets = (Node **)malloc(hashMap->capacity * sizeof(Node *));
+        for (int i = 0; i < hashMap->capacity; i++) {
+            hashMap->buckets[i] = NULL;
         }
-
-        // 释放原哈希表的内存
+        hashMap->size = 0;
+        // 将键值对从原哈希表搬运至新哈希表
         for (int i = 0; i < oldCapacity; i++) {
-            Node *node = oldBuckets[i].node;
-            while (node != NULL) {
-                Node *temp = node;
-                node = node->next;
-                free(temp->val);
+            Node *cur = oldBuckets[i];
+            while (cur) {
+                put(hashMap, cur->pair->key, cur->pair->val);
+                Node *temp = cur;
+                cur = cur->next;
+                // 释放内存
+                free(temp->pair);
                 free(temp);
             }
         }
+
         free(oldBuckets);
+    }
+
+    /* 删除操作 */
+    void removeKey(hashMapChaining *hashMap, int key) {
+        int index = hashFunc(hashMap, key);
+        Node *cur = hashMap->buckets[index];
+        Node *pre = NULL;
+        while (cur) {
+            if (cur->pair->key == key) {
+                // 从中删除键值对
+                if (pre) {
+                    pre->next = cur->next;
+                } else {
+                    hashMap->buckets[index] = cur->next;
+                }
+                // 释放内存
+                free(cur->pair);
+                free(cur);
+                hashMap->size--;
+                return;
+            }
+            pre = cur;
+            cur = cur->next;
+        }
     }
 
     /* 打印哈希表 */
     void print(hashMapChaining *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
+            Node *cur = hashMap->buckets[i];
             printf("[");
-            Pair *pair = &hashMap->buckets[i];
-            Node *node = pair->node;
-            while (node != NULL) {
-                if (node->val != NULL) {
-                    printf("%d->%s, ", node->key, node->val);
-                }
-                node = node->next;
+            while (cur) {
+                printf("%d -> %s, ", cur->pair->key, cur->pair->val);
+                cur = cur->next;
             }
             printf("]\n");
         }
-        return;
     }
     ```
 
