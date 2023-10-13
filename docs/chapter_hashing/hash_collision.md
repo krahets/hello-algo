@@ -1164,24 +1164,24 @@ comments: true
     hashMapChaining *newHashMapChaining() {
         // 为哈希表分配空间
         int tableSize = 4;
-        hashMapChaining *hashmap = (hashMapChaining *)malloc(sizeof(hashMapChaining));
+        hashMapChaining *hashMap = (hashMapChaining *)malloc(sizeof(hashMapChaining));
 
         // 初始化数组
-        hashmap->buckets = (Pair *)malloc(sizeof(Pair) * tableSize);
-        memset(hashmap->buckets, 0, sizeof(Pair) * tableSize);
+        hashMap->buckets = (Pair *)malloc(sizeof(Pair) * tableSize);
+        memset(hashMap->buckets, 0, sizeof(Pair) * tableSize);
 
-        hashmap->capacity = tableSize;
-        hashmap->size = 0;
-        hashmap->extendRatio = 2;
-        hashmap->loadThres = 2.0 / 3.0;
+        hashMap->capacity = tableSize;
+        hashMap->size = 0;
+        hashMap->extendRatio = 2;
+        hashMap->loadThres = 2.0 / 3.0;
 
-        return hashmap;
+        return hashMap;
     }
 
     /* 销毁哈希表 */
-    void delHashMapChaining(hashMapChaining *hashmap) {
-        for (int i = 0; i < hashmap->capacity; i++) {
-            Pair *pair = &hashmap->buckets[i];
+    void delHashMapChaining(hashMapChaining *hashMap) {
+        for (int i = 0; i < hashMap->capacity; i++) {
+            Pair *pair = &hashMap->buckets[i];
             Node *node = pair->node;
             while (node != NULL) {
                 Node *temp = node;
@@ -1190,26 +1190,40 @@ comments: true
                 free(temp);
             }
         }
-        free(hashmap->buckets);
-        free(hashmap);
+        free(hashMap->buckets);
+        free(hashMap);
     }
 
     /* 哈希函数 */
-    int hashFunc(hashMapChaining *hashmap, const int key) {
-        return key % hashmap->capacity;
+    int hashFunc(hashMapChaining *hashMap, const int key) {
+        return key % hashMap->capacity;
     }
 
     /* 负载因子 */
-    double loadFactor(hashMapChaining *hashmap) {
-        return (double)hashmap->size / (double)hashmap->capacity;
+    double loadFactor(hashMapChaining *hashMap) {
+        return (double)hashMap->size / (double)hashMap->capacity;
+    }
+
+    /* 查询操作 */
+    char *get(hashMapChaining *hashMap, const int key) {
+        int index = hashFunc(hashMap, key);
+        Pair *pair = &hashMap->buckets[index];
+        Node *node = pair->node;
+        while (node != NULL) {
+            if (node->key == key) {
+                return node->val;
+            }
+            node = node->next;
+        }
+        return NULL;
     }
 
     /* 添加操作 */
-    void put(hashMapChaining *hashmap, const int key, char *val) {
-        if (loadFactor(hashmap) > hashmap->loadThres) {
-            extend(hashmap);
+    void put(hashMapChaining *hashMap, const int key, char *val) {
+        if (loadFactor(hashMap) > hashMap->loadThres) {
+            extend(hashMap);
         }
-        int index = hashFunc(hashmap, key);
+        int index = hashFunc(hashMap, key);
 
         // 先为新节点分配空间再赋值
         Node *newNode = (Node *)malloc(sizeof(Node));
@@ -1219,11 +1233,11 @@ comments: true
         strcpy(newNode->val, val);
         newNode->val[strlen(val)] = '\0';
 
-        Pair *pair = &hashmap->buckets[index];
+        Pair *pair = &hashMap->buckets[index];
         Node *node = pair->node;
         if (node == NULL) {
-            hashmap->buckets[index].node = newNode;
-            hashmap->size++;
+            hashMap->buckets[index].node = newNode;
+            hashMap->size++;
             return;
         }
         while (node != NULL) {
@@ -1242,13 +1256,13 @@ comments: true
             node = node->next;
         }
         node->next = newNode;
-        hashmap->size++;
+        hashMap->size++;
     }
 
     /* 删除操作 */
-    void removeItem(hashMapChaining *hashmap, int key) {
-        int index = hashFunc(hashmap, key);
-        Pair *pair = &hashmap->buckets[index];
+    void removeItem(hashMapChaining *hashMap, int key) {
+        int index = hashFunc(hashMap, key);
+        Pair *pair = &hashMap->buckets[index];
         Node *node = pair->node;
         // 保存后继的节点
         Node *prev = NULL;
@@ -1263,7 +1277,7 @@ comments: true
                 // 释放内存
                 free(node->val);
                 free(node);
-                hashmap->size--;
+                hashMap->size--;
                 return;
             }
             prev = node;
@@ -1273,22 +1287,22 @@ comments: true
     }
 
     /* 扩容哈希表 */
-    void extend(hashMapChaining *hashmap) {
+    void extend(hashMapChaining *hashMap) {
         // 暂存原哈希表
-        Pair *oldBuckets = hashmap->buckets;
-        int oldCapacity = hashmap->capacity;
+        Pair *oldBuckets = hashMap->buckets;
+        int oldCapacity = hashMap->capacity;
 
         // 创建新的哈希表，重新分配一段空间
-        hashmap->capacity *= hashmap->extendRatio;
-        hashmap->buckets = (Pair *)malloc(sizeof(Pair) * hashmap->capacity);
-        memset(hashmap->buckets, 0, sizeof(Pair) * hashmap->capacity);
-        hashmap->size = 0;
+        hashMap->capacity *= hashMap->extendRatio;
+        hashMap->buckets = (Pair *)malloc(sizeof(Pair) * hashMap->capacity);
+        memset(hashMap->buckets, 0, sizeof(Pair) * hashMap->capacity);
+        hashMap->size = 0;
 
         // 将原哈希表中的键值对重新哈希到新的哈希表中
         for (int i = 0; i < oldCapacity; i++) {
             Node *node = oldBuckets[i].node;
             while (node != NULL) {
-                put(hashmap, node->key, node->val);
+                put(hashMap, node->key, node->val);
                 node = node->next;
             }
         }
@@ -1307,10 +1321,10 @@ comments: true
     }
 
     /* 打印哈希表 */
-    void print(hashMapChaining *hashmap) {
-        for (int i = 0; i < hashmap->capacity; i++) {
+    void print(hashMapChaining *hashMap) {
+        for (int i = 0; i < hashMap->capacity; i++) {
             printf("[");
-            Pair *pair = &hashmap->buckets[i];
+            Pair *pair = &hashMap->buckets[i];
             Node *node = pair->node;
             while (node != NULL) {
                 if (node->val != NULL) {
@@ -2656,7 +2670,168 @@ comments: true
 === "C"
 
     ```c title="hash_map_open_addressing.c"
-    [class]{hashMapOpenAddressing}-[func]{}
+    /* 开放寻址哈希表 */
+    struct hashMapOpenAddressing {
+        int size;         // 键值对数量
+        int capacity;     // 哈希表容量
+        double loadThres; // 触发扩容的负载因子阈值
+        int extendRatio;  // 扩容倍数
+        Pair **buckets;   // 桶数组
+        Pair *TOMBSTONE;  // 删除标记
+    };
+
+    typedef struct hashMapOpenAddressing hashMapOpenAddressing;
+
+    /* 构造方法 */
+    hashMapOpenAddressing *newHashMapOpenAddressing() {
+        hashMapOpenAddressing *hashMap = (hashMapOpenAddressing *)malloc(sizeof(hashMapOpenAddressing));
+        hashMap->size = 0;
+        hashMap->capacity = 4;
+        hashMap->loadThres = 2.0 / 3.0;
+        hashMap->extendRatio = 2;
+        hashMap->buckets = (Pair **)malloc(sizeof(Pair *) * hashMap->capacity);
+        hashMap->TOMBSTONE = (Pair *)malloc(sizeof(Pair));
+        hashMap->TOMBSTONE->key = -1;
+        hashMap->TOMBSTONE->val = "-1";
+
+        return hashMap;
+    }
+
+    /* 析构方法 */
+    void delHashMapOpenAddressing(hashMapOpenAddressing *hashMap) {
+        for (int i = 0; i < hashMap->capacity; i++) {
+            Pair *pair = hashMap->buckets[i];
+            if (pair != NULL && pair != hashMap->TOMBSTONE) {
+                free(pair->val);
+                free(pair);
+            }
+        }
+    }
+
+    /* 哈希函数 */
+    int hashFunc(hashMapOpenAddressing *hashMap, int key) {
+        return key % hashMap->capacity;
+    }
+
+    /* 负载因子 */
+    double loadFactor(hashMapOpenAddressing *hashMap) {
+        return (double)hashMap->size / (double)hashMap->capacity;
+    }
+
+    /* 搜索 key 对应的桶索引 */
+    int findBucket(hashMapOpenAddressing *hashMap, int key) {
+        int index = hashFunc(hashMap, key);
+        int firstTombstone = -1;
+        // 线性探测，当遇到空桶时跳出
+        while (hashMap->buckets[index] != NULL) {
+            // 若遇到 key ，返回对应桶索引
+            if (hashMap->buckets[index]->key == key) {
+                // 若之前遇到了删除标记，则将键值对移动至该索引
+                if (firstTombstone != -1) {
+                    hashMap->buckets[firstTombstone] = hashMap->buckets[index];
+                    hashMap->buckets[index] = hashMap->TOMBSTONE;
+                    return firstTombstone; // 返回移动后的桶索引
+                }
+                return index; // 返回桶索引
+            }
+            // 记录遇到的首个删除标记
+            if (firstTombstone == -1 && hashMap->buckets[index] == hashMap->TOMBSTONE) {
+                firstTombstone = index;
+            }
+            // 计算桶索引，越过尾部返回头部
+            index = (index + 1) % hashMap->capacity;
+        }
+        // 若 key 不存在，则返回添加点的索引
+        return firstTombstone == -1 ? index : firstTombstone;
+    }
+
+    /* 查询操作 */
+    char *get(hashMapOpenAddressing *hashMap, int key) {
+        // 搜索 key 对应的桶索引
+        int index = findBucket(hashMap, key);
+        // 若找到键值对，则返回对应 val
+        if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
+            return hashMap->buckets[index]->val;
+        }
+        // 若键值对不存在，则返回空字符串
+        return "";
+    }
+
+    /* 添加操作 */
+    void put(hashMapOpenAddressing *hashMap, int key, char *val) {
+        // 当负载因子超过阈值时，执行扩容
+        if (loadFactor(hashMap) > hashMap->loadThres) {
+            extend(hashMap);
+        }
+        // 搜索 key 对应的桶索引
+        int index = findBucket(hashMap, key);
+        // 若找到键值对，则覆盖 val 并返回
+        if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
+            free(hashMap->buckets[index]->val);
+            hashMap->buckets[index]->val = (char *)malloc(sizeof(strlen(val + 1)));
+            strcpy(hashMap->buckets[index]->val, val);
+            hashMap->buckets[index]->val[strlen(val)] = '\0';
+            return;
+        }
+        // 若键值对不存在，则添加该键值对
+        Pair *pair = (Pair *)malloc(sizeof(Pair));
+        pair->key = key;
+        pair->val = (char *)malloc(sizeof(strlen(val + 1)));
+        strcpy(pair->val, val);
+        pair->val[strlen(val)] = '\0';
+
+        hashMap->buckets[index] = pair;
+        hashMap->size++;
+    }
+
+    /* 删除操作 */
+    void removeItem(hashMapOpenAddressing *hashMap, int key) {
+        // 搜索 key 对应的桶索引
+        int index = findBucket(hashMap, key);
+        // 若找到键值对，则用删除标记覆盖它
+        if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
+            Pair *pair = hashMap->buckets[index];
+            free(pair->val);
+            free(pair);
+            hashMap->buckets[index] = hashMap->TOMBSTONE;
+            hashMap->size--;
+        }
+    }
+
+    /* 扩容哈希表 */
+    void extend(hashMapOpenAddressing *hashMap) {
+        // 暂存原哈希表
+        Pair **bucketsTmp = hashMap->buckets;
+        int oldCapacity = hashMap->capacity;
+        // 初始化扩容后的新哈希表
+        hashMap->capacity *= hashMap->extendRatio;
+        hashMap->buckets = (Pair **)malloc(sizeof(Pair *) * hashMap->capacity);
+        hashMap->size = 0;
+        // 将键值对从原哈希表搬运至新哈希表
+        for (int i = 0; i < oldCapacity; i++) {
+            Pair *pair = bucketsTmp[i];
+            if (pair != NULL && pair != hashMap->TOMBSTONE) {
+                put(hashMap, pair->key, pair->val);
+                free(pair->val);
+                free(pair);
+            }
+        }
+        free(bucketsTmp);
+    }
+
+    /* 打印哈希表 */
+    void print(hashMapOpenAddressing *hashMap) {
+        for (int i = 0; i < hashMap->capacity; i++) {
+            Pair *pair = hashMap->buckets[i];
+            if (pair == NULL) {
+                printf("NULL\n");
+            } else if (pair == hashMap->TOMBSTONE) {
+                printf("TOMBSTONE\n");
+            } else {
+                printf("%d -> %s\n", pair->key, pair->val);
+            }
+        }
+    }
     ```
 
 === "Zig"

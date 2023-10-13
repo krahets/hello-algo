@@ -59,7 +59,7 @@ hide:
 
 <h3 align="center"> 代码一键运行 </h3>
 
-<p align="center"> 提供各个算法与数据结构的简洁实现与测试样例，皆可直接运行</br>支持 Java, C++, Python, Go, JS, TS, C#, Swift, Zig 等语言 </p>
+<p align="center"> 提供各个算法与数据结构的简洁实现与测试样例，皆可直接运行</br>支持 Java、C++、Python、Go、JS、TS、C#、Swift、Rust、Dart、Zig 等语言 </p>
 
 ![running_code](index.assets/running_code.gif)
 
