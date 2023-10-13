@@ -15,8 +15,8 @@ fn min_path_sum_dfs(grid: &Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
         return i32::MAX;
     }
     // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-    let left = min_path_sum_dfs(grid, i - 1, j);
-    let up = min_path_sum_dfs(grid, i, j - 1);
+    let up = min_path_sum_dfs(grid, i - 1, j);
+    let left = min_path_sum_dfs(grid, i, j - 1);
     // 返回从左上角到 (i, j) 的最小路径代价
     std::cmp::min(left, up) + grid[i as usize][j as usize]
 }
@@ -36,8 +36,8 @@ fn min_path_sum_dfs_mem(grid: &Vec<Vec<i32>>, mem: &mut Vec<Vec<i32>>, i: i32, j
         return mem[i as usize][j as usize];
     }
     // 左边和上边单元格的最小路径代价
-    let left = min_path_sum_dfs_mem(grid, mem, i - 1, j);
-    let up = min_path_sum_dfs_mem(grid, mem, i, j - 1);
+    let up = min_path_sum_dfs_mem(grid, mem, i - 1, j);
+    let left = min_path_sum_dfs_mem(grid, mem, i, j - 1);
     // 记录并返回左上角到 (i, j) 的最小路径代价
     mem[i as usize][j as usize] = std::cmp::min(left, up) + grid[i as usize][j as usize];
     mem[i as usize][j as usize]

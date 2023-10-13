@@ -16,8 +16,8 @@ def min_path_sum_dfs(grid: list[list[int]], i: int, j: int) -> int:
     if i < 0 or j < 0:
         return inf
     # 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-    left = min_path_sum_dfs(grid, i - 1, j)
-    up = min_path_sum_dfs(grid, i, j - 1)
+    up = min_path_sum_dfs(grid, i - 1, j)
+    left = min_path_sum_dfs(grid, i, j - 1)
     # 返回从左上角到 (i, j) 的最小路径代价
     return min(left, up) + grid[i][j]
 
@@ -36,8 +36,8 @@ def min_path_sum_dfs_mem(
     if mem[i][j] != -1:
         return mem[i][j]
     # 左边和上边单元格的最小路径代价
-    left = min_path_sum_dfs_mem(grid, mem, i - 1, j)
-    up = min_path_sum_dfs_mem(grid, mem, i, j - 1)
+    up = min_path_sum_dfs_mem(grid, mem, i - 1, j)
+    left = min_path_sum_dfs_mem(grid, mem, i, j - 1)
     # 记录并返回左上角到 (i, j) 的最小路径代价
     mem[i][j] = min(left, up) + grid[i][j]
     return mem[i][j]

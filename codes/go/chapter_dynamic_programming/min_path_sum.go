@@ -17,8 +17,8 @@ func minPathSumDFS(grid [][]int, i, j int) int {
 		return math.MaxInt
 	}
 	// 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-	left := minPathSumDFS(grid, i-1, j)
-	up := minPathSumDFS(grid, i, j-1)
+	up := minPathSumDFS(grid, i-1, j)
+	left := minPathSumDFS(grid, i, j-1)
 	// 返回从左上角到 (i, j) 的最小路径代价
 	return int(math.Min(float64(left), float64(up))) + grid[i][j]
 }
@@ -38,8 +38,8 @@ func minPathSumDFSMem(grid, mem [][]int, i, j int) int {
 		return mem[i][j]
 	}
 	// 左边和上边单元格的最小路径代价
-	left := minPathSumDFSMem(grid, mem, i-1, j)
-	up := minPathSumDFSMem(grid, mem, i, j-1)
+	up := minPathSumDFSMem(grid, mem, i-1, j)
+	left := minPathSumDFSMem(grid, mem, i, j-1)
 	// 记录并返回左上角到 (i, j) 的最小路径代价
 	mem[i][j] = int(math.Min(float64(left), float64(up))) + grid[i][j]
 	return mem[i][j]
