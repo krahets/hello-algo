@@ -1,6 +1,6 @@
 /**
  * File: hash_map_chaining.c
- * Created Time: 2023-06-13
+ * Created Time: 2023-10-13
  * Author: SenMing (1206575349@qq.com), Krahets (krahets@163.com)
  */
 
