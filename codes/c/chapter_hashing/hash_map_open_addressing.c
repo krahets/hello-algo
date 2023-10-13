@@ -7,14 +7,15 @@
 #include "../utils/common.h"
 
 /* 开放寻址哈希表 */
-struct Pair {
+struct pair {
     int key;
     char *val;
 };
 
-typedef struct Pair Pair;
+typedef struct pair Pair;
 
-struct HashMapOpenAddressing {
+/* 开放寻址哈希表 */
+struct hashMapOpenAddressing {
     int size;         // 键值对数量
     int capacity;     // 哈希表容量
     double loadThres; // 触发扩容的负载因子阈值
@@ -23,14 +24,14 @@ struct HashMapOpenAddressing {
     Pair *TOMBSTONE;  // 删除标记
 };
 
-typedef struct HashMapOpenAddressing HashMapOpenAddressing;
+typedef struct hashMapOpenAddressing hashMapOpenAddressing;
 
 // 函数声明
-void extend(HashMapOpenAddressing *hashMap);
+void extend(hashMapOpenAddressing *hashMap);
 
 /* 构造方法 */
-HashMapOpenAddressing *newHashMapOpenAddressing() {
-    HashMapOpenAddressing *hashMap = (HashMapOpenAddressing *)malloc(sizeof(HashMapOpenAddressing));
+hashMapOpenAddressing *newHashMapOpenAddressing() {
+    hashMapOpenAddressing *hashMap = (hashMapOpenAddressing *)malloc(sizeof(hashMapOpenAddressing));
     hashMap->size = 0;
     hashMap->capacity = 4;
     hashMap->loadThres = 2.0 / 3.0;
@@ -44,7 +45,7 @@ HashMapOpenAddressing *newHashMapOpenAddressing() {
 }
 
 /* 析构方法 */
-void delHashMapOpenAddressing(HashMapOpenAddressing *hashMap) {
+void delHashMapOpenAddressing(hashMapOpenAddressing *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Pair *pair = hashMap->buckets[i];
         if (pair != NULL && pair != hashMap->TOMBSTONE) {
@@ -55,17 +56,17 @@ void delHashMapOpenAddressing(HashMapOpenAddressing *hashMap) {
 }
 
 /* 哈希函数 */
-int hashFunc(HashMapOpenAddressing *hashMap, int key) {
+int hashFunc(hashMapOpenAddressing *hashMap, int key) {
     return key % hashMap->capacity;
 }
 
 /* 负载因子 */
-double loadFactor(HashMapOpenAddressing *hashMap) {
+double loadFactor(hashMapOpenAddressing *hashMap) {
     return (double)hashMap->size / (double)hashMap->capacity;
 }
 
 /* 搜索 key 对应的桶索引 */
-int findBucket(HashMapOpenAddressing *hashMap, int key) {
+int findBucket(hashMapOpenAddressing *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     int firstTombstone = -1;
     // 线性探测，当遇到空桶时跳出
@@ -92,7 +93,7 @@ int findBucket(HashMapOpenAddressing *hashMap, int key) {
 }
 
 /* 查询操作 */
-char *get(HashMapOpenAddressing *hashMap, int key) {
+char *get(hashMapOpenAddressing *hashMap, int key) {
     // 搜索 key 对应的桶索引
     int index = findBucket(hashMap, key);
     // 若找到键值对，则返回对应 val
@@ -104,7 +105,7 @@ char *get(HashMapOpenAddressing *hashMap, int key) {
 }
 
 /* 添加操作 */
-void put(HashMapOpenAddressing *hashMap, int key, char *val) {
+void put(hashMapOpenAddressing *hashMap, int key, char *val) {
     // 当负载因子超过阈值时，执行扩容
     if (loadFactor(hashMap) > hashMap->loadThres) {
         extend(hashMap);
@@ -131,7 +132,7 @@ void put(HashMapOpenAddressing *hashMap, int key, char *val) {
 }
 
 /* 删除操作 */
-void removeItem(HashMapOpenAddressing *hashMap, int key) {
+void removeItem(hashMapOpenAddressing *hashMap, int key) {
     // 搜索 key 对应的桶索引
     int index = findBucket(hashMap, key);
     // 若找到键值对，则用删除标记覆盖它
@@ -145,7 +146,7 @@ void removeItem(HashMapOpenAddressing *hashMap, int key) {
 }
 
 /* 扩容哈希表 */
-void extend(HashMapOpenAddressing *hashMap) {
+void extend(hashMapOpenAddressing *hashMap) {
     // 暂存原哈希表
     Pair **bucketsTmp = hashMap->buckets;
     int oldCapacity = hashMap->capacity;
@@ -166,7 +167,7 @@ void extend(HashMapOpenAddressing *hashMap) {
 }
 
 /* 打印哈希表 */
-void print(HashMapOpenAddressing *hashMap) {
+void print(hashMapOpenAddressing *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Pair *pair = hashMap->buckets[i];
         if (pair == NULL) {
@@ -182,7 +183,7 @@ void print(HashMapOpenAddressing *hashMap) {
 /* Driver Code */
 int main() {
     // 初始化哈希表
-    HashMapOpenAddressing *hashmap = newHashMapOpenAddressing();
+    hashMapOpenAddressing *hashmap = newHashMapOpenAddressing();
 
     // 添加操作
     // 在哈希表中添加键值对 (key, val)
