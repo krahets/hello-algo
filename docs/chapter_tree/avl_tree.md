@@ -264,7 +264,7 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
     ```javascript title="avl_tree.js"
     [class]{AVLTree}-[func]{height}
 
-    [class]{AVLTree}-[func]{#updateHeight}
+    [class]{AVLTree}-[func]{updateHeight}
     ```
 
 === "TS"
@@ -454,7 +454,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "JS"
 
     ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{#rightRotate}
+    [class]{AVLTree}-[func]{rightRotate}
     ```
 
 === "TS"
@@ -538,7 +538,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "JS"
 
     ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{#leftRotate}
+    [class]{AVLTree}-[func]{leftRotate}
     ```
 
 === "TS"
@@ -641,7 +641,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "JS"
 
     ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{#rotate}
+    [class]{AVLTree}-[func]{rotate}
     ```
 
 === "TS"
@@ -733,7 +733,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     ```javascript title="avl_tree.js"
     [class]{AVLTree}-[func]{insert}
 
-    [class]{AVLTree}-[func]{#insertHelper}
+    [class]{AVLTree}-[func]{insertHelper}
     ```
 
 === "TS"
@@ -833,7 +833,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     ```javascript title="avl_tree.js"
     [class]{AVLTree}-[func]{remove}
 
-    [class]{AVLTree}-[func]{#removeHelper}
+    [class]{AVLTree}-[func]{removeHelper}
     ```
 
 === "TS"

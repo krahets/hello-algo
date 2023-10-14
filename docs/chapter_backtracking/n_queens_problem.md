@@ -123,6 +123,8 @@
 === "C"
 
     ```c title="n_queens.c"
+    [class]{result}-[func]{}
+
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{nQueens}

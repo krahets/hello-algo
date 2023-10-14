@@ -18,8 +18,8 @@ int minPathSumDFS(List<List<int>> grid, int i, int j) {
     return BigInt.from(2).pow(31).toInt();
   }
   // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-  int left = minPathSumDFS(grid, i - 1, j);
-  int up = minPathSumDFS(grid, i, j - 1);
+  int up = minPathSumDFS(grid, i - 1, j);
+  int left = minPathSumDFS(grid, i, j - 1);
   // 返回从左上角到 (i, j) 的最小路径代价
   return min(left, up) + grid[i][j];
 }
@@ -40,8 +40,8 @@ int minPathSumDFSMem(List<List<int>> grid, List<List<int>> mem, int i, int j) {
     return mem[i][j];
   }
   // 左边和上边单元格的最小路径代价
-  int left = minPathSumDFSMem(grid, mem, i - 1, j);
-  int up = minPathSumDFSMem(grid, mem, i, j - 1);
+  int up = minPathSumDFSMem(grid, mem, i - 1, j);
+  int left = minPathSumDFSMem(grid, mem, i, j - 1);
   // 记录并返回左上角到 (i, j) 的最小路径代价
   mem[i][j] = min(left, up) + grid[i][j];
   return mem[i][j];

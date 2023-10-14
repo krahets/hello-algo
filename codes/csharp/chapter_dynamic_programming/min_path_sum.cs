@@ -18,8 +18,8 @@ public class min_path_sum {
             return int.MaxValue;
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        int left = MinPathSumDFS(grid, i - 1, j);
-        int up = MinPathSumDFS(grid, i, j - 1);
+        int up = MinPathSumDFS(grid, i - 1, j);
+        int left = MinPathSumDFS(grid, i, j - 1);
         // 返回从左上角到 (i, j) 的最小路径代价
         return Math.Min(left, up) + grid[i][j];
     }
@@ -39,8 +39,8 @@ public class min_path_sum {
             return mem[i][j];
         }
         // 左边和上边单元格的最小路径代价
-        int left = MinPathSumDFSMem(grid, mem, i - 1, j);
-        int up = MinPathSumDFSMem(grid, mem, i, j - 1);
+        int up = MinPathSumDFSMem(grid, mem, i - 1, j);
+        int left = MinPathSumDFSMem(grid, mem, i, j - 1);
         // 记录并返回左上角到 (i, j) 的最小路径代价
         mem[i][j] = Math.Min(left, up) + grid[i][j];
         return mem[i][j];

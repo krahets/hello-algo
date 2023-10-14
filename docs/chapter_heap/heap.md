@@ -424,11 +424,11 @@
 === "JS"
 
     ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{#left}
+    [class]{MaxHeap}-[func]{left}
 
-    [class]{MaxHeap}-[func]{#right}
+    [class]{MaxHeap}-[func]{right}
 
-    [class]{MaxHeap}-[func]{#parent}
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 === "TS"
@@ -645,7 +645,7 @@
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{push}
 
-    [class]{MaxHeap}-[func]{#siftUp}
+    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 === "TS"
@@ -783,7 +783,7 @@
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{pop}
 
-    [class]{MaxHeap}-[func]{#siftDown}
+    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 === "TS"

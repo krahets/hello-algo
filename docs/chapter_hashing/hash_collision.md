@@ -94,6 +94,8 @@
 === "C"
 
     ```c title="hash_map_chaining.c"
+    [class]{node}-[func]{}
+
     [class]{hashMapChaining}-[func]{}
     ```
 

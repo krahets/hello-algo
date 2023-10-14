@@ -22,8 +22,8 @@ int minPathSumDFS(int gridCols, int grid[][gridCols], int i, int j) {
         return INT_MAX;
     }
     // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-    int left = minPathSumDFS(gridCols, grid, i - 1, j);
-    int up = minPathSumDFS(gridCols, grid, i, j - 1);
+    int up = minPathSumDFS(gridCols, grid, i - 1, j);
+    int left = minPathSumDFS(gridCols, grid, i, j - 1);
     // 返回从左上角到 (i, j) 的最小路径代价
     return min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
 }
@@ -43,8 +43,8 @@ int minPathSumDFSMem(int gridCols, int grid[][gridCols], int mem[][gridCols], in
         return mem[i][j];
     }
     // 左边和上边单元格的最小路径代价
-    int left = minPathSumDFSMem(gridCols, grid, mem, i - 1, j);
-    int up = minPathSumDFSMem(gridCols, grid, mem, i, j - 1);
+    int up = minPathSumDFSMem(gridCols, grid, mem, i - 1, j);
+    int left = minPathSumDFSMem(gridCols, grid, mem, i, j - 1);
     // 记录并返回左上角到 (i, j) 的最小路径代价
     mem[i][j] = min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
     return mem[i][j];

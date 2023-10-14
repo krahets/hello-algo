@@ -22,7 +22,7 @@ hide:
   </a>
   &nbsp;
   <a href="https://github.com/krahets/hello-algo">
-    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/krahets/hello-algo?style=social&logo=handshake&logoColor=%23101010">
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/krahets/hello-algo?style=social&logo=git&logoColor=%23101010">
   </a>
 </p>
 
@@ -59,7 +59,7 @@ hide:
 
 <h3 align="center"> 代码一键运行 </h3>
 
-<p align="center"> 提供各个算法与数据结构的简洁实现与测试样例，皆可直接运行</br>支持 Java, C++, Python, Go, JS, TS, C#, Swift, Zig 等语言 </p>
+<p align="center"> 提供各个算法与数据结构的简洁实现与测试样例，皆可直接运行</br>支持 Java、C++、Python、Go、JS、TS、C#、Swift、Rust、Dart、Zig 等语言 </p>
 
 ![running_code](index.assets/running_code.gif)
 

@@ -55,7 +55,7 @@ class HashMapOpenAddressing {
             // 若遇到指定 key ，则返回对应 val
             if (
                 this.#buckets[j].key === key &&
-                this.#buckets[j][key] !== this.#removed.key
+                this.#buckets[j].key !== this.#removed.key
             )
                 return this.#buckets[j].val;
         }
@@ -76,7 +76,7 @@ class HashMapOpenAddressing {
             // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
             if (
                 this.#buckets[j] === null ||
-                this.#buckets[j][key] === this.#removed.key
+                this.#buckets[j].key === this.#removed.key
             ) {
                 this.#buckets[j] = new Pair(key, val);
                 this.#size += 1;

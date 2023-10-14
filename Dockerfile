@@ -5,7 +5,8 @@ RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple mkdocs-material==9.4
 
 WORKDIR /app
 
-COPY docs /app/build
+COPY docs /app/build/docs
+COPY overrides /app/build/overrides
 COPY mkdocs.yml /app/mkdocs.yml
 
 RUN mkdocs build
