@@ -400,13 +400,13 @@ comments: true
 
         def __init__(self):
             """构造方法"""
-            self.front: ListNode | None = None  # 头节点 front
-            self.rear: ListNode | None = None  # 尾节点 rear
-            self.__size: int = 0  # 双向队列的长度
+            self._front: ListNode | None = None  # 头节点 front
+            self._rear: ListNode | None = None  # 尾节点 rear
+            self._size: int = 0  # 双向队列的长度
 
         def size(self) -> int:
             """获取双向队列的长度"""
-            return self.__size
+            return self._size
 
         def is_empty(self) -> bool:
             """判断双向队列是否为空"""
@@ -417,20 +417,20 @@ comments: true
             node = ListNode(num)
             # 若链表为空，则令 front, rear 都指向 node
             if self.is_empty():
-                self.front = self.rear = node
+                self._front = self._rear = node
             # 队首入队操作
             elif is_front:
                 # 将 node 添加至链表头部
-                self.front.prev = node
-                node.next = self.front
-                self.front = node  # 更新头节点
+                self._front.prev = node
+                node.next = self._front
+                self._front = node  # 更新头节点
             # 队尾入队操作
             else:
                 # 将 node 添加至链表尾部
-                self.rear.next = node
-                node.prev = self.rear
-                self.rear = node  # 更新尾节点
-            self.__size += 1  # 更新队列长度
+                self._rear.next = node
+                node.prev = self._rear
+                self._rear = node  # 更新尾节点
+            self._size += 1  # 更新队列长度
 
         def push_first(self, num: int):
             """队首入队"""
@@ -446,23 +446,23 @@ comments: true
                 raise IndexError("双向队列为空")
             # 队首出队操作
             if is_front:
-                val: int = self.front.val  # 暂存头节点值
+                val: int = self._front.val  # 暂存头节点值
                 # 删除头节点
-                fnext: ListNode | None = self.front.next
+                fnext: ListNode | None = self._front.next
                 if fnext != None:
                     fnext.prev = None
-                    self.front.next = None
-                self.front = fnext  # 更新头节点
+                    self._front.next = None
+                self._front = fnext  # 更新头节点
             # 队尾出队操作
             else:
-                val: int = self.rear.val  # 暂存尾节点值
+                val: int = self._rear.val  # 暂存尾节点值
                 # 删除尾节点
-                rprev: ListNode | None = self.rear.prev
+                rprev: ListNode | None = self._rear.prev
                 if rprev != None:
                     rprev.next = None
-                    self.rear.prev = None
-                self.rear = rprev  # 更新尾节点
-            self.__size -= 1  # 更新队列长度
+                    self._rear.prev = None
+                self._rear = rprev  # 更新尾节点
+            self._size -= 1  # 更新队列长度
             return val
 
         def pop_first(self) -> int:
@@ -477,17 +477,17 @@ comments: true
             """访问队首元素"""
             if self.is_empty():
                 raise IndexError("双向队列为空")
-            return self.front.val
+            return self._front.val
 
         def peek_last(self) -> int:
             """访问队尾元素"""
             if self.is_empty():
                 raise IndexError("双向队列为空")
-            return self.rear.val
+            return self._rear.val
 
         def to_array(self) -> list[int]:
             """返回数组用于打印"""
-            node = self.front
+            node = self._front
             res = [0] * self.size()
             for i in range(self.size()):
                 res[i] = node.val
@@ -2038,21 +2038,21 @@ comments: true
 
         def __init__(self, capacity: int):
             """构造方法"""
-            self.__nums: list[int] = [0] * capacity
-            self.__front: int = 0
-            self.__size: int = 0
+            self._nums: list[int] = [0] * capacity
+            self._front: int = 0
+            self._size: int = 0
 
         def capacity(self) -> int:
             """获取双向队列的容量"""
-            return len(self.__nums)
+            return len(self._nums)
 
         def size(self) -> int:
             """获取双向队列的长度"""
-            return self.__size
+            return self._size
 
         def is_empty(self) -> bool:
             """判断双向队列是否为空"""
-            return self.__size == 0
+            return self._size == 0
 
         def index(self, i: int) -> int:
             """计算环形数组索引"""
@@ -2063,61 +2063,61 @@ comments: true
 
         def push_first(self, num: int):
             """队首入队"""
-            if self.__size == self.capacity():
+            if self._size == self.capacity():
                 print("双向队列已满")
                 return
             # 队首指针向左移动一位
             # 通过取余操作，实现 front 越过数组头部后回到尾部
-            self.__front = self.index(self.__front - 1)
+            self._front = self.index(self._front - 1)
             # 将 num 添加至队首
-            self.__nums[self.__front] = num
-            self.__size += 1
+            self._nums[self._front] = num
+            self._size += 1
 
         def push_last(self, num: int):
             """队尾入队"""
-            if self.__size == self.capacity():
+            if self._size == self.capacity():
                 print("双向队列已满")
                 return
             # 计算尾指针，指向队尾索引 + 1
-            rear = self.index(self.__front + self.__size)
+            rear = self.index(self._front + self._size)
             # 将 num 添加至队尾
-            self.__nums[rear] = num
-            self.__size += 1
+            self._nums[rear] = num
+            self._size += 1
 
         def pop_first(self) -> int:
             """队首出队"""
             num = self.peek_first()
             # 队首指针向后移动一位
-            self.__front = self.index(self.__front + 1)
-            self.__size -= 1
+            self._front = self.index(self._front + 1)
+            self._size -= 1
             return num
 
         def pop_last(self) -> int:
             """队尾出队"""
             num = self.peek_last()
-            self.__size -= 1
+            self._size -= 1
             return num
 
         def peek_first(self) -> int:
             """访问队首元素"""
             if self.is_empty():
                 raise IndexError("双向队列为空")
-            return self.__nums[self.__front]
+            return self._nums[self._front]
 
         def peek_last(self) -> int:
             """访问队尾元素"""
             if self.is_empty():
                 raise IndexError("双向队列为空")
             # 计算尾元素索引
-            last = self.index(self.__front + self.__size - 1)
-            return self.__nums[last]
+            last = self.index(self._front + self._size - 1)
+            return self._nums[last]
 
         def to_array(self) -> list[int]:
             """返回数组用于打印"""
             # 仅转换有效长度范围内的列表元素
             res = []
-            for i in range(self.__size):
-                res.append(self.__nums[self.index(self.__front + i)])
+            for i in range(self._size):
+                res.append(self._nums[self.index(self._front + i)])
             return res
     ```
 

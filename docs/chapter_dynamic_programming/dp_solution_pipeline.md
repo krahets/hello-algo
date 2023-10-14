@@ -122,8 +122,8 @@ $$
         if i < 0 or j < 0:
             return inf
         # 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        left = min_path_sum_dfs(grid, i - 1, j)
-        up = min_path_sum_dfs(grid, i, j - 1)
+        up = min_path_sum_dfs(grid, i - 1, j)
+        left = min_path_sum_dfs(grid, i, j - 1)
         # 返回从左上角到 (i, j) 的最小路径代价
         return min(left, up) + grid[i][j]
     ```
@@ -142,8 +142,8 @@ $$
             return INT_MAX;
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        int left = minPathSumDFS(grid, i - 1, j);
-        int up = minPathSumDFS(grid, i, j - 1);
+        int up = minPathSumDFS(grid, i - 1, j);
+        int left = minPathSumDFS(grid, i, j - 1);
         // 返回从左上角到 (i, j) 的最小路径代价
         return min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
     }
@@ -163,8 +163,8 @@ $$
             return Integer.MAX_VALUE;
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        int left = minPathSumDFS(grid, i - 1, j);
-        int up = minPathSumDFS(grid, i, j - 1);
+        int up = minPathSumDFS(grid, i - 1, j);
+        int left = minPathSumDFS(grid, i, j - 1);
         // 返回从左上角到 (i, j) 的最小路径代价
         return Math.min(left, up) + grid[i][j];
     }
@@ -184,8 +184,8 @@ $$
             return int.MaxValue;
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        int left = MinPathSumDFS(grid, i - 1, j);
-        int up = MinPathSumDFS(grid, i, j - 1);
+        int up = MinPathSumDFS(grid, i - 1, j);
+        int left = MinPathSumDFS(grid, i, j - 1);
         // 返回从左上角到 (i, j) 的最小路径代价
         return Math.Min(left, up) + grid[i][j];
     }
@@ -205,8 +205,8 @@ $$
             return math.MaxInt
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        left := minPathSumDFS(grid, i-1, j)
-        up := minPathSumDFS(grid, i, j-1)
+        up := minPathSumDFS(grid, i-1, j)
+        left := minPathSumDFS(grid, i, j-1)
         // 返回从左上角到 (i, j) 的最小路径代价
         return int(math.Min(float64(left), float64(up))) + grid[i][j]
     }
@@ -226,8 +226,8 @@ $$
             return .max
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        let left = minPathSumDFS(grid: grid, i: i - 1, j: j)
-        let up = minPathSumDFS(grid: grid, i: i, j: j - 1)
+        let up = minPathSumDFS(grid: grid, i: i - 1, j: j)
+        let left = minPathSumDFS(grid: grid, i: i, j: j - 1)
         // 返回从左上角到 (i, j) 的最小路径代价
         return min(left, up) + grid[i][j]
     }
@@ -247,8 +247,8 @@ $$
             return Infinity;
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        const left = minPathSumDFS(grid, i - 1, j);
-        const up = minPathSumDFS(grid, i, j - 1);
+        const up = minPathSumDFS(grid, i - 1, j);
+        const left = minPathSumDFS(grid, i, j - 1);
         // 返回从左上角到 (i, j) 的最小路径代价
         return Math.min(left, up) + grid[i][j];
     }
@@ -272,8 +272,8 @@ $$
             return Infinity;
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        const left = minPathSumDFS(grid, i - 1, j);
-        const up = minPathSumDFS(grid, i, j - 1);
+        const up = minPathSumDFS(grid, i - 1, j);
+        const left = minPathSumDFS(grid, i, j - 1);
         // 返回从左上角到 (i, j) 的最小路径代价
         return Math.min(left, up) + grid[i][j];
     }
@@ -294,8 +294,8 @@ $$
         return BigInt.from(2).pow(31).toInt();
       }
       // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-      int left = minPathSumDFS(grid, i - 1, j);
-      int up = minPathSumDFS(grid, i, j - 1);
+      int up = minPathSumDFS(grid, i - 1, j);
+      int left = minPathSumDFS(grid, i, j - 1);
       // 返回从左上角到 (i, j) 的最小路径代价
       return min(left, up) + grid[i][j];
     }
@@ -315,8 +315,8 @@ $$
             return i32::MAX;
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        let left = min_path_sum_dfs(grid, i - 1, j);
-        let up = min_path_sum_dfs(grid, i, j - 1);
+        let up = min_path_sum_dfs(grid, i - 1, j);
+        let left = min_path_sum_dfs(grid, i, j - 1);
         // 返回从左上角到 (i, j) 的最小路径代价
         std::cmp::min(left, up) + grid[i as usize][j as usize]
     }
@@ -336,8 +336,8 @@ $$
             return INT_MAX;
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        int left = minPathSumDFS(gridCols, grid, i - 1, j);
-        int up = minPathSumDFS(gridCols, grid, i, j - 1);
+        int up = minPathSumDFS(gridCols, grid, i - 1, j);
+        int left = minPathSumDFS(gridCols, grid, i, j - 1);
         // 返回从左上角到 (i, j) 的最小路径代价
         return min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
     }
@@ -357,8 +357,8 @@ $$
             return std.math.maxInt(i32);
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        var left = minPathSumDFS(grid, i - 1, j);
-        var up = minPathSumDFS(grid, i, j - 1);
+        var up = minPathSumDFS(grid, i - 1, j);
+        var left = minPathSumDFS(grid, i, j - 1);
         // 返回从左上角到 (i, j) 的最小路径代价
         return @min(left, up) + grid[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
     }
@@ -395,8 +395,8 @@ $$
         if mem[i][j] != -1:
             return mem[i][j]
         # 左边和上边单元格的最小路径代价
-        left = min_path_sum_dfs_mem(grid, mem, i - 1, j)
-        up = min_path_sum_dfs_mem(grid, mem, i, j - 1)
+        up = min_path_sum_dfs_mem(grid, mem, i - 1, j)
+        left = min_path_sum_dfs_mem(grid, mem, i, j - 1)
         # 记录并返回左上角到 (i, j) 的最小路径代价
         mem[i][j] = min(left, up) + grid[i][j]
         return mem[i][j]
@@ -420,8 +420,8 @@ $$
             return mem[i][j];
         }
         // 左边和上边单元格的最小路径代价
-        int left = minPathSumDFSMem(grid, mem, i - 1, j);
-        int up = minPathSumDFSMem(grid, mem, i, j - 1);
+        int up = minPathSumDFSMem(grid, mem, i - 1, j);
+        int left = minPathSumDFSMem(grid, mem, i, j - 1);
         // 记录并返回左上角到 (i, j) 的最小路径代价
         mem[i][j] = min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
         return mem[i][j];
@@ -446,8 +446,8 @@ $$
             return mem[i][j];
         }
         // 左边和上边单元格的最小路径代价
-        int left = minPathSumDFSMem(grid, mem, i - 1, j);
-        int up = minPathSumDFSMem(grid, mem, i, j - 1);
+        int up = minPathSumDFSMem(grid, mem, i - 1, j);
+        int left = minPathSumDFSMem(grid, mem, i, j - 1);
         // 记录并返回左上角到 (i, j) 的最小路径代价
         mem[i][j] = Math.min(left, up) + grid[i][j];
         return mem[i][j];
@@ -472,8 +472,8 @@ $$
             return mem[i][j];
         }
         // 左边和上边单元格的最小路径代价
-        int left = MinPathSumDFSMem(grid, mem, i - 1, j);
-        int up = MinPathSumDFSMem(grid, mem, i, j - 1);
+        int up = MinPathSumDFSMem(grid, mem, i - 1, j);
+        int left = MinPathSumDFSMem(grid, mem, i, j - 1);
         // 记录并返回左上角到 (i, j) 的最小路径代价
         mem[i][j] = Math.Min(left, up) + grid[i][j];
         return mem[i][j];
@@ -498,8 +498,8 @@ $$
             return mem[i][j]
         }
         // 左边和上边单元格的最小路径代价
-        left := minPathSumDFSMem(grid, mem, i-1, j)
-        up := minPathSumDFSMem(grid, mem, i, j-1)
+        up := minPathSumDFSMem(grid, mem, i-1, j)
+        left := minPathSumDFSMem(grid, mem, i, j-1)
         // 记录并返回左上角到 (i, j) 的最小路径代价
         mem[i][j] = int(math.Min(float64(left), float64(up))) + grid[i][j]
         return mem[i][j]
@@ -524,8 +524,8 @@ $$
             return mem[i][j]
         }
         // 左边和上边单元格的最小路径代价
-        let left = minPathSumDFSMem(grid: grid, mem: &mem, i: i - 1, j: j)
-        let up = minPathSumDFSMem(grid: grid, mem: &mem, i: i, j: j - 1)
+        let up = minPathSumDFSMem(grid: grid, mem: &mem, i: i - 1, j: j)
+        let left = minPathSumDFSMem(grid: grid, mem: &mem, i: i, j: j - 1)
         // 记录并返回左上角到 (i, j) 的最小路径代价
         mem[i][j] = min(left, up) + grid[i][j]
         return mem[i][j]
@@ -550,8 +550,8 @@ $$
             return mem[i][j];
         }
         // 左边和上边单元格的最小路径代价
-        const left = minPathSumDFSMem(grid, mem, i - 1, j);
-        const up = minPathSumDFSMem(grid, mem, i, j - 1);
+        const up = minPathSumDFSMem(grid, mem, i - 1, j);
+        const left = minPathSumDFSMem(grid, mem, i, j - 1);
         // 记录并返回左上角到 (i, j) 的最小路径代价
         mem[i][j] = Math.min(left, up) + grid[i][j];
         return mem[i][j];
@@ -581,8 +581,8 @@ $$
             return mem[i][j];
         }
         // 左边和上边单元格的最小路径代价
-        const left = minPathSumDFSMem(grid, mem, i - 1, j);
-        const up = minPathSumDFSMem(grid, mem, i, j - 1);
+        const up = minPathSumDFSMem(grid, mem, i - 1, j);
+        const left = minPathSumDFSMem(grid, mem, i, j - 1);
         // 记录并返回左上角到 (i, j) 的最小路径代价
         mem[i][j] = Math.min(left, up) + grid[i][j];
         return mem[i][j];
@@ -608,8 +608,8 @@ $$
         return mem[i][j];
       }
       // 左边和上边单元格的最小路径代价
-      int left = minPathSumDFSMem(grid, mem, i - 1, j);
-      int up = minPathSumDFSMem(grid, mem, i, j - 1);
+      int up = minPathSumDFSMem(grid, mem, i - 1, j);
+      int left = minPathSumDFSMem(grid, mem, i, j - 1);
       // 记录并返回左上角到 (i, j) 的最小路径代价
       mem[i][j] = min(left, up) + grid[i][j];
       return mem[i][j];
@@ -634,8 +634,8 @@ $$
             return mem[i as usize][j as usize];
         }
         // 左边和上边单元格的最小路径代价
-        let left = min_path_sum_dfs_mem(grid, mem, i - 1, j);
-        let up = min_path_sum_dfs_mem(grid, mem, i, j - 1);
+        let up = min_path_sum_dfs_mem(grid, mem, i - 1, j);
+        let left = min_path_sum_dfs_mem(grid, mem, i, j - 1);
         // 记录并返回左上角到 (i, j) 的最小路径代价
         mem[i as usize][j as usize] = std::cmp::min(left, up) + grid[i as usize][j as usize];
         mem[i as usize][j as usize]
@@ -660,8 +660,8 @@ $$
             return mem[i][j];
         }
         // 左边和上边单元格的最小路径代价
-        int left = minPathSumDFSMem(gridCols, grid, mem, i - 1, j);
-        int up = minPathSumDFSMem(gridCols, grid, mem, i, j - 1);
+        int up = minPathSumDFSMem(gridCols, grid, mem, i - 1, j);
+        int left = minPathSumDFSMem(gridCols, grid, mem, i, j - 1);
         // 记录并返回左上角到 (i, j) 的最小路径代价
         mem[i][j] = min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
         return mem[i][j];
@@ -686,8 +686,8 @@ $$
             return mem[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        var left = minPathSumDFSMem(grid, mem, i - 1, j);
-        var up = minPathSumDFSMem(grid, mem, i, j - 1);
+        var up = minPathSumDFSMem(grid, mem, i - 1, j);
+        var left = minPathSumDFSMem(grid, mem, i, j - 1);
         // 返回从左上角到 (i, j) 的最小路径代价
         // 记录并返回左上角到 (i, j) 的最小路径代价
         mem[@as(usize, @intCast(i))][@as(usize, @intCast(j))] = @min(left, up) + grid[@as(usize, @intCast(i))][@as(usize, @intCast(j))];

@@ -46,7 +46,7 @@ comments: true
     ```python title="binary_search_tree.py"
     def search(self, num: int) -> TreeNode | None:
         """查找节点"""
-        cur = self.__root
+        cur = self._root
         # 循环查找，越过叶节点后跳出
         while cur is not None:
             # 目标节点在 cur 的右子树中
@@ -340,11 +340,11 @@ comments: true
     def insert(self, num: int):
         """插入节点"""
         # 若树为空，则初始化根节点
-        if self.__root is None:
-            self.__root = TreeNode(num)
+        if self._root is None:
+            self._root = TreeNode(num)
             return
         # 循环查找，越过叶节点后跳出
-        cur, pre = self.__root, None
+        cur, pre = self._root, None
         while cur is not None:
             # 找到重复节点，直接返回
             if cur.val == num:
@@ -792,10 +792,10 @@ comments: true
     def remove(self, num: int):
         """删除节点"""
         # 若树为空，直接提前返回
-        if self.__root is None:
+        if self._root is None:
             return
         # 循环查找，越过叶节点后跳出
-        cur, pre = self.__root, None
+        cur, pre = self._root, None
         while cur is not None:
             # 找到待删除节点，跳出循环
             if cur.val == num:
@@ -816,14 +816,14 @@ comments: true
             # 当子节点数量 = 0 / 1 时， child = null / 该子节点
             child = cur.left or cur.right
             # 删除节点 cur
-            if cur != self.__root:
+            if cur != self._root:
                 if pre.left == cur:
                     pre.left = child
                 else:
                     pre.right = child
             else:
                 # 若删除节点为根节点，则重新指定根节点
-                self.__root = child
+                self._root = child
         # 子节点数量 = 2
         else:
             # 获取中序遍历中 cur 的下一个节点
