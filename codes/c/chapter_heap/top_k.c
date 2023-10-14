@@ -41,7 +41,7 @@ int *topKHeap(int *nums, int size, int k) {
     return result;
 }
 
-// Driver Code
+/* Driver Code */
 int main() {
     int nums[] = {1, 7, 6, 3, 2};
     int size = sizeof(nums) / sizeof(nums[0]);
