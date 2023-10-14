@@ -1,5 +1,5 @@
 """
-File: nums.py
+File: my_list.py
 Created Time: 2022-11-25
 Author: Krahets (krahets@163.com)
 """
@@ -93,9 +93,7 @@ if __name__ == "__main__":
     nums.add(2)
     nums.add(5)
     nums.add(4)
-    print(
-        f"列表 nums = {nums.to_array()} ，容量 = {nums.capacity()} ，长度 = {nums.size()}"
-    )
+    print(f"列表 nums = {nums.to_array()} ，容量 = {nums.capacity()} ，长度 = {nums.size()}")
 
     # 中间插入元素
     nums.insert(6, index=3)
@@ -117,6 +115,4 @@ if __name__ == "__main__":
     for i in range(10):
         # 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
         nums.add(i)
-    print(
-        f"扩容后的列表 {nums.to_array()} ，容量 = {nums.capacity()} ，长度 = {nums.size()}"
-    )
+    print(f"扩容后的列表 {nums.to_array()} ，容量 = {nums.capacity()} ，长度 = {nums.size()}")

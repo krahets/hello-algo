@@ -216,7 +216,7 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
     ```python title="avl_tree.py"
     [class]{AVLTree}-[func]{height}
 
-    [class]{AVLTree}-[func]{__update_height}
+    [class]{AVLTree}-[func]{update_height}
     ```
 
 === "C++"
@@ -418,7 +418,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "Python"
 
     ```python title="avl_tree.py"
-    [class]{AVLTree}-[func]{__right_rotate}
+    [class]{AVLTree}-[func]{right_rotate}
     ```
 
 === "C++"
@@ -502,7 +502,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "Python"
 
     ```python title="avl_tree.py"
-    [class]{AVLTree}-[func]{__left_rotate}
+    [class]{AVLTree}-[func]{left_rotate}
     ```
 
 === "C++"
@@ -605,7 +605,7 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 === "Python"
 
     ```python title="avl_tree.py"
-    [class]{AVLTree}-[func]{__rotate}
+    [class]{AVLTree}-[func]{rotate}
     ```
 
 === "C++"
@@ -685,7 +685,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     ```python title="avl_tree.py"
     [class]{AVLTree}-[func]{insert}
 
-    [class]{AVLTree}-[func]{__insert_helper}
+    [class]{AVLTree}-[func]{insert_helper}
     ```
 
 === "C++"
@@ -785,7 +785,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     ```python title="avl_tree.py"
     [class]{AVLTree}-[func]{remove}
 
-    [class]{AVLTree}-[func]{__remove_helper}
+    [class]{AVLTree}-[func]{remove_helper}
     ```
 
 === "C++"
