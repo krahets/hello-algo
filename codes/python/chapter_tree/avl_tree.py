@@ -15,7 +15,11 @@ class AVLTree:
 
     def __init__(self, root: TreeNode | None = None):
         """构造方法"""
-        self.root = root
+        self._root = None
+
+    def get_root(self) -> TreeNode | None:
+        """获取二叉树根节点"""
+        return self._root
 
     def height(self, node: TreeNode | None) -> int:
         """获取节点高度"""
@@ -24,7 +28,7 @@ class AVLTree:
             return node.height
         return -1
 
-    def __update_height(self, node: TreeNode | None):
+    def update_height(self, node: TreeNode | None):
         """更新节点高度"""
         # 节点高度等于最高子树高度 + 1
         node.height = max([self.height(node.left), self.height(node.right)]) + 1
@@ -37,7 +41,7 @@ class AVLTree:
         # 节点平衡因子 = 左子树高度 - 右子树高度
         return self.height(node.left) - self.height(node.right)
 
-    def __right_rotate(self, node: TreeNode | None) -> TreeNode | None:
+    def right_rotate(self, node: TreeNode | None) -> TreeNode | None:
         """右旋操作"""
         child = node.left
         grand_child = child.right
@@ -45,12 +49,12 @@ class AVLTree:
         child.right = node
         node.left = grand_child
         # 更新节点高度
-        self.__update_height(node)
-        self.__update_height(child)
+        self.update_height(node)
+        self.update_height(child)
         # 返回旋转后子树的根节点
         return child
 
-    def __left_rotate(self, node: TreeNode | None) -> TreeNode | None:
+    def left_rotate(self, node: TreeNode | None) -> TreeNode | None:
         """左旋操作"""
         child = node.right
         grand_child = child.left
@@ -58,12 +62,12 @@ class AVLTree:
         child.left = node
         node.right = grand_child
         # 更新节点高度
-        self.__update_height(node)
-        self.__update_height(child)
+        self.update_height(node)
+        self.update_height(child)
         # 返回旋转后子树的根节点
         return child
 
-    def __rotate(self, node: TreeNode | None) -> TreeNode | None:
+    def rotate(self, node: TreeNode | None) -> TreeNode | None:
         """执行旋转操作，使该子树重新恢复平衡"""
         # 获取节点 node 的平衡因子
         balance_factor = self.balance_factor(node)
@@ -71,57 +75,57 @@ class AVLTree:
         if balance_factor > 1:
             if self.balance_factor(node.left) >= 0:
                 # 右旋
-                return self.__right_rotate(node)
+                return self.right_rotate(node)
             else:
                 # 先左旋后右旋
-                node.left = self.__left_rotate(node.left)
-                return self.__right_rotate(node)
+                node.left = self.left_rotate(node.left)
+                return self.right_rotate(node)
         # 右偏树
         elif balance_factor < -1:
             if self.balance_factor(node.right) <= 0:
                 # 左旋
-                return self.__left_rotate(node)
+                return self.left_rotate(node)
             else:
                 # 先右旋后左旋
-                node.right = self.__right_rotate(node.right)
-                return self.__left_rotate(node)
+                node.right = self.right_rotate(node.right)
+                return self.left_rotate(node)
         # 平衡树，无须旋转，直接返回
         return node
 
     def insert(self, val):
         """插入节点"""
-        self.root = self.__insert_helper(self.root, val)
+        self._root = self.insert_helper(self._root, val)
 
-    def __insert_helper(self, node: TreeNode | None, val: int) -> TreeNode:
+    def insert_helper(self, node: TreeNode | None, val: int) -> TreeNode:
         """递归插入节点（辅助方法）"""
         if node is None:
             return TreeNode(val)
         # 1. 查找插入位置，并插入节点
         if val < node.val:
-            node.left = self.__insert_helper(node.left, val)
+            node.left = self.insert_helper(node.left, val)
         elif val > node.val:
-            node.right = self.__insert_helper(node.right, val)
+            node.right = self.insert_helper(node.right, val)
         else:
             # 重复节点不插入，直接返回
             return node
         # 更新节点高度
-        self.__update_height(node)
+        self.update_height(node)
         # 2. 执行旋转操作，使该子树重新恢复平衡
-        return self.__rotate(node)
+        return self.rotate(node)
 
     def remove(self, val: int):
         """删除节点"""
-        self.root = self.__remove_helper(self.root, val)
+        self._root = self.remove_helper(self._root, val)
 
-    def __remove_helper(self, node: TreeNode | None, val: int) -> TreeNode | None:
+    def remove_helper(self, node: TreeNode | None, val: int) -> TreeNode | None:
         """递归删除节点（辅助方法）"""
         if node is None:
             return None
         # 1. 查找节点，并删除之
         if val < node.val:
-            node.left = self.__remove_helper(node.left, val)
+            node.left = self.remove_helper(node.left, val)
         elif val > node.val:
-            node.right = self.__remove_helper(node.right, val)
+            node.right = self.remove_helper(node.right, val)
         else:
             if node.left is None or node.right is None:
                 child = node.left or node.right
@@ -136,16 +140,16 @@ class AVLTree:
                 temp = node.right
                 while temp.left is not None:
                     temp = temp.left
-                node.right = self.__remove_helper(node.right, temp.val)
+                node.right = self.remove_helper(node.right, temp.val)
                 node.val = temp.val
         # 更新节点高度
-        self.__update_height(node)
+        self.update_height(node)
         # 2. 执行旋转操作，使该子树重新恢复平衡
-        return self.__rotate(node)
+        return self.rotate(node)
 
     def search(self, val: int) -> TreeNode | None:
         """查找节点"""
-        cur = self.root
+        cur = self._root
         # 循环查找，越过叶节点后跳出
         while cur is not None:
             # 目标节点在 cur 的右子树中
@@ -167,12 +171,12 @@ if __name__ == "__main__":
     def test_insert(tree: AVLTree, val: int):
         tree.insert(val)
         print("\n插入节点 {} 后，AVL 树为".format(val))
-        print_tree(tree.root)
+        print_tree(tree.get_root())
 
     def test_remove(tree: AVLTree, val: int):
         tree.remove(val)
         print("\n删除节点 {} 后，AVL 树为".format(val))
-        print_tree(tree.root)
+        print_tree(tree.get_root())
 
     # 初始化空 AVL 树
     avl_tree = AVLTree()
