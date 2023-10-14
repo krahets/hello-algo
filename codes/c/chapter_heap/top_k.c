@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-// 用于最小堆的比较函数
+/* 用于最小堆的比较函数 */
 int compare(const void *a, const void *b) {
     return (*(int *)a - *(int *)b);
 }
 
-// 基于堆查找数组中最大的 k 个元素
+/* 基于堆查找数组中最大的 k 个元素 */
 int *topKHeap(int *nums, int size, int k) {
     // 创建一个大小为 k 的最小堆    
     int *heap = (int *)malloc(k * sizeof(int));
@@ -41,6 +41,7 @@ int *topKHeap(int *nums, int size, int k) {
     return result;
 }
 
+// Driver Code
 int main() {
     int nums[] = {1, 7, 6, 3, 2};
     int size = sizeof(nums) / sizeof(nums[0]);
