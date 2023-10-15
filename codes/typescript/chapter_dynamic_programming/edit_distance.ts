@@ -82,7 +82,7 @@ function editDistanceDP(s: string, t: string): number {
                 dp[i][j] = dp[i - 1][j - 1];
             } else {
                 // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                dp[i][j] = dp[i][j] = Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1
+                dp[i][j] = Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1
             }
         }
     }
