@@ -1,6 +1,6 @@
 # 动态规划解题思路
 
-上两节介绍了动态规划问题的主要特征，接下来我们一起探究两个更加实用的问题：
+上两节介绍了动态规划问题的主要特征，接下来我们一起探究两个更加实用的问题。
 
 1. 如何判断一个问题是不是动态规划问题？
 2. 求解动态规划问题该从何处入手，完整步骤是什么？
@@ -13,12 +13,12 @@
 
 换句话说，如果问题包含明确的决策概念，并且解是通过一系列决策产生的，那么它就满足决策树模型，通常可以使用回溯来解决。
 
-在此基础上，还有一些动态规划问题的“加分项”，包括：
+在此基础上，动态规划问题还有一些判断的“加分项”。
 
 - 问题包含最大（小）或最多（少）等最优化描述。
 - 问题的状态能够使用一个列表、多维矩阵或树来表示，并且一个状态与其周围的状态存在递推关系。
 
-而相应的“减分项”包括：
+相应地，也存在一些“减分项”。
 
 - 问题的目标是找出所有可能的解决方案，而不是找出最优解。
 - 问题描述中有明显的排列组合的特征，需要返回具体的多个方案。
@@ -29,13 +29,13 @@
 
 动态规划的解题流程会因问题的性质和难度而有所不同，但通常遵循以下步骤：描述决策，定义状态，建立 $dp$ 表，推导状态转移方程，确定边界条件等。
 
-为了更形象地展示解题步骤，我们使用一个经典问题「最小路径和」来举例。
+为了更形象地展示解题步骤，我们使用一个经典问题“最小路径和”来举例。
 
 !!! question
 
     给定一个 $n \times m$ 的二维网格 `grid` ，网格中的每个单元格包含一个非负整数，表示该单元格的代价。机器人以左上角单元格为起始点，每次只能向下或者向右移动一步，直至到达右下角单元格。请返回从左上角到右下角的最小路径和。
 
-例如以下示例数据，给定网格的最小路径和为 $13$ 。
+下图展示了一个例子，给定网格的最小路径和为 $13$ 。
 
 ![最小路径和示例数据](dp_solution_pipeline.assets/min_path_sum_example.png)
 
@@ -45,7 +45,7 @@
 
 状态 $[i, j]$ 对应的子问题为：从起始点 $[0, 0]$ 走到 $[i, j]$ 的最小路径和，解记为 $dp[i, j]$ 。
 
-至此，我们就得到了一个二维 $dp$ 矩阵，其尺寸与输入网格 $grid$ 相同。
+至此，我们就得到了下图所示的二维 $dp$ 矩阵，其尺寸与输入网格 $grid$ 相同。
 
 ![状态定义与 dp 表](dp_solution_pipeline.assets/min_path_sum_solution_step1.png)
 
@@ -59,7 +59,7 @@
 
 对于状态 $[i, j]$ ，它只能从上边格子 $[i-1, j]$ 和左边格子 $[i, j-1]$ 转移而来。因此最优子结构为：到达 $[i, j]$ 的最小路径和由 $[i, j-1]$ 的最小路径和与 $[i-1, j]$ 的最小路径和，这两者较小的那一个决定。
 
-根据以上分析，可推出以下状态转移方程：
+根据以上分析，可推出下图所示的状态转移方程：
 
 $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
@@ -75,9 +75,9 @@ $$
 
 **第三步：确定边界条件和状态转移顺序**
 
-在本题中，处在首行的状态只能向右转移，首列状态只能向下转移，因此首行 $i = 0$ 和首列 $j = 0$ 是边界条件。
+在本题中，首行的状态只能从其左边的状态得来，首列的状态只能从其上边的状态得来，因此首行 $i = 0$ 和首列 $j = 0$ 是边界条件。
 
-每个格子是由其左方格子和上方格子转移而来，因此我们使用采用循环来遍历矩阵，外循环遍历各行、内循环遍历各列。
+如下图所示，由于每个格子是由其左方格子和上方格子转移而来，因此我们使用采用循环来遍历矩阵，外循环遍历各行、内循环遍历各列。
 
 ![边界条件与状态转移顺序](dp_solution_pipeline.assets/min_path_sum_solution_step3.png)
 
@@ -91,17 +91,17 @@ $$
 
 ### 方法一：暴力搜索
 
-从状态 $[i, j]$ 开始搜索，不断分解为更小的状态 $[i-1, j]$ 和 $[i, j-1]$ ，包括以下递归要素：
+从状态 $[i, j]$ 开始搜索，不断分解为更小的状态 $[i-1, j]$ 和 $[i, j-1]$ ，递归函数包括以下要素。
 
 - **递归参数**：状态 $[i, j]$ 。
 - **返回值**：从 $[0, 0]$ 到 $[i, j]$ 的最小路径和 $dp[i, j]$ 。
 - **终止条件**：当 $i = 0$ 且 $j = 0$ 时，返回代价 $grid[0, 0]$ 。
 - **剪枝**：当 $i < 0$ 时或 $j < 0$ 时索引越界，此时返回代价 $+\infty$ ，代表不可行。
 
-=== "Java"
+=== "Python"
 
-    ```java title="min_path_sum.java"
-    [class]{min_path_sum}-[func]{minPathSumDFS}
+    ```python title="min_path_sum.py"
+    [class]{}-[func]{min_path_sum_dfs}
     ```
 
 === "C++"
@@ -110,15 +110,27 @@ $$
     [class]{}-[func]{minPathSumDFS}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="min_path_sum.py"
-    [class]{}-[func]{min_path_sum_dfs}
+    ```java title="min_path_sum.java"
+    [class]{min_path_sum}-[func]{minPathSumDFS}
+    ```
+
+=== "C#"
+
+    ```csharp title="min_path_sum.cs"
+    [class]{min_path_sum}-[func]{MinPathSumDFS}
     ```
 
 === "Go"
 
     ```go title="min_path_sum.go"
+    [class]{}-[func]{minPathSumDFS}
+    ```
+
+=== "Swift"
+
+    ```swift title="min_path_sum.swift"
     [class]{}-[func]{minPathSumDFS}
     ```
 
@@ -134,30 +146,6 @@ $$
     [class]{}-[func]{minPathSumDFS}
     ```
 
-=== "C"
-
-    ```c title="min_path_sum.c"
-    [class]{}-[func]{minPathSumDFS}
-    ```
-
-=== "C#"
-
-    ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDFS}
-    ```
-
-=== "Swift"
-
-    ```swift title="min_path_sum.swift"
-    [class]{}-[func]{minPathSumDFS}
-    ```
-
-=== "Zig"
-
-    ```zig title="min_path_sum.zig"
-    [class]{}-[func]{minPathSumDFS}
-    ```
-
 === "Dart"
 
     ```dart title="min_path_sum.dart"
@@ -168,6 +156,18 @@ $$
 
     ```rust title="min_path_sum.rs"
     [class]{}-[func]{min_path_sum_dfs}
+    ```
+
+=== "C"
+
+    ```c title="min_path_sum.c"
+    [class]{}-[func]{minPathSumDFS}
+    ```
+
+=== "Zig"
+
+    ```zig title="min_path_sum.zig"
+    [class]{}-[func]{minPathSumDFS}
     ```
 
 下图给出了以 $dp[2, 1]$ 为根节点的递归树，其中包含一些重叠子问题，其数量会随着网格 `grid` 的尺寸变大而急剧增多。
@@ -182,10 +182,10 @@ $$
 
 我们引入一个和网格 `grid` 相同尺寸的记忆列表 `mem` ，用于记录各个子问题的解，并将重叠子问题进行剪枝。
 
-=== "Java"
+=== "Python"
 
-    ```java title="min_path_sum.java"
-    [class]{min_path_sum}-[func]{minPathSumDFSMem}
+    ```python title="min_path_sum.py"
+    [class]{}-[func]{min_path_sum_dfs_mem}
     ```
 
 === "C++"
@@ -194,15 +194,27 @@ $$
     [class]{}-[func]{minPathSumDFSMem}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="min_path_sum.py"
-    [class]{}-[func]{min_path_sum_dfs_mem}
+    ```java title="min_path_sum.java"
+    [class]{min_path_sum}-[func]{minPathSumDFSMem}
+    ```
+
+=== "C#"
+
+    ```csharp title="min_path_sum.cs"
+    [class]{min_path_sum}-[func]{MinPathSumDFSMem}
     ```
 
 === "Go"
 
     ```go title="min_path_sum.go"
+    [class]{}-[func]{minPathSumDFSMem}
+    ```
+
+=== "Swift"
+
+    ```swift title="min_path_sum.swift"
     [class]{}-[func]{minPathSumDFSMem}
     ```
 
@@ -218,30 +230,6 @@ $$
     [class]{}-[func]{minPathSumDFSMem}
     ```
 
-=== "C"
-
-    ```c title="min_path_sum.c"
-    [class]{}-[func]{minPathSumDFSMem}
-    ```
-
-=== "C#"
-
-    ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDFSMem}
-    ```
-
-=== "Swift"
-
-    ```swift title="min_path_sum.swift"
-    [class]{}-[func]{minPathSumDFSMem}
-    ```
-
-=== "Zig"
-
-    ```zig title="min_path_sum.zig"
-    [class]{}-[func]{minPathSumDFSMem}
-    ```
-
 === "Dart"
 
     ```dart title="min_path_sum.dart"
@@ -254,7 +242,19 @@ $$
     [class]{}-[func]{min_path_sum_dfs_mem}
     ```
 
-引入记忆化后，所有子问题的解只需计算一次，因此时间复杂度取决于状态总数，即网格尺寸 $O(nm)$ 。
+=== "C"
+
+    ```c title="min_path_sum.c"
+    [class]{}-[func]{minPathSumDFSMem}
+    ```
+
+=== "Zig"
+
+    ```zig title="min_path_sum.zig"
+    [class]{}-[func]{minPathSumDFSMem}
+    ```
+
+如下图所示，在引入记忆化后，所有子问题的解只需计算一次，因此时间复杂度取决于状态总数，即网格尺寸 $O(nm)$ 。
 
 ![记忆化搜索递归树](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png)
 
@@ -262,10 +262,10 @@ $$
 
 基于迭代实现动态规划解法。
 
-=== "Java"
+=== "Python"
 
-    ```java title="min_path_sum.java"
-    [class]{min_path_sum}-[func]{minPathSumDP}
+    ```python title="min_path_sum.py"
+    [class]{}-[func]{min_path_sum_dp}
     ```
 
 === "C++"
@@ -274,15 +274,27 @@ $$
     [class]{}-[func]{minPathSumDP}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="min_path_sum.py"
-    [class]{}-[func]{min_path_sum_dp}
+    ```java title="min_path_sum.java"
+    [class]{min_path_sum}-[func]{minPathSumDP}
+    ```
+
+=== "C#"
+
+    ```csharp title="min_path_sum.cs"
+    [class]{min_path_sum}-[func]{MinPathSumDP}
     ```
 
 === "Go"
 
     ```go title="min_path_sum.go"
+    [class]{}-[func]{minPathSumDP}
+    ```
+
+=== "Swift"
+
+    ```swift title="min_path_sum.swift"
     [class]{}-[func]{minPathSumDP}
     ```
 
@@ -298,30 +310,6 @@ $$
     [class]{}-[func]{minPathSumDP}
     ```
 
-=== "C"
-
-    ```c title="min_path_sum.c"
-    [class]{}-[func]{minPathSumDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDP}
-    ```
-
-=== "Swift"
-
-    ```swift title="min_path_sum.swift"
-    [class]{}-[func]{minPathSumDP}
-    ```
-
-=== "Zig"
-
-    ```zig title="min_path_sum.zig"
-    [class]{}-[func]{minPathSumDP}
-    ```
-
 === "Dart"
 
     ```dart title="min_path_sum.dart"
@@ -332,6 +320,18 @@ $$
 
     ```rust title="min_path_sum.rs"
     [class]{}-[func]{min_path_sum_dp}
+    ```
+
+=== "C"
+
+    ```c title="min_path_sum.c"
+    [class]{}-[func]{minPathSumDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="min_path_sum.zig"
+    [class]{}-[func]{minPathSumDP}
     ```
 
 下图展示了最小路径和的状态转移过程，其遍历了整个网格，**因此时间复杂度为 $O(nm)$** 。
@@ -374,16 +374,16 @@ $$
 === "<12>"
     ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png)
 
-### 状态压缩
+### 空间优化
 
 由于每个格子只与其左边和上边的格子有关，因此我们可以只用一个单行数组来实现 $dp$ 表。
 
 请注意，因为数组 `dp` 只能表示一行的状态，所以我们无法提前初始化首列状态，而是在遍历每行中更新它。
 
-=== "Java"
+=== "Python"
 
-    ```java title="min_path_sum.java"
-    [class]{min_path_sum}-[func]{minPathSumDPComp}
+    ```python title="min_path_sum.py"
+    [class]{}-[func]{min_path_sum_dp_comp}
     ```
 
 === "C++"
@@ -392,15 +392,27 @@ $$
     [class]{}-[func]{minPathSumDPComp}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="min_path_sum.py"
-    [class]{}-[func]{min_path_sum_dp_comp}
+    ```java title="min_path_sum.java"
+    [class]{min_path_sum}-[func]{minPathSumDPComp}
+    ```
+
+=== "C#"
+
+    ```csharp title="min_path_sum.cs"
+    [class]{min_path_sum}-[func]{MinPathSumDPComp}
     ```
 
 === "Go"
 
     ```go title="min_path_sum.go"
+    [class]{}-[func]{minPathSumDPComp}
+    ```
+
+=== "Swift"
+
+    ```swift title="min_path_sum.swift"
     [class]{}-[func]{minPathSumDPComp}
     ```
 
@@ -416,30 +428,6 @@ $$
     [class]{}-[func]{minPathSumDPComp}
     ```
 
-=== "C"
-
-    ```c title="min_path_sum.c"
-    [class]{}-[func]{minPathSumDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="min_path_sum.cs"
-    [class]{min_path_sum}-[func]{minPathSumDPComp}
-    ```
-
-=== "Swift"
-
-    ```swift title="min_path_sum.swift"
-    [class]{}-[func]{minPathSumDPComp}
-    ```
-
-=== "Zig"
-
-    ```zig title="min_path_sum.zig"
-    [class]{}-[func]{minPathSumDPComp}
-    ```
-
 === "Dart"
 
     ```dart title="min_path_sum.dart"
@@ -450,4 +438,16 @@ $$
 
     ```rust title="min_path_sum.rs"
     [class]{}-[func]{min_path_sum_dp_comp}
+    ```
+
+=== "C"
+
+    ```c title="min_path_sum.c"
+    [class]{}-[func]{minPathSumDPComp}
+    ```
+
+=== "Zig"
+
+    ```zig title="min_path_sum.zig"
+    [class]{}-[func]{minPathSumDPComp}
     ```

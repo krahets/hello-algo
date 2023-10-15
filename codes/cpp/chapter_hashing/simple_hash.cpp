@@ -31,7 +31,6 @@ int xorHash(string key) {
     int hash = 0;
     const int MODULUS = 1000000007;
     for (unsigned char c : key) {
-        cout<<(int)c<<endl;
         hash ^= (int)c;
     }
     return hash & MODULUS;

@@ -30,7 +30,7 @@ class LinkedListQueue {
     }
 
     /* 判断队列是否为空 */
-    bool empty() {
+    bool isEmpty() {
         return queSize == 0;
     }
 
@@ -109,7 +109,7 @@ int main() {
     cout << "队列长度 size = " << size << endl;
 
     /* 判断队列是否为空 */
-    bool empty = queue->empty();
+    bool empty = queue->isEmpty();
     cout << "队列是否为空 = " << empty << endl;
 
     // 释放内存

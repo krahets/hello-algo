@@ -46,7 +46,7 @@ def bubble_sort(nums: list[int]) -> int:
     count = 0  # 计数器
     # 外循环：未排序区间为 [0, i]
     for i in range(len(nums) - 1, 0, -1):
-        # 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+        # 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
         for j in range(i):
             if nums[j] > nums[j + 1]:
                 # 交换 nums[j] 与 nums[j + 1]
@@ -121,31 +121,31 @@ if __name__ == "__main__":
     print("输入数据大小 n =", n)
 
     count: int = constant(n)
-    print("常数阶的计算操作数量 =", count)
+    print("常数阶的操作数量 =", count)
 
     count: int = linear(n)
-    print("线性阶的计算操作数量 =", count)
+    print("线性阶的操作数量 =", count)
     count: int = array_traversal([0] * n)
-    print("线性阶（遍历数组）的计算操作数量 =", count)
+    print("线性阶（遍历数组）的操作数量 =", count)
 
     count: int = quadratic(n)
-    print("平方阶的计算操作数量 =", count)
+    print("平方阶的操作数量 =", count)
     nums = [i for i in range(n, 0, -1)]  # [n, n-1, ..., 2, 1]
     count: int = bubble_sort(nums)
-    print("平方阶（冒泡排序）的计算操作数量 =", count)
+    print("平方阶（冒泡排序）的操作数量 =", count)
 
     count: int = exponential(n)
-    print("指数阶（循环实现）的计算操作数量 =", count)
+    print("指数阶（循环实现）的操作数量 =", count)
     count: int = exp_recur(n)
-    print("指数阶（递归实现）的计算操作数量 =", count)
+    print("指数阶（递归实现）的操作数量 =", count)
 
     count: int = logarithmic(n)
-    print("对数阶（循环实现）的计算操作数量 =", count)
+    print("对数阶（循环实现）的操作数量 =", count)
     count: int = log_recur(n)
-    print("对数阶（递归实现）的计算操作数量 =", count)
+    print("对数阶（递归实现）的操作数量 =", count)
 
     count: int = linear_log_recur(n)
-    print("线性对数阶（递归实现）的计算操作数量 =", count)
+    print("线性对数阶（递归实现）的操作数量 =", count)
 
     count: int = factorial_recur(n)
-    print("阶乘阶（递归实现）的计算操作数量 =", count)
+    print("阶乘阶（递归实现）的操作数量 =", count)

@@ -6,3 +6,4 @@ add_executable(preorder_traversal_iii_template preorder_traversal_iii_template.c
 add_executable(subset_sum_i_naive subset_sum_i_naive.c)
 add_executable(subset_sum_i subset_sum_i.c)
 add_executable(subset_sum_ii subset_sum_ii.c)
+add_executable(n_queens n_queens.c)

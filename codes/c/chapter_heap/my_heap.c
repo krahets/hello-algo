@@ -22,13 +22,15 @@ void siftDown(maxHeap *h, int i);
 
 void siftUp(maxHeap *h, int i);
 
+int parent(maxHeap *h, int i);
+
 /* 构造函数，根据切片建堆 */
 maxHeap *newMaxHeap(int nums[], int size) {
     // 所有元素入堆
     maxHeap *h = (maxHeap *)malloc(sizeof(maxHeap));
     h->size = size;
     memcpy(h->data, nums, size * sizeof(int));
-    for (int i = size - 1; i >= 0; i--) {
+    for (int i = parent(h, size - 1); i >= 0; i--) {
         // 堆化除叶节点以外的其他所有节点
         siftDown(h, i);
     }
@@ -119,7 +121,7 @@ void siftDown(maxHeap *h, int i) {
         if (r < size(h) && h->data[r] > h->data[max]) {
             max = r;
         }
-        // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+        // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
         if (max == i) {
             break;
         }
@@ -135,7 +137,7 @@ void siftUp(maxHeap *h, int i) {
     while (true) {
         // 获取节点 i 的父节点
         int p = parent(h, i);
-        // 当“越过根节点”或“节点无需修复”时，结束堆化
+        // 当“越过根节点”或“节点无须修复”时，结束堆化
         if (p < 0 || h->data[i] <= h->data[p]) {
             break;
         }

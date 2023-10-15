@@ -20,7 +20,7 @@ if __name__ == "__main__":
     print(f"布尔量 {bol} 的哈希值为 {hash_bol}")
 
     dec = 3.14159
-    hash_dec = hash(dec) 
+    hash_dec = hash(dec)
     print(f"小数 {dec} 的哈希值为 {hash_dec}")
 
     str = "Hello 算法"

@@ -1,19 +1,19 @@
 # 回溯算法
 
-「回溯算法 Backtracking Algorithm」是一种通过穷举来解决问题的方法，它的核心思想是从一个初始状态出发，暴力搜索所有可能的解决方案，当遇到正确的解则将其记录，直到找到解或者尝试了所有可能的选择都无法找到解为止。
+「回溯算法 backtracking algorithm」是一种通过穷举来解决问题的方法，它的核心思想是从一个初始状态出发，暴力搜索所有可能的解决方案，当遇到正确的解则将其记录，直到找到解或者尝试了所有可能的选择都无法找到解为止。
 
-回溯算法通常采用「深度优先搜索」来遍历解空间。在二叉树章节中，我们提到前序、中序和后序遍历都属于深度优先搜索。接下来，我们利用前序遍历构造一个回溯问题，逐步了解回溯算法的工作原理。
+回溯算法通常采用“深度优先搜索”来遍历解空间。在二叉树章节中，我们提到前序、中序和后序遍历都属于深度优先搜索。接下来，我们利用前序遍历构造一个回溯问题，逐步了解回溯算法的工作原理。
 
 !!! question "例题一"
 
     给定一个二叉树，搜索并记录所有值为 $7$ 的节点，请返回节点列表。
 
-对于此题，我们前序遍历这颗树，并判断当前节点的值是否为 $7$ ，若是则将该节点的值加入到结果列表 `res` 之中。
+对于此题，我们前序遍历这颗树，并判断当前节点的值是否为 $7$ ，若是则将该节点的值加入到结果列表 `res` 之中。相关过程实现如下图和以下代码所示。
 
-=== "Java"
+=== "Python"
 
-    ```java title="preorder_traversal_i_compact.java"
-    [class]{preorder_traversal_i_compact}-[func]{preOrder}
+    ```python title="preorder_traversal_i_compact.py"
+    [class]{}-[func]{pre_order}
     ```
 
 === "C++"
@@ -22,16 +22,28 @@
     [class]{}-[func]{preOrder}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="preorder_traversal_i_compact.py"
-    [class]{}-[func]{pre_order}
+    ```java title="preorder_traversal_i_compact.java"
+    [class]{preorder_traversal_i_compact}-[func]{preOrder}
+    ```
+
+=== "C#"
+
+    ```csharp title="preorder_traversal_i_compact.cs"
+    [class]{preorder_traversal_i_compact}-[func]{PreOrder}
     ```
 
 === "Go"
 
     ```go title="preorder_traversal_i_compact.go"
     [class]{}-[func]{preOrderI}
+    ```
+
+=== "Swift"
+
+    ```swift title="preorder_traversal_i_compact.swift"
+    [class]{}-[func]{preOrder}
     ```
 
 === "JS"
@@ -46,30 +58,6 @@
     [class]{}-[func]{preOrder}
     ```
 
-=== "C"
-
-    ```c title="preorder_traversal_i_compact.c"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "C#"
-
-    ```csharp title="preorder_traversal_i_compact.cs"
-    [class]{preorder_traversal_i_compact}-[func]{preOrder}
-    ```
-
-=== "Swift"
-
-    ```swift title="preorder_traversal_i_compact.swift"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Zig"
-
-    ```zig title="preorder_traversal_i_compact.zig"
-    [class]{}-[func]{preOrder}
-    ```
-
 === "Dart"
 
     ```dart title="preorder_traversal_i_compact.dart"
@@ -80,6 +68,18 @@
 
     ```rust title="preorder_traversal_i_compact.rs"
     [class]{}-[func]{pre_order}
+    ```
+
+=== "C"
+
+    ```c title="preorder_traversal_i_compact.c"
+    [class]{}-[func]{preOrder}
+    ```
+
+=== "Zig"
+
+    ```zig title="preorder_traversal_i_compact.zig"
+    [class]{}-[func]{preOrder}
     ```
 
 ![在前序遍历中搜索节点](backtracking_algorithm.assets/preorder_find_nodes.png)
@@ -98,10 +98,10 @@
 
 在例题一代码的基础上，我们需要借助一个列表 `path` 记录访问过的节点路径。当访问到值为 $7$ 的节点时，则复制 `path` 并添加进结果列表 `res` 。遍历完成后，`res` 中保存的就是所有的解。
 
-=== "Java"
+=== "Python"
 
-    ```java title="preorder_traversal_ii_compact.java"
-    [class]{preorder_traversal_ii_compact}-[func]{preOrder}
+    ```python title="preorder_traversal_ii_compact.py"
+    [class]{}-[func]{pre_order}
     ```
 
 === "C++"
@@ -110,16 +110,28 @@
     [class]{}-[func]{preOrder}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="preorder_traversal_ii_compact.py"
-    [class]{}-[func]{pre_order}
+    ```java title="preorder_traversal_ii_compact.java"
+    [class]{preorder_traversal_ii_compact}-[func]{preOrder}
+    ```
+
+=== "C#"
+
+    ```csharp title="preorder_traversal_ii_compact.cs"
+    [class]{preorder_traversal_ii_compact}-[func]{PreOrder}
     ```
 
 === "Go"
 
     ```go title="preorder_traversal_ii_compact.go"
     [class]{}-[func]{preOrderII}
+    ```
+
+=== "Swift"
+
+    ```swift title="preorder_traversal_ii_compact.swift"
+    [class]{}-[func]{preOrder}
     ```
 
 === "JS"
@@ -131,30 +143,6 @@
 === "TS"
 
     ```typescript title="preorder_traversal_ii_compact.ts"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "C"
-
-    ```c title="preorder_traversal_ii_compact.c"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "C#"
-
-    ```csharp title="preorder_traversal_ii_compact.cs"
-    [class]{preorder_traversal_ii_compact}-[func]{preOrder}
-    ```
-
-=== "Swift"
-
-    ```swift title="preorder_traversal_ii_compact.swift"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Zig"
-
-    ```zig title="preorder_traversal_ii_compact.zig"
     [class]{}-[func]{preOrder}
     ```
 
@@ -170,9 +158,21 @@
     [class]{}-[func]{pre_order}
     ```
 
+=== "C"
+
+    ```c title="preorder_traversal_ii_compact.c"
+    [class]{}-[func]{preOrder}
+    ```
+
+=== "Zig"
+
+    ```zig title="preorder_traversal_ii_compact.zig"
+    [class]{}-[func]{preOrder}
+    ```
+
 在每次“尝试”中，我们通过将当前节点添加进 `path` 来记录路径；而在“回退”前，我们需要将该节点从 `path` 中弹出，**以恢复本次尝试之前的状态**。
 
-观察该过程，**我们可以将尝试和回退理解为“前进”与“撤销”**，两个操作是互为逆向的。
+观察下图所示的过程，**我们可以将尝试和回退理解为“前进”与“撤销”**，两个操作是互为逆向的。
 
 === "<1>"
     ![尝试与回退](backtracking_algorithm.assets/preorder_find_paths_step1.png)
@@ -217,10 +217,10 @@
 
 为了满足以上约束条件，**我们需要添加剪枝操作**：在搜索过程中，若遇到值为 $3$ 的节点，则提前返回，停止继续搜索。
 
-=== "Java"
+=== "Python"
 
-    ```java title="preorder_traversal_iii_compact.java"
-    [class]{preorder_traversal_iii_compact}-[func]{preOrder}
+    ```python title="preorder_traversal_iii_compact.py"
+    [class]{}-[func]{pre_order}
     ```
 
 === "C++"
@@ -229,16 +229,28 @@
     [class]{}-[func]{preOrder}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="preorder_traversal_iii_compact.py"
-    [class]{}-[func]{pre_order}
+    ```java title="preorder_traversal_iii_compact.java"
+    [class]{preorder_traversal_iii_compact}-[func]{preOrder}
+    ```
+
+=== "C#"
+
+    ```csharp title="preorder_traversal_iii_compact.cs"
+    [class]{preorder_traversal_iii_compact}-[func]{PreOrder}
     ```
 
 === "Go"
 
     ```go title="preorder_traversal_iii_compact.go"
     [class]{}-[func]{preOrderIII}
+    ```
+
+=== "Swift"
+
+    ```swift title="preorder_traversal_iii_compact.swift"
+    [class]{}-[func]{preOrder}
     ```
 
 === "JS"
@@ -250,30 +262,6 @@
 === "TS"
 
     ```typescript title="preorder_traversal_iii_compact.ts"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "C"
-
-    ```c title="preorder_traversal_iii_compact.c"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "C#"
-
-    ```csharp title="preorder_traversal_iii_compact.cs"
-    [class]{preorder_traversal_iii_compact}-[func]{preOrder}
-    ```
-
-=== "Swift"
-
-    ```swift title="preorder_traversal_iii_compact.swift"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Zig"
-
-    ```zig title="preorder_traversal_iii_compact.zig"
     [class]{}-[func]{preOrder}
     ```
 
@@ -289,7 +277,19 @@
     [class]{}-[func]{pre_order}
     ```
 
-剪枝是一个非常形象的名词。在搜索过程中，**我们“剪掉”了不满足约束条件的搜索分支**，避免许多无意义的尝试，从而实现搜索效率的提高。
+=== "C"
+
+    ```c title="preorder_traversal_iii_compact.c"
+    [class]{}-[func]{preOrder}
+    ```
+
+=== "Zig"
+
+    ```zig title="preorder_traversal_iii_compact.zig"
+    [class]{}-[func]{preOrder}
+    ```
+
+剪枝是一个非常形象的名词。如下图所示，在搜索过程中，**我们“剪掉”了不满足约束条件的搜索分支**，避免许多无意义的尝试，从而提高了搜索效率。
 
 ![根据约束条件剪枝](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
 
@@ -299,30 +299,26 @@
 
 在以下框架代码中，`state` 表示问题的当前状态，`choices` 表示当前状态下可以做出的选择。
 
-=== "Java"
+=== "Python"
 
-    ```java title=""
-    /* 回溯算法框架 */
-    void backtrack(State state, List<Choice> choices, List<State> res) {
-        // 判断是否为解
-        if (isSolution(state)) {
-            // 记录解
-            recordSolution(state, res);
-            // 停止继续搜索
-            return;
-        }
-        // 遍历所有选择
-        for (Choice choice : choices) {
-            // 剪枝：判断选择是否合法
-            if (isValid(state, choice)) {
-                // 尝试：做出选择，更新状态
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 回退：撤销选择，恢复到之前的状态
-                undoChoice(state, choice);
-            }
-        }
-    }
+    ```python title=""
+    def backtrack(state: State, choices: list[choice], res: list[state]):
+        """回溯算法框架"""
+        # 判断是否为解
+        if is_solution(state):
+            # 记录解
+            record_solution(state, res)
+            # 停止继续搜索
+            return
+        # 遍历所有选择
+        for choice in choices:
+            # 剪枝：判断选择是否合法
+            if is_valid(state, choice):
+                # 尝试：做出选择，更新状态
+                make_choice(state, choice)
+                backtrack(state, choices, res)
+                # 回退：撤销选择，恢复到之前的状态
+                undo_choice(state, choice)
     ```
 
 === "C++"
@@ -351,26 +347,56 @@
     }
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title=""
-    def backtrack(state: State, choices: list[choice], res: list[state]):
-        """回溯算法框架"""
-        # 判断是否为解
-        if is_solution(state):
-            # 记录解
-            record_solution(state, res)
-            # 停止继续搜索
-            return
-        # 遍历所有选择
-        for choice in choices:
-            # 剪枝：判断选择是否合法
-            if is_valid(state, choice):
-                # 尝试：做出选择，更新状态
-                make_choice(state, choice)
-                backtrack(state, choices, res)
-                # 回退：撤销选择，恢复到之前的状态
-                undo_choice(state, choice)
+    ```java title=""
+    /* 回溯算法框架 */
+    void backtrack(State state, List<Choice> choices, List<State> res) {
+        // 判断是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res);
+            // 停止继续搜索
+            return;
+        }
+        // 遍历所有选择
+        for (Choice choice : choices) {
+            // 剪枝：判断选择是否合法
+            if (isValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, choice);
+                backtrack(state, choices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, choice);
+            }
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title=""
+    /* 回溯算法框架 */
+    void Backtrack(State state, List<Choice> choices, List<State> res) {
+        // 判断是否为解
+        if (IsSolution(state)) {
+            // 记录解
+            RecordSolution(state, res);
+            // 停止继续搜索
+            return;
+        }
+        // 遍历所有选择
+        foreach (Choice choice in choices) {
+            // 剪枝：判断选择是否合法
+            if (IsValid(state, choice)) {
+                // 尝试：做出选择，更新状态
+                MakeChoice(state, choice);
+                Backtrack(state, choices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                UndoChoice(state, choice);
+            }
+        }
+    }
     ```
 
 === "Go"
@@ -394,6 +420,32 @@
                 backtrack(state, choices, res)
                 // 回退：撤销选择，恢复到之前的状态
                 undoChoice(state, choice)
+            }
+        }
+    }
+    ```
+
+=== "Swift"
+
+    ```swift title=""
+    /* 回溯算法框架 */
+    func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
+        // 判断是否为解
+        if isSolution(state: state) {
+            // 记录解
+            recordSolution(state: state, res: &res)
+            // 停止继续搜索
+            return
+        }
+        // 遍历所有选择
+        for choice in choices {
+            // 剪枝：判断选择是否合法
+            if isValid(state: state, choice: choice) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state: &state, choice: choice)
+                backtrack(state: &state, choices: choices, res: &res)
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state: &state, choice: choice)
             }
         }
     }
@@ -451,90 +503,6 @@
     }
     ```
 
-=== "C"
-
-    ```c title=""
-    /* 回溯算法框架 */
-    void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
-        // 判断是否为解
-        if (isSolution(state)) {
-            // 记录解
-            recordSolution(state, res, numRes);
-            // 停止继续搜索
-            return;
-        }
-        // 遍历所有选择
-        for (int i = 0; i < numChoices; i++) {
-            // 剪枝：判断选择是否合法
-            if (isValid(state, &choices[i])) {
-                // 尝试：做出选择，更新状态
-                makeChoice(state, &choices[i]);
-                backtrack(state, choices, numChoices, res, numRes);
-                // 回退：撤销选择，恢复到之前的状态
-                undoChoice(state, &choices[i]);
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* 回溯算法框架 */
-    void backtrack(State state, List<Choice> choices, List<State> res) {
-        // 判断是否为解
-        if (isSolution(state)) {
-            // 记录解
-            recordSolution(state, res);
-            // 停止继续搜索
-            return;
-        }
-        // 遍历所有选择
-        foreach (Choice choice in choices) {
-            // 剪枝：判断选择是否合法
-            if (isValid(state, choice)) {
-                // 尝试：做出选择，更新状态
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 回退：撤销选择，恢复到之前的状态
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* 回溯算法框架 */
-    func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
-        // 判断是否为解
-        if isSolution(state: state) {
-            // 记录解
-            recordSolution(state: state, res: &res)
-            // 停止继续搜索
-            return
-        }
-        // 遍历所有选择
-        for choice in choices {
-            // 剪枝：判断选择是否合法
-            if isValid(state: state, choice: choice) {
-                // 尝试：做出选择，更新状态
-                makeChoice(state: &state, choice: choice)
-                backtrack(state: &state, choices: choices, res: &res)
-                // 回退：撤销选择，恢复到之前的状态
-                undoChoice(state: &state, choice: choice)
-            }
-        }
-    }
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
 === "Dart"
 
     ```dart title=""
@@ -564,25 +532,77 @@
 === "Rust"
 
     ```rust title=""
+    /* 回溯算法框架 */
+    fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
+        // 判断是否为解
+        if is_solution(state) {
+            // 记录解
+            record_solution(state, res);
+            // 停止继续搜索
+            return;
+        }
+        // 遍历所有选择
+        for choice in choices {
+            // 剪枝：判断选择是否合法
+            if is_valid(state, choice) {
+                // 尝试：做出选择，更新状态
+                make_choice(state, choice);
+                backtrack(state, choices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undo_choice(state, choice);
+            }
+        }
+    }
+    ```
+
+=== "C"
+
+    ```c title=""
+    /* 回溯算法框架 */
+    void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
+        // 判断是否为解
+        if (isSolution(state)) {
+            // 记录解
+            recordSolution(state, res, numRes);
+            // 停止继续搜索
+            return;
+        }
+        // 遍历所有选择
+        for (int i = 0; i < numChoices; i++) {
+            // 剪枝：判断选择是否合法
+            if (isValid(state, &choices[i])) {
+                // 尝试：做出选择，更新状态
+                makeChoice(state, &choices[i]);
+                backtrack(state, choices, numChoices, res, numRes);
+                // 回退：撤销选择，恢复到之前的状态
+                undoChoice(state, &choices[i]);
+            }
+        }
+    }
+    ```
+
+=== "Zig"
+
+    ```zig title=""
 
     ```
 
 接下来，我们基于框架代码来解决例题三。状态 `state` 为节点遍历路径，选择 `choices` 为当前节点的左子节点和右子节点，结果 `res` 是路径列表。
 
-=== "Java"
+=== "Python"
 
-    ```java title="preorder_traversal_iii_template.java"
-    [class]{preorder_traversal_iii_template}-[func]{isSolution}
+    ```python title="preorder_traversal_iii_template.py"
+    [class]{}-[func]{is_solution}
 
-    [class]{preorder_traversal_iii_template}-[func]{recordSolution}
+    [class]{}-[func]{record_solution}
 
-    [class]{preorder_traversal_iii_template}-[func]{isValid}
+    [class]{}-[func]{is_valid}
 
-    [class]{preorder_traversal_iii_template}-[func]{makeChoice}
+    [class]{}-[func]{make_choice}
 
-    [class]{preorder_traversal_iii_template}-[func]{undoChoice}
+    [class]{}-[func]{undo_choice}
 
-    [class]{preorder_traversal_iii_template}-[func]{backtrack}
+    [class]{}-[func]{backtrack}
     ```
 
 === "C++"
@@ -601,20 +621,36 @@
     [class]{}-[func]{backtrack}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="preorder_traversal_iii_template.py"
-    [class]{}-[func]{is_solution}
+    ```java title="preorder_traversal_iii_template.java"
+    [class]{preorder_traversal_iii_template}-[func]{isSolution}
 
-    [class]{}-[func]{record_solution}
+    [class]{preorder_traversal_iii_template}-[func]{recordSolution}
 
-    [class]{}-[func]{is_valid}
+    [class]{preorder_traversal_iii_template}-[func]{isValid}
 
-    [class]{}-[func]{make_choice}
+    [class]{preorder_traversal_iii_template}-[func]{makeChoice}
 
-    [class]{}-[func]{undo_choice}
+    [class]{preorder_traversal_iii_template}-[func]{undoChoice}
 
-    [class]{}-[func]{backtrack}
+    [class]{preorder_traversal_iii_template}-[func]{backtrack}
+    ```
+
+=== "C#"
+
+    ```csharp title="preorder_traversal_iii_template.cs"
+    [class]{preorder_traversal_iii_template}-[func]{IsSolution}
+
+    [class]{preorder_traversal_iii_template}-[func]{RecordSolution}
+
+    [class]{preorder_traversal_iii_template}-[func]{IsValid}
+
+    [class]{preorder_traversal_iii_template}-[func]{MakeChoice}
+
+    [class]{preorder_traversal_iii_template}-[func]{UndoChoice}
+
+    [class]{preorder_traversal_iii_template}-[func]{Backtrack}
     ```
 
 === "Go"
@@ -631,6 +667,22 @@
     [class]{}-[func]{undoChoice}
 
     [class]{}-[func]{backtrackIII}
+    ```
+
+=== "Swift"
+
+    ```swift title="preorder_traversal_iii_template.swift"
+    [class]{}-[func]{isSolution}
+
+    [class]{}-[func]{recordSolution}
+
+    [class]{}-[func]{isValid}
+
+    [class]{}-[func]{makeChoice}
+
+    [class]{}-[func]{undoChoice}
+
+    [class]{}-[func]{backtrack}
     ```
 
 === "JS"
@@ -652,70 +704,6 @@
 === "TS"
 
     ```typescript title="preorder_traversal_iii_template.ts"
-    [class]{}-[func]{isSolution}
-
-    [class]{}-[func]{recordSolution}
-
-    [class]{}-[func]{isValid}
-
-    [class]{}-[func]{makeChoice}
-
-    [class]{}-[func]{undoChoice}
-
-    [class]{}-[func]{backtrack}
-    ```
-
-=== "C"
-
-    ```c title="preorder_traversal_iii_template.c"
-    [class]{}-[func]{isSolution}
-
-    [class]{}-[func]{recordSolution}
-
-    [class]{}-[func]{isValid}
-
-    [class]{}-[func]{makeChoice}
-
-    [class]{}-[func]{undoChoice}
-
-    [class]{}-[func]{backtrack}
-    ```
-
-=== "C#"
-
-    ```csharp title="preorder_traversal_iii_template.cs"
-    [class]{preorder_traversal_iii_template}-[func]{isSolution}
-
-    [class]{preorder_traversal_iii_template}-[func]{recordSolution}
-
-    [class]{preorder_traversal_iii_template}-[func]{isValid}
-
-    [class]{preorder_traversal_iii_template}-[func]{makeChoice}
-
-    [class]{preorder_traversal_iii_template}-[func]{undoChoice}
-
-    [class]{preorder_traversal_iii_template}-[func]{backtrack}
-    ```
-
-=== "Swift"
-
-    ```swift title="preorder_traversal_iii_template.swift"
-    [class]{}-[func]{isSolution}
-
-    [class]{}-[func]{recordSolution}
-
-    [class]{}-[func]{isValid}
-
-    [class]{}-[func]{makeChoice}
-
-    [class]{}-[func]{undoChoice}
-
-    [class]{}-[func]{backtrack}
-    ```
-
-=== "Zig"
-
-    ```zig title="preorder_traversal_iii_template.zig"
     [class]{}-[func]{isSolution}
 
     [class]{}-[func]{recordSolution}
@@ -761,7 +749,39 @@
     [class]{}-[func]{backtrack}
     ```
 
-根据题意，当找到值为 7 的节点后应该继续搜索，**因此我们需要将记录解之后的 `return` 语句删除**。下图对比了保留或删除 `return` 语句的搜索过程。
+=== "C"
+
+    ```c title="preorder_traversal_iii_template.c"
+    [class]{}-[func]{isSolution}
+
+    [class]{}-[func]{recordSolution}
+
+    [class]{}-[func]{isValid}
+
+    [class]{}-[func]{makeChoice}
+
+    [class]{}-[func]{undoChoice}
+
+    [class]{}-[func]{backtrack}
+    ```
+
+=== "Zig"
+
+    ```zig title="preorder_traversal_iii_template.zig"
+    [class]{}-[func]{isSolution}
+
+    [class]{}-[func]{recordSolution}
+
+    [class]{}-[func]{isValid}
+
+    [class]{}-[func]{makeChoice}
+
+    [class]{}-[func]{undoChoice}
+
+    [class]{}-[func]{backtrack}
+    ```
+
+根据题意，我们在找到值为 $7$ 的节点后应该继续搜索，**因此需要将记录解之后的 `return` 语句删除**。下图对比了保留或删除 `return` 语句的搜索过程。
 
 ![保留与删除 return 的搜索过程对比](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
 
@@ -771,10 +791,12 @@
 
 为了更清晰地分析算法问题，我们总结一下回溯算法中常用术语的含义，并对照例题三给出对应示例。
 
+<p align="center"> 表 <id> &nbsp; 常见的回溯算法术语 </p>
+
 | 名词                | 定义                                                                       | 例题三                                                               |
 | ------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | 解 Solution         | 解是满足问题特定条件的答案，可能有一个或多个                               | 根节点到节点 $7$ 的满足约束条件的所有路径                            |
-| 约束条件 Constraint | 约束条件是问题中限制解的可行性的条件，通常用于剪枝                         | 路径中不包含节点 $3$ ，只包含一个节点 $7$                            |
+| 约束条件 Constraint | 约束条件是问题中限制解的可行性的条件，通常用于剪枝                         | 路径中不包含节点 $3$                                                 |
 | 状态 State          | 状态表示问题在某一时刻的情况，包括已经做出的选择                           | 当前已访问的节点路径，即 `path` 节点列表                             |
 | 尝试 Attempt        | 尝试是根据可用选择来探索解空间的过程，包括做出选择，更新状态，检查是否为解 | 递归访问左（右）子节点，将节点添加进 `path` ，判断节点的值是否为 $7$ |
 | 回退 Backtracking   | 回退指遇到不满足约束条件的状态时，撤销前面做出的选择，回到上一个状态       | 当越过叶结点、结束结点访问、遇到值为 $3$ 的节点时终止搜索，函数返回  |
@@ -793,7 +815,7 @@
 - **时间**：回溯算法通常需要遍历状态空间的所有可能，时间复杂度可以达到指数阶或阶乘阶。
 - **空间**：在递归调用中需要保存当前的状态（例如路径、用于剪枝的辅助变量等），当深度很大时，空间需求可能会变得很大。
 
-即便如此，**回溯算法仍然是某些搜索问题和约束满足问题的最佳解决方案**。对于这些问题，由于无法预测哪些选择可生成有效的解，因此我们必须对所有可能的选择进行遍历。在这种情况下，**关键是如何进行效率优化**，常见方法有：
+即便如此，**回溯算法仍然是某些搜索问题和约束满足问题的最佳解决方案**。对于这些问题，由于无法预测哪些选择可生成有效的解，因此我们必须对所有可能的选择进行遍历。在这种情况下，**关键是如何进行效率优化**，常见的效率优化方法有两种。
 
 - **剪枝**：避免搜索那些肯定不会产生解的路径，从而节省时间和空间。
 - **启发式搜索**：在搜索过程中引入一些策略或者估计值，从而优先搜索最有可能产生有效解的路径。
@@ -820,7 +842,7 @@
 - 旅行商问题：在一个图中，从一个点出发，访问所有其他点恰好一次后返回起点，求最短路径。
 - 最大团问题：给定一个无向图，找到最大的完全子图，即子图中的任意两个顶点之间都有边相连。
 
-请注意，对于许多组合优化问题，回溯都不是最优解决方案，例如：
+请注意，对于许多组合优化问题，回溯都不是最优解决方案。
 
 - 0-1 背包问题通常使用动态规划解决，以达到更高的时间效率。
 - 旅行商是一个著名的 NP-Hard 问题，常用解法有遗传算法和蚁群算法等。

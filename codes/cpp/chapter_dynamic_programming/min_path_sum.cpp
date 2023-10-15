@@ -17,8 +17,8 @@ int minPathSumDFS(vector<vector<int>> &grid, int i, int j) {
         return INT_MAX;
     }
     // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-    int left = minPathSumDFS(grid, i - 1, j);
-    int up = minPathSumDFS(grid, i, j - 1);
+    int up = minPathSumDFS(grid, i - 1, j);
+    int left = minPathSumDFS(grid, i, j - 1);
     // 返回从左上角到 (i, j) 的最小路径代价
     return min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
 }
@@ -38,8 +38,8 @@ int minPathSumDFSMem(vector<vector<int>> &grid, vector<vector<int>> &mem, int i,
         return mem[i][j];
     }
     // 左边和上边单元格的最小路径代价
-    int left = minPathSumDFSMem(grid, mem, i - 1, j);
-    int up = minPathSumDFSMem(grid, mem, i, j - 1);
+    int up = minPathSumDFSMem(grid, mem, i - 1, j);
+    int left = minPathSumDFSMem(grid, mem, i, j - 1);
     // 记录并返回左上角到 (i, j) 的最小路径代价
     mem[i][j] = min(left, up) != INT_MAX ? min(left, up) + grid[i][j] : INT_MAX;
     return mem[i][j];
@@ -68,7 +68,7 @@ int minPathSumDP(vector<vector<int>> &grid) {
     return dp[n - 1][m - 1];
 }
 
-/* 最小路径和：状态压缩后的动态规划 */
+/* 最小路径和：空间优化后的动态规划 */
 int minPathSumDPComp(vector<vector<int>> &grid) {
     int n = grid.size(), m = grid[0].size();
     // 初始化 dp 表
@@ -108,7 +108,7 @@ int main() {
     res = minPathSumDP(grid);
     cout << "从左上角到右下角的最小路径和为 " << res << endl;
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     res = minPathSumDPComp(grid);
     cout << "从左上角到右下角的最小路径和为 " << res << endl;
 

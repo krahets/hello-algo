@@ -6,6 +6,8 @@ let package = Package(
     name: "HelloAlgo",
     products: [
         // chapter_computational_complexity
+        .executable(name: "iteration", targets: ["iteration"]),
+        .executable(name: "recursion", targets: ["recursion"]),
         .executable(name: "time_complexity", targets: ["time_complexity"]),
         .executable(name: "worst_best_time_complexity", targets: ["worst_best_time_complexity"]),
         .executable(name: "space_complexity", targets: ["space_complexity"]),
@@ -63,6 +65,10 @@ let package = Package(
         .executable(name: "bucket_sort", targets: ["bucket_sort"]),
         .executable(name: "counting_sort", targets: ["counting_sort"]),
         .executable(name: "radix_sort", targets: ["radix_sort"]),
+        // chapter_divide_and_conquer
+        .executable(name: "binary_search_recur", targets: ["binary_search_recur"]),
+        .executable(name: "build_tree", targets: ["build_tree"]),
+        .executable(name: "hanota", targets: ["hanota"]),
         // chapter_backtracking
         .executable(name: "preorder_traversal_i_compact", targets: ["preorder_traversal_i_compact"]),
         .executable(name: "preorder_traversal_ii_compact", targets: ["preorder_traversal_ii_compact"]),
@@ -87,6 +93,11 @@ let package = Package(
         .executable(name: "coin_change", targets: ["coin_change"]),
         .executable(name: "coin_change_ii", targets: ["coin_change_ii"]),
         .executable(name: "edit_distance", targets: ["edit_distance"]),
+        // chapter_greedy
+        .executable(name: "coin_change_greedy", targets: ["coin_change_greedy"]),
+        .executable(name: "fractional_knapsack", targets: ["fractional_knapsack"]),
+        .executable(name: "max_capacity", targets: ["max_capacity"]),
+        .executable(name: "max_product_cutting", targets: ["max_product_cutting"]),
     ],
     targets: [
         // helper
@@ -94,6 +105,8 @@ let package = Package(
         .target(name: "graph_adjacency_list_target", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_list_target.swift"], swiftSettings: [.define("TARGET")]),
         .target(name: "binary_search_insertion_target", path: "chapter_searching", sources: ["binary_search_insertion_target.swift"], swiftSettings: [.define("TARGET")]),
         // chapter_computational_complexity
+        .executableTarget(name: "iteration", path: "chapter_computational_complexity", sources: ["iteration.swift"]),
+        .executableTarget(name: "recursion", path: "chapter_computational_complexity", sources: ["recursion.swift"]),
         .executableTarget(name: "time_complexity", path: "chapter_computational_complexity", sources: ["time_complexity.swift"]),
         .executableTarget(name: "worst_best_time_complexity", path: "chapter_computational_complexity", sources: ["worst_best_time_complexity.swift"]),
         .executableTarget(name: "space_complexity", dependencies: ["utils"], path: "chapter_computational_complexity", sources: ["space_complexity.swift"]),
@@ -151,6 +164,10 @@ let package = Package(
         .executableTarget(name: "bucket_sort", path: "chapter_sorting", sources: ["bucket_sort.swift"]),
         .executableTarget(name: "counting_sort", path: "chapter_sorting", sources: ["counting_sort.swift"]),
         .executableTarget(name: "radix_sort", path: "chapter_sorting", sources: ["radix_sort.swift"]),
+        // chapter_divide_and_conquer
+        .executableTarget(name: "binary_search_recur", path: "chapter_divide_and_conquer", sources: ["binary_search_recur.swift"]),
+        .executableTarget(name: "build_tree", dependencies: ["utils"], path: "chapter_divide_and_conquer", sources: ["build_tree.swift"]),
+        .executableTarget(name: "hanota", path: "chapter_divide_and_conquer", sources: ["hanota.swift"]),
         // chapter_backtracking
         .executableTarget(name: "preorder_traversal_i_compact", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_i_compact.swift"]),
         .executableTarget(name: "preorder_traversal_ii_compact", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_ii_compact.swift"]),
@@ -175,5 +192,10 @@ let package = Package(
         .executableTarget(name: "coin_change", path: "chapter_dynamic_programming", sources: ["coin_change.swift"]),
         .executableTarget(name: "coin_change_ii", path: "chapter_dynamic_programming", sources: ["coin_change_ii.swift"]),
         .executableTarget(name: "edit_distance", path: "chapter_dynamic_programming", sources: ["edit_distance.swift"]),
+        // chapter_greedy
+        .executableTarget(name: "coin_change_greedy", path: "chapter_greedy", sources: ["coin_change_greedy.swift"]),
+        .executableTarget(name: "fractional_knapsack", path: "chapter_greedy", sources: ["fractional_knapsack.swift"]),
+        .executableTarget(name: "max_capacity", path: "chapter_greedy", sources: ["max_capacity.swift"]),
+        .executableTarget(name: "max_product_cutting", path: "chapter_greedy", sources: ["max_product_cutting.swift"]),
     ]
 )

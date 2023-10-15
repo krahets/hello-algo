@@ -9,32 +9,18 @@ namespace hello_algo.chapter_tree;
 class BinarySearchTree {
     TreeNode? root;
 
-    public BinarySearchTree(int[] nums) {
-        Array.Sort(nums); // 排序数组
-        root = buildTree(nums, 0, nums.Length - 1);  // 构建二叉搜索树
+    public BinarySearchTree() {
+        // 初始化空树
+        root = null;
     }
 
     /* 获取二叉树根节点 */
-    public TreeNode? getRoot() {
-        return root;
-    }
-
-    /* 构建二叉搜索树 */
-    public TreeNode? buildTree(int[] nums, int i, int j) {
-        if (i > j)
-            return null;
-        // 将数组中间节点作为根节点
-        int mid = (i + j) / 2;
-        TreeNode root = new TreeNode(nums[mid]);
-        // 递归建立左子树和右子树
-        root.left = buildTree(nums, i, mid - 1);
-        root.right = buildTree(nums, mid + 1, j);
-
+    public TreeNode? GetRoot() {
         return root;
     }
 
     /* 查找节点 */
-    public TreeNode? search(int num) {
+    public TreeNode? Search(int num) {
         TreeNode? cur = root;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
@@ -53,10 +39,12 @@ class BinarySearchTree {
     }
 
     /* 插入节点 */
-    public void insert(int num) {
-        // 若树为空，直接提前返回
-        if (root == null)
+    public void Insert(int num) {
+        // 若树为空，则初始化根节点
+        if (root == null) {
+            root = new TreeNode(num);
             return;
+        }
         TreeNode? cur = root, pre = null;
         // 循环查找，越过叶节点后跳出
         while (cur != null) {
@@ -73,7 +61,7 @@ class BinarySearchTree {
         }
 
         // 插入节点
-        TreeNode node = new TreeNode(num);
+        TreeNode node = new(num);
         if (pre != null) {
             if (pre.val < num)
                 pre.right = node;
@@ -84,7 +72,7 @@ class BinarySearchTree {
 
 
     /* 删除节点 */
-    public void remove(int num) {
+    public void Remove(int num) {
         // 若树为空，直接提前返回
         if (root == null)
             return;
@@ -103,12 +91,12 @@ class BinarySearchTree {
                 cur = cur.left;
         }
         // 若无待删除节点，则直接返回
-        if (cur == null || pre == null)
+        if (cur == null)
             return;
         // 子节点数量 = 0 or 1
         if (cur.left == null || cur.right == null) {
             // 当子节点数量 = 0 / 1 时， child = null / 该子节点
-            TreeNode? child = cur.left != null ? cur.left : cur.right;
+            TreeNode? child = cur.left ?? cur.right;
             // 删除节点 cur
             if (cur != root) {
                 if (pre.left == cur)
@@ -128,7 +116,7 @@ class BinarySearchTree {
                 tmp = tmp.left;
             }
             // 递归删除节点 tmp
-            remove(tmp.val);
+            Remove(tmp.val);
             // 用 tmp 覆盖 cur
             cur.val = tmp.val;
         }
@@ -139,29 +127,34 @@ public class binary_search_tree {
     [Test]
     public void Test() {
         /* 初始化二叉搜索树 */
-        int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
-        BinarySearchTree bst = new BinarySearchTree(nums);
+        BinarySearchTree bst = new();
+        // 请注意，不同的插入顺序会生成不同的二叉树，该序列可以生成一个完美二叉树
+        int[] nums = { 8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15 };
+        foreach (int num in nums) {
+            bst.Insert(num);
+        }
+
         Console.WriteLine("\n初始化的二叉树为\n");
-        PrintUtil.PrintTree(bst.getRoot());
+        PrintUtil.PrintTree(bst.GetRoot());
 
         /* 查找节点 */
-        TreeNode? node = bst.search(7);
+        TreeNode? node = bst.Search(7);
         Console.WriteLine("\n查找到的节点对象为 " + node + "，节点值 = " + node.val);
 
         /* 插入节点 */
-        bst.insert(16);
+        bst.Insert(16);
         Console.WriteLine("\n插入节点 16 后，二叉树为\n");
-        PrintUtil.PrintTree(bst.getRoot());
+        PrintUtil.PrintTree(bst.GetRoot());
 
         /* 删除节点 */
-        bst.remove(1);
+        bst.Remove(1);
         Console.WriteLine("\n删除节点 1 后，二叉树为\n");
-        PrintUtil.PrintTree(bst.getRoot());
-        bst.remove(2);
+        PrintUtil.PrintTree(bst.GetRoot());
+        bst.Remove(2);
         Console.WriteLine("\n删除节点 2 后，二叉树为\n");
-        PrintUtil.PrintTree(bst.getRoot());
-        bst.remove(4);
+        PrintUtil.PrintTree(bst.GetRoot());
+        bst.Remove(4);
         Console.WriteLine("\n删除节点 4 后，二叉树为\n");
-        PrintUtil.PrintTree(bst.getRoot());
+        PrintUtil.PrintTree(bst.GetRoot());
     }
 }

@@ -12,8 +12,7 @@ from modules import *
 
 def dfs(
     preorder: list[int],
-    inorder: list[int],
-    hmap: dict[int, int],
+    inorder_map: dict[int, int],
     i: int,
     l: int,
     r: int,
@@ -25,11 +24,11 @@ def dfs(
     # 初始化根节点
     root = TreeNode(preorder[i])
     # 查询 m ，从而划分左右子树
-    m = hmap[preorder[i]]
+    m = inorder_map[preorder[i]]
     # 子问题：构建左子树
-    root.left = dfs(preorder, inorder, hmap, i + 1, l, m - 1)
+    root.left = dfs(preorder, inorder_map, i + 1, l, m - 1)
     # 子问题：构建右子树
-    root.right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r)
+    root.right = dfs(preorder, inorder_map, i + 1 + m - l, m + 1, r)
     # 返回根节点
     return root
 
@@ -37,8 +36,8 @@ def dfs(
 def build_tree(preorder: list[int], inorder: list[int]) -> TreeNode | None:
     """构建二叉树"""
     # 初始化哈希表，存储 inorder 元素到索引的映射
-    hmap = {val: i for i, val in enumerate(inorder)}
-    root = dfs(preorder, inorder, hmap, 0, 0, len(inorder) - 1)
+    inorder_map = {val: i for i, val in enumerate(inorder)}
+    root = dfs(preorder, inorder_map, 0, 0, len(inorder) - 1)
     return root
 
 

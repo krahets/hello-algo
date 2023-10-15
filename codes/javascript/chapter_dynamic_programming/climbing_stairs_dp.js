@@ -19,7 +19,7 @@ function climbingStairsDP(n) {
     return dp[n];
 }
 
-/* 爬楼梯：状态压缩后的动态规划 */
+/* 爬楼梯：空间优化后的动态规划 */
 function climbingStairsDPComp(n) {
     if (n === 1 || n === 2) return n;
     let a = 1,
@@ -38,4 +38,3 @@ let res = climbingStairsDP(n);
 console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
 res = climbingStairsDPComp(n);
 console.log(`爬 ${n} 阶楼梯共有 ${res} 种方案`);
-

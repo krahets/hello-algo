@@ -26,7 +26,7 @@ int unboundedKnapsackDP(vector<int> &wgt, vector<int> &val, int cap) {
     return dp[n][cap];
 }
 
-/* 完全背包：状态压缩后的动态规划 */
+/* 完全背包：空间优化后的动态规划 */
 int unboundedKnapsackDPComp(vector<int> &wgt, vector<int> &val, int cap) {
     int n = wgt.size();
     // 初始化 dp 表
@@ -56,7 +56,7 @@ int main() {
     int res = unboundedKnapsackDP(wgt, val, cap);
     cout << "不超过背包容量的最大物品价值为 " << res << endl;
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     res = unboundedKnapsackDPComp(wgt, val, cap);
     cout << "不超过背包容量的最大物品价值为 " << res << endl;
 

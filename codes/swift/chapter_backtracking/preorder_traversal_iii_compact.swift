@@ -20,8 +20,6 @@ func preOrder(root: TreeNode?) {
     if root.val == 7 {
         // 记录解
         res.append(path)
-        path.removeLast()
-        return
     }
     preOrder(root: root.left)
     preOrder(root: root.right)

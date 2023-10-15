@@ -29,7 +29,7 @@ func unboundedKnapsackDP(wgt, val []int, cap int) int {
 	return dp[n][cap]
 }
 
-/* 完全背包：状态压缩后的动态规划 */
+/* 完全背包：空间优化后的动态规划 */
 func unboundedKnapsackDPComp(wgt, val []int, cap int) int {
 	n := len(wgt)
 	// 初始化 dp 表

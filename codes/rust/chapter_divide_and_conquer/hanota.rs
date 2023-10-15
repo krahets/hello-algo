@@ -30,7 +30,7 @@ fn dfs(i: i32, src: &mut Vec<i32>, buf: &mut Vec<i32>, tar: &mut Vec<i32>) {
 }
 
 /* 求解汉诺塔 */
-fn hanota(A: &mut Vec<i32>, B: &mut Vec<i32>, C: &mut Vec<i32>) {
+fn solve_hanota(A: &mut Vec<i32>, B: &mut Vec<i32>, C: &mut Vec<i32>) {
     let n = A.len() as i32;
     // 将 A 顶部 n 个圆盘借助 B 移到 C
     dfs(n, A, B, C);
@@ -46,7 +46,7 @@ pub fn main() {
     println!("B = {:?}", B);
     println!("C = {:?}", C);
 
-    hanota(&mut A, &mut B, &mut C);
+    solve_hanota(&mut A, &mut B, &mut C);
 
     println!("圆盘移动完成后：");
     println!("A = {:?}", A);

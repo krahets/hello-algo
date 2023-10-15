@@ -74,8 +74,9 @@ impl BinarySearchTree {
 
     /* 插入节点 */
     pub fn insert(&mut self, num: i32) {
-        // 若树为空，直接提前返回
+        // 若树为空，则初始化根节点
         if self.root.is_none() {
+            self.root = Some(TreeNode::new(num));
             return;
         }
         let mut cur = self.root.clone();

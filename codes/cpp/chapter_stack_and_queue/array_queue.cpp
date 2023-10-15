@@ -37,7 +37,7 @@ class ArrayQueue {
     }
 
     /* 判断队列是否为空 */
-    bool empty() {
+    bool isEmpty() {
         return size() == 0;
     }
 
@@ -65,7 +65,7 @@ class ArrayQueue {
 
     /* 访问队首元素 */
     int peek() {
-        if (empty())
+        if (isEmpty())
             throw out_of_range("队列为空");
         return nums[front];
     }
@@ -110,7 +110,7 @@ int main() {
     cout << "队列长度 size = " << size << endl;
 
     /* 判断队列是否为空 */
-    bool empty = queue->empty();
+    bool empty = queue->isEmpty();
     cout << "队列是否为空 = " << empty << endl;
 
     /* 测试环形数组 */

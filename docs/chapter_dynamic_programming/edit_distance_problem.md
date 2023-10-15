@@ -20,16 +20,18 @@
 
 ![基于决策树模型表示编辑距离问题](edit_distance_problem.assets/edit_distance_decision_tree.png)
 
+### 动态规划思路
+
 **第一步：思考每轮的决策，定义状态，从而得到 $dp$ 表**
 
 每一轮的决策是对字符串 $s$ 进行一次编辑操作。
 
-我们希望在编辑操作的过程中，问题的规模逐渐缩小，这样才能构建子问题。设字符串 $s$ 和 $t$ 的长度分别为 $n$ 和 $m$ ，我们先考虑两字符串尾部的字符 $s[n-1]$ 和 $t[m-1]$ ：
+我们希望在编辑操作的过程中，问题的规模逐渐缩小，这样才能构建子问题。设字符串 $s$ 和 $t$ 的长度分别为 $n$ 和 $m$ ，我们先考虑两字符串尾部的字符 $s[n-1]$ 和 $t[m-1]$ 。
 
 - 若 $s[n-1]$ 和 $t[m-1]$ 相同，我们可以跳过它们，直接考虑 $s[n-2]$ 和 $t[m-2]$ 。
 - 若 $s[n-1]$ 和 $t[m-1]$ 不同，我们需要对 $s$ 进行一次编辑（插入、删除、替换），使得两字符串尾部的字符相同，从而可以跳过它们，考虑规模更小的问题。
 
-也就是说，我们在字符串 $s$ 中进行的每一轮决策（编辑操作），都会使得 $s$ 和 $t$ 中剩余的待匹配字符发生变化。因此，状态为当前在 $s$ , $t$ 中考虑的第 $i$ , $j$ 个字符，记为 $[i, j]$ 。
+也就是说，我们在字符串 $s$ 中进行的每一轮决策（编辑操作），都会使得 $s$ 和 $t$ 中剩余的待匹配字符发生变化。因此，状态为当前在 $s$ 和 $t$ 中考虑的第 $i$ 和 $j$ 个字符，记为 $[i, j]$ 。
 
 状态 $[i, j]$ 对应的子问题：**将 $s$ 的前 $i$ 个字符更改为 $t$ 的前 $j$ 个字符所需的最少编辑步数**。
 
@@ -37,7 +39,7 @@
 
 **第二步：找出最优子结构，进而推导出状态转移方程**
 
-考虑子问题 $dp[i, j]$ ，其对应的两个字符串的尾部字符为 $s[i-1]$ 和 $t[j-1]$ ，可根据不同编辑操作分为三种情况：
+考虑子问题 $dp[i, j]$ ，其对应的两个字符串的尾部字符为 $s[i-1]$ 和 $t[j-1]$ ，可根据不同编辑操作分为下图所示的三种情况。
 
 1. 在 $s[i-1]$ 之后添加 $t[j-1]$ ，则剩余子问题 $dp[i, j-1]$ 。
 2. 删除 $s[i-1]$ ，则剩余子问题 $dp[i-1, j]$ 。
@@ -45,13 +47,13 @@
 
 ![编辑距离的状态转移](edit_distance_problem.assets/edit_distance_state_transfer.png)
 
-根据以上分析，可得最优子结构：$dp[i, j]$ 的最少编辑步数等于 $dp[i, j-1]$ , $dp[i-1, j]$ , $dp[i-1, j-1]$ 三者中的最少编辑步数，再加上本次的编辑步数 $1$ 。对应的状态转移方程为：
+根据以上分析，可得最优子结构：$dp[i, j]$ 的最少编辑步数等于 $dp[i, j-1]$、$dp[i-1, j]$、$dp[i-1, j-1]$ 三者中的最少编辑步数，再加上本次的编辑步数 $1$ 。对应的状态转移方程为：
 
 $$
 dp[i, j] = \min(dp[i, j-1], dp[i-1, j], dp[i-1, j-1]) + 1
 $$
 
-请注意，**当 $s[i-1]$ 和 $t[j-1]$ 相同时，无需编辑当前字符**，这种情况下的状态转移方程为：
+请注意，**当 $s[i-1]$ 和 $t[j-1]$ 相同时，无须编辑当前字符**，这种情况下的状态转移方程为：
 
 $$
 dp[i, j] = dp[i-1, j-1]
@@ -65,10 +67,10 @@ $$
 
 ### 代码实现
 
-=== "Java"
+=== "Python"
 
-    ```java title="edit_distance.java"
-    [class]{edit_distance}-[func]{editDistanceDP}
+    ```python title="edit_distance.py"
+    [class]{}-[func]{edit_distance_dp}
     ```
 
 === "C++"
@@ -77,15 +79,27 @@ $$
     [class]{}-[func]{editDistanceDP}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="edit_distance.py"
-    [class]{}-[func]{edit_distance_dp}
+    ```java title="edit_distance.java"
+    [class]{edit_distance}-[func]{editDistanceDP}
+    ```
+
+=== "C#"
+
+    ```csharp title="edit_distance.cs"
+    [class]{edit_distance}-[func]{EditDistanceDP}
     ```
 
 === "Go"
 
     ```go title="edit_distance.go"
+    [class]{}-[func]{editDistanceDP}
+    ```
+
+=== "Swift"
+
+    ```swift title="edit_distance.swift"
     [class]{}-[func]{editDistanceDP}
     ```
 
@@ -101,30 +115,6 @@ $$
     [class]{}-[func]{editDistanceDP}
     ```
 
-=== "C"
-
-    ```c title="edit_distance.c"
-    [class]{}-[func]{editDistanceDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="edit_distance.cs"
-    [class]{edit_distance}-[func]{editDistanceDP}
-    ```
-
-=== "Swift"
-
-    ```swift title="edit_distance.swift"
-    [class]{}-[func]{editDistanceDP}
-    ```
-
-=== "Zig"
-
-    ```zig title="edit_distance.zig"
-    [class]{}-[func]{editDistanceDP}
-    ```
-
 === "Dart"
 
     ```dart title="edit_distance.dart"
@@ -135,6 +125,18 @@ $$
 
     ```rust title="edit_distance.rs"
     [class]{}-[func]{edit_distance_dp}
+    ```
+
+=== "C"
+
+    ```c title="edit_distance.c"
+    [class]{}-[func]{editDistanceDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="edit_distance.zig"
+    [class]{}-[func]{editDistanceDP}
     ```
 
 如下图所示，编辑距离问题的状态转移过程与背包问题非常类似，都可以看作是填写一个二维网格的过程。
@@ -184,16 +186,16 @@ $$
 === "<15>"
     ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.png)
 
-### 状态压缩
+### 空间优化
 
-由于 $dp[i,j]$ 是由上方 $dp[i-1, j]$ 、左方 $dp[i, j-1]$ 、左上方状态 $dp[i-1, j-1]$ 转移而来，而正序遍历会丢失左上方 $dp[i-1, j-1]$ ，倒序遍历无法提前构建 $dp[i, j-1]$ ，因此两种遍历顺序都不可取。
+由于 $dp[i,j]$ 是由上方 $dp[i-1, j]$、左方 $dp[i, j-1]$、左上方状态 $dp[i-1, j-1]$ 转移而来，而正序遍历会丢失左上方 $dp[i-1, j-1]$ ，倒序遍历无法提前构建 $dp[i, j-1]$ ，因此两种遍历顺序都不可取。
 
 为此，我们可以使用一个变量 `leftup` 来暂存左上方的解 $dp[i-1, j-1]$ ，从而只需考虑左方和上方的解。此时的情况与完全背包问题相同，可使用正序遍历。
 
-=== "Java"
+=== "Python"
 
-    ```java title="edit_distance.java"
-    [class]{edit_distance}-[func]{editDistanceDPComp}
+    ```python title="edit_distance.py"
+    [class]{}-[func]{edit_distance_dp_comp}
     ```
 
 === "C++"
@@ -202,15 +204,27 @@ $$
     [class]{}-[func]{editDistanceDPComp}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="edit_distance.py"
-    [class]{}-[func]{edit_distance_dp_comp}
+    ```java title="edit_distance.java"
+    [class]{edit_distance}-[func]{editDistanceDPComp}
+    ```
+
+=== "C#"
+
+    ```csharp title="edit_distance.cs"
+    [class]{edit_distance}-[func]{EditDistanceDPComp}
     ```
 
 === "Go"
 
     ```go title="edit_distance.go"
+    [class]{}-[func]{editDistanceDPComp}
+    ```
+
+=== "Swift"
+
+    ```swift title="edit_distance.swift"
     [class]{}-[func]{editDistanceDPComp}
     ```
 
@@ -226,30 +240,6 @@ $$
     [class]{}-[func]{editDistanceDPComp}
     ```
 
-=== "C"
-
-    ```c title="edit_distance.c"
-    [class]{}-[func]{editDistanceDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="edit_distance.cs"
-    [class]{edit_distance}-[func]{editDistanceDPComp}
-    ```
-
-=== "Swift"
-
-    ```swift title="edit_distance.swift"
-    [class]{}-[func]{editDistanceDPComp}
-    ```
-
-=== "Zig"
-
-    ```zig title="edit_distance.zig"
-    [class]{}-[func]{editDistanceDPComp}
-    ```
-
 === "Dart"
 
     ```dart title="edit_distance.dart"
@@ -260,4 +250,16 @@ $$
 
     ```rust title="edit_distance.rs"
     [class]{}-[func]{edit_distance_dp_comp}
+    ```
+
+=== "C"
+
+    ```c title="edit_distance.c"
+    [class]{}-[func]{editDistanceDPComp}
+    ```
+
+=== "Zig"
+
+    ```zig title="edit_distance.zig"
+    [class]{}-[func]{editDistanceDPComp}
     ```

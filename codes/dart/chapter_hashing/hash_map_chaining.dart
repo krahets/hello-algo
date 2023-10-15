@@ -4,12 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 键值对 */
-class Pair {
-  int key;
-  String val;
-  Pair(this.key, this.val);
-}
+import 'array_hash_map.dart';
 
 /* 链式地址哈希表 */
 class HashMapChaining {
@@ -23,7 +18,7 @@ class HashMapChaining {
   HashMapChaining() {
     size = 0;
     capacity = 4;
-    loadThres = 2 / 3.0;
+    loadThres = 2.0 / 3.0;
     extendRatio = 2;
     buckets = List.generate(capacity, (_) => []);
   }

@@ -1,6 +1,6 @@
 # 二叉搜索树
 
-「二叉搜索树 Binary Search Tree」满足以下条件：
+如下图所示，「二叉搜索树 binary search tree」满足以下条件。
 
 1. 对于根节点，左子树中所有节点的值 $<$ 根节点的值 $<$ 右子树中所有节点的值。
 2. 任意节点的左、右子树也是二叉搜索树，即同样满足条件 `1.` 。
@@ -13,7 +13,7 @@
 
 ### 查找节点
 
-给定目标节点值 `num` ，可以根据二叉搜索树的性质来查找。我们声明一个节点 `cur` ，从二叉树的根节点 `root` 出发，循环比较节点值 `cur.val` 和 `num` 之间的大小关系
+给定目标节点值 `num` ，可以根据二叉搜索树的性质来查找。如下图所示，我们声明一个节点 `cur` ，从二叉树的根节点 `root` 出发，循环比较节点值 `cur.val` 和 `num` 之间的大小关系。
 
 - 若 `cur.val < num` ，说明目标节点在 `cur` 的右子树中，因此执行 `cur = cur.right` 。
 - 若 `cur.val > num` ，说明目标节点在 `cur` 的左子树中，因此执行 `cur = cur.left` 。
@@ -33,9 +33,9 @@
 
 二叉搜索树的查找操作与二分查找算法的工作原理一致，都是每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 $O(\log n)$ 时间。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_tree.java"
+    ```python title="binary_search_tree.py"
     [class]{BinarySearchTree}-[func]{search}
     ```
 
@@ -45,10 +45,16 @@
     [class]{BinarySearchTree}-[func]{search}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_tree.py"
+    ```java title="binary_search_tree.java"
     [class]{BinarySearchTree}-[func]{search}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_tree.cs"
+    [class]{BinarySearchTree}-[func]{Search}
     ```
 
 === "Go"
@@ -57,39 +63,21 @@
     [class]{binarySearchTree}-[func]{search}
     ```
 
-=== "JS"
-
-    ```javascript title="binary_search_tree.js"
-    [class]{}-[func]{search}
-    ```
-
-=== "TS"
-
-    ```typescript title="binary_search_tree.ts"
-    [class]{}-[func]{search}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{search}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_tree.cs"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
-
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
     [class]{BinarySearchTree}-[func]{search}
     ```
 
-=== "Zig"
+=== "JS"
 
-    ```zig title="binary_search_tree.zig"
+    ```javascript title="binary_search_tree.js"
+    [class]{BinarySearchTree}-[func]{search}
+    ```
+
+=== "TS"
+
+    ```typescript title="binary_search_tree.ts"
     [class]{BinarySearchTree}-[func]{search}
     ```
 
@@ -102,23 +90,38 @@
 === "Rust"
 
     ```rust title="binary_search_tree.rs"
+    [class]{BinarySearchTree}-[func]{search}
+    ```
+
+=== "C"
+
+    ```c title="binary_search_tree.c"
+    [class]{binarySearchTree}-[func]{search}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_tree.zig"
     [class]{BinarySearchTree}-[func]{search}
     ```
 
 ### 插入节点
 
-给定一个待插入元素 `num` ，为了保持二叉搜索树“左子树 < 根节点 < 右子树”的性质，插入操作分为两步：
+给定一个待插入元素 `num` ，为了保持二叉搜索树“左子树 < 根节点 < 右子树”的性质，插入操作流程如下图所示。
 
 1. **查找插入位置**：与查找操作相似，从根节点出发，根据当前节点值和 `num` 的大小关系循环向下搜索，直到越过叶节点（遍历至 $\text{None}$ ）时跳出循环。
 2. **在该位置插入节点**：初始化节点 `num` ，将该节点置于 $\text{None}$ 的位置。
 
-二叉搜索树不允许存在重复节点，否则将违反其定义。因此，若待插入节点在树中已存在，则不执行插入，直接返回。
-
 ![在二叉搜索树中插入节点](binary_search_tree.assets/bst_insert.png)
 
-=== "Java"
+在代码实现中，需要注意以下两点。
 
-    ```java title="binary_search_tree.java"
+- 二叉搜索树不允许存在重复节点，否则将违反其定义。因此，若待插入节点在树中已存在，则不执行插入，直接返回。
+- 为了实现插入节点，我们需要借助节点 `pre` 保存上一轮循环的节点。这样在遍历至 $\text{None}$ 时，我们可以获取到其父节点，从而完成节点插入操作。
+
+=== "Python"
+
+    ```python title="binary_search_tree.py"
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
@@ -128,10 +131,16 @@
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_tree.py"
+    ```java title="binary_search_tree.java"
     [class]{BinarySearchTree}-[func]{insert}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_tree.cs"
+    [class]{BinarySearchTree}-[func]{Insert}
     ```
 
 === "Go"
@@ -140,39 +149,21 @@
     [class]{binarySearchTree}-[func]{insert}
     ```
 
-=== "JS"
-
-    ```javascript title="binary_search_tree.js"
-    [class]{}-[func]{insert}
-    ```
-
-=== "TS"
-
-    ```typescript title="binary_search_tree.ts"
-    [class]{}-[func]{insert}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{insert}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_tree.cs"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
-
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
-=== "Zig"
+=== "JS"
 
-    ```zig title="binary_search_tree.zig"
+    ```javascript title="binary_search_tree.js"
+    [class]{BinarySearchTree}-[func]{insert}
+    ```
+
+=== "TS"
+
+    ```typescript title="binary_search_tree.ts"
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
@@ -188,31 +179,45 @@
     [class]{BinarySearchTree}-[func]{insert}
     ```
 
-为了插入节点，我们需要利用辅助节点 `pre` 保存上一轮循环的节点，这样在遍历至 $\text{None}$ 时，我们可以获取到其父节点，从而完成节点插入操作。
+=== "C"
+
+    ```c title="binary_search_tree.c"
+    [class]{binarySearchTree}-[func]{insert}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_tree.zig"
+    [class]{BinarySearchTree}-[func]{insert}
+    ```
 
 与查找节点相同，插入节点使用 $O(\log n)$ 时间。
 
 ### 删除节点
 
-与插入节点类似，我们需要在删除操作后维持二叉搜索树的“左子树 < 根节点 < 右子树”的性质。首先，我们需要在二叉树中执行查找操作，获取待删除节点。接下来，根据待删除节点的子节点数量，删除操作需分为三种情况：
+先在二叉树中查找到目标节点，再将其从二叉树中删除。
 
-当待删除节点的度为 $0$ 时，表示待删除节点是叶节点，可以直接删除。
+与插入节点类似，我们需要保证在删除操作完成后，二叉搜索树的“左子树 < 根节点 < 右子树”的性质仍然满足。
 
-![在二叉搜索树中删除节点（度为 0）](binary_search_tree.assets/bst_remove_case1.png)
+因此，我们需要根据目标节点的子节点数量，共分为 0、1 和 2 这三种情况，执行对应的删除节点操作。
 
-当待删除节点的度为 $1$ 时，将待删除节点替换为其子节点即可。
+如下图所示，当待删除节点的度为 $0$ 时，表示该节点是叶节点，可以直接删除。
 
-![在二叉搜索树中删除节点（度为 1）](binary_search_tree.assets/bst_remove_case2.png)
+![在二叉搜索树中删除节点（度为 0 ）](binary_search_tree.assets/bst_remove_case1.png)
 
-当待删除节点的度为 $2$ 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左 $<$ 根 $<$ 右”的性质，因此这个节点可以是右子树的最小节点或左子树的最大节点。
+如下图所示，当待删除节点的度为 $1$ 时，将待删除节点替换为其子节点即可。
 
-假设我们选择右子树的最小节点（即中序遍历的下一个节点），则删除操作为：
+![在二叉搜索树中删除节点（度为 1 ）](binary_search_tree.assets/bst_remove_case2.png)
+
+当待删除节点的度为 $2$ 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左 $<$ 根 $<$ 右”的性质，**因此这个节点可以是右子树的最小节点或左子树的最大节点**。
+
+假设我们选择右子树的最小节点（即中序遍历的下一个节点），则删除操作流程如下图所示。
 
 1. 找到待删除节点在“中序遍历序列”中的下一个节点，记为 `tmp` 。
 2. 将 `tmp` 的值覆盖待删除节点的值，并在树中递归删除节点 `tmp` 。
 
 === "<1>"
-    ![二叉搜索树删除节点示例](binary_search_tree.assets/bst_remove_case3_step1.png)
+    ![在二叉搜索树中删除节点（度为 2 ）](binary_search_tree.assets/bst_remove_case3_step1.png)
 
 === "<2>"
     ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.png)
@@ -225,9 +230,9 @@
 
 删除节点操作同样使用 $O(\log n)$ 时间，其中查找待删除节点需要 $O(\log n)$ 时间，获取中序遍历后继节点需要 $O(\log n)$ 时间。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_tree.java"
+    ```python title="binary_search_tree.py"
     [class]{BinarySearchTree}-[func]{remove}
     ```
 
@@ -237,10 +242,16 @@
     [class]{BinarySearchTree}-[func]{remove}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_tree.py"
+    ```java title="binary_search_tree.java"
     [class]{BinarySearchTree}-[func]{remove}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_tree.cs"
+    [class]{BinarySearchTree}-[func]{Remove}
     ```
 
 === "Go"
@@ -249,39 +260,21 @@
     [class]{binarySearchTree}-[func]{remove}
     ```
 
-=== "JS"
-
-    ```javascript title="binary_search_tree.js"
-    [class]{}-[func]{remove}
-    ```
-
-=== "TS"
-
-    ```typescript title="binary_search_tree.ts"
-    [class]{}-[func]{remove}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{removeNode}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_tree.cs"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
-
 === "Swift"
 
     ```swift title="binary_search_tree.swift"
     [class]{BinarySearchTree}-[func]{remove}
     ```
 
-=== "Zig"
+=== "JS"
 
-    ```zig title="binary_search_tree.zig"
+    ```javascript title="binary_search_tree.js"
+    [class]{BinarySearchTree}-[func]{remove}
+    ```
+
+=== "TS"
+
+    ```typescript title="binary_search_tree.ts"
     [class]{BinarySearchTree}-[func]{remove}
     ```
 
@@ -297,21 +290,33 @@
     [class]{BinarySearchTree}-[func]{remove}
     ```
 
-### 排序
+=== "C"
 
-我们知道，二叉树的中序遍历遵循“左 $\rightarrow$ 根 $\rightarrow$ 右”的遍历顺序，而二叉搜索树满足“左子节点 $<$ 根节点 $<$ 右子节点”的大小关系。因此，在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小节点，从而得出一个重要性质：**二叉搜索树的中序遍历序列是升序的**。
+    ```c title="binary_search_tree.c"
+    [class]{binarySearchTree}-[func]{removeItem}
+    ```
 
-利用中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 $O(n)$ 时间，无需额外排序，非常高效。
+=== "Zig"
+
+    ```zig title="binary_search_tree.zig"
+    [class]{BinarySearchTree}-[func]{remove}
+    ```
+
+### 中序遍历有序
+
+如下图所示，二叉树的中序遍历遵循“左 $\rightarrow$ 根 $\rightarrow$ 右”的遍历顺序，而二叉搜索树满足“左子节点 $<$ 根节点 $<$ 右子节点”的大小关系。
+
+这意味着在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小节点，从而得出一个重要性质：**二叉搜索树的中序遍历序列是升序的**。
+
+利用中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 $O(n)$ 时间，无须进行额外的排序操作，非常高效。
 
 ![二叉搜索树的中序遍历序列](binary_search_tree.assets/bst_inorder_traversal.png)
 
 ## 二叉搜索树的效率
 
-给定一组数据，我们考虑使用数组或二叉搜索树存储。
+给定一组数据，我们考虑使用数组或二叉搜索树存储。观察下表，二叉搜索树的各项操作的时间复杂度都是对数阶，具有稳定且高效的性能表现。只有在高频添加、低频查找删除的数据适用场景下，数组比二叉搜索树的效率更高。
 
-观察可知，二叉搜索树的各项操作的时间复杂度都是对数阶，具有稳定且高效的性能表现。只有在高频添加、低频查找删除的数据适用场景下，数组比二叉搜索树的效率更高。
-
-<div class="center-table" markdown>
+<p align="center"> 表 <id> &nbsp; 数组与搜索树的效率对比 </p>
 
 |          | 无序数组 | 二叉搜索树  |
 | -------- | -------- | ----------- |
@@ -319,13 +324,11 @@
 | 插入元素 | $O(1)$   | $O(\log n)$ |
 | 删除元素 | $O(n)$   | $O(\log n)$ |
 
-</div>
-
 在理想情况下，二叉搜索树是“平衡”的，这样就可以在 $\log n$ 轮循环内查找任意节点。
 
-然而，如果我们在二叉搜索树中不断地插入和删除节点，可能导致二叉树退化为链表，这时各种操作的时间复杂度也会退化为 $O(n)$ 。
+然而，如果我们在二叉搜索树中不断地插入和删除节点，可能导致二叉树退化为下图所示的链表，这时各种操作的时间复杂度也会退化为 $O(n)$ 。
 
-![二叉搜索树的平衡与退化](binary_search_tree.assets/bst_degradation.png)
+![二叉搜索树的退化](binary_search_tree.assets/bst_degradation.png)
 
 ## 二叉搜索树常见应用
 

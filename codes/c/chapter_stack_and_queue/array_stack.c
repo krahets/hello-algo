@@ -85,7 +85,7 @@ int main() {
 
     /* 元素出栈 */
     val = pop(stack);
-    printf("出栈元素 pop = %d，出栈后 stack = ", val);
+    printf("出栈元素 pop = %d ，出栈后 stack = ", val);
     printArray(stack->data, stack->size);
 
     /* 获取栈的长度 */

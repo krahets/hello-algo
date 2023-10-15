@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 随机返回一个数组元素 */
+/* 随机访问元素 */
 int randomAccess(int *nums, int size) {
     // 在区间 [0, size) 中随机抽取一个数字
     int randomIndex = rand() % size;
@@ -108,5 +108,7 @@ int main() {
     int index = find(res, size, 3);
     printf("在 res 中查找元素 3 ，得到索引 = %d\n", index);
 
+    /* 释放内存 */
+    free(res);
     return 0;
 }

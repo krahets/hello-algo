@@ -20,8 +20,8 @@ public class min_path_sum {
             return Integer.MAX_VALUE;
         }
         // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-        int left = minPathSumDFS(grid, i - 1, j);
-        int up = minPathSumDFS(grid, i, j - 1);
+        int up = minPathSumDFS(grid, i - 1, j);
+        int left = minPathSumDFS(grid, i, j - 1);
         // 返回从左上角到 (i, j) 的最小路径代价
         return Math.min(left, up) + grid[i][j];
     }
@@ -41,8 +41,8 @@ public class min_path_sum {
             return mem[i][j];
         }
         // 左边和上边单元格的最小路径代价
-        int left = minPathSumDFSMem(grid, mem, i - 1, j);
-        int up = minPathSumDFSMem(grid, mem, i, j - 1);
+        int up = minPathSumDFSMem(grid, mem, i - 1, j);
+        int left = minPathSumDFSMem(grid, mem, i, j - 1);
         // 记录并返回左上角到 (i, j) 的最小路径代价
         mem[i][j] = Math.min(left, up) + grid[i][j];
         return mem[i][j];
@@ -71,7 +71,7 @@ public class min_path_sum {
         return dp[n - 1][m - 1];
     }
 
-    /* 最小路径和：状态压缩后的动态规划 */
+    /* 最小路径和：空间优化后的动态规划 */
     static int minPathSumDPComp(int[][] grid) {
         int n = grid.length, m = grid[0].length;
         // 初始化 dp 表
@@ -104,7 +104,7 @@ public class min_path_sum {
 
         // 暴力搜索
         int res = minPathSumDFS(grid, n - 1, m - 1);
-        System.out.println("从左上角到右下角的做小路径和为 " + res);
+        System.out.println("从左上角到右下角的最小路径和为 " + res);
 
         // 记忆化搜索
         int[][] mem = new int[n][m];
@@ -112,14 +112,14 @@ public class min_path_sum {
             Arrays.fill(row, -1);
         }
         res = minPathSumDFSMem(grid, mem, n - 1, m - 1);
-        System.out.println("从左上角到右下角的做小路径和为 " + res);
+        System.out.println("从左上角到右下角的最小路径和为 " + res);
 
         // 动态规划
         res = minPathSumDP(grid);
-        System.out.println("从左上角到右下角的做小路径和为 " + res);
+        System.out.println("从左上角到右下角的最小路径和为 " + res);
 
-        // 状态压缩后的动态规划
+        // 空间优化后的动态规划
         res = minPathSumDPComp(grid);
-        System.out.println("从左上角到右下角的做小路径和为 " + res);
+        System.out.println("从左上角到右下角的最小路径和为 " + res);
     }
 }

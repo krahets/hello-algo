@@ -83,7 +83,7 @@ public class edit_distance {
         return dp[n][m];
     }
 
-    /* 编辑距离：状态压缩后的动态规划 */
+    /* 编辑距离：空间优化后的动态规划 */
     static int editDistanceDPComp(String s, String t) {
         int n = s.length(), m = t.length();
         int[] dp = new int[m + 1];
@@ -132,7 +132,7 @@ public class edit_distance {
         res = editDistanceDP(s, t);
         System.out.println("将 " + s + " 更改为 " + t + " 最少需要编辑 " + res + " 步");
 
-        // 状态压缩后的动态规划
+        // 空间优化后的动态规划
         res = editDistanceDPComp(s, t);
         System.out.println("将 " + s + " 更改为 " + t + " 最少需要编辑 " + res + " 步");
     }

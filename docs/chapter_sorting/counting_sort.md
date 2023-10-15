@@ -1,10 +1,10 @@
 # 计数排序
 
-「计数排序 Counting Sort」通过统计元素数量来实现排序，通常应用于整数数组。
+「计数排序 counting sort」通过统计元素数量来实现排序，通常应用于整数数组。
 
 ## 简单实现
 
-先来看一个简单的例子。给定一个长度为 $n$ 的数组 `nums` ，其中的元素都是“非负整数”。计数排序的整体流程如下：
+先来看一个简单的例子。给定一个长度为 $n$ 的数组 `nums` ，其中的元素都是“非负整数”，计数排序的整体流程如下图所示。
 
 1. 遍历数组，找出数组中的最大数字，记为 $m$ ，然后创建一个长度为 $m + 1$ 的辅助数组 `counter` 。
 2. **借助 `counter` 统计 `nums` 中各数字的出现次数**，其中 `counter[num]` 对应数字 `num` 的出现次数。统计方法很简单，只需遍历 `nums`（设当前数字为 `num`），每轮将 `counter[num]` 增加 $1$ 即可。
@@ -12,10 +12,10 @@
 
 ![计数排序流程](counting_sort.assets/counting_sort_overview.png)
 
-=== "Java"
+=== "Python"
 
-    ```java title="counting_sort.java"
-    [class]{counting_sort}-[func]{countingSortNaive}
+    ```python title="counting_sort.py"
+    [class]{}-[func]{counting_sort_naive}
     ```
 
 === "C++"
@@ -24,15 +24,27 @@
     [class]{}-[func]{countingSortNaive}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="counting_sort.py"
-    [class]{}-[func]{counting_sort_naive}
+    ```java title="counting_sort.java"
+    [class]{counting_sort}-[func]{countingSortNaive}
+    ```
+
+=== "C#"
+
+    ```csharp title="counting_sort.cs"
+    [class]{counting_sort}-[func]{CountingSortNaive}
     ```
 
 === "Go"
 
     ```go title="counting_sort.go"
+    [class]{}-[func]{countingSortNaive}
+    ```
+
+=== "Swift"
+
+    ```swift title="counting_sort.swift"
     [class]{}-[func]{countingSortNaive}
     ```
 
@@ -48,30 +60,6 @@
     [class]{}-[func]{countingSortNaive}
     ```
 
-=== "C"
-
-    ```c title="counting_sort.c"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
-=== "C#"
-
-    ```csharp title="counting_sort.cs"
-    [class]{counting_sort}-[func]{countingSortNaive}
-    ```
-
-=== "Swift"
-
-    ```swift title="counting_sort.swift"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
-=== "Zig"
-
-    ```zig title="counting_sort.zig"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
 === "Dart"
 
     ```dart title="counting_sort.dart"
@@ -84,26 +72,38 @@
     [class]{}-[func]{counting_sort_naive}
     ```
 
+=== "C"
+
+    ```c title="counting_sort.c"
+    [class]{}-[func]{countingSortNaive}
+    ```
+
+=== "Zig"
+
+    ```zig title="counting_sort.zig"
+    [class]{}-[func]{countingSortNaive}
+    ```
+
 !!! note "计数排序与桶排序的联系"
 
     从桶排序的角度看，我们可以将计数排序中的计数数组 `counter` 的每个索引视为一个桶，将统计数量的过程看作是将各个元素分配到对应的桶中。本质上，计数排序是桶排序在整型数据下的一个特例。
 
 ## 完整实现
 
-细心的同学可能发现，**如果输入数据是对象，上述步骤 `3.` 就失效了**。例如，输入数据是商品对象，我们想要按照商品价格（类的成员变量）对商品进行排序，而上述算法只能给出价格的排序结果。
+细心的同学可能发现，**如果输入数据是对象，上述步骤 `3.` 就失效了**。假设输入数据是商品对象，我们想要按照商品价格（类的成员变量）对商品进行排序，而上述算法只能给出价格的排序结果。
 
-那么如何才能得到原数据的排序结果呢？我们首先计算 `counter` 的「前缀和」。顾名思义，索引 `i` 处的前缀和 `prefix[i]` 等于数组前 `i` 个元素之和，即
+那么如何才能得到原数据的排序结果呢？我们首先计算 `counter` 的“前缀和”。顾名思义，索引 `i` 处的前缀和 `prefix[i]` 等于数组前 `i` 个元素之和：
 
 $$
 \text{prefix}[i] = \sum_{j=0}^i \text{counter[j]}
 $$
 
-**前缀和具有明确的意义，`prefix[num] - 1` 代表元素 `num` 在结果数组 `res` 中最后一次出现的索引**。这个信息非常关键，因为它告诉我们各个元素应该出现在结果数组的哪个位置。接下来，我们倒序遍历原数组 `nums` 的每个元素 `num` ，在每轮迭代中执行：
+**前缀和具有明确的意义，`prefix[num] - 1` 代表元素 `num` 在结果数组 `res` 中最后一次出现的索引**。这个信息非常关键，因为它告诉我们各个元素应该出现在结果数组的哪个位置。接下来，我们倒序遍历原数组 `nums` 的每个元素 `num` ，在每轮迭代中执行以下两步。
 
 1. 将 `num` 填入数组 `res` 的索引 `prefix[num] - 1` 处。
 2. 令前缀和 `prefix[num]` 减小 $1$ ，从而得到下次放置 `num` 的索引。
 
-遍历完成后，数组 `res` 中就是排序好的结果，最后使用 `res` 覆盖原数组 `nums` 即可。
+遍历完成后，数组 `res` 中就是排序好的结果，最后使用 `res` 覆盖原数组 `nums` 即可。下图展示了完整的计数排序流程。
 
 === "<1>"
     ![计数排序步骤](counting_sort.assets/counting_sort_step1.png)
@@ -131,10 +131,10 @@ $$
 
 计数排序的实现代码如下所示。
 
-=== "Java"
+=== "Python"
 
-    ```java title="counting_sort.java"
-    [class]{counting_sort}-[func]{countingSort}
+    ```python title="counting_sort.py"
+    [class]{}-[func]{counting_sort}
     ```
 
 === "C++"
@@ -143,15 +143,27 @@ $$
     [class]{}-[func]{countingSort}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="counting_sort.py"
-    [class]{}-[func]{counting_sort}
+    ```java title="counting_sort.java"
+    [class]{counting_sort}-[func]{countingSort}
+    ```
+
+=== "C#"
+
+    ```csharp title="counting_sort.cs"
+    [class]{counting_sort}-[func]{CountingSort}
     ```
 
 === "Go"
 
     ```go title="counting_sort.go"
+    [class]{}-[func]{countingSort}
+    ```
+
+=== "Swift"
+
+    ```swift title="counting_sort.swift"
     [class]{}-[func]{countingSort}
     ```
 
@@ -167,30 +179,6 @@ $$
     [class]{}-[func]{countingSort}
     ```
 
-=== "C"
-
-    ```c title="counting_sort.c"
-    [class]{}-[func]{countingSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="counting_sort.cs"
-    [class]{counting_sort}-[func]{countingSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="counting_sort.swift"
-    [class]{}-[func]{countingSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="counting_sort.zig"
-    [class]{}-[func]{countingSort}
-    ```
-
 === "Dart"
 
     ```dart title="counting_sort.dart"
@@ -203,10 +191,22 @@ $$
     [class]{}-[func]{counting_sort}
     ```
 
+=== "C"
+
+    ```c title="counting_sort.c"
+    [class]{}-[func]{countingSort}
+    ```
+
+=== "Zig"
+
+    ```zig title="counting_sort.zig"
+    [class]{}-[func]{countingSort}
+    ```
+
 ## 算法特性
 
 - **时间复杂度 $O(n + m)$** ：涉及遍历 `nums` 和遍历 `counter` ，都使用线性时间。一般情况下 $n \gg m$ ，时间复杂度趋于 $O(n)$ 。
-- **空间复杂度 $O(n + m)$ 、非原地排序** ：借助了长度分别为 $n$ 和 $m$ 的数组 `res` 和 `counter` 。
+- **空间复杂度 $O(n + m)$、非原地排序**：借助了长度分别为 $n$ 和 $m$ 的数组 `res` 和 `counter` 。
 - **稳定排序**：由于向 `res` 中填充元素的顺序是“从右向左”的，因此倒序遍历 `nums` 可以避免改变相等元素之间的相对位置，从而实现稳定排序。实际上，正序遍历 `nums` 也可以得到正确的排序结果，但结果是非稳定的。
 
 ## 局限性

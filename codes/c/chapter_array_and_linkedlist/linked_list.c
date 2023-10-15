@@ -15,7 +15,7 @@ void insert(ListNode *n0, ListNode *P) {
 
 /* 删除链表的节点 n0 之后的首个节点 */
 // 注意：stdio.h 占用了 remove 关键词
-void removeNode(ListNode *n0) {
+void removeItem(ListNode *n0) {
     if (!n0->next)
         return;
     // n0 -> P -> n1
@@ -70,7 +70,7 @@ int main() {
     printLinkedList(n0);
 
     /* 删除节点 */
-    removeNode(n0);
+    removeItem(n0);
     printf("删除节点后的链表为\r\n");
     printLinkedList(n0);
 

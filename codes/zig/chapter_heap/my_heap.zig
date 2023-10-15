@@ -10,7 +10,7 @@ pub fn MaxHeap(comptime T: type) type {
     return struct {
         const Self = @This();
         
-        max_heap: ?std.ArrayList(T) = null,      // 使用列表而非数组，这样无需考虑扩容问题
+        max_heap: ?std.ArrayList(T) = null,      // 使用列表而非数组，这样无须考虑扩容问题
 
         // 构造方法，根据输入列表建堆
         pub fn init(self: *Self, allocator: std.mem.Allocator, nums: []const T) !void {
@@ -82,7 +82,7 @@ pub fn MaxHeap(comptime T: type) type {
             while (true) {
                 // 获取节点 i 的父节点
                 var p = parent(i);
-                // 当“越过根节点”或“节点无需修复”时，结束堆化
+                // 当“越过根节点”或“节点无须修复”时，结束堆化
                 if (p < 0 or self.max_heap.?.items[i] <= self.max_heap.?.items[p]) break;
                 // 交换两节点
                 try self.swap(i, p);
@@ -115,7 +115,7 @@ pub fn MaxHeap(comptime T: type) type {
                 var ma = i;
                 if (l < self.size() and self.max_heap.?.items[l] > self.max_heap.?.items[ma]) ma = l;
                 if (r < self.size() and self.max_heap.?.items[r] > self.max_heap.?.items[ma]) ma = r;
-                // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+                // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
                 if (ma == i) break;
                 // 交换两节点
                 try self.swap(i, ma);

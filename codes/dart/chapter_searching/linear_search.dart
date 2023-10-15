@@ -24,8 +24,7 @@ ListNode? linearSearchList(ListNode? head, int target) {
   // 遍历链表
   while (head != null) {
     // 找到目标节点，返回之
-    if (head.val == target)
-      return head;
+    if (head.val == target) return head;
     head = head.next;
   }
   // 未找到目标元素，返回 null
@@ -33,7 +32,7 @@ ListNode? linearSearchList(ListNode? head, int target) {
 }
 
 /* Driver Code */
-void main(){
+void main() {
   int target = 3;
 
   /* 在数组中执行线性查找 */

@@ -16,7 +16,7 @@ func insertNode(n0 *ListNode, P *ListNode) {
 }
 
 /* 删除链表的节点 n0 之后的首个节点 */
-func removeNode(n0 *ListNode) {
+func removeItem(n0 *ListNode) {
 	if n0.Next == nil {
 		return
 	}

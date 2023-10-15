@@ -22,10 +22,10 @@
 
 因此二分结束时一定有：$i$ 指向首个大于 `target` 的元素，$j$ 指向首个小于 `target` 的元素。**易得当数组不包含 `target` 时，插入索引为 $i$** 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_insertion.java"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}
+    ```python title="binary_search_insertion.py"
+    [class]{}-[func]{binary_search_insertion_simple}
     ```
 
 === "C++"
@@ -34,15 +34,27 @@
     [class]{}-[func]{binarySearchInsertionSimple}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_insertion.py"
-    [class]{}-[func]{binary_search_insertion_simple}
+    ```java title="binary_search_insertion.java"
+    [class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_insertion.cs"
+    [class]{binary_search_insertion}-[func]{BinarySearchInsertionSimple}
     ```
 
 === "Go"
 
     ```go title="binary_search_insertion.go"
+    [class]{}-[func]{binarySearchInsertionSimple}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_insertion.swift"
     [class]{}-[func]{binarySearchInsertionSimple}
     ```
 
@@ -58,30 +70,6 @@
     [class]{}-[func]{binarySearchInsertionSimple}
     ```
 
-=== "C"
-
-    ```c title="binary_search_insertion.c"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_insertion.cs"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_insertion.swift"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_insertion.zig"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
 === "Dart"
 
     ```dart title="binary_search_insertion.dart"
@@ -94,6 +82,18 @@
     [class]{}-[func]{binary_search_insertion}
     ```
 
+=== "C"
+
+    ```c title="binary_search_insertion.c"
+    [class]{}-[func]{binarySearchInsertionSimple}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_insertion.zig"
+    [class]{}-[func]{binarySearchInsertionSimple}
+    ```
+
 ## 存在重复元素的情况
 
 !!! question
@@ -102,7 +102,7 @@
 
 假设数组中存在多个 `target` ，则普通二分查找只能返回其中一个 `target` 的索引，**而无法确定该元素的左边和右边还有多少 `target`**。
 
-题目要求将目标元素插入到最左边，**所以我们需要查找数组中最左一个 `target` 的索引**。初步考虑通过以下两步实现：
+题目要求将目标元素插入到最左边，**所以我们需要查找数组中最左一个 `target` 的索引**。初步考虑通过下图所示的步骤实现。
 
 1. 执行二分查找，得到任意一个 `target` 的索引，记为 $k$ 。
 2. 从索引 $k$ 开始，向左进行线性遍历，当找到最左边的 `target` 时返回。
@@ -111,10 +111,10 @@
 
 此方法虽然可用，但其包含线性查找，因此时间复杂度为 $O(n)$ 。当数组中存在很多重复的 `target` 时，该方法效率很低。
 
-现考虑修改二分查找代码。整体流程不变，每轮先计算中点索引 $m$ ，再判断 `target` 和 `nums[m]` 大小关系：
+现考虑拓展二分查找代码。如下图所示，整体流程保持不变，每轮先计算中点索引 $m$ ，再判断 `target` 和 `nums[m]` 大小关系，分为以下几种情况。
 
-1. 当 `nums[m] < target` 或 `nums[m] > target` 时，说明还没有找到 `target` ，因此采用普通二分查找的缩小区间操作，**从而使指针 $i$ 和 $j$ 向 `target` 靠近**。
-2. 当 `nums[m] == target` 时，说明小于 `target` 的元素在区间 $[i, m - 1]$ 中，因此采用 $j = m - 1$ 来缩小区间，**从而使指针 $j$ 向小于 `target` 的元素靠近**。
+- 当 `nums[m] < target` 或 `nums[m] > target` 时，说明还没有找到 `target` ，因此采用普通二分查找的缩小区间操作，**从而使指针 $i$ 和 $j$ 向 `target` 靠近**。
+- 当 `nums[m] == target` 时，说明小于 `target` 的元素在区间 $[i, m - 1]$ 中，因此采用 $j = m - 1$ 来缩小区间，**从而使指针 $j$ 向小于 `target` 的元素靠近**。
 
 循环完成后，$i$ 指向最左边的 `target` ，$j$ 指向首个小于 `target` 的元素，**因此索引 $i$ 就是插入点**。
 
@@ -146,10 +146,10 @@
 
 即便如此，我们仍然可以将判断条件保持展开，因为其逻辑更加清晰、可读性更好。
 
-=== "Java"
+=== "Python"
 
-    ```java title="binary_search_insertion.java"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertion}
+    ```python title="binary_search_insertion.py"
+    [class]{}-[func]{binary_search_insertion}
     ```
 
 === "C++"
@@ -158,15 +158,27 @@
     [class]{}-[func]{binarySearchInsertion}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_search_insertion.py"
-    [class]{}-[func]{binary_search_insertion}
+    ```java title="binary_search_insertion.java"
+    [class]{binary_search_insertion}-[func]{binarySearchInsertion}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_insertion.cs"
+    [class]{binary_search_insertion}-[func]{BinarySearchInsertion}
     ```
 
 === "Go"
 
     ```go title="binary_search_insertion.go"
+    [class]{}-[func]{binarySearchInsertion}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_insertion.swift"
     [class]{}-[func]{binarySearchInsertion}
     ```
 
@@ -182,30 +194,6 @@
     [class]{}-[func]{binarySearchInsertion}
     ```
 
-=== "C"
-
-    ```c title="binary_search_insertion.c"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_insertion.cs"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertion}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_insertion.swift"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_insertion.zig"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
 === "Dart"
 
     ```dart title="binary_search_insertion.dart"
@@ -218,10 +206,22 @@
     [class]{}-[func]{binary_search_insertion}
     ```
 
+=== "C"
+
+    ```c title="binary_search_insertion.c"
+    [class]{}-[func]{binarySearchInsertion}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_insertion.zig"
+    [class]{}-[func]{binarySearchInsertion}
+    ```
+
 !!! tip
 
     本节的代码都是“双闭区间”写法。有兴趣的读者可以自行实现“左闭右开”写法。
 
-总的来看，二分查找无非就是给指针 $i$ , $j$ 分别设定搜索目标，目标可能是一个具体的元素（例如 `target` ），也可能是一个元素范围（例如小于 `target` 的元素）。
+总的来看，二分查找无非就是给指针 $i$ 和 $j$ 分别设定搜索目标，目标可能是一个具体的元素（例如 `target` ），也可能是一个元素范围（例如小于 `target` 的元素）。
 
-在不断的循环二分中，指针 $i$ , $j$ 都逐渐逼近预先设定的目标。最终，它们或是成功找到答案，或是越过边界后停止。
+在不断的循环二分中，指针 $i$ 和 $j$ 都逐渐逼近预先设定的目标。最终，它们或是成功找到答案，或是越过边界后停止。

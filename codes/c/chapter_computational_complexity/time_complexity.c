@@ -53,7 +53,7 @@ int bubbleSort(int *nums, int n) {
     int count = 0; // 计数器
     // 外循环：未排序区间为 [0, i]
     for (int i = n - 1; i > 0; i--) {
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
         for (int j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
                 // 交换 nums[j] 与 nums[j + 1]
@@ -135,38 +135,38 @@ int main(int argc, char *argv[]) {
     printf("输入数据大小 n = %d\n", n);
 
     int count = constant(n);
-    printf("常数阶的计算操作数量 = %d\n", count);
+    printf("常数阶的操作数量 = %d\n", count);
 
     count = linear(n);
-    printf("线性阶的计算操作数量 = %d\n", count);
-    // 分配堆区内存（创建一维可变长数组：数组中元素数量为n，元素类型为int）
+    printf("线性阶的操作数量 = %d\n", count);
+    // 分配堆区内存（创建一维可变长数组：数组中元素数量为 n ，元素类型为 int ）
     int *nums = (int *)malloc(n * sizeof(int));
     count = arrayTraversal(nums, n);
-    printf("线性阶（遍历数组）的计算操作数量 = %d\n", count);
+    printf("线性阶（遍历数组）的操作数量 = %d\n", count);
 
     count = quadratic(n);
-    printf("平方阶的计算操作数量 = %d\n", count);
+    printf("平方阶的操作数量 = %d\n", count);
     for (int i = 0; i < n; i++) {
         nums[i] = n - i; // [n,n-1,...,2,1]
     }
     count = bubbleSort(nums, n);
-    printf("平方阶（冒泡排序）的计算操作数量 = %d\n", count);
+    printf("平方阶（冒泡排序）的操作数量 = %d\n", count);
 
     count = exponential(n);
-    printf("指数阶（循环实现）的计算操作数量 = %d\n", count);
+    printf("指数阶（循环实现）的操作数量 = %d\n", count);
     count = expRecur(n);
-    printf("指数阶（递归实现）的计算操作数量 = %d\n", count);
+    printf("指数阶（递归实现）的操作数量 = %d\n", count);
 
     count = logarithmic(n);
-    printf("对数阶（循环实现）的计算操作数量 = %d\n", count);
+    printf("对数阶（循环实现）的操作数量 = %d\n", count);
     count = logRecur(n);
-    printf("对数阶（递归实现）的计算操作数量 = %d\n", count);
+    printf("对数阶（递归实现）的操作数量 = %d\n", count);
 
     count = linearLogRecur(n);
-    printf("线性对数阶（递归实现）的计算操作数量 = %d\n", count);
+    printf("线性对数阶（递归实现）的操作数量 = %d\n", count);
 
     count = factorialRecur(n);
-    printf("阶乘阶（递归实现）的计算操作数量 = %d\n", count);
+    printf("阶乘阶（递归实现）的操作数量 = %d\n", count);
 
     // 释放堆区内存
     if (nums != NULL) {

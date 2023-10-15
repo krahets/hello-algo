@@ -13,7 +13,7 @@ void siftDown(List<int> nums, int n, int i) {
     int ma = i;
     if (l < n && nums[l] > nums[ma]) ma = l;
     if (r < n && nums[r] > nums[ma]) ma = r;
-    // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+    // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
     if (ma == i) break;
     // 交换两节点
     int temp = nums[i];

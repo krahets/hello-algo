@@ -28,7 +28,7 @@ fn coinChangeIIDP(comptime coins: []i32, comptime amt: usize) i32 {
     return dp[n][amt];
 }
 
-// 零钱兑换 II：状态压缩后的动态规划
+// 零钱兑换 II：空间优化后的动态规划
 fn coinChangeIIDPComp(comptime coins: []i32, comptime amt: usize) i32 {
     comptime var n = coins.len;
     // 初始化 dp 表
@@ -58,7 +58,7 @@ pub fn main() !void {
     var res = coinChangeIIDP(&coins, amt);
     std.debug.print("凑出目标金额的硬币组合数量为 {}\n", .{res});
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     res = coinChangeIIDPComp(&coins, amt);
     std.debug.print("凑出目标金额的硬币组合数量为 {}\n", .{res});
 

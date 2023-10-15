@@ -6,7 +6,7 @@
 
 import 'dart:math';
 
-/* 随机返回一个数组元素 */
+/* 随机访问元素 */
 int randomAccess(List nums) {
   // 在区间 [0, nums.length) 中随机抽取一个数字
   int randomIndex = Random().nextInt(nums.length);

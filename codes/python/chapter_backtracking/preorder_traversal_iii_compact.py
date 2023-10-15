@@ -20,8 +20,6 @@ def pre_order(root: TreeNode):
     if root.val == 7:
         # 记录解
         res.append(list(path))
-        path.pop()
-        return
     pre_order(root.left)
     pre_order(root.right)
     # 回退

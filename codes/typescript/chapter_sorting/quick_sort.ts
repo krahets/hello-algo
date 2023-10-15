@@ -170,13 +170,13 @@ console.log('快速排序完成后 nums =', nums);
 
 /* 快速排序（中位基准数优化） */
 const nums1 = [2, 4, 1, 0, 3, 5];
-const quickSortMedian = new QuickSort();
+const quickSortMedian = new QuickSortMedian();
 quickSortMedian.quickSort(nums1, 0, nums1.length - 1);
 console.log('快速排序（中位基准数优化）完成后 nums =', nums1);
 
 /* 快速排序（尾递归优化） */
 const nums2 = [2, 4, 1, 0, 3, 5];
-const quickSortTailCall = new QuickSort();
+const quickSortTailCall = new QuickSortTailCall();
 quickSortTailCall.quickSort(nums2, 0, nums2.length - 1);
 console.log('快速排序（尾递归优化）完成后 nums =', nums2);
 

@@ -6,18 +6,20 @@
 
 ## 层序遍历
 
-「层序遍历 Level-Order Traversal」从顶部到底部逐层遍历二叉树，并在每一层按照从左到右的顺序访问节点。
+如下图所示，「层序遍历 level-order traversal」从顶部到底部逐层遍历二叉树，并在每一层按照从左到右的顺序访问节点。
 
-层序遍历本质上属于「广度优先搜索 Breadth-First Traversal」，它体现了一种“一圈一圈向外扩展”的逐层搜索方式。
+层序遍历本质上属于「广度优先遍历 breadth-first traversal」，它体现了一种“一圈一圈向外扩展”的逐层遍历方式。
 
 ![二叉树的层序遍历](binary_tree_traversal.assets/binary_tree_bfs.png)
 
-广度优先遍历通常借助「队列」来实现。队列遵循“先进先出”的规则，而广度优先遍历则遵循“逐层推进”的规则，两者背后的思想是一致的。
+### 代码实现
 
-=== "Java"
+广度优先遍历通常借助“队列”来实现。队列遵循“先进先出”的规则，而广度优先遍历则遵循“逐层推进”的规则，两者背后的思想是一致的。
 
-    ```java title="binary_tree_bfs.java"
-    [class]{binary_tree_bfs}-[func]{levelOrder}
+=== "Python"
+
+    ```python title="binary_tree_bfs.py"
+    [class]{}-[func]{level_order}
     ```
 
 === "C++"
@@ -26,15 +28,27 @@
     [class]{}-[func]{levelOrder}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_tree_bfs.py"
-    [class]{}-[func]{level_order}
+    ```java title="binary_tree_bfs.java"
+    [class]{binary_tree_bfs}-[func]{levelOrder}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_tree_bfs.cs"
+    [class]{binary_tree_bfs}-[func]{LevelOrder}
     ```
 
 === "Go"
 
     ```go title="binary_tree_bfs.go"
+    [class]{}-[func]{levelOrder}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_tree_bfs.swift"
     [class]{}-[func]{levelOrder}
     ```
 
@@ -50,30 +64,6 @@
     [class]{}-[func]{levelOrder}
     ```
 
-=== "C"
-
-    ```c title="binary_tree_bfs.c"
-    [class]{}-[func]{levelOrder}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_tree_bfs.cs"
-    [class]{binary_tree_bfs}-[func]{levelOrder}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_tree_bfs.swift"
-    [class]{}-[func]{levelOrder}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_tree_bfs.zig"
-    [class]{}-[func]{levelOrder}
-    ```
-
 === "Dart"
 
     ```dart title="binary_tree_bfs.dart"
@@ -86,28 +76,43 @@
     [class]{}-[func]{level_order}
     ```
 
-**时间复杂度**：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
+=== "C"
 
-**空间复杂度**：在最差情况下，即满二叉树时，遍历到最底层之前，队列中最多同时存在 $\frac{n + 1}{2}$ 个节点，占用 $O(n)$ 空间。
+    ```c title="binary_tree_bfs.c"
+    [class]{}-[func]{levelOrder}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_tree_bfs.zig"
+    [class]{}-[func]{levelOrder}
+    ```
+
+### 复杂度分析
+
+- **时间复杂度 $O(n)$** ：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
+- **空间复杂度 $O(n)$** ：在最差情况下，即满二叉树时，遍历到最底层之前，队列中最多同时存在 $(n + 1) / 2$ 个节点，占用 $O(n)$ 空间。
 
 ## 前序、中序、后序遍历
 
-相应地，前序、中序和后序遍历都属于「深度优先遍历 Depth-First Traversal」，它体现了一种“先走到尽头，再回溯继续”的遍历方式。
+相应地，前序、中序和后序遍历都属于「深度优先遍历 depth-first traversal」，它体现了一种“先走到尽头，再回溯继续”的遍历方式。
 
-如下图所示，左侧是深度优先遍历的示意图，右上方是对应的递归代码。深度优先遍历就像是绕着整个二叉树的外围“走”一圈，在这个过程中，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。
+下图展示了对二叉树进行深度优先遍历的工作原理。**深度优先遍历就像是绕着整个二叉树的外围“走”一圈**，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。
 
 ![二叉搜索树的前、中、后序遍历](binary_tree_traversal.assets/binary_tree_dfs.png)
 
-以下给出了实现代码，请配合上图理解深度优先遍历的递归过程。
+### 代码实现
 
-=== "Java"
+深度优先搜索通常基于递归实现：
 
-    ```java title="binary_tree_dfs.java"
-    [class]{binary_tree_dfs}-[func]{preOrder}
+=== "Python"
 
-    [class]{binary_tree_dfs}-[func]{inOrder}
+    ```python title="binary_tree_dfs.py"
+    [class]{}-[func]{pre_order}
 
-    [class]{binary_tree_dfs}-[func]{postOrder}
+    [class]{}-[func]{in_order}
+
+    [class]{}-[func]{post_order}
     ```
 
 === "C++"
@@ -120,19 +125,39 @@
     [class]{}-[func]{postOrder}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="binary_tree_dfs.py"
-    [class]{}-[func]{pre_order}
+    ```java title="binary_tree_dfs.java"
+    [class]{binary_tree_dfs}-[func]{preOrder}
 
-    [class]{}-[func]{in_order}
+    [class]{binary_tree_dfs}-[func]{inOrder}
 
-    [class]{}-[func]{post_order}
+    [class]{binary_tree_dfs}-[func]{postOrder}
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_tree_dfs.cs"
+    [class]{binary_tree_dfs}-[func]{PreOrder}
+
+    [class]{binary_tree_dfs}-[func]{InOrder}
+
+    [class]{binary_tree_dfs}-[func]{PostOrder}
     ```
 
 === "Go"
 
     ```go title="binary_tree_dfs.go"
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_tree_dfs.swift"
     [class]{}-[func]{preOrder}
 
     [class]{}-[func]{inOrder}
@@ -160,46 +185,6 @@
     [class]{}-[func]{postOrder}
     ```
 
-=== "C"
-
-    ```c title="binary_tree_dfs.c"
-    [class]{}-[func]{preOrder}
-
-    [class]{}-[func]{inOrder}
-
-    [class]{}-[func]{postOrder}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_tree_dfs.cs"
-    [class]{binary_tree_dfs}-[func]{preOrder}
-
-    [class]{binary_tree_dfs}-[func]{inOrder}
-
-    [class]{binary_tree_dfs}-[func]{postOrder}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_tree_dfs.swift"
-    [class]{}-[func]{preOrder}
-
-    [class]{}-[func]{inOrder}
-
-    [class]{}-[func]{postOrder}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_tree_dfs.zig"
-    [class]{}-[func]{preOrder}
-
-    [class]{}-[func]{inOrder}
-
-    [class]{}-[func]{postOrder}
-    ```
-
 === "Dart"
 
     ```dart title="binary_tree_dfs.dart"
@@ -220,15 +205,31 @@
     [class]{}-[func]{post_order}
     ```
 
-**时间复杂度**：所有节点被访问一次，使用 $O(n)$ 时间，其中 $n$ 为节点数量。
+=== "C"
 
-**空间复杂度**：在最差情况下，即树退化为链表时，递归深度达到 $n$ ，系统占用 $O(n)$ 栈帧空间。
+    ```c title="binary_tree_dfs.c"
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_tree_dfs.zig"
+    [class]{}-[func]{preOrder}
+
+    [class]{}-[func]{inOrder}
+
+    [class]{}-[func]{postOrder}
+    ```
 
 !!! note
 
-    我们也可以不使用递归，仅基于迭代实现前、中、后序遍历，有兴趣的同学可以自行研究。
+    深度优先搜索也可以基于迭代实现，有兴趣的同学可以自行研究。
 
-下图展示了前序遍历二叉树的递归过程，其可分为“递”和“归”两个逆向的部分：
+下图展示了前序遍历二叉树的递归过程，其可分为“递”和“归”两个逆向的部分。
 
 1. “递”表示开启新方法，程序在此过程中访问下一个节点。
 2. “归”表示函数返回，代表当前节点已经访问完毕。
@@ -265,3 +266,8 @@
 
 === "<11>"
     ![preorder_step11](binary_tree_traversal.assets/preorder_step11.png)
+
+### 复杂度分析
+
+- **时间复杂度 $O(n)$** ：所有节点被访问一次，使用 $O(n)$ 时间。
+- **空间复杂度 $O(n)$** ：在最差情况下，即树退化为链表时，递归深度达到 $n$ ，系统占用 $O(n)$ 栈帧空间。

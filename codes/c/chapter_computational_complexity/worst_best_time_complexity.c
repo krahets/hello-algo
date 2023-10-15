@@ -8,7 +8,7 @@
 
 /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
 int *randomNumbers(int n) {
-    // 分配堆区内存（创建一维可变长数组：数组中元素数量为n，元素类型为int）
+    // 分配堆区内存（创建一维可变长数组：数组中元素数量为 n ，元素类型为 int ）
     int *nums = (int *)malloc(n * sizeof(int));
     // 生成数组 nums = { 1, 2, 3, ..., n }
     for (int i = 0; i < n; i++) {

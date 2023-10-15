@@ -28,7 +28,7 @@ function dfs(i: number, src: number[], buf: number[], tar: number[]): void {
 }
 
 /* 求解汉诺塔 */
-function hanota(A: number[], B: number[], C: number[]): void {
+function solveHanota(A: number[], B: number[], C: number[]): void {
     const n = A.length;
     // 将 A 顶部 n 个圆盘借助 B 移到 C
     dfs(n, A, B, C);
@@ -44,7 +44,7 @@ console.log(`A = ${JSON.stringify(A)}`);
 console.log(`B = ${JSON.stringify(B)}`);
 console.log(`C = ${JSON.stringify(C)}`);
 
-hanota(A, B, C);
+solveHanota(A, B, C);
 
 console.log('圆盘移动完成后：');
 console.log(`A = ${JSON.stringify(A)}`);

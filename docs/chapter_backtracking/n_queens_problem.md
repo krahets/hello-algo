@@ -8,7 +8,7 @@
 
 ![4 皇后问题的解](n_queens_problem.assets/solution_4_queens.png)
 
-本题共包含三个约束条件：**多个皇后不能在同一行、同一列、同一对角线**。值得注意的是，对角线分为主对角线 `\` 和次对角线 `/` 两种。
+下图展示了本题的三个约束条件：**多个皇后不能在同一行、同一列、同一对角线**。值得注意的是，对角线分为主对角线 `\` 和次对角线 `/` 两种。
 
 ![n 皇后问题的约束条件](n_queens_problem.assets/n_queens_constraints.png)
 
@@ -30,9 +30,9 @@
 
 那么，如何处理对角线约束呢？设棋盘中某个格子的行列索引为 $(row, col)$ ，选定矩阵中的某条主对角线，我们发现该对角线上所有格子的行索引减列索引都相等，**即对角线上所有格子的 $row - col$ 为恒定值**。
 
-也就是说，如果两个格子满足 $row_1 - col_1 = row_2 - col_2$ ，则它们一定处在同一条主对角线上。利用该规律，我们可以借助一个数组 `diag1` 来记录每条主对角线上是否有皇后。
+也就是说，如果两个格子满足 $row_1 - col_1 = row_2 - col_2$ ，则它们一定处在同一条主对角线上。利用该规律，我们可以借助下图所示的数组 `diag1` ，记录每条主对角线上是否有皇后。
 
-同理，**次对角线上的所有格子的 $row + col$ 是恒定值**。我们可以使用相同方法，借助数组 `diag2` 来处理次对角线约束。
+同理，**次对角线上的所有格子的 $row + col$ 是恒定值**。我们同样也可以借助数组 `diag2` 来处理次对角线约束。
 
 ![处理列约束和对角线约束](n_queens_problem.assets/n_queens_cols_diagonals.png)
 
@@ -40,12 +40,12 @@
 
 请注意，$n$ 维方阵中 $row - col$ 的范围是 $[-n + 1, n - 1]$ ，$row + col$ 的范围是 $[0, 2n - 2]$ ，所以主对角线和次对角线的数量都为 $2n - 1$ ，即数组 `diag1` 和 `diag2` 的长度都为 $2n - 1$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="n_queens.java"
-    [class]{n_queens}-[func]{backtrack}
+    ```python title="n_queens.py"
+    [class]{}-[func]{backtrack}
 
-    [class]{n_queens}-[func]{nQueens}
+    [class]{}-[func]{n_queens}
     ```
 
 === "C++"
@@ -56,17 +56,33 @@
     [class]{}-[func]{nQueens}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="n_queens.py"
-    [class]{}-[func]{backtrack}
+    ```java title="n_queens.java"
+    [class]{n_queens}-[func]{backtrack}
 
-    [class]{}-[func]{n_queens}
+    [class]{n_queens}-[func]{nQueens}
+    ```
+
+=== "C#"
+
+    ```csharp title="n_queens.cs"
+    [class]{n_queens}-[func]{Backtrack}
+
+    [class]{n_queens}-[func]{NQueens}
     ```
 
 === "Go"
 
     ```go title="n_queens.go"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{nQueens}
+    ```
+
+=== "Swift"
+
+    ```swift title="n_queens.swift"
     [class]{}-[func]{backtrack}
 
     [class]{}-[func]{nQueens}
@@ -88,38 +104,6 @@
     [class]{}-[func]{nQueens}
     ```
 
-=== "C"
-
-    ```c title="n_queens.c"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{nQueens}
-    ```
-
-=== "C#"
-
-    ```csharp title="n_queens.cs"
-    [class]{n_queens}-[func]{backtrack}
-
-    [class]{n_queens}-[func]{nQueens}
-    ```
-
-=== "Swift"
-
-    ```swift title="n_queens.swift"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{nQueens}
-    ```
-
-=== "Zig"
-
-    ```zig title="n_queens.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{nQueens}
-    ```
-
 === "Dart"
 
     ```dart title="n_queens.dart"
@@ -136,6 +120,24 @@
     [class]{}-[func]{n_queens}
     ```
 
-逐行放置 $n$ 次，考虑列约束，则从第一行到最后一行分别有 $n, n-1, \cdots, 2, 1$ 个选择，**因此时间复杂度为 $O(n!)$** 。实际上，根据对角线约束的剪枝也能够大幅地缩小搜索空间，因而搜索效率往往优于以上时间复杂度。
+=== "C"
 
-数组 `state` 使用 $O(n^2)$ 空间，数组 `cols` , `diags1` , `diags2` 皆使用 $O(n)$ 空间。最大递归深度为 $n$ ，使用 $O(n)$ 栈帧空间。因此，**空间复杂度为 $O(n^2)$** 。
+    ```c title="n_queens.c"
+    [class]{result}-[func]{}
+
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{nQueens}
+    ```
+
+=== "Zig"
+
+    ```zig title="n_queens.zig"
+    [class]{}-[func]{backtrack}
+
+    [class]{}-[func]{nQueens}
+    ```
+
+逐行放置 $n$ 次，考虑列约束，则从第一行到最后一行分别有 $n$、$n-1$、$\dots$、$2$、$1$ 个选择，**因此时间复杂度为 $O(n!)$** 。实际上，根据对角线约束的剪枝也能够大幅地缩小搜索空间，因而搜索效率往往优于以上时间复杂度。
+
+数组 `state` 使用 $O(n^2)$ 空间，数组 `cols`、`diags1` 和 `diags2` 皆使用 $O(n)$ 空间。最大递归深度为 $n$ ，使用 $O(n)$ 栈帧空间。因此，**空间复杂度为 $O(n^2)$** 。

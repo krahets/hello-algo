@@ -6,9 +6,9 @@
 
 !!! question
 
-    给定 $n$ 个物品，第 $i$ 个物品的重量为 $wgt[i-1]$ 、价值为 $val[i-1]$ ，和一个容量为 $cap$ 的背包。每个物品只能选择一次，问在不超过背包容量下能放入物品的最大价值。
+    给定 $n$ 个物品，第 $i$ 个物品的重量为 $wgt[i-1]$、价值为 $val[i-1]$ ，和一个容量为 $cap$ 的背包。每个物品只能选择一次，问在不超过背包容量下能放入物品的最大价值。
 
-请注意，物品编号 $i$ 从 $1$ 开始计数，数组索引从 $0$ 开始计数，因此物品 $i$ 对应重量 $wgt[i-1]$ 和价值 $val[i-1]$ 。
+观察下图，由于物品编号 $i$ 从 $1$ 开始计数，数组索引从 $0$ 开始计数，因此物品 $i$ 对应重量 $wgt[i-1]$ 和价值 $val[i-1]$ 。
 
 ![0-1 背包的示例数据](knapsack_problem.assets/knapsack_example.png)
 
@@ -26,12 +26,12 @@
 
 **第二步：找出最优子结构，进而推导出状态转移方程**
 
-当我们做出物品 $i$ 的决策后，剩余的是前 $i-1$ 个物品的决策。因此，状态转移分为两种情况：
+当我们做出物品 $i$ 的决策后，剩余的是前 $i-1$ 个物品的决策，可分为以下两种情况。
 
-- **不放入物品 $i$** ：背包容量不变，状态转移至 $[i-1, c]$ 。
-- **放入物品 $i$** ：背包容量减小 $wgt[i-1]$ ，价值增加 $val[i-1]$ ，状态转移至 $[i-1, c-wgt[i-1]]$ 。
+- **不放入物品 $i$** ：背包容量不变，状态变化为 $[i-1, c]$ 。
+- **放入物品 $i$** ：背包容量减小 $wgt[i-1]$ ，价值增加 $val[i-1]$ ，状态变化为 $[i-1, c-wgt[i-1]]$ 。
 
-上述的状态转移向我们揭示了本题的最优子结构：**最大价值 $dp[i, c]$ 等于不放入物品 $i$ 和放入物品 $i$ 两种方案中的价值更大的那一个**。由此可推出状态转移方程：
+上述分析向我们揭示了本题的最优子结构：**最大价值 $dp[i, c]$ 等于不放入物品 $i$ 和放入物品 $i$ 两种方案中的价值更大的那一个**。由此可推出状态转移方程：
 
 $$
 dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
@@ -49,17 +49,17 @@ $$
 
 ### 方法一：暴力搜索
 
-搜索代码包含以下要素：
+搜索代码包含以下要素。
 
 - **递归参数**：状态 $[i, c]$ 。
 - **返回值**：子问题的解 $dp[i, c]$ 。
 - **终止条件**：当物品编号越界 $i = 0$ 或背包剩余容量为 $0$ 时，终止递归并返回价值 $0$ 。
 - **剪枝**：若当前物品重量超出背包剩余容量，则只能不放入背包。
 
-=== "Java"
+=== "Python"
 
-    ```java title="knapsack.java"
-    [class]{knapsack}-[func]{knapsackDFS}
+    ```python title="knapsack.py"
+    [class]{}-[func]{knapsack_dfs}
     ```
 
 === "C++"
@@ -68,15 +68,27 @@ $$
     [class]{}-[func]{knapsackDFS}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="knapsack.py"
-    [class]{}-[func]{knapsack_dfs}
+    ```java title="knapsack.java"
+    [class]{knapsack}-[func]{knapsackDFS}
+    ```
+
+=== "C#"
+
+    ```csharp title="knapsack.cs"
+    [class]{knapsack}-[func]{KnapsackDFS}
     ```
 
 === "Go"
 
     ```go title="knapsack.go"
+    [class]{}-[func]{knapsackDFS}
+    ```
+
+=== "Swift"
+
+    ```swift title="knapsack.swift"
     [class]{}-[func]{knapsackDFS}
     ```
 
@@ -92,30 +104,6 @@ $$
     [class]{}-[func]{knapsackDFS}
     ```
 
-=== "C"
-
-    ```c title="knapsack.c"
-    [class]{}-[func]{knapsackDFS}
-    ```
-
-=== "C#"
-
-    ```csharp title="knapsack.cs"
-    [class]{knapsack}-[func]{knapsackDFS}
-    ```
-
-=== "Swift"
-
-    ```swift title="knapsack.swift"
-    [class]{}-[func]{knapsackDFS}
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDFS}
-    ```
-
 === "Dart"
 
     ```dart title="knapsack.dart"
@@ -126,6 +114,18 @@ $$
 
     ```rust title="knapsack.rs"
     [class]{}-[func]{knapsack_dfs}
+    ```
+
+=== "C"
+
+    ```c title="knapsack.c"
+    [class]{}-[func]{knapsackDFS}
+    ```
+
+=== "Zig"
+
+    ```zig title="knapsack.zig"
+    [class]{}-[func]{knapsackDFS}
     ```
 
 如下图所示，由于每个物品都会产生不选和选两条搜索分支，因此时间复杂度为 $O(2^n)$ 。
@@ -140,10 +140,10 @@ $$
 
 引入记忆化之后，**时间复杂度取决于子问题数量**，也就是 $O(n \times cap)$ 。
 
-=== "Java"
+=== "Python"
 
-    ```java title="knapsack.java"
-    [class]{knapsack}-[func]{knapsackDFSMem}
+    ```python title="knapsack.py"
+    [class]{}-[func]{knapsack_dfs_mem}
     ```
 
 === "C++"
@@ -152,15 +152,27 @@ $$
     [class]{}-[func]{knapsackDFSMem}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="knapsack.py"
-    [class]{}-[func]{knapsack_dfs_mem}
+    ```java title="knapsack.java"
+    [class]{knapsack}-[func]{knapsackDFSMem}
+    ```
+
+=== "C#"
+
+    ```csharp title="knapsack.cs"
+    [class]{knapsack}-[func]{KnapsackDFSMem}
     ```
 
 === "Go"
 
     ```go title="knapsack.go"
+    [class]{}-[func]{knapsackDFSMem}
+    ```
+
+=== "Swift"
+
+    ```swift title="knapsack.swift"
     [class]{}-[func]{knapsackDFSMem}
     ```
 
@@ -176,30 +188,6 @@ $$
     [class]{}-[func]{knapsackDFSMem}
     ```
 
-=== "C"
-
-    ```c title="knapsack.c"
-    [class]{}-[func]{knapsackDFSMem}
-    ```
-
-=== "C#"
-
-    ```csharp title="knapsack.cs"
-    [class]{knapsack}-[func]{knapsackDFSMem}
-    ```
-
-=== "Swift"
-
-    ```swift title="knapsack.swift"
-    [class]{}-[func]{knapsackDFSMem}
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDFSMem}
-    ```
-
 === "Dart"
 
     ```dart title="knapsack.dart"
@@ -211,6 +199,20 @@ $$
     ```rust title="knapsack.rs"
     [class]{}-[func]{knapsack_dfs_mem}
     ```
+
+=== "C"
+
+    ```c title="knapsack.c"
+    [class]{}-[func]{knapsackDFSMem}
+    ```
+
+=== "Zig"
+
+    ```zig title="knapsack.zig"
+    [class]{}-[func]{knapsackDFSMem}
+    ```
+
+下图展示了在记忆化递归中被剪掉的搜索分支。
 
 ![0-1 背包的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.png)
 
@@ -218,10 +220,10 @@ $$
 
 动态规划实质上就是在状态转移中填充 $dp$ 表的过程，代码如下所示。
 
-=== "Java"
+=== "Python"
 
-    ```java title="knapsack.java"
-    [class]{knapsack}-[func]{knapsackDP}
+    ```python title="knapsack.py"
+    [class]{}-[func]{knapsack_dp}
     ```
 
 === "C++"
@@ -230,15 +232,27 @@ $$
     [class]{}-[func]{knapsackDP}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="knapsack.py"
-    [class]{}-[func]{knapsack_dp}
+    ```java title="knapsack.java"
+    [class]{knapsack}-[func]{knapsackDP}
+    ```
+
+=== "C#"
+
+    ```csharp title="knapsack.cs"
+    [class]{knapsack}-[func]{KnapsackDP}
     ```
 
 === "Go"
 
     ```go title="knapsack.go"
+    [class]{}-[func]{knapsackDP}
+    ```
+
+=== "Swift"
+
+    ```swift title="knapsack.swift"
     [class]{}-[func]{knapsackDP}
     ```
 
@@ -254,30 +268,6 @@ $$
     [class]{}-[func]{knapsackDP}
     ```
 
-=== "C"
-
-    ```c title="knapsack.c"
-    [class]{}-[func]{knapsackDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="knapsack.cs"
-    [class]{knapsack}-[func]{knapsackDP}
-    ```
-
-=== "Swift"
-
-    ```swift title="knapsack.swift"
-    [class]{}-[func]{knapsackDP}
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDP}
-    ```
-
 === "Dart"
 
     ```dart title="knapsack.dart"
@@ -288,6 +278,18 @@ $$
 
     ```rust title="knapsack.rs"
     [class]{}-[func]{knapsack_dp}
+    ```
+
+=== "C"
+
+    ```c title="knapsack.c"
+    [class]{}-[func]{knapsackDP}
+    ```
+
+=== "Zig"
+
+    ```zig title="knapsack.zig"
+    [class]{}-[func]{knapsackDP}
     ```
 
 如下图所示，时间复杂度和空间复杂度都由数组 `dp` 大小决定，即 $O(n \times cap)$ 。
@@ -334,19 +336,19 @@ $$
 === "<14>"
     ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.png)
 
-### 状态压缩
+### 空间优化
 
 由于每个状态都只与其上一行的状态有关，因此我们可以使用两个数组滚动前进，将空间复杂度从 $O(n^2)$ 将低至 $O(n)$ 。
 
-进一步思考，我们是否可以仅用一个数组实现状态压缩呢？观察可知，每个状态都是由正上方或左上方的格子转移过来的。假设只有一个数组，当开始遍历第 $i$ 行时，该数组存储的仍然是第 $i-1$ 行的状态。
+进一步思考，我们是否可以仅用一个数组实现空间优化呢？观察可知，每个状态都是由正上方或左上方的格子转移过来的。假设只有一个数组，当开始遍历第 $i$ 行时，该数组存储的仍然是第 $i-1$ 行的状态。
 
 - 如果采取正序遍历，那么遍历到 $dp[i, j]$ 时，左上方 $dp[i-1, 1]$ ~ $dp[i-1, j-1]$ 值可能已经被覆盖，此时就无法得到正确的状态转移结果。
 - 如果采取倒序遍历，则不会发生覆盖问题，状态转移可以正确进行。
 
-以下动画展示了在单个数组下从第 $i = 1$ 行转换至第 $i = 2$ 行的过程。请思考正序遍历和倒序遍历的区别。
+下图展示了在单个数组下从第 $i = 1$ 行转换至第 $i = 2$ 行的过程。请思考正序遍历和倒序遍历的区别。
 
 === "<1>"
-    ![0-1 背包的状态压缩后的动态规划过程](knapsack_problem.assets/knapsack_dp_comp_step1.png)
+    ![0-1 背包的空间优化后的动态规划过程](knapsack_problem.assets/knapsack_dp_comp_step1.png)
 
 === "<2>"
     ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.png)
@@ -365,10 +367,10 @@ $$
 
 在代码实现中，我们仅需将数组 `dp` 的第一维 $i$ 直接删除，并且把内循环更改为倒序遍历即可。
 
-=== "Java"
+=== "Python"
 
-    ```java title="knapsack.java"
-    [class]{knapsack}-[func]{knapsackDPComp}
+    ```python title="knapsack.py"
+    [class]{}-[func]{knapsack_dp_comp}
     ```
 
 === "C++"
@@ -377,15 +379,27 @@ $$
     [class]{}-[func]{knapsackDPComp}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="knapsack.py"
-    [class]{}-[func]{knapsack_dp_comp}
+    ```java title="knapsack.java"
+    [class]{knapsack}-[func]{knapsackDPComp}
+    ```
+
+=== "C#"
+
+    ```csharp title="knapsack.cs"
+    [class]{knapsack}-[func]{KnapsackDPComp}
     ```
 
 === "Go"
 
     ```go title="knapsack.go"
+    [class]{}-[func]{knapsackDPComp}
+    ```
+
+=== "Swift"
+
+    ```swift title="knapsack.swift"
     [class]{}-[func]{knapsackDPComp}
     ```
 
@@ -401,30 +415,6 @@ $$
     [class]{}-[func]{knapsackDPComp}
     ```
 
-=== "C"
-
-    ```c title="knapsack.c"
-    [class]{}-[func]{knapsackDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="knapsack.cs"
-    [class]{knapsack}-[func]{knapsackDPComp}
-    ```
-
-=== "Swift"
-
-    ```swift title="knapsack.swift"
-    [class]{}-[func]{knapsackDPComp}
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDPComp}
-    ```
-
 === "Dart"
 
     ```dart title="knapsack.dart"
@@ -435,4 +425,16 @@ $$
 
     ```rust title="knapsack.rs"
     [class]{}-[func]{knapsack_dp_comp}
+    ```
+
+=== "C"
+
+    ```c title="knapsack.c"
+    [class]{}-[func]{knapsackDPComp}
+    ```
+
+=== "Zig"
+
+    ```zig title="knapsack.zig"
+    [class]{}-[func]{knapsackDPComp}
     ```

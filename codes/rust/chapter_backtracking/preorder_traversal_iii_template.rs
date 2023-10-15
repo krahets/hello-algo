@@ -4,7 +4,7 @@
  * Author: sjinzh (sjinzh@gmail.com)
  */
 
- include!("../include/include.rs");
+include!("../include/include.rs");
 
 use std::{cell::RefCell, rc::Rc};
 use tree_node::{vec_to_tree, TreeNode};

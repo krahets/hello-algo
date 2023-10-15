@@ -13,16 +13,16 @@ class HashMapOpenAddressing {
     var loadThres: Double // 触发扩容的负载因子阈值
     var extendRatio: Int // 扩容倍数
     var buckets: [Pair?] // 桶数组
-    var removed: Pair // 删除标记
+    var TOMBSTONE: Pair // 删除标记
 
     /* 构造方法 */
     init() {
         size = 0
         capacity = 4
-        loadThres = 2 / 3
+        loadThres = 2.0 / 3.0
         extendRatio = 2
         buckets = Array(repeating: nil, count: capacity)
-        removed = Pair(key: -1, val: "-1")
+        TOMBSTONE = Pair(key: -1, val: "-1")
     }
 
     /* 哈希函数 */
@@ -35,22 +35,42 @@ class HashMapOpenAddressing {
         Double(size / capacity)
     }
 
+    /* 搜索 key 对应的桶索引 */
+    func findBucket(key: Int) -> Int {
+        var index = hashFunc(key: key)
+        var firstTombstone = -1
+        // 线性探测，当遇到空桶时跳出
+        while buckets[index] != nil {
+            // 若遇到 key ，返回对应桶索引
+            if buckets[index]!.key == key {
+                // 若之前遇到了删除标记，则将键值对移动至该索引
+                if firstTombstone != -1 {
+                    buckets[firstTombstone] = buckets[index]
+                    buckets[index] = TOMBSTONE
+                    return firstTombstone // 返回移动后的桶索引
+                }
+                return index // 返回桶索引
+            }
+            // 记录遇到的首个删除标记
+            if firstTombstone == -1 && buckets[index] == TOMBSTONE {
+                firstTombstone = index
+            }
+            // 计算桶索引，越过尾部返回头部
+            index = (index + 1) % capacity
+        }
+        // 若 key 不存在，则返回添加点的索引
+        return firstTombstone == -1 ? index : firstTombstone
+    }
+
     /* 查询操作 */
     func get(key: Int) -> String? {
-        let index = hashFunc(key: key)
-        // 线性探测，从 index 开始向后遍历
-        for i in stride(from: 0, to: capacity, by: 1) {
-            // 计算桶索引，越过尾部返回头部
-            let j = (index + i) % capacity
-            // 若遇到空桶，说明无此 key ，则返回 nil
-            if buckets[j] == nil {
-                return nil
-            }
-            // 若遇到指定 key ，则返回对应 val
-            if buckets[j]?.key == key, buckets[j] != removed {
-                return buckets[j]?.val
-            }
+        // 搜索 key 对应的桶索引
+        let index = findBucket(key: key)
+        // 若找到键值对，则返回对应 val
+        if buckets[index] != nil, buckets[index] != TOMBSTONE {
+            return buckets[index]!.val
         }
+        // 若键值对不存在，则返回 null
         return nil
     }
 
@@ -60,42 +80,26 @@ class HashMapOpenAddressing {
         if loadFactor() > loadThres {
             extend()
         }
-        let index = hashFunc(key: key)
-        // 线性探测，从 index 开始向后遍历
-        for i in stride(from: 0, through: capacity, by: 1) {
-            // 计算桶索引，越过尾部返回头部
-            let j = (index + i) % capacity
-            // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
-            if buckets[j] == nil || buckets[j] == removed {
-                buckets[j] = Pair(key: key, val: val)
-                size += 1
-                return
-            }
-            // 若遇到指定 key ，则更新对应 val
-            if buckets[j]?.key == key {
-                buckets[j]?.val = val
-                return
-            }
+        // 搜索 key 对应的桶索引
+        let index = findBucket(key: key)
+        // 若找到键值对，则覆盖 val 并返回
+        if buckets[index] != nil, buckets[index] != TOMBSTONE {
+            buckets[index]!.val = val
+            return
         }
+        // 若键值对不存在，则添加该键值对
+        buckets[index] = Pair(key: key, val: val)
+        size += 1
     }
 
     /* 删除操作 */
     func remove(key: Int) {
-        let index = hashFunc(key: key)
-        // 线性探测，从 index 开始向后遍历
-        for i in stride(from: 0, to: capacity, by: 1) {
-            // 计算桶索引，越过尾部返回头部
-            let j = (index + i) % capacity
-            // 若遇到空桶，说明无此 key ，则直接返回
-            if buckets[j] == nil {
-                return
-            }
-            // 若遇到指定 key ，则标记删除并返回
-            if buckets[j]?.key == key {
-                buckets[j] = removed
-                size -= 1
-                return
-            }
+        // 搜索 key 对应的桶索引
+        let index = findBucket(key: key)
+        // 若找到键值对，则用删除标记覆盖它
+        if buckets[index] != nil, buckets[index] != TOMBSTONE {
+            buckets[index] = TOMBSTONE
+            size -= 1
         }
     }
 
@@ -109,7 +113,7 @@ class HashMapOpenAddressing {
         size = 0
         // 将键值对从原哈希表搬运至新哈希表
         for pair in bucketsTmp {
-            if let pair, pair != removed {
+            if let pair, pair != TOMBSTONE {
                 put(key: pair.key, val: pair.val)
             }
         }
@@ -118,10 +122,12 @@ class HashMapOpenAddressing {
     /* 打印哈希表 */
     func print() {
         for pair in buckets {
-            if let pair {
-                Swift.print("\(pair.key) -> \(pair.val)")
-            } else {
+            if pair == nil {
                 Swift.print("null")
+            } else if pair == TOMBSTONE {
+                Swift.print("TOMBSTONE")
+            } else {
+                Swift.print("\(pair!.key) -> \(pair!.val)")
             }
         }
     }

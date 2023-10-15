@@ -16,8 +16,8 @@ def min_path_sum_dfs(grid: list[list[int]], i: int, j: int) -> int:
     if i < 0 or j < 0:
         return inf
     # 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-    left = min_path_sum_dfs(grid, i - 1, j)
-    up = min_path_sum_dfs(grid, i, j - 1)
+    up = min_path_sum_dfs(grid, i - 1, j)
+    left = min_path_sum_dfs(grid, i, j - 1)
     # 返回从左上角到 (i, j) 的最小路径代价
     return min(left, up) + grid[i][j]
 
@@ -36,8 +36,8 @@ def min_path_sum_dfs_mem(
     if mem[i][j] != -1:
         return mem[i][j]
     # 左边和上边单元格的最小路径代价
-    left = min_path_sum_dfs_mem(grid, mem, i - 1, j)
-    up = min_path_sum_dfs_mem(grid, mem, i, j - 1)
+    up = min_path_sum_dfs_mem(grid, mem, i - 1, j)
+    left = min_path_sum_dfs_mem(grid, mem, i, j - 1)
     # 记录并返回左上角到 (i, j) 的最小路径代价
     mem[i][j] = min(left, up) + grid[i][j]
     return mem[i][j]
@@ -63,7 +63,7 @@ def min_path_sum_dp(grid: list[list[int]]) -> int:
 
 
 def min_path_sum_dp_comp(grid: list[list[int]]) -> int:
-    """最小路径和：状态压缩后的动态规划"""
+    """最小路径和：空间优化后的动态规划"""
     n, m = len(grid), len(grid[0])
     # 初始化 dp 表
     dp = [0] * m
@@ -99,6 +99,6 @@ if __name__ == "__main__":
     res = min_path_sum_dp(grid)
     print(f"从左上角到右下角的做小路径和为 {res}")
 
-    # 状态压缩后的动态规划
+    # 空间优化后的动态规划
     res = min_path_sum_dp_comp(grid)
     print(f"从左上角到右下角的做小路径和为 {res}")

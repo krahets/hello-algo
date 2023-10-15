@@ -1,8 +1,8 @@
 # 队列
 
-「队列 Queue」是一种遵循先入先出（First In, First Out）规则的线性数据结构。顾名思义，队列模拟了排队现象，即新来的人不断加入队列的尾部，而位于队列头部的人逐个离开。
+「队列 queue」是一种遵循先入先出规则的线性数据结构。顾名思义，队列模拟了排队现象，即新来的人不断加入队列的尾部，而位于队列头部的人逐个离开。
 
-我们把队列的头部称为「队首」，尾部称为「队尾」，把将元素加入队尾的操作称为「入队」，删除队首元素的操作称为「出队」。
+如下图所示，我们将队列的头部称为“队首”，尾部称为“队尾”，将把元素加入队尾的操作称为“入队”，删除队首元素的操作称为“出队”。
 
 ![队列的先入先出规则](queue.assets/queue_operations.png)
 
@@ -10,7 +10,7 @@
 
 队列的常见操作如下表所示。需要注意的是，不同编程语言的方法名称可能会有所不同。我们在此采用与栈相同的方法命名。
 
-<div class="center-table" markdown>
+<p align="center"> 表 <id> &nbsp; 队列操作效率 </p>
 
 | 方法名     | 描述                        | 时间复杂度 |
 | --------- | -------------------------- | -------- |
@@ -18,34 +18,34 @@
 | pop()     | 队首元素出队                 | $O(1)$   |
 | peek()    | 访问队首元素                 | $O(1)$   |
 
-</div>
-
 我们可以直接使用编程语言中现成的队列类。
 
-=== "Java"
+=== "Python"
 
-    ```java title="queue.java"
-    /* 初始化队列 */
-    Queue<Integer> queue = new LinkedList<>();
+    ```python title="queue.py"
+    # 初始化队列
+    # 在 Python 中，我们一般将双向队列类 deque 看作队列使用
+    # 虽然 queue.Queue() 是纯正的队列类，但不太好用，因此不建议
+    que: deque[int] = collections.deque()
     
-    /* 元素入队 */
-    queue.offer(1);
-    queue.offer(3);
-    queue.offer(2);
-    queue.offer(5);
-    queue.offer(4);
+    # 元素入队
+    que.append(1)
+    que.append(3)
+    que.append(2)
+    que.append(5)
+    que.append(4)
     
-    /* 访问队首元素 */
-    int peek = queue.peek();
+    # 访问队首元素
+    front: int = que[0];
     
-    /* 元素出队 */
-    int pop = queue.poll();
+    # 元素出队
+    pop: int = que.popleft()
     
-    /* 获取队列的长度 */
-    int size = queue.size();
+    # 获取队列的长度
+    size: int = len(que)
     
-    /* 判断队列是否为空 */
-    boolean isEmpty = queue.isEmpty();
+    # 判断队列是否为空
+    is_empty: bool = len(que) == 0
     ```
 
 === "C++"
@@ -74,32 +74,56 @@
     bool empty = queue.empty();
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="queue.py"
-    # 初始化队列
-    # 在 Python 中，我们一般将双向队列类 deque 看作队列使用
-    # 虽然 queue.Queue() 是纯正的队列类，但不太好用，因此不建议
-    que: Deque[int] = collections.deque()
+    ```java title="queue.java"
+    /* 初始化队列 */
+    Queue<Integer> queue = new LinkedList<>();
     
-    # 元素入队
-    que.append(1)
-    que.append(3)
-    que.append(2)
-    que.append(5)
-    que.append(4)
+    /* 元素入队 */
+    queue.offer(1);
+    queue.offer(3);
+    queue.offer(2);
+    queue.offer(5);
+    queue.offer(4);
     
-    # 访问队首元素
-    front: int = que[0];
+    /* 访问队首元素 */
+    int peek = queue.peek();
     
-    # 元素出队
-    pop: int = que.popleft()
+    /* 元素出队 */
+    int pop = queue.poll();
     
-    # 获取队列的长度
-    size: int = len(que)
+    /* 获取队列的长度 */
+    int size = queue.size();
     
-    # 判断队列是否为空
-    is_empty: bool = len(que) == 0
+    /* 判断队列是否为空 */
+    boolean isEmpty = queue.isEmpty();
+    ```
+
+=== "C#"
+
+    ```csharp title="queue.cs"
+    /* 初始化队列 */
+    Queue<int> queue = new();
+    
+    /* 元素入队 */
+    queue.Enqueue(1);
+    queue.Enqueue(3);
+    queue.Enqueue(2);
+    queue.Enqueue(5);
+    queue.Enqueue(4);
+    
+    /* 访问队首元素 */
+    int peek = queue.Peek();
+    
+    /* 元素出队 */
+    int pop = queue.Dequeue();
+    
+    /* 获取队列的长度 */
+    int size = queue.Count;
+    
+    /* 判断队列是否为空 */
+    bool isEmpty = queue.Count == 0;
     ```
 
 === "Go"
@@ -128,6 +152,34 @@
     
     /* 判断队列是否为空 */
     isEmpty := queue.Len() == 0
+    ```
+
+=== "Swift"
+
+    ```swift title="queue.swift"
+    /* 初始化队列 */
+    // Swift 没有内置的队列类，可以把 Array 当作队列来使用
+    var queue: [Int] = []
+    
+    /* 元素入队 */
+    queue.append(1)
+    queue.append(3)
+    queue.append(2)
+    queue.append(5)
+    queue.append(4)
+    
+    /* 访问队首元素 */
+    let peek = queue.first!
+    
+    /* 元素出队 */
+    // 由于是数组，因此 removeFirst 的复杂度为 O(n)
+    let pool = queue.removeFirst()
+    
+    /* 获取队列的长度 */
+    let size = queue.count
+    
+    /* 判断队列是否为空 */
+    let isEmpty = queue.isEmpty
     ```
 
 === "JS"
@@ -186,72 +238,6 @@
     const empty = queue.length === 0;
     ```
 
-=== "C"
-
-    ```c title="queue.c"
-    // C 未提供内置队列
-    ```
-
-=== "C#"
-
-    ```csharp title="queue.cs"
-    /* 初始化队列 */
-    Queue<int> queue = new();
-    
-    /* 元素入队 */
-    queue.Enqueue(1);
-    queue.Enqueue(3);
-    queue.Enqueue(2);
-    queue.Enqueue(5);
-    queue.Enqueue(4);
-    
-    /* 访问队首元素 */
-    int peek = queue.Peek();
-    
-    /* 元素出队 */
-    int pop = queue.Dequeue();
-    
-    /* 获取队列的长度 */
-    int size = queue.Count;
-    
-    /* 判断队列是否为空 */
-    bool isEmpty = queue.Count == 0;
-    ```
-
-=== "Swift"
-
-    ```swift title="queue.swift"
-    /* 初始化队列 */
-    // Swift 没有内置的队列类，可以把 Array 当作队列来使用
-    var queue: [Int] = []
-    
-    /* 元素入队 */
-    queue.append(1)
-    queue.append(3)
-    queue.append(2)
-    queue.append(5)
-    queue.append(4)
-    
-    /* 访问队首元素 */
-    let peek = queue.first!
-    
-    /* 元素出队 */
-    // 由于是数组，因此 removeFirst 的复杂度为 O(n)
-    let pool = queue.removeFirst()
-    
-    /* 获取队列的长度 */
-    let size = queue.count
-    
-    /* 判断队列是否为空 */
-    let isEmpty = queue.isEmpty
-    ```
-
-=== "Zig"
-
-    ```zig title="queue.zig"
-
-    ```
-
 === "Dart"
 
     ```dart title="queue.dart"
@@ -282,6 +268,41 @@
 === "Rust"
 
     ```rust title="queue.rs"
+    /* 初始化双向队列 */
+    // 在 Rust 中使用双向队列作为普通队列来使用
+    let mut deque: VecDeque<u32> = VecDeque::new();
+
+    /* 元素入队 */
+    deque.push_back(1);
+    deque.push_back(3);
+    deque.push_back(2);
+    deque.push_back(5);
+    deque.push_back(4);
+
+    /* 访问队首元素 */
+    if let Some(front) = deque.front() {
+    }
+
+    /* 元素出队 */
+    if let Some(pop) = deque.pop_front() {
+    }
+
+    /* 获取队列的长度 */
+    let size = deque.len();
+
+    /* 判断队列是否为空 */
+    let is_empty = deque.is_empty();
+    ```
+
+=== "C"
+
+    ```c title="queue.c"
+    // C 未提供内置队列
+    ```
+
+=== "Zig"
+
+    ```zig title="queue.zig"
 
     ```
 
@@ -291,7 +312,7 @@
 
 ### 基于链表的实现
 
-对于链表实现，我们可以将链表的「头节点」和「尾节点」分别视为队首和队尾，规定队尾仅可添加节点，而队首仅可删除节点。
+如下图所示，我们可以将链表的“头节点”和“尾节点”分别视为“队首”和“队尾”，规定队尾仅可添加节点，队首仅可删除节点。
 
 === "LinkedListQueue"
     ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue.png)
@@ -302,11 +323,11 @@
 === "pop()"
     ![linkedlist_queue_pop](queue.assets/linkedlist_queue_pop.png)
 
-以下是用链表实现队列的示例代码。
+以下是用链表实现队列的代码。
 
-=== "Java"
+=== "Python"
 
-    ```java title="linkedlist_queue.java"
+    ```python title="linkedlist_queue.py"
     [class]{LinkedListQueue}-[func]{}
     ```
 
@@ -316,9 +337,15 @@
     [class]{LinkedListQueue}-[func]{}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="linkedlist_queue.py"
+    ```java title="linkedlist_queue.java"
+    [class]{LinkedListQueue}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="linkedlist_queue.cs"
     [class]{LinkedListQueue}-[func]{}
     ```
 
@@ -326,6 +353,12 @@
 
     ```go title="linkedlist_queue.go"
     [class]{linkedListQueue}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="linkedlist_queue.swift"
+    [class]{LinkedListQueue}-[func]{}
     ```
 
 === "JS"
@@ -337,30 +370,6 @@
 === "TS"
 
     ```typescript title="linkedlist_queue.ts"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="linkedlist_queue.c"
-    [class]{linkedListQueue}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="linkedlist_queue.cs"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="linkedlist_queue.swift"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="linkedlist_queue.zig"
     [class]{LinkedListQueue}-[func]{}
     ```
 
@@ -376,16 +385,28 @@
     [class]{LinkedListQueue}-[func]{}
     ```
 
+=== "C"
+
+    ```c title="linkedlist_queue.c"
+    [class]{linkedListQueue}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="linkedlist_queue.zig"
+    [class]{LinkedListQueue}-[func]{}
+    ```
+
 ### 基于数组的实现
 
 由于数组删除首元素的时间复杂度为 $O(n)$ ，这会导致出队操作效率较低。然而，我们可以采用以下巧妙方法来避免这个问题。
 
-我们可以使用一个变量 `front` 指向队首元素的索引，并维护一个变量 `queSize` 用于记录队列长度。定义 `rear = front + queSize` ，这个公式计算出的 `rear` 指向队尾元素之后的下一个位置。
+我们可以使用一个变量 `front` 指向队首元素的索引，并维护一个变量 `size` 用于记录队列长度。定义 `rear = front + size` ，这个公式计算出的 `rear` 指向队尾元素之后的下一个位置。
 
-基于此设计，**数组中包含元素的有效区间为 [front, rear - 1]**，进而：
+基于此设计，**数组中包含元素的有效区间为 `[front, rear - 1]`**，各种操作的实现方法如下图所示。
 
-- 对于入队操作，将输入元素赋值给 `rear` 索引处，并将 `queSize` 增加 1 。
-- 对于出队操作，只需将 `front` 增加 1 ，并将 `queSize` 减少 1 。
+- 入队操作：将输入元素赋值给 `rear` 索引处，并将 `size` 增加 1 。
+- 出队操作：只需将 `front` 增加 1 ，并将 `size` 减少 1 。
 
 可以看到，入队和出队操作都只需进行一次操作，时间复杂度均为 $O(1)$ 。
 
@@ -398,13 +419,13 @@
 === "pop()"
     ![array_queue_pop](queue.assets/array_queue_pop.png)
 
-你可能会发现一个问题：在不断进行入队和出队的过程中，`front` 和 `rear` 都在向右移动，**当它们到达数组尾部时就无法继续移动了**。为解决此问题，我们可以将数组视为首尾相接的「环形数组」。
+你可能会发现一个问题：在不断进行入队和出队的过程中，`front` 和 `rear` 都在向右移动，**当它们到达数组尾部时就无法继续移动了**。为解决此问题，我们可以将数组视为首尾相接的“环形数组”。
 
 对于环形数组，我们需要让 `front` 或 `rear` 在越过数组尾部时，直接回到数组头部继续遍历。这种周期性规律可以通过“取余操作”来实现，代码如下所示。
 
-=== "Java"
+=== "Python"
 
-    ```java title="array_queue.java"
+    ```python title="array_queue.py"
     [class]{ArrayQueue}-[func]{}
     ```
 
@@ -414,9 +435,15 @@
     [class]{ArrayQueue}-[func]{}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="array_queue.py"
+    ```java title="array_queue.java"
+    [class]{ArrayQueue}-[func]{}
+    ```
+
+=== "C#"
+
+    ```csharp title="array_queue.cs"
     [class]{ArrayQueue}-[func]{}
     ```
 
@@ -424,6 +451,12 @@
 
     ```go title="array_queue.go"
     [class]{arrayQueue}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="array_queue.swift"
+    [class]{ArrayQueue}-[func]{}
     ```
 
 === "JS"
@@ -438,30 +471,6 @@
     [class]{ArrayQueue}-[func]{}
     ```
 
-=== "C"
-
-    ```c title="array_queue.c"
-    [class]{arrayQueue}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="array_queue.cs"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="array_queue.swift"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_queue.zig"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
 === "Dart"
 
     ```dart title="array_queue.dart"
@@ -471,6 +480,18 @@
 === "Rust"
 
     ```rust title="array_queue.rs"
+    [class]{ArrayQueue}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="array_queue.c"
+    [class]{arrayQueue}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="array_queue.zig"
     [class]{ArrayQueue}-[func]{}
     ```
 

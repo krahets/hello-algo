@@ -1,22 +1,18 @@
 # 图的遍历
 
-!!! note "图与树的关系"
+树代表的是“一对多”的关系，而图则具有更高的自由度，可以表示任意的“多对多”关系。因此，我们可以把树看作是图的一种特例。显然，**树的遍历操作也是图的遍历操作的一种特例**。
 
-    树代表的是“一对多”的关系，而图则具有更高的自由度，可以表示任意的“多对多”关系。因此，我们可以把树看作是图的一种特例。显然，**树的遍历操作也是图的遍历操作的一种特例**，建议你在学习本章节时融会贯通两者的概念与实现方法。
-
-「图」和「树」都是非线性数据结构，都需要使用「搜索算法」来实现遍历操作。
-
-与树类似，图的遍历方式也可分为两种，即「广度优先遍历 Breadth-First Traversal」和「深度优先遍历 Depth-First Traversal」，也称为「广度优先搜索 Breadth-First Search」和「深度优先搜索 Depth-First Search」，简称 BFS 和 DFS。
+图和树都需要应用搜索算法来实现遍历操作。图的遍历方式可分为两种：「广度优先遍历 breadth-first traversal」和「深度优先遍历 depth-first traversal」。它们也常被称为「广度优先搜索 breadth-first search」和「深度优先搜索 depth-first search」，简称 BFS 和 DFS 。
 
 ## 广度优先遍历
 
-**广度优先遍历是一种由近及远的遍历方式，从距离最近的顶点开始访问，并一层层向外扩张**。具体来说，从某个顶点出发，先遍历该顶点的所有邻接顶点，然后遍历下一个顶点的所有邻接顶点，以此类推，直至所有顶点访问完毕。
+**广度优先遍历是一种由近及远的遍历方式，从某个节点出发，始终优先访问距离最近的顶点，并一层层向外扩张**。如下图所示，从左上角顶点出发，先遍历该顶点的所有邻接顶点，然后遍历下一个顶点的所有邻接顶点，以此类推，直至所有顶点访问完毕。
 
 ![图的广度优先遍历](graph_traversal.assets/graph_bfs.png)
 
 ### 算法实现
 
-BFS 通常借助「队列」来实现。队列具有“先入先出”的性质，这与 BFS 的“由近及远”的思想异曲同工。
+BFS 通常借助队列来实现。队列具有“先入先出”的性质，这与 BFS 的“由近及远”的思想异曲同工。
 
 1. 将遍历起始顶点 `startVet` 加入队列，并开启循环。
 2. 在循环的每轮迭代中，弹出队首顶点并记录访问，然后将该顶点的所有邻接顶点加入到队列尾部。
@@ -24,10 +20,10 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 
 为了防止重复遍历顶点，我们需要借助一个哈希表 `visited` 来记录哪些节点已被访问。
 
-=== "Java"
+=== "Python"
 
-    ```java title="graph_bfs.java"
-    [class]{graph_bfs}-[func]{graphBFS}
+    ```python title="graph_bfs.py"
+    [class]{}-[func]{graph_bfs}
     ```
 
 === "C++"
@@ -36,15 +32,27 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graphBFS}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="graph_bfs.py"
-    [class]{}-[func]{graph_bfs}
+    ```java title="graph_bfs.java"
+    [class]{graph_bfs}-[func]{graphBFS}
+    ```
+
+=== "C#"
+
+    ```csharp title="graph_bfs.cs"
+    [class]{graph_bfs}-[func]{GraphBFS}
     ```
 
 === "Go"
 
     ```go title="graph_bfs.go"
+    [class]{}-[func]{graphBFS}
+    ```
+
+=== "Swift"
+
+    ```swift title="graph_bfs.swift"
     [class]{}-[func]{graphBFS}
     ```
 
@@ -60,30 +68,6 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graphBFS}
     ```
 
-=== "C"
-
-    ```c title="graph_bfs.c"
-    [class]{}-[func]{graphBFS}
-    ```
-
-=== "C#"
-
-    ```csharp title="graph_bfs.cs"
-    [class]{graph_bfs}-[func]{graphBFS}
-    ```
-
-=== "Swift"
-
-    ```swift title="graph_bfs.swift"
-    [class]{}-[func]{graphBFS}
-    ```
-
-=== "Zig"
-
-    ```zig title="graph_bfs.zig"
-    [class]{}-[func]{graphBFS}
-    ```
-
 === "Dart"
 
     ```dart title="graph_bfs.dart"
@@ -96,7 +80,19 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graph_bfs}
     ```
 
-代码相对抽象，建议对照以下动画图示来加深理解。
+=== "C"
+
+    ```c title="graph_bfs.c"
+    [class]{}-[func]{graphBFS}
+    ```
+
+=== "Zig"
+
+    ```zig title="graph_bfs.zig"
+    [class]{}-[func]{graphBFS}
+    ```
+
+代码相对抽象，建议对照下图来加深理解。
 
 === "<1>"
     ![图的广度优先遍历步骤](graph_traversal.assets/graph_bfs_step1.png)
@@ -133,7 +129,7 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 
 !!! question "广度优先遍历的序列是否唯一？"
 
-    不唯一。广度优先遍历只要求按“由近及远”的顺序遍历，**而多个相同距离的顶点的遍历顺序是允许被任意打乱的**。以上图为例，顶点 $1$ , $3$ 的访问顺序可以交换、顶点 $2$ , $4$ , $6$ 的访问顺序也可以任意交换。
+    不唯一。广度优先遍历只要求按“由近及远”的顺序遍历，**而多个相同距离的顶点的遍历顺序是允许被任意打乱的**。以上图为例，顶点 $1$、$3$ 的访问顺序可以交换、顶点 $2$、$4$、$6$ 的访问顺序也可以任意交换。
 
 ### 复杂度分析
 
@@ -143,20 +139,20 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
 
 ## 深度优先遍历
 
-**深度优先遍历是一种优先走到底、无路可走再回头的遍历方式**。具体地，从某个顶点出发，访问当前顶点的某个邻接顶点，直到走到尽头时返回，再继续走到尽头并返回，以此类推，直至所有顶点遍历完成。
+**深度优先遍历是一种优先走到底、无路可走再回头的遍历方式**。如下图所示，从左上角顶点出发，访问当前顶点的某个邻接顶点，直到走到尽头时返回，再继续走到尽头并返回，以此类推，直至所有顶点遍历完成。
 
 ![图的深度优先遍历](graph_traversal.assets/graph_dfs.png)
 
 ### 算法实现
 
-这种“走到尽头 + 回溯”的算法形式通常基于递归来实现。与 BFS 类似，在 DFS 中我们也需要借助一个哈希表 `visited` 来记录已被访问的顶点，以避免重复访问顶点。
+这种“走到尽头再返回”的算法范式通常基于递归来实现。与广度优先遍历类似，在深度优先遍历中我们也需要借助一个哈希表 `visited` 来记录已被访问的顶点，以避免重复访问顶点。
 
-=== "Java"
+=== "Python"
 
-    ```java title="graph_dfs.java"
-    [class]{graph_dfs}-[func]{dfs}
+    ```python title="graph_dfs.py"
+    [class]{}-[func]{dfs}
 
-    [class]{graph_dfs}-[func]{graphDFS}
+    [class]{}-[func]{graph_dfs}
     ```
 
 === "C++"
@@ -167,17 +163,33 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graphDFS}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="graph_dfs.py"
-    [class]{}-[func]{dfs}
+    ```java title="graph_dfs.java"
+    [class]{graph_dfs}-[func]{dfs}
 
-    [class]{}-[func]{graph_dfs}
+    [class]{graph_dfs}-[func]{graphDFS}
+    ```
+
+=== "C#"
+
+    ```csharp title="graph_dfs.cs"
+    [class]{graph_dfs}-[func]{DFS}
+
+    [class]{graph_dfs}-[func]{GraphDFS}
     ```
 
 === "Go"
 
     ```go title="graph_dfs.go"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{graphDFS}
+    ```
+
+=== "Swift"
+
+    ```swift title="graph_dfs.swift"
     [class]{}-[func]{dfs}
 
     [class]{}-[func]{graphDFS}
@@ -199,38 +211,6 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graphDFS}
     ```
 
-=== "C"
-
-    ```c title="graph_dfs.c"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graphDFS}
-    ```
-
-=== "C#"
-
-    ```csharp title="graph_dfs.cs"
-    [class]{graph_dfs}-[func]{dfs}
-
-    [class]{graph_dfs}-[func]{graphDFS}
-    ```
-
-=== "Swift"
-
-    ```swift title="graph_dfs.swift"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graphDFS}
-    ```
-
-=== "Zig"
-
-    ```zig title="graph_dfs.zig"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graphDFS}
-    ```
-
 === "Dart"
 
     ```dart title="graph_dfs.dart"
@@ -247,7 +227,23 @@ BFS 通常借助「队列」来实现。队列具有“先入先出”的性质�
     [class]{}-[func]{graph_dfs}
     ```
 
-深度优先遍历的算法流程如下图所示，其中：
+=== "C"
+
+    ```c title="graph_dfs.c"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{graphDFS}
+    ```
+
+=== "Zig"
+
+    ```zig title="graph_dfs.zig"
+    [class]{}-[func]{dfs}
+
+    [class]{}-[func]{graphDFS}
+    ```
+
+深度优先遍历的算法流程如下图所示。
 
 - **直虚线代表向下递推**，表示开启了一个新的递归方法来访问新顶点。
 - **曲虚线代表向上回溯**，表示此递归方法已经返回，回溯到了开启此递归方法的位置。

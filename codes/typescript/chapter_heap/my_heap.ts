@@ -69,7 +69,7 @@ class MaxHeap {
         while (true) {
             // 获取节点 i 的父节点
             const p = this.parent(i);
-            // 当“越过根节点”或“节点无需修复”时，结束堆化
+            // 当“越过根节点”或“节点无须修复”时，结束堆化
             if (p < 0 || this.maxHeap[i] <= this.maxHeap[p]) break;
             // 交换两节点
             this.swap(i, p);
@@ -101,7 +101,7 @@ class MaxHeap {
             let ma = i;
             if (l < this.size() && this.maxHeap[l] > this.maxHeap[ma]) ma = l;
             if (r < this.size() && this.maxHeap[r] > this.maxHeap[ma]) ma = r;
-            // 若节点 i 最大或索引 l, r 越界，则无需继续堆化，跳出
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if (ma === i) break;
             // 交换两节点
             this.swap(i, ma);
@@ -113,6 +113,11 @@ class MaxHeap {
     /* 打印堆（二叉树） */
     public print(): void {
         printHeap(this.maxHeap);
+    }
+
+    /* 取出堆中元素 */
+    public getMaxHeap(): number[] {
+        return this.maxHeap;
     }
 }
 
@@ -144,3 +149,5 @@ console.log(`\n堆元素数量为 ${size}`);
 /* 判断堆是否为空 */
 const isEmpty = maxHeap.isEmpty();
 console.log(`\n堆是否为空 ${isEmpty}`);
+
+export { MaxHeap };

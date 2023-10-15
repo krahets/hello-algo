@@ -31,7 +31,7 @@ void dfs(int i, vector<int> &src, vector<int> &buf, vector<int> &tar) {
 }
 
 /* 求解汉诺塔 */
-void hanota(vector<int> &A, vector<int> &B, vector<int> &C) {
+void solveHanota(vector<int> &A, vector<int> &B, vector<int> &C) {
     int n = A.size();
     // 将 A 顶部 n 个圆盘借助 B 移到 C
     dfs(n, A, B, C);
@@ -52,7 +52,7 @@ int main() {
     cout << "C =";
     printVector(C);
 
-    hanota(A, B, C);
+    solveHanota(A, B, C);
 
     cout << "圆盘移动完成后：\n";
     cout << "A =";

@@ -33,5 +33,5 @@ if __name__ == "__main__":
     k = 3
 
     res = top_k_heap(nums, k)
-    print(f"最大的 {k} 个元素为")   
+    print(f"最大的 {k} 个元素为")
     print_heap(res)

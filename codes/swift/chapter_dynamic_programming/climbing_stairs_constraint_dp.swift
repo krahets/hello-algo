@@ -7,7 +7,7 @@
 /* 带约束爬楼梯：动态规划 */
 func climbingStairsConstraintDP(n: Int) -> Int {
     if n == 1 || n == 2 {
-        return n
+        return 1
     }
     // 初始化 dp 表，用于存储子问题的解
     var dp = Array(repeating: Array(repeating: 0, count: 3), count: n + 1)

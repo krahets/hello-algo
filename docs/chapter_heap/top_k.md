@@ -8,19 +8,19 @@
 
 ## 方法一：遍历选择
 
-我们可以进行 $k$ 轮遍历，分别在每轮中提取第 $1$ , $2$ , $\cdots$ , $k$ 大的元素，时间复杂度为 $O(nk)$ 。
+我们可以进行下图所示的 $k$ 轮遍历，分别在每轮中提取第 $1$、$2$、$\dots$、$k$ 大的元素，时间复杂度为 $O(nk)$ 。
 
-该方法只适用于 $k \ll n$ 的情况，因为当 $k$ 与 $n$ 比较接近时，其时间复杂度趋向于 $O(n^2)$ ，非常耗时。
+此方法只适用于 $k \ll n$ 的情况，因为当 $k$ 与 $n$ 比较接近时，其时间复杂度趋向于 $O(n^2)$ ，非常耗时。
 
 ![遍历寻找最大的 k 个元素](top_k.assets/top_k_traversal.png)
 
 !!! tip
 
-    当 $k = n$ 时，我们可以得到从大到小的序列，等价于「选择排序」算法。 
+    当 $k = n$ 时，我们可以得到完整的有序序列，此时等价于“选择排序”算法。
 
 ## 方法二：排序
 
-我们可以对数组 `nums` 进行排序，并返回最右边的 $k$ 个元素，时间复杂度为 $O(n \log n)$ 。
+如下图所示，我们可以先对数组 `nums` 进行排序，再返回最右边的 $k$ 个元素，时间复杂度为 $O(n \log n)$ 。
 
 显然，该方法“超额”完成任务了，因为我们只需要找出最大的 $k$ 个元素即可，而不需要排序其他元素。
 
@@ -28,7 +28,7 @@
 
 ## 方法三：堆
 
-我们可以基于堆更加高效地解决 Top-K 问题，流程如下：
+我们可以基于堆更加高效地解决 Top-K 问题，流程如下图所示。
 
 1. 初始化一个小顶堆，其堆顶元素最小。
 2. 先将数组的前 $k$ 个元素依次入堆。
@@ -66,10 +66,10 @@
 
 另外，该方法适用于动态数据流的使用场景。在不断加入数据时，我们可以持续维护堆内的元素，从而实现最大 $k$ 个元素的动态更新。
 
-=== "Java"
+=== "Python"
 
-    ```java title="top_k.java"
-    [class]{top_k}-[func]{topKHeap}
+    ```python title="top_k.py"
+    [class]{}-[func]{top_k_heap}
     ```
 
 === "C++"
@@ -78,15 +78,27 @@
     [class]{}-[func]{topKHeap}
     ```
 
-=== "Python"
+=== "Java"
 
-    ```python title="top_k.py"
-    [class]{}-[func]{top_k_heap}
+    ```java title="top_k.java"
+    [class]{top_k}-[func]{topKHeap}
+    ```
+
+=== "C#"
+
+    ```csharp title="top_k.cs"
+    [class]{top_k}-[func]{TopKHeap}
     ```
 
 === "Go"
 
     ```go title="top_k.go"
+    [class]{}-[func]{topKHeap}
+    ```
+
+=== "Swift"
+
+    ```swift title="top_k.swift"
     [class]{}-[func]{topKHeap}
     ```
 
@@ -102,21 +114,21 @@
     [class]{}-[func]{topKHeap}
     ```
 
-=== "C"
+=== "Dart"
 
-    ```c title="top_k.c"
+    ```dart title="top_k.dart"
     [class]{}-[func]{topKHeap}
     ```
 
-=== "C#"
+=== "Rust"
 
-    ```csharp title="top_k.cs"
-    [class]{top_k}-[func]{topKHeap}
+    ```rust title="top_k.rs"
+    [class]{}-[func]{top_k_heap}
     ```
 
-=== "Swift"
+=== "C"
 
-    ```swift title="top_k.swift"
+    ```c title="top_k.c"
     [class]{}-[func]{topKHeap}
     ```
 
@@ -124,16 +136,4 @@
 
     ```zig title="top_k.zig"
     [class]{}-[func]{topKHeap}
-    ```
-
-=== "Dart"
-
-    ```dart title="top_k.dart"
-    [class]{}-[func]{top_k_heap}
-    ```
-
-=== "Rust"
-
-    ```rust title="top_k.rs"
-    [class]{}-[func]{top_k_heap}
     ```

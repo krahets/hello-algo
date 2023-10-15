@@ -50,7 +50,7 @@ int bubbleSort(vector<int> &nums) {
     int count = 0; // 计数器
     // 外循环：未排序区间为 [0, i]
     for (int i = nums.size() - 1; i > 0; i--) {
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端 
+        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
         for (int j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
                 // 交换 nums[j] 与 nums[j + 1]
@@ -132,37 +132,37 @@ int main() {
     cout << "输入数据大小 n = " << n << endl;
 
     int count = constant(n);
-    cout << "常数阶的计算操作数量 = " << count << endl;
+    cout << "常数阶的操作数量 = " << count << endl;
 
     count = linear(n);
-    cout << "线性阶的计算操作数量 = " << count << endl;
+    cout << "线性阶的操作数量 = " << count << endl;
     vector<int> arr(n);
     count = arrayTraversal(arr);
-    cout << "线性阶（遍历数组）的计算操作数量 = " << count << endl;
+    cout << "线性阶（遍历数组）的操作数量 = " << count << endl;
 
     count = quadratic(n);
-    cout << "平方阶的计算操作数量 = " << count << endl;
+    cout << "平方阶的操作数量 = " << count << endl;
     vector<int> nums(n);
     for (int i = 0; i < n; i++)
         nums[i] = n - i; // [n,n-1,...,2,1]
     count = bubbleSort(nums);
-    cout << "平方阶（冒泡排序）的计算操作数量 = " << count << endl;
+    cout << "平方阶（冒泡排序）的操作数量 = " << count << endl;
 
     count = exponential(n);
-    cout << "指数阶（循环实现）的计算操作数量 = " << count << endl;
+    cout << "指数阶（循环实现）的操作数量 = " << count << endl;
     count = expRecur(n);
-    cout << "指数阶（递归实现）的计算操作数量 = " << count << endl;
+    cout << "指数阶（递归实现）的操作数量 = " << count << endl;
 
     count = logarithmic((float)n);
-    cout << "对数阶（循环实现）的计算操作数量 = " << count << endl;
+    cout << "对数阶（循环实现）的操作数量 = " << count << endl;
     count = logRecur((float)n);
-    cout << "对数阶（递归实现）的计算操作数量 = " << count << endl;
+    cout << "对数阶（递归实现）的操作数量 = " << count << endl;
 
     count = linearLogRecur((float)n);
-    cout << "线性对数阶（递归实现）的计算操作数量 = " << count << endl;
+    cout << "线性对数阶（递归实现）的操作数量 = " << count << endl;
 
     count = factorialRecur(n);
-    cout << "阶乘阶（递归实现）的计算操作数量 = " << count << endl;
+    cout << "阶乘阶（递归实现）的操作数量 = " << count << endl;
 
     return 0;
 }

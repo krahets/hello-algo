@@ -15,8 +15,8 @@ fn minPathSumDFS(grid: anytype, i: i32, j: i32) i32 {
         return std.math.maxInt(i32);
     }
     // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-    var left = minPathSumDFS(grid, i - 1, j);
-    var up = minPathSumDFS(grid, i, j - 1);
+    var up = minPathSumDFS(grid, i - 1, j);
+    var left = minPathSumDFS(grid, i, j - 1);
     // 返回从左上角到 (i, j) 的最小路径代价
     return @min(left, up) + grid[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
 }
@@ -36,8 +36,8 @@ fn minPathSumDFSMem(grid: anytype, mem: anytype, i: i32, j: i32) i32 {
         return mem[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
     }
     // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-    var left = minPathSumDFSMem(grid, mem, i - 1, j);
-    var up = minPathSumDFSMem(grid, mem, i, j - 1);
+    var up = minPathSumDFSMem(grid, mem, i - 1, j);
+    var left = minPathSumDFSMem(grid, mem, i, j - 1);
     // 返回从左上角到 (i, j) 的最小路径代价
     // 记录并返回左上角到 (i, j) 的最小路径代价
     mem[@as(usize, @intCast(i))][@as(usize, @intCast(j))] = @min(left, up) + grid[@as(usize, @intCast(i))][@as(usize, @intCast(j))];
@@ -68,7 +68,7 @@ fn minPathSumDP(comptime grid: anytype) i32 {
     return dp[n - 1][m - 1];
 }
 
-// 最小路径和：状态压缩后的动态规划
+// 最小路径和：空间优化后的动态规划
 fn minPathSumDPComp(comptime grid: anytype) i32 {
     comptime var n = grid.len;
     comptime var m = grid[0].len;
@@ -114,7 +114,7 @@ pub fn main() !void {
     res = minPathSumDP(&grid);
     std.debug.print("从左上角到右下角的最小路径和为 {}\n", .{res});
 
-    // 状态压缩后的动态规划
+    // 空间优化后的动态规划
     res = minPathSumDPComp(&grid);
     std.debug.print("从左上角到右下角的最小路径和为 {}\n", .{res});
 
