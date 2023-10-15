@@ -25,7 +25,7 @@
   --md-default-fg-color: #adbac7;
   --md-default-bg-color: #22272e;
 
-  --md-code-bg-color: #2D333B;
+  --md-code-bg-color: #1D2126;
   --md-code-fg-color: #adbac7;
 
   --md-accent-fg-color: #aaa;
@@ -76,6 +76,10 @@
 
 .md-typeset h3 {
   font-weight: 500;
+}
+
+.md-typeset h5 {
+  text-transform: none;
 }
 
 /* Image align center */

@@ -26,7 +26,7 @@
 - **数据结构**：基本数据类型，数据结构的分类方法。数组、链表、栈、队列、哈希表、树、堆、图等数据结构的定义、优缺点、常用操作、常见类型、典型应用、实现方法等。
 - **算法**：搜索、排序、分治、回溯、动态规划、贪心等算法的定义、优缺点、效率、应用场景、解题步骤、示例题目等。
 
-![Hello 算法内容结构](about_the_book.assets/hello_algo_mindmap.png)
+![Hello 算法内容结构](about_the_book.assets/hello_algo_mindmap.jpg)
 
 ## 致谢
 

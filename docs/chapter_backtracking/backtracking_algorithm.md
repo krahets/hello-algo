@@ -31,7 +31,7 @@
 === "C#"
 
     ```csharp title="preorder_traversal_i_compact.cs"
-    [class]{preorder_traversal_i_compact}-[func]{preOrder}
+    [class]{preorder_traversal_i_compact}-[func]{PreOrder}
     ```
 
 === "Go"
@@ -119,7 +119,7 @@
 === "C#"
 
     ```csharp title="preorder_traversal_ii_compact.cs"
-    [class]{preorder_traversal_ii_compact}-[func]{preOrder}
+    [class]{preorder_traversal_ii_compact}-[func]{PreOrder}
     ```
 
 === "Go"
@@ -238,7 +238,7 @@
 === "C#"
 
     ```csharp title="preorder_traversal_iii_compact.cs"
-    [class]{preorder_traversal_iii_compact}-[func]{preOrder}
+    [class]{preorder_traversal_iii_compact}-[func]{PreOrder}
     ```
 
 === "Go"
@@ -377,23 +377,23 @@
 
     ```csharp title=""
     /* 回溯算法框架 */
-    void backtrack(State state, List<Choice> choices, List<State> res) {
+    void Backtrack(State state, List<Choice> choices, List<State> res) {
         // 判断是否为解
-        if (isSolution(state)) {
+        if (IsSolution(state)) {
             // 记录解
-            recordSolution(state, res);
+            RecordSolution(state, res);
             // 停止继续搜索
             return;
         }
         // 遍历所有选择
         foreach (Choice choice in choices) {
             // 剪枝：判断选择是否合法
-            if (isValid(state, choice)) {
+            if (IsValid(state, choice)) {
                 // 尝试：做出选择，更新状态
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
+                MakeChoice(state, choice);
+                Backtrack(state, choices, res);
                 // 回退：撤销选择，恢复到之前的状态
-                undoChoice(state, choice);
+                UndoChoice(state, choice);
             }
         }
     }
@@ -532,7 +532,27 @@
 === "Rust"
 
     ```rust title=""
-
+    /* 回溯算法框架 */
+    fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
+        // 判断是否为解
+        if is_solution(state) {
+            // 记录解
+            record_solution(state, res);
+            // 停止继续搜索
+            return;
+        }
+        // 遍历所有选择
+        for choice in choices {
+            // 剪枝：判断选择是否合法
+            if is_valid(state, choice) {
+                // 尝试：做出选择，更新状态
+                make_choice(state, choice);
+                backtrack(state, choices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undo_choice(state, choice);
+            }
+        }
+    }
     ```
 
 === "C"
@@ -620,17 +640,17 @@
 === "C#"
 
     ```csharp title="preorder_traversal_iii_template.cs"
-    [class]{preorder_traversal_iii_template}-[func]{isSolution}
+    [class]{preorder_traversal_iii_template}-[func]{IsSolution}
 
-    [class]{preorder_traversal_iii_template}-[func]{recordSolution}
+    [class]{preorder_traversal_iii_template}-[func]{RecordSolution}
 
-    [class]{preorder_traversal_iii_template}-[func]{isValid}
+    [class]{preorder_traversal_iii_template}-[func]{IsValid}
 
-    [class]{preorder_traversal_iii_template}-[func]{makeChoice}
+    [class]{preorder_traversal_iii_template}-[func]{MakeChoice}
 
-    [class]{preorder_traversal_iii_template}-[func]{undoChoice}
+    [class]{preorder_traversal_iii_template}-[func]{UndoChoice}
 
-    [class]{preorder_traversal_iii_template}-[func]{backtrack}
+    [class]{preorder_traversal_iii_template}-[func]{Backtrack}
     ```
 
 === "Go"

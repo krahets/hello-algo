@@ -99,7 +99,7 @@ $$
 === "C#"
 
     ```csharp title="max_capacity.cs"
-    [class]{max_capacity}-[func]{maxCapacity}
+    [class]{max_capacity}-[func]{MaxCapacity}
     ```
 
 === "Go"

@@ -19,8 +19,8 @@ function minPathSumDFS(
         return Infinity;
     }
     // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-    const left = minPathSumDFS(grid, i - 1, j);
-    const up = minPathSumDFS(grid, i, j - 1);
+    const up = minPathSumDFS(grid, i - 1, j);
+    const left = minPathSumDFS(grid, i, j - 1);
     // 返回从左上角到 (i, j) 的最小路径代价
     return Math.min(left, up) + grid[i][j];
 }
@@ -45,8 +45,8 @@ function minPathSumDFSMem(
         return mem[i][j];
     }
     // 左边和上边单元格的最小路径代价
-    const left = minPathSumDFSMem(grid, mem, i - 1, j);
-    const up = minPathSumDFSMem(grid, mem, i, j - 1);
+    const up = minPathSumDFSMem(grid, mem, i - 1, j);
+    const left = minPathSumDFSMem(grid, mem, i, j - 1);
     // 记录并返回左上角到 (i, j) 的最小路径代价
     mem[i][j] = Math.min(left, up) + grid[i][j];
     return mem[i][j];

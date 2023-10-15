@@ -31,6 +31,7 @@ index = hash(key) % capacity
 
 对于密码学的相关应用，为了防止从哈希值推导出原始密码等逆向工程，哈希算法需要具备更高等级的安全特性。
 
+- **单向性**：无法通过哈希值反推出关于输入数据的任何信息。
 - **抗碰撞性**：应当极其困难找到两个不同的输入，使得它们的哈希值相同。
 - **雪崩效应**：输入的微小变化应当导致输出的显著且不可预测的变化。
 
@@ -84,13 +85,13 @@ index = hash(key) % capacity
 === "C#"
 
     ```csharp title="simple_hash.cs"
-    [class]{simple_hash}-[func]{addHash}
+    [class]{simple_hash}-[func]{AddHash}
 
-    [class]{simple_hash}-[func]{mulHash}
+    [class]{simple_hash}-[func]{MulHash}
 
-    [class]{simple_hash}-[func]{xorHash}
+    [class]{simple_hash}-[func]{XorHash}
 
-    [class]{simple_hash}-[func]{rotHash}
+    [class]{simple_hash}-[func]{RotHash}
     ```
 
 === "Go"
@@ -354,7 +355,7 @@ $$
     int hashTup = arr.GetHashCode();
     // 数组 [12836, 小哈] 的哈希值为 42931033;
 
-    ListNode obj = new ListNode(0);
+    ListNode obj = new(0);
     int hashObj = obj.GetHashCode();
     // 节点对象 0 的哈希值为 39053774;
     ```
@@ -436,7 +437,45 @@ $$
 === "Rust"
 
     ```rust title="built_in_hash.rs"
+    use std::collections::hash_map::DefaultHasher;
+    use std::hash::{Hash, Hasher};
+    
+    let num = 3;
+    let mut num_hasher = DefaultHasher::new();
+    num.hash(&mut num_hasher);
+    let hash_num = num_hasher.finish();
+    // 整数 3 的哈希值为 568126464209439262
 
+    let bol = true;
+    let mut bol_hasher = DefaultHasher::new();
+    bol.hash(&mut bol_hasher);
+    let hash_bol = bol_hasher.finish();
+    // 布尔量 true 的哈希值为 4952851536318644461
+
+    let dec: f32 = 3.14159;
+    let mut dec_hasher = DefaultHasher::new();
+    dec.to_bits().hash(&mut dec_hasher);
+    let hash_dec = dec_hasher.finish();
+    println!("小数 {} 的哈希值为 {}", dec, hash_dec);
+    // 小数 3.14159 的哈希值为 2566941990314602357
+
+    let str = "Hello 算法";
+    let mut str_hasher = DefaultHasher::new();
+    str.hash(&mut str_hasher);
+    let hash_str = str_hasher.finish();
+    // 字符串 Hello 算法 的哈希值为 16092673739211250988
+
+    let arr = (&12836, &"小哈");
+    let mut tup_hasher = DefaultHasher::new();
+    arr.hash(&mut tup_hasher);
+    let hash_tup = tup_hasher.finish();
+    // 元组 (12836, "小哈") 的哈希值为 1885128010422702749
+
+    let node = ListNode::new(42);
+    let mut hasher = DefaultHasher::new();
+    node.borrow().val.hash(&mut hasher);
+    let hash = hasher.finish();
+    // 节点对象 RefCell { value: ListNode { val: 42, next: None } } 的哈希值为15387811073369036852
     ```
 
 === "C"

@@ -115,11 +115,11 @@
 === "C#"
 
     ```csharp title="hanota.cs"
-    [class]{hanota}-[func]{move}
+    [class]{hanota}-[func]{Move}
 
-    [class]{hanota}-[func]{dfs}
+    [class]{hanota}-[func]{Dfs}
 
-    [class]{hanota}-[func]{solveHanota}
+    [class]{hanota}-[func]{SolveHanota}
     ```
 
 === "Go"

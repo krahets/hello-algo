@@ -8,7 +8,7 @@ namespace hello_algo.chapter_sorting;
 
 public class insertion_sort {
     /* 插入排序 */
-    static void insertionSort(int[] nums) {
+    static void InsertionSort(int[] nums) {
         // 外循环：已排序元素数量为 1, 2, ..., n
         for (int i = 1; i < nums.Length; i++) {
             int bas = nums[i], j = i - 1;
@@ -24,7 +24,7 @@ public class insertion_sort {
     [Test]
     public void Test() {
         int[] nums = { 4, 1, 3, 1, 5, 2 };
-        insertionSort(nums);
+        InsertionSort(nums);
         Console.WriteLine("插入排序完成后 nums = " + string.Join(",", nums));
     }
 }

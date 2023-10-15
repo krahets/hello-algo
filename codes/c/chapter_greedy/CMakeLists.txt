@@ -1,4 +1,4 @@
 add_executable(coin_change_greedy coin_change_greedy.c)
 add_executable(fractional_knapsack fractional_knapsack.c)
-add_executable(max_capacity fractional_knapmax_capacitysack.c)
+add_executable(max_capacity max_capacity.c)
 add_executable(max_product_cutting max_product_cutting.c)

@@ -7,52 +7,53 @@ Author: Krahets (krahets@163.com)
 """Driver Code"""
 if __name__ == "__main__":
     # 初始化列表
-    arr = [1, 3, 2, 5, 4]
-    print("列表 arr =", arr)
+    nums: list[int] = [1, 3, 2, 5, 4]
+    print("\n列表 nums =", nums)
 
     # 访问元素
-    num: int = arr[1]
-    print("访问索引 1 处的元素，得到 num =", num)
+    x: int = nums[1]
+    print("\n访问索引 1 处的元素，得到 x =", x)
 
     # 更新元素
-    arr[1] = 0
-    print("将索引 1 处的元素更新为 0 ，得到 arr =", arr)
+    nums[1] = 0
+    print("\n将索引 1 处的元素更新为 0 ，得到 nums =", nums)
 
     # 清空列表
-    arr.clear()
-    print("清空列表后 arr =", arr)
+    nums.clear()
+    print("\n清空列表后 nums =", nums)
 
     # 尾部添加元素
-    arr.append(1)
-    arr.append(3)
-    arr.append(2)
-    arr.append(5)
-    arr.append(4)
-    print("添加元素后 arr =", arr)
+    nums.append(1)
+    nums.append(3)
+    nums.append(2)
+    nums.append(5)
+    nums.append(4)
+    print("\n添加元素后 nums =", nums)
 
     # 中间插入元素
-    arr.insert(3, 6)
-    print("在索引 3 处插入数字 6 ，得到 arr =", arr)
+    nums.insert(3, 6)
+    print("\n在索引 3 处插入数字 6 ，得到 nums =", nums)
 
     # 删除元素
-    arr.pop(3)
-    print("删除索引 3 处的元素，得到 arr =", arr)
+    nums.pop(3)
+    print("\n删除索引 3 处的元素，得到 nums =", nums)
 
-    # 通过索引遍历列表
-    count = 0
-    for i in range(len(arr)):
-        count += 1
-
-    # 直接遍历列表元素
-    count = 0
-    for n in arr:
-        count += 1
+    # 遍历列表
+    tmp = []
+    for i in range(len(nums)):
+        tmp.append(nums[i])
+    print(f"\n通过索引遍历列表得到 tmp = {tmp}")
+    
+    tmp.clear()
+    for num in nums:
+        tmp.append(num)
+    print(f"\n直接遍历列表元素得到 tmp = {tmp}")
 
     # 拼接两个列表
-    arr1 = [6, 8, 7, 10, 9]
-    arr += arr1
-    print("将列表 arr1 拼接到 arr 之后，得到 arr =", arr)
+    nums1 = [6, 8, 7, 10, 9]
+    nums += nums1
+    print("\n将列表 nums1 拼接到 nums 之后，得到 nums =", nums)
 
     # 排序列表
-    arr.sort()
-    print("排序列表后 arr =", arr)
+    nums.sort()
+    print("\n排序列表后 nums =", nums)

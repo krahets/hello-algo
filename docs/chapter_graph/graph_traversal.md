@@ -2,7 +2,7 @@
 
 树代表的是“一对多”的关系，而图则具有更高的自由度，可以表示任意的“多对多”关系。因此，我们可以把树看作是图的一种特例。显然，**树的遍历操作也是图的遍历操作的一种特例**。
 
-图和树都都需要应用搜索算法来实现遍历操作。图的遍历方式可分为两种：「广度优先遍历 breadth-first traversal」和「深度优先遍历 depth-first traversal」。它们也常被称为「广度优先搜索 breadth-first search」和「深度优先搜索 depth-first search」，简称 BFS 和 DFS 。
+图和树都需要应用搜索算法来实现遍历操作。图的遍历方式可分为两种：「广度优先遍历 breadth-first traversal」和「深度优先遍历 depth-first traversal」。它们也常被称为「广度优先搜索 breadth-first search」和「深度优先搜索 depth-first search」，简称 BFS 和 DFS 。
 
 ## 广度优先遍历
 
@@ -41,7 +41,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 === "C#"
 
     ```csharp title="graph_bfs.cs"
-    [class]{graph_bfs}-[func]{graphBFS}
+    [class]{graph_bfs}-[func]{GraphBFS}
     ```
 
 === "Go"
@@ -174,9 +174,9 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 === "C#"
 
     ```csharp title="graph_dfs.cs"
-    [class]{graph_dfs}-[func]{dfs}
+    [class]{graph_dfs}-[func]{Dfs}
 
-    [class]{graph_dfs}-[func]{graphDFS}
+    [class]{graph_dfs}-[func]{GraphDFS}
     ```
 
 === "Go"

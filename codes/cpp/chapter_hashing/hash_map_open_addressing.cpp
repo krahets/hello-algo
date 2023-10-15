@@ -6,11 +6,12 @@
 
 #include "./array_hash_map.cpp"
 
+/* 开放寻址哈希表 */
 class HashMapOpenAddressing {
   private:
     int size;                             // 键值对数量
     int capacity = 4;                     // 哈希表容量
-    const double loadThres = 2.0 / 3;     // 触发扩容的负载因子阈值
+    const double loadThres = 2.0 / 3.0;     // 触发扩容的负载因子阈值
     const int extendRatio = 2;            // 扩容倍数
     vector<Pair *> buckets;               // 桶数组
     Pair *TOMBSTONE = new Pair(-1, "-1"); // 删除标记

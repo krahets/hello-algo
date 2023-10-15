@@ -84,9 +84,9 @@
 === "C#"
 
     ```csharp title="build_tree.cs"
-    [class]{build_tree}-[func]{dfs}
+    [class]{build_tree}-[func]{Dfs}
 
-    [class]{build_tree}-[func]{buildTree}
+    [class]{build_tree}-[func]{BuildTree}
     ```
 
 === "Go"

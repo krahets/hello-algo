@@ -107,8 +107,7 @@ public class time_complexity {
     static int linearLogRecur(float n) {
         if (n <= 1)
             return 1;
-        int count = linearLogRecur(n / 2) +
-                linearLogRecur(n / 2);
+        int count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
         for (int i = 0; i < n; i++) {
             count++;
         }

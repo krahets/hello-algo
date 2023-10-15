@@ -18,7 +18,7 @@ class HashMapChaining {
     init() {
         size = 0
         capacity = 4
-        loadThres = 2 / 3
+        loadThres = 2.0 / 3.0
         extendRatio = 2
         buckets = Array(repeating: [], count: capacity)
     }

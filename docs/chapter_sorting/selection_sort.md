@@ -66,7 +66,7 @@
 === "C#"
 
     ```csharp title="selection_sort.cs"
-    [class]{selection_sort}-[func]{selectionSort}
+    [class]{selection_sort}-[func]{SelectionSort}
     ```
 
 === "Go"

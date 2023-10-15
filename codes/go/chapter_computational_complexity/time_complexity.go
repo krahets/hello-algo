@@ -109,8 +109,7 @@ func linearLogRecur(n float64) int {
 	if n <= 1 {
 		return 1
 	}
-	count := linearLogRecur(n/2) +
-		linearLogRecur(n/2)
+	count := linearLogRecur(n/2) + linearLogRecur(n/2)
 	for i := 0.0; i < n; i++ {
 		count++
 	}

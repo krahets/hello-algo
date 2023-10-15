@@ -8,7 +8,7 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class edit_distance {
     /* 编辑距离：暴力搜索 */
-    public int editDistanceDFS(string s, string t, int i, int j) {
+    public int EditDistanceDFS(string s, string t, int i, int j) {
         // 若 s 和 t 都为空，则返回 0
         if (i == 0 && j == 0)
             return 0;
@@ -20,17 +20,17 @@ public class edit_distance {
             return i;
         // 若两字符相等，则直接跳过此两字符
         if (s[i - 1] == t[j - 1])
-            return editDistanceDFS(s, t, i - 1, j - 1);
+            return EditDistanceDFS(s, t, i - 1, j - 1);
         // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-        int insert = editDistanceDFS(s, t, i, j - 1);
-        int delete = editDistanceDFS(s, t, i - 1, j);
-        int replace = editDistanceDFS(s, t, i - 1, j - 1);
+        int insert = EditDistanceDFS(s, t, i, j - 1);
+        int delete = EditDistanceDFS(s, t, i - 1, j);
+        int replace = EditDistanceDFS(s, t, i - 1, j - 1);
         // 返回最少编辑步数
         return Math.Min(Math.Min(insert, delete), replace) + 1;
     }
 
     /* 编辑距离：记忆化搜索 */
-    public int editDistanceDFSMem(string s, string t, int[][] mem, int i, int j) {
+    public int EditDistanceDFSMem(string s, string t, int[][] mem, int i, int j) {
         // 若 s 和 t 都为空，则返回 0
         if (i == 0 && j == 0)
             return 0;
@@ -45,18 +45,18 @@ public class edit_distance {
             return mem[i][j];
         // 若两字符相等，则直接跳过此两字符
         if (s[i - 1] == t[j - 1])
-            return editDistanceDFSMem(s, t, mem, i - 1, j - 1);
+            return EditDistanceDFSMem(s, t, mem, i - 1, j - 1);
         // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-        int insert = editDistanceDFSMem(s, t, mem, i, j - 1);
-        int delete = editDistanceDFSMem(s, t, mem, i - 1, j);
-        int replace = editDistanceDFSMem(s, t, mem, i - 1, j - 1);
+        int insert = EditDistanceDFSMem(s, t, mem, i, j - 1);
+        int delete = EditDistanceDFSMem(s, t, mem, i - 1, j);
+        int replace = EditDistanceDFSMem(s, t, mem, i - 1, j - 1);
         // 记录并返回最少编辑步数
         mem[i][j] = Math.Min(Math.Min(insert, delete), replace) + 1;
         return mem[i][j];
     }
 
     /* 编辑距离：动态规划 */
-    public int editDistanceDP(string s, string t) {
+    public int EditDistanceDP(string s, string t) {
         int n = s.Length, m = t.Length;
         int[,] dp = new int[n + 1, m + 1];
         // 状态转移：首行首列
@@ -82,7 +82,7 @@ public class edit_distance {
     }
 
     /* 编辑距离：空间优化后的动态规划 */
-    public int editDistanceDPComp(string s, string t) {
+    public int EditDistanceDPComp(string s, string t) {
         int n = s.Length, m = t.Length;
         int[] dp = new int[m + 1];
         // 状态转移：首行
@@ -117,7 +117,7 @@ public class edit_distance {
         int n = s.Length, m = t.Length;
 
         // 暴力搜索
-        int res = editDistanceDFS(s, t, n, m);
+        int res = EditDistanceDFS(s, t, n, m);
         Console.WriteLine("将 " + s + " 更改为 " + t + " 最少需要编辑 " + res + " 步");
 
         // 记忆化搜索
@@ -127,15 +127,15 @@ public class edit_distance {
             Array.Fill(mem[i], -1);
         }
 
-        res = editDistanceDFSMem(s, t, mem, n, m);
+        res = EditDistanceDFSMem(s, t, mem, n, m);
         Console.WriteLine("将 " + s + " 更改为 " + t + " 最少需要编辑 " + res + " 步");
 
         // 动态规划
-        res = editDistanceDP(s, t);
+        res = EditDistanceDP(s, t);
         Console.WriteLine("将 " + s + " 更改为 " + t + " 最少需要编辑 " + res + " 步");
 
         // 空间优化后的动态规划
-        res = editDistanceDPComp(s, t);
+        res = EditDistanceDPComp(s, t);
         Console.WriteLine("将 " + s + " 更改为 " + t + " 最少需要编辑 " + res + " 步");
     }
 }

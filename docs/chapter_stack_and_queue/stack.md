@@ -105,7 +105,7 @@
 
     ```csharp title="stack.cs"
     /* 初始化栈 */
-    Stack<int> stack = new ();
+    Stack<int> stack = new();
     
     /* 元素入栈 */
     stack.Push(1);
@@ -278,20 +278,16 @@
     stack.push(4);
 
     /* 访问栈顶元素 */
-    if let Some(top) = stack.get(stack.len() - 1) {
-    } 
-    if let Some(top) = stack.last() {
-    }
+    let top = stack[stack.len() - 1];
 
     /* 元素出栈 */
-    if let Some(pop) = stack.pop() {
-    }
+    let pop = stack.pop().unwrap();
 
     /* 获取栈的长度 */
     let size = stack.len();
 
     /* 判断是否为空 */
-    let isEmpty = stack.is_empty();
+    let is_empty = stack.is_empty();
     ```
 
 === "C"

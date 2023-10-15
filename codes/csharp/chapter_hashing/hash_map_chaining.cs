@@ -10,15 +10,15 @@ namespace hello_algo.chapter_hashing;
 class HashMapChaining {
     int size; // 键值对数量
     int capacity; // 哈希表容量
-    double loadThres; // 触发扩容的负载因子阈值
-    int extendRatio; // 扩容倍数
+    readonly double loadThres; // 触发扩容的负载因子阈值
+    readonly int extendRatio; // 扩容倍数
     List<List<Pair>> buckets; // 桶数组
 
     /* 构造方法 */
     public HashMapChaining() {
         size = 0;
         capacity = 4;
-        loadThres = 2 / 3.0;
+        loadThres = 2.0 / 3.0;
         extendRatio = 2;
         buckets = new List<List<Pair>>(capacity);
         for (int i = 0; i < capacity; i++) {
@@ -27,18 +27,18 @@ class HashMapChaining {
     }
 
     /* 哈希函数 */
-    private int hashFunc(int key) {
+    private int HashFunc(int key) {
         return key % capacity;
     }
 
     /* 负载因子 */
-    private double loadFactor() {
+    private double LoadFactor() {
         return (double)size / capacity;
     }
 
     /* 查询操作 */
-    public string get(int key) {
-        int index = hashFunc(key);
+    public string? Get(int key) {
+        int index = HashFunc(key);
         // 遍历桶，若找到 key 则返回对应 val
         foreach (Pair pair in buckets[index]) {
             if (pair.key == key) {
@@ -50,12 +50,12 @@ class HashMapChaining {
     }
 
     /* 添加操作 */
-    public void put(int key, string val) {
+    public void Put(int key, string val) {
         // 当负载因子超过阈值时，执行扩容
-        if (loadFactor() > loadThres) {
-            extend();
+        if (LoadFactor() > loadThres) {
+            Extend();
         }
-        int index = hashFunc(key);
+        int index = HashFunc(key);
         // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
         foreach (Pair pair in buckets[index]) {
             if (pair.key == key) {
@@ -69,8 +69,8 @@ class HashMapChaining {
     }
 
     /* 删除操作 */
-    public void remove(int key) {
-        int index = hashFunc(key);
+    public void Remove(int key) {
+        int index = HashFunc(key);
         // 遍历桶，从中删除键值对
         foreach (Pair pair in buckets[index].ToList()) {
             if (pair.key == key) {
@@ -82,7 +82,7 @@ class HashMapChaining {
     }
 
     /* 扩容哈希表 */
-    private void extend() {
+    private void Extend() {
         // 暂存原哈希表
         List<List<Pair>> bucketsTmp = buckets;
         // 初始化扩容后的新哈希表
@@ -95,15 +95,15 @@ class HashMapChaining {
         // 将键值对从原哈希表搬运至新哈希表
         foreach (List<Pair> bucket in bucketsTmp) {
             foreach (Pair pair in bucket) {
-                put(pair.key, pair.val);
+                Put(pair.key, pair.val);
             }
         }
     }
 
     /* 打印哈希表 */
-    public void print() {
+    public void Print() {
         foreach (List<Pair> bucket in buckets) {
-            List<string> res = new List<string>();
+            List<string> res = new();
             foreach (Pair pair in bucket) {
                 res.Add(pair.key + " -> " + pair.val);
             }
@@ -118,27 +118,27 @@ public class hash_map_chaining {
     [Test]
     public void Test() {
         /* 初始化哈希表 */
-        HashMapChaining map = new HashMapChaining();
+        HashMapChaining map = new();
 
         /* 添加操作 */
         // 在哈希表中添加键值对 (key, value)
-        map.put(12836, "小哈");
-        map.put(15937, "小啰");
-        map.put(16750, "小算");
-        map.put(13276, "小法");
-        map.put(10583, "小鸭");
+        map.Put(12836, "小哈");
+        map.Put(15937, "小啰");
+        map.Put(16750, "小算");
+        map.Put(13276, "小法");
+        map.Put(10583, "小鸭");
         Console.WriteLine("\n添加完成后，哈希表为\nKey -> Value");
-        map.print();
+        map.Print();
 
         /* 查询操作 */
         // 向哈希表输入键 key ，得到值 value
-        string name = map.get(13276);
+        string? name = map.Get(13276);
         Console.WriteLine("\n输入学号 13276 ，查询到姓名 " + name);
 
         /* 删除操作 */
         // 在哈希表中删除键值对 (key, value)
-        map.remove(12836);
+        map.Remove(12836);
         Console.WriteLine("\n删除 12836 后，哈希表为\nKey -> Value");
-        map.print();
+        map.Print();
     }
 }

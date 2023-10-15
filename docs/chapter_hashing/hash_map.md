@@ -99,19 +99,19 @@
 
     ```csharp title="hash_map.cs"
     /* 初始化哈希表 */
-    Dictionary<int, String> map = new ();
-    
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
-    map.Add(12836, "小哈");
-    map.Add(15937, "小啰");
-    map.Add(16750, "小算");
-    map.Add(13276, "小法");
-    map.Add(10583, "小鸭");
+    Dictionary<int, string> map = new() {
+        /* 添加操作 */
+        // 在哈希表中添加键值对 (key, value)
+        { 12836, "小哈" },
+        { 15937, "小啰" },
+        { 16750, "小算" },
+        { 13276, "小法" },
+        { 10583, "小鸭" }
+    };
     
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
-    String name = map[15937];
+    string name = map[15937];
     
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
@@ -120,7 +120,7 @@
 
 === "Go"
 
-    ```go title="hash_map.go"
+    ```go title="hash_map_test.go"
     /* 初始化哈希表 */
     hmap := make(map[int]string)
     
@@ -168,7 +168,7 @@
 
     ```javascript title="hash_map.js"
     /* 初始化哈希表 */
-    const map = new ArrayHashMap();
+    const map = new Map();
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map.set(12836, '小哈');
@@ -299,12 +299,12 @@
         cout << kv.first << " -> " << kv.second << endl;
     }
     // 单独遍历键 key
-    for (auto key: map) {
-        cout << key.first << endl;
+    for (auto kv: map) {
+        cout << kv.first << endl;
     }
     // 单独遍历值 value
-    for (auto val: map) {
-        cout << val.second << endl;
+    for (auto kv: map) {
+        cout << kv.second << endl;
     }
     ```
 
@@ -339,7 +339,7 @@
         Console.WriteLine(key);
     }
     // 单独遍历值 value
-    foreach (String val in map.Values) {
+    foreach (string val in map.Values) {
         Console.WriteLine(val);
     }
     ```

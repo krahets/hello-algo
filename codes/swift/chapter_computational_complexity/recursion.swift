@@ -16,6 +16,25 @@ func recur(n: Int) -> Int {
     return n + res
 }
 
+/* 使用迭代模拟递归 */
+func forLoopRecur(n: Int) -> Int {
+    // 使用一个显式的栈来模拟系统调用栈
+    var stack: [Int] = []
+    var res = 0
+    // 递：递归调用
+    for i in stride(from: n, to: 0, by: -1) {
+        // 通过“入栈操作”模拟“递”
+        stack.append(i)
+    }
+    // 归：返回结果
+    while !stack.isEmpty {
+        // 通过“出栈操作”模拟“归”
+        res += stack.removeLast()
+    }
+    // res = 1+2+3+...+n
+    return res
+}
+
 /* 尾递归 */
 func tailRecur(n: Int, res: Int) -> Int {
     // 终止条件
@@ -47,6 +66,9 @@ enum Recursion {
 
         res = recursion.recur(n: n)
         print("\n递归函数的求和结果 res = \(res)")
+
+        res = recursion.forLoopRecur(n: n)
+        print("\n使用迭代模拟递归求和结果 res = \(res)")
 
         res = recursion.tailRecur(n: n, res: 0)
         print("\n尾递归函数的求和结果 res = \(res)")

@@ -21,7 +21,7 @@ class HashMapChaining {
     public HashMapChaining() {
         size = 0;
         capacity = 4;
-        loadThres = 2 / 3.0;
+        loadThres = 2.0 / 3.0;
         extendRatio = 2;
         buckets = new ArrayList<>(capacity);
         for (int i = 0; i < capacity; i++) {

@@ -14,6 +14,25 @@ function recur(n: number): number {
     return n + res;
 }
 
+/* 使用迭代模拟递归 */
+function forLoopRecur(n: number): number {
+    // 使用一个显式的栈来模拟系统调用栈 
+    const stack: number[] = [];
+    let res: number = 0;
+    // 递：递归调用
+    for (let i = 1; i <= n; i++) {
+        // 通过“入栈操作”模拟“递”
+        stack.push(i);
+    }
+    // 归：返回结果
+    while (stack.length) { 
+        // 通过“出栈操作”模拟“归”
+        res += stack.pop();
+    }
+    // res = 1+2+3+...+n
+    return res;
+}
+
 /* 尾递归 */
 function tailRecur(n: number, res: number): number {
     // 终止条件
@@ -38,6 +57,9 @@ let res: number;
 
 res = recur(n);
 console.log(`递归函数的求和结果 res = ${res}`);
+
+res = forLoopRecur(n);
+console.log(`使用迭代模拟递归的求和结果 res = ${res}`);
 
 res = tailRecur(n, 0);
 console.log(`尾递归函数的求和结果 res = ${res}`);

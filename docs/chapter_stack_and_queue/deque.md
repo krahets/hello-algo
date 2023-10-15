@@ -1,6 +1,6 @@
 # 双向队列
 
-在队列中，我们仅能在头部删除或在尾部添加元素。如下图所示，「双向队列 deque」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
+在队列中，我们仅能在头部删除或在尾部添加元素。如下图所示，「双向队列 double-ended queue」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
 
 ![双向队列的操作](deque.assets/deque_operations.png)
 
@@ -110,7 +110,7 @@
     ```csharp title="deque.cs"
     /* 初始化双向队列 */
     // 在 C# 中，将链表 LinkedList 看作双向队列来使用
-    LinkedList<int> deque = new LinkedList<int>();
+    LinkedList<int> deque = new();
     
     /* 元素入队 */
     deque.AddLast(2);   // 添加至队尾

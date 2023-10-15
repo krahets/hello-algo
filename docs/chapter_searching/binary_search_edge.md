@@ -36,7 +36,7 @@
 === "C#"
 
     ```csharp title="binary_search_edge.cs"
-    [class]{binary_search_edge}-[func]{binarySearchLeftEdge}
+    [class]{binary_search_edge}-[func]{BinarySearchLeftEdge}
     ```
 
 === "Go"
@@ -124,7 +124,7 @@
 === "C#"
 
     ```csharp title="binary_search_edge.cs"
-    [class]{binary_search_edge}-[func]{binarySearchRightEdge}
+    [class]{binary_search_edge}-[func]{BinarySearchRightEdge}
     ```
 
 === "Go"

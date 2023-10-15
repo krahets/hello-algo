@@ -55,7 +55,7 @@
 
     ```csharp title=""
     // 在某运行平台下
-    void algorithm(int n) {
+    void Algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
@@ -253,17 +253,17 @@ $$
 
     ```csharp title=""
     // 算法 A 的时间复杂度：常数阶
-    void algorithm_A(int n) {
+    void AlgorithmA(int n) {
         Console.WriteLine(0);
     }
     // 算法 B 的时间复杂度：线性阶
-    void algorithm_B(int n) {
+    void AlgorithmB(int n) {
         for (int i = 0; i < n; i++) {
             Console.WriteLine(0);
         }
     }
     // 算法 C 的时间复杂度：常数阶
-    void algorithm_C(int n) {
+    void AlgorithmC(int n) {
         for (int i = 0; i < 1000000; i++) {
             Console.WriteLine(0);
         }
@@ -437,7 +437,7 @@ $$
 相较于直接统计算法运行时间，时间复杂度分析有哪些特点呢？
 
 - **时间复杂度能够有效评估算法效率**。例如，算法 `B` 的运行时间呈线性增长，在 $n > 1$ 时比算法 `A` 更慢，在 $n > 1000000$ 时比算法 `C` 更慢。事实上，只要输入数据大小 $n$ 足够大，复杂度为“常数阶”的算法一定优于“线性阶”的算法，这正是时间增长趋势所表达的含义。
-- **时间复杂度的推算方法更简便**。显然，运行平台和计算操作类型都与算法运行时间的增长趋势无关。因此在时间复杂度分析中，我们可以简单地将所有计算操作的执行时间视为相同的“单位时间”，从而将“计算操作的运行时间的统计”简化为“计算操作的数量的统计”，这样以来估算难度就大大降低了。
+- **时间复杂度的推算方法更简便**。显然，运行平台和计算操作类型都与算法运行时间的增长趋势无关。因此在时间复杂度分析中，我们可以简单地将所有计算操作的执行时间视为相同的“单位时间”，从而将“计算操作的运行时间的统计”简化为“计算操作的数量的统计”，这样一来估算难度就大大降低了。
 - **时间复杂度也存在一定的局限性**。例如，尽管算法 `A` 和 `C` 的时间复杂度相同，但实际运行时间差别很大。同样，尽管算法 `B` 的时间复杂度比 `C` 高，但在输入数据大小 $n$ 较小时，算法 `B` 明显优于算法 `C` 。在这些情况下，我们很难仅凭时间复杂度判断算法效率的高低。当然，尽管存在上述问题，复杂度分析仍然是评判算法效率最有效且常用的方法。
 
 ## 函数渐近上界
@@ -487,7 +487,7 @@ $$
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n) {
+    void Algorithm(int n) {
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
@@ -695,7 +695,7 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n) {
+    void Algorithm(int n) {
         int a = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
         // +n（技巧 2）
@@ -918,7 +918,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{constant}
+    [class]{time_complexity}-[func]{Constant}
     ```
 
 === "Go"
@@ -994,7 +994,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{linear}
+    [class]{time_complexity}-[func]{Linear}
     ```
 
 === "Go"
@@ -1068,7 +1068,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{arrayTraversal}
+    [class]{time_complexity}-[func]{ArrayTraversal}
     ```
 
 === "Go"
@@ -1146,7 +1146,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{quadratic}
+    [class]{time_complexity}-[func]{Quadratic}
     ```
 
 === "Go"
@@ -1224,7 +1224,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{bubbleSort}
+    [class]{time_complexity}-[func]{BubbleSort}
     ```
 
 === "Go"
@@ -1302,7 +1302,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{exponential}
+    [class]{time_complexity}-[func]{Exponential}
     ```
 
 === "Go"
@@ -1378,7 +1378,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{expRecur}
+    [class]{time_complexity}-[func]{ExpRecur}
     ```
 
 === "Go"
@@ -1458,7 +1458,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{logarithmic}
+    [class]{time_complexity}-[func]{Logarithmic}
     ```
 
 === "Go"
@@ -1534,7 +1534,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{logRecur}
+    [class]{time_complexity}-[func]{LogRecur}
     ```
 
 === "Go"
@@ -1622,7 +1622,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{linearLogRecur}
+    [class]{time_complexity}-[func]{LinearLogRecur}
     ```
 
 === "Go"
@@ -1710,7 +1710,7 @@ $$
 === "C#"
 
     ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{factorialRecur}
+    [class]{time_complexity}-[func]{FactorialRecur}
     ```
 
 === "Go"
@@ -1801,9 +1801,9 @@ $$
 === "C#"
 
     ```csharp title="worst_best_time_complexity.cs"
-    [class]{worst_best_time_complexity}-[func]{randomNumbers}
+    [class]{worst_best_time_complexity}-[func]{RandomNumbers}
 
-    [class]{worst_best_time_complexity}-[func]{findOne}
+    [class]{worst_best_time_complexity}-[func]{FindOne}
     ```
 
 === "Go"

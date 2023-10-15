@@ -44,9 +44,9 @@
 === "C#"
 
     ```csharp title="subset_sum_i_naive.cs"
-    [class]{subset_sum_i_naive}-[func]{backtrack}
+    [class]{subset_sum_i_naive}-[func]{Backtrack}
 
-    [class]{subset_sum_i_naive}-[func]{subsetSumINaive}
+    [class]{subset_sum_i_naive}-[func]{SubsetSumINaive}
     ```
 
 === "Go"
@@ -177,9 +177,9 @@
 === "C#"
 
     ```csharp title="subset_sum_i.cs"
-    [class]{subset_sum_i}-[func]{backtrack}
+    [class]{subset_sum_i}-[func]{Backtrack}
 
-    [class]{subset_sum_i}-[func]{subsetSumI}
+    [class]{subset_sum_i}-[func]{SubsetSumI}
     ```
 
 === "Go"
@@ -266,7 +266,7 @@
 
 为解决此问题，**我们需要限制相等元素在每一轮中只被选择一次**。实现方式比较巧妙：由于数组是已排序的，因此相等元素都是相邻的。这意味着在某轮选择中，若当前元素与其左边元素相等，则说明它已经被选择过，因此直接跳过当前元素。
 
-与此同时，**本题规定中的每个数组元素只能被选择一次**。幸运的是，我们也可以利用变量 `start` 来满足该约束：当做出选择 $x_{i}$ 后，设定下一轮从索引 $i + 1$ 开始向后遍历。这样即能去除重复子集，也能避免重复选择元素。
+与此同时，**本题规定数组中的每个元素只能被选择一次**。幸运的是，我们也可以利用变量 `start` 来满足该约束：当做出选择 $x_{i}$ 后，设定下一轮从索引 $i + 1$ 开始向后遍历。这样即能去除重复子集，也能避免重复选择元素。
 
 ### 代码实现
 
@@ -297,9 +297,9 @@
 === "C#"
 
     ```csharp title="subset_sum_ii.cs"
-    [class]{subset_sum_ii}-[func]{backtrack}
+    [class]{subset_sum_ii}-[func]{Backtrack}
 
-    [class]{subset_sum_ii}-[func]{subsetSumII}
+    [class]{subset_sum_ii}-[func]{SubsetSumII}
     ```
 
 === "Go"

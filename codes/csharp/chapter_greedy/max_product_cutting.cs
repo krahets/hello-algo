@@ -8,7 +8,7 @@ namespace hello_algo.chapter_greedy;
 
 public class max_product_cutting {
     /* 最大切分乘积：贪心 */
-    public int maxProductCutting(int n) {
+    public int MaxProductCutting(int n) {
         // 当 n <= 3 时，必须切分出一个 1
         if (n <= 3) {
             return 1 * (n - 1);
@@ -33,7 +33,7 @@ public class max_product_cutting {
         int n = 58;
 
         // 贪心算法
-        int res = maxProductCutting(n);
+        int res = MaxProductCutting(n);
         Console.WriteLine("最大切分乘积为" + res);
     }
 }

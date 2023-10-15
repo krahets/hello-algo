@@ -158,9 +158,9 @@
     ```csharp title="heap.cs"
     /* 初始化堆 */
     // 初始化小顶堆
-    PriorityQueue<int, int> minHeap = new PriorityQueue<int, int>();
+    PriorityQueue<int, int> minHeap = new();
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
-    PriorityQueue<int, int> maxHeap = new PriorityQueue<int, int>(Comparer<int>.Create((x, y) => y - x));
+    PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y - x));
 
     /* 元素入堆 */
     maxHeap.Enqueue(1, 1);
@@ -296,7 +296,41 @@
 === "Rust"
 
     ```rust title="heap.rs"
+    use std::collections::BinaryHeap;
+    use std::cmp::Reverse;
 
+    /* 初始化堆 */
+    // 初始化小顶堆
+    let mut min_heap = BinaryHeap::<Reverse<i32>>::new();
+    // 初始化大顶堆
+    let mut max_heap = BinaryHeap::new();
+
+    /* 元素入堆 */
+    max_heap.push(1);
+    max_heap.push(3);
+    max_heap.push(2);
+    max_heap.push(5);
+    max_heap.push(4);
+    
+    /* 获取堆顶元素 */
+    let peek = max_heap.peek().unwrap();  // 5
+
+    /* 堆顶元素出堆 */
+    // 出堆元素会形成一个从大到小的序列
+    let peek = max_heap.pop().unwrap();   // 5
+    let peek = max_heap.pop().unwrap();   // 4
+    let peek = max_heap.pop().unwrap();   // 3
+    let peek = max_heap.pop().unwrap();   // 2
+    let peek = max_heap.pop().unwrap();   // 1
+
+    /* 获取堆大小 */
+    let size = max_heap.len();
+
+    /* 判断堆是否为空 */
+    let is_empty = max_heap.is_empty();
+
+    /* 输入列表并建堆 */
+    let min_heap = BinaryHeap::from(vec![Reverse(1), Reverse(3), Reverse(2), Reverse(5), Reverse(4)]);
     ```
 
 === "C"
@@ -360,11 +394,11 @@
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{left}
+    [class]{MaxHeap}-[func]{Left}
 
-    [class]{MaxHeap}-[func]{right}
+    [class]{MaxHeap}-[func]{Right}
 
-    [class]{MaxHeap}-[func]{parent}
+    [class]{MaxHeap}-[func]{Parent}
     ```
 
 === "Go"
@@ -390,11 +424,11 @@
 === "JS"
 
     ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{#left}
+    [class]{MaxHeap}-[func]{left}
 
-    [class]{MaxHeap}-[func]{#right}
+    [class]{MaxHeap}-[func]{right}
 
-    [class]{MaxHeap}-[func]{#parent}
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 === "TS"
@@ -472,7 +506,7 @@
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{peek}
+    [class]{MaxHeap}-[func]{Peek}
     ```
 
 === "Go"
@@ -585,9 +619,9 @@
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{push}
+    [class]{MaxHeap}-[func]{Push}
 
-    [class]{MaxHeap}-[func]{siftUp}
+    [class]{MaxHeap}-[func]{SiftUp}
     ```
 
 === "Go"
@@ -611,7 +645,7 @@
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{push}
 
-    [class]{MaxHeap}-[func]{#siftUp}
+    [class]{MaxHeap}-[func]{siftUp}
     ```
 
 === "TS"
@@ -723,9 +757,9 @@
 === "C#"
 
     ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{pop}
+    [class]{MaxHeap}-[func]{Pop}
 
-    [class]{MaxHeap}-[func]{siftDown}
+    [class]{MaxHeap}-[func]{SiftDown}
     ```
 
 === "Go"
@@ -749,7 +783,7 @@
     ```javascript title="my_heap.js"
     [class]{MaxHeap}-[func]{pop}
 
-    [class]{MaxHeap}-[func]{#siftDown}
+    [class]{MaxHeap}-[func]{siftDown}
     ```
 
 === "TS"

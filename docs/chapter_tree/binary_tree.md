@@ -58,7 +58,7 @@
         Left  *TreeNode
         Right *TreeNode
     }
-    /* 节点初始化方法 */
+    /* 构造方法 */
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
             Left:  nil, // 左子节点指针
@@ -87,10 +87,15 @@
 
     ```javascript title=""
     /* 二叉树节点类 */
-    function TreeNode(val, left, right) {
-        this.val = (val === undefined ? 0 : val); // 节点值
-        this.left = (left === undefined ? null : left); // 左子节点引用
-        this.right = (right === undefined ? null : right); // 右子节点引用
+    class TreeNode {
+        val; // 节点值
+        left; // 左子节点指针
+        right; // 右子节点指针
+        constructor(val, left, right) {
+            this.val = val === undefined ? 0 : val;
+            this.left = left === undefined ? null : left;
+            this.right = right === undefined ? null : right;
+        }
     }
     ```
 
@@ -126,7 +131,26 @@
 === "Rust"
 
     ```rust title=""
+    use std::rc::Rc;
+    use std::cell::RefCell;
 
+    /* 二叉树节点结构体 */
+    struct TreeNode {
+        val: i32,                               // 节点值
+        left: Option<Rc<RefCell<TreeNode>>>,    // 左子节点引用
+        right: Option<Rc<RefCell<TreeNode>>>,   // 右子节点引用
+    }
+
+    impl TreeNode {
+        /* 构造方法 */
+        fn new(val: i32) -> Rc<RefCell<Self>> {
+            Rc::new(RefCell::new(Self {
+                val,
+                left: None,
+                right: None
+            }))
+        }
+    }
     ```
 
 === "C"
@@ -247,11 +271,11 @@
     ```csharp title="binary_tree.cs"
     /* 初始化二叉树 */
     // 初始化节点
-    TreeNode n1 = new TreeNode(1);
-    TreeNode n2 = new TreeNode(2);
-    TreeNode n3 = new TreeNode(3);
-    TreeNode n4 = new TreeNode(4);
-    TreeNode n5 = new TreeNode(5);
+    TreeNode n1 = new(1);
+    TreeNode n2 = new(2);
+    TreeNode n3 = new(3);
+    TreeNode n4 = new(4);
+    TreeNode n5 = new(5);
     // 构建引用指向（即指针）
     n1.left = n2;
     n1.right = n3;
@@ -346,7 +370,17 @@
 === "Rust"
 
     ```rust title="binary_tree.rs"
-
+    // 初始化节点
+    let n1 = TreeNode::new(1);
+    let n2 = TreeNode::new(2);
+    let n3 = TreeNode::new(3);
+    let n4 = TreeNode::new(4);
+    let n5 = TreeNode::new(5);
+    // 构建引用指向（即指针）
+    n1.borrow_mut().left = Some(n2.clone());
+    n1.borrow_mut().right = Some(n3);
+    n2.borrow_mut().left = Some(n4);
+    n2.borrow_mut().right = Some(n5);
     ```
 
 === "C"
@@ -417,7 +451,7 @@
 
     ```csharp title="binary_tree.cs"
     /* 插入与删除节点 */
-    TreeNode P = new TreeNode(0);
+    TreeNode P = new(0);
     // 在 n1 -> n2 中间插入节点 P
     n1.left = P;
     P.left = n2;
@@ -487,7 +521,12 @@
 === "Rust"
 
     ```rust title="binary_tree.rs"
-
+    let p = TreeNode::new(0);
+    // 在 n1 -> n2 中间插入节点 P
+    n1.borrow_mut().left = Some(p.clone());
+    p.borrow_mut().left = Some(n2.clone());
+    // 删除节点 p
+    n1.borrow_mut().left = Some(n2);
     ```
 
 === "C"
@@ -516,7 +555,7 @@
 
 ### 完美二叉树
 
-「完美二叉树 perfect binary tree」除了最底层外，其余所有层的节点都被完全填满。在完美二叉树中，叶节点的度为 $0$ ，其余所有节点的度都为 $2$ ；若树高度为 $h$ ，则节点总数为 $2^{h+1} - 1$ ，呈现标准的指数级关系，反映了自然界中常见的细胞分裂现象。
+「完美二叉树 perfect binary tree」所有层的节点都被完全填满。在完美二叉树中，叶节点的度为 $0$ ，其余所有节点的度都为 $2$ ；若树高度为 $h$ ，则节点总数为 $2^{h+1} - 1$ ，呈现标准的指数级关系，反映了自然界中常见的细胞分裂现象。
 
 !!! tip
 
@@ -544,7 +583,7 @@
 
 ## 二叉树的退化
 
-当二叉树的每层节点都被填满时，达到“完美二叉树”；而当所有节点都偏向一侧时，二叉树退化为“链表”。
+下图展示了二叉树的理想与退化状态。当二叉树的每层节点都被填满时，达到“完美二叉树”；而当所有节点都偏向一侧时，二叉树退化为“链表”。
 
 - 完美二叉树是理想情况，可以充分发挥二叉树“分治”的优势。
 - 链表则是另一个极端，各项操作都变为线性操作，时间复杂度退化至 $O(n)$ 。

@@ -33,7 +33,7 @@
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{forLoop}
+    [class]{iteration}-[func]{ForLoop}
     ```
 
 === "Go"
@@ -117,7 +117,7 @@
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{whileLoop}
+    [class]{iteration}-[func]{WhileLoop}
     ```
 
 === "Go"
@@ -193,7 +193,7 @@
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{whileLoopII}
+    [class]{iteration}-[func]{WhileLoopII}
     ```
 
 === "Go"
@@ -271,7 +271,7 @@
 === "C#"
 
     ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{nestedForLoop}
+    [class]{iteration}-[func]{NestedForLoop}
     ```
 
 === "Go"
@@ -366,7 +366,7 @@
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{recur}
+    [class]{recursion}-[func]{Recur}
     ```
 
 === "Go"
@@ -429,7 +429,7 @@
 以上述的求和函数为例，设问题 $f(n) = 1 + 2 + \dots + n$ 。
 
 - **迭代**：在循环中模拟求和过程，从 $1$ 遍历到 $n$ ，每轮执行求和操作，即可求得 $f(n)$ 。
-- **递归**：将问题分解为子问题 $f(n) = n + f(n-1)$ ，不断（递归地）分解下去，直至基本情况 $f(0) = 0$ 时终止。
+- **递归**：将问题分解为子问题 $f(n) = n + f(n-1)$ ，不断（递归地）分解下去，直至基本情况 $f(1) = 1$ 时终止。
 
 ### 调用栈
 
@@ -474,7 +474,7 @@
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{tailRecur}
+    [class]{recursion}-[func]{TailRecur}
     ```
 
 === "Go"
@@ -572,7 +572,7 @@
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{fib}
+    [class]{recursion}-[func]{Fib}
     ```
 
 === "Go"
@@ -679,7 +679,7 @@
 === "C#"
 
     ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{forLoopRecur}
+    [class]{recursion}-[func]{ForLoopRecur}
     ```
 
 === "Go"

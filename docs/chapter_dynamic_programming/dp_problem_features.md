@@ -55,7 +55,7 @@ $$
 === "C#"
 
     ```csharp title="min_cost_climbing_stairs_dp.cs"
-    [class]{min_cost_climbing_stairs_dp}-[func]{minCostClimbingStairsDP}
+    [class]{min_cost_climbing_stairs_dp}-[func]{MinCostClimbingStairsDP}
     ```
 
 === "Go"
@@ -133,7 +133,7 @@ $$
 === "C#"
 
     ```csharp title="min_cost_climbing_stairs_dp.cs"
-    [class]{min_cost_climbing_stairs_dp}-[func]{minCostClimbingStairsDPComp}
+    [class]{min_cost_climbing_stairs_dp}-[func]{MinCostClimbingStairsDPComp}
     ```
 
 === "Go"
@@ -204,10 +204,10 @@ $$
 
 不难发现，此问题已不满足无后效性，状态转移方程 $dp[i] = dp[i-1] + dp[i-2]$ 也失效了，因为 $dp[i-1]$ 代表本轮跳 $1$ 阶，但其中包含了许多“上一轮跳 $1$ 阶上来的”方案，而为了满足约束，我们就不能将 $dp[i-1]$ 直接计入 $dp[i]$ 中。
 
-为此，我们需要扩展状态定义：**状态 $[i, j]$ 表示处在第 $i$ 阶、并且上一轮跳了 $j$ 阶**，其中 $j \in \{1, 2\}$ 。此状态定义有效地区分了上一轮跳了 $1$ 阶还是 $2$ 阶，我们可以据此来决定下一步该怎么跳。
+为此，我们需要扩展状态定义：**状态 $[i, j]$ 表示处在第 $i$ 阶、并且上一轮跳了 $j$ 阶**，其中 $j \in \{1, 2\}$ 。此状态定义有效地区分了上一轮跳了 $1$ 阶还是 $2$ 阶，我们可以据此来判断当前状态是从何而来的。
 
-- 当 $j$ 等于 $1$ ，即上一轮跳了 $1$ 阶时，这一轮只能选择跳 $2$ 阶。
-- 当 $j$ 等于 $2$ ，即上一轮跳了 $2$ 阶时，这一轮可选择跳 $1$ 阶或跳 $2$ 阶。
+- 当上一轮跳了 $1$ 阶时，上上一轮只能选择跳 $2$ 阶，即 $dp[i, 1]$ 只能从 $dp[i-1, 2]$ 转移过来。
+- 当上一轮跳了 $2$ 阶时，上上一轮可选择跳 $1$ 阶或跳 $2$ 阶，即 $dp[i, 2]$ 可以从 $dp[i-2, 1]$ 或 $dp[i-2, 2]$ 转移过来。
 
 如下图所示，在该定义下，$dp[i, j]$ 表示状态 $[i, j]$ 对应的方案数。此时状态转移方程为：
 
@@ -243,7 +243,7 @@ $$
 === "C#"
 
     ```csharp title="climbing_stairs_constraint_dp.cs"
-    [class]{climbing_stairs_constraint_dp}-[func]{climbingStairsConstraintDP}
+    [class]{climbing_stairs_constraint_dp}-[func]{ClimbingStairsConstraintDP}
     ```
 
 === "Go"

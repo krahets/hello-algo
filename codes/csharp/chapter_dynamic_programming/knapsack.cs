@@ -8,24 +8,24 @@ namespace hello_algo.chapter_dynamic_programming;
 
 public class knapsack {
     /* 0-1 背包：暴力搜索 */
-    public int knapsackDFS(int[] weight, int[] val, int i, int c) {
+    public int KnapsackDFS(int[] weight, int[] val, int i, int c) {
         // 若已选完所有物品或背包无容量，则返回价值 0
         if (i == 0 || c == 0) {
             return 0;
         }
         // 若超过背包容量，则只能不放入背包
         if (weight[i - 1] > c) {
-            return knapsackDFS(weight, val, i - 1, c);
+            return KnapsackDFS(weight, val, i - 1, c);
         }
         // 计算不放入和放入物品 i 的最大价值
-        int no = knapsackDFS(weight, val, i - 1, c);
-        int yes = knapsackDFS(weight, val, i - 1, c - weight[i - 1]) + val[i - 1];
+        int no = KnapsackDFS(weight, val, i - 1, c);
+        int yes = KnapsackDFS(weight, val, i - 1, c - weight[i - 1]) + val[i - 1];
         // 返回两种方案中价值更大的那一个
         return Math.Max(no, yes);
     }
 
     /* 0-1 背包：记忆化搜索 */
-    public int knapsackDFSMem(int[] weight, int[] val, int[][] mem, int i, int c) {
+    public int KnapsackDFSMem(int[] weight, int[] val, int[][] mem, int i, int c) {
         // 若已选完所有物品或背包无容量，则返回价值 0
         if (i == 0 || c == 0) {
             return 0;
@@ -36,18 +36,18 @@ public class knapsack {
         }
         // 若超过背包容量，则只能不放入背包
         if (weight[i - 1] > c) {
-            return knapsackDFSMem(weight, val, mem, i - 1, c);
+            return KnapsackDFSMem(weight, val, mem, i - 1, c);
         }
         // 计算不放入和放入物品 i 的最大价值
-        int no = knapsackDFSMem(weight, val, mem, i - 1, c);
-        int yes = knapsackDFSMem(weight, val, mem, i - 1, c - weight[i - 1]) + val[i - 1];
+        int no = KnapsackDFSMem(weight, val, mem, i - 1, c);
+        int yes = KnapsackDFSMem(weight, val, mem, i - 1, c - weight[i - 1]) + val[i - 1];
         // 记录并返回两种方案中价值更大的那一个
         mem[i][c] = Math.Max(no, yes);
         return mem[i][c];
     }
 
     /* 0-1 背包：动态规划 */
-    public int knapsackDP(int[] weight, int[] val, int cap) {
+    public int KnapsackDP(int[] weight, int[] val, int cap) {
         int n = weight.Length;
         // 初始化 dp 表
         int[,] dp = new int[n + 1, cap + 1];
@@ -67,7 +67,7 @@ public class knapsack {
     }
 
     /* 0-1 背包：空间优化后的动态规划 */
-    public int knapsackDPComp(int[] weight, int[] val, int cap) {
+    public int KnapsackDPComp(int[] weight, int[] val, int cap) {
         int n = weight.Length;
         // 初始化 dp 表
         int[] dp = new int[cap + 1];
@@ -95,7 +95,7 @@ public class knapsack {
         int n = weight.Length;
 
         // 暴力搜索
-        int res = knapsackDFS(weight, val, n, cap);
+        int res = KnapsackDFS(weight, val, n, cap);
         Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
 
         // 记忆化搜索
@@ -104,15 +104,15 @@ public class knapsack {
             mem[i] = new int[cap + 1];
             Array.Fill(mem[i], -1);
         }
-        res = knapsackDFSMem(weight, val, mem, n, cap);
+        res = KnapsackDFSMem(weight, val, mem, n, cap);
         Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
 
         // 动态规划
-        res = knapsackDP(weight, val, cap);
+        res = KnapsackDP(weight, val, cap);
         Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
 
         // 空间优化后的动态规划
-        res = knapsackDPComp(weight, val, cap);
+        res = KnapsackDPComp(weight, val, cap);
         Console.WriteLine("不超过背包容量的最大物品价值为 " + res);
     }
 }

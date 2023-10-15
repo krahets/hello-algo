@@ -3,11 +3,12 @@ site_name: Hello 算法
 site_url: https://www.hello-algo.com/
 site_author: Krahets
 site_description: 动画图解、一键运行的数据结构与算法教程
-docs_dir: build
+docs_dir: build/docs
+site_dir: site
 # Repository
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
-edit_uri: https://github.com/krahets/hello-algo/tree/main/docs/
+edit_uri: tree/main/docs
 version: 1.0.0b5
 
 # Copyright
@@ -66,6 +67,13 @@ theme:
     edit: material/file-edit-outline
 
 extra:
+  alternate:
+    - name: 中文
+      link: /
+      lang: zh
+    # - name: English
+    #   link: /en/
+    #   lang: en
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/krahets
@@ -73,7 +81,7 @@ extra:
       link: https://twitter.com/krahets
     - icon: fontawesome/solid/code
       link: https://leetcode.cn/u/jyd/
-  # generator: false
+  generator: false
   status:
     new: 最近添加
 

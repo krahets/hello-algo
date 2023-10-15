@@ -17,7 +17,7 @@ class HashMapChaining:
         """构造方法"""
         self.size = 0  # 键值对数量
         self.capacity = 4  # 哈希表容量
-        self.load_thres = 2 / 3  # 触发扩容的负载因子阈值
+        self.load_thres = 2.0 / 3.0  # 触发扩容的负载因子阈值
         self.extend_ratio = 2  # 扩容倍数
         self.buckets = [[] for _ in range(self.capacity)]  # 桶数组
 
@@ -29,7 +29,7 @@ class HashMapChaining:
         """负载因子"""
         return self.size / self.capacity
 
-    def get(self, key: int) -> str:
+    def get(self, key: int) -> str | None:
         """查询操作"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
