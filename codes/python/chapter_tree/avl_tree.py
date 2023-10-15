@@ -13,7 +13,7 @@ from modules import *
 class AVLTree:
     """AVL 树"""
 
-    def __init__(self, root: TreeNode | None = None):
+    def __init__(self):
         """构造方法"""
         self._root = None
 

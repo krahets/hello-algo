@@ -863,7 +863,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
 === "C"
 
     ```c title="avl_tree.c"
-    [class]{aVLTree}-[func]{removeNode}
+    [class]{aVLTree}-[func]{removeItem}
 
     [class]{}-[func]{removeHelper}
     ```

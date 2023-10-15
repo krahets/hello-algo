@@ -8,7 +8,7 @@ namespace hello_algo.chapter_divide_and_conquer;
 
 public class build_tree {
     /* 构建二叉树：分治 */
-    public TreeNode Dfs(int[] preorder, Dictionary<int, int> inorderMap, int i, int l, int r) {
+    public TreeNode DFS(int[] preorder, Dictionary<int, int> inorderMap, int i, int l, int r) {
         // 子树区间为空时终止
         if (r - l < 0)
             return null;
@@ -17,9 +17,9 @@ public class build_tree {
         // 查询 m ，从而划分左右子树
         int m = inorderMap[preorder[i]];
         // 子问题：构建左子树
-        root.left = Dfs(preorder, inorderMap, i + 1, l, m - 1);
+        root.left = DFS(preorder, inorderMap, i + 1, l, m - 1);
         // 子问题：构建右子树
-        root.right = Dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
+        root.right = DFS(preorder, inorderMap, i + 1 + m - l, m + 1, r);
         // 返回根节点
         return root;
     }
@@ -31,7 +31,7 @@ public class build_tree {
         for (int i = 0; i < inorder.Length; i++) {
             inorderMap.TryAdd(inorder[i], i);
         }
-        TreeNode root = Dfs(preorder, inorderMap, 0, 0, inorder.Length - 1);
+        TreeNode root = DFS(preorder, inorderMap, 0, 0, inorder.Length - 1);
         return root;
     }
 

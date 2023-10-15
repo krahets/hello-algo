@@ -17,25 +17,25 @@ public class hanota {
     }
 
     /* 求解汉诺塔：问题 f(i) */
-    public void Dfs(int i, List<int> src, List<int> buf, List<int> tar) {
+    public void DFS(int i, List<int> src, List<int> buf, List<int> tar) {
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if (i == 1) {
             Move(src, tar);
             return;
         }
         // 子问题 f(i-1) ：将 src 顶部 i-1 个圆盘借助 tar 移到 buf
-        Dfs(i - 1, src, tar, buf);
+        DFS(i - 1, src, tar, buf);
         // 子问题 f(1) ：将 src 剩余一个圆盘移到 tar
         Move(src, tar);
         // 子问题 f(i-1) ：将 buf 顶部 i-1 个圆盘借助 src 移到 tar
-        Dfs(i - 1, buf, src, tar);
+        DFS(i - 1, buf, src, tar);
     }
 
     /* 求解汉诺塔 */
     public void SolveHanota(List<int> A, List<int> B, List<int> C) {
         int n = A.Count;
         // 将 A 顶部 n 个圆盘借助 B 移到 C
-        Dfs(n, A, B, C);
+        DFS(n, A, B, C);
     }
 
     [Test]

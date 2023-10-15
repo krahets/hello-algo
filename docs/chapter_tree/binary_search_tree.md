@@ -293,7 +293,7 @@
 === "C"
 
     ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{removeNode}
+    [class]{binarySearchTree}-[func]{removeItem}
     ```
 
 === "Zig"

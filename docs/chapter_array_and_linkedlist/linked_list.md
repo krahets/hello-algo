@@ -512,7 +512,7 @@
 === "Go"
 
     ```go title="linked_list.go"
-    [class]{}-[func]{removeNode}
+    [class]{}-[func]{removeItem}
     ```
 
 === "Swift"
@@ -548,7 +548,7 @@
 === "C"
 
     ```c title="linked_list.c"
-    [class]{}-[func]{removeNode}
+    [class]{}-[func]{removeItem}
     ```
 
 === "Zig"

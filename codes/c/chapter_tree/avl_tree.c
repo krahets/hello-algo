@@ -183,7 +183,7 @@ TreeNode *removeHelper(TreeNode *node, int val) {
 
 /* 删除节点 */
 // 由于引入了 stdio.h ，此处无法使用 remove 关键词
-void removeNode(aVLTree *tree, int val) {
+void removeItem(aVLTree *tree, int val) {
     TreeNode *root = removeHelper(tree->root, val);
 }
 
@@ -214,7 +214,7 @@ void testInsert(aVLTree *tree, int val) {
 }
 
 void testRemove(aVLTree *tree, int val) {
-    removeNode(tree, val);
+    removeItem(tree, val);
     printf("\n删除节点 %d 后，AVL 树为 \n", val);
     printTree(tree->root);
 }

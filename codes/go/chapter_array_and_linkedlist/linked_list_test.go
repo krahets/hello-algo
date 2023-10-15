@@ -34,7 +34,7 @@ func TestLinkedList(t *testing.T) {
 	PrintLinkedList(n0)
 
 	/* 删除节点 */
-	removeNode(n0)
+	removeItem(n0)
 	fmt.Println("删除节点后的链表为")
 	PrintLinkedList(n0)
 

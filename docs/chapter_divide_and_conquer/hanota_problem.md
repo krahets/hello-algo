@@ -117,7 +117,7 @@
     ```csharp title="hanota.cs"
     [class]{hanota}-[func]{Move}
 
-    [class]{hanota}-[func]{Dfs}
+    [class]{hanota}-[func]{DFS}
 
     [class]{hanota}-[func]{SolveHanota}
     ```

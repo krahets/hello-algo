@@ -104,7 +104,7 @@ void removeLink(linkList *l, Vertex *val) {
 }
 
 /* 根据顶点地址删除顶点 */
-void removeNode(linkList *l, Vertex *val) {
+void removeItem(linkList *l, Vertex *val) {
     Node *temp = l->head->next;
     Node *front = l->head;
     while (temp != 0) {

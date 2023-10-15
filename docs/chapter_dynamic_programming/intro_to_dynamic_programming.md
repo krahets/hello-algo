@@ -163,7 +163,7 @@ $$
 === "C#"
 
     ```csharp title="climbing_stairs_dfs.cs"
-    [class]{climbing_stairs_dfs}-[func]{Dfs}
+    [class]{climbing_stairs_dfs}-[func]{DFS}
 
     [class]{climbing_stairs_dfs}-[func]{ClimbingStairsDFS}
     ```
@@ -274,7 +274,7 @@ $$
 === "C#"
 
     ```csharp title="climbing_stairs_dfs_mem.cs"
-    [class]{climbing_stairs_dfs_mem}-[func]{Dfs}
+    [class]{climbing_stairs_dfs_mem}-[func]{DFS}
 
     [class]{climbing_stairs_dfs_mem}-[func]{ClimbingStairsDFSMem}
     ```
