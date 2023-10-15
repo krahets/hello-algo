@@ -616,7 +616,7 @@ comments: true
 
     ```go title="linked_list.go"
     /* 删除链表的节点 n0 之后的首个节点 */
-    func removeNode(n0 *ListNode) {
+    func removeItem(n0 *ListNode) {
         if n0.Next == nil {
             return
         }
@@ -705,7 +705,7 @@ comments: true
     ```c title="linked_list.c"
     /* 删除链表的节点 n0 之后的首个节点 */
     // 注意：stdio.h 占用了 remove 关键词
-    void removeNode(ListNode *n0) {
+    void removeItem(ListNode *n0) {
         if (!n0->next)
             return;
         // n0 -> P -> n1

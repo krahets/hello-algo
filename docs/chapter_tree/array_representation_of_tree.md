@@ -458,18 +458,18 @@ comments: true
         }
 
         /* 深度优先遍历 */
-        private void Dfs(int i, string order, List<int> res) {
+        private void DFS(int i, string order, List<int> res) {
             // 若为空位，则返回
             if (!Val(i).HasValue)
                 return;
             // 前序遍历
             if (order == "pre")
                 res.Add(Val(i).Value);
-            Dfs(Left(i), order, res);
+            DFS(Left(i), order, res);
             // 中序遍历
             if (order == "in")
                 res.Add(Val(i).Value);
-            Dfs(Right(i), order, res);
+            DFS(Right(i), order, res);
             // 后序遍历
             if (order == "post")
                 res.Add(Val(i).Value);
@@ -478,21 +478,21 @@ comments: true
         /* 前序遍历 */
         public List<int> PreOrder() {
             List<int> res = new();
-            Dfs(0, "pre", res);
+            DFS(0, "pre", res);
             return res;
         }
 
         /* 中序遍历 */
         public List<int> InOrder() {
             List<int> res = new();
-            Dfs(0, "in", res);
+            DFS(0, "in", res);
             return res;
         }
 
         /* 后序遍历 */
         public List<int> PostOrder() {
             List<int> res = new();
-            Dfs(0, "post", res);
+            DFS(0, "post", res);
             return res;
         }
     }

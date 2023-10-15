@@ -1760,7 +1760,7 @@ comments: true
             node->next = deque->front;
             deque->front = node; // 更新头节点
         }
-        // 对尾入队操作
+        // 队尾入队操作
         else {
             // 将 node 添加至链表尾部
             deque->rear->next = node;

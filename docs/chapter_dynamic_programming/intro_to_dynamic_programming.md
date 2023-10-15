@@ -472,18 +472,18 @@ $$
 
     ```csharp title="climbing_stairs_dfs.cs"
     /* 搜索 */
-    int Dfs(int i) {
+    int DFS(int i) {
         // 已知 dp[1] 和 dp[2] ，返回之
         if (i == 1 || i == 2)
             return i;
         // dp[i] = dp[i-1] + dp[i-2]
-        int count = Dfs(i - 1) + Dfs(i - 2);
+        int count = DFS(i - 1) + DFS(i - 2);
         return count;
     }
 
     /* 爬楼梯：搜索 */
     int ClimbingStairsDFS(int n) {
-        return Dfs(n);
+        return DFS(n);
     }
     ```
 
@@ -736,7 +736,7 @@ $$
 
     ```csharp title="climbing_stairs_dfs_mem.cs"
     /* 记忆化搜索 */
-    int Dfs(int i, int[] mem) {
+    int DFS(int i, int[] mem) {
         // 已知 dp[1] 和 dp[2] ，返回之
         if (i == 1 || i == 2)
             return i;
@@ -744,7 +744,7 @@ $$
         if (mem[i] != -1)
             return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
-        int count = Dfs(i - 1, mem) + Dfs(i - 2, mem);
+        int count = DFS(i - 1, mem) + DFS(i - 2, mem);
         // 记录 dp[i]
         mem[i] = count;
         return count;
@@ -755,7 +755,7 @@ $$
         // mem[i] 记录爬到第 i 阶的方案总数，-1 代表无记录
         int[] mem = new int[n + 1];
         Array.Fill(mem, -1);
-        return Dfs(n, mem);
+        return DFS(n, mem);
     }
     ```
 

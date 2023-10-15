@@ -2361,7 +2361,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     ```c title="avl_tree.c"
     /* 删除节点 */
     // 由于引入了 stdio.h ，此处无法使用 remove 关键词
-    void removeNode(aVLTree *tree, int val) {
+    void removeItem(aVLTree *tree, int val) {
         TreeNode *root = removeHelper(tree->root, val);
     }
 
