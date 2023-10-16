@@ -1,10 +1,12 @@
 /**
   * File : build_tree.c
-  * Created Time: 2023-10-07
+  * Created Time: 2023-10-16
   * Author : lucas (superrat6@gmail.com)
   */
 
 #include "../utils/common.h"
+
+#define MAX_N 1000
 
 /* 构建二叉树：分治 */
 TreeNode* dfs(int* preorder, int* inorderMap, int i, int l, int r, int size) {
@@ -29,7 +31,7 @@ TreeNode* dfs(int* preorder, int* inorderMap, int i, int l, int r, int size) {
 /* 构建二叉树 */
 TreeNode* buildTree(int* preorder, int preorderSize, int* inorder, int inorderSize) {
     // 初始化哈希表，存储 inorder 元素到索引的映射
-    int* inorderMap = (int*)malloc(sizeof(int) * 10);
+    int* inorderMap = (int*)malloc(sizeof(int) * MAX_N);
     for (int i = 0; i < inorderSize; i++) {
         inorderMap[inorder[i]] = i;
     }
