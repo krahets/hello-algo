@@ -405,77 +405,9 @@
 
 ![链表插入节点示例](linked_list.assets/linkedlist_insert_node.png)
 
-=== "Python"
-
-    ```python title="linked_list.py"
-    [class]{}-[func]{insert}
-    ```
-
-=== "C++"
-
-    ```cpp title="linked_list.cpp"
-    [class]{}-[func]{insert}
-    ```
-
-=== "Java"
-
-    ```java title="linked_list.java"
-    [class]{linked_list}-[func]{insert}
-    ```
-
-=== "C#"
-
-    ```csharp title="linked_list.cs"
-    [class]{linked_list}-[func]{Insert}
-    ```
-
-=== "Go"
-
-    ```go title="linked_list.go"
-    [class]{}-[func]{insertNode}
-    ```
-
-=== "Swift"
-
-    ```swift title="linked_list.swift"
-    [class]{}-[func]{insert}
-    ```
-
-=== "JS"
-
-    ```javascript title="linked_list.js"
-    [class]{}-[func]{insert}
-    ```
-
-=== "TS"
-
-    ```typescript title="linked_list.ts"
-    [class]{}-[func]{insert}
-    ```
-
-=== "Dart"
-
-    ```dart title="linked_list.dart"
-    [class]{}-[func]{insert}
-    ```
-
-=== "Rust"
-
-    ```rust title="linked_list.rs"
-    [class]{}-[func]{insert}
-    ```
-
-=== "C"
-
-    ```c title="linked_list.c"
-    [class]{}-[func]{insert}
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    [class]{}-[func]{insert}
-    ```
+```src
+[file]{linked_list}-[class]{}-[func]{insert}
+```
 
 ### 删除节点
 
@@ -485,229 +417,25 @@
 
 ![链表删除节点](linked_list.assets/linkedlist_remove_node.png)
 
-=== "Python"
-
-    ```python title="linked_list.py"
-    [class]{}-[func]{remove}
-    ```
-
-=== "C++"
-
-    ```cpp title="linked_list.cpp"
-    [class]{}-[func]{remove}
-    ```
-
-=== "Java"
-
-    ```java title="linked_list.java"
-    [class]{linked_list}-[func]{remove}
-    ```
-
-=== "C#"
-
-    ```csharp title="linked_list.cs"
-    [class]{linked_list}-[func]{Remove}
-    ```
-
-=== "Go"
-
-    ```go title="linked_list.go"
-    [class]{}-[func]{removeItem}
-    ```
-
-=== "Swift"
-
-    ```swift title="linked_list.swift"
-    [class]{}-[func]{remove}
-    ```
-
-=== "JS"
-
-    ```javascript title="linked_list.js"
-    [class]{}-[func]{remove}
-    ```
-
-=== "TS"
-
-    ```typescript title="linked_list.ts"
-    [class]{}-[func]{remove}
-    ```
-
-=== "Dart"
-
-    ```dart title="linked_list.dart"
-    [class]{}-[func]{remove}
-    ```
-
-=== "Rust"
-
-    ```rust title="linked_list.rs"
-    [class]{}-[func]{remove}
-    ```
-
-=== "C"
-
-    ```c title="linked_list.c"
-    [class]{}-[func]{removeItem}
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    [class]{}-[func]{remove}
-    ```
+```src
+[file]{linked_list}-[class]{}-[func]{remove}
+```
 
 ### 访问节点
 
 **在链表访问节点的效率较低**。如上节所述，我们可以在 $O(1)$ 时间下访问数组中的任意元素。链表则不然，程序需要从头节点出发，逐个向后遍历，直至找到目标节点。也就是说，访问链表的第 $i$ 个节点需要循环 $i - 1$ 轮，时间复杂度为 $O(n)$ 。
 
-=== "Python"
-
-    ```python title="linked_list.py"
-    [class]{}-[func]{access}
-    ```
-
-=== "C++"
-
-    ```cpp title="linked_list.cpp"
-    [class]{}-[func]{access}
-    ```
-
-=== "Java"
-
-    ```java title="linked_list.java"
-    [class]{linked_list}-[func]{access}
-    ```
-
-=== "C#"
-
-    ```csharp title="linked_list.cs"
-    [class]{linked_list}-[func]{Access}
-    ```
-
-=== "Go"
-
-    ```go title="linked_list.go"
-    [class]{}-[func]{access}
-    ```
-
-=== "Swift"
-
-    ```swift title="linked_list.swift"
-    [class]{}-[func]{access}
-    ```
-
-=== "JS"
-
-    ```javascript title="linked_list.js"
-    [class]{}-[func]{access}
-    ```
-
-=== "TS"
-
-    ```typescript title="linked_list.ts"
-    [class]{}-[func]{access}
-    ```
-
-=== "Dart"
-
-    ```dart title="linked_list.dart"
-    [class]{}-[func]{access}
-    ```
-
-=== "Rust"
-
-    ```rust title="linked_list.rs"
-    [class]{}-[func]{access}
-    ```
-
-=== "C"
-
-    ```c title="linked_list.c"
-    [class]{}-[func]{access}
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    [class]{}-[func]{access}
-    ```
+```src
+[file]{linked_list}-[class]{}-[func]{access}
+```
 
 ### 查找节点
 
 遍历链表，查找链表内值为 `target` 的节点，输出节点在链表中的索引。此过程也属于线性查找。
 
-=== "Python"
-
-    ```python title="linked_list.py"
-    [class]{}-[func]{find}
-    ```
-
-=== "C++"
-
-    ```cpp title="linked_list.cpp"
-    [class]{}-[func]{find}
-    ```
-
-=== "Java"
-
-    ```java title="linked_list.java"
-    [class]{linked_list}-[func]{find}
-    ```
-
-=== "C#"
-
-    ```csharp title="linked_list.cs"
-    [class]{linked_list}-[func]{Find}
-    ```
-
-=== "Go"
-
-    ```go title="linked_list.go"
-    [class]{}-[func]{findNode}
-    ```
-
-=== "Swift"
-
-    ```swift title="linked_list.swift"
-    [class]{}-[func]{find}
-    ```
-
-=== "JS"
-
-    ```javascript title="linked_list.js"
-    [class]{}-[func]{find}
-    ```
-
-=== "TS"
-
-    ```typescript title="linked_list.ts"
-    [class]{}-[func]{find}
-    ```
-
-=== "Dart"
-
-    ```dart title="linked_list.dart"
-    [class]{}-[func]{find}
-    ```
-
-=== "Rust"
-
-    ```rust title="linked_list.rs"
-    [class]{}-[func]{find}
-    ```
-
-=== "C"
-
-    ```c title="linked_list.c"
-    [class]{}-[func]{find}
-    ```
-
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    [class]{}-[func]{find}
-    ```
+```src
+[file]{linked_list}-[class]{}-[func]{find}
+```
 
 ## 数组 VS 链表
 
