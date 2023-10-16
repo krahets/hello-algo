@@ -23,77 +23,9 @@
 
 值得说明的是，**叶节点没有子节点，天然就是合法的子堆，因此无需堆化**。如以下代码所示，最后一个非叶节点是最后一个节点的父节点，我们从它开始倒序遍历并执行堆化。
 
-=== "Python"
-
-    ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{__init__}
-    ```
-
-=== "C++"
-
-    ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{MaxHeap}
-    ```
-
-=== "Java"
-
-    ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{MaxHeap}
-    ```
-
-=== "C#"
-
-    ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{MaxHeap}
-    ```
-
-=== "Go"
-
-    ```go title="my_heap.go"
-    [class]{maxHeap}-[func]{newMaxHeap}
-    ```
-
-=== "Swift"
-
-    ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{init}
-    ```
-
-=== "JS"
-
-    ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{constructor}
-    ```
-
-=== "TS"
-
-    ```typescript title="my_heap.ts"
-    [class]{MaxHeap}-[func]{constructor}
-    ```
-
-=== "Dart"
-
-    ```dart title="my_heap.dart"
-    [class]{MaxHeap}-[func]{MaxHeap}
-    ```
-
-=== "Rust"
-
-    ```rust title="my_heap.rs"
-    [class]{MaxHeap}-[func]{new}
-    ```
-
-=== "C"
-
-    ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{newMaxHeap}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{init}
-    ```
+```src
+[file]{my_heap}-[class]{max_heap}-[func]{__init__}
+```
 
 ## 复杂度分析
 

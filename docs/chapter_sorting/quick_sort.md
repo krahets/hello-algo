@@ -41,95 +41,9 @@
 
     哨兵划分的实质是将一个较长数组的排序问题简化为两个较短数组的排序问题。
 
-=== "Python"
-
-    ```python title="quick_sort.py"
-    [class]{QuickSort}-[func]{partition}
-    ```
-
-=== "C++"
-
-    ```cpp title="quick_sort.cpp"
-    [class]{QuickSort}-[func]{swap}
-
-    [class]{QuickSort}-[func]{partition}
-    ```
-
-=== "Java"
-
-    ```java title="quick_sort.java"
-    [class]{QuickSort}-[func]{swap}
-
-    [class]{QuickSort}-[func]{partition}
-    ```
-
-=== "C#"
-
-    ```csharp title="quick_sort.cs"
-    [class]{quickSort}-[func]{Swap}
-
-    [class]{quickSort}-[func]{Partition}
-    ```
-
-=== "Go"
-
-    ```go title="quick_sort.go"
-    [class]{quickSort}-[func]{partition}
-    ```
-
-=== "Swift"
-
-    ```swift title="quick_sort.swift"
-    [class]{}-[func]{swap}
-
-    [class]{}-[func]{partition}
-    ```
-
-=== "JS"
-
-    ```javascript title="quick_sort.js"
-    [class]{QuickSort}-[func]{swap}
-
-    [class]{QuickSort}-[func]{partition}
-    ```
-
-=== "TS"
-
-    ```typescript title="quick_sort.ts"
-    [class]{QuickSort}-[func]{swap}
-
-    [class]{QuickSort}-[func]{partition}
-    ```
-
-=== "Dart"
-
-    ```dart title="quick_sort.dart"
-    [class]{QuickSort}-[func]{_swap}
-
-    [class]{QuickSort}-[func]{_partition}
-    ```
-
-=== "Rust"
-
-    ```rust title="quick_sort.rs"
-    [class]{QuickSort}-[func]{partition}
-    ```
-
-=== "C"
-
-    ```c title="quick_sort.c"
-    [class]{}-[func]{swap}
-
-    [class]{}-[func]{partition}
-    ```
-
-=== "Zig"
-
-    ```zig title="quick_sort.zig"
-    [class]{QuickSort}-[func]{swap}
-
-    [class]{QuickSort}-[func]{partition}
-    ```
+```src
+[file]{quick_sort}-[class]{quick_sort}-[func]{partition}
+```
 
 ## 算法流程
 
@@ -141,77 +55,9 @@
 
 ![快速排序流程](quick_sort.assets/quick_sort_overview.png)
 
-=== "Python"
-
-    ```python title="quick_sort.py"
-    [class]{QuickSort}-[func]{quick_sort}
-    ```
-
-=== "C++"
-
-    ```cpp title="quick_sort.cpp"
-    [class]{QuickSort}-[func]{quickSort}
-    ```
-
-=== "Java"
-
-    ```java title="quick_sort.java"
-    [class]{QuickSort}-[func]{quickSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="quick_sort.cs"
-    [class]{quickSort}-[func]{QuickSort}
-    ```
-
-=== "Go"
-
-    ```go title="quick_sort.go"
-    [class]{quickSort}-[func]{quickSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="quick_sort.swift"
-    [class]{}-[func]{quickSort}
-    ```
-
-=== "JS"
-
-    ```javascript title="quick_sort.js"
-    [class]{QuickSort}-[func]{quickSort}
-    ```
-
-=== "TS"
-
-    ```typescript title="quick_sort.ts"
-    [class]{QuickSort}-[func]{quickSort}
-    ```
-
-=== "Dart"
-
-    ```dart title="quick_sort.dart"
-    [class]{QuickSort}-[func]{quickSort}
-    ```
-
-=== "Rust"
-
-    ```rust title="quick_sort.rs"
-    [class]{QuickSort}-[func]{quick_sort}
-    ```
-
-=== "C"
-
-    ```c title="quick_sort.c"
-    [class]{}-[func]{quickSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="quick_sort.zig"
-    [class]{QuickSort}-[func]{quickSort}
-    ```
+```src
+[file]{quick_sort}-[class]{quick_sort}-[func]{quick_sort}
+```
 
 ## 算法特性
 
@@ -237,101 +83,9 @@
 
 为了进一步改进，我们可以在数组中选取三个候选元素（通常为数组的首、尾、中点元素），**并将这三个候选元素的中位数作为基准数**。这样一来，基准数“既不太小也不太大”的概率将大幅提升。当然，我们还可以选取更多候选元素，以进一步提高算法的稳健性。采用这种方法后，时间复杂度劣化至 $O(n^2)$ 的概率大大降低。
 
-=== "Python"
-
-    ```python title="quick_sort.py"
-    [class]{QuickSortMedian}-[func]{median_three}
-
-    [class]{QuickSortMedian}-[func]{partition}
-    ```
-
-=== "C++"
-
-    ```cpp title="quick_sort.cpp"
-    [class]{QuickSortMedian}-[func]{medianThree}
-
-    [class]{QuickSortMedian}-[func]{partition}
-    ```
-
-=== "Java"
-
-    ```java title="quick_sort.java"
-    [class]{QuickSortMedian}-[func]{medianThree}
-
-    [class]{QuickSortMedian}-[func]{partition}
-    ```
-
-=== "C#"
-
-    ```csharp title="quick_sort.cs"
-    [class]{QuickSortMedian}-[func]{MedianThree}
-
-    [class]{QuickSortMedian}-[func]{Partition}
-    ```
-
-=== "Go"
-
-    ```go title="quick_sort.go"
-    [class]{quickSortMedian}-[func]{medianThree}
-
-    [class]{quickSortMedian}-[func]{partition}
-    ```
-
-=== "Swift"
-
-    ```swift title="quick_sort.swift"
-    [class]{}-[func]{medianThree}
-
-    [class]{}-[func]{partitionMedian}
-    ```
-
-=== "JS"
-
-    ```javascript title="quick_sort.js"
-    [class]{QuickSortMedian}-[func]{medianThree}
-
-    [class]{QuickSortMedian}-[func]{partition}
-    ```
-
-=== "TS"
-
-    ```typescript title="quick_sort.ts"
-    [class]{QuickSortMedian}-[func]{medianThree}
-
-    [class]{QuickSortMedian}-[func]{partition}
-    ```
-
-=== "Dart"
-
-    ```dart title="quick_sort.dart"
-    [class]{QuickSortMedian}-[func]{_medianThree}
-
-    [class]{QuickSortMedian}-[func]{_partition}
-    ```
-
-=== "Rust"
-
-    ```rust title="quick_sort.rs"
-    [class]{QuickSortMedian}-[func]{median_three}
-
-    [class]{QuickSortMedian}-[func]{partition}
-    ```
-
-=== "C"
-
-    ```c title="quick_sort.c"
-    [class]{}-[func]{medianThree}
-
-    [class]{}-[func]{partitionMedian}
-    ```
-
-=== "Zig"
-
-    ```zig title="quick_sort.zig"
-    [class]{QuickSortMedian}-[func]{medianThree}
-
-    [class]{QuickSortMedian}-[func]{partition}
-    ```
+```src
+[file]{quick_sort}-[class]{quick_sort_median}-[func]{partition}
+```
 
 ## 尾递归优化
 
@@ -339,74 +93,6 @@
 
 为了防止栈帧空间的累积，我们可以在每轮哨兵排序完成后，比较两个子数组的长度，**仅对较短的子数组进行递归**。由于较短子数组的长度不会超过 $n / 2$ ，因此这种方法能确保递归深度不超过 $\log n$ ，从而将最差空间复杂度优化至 $O(\log n)$ 。
 
-=== "Python"
-
-    ```python title="quick_sort.py"
-    [class]{QuickSortTailCall}-[func]{quick_sort}
-    ```
-
-=== "C++"
-
-    ```cpp title="quick_sort.cpp"
-    [class]{QuickSortTailCall}-[func]{quickSort}
-    ```
-
-=== "Java"
-
-    ```java title="quick_sort.java"
-    [class]{QuickSortTailCall}-[func]{quickSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="quick_sort.cs"
-    [class]{QuickSortTailCall}-[func]{QuickSort}
-    ```
-
-=== "Go"
-
-    ```go title="quick_sort.go"
-    [class]{quickSortTailCall}-[func]{quickSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="quick_sort.swift"
-    [class]{}-[func]{quickSortTailCall}
-    ```
-
-=== "JS"
-
-    ```javascript title="quick_sort.js"
-    [class]{QuickSortTailCall}-[func]{quickSort}
-    ```
-
-=== "TS"
-
-    ```typescript title="quick_sort.ts"
-    [class]{QuickSortTailCall}-[func]{quickSort}
-    ```
-
-=== "Dart"
-
-    ```dart title="quick_sort.dart"
-    [class]{QuickSortTailCall}-[func]{quickSort}
-    ```
-
-=== "Rust"
-
-    ```rust title="quick_sort.rs"
-    [class]{QuickSortTailCall}-[func]{quick_sort}
-    ```
-
-=== "C"
-
-    ```c title="quick_sort.c"
-    [class]{}-[func]{quickSortTailCall}
-    ```
-
-=== "Zig"
-
-    ```zig title="quick_sort.zig"
-    [class]{QuickSortTailCall}-[func]{quickSort}
-    ```
+```src
+[file]{quick_sort}-[class]{quick_sort_tail_call}-[func]{quick_sort}
+```

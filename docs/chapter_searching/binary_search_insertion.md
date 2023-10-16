@@ -22,77 +22,9 @@
 
 因此二分结束时一定有：$i$ 指向首个大于 `target` 的元素，$j$ 指向首个小于 `target` 的元素。**易得当数组不包含 `target` 时，插入索引为 $i$** 。
 
-=== "Python"
-
-    ```python title="binary_search_insertion.py"
-    [class]{}-[func]{binary_search_insertion_simple}
-    ```
-
-=== "C++"
-
-    ```cpp title="binary_search_insertion.cpp"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "Java"
-
-    ```java title="binary_search_insertion.java"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_insertion.cs"
-    [class]{binary_search_insertion}-[func]{BinarySearchInsertionSimple}
-    ```
-
-=== "Go"
-
-    ```go title="binary_search_insertion.go"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_insertion.swift"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "JS"
-
-    ```javascript title="binary_search_insertion.js"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "TS"
-
-    ```typescript title="binary_search_insertion.ts"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "Dart"
-
-    ```dart title="binary_search_insertion.dart"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "Rust"
-
-    ```rust title="binary_search_insertion.rs"
-    [class]{}-[func]{binary_search_insertion}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_insertion.c"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_insertion.zig"
-    [class]{}-[func]{binarySearchInsertionSimple}
-    ```
+```src
+[file]{binary_search_insertion}-[class]{}-[func]{binary_search_insertion_simple}
+```
 
 ## 存在重复元素的情况
 
@@ -146,77 +78,9 @@
 
 即便如此，我们仍然可以将判断条件保持展开，因为其逻辑更加清晰、可读性更好。
 
-=== "Python"
-
-    ```python title="binary_search_insertion.py"
-    [class]{}-[func]{binary_search_insertion}
-    ```
-
-=== "C++"
-
-    ```cpp title="binary_search_insertion.cpp"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
-=== "Java"
-
-    ```java title="binary_search_insertion.java"
-    [class]{binary_search_insertion}-[func]{binarySearchInsertion}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_insertion.cs"
-    [class]{binary_search_insertion}-[func]{BinarySearchInsertion}
-    ```
-
-=== "Go"
-
-    ```go title="binary_search_insertion.go"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_insertion.swift"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
-=== "JS"
-
-    ```javascript title="binary_search_insertion.js"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
-=== "TS"
-
-    ```typescript title="binary_search_insertion.ts"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
-=== "Dart"
-
-    ```dart title="binary_search_insertion.dart"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
-=== "Rust"
-
-    ```rust title="binary_search_insertion.rs"
-    [class]{}-[func]{binary_search_insertion}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_insertion.c"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_insertion.zig"
-    [class]{}-[func]{binarySearchInsertion}
-    ```
+```src
+[file]{binary_search_insertion}-[class]{}-[func]{binary_search_insertion}
+```
 
 !!! tip
 

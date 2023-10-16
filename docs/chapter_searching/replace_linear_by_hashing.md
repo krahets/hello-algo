@@ -12,77 +12,9 @@
 
 ![线性查找求解两数之和](replace_linear_by_hashing.assets/two_sum_brute_force.png)
 
-=== "Python"
-
-    ```python title="two_sum.py"
-    [class]{}-[func]{two_sum_brute_force}
-    ```
-
-=== "C++"
-
-    ```cpp title="two_sum.cpp"
-    [class]{}-[func]{twoSumBruteForce}
-    ```
-
-=== "Java"
-
-    ```java title="two_sum.java"
-    [class]{two_sum}-[func]{twoSumBruteForce}
-    ```
-
-=== "C#"
-
-    ```csharp title="two_sum.cs"
-    [class]{two_sum}-[func]{TwoSumBruteForce}
-    ```
-
-=== "Go"
-
-    ```go title="two_sum.go"
-    [class]{}-[func]{twoSumBruteForce}
-    ```
-
-=== "Swift"
-
-    ```swift title="two_sum.swift"
-    [class]{}-[func]{twoSumBruteForce}
-    ```
-
-=== "JS"
-
-    ```javascript title="two_sum.js"
-    [class]{}-[func]{twoSumBruteForce}
-    ```
-
-=== "TS"
-
-    ```typescript title="two_sum.ts"
-    [class]{}-[func]{twoSumBruteForce}
-    ```
-
-=== "Dart"
-
-    ```dart title="two_sum.dart"
-    [class]{}-[func]{twoSumBruteForce}
-    ```
-
-=== "Rust"
-
-    ```rust title="two_sum.rs"
-    [class]{}-[func]{two_sum_brute_force}
-    ```
-
-=== "C"
-
-    ```c title="two_sum.c"
-    [class]{}-[func]{twoSumBruteForce}
-    ```
-
-=== "Zig"
-
-    ```zig title="two_sum.zig"
-    [class]{}-[func]{twoSumBruteForce}
-    ```
+```src
+[file]{two_sum}-[class]{}-[func]{two_sum_brute_force}
+```
 
 此方法的时间复杂度为 $O(n^2)$ ，空间复杂度为 $O(1)$ ，在大数据量下非常耗时。
 
@@ -104,79 +36,9 @@
 
 实现代码如下所示，仅需单层循环即可。
 
-=== "Python"
-
-    ```python title="two_sum.py"
-    [class]{}-[func]{two_sum_hash_table}
-    ```
-
-=== "C++"
-
-    ```cpp title="two_sum.cpp"
-    [class]{}-[func]{twoSumHashTable}
-    ```
-
-=== "Java"
-
-    ```java title="two_sum.java"
-    [class]{two_sum}-[func]{twoSumHashTable}
-    ```
-
-=== "C#"
-
-    ```csharp title="two_sum.cs"
-    [class]{two_sum}-[func]{TwoSumHashTable}
-    ```
-
-=== "Go"
-
-    ```go title="two_sum.go"
-    [class]{}-[func]{twoSumHashTable}
-    ```
-
-=== "Swift"
-
-    ```swift title="two_sum.swift"
-    [class]{}-[func]{twoSumHashTable}
-    ```
-
-=== "JS"
-
-    ```javascript title="two_sum.js"
-    [class]{}-[func]{twoSumHashTable}
-    ```
-
-=== "TS"
-
-    ```typescript title="two_sum.ts"
-    [class]{}-[func]{twoSumHashTable}
-    ```
-
-=== "Dart"
-
-    ```dart title="two_sum.dart"
-    [class]{}-[func]{twoSumHashTable}
-    ```
-
-=== "Rust"
-
-    ```rust title="two_sum.rs"
-    [class]{}-[func]{two_sum_hash_table}
-    ```
-
-=== "C"
-
-    ```c title="two_sum.c"
-    [class]{hashTable}-[func]{}
-
-    [class]{}-[func]{twoSumHashTable}
-    ```
-
-=== "Zig"
-
-    ```zig title="two_sum.zig"
-    [class]{}-[func]{twoSumHashTable}
-    ```
+```src
+[file]{two_sum}-[class]{}-[func]{two_sum_hash_table}
+```
 
 此方法通过哈希查找将时间复杂度从 $O(n^2)$ 降低至 $O(n)$ ，大幅提升运行效率。
 

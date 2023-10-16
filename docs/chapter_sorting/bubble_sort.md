@@ -36,77 +36,9 @@
 
 ![冒泡排序流程](bubble_sort.assets/bubble_sort_overview.png)
 
-=== "Python"
-
-    ```python title="bubble_sort.py"
-    [class]{}-[func]{bubble_sort}
-    ```
-
-=== "C++"
-
-    ```cpp title="bubble_sort.cpp"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "Java"
-
-    ```java title="bubble_sort.java"
-    [class]{bubble_sort}-[func]{bubbleSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="bubble_sort.cs"
-    [class]{bubble_sort}-[func]{BubbleSort}
-    ```
-
-=== "Go"
-
-    ```go title="bubble_sort.go"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="bubble_sort.swift"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "JS"
-
-    ```javascript title="bubble_sort.js"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "TS"
-
-    ```typescript title="bubble_sort.ts"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "Dart"
-
-    ```dart title="bubble_sort.dart"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "Rust"
-
-    ```rust title="bubble_sort.rs"
-    [class]{}-[func]{bubble_sort}
-    ```
-
-=== "C"
-
-    ```c title="bubble_sort.c"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="bubble_sort.zig"
-    [class]{}-[func]{bubbleSort}
-    ```
+```src
+[file]{bubble_sort}-[class]{}-[func]{bubble_sort}
+```
 
 ## 效率优化
 
@@ -114,77 +46,9 @@
 
 经过优化，冒泡排序的最差和平均时间复杂度仍为 $O(n^2)$ ；但当输入数组完全有序时，可达到最佳时间复杂度 $O(n)$ 。
 
-=== "Python"
-
-    ```python title="bubble_sort.py"
-    [class]{}-[func]{bubble_sort_with_flag}
-    ```
-
-=== "C++"
-
-    ```cpp title="bubble_sort.cpp"
-    [class]{}-[func]{bubbleSortWithFlag}
-    ```
-
-=== "Java"
-
-    ```java title="bubble_sort.java"
-    [class]{bubble_sort}-[func]{bubbleSortWithFlag}
-    ```
-
-=== "C#"
-
-    ```csharp title="bubble_sort.cs"
-    [class]{bubble_sort}-[func]{BubbleSortWithFlag}
-    ```
-
-=== "Go"
-
-    ```go title="bubble_sort.go"
-    [class]{}-[func]{bubbleSortWithFlag}
-    ```
-
-=== "Swift"
-
-    ```swift title="bubble_sort.swift"
-    [class]{}-[func]{bubbleSortWithFlag}
-    ```
-
-=== "JS"
-
-    ```javascript title="bubble_sort.js"
-    [class]{}-[func]{bubbleSortWithFlag}
-    ```
-
-=== "TS"
-
-    ```typescript title="bubble_sort.ts"
-    [class]{}-[func]{bubbleSortWithFlag}
-    ```
-
-=== "Dart"
-
-    ```dart title="bubble_sort.dart"
-    [class]{}-[func]{bubbleSortWithFlag}
-    ```
-
-=== "Rust"
-
-    ```rust title="bubble_sort.rs"
-    [class]{}-[func]{bubble_sort_with_flag}
-    ```
-
-=== "C"
-
-    ```c title="bubble_sort.c"
-    [class]{}-[func]{bubbleSortWithFlag}
-    ```
-
-=== "Zig"
-
-    ```zig title="bubble_sort.zig"
-    [class]{}-[func]{bubbleSortWithFlag}
-    ```
+```src
+[file]{bubble_sort}-[class]{}-[func]{bubble_sort_with_flag}
+```
 
 ## 算法特性
 
