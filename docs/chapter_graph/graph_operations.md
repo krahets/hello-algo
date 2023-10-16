@@ -1119,7 +1119,7 @@ comments: true
 === "Zig"
 
     ```zig title="graph_adjacency_matrix.zig"
-
+    [class]{GraphAdjMat}-[func]{}
     ```
 
 ## 9.2.2 &nbsp; 基于邻接表的实现

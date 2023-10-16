@@ -8,7 +8,7 @@ comments: true
 
 表 13-2 列举了几个示例数据，包括输入数组和对应的所有排列。
 
-<p align="center"> 表 13-2 &nbsp; 数组与链表的效率对比 </p>
+<p align="center"> 表 13-2 &nbsp; 全排列示例 </p>
 
 <div class="center-table" markdown>
 
