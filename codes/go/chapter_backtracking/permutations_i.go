@@ -14,7 +14,7 @@ func backtrackI(state *[]int, choices *[]int, selected *[]bool, res *[][]int) {
 	// 遍历所有选择
 	for i := 0; i < len(*choices); i++ {
 		choice := (*choices)[i]
-		// 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+		// 剪枝：不允许重复选择元素
 		if !(*selected)[i] {
 			// 尝试：做出选择，更新状态
 			(*selected)[i] = true

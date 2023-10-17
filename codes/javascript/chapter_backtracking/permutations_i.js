@@ -13,7 +13,7 @@ function backtrack(state, choices, selected, res) {
     }
     // 遍历所有选择
     choices.forEach((choice, i) => {
-        // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+        // 剪枝：不允许重复选择元素
         if (!selected[i]) {
             // 尝试：做出选择，更新状态
             selected[i] = true;

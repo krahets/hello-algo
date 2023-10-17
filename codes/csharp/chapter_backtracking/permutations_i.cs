@@ -17,7 +17,7 @@ public class permutations_i {
         // 遍历所有选择
         for (int i = 0; i < choices.Length; i++) {
             int choice = choices[i];
-            // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+            // 剪枝：不允许重复选择元素
             if (!selected[i]) {
                 // 尝试：做出选择，更新状态
                 selected[i] = true;

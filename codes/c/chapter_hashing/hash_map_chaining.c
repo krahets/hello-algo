@@ -19,7 +19,7 @@ typedef struct pair Pair;
 /* 链表节点 */
 struct node {
     Pair *pair;
-    struct Node *next;
+    struct node *next;
 };
 
 typedef struct node Node;
