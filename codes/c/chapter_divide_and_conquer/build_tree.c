@@ -6,6 +6,7 @@
 
 #include "../utils/common.h"
 
+// 假设所有元素都小于 1000
 #define MAX_N 1000
 
 /* 构建二叉树：分治 */
