@@ -237,9 +237,9 @@ comments: true
 
     ```rust title="list.rs"
     /* 访问元素 */
-    let num: i32 = nums[1];    // 访问索引 1 处的元素
+    let num: i32 = nums[1];  // 访问索引 1 处的元素
     /* 更新元素 */
-    nums[1] = 0;               // 将索引 1 处的元素更新为 0
+    nums[1] = 0;             // 将索引 1 处的元素更新为 0
     ```
 
 === "C"

@@ -743,7 +743,7 @@ $$
 === "Go"
 
     ```go title="built_in_hash.go"
-
+    // Go 未提供内置 hash code 函数
     ```
 
 === "Swift"

@@ -404,9 +404,27 @@ comments: true
 === "C"
 
     ```c title="build_tree.c"
-    [class]{}-[func]{dfs}
+    /* 构建二叉树 */
+    fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
+        // 初始化哈希表，存储 inorder 元素到索引的映射
+        let mut inorder_map: HashMap<i32, i32> = HashMap::new();
+        for i in 0..inorder.len() {
+            inorder_map.insert(inorder[i], i as i32);
+        }
+        let root = dfs(preorder, &inorder_map, 0, 0, inorder.len() as i32 - 1);
+        root
+    }
 
-    [class]{}-[func]{buildTree}
+    /* 构建二叉树 */
+    fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
+        // 初始化哈希表，存储 inorder 元素到索引的映射
+        let mut inorder_map: HashMap<i32, i32> = HashMap::new();
+        for i in 0..inorder.len() {
+            inorder_map.insert(inorder[i], i as i32);
+        }
+        let root = dfs(preorder, &inorder_map, 0, 0, inorder.len() as i32 - 1);
+        root
+    }
     ```
 
 === "Zig"
