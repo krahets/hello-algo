@@ -1027,7 +1027,11 @@ $$
 === "Zig"
 
     ```zig title="space_complexity.zig"
-    [class]{}-[func]{function}
+    // 函数
+    fn function() i32 {
+        // 执行某些操作
+        return 0;
+    }
 
     // 常数阶
     fn constant(n: i32) void {

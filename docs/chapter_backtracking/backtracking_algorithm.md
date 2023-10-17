@@ -186,7 +186,18 @@ comments: true
 === "C"
 
     ```c title="preorder_traversal_i_compact.c"
-    [class]{}-[func]{preOrder}
+    /* 前序遍历：例题一 */
+    void preOrder(TreeNode *root) {
+        if (root == NULL) {
+            return;
+        }
+        if (root->val == 7) {
+            // 记录解
+            vectorPushback(res, root, sizeof(int));
+        }
+        preOrder(root->left);
+        preOrder(root->right);
+    }
     ```
 
 === "Zig"
