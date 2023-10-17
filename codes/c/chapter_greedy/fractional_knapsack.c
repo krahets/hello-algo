@@ -7,12 +7,10 @@
 #include "../utils/common.h"
 
 /* 物品 */
-struct Item {
+typedef struct {
     int w; // 物品重量
     int v; // 物品价值
-};
-
-typedef struct Item Item;
+} Item;
 
 /* 按照价值密度排序 */
 int sortByValueDensity(const void *a, const void *b) {

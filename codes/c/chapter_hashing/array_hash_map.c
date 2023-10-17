@@ -6,35 +6,29 @@
 
 #include "../utils/common.h"
 
-/* 哈希表默认数组大小 */
+/* 哈希表默认大小 */
 #define HASH_MAP_DEFAULT_SIZE 100
 
 /* 键值对 int->string */
-struct pair {
+typedef struct {
     int key;
     char *val;
-};
+} Pair;
 
-typedef struct pair pair;
-
-/* 用于表示键值对、键、值的集合 */
-struct mapSet {
+/* 键值对的集合 */
+typedef struct {
     void *set;
     int len;
-};
-
-typedef struct mapSet mapSet;
+} MapSet;
 
 /* 基于数组简易实现的哈希表 */
-struct arrayHashMap {
-    pair *buckets[HASH_MAP_DEFAULT_SIZE];
-};
-
-typedef struct arrayHashMap arrayHashMap;
+typedef struct {
+    Pair *buckets[HASH_MAP_DEFAULT_SIZE];
+} ArrayHashMap;
 
 /* 哈希表初始化函数 */
-arrayHashMap *newArrayHashMap() {
-    arrayHashMap *map = malloc(sizeof(arrayHashMap));
+ArrayHashMap *newArrayHashMap() {
+    ArrayHashMap *map = malloc(sizeof(ArrayHashMap));
     return map;
 }
 
@@ -45,27 +39,27 @@ int hashFunc(int key) {
 }
 
 /* 查询操作 */
-const char *get(const arrayHashMap *d, const int key) {
+const char *get(const ArrayHashMap *d, const int key) {
     int index = hashFunc(key);
-    const pair *pair = d->buckets[index];
-    if (pair == NULL)
+    const Pair *Pair = d->buckets[index];
+    if (Pair == NULL)
         return NULL;
-    return pair->val;
+    return Pair->val;
 }
 
 /* 添加操作 */
-void put(arrayHashMap *d, const int key, const char *val) {
-    pair *pair = malloc(sizeof(pair));
-    pair->key = key;
-    pair->val = malloc(strlen(val) + 1);
-    strcpy(pair->val, val);
+void put(ArrayHashMap *d, const int key, const char *val) {
+    Pair *Pair = malloc(sizeof(Pair));
+    Pair->key = key;
+    Pair->val = malloc(strlen(val) + 1);
+    strcpy(Pair->val, val);
 
     int index = hashFunc(key);
-    d->buckets[index] = pair;
+    d->buckets[index] = Pair;
 }
 
 /* 删除操作 */
-void removeItem(arrayHashMap *d, const int key) {
+void removeItem(ArrayHashMap *d, const int key) {
     int index = hashFunc(key);
     free(d->buckets[index]->val);
     free(d->buckets[index]);
@@ -73,8 +67,8 @@ void removeItem(arrayHashMap *d, const int key) {
 }
 
 /* 获取所有键值对 */
-void pairSet(arrayHashMap *d, mapSet *set) {
-    pair *entries;
+void pairSet(ArrayHashMap *d, MapSet *set) {
+    Pair *entries;
     int i = 0, index = 0;
     int total = 0;
 
@@ -85,7 +79,7 @@ void pairSet(arrayHashMap *d, mapSet *set) {
         }
     }
 
-    entries = malloc(sizeof(pair) * total);
+    entries = malloc(sizeof(Pair) * total);
     for (i = 0; i < HASH_MAP_DEFAULT_SIZE; i++) {
         if (d->buckets[i] != NULL) {
             entries[index].key = d->buckets[i]->key;
@@ -100,7 +94,7 @@ void pairSet(arrayHashMap *d, mapSet *set) {
 }
 
 /* 获取所有键 */
-void keySet(arrayHashMap *d, mapSet *set) {
+void keySet(ArrayHashMap *d, MapSet *set) {
     int *keys;
     int i = 0, index = 0;
     int total = 0;
@@ -125,7 +119,7 @@ void keySet(arrayHashMap *d, mapSet *set) {
 }
 
 /* 获取所有值 */
-void valueSet(arrayHashMap *d, mapSet *set) {
+void valueSet(ArrayHashMap *d, MapSet *set) {
     char **vals;
     int i = 0, index = 0;
     int total = 0;
@@ -150,11 +144,11 @@ void valueSet(arrayHashMap *d, mapSet *set) {
 }
 
 /* 打印哈希表 */
-void print(arrayHashMap *d) {
+void print(ArrayHashMap *d) {
     int i;
-    mapSet set;
+    MapSet set;
     pairSet(d, &set);
-    pair *entries = (pair *)set.set;
+    Pair *entries = (Pair *)set.set;
     for (i = 0; i < set.len; i++) {
         printf("%d -> %s\n", entries[i].key, entries[i].val);
     }
@@ -164,7 +158,7 @@ void print(arrayHashMap *d) {
 /* Driver Code */
 int main() {
     /* 初始化哈希表 */
-    arrayHashMap *map = newArrayHashMap();
+    ArrayHashMap *map = newArrayHashMap();
 
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
@@ -193,7 +187,7 @@ int main() {
     printf("\n遍历键值对 Key->Value\n");
     print(map);
 
-    mapSet set;
+    MapSet set;
 
     keySet(map, &set);
     int *keys = (int *)set.set;

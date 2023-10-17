@@ -42,6 +42,6 @@ int main() {
     // 二分查找（双闭区间）
     int index = binarySearch(nums, target, numsSize);
     printf("目标元素 6 的索引 = %d\n", index);
-    
+
     return 0;
 }

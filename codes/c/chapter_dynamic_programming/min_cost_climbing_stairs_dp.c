@@ -48,8 +48,10 @@ int main() {
     int costSize = sizeof(cost) / sizeof(cost[0]);
     printf("输入楼梯的代价列表为 [");
     for (int i = 0; i < costSize; i++) {
-        if (i != costSize - 1) printf("%d, ", cost[i]);
-        else printf("%d", cost[i]);
+        if (i != costSize - 1)
+            printf("%d, ", cost[i]);
+        else
+            printf("%d", cost[i]);
     }
     printf("]\n");
 

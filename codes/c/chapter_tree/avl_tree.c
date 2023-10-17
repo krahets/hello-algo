@@ -7,15 +7,13 @@
 #include "../utils/common.h"
 
 /* AVL Tree */
-struct aVLTree {
+typedef struct {
     TreeNode *root;
-};
-
-typedef struct aVLTree aVLTree;
+} AVLTree;
 
 /* 构建 AVL 树 */
-aVLTree *newAVLTree() {
-    aVLTree *tree = (aVLTree *)malloc(sizeof(aVLTree));
+AVLTree *newAVLTree() {
+    AVLTree *tree = (AVLTree *)malloc(sizeof(AVLTree));
     tree->root = NULL;
     return tree;
 }
@@ -134,7 +132,7 @@ TreeNode *insertHelper(TreeNode *node, int val) {
 }
 
 /* 插入节点 */
-void insert(aVLTree *tree, int val) {
+void insert(AVLTree *tree, int val) {
     tree->root = insertHelper(tree->root, val);
 }
 
@@ -183,12 +181,12 @@ TreeNode *removeHelper(TreeNode *node, int val) {
 
 /* 删除节点 */
 // 由于引入了 stdio.h ，此处无法使用 remove 关键词
-void removeItem(aVLTree *tree, int val) {
+void removeItem(AVLTree *tree, int val) {
     TreeNode *root = removeHelper(tree->root, val);
 }
 
 /* 查找节点 */
-TreeNode *search(aVLTree *tree, int val) {
+TreeNode *search(AVLTree *tree, int val) {
     TreeNode *cur = tree->root;
     // 循环查找，越过叶节点后跳出
     while (cur != NULL) {
@@ -207,13 +205,13 @@ TreeNode *search(aVLTree *tree, int val) {
     return cur;
 }
 
-void testInsert(aVLTree *tree, int val) {
+void testInsert(AVLTree *tree, int val) {
     insert(tree, val);
     printf("\n插入节点 %d 后，AVL 树为 \n", val);
     printTree(tree->root);
 }
 
-void testRemove(aVLTree *tree, int val) {
+void testRemove(AVLTree *tree, int val) {
     removeItem(tree, val);
     printf("\n删除节点 %d 后，AVL 树为 \n", val);
     printTree(tree->root);
@@ -222,7 +220,7 @@ void testRemove(aVLTree *tree, int val) {
 /* Driver Code */
 int main() {
     /* 初始化空 AVL 树 */
-    aVLTree *tree = (aVLTree *)newAVLTree();
+    AVLTree *tree = (AVLTree *)newAVLTree();
     /* 插入节点 */
     // 请关注插入节点后，AVL 树是如何保持平衡的
     testInsert(tree, 1);

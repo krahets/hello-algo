@@ -8,36 +8,33 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* 键值对 */
-struct pair {
-    int key;
-    char val[100]; // 假设 val 最大长度为 100
-};
+// 假设 val 最大长度为 100
+#define MAX_SIZE 100
 
-typedef struct pair Pair;
+/* 键值对 */
+typedef struct {
+    int key;
+    char val[MAX_SIZE];
+} Pair;
 
 /* 链表节点 */
-struct node {
+typedef struct Node {
     Pair *pair;
-    struct node *next;
-};
-
-typedef struct node Node;
+    struct Node *next;
+} Node;
 
 /* 链式地址哈希表 */
-struct hashMapChaining {
+typedef struct {
     int size;         // 键值对数量
     int capacity;     // 哈希表容量
     double loadThres; // 触发扩容的负载因子阈值
     int extendRatio;  // 扩容倍数
     Node **buckets;   // 桶数组
-};
-
-typedef struct hashMapChaining hashMapChaining;
+} HashMapChaining;
 
 /* 构造方法 */
-hashMapChaining *initHashMapChaining() {
-    hashMapChaining *hashMap = (hashMapChaining *)malloc(sizeof(hashMapChaining));
+HashMapChaining *initHashMapChaining() {
+    HashMapChaining *hashMap = (HashMapChaining *)malloc(sizeof(HashMapChaining));
     hashMap->size = 0;
     hashMap->capacity = 4;
     hashMap->loadThres = 2.0 / 3.0;
@@ -50,7 +47,7 @@ hashMapChaining *initHashMapChaining() {
 }
 
 /* 析构方法 */
-void freeHashMapChaining(hashMapChaining *hashMap) {
+void freeHashMapChaining(HashMapChaining *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Node *cur = hashMap->buckets[i];
         while (cur) {
@@ -65,17 +62,17 @@ void freeHashMapChaining(hashMapChaining *hashMap) {
 }
 
 /* 哈希函数 */
-int hashFunc(hashMapChaining *hashMap, int key) {
+int hashFunc(HashMapChaining *hashMap, int key) {
     return key % hashMap->capacity;
 }
 
 /* 负载因子 */
-double loadFactor(hashMapChaining *hashMap) {
+double loadFactor(HashMapChaining *hashMap) {
     return (double)hashMap->size / (double)hashMap->capacity;
 }
 
 /* 查询操作 */
-char *get(hashMapChaining *hashMap, int key) {
+char *get(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     // 遍历桶，若找到 key 则返回对应 val
     Node *cur = hashMap->buckets[index];
@@ -89,10 +86,10 @@ char *get(hashMapChaining *hashMap, int key) {
 }
 
 /* 添加操作 */
-void put(hashMapChaining *hashMap, int key, const char *val);
+void put(HashMapChaining *hashMap, int key, const char *val);
 
 /* 扩容哈希表 */
-void extend(hashMapChaining *hashMap) {
+void extend(HashMapChaining *hashMap) {
     // 暂存原哈希表
     int oldCapacity = hashMap->capacity;
     Node **oldBuckets = hashMap->buckets;
@@ -120,7 +117,7 @@ void extend(hashMapChaining *hashMap) {
 }
 
 /* 添加操作 */
-void put(hashMapChaining *hashMap, int key, const char *val) {
+void put(HashMapChaining *hashMap, int key, const char *val) {
     // 当负载因子超过阈值时，执行扩容
     if (loadFactor(hashMap) > hashMap->loadThres) {
         extend(hashMap);
@@ -147,7 +144,7 @@ void put(hashMapChaining *hashMap, int key, const char *val) {
 }
 
 /* 删除操作 */
-void removeKey(hashMapChaining *hashMap, int key) {
+void removeKey(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     Node *cur = hashMap->buckets[index];
     Node *pre = NULL;
@@ -171,7 +168,7 @@ void removeKey(hashMapChaining *hashMap, int key) {
 }
 
 /* 打印哈希表 */
-void print(hashMapChaining *hashMap) {
+void print(HashMapChaining *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Node *cur = hashMap->buckets[i];
         printf("[");
@@ -186,7 +183,7 @@ void print(hashMapChaining *hashMap) {
 /* Driver Code */
 int main() {
     /* 初始化哈希表 */
-    hashMapChaining *hashMap = initHashMapChaining();
+    HashMapChaining *hashMap = initHashMapChaining();
 
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)

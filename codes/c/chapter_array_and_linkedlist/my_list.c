@@ -7,20 +7,18 @@
 #include "../utils/common.h"
 
 /* 列表类简易实现 */
-struct myList {
+typedef struct {
     int *arr;        // 数组（存储列表元素）
     int capacity;    // 列表容量
     int size;        // 列表大小
     int extendRatio; // 列表每次扩容的倍数
-};
+} MyList;
 
-typedef struct myList myList;
-
-void extendCapacity(myList *nums);
+void extendCapacity(MyList *nums);
 
 /* 构造函数 */
-myList *newMyList() {
-    myList *nums = malloc(sizeof(myList));
+MyList *newMyList() {
+    MyList *nums = malloc(sizeof(MyList));
     nums->capacity = 10;
     nums->arr = malloc(sizeof(int) * nums->capacity);
     nums->size = 0;
@@ -29,35 +27,35 @@ myList *newMyList() {
 }
 
 /* 析构函数 */
-void delMyList(myList *nums) {
+void delMyList(MyList *nums) {
     free(nums->arr);
     free(nums);
 }
 
 /* 获取列表长度 */
-int size(myList *nums) {
+int size(MyList *nums) {
     return nums->size;
 }
 
 /* 获取列表容量 */
-int capacity(myList *nums) {
+int capacity(MyList *nums) {
     return nums->capacity;
 }
 
 /* 访问元素 */
-int get(myList *nums, int index) {
+int get(MyList *nums, int index) {
     assert(index >= 0 && index < nums->size);
     return nums->arr[index];
 }
 
 /* 更新元素 */
-void set(myList *nums, int index, int num) {
+void set(MyList *nums, int index, int num) {
     assert(index >= 0 && index < nums->size);
     nums->arr[index] = num;
 }
 
 /* 尾部添加元素 */
-void add(myList *nums, int num) {
+void add(MyList *nums, int num) {
     if (size(nums) == capacity(nums)) {
         extendCapacity(nums); // 扩容
     }
@@ -66,7 +64,7 @@ void add(myList *nums, int num) {
 }
 
 /* 中间插入元素 */
-void insert(myList *nums, int index, int num) {
+void insert(MyList *nums, int index, int num) {
     assert(index >= 0 && index < size(nums));
     // 元素数量超出容量时，触发扩容机制
     if (size(nums) == capacity(nums)) {
@@ -81,7 +79,7 @@ void insert(myList *nums, int index, int num) {
 
 /* 删除元素 */
 // 注意：stdio.h 占用了 remove 关键词
-int removeNum(myList *nums, int index) {
+int removeNum(MyList *nums, int index) {
     assert(index >= 0 && index < size(nums));
     int num = nums->arr[index];
     for (int i = index; i < size(nums) - 1; i++) {
@@ -92,7 +90,7 @@ int removeNum(myList *nums, int index) {
 }
 
 /* 列表扩容 */
-void extendCapacity(myList *nums) {
+void extendCapacity(MyList *nums) {
     // 先分配空间
     int newCapacity = capacity(nums) * nums->extendRatio;
     int *extend = (int *)malloc(sizeof(int) * newCapacity);
@@ -111,14 +109,14 @@ void extendCapacity(myList *nums) {
 }
 
 /* 将列表转换为 Array 用于打印 */
-int *toArray(myList *nums) {
+int *toArray(MyList *nums) {
     return nums->arr;
 }
 
 /* Driver Code */
 int main() {
     /* 初始化列表 */
-    myList *nums = newMyList();
+    MyList *nums = newMyList();
     /* 尾部添加元素 */
     add(nums, 1);
     add(nums, 3);

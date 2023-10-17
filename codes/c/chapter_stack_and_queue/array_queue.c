@@ -7,18 +7,16 @@
 #include "../utils/common.h"
 
 /* 基于环形数组实现的队列 */
-struct arrayQueue {
+typedef struct {
     int *nums;       // 用于存储队列元素的数组
     int front;       // 队首指针，指向队首元素
     int queSize;     // 尾指针，指向队尾 + 1
     int queCapacity; // 队列容量
-};
-
-typedef struct arrayQueue arrayQueue;
+} ArrayQueue;
 
 /* 构造函数 */
-arrayQueue *newArrayQueue(int capacity) {
-    arrayQueue *queue = (arrayQueue *)malloc(sizeof(arrayQueue));
+ArrayQueue *newArrayQueue(int capacity) {
+    ArrayQueue *queue = (ArrayQueue *)malloc(sizeof(ArrayQueue));
     // 初始化数组
     queue->queCapacity = capacity;
     queue->nums = (int *)malloc(sizeof(int) * queue->queCapacity);
@@ -27,34 +25,34 @@ arrayQueue *newArrayQueue(int capacity) {
 }
 
 /* 析构函数 */
-void delArrayQueue(arrayQueue *queue) {
+void delArrayQueue(ArrayQueue *queue) {
     free(queue->nums);
     queue->queCapacity = 0;
 }
 
 /* 获取队列的容量 */
-int capacity(arrayQueue *queue) {
+int capacity(ArrayQueue *queue) {
     return queue->queCapacity;
 }
 
 /* 获取队列的长度 */
-int size(arrayQueue *queue) {
+int size(ArrayQueue *queue) {
     return queue->queSize;
 }
 
 /* 判断队列是否为空 */
-bool empty(arrayQueue *queue) {
+bool empty(ArrayQueue *queue) {
     return queue->queSize == 0;
 }
 
 /* 访问队首元素 */
-int peek(arrayQueue *queue) {
+int peek(ArrayQueue *queue) {
     assert(size(queue) != 0);
     return queue->nums[queue->front];
 }
 
 /* 入队 */
-void push(arrayQueue *queue, int num) {
+void push(ArrayQueue *queue, int num) {
     if (size(queue) == capacity(queue)) {
         printf("队列已满\r\n");
         return;
@@ -68,7 +66,7 @@ void push(arrayQueue *queue, int num) {
 }
 
 /* 出队 */
-void pop(arrayQueue *queue) {
+void pop(ArrayQueue *queue) {
     int num = peek(queue);
     // 队首指针向后移动一位，若越过尾部则返回到数组头部
     queue->front = (queue->front + 1) % queue->queCapacity;
@@ -76,7 +74,7 @@ void pop(arrayQueue *queue) {
 }
 
 /* 打印队列 */
-void printArrayQueue(arrayQueue *queue) {
+void printArrayQueue(ArrayQueue *queue) {
     int arr[queue->queSize];
     // 拷贝
     for (int i = 0, j = queue->front; i < queue->queSize; i++, j++) {
@@ -89,7 +87,7 @@ void printArrayQueue(arrayQueue *queue) {
 int main() {
     /* 初始化队列 */
     int capacity = 10;
-    arrayQueue *queue = newArrayQueue(capacity);
+    ArrayQueue *queue = newArrayQueue(capacity);
 
     /* 元素入队 */
     push(queue, 1);

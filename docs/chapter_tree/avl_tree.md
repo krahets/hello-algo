@@ -181,14 +181,12 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 
     ```c title=""
     /* AVL 树节点结构体 */
-    struct TreeNode {
+    TreeNode struct TreeNode {
         int val;
         int height;
         struct TreeNode *left;
         struct TreeNode *right;
-    };
-
-    typedef struct TreeNode TreeNode;
+    } TreeNode;
 
     /* 构造函数 */
     TreeNode *newTreeNode(int val) {

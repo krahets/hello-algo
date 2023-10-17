@@ -16,14 +16,12 @@ extern "C" {
 #define MAX_NODE_SIZE 5000
 
 /* 二叉树节点结构体 */
-struct TreeNode {
+typedef struct TreeNode {
     int val;                // 节点值
     int height;             // 节点高度
     struct TreeNode *left;  // 左子节点指针
     struct TreeNode *right; // 右子节点指针
-};
-
-typedef struct TreeNode TreeNode;
+} TreeNode;
 
 TreeNode *newTreeNode(int val) {
     TreeNode *node;

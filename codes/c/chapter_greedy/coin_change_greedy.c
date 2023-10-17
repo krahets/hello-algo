@@ -7,7 +7,7 @@
 #include "../utils/common.h"
 
 /* 零钱兑换：贪心 */
-int coinChangeGreedy(int* coins, int size, int amt) {
+int coinChangeGreedy(int *coins, int size, int amt) {
     // 假设 coins 列表有序
     int i = size - 1;
     int count = 0;
