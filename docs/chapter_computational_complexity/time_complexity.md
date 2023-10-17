@@ -897,227 +897,23 @@ $$
 
 在以下函数中，尽管操作数量 `size` 可能很大，但由于其与输入数据大小 $n$ 无关，因此时间复杂度仍为 $O(1)$ ：
 
-=== "Python"
-
-    ```python title="time_complexity.py"
-    [class]{}-[func]{constant}
-    ```
-
-=== "C++"
-
-    ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{constant}
-    ```
-
-=== "Java"
-
-    ```java title="time_complexity.java"
-    [class]{time_complexity}-[func]{constant}
-    ```
-
-=== "C#"
-
-    ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{Constant}
-    ```
-
-=== "Go"
-
-    ```go title="time_complexity.go"
-    [class]{}-[func]{constant}
-    ```
-
-=== "Swift"
-
-    ```swift title="time_complexity.swift"
-    [class]{}-[func]{constant}
-    ```
-
-=== "JS"
-
-    ```javascript title="time_complexity.js"
-    [class]{}-[func]{constant}
-    ```
-
-=== "TS"
-
-    ```typescript title="time_complexity.ts"
-    [class]{}-[func]{constant}
-    ```
-
-=== "Dart"
-
-    ```dart title="time_complexity.dart"
-    [class]{}-[func]{constant}
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rs"
-    [class]{}-[func]{constant}
-    ```
-
-=== "C"
-
-    ```c title="time_complexity.c"
-    [class]{}-[func]{constant}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{constant}
-    ```
+```src
+[file]{time_complexity}-[class]{}-[func]{constant}
+```
 
 ### 线性阶 $O(n)$
 
 线性阶的操作数量相对于输入数据大小 $n$ 以线性级别增长。线性阶通常出现在单层循环中：
 
-=== "Python"
-
-    ```python title="time_complexity.py"
-    [class]{}-[func]{linear}
-    ```
-
-=== "C++"
-
-    ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{linear}
-    ```
-
-=== "Java"
-
-    ```java title="time_complexity.java"
-    [class]{time_complexity}-[func]{linear}
-    ```
-
-=== "C#"
-
-    ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{Linear}
-    ```
-
-=== "Go"
-
-    ```go title="time_complexity.go"
-    [class]{}-[func]{linear}
-    ```
-
-=== "Swift"
-
-    ```swift title="time_complexity.swift"
-    [class]{}-[func]{linear}
-    ```
-
-=== "JS"
-
-    ```javascript title="time_complexity.js"
-    [class]{}-[func]{linear}
-    ```
-
-=== "TS"
-
-    ```typescript title="time_complexity.ts"
-    [class]{}-[func]{linear}
-    ```
-
-=== "Dart"
-
-    ```dart title="time_complexity.dart"
-    [class]{}-[func]{linear}
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rs"
-    [class]{}-[func]{linear}
-    ```
-
-=== "C"
-
-    ```c title="time_complexity.c"
-    [class]{}-[func]{linear}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{linear}
-    ```
+```src
+[file]{time_complexity}-[class]{}-[func]{linear}
+```
 
 遍历数组和遍历链表等操作的时间复杂度均为 $O(n)$ ，其中 $n$ 为数组或链表的长度：
 
-=== "Python"
-
-    ```python title="time_complexity.py"
-    [class]{}-[func]{array_traversal}
-    ```
-
-=== "C++"
-
-    ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{arrayTraversal}
-    ```
-
-=== "Java"
-
-    ```java title="time_complexity.java"
-    [class]{time_complexity}-[func]{arrayTraversal}
-    ```
-
-=== "C#"
-
-    ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{ArrayTraversal}
-    ```
-
-=== "Go"
-
-    ```go title="time_complexity.go"
-    [class]{}-[func]{arrayTraversal}
-    ```
-
-=== "Swift"
-
-    ```swift title="time_complexity.swift"
-    [class]{}-[func]{arrayTraversal}
-    ```
-
-=== "JS"
-
-    ```javascript title="time_complexity.js"
-    [class]{}-[func]{arrayTraversal}
-    ```
-
-=== "TS"
-
-    ```typescript title="time_complexity.ts"
-    [class]{}-[func]{arrayTraversal}
-    ```
-
-=== "Dart"
-
-    ```dart title="time_complexity.dart"
-    [class]{}-[func]{arrayTraversal}
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rs"
-    [class]{}-[func]{array_traversal}
-    ```
-
-=== "C"
-
-    ```c title="time_complexity.c"
-    [class]{}-[func]{arrayTraversal}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{arrayTraversal}
-    ```
+```src
+[file]{time_complexity}-[class]{}-[func]{array_traversal}
+```
 
 值得注意的是，**输入数据大小 $n$ 需根据输入数据的类型来具体确定**。比如在第一个示例中，变量 $n$ 为输入数据大小；在第二个示例中，数组长度 $n$ 为数据大小。
 
@@ -1125,77 +921,9 @@ $$
 
 平方阶的操作数量相对于输入数据大小 $n$ 以平方级别增长。平方阶通常出现在嵌套循环中，外层循环和内层循环都为 $O(n)$ ，因此总体为 $O(n^2)$ ：
 
-=== "Python"
-
-    ```python title="time_complexity.py"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "C++"
-
-    ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "Java"
-
-    ```java title="time_complexity.java"
-    [class]{time_complexity}-[func]{quadratic}
-    ```
-
-=== "C#"
-
-    ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{Quadratic}
-    ```
-
-=== "Go"
-
-    ```go title="time_complexity.go"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "Swift"
-
-    ```swift title="time_complexity.swift"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "JS"
-
-    ```javascript title="time_complexity.js"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "TS"
-
-    ```typescript title="time_complexity.ts"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "Dart"
-
-    ```dart title="time_complexity.dart"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rs"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "C"
-
-    ```c title="time_complexity.c"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{quadratic}
-    ```
+```src
+[file]{time_complexity}-[class]{}-[func]{quadratic}
+```
 
 下图对比了常数阶、线性阶和平方阶三种时间复杂度。
 
@@ -1203,77 +931,9 @@ $$
 
 以冒泡排序为例，外层循环执行 $n - 1$ 次，内层循环执行 $n-1$、$n-2$、$\dots$、$2$、$1$ 次，平均为 $n / 2$ 次，因此时间复杂度为 $O((n - 1) n / 2) = O(n^2)$ 。
 
-=== "Python"
-
-    ```python title="time_complexity.py"
-    [class]{}-[func]{bubble_sort}
-    ```
-
-=== "C++"
-
-    ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "Java"
-
-    ```java title="time_complexity.java"
-    [class]{time_complexity}-[func]{bubbleSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{BubbleSort}
-    ```
-
-=== "Go"
-
-    ```go title="time_complexity.go"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="time_complexity.swift"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "JS"
-
-    ```javascript title="time_complexity.js"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "TS"
-
-    ```typescript title="time_complexity.ts"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "Dart"
-
-    ```dart title="time_complexity.dart"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rs"
-    [class]{}-[func]{bubble_sort}
-    ```
-
-=== "C"
-
-    ```c title="time_complexity.c"
-    [class]{}-[func]{bubbleSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{bubbleSort}
-    ```
+```src
+[file]{time_complexity}-[class]{}-[func]{bubble_sort}
+```
 
 ### 指数阶 $O(2^n)$
 
@@ -1281,153 +941,17 @@ $$
 
 下图和以下代码模拟了细胞分裂的过程，时间复杂度为 $O(2^n)$ 。
 
-=== "Python"
-
-    ```python title="time_complexity.py"
-    [class]{}-[func]{exponential}
-    ```
-
-=== "C++"
-
-    ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{exponential}
-    ```
-
-=== "Java"
-
-    ```java title="time_complexity.java"
-    [class]{time_complexity}-[func]{exponential}
-    ```
-
-=== "C#"
-
-    ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{Exponential}
-    ```
-
-=== "Go"
-
-    ```go title="time_complexity.go"
-    [class]{}-[func]{exponential}
-    ```
-
-=== "Swift"
-
-    ```swift title="time_complexity.swift"
-    [class]{}-[func]{exponential}
-    ```
-
-=== "JS"
-
-    ```javascript title="time_complexity.js"
-    [class]{}-[func]{exponential}
-    ```
-
-=== "TS"
-
-    ```typescript title="time_complexity.ts"
-    [class]{}-[func]{exponential}
-    ```
-
-=== "Dart"
-
-    ```dart title="time_complexity.dart"
-    [class]{}-[func]{exponential}
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rs"
-    [class]{}-[func]{exponential}
-    ```
-
-=== "C"
-
-    ```c title="time_complexity.c"
-    [class]{}-[func]{exponential}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{exponential}
-    ```
+```src
+[file]{time_complexity}-[class]{}-[func]{exponential}
+```
 
 ![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.png)
 
 在实际算法中，指数阶常出现于递归函数中。例如在以下代码中，其递归地一分为二，经过 $n$ 次分裂后停止：
 
-=== "Python"
-
-    ```python title="time_complexity.py"
-    [class]{}-[func]{exp_recur}
-    ```
-
-=== "C++"
-
-    ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{expRecur}
-    ```
-
-=== "Java"
-
-    ```java title="time_complexity.java"
-    [class]{time_complexity}-[func]{expRecur}
-    ```
-
-=== "C#"
-
-    ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{ExpRecur}
-    ```
-
-=== "Go"
-
-    ```go title="time_complexity.go"
-    [class]{}-[func]{expRecur}
-    ```
-
-=== "Swift"
-
-    ```swift title="time_complexity.swift"
-    [class]{}-[func]{expRecur}
-    ```
-
-=== "JS"
-
-    ```javascript title="time_complexity.js"
-    [class]{}-[func]{expRecur}
-    ```
-
-=== "TS"
-
-    ```typescript title="time_complexity.ts"
-    [class]{}-[func]{expRecur}
-    ```
-
-=== "Dart"
-
-    ```dart title="time_complexity.dart"
-    [class]{}-[func]{expRecur}
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rs"
-    [class]{}-[func]{exp_recur}
-    ```
-
-=== "C"
-
-    ```c title="time_complexity.c"
-    [class]{}-[func]{expRecur}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{expRecur}
-    ```
+```src
+[file]{time_complexity}-[class]{}-[func]{exp_recur}
+```
 
 指数阶增长非常迅速，在穷举法（暴力搜索、回溯等）中比较常见。对于数据规模较大的问题，指数阶是不可接受的，通常需要使用动态规划或贪心等算法来解决。
 
@@ -1437,153 +961,17 @@ $$
 
 下图和以下代码模拟了“每轮缩减到一半”的过程，时间复杂度为 $O(\log_2 n)$ ，简记为 $O(\log n)$ 。
 
-=== "Python"
-
-    ```python title="time_complexity.py"
-    [class]{}-[func]{logarithmic}
-    ```
-
-=== "C++"
-
-    ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{logarithmic}
-    ```
-
-=== "Java"
-
-    ```java title="time_complexity.java"
-    [class]{time_complexity}-[func]{logarithmic}
-    ```
-
-=== "C#"
-
-    ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{Logarithmic}
-    ```
-
-=== "Go"
-
-    ```go title="time_complexity.go"
-    [class]{}-[func]{logarithmic}
-    ```
-
-=== "Swift"
-
-    ```swift title="time_complexity.swift"
-    [class]{}-[func]{logarithmic}
-    ```
-
-=== "JS"
-
-    ```javascript title="time_complexity.js"
-    [class]{}-[func]{logarithmic}
-    ```
-
-=== "TS"
-
-    ```typescript title="time_complexity.ts"
-    [class]{}-[func]{logarithmic}
-    ```
-
-=== "Dart"
-
-    ```dart title="time_complexity.dart"
-    [class]{}-[func]{logarithmic}
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rs"
-    [class]{}-[func]{logarithmic}
-    ```
-
-=== "C"
-
-    ```c title="time_complexity.c"
-    [class]{}-[func]{logarithmic}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{logarithmic}
-    ```
+```src
+[file]{time_complexity}-[class]{}-[func]{logarithmic}
+```
 
 ![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png)
 
 与指数阶类似，对数阶也常出现于递归函数中。以下代码形成了一个高度为 $\log_2 n$ 的递归树：
 
-=== "Python"
-
-    ```python title="time_complexity.py"
-    [class]{}-[func]{log_recur}
-    ```
-
-=== "C++"
-
-    ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{logRecur}
-    ```
-
-=== "Java"
-
-    ```java title="time_complexity.java"
-    [class]{time_complexity}-[func]{logRecur}
-    ```
-
-=== "C#"
-
-    ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{LogRecur}
-    ```
-
-=== "Go"
-
-    ```go title="time_complexity.go"
-    [class]{}-[func]{logRecur}
-    ```
-
-=== "Swift"
-
-    ```swift title="time_complexity.swift"
-    [class]{}-[func]{logRecur}
-    ```
-
-=== "JS"
-
-    ```javascript title="time_complexity.js"
-    [class]{}-[func]{logRecur}
-    ```
-
-=== "TS"
-
-    ```typescript title="time_complexity.ts"
-    [class]{}-[func]{logRecur}
-    ```
-
-=== "Dart"
-
-    ```dart title="time_complexity.dart"
-    [class]{}-[func]{logRecur}
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rs"
-    [class]{}-[func]{log_recur}
-    ```
-
-=== "C"
-
-    ```c title="time_complexity.c"
-    [class]{}-[func]{logRecur}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{logRecur}
-    ```
+```src
+[file]{time_complexity}-[class]{}-[func]{log_recur}
+```
 
 对数阶常出现于基于分治策略的算法中，体现了“一分为多”和“化繁为简”的算法思想。它增长缓慢，是仅次于常数阶的理想的时间复杂度。
 
@@ -1601,77 +989,9 @@ $$
 
 线性对数阶常出现于嵌套循环中，两层循环的时间复杂度分别为 $O(\log n)$ 和 $O(n)$ 。相关代码如下：
 
-=== "Python"
-
-    ```python title="time_complexity.py"
-    [class]{}-[func]{linear_log_recur}
-    ```
-
-=== "C++"
-
-    ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{linearLogRecur}
-    ```
-
-=== "Java"
-
-    ```java title="time_complexity.java"
-    [class]{time_complexity}-[func]{linearLogRecur}
-    ```
-
-=== "C#"
-
-    ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{LinearLogRecur}
-    ```
-
-=== "Go"
-
-    ```go title="time_complexity.go"
-    [class]{}-[func]{linearLogRecur}
-    ```
-
-=== "Swift"
-
-    ```swift title="time_complexity.swift"
-    [class]{}-[func]{linearLogRecur}
-    ```
-
-=== "JS"
-
-    ```javascript title="time_complexity.js"
-    [class]{}-[func]{linearLogRecur}
-    ```
-
-=== "TS"
-
-    ```typescript title="time_complexity.ts"
-    [class]{}-[func]{linearLogRecur}
-    ```
-
-=== "Dart"
-
-    ```dart title="time_complexity.dart"
-    [class]{}-[func]{linearLogRecur}
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rs"
-    [class]{}-[func]{linear_log_recur}
-    ```
-
-=== "C"
-
-    ```c title="time_complexity.c"
-    [class]{}-[func]{linearLogRecur}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{linearLogRecur}
-    ```
+```src
+[file]{time_complexity}-[class]{}-[func]{linear_log_recur}
+```
 
 下图展示了线性对数阶的生成方式。二叉树的每一层的操作总数都为 $n$ ，树共有 $\log_2 n + 1$ 层，因此时间复杂度为 $O(n \log n)$ 。
 
@@ -1689,77 +1009,9 @@ $$
 
 阶乘通常使用递归实现。如下图和以下代码所示，第一层分裂出 $n$ 个，第二层分裂出 $n - 1$ 个，以此类推，直至第 $n$ 层时停止分裂：
 
-=== "Python"
-
-    ```python title="time_complexity.py"
-    [class]{}-[func]{factorial_recur}
-    ```
-
-=== "C++"
-
-    ```cpp title="time_complexity.cpp"
-    [class]{}-[func]{factorialRecur}
-    ```
-
-=== "Java"
-
-    ```java title="time_complexity.java"
-    [class]{time_complexity}-[func]{factorialRecur}
-    ```
-
-=== "C#"
-
-    ```csharp title="time_complexity.cs"
-    [class]{time_complexity}-[func]{FactorialRecur}
-    ```
-
-=== "Go"
-
-    ```go title="time_complexity.go"
-    [class]{}-[func]{factorialRecur}
-    ```
-
-=== "Swift"
-
-    ```swift title="time_complexity.swift"
-    [class]{}-[func]{factorialRecur}
-    ```
-
-=== "JS"
-
-    ```javascript title="time_complexity.js"
-    [class]{}-[func]{factorialRecur}
-    ```
-
-=== "TS"
-
-    ```typescript title="time_complexity.ts"
-    [class]{}-[func]{factorialRecur}
-    ```
-
-=== "Dart"
-
-    ```dart title="time_complexity.dart"
-    [class]{}-[func]{factorialRecur}
-    ```
-
-=== "Rust"
-
-    ```rust title="time_complexity.rs"
-    [class]{}-[func]{factorial_recur}
-    ```
-
-=== "C"
-
-    ```c title="time_complexity.c"
-    [class]{}-[func]{factorialRecur}
-    ```
-
-=== "Zig"
-
-    ```zig title="time_complexity.zig"
-    [class]{}-[func]{factorialRecur}
-    ```
+```src
+[file]{time_complexity}-[class]{}-[func]{factorial_recur}
+```
 
 ![阶乘阶的时间复杂度](time_complexity.assets/time_complexity_factorial.png)
 
@@ -1774,120 +1026,9 @@ $$
 
 “最差时间复杂度”对应函数渐近上界，使用大 $O$ 记号表示。相应地，“最佳时间复杂度”对应函数渐近下界，用 $\Omega$ 记号表示：
 
-=== "Python"
-
-    ```python title="worst_best_time_complexity.py"
-    [class]{}-[func]{random_numbers}
-
-    [class]{}-[func]{find_one}
-    ```
-
-=== "C++"
-
-    ```cpp title="worst_best_time_complexity.cpp"
-    [class]{}-[func]{randomNumbers}
-
-    [class]{}-[func]{findOne}
-    ```
-
-=== "Java"
-
-    ```java title="worst_best_time_complexity.java"
-    [class]{worst_best_time_complexity}-[func]{randomNumbers}
-
-    [class]{worst_best_time_complexity}-[func]{findOne}
-    ```
-
-=== "C#"
-
-    ```csharp title="worst_best_time_complexity.cs"
-    [class]{worst_best_time_complexity}-[func]{RandomNumbers}
-
-    [class]{worst_best_time_complexity}-[func]{FindOne}
-    ```
-
-=== "Go"
-
-    ```go title="worst_best_time_complexity.go"
-    [class]{}-[func]{randomNumbers}
-
-    [class]{}-[func]{findOne}
-    ```
-
-=== "Swift"
-
-    ```swift title="worst_best_time_complexity.swift"
-    [class]{}-[func]{randomNumbers}
-
-    [class]{}-[func]{findOne}
-    ```
-
-=== "JS"
-
-    ```javascript title="worst_best_time_complexity.js"
-    [class]{}-[func]{randomNumbers}
-
-    [class]{}-[func]{findOne}
-    ```
-
-=== "TS"
-
-    ```typescript title="worst_best_time_complexity.ts"
-    [class]{}-[func]{randomNumbers}
-
-    [class]{}-[func]{findOne}
-    ```
-
-=== "Dart"
-
-    ```dart title="worst_best_time_complexity.dart"
-    [class]{}-[func]{randomNumbers}
-
-    [class]{}-[func]{findOne}
-    ```
-
-=== "Rust"
-
-    ```rust title="worst_best_time_complexity.rs"
-    [class]{}-[func]{random_numbers}
-
-    [class]{}-[func]{find_one}
-    ```
-
-=== "C"
-
-    ```c title="worst_best_time_complexity.c"
-    [class]{}-[func]{randomNumbers}
-
-    [class]{}-[func]{findOne}
-    ```
-
-=== "Zig"
-
-    ```zig title="worst_best_time_complexity.zig"
-    // 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱
-    pub fn randomNumbers(comptime n: usize) [n]i32 {
-        var nums: [n]i32 = undefined;
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (nums) |*num, i| {
-            num.* = @intCast(i32, i) + 1;
-        }
-        // 随机打乱数组元素
-        const rand = std.crypto.random;
-        rand.shuffle(i32, &nums);
-        return nums;
-    }
-
-    // 查找数组 nums 中数字 1 所在索引
-    pub fn findOne(nums: []i32) i32 {
-        for (nums) |num, i| {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (num == 1) return @intCast(i32, i);
-        }
-        return -1;
-    }
-    ```
+```src
+[file]{worst_best_time_complexity}-[class]{}-[func]{find_one}
+```
 
 值得说明的是，我们在实际中很少使用最佳时间复杂度，因为通常只有在很小概率下才能达到，可能会带来一定的误导性。**而最差时间复杂度更为实用，因为它给出了一个效率安全值**，让我们可以放心地使用算法。
 

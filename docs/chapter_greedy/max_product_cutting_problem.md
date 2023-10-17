@@ -63,77 +63,9 @@ $$
 
 请注意，对于 $n \leq 3$ 的边界情况，必须拆分出一个 $1$ ，乘积为 $1 \times (n - 1)$ 。
 
-=== "Python"
-
-    ```python title="max_product_cutting.py"
-    [class]{}-[func]{max_product_cutting}
-    ```
-
-=== "C++"
-
-    ```cpp title="max_product_cutting.cpp"
-    [class]{}-[func]{maxProductCutting}
-    ```
-
-=== "Java"
-
-    ```java title="max_product_cutting.java"
-    [class]{max_product_cutting}-[func]{maxProductCutting}
-    ```
-
-=== "C#"
-
-    ```csharp title="max_product_cutting.cs"
-    [class]{max_product_cutting}-[func]{MaxProductCutting}
-    ```
-
-=== "Go"
-
-    ```go title="max_product_cutting.go"
-    [class]{}-[func]{maxProductCutting}
-    ```
-
-=== "Swift"
-
-    ```swift title="max_product_cutting.swift"
-    [class]{}-[func]{maxProductCutting}
-    ```
-
-=== "JS"
-
-    ```javascript title="max_product_cutting.js"
-    [class]{}-[func]{maxProductCutting}
-    ```
-
-=== "TS"
-
-    ```typescript title="max_product_cutting.ts"
-    [class]{}-[func]{maxProductCutting}
-    ```
-
-=== "Dart"
-
-    ```dart title="max_product_cutting.dart"
-    [class]{}-[func]{maxProductCutting}
-    ```
-
-=== "Rust"
-
-    ```rust title="max_product_cutting.rs"
-    [class]{}-[func]{max_product_cutting}
-    ```
-
-=== "C"
-
-    ```c title="max_product_cutting.c"
-    [class]{}-[func]{maxProductCutting}
-    ```
-
-=== "Zig"
-
-    ```zig title="max_product_cutting.zig"
-    [class]{}-[func]{maxProductCutting}
-    ```
+```src
+[file]{max_product_cutting}-[class]{}-[func]{max_product_cutting}
+```
 
 ![最大切分乘积的计算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png)
 

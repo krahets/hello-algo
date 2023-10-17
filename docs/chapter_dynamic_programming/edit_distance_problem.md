@@ -67,77 +67,9 @@ $$
 
 ### 代码实现
 
-=== "Python"
-
-    ```python title="edit_distance.py"
-    [class]{}-[func]{edit_distance_dp}
-    ```
-
-=== "C++"
-
-    ```cpp title="edit_distance.cpp"
-    [class]{}-[func]{editDistanceDP}
-    ```
-
-=== "Java"
-
-    ```java title="edit_distance.java"
-    [class]{edit_distance}-[func]{editDistanceDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="edit_distance.cs"
-    [class]{edit_distance}-[func]{EditDistanceDP}
-    ```
-
-=== "Go"
-
-    ```go title="edit_distance.go"
-    [class]{}-[func]{editDistanceDP}
-    ```
-
-=== "Swift"
-
-    ```swift title="edit_distance.swift"
-    [class]{}-[func]{editDistanceDP}
-    ```
-
-=== "JS"
-
-    ```javascript title="edit_distance.js"
-    [class]{}-[func]{editDistanceDP}
-    ```
-
-=== "TS"
-
-    ```typescript title="edit_distance.ts"
-    [class]{}-[func]{editDistanceDP}
-    ```
-
-=== "Dart"
-
-    ```dart title="edit_distance.dart"
-    [class]{}-[func]{editDistanceDP}
-    ```
-
-=== "Rust"
-
-    ```rust title="edit_distance.rs"
-    [class]{}-[func]{edit_distance_dp}
-    ```
-
-=== "C"
-
-    ```c title="edit_distance.c"
-    [class]{}-[func]{editDistanceDP}
-    ```
-
-=== "Zig"
-
-    ```zig title="edit_distance.zig"
-    [class]{}-[func]{editDistanceDP}
-    ```
+```src
+[file]{edit_distance}-[class]{}-[func]{edit_distance_dp}
+```
 
 如下图所示，编辑距离问题的状态转移过程与背包问题非常类似，都可以看作是填写一个二维网格的过程。
 
@@ -192,74 +124,6 @@ $$
 
 为此，我们可以使用一个变量 `leftup` 来暂存左上方的解 $dp[i-1, j-1]$ ，从而只需考虑左方和上方的解。此时的情况与完全背包问题相同，可使用正序遍历。
 
-=== "Python"
-
-    ```python title="edit_distance.py"
-    [class]{}-[func]{edit_distance_dp_comp}
-    ```
-
-=== "C++"
-
-    ```cpp title="edit_distance.cpp"
-    [class]{}-[func]{editDistanceDPComp}
-    ```
-
-=== "Java"
-
-    ```java title="edit_distance.java"
-    [class]{edit_distance}-[func]{editDistanceDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="edit_distance.cs"
-    [class]{edit_distance}-[func]{EditDistanceDPComp}
-    ```
-
-=== "Go"
-
-    ```go title="edit_distance.go"
-    [class]{}-[func]{editDistanceDPComp}
-    ```
-
-=== "Swift"
-
-    ```swift title="edit_distance.swift"
-    [class]{}-[func]{editDistanceDPComp}
-    ```
-
-=== "JS"
-
-    ```javascript title="edit_distance.js"
-    [class]{}-[func]{editDistanceDPComp}
-    ```
-
-=== "TS"
-
-    ```typescript title="edit_distance.ts"
-    [class]{}-[func]{editDistanceDPComp}
-    ```
-
-=== "Dart"
-
-    ```dart title="edit_distance.dart"
-    [class]{}-[func]{editDistanceDPComp}
-    ```
-
-=== "Rust"
-
-    ```rust title="edit_distance.rs"
-    [class]{}-[func]{edit_distance_dp_comp}
-    ```
-
-=== "C"
-
-    ```c title="edit_distance.c"
-    [class]{}-[func]{editDistanceDPComp}
-    ```
-
-=== "Zig"
-
-    ```zig title="edit_distance.zig"
-    [class]{}-[func]{editDistanceDPComp}
-    ```
+```src
+[file]{edit_distance}-[class]{}-[func]{edit_distance_dp_comp}
+```

@@ -325,77 +325,9 @@
 
 以下是基于链表实现栈的示例代码。
 
-=== "Python"
-
-    ```python title="linkedlist_stack.py"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="linkedlist_stack.cpp"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="linkedlist_stack.java"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="linkedlist_stack.cs"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="linkedlist_stack.go"
-    [class]{linkedListStack}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="linkedlist_stack.swift"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="linkedlist_stack.js"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="linkedlist_stack.ts"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="linkedlist_stack.dart"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="linkedlist_stack.rs"
-    [class]{LinkedListStack}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="linkedlist_stack.c"
-    [class]{linkedListStack}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="linkedlist_stack.zig"
-    [class]{LinkedListStack}-[func]{}
-    ```
+```src
+[file]{linkedlist_stack}-[class]{linked_list_stack}-[func]{}
+```
 
 ### 基于数组的实现
 
@@ -412,77 +344,9 @@
 
 由于入栈的元素可能会源源不断地增加，因此我们可以使用动态数组，这样就无须自行处理数组扩容问题。以下为示例代码。
 
-=== "Python"
-
-    ```python title="array_stack.py"
-    [class]{ArrayStack}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="array_stack.cpp"
-    [class]{ArrayStack}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="array_stack.java"
-    [class]{ArrayStack}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="array_stack.cs"
-    [class]{ArrayStack}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="array_stack.go"
-    [class]{arrayStack}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="array_stack.swift"
-    [class]{ArrayStack}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="array_stack.js"
-    [class]{ArrayStack}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="array_stack.ts"
-    [class]{ArrayStack}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="array_stack.dart"
-    [class]{ArrayStack}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="array_stack.rs"
-    [class]{ArrayStack}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="array_stack.c"
-    [class]{arrayStack}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_stack.zig"
-    [class]{ArrayStack}-[func]{}
-    ```
+```src
+[file]{array_stack}-[class]{array_stack}-[func]{}
+```
 
 ## 两种实现对比
 

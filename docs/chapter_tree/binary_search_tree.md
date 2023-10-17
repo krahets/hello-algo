@@ -33,77 +33,9 @@
 
 二叉搜索树的查找操作与二分查找算法的工作原理一致，都是每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 $O(\log n)$ 时间。
 
-=== "Python"
-
-    ```python title="binary_search_tree.py"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
-
-=== "C++"
-
-    ```cpp title="binary_search_tree.cpp"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
-
-=== "Java"
-
-    ```java title="binary_search_tree.java"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_tree.cs"
-    [class]{BinarySearchTree}-[func]{Search}
-    ```
-
-=== "Go"
-
-    ```go title="binary_search_tree.go"
-    [class]{binarySearchTree}-[func]{search}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_tree.swift"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
-
-=== "JS"
-
-    ```javascript title="binary_search_tree.js"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
-
-=== "TS"
-
-    ```typescript title="binary_search_tree.ts"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
-
-=== "Dart"
-
-    ```dart title="binary_search_tree.dart"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
-
-=== "Rust"
-
-    ```rust title="binary_search_tree.rs"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{search}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_tree.zig"
-    [class]{BinarySearchTree}-[func]{search}
-    ```
+```src
+[file]{binary_search_tree}-[class]{binary_search_tree}-[func]{search}
+```
 
 ### 插入节点
 
@@ -119,77 +51,9 @@
 - 二叉搜索树不允许存在重复节点，否则将违反其定义。因此，若待插入节点在树中已存在，则不执行插入，直接返回。
 - 为了实现插入节点，我们需要借助节点 `pre` 保存上一轮循环的节点。这样在遍历至 $\text{None}$ 时，我们可以获取到其父节点，从而完成节点插入操作。
 
-=== "Python"
-
-    ```python title="binary_search_tree.py"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
-
-=== "C++"
-
-    ```cpp title="binary_search_tree.cpp"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
-
-=== "Java"
-
-    ```java title="binary_search_tree.java"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_tree.cs"
-    [class]{BinarySearchTree}-[func]{Insert}
-    ```
-
-=== "Go"
-
-    ```go title="binary_search_tree.go"
-    [class]{binarySearchTree}-[func]{insert}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_tree.swift"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
-
-=== "JS"
-
-    ```javascript title="binary_search_tree.js"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
-
-=== "TS"
-
-    ```typescript title="binary_search_tree.ts"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
-
-=== "Dart"
-
-    ```dart title="binary_search_tree.dart"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
-
-=== "Rust"
-
-    ```rust title="binary_search_tree.rs"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{insert}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_tree.zig"
-    [class]{BinarySearchTree}-[func]{insert}
-    ```
+```src
+[file]{binary_search_tree}-[class]{binary_search_tree}-[func]{insert}
+```
 
 与查找节点相同，插入节点使用 $O(\log n)$ 时间。
 
@@ -230,77 +94,9 @@
 
 删除节点操作同样使用 $O(\log n)$ 时间，其中查找待删除节点需要 $O(\log n)$ 时间，获取中序遍历后继节点需要 $O(\log n)$ 时间。
 
-=== "Python"
-
-    ```python title="binary_search_tree.py"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
-
-=== "C++"
-
-    ```cpp title="binary_search_tree.cpp"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
-
-=== "Java"
-
-    ```java title="binary_search_tree.java"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_tree.cs"
-    [class]{BinarySearchTree}-[func]{Remove}
-    ```
-
-=== "Go"
-
-    ```go title="binary_search_tree.go"
-    [class]{binarySearchTree}-[func]{remove}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_tree.swift"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
-
-=== "JS"
-
-    ```javascript title="binary_search_tree.js"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
-
-=== "TS"
-
-    ```typescript title="binary_search_tree.ts"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
-
-=== "Dart"
-
-    ```dart title="binary_search_tree.dart"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
-
-=== "Rust"
-
-    ```rust title="binary_search_tree.rs"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_tree.c"
-    [class]{binarySearchTree}-[func]{removeItem}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_tree.zig"
-    [class]{BinarySearchTree}-[func]{remove}
-    ```
+```src
+[file]{binary_search_tree}-[class]{binary_search_tree}-[func]{remove}
+```
 
 ### 中序遍历有序
 

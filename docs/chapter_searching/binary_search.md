@@ -43,77 +43,9 @@
 
 值得注意的是，由于 $i$ 和 $j$ 都是 `int` 类型，**因此 $i + j$ 可能会超出 `int` 类型的取值范围**。为了避免大数越界，我们通常采用公式 $m = \lfloor {i + (j - i) / 2} \rfloor$ 来计算中点。
 
-=== "Python"
-
-    ```python title="binary_search.py"
-    [class]{}-[func]{binary_search}
-    ```
-
-=== "C++"
-
-    ```cpp title="binary_search.cpp"
-    [class]{}-[func]{binarySearch}
-    ```
-
-=== "Java"
-
-    ```java title="binary_search.java"
-    [class]{binary_search}-[func]{binarySearch}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search.cs"
-    [class]{binary_search}-[func]{BinarySearch}
-    ```
-
-=== "Go"
-
-    ```go title="binary_search.go"
-    [class]{}-[func]{binarySearch}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search.swift"
-    [class]{}-[func]{binarySearch}
-    ```
-
-=== "JS"
-
-    ```javascript title="binary_search.js"
-    [class]{}-[func]{binarySearch}
-    ```
-
-=== "TS"
-
-    ```typescript title="binary_search.ts"
-    [class]{}-[func]{binarySearch}
-    ```
-
-=== "Dart"
-
-    ```dart title="binary_search.dart"
-    [class]{}-[func]{binarySearch}
-    ```
-
-=== "Rust"
-
-    ```rust title="binary_search.rs"
-    [class]{}-[func]{binary_search}
-    ```
-
-=== "C"
-
-    ```c title="binary_search.c"
-    [class]{}-[func]{binarySearch}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search.zig"
-    [class]{}-[func]{binarySearch}
-    ```
+```src
+[file]{binary_search}-[class]{}-[func]{binary_search}
+```
 
 **时间复杂度 $O(\log n)$** ：在二分循环中，区间每轮缩小一半，循环次数为 $\log_2 n$ 。
 
@@ -125,77 +57,9 @@
 
 我们可以基于该表示实现具有相同功能的二分查找算法。
 
-=== "Python"
-
-    ```python title="binary_search.py"
-    [class]{}-[func]{binary_search_lcro}
-    ```
-
-=== "C++"
-
-    ```cpp title="binary_search.cpp"
-    [class]{}-[func]{binarySearchLCRO}
-    ```
-
-=== "Java"
-
-    ```java title="binary_search.java"
-    [class]{binary_search}-[func]{binarySearchLCRO}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search.cs"
-    [class]{binary_search}-[func]{BinarySearchLCRO}
-    ```
-
-=== "Go"
-
-    ```go title="binary_search.go"
-    [class]{}-[func]{binarySearchLCRO}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search.swift"
-    [class]{}-[func]{binarySearchLCRO}
-    ```
-
-=== "JS"
-
-    ```javascript title="binary_search.js"
-    [class]{}-[func]{binarySearchLCRO}
-    ```
-
-=== "TS"
-
-    ```typescript title="binary_search.ts"
-    [class]{}-[func]{binarySearchLCRO}
-    ```
-
-=== "Dart"
-
-    ```dart title="binary_search.dart"
-    [class]{}-[func]{binarySearchLCRO}
-    ```
-
-=== "Rust"
-
-    ```rust title="binary_search.rs"
-    [class]{}-[func]{binary_search_lcro}
-    ```
-
-=== "C"
-
-    ```c title="binary_search.c"
-    [class]{}-[func]{binarySearchLCRO}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search.zig"
-    [class]{}-[func]{binarySearchLCRO}
-    ```
+```src
+[file]{binary_search}-[class]{}-[func]{binary_search_lcro}
+```
 
 如下图所示，在两种区间表示下，二分查找算法的初始化、循环条件和缩小区间操作皆有所不同。
 

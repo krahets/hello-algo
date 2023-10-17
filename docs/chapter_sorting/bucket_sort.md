@@ -14,77 +14,9 @@
 
 ![桶排序算法流程](bucket_sort.assets/bucket_sort_overview.png)
 
-=== "Python"
-
-    ```python title="bucket_sort.py"
-    [class]{}-[func]{bucket_sort}
-    ```
-
-=== "C++"
-
-    ```cpp title="bucket_sort.cpp"
-    [class]{}-[func]{bucketSort}
-    ```
-
-=== "Java"
-
-    ```java title="bucket_sort.java"
-    [class]{bucket_sort}-[func]{bucketSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="bucket_sort.cs"
-    [class]{bucket_sort}-[func]{BucketSort}
-    ```
-
-=== "Go"
-
-    ```go title="bucket_sort.go"
-    [class]{}-[func]{bucketSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="bucket_sort.swift"
-    [class]{}-[func]{bucketSort}
-    ```
-
-=== "JS"
-
-    ```javascript title="bucket_sort.js"
-    [class]{}-[func]{bucketSort}
-    ```
-
-=== "TS"
-
-    ```typescript title="bucket_sort.ts"
-    [class]{}-[func]{bucketSort}
-    ```
-
-=== "Dart"
-
-    ```dart title="bucket_sort.dart"
-    [class]{}-[func]{bucketSort}
-    ```
-
-=== "Rust"
-
-    ```rust title="bucket_sort.rs"
-    [class]{}-[func]{bucket_sort}
-    ```
-
-=== "C"
-
-    ```c title="bucket_sort.c"
-    [class]{}-[func]{bucketSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="bucket_sort.zig"
-    [class]{}-[func]{bucketSort}
-    ```
+```src
+[file]{bucket_sort}-[class]{}-[func]{bucket_sort}
+```
 
 ## 算法特性
 

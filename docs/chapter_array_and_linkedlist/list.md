@@ -1,8 +1,15 @@
 # 列表
 
-**数组长度不可变导致实用性降低**。在实际中，我们可能事先无法确定需要存储多少数据，这使数组长度的选择变得困难。若长度过小，需要在持续添加数据时频繁扩容数组；若长度过大，则会造成内存空间的浪费。
+「列表 list」是一个抽象的数据结构概念，它表示元素的有序集合，支持元素访问、修改、添加、删除和遍历等操作，无需使用者考虑容量限制的问题。列表可以基于链表或数组实现。
 
-为解决此问题，出现了一种被称为「动态数组 dynamic array」的数据结构，即长度可变的数组，也常被称为「列表 list」。列表基于数组实现，继承了数组的优点，并且可以在程序运行过程中动态扩容。我们可以在列表中自由地添加元素，而无须担心超过容量限制。
+- 链表天然可以被看作是一个列表，其支持元素增删查改操作，并且可以灵活动态扩容。
+- 数组也支持元素增删查改，但由于其长度不可变，因此只能被看作是一个具有长度限制的列表。
+
+当使用数组实现列表时，**长度不可变的性质会导致列表的实用性降低**。这是因为我们通常无法事先确定需要存储多少数据，从而难以选择合适的列表长度。若长度过小，则很可能无法满足使用需求；若长度过大，则会造成内存空间的浪费。
+
+为解决此问题，我们可以使用「动态数组 dynamic array」来实现列表。它继承了数组的各项优点，并且可以在程序运行过程中进行动态扩容。
+
+实际上，**许多编程语言中的标准库提供的列表都是基于动态数组实现的**，例如 Python 中的 `list` 、Java 中的 `ArrayList` 、C++ 中的 `vector` 和 C# 中的 `List` 等。在接下来的讨论中，我们将把“列表”和“动态数组”视为等同的概念。
 
 ## 列表常用操作
 
@@ -860,74 +867,6 @@
 - **数量记录**：声明一个变量 `size` ，用于记录列表当前元素数量，并随着元素插入和删除实时更新。根据此变量，我们可以定位列表尾部，以及判断是否需要扩容。
 - **扩容机制**：若插入元素时列表容量已满，则需要进行扩容。首先根据扩容倍数创建一个更大的数组，再将当前数组的所有元素依次移动至新数组。在本示例中，我们规定每次将数组扩容至之前的 2 倍。
 
-=== "Python"
-
-    ```python title="my_list.py"
-    [class]{MyList}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="my_list.cpp"
-    [class]{MyList}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="my_list.java"
-    [class]{MyList}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="my_list.cs"
-    [class]{MyList}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="my_list.go"
-    [class]{myList}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="my_list.swift"
-    [class]{MyList}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="my_list.js"
-    [class]{MyList}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="my_list.ts"
-    [class]{MyList}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="my_list.dart"
-    [class]{MyList}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="my_list.rs"
-    [class]{MyList}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="my_list.c"
-    [class]{myList}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_list.zig"
-    [class]{MyList}-[func]{}
-    ```
+```src
+[file]{my_list}-[class]{my_list}-[func]{}
+```
