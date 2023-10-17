@@ -1,15 +1,15 @@
 /**
- * File: permutations_i.c
- * Created Time: 2023-06-04
- * Author: Gonglja (glj0@outlook.com), Krahets (krahets@163.com)
+ * File: permutations_ii.c
+ * Created Time: 2023-10-17
+ * Author: Krahets (krahets@163.com)
  */
 
 #include "../utils/common.h"
 
-// 假设最多有 1000 个排列
+// 假设最多有 1000 个排列，元素最大为 1000
 #define MAX_SIZE 1000
 
-/* 回溯算法：全排列 I */
+/* 回溯算法：全排列 II */
 void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *selected, int **res, int *resSize) {
     // 当状态长度等于元素数量时，记录解
     if (stateSize == choicesSize) {
@@ -21,11 +21,13 @@ void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *s
         return;
     }
     // 遍历所有选择
+    bool duplicated[MAX_SIZE] = {false};
     for (int i = 0; i < choicesSize; i++) {
         int choice = choices[i];
-        // 剪枝：不允许重复选择元素
-        if (!selected[i]) {
+        // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+        if (!selected[i] && !duplicated[choice]) {
             // 尝试：做出选择，更新状态
+            duplicated[choice] = true; // 记录选择过的元素值
             selected[i] = true;
             state[stateSize] = choice;
             // 进行下一轮选择
@@ -36,8 +38,8 @@ void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *s
     }
 }
 
-/* 全排列 I */
-int **permutationsI(int *nums, int numsSize, int *returnSize) {
+/* 全排列 II */
+int **permutationsII(int *nums, int numsSize, int *returnSize) {
     int *state = (int *)malloc(numsSize * sizeof(int));
     bool *selected = (bool *)malloc(numsSize * sizeof(bool));
     for (int i = 0; i < numsSize; i++) {
@@ -56,11 +58,11 @@ int **permutationsI(int *nums, int numsSize, int *returnSize) {
 
 /* Driver Code */
 int main() {
-    int nums[] = {1, 2, 3};
+    int nums[] = {1, 1, 2};
     int numsSize = sizeof(nums) / sizeof(nums[0]);
     int returnSize;
 
-    int **res = permutationsI(nums, numsSize, &returnSize);
+    int **res = permutationsII(nums, numsSize, &returnSize);
 
     printf("输入数组 nums = ");
     printArray(nums, numsSize);

@@ -1,4 +1,5 @@
 add_executable(permutations_i permutations_i.c)
+add_executable(permutations_ii permutations_ii.c)
 add_executable(preorder_traversal_i_compact preorder_traversal_i_compact.c)
 add_executable(preorder_traversal_ii_compact preorder_traversal_ii_compact.c)
 add_executable(preorder_traversal_iii_compact preorder_traversal_iii_compact.c)
