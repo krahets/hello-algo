@@ -274,7 +274,7 @@ comments: true
 
     ```c title="binary_search_tree.c"
     /* 查找节点 */
-    TreeNode *search(binarySearchTree *bst, int num) {
+    TreeNode *search(BinarySearchTree *bst, int num) {
         TreeNode *cur = bst->root;
         // 循环查找，越过叶节点后跳出
         while (cur != NULL) {
@@ -673,7 +673,7 @@ comments: true
 
     ```c title="binary_search_tree.c"
     /* 插入节点 */
-    void insert(binarySearchTree *bst, int num) {
+    void insert(BinarySearchTree *bst, int num) {
         // 若树为空，则初始化根节点
         if (bst->root == NULL) {
             bst->root = newTreeNode(num);
@@ -1357,7 +1357,7 @@ comments: true
     ```c title="binary_search_tree.c"
     /* 删除节点 */
     // 由于引入了 stdio.h ，此处无法使用 remove 关键词
-    void removeItem(binarySearchTree *bst, int num) {
+    void removeItem(BinarySearchTree *bst, int num) {
         // 若树为空，直接提前返回
         if (bst->root == NULL)
             return;

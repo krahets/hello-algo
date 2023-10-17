@@ -153,12 +153,10 @@ comments: true
 
     ```c title=""
     /* 链表节点结构体 */
-    struct ListNode {
+    typedef struct ListNode {
         int val;               // 节点值
         struct ListNode *next; // 指向下一节点的指针
-    };
-
-    typedef struct ListNode ListNode;
+    } ListNode;
 
     /* 构造函数 */
     ListNode *newListNode(int val) {
@@ -1284,13 +1282,11 @@ comments: true
 
     ```c title=""
     /* 双向链表节点结构体 */
-    struct ListNode {
+    typedef struct ListNode {
         int val;               // 节点值
         struct ListNode *next; // 指向后继节点的指针
         struct ListNode *prev; // 指向前驱节点的指针
-    };
-
-    typedef struct ListNode ListNode;
+    } ListNode;
 
     /* 构造函数 */
     ListNode *newListNode(int val) {

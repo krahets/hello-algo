@@ -1068,26 +1068,24 @@ comments: true
 
     ```c title="array_binary_tree.c"
     /* 数组表示下的二叉树类 */
-    struct arrayBinaryTree {
+    typedef struct {
         vector *tree;
-    };
-
-    typedef struct arrayBinaryTree arrayBinaryTree;
+    } ArrayBinaryTree;
 
     /* 构造函数 */
-    arrayBinaryTree *newArrayBinaryTree(vector *arr) {
-        arrayBinaryTree *newABT = malloc(sizeof(arrayBinaryTree));
+    ArrayBinaryTree *newArrayBinaryTree(vector *arr) {
+        ArrayBinaryTree *newABT = malloc(sizeof(ArrayBinaryTree));
         newABT->tree = arr;
         return newABT;
     }
 
     /* 节点数量 */
-    int size(arrayBinaryTree *abt) {
+    int size(ArrayBinaryTree *abt) {
         return abt->tree->size;
     }
 
     /* 获取索引为 i 节点的值 */
-    int val(arrayBinaryTree *abt, int i) {
+    int val(ArrayBinaryTree *abt, int i) {
         // 若索引越界，则返回 INT_MAX ，代表空位
         if (i < 0 || i >= size(abt))
             return INT_MAX;
@@ -1095,7 +1093,7 @@ comments: true
     }
 
     /* 深度优先遍历 */
-    void dfs(arrayBinaryTree *abt, int i, const char *order, vector *res) {
+    void dfs(ArrayBinaryTree *abt, int i, const char *order, vector *res) {
         // 若为空位，则返回
         if (val(abt, i) == INT_MAX)
             return;
@@ -1119,7 +1117,7 @@ comments: true
     }
 
     /* 层序遍历 */
-    vector *levelOrder(arrayBinaryTree *abt) {
+    vector *levelOrder(ArrayBinaryTree *abt) {
         vector *res = newVector();
         // 直接遍历数组
         for (int i = 0; i < size(abt); i++) {
@@ -1132,21 +1130,21 @@ comments: true
     }
 
     /* 前序遍历 */
-    vector *preOrder(arrayBinaryTree *abt) {
+    vector *preOrder(ArrayBinaryTree *abt) {
         vector *res = newVector();
         dfs(abt, 0, "pre", res);
         return res;
     }
 
     /* 中序遍历 */
-    vector *inOrder(arrayBinaryTree *abt) {
+    vector *inOrder(ArrayBinaryTree *abt) {
         vector *res = newVector();
         dfs(abt, 0, "in", res);
         return res;
     }
 
     /* 后序遍历 */
-    vector *postOrder(arrayBinaryTree *abt) {
+    vector *postOrder(ArrayBinaryTree *abt) {
         vector *res = newVector();
         dfs(abt, 0, "post", res);
         return res;

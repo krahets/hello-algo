@@ -189,14 +189,12 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 
     ```c title=""
     /* AVL 树节点结构体 */
-    struct TreeNode {
+    TreeNode struct TreeNode {
         int val;
         int height;
         struct TreeNode *left;
         struct TreeNode *right;
-    };
-
-    typedef struct TreeNode TreeNode;
+    } TreeNode;
 
     /* 构造函数 */
     TreeNode *newTreeNode(int val) {
@@ -1836,7 +1834,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
 
     ```c title="avl_tree.c"
     /* 插入节点 */
-    void insert(aVLTree *tree, int val) {
+    void insert(AVLTree *tree, int val) {
         tree->root = insertHelper(tree->root, val);
     }
 
@@ -2361,7 +2359,7 @@ AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区�
     ```c title="avl_tree.c"
     /* 删除节点 */
     // 由于引入了 stdio.h ，此处无法使用 remove 关键词
-    void removeItem(aVLTree *tree, int val) {
+    void removeItem(AVLTree *tree, int val) {
         TreeNode *root = removeHelper(tree->root, val);
     }
 

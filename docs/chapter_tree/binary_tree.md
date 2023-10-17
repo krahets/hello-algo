@@ -161,14 +161,12 @@ comments: true
 
     ```c title=""
     /* 二叉树节点结构体 */
-    struct TreeNode {
+    typedef struct TreeNode {
         int val;                // 节点值
         int height;             // 节点高度
         struct TreeNode *left;  // 左子节点指针
         struct TreeNode *right; // 右子节点指针
-    };
-
-    typedef struct TreeNode TreeNode;
+    } TreeNode;
 
     /* 构造函数 */
     TreeNode *newTreeNode(int val) {
@@ -616,11 +614,11 @@ comments: true
 
 <div class="center-table" markdown>
 
-|                               | 完美二叉树 | 链表         |
-| ----------------------------- | ---------- | ---------- |
-| 第 $i$ 层的节点数量    | $2^{i-1}$          | $1$     |
-| 高度 $h$ 树的叶节点数量 | $2^h$          | $1$     |
-| 高度 $h$ 树的节点总数 | $2^{h+1} - 1$      | $h + 1$     |
-| 节点总数 $n$ 树的高度 | $\log_2 (n+1) - 1$ | $n - 1$     |
+|                         | 完美二叉树         | 链表    |
+| ----------------------- | ------------------ | ------- |
+| 第 $i$ 层的节点数量     | $2^{i-1}$          | $1$     |
+| 高度 $h$ 树的叶节点数量 | $2^h$              | $1$     |
+| 高度 $h$ 树的节点总数   | $2^{h+1} - 1$      | $h + 1$ |
+| 节点总数 $n$ 树的高度   | $\log_2 (n+1) - 1$ | $n - 1$ |
 
 </div>

@@ -428,12 +428,10 @@ comments: true
 
     ```c title="fractional_knapsack.c"
     /* 物品 */
-    struct Item {
+    typedef struct {
         int w; // 物品重量
         int v; // 物品价值
-    };
-
-    typedef struct Item Item;
+    } Item;
 
     /* 分数背包：贪心 */
     float fractionalKnapsack(int wgt[], int val[], int itemCount, int cap) {

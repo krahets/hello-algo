@@ -437,26 +437,24 @@ comments: true
 
     ```c title="two_sum.c"
     /* 哈希表 */
-    struct hashTable {
+    typedef struct {
         int key;
         int val;
         UT_hash_handle hh; // 基于 uthash.h 实现
-    };
-
-    typedef struct hashTable hashTable;
+    } HashTable;
 
     /* 哈希表查询 */
-    hashTable *find(hashTable *h, int key) {
-        hashTable *tmp;
+    HashTable *find(HashTable *h, int key) {
+        HashTable *tmp;
         HASH_FIND_INT(h, &key, tmp);
         return tmp;
     }
 
     /* 哈希表元素插入 */
-    void insert(hashTable *h, int key, int val) {
-        hashTable *t = find(h, key);
+    void insert(HashTable *h, int key, int val) {
+        HashTable *t = find(h, key);
         if (t == NULL) {
-            hashTable *tmp = malloc(sizeof(hashTable));
+            HashTable *tmp = malloc(sizeof(HashTable));
             tmp->key = key, tmp->val = val;
             HASH_ADD_INT(h, key, tmp);
         } else {
@@ -466,9 +464,9 @@ comments: true
 
     /* 方法二：辅助哈希表 */
     int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
-        hashTable *hashtable = NULL;
+        HashTable *hashtable = NULL;
         for (int i = 0; i < numsSize; i++) {
-            hashTable *t = find(hashtable, target - nums[i]);
+            HashTable *t = find(hashtable, target - nums[i]);
             if (t != NULL) {
                 int *res = malloc(sizeof(int) * 2);
                 res[0] = t->val, res[1] = i;

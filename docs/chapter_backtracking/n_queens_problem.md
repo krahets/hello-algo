@@ -601,25 +601,17 @@ comments: true
 === "C"
 
     ```c title="n_queens.c"
-    /* 放置结果 */
-    struct result {
-        char ***data;
-        int size;
-    };
-
-    typedef struct result Result;
-
     /* 回溯算法：N 皇后 */
-    void backtrack(int row, int n, char state[MAX_N][MAX_N], Result *res, 
-            bool cols[MAX_N], bool diags1[2 * MAX_N - 1], bool diags2[2 * MAX_N - 1]) {
+    void backtrack(int row, int n, char state[MAX_N][MAX_N], char ***res, int *resSize, bool cols[MAX_N],
+                   bool diags1[2 * MAX_N - 1], bool diags2[2 * MAX_N - 1]) {
         // 当放置完所有行时，记录解
         if (row == n) {
-            res->data[res->size] = (char **)malloc(sizeof(char *) * n);
+            res[*resSize] = (char **)malloc(sizeof(char *) * n);
             for (int i = 0; i < n; ++i) {
-                res->data[res->size][i] = (char *)malloc(sizeof(char) * (n + 1));
-                strcpy(res->data[res->size][i], state[i]);
+                res[*resSize][i] = (char *)malloc(sizeof(char) * (n + 1));
+                strcpy(res[*resSize][i], state[i]);
             }
-            res->size++;
+            (*resSize)++;
             return;
         }
         // 遍历所有列
@@ -633,7 +625,7 @@ comments: true
                 state[row][col] = 'Q';
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
                 // 放置下一行
-                backtrack(row + 1, n, state, res, cols, diags1, diags2);
+                backtrack(row + 1, n, state, res, resSize, cols, diags1, diags2);
                 // 回退：将该格子恢复为空位
                 state[row][col] = '#';
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
@@ -642,7 +634,7 @@ comments: true
     }
 
     /* 求解 N 皇后 */
-    Result *nQueens(int n) {
+    char ***nQueens(int n, int *returnSize) {
         char state[MAX_N][MAX_N];
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         for (int i = 0; i < n; ++i) {
@@ -655,10 +647,9 @@ comments: true
         bool diags1[2 * MAX_N - 1] = {false}; // 记录主对角线是否有皇后
         bool diags2[2 * MAX_N - 1] = {false}; // 记录副对角线是否有皇后
 
-        Result *res = malloc(sizeof(Result));
-        res->data = (char ***)malloc(sizeof(char **) * MAX_RES);
-        res->size = 0;
-        backtrack(0, n, state, res, cols, diags1, diags2);
+        char ***res = (char ***)malloc(sizeof(char **) * MAX_RES);
+        *returnSize = 0;
+        backtrack(0, n, state, res, returnSize, cols, diags1, diags2);
         return res;
     }
     ```

@@ -404,26 +404,36 @@ comments: true
 === "C"
 
     ```c title="build_tree.c"
-    /* 构建二叉树 */
-    fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
-        // 初始化哈希表，存储 inorder 元素到索引的映射
-        let mut inorder_map: HashMap<i32, i32> = HashMap::new();
-        for i in 0..inorder.len() {
-            inorder_map.insert(inorder[i], i as i32);
-        }
-        let root = dfs(preorder, &inorder_map, 0, 0, inorder.len() as i32 - 1);
-        root
+    /* 构建二叉树：分治 */
+    TreeNode *dfs(int *preorder, int *inorderMap, int i, int l, int r, int size) {
+        // 子树区间为空时终止
+        if (r - l < 0)
+            return NULL;
+        // 初始化根节点
+        TreeNode *root = (TreeNode *)malloc(sizeof(TreeNode));
+        root->val = preorder[i];
+        root->left = NULL;
+        root->right = NULL;
+        // 查询 m ，从而划分左右子树
+        int m = inorderMap[preorder[i]];
+        // 子问题：构建左子树
+        root->left = dfs(preorder, inorderMap, i + 1, l, m - 1, size);
+        // 子问题：构建右子树
+        root->right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r, size);
+        // 返回根节点
+        return root;
     }
 
     /* 构建二叉树 */
-    fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
+    TreeNode *buildTree(int *preorder, int preorderSize, int *inorder, int inorderSize) {
         // 初始化哈希表，存储 inorder 元素到索引的映射
-        let mut inorder_map: HashMap<i32, i32> = HashMap::new();
-        for i in 0..inorder.len() {
-            inorder_map.insert(inorder[i], i as i32);
+        int *inorderMap = (int *)malloc(sizeof(int) * MAX_N);
+        for (int i = 0; i < inorderSize; i++) {
+            inorderMap[inorder[i]] = i;
         }
-        let root = dfs(preorder, &inorder_map, 0, 0, inorder.len() as i32 - 1);
-        root
+        TreeNode *root = dfs(preorder, inorderMap, 0, 0, inorderSize - 1, inorderSize);
+        free(inorderMap);
+        return root;
     }
     ```
 

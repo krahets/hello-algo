@@ -1685,17 +1685,15 @@ comments: true
 
     ```c title="linkedlist_deque.c"
     /* 双向链表节点 */
-    struct doublyListNode {
+    typedef struct DoublyListNode {
         int val;                     // 节点值
-        struct doublyListNode *next; // 后继节点
-        struct doublyListNode *prev; // 前驱节点
-    };
-
-    typedef struct doublyListNode doublyListNode;
+        struct DoublyListNode *next; // 后继节点
+        struct DoublyListNode *prev; // 前驱节点
+    } DoublyListNode;
 
     /* 构造函数 */
-    doublyListNode *newDoublyListNode(int num) {
-        doublyListNode *new = (doublyListNode *)malloc(sizeof(doublyListNode));
+    DoublyListNode *newDoublyListNode(int num) {
+        DoublyListNode *new = (DoublyListNode *)malloc(sizeof(DoublyListNode));
         new->val = num;
         new->next = NULL;
         new->prev = NULL;
@@ -1703,21 +1701,19 @@ comments: true
     }
 
     /* 析构函数 */
-    void delDoublyListNode(doublyListNode *node) {
+    void delDoublyListNode(DoublyListNode *node) {
         free(node);
     }
 
     /* 基于双向链表实现的双向队列 */
-    struct linkedListDeque {
-        doublyListNode *front, *rear; // 头节点 front ，尾节点 rear
+    typedef struct {
+        DoublyListNode *front, *rear; // 头节点 front ，尾节点 rear
         int queSize;                  // 双向队列的长度
-    };
-
-    typedef struct linkedListDeque linkedListDeque;
+    } LinkedListDeque;
 
     /* 构造函数 */
-    linkedListDeque *newLinkedListDeque() {
-        linkedListDeque *deque = (linkedListDeque *)malloc(sizeof(linkedListDeque));
+    LinkedListDeque *newLinkedListDeque() {
+        LinkedListDeque *deque = (LinkedListDeque *)malloc(sizeof(LinkedListDeque));
         deque->front = NULL;
         deque->rear = NULL;
         deque->queSize = 0;
@@ -1725,10 +1721,10 @@ comments: true
     }
 
     /* 析构函数 */
-    void delLinkedListdeque(linkedListDeque *deque) {
+    void delLinkedListdeque(LinkedListDeque *deque) {
         // 释放所有节点
         for (int i = 0; i < deque->queSize && deque->front != NULL; i++) {
-            doublyListNode *tmp = deque->front;
+            DoublyListNode *tmp = deque->front;
             deque->front = deque->front->next;
             free(tmp);
         }
@@ -1737,18 +1733,18 @@ comments: true
     }
 
     /* 获取队列的长度 */
-    int size(linkedListDeque *deque) {
+    int size(LinkedListDeque *deque) {
         return deque->queSize;
     }
 
     /* 判断队列是否为空 */
-    bool empty(linkedListDeque *deque) {
+    bool empty(LinkedListDeque *deque) {
         return (size(deque) == 0);
     }
 
     /* 入队 */
-    void push(linkedListDeque *deque, int num, bool isFront) {
-        doublyListNode *node = newDoublyListNode(num);
+    void push(LinkedListDeque *deque, int num, bool isFront) {
+        DoublyListNode *node = newDoublyListNode(num);
         // 若链表为空，则令 front, rear 都指向node
         if (empty(deque)) {
             deque->front = deque->rear = node;
@@ -1771,36 +1767,36 @@ comments: true
     }
 
     /* 队首入队 */
-    void pushFirst(linkedListDeque *deque, int num) {
+    void pushFirst(LinkedListDeque *deque, int num) {
         push(deque, num, true);
     }
 
     /* 队尾入队 */
-    void pushLast(linkedListDeque *deque, int num) {
+    void pushLast(LinkedListDeque *deque, int num) {
         push(deque, num, false);
     }
 
     /* 访问队首元素 */
-    int peekFirst(linkedListDeque *deque) {
+    int peekFirst(LinkedListDeque *deque) {
         assert(size(deque) && deque->front);
         return deque->front->val;
     }
 
     /* 访问队尾元素 */
-    int peekLast(linkedListDeque *deque) {
+    int peekLast(LinkedListDeque *deque) {
         assert(size(deque) && deque->rear);
         return deque->rear->val;
     }
 
     /* 出队 */
-    int pop(linkedListDeque *deque, bool isFront) {
+    int pop(LinkedListDeque *deque, bool isFront) {
         if (empty(deque))
             return -1;
         int val;
         // 队首出队操作
         if (isFront) {
             val = peekFirst(deque); // 暂存头节点值
-            doublyListNode *fNext = deque->front->next;
+            DoublyListNode *fNext = deque->front->next;
             if (fNext) {
                 fNext->prev = NULL;
                 deque->front->next = NULL;
@@ -1811,7 +1807,7 @@ comments: true
         // 队尾出队操作
         else {
             val = peekLast(deque); // 暂存尾节点值
-            doublyListNode *rPrev = deque->rear->prev;
+            DoublyListNode *rPrev = deque->rear->prev;
             if (rPrev) {
                 rPrev->next = NULL;
                 deque->rear->prev = NULL;
@@ -1824,21 +1820,21 @@ comments: true
     }
 
     /* 队首出队 */
-    int popFirst(linkedListDeque *deque) {
+    int popFirst(LinkedListDeque *deque) {
         return pop(deque, true);
     }
 
     /* 队尾出队 */
-    int popLast(linkedListDeque *deque) {
+    int popLast(LinkedListDeque *deque) {
         return pop(deque, false);
     }
 
     /* 打印队列 */
-    void printLinkedListDeque(linkedListDeque *deque) {
+    void printLinkedListDeque(LinkedListDeque *deque) {
         int arr[deque->queSize];
         // 拷贝链表中的数据到数组
         int i;
-        doublyListNode *node;
+        DoublyListNode *node;
         for (i = 0, node = deque->front; i < deque->queSize; i++) {
             arr[i] = node->val;
             node = node->next;
@@ -3119,18 +3115,16 @@ comments: true
 
     ```c title="array_deque.c"
     /* 基于环形数组实现的双向队列 */
-    struct arrayDeque {
+    typedef struct {
         int *nums;       // 用于存储队列元素的数组
         int front;       // 队首指针，指向队首元素
         int queSize;     // 尾指针，指向队尾 + 1
         int queCapacity; // 队列容量
-    };
-
-    typedef struct arrayDeque arrayDeque;
+    } ArrayDeque;
 
     /* 构造函数 */
-    arrayDeque *newArrayDeque(int capacity) {
-        arrayDeque *deque = (arrayDeque *)malloc(sizeof(arrayDeque));
+    ArrayDeque *newArrayDeque(int capacity) {
+        ArrayDeque *deque = (ArrayDeque *)malloc(sizeof(ArrayDeque));
         // 初始化数组
         deque->queCapacity = capacity;
         deque->nums = (int *)malloc(sizeof(int) * deque->queCapacity);
@@ -3139,28 +3133,28 @@ comments: true
     }
 
     /* 析构函数 */
-    void delArrayDeque(arrayDeque *deque) {
+    void delArrayDeque(ArrayDeque *deque) {
         free(deque->nums);
         deque->queCapacity = 0;
     }
 
     /* 获取双向队列的容量 */
-    int capacity(arrayDeque *deque) {
+    int capacity(ArrayDeque *deque) {
         return deque->queCapacity;
     }
 
     /* 获取双向队列的长度 */
-    int size(arrayDeque *deque) {
+    int size(ArrayDeque *deque) {
         return deque->queSize;
     }
 
     /* 判断双向队列是否为空 */
-    bool empty(arrayDeque *deque) {
+    bool empty(ArrayDeque *deque) {
         return deque->queSize == 0;
     }
 
     /* 计算环形数组索引 */
-    int dequeIndex(arrayDeque *deque, int i) {
+    int dequeIndex(ArrayDeque *deque, int i) {
         // 通过取余操作实现数组首尾相连
         // 当 i 越过数组尾部时，回到头部
         // 当 i 越过数组头部后，回到尾部
@@ -3168,7 +3162,7 @@ comments: true
     }
 
     /* 队首入队 */
-    void pushFirst(arrayDeque *deque, int num) {
+    void pushFirst(ArrayDeque *deque, int num) {
         if (deque->queSize == capacity(deque)) {
             printf("双向队列已满\r\n");
             return;
@@ -3182,7 +3176,7 @@ comments: true
     }
 
     /* 队尾入队 */
-    void pushLast(arrayDeque *deque, int num) {
+    void pushLast(ArrayDeque *deque, int num) {
         if (deque->queSize == capacity(deque)) {
             printf("双向队列已满\r\n");
             return;
@@ -3195,14 +3189,14 @@ comments: true
     }
 
     /* 访问队首元素 */
-    int peekFirst(arrayDeque *deque) {
+    int peekFirst(ArrayDeque *deque) {
         // 访问异常：双向队列为空
         assert(empty(deque) == 0);
         return deque->nums[deque->front];
     }
 
     /* 访问队尾元素 */
-    int peekLast(arrayDeque *deque) {
+    int peekLast(ArrayDeque *deque) {
         // 访问异常：双向队列为空
         assert(empty(deque) == 0);
         int last = dequeIndex(deque, deque->front + deque->queSize - 1);
@@ -3210,7 +3204,7 @@ comments: true
     }
 
     /* 队首出队 */
-    int popFirst(arrayDeque *deque) {
+    int popFirst(ArrayDeque *deque) {
         int num = peekFirst(deque);
         // 队首指针向后移动一位
         deque->front = dequeIndex(deque, deque->front + 1);
@@ -3219,14 +3213,14 @@ comments: true
     }
 
     /* 队尾出队 */
-    int popLast(arrayDeque *deque) {
+    int popLast(ArrayDeque *deque) {
         int num = peekLast(deque);
         deque->queSize--;
         return num;
     }
 
     /* 打印队列 */
-    void printArrayDeque(arrayDeque *deque) {
+    void printArrayDeque(ArrayDeque *deque) {
         int arr[deque->queSize];
         // 拷贝
         for (int i = 0, j = deque->front; i < deque->queSize; i++, j++) {

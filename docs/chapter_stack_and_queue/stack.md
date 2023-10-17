@@ -937,23 +937,21 @@ comments: true
 
     ```c title="linkedlist_stack.c"
     /* 基于链表实现的栈 */
-    struct linkedListStack {
+    typedef struct {
         ListNode *top; // 将头节点作为栈顶
         int size;      // 栈的长度
-    };
-
-    typedef struct linkedListStack linkedListStack;
+    } LinkedListStack;
 
     /* 构造函数 */
-    linkedListStack *newLinkedListStack() {
-        linkedListStack *s = malloc(sizeof(linkedListStack));
+    LinkedListStack *newLinkedListStack() {
+        LinkedListStack *s = malloc(sizeof(LinkedListStack));
         s->top = NULL;
         s->size = 0;
         return s;
     }
 
     /* 析构函数 */
-    void delLinkedListStack(linkedListStack *s) {
+    void delLinkedListStack(LinkedListStack *s) {
         while (s->top) {
             ListNode *n = s->top->next;
             free(s->top);
@@ -963,26 +961,26 @@ comments: true
     }
 
     /* 获取栈的长度 */
-    int size(linkedListStack *s) {
+    int size(LinkedListStack *s) {
         assert(s);
         return s->size;
     }
 
     /* 判断栈是否为空 */
-    bool isEmpty(linkedListStack *s) {
+    bool isEmpty(LinkedListStack *s) {
         assert(s);
         return size(s) == 0;
     }
 
     /* 访问栈顶元素 */
-    int peek(linkedListStack *s) {
+    int peek(LinkedListStack *s) {
         assert(s);
         assert(size(s) != 0);
         return s->top->val;
     }
 
     /* 入栈 */
-    void push(linkedListStack *s, int num) {
+    void push(LinkedListStack *s, int num) {
         assert(s);
         ListNode *node = (ListNode *)malloc(sizeof(ListNode));
         node->next = s->top; // 更新新加节点指针域
@@ -992,7 +990,7 @@ comments: true
     }
 
     /* 出栈 */
-    int pop(linkedListStack *s) {
+    int pop(LinkedListStack *s) {
         if (s->size == 0) {
             printf("stack is empty.\n");
             return INT_MAX;
@@ -1576,16 +1574,14 @@ comments: true
 
     ```c title="array_stack.c"
     /* 基于数组实现的栈 */
-    struct arrayStack {
+    typedef struct {
         int *data;
         int size;
-    };
-
-    typedef struct arrayStack arrayStack;
+    } ArrayStack;
 
     /* 构造函数 */
-    arrayStack *newArrayStack() {
-        arrayStack *s = malloc(sizeof(arrayStack));
+    ArrayStack *newArrayStack() {
+        ArrayStack *s = malloc(sizeof(ArrayStack));
         // 初始化一个大容量，避免扩容
         s->data = malloc(sizeof(int) * MAX_SIZE);
         s->size = 0;
@@ -1593,17 +1589,17 @@ comments: true
     }
 
     /* 获取栈的长度 */
-    int size(arrayStack *s) {
+    int size(ArrayStack *s) {
         return s->size;
     }
 
     /* 判断栈是否为空 */
-    bool isEmpty(arrayStack *s) {
+    bool isEmpty(ArrayStack *s) {
         return s->size == 0;
     }
 
     /* 入栈 */
-    void push(arrayStack *s, int num) {
+    void push(ArrayStack *s, int num) {
         if (s->size == MAX_SIZE) {
             printf("stack is full.\n");
             return;
@@ -1613,7 +1609,7 @@ comments: true
     }
 
     /* 访问栈顶元素 */
-    int peek(arrayStack *s) {
+    int peek(ArrayStack *s) {
         if (s->size == 0) {
             printf("stack is empty.\n");
             return INT_MAX;
@@ -1622,7 +1618,7 @@ comments: true
     }
 
     /* 出栈 */
-    int pop(arrayStack *s) {
+    int pop(ArrayStack *s) {
         if (s->size == 0) {
             printf("stack is empty.\n");
             return INT_MAX;

@@ -172,9 +172,9 @@ comments: true
 
     ```c title="my_heap.c"
     /* 构造函数，根据切片建堆 */
-    maxHeap *newMaxHeap(int nums[], int size) {
+    MaxHeap *newMaxHeap(int nums[], int size) {
         // 所有元素入堆
-        maxHeap *h = (maxHeap *)malloc(sizeof(maxHeap));
+        MaxHeap *h = (MaxHeap *)malloc(sizeof(MaxHeap));
         h->size = size;
         memcpy(h->data, nums, size * sizeof(int));
         for (int i = parent(h, size - 1); i >= 0; i--) {

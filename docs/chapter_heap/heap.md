@@ -565,17 +565,17 @@ comments: true
 
     ```c title="my_heap.c"
     /* 获取左子节点索引 */
-    int left(maxHeap *h, int i) {
+    int left(MaxHeap *h, int i) {
         return 2 * i + 1;
     }
 
     /* 获取右子节点索引 */
-    int right(maxHeap *h, int i) {
+    int right(MaxHeap *h, int i) {
         return 2 * i + 2;
     }
 
     /* 获取父节点索引 */
-    int parent(maxHeap *h, int i) {
+    int parent(MaxHeap *h, int i) {
         return (i - 1) / 2;
     }
     ```
@@ -697,7 +697,7 @@ comments: true
 
     ```c title="my_heap.c"
     /* 访问堆顶元素 */
-    int peek(maxHeap *h) {
+    int peek(MaxHeap *h) {
         return h->data[0];
     }
     ```
@@ -1026,7 +1026,7 @@ comments: true
 
     ```c title="my_heap.c"
     /* 元素入堆 */
-    void push(maxHeap *h, int val) {
+    void push(MaxHeap *h, int val) {
         // 默认情况下，不应该添加这么多节点
         if (h->size == MAX_SIZE) {
             printf("heap is full!");
@@ -1041,7 +1041,7 @@ comments: true
     }
 
     /* 从节点 i 开始，从底至顶堆化 */
-    void siftUp(maxHeap *h, int i) {
+    void siftUp(MaxHeap *h, int i) {
         while (true) {
             // 获取节点 i 的父节点
             int p = parent(h, i);
@@ -1519,7 +1519,7 @@ comments: true
 
     ```c title="my_heap.c"
     /* 元素出堆 */
-    int pop(maxHeap *h) {
+    int pop(MaxHeap *h) {
         // 判空处理
         if (isEmpty(h)) {
             printf("heap is empty!");
@@ -1538,7 +1538,7 @@ comments: true
     }
 
     /* 从节点 i 开始，从顶至底堆化 */
-    void siftDown(maxHeap *h, int i) {
+    void siftDown(MaxHeap *h, int i) {
         while (true) {
             // 判断节点 i, l, r 中值最大的节点，记为 max
             int l = left(h, i);

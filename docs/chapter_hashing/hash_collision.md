@@ -1150,27 +1150,23 @@ comments: true
 
     ```c title="hash_map_chaining.c"
     /* 链表节点 */
-    struct node {
+    typedef struct Node {
         Pair *pair;
-        struct node *next;
-    };
-
-    typedef struct node Node;
+        struct Node *next;
+    } Node;
 
     /* 链式地址哈希表 */
-    struct hashMapChaining {
+    typedef struct {
         int size;         // 键值对数量
         int capacity;     // 哈希表容量
         double loadThres; // 触发扩容的负载因子阈值
         int extendRatio;  // 扩容倍数
         Node **buckets;   // 桶数组
-    };
-
-    typedef struct hashMapChaining hashMapChaining;
+    } HashMapChaining;
 
     /* 构造方法 */
-    hashMapChaining *initHashMapChaining() {
-        hashMapChaining *hashMap = (hashMapChaining *)malloc(sizeof(hashMapChaining));
+    HashMapChaining *initHashMapChaining() {
+        HashMapChaining *hashMap = (HashMapChaining *)malloc(sizeof(HashMapChaining));
         hashMap->size = 0;
         hashMap->capacity = 4;
         hashMap->loadThres = 2.0 / 3.0;
@@ -1183,7 +1179,7 @@ comments: true
     }
 
     /* 析构方法 */
-    void freeHashMapChaining(hashMapChaining *hashMap) {
+    void freeHashMapChaining(HashMapChaining *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Node *cur = hashMap->buckets[i];
             while (cur) {
@@ -1198,17 +1194,17 @@ comments: true
     }
 
     /* 哈希函数 */
-    int hashFunc(hashMapChaining *hashMap, int key) {
+    int hashFunc(HashMapChaining *hashMap, int key) {
         return key % hashMap->capacity;
     }
 
     /* 负载因子 */
-    double loadFactor(hashMapChaining *hashMap) {
+    double loadFactor(HashMapChaining *hashMap) {
         return (double)hashMap->size / (double)hashMap->capacity;
     }
 
     /* 查询操作 */
-    char *get(hashMapChaining *hashMap, int key) {
+    char *get(HashMapChaining *hashMap, int key) {
         int index = hashFunc(hashMap, key);
         // 遍历桶，若找到 key 则返回对应 val
         Node *cur = hashMap->buckets[index];
@@ -1222,7 +1218,7 @@ comments: true
     }
 
     /* 添加操作 */
-    void put(hashMapChaining *hashMap, int key, const char *val) {
+    void put(HashMapChaining *hashMap, int key, const char *val) {
         // 当负载因子超过阈值时，执行扩容
         if (loadFactor(hashMap) > hashMap->loadThres) {
             extend(hashMap);
@@ -1249,7 +1245,7 @@ comments: true
     }
 
     /* 扩容哈希表 */
-    void extend(hashMapChaining *hashMap) {
+    void extend(HashMapChaining *hashMap) {
         // 暂存原哈希表
         int oldCapacity = hashMap->capacity;
         Node **oldBuckets = hashMap->buckets;
@@ -1277,7 +1273,7 @@ comments: true
     }
 
     /* 删除操作 */
-    void removeKey(hashMapChaining *hashMap, int key) {
+    void removeKey(HashMapChaining *hashMap, int key) {
         int index = hashFunc(hashMap, key);
         Node *cur = hashMap->buckets[index];
         Node *pre = NULL;
@@ -1301,7 +1297,7 @@ comments: true
     }
 
     /* 打印哈希表 */
-    void print(hashMapChaining *hashMap) {
+    void print(HashMapChaining *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Node *cur = hashMap->buckets[i];
             printf("[");
@@ -2647,20 +2643,18 @@ comments: true
 
     ```c title="hash_map_open_addressing.c"
     /* 开放寻址哈希表 */
-    struct hashMapOpenAddressing {
+    typedef struct {
         int size;         // 键值对数量
         int capacity;     // 哈希表容量
         double loadThres; // 触发扩容的负载因子阈值
         int extendRatio;  // 扩容倍数
         Pair **buckets;   // 桶数组
         Pair *TOMBSTONE;  // 删除标记
-    };
-
-    typedef struct hashMapOpenAddressing hashMapOpenAddressing;
+    } HashMapOpenAddressing;
 
     /* 构造方法 */
-    hashMapOpenAddressing *newHashMapOpenAddressing() {
-        hashMapOpenAddressing *hashMap = (hashMapOpenAddressing *)malloc(sizeof(hashMapOpenAddressing));
+    HashMapOpenAddressing *newHashMapOpenAddressing() {
+        HashMapOpenAddressing *hashMap = (HashMapOpenAddressing *)malloc(sizeof(HashMapOpenAddressing));
         hashMap->size = 0;
         hashMap->capacity = 4;
         hashMap->loadThres = 2.0 / 3.0;
@@ -2674,7 +2668,7 @@ comments: true
     }
 
     /* 析构方法 */
-    void delHashMapOpenAddressing(hashMapOpenAddressing *hashMap) {
+    void delHashMapOpenAddressing(HashMapOpenAddressing *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Pair *pair = hashMap->buckets[i];
             if (pair != NULL && pair != hashMap->TOMBSTONE) {
@@ -2685,17 +2679,17 @@ comments: true
     }
 
     /* 哈希函数 */
-    int hashFunc(hashMapOpenAddressing *hashMap, int key) {
+    int hashFunc(HashMapOpenAddressing *hashMap, int key) {
         return key % hashMap->capacity;
     }
 
     /* 负载因子 */
-    double loadFactor(hashMapOpenAddressing *hashMap) {
+    double loadFactor(HashMapOpenAddressing *hashMap) {
         return (double)hashMap->size / (double)hashMap->capacity;
     }
 
     /* 搜索 key 对应的桶索引 */
-    int findBucket(hashMapOpenAddressing *hashMap, int key) {
+    int findBucket(HashMapOpenAddressing *hashMap, int key) {
         int index = hashFunc(hashMap, key);
         int firstTombstone = -1;
         // 线性探测，当遇到空桶时跳出
@@ -2722,7 +2716,7 @@ comments: true
     }
 
     /* 查询操作 */
-    char *get(hashMapOpenAddressing *hashMap, int key) {
+    char *get(HashMapOpenAddressing *hashMap, int key) {
         // 搜索 key 对应的桶索引
         int index = findBucket(hashMap, key);
         // 若找到键值对，则返回对应 val
@@ -2734,7 +2728,7 @@ comments: true
     }
 
     /* 添加操作 */
-    void put(hashMapOpenAddressing *hashMap, int key, char *val) {
+    void put(HashMapOpenAddressing *hashMap, int key, char *val) {
         // 当负载因子超过阈值时，执行扩容
         if (loadFactor(hashMap) > hashMap->loadThres) {
             extend(hashMap);
@@ -2761,7 +2755,7 @@ comments: true
     }
 
     /* 删除操作 */
-    void removeItem(hashMapOpenAddressing *hashMap, int key) {
+    void removeItem(HashMapOpenAddressing *hashMap, int key) {
         // 搜索 key 对应的桶索引
         int index = findBucket(hashMap, key);
         // 若找到键值对，则用删除标记覆盖它
@@ -2775,7 +2769,7 @@ comments: true
     }
 
     /* 扩容哈希表 */
-    void extend(hashMapOpenAddressing *hashMap) {
+    void extend(HashMapOpenAddressing *hashMap) {
         // 暂存原哈希表
         Pair **bucketsTmp = hashMap->buckets;
         int oldCapacity = hashMap->capacity;
@@ -2796,7 +2790,7 @@ comments: true
     }
 
     /* 打印哈希表 */
-    void print(hashMapOpenAddressing *hashMap) {
+    void print(HashMapOpenAddressing *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Pair *pair = hashMap->buckets[i];
             if (pair == NULL) {
@@ -2820,7 +2814,7 @@ comments: true
 
 平方探测与线性探测类似，都是开放寻址的常见策略之一。当发生冲突时，平方探测不是简单地跳过一个固定的步数，而是跳过“探测次数的平方”的步数，即 $1, 4, 9, \dots$ 步。
 
-平方探测通主要具有以下优势。
+平方探测主要具有以下优势。
 
 - 平方探测通过跳过平方的距离，试图缓解线性探测的聚集效应。
 - 平方探测会跳过更大的距离来寻找空位置，有助于数据分布得更加均匀。

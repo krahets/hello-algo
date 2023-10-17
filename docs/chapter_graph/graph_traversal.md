@@ -344,21 +344,21 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
     ```c title="graph_bfs.c"
     /* 广度优先遍历 */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-    Vertex **graphBFS(graphAdjList *t, Vertex *startVet) {
+    Vertex **graphBFS(GraphAdjList *t, Vertex *startVet) {
         // 顶点遍历序列
         Vertex **res = (Vertex **)malloc(sizeof(Vertex *) * t->size);
         memset(res, 0, sizeof(Vertex *) * t->size);
         // 队列用于实现 BFS
-        queue *que = newQueue(t->size);
+        Queue *que = newQueue(t->size);
         // 哈希表，用于记录已被访问过的顶点
-        hashTable *visited = newHash(t->size);
+        HashTable *visited = newHash(t->size);
         int resIndex = 0;
         queuePush(que, startVet);         // 将第一个元素入队
         hashMark(visited, startVet->pos); // 标记第一个入队的顶点
         // 以顶点 vet 为起点，循环直至访问完所有顶点
         while (que->head < que->tail) {
             // 遍历该顶点的边链表，将所有与该顶点有连接的，并且未被标记的顶点入队
-            Node *n = queueTop(que)->linked->head->next;
+            Node *n = queueTop(que)->list->head->next;
             while (n != 0) {
                 // 查询哈希表，若该索引的顶点已入队，则跳过，否则入队并标记
                 if (hashQuery(visited, n->val->pos) == 1) {
@@ -751,7 +751,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
     ```c title="graph_dfs.c"
     /* 深度优先遍历 DFS 辅助函数 */
     int resIndex = 0;
-    void dfs(graphAdjList *graph, hashTable *visited, Vertex *vet, Vertex **res) {
+    void dfs(GraphAdjList *graph, HashTable *visited, Vertex *vet, Vertex **res) {
         if (hashQuery(visited, vet->pos) == 1) {
             return; // 跳过已被访问过的顶点
         }
@@ -759,7 +759,7 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
         res[resIndex] = vet;         // 将顶点存入数组
         resIndex++;
         // 遍历该顶点链表
-        Node *n = vet->linked->head->next;
+        Node *n = vet->list->head->next;
         while (n != 0) {
             // 递归访问邻接顶点
             dfs(graph, visited, n->val, res);
@@ -770,12 +770,12 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 
     /* 深度优先遍历 DFS */
     // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-    Vertex **graphDFS(graphAdjList *graph, Vertex *startVet) {
+    Vertex **graphDFS(GraphAdjList *graph, Vertex *startVet) {
         // 顶点遍历序列
         Vertex **res = (Vertex **)malloc(sizeof(Vertex *) * graph->size);
         memset(res, 0, sizeof(Vertex *) * graph->size);
         // 哈希表，用于记录已被访问过的顶点
-        hashTable *visited = newHash(graph->size);
+        HashTable *visited = newHash(graph->size);
         dfs(graph, visited, startVet, res);
         // 释放哈希表内存并将数组索引归零
         freeHash(visited);
