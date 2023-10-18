@@ -15,77 +15,9 @@
 
 当遇到以上两种情况时，直接返回 $-1$ 即可。
 
-=== "Python"
-
-    ```python title="binary_search_edge.py"
-    [class]{}-[func]{binary_search_left_edge}
-    ```
-
-=== "C++"
-
-    ```cpp title="binary_search_edge.cpp"
-    [class]{}-[func]{binarySearchLeftEdge}
-    ```
-
-=== "Java"
-
-    ```java title="binary_search_edge.java"
-    [class]{binary_search_edge}-[func]{binarySearchLeftEdge}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_edge.cs"
-    [class]{binary_search_edge}-[func]{BinarySearchLeftEdge}
-    ```
-
-=== "Go"
-
-    ```go title="binary_search_edge.go"
-    [class]{}-[func]{binarySearchLeftEdge}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_edge.swift"
-    [class]{}-[func]{binarySearchLeftEdge}
-    ```
-
-=== "JS"
-
-    ```javascript title="binary_search_edge.js"
-    [class]{}-[func]{binarySearchLeftEdge}
-    ```
-
-=== "TS"
-
-    ```typescript title="binary_search_edge.ts"
-    [class]{}-[func]{binarySearchLeftEdge}
-    ```
-
-=== "Dart"
-
-    ```dart title="binary_search_edge.dart"
-    [class]{}-[func]{binarySearchLeftEdge}
-    ```
-
-=== "Rust"
-
-    ```rust title="binary_search_edge.rs"
-    [class]{}-[func]{binary_search_left_edge}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_edge.c"
-    [class]{}-[func]{binarySearchLeftEdge}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_edge.zig"
-    [class]{}-[func]{binarySearchLeftEdge}
-    ```
+```src
+[file]{binary_search_edge}-[class]{}-[func]{binary_search_left_edge}
+```
 
 ## 查找右边界
 
@@ -103,77 +35,9 @@
 
 请注意，返回的插入点是 $i$ ，因此需要将其减 $1$ ，从而获得 $j$ 。
 
-=== "Python"
-
-    ```python title="binary_search_edge.py"
-    [class]{}-[func]{binary_search_right_edge}
-    ```
-
-=== "C++"
-
-    ```cpp title="binary_search_edge.cpp"
-    [class]{}-[func]{binarySearchRightEdge}
-    ```
-
-=== "Java"
-
-    ```java title="binary_search_edge.java"
-    [class]{binary_search_edge}-[func]{binarySearchRightEdge}
-    ```
-
-=== "C#"
-
-    ```csharp title="binary_search_edge.cs"
-    [class]{binary_search_edge}-[func]{BinarySearchRightEdge}
-    ```
-
-=== "Go"
-
-    ```go title="binary_search_edge.go"
-    [class]{}-[func]{binarySearchRightEdge}
-    ```
-
-=== "Swift"
-
-    ```swift title="binary_search_edge.swift"
-    [class]{}-[func]{binarySearchRightEdge}
-    ```
-
-=== "JS"
-
-    ```javascript title="binary_search_edge.js"
-    [class]{}-[func]{binarySearchRightEdge}
-    ```
-
-=== "TS"
-
-    ```typescript title="binary_search_edge.ts"
-    [class]{}-[func]{binarySearchRightEdge}
-    ```
-
-=== "Dart"
-
-    ```dart title="binary_search_edge.dart"
-    [class]{}-[func]{binarySearchRightEdge}
-    ```
-
-=== "Rust"
-
-    ```rust title="binary_search_edge.rs"
-    [class]{}-[func]{binary_search_right_edge}
-    ```
-
-=== "C"
-
-    ```c title="binary_search_edge.c"
-    [class]{}-[func]{binarySearchRightEdge}
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_search_edge.zig"
-    [class]{}-[func]{binarySearchRightEdge}
-    ```
+```src
+[file]{binary_search_edge}-[class]{}-[func]{binary_search_right_edge}
+```
 
 ### 转化为查找元素
 

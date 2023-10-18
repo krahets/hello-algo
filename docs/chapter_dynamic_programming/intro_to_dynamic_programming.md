@@ -14,101 +14,9 @@
 
 本题的目标是求解方案数量，**我们可以考虑通过回溯来穷举所有可能性**。具体来说，将爬楼梯想象为一个多轮选择的过程：从地面出发，每轮选择上 $1$ 阶或 $2$ 阶，每当到达楼梯顶部时就将方案数量加 $1$ ，当越过楼梯顶部时就将其剪枝。
 
-=== "Python"
-
-    ```python title="climbing_stairs_backtrack.py"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{climbing_stairs_backtrack}
-    ```
-
-=== "C++"
-
-    ```cpp title="climbing_stairs_backtrack.cpp"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{climbingStairsBacktrack}
-    ```
-
-=== "Java"
-
-    ```java title="climbing_stairs_backtrack.java"
-    [class]{climbing_stairs_backtrack}-[func]{backtrack}
-
-    [class]{climbing_stairs_backtrack}-[func]{climbingStairsBacktrack}
-    ```
-
-=== "C#"
-
-    ```csharp title="climbing_stairs_backtrack.cs"
-    [class]{climbing_stairs_backtrack}-[func]{Backtrack}
-
-    [class]{climbing_stairs_backtrack}-[func]{ClimbingStairsBacktrack}
-    ```
-
-=== "Go"
-
-    ```go title="climbing_stairs_backtrack.go"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{climbingStairsBacktrack}
-    ```
-
-=== "Swift"
-
-    ```swift title="climbing_stairs_backtrack.swift"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{climbingStairsBacktrack}
-    ```
-
-=== "JS"
-
-    ```javascript title="climbing_stairs_backtrack.js"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{climbingStairsBacktrack}
-    ```
-
-=== "TS"
-
-    ```typescript title="climbing_stairs_backtrack.ts"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{climbingStairsBacktrack}
-    ```
-
-=== "Dart"
-
-    ```dart title="climbing_stairs_backtrack.dart"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{climbingStairsBacktrack}
-    ```
-
-=== "Rust"
-
-    ```rust title="climbing_stairs_backtrack.rs"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{climbing_stairs_backtrack}
-    ```
-
-=== "C"
-
-    ```c title="climbing_stairs_backtrack.c"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{climbingStairsBacktrack}
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_backtrack.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{climbingStairsBacktrack}
-    ```
+```src
+[file]{climbing_stairs_backtrack}-[class]{}-[func]{climbing_stairs_backtrack}
+```
 
 ## 方法一：暴力搜索
 
@@ -136,101 +44,9 @@ $$
 
 观察以下代码，它和标准回溯代码都属于深度优先搜索，但更加简洁。
 
-=== "Python"
-
-    ```python title="climbing_stairs_dfs.py"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbing_stairs_dfs}
-    ```
-
-=== "C++"
-
-    ```cpp title="climbing_stairs_dfs.cpp"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFS}
-    ```
-
-=== "Java"
-
-    ```java title="climbing_stairs_dfs.java"
-    [class]{climbing_stairs_dfs}-[func]{dfs}
-
-    [class]{climbing_stairs_dfs}-[func]{climbingStairsDFS}
-    ```
-
-=== "C#"
-
-    ```csharp title="climbing_stairs_dfs.cs"
-    [class]{climbing_stairs_dfs}-[func]{DFS}
-
-    [class]{climbing_stairs_dfs}-[func]{ClimbingStairsDFS}
-    ```
-
-=== "Go"
-
-    ```go title="climbing_stairs_dfs.go"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFS}
-    ```
-
-=== "Swift"
-
-    ```swift title="climbing_stairs_dfs.swift"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFS}
-    ```
-
-=== "JS"
-
-    ```javascript title="climbing_stairs_dfs.js"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFS}
-    ```
-
-=== "TS"
-
-    ```typescript title="climbing_stairs_dfs.ts"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFS}
-    ```
-
-=== "Dart"
-
-    ```dart title="climbing_stairs_dfs.dart"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFS}
-    ```
-
-=== "Rust"
-
-    ```rust title="climbing_stairs_dfs.rs"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbing_stairs_dfs}
-    ```
-
-=== "C"
-
-    ```c title="climbing_stairs_dfs.c"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFS}
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_dfs.zig"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFS}
-    ```
+```src
+[file]{climbing_stairs_dfs}-[class]{}-[func]{climbing_stairs_dfs}
+```
 
 下图展示了暴力搜索形成的递归树。对于问题 $dp[n]$ ，其递归树的深度为 $n$ ，时间复杂度为 $O(2^n)$ 。指数阶属于爆炸式增长，如果我们输入一个比较大的 $n$ ，则会陷入漫长的等待之中。
 
@@ -247,101 +63,9 @@ $$
 1. 当首次计算 $dp[i]$ 时，我们将其记录至 `mem[i]` ，以便之后使用。
 2. 当再次需要计算 $dp[i]$ 时，我们便可直接从 `mem[i]` 中获取结果，从而避免重复计算该子问题。
 
-=== "Python"
-
-    ```python title="climbing_stairs_dfs_mem.py"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbing_stairs_dfs_mem}
-    ```
-
-=== "C++"
-
-    ```cpp title="climbing_stairs_dfs_mem.cpp"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFSMem}
-    ```
-
-=== "Java"
-
-    ```java title="climbing_stairs_dfs_mem.java"
-    [class]{climbing_stairs_dfs_mem}-[func]{dfs}
-
-    [class]{climbing_stairs_dfs_mem}-[func]{climbingStairsDFSMem}
-    ```
-
-=== "C#"
-
-    ```csharp title="climbing_stairs_dfs_mem.cs"
-    [class]{climbing_stairs_dfs_mem}-[func]{DFS}
-
-    [class]{climbing_stairs_dfs_mem}-[func]{ClimbingStairsDFSMem}
-    ```
-
-=== "Go"
-
-    ```go title="climbing_stairs_dfs_mem.go"
-    [class]{}-[func]{dfsMem}
-
-    [class]{}-[func]{climbingStairsDFSMem}
-    ```
-
-=== "Swift"
-
-    ```swift title="climbing_stairs_dfs_mem.swift"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFSMem}
-    ```
-
-=== "JS"
-
-    ```javascript title="climbing_stairs_dfs_mem.js"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFSMem}
-    ```
-
-=== "TS"
-
-    ```typescript title="climbing_stairs_dfs_mem.ts"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFSMem}
-    ```
-
-=== "Dart"
-
-    ```dart title="climbing_stairs_dfs_mem.dart"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFSMem}
-    ```
-
-=== "Rust"
-
-    ```rust title="climbing_stairs_dfs_mem.rs"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbing_stairs_dfs_mem}
-    ```
-
-=== "C"
-
-    ```c title="climbing_stairs_dfs_mem.c"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFSMem}
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_dfs_mem.zig"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{climbingStairsDFSMem}
-    ```
+```src
+[file]{climbing_stairs_dfs_mem}-[class]{}-[func]{climbing_stairs_dfs_mem}
+```
 
 观察下图，**经过记忆化处理后，所有重叠子问题都只需被计算一次，时间复杂度被优化至 $O(n)$** ，这是一个巨大的飞跃。
 
@@ -355,77 +79,9 @@ $$
 
 由于动态规划不包含回溯过程，因此只需使用循环迭代实现，无须使用递归。在以下代码中，我们初始化一个数组 `dp` 来存储子问题的解，它起到了记忆化搜索中数组 `mem` 相同的记录作用。
 
-=== "Python"
-
-    ```python title="climbing_stairs_dp.py"
-    [class]{}-[func]{climbing_stairs_dp}
-    ```
-
-=== "C++"
-
-    ```cpp title="climbing_stairs_dp.cpp"
-    [class]{}-[func]{climbingStairsDP}
-    ```
-
-=== "Java"
-
-    ```java title="climbing_stairs_dp.java"
-    [class]{climbing_stairs_dp}-[func]{climbingStairsDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="climbing_stairs_dp.cs"
-    [class]{climbing_stairs_dp}-[func]{ClimbingStairsDP}
-    ```
-
-=== "Go"
-
-    ```go title="climbing_stairs_dp.go"
-    [class]{}-[func]{climbingStairsDP}
-    ```
-
-=== "Swift"
-
-    ```swift title="climbing_stairs_dp.swift"
-    [class]{}-[func]{climbingStairsDP}
-    ```
-
-=== "JS"
-
-    ```javascript title="climbing_stairs_dp.js"
-    [class]{}-[func]{climbingStairsDP}
-    ```
-
-=== "TS"
-
-    ```typescript title="climbing_stairs_dp.ts"
-    [class]{}-[func]{climbingStairsDP}
-    ```
-
-=== "Dart"
-
-    ```dart title="climbing_stairs_dp.dart"
-    [class]{}-[func]{climbingStairsDP}
-    ```
-
-=== "Rust"
-
-    ```rust title="climbing_stairs_dp.rs"
-    [class]{}-[func]{climbing_stairs_dp}
-    ```
-
-=== "C"
-
-    ```c title="climbing_stairs_dp.c"
-    [class]{}-[func]{climbingStairsDP}
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_dp.zig"
-    [class]{}-[func]{climbingStairsDP}
-    ```
+```src
+[file]{climbing_stairs_dp}-[class]{}-[func]{climbing_stairs_dp}
+```
 
 下图模拟了以上代码的执行过程。
 
@@ -443,77 +99,9 @@ $$
 
 细心的你可能发现，**由于 $dp[i]$ 只与 $dp[i-1]$ 和 $dp[i-2]$ 有关，因此我们无须使用一个数组 `dp` 来存储所有子问题的解**，而只需两个变量滚动前进即可。
 
-=== "Python"
-
-    ```python title="climbing_stairs_dp.py"
-    [class]{}-[func]{climbing_stairs_dp_comp}
-    ```
-
-=== "C++"
-
-    ```cpp title="climbing_stairs_dp.cpp"
-    [class]{}-[func]{climbingStairsDPComp}
-    ```
-
-=== "Java"
-
-    ```java title="climbing_stairs_dp.java"
-    [class]{climbing_stairs_dp}-[func]{climbingStairsDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="climbing_stairs_dp.cs"
-    [class]{climbing_stairs_dp}-[func]{ClimbingStairsDPComp}
-    ```
-
-=== "Go"
-
-    ```go title="climbing_stairs_dp.go"
-    [class]{}-[func]{climbingStairsDPComp}
-    ```
-
-=== "Swift"
-
-    ```swift title="climbing_stairs_dp.swift"
-    [class]{}-[func]{climbingStairsDPComp}
-    ```
-
-=== "JS"
-
-    ```javascript title="climbing_stairs_dp.js"
-    [class]{}-[func]{climbingStairsDPComp}
-    ```
-
-=== "TS"
-
-    ```typescript title="climbing_stairs_dp.ts"
-    [class]{}-[func]{climbingStairsDPComp}
-    ```
-
-=== "Dart"
-
-    ```dart title="climbing_stairs_dp.dart"
-    [class]{}-[func]{climbingStairsDPComp}
-    ```
-
-=== "Rust"
-
-    ```rust title="climbing_stairs_dp.rs"
-    [class]{}-[func]{climbing_stairs_dp_comp}
-    ```
-
-=== "C"
-
-    ```c title="climbing_stairs_dp.c"
-    [class]{}-[func]{climbingStairsDPComp}
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_dp.zig"
-    [class]{}-[func]{climbingStairsDPComp}
-    ```
+```src
+[file]{climbing_stairs_dp}-[class]{}-[func]{climbing_stairs_dp_comp}
+```
 
 观察以上代码，由于省去了数组 `dp` 占用的空间，因此空间复杂度从 $O(n)$ 降低至 $O(1)$ 。
 

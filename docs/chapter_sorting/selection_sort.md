@@ -45,77 +45,9 @@
 
 在代码中，我们用 $k$ 来记录未排序区间内的最小元素。
 
-=== "Python"
-
-    ```python title="selection_sort.py"
-    [class]{}-[func]{selection_sort}
-    ```
-
-=== "C++"
-
-    ```cpp title="selection_sort.cpp"
-    [class]{}-[func]{selectionSort}
-    ```
-
-=== "Java"
-
-    ```java title="selection_sort.java"
-    [class]{selection_sort}-[func]{selectionSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="selection_sort.cs"
-    [class]{selection_sort}-[func]{SelectionSort}
-    ```
-
-=== "Go"
-
-    ```go title="selection_sort.go"
-    [class]{}-[func]{selectionSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="selection_sort.swift"
-    [class]{}-[func]{selectionSort}
-    ```
-
-=== "JS"
-
-    ```javascript title="selection_sort.js"
-    [class]{}-[func]{selectionSort}
-    ```
-
-=== "TS"
-
-    ```typescript title="selection_sort.ts"
-    [class]{}-[func]{selectionSort}
-    ```
-
-=== "Dart"
-
-    ```dart title="selection_sort.dart"
-    [class]{}-[func]{selectionSort}
-    ```
-
-=== "Rust"
-
-    ```rust title="selection_sort.rs"
-    [class]{}-[func]{selection_sort}
-    ```
-
-=== "C"
-
-    ```c title="selection_sort.c"
-    [class]{}-[func]{selectionSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="selection_sort.zig"
-    [class]{}-[func]{selectionSort}
-    ```
+```src
+[file]{selection_sort}-[class]{}-[func]{selection_sort}
+```
 
 ## 算法特性
 

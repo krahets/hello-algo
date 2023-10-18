@@ -31,79 +31,9 @@
 - 使用列表（动态数组）代替链表，从而简化代码。在这种设定下，哈希表（数组）包含多个桶，每个桶都是一个列表。
 - 以下实现包含哈希表扩容方法。当负载因子超过 $\frac{2}{3}$ 时，我们将哈希表扩容至 $2$ 倍。
 
-=== "Python"
-
-    ```python title="hash_map_chaining.py"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="hash_map_chaining.cpp"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="hash_map_chaining.java"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="hash_map_chaining.cs"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="hash_map_chaining.go"
-    [class]{hashMapChaining}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="hash_map_chaining.swift"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="hash_map_chaining.js"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="hash_map_chaining.ts"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="hash_map_chaining.dart"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="hash_map_chaining.rs"
-    [class]{HashMapChaining}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="hash_map_chaining.c"
-    [class]{node}-[func]{}
-
-    [class]{hashMapChaining}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map_chaining.zig"
-    [class]{HashMapChaining}-[func]{}
-    ```
+```src
+[file]{hash_map_chaining}-[class]{hash_map_chaining}-[func]{}
+```
 
 值得注意的是，当链表很长时，查询效率 $O(n)$ 很差。**此时可以将链表转换为“AVL 树”或“红黑树”**，从而将查询操作的时间复杂度优化至 $O(\log n)$ 。
 
@@ -138,77 +68,9 @@
 
 以下代码实现了一个包含懒删除的开放寻址（线性探测）哈希表。为了更加充分地使用哈希表的空间，我们将哈希表看作是一个“环形数组”，当越过数组尾部时，回到头部继续遍历。
 
-=== "Python"
-
-    ```python title="hash_map_open_addressing.py"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="hash_map_open_addressing.cpp"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="hash_map_open_addressing.java"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="hash_map_open_addressing.cs"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="hash_map_open_addressing.go"
-    [class]{hashMapOpenAddressing}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="hash_map_open_addressing.swift"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="hash_map_open_addressing.js"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="hash_map_open_addressing.ts"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="hash_map_open_addressing.dart"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="hash_map_open_addressing.rs"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="hash_map_open_addressing.c"
-    [class]{hashMapOpenAddressing}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="hash_map_open_addressing.zig"
-    [class]{HashMapOpenAddressing}-[func]{}
-    ```
+```src
+[file]{hash_map_open_addressing}-[class]{hash_map_open_addressing}-[func]{}
+```
 
 ### 平方探测
 

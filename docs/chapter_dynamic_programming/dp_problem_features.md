@@ -34,77 +34,9 @@ $$
 
 根据状态转移方程，以及初始状态 $dp[1] = cost[1]$ 和 $dp[2] = cost[2]$ ，我们就可以得到动态规划代码。
 
-=== "Python"
-
-    ```python title="min_cost_climbing_stairs_dp.py"
-    [class]{}-[func]{min_cost_climbing_stairs_dp}
-    ```
-
-=== "C++"
-
-    ```cpp title="min_cost_climbing_stairs_dp.cpp"
-    [class]{}-[func]{minCostClimbingStairsDP}
-    ```
-
-=== "Java"
-
-    ```java title="min_cost_climbing_stairs_dp.java"
-    [class]{min_cost_climbing_stairs_dp}-[func]{minCostClimbingStairsDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="min_cost_climbing_stairs_dp.cs"
-    [class]{min_cost_climbing_stairs_dp}-[func]{MinCostClimbingStairsDP}
-    ```
-
-=== "Go"
-
-    ```go title="min_cost_climbing_stairs_dp.go"
-    [class]{}-[func]{minCostClimbingStairsDP}
-    ```
-
-=== "Swift"
-
-    ```swift title="min_cost_climbing_stairs_dp.swift"
-    [class]{}-[func]{minCostClimbingStairsDP}
-    ```
-
-=== "JS"
-
-    ```javascript title="min_cost_climbing_stairs_dp.js"
-    [class]{}-[func]{minCostClimbingStairsDP}
-    ```
-
-=== "TS"
-
-    ```typescript title="min_cost_climbing_stairs_dp.ts"
-    [class]{}-[func]{minCostClimbingStairsDP}
-    ```
-
-=== "Dart"
-
-    ```dart title="min_cost_climbing_stairs_dp.dart"
-    [class]{}-[func]{minCostClimbingStairsDP}
-    ```
-
-=== "Rust"
-
-    ```rust title="min_cost_climbing_stairs_dp.rs"
-    [class]{}-[func]{min_cost_climbing_stairs_dp}
-    ```
-
-=== "C"
-
-    ```c title="min_cost_climbing_stairs_dp.c"
-    [class]{}-[func]{minCostClimbingStairsDP}
-    ```
-
-=== "Zig"
-
-    ```zig title="min_cost_climbing_stairs_dp.zig"
-    [class]{}-[func]{minCostClimbingStairsDP}
-    ```
+```src
+[file]{min_cost_climbing_stairs_dp}-[class]{}-[func]{min_cost_climbing_stairs_dp}
+```
 
 下图展示了以上代码的动态规划过程。
 
@@ -112,77 +44,9 @@ $$
 
 本题也可以进行空间优化，将一维压缩至零维，使得空间复杂度从 $O(n)$ 降低至 $O(1)$ 。
 
-=== "Python"
-
-    ```python title="min_cost_climbing_stairs_dp.py"
-    [class]{}-[func]{min_cost_climbing_stairs_dp_comp}
-    ```
-
-=== "C++"
-
-    ```cpp title="min_cost_climbing_stairs_dp.cpp"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
-    ```
-
-=== "Java"
-
-    ```java title="min_cost_climbing_stairs_dp.java"
-    [class]{min_cost_climbing_stairs_dp}-[func]{minCostClimbingStairsDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="min_cost_climbing_stairs_dp.cs"
-    [class]{min_cost_climbing_stairs_dp}-[func]{MinCostClimbingStairsDPComp}
-    ```
-
-=== "Go"
-
-    ```go title="min_cost_climbing_stairs_dp.go"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
-    ```
-
-=== "Swift"
-
-    ```swift title="min_cost_climbing_stairs_dp.swift"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
-    ```
-
-=== "JS"
-
-    ```javascript title="min_cost_climbing_stairs_dp.js"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
-    ```
-
-=== "TS"
-
-    ```typescript title="min_cost_climbing_stairs_dp.ts"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
-    ```
-
-=== "Dart"
-
-    ```dart title="min_cost_climbing_stairs_dp.dart"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
-    ```
-
-=== "Rust"
-
-    ```rust title="min_cost_climbing_stairs_dp.rs"
-    [class]{}-[func]{min_cost_climbing_stairs_dp_comp}
-    ```
-
-=== "C"
-
-    ```c title="min_cost_climbing_stairs_dp.c"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
-    ```
-
-=== "Zig"
-
-    ```zig title="min_cost_climbing_stairs_dp.zig"
-    [class]{}-[func]{minCostClimbingStairsDPComp}
-    ```
+```src
+[file]{min_cost_climbing_stairs_dp}-[class]{}-[func]{min_cost_climbing_stairs_dp_comp}
+```
 
 ## 无后效性
 
@@ -222,77 +86,9 @@ $$
 
 最终，返回 $dp[n, 1] + dp[n, 2]$ 即可，两者之和代表爬到第 $n$ 阶的方案总数。
 
-=== "Python"
-
-    ```python title="climbing_stairs_constraint_dp.py"
-    [class]{}-[func]{climbing_stairs_constraint_dp}
-    ```
-
-=== "C++"
-
-    ```cpp title="climbing_stairs_constraint_dp.cpp"
-    [class]{}-[func]{climbingStairsConstraintDP}
-    ```
-
-=== "Java"
-
-    ```java title="climbing_stairs_constraint_dp.java"
-    [class]{climbing_stairs_constraint_dp}-[func]{climbingStairsConstraintDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="climbing_stairs_constraint_dp.cs"
-    [class]{climbing_stairs_constraint_dp}-[func]{ClimbingStairsConstraintDP}
-    ```
-
-=== "Go"
-
-    ```go title="climbing_stairs_constraint_dp.go"
-    [class]{}-[func]{climbingStairsConstraintDP}
-    ```
-
-=== "Swift"
-
-    ```swift title="climbing_stairs_constraint_dp.swift"
-    [class]{}-[func]{climbingStairsConstraintDP}
-    ```
-
-=== "JS"
-
-    ```javascript title="climbing_stairs_constraint_dp.js"
-    [class]{}-[func]{climbingStairsConstraintDP}
-    ```
-
-=== "TS"
-
-    ```typescript title="climbing_stairs_constraint_dp.ts"
-    [class]{}-[func]{climbingStairsConstraintDP}
-    ```
-
-=== "Dart"
-
-    ```dart title="climbing_stairs_constraint_dp.dart"
-    [class]{}-[func]{climbingStairsConstraintDP}
-    ```
-
-=== "Rust"
-
-    ```rust title="climbing_stairs_constraint_dp.rs"
-    [class]{}-[func]{climbing_stairs_constraint_dp}
-    ```
-
-=== "C"
-
-    ```c title="climbing_stairs_constraint_dp.c"
-    [class]{}-[func]{climbingStairsConstraintDP}
-    ```
-
-=== "Zig"
-
-    ```zig title="climbing_stairs_constraint_dp.zig"
-    [class]{}-[func]{climbingStairsConstraintDP}
-    ```
+```src
+[file]{climbing_stairs_constraint_dp}-[class]{}-[func]{climbing_stairs_constraint_dp}
+```
 
 在上面的案例中，由于仅需多考虑前面一个状态，我们仍然可以通过扩展状态定义，使得问题重新满足无后效性。然而，某些问题具有非常严重的“有后效性”。
 

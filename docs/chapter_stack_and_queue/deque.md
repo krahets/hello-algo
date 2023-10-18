@@ -371,99 +371,9 @@
 
 实现代码如下所示。
 
-=== "Python"
-
-    ```python title="linkedlist_deque.py"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="linkedlist_deque.cpp"
-    [class]{DoublyListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="linkedlist_deque.java"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="linkedlist_deque.cs"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="linkedlist_deque.go"
-    [class]{linkedListDeque}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="linkedlist_deque.swift"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="linkedlist_deque.js"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="linkedlist_deque.ts"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="linkedlist_deque.dart"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="linkedlist_deque.rs"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="linkedlist_deque.c"
-    [class]{doublyListNode}-[func]{}
-
-    [class]{linkedListDeque}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="linkedlist_deque.zig"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
+```src
+[file]{linkedlist_deque}-[class]{linked_list_deque}-[func]{}
+```
 
 ### 基于数组的实现
 
@@ -486,77 +396,9 @@
 
 在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法。
 
-=== "Python"
-
-    ```python title="array_deque.py"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="array_deque.cpp"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="array_deque.java"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="array_deque.cs"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="array_deque.go"
-    [class]{arrayDeque}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="array_deque.swift"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="array_deque.js"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="array_deque.ts"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="array_deque.dart"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="array_deque.rs"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="array_deque.c"
-    [class]{arrayDeque}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_deque.zig"
-    [class]{ArrayDeque}-[func]{}
-    ```
+```src
+[file]{array_deque}-[class]{array_deque}-[func]{}
+```
 
 ## 双向队列应用
 
