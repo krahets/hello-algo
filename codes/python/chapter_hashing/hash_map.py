@@ -4,10 +4,11 @@ Created Time: 2022-12-14
 Author: msk397 (machangxinq@gmail.com)
 """
 
-import sys, os.path as osp
+import sys
+from pathlib import Path
 
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from modules import *
+sys.path.append(str(Path(__file__).parent.parent))
+from modules import print_dict
 
 """Driver Code"""
 if __name__ == "__main__":

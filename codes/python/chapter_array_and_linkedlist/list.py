@@ -43,7 +43,7 @@ if __name__ == "__main__":
     for i in range(len(nums)):
         tmp.append(nums[i])
     print(f"\n通过索引遍历列表得到 tmp = {tmp}")
-    
+
     tmp.clear()
     for num in nums:
         tmp.append(num)

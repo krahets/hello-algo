@@ -4,10 +4,11 @@ Created Time: 2022-12-20
 Author: a16su (lpluls001@gmail.com)
 """
 
-import sys, os.path as osp
+import sys
+from pathlib import Path
 
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from modules import *
+sys.path.append(str(Path(__file__).parent.parent))
+from modules import TreeNode, list_to_tree, print_tree
 from collections import deque
 
 
