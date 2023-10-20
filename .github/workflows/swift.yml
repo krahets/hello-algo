@@ -23,6 +23,6 @@ jobs:
           swift-version: ${{ matrix.swift }}
       - uses: actions/checkout@v4
       - name: Build
-        run: swift build -v
+        run: swift build --package-path codes/swift -v
       - name: Run tests
-        run: swift test -v
+        run: swift test --package-path codes/swift -v
