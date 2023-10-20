@@ -24,6 +24,14 @@ pub fn build(b: *std.Build) void {
         // Run Command: zig build run_space_complexity -Doptimize=ReleaseFast
         .{ .name = "space_complexity", .path = "chapter_computational_complexity/space_complexity.zig" },
 
+        // Source File: "chapter_computational_complexity/iteration.zig"
+        // Run Command: zig build run_iteration -Doptimize=ReleaseFast
+        .{ .name = "iteration", .path = "chapter_computational_complexity/iteration.zig" },
+
+        // Source File: "chapter_computational_complexity/recursion.zig"
+        // Run Command: zig build run_recursion -Doptimize=ReleaseFast
+        .{ .name = "recursion", .path = "chapter_computational_complexity/recursion.zig" },
+
         // Source File: "chapter_array_and_linkedlist/array.zig"
         // Run Command: zig build run_array -Doptimize=ReleaseFast
         .{ .name = "array", .path = "chapter_array_and_linkedlist/array.zig" },
