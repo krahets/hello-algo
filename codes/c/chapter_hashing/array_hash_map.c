@@ -27,6 +27,11 @@ typedef struct {
     int len;
 }IndexMembers;
 
+/* 基于数组简易实现的哈希表 */
+typedef struct {
+    Pair *buckets[HASH_MAP_DEFAULT_SIZE];
+} ArrayHashMap;
+
 /* 初始化存储键 */
 void InitIndex(IndexMembers *index){
     index->len = -1;
@@ -37,10 +42,10 @@ void putKey(IndexMembers *index, int key){
     index->key[++index->len] = key;
 }
 
-/* 基于数组简易实现的哈希表 */
-typedef struct {
-    Pair *buckets[HASH_MAP_DEFAULT_SIZE];
-} ArrayHashMap;
+/* 删除哈希键 */
+void DelKey(IndexMembers *index){
+    --index->len;
+}
 
 /* 哈希表初始化函数 */
 ArrayHashMap *newArrayHashMap() {
@@ -77,11 +82,11 @@ void put(ArrayHashMap *d,IndexMembers *indexMembers, const int key, const char *
 }
 
 /* 删除操作 */
-void removeItem(ArrayHashMap *d, const int key) {
+void removeItem(ArrayHashMap *d, IndexMembers *indexMembers, const int key) {
     int index = hashFunc(key);
+
     free(d->buckets[index]->val);
-    free(d->buckets[index]);
-    d->buckets[index] = NULL;
+    DelKey(indexMembers);
 }
 
 /* 获取所有键值对 */
@@ -89,7 +94,6 @@ void pairSet(ArrayHashMap *d, IndexMembers indexMembers, MapSet *set) {
     Pair *entries;
     int i = 0, index = 0;
     int total = indexMembers.len;
-
 
     printf("有效键值对数量:%d\n", total + 1);
 
@@ -140,15 +144,17 @@ void valueSet(ArrayHashMap *d, IndexMembers indexMembers, MapSet *set) {
 /* 打印哈希表 */
 void print(ArrayHashMap *d, IndexMembers indexMembers) {
     int i;
-    MapSet set;
-    pairSet(d, indexMembers, &set);
-    Pair *entries = (Pair *)set.set;
+    MapSet *set;
+    set = malloc(indexMembers.len);
+    pairSet(d, indexMembers, set);
 
-    for (i = 0; i <= set.len; i++) {
+    Pair *entries = (Pair *)set->set;
+
+    for (i = 0; i <= set->len; i++) {
         printf("%d -> %s\n", entries[i].key, entries[i].val);
     }
 
-    /* free(set.set); */
+    free(set);
 }
 
 /* Driver Code */
@@ -173,18 +179,19 @@ int main() {
     const char *name = get(map, 15937);
     printf("\n输入学号 15937 ，查询到姓名 %s\n", name);
 
+    /*输出一遍key的位置*/
+    for (int i = 0; i <= index.len; i++) {
+        printf("%d ", hashFunc(index.key[i]));
+    }
+
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
-    /*removeItem(map, 10583);
+    removeItem(map,&index, 10583);
     printf("\n删除 10583 后，哈希表为\nKey -> Value\n");
-    print(map, index);*/
+    print(map, index);
 
     /* 遍历哈希表 */
     int i;
-
-     printf("\n遍历键值对 Key->Value\n");
-    print(map, index);
-
     MapSet set;
 
     keySet(map,index, &set);
@@ -193,7 +200,6 @@ int main() {
     for (i = 0; i < set.len; i++) {
         printf("%d\n", keys[i]);
     }
-    free(set.set);
 
     valueSet(map,index, &set);
     char **vals = (char **)set.set;
@@ -201,7 +207,7 @@ int main() {
     for (i = 0; i < set.len; i++) {
         printf("%s\n", vals[i]);
     }
-    free(set.set);
 
     return 0;
 }
+
