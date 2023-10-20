@@ -6,8 +6,10 @@ name: Swift
 on:
   push:
     branches: ["main"]
+    paths: ["codes/swift/**/*.swift"]
   pull_request:
     branches: ["main"]
+    paths: ["codes/swift/**/*.swift"]
 
 jobs:
   build:
@@ -23,4 +25,4 @@ jobs:
           swift-version: ${{ matrix.swift }}
       - uses: actions/checkout@v4
       - name: Build
-        run: swift build --package-path codes/swift -v
+        run: swift build --package-path codes/swift
