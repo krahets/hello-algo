@@ -4461,12 +4461,12 @@
 </div>
 <p align="center"> 图 9-8 &nbsp; 邻接表的初始化、增删边、增删顶点 </p>
 
-<p>以下是基于邻接表实现图的代码示例。细心的同学可能注意到，<strong>我们在邻接表中使用 <code>Vertex</code> 节点类来表示顶点</strong>，而这样做是有原因的。</p>
-<ol>
-<li>如果我们选择通过顶点值来区分不同顶点，那么值重复的顶点将无法被区分。</li>
-<li>如果类似邻接矩阵那样，使用顶点列表索引来区分不同顶点。那么，假设我们想要删除索引为 <span class="arithmatex">\(i\)</span> 的顶点，则需要遍历整个邻接表，将其中 <span class="arithmatex">\(&gt; i\)</span> 的索引全部减 <span class="arithmatex">\(1\)</span> ，这样操作效率较低。</li>
-<li>因此我们考虑引入顶点类 <code>Vertex</code> ，使得每个顶点都是唯一的对象，此时删除顶点时就无须改动其余顶点了。</li>
-</ol>
+<p>以下是邻接表的代码实现。对比图 9-8 ，实际代码有以下不同。</p>
+<ul>
+<li>为了方便添加与删除顶点，以及简化代码，我们使用列表（动态数组）来代替链表。</li>
+<li>使用哈希表来存储邻接表，<code>key</code> 为顶点实例，<code>value</code> 为该顶点的邻接顶点列表（链表）。</li>
+</ul>
+<p>另外，我们在邻接表中使用 <code>Vertex</code> 类来表示顶点。这是因为如果与邻接矩阵一样用列表索引来区分不同顶点。那么假设想要删除索引为 <span class="arithmatex">\(i\)</span> 的顶点，则需要遍历整个邻接表，将所有大于 <span class="arithmatex">\(i\)</span> 的索引全部减 <span class="arithmatex">\(1\)</span> ，效率很低。而如果每个顶点都是唯一的 <code>Vertex</code> 实例，删除某一顶点之后就无须改动其他顶点了。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:12"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
