@@ -4316,8 +4316,8 @@
 <h3 id="3">3. &nbsp; 两种剪枝对比<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>请注意，虽然 <code>selected</code> 和 <code>duplicated</code> 都用作剪枝，但两者的目标是不同的。</p>
 <ul>
-<li><strong>重复选择剪枝</strong>：整个搜索过程中只有一个 <code>selected</code> 。它记录的是当前状态中包含哪些元素，作用是避免某个元素在 <code>state</code> 中重复出现。</li>
-<li><strong>相等元素剪枝</strong>：每轮选择（即每个开启的 <code>backtrack</code> 函数）都包含一个 <code>duplicated</code> 。它记录的是在遍历中哪些元素已被选择过，作用是保证相等元素只被选择一次。</li>
+<li><strong>重复选择剪枝</strong>：整个搜索过程中只有一个 <code>selected</code> 。它记录的是当前状态中包含哪些元素，作用是防止 <code>choices</code> 中的任一元素在 <code>state</code> 中重复出现。</li>
+<li><strong>相等元素剪枝</strong>：每轮选择（即每个调用的 <code>backtrack</code> 函数）都包含一个 <code>duplicated</code> 。它记录的是在本轮遍历（即 <code>for</code> 循环）中哪些元素已被选择过，作用是保证相等的元素只被选择一次。</li>
 </ul>
 <p>图 13-9 展示了两个剪枝条件的生效范围。注意，树中的每个节点代表一个选择，从根节点到叶节点的路径上的各个节点构成一个排列。</p>
 <p><a class="glightbox" href="../permutations_problem.assets/permutations_ii_pruning_summary.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="两种剪枝条件的作用范围" src="../permutations_problem.assets/permutations_ii_pruning_summary.png" /></a></p>
