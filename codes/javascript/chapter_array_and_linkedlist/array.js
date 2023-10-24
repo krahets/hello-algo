@@ -66,7 +66,7 @@ function find(nums, target) {
     return -1;
 }
 
-/* Driver Codes*/
+/* Driver Code */
 /* 初始化数组 */
 const arr = new Array(5).fill(0);
 console.log('数组 arr =', arr);

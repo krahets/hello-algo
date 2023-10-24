@@ -99,19 +99,19 @@
 
     ```csharp title="hash_map.cs"
     /* 初始化哈希表 */
-    Dictionary<int, String> map = new ();
-    
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
-    map.Add(12836, "小哈");
-    map.Add(15937, "小啰");
-    map.Add(16750, "小算");
-    map.Add(13276, "小法");
-    map.Add(10583, "小鸭");
+    Dictionary<int, string> map = new() {
+        /* 添加操作 */
+        // 在哈希表中添加键值对 (key, value)
+        { 12836, "小哈" },
+        { 15937, "小啰" },
+        { 16750, "小算" },
+        { 13276, "小法" },
+        { 10583, "小鸭" }
+    };
     
     /* 查询操作 */
     // 向哈希表输入键 key ，得到值 value
-    String name = map[15937];
+    string name = map[15937];
     
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
@@ -120,7 +120,7 @@
 
 === "Go"
 
-    ```go title="hash_map.go"
+    ```go title="hash_map_test.go"
     /* 初始化哈希表 */
     hmap := make(map[int]string)
     
@@ -168,7 +168,7 @@
 
     ```javascript title="hash_map.js"
     /* 初始化哈希表 */
-    const map = new ArrayHashMap();
+    const map = new Map();
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map.set(12836, '小哈');
@@ -239,7 +239,26 @@
 === "Rust"
 
     ```rust title="hash_map.rs"
+    use std::collections::HashMap;
+    
+    /* 初始化哈希表 */
+    let mut map: HashMap<i32, String> = HashMap::new();
 
+    /* 添加操作 */
+    // 在哈希表中添加键值对 (key, value)
+    map.insert(12836, "小哈".to_string());
+    map.insert(15937, "小啰".to_string());
+    map.insert(16750, "小算".to_string());
+    map.insert(13279, "小法".to_string());
+    map.insert(10583, "小鸭".to_string());
+
+    /* 查询操作 */
+    // 向哈希表中输入键 key ，得到值 value
+    let _name: Option<&String> = map.get(&15937);
+
+    /* 删除操作 */
+    // 在哈希表中删除键值对 (key, value)
+    let _removed_value: Option<String> = map.remove(&10583);
     ```
 
 === "C"
@@ -280,12 +299,12 @@
         cout << kv.first << " -> " << kv.second << endl;
     }
     // 单独遍历键 key
-    for (auto key: map) {
-        cout << key.first << endl;
+    for (auto kv: map) {
+        cout << kv.first << endl;
     }
     // 单独遍历值 value
-    for (auto val: map) {
-        cout << val.second << endl;
+    for (auto kv: map) {
+        cout << kv.second << endl;
     }
     ```
 
@@ -320,7 +339,7 @@
         Console.WriteLine(key);
     }
     // 单独遍历值 value
-    foreach (String val in map.Values) {
+    foreach (string val in map.Values) {
         Console.WriteLine(val);
     }
     ```
@@ -420,7 +439,21 @@
 === "Rust"
 
     ```rust title="hash_map.rs"
+    /* 遍历哈希表 */
+    // 遍历键值对 Key->Value
+    for (key, value) in &map {
+        println!("{key} -> {value}");
+    }
 
+    // 单独遍历键 Key
+    for key in map.keys() {
+        println!("{key}"); 
+    }
+
+    // 单独遍历值 Value
+    for value in map.values() {
+        println!("{value}");
+    }
     ```
 
 === "C"
@@ -458,110 +491,9 @@ index = hash(key) % capacity
 
 以下代码实现了一个简单哈希表。其中，我们将 `key` 和 `value` 封装成一个类 `Pair` ，以表示键值对。
 
-=== "Python"
-
-    ```python title="array_hash_map.py"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="array_hash_map.cpp"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="array_hash_map.java"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="array_hash_map.cs"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="array_hash_map.go"
-    [class]{pair}-[func]{}
-
-    [class]{arrayHashMap}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="array_hash_map.swift"
-    /* 键值对 */
-    class Pair {
-        var key: Int
-        var val: String
-
-        init(key: Int, val: String) {
-            self.key = key
-            self.val = val
-        }
-    }
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="array_hash_map.js"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="array_hash_map.ts"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="array_hash_map.dart"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="array_hash_map.rs"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="array_hash_map.c"
-    [class]{pair}-[func]{}
-
-    [class]{arrayHashMap}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_hash_map.zig"
-    [class]{Pair}-[func]{}
-
-    [class]{ArrayHashMap}-[func]{}
-    ```
+```src
+[file]{array_hash_map}-[class]{array_hash_map}-[func]{}
+```
 
 ## 哈希冲突与扩容
 

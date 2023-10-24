@@ -1,5 +1,6 @@
 ---
 comments: true
+glightbox: false
 hide:
   - footer
 ---
@@ -21,7 +22,7 @@ hide:
   </a>
   &nbsp;
   <a href="https://github.com/krahets/hello-algo">
-    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/krahets/hello-algo?style=social&logo=handshake&logoColor=%23101010">
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/krahets/hello-algo?style=social&logo=git&logoColor=%23101010">
   </a>
 </p>
 
@@ -58,7 +59,7 @@ hide:
 
 <h3 align="center"> 代码一键运行 </h3>
 
-<p align="center"> 提供各个算法与数据结构的简洁实现与测试样例，皆可直接运行</br>支持 Java, C++, Python, Go, JS, TS, C#, Swift, Zig 等语言 </p>
+<p align="center"> 提供各个算法与数据结构的简洁实现与测试样例，皆可直接运行</br>支持 Java、C++、Python、Go、JS、TS、C#、Swift、Rust、Dart、Zig 等语言 </p>
 
 ![running_code](index.assets/running_code.gif)
 
@@ -92,13 +93,13 @@ hide:
 
 <h3 align="left"> 作者简介 </h3>
 
-靳宇栋 ([Krahets](https://leetcode.cn/u/jyd/))，大厂高级算法工程师，上海交通大学硕士。力扣（LeetCode）全网阅读量最高博主，其 LeetBook《图解算法数据结构》已被订阅 26 万本。
+靳宇栋 ([Krahets](https://leetcode.cn/u/jyd/))，大厂高级算法工程师，上海交通大学硕士。力扣（LeetCode）全网阅读量最高博主，发表的[《图解算法数据结构》](https://leetcode.cn/leetbook/detail/illustration-of-algorithm/)已被订阅 27 万本。
 
 ---
 
 <h2 align="center"> 致谢 </h2>
 
-本书在开源社区众多贡献者的共同努力下不断成长。感谢每一位投入时间与精力的撰稿人，是他们的无私奉献使这本书变得更好，他们是（按照 GitHub 自动生成的顺序）：
+本书在开源社区众多贡献者的共同努力下不断成长。感谢每一位投入时间与精力的撰稿人，是他们的无私奉献使这本书变得更好，他们是（按照 GitHub 自动生成的顺序排列）：
 
 <p align="center">
     <a href="https://github.com/krahets/hello-algo/graphs/contributors">
@@ -106,19 +107,20 @@ hide:
     </a>
 </p>
 
-本书的代码审阅工作由 Gonglja, gvenusleo, justin‐tse, krahets, nuomi1, Reanon, sjinzh 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
+本书的代码审阅工作由 Gonglja, gvenusleo, justin‐tse, krahets, night-cruise, nuomi1, Reanon, sjinzh 完成（按照首字母顺序排列）。感谢他们付出的时间与精力，正是他们确保了各语言代码的规范与统一。
 
 <div class="center-table">
     <table>
         <tbody>
-            <td align="center"><a href="https://github.com/Gonglja"><img src="https://avatars.githubusercontent.com/u/39959756?v=4" width="50px;" alt="Gonglja"/><br /><sub><b>Gonglja</b></sub></a><br /><sub>C / C++</sub></td>
-            <td align="center"><a href="https://github.com/gvenusleo"><img src="https://avatars.githubusercontent.com/u/79075347?v=4" width="50px;" alt="gvenusleo"/><br /><sub><b>gvenusleo</b></sub></a><br /><sub>Dart</sub></td>
-            <td align="center"><a href="https://github.com/hpstory"><img src="https://avatars.githubusercontent.com/u/33348162?v=4" width="50px;" alt="hpstory"/><br /><sub><b>hpstory</b></sub></a><br /><sub>C#</sub></td>
-            <td align="center"><a href="https://github.com/justin-tse"><img src="https://avatars.githubusercontent.com/u/24556310?v=4" width="50px;" alt="justin-tse"/><br /><sub><b>justin-tse</b></sub></a><br /><sub>JS / TS</sub></td>
-            <td align="center"><a href="https://github.com/krahets"><img src="https://avatars.githubusercontent.com/u/26993056?v=4" width="50px;" alt="krahets"/><br /><sub><b>krahets</b></sub></a><br /><sub>Java / Python</sub></td>
-            <td align="center"><a href="https://github.com/nuomi1"><img src="https://avatars.githubusercontent.com/u/3739017?v=4" width="50px;" alt="nuomi1"/><br /><sub><b>nuomi1</b></sub></a><br /><sub>Swift</sub></td>
-            <td align="center"><a href="https://github.com/Reanon"><img src="https://avatars.githubusercontent.com/u/22005836?v=4" width="50px;" alt="Reanon"/><br /><sub><b>Reanon</b></sub></a><br /><sub>Go / C</sub></td>
-            <td align="center"><a href="https://github.com/sjinzh"><img src="https://avatars.githubusercontent.com/u/99076655?v=4" width="50px;" alt="sjinzh"/><br /><sub><b>sjinzh</b></sub></a><br /><sub>Rust / Zig</sub></td>
+            <td align="center"><a href="https://github.com/Gonglja"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/39959756?v=4" width="50px;" alt="Gonglja"/><br /><sub><b>Gonglja</b></sub></a><br /><sub>C, C++</sub></td>
+            <td align="center"><a href="https://github.com/gvenusleo"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/79075347?v=4" width="50px;" alt="gvenusleo"/><br /><sub><b>gvenusleo</b></sub></a><br /><sub>Dart</sub></td>
+            <td align="center"><a href="https://github.com/hpstory"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/33348162?v=4" width="50px;" alt="hpstory"/><br /><sub><b>hpstory</b></sub></a><br /><sub>C#</sub></td>
+            <td align="center"><a href="https://github.com/justin-tse"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/24556310?v=4" width="50px;" alt="justin-tse"/><br /><sub><b>justin-tse</b></sub></a><br /><sub>JS, TS</sub></td>
+            <td align="center"><a href="https://github.com/krahets"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/26993056?v=4" width="50px;" alt="krahets"/><br /><sub><b>krahets</b></sub></a><br /><sub>Java, Python</sub></td>
+            <td align="center"><a href="https://github.com/night-cruise"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/77157236?v=4" width="50px;" alt="night-cruise"/><br /><sub><b>night-cruise</b></sub></a><br /><sub>Rust</sub></td>
+            <td align="center"><a href="https://github.com/nuomi1"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/3739017?v=4" width="50px;" alt="nuomi1"/><br /><sub><b>nuomi1</b></sub></a><br /><sub>Swift</sub></td>
+            <td align="center"><a href="https://github.com/Reanon"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/22005836?v=4" width="50px;" alt="Reanon"/><br /><sub><b>Reanon</b></sub></a><br /><sub>Go, C</sub></td>
+            <td align="center"><a href="https://github.com/sjinzh"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/99076655?v=4" width="50px;" alt="sjinzh"/><br /><sub><b>sjinzh</b></sub></a><br /><sub>Rust, Zig</sub></td>
         </tbody>
     </table>
 </div>

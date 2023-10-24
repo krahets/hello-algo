@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_computational_complexity;
 
 public class time_complexity {
-    void algorithm(int n) {
+    void Algorithm(int n) {
         int a = 1;  // +0（技巧 1）
         a = a + n;  // +0（技巧 1）
                     // +n（技巧 2）
@@ -23,24 +23,24 @@ public class time_complexity {
     }
 
     // 算法 A 时间复杂度：常数阶
-    void algorithm_A(int n) {
+    void AlgorithmA(int n) {
         Console.WriteLine(0);
     }
     // 算法 B 时间复杂度：线性阶
-    void algorithm_B(int n) {
+    void AlgorithmB(int n) {
         for (int i = 0; i < n; i++) {
             Console.WriteLine(0);
         }
     }
     // 算法 C 时间复杂度：常数阶
-    void algorithm_C(int n) {
+    void AlgorithmC(int n) {
         for (int i = 0; i < 1000000; i++) {
             Console.WriteLine(0);
         }
     }
 
     /* 常数阶 */
-    static int constant(int n) {
+    static int Constant(int n) {
         int count = 0;
         int size = 100000;
         for (int i = 0; i < size; i++)
@@ -49,7 +49,7 @@ public class time_complexity {
     }
 
     /* 线性阶 */
-    static int linear(int n) {
+    static int Linear(int n) {
         int count = 0;
         for (int i = 0; i < n; i++)
             count++;
@@ -57,7 +57,7 @@ public class time_complexity {
     }
 
     /* 线性阶（遍历数组） */
-    static int arrayTraversal(int[] nums) {
+    static int ArrayTraversal(int[] nums) {
         int count = 0;
         // 循环次数与数组长度成正比
         foreach (int num in nums) {
@@ -67,7 +67,7 @@ public class time_complexity {
     }
 
     /* 平方阶 */
-    static int quadratic(int n) {
+    static int Quadratic(int n) {
         int count = 0;
         // 循环次数与数组长度成平方关系
         for (int i = 0; i < n; i++) {
@@ -79,7 +79,7 @@ public class time_complexity {
     }
 
     /* 平方阶（冒泡排序） */
-    static int bubbleSort(int[] nums) {
+    static int BubbleSort(int[] nums) {
         int count = 0;  // 计数器
         // 外循环：未排序区间为 [0, i]
         for (int i = nums.Length - 1; i > 0; i--) {
@@ -96,7 +96,7 @@ public class time_complexity {
     }
 
     /* 指数阶（循环实现） */
-    static int exponential(int n) {
+    static int Exponential(int n) {
         int count = 0, bas = 1;
         // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
         for (int i = 0; i < n; i++) {
@@ -110,13 +110,13 @@ public class time_complexity {
     }
 
     /* 指数阶（递归实现） */
-    static int expRecur(int n) {
+    static int ExpRecur(int n) {
         if (n == 1) return 1;
-        return expRecur(n - 1) + expRecur(n - 1) + 1;
+        return ExpRecur(n - 1) + ExpRecur(n - 1) + 1;
     }
 
     /* 对数阶（循环实现） */
-    static int logarithmic(float n) {
+    static int Logarithmic(float n) {
         int count = 0;
         while (n > 1) {
             n = n / 2;
@@ -126,16 +126,15 @@ public class time_complexity {
     }
 
     /* 对数阶（递归实现） */
-    static int logRecur(float n) {
+    static int LogRecur(float n) {
         if (n <= 1) return 0;
-        return logRecur(n / 2) + 1;
+        return LogRecur(n / 2) + 1;
     }
 
     /* 线性对数阶 */
-    static int linearLogRecur(float n) {
+    static int LinearLogRecur(float n) {
         if (n <= 1) return 1;
-        int count = linearLogRecur(n / 2) +
-                    linearLogRecur(n / 2);
+        int count = LinearLogRecur(n / 2) + LinearLogRecur(n / 2);
         for (int i = 0; i < n; i++) {
             count++;
         }
@@ -143,12 +142,12 @@ public class time_complexity {
     }
 
     /* 阶乘阶（递归实现） */
-    static int factorialRecur(int n) {
+    static int FactorialRecur(int n) {
         if (n == 0) return 1;
         int count = 0;
         // 从 1 个分裂出 n 个
         for (int i = 0; i < n; i++) {
-            count += factorialRecur(n - 1);
+            count += FactorialRecur(n - 1);
         }
         return count;
     }
@@ -159,36 +158,36 @@ public class time_complexity {
         int n = 8;
         Console.WriteLine("输入数据大小 n = " + n);
 
-        int count = constant(n);
+        int count = Constant(n);
         Console.WriteLine("常数阶的操作数量 = " + count);
 
-        count = linear(n);
+        count = Linear(n);
         Console.WriteLine("线性阶的操作数量 = " + count);
-        count = arrayTraversal(new int[n]);
+        count = ArrayTraversal(new int[n]);
         Console.WriteLine("线性阶（遍历数组）的操作数量 = " + count);
 
-        count = quadratic(n);
+        count = Quadratic(n);
         Console.WriteLine("平方阶的操作数量 = " + count);
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
             nums[i] = n - i;  // [n,n-1,...,2,1]
-        count = bubbleSort(nums);
+        count = BubbleSort(nums);
         Console.WriteLine("平方阶（冒泡排序）的操作数量 = " + count);
 
-        count = exponential(n);
+        count = Exponential(n);
         Console.WriteLine("指数阶（循环实现）的操作数量 = " + count);
-        count = expRecur(n);
+        count = ExpRecur(n);
         Console.WriteLine("指数阶（递归实现）的操作数量 = " + count);
 
-        count = logarithmic((float)n);
+        count = Logarithmic((float)n);
         Console.WriteLine("对数阶（循环实现）的操作数量 = " + count);
-        count = logRecur((float)n);
+        count = LogRecur((float)n);
         Console.WriteLine("对数阶（递归实现）的操作数量 = " + count);
 
-        count = linearLogRecur((float)n);
+        count = LinearLogRecur((float)n);
         Console.WriteLine("线性对数阶（递归实现）的操作数量 = " + count);
 
-        count = factorialRecur(n);
+        count = FactorialRecur(n);
         Console.WriteLine("阶乘阶（递归实现）的操作数量 = " + count);
     }
 }

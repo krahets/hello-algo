@@ -56,77 +56,9 @@ $$
 - **终止条件**：当物品编号越界 $i = 0$ 或背包剩余容量为 $0$ 时，终止递归并返回价值 $0$ 。
 - **剪枝**：若当前物品重量超出背包剩余容量，则只能不放入背包。
 
-=== "Python"
-
-    ```python title="knapsack.py"
-    [class]{}-[func]{knapsack_dfs}
-    ```
-
-=== "C++"
-
-    ```cpp title="knapsack.cpp"
-    [class]{}-[func]{knapsackDFS}
-    ```
-
-=== "Java"
-
-    ```java title="knapsack.java"
-    [class]{knapsack}-[func]{knapsackDFS}
-    ```
-
-=== "C#"
-
-    ```csharp title="knapsack.cs"
-    [class]{knapsack}-[func]{knapsackDFS}
-    ```
-
-=== "Go"
-
-    ```go title="knapsack.go"
-    [class]{}-[func]{knapsackDFS}
-    ```
-
-=== "Swift"
-
-    ```swift title="knapsack.swift"
-    [class]{}-[func]{knapsackDFS}
-    ```
-
-=== "JS"
-
-    ```javascript title="knapsack.js"
-    [class]{}-[func]{knapsackDFS}
-    ```
-
-=== "TS"
-
-    ```typescript title="knapsack.ts"
-    [class]{}-[func]{knapsackDFS}
-    ```
-
-=== "Dart"
-
-    ```dart title="knapsack.dart"
-    [class]{}-[func]{knapsackDFS}
-    ```
-
-=== "Rust"
-
-    ```rust title="knapsack.rs"
-    [class]{}-[func]{knapsack_dfs}
-    ```
-
-=== "C"
-
-    ```c title="knapsack.c"
-    [class]{}-[func]{knapsackDFS}
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDFS}
-    ```
+```src
+[file]{knapsack}-[class]{}-[func]{knapsack_dfs}
+```
 
 如下图所示，由于每个物品都会产生不选和选两条搜索分支，因此时间复杂度为 $O(2^n)$ 。
 
@@ -140,77 +72,9 @@ $$
 
 引入记忆化之后，**时间复杂度取决于子问题数量**，也就是 $O(n \times cap)$ 。
 
-=== "Python"
-
-    ```python title="knapsack.py"
-    [class]{}-[func]{knapsack_dfs_mem}
-    ```
-
-=== "C++"
-
-    ```cpp title="knapsack.cpp"
-    [class]{}-[func]{knapsackDFSMem}
-    ```
-
-=== "Java"
-
-    ```java title="knapsack.java"
-    [class]{knapsack}-[func]{knapsackDFSMem}
-    ```
-
-=== "C#"
-
-    ```csharp title="knapsack.cs"
-    [class]{knapsack}-[func]{knapsackDFSMem}
-    ```
-
-=== "Go"
-
-    ```go title="knapsack.go"
-    [class]{}-[func]{knapsackDFSMem}
-    ```
-
-=== "Swift"
-
-    ```swift title="knapsack.swift"
-    [class]{}-[func]{knapsackDFSMem}
-    ```
-
-=== "JS"
-
-    ```javascript title="knapsack.js"
-    [class]{}-[func]{knapsackDFSMem}
-    ```
-
-=== "TS"
-
-    ```typescript title="knapsack.ts"
-    [class]{}-[func]{knapsackDFSMem}
-    ```
-
-=== "Dart"
-
-    ```dart title="knapsack.dart"
-    [class]{}-[func]{knapsackDFSMem}
-    ```
-
-=== "Rust"
-
-    ```rust title="knapsack.rs"
-    [class]{}-[func]{knapsack_dfs_mem}
-    ```
-
-=== "C"
-
-    ```c title="knapsack.c"
-    [class]{}-[func]{knapsackDFSMem}
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDFSMem}
-    ```
+```src
+[file]{knapsack}-[class]{}-[func]{knapsack_dfs_mem}
+```
 
 下图展示了在记忆化递归中被剪掉的搜索分支。
 
@@ -220,77 +84,9 @@ $$
 
 动态规划实质上就是在状态转移中填充 $dp$ 表的过程，代码如下所示。
 
-=== "Python"
-
-    ```python title="knapsack.py"
-    [class]{}-[func]{knapsack_dp}
-    ```
-
-=== "C++"
-
-    ```cpp title="knapsack.cpp"
-    [class]{}-[func]{knapsackDP}
-    ```
-
-=== "Java"
-
-    ```java title="knapsack.java"
-    [class]{knapsack}-[func]{knapsackDP}
-    ```
-
-=== "C#"
-
-    ```csharp title="knapsack.cs"
-    [class]{knapsack}-[func]{knapsackDP}
-    ```
-
-=== "Go"
-
-    ```go title="knapsack.go"
-    [class]{}-[func]{knapsackDP}
-    ```
-
-=== "Swift"
-
-    ```swift title="knapsack.swift"
-    [class]{}-[func]{knapsackDP}
-    ```
-
-=== "JS"
-
-    ```javascript title="knapsack.js"
-    [class]{}-[func]{knapsackDP}
-    ```
-
-=== "TS"
-
-    ```typescript title="knapsack.ts"
-    [class]{}-[func]{knapsackDP}
-    ```
-
-=== "Dart"
-
-    ```dart title="knapsack.dart"
-    [class]{}-[func]{knapsackDP}
-    ```
-
-=== "Rust"
-
-    ```rust title="knapsack.rs"
-    [class]{}-[func]{knapsack_dp}
-    ```
-
-=== "C"
-
-    ```c title="knapsack.c"
-    [class]{}-[func]{knapsackDP}
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDP}
-    ```
+```src
+[file]{knapsack}-[class]{}-[func]{knapsack_dp}
+```
 
 如下图所示，时间复杂度和空间复杂度都由数组 `dp` 大小决定，即 $O(n \times cap)$ 。
 
@@ -367,74 +163,6 @@ $$
 
 在代码实现中，我们仅需将数组 `dp` 的第一维 $i$ 直接删除，并且把内循环更改为倒序遍历即可。
 
-=== "Python"
-
-    ```python title="knapsack.py"
-    [class]{}-[func]{knapsack_dp_comp}
-    ```
-
-=== "C++"
-
-    ```cpp title="knapsack.cpp"
-    [class]{}-[func]{knapsackDPComp}
-    ```
-
-=== "Java"
-
-    ```java title="knapsack.java"
-    [class]{knapsack}-[func]{knapsackDPComp}
-    ```
-
-=== "C#"
-
-    ```csharp title="knapsack.cs"
-    [class]{knapsack}-[func]{knapsackDPComp}
-    ```
-
-=== "Go"
-
-    ```go title="knapsack.go"
-    [class]{}-[func]{knapsackDPComp}
-    ```
-
-=== "Swift"
-
-    ```swift title="knapsack.swift"
-    [class]{}-[func]{knapsackDPComp}
-    ```
-
-=== "JS"
-
-    ```javascript title="knapsack.js"
-    [class]{}-[func]{knapsackDPComp}
-    ```
-
-=== "TS"
-
-    ```typescript title="knapsack.ts"
-    [class]{}-[func]{knapsackDPComp}
-    ```
-
-=== "Dart"
-
-    ```dart title="knapsack.dart"
-    [class]{}-[func]{knapsackDPComp}
-    ```
-
-=== "Rust"
-
-    ```rust title="knapsack.rs"
-    [class]{}-[func]{knapsack_dp_comp}
-    ```
-
-=== "C"
-
-    ```c title="knapsack.c"
-    [class]{}-[func]{knapsackDPComp}
-    ```
-
-=== "Zig"
-
-    ```zig title="knapsack.zig"
-    [class]{}-[func]{knapsackDPComp}
-    ```
+```src
+[file]{knapsack}-[class]{}-[func]{knapsack_dp_comp}
+```

@@ -1,7 +1,7 @@
 /**
  * File: iteration.c
  * Created Time: 2023-09-09
- * Author: Gonglja (glj0@outlook.com)
+ * Author: Gonglja (glj0@outlook.com), MwumLi (mwumli@hotmail.com)
  */
 
 #include "../utils/common.h"
@@ -10,7 +10,7 @@
 int forLoop(int n) {
     int res = 0;
     // 循环求和 1, 2, ..., n-1, n
-    for (int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= n; i++) {
         res += i;
     }
     return res;
@@ -47,11 +47,10 @@ char *nestedForLoop(int n) {
     // n * n 为对应点数量，"(i, j), " 对应字符串长最大为 6+10*2，加上最后一个空字符 \0 的额外空间
     int size = n * n * 26 + 1;
     char *res = malloc(size * sizeof(char));
-
     // 循环 i = 1, 2, ..., n-1, n
-    for (int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= n; i++) {
         // 循环 j = 1, 2, ..., n-1, n
-        for (int j = 1; j <= n; ++j) {
+        for (int j = 1; j <= n; j++) {
             char tmp[26];
             snprintf(tmp, sizeof(tmp), "(%d, %d), ", i, j);
             strncat(res, tmp, size - strlen(res) - 1);

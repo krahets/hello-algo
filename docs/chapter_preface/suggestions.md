@@ -133,7 +133,14 @@
 === "Rust"
 
     ```rust title=""
+    /* 标题注释，用于标注函数、类、测试样例等 */
 
+    // 内容注释，用于详解代码
+    
+    /**
+     * 多行
+     * 注释
+     */
     ```
 
 === "C"
@@ -182,7 +189,7 @@
 
 **第一步：安装本地编程环境**。请参照[附录教程](https://www.hello-algo.com/chapter_appendix/installation/)进行安装，如果已安装则可跳过此步骤。
 
-**第二步：下载代码仓**。如果已经安装 [Git](https://git-scm.com/downloads) ，可以通过以下命令克隆本仓库。
+**第二步：克隆或下载代码仓**。如果已经安装 [Git](https://git-scm.com/downloads) ，可以通过以下命令克隆本仓库。
 
 ```shell
 git clone https://github.com/krahets/hello-algo.git

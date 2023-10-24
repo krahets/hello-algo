@@ -12,77 +12,9 @@
 
 以下函数基于 `for` 循环实现了求和 $1 + 2 + \dots + n$ ，求和结果使用变量 `res` 记录。需要注意的是，Python 中 `range(a, b)` 对应的区间是“左闭右开”的，对应的遍历范围为 $a, a + 1, \dots, b-1$ 。
 
-=== "Python"
-
-    ```python title="iteration.py"
-    [class]{}-[func]{for_loop}
-    ```
-
-=== "C++"
-
-    ```cpp title="iteration.cpp"
-    [class]{}-[func]{forLoop}
-    ```
-
-=== "Java"
-
-    ```java title="iteration.java"
-    [class]{iteration}-[func]{forLoop}
-    ```
-
-=== "C#"
-
-    ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{forLoop}
-    ```
-
-=== "Go"
-
-    ```go title="iteration.go"
-    [class]{}-[func]{forLoop}
-    ```
-
-=== "Swift"
-
-    ```swift title="iteration.swift"
-    [class]{}-[func]{forLoop}
-    ```
-
-=== "JS"
-
-    ```javascript title="iteration.js"
-    [class]{}-[func]{forLoop}
-    ```
-
-=== "TS"
-
-    ```typescript title="iteration.ts"
-    [class]{}-[func]{forLoop}
-    ```
-
-=== "Dart"
-
-    ```dart title="iteration.dart"
-    [class]{}-[func]{forLoop}
-    ```
-
-=== "Rust"
-
-    ```rust title="iteration.rs"
-    [class]{}-[func]{for_loop}
-    ```
-
-=== "C"
-
-    ```c title="iteration.c"
-    [class]{}-[func]{forLoop}
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{forLoop}
-    ```
+```src
+[file]{iteration}-[class]{}-[func]{for_loop}
+```
 
 下图展示了该求和函数的流程框图。
 
@@ -96,153 +28,17 @@
 
 下面，我们用 `while` 循环来实现求和 $1 + 2 + \dots + n$ 。
 
-=== "Python"
-
-    ```python title="iteration.py"
-    [class]{}-[func]{while_loop}
-    ```
-
-=== "C++"
-
-    ```cpp title="iteration.cpp"
-    [class]{}-[func]{whileLoop}
-    ```
-
-=== "Java"
-
-    ```java title="iteration.java"
-    [class]{iteration}-[func]{whileLoop}
-    ```
-
-=== "C#"
-
-    ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{whileLoop}
-    ```
-
-=== "Go"
-
-    ```go title="iteration.go"
-    [class]{}-[func]{whileLoop}
-    ```
-
-=== "Swift"
-
-    ```swift title="iteration.swift"
-    [class]{}-[func]{whileLoop}
-    ```
-
-=== "JS"
-
-    ```javascript title="iteration.js"
-    [class]{}-[func]{whileLoop}
-    ```
-
-=== "TS"
-
-    ```typescript title="iteration.ts"
-    [class]{}-[func]{whileLoop}
-    ```
-
-=== "Dart"
-
-    ```dart title="iteration.dart"
-    [class]{}-[func]{whileLoop}
-    ```
-
-=== "Rust"
-
-    ```rust title="iteration.rs"
-    [class]{}-[func]{while_loop}
-    ```
-
-=== "C"
-
-    ```c title="iteration.c"
-    [class]{}-[func]{whileLoop}
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{whileLoop}
-    ```
+```src
+[file]{iteration}-[class]{}-[func]{while_loop}
+```
 
 在 `while` 循环中，由于初始化和更新条件变量的步骤是独立在循环结构之外的，**因此它比 `for` 循环的自由度更高**。
 
 例如在以下代码中，条件变量 $i$ 每轮进行了两次更新，这种情况就不太方便用 `for` 循环实现。
 
-=== "Python"
-
-    ```python title="iteration.py"
-    [class]{}-[func]{while_loop_ii}
-    ```
-
-=== "C++"
-
-    ```cpp title="iteration.cpp"
-    [class]{}-[func]{whileLoopII}
-    ```
-
-=== "Java"
-
-    ```java title="iteration.java"
-    [class]{iteration}-[func]{whileLoopII}
-    ```
-
-=== "C#"
-
-    ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{whileLoopII}
-    ```
-
-=== "Go"
-
-    ```go title="iteration.go"
-    [class]{}-[func]{whileLoopII}
-    ```
-
-=== "Swift"
-
-    ```swift title="iteration.swift"
-    [class]{}-[func]{whileLoopII}
-    ```
-
-=== "JS"
-
-    ```javascript title="iteration.js"
-    [class]{}-[func]{whileLoopII}
-    ```
-
-=== "TS"
-
-    ```typescript title="iteration.ts"
-    [class]{}-[func]{whileLoopII}
-    ```
-
-=== "Dart"
-
-    ```dart title="iteration.dart"
-    [class]{}-[func]{whileLoopII}
-    ```
-
-=== "Rust"
-
-    ```rust title="iteration.rs"
-    [class]{}-[func]{while_loop_ii}
-    ```
-
-=== "C"
-
-    ```c title="iteration.c"
-    [class]{}-[func]{whileLoopII}
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{whileLoopII}
-    ```
+```src
+[file]{iteration}-[class]{}-[func]{while_loop_ii}
+```
 
 总的来说，**`for` 循环的代码更加紧凑，`while` 循环更加灵活**，两者都可以实现迭代结构。选择使用哪一个应该根据特定问题的需求来决定。
 
@@ -250,77 +46,9 @@
 
 我们可以在一个循环结构内嵌套另一个循环结构，以 `for` 循环为例：
 
-=== "Python"
-
-    ```python title="iteration.py"
-    [class]{}-[func]{nested_for_loop}
-    ```
-
-=== "C++"
-
-    ```cpp title="iteration.cpp"
-    [class]{}-[func]{nestedForLoop}
-    ```
-
-=== "Java"
-
-    ```java title="iteration.java"
-    [class]{iteration}-[func]{nestedForLoop}
-    ```
-
-=== "C#"
-
-    ```csharp title="iteration.cs"
-    [class]{iteration}-[func]{nestedForLoop}
-    ```
-
-=== "Go"
-
-    ```go title="iteration.go"
-    [class]{}-[func]{nestedForLoop}
-    ```
-
-=== "Swift"
-
-    ```swift title="iteration.swift"
-    [class]{}-[func]{nestedForLoop}
-    ```
-
-=== "JS"
-
-    ```javascript title="iteration.js"
-    [class]{}-[func]{nestedForLoop}
-    ```
-
-=== "TS"
-
-    ```typescript title="iteration.ts"
-    [class]{}-[func]{nestedForLoop}
-    ```
-
-=== "Dart"
-
-    ```dart title="iteration.dart"
-    [class]{}-[func]{nestedForLoop}
-    ```
-
-=== "Rust"
-
-    ```rust title="iteration.rs"
-    [class]{}-[func]{nested_for_loop}
-    ```
-
-=== "C"
-
-    ```c title="iteration.c"
-    [class]{}-[func]{nestedForLoop}
-    ```
-
-=== "Zig"
-
-    ```zig title="iteration.zig"
-    [class]{}-[func]{nestedForLoop}
-    ```
+```src
+[file]{iteration}-[class]{}-[func]{nested_for_loop}
+```
 
 下图给出了该嵌套循环的流程框图。
 
@@ -345,77 +73,9 @@
 
 观察以下代码，我们只需调用函数 `recur(n)`  ，就可以完成 $1 + 2 + \dots + n$ 的计算：
 
-=== "Python"
-
-    ```python title="recursion.py"
-    [class]{}-[func]{recur}
-    ```
-
-=== "C++"
-
-    ```cpp title="recursion.cpp"
-    [class]{}-[func]{recur}
-    ```
-
-=== "Java"
-
-    ```java title="recursion.java"
-    [class]{recursion}-[func]{recur}
-    ```
-
-=== "C#"
-
-    ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{recur}
-    ```
-
-=== "Go"
-
-    ```go title="recursion.go"
-    [class]{}-[func]{recur}
-    ```
-
-=== "Swift"
-
-    ```swift title="recursion.swift"
-    [class]{}-[func]{recur}
-    ```
-
-=== "JS"
-
-    ```javascript title="recursion.js"
-    [class]{}-[func]{recur}
-    ```
-
-=== "TS"
-
-    ```typescript title="recursion.ts"
-    [class]{}-[func]{recur}
-    ```
-
-=== "Dart"
-
-    ```dart title="recursion.dart"
-    [class]{}-[func]{recur}
-    ```
-
-=== "Rust"
-
-    ```rust title="recursion.rs"
-    [class]{}-[func]{recur}
-    ```
-
-=== "C"
-
-    ```c title="recursion.c"
-    [class]{}-[func]{recur}
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    [class]{}-[func]{recur}
-    ```
+```src
+[file]{recursion}-[class]{}-[func]{recur}
+```
 
 下图展示了该函数的递归过程。
 
@@ -429,7 +89,7 @@
 以上述的求和函数为例，设问题 $f(n) = 1 + 2 + \dots + n$ 。
 
 - **迭代**：在循环中模拟求和过程，从 $1$ 遍历到 $n$ ，每轮执行求和操作，即可求得 $f(n)$ 。
-- **递归**：将问题分解为子问题 $f(n) = n + f(n-1)$ ，不断（递归地）分解下去，直至基本情况 $f(0) = 0$ 时终止。
+- **递归**：将问题分解为子问题 $f(n) = n + f(n-1)$ ，不断（递归地）分解下去，直至基本情况 $f(1) = 1$ 时终止。
 
 ### 调用栈
 
@@ -453,77 +113,9 @@
 
 以计算 $1 + 2 + \dots + n$ 为例，我们可以将结果变量 `res` 设为函数参数，从而实现尾递归。
 
-=== "Python"
-
-    ```python title="recursion.py"
-    [class]{}-[func]{tail_recur}
-    ```
-
-=== "C++"
-
-    ```cpp title="recursion.cpp"
-    [class]{}-[func]{tailRecur}
-    ```
-
-=== "Java"
-
-    ```java title="recursion.java"
-    [class]{recursion}-[func]{tailRecur}
-    ```
-
-=== "C#"
-
-    ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{tailRecur}
-    ```
-
-=== "Go"
-
-    ```go title="recursion.go"
-    [class]{}-[func]{tailRecur}
-    ```
-
-=== "Swift"
-
-    ```swift title="recursion.swift"
-    [class]{}-[func]{tailRecur}
-    ```
-
-=== "JS"
-
-    ```javascript title="recursion.js"
-    [class]{}-[func]{tailRecur}
-    ```
-
-=== "TS"
-
-    ```typescript title="recursion.ts"
-    [class]{}-[func]{tailRecur}
-    ```
-
-=== "Dart"
-
-    ```dart title="recursion.dart"
-    [class]{}-[func]{tailRecur}
-    ```
-
-=== "Rust"
-
-    ```rust title="recursion.rs"
-    [class]{}-[func]{tail_recur}
-    ```
-
-=== "C"
-
-    ```c title="recursion.c"
-    [class]{}-[func]{tailRecur}
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    [class]{}-[func]{tailRecur}
-    ```
+```src
+[file]{recursion}-[class]{}-[func]{tail_recur}
+```
 
 尾递归的执行过程如下图所示。对比普通递归和尾递归，求和操作的执行点是不同的。
 
@@ -551,77 +143,9 @@
 
 按照递推关系进行递归调用，将前两个数字作为终止条件，便可写出递归代码。调用 `fib(n)` 即可得到斐波那契数列的第 $n$ 个数字。
 
-=== "Python"
-
-    ```python title="recursion.py"
-    [class]{}-[func]{fib}
-    ```
-
-=== "C++"
-
-    ```cpp title="recursion.cpp"
-    [class]{}-[func]{fib}
-    ```
-
-=== "Java"
-
-    ```java title="recursion.java"
-    [class]{recursion}-[func]{fib}
-    ```
-
-=== "C#"
-
-    ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{fib}
-    ```
-
-=== "Go"
-
-    ```go title="recursion.go"
-    [class]{}-[func]{fib}
-    ```
-
-=== "Swift"
-
-    ```swift title="recursion.swift"
-    [class]{}-[func]{fib}
-    ```
-
-=== "JS"
-
-    ```javascript title="recursion.js"
-    [class]{}-[func]{fib}
-    ```
-
-=== "TS"
-
-    ```typescript title="recursion.ts"
-    [class]{}-[func]{fib}
-    ```
-
-=== "Dart"
-
-    ```dart title="recursion.dart"
-    [class]{}-[func]{fib}
-    ```
-
-=== "Rust"
-
-    ```rust title="recursion.rs"
-    [class]{}-[func]{fib}
-    ```
-
-=== "C"
-
-    ```c title="recursion.c"
-    [class]{}-[func]{fib}
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    [class]{}-[func]{fib}
-    ```
+```src
+[file]{recursion}-[class]{}-[func]{fib}
+```
 
 观察以上代码，我们在函数内递归调用了两个函数，**这意味着从一个调用产生了两个调用分支**。如下图所示，这样不断递归调用下去，最终将产生一个层数为 $n$ 的「递归树 recursion tree」。
 
@@ -658,77 +182,9 @@
 
 因此，**我们可以使用一个显式的栈来模拟调用栈的行为**，从而将递归转化为迭代形式：
 
-=== "Python"
-
-    ```python title="recursion.py"
-    [class]{}-[func]{for_loop_recur}
-    ```
-
-=== "C++"
-
-    ```cpp title="recursion.cpp"
-    [class]{}-[func]{forLoopRecur}
-    ```
-
-=== "Java"
-
-    ```java title="recursion.java"
-    [class]{recursion}-[func]{forLoopRecur}
-    ```
-
-=== "C#"
-
-    ```csharp title="recursion.cs"
-    [class]{recursion}-[func]{forLoopRecur}
-    ```
-
-=== "Go"
-
-    ```go title="recursion.go"
-    [class]{}-[func]{forLoopRecur}
-    ```
-
-=== "Swift"
-
-    ```swift title="recursion.swift"
-    [class]{}-[func]{forLoopRecur}
-    ```
-
-=== "JS"
-
-    ```javascript title="recursion.js"
-    [class]{}-[func]{forLoopRecur}
-    ```
-
-=== "TS"
-
-    ```typescript title="recursion.ts"
-    [class]{}-[func]{forLoopRecur}
-    ```
-
-=== "Dart"
-
-    ```dart title="recursion.dart"
-    [class]{}-[func]{forLoopRecur}
-    ```
-
-=== "Rust"
-
-    ```rust title="recursion.rs"
-    [class]{}-[func]{for_loop_recur}
-    ```
-
-=== "C"
-
-    ```c title="recursion.c"
-    [class]{}-[func]{forLoopRecur}
-    ```
-
-=== "Zig"
-
-    ```zig title="recursion.zig"
-    [class]{}-[func]{forLoopRecur}
-    ```
+```src
+[file]{recursion}-[class]{}-[func]{for_loop_recur}
+```
 
 观察以上代码，当递归被转换为迭代后，代码变得更加复杂了。尽管迭代和递归在很多情况下可以互相转换，但也不一定值得这样做，有以下两点原因。
 

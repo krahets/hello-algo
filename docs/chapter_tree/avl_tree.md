@@ -1,6 +1,6 @@
 # AVL 树 *
 
-在二叉搜索树章节中，我们提到了在多次插入和删除操作后，二叉搜索树可能退化为链表。这种情况下，所有操作的时间复杂度将从 $O(\log n)$ 恶化为 $O(n)$。
+在二叉搜索树章节中，我们提到了在多次插入和删除操作后，二叉搜索树可能退化为链表。这种情况下，所有操作的时间复杂度将从 $O(\log n)$ 恶化为 $O(n)$ 。
 
 如下图所示，经过两次删除节点操作，这个二叉搜索树便会退化为链表。
 
@@ -26,10 +26,10 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
     class TreeNode:
         """AVL 树节点类"""
         def __init__(self, val: int):
-            self.val: int = val                    # 节点值
-            self.height: int = 0                   # 节点高度
-            self.left: Optional[TreeNode] = None   # 左子节点引用
-            self.right: Optional[TreeNode] = None  # 右子节点引用
+            self.val: int = val                 # 节点值
+            self.height: int = 0                # 节点高度
+            self.left: TreeNode | None = None   # 左子节点引用
+            self.right: TreeNode | None = None  # 右子节点引用
     ```
 
 === "C++"
@@ -153,21 +153,40 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 === "Rust"
 
     ```rust title=""
+    use std::rc::Rc;
+    use std::cell::RefCell;
 
+    /* AVL 树节点结构体 */
+    struct TreeNode {
+        val: i32,                               // 节点值
+        height: i32,                            // 节点高度
+        left: Option<Rc<RefCell<TreeNode>>>,    // 左子节点
+        right: Option<Rc<RefCell<TreeNode>>>,   // 右子节点
+    }
+
+    impl TreeNode {
+        /* 构造方法 */
+        fn new(val: i32) -> Rc<RefCell<Self>> {
+            Rc::new(RefCell::new(Self {
+                val,
+                height: 0,
+                left: None,
+                right: None
+            }))
+        }
+    }
     ```
 
 === "C"
 
     ```c title=""
     /* AVL 树节点结构体 */
-    struct TreeNode {
+    TreeNode struct TreeNode {
         int val;
         int height;
         struct TreeNode *left;
         struct TreeNode *right;
-    };
-
-    typedef struct TreeNode TreeNode;
+    } TreeNode;
 
     /* 构造函数 */
     TreeNode *newTreeNode(int val) {
@@ -190,177 +209,17 @@ AVL 树既是二叉搜索树也是平衡二叉树，同时满足这两类二叉�
 
 “节点高度”是指从该节点到最远叶节点的距离，即所经过的“边”的数量。需要特别注意的是，叶节点的高度为 0 ，而空节点的高度为 -1 。我们将创建两个工具函数，分别用于获取和更新节点的高度。
 
-=== "Python"
-
-    ```python title="avl_tree.py"
-    [class]{AVLTree}-[func]{height}
-
-    [class]{AVLTree}-[func]{__update_height}
-    ```
-
-=== "C++"
-
-    ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{height}
-
-    [class]{AVLTree}-[func]{updateHeight}
-    ```
-
-=== "Java"
-
-    ```java title="avl_tree.java"
-    [class]{AVLTree}-[func]{height}
-
-    [class]{AVLTree}-[func]{updateHeight}
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{height}
-
-    [class]{AVLTree}-[func]{updateHeight}
-    ```
-
-=== "Go"
-
-    ```go title="avl_tree.go"
-    [class]{aVLTree}-[func]{height}
-
-    [class]{aVLTree}-[func]{updateHeight}
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    [class]{AVLTree}-[func]{height}
-
-    [class]{AVLTree}-[func]{updateHeight}
-    ```
-
-=== "JS"
-
-    ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{height}
-
-    [class]{AVLTree}-[func]{#updateHeight}
-    ```
-
-=== "TS"
-
-    ```typescript title="avl_tree.ts"
-    [class]{AVLTree}-[func]{height}
-
-    [class]{AVLTree}-[func]{updateHeight}
-    ```
-
-=== "Dart"
-
-    ```dart title="avl_tree.dart"
-    [class]{AVLTree}-[func]{height}
-
-    [class]{AVLTree}-[func]{updateHeight}
-    ```
-
-=== "Rust"
-
-    ```rust title="avl_tree.rs"
-    [class]{AVLTree}-[func]{height}
-
-    [class]{AVLTree}-[func]{update_height}
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    [class]{}-[func]{height}
-
-    [class]{}-[func]{updateHeight}
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{height}
-
-    [class]{AVLTree}-[func]{updateHeight}
-    ```
+```src
+[file]{avl_tree}-[class]{a_v_l_tree}-[func]{update_height}
+```
 
 ### 节点平衡因子
 
 节点的「平衡因子 balance factor」定义为节点左子树的高度减去右子树的高度，同时规定空节点的平衡因子为 0 。我们同样将获取节点平衡因子的功能封装成函数，方便后续使用。
 
-=== "Python"
-
-    ```python title="avl_tree.py"
-    [class]{AVLTree}-[func]{balance_factor}
-    ```
-
-=== "C++"
-
-    ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{balanceFactor}
-    ```
-
-=== "Java"
-
-    ```java title="avl_tree.java"
-    [class]{AVLTree}-[func]{balanceFactor}
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{balanceFactor}
-    ```
-
-=== "Go"
-
-    ```go title="avl_tree.go"
-    [class]{aVLTree}-[func]{balanceFactor}
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    [class]{AVLTree}-[func]{balanceFactor}
-    ```
-
-=== "JS"
-
-    ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{balanceFactor}
-    ```
-
-=== "TS"
-
-    ```typescript title="avl_tree.ts"
-    [class]{AVLTree}-[func]{balanceFactor}
-    ```
-
-=== "Dart"
-
-    ```dart title="avl_tree.dart"
-    [class]{AVLTree}-[func]{balanceFactor}
-    ```
-
-=== "Rust"
-
-    ```rust title="avl_tree.rs"
-    [class]{AVLTree}-[func]{balance_factor}
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    [class]{}-[func]{balanceFactor}
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{balanceFactor}
-    ```
+```src
+[file]{avl_tree}-[class]{a_v_l_tree}-[func]{balance_factor}
+```
 
 !!! note
 
@@ -394,77 +253,9 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 “向右旋转”是一种形象化的说法，实际上需要通过修改节点指针来实现，代码如下所示。
 
-=== "Python"
-
-    ```python title="avl_tree.py"
-    [class]{AVLTree}-[func]{__right_rotate}
-    ```
-
-=== "C++"
-
-    ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{rightRotate}
-    ```
-
-=== "Java"
-
-    ```java title="avl_tree.java"
-    [class]{AVLTree}-[func]{rightRotate}
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{rightRotate}
-    ```
-
-=== "Go"
-
-    ```go title="avl_tree.go"
-    [class]{aVLTree}-[func]{rightRotate}
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    [class]{AVLTree}-[func]{rightRotate}
-    ```
-
-=== "JS"
-
-    ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{#rightRotate}
-    ```
-
-=== "TS"
-
-    ```typescript title="avl_tree.ts"
-    [class]{AVLTree}-[func]{rightRotate}
-    ```
-
-=== "Dart"
-
-    ```dart title="avl_tree.dart"
-    [class]{AVLTree}-[func]{rightRotate}
-    ```
-
-=== "Rust"
-
-    ```rust title="avl_tree.rs"
-    [class]{AVLTree}-[func]{right_rotate}
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    [class]{}-[func]{rightRotate}
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{rightRotate}
-    ```
+```src
+[file]{avl_tree}-[class]{a_v_l_tree}-[func]{right_rotate}
+```
 
 ### 左旋
 
@@ -478,77 +269,9 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 可以观察到，**右旋和左旋操作在逻辑上是镜像对称的，它们分别解决的两种失衡情况也是对称的**。基于对称性，我们只需将右旋的实现代码中的所有的 `left` 替换为 `right` ，将所有的 `right` 替换为 `left` ，即可得到左旋的实现代码。
 
-=== "Python"
-
-    ```python title="avl_tree.py"
-    [class]{AVLTree}-[func]{__left_rotate}
-    ```
-
-=== "C++"
-
-    ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{leftRotate}
-    ```
-
-=== "Java"
-
-    ```java title="avl_tree.java"
-    [class]{AVLTree}-[func]{leftRotate}
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{leftRotate}
-    ```
-
-=== "Go"
-
-    ```go title="avl_tree.go"
-    [class]{aVLTree}-[func]{leftRotate}
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    [class]{AVLTree}-[func]{leftRotate}
-    ```
-
-=== "JS"
-
-    ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{#leftRotate}
-    ```
-
-=== "TS"
-
-    ```typescript title="avl_tree.ts"
-    [class]{AVLTree}-[func]{leftRotate}
-    ```
-
-=== "Dart"
-
-    ```dart title="avl_tree.dart"
-    [class]{AVLTree}-[func]{leftRotate}
-    ```
-
-=== "Rust"
-
-    ```rust title="avl_tree.rs"
-    [class]{AVLTree}-[func]{left_rotate}
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    [class]{}-[func]{leftRotate}
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{leftRotate}
-    ```
+```src
+[file]{avl_tree}-[class]{a_v_l_tree}-[func]{left_rotate}
+```
 
 ### 先左旋后右旋
 
@@ -581,77 +304,9 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 为了便于使用，我们将旋转操作封装成一个函数。**有了这个函数，我们就能对各种失衡情况进行旋转，使失衡节点重新恢复平衡**。
 
-=== "Python"
-
-    ```python title="avl_tree.py"
-    [class]{AVLTree}-[func]{__rotate}
-    ```
-
-=== "C++"
-
-    ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{rotate}
-    ```
-
-=== "Java"
-
-    ```java title="avl_tree.java"
-    [class]{AVLTree}-[func]{rotate}
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{rotate}
-    ```
-
-=== "Go"
-
-    ```go title="avl_tree.go"
-    [class]{aVLTree}-[func]{rotate}
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    [class]{AVLTree}-[func]{rotate}
-    ```
-
-=== "JS"
-
-    ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{#rotate}
-    ```
-
-=== "TS"
-
-    ```typescript title="avl_tree.ts"
-    [class]{AVLTree}-[func]{rotate}
-    ```
-
-=== "Dart"
-
-    ```dart title="avl_tree.dart"
-    [class]{AVLTree}-[func]{rotate}
-    ```
-
-=== "Rust"
-
-    ```rust title="avl_tree.rs"
-    [class]{AVLTree}-[func]{rotate}
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    [class]{}-[func]{rotate}
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{rotate}
-    ```
+```src
+[file]{avl_tree}-[class]{a_v_l_tree}-[func]{rotate}
+```
 
 ## AVL 树常用操作
 
@@ -659,201 +314,17 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
 
 AVL 树的节点插入操作与二叉搜索树在主体上类似。唯一的区别在于，在 AVL 树中插入节点后，从该节点到根节点的路径上可能会出现一系列失衡节点。因此，**我们需要从这个节点开始，自底向上执行旋转操作，使所有失衡节点恢复平衡**。
 
-=== "Python"
-
-    ```python title="avl_tree.py"
-    [class]{AVLTree}-[func]{insert}
-
-    [class]{AVLTree}-[func]{__insert_helper}
-    ```
-
-=== "C++"
-
-    ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{insert}
-
-    [class]{AVLTree}-[func]{insertHelper}
-    ```
-
-=== "Java"
-
-    ```java title="avl_tree.java"
-    [class]{AVLTree}-[func]{insert}
-
-    [class]{AVLTree}-[func]{insertHelper}
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{insert}
-
-    [class]{AVLTree}-[func]{insertHelper}
-    ```
-
-=== "Go"
-
-    ```go title="avl_tree.go"
-    [class]{aVLTree}-[func]{insert}
-
-    [class]{aVLTree}-[func]{insertHelper}
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    [class]{AVLTree}-[func]{insert}
-
-    [class]{AVLTree}-[func]{insertHelper}
-    ```
-
-=== "JS"
-
-    ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{insert}
-
-    [class]{AVLTree}-[func]{#insertHelper}
-    ```
-
-=== "TS"
-
-    ```typescript title="avl_tree.ts"
-    [class]{AVLTree}-[func]{insert}
-
-    [class]{AVLTree}-[func]{insertHelper}
-    ```
-
-=== "Dart"
-
-    ```dart title="avl_tree.dart"
-    [class]{AVLTree}-[func]{insert}
-
-    [class]{AVLTree}-[func]{insertHelper}
-    ```
-
-=== "Rust"
-
-    ```rust title="avl_tree.rs"
-    [class]{AVLTree}-[func]{insert}
-
-    [class]{AVLTree}-[func]{insert_helper}
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    [class]{aVLTree}-[func]{insert}
-
-    [class]{}-[func]{insertHelper}
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{insert}
-
-    [class]{AVLTree}-[func]{insertHelper}
-    ```
+```src
+[file]{avl_tree}-[class]{a_v_l_tree}-[func]{insert_helper}
+```
 
 ### 删除节点
 
 类似地，在二叉搜索树的删除节点方法的基础上，需要从底至顶地执行旋转操作，使所有失衡节点恢复平衡。
 
-=== "Python"
-
-    ```python title="avl_tree.py"
-    [class]{AVLTree}-[func]{remove}
-
-    [class]{AVLTree}-[func]{__remove_helper}
-    ```
-
-=== "C++"
-
-    ```cpp title="avl_tree.cpp"
-    [class]{AVLTree}-[func]{remove}
-
-    [class]{AVLTree}-[func]{removeHelper}
-    ```
-
-=== "Java"
-
-    ```java title="avl_tree.java"
-    [class]{AVLTree}-[func]{remove}
-
-    [class]{AVLTree}-[func]{removeHelper}
-    ```
-
-=== "C#"
-
-    ```csharp title="avl_tree.cs"
-    [class]{AVLTree}-[func]{remove}
-
-    [class]{AVLTree}-[func]{removeHelper}
-    ```
-
-=== "Go"
-
-    ```go title="avl_tree.go"
-    [class]{aVLTree}-[func]{remove}
-
-    [class]{aVLTree}-[func]{removeHelper}
-    ```
-
-=== "Swift"
-
-    ```swift title="avl_tree.swift"
-    [class]{AVLTree}-[func]{remove}
-
-    [class]{AVLTree}-[func]{removeHelper}
-    ```
-
-=== "JS"
-
-    ```javascript title="avl_tree.js"
-    [class]{AVLTree}-[func]{remove}
-
-    [class]{AVLTree}-[func]{#removeHelper}
-    ```
-
-=== "TS"
-
-    ```typescript title="avl_tree.ts"
-    [class]{AVLTree}-[func]{remove}
-
-    [class]{AVLTree}-[func]{removeHelper}
-    ```
-
-=== "Dart"
-
-    ```dart title="avl_tree.dart"
-    [class]{AVLTree}-[func]{remove}
-
-    [class]{AVLTree}-[func]{removeHelper}
-    ```
-
-=== "Rust"
-
-    ```rust title="avl_tree.rs"
-    [class]{AVLTree}-[func]{remove}
-
-    [class]{AVLTree}-[func]{remove_helper}
-    ```
-
-=== "C"
-
-    ```c title="avl_tree.c"
-    [class]{aVLTree}-[func]{removeNode}
-
-    [class]{}-[func]{removeHelper}
-    ```
-
-=== "Zig"
-
-    ```zig title="avl_tree.zig"
-    [class]{AVLTree}-[func]{remove}
-
-    [class]{AVLTree}-[func]{removeHelper}
-    ```
+```src
+[file]{avl_tree}-[class]{a_v_l_tree}-[func]{remove_helper}
+```
 
 ### 查找节点
 

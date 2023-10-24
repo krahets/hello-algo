@@ -268,7 +268,30 @@
 === "Rust"
 
     ```rust title="queue.rs"
+    /* 初始化双向队列 */
+    // 在 Rust 中使用双向队列作为普通队列来使用
+    let mut deque: VecDeque<u32> = VecDeque::new();
 
+    /* 元素入队 */
+    deque.push_back(1);
+    deque.push_back(3);
+    deque.push_back(2);
+    deque.push_back(5);
+    deque.push_back(4);
+
+    /* 访问队首元素 */
+    if let Some(front) = deque.front() {
+    }
+
+    /* 元素出队 */
+    if let Some(pop) = deque.pop_front() {
+    }
+
+    /* 获取队列的长度 */
+    let size = deque.len();
+
+    /* 判断队列是否为空 */
+    let is_empty = deque.is_empty();
     ```
 
 === "C"
@@ -302,77 +325,9 @@
 
 以下是用链表实现队列的代码。
 
-=== "Python"
-
-    ```python title="linkedlist_queue.py"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="linkedlist_queue.cpp"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="linkedlist_queue.java"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="linkedlist_queue.cs"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="linkedlist_queue.go"
-    [class]{linkedListQueue}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="linkedlist_queue.swift"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="linkedlist_queue.js"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="linkedlist_queue.ts"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="linkedlist_queue.dart"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="linkedlist_queue.rs"
-    [class]{LinkedListQueue}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="linkedlist_queue.c"
-    [class]{linkedListQueue}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="linkedlist_queue.zig"
-    [class]{LinkedListQueue}-[func]{}
-    ```
+```src
+[file]{linkedlist_queue}-[class]{linked_list_queue}-[func]{}
+```
 
 ### 基于数组的实现
 
@@ -400,77 +355,9 @@
 
 对于环形数组，我们需要让 `front` 或 `rear` 在越过数组尾部时，直接回到数组头部继续遍历。这种周期性规律可以通过“取余操作”来实现，代码如下所示。
 
-=== "Python"
-
-    ```python title="array_queue.py"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="array_queue.cpp"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="array_queue.java"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="array_queue.cs"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="array_queue.go"
-    [class]{arrayQueue}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="array_queue.swift"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="array_queue.js"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="array_queue.ts"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="array_queue.dart"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="array_queue.rs"
-    [class]{ArrayQueue}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="array_queue.c"
-    [class]{arrayQueue}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_queue.zig"
-    [class]{ArrayQueue}-[func]{}
-    ```
+```src
+[file]{array_queue}-[class]{array_queue}-[func]{}
+```
 
 以上实现的队列仍然具有局限性，即其长度不可变。然而，这个问题不难解决，我们可以将数组替换为动态数组，从而引入扩容机制。有兴趣的同学可以尝试自行实现。
 

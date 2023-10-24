@@ -1,82 +1,79 @@
 /**
  * File: permutations_i.c
  * Created Time: 2023-06-04
- * Author: Gonglja (glj0@outlook.com)
+ * Author: Gonglja (glj0@outlook.com), Krahets (krahets@163.com)
  */
 
 #include "../utils/common.h"
 
+// 假设最多有 1000 个排列
+#define MAX_SIZE 1000
+
 /* 回溯算法：全排列 I */
-void backtrack(vector *state, vector *choices, vector *selected, vector *res) {
+void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *selected, int **res, int *resSize) {
     // 当状态长度等于元素数量时，记录解
-    if (state->size == choices->size) {
-        vector *newState = newVector();
-        for (int i = 0; i < state->size; i++) {
-            vectorPushback(newState, state->data[i], sizeof(int));
+    if (stateSize == choicesSize) {
+        res[*resSize] = (int *)malloc(choicesSize * sizeof(int));
+        for (int i = 0; i < choicesSize; i++) {
+            res[*resSize][i] = state[i];
         }
-        vectorPushback(res, newState, sizeof(vector));
+        (*resSize)++;
         return;
     }
     // 遍历所有选择
-    for (int i = 0; i < choices->size; i++) {
-        int *choice = malloc(sizeof(int));
-        *choice = *((int *)(choices->data[i]));
-        // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
-        bool select = *((bool *)(selected->data[i]));
-        if (!select) {
+    for (int i = 0; i < choicesSize; i++) {
+        int choice = choices[i];
+        // 剪枝：不允许重复选择元素
+        if (!selected[i]) {
             // 尝试：做出选择，更新状态
-            *((bool *)selected->data[i]) = true;
-            vectorPushback(state, choice, sizeof(int));
+            selected[i] = true;
+            state[stateSize] = choice;
             // 进行下一轮选择
-            backtrack(state, choices, selected, res);
+            backtrack(state, stateSize + 1, choices, choicesSize, selected, res, resSize);
             // 回退：撤销选择，恢复到之前的状态
-            *((bool *)selected->data[i]) = false;
-            vectorPopback(state);
+            selected[i] = false;
         }
     }
 }
 
 /* 全排列 I */
-vector *permutationsI(vector *nums) {
-    vector *iState = newVector();
-
-    int select[3] = {false, false, false};
-    vector *bSelected = newVector();
-    for (int i = 0; i < nums->size; i++) {
-        vectorPushback(bSelected, &select[i], sizeof(int));
+int **permutationsI(int *nums, int numsSize, int *returnSize) {
+    int *state = (int *)malloc(numsSize * sizeof(int));
+    bool *selected = (bool *)malloc(numsSize * sizeof(bool));
+    for (int i = 0; i < numsSize; i++) {
+        selected[i] = false;
     }
+    int **res = (int **)malloc(MAX_SIZE * sizeof(int *));
+    *returnSize = 0;
 
-    vector *res = newVector();
+    backtrack(state, 0, nums, numsSize, selected, res, returnSize);
 
-    // 前序遍历
-    backtrack(iState, nums, bSelected, res);
+    free(state);
+    free(selected);
+
     return res;
-}
-
-/* 打印向量中的元素 */
-void printFunc(vector *v, void *p) {
-    int *node = p;
-    printf("%d", *node);
 }
 
 /* Driver Code */
 int main() {
     int nums[] = {1, 2, 3};
-    vector *iNums = newVector(); // int
-    for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
-        vectorPushback(iNums, &nums[i], sizeof(int));
+    int numsSize = sizeof(nums) / sizeof(nums[0]);
+    int returnSize;
+
+    int **res = permutationsI(nums, numsSize, &returnSize);
+
+    printf("输入数组 nums = ");
+    printArray(nums, numsSize);
+    printf("\n所有排列 res = \n");
+    for (int i = 0; i < returnSize; i++) {
+        printArray(res[i], numsSize);
     }
 
-    vector *res = permutationsI(iNums);
-
-    // 输出结果
-    printf("输入数组 nums = ");
-    printArray(nums, sizeof(nums) / sizeof(nums[0]));
-    printf("所有排列 res = ");
-    printVectorMatrix(res, printFunc);
-
     // 释放内存
-    delVector(iNums);
-    delVector(res);
+    for (int i = 0; i < returnSize; i++) {
+        free(res[i]);
+    }
+    free(res);
+
     return 0;
 }

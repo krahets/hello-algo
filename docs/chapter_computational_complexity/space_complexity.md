@@ -28,8 +28,8 @@
     class Node:
         """类"""
         def __init__(self, x: int):
-            self.val: int = x                 # 节点值
-            self.next: Optional[Node] = None  # 指向下一节点的引用
+            self.val: int = x              # 节点值
+            self.next: Node | None = None  # 指向下一节点的引用
 
     def function() -> int:
         """函数"""
@@ -105,16 +105,16 @@
     }
 
     /* 函数 */
-    int function() {
+    int Function() {
         // 执行某些操作...
         return 0;
     }
 
-    int algorithm(int n) {        // 输入数据
+    int Algorithm(int n) {        // 输入数据
         const int a = 0;          // 暂存数据（常量）
         int b = 0;                // 暂存数据（变量）
-        Node node = new Node(0);  // 暂存数据（对象）
-        int c = function();       // 栈帧空间（调用函数）
+        Node node = new(0);  // 暂存数据（对象）
+        int c = Function();       // 栈帧空间（调用函数）
         return a + b + c;         // 输出数据
     }
     ```
@@ -360,7 +360,7 @@
 === "C#"
 
     ```csharp title=""
-    void algorithm(int n) {
+    void Algorithm(int n) {
         int a = 0;                   // O(1)
         int[] b = new int[10000];    // O(1)
         if (n > 10) {
@@ -526,20 +526,20 @@
 === "C#"
 
     ```csharp title=""
-    int function() {
+    int Function() {
         // 执行某些操作
         return 0;
     }
     /* 循环 O(1) */
-    void loop(int n) {
+    void Loop(int n) {
         for (int i = 0; i < n; i++) {
-            function();
+            Function();
         }
     }
     /* 递归 O(n) */
-    int recur(int n) {
+    int Recur(int n) {
         if (n == 1) return 1;
-        return recur(n - 1);
+        return Recur(n - 1);
     }
     ```
 
@@ -719,253 +719,23 @@ $$
 
 需要注意的是，在循环中初始化变量或调用函数而占用的内存，在进入下一循环后就会被释放，因此不会累积占用空间，空间复杂度仍为 $O(1)$ ：
 
-=== "Python"
-
-    ```python title="space_complexity.py"
-    [class]{}-[func]{function}
-
-    [class]{}-[func]{constant}
-    ```
-
-=== "C++"
-
-    ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{func}
-
-    [class]{}-[func]{constant}
-    ```
-
-=== "Java"
-
-    ```java title="space_complexity.java"
-    [class]{space_complexity}-[func]{function}
-
-    [class]{space_complexity}-[func]{constant}
-    ```
-
-=== "C#"
-
-    ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{function}
-
-    [class]{space_complexity}-[func]{constant}
-    ```
-
-=== "Go"
-
-    ```go title="space_complexity.go"
-    [class]{}-[func]{function}
-
-    [class]{}-[func]{spaceConstant}
-    ```
-
-=== "Swift"
-
-    ```swift title="space_complexity.swift"
-    [class]{}-[func]{function}
-
-    [class]{}-[func]{constant}
-    ```
-
-=== "JS"
-
-    ```javascript title="space_complexity.js"
-    [class]{}-[func]{constFunc}
-
-    [class]{}-[func]{constant}
-    ```
-
-=== "TS"
-
-    ```typescript title="space_complexity.ts"
-    [class]{}-[func]{constFunc}
-
-    [class]{}-[func]{constant}
-    ```
-
-=== "Dart"
-
-    ```dart title="space_complexity.dart"
-    [class]{}-[func]{function}
-
-    [class]{}-[func]{constant}
-    ```
-
-=== "Rust"
-
-    ```rust title="space_complexity.rs"
-    [class]{}-[func]{function}
-
-    [class]{}-[func]{constant}
-    ```
-
-=== "C"
-
-    ```c title="space_complexity.c"
-    [class]{}-[func]{func}
-
-    [class]{}-[func]{constant}
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{function}
-
-    [class]{}-[func]{constant}
-    ```
+```src
+[file]{space_complexity}-[class]{}-[func]{constant}
+```
 
 ### 线性阶 $O(n)$
 
 线性阶常见于元素数量与 $n$ 成正比的数组、链表、栈、队列等：
 
-=== "Python"
-
-    ```python title="space_complexity.py"
-    [class]{}-[func]{linear}
-    ```
-
-=== "C++"
-
-    ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{linear}
-    ```
-
-=== "Java"
-
-    ```java title="space_complexity.java"
-    [class]{space_complexity}-[func]{linear}
-    ```
-
-=== "C#"
-
-    ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{linear}
-    ```
-
-=== "Go"
-
-    ```go title="space_complexity.go"
-    [class]{}-[func]{spaceLinear}
-    ```
-
-=== "Swift"
-
-    ```swift title="space_complexity.swift"
-    [class]{}-[func]{linear}
-    ```
-
-=== "JS"
-
-    ```javascript title="space_complexity.js"
-    [class]{}-[func]{linear}
-    ```
-
-=== "TS"
-
-    ```typescript title="space_complexity.ts"
-    [class]{}-[func]{linear}
-    ```
-
-=== "Dart"
-
-    ```dart title="space_complexity.dart"
-    [class]{}-[func]{linear}
-    ```
-
-=== "Rust"
-
-    ```rust title="space_complexity.rs"
-    [class]{}-[func]{linear}
-    ```
-
-=== "C"
-
-    ```c title="space_complexity.c"
-    [class]{hashTable}-[func]{}
-
-    [class]{}-[func]{linear}
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{linear}
-    ```
+```src
+[file]{space_complexity}-[class]{}-[func]{linear}
+```
 
 如下图所示，此函数的递归深度为 $n$ ，即同时存在 $n$ 个未返回的 `linear_recur()` 函数，使用 $O(n)$ 大小的栈帧空间：
 
-=== "Python"
-
-    ```python title="space_complexity.py"
-    [class]{}-[func]{linear_recur}
-    ```
-
-=== "C++"
-
-    ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{linearRecur}
-    ```
-
-=== "Java"
-
-    ```java title="space_complexity.java"
-    [class]{space_complexity}-[func]{linearRecur}
-    ```
-
-=== "C#"
-
-    ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{linearRecur}
-    ```
-
-=== "Go"
-
-    ```go title="space_complexity.go"
-    [class]{}-[func]{spaceLinearRecur}
-    ```
-
-=== "Swift"
-
-    ```swift title="space_complexity.swift"
-    [class]{}-[func]{linearRecur}
-    ```
-
-=== "JS"
-
-    ```javascript title="space_complexity.js"
-    [class]{}-[func]{linearRecur}
-    ```
-
-=== "TS"
-
-    ```typescript title="space_complexity.ts"
-    [class]{}-[func]{linearRecur}
-    ```
-
-=== "Dart"
-
-    ```dart title="space_complexity.dart"
-    [class]{}-[func]{linearRecur}
-    ```
-
-=== "Rust"
-
-    ```rust title="space_complexity.rs"
-    [class]{}-[func]{linear_recur}
-    ```
-
-=== "C"
-
-    ```c title="space_complexity.c"
-    [class]{}-[func]{linearRecur}
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{linearRecur}
-    ```
+```src
+[file]{space_complexity}-[class]{}-[func]{linear_recur}
+```
 
 ![递归函数产生的线性阶空间复杂度](space_complexity.assets/space_complexity_recursive_linear.png)
 
@@ -973,151 +743,15 @@ $$
 
 平方阶常见于矩阵和图，元素数量与 $n$ 成平方关系：
 
-=== "Python"
-
-    ```python title="space_complexity.py"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "C++"
-
-    ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "Java"
-
-    ```java title="space_complexity.java"
-    [class]{space_complexity}-[func]{quadratic}
-    ```
-
-=== "C#"
-
-    ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{quadratic}
-    ```
-
-=== "Go"
-
-    ```go title="space_complexity.go"
-    [class]{}-[func]{spaceQuadratic}
-    ```
-
-=== "Swift"
-
-    ```swift title="space_complexity.swift"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "JS"
-
-    ```javascript title="space_complexity.js"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "TS"
-
-    ```typescript title="space_complexity.ts"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "Dart"
-
-    ```dart title="space_complexity.dart"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "Rust"
-
-    ```rust title="space_complexity.rs"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "C"
-
-    ```c title="space_complexity.c"
-    [class]{}-[func]{quadratic}
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{quadratic}
-    ```
+```src
+[file]{space_complexity}-[class]{}-[func]{quadratic}
+```
 
 如下图所示，该函数的递归深度为 $n$ ，在每个递归函数中都初始化了一个数组，长度分别为 $n$、$n-1$、$\dots$、$2$、$1$ ，平均长度为 $n / 2$ ，因此总体占用 $O(n^2)$ 空间：
 
-=== "Python"
-
-    ```python title="space_complexity.py"
-    [class]{}-[func]{quadratic_recur}
-    ```
-
-=== "C++"
-
-    ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{quadraticRecur}
-    ```
-
-=== "Java"
-
-    ```java title="space_complexity.java"
-    [class]{space_complexity}-[func]{quadraticRecur}
-    ```
-
-=== "C#"
-
-    ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{quadraticRecur}
-    ```
-
-=== "Go"
-
-    ```go title="space_complexity.go"
-    [class]{}-[func]{spaceQuadraticRecur}
-    ```
-
-=== "Swift"
-
-    ```swift title="space_complexity.swift"
-    [class]{}-[func]{quadraticRecur}
-    ```
-
-=== "JS"
-
-    ```javascript title="space_complexity.js"
-    [class]{}-[func]{quadraticRecur}
-    ```
-
-=== "TS"
-
-    ```typescript title="space_complexity.ts"
-    [class]{}-[func]{quadraticRecur}
-    ```
-
-=== "Dart"
-
-    ```dart title="space_complexity.dart"
-    [class]{}-[func]{quadraticRecur}
-    ```
-
-=== "Rust"
-
-    ```rust title="space_complexity.rs"
-    [class]{}-[func]{quadratic_recur}
-    ```
-
-=== "C"
-
-    ```c title="space_complexity.c"
-    [class]{}-[func]{quadraticRecur}
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{quadraticRecur}
-    ```
+```src
+[file]{space_complexity}-[class]{}-[func]{quadratic_recur}
+```
 
 ![递归函数产生的平方阶空间复杂度](space_complexity.assets/space_complexity_recursive_quadratic.png)
 
@@ -1125,77 +759,9 @@ $$
 
 指数阶常见于二叉树。观察下图，高度为 $n$ 的“满二叉树”的节点数量为 $2^n - 1$ ，占用 $O(2^n)$ 空间：
 
-=== "Python"
-
-    ```python title="space_complexity.py"
-    [class]{}-[func]{build_tree}
-    ```
-
-=== "C++"
-
-    ```cpp title="space_complexity.cpp"
-    [class]{}-[func]{buildTree}
-    ```
-
-=== "Java"
-
-    ```java title="space_complexity.java"
-    [class]{space_complexity}-[func]{buildTree}
-    ```
-
-=== "C#"
-
-    ```csharp title="space_complexity.cs"
-    [class]{space_complexity}-[func]{buildTree}
-    ```
-
-=== "Go"
-
-    ```go title="space_complexity.go"
-    [class]{}-[func]{buildTree}
-    ```
-
-=== "Swift"
-
-    ```swift title="space_complexity.swift"
-    [class]{}-[func]{buildTree}
-    ```
-
-=== "JS"
-
-    ```javascript title="space_complexity.js"
-    [class]{}-[func]{buildTree}
-    ```
-
-=== "TS"
-
-    ```typescript title="space_complexity.ts"
-    [class]{}-[func]{buildTree}
-    ```
-
-=== "Dart"
-
-    ```dart title="space_complexity.dart"
-    [class]{}-[func]{buildTree}
-    ```
-
-=== "Rust"
-
-    ```rust title="space_complexity.rs"
-    [class]{}-[func]{build_tree}
-    ```
-
-=== "C"
-
-    ```c title="space_complexity.c"
-    [class]{}-[func]{buildTree}
-    ```
-
-=== "Zig"
-
-    ```zig title="space_complexity.zig"
-    [class]{}-[func]{buildTree}
-    ```
+```src
+[file]{space_complexity}-[class]{}-[func]{build_tree}
+```
 
 ![满二叉树产生的指数阶空间复杂度](space_complexity.assets/space_complexity_exponential.png)
 

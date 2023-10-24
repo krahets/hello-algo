@@ -4,10 +4,11 @@ Created Time: 2023-02-23
 Author: Krahets (krahets@163.com)
 """
 
-import sys, os.path as osp
+import sys
+from pathlib import Path
 
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from modules import *
+sys.path.append(str(Path(__file__).parent.parent))
+from modules import Vertex, vals_to_vets
 
 
 class GraphAdjList:
@@ -16,7 +17,7 @@ class GraphAdjList:
     def __init__(self, edges: list[list[Vertex]]):
         """构造方法"""
         # 邻接表，key: 顶点，value：该顶点的所有邻接顶点
-        self.adj_list = dict[Vertex, Vertex]()
+        self.adj_list = dict[Vertex, list[Vertex]]()
         # 添加所有顶点和边
         for edge in edges:
             self.add_vertex(edge[0])

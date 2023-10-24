@@ -2,7 +2,7 @@
 
 树代表的是“一对多”的关系，而图则具有更高的自由度，可以表示任意的“多对多”关系。因此，我们可以把树看作是图的一种特例。显然，**树的遍历操作也是图的遍历操作的一种特例**。
 
-图和树都都需要应用搜索算法来实现遍历操作。图的遍历方式可分为两种：「广度优先遍历 breadth-first traversal」和「深度优先遍历 depth-first traversal」。它们也常被称为「广度优先搜索 breadth-first search」和「深度优先搜索 depth-first search」，简称 BFS 和 DFS 。
+图和树都需要应用搜索算法来实现遍历操作。图的遍历方式可分为两种：「广度优先遍历 breadth-first traversal」和「深度优先遍历 depth-first traversal」。它们也常被称为「广度优先搜索 breadth-first search」和「深度优先搜索 depth-first search」，简称 BFS 和 DFS 。
 
 ## 广度优先遍历
 
@@ -20,77 +20,9 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 
 为了防止重复遍历顶点，我们需要借助一个哈希表 `visited` 来记录哪些节点已被访问。
 
-=== "Python"
-
-    ```python title="graph_bfs.py"
-    [class]{}-[func]{graph_bfs}
-    ```
-
-=== "C++"
-
-    ```cpp title="graph_bfs.cpp"
-    [class]{}-[func]{graphBFS}
-    ```
-
-=== "Java"
-
-    ```java title="graph_bfs.java"
-    [class]{graph_bfs}-[func]{graphBFS}
-    ```
-
-=== "C#"
-
-    ```csharp title="graph_bfs.cs"
-    [class]{graph_bfs}-[func]{graphBFS}
-    ```
-
-=== "Go"
-
-    ```go title="graph_bfs.go"
-    [class]{}-[func]{graphBFS}
-    ```
-
-=== "Swift"
-
-    ```swift title="graph_bfs.swift"
-    [class]{}-[func]{graphBFS}
-    ```
-
-=== "JS"
-
-    ```javascript title="graph_bfs.js"
-    [class]{}-[func]{graphBFS}
-    ```
-
-=== "TS"
-
-    ```typescript title="graph_bfs.ts"
-    [class]{}-[func]{graphBFS}
-    ```
-
-=== "Dart"
-
-    ```dart title="graph_bfs.dart"
-    [class]{}-[func]{graphBFS}
-    ```
-
-=== "Rust"
-
-    ```rust title="graph_bfs.rs"
-    [class]{}-[func]{graph_bfs}
-    ```
-
-=== "C"
-
-    ```c title="graph_bfs.c"
-    [class]{}-[func]{graphBFS}
-    ```
-
-=== "Zig"
-
-    ```zig title="graph_bfs.zig"
-    [class]{}-[func]{graphBFS}
-    ```
+```src
+[file]{graph_bfs}-[class]{}-[func]{graph_bfs}
+```
 
 代码相对抽象，建议对照下图来加深理解。
 
@@ -147,101 +79,9 @@ BFS 通常借助队列来实现。队列具有“先入先出”的性质，这�
 
 这种“走到尽头再返回”的算法范式通常基于递归来实现。与广度优先遍历类似，在深度优先遍历中我们也需要借助一个哈希表 `visited` 来记录已被访问的顶点，以避免重复访问顶点。
 
-=== "Python"
-
-    ```python title="graph_dfs.py"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graph_dfs}
-    ```
-
-=== "C++"
-
-    ```cpp title="graph_dfs.cpp"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graphDFS}
-    ```
-
-=== "Java"
-
-    ```java title="graph_dfs.java"
-    [class]{graph_dfs}-[func]{dfs}
-
-    [class]{graph_dfs}-[func]{graphDFS}
-    ```
-
-=== "C#"
-
-    ```csharp title="graph_dfs.cs"
-    [class]{graph_dfs}-[func]{dfs}
-
-    [class]{graph_dfs}-[func]{graphDFS}
-    ```
-
-=== "Go"
-
-    ```go title="graph_dfs.go"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graphDFS}
-    ```
-
-=== "Swift"
-
-    ```swift title="graph_dfs.swift"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graphDFS}
-    ```
-
-=== "JS"
-
-    ```javascript title="graph_dfs.js"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graphDFS}
-    ```
-
-=== "TS"
-
-    ```typescript title="graph_dfs.ts"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graphDFS}
-    ```
-
-=== "Dart"
-
-    ```dart title="graph_dfs.dart"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graphDFS}
-    ```
-
-=== "Rust"
-
-    ```rust title="graph_dfs.rs"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graph_dfs}
-    ```
-
-=== "C"
-
-    ```c title="graph_dfs.c"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graphDFS}
-    ```
-
-=== "Zig"
-
-    ```zig title="graph_dfs.zig"
-    [class]{}-[func]{dfs}
-
-    [class]{}-[func]{graphDFS}
-    ```
+```src
+[file]{graph_dfs}-[class]{}-[func]{graph_dfs}
+```
 
 深度优先遍历的算法流程如下图所示。
 

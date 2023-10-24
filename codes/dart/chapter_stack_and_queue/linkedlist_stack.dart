@@ -81,7 +81,7 @@ void main() {
 
   /* 元素出栈 */
   final int pop = stack.pop();
-  print("出栈元素 pop = $pop，出栈后 stack = ${stack.toList()}");
+  print("出栈元素 pop = $pop ，出栈后 stack = ${stack.toList()}");
 
   /* 获取栈的长度 */
   final int size = stack.size();

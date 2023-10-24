@@ -15,7 +15,7 @@ public class ListNode {
 
     /* Generate a linked list with an array */
     public static ListNode? ArrToLinkedList(int[] arr) {
-        ListNode dum = new ListNode(0);
+        ListNode dum = new(0);
         ListNode head = dum;
         foreach (int val in arr) {
             head.next = new ListNode(val);

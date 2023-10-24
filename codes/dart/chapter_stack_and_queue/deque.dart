@@ -28,9 +28,9 @@ void main() {
 
   /* 元素出队 */
   final int popLast = deque.removeLast();
-  print("队尾出队元素 = $popLast，队尾出队后 deque = $deque");
+  print("队尾出队元素 = $popLast ，队尾出队后 deque = $deque");
   final int popFirst = deque.removeFirst();
-  print("队首出队元素 = $popFirst，队首出队后 deque = $deque");
+  print("队首出队元素 = $popFirst ，队首出队后 deque = $deque");
 
   /* 获取双向队列的长度 */
   final int size = deque.length;

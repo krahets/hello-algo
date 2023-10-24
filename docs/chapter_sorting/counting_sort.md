@@ -12,77 +12,9 @@
 
 ![计数排序流程](counting_sort.assets/counting_sort_overview.png)
 
-=== "Python"
-
-    ```python title="counting_sort.py"
-    [class]{}-[func]{counting_sort_naive}
-    ```
-
-=== "C++"
-
-    ```cpp title="counting_sort.cpp"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
-=== "Java"
-
-    ```java title="counting_sort.java"
-    [class]{counting_sort}-[func]{countingSortNaive}
-    ```
-
-=== "C#"
-
-    ```csharp title="counting_sort.cs"
-    [class]{counting_sort}-[func]{countingSortNaive}
-    ```
-
-=== "Go"
-
-    ```go title="counting_sort.go"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
-=== "Swift"
-
-    ```swift title="counting_sort.swift"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
-=== "JS"
-
-    ```javascript title="counting_sort.js"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
-=== "TS"
-
-    ```typescript title="counting_sort.ts"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
-=== "Dart"
-
-    ```dart title="counting_sort.dart"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
-=== "Rust"
-
-    ```rust title="counting_sort.rs"
-    [class]{}-[func]{counting_sort_naive}
-    ```
-
-=== "C"
-
-    ```c title="counting_sort.c"
-    [class]{}-[func]{countingSortNaive}
-    ```
-
-=== "Zig"
-
-    ```zig title="counting_sort.zig"
-    [class]{}-[func]{countingSortNaive}
-    ```
+```src
+[file]{counting_sort}-[class]{}-[func]{counting_sort_naive}
+```
 
 !!! note "计数排序与桶排序的联系"
 
@@ -131,77 +63,9 @@ $$
 
 计数排序的实现代码如下所示。
 
-=== "Python"
-
-    ```python title="counting_sort.py"
-    [class]{}-[func]{counting_sort}
-    ```
-
-=== "C++"
-
-    ```cpp title="counting_sort.cpp"
-    [class]{}-[func]{countingSort}
-    ```
-
-=== "Java"
-
-    ```java title="counting_sort.java"
-    [class]{counting_sort}-[func]{countingSort}
-    ```
-
-=== "C#"
-
-    ```csharp title="counting_sort.cs"
-    [class]{counting_sort}-[func]{countingSort}
-    ```
-
-=== "Go"
-
-    ```go title="counting_sort.go"
-    [class]{}-[func]{countingSort}
-    ```
-
-=== "Swift"
-
-    ```swift title="counting_sort.swift"
-    [class]{}-[func]{countingSort}
-    ```
-
-=== "JS"
-
-    ```javascript title="counting_sort.js"
-    [class]{}-[func]{countingSort}
-    ```
-
-=== "TS"
-
-    ```typescript title="counting_sort.ts"
-    [class]{}-[func]{countingSort}
-    ```
-
-=== "Dart"
-
-    ```dart title="counting_sort.dart"
-    [class]{}-[func]{countingSort}
-    ```
-
-=== "Rust"
-
-    ```rust title="counting_sort.rs"
-    [class]{}-[func]{counting_sort}
-    ```
-
-=== "C"
-
-    ```c title="counting_sort.c"
-    [class]{}-[func]{countingSort}
-    ```
-
-=== "Zig"
-
-    ```zig title="counting_sort.zig"
-    [class]{}-[func]{countingSort}
-    ```
+```src
+[file]{counting_sort}-[class]{}-[func]{counting_sort}
+```
 
 ## 算法特性
 

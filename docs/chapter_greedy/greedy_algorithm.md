@@ -19,77 +19,9 @@
 
 实现代码如下所示。你可能会不由地发出感叹：So Clean ！贪心算法仅用十行代码就解决了零钱兑换问题。
 
-=== "Python"
-
-    ```python title="coin_change_greedy.py"
-    [class]{}-[func]{coin_change_greedy}
-    ```
-
-=== "C++"
-
-    ```cpp title="coin_change_greedy.cpp"
-    [class]{}-[func]{coinChangeGreedy}
-    ```
-
-=== "Java"
-
-    ```java title="coin_change_greedy.java"
-    [class]{coin_change_greedy}-[func]{coinChangeGreedy}
-    ```
-
-=== "C#"
-
-    ```csharp title="coin_change_greedy.cs"
-    [class]{coin_change_greedy}-[func]{coinChangeGreedy}
-    ```
-
-=== "Go"
-
-    ```go title="coin_change_greedy.go"
-    [class]{}-[func]{coinChangeGreedy}
-    ```
-
-=== "Swift"
-
-    ```swift title="coin_change_greedy.swift"
-    [class]{}-[func]{coinChangeGreedy}
-    ```
-
-=== "JS"
-
-    ```javascript title="coin_change_greedy.js"
-    [class]{}-[func]{coinChangeGreedy}
-    ```
-
-=== "TS"
-
-    ```typescript title="coin_change_greedy.ts"
-    [class]{}-[func]{coinChangeGreedy}
-    ```
-
-=== "Dart"
-
-    ```dart title="coin_change_greedy.dart"
-    [class]{}-[func]{coinChangeGreedy}
-    ```
-
-=== "Rust"
-
-    ```rust title="coin_change_greedy.rs"
-    [class]{}-[func]{coin_change_greedy}
-    ```
-
-=== "C"
-
-    ```c title="coin_change_greedy.c"
-    [class]{}-[func]{coinChangeGreedy}
-    ```
-
-=== "Zig"
-
-    ```zig title="coin_change_greedy.zig"
-    [class]{}-[func]{coinChangeGreedy}
-    ```
+```src
+[file]{coin_change_greedy}-[class]{}-[func]{coin_change_greedy}
+```
 
 ## 贪心优点与局限性
 

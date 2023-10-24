@@ -7,11 +7,9 @@
 #include "../utils/common.h"
 
 /* 二叉搜索树 */
-struct binarySearchTree {
+typedef struct {
     TreeNode *root;
-};
-
-typedef struct binarySearchTree binarySearchTree;
+} BinarySearchTree;
 
 /* 比较器：从小到大排序 */
 int sortIntHelper(const void *a, const void *b) {
@@ -32,8 +30,8 @@ TreeNode *buildTree(int nums[], int i, int j) {
     return root;
 }
 
-binarySearchTree *newBinarySearchTree(int nums[], int size) {
-    binarySearchTree *bst = (binarySearchTree *)malloc(sizeof(binarySearchTree));
+BinarySearchTree *newBinarySearchTree(int nums[], int size) {
+    BinarySearchTree *bst = (BinarySearchTree *)malloc(sizeof(BinarySearchTree));
     TreeNode *root;
     // 从小到大排序数组
     qsort(nums, size, sizeof(int), sortIntHelper);
@@ -44,12 +42,12 @@ binarySearchTree *newBinarySearchTree(int nums[], int size) {
 }
 
 /* 获取二叉树根节点 */
-TreeNode *getRoot(binarySearchTree *bst) {
+TreeNode *getRoot(BinarySearchTree *bst) {
     return bst->root;
 }
 
 /* 查找节点 */
-TreeNode *search(binarySearchTree *bst, int num) {
+TreeNode *search(BinarySearchTree *bst, int num) {
     TreeNode *cur = bst->root;
     // 循环查找，越过叶节点后跳出
     while (cur != NULL) {
@@ -69,7 +67,7 @@ TreeNode *search(binarySearchTree *bst, int num) {
 }
 
 /* 插入节点 */
-void insert(binarySearchTree *bst, int num) {
+void insert(BinarySearchTree *bst, int num) {
     // 若树为空，则初始化根节点
     if (bst->root == NULL) {
         bst->root = newTreeNode(num);
@@ -102,7 +100,7 @@ void insert(binarySearchTree *bst, int num) {
 
 /* 删除节点 */
 // 由于引入了 stdio.h ，此处无法使用 remove 关键词
-void removeNode(binarySearchTree *bst, int num) {
+void removeItem(BinarySearchTree *bst, int num) {
     // 若树为空，直接提前返回
     if (bst->root == NULL)
         return;
@@ -144,7 +142,7 @@ void removeNode(binarySearchTree *bst, int num) {
         }
         int tmpVal = tmp->val;
         // 递归删除节点 tmp
-        removeNode(bst, tmp->val);
+        removeItem(bst, tmp->val);
         // 用 tmp 覆盖 cur
         cur->val = tmpVal;
     }
@@ -154,7 +152,7 @@ void removeNode(binarySearchTree *bst, int num) {
 int main() {
     /* 初始化二叉搜索树 */
     int nums[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-    binarySearchTree *bst = newBinarySearchTree(nums, sizeof(nums) / sizeof(int));
+    BinarySearchTree *bst = newBinarySearchTree(nums, sizeof(nums) / sizeof(int));
     printf("初始化的二叉树为\n");
     printTree(getRoot(bst));
 
@@ -168,13 +166,13 @@ int main() {
     printTree(getRoot(bst));
 
     /* 删除节点 */
-    removeNode(bst, 1);
+    removeItem(bst, 1);
     printf("删除节点 1 后，二叉树为\n");
     printTree(getRoot(bst));
-    removeNode(bst, 2);
+    removeItem(bst, 2);
     printf("删除节点 2 后，二叉树为\n");
     printTree(getRoot(bst));
-    removeNode(bst, 4);
+    removeItem(bst, 4);
     printf("删除节点 4 后，二叉树为\n");
     printTree(getRoot(bst));
 

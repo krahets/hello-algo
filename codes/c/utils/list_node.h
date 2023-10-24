@@ -12,13 +12,10 @@ extern "C" {
 #endif
 
 /* 链表节点结构体 */
-struct ListNode {
+typedef struct ListNode {
     int val;               // 节点值
     struct ListNode *next; // 指向下一节点的引用
-};
-
-// typedef 作用是为一种数据类型定义一个新名字
-typedef struct ListNode ListNode;
+} ListNode;
 
 /* 构造函数，初始化一个新节点 */
 ListNode *newListNode(int val) {

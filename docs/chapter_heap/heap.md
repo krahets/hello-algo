@@ -158,9 +158,9 @@
     ```csharp title="heap.cs"
     /* 初始化堆 */
     // 初始化小顶堆
-    PriorityQueue<int, int> minHeap = new PriorityQueue<int, int>();
+    PriorityQueue<int, int> minHeap = new();
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
-    PriorityQueue<int, int> maxHeap = new PriorityQueue<int, int>(Comparer<int>.Create((x, y) => y - x));
+    PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y - x));
 
     /* 元素入堆 */
     maxHeap.Enqueue(1, 1);
@@ -296,7 +296,41 @@
 === "Rust"
 
     ```rust title="heap.rs"
+    use std::collections::BinaryHeap;
+    use std::cmp::Reverse;
 
+    /* 初始化堆 */
+    // 初始化小顶堆
+    let mut min_heap = BinaryHeap::<Reverse<i32>>::new();
+    // 初始化大顶堆
+    let mut max_heap = BinaryHeap::new();
+
+    /* 元素入堆 */
+    max_heap.push(1);
+    max_heap.push(3);
+    max_heap.push(2);
+    max_heap.push(5);
+    max_heap.push(4);
+    
+    /* 获取堆顶元素 */
+    let peek = max_heap.peek().unwrap();  // 5
+
+    /* 堆顶元素出堆 */
+    // 出堆元素会形成一个从大到小的序列
+    let peek = max_heap.pop().unwrap();   // 5
+    let peek = max_heap.pop().unwrap();   // 4
+    let peek = max_heap.pop().unwrap();   // 3
+    let peek = max_heap.pop().unwrap();   // 2
+    let peek = max_heap.pop().unwrap();   // 1
+
+    /* 获取堆大小 */
+    let size = max_heap.len();
+
+    /* 判断堆是否为空 */
+    let is_empty = max_heap.is_empty();
+
+    /* 输入列表并建堆 */
+    let min_heap = BinaryHeap::from(vec![Reverse(1), Reverse(3), Reverse(2), Reverse(5), Reverse(4)]);
     ```
 
 === "C"
@@ -327,201 +361,17 @@
 
 我们可以将索引映射公式封装成函数，方便后续使用。
 
-=== "Python"
-
-    ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{left}
-
-    [class]{MaxHeap}-[func]{right}
-
-    [class]{MaxHeap}-[func]{parent}
-    ```
-
-=== "C++"
-
-    ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{left}
-
-    [class]{MaxHeap}-[func]{right}
-
-    [class]{MaxHeap}-[func]{parent}
-    ```
-
-=== "Java"
-
-    ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{left}
-
-    [class]{MaxHeap}-[func]{right}
-
-    [class]{MaxHeap}-[func]{parent}
-    ```
-
-=== "C#"
-
-    ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{left}
-
-    [class]{MaxHeap}-[func]{right}
-
-    [class]{MaxHeap}-[func]{parent}
-    ```
-
-=== "Go"
-
-    ```go title="my_heap.go"
-    [class]{maxHeap}-[func]{left}
-
-    [class]{maxHeap}-[func]{right}
-
-    [class]{maxHeap}-[func]{parent}
-    ```
-
-=== "Swift"
-
-    ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{left}
-
-    [class]{MaxHeap}-[func]{right}
-
-    [class]{MaxHeap}-[func]{parent}
-    ```
-
-=== "JS"
-
-    ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{#left}
-
-    [class]{MaxHeap}-[func]{#right}
-
-    [class]{MaxHeap}-[func]{#parent}
-    ```
-
-=== "TS"
-
-    ```typescript title="my_heap.ts"
-    [class]{MaxHeap}-[func]{left}
-
-    [class]{MaxHeap}-[func]{right}
-
-    [class]{MaxHeap}-[func]{parent}
-    ```
-
-=== "Dart"
-
-    ```dart title="my_heap.dart"
-    [class]{MaxHeap}-[func]{_left}
-
-    [class]{MaxHeap}-[func]{_right}
-
-    [class]{MaxHeap}-[func]{_parent}
-    ```
-
-=== "Rust"
-
-    ```rust title="my_heap.rs"
-    [class]{MaxHeap}-[func]{left}
-
-    [class]{MaxHeap}-[func]{right}
-
-    [class]{MaxHeap}-[func]{parent}
-    ```
-
-=== "C"
-
-    ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{left}
-
-    [class]{maxHeap}-[func]{right}
-
-    [class]{maxHeap}-[func]{parent}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{left}
-
-    [class]{MaxHeap}-[func]{right}
-
-    [class]{MaxHeap}-[func]{parent}
-    ```
+```src
+[file]{my_heap}-[class]{max_heap}-[func]{parent}
+```
 
 ### 访问堆顶元素
 
 堆顶元素即为二叉树的根节点，也就是列表的首个元素。
 
-=== "Python"
-
-    ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{peek}
-    ```
-
-=== "C++"
-
-    ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{peek}
-    ```
-
-=== "Java"
-
-    ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{peek}
-    ```
-
-=== "C#"
-
-    ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{peek}
-    ```
-
-=== "Go"
-
-    ```go title="my_heap.go"
-    [class]{maxHeap}-[func]{peek}
-    ```
-
-=== "Swift"
-
-    ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{peek}
-    ```
-
-=== "JS"
-
-    ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{peek}
-    ```
-
-=== "TS"
-
-    ```typescript title="my_heap.ts"
-    [class]{MaxHeap}-[func]{peek}
-    ```
-
-=== "Dart"
-
-    ```dart title="my_heap.dart"
-    [class]{MaxHeap}-[func]{peek}
-    ```
-
-=== "Rust"
-
-    ```rust title="my_heap.rs"
-    [class]{MaxHeap}-[func]{peek}
-    ```
-
-=== "C"
-
-    ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{peek}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{peek}
-    ```
+```src
+[file]{my_heap}-[class]{max_heap}-[func]{peek}
+```
 
 ### 元素入堆
 
@@ -558,101 +408,9 @@
 
 设节点总数为 $n$ ，则树的高度为 $O(\log n)$ 。由此可知，堆化操作的循环轮数最多为 $O(\log n)$ ，**元素入堆操作的时间复杂度为 $O(\log n)$** 。
 
-=== "Python"
-
-    ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{push}
-
-    [class]{MaxHeap}-[func]{sift_up}
-    ```
-
-=== "C++"
-
-    ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{push}
-
-    [class]{MaxHeap}-[func]{siftUp}
-    ```
-
-=== "Java"
-
-    ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{push}
-
-    [class]{MaxHeap}-[func]{siftUp}
-    ```
-
-=== "C#"
-
-    ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{push}
-
-    [class]{MaxHeap}-[func]{siftUp}
-    ```
-
-=== "Go"
-
-    ```go title="my_heap.go"
-    [class]{maxHeap}-[func]{push}
-
-    [class]{maxHeap}-[func]{siftUp}
-    ```
-
-=== "Swift"
-
-    ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{push}
-
-    [class]{MaxHeap}-[func]{siftUp}
-    ```
-
-=== "JS"
-
-    ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{push}
-
-    [class]{MaxHeap}-[func]{#siftUp}
-    ```
-
-=== "TS"
-
-    ```typescript title="my_heap.ts"
-    [class]{MaxHeap}-[func]{push}
-
-    [class]{MaxHeap}-[func]{siftUp}
-    ```
-
-=== "Dart"
-
-    ```dart title="my_heap.dart"
-    [class]{MaxHeap}-[func]{push}
-
-    [class]{MaxHeap}-[func]{siftUp}
-    ```
-
-=== "Rust"
-
-    ```rust title="my_heap.rs"
-    [class]{MaxHeap}-[func]{push}
-
-    [class]{MaxHeap}-[func]{sift_up}
-    ```
-
-=== "C"
-
-    ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{push}
-
-    [class]{maxHeap}-[func]{siftUp}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{push}
-
-    [class]{MaxHeap}-[func]{siftUp}
-    ```
+```src
+[file]{my_heap}-[class]{max_heap}-[func]{sift_up}
+```
 
 ### 堆顶元素出堆
 
@@ -696,101 +454,9 @@
 
 与元素入堆操作相似，堆顶元素出堆操作的时间复杂度也为 $O(\log n)$ 。
 
-=== "Python"
-
-    ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{pop}
-
-    [class]{MaxHeap}-[func]{sift_down}
-    ```
-
-=== "C++"
-
-    ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{pop}
-
-    [class]{MaxHeap}-[func]{siftDown}
-    ```
-
-=== "Java"
-
-    ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{pop}
-
-    [class]{MaxHeap}-[func]{siftDown}
-    ```
-
-=== "C#"
-
-    ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{pop}
-
-    [class]{MaxHeap}-[func]{siftDown}
-    ```
-
-=== "Go"
-
-    ```go title="my_heap.go"
-    [class]{maxHeap}-[func]{pop}
-
-    [class]{maxHeap}-[func]{siftDown}
-    ```
-
-=== "Swift"
-
-    ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{pop}
-
-    [class]{MaxHeap}-[func]{siftDown}
-    ```
-
-=== "JS"
-
-    ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{pop}
-
-    [class]{MaxHeap}-[func]{#siftDown}
-    ```
-
-=== "TS"
-
-    ```typescript title="my_heap.ts"
-    [class]{MaxHeap}-[func]{pop}
-
-    [class]{MaxHeap}-[func]{siftDown}
-    ```
-
-=== "Dart"
-
-    ```dart title="my_heap.dart"
-    [class]{MaxHeap}-[func]{pop}
-
-    [class]{MaxHeap}-[func]{siftDown}
-    ```
-
-=== "Rust"
-
-    ```rust title="my_heap.rs"
-    [class]{MaxHeap}-[func]{pop}
-
-    [class]{MaxHeap}-[func]{sift_down}
-    ```
-
-=== "C"
-
-    ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{pop}
-
-    [class]{maxHeap}-[func]{siftDown}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{pop}
-
-    [class]{MaxHeap}-[func]{siftDown}
-    ```
+```src
+[file]{my_heap}-[class]{max_heap}-[func]{sift_down}
+```
 
 ## 堆常见应用
 

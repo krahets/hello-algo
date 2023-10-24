@@ -1,7 +1,7 @@
 /**
  * File: binary_search_recur.c
- * Created Time: 2023-09-19
- * Author: Gonglja (glj0@outlook.com)
+ * Created Time: 2023-10-01
+ * Author: Zuoxun (845242523@qq.com)
  */
 
 #include "../utils/common.h"
@@ -27,19 +27,20 @@ int dfs(int nums[], int target, int i, int j) {
 }
 
 /* 二分查找 */
-int binarySearch(int nums[], int size, int target) {
+int binarySearch(int nums[], int target, int numsSize) {
+    int n = numsSize;
     // 求解问题 f(0, n-1)
-    return dfs(nums, target, 0, size - 1);
+    return dfs(nums, target, 0, n - 1);
 }
 
 /* Driver Code */
 int main() {
     int target = 6;
     int nums[] = {1, 3, 6, 8, 12, 15, 23, 26, 31, 35};
-    int size = sizeof(nums) / sizeof(nums[0]);
+    int numsSize = sizeof(nums) / sizeof(nums[0]);
 
     // 二分查找（双闭区间）
-    int index = binarySearch(nums, size, target);
+    int index = binarySearch(nums, target, numsSize);
     printf("目标元素 6 的索引 = %d\n", index);
 
     return 0;

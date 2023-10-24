@@ -4,9 +4,10 @@ Created Time: 2023-08-04
 Author: Krahets (krahets@163.com)
 """
 
-import sys, os.path as osp
+import sys
+from pathlib import Path
 
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
+sys.path.append(str(Path(__file__).parent.parent))
 from binary_search_insertion import binary_search_insertion
 
 

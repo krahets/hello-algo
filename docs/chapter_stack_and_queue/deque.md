@@ -1,6 +1,6 @@
 # 双向队列
 
-在队列中，我们仅能在头部删除或在尾部添加元素。如下图所示，「双向队列 deque」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
+在队列中，我们仅能在头部删除或在尾部添加元素。如下图所示，「双向队列 double-ended queue」提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
 
 ![双向队列的操作](deque.assets/deque_operations.png)
 
@@ -110,7 +110,7 @@
     ```csharp title="deque.cs"
     /* 初始化双向队列 */
     // 在 C# 中，将链表 LinkedList 看作双向队列来使用
-    LinkedList<int> deque = new LinkedList<int>();
+    LinkedList<int> deque = new();
     
     /* 元素入队 */
     deque.AddLast(2);   // 添加至队尾
@@ -301,7 +301,33 @@
 === "Rust"
 
     ```rust title="deque.rs"
+    /* 初始化双向队列 */
+    let mut deque: VecDeque<u32> = VecDeque::new();
 
+    /* 元素入队 */
+    deque.push_back(2);  // 添加至队尾
+    deque.push_back(5);
+    deque.push_back(4);
+    deque.push_front(3); // 添加至队首
+    deque.push_front(1);
+
+    /* 访问元素 */
+    if let Some(front) = deque.front() { // 队首元素
+    }
+    if let Some(rear) = deque.back() {   // 队尾元素
+    }
+
+    /* 元素出队 */
+    if let Some(pop_front) = deque.pop_front() { // 队首元素出队
+    }
+    if let Some(pop_rear) = deque.pop_back() {   // 队尾元素出队
+    }
+
+    /* 获取双向队列的长度 */
+    let size = deque.len();
+
+    /* 判断双向队列是否为空 */
+    let is_empty = deque.is_empty();
     ```
 
 === "C"
@@ -345,99 +371,9 @@
 
 实现代码如下所示。
 
-=== "Python"
-
-    ```python title="linkedlist_deque.py"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="linkedlist_deque.cpp"
-    [class]{DoublyListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="linkedlist_deque.java"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="linkedlist_deque.cs"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="linkedlist_deque.go"
-    [class]{linkedListDeque}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="linkedlist_deque.swift"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="linkedlist_deque.js"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="linkedlist_deque.ts"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="linkedlist_deque.dart"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="linkedlist_deque.rs"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="linkedlist_deque.c"
-    [class]{doublyListNode}-[func]{}
-
-    [class]{linkedListDeque}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="linkedlist_deque.zig"
-    [class]{ListNode}-[func]{}
-
-    [class]{LinkedListDeque}-[func]{}
-    ```
+```src
+[file]{linkedlist_deque}-[class]{linked_list_deque}-[func]{}
+```
 
 ### 基于数组的实现
 
@@ -460,77 +396,9 @@
 
 在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法。
 
-=== "Python"
-
-    ```python title="array_deque.py"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="array_deque.cpp"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="array_deque.java"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="array_deque.cs"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="array_deque.go"
-    [class]{arrayDeque}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="array_deque.swift"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="array_deque.js"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="array_deque.ts"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="array_deque.dart"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="array_deque.rs"
-    [class]{ArrayDeque}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="array_deque.c"
-    [class]{arrayDeque}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_deque.zig"
-    [class]{ArrayDeque}-[func]{}
-    ```
+```src
+[file]{array_deque}-[class]{array_deque}-[func]{}
+```
 
 ## 双向队列应用
 

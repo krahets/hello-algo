@@ -11,18 +11,18 @@ import java.util.*;
 
 public class build_tree {
     /* 构建二叉树：分治 */
-    static TreeNode dfs(int[] preorder, int[] inorder, Map<Integer, Integer> hmap, int i, int l, int r) {
+    static TreeNode dfs(int[] preorder, Map<Integer, Integer> inorderMap, int i, int l, int r) {
         // 子树区间为空时终止
         if (r - l < 0)
             return null;
         // 初始化根节点
         TreeNode root = new TreeNode(preorder[i]);
         // 查询 m ，从而划分左右子树
-        int m = hmap.get(preorder[i]);
+        int m = inorderMap.get(preorder[i]);
         // 子问题：构建左子树
-        root.left = dfs(preorder, inorder, hmap, i + 1, l, m - 1);
+        root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
         // 子问题：构建右子树
-        root.right = dfs(preorder, inorder, hmap, i + 1 + m - l, m + 1, r);
+        root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
         // 返回根节点
         return root;
     }
@@ -30,11 +30,11 @@ public class build_tree {
     /* 构建二叉树 */
     static TreeNode buildTree(int[] preorder, int[] inorder) {
         // 初始化哈希表，存储 inorder 元素到索引的映射
-        Map<Integer, Integer> hmap = new HashMap<>();
+        Map<Integer, Integer> inorderMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
-            hmap.put(inorder[i], i);
+            inorderMap.put(inorder[i], i);
         }
-        TreeNode root = dfs(preorder, inorder, hmap, 0, 0, inorder.length - 1);
+        TreeNode root = dfs(preorder, inorderMap, 0, 0, inorder.length - 1);
         return root;
     }
 

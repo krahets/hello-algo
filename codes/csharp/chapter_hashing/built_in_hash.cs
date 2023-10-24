@@ -29,7 +29,7 @@ public class built_in_hash {
         int hashTup = arr.GetHashCode();
         Console.WriteLine("数组 [" + string.Join(", ", arr) + "] 的哈希值为 " + hashTup);
 
-        ListNode obj = new ListNode(0);
+        ListNode obj = new(0);
         int hashObj = obj.GetHashCode();
         Console.WriteLine("节点对象 " + obj + " 的哈希值为 " + hashObj);
     }

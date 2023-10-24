@@ -39,13 +39,13 @@ int main() {
     }
 
     cout << "\n单独遍历键 Key" << endl;
-    for (auto key : map) {
-        cout << key.first << endl;
+    for (auto kv : map) {
+        cout << kv.first << endl;
     }
 
     cout << "\n单独遍历值 Value" << endl;
-    for (auto val : map) {
-        cout << val.second << endl;
+    for (auto kv : map) {
+        cout << kv.second << endl;
     }
 
     return 0;

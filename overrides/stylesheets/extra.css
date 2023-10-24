@@ -8,6 +8,8 @@
   --md-default-fg-color: #1d1d20;
   --md-default-bg-color: #ffffff;
 
+  --md-code-fg-color: #1d1d20;
+
   --md-accent-fg-color: #999;
 
   --md-admonition-fg-color: #1d1d20;
@@ -23,9 +25,10 @@
   --md-default-fg-color: #adbac7;
   --md-default-bg-color: #22272e;
 
-  --md-code-bg-color: #1c2329;
+  --md-code-bg-color: #1D2126;
+  --md-code-fg-color: #adbac7;
 
-  --md-accent-fg-color: #999;
+  --md-accent-fg-color: #aaa;
 
   --md-admonition-fg-color: #adbac7;
 
@@ -73,6 +76,10 @@
 
 .md-typeset h3 {
   font-weight: 500;
+}
+
+.md-typeset h5 {
+  text-transform: none;
 }
 
 /* Image align center */

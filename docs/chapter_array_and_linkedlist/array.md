@@ -100,6 +100,7 @@
 === "C"
 
     ```c title="array.c"
+    /* 初始化数组 */
     int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
     int nums[5] = { 1, 3, 2, 5, 4 };
     ```
@@ -122,77 +123,9 @@
 
 在数组中访问元素是非常高效的，我们可以在 $O(1)$ 时间内随机访问数组中的任意一个元素。
 
-=== "Python"
-
-    ```python title="array.py"
-    [class]{}-[func]{random_access}
-    ```
-
-=== "C++"
-
-    ```cpp title="array.cpp"
-    [class]{}-[func]{randomAccess}
-    ```
-
-=== "Java"
-
-    ```java title="array.java"
-    [class]{array}-[func]{randomAccess}
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    [class]{array}-[func]{randomAccess}
-    ```
-
-=== "Go"
-
-    ```go title="array.go"
-    [class]{}-[func]{randomAccess}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    [class]{}-[func]{randomAccess}
-    ```
-
-=== "JS"
-
-    ```javascript title="array.js"
-    [class]{}-[func]{randomAccess}
-    ```
-
-=== "TS"
-
-    ```typescript title="array.ts"
-    [class]{}-[func]{randomAccess}
-    ```
-
-=== "Dart"
-
-    ```dart title="array.dart"
-    [class]{}-[func]{randomAccess}
-    ```
-
-=== "Rust"
-
-    ```rust title="array.rs"
-    [class]{}-[func]{random_access}
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    [class]{}-[func]{randomAccess}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{randomAccess}
-    ```
+```src
+[file]{array}-[class]{}-[func]{random_access}
+```
 
 ### 插入元素
 
@@ -202,77 +135,9 @@
 
 值得注意的是，由于数组的长度是固定的，因此插入一个元素必定会导致数组尾部元素的“丢失”。我们将这个问题的解决方案留在列表章节中讨论。
 
-=== "Python"
-
-    ```python title="array.py"
-    [class]{}-[func]{insert}
-    ```
-
-=== "C++"
-
-    ```cpp title="array.cpp"
-    [class]{}-[func]{insert}
-    ```
-
-=== "Java"
-
-    ```java title="array.java"
-    [class]{array}-[func]{insert}
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    [class]{array}-[func]{insert}
-    ```
-
-=== "Go"
-
-    ```go title="array.go"
-    [class]{}-[func]{insert}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    [class]{}-[func]{insert}
-    ```
-
-=== "JS"
-
-    ```javascript title="array.js"
-    [class]{}-[func]{insert}
-    ```
-
-=== "TS"
-
-    ```typescript title="array.ts"
-    [class]{}-[func]{insert}
-    ```
-
-=== "Dart"
-
-    ```dart title="array.dart"
-    [class]{}-[func]{insert}
-    ```
-
-=== "Rust"
-
-    ```rust title="array.rs"
-    [class]{}-[func]{insert}
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    [class]{}-[func]{insert}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{insert}
-    ```
+```src
+[file]{array}-[class]{}-[func]{insert}
+```
 
 ### 删除元素
 
@@ -282,77 +147,9 @@
 
 请注意，删除元素完成后，原先末尾的元素变得“无意义”了，所以我们无须特意去修改它。
 
-=== "Python"
-
-    ```python title="array.py"
-    [class]{}-[func]{remove}
-    ```
-
-=== "C++"
-
-    ```cpp title="array.cpp"
-    [class]{}-[func]{remove}
-    ```
-
-=== "Java"
-
-    ```java title="array.java"
-    [class]{array}-[func]{remove}
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    [class]{array}-[func]{remove}
-    ```
-
-=== "Go"
-
-    ```go title="array.go"
-    [class]{}-[func]{remove}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    [class]{}-[func]{remove}
-    ```
-
-=== "JS"
-
-    ```javascript title="array.js"
-    [class]{}-[func]{remove}
-    ```
-
-=== "TS"
-
-    ```typescript title="array.ts"
-    [class]{}-[func]{remove}
-    ```
-
-=== "Dart"
-
-    ```dart title="array.dart"
-    [class]{}-[func]{remove}
-    ```
-
-=== "Rust"
-
-    ```rust title="array.rs"
-    [class]{}-[func]{remove}
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    [class]{}-[func]{removeItem}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{remove}
-    ```
+```src
+[file]{array}-[class]{}-[func]{remove}
+```
 
 总的来看，数组的插入与删除操作有以下缺点。
 
@@ -364,77 +161,9 @@
 
 在大多数编程语言中，我们既可以通过索引遍历数组，也可以直接遍历获取数组中的每个元素。
 
-=== "Python"
-
-    ```python title="array.py"
-    [class]{}-[func]{traverse}
-    ```
-
-=== "C++"
-
-    ```cpp title="array.cpp"
-    [class]{}-[func]{traverse}
-    ```
-
-=== "Java"
-
-    ```java title="array.java"
-    [class]{array}-[func]{traverse}
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    [class]{array}-[func]{traverse}
-    ```
-
-=== "Go"
-
-    ```go title="array.go"
-    [class]{}-[func]{traverse}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    [class]{}-[func]{traverse}
-    ```
-
-=== "JS"
-
-    ```javascript title="array.js"
-    [class]{}-[func]{traverse}
-    ```
-
-=== "TS"
-
-    ```typescript title="array.ts"
-    [class]{}-[func]{traverse}
-    ```
-
-=== "Dart"
-
-    ```dart title="array.dart"
-    [class]{}-[func]{traverse}
-    ```
-
-=== "Rust"
-
-    ```rust title="array.rs"
-    [class]{}-[func]{traverse}
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    [class]{}-[func]{traverse}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{traverse}
-    ```
+```src
+[file]{array}-[class]{}-[func]{traverse}
+```
 
 ### 查找元素
 
@@ -442,77 +171,9 @@
 
 因为数组是线性数据结构，所以上述查找操作被称为“线性查找”。
 
-=== "Python"
-
-    ```python title="array.py"
-    [class]{}-[func]{find}
-    ```
-
-=== "C++"
-
-    ```cpp title="array.cpp"
-    [class]{}-[func]{find}
-    ```
-
-=== "Java"
-
-    ```java title="array.java"
-    [class]{array}-[func]{find}
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    [class]{array}-[func]{find}
-    ```
-
-=== "Go"
-
-    ```go title="array.go"
-    [class]{}-[func]{find}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    [class]{}-[func]{find}
-    ```
-
-=== "JS"
-
-    ```javascript title="array.js"
-    [class]{}-[func]{find}
-    ```
-
-=== "TS"
-
-    ```typescript title="array.ts"
-    [class]{}-[func]{find}
-    ```
-
-=== "Dart"
-
-    ```dart title="array.dart"
-    [class]{}-[func]{find}
-    ```
-
-=== "Rust"
-
-    ```rust title="array.rs"
-    [class]{}-[func]{find}
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    [class]{}-[func]{find}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{find}
-    ```
+```src
+[file]{array}-[class]{}-[func]{find}
+```
 
 ### 扩容数组
 
@@ -520,77 +181,9 @@
 
 如果我们希望扩容数组，则需重新建立一个更大的数组，然后把原数组元素依次拷贝到新数组。这是一个 $O(n)$ 的操作，在数组很大的情况下是非常耗时的。
 
-=== "Python"
-
-    ```python title="array.py"
-    [class]{}-[func]{extend}
-    ```
-
-=== "C++"
-
-    ```cpp title="array.cpp"
-    [class]{}-[func]{extend}
-    ```
-
-=== "Java"
-
-    ```java title="array.java"
-    [class]{array}-[func]{extend}
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    [class]{array}-[func]{extend}
-    ```
-
-=== "Go"
-
-    ```go title="array.go"
-    [class]{}-[func]{extend}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    [class]{}-[func]{extend}
-    ```
-
-=== "JS"
-
-    ```javascript title="array.js"
-    [class]{}-[func]{extend}
-    ```
-
-=== "TS"
-
-    ```typescript title="array.ts"
-    [class]{}-[func]{extend}
-    ```
-
-=== "Dart"
-
-    ```dart title="array.dart"
-    [class]{}-[func]{extend}
-    ```
-
-=== "Rust"
-
-    ```rust title="array.rs"
-    [class]{}-[func]{extend}
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    [class]{}-[func]{extend}
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    [class]{}-[func]{extend}
-    ```
+```src
+[file]{array}-[class]{}-[func]{extend}
+```
 
 ## 数组优点与局限性
 

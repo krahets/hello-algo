@@ -10,77 +10,9 @@
 
 对于此题，我们前序遍历这颗树，并判断当前节点的值是否为 $7$ ，若是则将该节点的值加入到结果列表 `res` 之中。相关过程实现如下图和以下代码所示。
 
-=== "Python"
-
-    ```python title="preorder_traversal_i_compact.py"
-    [class]{}-[func]{pre_order}
-    ```
-
-=== "C++"
-
-    ```cpp title="preorder_traversal_i_compact.cpp"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Java"
-
-    ```java title="preorder_traversal_i_compact.java"
-    [class]{preorder_traversal_i_compact}-[func]{preOrder}
-    ```
-
-=== "C#"
-
-    ```csharp title="preorder_traversal_i_compact.cs"
-    [class]{preorder_traversal_i_compact}-[func]{preOrder}
-    ```
-
-=== "Go"
-
-    ```go title="preorder_traversal_i_compact.go"
-    [class]{}-[func]{preOrderI}
-    ```
-
-=== "Swift"
-
-    ```swift title="preorder_traversal_i_compact.swift"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "JS"
-
-    ```javascript title="preorder_traversal_i_compact.js"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "TS"
-
-    ```typescript title="preorder_traversal_i_compact.ts"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Dart"
-
-    ```dart title="preorder_traversal_i_compact.dart"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Rust"
-
-    ```rust title="preorder_traversal_i_compact.rs"
-    [class]{}-[func]{pre_order}
-    ```
-
-=== "C"
-
-    ```c title="preorder_traversal_i_compact.c"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Zig"
-
-    ```zig title="preorder_traversal_i_compact.zig"
-    [class]{}-[func]{preOrder}
-    ```
+```src
+[file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
+```
 
 ![在前序遍历中搜索节点](backtracking_algorithm.assets/preorder_find_nodes.png)
 
@@ -98,77 +30,9 @@
 
 在例题一代码的基础上，我们需要借助一个列表 `path` 记录访问过的节点路径。当访问到值为 $7$ 的节点时，则复制 `path` 并添加进结果列表 `res` 。遍历完成后，`res` 中保存的就是所有的解。
 
-=== "Python"
-
-    ```python title="preorder_traversal_ii_compact.py"
-    [class]{}-[func]{pre_order}
-    ```
-
-=== "C++"
-
-    ```cpp title="preorder_traversal_ii_compact.cpp"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Java"
-
-    ```java title="preorder_traversal_ii_compact.java"
-    [class]{preorder_traversal_ii_compact}-[func]{preOrder}
-    ```
-
-=== "C#"
-
-    ```csharp title="preorder_traversal_ii_compact.cs"
-    [class]{preorder_traversal_ii_compact}-[func]{preOrder}
-    ```
-
-=== "Go"
-
-    ```go title="preorder_traversal_ii_compact.go"
-    [class]{}-[func]{preOrderII}
-    ```
-
-=== "Swift"
-
-    ```swift title="preorder_traversal_ii_compact.swift"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "JS"
-
-    ```javascript title="preorder_traversal_ii_compact.js"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "TS"
-
-    ```typescript title="preorder_traversal_ii_compact.ts"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Dart"
-
-    ```dart title="preorder_traversal_ii_compact.dart"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Rust"
-
-    ```rust title="preorder_traversal_ii_compact.rs"
-    [class]{}-[func]{pre_order}
-    ```
-
-=== "C"
-
-    ```c title="preorder_traversal_ii_compact.c"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Zig"
-
-    ```zig title="preorder_traversal_ii_compact.zig"
-    [class]{}-[func]{preOrder}
-    ```
+```src
+[file]{preorder_traversal_ii_compact}-[class]{}-[func]{pre_order}
+```
 
 在每次“尝试”中，我们通过将当前节点添加进 `path` 来记录路径；而在“回退”前，我们需要将该节点从 `path` 中弹出，**以恢复本次尝试之前的状态**。
 
@@ -217,77 +81,9 @@
 
 为了满足以上约束条件，**我们需要添加剪枝操作**：在搜索过程中，若遇到值为 $3$ 的节点，则提前返回，停止继续搜索。
 
-=== "Python"
-
-    ```python title="preorder_traversal_iii_compact.py"
-    [class]{}-[func]{pre_order}
-    ```
-
-=== "C++"
-
-    ```cpp title="preorder_traversal_iii_compact.cpp"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Java"
-
-    ```java title="preorder_traversal_iii_compact.java"
-    [class]{preorder_traversal_iii_compact}-[func]{preOrder}
-    ```
-
-=== "C#"
-
-    ```csharp title="preorder_traversal_iii_compact.cs"
-    [class]{preorder_traversal_iii_compact}-[func]{preOrder}
-    ```
-
-=== "Go"
-
-    ```go title="preorder_traversal_iii_compact.go"
-    [class]{}-[func]{preOrderIII}
-    ```
-
-=== "Swift"
-
-    ```swift title="preorder_traversal_iii_compact.swift"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "JS"
-
-    ```javascript title="preorder_traversal_iii_compact.js"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "TS"
-
-    ```typescript title="preorder_traversal_iii_compact.ts"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Dart"
-
-    ```dart title="preorder_traversal_iii_compact.dart"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Rust"
-
-    ```rust title="preorder_traversal_iii_compact.rs"
-    [class]{}-[func]{pre_order}
-    ```
-
-=== "C"
-
-    ```c title="preorder_traversal_iii_compact.c"
-    [class]{}-[func]{preOrder}
-    ```
-
-=== "Zig"
-
-    ```zig title="preorder_traversal_iii_compact.zig"
-    [class]{}-[func]{preOrder}
-    ```
+```src
+[file]{preorder_traversal_iii_compact}-[class]{}-[func]{pre_order}
+```
 
 剪枝是一个非常形象的名词。如下图所示，在搜索过程中，**我们“剪掉”了不满足约束条件的搜索分支**，避免许多无意义的尝试，从而提高了搜索效率。
 
@@ -377,23 +173,23 @@
 
     ```csharp title=""
     /* 回溯算法框架 */
-    void backtrack(State state, List<Choice> choices, List<State> res) {
+    void Backtrack(State state, List<Choice> choices, List<State> res) {
         // 判断是否为解
-        if (isSolution(state)) {
+        if (IsSolution(state)) {
             // 记录解
-            recordSolution(state, res);
+            RecordSolution(state, res);
             // 停止继续搜索
             return;
         }
         // 遍历所有选择
         foreach (Choice choice in choices) {
             // 剪枝：判断选择是否合法
-            if (isValid(state, choice)) {
+            if (IsValid(state, choice)) {
                 // 尝试：做出选择，更新状态
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
+                MakeChoice(state, choice);
+                Backtrack(state, choices, res);
                 // 回退：撤销选择，恢复到之前的状态
-                undoChoice(state, choice);
+                UndoChoice(state, choice);
             }
         }
     }
@@ -532,7 +328,27 @@
 === "Rust"
 
     ```rust title=""
-
+    /* 回溯算法框架 */
+    fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
+        // 判断是否为解
+        if is_solution(state) {
+            // 记录解
+            record_solution(state, res);
+            // 停止继续搜索
+            return;
+        }
+        // 遍历所有选择
+        for choice in choices {
+            // 剪枝：判断选择是否合法
+            if is_valid(state, choice) {
+                // 尝试：做出选择，更新状态
+                make_choice(state, choice);
+                backtrack(state, choices, res);
+                // 回退：撤销选择，恢复到之前的状态
+                undo_choice(state, choice);
+            }
+        }
+    }
     ```
 
 === "C"
@@ -569,197 +385,9 @@
 
 接下来，我们基于框架代码来解决例题三。状态 `state` 为节点遍历路径，选择 `choices` 为当前节点的左子节点和右子节点，结果 `res` 是路径列表。
 
-=== "Python"
-
-    ```python title="preorder_traversal_iii_template.py"
-    [class]{}-[func]{is_solution}
-
-    [class]{}-[func]{record_solution}
-
-    [class]{}-[func]{is_valid}
-
-    [class]{}-[func]{make_choice}
-
-    [class]{}-[func]{undo_choice}
-
-    [class]{}-[func]{backtrack}
-    ```
-
-=== "C++"
-
-    ```cpp title="preorder_traversal_iii_template.cpp"
-    [class]{}-[func]{isSolution}
-
-    [class]{}-[func]{recordSolution}
-
-    [class]{}-[func]{isValid}
-
-    [class]{}-[func]{makeChoice}
-
-    [class]{}-[func]{undoChoice}
-
-    [class]{}-[func]{backtrack}
-    ```
-
-=== "Java"
-
-    ```java title="preorder_traversal_iii_template.java"
-    [class]{preorder_traversal_iii_template}-[func]{isSolution}
-
-    [class]{preorder_traversal_iii_template}-[func]{recordSolution}
-
-    [class]{preorder_traversal_iii_template}-[func]{isValid}
-
-    [class]{preorder_traversal_iii_template}-[func]{makeChoice}
-
-    [class]{preorder_traversal_iii_template}-[func]{undoChoice}
-
-    [class]{preorder_traversal_iii_template}-[func]{backtrack}
-    ```
-
-=== "C#"
-
-    ```csharp title="preorder_traversal_iii_template.cs"
-    [class]{preorder_traversal_iii_template}-[func]{isSolution}
-
-    [class]{preorder_traversal_iii_template}-[func]{recordSolution}
-
-    [class]{preorder_traversal_iii_template}-[func]{isValid}
-
-    [class]{preorder_traversal_iii_template}-[func]{makeChoice}
-
-    [class]{preorder_traversal_iii_template}-[func]{undoChoice}
-
-    [class]{preorder_traversal_iii_template}-[func]{backtrack}
-    ```
-
-=== "Go"
-
-    ```go title="preorder_traversal_iii_template.go"
-    [class]{}-[func]{isSolution}
-
-    [class]{}-[func]{recordSolution}
-
-    [class]{}-[func]{isValid}
-
-    [class]{}-[func]{makeChoice}
-
-    [class]{}-[func]{undoChoice}
-
-    [class]{}-[func]{backtrackIII}
-    ```
-
-=== "Swift"
-
-    ```swift title="preorder_traversal_iii_template.swift"
-    [class]{}-[func]{isSolution}
-
-    [class]{}-[func]{recordSolution}
-
-    [class]{}-[func]{isValid}
-
-    [class]{}-[func]{makeChoice}
-
-    [class]{}-[func]{undoChoice}
-
-    [class]{}-[func]{backtrack}
-    ```
-
-=== "JS"
-
-    ```javascript title="preorder_traversal_iii_template.js"
-    [class]{}-[func]{isSolution}
-
-    [class]{}-[func]{recordSolution}
-
-    [class]{}-[func]{isValid}
-
-    [class]{}-[func]{makeChoice}
-
-    [class]{}-[func]{undoChoice}
-
-    [class]{}-[func]{backtrack}
-    ```
-
-=== "TS"
-
-    ```typescript title="preorder_traversal_iii_template.ts"
-    [class]{}-[func]{isSolution}
-
-    [class]{}-[func]{recordSolution}
-
-    [class]{}-[func]{isValid}
-
-    [class]{}-[func]{makeChoice}
-
-    [class]{}-[func]{undoChoice}
-
-    [class]{}-[func]{backtrack}
-    ```
-
-=== "Dart"
-
-    ```dart title="preorder_traversal_iii_template.dart"
-    [class]{}-[func]{isSolution}
-
-    [class]{}-[func]{recordSolution}
-
-    [class]{}-[func]{isValid}
-
-    [class]{}-[func]{makeChoice}
-
-    [class]{}-[func]{undoChoice}
-
-    [class]{}-[func]{backtrack}
-    ```
-
-=== "Rust"
-
-    ```rust title="preorder_traversal_iii_template.rs"
-    [class]{}-[func]{is_solution}
-
-    [class]{}-[func]{record_solution}
-
-    [class]{}-[func]{is_valid}
-
-    [class]{}-[func]{make_choice}
-
-    [class]{}-[func]{undo_choice}
-
-    [class]{}-[func]{backtrack}
-    ```
-
-=== "C"
-
-    ```c title="preorder_traversal_iii_template.c"
-    [class]{}-[func]{isSolution}
-
-    [class]{}-[func]{recordSolution}
-
-    [class]{}-[func]{isValid}
-
-    [class]{}-[func]{makeChoice}
-
-    [class]{}-[func]{undoChoice}
-
-    [class]{}-[func]{backtrack}
-    ```
-
-=== "Zig"
-
-    ```zig title="preorder_traversal_iii_template.zig"
-    [class]{}-[func]{isSolution}
-
-    [class]{}-[func]{recordSolution}
-
-    [class]{}-[func]{isValid}
-
-    [class]{}-[func]{makeChoice}
-
-    [class]{}-[func]{undoChoice}
-
-    [class]{}-[func]{backtrack}
-    ```
+```src
+[file]{preorder_traversal_iii_template}-[class]{}-[func]{backtrack}
+```
 
 根据题意，我们在找到值为 $7$ 的节点后应该继续搜索，**因此需要将记录解之后的 `return` 语句删除**。下图对比了保留或删除 `return` 语句的搜索过程。
 

@@ -35,7 +35,7 @@ class TreeNode:
 
 def list_to_tree_dfs(arr: list[int], i: int) -> TreeNode | None:
     """将列表反序列化为二叉树：递归"""
-    # 如果索引超出数组长度，或者对应的元素为 None，返回 None
+    # 如果索引超出数组长度，或者对应的元素为 None ，则返回 None
     if i < 0 or i >= len(arr) or arr[i] is None:
         return None
     # 构建当前节点

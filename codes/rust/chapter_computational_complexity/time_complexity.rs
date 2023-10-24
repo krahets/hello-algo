@@ -111,8 +111,7 @@ fn linear_log_recur(n: f32) -> i32 {
     if n <= 1.0 {
         return 1;
     }
-    let mut count = linear_log_recur(n / 2.0) + 
-                    linear_log_recur(n / 2.0);
+    let mut count = linear_log_recur(n / 2.0) + linear_log_recur(n / 2.0);
     for _ in 0 ..n as i32 {
         count += 1;
     }

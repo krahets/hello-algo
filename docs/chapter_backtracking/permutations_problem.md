@@ -4,7 +4,7 @@
 
 下表列举了几个示例数据，包括输入数组和对应的所有排列。
 
-<p align="center"> 表 <id> &nbsp; 数组与链表的效率对比 </p>
+<p align="center"> 表 <id> &nbsp; 全排列示例 </p>
 
 | 输入数组    | 所有排列                                                           |
 | :---------- | :----------------------------------------------------------------- |
@@ -43,101 +43,9 @@
 
 想清楚以上信息之后，我们就可以在框架代码中做“完形填空”了。为了缩短代码行数，我们不单独实现框架代码中的各个函数，而是将他们展开在 `backtrack()` 函数中。
 
-=== "Python"
-
-    ```python title="permutations_i.py"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutations_i}
-    ```
-
-=== "C++"
-
-    ```cpp title="permutations_i.cpp"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
-=== "Java"
-
-    ```java title="permutations_i.java"
-    [class]{permutations_i}-[func]{backtrack}
-
-    [class]{permutations_i}-[func]{permutationsI}
-    ```
-
-=== "C#"
-
-    ```csharp title="permutations_i.cs"
-    [class]{permutations_i}-[func]{backtrack}
-
-    [class]{permutations_i}-[func]{permutationsI}
-    ```
-
-=== "Go"
-
-    ```go title="permutations_i.go"
-    [class]{}-[func]{backtrackI}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
-=== "Swift"
-
-    ```swift title="permutations_i.swift"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
-=== "JS"
-
-    ```javascript title="permutations_i.js"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
-=== "TS"
-
-    ```typescript title="permutations_i.ts"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
-=== "Dart"
-
-    ```dart title="permutations_i.dart"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
-=== "Rust"
-
-    ```rust title="permutations_i.rs"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutations_i}
-    ```
-
-=== "C"
-
-    ```c title="permutations_i.c"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
-
-=== "Zig"
-
-    ```zig title="permutations_i.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsI}
-    ```
+```src
+[file]{permutations_i}-[class]{}-[func]{permutations_i}
+```
 
 ## 考虑相等元素的情况
 
@@ -167,101 +75,9 @@
 
 在上一题的代码的基础上，我们考虑在每一轮选择中开启一个哈希表 `duplicated` ，用于记录该轮中已经尝试过的元素，并将重复元素剪枝。
 
-=== "Python"
-
-    ```python title="permutations_ii.py"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutations_ii}
-    ```
-
-=== "C++"
-
-    ```cpp title="permutations_ii.cpp"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
-    ```
-
-=== "Java"
-
-    ```java title="permutations_ii.java"
-    [class]{permutations_ii}-[func]{backtrack}
-
-    [class]{permutations_ii}-[func]{permutationsII}
-    ```
-
-=== "C#"
-
-    ```csharp title="permutations_ii.cs"
-    [class]{permutations_ii}-[func]{backtrack}
-
-    [class]{permutations_ii}-[func]{permutationsII}
-    ```
-
-=== "Go"
-
-    ```go title="permutations_ii.go"
-    [class]{}-[func]{backtrackII}
-
-    [class]{}-[func]{permutationsII}
-    ```
-
-=== "Swift"
-
-    ```swift title="permutations_ii.swift"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
-    ```
-
-=== "JS"
-
-    ```javascript title="permutations_ii.js"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
-    ```
-
-=== "TS"
-
-    ```typescript title="permutations_ii.ts"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
-    ```
-
-=== "Dart"
-
-    ```dart title="permutations_ii.dart"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
-    ```
-
-=== "Rust"
-
-    ```rust title="permutations_ii.rs"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutations_ii}
-    ```
-
-=== "C"
-
-    ```c title="permutations_ii.c"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
-    ```
-
-=== "Zig"
-
-    ```zig title="permutations_ii.zig"
-    [class]{}-[func]{backtrack}
-
-    [class]{}-[func]{permutationsII}
-    ```
+```src
+[file]{permutations_ii}-[class]{}-[func]{permutations_ii}
+```
 
 假设元素两两之间互不相同，则 $n$ 个元素共有 $n!$  种排列（阶乘）；在记录结果时，需要复制长度为 $n$ 的列表，使用 $O(n)$ 时间。**因此时间复杂度为 $O(n!n)$** 。
 
@@ -271,8 +87,8 @@
 
 请注意，虽然 `selected` 和 `duplicated` 都用作剪枝，但两者的目标是不同的。
 
-- **重复选择剪枝**：整个搜索过程中只有一个 `selected` 。它记录的是当前状态中包含哪些元素，作用是避免某个元素在 `state` 中重复出现。
-- **相等元素剪枝**：每轮选择（即每个开启的 `backtrack` 函数）都包含一个 `duplicated` 。它记录的是在遍历中哪些元素已被选择过，作用是保证相等元素只被选择一次。
+- **重复选择剪枝**：整个搜索过程中只有一个 `selected` 。它记录的是当前状态中包含哪些元素，作用是防止 `choices` 中的任一元素在 `state` 中重复出现。
+- **相等元素剪枝**：每轮选择（即每个调用的 `backtrack` 函数）都包含一个 `duplicated` 。它记录的是在本轮遍历（即 `for` 循环）中哪些元素已被选择过，作用是保证相等的元素只被选择一次。
 
 下图展示了两个剪枝条件的生效范围。注意，树中的每个节点代表一个选择，从根节点到叶节点的路径上的各个节点构成一个排列。
 

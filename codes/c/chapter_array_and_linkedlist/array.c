@@ -108,5 +108,7 @@ int main() {
     int index = find(res, size, 3);
     printf("在 res 中查找元素 3 ，得到索引 = %d\n", index);
 
+    /* 释放内存 */
+    free(res);
     return 0;
 }

@@ -4,10 +4,11 @@ Created Time: 2023-07-19
 Author: Krahets (krahets@163.com)
 """
 
-import sys, os.path as osp
+import sys
+from pathlib import Path
 
-sys.path.append(osp.dirname(osp.dirname(osp.abspath(__file__))))
-from modules import *
+sys.path.append(str(Path(__file__).parent.parent))
+from modules import TreeNode, list_to_tree, print_tree
 
 
 class ArrayBinaryTree:
@@ -15,18 +16,18 @@ class ArrayBinaryTree:
 
     def __init__(self, arr: list[int | None]):
         """构造方法"""
-        self.__tree = list(arr)
+        self._tree = list(arr)
 
     def size(self):
         """节点数量"""
-        return len(self.__tree)
+        return len(self._tree)
 
     def val(self, i: int) -> int:
         """获取索引为 i 节点的值"""
         # 若索引越界，则返回 None ，代表空位
         if i < 0 or i >= self.size():
             return None
-        return self.__tree[i]
+        return self._tree[i]
 
     def left(self, i: int) -> int | None:
         """获取索引为 i 节点的左子节点的索引"""
@@ -49,18 +50,18 @@ class ArrayBinaryTree:
                 self.res.append(self.val(i))
         return self.res
 
-    def __dfs(self, i: int, order: str):
+    def dfs(self, i: int, order: str):
         """深度优先遍历"""
         if self.val(i) is None:
             return
         # 前序遍历
         if order == "pre":
             self.res.append(self.val(i))
-        self.__dfs(self.left(i), order)
+        self.dfs(self.left(i), order)
         # 中序遍历
         if order == "in":
             self.res.append(self.val(i))
-        self.__dfs(self.right(i), order)
+        self.dfs(self.right(i), order)
         # 后序遍历
         if order == "post":
             self.res.append(self.val(i))
@@ -68,19 +69,19 @@ class ArrayBinaryTree:
     def pre_order(self) -> list[int]:
         """前序遍历"""
         self.res = []
-        self.__dfs(0, order="pre")
+        self.dfs(0, order="pre")
         return self.res
 
     def in_order(self) -> list[int]:
         """中序遍历"""
         self.res = []
-        self.__dfs(0, order="in")
+        self.dfs(0, order="in")
         return self.res
 
     def post_order(self) -> list[int]:
         """后序遍历"""
         self.res = []
-        self.__dfs(0, order="post")
+        self.dfs(0, order="post")
         return self.res
 
 

@@ -7,26 +7,24 @@
 #include "../utils/common.h"
 
 /* 数组表示下的二叉树类 */
-struct arrayBinaryTree {
+typedef struct {
     vector *tree;
-};
-
-typedef struct arrayBinaryTree arrayBinaryTree;
+} ArrayBinaryTree;
 
 /* 构造函数 */
-arrayBinaryTree *newArrayBinaryTree(vector *arr) {
-    arrayBinaryTree *newABT = malloc(sizeof(arrayBinaryTree));
+ArrayBinaryTree *newArrayBinaryTree(vector *arr) {
+    ArrayBinaryTree *newABT = malloc(sizeof(ArrayBinaryTree));
     newABT->tree = arr;
     return newABT;
 }
 
 /* 节点数量 */
-int size(arrayBinaryTree *abt) {
+int size(ArrayBinaryTree *abt) {
     return abt->tree->size;
 }
 
 /* 获取索引为 i 节点的值 */
-int val(arrayBinaryTree *abt, int i) {
+int val(ArrayBinaryTree *abt, int i) {
     // 若索引越界，则返回 INT_MAX ，代表空位
     if (i < 0 || i >= size(abt))
         return INT_MAX;
@@ -49,7 +47,7 @@ int parent(int i) {
 }
 
 /* 深度优先遍历 */
-void dfs(arrayBinaryTree *abt, int i, const char *order, vector *res) {
+void dfs(ArrayBinaryTree *abt, int i, const char *order, vector *res) {
     // 若为空位，则返回
     if (val(abt, i) == INT_MAX)
         return;
@@ -73,7 +71,7 @@ void dfs(arrayBinaryTree *abt, int i, const char *order, vector *res) {
 }
 
 /* 层序遍历 */
-vector *levelOrder(arrayBinaryTree *abt) {
+vector *levelOrder(ArrayBinaryTree *abt) {
     vector *res = newVector();
     // 直接遍历数组
     for (int i = 0; i < size(abt); i++) {
@@ -86,21 +84,21 @@ vector *levelOrder(arrayBinaryTree *abt) {
 }
 
 /* 前序遍历 */
-vector *preOrder(arrayBinaryTree *abt) {
+vector *preOrder(ArrayBinaryTree *abt) {
     vector *res = newVector();
     dfs(abt, 0, "pre", res);
     return res;
 }
 
 /* 中序遍历 */
-vector *inOrder(arrayBinaryTree *abt) {
+vector *inOrder(ArrayBinaryTree *abt) {
     vector *res = newVector();
     dfs(abt, 0, "in", res);
     return res;
 }
 
 /* 后序遍历 */
-vector *postOrder(arrayBinaryTree *abt) {
+vector *postOrder(ArrayBinaryTree *abt) {
     vector *res = newVector();
     dfs(abt, 0, "post", res);
     return res;
@@ -129,15 +127,15 @@ int main() {
         vectorPushback(vArr, &arr[i], sizeof(int));
     }
     // 数组表示下的二叉树类
-    arrayBinaryTree *abt = newArrayBinaryTree(vArr);
+    ArrayBinaryTree *abt = newArrayBinaryTree(vArr);
 
     // 访问节点
     int i = 1;
     int l = left(i), r = right(i), p = parent(i);
-    printf("\n当前节点的索引为 %d，值为 %d\n", i, val(abt, i));
-    printf("其左子节点的索引为 %d，值为 %d\r\n", l, val(abt, l));
-    printf("其右子节点的索引为 %d，值为 %d\r\n", r, val(abt, r));
-    printf("其父节点的索引为 %d，值为 %d\r\n", p, val(abt, p));
+    printf("\n当前节点的索引为 %d ，值为 %d\n", i, val(abt, i));
+    printf("其左子节点的索引为 %d ，值为 %d\r\n", l, val(abt, l));
+    printf("其右子节点的索引为 %d ，值为 %d\r\n", r, val(abt, r));
+    printf("其父节点的索引为 %d ，值为 %d\r\n", p, val(abt, p));
 
     // 遍历树
     vector *res = levelOrder(abt);

@@ -47,7 +47,6 @@ class MaxHeap {
         while (true) {
             // 判断节点 i, l, r 中值最大的节点，记为 ma
             int l = left(i), r = right(i), ma = i;
-            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
             if (l < size() && maxHeap[l] > maxHeap[ma])
                 ma = l;
             if (r < size() && maxHeap[r] > maxHeap[ma])
@@ -78,7 +77,7 @@ class MaxHeap {
     }
 
     /* 判断堆是否为空 */
-    bool empty() {
+    bool isEmpty() {
         return size() == 0;
     }
 
@@ -98,7 +97,7 @@ class MaxHeap {
     /* 元素出堆 */
     void pop() {
         // 判空处理
-        if (empty()) {
+        if (isEmpty()) {
             throw out_of_range("堆为空");
         }
         // 交换根节点与最右叶节点（即交换首元素与尾元素）
@@ -149,7 +148,7 @@ int main() {
     cout << "\n堆元素数量为 " << size << endl;
 
     /* 判断堆是否为空 */
-    bool isEmpty = maxHeap.empty();
+    bool isEmpty = maxHeap.isEmpty();
     cout << "\n堆是否为空 " << isEmpty << endl;
 
     return 0;

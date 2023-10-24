@@ -10,7 +10,7 @@ public class merge_sort {
     /* 合并左子数组和右子数组 */
     // 左子数组区间 [left, mid]
     // 右子数组区间 [mid + 1, right]
-    static void merge(int[] nums, int left, int mid, int right) {
+    static void Merge(int[] nums, int left, int mid, int right) {
         // 初始化辅助数组
         int[] tmp = nums[left..(right + 1)];
         // 左子数组的起始索引和结束索引  
@@ -34,22 +34,22 @@ public class merge_sort {
     }
 
     /* 归并排序 */
-    static void mergeSort(int[] nums, int left, int right) {
+    static void MergeSort(int[] nums, int left, int right) {
         // 终止条件
         if (left >= right) return;       // 当子数组长度为 1 时终止递归
         // 划分阶段
         int mid = (left + right) / 2;    // 计算中点
-        mergeSort(nums, left, mid);      // 递归左子数组
-        mergeSort(nums, mid + 1, right); // 递归右子数组
+        MergeSort(nums, left, mid);      // 递归左子数组
+        MergeSort(nums, mid + 1, right); // 递归右子数组
         // 合并阶段
-        merge(nums, left, mid, right);
+        Merge(nums, left, mid, right);
     }
 
     [Test]
     public void Test() {
         /* 归并排序 */
         int[] nums = { 7, 3, 2, 6, 0, 1, 5, 4 };
-        mergeSort(nums, 0, nums.Length - 1);
+        MergeSort(nums, 0, nums.Length - 1);
         Console.WriteLine("归并排序完成后 nums = " + string.Join(",", nums));
     }
 }

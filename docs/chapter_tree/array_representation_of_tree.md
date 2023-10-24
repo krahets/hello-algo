@@ -99,7 +99,9 @@
 === "Rust"
 
     ```rust title=""
-
+    /* 二叉树的数组表示 */
+    // 使用 None 来标记空位
+    let tree = [Some(1), Some(2), Some(3), Some(4), None, Some(6), Some(7), Some(8), Some(9), None, None, Some(12), None, None, Some(15)];
     ```
 
 === "C"
@@ -129,77 +131,9 @@
 - 给定某节点，获取它的值、左（右）子节点、父节点。
 - 获取前序遍历、中序遍历、后序遍历、层序遍历序列。
 
-=== "Python"
-
-    ```python title="array_binary_tree.py"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
-=== "C++"
-
-    ```cpp title="array_binary_tree.cpp"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
-=== "Java"
-
-    ```java title="array_binary_tree.java"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
-=== "C#"
-
-    ```csharp title="array_binary_tree.cs"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
-=== "Go"
-
-    ```go title="array_binary_tree.go"
-    [class]{arrayBinaryTree}-[func]{}
-    ```
-
-=== "Swift"
-
-    ```swift title="array_binary_tree.swift"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
-=== "JS"
-
-    ```javascript title="array_binary_tree.js"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
-=== "TS"
-
-    ```typescript title="array_binary_tree.ts"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
-=== "Dart"
-
-    ```dart title="array_binary_tree.dart"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
-=== "Rust"
-
-    ```rust title="array_binary_tree.rs"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
-
-=== "C"
-
-    ```c title="array_binary_tree.c"
-    [class]{arrayBinaryTree}-[func]{}
-    ```
-
-=== "Zig"
-
-    ```zig title="array_binary_tree.zig"
-    [class]{ArrayBinaryTree}-[func]{}
-    ```
+```src
+[file]{array_binary_tree}-[class]{array_binary_tree}-[func]{}
+```
 
 ## 优势与局限性
 

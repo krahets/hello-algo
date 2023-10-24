@@ -8,7 +8,7 @@ namespace hello_algo.chapter_searching;
 
 public class two_sum {
     /* 方法一：暴力枚举 */
-    public static int[] twoSumBruteForce(int[] nums, int target) {
+    public static int[] TwoSumBruteForce(int[] nums, int target) {
         int size = nums.Length;
         // 两层循环，时间复杂度 O(n^2)
         for (int i = 0; i < size - 1; i++) {
@@ -21,7 +21,7 @@ public class two_sum {
     }
 
     /* 方法二：辅助哈希表 */
-    public static int[] twoSumHashTable(int[] nums, int target) {
+    public static int[] TwoSumHashTable(int[] nums, int target) {
         int size = nums.Length;
         // 辅助哈希表，空间复杂度 O(n)
         Dictionary<int, int> dic = new();
@@ -43,10 +43,10 @@ public class two_sum {
 
         // ====== Driver Code ======
         // 方法一
-        int[] res = twoSumBruteForce(nums, target);
+        int[] res = TwoSumBruteForce(nums, target);
         Console.WriteLine("方法一 res = " + string.Join(",", res));
         // 方法二
-        res = twoSumHashTable(nums, target);
+        res = TwoSumHashTable(nums, target);
         Console.WriteLine("方法二 res = " + string.Join(",", res));
     }
 }

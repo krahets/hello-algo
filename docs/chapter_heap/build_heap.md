@@ -2,97 +2,30 @@
 
 在某些情况下，我们希望使用一个列表的所有元素来构建一个堆，这个过程被称为“建堆操作”。
 
-## 自上而下构建
+## 借助入堆操作实现
 
 我们首先创建一个空堆，然后遍历列表，依次对每个元素执行“入堆操作”，即先将元素添加至堆的尾部，再对该元素执行“从底至顶”堆化。
 
-每当一个元素入堆，堆的长度就加一，因此堆是“自上而下”地构建的。
+每当一个元素入堆，堆的长度就加一。由于节点是从顶到底依次被添加进二叉树的，因此堆是“自上而下”地构建的。
 
 设元素数量为 $n$ ，每个元素的入堆操作使用 $O(\log{n})$ 时间，因此该建堆方法的时间复杂度为 $O(n \log n)$ 。
 
-## 自下而上构建
+## 通过遍历堆化实现
 
 实际上，我们可以实现一种更为高效的建堆方法，共分为两步。
 
-1. 将列表所有元素原封不动添加到堆中。
+1. 将列表所有元素原封不动添加到堆中，此时堆的性质尚未得到满足。
 2. 倒序遍历堆（即层序遍历的倒序），依次对每个非叶节点执行“从顶至底堆化”。
 
-在倒序遍历中，堆是“自下而上”地构建的，需要重点理解以下两点。
+**每当堆化一个节点后，以该节点为根节点的子树就形成一个合法的子堆**。而由于是倒序遍历，因此堆是“自下而上”地被构建的。
 
-- 由于叶节点没有子节点，因此无需对它们执行堆化。最后一个节点的父节点是最后一个非叶节点。
-- 在倒序遍历中，我们能够保证当前节点之下的子树已经完成堆化（已经是合法的堆），而这是堆化当前节点的前置条件。
+之所以选择倒序遍历，是因为这样能够保证当前节点之下的子树已经是合法的子堆，这样堆化当前节点才是有效的。
 
-=== "Python"
+值得说明的是，**叶节点没有子节点，天然就是合法的子堆，因此无需堆化**。如以下代码所示，最后一个非叶节点是最后一个节点的父节点，我们从它开始倒序遍历并执行堆化。
 
-    ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{__init__}
-    ```
-
-=== "C++"
-
-    ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{MaxHeap}
-    ```
-
-=== "Java"
-
-    ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{MaxHeap}
-    ```
-
-=== "C#"
-
-    ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{MaxHeap}
-    ```
-
-=== "Go"
-
-    ```go title="my_heap.go"
-    [class]{maxHeap}-[func]{newMaxHeap}
-    ```
-
-=== "Swift"
-
-    ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{init}
-    ```
-
-=== "JS"
-
-    ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{constructor}
-    ```
-
-=== "TS"
-
-    ```typescript title="my_heap.ts"
-    [class]{MaxHeap}-[func]{constructor}
-    ```
-
-=== "Dart"
-
-    ```dart title="my_heap.dart"
-    [class]{MaxHeap}-[func]{MaxHeap}
-    ```
-
-=== "Rust"
-
-    ```rust title="my_heap.rs"
-    [class]{MaxHeap}-[func]{new}
-    ```
-
-=== "C"
-
-    ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{newMaxHeap}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{init}
-    ```
+```src
+[file]{my_heap}-[class]{max_heap}-[func]{__init__}
+```
 
 ## 复杂度分析
 
