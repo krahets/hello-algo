@@ -280,10 +280,7 @@ $$
                 } else {
                     // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
                     dp[i][j] =
-                        Math.min(
-                            Math.min(dp[i][j - 1], dp[i - 1][j]),
-                            dp[i - 1][j - 1]
-                        ) + 1;
+                        Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1;
                 }
             }
         }
@@ -317,10 +314,7 @@ $$
                 } else {
                     // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
                     dp[i][j] =
-                        Math.min(
-                            Math.min(dp[i][j - 1], dp[i - 1][j]),
-                            dp[i - 1][j - 1]
-                        ) + 1;
+                        Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1;
                 }
             }
         }
@@ -724,7 +718,7 @@ $$
                     dp[j] = leftup;
                 } else {
                     // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                    dp[j] = Math.min(Math.min(dp[j - 1], dp[j]), leftup) + 1;
+                    dp[j] = Math.min(dp[j - 1], dp[j], leftup) + 1;
                 }
                 leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
             }
@@ -758,7 +752,7 @@ $$
                     dp[j] = leftup;
                 } else {
                     // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                    dp[j] = Math.min(Math.min(dp[j - 1], dp[j]), leftup) + 1;
+                    dp[j] = Math.min(dp[j - 1], dp[j], leftup) + 1;
                 }
                 leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
             }
