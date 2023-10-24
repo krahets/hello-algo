@@ -2,6 +2,8 @@
 
 import PackageDescription
 
+#error("TEST CI")
+
 let package = Package(
     name: "HelloAlgo",
     products: [
