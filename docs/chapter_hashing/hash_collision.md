@@ -2126,16 +2126,16 @@ comments: true
         #loadThres; // 触发扩容的负载因子阈值
         #extendRatio; // 扩容倍数
         #buckets; // 桶数组
-        #removed; // 删除标记
+        #TOMBSTONE; // 删除标记
 
         /* 构造方法 */
         constructor() {
-            this.#size = 0;
-            this.#capacity = 4;
-            this.#loadThres = 2.0 / 3.0;
-            this.#extendRatio = 2;
-            this.#buckets = new Array(this.#capacity).fill(null);
-            this.#removed = new Pair(-1, '-1');
+            this.#size = 0; // 键值对数量
+            this.#capacity = 4; // 哈希表容量
+            this.#loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
+            this.#extendRatio = 2; // 扩容倍数
+            this.#buckets = Array(this.#capacity).fill(null); // 桶数组
+            this.#TOMBSTONE = new Pair(-1, '-1'); // 删除标记
         }
 
         /* 哈希函数 */
@@ -2148,22 +2148,48 @@ comments: true
             return this.#size / this.#capacity;
         }
 
+        /* 搜索 key 对应的桶索引 */
+        #findBucket(key) {
+            let index = this.#hashFunc(key);
+            let firstTombstone = -1;
+            // 线性探测，当遇到空桶时跳出
+            while (this.#buckets[index] !== null) {
+                // 若遇到 key ，返回对应桶索引
+                if (this.#buckets[index].key === key) {
+                    // 若之前遇到了删除标记，则将键值对移动至该索引
+                    if (firstTombstone !== -1) {
+                        this.#buckets[firstTombstone] = this.#buckets[index];
+                        this.#buckets[index] = this.#TOMBSTONE;
+                        return firstTombstone; // 返回移动后的桶索引
+                    }
+                    return index; // 返回桶索引
+                }
+                // 记录遇到的首个删除标记
+                if (
+                    firstTombstone === -1 &&
+                    this.#buckets[index] === this.#TOMBSTONE
+                ) {
+                    firstTombstone = index;
+                }
+                // 计算桶索引，越过尾部返回头部
+                index = (index + 1) % this.#capacity;
+            }
+            // 若 key 不存在，则返回添加点的索引
+            return firstTombstone === -1 ? index : firstTombstone;
+        }
+
         /* 查询操作 */
         get(key) {
-            const index = this.#hashFunc(key);
-            // 线性探测，从 index 开始向后遍历
-            for (let i = 0; i < this.#capacity; i++) {
-                // 计算桶索引，越过尾部返回头部
-                const j = (index + i) % this.#capacity;
-                // 若遇到空桶，说明无此 key ，则返回 null
-                if (this.#buckets[j] === null) return null;
-                // 若遇到指定 key ，则返回对应 val
-                if (
-                    this.#buckets[j].key === key &&
-                    this.#buckets[j].key !== this.#removed.key
-                )
-                    return this.#buckets[j].val;
+            // 搜索 key 对应的桶索引
+            const index = this.#findBucket(key);
+            // 若找到键值对，则返回对应 val
+            if (
+                this.#buckets[index] !== null &&
+                this.#buckets[index] !== this.#TOMBSTONE
+            ) {
+                return this.#buckets[index].val;
             }
+            // 若键值对不存在，则返回 null
             return null;
         }
 
@@ -2173,45 +2199,32 @@ comments: true
             if (this.#loadFactor() > this.#loadThres) {
                 this.#extend();
             }
-            const index = this.#hashFunc(key);
-            // 线性探测，从 index 开始向后遍历
-            for (let i = 0; i < this.#capacity; i++) {
-                // 计算桶索引，越过尾部返回头部
-                let j = (index + i) % this.#capacity;
-                // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
-                if (
-                    this.#buckets[j] === null ||
-                    this.#buckets[j].key === this.#removed.key
-                ) {
-                    this.#buckets[j] = new Pair(key, val);
-                    this.#size += 1;
-                    return;
-                }
-                // 若遇到指定 key ，则更新对应 val
-                if (this.#buckets[j].key === key) {
-                    this.#buckets[j].val = val;
-                    return;
-                }
+            // 搜索 key 对应的桶索引
+            const index = this.#findBucket(key);
+            // 若找到键值对，则覆盖 val 并返回
+            if (
+                this.#buckets[index] !== null &&
+                this.#buckets[index] !== this.#TOMBSTONE
+            ) {
+                this.#buckets[index].val = val;
+                return;
             }
+            // 若键值对不存在，则添加该键值对
+            this.#buckets[index] = new Pair(key, val);
+            this.#size++;
         }
 
         /* 删除操作 */
         remove(key) {
-            const index = this.#hashFunc(key);
-            // 线性探测，从 index 开始向后遍历
-            for (let i = 0; i < this.#capacity; i++) {
-                // 计算桶索引，越过尾部返回头部
-                const j = (index + i) % this.#capacity;
-                // 若遇到空桶，说明无此 key ，则直接返回
-                if (this.#buckets[j] === null) {
-                    return;
-                }
-                // 若遇到指定 key ，则标记删除并返回
-                if (this.#buckets[j].key === key) {
-                    this.#buckets[j] = this.#removed;
-                    this.#size -= 1;
-                    return;
-                }
+            // 搜索 key 对应的桶索引
+            const index = this.#findBucket(key);
+            // 若找到键值对，则用删除标记覆盖它
+            if (
+                this.#buckets[index] !== null &&
+                this.#buckets[index] !== this.#TOMBSTONE
+            ) {
+                this.#buckets[index] = this.#TOMBSTONE;
+                this.#size--;
             }
         }
 
@@ -2221,11 +2234,11 @@ comments: true
             const bucketsTmp = this.#buckets;
             // 初始化扩容后的新哈希表
             this.#capacity *= this.#extendRatio;
-            this.#buckets = new Array(this.#capacity).fill(null);
+            this.#buckets = Array(this.#capacity).fill(null);
             this.#size = 0;
             // 将键值对从原哈希表搬运至新哈希表
             for (const pair of bucketsTmp) {
-                if (pair !== null && pair.key !== this.#removed.key) {
+                if (pair !== null && pair !== this.#TOMBSTONE) {
                     this.put(pair.key, pair.val);
                 }
             }
@@ -2234,10 +2247,12 @@ comments: true
         /* 打印哈希表 */
         print() {
             for (const pair of this.#buckets) {
-                if (pair !== null) {
-                    console.log(pair.key + ' -> ' + pair.val);
-                } else {
+                if (pair === null) {
                     console.log('null');
+                } else if (pair === this.#TOMBSTONE) {
+                    console.log('TOMBSTONE');
+                } else {
+                    console.log(pair.key + ' -> ' + pair.val);
                 }
             }
         }
@@ -2249,111 +2264,124 @@ comments: true
     ```typescript title="hash_map_open_addressing.ts"
     /* 开放寻址哈希表 */
     class HashMapOpenAddressing {
-        #size: number; // 键值对数量
-        #capacity: number; // 哈希表容量
-        #loadThres: number; // 触发扩容的负载因子阈值
-        #extendRatio: number; // 扩容倍数
-        #buckets: Pair[]; // 桶数组
-        #removed: Pair; // 删除标记
+        private size: number; // 键值对数量
+        private capacity: number; // 哈希表容量
+        private loadThres: number; // 触发扩容的负载因子阈值
+        private extendRatio: number; // 扩容倍数
+        private buckets: Array<Pair | null>; // 桶数组
+        private TOMBSTONE: Pair; // 删除标记
 
         /* 构造方法 */
         constructor() {
-            this.#size = 0;
-            this.#capacity = 4;
-            this.#loadThres = 2.0 / 3.0;
-            this.#extendRatio = 2;
-            this.#buckets = new Array(this.#capacity).fill(null);
-            this.#removed = new Pair(-1, '-1');
+            this.size = 0; // 键值对数量
+            this.capacity = 4; // 哈希表容量
+            this.loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
+            this.extendRatio = 2; // 扩容倍数
+            this.buckets = Array(this.capacity).fill(null); // 桶数组
+            this.TOMBSTONE = new Pair(-1, '-1'); // 删除标记
         }
 
         /* 哈希函数 */
-        #hashFunc(key: number): number {
-            return key % this.#capacity;
+        private hashFunc(key: number): number {
+            return key % this.capacity;
         }
 
         /* 负载因子 */
-        #loadFactor(): number {
-            return this.#size / this.#capacity;
+        private loadFactor(): number {
+            return this.size / this.capacity;
+        }
+
+        /* 搜索 key 对应的桶索引 */
+        private findBucket(key: number): number {
+            let index = this.hashFunc(key);
+            let firstTombstone = -1;
+            // 线性探测，当遇到空桶时跳出
+            while (this.buckets[index] !== null) {
+                // 若遇到 key ，返回对应桶索引
+                if (this.buckets[index]!.key === key) {
+                    // 若之前遇到了删除标记，则将键值对移动至该索引
+                    if (firstTombstone !== -1) {
+                        this.buckets[firstTombstone] = this.buckets[index];
+                        this.buckets[index] = this.TOMBSTONE;
+                        return firstTombstone; // 返回移动后的桶索引
+                    }
+                    return index; // 返回桶索引
+                }
+                // 记录遇到的首个删除标记
+                if (
+                    firstTombstone === -1 &&
+                    this.buckets[index] === this.TOMBSTONE
+                ) {
+                    firstTombstone = index;
+                }
+                // 计算桶索引，越过尾部返回头部
+                index = (index + 1) % this.capacity;
+            }
+            // 若 key 不存在，则返回添加点的索引
+            return firstTombstone === -1 ? index : firstTombstone;
         }
 
         /* 查询操作 */
         get(key: number): string | null {
-            const index = this.#hashFunc(key);
-            // 线性探测，从 index 开始向后遍历
-            for (let i = 0; i < this.#capacity; i++) {
-                // 计算桶索引，越过尾部返回头部
-                const j = (index + i) % this.#capacity;
-                // 若遇到空桶，说明无此 key ，则返回 null
-                if (this.#buckets[j] === null) return null;
-                // 若遇到指定 key ，则返回对应 val
-                if (
-                    this.#buckets[j].key === key &&
-                    this.#buckets[j].key !== this.#removed.key
-                )
-                    return this.#buckets[j].val;
+            // 搜索 key 对应的桶索引
+            const index = this.findBucket(key);
+            // 若找到键值对，则返回对应 val
+            if (
+                this.buckets[index] !== null &&
+                this.buckets[index] !== this.TOMBSTONE
+            ) {
+                return this.buckets[index]!.val;
             }
+            // 若键值对不存在，则返回 null
             return null;
         }
 
         /* 添加操作 */
         put(key: number, val: string): void {
             // 当负载因子超过阈值时，执行扩容
-            if (this.#loadFactor() > this.#loadThres) {
-                this.#extend();
+            if (this.loadFactor() > this.loadThres) {
+                this.extend();
             }
-            const index = this.#hashFunc(key);
-            // 线性探测，从 index 开始向后遍历
-            for (let i = 0; i < this.#capacity; i++) {
-                // 计算桶索引，越过尾部返回头部
-                let j = (index + i) % this.#capacity;
-                // 若遇到空桶、或带有删除标记的桶，则将键值对放入该桶
-                if (
-                    this.#buckets[j] === null ||
-                    this.#buckets[j].key === this.#removed.key
-                ) {
-                    this.#buckets[j] = new Pair(key, val);
-                    this.#size += 1;
-                    return;
-                }
-                // 若遇到指定 key ，则更新对应 val
-                if (this.#buckets[j].key === key) {
-                    this.#buckets[j].val = val;
-                    return;
-                }
+            // 搜索 key 对应的桶索引
+            const index = this.findBucket(key);
+            // 若找到键值对，则覆盖 val 并返回
+            if (
+                this.buckets[index] !== null &&
+                this.buckets[index] !== this.TOMBSTONE
+            ) {
+                this.buckets[index]!.val = val;
+                return;
             }
+            // 若键值对不存在，则添加该键值对
+            this.buckets[index] = new Pair(key, val);
+            this.size++;
         }
 
         /* 删除操作 */
         remove(key: number): void {
-            const index = this.#hashFunc(key);
-            // 线性探测，从 index 开始向后遍历
-            for (let i = 0; i < this.#capacity; i++) {
-                // 计算桶索引，越过尾部返回头部
-                const j = (index + i) % this.#capacity;
-                // 若遇到空桶，说明无此 key ，则直接返回
-                if (this.#buckets[j] === null) {
-                    return;
-                }
-                // 若遇到指定 key ，则标记删除并返回
-                if (this.#buckets[j].key === key) {
-                    this.#buckets[j] = this.#removed;
-                    this.#size -= 1;
-                    return;
-                }
+            // 搜索 key 对应的桶索引
+            const index = this.findBucket(key);
+            // 若找到键值对，则用删除标记覆盖它
+            if (
+                this.buckets[index] !== null &&
+                this.buckets[index] !== this.TOMBSTONE
+            ) {
+                this.buckets[index] = this.TOMBSTONE;
+                this.size--;
             }
         }
 
         /* 扩容哈希表 */
-        #extend(): void {
+        private extend(): void {
             // 暂存原哈希表
-            const bucketsTmp = this.#buckets;
+            const bucketsTmp = this.buckets;
             // 初始化扩容后的新哈希表
-            this.#capacity *= this.#extendRatio;
-            this.#buckets = new Array(this.#capacity).fill(null);
-            this.#size = 0;
+            this.capacity *= this.extendRatio;
+            this.buckets = Array(this.capacity).fill(null);
+            this.size = 0;
             // 将键值对从原哈希表搬运至新哈希表
             for (const pair of bucketsTmp) {
-                if (pair !== null && pair.key !== this.#removed.key) {
+                if (pair !== null && pair !== this.TOMBSTONE) {
                     this.put(pair.key, pair.val);
                 }
             }
@@ -2361,11 +2389,13 @@ comments: true
 
         /* 打印哈希表 */
         print(): void {
-            for (const pair of this.#buckets) {
-                if (pair !== null) {
-                    console.log(pair.key + ' -> ' + pair.val);
-                } else {
+            for (const pair of this.buckets) {
+                if (pair === null) {
                     console.log('null');
+                } else if (pair === this.TOMBSTONE) {
+                    console.log('TOMBSTONE');
+                } else {
+                    console.log(pair.key + ' -> ' + pair.val);
                 }
             }
         }

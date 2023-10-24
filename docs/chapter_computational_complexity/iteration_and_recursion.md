@@ -172,7 +172,15 @@ status: new
 === "Zig"
 
     ```zig title="iteration.zig"
-    [class]{}-[func]{forLoop}
+    // for 循环
+    fn forLoop(n: usize) i32 {
+        var res: i32 = 0;
+        // 循环求和 1, 2, ..., n-1, n
+        for (1..n+1) |i| {
+            res = res + @as(i32, @intCast(i));
+        }
+        return res;
+    } 
     ```
 
 图 2-1 展示了该求和函数的流程框图。
@@ -368,7 +376,17 @@ status: new
 === "Zig"
 
     ```zig title="iteration.zig"
-    [class]{}-[func]{whileLoop}
+    // while 循环
+    fn whileLoop(n: i32) i32 {
+        var res: i32 = 0;
+        var i: i32 = 1; // 初始化条件变量
+        // 循环求和 1, 2, ..., n-1, n
+        while (i <= n) {
+            res += @intCast(i);
+            i += 1;
+        }
+        return res;
+    }
     ```
 
 在 `while` 循环中，由于初始化和更新条件变量的步骤是独立在循环结构之外的，**因此它比 `for` 循环的自由度更高**。
@@ -575,7 +593,19 @@ status: new
 === "Zig"
 
     ```zig title="iteration.zig"
-    [class]{}-[func]{whileLoopII}
+    //  while 循环（两次更新）
+    fn whileLoopII(n: i32) i32 {
+        var res: i32 = 0;
+        var i: i32 = 1; // 初始化条件变量
+        // 循环求和 1, 4, ...
+        while (i <= n) {
+            res += @intCast(i);
+            // 更新条件变量
+            i += 1;
+            i *= 2;
+        }
+        return res;
+    }
     ```
 
 总的来说，**`for` 循环的代码更加紧凑，`while` 循环更加灵活**，两者都可以实现迭代结构。选择使用哪一个应该根据特定问题的需求来决定。
@@ -775,7 +805,21 @@ status: new
 === "Zig"
 
     ```zig title="iteration.zig"
-    [class]{}-[func]{nestedForLoop}
+    // 双层 for 循环
+    fn nestedForLoop(allocator: Allocator, n: usize) ![]const u8 {
+        var res = std.ArrayList(u8).init(allocator);
+        defer res.deinit();
+        var buffer: [20]u8 = undefined;
+        // 循环 i = 1, 2, ..., n-1, n
+        for (1..n+1) |i| {
+            // 循环 j = 1, 2, ..., n-1, n
+            for (1..n+1) |j| {
+                var _str = try std.fmt.bufPrint(&buffer, "({d}, {d}), ", .{i, j});
+                try res.appendSlice(_str);
+            }
+        }
+        return res.toOwnedSlice();
+    }
     ```
 
 图 2-2 给出了该嵌套循环的流程框图。
@@ -970,7 +1014,17 @@ status: new
 === "Zig"
 
     ```zig title="recursion.zig"
-    [class]{}-[func]{recur}
+    // 递归函数
+    fn recur(n: i32) i32 {
+        // 终止条件
+        if (n == 1) {
+            return 1;
+        }
+        // 递：递归调用
+        var res: i32 = recur(n - 1);
+        // 归：返回结果
+        return n + res;
+    }
     ```
 
 图 2-3 展示了该函数的递归过程。
@@ -1158,7 +1212,15 @@ status: new
 === "Zig"
 
     ```zig title="recursion.zig"
-    [class]{}-[func]{tailRecur}
+    // 尾递归函数
+    fn tailRecur(n: i32, res: i32) i32 {
+        // 终止条件
+        if (n == 0) {
+            return res;
+        }
+        // 尾递归调用
+        return tailRecur(n - 1, res + n);
+    }
     ```
 
 尾递归的执行过程如图 2-5 所示。对比普通递归和尾递归，求和操作的执行点是不同的。
@@ -1356,7 +1418,17 @@ status: new
 === "Zig"
 
     ```zig title="recursion.zig"
-    [class]{}-[func]{fib}
+    // 斐波那契数列
+    fn fib(n: i32) i32 {
+        // 终止条件 f(1) = 0, f(2) = 1
+        if (n == 1 or n == 2) {
+            return n - 1;
+        }
+        // 递归调用 f(n) = f(n-1) + f(n-2)
+        var res: i32 = fib(n - 1) + fib(n - 2);
+        // 返回结果 f(n)
+        return res;
+    }
     ```
 
 观察以上代码，我们在函数内递归调用了两个函数，**这意味着从一个调用产生了两个调用分支**。如图 2-6 所示，这样不断递归调用下去，最终将产生一个层数为 $n$ 的「递归树 recursion tree」。
@@ -1655,7 +1727,26 @@ status: new
 === "Zig"
 
     ```zig title="recursion.zig"
-    [class]{}-[func]{forLoopRecur}
+    // 使用迭代模拟递归
+    fn forLoopRecur(comptime n: i32) i32 {
+        // 使用一个显式的栈来模拟系统调用栈
+        var stack: [n]i32 = undefined;
+        var res: i32 = 0;
+        // 递：递归调用
+        var i: usize = n;
+        while (i > 0) {
+            stack[i - 1] = @intCast(i);
+            i -= 1;
+        }
+        // 归：返回结果
+        var index: usize = n;
+        while (index > 0) {
+            index -= 1;
+            res += stack[index];
+        }
+        // res = 1+2+3+...+n
+        return res;
+    }
     ```
 
 观察以上代码，当递归被转换为迭代后，代码变得更加复杂了。尽管迭代和递归在很多情况下可以互相转换，但也不一定值得这样做，有以下两点原因。
