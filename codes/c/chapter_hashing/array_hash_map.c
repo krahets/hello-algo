@@ -1,7 +1,7 @@
 /**
  * File: array_hash_map.c
  * Created Time: 2023-03-18
- * Author: Guanngxu (446678850@qq.com)
+ * Author: Guanngxu (446678850@qq.com), Amlei (1985805761@qq.com)
  */
 
 #include "../utils/common.h"
@@ -208,6 +208,7 @@ int main() {
         printf("%s\n", vals[i]);
     }
 
+    free(map);
     return 0;
 }
 
