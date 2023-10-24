@@ -298,13 +298,9 @@
     for (auto kv: map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
-    // 单独遍历键 key
-    for (auto kv: map) {
-        cout << kv.first << endl;
-    }
-    // 单独遍历值 value
-    for (auto kv: map) {
-        cout << kv.second << endl;
+    // 使用迭代器遍历 key->value
+    for (auto iter = map.begin(); iter != map.end(); iter++) {
+        cout << iter->first << "->" << iter->second << endl;
     }
     ```
 

@@ -37,15 +37,9 @@ int main() {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
-
-    cout << "\n单独遍历键 Key" << endl;
-    for (auto kv : map) {
-        cout << kv.first << endl;
-    }
-
-    cout << "\n单独遍历值 Value" << endl;
-    for (auto kv : map) {
-        cout << kv.second << endl;
+    cout << "\n使用迭代器遍历 Key->Value" << endl;
+    for (auto iter = map.begin(); iter != map.end(); iter++) {
+        cout << iter->first << "->" << iter->second << endl;
     }
 
     return 0;
