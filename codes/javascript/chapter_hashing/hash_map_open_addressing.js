@@ -37,7 +37,7 @@ class HashMapOpenAddressing {
     }
 
     /* 负载因子 */
-    loadFactor() {
+    #loadFactor() {
         return this.#size / this.#capacity;
     }
 
@@ -89,8 +89,8 @@ class HashMapOpenAddressing {
     /* 添加操作 */
     put(key, val) {
         // 当负载因子超过阈值时，执行扩容
-        if (this.loadFactor() > this.#loadThres) {
-            this.extend();
+        if (this.#loadFactor() > this.#loadThres) {
+            this.#extend();
         }
         // 搜索 key 对应的桶索引
         const index = this.#findBucket(key);
@@ -122,7 +122,7 @@ class HashMapOpenAddressing {
     }
 
     /* 扩容哈希表 */
-    extend() {
+    #extend() {
         // 暂存原哈希表
         const bucketsTmp = this.#buckets;
         // 初始化扩容后的新哈希表
