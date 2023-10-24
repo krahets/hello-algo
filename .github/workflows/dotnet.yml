@@ -10,6 +10,7 @@ on:
   pull_request:
     branches: [ "main" ]
     paths: ["codes/csharp/**/*.cs"]
+  workflow_dispatch:
 
 jobs:
   build:

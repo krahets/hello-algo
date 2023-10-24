@@ -10,6 +10,7 @@ on:
   pull_request:
     branches: ["main"]
     paths: ["codes/swift/**/*.swift"]
+  workflow_dispatch:
 
 jobs:
   build:
