@@ -10,6 +10,7 @@ on:
   pull_request:
     branches: ["main"]
     paths: ["codes/python/**/*.py"]
+  workflow_dispatch:
 
 permissions:
   contents: read
