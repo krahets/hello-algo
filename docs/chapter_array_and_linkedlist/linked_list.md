@@ -96,8 +96,6 @@
     ```javascript title=""
     /* 链表节点类 */
     class ListNode {
-        val;
-        next;
         constructor(val, next) {
             this.val = (val === undefined ? 0 : val);       // 节点值
             this.next = (next === undefined ? null : next); // 指向下一节点的引用
@@ -147,12 +145,10 @@
 
     ```c title=""
     /* 链表节点结构体 */
-    struct ListNode {
+    typedef struct ListNode {
         int val;               // 节点值
         struct ListNode *next; // 指向下一节点的指针
-    };
-
-    typedef struct ListNode ListNode;
+    } ListNode;
 
     /* 构造函数 */
     ListNode *newListNode(int val) {
@@ -548,9 +544,6 @@
     ```javascript title=""
     /* 双向链表节点类 */
     class ListNode {
-        val;
-        next;
-        prev;
         constructor(val, next, prev) {
             this.val = val  ===  undefined ? 0 : val;        // 节点值
             this.next = next  ===  undefined ? null : next;  // 指向后继节点的引用
@@ -617,13 +610,11 @@
 
     ```c title=""
     /* 双向链表节点结构体 */
-    struct ListNode {
+    typedef struct ListNode {
         int val;               // 节点值
         struct ListNode *next; // 指向后继节点的指针
         struct ListNode *prev; // 指向前驱节点的指针
-    };
-
-    typedef struct ListNode ListNode;
+    } ListNode;
 
     /* 构造函数 */
     ListNode *newListNode(int val) {

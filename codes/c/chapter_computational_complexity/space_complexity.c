@@ -31,13 +31,11 @@ void constant(int n) {
 }
 
 /* 哈希表 */
-struct hashTable {
+typedef struct {
     int key;
     int val;
     UT_hash_handle hh; // 基于 uthash.h 实现
-};
-
-typedef struct hashTable hashTable;
+} HashTable;
 
 /* 线性阶 */
 void linear(int n) {
@@ -57,16 +55,16 @@ void linear(int n) {
     free(nodes);
 
     // 长度为 n 的哈希表占用 O(n) 空间
-    hashTable *h = NULL;
+    HashTable *h = NULL;
     for (int i = 0; i < n; i++) {
-        hashTable *tmp = malloc(sizeof(hashTable));
+        HashTable *tmp = malloc(sizeof(HashTable));
         tmp->key = i;
         tmp->val = i;
         HASH_ADD_INT(h, key, tmp);
     }
 
     // 内存释放
-    hashTable *curr, *tmp;
+    HashTable *curr, *tmp;
     HASH_ITER(hh, h, curr, tmp) {
         HASH_DEL(h, curr);
         free(curr);

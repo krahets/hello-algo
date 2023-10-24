@@ -9,25 +9,22 @@
 #define MAX_SIZE 5000
 
 /* 大顶堆 */
-struct maxHeap {
+typedef struct {
     // size 代表的是实际元素的个数
     int size;
     // 使用预先分配内存的数组，避免扩容
     int data[MAX_SIZE];
-};
+} MaxHeap;
 
-typedef struct maxHeap maxHeap;
-
-void siftDown(maxHeap *h, int i);
-
-void siftUp(maxHeap *h, int i);
-
-int parent(maxHeap *h, int i);
+// 函数声明
+void siftDown(MaxHeap *h, int i);
+void siftUp(MaxHeap *h, int i);
+int parent(MaxHeap *h, int i);
 
 /* 构造函数，根据切片建堆 */
-maxHeap *newMaxHeap(int nums[], int size) {
+MaxHeap *newMaxHeap(int nums[], int size) {
     // 所有元素入堆
-    maxHeap *h = (maxHeap *)malloc(sizeof(maxHeap));
+    MaxHeap *h = (MaxHeap *)malloc(sizeof(MaxHeap));
     h->size = size;
     memcpy(h->data, nums, size * sizeof(int));
     for (int i = parent(h, size - 1); i >= 0; i--) {
@@ -38,44 +35,44 @@ maxHeap *newMaxHeap(int nums[], int size) {
 }
 
 /* 获取左子节点索引 */
-int left(maxHeap *h, int i) {
+int left(MaxHeap *h, int i) {
     return 2 * i + 1;
 }
 
 /* 获取右子节点索引 */
-int right(maxHeap *h, int i) {
+int right(MaxHeap *h, int i) {
     return 2 * i + 2;
 }
 
 /* 获取父节点索引 */
-int parent(maxHeap *h, int i) {
+int parent(MaxHeap *h, int i) {
     return (i - 1) / 2;
 }
 
 /* 交换元素 */
-void swap(maxHeap *h, int i, int j) {
+void swap(MaxHeap *h, int i, int j) {
     int temp = h->data[i];
     h->data[i] = h->data[j];
     h->data[j] = temp;
 }
 
 /* 获取堆大小 */
-int size(maxHeap *h) {
+int size(MaxHeap *h) {
     return h->size;
 }
 
 /* 判断堆是否为空 */
-int isEmpty(maxHeap *h) {
+int isEmpty(MaxHeap *h) {
     return h->size == 0;
 }
 
 /* 访问堆顶元素 */
-int peek(maxHeap *h) {
+int peek(MaxHeap *h) {
     return h->data[0];
 }
 
 /* 元素入堆 */
-void push(maxHeap *h, int val) {
+void push(MaxHeap *h, int val) {
     // 默认情况下，不应该添加这么多节点
     if (h->size == MAX_SIZE) {
         printf("heap is full!");
@@ -90,7 +87,7 @@ void push(maxHeap *h, int val) {
 }
 
 /* 元素出堆 */
-int pop(maxHeap *h) {
+int pop(MaxHeap *h) {
     // 判空处理
     if (isEmpty(h)) {
         printf("heap is empty!");
@@ -109,7 +106,7 @@ int pop(maxHeap *h) {
 }
 
 /* 从节点 i 开始，从顶至底堆化 */
-void siftDown(maxHeap *h, int i) {
+void siftDown(MaxHeap *h, int i) {
     while (true) {
         // 判断节点 i, l, r 中值最大的节点，记为 max
         int l = left(h, i);
@@ -133,7 +130,7 @@ void siftDown(maxHeap *h, int i) {
 }
 
 /* 从节点 i 开始，从底至顶堆化 */
-void siftUp(maxHeap *h, int i) {
+void siftUp(MaxHeap *h, int i) {
     while (true) {
         // 获取节点 i 的父节点
         int p = parent(h, i);
@@ -153,7 +150,7 @@ int main() {
     /* 初始化堆 */
     // 初始化大顶堆
     int nums[] = {9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2};
-    maxHeap *heap = newMaxHeap(nums, sizeof(nums) / sizeof(int));
+    MaxHeap *heap = newMaxHeap(nums, sizeof(nums) / sizeof(int));
     printf("输入数组并建堆后\n");
     printHeap(heap->data, heap->size);
 

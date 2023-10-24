@@ -9,16 +9,14 @@
 #define MAX_SIZE 5000
 
 /* 基于数组实现的栈 */
-struct arrayStack {
+typedef struct {
     int *data;
     int size;
-};
-
-typedef struct arrayStack arrayStack;
+} ArrayStack;
 
 /* 构造函数 */
-arrayStack *newArrayStack() {
-    arrayStack *s = malloc(sizeof(arrayStack));
+ArrayStack *newArrayStack() {
+    ArrayStack *s = malloc(sizeof(ArrayStack));
     // 初始化一个大容量，避免扩容
     s->data = malloc(sizeof(int) * MAX_SIZE);
     s->size = 0;
@@ -26,17 +24,17 @@ arrayStack *newArrayStack() {
 }
 
 /* 获取栈的长度 */
-int size(arrayStack *s) {
+int size(ArrayStack *s) {
     return s->size;
 }
 
 /* 判断栈是否为空 */
-bool isEmpty(arrayStack *s) {
+bool isEmpty(ArrayStack *s) {
     return s->size == 0;
 }
 
 /* 入栈 */
-void push(arrayStack *s, int num) {
+void push(ArrayStack *s, int num) {
     if (s->size == MAX_SIZE) {
         printf("stack is full.\n");
         return;
@@ -46,7 +44,7 @@ void push(arrayStack *s, int num) {
 }
 
 /* 访问栈顶元素 */
-int peek(arrayStack *s) {
+int peek(ArrayStack *s) {
     if (s->size == 0) {
         printf("stack is empty.\n");
         return INT_MAX;
@@ -55,7 +53,7 @@ int peek(arrayStack *s) {
 }
 
 /* 出栈 */
-int pop(arrayStack *s) {
+int pop(ArrayStack *s) {
     if (s->size == 0) {
         printf("stack is empty.\n");
         return INT_MAX;
@@ -68,7 +66,7 @@ int pop(arrayStack *s) {
 /* Driver Code */
 int main() {
     /* 初始化栈 */
-    arrayStack *stack = newArrayStack();
+    ArrayStack *stack = newArrayStack();
 
     /* 元素入栈 */
     push(stack, 1);

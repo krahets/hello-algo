@@ -72,12 +72,10 @@ static void printLinkedList(ListNode *node) {
     printf("%d\n", node->val);
 }
 
-struct Trunk {
+typedef struct Trunk {
     struct Trunk *prev;
     char *str;
-};
-
-typedef struct Trunk Trunk;
+} Trunk;
 
 Trunk *newTrunk(Trunk *prev, char *str) {
     Trunk *trunk = (Trunk *)malloc(sizeof(Trunk));

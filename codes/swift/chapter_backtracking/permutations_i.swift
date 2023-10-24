@@ -13,7 +13,7 @@ func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: 
     }
     // 遍历所有选择
     for (i, choice) in choices.enumerated() {
-        // 剪枝：不允许重复选择元素 且 不允许重复选择相等元素
+        // 剪枝：不允许重复选择元素
         if !selected[i] {
             // 尝试：做出选择，更新状态
             selected[i] = true

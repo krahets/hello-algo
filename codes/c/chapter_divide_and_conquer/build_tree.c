@@ -1,8 +1,8 @@
 /**
-  * File : build_tree.c
-  * Created Time: 2023-10-16
-  * Author : lucas (superrat6@gmail.com)
-  */
+ * File : build_tree.c
+ * Created Time: 2023-10-16
+ * Author : lucas (superrat6@gmail.com)
+ */
 
 #include "../utils/common.h"
 
@@ -10,12 +10,12 @@
 #define MAX_N 1000
 
 /* 构建二叉树：分治 */
-TreeNode* dfs(int* preorder, int* inorderMap, int i, int l, int r, int size) {
+TreeNode *dfs(int *preorder, int *inorderMap, int i, int l, int r, int size) {
     // 子树区间为空时终止
     if (r - l < 0)
         return NULL;
     // 初始化根节点
-    TreeNode* root = (TreeNode*)malloc(sizeof(TreeNode));
+    TreeNode *root = (TreeNode *)malloc(sizeof(TreeNode));
     root->val = preorder[i];
     root->left = NULL;
     root->right = NULL;
@@ -30,13 +30,13 @@ TreeNode* dfs(int* preorder, int* inorderMap, int i, int l, int r, int size) {
 }
 
 /* 构建二叉树 */
-TreeNode* buildTree(int* preorder, int preorderSize, int* inorder, int inorderSize) {
+TreeNode *buildTree(int *preorder, int preorderSize, int *inorder, int inorderSize) {
     // 初始化哈希表，存储 inorder 元素到索引的映射
-    int* inorderMap = (int*)malloc(sizeof(int) * MAX_N);
+    int *inorderMap = (int *)malloc(sizeof(int) * MAX_N);
     for (int i = 0; i < inorderSize; i++) {
         inorderMap[inorder[i]] = i;
     }
-    TreeNode* root = dfs(preorder, inorderMap, 0, 0, inorderSize - 1, inorderSize);
+    TreeNode *root = dfs(preorder, inorderMap, 0, 0, inorderSize - 1, inorderSize);
     free(inorderMap);
     return root;
 }
@@ -52,7 +52,7 @@ int main() {
     printf("中序遍历 = ");
     printArray(inorder, inorderSize);
 
-    TreeNode* root = buildTree(preorder, preorderSize, inorder, inorderSize);
+    TreeNode *root = buildTree(preorder, preorderSize, inorder, inorderSize);
     printf("构建的二叉树为：\n");
     printTree(root);
 

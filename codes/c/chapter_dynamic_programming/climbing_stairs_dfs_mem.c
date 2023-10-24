@@ -36,7 +36,7 @@ int climbingStairsDFSMem(int n) {
 /* Driver Code */
 int main() {
     int n = 9;
-    
+
     int res = climbingStairsDFSMem(n);
     printf("爬 %d 阶楼梯共有 %d 种方案\n", n, res);
 
