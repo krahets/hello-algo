@@ -64,33 +64,32 @@ comments: true
     ```python title="merge_sort.py"
     def merge(nums: list[int], left: int, mid: int, right: int):
         """合并左子数组和右子数组"""
-        # 左子数组区间 [left, mid]
-        # 右子数组区间 [mid + 1, right]
-        # 初始化辅助数组
-        tmp = list(nums[left : right + 1])
-        # 左子数组的起始索引和结束索引
-        left_start = 0
-        left_end = mid - left
-        # 右子数组的起始索引和结束索引
-        right_start = mid + 1 - left
-        right_end = right - left
-        # i, j 分别指向左子数组、右子数组的首元素
-        i = left_start
-        j = right_start
-        # 通过覆盖原数组 nums 来合并左子数组和右子数组
-        for k in range(left, right + 1):
-            # 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
-            if i > left_end:
-                nums[k] = tmp[j]
-                j += 1
-            # 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
-            elif j > right_end or tmp[i] <= tmp[j]:
-                nums[k] = tmp[i]
+        # 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        # 创建一个临时数组 tmp ，用于存放合并后的结果
+        tmp = [0] * (right - left + 1)
+        # 初始化左子数组和右子数组的起始索引
+        i, j, k = left, mid + 1, 0
+        # 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        while i <= mid and j <= right:
+            if nums[i] <= nums[j]:
+                tmp[k] = nums[i]
                 i += 1
-            # 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
             else:
-                nums[k] = tmp[j]
+                tmp[k] = nums[j]
                 j += 1
+            k += 1
+        # 将左子数组和右子数组的剩余元素复制到临时数组中
+        while i <= mid:
+            tmp[k] = nums[i]
+            i += 1
+            k += 1
+        while j <= right:
+            tmp[k] = nums[j]
+            j += 1
+            k += 1
+        # 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
+        for k in range(0, len(tmp)):
+            nums[left + k] = tmp[k]
 
     def merge_sort(nums: list[int], left: int, right: int):
         """归并排序"""
@@ -109,28 +108,29 @@ comments: true
 
     ```cpp title="merge_sort.cpp"
     /* 合并左子数组和右子数组 */
-    // 左子数组区间 [left, mid]
-    // 右子数组区间 [mid + 1, right]
     void merge(vector<int> &nums, int left, int mid, int right) {
-        // 初始化辅助数组
-        vector<int> tmp(nums.begin() + left, nums.begin() + right + 1);
-        // 左子数组的起始索引和结束索引
-        int leftStart = left - left, leftEnd = mid - left;
-        // 右子数组的起始索引和结束索引
-        int rightStart = mid + 1 - left, rightEnd = right - left;
-        // i, j 分别指向左子数组、右子数组的首元素
-        int i = leftStart, j = rightStart;
-        // 通过覆盖原数组 nums 来合并左子数组和右子数组
-        for (int k = left; k <= right; k++) {
-            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
-            if (i > leftEnd)
-                nums[k] = tmp[j++];
-            // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
-            else if (j > rightEnd || tmp[i] <= tmp[j])
-                nums[k] = tmp[i++];
-            // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 创建一个临时数组 tmp ，用于存放合并后的结果
+        vector<int> tmp(right - left + 1);
+        // 初始化左子数组和右子数组的起始索引
+        int i = left, j = mid + 1, k = 0;
+        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j])
+                tmp[k++] = nums[i++];
             else
-                nums[k] = tmp[j++];
+                tmp[k++] = nums[j++];
+        }
+        // 将左子数组和右子数组的剩余元素复制到临时数组中
+        while (i <= mid) {
+            tmp[k++] = nums[i++];
+        }
+        while (j <= right) {
+            tmp[k++] = nums[j++];
+        }
+        // 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
+        for (k = 0; k < tmp.size(); k++) {
+            nums[left + k] = tmp[k];
         }
     }
 
@@ -152,28 +152,29 @@ comments: true
 
     ```java title="merge_sort.java"
     /* 合并左子数组和右子数组 */
-    // 左子数组区间 [left, mid]
-    // 右子数组区间 [mid + 1, right]
     void merge(int[] nums, int left, int mid, int right) {
-        // 初始化辅助数组
-        int[] tmp = Arrays.copyOfRange(nums, left, right + 1);
-        // 左子数组的起始索引和结束索引
-        int leftStart = left - left, leftEnd = mid - left;
-        // 右子数组的起始索引和结束索引
-        int rightStart = mid + 1 - left, rightEnd = right - left;
-        // i, j 分别指向左子数组、右子数组的首元素
-        int i = leftStart, j = rightStart;
-        // 通过覆盖原数组 nums 来合并左子数组和右子数组
-        for (int k = left; k <= right; k++) {
-            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
-            if (i > leftEnd)
-                nums[k] = tmp[j++];
-            // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
-            else if (j > rightEnd || tmp[i] <= tmp[j])
-                nums[k] = tmp[i++];
-            // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 创建一个临时数组 tmp ，用于存放合并后的结果
+        int[] tmp = new int[right - left + 1];
+        // 初始化左子数组和右子数组的起始索引
+        int i = left, j = mid + 1, k = 0;
+        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j])
+                tmp[k++] = nums[i++];
             else
-                nums[k] = tmp[j++];
+                tmp[k++] = nums[j++];
+        }
+        // 将左子数组和右子数组的剩余元素复制到临时数组中
+        while (i <= mid) {
+            tmp[k++] = nums[i++];
+        }
+        while (j <= right) {
+            tmp[k++] = nums[j++];
+        }
+        // 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
+        for (k = 0; k < tmp.length; k++) {
+            nums[left + k] = tmp[k];
         }
     }
 
@@ -181,10 +182,10 @@ comments: true
     void mergeSort(int[] nums, int left, int right) {
         // 终止条件
         if (left >= right)
-            return;                      // 当子数组长度为 1 时终止递归
+            return; // 当子数组长度为 1 时终止递归
         // 划分阶段
-        int mid = (left + right) / 2;    // 计算中点
-        mergeSort(nums, left, mid);      // 递归左子数组
+        int mid = (left + right) / 2; // 计算中点
+        mergeSort(nums, left, mid); // 递归左子数组
         mergeSort(nums, mid + 1, right); // 递归右子数组
         // 合并阶段
         merge(nums, left, mid, right);
@@ -195,28 +196,29 @@ comments: true
 
     ```csharp title="merge_sort.cs"
     /* 合并左子数组和右子数组 */
-    // 左子数组区间 [left, mid]
-    // 右子数组区间 [mid + 1, right]
     void Merge(int[] nums, int left, int mid, int right) {
-        // 初始化辅助数组
-        int[] tmp = nums[left..(right + 1)];
-        // 左子数组的起始索引和结束索引  
-        int leftStart = left - left, leftEnd = mid - left;
-        // 右子数组的起始索引和结束索引       
-        int rightStart = mid + 1 - left, rightEnd = right - left;
-        // i, j 分别指向左子数组、右子数组的首元素
-        int i = leftStart, j = rightStart;
-        // 通过覆盖原数组 nums 来合并左子数组和右子数组
-        for (int k = left; k <= right; k++) {
-            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
-            if (i > leftEnd)
-                nums[k] = tmp[j++];
-            // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
-            else if (j > rightEnd || tmp[i] <= tmp[j])
-                nums[k] = tmp[i++];
-            // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 创建一个临时数组 tmp ，用于存放合并后的结果
+        int[] tmp = new int[right - left + 1];
+        // 初始化左子数组和右子数组的起始索引
+        int i = left, j = mid + 1, k = 0;
+        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j])
+                tmp[k++] = nums[i++];
             else
-                nums[k] = tmp[j++];
+                tmp[k++] = nums[j++];
+        }
+        // 将左子数组和右子数组的剩余元素复制到临时数组中
+        while (i <= mid) {
+            tmp[k++] = nums[i++];
+        }
+        while (j <= right) {
+            tmp[k++] = nums[j++];
+        }
+        // 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
+        for (k = 0; k < tmp.Length; ++k) {
+            nums[left + k] = tmp[k];
         }
     }
 
@@ -237,35 +239,37 @@ comments: true
 
     ```go title="merge_sort.go"
     /* 合并左子数组和右子数组 */
-    // 左子数组区间 [left, mid]
-    // 右子数组区间 [mid + 1, right]
     func merge(nums []int, left, mid, right int) {
-        // 初始化辅助数组 借助 copy 模块
+        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 创建一个临时数组 tmp ，用于存放合并后的结果
         tmp := make([]int, right-left+1)
-        for i := left; i <= right; i++ {
-            tmp[i-left] = nums[i]
-        }
-        // 左子数组的起始索引和结束索引
-        leftStart, leftEnd := left-left, mid-left
-        // 右子数组的起始索引和结束索引
-        rightStart, rightEnd := mid+1-left, right-left
-        // i, j 分别指向左子数组、右子数组的首元素
-        i, j := leftStart, rightStart
-        // 通过覆盖原数组 nums 来合并左子数组和右子数组
-        for k := left; k <= right; k++ {
-            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
-            if i > leftEnd {
-                nums[k] = tmp[j]
-                j++
-                // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
-            } else if j > rightEnd || tmp[i] <= tmp[j] {
-                nums[k] = tmp[i]
+        // 初始化左子数组和右子数组的起始索引
+        i, j, k := left, mid+1, 0
+        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        for i <= mid && j <= right {
+            if nums[i] <= nums[j] {
+                tmp[k] = nums[i]
                 i++
-                // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
             } else {
-                nums[k] = tmp[j]
+                tmp[k] = nums[j]
                 j++
             }
+            k++
+        }
+        // 将左子数组和右子数组的剩余元素复制到临时数组中
+        for i <= mid {
+            tmp[k] = nums[i]
+            i++
+            k++
+        }
+        for j <= right {
+            tmp[k] = nums[j]
+            j++
+            k++
+        }
+        // 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
+        for k := 0; k < len(tmp); k++ {
+            nums[left+k] = tmp[k]
         }
     }
 
@@ -341,32 +345,32 @@ comments: true
 
     ```javascript title="merge_sort.js"
     /* 合并左子数组和右子数组 */
-    // 左子数组区间 [left, mid]
-    // 右子数组区间 [mid + 1, right]
     function merge(nums, left, mid, right) {
-        // 初始化辅助数组
-        let tmp = nums.slice(left, right + 1);
-        // 左子数组的起始索引和结束索引
-        let leftStart = left - left,
-            leftEnd = mid - left;
-        // 右子数组的起始索引和结束索引
-        let rightStart = mid + 1 - left,
-            rightEnd = right - left;
-        // i, j 分别指向左子数组、右子数组的首元素
-        let i = leftStart,
-            j = rightStart;
-        // 通过覆盖原数组 nums 来合并左子数组和右子数组
-        for (let k = left; k <= right; k++) {
-            if (i > leftEnd) {
-                // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
-                nums[k] = tmp[j++];
-            } else if (j > rightEnd || tmp[i] <= tmp[j]) {
-                // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
-                nums[k] = tmp[i++];
+        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 创建一个临时数组 tmp ，用于存放合并后的结果
+        const tmp = new Array(right - left + 1);
+        // 初始化左子数组和右子数组的起始索引
+        let i = left,
+            j = mid + 1,
+            k = 0;
+        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j]) {
+                tmp[k++] = nums[i++];
             } else {
-                // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
-                nums[k] = tmp[j++];
+                tmp[k++] = nums[j++];
             }
+        }
+        // 将左子数组和右子数组的剩余元素复制到临时数组中
+        while (i <= mid) {
+            tmp[k++] = nums[i++];
+        }
+        while (j <= right) {
+            tmp[k++] = nums[j++];
+        }
+        // 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
+        for (k = 0; k < tmp.length; k++) {
+            nums[left + k] = tmp[k];
         }
     }
 
@@ -387,32 +391,32 @@ comments: true
 
     ```typescript title="merge_sort.ts"
     /* 合并左子数组和右子数组 */
-    // 左子数组区间 [left, mid]
-    // 右子数组区间 [mid + 1, right]
     function merge(nums: number[], left: number, mid: number, right: number): void {
-        // 初始化辅助数组
-        let tmp = nums.slice(left, right + 1);
-        // 左子数组的起始索引和结束索引
-        let leftStart = left - left,
-            leftEnd = mid - left;
-        // 右子数组的起始索引和结束索引
-        let rightStart = mid + 1 - left,
-            rightEnd = right - left;
-        // i, j 分别指向左子数组、右子数组的首元素
-        let i = leftStart,
-            j = rightStart;
-        // 通过覆盖原数组 nums 来合并左子数组和右子数组
-        for (let k = left; k <= right; k++) {
-            if (i > leftEnd) {
-                // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
-                nums[k] = tmp[j++];
-                // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
-            } else if (j > rightEnd || tmp[i] <= tmp[j]) {
-                nums[k] = tmp[i++];
-                // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
+        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 创建一个临时数组 tmp ，用于存放合并后的结果
+        const tmp = new Array(right - left + 1);
+        // 初始化左子数组和右子数组的起始索引
+        let i = left,
+            j = mid + 1,
+            k = 0;
+        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j]) {
+                tmp[k++] = nums[i++];
             } else {
-                nums[k] = tmp[j++];
+                tmp[k++] = nums[j++];
             }
+        }
+        // 将左子数组和右子数组的剩余元素复制到临时数组中
+        while (i <= mid) {
+            tmp[k++] = nums[i++];
+        }
+        while (j <= right) {
+            tmp[k++] = nums[j++];
+        }
+        // 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
+        for (k = 0; k < tmp.length; k++) {
+            nums[left + k] = tmp[k];
         }
     }
 
@@ -523,33 +527,34 @@ comments: true
 
     ```c title="merge_sort.c"
     /* 合并左子数组和右子数组 */
-    // 左子数组区间 [left, mid]
-    // 右子数组区间 [mid + 1, right]
     void merge(int *nums, int left, int mid, int right) {
-        int index;
-        // 初始化辅助数组
-        int tmp[right + 1 - left];
-        for (index = left; index < right + 1; index++) {
-            tmp[index - left] = nums[index];
+        // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+        // 创建一个临时数组 tmp ，用于存放合并后的结果
+        int tmpSize = right - left + 1;
+        int *tmp = (int *)malloc(tmpSize * sizeof(int));
+        // 初始化左子数组和右子数组的起始索引
+        int i = left, j = mid + 1, k = 0;
+        // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j]) {
+                tmp[k++] = nums[i++];
+            } else {
+                tmp[k++] = nums[j++];
+            }
         }
-        // 左子数组的起始索引和结束索引
-        int leftStart = left - left, leftEnd = mid - left;
-        // 右子数组的起始索引和结束索引
-        int rightStart = mid + 1 - left, rightEnd = right - left;
-        // i, j 分别指向左子数组、右子数组的首元素
-        int i = leftStart, j = rightStart;
-        // 通过覆盖原数组 nums 来合并左子数组和右子数组
-        for (int k = left; k <= right; k++) {
-            // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
-            if (i > leftEnd)
-                nums[k] = tmp[j++];
-            // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
-            else if (j > rightEnd || tmp[i] <= tmp[j])
-                nums[k] = tmp[i++];
-            // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
-            else
-                nums[k] = tmp[j++];
+        // 将左子数组和右子数组的剩余元素复制到临时数组中
+        while (i <= mid) {
+            tmp[k++] = nums[i++];
         }
+        while (j <= right) {
+            tmp[k++] = nums[j++];
+        }
+        // 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
+        for (k = 0; k < tmpSize; ++k) {
+            nums[left + k] = tmp[k];
+        }
+        // 释放内存
+        free(tmp);
     }
 
     /* 归并排序 */

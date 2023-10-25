@@ -2044,9 +2044,9 @@ comments: true
         // 将顶点前移
         for (int i = index; i < graph->size - 1; i++) {
             graph->vertices[i] = graph->vertices[i + 1]; // 顶点前移
-            graph->vertices[i]->pos--;                   // 所有前移的顶点索引值减1
+            graph->vertices[i]->pos--;                   // 所有前移的顶点索引值减 1
         }
-        graph->vertices[graph->size - 1] = 0; // 将被删除顶点的位置置 0
+        graph->vertices[graph->size - 1] = 0;
         graph->size--;
         // 释放内存
         freeVertex(vet);
