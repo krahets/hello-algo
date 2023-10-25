@@ -30,5 +30,7 @@ jobs:
           sdk: ${{ matrix.dart-sdk}}
       - name: Run format
         run: dart format codes/dart
+      - name: Run analyze
+        run: dart analyze codes/dart
       - name: Run build
         run: dart codes/dart/build.dart
