@@ -23,7 +23,7 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         dart-sdk: [stable, beta, dev]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Dart ${{ matrix.dart-sdk }}
         uses: dart-lang/setup-dart@v1
         with:
