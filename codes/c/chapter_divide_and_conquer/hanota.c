@@ -50,12 +50,6 @@ void solveHanota(int *A, int *B, int *C, int n) {
     memset(B, 0, n * sizeof(int));
 }
 
-/* 打印向量中的元素 */
-// void printFunc(int *array, int size) {
-//     int *node = p;
-//     printf("%d", *node);
-// }
-
 /* Driver Code */
 int main() {
     // 列表尾部是柱子顶部
