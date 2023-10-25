@@ -34,6 +34,12 @@ MaxHeap *newMaxHeap(int nums[], int size) {
     return h;
 }
 
+/* 析构函数 */
+void freeMaxHeap(MaxHeap *h) {
+    // 释放内存
+    free(h);
+}
+
 /* 获取左子节点索引 */
 int left(MaxHeap *h, int i) {
     return 2 * i + 1;
@@ -143,38 +149,4 @@ void siftUp(MaxHeap *h, int i) {
         // 循环向上堆化
         i = p;
     }
-}
-
-/* Driver Code */
-int main() {
-    /* 初始化堆 */
-    // 初始化大顶堆
-    int nums[] = {9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2};
-    MaxHeap *heap = newMaxHeap(nums, sizeof(nums) / sizeof(int));
-    printf("输入数组并建堆后\n");
-    printHeap(heap->data, heap->size);
-
-    /* 获取堆顶元素 */
-    printf("\n堆顶元素为 %d\n", peek(heap));
-
-    /* 元素入堆 */
-    push(heap, 7);
-    printf("\n元素 7 入堆后\n");
-    printHeap(heap->data, heap->size);
-
-    /* 堆顶元素出堆 */
-    int top = pop(heap);
-    printf("\n堆顶元素 %d 出堆后\n", top);
-    printHeap(heap->data, heap->size);
-
-    /* 获取堆大小 */
-    printf("\n堆元素数量为 %d\n", size(heap));
-
-    /* 判断堆是否为空 */
-    printf("\n堆是否为空 %d\n", isEmpty(heap));
-
-    // 释放内存
-    free(heap);
-
-    return 0;
 }
