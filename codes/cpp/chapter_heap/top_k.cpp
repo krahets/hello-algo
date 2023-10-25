@@ -8,6 +8,7 @@
 
 /* 基于堆查找数组中最大的 k 个元素 */
 priority_queue<int, vector<int>, greater<int>> topKHeap(vector<int> &nums, int k) {
+    // 初始化小顶堆
     priority_queue<int, vector<int>, greater<int>> heap;
     // 将数组的前 k 个元素入堆
     for (int i = 0; i < k; i++) {

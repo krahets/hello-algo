@@ -12,6 +12,7 @@ import java.util.*;
 public class top_k {
     /* 基于堆查找数组中最大的 k 个元素 */
     static Queue<Integer> topKHeap(int[] nums, int k) {
+        // 初始化小顶堆
         Queue<Integer> heap = new PriorityQueue<Integer>();
         // 将数组的前 k 个元素入堆
         for (int i = 0; i < k; i++) {

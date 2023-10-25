@@ -9,6 +9,7 @@ namespace hello_algo.chapter_heap;
 public class top_k {
     /* 基于堆查找数组中最大的 k 个元素 */
     public static PriorityQueue<int, int> TopKHeap(int[] nums, int k) {
+        // 初始化小顶堆
         PriorityQueue<int, int> heap = new();
         // 将数组的前 k 个元素入堆
         for (int i = 0; i < k; i++) {
