@@ -13,6 +13,7 @@
 void move(int *src, int *srcSize, int *tar, int *tarSize) {
     // 从 src 顶部拿出一个圆盘
     int pan = src[*srcSize - 1];
+    src[*srcSize - 1] = 0;
     (*srcSize)--;
     // 将圆盘放入 tar 顶部
     tar[*tarSize] = pan;
@@ -36,18 +37,9 @@ void dfs(int i, int *src, int *srcSize, int *buf,
 }
 
 /* 求解汉诺塔 */
-void solveHanota(int *A, int *B, int *C, int n) {
-    int ASize = n;
-    int BSize = 0;
-    int CSize = 0;
+void solveHanota(int *A, int *ASize, int *B, int *BSize, int *C, int *CSize, int n) {
     // 将 A 顶部 n 个圆盘借助 B 移到 C
-    dfs(n, A, &ASize, B, &BSize, C, &CSize);
-
-    // 在 C 语言中，传递数组参数时，实际上传递的是指向数组首元素的指针，
-    // 而不是数组本身，移动元素只会修改传递的指针所指向的内存，而不会影
-    // 响原始数组，所以手动清空
-    memset(A, 0, n * sizeof(int));
-    memset(B, 0, n * sizeof(int));
+    dfs(n, A, ASize, B, BSize, C, CSize);
 }
 
 /* Driver Code */
@@ -56,26 +48,28 @@ int main() {
     int a[] = {5, 4, 3, 2, 1};
     int b[MAX_SIZE] = {0};
     int c[MAX_SIZE] = {0};
-    int n = sizeof(a) / sizeof(a[0]);
+
+    int ASize = sizeof(a) / sizeof(a[0]);
+    int BSize = 0;
+    int CSize = 0;
     
     printf("初始状态下：\n");
     printf("A =");
-    printArray(a, n);
+    printArray(a, ASize);
     printf("B =");
-    printArray(b, n);
+    printArray(b, BSize);
     printf("C =");
-    printArray(c, n);
+    printArray(c, CSize);
 
-    solveHanota(a, b, c, n);
+    solveHanota(a, &ASize, b, &BSize, c, &CSize, ASize);
 
     printf("圆盘移动完成后：\n");
     printf("A =");
-    printArray(a, n);
+    printArray(a, ASize);
     printf("B =");
-    printArray(b, n);
+    printArray(b, BSize);
     printf("C =");
-    printArray(c, n);
+    printArray(c, CSize);
 
     return 0;
 }
-
