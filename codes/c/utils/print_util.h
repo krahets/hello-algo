@@ -1,7 +1,7 @@
 /**
  * File: print_util.h
  * Created Time: 2022-12-21
- * Author: MolDum (moldum@163.com)、Reanon (793584285@qq.com)
+ * Author: MolDum (moldum@163.com), Reanon (793584285@qq.com)
  */
 
 #ifndef PRINT_UTIL_H
@@ -133,7 +133,7 @@ static void printHeap(int arr[], int size) {
     printf("堆的数组表示：");
     printArray(arr, size);
     printf("堆的树状表示：\n");
-    root = arrToTree(arr, size);
+    root = arrayToTree(arr, size);
     printTree(root);
 }
 
