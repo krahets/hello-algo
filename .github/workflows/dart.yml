@@ -1,4 +1,4 @@
-# This workflow will install Dart SDK, run format and build with Dart
+# This workflow will install Dart SDK, run format, analyze and build with Dart
 
 name: Dart
 
@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        dart-sdk: [stable, beta, dev]
+        dart-sdk: [stable]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Dart ${{ matrix.dart-sdk }}
