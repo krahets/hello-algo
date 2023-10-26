@@ -5,45 +5,49 @@
  */
 
 /* 合并左子数组和右子数组 */
-// 左子数组区间 [left, mid]
-// 右子数组区间 [mid + 1, right]
 fn merge(nums: &mut [i32], left: usize, mid: usize, right: usize) {
-    // 初始化辅助数组
-    let tmp: Vec<i32> = nums[left..right + 1].to_vec();
-    // 左子数组的起始索引和结束索引
-    let (left_start, left_end) = (left - left, mid - left);
-    // 右子数组的起始索引和结束索引
-    let (right_start, right_end) = (mid + 1 - left, right-left);
-    // i, j 分别指向左子数组、右子数组的首元素
-    let (mut l_corrent, mut r_corrent) = (left_start, right_start);
-    // 通过覆盖原数组 nums 来合并左子数组和右子数组
-    for k in left..right + 1 {
-        // 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
-        if l_corrent > left_end {
-            nums[k] = tmp[r_corrent];
-            r_corrent += 1;
+    // 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+    // 创建一个临时数组 tmp ，用于存放合并后的结果
+    let tmp_size = right - left + 1;
+    let mut tmp = vec![0; tmp_size];
+    // 初始化左子数组和右子数组的起始索引
+    let (mut i, mut j, mut k) = (left, mid + 1, 0);
+    // 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+    while i <= mid && j <= right {
+        if nums[i] <= nums[j] {
+            tmp[k] = nums[j];
+            i += 1;
+        } else {
+            tmp[k] = nums[j];
+            j += 1;
         }
-        // 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
-        else if r_corrent > right_end || tmp[l_corrent] <= tmp[r_corrent] {
-            nums[k] = tmp[l_corrent];
-            l_corrent += 1;
-        }
-        // 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
-        else {
-            nums[k] = tmp[r_corrent];
-            r_corrent += 1;
-        }
+        k += 1;
+    }
+    // 将左子数组和右子数组的剩余元素复制到临时数组中
+    while i <= mid {
+        tmp[k] = nums[i];
+        k += 1;
+        i += 1;
+    }
+    while j <= right {
+        tmp[k] = nums[j];
+        k += 1;
+        j += 1;
+    }
+    // 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
+    for k in 0..tmp_size {
+        nums[left + k] = tmp[k];
     }
 }
 
 /* 归并排序 */
-fn merge_sort(left: usize, right: usize, nums: &mut [i32]) {
+fn merge_sort(nums: &mut [i32], left: usize, right: usize) {
     // 终止条件
-    if left >= right { return; }       // 当子数组长度为 1 时终止递归
+    if left >= right { return; }             // 当子数组长度为 1 时终止递归
     // 划分阶段
     let mid = (left + right) / 2;     // 计算中点
-    merge_sort(left, mid, nums);      // 递归左子数组
-    merge_sort(mid + 1, right, nums);  // 递归右子数组
+    merge_sort(nums, left, mid);      // 递归左子数组
+    merge_sort(nums, mid + 1, right);  // 递归右子数组
     // 合并阶段
     merge(nums, left, mid, right);
 }
@@ -52,6 +56,7 @@ fn merge_sort(left: usize, right: usize, nums: &mut [i32]) {
 fn main() {
     /* 归并排序 */
     let mut nums = [7, 3, 2, 6, 0, 1, 5, 4];
-    merge_sort(0, nums.len() - 1, &mut nums);
+    let right = nums.len() - 1;
+    merge_sort(&mut nums, 0, right);
     println!("归并排序完成后 nums = {:?}", nums);
 }
