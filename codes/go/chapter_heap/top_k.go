@@ -32,6 +32,7 @@ func (h *minHeap) Top() any {
 
 /* 基于堆查找数组中最大的 k 个元素 */
 func topKHeap(nums []int, k int) *minHeap {
+	// 初始化小顶堆
 	h := &minHeap{}
 	heap.Init(h)
 	// 将数组的前 k 个元素入堆

@@ -23,6 +23,7 @@ typedef struct TreeNode {
     struct TreeNode *right; // 右子节点指针
 } TreeNode;
 
+/* 构造函数 */
 TreeNode *newTreeNode(int val) {
     TreeNode *node;
 
@@ -34,93 +35,71 @@ TreeNode *newTreeNode(int val) {
     return node;
 }
 
-/* Generate a binary tree with an array */
-TreeNode *arrToTree(const int *arr, size_t size) {
-    if (size <= 0) {
+// 序列化编码规则请参考：
+// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
+// 二叉树的数组表示：
+// [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
+// 二叉树的链表表示：
+//             /——— 15
+//         /——— 7
+//     /——— 3
+//    |    \——— 6
+//    |        \——— 12
+// ——— 1
+//     \——— 2
+//        |    /——— 9
+//         \——— 4
+//             \——— 8
+
+/* 将列表反序列化为二叉树：递归 */
+TreeNode *arrayToTreeDFS(int *arr, int size, int i) {
+    if (i < 0 || i >= size || arr[i] == INT_MAX) {
         return NULL;
     }
-
-    int front, rear, index;
-    TreeNode *root, *node;
-    TreeNode **queue;
-
-    /* 根节点 */
-    root = newTreeNode(arr[0]);
-    /* 辅助队列 */
-    queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_NODE_SIZE);
-    // 队列指针
-    front = 0, rear = 0;
-    // 将根节点放入队尾
-    queue[rear++] = root;
-    // 记录遍历数组的索引
-    index = 0;
-    while (front < rear) {
-        // 取队列中的头节点，并让头节点出队
-        node = queue[front++];
-        index++;
-        if (index < size) {
-            // represent null with INT_MAX
-            if (arr[index] != INT_MAX) {
-                node->left = newTreeNode(arr[index]);
-                queue[rear++] = node->left;
-            }
-        }
-        index++;
-        if (index < size) {
-            if (arr[index] != INT_MAX) {
-                node->right = newTreeNode(arr[index]);
-                queue[rear++] = node->right;
-            }
-        }
-    }
-    // 释放辅助队列空间
-    free(queue);
+    TreeNode *root = (TreeNode *)malloc(sizeof(TreeNode));
+    root->val = arr[i];
+    root->left = arrayToTreeDFS(arr, size, 2 * i + 1);
+    root->right = arrayToTreeDFS(arr, size, 2 * i + 2);
     return root;
 }
 
-/* Generate a binary tree with an array */
-int *treeToArr(TreeNode *root) {
-    if (root == NULL) {
-        return NULL;
-    }
-    int front, rear;
-    int index, *arr;
-    TreeNode *node;
-    TreeNode **queue;
-    /* 辅助队列 */
-    queue = (TreeNode **)malloc(sizeof(TreeNode) * MAX_NODE_SIZE);
-    // 队列指针
-    front = 0, rear = 0;
-    // 将根节点放入队尾
-    queue[rear++] = root;
-    /* 辅助数组 */
-    arr = (int *)malloc(sizeof(int) * MAX_NODE_SIZE);
-    // 数组指针
-    index = 0;
-    while (front < rear) {
-        // 取队列中的头节点，并让头节点出队
-        node = queue[front++];
-        if (node != NULL) {
-            arr[index] = node->val;
-            queue[rear++] = node->left;
-            queue[rear++] = node->right;
-        } else {
-            arr[index] = INT_MAX;
-        }
-        index++;
-    }
-    return arr;
+/* 将列表反序列化为二叉树 */
+TreeNode *arrayToTree(int *arr, int size) {
+    return arrayToTreeDFS(arr, size, 0);
 }
 
-/* Free the memory allocated to a tree */
+/* 将二叉树序列化为列表：递归 */
+void treeToArrayDFS(TreeNode *root, int i, int *res, int *size) {
+    if (root == NULL) {
+        return;
+    }
+    while (i >= *size) {
+        res = realloc(res, (*size + 1) * sizeof(int));
+        res[*size] = INT_MAX;
+        (*size)++;
+    }
+    res[i] = root->val;
+    treeToArrayDFS(root->left, 2 * i + 1, res, size);
+    treeToArrayDFS(root->right, 2 * i + 2, res, size);
+}
+
+/* 将二叉树序列化为列表 */
+int *treeToArray(TreeNode *root, int *size) {
+    *size = 0;
+    int *res = NULL;
+    treeToArrayDFS(root, 0, res, size);
+    return res;
+}
+
+/* 释放二叉树内存 */
 void freeMemoryTree(TreeNode *root) {
     if (root == NULL)
         return;
     freeMemoryTree(root->left);
     freeMemoryTree(root->right);
-    // 释放内存
     free(root);
 }
+
 #ifdef __cplusplus
 }
 #endif

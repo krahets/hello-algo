@@ -4,6 +4,8 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
+// ignore_for_file: unused_local_variable
+
 /* 常数阶 */
 int constant(int n) {
   int count = 0;

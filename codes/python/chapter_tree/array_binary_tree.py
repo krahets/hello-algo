@@ -92,9 +92,9 @@ if __name__ == "__main__":
     arr = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     root = list_to_tree(arr)
     print("\n初始化二叉树\n")
-    print(f"二叉树的数组表示：")
+    print("二叉树的数组表示：")
     print(arr)
-    print(f"二叉树的链表表示：")
+    print("二叉树的链表表示：")
     print_tree(root)
 
     # 数组表示下的二叉树类

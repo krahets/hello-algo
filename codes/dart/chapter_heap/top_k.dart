@@ -8,7 +8,7 @@ import '../utils/print_util.dart';
 
 /* 基于堆查找数组中最大的 k 个元素 */
 MinHeap topKHeap(List<int> nums, int k) {
-  // 将数组的前 k 个元素入堆
+  // 初始化小顶堆，将数组的前 k 个元素入堆
   MinHeap heap = MinHeap(nums.sublist(0, k));
   // 从第 k+1 个元素开始，保持堆的长度为 k
   for (int i = k; i < nums.length; i++) {

@@ -74,12 +74,11 @@ vector<int> treeToVecor(TreeNode *root) {
     return res;
 }
 
-/* Free the memory allocated to a tree */
+/* 释放二叉树内存 */
 void freeMemoryTree(TreeNode *root) {
     if (root == nullptr)
         return;
     freeMemoryTree(root->left);
     freeMemoryTree(root->right);
-    // 释放内存
     delete root;
 }

@@ -1,0 +1,36 @@
+# This workflow will install Dart SDK, run format, analyze and build with Dart
+
+name: Dart
+
+on:
+  push:
+    branches: ["main"]
+    paths: ["codes/dart/**/*.dart"]
+  pull_request:
+    branches: ["main"]
+    paths: ["codes/dart/**/*.dart"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Dart ${{ matrix.dart-sdk }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        dart-sdk: [stable]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Dart ${{ matrix.dart-sdk }}
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: ${{ matrix.dart-sdk}}
+      - name: Run format
+        run: dart format codes/dart
+      - name: Run analyze
+        run: dart analyze codes/dart
+      - name: Run build
+        run: dart codes/dart/build.dart
