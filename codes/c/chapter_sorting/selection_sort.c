@@ -23,7 +23,7 @@ void selectionSort(int nums[], int n) {
     }
 }
 
-/* 主函数 */
+/* Driver Code */
 int main() {
     int nums[] = {4, 1, 3, 1, 5, 2};
     int n = sizeof(nums) / sizeof(nums[0]);
