@@ -6,21 +6,23 @@
 
 #include "../utils/common.h"
 
-/* 数组表示下的二叉树类 */
+/* 数组表示下的二叉树结构 */
 typedef struct {
-    vector *tree;
+    int *tree;
+    int size;
 } ArrayBinaryTree;
 
-/* 构造函数 */
-ArrayBinaryTree *newArrayBinaryTree(vector *arr) {
-    ArrayBinaryTree *newABT = malloc(sizeof(ArrayBinaryTree));
-    newABT->tree = arr;
-    return newABT;
+/* 构造方法 */
+ArrayBinaryTree *createArrayBinaryTree(int *arr, int size) {
+    ArrayBinaryTree *abt = (ArrayBinaryTree *)malloc(sizeof(ArrayBinaryTree));
+    abt->tree = arr;
+    abt->size = size;
+    return abt;
 }
 
 /* 节点数量 */
 int size(ArrayBinaryTree *abt) {
-    return abt->tree->size;
+    return abt->size;
 }
 
 /* 获取索引为 i 节点的值 */
@@ -28,7 +30,7 @@ int val(ArrayBinaryTree *abt, int i) {
     // 若索引越界，则返回 INT_MAX ，代表空位
     if (i < 0 || i >= size(abt))
         return INT_MAX;
-    return *(int *)abt->tree->data[i];
+    return abt->tree[i];
 }
 
 /* 获取索引为 i 节点的左子节点的索引 */
@@ -46,114 +48,113 @@ int parent(int i) {
     return (i - 1) / 2;
 }
 
+/* 层序遍历 */
+int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
+    int *res = (int *)malloc(sizeof(int) * size(abt));
+    int index = 0;
+    // 直接遍历数组
+    for (int i = 0; i < size(abt); i++) {
+        if (val(abt, i) != INT_MAX)
+            res[index++] = val(abt, i);
+    }
+    *returnSize = index;
+    return res;
+}
+
 /* 深度优先遍历 */
-void dfs(ArrayBinaryTree *abt, int i, const char *order, vector *res) {
+void dfs(ArrayBinaryTree *abt, int i, char *order, int *res, int *index) {
     // 若为空位，则返回
     if (val(abt, i) == INT_MAX)
         return;
     // 前序遍历
-    if (strcmp(order, "pre") == 0) {
-        int tmp = val(abt, i);
-        vectorPushback(res, &tmp, sizeof(tmp));
-    }
-    dfs(abt, left(i), order, res);
+    if (strcmp(order, "pre") == 0)
+        res[(*index)++] = val(abt, i);
+    dfs(abt, left(i), order, res, index);
     // 中序遍历
-    if (strcmp(order, "in") == 0) {
-        int tmp = val(abt, i);
-        vectorPushback(res, &tmp, sizeof(tmp));
-    }
-    dfs(abt, right(i), order, res);
+    if (strcmp(order, "in") == 0)
+        res[(*index)++] = val(abt, i);
+    dfs(abt, right(i), order, res, index);
     // 后序遍历
-    if (strcmp(order, "post") == 0) {
-        int tmp = val(abt, i);
-        vectorPushback(res, &tmp, sizeof(tmp));
-    }
-}
-
-/* 层序遍历 */
-vector *levelOrder(ArrayBinaryTree *abt) {
-    vector *res = newVector();
-    // 直接遍历数组
-    for (int i = 0; i < size(abt); i++) {
-        if (val(abt, i) != INT_MAX) {
-            int tmp = val(abt, i);
-            vectorPushback(res, &tmp, sizeof(int));
-        }
-    }
-    return res;
+    if (strcmp(order, "post") == 0)
+        res[(*index)++] = val(abt, i);
 }
 
 /* 前序遍历 */
-vector *preOrder(ArrayBinaryTree *abt) {
-    vector *res = newVector();
-    dfs(abt, 0, "pre", res);
+int *preOrder(ArrayBinaryTree *abt, int *returnSize) {
+    int *res = (int *)malloc(sizeof(int) * size(abt));
+    int index = 0;
+    dfs(abt, 0, "pre", res, &index);
+    *returnSize = index;
     return res;
 }
 
 /* 中序遍历 */
-vector *inOrder(ArrayBinaryTree *abt) {
-    vector *res = newVector();
-    dfs(abt, 0, "in", res);
+int *inOrder(ArrayBinaryTree *abt, int *returnSize) {
+    int *res = (int *)malloc(sizeof(int) * size(abt));
+    int index = 0;
+    dfs(abt, 0, "in", res, &index);
+    *returnSize = index;
     return res;
 }
 
 /* 后序遍历 */
-vector *postOrder(ArrayBinaryTree *abt) {
-    vector *res = newVector();
-    dfs(abt, 0, "post", res);
+int *postOrder(ArrayBinaryTree *abt, int *returnSize) {
+    int *res = (int *)malloc(sizeof(int) * size(abt));
+    int index = 0;
+    dfs(abt, 0, "post", res, &index);
+    *returnSize = index;
     return res;
-}
-
-/* 打印向量中的元素 */
-void printFunc(vector *v, void *p) {
-    int *val = p;
-    printf("%d", *val);
 }
 
 /* Driver Code */
 int main() {
     // 初始化二叉树
-    // 使用 INT_MAX 代表空位 nullptr
+    // 使用 INT_MAX 代表空位 NULL
     int arr[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
-    TreeNode *root = arrToTree(arr, sizeof(arr) / sizeof(arr[0]));
+    int arrSize = sizeof(arr) / sizeof(arr[0]);
+    TreeNode *root = arrayToTree(arr, arrSize);
     printf("\n初始化二叉树\n");
     printf("二叉树的数组表示：\n");
-    printArray(arr, sizeof(arr) / sizeof(arr[0]));
+    printArray(arr, arrSize);
     printf("二叉树的链表表示：\n");
     printTree(root);
 
-    vector *vArr = newVector();
-    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) {
-        vectorPushback(vArr, &arr[i], sizeof(int));
-    }
-    // 数组表示下的二叉树类
-    ArrayBinaryTree *abt = newArrayBinaryTree(vArr);
+    ArrayBinaryTree *abt = createArrayBinaryTree(arr, arrSize);
 
     // 访问节点
     int i = 1;
     int l = left(i), r = right(i), p = parent(i);
-    printf("\n当前节点的索引为 %d ，值为 %d\n", i, val(abt, i));
-    printf("其左子节点的索引为 %d ，值为 %d\r\n", l, val(abt, l));
-    printf("其右子节点的索引为 %d ，值为 %d\r\n", r, val(abt, r));
-    printf("其父节点的索引为 %d ，值为 %d\r\n", p, val(abt, p));
+    printf("\n当前节点的索引为 %d，值为 %d\n", i, val(abt, i));
+    printf("其左子节点的索引为 %d，值为 %d\n", l, l < arrSize ? val(abt, l) : INT_MAX);
+    printf("其右子节点的索引为 %d，值为 %d\n", r, r < arrSize ? val(abt, r) : INT_MAX);
+    printf("其父节点的索引为 %d，值为 %d\n", p, p < arrSize ? val(abt, p) : INT_MAX);
 
     // 遍历树
-    vector *res = levelOrder(abt);
+    int returnSize;
+    int *res;
+
+    res = levelOrder(abt, &returnSize);
     printf("\n层序遍历为： ");
-    printVector(res, printFunc);
-    delVector(res);
-    res = preOrder(abt);
+    printArray(res, returnSize);
+    free(res);
+
+    res = preOrder(abt, &returnSize);
     printf("前序遍历为： ");
-    printVector(res, printFunc);
-    delVector(res);
-    res = inOrder(abt);
+    printArray(res, returnSize);
+    free(res);
+
+    res = inOrder(abt, &returnSize);
     printf("中序遍历为： ");
-    printVector(res, printFunc);
-    delVector(res);
-    res = postOrder(abt);
+    printArray(res, returnSize);
+    free(res);
+
+    res = postOrder(abt, &returnSize);
     printf("后序遍历为： ");
-    printVector(res, printFunc);
-    delVector(res);
+    printArray(res, returnSize);
+    free(res);
+
+    // 释放内存
+    free(abt);
 
     return 0;
 }
