@@ -602,8 +602,8 @@ comments: true
 
     ```c title="n_queens.c"
     /* 回溯算法：N 皇后 */
-    void backtrack(int row, int n, char state[MAX_N][MAX_N], char ***res, int *resSize, bool cols[MAX_N],
-                   bool diags1[2 * MAX_N - 1], bool diags2[2 * MAX_N - 1]) {
+    void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int *resSize, bool cols[MAX_SIZE],
+                   bool diags1[2 * MAX_SIZE - 1], bool diags2[2 * MAX_SIZE - 1]) {
         // 当放置完所有行时，记录解
         if (row == n) {
             res[*resSize] = (char **)malloc(sizeof(char *) * n);
@@ -635,7 +635,7 @@ comments: true
 
     /* 求解 N 皇后 */
     char ***nQueens(int n, int *returnSize) {
-        char state[MAX_N][MAX_N];
+        char state[MAX_SIZE][MAX_SIZE];
         // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
@@ -643,11 +643,11 @@ comments: true
             }
             state[i][n] = '\0';
         }
-        bool cols[MAX_N] = {false};           // 记录列是否有皇后
-        bool diags1[2 * MAX_N - 1] = {false}; // 记录主对角线是否有皇后
-        bool diags2[2 * MAX_N - 1] = {false}; // 记录副对角线是否有皇后
+        bool cols[MAX_SIZE] = {false};           // 记录列是否有皇后
+        bool diags1[2 * MAX_SIZE - 1] = {false}; // 记录主对角线是否有皇后
+        bool diags2[2 * MAX_SIZE - 1] = {false}; // 记录副对角线是否有皇后
 
-        char ***res = (char ***)malloc(sizeof(char **) * MAX_RES);
+        char ***res = (char ***)malloc(sizeof(char **) * MAX_SIZE);
         *returnSize = 0;
         backtrack(0, n, state, res, returnSize, cols, diags1, diags2);
         return res;

@@ -427,7 +427,7 @@ comments: true
     /* 构建二叉树 */
     TreeNode *buildTree(int *preorder, int preorderSize, int *inorder, int inorderSize) {
         // 初始化哈希表，存储 inorder 元素到索引的映射
-        int *inorderMap = (int *)malloc(sizeof(int) * MAX_N);
+        int *inorderMap = (int *)malloc(sizeof(int) * MAX_SIZE);
         for (int i = 0; i < inorderSize; i++) {
             inorderMap[inorder[i]] = i;
         }

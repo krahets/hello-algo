@@ -258,14 +258,14 @@ comments: true
         TreeNode **queue;
 
         /* 辅助队列 */
-        queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_NODE_SIZE);
+        queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_SIZE);
         // 队列指针
         front = 0, rear = 0;
         // 加入根节点
         queue[rear++] = root;
         // 初始化一个列表，用于保存遍历序列
         /* 辅助数组 */
-        arr = (int *)malloc(sizeof(int) * MAX_NODE_SIZE);
+        arr = (int *)malloc(sizeof(int) * MAX_SIZE);
         // 数组指针
         index = 0;
         while (front < rear) {

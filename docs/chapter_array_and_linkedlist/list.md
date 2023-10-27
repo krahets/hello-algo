@@ -26,9 +26,9 @@ comments: true
     ```python title="list.py"
     # 初始化列表
     # 无初始值
-    nums1: nums[int] = []
+    nums1: list[int] = []
     # 有初始值
-    nums: nums[int] = [1, 3, 2, 5, 4]
+    nums: list[int] = [1, 3, 2, 5, 4]
     ```
 
 === "C++"
@@ -681,7 +681,7 @@ comments: true
 
     ```python title="list.py"
     # 拼接两个列表
-    nums1: nums[int] = [6, 8, 7, 10, 9]
+    nums1: list[int] = [6, 8, 7, 10, 9]
     nums += nums1  # 将列表 nums1 拼接到 nums 之后
     ```
 
