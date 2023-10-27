@@ -99,6 +99,9 @@ let package = Package(
         .executable(name: "max_capacity", targets: ["max_capacity"]),
         .executable(name: "max_product_cutting", targets: ["max_product_cutting"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-collections", branch: "release/1.1"),
+    ],
     targets: [
         // helper
         .target(name: "utils", path: "utils"),
@@ -141,7 +144,7 @@ let package = Package(
         .executableTarget(name: "avl_tree", dependencies: ["utils"], path: "chapter_tree", sources: ["avl_tree.swift"]),
         // chapter_heap
         .executableTarget(name: "my_heap", dependencies: ["utils"], path: "chapter_heap", sources: ["my_heap.swift"]),
-        .executableTarget(name: "top_k", dependencies: ["utils"], path: "chapter_heap", sources: ["top_k.swift"]),
+        .executableTarget(name: "top_k", dependencies: ["utils", .product(name: "HeapModule", package: "swift-collections")], path: "chapter_heap", sources: ["top_k.swift"]),
         // chapter_graph
         .executableTarget(name: "graph_adjacency_matrix", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_matrix.swift"]),
         .executableTarget(name: "graph_adjacency_list", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_list.swift"]),
