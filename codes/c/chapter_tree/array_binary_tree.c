@@ -13,10 +13,11 @@ typedef struct {
 } ArrayBinaryTree;
 
 /* 构造方法 */
-ArrayBinaryTree *createArrayBinaryTree(int *arr, int size) {
+ArrayBinaryTree *createArrayBinaryTree(int *arr, int arrSize) {
     ArrayBinaryTree *abt = (ArrayBinaryTree *)malloc(sizeof(ArrayBinaryTree));
-    abt->tree = arr;
-    abt->size = size;
+    abt->tree = malloc(sizeof(int) * arrSize);
+    memcpy(abt->tree, arr, sizeof(int) * arrSize);
+    abt->size = arrSize;
     return abt;
 }
 
@@ -154,6 +155,7 @@ int main() {
     free(res);
 
     // 释放内存
+    free(root);
     free(abt);
 
     return 0;

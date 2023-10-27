@@ -6,11 +6,12 @@
 
 #include "../utils/common.h"
 
-// 假设结果长度不超过 100
+// 假设路径和结果长度不超过 100
 #define MAX_SIZE 100
+#define MAX_RES_SIZE 100
 
 TreeNode *path[MAX_SIZE];
-TreeNode *res[MAX_SIZE][MAX_SIZE];
+TreeNode *res[MAX_RES_SIZE][MAX_SIZE];
 int pathSize = 0, resSize = 0;
 
 /* 判断当前状态是否为解 */
@@ -85,5 +86,7 @@ int main() {
         printArray(vals, size);
     }
 
+    // 释放内存
+    freeMemoryTree(root);
     return 0;
 }

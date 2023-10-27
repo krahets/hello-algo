@@ -41,4 +41,8 @@ int main() {
         vals[i] = res[i]->val;
     }
     printArray(vals, resSize);
+
+    // 释放内存
+    freeMemoryTree(root);
+    return 0;
 }

@@ -7,14 +7,15 @@
 #include "../utils/common.h"
 
 #define MAX_SIZE 100
+#define MAX_RES_SIZE 100
 
 // 状态（子集）
 int state[MAX_SIZE];
 int stateSize = 0;
 
 // 结果列表（子集列表）
-int res[MAX_SIZE][MAX_SIZE];
-int resColSizes[MAX_SIZE];
+int res[MAX_RES_SIZE][MAX_SIZE];
+int resColSizes[MAX_RES_SIZE];
 int resSize = 0;
 
 /* 回溯算法：子集和 I */
@@ -60,7 +61,7 @@ void subsetSumI(int *nums, int numsSize, int target) {
 /* Driver Code */
 int main() {
     int nums[] = {3, 4, 5};
-    int numsSize = 3;
+    int numsSize = sizeof(nums) / sizeof(nums[0]);
     int target = 9;
 
     subsetSumI(nums, numsSize, target);
