@@ -193,7 +193,7 @@ comments: true
         }
         if (root->val == 7) {
             // 记录解
-            vectorPushback(res, root, sizeof(int));
+            res[resSize++] = root;
         }
         preOrder(root->left);
         preOrder(root->right);
@@ -214,7 +214,7 @@ comments: true
 
 **之所以称之为回溯算法，是因为该算法在搜索解空间时会采用“尝试”与“回退”的策略**。当算法在搜索过程中遇到某个状态无法继续前进或无法得到满足条件的解时，它会撤销上一步的选择，退回到之前的状态，并尝试其他可能的选择。
 
-对于例题一，访问每个节点都代表一次“尝试”，而越过叶结点或返回父节点的 `return` 则表示“回退”。
+对于例题一，访问每个节点都代表一次“尝试”，而越过叶节点或返回父节点的 `return` 则表示“回退”。
 
 值得说明的是，**回退并不仅仅包括函数返回**。为解释这一点，我们对例题一稍作拓展。
 
@@ -446,26 +446,23 @@ comments: true
 
     ```c title="preorder_traversal_ii_compact.c"
     /* 前序遍历：例题二 */
-    void preOrder(TreeNode *root, vector *path, vector *res) {
+    void preOrder(TreeNode *root) {
         if (root == NULL) {
             return;
         }
         // 尝试
-        vectorPushback(path, root, sizeof(TreeNode));
+        path[pathSize++] = root;
         if (root->val == 7) {
             // 记录解
-            vector *newPath = newVector();
-            for (int i = 0; i < path->size; i++) {
-                vectorPushback(newPath, path->data[i], sizeof(int));
+            for (int i = 0; i < pathSize; ++i) {
+                res[resSize][i] = path[i];
             }
-            vectorPushback(res, newPath, sizeof(vector));
+            resSize++;
         }
-
-        preOrder(root->left, path, res);
-        preOrder(root->right, path, res);
-
+        preOrder(root->left);
+        preOrder(root->right);
         // 回退
-        vectorPopback(path);
+        pathSize--;
     }
     ```
 
@@ -755,28 +752,24 @@ comments: true
 
     ```c title="preorder_traversal_iii_compact.c"
     /* 前序遍历：例题三 */
-    void preOrder(TreeNode *root, vector *path, vector *res) {
+    void preOrder(TreeNode *root) {
         // 剪枝
         if (root == NULL || root->val == 3) {
             return;
         }
         // 尝试
-        vectorPushback(path, root, sizeof(TreeNode));
+        path[pathSize++] = root;
         if (root->val == 7) {
             // 记录解
-            vector *newPath = newVector();
-            for (int i = 0; i < path->size; i++) {
-                vectorPushback(newPath, path->data[i], sizeof(int));
+            for (int i = 0; i < pathSize; i++) {
+                res[resSize][i] = path[i];
             }
-            vectorPushback(res, newPath, sizeof(vector));
-            res->depth++;
+            resSize++;
         }
-
-        preOrder(root->left, path, res);
-        preOrder(root->right, path, res);
-
+        preOrder(root->left);
+        preOrder(root->right);
         // 回退
-        vectorPopback(path);
+        pathSize--;
     }
     ```
 
@@ -1595,56 +1588,52 @@ comments: true
 
     ```c title="preorder_traversal_iii_template.c"
     /* 判断当前状态是否为解 */
-    bool isSolution(vector *state) {
-        return state->size != 0 && ((TreeNode *)(state->data[state->size - 1]))->val == 7;
+    bool isSolution(void) {
+        return pathSize > 0 && path[pathSize - 1]->val == 7;
     }
 
     /* 记录解 */
-    void recordSolution(vector *state, vector *res) {
-        vector *newPath = newVector();
-        for (int i = 0; i < state->size; i++) {
-            vectorPushback(newPath, state->data[i], sizeof(int));
+    void recordSolution(void) {
+        for (int i = 0; i < pathSize; i++) {
+            res[resSize][i] = path[i];
         }
-        vectorPushback(res, newPath, sizeof(vector));
+        resSize++;
     }
 
     /* 判断在当前状态下，该选择是否合法 */
-    bool isValid(vector *state, TreeNode *choice) {
+    bool isValid(TreeNode *choice) {
         return choice != NULL && choice->val != 3;
     }
 
     /* 更新状态 */
-    void makeChoice(vector *state, TreeNode *choice) {
-        vectorPushback(state, choice, sizeof(TreeNode));
+    void makeChoice(TreeNode *choice) {
+        path[pathSize++] = choice;
     }
 
     /* 恢复状态 */
-    void undoChoice(vector *state, TreeNode *choice) {
-        vectorPopback(state);
+    void undoChoice(void) {
+        pathSize--;
     }
 
     /* 回溯算法：例题三 */
-    void backtrack(vector *state, vector *choices, vector *res) {
+    void backtrack(TreeNode *choices[2]) {
         // 检查是否为解
-        if (isSolution(state)) {
+        if (isSolution()) {
             // 记录解
-            recordSolution(state, res);
-            return;
+            recordSolution();
         }
         // 遍历所有选择
-        for (int i = 0; i < choices->size; i++) {
-            TreeNode *choice = choices->data[i];
+        for (int i = 0; i < 2; i++) {
+            TreeNode *choice = choices[i];
             // 剪枝：检查选择是否合法
-            if (isValid(state, choice)) {
+            if (isValid(choice)) {
                 // 尝试：做出选择，更新状态
-                makeChoice(state, choice);
+                makeChoice(choice);
                 // 进行下一轮选择
-                vector *nextChoices = newVector();
-                vectorPushback(nextChoices, choice->left, sizeof(TreeNode));
-                vectorPushback(nextChoices, choice->right, sizeof(TreeNode));
-                backtrack(state, nextChoices, res);
+                TreeNode *nextChoices[2] = {choice->left, choice->right};
+                backtrack(nextChoices);
                 // 回退：撤销选择，恢复到之前的状态
-                undoChoice(state, choice);
+                undoChoice();
             }
         }
     }
@@ -1688,7 +1677,7 @@ comments: true
 | 约束条件 Constraint | 约束条件是问题中限制解的可行性的条件，通常用于剪枝                         | 路径中不包含节点 $3$                                                 |
 | 状态 State          | 状态表示问题在某一时刻的情况，包括已经做出的选择                           | 当前已访问的节点路径，即 `path` 节点列表                             |
 | 尝试 Attempt        | 尝试是根据可用选择来探索解空间的过程，包括做出选择，更新状态，检查是否为解 | 递归访问左（右）子节点，将节点添加进 `path` ，判断节点的值是否为 $7$ |
-| 回退 Backtracking   | 回退指遇到不满足约束条件的状态时，撤销前面做出的选择，回到上一个状态       | 当越过叶结点、结束结点访问、遇到值为 $3$ 的节点时终止搜索，函数返回  |
+| 回退 Backtracking   | 回退指遇到不满足约束条件的状态时，撤销前面做出的选择，回到上一个状态       | 当越过叶节点、结束节点访问、遇到值为 $3$ 的节点时终止搜索，函数返回  |
 | 剪枝 Pruning        | 剪枝是根据问题特性和约束条件避免无意义的搜索路径的方法，可提高搜索效率     | 当遇到值为 $3$ 的节点时，则终止继续搜索                              |
 
 </div>

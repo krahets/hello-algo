@@ -1067,21 +1067,24 @@ comments: true
 === "C"
 
     ```c title="array_binary_tree.c"
-    /* 数组表示下的二叉树类 */
+    /* 数组表示下的二叉树结构体 */
     typedef struct {
-        vector *tree;
+        int *tree;
+        int size;
     } ArrayBinaryTree;
 
     /* 构造函数 */
-    ArrayBinaryTree *newArrayBinaryTree(vector *arr) {
-        ArrayBinaryTree *newABT = malloc(sizeof(ArrayBinaryTree));
-        newABT->tree = arr;
-        return newABT;
+    ArrayBinaryTree *createArrayBinaryTree(int *arr, int arrSize) {
+        ArrayBinaryTree *abt = (ArrayBinaryTree *)malloc(sizeof(ArrayBinaryTree));
+        abt->tree = malloc(sizeof(int) * arrSize);
+        memcpy(abt->tree, arr, sizeof(int) * arrSize);
+        abt->size = arrSize;
+        return abt;
     }
 
     /* 节点数量 */
     int size(ArrayBinaryTree *abt) {
-        return abt->tree->size;
+        return abt->size;
     }
 
     /* 获取索引为 i 节点的值 */
@@ -1089,64 +1092,64 @@ comments: true
         // 若索引越界，则返回 INT_MAX ，代表空位
         if (i < 0 || i >= size(abt))
             return INT_MAX;
-        return *(int *)abt->tree->data[i];
+        return abt->tree[i];
+    }
+
+    /* 层序遍历 */
+    int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
+        int *res = (int *)malloc(sizeof(int) * size(abt));
+        int index = 0;
+        // 直接遍历数组
+        for (int i = 0; i < size(abt); i++) {
+            if (val(abt, i) != INT_MAX)
+                res[index++] = val(abt, i);
+        }
+        *returnSize = index;
+        return res;
     }
 
     /* 深度优先遍历 */
-    void dfs(ArrayBinaryTree *abt, int i, const char *order, vector *res) {
+    void dfs(ArrayBinaryTree *abt, int i, char *order, int *res, int *index) {
         // 若为空位，则返回
         if (val(abt, i) == INT_MAX)
             return;
         // 前序遍历
-        if (strcmp(order, "pre") == 0) {
-            int tmp = val(abt, i);
-            vectorPushback(res, &tmp, sizeof(tmp));
-        }
-        dfs(abt, left(i), order, res);
+        if (strcmp(order, "pre") == 0)
+            res[(*index)++] = val(abt, i);
+        dfs(abt, left(i), order, res, index);
         // 中序遍历
-        if (strcmp(order, "in") == 0) {
-            int tmp = val(abt, i);
-            vectorPushback(res, &tmp, sizeof(tmp));
-        }
-        dfs(abt, right(i), order, res);
+        if (strcmp(order, "in") == 0)
+            res[(*index)++] = val(abt, i);
+        dfs(abt, right(i), order, res, index);
         // 后序遍历
-        if (strcmp(order, "post") == 0) {
-            int tmp = val(abt, i);
-            vectorPushback(res, &tmp, sizeof(tmp));
-        }
-    }
-
-    /* 层序遍历 */
-    vector *levelOrder(ArrayBinaryTree *abt) {
-        vector *res = newVector();
-        // 直接遍历数组
-        for (int i = 0; i < size(abt); i++) {
-            if (val(abt, i) != INT_MAX) {
-                int tmp = val(abt, i);
-                vectorPushback(res, &tmp, sizeof(int));
-            }
-        }
-        return res;
+        if (strcmp(order, "post") == 0)
+            res[(*index)++] = val(abt, i);
     }
 
     /* 前序遍历 */
-    vector *preOrder(ArrayBinaryTree *abt) {
-        vector *res = newVector();
-        dfs(abt, 0, "pre", res);
+    int *preOrder(ArrayBinaryTree *abt, int *returnSize) {
+        int *res = (int *)malloc(sizeof(int) * size(abt));
+        int index = 0;
+        dfs(abt, 0, "pre", res, &index);
+        *returnSize = index;
         return res;
     }
 
     /* 中序遍历 */
-    vector *inOrder(ArrayBinaryTree *abt) {
-        vector *res = newVector();
-        dfs(abt, 0, "in", res);
+    int *inOrder(ArrayBinaryTree *abt, int *returnSize) {
+        int *res = (int *)malloc(sizeof(int) * size(abt));
+        int index = 0;
+        dfs(abt, 0, "in", res, &index);
+        *returnSize = index;
         return res;
     }
 
     /* 后序遍历 */
-    vector *postOrder(ArrayBinaryTree *abt) {
-        vector *res = newVector();
-        dfs(abt, 0, "post", res);
+    int *postOrder(ArrayBinaryTree *abt, int *returnSize) {
+        int *res = (int *)malloc(sizeof(int) * size(abt));
+        int index = 0;
+        dfs(abt, 0, "post", res, &index);
+        *returnSize = index;
         return res;
     }
     ```
