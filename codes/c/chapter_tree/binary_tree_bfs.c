@@ -6,6 +6,8 @@
 
 #include "../utils/common.h"
 
+#define MAX_SIZE 100
+
 /* 层序遍历 */
 int *levelOrder(TreeNode *root, int *size) {
     /* 辅助队列 */
@@ -15,14 +17,14 @@ int *levelOrder(TreeNode *root, int *size) {
     TreeNode **queue;
 
     /* 辅助队列 */
-    queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_NODE_SIZE);
+    queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_SIZE);
     // 队列指针
     front = 0, rear = 0;
     // 加入根节点
     queue[rear++] = root;
     // 初始化一个列表，用于保存遍历序列
     /* 辅助数组 */
-    arr = (int *)malloc(sizeof(int) * MAX_NODE_SIZE);
+    arr = (int *)malloc(sizeof(int) * MAX_SIZE);
     // 数组指针
     index = 0;
     while (front < rear) {
@@ -54,7 +56,7 @@ int main() {
     // 这里借助了一个从数组直接生成二叉树的函数
     int nums[] = {1, 2, 3, 4, 5, 6, 7};
     int size = sizeof(nums) / sizeof(int);
-    TreeNode *root = arrToTree(nums, size);
+    TreeNode *root = arrayToTree(nums, size);
     printf("初始化二叉树\n");
     printTree(root);
 
