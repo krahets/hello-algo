@@ -6,73 +6,73 @@
 
 #include "../utils/common.h"
 
+#define MAX_SIZE 100
+#define MAX_RES_SIZE 100
+
+// 状态（子集）
+int state[MAX_SIZE];
+int stateSize = 0;
+
+// 结果列表（子集列表）
+int res[MAX_RES_SIZE][MAX_SIZE];
+int resColSizes[MAX_RES_SIZE];
+int resSize = 0;
+
 /* 回溯算法：子集和 I */
-void backtrack(vector *state, int target, vector *choices, int start, vector *res) {
+void backtrack(int target, int *choices, int choicesSize, int start) {
     // 子集和等于 target 时，记录解
     if (target == 0) {
-        vector *tmpVector = newVector();
-        for (int i = 0; i < state->size; i++) {
-            vectorPushback(tmpVector, state->data[i], sizeof(int));
+        for (int i = 0; i < stateSize; ++i) {
+            res[resSize][i] = state[i];
         }
-        vectorPushback(res, tmpVector, sizeof(vector));
+        resColSizes[resSize++] = stateSize;
         return;
     }
     // 遍历所有选择
     // 剪枝二：从 start 开始遍历，避免生成重复子集
-    for (int i = start; i < choices->size; i++) {
-        // 剪枝：若子集和超过 target ，则跳过该选择
-        if (target - *(int *)(choices->data[i]) < 0) {
+    for (int i = start; i < choicesSize; i++) {
+        // 剪枝一：若子集和超过 target ，则直接结束循环
+        // 这是因为数组已排序，后边元素更大，子集和一定超过 target
+        if (target - choices[i] < 0) {
             break;
         }
         // 尝试：做出选择，更新 target, start
-        vectorPushback(state, choices->data[i], sizeof(int));
+        state[stateSize] = choices[i];
+        stateSize++;
         // 进行下一轮选择
-        backtrack(state, target - *(int *)(choices->data[i]), choices, i, res);
+        backtrack(target - choices[i], choices, choicesSize, i);
         // 回退：撤销选择，恢复到之前的状态
-        vectorPopback(state);
+        stateSize--;
     }
 }
 
-/* 用来做比较的函数 */
-int comp(const void *a, const void *b) {
-    return *(int *)a - *(int *)b;
+/* 比较函数 */
+int cmp(const void *a, const void *b) {
+    return (*(int *)a - *(int *)b);
 }
 
 /* 求解子集和 I */
-vector *subsetSumI(vector *nums, int target) {
-    vector *state = newVector();                        // 状态（子集）
-    qsort(nums->data, nums->size, sizeof(int *), comp); // 对 nums 进行排序
-    int start = 0;                                      // 子集和
-    vector *res = newVector();                          // 结果列表（子集列表）
-    backtrack(state, target, nums, start, res);
-    return res;
-}
-
-/* 打印向量中的元素 */
-void printFunc(vector *v, void *p) {
-    int *node = p;
-    printf("%d", *node);
+void subsetSumI(int *nums, int numsSize, int target) {
+    qsort(nums, numsSize, sizeof(int), cmp); // 对 nums 进行排序
+    int start = 0;                           // 遍历起始点
+    backtrack(target, nums, numsSize, start);
 }
 
 /* Driver Code */
 int main() {
     int nums[] = {3, 4, 5};
-    vector *iNums = newVector();
-    for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
-        vectorPushback(iNums, &nums[i], sizeof(int));
-    }
-
+    int numsSize = sizeof(nums) / sizeof(nums[0]);
     int target = 9;
 
-    vector *res = subsetSumI(iNums, target);
+    subsetSumI(nums, numsSize, target);
 
     printf("输入数组 nums = ");
-    printVector(iNums, printFunc);
+    printArray(nums, numsSize);
     printf("target = %d\n", target);
-    printf("所有和等于 %d 的子集 res = \r\n", target);
-    printVectorMatrix(res, printFunc);
+    printf("所有和等于 %d 的子集 res = \n", target);
+    for (int i = 0; i < resSize; ++i) {
+        printArray(res[i], resColSizes[i]);
+    }
 
-    delVector(iNums);
-    delVector(res);
     return 0;
 }
