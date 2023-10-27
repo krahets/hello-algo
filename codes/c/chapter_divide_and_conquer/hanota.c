@@ -21,8 +21,7 @@ void move(int *src, int *srcSize, int *tar, int *tarSize) {
 }
 
 /* 求解汉诺塔：问题 f(i) */
-void dfs(int i, int *src, int *srcSize, int *buf, 
-            int *bufSize, int *tar, int *tarSize) {
+void dfs(int i, int *src, int *srcSize, int *buf, int *bufSize, int *tar, int *tarSize) {
     // 若 src 只剩下一个圆盘，则直接将其移到 tar
     if (i == 1) {
         move(src, srcSize, tar, tarSize);
@@ -37,9 +36,9 @@ void dfs(int i, int *src, int *srcSize, int *buf,
 }
 
 /* 求解汉诺塔 */
-void solveHanota(int *A, int *ASize, int *B, int *BSize, int *C, int *CSize, int n) {
+void solveHanota(int *A, int *ASize, int *B, int *BSize, int *C, int *CSize) {
     // 将 A 顶部 n 个圆盘借助 B 移到 C
-    dfs(n, A, ASize, B, BSize, C, CSize);
+    dfs(*ASize, A, ASize, B, BSize, C, CSize);
 }
 
 /* Driver Code */
@@ -52,23 +51,23 @@ int main() {
     int ASize = sizeof(a) / sizeof(a[0]);
     int BSize = 0;
     int CSize = 0;
-    
-    printf("初始状态下：\n");
-    printf("A =");
+
+    printf("\n初始状态下：");
+    printf("\nA = ");
     printArray(a, ASize);
-    printf("B =");
+    printf("B = ");
     printArray(b, BSize);
-    printf("C =");
+    printf("C = ");
     printArray(c, CSize);
 
-    solveHanota(a, &ASize, b, &BSize, c, &CSize, ASize);
+    solveHanota(a, &ASize, b, &BSize, c, &CSize);
 
-    printf("圆盘移动完成后：\n");
-    printf("A =");
+    printf("\n圆盘移动完成后：");
+    printf("A = ");
     printArray(a, ASize);
-    printf("B =");
+    printf("B = ");
     printArray(b, BSize);
-    printf("C =");
+    printf("C = ");
     printArray(c, CSize);
 
     return 0;
