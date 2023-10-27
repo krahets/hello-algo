@@ -3355,7 +3355,7 @@
 </div>
 <div class="admonition question">
 <p class="admonition-title">为什么 DFS 遍历二叉树有前、中、后三种顺序，分别有什么用呢？</p>
-<p>DFS 的前、中、后序遍历和访问数组的顺序类似，是遍历二叉树的基本方法，利用这三种遍历方法，我们可以得到一个特定顺序的遍历结果。例如在二叉搜索树中，由于结点大小满足 <code>左子结点值 &lt; 根结点值 &lt; 右子结点值</code> ，因此我们只要按照 <code>左-&gt;根-&gt;右</code> 的优先级遍历树，就可以获得有序的节点序列。</p>
+<p>DFS 的前、中、后序遍历和访问数组的顺序类似，是遍历二叉树的基本方法，利用这三种遍历方法，我们可以得到一个特定顺序的遍历结果。例如在二叉搜索树中，由于节点大小满足 <code>左子节点值 &lt; 根节点值 &lt; 右子节点值</code> ，因此我们只要按照 <code>左-&gt;根-&gt;右</code> 的优先级遍历树，就可以获得有序的节点序列。</p>
 </div>
 <div class="admonition question">
 <p class="admonition-title">右旋操作是处理失衡节点 <code>node</code>、<code>child</code>、<code>grand_child</code> 之间的关系，那 <code>node</code> 的父节点和 <code>node</code> 原来的连接不需要维护吗？右旋操作后岂不是断掉了？</p>
@@ -3363,7 +3363,7 @@
 </div>
 <div class="admonition question">
 <p class="admonition-title">在 C++ 中，函数被划分到 <code>private</code> 和 <code>public</code> 中，这方面有什么考量吗？为什么要将 <code>height()</code> 函数和 <code>updateHeight()</code> 函数分别放在 <code>public</code> 和 <code>private</code> 中呢？</p>
-<p>主要看方法的使用范围，如果方法只在类内部使用，那么就设计为 <code>private</code> 。例如，用户单独调用 <code>updateHeight()</code> 是没有意义的，它只是插入、删除操作中的一步。而 <code>height()</code> 是访问结点高度，类似于 <code>vector.size()</code> ，因此设置成 <code>public</code> 以便使用。</p>
+<p>主要看方法的使用范围，如果方法只在类内部使用，那么就设计为 <code>private</code> 。例如，用户单独调用 <code>updateHeight()</code> 是没有意义的，它只是插入、删除操作中的一步。而 <code>height()</code> 是访问节点高度，类似于 <code>vector.size()</code> ，因此设置成 <code>public</code> 以便使用。</p>
 </div>
 <div class="admonition question">
 <p class="admonition-title">请问如何从一组输入数据构建一个二叉搜索树？根节点的选择是不是很重要？</p>
