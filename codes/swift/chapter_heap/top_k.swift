@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-import Collections
+import HeapModule
 import utils
 
 /* 基于堆查找数组中最大的 k 个元素 */
