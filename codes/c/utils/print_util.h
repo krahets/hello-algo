@@ -35,7 +35,7 @@ static void printArray(int arr[], int size) {
             printf("NULL]\n");
         }
     } else {
-        printf("]");
+        printf("]\n");
     }
 }
 
