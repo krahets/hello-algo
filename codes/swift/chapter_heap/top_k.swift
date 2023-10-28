@@ -9,7 +9,7 @@ import utils
 
 /* 基于堆查找数组中最大的 k 个元素 */
 func topKHeap(nums: [Int], k: Int) -> [Int] {
-    // 将数组的前 k 个元素入堆
+    // 初始化一个小顶堆，并将前 k 个元素建堆
     var heap = Heap(nums.prefix(k))
     // 从第 k+1 个元素开始，保持堆的长度为 k
     for i in stride(from: k, to: nums.count, by: 1) {

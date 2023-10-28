@@ -6,13 +6,13 @@
 
 #include "../utils/common.h"
 
-/* 数组表示下的二叉树结构 */
+/* 数组表示下的二叉树结构体 */
 typedef struct {
     int *tree;
     int size;
 } ArrayBinaryTree;
 
-/* 构造方法 */
+/* 构造函数 */
 ArrayBinaryTree *createArrayBinaryTree(int *arr, int arrSize) {
     ArrayBinaryTree *abt = (ArrayBinaryTree *)malloc(sizeof(ArrayBinaryTree));
     abt->tree = malloc(sizeof(int) * arrSize);
@@ -155,7 +155,7 @@ int main() {
     free(res);
 
     // 释放内存
-    free(root);
+    freeMemoryTree(root);
     free(abt);
 
     return 0;

@@ -15,7 +15,7 @@ TreeNode *res[MAX_RES_SIZE][MAX_SIZE];
 int pathSize = 0, resSize = 0;
 
 /* 前序遍历：例题二 */
-static void preOrder(TreeNode *root) {
+void preOrder(TreeNode *root) {
     if (root == NULL) {
         return;
     }

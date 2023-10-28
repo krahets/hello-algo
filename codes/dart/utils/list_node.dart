@@ -12,7 +12,7 @@ class ListNode {
   ListNode(this.val, [this.next]);
 }
 
-/* Generate a linked list with a vector */
+/* Generate a linked list with a list */
 ListNode? listToLinkedList(List<int> list) {
   ListNode dum = ListNode(0);
   ListNode? head = dum;

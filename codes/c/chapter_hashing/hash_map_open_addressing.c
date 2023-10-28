@@ -25,7 +25,7 @@ typedef struct {
 // 函数声明
 void extend(HashMapOpenAddressing *hashMap);
 
-/* 构造方法 */
+/* 构造函数 */
 HashMapOpenAddressing *newHashMapOpenAddressing() {
     HashMapOpenAddressing *hashMap = (HashMapOpenAddressing *)malloc(sizeof(HashMapOpenAddressing));
     hashMap->size = 0;
@@ -40,7 +40,7 @@ HashMapOpenAddressing *newHashMapOpenAddressing() {
     return hashMap;
 }
 
-/* 析构方法 */
+/* 析构函数 */
 void delHashMapOpenAddressing(HashMapOpenAddressing *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Pair *pair = hashMap->buckets[i];

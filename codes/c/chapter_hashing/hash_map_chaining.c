@@ -32,7 +32,7 @@ typedef struct {
     Node **buckets;   // 桶数组
 } HashMapChaining;
 
-/* 构造方法 */
+/* 构造函数 */
 HashMapChaining *initHashMapChaining() {
     HashMapChaining *hashMap = (HashMapChaining *)malloc(sizeof(HashMapChaining));
     hashMap->size = 0;
@@ -46,7 +46,7 @@ HashMapChaining *initHashMapChaining() {
     return hashMap;
 }
 
-/* 析构方法 */
+/* 析构函数 */
 void freeHashMapChaining(HashMapChaining *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Node *cur = hashMap->buckets[i];
