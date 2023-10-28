@@ -6,64 +6,56 @@
 
 #include "../utils/common.h"
 
+// 假设路径和结果长度不超过 100
+#define MAX_SIZE 100
+#define MAX_RES_SIZE 100
+
+TreeNode *path[MAX_SIZE];
+TreeNode *res[MAX_RES_SIZE][MAX_SIZE];
+int pathSize = 0, resSize = 0;
+
 /* 前序遍历：例题三 */
-void preOrder(TreeNode *root, vector *path, vector *res) {
+void preOrder(TreeNode *root) {
     // 剪枝
     if (root == NULL || root->val == 3) {
         return;
     }
     // 尝试
-    vectorPushback(path, root, sizeof(TreeNode));
+    path[pathSize++] = root;
     if (root->val == 7) {
         // 记录解
-        vector *newPath = newVector();
-        for (int i = 0; i < path->size; i++) {
-            vectorPushback(newPath, path->data[i], sizeof(int));
+        for (int i = 0; i < pathSize; i++) {
+            res[resSize][i] = path[i];
         }
-        vectorPushback(res, newPath, sizeof(vector));
-        res->depth++;
+        resSize++;
     }
-
-    preOrder(root->left, path, res);
-    preOrder(root->right, path, res);
-
+    preOrder(root->left);
+    preOrder(root->right);
     // 回退
-    vectorPopback(path);
-}
-
-// 打印向量中的元素
-void printResult(vector *vv) {
-    for (int i = 0; i < vv->size; i++) {
-        vector *v = (vector *)vv->data[i];
-        for (int j = 0; j < v->size; j++) {
-            TreeNode *node = (TreeNode *)v->data[j];
-            printf("%d ", node->val);
-        }
-        printf("\n");
-    }
+    pathSize--;
 }
 
 /* Driver Code */
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    TreeNode *root = arrToTree(arr, n);
-    printf("\r\n初始化二叉树\r\n");
+    TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));
+    printf("\n初始化二叉树\n");
     printTree(root);
 
-    // 创建存储路径和结果的向量
-    vector *path = newVector();
-    vector *res = newVector();
-
     // 前序遍历
-    preOrder(root, path, res);
+    preOrder(root);
 
-    // 输出结果
-    printf("输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点:\n");
-    printResult(res);
+    printf("\n输出所有根节点到节点 7 的路径，要求路径中不包含值为 3 的节点\n");
+    for (int i = 0; i < resSize; ++i) {
+        int vals[MAX_SIZE];
+        int size = 0;
+        for (int j = 0; res[i][j] != NULL; ++j) {
+            vals[size++] = res[i][j]->val;
+        }
+        printArray(vals, size);
+    }
 
     // 释放内存
-    delVector(path);
-    delVector(res);
+    freeMemoryTree(root);
     return 0;
 }

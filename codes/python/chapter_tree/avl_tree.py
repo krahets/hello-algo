@@ -184,16 +184,8 @@ if __name__ == "__main__":
 
     # 插入节点
     # 请关注插入节点后，AVL 树是如何保持平衡的
-    test_insert(avl_tree, 1)
-    test_insert(avl_tree, 2)
-    test_insert(avl_tree, 3)
-    test_insert(avl_tree, 4)
-    test_insert(avl_tree, 5)
-    test_insert(avl_tree, 8)
-    test_insert(avl_tree, 7)
-    test_insert(avl_tree, 9)
-    test_insert(avl_tree, 10)
-    test_insert(avl_tree, 6)
+    for val in [1, 2, 3, 4, 5, 8, 7, 9, 10, 6]:
+        test_insert(avl_tree, val)
 
     # 插入重复节点
     test_insert(avl_tree, 7)

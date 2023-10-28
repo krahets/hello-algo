@@ -6,65 +6,64 @@
 
 #include "../utils/common.h"
 
+#define MAX_SIZE 100
+#define MAX_RES_SIZE 100
+
+// 状态（子集）
+int state[MAX_SIZE];
+int stateSize = 0;
+
+// 结果列表（子集列表）
+int res[MAX_RES_SIZE][MAX_SIZE];
+int resColSizes[MAX_RES_SIZE];
+int resSize = 0;
+
 /* 回溯算法：子集和 I */
-void backtrack(vector *state, int target, int total, vector *choices, vector *res) {
+void backtrack(int target, int total, int *choices, int choicesSize) {
     // 子集和等于 target 时，记录解
     if (total == target) {
-        vector *tmpVector = newVector();
-        for (int i = 0; i < state->size; i++) {
-            vectorPushback(tmpVector, state->data[i], sizeof(int));
+        for (int i = 0; i < stateSize; i++) {
+            res[resSize][i] = state[i];
         }
-        vectorPushback(res, tmpVector, sizeof(vector));
+        resColSizes[resSize++] = stateSize;
         return;
     }
     // 遍历所有选择
-    for (size_t i = 0; i < choices->size; i++) {
+    for (int i = 0; i < choicesSize; i++) {
         // 剪枝：若子集和超过 target ，则跳过该选择
-        if (total + *(int *)(choices->data[i]) > target) {
+        if (total + choices[i] > target) {
             continue;
         }
         // 尝试：做出选择，更新元素和 total
-        vectorPushback(state, choices->data[i], sizeof(int));
+        state[stateSize++] = choices[i];
         // 进行下一轮选择
-        backtrack(state, target, total + *(int *)(choices->data[i]), choices, res);
+        backtrack(target, total + choices[i], choices, choicesSize);
         // 回退：撤销选择，恢复到之前的状态
-        vectorPopback(state);
+        stateSize--;
     }
 }
 
 /* 求解子集和 I（包含重复子集） */
-vector *subsetSumINaive(vector *nums, int target) {
-    vector *state = newVector(); // 状态（子集）
-    int total = 0;               // 子集和
-    vector *res = newVector();   // 结果列表（子集列表）
-    backtrack(state, target, total, nums, res);
-    return res;
-}
-
-/* 打印向量中的元素 */
-void printFunc(vector *v, void *p) {
-    int *node = p;
-    printf("%d", *node);
+void subsetSumINaive(int *nums, int numsSize, int target) {
+    resSize = 0; // 初始化解的数量为0
+    backtrack(target, 0, nums, numsSize);
 }
 
 /* Driver Code */
 int main() {
     int nums[] = {3, 4, 5};
-    vector *iNums = newVector();
-    for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
-        vectorPushback(iNums, &nums[i], sizeof(int));
-    }
+    int numsSize = sizeof(nums) / sizeof(nums[0]);
     int target = 9;
 
-    vector *res = subsetSumINaive(iNums, target);
+    subsetSumINaive(nums, numsSize, target);
 
     printf("输入数组 nums = ");
-    printVector(iNums, printFunc);
+    printArray(nums, numsSize);
     printf("target = %d\n", target);
-    printf("所有和等于 %d 的子集 res = \r\n", target);
-    printVectorMatrix(res, printFunc);
+    printf("所有和等于 %d 的子集 res = \n", target);
+    for (int i = 0; i < resSize; i++) {
+        printArray(res[i], resColSizes[i]);
+    }
 
-    delVector(iNums);
-    delVector(res);
     return 0;
 }

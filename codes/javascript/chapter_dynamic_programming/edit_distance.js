@@ -24,7 +24,7 @@ function editDistanceDFS(s, t, i, j) {
     const del = editDistanceDFS(s, t, i - 1, j);
     const replace = editDistanceDFS(s, t, i - 1, j - 1);
     // 返回最少编辑步数
-    return Math.min(Math.min(insert, del), replace) + 1;
+    return Math.min(insert, del, replace) + 1;
 }
 
 /* 编辑距离：记忆化搜索 */
@@ -50,7 +50,7 @@ function editDistanceDFSMem(s, t, mem, i, j) {
     const del = editDistanceDFSMem(s, t, mem, i - 1, j);
     const replace = editDistanceDFSMem(s, t, mem, i - 1, j - 1);
     // 记录并返回最少编辑步数
-    mem[i][j] = Math.min(Math.min(insert, del), replace) + 1;
+    mem[i][j] = Math.min(insert, del, replace) + 1;
     return mem[i][j];
 }
 
@@ -75,10 +75,7 @@ function editDistanceDP(s, t) {
             } else {
                 // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
                 dp[i][j] =
-                    Math.min(
-                        Math.min(dp[i][j - 1], dp[i - 1][j]),
-                        dp[i - 1][j - 1]
-                    ) + 1;
+                    Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1;
             }
         }
     }
@@ -107,7 +104,7 @@ function editDistanceDPComp(s, t) {
                 dp[j] = leftup;
             } else {
                 // 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                dp[j] = Math.min(Math.min(dp[j - 1], dp[j]), leftup) + 1;
+                dp[j] = Math.min(dp[j - 1], dp[j], leftup) + 1;
             }
             leftup = temp; // 更新为下一轮的 dp[i-1, j-1]
         }

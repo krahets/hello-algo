@@ -19,13 +19,13 @@ void testListNode() {
 void testTreeNode() {
     int nums[] = {1, 2, 3, INT_MAX, 5, 6, INT_MAX};
     int size = sizeof(nums) / sizeof(int);
-    TreeNode *root = arrToTree(nums, size);
+    TreeNode *root = arrayToTree(nums, size);
 
     // print tree
     printTree(root);
 
     // tree to arr
-    int *arr = treeToArr(root);
+    int *arr = treeToArray(root, size);
     printArray(arr, size);
 }
 

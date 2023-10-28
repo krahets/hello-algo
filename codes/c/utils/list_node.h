@@ -26,7 +26,7 @@ ListNode *newListNode(int val) {
     return node;
 }
 
-/* Generate a linked list with a vector */
+/* Generate a linked list with an array */
 ListNode *arrToLinkedList(const int *arr, size_t size) {
     if (size <= 0) {
         return NULL;

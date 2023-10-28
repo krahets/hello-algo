@@ -6,7 +6,9 @@
 
 #include "../utils/common.h"
 
-/* 辅助数组，用于存储遍历序列 */
+#define MAX_SIZE 100
+
+// 辅助数组，用于存储遍历序列
 int *arr;
 
 /* 前序遍历 */
@@ -45,13 +47,13 @@ int main() {
     // 这里借助了一个从数组直接生成二叉树的函数
     int nums[] = {1, 2, 3, 4, 5, 6, 7};
     int size = sizeof(nums) / sizeof(int);
-    TreeNode *root = arrToTree(nums, size);
+    TreeNode *root = arrayToTree(nums, size);
     printf("初始化二叉树\n");
     printTree(root);
 
     /* 前序遍历 */
     // 初始化辅助数组
-    arr = (int *)malloc(sizeof(int) * MAX_NODE_SIZE);
+    arr = (int *)malloc(sizeof(int) * MAX_SIZE);
     size = 0;
     preOrder(root, &size);
     printf("前序遍历的节点打印序列 = ");

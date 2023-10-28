@@ -10,6 +10,7 @@ on:
   pull_request:
     branches: ["main"]
     paths: ["codes/python/**/*.py"]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -23,9 +24,9 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         python-version: ["3.8", "3.10"]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies

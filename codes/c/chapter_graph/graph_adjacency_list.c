@@ -215,7 +215,7 @@ void removeVertex(GraphAdjList *graph, unsigned int index) {
         printf("Out of range in %s:%d\n", __FILE__, __LINE__);
         return;
     }
-    // 遍历待删除顶点的链表，将所有与待删除结点有关的边删除
+    // 遍历待删除顶点的链表，将所有与待删除节点有关的边删除
     Node *temp = vet->list->head->next;
     while (temp != 0) {
         removeLink(temp->val->list, vet); // 删除与该顶点有关的边
@@ -224,9 +224,9 @@ void removeVertex(GraphAdjList *graph, unsigned int index) {
     // 将顶点前移
     for (int i = index; i < graph->size - 1; i++) {
         graph->vertices[i] = graph->vertices[i + 1]; // 顶点前移
-        graph->vertices[i]->pos--;                   // 所有前移的顶点索引值减1
+        graph->vertices[i]->pos--;                   // 所有前移的顶点索引值减 1
     }
-    graph->vertices[graph->size - 1] = 0; // 将被删除顶点的位置置 0
+    graph->vertices[graph->size - 1] = 0;
     graph->size--;
     // 释放内存
     freeVertex(vet);

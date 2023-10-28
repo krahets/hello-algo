@@ -1,39 +1,38 @@
 """
 File: merge_sort.py
 Created Time: 2022-11-25
-Author: timi (xisunyy@163.com)
+Author: timi (xisunyy@163.com), Krahets (krahets@163.com)
 """
 
 
 def merge(nums: list[int], left: int, mid: int, right: int):
     """合并左子数组和右子数组"""
-    # 左子数组区间 [left, mid]
-    # 右子数组区间 [mid + 1, right]
-    # 初始化辅助数组
-    tmp = list(nums[left : right + 1])
-    # 左子数组的起始索引和结束索引
-    left_start = 0
-    left_end = mid - left
-    # 右子数组的起始索引和结束索引
-    right_start = mid + 1 - left
-    right_end = right - left
-    # i, j 分别指向左子数组、右子数组的首元素
-    i = left_start
-    j = right_start
-    # 通过覆盖原数组 nums 来合并左子数组和右子数组
-    for k in range(left, right + 1):
-        # 若“左子数组已全部合并完”，则选取右子数组元素，并且 j++
-        if i > left_end:
-            nums[k] = tmp[j]
-            j += 1
-        # 否则，若“右子数组已全部合并完”或“左子数组元素 <= 右子数组元素”，则选取左子数组元素，并且 i++
-        elif j > right_end or tmp[i] <= tmp[j]:
-            nums[k] = tmp[i]
+    # 左子数组区间 [left, mid], 右子数组区间 [mid+1, right]
+    # 创建一个临时数组 tmp ，用于存放合并后的结果
+    tmp = [0] * (right - left + 1)
+    # 初始化左子数组和右子数组的起始索引
+    i, j, k = left, mid + 1, 0
+    # 当左右子数组都还有元素时，比较并将较小的元素复制到临时数组中
+    while i <= mid and j <= right:
+        if nums[i] <= nums[j]:
+            tmp[k] = nums[i]
             i += 1
-        # 否则，若“左右子数组都未全部合并完”且“左子数组元素 > 右子数组元素”，则选取右子数组元素，并且 j++
         else:
-            nums[k] = tmp[j]
+            tmp[k] = nums[j]
             j += 1
+        k += 1
+    # 将左子数组和右子数组的剩余元素复制到临时数组中
+    while i <= mid:
+        tmp[k] = nums[i]
+        i += 1
+        k += 1
+    while j <= right:
+        tmp[k] = nums[j]
+        j += 1
+        k += 1
+    # 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
+    for k in range(0, len(tmp)):
+        nums[left + k] = tmp[k]
 
 
 def merge_sort(nums: list[int], left: int, right: int):

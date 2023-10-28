@@ -15,7 +15,7 @@ fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut result = vec![];
 
     if let Some(node) = root {
-        // 访问优先级：根结点 -> 左子树 -> 右子树
+        // 访问优先级：根节点 -> 左子树 -> 右子树
         result.push(node.borrow().val);
         result.append(&mut pre_order(node.borrow().left.as_ref()));
         result.append(&mut pre_order(node.borrow().right.as_ref()));
@@ -28,7 +28,7 @@ fn in_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut result = vec![];
 
     if let Some(node) = root {
-        // 访问优先级：左子树 -> 根结点 -> 右子树
+        // 访问优先级：左子树 -> 根节点 -> 右子树
         result.append(&mut in_order(node.borrow().left.as_ref()));
         result.push(node.borrow().val);
         result.append(&mut in_order(node.borrow().right.as_ref()));
@@ -41,7 +41,7 @@ fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut result = vec![];
 
     if let Some(node) = root {
-        // 访问优先级：左子树 -> 右子树 -> 根结点
+        // 访问优先级：左子树 -> 右子树 -> 根节点
         result.append(&mut post_order(node.borrow().left.as_ref()));
         result.append(&mut post_order(node.borrow().right.as_ref()));
         result.push(node.borrow().val);
@@ -59,13 +59,13 @@ fn main() {
 
     /* 前序遍历 */
     let vec = pre_order(root.as_ref());
-    println!("\n前序遍历的结点打印序列 = {:?}", vec);
+    println!("\n前序遍历的节点打印序列 = {:?}", vec);
 
     /* 中序遍历 */
     let vec = in_order(root.as_ref());
-    println!("\n中序遍历的结点打印序列 = {:?}", vec);
+    println!("\n中序遍历的节点打印序列 = {:?}", vec);
 
     /* 后序遍历 */
     let vec = post_order(root.as_ref());
-    print!("\n后序遍历的结点打印序列 = {:?}", vec);
+    print!("\n后序遍历的节点打印序列 = {:?}", vec);
 }

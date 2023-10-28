@@ -7,7 +7,7 @@
 #include "../utils/common.h"
 
 // 假设所有元素都小于 1000
-#define MAX_N 1000
+#define MAX_SIZE 1000
 
 /* 构建二叉树：分治 */
 TreeNode *dfs(int *preorder, int *inorderMap, int i, int l, int r, int size) {
@@ -32,7 +32,7 @@ TreeNode *dfs(int *preorder, int *inorderMap, int i, int l, int r, int size) {
 /* 构建二叉树 */
 TreeNode *buildTree(int *preorder, int preorderSize, int *inorder, int inorderSize) {
     // 初始化哈希表，存储 inorder 元素到索引的映射
-    int *inorderMap = (int *)malloc(sizeof(int) * MAX_N);
+    int *inorderMap = (int *)malloc(sizeof(int) * MAX_SIZE);
     for (int i = 0; i < inorderSize; i++) {
         inorderMap[inorder[i]] = i;
     }
