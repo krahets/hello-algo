@@ -122,32 +122,34 @@ class MaxHeap {
 }
 
 /* Driver Code */
-/* 初始化大顶堆 */
-const maxHeap = new MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-console.log('\n输入列表并建堆后');
-maxHeap.print();
+if (require.main === module) {
+    /* 初始化大顶堆 */
+    const maxHeap = new MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
+    console.log('\n输入列表并建堆后');
+    maxHeap.print();
 
-/* 获取堆顶元素 */
-let peek = maxHeap.peek();
-console.log(`\n堆顶元素为 ${peek}`);
+    /* 获取堆顶元素 */
+    let peek = maxHeap.peek();
+    console.log(`\n堆顶元素为 ${peek}`);
 
-/* 元素入堆 */
-const val = 7;
-maxHeap.push(val);
-console.log(`\n元素 ${val} 入堆后`);
-maxHeap.print();
+    /* 元素入堆 */
+    const val = 7;
+    maxHeap.push(val);
+    console.log(`\n元素 ${val} 入堆后`);
+    maxHeap.print();
 
-/* 堆顶元素出堆 */
-peek = maxHeap.pop();
-console.log(`\n堆顶元素 ${peek} 出堆后`);
-maxHeap.print();
+    /* 堆顶元素出堆 */
+    peek = maxHeap.pop();
+    console.log(`\n堆顶元素 ${peek} 出堆后`);
+    maxHeap.print();
 
-/* 获取堆大小 */
-const size = maxHeap.size();
-console.log(`\n堆元素数量为 ${size}`);
+    /* 获取堆大小 */
+    const size = maxHeap.size();
+    console.log(`\n堆元素数量为 ${size}`);
 
-/* 判断堆是否为空 */
-const isEmpty = maxHeap.isEmpty();
-console.log(`\n堆是否为空 ${isEmpty}`);
+    /* 判断堆是否为空 */
+    const isEmpty = maxHeap.isEmpty();
+    console.log(`\n堆是否为空 ${isEmpty}`);
+}
 
 export { MaxHeap };
