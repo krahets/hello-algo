@@ -1,6 +1,5 @@
 ---
 comments: true
-status: new
 ---
 
 # 2.2 &nbsp; 迭代与递归
