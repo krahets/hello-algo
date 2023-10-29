@@ -1164,7 +1164,7 @@ comments: true
         Node **buckets;   // 桶数组
     } HashMapChaining;
 
-    /* 构造方法 */
+    /* 构造函数 */
     HashMapChaining *initHashMapChaining() {
         HashMapChaining *hashMap = (HashMapChaining *)malloc(sizeof(HashMapChaining));
         hashMap->size = 0;
@@ -1178,7 +1178,7 @@ comments: true
         return hashMap;
     }
 
-    /* 析构方法 */
+    /* 析构函数 */
     void freeHashMapChaining(HashMapChaining *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Node *cur = hashMap->buckets[i];
@@ -2682,7 +2682,7 @@ comments: true
         Pair *TOMBSTONE;  // 删除标记
     } HashMapOpenAddressing;
 
-    /* 构造方法 */
+    /* 构造函数 */
     HashMapOpenAddressing *newHashMapOpenAddressing() {
         HashMapOpenAddressing *hashMap = (HashMapOpenAddressing *)malloc(sizeof(HashMapOpenAddressing));
         hashMap->size = 0;
@@ -2697,7 +2697,7 @@ comments: true
         return hashMap;
     }
 
-    /* 析构方法 */
+    /* 析构函数 */
     void delHashMapOpenAddressing(HashMapOpenAddressing *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Pair *pair = hashMap->buckets[i];
