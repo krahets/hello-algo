@@ -56,6 +56,8 @@
 | 完全二叉树     | complete binary tree           |
 | 完满二叉树     | full binary tree               |
 | 平衡二叉树     | balanced binary tree           |
+| AVL树         | AVL tree                       |
+| 红黑树         | red black tree                |
 | 层序遍历       | level-order traversal          |
 | 广度优先遍历   | breadth-first traversal        |
 | 深度优先遍历   | depth-first traversal          |
