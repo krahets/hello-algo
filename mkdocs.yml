@@ -167,7 +167,6 @@ nav:
     # [icon: material/timer-sand]
     - chapter_computational_complexity/index.md
     - 2.1 &nbsp; 算法效率评估: chapter_computational_complexity/performance_evaluation.md
-    # [status: new]
     - 2.2 &nbsp; 迭代与递归: chapter_computational_complexity/iteration_and_recursion.md
     - 2.3 &nbsp; 时间复杂度: chapter_computational_complexity/time_complexity.md
     - 2.4 &nbsp; 空间复杂度: chapter_computational_complexity/space_complexity.md
@@ -286,5 +285,7 @@ nav:
     - chapter_appendix/index.md
     - 16.1 &nbsp; 编程环境安装: chapter_appendix/installation.md
     - 16.2 &nbsp; 一起参与创作: chapter_appendix/contribution.md
+    # [status: new]
+    - 16.3 &nbsp; 术语表: chapter_appendix/terminologies.md
   - 参考文献:
     - chapter_reference/index.md
