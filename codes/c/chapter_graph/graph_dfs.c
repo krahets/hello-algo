@@ -70,5 +70,6 @@ int main() {
 
     // 释放内存
     delGraphAdjList(graph);
+    free(v);
     return 0;
 }

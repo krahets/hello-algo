@@ -11,8 +11,7 @@ int main() {
     int vals[] = {1, 3, 2, 5, 4};
     int size = sizeof(vals) / sizeof(vals[0]);
     Vertex **v = valsToVets(vals, size);
-    Vertex *edges[][2] = {{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]}, 
-                          {v[2], v[3]}, {v[2], v[4]}, {v[3], v[4]}};
+    Vertex *edges[][2] = {{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]}, {v[2], v[3]}, {v[2], v[4]}, {v[3], v[4]}};
     int egdeSize = sizeof(edges) / sizeof(edges[0]);
     GraphAdjList *graph = newGraphAdjList();
     // 添加所有顶点和边
@@ -51,5 +50,6 @@ int main() {
 
     // 释放内存
     delGraphAdjList(graph);
+    free(v);
     return 0;
 }
