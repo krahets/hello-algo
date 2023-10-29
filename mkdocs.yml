@@ -286,6 +286,6 @@ nav:
     - 16.1 &nbsp; 编程环境安装: chapter_appendix/installation.md
     - 16.2 &nbsp; 一起参与创作: chapter_appendix/contribution.md
     # [status: new]
-    - 16.3 &nbsp; 术语表: chapter_appendix/terminologies.md
+    - 16.3 &nbsp; 术语表: chapter_appendix/terminology.md
   - 参考文献:
     - chapter_reference/index.md
