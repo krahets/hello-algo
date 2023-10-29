@@ -21,6 +21,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.hello-algo.com/chapter_appendix/terminologies/</loc>
+         <lastmod>2023-10-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.hello-algo.com/chapter_array_and_linkedlist/</loc>
          <lastmod>2023-10-29</lastmod>
          <changefreq>daily</changefreq>
