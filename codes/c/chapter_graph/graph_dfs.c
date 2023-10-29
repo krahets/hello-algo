@@ -6,105 +6,70 @@
 
 #include "graph_adjacency_list.c"
 
-/* 哈希表 */
-typedef struct {
-    unsigned int size;
-    unsigned int *array;
-} HashTable;
+// 假设节点最大数量为 100
+#define MAX_SIZE 100
 
-/* 初始化哈希表 */
-HashTable *newHash(unsigned int size) {
-    HashTable *h = (HashTable *)malloc(sizeof(HashTable));
-    h->array = (unsigned int *)malloc(sizeof(unsigned int) * size);
-    memset(h->array, 0, sizeof(unsigned int) * size);
-    h->size = size;
-    return h;
-}
-
-/* 标记索引过的顶点 */
-void hashMark(HashTable *h, int index) {
-    h->array[index % h->size] = 1;
-}
-
-/* 查询顶点是否已被标记 */
-int hashQuery(HashTable *h, int index) {
-    // 若顶点已被标记，则返回 1
-    if (h->array[index % h->size] == 1) {
-        return 1;
-    } else {
-        return 0;
+/* 检查顶点是否已被访问 */
+int isVisited(Vertex **res, int size, Vertex *vet) {
+    // 遍历查找节点，使用 O(n) 时间
+    for (int i = 0; i < size; i++) {
+        if (res[i] == vet) {
+            return 1;
+        }
     }
-}
-
-/* 释放哈希表内存 */
-void freeHash(HashTable *h) {
-    free(h->array);
-    free(h);
+    return 0;
 }
 
 /* 深度优先遍历 DFS 辅助函数 */
-int resIndex = 0;
-void dfs(GraphAdjList *graph, HashTable *visited, Vertex *vet, Vertex **res) {
-    if (hashQuery(visited, vet->pos) == 1) {
-        return; // 跳过已被访问过的顶点
+void dfs(GraphAdjList *graph, Vertex **res, int *resSize, Vertex *vet) {
+    // 记录访问顶点
+    res[(*resSize)++] = vet;
+    // 遍历该顶点的所有邻接顶点
+    AdjListNode *node = findNode(graph, vet);
+    while (node != NULL) {
+        // 跳过已被访问过的顶点
+        if (!isVisited(res, *resSize, node->vertex)) {
+            // 递归访问邻接顶点
+            dfs(graph, res, resSize, node->vertex);
+        }
+        node = node->next;
     }
-    hashMark(visited, vet->pos); // 标记顶点并将顶点存入数组
-    res[resIndex] = vet;         // 将顶点存入数组
-    resIndex++;
-    // 遍历该顶点链表
-    Node *n = vet->list->head->next;
-    while (n != 0) {
-        // 递归访问邻接顶点
-        dfs(graph, visited, n->val, res);
-        n = n->next;
-    }
-    return;
 }
 
 /* 深度优先遍历 DFS */
 // 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
-Vertex **graphDFS(GraphAdjList *graph, Vertex *startVet) {
-    // 顶点遍历序列
-    Vertex **res = (Vertex **)malloc(sizeof(Vertex *) * graph->size);
-    memset(res, 0, sizeof(Vertex *) * graph->size);
-    // 哈希表，用于记录已被访问过的顶点
-    HashTable *visited = newHash(graph->size);
-    dfs(graph, visited, startVet, res);
-    // 释放哈希表内存并将数组索引归零
-    freeHash(visited);
-    resIndex = 0;
-    // 返回遍历数组
-    return res;
+void graphDFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize) {
+    dfs(graph, res, resSize, startVet);
 }
 
 /* Driver Code */
 int main() {
-    GraphAdjList *graph = newGraphAdjList(10);
-    for (int i = 0; i < 7; i++) {
-        addVertex(graph, i);
+    // 初始化无向图
+    int vals[] = {0, 1, 2, 3, 4, 5, 6};
+    int size = sizeof(vals) / sizeof(vals[0]);
+    Vertex **v = valsToVets(vals, size);
+    Vertex *edges[][2] = {{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]}, {v[2], v[5]}, {v[4], v[5]}, {v[5], v[6]}};
+    int egdeSize = sizeof(edges) / sizeof(edges[0]);
+    GraphAdjList *graph = newGraphAdjList();
+    // 添加所有顶点和边
+    for (int i = 0; i < size; i++) {
+        addVertex(graph, v[i]);
     }
-    addEdge(graph, 0, 1);
-    addEdge(graph, 0, 3);
-    addEdge(graph, 1, 2);
-    addEdge(graph, 2, 5);
-    addEdge(graph, 5, 4);
-    addEdge(graph, 5, 6);
-    printf("\n初始化后，图为:\n");
+    for (int i = 0; i < egdeSize; i++) {
+        addEdge(graph, edges[i][0], edges[i][1]);
+    }
+    printf("\n初始化后，图为\n");
     printGraph(graph);
 
     // 深度优先遍历 DFS
-    Vertex **vet = graphDFS(graph, graph->vertices[0]);
-
-    // 输出遍历结果
+    Vertex *res[MAX_SIZE];
+    int resSize = 0;
+    graphDFS(graph, v[0], res, &resSize);
     printf("\n深度优先遍历（DFS）顶点序列为\n");
-    printf("[");
-    printf("%d", vet[0]->val);
-    for (int i = 1; i < graph->size && vet[i] != 0; i++) {
-        printf(", %d", vet[i]->val);
-    }
-    printf("]\n");
+    printArray(vetsToVals(res, resSize), resSize);
 
     // 释放内存
-    free(vet);
+    delGraphAdjList(graph);
+    free(v);
     return 0;
 }
