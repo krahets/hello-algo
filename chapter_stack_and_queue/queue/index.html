@@ -5323,7 +5323,7 @@
 <a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a><span class="cm">/* 析构函数 */</span>
 <a id="__codelineno-34-20" name="__codelineno-34-20" href="#__codelineno-34-20"></a><span class="kt">void</span><span class="w"> </span><span class="nf">delArrayQueue</span><span class="p">(</span><span class="n">ArrayQueue</span><span class="w"> </span><span class="o">*</span><span class="n">queue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-34-21" name="__codelineno-34-21" href="#__codelineno-34-21"></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">nums</span><span class="p">);</span>
-<a id="__codelineno-34-22" name="__codelineno-34-22" href="#__codelineno-34-22"></a><span class="w">    </span><span class="n">queue</span><span class="o">-&gt;</span><span class="n">queCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-34-22" name="__codelineno-34-22" href="#__codelineno-34-22"></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">queue</span><span class="p">);</span>
 <a id="__codelineno-34-23" name="__codelineno-34-23" href="#__codelineno-34-23"></a><span class="p">}</span>
 <a id="__codelineno-34-24" name="__codelineno-34-24" href="#__codelineno-34-24"></a>
 <a id="__codelineno-34-25" name="__codelineno-34-25" href="#__codelineno-34-25"></a><span class="cm">/* 获取队列的容量 */</span>
