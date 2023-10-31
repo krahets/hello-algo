@@ -109,7 +109,7 @@ void showTrunks(Trunk *p) {
 }
 
 /* Print a binary tree */
-void printTree(TreeNode *root, Trunk *prev, bool isLeft) {
+void printTree(TreeNode *root, Trunk *prev, bool isRight) {
     if (root == nullptr) {
         return;
     }
@@ -121,7 +121,7 @@ void printTree(TreeNode *root, Trunk *prev, bool isLeft) {
 
     if (!prev) {
         trunk.str = "———";
-    } else if (isLeft) {
+    } else if (isRight) {
         trunk.str = "/———";
         prev_str = "   |";
     } else {

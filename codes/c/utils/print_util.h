@@ -95,7 +95,7 @@ void showTrunks(Trunk *trunk) {
 }
 
 /* Help to print a binary tree, hide more details */
-static void printTreeHelper(TreeNode *node, Trunk *prev, bool isLeft) {
+static void printTreeHelper(TreeNode *node, Trunk *prev, bool isRight) {
     if (node == NULL) {
         return;
     }
@@ -104,7 +104,7 @@ static void printTreeHelper(TreeNode *node, Trunk *prev, bool isLeft) {
     printTreeHelper(node->right, trunk, true);
     if (prev == NULL) {
         trunk->str = "———";
-    } else if (isLeft) {
+    } else if (isRight) {
         trunk->str = "/———";
         prev_str = "   |";
     } else {

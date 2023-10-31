@@ -27,7 +27,7 @@ ArrayQueue *newArrayQueue(int capacity) {
 /* 析构函数 */
 void delArrayQueue(ArrayQueue *queue) {
     free(queue->nums);
-    queue->queCapacity = 0;
+    free(queue);
 }
 
 /* 获取队列的容量 */

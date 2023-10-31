@@ -54,7 +54,7 @@ int *topKHeap(int *nums, int sizeNums, int k) {
     }
     int *res = getMinHeap(maxHeap);
     // 释放内存
-    freeMaxHeap(maxHeap);
+    delMaxHeap(maxHeap);
     return res;
 }
 

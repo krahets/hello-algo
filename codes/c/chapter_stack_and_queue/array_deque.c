@@ -27,7 +27,7 @@ ArrayDeque *newArrayDeque(int capacity) {
 /* 析构函数 */
 void delArrayDeque(ArrayDeque *deque) {
     free(deque->nums);
-    deque->queCapacity = 0;
+    free(deque);
 }
 
 /* 获取双向队列的容量 */
