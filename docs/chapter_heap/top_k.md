@@ -408,7 +408,7 @@ comments: true
         }
         int *res = getMinHeap(maxHeap);
         // 释放内存
-        freeMaxHeap(maxHeap);
+        delMaxHeap(maxHeap);
         return res;
     }
     ```

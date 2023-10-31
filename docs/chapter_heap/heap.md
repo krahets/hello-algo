@@ -565,17 +565,17 @@ comments: true
 
     ```c title="my_heap.c"
     /* 获取左子节点索引 */
-    int left(MaxHeap *h, int i) {
+    int left(MaxHeap *maxHeap, int i) {
         return 2 * i + 1;
     }
 
     /* 获取右子节点索引 */
-    int right(MaxHeap *h, int i) {
+    int right(MaxHeap *maxHeap, int i) {
         return 2 * i + 2;
     }
 
     /* 获取父节点索引 */
-    int parent(MaxHeap *h, int i) {
+    int parent(MaxHeap *maxHeap, int i) {
         return (i - 1) / 2;
     }
     ```
@@ -697,8 +697,8 @@ comments: true
 
     ```c title="my_heap.c"
     /* 访问堆顶元素 */
-    int peek(MaxHeap *h) {
-        return h->data[0];
+    int peek(MaxHeap *maxHeap) {
+        return maxHeap->data[0];
     }
     ```
 
@@ -1026,31 +1026,31 @@ comments: true
 
     ```c title="my_heap.c"
     /* 元素入堆 */
-    void push(MaxHeap *h, int val) {
+    void push(MaxHeap *maxHeap, int val) {
         // 默认情况下，不应该添加这么多节点
-        if (h->size == MAX_SIZE) {
+        if (maxHeap->size == MAX_SIZE) {
             printf("heap is full!");
             return;
         }
         // 添加节点
-        h->data[h->size] = val;
-        h->size++;
+        maxHeap->data[maxHeap->size] = val;
+        maxHeap->size++;
 
         // 从底至顶堆化
-        siftUp(h, h->size - 1);
+        siftUp(maxHeap, maxHeap->size - 1);
     }
 
     /* 从节点 i 开始，从底至顶堆化 */
-    void siftUp(MaxHeap *h, int i) {
+    void siftUp(MaxHeap *maxHeap, int i) {
         while (true) {
             // 获取节点 i 的父节点
-            int p = parent(h, i);
+            int p = parent(maxHeap, i);
             // 当“越过根节点”或“节点无须修复”时，结束堆化
-            if (p < 0 || h->data[i] <= h->data[p]) {
+            if (p < 0 || maxHeap->data[i] <= maxHeap->data[p]) {
                 break;
             }
             // 交换两节点
-            swap(h, i, p);
+            swap(maxHeap, i, p);
             // 循环向上堆化
             i = p;
         }
@@ -1519,35 +1519,35 @@ comments: true
 
     ```c title="my_heap.c"
     /* 元素出堆 */
-    int pop(MaxHeap *h) {
+    int pop(MaxHeap *maxHeap) {
         // 判空处理
-        if (isEmpty(h)) {
+        if (isEmpty(maxHeap)) {
             printf("heap is empty!");
             return INT_MAX;
         }
         // 交换根节点与最右叶节点（即交换首元素与尾元素）
-        swap(h, 0, size(h) - 1);
+        swap(maxHeap, 0, size(maxHeap) - 1);
         // 删除节点
-        int val = h->data[h->size - 1];
-        h->size--;
+        int val = maxHeap->data[maxHeap->size - 1];
+        maxHeap->size--;
         // 从顶至底堆化
-        siftDown(h, 0);
+        siftDown(maxHeap, 0);
 
         // 返回堆顶元素
         return val;
     }
 
     /* 从节点 i 开始，从顶至底堆化 */
-    void siftDown(MaxHeap *h, int i) {
+    void siftDown(MaxHeap *maxHeap, int i) {
         while (true) {
             // 判断节点 i, l, r 中值最大的节点，记为 max
-            int l = left(h, i);
-            int r = right(h, i);
+            int l = left(maxHeap, i);
+            int r = right(maxHeap, i);
             int max = i;
-            if (l < size(h) && h->data[l] > h->data[max]) {
+            if (l < size(maxHeap) && maxHeap->data[l] > maxHeap->data[max]) {
                 max = l;
             }
-            if (r < size(h) && h->data[r] > h->data[max]) {
+            if (r < size(maxHeap) && maxHeap->data[r] > maxHeap->data[max]) {
                 max = r;
             }
             // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
@@ -1555,7 +1555,7 @@ comments: true
                 break;
             }
             // 交换两节点
-            swap(h, i, max);
+            swap(maxHeap, i, max);
             // 循环向下堆化
             i = max;
         }

@@ -1165,7 +1165,7 @@ comments: true
     } HashMapChaining;
 
     /* 构造函数 */
-    HashMapChaining *initHashMapChaining() {
+    HashMapChaining *newHashMapChaining() {
         HashMapChaining *hashMap = (HashMapChaining *)malloc(sizeof(HashMapChaining));
         hashMap->size = 0;
         hashMap->capacity = 4;
@@ -1179,14 +1179,14 @@ comments: true
     }
 
     /* 析构函数 */
-    void freeHashMapChaining(HashMapChaining *hashMap) {
+    void delHashMapChaining(HashMapChaining *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Node *cur = hashMap->buckets[i];
             while (cur) {
-                Node *temp = cur;
+                Node *tmp = cur;
                 cur = cur->next;
-                free(temp->pair);
-                free(temp);
+                free(tmp->pair);
+                free(tmp);
             }
         }
         free(hashMap->buckets);
@@ -1273,7 +1273,7 @@ comments: true
     }
 
     /* 删除操作 */
-    void removeKey(HashMapChaining *hashMap, int key) {
+    void removeItem(HashMapChaining *hashMap, int key) {
         int index = hashFunc(hashMap, key);
         Node *cur = hashMap->buckets[index];
         Node *pre = NULL;

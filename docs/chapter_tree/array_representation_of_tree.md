@@ -1074,12 +1074,18 @@ comments: true
     } ArrayBinaryTree;
 
     /* 构造函数 */
-    ArrayBinaryTree *createArrayBinaryTree(int *arr, int arrSize) {
+    ArrayBinaryTree *newArrayBinaryTree(int *arr, int arrSize) {
         ArrayBinaryTree *abt = (ArrayBinaryTree *)malloc(sizeof(ArrayBinaryTree));
         abt->tree = malloc(sizeof(int) * arrSize);
         memcpy(abt->tree, arr, sizeof(int) * arrSize);
         abt->size = arrSize;
         return abt;
+    }
+
+    /* 析构函数 */
+    void delArrayBinaryTree(ArrayBinaryTree *abt) {
+        free(abt->tree);
+        free(abt);
     }
 
     /* 节点数量 */

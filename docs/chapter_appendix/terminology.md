@@ -63,6 +63,8 @@ status: new
 | 完全二叉树     | complete binary tree           |
 | 完满二叉树     | full binary tree               |
 | 平衡二叉树     | balanced binary tree           |
+| AVL 树        | AVL tree                       |
+| 红黑树         | red-black tree                |
 | 层序遍历       | level-order traversal          |
 | 广度优先遍历   | breadth-first traversal        |
 | 深度优先遍历   | depth-first traversal          |
@@ -108,8 +110,8 @@ status: new
 | 解             | solution                       |
 | 状态           | state                          |
 | 剪枝           | pruning                        |
-| 全排列问题     | Permutations problem           |
-| 子集和问题     | Subset-sum problem             |
+| 全排列问题     | permutations problem           |
+| 子集和问题     | subset-sum problem             |
 | N 皇后问题     | N-queens problem               |
 | 动态规划       | dynamic programming            |
 | 初始状态       | initial state                  |

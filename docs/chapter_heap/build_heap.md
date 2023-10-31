@@ -174,14 +174,14 @@ comments: true
     /* 构造函数，根据切片建堆 */
     MaxHeap *newMaxHeap(int nums[], int size) {
         // 所有元素入堆
-        MaxHeap *h = (MaxHeap *)malloc(sizeof(MaxHeap));
-        h->size = size;
-        memcpy(h->data, nums, size * sizeof(int));
-        for (int i = parent(h, size - 1); i >= 0; i--) {
+        MaxHeap *maxHeap = (MaxHeap *)malloc(sizeof(MaxHeap));
+        maxHeap->size = size;
+        memcpy(maxHeap->data, nums, size * sizeof(int));
+        for (int i = parent(maxHeap, size - 1); i >= 0; i--) {
             // 堆化除叶节点以外的其他所有节点
-            siftDown(h, i);
+            siftDown(maxHeap, i);
         }
-        return h;
+        return maxHeap;
     }
     ```
 

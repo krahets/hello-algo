@@ -1965,7 +1965,7 @@ comments: true
 
     /* 删除元素 */
     // 注意：stdio.h 占用了 remove 关键词
-    int removeNum(MyList *nums, int index) {
+    int removeItem(MyList *nums, int index) {
         assert(index >= 0 && index < size(nums));
         int num = nums->arr[index];
         for (int i = index; i < size(nums) - 1; i++) {
