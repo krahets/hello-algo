@@ -22,7 +22,7 @@ def linear(n: int) -> int:
     return count
 
 
-def array_traversal(nums: list[int]) -> int:
+def array_traversal(nums: List[int]) -> int:
     """线性阶（遍历数组）"""
     count = 0
     # 循环次数与数组长度成正比
