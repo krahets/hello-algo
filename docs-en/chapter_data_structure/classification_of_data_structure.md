@@ -19,7 +19,7 @@ Nonlinear data structures can be further categorized into tree and graph structu
 - **Tree structure**: tree, heap, hash table with one-to-many relationships between elements.
 - **Graph**: graph with many-to-many relationships between elements.
 
-## Physical Structure: Continuous Vs. Dispersed
+## Physical Structure: Continuous vs. Dispersed
 
 In computers, memory and hard disk are the two main storage hardware devices. Hard disks are used primarily for long-term data storage, and are larger (usually up to the terabyte degree) and slower. Memory is used for temporary storage of data while running a program, and is faster, but has a smaller capacity (usually at the GB level).
 

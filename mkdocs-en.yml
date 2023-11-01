@@ -4,7 +4,7 @@ INHERIT: mkdocs.yml
 # Project information
 site_name: Hello Algo
 site_url: https://www.hello-algo.com/en/
-site_description: 动画图解、一键运行的数据结构与算法教程
+site_description: "Data Structures and Algorithms: Animated Illutrations and Off-the-Shelf Code"
 docs_dir: build/docs-en
 site_dir: site/en
 # Repository

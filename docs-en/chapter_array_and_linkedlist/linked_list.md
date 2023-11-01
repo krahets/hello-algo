@@ -433,7 +433,7 @@ Traverses the linked list, finds the node whose value is `target`, and outputs t
 [file]{linked_list}-[class]{}-[func]{find}
 ```
 
-## Arrays Vs. Linked Lists
+## Arrays vs. Linked Lists
 
 The table below summarizes and compares the various properties and operational efficiencies of arrays and linked lists. Since they use two opposite storage strategies, the various properties and operational efficiencies are also characterized by opposites.
 

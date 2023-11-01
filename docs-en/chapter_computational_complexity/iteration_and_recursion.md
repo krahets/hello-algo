@@ -1,4 +1,4 @@
-# Iteration Vs. Recursion
+# Iteration vs. Recursion
 
 In data structures and algorithms, it is common to repeat a task, which is closely related to the complexity of the algorithm. There are two basic program structures that we usually use to repeat a task: iteration and recursion.
 
