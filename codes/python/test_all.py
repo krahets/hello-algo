@@ -5,7 +5,6 @@ if __name__ == "__main__":
     # find source code files
     src_paths = sorted(glob.glob("codes/python/chapter_*/*.py"))
     errors = []
-    error_count = 0
 
     # run python code
     for src_path in src_paths:
@@ -21,8 +20,8 @@ if __name__ == "__main__":
         exit_status = process.returncode
         if exit_status != 0:
             errors.append(stderr)
-            error_count += 1
 
-    print(f"===== Found exception in {error_count} files =====")
-    for error in errors:
-        print(error + "\n")
+    print(f"===== Tested {len(src_paths)} files =====")
+    if len(errors) > 0:
+        errors.insert(0, f"Found exception in {len(errors)} files")
+        raise RuntimeError("\n\n".join(errors))
