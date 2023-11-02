@@ -22,6 +22,6 @@ if __name__ == "__main__":
             errors.append(stderr)
 
     print(f"===== Tested {len(src_paths)} files =====")
+    print(f"Found exception in {len(errors)} files")
     if len(errors) > 0:
-        errors.insert(0, f"Found exception in {len(errors)} files")
         raise RuntimeError("\n\n".join(errors))
