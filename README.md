@@ -32,6 +32,10 @@ This project aims to create an open-source, free, and beginner-friendly tutorial
 - The source code can be run with a single click, helping readers improve their programming skills, understand the working principles of algorithms, and the underlying implementation of data structures.
 - We encourage readers to learn together, ask questions, and comment. Replies are usually received within two days.
 
+> **Important**
+>
+> We are working on Chinese-to-English translation. For more information please see [#914](https://github.com/krahets/hello-algo/issues/914).
+
 If this book is helpful to you, please give it a Star :star: in the top right corner of the page to show your support. Thank you!
 
 ## Praise
