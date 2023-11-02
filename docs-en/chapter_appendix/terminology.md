@@ -4,111 +4,111 @@ The table below lists important terms that appear in the book. It is recommended
 
 <p align="center"> Table <id> &nbsp; Important Terms for Data Structures and Algorithms </p>
 
-| Chinese                        | English                        |
-| ------------------------------ | ------------------------------ |
-| algorithm                      | algorithm                      |
-| data structure                 | data structure                 |
-| asymptotic complexity analysis | asymptotic complexity analysis |
-| time complexity                | time complexity                |
-| space complexity               | space complexity               |
-| iteration                      | iteration                      |
-| recursion                      | recursion                      |
-| tail recursion                 | tail recursion                 |
-| recursion tree                 | recursion tree                 |
-| big $O$ notation               | big-$O$ notation               |
-| asymptotic upper bound         | asymptotic upper bound         | asymptotic upper bound | asymptotic upper bound |
-| true form                      |
-| inverse code                   | 1's complement code            |
-| 2's complement code            | 2's complement code            |
-| array                          | array                          |
-| index                          | index                          |
-| linked lists                   | linked list                    |
-| linked list nodes              | list node                      |
-| lists                          | list                           |
-| dynamic arrays                 | dynamic array                  |
-| stack                          | stack                          |
-| queues                         | queue                          |
-| double-ended queue             | double-ended queue             | double-ended queue     | double-ended queue     | double-ended queue | double-ended queue | double-ended queue | double-ended queue | double-ended queue | double-ended queue |
-| hash table                     | hash table                     |
-| bucket                         | bucket                         |
-| hash functions                 | hash function                  |
-| hash collision                 | hash collision                 |
-| load factor                    | load factor                    | load factor            | load factor            |
-| separate chaining              | separate chaining              | separate chaining      |
-| open addressing                | open addressing                |
-| linear probing                 | linear probing                 | linear probing         |
-| lazy deletion                  | lazy deletion                  |
-| binary tree                    | binary tree                    |
-| tree nodes                     | tree node                      |
-| left-child node                | left-child node                |
-| right-child node               | right-child node               |
-| parent node                    | parent node                    |
-| left subtree                   | left subtree                   |
-| right subtree                  | right subtree                  |
-| root node                      | root node                      |
-| leaf node                      | leaf node                      |
-| edge                           | edge                           | edge                   | edge                   |
-| level                          | level                          |
-| degree                         | degree                         | degree                 | degree                 | degree             |
-| height                         | height                         |
-| depth                          | depth                          |
-| perfect binary tree            | perfect binary tree            |
-| complete binary tree           | complete binary tree           |
-| full binary tree               | full binary tree               |
-| balanced binary trees          | balanced binary tree           |
-| avl tree                       | avl tree                       | avl tree               | avl tree               |
-| red-black tree                 | red-black tree                 |
-| level-order traversal          | level-order traversal          | level-order traversal  | level-order traversal  |
-| breadth-first traversal        | breadth-first traversal        |
-| depth-first traversal          | depth-first traversal          | depth-first traversal  |
-| binary search tree             | binary search tree             |
-| balanced binary search tree    | balanced binary search tree    |
-| balance factor                 | balance factor                 |
-| heap                           | heap                           | heap                   | heap                   | heap               | heap               | heap               | heap               | heap               | heap               | heap    |
-| max heap                       | max heap                       |
-| min heap                       | min heap                       |
-| priority queue                 | priority queue                 |
-| heapify                        | heapify                        | heapify                | heapify                | heapify            | heapify            | heapify            | heapify            | heapify            | heapify            | heapify | heapify |
-| graph                          | graph                          |
-| vertex                         | vertex                         |
-| undirected graph               | undirected graph               |
-| directed graphs                | directed graphs                |
-| connected graph                | connected graph                |
-| connected graph                | disconnected graph             |
-| weighted graph                 | weighted graph                 | weighted graph         | weighted graph         |
-| adjacency                      | adjacency                      |
-| path                           | path                           |
-| in-degree                      | in-degree                      | in-degree              |
-| out-degree                     | out-degree                     | out-degree             |
-| adjacency matrix               | adjacency matrix               |
-| adjacency list                 | adjacency list                 | adjacency list         | adjacency list         |
-| breadth-first search           | breadth-first search           |
-| depth-first search             | depth-first search             |
-| binary search                  | binary search                  |
-| searching algorithm            | searching algorithm            |
-| sorting algorithm              | sorting algorithm              |
-| selection sort                 | selection sort                 |
-| bubble sort                    | bubble sort                    |
-| insertion sort                 | insertion sort                 |
-| quick sort                     | quick sort                     |
-| merge sort                     | merge sort                     |
-| heap sort                      | heap sort                      |
-| bucket sort                    | bucket sort                    |
-| counting sort                  | counting sort                  |
-| radix sort                     | radix sort                     | radix sort             |
-| divide and conquer             |
-| hanota problem                 | hanota problem                 |
-| backtracking algorithm         | backtracking algorithm         |
-| constraints                    | constraints                    |
-| solution                       | solution                       |
-| state                          | state                          |
-| pruning                        | pruning                        |
-| permutations problem           | permutations problem           |
-| subset-sum problem             | subset-sum problem             |
-| n-queens problem               | N-queens problem               |
-| dynamic programming            | dynamic programming            |
-| initial state                  | initial state                  |
-| state-trasition equation       | state-trasition equation       |
-| knapsack problem               | knapsack problem               |
-| edit distance problem          | edit distance problem          |
-| greedy algorithm               | greedy algorithm               |
+| 中文           | English                        |
+| -------------- | ------------------------------ |
+| 算法           | algorithm                      |
+| 数据结构       | data structure                 |
+| 渐近复杂度分析 | asymptotic complexity analysis |
+| 时间复杂度     | time complexity                |
+| 空间复杂度     | space complexity               |
+| 迭代           | iteration                      |
+| 递归           | recursion                      |
+| 尾递归         | tail recursion                 |
+| 递归树         | recursion tree                 |
+| 大 $O$ 记号    | big-$O$ notation               |
+| 渐近上界       | asymptotic upper bound         |
+| 原码           | true form                      |
+| 反码           | 1's complement code            |
+| 补码           | 2's complement code            |
+| 数组           | array                          |
+| 索引           | index                          |
+| 链表           | linked list                    |
+| 链表节点       | list node                      |
+| 列表           | list                           |
+| 动态数组       | dynamic array                  |
+| 栈             | stack                          |
+| 队列           | queue                          |
+| 双向队列       | double-ended queue             |
+| 哈希表         | hash table                     |
+| 桶             | bucket                         |
+| 哈希函数       | hash function                  |
+| 哈希冲突       | hash collision                 |
+| 负载因子       | load factor                    |
+| 链式地址       | separate chaining              |
+| 开放寻址       | open addressing                |
+| 线性探测       | linear probing                 |
+| 懒删除         | lazy deletion                  |
+| 二叉树         | binary tree                    |
+| 树节点         | tree node                      |
+| 左子节点       | left-child node                |
+| 右子节点       | right-child node               |
+| 父节点         | parent node                    |
+| 左子树         | left subtree                   |
+| 右子树         | right subtree                  |
+| 根节点         | root node                      |
+| 叶节点         | leaf node                      |
+| 边             | edge                           |
+| 层             | level                          |
+| 度             | degree                         |
+| 高度           | height                         |
+| 深度           | depth                          |
+| 完美二叉树     | perfect binary tree            |
+| 完全二叉树     | complete binary tree           |
+| 完满二叉树     | full binary tree               |
+| 平衡二叉树     | balanced binary tree           |
+| AVL 树        | AVL tree                       |
+| 红黑树         | red-black tree                |
+| 层序遍历       | level-order traversal          |
+| 广度优先遍历   | breadth-first traversal        |
+| 深度优先遍历   | depth-first traversal          |
+| 二叉搜索树     | binary search tree             |
+| 平衡二叉搜索树 | balanced binary search tree    |
+| 平衡因子       | balance factor                 |
+| 堆             | heap                           |
+| 大顶堆         | max heap                       |
+| 小顶堆         | min heap                       |
+| 优先队列       | priority queue                 |
+| 堆化           | heapify                        |
+| 图             | graph                          |
+| 顶点           | vertex                         |
+| 无向图         | undirected graph               |
+| 有向图         | directed graph                 |
+| 连通图         | connected graph                |
+| 非连通图       | disconnected graph             |
+| 有权图         | weighted graph                 |
+| 邻接           | adjacency                      |
+| 路径           | path                           |
+| 入度           | in-degree                      |
+| 出度           | out-degree                     |
+| 邻接矩阵       | adjacency matrix               |
+| 邻接表         | adjacency list                 |
+| 广度优先搜索   | breadth-first search           |
+| 深度优先搜索   | depth-first search             |
+| 二分查找       | binary search                  |
+| 搜索算法       | searching algorithm            |
+| 排序算法       | sorting algorithm              |
+| 选择排序       | selection sort                 |
+| 冒泡排序       | bubble sort                    |
+| 插入排序       | insertion sort                 |
+| 快速排序       | quick sort                     |
+| 归并排序       | merge sort                     |
+| 堆排序         | heap sort                      |
+| 桶排序         | bucket sort                    |
+| 计数排序       | counting sort                  |
+| 基数排序       | radix sort                     |
+| 分治           | divide and conquer             |
+| 汉诺塔问题     | hanota problem                 |
+| 回溯算法       | backtracking algorithm         |
+| 约束           | constraint                     |
+| 解             | solution                       |
+| 状态           | state                          |
+| 剪枝           | pruning                        |
+| 全排列问题     | permutations problem           |
+| 子集和问题     | subset-sum problem             |
+| N 皇后问题     | N-queens problem               |
+| 动态规划       | dynamic programming            |
+| 初始状态       | initial state                  |
+| 状态转移方程   | state-trasition equation       |
+| 背包问题       | knapsack problem               |
+| 编辑距离问题   | edit distance problem          |
+| 贪心算法       | greedy algorithm               |
