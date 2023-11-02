@@ -17,7 +17,7 @@
 
 ### Python 环境
 
-1. 下载并安装 [Miniconda3](https://docs.conda.io/en/latest/miniconda.html) 。
+1. 下载并安装 [Miniconda3](https://docs.conda.io/en/latest/miniconda.html) ，需要 Python 3.10 或更新版本。
 2. 在 VSCode 的插件市场中搜索 `python` ，安装 Python Extension Pack 。
 3. （可选）在命令行输入 `pip install black` ，安装代码格式化工具。
 
