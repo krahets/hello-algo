@@ -13,6 +13,7 @@ if __name__ == "__main__":
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
+            encoding="utf-8",
         )
         # Wait for the process to complete, and get the output and error messages
         stdout, stderr = process.communicate()
