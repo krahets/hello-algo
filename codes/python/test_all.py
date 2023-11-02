@@ -1,5 +1,9 @@
+import os
 import glob
 import subprocess
+
+env = os.environ.copy()
+env["PYTHONIOENCODING"] = "utf-8"
 
 if __name__ == "__main__":
     # find source code files
@@ -13,7 +17,7 @@ if __name__ == "__main__":
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
-            encoding="utf-8",
+            env=env,
         )
         # Wait for the process to complete, and get the output and error messages
         stdout, stderr = process.communicate()
