@@ -22,7 +22,7 @@ hide:
   </a>
   &nbsp;
   <a href="https://github.com/krahets/hello-algo/releases">
-    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/krahets/hello-algo/total?style=social&logo=gitbook&logoColor=black&label=PDF%20Downloads">
+    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/krahets/hello-algo/total?style=social&logo=gitbook&logoColor=black&label=Downloads">
   </a>
   &nbsp;
   <a href="https://github.com/krahets/hello-algo">
@@ -79,7 +79,7 @@ hide:
 
 <h3 align="center"> 代码一键运行 </h3>
 
-<p align="center"> 提供各个算法与数据结构的简洁实现与测试样例，皆可直接运行</br>支持 Java、C++、Python、Go、JS、TS、C#、Swift、Rust、Dart、Zig 等语言 </p>
+<p align="center"> 提供各个算法与数据结构的简洁实现与测试样例，皆可直接运行</br>支持 Python、C++、Java、C#、Go、Swift、JS、TS、Dart、Rust、C、Zig 等语言 </p>
 
 ![running_code](index.assets/running_code.gif)
 
@@ -111,7 +111,7 @@ hide:
 
 如果你也面临类似的困扰，那么很幸运这本书找到了你。本书是我对此问题的给出的答案，即使不是最优解，也至少是一次积极的尝试。这本书虽然不足以让你直接拿到 Offer ，但会引导你探索数据结构与算法的“知识地图”，带你了解不同“地雷”的形状大小和分布位置，让你掌握各种“排雷方法”。有了这些本领，相信你可以更加自如地应对刷题和阅读文献，逐步构建起完整的知识体系。
 
-我深深赞同费曼先生所言：“Knowledge isn't free. You have to pay attention.”从这个意义上看，这本书并非完全“免费”。为了不辜负你本书所付出的宝贵“注意力”，我会尽我所能，投入最大的“注意力”来完成这本书的创作。
+我深深赞同费曼先生所言：“Knowledge isn't free. You have to pay attention.”从这个意义上看，这本书并非完全“免费”。为了不辜负你为本书所付出的宝贵“注意力”，我会尽我所能，投入最大的“注意力”来完成这本书的创作。
 
 <h3 align="left"> 作者简介 </h3>
 
