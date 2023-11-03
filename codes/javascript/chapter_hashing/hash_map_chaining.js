@@ -91,7 +91,7 @@ class HashMapChaining {
     /* 扩容哈希表 */
     #extend() {
         // 暂存原哈希表
-        const bucketsTmp = this.#buckets;
+        const bucketsTmp = [...this.#buckets];
         // 初始化扩容后的新哈希表
         this.#capacity *= this.#extendRatio;
         this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
