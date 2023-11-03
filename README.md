@@ -20,6 +20,11 @@
 </p>
 
 <p align="center">
+  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="396">
+  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="396">
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB">
   <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C">
   <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02">
@@ -32,12 +37,7 @@
   <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000">
   <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC">
   <img src="https://img.shields.io/badge/Zig-snow?logo=zig&logoColor=F7A41D">
-  <img src="https://img.shields.io/badge/Stay%20tuned...-snow">
-</p>
-
-<p align="center">
-  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="402">
-  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="402">
+  <img src="https://img.shields.io/badge/Stay%20Tuned-snow">
 </p>
 
 ## 关于本书
