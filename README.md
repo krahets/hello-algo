@@ -24,6 +24,10 @@
   <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="400">
 </p>
 
+> **Important**
+>
+> We are working on Chinese-to-English translation. For more information please see [#914](https://github.com/krahets/hello-algo/issues/914).
+
 ## The Book
 
 This project aims to create an open-source, free, and beginner-friendly tutorial on data structures and algorithms.
@@ -31,10 +35,6 @@ This project aims to create an open-source, free, and beginner-friendly tutorial
 - The book uses animated illustrations to make the content clear, easy to understand, and provides a smooth learning curve, guiding beginners through the knowledge map of data structures and algorithms.
 - The source code can be run with a single click, helping readers improve their programming skills, understand the working principles of algorithms, and the underlying implementation of data structures.
 - We encourage readers to learn together, ask questions, and comment. Replies are usually received within two days.
-
-> **Important**
->
-> We are working on Chinese-to-English translation. For more information please see [#914](https://github.com/krahets/hello-algo/issues/914).
 
 If this book is helpful to you, please give it a Star :star: in the top right corner of the page to show your support. Thank you!
 
