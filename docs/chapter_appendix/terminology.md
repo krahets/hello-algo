@@ -30,7 +30,7 @@ status: new
 | 数组           | array                          |
 | 索引           | index                          |
 | 链表           | linked list                    |
-| 链表节点       | list node                      |
+| 链表节点       | linked list node, list node     |
 | 列表           | list                           |
 | 动态数组       | dynamic array                  |
 | 栈             | stack                          |
