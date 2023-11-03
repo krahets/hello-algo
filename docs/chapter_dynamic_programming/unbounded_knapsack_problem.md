@@ -725,7 +725,7 @@ $$
         for i in range(1, n + 1):
             for a in range(1, amt + 1):
                 if coins[i - 1] > a:
-                    # 若超过背包容量，则不选硬币 i
+                    # 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a]
                 else:
                     # 不选和选硬币 i 这两种方案的较小值
@@ -750,7 +750,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -779,7 +779,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -808,7 +808,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i, a] = dp[i - 1, a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -840,7 +840,7 @@ $$
         for i := 1; i <= n; i++ {
             for a := 1; a <= amt; a++ {
                 if coins[i-1] > a {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i-1][a]
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -872,7 +872,7 @@ $$
         for i in stride(from: 1, through: n, by: 1) {
             for a in stride(from: 1, through: amt, by: 1) {
                 if coins[i - 1] > a {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a]
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -903,7 +903,7 @@ $$
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -934,7 +934,7 @@ $$
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -963,7 +963,7 @@ $$
       for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
           if (coins[i - 1] > a) {
-            // 若超过背包容量，则不选硬币 i
+            // 若超过目标金额，则不选硬币 i
             dp[i][a] = dp[i - 1][a];
           } else {
             // 不选和选硬币 i 这两种方案的较小值
@@ -992,7 +992,7 @@ $$
         for i in 1..=n {
             for a in 1..=amt {
                 if coins[i - 1] > a as i32 {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1022,7 +1022,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1051,7 +1051,7 @@ $$
         for (1..n + 1) |i| {
             for (1..amt + 1) |a| {
                 if (coins[i - 1] > @as(i32, @intCast(a))) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1135,7 +1135,7 @@ $$
             # 正序遍历
             for a in range(1, amt + 1):
                 if coins[i - 1] > a:
-                    # 若超过背包容量，则不选硬币 i
+                    # 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a]
                 else:
                     # 不选和选硬币 i 这两种方案的较小值
@@ -1157,7 +1157,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1184,7 +1184,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1211,7 +1211,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1240,7 +1240,7 @@ $$
             // 倒序遍历
             for a := 1; a <= amt; a++ {
                 if coins[i-1] > a {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a]
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1269,7 +1269,7 @@ $$
         for i in stride(from: 1, through: n, by: 1) {
             for a in stride(from: 1, through: amt, by: 1) {
                 if coins[i - 1] > a {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a]
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1295,7 +1295,7 @@ $$
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1321,7 +1321,7 @@ $$
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1347,7 +1347,7 @@ $$
       for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
           if (coins[i - 1] > a) {
-            // 若超过背包容量，则不选硬币 i
+            // 若超过目标金额，则不选硬币 i
             dp[a] = dp[a];
           } else {
             // 不选和选硬币 i 这两种方案的较小值
@@ -1374,7 +1374,7 @@ $$
         for i in 1..=n {
             for a in 1..=amt {
                 if coins[i - 1] > a as i32 {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1401,7 +1401,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1428,7 +1428,7 @@ $$
         for (1..n + 1) |i| {
             for (1..amt + 1) |a| {
                 if (coins[i - 1] > @as(i32, @intCast(a))) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1483,7 +1483,7 @@ $$
         for i in range(1, n + 1):
             for a in range(1, amt + 1):
                 if coins[i - 1] > a:
-                    # 若超过背包容量，则不选硬币 i
+                    # 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a]
                 else:
                     # 不选和选硬币 i 这两种方案之和
@@ -1507,7 +1507,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1535,7 +1535,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1563,7 +1563,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i, a] = dp[i - 1, a];
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1594,7 +1594,7 @@ $$
         for i := 1; i <= n; i++ {
             for a := 1; a <= amt; a++ {
                 if coins[i-1] > a {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i-1][a]
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1622,7 +1622,7 @@ $$
         for i in stride(from: 1, through: n, by: 1) {
             for a in stride(from: 1, through: amt, by: 1) {
                 if coins[i - 1] > a {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a]
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1652,7 +1652,7 @@ $$
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1682,7 +1682,7 @@ $$
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1710,7 +1710,7 @@ $$
       for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
           if (coins[i - 1] > a) {
-            // 若超过背包容量，则不选硬币 i
+            // 若超过目标金额，则不选硬币 i
             dp[i][a] = dp[i - 1][a];
           } else {
             // 不选和选硬币 i 这两种方案之和
@@ -1738,7 +1738,7 @@ $$
         for i in 1..=n {
             for a in 1..=amt {
                 if coins[i - 1] > a as i32 {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1767,7 +1767,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1795,7 +1795,7 @@ $$
         for (1..n + 1) |i| {
             for (1..amt + 1) |a| {
                 if (coins[i - 1] > @as(i32, @intCast(a))) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[i][a] = dp[i - 1][a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -1825,7 +1825,7 @@ $$
             # 正序遍历
             for a in range(1, amt + 1):
                 if coins[i - 1] > a:
-                    # 若超过背包容量，则不选硬币 i
+                    # 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a]
                 else:
                     # 不选和选硬币 i 这两种方案之和
@@ -1846,7 +1846,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1871,7 +1871,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1896,7 +1896,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1922,7 +1922,7 @@ $$
             // 倒序遍历
             for a := 1; a <= amt; a++ {
                 if coins[i-1] > a {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a]
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1947,7 +1947,7 @@ $$
         for i in stride(from: 1, through: n, by: 1) {
             for a in stride(from: 1, through: amt, by: 1) {
                 if coins[i - 1] > a {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a]
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1972,7 +1972,7 @@ $$
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -1997,7 +1997,7 @@ $$
         for (let i = 1; i <= n; i++) {
             for (let a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -2022,7 +2022,7 @@ $$
       for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
           if (coins[i - 1] > a) {
-            // 若超过背包容量，则不选硬币 i
+            // 若超过目标金额，则不选硬币 i
             dp[a] = dp[a];
           } else {
             // 不选和选硬币 i 这两种方案之和
@@ -2047,7 +2047,7 @@ $$
         for i in 1..=n {
             for a in 1..=amt {
                 if coins[i - 1] > a as i32 {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
@@ -2073,7 +2073,7 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案之和
@@ -2098,7 +2098,7 @@ $$
         for (1..n + 1) |i| {
             for (1..amt + 1) |a| {
                 if (coins[i - 1] > @as(i32, @intCast(a))) {
-                    // 若超过背包容量，则不选硬币 i
+                    // 若超过目标金额，则不选硬币 i
                     dp[a] = dp[a];
                 } else {
                     // 不选和选硬币 i 这两种方案的较小值
