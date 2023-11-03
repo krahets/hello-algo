@@ -32,12 +32,12 @@
   <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000">
   <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC">
   <img src="https://img.shields.io/badge/Zig-snow?logo=zig&logoColor=F7A41D">
-  <img src="https://img.shields.io/badge/Stay%20tuned-snow">
+  <img src="https://img.shields.io/badge/Stay%20tuned...-snow">
 </p>
 
 <p align="center">
-  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="400">
-  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="400">
+  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="402">
+  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="402">
 </p>
 
 ## 关于本书
