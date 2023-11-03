@@ -22,7 +22,7 @@ hide:
   </a>
   &nbsp;
   <a href="https://github.com/krahets/hello-algo/releases">
-    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/krahets/hello-algo/total?style=social&logo=gitbook&logoColor=black&label=PDF%20Downloads">
+    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/krahets/hello-algo/total?style=social&logo=gitbook&logoColor=black&label=Downloads">
   </a>
   &nbsp;
   <a href="https://github.com/krahets/hello-algo">
