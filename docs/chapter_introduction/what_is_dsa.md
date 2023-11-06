@@ -33,7 +33,7 @@
 
 数据结构与算法犹如下图所示的拼装积木。一套积木，除了包含许多零件之外，还附有详细的组装说明书。我们按照说明书一步步操作，就能组装出精美的积木模型。
 
-![拼装积木](what_is_dsa.assets/assembling_blocks.jpg)
+![拼装积木](what_is_dsa.assets/assembling_blocks.png)
 
 两者的详细对应关系如下表所示。
 
