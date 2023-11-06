@@ -60,7 +60,7 @@ theme:
     text: Noto Sans SC
     code: Fira Code
   favicon: assets/images/favicon.png
-  logo: assets/images/logo.png
+  logo: assets/images/logo.svg
   icon:
     logo: logo
     repo: fontawesome/brands/github
