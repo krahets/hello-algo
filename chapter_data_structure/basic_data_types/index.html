@@ -112,7 +112,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../.." title="Hello 算法" class="md-header__button md-logo" aria-label="Hello 算法" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -268,7 +268,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Hello 算法" class="md-nav__button md-logo" aria-label="Hello 算法" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     Hello 算法
@@ -3300,7 +3300,7 @@
 <li>整数类型 <code>byte</code> 占用 <span class="arithmatex">\(1\)</span> byte = <span class="arithmatex">\(8\)</span> bits ，可以表示 <span class="arithmatex">\(2^{8}\)</span> 个数字。</li>
 <li>整数类型 <code>int</code> 占用 <span class="arithmatex">\(4\)</span> bytes = <span class="arithmatex">\(32\)</span> bits ，可以表示 <span class="arithmatex">\(2^{32}\)</span> 个数字。</li>
 </ul>
-<p>表 3-1 列举了各种基本数据类型的占用空间、取值范围和默认值。此表格无须硬背，大致理解即可，需要时可以通过查表来回忆。</p>
+<p>表 3-1 列举了 Java 中各种基本数据类型的占用空间、取值范围和默认值。此表格无须硬背，大致理解即可，需要时可以通过查表来回忆。</p>
 <p align="center"> 表 3-1 &nbsp; 基本数据类型的占用空间和取值范围 </p>
 
 <div class="center-table">
@@ -3354,7 +3354,7 @@
 <td>4 bytes</td>
 <td><span class="arithmatex">\(1.175 \times 10^{-38}\)</span></td>
 <td><span class="arithmatex">\(3.403 \times 10^{38}\)</span></td>
-<td><span class="arithmatex">\(0.0 f\)</span></td>
+<td><span class="arithmatex">\(0.0f\)</span></td>
 </tr>
 <tr>
 <td></td>
@@ -3367,7 +3367,7 @@
 <tr>
 <td>字符</td>
 <td><code>char</code></td>
-<td>2 bytes / 1 byte</td>
+<td>2 bytes</td>
 <td><span class="arithmatex">\(0\)</span></td>
 <td><span class="arithmatex">\(2^{16} - 1\)</span></td>
 <td><span class="arithmatex">\(0\)</span></td>
@@ -3383,8 +3383,9 @@
 </tbody>
 </table>
 </div>
-<p>对于表 3-1 ，需要注意以下几点。</p>
+<p>请注意，表 3-1 针对的是 Java 的基本数据类型的情况。每种编程语言有各自的数据类型定义，它们的占用空间、取值范围和默认值可能会有所不同。</p>
 <ul>
+<li>在 Python 中，整数类型 <code>int</code> 可以是任意大小，只受限于可用内存；浮点数 <code>float</code> 是双精度 64 位；没有 <code>char</code> 类型，单个字符实际上是长度为 1 的字符串 <code>str</code> 。</li>
 <li>C 和 C++ 未明确规定基本数据类型大小，而因实现和平台各异。表 3-1 遵循 LP64 <a href="https://en.cppreference.com/w/cpp/language/types#Properties">数据模型</a>，其用于包括 Linux 和 macOS 在内的 Unix 64 位操作系统。</li>
 <li>字符 <code>char</code> 的大小在 C 和 C++ 中为 1 字节，在大多数编程语言中取决于特定的字符编码方法，详见“字符编码”章节。</li>
 <li>即使表示布尔量仅需 1 位（<span class="arithmatex">\(0\)</span> 或 <span class="arithmatex">\(1\)</span>），它在内存中通常被存储为 1 字节。这是因为现代计算机 CPU 通常将 1 字节作为最小寻址内存单元。</li>
