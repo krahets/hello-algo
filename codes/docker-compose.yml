@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  hello-algo-code:
+    build: .
+    image: hello-algo-code
+    container_name: hello-algo-code
+    stdin_open: true
+    tty: true
