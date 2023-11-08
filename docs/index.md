@@ -8,8 +8,8 @@ hide:
 <h1 align="center">  </h1>
 
 <p align="center">
-  <img src="index.assets/conceptual_rendering.png" width="250">
-  <img src="index.assets/hello_algo_mindmap_tp.png" width="400">
+  <img src="index.assets/conceptual_rendering.png" width="200">
+  <img src="index.assets/hello_algo_mindmap_tp.png" width="320">
 </p>
 
 <h2 align="center"> 《 Hello 算法 》</h2>
