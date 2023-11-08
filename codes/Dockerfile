@@ -7,11 +7,8 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && 
 
 RUN apt-get update && apt-get install -y wget
 
-# 设置需要安装的语言，使用空格隔开
-# Set the languages to be installed, separated by spaces
-ARG LANGS="python cpp java csharp"
-
-# Available languages：python cpp java
+# Install languages environment
+ARG LANGS
 RUN for LANG in $LANGS; do \
         case "$LANG" in \
             python) \
