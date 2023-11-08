@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y wget
 # Install languages environment
 ARG LANGS
 RUN for LANG in $LANGS; do \
-        case "$LANG" in \
+        case $LANG in \
             python) \
                 apt-get install -y python3.10 && \
                 update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1 ;; \

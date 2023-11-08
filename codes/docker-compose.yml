@@ -6,7 +6,7 @@ services:
       args:
         # 设置需要安装的语言，使用空格隔开
         # Set the languages to be installed, separated by spaces
-        LANGS: "python cpp csharp"
+        LANGS: "python cpp java csharp"
     image: hello-algo-code
     container_name: hello-algo-code
     stdin_open: true
